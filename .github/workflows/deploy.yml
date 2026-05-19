@@ -1,0 +1,96 @@
+name: Deploy YI-Chronos to VPS
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}  # ozvietnam/yi-chronos
+
+jobs:
+  build-and-push:
+    name: Build + push image to GHCR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image_tag: ${{ steps.meta.outputs.tags }}
+      sha_tag: sha-${{ github.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags + labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,prefix=sha-,format=short
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: SSH deploy to VPS
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -euo pipefail
+            cd /opt/yi-chronos
+            echo "═══ Pull new image ═══"
+            docker compose pull
+            echo "═══ Recreate container ═══"
+            docker compose up -d --remove-orphans
+            sleep 5
+            echo "═══ Status ═══"
+            docker compose ps
+            echo "═══ Prune dangling images ═══"
+            docker image prune -f --filter "until=24h" || true
+
+      - name: Verify live health endpoint
+        run: |
+          for i in 1 2 3 4 5 6; do
+            RESP=$(curl -sf -o /tmp/h.json -w "%{http_code}" https://kinhdich.online/api/health || echo "fail")
+            if [ "$RESP" = "200" ]; then
+              echo "✅ Live: $(cat /tmp/h.json)"
+              exit 0
+            fi
+            echo "Attempt $i returned: $RESP, retrying in 10s..."
+            sleep 10
+          done
+          echo "❌ Health check failed after 6 attempts"
+          exit 1
