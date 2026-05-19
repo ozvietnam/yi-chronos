@@ -220,7 +220,7 @@ class BatTu:
 @dataclass
 class DayScore:
     """Một ngày với điểm + breakdown."""
-    date: str               # YYYY-MM-DD
+    date: str               # YYYY-MM-DD (solar)
     day_num: int
     weekday: str
     stem: str
@@ -232,6 +232,12 @@ class DayScore:
     flag: str = ""
     is_taboo: bool = False  # cấm hẳn (xung tuổi)
     suggested_hour: str = ""
+    # Lunar (âm lịch) for UI display + correct Hoàng/Hắc Đạo lookup per-day
+    lunar_day: int = 0
+    lunar_month: int = 0
+    lunar_year: int = 0
+    lunar_is_leap: bool = False
+    lunar_date: str = ""    # "DD/MM/YYYY"
 
 
 def _season_for_lunar(lunar_month: int) -> str:
@@ -241,11 +247,13 @@ def _season_for_lunar(lunar_month: int) -> str:
     return "dong"
 
 
-def _solar_to_lunar_month_approx(solar_month: int) -> int:
-    """Approximate (solar month - 1) = lunar month — không chính xác 100%
-    nhưng đủ cho mục đích chọn Hoàng/Hắc Đạo."""
-    # Lich tháng 6 dương ≈ tháng 5 âm phần lớn
-    return max(1, solar_month - 1)
+def _accurate_lunar_for_solar(day: int, month: int, year: int) -> tuple[int, int, int, bool]:
+    """Convert a single solar date to lunar (day, month, year, is_leap).
+    Uses core.lunar_calendar.solar_to_lunar (precise astronomical algorithm).
+    """
+    from core.lunar_calendar import solar_to_lunar
+    lunar = solar_to_lunar(day, month, year, 7.0)  # GMT+7 Vietnam
+    return lunar.day, lunar.month, lunar.year, lunar.is_leap
 
 
 def calculate_auspicious_days(
@@ -275,11 +283,8 @@ def calculate_auspicious_days(
     quy_nhan_year_set = set(THIEN_AT_QUY_NHAN.get(bat_tu.year_stem, ()))
     quy_nhan_all = quy_nhan_set | quy_nhan_year_set
 
-    lunar_m = _solar_to_lunar_month_approx(target_month)
-    season = _season_for_lunar(lunar_m)
-    tam_sat = TAM_SAT_BY_SEASON[season]
-    hoang_hac = HOANG_HAC_BY_LUNAR_MONTH[lunar_m]
-
+    # NOTE: lunar month boundary may cross within a solar month (Tết, leap month).
+    # Compute lunar month PER DAY below for correct Hoàng/Hắc Đạo + Tam Sát lookup.
     # Hành thiếu trong bát tự → bù
     thieu = bat_tu.thieu_hanh
 
@@ -302,6 +307,12 @@ def calculate_auspicious_days(
         d_stem, d_branch = state.ganzhi.day.split()
         d_can_h = STEM_HANH[d_stem]
         d_chi_h = BRANCH_HANH[d_branch]
+
+        # Accurate lunar conversion for THIS day (may differ across solar month)
+        lu_day, lu_month, lu_year, lu_leap = _accurate_lunar_for_solar(day_num, target_month, target_year)
+        season = _season_for_lunar(lu_month)
+        tam_sat = TAM_SAT_BY_SEASON[season]
+        hoang_hac = HOANG_HAC_BY_LUNAR_MONTH[lu_month]
 
         dt = datetime(target_year, target_month, day_num)
         weekday = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"][dt.weekday()]
@@ -420,6 +431,9 @@ def calculate_auspicious_days(
             can_hanh=d_can_h, chi_hanh=d_chi_h,
             score=score, notes=notes, flag=flag, is_taboo=is_taboo,
             suggested_hour=suggested_hour,
+            lunar_day=lu_day, lunar_month=lu_month, lunar_year=lu_year,
+            lunar_is_leap=lu_leap,
+            lunar_date=f"{lu_day:02d}/{lu_month:02d}/{lu_year}",
         ))
 
     return results

@@ -229,7 +229,10 @@ function flagClass(flag) {
             <span class="dc-flag">{{ d.flag }}</span>
           </div>
           <div class="dc-date">
-            📅 {{ d.day_num }}/{{ form.target_month }} ({{ d.weekday }})
+            📅 <b>{{ d.day_num }}/{{ form.target_month }}</b> ({{ d.weekday }})
+            <small v-if="d.lunar_date" class="dc-lunar">
+              🌙 {{ d.lunar_day }}/{{ d.lunar_month }}{{ d.lunar_is_leap ? ' nhuận' : '' }} âm
+            </small>
           </div>
           <div class="dc-gz">
             <b>{{ d.stem }} {{ d.branch }}</b>
@@ -249,6 +252,7 @@ function flagClass(flag) {
         <div class="taboo-list">
           <div v-for="t in result.taboos" :key="t.date" class="taboo-item">
             <b>{{ t.day_num }}/{{ form.target_month }}</b>
+            <small v-if="t.lunar_date" class="t-lunar">(âm {{ t.lunar_day }}/{{ t.lunar_month }})</small>
             ({{ t.weekday }}) {{ t.stem }} {{ t.branch }}
             <span class="t-notes">{{ t.notes.join(' · ') }}</span>
           </div>
@@ -412,6 +416,8 @@ function flagClass(flag) {
 .dc-rank { font-size: 0.78rem; color: #94a3b8; font-weight: 600; }
 .dc-flag { font-size: 0.75rem; }
 .dc-date { font-size: 0.88rem; color: #fef3c7; margin-bottom: 0.2rem; }
+.dc-lunar { display: inline-block; margin-left: 0.4rem; font-size: 0.72rem; color: #93c5fd; font-weight: 500; }
+.t-lunar { color: #93c5fd; font-size: 0.7rem; margin-left: 0.2rem; }
 .dc-gz { display: flex; justify-content: space-between; align-items: baseline; margin: 0.2rem 0; }
 .dc-gz b { color: #fbbf24; font-size: 0.95rem; }
 .dc-hanh { color: #94a3b8; font-size: 0.78rem; }

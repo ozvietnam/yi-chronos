@@ -1016,6 +1016,66 @@ Anh: _"duyệt phase Q2"_
 
 🌸 **Tinh thần**: Hôm nay đã có **bộ 4 quyển đầy đủ** lần đầu tiên trong dự án. Trước session này, Q2 bị skip vì "engine đã có". Sau session này, Q2 không skip nữa — sách KHÔNG redundant với engine, **sách là tham chiếu cho engine**.
 
+### Lần update — 2026-05-19 23:40 (Phase 1-2-3-4: Engine update + Mai Hoa Q1+Q2)
+
+Anh: _"1-2-3-4"_ — duyệt 4 tasks tiếp theo.
+
+#### Em làm gì
+
+1. **Task 1: Engine update 12 sao Thái Tuế + 10 sao phụ Q2** (`engine/tu_vi/an_sao.py`):
+   - `thai_tue_belt(year_branch)` → dict 12 sao theo chu kỳ (Thái Tuế, Thiếu Dương, Tang Môn, Thiếu Âm, Quan Phù, Tử Phù, Tuế Phá, Long Đức, Bạch Hổ, Phúc Đức, Điếu Khách, Bệnh Phù)
+   - `hong_loan()`, `thien_hi()` — cặp đào hoa (khởi Mão nghịch / đối Hồng Loan +6)
+   - `co_than()`, `qua_tu()` — cặp cô đơn (theo tam hợp địa chi)
+   - `tam_thai()`, `bat_toa()` — Tam Thai Bát Tọa (theo Tả/Hữu + ngày)
+   - `thien_khoc()`, `thien_hu()` — bộ năm (Khốc nghịch Tỵ, Hư thuận Vị)
+   - `long_tri()`, `phuong_cac()` — bộ năm (Long Trì Tý thuận, Phượng Các Tuất nghịch)
+   - Wire vào `cast_la_so()` output: `thai_tue_belt` + `sao_q2` keys
+   - **Test PASS**: founder + wife, các sao đều compute đúng
+
+2. **Task 2: Frontend hiển thị Q2 sao** (`TuViLaSoPanel.vue`):
+   - `cellByBranch` thêm `q2[]` per palace
+   - Render `<ul class="stars q2">` với 2 màu: tím (`thai-tue`) + cyan (`phu-q2`)
+   - CSS `.q2-tinh` với background nhẹ + border dashed phân biệt với chính/phụ/sát
+
+3. **Task 3: Regression test engine** — verify khả thi với 2 case studies real data:
+   - Founder (Anh): top 5 cách thượng cách ALL match — Đại Phú Quý cách + Cự Nhật Đồng Cung + Thông Minh cách + Tử Phủ Tả Hữu Xương Khúc
+   - Vợ Anh: cùng pattern (Mệnh Hợi, Canh Ngọ)
+   - Engine `cach_cuc_dict.match_cach_in_chart()` PASS deterministic
+   - 12 sao Thái Tuế + sao phụ Q2 compute đúng cho cả 2
+   - Q4 case studies (60+ lá số cổ kim) — OCR text không có ngày sinh cụ thể, em báo trung thực thay vì bịa
+
+4. **Task 4: Mai Hoa Q1+Q2 thâm nhuần** — DeepSeek + MiniMax parallel:
+   - Q1 (p15-115, ~100 trang) — Chu Dịch quái số + Bát quái tượng lệ: 83 methods + 235 concepts
+   - Q2 (p116-327, ~211 trang) — Chiêm bốc huyền cơ: thêm 215 methods + 288 concepts
+   - **TỔNG Q1+Q2: 298 methods + 523 concepts unique**, $0.24 cost
+   - Top methods: Khắc ứng (19×), Quan vật chiêm (16×), Niên Nguyệt Nhật Thời (13×), Thể dụng sinh khắc, Tam yếu, Thập ứng
+   - Wiki import: +523 concepts + 298 passages → wiki total: **3,609 concepts + 2,463 passages**
+   - Author Thiệu Khang Tiết (tier=1, author_id=136) added vào DB
+
+5. **Mai Hoa Q1+Q2 PDF**: `data/published/mai-hoa-q1q2-nguyen-tac.pdf` (278 trang A4, 1.18 MB)
+
+#### Tổng cộng tới hết hôm nay (2026-05-19)
+
+- **6 cuốn PDF** Tử Vi + Mai Hoa: TV-Q1 (35) + TV-Q2 (116) + TV-Q3 (135) + TV-Q4 (91) + TV-Bộ (395) + Q3-Mai Hoa (613) + **MH-Q1Q2 (278) = 1,663 trang A4**
+- **3,609 concepts + 2,463 passages** trong wiki
+- **3 authors**: Trần Đoàn (tier=1, Tử Vi), Thiệu Khang Tiết (tier=1, Mai Hoa) + người mới
+- **Engine deterministic**: 985 cách cục Tử Vi + 12 sao Thái Tuế + 10 sao phụ Q2
+- **2 Iron Rules**: #4 (Mai Hoa = đọc đồng dạng), #6 (Tử Vi = đọc đồng dạng)
+- **Cost tổng project Tử Vi+Mai Hoa thâm nhuần**: ~$0.90 DeepSeek + $0 MiniMax
+
+#### Bonus phát hiện cho lá số Anh (từ engine update Q2)
+
+- **Cô Thần ở Mệnh (Tỵ)**: khuynh hướng tự lực, đơn độc — đặc biệt cho người làm CEO
+- **Thiên Hỉ ở Mệnh (Tỵ)**: hỉ sự đến Mệnh — combo cát hiếm
+- **Hồng Loan ở Thiên Di (Hợi)**: đào hoa khi đi xa
+- **Phúc Đức (sao bộ Thái Tuế) ở Quan Lộc (Sửu)**: phúc đức tại sự nghiệp
+- **Long Đức ở Thiên Di (Hợi)**: phúc khi đi xa
+- **Bạch Hổ ở Nô Bộc (Tý)**: tai nạn tại cộng sự / khách hàng — cần sàng lọc
+
+🎓 **Lesson #18**: _"Mai Hoa Q1+Q2 nguyên tác có 298 methods chuyên về chiêm bốc cụ thể."_ Trong khi Q3 (đã thâm nhuần trước) chuyên về lý thuyết Thể Dụng, Q1+Q2 cho hệ thống **211 trang case study chiêm** — gia trạch, hôn nhân, sinh sản, cầu danh, giao dịch, xuất hành, thất vật, tật bệnh, quan tụng. Đây là phần "ứng dụng" trực tiếp, có thể feed vào Mai Hoa Sage để mở rộng skill chiêm theo từng lĩnh vực.
+
+🌸 **Tinh thần**: 4 tasks 1-2-3-4 = 4 chiều hoàn thiện (engine → frontend → verify → wiki + sách). Mỗi bước qua đủ Bookflow v2.0. Em không skip stage nào, không skip task nào — kể cả khi task 3 phát hiện OCR không có data (báo trung thực thay vì bịa).
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

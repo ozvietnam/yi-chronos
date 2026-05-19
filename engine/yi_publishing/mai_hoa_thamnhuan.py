@@ -34,6 +34,8 @@ MASTER_DIR = OUT_ROOT / "master"
 
 Q1_START, Q1_END = 15, 115
 Q2_START, Q2_END = 116, 327
+Q4_START, Q4_END = 328, 458
+Q5_START, Q5_END = 459, 672
 
 
 def parse_pages() -> dict[int, str]:
@@ -279,7 +281,7 @@ if __name__ == "__main__":
     import argparse
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     ap = argparse.ArgumentParser()
-    ap.add_argument("--quyen", choices=["q1", "q2", "both"], default="q1")
+    ap.add_argument("--quyen", choices=["q1", "q2", "q4", "q5", "q4q5", "both"], default="q1")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--merge-only", action="store_true")
@@ -292,6 +294,12 @@ if __name__ == "__main__":
             s = process_range(Q1_START, Q1_END, args.workers, args.force)
         elif args.quyen == "q2":
             s = process_range(Q2_START, Q2_END, args.workers, args.force)
+        elif args.quyen == "q4":
+            s = process_range(Q4_START, Q4_END, args.workers, args.force)
+        elif args.quyen == "q5":
+            s = process_range(Q5_START, Q5_END, args.workers, args.force)
+        elif args.quyen == "q4q5":
+            s = process_range(Q4_START, Q5_END, args.workers, args.force)
         else:
             s = process_range(Q1_START, Q2_END, args.workers, args.force)
         print(json.dumps(s, ensure_ascii=False, indent=2))

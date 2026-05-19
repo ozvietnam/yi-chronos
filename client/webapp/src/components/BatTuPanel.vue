@@ -135,6 +135,16 @@ function cachCucPolarityClass(polarity) {
   if (polarity.includes("dữ") || polarity.includes("hung") || polarity.includes("phá")) return "challenging";
   return "mixed";
 }
+
+function formatSolarDateTime(iso) {
+  if (!iso) return "";
+  // "2026-05-19T22:00" → "19/05/2026 22:00"
+  const [d, t] = iso.split("T");
+  if (!d) return iso;
+  const [y, m, day] = d.split("-");
+  const time = (t || "").slice(0, 5);
+  return time ? `${day}/${m}/${y} ${time}` : `${day}/${m}/${y}`;
+}
 </script>
 
 <template>
@@ -182,6 +192,28 @@ function cachCucPolarityClass(polarity) {
 
     <!-- ── Bát Tự results ──────────────────────────────────────────── -->
     <template v-if="batTuData">
+      <!-- Sinh thần dương + âm + tiết khí -->
+      <div class="birth-summary" v-if="batTuData.tu_tru?.lunar">
+        <div class="bs-row">
+          <span class="bs-label">☀ Dương lịch</span>
+          <span class="bs-val">{{ formatSolarDateTime(batTuData.birth_datetime_local) }}</span>
+          <span class="bs-weekday">· {{ batTuData.tu_tru.lunar.weekday_vi }}</span>
+        </div>
+        <div class="bs-row">
+          <span class="bs-label">🌙 Âm lịch</span>
+          <span class="bs-val">
+            ngày {{ batTuData.tu_tru.lunar.day }} tháng {{ batTuData.tu_tru.lunar.month }}{{
+              batTuData.tu_tru.lunar.is_leap_month ? ' (nhuận)' : ''
+            }} năm {{ batTuData.tu_tru.lunar.year }}
+          </span>
+          <span class="bs-ganzhi">· {{ batTuData.tu_tru.ganzhi_raw.year }} niên</span>
+        </div>
+        <div class="bs-row" v-if="batTuData.tu_tru.solar_term">
+          <span class="bs-label">🌾 Tiết khí</span>
+          <span class="bs-val">{{ batTuData.tu_tru.solar_term.name_vi }}</span>
+        </div>
+      </div>
+
       <h4 class="section-h">Tứ Trụ — 4 trụ</h4>
       <div class="pillar-grid">
         <article v-for="p in orderedPillars" :key="p.position"
@@ -498,6 +530,45 @@ function cachCucPolarityClass(polarity) {
 .bt-actions {
   grid-column: 1 / -1;
   display: flex; gap: 8px; align-items: center;
+}
+
+.birth-summary {
+  margin: 12px 0 4px 0;
+  padding: 10px 14px;
+  background: rgba(245, 230, 177, 0.05);
+  border-left: 3px solid var(--accent-gold-soft, #f5e6b1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.bs-label {
+  min-width: 90px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.bs-val {
+  color: var(--text-strong, #e6eef5);
+  font-weight: 500;
+}
+.bs-weekday, .bs-ganzhi {
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  font-size: 12px;
+}
+.bs-ganzhi {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-style: italic;
 }
 
 .section-h {

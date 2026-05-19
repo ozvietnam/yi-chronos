@@ -83,6 +83,17 @@ def extract_tu_tru(birth_datetime_local: str, timezone: str = "Asia/Ho_Chi_Minh"
     day_pillar = _build_pillar("day", gz.day)
     hour_pillar = _build_pillar("hour", gz.hour)
 
+    # Parse lunar date (almanac stores "DD/MM/YYYY") for UI display.
+    d_str, m_str, y_str = chronos.almanac.lunar_date.split("/")
+    lunar_info = {
+        "date_str": chronos.almanac.lunar_date,           # "DD/MM/YYYY"
+        "day": int(d_str),
+        "month": int(m_str),
+        "year": int(y_str),
+        "is_leap_month": chronos.almanac.lunar_is_leap_month,
+        "weekday_vi": chronos.almanac.weekday_vi,
+    }
+
     return {
         "birth_datetime_local": birth_datetime_local,
         "timezone": timezone,
@@ -107,4 +118,5 @@ def extract_tu_tru(birth_datetime_local: str, timezone: str = "Asia/Ho_Chi_Minh"
             "id": chronos.solar_term.id,
             "name_vi": chronos.solar_term.name_vi,
         },
+        "lunar": lunar_info,
     }

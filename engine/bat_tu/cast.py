@@ -137,6 +137,7 @@ def cast_bat_tu(
             "pillars": pillars_annotated,
             "day_master": base["day_master"],
             "solar_term": base["solar_term"],
+            "lunar": base["lunar"],
         },
         "thap_than_meanings": THAP_THAN_MEANING,
         "thap_than_family_map": THAP_THAN_FAMILY,

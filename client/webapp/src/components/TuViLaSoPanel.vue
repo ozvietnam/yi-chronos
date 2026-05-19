@@ -116,6 +116,15 @@ function reset() {
   errorMsg.value = "";
 }
 
+function formatSolarDateTime(iso) {
+  if (!iso) return "";
+  const [d, t] = iso.split("T");
+  if (!d) return iso;
+  const [y, m, day] = d.split("-");
+  const time = (t || "").slice(0, 5);
+  return time ? `${day}/${m}/${y} ${time}` : `${day}/${m}/${y}`;
+}
+
 // ── Derived: build per-cell content (palace info + stars at that branch).
 const cellByBranch = computed(() => {
   if (!data.value) return {};
@@ -244,6 +253,24 @@ const grid = computed(() => {
 
     <!-- ── Lá số 4×4 grid ─────────────────────────────────────────── -->
     <template v-if="data">
+      <!-- Sinh thần dương + âm -->
+      <div class="tv-birth-summary">
+        <span class="tv-bs-item">
+          <span class="tv-bs-label">☀ Dương</span>
+          <span class="tv-bs-val">{{ formatSolarDateTime(inputBirth) }}</span>
+        </span>
+        <span class="tv-bs-item">
+          <span class="tv-bs-label">🌙 Âm</span>
+          <span class="tv-bs-val">
+            ngày {{ data.lunar_day }} tháng {{ data.lunar_month }} năm {{ data.year_stem }} {{ data.year_branch }}
+          </span>
+        </span>
+        <span class="tv-bs-item">
+          <span class="tv-bs-label">⏰ Giờ</span>
+          <span class="tv-bs-val">{{ data.hour_branch }} ({{ data.gender }})</span>
+        </span>
+      </div>
+
       <div class="laso-grid">
         <template v-for="(row, r) in grid" :key="r">
           <div
@@ -323,8 +350,8 @@ const grid = computed(() => {
               <div class="center-info">
                 <span class="ci-label">Năm sinh</span>
                 <p>{{ data.year_stem }} {{ data.year_branch }}</p>
-                <span class="ci-label">Giờ / Tháng âm</span>
-                <p>{{ data.hour_branch }} · tháng {{ data.lunar_month }}</p>
+                <span class="ci-label">Sinh thần (âm)</span>
+                <p>{{ data.hour_branch }} · {{ data.lunar_day }}/{{ data.lunar_month }}</p>
               </div>
             </template>
             <template v-else-if="cell.type === 'center-br'">
@@ -476,6 +503,31 @@ const grid = computed(() => {
 
 <style scoped>
 .tvls-panel { display: flex; flex-direction: column; gap: 14px; }
+
+.tv-birth-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 14px;
+  background: rgba(245, 230, 177, 0.05);
+  border-left: 3px solid var(--accent-gold-soft, #f5e6b1);
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.tv-bs-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.tv-bs-label {
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  font-weight: 600;
+  font-size: 12px;
+}
+.tv-bs-val {
+  color: var(--text-strong, #e6eef5);
+}
 
 .intro-note {
   font-size: 13px;
