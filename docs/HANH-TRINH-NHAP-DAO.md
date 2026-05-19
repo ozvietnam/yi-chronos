@@ -967,6 +967,55 @@ EDITED (3)
 
 🌸 **Tinh thần**: Hôm nay (2026-05-19) là ngày 1 ngày-thu-hoạch. Q1 → BỘ. 545 → 985 cách. 35 trang → 274 trang. 1 cảnh báo "phải đào sâu hơn" → 985 cách kinh điển. Pattern là "chậm rãi nhưng đúng đạo, mỗi bước qua đủ 6 stage Bookflow".
 
+### Lần update — 2026-05-19 23:00 (Phase Q2 — Bộ TỬ VI ĐẦY ĐỦ 4 QUYỂN)
+
+Anh: _"duyệt phase Q2"_
+
+#### Em làm gì
+
+1. **Thâm nhuần Q2 (62 trang p0080-p0141)** — bảng quyết an sao, 12 cung, 12 sao Thái Tuế:
+   - +208 cách cục mới (Tử Phủ Đồng Cung, Tử Vi Thủ Mệnh, Trúc La tam hạn, Kim Tỏa Thiết Xà Quan...)
+   - +110 concepts mới (Mệnh chủ, Thân chủ, Cục số, Nạp Âm, bộ 12 sao Thái Tuế, Tam Thai Bát Tọa, Thiên Khốc Thiên Hư, Long Trì Phượng Các)
+
+2. **Wiki import Q2** vào `concept_index` + `passages` (idempotent — INSERT OR IGNORE)
+   - Wiki state: **3,086 concepts** + **2,165 passages**
+
+3. **Q2 PDF** — `data/published/tu-vi-q2-an-sao.pdf` (116 trang, 528 KB)
+   - Bao gồm Lời nói đầu + bảng quyết + cross-reference tới `engine/tu_vi/an_sao.py`
+
+4. **BỘ v2 = 4 QUYỂN ĐẦY ĐỦ** — `data/published/tu-vi-bo-toan-thu.pdf` (395 trang, 1.59 MB)
+   - Q1 Phú Thái Vi (35 trang)
+   - Q2 An Sao (116 trang) ← MỚI
+   - Q3 Diễn giải 12 cung (135 trang)
+   - Q4 Lá số cổ kim (91 trang)
+   - + Phụ lục bảng tra cứu A-Z 1193 cách
+
+5. **Engine gaps doc** — `docs/design/engine-gaps-q2-thamnhuan.md`:
+   - List 12 sao Thái Tuế CHƯA CÓ trong engine: Thái Tuế, Thiếu Dương, Tang Môn, Thiếu Âm, Quan Phù, Tử Phù, Tuế Phá, Long Đức, Bạch Hổ, Phúc Đức, Điếu Khách, Bệnh Phù
+   - 4 cặp sao phụ chưa có: Tam Thai Bát Tọa · Thiên Khốc Thiên Hư · Long Trì Phượng Các · Cô Thần Quả Tú · Hồng Loan Thiên Hỉ
+   - Trúc La tam hạn detection logic
+   - Engine update plan: 5-6h cho đủ bộ Q2 sao
+
+#### Tổng cộng (toàn project Tử Vi đến hết hôm nay)
+
+- **5 cuốn PDF** Tử Vi: Q1 (35) + Q2 (116) + Q3 (135) + Q4 (91) + Bộ v2 (395) = **772 trang**
+- **1,193 cách cục + 686 concepts** trong wiki
+- **Iron Rule #6**: Tử Vi = ĐỌC ĐỒNG DẠNG
+- **Tử Vi Sage** trong hội đồng
+- **Engine deterministic** dùng dict 1193 cách
+- **Cost**: ~$0.63 (đào sâu toàn Q1+Q2+Q3+Q4) + $0 MiniMax
+
+#### Bonus phát hiện lá số Anh từ Q2
+
+- **Thái Tuế năm 2026 (Bính Ngọ)**: tại cung Ngọ → đồng cung **Huynh Đệ** (Thiên Tướng + Kình Dương)
+- **Bạch Hổ 2026**: tại **Quan Lộc** (Sửu, có Thiên Khôi) — cần chú ý cảnh báo tai nạn tại sự nghiệp
+- **Tang Môn 2026**: tại **Tử Tức** (Thân, có Tử Vi + Thất Sát) — chú ý người thân lớn tuổi
+- → Khi engine update xong 12 sao Thái Tuế, panel Lưu Niên hiển thị thêm 12 dấu hiệu mỗi năm
+
+🎓 **Lesson #17**: _"Engine đã làm trước SÁCH — nhưng SÁCH có thể đào ra gap engine không biết."_ Engine an_sao.py implement từ iztro (reference modern) + xemtuong.net (mainstream VN) — đầy đủ chính tinh + phụ tinh + sát tinh, nhưng **thiếu 12 sao Thái Tuế** (Q2 nhấn mạnh) và **5 cặp sao phụ biểu cảm**. Thâm nhuần sách → fix gap. Pattern: code first → sách verify → fix gap.
+
+🌸 **Tinh thần**: Hôm nay đã có **bộ 4 quyển đầy đủ** lần đầu tiên trong dự án. Trước session này, Q2 bị skip vì "engine đã có". Sau session này, Q2 không skip nữa — sách KHÔNG redundant với engine, **sách là tham chiếu cho engine**.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

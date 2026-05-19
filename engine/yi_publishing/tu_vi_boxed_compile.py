@@ -25,6 +25,7 @@ from engine.yi_publishing.q1_book_compile import (
     section_phu_thai_vi, section_cach_cuc_top, section_concepts as q1_concepts,
     section_index as q1_cach_index,
 )
+from engine.yi_publishing.q2_book_compile import section_pages as q2_pages
 from engine.yi_publishing.q3_book_compile import section_pages as q3_pages
 from engine.yi_publishing.q4_book_compile import section_pages as q4_pages
 
@@ -143,8 +144,8 @@ def section_box_cover() -> str:
     <div class="cover">
       <p class="han">紫微斗數全書</p>
       <h1>Tử Vi Đẩu Số Toàn Thư</h1>
-      <p class="sub">Bộ 3 Quyển — Ấn Bản Hoàn Chỉnh</p>
-      <div class="boxed-banner">CUỐN BỘ 261 TRANG</div>
+      <p class="sub">Bộ 4 Quyển — Ấn Bản Hoàn Chỉnh</p>
+      <div class="boxed-banner">CUỐN BỘ ĐẦY ĐỦ — 4 QUYỂN</div>
       <div class="author">
         Tác giả: <strong>Hi Di Trần tiên sinh</strong> (陳摶, ~872–989)<br>
         Bổ tập: Phan Hy Doãn (江西輔鼎子)<br>
@@ -153,7 +154,7 @@ def section_box_cover() -> str:
       <div class="meta">
         Dịch và biên soạn AI · YI-CHRONOS<br>
         Pipeline: DeepSeek-chat + MiniMax-M2 parallel<br>
-        985 cách cục · 576 concepts · 121 trang nguyên bản<br>
+        1193 cách cục · 686 concepts · 4 quyển đầy đủ<br>
         Ấn bản Bộ 1.0 · {today}
       </div>
     </div>
@@ -170,8 +171,14 @@ def section_box_toc() -> str:
           <ol>
             <li>Chương I. Phú Thái Vi (4 trang nguyên bản)</li>
             <li>Chương II. Top 50 cách cục kinh điển</li>
-            <li>Chương III. Thư mục thuật ngữ (576 concepts)</li>
-            <li>Chương IV. Bảng tra cứu A-Z (985 cách)</li>
+            <li>Chương III. Thư mục thuật ngữ (686 concepts)</li>
+            <li>Chương IV. Bảng tra cứu A-Z (1193 cách)</li>
+          </ol>
+        </li>
+        <li class="quyen">Quyển 2 — An Sao & 12 Cung
+          <ol>
+            <li>Lời nói đầu Quyển 2</li>
+            <li>62 trang an mệnh, an sao, bảng quyết</li>
           </ol>
         </li>
         <li class="quyen">Quyển 3 — Diễn Giải 12 Cung × 14 Chính Tinh
@@ -222,9 +229,10 @@ def section_box_preface() -> str:
       Khổng Tử, Lý Bạch, Bạch Khởi, Mã Viện, Bạch Cư Dị, các vua Đường-Tống... Đây là
       "training set" để hiểu sách áp dụng vào đời thực thế nào.</p>
 
-      <p><em>(Quyển 2 — An sao + cách lập 12 cung — đã được implement thành engine
-      <code>engine.tu_vi.an_sao</code> trong YI-CHRONOS, do đó không cần in lại trong ấn bản này.
-      Người dùng có thể lập lá số trực tiếp qua API.)</em></p>
+      <p><strong>Quyển 2 (~70 trang)</strong> — An sao + cách lập 12 cung — bảng quyết
+      lập Mệnh-Thân-Cục-Tử Vi-14 chính tinh-6 phụ tinh-7 sát tinh-12 sao Thái Tuế-Tam Thai Bát Tọa...
+      Ấn bản BỘ này <strong>in đầy đủ Quyển 2</strong> để Anh có tài liệu tham chiếu khi cần verify
+      engine YI-CHRONOS hoặc lập lá số thủ công.</p>
 
       <h3>Paradigm bất di bất dịch (Iron Rule #6)</h3>
       <blockquote>
@@ -290,6 +298,10 @@ def build_html() -> str:
         section_cach_cuc_top(50),
         q1_concepts(),
         q1_cach_index(),
+
+        # Q2
+        volume_divider("卷二", "Quyển Thứ Hai", "An Sao & 12 Cung"),
+        q2_pages(),
 
         # Q3
         volume_divider("卷三", "Quyển Thứ Ba", "Diễn Giải 12 Cung × 14 Chính Tinh"),
