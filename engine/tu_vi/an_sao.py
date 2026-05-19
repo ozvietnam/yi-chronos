@@ -623,7 +623,8 @@ def cast_la_so(
     # Phase 1 upgrade — TVDSTT Q.2
     menh_chu_star = menh_chu(menh_idx)
     than_chu_star = than_chu(year_branch)
-    dau_quan_idx = dau_quan(lunar_month, H)
+    # H uses 1..12 convention (Tý=1). dau_quan() expects 0..11 (Tý=0).
+    dau_quan_idx = dau_quan(lunar_month, H - 1)
 
     la_so = LaSoTuVi(
         method_id=METHOD_ID,
