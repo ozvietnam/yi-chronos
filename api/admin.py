@@ -53,8 +53,46 @@ def _dir_size_bytes(path: Path) -> int:
     return total
 
 
-def _user_cache_paths(person_keys: list[str]) -> list[Path]:
-    return [CACHE_ROOT / pk for pk in person_keys if (CACHE_ROOT / pk).exists()]
+def _user_cache_paths(person_keys: list[str], user_id: Optional[int] = None) -> list[Path]:
+    """Return analysis_cache directories owned by this user.
+
+    With per-user namespace (u{id}/{person_key}), we look under u{id}/ first,
+    falling back to legacy unscoped paths for founder backward compat.
+    """
+    paths: list[Path] = []
+    if user_id is not None:
+        user_dir = CACHE_ROOT / f"u{user_id}"
+        if user_dir.exists():
+            paths.append(user_dir)
+    for pk in person_keys:
+        legacy = CACHE_ROOT / pk
+        if legacy.exists() and legacy not in paths:
+            paths.append(legacy)
+    return paths
+
+
+def _user_total_cost(user_id: int, person_keys: list[str]) -> tuple[float, int]:
+    """Sum cost_usd across all analysis_cache files for this user.
+
+    Returns: (total_cost_usd, files_scanned).
+    """
+    total = 0.0
+    scanned = 0
+    seen_files: set[Path] = set()
+    for base in _user_cache_paths(person_keys, user_id):
+        for jf in base.rglob("*.json"):
+            if jf in seen_files:
+                continue
+            seen_files.add(jf)
+            try:
+                with jf.open() as f:
+                    d = json.load(f)
+                if isinstance(d, dict) and "cost_usd" in d:
+                    total += float(d["cost_usd"] or 0)
+                    scanned += 1
+            except Exception:
+                pass
+    return round(total, 6), scanned
 
 
 # ─── 1. Dashboard ────────────────────────────────────────────────────────────
@@ -98,18 +136,32 @@ def dashboard(request: Request) -> dict:
                 "count": cnt,
             })
 
+        kpis["suspended_users"] = db.execute(
+            "SELECT COUNT(*) FROM users WHERE COALESCE(is_suspended,0)=1"
+        ).fetchone()[0]
+
         # Top users by # castings (proxy for engagement)
         top_users = db.execute("""
             SELECT u.user_id, u.email, u.display_name, u.role,
                    COALESCE(c.cnt, 0) AS castings_count,
                    COALESCE(p.cnt, 0) AS persons_count,
-                   u.created_at, u.last_login_at
+                   u.created_at, u.last_login_at,
+                   COALESCE(u.is_suspended, 0)
             FROM users u
             LEFT JOIN (SELECT user_id, COUNT(*) cnt FROM user_castings GROUP BY user_id) c ON c.user_id=u.user_id
             LEFT JOIN (SELECT user_id, COUNT(*) cnt FROM user_persons GROUP BY user_id) p ON p.user_id=u.user_id
             ORDER BY castings_count DESC, persons_count DESC
             LIMIT 10
         """).fetchall()
+        # Compute cost per top user (capped to 10 to limit disk scan)
+        top_user_persons = {}
+        for r in top_users:
+            person_keys = [
+                pk[0] for pk in db.execute(
+                    "SELECT person_key FROM user_persons WHERE user_id=?", (r[0],)
+                ).fetchall()
+            ]
+            top_user_persons[r[0]] = person_keys
     finally:
         db.close()
 
@@ -125,6 +177,8 @@ def dashboard(request: Request) -> dict:
                 "user_id": r[0], "email": r[1], "display_name": r[2], "role": r[3],
                 "castings_count": r[4], "persons_count": r[5],
                 "created_at": r[6], "last_login_at": r[7],
+                "is_suspended": bool(r[8]),
+                "total_cost_usd": _user_total_cost(r[0], top_user_persons.get(r[0], []))[0],
             }
             for r in top_users
         ],
@@ -140,11 +194,13 @@ def admin_list_users(
     request: Request,
     search: str = "",
     role: str = "",
+    status: str = "",                # 'active' | 'suspended' | 'inactive_30d'
+    birth_year: Optional[int] = None,
     sort: str = "created_at_desc",
     limit: int = 50,
     offset: int = 0,
 ) -> dict:
-    """Paginated list with per-user stats. Supports search by email/name + role filter."""
+    """Paginated list with per-user stats. Supports search + filters."""
     require_owner(request)
     where = "WHERE 1=1"
     params: list = []
@@ -154,6 +210,18 @@ def admin_list_users(
     if role and role in ("owner", "user"):
         where += " AND u.role = ?"
         params.append(role)
+    if status == "suspended":
+        where += " AND COALESCE(u.is_suspended,0)=1"
+    elif status == "active":
+        where += " AND COALESCE(u.is_suspended,0)=0"
+    elif status == "inactive_30d":
+        cutoff = int(time.time()) - 30 * 86400
+        where += " AND (u.last_login_at IS NULL OR u.last_login_at < ?)"
+        params.append(cutoff)
+    if birth_year is not None:
+        # JOIN user_persons where person_key='self' to filter by user's own birth year
+        where += " AND EXISTS (SELECT 1 FROM user_persons up WHERE up.user_id=u.user_id AND up.person_key='self' AND up.birth_year=?)"
+        params.append(birth_year)
 
     order = {
         "created_at_desc": "u.created_at DESC",
@@ -171,7 +239,9 @@ def admin_list_users(
                    u.default_person_id, u.created_at, u.last_login_at,
                    u.must_change_password,
                    COALESCE(c.cnt, 0) AS castings_count,
-                   COALESCE(p.cnt, 0) AS persons_count
+                   COALESCE(p.cnt, 0) AS persons_count,
+                   COALESCE(u.is_suspended, 0),
+                   u.suspended_at, u.suspend_reason
             FROM users u
             LEFT JOIN (SELECT user_id, COUNT(*) cnt FROM user_castings GROUP BY user_id) c ON c.user_id=u.user_id
             LEFT JOIN (SELECT user_id, COUNT(*) cnt FROM user_persons GROUP BY user_id) p ON p.user_id=u.user_id
@@ -193,6 +263,8 @@ def admin_list_users(
                 "default_person_id": r[4], "created_at": r[5], "last_login_at": r[6],
                 "must_change_password": bool(r[7]),
                 "castings_count": r[8], "persons_count": r[9],
+                "is_suspended": bool(r[10]),
+                "suspended_at": r[11], "suspend_reason": r[12],
             }
             for r in rows
         ],
@@ -209,7 +281,8 @@ def admin_user_detail(user_id: int, request: Request) -> dict:
     try:
         urow = db.execute("""
             SELECT user_id, email, display_name, role, default_person_id,
-                   created_at, last_login_at, must_change_password
+                   created_at, last_login_at, must_change_password,
+                   COALESCE(is_suspended, 0), suspended_at, suspend_reason
             FROM users WHERE user_id = ?
         """, (user_id,)).fetchone()
         if not urow:
@@ -231,8 +304,9 @@ def admin_user_detail(user_id: int, request: Request) -> dict:
         db.close()
 
     person_keys = [p[1] for p in persons]
-    cache_paths = _user_cache_paths(person_keys)
+    cache_paths = _user_cache_paths(person_keys, user_id)
     cache_size_bytes = sum(_dir_size_bytes(p) for p in cache_paths)
+    total_cost, cost_files_scanned = _user_total_cost(user_id, person_keys)
 
     return {
         "status": "ok",
@@ -240,7 +314,11 @@ def admin_user_detail(user_id: int, request: Request) -> dict:
             "user_id": urow[0], "email": urow[1], "display_name": urow[2], "role": urow[3],
             "default_person_id": urow[4], "created_at": urow[5], "last_login_at": urow[6],
             "must_change_password": bool(urow[7]),
+            "is_suspended": bool(urow[8]),
+            "suspended_at": urow[9], "suspend_reason": urow[10],
         },
+        "total_cost_usd": total_cost,
+        "cost_files_scanned": cost_files_scanned,
         "persons": [
             {
                 "id": p[0], "person_key": p[1], "name": p[2], "relationship": p[3],
@@ -259,6 +337,7 @@ def admin_user_detail(user_id: int, request: Request) -> dict:
         "castings_total": castings_total,
         "cache_size_mb": round(cache_size_bytes / (1024 * 1024), 3),
         "cache_person_keys": person_keys,
+        "cache_paths": [str(p.relative_to(CACHE_ROOT.parent)) for p in cache_paths],
     }
 
 
@@ -431,6 +510,247 @@ def admin_audit_log(
 
 
 # ─── 7. CSV export ───────────────────────────────────────────────────────────
+
+# ─── 8. Suspend / Unsuspend ──────────────────────────────────────────────────
+
+class SuspendRequest(BaseModel):
+    is_suspended: bool
+    reason: Optional[str] = None
+
+
+@router.post("/users/{user_id}/suspend")
+def admin_suspend_user(user_id: int, req: SuspendRequest, request: Request) -> dict:
+    actor = require_owner(request)
+    if user_id == actor["user_id"]:
+        raise HTTPException(400, "Không thể tự khoá chính mình.")
+
+    db = _connect()
+    try:
+        urow = db.execute("SELECT email, role FROM users WHERE user_id=?", (user_id,)).fetchone()
+        if not urow:
+            raise HTTPException(404, "User not found")
+        if urow[1] == "owner" and req.is_suspended:
+            owners_left = db.execute(
+                "SELECT COUNT(*) FROM users WHERE role='owner' AND COALESCE(is_suspended,0)=0"
+            ).fetchone()[0]
+            if owners_left <= 1:
+                raise HTTPException(400, "Không thể khoá owner cuối cùng đang active.")
+
+        now = int(time.time()) if req.is_suspended else None
+        db.execute("""
+            UPDATE users SET is_suspended=?, suspended_at=?, suspend_reason=?
+            WHERE user_id=?
+        """, (1 if req.is_suspended else 0, now, req.reason if req.is_suspended else None, user_id))
+        # Kill active sessions when suspending
+        if req.is_suspended:
+            db.execute("DELETE FROM sessions WHERE user_id=?", (user_id,))
+        db.commit()
+    finally:
+        db.close()
+
+    action = "admin_suspend" if req.is_suspended else "admin_unsuspend"
+    _record_audit(action, user_id=user_id, actor_user_id=actor["user_id"],
+                  target_email=urow[0], request=request,
+                  details={"reason": req.reason} if req.reason else None)
+    return {"status": "ok", "user_id": user_id, "is_suspended": req.is_suspended}
+
+
+# ─── 9. Force re-run pipeline (admin impersonate) ───────────────────────────
+
+@router.post("/users/{user_id}/rerun-pipeline")
+def admin_rerun_pipeline(user_id: int, request: Request) -> dict:
+    """Trigger background full pipeline cho user. Owner ấn khi user báo lỗi / cần refresh."""
+    actor = require_owner(request)
+    db = _connect()
+    try:
+        urow = db.execute("SELECT email, display_name FROM users WHERE user_id=?", (user_id,)).fetchone()
+        if not urow:
+            raise HTTPException(404, "User not found")
+        target_email = urow[0]
+        prow = db.execute("""
+            SELECT name, gender, birth_datetime_local, timezone
+            FROM user_persons WHERE user_id=? AND person_key='self'
+        """, (user_id,)).fetchone()
+    finally:
+        db.close()
+
+    if not prow:
+        raise HTTPException(400, f"User chưa setup profile (no person_key='self')")
+
+    from engine.tu_vi.analyzer import TuViAnalyzer, Person
+    import threading
+
+    person = Person(
+        person_key="self", name=prow[0],
+        gender=prow[1] or "nam",
+        birth_datetime_local=prow[2] or "",
+        timezone=prow[3] or "Asia/Ho_Chi_Minh",
+        user_id=user_id,
+    )
+
+    def _bg():
+        try:
+            an = TuViAnalyzer(person, force=True)
+            an.discover_cach_cuc()
+            an.dai_van_annotate()
+            an.luu_nien(2026, 2030)
+            an.luu_nguyet(2026)
+            logger.info(f"admin rerun-pipeline done for user_id={user_id}")
+        except Exception as e:
+            logger.warning(f"admin rerun-pipeline failed for user_id={user_id}: {e}")
+
+    threading.Thread(target=_bg, daemon=True).start()
+    _record_audit("admin_rerun_pipeline", user_id=user_id, actor_user_id=actor["user_id"],
+                  target_email=target_email, request=request)
+    return {"status": "queued", "user_id": user_id, "person_key": "self"}
+
+
+# ─── 10. Clear cache cho 1 user ─────────────────────────────────────────────
+
+@router.delete("/users/{user_id}/cache")
+def admin_clear_cache(user_id: int, request: Request) -> dict:
+    """Xoá toàn bộ analysis_cache của 1 user (giải phóng disk hoặc force re-run)."""
+    actor = require_owner(request)
+    db = _connect()
+    try:
+        urow = db.execute("SELECT email FROM users WHERE user_id=?", (user_id,)).fetchone()
+        if not urow:
+            raise HTTPException(404, "User not found")
+        target_email = urow[0]
+        person_keys = [r[0] for r in db.execute(
+            "SELECT person_key FROM user_persons WHERE user_id=?", (user_id,)
+        ).fetchall()]
+    finally:
+        db.close()
+
+    import shutil
+    deleted: list[str] = []
+    user_dir = CACHE_ROOT / f"u{user_id}"
+    if user_dir.exists():
+        try:
+            shutil.rmtree(user_dir)
+            deleted.append(f"u{user_id}/")
+        except Exception as e:
+            logger.warning(f"failed to wipe {user_dir}: {e}")
+
+    _record_audit("admin_clear_cache", user_id=user_id, actor_user_id=actor["user_id"],
+                  target_email=target_email, request=request,
+                  details={"deleted_paths": deleted, "person_keys": person_keys})
+    return {"status": "ok", "deleted_paths": deleted}
+
+
+# ─── 11. View user's PDF (admin impersonate) ────────────────────────────────
+
+@router.get("/users/{user_id}/report-pdf")
+def admin_view_user_pdf(user_id: int, request: Request):
+    """Owner-only: tải PDF báo cáo lá số của 1 user bất kỳ.
+    Hữu ích khi user báo lỗi và owner muốn verify giúp."""
+    actor = require_owner(request)
+    db = _connect()
+    try:
+        urow = db.execute("SELECT email FROM users WHERE user_id=?", (user_id,)).fetchone()
+        if not urow:
+            raise HTTPException(404, "User not found")
+        target_email = urow[0]
+    finally:
+        db.close()
+
+    from fastapi.responses import FileResponse
+    from engine.tu_vi.report_pdf import generate_pdf
+    try:
+        pdf_path = generate_pdf("self", user_id=user_id)
+    except Exception as e:
+        raise HTTPException(500, f"PDF gen failed: {e}")
+
+    _record_audit("admin_view_pdf", user_id=user_id, actor_user_id=actor["user_id"],
+                  target_email=target_email, request=request)
+    return FileResponse(str(pdf_path), media_type="application/pdf",
+                        filename=f"admin-bao-cao-uid{user_id}.pdf")
+
+
+# ─── 12. Bulk action ─────────────────────────────────────────────────────────
+
+class BulkActionRequest(BaseModel):
+    user_ids: list[int]
+    action: str  # 'delete' | 'suspend' | 'unsuspend' | 'reset_password' | 'clear_cache'
+    reason: Optional[str] = None
+
+
+@router.post("/users/bulk")
+def admin_bulk_action(req: BulkActionRequest, request: Request) -> dict:
+    actor = require_owner(request)
+    if req.action not in ("delete", "suspend", "unsuspend", "reset_password", "clear_cache"):
+        raise HTTPException(400, f"Unknown action: {req.action}")
+    if actor["user_id"] in req.user_ids:
+        raise HTTPException(400, "Không thể bulk-action lên chính mình.")
+
+    results: list[dict] = []
+    for uid in req.user_ids:
+        try:
+            if req.action == "delete":
+                # Reuse single-delete logic
+                r = admin_delete_user(uid, request)
+                results.append({"user_id": uid, "status": "ok", "detail": r})
+            elif req.action == "suspend":
+                r = admin_suspend_user(uid, SuspendRequest(is_suspended=True, reason=req.reason), request)
+                results.append({"user_id": uid, "status": "ok"})
+            elif req.action == "unsuspend":
+                r = admin_suspend_user(uid, SuspendRequest(is_suspended=False), request)
+                results.append({"user_id": uid, "status": "ok"})
+            elif req.action == "reset_password":
+                r = admin_update_user(uid, AdminUpdateUserRequest(reset_password=True), request)
+                results.append({"user_id": uid, "status": "ok", "temp_password": r.get("temp_password")})
+            elif req.action == "clear_cache":
+                r = admin_clear_cache(uid, request)
+                results.append({"user_id": uid, "status": "ok", "deleted": r.get("deleted_paths", [])})
+        except HTTPException as e:
+            results.append({"user_id": uid, "status": "error", "detail": e.detail})
+        except Exception as e:
+            results.append({"user_id": uid, "status": "error", "detail": str(e)})
+
+    _record_audit("admin_bulk_action", actor_user_id=actor["user_id"], request=request,
+                  details={"action": req.action, "count": len(req.user_ids), "results": results})
+    return {"status": "ok", "action": req.action, "results": results}
+
+
+# ─── 13. Cost summary (whole system) ────────────────────────────────────────
+
+@router.get("/costs")
+def admin_costs(request: Request) -> dict:
+    """Tổng chi phí DeepSeek toàn hệ thống, breakdown theo user."""
+    require_owner(request)
+    db = _connect()
+    try:
+        users = db.execute("""
+            SELECT u.user_id, u.email, u.display_name
+            FROM users u ORDER BY u.user_id
+        """).fetchall()
+        breakdown = []
+        total_cost = 0.0
+        total_files = 0
+        for u in users:
+            uid = u[0]
+            person_keys = [r[0] for r in db.execute(
+                "SELECT person_key FROM user_persons WHERE user_id=?", (uid,)
+            ).fetchall()]
+            cost, files = _user_total_cost(uid, person_keys)
+            if cost > 0:
+                breakdown.append({
+                    "user_id": uid, "email": u[1], "display_name": u[2],
+                    "cost_usd": cost, "files_count": files,
+                })
+                total_cost += cost
+                total_files += files
+        breakdown.sort(key=lambda x: x["cost_usd"], reverse=True)
+    finally:
+        db.close()
+    return {
+        "status": "ok",
+        "total_cost_usd": round(total_cost, 4),
+        "total_files_scanned": total_files,
+        "breakdown": breakdown,
+    }
+
 
 @router.get("/export-csv")
 def admin_export_csv(request: Request):

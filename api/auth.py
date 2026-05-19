@@ -116,7 +116,10 @@ def _init_schema(db: sqlite3.Connection) -> None:
             default_person_id TEXT,                          -- persons.sqlite3 person_id
             created_at       INTEGER NOT NULL,
             last_login_at    INTEGER,
-            must_change_password INTEGER DEFAULT 0
+            must_change_password INTEGER DEFAULT 0,
+            is_suspended     INTEGER DEFAULT 0,              -- 0=active, 1=suspended (blocks login, keeps data)
+            suspended_at     INTEGER,                         -- timestamp when suspended
+            suspend_reason   TEXT                             -- short reason shown to admin
         );
 
         CREATE TABLE IF NOT EXISTS sessions (
@@ -280,10 +283,23 @@ def _seed_founder(db: sqlite3.Connection) -> None:
     )
 
 
+def _migrate_v2_suspend_columns(db: sqlite3.Connection) -> None:
+    """Add is_suspended/suspended_at/suspend_reason to users if missing (idempotent)."""
+    cols = {r[1] for r in db.execute("PRAGMA table_info(users)").fetchall()}
+    if "is_suspended" not in cols:
+        db.execute("ALTER TABLE users ADD COLUMN is_suspended INTEGER DEFAULT 0")
+    if "suspended_at" not in cols:
+        db.execute("ALTER TABLE users ADD COLUMN suspended_at INTEGER")
+    if "suspend_reason" not in cols:
+        db.execute("ALTER TABLE users ADD COLUMN suspend_reason TEXT")
+    db.commit()
+
+
 def _ensure_initialized() -> None:
     db = _connect()
     try:
         _init_schema(db)
+        _migrate_v2_suspend_columns(db)
         _seed_founder(db)
     finally:
         db.close()
@@ -449,7 +465,8 @@ def login(req: LoginRequest, request: Request, response: Response) -> dict:
     try:
         row = db.execute("""
             SELECT user_id, password_hash, password_salt, role,
-                   default_person_id, display_name, must_change_password
+                   default_person_id, display_name, must_change_password,
+                   COALESCE(is_suspended, 0), suspend_reason
             FROM users WHERE email = ?
         """, (email,)).fetchone()
     finally:
@@ -458,6 +475,10 @@ def login(req: LoginRequest, request: Request, response: Response) -> dict:
         _record_audit("login_fail", target_email=email, request=request)
         # Avoid timing leak on missing email
         raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không đúng")
+    if row[7]:  # is_suspended
+        _record_audit("login_blocked_suspended", user_id=row[0], target_email=email, request=request)
+        reason = row[8] or "Tài khoản đã bị tạm khoá"
+        raise HTTPException(status_code=403, detail=f"Tài khoản tạm khoá: {reason}")
 
     # Update last_login_at
     db = _connect()
