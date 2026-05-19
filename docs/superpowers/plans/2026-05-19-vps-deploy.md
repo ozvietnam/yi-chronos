@@ -48,7 +48,7 @@
 │  │   TZ=Asia/Ho_Chi_Minh                          │                   │
 │  └────────────────────────────────────────────────┘                   │
 │                                                                       │
-│  Image source: ghcr.io/yi-chronos/yi-chronos:<sha>                    │
+│  Image source: ghcr.io/ozvietnam/yi-chronos:<sha>                    │
 │                                                                       │
 │  Co-tenant (existing, untouched):                                     │
 │   • hermes-pool-proxy :4000 (LiteLLM, unhealthy)                      │
@@ -209,13 +209,13 @@ Nếu Anh muốn giữ cả 2 account, dùng `gh auth switch` để chuyển qua
 
 ```bash
 # Private (recommended cho phase đầu):
-gh repo create yi-chronos/yi-chronos --private --source=. --description="YI-Chronos — Đông phương học AI-driven"
+gh repo create ozvietnam/yi-chronos --private --source=. --description="YI-Chronos — Đông phương học AI-driven"
 # Hoặc public:
-# gh repo create yi-chronos/yi-chronos --public --source=. --description="..."
+# gh repo create ozvietnam/yi-chronos --public --source=. --description="..."
 ```
 
 Lệnh này tự động:
-- Tạo repo `github.com/yi-chronos/yi-chronos`
+- Tạo repo `github.com/ozvietnam/yi-chronos`
 - Set local remote `origin` → repo này
 
 - [ ] **Step 0.3.3: Verify remote**
@@ -224,7 +224,7 @@ Lệnh này tự động:
 git remote -v
 ```
 
-Expected: `origin  https://github.com/yi-chronos/yi-chronos.git (fetch)` + push.
+Expected: `origin  https://github.com/ozvietnam/yi-chronos.git (fetch)` + push.
 
 - [ ] **Step 0.3.4: Push existing branch**
 
@@ -233,7 +233,7 @@ git branch -M main  # rename current branch to main if needed
 git push -u origin main
 ```
 
-Expected: all commits pushed to GitHub. Verify trên web: `https://github.com/yi-chronos/yi-chronos`.
+Expected: all commits pushed to GitHub. Verify trên web: `https://github.com/ozvietnam/yi-chronos`.
 
 ⚠️ **Nếu .gitignore lỡ leak file nhạy cảm** (data/ai_keys.json, .env): kiểm tra trước push bằng `git ls-files | grep -E "ai_keys|\.env"` → expected empty. Nếu có file leak: `git rm --cached <file>` trước push.
 
@@ -549,7 +549,7 @@ This compose file lives in the repo so Anh có thể đọc + edit easily. Trên
 cat > docker-compose.prod.yml << 'EOF'
 services:
   yi-chronos:
-    image: ghcr.io/yi-chronos/yi-chronos:latest  # ← replaced by CI deploy
+    image: ghcr.io/ozvietnam/yi-chronos:latest  # ← replaced by CI deploy
     container_name: yi-chronos
     restart: unless-stopped
     environment:
@@ -860,7 +860,7 @@ gh api user --jq .login 2>/dev/null || echo "<paste your gh username>"
 
 Edit `docker-compose.prod.yml` line:
 ```yaml
-image: ghcr.io/yi-chronos/yi-chronos:latest
+image: ghcr.io/ozvietnam/yi-chronos:latest
 ```
 → replace `yi-chronos` with actual username (lowercase). Em sẽ ask Anh để confirm tên user.
 
@@ -915,7 +915,7 @@ Expected: `Login Succeeded`.
 
 ```bash
 docker buildx build --platform linux/amd64 \
-  -t ghcr.io/yi-chronos/yi-chronos:latest \
+  -t ghcr.io/ozvietnam/yi-chronos:latest \
   --push \
   .
 ```
@@ -1527,7 +1527,7 @@ cat > docs/DEPLOY-RUNBOOK.md << 'EOF'
 - Production: https://kinhdich.online
 - VPS: `ssh -i ~/.ssh/id_ed25519_hostinger root@187.127.98.35`
 - Container: `yi-chronos` (Docker)
-- Image: `ghcr.io/yi-chronos/yi-chronos:latest`
+- Image: `ghcr.io/ozvietnam/yi-chronos:latest`
 
 ## Normal edit flow
 
@@ -1571,7 +1571,7 @@ gh api /users/yi-chronos/packages/container/yi-chronos/versions --jq '.[0:5][].m
 # Pin specific sha tag on VPS
 ssh -i ~/.ssh/id_ed25519_hostinger root@187.127.98.35 << 'REMOTE'
 cd /opt/yi-chronos
-# Edit docker-compose.yml: image: ghcr.io/yi-chronos/yi-chronos:sha-abc1234
+# Edit docker-compose.yml: image: ghcr.io/ozvietnam/yi-chronos:sha-abc1234
 nano docker-compose.yml
 docker compose pull
 docker compose up -d
@@ -1681,7 +1681,7 @@ Before declaring plan complete, em verify:
 **3. Type consistency:**
 - Container name `yi-chronos` consistent across compose, runbook, CI
 - Volume path `/opt/yi-chronos/data` consistent
-- Image name `ghcr.io/yi-chronos/yi-chronos` consistent
+- Image name `ghcr.io/ozvietnam/yi-chronos` consistent
 
 **4. Identified gaps (Anh quyết khi gặp):**
 - Ollama provider in registry → khi gọi từ VPS sẽ fail (no Ollama). Two options: (a) disable Ollama provider env-driven, (b) tunnel Mac→VPS Tailscale. Recommended (a) cho phase này.

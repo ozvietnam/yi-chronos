@@ -1,6 +1,6 @@
 services:
   yi-chronos:
-    image: ghcr.io/yi-chronos/yi-chronos:latest
+    image: ghcr.io/ozvietnam/yi-chronos:latest
     container_name: yi-chronos
     restart: unless-stopped
     environment:
