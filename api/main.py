@@ -5300,6 +5300,236 @@ def yi_tuvi_report_pdf(person_key: str, request: Request):
     return FileResponse(str(pdf_path), media_type="application/pdf", filename=filename)
 
 
+# ════════════════════════════════════════════════════════════════════════
+# Birth Hour Quiz v2 — multi-round adaptive trait-based hour inference
+# ════════════════════════════════════════════════════════════════════════
+from api.schemas import (
+    BirthHourQuizV2StartRequest,
+    BirthHourQuizV2SubmitRequest,
+    BirthHourQuizV2SaveRequest,
+)
+
+_QUIZ_V2_DB = "/Users/ozvietnamdesktop/Desktop/yi/data/yi_users/users.sqlite3"
+
+_QUIZ_V2_MAX_ROUNDS = {"single_round": 1, "two_round": 2, "three_round": 3}
+
+
+def _quiz_v2_build_final_result(sess: dict, scores: dict, result, status: str) -> dict:
+    """Construct human-readable final result with per-candidate reasoning hints."""
+    from engine.yi_wiki.birth_hour_quiz_v2.rules.branches import HOUR_RANGES
+    top_candidates = [result] if isinstance(result, str) else list(result)
+    sorted_scores = sorted(scores.items(), key=lambda kv: -kv[1])
+    top_score = sorted_scores[0][1] if sorted_scores else 0
+    second = sorted_scores[1][1] if len(sorted_scores) > 1 else 0
+    if top_score - second >= 5:
+        confidence = "Cao"
+    elif top_score - second >= 2:
+        confidence = "Vừa"
+    else:
+        confidence = "Thấp"
+    return {
+        "status": status,
+        "top_chi": top_candidates[0] if top_candidates else None,
+        "top_candidates": top_candidates,
+        "confidence": confidence,
+        "scores": scores,
+        "hour_ranges": {
+            chi: f"{HOUR_RANGES[chi][0]}h-{HOUR_RANGES[chi][1]}h"
+            for chi in top_candidates if chi in HOUR_RANGES
+        },
+    }
+
+
+@app.post("/api/yi-wiki/birth-hour-quiz-v2/start")
+def quiz_v2_start(req: BirthHourQuizV2StartRequest):
+    """Start a new birth-hour quiz session: build candidates, derive traits, return round 1."""
+    from engine.yi_wiki.birth_hour_quiz_v2 import session_store
+    from engine.yi_wiki.birth_hour_quiz_v2.pillars import build_candidates
+    from engine.yi_wiki.birth_hour_quiz_v2.derivation import derive_all_traits
+    from engine.yi_wiki.birth_hour_quiz_v2.engine import detect_strategy, generate_questions
+
+    session_store.init_schema(_QUIZ_V2_DB)
+
+    hour_range = (req.hour_range.start, req.hour_range.end) if req.hour_range else None
+    candidates_list = build_candidates(
+        req.birth_date, req.timezone, hour_range, gender=req.gender,
+    )
+    if not candidates_list:
+        return {"status": "error", "message": "No candidates for given range"}
+
+    strategy = detect_strategy([c["chi"] for c in candidates_list])
+    predictions = derive_all_traits(candidates_list)
+
+    questions = generate_questions(
+        strategy=strategy,
+        candidates=[c["chi"] for c in candidates_list],
+        predictions=predictions,
+        used_dimensions=set(),
+    )
+
+    sid = session_store.create_session(
+        _QUIZ_V2_DB,
+        user_id=None,
+        birth_date=req.birth_date,
+        timezone=req.timezone,
+        hour_range=hour_range,
+        gender=req.gender,
+        candidates_initial=[c["chi"] for c in candidates_list],
+        strategy=strategy,
+    )
+    session_store.update_session(
+        _QUIZ_V2_DB, sid,
+        rounds_data=[{
+            "round_num": 1,
+            "predictions": predictions,
+            "questions": questions,
+            "answers": None,
+        }],
+    )
+
+    return {
+        "status": "ok",
+        "session_id": sid,
+        "candidates": [c["chi"] for c in candidates_list],
+        "strategy": strategy,
+        "round_1": {
+            "round_num": 1,
+            "total_rounds": _QUIZ_V2_MAX_ROUNDS[strategy],
+            "questions": questions,
+        },
+    }
+
+
+@app.post("/api/yi-wiki/birth-hour-quiz-v2/submit-round")
+def quiz_v2_submit_round(req: BirthHourQuizV2SubmitRequest):
+    """Score a round's answers; return next round OR final result."""
+    from engine.yi_wiki.birth_hour_quiz_v2 import session_store
+    from engine.yi_wiki.birth_hour_quiz_v2.scoring import score_answer, after_round
+    from engine.yi_wiki.birth_hour_quiz_v2.engine import generate_questions
+
+    sess = session_store.get_session(_QUIZ_V2_DB, req.session_id)
+    if not sess:
+        return {"status": "error", "message": "session not found"}
+
+    rd = sess["rounds_data"]
+    round_entry = next((r for r in rd if r["round_num"] == req.round_num), None)
+    if not round_entry:
+        return {"status": "error", "message": "round not found"}
+
+    candidates = sess["candidates_remaining"]
+    scores = dict(sess["accumulated_scores"])
+    used = set()
+    # All used dimensions across all rounds (so next round won't repeat)
+    for r in rd:
+        for q in r["questions"]:
+            used.add(q["id"])
+
+    for q in round_entry["questions"]:
+        ans = req.answers.get(q["id"])
+        if not ans:
+            continue
+        delta = score_answer(candidates, q, ans)
+        for c, v in delta.items():
+            scores[c] = scores.get(c, 0) + v
+
+    round_entry["answers"] = req.answers
+    round_entry["round_scores_after"] = dict(scores)
+
+    max_rounds = _QUIZ_V2_MAX_ROUNDS[sess["strategy"]]
+    status, result = after_round(scores, candidates, req.round_num, max_rounds)
+
+    if status in {"FINAL", "FINAL_UNCERTAIN"}:
+        final_result = _quiz_v2_build_final_result(sess, scores, result, status)
+        session_store.update_session(
+            _QUIZ_V2_DB, req.session_id,
+            accumulated_scores=scores, rounds_data=rd,
+        )
+        session_store.mark_final(_QUIZ_V2_DB, req.session_id, final_result=final_result)
+        return {
+            "status": status,
+            "scores": scores,
+            "candidates_remaining": result if isinstance(result, list) else [result],
+            "next_round": None,
+            "final_result": final_result,
+        }
+
+    # CONTINUE: build next round
+    survivors = result
+    predictions = round_entry["predictions"]
+    next_round_num = req.round_num + 1
+    next_questions = generate_questions(
+        strategy=sess["strategy"],
+        candidates=survivors,
+        predictions=predictions,
+        used_dimensions=used,
+    )
+    rd.append({
+        "round_num": next_round_num,
+        "predictions": predictions,
+        "questions": next_questions,
+        "answers": None,
+    })
+    session_store.update_session(
+        _QUIZ_V2_DB, req.session_id,
+        candidates_remaining=survivors,
+        accumulated_scores=scores,
+        rounds_data=rd,
+    )
+    return {
+        "status": "CONTINUE",
+        "scores": scores,
+        "candidates_remaining": survivors,
+        "next_round": {
+            "round_num": next_round_num,
+            "total_rounds": max_rounds,
+            "questions": next_questions,
+        },
+        "final_result": None,
+    }
+
+
+@app.get("/api/yi-wiki/birth-hour-quiz-v2/session/{session_id}")
+def quiz_v2_get_session(session_id: str):
+    from engine.yi_wiki.birth_hour_quiz_v2 import session_store
+    sess = session_store.get_session(_QUIZ_V2_DB, session_id)
+    if not sess:
+        return {"api_status": "error", "message": "session not found"}
+    return {"api_status": "ok", "session": sess}
+
+
+@app.post("/api/yi-wiki/birth-hour-quiz-v2/save-result")
+def quiz_v2_save_result(req: BirthHourQuizV2SaveRequest):
+    """Save inferred hour to a person's profile (via engine.yi_hermes.persons)."""
+    from engine.yi_wiki.birth_hour_quiz_v2 import session_store
+    from engine.yi_wiki.birth_hour_quiz_v2.rules.branches import HOUR_RANGES
+
+    sess = session_store.get_session(_QUIZ_V2_DB, req.session_id)
+    if not sess or sess["status"] != "final":
+        return {"status": "error", "message": "session not finalized"}
+    fr = sess.get("final_result") or {}
+    top_chi = fr.get("top_chi")
+    if not top_chi:
+        return {"status": "error", "message": "no top candidate"}
+
+    chi_start, chi_end = HOUR_RANGES[top_chi]
+    midpoint_hour = (chi_start + 1) % 24 if chi_start <= chi_end else 0
+    new_birth_dt = f"{sess['birth_date']}T{midpoint_hour:02d}:00:00"
+
+    try:
+        from engine.yi_hermes.persons import update_person
+        update_person(req.person_id, {
+            "birth_datetime_local": new_birth_dt,
+            "birth_confidence": "approx_hour",
+            "source": f"birth_hour_quiz_v2:{req.session_id}",
+        })
+        return {
+            "status": "ok",
+            "person_id": req.person_id,
+            "birth_datetime_local": new_birth_dt,
+            "inferred_chi": top_chi,
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 
 _DIST_ROOT = _Path(__file__).resolve().parent.parent / "client" / "webapp" / "dist"

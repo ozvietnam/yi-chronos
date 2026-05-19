@@ -348,3 +348,27 @@ class TuViCastRequest(BaseModel):
     target_year: int | None = None
     include_interpretation: bool = True
 
+
+# ── Birth Hour Quiz v2 schemas ─────────────────────────────────────────
+class BirthHourQuizV2HourRange(BaseModel):
+    start: int
+    end: int
+
+
+class BirthHourQuizV2StartRequest(BaseModel):
+    birth_date: str  # YYYY-MM-DD
+    timezone: str = "Asia/Ho_Chi_Minh"
+    hour_range: BirthHourQuizV2HourRange | None = None
+    gender: Literal["nam", "nữ"] = "nam"
+
+
+class BirthHourQuizV2SubmitRequest(BaseModel):
+    session_id: str
+    round_num: int
+    answers: dict[str, str]  # {trait_id: option_id}
+
+
+class BirthHourQuizV2SaveRequest(BaseModel):
+    session_id: str
+    person_id: str
+
