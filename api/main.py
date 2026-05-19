@@ -1,0 +1,4957 @@
+from __future__ import annotations
+
+import json
+import time
+from contextlib import asynccontextmanager
+from datetime import datetime, timezone
+from typing import Optional
+from uuid import uuid4
+from zoneinfo import ZoneInfo
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+
+from api.schemas import (
+    CalculateRequest,
+    CalendarConvertRequest,
+    CompareBasicRequest,
+    FeedbackRequest,
+    AiCouncilRequest,
+    AiCritiqueResolveRequest,
+    AiKanbanCouncilRequest,
+    AiPromptUpdateRequest,
+    AiProviderKeyRequest,
+    AiProviderNotesRequest,
+    AiProviderTestRequest,
+    DyadAnalysisRequest,
+    LexiconConceptCreateRequest,
+    LexiconCorpusRegisterRequest,
+    LexiconDistillRequest,
+    LexiconIngestRequest,
+    LexiconInterpretRequest,
+    LexiconMappingCreateRequest,
+    LexiconResolveItemRequest,
+    LexiconResolveConflictRequest,
+    PersonCreateRequest,
+    PersonLayerUpdateRequest,
+    PersonNoteRequest,
+    PersonUpdateRequest,
+    RelationshipCreateRequest,
+    YiHermesChatRequest,
+    YiHermesContentUpdateRequest,
+    YiHermesFactAddRequest,
+    YiHermesGlossaryUpsertRequest,
+    YiHermesSoulUpdateRequest,
+    YiHermesSummaryAddRequest,
+    BatTuCastRequest,
+    HaLacCastRequest,
+    LienHoaCastRequest,
+    TuViCastRequest,
+    LucHaoCastRequest,
+    LucHaoFeedbackRequest,
+    LucHaoSaveCaseRequest,
+    PersonalProfileRequest,
+)
+from collectors.jpl_horizons import get_planet_positions
+from collectors.noaa_swpc import get_current_kp
+from core.chronos import calculate_chronos_state, parse_local_datetime
+from core.config import ALGORITHM_VERSION, ZIWEI_RULESET_ID, ZIWEI_RULESET_LABEL, ZIWEI_SCHOOL
+from core.hexagram import (
+    apply_moving_lines,
+    classify_moving_lines,
+    compose_hexagram_binary,
+    get_hexagram_by_binary,
+    hexagram_to_vector,
+    list_hexagrams,
+)
+from core.hexagram_texts import (
+    explain_by_policy,
+    get_auto_audit_report,
+    get_hexagram_interpretation_v2,
+    get_source_matrix,
+    get_hexagram_text,
+    get_source_coverage,
+)
+from core.lunar_calendar import lunar_to_solar, solar_to_lunar
+from core.yi64.derivations.derived_hexagrams import (
+    compute_all_derived,
+    derived_summary_dict,
+)
+from core.yi64.derivations.diep_granularity import compute_diep_sequence_for_datetime
+from core.yi64.derivations.mai_hoa_nntt import (
+    METHOD_ID as MAI_HOA_NNTT_METHOD_ID,
+    SOURCE_REF as MAI_HOA_NNTT_SOURCE_REF,
+    derivation_summary as mai_hoa_nntt_summary,
+    derive_line_states as mai_hoa_nntt_lines,
+)
+from core.yi64.narrative import build_narrative
+from core.yi64.transforms import lines_to_binary, moving_lines_from_states
+from engine.gps_engine import compute_gps_day
+from engine.gps_storage import (
+    BackDatingError,
+    DuplicatePredictionError,
+    FeedbackTooEarlyError,
+    GpsDisabledError,
+    PredictionLogError,
+    compute_accuracy_stats,
+    list_predictions,
+    register_predictions,
+    submit_feedback,
+)
+from engine.family_system import FamilyMember, compute_family_resonance
+from engine.personal_quai import compute_natal_hexagram, score_compatibility
+from engine.van_trong_van import compute_van_trong_van
+from data.database import init_db, store_json
+from engine.personal import BirthProfile, build_personal_vector, generate_milestone_prompts
+from engine.lien_hoa import cast_lien_hoa
+from engine.luc_hao import InteractionSignal, cast_luc_hao
+from engine.resonance import calculate_sync_score
+from engine.scoring import calculate_scores
+from engine.eclipses import compute_eclipses
+from engine.life_timeline import compute_life_timeline
+from engine.lunar_returns import compute_lunar_returns
+from engine.progressions import (
+    compute_progressed_chart,
+    compute_progressed_moon_timeline,
+)
+from engine.returns import compute_solar_returns
+from engine.sky import calculate_sky_chart
+from engine.solar_arc import compute_solar_arc_hits
+from engine.transit_timeline import compute_transit_hits
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    init_db()
+    # Bootstrap founder Person profile on first startup (idempotent)
+    try:
+        from engine.yi_hermes.persons import ensure_founder
+        ensure_founder()
+    except Exception:
+        # Don't break app startup if founder profile init fails
+        import logging
+        logging.exception("ensure_founder() failed at startup")
+    # Bootstrap YI-Lexicon core seed (idempotent — skips existing concepts)
+    try:
+        from engine.yi_lexicon.core_seed import seed_all
+        seed_all()
+    except Exception:
+        import logging
+        logging.exception("yi_lexicon seed_all() failed at startup")
+    yield
+
+
+app = FastAPI(title="YI-CHRONOS MVP", version=ALGORITHM_VERSION, lifespan=lifespan)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Multi-user auth (tính năng tích hợp của YI):
+# - Founder (anh) đăng nhập 1 lần, mọi panel dùng profile anh
+# - User mới (gia đình/khách) đăng ký, có namespace persons + quẻ history riêng
+# - Owner thấy mọi tab, user thường ẩn dev tabs (Cài đặt, Lexicon, ...)
+from api.auth import router as auth_router  # noqa: E402
+app.include_router(auth_router)
+
+# ⭐ Serve figures from restored books — cho UI hiển thị ảnh minh hoạ
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path as _Path
+_FIGURES_ROOT = _Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_restored")
+if _FIGURES_ROOT.exists():
+    app.mount("/figures", StaticFiles(directory=str(_FIGURES_ROOT)), name="figures")
+
+
+def _derive_hexagram_state(state) -> dict[str, object]:
+    """Derive primary + 5 derived hexagrams via Mai Hoa Niên-Nguyệt-Nhật-Thời.
+
+    Replaces previous ad-hoc cycle-index trigram math. Source:
+    Thiệu Khang Tiết — Mai Hoa Dịch Số Toàn Tập.
+    """
+    line_states = mai_hoa_nntt_lines(state)
+    binary = lines_to_binary(line_states)
+    moving_lines_tuple = moving_lines_from_states(line_states)
+    moving_lines = list(moving_lines_tuple)
+    moving_line_policy = classify_moving_lines(moving_lines)
+
+    derived = compute_all_derived(binary, moving_lines_tuple)
+    primary_hex = get_hexagram_by_binary(binary)
+    transformed_hex = get_hexagram_by_binary(derived["bien"].binary_code)
+    transformed_binary = derived["bien"].binary_code
+
+    explanation = explain_by_policy(
+        hexagram_name=primary_hex.name_vi,
+        transformed_name=transformed_hex.name_vi,
+        moving_lines=moving_lines,
+        moving_line_policy=moving_line_policy,
+    )
+
+    return {
+        # Backward-compatible fields (existing UI / tests rely on these).
+        "hexagram": primary_hex,
+        "binary": binary,
+        "moving_lines": moving_lines,
+        "moving_line_policy": moving_line_policy,
+        "transformed_binary": transformed_binary,
+        "transformed_hexagram": transformed_hex,
+        "explanation": explanation,
+        # New: full Mai Hoa NNTT provenance + 5 derived hexagrams.
+        "method_id": MAI_HOA_NNTT_METHOD_ID,
+        "source_ref": MAI_HOA_NNTT_SOURCE_REF,
+        "derivation": mai_hoa_nntt_summary(state),
+        "derived_hexagrams": derived_summary_dict(binary, moving_lines_tuple),
+    }
+
+
+def build_universe_snapshot(datetime_local: str | None = None, timezone_name: str = "Asia/Ho_Chi_Minh") -> dict[str, object]:
+    state = calculate_chronos_state(datetime_local, timezone_name)
+    kp = get_current_kp()
+    scores = calculate_scores(state, float(kp["kp_index"]))
+    yi = _derive_hexagram_state(state)
+    hexagram = yi["hexagram"]
+    transformed = yi["transformed_hexagram"]
+    binary = yi["binary"]
+    payload = {
+        "timestamp_utc": state.timestamp_utc,
+        "timezone": state.timezone,
+        "ganzhi": state.ganzhi.model_dump(),
+        "solar_term": state.solar_term.model_dump(),
+        "moon_phase": {
+            "name": state.moon_phase.name,
+            "illumination": state.moon_phase.illumination,
+        },
+        "almanac": state.almanac.model_dump(),
+        "space_weather": kp,
+        "yi_state": {
+            "hexagram_id": hexagram.id,
+            "king_wen_index": hexagram.king_wen_index,
+            "hexagram_name": hexagram.name_vi,
+            "hexagram_binary": binary,
+            "upper_trigram": hexagram.upper_trigram,
+            "lower_trigram": hexagram.lower_trigram,
+            "moving_lines": yi["moving_lines"],
+            "moving_line_policy": yi["moving_line_policy"],
+            "transformed_binary": yi["transformed_binary"],
+            "transformed_hexagram_name": transformed.name_vi,
+            "yi_vector": hexagram_to_vector(binary),
+            "source_ref": hexagram.source_ref,
+            "interpretation": yi["explanation"],
+        },
+        "scores": scores,
+        "reflection_prompt": "Tín hiệu nhiều tầng đang thay đổi nhẹ trong khung hiện tại. Hãy quan sát và đối chiếu với trải nghiệm thực.",
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+    }
+    store_json("universe_snapshot", "snapshot_id", payload, ALGORITHM_VERSION, key=f"u_{uuid4().hex}")
+    return payload
+
+
+@app.get("/api/health")
+def health() -> dict[str, str]:
+    return {
+        "status": "ok",
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+    }
+
+
+@app.get("/api/ruleset/active")
+def active_ruleset() -> dict[str, str]:
+    return {
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+        "algorithm_version": ALGORITHM_VERSION,
+        "status": "active",
+    }
+
+
+@app.post("/calculate")
+def calculate(request: CalculateRequest) -> dict[str, object]:
+    state = calculate_chronos_state(request.datetime_local, request.timezone)
+    yi = _derive_hexagram_state(state)
+    hexagram = yi["hexagram"]
+    transformed = yi["transformed_hexagram"]
+    response = {
+        **state.model_dump(),
+        "yi_state": {
+            "hexagram_id": hexagram.id,
+            "king_wen_index": hexagram.king_wen_index,
+            "hexagram_name": hexagram.name_vi,
+            "hexagram_binary": yi["binary"],
+            "upper_trigram": hexagram.upper_trigram,
+            "lower_trigram": hexagram.lower_trigram,
+            "moving_lines": yi["moving_lines"],
+            "moving_line_policy": yi["moving_line_policy"],
+            "transformed_binary": yi["transformed_binary"],
+            "transformed_hexagram_name": transformed.name_vi,
+            "source_ref": hexagram.source_ref,
+            "interpretation": yi["explanation"],
+        },
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+    }
+    if request.question_text and request.interaction_signal:
+        response["luc_hao_state"] = cast_luc_hao(
+            datetime_local=request.datetime_local,
+            timezone=request.timezone,
+            question_text=request.question_text,
+            interaction=InteractionSignal(**request.interaction_signal.model_dump()),
+        )
+    return response
+
+
+@app.get("/api/universe-now")
+def universe_now(lat: float | None = None, lon: float | None = None) -> dict[str, object]:
+    payload = build_universe_snapshot()
+    payload["sky"] = calculate_sky_chart(lat=lat, lon=lon).to_dict()
+    return payload
+
+
+@app.get("/api/sky-now")
+def sky_now(
+    lat: float | None = None,
+    lon: float | None = None,
+    at: str | None = None,
+) -> dict[str, object]:
+    """Western astrology state of the sky.
+
+    Query params:
+    - lat, lon: observer coordinates (degrees). Both required for ASC/MC.
+    - at: ISO 8601 UTC timestamp (e.g. "2026-05-10T15:00:00Z"). Defaults to now.
+    """
+    dt_utc = None
+    if at:
+        cleaned = at.replace("Z", "+00:00")
+        dt_utc = datetime.fromisoformat(cleaned)
+        if dt_utc.tzinfo is None:
+            dt_utc = dt_utc.replace(tzinfo=timezone.utc)
+        else:
+            dt_utc = dt_utc.astimezone(timezone.utc)
+    return calculate_sky_chart(dt_utc=dt_utc, lat=lat, lon=lon).to_dict()
+
+
+def _parse_birth_utc(birth_at: str) -> datetime:
+    cleaned = birth_at.replace("Z", "+00:00")
+    dt = datetime.fromisoformat(cleaned)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    else:
+        dt = dt.astimezone(timezone.utc)
+    return dt
+
+
+@app.get("/api/transit-hits")
+def transit_hits(
+    birth_at: str,
+    lat: float | None = None,
+    lon: float | None = None,
+    span_years: int = 90,
+) -> dict[str, object]:
+    """Compute transit hits from slow planets to natal personal points.
+
+    Query params:
+    - birth_at: ISO 8601 (UTC if no offset).
+    - lat, lon: birth location for ASC/MC contacts (optional).
+    - span_years: 1..120, defaults 90.
+    """
+    birth_dt = _parse_birth_utc(birth_at)
+    hits = compute_transit_hits(birth_dt, lat=lat, lon=lon, span_years=span_years)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "span_years": span_years,
+        "has_location": lat is not None and lon is not None,
+        "ephemeris_source": "JPL DE440s",
+        "hits": [h.to_dict() for h in hits],
+    }
+
+
+@app.get("/api/progressed-chart")
+def progressed_chart(
+    birth_at: str,
+    at_age: float,
+    lat: float | None = None,
+    lon: float | None = None,
+) -> dict[str, object]:
+    """Secondary progression chart at given age (1 day = 1 year)."""
+    birth_dt = _parse_birth_utc(birth_at)
+    chart = compute_progressed_chart(birth_dt, at_age_years=at_age, lat=lat, lon=lon)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "at_age": at_age,
+        "ephemeris_source": "JPL DE440s",
+        "chart": chart.to_dict(),
+    }
+
+
+@app.get("/api/progressed-moon-timeline")
+def progressed_moon_timeline(
+    birth_at: str,
+    span_years: int = 90,
+) -> dict[str, object]:
+    """Progressed Moon's sign across a lifespan."""
+    birth_dt = _parse_birth_utc(birth_at)
+    phases = compute_progressed_moon_timeline(birth_dt, span_years=span_years)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "span_years": span_years,
+        "ephemeris_source": "JPL DE440s",
+        "phases": [p.to_dict() for p in phases],
+    }
+
+
+@app.get("/api/lunar-returns")
+def lunar_returns(
+    birth_at: str,
+    from_at: str | None = None,
+    count: int = 12,
+    lat: float | None = None,
+    lon: float | None = None,
+) -> dict[str, object]:
+    """Next `count` lunar returns starting at or after `from_at` (default now)."""
+    birth_dt = _parse_birth_utc(birth_at)
+    from_dt = _parse_birth_utc(from_at) if from_at else None
+    rs = compute_lunar_returns(birth_dt, from_dt=from_dt, count=count, lat=lat, lon=lon)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "from_utc": from_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z") if from_dt else None,
+        "count": count,
+        "ephemeris_source": "JPL DE440s",
+        "returns": [r.to_dict() for r in rs],
+    }
+
+
+@app.get("/api/solar-arc-hits")
+def solar_arc_hits(
+    birth_at: str,
+    lat: float | None = None,
+    lon: float | None = None,
+    span_years: int = 90,
+) -> dict[str, object]:
+    """Solar arc directions: arc'd planet aspects to natal points."""
+    birth_dt = _parse_birth_utc(birth_at)
+    hits = compute_solar_arc_hits(birth_dt, lat=lat, lon=lon, span_years=span_years)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "span_years": span_years,
+        "has_location": lat is not None and lon is not None,
+        "ephemeris_source": "JPL DE440s",
+        "hits": [h.to_dict() for h in hits],
+    }
+
+
+@app.get("/api/eclipses")
+def eclipses_api(
+    birth_at: str,
+    lat: float | None = None,
+    lon: float | None = None,
+    span_years: int = 90,
+    only_activated: bool = True,
+) -> dict[str, object]:
+    """Solar/lunar eclipses + activation against natal points."""
+    birth_dt = _parse_birth_utc(birth_at)
+    es = compute_eclipses(birth_dt, lat=lat, lon=lon, span_years=span_years, only_activated=only_activated)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "span_years": span_years,
+        "only_activated": only_activated,
+        "ephemeris_source": "JPL DE440s",
+        "eclipses": [e.to_dict() for e in es],
+    }
+
+
+@app.get("/api/solar-returns")
+def solar_returns(
+    birth_at: str,
+    lat: float | None = None,
+    lon: float | None = None,
+    span_years: int = 90,
+) -> dict[str, object]:
+    """Compute exact Solar Return moments + chart for each year of life."""
+    birth_dt = _parse_birth_utc(birth_at)
+    rs = compute_solar_returns(birth_dt, lat=lat, lon=lon, span_years=span_years)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "span_years": span_years,
+        "has_location": lat is not None and lon is not None,
+        "ephemeris_source": "JPL DE440s",
+        "returns": [r.to_dict() for r in rs],
+    }
+
+
+@app.get("/api/life-timeline")
+def life_timeline(
+    birth_at: str,
+    span_years: int = 90,
+) -> dict[str, object]:
+    """Compute astrological life milestones from birth.
+
+    Query params:
+    - birth_at: ISO 8601 (UTC if no offset). E.g. "1985-07-20T03:30:00Z".
+    - span_years: how far ahead to scan (default 90).
+    """
+    birth_dt = _parse_birth_utc(birth_at)
+    milestones = compute_life_timeline(birth_dt, span_years=span_years)
+    return {
+        "birth_utc": birth_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "span_years": span_years,
+        "ephemeris_source": "JPL DE440s",
+        "milestones": [m.to_dict() for m in milestones],
+    }
+
+
+@app.get("/api/planet-positions")
+def planet_positions() -> dict[str, object]:
+    return get_planet_positions()
+
+
+@app.get("/api/gps-day")
+def gps_day(
+    birth_datetime_local: str,
+    target_date: str,
+    timezone: str = "Asia/Ho_Chi_Minh",
+    min_score: int = 55,
+) -> dict[str, object]:
+    """Compute GPS recommendations for a specific date (preview, no persistence)."""
+    from datetime import date as _date
+    natal = compute_natal_hexagram(birth_datetime_local, timezone)
+    target = _date.fromisoformat(target_date)
+    gps = compute_gps_day(natal, target, timezone, min_score_for_trigger=min_score)
+    return gps.to_dict()
+
+
+@app.post("/api/gps-pre-register")
+def gps_pre_register(payload: dict) -> dict[str, object]:
+    """Pre-register every trigger of a future GPS day as immutable predictions.
+
+    payload: { birth_datetime_local, target_date, timezone, min_score }
+    """
+    from datetime import date as _date
+    birth_datetime_local = payload.get("birth_datetime_local")
+    target_date = payload.get("target_date")
+    timezone = payload.get("timezone", "Asia/Ho_Chi_Minh")
+    min_score = int(payload.get("min_score", 70))
+    if not birth_datetime_local or not target_date:
+        return {"status": "error", "message": "birth_datetime_local and target_date required"}
+
+    natal = compute_natal_hexagram(birth_datetime_local, timezone)
+    target = _date.fromisoformat(target_date)
+    gps = compute_gps_day(natal, target, timezone, min_score_for_trigger=min_score)
+    try:
+        receipts = register_predictions(gps)
+    except GpsDisabledError as e:
+        return {"status": "gps_disabled", "message": str(e), "runtime_mode": gps.runtime_mode}
+    except BackDatingError as e:
+        return {"status": "back_dating_rejected", "message": str(e)}
+    except DuplicatePredictionError as e:
+        return {"status": "duplicate", "message": str(e)}
+    return {
+        "status": "registered",
+        "profile_hash": gps.profile_hash,
+        "for_date": gps.date_local,
+        "registered_count": len(receipts),
+        "receipts": receipts,
+        "runtime_mode": gps.runtime_mode,
+    }
+
+
+@app.get("/api/gps-predictions")
+def gps_predictions(profile_hash: str, status: str | None = None, limit: int = 200) -> dict[str, object]:
+    """List immutable predictions for a profile."""
+    rows = list_predictions(profile_hash, status=status, limit=limit)
+    return {"profile_hash": profile_hash, "count": len(rows), "predictions": rows}
+
+
+@app.post("/api/gps-prediction-feedback")
+def gps_prediction_feedback(payload: dict) -> dict[str, object]:
+    """Submit feedback for an expired prediction.
+
+    payload: { prediction_id, response_enum, confidence_enum, actual_outcome }
+    """
+    prediction_id = payload.get("prediction_id")
+    response_enum = payload.get("response_enum")
+    confidence_enum = payload.get("confidence_enum", "unsure")
+    actual_outcome = payload.get("actual_outcome")
+    if not prediction_id or not response_enum:
+        return {"status": "error", "message": "prediction_id and response_enum required"}
+    try:
+        receipt = submit_feedback(prediction_id, response_enum, confidence_enum, actual_outcome)
+    except FeedbackTooEarlyError as e:
+        return {"status": "too_early", "message": str(e)}
+    except PredictionLogError as e:
+        return {"status": "error", "message": str(e)}
+    except ValueError as e:
+        return {"status": "invalid_input", "message": str(e)}
+    return {"status": "stored", **receipt}
+
+
+@app.get("/api/gps-accuracy")
+def gps_accuracy(profile_hash: str) -> dict[str, object]:
+    """Rolling accuracy metrics for a profile's GPS predictions."""
+    return compute_accuracy_stats(profile_hash)
+
+
+def _parse_family_members(raw: list | None) -> list:
+    if not raw:
+        return []
+    return [
+        FamilyMember(
+            role=m.get("role", "self"),
+            name=m.get("name", ""),
+            birth_year=int(m["birth_year"]),
+            birth_datetime_local=m.get("birth_datetime_local"),
+            timezone=m.get("timezone", "Asia/Ho_Chi_Minh"),
+        )
+        for m in raw
+    ]
+
+
+@app.post("/api/van-trong-van-with-family")
+def van_trong_van_with_family(payload: dict) -> dict[str, object]:
+    """30-day outlook with optional family overlay per day.
+
+    payload: {
+      birth_datetime_local, timezone, start_date (YYYY-MM-DD), span_days,
+      members: [...] (optional, same shape as /api/family-resonance)
+    }
+    """
+    from datetime import datetime as _dt
+    from zoneinfo import ZoneInfo
+
+    birth_local = payload.get("birth_datetime_local")
+    timezone = payload.get("timezone", "Asia/Ho_Chi_Minh")
+    span_days = int(payload.get("span_days", 30))
+    if not birth_local:
+        return {"status": "error", "message": "birth_datetime_local required"}
+
+    natal = compute_natal_hexagram(birth_local, timezone)
+    family = _parse_family_members(payload.get("members"))
+    start_iso = payload.get("start_date")
+    if start_iso:
+        start_dt = _dt.fromisoformat(start_iso).replace(tzinfo=ZoneInfo(timezone))
+    else:
+        start_dt = None
+
+    result = compute_van_trong_van(
+        natal,
+        start_date=start_dt,
+        span_days=span_days,
+        timezone_name=timezone,
+        family_members=family or None,
+    )
+    return {"status": "ok", **result.to_dict()}
+
+
+@app.post("/api/gps-day-with-family")
+def gps_day_with_family(payload: dict) -> dict[str, object]:
+    """GPS preview for one date with optional family overlay per trigger."""
+    from datetime import date as _date
+
+    birth_local = payload.get("birth_datetime_local")
+    target_date = payload.get("target_date")
+    timezone = payload.get("timezone", "Asia/Ho_Chi_Minh")
+    min_score = int(payload.get("min_score", 55))
+    if not birth_local or not target_date:
+        return {"status": "error", "message": "birth_datetime_local + target_date required"}
+
+    natal = compute_natal_hexagram(birth_local, timezone)
+    family = _parse_family_members(payload.get("members"))
+    target = _date.fromisoformat(target_date)
+    gps = compute_gps_day(
+        natal, target, timezone,
+        min_score_for_trigger=min_score,
+        family_members=family or None,
+    )
+    return {"status": "ok", **gps.to_dict()}
+
+
+@app.post("/api/gps-pre-register-with-family")
+def gps_pre_register_with_family(payload: dict) -> dict[str, object]:
+    """Pre-register predictions for a future date — family-aware variant."""
+    from datetime import date as _date
+
+    birth_local = payload.get("birth_datetime_local")
+    target_date = payload.get("target_date")
+    timezone = payload.get("timezone", "Asia/Ho_Chi_Minh")
+    min_score = int(payload.get("min_score", 70))
+    if not birth_local or not target_date:
+        return {"status": "error", "message": "birth_datetime_local + target_date required"}
+
+    natal = compute_natal_hexagram(birth_local, timezone)
+    family = _parse_family_members(payload.get("members"))
+    target = _date.fromisoformat(target_date)
+    gps = compute_gps_day(
+        natal, target, timezone,
+        min_score_for_trigger=min_score,
+        family_members=family or None,
+    )
+    try:
+        receipts = register_predictions(gps)
+    except GpsDisabledError as e:
+        return {"status": "gps_disabled", "message": str(e), "runtime_mode": gps.runtime_mode}
+    except BackDatingError as e:
+        return {"status": "back_dating_rejected", "message": str(e)}
+    except DuplicatePredictionError as e:
+        return {"status": "duplicate", "message": str(e)}
+    return {
+        "status": "registered",
+        "profile_hash": gps.profile_hash,
+        "for_date": gps.date_local,
+        "registered_count": len(receipts),
+        "receipts": receipts,
+        "runtime_mode": gps.runtime_mode,
+        "family_aware": bool(family),
+    }
+
+
+@app.post("/api/family-resonance")
+def family_resonance(payload: dict) -> dict[str, object]:
+    """Compute multi-actor household hexagram analysis.
+
+    payload:
+      {
+        "members": [
+          {"role": "self|spouse|child|parent|sibling|boss", "name": str,
+           "birth_year": int,
+           "birth_datetime_local": "YYYY-MM-DDTHH:MM:SS" (optional),
+           "timezone": "Asia/Ho_Chi_Minh" (optional)},
+          ...
+        ],
+        "wedding_datetime_local": "YYYY-MM-DDTHH:MM:SS" (optional),
+        "wedding_timezone": "Asia/Ho_Chi_Minh" (optional)
+      }
+    """
+    raw_members = payload.get("members") or []
+    if not raw_members:
+        return {"status": "error", "message": "members must not be empty"}
+    members = [
+        FamilyMember(
+            role=m.get("role", "self"),
+            name=m.get("name", ""),
+            birth_year=int(m["birth_year"]),
+            birth_datetime_local=m.get("birth_datetime_local"),
+            timezone=m.get("timezone", "Asia/Ho_Chi_Minh"),
+        )
+        for m in raw_members
+    ]
+    wedding_local = payload.get("wedding_datetime_local")
+    wedding_tz = payload.get("wedding_timezone", "Asia/Ho_Chi_Minh")
+    result = compute_family_resonance(
+        members,
+        wedding_datetime_local=wedding_local,
+        wedding_timezone=wedding_tz,
+    )
+    return {"status": "ok", **result.to_dict()}
+
+
+@app.get("/api/personal-quai")
+def personal_quai(
+    birth_datetime_local: str,
+    timezone: str = "Asia/Ho_Chi_Minh",
+) -> dict[str, object]:
+    """Compute quẻ bản mệnh + 5 derived charts from birth Mai Hoa NNTT."""
+    natal = compute_natal_hexagram(birth_datetime_local, timezone)
+    return natal.to_dict()
+
+
+@app.get("/api/van-trong-van")
+def van_trong_van(
+    birth_datetime_local: str,
+    timezone: str = "Asia/Ho_Chi_Minh",
+    start_date: str | None = None,
+    span_days: int = 30,
+) -> dict[str, object]:
+    """30-day forward outlook of compatibility with quẻ bản mệnh."""
+    from zoneinfo import ZoneInfo
+
+    natal = compute_natal_hexagram(birth_datetime_local, timezone)
+    if start_date:
+        start_dt = datetime.fromisoformat(start_date).replace(tzinfo=ZoneInfo(timezone))
+    else:
+        start_dt = None
+    result = compute_van_trong_van(
+        natal, start_date=start_dt, span_days=span_days, timezone_name=timezone
+    )
+    return result.to_dict()
+
+
+@app.get("/api/yi-narrative")
+def yi_narrative(
+    datetime_local: str | None = None,
+    timezone: str = "Asia/Ho_Chi_Minh",
+) -> dict[str, object]:
+    """6-hexagram timeline narrative for the given moment (Mai Hoa NNTT)."""
+    state = calculate_chronos_state(datetime_local, timezone)
+    n = build_narrative(state)
+    return {
+        "timezone": timezone,
+        "local_datetime": state.local_datetime,
+        "ganzhi": state.ganzhi.model_dump(),
+        "lunar_date": state.almanac.lunar_date,
+        **n.to_dict(),
+    }
+
+
+@app.get("/api/yi-diep-sequence")
+def yi_diep_sequence(
+    datetime_local: str | None = None,
+    timezone: str = "Asia/Ho_Chi_Minh",
+    diep_count: int = 5,
+) -> dict[str, object]:
+    """Lá/cánh hoa — N sub-hexagrams within an hour (default 5)."""
+    seq = compute_diep_sequence_for_datetime(datetime_local, timezone, diep_count=diep_count)
+    return {
+        "timezone": timezone,
+        **seq.to_dict(),
+    }
+
+
+@app.get("/api/hexagrams-master")
+def hexagrams_master() -> dict[str, object]:
+    records = [
+        {
+            "king_wen_index": item.king_wen_index,
+            "legacy_binary_id": item.id,
+            "name_vi": item.name_vi,
+            "name_en": item.name_en,
+            "binary": item.binary,
+            "upper_trigram": item.upper_trigram,
+            "lower_trigram": item.lower_trigram,
+            "source_ref": item.source_ref,
+        }
+        for item in sorted(list_hexagrams(), key=lambda h: h.king_wen_index)
+    ]
+    return {"count": len(records), "records": records}
+
+
+@app.get("/api/hexagram-text/{name_vi}")
+def hexagram_text(name_vi: str) -> dict[str, object]:
+    record = get_hexagram_text(name_vi)
+    if not record:
+        return {"status": "not_found", "name_vi": name_vi}
+    return {"status": "ok", "record": record}
+
+
+@app.get("/api/hexagram-interpretation-v2/{king_wen_index}")
+def hexagram_interpretation_v2(king_wen_index: int) -> dict[str, object]:
+    record = get_hexagram_interpretation_v2(king_wen_index=king_wen_index)
+    if not record:
+        return {"status": "not_found", "king_wen_index": king_wen_index}
+    return {"status": "ok", "record": record}
+
+
+@app.get("/api/hexagram-by-slug/{slug}")
+def hexagram_by_slug(slug: str) -> dict[str, object]:
+    """Resolve a hexagram slug (e.g. '3-thuy-loi-truan') to full interpretation."""
+    from core.yi64.slugs import king_wen_from_slug, slug_for
+
+    king_wen_index = king_wen_from_slug(slug)
+    if king_wen_index is None:
+        return {"status": "not_found", "slug": slug}
+    record = get_hexagram_interpretation_v2(king_wen_index=king_wen_index)
+    if not record:
+        return {"status": "not_found", "slug": slug, "king_wen_index": king_wen_index}
+    return {
+        "status": "ok",
+        "slug": slug,
+        "canonical_slug": slug_for(king_wen_index),
+        "king_wen_index": king_wen_index,
+        "record": record,
+    }
+
+
+@app.get("/api/hexagram-slugs")
+def hexagram_slugs() -> dict[str, object]:
+    """Return the full {king_wen: slug} table — useful for client-side routing/sitemaps."""
+    from core.yi64.slugs import slug_table
+
+    return {"status": "ok", "slugs": slug_table()}
+
+
+@app.get("/api/hexagram-source-coverage")
+def hexagram_source_coverage() -> dict[str, object]:
+    report = get_source_coverage()
+    return {"status": "ok", "report": report}
+
+
+@app.get("/api/hexagram-source-matrix")
+def hexagram_source_matrix() -> dict[str, object]:
+    report = get_source_matrix()
+    return {"status": "ok", "report": report}
+
+
+@app.get("/api/hexagram-auto-audit")
+def hexagram_auto_audit() -> dict[str, object]:
+    report = get_auto_audit_report()
+    return {"status": "ok", "report": report}
+
+
+@app.post("/api/calendar-convert")
+def calendar_convert(request: CalendarConvertRequest) -> dict[str, object]:
+    local_dt = parse_local_datetime(request.datetime_local, request.timezone)
+    zone = ZoneInfo(request.timezone)
+    tz_offset_hours = local_dt.utcoffset().total_seconds() / 3600 if local_dt.utcoffset() else 7.0
+
+    if request.source_calendar == "solar":
+        lunar = solar_to_lunar(local_dt.day, local_dt.month, local_dt.year, tz_offset_hours)
+        converted = datetime(
+            lunar.year,
+            lunar.month,
+            lunar.day,
+            local_dt.hour,
+            local_dt.minute,
+            local_dt.second,
+            tzinfo=zone,
+        )
+        return {
+            "source_calendar": "solar",
+            "target_calendar": "lunar",
+            "source_datetime_local": local_dt.replace(microsecond=0).isoformat(),
+            "converted_datetime_local": converted.replace(microsecond=0).isoformat(),
+            "is_leap_month": lunar.is_leap,
+            "timezone": request.timezone,
+            "ziwei_school": ZIWEI_SCHOOL,
+            "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        }
+
+    day, month, year = lunar_to_solar(
+        local_dt.day,
+        local_dt.month,
+        local_dt.year,
+        request.is_leap_month,
+        tz_offset_hours,
+    )
+    converted = datetime(year, month, day, local_dt.hour, local_dt.minute, local_dt.second, tzinfo=zone)
+    return {
+        "source_calendar": "lunar",
+        "target_calendar": "solar",
+        "source_datetime_local": local_dt.replace(microsecond=0).isoformat(),
+        "converted_datetime_local": converted.replace(microsecond=0).isoformat(),
+        "is_leap_month": request.is_leap_month,
+        "timezone": request.timezone,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+    }
+
+
+@app.post("/api/compare-basic")
+def compare_basic(request: CompareBasicRequest) -> dict[str, object]:
+    local_dt = parse_local_datetime(request.birth_datetime_local, request.timezone)
+    utc_dt = local_dt.astimezone(timezone.utc)
+    chronos = calculate_chronos_state(request.birth_datetime_local, request.timezone)
+    planets = get_planet_positions(utc_dt)
+
+    earth = next((planet for planet in planets.get("planets", []) if planet.get("name_vi") == "Trái Đất"), None)
+    moon_name_map = {
+        "new_moon": "Sóc",
+        "waxing_crescent": "Trăng non",
+        "first_quarter": "Thượng huyền",
+        "waxing_gibbous": "Trăng gần tròn",
+        "full_moon": "Vọng",
+        "waning_gibbous": "Trăng khuyết dần",
+        "last_quarter": "Hạ huyền",
+        "waning_crescent": "Tàn nguyệt",
+    }
+    moon_phase_label = moon_name_map.get(chronos.moon_phase.name, chronos.moon_phase.name)
+    score = 0
+    checks = []
+
+    checks.append(
+        {
+            "id": "time_frame",
+            "label": "Khung thời gian",
+            "status": "matched",
+            "detail": f"{chronos.ganzhi.hour} · {chronos.solar_term.name_vi}",
+        }
+    )
+    score += 1
+
+    moon_status = "matched" if chronos.moon_phase.illumination >= 0 else "unknown"
+    checks.append(
+        {
+            "id": "moon_phase",
+            "label": "Pha Trăng",
+            "status": moon_status,
+            "detail": f"{moon_phase_label} ({chronos.moon_phase.illumination:.3f})",
+        }
+    )
+    score += 1 if moon_status == "matched" else 0
+
+    earth_status = "matched" if earth else "unknown"
+    checks.append(
+        {
+            "id": "earth_position",
+            "label": "Vector Trái Đất",
+            "status": earth_status,
+            "detail": (
+                f"r={earth['distance_au']:.4f} AU, lon={earth['ecliptic_longitude_deg']:.2f}°"
+                if earth
+                else "Không có dữ liệu Trái Đất"
+            ),
+        }
+    )
+    score += 1 if earth else 0
+
+    checks.append(
+        {
+            "id": "almanac_consistency",
+            "label": "Lịch vạn niên cơ bản",
+            "status": "matched",
+            "detail": f"Âm lịch {chronos.almanac.lunar_date} · Trực {chronos.almanac.truc_of_day} · {chronos.almanac.weekday_vi}",
+        }
+    )
+    score += 1
+
+    confidence = round(score / max(len(checks), 1), 3)
+    report_lines = [
+        "# Báo cáo so sánh cơ bản",
+        f"- Ruleset: {ZIWEI_RULESET_ID} ({ZIWEI_RULESET_LABEL})",
+        f"- Thời điểm sinh: {local_dt.replace(microsecond=0).isoformat()}",
+        f"- Múi giờ: {request.timezone}",
+        f"- Nguồn thiên văn: {planets.get('source', 'UNKNOWN')}",
+        f"- Lịch vạn niên: âm lịch {chronos.almanac.lunar_date} · trực {chronos.almanac.truc_of_day}",
+        f"- Vận hạn cơ bản: năm {chronos.almanac.annual_fortune} · tháng {chronos.almanac.monthly_fortune} · ngày {chronos.almanac.daily_fortune} · giờ {chronos.almanac.hourly_fortune}",
+        "",
+    ]
+    for check in checks:
+        report_lines.append(f"- [{check['status']}] {check['label']}: {check['detail']}")
+
+    return {
+        "birth_datetime_local": local_dt.replace(microsecond=0).isoformat(),
+        "timezone": request.timezone,
+        "location_ref": request.location_ref,
+        "confidence": confidence,
+        "checks": checks,
+        "report_markdown": "\n".join(report_lines),
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+    }
+
+
+@app.post("/api/personal-profile")
+def personal_profile(request: PersonalProfileRequest) -> dict[str, object]:
+    profile = BirthProfile(**request.model_dump())
+    personal_vector = build_personal_vector(profile)
+    universe = build_universe_snapshot(timezone_name=request.timezone)
+    sync_score = calculate_sync_score(personal_vector, universe["scores"])
+    user_id = f"user_{uuid4().hex}"
+    store_json("user_profile", "user_id", {**request.model_dump(), **personal_vector}, ALGORITHM_VERSION, key=user_id)
+    store_json("personal_profile_cache", "user_id", personal_vector, ALGORITHM_VERSION, key=user_id)
+    prompts = []
+    for prompt in generate_milestone_prompts(profile):
+        row = {**prompt, "user_id": user_id, "algorithm_version": ALGORITHM_VERSION}
+        store_json("milestone_prompt", "prompt_id", row, ALGORITHM_VERSION, key=prompt["prompt_id"])
+        prompts.append(prompt)
+    return {
+        "user_id": user_id,
+        "personal_vector": {
+            "five_element_bias": personal_vector["five_element_bias"],
+            "pillar_summary": personal_vector["pillar_summary"],
+        },
+        "sync_score": sync_score,
+        "milestone_prompts": prompts,
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+    }
+
+
+@app.post("/api/feedback")
+def feedback(request: FeedbackRequest) -> dict[str, object]:
+    payload = {**request.model_dump(), "algorithm_version": ALGORITHM_VERSION}
+    feedback_id = store_json("feedback_event", "feedback_id", payload, ALGORITHM_VERSION, key=f"f_{uuid4().hex}")
+    return {"status": "stored", "feedback_id": feedback_id, "algorithm_version": ALGORITHM_VERSION}
+
+
+@app.post("/api/luc-hao/cast")
+def luc_hao_cast(request: LucHaoCastRequest) -> dict[str, object]:
+    result = cast_luc_hao(
+        datetime_local=request.datetime_local,
+        timezone=request.timezone,
+        question_text=request.question_text,
+        interaction=InteractionSignal(**request.interaction_signal.model_dump()),
+    )
+    return {
+        "timezone": request.timezone,
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+        "luc_hao_state": result,
+    }
+
+
+@app.post("/api/luc-hao/save-case")
+def luc_hao_save_case(request: LucHaoSaveCaseRequest) -> dict[str, object]:
+    payload = {
+        "question_text": request.question_text,
+        "timezone": request.timezone,
+        "luc_hao_state": request.luc_hao_state,
+        "interaction_signal": request.interaction_signal.model_dump(),
+        "saved_at_utc": datetime.now(timezone.utc).isoformat(),
+    }
+    case_id = store_json("luc_hao_case", "case_id", payload, ALGORITHM_VERSION, key=f"lh_{uuid4().hex}")
+    return {"status": "stored", "case_id": case_id, "algorithm_version": ALGORITHM_VERSION}
+
+
+@app.post("/api/luc-hao/feedback")
+def luc_hao_feedback(request: LucHaoFeedbackRequest) -> dict[str, object]:
+    payload = {
+        **request.model_dump(),
+        "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
+    }
+    feedback_id = store_json("luc_hao_feedback", "feedback_id", payload, ALGORITHM_VERSION, key=f"lf_{uuid4().hex}")
+    return {"status": "stored", "feedback_id": feedback_id, "algorithm_version": ALGORITHM_VERSION}
+
+
+@app.post("/api/lien-hoa/cast")
+def lien_hoa_cast(request: LienHoaCastRequest) -> dict[str, object]:
+    result = cast_lien_hoa(
+        number_right_hand=request.number_right_hand,
+        number_left_hand=request.number_left_hand,
+        question_text=request.question_text,
+        gender=request.gender,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ziwei_school": ZIWEI_SCHOOL,
+        "ziwei_ruleset_id": ZIWEI_RULESET_ID,
+        "ziwei_ruleset_label": ZIWEI_RULESET_LABEL,
+        "lien_hoa_state": result,
+    }
+
+
+@app.post("/api/bat-tu/cast")
+def bat_tu_cast(request: BatTuCastRequest) -> dict[str, object]:
+    """Cast a Bát Tự chart (Tứ trụ + Thập thần + Ngũ hành balance)."""
+    from engine.bat_tu import cast_bat_tu
+
+    result = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": result,
+    }
+
+
+@app.post("/api/ha-lac/cast")
+def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
+    """Cast Bát Tự Hà Lạc — derives 2 personal hexagrams + decade trajectory.
+
+    Cross-module: Bát Tự → 2 Kinh Dịch hexagrams + lifetime decade walk.
+    """
+    from engine.ha_lac import cast_ha_lac
+
+    result = cast_ha_lac(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ha_lac_state": result,
+    }
+
+
+@app.get("/api/tu-vi/chinh-tinh")
+def tu_vi_chinh_tinh_list() -> dict[str, object]:
+    """Return all 14 chính tinh metadata + interpretation templates."""
+    from engine.tu_vi import list_chinh_tinh
+
+    return {
+        "status": "ok",
+        "stars": [s.to_dict() for s in list_chinh_tinh()],
+    }
+
+
+@app.get("/api/tu-vi/chinh-tinh/{star_id}")
+def tu_vi_chinh_tinh_detail(star_id: str) -> dict[str, object]:
+    """Return one chính tinh by id slug."""
+    from engine.tu_vi import get_chinh_tinh
+
+    try:
+        s = get_chinh_tinh(star_id)
+    except ValueError:
+        return {"status": "not_found", "id": star_id}
+    return {"status": "ok", "star": s.to_dict()}
+
+
+_HOUR_BRANCH_BY_HOUR = (
+    "Tý", "Sửu", "Sửu", "Dần", "Dần", "Mão", "Mão",
+    "Thìn", "Thìn", "Tỵ", "Tỵ", "Ngọ", "Ngọ",
+    "Mùi", "Mùi", "Thân", "Thân", "Dậu", "Dậu",
+    "Tuất", "Tuất", "Hợi", "Hợi", "Tý",
+)
+
+
+def _hour_branch_from_hour(hour: int) -> str:
+    """Map 0..23 to địa chi hour."""
+    return _HOUR_BRANCH_BY_HOUR[hour]
+
+
+@app.post("/api/tu-vi/cast")
+def tu_vi_cast(request: TuViCastRequest) -> dict[str, object]:
+    """Cast a full Tử Vi lá số.
+
+    Two input modes:
+    - Direct (lunar_month + lunar_day + hour_branch + year_stem + year_branch + gender)
+    - Convenient (birth_datetime_local — auto-converts via core.chronos)
+    """
+    from engine.tu_vi import cast_la_so
+
+    # Resolve inputs.
+    if request.birth_datetime_local:
+        from core.chronos import calculate_chronos_state
+
+        chronos = calculate_chronos_state(request.birth_datetime_local, request.timezone)
+        # Parse lunar date from "DD/MM/YYYY".
+        d_str, m_str, _ = chronos.almanac.lunar_date.split("/")
+        lunar_month = int(m_str)
+        lunar_day = int(d_str)
+        # Hour branch from local datetime hour.
+        from datetime import datetime as _dt
+        local_dt = _dt.fromisoformat(request.birth_datetime_local)
+        hour_branch = _hour_branch_from_hour(local_dt.hour)
+        # Year stem/branch from chronos.ganzhi.
+        year_parts = chronos.ganzhi.year.split()
+        year_stem = year_parts[0]
+        year_branch = year_parts[1]
+    else:
+        # Direct mode — require all fields.
+        missing = [k for k, v in {
+            "lunar_month": request.lunar_month,
+            "lunar_day": request.lunar_day,
+            "hour_branch": request.hour_branch,
+            "year_stem": request.year_stem,
+            "year_branch": request.year_branch,
+        }.items() if v is None]
+        if missing:
+            return {"status": "error", "missing_fields": missing}
+        lunar_month = request.lunar_month
+        lunar_day = request.lunar_day
+        hour_branch = request.hour_branch
+        year_stem = request.year_stem
+        year_branch = request.year_branch
+
+    result = cast_la_so(
+        lunar_month=lunar_month,
+        lunar_day=lunar_day,
+        hour_branch=hour_branch,
+        year_stem=year_stem,
+        year_branch=year_branch,
+        gender=request.gender,
+    )
+
+    # Optional layers.
+    response: dict[str, object] = {
+        "algorithm_version": ALGORITHM_VERSION,
+        "input_resolved": {
+            "lunar_month": lunar_month,
+            "lunar_day": lunar_day,
+            "hour_branch": hour_branch,
+            "year_stem": year_stem,
+            "year_branch": year_branch,
+            "gender": request.gender,
+        },
+        "la_so": result,
+    }
+
+    if request.include_interpretation:
+        from engine.tu_vi import interpret_la_so
+
+        response["interpretation"] = interpret_la_so(result)
+
+    # Lưu trú sao for target_year if provided.
+    if request.target_year is not None and request.birth_datetime_local:
+        from datetime import datetime as _dt
+        from engine.tu_vi import luu_tru_for_year
+
+        local_dt = _dt.fromisoformat(request.birth_datetime_local)
+        birth_year = local_dt.year
+        response["luu_tru_year"] = luu_tru_for_year(
+            la_so=result,
+            target_year=request.target_year,
+            birth_year=birth_year,
+        )
+
+    return response
+
+
+
+# ─── AI Hội Đồng (Sages Council) endpoints ──────────────────────────────────
+
+
+@app.get("/api/ai/providers")
+def ai_list_providers() -> dict:
+    """List all LLM providers + their status (configured? unhealthy?)."""
+    from engine.ai.registry import get_registry
+
+    reg = get_registry()
+    providers = reg.list_providers()
+    for p in providers:
+        p["is_unhealthy"] = reg.is_unhealthy(p["name"])
+    return {"status": "ok", "providers": providers}
+
+
+@app.post("/api/ai/providers/{name}/key")
+def ai_set_provider_key(name: str, request: AiProviderKeyRequest) -> dict:
+    """Update API key for a provider at runtime."""
+    from engine.ai.registry import get_registry
+
+    reg = get_registry()
+    try:
+        status = reg.set_api_key(name, request.api_key)
+        reg.reset_health()  # clear unhealthy marks since key changed
+        return {"status": "ok", "provider": status}
+    except KeyError:
+        return {"status": "not_found", "name": name}
+
+
+@app.post("/api/ai/providers/reset-health")
+def ai_reset_provider_health() -> dict:
+    """Clear all unhealthy marks — useful after recharging account."""
+    from engine.ai.registry import get_registry
+
+    get_registry().reset_health()
+    return {"status": "ok"}
+
+
+@app.post("/api/ai/providers/{name}/notes")
+def ai_set_provider_notes(name: str, req: AiProviderNotesRequest) -> dict:
+    """Update notes + plan_type cho provider.
+
+    plan_type:
+      - 'coding_plan'        — Claude Code subscription, Cursor Pro, etc.
+      - 'api_pay_per_token'  — DeepSeek/OpenAI pay-per-use
+      - 'free_tier'          — free credit, has quota limit
+      - 'local'              — Ollama, self-hosted
+    """
+    from engine.ai.registry import get_registry
+    try:
+        notes = get_registry().set_notes(
+            name, plan_type=req.plan_type, notes=req.notes
+        )
+        return {"status": "ok", "provider": name, "notes": notes}
+    except KeyError:
+        return {"status": "not_found", "name": name}
+
+
+@app.post("/api/ai/providers/{name}/test")
+def ai_test_provider(name: str, req: AiProviderTestRequest) -> dict:
+    """Test 1 call ngắn tới provider. Đo latency + verify key/config OK."""
+    from engine.ai.registry import get_registry
+    import time as _time
+    reg = get_registry()
+    try:
+        p = reg.get(name)
+    except KeyError:
+        return {"status": "not_found", "name": name}
+    if not p.is_configured:
+        return {
+            "status": "not_configured",
+            "provider": name,
+            "message": "Provider chưa được cấu hình (thiếu API key hoặc server chưa chạy)",
+        }
+    model = req.model or p.default_model
+    t0 = _time.time()
+    # Reasoning models (M2, R1, etc.) need budget for <think> block before answering.
+    is_reasoning = any(s in model.lower() for s in ("m2", "reasoner", "thinking", "o1"))
+    max_tok = 500 if is_reasoning else 80
+    try:
+        resp = p.chat(
+            messages=[{"role": "user", "content": req.prompt}],
+            model=model, temperature=0.1, max_tokens=max_tok,
+        )
+        dt = _time.time() - t0
+        return {
+            "status": "ok",
+            "provider": name,
+            "model": model,
+            "latency_seconds": round(dt, 2),
+            "response_preview": resp.content[:200],
+            "tokens": {
+                "prompt": resp.prompt_tokens,
+                "completion": resp.completion_tokens,
+                "total": resp.total_tokens,
+            },
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "provider": name,
+            "model": model,
+            "error": f"{type(e).__name__}: {str(e)[:300]}",
+        }
+
+
+@app.get("/api/ai/agents")
+def ai_list_agents() -> dict:
+    """List 7 agents with metadata."""
+    from engine.ai.prompt_store import AGENT_IDS, AGENT_METADATA, is_overridden
+
+    agents = []
+    for aid in AGENT_IDS:
+        meta = AGENT_METADATA[aid]
+        agents.append({
+            "id": aid,
+            "name_vi": meta["name_vi"],
+            "icon": meta["icon"],
+            "specialty": meta["specialty"],
+            "best_for": meta["best_for"],
+            "prompt_overridden": is_overridden(aid),
+        })
+    return {"status": "ok", "agents": agents}
+
+
+@app.get("/api/ai/prompts/{agent_id}")
+def ai_get_prompt(agent_id: str) -> dict:
+    """Get current prompt (override if exists, else default) + default for reset."""
+    from engine.ai.prompt_store import ALL_PROMPT_IDS, get_default, get_prompt, is_overridden
+
+    if agent_id not in ALL_PROMPT_IDS:
+        return {"status": "not_found", "agent_id": agent_id}
+    return {
+        "status": "ok",
+        "agent_id": agent_id,
+        "current": get_prompt(agent_id),
+        "default": get_default(agent_id),
+        "is_overridden": is_overridden(agent_id),
+    }
+
+
+@app.put("/api/ai/prompts/{agent_id}")
+def ai_set_prompt(agent_id: str, request: AiPromptUpdateRequest) -> dict:
+    """Save user override for a prompt."""
+    from engine.ai.prompt_store import ALL_PROMPT_IDS, set_prompt
+
+    if agent_id not in ALL_PROMPT_IDS:
+        return {"status": "not_found", "agent_id": agent_id}
+    set_prompt(agent_id, request.content)
+    return {"status": "ok", "agent_id": agent_id}
+
+
+@app.delete("/api/ai/prompts/{agent_id}")
+def ai_reset_prompt(agent_id: str) -> dict:
+    """Reset prompt to default (delete user override)."""
+    from engine.ai.prompt_store import ALL_PROMPT_IDS, reset_prompt
+
+    if agent_id not in ALL_PROMPT_IDS:
+        return {"status": "not_found", "agent_id": agent_id}
+    reset_prompt(agent_id)
+    return {"status": "ok", "agent_id": agent_id}
+
+
+@app.post("/api/ai/council/consult")
+def ai_council_consult(request: AiCouncilRequest) -> dict:
+    """Run a full council consultation (3-round Socratic debate)."""
+    from engine.ai.council import consult_council
+
+    result = consult_council(
+        question=request.question,
+        chart_data=request.chart_data,
+        chart_summary=request.chart_summary,
+        explicit_agents=request.explicit_agents,
+        parallel=request.parallel,
+        skip_challenge=request.skip_challenge,
+        persist=request.persist,
+    )
+    return {"status": "ok", "session": result}
+
+
+@app.get("/api/ai/council/sessions")
+def ai_council_recent_sessions(limit: int = 20) -> dict:
+    from engine.ai.council import list_recent_sessions
+
+    return {"status": "ok", "sessions": list_recent_sessions(limit=limit)}
+
+
+@app.get("/api/ai/council/sessions/{session_id}")
+def ai_council_session(session_id: int) -> dict:
+    from engine.ai.council import get_session
+
+    s = get_session(session_id)
+    if s is None:
+        return {"status": "not_found", "id": session_id}
+    return {"status": "ok", "session": s}
+
+
+# ─── Kanban-based Council (durable, async) ──────────────────────────────────
+
+
+@app.post("/api/ai/council/kanban/consult")
+def ai_kanban_council_consult(request: AiKanbanCouncilRequest) -> dict:
+    """Spawn a P3-quorum kanban council consultation.
+
+    Server auto-precasts engine outputs for selected sages (if `birth` or
+    `event` supplied) so sages don't waste tokens recomputing. Caller can
+    also pass `precast_data` directly to skip auto-cast.
+
+    Returns immediately with root_id; client polls /kanban/sessions/{root_id}.
+    """
+    from engine.ai.kanban_council import consult, save_session, select_sages
+    from engine.ai.precast import precast_for_sages
+
+    sages = request.sages or select_sages(request.question)
+
+    # Build precast: explicit precast_data takes precedence, then auto from birth/event
+    precast: dict[str, dict] = {}
+    if request.birth or request.event:
+        precast.update(
+            precast_for_sages(sages, birth=request.birth, event=request.event)
+        )
+    if request.precast_data:
+        precast.update(request.precast_data)  # explicit wins
+
+    session = consult(
+        question=request.question,
+        sages=sages,
+        precast_data=precast,
+        chart_context=request.chart_context,
+        soul_key=request.soul_key,
+    )
+    save_session(session)
+    return {
+        "status": "ok",
+        "session": session.to_dict(),
+        "precast_sages": list(precast.keys()),
+    }
+
+
+@app.get("/api/ai/council/kanban/sessions/{root_id}")
+def ai_kanban_council_session(root_id: str) -> dict:
+    """Live snapshot of a kanban council session."""
+    from engine.ai.kanban_council import load_session, session_snapshot
+
+    session = load_session(root_id)
+    if session is None:
+        return {"status": "not_found", "root_id": root_id}
+    return {"status": "ok", "snapshot": session_snapshot(session)}
+
+
+@app.get("/api/ai/council/kanban/sessions")
+def ai_kanban_council_recent(limit: int = 20) -> dict:
+    from engine.ai.kanban_council import list_recent_sessions
+
+    return {"status": "ok", "sessions": list_recent_sessions(limit=limit)}
+
+
+@app.get("/api/ai/council/kanban/sessions/{root_id}/synthesis")
+def ai_kanban_council_synthesis(root_id: str) -> dict:
+    """Arbiter's final report if complete; otherwise null."""
+    from engine.ai.kanban_council import get_synthesis, load_session
+
+    session = load_session(root_id)
+    if session is None:
+        return {"status": "not_found", "root_id": root_id}
+    synthesis = get_synthesis(session)
+    return {
+        "status": "ok" if synthesis else "pending",
+        "root_id": root_id,
+        "synthesis": synthesis,
+    }
+
+
+# ─── Critique queue (sage-suggested engine improvements) ─────────────────────
+
+
+@app.get("/api/ai/council/critiques")
+def ai_council_critiques_list(
+    status: str | None = "open",
+    priority: str | None = None,
+    target_prefix: str | None = None,
+    limit: int = 100,
+) -> dict:
+    """Browse sage-suggested engine improvements.
+
+    Filters:
+      - status: open | resolved | dismissed (default: open)
+      - priority: low | medium | high
+      - target_prefix: e.g. "engine.bat_tu"
+    """
+    from engine.ai.critique_store import list_critiques
+
+    return {
+        "status": "ok",
+        "critiques": list_critiques(
+            status=status, priority=priority,
+            target_prefix=target_prefix, limit=limit,
+        ),
+    }
+
+
+@app.get("/api/ai/council/critiques/stats")
+def ai_council_critiques_stats() -> dict:
+    """Critique queue dashboard summary."""
+    from engine.ai.critique_store import stats
+
+    return {"status": "ok", "stats": stats()}
+
+
+@app.post("/api/ai/council/critiques/{critique_id}/resolve")
+def ai_council_critique_resolve(
+    critique_id: int, request: AiCritiqueResolveRequest
+) -> dict:
+    """Mark a critique as resolved (anh fixed it) or dismissed (won't fix)."""
+    from engine.ai.critique_store import dismiss_critique, resolve_critique
+
+    if request.action == "dismiss":
+        ok = dismiss_critique(critique_id, reason=request.resolution)
+    else:
+        ok = resolve_critique(critique_id, resolution=request.resolution)
+    return {"status": "ok" if ok else "not_found", "id": critique_id}
+
+
+# ─── YI-Hermes endpoints (separate namespace from user's Mac Hermes) ────────
+
+
+@app.post("/api/yi-hermes/chat")
+def yi_hermes_chat(request: YiHermesChatRequest) -> dict:
+    """Send a message to YI-Hermes — multi-turn chat."""
+    from engine.yi_hermes import HermesChat, HermesContext
+    from engine.yi_hermes.chat import HermesTurn
+
+    ctx_dict = request.context.model_dump() if request.context else {}
+    ctx = HermesContext(**ctx_dict)
+    history = [
+        HermesTurn(
+            role=h.get("role", "user"),
+            content=h.get("content", ""),
+            intent=h.get("intent", ""),
+            tokens_used=h.get("tokens_used", 0),
+        )
+        for h in request.history
+    ]
+
+    chat = HermesChat()
+    result = chat.send(
+        user_message=request.user_message,
+        context=ctx,
+        history=history,
+    )
+    return {"status": "ok", "response": result}
+
+
+@app.get("/api/yi-hermes/modules")
+def yi_hermes_modules() -> dict:
+    """List all modules YI-Hermes knows about."""
+    from engine.yi_hermes import get_librarian
+
+    lib = get_librarian()
+    return {
+        "status": "ok",
+        "modules": lib.list_modules(),
+        "summary": lib.schools_summary(),
+    }
+
+
+@app.get("/api/yi-hermes/glossary")
+def yi_hermes_glossary_list(module: str | None = None) -> dict:
+    """List glossary terms, optionally filtered by module."""
+    from engine.yi_hermes import get_glossary_store
+
+    store = get_glossary_store()
+    terms = store.list_all(module=module)
+    return {
+        "status": "ok",
+        "count": len(terms),
+        "modules_summary": store.modules_summary(),
+        "terms": [t.to_dict() for t in terms],
+    }
+
+
+@app.get("/api/yi-hermes/glossary/search")
+def yi_hermes_glossary_search(q: str, limit: int = 30) -> dict:
+    """Fuzzy search glossary."""
+    from engine.yi_hermes import get_glossary_store
+
+    if not q.strip():
+        return {"status": "error", "message": "Query empty"}
+    results = get_glossary_store().search(q, limit=limit)
+    return {
+        "status": "ok",
+        "query": q,
+        "count": len(results),
+        "terms": [t.to_dict() for t in results],
+    }
+
+
+@app.get("/api/yi-hermes/glossary/term/{term_vi}")
+def yi_hermes_glossary_get(term_vi: str) -> dict:
+    """Get single term by Vietnamese name (URL-encoded)."""
+    from engine.yi_hermes import get_glossary_store
+
+    t = get_glossary_store().get(term_vi)
+    if t is None:
+        return {"status": "not_found", "term_vi": term_vi}
+    return {"status": "ok", "term": t.to_dict()}
+
+
+@app.put("/api/yi-hermes/glossary/term/{term_vi}")
+def yi_hermes_glossary_upsert(term_vi: str, request: YiHermesGlossaryUpsertRequest) -> dict:
+    """Add or update a glossary term."""
+    from engine.yi_hermes import GlossaryTerm, get_glossary_store
+
+    term = GlossaryTerm(
+        term_vi=request.term_vi or term_vi,
+        term_zh=request.term_zh,
+        module=request.module,
+        short_def=request.short_def,
+        long_def=request.long_def,
+        example=request.example,
+        see_also=request.see_also,
+    )
+    get_glossary_store().upsert(term)
+    return {"status": "ok", "term": term.to_dict()}
+
+
+@app.delete("/api/yi-hermes/glossary/term/{term_vi}")
+def yi_hermes_glossary_delete(term_vi: str) -> dict:
+    from engine.yi_hermes import get_glossary_store
+
+    deleted = get_glossary_store().delete(term_vi)
+    return {"status": "ok" if deleted else "not_found", "term_vi": term_vi}
+
+
+# ─── YI-Hermes Soul + Memory endpoints ────────────────────────────────────
+
+
+@app.get("/api/yi-hermes/soul/{user_id}")
+def yi_hermes_soul_get(user_id: str) -> dict:
+    """Get user's Soul profile (creates default if not seen before)."""
+    from engine.yi_hermes import get_soul
+
+    soul = get_soul(user_id)
+    return {"status": "ok", "soul": soul.to_dict()}
+
+
+@app.put("/api/yi-hermes/soul/{user_id}")
+def yi_hermes_soul_update(user_id: str, request: YiHermesSoulUpdateRequest) -> dict:
+    """Partial update to Soul (only non-None fields are applied)."""
+    from engine.yi_hermes import update_soul
+
+    patch = {k: v for k, v in request.model_dump().items() if v is not None}
+    soul = update_soul(user_id, patch)
+    return {"status": "ok", "soul": soul.to_dict()}
+
+
+@app.delete("/api/yi-hermes/soul/{user_id}")
+def yi_hermes_soul_reset(user_id: str) -> dict:
+    """Wipe Soul → restart with default."""
+    from engine.yi_hermes import reset_soul
+
+    soul = reset_soul(user_id)
+    return {"status": "ok", "soul": soul.to_dict()}
+
+
+@app.get("/api/yi-hermes/memory/{user_id}/facts")
+def yi_hermes_memory_list_facts(user_id: str, category: str | None = None, limit: int = 50) -> dict:
+    """List facts about user."""
+    from engine.yi_hermes import fact_categories_summary, list_facts
+
+    facts = list_facts(user_id, category=category, limit=limit)
+    return {
+        "status": "ok",
+        "count": len(facts),
+        "category_summary": fact_categories_summary(user_id),
+        "facts": [f.to_dict() for f in facts],
+    }
+
+
+@app.post("/api/yi-hermes/memory/{user_id}/facts")
+def yi_hermes_memory_add_fact(user_id: str, request: YiHermesFactAddRequest) -> dict:
+    """Add a fact about user."""
+    from engine.yi_hermes import add_fact
+
+    fact_id = add_fact(
+        user_id=user_id,
+        fact=request.fact,
+        category=request.category,
+        confidence=request.confidence,
+        notes=request.notes,
+    )
+    return {"status": "ok", "fact_id": fact_id}
+
+
+@app.delete("/api/yi-hermes/memory/facts/{fact_id}")
+def yi_hermes_memory_delete_fact(fact_id: int) -> dict:
+    from engine.yi_hermes import delete_fact
+
+    deleted = delete_fact(fact_id)
+    return {"status": "ok" if deleted else "not_found", "fact_id": fact_id}
+
+
+@app.get("/api/yi-hermes/memory/{user_id}/summaries")
+def yi_hermes_memory_list_summaries(user_id: str, limit: int = 20) -> dict:
+    from engine.yi_hermes import list_summaries
+
+    summaries = list_summaries(user_id, limit=limit)
+    return {
+        "status": "ok",
+        "count": len(summaries),
+        "summaries": [s.to_dict() for s in summaries],
+    }
+
+
+@app.post("/api/yi-hermes/memory/{user_id}/summaries")
+def yi_hermes_memory_add_summary(user_id: str, request: YiHermesSummaryAddRequest) -> dict:
+    from engine.yi_hermes import add_summary
+
+    sid = add_summary(
+        user_id=user_id,
+        summary=request.summary,
+        key_topics=request.key_topics,
+        chart_data_hash=request.chart_data_hash,
+    )
+    return {"status": "ok", "summary_id": sid}
+
+
+@app.get("/api/yi-hermes/memory/{user_id}/search")
+def yi_hermes_memory_search(user_id: str, q: str, limit: int = 5) -> dict:
+    """FTS search past summaries."""
+    from engine.yi_hermes import search_summaries
+
+    results = search_summaries(user_id, q, limit=limit)
+    return {
+        "status": "ok",
+        "query": q,
+        "count": len(results),
+        "summaries": [s.to_dict() for s in results],
+    }
+
+
+@app.get("/api/yi-hermes/memory/{user_id}/top-terms")
+def yi_hermes_memory_top_terms(user_id: str, limit: int = 10) -> dict:
+    from engine.yi_hermes import top_viewed_terms
+
+    rows = top_viewed_terms(user_id, limit=limit)
+    return {
+        "status": "ok",
+        "top_terms": [{"term_vi": t, "count": c} for t, c in rows],
+    }
+
+
+@app.get("/api/yi-hermes/memory/{user_id}/full")
+def yi_hermes_memory_full(user_id: str) -> dict:
+    """Full memory + soul snapshot for the 'Hermes nhớ về anh' UI panel."""
+    from engine.yi_hermes import (
+        get_soul,
+        list_facts,
+        list_summaries,
+        top_viewed_terms,
+        fact_categories_summary,
+    )
+
+    soul = get_soul(user_id)
+    facts = list_facts(user_id, limit=20)
+    summaries = list_summaries(user_id, limit=10)
+    top_terms = top_viewed_terms(user_id, limit=10)
+
+    return {
+        "status": "ok",
+        "user_id": user_id,
+        "soul": soul.to_dict(),
+        "facts": [f.to_dict() for f in facts],
+        "fact_categories": fact_categories_summary(user_id),
+        "summaries": [s.to_dict() for s in summaries],
+        "top_viewed_terms": [{"term_vi": t, "count": c} for t, c in top_terms],
+    }
+
+
+# ─── YI-Hermes Context (Manifest + Founder + Bootstrap) ──────────────────────
+
+
+@app.get("/api/yi-hermes/context/manifest")
+def yi_hermes_get_manifest() -> dict:
+    """Get the YI-CHRONOS project manifest that Hermes reads on every chat."""
+    from engine.yi_hermes import get_manifest
+
+    content = get_manifest()
+    return {
+        "status": "ok",
+        "content": content,
+        "size_chars": len(content),
+    }
+
+
+@app.put("/api/yi-hermes/context/manifest")
+def yi_hermes_update_manifest(request: YiHermesContentUpdateRequest) -> dict:
+    """Overwrite project manifest. Hermes reloads automatically."""
+    from engine.yi_hermes import update_manifest
+
+    update_manifest(request.content)
+    return {"status": "ok", "size_chars": len(request.content)}
+
+
+@app.get("/api/yi-hermes/context/founder")
+def yi_hermes_get_founder() -> dict:
+    """Get the founder profile that Hermes reads when chatting with anh."""
+    from engine.yi_hermes import get_founder_profile, get_founder_soul_keys
+
+    content = get_founder_profile()
+    return {
+        "status": "ok",
+        "content": content,
+        "size_chars": len(content),
+        "founder_soul_keys": list(get_founder_soul_keys()),
+    }
+
+
+@app.put("/api/yi-hermes/context/founder")
+def yi_hermes_update_founder(request: YiHermesContentUpdateRequest) -> dict:
+    """Overwrite founder profile. Hermes reloads automatically."""
+    from engine.yi_hermes import update_founder_profile
+
+    update_founder_profile(request.content)
+    return {"status": "ok", "size_chars": len(request.content)}
+
+
+@app.post("/api/yi-hermes/context/reload")
+def yi_hermes_reload_context() -> dict:
+    """Force-reload manifest + founder from disk (clear cache)."""
+    from engine.yi_hermes import reload_context_files
+
+    reload_context_files()
+    return {"status": "ok"}
+
+
+@app.get("/api/yi-hermes/context/summary/{soul_key}")
+def yi_hermes_context_summary_for(soul_key: str) -> dict:
+    """Show what context is currently injected for a given soul_key.
+
+    For UI: 'Hermes biết gì về user này?'
+    """
+    from engine.yi_hermes import context_summary
+
+    # URL-decode soul_key (might contain ':')
+    return {"status": "ok", "context": context_summary(soul_key)}
+
+
+# ─── Person + Relationship + Dyad endpoints ─────────────────────────────────
+
+
+@app.post("/api/yi-hermes/persons")
+def yi_hermes_create_person(req: PersonCreateRequest) -> dict:
+    """Create a new Person profile."""
+    from engine.yi_hermes.persons import create_person
+
+    p = create_person(**req.model_dump())
+    return {"status": "ok", "person": p.to_dict()}
+
+
+@app.get("/api/yi-hermes/persons")
+def yi_hermes_list_persons(
+    relationship_to_founder: str | None = None,
+    day_master: str | None = None,
+    limit: int = 100,
+) -> dict:
+    from engine.yi_hermes.persons import list_persons
+
+    persons = list_persons(
+        relationship_to_founder=relationship_to_founder,
+        day_master=day_master, limit=limit,
+    )
+    return {"status": "ok", "persons": [p.to_dict() for p in persons], "count": len(persons)}
+
+
+@app.get("/api/yi-hermes/persons/{person_id}")
+def yi_hermes_get_person(person_id: str) -> dict:
+    from engine.yi_hermes.persons import get_person
+
+    p = get_person(person_id)
+    if not p:
+        return {"status": "not_found", "person_id": person_id}
+    return {"status": "ok", "person": p.to_dict()}
+
+
+@app.put("/api/yi-hermes/persons/{person_id}")
+def yi_hermes_update_person(person_id: str, req: PersonUpdateRequest) -> dict:
+    from engine.yi_hermes.persons import update_person
+
+    patch = {k: v for k, v in req.model_dump().items() if v is not None}
+    p = update_person(person_id, patch)
+    if not p:
+        return {"status": "not_found", "person_id": person_id}
+    return {"status": "ok", "person": p.to_dict()}
+
+
+@app.post("/api/yi-hermes/persons/{person_id}/layer")
+def yi_hermes_update_layer(person_id: str, req: PersonLayerUpdateRequest) -> dict:
+    """Merge `patch` into the named layer of person (career/health/physiognomy/...)."""
+    from engine.yi_hermes.persons import update_layer
+
+    p = update_layer(person_id, req.layer, req.patch, confidence=req.confidence)
+    if not p:
+        return {"status": "not_found", "person_id": person_id}
+    return {"status": "ok", "person": p.to_dict()}
+
+
+@app.post("/api/yi-hermes/persons/{person_id}/notes")
+def yi_hermes_add_person_note(person_id: str, req: PersonNoteRequest) -> dict:
+    from engine.yi_hermes.persons import add_note
+
+    note_id = add_note(
+        person_id, req.body, source=req.source,
+        confidence=req.confidence, layer_hint=req.layer_hint,
+    )
+    return {"status": "ok", "note_id": note_id}
+
+
+@app.get("/api/yi-hermes/persons/{person_id}/notes")
+def yi_hermes_list_person_notes(person_id: str, layer_hint: str | None = None, limit: int = 50) -> dict:
+    from engine.yi_hermes.persons import list_notes
+
+    notes = list_notes(person_id, layer_hint=layer_hint, limit=limit)
+    return {"status": "ok", "notes": [n.to_dict() for n in notes]}
+
+
+@app.post("/api/yi-hermes/persons/{person_id}/cast-bat-tu")
+def yi_hermes_person_cast_bat_tu(person_id: str) -> dict:
+    """Lazy-cast (and cache) Bát Tự for a person who has birth_datetime_local set."""
+    from engine.yi_hermes.persons import cast_bat_tu_for, get_person
+
+    p = get_person(person_id)
+    if not p:
+        return {"status": "not_found", "person_id": person_id}
+    if not p.birth_datetime_local:
+        return {"status": "no_birth_data", "person_id": person_id}
+    chart = cast_bat_tu_for(person_id)
+    return {"status": "ok", "chart": chart}
+
+
+@app.delete("/api/yi-hermes/persons/{person_id}")
+def yi_hermes_delete_person(person_id: str) -> dict:
+    from engine.yi_hermes.persons import delete_person
+
+    ok = delete_person(person_id)
+    return {"status": "ok" if ok else "not_found", "person_id": person_id}
+
+
+# ─── Relationships ────────────────────────────────────────────────────────
+
+
+@app.post("/api/yi-hermes/relationships")
+def yi_hermes_add_relationship(req: RelationshipCreateRequest) -> dict:
+    from engine.yi_hermes.relationships import add_relationship
+
+    rel = add_relationship(**req.model_dump())
+    return {"status": "ok", "relationship": rel.to_dict()}
+
+
+@app.get("/api/yi-hermes/relationships")
+def yi_hermes_list_relationships(
+    person_id: str | None = None,
+    rel_type: str | None = None,
+    direction: str = "from",
+    limit: int = 100,
+) -> dict:
+    from engine.yi_hermes.relationships import list_relationships
+
+    rels = list_relationships(
+        person_id=person_id, rel_type=rel_type,
+        direction=direction, limit=limit,
+    )
+    return {"status": "ok", "relationships": [r.to_dict() for r in rels], "count": len(rels)}
+
+
+@app.get("/api/yi-hermes/network/{founder_id}")
+def yi_hermes_network(founder_id: str) -> dict:
+    """Return the founder's social graph (depth 1)."""
+    from engine.yi_hermes.relationships import founder_network
+
+    return {"status": "ok", "graph": founder_network(founder_id)}
+
+
+# ─── Dyad analysis ─────────────────────────────────────────────────────────
+
+
+# ─── YI-Lexicon endpoints ───────────────────────────────────────────────────
+
+
+@app.get("/api/yi-lexicon/stats")
+def yi_lexicon_stats() -> dict:
+    from engine.yi_lexicon import stats
+    return {"status": "ok", "stats": stats()}
+
+
+@app.post("/api/yi-lexicon/concepts")
+def yi_lexicon_create_concept(req: LexiconConceptCreateRequest) -> dict:
+    from engine.yi_lexicon import add_concept
+    c = add_concept(**req.model_dump())
+    return {"status": "ok", "concept": c.to_dict()}
+
+
+@app.get("/api/yi-lexicon/concepts")
+def yi_lexicon_search_concepts(q: str, schools: str | None = None, limit: int = 20) -> dict:
+    """Search concepts (FTS5). `schools` is comma-separated filter."""
+    from engine.yi_lexicon import search_concepts
+    school_list = [s.strip() for s in schools.split(",")] if schools else None
+    hits = search_concepts(q, schools=school_list, limit=limit)
+    return {"status": "ok", "results": [c.to_dict() for c in hits]}
+
+
+@app.get("/api/yi-lexicon/concepts/{concept_id}")
+def yi_lexicon_get_concept(concept_id: int) -> dict:
+    from engine.yi_lexicon import get_concept, mappings_for
+    c = get_concept(concept_id=concept_id)
+    if not c:
+        return {"status": "not_found"}
+    return {
+        "status": "ok",
+        "concept": c.to_dict(),
+        "mappings": [m.to_dict() for m in mappings_for(concept_id)],
+    }
+
+
+@app.post("/api/yi-lexicon/mappings")
+def yi_lexicon_add_mapping(req: LexiconMappingCreateRequest) -> dict:
+    from engine.yi_lexicon import add_mapping
+    m = add_mapping(**req.model_dump())
+    return {"status": "ok", "mapping": m.to_dict()}
+
+
+@app.get("/api/yi-lexicon/reverse-lookup")
+def yi_lexicon_reverse_lookup(dim_type: str, dim_value: str, limit: int = 50) -> dict:
+    """Find concepts that map to (dim_type, dim_value). E.g. 'what concepts → mộc?'"""
+    from engine.yi_lexicon import reverse_lookup_concepts
+    hits = reverse_lookup_concepts(dim_type, dim_value, limit=limit)
+    return {"status": "ok", "results": [c.to_dict() for c in hits]}
+
+
+@app.post("/api/yi-lexicon/interpret")
+def yi_lexicon_interpret(req: LexiconInterpretRequest) -> dict:
+    """Parse free-text observation → symbolic context (cho LLM prompt enrichment)."""
+    from engine.yi_lexicon.parser import interpret_observation
+    ctx = interpret_observation(req.text, schools=req.schools)
+    return {"status": "ok", "context": ctx.to_dict()}
+
+
+@app.post("/api/yi-lexicon/corpora")
+def yi_lexicon_register_corpus(req: LexiconCorpusRegisterRequest) -> dict:
+    from engine.yi_lexicon.ingestion import register_corpus
+    cid = register_corpus(**req.model_dump())
+    return {"status": "ok", "corpus_id": cid}
+
+
+@app.get("/api/yi-lexicon/corpora")
+def yi_lexicon_list_corpora() -> dict:
+    from engine.yi_lexicon import list_corpora
+    return {"status": "ok", "corpora": [c.to_dict() for c in list_corpora()]}
+
+
+@app.post("/api/yi-lexicon/ingest")
+def yi_lexicon_ingest(req: LexiconIngestRequest) -> dict:
+    """Read corpus + LLM extract concepts/mappings + YOLO auto-merge."""
+    from engine.yi_lexicon.ingestion import ingest_corpus
+    result = ingest_corpus(req.corpus_id, max_chunks=req.max_chunks)
+    return {"status": "ok", "result": result.__dict__}
+
+
+@app.post("/api/yi-lexicon/distill")
+def yi_lexicon_distill(req: LexiconDistillRequest) -> dict:
+    """Distill knowledge from a completed council session."""
+    from engine.yi_lexicon.distill import distill_from_council
+    result = distill_from_council(req.root_id)
+    return {"status": "ok", "result": result.__dict__}
+
+
+@app.get("/api/yi-lexicon/distill-queue")
+def yi_lexicon_distill_queue(status: str | None = None, limit: int = 100) -> dict:
+    from engine.yi_lexicon import get_distill_queue
+    items = get_distill_queue(status=status, limit=limit)
+    return {"status": "ok", "items": [i.to_dict() for i in items]}
+
+
+@app.post("/api/yi-lexicon/distill-queue/{item_id}/resolve")
+def yi_lexicon_resolve_distill(item_id: int, req: LexiconResolveItemRequest) -> dict:
+    from engine.yi_lexicon import resolve_distill_item
+    ok = resolve_distill_item(item_id, status=req.status, reviewer_note=req.reviewer_note)
+    return {"status": "ok" if ok else "not_found"}
+
+
+# ─── Lexicon conflict resolver (anh arbiter) ─────────────────────────────────
+
+
+@app.get("/api/yi-lexicon/conflicts")
+def yi_lexicon_list_conflicts(status: str = "open", limit: int = 50) -> dict:
+    """List conflict groups — mappings that disagree on (concept, dim_type, school)."""
+    from engine.yi_lexicon import list_conflicts
+    return {"status": "ok", "conflicts": list_conflicts(status=status, limit=limit)}
+
+
+@app.post("/api/yi-lexicon/conflicts/{conflict_group_id}/resolve")
+def yi_lexicon_resolve_conflict(conflict_group_id: int, req: LexiconResolveConflictRequest) -> dict:
+    """Anh chốt conflict — 'resolved' (chọn primary) | 'kept_all' | 'dismissed'."""
+    from engine.yi_lexicon import resolve_conflict
+    ok = resolve_conflict(
+        conflict_group_id,
+        primary_mapping_id=req.primary_mapping_id,
+        status=req.status,
+        anh_note=req.anh_note,
+    )
+    return {"status": "ok" if ok else "not_found"}
+
+
+@app.get("/api/yi-lexicon/tiers/manifest")
+def yi_lexicon_tier_manifest() -> dict:
+    """Return the source tier manifest (42 PDFs + reading plan)."""
+    from engine.yi_lexicon.tiers import _load_manifest
+    return {"status": "ok", "manifest": _load_manifest()}
+
+
+@app.get("/api/yi-lexicon/tiers/current-week")
+def yi_lexicon_current_week() -> dict:
+    """Next pending week in reading plan."""
+    from engine.yi_lexicon.tiers import current_reading_week
+    week = current_reading_week()
+    return {"status": "ok", "current_week": week}
+
+
+# ─── Library / Thủ thư endpoints (v3, 2026-05-12) ────────────────────────────
+
+@app.get("/api/yi-lexicon/library")
+def yi_lexicon_library_list(
+    tier: str | None = None,
+    status: str | None = None,
+    school: str | None = None,
+) -> dict:
+    """List books in library. Optional filters: tier / status / school."""
+    from engine.yi_lexicon.store import (
+        library_stats,
+        list_corpora,
+        sync_restoration_metadata_from_manifest,
+    )
+    corpora = [
+        sync_restoration_metadata_from_manifest(c)
+        for c in list_corpora(tier=tier, status=status, school=school)
+    ]
+    books = [c.to_dict() for c in corpora]
+    return {
+        "status": "ok",
+        "books": books,
+        "stats": library_stats(tier=tier, status=status, school=school),
+    }
+
+
+@app.get("/api/yi-lexicon/library/stats")
+def yi_lexicon_library_stats(
+    tier: str | None = None,
+    status: str | None = None,
+    school: str | None = None,
+) -> dict:
+    """Library dashboard counts: total, by_tier, by_status, overall progress."""
+    from engine.yi_lexicon.store import library_stats
+    return {"status": "ok", "stats": library_stats(tier=tier, status=status, school=school)}
+
+
+@app.get("/api/yi-lexicon/library/books/{corpus_id}")
+def yi_lexicon_library_book(corpus_id: int) -> dict:
+    """Single book detail."""
+    from engine.yi_lexicon.store import get_corpus
+    c = get_corpus(corpus_id=corpus_id)
+    if not c:
+        return {"status": "error", "message": "book not found"}
+    return {"status": "ok", "book": c.to_dict()}
+
+
+class LibraryUpdateRequest(BaseModel):
+    status: str | None = None
+    tier: str | None = None
+    tier_decided_by: str | None = None
+    schools_tags: list[str] | None = None
+    author: str | None = None
+    notes: str | None = None
+    pages_total: int | None = None
+    pages_ingested: int | None = None
+
+
+@app.patch("/api/yi-lexicon/library/books/{corpus_id}")
+def yi_lexicon_library_update_book(corpus_id: int, req: LibraryUpdateRequest) -> dict:
+    """Anh edits book metadata (tier / status / schools / notes)."""
+    from engine.yi_lexicon.store import update_corpus
+    payload = req.model_dump(exclude_unset=True)
+    # If anh manually decides tier, mark provenance
+    if "tier" in payload and "tier_decided_by" not in payload:
+        payload["tier_decided_by"] = "anh"
+    c = update_corpus(corpus_id, **payload)
+    if not c:
+        return {"status": "error", "message": "update failed"}
+    return {"status": "ok", "book": c.to_dict()}
+
+
+class LibrarianAnalyzeRequest(BaseModel):
+    file_path: str
+    ocr_pages: int = 6
+    skip_llm: bool = False
+    register: bool = True  # auto-add to corpora
+
+
+@app.post("/api/yi-lexicon/library/analyze")
+def yi_lexicon_library_analyze(req: LibrarianAnalyzeRequest) -> dict:
+    """Run Thủ thư analysis on a PDF.
+
+    1. Page count + cover thumbnail
+    2. Manifest lookup (tier-config)
+    3. If not in manifest: OCR 5-6 intro pages → LLM classify
+    4. If `register=True`: insert into corpora table with status='queued'
+    """
+    from engine.yi_lexicon.librarian import analyze_book, register_proposal_as_corpus
+    prop = analyze_book(req.file_path, ocr_pages=req.ocr_pages, skip_llm=req.skip_llm)
+    out: dict = {"status": "ok", "proposal": prop.to_dict()}
+    if req.register and not prop.errors:
+        try:
+            corpus = register_proposal_as_corpus(prop)
+            out["corpus"] = corpus.to_dict()
+        except Exception as e:
+            out["register_error"] = str(e)
+    return out
+
+
+@app.post("/api/yi-lexicon/library/scan-text-layers")
+def yi_lexicon_scan_text_layers(only_unprobed: bool = False) -> dict:
+    """Probe text layer của tất cả PDFs trong thư viện. Phân loại:
+    - text_layer (chars/page ≥ 200) → restore qua MarkItDown (1300x faster)
+    - hybrid (50-200) → MarkItDown + OCR fallback
+    - pure_scan (< 50) → qwen-vl OCR pipeline
+
+    Lưu kết quả vào corpora.restore_method.
+    `only_unprobed=true` để skip sách đã probe.
+    """
+    from engine.yi_lexicon.librarian import scan_library_text_layers
+    result = scan_library_text_layers(
+        update_corpora=True, only_unprobed=only_unprobed,
+    )
+    return {"status": "ok", **result}
+
+
+@app.get("/api/yi-lexicon/library/classify/{corpus_id}")
+def yi_lexicon_classify_one(corpus_id: int) -> dict:
+    """Probe + classify text layer cho 1 sách. Live (không cache)."""
+    from engine.yi_lexicon.librarian import classify_text_layer
+    from engine.yi_lexicon.store import get_corpus, update_corpus
+    c = get_corpus(corpus_id=corpus_id)
+    if not c or not c.file_path:
+        return {"status": "error", "message": "book not found or no file_path"}
+    info = classify_text_layer(c.file_path)
+    update_corpus(
+        corpus_id,
+        restore_method=info.get("method", "unknown"),
+        text_layer_chars_per_page=info.get("chars_per_page", 0.0),
+        bump_text_layer_probed_at=True,
+    )
+    return {"status": "ok", "corpus_id": corpus_id,
+            "name": c.name, "classification": info}
+
+
+@app.post("/api/yi-lexicon/library/sync")
+def yi_lexicon_library_sync(skip_llm: bool = True) -> dict:
+    """Scan `thư viện sách/` and sync all PDFs into corpora table.
+
+    `skip_llm=True` (default) uses only filename + manifest — fast bulk scan.
+    Set `skip_llm=False` to run LLM classifier on every uncatalogued book (slow + costs API).
+    """
+    from engine.yi_lexicon.librarian import sync_library_to_corpora
+    result = sync_library_to_corpora(skip_llm=skip_llm)
+    return {"status": "ok", **result}
+
+
+@app.get("/api/yi-lexicon/library/scan")
+def yi_lexicon_library_scan(skip_llm: bool = True, limit: int | None = None) -> dict:
+    """Dry-run discovery: walk thư viện/ and return proposals WITHOUT persisting."""
+    from engine.yi_lexicon.librarian import scan_library_dir
+    proposals = scan_library_dir(skip_llm=skip_llm, limit=limit)
+    return {"status": "ok", "count": len(proposals), "proposals": proposals}
+
+
+@app.get("/api/yi-lexicon/schools")
+def yi_lexicon_schools() -> dict:
+    """List all registered schools (extensible — anh có thể thêm trường phái mới)."""
+    from engine.yi_lexicon.librarian import list_schools
+    return {"status": "ok", "schools": list_schools()}
+
+
+class AddSchoolRequest(BaseModel):
+    key: str
+    vi_label: str
+    color: str = "#94a3b8"
+
+
+@app.post("/api/yi-lexicon/schools")
+def yi_lexicon_add_school(req: AddSchoolRequest) -> dict:
+    """Register a new school dynamically."""
+    from engine.yi_lexicon.librarian import add_school
+    return {"status": "ok", "school": add_school(req.key, req.vi_label, req.color)}
+
+
+# ─── Restoration endpoints (v4 phase A, 2026-05-12) ──────────────────────────
+
+class RestoreRequest(BaseModel):
+    corpus_id: int
+    page_start: int | None = None
+    page_end: int | None = None
+    max_pages: int | None = None
+    skip_llm: bool = False
+    ocr_backend: str = "tesseract"
+    ocr_lang: str = "vie"
+    dpi: int = 240
+
+
+@app.post("/api/yi-lexicon/restore")
+def yi_lexicon_restore(req: RestoreRequest) -> dict:
+    """Trigger restoration pipeline for a book.
+
+    Long-running — for production use a background task queue. For pilot,
+    call blocking and stream progress via SSE later. Here we run synchronously.
+    """
+    from engine.yi_lexicon.restoration import restore_book, RestorationConfig
+    cfg = RestorationConfig(
+        ocr_backend=req.ocr_backend,
+        ocr_lang=req.ocr_lang,
+        dpi=req.dpi,
+        page_range=((req.page_start or 1), req.page_end) if (req.page_start or req.page_end) else None,
+        max_pages=req.max_pages,
+        skip_llm=req.skip_llm,
+    )
+    result = restore_book(req.corpus_id, config=cfg)
+    return {
+        "status": "ok" if not result.errors or result.pages_processed > 0 else "error",
+        "result": {
+            "corpus_id": result.corpus_id,
+            "book_slug": result.book_slug,
+            "root_dir": result.root_dir,
+            "manifest_path": result.manifest_path,
+            "pages_processed": result.pages_processed,
+            "pages_failed": result.pages_failed,
+            "figures_extracted": result.figures_extracted,
+            "wikilinks_total": result.wikilinks_total,
+            "duration_seconds": round(result.duration_seconds, 2),
+            "errors": result.errors[:50],  # cap to avoid huge response
+        },
+    }
+
+
+def _load_book_manifest(corpus_id: int):
+    """Helper: get manifest for a corpus or return None."""
+    from engine.yi_lexicon.store import get_corpus, sync_restoration_metadata_from_manifest
+    from engine.yi_lexicon.restoration.manifest import load_manifest
+    c = get_corpus(corpus_id=corpus_id)
+    if not c or not c.restored_manifest:
+        return None, None
+    try:
+        manifest = load_manifest(c.restored_manifest)
+        return sync_restoration_metadata_from_manifest(c), manifest
+    except Exception:
+        return c, None
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}")
+def yi_lexicon_restored_overview(corpus_id: int) -> dict:
+    """Manifest summary for a restored book: TOC, page count, wikilink count."""
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not corpus:
+        return {"status": "error", "message": "book not found"}
+    if not manifest:
+        return {"status": "ok", "restored": False, "book": corpus.to_dict()}
+    from engine.yi_lexicon.restoration.manifest import sections_for_reader
+    pages_restored = max(manifest.pages_restored, corpus.restored_pages or 0)
+    pages_total = max(manifest.pages_total, corpus.pages_total or 0)
+    return {
+        "status": "ok",
+        "restored": True,
+        "book": corpus.to_dict(),
+        "manifest": {
+            "book_slug": manifest.book_slug,
+            "book_name": manifest.book_name,
+            "author": manifest.author,
+            "tier": manifest.tier,
+            "copyright_status": manifest.copyright_status,
+            "pages_total": pages_total,
+            "pages_restored": pages_restored,
+            "sections": [
+                {"section_id": s.section_id, "title": s.title, "level": s.level,
+                 "start_page": s.start_page, "end_page": s.end_page}
+                for s in sections_for_reader(manifest.sections)
+            ],
+            "figures_count": len(manifest.figures),
+            "wikilink_count": len(manifest.wikilink_index),
+            "ocr_backend": manifest.ocr_backend,
+            "llm_model": manifest.llm_model,
+            "pipeline_version": manifest.pipeline_version,
+        },
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/page/{page_no}")
+def yi_lexicon_restored_page(
+    corpus_id: int,
+    page_no: int,
+    format: str = "md",
+    lang: str = "zh",  # "zh" (gốc) | "vi" (dịch sang tiếng Việt)
+) -> dict:
+    """Get one page's restored content.
+
+    Args:
+        format: "md" (raw markdown) | "html" (rendered)
+        lang: "zh" (bản gốc từ pages/) | "vi" (bản dịch từ pages_vi/, fallback về zh nếu chưa dịch)
+    """
+    from pathlib import Path as _P
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not corpus or not manifest:
+        return {"status": "error", "message": "book not restored"}
+    page_record = next((p for p in manifest.pages if p.page == page_no), None)
+    if not page_record or not page_record.md_path:
+        return {"status": "error", "message": f"page {page_no} not restored"}
+    root = _P(corpus.restored_path)
+
+    # === Lang resolution: thử pages_vi/ trước nếu lang=vi ===
+    lang_served = "zh"
+    md_file = root / page_record.md_path
+    if lang == "vi":
+        # md_path thường dạng "pages/page-XXXX.md" → đổi thành "pages_vi/page-XXXX.md"
+        vi_path = root / page_record.md_path.replace("pages/", "pages_vi/", 1)
+        if vi_path.exists():
+            md_file = vi_path
+            lang_served = "vi"
+    if not md_file.exists():
+        return {"status": "error", "message": "page file missing"}
+    md_text = md_file.read_text(encoding="utf-8")
+    out = {
+        "status": "ok",
+        "page": page_no,
+        "lang": lang,           # lang client requested
+        "lang_served": lang_served,  # lang actually served (vi nếu có, else zh)
+        "section_id": page_record.section_id,
+        "wikilinks": page_record.wikilinks,
+        "figure_ids": page_record.figure_ids,
+        "confidence": page_record.ocr_confidence,
+        "needs_review": page_record.needs_review,
+        # v2 metadata
+        "summary_short": page_record.summary_short,
+        "hashtags": page_record.hashtags,
+        "persons": page_record.persons,
+        "que_mentions": page_record.que_mentions,
+    }
+    if format == "html":
+        from engine.yi_lexicon.restoration.exporters import render_page_html
+        out["html"] = render_page_html(md_text)
+    else:
+        out["markdown"] = md_text
+    return out
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/translation-status")
+def yi_lexicon_translation_status(corpus_id: int) -> dict:
+    """Báo cáo tiến độ dịch sang tiếng Việt: bao nhiêu trang đã có bản dịch."""
+    from pathlib import Path as _P
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not corpus or not manifest:
+        return {"status": "error", "message": "book not restored"}
+    root = _P(corpus.restored_path)
+    pages_vi_dir = root / "pages_vi"
+    if not pages_vi_dir.exists():
+        return {
+            "status": "ok",
+            "corpus_id": corpus_id,
+            "translated_pages": 0,
+            "total_pages": manifest.pages_total,
+            "has_translation": False,
+        }
+    vi_files = list(pages_vi_dir.glob("page-*.md"))
+    return {
+        "status": "ok",
+        "corpus_id": corpus_id,
+        "translated_pages": len(vi_files),
+        "total_pages": manifest.pages_total,
+        "has_translation": len(vi_files) > 0,
+        "complete": len(vi_files) >= manifest.pages_total,
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/figure/{figure_id}")
+def yi_lexicon_restored_figure(corpus_id: int, figure_id: str):
+    """Serve a restored figure PNG. Returns FileResponse or 404."""
+    from fastapi.responses import FileResponse
+    from fastapi import HTTPException
+    from pathlib import Path as _P
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not corpus or not manifest:
+        raise HTTPException(status_code=404, detail="not restored")
+    fig = next((f for f in manifest.figures if f.figure_id == figure_id), None)
+    if not fig:
+        raise HTTPException(status_code=404, detail="figure not found")
+    root = _P(corpus.restored_path)
+    target = root / fig.image_path
+    if not target.exists():
+        raise HTTPException(status_code=404, detail="image missing")
+    return FileResponse(str(target), media_type="image/png")
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/figures")
+def yi_lexicon_restored_figures(corpus_id: int, status: str | None = None) -> dict:
+    """Danh sách figures (extracted + detected) trong sách.
+
+    Query: `?status=needs_redraw` để chỉ lấy hình cần vẽ lại.
+    """
+    _, manifest = _load_book_manifest(corpus_id)
+    if not manifest:
+        return {"status": "error", "message": "book not restored"}
+    figs = manifest.figures
+    if status:
+        figs = [f for f in figs if (f.redraw_status == status or
+                                     (status == "extracted" and f.source == "extracted"))]
+    return {
+        "status": "ok",
+        "count": len(figs),
+        "figures": [
+            {
+                "figure_id": f.figure_id, "page": f.page,
+                "figure_type": f.figure_type, "source": f.source,
+                "description": f.description, "caption": f.caption,
+                "redraw_status": f.redraw_status,
+                "placeholder": f.placeholder,
+                "image_path": f.image_path,
+                "redrawn_svg": f.redrawn_svg,
+                "classified_as": f.classified_as,
+            }
+            for f in figs
+        ],
+    }
+
+
+class FigureUpdateRequest(BaseModel):
+    redraw_status: str | None = None  # 'needs_redraw' | 'in_progress' | 'done' | 'skip'
+    redrawn_svg: str | None = None    # paste SVG content
+    classified_as: str | None = None
+    description: str | None = None
+
+
+@app.patch("/api/yi-lexicon/restored/{corpus_id}/figures/{figure_id}")
+def yi_lexicon_update_figure(corpus_id: int, figure_id: str,
+                              req: FigureUpdateRequest) -> dict:
+    """Update figure status / paste SVG redraw."""
+    from engine.yi_lexicon.restoration.manifest import save_manifest
+    from pathlib import Path as _P
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not manifest:
+        return {"status": "error", "message": "not restored"}
+    target = next((f for f in manifest.figures if f.figure_id == figure_id), None)
+    if not target:
+        return {"status": "error", "message": "figure not found"}
+    payload = req.model_dump(exclude_unset=True)
+    if "redraw_status" in payload:
+        target.redraw_status = payload["redraw_status"]
+    if "redrawn_svg" in payload:
+        target.redrawn_svg = payload["redrawn_svg"]
+    if "classified_as" in payload:
+        target.classified_as = payload["classified_as"]
+    if "description" in payload:
+        target.description = payload["description"]
+    save_manifest(manifest, _P(corpus.restored_manifest))
+    return {"status": "ok", "figure": {
+        "figure_id": target.figure_id, "redraw_status": target.redraw_status,
+        "description": target.description,
+    }}
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/hashtags")
+def yi_lexicon_restored_hashtags(corpus_id: int) -> dict:
+    """Aggregated hashtag cloud: tag → list of pages mentioning it."""
+    _, manifest = _load_book_manifest(corpus_id)
+    if not manifest:
+        return {"status": "error", "message": "book not restored"}
+    return {
+        "status": "ok",
+        "count": len(manifest.hashtag_index),
+        "hashtags": [
+            {"tag": h.tag, "count": h.count, "pages": h.pages[:50]}
+            for h in sorted(manifest.hashtag_index, key=lambda x: -x.count)
+        ],
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/persons")
+def yi_lexicon_restored_persons(corpus_id: int) -> dict:
+    """Aggregated NER: persons mentioned → pages."""
+    _, manifest = _load_book_manifest(corpus_id)
+    if not manifest:
+        return {"status": "error", "message": "book not restored"}
+    return {
+        "status": "ok",
+        "count": len(manifest.person_index),
+        "persons": [
+            {"name": p.name, "count": p.count, "pages": p.pages[:50]}
+            for p in sorted(manifest.person_index, key=lambda x: -x.count)
+        ],
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/search")
+def yi_lexicon_restored_search(
+    corpus_id: int,
+    hashtag: str | None = None,
+    person: str | None = None,
+    que: str | None = None,
+    q: str | None = None,            # free-text search across summaries
+) -> dict:
+    """Search pages by hashtag / person / quẻ / free text.
+
+    Returns list of {page, summary_short, hashtags, section_id}.
+    """
+    _, manifest = _load_book_manifest(corpus_id)
+    if not manifest:
+        return {"status": "error", "message": "book not restored"}
+
+    def match(page) -> bool:
+        if hashtag:
+            tags_lower = [t.lower() for t in page.hashtags]
+            needle = hashtag.lower() if hashtag.startswith("#") else f"#{hashtag.lower()}"
+            if needle not in tags_lower:
+                return False
+        if person:
+            if not any(person.lower() in p.lower() for p in page.persons):
+                return False
+        if que:
+            if not any(que.lower() in q2.lower() for q2 in page.que_mentions):
+                return False
+        if q:
+            ql = q.lower()
+            haystacks = [page.summary_short, " ".join(page.hashtags),
+                         " ".join(page.persons), " ".join(page.que_mentions)]
+            if not any(ql in h.lower() for h in haystacks if h):
+                return False
+        return True
+
+    matches = [p for p in manifest.pages if match(p)]
+    return {
+        "status": "ok",
+        "count": len(matches),
+        "hits": [
+            {
+                "page": p.page,
+                "section_id": p.section_id,
+                "summary_short": p.summary_short,
+                "hashtags": p.hashtags,
+                "persons": p.persons,
+                "que_mentions": p.que_mentions,
+            }
+            for p in matches[:100]
+        ],
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/wikilinks")
+def yi_lexicon_restored_wikilinks(corpus_id: int) -> dict:
+    """All wikilinks in this book + page anchors. Powers 'concept → trang' navigation."""
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not manifest:
+        return {"status": "error", "message": "book not restored"}
+    return {
+        "status": "ok",
+        "wikilinks": [
+            {"concept_vi": w.concept_vi, "occurrences": w.occurrences}
+            for w in manifest.wikilink_index
+        ],
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/download")
+def yi_lexicon_restored_download(corpus_id: int, fmt: str = "md"):
+    """Download restored content.
+
+    POLICY: anh đã chốt — `allow_download=0` mặc định cho TẤT CẢ sách (kể cả public domain),
+    để tránh phân phối ngoài ý muốn. Anh muốn cho phép sách cụ thể nào thì bật flag thủ công
+    qua PATCH /api/yi-lexicon/library/books/{id}.
+    """
+    from fastapi.responses import FileResponse, JSONResponse
+    from pathlib import Path as _P
+    corpus, manifest = _load_book_manifest(corpus_id)
+    if not corpus or not manifest:
+        return JSONResponse(
+            status_code=404, content={"status": "error", "message": "book not restored"}
+        )
+    if not corpus.allow_download:
+        return JSONResponse(
+            status_code=403,
+            content={
+                "status": "forbidden",
+                "message": (
+                    "Bản phục chế nội bộ — không cho phép tải xuống. "
+                    "Vui lòng mua sách gốc tại nhà xuất bản."
+                ),
+                "copyright_status": corpus.copyright_status,
+            },
+        )
+    root = _P(corpus.restored_path)
+    if fmt == "md":
+        target = root / "content.md"
+        if not target.exists():
+            return JSONResponse(status_code=404, content={"status": "error", "message": "content.md missing"})
+        return FileResponse(
+            str(target), media_type="text/markdown",
+            filename=f"{manifest.book_slug}.md",
+        )
+    return JSONResponse(
+        status_code=400, content={"status": "error", "message": f"unsupported fmt: {fmt}"}
+    )
+
+
+@app.get("/api/yi-lexicon/restore/nightly/queue")
+def yi_lexicon_nightly_queue(tier: str | None = None) -> dict:
+    """Preview the queue cho nightly batch — sách nào sẽ được phục chế theo thứ tự."""
+    from engine.yi_lexicon.restoration.nightly import select_queue
+    tiers = [tier] if tier else None
+    queue = select_queue(tiers=tiers)
+    return {
+        "status": "ok",
+        "count": len(queue),
+        "queue": [
+            {
+                "corpus_id": c.corpus_id, "name": c.name, "tier": c.tier,
+                "restored_status": c.restored_status,
+                "restored_pages": c.restored_pages,
+                "pages_total": c.pages_total,
+                "progress_percent": (
+                    round((c.restored_pages or 0) / c.pages_total * 100, 1)
+                    if c.pages_total else 0
+                ),
+            }
+            for c in queue[:50]
+        ],
+    }
+
+
+@app.get("/api/yi-lexicon/restored/{corpus_id}/plan")
+def yi_lexicon_get_plan(corpus_id: int) -> dict:
+    """Get the restoration plan for a book. Returns markdown + JSON state."""
+    from engine.yi_lexicon.restoration.plan import load_plan, _plan_path
+    from engine.yi_lexicon.restoration.manifest import make_book_slug
+    from engine.yi_lexicon.store import get_corpus
+    plan = load_plan(corpus_id)
+    if not plan:
+        return {"status": "no_plan", "message": "Chưa có kế hoạch — gọi POST /plan để tạo."}
+    c = get_corpus(corpus_id=corpus_id)
+    slug = make_book_slug(c.name) if c else ""
+    md_path = _plan_path(slug) if slug else None
+    md_content = md_path.read_text(encoding="utf-8") if (md_path and md_path.exists()) else ""
+    return {"status": "ok", "plan": plan.to_dict(), "markdown": md_content}
+
+
+class CreatePlanRequest(BaseModel):
+    corpus_id: int
+    overwrite: bool = False
+    sample_pages: list[int] | None = None
+
+
+@app.post("/api/yi-lexicon/restored/plan")
+def yi_lexicon_create_plan(req: CreatePlanRequest) -> dict:
+    """Lập (hoặc làm mới) kế hoạch phục chế cho 1 cuốn.
+
+    Bao gồm: sample 5 trang qua Tesseract nhanh, chia batch Phase 1, ước tính ETA.
+    KHÔNG trigger pipeline — chỉ ghi plan.md + plan.json để anh duyệt.
+    """
+    from engine.yi_lexicon.restoration.plan import create_plan
+    try:
+        plan = create_plan(
+            req.corpus_id,
+            sample_pages=req.sample_pages,
+            overwrite=req.overwrite,
+        )
+        return {"status": "ok", "plan": plan.to_dict()}
+    except ValueError as e:
+        return {"status": "error", "message": str(e)}
+
+
+class AdvancePhaseRequest(BaseModel):
+    corpus_id: int
+    to_phase: int  # 1, 2, hoặc 3
+
+
+@app.post("/api/yi-lexicon/restored/plan/advance")
+def yi_lexicon_advance_phase(req: AdvancePhaseRequest) -> dict:
+    """Move plan to next phase. Chỉ anh quyết định khi thực sự xong phase trước."""
+    from engine.yi_lexicon.restoration.plan import load_plan, advance_phase, save_plan
+    plan = load_plan(req.corpus_id)
+    if not plan:
+        return {"status": "error", "message": "no plan"}
+    if not advance_phase(plan, to_phase=req.to_phase):
+        return {"status": "error", "message": "invalid phase"}
+    save_plan(plan)
+    return {"status": "ok", "plan": plan.to_dict()}
+
+
+class MarkBatchRequest(BaseModel):
+    corpus_id: int
+    batch_id: str
+    status: str          # pending | in_progress | done | failed
+    pages_done: int | None = None
+    notes: str = ""
+
+
+@app.post("/api/yi-lexicon/restored/plan/batch")
+def yi_lexicon_mark_batch(req: MarkBatchRequest) -> dict:
+    """Update one Phase 1 batch's status (manual or after pipeline run)."""
+    from engine.yi_lexicon.restoration.plan import (
+        load_plan, mark_batch, save_plan, append_log
+    )
+    plan = load_plan(req.corpus_id)
+    if not plan:
+        return {"status": "error", "message": "no plan"}
+    b = mark_batch(plan, req.batch_id, status=req.status,
+                   pages_done=req.pages_done, notes=req.notes)
+    if not b:
+        return {"status": "error", "message": "batch not found"}
+    append_log(plan, f"batch-{req.batch_id}: {req.status}"
+               + (f" ({req.pages_done} pages)" if req.pages_done is not None else ""))
+    save_plan(plan)
+    return {"status": "ok", "batch": b.__dict__}
+
+
+class AppendNoteRequest(BaseModel):
+    corpus_id: int
+    note: str
+    target: str = "general"  # 'general' | 'phase2' | 'phase3'
+
+
+@app.post("/api/yi-lexicon/restored/plan/note")
+def yi_lexicon_append_plan_note(req: AppendNoteRequest) -> dict:
+    """Append a note to the plan (overall or per-phase)."""
+    from engine.yi_lexicon.restoration.plan import load_plan, save_plan, append_log
+    plan = load_plan(req.corpus_id)
+    if not plan:
+        return {"status": "error", "message": "no plan"}
+    if req.target == "phase2":
+        plan.phase2_notes = (plan.phase2_notes + "\n" + req.note).strip()
+    elif req.target == "phase3":
+        plan.phase3_notes = (plan.phase3_notes + "\n" + req.note).strip()
+    else:
+        plan.notes = (plan.notes + "\n" + req.note).strip()
+    append_log(plan, f"note added to {req.target}")
+    save_plan(plan)
+    return {"status": "ok", "plan": plan.to_dict()}
+
+
+@app.get("/api/yi-lexicon/restore/ollama-status")
+def yi_lexicon_ollama_status() -> dict:
+    """Check Ollama server + list installed models. UI hiển thị anh có cài chưa."""
+    from engine.ai.registry import get_registry
+    p = get_registry().get("ollama")
+    return {
+        "status": "ok",
+        "configured": p.is_configured,
+        "endpoint": getattr(p, "_endpoint", ""),
+        "default_model": p.default_model,
+        "installed_models": p.available_models if p.is_configured else [],
+    }
+
+
+# ─── YI-Research endpoints (autonomous research agent) ──────────────────────
+
+
+class ResearchRunRequest(BaseModel):
+    query: str
+    provider: str = "ollama"
+    model: str = "qwen3:32b"
+    retriever: str = "duckduckgo"
+    catalog_sync: bool = True
+    catalog_apply: bool = False
+
+
+@app.post("/api/yi-research/run")
+def yi_research_run(req: ResearchRunRequest) -> dict:
+    """Trigger autonomous research job. Returns job_id; poll /jobs/{id} for progress.
+
+    Backend dùng GPT Researcher (Apache-2.0, 27k★) + provider của anh.
+    Default: Ollama qwen3:32b free + DuckDuckGo search free.
+    """
+    from engine.yi_research.jobs import create_job, spawn_research_subprocess
+    job = create_job(
+        query=req.query,
+        provider=req.provider,
+        model=req.model,
+        retriever=req.retriever,
+        catalog_sync=req.catalog_sync,
+        catalog_apply=req.catalog_apply,
+    )
+    try:
+        pid = spawn_research_subprocess(job)
+        return {"status": "ok", "job_id": job.job_id, "pid": pid}
+    except Exception as e:
+        return {"status": "error", "job_id": job.job_id, "error": str(e)}
+
+
+@app.get("/api/yi-research/jobs/{job_id}")
+def yi_research_job_status(job_id: str) -> dict:
+    """Get current state of research job. Frontend polls this every 5s."""
+    from engine.yi_research.jobs import load_job
+    job = load_job(job_id)
+    if not job:
+        return {"status": "not_found", "job_id": job_id}
+    return {"status": "ok", "job": job.to_dict()}
+
+
+@app.get("/api/yi-research/jobs")
+def yi_research_list_jobs(limit: int = 30, status: str | None = None) -> dict:
+    """List recent jobs. Newest first."""
+    from engine.yi_research.jobs import list_jobs
+    jobs = list_jobs(limit=limit, status=status)
+    return {
+        "status": "ok",
+        "count": len(jobs),
+        "jobs": [j.to_dict() for j in jobs],
+    }
+
+
+@app.get("/api/yi-research/reports/{job_id}")
+def yi_research_get_report(job_id: str) -> dict:
+    """Get full markdown report for a finished job."""
+    from engine.yi_research.jobs import load_job
+    job = load_job(job_id)
+    if not job:
+        return {"status": "not_found"}
+    if job.status != "done":
+        return {"status": "not_ready", "job_status": job.status}
+    if not job.report_path:
+        return {"status": "no_report"}
+    try:
+        markdown = Path(job.report_path).read_text(encoding="utf-8")
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+    return {
+        "status": "ok",
+        "job_id": job_id,
+        "query": job.query,
+        "markdown": markdown,
+        "sources_count": job.sources_count,
+        "new_tools": job.new_tools,
+        "cost_usd": job.cost_usd,
+        "duration_seconds": (job.finished_at or 0) - job.started_at,
+    }
+
+
+@app.post("/api/yi-research/jobs/{job_id}/catalog-apply")
+def yi_research_apply_catalog(job_id: str) -> dict:
+    """Apply catalog sync sau khi job done (nếu lúc đầu chỉ dry-run)."""
+    from engine.yi_research.jobs import load_job
+    from engine.yi_research.catalog_sync import sync_from_report
+    from pathlib import Path as _P
+    job = load_job(job_id)
+    if not job or not job.report_path:
+        return {"status": "error", "message": "job/report not found"}
+    try:
+        md = _P(job.report_path).read_text(encoding="utf-8")
+        result = sync_from_report(md, apply=True, verbose=False)
+        return {"status": "ok", **result}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+from pathlib import Path  # ensure Path import (used in get_report)
+
+
+@app.post("/api/yi-hermes/dyad/analyze")
+def yi_hermes_dyad_analyze(req: DyadAnalysisRequest) -> dict:
+    """Compute cosmology compatibility between 2 persons.
+
+    Both persons must have birth_datetime_local + we'll lazy-cast Bát Tự.
+    If `cache_in_relationship=True`, write back into relationships.cosmology_compat.
+    """
+    from engine.ai.dyad_analysis import analyze_dyad
+    from engine.yi_hermes.persons import cast_bat_tu_for, get_person
+    from engine.yi_hermes.relationships import get_relationship, update_compat
+
+    pa = get_person(req.person_a_id)
+    pb = get_person(req.person_b_id)
+    if not pa or not pb:
+        return {"status": "not_found", "person_a_exists": bool(pa), "person_b_exists": bool(pb)}
+
+    chart_a = cast_bat_tu_for(req.person_a_id)
+    chart_b = cast_bat_tu_for(req.person_b_id)
+    if not chart_a or not chart_b:
+        # Founder special case — use manual chart
+        if req.person_a_id == "_founder":
+            from engine.ai.founder_chart import cast_founder_bat_tu
+            chart_a = cast_founder_bat_tu()
+        if req.person_b_id == "_founder":
+            from engine.ai.founder_chart import cast_founder_bat_tu
+            chart_b = cast_founder_bat_tu()
+    if not chart_a or not chart_b:
+        return {
+            "status": "missing_birth_data",
+            "a_has_chart": bool(chart_a),
+            "b_has_chart": bool(chart_b),
+        }
+
+    result = analyze_dyad(chart_a, chart_b, name_a=pa.name, name_b=pb.name)
+    compat_dict = result.to_dict()
+
+    if req.cache_in_relationship:
+        rel = get_relationship(req.person_a_id, req.person_b_id)
+        if rel and rel.rel_id is not None:
+            update_compat(rel.rel_id, compat_dict)
+
+    return {"status": "ok", "compat": compat_dict}
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# YI-WIKI: Master-Apprentice Digital Twin của Thiệu Khang Tiết
+# Design: docs/design/wiki-master-apprentice.md
+# ─────────────────────────────────────────────────────────────────────────
+
+
+@app.get("/api/yi-wiki/stats")
+def yi_wiki_stats() -> dict:
+    """Tổng số entry trong wiki."""
+    from engine.yi_wiki import get_store
+    return {"status": "ok", "stats": get_store().stats()}
+
+
+@app.get("/api/yi-wiki/authors")
+def yi_wiki_list_authors() -> dict:
+    """List toàn bộ Author trong lineage 5-tier."""
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.models import TIER_NAMES
+    s = get_store()
+    authors = s.list_authors()
+    out = []
+    for a in authors:
+        out.append({
+            "author_id": a.author_id,
+            "name_vi": a.name_vi,
+            "name_zh": a.name_zh,
+            "tier": a.tier_in_lineage,
+            "tier_name": TIER_NAMES.get(a.tier_in_lineage, "?"),
+            "era": a.era,
+            "birth_year": a.birth_year,
+            "death_year": a.death_year,
+            "worldview_school": a.worldview_school,
+            "bio_summary": a.bio_summary,
+            "foundational_axioms": a.foundational_axioms,
+        })
+    return {"status": "ok", "authors": out}
+
+
+@app.get("/api/yi-wiki/authors/{author_id}")
+def yi_wiki_get_author(author_id: int) -> dict:
+    """Detail 1 author + works + methods + passages."""
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.models import TIER_NAMES
+    s = get_store()
+    a = s.get_author(author_id)
+    if not a:
+        return {"status": "error", "message": "author not found"}
+    return {
+        "status": "ok",
+        "author": {
+            "author_id": a.author_id,
+            "name_vi": a.name_vi,
+            "name_zh": a.name_zh,
+            "tier": a.tier_in_lineage,
+            "tier_name": TIER_NAMES.get(a.tier_in_lineage, "?"),
+            "era": a.era,
+            "birth_year": a.birth_year,
+            "death_year": a.death_year,
+            "worldview_school": a.worldview_school,
+            "bio_summary": a.bio_summary,
+            "foundational_axioms": a.foundational_axioms,
+            "hermeneutic_style": a.hermeneutic_style,
+        },
+        "works": s.list_works(author_id),
+        "methods": s.list_methods(author_id),
+        "passages": s.list_passages(author_id=author_id),
+    }
+
+
+@app.get("/api/yi-wiki/works")
+def yi_wiki_list_works(author_id: int | None = None) -> dict:
+    from engine.yi_wiki import get_store
+    return {"status": "ok", "works": get_store().list_works(author_id)}
+
+
+@app.get("/api/yi-wiki/methods")
+def yi_wiki_list_methods(author_id: int | None = None) -> dict:
+    from engine.yi_wiki import get_store
+    return {"status": "ok", "methods": get_store().list_methods(author_id)}
+
+
+@app.get("/api/yi-wiki/passages")
+def yi_wiki_list_passages(author_id: int | None = None,
+                          corpus_id: str | None = None) -> dict:
+    from engine.yi_wiki import get_store
+    return {"status": "ok",
+            "passages": get_store().list_passages(author_id=author_id,
+                                                   corpus_id=corpus_id)}
+
+
+@app.get("/api/yi-wiki/concepts")
+def yi_wiki_list_concepts() -> dict:
+    from engine.yi_wiki import get_store
+    return {"status": "ok", "concepts": get_store().list_concepts()}
+
+
+@app.get("/api/yi-wiki/case-studies")
+def yi_wiki_list_cases() -> dict:
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.store import _dec
+    s = get_store()
+    with s._conn() as conn:
+        rows = conn.execute(
+            "SELECT * FROM case_studies ORDER BY case_id"
+        ).fetchall()
+    out = []
+    for r in rows:
+        d = dict(r)
+        d["inputs_recorded"] = _dec(d["inputs_recorded"], {})
+        out.append(d)
+    return {"status": "ok", "case_studies": out}
+
+
+@app.get("/api/yi-wiki/concepts/by-name")
+def yi_wiki_concept_by_name(name: str) -> dict:
+    """Lookup concept theo canonical_vi (vd 'Quẻ Càn')."""
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.store import _dec
+    s = get_store()
+    with s._conn() as conn:
+        row = conn.execute(
+            "SELECT * FROM concept_index WHERE canonical_vi=?", (name,)
+        ).fetchone()
+    if not row:
+        return {"status": "not_found"}
+    d = dict(row)
+    d["aliases"] = _dec(d["aliases"], [])
+    d["mentioned_in_passages"] = _dec(d["mentioned_in_passages"], [])
+    return {"status": "ok", "concept": d}
+
+
+class MaiHoaCastRequest(BaseModel):
+    year_chi: str
+    month: int
+    day: int
+    hour_chi: str
+    user_intent: str = ""
+    save_prediction: bool = False
+
+
+@app.post("/api/yi-wiki/cast/niennguyetnhatthoi")
+def yi_wiki_cast(req: MaiHoaCastRequest) -> dict:
+    """Gieo quẻ Mai Hoa theo Niên-Nguyệt-Nhật-Thời.
+
+    Khớp công thức trang 43-45 sách Mai Hoa Dịch Số.
+    Nếu save_prediction=True → tạo entry Predictions table.
+    """
+    import json, time
+    from engine.yi_wiki.cast import cast_by_time
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.store import _enc
+
+    try:
+        result = cast_by_time(req.year_chi, req.month, req.day, req.hour_chi)
+    except KeyError as e:
+        return {"status": "error", "message": f"Chi không hợp lệ: {e}"}
+
+    payload = {
+        "timestamp": result.timestamp,
+        "inputs": result.inputs,
+        "upper_num": result.upper_num,
+        "lower_num": result.lower_num,
+        "moving_line": result.moving_line,
+        "chinh_quai": {
+            "upper": result.chinh_quai.upper_que,
+            "lower": result.chinh_quai.lower_que,
+            "name": result.chinh_quai.name,
+            "lines": list(result.chinh_quai.lines),
+        },
+        "bien_quai": {
+            "upper": result.bien_quai.upper_que,
+            "lower": result.bien_quai.lower_que,
+            "name": result.bien_quai.name,
+            "lines": list(result.bien_quai.lines),
+        },
+        "ho_quai": {
+            "upper": result.ho_quai.upper_que,
+            "lower": result.ho_quai.lower_que,
+            "name": result.ho_quai.name,
+            "lines": list(result.ho_quai.lines),
+        },
+        "formula_trace": result.formula_trace,
+    }
+
+    pred_id = None
+    if req.save_prediction:
+        s = get_store()
+        ts = result.timestamp
+        with s._conn() as conn:
+            cur = conn.execute(
+                """INSERT INTO predictions
+                (timestamp, user_intent, user_context, interaction_log, tam_note,
+                 method_chain, consultants_invoked, predicted_outcome, predicted_timing,
+                 review_reminder_at, actual_outcome, learning_notes, created_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+                RETURNING pred_id""",
+                (
+                    ts,
+                    req.user_intent or "(không ghi mục đích)",
+                    _enc(result.inputs),
+                    _enc([{"t": ts, "event": "cast via /api/yi-wiki/cast/niennguyetnhatthoi"}]),
+                    "",
+                    _enc([]),
+                    _enc([]),
+                    f"Chính {result.chinh_quai.name} → Biến {result.bien_quai.name} (hào {result.moving_line}) | Hỗ {result.ho_quai.name}",
+                    "",
+                    ts + 7 * 24 * 3600,
+                    None,
+                    "",
+                    ts,
+                ),
+            )
+            pred_id = cur.fetchone()[0]
+            conn.commit()
+        payload["prediction_id"] = pred_id
+
+    return {"status": "ok", **payload}
+
+
+class MaiHoaInterpretRequest(BaseModel):
+    year_chi: str
+    month: int
+    day: int
+    hour_chi: str
+    intent: str = "general"
+    # ⭐ Phase A 18/5 — BƯỚC 3+4 Tổ sư (Q3 tr.112-114)
+    external_omen: str | None = None  # text mô tả hiện tượng bất thường lúc khởi quẻ
+    posture: str | None = None        # "nằm" | "ngồi" | "đứng" | "đi" | "chạy"
+
+
+@app.get("/api/yi-wiki/intents")
+def yi_wiki_intents() -> dict:
+    """Danh sách 14 loại Nhân Sự Chiêm + general."""
+    from engine.yi_wiki.interpret import INTENT_REGISTRY
+    return {
+        "status": "ok",
+        "intents": [{"key": k, **v} for k, v in INTENT_REGISTRY.items()],
+    }
+
+
+@app.get("/api/yi-wiki/figures")
+def yi_wiki_figures(corpus_id: str = "thieu-khang-tiet-tq") -> dict:
+    """List figures (ảnh minh hoạ) cho 1 corpus.
+
+    Files đặt tại: data/yi_restored/{corpus_id}/figures/
+    Served qua /figures/{corpus_id}/figures/{filename}
+    """
+    from pathlib import Path as _P
+    base = _P("/Users/ozvietnamdesktop/Desktop/yi/data/yi_restored") / corpus_id / "figures"
+    if not base.exists():
+        return {"status": "ok", "figures": []}
+
+    # Curated figures với metadata
+    CURATED = {
+        "bat_quai_tien_thien.png": {
+            "title": "Bát Quái Tiên Thiên",
+            "desc": "Phục Hy bát quái thứ tự — 8 quẻ Tiên Thiên + thái cực ở giữa",
+            "source": "Đồ Giải Mai Hoa Dịch Số (TQ) — vẽ bởi AI",
+        },
+        "legend_quan_mai_hoa.png": {
+            "title": "Truyền thuyết Quan Mai Hoa",
+            "desc": "Thầy Thiệu Khang Tiết ngồi dưới cây mai, thấy 2 chim sẻ tranh cành ngã xuống đất → sáng tạo Mai Hoa Dịch Số",
+            "source": "Mai Hoa Dịch Số trang 64-66 (Case study #1)",
+        },
+        "ha_do_phuc_hy_long_ma.png": {
+            "title": "Hà Đồ — Phục Hy nhận Long Mã",
+            "desc": "Vua Phục Hy bên sông Hoàng Hà, Long Mã hiện lên với 55 chấm tạo Hà Đồ",
+            "source": "Mai Hoa Dịch Số trang 17",
+        },
+        "lac_thu_dai_vu_linh_quy.png": {
+            "title": "Lạc Thư — Đại Vũ nhận Linh Quy",
+            "desc": "Vua Đại Vũ bên sông Lạc, Linh Quy hiện lên với 9 ô số (Cửu Trù)",
+            "source": "Mai Hoa Dịch Số trang 20",
+        },
+        "case_mau_don_chiem.png": {
+            "title": "Case Mẫu Đơn — Ngựa giẫm hoa",
+            "desc": "Thầy + Tư Mã Quang xem mẫu đơn → tiên đoán giờ Ngọ ngày sau bị ngựa giẫm. Ứng nghiệm.",
+            "source": "Mai Hoa Dịch Số trang 66-68 (Case study #2)",
+        },
+        "bat_tien.png": {
+            "title": "Bát Tiên — 8 Tiên dân gian",
+            "desc": "8 Tiên Đạo giáo — mapping 1-1 với Bát Quái (Lữ Đồng Tân-Càn, Hà Tiên Cô-Khôn, etc.)",
+            "source": "Đồ Giải Mai Hoa Dịch Số (TQ) trang 10",
+        },
+    }
+
+    figures = []
+    for f in sorted(base.iterdir()):
+        if not f.is_file() or f.suffix.lower() not in (".png", ".jpg", ".jpeg"):
+            continue
+        meta = CURATED.get(f.name, {})
+        figures.append({
+            "filename": f.name,
+            "url": f"/figures/{corpus_id}/figures/{f.name}",
+            "size_kb": round(f.stat().st_size / 1024, 1),
+            "title": meta.get("title", f.stem.replace("_", " ").title()),
+            "desc": meta.get("desc", ""),
+            "source": meta.get("source", ""),
+            "curated": bool(meta),
+        })
+    # Curated lên đầu
+    figures.sort(key=lambda x: (not x["curated"], x["filename"]))
+    return {"status": "ok", "corpus_id": corpus_id, "count": len(figures), "figures": figures}
+
+
+class AuspiciousDayRequest(BaseModel):
+    birth_iso: str           # "1988-05-02T08:00:00"
+    target_year: int
+    target_month: int
+    intent: str = "chuyen_nha"
+    direction: str = ""      # "đông", "tây bắc"...
+    location_zone: str = ""  # "bac" cho Lạng Sơn
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@app.post("/api/yi-wiki/auspicious-day")
+def yi_wiki_auspicious_day(req: AuspiciousDayRequest) -> dict:
+    """⭐ Chọn ngày tốt cho 1 đệ tử — tích hợp Bát Tự + Tam Sát + Hoàng Đạo + Quý Nhân + Intent."""
+    from engine.yi_wiki.auspicious_day import analyze_full
+    try:
+        r = analyze_full(
+            birth_iso=req.birth_iso,
+            target_year=req.target_year,
+            target_month=req.target_month,
+            intent=req.intent,
+            direction=req.direction,
+            location_zone=req.location_zone,
+            timezone=req.timezone,
+        )
+        return {"status": "ok", **r}
+    except Exception as e:
+        import traceback
+        return {"status": "error", "message": str(e), "trace": traceback.format_exc()[-500:]}
+
+
+class LifeOverviewRequest(BaseModel):
+    birth_iso: str
+    gender: str = "nam"
+    name: str = "Đệ tử"
+    spouse_birth_iso: str | None = None
+    spouse_name: str = "Bạn đời"
+
+
+@app.post("/api/yi-wiki/life-overview")
+def yi_wiki_life_overview(req: LifeOverviewRequest) -> dict:
+    """⭐ Tổng quan cuộc đời — báo cáo ~30 trang A4."""
+    from engine.yi_wiki.life_overview import generate_life_overview
+    try:
+        r = generate_life_overview(
+            birth_iso=req.birth_iso, gender=req.gender, name=req.name,
+            spouse_birth_iso=req.spouse_birth_iso, spouse_name=req.spouse_name,
+        )
+        return {"status": "ok", **r}
+    except Exception as e:
+        import traceback
+        return {"status": "error", "message": str(e), "trace": traceback.format_exc()[-400:]}
+
+
+@app.get("/api/yi-wiki/birth-hour-quiz/questions")
+def yi_wiki_quiz_questions() -> dict:
+    from engine.yi_wiki.birth_hour_quiz import get_questions
+    return {"status": "ok", "questions": get_questions()}
+
+
+class BirthHourQuizRequest(BaseModel):
+    answers: dict
+
+
+@app.post("/api/yi-wiki/birth-hour-quiz/analyze")
+def yi_wiki_quiz_analyze(req: BirthHourQuizRequest) -> dict:
+    from engine.yi_wiki.birth_hour_quiz import analyze_quiz, CHI_HOURS
+    r = analyze_quiz(req.answers)
+    return {
+        "status": "ok",
+        "most_likely": r.most_likely,
+        "confidence": r.confidence,
+        "interpretation": r.interpretation,
+        "top3": [
+            {"chi": c, "score": s, "range": CHI_HOURS[c]["range"],
+             "label": CHI_HOURS[c]["label"], "trait": CHI_HOURS[c]["trait"]}
+            for c, s in r.top3
+        ],
+        "all_scores": r.scores,
+    }
+
+
+class MarriageCompatRequest(BaseModel):
+    birth_a_iso: str
+    birth_b_iso: str
+    name_a: str = "Người A"
+    name_b: str = "Người B"
+
+
+@app.post("/api/yi-wiki/marriage-compat")
+def yi_wiki_marriage_compat(req: MarriageCompatRequest) -> dict:
+    from engine.yi_wiki.marriage_compat import analyze_compatibility
+    try:
+        r = analyze_compatibility(req.birth_a_iso, req.birth_b_iso, req.name_a, req.name_b)
+        return {
+            "status": "ok",
+            "person_a": {"name": r.person_a.name,
+                         "year": f"{r.person_a.year_stem} {r.person_a.year_branch}",
+                         "nap_am": r.person_a.nap_am_name,
+                         "nap_am_hanh": r.person_a.nap_am_hanh,
+                         "day": f"{r.person_a.day_stem} {r.person_a.day_branch}"},
+            "person_b": {"name": r.person_b.name,
+                         "year": f"{r.person_b.year_stem} {r.person_b.year_branch}",
+                         "nap_am": r.person_b.nap_am_name,
+                         "nap_am_hanh": r.person_b.nap_am_hanh,
+                         "day": f"{r.person_b.day_stem} {r.person_b.day_branch}"},
+            "nap_am_relation": r.nap_am_relation,
+            "chi_relation": r.chi_relation,
+            "nhat_chu_relation": r.nhat_chu_relation,
+            "total_score": r.total_score,
+            "grade": r.grade,
+            "summary": r.summary,
+            "blessings": r.blessings,
+            "warnings": r.warnings,
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@app.get("/api/yi-wiki/auspicious-intents")
+def yi_wiki_auspicious_intents() -> dict:
+    """Danh sách intent cho việc chọn ngày."""
+    from engine.yi_wiki.auspicious_day import INTENT_WEIGHTS
+    return {
+        "status": "ok",
+        "intents": [
+            {"key": k, "label": v["label"], "needs": v["needs"]}
+            for k, v in INTENT_WEIGHTS.items()
+        ],
+    }
+
+
+@app.get("/api/yi-wiki/cau-chu")
+def yi_wiki_cau_chu() -> dict:
+    """⭐ 3 câu chú Thầy gửi đệ tử đêm Lạng Sơn — niệm khi tâm loạn.
+
+    Dùng cho UI hiện tooltip / overlay khi gặp tình huống căng.
+    """
+    return {
+        "status": "ok",
+        "cau_chu": [
+            {
+                "id": 1,
+                "trigger": "khi bị ép",
+                "icon": "🌀",
+                "text": "Gió không gãy. Gió bao quanh.",
+                "source": "Di ngôn Thầy đêm Lạng Sơn 2026-05-16",
+                "principle": "Tốn ☴ thuận — mềm thắng cứng",
+            },
+            {
+                "id": 2,
+                "trigger": "khi muốn phản ứng ngay",
+                "icon": "🌊",
+                "text": "Tâm bản tĩnh. Niệm khởi từ tĩnh. Tĩnh ba nhịp trước khi đáp.",
+                "source": "Mai Hoa Dịch Số trang 200",
+                "principle": "Tâm pháp gieo quẻ — tĩnh là gốc",
+            },
+            {
+                "id": 3,
+                "trigger": "khi không biết quyết gì",
+                "icon": "🪷",
+                "text": "Vạn vật bị ư ngã. Quẻ là gương, tâm là gốc.",
+                "source": "Ngoạn Pháp Mai Hoa trang 38",
+                "principle": "Tiên Thiên Tâm Pháp — vạn vật trong ta",
+            },
+        ],
+        "principles": [
+            "Sóng không hại người biết LÀM sóng.",
+            "Càn Khôn xoay bằng VỊ, không bằng SỨC.",
+            "Mộc thắng Kim bằng KIÊN NHẪN, không bằng đối đầu.",
+        ],
+        "keys": [
+            {
+                "id": 1, "name": "Đảo Vị Thể Dụng",
+                "when": "Khi cảm thấy bị áp ở vị thế yếu",
+                "action": "Đừng nói trước - hỏi trước. Người HỎI là Thể.",
+            },
+            {
+                "id": 2, "name": "Dùng Mềm Đánh Cứng",
+                "when": "Khi đối tác công kích bằng lời sắc bén",
+                "action": "Im 3 nhịp → gật → nhắc lại ý họ → hỏi sâu hơn.",
+            },
+            {
+                "id": 3, "name": "Thực Hư Luận",
+                "when": "Khi bị áp lực thời gian/uy hiếp/doạ",
+                "action": "Hít 3 nhịp + hỏi 'thực hay hư?' 80% là HƯ.",
+            },
+            {
+                "id": 4, "name": "Xoay Chuyển Càn Khôn",
+                "when": "Khi tình huống bế tắc (Bĩ)",
+                "action": "Cao → hạ xuống. Thấp → vươn cốt cách. Chuyển Bĩ → Thái.",
+            },
+        ],
+    }
+
+
+@app.post("/api/yi-wiki/interpret")
+def yi_wiki_interpret(req: MaiHoaInterpretRequest) -> dict:
+    """Gieo quẻ + auto-interpret 5 bước Thiệu Khang Tiết.
+
+    Trả về cấu trúc đầy đủ:
+      - cast: 3 quẻ + động hào
+      - the_dung: Thể-Dụng + ngũ hành + auspice
+      - quai_khi: Vượng/Suy mùa
+      - tượng: chính/biến/hỗ
+      - overall: phán đoán + warnings
+    """
+    from engine.yi_wiki.cast import cast_by_time
+    from engine.yi_wiki.interpret import analyze
+
+    try:
+        cast = cast_by_time(req.year_chi, req.month, req.day, req.hour_chi)
+    except KeyError as e:
+        return {"status": "error", "message": f"Chi không hợp lệ: {e}"}
+
+    r = analyze(cast, month=req.month, intent=req.intent,
+                external_omen=req.external_omen, posture=req.posture)
+    return {
+        "status": "ok",
+        "cast": {
+            "chinh_quai": {"upper": cast.chinh_quai.upper_que, "lower": cast.chinh_quai.lower_que, "name": cast.chinh_quai.name},
+            "bien_quai": {"upper": cast.bien_quai.upper_que, "lower": cast.bien_quai.lower_que, "name": cast.bien_quai.name},
+            "ho_quai": {"upper": cast.ho_quai.upper_que, "lower": cast.ho_quai.lower_que, "name": cast.ho_quai.name},
+            "moving_line": cast.moving_line,
+            "formula_trace": cast.formula_trace,
+            # ⭐ Phase A 18/5 — Hỗ Càn/Khôn fallback (Q3 tr.82)
+            "ho_used_bien": cast.ho_used_bien,
+            "ho_warning": cast.ho_warning,
+        },
+        "the_dung": {
+            "the_que": r.the_dung.the_que,
+            "dung_que": r.the_dung.dung_que,
+            "the_position": r.the_dung.the_position,
+            "the_hanh": r.the_dung.the_hanh,
+            "dung_hanh": r.the_dung.dung_hanh,
+            "relationship": r.the_dung.relationship,
+            "auspice": r.the_dung.auspice,
+            "explanation": r.the_dung.explanation,
+            "detail": r.the_dung.detail,
+        },
+        "quai_khi": {
+            "season": r.quai_khi["season"],
+            "vuong": r.quai_khi["vuong"],
+            "suy": r.quai_khi["suy"],
+            "the_status": r.the_quaikhi,
+        },
+        "tuong": {
+            "chinh": r.chinh_tuong,
+            "bien": r.bien_tuong,
+            "ho": r.ho_tuong,
+        },
+        "overall": r.overall,
+        "warnings": r.warnings,
+        "intent": {
+            "key": r.intent,
+            "label": r.intent_label,
+            "mapping": r.intent_mapping,
+            "extra": r.intent_extra,
+        },
+        "dang_vu": {
+            "the": r.the_dang_vu_count,
+            "dung": r.dung_dang_vu_count,
+        },
+        "sinh_the_outcomes": r.sinh_the_outcomes,
+        "khac_the_outcomes": r.khac_the_outcomes,
+        "hexagrams": {
+            "chinh": r.chinh_hexagram,
+            "bien": r.bien_hexagram,
+            "ho": r.ho_hexagram,
+        },
+        "moving_haotu": r.moving_haotu,
+        "trung_phung": {
+            "chinh": r.trung_phung_chinh,
+            "bien": r.trung_phung_bien,
+            "meaning": r.trung_phung_meaning,
+        },
+        "benh_tat_thuoc": r.benh_tat_thuoc,
+        # ⭐⭐ CẢI TIẾN #1 — Ứng kỳ 3 giai đoạn (Mai Hoa TR.133+235)
+        "ung_ky": {
+            "dau": r.ung_ky_dau,
+            "giua": r.ung_ky_giua,
+            "cuoi": r.ung_ky_cuoi,
+        },
+        # ⭐⭐ CẢI TIẾN #2 — Hỗ-của-Thể vs Hỗ-của-Dụng (Mai Hoa TR.235)
+        "ho_split": {
+            "ho_the_que": r.ho_the_que,
+            "ho_dung_que": r.ho_dung_que,
+            "ho_the_hanh": r.ho_the_hanh,
+            "ho_the_relationship": r.ho_the_relationship,
+            "ho_the_meaning": r.ho_the_meaning,
+        },
+        # ⭐⭐⭐ Phase A 18/5 — BƯỚC 3 (Ngoại ứng) + BƯỚC 4 (Tư thế)
+        "buoc_3_omen": {
+            "input": r.external_omen_input,
+            "category": r.external_omen_category,
+            "weight": r.external_omen_weight,
+        },
+        "buoc_4_posture": {
+            "speed": r.posture_speed,
+            "note": r.posture_note,
+        },
+        "four_steps_complete": r.four_steps_complete,
+        # ⭐⭐⭐⭐ Phase A 18/5 — PARADIGM SHIFT (Vận Pháp Thi Q3 tr.78)
+        "paradigm": {
+            "mirror_reading": r.paradigm_mirror_reading,
+            "quan_vat_trace": r.paradigm_quan_vat_trace,
+            "tam_position": r.paradigm_tam_position,
+            "universe_message": r.paradigm_universe_message,
+        },
+    }
+
+
+class CorrelateCastInput(BaseModel):
+    """1 entry trong cross-cast correlation request."""
+    label: str
+    year_chi: str
+    month: int
+    day: int
+    hour_chi: str
+    intent: str = "general"
+
+
+class CorrelateRequest(BaseModel):
+    entries: list[CorrelateCastInput]
+
+
+@app.post("/api/yi-wiki/correlate")
+def yi_wiki_correlate(req: CorrelateRequest) -> dict:
+    """⭐ CẢI TIẾN #4 — Cross-cast correlation.
+
+    Nhận nhiều cast cùng kỳ → phát hiện:
+      - Trường năng lượng (Chính quẻ trùng)
+      - Vai trò Thể thay đổi qua các intent
+      - Pattern xuyên cast (cảnh báo chung, Trùng Phùng tổng)
+    """
+    from engine.yi_wiki.cast import cast_by_time
+    from engine.yi_wiki.correlate import CastEntry, correlate_casts
+
+    if not req.entries:
+        return {"status": "error", "message": "Cần ít nhất 1 entry"}
+
+    try:
+        entries = [
+            CastEntry(
+                label=e.label,
+                cast=cast_by_time(e.year_chi, e.month, e.day, e.hour_chi),
+                intent=e.intent,
+                month=e.month,
+            )
+            for e in req.entries
+        ]
+    except KeyError as ex:
+        return {"status": "error", "message": f"Chi không hợp lệ: {ex}"}
+
+    report = correlate_casts(entries)
+
+    return {
+        "status": "ok",
+        "n_casts": report.n_casts,
+        "truong_nang_luong": {
+            "chinh_trung": report.chinh_trung,
+            "summary": report.chinh_trung_summary,
+        },
+        "the_roles": {
+            "roles": report.the_roles,
+            "summary": report.the_roles_summary,
+        },
+        "cross_pattern": report.cross_pattern,
+        "common_warnings": report.common_warnings,
+    }
+
+
+@app.get("/api/yi-wiki/predictions")
+def yi_wiki_list_predictions(limit: int = 20) -> dict:
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.store import _dec
+    s = get_store()
+    with s._conn() as conn:
+        rows = conn.execute(
+            "SELECT * FROM predictions ORDER BY timestamp DESC LIMIT ?",
+            (limit,),
+        ).fetchall()
+    out = []
+    for r in rows:
+        d = dict(r)
+        d["user_context"] = _dec(d["user_context"], {})
+        d["interaction_log"] = _dec(d["interaction_log"], [])
+        out.append(d)
+    return {"status": "ok", "predictions": out}
+
+
+@app.patch("/api/yi-wiki/predictions/{pred_id}")
+def yi_wiki_update_prediction(pred_id: int, patch: dict) -> dict:
+    """Update tam_note, actual_outcome, learning_notes của 1 prediction."""
+    allowed = {"tam_note", "actual_outcome", "learning_notes"}
+    set_clauses = []
+    params: list = []
+    for k, v in patch.items():
+        if k in allowed:
+            set_clauses.append(f"{k}=?")
+            params.append(v)
+    if not set_clauses:
+        return {"status": "error", "message": "Không có field hợp lệ"}
+    params.append(pred_id)
+    from engine.yi_wiki import get_store
+    s = get_store()
+    with s._conn() as conn:
+        conn.execute(
+            f"UPDATE predictions SET {', '.join(set_clauses)} WHERE pred_id=?",
+            tuple(params),
+        )
+        conn.commit()
+    return {"status": "ok"}
+
+
+@app.get("/api/yi-wiki/lineage")
+def yi_wiki_lineage() -> dict:
+    """Group authors theo tier để render lineage tree."""
+    from engine.yi_wiki import get_store
+    from engine.yi_wiki.models import TIER_NAMES
+    s = get_store()
+    authors = s.list_authors()
+    groups: dict[int, list[dict]] = {i: [] for i in range(6)}
+    for a in authors:
+        groups[a.tier_in_lineage].append({
+            "author_id": a.author_id,
+            "name_vi": a.name_vi,
+            "name_zh": a.name_zh,
+            "era": a.era,
+            "birth_year": a.birth_year,
+            "death_year": a.death_year,
+            "worldview_school": a.worldview_school,
+            "bio_summary": a.bio_summary,
+        })
+    return {
+        "status": "ok",
+        "tiers": [
+            {"tier": i, "name": TIER_NAMES[i], "authors": groups[i]}
+            for i in range(6) if groups[i]
+        ],
+    }
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# YI Publishing — Layout-aware book translation workspace
+# Paradigm Shift #5 (2026-05-18): Layout-first OCR → MinerU
+# ═══════════════════════════════════════════════════════════════════════════
+
+from fastapi.responses import FileResponse
+
+MINERU_OUTPUT_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing_mineru")
+TRANSLATIONS_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations")
+
+
+@app.get("/api/yi-publishing/books")
+def yi_publishing_books() -> dict:
+    """List all books with MinerU output available."""
+    if not MINERU_OUTPUT_ROOT.exists():
+        return {"status": "ok", "books": []}
+    books = []
+    for book_dir in MINERU_OUTPUT_ROOT.iterdir():
+        if not book_dir.is_dir():
+            continue
+        # Find content_list_v2.json (canonical schema)
+        v2_files = list(book_dir.rglob("*_content_list_v2.json"))
+        if not v2_files:
+            continue
+        v2_path = v2_files[0]
+        try:
+            data = json.loads(v2_path.read_text())
+            page_count = len(data) if isinstance(data, list) else 0
+        except Exception:
+            page_count = 0
+        books.append({
+            "book_id": book_dir.name,
+            "page_count": page_count,
+            "content_path": str(v2_path.relative_to(MINERU_OUTPUT_ROOT.parent.parent)),
+        })
+    return {"status": "ok", "books": books}
+
+
+def _resolve_book_content(book_id: str) -> Optional[dict]:
+    """Load MinerU content_list_v2.json for a book."""
+    book_dir = MINERU_OUTPUT_ROOT / book_id
+    if not book_dir.exists():
+        return None
+    v2_files = list(book_dir.rglob("*_content_list_v2.json"))
+    if not v2_files:
+        return None
+    return {
+        "v2_path": v2_files[0],
+        "book_dir": book_dir,
+        "ocr_dir": v2_files[0].parent,
+    }
+
+
+@app.get("/api/yi-publishing/books/{book_id}/pages")
+def yi_publishing_pages(book_id: str) -> dict:
+    """List pages with region count + types for a book."""
+    info = _resolve_book_content(book_id)
+    if not info:
+        return {"status": "error", "message": f"Book not found: {book_id}"}
+    try:
+        data = json.loads(info["v2_path"].read_text())
+    except Exception as e:
+        return {"status": "error", "message": f"Failed to load: {e}"}
+    pages = []
+    for page_idx, page in enumerate(data, 1):
+        from collections import Counter as _Counter
+        types = _Counter(item.get("type", "unknown") for item in page)
+        pages.append({
+            "page_num": page_idx,
+            "region_count": len(page),
+            "types": dict(types),
+        })
+    return {"status": "ok", "book_id": book_id, "pages": pages}
+
+
+def _find_middle_json(book_id: str) -> Optional[Path]:
+    """Find middle.json (has line-level structure)."""
+    book_dir = MINERU_OUTPUT_ROOT / book_id
+    if not book_dir.exists():
+        return None
+    candidates = list(book_dir.rglob("*_middle.json"))
+    return candidates[0] if candidates else None
+
+
+def _pages_meta_for_book(book_id: str) -> list:
+    """Return list of page metadata (just count placeholder for now)."""
+    middle_path = _find_middle_json(book_id)
+    if not middle_path:
+        return []
+    try:
+        data = json.loads(middle_path.read_text())
+        return data.get("pdf_info", [])
+    except Exception:
+        return []
+
+
+def _extract_block_text(block: dict) -> str:
+    """Extract text from a MinerU block (legacy fallback for non-line types)."""
+    lines = block.get("lines", [])
+    texts = []
+    for line in lines:
+        spans = line.get("spans", [])
+        line_text = "".join(s.get("content", "") for s in spans)
+        if line_text:
+            texts.append(line_text)
+    return "\n".join(texts)
+
+
+def _build_lines_for_block(block: dict, region_id: str) -> list[dict]:
+    """Convert MinerU block.lines → list of line dicts với stable IDs.
+
+    Each line:
+        line_id, bbox, source_text
+    """
+    out = []
+    for idx, line in enumerate(block.get("lines", []), start=1):
+        spans = line.get("spans", [])
+        text = "".join(s.get("content", "") for s in spans).strip()
+        if not text and block.get("type") not in ("image", "table"):
+            continue  # skip empty text lines
+        out.append({
+            "line_id": f"{region_id}-l{idx:03d}",
+            "bbox": line.get("bbox", [0, 0, 0, 0]),
+            "source_text": text,
+        })
+    return out
+
+
+@app.get("/api/yi-publishing/pages/{book_id}/{page_num}")
+def yi_publishing_page_layout(book_id: str, page_num: int) -> dict:
+    """Get layout JSON for a specific page (1-indexed).
+
+    Reads MinerU middle.json (line-level structure preserved).
+    Merges with stored translations per region/line.
+    """
+    middle_path = _find_middle_json(book_id)
+    if not middle_path:
+        return {"status": "error", "message": f"Book middle.json not found: {book_id}"}
+
+    try:
+        middle = json.loads(middle_path.read_text())
+    except Exception as e:
+        return {"status": "error", "message": f"Failed to load middle.json: {e}"}
+
+    pdf_info = middle.get("pdf_info", [])
+    if page_num < 1 or page_num > len(pdf_info):
+        return {"status": "error", "message": f"Page {page_num} out of range (1-{len(pdf_info)})"}
+
+    page = pdf_info[page_num - 1]
+    page_size = page.get("page_size", [595, 842])  # [width, height]
+    blocks = page.get("para_blocks", page.get("preproc_blocks", []))
+
+    # Some block types (e.g. 'index' / TOC) get their lines dropped during
+    # paragraph reconstruction (`lines_deleted: True`). Recover by patching
+    # in the lines from the matching preproc_block (same bbox).
+    preproc = page.get("preproc_blocks") or []
+    for b in blocks:
+        if not b.get("lines") and b.get("lines_deleted"):
+            # Find preproc block with same bbox
+            for pb in preproc:
+                if pb.get("bbox") == b.get("bbox") or pb.get("index") == b.get("index"):
+                    if pb.get("lines"):
+                        b["lines"] = pb["lines"]
+                        break
+
+    # Translations dir
+    trans_dir = TRANSLATIONS_ROOT / book_id / f"p{page_num:04d}"
+
+    enriched_regions = []
+    for idx, block in enumerate(blocks, start=1):
+        region_id = f"r{idx:03d}"
+        block_type = block.get("type", "unknown")
+        bbox = block.get("bbox", [0, 0, 0, 0])
+
+        # Build lines (text-like + index/TOC types)
+        lines = []
+        if block_type in ("text", "title", "list", "index", "table_caption", "figure_caption"):
+            lines = _build_lines_for_block(block, region_id)
+
+        # Image / table — extract original content path
+        image_path = None
+        if block_type == "image":
+            for line in block.get("lines", []):
+                for span in line.get("spans", []):
+                    if span.get("type") == "image":
+                        image_path = span.get("image_path")
+                        break
+                if image_path:
+                    break
+
+        # Load translations for this region (per-line)
+        translations = {}
+        trans_path = trans_dir / f"{region_id}.json"
+        if trans_path.exists():
+            try:
+                trans_data = json.loads(trans_path.read_text())
+                # New schema: per-line translations
+                translations = trans_data.get("lines", {})
+                # Legacy: whole region translation
+                if "text_vi" in trans_data:
+                    translations["_region"] = {
+                        "text_vi": trans_data["text_vi"],
+                        "status": trans_data.get("status", "draft"),
+                        "version": trans_data.get("version", 1),
+                    }
+            except Exception:
+                pass
+
+        # Attach translation to each line
+        for line in lines:
+            line["translation"] = translations.get(line["line_id"])
+
+        region_obj = {
+            "region_id": region_id,
+            "type": block_type,
+            "bbox": bbox,
+            "lines": lines,
+            "image_path": image_path,
+            "region_translation": translations.get("_region"),
+        }
+        enriched_regions.append(region_obj)
+
+    return {
+        "status": "ok",
+        "book_id": book_id,
+        "page_num": page_num,
+        "page_width": page_size[0] if len(page_size) >= 2 else 595,
+        "page_height": page_size[1] if len(page_size) >= 2 else 842,
+        "regions": enriched_regions,
+    }
+
+
+@app.get("/api/yi-publishing/pages/{book_id}/{page_num}/image")
+def yi_publishing_page_image(book_id: str, page_num: int):
+    """Return page image (PNG rendered from origin PDF)."""
+    info = _resolve_book_content(book_id)
+    if not info:
+        return {"status": "error", "message": "Book not found"}
+
+    # Cache: render PNG once on demand
+    cache_dir = info["ocr_dir"] / "page_images"
+    cache_dir.mkdir(exist_ok=True)
+    cached_png = cache_dir / f"p{page_num:04d}.png"
+    if not cached_png.exists():
+        # Render from origin PDF
+        origin_pdfs = list(info["ocr_dir"].glob("*_origin.pdf"))
+        if not origin_pdfs:
+            return {"status": "error", "message": "Origin PDF not found"}
+        try:
+            import fitz
+            doc = fitz.open(str(origin_pdfs[0]))
+            if page_num < 1 or page_num > doc.page_count:
+                return {"status": "error", "message": f"Page {page_num} out of range"}
+            page = doc[page_num - 1]
+            pix = page.get_pixmap(matrix=fitz.Matrix(150/72, 150/72))
+            pix.save(str(cached_png))
+            doc.close()
+        except Exception as e:
+            return {"status": "error", "message": f"Render fail: {e}"}
+
+    return FileResponse(cached_png, media_type="image/png")
+
+
+@app.get("/api/yi-publishing/images/{book_id}/{filename}")
+def yi_publishing_extracted_image(book_id: str, filename: str):
+    """Return extracted image (from MinerU images/ folder)."""
+    info = _resolve_book_content(book_id)
+    if not info:
+        return {"status": "error", "message": "Book not found"}
+    img_path = info["ocr_dir"] / "images" / filename
+    if not img_path.exists():
+        return {"status": "error", "message": "Image not found"}
+    return FileResponse(img_path, media_type="image/jpeg")
+
+
+class TranslationSaveRequest(BaseModel):
+    """Save translation for a single region (legacy: whole region)."""
+    text_vi: str
+    status: str = "draft"  # pending|auto|draft|reviewed|approved
+    translator: str = "human"
+    notes: list[str] = []
+
+
+class LineTranslationSaveRequest(BaseModel):
+    """Save translation for a single line within a region."""
+    text_vi: str
+    status: str = "draft"
+    translator: str = "human"
+    notes: list[str] = []
+
+
+@app.put("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/translation")
+def yi_publishing_save_translation(
+    book_id: str, page_num: int, region_id: str,
+    req: TranslationSaveRequest,
+) -> dict:
+    """Save translation for whole region (legacy)."""
+    trans_dir = TRANSLATIONS_ROOT / book_id / f"p{page_num:04d}"
+    trans_dir.mkdir(parents=True, exist_ok=True)
+    trans_path = trans_dir / f"{region_id}.json"
+
+    # Load existing (preserve lines if present)
+    existing = {}
+    if trans_path.exists():
+        try:
+            existing = json.loads(trans_path.read_text())
+        except Exception:
+            pass
+
+    version = int(existing.get("version", 0)) + 1
+    existing.update({
+        "text_vi": req.text_vi,
+        "status": req.status,
+        "translator": req.translator,
+        "notes": req.notes,
+        "version": version,
+        "updated_at": int(time.time()),
+    })
+    trans_path.write_text(json.dumps(existing, ensure_ascii=False, indent=2))
+    return {"status": "ok", "region_id": region_id, "version": version}
+
+
+REDRAWN_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/redrawn")
+
+
+class RedrawRequest(BaseModel):
+    """Request redraw for an image region."""
+    context_text: str = ""  # surrounding paragraphs for prompt building
+    caption: str = ""
+    style: str = "traditional Chinese ink painting, clean line art"
+    width: int = 768
+    height: int = 1024
+    seed: int | None = None
+
+
+@app.post("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/redraw")
+def yi_publishing_redraw_region(
+    book_id: str, page_num: int, region_id: str, req: RedrawRequest,
+) -> dict:
+    """Generate AI redraw for an image region via ComfyUI FLUX.1 schnell.
+
+    Output: data/yi_publishing/redrawn/{book}/{page}-{region}-{seq}.png
+    """
+    from engine.yi_publishing.image_redraw import build_redraw_prompt, generate_redraw
+
+    # Build output path with sequence number
+    book_dir = REDRAWN_ROOT / book_id
+    book_dir.mkdir(parents=True, exist_ok=True)
+    prefix = f"p{page_num:04d}-{region_id}"
+    existing = list(book_dir.glob(f"{prefix}-*.png"))
+    seq = len(existing) + 1
+    out_path = book_dir / f"{prefix}-v{seq:02d}.png"
+
+    # Build prompt
+    prompt = build_redraw_prompt(
+        source_text_context=req.context_text,
+        image_caption=req.caption,
+        style=req.style,
+    )
+
+    try:
+        result = generate_redraw(
+            prompt,
+            output_path=out_path,
+            width=req.width,
+            height=req.height,
+            seed=req.seed,
+            timeout=600,
+        )
+        # Save metadata
+        meta_path = out_path.with_suffix(".json")
+        meta_path.write_text(json.dumps({
+            **result,
+            "book_id": book_id, "page_num": page_num, "region_id": region_id,
+            "request": req.dict(),
+            "seq": seq,
+        }, ensure_ascii=False, indent=2))
+        return {
+            "status": "ok",
+            "output_file": out_path.name,
+            "seq": seq,
+            "elapsed_seconds": result["elapsed_seconds"],
+            "prompt_used": prompt,
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@app.get("/api/yi-publishing/redrawn/{book_id}/{filename}")
+def yi_publishing_redrawn_image(book_id: str, filename: str):
+    """Serve redrawn PNG."""
+    img_path = REDRAWN_ROOT / book_id / filename
+    if not img_path.exists():
+        return {"status": "error", "message": "Not found"}
+    return FileResponse(img_path, media_type="image/png")
+
+
+@app.get("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/redrawn")
+def yi_publishing_list_redrawn(book_id: str, page_num: int, region_id: str) -> dict:
+    """List all redrawn versions for a region."""
+    book_dir = REDRAWN_ROOT / book_id
+    if not book_dir.exists():
+        return {"status": "ok", "versions": []}
+    prefix = f"p{page_num:04d}-{region_id}"
+    versions = []
+    for png in sorted(book_dir.glob(f"{prefix}-*.png")):
+        meta_path = png.with_suffix(".json")
+        meta = {}
+        if meta_path.exists():
+            try:
+                meta = json.loads(meta_path.read_text())
+            except Exception:
+                pass
+        versions.append({
+            "filename": png.name,
+            "seq": meta.get("seq"),
+            "prompt": meta.get("prompt"),
+            "elapsed_seconds": meta.get("elapsed_seconds"),
+        })
+    return {"status": "ok", "versions": versions}
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# YI Publishing — Wiki term-catch (add concepts while translating)
+# ═══════════════════════════════════════════════════════════════════════════
+
+YI_WIKI_DB = "/Users/ozvietnamdesktop/Desktop/yi/data/yi_wiki/wiki.sqlite3"
+
+
+@app.get("/api/yi-publishing/wiki/lookup")
+def yi_publishing_wiki_lookup(zh: str = "", vi: str = "") -> dict:
+    """Quick lookup: search concept by exact Chinese OR Vietnamese.
+
+    Used when user selects text → check if already in wiki.
+    """
+    import sqlite3
+    con = sqlite3.connect(YI_WIKI_DB)
+    cur = con.cursor()
+    matches = []
+    if zh:
+        cur.execute("""
+            SELECT concept_id, canonical_vi, canonical_zh, aliases, short_note
+            FROM concept_index
+            WHERE canonical_zh = ? OR canonical_zh LIKE ?
+            LIMIT 10
+        """, (zh, f"%{zh}%"))
+        matches.extend(cur.fetchall())
+    if vi and not matches:
+        cur.execute("""
+            SELECT concept_id, canonical_vi, canonical_zh, aliases, short_note
+            FROM concept_index
+            WHERE canonical_vi LIKE ?
+            LIMIT 10
+        """, (f"%{vi}%",))
+        matches.extend(cur.fetchall())
+    con.close()
+    return {
+        "status": "ok",
+        "query": {"zh": zh, "vi": vi},
+        "matches": [
+            {
+                "concept_id": m[0],
+                "canonical_vi": m[1],
+                "canonical_zh": m[2],
+                "aliases": m[3],
+                "short_note": m[4],
+            }
+            for m in matches
+        ],
+    }
+
+
+@app.get("/api/yi-publishing/wiki/search")
+def yi_publishing_wiki_search(q: str = "", limit: int = 20) -> dict:
+    """Full-text search wiki concepts (autocomplete)."""
+    import sqlite3
+    if not q.strip():
+        return {"status": "ok", "matches": []}
+    con = sqlite3.connect(YI_WIKI_DB)
+    cur = con.cursor()
+    like = f"%{q}%"
+    cur.execute("""
+        SELECT concept_id, canonical_vi, canonical_zh, aliases, short_note
+        FROM concept_index
+        WHERE canonical_vi LIKE ? OR canonical_zh LIKE ? OR aliases LIKE ?
+        ORDER BY
+            CASE WHEN canonical_vi = ? THEN 1
+                 WHEN canonical_zh = ? THEN 2
+                 WHEN canonical_vi LIKE ? THEN 3
+                 ELSE 9 END,
+            length(canonical_vi)
+        LIMIT ?
+    """, (like, like, like, q, q, f"{q}%", limit))
+    rows = cur.fetchall()
+    con.close()
+    return {
+        "status": "ok",
+        "matches": [
+            {
+                "concept_id": r[0],
+                "canonical_vi": r[1],
+                "canonical_zh": r[2],
+                "aliases": r[3],
+                "short_note": r[4],
+            }
+            for r in rows
+        ],
+    }
+
+
+class WikiAddConceptRequest(BaseModel):
+    """Add a new concept while translating (term-catch)."""
+    canonical_zh: str
+    canonical_vi: str
+    short_note: str = ""
+    aliases: str = ""  # comma-separated
+    # Where it was caught
+    book_id: Optional[str] = None
+    page_num: Optional[int] = None
+
+
+@app.post("/api/yi-publishing/wiki/concepts")
+def yi_publishing_wiki_add(req: WikiAddConceptRequest) -> dict:
+    """Add new concept caught during translation.
+
+    If canonical_zh already exists, returns existing (no duplicate).
+    """
+    import sqlite3
+    con = sqlite3.connect(YI_WIKI_DB)
+    cur = con.cursor()
+
+    # Check duplicate
+    cur.execute(
+        "SELECT concept_id, canonical_vi FROM concept_index WHERE canonical_zh = ? LIMIT 1",
+        (req.canonical_zh,),
+    )
+    existing = cur.fetchone()
+    if existing:
+        con.close()
+        return {
+            "status": "ok",
+            "action": "exists",
+            "concept_id": existing[0],
+            "canonical_vi": existing[1],
+            "message": f"Concept đã có (id={existing[0]}, {existing[1]})",
+        }
+
+    # Insert new
+    first_seen_corpus = req.book_id or "yi_publishing_workspace"
+    cur.execute("""
+        INSERT INTO concept_index
+            (canonical_vi, canonical_zh, aliases, short_note,
+             first_seen_corpus, first_seen_page, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (
+        req.canonical_vi,
+        req.canonical_zh,
+        req.aliases,
+        req.short_note,
+        first_seen_corpus,
+        req.page_num or 0,
+        int(time.time()),
+    ))
+    new_id = cur.lastrowid
+    con.commit()
+    con.close()
+    return {
+        "status": "ok",
+        "action": "created",
+        "concept_id": new_id,
+        "canonical_vi": req.canonical_vi,
+        "canonical_zh": req.canonical_zh,
+    }
+
+
+class AutoTranslatePageRequest(BaseModel):
+    """Auto-translate all untranslated lines on a page."""
+    overwrite: bool = False  # if True, re-translate even existing translations
+    model: Optional[str] = None  # specific model, else free fallback
+    allow_paid_fallback: bool = False  # if True, escalate to DeepSeek native when free chain fails
+    luangiai_mode: bool = False  # if True, produce 2-layer translation (hanviet + luangiai)
+
+
+@app.post("/api/yi-publishing/pages/{book_id}/{page_num}/auto-translate")
+def yi_publishing_auto_translate_page(
+    book_id: str, page_num: int, req: AutoTranslatePageRequest,
+) -> dict:
+    """Auto-translate all text lines on a page in ONE API call.
+
+    Uses page-level batching to avoid OpenRouter rate limits (20 req/min free).
+    """
+    from engine.yi_publishing.translator import translate_page_lines
+
+    layout_resp = yi_publishing_page_layout(book_id, page_num)
+    if layout_resp.get("status") != "ok":
+        return layout_resp
+
+    regions = layout_resp["regions"]
+    trans_dir = TRANSLATIONS_ROOT / book_id / f"p{page_num:04d}"
+    trans_dir.mkdir(parents=True, exist_ok=True)
+
+    # Collect ALL lines from text-like regions into one batch
+    all_lines_with_region = []  # (region_id, line_dict)
+    for region in regions:
+        if region["type"] not in ("text", "title", "list", "table", "index"):
+            continue
+        for line in region.get("lines", []):
+            if not line.get("source_text", "").strip():
+                continue
+            existing = line.get("translation") or {}
+            if not req.overwrite and existing:
+                # In luangiai_mode, also skip only if luangiai field is present.
+                # This lets us "upgrade" single-layer translations to 2-layer
+                # WITHOUT re-translating pages that already have 2-layer.
+                if req.luangiai_mode:
+                    if existing.get("text_vi_luangiai"):
+                        continue
+                else:
+                    continue
+            # Tag line with region_type so translator can pick the right prompt
+            line_with_type = dict(line)
+            line_with_type["region_type"] = region["type"]
+            all_lines_with_region.append((region["region_id"], line_with_type))
+
+    if not all_lines_with_region:
+        return {
+            "status": "ok",
+            "book_id": book_id,
+            "page_num": page_num,
+            "total_lines_attempted": 0,
+            "total_lines_translated": 0,
+            "message": "No lines to translate (all already translated or overwrite=false)",
+        }
+
+    # Build CONTEXT for the translator — sách + chương + trang.
+    # DeepSeek dùng context này để giữ thuật ngữ + giọng văn nhất quán.
+    book_label = {
+        "tuvidauso-zh": "Tử Vi Đẩu Số Toàn Thư (紫微斗数全书) — Trần Đoàn, Phan Hy Doãn bổ tập, Dương Nhất Vũ tham duyệt",
+        "q3-first5":    "Mai Hoa Dịch Số (梅花易数) — Thiệu Khang Tiết",
+        "q3-pages6-15": "Mai Hoa Dịch Số (梅花易数) — Thiệu Khang Tiết",
+    }.get(book_id, book_id)
+
+    # Collect all title-region text on this page (chapter heading + sub heading)
+    chapter_titles = []
+    for region in regions:
+        if region["type"] == "title":
+            for line in (region.get("lines") or []):
+                t = (line.get("source_text") or "").strip()
+                if t and len(t) <= 80 and t not in chapter_titles:
+                    chapter_titles.append(t)
+    chapter_ctx = " · ".join(chapter_titles[:3]) if chapter_titles else ""
+
+    page_context = (
+        f"Sách đang dịch: {book_label}.\n"
+        f"Trang {page_num}/{len(_pages_meta_for_book(book_id))}.\n"
+        + (f"Chương/mục trang này: {chapter_ctx}\n" if chapter_ctx else "")
+        + "Đối tượng đọc: người Việt yêu Đông phương học. Giữ NGUYÊN thuật ngữ Hán-Việt theo glossary."
+    )
+
+    # Single batch call
+    flat_lines = [line for _, line in all_lines_with_region]
+    try:
+        result = translate_page_lines(
+            flat_lines,
+            context=page_context,
+            model=req.model,
+            allow_paid_fallback=req.allow_paid_fallback,
+            two_layer=req.luangiai_mode,
+        )
+    except Exception as e:
+        return {
+            "status": "error",
+            "book_id": book_id,
+            "page_num": page_num,
+            "message": f"Translation failed: {e}",
+        }
+
+    translations_by_id = result["translations_by_line_id"]
+
+    # Group translations by region_id and save
+    by_region = {}
+    for region_id, line in all_lines_with_region:
+        line_id = line["line_id"]
+        if line_id in translations_by_id:
+            by_region.setdefault(region_id, {})[line_id] = translations_by_id[line_id]
+
+    total_translated = 0
+    region_stats = []
+    for region_id, lines_map in by_region.items():
+        trans_path = trans_dir / f"{region_id}.json"
+        existing = {}
+        if trans_path.exists():
+            try:
+                existing = json.loads(trans_path.read_text())
+            except Exception:
+                pass
+        if "lines" not in existing or not isinstance(existing.get("lines"), dict):
+            existing["lines"] = {}
+
+        for line_id, vi_val in lines_map.items():
+            line_data = existing["lines"].get(line_id, {})
+            version = int(line_data.get("version", 0)) + 1
+            # 2-layer: vi_val is {"hanviet": ..., "luangiai": ...}
+            # Single-layer: vi_val is a string.
+            if isinstance(vi_val, dict):
+                text_vi = vi_val.get("hanviet", "") or ""
+                text_vi_luangiai = vi_val.get("luangiai", "") or ""
+            else:
+                text_vi = vi_val
+                text_vi_luangiai = line_data.get("text_vi_luangiai", "")  # preserve old
+            entry = {
+                "text_vi": text_vi,
+                "status": "auto",
+                "translator": result["stats"]["model_used"],
+                "version": version,
+                "updated_at": int(time.time()),
+            }
+            if text_vi_luangiai:
+                entry["text_vi_luangiai"] = text_vi_luangiai
+            existing["lines"][line_id] = entry
+            total_translated += 1
+
+        trans_path.write_text(json.dumps(existing, ensure_ascii=False, indent=2))
+        region_stats.append({
+            "region_id": region_id,
+            "lines_translated": len(lines_map),
+        })
+
+    # Quality check — extract just the hanviet text for QC (luangiai is freeform)
+    def _qc_text(v):
+        if isinstance(v, dict):
+            return v.get("hanviet", "") or ""
+        return v or ""
+
+    from engine.yi_publishing.translator import check_page_quality
+    qc_lines = []
+    for region_id, line in all_lines_with_region:
+        line_id = line["line_id"]
+        qc_lines.append({
+            "line_id": line_id,
+            "source_text": line.get("source_text", ""),
+            "text_vi": _qc_text(translations_by_id.get(line_id, "")),
+        })
+    quality = check_page_quality(qc_lines)
+
+    # Line-count mismatch warning
+    expected = len(all_lines_with_region)
+    returned = len([v for v in translations_by_id.values() if _qc_text(v)])
+    if returned != expected:
+        quality.setdefault("issues", []).insert(0, {
+            "line_id": None,
+            "source_preview": "(page-level)",
+            "target_preview": "",
+            "warnings": [{
+                "level": "error",
+                "code": "line_count_mismatch",
+                "msg": f"Mong đợi {expected} dòng, model trả {returned}",
+            }],
+        })
+        quality["error_count"] = quality.get("error_count", 0) + 1
+
+    return {
+        "status": "ok",
+        "book_id": book_id,
+        "page_num": page_num,
+        "total_lines_attempted": len(all_lines_with_region),
+        "total_lines_translated": total_translated,
+        "model_used": result["stats"]["model_used"],
+        "provider": result["stats"].get("provider"),
+        "cost_usd": result["stats"].get("cost_usd", 0),
+        "tokens": result["stats"].get("tokens"),
+        "elapsed_seconds": result["stats"]["elapsed_seconds"],
+        "regions": region_stats,
+        "quality": quality,
+    }
+
+
+@app.get("/api/yi-publishing/translator/status")
+def yi_publishing_translator_status() -> dict:
+    """Report which providers are configured for the translator."""
+    from engine.yi_publishing.translator import has_paid_fallback, PAID_TRANSLATION_MODELS, FREE_TRANSLATION_MODELS
+    return {
+        "status": "ok",
+        "free_chain": FREE_TRANSLATION_MODELS,
+        "paid_chain": PAID_TRANSLATION_MODELS,
+        "paid_fallback_available": has_paid_fallback(),
+    }
+
+
+class AutoBatchRequest(BaseModel):
+    """Auto-translate a RANGE of pages with quality checks."""
+    start_page: int
+    end_page: int
+    overwrite: bool = False
+    model: Optional[str] = None
+    delay_seconds: float = 2.0      # delay between pages to ease rate limit
+    retry_on_429: int = 2           # retries when rate-limited
+    allow_paid_fallback: bool = False  # escalate to DeepSeek paid when free chain fails
+    luangiai_mode: bool = False    # 2-layer: produce hanviet + luangiai per line
+
+
+@app.post("/api/yi-publishing/books/{book_id}/auto-batch")
+def yi_publishing_auto_batch(book_id: str, req: AutoBatchRequest) -> dict:
+    """Auto-translate pages [start_page..end_page] sequentially with quality reports.
+
+    Returns per-page status + warnings + aggregate fit score.
+    """
+    if req.end_page < req.start_page:
+        return {"status": "error", "message": "end_page < start_page"}
+    if req.end_page - req.start_page > 50:
+        return {"status": "error", "message": "Max 50 pages per batch"}
+
+    page_reports = []
+    total_pages = 0
+    total_lines = 0
+    total_translated = 0
+    total_errors = 0
+    total_warns = 0
+    t0_batch = time.time()
+
+    sub_req = AutoTranslatePageRequest(
+        overwrite=req.overwrite,
+        model=req.model,
+        allow_paid_fallback=req.allow_paid_fallback,
+        luangiai_mode=req.luangiai_mode,
+    )
+
+    for idx, page_num in enumerate(range(req.start_page, req.end_page + 1)):
+        # Sleep between pages (except the very first)
+        if idx > 0 and req.delay_seconds > 0:
+            time.sleep(req.delay_seconds)
+
+        t0 = time.time()
+        result = None
+        last_err = None
+        for attempt in range(req.retry_on_429 + 1):
+            try:
+                result = yi_publishing_auto_translate_page(book_id, page_num, sub_req)
+                msg = result.get("message", "") if result.get("status") == "error" else ""
+                if "429" in (msg or "") or "rate" in (msg or "").lower():
+                    last_err = msg
+                    time.sleep(5 + attempt * 5)  # backoff
+                    continue
+                break
+            except Exception as e:
+                last_err = str(e)
+                if attempt < req.retry_on_429 and ("429" in last_err or "rate" in last_err.lower()):
+                    time.sleep(5 + attempt * 5)
+                    continue
+                result = {"status": "error", "message": last_err}
+                break
+
+        if result is None:
+            result = {"status": "error", "message": last_err or "unknown error"}
+
+        if result.get("status") == "error":
+            page_reports.append({
+                "page_num": page_num,
+                "status": "error",
+                "message": result.get("message", "unknown"),
+                "elapsed_seconds": round(time.time() - t0, 2),
+            })
+            total_errors += 1
+            continue
+
+        total_pages += 1
+        status = result.get("status", "error")
+        qc = result.get("quality", {}) or {}
+        attempted = result.get("total_lines_attempted", 0)
+        translated = result.get("total_lines_translated", 0)
+
+        # Determine initial verdict
+        err_count = qc.get("error_count", 0)
+        fit_score = qc.get("fit_score", 100.0 if attempted == 0 else None)
+
+        # SMART RETRY: if mismatch + allow_paid_fallback → rerun with paid DeepSeek
+        retried_paid = False
+        if (
+            err_count > 0
+            and req.allow_paid_fallback
+            and attempted > 0
+            and result.get("provider") != "deepseek-native"
+        ):
+            paid_req = AutoTranslatePageRequest(
+                overwrite=True,
+                model="deepseek-chat",
+                allow_paid_fallback=True,
+                luangiai_mode=req.luangiai_mode,
+            )
+            try:
+                paid_result = yi_publishing_auto_translate_page(book_id, page_num, paid_req)
+                if paid_result.get("status") == "ok":
+                    paid_qc = paid_result.get("quality", {}) or {}
+                    paid_err = paid_qc.get("error_count", 0)
+                    paid_fit = paid_qc.get("fit_score", 0)
+                    # Accept paid only if it improves quality
+                    if paid_err <= err_count:
+                        result = paid_result
+                        qc = paid_qc
+                        attempted = result.get("total_lines_attempted", 0)
+                        translated = result.get("total_lines_translated", 0)
+                        err_count = paid_err
+                        fit_score = paid_fit
+                        retried_paid = True
+            except Exception as _:
+                pass
+
+        total_lines += attempted
+        total_translated += translated
+        total_errors += err_count
+        total_warns += qc.get("warn_count", 0)
+
+        if attempted == 0:
+            verdict = "skip"
+        elif err_count == 0 and qc.get("warn_count", 0) == 0:
+            verdict = "fit"
+        elif err_count == 0:
+            verdict = "review"
+        else:
+            verdict = "mismatch"
+
+        page_reports.append({
+            "page_num": page_num,
+            "status": status,
+            "verdict": verdict,
+            "lines_attempted": attempted,
+            "lines_translated": translated,
+            "fit_score": fit_score,
+            "error_count": err_count,
+            "warn_count": qc.get("warn_count", 0),
+            "issues": qc.get("issues", [])[:5],
+            "model_used": result.get("model_used"),
+            "provider": result.get("provider"),
+            "retried_paid": retried_paid,
+            "cost_usd": result.get("cost_usd", 0),
+            "tokens": result.get("tokens"),
+            "elapsed_seconds": round(time.time() - t0, 2),
+            "message": result.get("message"),
+        })
+
+    batch_elapsed = time.time() - t0_batch
+    avg_fit = round(
+        sum(p.get("fit_score") or 100 for p in page_reports if p["status"] == "ok")
+        / max(total_pages, 1),
+        1,
+    )
+    total_cost = round(sum(p.get("cost_usd", 0) or 0 for p in page_reports), 6)
+    paid_pages = sum(1 for p in page_reports if (p.get("provider") == "deepseek-native"))
+
+    return {
+        "status": "ok",
+        "book_id": book_id,
+        "start_page": req.start_page,
+        "end_page": req.end_page,
+        "summary": {
+            "pages_processed": total_pages,
+            "total_lines_attempted": total_lines,
+            "total_lines_translated": total_translated,
+            "total_errors": total_errors,
+            "total_warnings": total_warns,
+            "avg_fit_score": avg_fit,
+            "batch_elapsed_seconds": round(batch_elapsed, 1),
+            "total_cost_usd": total_cost,
+            "paid_pages_count": paid_pages,
+        },
+        "pages": page_reports,
+    }
+
+
+@app.put("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/lines/{line_id}/translation")
+def yi_publishing_save_line_translation(
+    book_id: str, page_num: int, region_id: str, line_id: str,
+    req: LineTranslationSaveRequest,
+) -> dict:
+    """Save translation for a single line within a region."""
+    trans_dir = TRANSLATIONS_ROOT / book_id / f"p{page_num:04d}"
+    trans_dir.mkdir(parents=True, exist_ok=True)
+    trans_path = trans_dir / f"{region_id}.json"
+
+    # Load existing
+    existing = {}
+    if trans_path.exists():
+        try:
+            existing = json.loads(trans_path.read_text())
+        except Exception:
+            pass
+
+    # Ensure lines dict exists
+    if "lines" not in existing or not isinstance(existing.get("lines"), dict):
+        existing["lines"] = {}
+
+    line_data = existing["lines"].get(line_id, {})
+    line_version = int(line_data.get("version", 0)) + 1
+
+    existing["lines"][line_id] = {
+        "text_vi": req.text_vi,
+        "status": req.status,
+        "translator": req.translator,
+        "notes": req.notes,
+        "version": line_version,
+        "updated_at": int(time.time()),
+    }
+    trans_path.write_text(json.dumps(existing, ensure_ascii=False, indent=2))
+    return {"status": "ok", "region_id": region_id, "line_id": line_id, "version": line_version}
+
+
+@app.get("/api/yi-publishing/phu/phu-thai-vi")
+def yi_publishing_phu_thai_vi() -> dict:
+    """Return Phú Thái Vi 3-layer (hanviet + luangiai + giaithichdande).
+    
+    Source: Q4 Tử Vi Đẩu Số Toàn Thư, Trần Đoàn (p16-17).
+    Layer 3 is plain Vietnamese explanation (no jargon) for first-time readers.
+    """
+    layer3_path = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_phu_thai_vi_layer3.json")
+    if not layer3_path.exists():
+        return {"status": "error", "message": "Layer 3 not generated yet"}
+    try:
+        data = json.loads(layer3_path.read_text())
+        return {
+            "status": "ok",
+            "source": data.get("source"),
+            "model": data.get("model"),
+            "passages": data.get("passages", []),
+            "count": len(data.get("passages", [])),
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@app.get("/api/yi-publishing/phu/founder-reading")
+def yi_publishing_phu_founder_reading() -> dict:
+    """Return personalized Phú Thái Vi readings for founder chart."""
+    p = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_phu_reading_founder.json")
+    if not p.exists():
+        return {"status": "error", "message": "Not generated yet"}
+    try:
+        return {"status": "ok", **json.loads(p.read_text())}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@app.get("/api/yi-publishing/cach-cuc/founder/{cach_id}")
+def yi_publishing_cach_cuc_founder(cach_id: str) -> dict:
+    """Return founder's deep reading for a specific cách cục."""
+    p = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_cach_{cach_id}_founder.json")
+    if not p.exists():
+        return {"status": "error", "message": f"Cách cục '{cach_id}' chưa có deep reading"}
+    try:
+        return {"status": "ok", **json.loads(p.read_text())}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@app.get("/api/yi-publishing/anh-deep-analysis")
+def yi_publishing_anh_deep() -> dict:
+    """Return anh's deep analysis (cách cục discovery + synastry with wife)."""
+    p = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_anh_deep_analysis.json")
+    if not p.exists():
+        return {"status": "error", "message": "Not generated yet"}
+    try:
+        return {"status": "ok", **json.loads(p.read_text())}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+# ─── Serve built Vue webapp (production: SPA fallback) ─────────────────
+# In prod, the Vue dist is built into client/webapp/dist and served by
+# this FastAPI app. /api/* and /figures/* keep their existing handlers.
+import os as _os
+from fastapi.responses import FileResponse as _FileResponse
+
+@app.get("/api/yi-publishing/dai-van/founder")
+def yi_publishing_dai_van_founder() -> dict:
+    """Return anh's 12 Đại Vận annotations."""
+    p = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_dai_van_founder.json")
+    if not p.exists():
+        return {"status": "error", "message": "Not generated yet"}
+    try:
+        return {"status": "ok", **json.loads(p.read_text())}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+_DIST_ROOT = _Path(__file__).resolve().parent.parent / "client" / "webapp" / "dist"
+if _DIST_ROOT.exists() and (_DIST_ROOT / "index.html").exists():
+    _ASSETS_DIR = _DIST_ROOT / "assets"
+    if _ASSETS_DIR.exists():
+        app.mount("/assets", StaticFiles(directory=str(_ASSETS_DIR)), name="assets")
+    _QUE_IMAGES_DIR = _DIST_ROOT / "que-images"
+    if _QUE_IMAGES_DIR.exists():
+        app.mount("/que-images", StaticFiles(directory=str(_QUE_IMAGES_DIR)), name="que-images")
+
+    @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], include_in_schema=False)
+    async def _serve_spa(full_path: str):
+        # Don't intercept api/figures/assets/que-images
+        if full_path.startswith(("api/", "figures/", "assets/", "que-images/")):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404)
+        candidate = _DIST_ROOT / full_path
+        if candidate.is_file():
+            return _FileResponse(candidate)
+        return _FileResponse(_DIST_ROOT / "index.html")

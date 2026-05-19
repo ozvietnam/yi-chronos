@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# Launch the YI-CHRONOS council stack:
+#   1. Ollama no-think proxy (port 11436, fixes gemma4 thinking-stream bug)
+#   2. Hermes Kanban dispatcher daemon
+#
+# The proxy is auto-started in background; the kanban daemon runs in foreground.
+# To use a different provider (z.ai, Anthropic, etc.), edit the profiles' config.yaml
+# and the proxy is harmless (only used if profile points at port 11436).
+#
+# Usage:
+#   scripts/yi-council-daemon           # foreground, verbose
+#   scripts/yi-council-daemon &         # background (or use nohup / launchd)
+#
+# Stop: kill the PIDs in data/hermes_yi/*.pid (proxy + daemon).
+
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Load API keys from .env.local if present
+if [[ -f "$ROOT/.env.local" ]]; then
+  # shellcheck disable=SC1091
+  set -a; source "$ROOT/.env.local"; set +a
+fi
+
+export HERMES_HOME="$ROOT/data/hermes_yi"
+HERMES_BIN="$ROOT/vendor/hermes-agent/.venv/bin/hermes"
+PYTHON="$ROOT/.venv/bin/python"
+
+if [[ ! -x "$HERMES_BIN" ]]; then
+  echo "❌ Hermes binary not found at $HERMES_BIN" >&2
+  exit 1
+fi
+
+mkdir -p "$HERMES_HOME"
+DAEMON_PIDFILE="$HERMES_HOME/council-daemon.pid"
+PROXY_PIDFILE="$HERMES_HOME/ollama-proxy.pid"
+
+# ─── 1. Start Ollama no-think proxy if not running ───────────────────────────
+PROXY_PORT="${YI_OLLAMA_PROXY_PORT:-11436}"
+if lsof -iTCP:"$PROXY_PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+  echo "ℹ proxy port $PROXY_PORT already in use — skipping spawn"
+else
+  echo "▶︎ Starting ollama-no-think-proxy on port $PROXY_PORT"
+  nohup "$PYTHON" "$ROOT/scripts/ollama_no_think_proxy.py" "$PROXY_PORT" \
+        >"$HERMES_HOME/logs/ollama-proxy.log" 2>&1 &
+  echo $! > "$PROXY_PIDFILE"
+  sleep 1
+fi
+
+# ─── 2. Ensure board exists + switch active ──────────────────────────────────
+"$HERMES_BIN" kanban boards switch yi-chronos >/dev/null 2>&1 || \
+  "$HERMES_BIN" kanban boards create yi-chronos >/dev/null 2>&1 || true
+
+echo "▶︎ Starting yi-council-daemon"
+echo "   HERMES_HOME: $HERMES_HOME"
+echo "   board:       yi-chronos"
+echo "   proxy:       http://localhost:$PROXY_PORT (gemma4 thinking-bypass)"
+echo "   daemon-pid:  $DAEMON_PIDFILE"
+echo "   interval:    60s (default)"
+
+# --force: keep using standalone daemon (gateway is overkill for headless API service)
+exec "$HERMES_BIN" kanban daemon --force --pidfile "$DAEMON_PIDFILE" --verbose "$@"

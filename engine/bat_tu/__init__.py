@@ -1,0 +1,20 @@
+"""Bát Tự (Tứ Trụ / Tử Bình) engine package — MVP v1.
+
+Public API:
+    cast_bat_tu(*, birth_datetime_local, timezone='Asia/Ho_Chi_Minh', gender='nam')
+
+Foundation for the upcoming Bát Tự Hà Lạc cross-module (mục 5.1 in the project plan).
+"""
+
+from .cast import METHOD_ID, SOURCE_REF, cast_bat_tu
+from .thap_than import thap_than_of
+from .tu_tru import extract_tu_tru
+
+
+__all__ = [
+    "METHOD_ID",
+    "SOURCE_REF",
+    "cast_bat_tu",
+    "extract_tu_tru",
+    "thap_than_of",
+]

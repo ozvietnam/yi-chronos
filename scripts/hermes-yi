@@ -1,0 +1,49 @@
+#!/bin/bash
+# YI-CHRONOS dedicated Hermes Agent wrapper.
+#
+# Why this exists:
+#   - Anh already has a Hermes Agent v0.12.0 running on Mac at ~/.hermes/
+#   - This wrapper invokes a SEPARATE Hermes v0.13.0 instance with isolated
+#     HERMES_HOME so the two don't share skills, conversations, or auth.
+#
+# Usage:
+#   ./scripts/hermes-yi              # launch interactive TUI for YI-CHRONOS
+#   ./scripts/hermes-yi --version
+#   ./scripts/hermes-yi config       # configure providers/models
+#   ./scripts/hermes-yi update       # update to latest from git
+#
+# Isolation:
+#   Source code: vendor/hermes-agent/
+#   Data + config: data/hermes_yi/  (HERMES_HOME)
+#   Python venv: vendor/hermes-agent/.venv/
+
+set -e
+
+# Resolve project root (handle symlinks).
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# Isolated paths.
+export HERMES_HOME="${HERMES_HOME:-$PROJECT_ROOT/data/hermes_yi}"
+HERMES_BIN="$PROJECT_ROOT/vendor/hermes-agent/.venv/bin/hermes"
+
+# Sanity check.
+if [ ! -x "$HERMES_BIN" ]; then
+    echo "Error: Hermes Agent not installed at $HERMES_BIN" >&2
+    echo "Run: cd $PROJECT_ROOT/vendor/hermes-agent && ./.venv/bin/pip install -e ." >&2
+    exit 1
+fi
+
+# Ensure data dir exists.
+mkdir -p "$HERMES_HOME"
+
+# Source YI-CHRONOS .env.local if available (for API keys).
+if [ -f "$PROJECT_ROOT/.env.local" ]; then
+    set -a
+    # shellcheck disable=SC1091
+    source "$PROJECT_ROOT/.env.local"
+    set +a
+fi
+
+# Forward all args to hermes.
+exec "$HERMES_BIN" "$@"

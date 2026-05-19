@@ -1,0 +1,53 @@
+# Python
+.venv/
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+
+# Node
+client/webapp/node_modules/
+**/.npm/
+
+# Data — mounted at runtime via volume
+data/
+!data/__init__.py
+!data/database.py
+
+# Logs
+*.log
+**/_logs/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+.cursor/
+.claude/
+
+# Git
+.git/
+.gitignore
+.dockerignore
+
+# Docs (not needed in runtime image)
+docs/
+**/*.md
+!README.md
+
+# Tests
+tests/
+pytest.ini
+
+# Vendor (already-installed third-party Python envs)
+vendor/
+
+# Misc
+figures/
+"thư viện sách/"
+**/*.rtf
+**/*.pdf
+
+# Backup / temp
+*.bak
+*.tmp
+deep-research-report.md

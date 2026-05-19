@@ -1,0 +1,75 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+**/*.sqlite3
+**/*.sqlite3-journal
+data/cache/
+data/yi_users/
+client/webapp/node_modules/
+client/webapp/dist/
+.env
+.env.local
+**/.env.development.local
+data/ephemeris/
+
+# Hermes Agent v0.13.0 (NousResearch) — isolated install
+vendor/hermes-agent/.venv/
+vendor/hermes-agent/**/*.pyc
+data/hermes_yi/.env
+data/hermes_yi/sessions/
+data/hermes_yi/*.db
+data/hermes_yi/skills/
+data/hermes_yi/memory*
+
+# AI provider keys — local only, gitignored
+data/ai_keys.json
+data/ai_provider_notes.json
+.gstack/
+
+# Vendor (Hermes Agent install — separate from app, deployed separately)
+vendor/
+
+# Large data subdirs — NOT committed, migrate via rsync to VPS
+data/yi_lexicon/
+data/yi_wiki/
+data/yi_restored/
+data/yi_publishing/
+data/yi_publishing_test/
+data/yi_publishing_test_vision/
+data/yi_publishing_mineru/
+data/published/
+data/research/
+data/seeds/
+data/phase2_reading/
+data/hermes_yi/
+data/yi_hermes/
+data/_logs/
+data/__pycache__/
+data/*.log
+data/*.db
+data/*.json
+data/yi_research/
+
+# Source PDFs / RTFs / figures — NOT committed (large, copyrighted)
+"thư viện sách/"
+figures/
+**/*.pdf
+**/*.epub
+**/*.mobi
+
+# Claude Code runtime state
+.claude/scheduled_tasks.lock
+.claude/worktrees/
+
+# Backup folders
+*.bak
+**/*.bak/
+
+# Root level large files (RTF, exploratory docs)
+*.rtf
+deep-research-report.md
+# Built artifacts (keep dist-from-CI, not local builds)
+client/webapp/dist/
+

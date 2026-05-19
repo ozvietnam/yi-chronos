@@ -1,0 +1,2 @@
+"""External signal collectors."""
+

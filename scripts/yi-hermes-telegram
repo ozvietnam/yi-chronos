@@ -1,0 +1,39 @@
+#!/bin/bash
+# YI-Hermes Telegram bridge launcher.
+#
+# Polls @Yihermesbot via long-polling, routes messages to YI-Hermes chat engine.
+# Each Telegram user gets their own Soul + Memory via soul_key=telegram:{user_id}.
+#
+# Setup:
+#   1. Token already in .env.local (YI_HERMES_TELEGRAM_TOKEN)
+#   2. Optional: restrict to specific users via YI_HERMES_TELEGRAM_ALLOWED_USERS
+#
+# Usage:
+#   ./scripts/yi-hermes-telegram          # foreground (Ctrl+C to stop)
+#
+# Background (recommended):
+#   nohup ./scripts/yi-hermes-telegram > /tmp/yi-hermes-tg.log 2>&1 &
+#
+# Stop background:
+#   pkill -f "yi_hermes.telegram_bridge"
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$PROJECT_ROOT"
+
+# Source env (token + optional allowed users)
+if [ -f .env.local ]; then
+    set -a
+    # shellcheck disable=SC1091
+    source .env.local
+    set +a
+fi
+
+if [ -z "${YI_HERMES_TELEGRAM_TOKEN:-}" ]; then
+    echo "Error: YI_HERMES_TELEGRAM_TOKEN not set in .env.local" >&2
+    exit 1
+fi
+
+exec .venv/bin/python -m engine.yi_hermes.telegram_bridge "$@"

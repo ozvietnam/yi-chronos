@@ -1,0 +1,32 @@
+services:
+  yi-chronos:
+    image: ghcr.io/yi-chronos/yi-chronos:latest
+    container_name: yi-chronos
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
+      - YI_CHRONOS_CORS_ORIGINS=${YI_CHRONOS_CORS_ORIGINS:-https://kinhdich.online,https://www.kinhdich.online}
+    volumes:
+      # Host /opt/yi-chronos/data → container path matching Mac (WORKDIR-relative)
+      - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
+    networks:
+      - traefik-network
+    labels:
+      - "traefik.enable=true"
+      # Main router (HTTPS)
+      - "traefik.http.routers.yi-chronos.rule=Host(`kinhdich.online`) || Host(`www.kinhdich.online`)"
+      - "traefik.http.routers.yi-chronos.entrypoints=websecure"
+      - "traefik.http.routers.yi-chronos.tls.certresolver=letsencrypt"
+      - "traefik.http.services.yi-chronos.loadbalancer.server.port=8000"
+      # HTTP → HTTPS redirect
+      - "traefik.http.routers.yi-chronos-insecure.rule=Host(`kinhdich.online`) || Host(`www.kinhdich.online`)"
+      - "traefik.http.routers.yi-chronos-insecure.entrypoints=web"
+      - "traefik.http.routers.yi-chronos-insecure.middlewares=https-redirect@docker"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
+
+networks:
+  traefik-network:
+    external: true
+    name: traefik_default  # ← verify actual name in Task 2.1.2 on VPS

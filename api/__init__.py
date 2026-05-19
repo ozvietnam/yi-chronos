@@ -1,0 +1,2 @@
+"""YI-CHRONOS FastAPI application."""
+
