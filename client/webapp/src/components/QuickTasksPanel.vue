@@ -8,49 +8,13 @@
  */
 import { ref, computed } from "vue";
 import LifeOverviewModal from "./LifeOverviewModal.vue";
+import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
 
 const emit = defineEmits(["open-tab"]);
 
 const activeTask = ref(null);  // null | 'quiz' | 'marriage'
 // 'auspicious' không cần modal, anh đi qua tab Wiki
-
-// ─── Birth Hour Quiz ──────────────────────────────────
-const quizQuestions = ref([]);
-const quizAnswers = ref({});
-const quizResult = ref(null);
-const quizLoading = ref(false);
-
-async function loadQuizQuestions() {
-  if (quizQuestions.value.length) return;
-  try {
-    const r = await fetch("/api/yi-wiki/birth-hour-quiz/questions");
-    const d = await r.json();
-    if (d.status === "ok") quizQuestions.value = d.questions;
-  } catch (e) {}
-}
-
-async function submitQuiz() {
-  if (Object.keys(quizAnswers.value).length < quizQuestions.value.length) {
-    alert(`Vui lòng trả lời đủ ${quizQuestions.value.length} câu.`);
-    return;
-  }
-  quizLoading.value = true;
-  try {
-    const r = await fetch("/api/yi-wiki/birth-hour-quiz/analyze", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answers: quizAnswers.value }),
-    });
-    quizResult.value = await r.json();
-  } finally {
-    quizLoading.value = false;
-  }
-}
-
-function resetQuiz() {
-  quizAnswers.value = {};
-  quizResult.value = null;
-}
+// Quiz v2 self-manages state inside BirthHourQuizV2 component.
 
 // ─── Marriage Compat ──────────────────────────────────
 const mForm = ref({
@@ -100,7 +64,7 @@ function openTask(task) {
     return;
   }
   activeTask.value = task;
-  if (task === "quiz") loadQuizQuestions();
+  // quiz v2 self-loads on mount inside BirthHourQuizV2
 }
 
 function closeTask() {
