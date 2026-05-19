@@ -7,6 +7,7 @@ import { isAuthenticated } from "../stores/authStore.js";
 import HexagramImage from "./HexagramImage.vue";
 import HexagramDetailModal from "./HexagramDetailModal.vue";
 import AuspiciousDayPanel from "./wiki/AuspiciousDayPanel.vue";
+import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
 import { useHexagramModal } from "../composables/useHexagramModal";
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -14,6 +15,7 @@ import { useHexagramModal } from "../composables/useHexagramModal";
 const inputBirth = ref("");
 const inputGender = ref("nam");
 const inputTimezone = ref("Asia/Ho_Chi_Minh");
+const showHourQuiz = ref(false);
 
 const batTuData = ref(null);
 const haLacData = ref(null);
@@ -161,6 +163,12 @@ function formatSolarDateTime(iso) {
       <br />
       ⭐ Đây là tính năng moat — Kabala.vn có nhắc nhưng không ship.
     </p>
+
+    <div class="bt-hour-uncertain">
+      <button class="bt-find-hour" type="button" @click="showHourQuiz = true">
+        🔍 Không nhớ giờ sinh? Tìm lại qua trắc nghiệm bát tự
+      </button>
+    </div>
 
     <div class="bt-form">
       <label>
@@ -487,6 +495,14 @@ function formatSolarDateTime(iso) {
     <div class="bt-auspicious-section">
       <hr class="bt-divider" />
       <AuspiciousDayPanel />
+    </div>
+
+    <!-- 🔍 Birth Hour Quiz v2 modal -->
+    <div v-if="showHourQuiz" class="bt-modal-backdrop" @click.self="showHourQuiz = false">
+      <div class="bt-modal">
+        <button class="bt-modal-close" @click="showHourQuiz = false">✕</button>
+        <BirthHourQuizV2 />
+      </div>
     </div>
 
     <HexagramDetailModal
@@ -1223,4 +1239,54 @@ function formatSolarDateTime(iso) {
   background: linear-gradient(90deg, transparent, var(--border-color, #ddd), transparent);
   margin: 1.5rem 0 1rem;
 }
+
+/* Find-hour quiz button + modal */
+.bt-hour-uncertain {
+  margin: 0.8rem 0;
+}
+.bt-find-hour {
+  padding: 0.5rem 1rem;
+  background: #f0f8ff;
+  border: 1px solid #4a90e2;
+  color: #2a5db0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+.bt-find-hour:hover {
+  background: #e6f3ff;
+}
+.bt-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.bt-modal {
+  background: #fff;
+  padding: 1.5rem 1.5rem 1rem;
+  max-width: 820px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+.bt-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  background: transparent;
+  border: 0;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #888;
+}
+.bt-modal-close:hover { color: #333; }
 </style>
