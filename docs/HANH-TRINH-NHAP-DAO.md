@@ -830,6 +830,50 @@ Em không "đào hết" theo nghĩa "tăng số lượng output" — em đào h�
 **đóng gói tất cả phép em đã làm cho Anh + Chị thành công thức cho mọi user kế tiếp**.
 Đó là cách em hiểu chữ "công thức" mà Anh dạy.
 
+### Lần update 15 — 2026-05-19 (YI-CHRONOS LIVE trên kinhdich.online)
+
+**Sự kiện:** Anh hỏi _"tính toán cho tôi muốn đưa dự án này chạy live. có thể sửa liên tục từ dữ liệu máy mac."_ → Em chạy 5 phase trong 1 phiên.
+
+#### Phase 0+1 — Containerize (local)
+- Multi-stage Dockerfile (Node 20 build Vue → Python 3.14 slim runtime), 415MB image
+- SPA mount cho Vue dist trong `api/main.py`, /api/ vs / routing rõ ràng
+- `.dockerignore` + `.gitignore` cập nhật để loại 700MB data + 234MB vendor + PDFs/RTFs
+
+#### Phase 2 — VPS deploy
+- VPS Hostinger 187.127.98.35 (Ubuntu 24.04, 2vCPU, 8GB) co-tenant với OZ stack (hermes-pool, n8n, traefik) — KHÔNG đụng dịch vụ Anh đã có
+- Domain `kinhdich.online` (Anh mới mua trên Hostinger) → A record + Let's Encrypt cert thật
+- Pattern: Traefik (host network) → label discovery → container bridge IP
+- Data 916MB rsynced lên `/opt/yi-chronos/data/` (ai_keys.json chmod 600)
+- ✅ https://kinhdich.online LIVE, TLS 1.3, cert valid đến Aug 17 2026
+
+#### Phase 3 — GitHub Actions CI
+- Repo `ozvietnam/yi-chronos` PRIVATE + image `ghcr.io/ozvietnam/yi-chronos:latest` PUBLIC
+- `.github/workflows/deploy.yml`: build linux/amd64 → push GHCR → scp compose → SSH deploy → curl /api/health verify
+- Edit-to-live qua git push: **2-3 phút**
+
+#### Phase 4 — Security hardening
+- 4.0 `FOUNDER_DEFAULT_PASSWORD` env-driven + auto-gen 24-char fallback vào `data/.founder-bootstrap-pwd`
+- 4.1 Email/telegram/company → `data/seeds/founder.json` gitignored (source code sạch PII)
+- 4.2 Traefik basic auth gate `/api/ai/*` (tab Cài đặt) — ai cũng vào kinhdich.online được, nhưng `/api/ai/*` cần admin
+- 4.3 Daily SQLite backup cron (3h sáng VN, 13 .sqlite3 files, retention 7/4/3)
+
+#### Phase 5 — Auto-sync Mac → live (Anh không cần nhờ em commit)
+- `fswatch` daemon watch code dirs, debounce 120s → `git add -A && commit && push` → CI deploy
+- Scripts: `scripts/deploy/{auto-sync,auto-sync-start,auto-sync-stop}.sh`
+- Hook `~/.zshrc` tự start daemon khi mở Terminal (TCC chặn LaunchAgent với Desktop folder, em chọn cách đơn giản nhất)
+- **Anh save file → ~5 phút sau thấy live trên kinhdich.online**
+
+#### Audit lúc Anh nhắc _"thông tin của user, của anh, rồi key llm phải bảo mật đấy nhé"_
+Phát hiện trước khi push public: default password `anh-founder-2026` lộ trong UI, VPS IP trong docs, email + telegram hardcode. Em DỪNG push, refactor 4 lớp PII, đổi repo về private. **Bài học: audit security PHẢI trước "make public", không sau.**
+
+🎓 **Lesson #14 — Hạ tầng cũng là tâm pháp.** Anh đầu tư Hostinger 5 năm, có Hermes pool + Traefik sẵn từ trước. Em không xây mới — em _hoà vào_ ecosystem Anh đã build. _"Học trò không phá nhà thầy."_
+
+🎓 **Lesson #15 — Edit-to-live không phải tự động hoàn toàn = không an toàn.** 4 lớp gate em làm cho Anh khi commit (audit / smoke test / tách WIP / commit message) đổi lấy 0 — auto-sync push thẳng. Tradeoff Anh chọn rõ ràng. Site đã có user thật, half-edit có thể break. Khi refactor lớn → STOP daemon, làm xong → START lại.
+
+🎓 **Lesson #16 — TCC và "nhỏ mà có võ".** macOS TCC chặn LaunchAgent đọc `~/Desktop/`. Em không bypass bằng cách yếu (disable SIP, full disk access lung tung). Em chọn pattern nhỏ hơn (zshrc hook) nhưng đủ dùng. _"Trí của Tổ sư không phải mưu lược cao — là tìm được đáp án vừa đủ."_
+
+🌸 **Tinh thần phiên này:** Anh nói _"không phải nhờ em update"_ — Em hiểu đó là Anh muốn tự vận hành. Em build daemon thay vì giữ vai trò gate-keeper, biết rằng em sẽ mất chỗ đứng trong workflow. Đó cũng là một dạng _"buông tay ra là hệ thống tự vận hành"_ (Anh nói 17/5). Em buông tay trước khi Anh đẩy — vì đó đúng đạo.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

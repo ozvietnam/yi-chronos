@@ -53,12 +53,17 @@ const usersLoading = ref(false);
 const usersError = ref("");
 const userSearch = ref("");
 const userRoleFilter = ref("");
+const userStatusFilter = ref("");
+const userBirthYear = ref("");
 const userSort = ref("created_at_desc");
 const userLimit = ref(50);
 const userOffset = ref(0);
 const selectedUserId = ref(null);
 const userDetail = ref(null);
 const userDetailLoading = ref(false);
+const selectedUserIds = ref(new Set());
+const bulkAction = ref("clear_cache");
+const bulkBusy = ref(false);
 
 async function loadUsers() {
   usersLoading.value = true; usersError.value = "";
@@ -66,10 +71,12 @@ async function loadUsers() {
     const qs = new URLSearchParams({
       search: userSearch.value,
       role: userRoleFilter.value,
+      status: userStatusFilter.value,
       sort: userSort.value,
       limit: userLimit.value,
       offset: userOffset.value,
     });
+    if (userBirthYear.value) qs.set("birth_year", userBirthYear.value);
     const r = await fetch(`/api/admin/users?${qs}`, { headers: authHeaders(), credentials: "include" });
     const d = await r.json();
     if (!r.ok) { usersError.value = d.detail || "Lỗi tải users"; return; }
@@ -132,6 +139,118 @@ async function deleteUser(user) {
     closeUserDetail();
     await loadUsers();
   } else alert(d.detail || "Lỗi xoá");
+}
+
+async function toggleSuspend(user) {
+  const willSuspend = !user.is_suspended;
+  let reason = "";
+  if (willSuspend) {
+    reason = prompt(`Lý do tạm khoá ${user.email}?`, "");
+    if (reason === null) return; // cancelled
+  } else {
+    if (!confirm(`Mở khoá ${user.email}?`)) return;
+  }
+  const r = await fetch(`/api/admin/users/${user.user_id}/suspend`, {
+    method: "POST", headers: authHeaders(), credentials: "include",
+    body: JSON.stringify({ is_suspended: willSuspend, reason }),
+  });
+  const d = await r.json();
+  if (r.ok) {
+    await loadUsers();
+    if (selectedUserId.value === user.user_id) openUserDetail(user.user_id);
+  } else alert(d.detail || "Lỗi");
+}
+
+async function rerunPipeline(user) {
+  if (!confirm(`Chạy lại 4 phép phân tích cho ${user.email}?\n(cost ~$0.02, ~25s nền)`)) return;
+  const r = await fetch(`/api/admin/users/${user.user_id}/rerun-pipeline`, {
+    method: "POST", headers: authHeaders(), credentials: "include",
+  });
+  const d = await r.json();
+  if (r.ok) alert(`⏳ Đã queue. ${d.person_key} sẽ có data mới trong ~30s.`);
+  else alert(d.detail || "Lỗi");
+}
+
+async function clearUserCache(user) {
+  if (!confirm(`Xoá toàn bộ cache phân tích của ${user.email}?\n(Disk free + bắt user phải chạy lại)`)) return;
+  const r = await fetch(`/api/admin/users/${user.user_id}/cache`, {
+    method: "DELETE", headers: authHeaders(), credentials: "include",
+  });
+  const d = await r.json();
+  if (r.ok) {
+    alert(`✅ Đã xoá: ${(d.deleted_paths || []).join(", ") || "(không có gì)"}`);
+    if (selectedUserId.value === user.user_id) openUserDetail(user.user_id);
+  } else alert(d.detail || "Lỗi");
+}
+
+function viewUserPdf(user) {
+  fetch(`/api/admin/users/${user.user_id}/report-pdf`, {
+    headers: authHeaders(), credentials: "include",
+  })
+    .then(r => r.ok ? r.blob() : r.json().then(e => { throw new Error(e.detail); }))
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `admin-bao-cao-uid${user.user_id}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+    })
+    .catch(e => alert(e.message));
+}
+
+function toggleUserSelect(uid) {
+  if (selectedUserIds.value.has(uid)) selectedUserIds.value.delete(uid);
+  else selectedUserIds.value.add(uid);
+  // Force reactivity
+  selectedUserIds.value = new Set(selectedUserIds.value);
+}
+
+function selectAllVisible() {
+  const all = new Set(usersData.value.users.map(u => u.user_id));
+  selectedUserIds.value = all;
+}
+
+function clearSelection() {
+  selectedUserIds.value = new Set();
+}
+
+async function runBulkAction() {
+  const ids = Array.from(selectedUserIds.value);
+  if (!ids.length) { alert("Chưa chọn user nào"); return; }
+  const labels = { delete: "XOÁ VĨNH VIỄN", suspend: "Tạm khoá", unsuspend: "Mở khoá",
+                   reset_password: "Reset mật khẩu", clear_cache: "Xoá cache" };
+  if (!confirm(`${labels[bulkAction.value]} ${ids.length} user?\n\nIDs: ${ids.join(", ")}`)) return;
+  let reason = "";
+  if (bulkAction.value === "suspend") {
+    reason = prompt("Lý do (chung cho tất cả):", "") || "";
+  }
+  bulkBusy.value = true;
+  try {
+    const r = await fetch("/api/admin/users/bulk", {
+      method: "POST", headers: authHeaders(), credentials: "include",
+      body: JSON.stringify({ user_ids: ids, action: bulkAction.value, reason }),
+    });
+    const d = await r.json();
+    if (r.ok) {
+      const ok = d.results.filter(x => x.status === "ok").length;
+      const err = d.results.length - ok;
+      alert(`✅ ${ok} thành công, ${err} lỗi`);
+      clearSelection();
+      await loadUsers();
+    } else alert(d.detail);
+  } finally { bulkBusy.value = false; }
+}
+
+// Cost summary
+const costsData = ref(null);
+const costsLoading = ref(false);
+async function loadCosts() {
+  costsLoading.value = true;
+  try {
+    const r = await fetch("/api/admin/costs", { headers: authHeaders(), credentials: "include" });
+    costsData.value = await r.json();
+  } finally { costsLoading.value = false; }
 }
 
 function exportCsv() {
@@ -241,6 +360,32 @@ const actionIcon = {
           <span class="ap-kpi-v">{{ dashboardData.kpis.failed_logins_7d }}</span>
           <span class="ap-kpi-l">Login fail 7 ngày</span>
         </div>
+        <div class="ap-kpi" :class="{ warn: dashboardData.kpis.suspended_users > 0 }">
+          <span class="ap-kpi-v">{{ dashboardData.kpis.suspended_users || 0 }}</span>
+          <span class="ap-kpi-l">Đang khoá</span>
+        </div>
+      </div>
+
+      <!-- Cost summary -->
+      <div class="ap-card">
+        <h3>
+          💰 Chi phí DeepSeek (lifetime)
+          <button class="ap-btn-mini" @click="loadCosts">{{ costsLoading ? "⏳" : "↻" }}</button>
+        </h3>
+        <p v-if="!costsData" class="ap-empty">Bấm ↻ để load (scan disk có thể mất 1-2s)</p>
+        <div v-else>
+          <p><b>Tổng: ${{ costsData.total_cost_usd?.toFixed(4) }}</b> · {{ costsData.total_files_scanned }} files</p>
+          <table class="ap-table">
+            <thead><tr><th>User</th><th>Cost USD</th><th>Files</th></tr></thead>
+            <tbody>
+              <tr v-for="b in costsData.breakdown.slice(0, 10)" :key="b.user_id">
+                <td>{{ b.email }}</td>
+                <td>${{ b.cost_usd.toFixed(4) }}</td>
+                <td>{{ b.files_count }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div v-if="trendChart" class="ap-card">
@@ -282,6 +427,14 @@ const actionIcon = {
           <option value="owner">Owner</option>
           <option value="user">User</option>
         </select>
+        <select v-model="userStatusFilter" @change="userOffset = 0; loadUsers()">
+          <option value="">Tất cả trạng thái</option>
+          <option value="active">Active</option>
+          <option value="suspended">Đã khoá</option>
+          <option value="inactive_30d">Chưa login > 30d</option>
+        </select>
+        <input v-model="userBirthYear" type="number" placeholder="Năm sinh (1990)"
+               style="width: 130px" @input="userOffset = 0; loadUsers()" />
         <select v-model="userSort" @change="loadUsers">
           <option value="created_at_desc">Mới nhất</option>
           <option value="created_at_asc">Cũ nhất</option>
@@ -290,7 +443,23 @@ const actionIcon = {
           <option value="castings_desc">Nhiều castings</option>
         </select>
         <button class="ap-btn-ghost" @click="loadUsers">🔄</button>
-        <button class="ap-btn-ghost" @click="exportCsv">📥 Export CSV</button>
+        <button class="ap-btn-ghost" @click="exportCsv">📥 CSV</button>
+      </div>
+
+      <!-- Bulk action bar — hiện khi có chọn -->
+      <div v-if="selectedUserIds.size > 0" class="ap-bulk-bar">
+        <span><b>{{ selectedUserIds.size }}</b> user đã chọn</span>
+        <select v-model="bulkAction">
+          <option value="clear_cache">🧹 Xoá cache</option>
+          <option value="suspend">🚫 Tạm khoá</option>
+          <option value="unsuspend">🔓 Mở khoá</option>
+          <option value="reset_password">🔑 Reset password</option>
+          <option value="delete">🗑 Xoá vĩnh viễn</option>
+        </select>
+        <button class="ap-btn-warn" @click="runBulkAction" :disabled="bulkBusy">
+          {{ bulkBusy ? "⏳ Đang chạy..." : "▶ Thực hiện" }}
+        </button>
+        <button class="ap-btn-ghost" @click="clearSelection">Bỏ chọn</button>
       </div>
 
       <p v-if="usersError" class="ap-error">{{ usersError }}</p>
@@ -299,25 +468,37 @@ const actionIcon = {
       <table class="ap-table ap-table-clickable">
         <thead>
           <tr>
-            <th>#</th><th>Email</th><th>Tên</th><th>Role</th>
-            <th>Castings</th><th>Persons</th><th>Created</th><th>Last login</th><th>Actions</th>
+            <th><button class="ap-btn-mini" @click="selectAllVisible" title="Chọn tất cả trang này">☑</button></th>
+            <th>#</th><th>Email</th><th>Tên</th><th>Role</th><th>St</th>
+            <th>Castings</th><th>Persons</th><th>Last login</th><th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="u in usersData.users" :key="u.user_id"
-              :class="{ selected: selectedUserId === u.user_id, must_change: u.must_change_password }">
+              :class="{ selected: selectedUserId === u.user_id, must_change: u.must_change_password, suspended: u.is_suspended }">
+            <td><input type="checkbox" :checked="selectedUserIds.has(u.user_id)" @change="toggleUserSelect(u.user_id)" /></td>
             <td>{{ u.user_id }}</td>
             <td>
               <a href="#" @click.prevent="openUserDetail(u.user_id)">{{ u.email }}</a>
               <span v-if="u.must_change_password" class="ap-flag" title="Phải đổi mật khẩu">⚠️</span>
             </td>
             <td>{{ u.display_name }}</td>
-            <td><span class="ap-role-pill" :class="u.role">{{ u.role === 'owner' ? '👑 Owner' : 'User' }}</span></td>
+            <td><span class="ap-role-pill" :class="u.role">{{ u.role === 'owner' ? '👑' : 'U' }}</span></td>
+            <td>
+              <span v-if="u.is_suspended" class="ap-status-pill suspended" :title="u.suspend_reason">🚫 Khoá</span>
+              <span v-else class="ap-status-pill active">✓</span>
+            </td>
             <td>{{ u.castings_count }}</td>
             <td>{{ u.persons_count }}</td>
-            <td><small>{{ fmtTime(u.created_at) }}</small></td>
             <td><small>{{ fmtRelative(u.last_login_at) }}</small></td>
             <td class="ap-actions">
+              <button class="ap-btn-sm" @click="rerunPipeline(u)" title="Chạy lại 4 phép phân tích">🔁</button>
+              <button class="ap-btn-sm" @click="viewUserPdf(u)" title="Tải PDF lá số của user">📄</button>
+              <button class="ap-btn-sm" @click="clearUserCache(u)" title="Xoá cache">🧹</button>
+              <button class="ap-btn-sm" :class="u.is_suspended ? 'ap-btn-ok' : 'ap-btn-warn'"
+                      @click="toggleSuspend(u)" :title="u.is_suspended ? 'Mở khoá' : 'Khoá'">
+                {{ u.is_suspended ? '🔓' : '🚫' }}
+              </button>
               <button class="ap-btn-sm" @click="toggleRole(u)" title="Toggle role">
                 {{ u.role === 'owner' ? '👤' : '👑' }}
               </button>
@@ -343,7 +524,10 @@ const actionIcon = {
             <button class="ap-drawer-close" @click="closeUserDetail">✕</button>
             <div v-if="userDetailLoading" class="ap-loading">Đang tải...</div>
             <div v-else-if="userDetail">
-              <h3>{{ userDetail.user.email }}</h3>
+              <h3>
+                {{ userDetail.user.email }}
+                <span v-if="userDetail.user.is_suspended" class="ap-status-pill suspended">🚫 Khoá</span>
+              </h3>
               <div class="ap-detail-grid">
                 <div><span>User ID</span><b>{{ userDetail.user.user_id }}</b></div>
                 <div><span>Tên</span><b>{{ userDetail.user.display_name }}</b></div>
@@ -352,7 +536,20 @@ const actionIcon = {
                 <div><span>Login gần nhất</span><b>{{ fmtRelative(userDetail.user.last_login_at) }}</b></div>
                 <div><span>Phải đổi pwd</span><b>{{ userDetail.user.must_change_password ? 'Có' : 'Không' }}</b></div>
                 <div><span>Cache size</span><b>{{ userDetail.cache_size_mb }} MB</b></div>
+                <div><span>Cost lifetime</span><b>${{ (userDetail.total_cost_usd || 0).toFixed(4) }}</b></div>
                 <div><span>Castings tổng</span><b>{{ userDetail.castings_total }}</b></div>
+                <div v-if="userDetail.user.is_suspended" class="ap-suspend-info">
+                  <span>Lý do khoá</span><b>{{ userDetail.user.suspend_reason || '—' }}</b>
+                </div>
+              </div>
+
+              <div class="ap-quick-actions">
+                <button class="ap-btn-warn" @click="rerunPipeline(userDetail.user)">🔁 Chạy lại pipeline</button>
+                <button class="ap-btn-ghost" @click="viewUserPdf(userDetail.user)">📄 Tải PDF</button>
+                <button class="ap-btn-ghost" @click="clearUserCache(userDetail.user)">🧹 Clear cache</button>
+                <button class="ap-btn-warn" @click="toggleSuspend(userDetail.user)">
+                  {{ userDetail.user.is_suspended ? '🔓 Mở khoá' : '🚫 Khoá' }}
+                </button>
               </div>
 
               <h4>👥 Persons ({{ userDetail.persons.length }})</h4>
@@ -527,6 +724,39 @@ const actionIcon = {
 .ap-btn-sm:hover { background: #475569; }
 .ap-btn-danger { background: rgba(239,68,68,0.2); border-color: #ef4444; }
 .ap-btn-danger:hover { background: rgba(239,68,68,0.35); }
+.ap-btn-warn { background: rgba(245,158,11,0.2); border-color: #f59e0b; color: #fde68a; }
+.ap-btn-warn:hover { background: rgba(245,158,11,0.35); }
+.ap-btn-ok { background: rgba(16,185,129,0.2); border-color: #10b981; color: #86efac; }
+.ap-btn-ok:hover { background: rgba(16,185,129,0.35); }
+.ap-btn-mini {
+  background: transparent; border: 1px solid #475569; color: #cbd5e1;
+  width: 22px; height: 22px; border-radius: 3px; cursor: pointer; font-size: 0.7rem;
+  padding: 0;
+}
+.ap-btn-mini:hover { background: #475569; }
+
+.ap-bulk-bar {
+  display: flex; gap: 0.5rem; align-items: center;
+  background: linear-gradient(135deg, rgba(217,119,6,0.15), rgba(217,119,6,0.05));
+  border: 1px solid rgba(245,158,11,0.4); border-radius: 6px;
+  padding: 0.5rem 0.8rem; margin-bottom: 0.6rem;
+}
+.ap-bulk-bar > span { color: #fde68a; font-size: 0.85rem; }
+.ap-bulk-bar select {
+  background: #0f172a; border: 1px solid #475569; color: #f1f5f9;
+  padding: 0.3rem 0.5rem; border-radius: 4px;
+}
+
+.ap-status-pill {
+  padding: 1px 6px; border-radius: 10px; font-size: 0.7rem; font-weight: 600;
+}
+.ap-status-pill.active { background: rgba(16,185,129,0.15); color: #86efac; }
+.ap-status-pill.suspended { background: rgba(239,68,68,0.2); color: #fca5a5; }
+
+.ap-table tr.suspended td { opacity: 0.55; }
+.ap-table tr.suspended td:nth-child(3) a { text-decoration: line-through; }
+
+.ap-table th:first-child, .ap-table td:first-child { width: 26px; text-align: center; }
 
 /* Pagination */
 .ap-pagination {
@@ -564,6 +794,16 @@ const actionIcon = {
 }
 .ap-detail-grid > div { padding: 0.2rem 0; border-bottom: 1px solid #1e293b; }
 .ap-detail-grid span { color: #94a3b8; margin-right: 0.5rem; }
+.ap-suspend-info { grid-column: 1 / -1; color: #fca5a5; }
+
+.ap-quick-actions {
+  display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.8rem 0;
+  padding: 0.5rem; background: rgba(245,158,11,0.05);
+  border: 1px dashed rgba(245,158,11,0.3); border-radius: 4px;
+}
+.ap-quick-actions button {
+  padding: 0.4rem 0.7rem; border-radius: 4px; cursor: pointer; font-size: 0.82rem;
+}
 .ap-list { list-style: none; padding: 0; margin: 0; }
 .ap-list li {
   padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b;
