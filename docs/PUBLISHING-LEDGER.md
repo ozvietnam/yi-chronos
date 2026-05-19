@@ -14,6 +14,7 @@
 | TV-Q1 | Tử Vi Đẩu Số Toàn Thư — Quyển 1: Phú Thái Vi & Cách Cục Kinh Điển | 紫微斗数全书·卷一 | Trần Đoàn + Phan Hy Doãn bổ tập | **6/6 Published** | **35 (A4)** | `data/published/tu-vi-q1-phu-thai-vi.pdf` (204 KB, 545 cách + 320 concepts) | ✅ **v1.0 PUBLISHED 2026-05-19** |
 | TV-Q3 | Tử Vi Đẩu Số Toàn Thư — Quyển 3: Diễn Giải 12 Cung × 14 Chính Tinh | 紫微斗数全书·卷三 | Trần Đoàn | **6/6 Published** | **135 (A4)** | `data/published/tu-vi-q3-dien-giai-12-cung.pdf` (596 KB, 168 combos) | ✅ **v1.0 PUBLISHED 2026-05-19** |
 | TV-Q4 | Tử Vi Đẩu Số Toàn Thư — Quyển 4: Lá Số Cổ Kim | 紫微斗数全书·卷四 | Trần Đoàn | **6/6 Published** | **91 (A4)** | `data/published/tu-vi-q4-la-so-co-kim.pdf` (432 KB, 60+ case studies) | ✅ **v1.0 PUBLISHED 2026-05-19** |
+| **TV-BỘ** | **Tử Vi Đẩu Số Toàn Thư — Bộ 3 Quyển (Q1+Q3+Q4 + Phụ lục tra cứu)** | 紫微斗数全书 | Trần Đoàn + Phan Hy Doãn + Dương Nhất Vũ | **6/6 Published** | **274 (A4)** | `data/published/tu-vi-bo-toan-thu.pdf` (1.14 MB, 985 cách + 576 concepts + bảng tra A-Z) | ✅ **BỘ v1.0 PUBLISHED 2026-05-19** |
 
 ---
 

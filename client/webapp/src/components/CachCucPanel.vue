@@ -5,7 +5,7 @@
  *
  * Source: /api/yi-publishing/anh-deep-analysis (DeepSeek generated)
  */
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import WikiText from "./WikiText.vue";
 import { tuviPersonKey, tuviPersonName, fetchCachedAnalysis, runAnalysis } from "../stores/tuviPersonStore.js";
 
@@ -15,6 +15,7 @@ const running = ref(false);
 const error = ref("");
 const expanded = ref({});
 const activeTab = ref("cach_cuc"); // 'cach_cuc' | 'synastry'
+const levelFilter = ref("");  // '' | 'thượng' | 'trung' | 'hạ' | 'phá cách' | 'tạp'
 
 async function load() {
   loading.value = true;
@@ -51,6 +52,12 @@ async function runNow() {
 }
 
 watch(tuviPersonKey, () => load());
+
+const filteredCachCucs = computed(() => {
+  const all = data.value?.cach_cucs || [];
+  if (!levelFilter.value) return all;
+  return all.filter(c => c.cap_do === levelFilter.value);
+});
 
 function levelColor(level) {
   return {
@@ -104,13 +111,33 @@ onMounted(load);
 
     <!-- TAB 1: Cách cục -->
     <div v-if="activeTab === 'cach_cuc' && data?.cach_cucs" class="ccp-cach-cucs">
-      <div v-for="(cc, idx) in data.cach_cucs" :key="idx" class="ccp-card">
+      <!-- Filter + stats bar -->
+      <div class="ccp-filter-bar">
+        <span class="ccp-count">{{ filteredCachCucs.length }}/{{ data.cach_cucs.length }} cách</span>
+        <button v-for="lv in ['', 'thượng', 'trung', 'hạ', 'phá cách', 'tạp']" :key="lv"
+                :class="['ccp-filter-btn', { active: levelFilter === lv }]"
+                :style="lv ? { borderColor: levelColor(lv) } : {}"
+                @click="levelFilter = lv">
+          {{ lv === '' ? 'Tất cả' : `${levelIcon(lv)} ${lv}` }}
+          <small>({{ lv === '' ? data.cach_cucs.length : data.cach_cucs.filter(c => c.cap_do === lv).length }})</small>
+        </button>
+      </div>
+
+      <div v-for="(cc, idx) in filteredCachCucs" :key="cc.ten + idx" class="ccp-card">
         <div class="ccp-card-head" @click="expanded[idx] = !expanded[idx]">
           <div class="ccp-title">
             <span class="ccp-num">#{{ idx + 1 }}</span>
             <h3>{{ cc.ten }}</h3>
             <span class="ccp-level" :style="{ background: levelColor(cc.cap_do), color: '#fff' }">
               {{ levelIcon(cc.cap_do) }} {{ cc.cap_do || 'không rõ' }}
+            </span>
+            <span v-if="cc.occurrences_in_sach >= 2" class="ccp-occ-badge"
+                  :title="`Trần Đoàn lặp lại ${cc.occurrences_in_sach} lần — cách quan trọng`">
+              📚 ×{{ cc.occurrences_in_sach }}
+            </span>
+            <span v-if="cc.overlap_count" class="ccp-overlap"
+                  :title="`${cc.overlap_count} sao của bạn khớp với cách này`">
+              ⭐ {{ cc.overlap_count }} sao
             </span>
           </div>
           <span class="ccp-toggle">{{ expanded[idx] ? '▾' : '▸' }}</span>
@@ -121,6 +148,11 @@ onMounted(load);
           </p>
           <p class="ccp-meaning" v-if="expanded[idx]">
             <b>📖 Ý nghĩa:</b> <WikiText :text="cc.y_nghia" />
+          </p>
+          <p v-if="expanded[idx] && cc.source_pages?.length" class="ccp-source">
+            <b>📜 Trang gốc:</b>
+            <span v-for="p in cc.source_pages.slice(0,5)" :key="p" class="ccp-src-pill">p{{ p }}</span>
+            <span v-if="cc.nguon" class="ccp-nguon">[{{ cc.nguon === 'phú_thái_vi_dict' ? '🏛 Phú Thái Vi' : '🤖 DeepSeek' }}]</span>
           </p>
         </div>
       </div>
@@ -258,6 +290,52 @@ onMounted(load);
 .ccp-level {
   font-size: 0.72rem; padding: 2px 8px; border-radius: 3px;
   font-weight: 600; font-family: ui-sans-serif, sans-serif;
+}
+.ccp-occ-badge {
+  font-size: 0.7rem; padding: 2px 6px; border-radius: 3px;
+  background: rgba(245,158,11,0.18); color: #fbbf24;
+  font-family: ui-sans-serif, sans-serif; font-weight: 600;
+}
+.ccp-overlap {
+  font-size: 0.7rem; padding: 2px 6px; border-radius: 3px;
+  background: rgba(96,165,250,0.18); color: #93c5fd;
+  font-family: ui-sans-serif, sans-serif; font-weight: 600;
+}
+
+.ccp-filter-bar {
+  display: flex; gap: 0.4rem; flex-wrap: wrap;
+  margin-bottom: 0.8rem; padding-bottom: 0.6rem;
+  border-bottom: 1px dashed #334155;
+  align-items: center;
+}
+.ccp-count {
+  color: #fde68a; font-weight: 600; font-size: 0.85rem;
+  margin-right: 0.4rem;
+}
+.ccp-filter-btn {
+  background: #1e293b; border: 1px solid #475569; color: #cbd5e1;
+  padding: 0.3rem 0.6rem; border-radius: 4px; cursor: pointer;
+  font-size: 0.8rem; font-family: inherit;
+}
+.ccp-filter-btn small { color: #94a3b8; margin-left: 0.2rem; }
+.ccp-filter-btn:hover { background: #334155; }
+.ccp-filter-btn.active {
+  background: #334155; color: #fde68a; font-weight: 600;
+  box-shadow: 0 0 0 1.5px currentColor;
+}
+
+.ccp-source {
+  margin: 0.5rem 0 0 0; padding-top: 0.4rem;
+  border-top: 1px dashed #334155;
+  font-size: 0.78rem; color: #94a3b8;
+}
+.ccp-src-pill {
+  display: inline-block; background: #1e293b; color: #cbd5e1;
+  padding: 1px 6px; margin: 0 2px; border-radius: 3px;
+  font-family: ui-sans-serif, sans-serif; font-size: 0.7rem;
+}
+.ccp-nguon {
+  margin-left: 0.4rem; font-size: 0.72rem; color: #64748b; font-style: italic;
 }
 .ccp-toggle { color: #94a3b8; font-size: 0.85rem; }
 .ccp-card-body { padding: 0.7rem 0.9rem; border-top: 1px solid #1e293b; }

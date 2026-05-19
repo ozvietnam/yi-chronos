@@ -906,6 +906,67 @@ EDIT: CLAUDE.md (+ Iron Rule #6), api/main.py (+4 endpoints),
 
 🌸 **Tinh thần**: Em chuyển từ "agent task lẻ" sang "biên tập viên có quy trình". Mỗi sách qua đủ engine → wiki → PDF.
 
+### Lần update — 2026-05-19 đêm muộn (Phase tiếp: insight lá số Anh + cuốn BỘ + sage council)
+
+Anh ra 2 yêu cầu kế tiếp: (1) "duyệt làm tiếp — có gì hay về lá số của anh nhớ báo", (2) "duyệt phase tiếp".
+
+#### Em làm gì
+
+1. **Deep match 985 cách cục cho lá số Anh** — báo cáo trang trọng:
+   - ⭐ Hội đủ **6/6 thành tố ĐẠI PHÚ QUÝ CÁCH** (cấu hình cực hiếm)
+   - ⭐⭐ Cự Nhật Đồng Cung — cách của Anh — Trần Đoàn lặp **12 LẦN** với câu "quý bất khả ngôn"
+   - 12 hạ cách phát hiện nhưng 4/5 KHÔNG apply (sát tinh phân tán)
+   - Duy nhất 1 cảnh báo thực sự: **Tật Yêu cách** (sức khỏe đầu óc — Văn Xương + Linh Tinh ở Tật Ách)
+   - Phu Thê đặc biệt: Khoa + Kỵ cùng cung → vợ giỏi + dễ tranh luận
+   - Full report: `docs/insights/LA-SO-ANH-DEEP-2026-05-19.md`
+
+2. **Engine refactor `TuViAnalyzer.discover_cach_cuc()`** — DICT FIRST + DeepSeek fallback. Verified founder cost $0 (trước $0.002).
+
+3. **3 cuốn PDF + 1 cuốn BỘ**:
+   - Q1 (35 trang, 204 KB)
+   - Q3 (135 trang, 596 KB) — Diễn giải 12 cung × 14 chính tinh
+   - Q4 (91 trang, 432 KB) — 60+ lá số cổ kim
+   - **BỘ (274 trang, 1.14 MB)** — gộp Q1+Q3+Q4 + bảng tra A-Z 985 cách
+
+4. **Tử Vi Sage SOUL.md** — Iron Rule #6 + core teachings + cảnh báo cấu hình + format READ/GAP/CRITIQUE/ADVICE
+
+5. **Arbiter SOUL.md** update — tích hợp Tử Vi Sage vào hội đồng:
+   - Quy tắc cross-school (Tử Vi dài hạn + Mai Hoa khoảnh khắc đồng dạng)
+   - Cảnh báo NẶNG khi Tử Vi + Mai Hoa cùng nói Phu Thê khó
+
+6. **Frontend CachCucPanel** update — filter bar theo cấp độ + badges occurrences + source pages + nguồn (dict vs DeepSeek)
+
+7. **WikiText auto-highlight** — endpoint `/api/yi-publishing/wiki/all-tuvi` đã trả 2070 concepts (bao gồm 576 mới) → frontend tự pick up
+
+#### Tổng cộng tới giờ
+
+- **4 cuốn PDF** Tử Vi: Q1 + Q3 + Q4 + Bộ (274 trang)
+- **985 cách cục + 576 concepts** trong wiki + engine dict
+- **Iron Rule #6** (Tử Vi = ĐỌC ĐỒNG DẠNG)
+- **Tử Vi Sage** tham gia hội đồng
+- **API endpoints** mới: cach-cuc-pho-bien · match-cach-cuc · concept-dict
+- **Engine deterministic** — instant + $0 cho mọi user
+
+#### Files
+
+```
+NEW (4)
+  engine/yi_publishing/tu_vi_boxed_compile.py
+  data/published/tu-vi-bo-toan-thu.pdf (1.14 MB, 274 trang)
+  docs/insights/LA-SO-ANH-DEEP-2026-05-19.md
+  data/hermes_yi/profiles/tu-vi-sage/SOUL.md (updated với Iron Rule #6 + core teachings)
+
+EDITED (3)
+  engine/tu_vi/analyzer.py (discover_cach_cuc dict-first)
+  client/webapp/src/components/CachCucPanel.vue (filter + badges + source pages)
+  data/hermes_yi/profiles/arbiter/SOUL.md (Tử Vi cross-school rules)
+  docs/PUBLISHING-LEDGER.md (+ TV-BỘ)
+```
+
+🎓 **Lesson #16**: _"Mỗi sage có chức năng riêng nhưng phải biết về nhau."_ Arbiter biết "Tử Vi dài hạn + Mai Hoa khoảnh khắc" để KHÔNG bắt 2 trường phái mâu thuẫn khi thực ra chúng đồng dạng (lá số đẹp + 1 quẻ khó = vận lớn tốt + sóng nhỏ).
+
+🌸 **Tinh thần**: Hôm nay (2026-05-19) là ngày 1 ngày-thu-hoạch. Q1 → BỘ. 545 → 985 cách. 35 trang → 274 trang. 1 cảnh báo "phải đào sâu hơn" → 985 cách kinh điển. Pattern là "chậm rãi nhưng đúng đạo, mỗi bước qua đủ 6 stage Bookflow".
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
