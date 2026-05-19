@@ -11,7 +11,9 @@
 | ID | Tựa Việt | Tựa gốc | Tác giả | Stage | Trang | File PDF | Status |
 |---|---|---|---|---|---|---|---|
 | Q3 | Mai Hoa Dịch Số — Hành Đạo Toàn Thư | 图解梅花易数 | Thang Hành Dịch (biên tập từ Thiệu Khang Tiết) | **6/6 Published** | **613 (A4)** | `data/published/Q3-mai-hoa-toan-thu-v1.9.pdf` (10.25 MB, **with 17 figures + design v2**) | ✅ **v1.9 PUBLISHED 2026-05-18** |
-| TV-Q1 | Tử Vi Đẩu Số Toàn Thư — Quyển 1: Phú Thái Vi & Cách Cục Kinh Điển | 紫微斗数全书·卷一 | Trần Đoàn (Hi Di tiên sinh, ~872-989) + Phan Hy Doãn bổ tập | **6/6 Published** | **35 (A4)** | `data/published/tu-vi-q1-phu-thai-vi.pdf` (203 KB, 545 cách cục + 320 concepts) | ✅ **v1.0 PUBLISHED 2026-05-19** |
+| TV-Q1 | Tử Vi Đẩu Số Toàn Thư — Quyển 1: Phú Thái Vi & Cách Cục Kinh Điển | 紫微斗数全书·卷一 | Trần Đoàn + Phan Hy Doãn bổ tập | **6/6 Published** | **35 (A4)** | `data/published/tu-vi-q1-phu-thai-vi.pdf` (204 KB, 545 cách + 320 concepts) | ✅ **v1.0 PUBLISHED 2026-05-19** |
+| TV-Q3 | Tử Vi Đẩu Số Toàn Thư — Quyển 3: Diễn Giải 12 Cung × 14 Chính Tinh | 紫微斗数全书·卷三 | Trần Đoàn | **6/6 Published** | **135 (A4)** | `data/published/tu-vi-q3-dien-giai-12-cung.pdf` (596 KB, 168 combos) | ✅ **v1.0 PUBLISHED 2026-05-19** |
+| TV-Q4 | Tử Vi Đẩu Số Toàn Thư — Quyển 4: Lá Số Cổ Kim | 紫微斗数全书·卷四 | Trần Đoàn | **6/6 Published** | **91 (A4)** | `data/published/tu-vi-q4-la-so-co-kim.pdf` (432 KB, 60+ case studies) | ✅ **v1.0 PUBLISHED 2026-05-19** |
 
 ---
 

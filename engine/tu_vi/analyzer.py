@@ -188,27 +188,74 @@ Cho lá số đầy đủ, hãy LIỆT KÊ 6-8 cách cục QUAN TRỌNG NHẤT m
 Output JSON: {"cach_cucs": [{...}, ...]}"""
 
     def discover_cach_cuc(self) -> dict:
+        """Tìm cách cục cho lá số.
+
+        Strategy (Iron Rule #6 — Cơ + Biến):
+            1. DICT FIRST — match deterministic với 985 cách kinh điển (Q1+Q3+Q4)
+               qua engine.tu_vi.cach_cuc_dict.match_cach_in_chart()
+            2. DeepSeek SAU — chỉ khi dict không cho match nào (≥3-star overlap)
+               hoặc khi force=True
+
+        Lợi ích: instant + free + truy nguyên về trang gốc.
+        """
         cached = None if self.force else _cache_load(self.person.person_key, "cach_cuc", self.person.user_id)
         if cached:
             return cached
 
-        from engine.yi_publishing.translator import get_deepseek_client
-        client = get_deepseek_client()
-        resp = client.chat.completions.create(
-            model="deepseek-chat",
-            messages=[
-                {"role": "system", "content": self.SYSTEM_DISCOVER},
-                {"role": "user", "content": f"{self.chart_summary}\n\nHãy tìm 6-8 cách cục."},
-            ],
-            response_format={"type": "json_object"}, timeout=180, max_tokens=4000,
+        # ── 1. Dict-based deterministic match ───────────────────────────────
+        from engine.tu_vi.cach_cuc_dict import match_cach_in_chart
+
+        ls = self.la_so
+        s2b = {**ls.get('chinh_tinh', {}), **ls.get('phu_tinh', {}), **ls.get('sat_tinh', {})}
+        stars_at_menh = [st for st, idx in s2b.items() if BRANCHES[idx] == ls['menh_branch']]
+        stars_in_palaces: dict[str, list[str]] = {}
+        for p in ls.get('palaces', []):
+            br = BRANCHES[p['branch_index']]
+            stars_in_palaces[p['name']] = [st for st, idx in s2b.items() if BRANCHES[idx] == br]
+
+        dict_matches = match_cach_in_chart(
+            stars_at_menh=stars_at_menh,
+            stars_in_palaces=stars_in_palaces,
+            min_overlap=3,
+            max_results=30,
         )
-        u = resp.usage
-        cost = (u.prompt_tokens * 0.27 + u.completion_tokens * 1.10) / 1_000_000
-        try:
-            cach_cucs = json.loads(resp.choices[0].message.content)['cach_cucs']
-        except Exception as e:
-            logger.warning(f"cach_cuc parse fail: {e}")
-            cach_cucs = []
+
+        # Convert dict format → unified cach_cuc schema
+        cach_cucs = []
+        for m in dict_matches:
+            cach_cucs.append({
+                "ten": m.get("ten", ""),
+                "cap_do": m.get("cap_do", "?"),
+                "bang_chung": ", ".join(m.get("_overlap_stars", [])[:6]),
+                "y_nghia": m.get("y_nghia", ""),
+                "nguon": "phú_thái_vi_dict",
+                "occurrences_in_sach": m.get("occurrences", 0),
+                "overlap_count": m.get("_overlap_count", 0),
+                "source_pages": [s.get("page") for s in m.get("sources", [])[:3]],
+            })
+
+        cost = 0.0
+        # ── 2. Fallback DeepSeek if dict empty ──────────────────────────────
+        if not cach_cucs:
+            from engine.yi_publishing.translator import get_deepseek_client
+            try:
+                client = get_deepseek_client()
+                resp = client.chat.completions.create(
+                    model="deepseek-chat",
+                    messages=[
+                        {"role": "system", "content": self.SYSTEM_DISCOVER},
+                        {"role": "user", "content": f"{self.chart_summary}\n\nHãy tìm 6-8 cách cục."},
+                    ],
+                    response_format={"type": "json_object"}, timeout=180, max_tokens=4000,
+                )
+                u = resp.usage
+                cost = (u.prompt_tokens * 0.27 + u.completion_tokens * 1.10) / 1_000_000
+                parsed = json.loads(resp.choices[0].message.content)
+                for c in parsed.get("cach_cucs", []):
+                    c["nguon"] = "deepseek_fallback"
+                    cach_cucs.append(c)
+            except Exception as e:
+                logger.warning(f"deepseek fallback fail: {e}")
 
         data = {
             "person_key": self.person.person_key,
