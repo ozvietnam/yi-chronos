@@ -519,6 +519,167 @@ def dau_quan(lunar_month: int, hour_index: int) -> int:
     return pos
 
 
+# ─── 11.5 Q2 sao bộ — bổ sung sau thâm nhuần Quyển 2 (2026-05-19) ────────────
+#
+# Reference: Tử Vi Đẩu Số Toàn Thư — Quyển 2 (p0080-p0141 OCR)
+# Detail audit: docs/design/engine-gaps-q2-thamnhuan.md
+#
+# Implemented:
+#   - 12 sao Thái Tuế bộ (theo địa chi năm sinh)
+#   - Cặp đào hoa: Hồng Loan + Thiên Hỉ
+#   - Cặp cô đơn: Cô Thần + Quả Tú
+#   - Cặp Tam Thai + Bát Tọa (theo ngày sinh + Tả Hữu)
+#   - Cặp Thiên Khốc + Thiên Hư (theo năm)
+#   - Cặp Long Trì + Phượng Các (theo năm)
+
+# Thứ tự 12 sao Thái Tuế theo chu trình +1 cung từ vị trí năm sinh
+THAI_TUE_BELT = (
+    "Thái Tuế",     # +0 (tại địa chi năm sinh)
+    "Thiếu Dương",  # +1
+    "Tang Môn",     # +2
+    "Thiếu Âm",     # +3
+    "Quan Phù",     # +4
+    "Tử Phù",       # +5
+    "Tuế Phá",      # +6 (đối xung Thái Tuế)
+    "Long Đức",     # +7
+    "Bạch Hổ",      # +8
+    "Phúc Đức",     # +9
+    "Điếu Khách",   # +10
+    "Bệnh Phù",     # +11
+)
+
+
+def thai_tue_belt(year_branch: str) -> dict[str, int]:
+    """An 12 sao Thái Tuế theo địa chi năm sinh.
+
+    Quyết: Thái Tuế tọa tại địa chi năm sinh; 11 sao còn lại đếm THUẬN +1 cung mỗi sao.
+    Reference: TVDSTT Q.2 p85 — "An Thập Nhị Cung Thái Tuế Sát Lộc Thần ca quyết".
+
+    Returns: {sao_name: branch_index, ...} — dict 12 sao.
+    """
+    base = B[year_branch]
+    return {name: _fix(base + offset) for offset, name in enumerate(THAI_TUE_BELT)}
+
+
+def hong_loan(year_branch: str) -> int:
+    """Hồng Loan — sao đào hoa, hỉ sự.
+
+    Quyết: từ cung Mão, NGHỊCH đếm theo địa chi năm sinh.
+    Reference: TVDSTT Q.2 p93 (Hồng Loan Thiên Hỷ thuộc Thủy).
+
+    Sinh năm Tý → Mão (Tý=0 → -0 = Mão)
+    Sinh năm Sửu → Dần
+    Sinh năm Dần → Sửu
+    ...
+    """
+    return _fix(B["Mão"] - B[year_branch])
+
+
+def thien_hi(year_branch: str) -> int:
+    """Thiên Hỉ — đối xung Hồng Loan (+6 cung)."""
+    return _fix(hong_loan(year_branch) + 6)
+
+
+def co_than(year_branch: str) -> int:
+    """Cô Thần — sao cô đơn (đặc biệt cho nam mệnh).
+
+    Quyết (TVDSTT Q.2): an theo tam hợp địa chi năm:
+      - Năm Dần/Mão/Thìn  → Cô Thần ở Tỵ
+      - Năm Tỵ/Ngọ/Mùi    → Cô Thần ở Thân
+      - Năm Thân/Dậu/Tuất → Cô Thần ở Hợi
+      - Năm Hợi/Tý/Sửu    → Cô Thần ở Dần
+    """
+    yb = B[year_branch]
+    if yb in (B["Dần"], B["Mão"], B["Thìn"]):
+        return B["Tỵ"]
+    if yb in (B["Tỵ"], B["Ngọ"], B["Mùi"]):
+        return B["Thân"]
+    if yb in (B["Thân"], B["Dậu"], B["Tuất"]):
+        return B["Hợi"]
+    return B["Dần"]  # Hợi/Tý/Sửu
+
+
+def qua_tu(year_branch: str) -> int:
+    """Quả Tú — sao cô đơn (đặc biệt cho nữ mệnh). Đối ngược Cô Thần.
+
+    Quyết:
+      - Năm Dần/Mão/Thìn  → Quả Tú ở Sửu
+      - Năm Tỵ/Ngọ/Mùi    → Quả Tú ở Thìn
+      - Năm Thân/Dậu/Tuất → Quả Tú ở Mùi
+      - Năm Hợi/Tý/Sửu    → Quả Tú ở Tuất
+    """
+    yb = B[year_branch]
+    if yb in (B["Dần"], B["Mão"], B["Thìn"]):
+        return B["Sửu"]
+    if yb in (B["Tỵ"], B["Ngọ"], B["Mùi"]):
+        return B["Thìn"]
+    if yb in (B["Thân"], B["Dậu"], B["Tuất"]):
+        return B["Mùi"]
+    return B["Tuất"]  # Hợi/Tý/Sửu
+
+
+def tam_thai(ta_phu_idx: int, lunar_day: int) -> int:
+    """Tam Thai — sao quý nhân, an theo Tả Phụ + ngày sinh.
+
+    Quyết: "Tam Thai tầm Tả Phụ, tương sơ nhất gia tại Tả Phụ cung,
+    thuận số chí bản sinh nhật an chi"
+    → Từ Tả Phụ cộng (ngày sinh - 1), thuận đếm.
+
+    Reference: TVDSTT Q.2 p86.
+    """
+    return _fix(ta_phu_idx + (lunar_day - 1))
+
+
+def bat_toa(huu_bat_idx: int, lunar_day: int) -> int:
+    """Bát Tọa — sao quý nhân, an theo Hữu Bật + ngày sinh, NGHỊCH.
+
+    Quyết: từ Hữu Bật cộng (ngày sinh - 1), nghịch đếm.
+    Reference: TVDSTT Q.2 p86.
+    """
+    return _fix(huu_bat_idx - (lunar_day - 1))
+
+
+def thien_khoc(year_branch: str) -> int:
+    """Thiên Khốc — bi thương, mất mát.
+
+    Quyết: "Thiên Khốc khởi Ngọ, NGHỊCH đếm theo năm sinh"
+    Reference: TVDSTT Q.2 p86 — "Khốc nghịch Tỵ hề Hư thuận Vị".
+
+    Sinh năm Tý → Ngọ (Tý=0, không lùi)
+    Sinh năm Sửu → Tỵ (lùi 1)
+    Sinh năm Dần → Thìn (lùi 2)
+    ...
+    """
+    return _fix(B["Ngọ"] - B[year_branch])
+
+
+def thien_hu(year_branch: str) -> int:
+    """Thiên Hư — hư hao, suy yếu.
+
+    Quyết: "Thiên Hư khởi Ngọ, THUẬN đếm theo năm sinh"
+    Reference: TVDSTT Q.2 p86.
+    """
+    return _fix(B["Ngọ"] + B[year_branch])
+
+
+def long_tri(year_branch: str) -> int:
+    """Long Trì — quý, long trọng.
+
+    Quyết: "Long Trì Tý thuận Thìn" — khởi Tý, THUẬN đếm đến năm sinh.
+    Reference: TVDSTT Q.2 p86.
+    """
+    return _fix(B["Tý"] + B[year_branch])
+
+
+def phuong_cac(year_branch: str) -> int:
+    """Phượng Các — quý, trang nhã.
+
+    Quyết: "Phượng Các Tý Tuất nghịch" — khởi Tuất, NGHỊCH đếm đến năm sinh.
+    Reference: TVDSTT Q.2 p86.
+    """
+    return _fix(B["Tuất"] - B[year_branch])
+
+
 # ─── 11. Top-level orchestrator ───────────────────────────────────────────────
 
 
@@ -654,4 +815,21 @@ def cast_la_so(
         dau_quan_index=dau_quan_idx,
         dau_quan_branch=BRANCHES_TVI[dau_quan_idx],
     )
-    return la_so.to_dict()
+    out = la_so.to_dict()
+
+    # Q2 sao bộ — thâm nhuần 2026-05-19 (Iron Rule #6)
+    # An 12 sao Thái Tuế + cặp đào hoa/cô đơn + Tam Thai Bát Tọa + Thiên Khốc Hư + Long Trì Phượng Các
+    out["thai_tue_belt"] = thai_tue_belt(year_branch)
+    out["sao_q2"] = {
+        "Hồng Loan": hong_loan(year_branch),
+        "Thiên Hỉ":  thien_hi(year_branch),
+        "Cô Thần":   co_than(year_branch),
+        "Quả Tú":    qua_tu(year_branch),
+        "Tam Thai":  tam_thai(phu_tinh["Tả Phù"], lunar_day),
+        "Bát Tọa":   bat_toa(phu_tinh["Hữu Bật"], lunar_day),
+        "Thiên Khốc": thien_khoc(year_branch),
+        "Thiên Hư":   thien_hu(year_branch),
+        "Long Trì":  long_tri(year_branch),
+        "Phượng Các": phuong_cac(year_branch),
+    }
+    return out

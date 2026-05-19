@@ -150,6 +150,18 @@ const cellByBranch = computed(() => {
     out[idx].sat.push({ name });
   }
 
+  // Q2 sao bộ — thâm nhuần Quyển 2 (12 sao Thái Tuế + 10 sao phụ)
+  // Init q2 array per cell
+  for (let i = 0; i < 12; i++) out[i].q2 = out[i].q2 || [];
+  const thaiTueBelt = data.value.thai_tue_belt || {};
+  for (const [name, idx] of Object.entries(thaiTueBelt)) {
+    out[idx].q2.push({ name, group: "thai_tue" });
+  }
+  const saoQ2 = data.value.sao_q2 || {};
+  for (const [name, idx] of Object.entries(saoQ2)) {
+    out[idx].q2.push({ name, group: "phu_q2" });
+  }
+
   return out;
 });
 
@@ -268,6 +280,13 @@ const grid = computed(() => {
               </ul>
               <ul v-if="cell.sat.length" class="stars sat">
                 <li v-for="s in cell.sat" :key="s.name" class="star sat-tinh">{{ s.name }}</li>
+              </ul>
+              <ul v-if="cell.q2 && cell.q2.length" class="stars q2"
+                  title="Sao bộ Q2 — thâm nhuần 2026-05-19 từ Tử Vi Đẩu Số Toàn Thư Quyển 2">
+                <li v-for="s in cell.q2" :key="s.name"
+                    :class="['star', 'q2-tinh', s.group === 'thai_tue' ? 'thai-tue' : 'phu-q2']">
+                  {{ s.name }}
+                </li>
               </ul>
               <span v-if="cell.palace?.name === 'Mệnh'" class="menh-mark">★ MỆNH</span>
               <span v-if="cell.branchIndex === data.than_index" class="than-mark">身 THÂN</span>
@@ -632,6 +651,21 @@ const grid = computed(() => {
 .chinh-tinh { color: var(--accent-gold-soft, #f5e6b1); font-weight: 700; }
 .phu-tinh { color: var(--accent-teal, #5be5d3); font-size: 11px; }
 .sat-tinh { color: #d65a4a; font-size: 10.5px; }
+.stars.q2 {
+  margin-top: 3px; padding-top: 3px;
+  border-top: 1px dashed rgba(168, 85, 247, 0.25);
+  display: flex; flex-wrap: wrap; gap: 2px;
+}
+.q2-tinh {
+  font-size: 9px; padding: 1px 4px; border-radius: 2px;
+  font-family: ui-sans-serif, sans-serif;
+}
+.q2-tinh.thai-tue {
+  background: rgba(168, 85, 247, 0.18); color: #c084fc;
+}
+.q2-tinh.phu-q2 {
+  background: rgba(34, 211, 238, 0.15); color: #67e8f9;
+}
 
 .hoa-badge {
   display: inline-block;
