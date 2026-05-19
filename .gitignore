@@ -53,7 +53,7 @@ data/*.json
 data/yi_research/
 
 # Source PDFs / RTFs / figures — NOT committed (large, copyrighted)
-"thư viện sách/"
+thư viện sách/
 figures/
 **/*.pdf
 **/*.epub
