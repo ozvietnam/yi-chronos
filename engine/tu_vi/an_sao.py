@@ -35,20 +35,27 @@ def _fix(x: int) -> int:
     return ((x % 12) + 12) % 12
 
 
-# 12 palace names in canonical Vietnamese order (counter-clockwise from Mệnh).
+# 12 palace names in canonical Bắc Phái order (Trần Đoàn — Phú Thái Vi Q1 p20 #511).
+# Order: starting from Mệnh, going counter-clockwise on chart layout (= decreasing chi index).
+# Kinh điển: "Cự đáo nhị cung, tất thị huynh đệ vô nghĩa" → cung 2 = Huynh Đệ (not Phụ Mẫu).
+# Standard library: iztro (MIT, SylarLong) uses same order: 命兄夫子財疾遷奴官田福父.
+#
+# BUG-FIX 2026-05-20: Previous order had Phụ Mẫu at index 1 (Vietnamese popular listing
+# order). When combined with `menh_index - k` traversal, this placed Phụ Mẫu at the chi
+# where canonical Bắc Phái places Huynh Đệ, etc. — entire chart rotated wrong.
 PALACE_NAMES: tuple[str, ...] = (
     "Mệnh",        # 0
-    "Phụ Mẫu",     # 1
-    "Phúc Đức",    # 2
-    "Điền Trạch",  # 3
-    "Quan Lộc",    # 4
-    "Nô Bộc",      # 5
-    "Thiên Di",    # 6
-    "Tật Ách",     # 7
-    "Tài Bạch",    # 8
-    "Tử Tức",      # 9
-    "Phu Thê",     # 10
-    "Huynh Đệ",    # 11
+    "Huynh Đệ",    # 1  (Cự đáo NHỊ CUNG = Huynh Đệ — Phú Thái Vi)
+    "Phu Thê",     # 2
+    "Tử Tức",      # 3
+    "Tài Bạch",    # 4
+    "Tật Ách",     # 5
+    "Thiên Di",    # 6  (đối với Mệnh)
+    "Nô Bộc",      # 7
+    "Quan Lộc",    # 8
+    "Điền Trạch",  # 9
+    "Phúc Đức",    # 10
+    "Phụ Mẫu",     # 11 (đối với Tật Ách)
 )
 
 
@@ -170,10 +177,15 @@ def _build_ziwei_table() -> dict[tuple[int, int], int]:
             divisor = D + offset
             quotient, remainder = divmod(divisor, C)
             if remainder == 0: stop
-        q = quotient % 12
-        ziwei = q - 1
-        ziwei += offset if (offset % 2 == 0) else -offset
-        ziwei = fix(ziwei)
+        position_dan_base = quotient - 1   # 0 = Dần (寅) in canonical counting
+        position_dan_base += offset if (offset % 2 == 0) else -offset
+        # Convert from Dần-base (0=Dần) to chi-base (0=Tý): +2 chi index
+        ziwei_chi = (position_dan_base + 2) mod 12
+
+    BUG-FIX 2026-05-20: Previously the formula returned `_fix(ziwei)` treating
+    `quotient - 1` directly as chi index (Tý=0). Per Phú Thái Vi Q1 the canonical
+    counting starts at Dần (chi 2). Verified 30/30 (Thủy) + 29/30 (Thổ) cục
+    against kinh điển 紫微定位表.
     """
     table: dict[tuple[int, int], int] = {}
     for cuc in (2, 3, 4, 5, 6):
@@ -188,9 +200,10 @@ def _build_ziwei_table() -> dict[tuple[int, int], int]:
                 if offset > 100:   # safety bound
                     break
             q = quotient % 12
-            ziwei = q - 1
-            ziwei = ziwei + (offset if offset % 2 == 0 else -offset)
-            table[(cuc, day)] = _fix(ziwei)
+            position_dan_base = q - 1
+            position_dan_base += (offset if offset % 2 == 0 else -offset)
+            # +2 to convert from Dần-base (0=Dần) to chi-base (0=Tý)
+            table[(cuc, day)] = _fix(position_dan_base + 2)
     return table
 
 

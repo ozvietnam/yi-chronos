@@ -298,6 +298,9 @@ class InterpretationResult:
     external_omen_category: str = "none" # "cát" | "hung" | "hỗn hợp" | "trung tính" | "none"
     external_omen_weight: int = 0        # -2..+2
     external_omen_note: str = ""
+    # Thập ứng (Mai Hoa Q2) — phân loại nguồn ứng
+    external_omen_source: str = "none"   # "thiên thời" | "địa lý" | "nhân sự" | "vật loại" | "thanh âm" | "hành chỉ" | "ngoại (chung)" | "none"
+    external_omen_thap_ung: str = ""     # nhãn Thập ứng (vd "Thiên thời ứng")
 
     # ⭐⭐⭐ Gap 3 (Thầy Q3 tr.114): BƯỚC 4 — TƯ THẾ THÂN THỂ
     posture_input: str = ""              # nằm/ngồi/đứng/đi/chạy
@@ -539,6 +542,208 @@ def classify_omen(omen_text: str) -> dict:
         "matched_keywords": [],
         "note": "Em chưa nhận diện được điềm rõ ràng trong mô tả. Anh tự cân nhắc.",
     }
+
+
+# ─── THẬP ỨNG — 10 loại ngoại ứng (từ Mai Hoa Q2 thâm nhuần 2026-05-19) ─────
+#
+# Reference: Mai Hoa Dịch Số Quyển 2 — Chiêm bốc huyền cơ
+# Sách dạy phân biệt 10 loại "ứng" (signals) khi đoán quẻ:
+#   1. Chính ứng — Ứng trực tiếp câu hỏi (Thể-Dụng)
+#   2. Biến ứng — Ứng theo Quẻ Biến
+#   3. Nhật ứng — Ứng theo Can-Chi ngày hiện hành
+#   4. Ngoại ứng — Môi trường khách quan (generic)
+#   5. Thiên thời ứng — Thời tiết, mưa, gió, sấm, mặt trời, trăng
+#   6. Địa lý ứng — Địa hình, vị trí, núi sông, đường
+#   7. Nhân sự ứng — Người gặp, người đến, người đi
+#   8. Vật loại ứng — Vật (chim, côn trùng, thú, vật rơi)
+#   9. Thanh âm ứng — Âm thanh (chuông, sủa, khóc, hát, sấm)
+#  10. Hành chỉ ứng — Tư thế thân thể người hỏi (ngồi/đứng/nằm/đi)
+
+THAP_UNG_KEYWORDS = {
+    "thiên thời": [
+        "mưa", "gió", "sấm", "chớp", "nắng", "mây", "tuyết", "sương", "mù",
+        "mặt trời", "trăng", "sao", "thiên hà", "bão", "lốc", "trời quang",
+        "nóng", "lạnh", "ấm", "mát", "trời",
+    ],
+    "địa lý": [
+        "núi", "sông", "biển", "đầm", "ruộng", "rừng", "đường", "cầu", "hồ",
+        "đất", "đá", "vực", "thung lũng", "đỉnh", "chân núi", "bờ",
+    ],
+    "nhân sự": [
+        "người đến", "người gặp", "khách", "đàn ông", "đàn bà", "trẻ em",
+        "ông già", "bà già", "tăng", "đạo sĩ", "thầy", "trò", "bạn",
+        "kẻ lạ", "kẻ ăn xin", "vua", "quan", "công nhân", "thương nhân",
+    ],
+    "vật loại": [
+        "chim", "rồng", "rắn", "rùa", "cá", "côn trùng", "ong", "ruồi",
+        "chó", "mèo", "trâu", "bò", "ngựa", "lợn", "dê", "gà", "vịt",
+        "vật rơi", "đồ vỡ", "lá rơi", "bay qua", "đậu", "bò ra",
+    ],
+    "thanh âm": [
+        "tiếng", "âm", "kêu", "hú", "khóc", "cười", "hát", "chuông",
+        "sấm", "nổ", "gãy", "đổ", "vang", "rền", "rít",
+    ],
+    "hành chỉ": [
+        "ngồi", "đứng", "nằm", "đi", "chạy", "quỳ", "cúi", "ngẩng",
+        "tư thế", "cử động", "thân thể",
+    ],
+}
+
+
+def classify_omen_thap_ung(omen_text: str) -> dict:
+    """Phân loại ngoại ứng theo 10 loại Mai Hoa Q2.
+
+    Mở rộng classify_omen() để xác định **loại** ứng (source) bên cạnh
+    cát/hung. Output có thêm:
+      - omen_source: 1 trong ['thiên thời', 'địa lý', 'nhân sự', 'vật loại',
+                              'thanh âm', 'hành chỉ', 'ngoại (chung)']
+      - thap_ung_label: tên trong Thập ứng
+    """
+    base = classify_omen(omen_text)
+    if base["category"] == "none":
+        return {**base, "omen_source": "none", "thap_ung_label": "Không có"}
+
+    text = (omen_text or "").lower()
+    # Score mỗi source
+    scores = {src: sum(1 for kw in kws if kw in text) for src, kws in THAP_UNG_KEYWORDS.items()}
+    top_source = max(scores, key=scores.get) if max(scores.values()) > 0 else None
+
+    if top_source is None:
+        return {
+            **base,
+            "omen_source": "ngoại (chung)",
+            "thap_ung_label": "Ngoại ứng (chung)",
+        }
+
+    # Map source → Thập ứng label
+    THAP_UNG_LABEL_MAP = {
+        "thiên thời": "Thiên thời ứng",
+        "địa lý": "Địa lý ứng",
+        "nhân sự": "Nhân sự ứng",
+        "vật loại": "Vật loại ứng",
+        "thanh âm": "Thanh âm ứng",
+        "hành chỉ": "Hành chỉ ứng",
+    }
+    return {
+        **base,
+        "omen_source": top_source,
+        "thap_ung_label": THAP_UNG_LABEL_MAP[top_source],
+        "scores": scores,
+    }
+
+
+def tam_yeu_summary(
+    *,
+    the_que: str, dung_que: str,
+    relationship: str, auspice: str,
+    the_quaikhi: str,
+    external_omen_category: str = "none",
+    external_omen_weight: int = 0,
+    external_omen_thap_ung: str = "",
+) -> dict:
+    """Tam yếu — 3 yếu tố cốt lõi khi xem quẻ Mai Hoa.
+
+    Reference: Mai Hoa Q1 thâm nhuần (2026-05-19) — `data/yi_publishing/mai_hoa_thamnhuan/master`
+    Tam yếu (3 yếu): tóm tắt 3 thành tố then chốt cho mọi luận quẻ.
+
+    Args:
+        the_que/dung_que: quẻ Thể, Dụng (vd "Càn", "Khôn")
+        relationship: từ TheDungAnalysis.relationship
+        auspice: "cát"/"hung"/"bình"
+        the_quaikhi: "vượng"/"suy"/"bình" — quái khí Thể theo mùa
+        external_omen_*: từ classify_omen_thap_ung()
+
+    Returns:
+        dict 3 yếu + verdict tổng hợp.
+    """
+    # Yếu 1: Thể-Dụng (Quẻ Chánh)
+    yeu_1 = {
+        "name": "Quẻ Chánh — Thể & Dụng",
+        "the": the_que,
+        "dung": dung_que,
+        "relationship": relationship,
+        "auspice": auspice,
+        "interpretation": _interpret_yeu_1(relationship, auspice),
+    }
+
+    # Yếu 2: Quái khí (mùa) — Thể vượng/suy ảnh hưởng kết quả
+    yeu_2 = {
+        "name": "Quái Khí (Thể theo mùa)",
+        "the_quaikhi": the_quaikhi,
+        "interpretation": _interpret_yeu_2(the_quaikhi),
+    }
+
+    # Yếu 3: Ngoại ứng (Khắc ứng + Thập ứng)
+    yeu_3 = {
+        "name": "Khắc Ứng (Ngoại ứng - Thập ứng)",
+        "omen_category": external_omen_category,
+        "omen_weight": external_omen_weight,
+        "thap_ung_label": external_omen_thap_ung,
+        "interpretation": _interpret_yeu_3(external_omen_category, external_omen_thap_ung),
+    }
+
+    # Tổng hợp Verdict
+    score = 0
+    if auspice == "cát":
+        score += 2
+    elif auspice == "hung":
+        score -= 2
+    if the_quaikhi == "vượng":
+        score += 1
+    elif the_quaikhi == "suy":
+        score -= 1
+    score += external_omen_weight
+
+    if score >= 2:
+        verdict = "ĐẠI CÁT — 3/3 yếu thuận"
+    elif score >= 1:
+        verdict = "CÁT — đa số thuận"
+    elif score <= -2:
+        verdict = "ĐẠI HUNG — 3/3 yếu nghịch"
+    elif score <= -1:
+        verdict = "HUNG — đa số nghịch"
+    else:
+        verdict = "BÌNH — cát hung lẫn, cần xét thêm Tâm"
+
+    return {
+        "yeu_1_que_chanh": yeu_1,
+        "yeu_2_quai_khi": yeu_2,
+        "yeu_3_khac_ung": yeu_3,
+        "score": score,
+        "verdict": verdict,
+        "note": "Tam yếu = 3 chân kiềng. Yếu nào yếu hơn → khoảnh khắc đó là gốc rễ.",
+    }
+
+
+def _interpret_yeu_1(rel: str, ausp: str) -> str:
+    table = {
+        "dung_sinh_the": "Ngoại cảnh nuôi mình — CÁT nhất, vận thuận đến",
+        "the_khac_dung": "Mình thắng việc, có quyền kiểm soát",
+        "ti_hoa":        "Tỷ hoà — bình ổn, không thay đổi lớn",
+        "the_sinh_dung": "Mình cho đi sức / tài / công — tổn",
+        "dung_khac_the": "Ngoại cảnh đè mình — bất lợi, cần phòng",
+    }
+    return table.get(rel, f"Quan hệ Thể-Dụng: {rel} ({ausp})")
+
+
+def _interpret_yeu_2(qk: str) -> str:
+    return {
+        "vượng": "Thể đang VƯỢNG theo mùa — sức mạnh nội tại tốt, khả năng thực hiện cao",
+        "suy":   "Thể đang SUY theo mùa — yếu, cần phòng tổn / chờ thời",
+        "bình":  "Thể ở thế BÌNH — không cản trở nhưng cũng không thúc đẩy",
+    }.get(qk, "Quái khí không xác định")
+
+
+def _interpret_yeu_3(cat: str, label: str) -> str:
+    if cat == "cát":
+        return f"Ngoại ứng CÁT ({label}) — vũ trụ gửi tín hiệu thuận, củng cố quẻ"
+    if cat == "hung":
+        return f"Ngoại ứng HUNG ({label}) — vũ trụ gửi tín hiệu nghịch, cảnh báo"
+    if cat == "hỗn hợp":
+        return f"Ngoại ứng HỖN HỢP ({label}) — tín hiệu trộn lẫn, cần xét Tâm"
+    if cat == "trung tính":
+        return "Ngoại ứng trung tính — không rõ điềm"
+    return "Không có ngoại ứng"
 
 
 def _phase_meaning(phase_label: str, que_name: str, upper: str, lower: str,
@@ -997,6 +1202,8 @@ def analyze(cast: CastResult, month: Optional[int] = None,
         external_omen_category=omen_info["category"],
         external_omen_weight=omen_info["weight"],
         external_omen_note=omen_info["note"],
+        external_omen_source=classify_omen_thap_ung(external_omen or "")["omen_source"],
+        external_omen_thap_ung=classify_omen_thap_ung(external_omen or "")["thap_ung_label"],
         # ⭐⭐⭐ Gap 3 — Tư thế thân thể (BƯỚC 4)
         posture_input=(posture or "").lower(),
         posture_speed=posture_data["speed"] if posture_data else "",
