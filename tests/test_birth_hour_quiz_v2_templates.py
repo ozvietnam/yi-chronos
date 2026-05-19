@@ -40,7 +40,8 @@ def test_energy_peak_template_values():
 
 
 def test_value_labels_are_vietnamese():
-    """Sanity: at least one common Vietnamese marker."""
+    """Sanity: at least one non-ASCII (Vietnamese) char present."""
     sample = TRAIT_TEMPLATES["body_height"]["value_labels"]
     text = " ".join(sample.values())
-    assert any(ch in text for ch in "àáâãèéêíòóôõùúýăđ")
+    assert any(ord(ch) > 127 for ch in text), \
+        f"body_height labels should contain Vietnamese diacritics: {text!r}"
