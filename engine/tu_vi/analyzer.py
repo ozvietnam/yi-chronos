@@ -42,28 +42,54 @@ class Person:
     gender: str                     # "nam" | "nữ"
     timezone: str = "Asia/Ho_Chi_Minh"
     notes: str = ""
+    user_id: Optional[int] = None   # owning user — None means legacy/founder fallback
 
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
-def _cache_dir(person_key: str) -> Path:
-    d = CACHE_ROOT / person_key
+def _scoped_key(person_key: str, user_id: Optional[int] = None) -> str:
+    """Return the on-disk cache namespace.
+
+    Backward compat: founder personas (and legacy callers without user_id) keep
+    the original `_founder` / `wife` paths so existing data still loads.
+    New per-user personas live under `u{user_id}/{person_key}` to prevent
+    different users from clobbering each other's `self` cache.
+    """
+    if user_id is None:
+        return person_key
+    # Founder (user_id=1) keeps legacy unprefixed paths for backward compat
+    if user_id == 1 and person_key in ("_founder",):
+        return person_key
+    return f"u{user_id}/{person_key}"
+
+
+def _cache_dir(person_key: str, user_id: Optional[int] = None) -> Path:
+    d = CACHE_ROOT / _scoped_key(person_key, user_id)
     d.mkdir(parents=True, exist_ok=True)
     return d
 
 
-def _cache_load(person_key: str, kind: str) -> Optional[dict]:
-    f = _cache_dir(person_key) / f"{kind}.json"
-    if not f.exists():
-        return None
-    try:
-        return json.loads(f.read_text())
-    except Exception:
-        return None
+def _cache_load(person_key: str, kind: str, user_id: Optional[int] = None) -> Optional[dict]:
+    """Load cached result. Falls back to legacy unscoped path if scoped missing."""
+    f = _cache_dir(person_key, user_id) / f"{kind}.json"
+    if f.exists():
+        try:
+            return json.loads(f.read_text())
+        except Exception:
+            return None
+    # Fallback: legacy unscoped path (only when user_id was provided)
+    if user_id is not None:
+        legacy = CACHE_ROOT / person_key / f"{kind}.json"
+        if legacy.exists():
+            try:
+                return json.loads(legacy.read_text())
+            except Exception:
+                return None
+    return None
 
 
-def _cache_save(person_key: str, kind: str, data: dict) -> Path:
-    f = _cache_dir(person_key) / f"{kind}.json"
+def _cache_save(person_key: str, kind: str, data: dict, user_id: Optional[int] = None) -> Path:
+    f = _cache_dir(person_key, user_id) / f"{kind}.json"
     f.write_text(json.dumps(data, ensure_ascii=False, indent=2))
     return f
 
@@ -162,7 +188,7 @@ Cho lá số đầy đủ, hãy LIỆT KÊ 6-8 cách cục QUAN TRỌNG NHẤT m
 Output JSON: {"cach_cucs": [{...}, ...]}"""
 
     def discover_cach_cuc(self) -> dict:
-        cached = None if self.force else _cache_load(self.person.person_key, "cach_cuc")
+        cached = None if self.force else _cache_load(self.person.person_key, "cach_cuc", self.person.user_id)
         if cached:
             return cached
 
@@ -191,7 +217,7 @@ Output JSON: {"cach_cucs": [{...}, ...]}"""
             "cost_usd": round(cost, 6),
             "cach_cucs": cach_cucs,
         }
-        _cache_save(self.person.person_key, "cach_cuc", data)
+        _cache_save(self.person.person_key, "cach_cuc", data, self.person.user_id)
         return data
 
     # ── 2. Synastry ─────────────────────────────────────────────────────────
@@ -215,7 +241,7 @@ Output JSON: {
 
     def synastry(self, other: "TuViAnalyzer") -> dict:
         key = f"synastry_{other.person.person_key}"
-        cached = None if self.force else _cache_load(self.person.person_key, key)
+        cached = None if self.force else _cache_load(self.person.person_key, key, self.person.user_id)
         if cached:
             return cached
 
@@ -244,7 +270,7 @@ Output JSON: {
             "cost_usd": round(cost, 6),
             "synastry": syn,
         }
-        _cache_save(self.person.person_key, key, data)
+        _cache_save(self.person.person_key, key, data, self.person.user_id)
         return data
 
     # ── 3. Đại Vận annotations ──────────────────────────────────────────────
@@ -259,7 +285,7 @@ Output JSON: {
 }"""
 
     def dai_van_annotate(self) -> dict:
-        cached = None if self.force else _cache_load(self.person.person_key, "dai_van")
+        cached = None if self.force else _cache_load(self.person.person_key, "dai_van", self.person.user_id)
         if cached:
             return cached
 
@@ -339,7 +365,7 @@ Viết phân tích đại vận V{cycle}."""
             "cost_usd": round(total_cost, 6),
             "annotations": annotations,
         }
-        _cache_save(self.person.person_key, "dai_van", data)
+        _cache_save(self.person.person_key, "dai_van", data, self.person.user_id)
         return data
 
     # ── 4. Lưu Niên (5 years window) ────────────────────────────────────────
@@ -357,7 +383,7 @@ Output JSON: {
 
     def luu_nien(self, start_year: int, end_year: int) -> dict:
         cache_key = f"luu_nien_{start_year}_{end_year}"
-        cached = None if self.force else _cache_load(self.person.person_key, cache_key)
+        cached = None if self.force else _cache_load(self.person.person_key, cache_key, self.person.user_id)
         if cached:
             return cached
 
@@ -435,7 +461,7 @@ Viết lưu niên năm {year}."""
             "cost_usd": round(total_cost, 6),
             "years": years_data,
         }
-        _cache_save(self.person.person_key, cache_key, data)
+        _cache_save(self.person.person_key, cache_key, data, self.person.user_id)
         return data
 
     # ── 5. Lưu Nguyệt (12 tháng âm 1 năm) ───────────────────────────────────
@@ -452,7 +478,7 @@ Output JSON: {
 
     def luu_nguyet(self, year: int) -> dict:
         cache_key = f"luu_nguyet_{year}"
-        cached = None if self.force else _cache_load(self.person.person_key, cache_key)
+        cached = None if self.force else _cache_load(self.person.person_key, cache_key, self.person.user_id)
         if cached:
             return cached
 
@@ -522,14 +548,14 @@ Viết lưu nguyệt T{thang}/{year}."""
             "cost_usd": round(total_cost, 6),
             "months": months,
         }
-        _cache_save(self.person.person_key, cache_key, data)
+        _cache_save(self.person.person_key, cache_key, data, self.person.user_id)
         return data
 
     # ── 6. Phú Thái Vi match ────────────────────────────────────────────────
 
     def phu_match(self) -> dict:
         """Score all Phú Thái Vi passages by relevance to chart."""
-        cached = None if self.force else _cache_load(self.person.person_key, "phu_match")
+        cached = None if self.force else _cache_load(self.person.person_key, "phu_match", self.person.user_id)
         if cached:
             return cached
 
@@ -570,7 +596,7 @@ Viết lưu nguyệt T{thang}/{year}."""
             "total_scored": len(scored),
             "matched_passages": scored[:30],
         }
-        _cache_save(self.person.person_key, "phu_match", data)
+        _cache_save(self.person.person_key, "phu_match", data, self.person.user_id)
         return data
 
     # ── 7. Phú readings (top N personalized) ────────────────────────────────
@@ -582,7 +608,7 @@ Cho 1 câu Phú + LÁ SỐ. Viết 3-5 câu đọc sâu áp dụng vào lá số
 Output JSON: {"reading": "..."}"""
 
     def phu_reading(self, top_n: int = 5) -> dict:
-        cached = None if self.force else _cache_load(self.person.person_key, f"phu_reading_top{top_n}")
+        cached = None if self.force else _cache_load(self.person.person_key, f"phu_reading_top{top_n}", self.person.user_id)
         if cached:
             return cached
 
@@ -634,7 +660,7 @@ Viết đọc sâu áp dụng vào lá số."""
             "cost_usd": round(total_cost, 6),
             "readings": readings,
         }
-        _cache_save(self.person.person_key, f"phu_reading_top{top_n}", data)
+        _cache_save(self.person.person_key, f"phu_reading_top{top_n}", data, self.person.user_id)
         return data
 
     # ── 8. Run all analyses ─────────────────────────────────────────────────

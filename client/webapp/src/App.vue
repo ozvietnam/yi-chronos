@@ -4,6 +4,7 @@ import { Activity, Database, RotateCcw, Send, ShieldCheck } from "lucide-vue-nex
 import SchoolIcon from "./components/SchoolIcon.vue";
 import UserBadge from "./components/UserBadge.vue";
 import OnboardingModal from "./components/OnboardingModal.vue";
+import AdminPanel from "./components/AdminPanel.vue";
 import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
 import UniverseCore from "./components/UniverseCore.vue";
@@ -414,6 +415,10 @@ onBeforeUnmount(() => {
               @click="activeMainTab = 'publishing'">
               <span class="tab-icon">📖</span> Dịch sách
             </button>
+            <button type="button" :class="{ active: activeMainTab === 'admin' }"
+              @click="activeMainTab = 'admin'">
+              <span class="tab-icon">👥</span> Admin
+            </button>
           </div>
         </template>
       </section>
@@ -669,6 +674,10 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'settings'" class="single-column" aria-label="Cài đặt hệ thống">
         <SettingsPanel />
+      </section>
+
+      <section v-else-if="activeMainTab === 'admin'" class="single-column" aria-label="Admin dashboard">
+        <AdminPanel />
       </section>
 
       <section v-else-if="activeMainTab === 'pytago'" class="maihoa-page" aria-label="Trang trường phái Pytago">

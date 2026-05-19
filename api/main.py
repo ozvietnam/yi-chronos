@@ -156,7 +156,9 @@ app.add_middleware(
 # - User mới (gia đình/khách) đăng ký, có namespace persons + quẻ history riêng
 # - Owner thấy mọi tab, user thường ẩn dev tabs (Cài đặt, Lexicon, ...)
 from api.auth import router as auth_router  # noqa: E402
+from api.admin import router as admin_router  # noqa: E402
 app.include_router(auth_router)
+app.include_router(admin_router)
 
 # ⭐ Serve figures from restored books — cho UI hiển thị ảnh minh hoạ
 from fastapi.staticfiles import StaticFiles
@@ -5005,8 +5007,16 @@ class _AnalyzeRequest(BaseModel):
 
 
 def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
-    """Resolve Person from request — either person_key (user_persons) or direct."""
+    """Resolve Person from request — either person_key (user_persons) or direct.
+
+    Sets `user_id` on the returned Person so cache is scoped per-user, preventing
+    collision when multiple users use the same `person_key` (e.g. 'self').
+    """
     from engine.tu_vi.analyzer import Person
+    from api.auth import get_current_user
+    user = get_current_user(request)
+    uid = user["user_id"] if user else None
+
     if req.birth_datetime_local and req.gender:
         return Person(
             person_key=req.person_key or f"adhoc_{int(time.time())}",
@@ -5014,12 +5024,12 @@ def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
             birth_datetime_local=req.birth_datetime_local,
             gender=req.gender,
             timezone=req.timezone,
+            user_id=uid,
         )
     if req.person_key:
         # Look up from current user's user_persons
-        from api.auth import get_current_user, AUTH_DB
+        from api.auth import AUTH_DB
         import sqlite3
-        user = get_current_user(request)
         if not user:
             # Fallback: _founder profile from persons.sqlite3
             if req.person_key == "_founder":
@@ -5028,6 +5038,7 @@ def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
                     name="Anh (Founder)",
                     birth_datetime_local="1988-06-05T23:30:00",
                     gender="nam",
+                    user_id=None,  # founder fallback path
                 )
             raise HTTPException(401, "Login required to use person_key")
         db = sqlite3.connect(AUTH_DB)
@@ -5044,6 +5055,7 @@ def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
             gender=row[1] or "nam",
             birth_datetime_local=row[2] or "",
             timezone=row[3] or "Asia/Ho_Chi_Minh",
+            user_id=uid,
         )
     raise HTTPException(400, "Must provide person_key OR birth_datetime_local+gender")
 
@@ -5088,9 +5100,16 @@ def yi_tuvi_analyze(kind: str, req: _AnalyzeRequest, request: Request) -> dict:
 
 @app.get("/api/tu-vi/analyze/{person_key}/{kind}")
 def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
-    """GET version: load cached analysis result without running new one."""
+    """GET version: load cached analysis result without running new one.
+
+    Scoped per-user: each logged-in user only sees cache from their own namespace.
+    Legacy `_founder` cache (founder's pre-namespace data) still accessible.
+    """
     from engine.tu_vi.analyzer import _cache_load
-    cached = _cache_load(person_key, kind)
+    from api.auth import get_current_user
+    user = get_current_user(request)
+    uid = user["user_id"] if user else None
+    cached = _cache_load(person_key, kind, uid)
     if cached:
         return {"status": "ok", "cached": True, "kind": kind, **cached}
     return {"status": "not_cached", "kind": kind, "message": f"No cached '{kind}' for {person_key}"}
@@ -5110,12 +5129,14 @@ def yi_tuvi_run_all(person_key: str, request: Request, background_tasks: Backgro
     from api.auth import get_current_user, AUTH_DB
     import sqlite3, uuid
 
-    # Resolve person
+    # Resolve person (scoped per-user)
+    user = get_current_user(request)
+    uid = user["user_id"] if user else None
     if person_key == "_founder":
         person = Person(person_key="_founder", name="anh (Founder)",
-                        birth_datetime_local="1988-06-05T23:30:00", gender="nam")
+                        birth_datetime_local="1988-06-05T23:30:00", gender="nam",
+                        user_id=uid)
     else:
-        user = get_current_user(request)
         if not user:
             raise HTTPException(401, "Login required")
         db = sqlite3.connect(AUTH_DB)
@@ -5129,7 +5150,8 @@ def yi_tuvi_run_all(person_key: str, request: Request, background_tasks: Backgro
         person = Person(person_key=person_key, name=row[0],
                         gender=row[1] or "nam",
                         birth_datetime_local=row[2] or "",
-                        timezone=row[3] or "Asia/Ho_Chi_Minh")
+                        timezone=row[3] or "Asia/Ho_Chi_Minh",
+                        user_id=user["user_id"])
 
     job_id = f"tuvi_{person_key}_{uuid.uuid4().hex[:8]}"
     _TUVI_JOBS[job_id] = {
@@ -5196,8 +5218,11 @@ def yi_tuvi_report_pdf(person_key: str, request: Request):
     """Generate "Báo cáo Lá Số" PDF for a person. Returns file."""
     from fastapi.responses import FileResponse
     from engine.tu_vi.report_pdf import generate_pdf
+    from api.auth import get_current_user
+    user = get_current_user(request)
+    uid = user["user_id"] if user else None
     try:
-        pdf_path = generate_pdf(person_key)
+        pdf_path = generate_pdf(person_key, user_id=uid)
     except Exception as e:
         logger.exception("PDF generation failed")
         raise HTTPException(500, f"PDF gen failed: {e}")

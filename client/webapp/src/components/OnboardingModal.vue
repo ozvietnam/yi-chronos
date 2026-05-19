@@ -44,7 +44,7 @@ async function submit() {
   busy.value = true;
   try {
     const birth_datetime_local = `${form.value.birth_date}T${form.value.birth_time || "12:00"}:00`;
-    await setupProfile({
+    const r = await setupProfile({
       name: form.value.name || currentUser.value?.display_name,
       gender: form.value.gender,
       birth_datetime_local,
@@ -53,12 +53,19 @@ async function submit() {
     });
     // Refresh available persons so dropdown tử vi update ngay
     await fetchAvailablePersons();
+    // Notify user that auto-pipeline started in background
+    if (r?.auto_pipeline_started) {
+      // Stay open with success banner for ~3s so user reads the message
+      autoPipelineMsg.value = "⏳ Đang phân tích lá số của bạn bằng DeepSeek (~30s)...";
+      setTimeout(() => { autoPipelineMsg.value = ""; }, 3500);
+    }
   } catch (e) {
     error.value = e.message || "Không lưu được hồ sơ";
   } finally {
     busy.value = false;
   }
 }
+const autoPipelineMsg = ref("");
 
 function skip() {
   // Tạm thời ẩn modal — nhưng flag vẫn true ở backend; lần load /me sau vẫn show lại
@@ -125,6 +132,7 @@ watch(visible, (v) => { if (v) prefillName(); }, { immediate: true });
           </label>
 
           <p v-if="error" class="ob-error">{{ error }}</p>
+          <p v-if="autoPipelineMsg" class="ob-success">{{ autoPipelineMsg }}</p>
 
           <div class="ob-actions">
             <button type="button" class="ob-skip" @click="skip">Để sau</button>
@@ -190,6 +198,11 @@ watch(visible, (v) => { if (v) prefillName(); }, { immediate: true });
 
 .ob-error {
   color: #fca5a5; background: rgba(239,68,68,0.1);
+  padding: 0.45rem 0.6rem; border-radius: 4px;
+  margin: 0; font-size: 0.85rem;
+}
+.ob-success {
+  color: #86efac; background: rgba(16,185,129,0.1);
   padding: 0.45rem 0.6rem; border-radius: 4px;
   margin: 0; font-size: 0.85rem;
 }

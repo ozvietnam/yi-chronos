@@ -28,9 +28,9 @@ def _esc(s) -> str:
     return _html.escape(str(s))
 
 
-def _load_any(person_key: str, kinds: list[str]) -> Optional[dict]:
+def _load_any(person_key: str, kinds: list[str], user_id: Optional[int] = None) -> Optional[dict]:
     for k in kinds:
-        d = _cache_load(person_key, k)
+        d = _cache_load(person_key, k, user_id)
         if d:
             return d
     return None
@@ -209,10 +209,10 @@ table.palaces th { background: #fef3c7; font-weight: 700; }
 """
 
 
-def build_html(person_key: str) -> tuple[str, Person]:
+def build_html(person_key: str, user_id: Optional[int] = None) -> tuple[str, Person]:
     """Build the full HTML report. Returns (html, Person)."""
     # Try to resolve person: cached first, then synthesize from cach_cuc data
-    cc = _cache_load(person_key, "cach_cuc") or _cache_load(person_key, "deep_analysis")
+    cc = _cache_load(person_key, "cach_cuc", user_id) or _cache_load(person_key, "deep_analysis", user_id)
     name = cc.get("person_name") if cc else person_key
     birth = cc.get("anh_birth") if cc else None
     gender = "nam"  # default
@@ -244,25 +244,27 @@ def build_html(person_key: str) -> tuple[str, Person]:
     if not birth:
         raise ValueError(f"Cannot resolve birth datetime for person_key={person_key}")
 
-    person = Person(person_key=person_key, name=name or person_key, birth_datetime_local=birth, gender=gender or "nam")
+    person = Person(person_key=person_key, name=name or person_key,
+                    birth_datetime_local=birth, gender=gender or "nam",
+                    user_id=user_id)
     ls = _cast_chart(birth, gender or "nam")
 
     sections = [_format_chart_overview(person, ls)]
 
-    cc_data = _load_any(person_key, ["cach_cuc", "deep_analysis"])
+    cc_data = _load_any(person_key, ["cach_cuc", "deep_analysis"], user_id)
     if cc_data:
         sections.append(_format_cach_cuc(cc_data))
 
-    dv = _cache_load(person_key, "dai_van")
+    dv = _cache_load(person_key, "dai_van", user_id)
     if dv:
         sections.append(_format_dai_van(dv))
 
     # Lưu niên cached as luu_nien or luu_nien_{start}_{end}
-    ln = _cache_load(person_key, "luu_nien") or _cache_load(person_key, "luu_nien_2026_2030")
+    ln = _cache_load(person_key, "luu_nien", user_id) or _cache_load(person_key, "luu_nien_2026_2030", user_id)
     if ln:
         sections.append(_format_luu_nien(ln))
 
-    lng = _cache_load(person_key, "luu_nguyet") or _cache_load(person_key, "luu_nguyet_2026")
+    lng = _cache_load(person_key, "luu_nguyet", user_id) or _cache_load(person_key, "luu_nguyet_2026", user_id)
     if lng:
         sections.append(_format_luu_nguyet(lng))
 
@@ -298,11 +300,11 @@ def build_html(person_key: str) -> tuple[str, Person]:
     return html_doc, person
 
 
-def generate_pdf(person_key: str, output_path: Optional[Path] = None) -> Path:
+def generate_pdf(person_key: str, output_path: Optional[Path] = None, user_id: Optional[int] = None) -> Path:
     """Generate the PDF report. Returns path."""
-    html_doc, person = build_html(person_key)
+    html_doc, person = build_html(person_key, user_id)
     if output_path is None:
-        out_dir = _cache_dir(person_key)
+        out_dir = _cache_dir(person_key, user_id)
         output_path = out_dir / f"report_la_so_{int(time.time())}.pdf"
 
     from weasyprint import HTML

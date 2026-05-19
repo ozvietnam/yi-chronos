@@ -184,8 +184,60 @@ def _init_schema(db: sqlite3.Connection) -> None:
             FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
         );
         CREATE INDEX IF NOT EXISTS idx_user_favorites_user ON user_favorites(user_id, kind);
+
+        -- Audit log — login attempts, signups, role changes, deletes (admin trail)
+        CREATE TABLE IF NOT EXISTS audit_log (
+            id            INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id       INTEGER,                          -- NULL nếu chưa biết user (login fail)
+            actor_user_id INTEGER,                          -- ai thực hiện (admin / self)
+            action        TEXT NOT NULL,                    -- 'login_ok' | 'login_fail' | 'signup' | 'logout' | 'change_password' | 'admin_set_role' | 'admin_reset_pwd' | 'admin_delete_user' | 'setup_profile'
+            target_email  TEXT,                              -- email liên quan (nếu user_id bị xoá vẫn còn manh mối)
+            ip_address    TEXT,
+            user_agent    TEXT,
+            details_json  TEXT,                              -- payload tuỳ event
+            created_at    INTEGER NOT NULL
+        );
+        CREATE INDEX IF NOT EXISTS idx_audit_user ON audit_log(user_id);
+        CREATE INDEX IF NOT EXISTS idx_audit_action ON audit_log(action);
+        CREATE INDEX IF NOT EXISTS idx_audit_created ON audit_log(created_at);
     """)
     db.commit()
+
+
+def _record_audit(
+    action: str,
+    *,
+    user_id: Optional[int] = None,
+    actor_user_id: Optional[int] = None,
+    target_email: Optional[str] = None,
+    request: Optional[Request] = None,
+    details: Optional[dict] = None,
+) -> None:
+    """Insert an audit_log row. Silently swallows errors — auditing must never break a request."""
+    try:
+        ip = ""
+        ua = ""
+        if request is not None:
+            ip = (request.client.host if request.client else "") or request.headers.get("x-forwarded-for", "")
+            ua = (request.headers.get("user-agent") or "")[:200]
+        import json as _json
+        db = _connect()
+        try:
+            db.execute("""
+                INSERT INTO audit_log (user_id, actor_user_id, action, target_email,
+                                       ip_address, user_agent, details_json, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                user_id, actor_user_id, action, target_email,
+                ip, ua,
+                _json.dumps(details, ensure_ascii=False) if details else None,
+                int(time.time()),
+            ))
+            db.commit()
+        finally:
+            db.close()
+    except Exception as e:
+        logger.warning(f"audit log failed for action={action}: {e}")
 
 
 def _hash_password(password: str, salt: Optional[str] = None) -> tuple[str, str]:
@@ -391,19 +443,29 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
 @router.post("/login")
-def login(req: LoginRequest, response: Response) -> dict:
+def login(req: LoginRequest, request: Request, response: Response) -> dict:
+    email = req.email.lower().strip()
     db = _connect()
     try:
         row = db.execute("""
             SELECT user_id, password_hash, password_salt, role,
                    default_person_id, display_name, must_change_password
             FROM users WHERE email = ?
-        """, (req.email.lower().strip(),)).fetchone()
+        """, (email,)).fetchone()
     finally:
         db.close()
     if not row or not _verify_password(req.password, row[1], row[2]):
+        _record_audit("login_fail", target_email=email, request=request)
         # Avoid timing leak on missing email
         raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không đúng")
+
+    # Update last_login_at
+    db = _connect()
+    try:
+        db.execute("UPDATE users SET last_login_at = ? WHERE user_id = ?", (int(time.time()), row[0]))
+        db.commit()
+    finally:
+        db.close()
 
     token = _create_session(row[0])
     response.set_cookie(
@@ -411,6 +473,7 @@ def login(req: LoginRequest, response: Response) -> dict:
         httponly=True, samesite="lax",
         max_age=SESSION_TTL_SECONDS, path="/",
     )
+    _record_audit("login_ok", user_id=row[0], target_email=email, request=request)
     person = _load_person(row[4]) if row[4] else None
     return {
         "status": "ok",
@@ -427,6 +490,7 @@ def login(req: LoginRequest, response: Response) -> dict:
 @router.post("/logout")
 def logout(request: Request, response: Response) -> dict:
     token = request.cookies.get(COOKIE_NAME) or request.headers.get("X-Session-Token")
+    user = get_current_user(request)
     if token:
         db = _connect()
         try:
@@ -434,6 +498,8 @@ def logout(request: Request, response: Response) -> dict:
             db.commit()
         finally:
             db.close()
+    if user:
+        _record_audit("logout", user_id=user["user_id"], target_email=user["email"], request=request)
     response.delete_cookie(COOKIE_NAME, path="/")
     return {"status": "ok"}
 
@@ -541,7 +607,7 @@ def register(req: RegisterRequest, request: Request) -> dict:
 
 
 @router.post("/signup")
-def signup(req: SignupRequest, response: Response) -> dict:
+def signup(req: SignupRequest, request: Request, response: Response) -> dict:
     """Public self-signup — bất kỳ ai cũng đăng ký được, không cần xác thực email.
     Role luôn = "user". Auto-login ngay sau khi tạo (trả session_token + set cookie)."""
     # Basic validation
@@ -578,6 +644,7 @@ def signup(req: SignupRequest, response: Response) -> dict:
         httponly=True, samesite="lax",
         max_age=SESSION_TTL_SECONDS, path="/",
     )
+    _record_audit("signup", user_id=new_id, target_email=email, request=request)
     return {
         "status": "ok",
         "user": {
@@ -644,10 +711,48 @@ def setup_profile(req: SetupProfileRequest, request: Request) -> dict:
         db.close()
 
     person = _load_user_self_person(user["user_id"])
+    _record_audit("setup_profile", user_id=user["user_id"], target_email=user["email"],
+                  request=request, details={"birth": req.birth_datetime_local, "gender": req.gender})
+
+    # 🚀 Auto-trigger full Tử Vi pipeline (background) — user không phải chờ + tự click 4 lần
+    # Đường dẫn: TuViAnalyzer → engine.yi_publishing.translator.get_deepseek_client()
+    # → https://api.deepseek.com/v1 (DeepSeek native chính chủ, key in data/ai_keys.json)
+    auto_job_id = None
+    try:
+        from engine.tu_vi.analyzer import TuViAnalyzer, Person
+        import threading
+        analyzer_person = Person(
+            person_key="self",
+            name=name,
+            birth_datetime_local=req.birth_datetime_local,
+            gender=req.gender,
+            timezone=req.timezone,
+            user_id=user["user_id"],   # scope cache per-user
+        )
+
+        def _bg_runall():
+            try:
+                analyzer = TuViAnalyzer(analyzer_person)
+                analyzer.discover_cach_cuc()
+                analyzer.dai_van_annotate()
+                analyzer.luu_nien(2026, 2030)
+                analyzer.luu_nguyet(2026)
+                logger.info(f"auto-pipeline done for user_id={user['user_id']}")
+            except Exception as e:
+                logger.warning(f"auto-pipeline failed for user_id={user['user_id']}: {e}")
+
+        thread = threading.Thread(target=_bg_runall, daemon=True)
+        thread.start()
+        auto_job_id = f"setup_{user['user_id']}_{int(time.time())}"
+    except Exception as e:
+        logger.warning(f"failed to start auto-pipeline: {e}")
+
     return {
         "status": "ok",
         "person": person,
         "person_row_id": person_row_id,
+        "auto_pipeline_started": auto_job_id is not None,
+        "auto_pipeline_job_id": auto_job_id,
     }
 
 
@@ -695,6 +800,7 @@ def change_password(req: ChangePasswordRequest, request: Request) -> dict:
         db.commit()
     finally:
         db.close()
+    _record_audit("change_password", user_id=user["user_id"], target_email=user["email"], request=request)
     return {"status": "ok", "message": "Mật khẩu đã được cập nhật"}
 
 
