@@ -5115,6 +5115,76 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
     return {"status": "not_cached", "kind": kind, "message": f"No cached '{kind}' for {person_key}"}
 
 
+# ─── Cách cục dictionary (từ thâm nhuần Q1) ──────────────────────────────────
+@app.get("/api/tu-vi/cach-cuc-pho-bien")
+def yi_tuvi_cach_cuc_pho_bien(limit: int = 50, cap_do: str = "") -> dict:
+    """Liệt kê 545 cách cục kinh điển từ Phú Thái Vi (Q1).
+
+    Query params:
+        limit: số kết quả (default 50)
+        cap_do: filter 'thượng' | 'trung' | 'hạ' | 'phá cách' | 'tạp' | '' (all)
+    """
+    from engine.tu_vi.cach_cuc_dict import all_entries, by_level, stats
+    entries = by_level(cap_do) if cap_do else all_entries()
+    # Sort by occurrences desc
+    entries = sorted(entries, key=lambda x: x.get("occurrences", 0), reverse=True)[:limit]
+    return {
+        "status": "ok",
+        "stats": stats(),
+        "filter": {"cap_do": cap_do or "all", "limit": limit},
+        "entries": entries,
+    }
+
+
+@app.get("/api/tu-vi/cach-cuc-pho-bien/{name}")
+def yi_tuvi_cach_cuc_pho_bien_detail(name: str) -> dict:
+    """Lookup 1 cách cục theo tên."""
+    from engine.tu_vi.cach_cuc_dict import lookup_by_name
+    entry = lookup_by_name(name)
+    if not entry:
+        raise HTTPException(404, f"Cách cục '{name}' không có trong dictionary 545 cách")
+    return {"status": "ok", "entry": entry}
+
+
+@app.post("/api/tu-vi/match-cach-cuc")
+def yi_tuvi_match_cach_cuc(req: dict) -> dict:
+    """Match cách cục cho lá số CỤ THỂ (deterministic, không cần DeepSeek runtime).
+
+    Body: {
+        "person_key": "self" (optional, sẽ tự cast lá số),
+        "stars_at_menh": [...] (optional override),
+        "stars_in_palaces": {palace: [stars]} (optional),
+        "min_overlap": 2,
+        "max_results": 30
+    }
+    """
+    from engine.tu_vi.cach_cuc_dict import match_cach_in_chart
+    matches = match_cach_in_chart(
+        stars_at_menh=req.get("stars_at_menh", []),
+        stars_in_palaces=req.get("stars_in_palaces", {}),
+        min_overlap=req.get("min_overlap", 2),
+        max_results=req.get("max_results", 30),
+    )
+    return {"status": "ok", "match_count": len(matches), "matches": matches}
+
+
+@app.get("/api/tu-vi/concept-dict")
+def yi_tuvi_concept_dict(kind: str = "", limit: int = 100) -> dict:
+    """Liệt kê concepts (320 thuật ngữ) cho WikiText highlight + lookup."""
+    from engine.tu_vi.concept_dict import load_concepts, by_kind, top_terms, stats as cstat
+    if kind:
+        entries = by_kind(kind)
+    else:
+        entries = list(load_concepts().values())
+    entries = sorted(entries, key=lambda x: x.get("occurrences", 0), reverse=True)[:limit]
+    return {
+        "status": "ok",
+        "stats": cstat(),
+        "filter": {"kind": kind or "all", "limit": limit},
+        "entries": entries,
+    }
+
+
 # ─── Job tracker (in-memory, simple) ──────────────────────────────────────────
 _TUVI_JOBS: dict[str, dict] = {}
 

@@ -6,6 +6,7 @@ import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
 import HexagramImage from "./HexagramImage.vue";
 import HexagramDetailModal from "./HexagramDetailModal.vue";
+import AuspiciousDayPanel from "./wiki/AuspiciousDayPanel.vue";
 import { useHexagramModal } from "../composables/useHexagramModal";
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -449,6 +450,12 @@ function cachCucPolarityClass(polarity) {
 
       <p class="footer-ref">Nguồn: {{ haLacData.source_ref }}</p>
     </template>
+
+    <!-- 📅 Chọn ngày tốt — Bát Tự + Mai Hoa + Hoàng Đạo -->
+    <div class="bt-auspicious-section">
+      <hr class="bt-divider" />
+      <AuspiciousDayPanel />
+    </div>
 
     <HexagramDetailModal
       v-if="openSlug"
@@ -1133,5 +1140,16 @@ function cachCucPolarityClass(polarity) {
   .dm-card { grid-template-columns: 1fr; }
   .dt-trio { grid-template-columns: 1fr; }
   .cc-prosand-cons { grid-template-columns: 1fr; }
+}
+
+/* Auspicious day section — separator between Hà Lạc trajectory and date picker */
+.bt-auspicious-section {
+  margin-top: 2.5rem;
+}
+.bt-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color, #ddd), transparent);
+  margin: 1.5rem 0 1rem;
 }
 </style>

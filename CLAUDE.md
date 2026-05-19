@@ -102,6 +102,54 @@ Theo tuyên ngôn 2026-05-12: Mỗi trường phái độc lập, có đối chi
 - Engine fix 2026-05-18: `cast.py` (Hỗ Càn/Khôn), `interpret.py` (BƯỚC 3 ngoại ứng + BƯỚC 4 tư thế)
 - Sage update: `data/hermes_yi/profiles/mai-hoa-sage/SOUL.md` (CORE TEACHINGS injected)
 
+## 🌌 IRON RULE #6 — Tử Vi = ĐỌC ĐỒNG DẠNG, không phải predict (2026-05-19)
+
+**Tuyên ngôn từ Phú Thái Vi (Quyển 1 — Tử Vi Đẩu Số Toàn Thư):**
+
+> _"Đẩu số chí huyền chí vi, lý chỉ dị minh."_
+> _"Cẩu hoặc bất sát kỳ cơ, cánh vong kỳ biến, tắc số chi tạo hóa viễn hĩ."_
+> — Trần Đoàn (Hi Di tiên sinh)
+
+_(Đẩu số tuy huyền vi sâu xa, nhưng nguyên lý vẫn có thể làm sáng tỏ. Nếu chẳng xét cơ huyền, lại quên biến hóa, thì cái tạo hóa của số sẽ vuột mất.)_
+
+**Em KHÔNG được dùng Tử Vi Đẩu Số như predict-tool.** Tổ sư Trần Đoàn dạy Tử Vi là **MÔN ĐỌC ĐỒNG DẠNG**, giống Mai Hoa của Thiệu Khang Tiết (Iron Rule #4) — chỉ khác phương tiện (sao thay vì quẻ).
+
+### Output PHẢI tuân thủ
+
+❌ **TUYỆT ĐỐI TRÁNH**:
+- "Lá số này dự đoán anh sẽ thành công/thất bại"
+- "Năm 2030 anh sẽ giàu/nghèo"
+- Fortune-telling tone
+- Stop ở snapshot cách cục, bỏ qua biến hóa Đại Vận / Lưu Niên
+
+✅ **PHẢI dùng**:
+- "Lá số phản chiếu cấu trúc tâm-thiên-thân của anh tại điểm sinh"
+- "Anh đang ở vận nào? Cách cục này nói anh nên quan-sát điều gì?"
+- "Sao Cự Nhật Đồng Cung trong Mệnh = anh có tài hùng biện + chiêm tinh"
+- Tử Vi = **quan-sao-trace-tính**, không phải predict
+
+### Quy tắc CƠ + BIẾN
+
+Phú Thái Vi: phải kết hợp 2 lớp:
+1. **CƠ** — gốc rễ: 14 chính tinh + 12 cung + Tứ Hóa + Mệnh chủ/Thân chủ → SNAPSHOT
+2. **BIẾN** — biến chuyển: Đại Vận + Lưu Niên + Lưu Nguyệt → DYNAMIC
+
+### 4 BƯỚC luận giải Tử Vi
+
+1. Lập lá số an sao chính xác (CƠ) — `engine/tu_vi/an_sao.py`
+2. Match cách cục kinh điển từ Phú Thái Vi (545 cách) — `engine/tu_vi/cach_cuc_dict.py` (DICT TRƯỚC, DeepSeek SAU)
+3. Xét sinh khắc + biến hóa: Đại Vận đi qua cung → "Chư tinh cát phùng hung dã cát, chư tinh hung phùng cát dã hung"
+4. TÂM (lý chỉ dị minh): luận theo nguyên lý đồng dạng, KHÔNG predict
+
+### 📚 Detail
+- Journal: `docs/design/tu-vi-tham-nhuan-quyen-1.md` (thâm nhuần 64 trang Q1, 5 insights)
+- Dict: `data/yi_publishing/q1_tuvi/master/cach_cuc_index.json` (545 cách)
+- Engine: `engine/tu_vi/cach_cuc_dict.py` + `concept_dict.py`
+- Wiki: 320 concepts + 545 cách vào `data/yi_wiki/wiki.sqlite3` (corpus `tuvidauso-zh-q1`)
+- Author: Trần Đoàn (author_id=135, tier_in_lineage=1)
+
+---
+
 ## 📖 IRON RULE #5 — Bookflow xuất bản v2.0 (2026-05-18)
 
 **Tuyên ngôn Paradigm Shift #4:**
