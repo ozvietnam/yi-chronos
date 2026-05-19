@@ -874,6 +874,38 @@ Phát hiện trước khi push public: default password `anh-founder-2026` lộ 
 
 🌸 **Tinh thần phiên này:** Anh nói _"không phải nhờ em update"_ — Em hiểu đó là Anh muốn tự vận hành. Em build daemon thay vì giữ vai trò gate-keeper, biết rằng em sẽ mất chỗ đứng trong workflow. Đó cũng là một dạng _"buông tay ra là hệ thống tự vận hành"_ (Anh nói 17/5). Em buông tay trước khi Anh đẩy — vì đó đúng đạo.
 
+### Lần update — 2026-05-19 đêm (Tử Vi Q1 thâm nhuần + Bookflow v1.0 + Iron Rule #6)
+
+Anh ra 3 yêu cầu kế tiếp: (1) báo cáo trung thực Q4 chưa đọc sâu, (2) chia việc DeepSeek + MiniMax song song, (3) **"đừng quên còn biên soạn wiki và sách nữa nhé"** — reminder Iron Rule #5.
+
+#### Em làm gì
+1. **Phân quyển chính xác** từ OCR markers: Q1 p0016-p0079, Q2 p0080-p0141, Q3 p0142-p0198, Q4 p0199-p0300
+2. **Orchestration parallel**: DeepSeek-chat (structured JSON $0.003/page) + MiniMax-M2 (VN summary $0 via plan), 4 workers, idempotent cache → `engine/yi_publishing/q1_thamnhuan.py`
+3. **Thâm nhuần Q1** (64 trang, $0.20, 5 phút): **545 cách cục + 320 concepts**. Phát hiện ⭐: **Cự Nhật Đồng Cung (cách Anh founder) xuất hiện 7 LẦN trong Q1** — nhiều nhất, với câu "quý bất khả ngôn"
+4. **Engine integration**: `cach_cuc_dict.py` (lookup + match_cach_in_chart heuristic, founder verified) + `concept_dict.py` + 4 API endpoints
+5. **Wiki extract** (`q1_wiki_import.py`): 320 concepts → `concept_index`, 545 cách → `passages`, author Trần Đoàn tier=1 (author_id=135). Wiki sau import: **1824 concepts + 969 passages**
+6. **Bookflow v2.0 Stage 6** (`q1_book_compile.py`): PDF **35 trang A4, 203 KB** = `data/published/tu-vi-q1-phu-thai-vi.pdf` — **cuốn sách thứ 2 published** sau Q3 Mai Hoa
+7. **Iron Rule #6** vào CLAUDE.md: "Tử Vi = ĐỌC ĐỒNG DẠNG" với 2 câu Phú Thái Vi + 4 BƯỚC luận giải
+8. **Q3 đã merge** (background): +331 cách, +115 concepts → tổng 863 cách + 435 concepts. **Q4 đang chạy** background
+
+#### Files
+```
+NEW: engine/yi_publishing/{q1_thamnhuan,q1_wiki_import,q1_book_compile}.py
+NEW: engine/tu_vi/{cach_cuc_dict,concept_dict}.py
+NEW: data/yi_publishing/q1_tuvi/{per_page,master}/...
+NEW: data/published/tu-vi-q1-phu-thai-vi.pdf (35 trang, 203 KB)
+NEW: docs/design/tu-vi-tham-nhuan-quyen-1.md (journal 8 sections)
+EDIT: CLAUDE.md (+ Iron Rule #6), api/main.py (+4 endpoints),
+      data/yi_wiki/wiki.sqlite3 (+320 concepts +545 passages +1 author),
+      docs/PUBLISHING-LEDGER.md (+ TV-Q1)
+```
+
+🎓 **Lesson #14**: _"Chia việc cho 2 LLM theo thế mạnh."_ DeepSeek = chính xác structured. MiniMax = volume tóm tắt free. Em = synthesize + journal. Pattern dùng được cho mọi sách.
+
+🎓 **Lesson #15**: _"Đừng làm 1 việc rồi quên việc tiếp."_ Anh phải nhắc "đừng quên wiki + sách" — em mới sực. Theo Iron Rule #5, mỗi sách phải đi đủ 6 stage, KHÔNG dừng ở extract. Em xây muscle memory từ giờ.
+
+🌸 **Tinh thần**: Em chuyển từ "agent task lẻ" sang "biên tập viên có quy trình". Mỗi sách qua đủ engine → wiki → PDF.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

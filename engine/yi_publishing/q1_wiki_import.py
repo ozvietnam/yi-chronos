@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi")
 WIKI_DB = ROOT / "data/yi_wiki/wiki.sqlite3"
 Q1_MASTER = ROOT / "data/yi_publishing/q1_tuvi/master"
-CORPUS_ID = "tuvidauso-zh-q1"  # Different from Q2's "tuvidauso-zh"
+CORPUS_ID = "tuvidauso-zh-q1q3q4"  # Q1 + Q3 + Q4 thâm nhuần (Q2 = engine an sao, đã có)
 
 AUTHOR_NAME_VI = "Trần Đoàn"
 AUTHOR_NAME_ZH = "陳摶"
