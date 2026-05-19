@@ -3,7 +3,8 @@
 Design:
     - SQLite store at data/yi_users/users.sqlite3
     - Tables: users, sessions
-    - Founder seeded on first run (email=ceo@ngantin.vn, person_id=_founder)
+    - Founder seeded on first run (email from YI_CHRONOS_FOUNDER_EMAIL env,
+      person_id=_founder)
     - Session token via HTTP cookie 'yi_session'; also accepted as
       X-Session-Token header for API clients.
     - Each user has a default_person_id pointing to a row in
@@ -46,14 +47,14 @@ logger = logging.getLogger(__name__)
 # Auth là một phần TÍCH HỢP của YI-CHRONOS — cho phép nhiều user (gia đình,
 # bạn bè, khách hàng tương lai) đăng nhập và có namespace data riêng:
 # persons (gia đình/con/vợ/đồng nghiệp), gieo quẻ history, favorites...
-# Founder (anh, ceo@ngantin.vn) là owner — thấy mọi tab kể cả Cài đặt / Lexicon.
+# Founder là owner — thấy mọi tab kể cả Cài đặt / Lexicon.
 # User thường chỉ thấy các tab xem mệnh (tab dev được ẩn).
 PROJECT_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi")
 AUTH_DB = PROJECT_ROOT / "data/yi_users/users.sqlite3"
 PERSONS_DB = PROJECT_ROOT / "data/yi_hermes/persons.sqlite3"
 
 # Bootstrap creds for founder (must be changed on first login)
-FOUNDER_EMAIL = os.environ.get("YI_CHRONOS_FOUNDER_EMAIL", "ceo@ngantin.vn")
+FOUNDER_EMAIL = os.environ.get("YI_CHRONOS_FOUNDER_EMAIL", "founder@yi-chronos.local")
 FOUNDER_PERSON_ID = "_founder"
 FOUNDER_DISPLAY_NAME = "Anh (Founder)"
 
@@ -366,6 +367,15 @@ class SignupRequest(BaseModel):
     password: str
 
 
+class SetupProfileRequest(BaseModel):
+    """Onboarding — first-time profile setup for a freshly registered user."""
+    name: Optional[str] = None        # default = user.display_name
+    gender: str                        # 'nam' | 'nữ'
+    birth_datetime_local: str          # ISO 'YYYY-MM-DDTHH:MM:SS'
+    timezone: str = "Asia/Ho_Chi_Minh"
+    birth_place: Optional[str] = None
+
+
 class ChangePasswordRequest(BaseModel):
     current_password: str
     new_password: str
@@ -428,6 +438,34 @@ def logout(request: Request, response: Response) -> dict:
     return {"status": "ok"}
 
 
+def _load_user_self_person(user_id: int) -> Optional[dict]:
+    """Load the user_persons row where person_key='self' for this user."""
+    db = _connect()
+    try:
+        row = db.execute("""
+            SELECT person_key, name, gender, birth_datetime_local, timezone,
+                   birth_year, birth_place, notes, relationship
+            FROM user_persons
+            WHERE user_id = ? AND person_key = 'self'
+            LIMIT 1
+        """, (user_id,)).fetchone()
+    finally:
+        db.close()
+    if not row:
+        return None
+    return {
+        "person_id": row[0],            # 'self'
+        "name": row[1],
+        "gender": row[2],
+        "birth_datetime_local": row[3],
+        "timezone": row[4] or "Asia/Ho_Chi_Minh",
+        "birth_year": row[5],
+        "birth_place": row[6],
+        "notes": row[7],
+        "relationship_to_founder": row[8] or "self",
+    }
+
+
 @router.get("/me")
 def me(request: Request) -> dict:
     user = get_current_user(request)
@@ -442,7 +480,15 @@ def me(request: Request) -> dict:
             "person": founder_person,
             "default_used": "founder_fallback",
         }
-    person = _load_person(user["default_person_id"]) if user["default_person_id"] else None
+    # Priority order for resolving the logged-in user's active person:
+    #   1. user.default_person_id (legacy founder profile pointer)
+    #   2. user_persons row with person_key='self' (new multi-user pattern)
+    #   3. None → frontend will prompt onboarding modal
+    person = None
+    if user["default_person_id"]:
+        person = _load_person(user["default_person_id"])
+    if not person:
+        person = _load_user_self_person(user["user_id"])
     return {
         "status": "ok",
         "user": {
@@ -453,6 +499,7 @@ def me(request: Request) -> dict:
             "session_expires_at": user["session_expires_at"],
         },
         "person": person,
+        "needs_profile_setup": person is None,
     }
 
 
@@ -540,6 +587,67 @@ def signup(req: SignupRequest, response: Response) -> dict:
         },
         "person": None,
         "session_token": token,
+    }
+
+
+@router.post("/setup-profile")
+def setup_profile(req: SetupProfileRequest, request: Request) -> dict:
+    """Onboarding 1-shot: tạo (hoặc update) row 'self' trong user_persons cho
+    user đang đăng nhập. Sau này login lại không phải nhập lại birth_datetime.
+    """
+    user = require_user(request)
+    if req.gender not in ("nam", "nữ"):
+        raise HTTPException(400, "gender phải là 'nam' hoặc 'nữ'")
+    if not req.birth_datetime_local or len(req.birth_datetime_local) < 10:
+        raise HTTPException(400, "birth_datetime_local required (ISO format)")
+
+    name = (req.name or user["display_name"] or "Bạn").strip()
+    try:
+        birth_year = int(req.birth_datetime_local[:4])
+    except Exception:
+        birth_year = None
+    now = int(time.time())
+
+    db = _connect()
+    try:
+        # Upsert: nếu đã có 'self' thì update, ngược lại insert
+        existing = db.execute(
+            "SELECT id FROM user_persons WHERE user_id=? AND person_key='self'",
+            (user["user_id"],),
+        ).fetchone()
+        if existing:
+            db.execute("""
+                UPDATE user_persons
+                SET name=?, gender=?, birth_datetime_local=?, birth_year=?,
+                    timezone=?, birth_place=?, updated_at=?
+                WHERE id=?
+            """, (
+                name, req.gender, req.birth_datetime_local, birth_year,
+                req.timezone, req.birth_place, now, existing[0],
+            ))
+            person_row_id = existing[0]
+        else:
+            cur = db.execute("""
+                INSERT INTO user_persons
+                    (user_id, person_key, name, relationship, gender,
+                     birth_datetime_local, birth_year, timezone, birth_place,
+                     created_at, updated_at)
+                VALUES (?, 'self', ?, 'self', ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                user["user_id"], name, req.gender,
+                req.birth_datetime_local, birth_year, req.timezone,
+                req.birth_place, now, now,
+            ))
+            person_row_id = cur.lastrowid
+        db.commit()
+    finally:
+        db.close()
+
+    person = _load_user_self_person(user["user_id"])
+    return {
+        "status": "ok",
+        "person": person,
+        "person_row_id": person_row_id,
     }
 
 

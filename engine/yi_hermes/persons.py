@@ -446,47 +446,70 @@ def cast_bat_tu_for(person_id: str) -> dict | None:
 FOUNDER_ID = "_founder"
 
 
-def ensure_founder() -> Person:
-    """Bootstrap the founder profile from data/yi_hermes/founder_profile.md.
+_FOUNDER_SEED_PATH = Path(__file__).resolve().parent.parent.parent / "data" / "seeds" / "founder.json"
+_FOUNDER_SEED_FALLBACK = {
+    "person_id": FOUNDER_ID,
+    "name": "Founder",
+    "aliases": ["founder"],
+    "identity": {
+        "email": "founder@yi-chronos.local",
+        "soul_keys": [FOUNDER_ID],
+        "telegram_username": None,
+    },
+    "career": {
+        "role": "Founder",
+        "company": "YI-Chronos",
+        "industry": "AI + Cosmology tools",
+        "side_project": "YI-CHRONOS",
+    },
+}
 
-    Idempotent — safe to call on every startup.
+
+def _load_founder_seed() -> dict:
+    """Load founder identity from `data/seeds/founder.json` (gitignored).
+
+    Falls back to placeholder values if the file is missing — handy on
+    fresh clones. Personal info (email, telegram, company) lives in the
+    seed file, never in committed source. See
+    `examples/seeds/founder.example.json` for the schema.
+    """
+    if _FOUNDER_SEED_PATH.exists():
+        return json.loads(_FOUNDER_SEED_PATH.read_text())
+    return _FOUNDER_SEED_FALLBACK
+
+
+def ensure_founder() -> Person:
+    """Bootstrap the founder profile.
+
+    Idempotent — safe to call on every startup. Reads personal identity
+    from `data/seeds/founder.json` (gitignored) so source stays free of PII.
     """
     existing = get_person(FOUNDER_ID)
     if existing:
         return existing
 
-    # Construct from founder_chart helper
+    seed = _load_founder_seed()
     from engine.ai.founder_chart import FOUNDER_BIRTH, cast_founder_bat_tu
 
     chart = cast_founder_bat_tu()
     p = create_person(
-        person_id=FOUNDER_ID,
-        name="anh (Founder)",
-        aliases=["founder", "ceo", "boss", "anh"],
+        person_id=seed.get("person_id", FOUNDER_ID),
+        name=seed.get("name", "Founder"),
+        aliases=seed.get("aliases", ["founder"]),
         gender=FOUNDER_BIRTH["gender"],
         birth_datetime_local=FOUNDER_BIRTH["birth_datetime_local"],
         timezone=FOUNDER_BIRTH["timezone"],
         day_pillar_convention="early_zi",
-        birth_confidence="approx_hour",  # anh nói sinh 21h-24h, body-indicator → V2B
+        birth_confidence="approx_hour",
         source="founder_profile",
         relationship_to_founder="self",
     )
-    # Layer in cached cosmology
     p.update_layer("cosmology", {
         "charts": {"bat_tu": chart},
         "verified_via": "body-indicator V2B 2026-05-12",
     }, confidence="verified")
-    p.update_layer("identity", {
-        "soul_keys": ["telegram:6452658353", "_founder"],
-        "telegram_username": "@minhthang0506",
-        "email": "ceo@ngantin.vn",
-    }, confidence="verified")
-    p.update_layer("career", {
-        "role": "CEO + Founder",
-        "company": "ngantin.vn",
-        "industry": "AI + Cosmology tools",
-        "side_project": "YI-CHRONOS",
-    }, confidence="verified")
+    p.update_layer("identity", seed.get("identity", {}), confidence="verified")
+    p.update_layer("career", seed.get("career", {}), confidence="verified")
     p.day_master = f"{chart['tu_tru']['day_master']['stem']} {chart['tu_tru']['day_master']['element']}"
     p.cach_cuc = chart.get("cach_cuc", {}).get("cach_name")
     p.updated_at = int(time.time())

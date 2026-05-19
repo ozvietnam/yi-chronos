@@ -3,6 +3,10 @@ services:
     image: ghcr.io/ozvietnam/yi-chronos:latest
     container_name: yi-chronos
     restart: unless-stopped
+    env_file:
+      # Loads YI_CHRONOS_FOUNDER_EMAIL, YI_CHRONOS_FOUNDER_PASSWORD, etc.
+      # File lives on VPS at /opt/yi-chronos/.env (chmod 600, not in repo).
+      - .env
     environment:
       - TZ=Asia/Ho_Chi_Minh
       - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
@@ -10,23 +14,20 @@ services:
     volumes:
       # Host /opt/yi-chronos/data → container path matching Mac (WORKDIR-relative)
       - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
-    networks:
-      - traefik-network
+    # Traefik runs in host network on this VPS — it can reach bridge container IPs.
+    # No need to share an external network; just expose internal port via labels.
+    expose:
+      - "8000"
     labels:
       - "traefik.enable=true"
-      # Main router (HTTPS)
+
+      # Main HTTPS router
       - "traefik.http.routers.yi-chronos.rule=Host(`kinhdich.online`) || Host(`www.kinhdich.online`)"
       - "traefik.http.routers.yi-chronos.entrypoints=websecure"
+      - "traefik.http.routers.yi-chronos.tls=true"
       - "traefik.http.routers.yi-chronos.tls.certresolver=letsencrypt"
       - "traefik.http.services.yi-chronos.loadbalancer.server.port=8000"
-      # HTTP → HTTPS redirect
-      - "traefik.http.routers.yi-chronos-insecure.rule=Host(`kinhdich.online`) || Host(`www.kinhdich.online`)"
-      - "traefik.http.routers.yi-chronos-insecure.entrypoints=web"
-      - "traefik.http.routers.yi-chronos-insecure.middlewares=https-redirect@docker"
-      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
 
-networks:
-  traefik-network:
-    external: true
-    name: traefik_default  # ← verify actual name in Task 2.1.2 on VPS
+      # NOTE: HTTP→HTTPS redirect is global on this Traefik
+      # (--entrypoints.web.http.redirections.entrypoint.to=websecure)
+      # so we don't need an explicit insecure router.

@@ -1,0 +1,18 @@
+{
+  "_comment": "Copy this file to data/seeds/founder.json and fill in real values. data/seeds/ is gitignored — your real PII never reaches the repo.",
+  "schema_version": "founder-seed-v1",
+  "person_id": "_founder",
+  "name": "Founder",
+  "aliases": ["founder"],
+  "identity": {
+    "email": "founder@example.local",
+    "soul_keys": ["_founder"],
+    "telegram_username": null
+  },
+  "career": {
+    "role": "Founder",
+    "company": "Your Company",
+    "industry": "Your Industry",
+    "side_project": "YI-CHRONOS"
+  }
+}
