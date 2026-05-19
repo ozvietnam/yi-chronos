@@ -51,6 +51,8 @@ data/*.log
 data/*.db
 data/*.json
 data/yi_research/
+data/.founder-bootstrap-pwd
+data/.*
 
 # Source PDFs / RTFs / figures — NOT committed (large, copyrighted)
 thư viện sách/

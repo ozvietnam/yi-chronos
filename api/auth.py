@@ -21,8 +21,10 @@ Security:
     - bcrypt password hashing (via passlib if available, else hashlib+pbkdf2)
     - Session token = secrets.token_urlsafe(32), 30-day TTL by default.
     - Owner role required for register/users.
-    - Founder bootstrap: if users table empty, create founder with default password
-      'anh-founder-2026' — user MUST change after first login.
+    - Founder bootstrap: if users table empty, founder is seeded with a password
+      from env var YI_CHRONOS_FOUNDER_PASSWORD. If unset, a 24-char random
+      password is generated and written to data/.founder-bootstrap-pwd (chmod
+      600). Founder MUST change password after first login.
 """
 from __future__ import annotations
 
@@ -51,10 +53,44 @@ AUTH_DB = PROJECT_ROOT / "data/yi_users/users.sqlite3"
 PERSONS_DB = PROJECT_ROOT / "data/yi_hermes/persons.sqlite3"
 
 # Bootstrap creds for founder (must be changed on first login)
-FOUNDER_EMAIL = "ceo@ngantin.vn"
-FOUNDER_DEFAULT_PASSWORD = "anh-founder-2026"
+FOUNDER_EMAIL = os.environ.get("YI_CHRONOS_FOUNDER_EMAIL", "ceo@ngantin.vn")
 FOUNDER_PERSON_ID = "_founder"
 FOUNDER_DISPLAY_NAME = "Anh (Founder)"
+
+
+def _resolve_founder_bootstrap_password() -> str:
+    """Return the password used to seed the founder user on first run.
+
+    Resolution order:
+    1. Env var YI_CHRONOS_FOUNDER_PASSWORD (preferred for prod).
+    2. data/.founder-bootstrap-pwd file (chmod 600) — auto-generated on
+       first call if neither env nor file exist.
+
+    Why: a hardcoded default password in source is discoverable by anyone
+    with repo read access, even if the repo is private. Env-driven + a
+    random-generated fallback keeps the credential out of git history.
+    """
+    env_pwd = os.environ.get("YI_CHRONOS_FOUNDER_PASSWORD")
+    if env_pwd:
+        return env_pwd
+
+    bootstrap_file = AUTH_DB.parent.parent / ".founder-bootstrap-pwd"
+    if bootstrap_file.exists():
+        return bootstrap_file.read_text().strip()
+
+    new_pwd = secrets.token_urlsafe(18)  # ~24 chars URL-safe
+    bootstrap_file.parent.mkdir(parents=True, exist_ok=True)
+    bootstrap_file.write_text(new_pwd)
+    bootstrap_file.chmod(0o600)
+    logger.warning("─" * 60)
+    logger.warning("YI-CHRONOS FOUNDER BOOTSTRAP PASSWORD GENERATED")
+    logger.warning(f"  stored: {bootstrap_file}")
+    logger.warning("  read once + change immediately on first login")
+    logger.warning("─" * 60)
+    return new_pwd
+
+
+FOUNDER_DEFAULT_PASSWORD = _resolve_founder_bootstrap_password()
 
 SESSION_TTL_SECONDS = 30 * 24 * 3600  # 30 days
 COOKIE_NAME = "yi_session"
@@ -323,6 +359,13 @@ class RegisterRequest(BaseModel):
     role: str = "user"
 
 
+class SignupRequest(BaseModel):
+    """Public self-signup — no owner required, no email verification."""
+    email: str
+    display_name: str
+    password: str
+
+
 class ChangePasswordRequest(BaseModel):
     current_password: str
     new_password: str
@@ -447,6 +490,56 @@ def register(req: RegisterRequest, request: Request) -> dict:
             "default_person_id": req.default_person_id,
         },
         "created_by": owner["email"],
+    }
+
+
+@router.post("/signup")
+def signup(req: SignupRequest, response: Response) -> dict:
+    """Public self-signup — bất kỳ ai cũng đăng ký được, không cần xác thực email.
+    Role luôn = "user". Auto-login ngay sau khi tạo (trả session_token + set cookie)."""
+    # Basic validation
+    email = (req.email or "").strip().lower()
+    name = (req.display_name or "").strip()
+    pw = req.password or ""
+    if "@" not in email or "." not in email.split("@")[-1]:
+        raise HTTPException(status_code=400, detail="Email không hợp lệ")
+    if len(name) < 2:
+        raise HTTPException(status_code=400, detail="Tên hiển thị tối thiểu 2 ký tự")
+    if len(pw) < 6:
+        raise HTTPException(status_code=400, detail="Mật khẩu tối thiểu 6 ký tự")
+
+    pw_hash, salt = _hash_password(pw)
+    db = _connect()
+    try:
+        try:
+            cur = db.execute("""
+                INSERT INTO users (email, display_name, password_hash, password_salt,
+                                   role, default_person_id, created_at, must_change_password)
+                VALUES (?, ?, ?, ?, 'user', NULL, ?, 0)
+            """, (email, name, pw_hash, salt, int(time.time())))
+            db.commit()
+            new_id = cur.lastrowid
+        except sqlite3.IntegrityError:
+            raise HTTPException(status_code=409, detail="Email đã được đăng ký rồi. Vui lòng đăng nhập.")
+    finally:
+        db.close()
+
+    # Auto-login
+    token = _create_session(new_id)
+    response.set_cookie(
+        COOKIE_NAME, token,
+        httponly=True, samesite="lax",
+        max_age=SESSION_TTL_SECONDS, path="/",
+    )
+    return {
+        "status": "ok",
+        "user": {
+            "user_id": new_id, "email": email, "display_name": name,
+            "role": "user", "default_person_id": None,
+            "must_change_password": False,
+        },
+        "person": None,
+        "session_token": token,
     }
 
 
