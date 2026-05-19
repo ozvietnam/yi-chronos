@@ -29,6 +29,15 @@ def _provider_complete(prompt: str, provider_name: str = "deepseek",
     return resp.content
 
 
+# Per-provider preferred models. deepseek-chat (V3) returns structured JSON
+# cleanly; deepseek-reasoner (R1) interleaves chain-of-thought and is hard to
+# parse strictly. Anthropic fallback uses default Sonnet.
+_QUIZ_MODELS = {
+    "deepseek": "deepseek-chat",
+    "anthropic": None,  # provider default
+}
+
+
 def call_trait_llm(candidates: list[dict]) -> dict:
     """Call LLM for trait derivation.
 
@@ -41,10 +50,13 @@ def call_trait_llm(candidates: list[dict]) -> dict:
     expected = [c["chi"] for c in candidates]
     last_error: Exception | None = None
 
-    # Primary: DeepSeek, retry once
+    # Primary: DeepSeek (V3 chat), retry once
     for attempt in range(2):
         try:
-            raw = _provider_complete(prompt, provider_name="deepseek")
+            raw = _provider_complete(
+                prompt, provider_name="deepseek", model=_QUIZ_MODELS["deepseek"],
+            )
+            logger.info("LLM deepseek attempt %d raw len=%d", attempt + 1, len(raw or ""))
             return parse_llm_response(raw, expected)
         except ValueError as e:
             logger.warning("LLM deepseek attempt %d parse failed: %s", attempt + 1, e)
@@ -56,7 +68,9 @@ def call_trait_llm(candidates: list[dict]) -> dict:
 
     # Fallback: Anthropic Claude
     try:
-        raw = _provider_complete(prompt, provider_name="anthropic")
+        raw = _provider_complete(
+            prompt, provider_name="anthropic", model=_QUIZ_MODELS["anthropic"],
+        )
         return parse_llm_response(raw, expected)
     except (ValueError, RuntimeError) as e:
         logger.error("LLM fallback also failed: %s", e)

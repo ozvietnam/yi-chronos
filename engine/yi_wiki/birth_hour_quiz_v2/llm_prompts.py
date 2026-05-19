@@ -62,6 +62,27 @@ OUTPUT FORMAT — strict JSON only, no prose, no markdown:
 
 
 _JSON_FENCE_RE = re.compile(r"```(?:json)?\s*(\{.+?\})\s*```", re.DOTALL)
+_JSON_OBJECT_RE = re.compile(r"\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}", re.DOTALL)
+
+
+def _extract_json_payload(raw: str) -> str:
+    """Pull out the most likely JSON object from raw LLM text.
+
+    Priority:
+      1. fenced ```json ... ``` block
+      2. last balanced { ... } in the text (handles reasoner CoT preambles)
+      3. raw stripped
+    """
+    if not raw:
+        return ""
+    m = _JSON_FENCE_RE.search(raw)
+    if m:
+        return m.group(1)
+    # Take the LARGEST {...} block — typically the structured answer at end
+    candidates = _JSON_OBJECT_RE.findall(raw)
+    if candidates:
+        return max(candidates, key=len)
+    return raw.strip()
 
 
 def parse_llm_response(raw: str, expected_candidates: list[str]) -> dict:
@@ -70,9 +91,9 @@ def parse_llm_response(raw: str, expected_candidates: list[str]) -> dict:
     Returns: {chi: {trait: value}, ...}
     Raises: ValueError on invalid JSON or invalid enum values.
     """
-    # Try fenced block first; fall back to raw
-    m = _JSON_FENCE_RE.search(raw)
-    payload = m.group(1) if m else raw.strip()
+    payload = _extract_json_payload(raw)
+    if not payload:
+        raise ValueError("LLM returned non-JSON: empty response")
 
     try:
         data = json.loads(payload)
