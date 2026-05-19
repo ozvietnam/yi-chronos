@@ -160,61 +160,11 @@ function closeTask() {
     <!-- Modal: Life Overview -->
     <LifeOverviewModal v-if="activeTask === 'life'" @close="closeTask" />
 
-    <!-- ─── Modal: Quiz ─────────────────────────────────────── -->
+    <!-- ─── Modal: Quiz v2 (bát tự hypothesis comparison) ──── -->
     <div v-if="activeTask === 'quiz'" class="qt-modal" @click.self="closeTask">
-      <div class="qt-modal-content">
+      <div class="qt-modal-content qt-modal-wide">
         <button class="qt-close" @click="closeTask">✕</button>
-        <h2>⏰ Trắc nghiệm xác định giờ sinh</h2>
-        <p class="qt-modal-hint">
-          Trả lời 8 câu hỏi sau. Em sẽ phân tích → đoán giờ sinh theo can chi 12 con giáp.
-          Phương pháp này dùng phổ biến trong Tử Vi + Tử Bình cổ truyền.
-        </p>
-
-        <div v-if="!quizResult" class="quiz-questions">
-          <div v-for="(q, idx) in quizQuestions" :key="q.id" class="quiz-q">
-            <p class="q-label"><b>Câu {{ idx+1 }}:</b> {{ q.question }}</p>
-            <div class="q-options">
-              <label v-for="o in q.options" :key="o.id">
-                <input type="radio" :name="q.id" :value="o.id" v-model="quizAnswers[q.id]" />
-                {{ o.label }}
-              </label>
-            </div>
-          </div>
-          <div class="quiz-actions">
-            <button class="btn-primary" @click="submitQuiz" :disabled="quizLoading">
-              {{ quizLoading ? "Đang luận..." : "🪷 Luận giờ sinh" }}
-            </button>
-          </div>
-        </div>
-
-        <!-- Kết quả -->
-        <div v-else class="quiz-result">
-          <div class="qr-headline">
-            <div class="qr-most">{{ quizResult.interpretation.label }}</div>
-            <div class="qr-range">{{ quizResult.interpretation.range }}</div>
-            <div class="qr-conf">Confidence: <b>{{ quizResult.confidence }}</b></div>
-          </div>
-          <div class="qr-trait">
-            <b>Tính cách giờ sinh:</b> {{ quizResult.interpretation.trait }}
-          </div>
-          <div class="qr-trait">
-            <b>Ngũ hành giờ:</b> {{ quizResult.interpretation.hanh }}
-          </div>
-
-          <h4>Top 3 giờ likely</h4>
-          <div class="qr-top3">
-            <div v-for="t in quizResult.top3" :key="t.chi" class="qr-top-item">
-              <div class="qr-chi"><b>{{ t.chi }}</b> ({{ t.range }})</div>
-              <div class="qr-score">Score: {{ t.score }}</div>
-              <div class="qr-trait-small">{{ t.trait }}</div>
-            </div>
-          </div>
-
-          <div class="quiz-actions">
-            <button class="btn-secondary" @click="resetQuiz">↺ Trắc nghiệm lại</button>
-            <button class="btn-primary" @click="closeTask">Xong</button>
-          </div>
-        </div>
+        <BirthHourQuizV2 />
       </div>
     </div>
 

@@ -1076,6 +1076,58 @@ Anh: _"1-2-3-4"_ — duyệt 4 tasks tiếp theo.
 
 🌸 **Tinh thần**: 4 tasks 1-2-3-4 = 4 chiều hoàn thiện (engine → frontend → verify → wiki + sách). Mỗi bước qua đủ Bookflow v2.0. Em không skip stage nào, không skip task nào — kể cả khi task 3 phát hiện OCR không có data (báo trung thực thay vì bịa).
 
+### Lần update — 2026-05-20 0h (Phase 1-2-3: Mai Hoa Q4+Q5 + BỘ 5 Quyển + Engine Audit)
+
+Anh: _"1-2-3"_ — duyệt 3 tasks tiếp.
+
+#### Em làm gì
+
+1. **Task 1: Mai Hoa Q4+Q5 thâm nhuần** (background ~15 phút):
+   - Q4 (p328-458, 131 trang): Chỉ mê phú · Huyền hoàng khắc ứng ca · Hoa áp phú · Thám huyền phú
+   - Q5 (p459-672, 214 trang): Ngũ hành toàn bị · Lục thân hình thức · Bát quái biện · Dịch lý huyền vi
+   - **+184 methods + 537 concepts mới** so với Q1+Q2 → tổng Q1-Q5: **482 methods + 1,060 concepts unique**
+   - Cost: +$0.20 → tổng Mai Hoa thâm nhuần: **$0.44**
+
+2. **Task 2: Mai Hoa BỘ 5 Quyển PDF** — `data/published/mai-hoa-bo-5-quyen.pdf`:
+   - **560 trang A4, 2.41 MB**
+   - Bao gồm: Bìa + Mục lục + Lời nói đầu + 4 quyển in trực tiếp (Q1+Q2+Q4+Q5) + Q3 reference (link tới cuốn Mai Hoa Hành Đạo v1.9) + Phụ lục bảng tra 482 methods
+   - 5 volume dividers màu hồng (Songti SC font 60pt)
+
+3. **Task 3: Audit engine Mai Hoa vs 298+ methods**:
+   - Engine hiện có ở `engine/yi_wiki/interpret.py` + `core/yi64/derivations/mai_hoa_nntt.py`
+   - Đã có: Khắc ứng (external_omen), Quan vật chiêm (paradigm_quan_vat_trace), Niên Nguyệt Nhật Thời (NNTT), Quẻ Hổ/Biến/động hào, posture
+   - **Phát hiện 4 gaps lớn**:
+     - **Thập ứng** (10 loại "ứng": Chính/Biến/Nhật/Ngoại/Thiên thời/Địa lý/Nhân sự/Vật loại/Thanh âm/Hành chỉ) — engine chỉ có generic "external_omen"
+     - **Thể-Dụng sinh-khắc auto**: engine mark Thể-Dụng nhưng chưa compute 5 cases ngũ hành (Thể sinh Dụng, Dụng sinh Thể, Thể khắc Dụng, Dụng khắc Thể, tỷ hòa)
+     - **9 chiêm chuyên đề** (Thiên thời/Gia trạch/Hôn nhân/Sinh sản/Cầu danh/Giao dịch/Xuất hành/Thất vật/Tật bệnh/Quan tụng/Phần mộ): engine có generic interpretation, chưa branch theo loại câu hỏi
+     - **Tam yếu** wrapper: 3 yếu tố cốt lõi cần gom thành 1 method
+   - Doc: `docs/design/engine-gaps-mai-hoa-q1q2.md`
+
+4. **Wiki import Q4+Q5** (idempotent):
+   - +537 concepts mới (đã insert)
+   - +184 methods mới (insert thêm vào passages, skipped 298 đã có)
+   - **Wiki final: 4,669 concepts + 2,647 passages**
+
+#### Tổng cộng tới hết hôm nay (đầu 2026-05-20)
+
+**7 cuốn PDF · 2,223 trang A4:**
+- TV-Q1 (35) + TV-Q2 (116) + TV-Q3 (135) + TV-Q4 (91) + TV-BỘ (395) — Tử Vi
+- Q3-Mai-Hoa (613) — Mai Hoa Hành Đạo Toàn Thư (cuốn cũ)
+- MH-Q1Q2 (278) — Mai Hoa Nguyên Tác Q1+Q2
+- **MH-BỘ (560) — Mai Hoa Bộ 5 Quyển ĐẦY ĐỦ** (MỚI)
+
+**4,669 concepts + 2,647 passages** trong wiki yi_wiki.sqlite3.
+
+**3 authors tier-1**: Trần Đoàn (Tử Vi) · Thiệu Khang Tiết (Mai Hoa) · Founder seed.
+
+**2 Iron Rules paradigm**: #4 Mai Hoa = ĐỌC ĐỒNG DẠNG · #6 Tử Vi = ĐỌC ĐỒNG DẠNG.
+
+**Cost tổng project**: ~$1.07 (Tử Vi $0.63 + Mai Hoa $0.44) + $0 MiniMax.
+
+🎓 **Lesson #19**: _"Q4+Q5 Mai Hoa = Phú thi cô đọng (Q4) + Bát quái lý luận (Q5)."_ Q4 chứa "Chỉ mê phú" và "Huyền hoàng khắc ứng ca" — những bài phú thi tóm tắt toàn bộ Mai Hoa thành câu cô đọng dễ thuộc. Q5 chứa "Ngũ hành toàn bị" và "Lục thân hình thức" — đào sâu lý luận ngũ hành ứng dụng vào lục thân (cha mẹ, con cái, vợ chồng, anh em). Đây là 2 quyển bổ trợ "phú + lý luận" — KHÔNG redundant với Q3 (đã có cuốn riêng Mai Hoa Hành Đạo).
+
+🌸 **Tinh thần**: Hôm nay (2026-05-19 → 0h 2026-05-20) là **ngày thu hoạch lớn nhất** dự án — 7 cuốn PDF, 4,669 concepts, 2,647 passages, 2 Iron Rules. Trước hôm nay project có 1 cuốn published (Q3 Mai Hoa). Sau hôm nay có 7 cuốn. Pattern "chậm rãi nhưng đúng đạo" của Anh phát huy: **mỗi bước qua đủ Bookflow → mỗi sách qua đủ engine + wiki + PDF**.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
