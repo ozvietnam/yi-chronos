@@ -218,7 +218,7 @@ async function submitChangePassword() {
     </template>
 
     <!-- Login / Signup modal -->
-    <div v-if="showLogin" class="ub-modal-backdrop" @click.self="showLogin = false">
+    <Teleport to="body"><div v-if="showLogin" class="ub-modal-backdrop" @click.self="showLogin = false">
       <div class="ub-modal">
         <div class="ub-tabs">
           <button :class="{ active: loginTab === 'login' }" @click="loginTab = 'login'">🔑 Đăng nhập</button>
@@ -265,10 +265,10 @@ async function submitChangePassword() {
           </div>
         </form>
       </div>
-    </div>
+    </div></Teleport>
 
     <!-- Change password modal -->
-    <div v-if="showPasswordModal" class="ub-modal-backdrop" @click.self="showPasswordModal = false">
+    <Teleport to="body"><div v-if="showPasswordModal" class="ub-modal-backdrop" @click.self="showPasswordModal = false">
       <div class="ub-modal">
         <h3>🔐 Đổi mật khẩu</h3>
         <p v-if="currentUser?.must_change_password" class="ub-warn">
@@ -292,10 +292,10 @@ async function submitChangePassword() {
           </div>
         </form>
       </div>
-    </div>
+    </div></Teleport>
 
     <!-- Switch person modal -->
-    <div v-if="showSwitchPersonModal" class="ub-modal-backdrop" @click.self="showSwitchPersonModal = false">
+    <Teleport to="body"><div v-if="showSwitchPersonModal" class="ub-modal-backdrop" @click.self="showSwitchPersonModal = false">
       <div class="ub-modal">
         <h3>🔄 Chuyển hồ sơ đang dùng</h3>
         <p class="ub-hint">
@@ -316,10 +316,10 @@ async function submitChangePassword() {
           <button class="ub-btn-secondary" @click="showSwitchPersonModal = false">Đóng</button>
         </div>
       </div>
-    </div>
+    </div></Teleport>
 
     <!-- Users management (owner only) -->
-    <div v-if="showUsersModal" class="ub-modal-backdrop" @click.self="showUsersModal = false">
+    <Teleport to="body"><div v-if="showUsersModal" class="ub-modal-backdrop" @click.self="showUsersModal = false">
       <div class="ub-modal ub-modal-wide">
         <h3>👥 Quản lý user</h3>
 
@@ -368,11 +368,13 @@ async function submitChangePassword() {
           <button class="ub-btn-secondary" @click="showUsersModal = false">Đóng</button>
         </div>
       </div>
-    </div>
+    </div></Teleport>
   </div>
 </template>
 
-<style scoped>
+<!-- Not scoped: modal is Teleported to <body>, so styles must be global.
+     All selectors are prefixed with `.ub-` to avoid collisions. -->
+<style>
 .user-badge { position: relative; display: inline-flex; align-items: center; }
 
 .ub-pill {
@@ -462,11 +464,16 @@ async function submitChangePassword() {
   padding: 1.25rem 1.5rem;
   max-width: 480px;
   width: 90%;
-  max-height: 88vh;
+  max-height: 90vh;
   overflow-y: auto;
   color: #e2e8f0;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  /* Ensure form inputs have breathing room — signup form has 4 fields + hint */
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
+.ub-modal form { display: flex; flex-direction: column; gap: 0.55rem; }
 .ub-modal-wide { max-width: 800px; }
 .ub-modal h3 { margin: 0 0 0.8rem 0; color: #fde68a; }
 .ub-tabs {
