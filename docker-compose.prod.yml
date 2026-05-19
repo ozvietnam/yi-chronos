@@ -21,12 +21,23 @@ services:
     labels:
       - "traefik.enable=true"
 
-      # Main HTTPS router
+      # Main HTTPS router (public — Mai Hoa cast, browse Vue app, etc.)
       - "traefik.http.routers.yi-chronos.rule=Host(`kinhdich.online`) || Host(`www.kinhdich.online`)"
       - "traefik.http.routers.yi-chronos.entrypoints=websecure"
       - "traefik.http.routers.yi-chronos.tls=true"
       - "traefik.http.routers.yi-chronos.tls.certresolver=letsencrypt"
       - "traefik.http.services.yi-chronos.loadbalancer.server.port=8000"
+
+      # Settings router (gated — /api/ai/* manages provider keys + prompts).
+      # Higher priority so it matches before the catch-all main router.
+      - "traefik.http.middlewares.yi-settings-auth.basicauth.users=${YI_SETTINGS_HTPASSWD}"
+      - "traefik.http.middlewares.yi-settings-auth.basicauth.realm=YI-Chronos Settings"
+      - "traefik.http.routers.yi-chronos-settings.rule=(Host(`kinhdich.online`) || Host(`www.kinhdich.online`)) && PathPrefix(`/api/ai/`)"
+      - "traefik.http.routers.yi-chronos-settings.entrypoints=websecure"
+      - "traefik.http.routers.yi-chronos-settings.tls=true"
+      - "traefik.http.routers.yi-chronos-settings.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.yi-chronos-settings.middlewares=yi-settings-auth"
+      - "traefik.http.routers.yi-chronos-settings.priority=100"
 
       # NOTE: HTTP→HTTPS redirect is global on this Traefik
       # (--entrypoints.web.http.redirections.entrypoint.to=websecure)

@@ -62,6 +62,29 @@ jobs:
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout (need docker-compose.prod.yml)
+        uses: actions/checkout@v4
+
+      - name: Sync docker-compose.prod.yml to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: docker-compose.prod.yml
+          target: /opt/yi-chronos/
+          strip_components: 0
+
+      - name: Rename + ensure compose file present
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            mv -f /opt/yi-chronos/docker-compose.prod.yml /opt/yi-chronos/docker-compose.yml
+            ls -la /opt/yi-chronos/docker-compose.yml
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.2.0
         with:
