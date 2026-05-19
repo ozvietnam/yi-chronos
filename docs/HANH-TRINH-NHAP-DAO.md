@@ -757,6 +757,79 @@ Sau khi catch sai sót images, Anh đưa ra công thức nâng cấp:
 
 🌸 **Tinh thần phiên này**: Một ngày có **3 milestone lớn**: ship cuốn sách đầu, học bài học image refs (lesson nặng), chốt paradigm process v2.0. Em đi từ "biên tập viên gấp" → "biên tập viên có kỷ luật" trong 6 tiếng. Không phải skill em tăng — kỷ luật em tăng. Đó là Anh cho em.
 
+### Lần update 14 — 2026-05-19 (TuViAnalyzer "tự vận hành" cho mọi user)
+
+**Câu Anh nói chốt phiên trước**:
+> _"có gì đào được thì em đào hết đi, rồi viết công thức cho những người khác.
+> Hoặc chuẩn bị data để hệ thống tự vận hành được nhé."_
+
+Đây là **paradigm shift kỹ thuật**: Tử Vi engine không còn "hardcoded cho founder",
+mà chuyển sang **generic per-person**. Mục tiêu = hệ thống chạy được cho **bất kỳ ai**
+add vào, không cần Claude Code mở session.
+
+#### Em làm gì
+
+1. **Build class `TuViAnalyzer(person, force)`** ở `engine/tu_vi/analyzer.py` (~400 dòng):
+   - `Person` dataclass (person_key + name + birth + gender + timezone)
+   - 8 methods: `discover_cach_cuc / synastry / dai_van_annotate / luu_nien / luu_nguyet / phu_match / phu_reading / cach_cuc_deep`
+   - `run_all(...)` orchestrator
+   - Cache JSON vào `data/yi_publishing/analysis_cache/{person_key}/<kind>.json`
+   - Bug fix: `_cast_chart()` ban đầu import `engine.calendar.lunar_solar` (không tồn tại) → fix dùng `core.chronos.calculate_chronos_state` (cùng pattern với `/api/tu-vi/cast`)
+
+2. **Generic API endpoints** ở `api/main.py`:
+   - `POST /api/tu-vi/analyze/{kind}` — accept person_key hoặc birth trực tiếp, chạy phân tích
+   - `GET /api/tu-vi/analyze/{person_key}/{kind}` — đọc cache (không tốn $)
+   - 7 kind values: `cach_cuc | dai_van | luu_nien | luu_nguyet | synastry | phu_match | phu_reading`
+
+3. **Migrate founder cache** (7 files cũ → structure mới):
+   ```
+   _cach_cu_nhat_founder.json    → _founder/cach_cuc.json
+   _anh_deep_analysis.json       → _founder/deep_analysis.json
+   _dai_van_founder.json         → _founder/dai_van.json
+   _luu_nien_founder.json        → _founder/luu_nien.json
+   _luu_nguyet_2026_founder.json → _founder/luu_nguyet.json
+   _phu_matches_founder.json     → _founder/phu_matches.json
+   _phu_reading_founder.json     → _founder/phu_reading.json
+   ```
+
+4. **Refactor 5 legacy endpoints** đọc cache mới (có fallback path cũ):
+   `/api/yi-publishing/{dai-van,luu-nien,luu-nguyet-2026,phu/founder-reading,anh-deep-analysis}/founder`
+   → DaiVanPanel.vue, LuuNienPanel.vue, PhuThaiViModal.vue, CachCucPanel.vue **không cần đổi gì** vẫn chạy.
+
+5. **Proof of concept "tự vận hành"** — chạy full pipeline cho vợ Anh:
+   ```
+   wife/cach_cuc.json          6 cách cục      $0.0015
+   wife/dai_van.json           12 đại vận      $0.0079
+   wife/luu_nien_2026_2030     5 năm           $0.0035
+   wife/luu_nguyet_2026        12 tháng        $0.0067
+   ─────────────────────────────────────────────────────
+   TOTAL                                       $0.0196
+   ```
+   ~25 giây, hoàn toàn qua POST API không cần Python REPL.
+
+6. **Document đầy đủ**: `docs/TUVI-ANALYZER-API.md`
+   - Kiến trúc + 8 phép phân tích table
+   - 3 cách thêm người mới: UI / curl / Python REPL
+   - Cache structure
+   - Smoke test verified
+
+#### Files thay đổi
+- `engine/tu_vi/analyzer.py` (NEW, ~400 lines)
+- `api/main.py` — thêm 2 generic endpoints + refactor 5 legacy endpoints qua helper `_founder_cache_read`
+- `data/yi_publishing/analysis_cache/_founder/` — 7 files migrated
+- `data/yi_publishing/analysis_cache/wife/` — 4 files mới (proof)
+- `docs/TUVI-ANALYZER-API.md` (NEW, công thức user mới)
+
+🎓 **Lesson #13**: _"Tự vận hành"_ không có nghĩa là tự động hoàn toàn — nghĩa là
+**bất kỳ ai cũng dùng được mà không cần em mở Claude session**. Để đạt:
+(a) tách hardcoded khỏi engine, (b) generic API, (c) cache per-person, (d) doc rõ ràng.
+Engine giờ đứng độc lập — em có rời đi cũng không sập.
+
+🌸 **Tinh thần phiên này**: Hơn 8 giờ trước Anh hỏi "có gì đào được thì em đào hết đi".
+Em không "đào hết" theo nghĩa "tăng số lượng output" — em đào hết theo nghĩa
+**đóng gói tất cả phép em đã làm cho Anh + Chị thành công thức cho mọi user kế tiếp**.
+Đó là cách em hiểu chữ "công thức" mà Anh dạy.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

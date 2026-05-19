@@ -5,10 +5,13 @@
  *
  * Source: /api/yi-publishing/anh-deep-analysis (DeepSeek generated)
  */
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
+import WikiText from "./WikiText.vue";
+import { tuviPersonKey, tuviPersonName, fetchCachedAnalysis, runAnalysis } from "../stores/tuviPersonStore.js";
 
 const data = ref(null);
 const loading = ref(false);
+const running = ref(false);
 const error = ref("");
 const expanded = ref({});
 const activeTab = ref("cach_cuc"); // 'cach_cuc' | 'synastry'
@@ -16,11 +19,16 @@ const activeTab = ref("cach_cuc"); // 'cach_cuc' | 'synastry'
 async function load() {
   loading.value = true;
   error.value = "";
+  data.value = null;
   try {
-    const r = await fetch("/api/yi-publishing/anh-deep-analysis");
-    const d = await r.json();
+    const pk = tuviPersonKey.value;
+    // Try deep_analysis first (founder format with synastry), fall back to cach_cuc
+    let d = await fetchCachedAnalysis(pk, "deep_analysis");
+    if (d.status !== "ok") d = await fetchCachedAnalysis(pk, "cach_cuc");
     if (d.status === "ok") {
       data.value = d;
+    } else if (d.status === "not_cached") {
+      error.value = `Chưa có Cách Cục cho ${tuviPersonName.value}. Nhấn "Phân tích ngay" (~5s, ~$0.002).`;
     } else {
       error.value = d.message || "Lỗi tải data";
     }
@@ -30,6 +38,19 @@ async function load() {
     loading.value = false;
   }
 }
+
+async function runNow() {
+  if (running.value) return;
+  running.value = true; error.value = "";
+  try {
+    const d = await runAnalysis(tuviPersonKey.value, "cach_cuc");
+    if (d.status === "ok") { data.value = d; }
+    else { error.value = d.message || "Lỗi"; }
+  } catch (e) { error.value = e.message; }
+  finally { running.value = false; }
+}
+
+watch(tuviPersonKey, () => load());
 
 function levelColor(level) {
   return {
@@ -56,7 +77,7 @@ onMounted(load);
   <div class="ccp-wrap">
     <header class="ccp-head">
       <div>
-        <h2>🪐 Cách cục lá số anh — Đọc sâu</h2>
+        <h2>🪐 Cách cục — {{ tuviPersonName }}</h2>
         <p>Phân tích cách cục phát hiện trong lá số + đối chiếu vợ chồng.<br/>
            <small>Nguồn: Tử Vi Đẩu Số Toàn Thư · DeepSeek đọc sâu cá nhân hóa</small></p>
       </div>
@@ -75,7 +96,11 @@ onMounted(load);
     </div>
 
     <div v-if="loading" class="ccp-loading">Đang tải...</div>
-    <div v-if="error" class="ccp-error">{{ error }}</div>
+    <div v-if="error" class="ccp-error">
+      <p>{{ error }}</p>
+      <button v-if="!data && !running" class="ccp-run-btn" @click="runNow">⚡ Phân tích ngay</button>
+      <p v-if="running" class="ccp-running">⏳ DeepSeek đang tìm cách cục (~5s)...</p>
+    </div>
 
     <!-- TAB 1: Cách cục -->
     <div v-if="activeTab === 'cach_cuc' && data?.cach_cucs" class="ccp-cach-cucs">
@@ -92,10 +117,10 @@ onMounted(load);
         </div>
         <div class="ccp-card-body">
           <p class="ccp-evidence">
-            <b>📍 Bằng chứng:</b> {{ cc.bang_chung }}
+            <b>📍 Bằng chứng:</b> <WikiText :text="cc.bang_chung" />
           </p>
           <p class="ccp-meaning" v-if="expanded[idx]">
-            <b>📖 Ý nghĩa:</b> {{ cc.y_nghia }}
+            <b>📖 Ý nghĩa:</b> <WikiText :text="cc.y_nghia" />
           </p>
         </div>
       </div>
@@ -105,56 +130,56 @@ onMounted(load);
     <div v-if="activeTab === 'synastry' && data?.synastry" class="ccp-synastry">
       <section class="ccp-syn-block">
         <h4>🌐 Hợp Mệnh Cục</h4>
-        <p>{{ data.synastry.hop_menh_cuc }}</p>
+        <p><WikiText :text="data.synastry.hop_menh_cuc" /></p>
       </section>
 
       <section class="ccp-syn-block">
         <h4>⚖️ Mệnh chủ tương tác</h4>
-        <p>{{ data.synastry.menh_chu_tuong_tac }}</p>
+        <p><WikiText :text="data.synastry.menh_chu_tuong_tac" /></p>
       </section>
 
       <section class="ccp-syn-block">
         <h4>🏠 Cung Phu Thê anh ↔ Mệnh vợ</h4>
-        <p>{{ data.synastry.phu_the_vs_menh_vo }}</p>
+        <p><WikiText :text="data.synastry.phu_the_vs_menh_vo" /></p>
       </section>
 
       <section v-if="data.synastry.phu_the_vo_vs_menh_anh" class="ccp-syn-block">
         <h4>🏡 Cung Phu Thê vợ ↔ Mệnh anh</h4>
-        <p>{{ data.synastry.phu_the_vo_vs_menh_anh }}</p>
+        <p><WikiText :text="data.synastry.phu_the_vo_vs_menh_anh" /></p>
       </section>
 
       <section v-if="data.synastry.than_chong_chap" class="ccp-syn-block ccp-special">
         <h4>👫 Thân ↔ Thân (chồng chập)</h4>
-        <p>{{ data.synastry.than_chong_chap }}</p>
+        <p><WikiText :text="data.synastry.than_chong_chap" /></p>
       </section>
 
       <section class="ccp-syn-block">
         <h4>🔄 Hóa Lộc/Kỵ chéo</h4>
-        <p>{{ data.synastry.hoa_loc_ky_cheo }}</p>
+        <p><WikiText :text="data.synastry.hoa_loc_ky_cheo" /></p>
       </section>
 
       <section v-if="data.synastry.tam_hop_luc_xung" class="ccp-syn-block">
         <h4>🔗 Tam hợp / Lục xung các cung</h4>
-        <p>{{ data.synastry.tam_hop_luc_xung }}</p>
+        <p><WikiText :text="data.synastry.tam_hop_luc_xung" /></p>
       </section>
 
       <section class="ccp-syn-block ccp-bright">
         <h4>✨ Điểm sáng</h4>
         <ul>
-          <li v-for="(item, i) in data.synastry.diem_sang" :key="i">{{ item }}</li>
+          <li v-for="(item, i) in data.synastry.diem_sang" :key="i"><WikiText :text="item" /></li>
         </ul>
       </section>
 
       <section class="ccp-syn-block ccp-warning">
         <h4>⚠️ Điểm cần chú ý</h4>
         <ul>
-          <li v-for="(item, i) in data.synastry.diem_can_chu_y" :key="i">{{ item }}</li>
+          <li v-for="(item, i) in data.synastry.diem_can_chu_y" :key="i"><WikiText :text="item" /></li>
         </ul>
       </section>
 
       <section class="ccp-syn-block ccp-apply">
         <h4>💡 Ứng dụng đời sống</h4>
-        <p>{{ data.synastry.ung_dung_doi_song }}</p>
+        <p><WikiText :text="data.synastry.ung_dung_doi_song" /></p>
       </section>
     </div>
 
@@ -201,6 +226,13 @@ onMounted(load);
 
 .ccp-loading { text-align: center; padding: 2rem; color: #94a3b8; }
 .ccp-error { color: #fca5a5; padding: 0.6rem; background: rgba(239,68,68,0.1); border-radius: 4px; }
+.ccp-run-btn {
+  margin-top: 0.4rem; background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: white; border: none; padding: 0.45rem 0.9rem; border-radius: 4px;
+  font-size: 0.85rem; cursor: pointer; font-weight: 600;
+}
+.ccp-run-btn:hover { background: linear-gradient(135deg, #b45309, #d97706); }
+.ccp-running { color: #fde68a; font-size: 0.85rem; margin-top: 0.4rem; }
 
 /* Cards */
 .ccp-card {

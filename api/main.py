@@ -8,7 +8,7 @@ from typing import Optional
 from uuid import uuid4
 from zoneinfo import ZoneInfo
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -4325,6 +4325,40 @@ def yi_publishing_wiki_lookup(zh: str = "", vi: str = "") -> dict:
     }
 
 
+@app.get("/api/yi-publishing/wiki/all-tuvi")
+def yi_publishing_wiki_all_tuvi() -> dict:
+    """Trả về tất cả concepts Tử Vi (ID 3818+ và những concept có Tử Vi keywords).
+
+    Dùng cho TermHighlighter: client cache list này, scan text content,
+    wrap term matches để hover/click → popup.
+    """
+    import sqlite3
+    con = sqlite3.connect(YI_WIKI_DB)
+    cur = con.cursor()
+    # Concepts with id >= 3818 (Tử Vi era) OR keywords liên quan
+    cur.execute("""
+        SELECT concept_id, canonical_vi, canonical_zh, aliases, short_note
+        FROM concept_index
+        WHERE concept_id >= 3818
+           OR canonical_vi LIKE '%Tử Vi%'
+           OR canonical_vi LIKE '%Mệnh%'
+           OR canonical_vi LIKE '%Cung %'
+           OR canonical_zh LIKE '%紫微%'
+           OR canonical_zh LIKE '%斗数%'
+        ORDER BY length(canonical_vi) DESC
+    """)
+    rows = cur.fetchall()
+    con.close()
+    return {
+        "status": "ok",
+        "count": len(rows),
+        "concepts": [
+            {"id": r[0], "vi": r[1], "zh": r[2], "aliases": r[3], "note": r[4]}
+            for r in rows
+        ],
+    }
+
+
 @app.get("/api/yi-publishing/wiki/search")
 def yi_publishing_wiki_search(q: str = "", limit: int = 20) -> dict:
     """Full-text search wiki concepts (autocomplete)."""
@@ -4882,16 +4916,27 @@ def yi_publishing_phu_thai_vi() -> dict:
         return {"status": "error", "message": str(e)}
 
 
+def _founder_cache_read(kind: str, legacy_filename: str) -> dict:
+    """Read founder cache: new structure first, fall back to legacy path."""
+    new_p = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/analysis_cache/_founder/{kind}.json")
+    if new_p.exists():
+        try:
+            return {"status": "ok", **json.loads(new_p.read_text())}
+        except Exception as e:
+            return {"status": "error", "message": str(e)}
+    legacy = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/{legacy_filename}")
+    if not legacy.exists():
+        return {"status": "error", "message": "Not generated yet"}
+    try:
+        return {"status": "ok", **json.loads(legacy.read_text())}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
 @app.get("/api/yi-publishing/phu/founder-reading")
 def yi_publishing_phu_founder_reading() -> dict:
     """Return personalized Phú Thái Vi readings for founder chart."""
-    p = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_phu_reading_founder.json")
-    if not p.exists():
-        return {"status": "error", "message": "Not generated yet"}
-    try:
-        return {"status": "ok", **json.loads(p.read_text())}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+    return _founder_cache_read("phu_reading", "_phu_reading_founder.json")
 
 
 @app.get("/api/yi-publishing/cach-cuc/founder/{cach_id}")
@@ -4909,13 +4954,7 @@ def yi_publishing_cach_cuc_founder(cach_id: str) -> dict:
 @app.get("/api/yi-publishing/anh-deep-analysis")
 def yi_publishing_anh_deep() -> dict:
     """Return anh's deep analysis (cách cục discovery + synastry with wife)."""
-    p = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_anh_deep_analysis.json")
-    if not p.exists():
-        return {"status": "error", "message": "Not generated yet"}
-    try:
-        return {"status": "ok", **json.loads(p.read_text())}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+    return _founder_cache_read("deep_analysis", "_anh_deep_analysis.json")
 
 
 # ─── Serve built Vue webapp (production: SPA fallback) ─────────────────
@@ -4927,13 +4966,245 @@ from fastapi.responses import FileResponse as _FileResponse
 @app.get("/api/yi-publishing/dai-van/founder")
 def yi_publishing_dai_van_founder() -> dict:
     """Return anh's 12 Đại Vận annotations."""
-    p = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_dai_van_founder.json")
-    if not p.exists():
-        return {"status": "error", "message": "Not generated yet"}
+    return _founder_cache_read("dai_van", "_dai_van_founder.json")
+
+
+@app.get("/api/yi-publishing/luu-nien/founder")
+def yi_publishing_luu_nien_founder() -> dict:
+    """Return anh's Lưu Niên 2026-2030."""
+    return _founder_cache_read("luu_nien", "_luu_nien_founder.json")
+
+
+@app.get("/api/yi-publishing/luu-nguyet-2026/founder")
+def yi_publishing_luu_nguyet_2026_founder() -> dict:
+    """Return anh's Lưu Nguyệt 12 tháng âm năm 2026."""
+    return _founder_cache_read("luu_nguyet", "_luu_nguyet_2026_founder.json")
+
+
+
+
+# ─── Generic Tử Vi Analyzer endpoints ────────────────────────────────────────
+# (Person-based: works for any person_key in founder's user_persons namespace
+#  or any directly-passed birth datetime.)
+
+class _AnalyzeRequest(BaseModel):
+    """Request for generic Tử Vi analyzer."""
+    # Either provide person_key (looks up from user_persons of current user)
+    person_key: Optional[str] = None
+    # OR provide birth directly
+    birth_datetime_local: Optional[str] = None
+    gender: Optional[str] = None
+    name: Optional[str] = "Người"
+    timezone: str = "Asia/Ho_Chi_Minh"
+    # Analysis options
+    luu_nien_start: int = 2026
+    luu_nien_end: int = 2030
+    luu_nguyet_year: int = 2026
+    phu_top_n: int = 5
+    force: bool = False  # bypass cache
+
+
+def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
+    """Resolve Person from request — either person_key (user_persons) or direct."""
+    from engine.tu_vi.analyzer import Person
+    if req.birth_datetime_local and req.gender:
+        return Person(
+            person_key=req.person_key or f"adhoc_{int(time.time())}",
+            name=req.name or "Người",
+            birth_datetime_local=req.birth_datetime_local,
+            gender=req.gender,
+            timezone=req.timezone,
+        )
+    if req.person_key:
+        # Look up from current user's user_persons
+        from api.auth import get_current_user, AUTH_DB
+        import sqlite3
+        user = get_current_user(request)
+        if not user:
+            # Fallback: _founder profile from persons.sqlite3
+            if req.person_key == "_founder":
+                return Person(
+                    person_key="_founder",
+                    name="Anh (Founder)",
+                    birth_datetime_local="1988-06-05T23:30:00",
+                    gender="nam",
+                )
+            raise HTTPException(401, "Login required to use person_key")
+        db = sqlite3.connect(AUTH_DB)
+        row = db.execute(
+            "SELECT name, gender, birth_datetime_local, timezone FROM user_persons WHERE user_id=? AND person_key=?",
+            (user["user_id"], req.person_key),
+        ).fetchone()
+        db.close()
+        if not row:
+            raise HTTPException(404, f"person_key '{req.person_key}' not found")
+        return Person(
+            person_key=req.person_key,
+            name=row[0],
+            gender=row[1] or "nam",
+            birth_datetime_local=row[2] or "",
+            timezone=row[3] or "Asia/Ho_Chi_Minh",
+        )
+    raise HTTPException(400, "Must provide person_key OR birth_datetime_local+gender")
+
+
+@app.post("/api/tu-vi/analyze/{kind}")
+def yi_tuvi_analyze(kind: str, req: _AnalyzeRequest, request: Request) -> dict:
+    """Run 1 specific Tử Vi analysis.
+
+    kind: 'cach_cuc' | 'dai_van' | 'luu_nien' | 'luu_nguyet' | 'phu_match' | 'phu_reading' | 'all'
+    """
+    from engine.tu_vi.analyzer import TuViAnalyzer
+    from fastapi import HTTPException
+    person = _resolve_person_from_request(req, request)
+    analyzer = TuViAnalyzer(person, force=req.force)
+
     try:
-        return {"status": "ok", **json.loads(p.read_text())}
+        if kind == "cach_cuc":
+            return {"status": "ok", "kind": kind, **analyzer.discover_cach_cuc()}
+        elif kind == "dai_van":
+            return {"status": "ok", "kind": kind, **analyzer.dai_van_annotate()}
+        elif kind == "luu_nien":
+            return {"status": "ok", "kind": kind, **analyzer.luu_nien(req.luu_nien_start, req.luu_nien_end)}
+        elif kind == "luu_nguyet":
+            return {"status": "ok", "kind": kind, **analyzer.luu_nguyet(req.luu_nguyet_year)}
+        elif kind == "phu_match":
+            return {"status": "ok", "kind": kind, **analyzer.phu_match()}
+        elif kind == "phu_reading":
+            return {"status": "ok", "kind": kind, **analyzer.phu_reading(req.phu_top_n)}
+        elif kind == "all":
+            return {"status": "ok", "kind": kind, **analyzer.run_all(
+                luu_nien_years=(req.luu_nien_start, req.luu_nien_end),
+                luu_nguyet_year=req.luu_nguyet_year,
+                phu_top_n=req.phu_top_n,
+            )}
+        else:
+            raise HTTPException(400, f"Unknown analysis kind: {kind}")
+    except HTTPException:
+        raise
     except Exception as e:
-        return {"status": "error", "message": str(e)}
+        return {"status": "error", "kind": kind, "message": str(e)}
+
+
+@app.get("/api/tu-vi/analyze/{person_key}/{kind}")
+def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
+    """GET version: load cached analysis result without running new one."""
+    from engine.tu_vi.analyzer import _cache_load
+    cached = _cache_load(person_key, kind)
+    if cached:
+        return {"status": "ok", "cached": True, "kind": kind, **cached}
+    return {"status": "not_cached", "kind": kind, "message": f"No cached '{kind}' for {person_key}"}
+
+
+# ─── Job tracker (in-memory, simple) ──────────────────────────────────────────
+_TUVI_JOBS: dict[str, dict] = {}
+
+
+@app.post("/api/tu-vi/run-all/{person_key}")
+def yi_tuvi_run_all(person_key: str, request: Request, background_tasks: BackgroundTasks) -> dict:
+    """Trigger background full pipeline (cach_cuc + dai_van + luu_nien + luu_nguyet) for a person.
+
+    Returns job_id immediately; UI polls /api/tu-vi/job-status/{job_id}.
+    """
+    from engine.tu_vi.analyzer import TuViAnalyzer, Person
+    from api.auth import get_current_user, AUTH_DB
+    import sqlite3, uuid
+
+    # Resolve person
+    if person_key == "_founder":
+        person = Person(person_key="_founder", name="anh (Founder)",
+                        birth_datetime_local="1988-06-05T23:30:00", gender="nam")
+    else:
+        user = get_current_user(request)
+        if not user:
+            raise HTTPException(401, "Login required")
+        db = sqlite3.connect(AUTH_DB)
+        row = db.execute(
+            "SELECT name, gender, birth_datetime_local, timezone FROM user_persons WHERE user_id=? AND person_key=?",
+            (user["user_id"], person_key),
+        ).fetchone()
+        db.close()
+        if not row:
+            raise HTTPException(404, f"person_key '{person_key}' not found")
+        person = Person(person_key=person_key, name=row[0],
+                        gender=row[1] or "nam",
+                        birth_datetime_local=row[2] or "",
+                        timezone=row[3] or "Asia/Ho_Chi_Minh")
+
+    job_id = f"tuvi_{person_key}_{uuid.uuid4().hex[:8]}"
+    _TUVI_JOBS[job_id] = {
+        "job_id": job_id,
+        "person_key": person_key,
+        "person_name": person.name,
+        "status": "queued",
+        "progress": 0,
+        "total_steps": 4,
+        "current_step": "",
+        "started_at": time.time(),
+        "finished_at": None,
+        "error": None,
+        "cost_usd": 0.0,
+    }
+
+    def _run():
+        job = _TUVI_JOBS[job_id]
+        try:
+            analyzer = TuViAnalyzer(person)
+            total_cost = 0.0
+            steps = [
+                ("cach_cuc", lambda: analyzer.discover_cach_cuc()),
+                ("dai_van", lambda: analyzer.dai_van_annotate()),
+                ("luu_nien", lambda: analyzer.luu_nien(2026, 2030)),
+                ("luu_nguyet", lambda: analyzer.luu_nguyet(2026)),
+            ]
+            job["status"] = "running"
+            for i, (name, fn) in enumerate(steps, 1):
+                job["current_step"] = name
+                job["progress"] = i - 1
+                try:
+                    result = fn()
+                    total_cost += result.get("cost_usd", 0) or 0
+                except Exception as step_err:
+                    logger.exception(f"step {name} failed: {step_err}")
+                    job["error"] = f"{name}: {step_err}"
+                job["progress"] = i
+                job["cost_usd"] = round(total_cost, 6)
+            job["status"] = "done"
+            job["finished_at"] = time.time()
+            job["current_step"] = ""
+        except Exception as e:
+            logger.exception("run_all background failed")
+            job["status"] = "error"
+            job["error"] = str(e)
+            job["finished_at"] = time.time()
+
+    background_tasks.add_task(_run)
+    return {"status": "queued", "job_id": job_id, "person_key": person_key}
+
+
+@app.get("/api/tu-vi/job-status/{job_id}")
+def yi_tuvi_job_status(job_id: str) -> dict:
+    job = _TUVI_JOBS.get(job_id)
+    if not job:
+        return {"status": "not_found", "job_id": job_id}
+    return {"status": "ok", **job}
+
+
+# ─── PDF Report ──────────────────────────────────────────────────────────────
+@app.get("/api/tu-vi/report-pdf/{person_key}")
+def yi_tuvi_report_pdf(person_key: str, request: Request):
+    """Generate "Báo cáo Lá Số" PDF for a person. Returns file."""
+    from fastapi.responses import FileResponse
+    from engine.tu_vi.report_pdf import generate_pdf
+    try:
+        pdf_path = generate_pdf(person_key)
+    except Exception as e:
+        logger.exception("PDF generation failed")
+        raise HTTPException(500, f"PDF gen failed: {e}")
+    filename = f"bao-cao-la-so-{person_key}.pdf"
+    return FileResponse(str(pdf_path), media_type="application/pdf", filename=filename)
+
+
 
 
 _DIST_ROOT = _Path(__file__).resolve().parent.parent / "client" / "webapp" / "dist"

@@ -9,6 +9,7 @@
  * Hiển thị 2 lớp: Hán-Việt (italic) + Luận giải (main).
  */
 import { ref, onMounted, computed } from "vue";
+import WikiText from "./WikiText.vue";
 
 const props = defineProps({
   visible: { type: Boolean, default: false },
@@ -136,11 +137,11 @@ watch(() => props.visible, (v) => { if (v && !passages.value.length) loadPhu(); 
           </p>
           <p class="ptv-luangiai" v-if="showLuanGiai && p.luangiai">
             <span class="ptv-marker">義</span>
-            <span>{{ p.luangiai }}</span>
+            <WikiText :text="p.luangiai" />
           </p>
           <p class="ptv-danda" v-if="showDanDa && p.giaithichdande">
             <span class="ptv-marker ptv-marker-danda">解</span>
-            <span>{{ p.giaithichdande }}</span>
+            <WikiText :text="p.giaithichdande" />
           </p>
           <p class="ptv-danda ptv-danda-missing" v-else-if="showDanDa && !p.giaithichdande">
             <em>(chưa có giải thích dân dã)</em>

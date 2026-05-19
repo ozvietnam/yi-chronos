@@ -55,10 +55,12 @@ export async function loadCurrentUser() {
     if (d.status === "ok") {
       currentUser.value = d.user;
       currentPerson.value = d.person;
+      needsProfileSetup.value = !!d.needs_profile_setup;
     } else {
       // Guest — still expose founder fallback person
       currentUser.value = null;
       currentPerson.value = d.person;
+      needsProfileSetup.value = false;
     }
   } catch (err) {
     authError.value = err?.message || String(err);
@@ -87,6 +89,8 @@ export async function login(email, password) {
     currentPerson.value = d.person;
     sessionToken.value = d.session_token;
     _persist();
+    // After login refetch /me to know if onboarding still needed
+    await loadCurrentUser();
     return { ok: true, user: d.user };
   } catch (err) {
     authError.value = err?.message || String(err);
@@ -169,6 +173,58 @@ export async function registerUser(payload) {
   const d = await r.json();
   if (!r.ok) throw new Error(d.detail || "Tạo user thất bại");
   return d;
+}
+
+export const needsProfileSetup = ref(false);
+
+export async function setupProfile(payload) {
+  /* payload: { name?, gender, birth_datetime_local, timezone?, birth_place? } */
+  const r = await fetch("/api/auth/setup-profile", {
+    method: "POST",
+    headers: _authHeaders(),
+    credentials: "include",
+    body: JSON.stringify(payload),
+  });
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.detail || "Setup profile thất bại");
+  currentPerson.value = d.person;
+  needsProfileSetup.value = false;
+  return d;
+}
+
+export async function signup(email, displayName, password) {
+  /* Public self-signup — no email verification, auto-login on success. */
+  isLoadingAuth.value = true;
+  authError.value = "";
+  try {
+    const r = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({
+        email: email.trim().toLowerCase(),
+        display_name: displayName.trim(),
+        password,
+      }),
+    });
+    const d = await r.json();
+    if (!r.ok) {
+      authError.value = d?.detail || "Đăng ký thất bại";
+      return { ok: false, error: authError.value };
+    }
+    currentUser.value = d.user;
+    currentPerson.value = d.person;
+    sessionToken.value = d.session_token;
+    _persist();
+    // User mới signup → chắc chắn chưa có profile → bật flag
+    needsProfileSetup.value = true;
+    return { ok: true, user: d.user };
+  } catch (err) {
+    authError.value = err?.message || String(err);
+    return { ok: false, error: authError.value };
+  } finally {
+    isLoadingAuth.value = false;
+  }
 }
 
 // Bootstrap on import

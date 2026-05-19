@@ -12,10 +12,14 @@
 import { ref, computed } from "vue";
 import {
   currentUser, currentPerson, isAuthenticated, isOwner,
-  logout, listPersons, switchPerson, listUsers, changePassword, registerUser, login,
+  logout, listPersons, switchPerson, listUsers, changePassword, registerUser, login, signup,
 } from "../stores/authStore.js";
 
 const showLogin = ref(false);
+const loginTab = ref("login"); // 'login' | 'signup'
+const signupForm = ref({ email: "", display_name: "", password: "", confirm: "" });
+const signupError = ref("");
+const signupBusy = ref(false);
 const showMenu = ref(false);
 const showPasswordModal = ref(false);
 const showUsersModal = ref(false);
@@ -54,6 +58,36 @@ async function handleLogin() {
     }
   } else {
     loginError.value = r.error || "Đăng nhập thất bại";
+  }
+}
+
+async function handleSignup() {
+  signupError.value = "";
+  const f = signupForm.value;
+  if (!f.email || !f.display_name || !f.password) {
+    signupError.value = "Vui lòng điền đầy đủ thông tin";
+    return;
+  }
+  if (f.password.length < 6) {
+    signupError.value = "Mật khẩu tối thiểu 6 ký tự";
+    return;
+  }
+  if (f.password !== f.confirm) {
+    signupError.value = "Mật khẩu xác nhận không khớp";
+    return;
+  }
+  signupBusy.value = true;
+  try {
+    const r = await signup(f.email, f.display_name, f.password);
+    if (r.ok) {
+      showLogin.value = false;
+      signupForm.value = { email: "", display_name: "", password: "", confirm: "" };
+      loginTab.value = "login";
+    } else {
+      signupError.value = r.error || "Đăng ký thất bại";
+    }
+  } finally {
+    signupBusy.value = false;
   }
 }
 
@@ -183,11 +217,16 @@ async function submitChangePassword() {
       </button>
     </template>
 
-    <!-- Login modal -->
+    <!-- Login / Signup modal -->
     <div v-if="showLogin" class="ub-modal-backdrop" @click.self="showLogin = false">
       <div class="ub-modal">
-        <h3>🔑 Đăng nhập YI-CHRONOS</h3>
-        <form @submit.prevent="handleLogin">
+        <div class="ub-tabs">
+          <button :class="{ active: loginTab === 'login' }" @click="loginTab = 'login'">🔑 Đăng nhập</button>
+          <button :class="{ active: loginTab === 'signup' }" @click="loginTab = 'signup'">✨ Đăng ký</button>
+        </div>
+
+        <!-- Login form -->
+        <form v-if="loginTab === 'login'" @submit.prevent="handleLogin">
           <label>Email
             <input v-model="loginForm.email" type="email" autofocus required />
           </label>
@@ -195,10 +234,34 @@ async function submitChangePassword() {
             <input v-model="loginForm.password" type="password" required />
           </label>
           <p v-if="loginError" class="ub-error">{{ loginError }}</p>
-          <p class="ub-hint">Mặc định: <code>ceo@ngantin.vn</code> · password <code>anh-founder-2026</code> (đổi sau khi đăng nhập).</p>
+          <p class="ub-hint">Chưa có tài khoản? Bấm tab <b>Đăng ký</b> bên trên.</p>
           <div class="ub-modal-actions">
             <button type="button" class="ub-btn-secondary" @click="showLogin = false">Huỷ</button>
             <button type="submit" class="ub-btn-primary">Đăng nhập</button>
+          </div>
+        </form>
+
+        <!-- Signup form -->
+        <form v-else @submit.prevent="handleSignup">
+          <label>Email
+            <input v-model="signupForm.email" type="email" autofocus required placeholder="email@example.com" />
+          </label>
+          <label>Tên hiển thị
+            <input v-model="signupForm.display_name" type="text" required placeholder="Nguyễn Văn A" />
+          </label>
+          <label>Mật khẩu
+            <input v-model="signupForm.password" type="password" required minlength="6" placeholder="≥ 6 ký tự" />
+          </label>
+          <label>Xác nhận mật khẩu
+            <input v-model="signupForm.confirm" type="password" required minlength="6" />
+          </label>
+          <p v-if="signupError" class="ub-error">{{ signupError }}</p>
+          <p class="ub-hint">Đăng ký miễn phí, không cần xác thực email. Bạn sẽ tự động đăng nhập.</p>
+          <div class="ub-modal-actions">
+            <button type="button" class="ub-btn-secondary" @click="showLogin = false">Huỷ</button>
+            <button type="submit" class="ub-btn-primary" :disabled="signupBusy">
+              {{ signupBusy ? "⏳ Đang tạo..." : "✨ Tạo tài khoản" }}
+            </button>
           </div>
         </form>
       </div>
@@ -406,6 +469,20 @@ async function submitChangePassword() {
 }
 .ub-modal-wide { max-width: 800px; }
 .ub-modal h3 { margin: 0 0 0.8rem 0; color: #fde68a; }
+.ub-tabs {
+  display: flex; gap: 0; margin-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+.ub-tabs button {
+  flex: 1; background: transparent; border: none; color: #94a3b8;
+  padding: 0.6rem 0.4rem; cursor: pointer; font-size: 0.9rem;
+  font-weight: 600; border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+}
+.ub-tabs button:hover { color: #cbd5e1; }
+.ub-tabs button.active {
+  color: #fde68a; border-bottom-color: #f59e0b;
+}
 .ub-modal h4.ub-section-h {
   margin: 0.9rem 0 0.4rem 0;
   font-size: 0.85rem;

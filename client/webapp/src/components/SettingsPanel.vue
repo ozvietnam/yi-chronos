@@ -9,6 +9,38 @@ import {
   PLAN_TYPE_LABEL,
   PROVIDER_DISPLAY
 } from "../composables/useSettings.js";
+import { currentUser, currentPerson, isOwner, isAuthenticated, changePassword, logout } from "../stores/authStore.js";
+
+// ── Personal section ────────────────────────────────────────────────────────
+const pwForm = ref({ current: "", next: "", confirm: "" });
+const pwBusy = ref(false);
+const pwError = ref("");
+const pwSuccess = ref("");
+
+async function handleChangePassword() {
+  pwError.value = ""; pwSuccess.value = "";
+  if (!pwForm.value.next || pwForm.value.next.length < 6) {
+    pwError.value = "Mật khẩu mới tối thiểu 6 ký tự"; return;
+  }
+  if (pwForm.value.next !== pwForm.value.confirm) {
+    pwError.value = "Mật khẩu xác nhận không khớp"; return;
+  }
+  pwBusy.value = true;
+  try {
+    await changePassword(pwForm.value.current, pwForm.value.next);
+    pwSuccess.value = "✓ Đổi mật khẩu thành công";
+    pwForm.value = { current: "", next: "", confirm: "" };
+    setTimeout(() => { pwSuccess.value = ""; }, 4000);
+  } catch (e) {
+    pwError.value = e?.message || "Đổi mật khẩu thất bại";
+  } finally {
+    pwBusy.value = false;
+  }
+}
+
+async function handleLogoutClick() {
+  await logout();
+}
 
 const providers = ref([]);
 const loading = ref(false);
@@ -118,7 +150,51 @@ onMounted(load);
     <p v-if="message" class="msg ok">{{ message }}</p>
     <p v-if="error" class="msg error">{{ error }}</p>
 
-    <section class="section">
+    <!-- ───────── Personal section — ai cũng thấy ───────── -->
+    <section v-if="isAuthenticated" class="section">
+      <header><h3>👤 Tài khoản của bạn</h3></header>
+      <div class="account-grid">
+        <div><span class="label">Email</span><span>{{ currentUser?.email }}</span></div>
+        <div><span class="label">Tên hiển thị</span><span>{{ currentUser?.display_name }}</span></div>
+        <div><span class="label">Vai trò</span><span>{{ currentUser?.role === 'owner' ? 'Chủ hệ thống' : 'Người dùng' }}</span></div>
+        <div v-if="currentPerson">
+          <span class="label">Hồ sơ mặc định</span>
+          <span>{{ currentPerson.name }} · {{ currentPerson.birth_datetime_local?.slice(0,10) }}</span>
+        </div>
+      </div>
+
+      <h4 class="sub-h">🔒 Đổi mật khẩu</h4>
+      <form class="pw-form" @submit.prevent="handleChangePassword">
+        <label>Mật khẩu hiện tại
+          <input v-model="pwForm.current" type="password" required />
+        </label>
+        <label>Mật khẩu mới (≥ 6 ký tự)
+          <input v-model="pwForm.next" type="password" required minlength="6" />
+        </label>
+        <label>Xác nhận mật khẩu mới
+          <input v-model="pwForm.confirm" type="password" required minlength="6" />
+        </label>
+        <p v-if="pwError" class="msg error">{{ pwError }}</p>
+        <p v-if="pwSuccess" class="msg ok">{{ pwSuccess }}</p>
+        <div class="pw-actions">
+          <button type="submit" class="btn-primary" :disabled="pwBusy">
+            {{ pwBusy ? "⏳ Đang đổi..." : "Đổi mật khẩu" }}
+          </button>
+          <button type="button" class="btn-ghost-sm" @click="handleLogoutClick">Đăng xuất</button>
+        </div>
+      </form>
+
+      <p class="hint">
+        Quản lý người thân / hồ sơ tử vi: chuyển sang tab <b>🌟 Tử Vi Lá Số</b> → dropdown "Phân tích lá số của" hoặc tab <b>Người thân</b>.
+      </p>
+    </section>
+
+    <p v-else class="msg">
+      Bạn chưa đăng nhập. Bấm nút <b>Đăng nhập</b> ở góc trên-phải để vào hệ thống hoặc đăng ký tài khoản mới.
+    </p>
+
+    <!-- ───────── Owner-only section — AI providers ───────── -->
+    <section v-if="isOwner" class="section">
       <header>
         <h3>🔑 AI Providers (API Keys + Ghi chú)</h3>
         <button class="btn-ghost-sm" @click="resetHealthClick">
@@ -314,6 +390,35 @@ onMounted(load);
   margin-bottom: 0.5rem;
 }
 .section header h3 { margin: 0; color: #cbd5e1; }
+
+.account-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+.account-grid > div {
+  padding: 0.35rem 0; border-bottom: 1px solid #1e293b;
+  display: flex; justify-content: space-between; gap: 0.5rem;
+}
+.account-grid .label { color: #94a3b8; font-weight: 600; }
+.sub-h { margin: 1rem 0 0.5rem; color: #fde68a; font-size: 0.95rem; }
+.pw-form {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  max-width: 480px;
+}
+.pw-form label {
+  display: flex; flex-direction: column; gap: 0.2rem;
+  font-size: 0.85rem; color: #cbd5e1;
+}
+.pw-form input {
+  background: #0f172a; border: 1px solid #334155;
+  border-radius: 4px; padding: 0.45rem 0.6rem;
+  color: #f1f5f9; font-size: 0.9rem;
+}
+.pw-form input:focus { outline: none; border-color: #f59e0b; }
+.pw-actions { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+@media (max-width: 600px) {
+  .account-grid { grid-template-columns: 1fr; }
+}
 .hint {
   color: #94a3b8;
   font-size: 0.85rem;

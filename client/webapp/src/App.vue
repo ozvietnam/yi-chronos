@@ -3,6 +3,8 @@ import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { Activity, Database, RotateCcw, Send, ShieldCheck } from "lucide-vue-next";
 import SchoolIcon from "./components/SchoolIcon.vue";
 import UserBadge from "./components/UserBadge.vue";
+import OnboardingModal from "./components/OnboardingModal.vue";
+import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
 import UniverseCore from "./components/UniverseCore.vue";
 import MaiHoaClock3D from "./components/MaiHoaClock3D.vue";
@@ -386,6 +388,10 @@ onBeforeUnmount(() => {
             @click="activeMainTab = 'gps'">
             <span class="tab-icon"><SchoolIcon name="gps" /></span> GPS
           </button>
+          <button type="button" :class="{ active: activeMainTab === 'settings' }"
+            @click="activeMainTab = 'settings'">
+            <span class="tab-icon">⚙️</span> Cài đặt
+          </button>
         </div>
         <!-- Dev / Owner-only tabs — ẩn cho user thường, sẽ ẩn hết khi phổ biến rộng -->
         <template v-if="isOwner">
@@ -407,10 +413,6 @@ onBeforeUnmount(() => {
             <button type="button" :class="{ active: activeMainTab === 'publishing' }"
               @click="activeMainTab = 'publishing'">
               <span class="tab-icon">📖</span> Dịch sách
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'settings' }"
-              @click="activeMainTab = 'settings'">
-              <span class="tab-icon">⚙️</span> Cài đặt
             </button>
           </div>
         </template>
@@ -684,5 +686,11 @@ onBeforeUnmount(() => {
 
     <!-- Floating Hermes chat — luôn hiện ở góc dưới phải mọi tab -->
     <YiHermesChat :active-tab="activeMainTab" />
+
+    <!-- Global wiki popup — hiển thị khi click 1 thuật ngữ Tử Vi trong panel -->
+    <WikiPopup />
+
+    <!-- First-time profile setup — bắt user mới đăng ký nhập birth_datetime 1 lần -->
+    <OnboardingModal />
   </main>
 </template>

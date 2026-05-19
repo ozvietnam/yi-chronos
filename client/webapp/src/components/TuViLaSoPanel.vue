@@ -18,6 +18,9 @@ import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
 import PhuThaiViModal from "./PhuThaiViModal.vue";
 import CachCucPanel from "./CachCucPanel.vue";
+import DaiVanPanel from "./DaiVanPanel.vue";
+import LuuNienPanel from "./LuuNienPanel.vue";
+import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
 
 const inputBirth = ref("");
 const inputGender = ref("nam");
@@ -31,6 +34,8 @@ const errorMsg = ref("");
 const expandedPalace = ref(null);
 const showPhuThaiVi = ref(false);  // Phú Thái Vi modal
 const showCachCuc = ref(false);    // Cách cục đọc sâu modal
+const showDaiVan = ref(false);     // 12 Đại Vận modal
+const showLuuNien = ref(false);    // Lưu Niên 2026-2030 modal
 
 useActivePersonBirth(inputBirth);
 
@@ -177,6 +182,8 @@ const grid = computed(() => {
       <em>iztro (MIT)</em> + sách Tử Vi Sài Gòn / xemtuong.net.
     </p>
 
+    <TuViPersonSwitcher />
+
     <div class="tvls-form">
       <label>
         <span>Sinh thần</span>
@@ -209,6 +216,14 @@ const grid = computed(() => {
         <button class="cach-cuc-btn" type="button" @click="showCachCuc = true"
                 title="Cách cục lá số anh + đối chiếu vợ chồng — phân tích đọc sâu">
           🪐 Cách cục đọc sâu
+        </button>
+        <button class="dai-van-btn" type="button" @click="showDaiVan = true"
+                title="12 Đại Vận của anh — từ 5 tuổi đến 124 tuổi, mỗi vận 10 năm">
+          🌗 12 Đại Vận
+        </button>
+        <button class="luu-nien-btn" type="button" @click="showLuuNien = true"
+                title="Vận năm 2026-2030 chi tiết (Đại Vận + Tiểu Hạn kết hợp)">
+          📅 Lưu Niên 5 năm
         </button>
       </div>
     </div>
@@ -408,13 +423,35 @@ const grid = computed(() => {
     <!-- Phú Thái Vi modal — kinh điển từ TVDSTT Q.1 -->
     <PhuThaiViModal :visible="showPhuThaiVi" @close="showPhuThaiVi = false" />
 
-    <!-- Cách cục đọc sâu modal -->
-    <div v-if="showCachCuc" class="cc-modal-backdrop" @click.self="showCachCuc = false">
-      <div class="cc-modal">
-        <button class="cc-modal-close" @click="showCachCuc = false">✕</button>
-        <CachCucPanel />
+    <!-- Cách cục đọc sâu modal (teleported to body — escape .panel backdrop-filter containing block) -->
+    <Teleport to="body">
+      <div v-if="showCachCuc" class="cc-modal-backdrop" @click.self="showCachCuc = false">
+        <div class="cc-modal">
+          <button class="cc-modal-close" @click="showCachCuc = false">✕</button>
+          <CachCucPanel />
+        </div>
       </div>
-    </div>
+    </Teleport>
+
+    <!-- 12 Đại Vận modal -->
+    <Teleport to="body">
+      <div v-if="showDaiVan" class="cc-modal-backdrop" @click.self="showDaiVan = false">
+        <div class="cc-modal">
+          <button class="cc-modal-close" @click="showDaiVan = false">✕</button>
+          <DaiVanPanel />
+        </div>
+      </div>
+    </Teleport>
+
+    <!-- Lưu Niên 2026-2030 modal -->
+    <Teleport to="body">
+      <div v-if="showLuuNien" class="cc-modal-backdrop" @click.self="showLuuNien = false">
+        <div class="cc-modal">
+          <button class="cc-modal-close" @click="showLuuNien = false">✕</button>
+          <LuuNienPanel />
+        </div>
+      </div>
+    </Teleport>
   </section>
 </template>
 
@@ -488,34 +525,43 @@ const grid = computed(() => {
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
-/* Cách cục modal wrapper */
-.cc-modal-backdrop {
-  position: fixed; inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
-  z-index: 2000;
-  display: flex; justify-content: center; align-items: center;
-  padding: 1rem;
+/* Đại Vận button */
+.dai-van-btn {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  color: #c4b5fd;
+  border: 1px solid #7c3aed;
+  padding: 0.5rem 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
 }
-.cc-modal {
-  background: #0f172a;
-  border: 1px solid #334155;
-  border-radius: 8px;
-  max-width: 960px;
-  width: 100%;
-  max-height: 92vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.7);
+.dai-van-btn:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
 }
-.cc-modal-close {
-  position: absolute; top: 0.6rem; right: 0.8rem;
-  background: rgba(255,255,255,0.1); border: none; color: #cbd5e1;
-  width: 32px; height: 32px; border-radius: 4px;
-  cursor: pointer; font-size: 1.1rem;
-  z-index: 1;
+
+/* Lưu Niên button */
+.luu-nien-btn {
+  background: linear-gradient(135deg, #be185d, #9f1239);
+  color: #fbcfe8;
+  border: 1px solid #db2777;
+  padding: 0.5rem 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
 }
-.cc-modal-close:hover { background: rgba(255,255,255,0.2); }
+.luu-nien-btn:hover {
+  background: linear-gradient(135deg, #db2777, #be185d);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(219, 39, 119, 0.4);
+}
+
+/* Modal styles — removed (moved to non-scoped block below to work with Teleport-to-body) */
 
 /* ── 4×4 lá số grid ────────────────────────────────────────────────────── */
 .laso-grid {
@@ -933,4 +979,35 @@ const grid = computed(() => {
   .cell-palace { font-size: 10px; }
   .tvls-form { grid-template-columns: 1fr; }
 }
+</style>
+
+<!-- Non-scoped styles for Teleported modal so they apply when modal renders inside <body> -->
+<style>
+.cc-modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex; justify-content: center; align-items: center;
+  padding: 1rem;
+}
+.cc-modal {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.7);
+}
+.cc-modal-close {
+  position: absolute; top: 0.6rem; right: 0.8rem;
+  background: rgba(255,255,255,0.1); border: none; color: #cbd5e1;
+  width: 32px; height: 32px; border-radius: 4px;
+  cursor: pointer; font-size: 1.1rem;
+  z-index: 1;
+}
+.cc-modal-close:hover { background: rgba(255,255,255,0.2); }
 </style>
