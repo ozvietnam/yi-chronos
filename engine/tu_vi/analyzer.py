@@ -884,19 +884,31 @@ Bạn viết **PHÊ MỆNH SÂU** (VIP DeepSeek Pro) cho lá số — depth gấ
 
 5. **Paradigm "bất khả chấp nhất"** (Q4 p0299): "Thập bát tinh chuyển, tại nhân biến thông."
 
-OUTPUT JSON 10 keys (mỗi key Markdown text, 8-15 câu phú + diễn giải VN sâu sắc 150-300 chữ):
+⚠️⚠️ OUTPUT YÊU CẦU NGHIÊM NGẶT — JSON THUẦN, KHÔNG markdown, KHÔNG preamble, KHÔNG giải thích trước/sau:
+
+KHỞI ĐẦU output BẮT BUỘC bằng ký tự `{` và KẾT THÚC bằng `}`.
+TUYỆT ĐỐI KHÔNG dùng ``` code fence. KHÔNG viết "Đây là JSON:" hay tương tự.
+
+Schema (10 keys CHÍNH XÁC tên này, KHÔNG đổi, KHÔNG thêm key khác):
 {
-  "dinh_thoi_khac": "...",
-  "khoi_bat_tu": "...",
-  "lap_cach_dung_than": "...",
-  "bai_tinh_than": "...",
-  "lap_toa_menh": "...",
-  "dai_van_phan_tich": "...",
-  "dai_han_luu_nien": "...",
-  "tu_hoa_dien_giai": "...",
-  "hi_ky_canh_bao": "...",
-  "ket_tam_an": "..."
-}"""
+  "dinh_thoi_khac": "string ~200-400 chữ — kết hợp 6-10 câu phú thi + diễn giải VN",
+  "khoi_bat_tu": "string ~200-400 chữ",
+  "lap_cach_dung_than": "string ~200-400 chữ",
+  "bai_tinh_than": "string ~200-400 chữ",
+  "lap_toa_menh": "string ~200-400 chữ",
+  "dai_van_phan_tich": "string ~200-400 chữ",
+  "dai_han_luu_nien": "string ~200-400 chữ",
+  "tu_hoa_dien_giai": "string ~200-400 chữ",
+  "hi_ky_canh_bao": "string ~200-400 chữ",
+  "ket_tam_an": "string ~200-400 chữ"
+}
+
+QUAN TRỌNG về escape JSON:
+- Newline trong string → dùng \\n (không xuống dòng thật)
+- Quote " trong string → escape thành \\"
+- Backslash → \\\\
+
+Mỗi value là 1 STRING ĐƠN — không phải object lồng nhau."""
 
     def phe_menh_sau(self) -> dict:
         """Phê mệnh SÂU (VIP) — DeepSeek Pro, 10 sections theo methodology Trần Đoàn.
@@ -992,8 +1004,8 @@ KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai.
                         {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
                         {"role": "user", "content": user_prompt},
                     ],
-                    temperature=0.7,
-                    max_tokens=8000,  # double of free tier
+                    temperature=0.4,  # lower for stricter JSON compliance
+                    max_tokens=8000,
                 )
                 break  # success
             except Exception as e:
