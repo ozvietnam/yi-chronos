@@ -817,9 +817,22 @@ const grid = computed(() => {
 }
 .chinh-tinh { font-weight: 800; font-size: 12px; line-height: 1.4; }
 .phu-tinh { color: #7dd3fc; font-size: 10.5px; }
-.sat-tinh { color: #fca5a5; font-size: 10px; }
-.sat-tinh.loc-ton { color: #86efac; font-weight: 700; }
-.sat-tinh.thien-ma { color: #fde68a; font-weight: 600; }
+.stars.sat { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px; }
+.sat-tinh {
+  color: #fca5a5; font-size: 9.5px;
+  padding: 1px 4px; border-radius: 2px;
+  background: rgba(252, 165, 165, 0.10);
+}
+.sat-tinh.loc-ton {
+  color: #86efac; font-weight: 700;
+  background: rgba(134, 239, 172, 0.14);
+  border: 1px solid rgba(134, 239, 172, 0.30);
+}
+.sat-tinh.thien-ma {
+  color: #fde68a; font-weight: 600;
+  background: rgba(253, 230, 138, 0.13);
+  border: 1px solid rgba(253, 230, 138, 0.30);
+}
 .stars.q2 {
   margin-top: 3px; padding-top: 3px;
   border-top: 1px dashed rgba(168, 85, 247, 0.25);
