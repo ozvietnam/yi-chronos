@@ -5197,6 +5197,22 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
 
 
 # ─── Cách cục dictionary (từ thâm nhuần Q1) ──────────────────────────────────
+@app.post("/api/tu-vi/case-studies/match")
+def yi_tuvi_case_studies_match(req: _AnalyzeRequest, request: Request) -> dict:
+    """Match lá số user với case studies lịch sử (Q3+Q4 Trần Đoàn + Khang Tiết).
+
+    Trả về top 3 historical figures có nét giống pattern lá số.
+    Anti-predict: dùng "mỗ" pattern, không phán "anh sẽ giống X".
+    """
+    from engine.tu_vi.case_matcher import match_cases
+    person = _resolve_person_from_request(req, request)
+    from engine.tu_vi.analyzer import TuViAnalyzer
+    analyzer = TuViAnalyzer(person)
+    la_so = analyzer.la_so
+    result = match_cases(la_so, top_n=3)
+    return {"status": "ok", **result}
+
+
 @app.get("/api/tu-vi/cach-cuc-pho-bien")
 def yi_tuvi_cach_cuc_pho_bien(limit: int = 50, cap_do: str = "") -> dict:
     """Liệt kê 545 cách cục kinh điển từ Phú Thái Vi (Q1).

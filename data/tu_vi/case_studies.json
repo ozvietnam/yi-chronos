@@ -1,0 +1,143 @@
+{
+  "schema_version": "tu_vi_case_studies_v1",
+  "source": "Tử Vi Đẩu Số Toàn Thư Q3 + Q4 (Trần Đoàn + Khang Tiết)",
+  "paradigm_note": "Cases lịch sử Q3+Q4 không phải database 'predict ai sẽ giống ai' — mà là DẪN CHỨNG trong phê mệnh phú thi. Cùng 1 cách cục có thể có 2 paradigm (vd Tử Phá Thìn Tuất = phú quý theo Trần Đoàn, nhưng quân thần bất nghĩa theo Khang Tiết). UI match → gợi mở, không phán.",
+  "patterns": [
+    {
+      "id": "tu_phu_dan",
+      "name_vi": "Tử Phủ thủ Mệnh tại Dần — cách Thanh Quan Hán",
+      "name_zh": "紫府寅守命",
+      "polarity": "cát",
+      "chart_pattern": {
+        "menh_branch": "Dần",
+        "menh_chinh_tinh_required": ["Tử Vi", "Thiên Phủ"],
+        "menh_chinh_tinh_optional": [],
+        "supporting_stars_any": ["Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc"],
+        "tam_hop_required": "Dần-Ngọ-Tuất",
+        "additional_hints": [
+          "Thất Sát triêu củng (tam hợp chiếu Mệnh)",
+          "Thân cung an tịnh hoặc nô bộc tĩnh trung mang"
+        ]
+      },
+      "source_ref": {
+        "primary": "Q4 p0257 r003-r024",
+        "secondary": "Q4 p0258 r003 (Khang Tiết duyệt)",
+        "related": "Q3 p0179 (Tử Phủ đắc Phụ Bật)"
+      },
+      "key_phrase_zh": "紫微守命坐寅方 天府同宫最妙",
+      "key_phrase_hv": "Tử Vi thủ mệnh tọa Dần phương, Thiên Phủ đồng cung tối diệu",
+      "lesson_short": "Cách Thanh Quan — chính trực, hiển đạt, hậu vận từ quan về quê yên hưởng phúc.",
+      "lesson_long": "Lá số có Tử Vi Thiên Phủ đồng cung tại Dần + Tả Hữu Xương Khúc + Thất Sát triêu củng → cách của các Thanh Quan đời Hán. Sự nghiệp hiển đạt nhưng KHÔNG dừng ở vinh hoa — đặc trưng là biết DỪNG, từ quan về quê an hưởng (Sơ Quảng + Sơ Thụ). Đức chính sánh Cung Toại + Hoàng Bá.",
+      "warning": "Cách cát này không miễn nhiễm. Nếu Đại Hạn về Thìn/Tuất gặp sát → vẫn cần thận trọng. Tổ sư dùng 'mỗ' pattern: 'mỗ năm mỗ tinh nghi thận'.",
+      "historical_figures": [
+        {
+          "name_vi": "Trác Mậu",
+          "name_zh": "卓茂",
+          "era": "Tây Hán → Đông Hán (~53 BC - 28 AD)",
+          "title": "Thái phó (Thái Đầu Phủ)",
+          "lesson": "Liêm chính, dân yêu mến — khi mất xe trộm, người trộm trả lại vì kính phục.",
+          "wiki_zh": "卓茂"
+        },
+        {
+          "name_vi": "Lỗ Cung",
+          "name_zh": "鲁恭",
+          "era": "Đông Hán (32-112 AD)",
+          "title": "Thái thú Trung Mâu",
+          "lesson": "Đức trị — chuyện 'tam dị' (3 điều lạ: trùng không phạm cảnh, hóa thú gấm vầy, tiểu nhi hiểu lễ).",
+          "wiki_zh": "鲁恭"
+        },
+        {
+          "name_vi": "Cung Toại",
+          "name_zh": "龚遂",
+          "era": "Tây Hán (~?-62 BC)",
+          "title": "Thái thú Bột Hải",
+          "lesson": "Khuyên dân bỏ vũ khí, cầm nông cụ — biến vùng giặc cướp thành đất nông nghiệp giàu mạnh.",
+          "wiki_zh": "龚遂"
+        },
+        {
+          "name_vi": "Hoàng Bá",
+          "name_zh": "黄霸",
+          "era": "Tây Hán (~?-51 BC)",
+          "title": "Thừa tướng",
+          "lesson": "Đức trị 'kỳ nhân giáo hóa' — được tôn 'Thiên hạ chi đệ nhất chính tích'.",
+          "wiki_zh": "黄霸"
+        },
+        {
+          "name_vi": "Sơ Quảng",
+          "name_zh": "疏广",
+          "era": "Tây Hán",
+          "title": "Thái phó Hoàng tử",
+          "lesson": "Biết DỪNG — sau khi đạt cực phẩm, từ quan về quê, chia hết bổng lộc cho người nghèo. Cùng cháu Sơ Thụ.",
+          "wiki_zh": "疏广"
+        },
+        {
+          "name_vi": "Sơ Thụ",
+          "name_zh": "疏受",
+          "era": "Tây Hán",
+          "title": "Thái tử Thiếu phó (cùng chú Sơ Quảng)",
+          "lesson": "Cùng chú Sơ Quảng từ quan, được Hán Tuyên Đế tiễn long trọng — gương 'biết đủ'.",
+          "wiki_zh": "疏受"
+        }
+      ]
+    },
+    {
+      "id": "tu_pha_thin_tuat",
+      "name_vi": "Tử Phá thủ Mệnh tại Thìn/Tuất/Sửu/Mùi — cách Quân Thần Bất Nghĩa",
+      "name_zh": "紫破守命辰戌丑未",
+      "polarity": "ambiguous_warning",
+      "chart_pattern": {
+        "menh_branch_any": ["Thìn", "Tuất", "Sửu", "Mùi"],
+        "menh_chinh_tinh_required": ["Tử Vi", "Phá Quân"],
+        "menh_chinh_tinh_optional": [],
+        "supporting_stars_any": [],
+        "additional_hints": [
+          "Có cát diệu thêm → phú quý",
+          "Có Tham Lang đồng → chí dâm"
+        ]
+      },
+      "source_ref": {
+        "primary": "Q3 p0180 r002-r006",
+        "khang_tiet_ref": "Q3 p0180 r003 (Khang Tiết thuyết Dịch Kim thư ③)"
+      },
+      "key_phrase_zh_tran": "紫破命临於辰戌丑未 再加吉曜 富贵期",
+      "key_phrase_hv_tran": "Tử Phá mệnh lâm ư Thìn Tuất Sửu Mùi, tái gia cát diệu, phú quý kỳ",
+      "key_phrase_zh_khang_tiet": "紫破辰戌 君臣不义",
+      "key_phrase_hv_khang_tiet": "Tử Phá Thìn Tuất, quân thần bất nghĩa",
+      "lesson_short": "Cách phú quý kỳ vọng nhưng kèm rủi ro phản nghịch — 2 paradigm Trần Đoàn vs Khang Tiết.",
+      "lesson_long": "Trần Đoàn nói thêm cát diệu → phú quý có thể chờ đợi. NHƯNG Khang Tiết (Tổ Mai Hoa) bổ chú: cùng cách này dẫn đến quân thần bất nghĩa — phản chủ, lật vua. Cùng 1 cấu trúc sao + cung, 2 Tổ sư đọc 2 ngả. Đây là MẪU paradigm cốt lõi Iron Rule #6: cát hung không tuyệt đối, phụ thuộc TÂM + thời + người. KHÔNG dùng để predict — dùng để soi xét tâm anh có nguy cơ phản chủ không.",
+      "warning": "PARADIGM TENSION — KHÔNG phán cứng. Sage Tử Vi PHẢI present cả 2 voice (Trần Đoàn + Khang Tiết) khi user có pattern này. Hỏi user 'TÂM anh hướng về đâu?' thay vì 'anh sẽ X'.",
+      "historical_figures": [
+        {
+          "name_vi": "An Lộc Sơn",
+          "name_zh": "安禄山",
+          "era": "Đường (703-757 AD)",
+          "title": "Tiết độ sứ Phạm Dương — Đại Yên Hoàng Đế",
+          "lesson": "Hồ tướng được sủng ái → phản loạn (loạn An Sử 755-763) — Đại Đường suy tàn. Cách quân thần bất nghĩa.",
+          "wiki_zh": "安禄山"
+        },
+        {
+          "name_vi": "Triệu Cao",
+          "name_zh": "赵高",
+          "era": "Tần (~?-207 BC)",
+          "title": "Hoạn quan → Thừa tướng Tần",
+          "lesson": "Gian thần — 'chỉ hươu nói ngựa' — giết Tần Nhị Thế, hủy nhà Tần. Cùng cách An Lộc Sơn.",
+          "wiki_zh": "赵高"
+        }
+      ]
+    }
+  ],
+  "engine_notes": {
+    "matching_strategy": "Tier 1 — Match menh_chinh_tinh_required + menh_branch (strict). Tier 2 — Match optional + supporting stars (loose).",
+    "ui_presentation": [
+      "Hiển thị TỐI ĐA 3 figures per match",
+      "Luôn show BOTH polarity nếu có (Tử Phủ Dần có cát + nhưng có thể bị challenged)",
+      "Dùng wording: 'Lá số anh có NÉT GIỐNG ai' (không phải 'anh sẽ giống ai')",
+      "Show lesson_short — không show lesson_long unless user click expand"
+    ],
+    "anti_predict_guards": [
+      "Không bao giờ nói 'anh sẽ thành ai'",
+      "Luôn kèm 'mỗ' pattern — 'mỗ năm mỗ tinh có thể cần thận trọng'",
+      "Cảnh báo: cách cùng phẩm tinh không quyết định đời người, TÂM + thời + lựa chọn quyết định"
+    ]
+  }
+}

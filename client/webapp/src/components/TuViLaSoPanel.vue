@@ -31,6 +31,8 @@ const interpretation = ref(null);
 const luuTru = ref(null);
 const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
 const cungLoading = ref(false);
+const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
+const caseLoading = ref(false);
 const loading = ref(false);
 const errorMsg = ref("");
 const expandedPalace = ref(null);
@@ -108,6 +110,7 @@ async function castChart() {
 
     // ⭐ Load Q1 Phú + Q3 sao×cung passages (background, non-blocking)
     loadCungReading();
+    loadCaseStudies();
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -162,6 +165,26 @@ async function loadCungReading() {
     console.error("loadCungReading failed:", e);
   } finally {
     cungLoading.value = false;
+  }
+}
+
+async function loadCaseStudies() {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  caseLoading.value = true;
+  try {
+    const resp = await fetch("/api/tu-vi/case-studies/match", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person_key: personKey }),
+    }).then((r) => r.json());
+    if (resp.status === "ok") {
+      caseStudies.value = resp;
+    }
+  } catch (e) {
+    console.error("loadCaseStudies failed:", e);
+  } finally {
+    caseLoading.value = false;
   }
 }
 
@@ -536,6 +559,79 @@ const grid = computed(() => {
             <div class="lt-star-cell"><span>Lưu Thiên Việt</span><b>{{ luuTru.luu_thien_viet }}</b></div>
           </div>
         </div>
+      </template>
+
+      <!-- ── Case Studies — Lá số anh có nét giống ai (Q3+Q4) ──────── -->
+      <template v-if="caseStudies && caseStudies.matches?.length">
+        <section class="case-studies-block">
+          <h4 class="section-h">
+            🏛️ Lá số anh có nét giống ai trong lịch sử
+            <small class="case-paradigm-tag">Q3+Q4 — dẫn chứng phê mệnh</small>
+          </h4>
+          <p class="case-warning">
+            ⚠ Đây là <b>NÉT GIỐNG về cấu trúc sao</b>, không phải tiên tri "anh sẽ giống X".
+            Cùng cấu trúc có 2 ngả — TÂM + thời + lựa chọn của anh quyết định.
+          </p>
+          <div v-for="(m, mi) in caseStudies.matches" :key="m.pattern_id" class="case-pattern-card"
+               :class="'cpc-' + m.polarity">
+            <header class="cpc-head">
+              <div class="cpc-title">
+                <span class="cpc-badge" :class="'badge-' + m.polarity">
+                  {{ m.polarity === 'cát' ? '✦ Cát'
+                    : m.polarity === 'ambiguous_warning' ? '⚠ Paradigm tension'
+                    : m.polarity }}
+                </span>
+                <strong>{{ m.pattern_name }}</strong>
+              </div>
+              <small class="cpc-score">match score {{ m.score }} · {{ m.pattern_name_zh }}</small>
+            </header>
+            <div class="cpc-reasons">
+              <span v-for="(r, ri) in m.reasons" :key="ri" class="cpc-reason">{{ r }}</span>
+            </div>
+            <div v-if="m.key_phrase_hv" class="cpc-phrase">
+              <em>« {{ m.key_phrase_hv }} »</em>
+              <small v-if="m.key_phrase_zh">— {{ m.key_phrase_zh }}</small>
+            </div>
+            <div v-if="m.key_phrase_hv_tran" class="cpc-dual-phrase">
+              <div class="cpc-voice cpc-voice-tran">
+                <small>Trần Đoàn:</small> <em>« {{ m.key_phrase_hv_tran }} »</em>
+              </div>
+              <div class="cpc-voice cpc-voice-khang-tiet">
+                <small>Khang Tiết bổ:</small> <em>« {{ m.key_phrase_hv_khang_tiet }} »</em>
+              </div>
+            </div>
+            <p class="cpc-lesson">{{ m.lesson_short }}</p>
+            <div class="cpc-figures">
+              <article v-for="(f, fi) in m.figures.slice(0, 4)" :key="fi" class="figure-card">
+                <header>
+                  <h6>{{ f.name_vi }} <small class="fc-zh">({{ f.name_zh }})</small></h6>
+                  <small class="fc-era">{{ f.era }}</small>
+                </header>
+                <p class="fc-title">{{ f.title }}</p>
+                <p class="fc-lesson">{{ f.lesson }}</p>
+              </article>
+            </div>
+            <p v-if="m.warning" class="cpc-warning">{{ m.warning }}</p>
+            <details class="cpc-source">
+              <summary>Nguồn dẫn</summary>
+              <ul>
+                <li v-for="(v, k) in m.source_ref" :key="k"><b>{{ k }}:</b> {{ v }}</li>
+              </ul>
+            </details>
+          </div>
+          <p v-if="caseStudies.paradigm_note" class="case-paradigm-note">
+            💡 {{ caseStudies.paradigm_note }}
+          </p>
+        </section>
+      </template>
+      <template v-else-if="caseLoading">
+        <p class="case-loading">Đang tìm nét giống lịch sử...</p>
+      </template>
+      <template v-else-if="caseStudies && !caseStudies.matches?.length">
+        <p class="case-empty">
+          🌿 Lá số anh không khớp pattern Q3+Q4 nào (Tử Phủ Dần hoặc Tử Phá Thìn Tuất).
+          Đó là <em>điều tốt</em> — lá số anh có cá tính riêng, không bị bóng các figure lịch sử.
+        </p>
       </template>
 
       <!-- ── Interpretation — 12 cung readings ───────────────────── -->
@@ -1377,6 +1473,194 @@ const grid = computed(() => {
   background: rgba(148, 163, 184, 0.15);
   color: #cbd5e1;
   border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* ━━━━━━━━ Case Studies (Q3+Q4 historical figures) ━━━━━━━━ */
+.case-studies-block {
+  margin: 20px 0;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(232, 201, 90, 0.05) 0%, rgba(20, 30, 45, 0.3) 100%);
+  border: 1px solid rgba(232, 201, 90, 0.3);
+  border-radius: 8px;
+}
+.case-paradigm-tag {
+  font-size: 11px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.5));
+  font-style: italic;
+  margin-left: 8px;
+}
+.case-warning {
+  background: rgba(214, 90, 74, 0.08);
+  border-left: 3px solid #d65a4a;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  color: #f5b08c;
+  margin: 8px 0 14px;
+  line-height: 1.55;
+  border-radius: 3px;
+}
+.case-warning b { color: #f5e6b1; }
+
+.case-pattern-card {
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-left: 4px solid var(--accent-gold, #e8c95a);
+}
+.cpc-cát { border-left-color: #5ab07a; }
+.cpc-ambiguous_warning { border-left-color: #f59e0b; }
+.cpc-hung { border-left-color: #d65a4a; }
+
+.cpc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cpc-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cpc-title strong { font-size: 14px; color: var(--accent-gold-soft, #f5e6b1); }
+.cpc-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+}
+.badge-cát {
+  background: rgba(90, 176, 122, 0.18);
+  border: 1px solid rgba(90, 176, 122, 0.4);
+  color: #88d39e;
+}
+.badge-ambiguous_warning {
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fcd34d;
+}
+.badge-hung {
+  background: rgba(214, 90, 74, 0.18);
+  border: 1px solid rgba(214, 90, 74, 0.4);
+  color: #f5b08c;
+}
+.cpc-score {
+  font-size: 11px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.5));
+}
+
+.cpc-reasons { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+.cpc-reason {
+  background: rgba(91, 229, 211, 0.08);
+  border: 1px solid rgba(91, 229, 211, 0.25);
+  color: #5be5d3;
+  font-size: 10.5px;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.cpc-phrase {
+  margin: 8px 0;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 2px solid var(--accent-gold-soft, #f5e6b1);
+  font-size: 12px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.85));
+  border-radius: 0 3px 3px 0;
+}
+.cpc-phrase em { color: #f5e6b1; }
+.cpc-phrase small { display: block; font-size: 10.5px; color: rgba(230, 238, 245, 0.55); margin-top: 3px; }
+
+.cpc-dual-phrase {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.cpc-voice {
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.cpc-voice small { display: block; font-size: 10px; opacity: 0.75; margin-bottom: 2px; }
+.cpc-voice-tran { background: rgba(91, 229, 211, 0.08); border-left: 2px solid #5be5d3; color: #c9efeb; }
+.cpc-voice-khang-tiet { background: rgba(167, 139, 250, 0.08); border-left: 2px solid #a78bfa; color: #ddd1ff; }
+.cpc-voice em { font-style: italic; }
+@media (max-width: 720px) { .cpc-dual-phrase { grid-template-columns: 1fr; } }
+
+.cpc-lesson {
+  margin: 8px 0;
+  font-size: 13px;
+  color: var(--text-primary, #e6eef5);
+  line-height: 1.6;
+}
+
+.cpc-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.figure-card {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.figure-card header h6 {
+  margin: 0;
+  font-size: 13px;
+  color: var(--accent-gold-soft, #f5e6b1);
+}
+.figure-card .fc-zh { font-size: 11px; color: rgba(230, 238, 245, 0.5); font-weight: normal; }
+.figure-card .fc-era { display: block; font-size: 10.5px; color: rgba(230, 238, 245, 0.55); margin-top: 2px; }
+.figure-card .fc-title {
+  margin: 4px 0;
+  font-size: 11px;
+  color: var(--accent-teal, #5be5d3);
+}
+.figure-card .fc-lesson {
+  margin: 4px 0 0;
+  font-size: 11.5px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  line-height: 1.5;
+}
+
+.cpc-warning {
+  margin: 10px 0 4px;
+  padding: 7px 10px;
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 2px solid #f59e0b;
+  font-size: 11.5px;
+  color: #fcd34d;
+  line-height: 1.5;
+  border-radius: 0 3px 3px 0;
+}
+
+.cpc-source { margin-top: 8px; font-size: 11px; }
+.cpc-source summary { cursor: pointer; color: rgba(230, 238, 245, 0.55); }
+.cpc-source ul { margin: 4px 0 0 16px; padding: 0; }
+.cpc-source li { color: rgba(230, 238, 245, 0.65); margin: 2px 0; }
+
+.case-paradigm-note {
+  margin: 12px 0 0;
+  padding: 8px 12px;
+  background: rgba(167, 139, 250, 0.05);
+  border-left: 2px solid #a78bfa;
+  font-size: 12px;
+  color: rgba(230, 238, 245, 0.78);
+  line-height: 1.6;
+  font-style: italic;
+}
+.case-loading, .case-empty {
+  font-size: 12.5px;
+  color: rgba(230, 238, 245, 0.55);
+  font-style: italic;
+  margin: 12px 0;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
 }
 </style>
 
