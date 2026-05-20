@@ -908,13 +908,22 @@ OUTPUT JSON 10 keys (mỗi key Markdown text, 8-15 câu phú + diễn giải VN 
         if cached:
             return cached
 
-        # Force DeepSeek (skip cheap MiniMax for VIP tier quality)
+        # VIP chain: prefer DeepSeek (quality), fallback chain if unhealthy
         from engine.ai.registry import get_registry
         registry = get_registry()
-        try:
-            provider = registry.first_configured(["deepseek", "anthropic", "gemini", "minimax", "openrouter"])
-        except Exception as e:
-            return {"status": "error", "message": f"No LLM provider configured: {e}"}
+        provider_chain = ["deepseek", "anthropic", "gemini", "minimax", "openrouter"]
+        # Build healthy provider list (skip unhealthy, skip unconfigured)
+        candidate_providers = []
+        for name in provider_chain:
+            try:
+                p = registry.get(name)
+                if p and p.is_configured and not registry.is_unhealthy(name):
+                    candidate_providers.append(p)
+            except Exception:
+                pass
+        if not candidate_providers:
+            return {"status": "error", "message": "No LLM provider configured (all unhealthy or missing keys)"}
+        provider = candidate_providers[0]
 
         # Build rich context (richer than free tier — include Q4 stuff)
         ctx_parts = [self.chart_summary]
@@ -970,27 +979,81 @@ KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai.
 
 **OUTPUT BẮT BUỘC**: JSON object đầy đủ 10 keys. KHÔNG markdown wrapper."""
 
-        try:
-            resp = provider.chat(
-                messages=[
-                    {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
-                    {"role": "user", "content": user_prompt},
-                ],
-                temperature=0.7,
-                max_tokens=8000,  # double of free tier
-            )
-        except Exception as e:
-            return {"status": "error", "message": f"LLM call failed ({provider.name}): {e}"}
+        # Retry loop: iterate candidate_providers, mark unhealthy on persistent failures
+        resp = None
+        last_err = None
+        tried = []
+        for cand in candidate_providers:
+            provider = cand
+            tried.append(provider.name)
+            try:
+                resp = provider.chat(
+                    messages=[
+                        {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    temperature=0.7,
+                    max_tokens=8000,  # double of free tier
+                )
+                break  # success
+            except Exception as e:
+                err_str = str(e)
+                last_err = f"{provider.name}: {err_str[:200]}"
+                # Mark unhealthy for AUTH/BALANCE errors (persistent — skip whole session)
+                if any(sig in err_str for sig in ["401", "403", "1113", "invalid", "Authentication", "balance", "quota"]):
+                    registry.mark_unhealthy(provider.name, err_str[:100])
+                # 503/timeout = transient, don't mark unhealthy but still skip in this call
+                continue
+        if resp is None:
+            return {
+                "status": "error",
+                "message": f"All providers failed. Tried: {tried}. Last error → {last_err}",
+                "providers_tried": tried,
+            }
 
         content = resp.content if hasattr(resp, "content") else str(resp)
-        if content.startswith("```"):
-            lines = content.split("\n")
-            content = "\n".join(l for l in lines if not l.startswith("```"))
+        # Strip markdown fences anywhere (Gemini sometimes wraps in ```json ... ```)
+        if "```" in content:
+            import re as _re
+            m = _re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, _re.DOTALL)
+            if m:
+                content = m.group(1)
+            else:
+                # fallback: strip any line starting with ```
+                content = "\n".join(l for l in content.split("\n") if not l.strip().startswith("```"))
 
+        phe = None
+        # Attempt 1: direct parse
         try:
             phe = json.loads(content)
         except Exception:
-            phe = {"dinh_thoi_khac": content}
+            pass
+        # Attempt 2: extract first balanced {...} substring
+        if phe is None:
+            try:
+                start = content.find("{")
+                end = content.rfind("}")
+                if start >= 0 and end > start:
+                    phe = json.loads(content[start:end+1])
+            except Exception:
+                pass
+        # Attempt 3: tolerant — accept trailing commas, smart quotes
+        if phe is None:
+            import re as _re
+            cleaned = content
+            # Replace smart quotes
+            cleaned = cleaned.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
+            # Remove trailing commas before } or ]
+            cleaned = _re.sub(r",(\s*[}\]])", r"\1", cleaned)
+            try:
+                start = cleaned.find("{"); end = cleaned.rfind("}")
+                if start >= 0 and end > start:
+                    phe = json.loads(cleaned[start:end+1])
+            except Exception:
+                pass
+        # Fallback: dump raw into dinh_thoi_khac so user sees content (not lose work)
+        if phe is None:
+            phe = {"dinh_thoi_khac": content, "_parse_error": True}
 
         prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
         completion_tokens = getattr(resp, "completion_tokens", 0) or 0
