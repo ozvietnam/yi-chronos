@@ -35,6 +35,8 @@ const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
 const caseLoading = ref(false);
 const chartStrength = ref(null);  // ⭐ Miếu Vượng Hãm score (Q2 p0102)
 const safetyCheck = ref(null);    // ⭐ Psychological safety patterns
+const pheMenh = ref(null);        // ⭐ Phê mệnh phú thi (Q4 Khang Tiết)
+const pheMenhLoading = ref(false);
 const loading = ref(false);
 const errorMsg = ref("");
 const expandedPalace = ref(null);
@@ -169,6 +171,30 @@ async function loadCungReading() {
     console.error("loadCungReading failed:", e);
   } finally {
     cungLoading.value = false;
+  }
+}
+
+async function loadPheMenh(force = false) {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  pheMenhLoading.value = true;
+  try {
+    // Try cache first
+    let resp = await fetch(`/api/tu-vi/analyze/${encodeURIComponent(personKey)}/phe_menh`)
+      .then((r) => r.json());
+    if (resp.status !== "ok" || force) {
+      resp = await fetch("/api/tu-vi/analyze/phe_menh", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ person_key: personKey, force }),
+      }).then((r) => r.json());
+    }
+    if (resp.status === "ok") pheMenh.value = resp;
+    else pheMenh.value = { error: resp.message || "Tạo phê mệnh thất bại" };
+  } catch (e) {
+    pheMenh.value = { error: String(e.message || e) };
+  } finally {
+    pheMenhLoading.value = false;
   }
 }
 
@@ -655,6 +681,57 @@ const grid = computed(() => {
           </div>
         </section>
       </template>
+
+      <!-- ── Phê Mệnh (Q4 Khang Tiết Edition — phú thi + "mỗ" pattern) ── -->
+      <section class="phe-menh-block">
+        <header class="pm-head">
+          <h4>📜 Phê mệnh phú thi (Q4 Khang Tiết Edition)</h4>
+          <div class="pm-actions">
+            <small v-if="pheMenh?.provider" class="pm-meta">via {{ pheMenh.provider }} · {{ (pheMenh.tokens?.prompt + pheMenh.tokens?.completion).toLocaleString() }} tokens</small>
+            <button v-if="!pheMenh && !pheMenhLoading" class="pm-btn" @click="loadPheMenh(false)">
+              ✨ Tạo phê mệnh
+            </button>
+            <button v-if="pheMenh && !pheMenh.error && !pheMenhLoading" class="pm-btn pm-regen" @click="loadPheMenh(true)">
+              🔄 Viết lại
+            </button>
+          </div>
+        </header>
+
+        <p v-if="!pheMenh && !pheMenhLoading" class="pm-intro">
+          Phê mệnh viết theo phong cách Q4 Tử Vi Đẩu Số Toàn Thư — phú thi 4-7 chữ + ẩn dụ + <b>"mỗ" pattern</b>
+          (gợi mở, KHÔNG predict). Tổ sư Trần Đoàn + Khang Tiết đồng tác. ~26 giây + miễn phí qua MiniMax.
+        </p>
+
+        <p v-if="pheMenhLoading" class="pm-loading">
+          ⏳ Đang viết phê mệnh... (~30 giây, em đang gọi Tổ sư)
+        </p>
+
+        <p v-if="pheMenh?.error" class="pm-error">⚠ {{ pheMenh.error }}</p>
+
+        <div v-if="pheMenh?.phe_menh && !pheMenh.error" class="pm-content">
+          <article v-if="pheMenh.phe_menh.khai_de" class="pm-section pm-khai-de">
+            <h5>🌅 Khai đề</h5>
+            <p>{{ pheMenh.phe_menh.khai_de }}</p>
+          </article>
+          <article v-if="pheMenh.phe_menh.menh_than" class="pm-section pm-menh-than">
+            <h5>🪞 Mệnh & Thân (CƠ — Trần Đoàn)</h5>
+            <p>{{ pheMenh.phe_menh.menh_than }}</p>
+          </article>
+          <article v-if="pheMenh.phe_menh.dai_van" class="pm-section pm-dai-van">
+            <h5>🌊 Đại Vận biến hoá (BIẾN — Khang Tiết, "mỗ" pattern)</h5>
+            <p>{{ pheMenh.phe_menh.dai_van }}</p>
+          </article>
+          <article v-if="pheMenh.phe_menh.canh_bao" class="pm-section pm-canh-bao">
+            <h5>💚 Lưu ý chăm sóc (Q3 safety)</h5>
+            <p>{{ pheMenh.phe_menh.canh_bao }}</p>
+          </article>
+          <article v-if="pheMenh.phe_menh.ket_tam_an" class="pm-section pm-tam-an">
+            <h5>🌸 Kết — Tâm an</h5>
+            <p>{{ pheMenh.phe_menh.ket_tam_an }}</p>
+          </article>
+          <p v-if="pheMenh.paradigm_note" class="pm-paradigm">💡 {{ pheMenh.paradigm_note }}</p>
+        </div>
+      </section>
 
       <!-- ── Case Studies — Lá số anh có nét giống ai (Q3+Q4) ──────── -->
       <template v-if="caseStudies && caseStudies.matches?.length">
@@ -1568,6 +1645,87 @@ const grid = computed(() => {
   background: rgba(148, 163, 184, 0.15);
   color: #cbd5e1;
   border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* ━━━━━━━━ Phê Mệnh phú thi (Q4 Khang Tiết) ━━━━━━━━ */
+.phe-menh-block {
+  margin: 18px 0;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(167, 139, 250, 0.06), rgba(20, 30, 45, 0.4));
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+}
+.pm-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.pm-head h4 { margin: 0; color: #c4b5fd; font-size: 14px; }
+.pm-actions { display: flex; align-items: center; gap: 8px; }
+.pm-meta { font-size: 10.5px; color: rgba(230, 238, 245, 0.5); font-style: italic; }
+.pm-btn {
+  background: linear-gradient(135deg, #6d28d9, #a78bfa);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.15s;
+}
+.pm-btn:hover { transform: translateY(-1px); }
+.pm-regen { background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #c4b5fd; }
+
+.pm-intro {
+  font-size: 12.5px;
+  color: rgba(230, 238, 245, 0.78);
+  line-height: 1.55;
+  margin: 8px 0 0;
+}
+.pm-intro b { color: #c4b5fd; }
+.pm-loading { font-size: 13px; color: #a78bfa; font-style: italic; padding: 12px; }
+.pm-error { font-size: 12.5px; color: #f5b08c; padding: 10px; background: rgba(214, 90, 74, 0.08); border-radius: 4px; }
+
+.pm-content { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.pm-section {
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border-left: 3px solid;
+  border-radius: 0 5px 5px 0;
+}
+.pm-khai-de { border-left-color: #fbbf24; }
+.pm-menh-than { border-left-color: #5be5d3; }
+.pm-dai-van { border-left-color: #a78bfa; }
+.pm-canh-bao { border-left-color: #5ab07a; }
+.pm-tam-an { border-left-color: #f9a8d4; }
+
+.pm-section h5 {
+  margin: 0 0 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.pm-khai-de h5 { color: #fcd34d; }
+.pm-menh-than h5 { color: #5be5d3; }
+.pm-dai-van h5 { color: #c4b5fd; }
+.pm-canh-bao h5 { color: #88d39e; }
+.pm-tam-an h5 { color: #f9a8d4; }
+
+.pm-section p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.88));
+  white-space: pre-wrap;
+  font-family: "Times New Roman", "Palatino", serif;
+  font-style: italic;
+}
+.pm-paradigm {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  background: rgba(91, 229, 211, 0.05);
+  border-left: 2px solid #5be5d3;
+  font-size: 11.5px;
+  color: rgba(230, 238, 245, 0.78);
+  line-height: 1.55;
+  font-style: italic;
+  border-radius: 0 3px 3px 0;
 }
 
 /* ━━━━━━━━ Safety Block (Q1+Q3 dark warnings) ━━━━━━━━ */

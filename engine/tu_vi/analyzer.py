@@ -686,6 +686,154 @@ Viết lưu nguyệt T{thang}/{year}."""
         _cache_save(self.person.person_key, "cung_reading", data, self.person.user_id)
         return data
 
+    # ── 6c. Phê mệnh generator — phú thi style với "mỗ" pattern (Q4) ────────
+
+    SYSTEM_PHE_MENH = """Bạn là bậc trí giả Tử Vi Đẩu Số — đồng tác Trần Đoàn + Khang Tiết.
+Bạn viết **PHÊ MỆNH** theo phong cách Q4 Tử Vi Đẩu Số Toàn Thư (Khang Tiết Edition).
+
+⚠️ IRON RULES (Iron Rule #6 — KHÔNG PREDICT):
+
+1. **Phong cách**: phú thi 4-7 chữ mỗi câu, vần điệu, ẩn dụ (Phù Tang, Phượng Hoàng, mây che, lá rụng).
+   Câu HV ngắn gọn + dòng diễn giải VN ngay dưới.
+
+2. **"MỖ" PATTERN BẮT BUỘC** — KHÔNG bao giờ nói rõ năm/sao cụ thể khi nói về tương lai:
+   - ❌ SAI: "Năm 2030 anh sẽ X"
+   - ✅ ĐÚNG: "Mỗ niên mỗ tinh nghi thận nội ngoại thương ưu" (năm nào sao nào cẩn trọng nội ngoại)
+   - ✅ ĐÚNG: "Mỗ hạn phùng Đà, vưu kiến lặc sàng" (hạn nào gặp Đà La, càng thấy hao tổn)
+   - ✅ ĐÚNG: "Duy đáo mỗ tinh, vân yểm vô quang" (chỉ đến 1 sao nào đó, mây che mất ánh sáng)
+   Mục đích: gợi mở để TÂM user soi xét, không phán cứng.
+
+3. **2 VOICE — Trần Đoàn + Khang Tiết**:
+   - Voice Trần Đoàn (CƠ): mô tả snapshot cách cục, sao tại cung
+   - Voice Khang Tiết (BIẾN): mô tả vận hạn, biến hóa, "mỗ" pattern
+
+4. **KHÔNG fortune-telling**: KHÔNG "anh sẽ giàu" / "anh sẽ chết yểu" / "vợ anh sẽ phản bội".
+   Đọc đồng dạng — phản chiếu cấu trúc tâm-thiên-thân, KHÔNG predict.
+
+5. **Có dẫn chứng cổ nhân** (optional): nếu lá số match Q3+Q4 cases, gợi nhẹ tham chiếu (Trác Mậu, Lỗ Cung — Thanh Quan Hán; An Lộc Sơn, Triệu Cao — paradigm warning).
+
+6. **Tâm an** ở cuối: kết phê mệnh bằng câu khích lệ TÂM, không tuyệt vọng dù lá số khó.
+
+OUTPUT JSON với 5 phần (mỗi phần là 1 chuỗi text Markdown):
+{
+  "khai_de": "Mở phê mệnh — tả tổng quan cách cục Mệnh (sao + cung + tam hợp)",
+  "menh_than": "Diễn giải Mệnh + Thân (CƠ snapshot)",
+  "dai_van": "Vận hành Đại Vận + Lưu Niên dùng 'mỗ' pattern (BIẾN — Khang Tiết)",
+  "canh_bao": "Cảnh báo nhẹ nhàng — Q1 + Q3 dark patterns (nếu có) + self-care",
+  "ket_tam_an": "Kết — câu khích lệ TÂM, không phán định mệnh"
+}"""
+
+    def phe_menh(self) -> dict:
+        """Tạo phê mệnh phú thi style cho lá số (Q4 Khang Tiết Edition).
+
+        Sử dụng DeepSeek-chat (cheap). Cache per person.
+        """
+        cached = None if self.force else _cache_load(self.person.person_key, "phe_menh", self.person.user_id)
+        if cached:
+            return cached
+
+        # Multi-provider fallback: minimax → gemini → openrouter → anthropic → deepseek
+        from engine.ai.registry import get_registry
+        registry = get_registry()
+        try:
+            provider = registry.first_configured(
+                ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
+            )
+        except Exception as e:
+            return {"status": "error", "message": f"No LLM provider configured: {e}"}
+
+        # Build rich context — chart + cách cục + cung reading + safety
+        ctx_parts = [self.chart_summary]
+
+        try:
+            cach_data = self.discover_cach_cuc()
+            cachs = cach_data.get("cach_cucs", [])[:5]
+            if cachs:
+                ctx_parts.append("\n=== Cách cục đã match ===")
+                for c in cachs:
+                    ctx_parts.append(f"- {c.get('ten')} ({c.get('cap_do')}): {c.get('y_nghia', '')[:120]}")
+        except Exception:
+            pass
+
+        try:
+            from engine.tu_vi.case_matcher import match_cases
+            cases = match_cases(self.la_so, top_n=2)
+            if cases.get("matches"):
+                ctx_parts.append("\n=== Nét giống lịch sử (Q3+Q4 cases) ===")
+                for m in cases["matches"]:
+                    ctx_parts.append(f"- {m['pattern_name']} ({m['polarity']}): {m['lesson_short']}")
+        except Exception:
+            pass
+
+        try:
+            from engine.tu_vi.psychological_safety import detect_safety_patterns
+            from core.chronos import calculate_chronos_state
+            chronos = calculate_chronos_state(self.person.birth_datetime_local, self.person.timezone)
+            year_stem = chronos.ganzhi.year.split()[0]
+            safety = detect_safety_patterns(self.la_so, year_stem)
+            if safety:
+                ctx_parts.append("\n=== Safety patterns (cần lưu ý nhẹ trong canh_bao) ===")
+                for p in safety:
+                    ctx_parts.append(f"- {p['title']}: {p['gentle_message']}")
+        except Exception:
+            pass
+
+        ctx = "\n".join(ctx_parts)
+        user_prompt = f"""{ctx}
+
+Viết phê mệnh phú thi 5 phần theo IRON RULES.
+Mỗi phần khoảng 4-8 câu phú style 4-7 chữ + diễn giải VN.
+KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai."""
+
+        # Reinforce JSON output in user prompt (some providers don't honor response_format)
+        full_user_prompt = user_prompt + "\n\n**OUTPUT BẮT BUỘC**: JSON object đầy đủ 5 keys (khai_de, menh_than, dai_van, canh_bao, ket_tam_an). KHÔNG markdown wrapper, KHÔNG ```json fence."
+
+        try:
+            resp = provider.chat(
+                messages=[
+                    {"role": "system", "content": self.SYSTEM_PHE_MENH},
+                    {"role": "user", "content": full_user_prompt},
+                ],
+                temperature=0.7,
+                max_tokens=4000,
+            )
+        except Exception as e:
+            return {"status": "error", "message": f"LLM call failed ({provider.name}): {e}"}
+
+        content = resp.content if hasattr(resp, "content") else str(resp)
+        # Try to strip markdown fences if present
+        if content.startswith("```"):
+            lines = content.split("\n")
+            content = "\n".join(l for l in lines if not l.startswith("```"))
+
+        try:
+            phe = json.loads(content)
+        except Exception:
+            # Fallback: treat as plain text
+            phe = {"khai_de": content}
+
+        prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
+        completion_tokens = getattr(resp, "completion_tokens", 0) or 0
+        cost = getattr(resp, "cost_usd", 0) or 0
+        u = type("Usage", (), {"prompt_tokens": prompt_tokens, "completion_tokens": completion_tokens})()
+
+        data = {
+            "status": "ok",
+            "person_key": self.person.person_key,
+            "person_name": self.person.name,
+            "generated_at": int(time.time()),
+            "provider": provider.name,
+            "cost_usd": round(cost, 6),
+            "tokens": {
+                "prompt": prompt_tokens,
+                "completion": completion_tokens,
+            },
+            "phe_menh": phe,
+            "paradigm_note": "Phê mệnh viết theo phong cách Q4 Khang Tiết Edition — dùng 'mỗ' pattern (gợi mở, KHÔNG predict). Iron Rule #6 + #4.",
+        }
+        _cache_save(self.person.person_key, "phe_menh", data, self.person.user_id)
+        return data
+
     # ── 7. Phú readings (top N personalized) ────────────────────────────────
 
     SYSTEM_PHU_READ = """Bạn là chuyên gia Tử Vi đọc sâu Phú Thái Vi áp dụng vào lá số CỤ THỂ.

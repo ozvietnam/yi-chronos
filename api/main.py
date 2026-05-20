@@ -5143,7 +5143,7 @@ def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
 def yi_tuvi_analyze(kind: str, req: _AnalyzeRequest, request: Request) -> dict:
     """Run 1 specific Tử Vi analysis.
 
-    kind: 'cach_cuc' | 'dai_van' | 'luu_nien' | 'luu_nguyet' | 'phu_match' | 'phu_reading' | 'cung_reading' | 'all'
+    kind: 'cach_cuc' | 'dai_van' | 'luu_nien' | 'luu_nguyet' | 'phu_match' | 'phu_reading' | 'cung_reading' | 'phe_menh' | 'all'
     """
     from engine.tu_vi.analyzer import TuViAnalyzer
     from fastapi import HTTPException
@@ -5165,6 +5165,8 @@ def yi_tuvi_analyze(kind: str, req: _AnalyzeRequest, request: Request) -> dict:
             return {"status": "ok", "kind": kind, **analyzer.phu_reading(req.phu_top_n)}
         elif kind == "cung_reading":
             return {"status": "ok", "kind": kind, **analyzer.cung_reading()}
+        elif kind == "phe_menh":
+            return {"status": "ok", "kind": kind, **analyzer.phe_menh()}
         elif kind == "all":
             return {"status": "ok", "kind": kind, **analyzer.run_all(
                 luu_nien_years=(req.luu_nien_start, req.luu_nien_end),
