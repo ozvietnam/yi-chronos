@@ -5243,6 +5243,63 @@ def yi_tuvi_chieu_dom_phi_tinh() -> dict:
     return {"status": "ok", **json.loads(p.read_text())}
 
 
+@app.post("/api/tu-vi/q4/chieu-dom-kinh/cast")
+def yi_tuvi_chieu_dom_cast(req: _AnalyzeRequest, request: Request) -> dict:
+    """Cast lá số Chiếu Đởm Kinh — 18 Phi Tinh parallel với main Tử Vi engine.
+
+    Per Q4 p0272-p0273 — formula an sao riêng của CDK.
+    """
+    from engine.tu_vi.chieu_dom_kinh_an_sao import cast_chieu_dom_kinh
+    from engine.tu_vi.analyzer import TuViAnalyzer
+    from core.chronos import calculate_chronos_state
+    from datetime import datetime
+
+    person = _resolve_person_from_request(req, request)
+    chronos = calculate_chronos_state(person.birth_datetime_local, person.timezone)
+    d_str, m_str, _ = chronos.almanac.lunar_date.split("/")
+    year_parts = chronos.ganzhi.year.split()
+    dt = datetime.fromisoformat(person.birth_datetime_local)
+    hour = dt.hour
+    BRANCHES = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    hour_branch = "Tý" if hour >= 23 or hour < 1 else BRANCHES[((hour + 1) // 2) % 12]
+
+    result = cast_chieu_dom_kinh(
+        year_stem=year_parts[0],
+        year_branch=year_parts[1],
+        lunar_month=int(m_str),
+        hour_branch=hour_branch,
+        gender=person.gender,
+    )
+    return {"status": "ok", **result}
+
+
+@app.get("/api/tu-vi/q4/chieu-dom-12cung-matrix")
+def yi_tuvi_chieu_dom_12cung() -> dict:
+    """12 cung × 18 sao matrix từ Chiếu Đởm Kinh (Q4 p0279-p0286). ~203 rules."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/chieu_dom_kinh_12cung_x_18sao.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
+@app.get("/api/tu-vi/q4/phu-thi-corpus")
+def yi_tuvi_phu_thi_corpus() -> dict:
+    """Phú thi corpus — 786 lines từ Q4 dense band p0257-p0300 (training data phê mệnh)."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/q4_phu_thi_corpus.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
+@app.get("/api/tu-vi/q4/nhap-cot-tien-kinh")
+def yi_tuvi_nhap_cot_tien() -> dict:
+    """Nhập Cốt Tiên Kinh tổng đoán 4-chữ per 18 Phi Tinh."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/nhap_cot_tien_kinh_tong_doan.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
 @app.get("/api/tu-vi/q4/chieu-dom-kinh-cach-cuc")
 def yi_tuvi_chieu_dom_cach_cuc() -> dict:
     """6 cách cục mới của Chiếu Đởm Kinh."""

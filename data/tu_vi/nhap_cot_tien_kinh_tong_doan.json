@@ -1,0 +1,194 @@
+{
+  "schema_version": "nhap_cot_tien_kinh_v1",
+  "source": "Q4 p0297-p0299 (Phase A Batch 6 thâm nhuần 2026-05-20)",
+  "source_book": "Nhập Cốt Tiên Kinh 入骨先经 — kinh thứ 2 trong Q4 (sau Chiếu Đởm Kinh)",
+  "subtitle_hv": "Tứ Ngôn Tổng Đoạn Toát Yếu Pháp (四言总断撮要法)",
+  "subtitle_meaning": "Phép tổng đoán yếu lược 4 chữ — short verdict per sao",
+  "paradigm_note": "Sau khi Chiếu Đởm Kinh dạy 18 Phi Tinh chi tiết, Nhập Cốt Tiên Kinh tóm gọn lại thành 'tổng đoán 4-chữ' cho mỗi sao — kiểu reference quick lookup. Kết quyển bằng paradigm 'bất khả chấp nhất' (p0299 r018).",
+  "intro_hv": "Nhất nguyên hỗn khí, ngũ hành vị kiến. Tam tài triệu phân, âm dương thủy biến. Đồng sinh dị hình, hữu cát hữu hung. Hữu nam hữu nữ, đồng sinh dị hình, quân thử nhất lý.",
+  "intro_meaning": "Một mối hỗn khí, ngũ hành chưa hiện. Tam tài bắt đầu phân chia, âm dương mới biến hóa. Đồng sinh khác hình, có cát có hung. Có nam có nữ, đều cùng một lẽ.",
+  "phi_tinh_summary": {
+    "cat_tinh_classification": {
+      "source_quote_hv": "Cát diệu tả hành, thị nhật cát tinh, tùy niên tả hành. Chiếu lâm thân mệnh, phú quý phi khinh.",
+      "stars": ["Thọ", "Loan (Hồng)", "Khố", "Xương (Văn)", "Phúc", "Lộc", "Tử (Vi)", "Quý", "Ấn", "Nhật (Thái Dương)", "Quán"],
+      "lesson": "Cát diệu tả hành (chuyển trái) chiếu thân mệnh → phú quý không nhẹ"
+    },
+    "hung_tinh_classification": {
+      "source_quote_hv": "Trượng Dị Mao Nhân Diêu Khốc Hình giai viết hung tinh, thị mệnh hung tú, ngộ chi giả khuynh.",
+      "stars": ["Trượng", "Dị", "Mao", "Nhận (Nhân)", "Diêu", "Khốc", "Hình"],
+      "lesson": "7 hung tinh — gặp ắt nghiêng đổ. Mỗi sao đều có miếu vượng riêng, tuần hoàn vô tận."
+    }
+  },
+  "per_star_tong_doan": [
+    {
+      "star": "Tử Vi", "category": "cát",
+      "hy_cung": ["Thân", "Tý", "Tỵ", "Dậu", "Hợi"],
+      "verdict_quote_hv": "Tử Vi hỷ Thân Tý Tỵ Dậu Hợi chủ vinh. Tử cư Thân, bất dĩ Tỵ Dậu Hợi vinh.",
+      "verdict_summary": "Hỷ 5 cung Thân Tý Tỵ Dậu Hợi → vinh hiển. Tử Vi tại Thân thì không kể Tỵ Dậu Hợi cũng vinh",
+      "source_ref": "Q4 p0297 r013"
+    },
+    {
+      "star": "Thiên Hư", "category": "âm",
+      "hy_cung": ["Ngọ", "Mùi", "Dậu", "Hợi"],
+      "verdict_quote_hv": "Thiên Hư hỷ Ngọ Mùi Dậu Hợi chủ vinh. Thìn cung, Sửu Ngọ Ngọc Đường vi nghi.",
+      "verdict_summary": "Hỷ Ngọ Mùi Dậu Hợi → vinh. Sửu/Ngọ tại Ngọc Đường là tốt",
+      "source_ref": "Q4 p0297 r014"
+    },
+    {
+      "star": "Thiên Quý", "category": "âm",
+      "hy_cung": ["Dần", "Thìn", "Hợi", "Mão", "Mùi"],
+      "verdict_quote_hv": "Thiên Quý hỷ Dần Thìn Hợi Mão Mùi. Quý tại Dần, Thìn Hợi Mão kham cư.",
+      "verdict_summary": "Hỷ Dần Thìn Hợi Mão Mùi. Tại Dần/Thìn/Hợi/Mão đáng ở",
+      "source_ref": "Q4 p0297 r015"
+    },
+    {
+      "star": "Thiên Ấn", "category": "dương",
+      "hy_cung": ["Tý", "Mão", "Thìn"],
+      "verdict_quote_hv": "Thiên Ấn hỷ Tý Mão Thìn. Cát vương quyền quý, thân mệnh phùng chi, bất cầu tự quý.",
+      "verdict_summary": "Hỷ Tý Mão Thìn → cát, vương quyền quý. Thân mệnh gặp được, không cầu mà tự quý",
+      "source_ref": "Q4 p0297 r016"
+    },
+    {
+      "star": "Thiên Thọ", "category": "dương",
+      "hy_cung": ["Hợi", "Dậu", "Dần"],
+      "verdict_quote_hv": "Thiên Thọ hỷ Hợi Dậu, Thiên Thọ lão nhân. Hợi Dậu Dần cung, Dần nhập miếu vượng. Tam phương tứ chính, xung hợp hanh thông.",
+      "verdict_summary": "Hỷ Hợi Dậu — lão nhân. Dần nhập miếu vượng. Tam phương tứ chính xung hợp hanh thông",
+      "source_ref": "Q4 p0297 r017"
+    },
+    {
+      "star": "Hồng Loan", "category": "âm",
+      "hy_cung": ["Thìn", "Sửu", "Dần", "Mão", "Hợi"],
+      "verdict_quote_hv": "Hồng Loan hỷ Thìn Sửu Dần Mão Hợi. Hồng Loan ở Thìn Sửu, Dần Mão Hợi đều tốt.",
+      "verdict_summary": "Hỷ Thìn Sửu Dần Mão Hợi đều tốt",
+      "source_ref": "Q4 p0297 r018"
+    },
+    {
+      "star": "Khố Quán", "category": "dương",
+      "hy_cung": ["Mão", "Tỵ", "Ngọ", "Mùi", "Hợi"],
+      "verdict_quote_hv": "Khố Quán hỷ Mão Tỵ Ngọ Mùi (Hợi). Khố Quán chi tinh, vị bất khả soa.",
+      "verdict_summary": "Hỷ Hợi vị + Mão/Tỵ/Ngọ/Mùi. Vị trí KHÔNG được sai",
+      "source_ref": "Q4 p0297 r019"
+    },
+    {
+      "star": "Văn Xương", "category": "dương",
+      "hy_cung": ["Dần", "Ngọ", "Tuất"],
+      "verdict_quote_hv": "Văn Xương hỷ Dần Ngọ Tuất diệu, chủ chước khoa, Thân cư khanh tướng sở.",
+      "verdict_summary": "Hỷ Dần Ngọ Tuất → đỗ đạt khoa cử. Thân cung ở vị khanh tướng",
+      "additional": "Văn Xương đắc địa = Thiên Khôi. Văn Xương hãm sinh thị phi (p0299 r001)",
+      "source_ref": "Q4 p0297 r020 + p0299 r001"
+    },
+    {
+      "star": "Phúc Lộc", "category": "dương",
+      "hy_cung": ["Dần", "Mão", "Tỵ", "Ngọ"],
+      "verdict_quote_hv": "Phúc Lộc hỷ Dần Mão Tỵ Ngọ. Thân cư khanh tướng. Đăng khoa giáp đệ, vị cư khanh tướng.",
+      "verdict_summary": "Hỷ Dần Mão Tỵ Ngọ → thi đỗ cao, chức vị khanh tướng",
+      "source_ref": "Q4 p0298 r001-r002"
+    },
+    {
+      "star": "Thiên Trượng", "category": "hung",
+      "hy_cung": ["Tý", "Thân", "Hợi"],
+      "verdict_quote_hv": "Thiên Trượng hỷ Tý Thân Hợi, vượng xung hợp củng chiếu, phú quý vô nghi.",
+      "verdict_summary": "Hỷ Tý Thân Hợi (Mùi) → vượng xung hợp chiếu thì giàu sang. Đắc địa = quyền hiển; thất hãm = cương cường, bị hình ngục",
+      "source_ref": "Q4 p0298 r003-r004 + p0299 r012"
+    },
+    {
+      "star": "Mao Đầu", "category": "hung",
+      "hy_cung": ["Tý", "Mão", "Mùi", "Dần", "Tuất"],
+      "verdict_quote_hv": "Mao tại Tý Mão Mùi Dần Tuất trung. Cảm tác cảm vi, tài hùng tài vượng.",
+      "verdict_summary": "Hỷ Tý Mão Mùi Dần Tuất → dám làm dám chịu, tài năng hùng hậu. Đắc địa = binh quyền; thất hãm = hung bạo",
+      "source_ref": "Q4 p0298 r005-r006 + p0299 r014"
+    },
+    {
+      "star": "Thiên Dị", "category": "hung",
+      "hy_cung": ["Sửu", "Dần", "Thìn", "Mùi"],
+      "verdict_quote_hv": "Thiên Dị hỷ Sửu Dần Thìn vị. Dần Tuất đa tài phú. Đảm lược hùng đại.",
+      "verdict_summary": "Hỷ Sửu Dần Thìn Mùi → bác học. Dần Tuất đa tài. Đắc địa = cát ngoài ý muốn (đổi tổ tính); thất hãm = phá bại tha hương",
+      "source_ref": "Q4 p0298 r007-r008 + p0299 r013"
+    },
+    {
+      "star": "Thiên Nhận (Kình Dương)", "category": "hung",
+      "hy_cung": ["Thân", "Tỵ", "Ngọ", "Dần"],
+      "verdict_quote_hv": "Thiên Nhận hỷ Thân Tỵ. Nhẫn ở Thân Tỵ, Ngọ Dần là có chỗ đứng.",
+      "verdict_summary": "Hỷ Thân Tỵ Ngọ Dần → cát. Đắc địa = chuyển họa thành lành; thất hãm = huyết quang tai họa",
+      "source_ref": "Q4 p0298 r009 + p0299 r015"
+    },
+    {
+      "star": "Thiên Diêu", "category": "hung",
+      "hy_cung": ["Mão", "Thìn", "Tuất", "Hợi"],
+      "verdict_quote_hv": "Thiên Diêu hỷ Mão Thìn, Tuất Hợi nhập viên. Phong lưu chi bối.",
+      "verdict_summary": "Hỷ Mão Thìn → cát; Tuất Hợi nhập viên = phong lưu. Đắc địa = phong lưu phú quý; thất hãm = dâm loạn nhục nhã, nội loạn nhiều tỳ",
+      "source_ref": "Q4 p0298 r010-r011 + p0299 r016"
+    },
+    {
+      "star": "Thiên Hình", "category": "hung",
+      "hy_cung": ["Dần", "Dậu", "Ngọ", "Tuất"],
+      "verdict_quote_hv": "Thiên Hình khai hình Dần Dậu, Tuất thượng vô nghênh.",
+      "verdict_summary": "Hỷ Dần Dậu. Đắc địa = không thành tai; thất hãm = phải chịu hình phạt, gia đình khó hòa thuận",
+      "source_ref": "Q4 p0298 r012 + p0299 r017"
+    },
+    {
+      "star": "Thiên Khốc", "category": "hung",
+      "hy_cung": ["Sửu", "Thân", "Mão", "Ngọ"],
+      "verdict_quote_hv": "Thiên Khốc sở cư, Sửu Thân Mão Ngọ. Hung hóa vi cát, danh viết đắc sở.",
+      "verdict_summary": "Hỷ Sửu Thân Mão Ngọ → hung biến thành cát (đắc sở). Đắc địa = nên khóc lại không khóc; thất hãm = hình phạt tang hiếu",
+      "warning": "Hội với Khốc thì chết yểu không sai (Q4 p0298 r020) — psych safety alert",
+      "source_ref": "Q4 p0298 r013 + p0298 r020 + p0299 r018"
+    },
+    {
+      "star": "Thiên Khố", "category": "cát",
+      "hy_cung": ["Tỵ", "Hợi", "Ngọ"],
+      "verdict_quote_hv": "Thiên Khố chủ hoành tài hỷ sự. Đắc địa, danh viết hoành tài. Thân mệnh phùng cát, tài tự thiên lai.",
+      "verdict_summary": "Hỷ Tỵ Hợi Ngọ → hoành tài (tiền bất ngờ). Thân mệnh phùng cát = tài tự trời đến",
+      "source_ref": "Q4 p0298 r021"
+    },
+    {
+      "star": "Thiên Quán", "category": "cát",
+      "hy_cung": ["Mão", "Tỵ", "Hợi", "Ngọ", "Mùi"],
+      "verdict_quote_hv": "Thiên Quán phong sản nghiệp, tác Bột chi tinh, nhất danh bảo tàng. Tài lợi phì phong, gia nghiệp hưng long.",
+      "verdict_summary": "Mở rộng sản nghiệp, là sao Bột (bảo tàng). Tài lợi dồi dào, gia nghiệp hưng",
+      "warning": "Câu thất hãm + hung tinh → tranh tụng, phá nhà, môn hộ tất khuynh",
+      "source_ref": "Q4 p0298 r024-r025"
+    }
+  ],
+  "combination_rules": [
+    {
+      "rule_id": "hinh_truong_di",
+      "stars": ["Hình", "Trượng", "Dị"],
+      "verdict": "Hình Trượng + Dị = Hình Trượng có quyền, thêm Dị thì thiên lệch",
+      "source_quote": "Hình trượng gia dị, hình trượng hữu quyền, gia dị phiên bác",
+      "source_ref": "Q4 p0298 r022"
+    },
+    {
+      "rule_id": "mao_dieu",
+      "stars": ["Mao", "Diêu"],
+      "verdict": "Hội Mao = phá tổ; Diêu ác = dâm ác",
+      "source_quote": "Hội Mao gia Diêu, hội Mao phá tổ, ác Diêu dâm ác",
+      "source_ref": "Q4 p0298 r023"
+    },
+    {
+      "rule_id": "dieu_thiep",
+      "stars": ["Thiên Diêu"],
+      "verdict": "Thiên Diêu = sao thiếp; nếu không hội hung tinh → lâu dài phúc tụ",
+      "source_quote": "Diêu tăng thiếp, bất hội hung tinh, trưởng hội phúc tụ",
+      "source_ref": "Q4 p0299 r009"
+    },
+    {
+      "rule_id": "nhan_khoc",
+      "stars": ["Thiên Nhận (Kình Dương)", "Thiên Khốc"],
+      "verdict": "Hội Nhẫn = tật bệnh; Mao Đầu chủ văn võ tài, Nhận sinh tật",
+      "source_quote": "Hội nhẫn tật, mao chủ văn võ, nhẫn sinh tật bệnh",
+      "source_ref": "Q4 p0299 r011"
+    }
+  ],
+  "ending_paradigm": {
+    "source_quote_hv": "Thập bát tinh chuyển, tại nhân biến thông. Bất khả chấp nhất, y thân hội đoạn. Vận hạn đồng thôi, lưu niên tịnh khán.",
+    "source_quote_zh": "十八星转，在人变通。不可执一，依身会断。运限同推，流年并看。",
+    "meaning": "18 sao vận chuyển, tùy người biến thông. KHÔNG nên cứng nhắc một cách, dựa vào Thân cung mà đoán. Đại + Tiểu hạn + Lưu niên cùng xem.",
+    "source_ref": "Q4 p0299 r018",
+    "iron_rule_note": "Đây là PARADIGM CHÍNH của Nhập Cốt Tiên Kinh — KHÔNG predict cứng, KHÔNG chấp nhất rule. Cùng Iron Rule #6 + 'mỗ' pattern Q4 p0259."
+  },
+  "engine_notes": {
+    "usage": "Quick lookup per sao: input star_name → output hy_cung (positions favorable) + verdict_summary + đắc/thất hãm rules.",
+    "ui_implication": "Có thể show ở Chiếu Đởm Kinh panel — sau mỗi 18 Phi Tinh detail, append 'Tổng đoán Nhập Cốt Tiên Kinh' card."
+  }
+}

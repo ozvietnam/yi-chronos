@@ -1,0 +1,1266 @@
+{
+ "schema_version": "chieu_dom_12cung_x_18sao_v1",
+ "source": "Q4 p0279-p0286 (Phase A Batch 5 thâm nhuần 2026-05-20)",
+ "paradigm_note": "Chiếu Đởm Kinh 10 cung detailed (Mệnh + Tài Bạch ngắn ở p0279 start). Mỗi rule là 1 dòng với hv + lg + page+line_id.",
+ "cung_rules": {
+  "Huynh Đệ": {
+   "rules": [
+    {
+     "page": 279,
+     "line_id": "r004-r004-l001",
+     "hv": "Nghi lạc vượng tinh chiếu chiêu tài, huynh đệ thiết bất nghi hãm nịch.",
+     "lg": "Nên có sao lạc vượng chiếu rọi để chiêu tài, anh em tuyệt đối không nên bị hãm nịch."
+    },
+    {
+     "page": 279,
+     "line_id": "r005-r005-l001",
+     "hv": "Tử (nhất nhị nhân, ) Hư (chủ tranh nghi bất nghi hành, ) Quý (thành hàng, ) Ấn (quý hiển, ) Hồng (khả",
+     "lg": "Sao Tử (một hai người), sao Hư (chủ tranh đấu, nên dừng không nên hành động), sao Quý (nên thành hàng), sao Ấn (quý hiển), sao Hồng (có thể"
+    },
+    {
+     "page": 279,
+     "line_id": "r005-r005-l002",
+     "hv": "chiêu, ) Tử (nhất nhị nhân mục).",
+     "lg": "chiêu dụ), sao Tử (một hai người hòa thuận)."
+    },
+    {
+     "page": 279,
+     "line_id": "r006-r006-l001",
+     "hv": "Thiên Hư (chủ huyền tranh, đa kiến hình.)",
+     "lg": "Sao Thiên Hư chủ về cãi vã, thấy nhiều hình thương."
+    },
+    {
+     "page": 279,
+     "line_id": "r007-r007-l001",
+     "hv": "Thiên Quý (huynh đệ thành hàng.)",
+     "lg": "Sao Thiên Quý thì anh em đông đúc thành hàng."
+    },
+    {
+     "page": 279,
+     "line_id": "r008-r008-l001",
+     "hv": "Thiên Ấn (huynh đệ quý hiển.)",
+     "lg": "Sao Thiên Ấn thì anh em sang quý hiển hách."
+    },
+    {
+     "page": 279,
+     "line_id": "r009-r009-l001",
+     "hv": "Thiên Thọ (Kinh ác liên phương đắc thọ.)",
+     "lg": "Sao Thiên Thọ thì anh em như hoa liền cành, cùng nhau sống thọ."
+    },
+    {
+     "page": 279,
+     "line_id": "r010-r010-l001",
+     "hv": "Thiên Không (thủ túc nan nghi vi tử lực.)",
+     "lg": "Sao Thiên Không thì anh em khó hòa thuận, dựa vào con cái thì có sức."
+    },
+    {
+     "page": 279,
+     "line_id": "r011-r011-l001",
+     "hv": "Hồng Loan (hữu tình khả chiêu.)",
+     "lg": "Sao Hồng Loan có tình cảm, có thể chiêu dụ anh em."
+    },
+    {
+     "page": 279,
+     "line_id": "r012-r012-l001",
+     "hv": "Thiên Khố (đắc lực.)",
+     "lg": "Sao Thiên Khố thì anh em giúp đỡ đắc lực."
+    },
+    {
+     "page": 279,
+     "line_id": "r013-r013-l001",
+     "hv": "Thiên Quán (bất thành hàng.)",
+     "lg": "Sao Thiên Quán thì anh em không thành hàng (ít hoặc tan rã)."
+    },
+    {
+     "page": 279,
+     "line_id": "r014-r014-l001",
+     "hv": "Văn Xương (cận quý tương thân.)",
+     "lg": "Sao Văn Xương thì gần gũi người quý, thân thiết."
+    },
+    {
+     "page": 279,
+     "line_id": "r015-r015-l001",
+     "hv": "Thiên Phúc (hữu tình nghĩa nhượng.)",
+     "lg": "Sao Thiên Phúc thì có tình nghĩa, nhường nhịn nhau."
+    },
+    {
+     "page": 279,
+     "line_id": "r016-r016-l001",
+     "hv": "Thiên Lộc (câu hữu danh lộc.)",
+     "lg": "Sao Thiên Lộc thì đều có danh lộc."
+    },
+    {
+     "page": 279,
+     "line_id": "r017-r017-l001",
+     "hv": "Thiên Trượng (thực phân tình bạc.)",
+     "lg": "Sao Thiên Trượng thì thực phân chia, tình cảm mỏng."
+    },
+    {
+     "page": 279,
+     "line_id": "r018-r018-l001",
+     "hv": "Tử Vi Đẩu Số",
+     "lg": "Tử Vi Đẩu Số"
+    },
+    {
+     "page": 279,
+     "line_id": "r019-r019-l001",
+     "hv": "Thiên Dị (bất đồng khế tắc khả.)",
+     "lg": "Sao Thiên Dị thì nếu không cùng chí hướng thì mới có thể."
+    },
+    {
+     "page": 279,
+     "line_id": "r020-r020-l001",
+     "hv": "Mao Đầu (vô hữu tắc chủ huyền tranh.)",
+     "lg": "Sao Mao Đầu nếu không có thì chủ về cãi vã."
+    },
+    {
+     "page": 279,
+     "line_id": "r021-r021-l001",
+     "hv": "Thiên Nhẫn (thương khắc trọng nghi tử lực.)",
+     "lg": "Sao Thiên Nhẫn thì thương khắc nặng, nên dựa vào con cái."
+    },
+    {
+     "page": 279,
+     "line_id": "r022-r022-l001",
+     "hv": "Thọ (tương xâm diệc bất hung tinh tương khắc), Khố (đắc lực), Quán (nhạn tự bất thành hàng), Văn (cận quý",
+     "lg": "Sao Thọ (dù xung phá cũng không phải sao hung tương khắc), sao Khố (đắc lực), sao Quán (anh em không thành đàn), sao Văn (gần người quý"
+    },
+    {
+     "page": 279,
+     "line_id": "r022-r022-l002",
+     "hv": "tương thân), Phúc (thành phú hữu tình nghĩa nhượng), Lộc (danh lộc), Trượng (thực phân), Dị (bất đồng khế), Mao",
+     "lg": "thân thiết), sao Phúc (giàu có, có tình nghĩa nhường nhịn), sao Lộc (danh lộc), sao Trượng (thực phân), sao Dị (không cùng chí hướng), sao Mao"
+    },
+    {
+     "page": 279,
+     "line_id": "r022-r022-l003",
+     "hv": "(chủ tranh huyên vô), Hình (bất hòa tranh huyên), Diêu Nhẫn Khốc (chủ thương khắc phân ly tử lực).",
+     "lg": "(chủ về tranh cãi mà không có), sao Hình (bất hòa, tranh cãi), sao Diêu, Nhẫn, Khốc (chủ về thương khắc, phân ly, dựa vào con cái)."
+    },
+    {
+     "page": 280,
+     "line_id": "r002-r002-l001",
+     "hv": "Chủ tranh huyên vô, hình bất hòa tranh huyên hình, Diêu Nhận Khốc chủ thương khắc phân ly tử lực.",
+     "lg": "Sao chủ về tranh cãi ồn ào, bất hòa; Hình tinh cùng Kình Dương (Nhận), Đà La (Diêu), Khốc (sao Khốc) chủ về tổn thương, khắc chế, phân ly sức lực con cái."
+    },
+    {
+     "page": 280,
+     "line_id": "r003-r003-l001",
+     "hv": "Ca viết:",
+     "lg": "Bài ca rằng:"
+    },
+    {
+     "page": 280,
+     "line_id": "r004-r004-l001",
+     "hv": "Huynh đệ cung trung phân quý tiện, Hư Dị Hình Diêu bất hỉ kiến.",
+     "lg": "Trong cung Huynh Đệ phân biệt sang hèn, các sao Thiên Hư, Thiên Dị, Hình, Đà La (Diêu) chẳng vui lòng khi gặp."
+    },
+    {
+     "page": 280,
+     "line_id": "r005-r005-l001",
+     "hv": "Nhược phùng Thiên Quý dữ Hồng Loan, nhạn tự thành hành nhân khả tiện.",
+     "lg": "Nếu gặp sao Thiên Quý và Hồng Loan, bầy nhạn (anh em) xếp hàng, khiến người đời phải ngưỡng mộ."
+    },
+    {
+     "page": 280,
+     "line_id": "r006-r006-l001",
+     "hv": "Thiên Dị nhược lâm huynh đệ vị, tu chiêu huynh đệ dị cư trú.",
+     "lg": "Nếu sao Thiên Dị lâm vào vị trí huynh đệ, ắt sẽ chiêu dụ anh em ở riêng khác nơi."
+    },
+    {
+     "page": 280,
+     "line_id": "r007-r007-l001",
+     "hv": "Giả nhiêu đồng tổ hợp ốc cư, khí biệt chung tu lưỡng phân lộ.",
+     "lg": "Dẫu cho cùng chung tổ tiên, chung nhà ở, cuối cùng cũng bỏ nhau, phải chia làm hai ngả."
+    },
+    {
+     "page": 280,
+     "line_id": "r008-r008-l001",
+     "hv": "Thiên Dị lâm huynh đệ, tu giao thị dị sinh.",
+     "lg": "Thiên Dị lâm cung huynh đệ, ắt khiến anh em là người khác sinh ra."
+    },
+    {
+     "page": 280,
+     "line_id": "r009-r009-l001",
+     "hv": "Túng nhiên hợp ốc trụ, thường hữu náo huyên tranh.",
+     "lg": "Dẫu có chung nhà ở, cũng thường xuyên có ầm ĩ, cãi vã."
+    },
+    {
+     "page": 280,
+     "line_id": "r010-r010-l001",
+     "hv": "Hư Khốc Diêu Hình chủ bất thính, thì sinh sá dị tại tinh thần.",
+     "lg": "Các sao Hư, Khốc, Đà La (Diêu), Hình chủ về không nghe lời; lúc sinh ra đã có sự lạ lùng, khác thường, đều tại các vì tinh tú."
+    },
+    {
+     "page": 280,
+     "line_id": "r011-r011-l001",
+     "hv": "Nhược đắc Hồng Loan dữ Thiên Quý, thành hàng nhạn trụy tự tương thân.",
+     "lg": "Nếu được Hồng Loan cùng Thiên Quý, bầy nhạn xếp hàng rơi xuống, tự nhiên thân thiết với nhau."
+    },
+    {
+     "page": 280,
+     "line_id": "r012-r012-l001",
+     "hv": "Huynh đệ tu phùng ấn thọ xương, nhược phùng Diêu dị nữ thân đa.",
+     "lg": "Anh em ắt gặp sao Ấn (Thiên Ấn), Thọ (Thiên Thọ), Xương (Văn Xương); nếu gặp Đà La (Diêu) và Thiên Dị, thì nữ nhiều."
+    },
+    {
+     "page": 280,
+     "line_id": "r013-r013-l001",
+     "hv": "Hồng văn dị trượng tổng tiên đương, khốc nhận mao hình nại nhược hà.",
+     "lg": "Sao Hồng Loan, Văn Khúc, Thiên Dị, Thiên Trượng thảy đều đứng trước; sao Khốc, Kình Dương (Nhận), Mao, Hình thì làm thế nào đây?"
+    }
+   ]
+  },
+  "Điền Trạch": {
+   "rules": [
+    {
+     "page": 280,
+     "line_id": "r015-r015-l001",
+     "hv": "Nghi Quán Khố hỉ tinh tại miếu vượng, bất nghi Thiên Dị. Chủ hung, phụ mẫu tảo tang. Như khố tinh dữ Thiên Ý đồng chiếu, chủ tiên phá hậu thành. Tự lập chi mệnh.",
+     "lg": "Nên có sao Quán (Quán Tác), Khố (Thiên Khố) và các hỉ tinh ở miếu vượng; không nên có Thiên Dị. Chủ về hung, cha mẹ mất sớm. Nếu sao Khố cùng với Thiên Ý đồng chiếu, chủ trước phá sau thành. Mệnh tự lập thân."
+    },
+    {
+     "page": 280,
+     "line_id": "r015-r015-l002",
+     "hv": "Tử Quý ấn tổ nghiệp thịnh, Phúc Khố phúc tài dĩ thượng phấn phát đa ác cổ một, Quán đắc phúc tài kỵ xung phá, Thọ bình, Hồng điền trạch thịnh vượng, Văn lộc chủ đa cốc túc, Hư trượng nhận chủ tiên hưởng phúc, Dị phá tổ, Mao đa phá đa thành, Diêu phá tổ, Hình tự phá tự thành, Khốc cộng gia khố quán nhị tinh, tiên phá hậu thành, nhập miếu vượng tăng sản, thắng tổ điền trạch, Không tự thành tự lập.",
+     "lg": "Sao Tử (Tử Vi), Quý (Thiên Quý), Ấn (Thiên Ấn) khiến tổ nghiệp thịnh vượng. Sao Phúc (Thiên Phúc), Khố (Thiên Khố) mang phúc tài, phấn phát nhiều, nếu thêm ác cổ mất mát. Sao Quán (Quán Tác) được phúc tài nhưng kỵ xung phá. Sao Thọ (Thiên Thọ) thì bình thường. Sao Hồng (Hồng Loan) khiến điền trạch thịnh vượng. Sao Văn (Văn Khúc), Lộc (Hóa Lộc) chủ về nhiều thóc lúa. Sao Hư (Thiên Hư), Trượng (Thiê"
+    },
+    {
+     "page": 280,
+     "line_id": "r016-r016-l001",
+     "hv": "Điền trạch kiến Mao Hư dữ Dị, tổ nghiệp tông tài như tảo địa.",
+     "lg": "Cung Điền Trạch thấy sao Mao, Hư và Dị, tổ nghiệp gia tài hệt như quét đất."
+    },
+    {
+     "page": 280,
+     "line_id": "r016-r016-l002",
+     "hv": "Nhược phùng khố quán chiếu kỳ thân, tiên phá hậu thành hoàn tự trí.",
+     "lg": "Nếu gặp sao Khố và Quán chiếu vào thân, trước phá sau thành, rồi tự sắm sửa."
+    },
+    {
+     "page": 280,
+     "line_id": "r016-r016-l003",
+     "hv": "Phúc lộc ấn thọ đa điền trạch, Diêu mao hình dị phụ mẫu trọng.",
+     "lg": "Sao Phúc, Lộc, Ấn, Thọ đem nhiều điền trạch; các sao Diêu (Đà La), Mao, Hình, Dị khiến phụ mẫu nặng nề (khắc cha mẹ)."
+    },
+    {
+     "page": 280,
+     "line_id": "r016-r016-l004",
+     "hv": "Tiên phá hậu thành ấn phá cát, Thiên Hư điền trạch đáo đầu không.",
+     "lg": "Trước phá sau thành, sao Ấn (Thiên Ấn) gặp phá vẫn tốt; sao Thiên Hư ở điền trạch thì cuối cùng vẫn không."
+    }
+   ]
+  },
+  "Tử Tức": {
+   "rules": [
+    {
+     "page": 280,
+     "line_id": "r018-r018-l001",
+     "hv": "Thi viết:",
+     "lg": "Bài thơ rằng:"
+    },
+    {
+     "page": 280,
+     "line_id": "r019-r019-l001",
+     "hv": "Ngũ vị phùng sinh, nhi tôn mãn nhãn.",
+     "lg": "Năm vị (cung Nam Nữ) gặp các sao sinh vượng, thì con cháu đầy mắt."
+    },
+    {
+     "page": 281,
+     "line_id": "r002-r002-l001",
+     "hv": "Bất nghi nam nữ chiếu lâm, chủ nam nữ hữu hung ác, hữu khốc hư, diệc yểu chiết, đa bất thành, tam nhật.",
+     "lg": "Không nên có sao ở cung Tử Tức (Chiếu hay Lâm), chủ về con cái có hung ác, có khóc lóc, hư vô, cũng yểu tử, nhiều bất thành, chỉ có tối đa ba ngày."
+    },
+    {
+     "page": 281,
+     "line_id": "r002-r002-l002",
+     "hv": "Quan tại cao cường, thiện sinh, chủ phúc lộc. Thân triền thứ độ lưỡng đồng thai, nguyệt tại hung triền song cộng nhũ.",
+     "lg": "Sao Quan ở cung cao cường (cường cung), sinh ra thiện, chủ phúc lộc. Thân (sao thân) đóng ở hai cung thứ và độ đồng thai; Mặt Trăng ở cung hung thì song sinh cùng bú sữa."
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l001",
+     "hv": "Tử triệu (nhất nhị tử, tiên nữ hậu nam. Nhập miếu vượng, tử tôn quý hiển. Vượng địa, tử tôn tứ ngũ",
+     "lg": "Sao Tử (Tử Vi?): một hai con, gái trước trai sau. Vào miếu vượng, con cháu quý hiển. Vượng địa, con cháu bốn năm"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l002",
+     "hv": "thành hành), quý (nhị tam tử vinh hậu đại), hư (lão lai vô tử bất thành thiên, bất nhiên phiêu đãng tha hương.",
+     "lg": "thành hàng); sao Quý: hai ba con, vinh hiển đời sau; sao Hư: già không con, không thành người, hoặc phiêu bạt tha hương."
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l003",
+     "hv": "Duy hỉ quá phòng chi tử, nhược bất, tử hữu tật), khố thọ ấn quán (tử tức vinh gia), hồng (đa chiêu nữ",
+     "lg": "Chỉ thích con nuôi (quá phòng), nếu không, con có tật. Sao Khố, Thọ, Ấn, Quán: con cái vinh hiển gia đình. Sao Hồng: nhiều con gái"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l004",
+     "hv": "tử, thiếu thành), phúc văn (tam ngũ tử, chủ phú quý, kỵ xung phá), lộc chủ (quang vinh, tất hoán môn lư chi",
+     "lg": "con gái, ít thành. Sao Phúc, Văn: ba năm con, chủ phú quý, kỵ xung phá. Sao Lộc chủ: vinh quang, ắt thay đổi cửa nẻo"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l005",
+     "hv": "tử), trượng (tử tôn bất thành, đới thành), khốc (chủ khắc hại nhất nhị, trung đắc tống chung), dị (cách bào tử",
+     "lg": "con. Sao Trượng: con cháu bất thành, có thành. Sao Khốc: chủ khắc hại một hai, giữa được đưa ma. Sao Dị: con cách bào"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l006",
+     "hv": "tôn nan chiêu, bàng biên độ xuất hữu nhất dã, bất nhiên quá phòng chi tử), mao (nam nữ chủ tổ bạo hung tử, đắc",
+     "lg": "khó sinh, bàng biên độ ra có một, nếu không thì con nuôi. Sao Mao: con cái chủ tổ tiên chết bạo hung, được"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l007",
+     "hv": "địa chiêu tử suy phúc, nhận (tử tôn đới tật, phá gia nghiệp, miễn khắc hại, trừ thị quá phòng), diêu (nam nữ bất",
+     "lg": "đắc địa sinh con có phúc. Sao Nhận (Đao?): con cháu mang tật, phá gia nghiệp; tránh khắc hại chỉ có con nuôi. Sao Diêu (Đào?): con cái không"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l008",
+     "hv": "đắc lực, phiêu đãng, nam bất thiện, phụ bất khiết), hình (chiêu nam nữ, hữu nhược vô, chủ bất hiếu. Đắc cát tinh",
+     "lg": "đắc lực, phiêu bạt; trai không thiện, gái không trong sạch. Sao Hình: có con cũng như không, chủ bất hiếu. Được cát tinh"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l009",
+     "hv": "đồng cung, tam tử hữu nhất tử tống chung. Như tam hợp hựu phùng ác tinh, bất chiêu nam nữ, diệc thị quá phòng, nữ",
+     "lg": "đồng cung, ba con có một con đưa ma. Nếu tam hợp lại gặp ác tinh, không có con, cũng phải nhận con nuôi; nữ"
+    },
+    {
+     "page": 281,
+     "line_id": "r003-r003-l010",
+     "hv": "nhân hữu sản ách chi hại), quán (nhị tam tử thành).",
+     "lg": "có tai hại khi sinh. Sao Quán: hai ba con thành."
+    },
+    {
+     "page": 281,
+     "line_id": "r004-r004-l001",
+     "hv": "Thi viết:",
+     "lg": "Thơ rằng:"
+    },
+    {
+     "page": 281,
+     "line_id": "r005-r005-l001",
+     "hv": "Mao đầu bất khả cư nam nữ, tử tức sinh lai như bạo hổ.",
+     "lg": "Sao Mao đầu không thể ở cung nam nữ (Tử Tức), con cái sinh ra như hổ dữ."
+    },
+    {
+     "page": 281,
+     "line_id": "r006-r006-l001",
+     "hv": "Nhược phùng thiên quý dữ hồng loan, tử tự vinh đăng tự nhiên dữ.",
+     "lg": "Nếu gặp Thiên Quý và Hồng Loan, con cái vinh hiển tự nhiên có."
+    },
+    {
+     "page": 281,
+     "line_id": "r007-r007-l001",
+     "hv": "Mao đầu hình nhận như hung bạo, thảng nhược hư khốc vi hung yểu.",
+     "lg": "Sao Mao đầu, Hình, Nhận (Đao?) như hung bạo; nếu thêm Hư, Khốc thì trở nên hung yểu."
+    },
+    {
+     "page": 281,
+     "line_id": "r008-r008-l001",
+     "hv": "Nhược đắc nhị cung giai cát tinh, đồng bộ tử tôn hoan dự đắc.",
+     "lg": "Nếu được hai cung đều cát tinh, đầy tớ và con cháu vui vẻ có được."
+    },
+    {
+     "page": 281,
+     "line_id": "r009-r009-l001",
+     "hv": "Tứ sát hình phu, thai nội tu đương phá tướng.",
+     "lg": "Bốn sát tinh (Kình Đà Hỏa Linh) và Hình khắc da thịt, trong thai ắt phải phá tướng."
+    },
+    {
+     "page": 281,
+     "line_id": "r010-r010-l001",
+     "hv": "Thiên dị chi tinh chủ dị thai, nhược lâm tử tức diệc tương quai.",
+     "lg": "Sao Thiên Dị chủ về thai dị, nếu đóng ở cung Tử Tức cũng quái lạ."
+    },
+    {
+     "page": 281,
+     "line_id": "r011-r011-l001",
+     "hv": "Cách bào thứ xuất do nhàn sự, diệc chủ thê nhi đái đắc lai.",
+     "lg": "Con cách bào (khác mẹ) hay thứ xuất còn là chuyện thường, cũng chủ vợ con mang đến."
+    },
+    {
+     "page": 281,
+     "line_id": "r012-r012-l001",
+     "hv": "Tam hình khắc mệnh, sản tiền tất định thương thân.",
+     "lg": "Ba sao Hình cùng khắc Mệnh, trước khi sinh ắt định tổn thương thân."
+    },
+    {
+     "page": 281,
+     "line_id": "r013-r013-l001",
+     "hv": "Văn Xương đa tử Tử Hồng sơ, trưởng tử nan chiêu trượng quán hư.",
+     "lg": "Văn Xương nhiều con, Tử Vi và Hồng Loan thưa; con trưởng khó nuôi, Trượng, Quán, Hư."
+    },
+    {
+     "page": 281,
+     "line_id": "r014-r014-l001",
+     "hv": "Ấn thọ chi tinh chiêu nhị tử, phúc tinh nam nữ diệc kham cư.",
+     "lg": "Sao Ấn, Thọ sinh hai con; sao Phúc, con trai con gái cũng đáng ở."
+    },
+    {
+     "page": 281,
+     "line_id": "r015-r015-l001",
+     "hv": "Tử Vi đẩu số",
+     "lg": "Tử Vi Đẩu Số"
+    }
+   ]
+  },
+  "Nô Bộc": {
+   "rules": [
+    {
+     "page": 281,
+     "line_id": "r017-r017-l001",
+     "hv": "Bất nghi kiến Văn Xương, kỳ nhân trí bất như nô. Thiên nhận thiên trượng, chủ hữu lực nô. Khí hư kiến",
+     "lg": "Không nên thấy Văn Xương, người đó trí không bằng nô. Thiên Nhận, Thiên Trượng, chủ có nô mạnh. Khí, Hư thấy"
+    },
+    {
+     "page": 281,
+     "line_id": "r017-r017-l002",
+     "hv": "chi, khước tự bất phương.",
+     "lg": "chúng, lại chẳng hại gì."
+    },
+    {
+     "page": 281,
+     "line_id": "r018-r018-l001",
+     "hv": "Tử (nan vi), trượng nhận thọ phúc lộc khốc quán hồng lộc (chủ nô bộc úy cụ), văn hư (trí bất biện",
+     "lg": "Sao Tử (Tử Vi?): khó làm; sao Trượng, Nhận, Thọ, Phúc, Lộc, Khốc, Quán, Hồng, Lộc: chủ nô bộc sợ hãi; Văn, Hư: trí không phân biệt"
+    },
+    {
+     "page": 282,
+     "line_id": "r001-r001-l001",
+     "hv": "Nô), quý ấn (bất nghi tư xứ tẩu), mao hình (chủ hung ác ý thị nhiên dã), diêu dị (tu hãn đắc lực).",
+     "lg": "Nô Bộc cung — sao Quý Ấn (không nên đi lại nơi tư thông), sao Mao Hình (chủ về hung ác, đúng như vậy), sao Diêu Dị (phải cẩn thận mới có lực)."
+    },
+    {
+     "page": 282,
+     "line_id": "r001-r001-l002",
+     "hv": "Lực.",
+     "lg": "Cần có sức lực."
+    },
+    {
+     "page": 282,
+     "line_id": "r002-r002-l001",
+     "hv": "Chủ khởi nô cung bất túc, tùy nương thú thời, tu hoán phụ thành trì.",
+     "lg": "Chủ về cung Nô Bộc không đủ lực, khi lấy vợ theo mẹ, phải đổi cha mới thành công."
+    },
+    {
+     "page": 282,
+     "line_id": "r003-r003-l001",
+     "hv": "Tử văn bất nghi cư nô bộc, hư tinh văn bất như nô trí.",
+     "lg": "Tử Vi và Văn tinh không nên ở cung Nô Bộc, sao Hư và Văn tinh không bằng trí của tôi tớ."
+    },
+    {
+     "page": 282,
+     "line_id": "r004-r004-l001",
+     "hv": "Nhược phùng trượng nhận tu đắc lực, thiên hình mao đầu nô bộc vô.",
+     "lg": "Nếu gặng sao Trượng và Đao Nhận thì phải có sức lực, sao Thiên Hình và Mao Đầu thì nô bộc không có."
+    },
+    {
+     "page": 282,
+     "line_id": "r005-r005-l001",
+     "hv": "Diêu dị đắc lực tu hoàn tỳ, khố lộc đa chiêu hữu lực nô.",
+     "lg": "Sao Diêu Dị có lực thì phải có đầy tớ gái, sao Khố và Lộc chiêu được nhiều tôi tớ có sức."
+    }
+   ]
+  },
+  "Phu Thê": {
+   "rules": [
+    {
+     "page": 282,
+     "line_id": "r007-r007-l001",
+     "hv": "Nghi Hồng Loan Thiên Quý chiếu lâm, chủ hữu mỹ quý chi thê cập tì nô. Bất nghi kiến Thiên, dị tất chủ biệt ly, hoặc phòng khắc nhi tái thú.",
+     "lg": "Nên có Hồng Loan và Thiên Quý chiếu rọi, chủ có vợ đẹp quý và có tì nô. Không nên thấy sao Thiên (Dị), ắt chủ chia lìa, hoặc phòng khắc mà lấy vợ lần nữa."
+    },
+    {
+     "page": 282,
+     "line_id": "r007-r007-l002",
+     "hv": "Tử (nhập viên chiêu quý mạo chi thê, thất địa chiêu dâm đãng chi phụ. Nữ nhân chiêu phu bình ổn, đa thị yếu đạo thuật tu hành thiện quả chi nhân. (Nam nữ giai hữu quả đoạn).",
+     "lg": "Sao Tử Vi (nhập miếu chiêu vợ sang đẹp, mất đất chiêu vợ dâm đãng. Phụ nữ lấy chồng bình ổn, phần nhiều là người tu hành đạo thuật, quả thiện. Nam nữ đều có quả đoán)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l001",
+     "hv": "Hư (chủ khắc hại, nghi trì miễn tổn. Diệc chủ vô thê, tăng đạo đa ngộ).",
+     "lg": "Sao Hư (chủ khắc hại, nên chậm cưới mới tránh tổn hại. Cũng chủ không vợ, tăng đạo thường gặp)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l002",
+     "hv": "Quý (chủ chiêu mỹ khiết chi thê).",
+     "lg": "Sao Quý (chủ lấy được vợ đẹp và trong sạch)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l003",
+     "hv": "Ấn (nhân thê trí phú, gia trượng bất lão).",
+     "lg": "Sao Ấn (nhờ vợ mà giàu có, thêm sao Trượng thì không già)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l004",
+     "hv": "Thọ (nghi phu thê niên lão).",
+     "lg": "Sao Thọ (nên vợ chồng sống lâu, già yếu)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l005",
+     "hv": "Không (bất cát).",
+     "lg": "Sao Không (không tốt)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l006",
+     "hv": "Hồng (chiêu mỹ mạo chi thê).",
+     "lg": "Sao Hồng (lấy vợ đẹp)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l007",
+     "hv": "Khố (đắc thê thiếp bất nghi lão).",
+     "lg": "Sao Khố (có vợ thiếp nhưng không nên già)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l008",
+     "hv": "Lộc (đắc thê quý, kỵ ác tinh xung).",
+     "lg": "Sao Lộc (được vợ quý, kỵ ác tinh xung phá)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l009",
+     "hv": "Văn (chiêu thông minh linh lợi chi thê, điếu tam phương, hữu ác tinh khắc).",
+     "lg": "Sao Văn (lấy vợ thông minh lanh lợi, nhưng nếu tam phương có ác tinh thì bị khắc)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l010",
+     "hv": "Quán (chủ nam hôn bất chính chi thê, nữ giá bất lương chi phu, kỷ ngọ giáp hợi thượng bất bi, diệc chủ thê tài).",
+     "lg": "Sao Quán (chủ nam lấy vợ không chính đáng, nữ gả chồng không tốt; nếu ở cung Tỵ Ngọ Dần Hợi thì không buồn, cũng chủ vợ tài giỏi)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l011",
+     "hv": "Phúc (chủ chiêu mỹ lương chi phụ, phạm dị hình bất nghi).",
+     "lg": "Sao Phúc (chủ lấy vợ đẹp và hiền, nhưng phạm sao Dị và Hình thì không nên)."
+    },
+    {
+     "page": 282,
+     "line_id": "r008-r008-l012",
+     "hv": "Trượng (cô khắc đới tật chi phu thê).",
+     "lg": "Sao Trượng (chủ vợ chồng cô khắc, mang bệnh tật)."
+    },
+    {
+     "page": 282,
+     "line_id": "r009-r009-l001",
+     "hv": "Mao (thương khắc, cương cường chi thê).",
+     "lg": "Sao Mao (chủ vợ tổn thương chồng, tính cương cường)."
+    },
+    {
+     "page": 282,
+     "line_id": "r010-r010-l001",
+     "hv": "Dị (chủ thương nhị tam, diệc bất hòa mục, bất nhiên chủ ly biệt, nhưng kiến trọng hôn, nam nữ giai bất nghi).",
+     "lg": "Sao Dị (chủ tổn thương hai ba lần, cũng không hòa thuận, không thì chủ ly biệt, vẫn thấy tái hôn, nam nữ đều không tốt)."
+    },
+    {
+     "page": 282,
+     "line_id": "r011-r011-l001",
+     "hv": "Nhận (chủ nam nhân tửu sắc thương thân, nữ hữu sản nguyệt chi nguy. Diệc chủ lang bất sự, đa kiến thương khắc).",
+     "lg": "Sao Nhận (chủ nam nhân vì tửu sắc hại thân, nữ có nguy cơ sản nạn. Cũng chủ phóng đãng không làm việc, thường gặp thương khắc)."
+    },
+    {
+     "page": 282,
+     "line_id": "r012-r012-l001",
+     "hv": "Hình (chủ thương khắc, trì khả miễn. Thiên trượng phu thê tai tật đa ưu, phòng sủng thiếp).",
+     "lg": "Sao Hình (chủ thương khắc, chậm cưới mới tránh. Thiên Trượng chủ vợ chồng nhiều tai tật lo âu, phòng việc sủng thiếp)."
+    },
+    {
+     "page": 282,
+     "line_id": "r013-r013-l001",
+     "hv": "Diêu (phạm trọng hôn. Diệc chủ hòa. Hựu gia trượng dị ác tinh, chủ sinh ly tử biệt. Như nhập miếu, nhược tịnh hạn phùng chi thiêm thọ, thiêm thọ xứng ý sự mỹ).",
+     "lg": "Sao Diêu (phạm tái hôn. Cũng chủ hòa hợp. Lại thêm Trượng Dị ác tinh, chủ sinh ly tử biệt. Nếu nhập miếu, đồng thời gặp hạn thì thêm tuổi thọ, việc vừa ý tốt đẹp)."
+    },
+    {
+     "page": 282,
+     "line_id": "r014-r014-l001",
+     "hv": "Khốc (đa kiến hình khắc tai ương).",
+     "lg": "Sao Khốc (thường thấy hình khắc tai ương)."
+    },
+    {
+     "page": 283,
+     "line_id": "r001-r001-l001",
+     "hv": "Hình hư mao nhận chủ trọng thê, duy hữu Hồng Loan mạo tối kỳ.",
+     "lg": "Hình, Không, Mao, Kiếp chiếu vào cung Phu Thê thì chủ có hai đời vợ; chỉ có Hồng Loan là tướng mạo kỳ tú."
+    },
+    {
+     "page": 283,
+     "line_id": "r002-r002-l001",
+     "hv": "Quý Diêu khố lộc thê tài hậu, Thiên Dị tương phùng chủ biệt ly.",
+     "lg": "Thiên Quý, Thiên Diêu, Lộc Tồn, Hóa Lộc cát tinh gặp nhau thì vợ có tài sản dồi dào; Thiên Dị gặp thì chủ chia lìa."
+    }
+   ]
+  },
+  "Tật Ách": {
+   "rules": [
+    {
+     "page": 283,
+     "line_id": "r004-r004-l001",
+     "hv": "Bất nghi kiến Diêu Dị tinh, chủ hữu đà yêu khuất bối, tịnh quật ác tật cước.",
+     "lg": "Không nên thấy Thiên Diêu và Thiên Dị, chủ bị gù lưng, khom lưng, cùng các bệnh ung nhọt ghẻ lở ở chân."
+    },
+    {
+     "page": 283,
+     "line_id": "r005-r005-l001",
+     "hv": "Tử hư quý thọ Diêu mao không.",
+     "lg": "Tử Vi, Thiên Hư, Thiên Quý, Thiên Thọ, Thiên Diêu, Mao Đầu, Tuần Không... tinh đẩu."
+    },
+    {
+     "page": 283,
+     "line_id": "r006-r006-l001",
+     "hv": "Dị tật triền thân, mục thủ túc chi tai, phế kinh suyễn mãn, khốc thường cửu tê.",
+     "lg": "Thiên Dị và tật bệnh vây thân, tai họa về mắt, tay, chân; kinh phế bị suyễn tức đầy; thường xuyên khóc than rên rỉ."
+    },
+    {
+     "page": 283,
+     "line_id": "r007-r007-l001",
+     "hv": "Ấn hồng khố quán văn nhận chi phúc lộc.",
+     "lg": "Sao Ấn (Ấn Tinh?), Hồng Loan, Lộc Tồn, Quán (Quán Tác?), Văn Tinh, Kiếp Sát... là phúc lộc của các sao này."
+    },
+    {
+     "page": 283,
+     "line_id": "r008-r008-l001",
+     "hv": "Diêu khốc.",
+     "lg": "Thiên Diêu và Thiên Khốc."
+    },
+    {
+     "page": 283,
+     "line_id": "r009-r009-l001",
+     "hv": "Tạng bất ninh, chủ bối khúc, bả túc chi hoạn.",
+     "lg": "Ngũ tạng bất an, chủ về lưng cong, què chân."
+    },
+    {
+     "page": 283,
+     "line_id": "r010-r010-l001",
+     "hv": "Sinh thời tật ách lâm nhân mã, hựu dữ quỷ môn đồng phân dã.",
+     "lg": "Khi sinh ra cung Tật Ách gặp Thiên Mã, lại với Quỷ Môn (Dần cung?) cùng chung một vùng."
+    },
+    {
+     "page": 283,
+     "line_id": "r011-r011-l001",
+     "hv": "Sinh hãm hoặc phùng nhận dị hình, sở thương nhược dực tịnh ám nhã.",
+     "lg": "Phạm hãm và gặp Kiếp Sát, Thiên Hình, Thiên Dị; sự thương tổn như mọc cánh và câm điếc."
+    },
+    {
+     "page": 283,
+     "line_id": "r012-r012-l001",
+     "hv": "Nhận hình tật ách phạ tương phùng, ngũ tạng quai trương liệu bất thông.",
+     "lg": "Kiếp, Hình gặp trong cung Tật Ách, ngũ tạng rối loạn, công hiệu điều trị không thông."
+    },
+    {
+     "page": 283,
+     "line_id": "r013-r013-l001",
+     "hv": "Bả túc đà yêu tịnh khúc bối, niên niên khốc bệnh tất tương phùng.",
+     "lg": "Què chân, gù lưng và lưng còng, năm nào cũng gặp khóc bệnh."
+    },
+    {
+     "page": 283,
+     "line_id": "r014-r014-l001",
+     "hv": "Thân tinh lạc hãm xử hà phương, cánh xuất tương phùng tối bất tường.",
+     "lg": "Thân tinh rơi vào hãm ở phương nào, lại ra ngoài gặp thì chẳng lành."
+    },
+    {
+     "page": 283,
+     "line_id": "r015-r015-l001",
+     "hv": "Bát sát ác tinh như củng chiếu, tiện tri tinh mục thật kham thương.",
+     "lg": "Tám sát ác tinh như vây quanh chiếu rọi, liền biết mắt tinh mù lòa thật đáng thương."
+    },
+    {
+     "page": 283,
+     "line_id": "r016-r016-l001",
+     "hv": "Tật ác bất khả kiến Thiên Diêu, Dị tinh đồng hỉ thậm hề nhiêu.",
+     "lg": "Cung Tật Ách không thể thấy Thiên Diêu, Dị tinh cùng chung là rất kỳ quặc."
+    },
+    {
+     "page": 283,
+     "line_id": "r017-r017-l001",
+     "hv": "Hình nhận kiến chi đa tật bệnh, Thiên Quý Văn Xương khả giải nhiêu.",
+     "lg": "Hình, Kiếp gặp nhau nhiều bệnh tật, Thiên Quý và Văn Xương có thể giải."
+    },
+    {
+     "page": 283,
+     "line_id": "r018-r018-l001",
+     "hv": "Diêu dị mao hình tu đái tật, trượng vi phúc thọ tổng vô tai.",
+     "lg": "Diêu, Dị, Mao, Hình ắt mang tật bệnh; tiểu nhân phúc thọ không tai."
+    },
+    {
+     "page": 283,
+     "line_id": "r019-r019-l001",
+     "hv": "Cát tinh hỗn tạp tu tường sát, ác diệu như lâm họa hoạn lai.",
+     "lg": "Cát tinh lẫn lộn cần xét kỹ; ác diệu kéo đến thì họa ập tới."
+    }
+   ]
+  },
+  "Thiên Di": {
+   "rules": [
+    {
+     "page": 283,
+     "line_id": "r021-r021-l001",
+     "hv": "Tử Vi Đẩu Số.",
+     "lg": "Tử Vi Đẩu Số."
+    },
+    {
+     "page": 283,
+     "line_id": "r022-r022-l001",
+     "hv": "Bất nghi kiến Mao Đầu hình nhận chiếu lâm, xuất ngoại đa xuất đạo tặc hiểm hoành chi sự, trọng tắc chí tử, khan kỳ hữu vô thiện tinh cứu trợ.",
+     "lg": "Không nên thấy Mao Đầu, Thiên Hình, Kiếp Sát chiếu, ra ngoài hay gặp trộm cướp, hiểm trở, nặng thì chết; xem có thiện tinh cứu giúp hay không."
+    },
+    {
+     "page": 283,
+     "line_id": "r022-r022-l002",
+     "hv": "Tử (xuất nhập trụ ngoại phương cận quý), hư (xuất tổ ngoại tài ích), ấn (xuất ngoại phương tài lộc), quý (xuất nhập đắc quý nhân lực), thọ (xuất nhập ngoại phương cát lợi), khố (quán đắc ngoại phương tài cát lợi), hồng (hữu ngoại tài, hỉ khánh hội. tam hợp tài cát lợi, thị nhu thuật cửu lưu chi thập), văn (xuất nhập cận quý cát lợi), phúc (chủ thiên di chi đắc tam hợp phùng cát, xuất nhập thính kỳ sở dục), lộc (đa ngộ cao quý), trượng (bất lợi xuất nhập), mao (xuất ngoại lộ phùng đạo tặc, tổn hại phi hoành chi sự, hựu chủ thủy ngoa), dị (bất đắc an tĩnh), diêu (chủ xuất nhập đắc nhân hòa khí), nhận (chủ viễn hành chiêu tặc), hình (chủ viễn hành bất lợi. nhược Thiên Khốc, phùng đạo tặc hoành ác chi sự dã), khốc (viễn hành xuất nhập, đa chiêu khẩu thiệt thị phi), không (vạn",
+     "lg": "Tử Vi: ra vào ở phương ngoài gần quý nhân. Thiên Hư: ra khỏi Tổ, tài đến từ ngoại. Ấn Tinh: ra ngoài có tài lộc. Thiên Quý: ra vào được quý nhân giúp. Thiên Thọ: ra vào ngoại phương cát lợi. Lộc Tồn: quán xuất ngoại tài cát lợi. Hồng Loan: có tài bên ngoài, hỉ khánh hội; tam hợp tài cát, hợp với nho thuật cửu lưu. Văn Xương/Văn Khúc: ra vào gần quý nhân cát lợi. Phúc Tinh: thiên di được tam hợp tố"
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l001",
+     "hv": "Kỳ hữu vô thiện tinh cứu trợ.",
+     "lg": "Xem nó có thiện tinh cứu trợ hay không."
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l002",
+     "hv": "Tử (xuất nhập trụ ngoại phương cận quý), hư (xuất tổ ngoại tài ích), ấn (xuất ngoại phương tài lộc), quý",
+     "lg": "Tử Vi: ra vào ở ngoại phương gần quý; Thiên Hư: ra khỏi tổ tài đến từ ngoại; Ấn Tinh: ra ngoài có tài lộc; Thiên Quý:"
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l003",
+     "hv": "(xuất nhập đắc quý nhân lực), thọ (xuất nhập ngoại phương cát lợi), khố (quán đắc ngoại phương tài cát lợi), hồng (hữu",
+     "lg": "ra vào được quý nhân lực; Thiên Thọ: ra vào ngoại phương cát lợi; Lộc Tồn: quán xuất ngoại tài cát lợi; Hồng Loan: có"
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l004",
+     "hv": "ngoại tài, hỉ khánh hội. tam hợp tài cát lợi, thị nhu thuật cửu lưu chi thập), văn (xuất nhập cận quý cát",
+     "lg": "ngoại tài, hỉ khánh hội; tam hợp tài cát lợi, ấy là thuộc về nhu thuật cửu lưu; Văn Tinh: ra vào gần quý cát"
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l005",
+     "hv": "lợi), phúc (chủ thiên di chi đắc tam hợp phùng cát, xuất nhập thính kỳ sở dục), lộc (đa ngộ cao quý), trượng",
+     "lg": "lợi; Phúc Tinh: chủ thiên di được tam hợp gặp cát, ra vào tùy theo sở dục; Hóa Lộc: thường gặp cao quý; Trượng Tinh:"
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l006",
+     "hv": "(bất lợi xuất nhập), mao (xuất ngoại lộ phùng đạo tặc, tổn hại phi hoành chi sự, hựu chủ thủy ngoa), dị (bất",
+     "lg": "không lợi xuất nhập; Mao Đầu: ra ngoài đường gặp đạo tặc, tổn hại phi hoành, lại chủ tai nạn nước; Thiên Dị: chẳng"
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l007",
+     "hv": "đắc an tĩnh), diêu (chủ xuất nhập đắc nhân hòa khí), nhận (chủ viễn hành chiêu tặc), hình (chủ viễn hành bất lợi.",
+     "lg": "được an tĩnh; Thiên Diêu: chủ xuất nhập được nhân hòa khí; Kình Dương: chủ viễn hành mời trộm; Thiên Hình: chủ viễn hành bất lợi."
+    },
+    {
+     "page": 283,
+     "line_id": "r023-r023-l008",
+     "hv": "Sự đáo đầu.",
+     "lg": "Việc đến hồi kết thúc."
+    },
+    {
+     "page": 284,
+     "line_id": "r001-r001-l001",
+     "hv": "bất lợi xuất nhập, Mao xuất ngoại lộ phùng đạo tặc, tổn hại phi hoành chi sự, hựu chủ thủy nạn, Dị bất đắc an tĩnh, Diêu chủ xuất nhập đắc nhân hòa khí, Nhận chủ viễn hành chiêu tặc, Hình chủ viễn hành bất lợi.",
+     "lg": "Bất lợi cho việc xuất nhập. Sao Mao (Mao Đầu) gặp trên đường xa bị trộm cướp, gặp việc tổn hại bất ngờ, lại chủ về tai họa nước. Sao Dị (Thiên Mã) không được an tĩnh. Sao Diêu chủ về xuất nhập được người hòa khí. Sao Nhận (Kình Dương) chủ viễn hành gặp trộm. Sao Hình (Thiên Hình) chủ đi xa không lợi."
+    },
+    {
+     "page": 284,
+     "line_id": "r001-r001-l002",
+     "hv": "Nhược Thiên Khốc, phùng đạo tặc hoành ác chi sự dã, Khốc viễn hành xuất nhân, đa chiêu khẩu thị thị phi, Không vạn sự đáo đầu.",
+     "lg": "Nếu gặp sao Thiên Khốc, chủ gặp trộm cướp và việc ác dữ. Sao Khốc (Thiên Khốc) khi đi xa hoặc xuất nhập nhiều gặp thị phi khẩu thiệt. Sao Không (Địa Không) mọi việc cuối cùng cũng thành hư không."
+    },
+    {
+     "page": 284,
+     "line_id": "r001-r001-l003",
+     "hv": "Khang thị thuyết mạn kim thư.",
+     "lg": "Sách Kim Thư của họ Khang (Khang Tiết) có bàn (điều này)."
+    },
+    {
+     "page": 284,
+     "line_id": "r001-r001-l004",
+     "hv": "Ca viết:",
+     "lg": "Bài ca rằng:"
+    },
+    {
+     "page": 284,
+     "line_id": "r002-r002-l001",
+     "hv": "Thiên di hình nhận kiến mao đầu, xuất nhập tu phùng đạo tặc thâu.",
+     "lg": "Cung Thiên Di gặp Hình, Nhận và Mao Đầu, xuất nhập ắt gặp trộm cướp mất mát."
+    },
+    {
+     "page": 284,
+     "line_id": "r003-r003-l001",
+     "hv": "Hoành tử vô ngộ cát tinh cứu, nhược vô ác diệu bất tu ưu.",
+     "lg": "Chết thảm không gặp cát tinh cứu giải, nếu không có ác diệu thì không đáng lo."
+    },
+    {
+     "page": 284,
+     "line_id": "r004-r004-l001",
+     "hv": "Thiên quý du hành ngộ quý tần, ấn vi phúc lộc khả tương thân.",
+     "lg": "Sao Thiên Quý du hành gặp nhiều quý nhân, sao Ấn và sao Phúc, sao Lộc có thể gần gũi."
+    },
+    {
+     "page": 284,
+     "line_id": "r005-r005-l001",
+     "hv": "Mao đầu hình nhận hư phòng đạo, dã tác tha hương khách quỷ nhân.",
+     "lg": "Mao Đầu, Hình, Nhận cần phòng bị trộm đạo, cũng có thể làm người chết khách nơi tha hương."
+    }
+   ]
+  },
+  "Quan Lộc": {
+   "rules": [
+    {
+     "page": 284,
+     "line_id": "r007-r007-l001",
+     "hv": "Nghi kiến ấn thụ, Văn Xương trung khoa danh. Nhược miếu vượng, chủ quyền chức cao thiên. Bất nghi Hư tinh, nhất sinh vô lộc.",
+     "lg": "Nên gặp sao Ấn (Thiên Ấn) và ấn thụ (văn bằng chức tước), Văn Xương thì đỗ khoa danh. Nếu miếu vượng, chủ quyền chức thăng cao. Không nên gặp sao Hư (Thiên Hư), một đời không lộc."
+    },
+    {
+     "page": 284,
+     "line_id": "r008-r008-l001",
+     "hv": "Tử danh phục kim âu, nhập miếu giả danh đạt thần thông. Nhất sinh bất tức, bất nhạ thị phi. Như hội Loan, thiếu niên đăng khoa. Xung phá giả bất quý.",
+     "lg": "Sao Tử Vi tên là phục kim âu (lại vàng), người nhập miếu thì danh vang đến vua. Cả đời không dừng nghỉ, không rước thị phi. Nếu hội sao Loan (Thiên Loan), thiếu niên đỗ đạt. Bị xung phá thì không quý."
+    },
+    {
+     "page": 284,
+     "line_id": "r009-r009-l001",
+     "hv": "Hư chủ hư danh kỳ nhân thế, tự vô quyết đoạn chi sự.",
+     "lg": "Sao Hư chủ hư danh, gặp người lạ và thế lực, bản thân không có chuyện quyết đoán."
+    },
+    {
+     "page": 284,
+     "line_id": "r009-r009-l002",
+     "hv": "Quý chủ ngộ sự bất cụ, vô ác giả. Bình sinh bất thiện an khang dã.",
+     "lg": "Sao Quý (Thiên Quý) chủ gặp việc không sợ, không có điều ác. Nhưng bình sinh không được an khang."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l001",
+     "hv": "Ấn chủ năng tề gia, cánh đắc địa. Hựu củng hợp huynh thiên quý, chủ bái tướng phong hầu, đại quý chi mệnh. Thiếu niên đăng khoa, tảo ủng tinh kỳ.",
+     "lg": "Sao Ấn chủ có thể tề gia, lại được đắc địa. Lại gặp cung Huynh Đệ có Thiên Quý chủ bái tướng phong hầu, là mệnh đại quý. Thiếu niên đỗ khoa, sớm nắm cờ tiết."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l002",
+     "hv": "Nhược nhân bất đắc địa giả, diệc bình tức, thọ nhập miếu giả, thiếu niên khoa giáp. Từ mẫn quần tế, kiến sự viễn.",
+     "lg": "Nếu người không đắc địa thì cũng bình ổn, sống lâu. Người nhập miếu, thiếu niên đỗ khoa. Từ bi thương dân, thấy việc xa."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l003",
+     "hv": "Lộc đồng thượng.",
+     "lg": "Sao Lộc (Hóa Lộc) cũng như trên."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l004",
+     "hv": "Hồng hữu nhân nghĩa, chủ đắc khánh. Hảo lễ hiệp, cuồng vọng.",
+     "lg": "Sao Hồng (Hồng Loan) có nhân nghĩa, chủ được chúc mừng. Tuy nhiên thích lễ nghi, có phần cuồng vọng."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l005",
+     "hv": "Khố thiện quy tài năng kế đẳng, nhập miếu giả, danh bá hoa di.",
+     "lg": "Sao Khố (Lộc Tồn) khéo léo về quy mưu tài năng kế toán, người nhập miếu thì danh vang khắp Trung Hoa và ngoại tộc."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l006",
+     "hv": "Quán nhất sinh bình thiện, quyết phá giả bất lợi.",
+     "lg": "Sao Quán (?) cả đời bình an lành, nhưng bị quyết phá thì bất lợi."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l007",
+     "hv": "Mao bất phạ sự, bị quyết bất úy.",
+     "lg": "Sao Mao (Mao Đầu) không sợ việc, bị quyết cũng không sợ."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l008",
+     "hv": "Khốc khứ văn.",
+     "lg": "Sao Khốc (Thiên Khốc) bỏ văn chương."
+    },
+    {
+     "page": 284,
+     "line_id": "r010-r010-l009",
+     "hv": "Văn nhập miếu giả, thiếu niên khoa danh tinh tiết. Quân tử chức vị thanh hiển, tăng đạo khiết, thứ nhân cận quý.",
+     "lg": "Sao Văn (Văn Xương, Văn Khúc) nhập miếu thì thiếu niên đỗ khoa danh, được tinh tiết (cờ tiết vua ban). Quân tử chức vị thanh cao hiển hách, tăng đạo thanh khiết, thứ dân gần quý."
+    },
+    {
+     "page": 284,
+     "line_id": "r011-r011-l001",
+     "hv": "Diêu ác sự dị giới ngôn, sự đa diệc nhiên.",
+     "lg": "Sao Diêu (?) việc ác dễ ngăn lời, nhưng việc nhiều cũng vậy."
+    },
+    {
+     "page": 284,
+     "line_id": "r012-r012-l001",
+     "hv": "Thi viết:",
+     "lg": "Bài thơ rằng:"
+    },
+    {
+     "page": 284,
+     "line_id": "r013-r013-l001",
+     "hv": "Thiên lộc cung trung hình trượng chiếu, quyết phối đồ lưu vị túc đạo.",
+     "lg": "Trong cung Thiên Lộc có hình trượng (hình phạt) chiếu, quyết sẽ bị phối xa, đồ lưu (đày) không đáng nói."
+    },
+    {
+     "page": 284,
+     "line_id": "r014-r014-l001",
+     "hv": "Tất nhiên thiên khốc cánh lâm xung, đồ tử thương vong hung tự điếu.",
+     "lg": "Ắt nhiên sao Thiên Khốc lại đến xung, chết thương vong, hung tự treo cổ."
+    },
+    {
+     "page": 284,
+     "line_id": "r015-r015-l001",
+     "hv": "Quan lộc hình nhận bất khả ngôn, ngục tụ triền miên họa hoạn liên.",
+     "lg": "Cung Quan Lộc gặp Hình và Nhận thì không thể nói, kiện tụng triền miên, họa hoạn liên tiếp."
+    },
+    {
+     "page": 284,
+     "line_id": "r016-r016-l001",
+     "hv": "Thiên ấn văn xương cư thử địa, thiếu niên phản địa đắc cao thiên.",
+     "lg": "Sao Thiên Ấn và Văn Xương ở cung này, thiếu niên nhờ nghịch cảnh mà được thăng cao."
+    },
+    {
+     "page": 285,
+     "line_id": "r001-r001-l001",
+     "hv": "Thiên hư hình nhận vô thành thực, nhược ngộ văn xương bá đại danh.",
+     "lg": "Sao Thiên Hư, Kình Dương (dùng nhận thế hình) và Đà La không tạo nên thành tựu thực chất, nhưng nếu gặp Văn Xương thì sẽ nổi tiếng khắp nơi."
+    }
+   ]
+  },
+  "Phúc Đức": {
+   "rules": [
+    {
+     "page": 285,
+     "line_id": "r003-r003-l001",
+     "hv": "Nghi kiến Phúc Thọ ấn, cát tinh cánh nghi. Miếu vượng, như phàm hư tinh chiếu phá, nhất sinh vô phúc. Hoặc",
+     "lg": "Nên gặp các sao Phúc, Thọ và Ấn; gặp cát tinh lại càng tốt. Nếu miếu vượng, nhưng bị các sao phàm tạp và Thiên Hư chiếu phá, thì cả đời vô phúc. Hoặc"
+    },
+    {
+     "page": 285,
+     "line_id": "r003-r003-l002",
+     "hv": "Tại hãm nịch, cập kiến hình nhận lâm chi, tất thị nhĩ mục khiên cổ lựu phích chi tật.",
+     "lg": "Nếu ở cung hãm địa (tối tăm) lại gặp hình nhận chiếu đến, ắt mắc bệnh về tai mắt, u cổ, u bướu, hoặc ghẻ lác."
+    },
+    {
+     "page": 285,
+     "line_id": "r004-r004-l001",
+     "hv": "Tử thọ hồng (nhất sinh y thực an khang), quý văn (y lộc thanh hậu), ấn (bá danh), khố (tài",
+     "lg": "Sao Tử (Tử Vi), Thọ (Thiên Thọ), Hồng (Hồng Loan) chủ cả đời y thực an khang. Sao Quý (Thiên Quý), Văn (Văn Xương, Văn Khúc) chủ y lộc thanh nhã hậu đãi. Sao Ấn (Ấn Tinh) chủ nổi danh. Sao Khố (Thiên Khố) chủ tài"
+    },
+    {
+     "page": 285,
+     "line_id": "r004-r004-l002",
+     "hv": "lộc), quán (hoành tài), phúc (kiên cố), lộc (lộc vị), trượng dị (lao lục tiến thối), mao diêu nhận khốc",
+     "lg": "lộc. Sao Quán (Quán Tinh) chủ hoành tài. Sao Phúc (Phúc Tinh) chủ phúc kiên cố. Sao Lộc (Lộc Tồn) chủ lộc vị. Sao Trượng và Dị (trượng hình, thiên di) chủ lao lực, tiến thoái. Sao Mao, Diêu, Nhận, Khốc"
+    },
+    {
+     "page": 285,
+     "line_id": "r004-r004-l003",
+     "hv": "(chủ phúc bạc bất lợi), hư (nhất sinh vô tài. Thân tại hãm địa, canh gia hình nhận chiếu chi, tất chủ nhĩ mục",
+     "lg": "chủ phúc mỏng, bất lợi. Sao Hư (Thiên Hư) chủ cả đời không tài. Nếu thân cung ở hãm địa, lại thêm hình nhận chiếu đến, ắt chủ về tai, mắt,"
+    },
+    {
+     "page": 285,
+     "line_id": "r004-r004-l004",
+     "hv": "khẩu tị tí túc chi tật), hình (chủ lao tâm, nhất oán hữu tai nạn. Đồ phối gia hư khốc nhị tinh, pháp thương",
+     "lg": "miệng, mũi, tay chân có tật). Sao Hình chủ lao tâm, một đời oán hận, gặp tai nạn. Phối thêm sao Hư và Khốc, sẽ bị pháp luật thương"
+    },
+    {
+     "page": 285,
+     "line_id": "r004-r004-l005",
+     "hv": "vong. Ngộ cát giảm bán), diêu (thân loạn tâm mang).",
+     "lg": "vong. Gặp cát tinh thì giảm một nửa. Sao Diêu chủ thân tâm loạn, bận rộn."
+    },
+    {
+     "page": 285,
+     "line_id": "r005-r005-l001",
+     "hv": "Ca viết:",
+     "lg": "Bài ca rằng:"
+    },
+    {
+     "page": 285,
+     "line_id": "r006-r006-l001",
+     "hv": "Phúc Đức bất khả kiến thiên hư, hữu phúc chi nhân chỉ thử vô.",
+     "lg": "Phúc Đức không thể thấy sao Thiên Hư, người có phúc thì không gặp sao này."
+    },
+    {
+     "page": 285,
+     "line_id": "r007-r007-l001",
+     "hv": "Hình dị chiếu hạn tự nhiên ác, túng nhiên vô tật dã kinh nguy.",
+     "lg": "Hình và Dị chiếu vào hạn tự nhiên xấu ác, dù không có tật cũng kinh hãi nguy hiểm."
+    },
+    {
+     "page": 285,
+     "line_id": "r008-r008-l001",
+     "hv": "Thân cung thanh cát hưu sầu mệnh, Phúc Đức kiên cao bất luận cung.",
+     "lg": "Thân cung thanh cát thì đừng lo mệnh, Phúc Đức kiên cố cao thì không cần luận đến cung khác."
+    },
+    {
+     "page": 285,
+     "line_id": "r009-r009-l001",
+     "hv": "Phúc Đức chi cung yếu cát tinh, thiếu niên hưởng dụng tất an vinh.",
+     "lg": "Cung Phúc Đức cần có cát tinh, tuổi trẻ hưởng dùng ắt an vinh."
+    },
+    {
+     "page": 285,
+     "line_id": "r010-r010-l001",
+     "hv": "Nhược phùng ác diệu ấn vô phúc, tảo khắc thê nô dữ đệ huynh.",
+     "lg": "Nếu gặp ác diệu, ấn tinh vô phúc, sớm khắc vợ, tôi tớ và anh em."
+    }
+   ]
+  },
+  "Tướng Mạo": {
+   "rules": [
+    {
+     "page": 285,
+     "line_id": "r012-r012-l001",
+     "hv": "Nghi kiến hư khốc, nhất sinh thiểu tai. Bất nghi thân mệnh kiến chi mao đầu thiên khốc đồng cung, chủ hữu phá",
+     "lg": "Nên gặp sao Hư và Khốc, cả đời ít tai họa. Không nên thân mệnh thấy Mao Đầu, Thiên Khốc đồng cung, chủ có phá"
+    },
+    {
+     "page": 285,
+     "line_id": "r012-r012-l002",
+     "hv": "tướng, kiến quý đại cát.",
+     "lg": "tướng; gặp sao Quý thì đại cát."
+    },
+    {
+     "page": 285,
+     "line_id": "r013-r013-l001",
+     "hv": "Tử (cô khí), quý hồng văn (mỹ mạo), ấn (uy quyền), thọ (cổ mạo), khố (phát tài), quán",
+     "lg": "Sao Tử (Tử Vi) chủ cô khí. Sao Quý, Hồng, Văn chủ mỹ mạo. Sao Ấn chủ uy quyền. Sao Thọ chủ gương mặt cổ kính. Sao Khố chủ phát tài. Sao Quán"
+    },
+    {
+     "page": 285,
+     "line_id": "r013-r013-l002",
+     "hv": "(bạo phát), hư (tai tật kỵ xung), phúc lộc (tại cung cường cung, bạch thủ vinh hoa phú quý), trượng (hậu đái",
+     "lg": "chủ bạo phát. Sao Hư chủ tai tật, kỵ xung. Sao Phúc, Lộc ở cung cường, chủ tay trắng gây dựng vinh hoa phú quý. Sao Trượng, sau sẽ mang"
+    },
+    {
+     "page": 285,
+     "line_id": "r013-r013-l003",
+     "hv": "tật ách), diêu (mỹ mạo thanh tú), mao (diện mạo xú ác), khốc (diện mạo tai tật), dị nhận hình (diện mạo",
+     "lg": "tật ách. Sao Diêu chủ mỹ mạo thanh tú. Sao Mao chủ diện mạo xấu xí ác. Sao Khốc chủ diện mạo có tai tật. Sao Dị, Nhận, Hình chủ diện mạo"
+    },
+    {
+     "page": 285,
+     "line_id": "r013-r013-l004",
+     "hv": "tàn phá, đới tật ách).",
+     "lg": "tàn phá, mang tật ách."
+    },
+    {
+     "page": 285,
+     "line_id": "r014-r014-l001",
+     "hv": "Tử Vi Đẩu Số",
+     "lg": "Tử Vi Đẩu Số"
+    },
+    {
+     "page": 285,
+     "line_id": "r015-r015-l001",
+     "hv": "Lục viết:",
+     "lg": "Bài lục rằng:"
+    },
+    {
+     "page": 285,
+     "line_id": "r016-r016-l001",
+     "hv": "Tướng mạo bất nghi kiến khốc bi, phá thương dung mạo bả kiên dư.",
+     "lg": "Tướng mạo không nên thấy sao Khốc bi ai, sẽ phá thương dung mạo, vai lệch đi khập khiễng."
+    },
+    {
+     "page": 285,
+     "line_id": "r017-r017-l001",
+     "hv": "Thử cung nhược hoàn phùng thử diệu, định sinh ác tật tái vô nghi.",
+     "lg": "Cung này nếu lại gặp sao xấu đó, ắt sinh ác tật, không còn nghi ngờ gì nữa."
+    },
+    {
+     "page": 285,
+     "line_id": "r018-r018-l001",
+     "hv": "Lục viết:",
+     "lg": "Bài lục rằng:"
+    },
+    {
+     "page": 286,
+     "line_id": "r001-r001-l001",
+     "hv": "Tướng mạo bất nghi kiến Dị tinh, hựu hiềm Hình Đao đáo kỳ trung.",
+     "lg": "Cung Tướng Mạo (Phụ Mẫu) không nên thấy các sao Dị (Thiên Diêu, Địa Kiếp...), lại kỵ Hình (Thiên Hình) và Đao (Kình Dương) chiếu tới."
+    },
+    {
+     "page": 286,
+     "line_id": "r002-r002-l001",
+     "hv": "Thân Mệnh nhị cung phùng thử diệu, định sinh ám tật dị tai công.",
+     "lg": "Thân và Mệnh hai cung gặp sao này, ắt sinh tật bệnh ngầm và tai họa lạ thường tấn công."
+    },
+    {
+     "page": 286,
+     "line_id": "r003-r003-l001",
+     "hv": "Tương tiết thuyết Dịch kim thư ③",
+     "lg": "(Chú thích sách: Tương Tiết bàn Dịch trong sách vàng ③ – có thể là dẫn xuất từ Chu Dịch.)"
+    },
+    {
+     "page": 286,
+     "line_id": "r004-r004-l001",
+     "hv": "Lục viết:",
+     "lg": "Lục (mục ghi chép) rằng:"
+    },
+    {
+     "page": 286,
+     "line_id": "r005-r005-l001",
+     "hv": "Mạo cung Văn Xương vị vi lương, Phúc Thọ gia lâm thọ khảo trường.",
+     "lg": "Cung Mạo (Phụ Mẫu) có Văn Xương chưa hẳn tốt; Phúc, Thọ cùng chiếu thì tuổi thọ dài lâu."
+    },
+    {
+     "page": 286,
+     "line_id": "r006-r006-l001",
+     "hv": "Nhược ngộ hung tinh đa phá tổ, Hồng Loan Thiên Khốc tế suy tường.",
+     "lg": "Nếu gặp hung tinh nhiều thì phá tổ nghiệp, Hồng Loan và Thiên Khốc cần suy xét cẩn thận."
+    },
+    {
+     "page": 286,
+     "line_id": "r007-r007-l001",
+     "hv": "Tí, Thân, Tỵ, Dậu, Hợi",
+     "lg": "Các cung Tí, Thân, Tỵ, Dậu, Hợi (nơi có Tử Vi hoặc Tử Khí)."
+    },
+    {
+     "page": 286,
+     "line_id": "r008-r008-l001",
+     "hv": "(Tử khí cao cường, sư vu hữu phần cao cường)",
+     "lg": "Tử Khí (sao Tử Vi + Thiên Khí?) mà cao vượng thì người làm thầy cúng, thầy bói có phần cao sang."
+    },
+    {
+     "page": 286,
+     "line_id": "r009-r009-l001",
+     "hv": "Tử Vi",
+     "lg": "Sao Tử Vi."
+    },
+    {
+     "page": 286,
+     "line_id": "r010-r010-l001",
+     "hv": "Tinh danh Tử Vi, tử thượng an cư. Nam tử học đường, học quán, nữ tử cẩm chức thứ tú. Mao đầu",
+     "lg": "Sao tên Tử Vi, an tại cung Tý. Nam được học đường, học quán; nữ được gấm vóc thêu thùa. Sao Mao Đầu (sao chổi?) –"
+    },
+    {
+     "page": 286,
+     "line_id": "r010-r010-l002",
+     "hv": "bất gia nam tử nhi quan trọng lộc, Đao tinh bất chí nữ nhân quý thất danh trân. Nhược tại Tị cung tịnh Dậu Hợi, vận",
+     "lg": "không thêm vào nam mà quan lộc trọng; sao Đao (Kình Dương) không đến hại nữ, nên quý thất danh trân. Nếu ở cung Tị, Dậu, Hợi thì vận"
+    },
+    {
+     "page": 286,
+     "line_id": "r010-r010-l003",
+     "hv": "hành Phúc Lộc hữu dư danh. Tử Khí chi tinh, độc viết cô. Vi tăng vi già vi phiếm hậu.",
+     "lg": "đi Phúc Lộc có thừa danh. Sao Tử Khí riêng gọi là cô. Làm tu sĩ, làm nhà tu, làm người phiêu bạt (ẩn dật)."
+    },
+    {
+     "page": 286,
+     "line_id": "r011-r011-l001",
+     "hv": "Lục viết: Thử tinh lạm hãm, nhất thế lão nho.",
+     "lg": "Lục rằng: Sao này rơi vào hãm địa thì suốt đời chỉ là lão nho (học trò già không đỗ đạt)."
+    },
+    {
+     "page": 286,
+     "line_id": "r012-r012-l001",
+     "hv": "Nhân nhược tử thượng kiến Tử Vi, phú quý công danh thiên hạ tri.",
+     "lg": "Người nếu tại cung Tý thấy Tử Vi, phú quý công danh thiên hạ đều biết."
+    },
+    {
+     "page": 286,
+     "line_id": "r013-r013-l001",
+     "hv": "Hình Dị bất lai miễn phá đãng, phu thê bảo thủ phả tương nghi.",
+     "lg": "Sao Hình và Dị không đến thì tránh được phá tán; vợ chồng giữ gìn khá hòa hợp."
+    },
+    {
+     "page": 286,
+     "line_id": "r014-r014-l001",
+     "hv": "Lục viết: Tử Khí quy viên quản, chủ văn chương quán thế.",
+     "lg": "Lục rằng: Tử Khí về viên (cung miếu) thì chủ văn chương hơn đời."
+    },
+    {
+     "page": 286,
+     "line_id": "r015-r015-l001",
+     "hv": "Tử gia Hợi Dậu Tí Tị cung, phú thọ tài danh thạc đức ông.",
+     "lg": "Tử Vi gặp Tử Khí ở các cung Hợi, Dậu, Tí, Tị, chủ giàu, thọ, tài danh, đức độ lớn."
+    },
+    {
+     "page": 286,
+     "line_id": "r016-r016-l001",
+     "hv": "Y tử yêu kim nhân mạc tỉ, hà sầu quan tước bất vinh tôn.",
+     "lg": "Mặc áo tía đeo đai vàng, người không sánh kịp; sao phải lo quan tước chẳng vinh hiển tôn quý?"
+    },
+    {
+     "page": 286,
+     "line_id": "r017-r017-l001",
+     "hv": "Lục nhật:",
+     "lg": "Lục (mục ghi) rằng:"
+    },
+    {
+     "page": 286,
+     "line_id": "r018-r018-l001",
+     "hv": "Tử Khí phùng chi Tử Khí Thần, cát tinh đồng chiếu bội tinh thần.",
+     "lg": "Tử Khí gặp Tử Khí và Thần (sao Thần?) ; sao cát đồng chiếu thì tinh thần tăng gấp bội."
+    },
+    {
+     "page": 286,
+     "line_id": "r019-r019-l001",
+     "hv": "Cô túc thiên xung nhàn cực vị, chủ vi tăng đạo cửu lưu nhân.",
+     "lg": "Sao Cô, Túc, Thiên Xung ở cung Nhàn Cực (Thiên Di?), chủ làm tăng đạo hoặc người cửu lưu (các nghề thấp)."
+    },
+    {
+     "page": 286,
+     "line_id": "r020-r020-l001",
+     "hv": "Thân Mệnh phùng chi tất thọ trường, Tử Khí vượng lạc diệu vi lương.",
+     "lg": "Thân Mệnh gặp sao này ắt sống lâu; Tử Khí vượng, lạc (tốt) thì diệu (kỳ diệu) và tốt lành."
+    },
+    {
+     "page": 286,
+     "line_id": "r021-r021-l001",
+     "hv": "Quý hiển tương phùng cư hàn uyển, cánh kiêm thiên Đao tác viên lang.",
+     "lg": "Quý hiển gặp nhau ở nơi hàn lâm (viện văn), thêm có sao Thiên Đao (Kình Dương?) thì làm chức viên lang (quan nhỏ)."
+    },
+    {
+     "page": 286,
+     "line_id": "r022-r022-l001",
+     "hv": "Lục nhật:",
+     "lg": "Lục rằng:"
+    },
+    {
+     "page": 286,
+     "line_id": "r023-r023-l001",
+     "hv": "Tử Khí thanh nhàn nghệ thuật nhân, quỷ hoa kiêm cục vưu thanh.",
+     "lg": "Tử Khí thanh nhàn, là người nghệ thuật; có sao Quỷ, Hoa kèm cách cục càng thanh cao."
+    },
+    {
+     "page": 286,
+     "line_id": "r024-r024-l001",
+     "hv": "Năng văn năng vũ đa mưu lược, không lý vinh hoa sự sự tân.",
+     "lg": "Văn võ toàn tài, nhiều mưu lược; trong cảnh hư không mà vinh hoa, mọi việc đều mới mẻ."
+    },
+    {
+     "page": 286,
+     "line_id": "r025-r025-l001",
+     "hv": "27",
+     "lg": "(Số thứ tự trang? Không dịch.)"
+    }
+   ]
+  }
+ },
+ "engine_notes": "Query API: GET /api/tu-vi/q4/chieu-dom-12cung/{cung_name} → trả về list rules cho cung đó."
+}
