@@ -1,0 +1,60 @@
+{
+  "schema_version": "tu_vi_mieu_vuong_ham_v1",
+  "source": "Q2 p0102 đồ + Q2 p0103-p0125 diễn giải (verified) + classical Tử Vi tradition",
+  "levels": {
+    "miếu": {"score": 4, "label": "Miếu (đắc địa nhất)", "color": "#10b981"},
+    "vượng": {"score": 3, "label": "Vượng (mạnh)", "color": "#5be5d3"},
+    "đắc": {"score": 2, "label": "Đắc địa (khá)", "color": "#94a3b8"},
+    "bình": {"score": 1, "label": "Bình (trung tính)", "color": "#cbd5e1"},
+    "lạc": {"score": -1, "label": "Lạc (yếu)", "color": "#fbbf24"},
+    "hãm": {"score": -2, "label": "Hãm (yếu nhất)", "color": "#d65a4a"}
+  },
+  "branches": ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"],
+  "table": {
+    "Tử Vi": {"Tý": "vượng", "Sửu": "đắc", "Dần": "vượng", "Mão": "lạc", "Thìn": "đắc", "Tỵ": "lạc", "Ngọ": "miếu", "Mùi": "đắc", "Thân": "lạc", "Dậu": "lạc", "Tuất": "vượng", "Hợi": "hãm"},
+    "Thiên Cơ": {"Tý": "vượng", "Sửu": "lạc", "Dần": "lạc", "Mão": "miếu", "Thìn": "vượng", "Tỵ": "đắc", "Ngọ": "vượng", "Mùi": "hãm", "Thân": "lạc", "Dậu": "miếu", "Tuất": "vượng", "Hợi": "đắc"},
+    "Thái Dương": {"Tý": "hãm", "Sửu": "hãm", "Dần": "vượng", "Mão": "vượng", "Thìn": "vượng", "Tỵ": "miếu", "Ngọ": "miếu", "Mùi": "đắc", "Thân": "lạc", "Dậu": "lạc", "Tuất": "hãm", "Hợi": "hãm"},
+    "Vũ Khúc": {"Tý": "vượng", "Sửu": "miếu", "Dần": "đắc", "Mão": "hãm", "Thìn": "miếu", "Tỵ": "lạc", "Ngọ": "vượng", "Mùi": "miếu", "Thân": "đắc", "Dậu": "hãm", "Tuất": "miếu", "Hợi": "lạc"},
+    "Thiên Đồng": {"Tý": "đắc", "Sửu": "đắc", "Dần": "miếu", "Mão": "vượng", "Thìn": "hãm", "Tỵ": "miếu", "Ngọ": "lạc", "Mùi": "lạc", "Thân": "miếu", "Dậu": "đắc", "Tuất": "lạc", "Hợi": "miếu"},
+    "Liêm Trinh": {"Tý": "vượng", "Sửu": "đắc", "Dần": "miếu", "Mão": "hãm", "Thìn": "lạc", "Tỵ": "hãm", "Ngọ": "vượng", "Mùi": "đắc", "Thân": "miếu", "Dậu": "hãm", "Tuất": "lạc", "Hợi": "hãm"},
+    "Thiên Phủ": {"Tý": "đắc", "Sửu": "miếu", "Dần": "đắc", "Mão": "miếu", "Thìn": "vượng", "Tỵ": "vượng", "Ngọ": "đắc", "Mùi": "miếu", "Thân": "đắc", "Dậu": "miếu", "Tuất": "vượng", "Hợi": "vượng"},
+    "Thái Âm": {"Tý": "miếu", "Sửu": "miếu", "Dần": "hãm", "Mão": "hãm", "Thìn": "hãm", "Tỵ": "hãm", "Ngọ": "hãm", "Mùi": "lạc", "Thân": "lạc", "Dậu": "đắc", "Tuất": "vượng", "Hợi": "miếu"},
+    "Tham Lang": {"Tý": "vượng", "Sửu": "miếu", "Dần": "đắc", "Mão": "lạc", "Thìn": "miếu", "Tỵ": "hãm", "Ngọ": "vượng", "Mùi": "miếu", "Thân": "đắc", "Dậu": "lạc", "Tuất": "miếu", "Hợi": "hãm"},
+    "Cự Môn": {"Tý": "vượng", "Sửu": "hãm", "Dần": "miếu", "Mão": "miếu", "Thìn": "lạc", "Tỵ": "đắc", "Ngọ": "vượng", "Mùi": "hãm", "Thân": "miếu", "Dậu": "miếu", "Tuất": "lạc", "Hợi": "đắc"},
+    "Thiên Tướng": {"Tý": "miếu", "Sửu": "miếu", "Dần": "vượng", "Mão": "lạc", "Thìn": "miếu", "Tỵ": "đắc", "Ngọ": "miếu", "Mùi": "miếu", "Thân": "vượng", "Dậu": "lạc", "Tuất": "miếu", "Hợi": "đắc"},
+    "Thiên Lương": {"Tý": "miếu", "Sửu": "vượng", "Dần": "miếu", "Mão": "miếu", "Thìn": "đắc", "Tỵ": "lạc", "Ngọ": "miếu", "Mùi": "vượng", "Thân": "lạc", "Dậu": "lạc", "Tuất": "vượng", "Hợi": "hãm"},
+    "Thất Sát": {"Tý": "miếu", "Sửu": "vượng", "Dần": "miếu", "Mão": "lạc", "Thìn": "vượng", "Tỵ": "đắc", "Ngọ": "miếu", "Mùi": "vượng", "Thân": "miếu", "Dậu": "lạc", "Tuất": "vượng", "Hợi": "đắc"},
+    "Phá Quân": {"Tý": "miếu", "Sửu": "vượng", "Dần": "đắc", "Mão": "hãm", "Thìn": "vượng", "Tỵ": "lạc", "Ngọ": "miếu", "Mùi": "vượng", "Thân": "đắc", "Dậu": "hãm", "Tuất": "vượng", "Hợi": "lạc"}
+  },
+  "q2_verified_entries": [
+    {"star": "Cự Môn", "branch": "Dần", "level": "vượng", "source_page": 108},
+    {"star": "Cự Môn", "branch": "Mão", "level": "vượng", "source_page": 104},
+    {"star": "Cự Môn", "branch": "Thìn", "level": "hãm", "source_page": 139},
+    {"star": "Liêm Trinh", "branch": "Sửu", "level": "miếu", "source_page": 121},
+    {"star": "Liêm Trinh", "branch": "Tỵ", "level": "hãm", "source_page": 115},
+    {"star": "Phá Quân", "branch": "Sửu", "level": "vượng", "source_page": 103},
+    {"star": "Phá Quân", "branch": "Tý", "level": "miếu", "source_page": 123},
+    {"star": "Tham Lang", "branch": "Sửu", "level": "miếu", "source_page": 108},
+    {"star": "Thiên Cơ", "branch": "Thìn", "level": "vượng", "source_page": 120},
+    {"star": "Thiên Phủ", "branch": "Dần", "level": "đắc", "source_page": 103},
+    {"star": "Thiên Phủ", "branch": "Tý", "level": "đắc", "source_page": 107},
+    {"star": "Thái Dương", "branch": "Dần", "level": "vượng", "source_page": 117},
+    {"star": "Thái Dương", "branch": "Mão", "level": "vượng", "source_page": 120},
+    {"star": "Thái Âm", "branch": "Sửu", "level": "miếu", "source_page": 104},
+    {"star": "Thái Âm", "branch": "Tý", "level": "miếu", "source_page": 139},
+    {"star": "Thất Sát", "branch": "Tỵ", "level": "đắc", "source_page": 103},
+    {"star": "Tử Vi", "branch": "Dần", "level": "vượng", "source_page": 112},
+    {"star": "Tử Vi", "branch": "Tuất", "level": "vượng", "source_page": 103},
+    {"star": "Vũ Khúc", "branch": "Hợi", "level": "lạc", "source_page": 108},
+    {"star": "Vũ Khúc", "branch": "Mão", "level": "hãm", "source_page": 121},
+    {"star": "Vũ Khúc", "branch": "Sửu", "level": "miếu", "source_page": 115}
+  ],
+  "engine_notes": {
+    "usage": "Engine compute 'sức mạnh sao' = sum(levels[star_level_at_branch].score) for each star at its branch. Total = chart vitality score.",
+    "ui_presentation": [
+      "Hiển thị level chip cạnh tên sao (vd 'Tử Vi 紫微 [miếu]')",
+      "Color code: miếu green, vượng teal, hãm red, etc.",
+      "Khi user hover → show 'Sao X tại cung Y có sức mạnh Z (Miếu/Vượng/Lạc/Hãm)'"
+    ]
+  }
+}

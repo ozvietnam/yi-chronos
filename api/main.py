@@ -5197,6 +5197,21 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
 
 
 # ─── Cách cục dictionary (từ thâm nhuần Q1) ──────────────────────────────────
+@app.post("/api/tu-vi/chart-strength")
+def yi_tuvi_chart_strength(req: _AnalyzeRequest, request: Request) -> dict:
+    """Tính sức mạnh tổng thể lá số dựa trên Miếu Vượng Hãm (Q2 p0102).
+
+    Mỗi chính tinh tại cung tương ứng có 1 level (miếu/vượng/đắc/bình/lạc/hãm).
+    Tổng score = đánh giá tổng thể "khí thế" lá số.
+    """
+    from engine.tu_vi.mieu_vuong_ham import chart_strength
+    from engine.tu_vi.analyzer import TuViAnalyzer
+    person = _resolve_person_from_request(req, request)
+    analyzer = TuViAnalyzer(person)
+    result = chart_strength(analyzer.la_so)
+    return {"status": "ok", "source": "Q2 p0102 + p0103-p0125", **result}
+
+
 @app.post("/api/tu-vi/dau-quan")
 def yi_tuvi_dau_quan(req: _AnalyzeRequest, request: Request) -> dict:
     """Tính Đẩu Quân (斗君) per lưu niên + 12 tháng lưu nguyệt.

@@ -33,6 +33,7 @@ const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
 const cungLoading = ref(false);
 const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
 const caseLoading = ref(false);
+const chartStrength = ref(null);  // ⭐ Miếu Vượng Hãm score (Q2 p0102)
 const loading = ref(false);
 const errorMsg = ref("");
 const expandedPalace = ref(null);
@@ -111,6 +112,7 @@ async function castChart() {
     // ⭐ Load Q1 Phú + Q3 sao×cung passages (background, non-blocking)
     loadCungReading();
     loadCaseStudies();
+    loadChartStrength();
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -166,6 +168,19 @@ async function loadCungReading() {
   } finally {
     cungLoading.value = false;
   }
+}
+
+async function loadChartStrength() {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  try {
+    const resp = await fetch("/api/tu-vi/chart-strength", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person_key: personKey }),
+    }).then((r) => r.json());
+    if (resp.status === "ok") chartStrength.value = resp;
+  } catch (e) { console.error("loadChartStrength failed:", e); }
 }
 
 async function loadCaseStudies() {
@@ -559,6 +574,36 @@ const grid = computed(() => {
             <div class="lt-star-cell"><span>Lưu Thiên Việt</span><b>{{ luuTru.luu_thien_viet }}</b></div>
           </div>
         </div>
+      </template>
+
+      <!-- ── Chart Strength (Q2 p0102 Miếu Vượng Hãm) ────────────── -->
+      <template v-if="chartStrength">
+        <section class="chart-strength-block">
+          <header class="cs-head">
+            <h4>⚖️ Sức mạnh tổng thể lá số (Miếu Vượng Hãm)</h4>
+            <small class="cs-source">{{ chartStrength.source }}</small>
+          </header>
+          <div class="cs-score-row">
+            <div class="cs-total" :class="{
+              'cs-strong': chartStrength.total_score >= 15,
+              'cs-balanced': chartStrength.total_score >= 0 && chartStrength.total_score < 15,
+              'cs-weak': chartStrength.total_score < 0,
+            }">
+              <span class="cs-num">{{ chartStrength.total_score > 0 ? '+' : '' }}{{ chartStrength.total_score }}</span>
+              <span class="cs-verdict">{{ chartStrength.verdict }}</span>
+            </div>
+          </div>
+          <div class="cs-grid">
+            <div v-for="s in chartStrength.stars" :key="s.star" class="cs-star-cell"
+                 :style="{ borderLeftColor: s.color }">
+              <span class="cs-star-name">{{ s.star }}</span>
+              <span class="cs-star-meta">{{ s.branch }} · <b :style="{ color: s.color }">{{ s.level }}</b></span>
+              <span class="cs-star-score" :style="{ color: s.color }">
+                {{ s.score > 0 ? '+' : '' }}{{ s.score }}
+              </span>
+            </div>
+          </div>
+        </section>
       </template>
 
       <!-- ── Case Studies — Lá số anh có nét giống ai (Q3+Q4) ──────── -->
@@ -1473,6 +1518,70 @@ const grid = computed(() => {
   background: rgba(148, 163, 184, 0.15);
   color: #cbd5e1;
   border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* ━━━━━━━━ Chart Strength (Q2 p0102 Miếu Vượng Hãm) ━━━━━━━━ */
+.chart-strength-block {
+  margin: 18px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(91, 229, 211, 0.05), rgba(20, 30, 45, 0.3));
+  border: 1px solid rgba(91, 229, 211, 0.25);
+  border-radius: 8px;
+}
+.cs-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.cs-head h4 { margin: 0; font-size: 14px; color: var(--accent-gold-soft, #f5e6b1); }
+.cs-source { font-size: 10.5px; color: rgba(230, 238, 245, 0.5); font-style: italic; }
+
+.cs-score-row { margin-bottom: 12px; }
+.cs-total {
+  padding: 10px 14px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cs-strong { background: rgba(90, 176, 122, 0.12); border-left: 4px solid #5ab07a; }
+.cs-balanced { background: rgba(148, 163, 184, 0.12); border-left: 4px solid #94a3b8; }
+.cs-weak { background: rgba(214, 90, 74, 0.12); border-left: 4px solid #d65a4a; }
+
+.cs-num { font-size: 24px; font-weight: 700; }
+.cs-strong .cs-num { color: #5ab07a; }
+.cs-balanced .cs-num { color: #cbd5e1; }
+.cs-weak .cs-num { color: #d65a4a; }
+.cs-verdict { font-size: 13px; color: var(--text-secondary, rgba(230, 238, 245, 0.85)); line-height: 1.5; }
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 6px;
+}
+.cs-star-cell {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 2px;
+  align-items: center;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border-left: 3px solid #94a3b8;
+  border-radius: 0 4px 4px 0;
+}
+.cs-star-name {
+  grid-column: 1; grid-row: 1;
+  font-size: 12px;
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-weight: 600;
+}
+.cs-star-meta {
+  grid-column: 1; grid-row: 2;
+  font-size: 10.5px;
+  color: rgba(230, 238, 245, 0.62);
+}
+.cs-star-score {
+  grid-column: 2; grid-row: 1 / span 2;
+  font-size: 18px;
+  font-weight: 700;
+  align-self: center;
 }
 
 /* ━━━━━━━━ Case Studies (Q3+Q4 historical figures) ━━━━━━━━ */
