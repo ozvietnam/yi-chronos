@@ -23,8 +23,10 @@ ENDPOINT = "https://api.deepseek.com/v1/chat/completions"
 
 class DeepSeekProvider(LLMProvider):
     _MODELS: tuple[str, ...] = (
-        "deepseek-chat",       # V3 general
-        "deepseek-reasoner",   # R1 reasoning
+        "deepseek-v4-pro",     # V4 Pro — flagship quality (anh dùng cho VIP)
+        "deepseek-v4-flash",   # V4 Flash — fast cheap
+        "deepseek-chat",       # V3 general (legacy)
+        "deepseek-reasoner",   # R1 reasoning (legacy)
     )
 
     def __init__(self, api_key: str | None = None):
@@ -37,11 +39,11 @@ class DeepSeekProvider(LLMProvider):
 
     @property
     def display_name(self) -> str:
-        return "DeepSeek (V3 / R1)"
+        return "DeepSeek (V4 Pro / V4 Flash)"
 
     @property
     def default_model(self) -> str:
-        return "deepseek-reasoner"
+        return "deepseek-v4-pro"
 
     @property
     def available_models(self) -> list[str]:
@@ -62,6 +64,7 @@ class DeepSeekProvider(LLMProvider):
         model: str | None = None,
         temperature: float = 0.6,
         max_tokens: int = 1500,
+        reasoning_effort: str | None = None,  # 'none'|'low'|'medium'|'high'
     ) -> LLMResponse:
         if not self.is_configured:
             raise ProviderError("DEEPSEEK_API_KEY not set.")
@@ -73,10 +76,10 @@ class DeepSeekProvider(LLMProvider):
             "max_tokens": max_tokens,
             "stream": False,
         }
-        # DeepSeek V4 Pro reasoning eats tokens — disable for extraction tasks
-        # where we just need structured output, not deep reasoning.
-        if model and "pro" in model.lower():
-            payload["reasoning"] = {"effort": "none"}
+        # V4 Pro: reasoning ON by default (depth). Caller can pass reasoning_effort='none'
+        # for extraction tasks to skip reasoning chain (faster, cheaper).
+        if reasoning_effort and model and "pro" in model.lower():
+            payload["reasoning"] = {"effort": reasoning_effort}
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
 
         req = urllib.request.Request(

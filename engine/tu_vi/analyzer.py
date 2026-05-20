@@ -931,7 +931,9 @@ KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai."""
 
     SYSTEM_PHE_MENH_SAU = """Bạn là bậc trí giả Tử Vi Đẩu Số cao cấp — **Trần Đoàn** (Hi Di tiên sinh) chính tổ + **Thiệu Khang Tiết** bổ chú.
 
-Bạn viết **PHÊ MỆNH SÂU** (VIP DeepSeek Pro) cho lá số — depth gấp 3 lần free tier MiniMax.
+Bạn viết **PHÊ MỆNH SÂU VIP** — depth tối thiểu **2000-4000 CHỮ TIẾNG VIỆT mỗi section**, dày như sách xuất bản.
+
+LƯU Ý: User được cung cấp DUMP đầy đủ lá số (12 cung × sao chính/phụ/sát, tứ hóa, tam phương tứ chính, đại vận). Anh BẮT BUỘC dẫn chính xác sao nào ở cung nào, KHÔNG bịa.
 
 **KHÁC BIỆT SO VỚI FREE TIER**:
 - Free (MiniMax, 5 sections): khai_de, menh_than, dai_van, canh_bao, ket_tam_an
@@ -996,11 +998,162 @@ QUAN TRỌNG về escape JSON:
 
 Mỗi value là 1 STRING ĐƠN — không phải object lồng nhau."""
 
+    # Section schemas — split into 2 batches to avoid output truncation
+    _PHE_MENH_SAU_BATCH_1 = [
+        ("dinh_thoi_khac", "1. ĐỊNH THỜI KHẮC",
+         "Phân tích thời điểm sinh — giờ Tý chính/sơ, can chi giờ-ngày-tháng-năm, "
+         "vị trí khí số trong vũ trụ tại khoảnh khắc đản sinh."),
+        ("khoi_bat_tu", "2. KHỞI BÁT TỰ (Tứ Trụ)",
+         "Tứ trụ năm-tháng-ngày-giờ; ngũ hành các trụ; vượng-tướng-hưu-tù-tử; "
+         "thiên can địa chi gặp gỡ ra sao."),
+        ("lap_cach_dung_than", "3. LẬP CÁCH — DỤNG THẦN",
+         "Đối chiếu Q1 Phú Thái Vi 545 cách cục: cách nào TRỰC TIẾP match lá số? "
+         "Dụng thần là sao gì? Cách phù-tá-kỵ-hỉ thế nào? Trích Hán-Việt verbatim quote từ Phú."),
+        ("bai_tinh_than", "4. BÀI TINH THẦN (14 chính tinh + Tứ Hóa + phụ-sát tinh)",
+         "Đi từng cung quan trọng: Mệnh, Thân, Phúc Đức, Quan Lộc, Tài Bạch, Thiên Di. "
+         "Sao chủ + sao hỗ trợ + sao kỵ. Miếu/Vượng/Hãm/Bình. Tứ hóa rơi vào đâu, ảnh hưởng cụ thể."),
+        ("lap_toa_menh", "5. LẬP TỌA MỆNH (tam phương tứ chính)",
+         "Cung Mệnh + tam hợp + xung chiếu = cấu trúc TỌA MỆNH. "
+         "Tâm-Tính-Mệnh của chủ nhân = TÍNH (qua sao Mệnh) × VẬN (qua Thân) × DUYÊN (qua Đẩu Quân). "
+         "Trần Đoàn: chủ nhân thuộc TYPE NGƯỜI nào trong 36 archetypes (12 giờ × 3 khắc)."),
+    ]
+
+    _PHE_MENH_SAU_BATCH_2 = [
+        ("dai_van_phan_tich", "6. ĐẠI VẬN PHÂN TÍCH (8 vòng đời)",
+         "Liệt kê TẤT CẢ 8 vòng đại vận với cung-sao-tuổi cụ thể. "
+         "Mỗi vòng: sao chủ cung đại vận đó là gì, hỗ trợ hay phá, "
+         "khả năng kích hoạt cách cục nào, 'mỗ niên' đáng quan tâm."),
+        ("dai_han_luu_nien", "7. ĐẠI HẠN + LƯU NIÊN (5 năm gần)",
+         "Đại hạn hiện tại + lưu niên 2026/2027/2028/2029/2030 — "
+         "mỗi năm: cung lưu niên ở đâu, sao gặp lưu, lưu Lộc/Quyền/Khoa/Kỵ chiếu cung nào. "
+         "Dùng 'mỗ niên mỗ tinh nghi thận' khi nói tương lai."),
+        ("tu_hoa_dien_giai", "8. TỨ HÓA DIỄN GIẢI SÂU",
+         "4 sao hóa Lộc-Quyền-Khoa-Kỵ năm sinh + 4 hóa đại vận hiện tại + 4 hóa lưu niên. "
+         "Mỗi hóa rơi cung nào, sinh khắc thế nào, ý nghĩa Hán-Việt trích Q1+Q2."),
+        ("hi_ky_canh_bao", "9. HỈ KỴ + CẢNH BÁO ĐẢO HẠN",
+         "Sao hỉ (Lộc Tồn, Thiên Mã, Tứ Linh) gặp đúng cung — phúc dày. "
+         "Sao kỵ (Hỏa Linh Kình Đà Không Kiếp Hóa Kỵ) tụ — đảo hạn. "
+         "Psychological safety patterns (Q3 p0186): 'cô' / 'hình' / 'kỵ' / 'không'. "
+         "Bài thần sát: Thiên La, Địa Võng, Cô Thần, Quả Tú, Phục Binh."),
+        ("ket_tam_an", "10. KẾT TÂM AN — BÀI CÁT HUNG + paradigm 'bất khả chấp nhất'",
+         "Tổng kết theo Q4 p0299 'Thập bát tinh chuyển, tại nhân biến thông'. "
+         "Lá số là TẤM GƯƠNG, không phải số phận. "
+         "TÂM trí của chủ nhân là then chốt xoay chuyển. "
+         "Lời gửi cuối cùng từ Trần Đoàn + Khang Tiết cho chủ nhân."),
+    ]
+
+    def _phe_menh_sau_batch_call(self, *, batch_name: str, sections: list, base_ctx: str,
+                                  provider, registry, candidate_providers: list) -> tuple:
+        """Run ONE batch call (5 sections). Returns (parsed_dict, provider_used, tokens_used, cost_used)."""
+        # Build per-section instructions
+        section_specs = []
+        for key, label, desc in sections:
+            section_specs.append(f'  "{key}":  → {label}\n    Yêu cầu: {desc}')
+        section_keys = [s[0] for s in sections]
+        sections_block = "\n".join(section_specs)
+
+        user_prompt = f"""{base_ctx}
+
+══════════════════════════════════════════════════════════════
+TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
+══════════════════════════════════════════════════════════════
+
+YÊU CẦU CHẤT LƯỢNG (anh tuyệt đối tuân thủ):
+- Mỗi section: **2000-4000 chữ Tiếng Việt** (đếm kĩ — không được ít hơn 1500)
+- Bắt buộc dẫn chứng cụ thể từ lá số DUMP phía trên (sao nào ở cung nào, hóa gì)
+- Trích Hán-Việt verbatim từ Phú Thái Vi / Tử Vi Đẩu Số Toàn Thư khi có dẫn chứng
+- Dẫn chứng cổ nhân: Trác Mậu, Lỗ Cung, Cung Toại, Hoàng Bá, Sơ Quảng+Thụ, An Lộc Sơn, Triệu Cao, Khổng Tử, Tử Lộ
+- Dùng "mỗ" pattern (mỗ niên, mỗ tinh, mỗ tuế) khi nói tương lai — KHÔNG predict cứng
+- Mỗi section gồm: (a) 10-15 câu phú thi Hán-Việt 4-7 chữ + (b) diễn giải Việt sâu
+
+5 SECTIONS BATCH NÀY:
+{sections_block}
+
+⚠️ OUTPUT JSON THUẦN — bắt đầu bằng `{{`, kết thúc bằng `}}`. Không markdown ```. Không preamble.
+Schema CHÍNH XÁC (5 keys, đúng tên):
+{{
+{chr(10).join(f'  "{k}": "string 2000-4000 chữ VN, dùng \\\\n cho xuống dòng"' + ("," if i < len(section_keys)-1 else "") for i, k in enumerate(section_keys))}
+}}"""
+
+        resp = None
+        last_err = None
+        tried = []
+        for cand in candidate_providers:
+            current = cand
+            if registry.is_unhealthy(current.name):
+                continue
+            tried.append(current.name)
+            try:
+                resp = current.chat(
+                    messages=[
+                        {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    temperature=0.5,
+                    max_tokens=16000,  # ~50k chars VN max
+                )
+                provider = current
+                break
+            except Exception as e:
+                err_str = str(e)
+                last_err = f"{current.name}: {err_str[:200]}"
+                if any(sig in err_str for sig in ["401", "403", "1113", "invalid", "Authentication", "balance", "quota"]):
+                    registry.mark_unhealthy(current.name, err_str[:100])
+                continue
+        if resp is None:
+            return None, None, 0, 0.0, last_err, tried
+
+        content = resp.content if hasattr(resp, "content") else str(resp)
+        # Strip markdown fences
+        if "```" in content:
+            import re as _re
+            m = _re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, _re.DOTALL)
+            if m:
+                content = m.group(1)
+            else:
+                content = "\n".join(l for l in content.split("\n") if not l.strip().startswith("```"))
+
+        parsed = None
+        try:
+            parsed = json.loads(content)
+        except Exception:
+            pass
+        if parsed is None:
+            try:
+                start = content.find("{"); end = content.rfind("}")
+                if start >= 0 and end > start:
+                    parsed = json.loads(content[start:end+1])
+            except Exception:
+                pass
+        if parsed is None:
+            import re as _re
+            cleaned = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
+            cleaned = _re.sub(r",(\s*[}\]])", r"\1", cleaned)
+            try:
+                start = cleaned.find("{"); end = cleaned.rfind("}")
+                if start >= 0 and end > start:
+                    parsed = json.loads(cleaned[start:end+1])
+            except Exception:
+                pass
+        if parsed is None:
+            # Last-ditch: dump raw as single key from this batch
+            parsed = {section_keys[0]: content, "_parse_error_batch": batch_name}
+
+        prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
+        completion_tokens = getattr(resp, "completion_tokens", 0) or 0
+        cost = getattr(resp, "cost_usd", 0) or 0
+        return parsed, provider.name, prompt_tokens + completion_tokens, cost, None, tried
+
     def phe_menh_sau(self) -> dict:
-        """Phê mệnh SÂU (VIP) — DeepSeek Pro, 10 sections theo methodology Trần Đoàn.
+        """Phê mệnh SÂU v2 (VIP) — 2-call split, 10 sections × 2000-4000 chars/section.
+
+        Strategy:
+        - Batch 1 (sections 1-5): định thời khắc → lập tọa mệnh
+        - Batch 2 (sections 6-10): đại vận → kết tâm an
+        - Each call: max_tokens=16000, ~25-50k chars VN per batch
+        - Full la_so dump fed into both calls (LLM thấy chính xác sao ở cung nào)
 
         ⚠️ Endpoint caller PHẢI check VIP permission TRƯỚC khi gọi.
-        Engine không tự check — engine chỉ generate.
         """
         cached = None if self.force else _cache_load(self.person.person_key, "phe_menh_sau", self.person.user_id)
         if cached:
@@ -1009,8 +1162,7 @@ Mỗi value là 1 STRING ĐƠN — không phải object lồng nhau."""
         # VIP chain: prefer DeepSeek (quality), fallback chain if unhealthy
         from engine.ai.registry import get_registry
         registry = get_registry()
-        provider_chain = ["deepseek", "anthropic", "gemini", "minimax", "openrouter"]
-        # Build healthy provider list (skip unhealthy, skip unconfigured)
+        provider_chain = ["deepseek", "anthropic", "gemini", "openrouter", "minimax"]
         candidate_providers = []
         for name in provider_chain:
             try:
@@ -1021,31 +1173,34 @@ Mỗi value là 1 STRING ĐƠN — không phải object lồng nhau."""
                 pass
         if not candidate_providers:
             return {"status": "error", "message": "No LLM provider configured (all unhealthy or missing keys)"}
-        provider = candidate_providers[0]
 
-        # Build rich context (richer than free tier — include Q4 stuff)
-        ctx_parts = [self.chart_summary]
+        # Build full la-số dump (LLM thấy chính xác sao ở cung nào — tránh bịa)
+        ctx_parts = [_chart_full_dump(self.person, self.la_so)]
 
+        # Enrich with cách cục matches
         try:
             cach_data = self.discover_cach_cuc()
-            cachs = cach_data.get("cach_cucs", [])[:8]  # more cách for VIP
+            cachs = cach_data.get("cach_cucs", [])[:10]
             if cachs:
-                ctx_parts.append("\n=== Cách cục đã match (top 8) ===")
+                ctx_parts.append("\n━━━ CÁCH CỤC ĐÃ MATCH (top 10) ━━━")
                 for c in cachs:
-                    ctx_parts.append(f"- {c.get('ten')} ({c.get('cap_do')}): {c.get('y_nghia', '')[:200]}")
+                    y_nghia = (c.get('y_nghia') or '')[:300]
+                    ctx_parts.append(f"  • {c.get('ten')} ({c.get('cap_do', '')}): {y_nghia}")
         except Exception:
             pass
 
+        # Case studies (nét giống lịch sử)
         try:
             from engine.tu_vi.case_matcher import match_cases
             cases = match_cases(self.la_so, top_n=3)
             if cases.get("matches"):
-                ctx_parts.append("\n=== Nét giống lịch sử Q3+Q4 ===")
+                ctx_parts.append("\n━━━ NÉT GIỐNG LỊCH SỬ Q3+Q4 (top 3) ━━━")
                 for m in cases["matches"]:
-                    ctx_parts.append(f"- {m['pattern_name']} ({m['polarity']}): {m['lesson_short']}")
+                    ctx_parts.append(f"  • {m['pattern_name']} ({m.get('polarity', '?')}): {m.get('lesson_short', '')[:300]}")
         except Exception:
             pass
 
+        # Psych safety patterns
         try:
             from engine.tu_vi.psychological_safety import detect_safety_patterns
             from core.chronos import calculate_chronos_state
@@ -1053,122 +1208,107 @@ Mỗi value là 1 STRING ĐƠN — không phải object lồng nhau."""
             year_stem = chronos.ganzhi.year.split()[0]
             safety = detect_safety_patterns(self.la_so, year_stem)
             if safety:
-                ctx_parts.append("\n=== Safety patterns (psych safety wrap) ===")
+                ctx_parts.append("\n━━━ SAFETY PATTERNS (Q3 p0186) ━━━")
                 for p in safety:
-                    ctx_parts.append(f"- {p['title']}: {p['gentle_message']}")
+                    ctx_parts.append(f"  • {p['title']}: {p['gentle_message'][:300]}")
         except Exception:
             pass
 
-        # VIP-only: Chart strength + Đẩu Quân + Cung readings preview
+        # Chart strength
         try:
             from engine.tu_vi.mieu_vuong_ham import chart_strength
             cs = chart_strength(self.la_so)
-            ctx_parts.append(f"\n=== Sức mạnh tổng thể (Q2 p0102 Miếu Vượng Hãm) ===")
-            ctx_parts.append(f"Weighted total: {cs.get('weighted_total_score')} ({cs.get('verdict')})")
+            ctx_parts.append(f"\n━━━ SỨC MẠNH TỔNG THỂ (Q2 p0102) ━━━")
+            ctx_parts.append(f"  Weighted total: {cs.get('weighted_total_score')} ({cs.get('verdict', '?')})")
         except Exception:
             pass
 
-        ctx = "\n".join(ctx_parts)
-        user_prompt = f"""{ctx}
+        base_ctx = "\n".join(ctx_parts)
 
-Viết phê mệnh SÂU 10 phần theo 10 BƯỚC METHODOLOGY Trần Đoàn (Q4 p0266).
-Mỗi phần 8-15 câu phú thi 4-7 chữ + diễn giải VN sâu sắc 150-300 chữ.
-KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai.
-
-**OUTPUT BẮT BUỘC**: JSON object đầy đủ 10 keys. KHÔNG markdown wrapper."""
-
-        # Retry loop: iterate candidate_providers, mark unhealthy on persistent failures
-        resp = None
-        last_err = None
-        tried = []
-        for cand in candidate_providers:
-            provider = cand
-            tried.append(provider.name)
-            try:
-                resp = provider.chat(
-                    messages=[
-                        {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
-                        {"role": "user", "content": user_prompt},
-                    ],
-                    temperature=0.4,  # lower for stricter JSON compliance
-                    max_tokens=8000,
-                )
-                break  # success
-            except Exception as e:
-                err_str = str(e)
-                last_err = f"{provider.name}: {err_str[:200]}"
-                # Mark unhealthy for AUTH/BALANCE errors (persistent — skip whole session)
-                if any(sig in err_str for sig in ["401", "403", "1113", "invalid", "Authentication", "balance", "quota"]):
-                    registry.mark_unhealthy(provider.name, err_str[:100])
-                # 503/timeout = transient, don't mark unhealthy but still skip in this call
-                continue
-        if resp is None:
+        # === BATCH 1 (sections 1-5) ===
+        b1, prov1, tok1, cost1, err1, tried1 = self._phe_menh_sau_batch_call(
+            batch_name="1/2 (sections 1-5: Định thời khắc → Lập tọa mệnh)",
+            sections=self._PHE_MENH_SAU_BATCH_1,
+            base_ctx=base_ctx,
+            provider=candidate_providers[0],
+            registry=registry,
+            candidate_providers=candidate_providers,
+        )
+        if b1 is None:
             return {
                 "status": "error",
-                "message": f"All providers failed. Tried: {tried}. Last error → {last_err}",
-                "providers_tried": tried,
+                "message": f"Batch 1 failed. Tried: {tried1}. Last: {err1}",
+                "providers_tried": tried1,
+                "batch_failed": 1,
             }
 
-        content = resp.content if hasattr(resp, "content") else str(resp)
-        # Strip markdown fences anywhere (Gemini sometimes wraps in ```json ... ```)
-        if "```" in content:
-            import re as _re
-            m = _re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, _re.DOTALL)
-            if m:
-                content = m.group(1)
-            else:
-                # fallback: strip any line starting with ```
-                content = "\n".join(l for l in content.split("\n") if not l.strip().startswith("```"))
+        # === BATCH 2 (sections 6-10) ===
+        # Pass result of batch 1 as additional context (LLM tránh lặp)
+        b1_summary = "\n".join(
+            f"  [{k}] đã viết xong, ~{len(v) if isinstance(v, str) else '?'} chars"
+            for k, v in b1.items() if not k.startswith("_")
+        )
+        ctx_for_b2 = base_ctx + f"\n\n━━━ BATCH 1 ĐÃ HOÀN THÀNH (KHÔNG LẶP LẠI) ━━━\n{b1_summary}\n"
 
-        phe = None
-        # Attempt 1: direct parse
-        try:
-            phe = json.loads(content)
-        except Exception:
-            pass
-        # Attempt 2: extract first balanced {...} substring
-        if phe is None:
+        # Re-fetch candidate list (some might have been marked unhealthy in batch 1)
+        candidate_providers_b2 = []
+        for name in provider_chain:
             try:
-                start = content.find("{")
-                end = content.rfind("}")
-                if start >= 0 and end > start:
-                    phe = json.loads(content[start:end+1])
+                p = registry.get(name)
+                if p and p.is_configured and not registry.is_unhealthy(name):
+                    candidate_providers_b2.append(p)
             except Exception:
                 pass
-        # Attempt 3: tolerant — accept trailing commas, smart quotes
-        if phe is None:
-            import re as _re
-            cleaned = content
-            # Replace smart quotes
-            cleaned = cleaned.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
-            # Remove trailing commas before } or ]
-            cleaned = _re.sub(r",(\s*[}\]])", r"\1", cleaned)
-            try:
-                start = cleaned.find("{"); end = cleaned.rfind("}")
-                if start >= 0 and end > start:
-                    phe = json.loads(cleaned[start:end+1])
-            except Exception:
-                pass
-        # Fallback: dump raw into dinh_thoi_khac so user sees content (not lose work)
-        if phe is None:
-            phe = {"dinh_thoi_khac": content, "_parse_error": True}
+        if not candidate_providers_b2:
+            # Try to recover with what worked in batch 1
+            candidate_providers_b2 = [p for p in candidate_providers if p.name == prov1]
 
-        prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
-        completion_tokens = getattr(resp, "completion_tokens", 0) or 0
-        cost = getattr(resp, "cost_usd", 0) or 0
+        b2, prov2, tok2, cost2, err2, tried2 = self._phe_menh_sau_batch_call(
+            batch_name="2/2 (sections 6-10: Đại Vận → Kết tâm an)",
+            sections=self._PHE_MENH_SAU_BATCH_2,
+            base_ctx=ctx_for_b2,
+            provider=candidate_providers_b2[0] if candidate_providers_b2 else candidate_providers[0],
+            registry=registry,
+            candidate_providers=candidate_providers_b2 or candidate_providers,
+        )
+        if b2 is None:
+            # Salvage: return batch 1 alone
+            phe = b1
+            phe["_batch_2_failed"] = True
+            phe["_batch_2_error"] = err2
+        else:
+            phe = {**b1, **b2}
+
+        # Compute totals
+        provider_name = f"{prov1}+{prov2}" if prov2 and prov2 != prov1 else (prov1 or "unknown")
+        total_tokens = tok1 + tok2
+        total_cost = cost1 + cost2
+
+        # Length stats per section
+        section_lengths = {}
+        for k, v in phe.items():
+            if k.startswith("_"):
+                continue
+            section_lengths[k] = len(v) if isinstance(v, str) else 0
+        avg_len = sum(section_lengths.values()) // max(1, len(section_lengths))
 
         data = {
             "status": "ok",
             "tier": "vip1",
+            "version": "v2",
             "person_key": self.person.person_key,
             "person_name": self.person.name,
             "generated_at": int(time.time()),
-            "provider": provider.name,
-            "model": "pro_tier",
-            "cost_usd": round(cost, 6),
-            "tokens": {"prompt": prompt_tokens, "completion": completion_tokens},
+            "provider": provider_name,
+            "model": "pro_tier_split_2call",
+            "cost_usd": round(total_cost, 6),
+            "tokens": {"total": total_tokens, "batch_1": tok1, "batch_2": tok2},
+            "section_lengths": section_lengths,
+            "avg_length_chars": avg_len,
             "phe_menh_sau": phe,
-            "paradigm_note": "Phê mệnh SÂU theo 10 bước Trần Đoàn (Q4 p0266) — dùng 'mỗ' pattern. Iron Rule #6 + paradigm 'bất khả chấp nhất' (Q4 p0299).",
+            "paradigm_note": "Phê mệnh SÂU v2 — 2-call split, 10 sections × 2000-4000 chars. "
+                              "10 BƯỚC Trần Đoàn (Q4 p0266) + paradigm 'bất khả chấp nhất' (Q4 p0299). "
+                              "Iron Rule #6: đọc đồng dạng, không predict.",
         }
         _cache_save(self.person.person_key, "phe_menh_sau", data, self.person.user_id)
         return data
