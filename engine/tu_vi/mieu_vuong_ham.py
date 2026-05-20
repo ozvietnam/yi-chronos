@@ -54,19 +54,42 @@ def level_color(level: str) -> str:
 def chart_strength(la_so: dict) -> dict:
     """Compute toàn bộ sức mạnh của 14 chính tinh trong lá số.
 
+    Q4 enhancement (2026-05-20): Apply palace weights theo Q4 p0276 r003-r005.
+    Sao tốt ở cung cao cường (Mệnh/Phúc/Quan/Điền/Thê) nặng phúc hơn sao tốt ở
+    cung ác nhược (Tướng Mạo/Nô Bộc).
+
     Returns:
         {
-          "stars": [{star, branch, level, score, label}],
-          "total_score": int,
+          "stars": [{star, branch, level, score, label, palace, palace_tier, weighted_score}],
+          "total_score": int (raw sum without weight),
+          "weighted_total_score": float (Q4 palace-weighted),
           "verdict": str,
-          "strongest": [...],  # top 3 strongest
-          "weakest": [...]     # top 3 weakest
+          "strongest": [...],
+          "weakest": [...]
         }
     """
+    import json as _json
     BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
+
+    # Load palace weights from Q4 p0276
+    palace_weights_path = ROOT / "data/tu_vi/palace_weights.json"
+    palace_tier_map = {}  # palace_name → (tier_name, weight)
+    if palace_weights_path.exists():
+        pw = _json.loads(palace_weights_path.read_text())
+        for tier_name, tier_data in pw.get("tiers", {}).items():
+            weight = tier_data.get("weight", 1.0)
+            for pal in tier_data.get("palaces", []):
+                palace_tier_map[pal] = (tier_name, weight)
+
+    # Build branch_index → palace_name lookup
+    branch_to_palace = {}
+    for p in la_so.get("palaces", []):
+        branch_to_palace[p["branch_index"]] = p["name"]
+
     chinh = la_so.get("chinh_tinh", {})
     stars_data = []
     total = 0
+    weighted_total = 0.0
     for star, branch_idx in chinh.items():
         branch = BRANCHES[branch_idx]
         level = level_at(star, branch)
@@ -74,6 +97,16 @@ def chart_strength(la_so: dict) -> dict:
             continue
         score = level_score(level)
         total += score
+
+        # Apply palace weight (Q4)
+        palace_name = branch_to_palace.get(branch_idx, "?")
+        tier_name, weight = palace_tier_map.get(palace_name, ("cận_cường", 1.0))
+        # Special rule: Tật Ách/Thiên Di + sao Miếu → đảo ngược ác sát thành quý (×1.3)
+        if palace_name in ("Tật Ách", "Thiên Di") and level == "miếu":
+            weight *= 1.3
+        weighted_score = round(score * weight, 2)
+        weighted_total += weighted_score
+
         stars_data.append({
             "star": star,
             "branch": branch,
@@ -81,6 +114,10 @@ def chart_strength(la_so: dict) -> dict:
             "score": score,
             "label": level_label(level),
             "color": level_color(level),
+            "palace": palace_name,
+            "palace_tier": tier_name,
+            "palace_weight": weight,
+            "weighted_score": weighted_score,
         })
 
     # Sort by score
@@ -103,9 +140,11 @@ def chart_strength(la_so: dict) -> dict:
     return {
         "stars": stars_data,
         "total_score": total,
+        "weighted_total_score": round(weighted_total, 2),
         "verdict": verdict,
         "strongest": strongest,
         "weakest": weakest,
+        "palace_weights_source": "Q4 p0276 (Phase A Batch 4)",
     }
 
 

@@ -1,0 +1,42 @@
+{
+  "schema_version": "tu_vi_palace_weights_v1",
+  "source": "Q4 p0276 r003-r005 (Phase A Batch 4 thâm nhuần 2026-05-20)",
+  "source_quote_hv": "Phàm cát diệu gia lâm vi phúc mệnh cung, điền trạch thê thiếp quan lộc tứ cung hệ cao cường, nam nữ phúc đức vi thứ cường, tài bạch vi cận cường dã. Thị tướng mạo nô bộc vi ác nhược, hựu hãm chi địa, huynh đệ vi bán hãm cung, hựu vi nhàn cực cung. Tật ách thiên di vi thứ ác sát. Cư miếu vi kỳ.",
+  "paradigm_note": "Quyển 4 Tử Vi Đẩu Số Toàn Thư chia 12 cung thành 7 tiers theo độ mạnh-yếu. Sao tốt vào cung cường (Mệnh/Phúc/Quan/Điền/Thê) nặng phúc; vào cung ác nhược (Tướng/Nô) giảm phúc. Engine chart_strength dùng weight này nhân với per-star Miếu-Vượng-Hãm score.",
+  "tiers": {
+    "cao_cường": {
+      "weight": 1.5,
+      "palaces": ["Mệnh", "Phúc Đức", "Điền Trạch", "Phu Thê", "Quan Lộc"],
+      "label": "Cao cường (sao tốt vào → đại phúc)"
+    },
+    "thứ_cường": {
+      "weight": 1.2,
+      "palaces": ["Tử Tức"],
+      "label": "Thứ cường"
+    },
+    "cận_cường": {
+      "weight": 1.0,
+      "palaces": ["Tài Bạch"],
+      "label": "Cận cường (trung tính)"
+    },
+    "bán_hãm": {
+      "weight": 0.8,
+      "palaces": ["Huynh Đệ"],
+      "label": "Bán hãm / nhàn cực"
+    },
+    "thứ_ác_sát": {
+      "weight": 0.7,
+      "palaces": ["Tật Ách", "Thiên Di"],
+      "label": "Thứ ác sát (nếu sao miếu thì kỳ — đảo ngược thành quý)"
+    },
+    "ác_nhược": {
+      "weight": 0.5,
+      "palaces": ["Phụ Mẫu", "Nô Bộc"],
+      "label": "Ác nhược (cung Tướng Mạo + Nô Bộc — sao tốt giảm phúc, sao xấu nặng họa)"
+    }
+  },
+  "engine_notes": {
+    "usage": "weighted_score = star_mvh_score × palace_tier_weight. Tổng tất cả per-star weighted_score = chart_strength_q4.",
+    "special_rule": "Tật Ách + Thiên Di nếu sao MIẾU → multiplier × 1.3 (kỳ diệu — đảo ngược ác sát thành quý)"
+  }
+}

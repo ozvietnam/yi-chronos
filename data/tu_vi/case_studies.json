@@ -1,7 +1,8 @@
 {
-  "schema_version": "tu_vi_case_studies_v1",
-  "source": "Tử Vi Đẩu Số Toàn Thư Q3 + Q4 (Trần Đoàn + Khang Tiết)",
+  "schema_version": "tu_vi_case_studies_v2",
+  "source": "Tử Vi Đẩu Số Toàn Thư Q3 + Q4 (Trần Đoàn chính tổ + Khang Tiết bổ chú 4-5 chỗ)",
   "paradigm_note": "Cases lịch sử Q3+Q4 không phải database 'predict ai sẽ giống ai' — mà là DẪN CHỨNG trong phê mệnh phú thi. Cùng 1 cách cục có thể có 2 paradigm (vd Tử Phá Thìn Tuất = phú quý theo Trần Đoàn, nhưng quân thần bất nghĩa theo Khang Tiết). UI match → gợi mở, không phán.",
+  "verification_note": "All figures verified via Phase B.3 (2026-05-20) — grep VI translations + ZH OCR. Cung Toại + Hoàng Bá em từng nghi tự bịa nhưng thực ra CÓ THẬT trong p0258 (compound 'Cung Hoàng' = 龚-黄 = Cung Toại + Hoàng Bá classical).",
   "patterns": [
     {
       "id": "tu_phu_dan",
@@ -122,6 +123,75 @@
           "title": "Hoạn quan → Thừa tướng Tần",
           "lesson": "Gian thần — 'chỉ hươu nói ngựa' — giết Tần Nhị Thế, hủy nhà Tần. Cùng cách An Lộc Sơn.",
           "wiki_zh": "赵高"
+        }
+      ]
+    },
+    {
+      "id": "khong_tu_thien_di",
+      "name_vi": "Khổng Tử mệnh — Thiên Di Tý/Ngọ có cách Nhật Lệ Trung Thiên",
+      "name_zh": "孔子之命",
+      "polarity": "cát_chí_thánh",
+      "chart_pattern": {
+        "menh_branch_any": ["Tý", "Ngọ"],
+        "menh_chinh_tinh_required": [],
+        "supporting_stars_any": ["Thái Dương", "Thái Âm", "Văn Xương", "Văn Khúc"],
+        "additional_hints": [
+          "Thiên Di Tý/Ngọ là vị 'Phu Tử' (Khổng Tử) — Q3 p0195 verbatim",
+          "Mệnh Thân tại Mùi/Thân (theo Q4 chart visual inspect p0199-p0200)"
+        ]
+      },
+      "source_ref": {
+        "primary": "Q4 chart visual p0199-p0200 (image 7270a850...170a.jpg)",
+        "q3_reference": "Q3 p0195: 'Phu Tử (Khổng Tử) có văn chương hơn đời'",
+        "verified_by": "Phase A Batch 1 (2026-05-20)"
+      },
+      "key_phrase_hv": "Thiên Di Tý Ngọ, Phu Tử có văn chương hơn đời",
+      "key_phrase_zh": "天迁子午宫，孔子有文章过世",
+      "lesson_short": "Mệnh quân tử thánh hiền — văn chương vượt đời, đức trị lưu vạn cổ.",
+      "lesson_long": "Khổng Tử (孔子, 孔尼仲, ~551-479 BC) — Tổ Nho gia. Q4 ghi chart cụ thể: 庚戌年十一月初一子时生, 阳男, 土五局. Q3 phú lệnh nói Thiên Di tại Tý/Ngọ là 'Phu Tử có văn chương hơn đời'. Đặc trưng: chí thánh, đức trị, văn chương vượt thời. Em không claim 'anh sẽ giống Khổng Tử' — chỉ noting cấu trúc văn chương + giáo hóa.",
+      "warning": "Cách chí thánh — KHÔNG dùng để self-flatter. Khổng Tử suốt đời lang thang, không được dùng — chí thánh không đảm bảo phúc trần.",
+      "historical_figures": [
+        {
+          "name_vi": "Khổng Tử (Trọng Ni)",
+          "name_zh": "孔子 (孔尼仲)",
+          "era": "Xuân Thu Lỗ Quốc (~551-479 BC)",
+          "title": "Tổ Nho gia · Vạn Thế Sư Biểu",
+          "lesson": "Suốt đời chu du chư hầu giảng đạo. Hậu thế tôn 'Chí Thánh Tiên Sư'. Lá số Q4: 庚戌年十一月初一子时, Thổ ngũ cục.",
+          "wiki_zh": "孔子"
+        }
+      ]
+    },
+    {
+      "id": "tu_lo_dung_manh",
+      "name_vi": "Tử Lộ mệnh — Mộc nhị cục, Liêm Trinh nhập miếu hội tướng quân",
+      "name_zh": "子路之命",
+      "polarity": "cát_dũng_mãnh",
+      "chart_pattern": {
+        "menh_chinh_tinh_required": ["Liêm Trinh"],
+        "supporting_stars_any": ["Tướng Quân"],
+        "additional_hints": [
+          "Liêm Trinh nhập miếu + hội Tướng Quân — Q3 p0188 verbatim",
+          "Mệnh Thân theo Mộc nhị cục (Q4 chart visual)"
+        ]
+      },
+      "source_ref": {
+        "primary": "Q4 chart visual p0199-p0200 (image 7270a850...170a.jpg left)",
+        "q3_reference": "Q3 p0188: 'Trọng Do (Tử Lộ) dũng mãnh, Liêm Trinh nhập miếu hội tướng quân'",
+        "verified_by": "Phase A Batch 1 (2026-05-20)"
+      },
+      "key_phrase_hv": "Trọng Do dũng mãnh, Liêm Trinh nhập miếu hội tướng quân",
+      "key_phrase_zh": "仲由勇猛，廉贞入庙会将军",
+      "lesson_short": "Cách võ dũng + trung nghĩa — cương trực, dám chết vì nghĩa.",
+      "lesson_long": "Tử Lộ (子路, Trọng Do, ~542-480 BC) — học trò Khổng Tử, nổi tiếng dũng mãnh + trung nghĩa. Q4 ghi chart: 癸丑年九月初九寅时生, 阴男, 木二局. Q3 phú lệnh nói Liêm Trinh nhập miếu + hội Tướng Quân = cách Tử Lộ. Đặc trưng: cương trực, võ dũng, trung nghĩa nhưng có thể chết vì nghĩa.",
+      "warning": "Cách dũng mãnh có thể đẫm máu — Tử Lộ chết trong chiến trận. Engine lưu ý: KHÔNG predict tử trận, chỉ note cấu trúc võ dũng nên cẩn thận với hành động liều lĩnh.",
+      "historical_figures": [
+        {
+          "name_vi": "Tử Lộ (Trọng Do)",
+          "name_zh": "子路 (仲由)",
+          "era": "Xuân Thu Lỗ Quốc (~542-480 BC)",
+          "title": "Học trò Khổng Tử · Đại phu Vệ",
+          "lesson": "Dũng cảm, trực ngôn, trung nghĩa. Chết trong loạn Vệ — đội mũ ngay ngắn rồi mới chịu chết ('quân tử tử nhi quan bất miễn'). Lá số Q4: 癸丑年九月初九寅时, Mộc nhị cục.",
+          "wiki_zh": "仲由"
         }
       ]
     }

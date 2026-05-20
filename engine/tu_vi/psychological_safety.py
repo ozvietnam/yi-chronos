@@ -26,6 +26,29 @@ BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "
 
 SAFETY_PATTERNS = [
     {
+        "id": "dinh_tu_sinh_q4",
+        "title": "Định tử sinh quyết (Q4 Chiếu Đởm Kinh) — Thiên Khốc + Thiên Hư đồng vị Thân/Mệnh",
+        "source": "Q4 p0274 r009",
+        "source_quote_hv": "Nhược Thiên Khốc chính lâm thân mệnh, cánh dữ Thiên Hư đồng vị, hỉ tinh hựu thả vô lực, kỳ nhân sinh hạ bất xuất tam ngũ nhật nhi tử.",
+        "source_quote_zh": "若天哭正临身命，更与天虚同位，喜星又且无力，其人生下不出三五日而死。",
+        "paradigm_alert": "⚠️ ĐÂY LÀ QUY TẮC PREDICT TỬ VONG TRONG CỔ KINH — ENGINE KHÔNG SURFACE RAW",
+        "trigger": {
+            "stars_required": ["Thiên Khốc", "Thiên Hư"],
+            "stars_anywhere": False,
+            "same_palace": True,
+            "palace_any": ["Mệnh", "Thân"],
+        },
+        "raw_concern": "Cổ kinh ghi nhận pattern này — KHÔNG dùng để predict, mà để gợi mở chăm sóc thân thể đặc biệt",
+        "gentle_message": "Lá số có cấu trúc Thiên Khốc + Thiên Hư đặc thù theo cổ kinh Q4. Đây KHÔNG phải predict — chỉ là 'dấu hiệu nhận thức' để chăm sóc thân thể + tâm trạng. Bạn vẫn đang sống và khỏe — đó là minh chứng paradigm cứng nhắc cổ KHÔNG đúng. Iron Rule #6: 'mỗ' pattern — không phán cứng.",
+        "self_care_tips": [
+            "Lưu ý sức khỏe định kỳ — khám tổng quát hàng năm",
+            "Quản lý stress + tâm trạng — đặc biệt giai đoạn Đại Vận khó",
+            "Duy trì kết nối xã hội — không cô lập",
+            "Nếu có ý nghĩ tự hại — Đường Dây Cứu Sống 1800-1567",
+        ],
+        "ceo_directive_2026_05_20": "CEO duyệt tích hợp để test — nếu user có pattern này KHÔNG vào tình trạng nguy, thì paradigm cổ SAI, có thể loại pattern khỏi engine.",
+    },
+    {
         "id": "xuong_khuc_thin_tuat",
         "title": "Văn Xương Văn Khúc + năm Kỷ/Tân/Nhâm + Đại Hạn Thìn/Tuất",
         "source": "Q3 p0186",
@@ -139,6 +162,24 @@ def detect_safety_patterns(la_so: dict, year_stem: str = "") -> list[dict]:
                         )
             if not which_dai_van:
                 matched = False
+
+        # Same palace + palace_any (Định tử sinh quyết Q4)
+        if trigger.get("same_palace") and "stars_required" in trigger:
+            stars_req = trigger["stars_required"]
+            indices = [all_stars.get(s, -1) for s in stars_req]
+            if -1 in indices or len(set(indices)) != 1:
+                matched = False
+                continue
+            palace_any = trigger.get("palace_any", [])
+            if palace_any:
+                # Need same palace + that palace must be Mệnh or Thân
+                # Find palace at this branch_idx
+                star_branch_idx = indices[0]
+                palaces = la_so.get("palaces", [])
+                palace_at_star = next((p["name"] for p in palaces if p["branch_index"] == star_branch_idx), None)
+                if palace_at_star not in palace_any:
+                    matched = False
+                    continue
 
         # Star at specific palace
         if "star_at_palace" in trigger:
