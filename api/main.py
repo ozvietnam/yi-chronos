@@ -4447,7 +4447,7 @@ def yi_publishing_wiki_search(q: str = "", limit: int = 20) -> dict:
     cur = con.cursor()
     like = f"%{q}%"
     cur.execute("""
-        SELECT concept_id, canonical_vi, canonical_zh, aliases, short_note
+        SELECT concept_id, canonical_vi, canonical_zh, aliases, short_note, category, school, corpora
         FROM concept_index
         WHERE canonical_vi LIKE ? OR canonical_zh LIKE ? OR aliases LIKE ?
         ORDER BY
@@ -4469,6 +4469,9 @@ def yi_publishing_wiki_search(q: str = "", limit: int = 20) -> dict:
                 "canonical_zh": r[2],
                 "aliases": r[3],
                 "short_note": r[4],
+                "category": r[5],
+                "school": r[6],
+                "corpora": r[7],
             }
             for r in rows
         ],
