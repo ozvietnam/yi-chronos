@@ -16,6 +16,23 @@ const activeSubTab = ref("lineage");  // 'lineage' | 'concepts' | 'methods' | 'p
 const allMethods = ref([]);
 const allPassages = ref([]);
 const conceptFilter = ref("");
+const schoolFilter = ref("all");
+const categoryFilter = ref("all");
+
+const SCHOOL_LABEL = {
+  mai_hoa: "🌸 Mai Hoa",
+  tu_vi: "⭐ Tử Vi",
+  bat_tu: "📅 Bát Tự",
+  "mai_hoa+tu_vi": "🌸⭐ Đa phái",
+  universal: "🌐 Phổ thông",
+};
+const SCHOOL_COLOR = {
+  mai_hoa: "#a78bfa",
+  tu_vi: "#60a5fa",
+  bat_tu: "#fbbf24",
+  "mai_hoa+tu_vi": "#c084fc",
+  universal: "#94a3b8",
+};
 
 async function refresh() {
   [stats.value, tiers.value, concepts.value, allMethods.value, allPassages.value] =
@@ -38,14 +55,26 @@ const masterAuthor = computed(() => {
   return null;
 });
 
+const allSchools = computed(() => {
+  const s = new Set(concepts.value.map(c => c.school || "universal"));
+  return ["all", ...Array.from(s).sort()];
+});
+
+const allCategories = computed(() => {
+  const s = new Set(concepts.value.map(c => c.category || "").filter(Boolean));
+  return ["all", ...Array.from(s).sort()];
+});
+
 const filteredConcepts = computed(() => {
   const q = conceptFilter.value.trim().toLowerCase();
-  if (!q) return concepts.value;
-  return concepts.value.filter(c =>
-    c.canonical_vi.toLowerCase().includes(q) ||
-    (c.canonical_zh || "").includes(q) ||
-    (c.short_note || "").toLowerCase().includes(q)
-  );
+  return concepts.value.filter(c => {
+    if (schoolFilter.value !== "all" && (c.school || "universal") !== schoolFilter.value) return false;
+    if (categoryFilter.value !== "all" && (c.category || "") !== categoryFilter.value) return false;
+    if (!q) return true;
+    return c.canonical_vi.toLowerCase().includes(q) ||
+      (c.canonical_zh || "").includes(q) ||
+      (c.short_note || "").toLowerCase().includes(q);
+  });
 });
 
 onMounted(async () => {
@@ -192,17 +221,46 @@ onMounted(async () => {
 
     <!-- ── CONCEPTS ─────────────────────────────────────────────────── -->
     <div v-else-if="activeSubTab === 'concepts'" class="wv-concepts">
-      <input v-model="conceptFilter" placeholder="🔍 Lọc khái niệm…" class="filter-input" />
+      <!-- Filter bar -->
+      <div class="concept-filters">
+        <input v-model="conceptFilter" placeholder="🔍 Tìm theo tên / Hán tự / từ khóa…" class="filter-input" />
+        <div class="filter-row">
+          <span class="filter-label">Trường phái:</span>
+          <button v-for="s in allSchools" :key="s"
+                  :class="['school-btn', { active: schoolFilter === s }]"
+                  :style="s !== 'all' ? { borderColor: SCHOOL_COLOR[s] || '#94a3b8',
+                                          color: schoolFilter === s ? '#fff' : (SCHOOL_COLOR[s] || '#94a3b8'),
+                                          background: schoolFilter === s ? (SCHOOL_COLOR[s] || '#94a3b8') + '33' : 'transparent' } : {}"
+                  @click="schoolFilter = s">
+            {{ s === 'all' ? `Tất cả (${concepts.length})` : `${SCHOOL_LABEL[s] || s} (${concepts.filter(c=>(c.school||'universal')===s).length})` }}
+          </button>
+        </div>
+        <div class="filter-row" v-if="allCategories.length > 2">
+          <span class="filter-label">Loại:</span>
+          <select v-model="categoryFilter" class="cat-select">
+            <option value="all">Tất cả loại</option>
+            <option v-for="cat in allCategories.filter(c=>c!=='all')" :key="cat" :value="cat">{{ cat }}</option>
+          </select>
+          <span class="result-count">{{ filteredConcepts.length }} khái niệm</span>
+        </div>
+      </div>
+
       <div class="concept-grid">
-        <div v-for="c in filteredConcepts" :key="c.concept_id" class="concept-card">
+        <div v-for="c in filteredConcepts" :key="c.concept_id" class="concept-card"
+             :style="{ borderLeftColor: SCHOOL_COLOR[c.school || 'universal'] || '#a78bfa' }">
           <div class="concept-head">
             <b>{{ c.canonical_vi }}</b>
             <span v-if="c.canonical_zh" class="zh">{{ c.canonical_zh }}</span>
+            <span v-if="c.school && c.school !== 'universal'"
+                  class="school-tag"
+                  :style="{ background: (SCHOOL_COLOR[c.school] || '#94a3b8') + '22',
+                             color: SCHOOL_COLOR[c.school] || '#94a3b8',
+                             borderColor: (SCHOOL_COLOR[c.school] || '#94a3b8') + '55' }">
+              {{ SCHOOL_LABEL[c.school] || c.school }}
+            </span>
+            <span v-if="c.category" class="cat-tag">{{ c.category }}</span>
           </div>
           <div v-if="c.short_note" class="note">{{ c.short_note }}</div>
-          <div class="source">
-            📜 trang {{ c.first_seen_page }}
-          </div>
         </div>
       </div>
     </div>
@@ -419,6 +477,7 @@ pre {
 
 /* Concepts grid */
 .wv-concepts { flex: 1; overflow-y: auto; }
+.concept-filters { margin-bottom: 0.75rem; }
 .filter-input {
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -426,8 +485,27 @@ pre {
   border: 1px solid rgba(255,255,255,0.15);
   color: #e2e8f0;
   border-radius: 4px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
 }
+.filter-row {
+  display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+.filter-label { font-size: 0.7rem; color: #94a3b8; white-space: nowrap; }
+.school-btn {
+  font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.2); color: #94a3b8;
+  background: transparent; cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.school-btn.active { border-color: #a78bfa; color: #a78bfa; background: rgba(167,139,250,0.15); }
+.cat-select {
+  font-size: 0.7rem; padding: 0.15rem 0.4rem;
+  background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.15);
+  color: #e2e8f0; border-radius: 3px; cursor: pointer;
+}
+.result-count { font-size: 0.65rem; color: #64748b; margin-left: auto; }
 .concept-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -439,7 +517,13 @@ pre {
   padding: 0.6rem 0.75rem;
   border-left: 2px solid #a78bfa;
 }
+.concept-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.25rem; }
 .concept-head b { color: #e2e8f0; }
+.school-tag, .cat-tag {
+  font-size: 0.6rem; padding: 0.1rem 0.35rem; border-radius: 2px;
+  border: 1px solid; white-space: nowrap;
+}
+.cat-tag { background: rgba(100,116,139,0.15); color: #94a3b8; border-color: rgba(100,116,139,0.3); }
 .source { font-size: 0.7rem; color: #64748b; margin-top: 0.3rem; }
 
 /* Methods grid */
