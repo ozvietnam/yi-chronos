@@ -29,6 +29,8 @@ const inputTargetYear = ref(new Date().getFullYear());
 const data = ref(null);
 const interpretation = ref(null);
 const luuTru = ref(null);
+const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
+const cungLoading = ref(false);
 const loading = ref(false);
 const errorMsg = ref("");
 const expandedPalace = ref(null);
@@ -104,6 +106,9 @@ async function castChart() {
     interpretation.value = resp.interpretation || null;
     luuTru.value = resp.luu_tru_year || null;
 
+    // ⭐ Load Q1 Phú + Q3 sao×cung passages (background, non-blocking)
+    loadCungReading();
+
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
       const verdict = resp.la_so.menh_branch
@@ -129,8 +134,35 @@ function reset() {
   data.value = null;
   interpretation.value = null;
   luuTru.value = null;
+  cungReading.value = null;
   expandedPalace.value = null;
   errorMsg.value = "";
+}
+
+async function loadCungReading() {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  cungLoading.value = true;
+  try {
+    // Try cache first
+    let resp = await fetch(`/api/tu-vi/analyze/${encodeURIComponent(personKey)}/cung_reading`)
+      .then((r) => r.json());
+    // If not cached, generate
+    if (resp.status !== "ok") {
+      resp = await fetch("/api/tu-vi/analyze/cung_reading", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ person_key: personKey }),
+      }).then((r) => r.json());
+    }
+    if (resp.status === "ok") {
+      cungReading.value = resp;
+    }
+  } catch (e) {
+    console.error("loadCungReading failed:", e);
+  } finally {
+    cungLoading.value = false;
+  }
 }
 
 function formatSolarDateTime(iso) {
@@ -543,6 +575,36 @@ const grid = computed(() => {
                 <p class="sd-kw">{{ sd.keywords.join(' · ') }}</p>
                 <p class="sd-pos">✦ {{ sd.tich_cuc }}</p>
                 <p class="sd-neg">⚠ {{ sd.tieu_cuc }}</p>
+              </div>
+            </div>
+            <!-- ⭐ Q1 Phú + Q3 sao×cung passages từ sách cổ -->
+            <div v-if="expandedPalace === r.palace_name && cungReading?.palaces?.[r.palace_name]"
+                 class="cung-book-passages" @click.stop>
+              <div v-if="cungReading.palaces[r.palace_name].q1_passages?.length" class="cbp-section">
+                <h6 class="cbp-head">📚 Q1 Phú Thái Vi ({{ cungReading.palaces[r.palace_name].q1_passages.length }} câu)</h6>
+                <div v-for="(p, i) in cungReading.palaces[r.palace_name].q1_passages" :key="'q1-'+i"
+                     class="cbp-card cbp-q1">
+                  <div class="cbp-meta">trang {{ p.page }} · score {{ p.score }}</div>
+                  <div class="cbp-hv">{{ p.hanviet }}</div>
+                  <div class="cbp-lg">{{ p.luangiai }}</div>
+                  <div v-if="p.reasons?.length" class="cbp-reasons">
+                    🎯 {{ p.reasons.slice(0, 3).join(' · ') }}
+                  </div>
+                </div>
+              </div>
+              <div v-if="cungReading.palaces[r.palace_name].q3_passages?.length" class="cbp-section">
+                <h6 class="cbp-head">📖 Q3 Diễn Giải sao×cung ({{ cungReading.palaces[r.palace_name].q3_passages.length }} dòng)</h6>
+                <div v-for="(p, i) in cungReading.palaces[r.palace_name].q3_passages" :key="'q3-'+i"
+                     class="cbp-card cbp-q3">
+                  <div class="cbp-meta">trang {{ p.page }} · [{{ p.matched_stars?.join(', ') || '' }}]</div>
+                  <div class="cbp-hv">{{ p.hanviet }}</div>
+                  <div v-if="p.luangiai" class="cbp-lg">{{ p.luangiai }}</div>
+                </div>
+              </div>
+              <div v-if="!cungReading.palaces[r.palace_name].q1_passages?.length
+                        && !cungReading.palaces[r.palace_name].q3_passages?.length"
+                   class="cbp-empty">
+                _Chưa tìm thấy đoạn trong Q1/Q3 đề cập trực tiếp cung này._
               </div>
             </div>
           </li>
@@ -1239,6 +1301,56 @@ const grid = computed(() => {
   .star { font-size: 9px; }
   .cell-palace { font-size: 10px; }
   .tvls-form { grid-template-columns: 1fr; }
+}
+
+/* Q1 Phú + Q3 passages per palace */
+.cung-book-passages {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(232, 201, 90, 0.25);
+}
+.cbp-section { margin-top: 8px; }
+.cbp-head {
+  margin: 6px 0 4px;
+  font-size: 11px;
+  color: var(--accent-gold-soft, #f5e6b1);
+  letter-spacing: 0.02em;
+}
+.cbp-card {
+  background: rgba(255, 255, 255, 0.025);
+  border-left: 2px solid var(--accent-teal, #5be5d3);
+  border-radius: 0 3px 3px 0;
+  padding: 6px 9px;
+  margin: 4px 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.cbp-q3 { border-left-color: #a78bfa; }
+.cbp-meta {
+  font-size: 9.5px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.5));
+  margin-bottom: 2px;
+}
+.cbp-hv {
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  font-style: italic;
+  margin: 2px 0;
+}
+.cbp-lg {
+  color: var(--text-primary, #e6eef5);
+  margin: 3px 0;
+}
+.cbp-reasons {
+  font-size: 10px;
+  color: var(--accent-teal, #5be5d3);
+  margin-top: 3px;
+  opacity: 0.85;
+}
+.cbp-empty {
+  font-size: 11px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.45));
+  font-style: italic;
+  margin-top: 6px;
 }
 </style>
 
