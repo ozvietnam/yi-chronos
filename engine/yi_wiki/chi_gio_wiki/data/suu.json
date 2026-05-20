@@ -1,0 +1,40 @@
+{
+  "id": "Sửu",
+  "range_hours": [1, 3],
+  "wraps_midnight": false,
+  "ngu_hanh": "Thổ",
+  "am_duong": "Âm",
+  "tcm_organ": "can",
+  "animal_vi": "Trâu",
+  "animal_zh": "牛",
+  "core_traits": {
+    "personality": [
+      "Cần cù, kiên nhẫn — chịu khó dài hạn",
+      "Kỷ luật, đo đếm thời gian",
+      "Thực dụng, ít cảm xúc thừa",
+      "Trung thành, không phản bội",
+      "Bền bỉ trong khó khăn — không bỏ giữa chừng"
+    ],
+    "physical": [
+      "Vóc to khoẻ, vai rộng",
+      "Mặt vuông hoặc dài, xương mạnh",
+      "Da tông trung bình đến sậm (Thổ)",
+      "Đôi mắt sâu, ánh nhìn ổn định",
+      "Tóc cứng, ít rụng"
+    ],
+    "daily_habit": [
+      "Dậy sớm tự nhiên (4-6h sáng)",
+      "Ngủ sâu giấc đầu, dễ tỉnh lúc 1-3h",
+      "Năng lượng peak sáng sớm",
+      "Lịch sinh hoạt đều đặn, ít thay đổi",
+      "Bữa sáng quan trọng, ăn no buổi sáng"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Tý",  "leak_traits": ["Thông minh đêm", "Đa mưu", "Yêu cô tịch"]},
+    "next":     {"chi": "Dần", "leak_traits": ["Mạnh mẽ", "Độc lập", "Lãnh đạo bẩm sinh"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Sửu vi Thổ vượng, chủ cần lao, tích lũy, trung tín"}
+  ]
+}

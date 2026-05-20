@@ -1,0 +1,40 @@
+{
+  "id": "Dậu",
+  "range_hours": [17, 19],
+  "wraps_midnight": false,
+  "ngu_hanh": "Kim",
+  "am_duong": "Âm",
+  "tcm_organ": "thận",
+  "animal_vi": "Gà",
+  "animal_zh": "雞",
+  "core_traits": {
+    "personality": [
+      "Chính xác — chú trọng chi tiết",
+      "Kỷ luật, đúng giờ",
+      "Ngăn nắp, có hệ thống",
+      "Thẳng tính, dám nói thật",
+      "Tự tin, có nguyên tắc"
+    ],
+    "physical": [
+      "Dáng vừa, gọn",
+      "Mặt oval hoặc gọn sắc",
+      "Da trắng (Kim) hoặc tông sáng",
+      "Đôi mắt sáng, có thần",
+      "Tóc thường mượt, đẹp gọn"
+    ],
+    "daily_habit": [
+      "Năng lượng peak chiều muộn (17-19h)",
+      "Yêu bữa tối đúng giờ",
+      "Đi ngủ đúng giờ, kỷ luật",
+      "Tổng kết ngày buổi chiều",
+      "Bố trí công việc rõ ràng"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Thân", "leak_traits": ["Nhanh nhẹn", "Linh hoạt", "Học nhanh"]},
+    "next":     {"chi": "Tuất", "leak_traits": ["Trung thành", "Chân thật", "Có nguyên tắc"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Dậu vi Kim chi vượng, chủ chính trực, kỷ luật, tinh xảo"}
+  ]
+}

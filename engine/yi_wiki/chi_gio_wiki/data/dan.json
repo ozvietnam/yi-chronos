@@ -1,0 +1,40 @@
+{
+  "id": "Dần",
+  "range_hours": [3, 5],
+  "wraps_midnight": false,
+  "ngu_hanh": "Mộc",
+  "am_duong": "Dương",
+  "tcm_organ": "phế",
+  "animal_vi": "Hổ",
+  "animal_zh": "虎",
+  "core_traits": {
+    "personality": [
+      "Mạnh mẽ, độc lập — không thích bị kiểm soát",
+      "Lãnh đạo bẩm sinh, dẫn đầu nhóm",
+      "Thẳng tính, nói ra ngay điều mình nghĩ",
+      "Dũng cảm, dám nghĩ dám làm",
+      "Tham vọng, hành động quyết liệt"
+    ],
+    "physical": [
+      "Cao, dáng thon, gân guốc",
+      "Mặt dài, xương sắc",
+      "Da tông trắng hoặc hồng",
+      "Đôi mắt sắc, ánh nhìn cương",
+      "Tóc thường thẳng, cứng"
+    ],
+    "daily_habit": [
+      "Thức rất sớm (3-5h sáng) tự nhiên",
+      "Năng lượng peak sáng sớm tinh khôi",
+      "Tập thể dục sáng sớm",
+      "Quyết định nhanh, ít phân vân",
+      "Khó ngồi yên — luôn vận động"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Sửu", "leak_traits": ["Kiên nhẫn", "Kỷ luật", "Thực dụng"]},
+    "next":     {"chi": "Mão", "leak_traits": ["Cẩn trọng", "Nhân hậu", "Tinh tế"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Dần vi Mộc chi tổ, chủ uy dũng, độc lập, lãnh đạo"}
+  ]
+}

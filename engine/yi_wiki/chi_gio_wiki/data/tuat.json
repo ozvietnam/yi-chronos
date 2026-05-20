@@ -1,0 +1,40 @@
+{
+  "id": "Tuất",
+  "range_hours": [19, 21],
+  "wraps_midnight": false,
+  "ngu_hanh": "Thổ",
+  "am_duong": "Dương",
+  "tcm_organ": "tâm bào",
+  "animal_vi": "Chó",
+  "animal_zh": "狗",
+  "core_traits": {
+    "personality": [
+      "Trung thành, chân thật — không phản bội",
+      "Bảo vệ người thân, gia đình quan trọng",
+      "Có nguyên tắc rõ ràng, không thoả hiệp",
+      "Tin cậy, giữ lời hứa",
+      "Đôi khi cứng nhắc, khó thay đổi"
+    ],
+    "physical": [
+      "Vóc to khoẻ, vạm vỡ",
+      "Mặt vuông hoặc dài, xương rõ",
+      "Da tông trung bình đến sậm",
+      "Đôi mắt sâu, ánh nhìn vững",
+      "Tóc cứng, có thể có 2 xoáy"
+    ],
+    "daily_habit": [
+      "Năng lượng peak tối (19-21h)",
+      "Bữa tối quan trọng, cùng gia đình",
+      "Thư giãn buổi tối với người thân",
+      "Đi ngủ trước 23h",
+      "Cẩn trọng nơi ngủ, an toàn"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Dậu", "leak_traits": ["Chính xác", "Kỷ luật", "Đúng giờ"]},
+    "next":     {"chi": "Hợi", "leak_traits": ["Phúc hậu", "Hưởng thụ", "Hoà ái"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Tuất vi Thổ chi kết, chủ trung tín, bảo thủ, nguyên tắc"}
+  ]
+}

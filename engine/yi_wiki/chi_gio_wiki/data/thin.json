@@ -1,0 +1,40 @@
+{
+  "id": "Thìn",
+  "range_hours": [7, 9],
+  "wraps_midnight": false,
+  "ngu_hanh": "Thổ",
+  "am_duong": "Dương",
+  "tcm_organ": "vị",
+  "animal_vi": "Rồng",
+  "animal_zh": "龍",
+  "core_traits": {
+    "personality": [
+      "Khởi đầu mạnh — bắt đầu việc gì cũng quyết",
+      "Tham vọng, có chí lớn",
+      "Được người trọng — uy nghi tự nhiên",
+      "Lãnh đạo dominant, không ngại quyết định",
+      "Đa năng, ôm nhiều việc cùng lúc"
+    ],
+    "physical": [
+      "To khoẻ, vai rộng, dáng vạm vỡ",
+      "Mặt vuông hoặc đầy đặn",
+      "Da tông sậm hoặc hồng hào",
+      "Đôi mắt sáng, ánh nhìn uy",
+      "Tóc cứng, thường có 2 xoáy"
+    ],
+    "daily_habit": [
+      "Thức 7-9h, dậy hùng dũng",
+      "Bữa sáng đầy đủ, ăn no buổi sáng",
+      "Năng lượng peak buổi sáng",
+      "Làm việc lớn buổi sáng",
+      "Tham gia nhiều dự án song song"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Mão", "leak_traits": ["Cẩn trọng", "Nhân hậu", "Tinh tế"]},
+    "next":     {"chi": "Tỵ",  "leak_traits": ["Khôn ngoan", "Thâm trầm", "Có chiều sâu"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Thìn vi Thổ chi khố, chủ tích trữ, dung nạp, vương khí"}
+  ]
+}

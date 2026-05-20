@@ -1,0 +1,40 @@
+{
+  "id": "Hợi",
+  "range_hours": [21, 23],
+  "wraps_midnight": false,
+  "ngu_hanh": "Thuỷ",
+  "am_duong": "Âm",
+  "tcm_organ": "tam tiêu",
+  "animal_vi": "Lợn",
+  "animal_zh": "豬",
+  "core_traits": {
+    "personality": [
+      "Phúc hậu, hiền hoà — không gây thù",
+      "Hưởng thụ cuộc sống — ăn ngon, mặc đẹp",
+      "Cảm xúc giàu, dễ thấu cảm người khác",
+      "An nhàn, không cưỡng ép bản thân",
+      "Mềm dẻo, chịu đựng tốt"
+    ],
+    "physical": [
+      "Vóc dáng đầy đặn, mềm mại",
+      "Mặt tròn hoặc oval, đầy đặn",
+      "Da hồng hào, mịn",
+      "Đôi mắt hiền, ánh nhìn ấm",
+      "Tóc thường dày, mượt"
+    ],
+    "daily_habit": [
+      "Tối thư giãn, ăn ngon trước khi ngủ",
+      "Đi ngủ sớm (22-23h tự nhiên)",
+      "Năng lượng peak buổi tối 17-21h",
+      "Yêu các bữa tiệc gia đình ấm cúng",
+      "Khó nói 'không' khi được mời"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Tuất", "leak_traits": ["Trung thành", "Bảo vệ người thân", "Nguyên tắc rõ ràng"]},
+    "next":     {"chi": "Tý",   "leak_traits": ["Thông minh đêm", "Đa mưu", "Thâm trầm"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Hợi vi Thuỷ chi mạt, chủ phúc lộc, hưởng thụ, nhân ái"}
+  ]
+}

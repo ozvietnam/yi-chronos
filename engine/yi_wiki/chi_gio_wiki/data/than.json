@@ -1,0 +1,40 @@
+{
+  "id": "Thân",
+  "range_hours": [15, 17],
+  "wraps_midnight": false,
+  "ngu_hanh": "Kim",
+  "am_duong": "Dương",
+  "tcm_organ": "bàng quang",
+  "animal_vi": "Khỉ",
+  "animal_zh": "猴",
+  "core_traits": {
+    "personality": [
+      "Nhanh nhẹn, linh hoạt — chuyển ý nhanh",
+      "Học nhanh, thông minh xã hội",
+      "Khéo léo trong giao tiếp",
+      "Hài hước, dí dỏm",
+      "Thông minh đa chiều, đa năng"
+    ],
+    "physical": [
+      "Dáng nhỏ nhanh nhẹn, gọn gàng",
+      "Mặt sắc hoặc gọn",
+      "Da trắng (Kim) hoặc tông sáng",
+      "Đôi mắt linh hoạt, đảo nhanh",
+      "Tóc thường mềm, có thể nhiều xoáy"
+    ],
+    "daily_habit": [
+      "Năng lượng peak chiều (15-17h)",
+      "Yêu giao lưu xã hội buổi chiều",
+      "Học thêm, đọc thêm chiều muộn",
+      "Bữa chiều quan trọng",
+      "Nhiều việc song song không ngại"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Mùi", "leak_traits": ["Hiền lành", "Nghệ sĩ", "Tinh tế"]},
+    "next":     {"chi": "Dậu", "leak_traits": ["Chính xác", "Kỷ luật", "Đúng giờ"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Thân vi Kim chi sinh, chủ linh hoạt, khôn lanh, biến hoá"}
+  ]
+}

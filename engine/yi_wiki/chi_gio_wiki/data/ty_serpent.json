@@ -1,0 +1,40 @@
+{
+  "id": "Tỵ",
+  "range_hours": [9, 11],
+  "wraps_midnight": false,
+  "ngu_hanh": "Hoả",
+  "am_duong": "Âm",
+  "tcm_organ": "tỳ",
+  "animal_vi": "Rắn",
+  "animal_zh": "蛇",
+  "core_traits": {
+    "personality": [
+      "Khôn ngoan, có chiều sâu",
+      "Thâm trầm — không lộ ý đồ",
+      "Tinh tế, đánh giá chính xác người-việc",
+      "Bí ẩn, có sức hút riêng",
+      "Quyết đoán âm thầm, không phô trương"
+    ],
+    "physical": [
+      "Dáng vừa, gọn gàng, có thần",
+      "Mặt nhọn hoặc sắc, xương rõ",
+      "Da hồng hào, mịn",
+      "Đôi mắt sâu, sắc, ánh nhìn xuyên thấu",
+      "Tóc mềm, thường đen mượt"
+    ],
+    "daily_habit": [
+      "Thức 9-11h, năng lượng peak mid-morning",
+      "Yêu nơi ấm áp, sáng",
+      "Làm việc trí óc tốt nhất 9-13h",
+      "Bữa trưa quan trọng",
+      "Quan sát kỹ trước khi hành động"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Thìn", "leak_traits": ["Khởi đầu mạnh", "Tham vọng", "Đa năng"]},
+    "next":     {"chi": "Ngọ",  "leak_traits": ["Nhiệt huyết", "Năng lượng cao", "Không ngồi yên"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Tỵ vi Hoả chi sinh, chủ trí huệ, mưu lược, thâm trầm"}
+  ]
+}

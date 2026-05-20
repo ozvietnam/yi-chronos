@@ -1,0 +1,40 @@
+{
+  "id": "Ngọ",
+  "range_hours": [11, 13],
+  "wraps_midnight": false,
+  "ngu_hanh": "Hoả",
+  "am_duong": "Dương",
+  "tcm_organ": "tâm",
+  "animal_vi": "Ngựa",
+  "animal_zh": "馬",
+  "core_traits": {
+    "personality": [
+      "Nhiệt huyết, đam mê cao độ",
+      "Năng lượng cao, không ngồi yên",
+      "Nóng tính, phản ứng nhanh",
+      "Chân thành, không che giấu",
+      "Yêu tự do, khó bị kìm hãm"
+    ],
+    "physical": [
+      "Dáng vừa cân đối, vận động linh hoạt",
+      "Mặt tròn hoặc đầy đặn, hồng hào",
+      "Da tông ấm, hồng",
+      "Đôi mắt sáng, to, có lửa",
+      "Tóc thường mềm, có thể có 1 xoáy"
+    ],
+    "daily_habit": [
+      "Đỉnh năng lượng giữa trưa (11-13h)",
+      "Yêu bữa trưa đầy đủ",
+      "Vận động cường độ cao buổi trưa",
+      "Khó ngủ trưa — sợ phí thời gian",
+      "Quyết định nhanh, đôi khi bốc đồng"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Tỵ",  "leak_traits": ["Khôn ngoan", "Thâm trầm", "Có chiều sâu"]},
+    "next":     {"chi": "Mùi", "leak_traits": ["Hiền lành", "Nghệ sĩ", "Hơi do dự"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Ngọ vi Hoả chi vượng, chủ nhiệt liệt, tâm chính, vương quan"}
+  ]
+}

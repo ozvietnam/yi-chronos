@@ -1,0 +1,40 @@
+{
+  "id": "Mùi",
+  "range_hours": [13, 15],
+  "wraps_midnight": false,
+  "ngu_hanh": "Thổ",
+  "am_duong": "Âm",
+  "tcm_organ": "tiểu trường",
+  "animal_vi": "Dê",
+  "animal_zh": "羊",
+  "core_traits": {
+    "personality": [
+      "Hiền lành, dịu dàng",
+      "Nghệ sĩ — yêu cái đẹp, sáng tạo",
+      "Thích đẹp, có gu thẩm mỹ tinh",
+      "Hơi do dự, phụ thuộc người khác",
+      "Cảm xúc giàu, dễ thấu cảm"
+    ],
+    "physical": [
+      "Dáng vừa, mềm mại",
+      "Mặt tròn hoặc oval, đầy đặn",
+      "Da trắng hoặc trung bình, mịn",
+      "Đôi mắt to, hiền, lông mi đẹp",
+      "Tóc thường mượt, đẹp"
+    ],
+    "daily_habit": [
+      "Năng lượng peak đầu chiều (13-15h)",
+      "Yêu nghỉ trưa sau bữa",
+      "Bữa trưa thư thái, không vội",
+      "Làm việc sáng tạo buổi chiều",
+      "Cần không gian đẹp để làm việc"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Ngọ",  "leak_traits": ["Nhiệt huyết", "Năng lượng cao", "Quyết liệt"]},
+    "next":     {"chi": "Thân", "leak_traits": ["Nhanh nhẹn", "Linh hoạt", "Học nhanh"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Mùi vi Thổ chi tàng, chủ nhân hậu, ôn nhu, nghệ thuật"}
+  ]
+}

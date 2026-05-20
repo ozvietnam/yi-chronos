@@ -1,0 +1,40 @@
+{
+  "id": "Mão",
+  "range_hours": [5, 7],
+  "wraps_midnight": false,
+  "ngu_hanh": "Mộc",
+  "am_duong": "Âm",
+  "tcm_organ": "đại trường",
+  "animal_vi": "Mèo (VN) / Thỏ (TQ)",
+  "animal_zh": "兔",
+  "core_traits": {
+    "personality": [
+      "Cẩn trọng, nhân hậu — luôn nghĩ đến người khác",
+      "Tinh tế, đọc context tốt",
+      "Hoà ái, tránh xung đột",
+      "Trí thông minh nhuần nhuyễn, học nhanh",
+      "Yêu cái đẹp, có gu thẩm mỹ"
+    ],
+    "physical": [
+      "Dáng cao thon, mảnh dẻ",
+      "Mặt oval, đẹp",
+      "Da trắng, mịn",
+      "Đôi mắt to, hiền, lông mi dài",
+      "Tóc dày, mượt, mềm"
+    ],
+    "daily_habit": [
+      "Thức bình minh tự nhiên (5-7h)",
+      "Năng lượng đều buổi sáng",
+      "Yêu trà sớm, không gian yên",
+      "Sinh hoạt regular, ít thay đổi đột ngột",
+      "Bữa sáng nhẹ nhưng đầy đủ"
+    ]
+  },
+  "bordering": {
+    "previous": {"chi": "Dần", "leak_traits": ["Mạnh mẽ", "Quyết đoán", "Dẫn đầu"]},
+    "next":     {"chi": "Thìn", "leak_traits": ["Khởi đầu mạnh", "Tham vọng", "Được người trọng"]}
+  },
+  "citations": [
+    {"book": "Tử Bình Chân Thuyên", "page": "Thập Nhị Chi", "passage": "Mão vi Mộc chi yểm, chủ ôn nhã, nhân hậu, tinh tế"}
+  ]
+}
