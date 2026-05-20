@@ -11,6 +11,7 @@ import { tuviPersonKey, tuviPersonName, fetchCachedAnalysis, runAnalysis } from 
 
 const data = ref(null);
 const monthlyData = ref(null);
+const dauQuanData = ref(null);  // ⭐ Đẩu Quân (Q2 p0088 + Q3 p0157)
 const loading = ref(false);
 const running = ref(false);
 const error = ref("");
@@ -18,11 +19,24 @@ const activeYear = ref(2026);
 const viewMode = ref("year"); // 'year' | 'monthly'
 const activeMonth = ref(1);
 
-async function load() {
-  loading.value = true; error.value = "";
-  data.value = null; monthlyData.value = null;
+async function loadDauQuan() {
   try {
     const pk = tuviPersonKey.value;
+    const resp = await fetch("/api/tu-vi/dau-quan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person_key: pk, luu_nguyet_year: activeYear.value }),
+    }).then((r) => r.json());
+    if (resp.status === "ok") dauQuanData.value = resp;
+  } catch (e) { /* silent */ }
+}
+
+async function load() {
+  loading.value = true; error.value = "";
+  data.value = null; monthlyData.value = null; dauQuanData.value = null;
+  try {
+    const pk = tuviPersonKey.value;
+    loadDauQuan();  // background
     // luu_nien is stored as luu_nien_{start}_{end}.json by analyzer; default 2026-2030
     const ynRes = await fetchCachedAnalysis(pk, "luu_nien_2026_2030");
     const lnRes = await fetchCachedAnalysis(pk, "luu_nien"); // legacy
@@ -57,6 +71,15 @@ async function runNow() {
 }
 
 watch(tuviPersonKey, () => load());
+watch(activeYear, () => loadDauQuan());
+
+const dauQuanByMonth = computed(() => {
+  const out = {};
+  for (const m of dauQuanData.value?.dau_quan_months || []) {
+    out[m.luu_nguyet_month] = m;
+  }
+  return out;
+});
 
 const months = computed(() => monthlyData.value?.months || []);
 const currentMonth = computed(() =>
@@ -106,6 +129,28 @@ onMounted(load);
       <p v-if="running" class="ln-running">⏳ Đang chạy lưu niên + lưu nguyệt (~20s)...</p>
     </div>
 
+    <!-- ⭐ Đẩu Quân banner (Q2 p0088 + Q3 p0157) -->
+    <div v-if="dauQuanData" class="dau-quan-banner">
+      <div class="dq-head">
+        <span class="dq-title">⭐ Đẩu Quân (斗君) năm {{ dauQuanData.year }} ({{ dauQuanData.year_branch }})</span>
+        <span class="dq-source">Q2 p0088 · Q3 p0157</span>
+      </div>
+      <div class="dq-body">
+        <p>
+          Đẩu Quân năm tại <b>{{ dauQuanData.dau_quan_year.dau_quan_branch }}</b>
+          (cung <b>{{ dauQuanData.dau_quan_year.palace }}</b>) — toàn bộ năm 2026
+          chịu ảnh hưởng cát/hung của cung này.
+        </p>
+        <details class="dq-trace">
+          <summary>Cách tính (Q2 p0088)</summary>
+          <ol>
+            <li v-for="(t, i) in dauQuanData.dau_quan_year.trace" :key="i">{{ t }}</li>
+          </ol>
+        </details>
+        <p class="dq-paradigm">💡 {{ dauQuanData.paradigm_note }}</p>
+      </div>
+    </div>
+
     <!-- View mode toggle -->
     <div v-if="years.length || months.length" class="ln-view-toggle">
       <button :class="{ active: viewMode === 'year' }" @click="viewMode = 'year'">
@@ -137,7 +182,30 @@ onMounted(load);
         <strong>T{{ m.thang_am }}</strong>
         <small>{{ m.branch }}</small>
         <em>{{ m.palace }}</em>
+        <span v-if="dauQuanByMonth[m.thang_am]" class="dq-month-badge"
+              :title="`Đẩu Quân tại ${dauQuanByMonth[m.thang_am].dau_quan_branch} (${dauQuanByMonth[m.thang_am].palace})`">
+          ⭐{{ dauQuanByMonth[m.thang_am].palace.slice(0, 4) }}
+        </span>
       </button>
+    </div>
+
+    <!-- Đẩu Quân monthly detail (when monthly view + month active) -->
+    <div v-if="viewMode === 'monthly' && dauQuanByMonth[activeMonth]" class="dq-month-detail">
+      <h4>⭐ Đẩu Quân tháng {{ activeMonth }}</h4>
+      <div class="dq-md-row">
+        <span class="dq-md-label">Vị trí:</span>
+        <b>{{ dauQuanByMonth[activeMonth].dau_quan_branch }}</b>
+        (cung <b>{{ dauQuanByMonth[activeMonth].palace }}</b>)
+      </div>
+      <div class="dq-md-interp">
+        <div class="dq-md-cat">
+          <small>Nếu cát:</small> {{ dauQuanByMonth[activeMonth].interp_cat }}
+        </div>
+        <div class="dq-md-hung">
+          <small>Nếu hung:</small> {{ dauQuanByMonth[activeMonth].interp_hung }}
+        </div>
+      </div>
+      <p class="dq-md-source">Nguồn: {{ dauQuanByMonth[activeMonth].source_ref }}</p>
     </div>
 
     <!-- Active year detail -->
@@ -448,5 +516,109 @@ onMounted(load);
 
 @media (max-width: 700px) {
   .ln-cung-grid, .ln-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ━━━━ Đẩu Quân (Q2 p0088 + Q3 p0157) ━━━━ */
+.dau-quan-banner {
+  margin: 14px 0;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(232, 201, 90, 0.12), rgba(232, 201, 90, 0.04));
+  border: 1px solid rgba(232, 201, 90, 0.35);
+  border-radius: 8px;
+}
+.dq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.dq-title {
+  font-weight: 600;
+  color: #f5e6b1;
+  font-size: 14px;
+}
+.dq-source {
+  font-size: 10.5px;
+  color: rgba(230, 238, 245, 0.5);
+  font-style: italic;
+}
+.dq-body p { margin: 6px 0; font-size: 13px; color: #e6eef5; line-height: 1.55; }
+.dq-body b { color: #f5e6b1; }
+.dq-trace summary { cursor: pointer; font-size: 12px; color: #94a3b8; }
+.dq-trace ol { margin: 6px 0 0 22px; padding: 0; }
+.dq-trace li { font-size: 12px; color: rgba(230, 238, 245, 0.78); margin: 3px 0; }
+.dq-paradigm {
+  margin-top: 10px !important;
+  padding: 8px 12px;
+  background: rgba(167, 139, 250, 0.08);
+  border-left: 2px solid #a78bfa;
+  border-radius: 0 3px 3px 0;
+  font-size: 12px !important;
+  color: rgba(230, 238, 245, 0.85);
+  font-style: italic;
+}
+
+/* Đẩu Quân badge trên month tab */
+.dq-month-badge {
+  display: block;
+  margin-top: 3px;
+  background: rgba(232, 201, 90, 0.18);
+  color: #f5e6b1;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* Đẩu Quân monthly detail */
+.dq-month-detail {
+  margin: 12px 0;
+  padding: 12px 14px;
+  background: rgba(232, 201, 90, 0.06);
+  border-left: 3px solid #e8c95a;
+  border-radius: 0 5px 5px 0;
+}
+.dq-month-detail h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #f5e6b1;
+}
+.dq-md-row { font-size: 13px; color: #e6eef5; margin-bottom: 8px; }
+.dq-md-label { color: rgba(230, 238, 245, 0.55); margin-right: 6px; }
+.dq-md-row b { color: #f5e6b1; }
+.dq-md-interp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 6px 0;
+}
+@media (max-width: 720px) { .dq-md-interp { grid-template-columns: 1fr; } }
+.dq-md-cat, .dq-md-hung {
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.dq-md-cat {
+  background: rgba(90, 176, 122, 0.08);
+  border-left: 2px solid #5ab07a;
+  color: #c0e8c8;
+}
+.dq-md-hung {
+  background: rgba(214, 90, 74, 0.08);
+  border-left: 2px solid #d65a4a;
+  color: #f5b8a0;
+}
+.dq-md-cat small, .dq-md-hung small {
+  display: block;
+  font-size: 10px;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+.dq-md-source {
+  margin: 6px 0 0;
+  font-size: 10.5px;
+  color: rgba(230, 238, 245, 0.45);
+  font-style: italic;
 }
 </style>

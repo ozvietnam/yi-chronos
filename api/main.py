@@ -5197,6 +5197,76 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
 
 
 # ─── Cách cục dictionary (từ thâm nhuần Q1) ──────────────────────────────────
+@app.post("/api/tu-vi/dau-quan")
+def yi_tuvi_dau_quan(req: _AnalyzeRequest, request: Request) -> dict:
+    """Tính Đẩu Quân (斗君) per lưu niên + 12 tháng lưu nguyệt.
+
+    Đẩu Quân là sao THEO TIME — đi qua các cung mỗi tháng/năm, quyết định
+    cát/hung của giai đoạn đó (Q2 p0088 công thức, Q3 p0157 diễn giải).
+
+    Returns Đẩu Quân năm + 12 tháng + diễn giải per palace.
+    """
+    from engine.tu_vi.dau_quan import (
+        compute_dau_quan, compute_dau_quan_for_months, interpret_dau_quan, BRANCHES
+    )
+    from engine.tu_vi.analyzer import TuViAnalyzer
+    from core.chronos import calculate_chronos_state
+
+    person = _resolve_person_from_request(req, request)
+    analyzer = TuViAnalyzer(person)
+    la_so = analyzer.la_so
+
+    # Need lunar_month + hour_branch from birth
+    chronos = calculate_chronos_state(person.birth_datetime_local, person.timezone)
+    d_str, m_str, _ = chronos.almanac.lunar_date.split("/")
+    lunar_month = int(m_str)
+
+    from datetime import datetime
+    dt = datetime.fromisoformat(person.birth_datetime_local)
+    hour = dt.hour
+    hour_branch = "Tý" if hour >= 23 or hour < 1 else BRANCHES[((hour + 1) // 2) % 12]
+
+    # Year — default current
+    year = req.luu_nguyet_year or 2026
+
+    # Get year branch via Ganzhi
+    from core.chronos import calculate_chronos_state as ccs
+    year_chronos = ccs(f"{year}-06-15T12:00:00", "Asia/Ho_Chi_Minh")
+    year_branch = year_chronos.ganzhi.year.split()[1]
+
+    dq_year = compute_dau_quan(year_branch, lunar_month, hour_branch)
+    dq_months = compute_dau_quan_for_months(year_branch, lunar_month, hour_branch)
+
+    # Build palace lookup: branch_index → palace_name
+    palace_at_branch = {p["branch_index"]: p["name"] for p in la_so["palaces"]}
+
+    # Annotate each month with palace + interpretation
+    for m in dq_months:
+        bi = m["dau_quan_branch_index"]
+        palace = palace_at_branch.get(bi, "?")
+        m["palace"] = palace
+        # Default to cát interpretation — UI shows both
+        interp = interpret_dau_quan(palace, has_cat=True)
+        m["interp_cat"] = interp["interpretation"]
+        interp_h = interpret_dau_quan(palace, has_cat=False)
+        m["interp_hung"] = interp_h["interpretation"]
+        m["source_ref"] = interp["source"]
+
+    return {
+        "status": "ok",
+        "year": year,
+        "year_branch": year_branch,
+        "lunar_month_birth": lunar_month,
+        "hour_branch_birth": hour_branch,
+        "dau_quan_year": {
+            **dq_year,
+            "palace": palace_at_branch.get(dq_year["dau_quan_branch_index"], "?"),
+        },
+        "dau_quan_months": dq_months,
+        "paradigm_note": "Đẩu Quân (Q3 p0157) — đi qua cung X, gặp cát/hung tinh tại đó quyết định cát hung của tháng/năm. KHÔNG đọc cứng — chỉ là 1 layer trong nhiều layer (Đại Vận + Lưu Niên + Tiểu Hạn + Đẩu Quân).",
+    }
+
+
 @app.post("/api/tu-vi/case-studies/match")
 def yi_tuvi_case_studies_match(req: _AnalyzeRequest, request: Request) -> dict:
     """Match lá số user với case studies lịch sử (Q3+Q4 Trần Đoàn + Khang Tiết).
