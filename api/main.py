@@ -3708,12 +3708,19 @@ def yi_wiki_interpret(req: MaiHoaInterpretRequest) -> dict:
             "input": r.external_omen_input,
             "category": r.external_omen_category,
             "weight": r.external_omen_weight,
+            # Thập ứng (Mai Hoa Q2 thâm nhuần 2026-05-19)
+            "source": r.external_omen_source,
+            "thap_ung_label": r.external_omen_thap_ung,
         },
         "buoc_4_posture": {
             "speed": r.posture_speed,
             "note": r.posture_note,
         },
         "four_steps_complete": r.four_steps_complete,
+        # ⭐ Tam yếu (Mai Hoa Q1 thâm nhuần) — 3 yếu cốt lõi + verdict
+        "tam_yeu": _build_tam_yeu_summary(r),
+        # ⭐ 11 chiêm chuyên đề (Mai Hoa Q2 thâm nhuần) — route theo intent / question
+        "chiem_topic": _build_chiem_topic(req, r),
         # ⭐⭐⭐⭐ Phase A 18/5 — PARADIGM SHIFT (Vận Pháp Thi Q3 tr.78)
         "paradigm": {
             "mirror_reading": r.paradigm_mirror_reading,
