@@ -15,6 +15,12 @@ from pathlib import Path
 DATA_PATH = Path(__file__).resolve().parent.parent.parent / "data/tu_vi/chinh_tinh.json"
 
 
+_CORE_FIELDS = {
+    "id", "ten_vi", "ten_zh", "ngu_hanh", "am_duong", "hoa_khi",
+    "chu_ve", "dac_dia", "lac_dia", "keywords", "tich_cuc", "tieu_cuc",
+}
+
+
 @dataclass(frozen=True)
 class ChinhTinh:
     """One Tử Vi chính tinh (principal star)."""
@@ -31,13 +37,25 @@ class ChinhTinh:
     keywords: list[str]            # 3-5 short keywords
     tich_cuc: str                  # Positive interpretation
     tieu_cuc: str                  # Negative interpretation
+    # ⭐ Q2 enrichment (v2, 2026-05-20) — captured as raw dict for forward-compat
+    extras: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
-        return asdict(self)
+        d = asdict(self)
+        # Flatten extras into top-level so UI can read them directly
+        extras = d.pop("extras", {}) or {}
+        d.update(extras)
+        return d
 
 
 def _build_from_raw(raw: dict) -> ChinhTinh:
-    """Coerce a JSON entry into a ChinhTinh dataclass with defaults."""
+    """Coerce a JSON entry into a ChinhTinh dataclass with defaults.
+
+    Q2 enrichment fields (thuoc_dau, hoa_khi_full, chu_tinh_of, tuong_mao_q2,
+    tinh_cach_q2, uy_che, hop_voi_q2, ky_voi_q2, co_dac_biet, bias_nam_sinh,
+    q2_source) are captured in `extras` dict.
+    """
+    extras = {k: v for k, v in raw.items() if k not in _CORE_FIELDS}
     return ChinhTinh(
         id=raw["id"],
         ten_vi=raw["ten_vi"],
@@ -51,6 +69,7 @@ def _build_from_raw(raw: dict) -> ChinhTinh:
         keywords=list(raw.get("keywords", [])),
         tich_cuc=raw.get("tich_cuc", ""),
         tieu_cuc=raw.get("tieu_cuc", ""),
+        extras=extras,
     )
 
 

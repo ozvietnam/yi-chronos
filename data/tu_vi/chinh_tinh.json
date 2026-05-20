@@ -1,11 +1,12 @@
 {
-  "$schema_version": "tuvi-chinh-tinh-v1",
+  "$schema_version": "tuvi-chinh-tinh-v2",
   "source_refs": [
     "kabalavn/La-So-Tu-Vi (column convention)",
     "Đông phái Tử Vi (Văn Đức Trí biên soạn, classic)",
-    "Tử Vi Đẩu Số toàn thư (canonical reference)"
+    "Tử Vi Đẩu Số toàn thư (canonical reference)",
+    "Tử Vi Đẩu Số Toàn Thư Q2 p0103-p0125 (thâm nhuần 2026-05-20)"
   ],
-  "interpretation_template": "kabalavn/Destiny-Matrix style: {keywords, tich_cuc, tieu_cuc}",
+  "interpretation_template": "kabalavn/Destiny-Matrix style: {keywords, tich_cuc, tieu_cuc} + Q2 enrichment: thuoc_dau, hoa_khi_full, chu_tinh_of, tuong_mao_q2, tinh_cach_q2, uy_che, hop_voi_q2, ky_voi_q2, co_dac_biet, bias_nam_sinh, q2_source",
   "stars": [
     {
       "id": "tu_vi",
@@ -14,11 +15,66 @@
       "ngu_hanh": "thổ",
       "am_duong": "âm",
       "hoa_khi": "tôn",
-      "chu_ve": ["lãnh đạo", "uy quyền", "địa vị tối cao"],
-      "dac_dia": ["Ngọ", "Mùi", "Dần", "Thân"],
-      "keywords": ["đế tinh", "uy nghi", "trách nhiệm", "cô đỉnh"],
+      "chu_ve": [
+        "lãnh đạo",
+        "uy quyền",
+        "địa vị tối cao"
+      ],
+      "dac_dia": [
+        "Ngọ",
+        "Mùi",
+        "Dần",
+        "Thân"
+      ],
+      "keywords": [
+        "đế tinh",
+        "uy nghi",
+        "trách nhiệm",
+        "cô đỉnh"
+      ],
       "tich_cuc": "Lãnh đạo bẩm sinh, thu hút quý nhân và hậu duệ, hợp công việc đòi hỏi quyết đoán và đứng đầu. Mệnh có Tử Vi thường được tôn trọng, có chí lớn, cốt cách vương giả.",
-      "tieu_cuc": "Dễ kiêu ngạo, áp lực cô độc ở đỉnh, khó hài lòng với cộng sự kém tài. Nếu thiếu phụ tinh hỗ trợ (Tả Phù, Hữu Bật, Văn Xương, Văn Khúc) thì 'cô quân' — cô đơn ở chỗ cao."
+      "tieu_cuc": "Dễ kiêu ngạo, áp lực cô độc ở đỉnh, khó hài lòng với cộng sự kém tài. Nếu thiếu phụ tinh hỗ trợ (Tả Phù, Hữu Bật, Văn Xương, Văn Khúc) thì 'cô quân' — cô đơn ở chỗ cao.",
+      "thuoc_dau": "Nam Bắc Đẩu",
+      "hoa_khi_full": "hóa Đế tọa, vi quan lộc chủ",
+      "chu_tinh_of": "Đế tinh — chủ về quan lộc, lãnh đạo",
+      "tuong_mao_q2": "Diện tử sắc hoặc bạch thanh, yêu bối phì mãn (lưng eo đầy đặn), nhân trung hậu lão thành.",
+      "tinh_cach_q2": "Khiêm cung cảnh trực, uy nghi. Có uy chế Thất Sát, hàng phục Hỏa Tinh + Linh Tinh.",
+      "uy_che": [
+        "Thất Sát",
+        "Hỏa Tinh",
+        "Linh Tinh"
+      ],
+      "hop_voi_q2": [
+        "Thiên Phủ",
+        "Tả Phụ",
+        "Hữu Bật",
+        "Văn Xương",
+        "Văn Khúc",
+        "Khôi",
+        "Việt",
+        "Lộc Tồn",
+        "Thiên Mã"
+      ],
+      "ky_voi_q2": [
+        "Phá Quân (đồng cung → tư lại nhỏ)",
+        "Kình",
+        "Đà",
+        "Hỏa",
+        "Linh"
+      ],
+      "co_dac_biet": [
+        "Vô Tả Hữu → cô quân, thanh nhàn tăng đạo",
+        "Đồng Lộc Tồn → kỳ đặc, không cần nhập miếu vẫn quý",
+        "Đồng Phá Quân vô cát → tư lại nhỏ (hung ác)",
+        "Đồng Phá Quân + Tham Lang → chí dâm"
+      ],
+      "bias_nam_sinh": [
+        "Tý cung: hợp Đinh, Kỷ, Canh — quý cách; Nhâm Quý — không bền",
+        "Ngọ cung nhập miếu: hợp Giáp, Đinh, Kỷ — phú quý hiển đạt",
+        "Mão Dậu vượng cung + Tham Lang: Ất, Tân quý",
+        "Dần Thân vượng cung + Thiên Phủ: Giáp, Canh, Đinh, Kỷ phú quý"
+      ],
+      "q2_source": "p0103-p0105"
     },
     {
       "id": "thien_co",
@@ -27,11 +83,47 @@
       "ngu_hanh": "mộc",
       "am_duong": "âm",
       "hoa_khi": "thiện",
-      "chu_ve": ["mưu lược", "thông minh linh hoạt", "biến động"],
-      "dac_dia": ["Mão", "Dậu", "Tỵ", "Thân"],
-      "keywords": ["trí giả", "biến đổi", "trầm tư", "không an phận"],
+      "chu_ve": [
+        "mưu lược",
+        "thông minh linh hoạt",
+        "biến động"
+      ],
+      "dac_dia": [
+        "Mão",
+        "Dậu",
+        "Tỵ",
+        "Thân"
+      ],
+      "keywords": [
+        "trí giả",
+        "biến đổi",
+        "trầm tư",
+        "không an phận"
+      ],
       "tich_cuc": "Thông minh, tư duy nhanh, đa tài, hợp cố vấn / tham mưu / nghiên cứu. Có khả năng nhìn xa, dự liệu trước biến cố. Linh hoạt thích nghi.",
-      "tieu_cuc": "Tâm bất an, dễ dao động, hay chuyển nghề / chuyển hướng. Hay nghĩ ngợi, lo xa quá mức. Khó dừng lại để đào sâu một việc — 'nhanh nhạy nhưng không bền'."
+      "tieu_cuc": "Tâm bất an, dễ dao động, hay chuyển nghề / chuyển hướng. Hay nghĩ ngợi, lo xa quá mức. Khó dừng lại để đào sâu một việc — 'nhanh nhạy nhưng không bền'.",
+      "thuoc_dau": "Nam Đẩu",
+      "hoa_khi_full": "hóa Thiện, vi huynh đệ chủ",
+      "chu_tinh_of": "Thiện tinh — chủ về huynh đệ",
+      "tuong_mao_q2": "Thân hình đầy đặn, trung bình.",
+      "tinh_cach_q2": "Thông minh, mưu trí, đa biến hóa. Hơi nhạy cảm, hợp công việc đòi mưu lược.",
+      "hop_voi_q2": [
+        "Thiên Lương",
+        "Lộc Tồn",
+        "Tả Phụ",
+        "Hữu Bật"
+      ],
+      "ky_voi_q2": [
+        "Kình Dương",
+        "Hỏa Tinh",
+        "Linh Tinh",
+        "Cự Môn (hãm)"
+      ],
+      "co_dac_biet": [
+        "+ Cự Môn (Mão Dậu) → thông minh, lanh lợi",
+        "+ Lương → 'Cơ Lương đồng cung tại Thìn Tuất' = trí giả"
+      ],
+      "q2_source": "p0105-p0106"
     },
     {
       "id": "thai_duong",
@@ -40,12 +132,66 @@
       "ngu_hanh": "hỏa",
       "am_duong": "dương",
       "hoa_khi": "quý",
-      "chu_ve": ["công danh", "phú quý", "cha / nam giới"],
-      "dac_dia": ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"],
-      "lac_dia": ["Hợi", "Tý", "Sửu"],
-      "keywords": ["chính nghĩa", "phóng quang", "danh tiếng", "hào sảng"],
+      "chu_ve": [
+        "công danh",
+        "phú quý",
+        "cha / nam giới"
+      ],
+      "dac_dia": [
+        "Dần",
+        "Mão",
+        "Thìn",
+        "Tỵ",
+        "Ngọ"
+      ],
+      "lac_dia": [
+        "Hợi",
+        "Tý",
+        "Sửu"
+      ],
+      "keywords": [
+        "chính nghĩa",
+        "phóng quang",
+        "danh tiếng",
+        "hào sảng"
+      ],
       "tich_cuc": "Quang minh chính đại, được trọng vọng, danh tiếng vang xa. Tài năng được công nhận, hợp chính trị / quản lý nhà nước / nghề công khai. Bảo vệ kẻ yếu.",
-      "tieu_cuc": "Khi lạc địa (đêm — Hợi/Tý/Sửu): tỏa sáng yếu, mệt mỏi, hay đau mắt / đau đầu. Tính nóng nảy, hào phóng quá mức dẫn đến hao tài. Quan hệ với cha hoặc nam giới quanh mình có thể trục trặc."
+      "tieu_cuc": "Khi lạc địa (đêm — Hợi/Tý/Sửu): tỏa sáng yếu, mệt mỏi, hay đau mắt / đau đầu. Tính nóng nảy, hào phóng quá mức dẫn đến hao tài. Quan hệ với cha hoặc nam giới quanh mình có thể trục trặc.",
+      "thuoc_dau": "Nam Bắc Đẩu",
+      "hoa_khi_full": "hóa Quý, vi quan lộc chủ",
+      "chu_tinh_of": "Quý tinh — chủ quan lộc",
+      "tuong_mao_q2": "Hình mạo đường đường, hùng tráng, diện phương viên (mặt vuông tròn). Tâm từ, mặt tím, ưa bố thí cứu tế.",
+      "tinh_cach_q2": "Quang minh chính đại, hào sảng, ưa bố thí. Ngày sinh → miếu vượng; đêm sinh → hãm.",
+      "hop_voi_q2": [
+        "Tả Phụ",
+        "Hữu Bật",
+        "Văn Xương",
+        "Văn Khúc",
+        "Khôi",
+        "Việt",
+        "Thái Âm",
+        "Lộc Tồn"
+      ],
+      "ky_voi_q2": [
+        "Kình",
+        "Đà",
+        "Hỏa",
+        "Linh",
+        "Hóa Kỵ",
+        "Địa Kiếp",
+        "Địa Không"
+      ],
+      "co_dac_biet": [
+        "Ngày sinh + nhập miếu → tâm từ, văn võ giai nghi",
+        "Đêm sinh + hãm → khốn khó, lao lực",
+        "Hợp 6 Canh + Mệnh Mão → miếu địa bậc nhất",
+        "Hãm + Hóa Kỵ → khốn đốn tối tăm"
+      ],
+      "bias_nam_sinh": [
+        "6 Canh + Mệnh Mão = miếu địa bậc nhất",
+        "Ngày sinh hợp miếu, đêm sinh hãm"
+      ],
+      "q2_source": "p0106-p0107"
     },
     {
       "id": "vu_khuc",
@@ -54,11 +200,54 @@
       "ngu_hanh": "kim",
       "am_duong": "âm",
       "hoa_khi": "tài",
-      "chu_ve": ["tài chính", "quân nhân", "kim loại / công nghệ"],
-      "dac_dia": ["Thìn", "Tuất", "Sửu", "Mùi"],
-      "keywords": ["chính tài", "cương trực", "hành động dứt khoát", "khẩu khí cứng"],
+      "chu_ve": [
+        "tài chính",
+        "quân nhân",
+        "kim loại / công nghệ"
+      ],
+      "dac_dia": [
+        "Thìn",
+        "Tuất",
+        "Sửu",
+        "Mùi"
+      ],
+      "keywords": [
+        "chính tài",
+        "cương trực",
+        "hành động dứt khoát",
+        "khẩu khí cứng"
+      ],
       "tich_cuc": "Năng lực tài chính mạnh, làm tiền chính ngạch (kinh doanh, công nghiệp, kim loại, IT). Quyết đoán, hành sự dứt khoát, không vòng vo. Hợp nghề cần kỷ luật cao.",
-      "tieu_cuc": "Khẩu khí cứng — dễ làm mất lòng. Cô độc trong tình cảm (sao 'cô đơn về tài tinh'). Nếu gặp hung tinh dễ liên quan đến kim loại sắc nhọn / phẫu thuật."
+      "tieu_cuc": "Khẩu khí cứng — dễ làm mất lòng. Cô độc trong tình cảm (sao 'cô đơn về tài tinh'). Nếu gặp hung tinh dễ liên quan đến kim loại sắc nhọn / phẫu thuật.",
+      "thuoc_dau": "Bắc Đẩu",
+      "hoa_khi_full": "hóa Tài, vi tài bạch chủ",
+      "chu_tinh_of": "Tài tinh — chủ tài bạch",
+      "tuong_mao_q2": "Hình ngắn nhỏ, thanh tú, hùng cốt.",
+      "tinh_cach_q2": "Cương trực, quả quyết, khẩu khí cứng. Hợp nghề cần kỷ luật + tài chính chính ngạch.",
+      "hop_voi_q2": [
+        "Tả Phụ",
+        "Hữu Bật",
+        "Lộc Tồn",
+        "Khôi",
+        "Việt",
+        "Hóa Lộc",
+        "Hóa Quyền"
+      ],
+      "ky_voi_q2": [
+        "Phá Quân (đồng → đông lai tây khứ)",
+        "Kình",
+        "Đà",
+        "Hỏa",
+        "Linh",
+        "Không",
+        "Kiếp"
+      ],
+      "co_dac_biet": [
+        "+ Tham Lang + Hỏa/Linh = phát tài đột ngột",
+        "+ Phá Quân = tiền vào nhanh ra nhanh",
+        "Đồng Liêm Trinh tại Tài + Quyền Lộc = phú xa ông"
+      ],
+      "q2_source": "p0107-p0108"
     },
     {
       "id": "thien_dong",
@@ -67,11 +256,46 @@
       "ngu_hanh": "thủy",
       "am_duong": "dương",
       "hoa_khi": "phúc",
-      "chu_ve": ["phúc đức", "hưởng thụ", "an nhàn"],
-      "dac_dia": ["Tỵ", "Hợi", "Dần", "Thân"],
-      "keywords": ["phúc tinh", "ôn hòa", "tận hưởng", "thiếu chí tiến thủ"],
+      "chu_ve": [
+        "phúc đức",
+        "hưởng thụ",
+        "an nhàn"
+      ],
+      "dac_dia": [
+        "Tỵ",
+        "Hợi",
+        "Dần",
+        "Thân"
+      ],
+      "keywords": [
+        "phúc tinh",
+        "ôn hòa",
+        "tận hưởng",
+        "thiếu chí tiến thủ"
+      ],
       "tich_cuc": "Tính tình ôn hòa, hiền lành, được lòng người. Sinh ra có phúc, ít sóng gió lớn. Hợp ngành dịch vụ, giáo dục, nghệ thuật, du lịch. Tuổi già an nhàn.",
-      "tieu_cuc": "Thiếu chí tiến thủ — dễ an phận, lười biếng. Sức khỏe trung bình. Khi gặp sát tinh, phúc giảm đáng kể, dễ bị cuốn vào hưởng thụ vô độ."
+      "tieu_cuc": "Thiếu chí tiến thủ — dễ an phận, lười biếng. Sức khỏe trung bình. Khi gặp sát tinh, phúc giảm đáng kể, dễ bị cuốn vào hưởng thụ vô độ.",
+      "thuoc_dau": "Nam Đẩu",
+      "hoa_khi_full": "hóa Phúc, vi phúc đức chủ",
+      "chu_tinh_of": "Phúc tinh — chủ phúc đức",
+      "tuong_mao_q2": "Phì mãn (đẫy đà), thanh minh.",
+      "tinh_cach_q2": "Ôn hòa, hiền lành, nhân từ, ngay thẳng. Thiếu chí tiến thủ — dễ an phận hưởng phúc.",
+      "hop_voi_q2": [
+        "Thái Âm (cẩn — dâm khéo dung)",
+        "Tả Phụ",
+        "Hữu Bật"
+      ],
+      "ky_voi_q2": [
+        "Hỏa Tinh",
+        "Đà La",
+        "Sát hợp → hung"
+      ],
+      "co_dac_biet": [
+        "Nhập miếu → thân từ, chí thẳng",
+        "Lạc nhàn cung + Hỏa Đà + Sát hợp → cánh vi hung",
+        "Đồng Thái Âm + nữ mệnh → dâm khéo dung (cẩn)"
+      ],
+      "q2_source": "p0109-p0110"
     },
     {
       "id": "liem_trinh",
@@ -80,11 +304,49 @@
       "ngu_hanh": "hỏa",
       "am_duong": "âm",
       "hoa_khi": "tù / quan",
-      "chu_ve": ["chính trực và đa tình song hành", "pháp luật", "máu huyết"],
-      "dac_dia": ["Dần", "Thân"],
-      "keywords": ["song trùng", "đam mê", "kỷ luật", "đào hoa ngầm"],
+      "chu_ve": [
+        "chính trực và đa tình song hành",
+        "pháp luật",
+        "máu huyết"
+      ],
+      "dac_dia": [
+        "Dần",
+        "Thân"
+      ],
+      "keywords": [
+        "song trùng",
+        "đam mê",
+        "kỷ luật",
+        "đào hoa ngầm"
+      ],
       "tich_cuc": "Tài năng đa dạng, vừa có chí công danh vừa có sức hút cá nhân. Hợp pháp luật / nghệ thuật / kinh doanh đa lĩnh vực. Có tinh thần kỷ luật cao khi cần.",
-      "tieu_cuc": "Tính cách phức tạp — kỷ luật bề ngoài nhưng đam mê ngầm. Đào hoa khó kiểm soát, dễ vướng tình cảm rối ren. Khi gặp hung tinh dễ liên quan đến máu huyết, kiện tụng."
+      "tieu_cuc": "Tính cách phức tạp — kỷ luật bề ngoài nhưng đam mê ngầm. Đào hoa khó kiểm soát, dễ vướng tình cảm rối ren. Khi gặp hung tinh dễ liên quan đến máu huyết, kiện tụng.",
+      "thuoc_dau": "Bắc Đẩu",
+      "hoa_khi_full": "hóa Tù, hóa Đào — vi quan lộc + tù sát chi tinh",
+      "chu_tinh_of": "Quan tinh — chủ thứ ấm",
+      "tuong_mao_q2": "Trung hậu, có thể có nốt ruồi kín.",
+      "tinh_cach_q2": "Cương cường, thẳng thắn. Mặt tốt + mặt hung — phân chia rõ.",
+      "hop_voi_q2": [
+        "Tử Vi",
+        "Thiên Phủ",
+        "Lộc Tồn",
+        "Thiên Tướng"
+      ],
+      "ky_voi_q2": [
+        "Kình Dương (chiêu hình trượng)",
+        "Thiên Hình",
+        "Hóa Kỵ",
+        "Phá Quân (đồng → bần phá)"
+      ],
+      "co_dac_biet": [
+        "Tý Ngọ + Thiên Đồng = hòa bình (cách tài quan)",
+        "Đồng Thất Sát + Kình Dương = chiêu hình trượng",
+        "+ Văn Xương Khúc trong Đại Hạn → có thể bị tự vẫn (cảnh báo Q3 p0186)"
+      ],
+      "bias_nam_sinh": [
+        "Tý Ngọ + Đinh, Kỷ, Giáp = tài quan cách"
+      ],
+      "q2_source": "p0110-p0113"
     },
     {
       "id": "thien_phu",
@@ -93,11 +355,52 @@
       "ngu_hanh": "thổ",
       "am_duong": "dương",
       "hoa_khi": "lệnh",
-      "chu_ve": ["tài khố", "ổn định", "tích lũy"],
-      "dac_dia": ["Sửu", "Mùi", "Mão", "Dậu"],
-      "keywords": ["kho báu", "bảo thủ", "đầy đặn", "hậu phúc"],
+      "chu_ve": [
+        "tài khố",
+        "ổn định",
+        "tích lũy"
+      ],
+      "dac_dia": [
+        "Sửu",
+        "Mùi",
+        "Mão",
+        "Dậu"
+      ],
+      "keywords": [
+        "kho báu",
+        "bảo thủ",
+        "đầy đặn",
+        "hậu phúc"
+      ],
       "tich_cuc": "Tinh tài khố — chứa của, hợp tích lũy lâu dài, quản lý tài chính. Tính tình đầy đặn, bao dung, có hậu phúc. Hợp ngân hàng / kế toán / bất động sản.",
-      "tieu_cuc": "Bảo thủ, sợ thay đổi, khó đột phá. Có thể thành 'kho rỗng' nếu cung Tài Bạch bị hung tinh phá. Tính cẩn trọng quá mức dẫn đến chậm chạp với cơ hội."
+      "tieu_cuc": "Bảo thủ, sợ thay đổi, khó đột phá. Có thể thành 'kho rỗng' nếu cung Tài Bạch bị hung tinh phá. Tính cẩn trọng quá mức dẫn đến chậm chạp với cơ hội.",
+      "thuoc_dau": "Nam Đẩu",
+      "hoa_khi_full": "hóa Lệnh, vi tài bạch chủ + điền trạch chủ",
+      "chu_tinh_of": "Tài tinh khố — chủ tài bạch + điền trạch",
+      "tuong_mao_q2": "Trung hậu, đầy đặn, dáng quân tử.",
+      "tinh_cach_q2": "Đầy đặn, bao dung, hậu phúc, bảo thủ. Quản lý tài chính giỏi.",
+      "hop_voi_q2": [
+        "Tử Vi (đồng = đại quý)",
+        "Lộc Tồn",
+        "Văn Xương",
+        "Văn Khúc",
+        "Tả Phụ",
+        "Hữu Bật"
+      ],
+      "ky_voi_q2": [
+        "Kình",
+        "Đà",
+        "Hỏa",
+        "Linh",
+        "Không",
+        "Kiếp (giảm phúc)"
+      ],
+      "co_dac_biet": [
+        "Tử Vi + Phủ tại Dần/Thân = đại phú quý (Thanh Quan Hán)",
+        "+ Vũ Khúc tại Tài Điền + Quyền Lộc = phú xa ông",
+        "Triều viên + Lộc Tồn = thiên chung thực lộc"
+      ],
+      "q2_source": "p0113-p0114"
     },
     {
       "id": "thai_am",
@@ -106,12 +409,62 @@
       "ngu_hanh": "thủy",
       "am_duong": "âm",
       "hoa_khi": "phú",
-      "chu_ve": ["mẹ / nữ giới", "tích sản", "âm thầm"],
-      "dac_dia": ["Hợi", "Tý", "Sửu", "Dậu", "Tuất"],
-      "lac_dia": ["Tỵ", "Ngọ"],
-      "keywords": ["minh nguyệt", "ôn nhu", "tài âm", "trầm tĩnh"],
+      "chu_ve": [
+        "mẹ / nữ giới",
+        "tích sản",
+        "âm thầm"
+      ],
+      "dac_dia": [
+        "Hợi",
+        "Tý",
+        "Sửu",
+        "Dậu",
+        "Tuất"
+      ],
+      "lac_dia": [
+        "Tỵ",
+        "Ngọ"
+      ],
+      "keywords": [
+        "minh nguyệt",
+        "ôn nhu",
+        "tài âm",
+        "trầm tĩnh"
+      ],
       "tich_cuc": "Hợp nghề liên quan đến nước, ban đêm, nữ giới, mỹ thuật, nghệ thuật cảm xúc. Tích tài âm thầm — không phô trương nhưng vững. Tâm hồn nhạy cảm tinh tế.",
-      "tieu_cuc": "Khi lạc địa (ban ngày — Tỵ/Ngọ): tinh thần u uất, mệt mỏi. Mối quan hệ với mẹ / vợ / nữ giới quanh mình có thể trục trặc. Hay buồn vô cớ, dễ tự ti."
+      "tieu_cuc": "Khi lạc địa (ban ngày — Tỵ/Ngọ): tinh thần u uất, mệt mỏi. Mối quan hệ với mẹ / vợ / nữ giới quanh mình có thể trục trặc. Hay buồn vô cớ, dễ tự ti.",
+      "thuoc_dau": "Nam Bắc Đẩu",
+      "hoa_khi_full": "hóa Phú, vi mẫu tú + thê tinh + điền trạch chủ",
+      "chu_tinh_of": "Phú tinh — chủ mẹ, vợ, điền trạch",
+      "tuong_mao_q2": "Diện viên, thanh tú, ôn nhu.",
+      "tinh_cach_q2": "Hiền dịu, ngoại trầm nội minh, thông tuệ. Nữ mệnh đặc biệt vượng. Đêm sinh → miếu vượng; ngày sinh → hãm.",
+      "hop_voi_q2": [
+        "Thái Dương",
+        "Lộc Tồn",
+        "Tả Phụ",
+        "Hữu Bật",
+        "Văn Xương",
+        "Văn Khúc"
+      ],
+      "ky_voi_q2": [
+        "Kình",
+        "Đà",
+        "Hỏa",
+        "Linh",
+        "Hóa Kỵ (tửu sắc tà dâm)",
+        "Tham Lang (lao tâm)"
+      ],
+      "co_dac_biet": [
+        "Hợp 6 Nhâm Mậu sinh + Hợi Mão Mùi cung = cực vượng",
+        "+ Hóa Kỵ + sát → tửu sắc tà dâm, hạ tiện yểu chiết",
+        "Hợp đêm sinh — phúc tự nhiên đến",
+        "Thái Âm hóa Quyền + nhập miếu = thanh tú thông minh siêu phàm"
+      ],
+      "bias_nam_sinh": [
+        "6 Nhâm + Mậu + Hợi/Mão/Mùi cung = cực vượng",
+        "Dậu, Tuất, Hợi cung + Bính, Đinh = cách tài quan đại quý"
+      ],
+      "q2_source": "p0113-p0116"
     },
     {
       "id": "tham_lang",
@@ -120,11 +473,46 @@
       "ngu_hanh": "mộc / thủy",
       "am_duong": "dương",
       "hoa_khi": "đào hoa",
-      "chu_ve": ["dục vọng", "sức hút", "tài năng đa dạng"],
-      "dac_dia": ["Thìn", "Tuất", "Sửu", "Mùi"],
-      "keywords": ["sao đào hoa", "tham vọng", "đa tài", "phù phiếm"],
+      "chu_ve": [
+        "dục vọng",
+        "sức hút",
+        "tài năng đa dạng"
+      ],
+      "dac_dia": [
+        "Thìn",
+        "Tuất",
+        "Sửu",
+        "Mùi"
+      ],
+      "keywords": [
+        "sao đào hoa",
+        "tham vọng",
+        "đa tài",
+        "phù phiếm"
+      ],
       "tich_cuc": "Sức hút mạnh mẽ, đa tài, làm gì cũng học nhanh. Hợp xã giao, kinh doanh, marketing, giải trí. Có chí lớn, dám mạo hiểm, dám đầu tư. Tài lẫn tình đều thịnh.",
-      "tieu_cuc": "Đào hoa khó kiểm soát, dễ phong lưu vướng nợ tình. Tham vọng dẫn đến vung tay quá trán. Khi gặp hung tinh dễ liên quan đến rượu / sắc / cờ bạc."
+      "tieu_cuc": "Đào hoa khó kiểm soát, dễ phong lưu vướng nợ tình. Tham vọng dẫn đến vung tay quá trán. Khi gặp hung tinh dễ liên quan đến rượu / sắc / cờ bạc.",
+      "thuoc_dau": "Bắc Đẩu",
+      "hoa_khi_full": "hóa Đào, vi giảo hoạt chi tinh",
+      "chu_tinh_of": "Đào tinh — chủ dục vọng, giải trí",
+      "tuong_mao_q2": "Diện viên thanh tú khi nhập miếu, hãm địa hình thô.",
+      "tinh_cach_q2": "Đa tài đa nghệ, khéo léo + tham lam. Thích giải trí, tửu sắc.",
+      "hop_voi_q2": [
+        "Hỏa Tinh (= cách tướng tướng chi mệnh!)",
+        "Lộc Tồn",
+        "Tả Hữu"
+      ],
+      "ky_voi_q2": [
+        "Kình",
+        "Đà",
+        "Không vong"
+      ],
+      "co_dac_biet": [
+        "+ Hỏa Tinh đồng viên tam hợp = tướng tướng chi mệnh (cực quý)",
+        "+ Vũ Khúc + Phá = phú quý nhưng dâm",
+        "Đồng Tử Vi + Phá = chí dâm"
+      ],
+      "q2_source": "p0107-p0109"
     },
     {
       "id": "cu_mon",
@@ -133,11 +521,52 @@
       "ngu_hanh": "thủy / thổ",
       "am_duong": "âm",
       "hoa_khi": "ám",
-      "chu_ve": ["khẩu thiệt", "thị phi", "ám muội"],
-      "dac_dia": ["Mão", "Dậu", "Tý"],
-      "keywords": ["nói nhiều", "phân tích sắc", "thị phi", "u ám"],
+      "chu_ve": [
+        "khẩu thiệt",
+        "thị phi",
+        "ám muội"
+      ],
+      "dac_dia": [
+        "Mão",
+        "Dậu",
+        "Tý"
+      ],
+      "keywords": [
+        "nói nhiều",
+        "phân tích sắc",
+        "thị phi",
+        "u ám"
+      ],
       "tich_cuc": "Khả năng diễn thuyết, hùng biện, phân tích sắc bén. Hợp luật sư / giáo viên / phát thanh / writer. Có thể chuyển 'ám' thành 'phơi bày sự thật' — điều tra, báo chí.",
-      "tieu_cuc": "Khẩu thiệt — dễ gây thị phi, mất lòng. Tâm tư u ám, hay suy nghĩ tiêu cực. Quan hệ gia đình / đồng nghiệp dễ căng thẳng vì lời nói thẳng quá mức."
+      "tieu_cuc": "Khẩu thiệt — dễ gây thị phi, mất lòng. Tâm tư u ám, hay suy nghĩ tiêu cực. Quan hệ gia đình / đồng nghiệp dễ căng thẳng vì lời nói thẳng quá mức.",
+      "thuoc_dau": "Bắc Đẩu",
+      "hoa_khi_full": "hóa Ám, vi khẩu thiệt chi tinh",
+      "chu_tinh_of": "Ám tinh — chủ thị phi, miệng lưỡi",
+      "tuong_mao_q2": "Cao gầy, nốt ruồi kín, mặt sắc tối.",
+      "tinh_cach_q2": "Nhạy bén ngôn ngữ, đa nghi, hay biện luận. Hợp nghề: luật, giáo viên, hùng biện, ngoại giao.",
+      "hop_voi_q2": [
+        "Thái Dương (Cự Nhật cách)",
+        "Lộc Tồn",
+        "Hóa Quyền"
+      ],
+      "ky_voi_q2": [
+        "Kình Dương",
+        "Hóa Kỵ",
+        "Hỏa Tinh"
+      ],
+      "co_dac_biet": [
+        "Tý Ngọ + Kình = Thạch Trung Ẩn Ngọc cách (Q2 p0117 — Khang Tiết) — phải qua khổ mới phát",
+        "+ Thái Dương (Cự Nhật) tại Dần Thân = thực lộc trì danh",
+        "Mệnh hãm + sát = dâm xướng, thị nữ",
+        "Hóa Quyền tại hạn = cầu mưu mọi việc lớn đều thành"
+      ],
+      "bias_nam_sinh": [
+        "Tý Ngọ vượng địa + Đinh, Kỷ, Quý, Tân = phúc hậu",
+        "Dần Thân nhập miếu + Giáp, Canh, Quý, Tân = tài quan cách",
+        "Thân Tuất hòa bình + Quý, Tân = quý; Đinh = khốn",
+        "6 Quý + 6 Tân nữ mệnh = hưởng phúc"
+      ],
+      "q2_source": "p0117-p0118"
     },
     {
       "id": "thien_tuong",
@@ -146,11 +575,50 @@
       "ngu_hanh": "thủy",
       "am_duong": "dương",
       "hoa_khi": "ấn",
-      "chu_ve": ["phụ tá", "trung thành", "ấn tín bảo hộ"],
-      "dac_dia": ["Sửu", "Mùi", "Tỵ", "Hợi"],
-      "keywords": ["quân sư", "trung tín", "công bằng", "thiếu chủ kiến"],
+      "chu_ve": [
+        "phụ tá",
+        "trung thành",
+        "ấn tín bảo hộ"
+      ],
+      "dac_dia": [
+        "Sửu",
+        "Mùi",
+        "Tỵ",
+        "Hợi"
+      ],
+      "keywords": [
+        "quân sư",
+        "trung tín",
+        "công bằng",
+        "thiếu chủ kiến"
+      ],
       "tich_cuc": "Tinh phụ tá tốt — hợp số 2, số 3 trong tổ chức. Trung thành, công bằng, đáng tin. Hợp nghề tư vấn, công chức, nhân sự, môi giới. Được lòng quan trên và quý nhân.",
-      "tieu_cuc": "Thiếu chủ kiến — khó tự đứng lên dẫn dắt. Dễ bị lợi dụng bởi sự trung thành mù quáng. Đôi khi quá nguyên tắc, thiếu linh hoạt."
+      "tieu_cuc": "Thiếu chủ kiến — khó tự đứng lên dẫn dắt. Dễ bị lợi dụng bởi sự trung thành mù quáng. Đôi khi quá nguyên tắc, thiếu linh hoạt.",
+      "thuoc_dau": "Nam Đẩu",
+      "hoa_khi_full": "hóa Ấn, vi quan lộc chủ",
+      "chu_tinh_of": "Ấn tinh — chủ ấn tín quan lộc",
+      "tuong_mao_q2": "Trung bình thanh tú, ôn hòa.",
+      "tinh_cach_q2": "Khắc kỷ (biết kiềm chế bản thân), siêu việt, ngay thẳng, công bằng. Chiếu thân mệnh thì niềm vui vô hạn.",
+      "hop_voi_q2": [
+        "Tử Vi",
+        "Thiên Phủ",
+        "Hữu Bật",
+        "Tả Phụ"
+      ],
+      "ky_voi_q2": [
+        "Phá Quân (đồng → hung)",
+        "Vũ Khúc (kẹp Liêm Trinh + Kình = hình trượng)",
+        "Kình",
+        "Đà",
+        "Hỏa",
+        "Linh"
+      ],
+      "co_dac_biet": [
+        "Mệnh chủ → người khắc kỷ tự kiềm chế",
+        "Phá + Vũ + sát = hung hiểm thêm",
+        "Liêm Trinh + Kình kẹp Thiên Tướng = chiêu hình trượng đòn roi"
+      ],
+      "q2_source": "p0119"
     },
     {
       "id": "thien_luong",
@@ -159,11 +627,50 @@
       "ngu_hanh": "thổ",
       "am_duong": "dương",
       "hoa_khi": "ấm / thọ",
-      "chu_ve": ["thọ tinh", "che chở", "đạo đức"],
-      "dac_dia": ["Tý", "Ngọ", "Thân", "Dần"],
-      "keywords": ["bậc trưởng thượng", "tu tâm", "thanh cao", "lập dị"],
+      "chu_ve": [
+        "thọ tinh",
+        "che chở",
+        "đạo đức"
+      ],
+      "dac_dia": [
+        "Tý",
+        "Ngọ",
+        "Thân",
+        "Dần"
+      ],
+      "keywords": [
+        "bậc trưởng thượng",
+        "tu tâm",
+        "thanh cao",
+        "lập dị"
+      ],
       "tich_cuc": "Tinh thọ — sống lâu, được quý nhân che chở. Đạo đức cao, có chí học hành / tu thân. Hợp y dược, giáo dục, tôn giáo, từ thiện. Lúc nguy nan thường có người cứu.",
-      "tieu_cuc": "Thanh cao đến mức lập dị — khó hòa nhập đám đông. Hay can thiệp việc người khác. Tài chính bình bình — không hợp đầu tư mạo hiểm."
+      "tieu_cuc": "Thanh cao đến mức lập dị — khó hòa nhập đám đông. Hay can thiệp việc người khác. Tài chính bình bình — không hợp đầu tư mạo hiểm.",
+      "thuoc_dau": "Nam Đẩu",
+      "hoa_khi_full": "hóa Ấm, vi phụ mẫu tinh (chủ thọ)",
+      "chu_tinh_of": "Ấm tinh — chủ phụ mẫu + thọ",
+      "tuong_mao_q2": "Đặc trưng — hậu trọng, thanh tú.",
+      "tinh_cach_q2": "Hậu trọng, thanh tú, thông minh, ngay thẳng, lòng không tư vị (vô tư). Hợp tư vấn, cố vấn, học thuật.",
+      "hop_voi_q2": [
+        "Thiên Đồng",
+        "Thái Dương",
+        "Lộc Tồn",
+        "Văn Xương"
+      ],
+      "ky_voi_q2": [
+        "Hỏa Linh Dương Đà (phòng nhất ách dữ gia vong)",
+        "Thái Âm cùng Tỵ Hợi/Dần Thân (dâm)"
+      ],
+      "co_dac_biet": [
+        "+ Hỏa/Linh/Dương/Đà = phòng tai ách",
+        "+ Thái Dương + Văn Xương + Lộc = lô truyền đệ nhất danh",
+        "+ Văn Khúc + miếu vượng = chức Đài Cương (tam công)",
+        "Lương Tỵ Hợi + Âm Dần Thân = dâm dật"
+      ],
+      "bias_nam_sinh": [
+        "Ngọ vị + Đinh Kỷ Quý = quan tư thanh hiển triều đường"
+      ],
+      "q2_source": "p0120-p0121"
     },
     {
       "id": "that_sat",
@@ -172,11 +679,49 @@
       "ngu_hanh": "kim / hỏa",
       "am_duong": "âm",
       "hoa_khi": "quyền",
-      "chu_ve": ["tướng quân", "biến động lớn", "sức bật"],
-      "dac_dia": ["Thìn", "Tuất", "Sửu", "Mùi", "Dần", "Thân"],
-      "keywords": ["quyết liệt", "tướng tinh", "thay đổi mạnh", "khắc thân"],
+      "chu_ve": [
+        "tướng quân",
+        "biến động lớn",
+        "sức bật"
+      ],
+      "dac_dia": [
+        "Thìn",
+        "Tuất",
+        "Sửu",
+        "Mùi",
+        "Dần",
+        "Thân"
+      ],
+      "keywords": [
+        "quyết liệt",
+        "tướng tinh",
+        "thay đổi mạnh",
+        "khắc thân"
+      ],
       "tich_cuc": "Tinh tướng quân — quyết liệt, dứt khoát, không sợ khó. Hợp nghề quân sự, công an, thể thao, kinh doanh mạo hiểm. Sức bật mạnh, vượt qua biến cố nhanh.",
-      "tieu_cuc": "Khắc thân — dễ tai nạn, bệnh tật, phẫu thuật. Tính nóng, dễ xung đột với cấp trên / gia đình. Cuộc đời nhiều thăng trầm dữ dội."
+      "tieu_cuc": "Khắc thân — dễ tai nạn, bệnh tật, phẫu thuật. Tính nóng, dễ xung đột với cấp trên / gia đình. Cuộc đời nhiều thăng trầm dữ dội.",
+      "thuoc_dau": "Nam Đẩu",
+      "hoa_khi_full": "hóa Tướng, vi tướng tinh",
+      "chu_tinh_of": "Tướng tinh — chủ uy mãnh",
+      "tuong_mao_q2": "Cương quả, dáng anh hùng.",
+      "tinh_cach_q2": "Tính cương quả, thẳng thắn quyết liệt. Hợp tranh chấp + chiến đấu + lãnh đạo võ.",
+      "hop_voi_q2": [
+        "Tử Vi",
+        "Lộc Tồn",
+        "Quyền Lộc"
+      ],
+      "ky_voi_q2": [
+        "Hỏa Tà (tẩu hợp phi vi quý)",
+        "Kình",
+        "Đà"
+      ],
+      "co_dac_biet": [
+        "Dần Thân Tý Ngọ = tứ phương man di phục",
+        "Tử Vi + Thất Sát hóa Quyền = phản tác trinh tường (kỳ cách)",
+        "Hãm địa = ngủ cùng hổ (rất hung)",
+        "+ Tham Lang + Hỏa = phi vi quý"
+      ],
+      "q2_source": "p0122"
     },
     {
       "id": "pha_quan",
@@ -185,11 +730,55 @@
       "ngu_hanh": "thủy",
       "am_duong": "âm",
       "hoa_khi": "hao",
-      "chu_ve": ["phá hoại - tái tạo", "đột phá", "đầu lĩnh nổi loạn"],
-      "dac_dia": ["Tý", "Ngọ", "Sửu", "Mùi"],
-      "keywords": ["khai phá", "phá vỡ truyền thống", "tiền hung hậu kiết", "rủi ro cao"],
+      "chu_ve": [
+        "phá hoại - tái tạo",
+        "đột phá",
+        "đầu lĩnh nổi loạn"
+      ],
+      "dac_dia": [
+        "Tý",
+        "Ngọ",
+        "Sửu",
+        "Mùi"
+      ],
+      "keywords": [
+        "khai phá",
+        "phá vỡ truyền thống",
+        "tiền hung hậu kiết",
+        "rủi ro cao"
+      ],
       "tich_cuc": "Năng lượng khai phá mạnh — phá vỡ cái cũ để xây cái mới. Hợp khởi nghiệp, R&D, cải cách, sáng tạo đột phá. Khi vận động đúng có thể đạt thành tựu lớn từ con số không.",
-      "tieu_cuc": "Hao tài — chi nhiều hơn thu trong giai đoạn đầu. Cuộc đời nhiều biến cố lớn — gia đình, sự nghiệp, sức khỏe đều có thể bị 'phá' rồi 'dựng lại'. Cần sức bền tinh thần."
+      "tieu_cuc": "Hao tài — chi nhiều hơn thu trong giai đoạn đầu. Cuộc đời nhiều biến cố lớn — gia đình, sự nghiệp, sức khỏe đều có thể bị 'phá' rồi 'dựng lại'. Cần sức bền tinh thần.",
+      "thuoc_dau": "Bắc Đẩu",
+      "hoa_khi_full": "hóa Háo, chủ thê tử nô bộc",
+      "chu_tinh_of": "Háo tinh — chủ thê tử + nô bộc",
+      "tuong_mao_q2": "Hình ngũ đoản (ngắn), bối hậu (lưng dày), mi khoan (mày rộng), yêu tà.",
+      "tinh_cach_q2": "Phá tổ tự lập, không thủ thường quy. Tinh thần phản kháng, đổi mới. Lao lực phí lực.",
+      "hop_voi_q2": [
+        "Tử Vi (đồng cung Thìn Tuất Sửu Mùi + cát = phú quý)",
+        "Lộc Tồn",
+        "Hóa Quyền"
+      ],
+      "ky_voi_q2": [
+        "Thiên Lương đối",
+        "Thái Dương + Thái Âm (Q1 p0028 cảnh báo)",
+        "Kình Dương",
+        "Đà La"
+      ],
+      "co_dac_biet": [
+        "Tý Ngọ nhập miếu + Quý/Giáp = Tam công (cực quý)",
+        "+ Tử Vi + Tham Lang = chí dâm",
+        "+ Nhật + Nguyệt + hạn = tai bất khả nhương (Q1 p0028 — cảnh báo health)",
+        "Tử Phá Thìn Tuất = quân thần bất nghĩa (Khang Tiết: An Lộc Sơn, Triệu Cao)",
+        "Liêm Trinh hãm địa = phiêu linh tổ nghiệp"
+      ],
+      "bias_nam_sinh": [
+        "Tý Ngọ nhập miếu + Đinh Kỷ Quý = phúc hậu; Bính Mậu = khốn",
+        "Mão Dậu hãm + Liêm Trinh + Ất Tân Quý = lợi; Giáp Canh Bính không bền",
+        "Thìn Tuất vượng cung + Giáp Quý Canh = phúc",
+        "Dần Thân đắc địa + Giáp Canh Đinh Kỷ = tài quan cách"
+      ],
+      "q2_source": "p0122-p0123"
     }
   ]
 }

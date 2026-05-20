@@ -95,9 +95,26 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
         <p class="detail-meta">
           <span>Ngũ hành: <b>{{ activeStar.ngu_hanh }}</b></span>
           <span>Âm-Dương: <b>{{ activeStar.am_duong }}</b></span>
-          <span>Hóa khí: <b>{{ activeStar.hoa_khi }}</b></span>
+          <span v-if="activeStar.thuoc_dau">Thuộc đẩu: <b>{{ activeStar.thuoc_dau }}</b></span>
+        </p>
+        <p v-if="activeStar.hoa_khi_full || activeStar.hoa_khi" class="detail-row">
+          <b>Hóa khí:</b> {{ activeStar.hoa_khi_full || activeStar.hoa_khi }}
+        </p>
+        <p v-if="activeStar.chu_tinh_of" class="detail-row q2-field">
+          <b>Vai trò:</b> {{ activeStar.chu_tinh_of }}
         </p>
         <p class="detail-row"><b>Chủ về:</b> {{ activeStar.chu_ve.join(' · ') }}</p>
+
+        <!-- ⭐ Q2 enriched fields -->
+        <div v-if="activeStar.tuong_mao_q2 || activeStar.tinh_cach_q2" class="detail-q2">
+          <div v-if="activeStar.tuong_mao_q2" class="q2-row">
+            <b>👤 Tướng mạo (Q2):</b> {{ activeStar.tuong_mao_q2 }}
+          </div>
+          <div v-if="activeStar.tinh_cach_q2" class="q2-row">
+            <b>🎭 Tính cách (Q2):</b> {{ activeStar.tinh_cach_q2 }}
+          </div>
+        </div>
+
         <p class="detail-row"><b>Đắc địa:</b>
           <span v-for="(d, i) in activeStar.dac_dia" :key="i" class="dac-chip">{{ d }}</span>
         </p>
@@ -105,6 +122,34 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
           <b>Lạc địa:</b>
           <span v-for="(l, i) in activeStar.lac_dia" :key="i" class="lac-chip">{{ l }}</span>
         </p>
+
+        <div v-if="activeStar.uy_che?.length" class="detail-row">
+          <b>👑 Uy chế (chế ngự được):</b>
+          <span v-for="(u, i) in activeStar.uy_che" :key="i" class="uy-chip">{{ u }}</span>
+        </div>
+        <div v-if="activeStar.hop_voi_q2?.length" class="detail-row">
+          <b>🤝 Hợp:</b>
+          <span v-for="(h, i) in activeStar.hop_voi_q2" :key="i" class="hop-chip">{{ h }}</span>
+        </div>
+        <div v-if="activeStar.ky_voi_q2?.length" class="detail-row">
+          <b>⚔️ Kỵ:</b>
+          <span v-for="(k, i) in activeStar.ky_voi_q2" :key="i" class="ky-chip">{{ k }}</span>
+        </div>
+
+        <details v-if="activeStar.co_dac_biet?.length" class="detail-details">
+          <summary>📜 Case đặc biệt</summary>
+          <ul>
+            <li v-for="(c, i) in activeStar.co_dac_biet" :key="i">{{ c }}</li>
+          </ul>
+        </details>
+
+        <details v-if="activeStar.bias_nam_sinh?.length" class="detail-details">
+          <summary>📅 Bias năm sinh</summary>
+          <ul>
+            <li v-for="(b, i) in activeStar.bias_nam_sinh" :key="i">{{ b }}</li>
+          </ul>
+        </details>
+
         <div class="detail-pos-neg">
           <div class="detail-pos">
             <h6>✦ Tích cực</h6>
@@ -115,6 +160,10 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
             <p>{{ activeStar.tieu_cuc }}</p>
           </div>
         </div>
+
+        <p v-if="activeStar.q2_source" class="q2-source">
+          📚 Nguồn Q2: {{ activeStar.q2_source }}
+        </p>
       </article>
     </transition>
   </section>
@@ -293,6 +342,79 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
   transition: opacity 0.2s, transform 0.2s;
 }
 .fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(8px); }
+
+/* Q2 enriched fields */
+.q2-field { color: var(--accent-teal, #5be5d3); }
+.detail-q2 {
+  margin: 8px 0;
+  padding: 10px 12px;
+  background: rgba(91, 229, 211, 0.05);
+  border-left: 2px solid #5be5d3;
+  border-radius: 0 4px 4px 0;
+}
+.q2-row {
+  font-size: 12.5px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.85));
+  line-height: 1.55;
+  margin: 4px 0;
+}
+.q2-row b {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-weight: 500;
+}
+.uy-chip {
+  background: rgba(232, 201, 90, 0.15);
+  border: 1px solid rgba(232, 201, 90, 0.3);
+  color: #f5e6b1;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.hop-chip {
+  background: rgba(90, 176, 122, 0.12);
+  border: 1px solid rgba(90, 176, 122, 0.3);
+  color: #88d39e;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.ky-chip {
+  background: rgba(214, 90, 74, 0.12);
+  border: 1px solid rgba(214, 90, 74, 0.3);
+  color: #f5b08c;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.detail-details {
+  margin: 8px 0;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-size: 12px;
+}
+.detail-details summary {
+  cursor: pointer;
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 12px;
+  font-weight: 500;
+}
+.detail-details ul {
+  margin: 6px 0 0 16px;
+  padding: 0;
+}
+.detail-details li {
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  line-height: 1.6;
+  margin: 3px 0;
+}
+.q2-source {
+  margin-top: 10px;
+  font-size: 10.5px;
+  color: rgba(230, 238, 245, 0.5);
+  font-style: italic;
+  text-align: right;
+}
 
 @media (max-width: 720px) {
   .detail-pos-neg { grid-template-columns: 1fr; }
