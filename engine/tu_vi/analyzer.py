@@ -125,6 +125,92 @@ def _cast_chart(birth: str, gender: str, timezone: str = "Asia/Ho_Chi_Minh") -> 
     )
 
 
+def _chart_full_dump(person: Person, ls: dict) -> str:
+    """Build FULL la-số dump cho VIP deep interpretation.
+
+    Group sao vào từng cung — LLM thấy chính xác sao nào ở cung nào, tránh bịa.
+    """
+    BRANCHES_LOCAL = BRANCHES
+    all_stars = {
+        **{k: ("chính", v) for k, v in ls.get('chinh_tinh', {}).items()},
+        **{k: ("phụ", v) for k, v in ls.get('phu_tinh', {}).items()},
+        **{k: ("sát", v) for k, v in ls.get('sat_tinh', {}).items()},
+    }
+    sao_q2 = ls.get('sao_q2', {}) or {}
+    for k, v in sao_q2.items():
+        if k not in all_stars and isinstance(v, int) and 0 <= v < 12:
+            all_stars[k] = ("Q2", v)
+    # Invert: branch_idx → [star names]
+    branch_to_stars = {i: [] for i in range(12)}
+    for star, (kind, idx) in all_stars.items():
+        if isinstance(idx, int) and 0 <= idx < 12:
+            branch_to_stars[idx].append(f"{star}[{kind}]")
+    hoa = ls.get('tu_hoa', {}) or {}
+    star_to_hoa = {v: k for k, v in hoa.items()}  # star → Lộc/Quyền/Khoa/Kỵ
+
+    lines = [
+        f"╔══════════════════════════════════════════════════════════════╗",
+        f"║ LÁ SỐ TỬ VI ĐẨU SỐ — DUMP ĐẦY ĐỦ                            ║",
+        f"╠══════════════════════════════════════════════════════════════╣",
+        f"║ Chủ nhân: {person.name} ({person.gender})",
+        f"║ Sinh: {person.birth_datetime_local} ({person.timezone})",
+        f"║ Năm sinh can chi: {ls.get('year_stem', '')}{ls.get('year_branch', '')}",
+        f"║ Tháng âm: {ls.get('lunar_month', '?')} | Ngày âm: {ls.get('lunar_day', '?')} | Giờ: {ls.get('hour_branch', '?')}",
+        f"╠══════════════════════════════════════════════════════════════╣",
+        f"║ Mệnh tọa: {ls['menh_branch']}  |  Thân tọa: {ls['than_branch']}"
+        + (" (Mệnh-Thân ĐỒNG CUNG)" if ls['menh_branch'] == ls['than_branch'] else ""),
+        f"║ Cục: {ls.get('cuc_name', '?')} ({ls.get('cuc', '?')})",
+        f"║ Mệnh chủ: {ls.get('menh_chu', '?')}   |  Thân chủ: {ls.get('than_chu', '?')}",
+        f"║ Đẩu Quân: {ls.get('dau_quan_branch', '?')} (an niên-đẩu, chủ duyên)",
+        f"║ Tứ Hóa năm sinh: Lộc→{hoa.get('Lộc','?')} · Quyền→{hoa.get('Quyền','?')} · Khoa→{hoa.get('Khoa','?')} · Kỵ→{hoa.get('Kỵ','?')}",
+        f"╚══════════════════════════════════════════════════════════════╝",
+        "",
+        "━━━ 12 CUNG (đầy đủ sao mỗi cung) ━━━",
+    ]
+    # 12 cung in palace-order
+    for p in ls.get('palaces', []):
+        idx = p['branch_index']
+        branch = BRANCHES_LOCAL[idx]
+        stars = branch_to_stars.get(idx, [])
+        # Append hóa marker
+        starred = []
+        for s in stars:
+            base = s.split('[')[0]
+            mark = f" ⟨{star_to_hoa[base]}⟩" if base in star_to_hoa else ""
+            starred.append(s + mark)
+        lines.append(f"  ┌─ Cung {p['name']} ({branch}) ─")
+        if starred:
+            lines.append(f"  │  Sao: {', '.join(starred)}")
+        else:
+            lines.append(f"  │  Sao: (vô chính tinh — mượn tam hợp)")
+        lines.append(f"  └─")
+    lines.append("")
+    # Tam phương tứ chính của Mệnh
+    menh_idx = ls.get('menh_index', 0)
+    if isinstance(menh_idx, int):
+        tam_hop_idx = [(menh_idx + 4) % 12, (menh_idx + 8) % 12]
+        xung_idx = (menh_idx + 6) % 12
+        lines.append("━━━ TAM PHƯƠNG TỨ CHÍNH của Mệnh ━━━")
+        lines.append(f"  Cung Mệnh: {BRANCHES_LOCAL[menh_idx]} → sao {', '.join(branch_to_stars[menh_idx]) or '(vô)'}")
+        lines.append(f"  Tam hợp 1: {BRANCHES_LOCAL[tam_hop_idx[0]]} → {', '.join(branch_to_stars[tam_hop_idx[0]]) or '(vô)'}")
+        lines.append(f"  Tam hợp 2: {BRANCHES_LOCAL[tam_hop_idx[1]]} → {', '.join(branch_to_stars[tam_hop_idx[1]]) or '(vô)'}")
+        lines.append(f"  Xung chiếu (Thiên Di): {BRANCHES_LOCAL[xung_idx]} → {', '.join(branch_to_stars[xung_idx]) or '(vô)'}")
+        lines.append("")
+    # Đại Vận chi tiết
+    dai_van = ls.get('dai_van', []) or []
+    if dai_van:
+        lines.append("━━━ ĐẠI VẬN (8 vòng) ━━━")
+        for dv in dai_van[:10]:
+            if isinstance(dv, dict):
+                age_range = f"{dv.get('age_start', '?')}-{dv.get('age_end', '?')}"
+                year_range = f"{dv.get('year_start', '?')}-{dv.get('year_end', '?')}"
+                cung = dv.get('cung', dv.get('palace', '?'))
+                branch = dv.get('branch', '?')
+                lines.append(f"  Vận {age_range} tuổi ({year_range}) → cung {cung} ({branch})")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def _chart_summary(person: Person, ls: dict) -> str:
     """Build human-readable chart summary for DeepSeek prompts."""
     s2b = {**ls['chinh_tinh'], **ls['phu_tinh'], **ls.get('sat_tinh', {})}
