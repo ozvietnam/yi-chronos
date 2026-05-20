@@ -37,6 +37,7 @@ const chartStrength = ref(null);  // ⭐ Miếu Vượng Hãm score (Q2 p0102)
 const safetyCheck = ref(null);    // ⭐ Psychological safety patterns
 const pheMenh = ref(null);        // ⭐ Phê mệnh phú thi (Q4 Khang Tiết)
 const pheMenhLoading = ref(false);
+const thienQuanArchetype = ref(null);  // ⭐ Q4 Thiên Quán 36 archetypes
 const loading = ref(false);
 const errorMsg = ref("");
 const expandedPalace = ref(null);
@@ -117,6 +118,7 @@ async function castChart() {
     loadCaseStudies();
     loadChartStrength();
     loadSafetyCheck();
+    loadThienQuanArchetype();
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -196,6 +198,32 @@ async function loadPheMenh(force = false) {
   } finally {
     pheMenhLoading.value = false;
   }
+}
+
+async function loadThienQuanArchetype() {
+  // Use birth_datetime_local to derive hour + khắc
+  if (!data.value) return;
+  const birth = inputBirth.value;
+  if (!birth) return;
+  // Parse hour from birth — heuristic khắc by minute
+  const time = birth.split("T")[1] || "";
+  const [hh, mm] = time.split(":").map(Number);
+  if (isNaN(hh)) return;
+  // Map hour → chi (rough): 23-1=Tý, 1-3=Sửu, ...
+  const hourBranches = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];
+  let hourIdx;
+  if (hh === 23 || hh === 0) hourIdx = 0;
+  else hourIdx = Math.floor((hh + 1) / 2) % 12;
+  const hour = hourBranches[hourIdx];
+  // Khắc by minute: 0-19 thượng, 20-39 trung, 40-59 hạ
+  const khac = mm < 20 ? "thượng" : mm < 40 ? "trung" : "hạ";
+  try {
+    const resp = await fetch(`/api/tu-vi/q4/thien-quan-archetype/${encodeURIComponent(hour)}/${encodeURIComponent(khac)}`)
+      .then((r) => r.json());
+    if (resp.status === "ok") {
+      thienQuanArchetype.value = { ...resp.archetype, hour, khac };
+    }
+  } catch (e) { /* silent */ }
 }
 
 async function loadSafetyCheck() {
@@ -678,6 +706,40 @@ const grid = computed(() => {
                 {{ s.score > 0 ? '+' : '' }}{{ s.score }}
               </span>
             </div>
+          </div>
+        </section>
+      </template>
+
+      <!-- ── Q4 Thiên Quán Archetype (36 archetypes typology — chỉ giờ sinh) ── -->
+      <template v-if="thienQuanArchetype">
+        <section class="tq-archetype-block">
+          <header class="tq-head">
+            <h4>🎭 Archetype Thiên Quán Phân Cung — Q4 p0268-p0271</h4>
+            <small>Giờ {{ thienQuanArchetype.hour }} · khắc {{ thienQuanArchetype.khac }}</small>
+          </header>
+          <div class="tq-body">
+            <div class="tq-cung-name">
+              <span class="tq-label">Cung archetype:</span>
+              <strong>{{ thienQuanArchetype.cung_name }}</strong>
+            </div>
+            <p v-if="thienQuanArchetype.summary_vi" class="tq-summary">
+              📜 {{ thienQuanArchetype.summary_vi }}
+            </p>
+            <details class="tq-detail">
+              <summary>Chi tiết archetype (theo cổ kinh)</summary>
+              <ul>
+                <li v-if="thienQuanArchetype.khac_phu_mau"><b>Khắc phụ mẫu:</b> {{ thienQuanArchetype.khac_phu_mau }}</li>
+                <li v-if="thienQuanArchetype.luc_than"><b>Lục thân:</b> {{ thienQuanArchetype.luc_than }}</li>
+                <li v-if="thienQuanArchetype.su_nghiep"><b>Sự nghiệp:</b> {{ thienQuanArchetype.su_nghiep }}</li>
+                <li v-if="thienQuanArchetype.y_loc"><b>Y lộc:</b> {{ thienQuanArchetype.y_loc }}</li>
+                <li v-if="thienQuanArchetype.to_nghiep"><b>Tổ nghiệp:</b> {{ thienQuanArchetype.to_nghiep }}</li>
+                <li v-if="thienQuanArchetype.tu_tuc"><b>Tử tức:</b> {{ thienQuanArchetype.tu_tuc }}</li>
+                <li v-if="thienQuanArchetype.tinh_cach"><b>Tính cách:</b> {{ thienQuanArchetype.tinh_cach }}</li>
+                <li v-if="thienQuanArchetype.khuyen"><b>Khuyên:</b> {{ thienQuanArchetype.khuyen }}</li>
+                <li><b>Nguồn:</b> {{ thienQuanArchetype.source_ref }}</li>
+              </ul>
+            </details>
+            <p class="tq-iron-rule">⚠ {{ thienQuanArchetype.iron_rule_note }}</p>
           </div>
         </section>
       </template>
@@ -1645,6 +1707,51 @@ const grid = computed(() => {
   background: rgba(148, 163, 184, 0.15);
   color: #cbd5e1;
   border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* ━━━━━━━━ Q4 Thiên Quán Archetype ━━━━━━━━ */
+.tq-archetype-block {
+  margin: 18px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.06), rgba(20, 30, 45, 0.3));
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 8px;
+}
+.tq-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; }
+.tq-head h4 { margin: 0; color: #fcd34d; font-size: 14px; }
+.tq-head small { font-size: 11px; color: rgba(230, 238, 245, 0.55); font-style: italic; }
+.tq-cung-name { margin: 8px 0; font-size: 14px; }
+.tq-label { color: rgba(230, 238, 245, 0.55); margin-right: 6px; }
+.tq-cung-name strong { color: #fcd34d; font-size: 16px; }
+.tq-summary {
+  margin: 8px 0;
+  padding: 10px 12px;
+  background: rgba(251, 191, 36, 0.08);
+  border-left: 3px solid #fbbf24;
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  color: var(--text-primary, #e6eef5);
+  line-height: 1.6;
+}
+.tq-detail { margin: 8px 0; font-size: 12px; }
+.tq-detail summary { cursor: pointer; color: #fcd34d; font-weight: 500; }
+.tq-detail ul { margin: 6px 0 0 18px; padding: 0; }
+.tq-detail li {
+  color: var(--text-secondary, rgba(230, 238, 245, 0.82));
+  margin: 3px 0;
+  line-height: 1.55;
+}
+.tq-detail b { color: rgba(230, 238, 245, 0.55); font-weight: 500; }
+.tq-iron-rule {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  background: rgba(167, 139, 250, 0.06);
+  border-left: 2px solid #a78bfa;
+  font-size: 11.5px;
+  color: rgba(230, 238, 245, 0.78);
+  line-height: 1.55;
+  font-style: italic;
+  border-radius: 0 3px 3px 0;
 }
 
 /* ━━━━━━━━ Phê Mệnh phú thi (Q4 Khang Tiết) ━━━━━━━━ */

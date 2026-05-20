@@ -1,0 +1,90 @@
+{
+  "schema_version": "chieu_dom_kinh_cach_cuc_v1",
+  "source": "Q4 p0275 r009 (Phase A Batch 4 thâm nhuần 2026-05-20)",
+  "source_quote_hv": "Phù thử thập bát tinh danh, hữu luận cách, ngoại hữu đại cách, kim tuyển như tả.",
+  "source_quote_zh": "夫此十八星名，有论格，外有大格，今选如左。",
+  "paradigm_note": "Đây là 6 cách cục riêng của Chiếu Đởm Kinh (KHÔNG phải 545 cách của Phú Thái Vi Q1). Tách riêng để tránh confict namespace.",
+  "cach_cuc": [
+    {
+      "id": "than_nich_giang_ho",
+      "name_vi": "Thân nịch giang hồ cách",
+      "name_zh": "身溺江湖格",
+      "polarity": "hung",
+      "pattern": {
+        "menh_than_branch": ["Hợi", "Tý"],
+        "stars_not_in_mieu": true
+      },
+      "source_quote_hv": "Phàm nhân thân mệnh nhị cung, tại Hợi Tý thượng, tinh bất nhập miếu, danh thân nịch giang hồ cách",
+      "lesson_short": "Phiêu bạt giang hồ, không định cư — sao thất hãm tại Hợi/Tý.",
+      "source_ref": "Q4 p0275 r009"
+    },
+    {
+      "id": "tu_dau_la_vong",
+      "name_vi": "Tử đầu la võng cách",
+      "name_zh": "子头罗网格",
+      "polarity": "hung",
+      "pattern": {
+        "menh_branch_any": ["Tuất", "Hợi", "Thìn", "Tỵ"]
+      },
+      "source_quote_hv": "Nam nữ cư Tuất Hợi Thần Tỵ thượng, danh tử đầu la võng cách",
+      "lesson_short": "Đầu con cạm lưới — Mệnh tại Thiên La (Thìn Tỵ) hoặc Địa Võng (Tuất Hợi).",
+      "source_ref": "Q4 p0275 r009"
+    },
+    {
+      "id": "than_nhap_ban_dan",
+      "name_vi": "Thân nhập bần dân cách",
+      "name_zh": "身入贫民格",
+      "polarity": "hung",
+      "pattern": {
+        "than_quan_at_branch": "Tỵ"
+      },
+      "source_quote_hv": "Thân quan tại Tỵ thượng, danh thân nhập bần dân cách, chủ thân thê ưu vong",
+      "lesson_short": "Thân quan tại Tỵ — vào nhà nghèo, vợ con lo buồn mất mát.",
+      "source_ref": "Q4 p0275 r009"
+    },
+    {
+      "id": "ma_chuc_vi_menh",
+      "name_vi": "Ma chúc vi mệnh cách",
+      "name_zh": "磨烛为命格",
+      "polarity": "trung_tính",
+      "pattern": {
+        "menh_at": "nhận_thượng (Kình Dương)"
+      },
+      "source_quote_hv": "Mệnh tọa nhận thượng, danh ma chúc vi mệnh cách, đa thành đa bại",
+      "lesson_short": "Nến mài làm mệnh — đa thành đa bại, đời nhiều thăng trầm.",
+      "source_ref": "Q4 p0275 r009"
+    },
+    {
+      "id": "menh_toa_phu_mon",
+      "name_vi": "Mệnh tọa phú môn cách",
+      "name_zh": "命坐富门格",
+      "polarity": "kỳ_cách",
+      "pattern": {
+        "menh_branch": "Mão",
+        "stars_required": ["Thiên Nhận (Kình Dương)", "Thiên Hư (Địa Không)"]
+      },
+      "source_quote_hv": "Thiên Nhận Thiên Hư cư Mão thượng, vi mệnh tọa phú môn cách, phàm vi hung bất hung giả, giai hữu cát sự",
+      "lesson_short": "Mệnh ngồi cửa nhà giàu — phàm là HUNG mà KHÔNG hung, đều có việc lành (kỳ cách).",
+      "source_ref": "Q4 p0275 r009-l007",
+      "paradigm_note": "Tương tự Thạch Trung Ẩn Ngọc cách Q2 (Cự Môn + Kình Dương Tý Ngọ) — paradigm 'hung-mà-không-hung'. Engine cần đánh dấu là KỲ CÁCH (reverse-cát)."
+    },
+    {
+      "id": "xa_nhap_long_cung",
+      "name_vi": "Xà nhập long cung cách",
+      "name_zh": "蛇入龙宫格",
+      "polarity": "cát",
+      "pattern": {
+        "menh_branch": "Mão",
+        "birth_hour": "Mão"
+      },
+      "source_quote_hv": "Phàm nhân ngộ Mão thời Mão cung tọa mệnh giả, vi xà nhập long cung, bất vấn thậm thời, đãn tại Mão cung tọa mệnh giả, giai hảo dã",
+      "lesson_short": "Rắn vào long cung — giờ Mão + Mệnh Mão, đều tốt cả.",
+      "source_ref": "Q4 p0275 r009-l008",
+      "paradigm_note": "Rule mạnh: chỉ cần Mệnh Mão + giờ Mão = tốt, KHÔNG cần xét sao gì khác."
+    }
+  ],
+  "engine_notes": {
+    "usage": "Add vào cach_cuc dictionary nhưng đánh dấu source = 'chieu_dom_kinh'. Engine match_cach có thể filter theo source.",
+    "ky_cach_flag": "Cách 'Mệnh tọa phú môn' là kỳ cách (reverse-cát) — engine PHẢI render special để user hiểu paradigm 'hung-mà-không-hung'."
+  }
+}

@@ -5199,6 +5199,59 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
 
 
 # ─── Cách cục dictionary (từ thâm nhuần Q1) ──────────────────────────────────
+@app.get("/api/tu-vi/q4/10-buoc-luan")
+def yi_tuvi_10_buoc_luan() -> dict:
+    """10 bước luận Tử Vi chính thức của Trần Đoàn (Q4 p0266)."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/10_buoc_luan.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
+@app.get("/api/tu-vi/q4/thien-quan-archetype/{hour}/{khac}")
+def yi_tuvi_thien_quan_archetype(hour: str, khac: str) -> dict:
+    """Get 1 archetype Thiên Quán Phân Cung theo giờ + khắc (Q4 p0268-p0271)."""
+    from engine.tu_vi.thien_quan_typology import get_archetype
+    a = get_archetype(hour, khac)
+    if not a:
+        return {"status": "error", "message": f"No archetype for ({hour}, {khac})"}
+    return {"status": "ok", "archetype": a}
+
+
+@app.get("/api/tu-vi/q4/thien-quan-archetypes-all")
+def yi_tuvi_thien_quan_all() -> dict:
+    """List all 36 archetypes."""
+    from engine.tu_vi.thien_quan_typology import list_all_archetypes
+    return {"status": "ok", "total": 36, "archetypes": list_all_archetypes()}
+
+
+@app.get("/api/tu-vi/q4/rectification-rules")
+def yi_tuvi_rectification() -> dict:
+    """Định thời khắc rules + Tiểu nhi thời khắc patterns (Q4 p0267)."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/rectification_rules.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
+@app.get("/api/tu-vi/q4/chieu-dom-kinh-phi-tinh")
+def yi_tuvi_chieu_dom_phi_tinh() -> dict:
+    """18 Phi Tinh schema (Chiếu Đởm Kinh — paradigm khác chính thống)."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/chieu_dom_kinh_18_phi_tinh.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
+@app.get("/api/tu-vi/q4/chieu-dom-kinh-cach-cuc")
+def yi_tuvi_chieu_dom_cach_cuc() -> dict:
+    """6 cách cục mới của Chiếu Đởm Kinh."""
+    import json
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "data/tu_vi/chieu_dom_kinh_cach_cuc.json"
+    return {"status": "ok", **json.loads(p.read_text())}
+
+
 @app.post("/api/tu-vi/safety-check")
 def yi_tuvi_safety_check(req: _AnalyzeRequest, request: Request) -> dict:
     """Phát hiện psychological safety patterns trong lá số (Q1 p0027-p0028, Q3 p0186).
