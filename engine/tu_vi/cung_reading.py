@@ -23,6 +23,39 @@ CHINH_TINH_NAMES = [
     "Thất Sát", "Phá Quân",
 ]
 
+# Q3 hay viết tắt 2-3 sao kề nhau, vd "Tử Phủ" = Tử Vi + Thiên Phủ.
+# Mỗi tuple: (regex, [stars implied]) — khi line khớp regex, các stars đó được coi "có nhắc đến".
+import re as _re
+
+COMPOUND_STAR_PATTERNS = [
+    (_re.compile(r"Nhật,?\s*Nguyệt|Nguyệt,?\s*Nhật"), ["Thái Dương", "Thái Âm"]),
+    (_re.compile(r"Cự,?\s*Nhật|Nhật,?\s*Cự"),        ["Cự Môn", "Thái Dương"]),
+    (_re.compile(r"Sát,?\s*Phá,?\s*Tham"),            ["Thất Sát", "Phá Quân", "Tham Lang"]),
+    (_re.compile(r"Sát,?\s*Phá(?!\s*Tham)"),          ["Thất Sát", "Phá Quân"]),
+    (_re.compile(r"Tử,?\s*Phủ"),                      ["Tử Vi", "Thiên Phủ"]),
+    (_re.compile(r"Tử,?\s*Phá"),                      ["Tử Vi", "Phá Quân"]),
+    (_re.compile(r"Tử,?\s*Tham"),                     ["Tử Vi", "Tham Lang"]),
+    (_re.compile(r"Tử,?\s*Sát"),                      ["Tử Vi", "Thất Sát"]),
+    (_re.compile(r"Tử,?\s*Tướng"),                    ["Tử Vi", "Thiên Tướng"]),
+    (_re.compile(r"Cơ,?\s*Lương"),                    ["Thiên Cơ", "Thiên Lương"]),
+    (_re.compile(r"Cơ,?\s*Cự"),                       ["Thiên Cơ", "Cự Môn"]),
+    (_re.compile(r"Cơ,?\s*(?:Thái\s*)?Âm"),           ["Thiên Cơ", "Thái Âm"]),
+    (_re.compile(r"Vũ,?\s*Tham"),                     ["Vũ Khúc", "Tham Lang"]),
+    (_re.compile(r"Vũ,?\s*Phá"),                      ["Vũ Khúc", "Phá Quân"]),
+    (_re.compile(r"Vũ,?\s*Tướng"),                    ["Vũ Khúc", "Thiên Tướng"]),
+    (_re.compile(r"Vũ,?\s*Phủ"),                      ["Vũ Khúc", "Thiên Phủ"]),
+    (_re.compile(r"Vũ,?\s*Sát"),                      ["Vũ Khúc", "Thất Sát"]),
+    (_re.compile(r"Liêm,?\s*Phá"),                    ["Liêm Trinh", "Phá Quân"]),
+    (_re.compile(r"Liêm,?\s*Tham"),                   ["Liêm Trinh", "Tham Lang"]),
+    (_re.compile(r"Liêm,?\s*Phủ"),                    ["Liêm Trinh", "Thiên Phủ"]),
+    (_re.compile(r"Liêm,?\s*Tướng"),                  ["Liêm Trinh", "Thiên Tướng"]),
+    (_re.compile(r"Liêm,?\s*Sát"),                    ["Liêm Trinh", "Thất Sát"]),
+    (_re.compile(r"Đồng,?\s*Lương"),                  ["Thiên Đồng", "Thiên Lương"]),
+    (_re.compile(r"Đồng,?\s*(?:Thái\s*)?Âm"),         ["Thiên Đồng", "Thái Âm"]),
+    (_re.compile(r"Đồng,?\s*Cự"),                     ["Thiên Đồng", "Cự Môn"]),
+    (_re.compile(r"Phủ,?\s*Tướng"),                   ["Thiên Phủ", "Thiên Tướng"]),
+]
+
 ALL_PALACES = [
     "Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch", "Quan Lộc", "Nô Bộc",
     "Thiên Di", "Tật Ách", "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ",
@@ -72,28 +105,50 @@ def _q3_lines() -> list[tuple[int, str, str, str]]:
     return _Q3_LINES_CACHE
 
 
+def _stars_in_line(text: str) -> set[str]:
+    """Extract chính tinh names mentioned in a line — including compound abbreviations."""
+    found: set[str] = set()
+    # Direct full names
+    for name in CHINH_TINH_NAMES:
+        if name in text:
+            found.add(name)
+    # Compound abbreviations (Tử Phủ, Cự Nhật, Sát Phá Tham, ...)
+    for rgx, stars in COMPOUND_STAR_PATTERNS:
+        if rgx.search(text):
+            found.update(stars)
+    return found
+
+
 def _scan_q3_for_palace(
     palace: str, branch: str, stars_in_palace: list[str],
 ) -> list[dict[str, Any]]:
     """Find Q3 lines mentioning any star_in_palace + (palace name OR branch name).
 
-    Returns list of {source, page, line_id, hanviet, luangiai, matched_stars}.
+    Compound abbreviations (Tử Phủ, Cự Nhật, etc.) are recognized via COMPOUND_STAR_PATTERNS.
+    Returns list of {source, page, line_id, hanviet, luangiai, matched_stars, match_type}.
     """
     if not stars_in_palace:
         return []
     chinh_in_pal = [s for s in stars_in_palace if s in CHINH_TINH_NAMES]
     if not chinh_in_pal:
         return []
+    chinh_set = set(chinh_in_pal)
     out: list[dict[str, Any]] = []
+    seen: set[tuple[int, str]] = set()  # dedupe by (page, line_id)
     for page, lid, vi, lg in _q3_lines():
         text = vi + " " + lg
-        # Match: palace name OR branch in text
-        has_palace_ref = palace in text or branch in text
-        if not has_palace_ref:
+        if palace not in text and branch not in text:
             continue
-        matched_stars = [s for s in chinh_in_pal if s in text]
+        stars_in_text = _stars_in_line(text)
+        matched_stars = sorted(chinh_set & stars_in_text)
         if not matched_stars:
             continue
+        key = (page, lid)
+        if key in seen:
+            continue
+        seen.add(key)
+        # Match type: "full" if any matched star found by full name, else "compound"
+        has_full = any(s in text for s in matched_stars)
         out.append({
             "source": "Q3",
             "page": page,
@@ -101,6 +156,7 @@ def _scan_q3_for_palace(
             "hanviet": vi,
             "luangiai": lg,
             "matched_stars": matched_stars,
+            "match_type": "full" if has_full else "compound",
         })
     return out
 
