@@ -74,17 +74,17 @@ def test_arrange_palaces_returns_12():
     assert len(p) == 12
     assert p[0]["name"] == "Mệnh"
     assert p[0]["branch"] == "Dần"
-    # Counter-clockwise: Phụ Mẫu at Sửu (idx 1)
-    assert p[1]["name"] == "Phụ Mẫu"
+    # Canonical Bắc Phái counter-clockwise: Huynh Đệ at Sửu (idx 1)
+    assert p[1]["name"] == "Huynh Đệ"
     assert p[1]["branch"] == "Sửu"
-    assert p[11]["name"] == "Huynh Đệ"
+    assert p[11]["name"] == "Phụ Mẫu"
 
 
 def test_arrange_palaces_full_cycle():
     """Last palace must be exactly 11 positions counter-clockwise from Mệnh."""
     menh_idx = 5  # Tỵ
     p = arrange_palaces(menh_idx)
-    # Huynh Đệ (idx 11) at fix(5-11) = fix(-6) = 6 = Ngọ
+    # Phụ Mẫu (idx 11) at fix(5-11) = fix(-6) = 6 = Ngọ
     assert p[11]["branch_index"] == 6
 
 
@@ -119,17 +119,15 @@ def test_cuc_names():
 
 def test_tu_vi_thoi_ngu_day_30():
     """Thổ Ngũ Cục (5), day 30:
-    divisor=30, quot=6, rem=0 → q=6%12=6; ziwei=5; offset even → 5 = Tỵ."""
-    assert tu_vi_position(5, 30) == 5
+    divisor=30, quot=6, rem=0 → q=6%12=6; p_dan=5; offset=0 even → +0=5; +2→7=Mùi."""
+    assert tu_vi_position(5, 30) == 7
 
 
 def test_tu_vi_hoa_luc_day_15():
-    """Hỏa Lục (6), day 15: divisor=15, quot=2, rem=3.
-    offset=1: div=16, quot=2, rem=4.
-    offset=2: div=17, quot=2, rem=5.
-    offset=3: div=18, quot=3, rem=0 → break.
-    q=3%12=3; ziwei = 3-1 = 2; offset odd → subtract 3 → -1 → fix(-1) = 11 = Hợi."""
-    assert tu_vi_position(6, 15) == 11
+    """Hỏa Lục (6), day 15: offset=3, div=18÷6=3, q=3, p_dan=2.
+    offset=3 odd → -3 → p_dan=-1; -1+2=1 → Sửu.
+    Canonical Dần-base +2 correction."""
+    assert tu_vi_position(6, 15) == 1
 
 
 def test_tu_vi_all_combinations_valid():
@@ -323,8 +321,8 @@ def test_cast_la_so_known_chart_values():
     assert r["than_branch"] == "Tý"
     # Cục = Thổ Ngũ
     assert r["cuc"] == 5
-    # Tử Vi at Tỵ (5)
-    assert r["chinh_tinh"]["Tử Vi"] == 5
+    # Tử Vi at Mùi (7) — Thổ Cục (5), day 30, Dần-base +2 formula
+    assert r["chinh_tinh"]["Tử Vi"] == 7
     # Tứ Hóa Ất: Khoa = Tử Vi
     assert r["tu_hoa"]["Khoa"] == "Tử Vi"
 
@@ -370,7 +368,7 @@ def test_api_tu_vi_cast_direct_mode():
     state = payload["la_so"]
     assert state["menh_branch"] == "Dần"
     assert state["cuc"] == 5
-    assert state["chinh_tinh"]["Tử Vi"] == 5
+    assert state["chinh_tinh"]["Tử Vi"] == 7
 
 
 def test_api_tu_vi_cast_datetime_mode():
