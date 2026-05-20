@@ -148,30 +148,30 @@ def test_place_14_chinh_tinh_returns_14_keys():
 
 
 def test_chinh_tinh_at_ty_anchor():
-    """Tử Vi at Tỵ (5):
-        Thiên Cơ = 4 = Thìn
-        Thái Dương = 2 = Dần
-        Liêm Trinh = -3 = 9 = Dậu
-        Thiên Phủ mirror of Tỵ = Tỵ
-        Phá Quân = fix(5 + 10) = 3 = Mão
+    """Tử Vi at Tỵ (5) — canonical Dần-Thân axis formula _fix(4-x):
+        Thiên Cơ = fix(5-1) = 4 = Thìn
+        Thái Dương = fix(5-3) = 2 = Dần
+        Liêm Trinh = fix(5-8) = 9 = Dậu
+        Thiên Phủ = fix(4-5) = 11 = Hợi
+        Phá Quân = fix(11+10) = 9 = Dậu
     """
     stars = place_14_chinh_tinh(5)
     assert stars["Tử Vi"] == 5
     assert stars["Thiên Cơ"] == 4
     assert stars["Thái Dương"] == 2
     assert stars["Liêm Trinh"] == 9
-    assert stars["Thiên Phủ"] == 5
-    assert stars["Phá Quân"] == 3
+    assert stars["Thiên Phủ"] == 11
+    assert stars["Phá Quân"] == 9
 
 
-def test_thien_phu_mirror_for_dan_is_than():
-    """Tử Vi Dần (2) → Thiên Phủ Thân (8)."""
-    assert thien_phu_position(2) == 8
+def test_thien_phu_mirror_for_dan_is_dan():
+    """Tử Vi Dần (2) → Thiên Phủ Dần (2) — self-mirror on the Dần-Thân axis."""
+    assert thien_phu_position(2) == 2
 
 
-def test_thien_phu_mirror_for_ty_is_ty():
-    """Tử Vi Tỵ (5) → Thiên Phủ Tỵ (5) — self-mirror at the axis."""
-    assert thien_phu_position(5) == 5
+def test_thien_phu_mirror_for_ty_is_hoi():
+    """Tử Vi Tỵ (5) → Thiên Phủ Hợi (11). Canonical: _fix(4-5) = 11."""
+    assert thien_phu_position(5) == 11
 
 
 # ─── Tứ Hóa ───────────────────────────────────────────────────────────────────

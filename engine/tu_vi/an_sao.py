@@ -218,21 +218,16 @@ def tu_vi_position(cuc: int, lunar_day: int) -> int:
 
 # ─── 5. 14 Chính Tinh Placement ───────────────────────────────────────────────
 
-# Thiên Phủ mirror table (hard-coded from §6 of spec).
-# Key = Tử Vi branch, Value = Thiên Phủ branch.
-_TIANFU_MIRROR: dict[str, str] = {
-    "Dần": "Thân",  "Mão": "Mùi",   "Thìn": "Ngọ",
-    "Tỵ":  "Tỵ",    "Ngọ": "Thìn",  "Mùi":  "Mão",
-    "Thân": "Dần",  "Dậu": "Sửu",   "Tuất": "Tý",
-    "Hợi":  "Hợi",  "Tý":  "Tuất",  "Sửu":  "Dậu",
-}
-
-
 def thien_phu_position(tu_vi_idx: int) -> int:
-    """Return Thiên Phủ branch index given Tử Vi's branch index."""
-    tu_vi_branch = BRANCHES_TVI[tu_vi_idx]
-    tianfu_branch = _TIANFU_MIRROR[tu_vi_branch]
-    return B[tianfu_branch]
+    """Return Thiên Phủ branch index given Tử Vi's branch index.
+
+    Classical Bắc Phái rule: count k steps CW from Dần to Tử Vi,
+    then count k steps CCW from Dần → Thiên Phủ.
+    Formula: Thiên Phủ = _fix(4 - tu_vi_idx)  [Dần chi=2, axis at Dần-Thân].
+    Verified: Tử Vi Mão(3) → Thiên Phủ Sửu(1) per tuvi.vn + Phú Thái Vi.
+    BUG-FIX 2026-05-20: Previous table used _fix(10-x) = Tỵ-Hợi axis (wrong).
+    """
+    return _fix(4 - tu_vi_idx)
 
 
 # 14 chính tinh names (matches engine/tu_vi/chinh_tinh.py)
