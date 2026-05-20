@@ -34,6 +34,7 @@ const cungLoading = ref(false);
 const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
 const caseLoading = ref(false);
 const chartStrength = ref(null);  // ⭐ Miếu Vượng Hãm score (Q2 p0102)
+const safetyCheck = ref(null);    // ⭐ Psychological safety patterns
 const loading = ref(false);
 const errorMsg = ref("");
 const expandedPalace = ref(null);
@@ -113,6 +114,7 @@ async function castChart() {
     loadCungReading();
     loadCaseStudies();
     loadChartStrength();
+    loadSafetyCheck();
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -168,6 +170,19 @@ async function loadCungReading() {
   } finally {
     cungLoading.value = false;
   }
+}
+
+async function loadSafetyCheck() {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  try {
+    const resp = await fetch("/api/tu-vi/safety-check", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person_key: personKey }),
+    }).then((r) => r.json());
+    if (resp.status === "ok") safetyCheck.value = resp;
+  } catch (e) { /* silent */ }
 }
 
 async function loadChartStrength() {
@@ -574,6 +589,41 @@ const grid = computed(() => {
             <div class="lt-star-cell"><span>Lưu Thiên Việt</span><b>{{ luuTru.luu_thien_viet }}</b></div>
           </div>
         </div>
+      </template>
+
+      <!-- ── Safety Check (Q1+Q3 dark warnings → gentle self-care) ─── -->
+      <template v-if="safetyCheck && safetyCheck.patterns_triggered?.length">
+        <section class="safety-block">
+          <header class="sb-head">
+            <h4>💚 Lưu ý chăm sóc bản thân</h4>
+            <small>Iron Rule #6 — KHÔNG predict, chỉ là "dấu hiệu kích hoạt nhận thức"</small>
+          </header>
+          <div v-for="p in safetyCheck.patterns_triggered" :key="p.id" class="sb-pattern">
+            <header class="sb-pattern-head">
+              <strong>{{ p.title }}</strong>
+              <small>{{ p.source }}</small>
+            </header>
+            <p class="sb-gentle">{{ p.gentle_message }}</p>
+            <div v-if="p.which_dai_van?.length" class="sb-when">
+              <small>Khi nào cần chú ý:</small>
+              <ul>
+                <li v-for="(d, di) in p.which_dai_van" :key="di">{{ d }}</li>
+              </ul>
+            </div>
+            <div class="sb-tips">
+              <small>Gợi ý chăm sóc:</small>
+              <ul>
+                <li v-for="(t, ti) in p.self_care_tips" :key="ti">{{ t }}</li>
+              </ul>
+            </div>
+            <details class="sb-source">
+              <summary>Câu sách gốc</summary>
+              <em>« {{ p.key_phrase_hv }} »</em>
+              <small>{{ p.key_phrase_zh }}</small>
+            </details>
+          </div>
+          <p class="sb-paradigm">💡 {{ safetyCheck.note }}</p>
+        </section>
       </template>
 
       <!-- ── Chart Strength (Q2 p0102 Miếu Vượng Hãm) ────────────── -->
@@ -1518,6 +1568,70 @@ const grid = computed(() => {
   background: rgba(148, 163, 184, 0.15);
   color: #cbd5e1;
   border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* ━━━━━━━━ Safety Block (Q1+Q3 dark warnings) ━━━━━━━━ */
+.safety-block {
+  margin: 18px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(90, 176, 122, 0.05), rgba(20, 30, 45, 0.3));
+  border: 1px solid rgba(90, 176, 122, 0.3);
+  border-radius: 8px;
+}
+.sb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.sb-head h4 { margin: 0; color: #88d39e; font-size: 14px; }
+.sb-head small { font-size: 10.5px; color: rgba(230, 238, 245, 0.5); font-style: italic; }
+.sb-pattern {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid #5ab07a;
+  border-radius: 0 4px 4px 0;
+}
+.sb-pattern-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.sb-pattern-head strong { color: var(--accent-gold-soft, #f5e6b1); font-size: 13px; }
+.sb-pattern-head small { font-size: 10.5px; color: rgba(230, 238, 245, 0.5); }
+.sb-gentle {
+  margin: 6px 0;
+  padding: 8px 10px;
+  background: rgba(91, 229, 211, 0.05);
+  border-left: 2px solid #5be5d3;
+  font-size: 12.5px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.85));
+  line-height: 1.55;
+  border-radius: 0 3px 3px 0;
+}
+.sb-when, .sb-tips {
+  margin: 6px 0;
+  font-size: 12px;
+}
+.sb-when small, .sb-tips small {
+  color: rgba(230, 238, 245, 0.55);
+  font-size: 11px;
+}
+.sb-when ul, .sb-tips ul {
+  margin: 4px 0 0 18px;
+  padding: 0;
+}
+.sb-when li, .sb-tips li {
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  margin: 2px 0;
+  line-height: 1.5;
+}
+.sb-source { margin-top: 6px; font-size: 11px; }
+.sb-source summary { cursor: pointer; color: rgba(230, 238, 245, 0.5); }
+.sb-source em { color: #f5e6b1; display: block; margin: 4px 0; }
+.sb-source small { color: rgba(230, 238, 245, 0.5); }
+.sb-paradigm {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  background: rgba(167, 139, 250, 0.06);
+  border-left: 2px solid #a78bfa;
+  font-size: 11.5px;
+  color: rgba(230, 238, 245, 0.78);
+  line-height: 1.55;
+  font-style: italic;
+  border-radius: 0 3px 3px 0;
 }
 
 /* ━━━━━━━━ Chart Strength (Q2 p0102 Miếu Vượng Hãm) ━━━━━━━━ */

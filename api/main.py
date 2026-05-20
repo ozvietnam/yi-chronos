@@ -5197,6 +5197,32 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
 
 
 # ─── Cách cục dictionary (từ thâm nhuần Q1) ──────────────────────────────────
+@app.post("/api/tu-vi/safety-check")
+def yi_tuvi_safety_check(req: _AnalyzeRequest, request: Request) -> dict:
+    """Phát hiện psychological safety patterns trong lá số (Q1 p0027-p0028, Q3 p0186).
+
+    KHÔNG predict — chỉ surface "dấu hiệu kích hoạt nhận thức" + self-care tips.
+    """
+    from engine.tu_vi.psychological_safety import detect_safety_patterns
+    from engine.tu_vi.analyzer import TuViAnalyzer
+    from core.chronos import calculate_chronos_state
+    person = _resolve_person_from_request(req, request)
+    analyzer = TuViAnalyzer(person)
+    chronos = calculate_chronos_state(person.birth_datetime_local, person.timezone)
+    year_stem = chronos.ganzhi.year.split()[0]
+    patterns = detect_safety_patterns(analyzer.la_so, year_stem)
+    return {
+        "status": "ok",
+        "year_stem": year_stem,
+        "patterns_triggered": patterns,
+        "note": "Đây là 'dấu hiệu kích hoạt nhận thức' theo Iron Rule #6, KHÔNG phải predict tự vẫn. Cổ nhân dùng để gợi mở chăm sóc bản thân, không phải hù dọa.",
+        "hotlines": {
+            "vi": "Đường Dây Cứu Sống 1800-1567 · Tâm Lý Xanh (online)",
+            "vn_psychological_emergency": "Bệnh viện Tâm thần TW · cấp cứu 115",
+        },
+    }
+
+
 @app.post("/api/tu-vi/chart-strength")
 def yi_tuvi_chart_strength(req: _AnalyzeRequest, request: Request) -> dict:
     """Tính sức mạnh tổng thể lá số dựa trên Miếu Vượng Hãm (Q2 p0102).
