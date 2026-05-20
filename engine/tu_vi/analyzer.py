@@ -1090,7 +1090,7 @@ Schema CHÍNH XÁC (5 keys, đúng tên):
                         {"role": "user", "content": user_prompt},
                     ],
                     temperature=0.5,
-                    max_tokens=16000,  # ~50k chars VN max
+                    max_tokens=32000,  # 5 sections × 4000 chars VN ≈ 12k tokens; safety margin
                 )
                 provider = current
                 break
@@ -1135,9 +1135,30 @@ Schema CHÍNH XÁC (5 keys, đúng tên):
                     parsed = json.loads(cleaned[start:end+1])
             except Exception:
                 pass
+        # Attempt 4: truncation repair — extract section-by-section via regex
         if parsed is None:
-            # Last-ditch: dump raw as single key from this batch
-            parsed = {section_keys[0]: content, "_parse_error_batch": batch_name}
+            import re as _re
+            parsed = {}
+            # Match pattern: "key_name": "value content..." up to next "key_name": or end
+            for i, key in enumerate(section_keys):
+                # Look for "key_name": " ... " (greedy until next key OR end-of-content)
+                next_keys = section_keys[i+1:] + ["__END__"]
+                next_pattern = "|".join(f'"{k}"\\s*:' for k in next_keys)
+                pat = rf'"{key}"\s*:\s*"((?:[^"\\]|\\.)*?)(?="\s*(?:,|}}|{next_pattern})|"\s*$)'
+                m = _re.search(pat, content, _re.DOTALL)
+                if m:
+                    raw_val = m.group(1)
+                    # Unescape JSON escapes
+                    try:
+                        unescaped = json.loads(f'"{raw_val}"')
+                    except Exception:
+                        unescaped = raw_val.replace('\\n', '\n').replace('\\"', '"').replace('\\\\', '\\')
+                    parsed[key] = unescaped
+            if not parsed:
+                # Last-ditch: dump raw as single key from this batch
+                parsed = {section_keys[0]: content, "_parse_error_batch": batch_name}
+            else:
+                parsed["_partial_recovered"] = batch_name
 
         prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
         completion_tokens = getattr(resp, "completion_tokens", 0) or 0
