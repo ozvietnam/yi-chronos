@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r008-l001": {
+      "text_vi": "Văn Xương gia cát tinh nhập miếu, hưởng phú khoái lạc, hãm địa ngộ Dương, Đà, Hỏa, Linh, Không, Kiếp, tâm thân",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Văn Xương gặp cát tinh nhập miếu thì hưởng phú quý khoái lạc; nếu ở hãm địa gặp Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp thì thân tâm không được an ổn."
+    },
+    "r008-l002": {
+      "text_vi": "Câu bất đắc an tĩnh.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Hai chữ an tĩnh không thể có được."
+    }
+  }
+}

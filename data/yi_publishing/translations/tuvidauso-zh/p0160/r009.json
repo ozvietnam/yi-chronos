@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r009-l001": {
+      "text_vi": "Tả Phụ gia cát tinh, hưởng phú độc thủ, vãn niên an ninh, gia Dương, Đà, Hỏa, Linh, Không, Kiếp, tân",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Tả Phụ gặp cát tinh độc thủ thì hưởng phú quý, cuối đời an ninh; nếu gặp Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp thì phải lao tâm khổ tứ."
+    },
+    "r009-l002": {
+      "text_vi": "cần.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Gian khổ và cần lao."
+    }
+  }
+}

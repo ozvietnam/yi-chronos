@@ -1,0 +1,12 @@
+{
+  "lines": {
+    "r002-l001": {
+      "text_vi": "Luận thứ tự",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Bàn về thứ tự các bước tiến hành."
+    }
+  }
+}

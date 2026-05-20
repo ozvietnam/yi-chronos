@@ -1,0 +1,25 @@
+{
+  "lines": {
+    "r006-l001": {
+      "text_vi": "",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057
+    },
+    "r006-l002": {
+      "text_vi": "",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057
+    },
+    "r006-l003": {
+      "text_vi": "",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057
+    }
+  }
+}

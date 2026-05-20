@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r011-l001": {
+      "text_vi": "Lộc Tồn chung thân lộc hậu, an tịnh xử thế, gia cát tinh, hữu hỉ hữu phúc, kiến Dương, Đà, Hỏa, Linh,",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Lộc Tồn trọn đời lộc dày, sống an tịnh; thêm cát tinh thì có hỉ có phúc; gặp Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp thì thân tâm không được yên tĩnh."
+    },
+    "r011-l002": {
+      "text_vi": "Không, Kiếp, tâm thân bất đắc ninh tĩnh.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Thân tâm không thể yên tĩnh."
+    }
+  }
+}

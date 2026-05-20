@@ -1,0 +1,28 @@
+{
+  "lines": {
+    "r002-l001": {
+      "text_vi": "Thái Âm nhập miếu, hưởng phúc khoái lạc. Thái Dương đồng, cực mỹ, tăng đạo diệc thanh khiết hưởng phúc. Thiên Cơ đồng, tâm mang.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Thái Âm nhập miếu (miếu địa) thì được hưởng phúc khoái lạc; đồng cung với Thái Dương là cách rất tốt đẹp, người xuất gia (tăng, đạo) cũng được thanh tịnh hưởng phúc. Nếu đồng cung với Thiên Cơ thì trong lòng luôn bận rộn."
+    },
+    "r002-l002": {
+      "text_vi": "Thiên Đồng đồng, an tĩnh vô ưu, gia Dương, Đà, Hỏa, Linh, Không, Kiếp, hữu ưu hữu hỉ, bất đắc an tĩnh.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Đồng cung với Thiên Đồng thì an tĩnh không lo; nếu thêm Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp thì lúc lo lúc mừng, không được an tĩnh."
+    },
+    "r002-l003": {
+      "text_vi": "Tham Lang lao tâm bất an. Liêm Trinh đồng, phúc bạc. Tử Vi đồng, vãn niên khoái lạc.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Tham Lang thì lòng lao nhọc không yên. Đồng cung với Liêm Trinh thì phúc mỏng. Đồng cung với Tử Vi thì cuối đời được khoái lạc."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r001-l001": {
+      "text_vi": "《Tục Đạo Tạng》 tam quyển bản",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Bộ sách gồm ba quyển thuộc phần Tục Đạo Tạng."
+    },
+    "r001-l002": {
+      "text_vi": "《Tử Vi Đẩu Số》 quyển chi nhất",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Quyển thứ nhất của sách Tử Vi Đẩu Số."
+    }
+  }
+}

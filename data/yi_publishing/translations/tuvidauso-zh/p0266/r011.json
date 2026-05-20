@@ -1,0 +1,12 @@
+{
+  "lines": {
+    "r011-l001": {
+      "text_vi": "Ưu liệt cường nhược, tử tuyệt thành bại. Âm thác dương sai, tình tính tướng mạo.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Xét ưu liệt và cường nhược; sự chết tuyệt hay thành bại; Âm Thác, Dương Sai; cùng tình tính và tướng mạo."
+    }
+  }
+}

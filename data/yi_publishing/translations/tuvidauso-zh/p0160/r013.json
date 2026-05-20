@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r013-l001": {
+      "text_vi": "Kình Dương nhập miếu, động trung hữu phúc, hãm cung, lao tâm khiếm lực, đắc cát tinh đồng, giảm ưu, độc thủ,",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Kình Dương nhập miếu thì giữa động có phúc; ở hãm cung thì lao tâm thiếu lực; nếu gặp cát tinh đồng cung thì bớt ưu; nếu độc thủ thân tâm không an."
+    },
+    "r013-l002": {
+      "text_vi": "thân tâm bất an.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Thân tâm bất an."
+    }
+  }
+}

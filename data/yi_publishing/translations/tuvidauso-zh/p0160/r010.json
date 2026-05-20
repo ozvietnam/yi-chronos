@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r010-l001": {
+      "text_vi": "Hữu Bật sanh bình phúc lộc toàn mỹ, gia cát tinh, nhất sanh thiểu ưu, kiến Dương, Đà, Hỏa, Linh, Không, Kiếp",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Hữu Bật suốt đời phúc lộc đầy đủ; gặp cát tinh cả đời ít lo buồn; nếu gặp Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp hội tụ thì tâm lao lực mệt, chẳng được yên ổn."
+    },
+    "r010-l002": {
+      "text_vi": "tấu, lao tâm khiếm an.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Tụ hội, khiến lao tâm thiếu an."
+    }
+  }
+}

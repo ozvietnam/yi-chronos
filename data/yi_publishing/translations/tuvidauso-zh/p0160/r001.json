@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r001-l001": {
+      "text_vi": "Tảo niên cánh tân khổ, trung vãn an lạc hưởng phúc, gia Dương, Đà, Hỏa, Linh, Không, Kiếp, Hao, Kỵ, lao khổ quá.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Thời trẻ càng thêm vất vả cay đắng, độ trung-niên về già được an vui hưởng phúc; nếu thêm các sao Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Hao (Phá Hao), Hóa Kỵ, thì rất lao khổ."
+    },
+    "r001-l002": {
+      "text_vi": "Nhật.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "(Hết câu – ý nói khổ nhọc quanh năm suốt tháng.)"
+    }
+  }
+}

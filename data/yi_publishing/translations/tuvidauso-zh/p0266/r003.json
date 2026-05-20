@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r003-l001": {
+      "text_vi": "Nhất định thời khắc, nhị khởi bát tự, tam lập cách cục, tứ bài tinh thần, ngũ lập tọa mệnh, lục khởi đại",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Một là định giờ khắc, hai là dựng Bát Tự, ba là lập cách cục, bốn là an bài các sao, năm là an tọa Mệnh cung, sáu là xác định Đại"
+    },
+    "r003-l002": {
+      "text_vi": "vận, thất khởi đại hạn, bát thư hóa diệu, cửu thư hỉ kỵ, thập bài cát hung.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "vận, bảy là xác định Đại Hạn, tám là ghi các Hóa tinh (Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ), chín là ghi hỉ kỵ, mười là luận cát hung."
+    }
+  }
+}

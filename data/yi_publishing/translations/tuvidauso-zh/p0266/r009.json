@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r009-l001": {
+      "text_vi": "Thủ mệnh quan tinh, tam phương tứ chính. Vận hạn sinh khắc, thập nhị cung thân sự, thập nhị cung trường sinh, thập",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Xét tinh thủ mệnh và các quan tinh; xem tam phương (ba cung) và tứ chính. Xét vận hạn sinh hay khắc; xét thập nhị cung về thân sự; xét thập nhị cung về Trường Sinh (vòng Trường Sinh); xét mười"
+    },
+    "r009-l002": {
+      "text_vi": "nhị cung mã tiền sát. Tọa mộ tọa lộc, gia bàn thông quan.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "hai cung về Mã Tiền Sát (sát tinh trước tuổi Mã). Xét tọa Mộ hay tọa Lộc; cùng với việc gia bàn (thêm bàn) và thông quan."
+    }
+  }
+}

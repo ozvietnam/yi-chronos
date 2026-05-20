@@ -1,0 +1,20 @@
+{
+  "lines": {
+    "r005-l001": {
+      "text_vi": "Nữ nhân đan cư Phúc Đức, tắc tất vi xướng tỳ.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Đàn bà con gái mà chỉ một mình (tọa thủ) cung Phúc Đức, thì ắt phải làm nghề xướng ca hoặc làm tôi tớ."
+    },
+    "r005-l002": {
+      "text_vi": "Phá Quân lao tâm phí lực. Vũ Khúc đồng, khiếm an. Liêm Trinh đồng, tân cần. Tử Vi đồng, an lạc, gia Dương, Đà, Hỏa, Linh, Không, Kiếp, thao tâm bất đắc ninh tĩnh.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245057,
+      "text_vi_luangiai": "Phá Quân thì hao tâm tổn sức. Đồng cung với Vũ Khúc thì hay bất an. Đồng cung với Liêm Trinh thì vất vả. Đồng cung với Tử Vi thì được an lạc; nếu thêm Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp thì phải lo lắng không được yên tĩnh."
+    }
+  }
+}

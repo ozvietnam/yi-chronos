@@ -1,0 +1,28 @@
+{
+  "lines": {
+    "r007-l001": {
+      "text_vi": "Tài quan ấn thực, thương chế thiên chính. Tỷ kiếp hào bại, nhật chủ sở sinh. Thiên đức nguyệt đức, tuế đức",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Xét Tài, Quan, Ấn, Thực Thần; sự chế phục của Thương Quan cùng Thiên Quan và Chính Quan. Xét Tỷ Kiếp, kiêu thần và bại thần; nguồn gốc sở sinh của Nhật Chủ. Xét các sao Thiên Đức, Nguyệt Đức, Tuế Đức"
+    },
+    "r007-l002": {
+      "text_vi": "đức tú. Quý lộc nhẫn sát, lộc mã hướng bối. Kim thần khôi cương, củng cách tổng luận. Tỉnh lan đảo xung, phi",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "và Đức Tú (các sao tốt). Xét Quý, Lộc, Nhẫn (Kình Dương), Sát (Đà La); sự hướng hay bội của Lộc và Mã. Xét Kim Thần, Khôi Cương; các loại cách Củng cách tổng luận. Xét Tỉnh Lan cách, Đảo Xung, Phi"
+    },
+    "r007-l003": {
+      "text_vi": "thiên tạp khí. Triêu dương long bối, phùng tị xu càn. Tùng khứ khứ lưu.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Thiên cùng Tạp Khí. Xét Triêu Dương cách, Long Bối cách; khi gặp Tị thì hướng về Càn. Xét các cách Tùng cách và Khứ cách, rồi quyết định lưu hay khứ."
+    }
+  }
+}

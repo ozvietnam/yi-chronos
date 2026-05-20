@@ -1,0 +1,12 @@
+{
+  "lines": {
+    "r008-l001": {
+      "text_vi": "Tam khán mệnh cung không quý.",
+      "status": "auto",
+      "translator": "deepseek/deepseek-v4-flash:free",
+      "version": 1,
+      "updated_at": 1779245249,
+      "text_vi_luangiai": "Thứ ba, xem cung Mệnh có không vong hay quý tinh."
+    }
+  }
+}

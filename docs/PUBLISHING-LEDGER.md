@@ -18,6 +18,7 @@
 | TV-Q3 | Tử Vi Đẩu Số Toàn Thư — Quyển 3: Diễn Giải 12 Cung × 14 Chính Tinh | 紫微斗数全书·卷三 | Trần Đoàn | **6/6 Published** | **135 (A4)** | `data/published/tu-vi-q3-dien-giai-12-cung.pdf` (596 KB, 168 combos) | ✅ **v1.0 PUBLISHED 2026-05-19** |
 | TV-Q4 | Tử Vi Đẩu Số Toàn Thư — Quyển 4: Lá Số Cổ Kim | 紫微斗数全书·卷四 | Trần Đoàn | **6/6 Published** | **91 (A4)** | `data/published/tu-vi-q4-la-so-co-kim.pdf` (432 KB, 60+ case studies) | ✅ **v1.0 PUBLISHED 2026-05-19** |
 | **TV-BỘ** | **Tử Vi Đẩu Số Toàn Thư — Bộ 4 Quyển ĐẦY ĐỦ (Q1+Q2+Q3+Q4 + Phụ lục)** | 紫微斗数全书 | Trần Đoàn + Phan Hy Doãn + Dương Nhất Vũ | **6/6 Published** | **395 (A4)** | `data/published/tu-vi-bo-toan-thu.pdf` (1.59 MB, 1193 cách + 686 concepts + bảng tra A-Z) | ✅ **BỘ v2.0 PUBLISHED 2026-05-19 đêm** |
+| **TV-FULL** | **Tử Vi Đẩu Số Toàn Thư — Bản dịch đầy đủ 346 trang nguồn (Hán-Việt + luận giải)** | 紫微斗数全书 | Trần Đoàn + Phan Hy Doãn + Dương Nhất Vũ | **6/6 Published** | **346 trang nguồn → 7.5 MB** | `data/published/tuvidauso-zh-v1.2-final-p1-346.pdf` (7.68 MB, 2-layer: Hán-Việt + luận giải, **100% translated** p1-346) | ✅ **v1.2-final PUBLISHED 2026-05-20 sáng** |
 
 ---
 
