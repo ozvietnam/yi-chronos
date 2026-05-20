@@ -646,6 +646,46 @@ Viết lưu nguyệt T{thang}/{year}."""
         _cache_save(self.person.person_key, "phu_match", data, self.person.user_id)
         return data
 
+    # ── 6b. Cung Readings — group Q1+Q3 passages by palace ──────────────────
+
+    def cung_reading(self) -> dict:
+        """Build per-palace reading bundle from Q1 Phú + Q3 raw lines.
+
+        For each of the 12 palaces in the chart, surface:
+          - stars at this palace (chinh + phu + sat)
+          - star schemas (keywords, tích cực, tiêu cực)
+          - Q1 Phú Thái Vi passages relevant to this palace
+          - Q3 Diễn Giải sao×cung raw lines mentioning stars + palace/branch
+        """
+        cached = None if self.force else _cache_load(self.person.person_key, "cung_reading", self.person.user_id)
+        if cached:
+            return cached
+
+        from engine.tu_vi.cung_reading import build_cung_readings
+
+        ls = self.la_so
+        # Build chart_summary dict shape expected by build_cung_readings
+        s2bi = {**ls.get('chinh_tinh', {}), **ls.get('phu_tinh', {}), **ls.get('sat_tinh', {})}
+        star_to_branch = {star: BRANCHES[bi] for star, bi in s2bi.items()}
+        palace_to_branch = {p['name']: BRANCHES[p['branch_index']] for p in ls.get('palaces', [])}
+        chart_dict = {
+            "palace_to_branch": palace_to_branch,
+            "star_to_branch": star_to_branch,
+        }
+
+        # Pull Q1 phu_matches (auto-generate if not cached)
+        phu_data = self.phu_match()
+        phu_matches = phu_data.get('matched_passages', []) if isinstance(phu_data, dict) else []
+
+        result = build_cung_readings(chart_dict, phu_matches)
+        data = {
+            "person_key": self.person.person_key,
+            "generated_at": int(time.time()),
+            **result,
+        }
+        _cache_save(self.person.person_key, "cung_reading", data, self.person.user_id)
+        return data
+
     # ── 7. Phú readings (top N personalized) ────────────────────────────────
 
     SYSTEM_PHU_READ = """Bạn là chuyên gia Tử Vi đọc sâu Phú Thái Vi áp dụng vào lá số CỤ THỂ.
@@ -731,6 +771,7 @@ Viết đọc sâu áp dụng vào lá số."""
             ("luu_nien",  lambda: self.luu_nien(*luu_nien_years)),
             ("luu_nguyet",lambda: self.luu_nguyet(luu_nguyet_year)),
             ("phu_match", lambda: self.phu_match()),
+            ("cung_reading", lambda: self.cung_reading()),
             ("phu_reading", lambda: self.phu_reading(phu_top_n)),
         ]:
             t0 = time.time()
