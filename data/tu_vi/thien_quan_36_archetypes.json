@@ -1,0 +1,356 @@
+{
+  "schema_version": "thien_quan_36_archetypes_v1",
+  "source": "Q4 p0268-p0271 (Phase A Batch 3-4 thâm nhuần 2026-05-20)",
+  "source_quote_hv": "Mệnh tinh thời khắc độ số tổng luận",
+  "source_quote_zh": "命星时刻度数总论",
+  "paradigm_note": "36 archetypes = 12 giờ × 3 khắc (thượng/trung/hạ tứ khắc). Mỗi archetype có cung tên + lục thân profile + sự nghiệp + tổ nghiệp. ĐOÁN PERSONALITY chỉ qua giờ sinh + khắc, KHÔNG cần lá số đầy đủ. Phù hợp users không nhớ chính xác lá số nhưng biết giờ sinh.",
+  "iron_rule": "Đây là gợi mở archetype, KHÔNG predict. 'Bất khả chấp nhất' (Q4 p0299 r018). User tự soi xét.",
+  "khac_levels": {
+    "thượng_tứ_khắc": "Đầu giờ (khắc 1-4)",
+    "trung_tứ_khắc": "Giữa giờ (khắc 5-8)",
+    "hạ_tứ_khắc": "Cuối giờ (khắc 9-12)"
+  },
+  "archetypes": [
+    {
+      "hour": "Tý", "khac": "thượng", "cung_name": "Thiên Khố",
+      "source_ref": "Q4 p0268 r003",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "huynh đệ vô tình, lục thân khó nhờ",
+      "su_nghiep": "tự thành kế, tác sự tiến thối có thành có bại",
+      "y_loc": "bất túc",
+      "summary_vi": "Tự lập, mẹ mất sớm, anh em bạc tình, y lộc không đủ"
+    },
+    {
+      "hour": "Tý", "khac": "trung", "cung_name": "Thiên Quán",
+      "source_ref": "Q4 p0268 r005",
+      "khac_phu_mau": "vô_khắc_phá",
+      "luc_than": "huynh đệ vô tình, thiếu chỗ nương",
+      "su_nghiep": "tác sự khởi đảo, mạt niên xứng ý",
+      "tai_san": "có lục súc + điền tài",
+      "summary_vi": "Trung niên thăng trầm, cuối đời mới yên ổn"
+    },
+    {
+      "hour": "Tý", "khac": "hạ", "cung_name": "(chưa định danh)",
+      "source_ref": "Q4 p0268 r006",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "luc_than": "huynh đệ bất đắc lực, tử tức trì",
+      "su_nghiep": "nhất sinh lao lộc, tác sự hữu đầu vô vĩ",
+      "khuyen": "nghi xuất tổ quá phòng (làm con nuôi)",
+      "summary_vi": "Cha mất sớm, lao lực cả đời, làm việc nửa chừng. Nên xuất tổ"
+    },
+    {
+      "hour": "Sửu", "khac": "thượng", "cung_name": "Hồng Loan",
+      "source_ref": "Q4 p0268 r008",
+      "khac_phu_mau": "vô_khắc_phá",
+      "y_loc": "túc",
+      "to_nghiep": "chiêu được",
+      "tai_nang": "văn vũ giai năng",
+      "quy_nhan": "cận quý nhân",
+      "tu_tuc": "có tai ương",
+      "summary_vi": "Y lộc đủ, hưởng tổ nghiệp, văn võ giỏi, gần quý nhân — nhưng con cái có tai ương"
+    },
+    {
+      "hour": "Sửu", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0268 r009",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "y_loc": "bất túc",
+      "to_nghiep": "khó hưởng, phát đạt muộn",
+      "tinh_cach": "tâm từ khẩu trực, hay sầu oán, dễ thị phi",
+      "summary_vi": "Cha mất sớm, phát đạt muộn, tâm từ miệng thẳng, hay sầu"
+    },
+    {
+      "hour": "Sửu", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0268 r010",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "anh em bạc tình",
+      "tinh_cach": "tâm từ tính trực",
+      "su_nghiep": "y lộc cận quý, nghệ thuật lập thân",
+      "tu_tuc": "hi chiêu (ít con)",
+      "summary_vi": "Mẹ mất sớm, anh em bạc, từ tâm thẳng tính, nhờ nghệ thuật + quý nhân"
+    },
+    {
+      "hour": "Dần", "khac": "thượng", "cung_name": "Thiên Không tinh",
+      "source_ref": "Q4 p0268 r012",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "luc_than": "ít nhờ",
+      "su_nghiep": "thiếu niên lao lộc, tự lập",
+      "y_loc": "bất túc, đa ưu lự",
+      "to_nghiep": "ít hưởng",
+      "summary_vi": "Cha mất sớm, tuổi trẻ lao lực, lo nhiều, vãn niên phát phúc"
+    },
+    {
+      "hour": "Dần", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0268 r013",
+      "khac_phu_mau": "vô_khắc_phá",
+      "y_loc": "túc",
+      "tinh_cach": "tính cấp, khinh khoái, trung trực",
+      "quyen": "có quyền bính, phú quý",
+      "tu_tuc": "đào hoa giáp trúc (đa dạng)",
+      "summary_vi": "Tính nóng nhanh nhẹn trung trực, có quyền bính, con cái đa dạng"
+    },
+    {
+      "hour": "Dần", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0268 r014",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "khó nhờ",
+      "su_nghiep": "mệnh tăng đạo, thân lao lực",
+      "khuyen": "nếu xuất tổ thành gia thì cuối đời hưng",
+      "summary_vi": "Mẹ mất sớm, mệnh tăng đạo, xuất tổ thành gia về già"
+    },
+    {
+      "hour": "Mão", "khac": "thượng", "cung_name": "Thiên Thọ cung",
+      "source_ref": "Q4 p0269 r002-r003",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "luc_than": "huynh đệ vô tình, lục thân đạm bạc",
+      "su_nghiep": "sơ niên bôn ba, tổ nghiệp hưng suy",
+      "summary_vi": "Cha mất sớm, đầu đời bôn ba, sự nghiệp thăng trầm"
+    },
+    {
+      "hour": "Mão", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r004",
+      "khac_phu_mau": "vô_khắc_phá",
+      "tai_san": "hoành tài, cận quý nhân",
+      "su_nghiep": "nghệ thuật lập thân",
+      "trung_man": "phú túc",
+      "summary_vi": "Có ngoại tài, gần quý, nghệ thuật lập thân, cuối đời giàu"
+    },
+    {
+      "hour": "Mão", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r005",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "su_nghiep": "thập thành cửu bại",
+      "hon_nhan": "sơ niên có thêm vợ (tái hôn?), mưu cầu được",
+      "summary_vi": "Mẹ mất sớm, 10 thành 9 bại, hôn nhân tái nhiều lần"
+    },
+    {
+      "hour": "Thìn", "khac": "thượng", "cung_name": "Thiên Ấn cung",
+      "source_ref": "Q4 p0269 r006-r007",
+      "summary_vi": "(p0269 r006 header — chi tiết ở r007+, cần đọc thêm)"
+    },
+    {
+      "hour": "Thìn", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r008",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "y_loc": "tân khổ",
+      "to_nghiep": "hi sơ",
+      "su_nghiep": "tiến thối đa đoan, cước mang thủ loạn",
+      "tu_tuc": "không cô",
+      "summary_vi": "Cha mất sớm, y lộc vất vả, sự nghiệp thoái đa, con không cô độc"
+    },
+    {
+      "hour": "Thìn", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r009",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "huynh đệ vô, lục thân ít nương",
+      "su_nghiep": "ấu niên bôn ba, đảo lộn tổ nghiệp",
+      "phu_the": "hòa hiệp",
+      "summary_vi": "Mẹ mất sớm, anh em không có, tuổi trẻ bôn ba, vợ chồng hòa hiệp"
+    },
+    {
+      "hour": "Tỵ", "khac": "thượng", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r010",
+      "khac_phu_mau": "vô_khắc_phá",
+      "luc_than": "huynh đệ 3-4, văn võ",
+      "tinh_cach": "đại sự hóa tiểu, phùng hiểm bất phạ",
+      "phu_the": "vợ đẹp",
+      "tu_tuc": "2-3 con",
+      "to_nghiep": "phả chiêu",
+      "summary_vi": "Anh em 3-4 văn võ, gặp nguy không sợ, vợ đẹp, hưởng tổ nghiệp"
+    },
+    {
+      "hour": "Tỵ", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r011",
+      "khac_phu_mau": "tiên_khắc_vô (= mẹ?)",
+      "tinh_cach": "đa kế xảo, ngôn từ quá nhân",
+      "luc_than": "anh em sum vầy, tổ nghiệp hưng",
+      "summary_vi": "Mẹ mất, mưu kế nhiều, lời nói trội, anh em đông, hưng gia"
+    },
+    {
+      "hour": "Tỵ", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r012",
+      "khac_phu_mau": "(không rõ — bất đắc lực)",
+      "luc_than": "huynh đệ vô tình",
+      "phu_the": "tảo hài",
+      "tu_tuc": "đào hoa giáp trúc",
+      "summary_vi": "Lục thân vô tình, vợ sớm, con cái đa dạng, cuối đời thành gia"
+    },
+    {
+      "hour": "Ngọ", "khac": "thượng", "cung_name": "(unnamed — Tử Vi Đẩu Số header at p0269 r015)",
+      "source_ref": "Q4 p0269 r016",
+      "khac_phu_mau": "vô_khắc_phá",
+      "quy_nhan": "cận quý nhân",
+      "y_loc": "túc",
+      "to_nghiep": "tự văn võ giai năng hoặc nghệ thuật lập thân",
+      "luc_than": "huynh đệ hữu vô tình",
+      "summary_vi": "Gần quý, y lộc đủ, văn võ giỏi, nghệ thuật lập thân"
+    },
+    {
+      "hour": "Ngọ", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r017",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "y_loc": "tân khổ",
+      "su_nghiep": "đa thành đa bại, tiên nan hậu dịch",
+      "tu_tuc": "sơ hư hậu thực",
+      "summary_vi": "Cha mất sớm, đa thành đa bại, con đầu hư sau"
+    },
+    {
+      "hour": "Ngọ", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0269 r018 + p0270 r001",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "huynh đệ vô kháo",
+      "su_nghiep": "thập thành cửu bại, tiến thối đa đoan",
+      "tu_tuc": "không cô",
+      "summary_vi": "Mẹ mất sớm, mười thành chín bại, tự hưng gia"
+    },
+    {
+      "hour": "Mùi", "khac": "thượng", "cung_name": "Tử Vi điện giá",
+      "source_ref": "Q4 p0270 r002-r003",
+      "khac_phu_mau": "vô_khắc_phá",
+      "luc_than": "anh em 4, hòa khí",
+      "tinh_cach": "đáo xứ xuân phong, tâm hành bình trực",
+      "khuyen": "xuất tổ thành gia, lục thân hi chiêu hòa",
+      "summary_vi": "Anh em 4 hòa khí, tâm trực, xuất tổ thành gia, tổ nghiệp phả chiêu"
+    },
+    {
+      "hour": "Mùi", "khac": "trung", "cung_name": "Thiên Hư cung",
+      "source_ref": "Q4 p0270 r004",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "y_loc": "túc",
+      "tinh_cach": "tâm hành công đạo, tức trung chiêu oán",
+      "khuyen": "xuất tổ thành gia",
+      "summary_vi": "Cha mất sớm, y lộc đủ, tâm công đạo, lập gia khỏi tổ"
+    },
+    {
+      "hour": "Mùi", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0270 r005",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "anh em 2-3",
+      "y_loc": "túc",
+      "tinh_cach": "tâm từ tính trực, có công, phùng hung bất phạ",
+      "summary_vi": "Mẹ mất sớm, anh em 2-3, từ tâm thẳng tính, gan dạ, đời yên ổn"
+    },
+    {
+      "hour": "Thân", "khac": "thượng", "cung_name": "Thiên Lộc phân cung",
+      "source_ref": "Q4 p0270 r006",
+      "khac_phu_mau": "vô_khắc_phá",
+      "tinh_cach": "cận quý, tính xảo thông minh",
+      "an_on": "phùng nguy bất hiểm, đại sự hóa tiểu",
+      "luc_than": "hòa thuận",
+      "summary_vi": "Gần quý, thông minh khéo, gặp nguy không hiểm, một đời an ổn"
+    },
+    {
+      "hour": "Thân", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0270 r006-l002",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "luc_than": "lục thân bất đắc lực",
+      "su_nghiep": "tự lập, cận quan, thông minh",
+      "phu_the": "lưỡng ngạnh (cứng)",
+      "summary_vi": "Cha mất sớm, tự vươn lên gần quan, vợ cứng rắn, con đầu hư"
+    },
+    {
+      "hour": "Thân", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0270 r006-l003",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "huynh đệ vô kháo",
+      "phu_the": "tảo hài",
+      "tu_tuc": "đào hoa giáp trúc",
+      "tinh_cach": "đa xảo đa năng",
+      "summary_vi": "Mẹ mất sớm, vợ hiểu sớm, con đa dạng, người khéo nhiều tài"
+    },
+    {
+      "hour": "Dậu", "khac": "thượng", "cung_name": "Thiên Phúc phân cung",
+      "source_ref": "Q4 p0270 r008",
+      "khac_phu_mau": "vô_khắc_phá",
+      "y_loc": "túc",
+      "to_nghiep": "chiêu được",
+      "tinh_cach": "tính xảo thông minh, dũng mãnh như rồng hổ, văn võ giai thông",
+      "summary_vi": "Y lộc đủ, hưởng tổ nghiệp, văn võ tinh thông, dũng mãnh"
+    },
+    {
+      "hour": "Dậu", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0270 r008-l002",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "luc_than": "huynh đệ thiểu kháo",
+      "quy_nhan": "cận quý nhân",
+      "tinh_cach": "tâm chính đạo",
+      "su_nghiep": "có đầu không vẹn, xuất tổ thành gia",
+      "summary_vi": "Cha mất sớm, gần quý, tâm chính đạo, lập nghiệp khỏi tổ"
+    },
+    {
+      "hour": "Dậu", "khac": "hạ", "cung_name": "Văn Xương phân cung",
+      "source_ref": "Q4 p0270 r009",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "luc_than": "không giúp, anh em vô tình",
+      "su_nghiep": "đa thành đa bại, gây oán, tự lo kế",
+      "tu_tuc": "trì chiêu",
+      "summary_vi": "Mẹ mất sớm, anh em vô tình, đa thành đa bại, hay lui bước"
+    },
+    {
+      "hour": "Tuất", "khac": "thượng", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0270 r010 + p0271 r001",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "luc_than": "huynh đệ bất đắc lực",
+      "y_loc": "túc",
+      "tinh_cach": "tâm trực lương thiện, hữu hoạnh tài",
+      "khuyen": "xuất tổ thành gia, ít hiếu thuận",
+      "warning": "tổn thê hoán tục (vợ thay đổi)",
+      "summary_vi": "Cha mất sớm, tâm thẳng lương thiện, có ngoại tài, vợ thay đổi liên tục"
+    },
+    {
+      "hour": "Tuất", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0271 r002",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "tinh_cach": "đa kế giác, tính xảo thông minh, hảo sinh khoái lạc, ngôn từ quá nhân",
+      "luc_than": "hi hòa, huynh đệ tu hữu vô",
+      "to_nghiep": "hưng gia, trung mạt tắc cát",
+      "summary_vi": "Mẹ mất sớm, thông minh xảo, hảo lạc, lời nói trội, cuối đời cát"
+    },
+    {
+      "hour": "Tuất", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0271 r003",
+      "khac_phu_mau": "vô_khắc_phá",
+      "tinh_cach": "không đắc lực nhưng tính kế thông minh, văn võ giai năng",
+      "su_nghiep": "xuất gia có quyền, năng chủ phú quý",
+      "tu_tuc": "tiên hư hậu thực",
+      "summary_vi": "Văn võ giỏi nhưng không đắc lực, có quyền phú quý, con đầu hư sau thực"
+    },
+    {
+      "hour": "Hợi", "khac": "thượng", "cung_name": "Thiên Quán Phân Cung",
+      "source_ref": "Q4 p0271 r004-r005",
+      "khac_phu_mau": "tiên_khắc_mẫu",
+      "tinh_cach": "tác sự lược vi năng",
+      "luc_than": "thiểu kháo, huynh đệ vô tình",
+      "su_nghiep": "trung mạt tắc cát, tự thành gia",
+      "summary_vi": "Mẹ mất sớm, làm việc hơi có năng, anh em vô tình, cuối đời thành gia",
+      "variant_note": "Q4 p0271 r006-r007 có 'Hựu Thiên Quán Phân Cung' (variant 2) với rule khác — KHÔNG cô lập + xuất tổ thành gia + con muộn + cuối đời cát"
+    },
+    {
+      "hour": "Hợi", "khac": "trung", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0271 r008",
+      "khac_phu_mau": "vô_khắc_phá",
+      "luc_than": "30 năm đầu cha mẹ còn",
+      "tinh_cach": "tác sự khởi đảo, tự có quyền bính, phùng hung bất phạ, đảm chí cương",
+      "luc_than_late": "hi hòa, huynh đệ tình sơ",
+      "summary_vi": "30 năm đầu cha mẹ còn, sự nghiệp thăng trầm có quyền, gan dạ, gia tộc thưa"
+    },
+    {
+      "hour": "Hợi", "khac": "hạ", "cung_name": "(unnamed)",
+      "source_ref": "Q4 p0271 r009",
+      "khac_phu_mau": "tiên_khắc_phụ",
+      "y_loc": "bất túc",
+      "tinh_cach": "hòa nhu, nan vi đầu",
+      "luc_than": "phu thê + lục thân ít kháo, huynh đệ vô tình",
+      "su_nghiep": "sơ niên một thành một bại, mạt niên phương lập thành gia",
+      "summary_vi": "Cha mất sớm, y lộc thiếu, hòa nhu khó làm đầu, đầu đời thành bại, cuối đời thành gia"
+    }
+  ],
+  "engine_notes": {
+    "usage": "Input: birth_hour (Tý/Sửu/.../Hợi) + khac_level (thượng/trung/hạ). Output: archetype dict với cung name + lục thân + sự nghiệp + tổ nghiệp profile.",
+    "ui_presentation": [
+      "Quick personality preview KHÔNG cần cast full chart",
+      "Highlight cảnh báo (tiên khắc phụ/mẫu) nhẹ nhàng",
+      "Dùng làm 1 layer trong birth_hour_quiz v3 — match user behavior vs 36 archetypes"
+    ],
+    "iron_rule_wrap": "Mỗi output PHẢI kèm note: 'Đây là archetype CHUNG theo giờ-khắc — không thay thế lá số Tử Vi đầy đủ. Anh có thể không match 100%.' (Iron Rule #6 + paradigm 'bất khả chấp nhất')"
+  }
+}

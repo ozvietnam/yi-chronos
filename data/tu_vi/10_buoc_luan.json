@@ -1,0 +1,95 @@
+{
+  "schema_version": "tu_vi_10_buoc_luan_v1",
+  "source": "Q4 p0266 r003 Trần Đoàn chính thức",
+  "source_quote_hv": "Nhất định thời khắc, nhị khởi bát tự, tam lập cách cục, tứ bài tinh thần, ngũ lập tọa mệnh, lục khởi đại vận, thất khởi đại hạn, bát thư hóa diệu, cửu thư hỉ kỵ, thập bài cát hung.",
+  "source_quote_zh": "一定时刻，二起八字，三立格局，四排星辰，五立坐命，六起大运，七起大限，八书化曜，九书喜忌，十排吉凶。",
+  "paradigm_note": "Đây là TRÌNH TỰ CHÍNH THỨC luận lá số Tử Vi theo Trần Đoàn. Sage Tử Vi PHẢI tuân theo 10 bước này, KHÔNG ad-hoc. Phase A Batch 3 thâm nhuần (2026-05-20).",
+  "steps": [
+    {
+      "step": 1,
+      "name_vi": "Định thời khắc",
+      "name_zh": "定时刻",
+      "description": "Định giờ sinh + 3 khắc (thượng/trung/hạ tứ khắc). 12 giờ × 3 khắc = 36 điểm khởi đầu.",
+      "engine_module": "engine.chronos + rectification_rules",
+      "source_detail": "Q4 p0266 r003-l001 + p0267 (Định thời khắc lệ + Tiểu nhi thời khắc)"
+    },
+    {
+      "step": 2,
+      "name_vi": "Khởi Bát Tự",
+      "name_zh": "起八字",
+      "description": "Tứ Trụ (Niên-Nguyệt-Nhật-Thời) — xét sinh vượng / hình xung / tam hợp / lục hợp / sát / mộ khố / không vong.",
+      "engine_module": "engine.bat_tu",
+      "key_factors": ["nhật chủ sinh vượng", "hình xung phá hại", "tam hợp lục hợp", "sát khí hóa", "mộ khố không vong"]
+    },
+    {
+      "step": 3,
+      "name_vi": "Lập cách Dụng Thần",
+      "name_zh": "立格用神",
+      "description": "Xét Tài/Quan/Ấn/Thực/Thương Quan/Tỷ Kiếp/Thiên Đức Nguyệt Đức + 985 cách kinh điển + cách đặc thù (Củng cách, Tỉnh Lan, Đảo Xung, Triêu Dương, Long Bối, Tùng cách).",
+      "engine_module": "engine.tu_vi.cach_cuc_dict",
+      "key_factors": ["thập thần", "tứ đức", "quý lộc nhẫn sát", "lộc mã hướng bối", "kim thần khôi cương", "củng cách", "tùng cách"]
+    },
+    {
+      "step": 4,
+      "name_vi": "Bài tinh thần (An sao)",
+      "name_zh": "排星辰",
+      "description": "An 14 chính tinh + 6 phụ tinh + 7 sát tinh + Tứ Hóa vào 12 cung dựa trên Cuc + ngày sinh.",
+      "engine_module": "engine.tu_vi.an_sao",
+      "covered_by": "Q2"
+    },
+    {
+      "step": 5,
+      "name_vi": "Lập tọa Mệnh",
+      "name_zh": "立坐命",
+      "description": "Tam phương tứ chính + 12 cung thân + vòng Trường Sinh + mã tiền sát + tọa mộ tọa lộc.",
+      "engine_module": "engine.tu_vi.an_sao + interpretation",
+      "key_factors": ["tam phương", "tứ chính", "trường sinh 12 cung", "mã tiền sát", "tọa mộ tọa lộc", "gia bàn thông quan"]
+    },
+    {
+      "step": 6,
+      "name_vi": "Khởi Đại Vận",
+      "name_zh": "起大运",
+      "description": "Vận 10 năm — sinh phù tiết chế, hợp khắc hướng bội, mộ khố khải áp.",
+      "engine_module": "engine.tu_vi.analyzer.dai_van_annotate",
+      "key_factors": ["sinh phù bác tiết", "hợp khắc hướng bối", "mộ khố khải áp"]
+    },
+    {
+      "step": 7,
+      "name_vi": "Khởi Đại Hạn / Lưu Niên",
+      "name_zh": "起大限",
+      "description": "Hạn từng năm — Thái Tuế chinh phạm + hình hợp nhật chủ + sát mộ chiếu chính.",
+      "engine_module": "engine.tu_vi.analyzer.luu_nien",
+      "key_factors": ["nhật tuế chinh phạm", "quỷ bại xung phạm", "phản ngâm phục ngâm", "thiên la địa võng"]
+    },
+    {
+      "step": 8,
+      "name_vi": "Thư Tứ Hóa",
+      "name_zh": "书化曜",
+      "description": "Hóa Lộc / Hóa Quyền / Hóa Khoa / Hóa Kỵ theo năm sinh + flow qua Đại Vận/Lưu Niên.",
+      "engine_module": "engine.tu_vi.an_sao tu_hoa",
+      "key_factors": ["lộc tồn", "quyền tinh", "khoa danh", "hóa kỵ chuyển vận"]
+    },
+    {
+      "step": 9,
+      "name_vi": "Thư hỉ kỵ",
+      "name_zh": "书喜忌",
+      "description": "Đảo hạn thần sát + cứu trợ. Lộc Tồn + Thiên Mã đảo lộn → vận hạn nghịch.",
+      "engine_module": "engine.tu_vi.psychological_safety + analyzer",
+      "key_factors": ["hữu vô cứu trợ", "lộc mã tận đảo", "trực nan tinh chủ", "hóa diệu cát hung"]
+    },
+    {
+      "step": 10,
+      "name_vi": "Bài cát hung",
+      "name_zh": "排吉凶",
+      "description": "Đoán ứng kỳ niên/nguyệt/nhật/thời/khắc — nhưng DÙNG 'mỗ' pattern, KHÔNG predict cứng (Iron Rule #6 + paradigm 'bất khả chấp nhất' p0299 r018).",
+      "engine_module": "engine.tu_vi.analyzer.phe_menh",
+      "key_factors": ["lạc chẩn an ủy", "tao hổ ngộ xà", "đoán tử mệnh vận hạn"],
+      "iron_rule_note": "BƯỚC 10 phải wrap 'mỗ' pattern — Q4 p0299 r018: 'Thập bát tinh chuyển, tại nhân biến thông. Bất khả chấp nhất.' KHÔNG phán cứng năm/tháng/ngày cụ thể."
+    }
+  ],
+  "engine_implications": {
+    "sage_soul": "Tử Vi Sage SOUL.md PHẢI embed 10 bước này làm checklist khi luận lá số. Hiện chưa có.",
+    "phe_menh_generator": "phe_menh() đã được update structure theo 10 bước (5 sections gộp). Phase C Done.",
+    "ui_panel": "TuViLaSoPanel.vue có thể show progress 10 bước (đã làm bước nào, chưa bước nào) — Phase D11."
+  }
+}

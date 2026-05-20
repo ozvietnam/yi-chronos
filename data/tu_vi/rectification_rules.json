@@ -1,0 +1,59 @@
+{
+  "schema_version": "tu_vi_rectification_v1",
+  "source": "Q4 p0267 (Phase A Batch 3 thâm nhuần 2026-05-20)",
+  "paradigm_note": "2 phương pháp Trần Đoàn dạy để suy giờ sinh khi user không biết chính xác: (1) qua hoạt động hàng ngày; (2) qua đỉnh đầu trẻ nhỏ. Bổ sung birth_hour_quiz v2 hiện có.",
+  "method_1_daily_activity": {
+    "title": "Định thời khắc lệ — suy giờ qua hoạt động hàng ngày",
+    "source_quote_hv": "Bán dạ tý khắc kê minh sửu, bình đán dần thời nhật xuất mão. Thực thời thần hề chúc trung tị, ngọ nhật trung vị nhật trắc diểu. Hoàng hôn tuất hề thụy chúc hợi, bộ thời thân hề nhật nhập dậu.",
+    "source_quote_zh": "半夜子刻鸡鸣丑，平旦寅时日出卯。食时辰兮烛中巳，午日中未日仄杳。黄昏戌兮睡烛亥，晡时申兮日入酉。",
+    "source_ref": "Q4 p0267 r022-r024",
+    "mapping": [
+      {"hour_branch": "Tý", "activity_vi": "Nửa đêm", "activity_zh": "半夜", "approx_clock": "23:00-01:00"},
+      {"hour_branch": "Sửu", "activity_vi": "Gà gáy", "activity_zh": "鸡鸣", "approx_clock": "01:00-03:00"},
+      {"hour_branch": "Dần", "activity_vi": "Bình minh / hửng sáng", "activity_zh": "平旦", "approx_clock": "03:00-05:00"},
+      {"hour_branch": "Mão", "activity_vi": "Mặt trời mọc", "activity_zh": "日出", "approx_clock": "05:00-07:00"},
+      {"hour_branch": "Thìn", "activity_vi": "Ăn sáng (thực thời)", "activity_zh": "食时", "approx_clock": "07:00-09:00"},
+      {"hour_branch": "Tỵ", "activity_vi": "Trước trưa (giữa nến cháy)", "activity_zh": "中巳/隅中", "approx_clock": "09:00-11:00"},
+      {"hour_branch": "Ngọ", "activity_vi": "Giữa trưa", "activity_zh": "日中", "approx_clock": "11:00-13:00"},
+      {"hour_branch": "Mùi", "activity_vi": "Xế trưa (mặt trời lệch)", "activity_zh": "日仄/日昳", "approx_clock": "13:00-15:00"},
+      {"hour_branch": "Thân", "activity_vi": "Xế chiều (bộ thời)", "activity_zh": "晡时", "approx_clock": "15:00-17:00"},
+      {"hour_branch": "Dậu", "activity_vi": "Mặt trời lặn", "activity_zh": "日入", "approx_clock": "17:00-19:00"},
+      {"hour_branch": "Tuất", "activity_vi": "Hoàng hôn", "activity_zh": "黄昏", "approx_clock": "19:00-21:00"},
+      {"hour_branch": "Hợi", "activity_vi": "Đi ngủ (thụy chúc)", "activity_zh": "睡时", "approx_clock": "21:00-23:00"}
+    ]
+  },
+  "method_2_infant_skull": {
+    "title": "Tiểu nhi thời khắc ứng lệ — suy giờ qua đỉnh đầu trẻ + hướng cha",
+    "source_quote_hv": "Tý ngọ mão dậu hướng phụ sinh, nhân vật tiểu xảo đỉnh trung bình. Dần thân tị hợi song đỉnh định, bán phiến hướng phụ thể trung đình. Thìn tuất sửu mùi hoàn phiên đỉnh, bội sinh ư phụ hệ phì nhân.",
+    "source_quote_zh": "子午卯酉向父生，人物小巧顶中平。寅申巳亥双顶定，半偏向父体中庭。辰戌丑未还翻顶，背生于父系肥人。",
+    "source_ref": "Q4 p0267 r018-r020",
+    "patterns": [
+      {
+        "hour_branches": ["Tý", "Ngọ", "Mão", "Dậu"],
+        "skull_vi": "Đỉnh phẳng giữa",
+        "skull_zh": "顶中平",
+        "body_vi": "Nhân vật nhỏ khéo (tiểu xảo)",
+        "father_relation": "Hướng cha (face father at birth)"
+      },
+      {
+        "hour_branches": ["Dần", "Thân", "Tỵ", "Hợi"],
+        "skull_vi": "Hai đỉnh xương (song đỉnh)",
+        "skull_zh": "双顶",
+        "body_vi": "Thân hình cân đối (thể trung đình)",
+        "father_relation": "Hơi hướng cha (bán phiến hướng phụ)"
+      },
+      {
+        "hour_branches": ["Thìn", "Tuất", "Sửu", "Mùi"],
+        "skull_vi": "Đỉnh lệch (phiên đỉnh)",
+        "skull_zh": "翻顶",
+        "body_vi": "Người béo (phì nhân)",
+        "father_relation": "Quay lưng cha (bội sinh ư phụ)"
+      }
+    ]
+  },
+  "engine_notes": {
+    "usage": "Cross-link với birth_hour_quiz v2 hiện có. Cho user trả lời activity / skull pattern → narrow down giờ.",
+    "limitation": "Method 1 = chính xác ±2 giờ (chỉ map 1 giờ thẳng). Method 2 = chỉ narrow 4 trong 12 giờ (cần thêm method khác để xác định 1 trong 4).",
+    "combined_rectification": "Birth_hour_quiz v3 nên dùng cả 3 layer: (1) activity Q4 method 1, (2) skull pattern Q4 method 2 (nếu parent biết), (3) Bát Tự pillar comparison (existing v2)."
+  }
+}
