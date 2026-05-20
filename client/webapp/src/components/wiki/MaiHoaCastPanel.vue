@@ -48,6 +48,9 @@ const hourChi = ref(getCurrentHourChi());
 const userIntent = ref("");
 const intentKey = ref("general");
 const intents = ref([]);
+// ⭐ 11 chiêm chuyên đề (Mai Hoa Q2)
+const chiemTopicKey = ref("");
+const chiemTopics = ref([]);
 const result = ref(null);
 const interpretation = ref(null);
 const loading = ref(false);
@@ -116,6 +119,7 @@ async function cast(saveIt = false) {
         intent: intentKey.value,
         external_omen: externalOmen.value || null,
         posture: posture.value || null,
+        chiem_topic_key: chiemTopicKey.value || "",
       }),
     });
     const idata = await ir.json();
@@ -138,6 +142,7 @@ async function cast(saveIt = false) {
           intent: intentKey.value,
           external_omen: externalOmen.value || null,
           posture: posture.value || null,
+          chiem_topic_key: chiemTopicKey.value || "",
         },
         result_json: { cast: d, interpretation: idata },
         verdict: verdict.trim() || null,
@@ -158,6 +163,15 @@ async function loadIntents() {
   } catch (e) {}
 }
 loadIntents();
+
+async function loadChiemTopics() {
+  try {
+    const r = await fetch("/api/yi-wiki/chiem-topics");
+    const d = await r.json();
+    if (d.status === "ok") chiemTopics.value = d.topics;
+  } catch (e) {}
+}
+loadChiemTopics();
 
 const cauChuData = ref(null);
 async function loadCauChu() {
@@ -332,6 +346,17 @@ const relation = computed(() => {
           </select>
         </label>
       </div>
+      <div class="form-row">
+        <label class="flex-1">
+          🎯 Chiêm chuyên đề (11 chiêm Q2 Thiệu) — chọn loại việc để nhận phân tích tam yếu đặc thù:
+          <select v-model="chiemTopicKey">
+            <option value="">(chưa chọn — chiêm chung)</option>
+            <option v-for="t in chiemTopics" :key="t.key" :value="t.key">
+              {{ t.name_vi }} · {{ t.name_han_viet }}
+            </option>
+          </select>
+        </label>
+      </div>
 
       <!-- ⭐ Phase A 18/5 — BƯỚC 3 + BƯỚC 4 Tổ sư (Q3 tr.112-114) -->
       <div class="four-steps-block">
@@ -461,6 +486,46 @@ const relation = computed(() => {
       <!-- ⭐ 5-step interpretation (Thiệu Khang Tiết) -->
       <div v-if="interpretation" class="interp-block">
         <h3>🔍 Phân tích 5 bước Thiệu Khang Tiết</h3>
+
+        <!-- ⭐ TAM YẾU verdict banner (Mai Hoa Q1 thâm nhuần) -->
+        <div v-if="interpretation.tam_yeu"
+             class="tam-yeu-banner"
+             :class="'ty-' + (interpretation.tam_yeu.verdict?.split(' ')[0]?.toLowerCase().replace('đại','dai') || 'binh')">
+          <div class="ty-verdict">
+            ⚖ TAM YẾU: <strong>{{ interpretation.tam_yeu.verdict }}</strong>
+          </div>
+          <div class="ty-score">Điểm: {{ interpretation.tam_yeu.score > 0 ? '+' : '' }}{{ interpretation.tam_yeu.score }}</div>
+          <div class="ty-grid">
+            <div class="ty-card">
+              <span class="ty-label">Yếu 1 — Quẻ Chánh</span>
+              <span class="ty-val">{{ interpretation.tam_yeu.yeu_1_que_chanh }}</span>
+            </div>
+            <div class="ty-card">
+              <span class="ty-label">Yếu 2 — Quái Khí</span>
+              <span class="ty-val">{{ interpretation.tam_yeu.yeu_2_quai_khi }}</span>
+            </div>
+            <div class="ty-card">
+              <span class="ty-label">Yếu 3 — Khắc Ứng</span>
+              <span class="ty-val">{{ interpretation.tam_yeu.yeu_3_khac_ung }}</span>
+            </div>
+          </div>
+          <p v-if="interpretation.tam_yeu.note" class="ty-note">💡 {{ interpretation.tam_yeu.note }}</p>
+        </div>
+
+        <!-- ⭐ 11 chiêm chuyên đề (Mai Hoa Q2 thâm nhuần) -->
+        <div v-if="interpretation.chiem_topic && interpretation.chiem_topic.topic_detected"
+             class="chiem-topic-block">
+          <h4>🎯 {{ interpretation.chiem_topic.topic_name }}</h4>
+          <p class="ct-advice">{{ interpretation.chiem_topic.topic_advice }}</p>
+          <div v-if="interpretation.chiem_topic.applicable_rules?.length" class="ct-rules">
+            <div class="ct-rules-head">Quy tắc đặc thù áp dụng:</div>
+            <ul>
+              <li v-for="(rule, idx) in interpretation.chiem_topic.applicable_rules" :key="idx">
+                {{ rule }}
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <!-- ⭐⭐⭐⭐ Phase A 18/5 — PARADIGM SHIFT (Vận Pháp Thi Q3 tr.78) -->
         <div v-if="interpretation.paradigm && interpretation.paradigm.mirror_reading"
@@ -1424,4 +1489,46 @@ const relation = computed(() => {
 @media (max-width: 700px) {
   .fs-grid { grid-template-columns: 1fr; }
 }
+
+/* TAM YẾU verdict banner */
+.tam-yeu-banner {
+  margin: 1rem 0;
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.ty-dai_cat { background: linear-gradient(135deg, #052e16, #14532d); border-color: #4ade80; }
+.ty-cat    { background: linear-gradient(135deg, #052e16bb, #166534bb); border-color: #86efac; }
+.ty-binh   { background: linear-gradient(135deg, #1e293b, #334155); border-color: #94a3b8; }
+.ty-hung   { background: linear-gradient(135deg, #431407, #7c2d12bb); border-color: #fb923c; }
+.ty-dai_hung { background: linear-gradient(135deg, #450a0a, #7f1d1d); border-color: #f87171; }
+
+.ty-verdict { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+.ty-dai_cat .ty-verdict, .ty-cat .ty-verdict { color: #4ade80; }
+.ty-binh .ty-verdict { color: #e2e8f0; }
+.ty-hung .ty-verdict { color: #fb923c; }
+.ty-dai_hung .ty-verdict { color: #f87171; }
+
+.ty-score { font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.6rem; }
+.ty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.5rem; }
+.ty-card { background: rgba(0,0,0,0.25); border-radius: 6px; padding: 0.45rem 0.6rem; }
+.ty-label { display: block; font-size: 0.72rem; color: #94a3b8; margin-bottom: 0.15rem; }
+.ty-val { font-size: 0.82rem; color: #e2e8f0; line-height: 1.4; }
+.ty-note { margin: 0.4rem 0 0; font-size: 0.82rem; color: #c4b5fd; line-height: 1.5; }
+@media (max-width: 600px) { .ty-grid { grid-template-columns: 1fr; } }
+
+/* 11 chiêm chuyên đề */
+.chiem-topic-block {
+  margin: 0.8rem 0;
+  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  border: 1px solid #4f46e5;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+.chiem-topic-block h4 { margin: 0 0 0.4rem; color: #a5b4fc; font-size: 0.95rem; }
+.ct-advice { margin: 0 0 0.5rem; font-size: 0.85rem; color: #e2e8f0; line-height: 1.5; }
+.ct-rules { margin-top: 0.3rem; }
+.ct-rules-head { font-size: 0.78rem; color: #94a3b8; margin-bottom: 0.25rem; }
+.ct-rules ul { margin: 0; padding-left: 1.2rem; }
+.ct-rules li { font-size: 0.8rem; color: #c4b5fd; line-height: 1.6; }
 </style>

@@ -3336,6 +3336,8 @@ class MaiHoaInterpretRequest(BaseModel):
     # ⭐ Phase A 18/5 — BƯỚC 3+4 Tổ sư (Q3 tr.112-114)
     external_omen: str | None = None  # text mô tả hiện tượng bất thường lúc khởi quẻ
     posture: str | None = None        # "nằm" | "ngồi" | "đứng" | "đi" | "chạy"
+    # ⭐ 11 chiêm chuyên đề (Mai Hoa Q2) — code trực tiếp, vd "thien_thoi", "hon_nhan"
+    chiem_topic_key: str = ""
 
 
 @app.get("/api/yi-wiki/intents")
@@ -3346,6 +3348,22 @@ def yi_wiki_intents() -> dict:
         "status": "ok",
         "intents": [{"key": k, **v} for k, v in INTENT_REGISTRY.items()],
     }
+
+
+@app.get("/api/yi-wiki/chiem-topics")
+def yi_wiki_chiem_topics() -> dict:
+    """11 chiêm chuyên đề từ Mai Hoa Q2 — dùng cho dropdown frontend."""
+    from engine.yi_wiki.chiem_topics import CHIEM_TOPICS
+    topics = [
+        {
+            "key": t.code,
+            "name_vi": t.name_vi,
+            "name_han_viet": t.name_han_viet,
+            "description": t.description,
+        }
+        for t in CHIEM_TOPICS.values()
+    ]
+    return {"status": "ok", "topics": topics}
 
 
 @app.get("/api/yi-wiki/figures")
@@ -3606,6 +3624,57 @@ def yi_wiki_cau_chu() -> dict:
             },
         ],
     }
+
+
+def _build_tam_yeu_summary(r) -> dict | None:
+    from engine.yi_wiki.interpret import tam_yeu_summary
+    try:
+        return tam_yeu_summary(
+            the_que=r.the_dung.the_que,
+            dung_que=r.the_dung.dung_que,
+            relationship=r.the_dung.relationship,
+            auspice=r.the_dung.auspice,
+            the_quaikhi=r.the_quaikhi,
+            external_omen_category=r.external_omen_category,
+            external_omen_weight=r.external_omen_weight,
+            external_omen_thap_ung=r.external_omen_thap_ung,
+        )
+    except Exception:
+        return None
+
+
+def _build_chiem_topic(req, r) -> dict | None:
+    from engine.yi_wiki.chiem_topics import CHIEM_TOPICS, interpret_by_topic
+    key = getattr(req, 'chiem_topic_key', '') or ''
+    try:
+        if key and key in CHIEM_TOPICS:
+            # Direct lookup — bypass keyword detection
+            topic = CHIEM_TOPICS[key]
+            applicable = [
+                rule for rule in topic.special_rules
+                if r.the_dung.the_que.lower() in rule.lower()
+                or r.the_dung.dung_que.lower() in rule.lower()
+            ]
+            return {
+                "topic_detected": topic.code,
+                "topic_name": f"{topic.name_vi} ({topic.name_han_viet})",
+                "topic_advice": (
+                    f"[{topic.name_vi}] Thể ({r.the_dung.the_que}) = {topic.the_dung_focus.split(',')[0].strip()}. "
+                    f"Quẻ {r.the_dung.auspice} — {topic.description}."
+                ),
+                "applicable_rules": applicable or topic.special_rules[:3],
+            }
+        # Fallback: keyword detection on intent string
+        question = getattr(req, 'intent', '') or ''
+        return interpret_by_topic(
+            question=question,
+            the_que=r.the_dung.the_que,
+            dung_que=r.the_dung.dung_que,
+            relationship=r.the_dung.relationship,
+            auspice=r.the_dung.auspice,
+        )
+    except Exception:
+        return None
 
 
 @app.post("/api/yi-wiki/interpret")
