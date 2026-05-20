@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Chi Giờ Wiki Entry",
+  "description": "Schema for one of the 12 Earthly Branch (chi giờ) wiki entries. Each file holds extensible knowledge about a 2-hour period including core traits, bordering relationships, third-level subdivisions for minute rectification, and a question bank for discrimination quizzes.",
+  "type": "object",
+  "required": ["id", "range_hours", "ngu_hanh", "am_duong", "tcm_organ", "core_traits", "bordering"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "enum": ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
+    },
+    "range_hours": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 0, "maximum": 23},
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[start_hour, end_hour]. For Tý spans midnight: [23, 1]."
+    },
+    "wraps_midnight": {"type": "boolean", "default": false},
+    "ngu_hanh": {"type": "string", "enum": ["Kim", "Mộc", "Thuỷ", "Hoả", "Thổ"]},
+    "am_duong": {"type": "string", "enum": ["Âm", "Dương"]},
+    "tcm_organ": {"type": "string", "description": "TCM organ governing this 2-hour period"},
+    "animal_vi": {"type": "string"},
+    "animal_zh": {"type": "string"},
+
+    "core_traits": {
+      "type": "object",
+      "required": ["personality", "physical", "daily_habit"],
+      "properties": {
+        "personality": {"type": "array", "items": {"type": "string"}},
+        "physical":    {"type": "array", "items": {"type": "string"}},
+        "daily_habit": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+
+    "bordering": {
+      "type": "object",
+      "required": ["previous", "next"],
+      "description": "Adjacent chi (chi giờ liền trước + liền sau) with leaking traits — used for boundary rectification.",
+      "properties": {
+        "previous": {
+          "type": "object",
+          "properties": {
+            "chi": {"type": "string"},
+            "leak_traits": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "next": {
+          "type": "object",
+          "properties": {
+            "chi": {"type": "string"},
+            "leak_traits": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    },
+
+    "thirds": {
+      "type": "object",
+      "description": "Inner subdivision for minute-level rectification (3 thirds × ~40 min each).",
+      "properties": {
+        "early":  {"$ref": "#/definitions/third"},
+        "middle": {"$ref": "#/definitions/third"},
+        "late":   {"$ref": "#/definitions/third"}
+      }
+    },
+
+    "discrimination_questions": {
+      "type": "object",
+      "description": "Question bank organized by neighbor pair. Keys: 'vs_<chi>_<position>' where position = early|late.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"$ref": "#/definitions/question"}
+      }
+    },
+
+    "lessons_learnt": {
+      "type": "array",
+      "description": "Ongoing knowledge — append new insights with date + source.",
+      "items": {
+        "type": "object",
+        "required": ["date", "from", "insight"],
+        "properties": {
+          "date":    {"type": "string", "format": "date"},
+          "from":    {"type": "string"},
+          "insight": {"type": "string"}
+        }
+      }
+    },
+
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "book":    {"type": "string"},
+          "page":    {"type": "string"},
+          "passage": {"type": "string"}
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "third": {
+      "type": "object",
+      "required": ["range", "label"],
+      "properties": {
+        "range":              {"type": "string", "description": "e.g. '23:00-23:30'"},
+        "label":              {"type": "string"},
+        "habits":             {"type": "array", "items": {"type": "string"}},
+        "personality_drift":  {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": ["id", "domain", "situation", "options"],
+      "properties": {
+        "id":        {"type": "string"},
+        "domain":    {"type": "string", "description": "e.g. ăn uống, ngủ, decision, tài chính"},
+        "situation": {"type": "string", "description": "Câu hỏi Vietnamese tự nhiên đời thường"},
+        "options": {
+          "type": "object",
+          "required": ["A", "B"],
+          "properties": {
+            "A": {
+              "type": "object",
+              "required": ["label", "leans"],
+              "properties": {
+                "label": {"type": "string"},
+                "leans": {"type": "string", "description": "e.g. 'Tý_early' or 'Hợi'"}
+              }
+            },
+            "B": {
+              "type": "object",
+              "required": ["label", "leans"],
+              "properties": {
+                "label": {"type": "string"},
+                "leans": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

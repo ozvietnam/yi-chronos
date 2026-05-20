@@ -1,0 +1,255 @@
+{
+  "id": "Tý",
+  "range_hours": [23, 1],
+  "wraps_midnight": true,
+  "ngu_hanh": "Thuỷ",
+  "am_duong": "Dương",
+  "tcm_organ": "thận",
+  "animal_vi": "Chuột",
+  "animal_zh": "鼠",
+
+  "core_traits": {
+    "personality": [
+      "Thông minh đêm — tư duy sắc bén sau hoàng hôn",
+      "Sao Bắc Đẩu — định hướng, tham vọng, có tầm nhìn",
+      "Thâm trầm — không lộ ý đồ, đắn đo trước khi nói",
+      "Đa mưu — nhiều phương án, tính toán xa",
+      "Yêu cô tịch — cần khoảng riêng để nạp năng lượng"
+    ],
+    "physical": [
+      "Thường có 1 xoáy đỉnh đầu duy nhất",
+      "Mặt cân đối — oval hoặc tròn đầy",
+      "Vóc dáng vừa, có thể đầy đặn về sau",
+      "Đôi mắt sáng có thần, đặc biệt khi đêm xuống",
+      "Da tông trung bình đến trắng (Thuỷ)"
+    ],
+    "daily_habit": [
+      "Thức khuya tự nhiên — đỉnh năng lượng sau 22h",
+      "Ngủ sâu khi đã ngủ — khó tỉnh giữa đêm",
+      "Sáng dậy hơi muộn nếu không bị buộc",
+      "Đọc/làm việc tốt nhất khi yên tĩnh đêm khuya",
+      "Hay suy nghĩ trước khi ngủ"
+    ]
+  },
+
+  "bordering": {
+    "previous": {
+      "chi": "Hợi",
+      "leak_traits": [
+        "Phúc hậu, hiền hoà",
+        "Hưởng thụ — thích ngon-ngọt-no",
+        "An nhàn, không cưỡng ép",
+        "Cảm xúc giàu, dễ rơi nước mắt",
+        "Mềm dẻo, chịu đựng"
+      ]
+    },
+    "next": {
+      "chi": "Sửu",
+      "leak_traits": [
+        "Cần cù, kiên nhẫn",
+        "Kỷ luật — dậy sớm, giờ giấc đều",
+        "Thực dụng, ít cảm xúc thừa",
+        "Tích lũy, không phung phí",
+        "Bền bỉ trong khó khăn"
+      ]
+    }
+  },
+
+  "thirds": {
+    "early": {
+      "range": "23:00-23:30",
+      "label": "Tý đầu — dư âm Hợi",
+      "habits": [
+        "Ngủ luôn sau bữa tối no",
+        "Ngủ sâu thẳng giấc 6-8 tiếng",
+        "Hưởng thụ khoảnh khắc, không vội",
+        "Thèm trà nóng, không khí ấm",
+        "Khó dậy sớm, dễ ngủ nướng"
+      ],
+      "personality_drift": [
+        "Mềm dẻo hơn chính-Tý",
+        "Cảm xúc giàu, dễ thấu cảm",
+        "An nhàn, ít tham vọng quyết liệt",
+        "Hoà ái, thích yên",
+        "Trí thông minh nhuần nhuyễn hơn sắc"
+      ]
+    },
+    "middle": {
+      "range": "23:30-00:30",
+      "label": "Tý chính — thuần Bắc Đẩu",
+      "habits": [
+        "Đỉnh năng lượng đêm khuya tuyệt đối",
+        "Yêu cô tịch — làm việc lớn 1 mình",
+        "Đọc sách / suy ngẫm vào giờ này",
+        "Phân biệt rõ ngày/đêm trong nhịp sống",
+        "Ngủ sâu sau khi đã giải xong suy nghĩ"
+      ],
+      "personality_drift": [
+        "Chính danh sao Bắc Đẩu",
+        "Thông minh đêm đỉnh cao",
+        "Đa mưu, có tầm chiến lược",
+        "Sâu sắc, ít nói",
+        "Định hướng rõ — chiêu sao bắc đẩu chỉ"
+      ]
+    },
+    "late": {
+      "range": "00:30-01:00",
+      "label": "Tý cuối — đón sớm Sửu",
+      "habits": [
+        "Tỉnh giấc tự nhiên 2-4h sáng",
+        "Dậy sớm tự nhiên dù ngủ muộn",
+        "Lên kế hoạch hôm sau trước khi ngủ",
+        "Khó nằm yên — luôn có việc trong đầu",
+        "Bữa ăn vừa phải, tránh ngủ nê"
+      ],
+      "personality_drift": [
+        "Kiên trì hơn — không bỏ giữa chừng",
+        "Thực dụng, ít cảm xúc thừa",
+        "Kỷ luật, đo đếm thời gian",
+        "Quyết đoán nhanh trong việc nhỏ",
+        "Tỉnh táo sớm trong cuộc sống"
+      ]
+    }
+  },
+
+  "discrimination_questions": {
+    "vs_Hoi_early": [
+      {
+        "id": "post_dinner_sleep",
+        "domain": "ngủ",
+        "situation": "Sau bữa tối no",
+        "options": {
+          "A": {"label": "Buồn ngủ luôn, muốn nằm xuống ngay", "leans": "Tý_early"},
+          "B": {"label": "Đợi 1-2 tiếng mới buồn ngủ được", "leans": "Tý_middle_or_late"}
+        }
+      },
+      {
+        "id": "rainy_mood",
+        "domain": "cảm xúc",
+        "situation": "Mưa nhẹ rơi ngoài cửa",
+        "options": {
+          "A": {"label": "Thèm trà nóng, ngồi yên hưởng", "leans": "Tý_early"},
+          "B": {"label": "Bắt đầu lên kế hoạch hôm sau", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "small_message_reply",
+        "domain": "decision",
+        "situation": "Trả lời 1 tin nhắn quan trọng",
+        "options": {
+          "A": {"label": "Đắn đo, chọn lời cho hay", "leans": "Tý_early"},
+          "B": {"label": "Trả lời nhanh, xong việc", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "expensive_item",
+        "domain": "tài chính",
+        "situation": "Thấy món đồ đẹp nhưng đắt",
+        "options": {
+          "A": {"label": "Mua ngay vì thích", "leans": "Tý_early"},
+          "B": {"label": "Cân nhắc 3-7 ngày", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "spontaneous_coffee",
+        "domain": "xã giao",
+        "situation": "Bạn cũ gọi cà phê đột xuất",
+        "options": {
+          "A": {"label": "Hớn hở đi luôn", "leans": "Tý_early"},
+          "B": {"label": "Hẹn lại lịch khác", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "old_items",
+        "domain": "vật chất",
+        "situation": "Đồ vật cũ trong nhà",
+        "options": {
+          "A": {"label": "Giữ lại vì kỷ niệm", "leans": "Tý_early"},
+          "B": {"label": "Bỏ đi cho gọn", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "travel_planning",
+        "domain": "giải trí",
+        "situation": "Đi du lịch",
+        "options": {
+          "A": {"label": "Ngẫu hứng, không kế hoạch", "leans": "Tý_early"},
+          "B": {"label": "Lên lịch chi tiết", "leans": "Tý_late"}
+        }
+      }
+    ],
+    "vs_Suu_late": [
+      {
+        "id": "post_dinner_sleep_late",
+        "domain": "ngủ",
+        "situation": "Bị đánh thức đột ngột nửa đêm",
+        "options": {
+          "A": {"label": "Mất 5-10 phút mới tỉnh, hơi cáu", "leans": "Tý_early"},
+          "B": {"label": "Tỉnh ngay, làm việc được luôn", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "natural_wake_2am",
+        "domain": "ngủ",
+        "situation": "Trong giấc ngủ",
+        "options": {
+          "A": {"label": "Ngủ thẳng tới sáng", "leans": "Tý_early_middle"},
+          "B": {"label": "Hay tỉnh giấc 2-4h sáng", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "late_night_hunger",
+        "domain": "ăn uống",
+        "situation": "Đói lúc khuya",
+        "options": {
+          "A": {"label": "Đói thì ăn, không cưỡng", "leans": "Tý_early"},
+          "B": {"label": "Cố nhịn, sáng mai ăn", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "stranger_insult",
+        "domain": "phản ứng",
+        "situation": "Bị người không quen xúc phạm",
+        "options": {
+          "A": {"label": "Nhịn cho qua, không thèm chấp", "leans": "Tý_early"},
+          "B": {"label": "Ghi nhớ, không bao giờ quên", "leans": "Tý_late"}
+        }
+      },
+      {
+        "id": "30min_free",
+        "domain": "thời gian",
+        "situation": "30 phút trống đầu giờ làm việc",
+        "options": {
+          "A": {"label": "Pha cà phê, nhâm nhi", "leans": "Tý_early"},
+          "B": {"label": "Làm thêm 1 việc nhỏ", "leans": "Tý_late"}
+        }
+      }
+    ]
+  },
+
+  "lessons_learnt": [
+    {
+      "date": "2026-05-20",
+      "from": "Anh dạy em paradigm 'bordering chi tương phản'",
+      "insight": "Khi muốn rectify đến phút bên trong giờ chi (vd Tý 23-1h), không thể dùng đại vận math (engine drift < user noise). Cách đúng: dùng dư âm chi liền trước (Hợi) + đón sớm chi liền sau (Sửu) để tạo tương phản giữa Tý đầu/giữa/cuối. Câu hỏi đời thường cụ thể (ăn, ngủ, mua, react) > câu hỏi traits trừu tượng."
+    }
+  ],
+
+  "citations": [
+    {
+      "book": "Tử Bình Chân Thuyên — Trần Tố Am",
+      "page": "Chương Thập Nhị Chi",
+      "passage": "Tý vi Bắc Đẩu chi vị, chủ trí huệ, đa mưu, thâm trầm; chủ tý phi quân tử bất hành"
+    },
+    {
+      "book": "Tướng Pháp Cổ — Vô Tâm Đạo Nhân",
+      "page": "Quyển Đầu Phát (Tóc + đỉnh)",
+      "passage": "Sinh Tý giờ, đỉnh đầu thường 1 xoáy chính, vị Bắc Đẩu hội tụ; mặt cân đối, mắt sáng đêm"
+    },
+    {
+      "book": "Y học cổ truyền — TCM organ clock",
+      "page": "Kinh Thận",
+      "passage": "Thận chủ giờ Tý 23-1h, là giờ thận khí thịnh nhất; sinh giờ này tinh khí thận đầy đủ, tư duy sâu"
+    }
+  ]
+}
