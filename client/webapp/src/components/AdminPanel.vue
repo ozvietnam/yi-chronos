@@ -7,7 +7,7 @@
 import { ref, onMounted, computed, watch } from "vue";
 import { sessionToken, currentUser, isOwner } from "../stores/authStore.js";
 
-const subTab = ref("dashboard"); // 'dashboard' | 'users' | 'audit'
+const subTab = ref("dashboard"); // 'dashboard' | 'users' | 'audit' | 'vip'
 
 function authHeaders() {
   const h = { "Content-Type": "application/json" };
@@ -291,11 +291,184 @@ async function loadAudit() {
   finally { auditLoading.value = false; }
 }
 
+// ── VIP subscriptions ──────────────────────────────────────────────────────
+const vipCatalog = ref([]);
+const vipSubscriptions = ref([]);
+const vipUsers = ref([]);
+const vipLoading = ref(false);
+const vipError = ref("");
+const vipFilterFeature = ref("");
+const vipSearch = ref("");
+
+// Grant form modal state
+const vipGrantOpen = ref(false);
+const vipGrantSaving = ref(false);
+const vipGrantError = ref("");
+const vipGrantForm = ref({
+  user_id: null,
+  user_label: "",
+  feature_id: "tu_vi_phe_menh_sau",
+  tier: "vip1",
+  enabled: true,
+  expires_date: "",       // YYYY-MM-DD (UI) → convert to unix
+  remaining_uses: "",     // empty = unlimited
+  notes: "",
+});
+
+async function loadVipData() {
+  vipLoading.value = true; vipError.value = "";
+  try {
+    const qs = new URLSearchParams();
+    if (vipFilterFeature.value) qs.set("feature_id", vipFilterFeature.value);
+    const [subRes, usrRes] = await Promise.all([
+      fetch(`/api/admin/subscriptions?${qs}`, { headers: authHeaders(), credentials: "include" }),
+      fetch("/api/admin/users-list-for-vip", { headers: authHeaders(), credentials: "include" }),
+    ]);
+    const subData = await subRes.json();
+    const usrData = await usrRes.json();
+    if (!subRes.ok) { vipError.value = subData.detail || "Lỗi tải subscriptions"; return; }
+    if (!usrRes.ok) { vipError.value = usrData.detail || "Lỗi tải users"; return; }
+    vipCatalog.value = subData.catalog || [];
+    vipSubscriptions.value = subData.subscriptions || [];
+    vipUsers.value = usrData.users || [];
+  } catch (e) { vipError.value = e.message; }
+  finally { vipLoading.value = false; }
+}
+
+const vipSubscriptionsFiltered = computed(() => {
+  const q = vipSearch.value.trim().toLowerCase();
+  if (!q) return vipSubscriptions.value;
+  return vipSubscriptions.value.filter(s =>
+    (s.email || "").toLowerCase().includes(q) ||
+    (s.display_name || "").toLowerCase().includes(q) ||
+    String(s.user_id).includes(q),
+  );
+});
+
+function vipFeatureName(featureId) {
+  const f = vipCatalog.value.find(x => x.feature_id === featureId);
+  return f ? f.name_vi : featureId;
+}
+
+function vipExpiryLabel(expiresAt) {
+  if (!expiresAt) return "Không hết hạn";
+  const now = Math.floor(Date.now() / 1000);
+  const diff = expiresAt - now;
+  if (diff < 0) return `⏰ Hết hạn ${fmtRelative(expiresAt)}`;
+  if (diff < 86400) return `⚠️ Hết hạn trong ${Math.floor(diff / 3600)}h`;
+  return new Date(expiresAt * 1000).toLocaleDateString("vi");
+}
+
+function vipStatusBadge(sub) {
+  if (!sub.enabled) return { label: "Tắt", cls: "vip-badge-off" };
+  const now = Math.floor(Date.now() / 1000);
+  if (sub.expires_at && now > sub.expires_at) return { label: "Hết hạn", cls: "vip-badge-expired" };
+  if (sub.remaining_uses !== null && sub.remaining_uses <= 0) return { label: "Hết lượt", cls: "vip-badge-expired" };
+  return { label: "Đang bật", cls: "vip-badge-on" };
+}
+
+function openVipGrant(existing = null) {
+  vipGrantError.value = "";
+  if (existing) {
+    vipGrantForm.value = {
+      user_id: existing.user_id,
+      user_label: `${existing.email} (${existing.display_name || "—"})`,
+      feature_id: existing.feature_id,
+      tier: existing.tier || "vip1",
+      enabled: existing.enabled,
+      expires_date: existing.expires_at
+        ? new Date(existing.expires_at * 1000).toISOString().slice(0, 10)
+        : "",
+      remaining_uses: existing.remaining_uses != null ? String(existing.remaining_uses) : "",
+      notes: existing.notes || "",
+    };
+  } else {
+    vipGrantForm.value = {
+      user_id: null, user_label: "",
+      feature_id: vipCatalog.value[0]?.feature_id || "tu_vi_phe_menh_sau",
+      tier: "vip1", enabled: true,
+      expires_date: "", remaining_uses: "10", notes: "",
+    };
+  }
+  vipGrantOpen.value = true;
+}
+
+function pickVipUser(u) {
+  vipGrantForm.value.user_id = u.user_id;
+  vipGrantForm.value.user_label = `${u.email} (${u.display_name || u.role || "—"})`;
+}
+
+async function saveVipGrant() {
+  vipGrantError.value = "";
+  if (!vipGrantForm.value.user_id) { vipGrantError.value = "Chọn user trước"; return; }
+  if (!vipGrantForm.value.feature_id) { vipGrantError.value = "Chọn feature"; return; }
+  let expires_at = null;
+  if (vipGrantForm.value.expires_date) {
+    expires_at = Math.floor(new Date(vipGrantForm.value.expires_date + "T23:59:59").getTime() / 1000);
+  }
+  let remaining_uses = null;
+  if (vipGrantForm.value.remaining_uses !== "" && vipGrantForm.value.remaining_uses !== null) {
+    const n = parseInt(vipGrantForm.value.remaining_uses, 10);
+    if (Number.isFinite(n)) remaining_uses = n;
+  }
+  vipGrantSaving.value = true;
+  try {
+    const r = await fetch("/api/admin/subscriptions/grant", {
+      method: "POST",
+      headers: authHeaders(), credentials: "include",
+      body: JSON.stringify({
+        user_id: vipGrantForm.value.user_id,
+        feature_id: vipGrantForm.value.feature_id,
+        tier: vipGrantForm.value.tier,
+        enabled: vipGrantForm.value.enabled,
+        expires_at,
+        remaining_uses,
+        notes: vipGrantForm.value.notes || null,
+      }),
+    });
+    const d = await r.json();
+    if (!r.ok || d.status !== "ok") { vipGrantError.value = d.detail || d.error || "Lỗi lưu"; return; }
+    vipGrantOpen.value = false;
+    await loadVipData();
+  } catch (e) { vipGrantError.value = e.message; }
+  finally { vipGrantSaving.value = false; }
+}
+
+async function toggleVipSub(sub) {
+  // Quick toggle enabled
+  const payload = {
+    user_id: sub.user_id,
+    feature_id: sub.feature_id,
+    tier: sub.tier || "vip1",
+    enabled: !sub.enabled,
+    expires_at: sub.expires_at || null,
+    remaining_uses: sub.remaining_uses,
+    notes: sub.notes || null,
+  };
+  const r = await fetch("/api/admin/subscriptions/grant", {
+    method: "POST",
+    headers: authHeaders(), credentials: "include",
+    body: JSON.stringify(payload),
+  });
+  if (r.ok) await loadVipData();
+}
+
+async function revokeVipSub(sub) {
+  if (!confirm(`Tắt VIP "${vipFeatureName(sub.feature_id)}" của ${sub.email}?`)) return;
+  const r = await fetch("/api/admin/subscriptions/revoke", {
+    method: "POST",
+    headers: authHeaders(), credentials: "include",
+    body: JSON.stringify({ user_id: sub.user_id, feature_id: sub.feature_id }),
+  });
+  if (r.ok) await loadVipData();
+}
+
 // ── Init based on tab ──────────────────────────────────────────────────────
 watch(subTab, (newTab) => {
   if (newTab === "dashboard" && !dashboardData.value) loadDashboard();
   if (newTab === "users" && !usersData.value.users.length) loadUsers();
   if (newTab === "audit" && !auditData.value.entries.length) loadAudit();
+  if (newTab === "vip" && !vipSubscriptions.value.length && !vipCatalog.value.length) loadVipData();
 }, { immediate: false });
 
 onMounted(() => {
@@ -339,6 +512,7 @@ const actionIcon = {
       <button :class="{ active: subTab === 'dashboard' }" @click="subTab = 'dashboard'">📊 Tổng quan</button>
       <button :class="{ active: subTab === 'users' }" @click="subTab = 'users'">👥 Users</button>
       <button :class="{ active: subTab === 'audit' }" @click="subTab = 'audit'">📜 Audit log</button>
+      <button :class="{ active: subTab === 'vip' }" @click="subTab = 'vip'">✨ VIP & Subscriptions</button>
     </nav>
 
     <!-- ─── DASHBOARD ─────────────────────────────────────────────────────── -->
@@ -621,6 +795,158 @@ const actionIcon = {
                 @click="auditOffset += auditLimit; loadAudit()">▶</button>
       </div>
     </section>
+
+    <!-- ─── VIP / SUBSCRIPTIONS ───────────────────────────────────────────── -->
+    <section v-if="subTab === 'vip'" class="ap-section">
+      <div class="ap-toolbar">
+        <select v-model="vipFilterFeature" @change="loadVipData()">
+          <option value="">Tất cả feature</option>
+          <option v-for="f in vipCatalog" :key="f.feature_id" :value="f.feature_id">
+            {{ f.name_vi }}
+          </option>
+        </select>
+        <input v-model="vipSearch" type="search" placeholder="🔎 email / tên / user_id" />
+        <button class="ap-btn-primary" @click="openVipGrant(null)">➕ Cấp VIP mới</button>
+        <button class="ap-btn-ghost" @click="loadVipData">🔄</button>
+      </div>
+
+      <p v-if="vipError" class="ap-error">{{ vipError }}</p>
+      <p v-if="vipLoading" class="ap-loading">⏳ Đang tải…</p>
+
+      <!-- Feature catalog summary -->
+      <div class="vip-catalog">
+        <h4>📚 Catalog tính năng VIP</h4>
+        <ul>
+          <li v-for="f in vipCatalog" :key="f.feature_id">
+            <strong>{{ f.name_vi }}</strong>
+            <span class="vip-meta">tier: {{ f.tier_required }} · ~${{ f.cost_estimate_usd }}/lần · ~{{ f.approx_duration_sec }}s</span>
+            <br/><small>{{ f.description }}</small>
+          </li>
+        </ul>
+      </div>
+
+      <p class="ap-meta">{{ vipSubscriptionsFiltered.length }} / {{ vipSubscriptions.length }} subscriptions</p>
+
+      <table class="ap-table vip-table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Feature</th>
+            <th>Tier</th>
+            <th>Status</th>
+            <th>Lượt còn / đã dùng</th>
+            <th>Hết hạn</th>
+            <th>Cấp lúc</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-if="!vipSubscriptionsFiltered.length && !vipLoading">
+            <td colspan="8" class="vip-empty">Chưa có subscription nào. Bấm "➕ Cấp VIP mới" để bắt đầu.</td>
+          </tr>
+          <tr v-for="s in vipSubscriptionsFiltered" :key="s.user_id + '_' + s.feature_id">
+            <td>
+              <div><strong>{{ s.email }}</strong></div>
+              <small>{{ s.display_name || '—' }} · #{{ s.user_id }}</small>
+            </td>
+            <td><small>{{ vipFeatureName(s.feature_id) }}</small></td>
+            <td><span class="vip-tier">{{ s.tier }}</span></td>
+            <td>
+              <span class="vip-badge" :class="vipStatusBadge(s).cls">
+                {{ vipStatusBadge(s).label }}
+              </span>
+            </td>
+            <td>
+              <span v-if="s.remaining_uses === null">∞ / {{ s.total_uses }}</span>
+              <span v-else>{{ s.remaining_uses }} / {{ s.total_uses }}</span>
+            </td>
+            <td><small>{{ vipExpiryLabel(s.expires_at) }}</small></td>
+            <td><small>{{ fmtTime(s.granted_at) }}</small></td>
+            <td class="vip-actions">
+              <button class="ap-btn-tiny" @click="toggleVipSub(s)" :title="s.enabled ? 'Tắt' : 'Bật'">
+                {{ s.enabled ? '⏸ Tắt' : '▶ Bật' }}
+              </button>
+              <button class="ap-btn-tiny" @click="openVipGrant(s)" title="Chỉnh sửa">✏️</button>
+              <button class="ap-btn-tiny ap-btn-danger" @click="revokeVipSub(s)" title="Thu hồi">🗑</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── GRANT VIP MODAL ───────────────────────────────────────────────── -->
+    <div v-if="vipGrantOpen" class="vip-modal-overlay" @click.self="vipGrantOpen = false">
+      <div class="vip-modal">
+        <h3>{{ vipGrantForm.user_id ? '✏️ Cập nhật VIP' : '➕ Cấp VIP mới' }}</h3>
+
+        <div class="vip-form-row">
+          <label>User</label>
+          <div class="vip-user-picker">
+            <input v-if="vipGrantForm.user_id"
+                   :value="vipGrantForm.user_label" readonly
+                   @click="vipGrantForm.user_id = null; vipGrantForm.user_label = ''" />
+            <select v-else @change="e => { const u = vipUsers.find(x => x.user_id == e.target.value); if (u) pickVipUser(u); }">
+              <option value="">— Chọn user —</option>
+              <option v-for="u in vipUsers" :key="u.user_id" :value="u.user_id">
+                {{ u.email }} ({{ u.display_name || u.role }})
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="vip-form-row">
+          <label>Feature</label>
+          <select v-model="vipGrantForm.feature_id">
+            <option v-for="f in vipCatalog" :key="f.feature_id" :value="f.feature_id">
+              {{ f.name_vi }} ({{ f.tier_required }})
+            </option>
+          </select>
+        </div>
+
+        <div class="vip-form-row">
+          <label>Tier</label>
+          <select v-model="vipGrantForm.tier">
+            <option value="vip1">VIP1</option>
+            <option value="vip2">VIP2</option>
+            <option value="vip3">VIP3</option>
+          </select>
+        </div>
+
+        <div class="vip-form-row">
+          <label>Trạng thái</label>
+          <label class="vip-toggle">
+            <input type="checkbox" v-model="vipGrantForm.enabled" />
+            <span>{{ vipGrantForm.enabled ? '🟢 Đang bật' : '🔴 Đã tắt' }}</span>
+          </label>
+        </div>
+
+        <div class="vip-form-row">
+          <label>Ngày hết hạn</label>
+          <input type="date" v-model="vipGrantForm.expires_date" />
+          <small class="vip-hint">Bỏ trống = không hết hạn</small>
+        </div>
+
+        <div class="vip-form-row">
+          <label>Số lượt còn</label>
+          <input type="number" min="0" v-model="vipGrantForm.remaining_uses" placeholder="VD: 10" />
+          <small class="vip-hint">Bỏ trống = không giới hạn lượt</small>
+        </div>
+
+        <div class="vip-form-row">
+          <label>Ghi chú</label>
+          <textarea v-model="vipGrantForm.notes" rows="2" placeholder="Lý do cấp / test / promo..."></textarea>
+        </div>
+
+        <p v-if="vipGrantError" class="ap-error">{{ vipGrantError }}</p>
+
+        <div class="vip-modal-actions">
+          <button class="ap-btn-ghost" @click="vipGrantOpen = false" :disabled="vipGrantSaving">Huỷ</button>
+          <button class="ap-btn-primary" @click="saveVipGrant" :disabled="vipGrantSaving">
+            {{ vipGrantSaving ? '⏳ Đang lưu…' : '💾 Lưu' }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -819,5 +1145,90 @@ const actionIcon = {
   background: rgba(245,158,11,0.15); color: #fbbf24;
   padding: 1px 6px; border-radius: 3px; font-size: 0.72rem;
   margin-left: auto;
+}
+
+/* ─── VIP / Subscriptions ─── */
+.vip-catalog {
+  background: linear-gradient(135deg, rgba(251,191,36,0.06), rgba(245,158,11,0.04));
+  border: 1px solid rgba(251,191,36,0.25);
+  border-radius: 6px; padding: 0.8rem 1rem; margin-bottom: 1rem;
+}
+.vip-catalog h4 { margin: 0 0 0.5rem; color: #fde68a; font-size: 0.9rem; }
+.vip-catalog ul { list-style: none; padding: 0; margin: 0; }
+.vip-catalog li { padding: 0.4rem 0; border-bottom: 1px dashed rgba(251,191,36,0.15); }
+.vip-catalog li:last-child { border-bottom: none; }
+.vip-catalog strong { color: #fde68a; }
+.vip-catalog small { color: #94a3b8; }
+.vip-meta {
+  color: #f59e0b; font-size: 0.75rem; font-family: monospace; margin-left: 0.5rem;
+}
+
+.vip-table th, .vip-table td { vertical-align: top; }
+.vip-empty { padding: 2rem; text-align: center; color: #64748b; font-style: italic; }
+.vip-tier {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b;
+  padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase;
+}
+.vip-badge {
+  padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600;
+}
+.vip-badge-on { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+.vip-badge-off { background: rgba(100,116,139,0.2); color: #94a3b8; }
+.vip-badge-expired { background: rgba(239,68,68,0.2); color: #fca5a5; }
+.vip-actions { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+.ap-btn-tiny {
+  background: #334155; color: #cbd5e1; border: 1px solid #475569;
+  padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer; font-size: 0.75rem;
+}
+.ap-btn-tiny:hover { background: #475569; }
+.ap-btn-danger { color: #fca5a5; border-color: #7f1d1d; }
+.ap-btn-danger:hover { background: rgba(239,68,68,0.2); }
+.ap-btn-primary {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b;
+  border: none; padding: 0.4rem 0.9rem; border-radius: 4px;
+  cursor: pointer; font-weight: 700; font-size: 0.82rem;
+}
+.ap-btn-primary:hover { filter: brightness(1.1); }
+.ap-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Modal */
+.vip-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; padding: 1rem;
+}
+.vip-modal {
+  background: #0f172a; border: 1px solid #f59e0b;
+  border-radius: 8px; padding: 1.5rem; width: 100%; max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.vip-modal h3 { margin: 0 0 1rem; color: #fde68a; }
+.vip-form-row {
+  display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.9rem;
+}
+.vip-form-row label {
+  color: #94a3b8; font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+}
+.vip-form-row input, .vip-form-row select, .vip-form-row textarea {
+  background: #1e293b; border: 1px solid #334155; color: #e2e8f0;
+  padding: 0.4rem 0.6rem; border-radius: 4px; font-size: 0.88rem;
+  font-family: inherit;
+}
+.vip-form-row input:focus, .vip-form-row select:focus, .vip-form-row textarea:focus {
+  outline: none; border-color: #f59e0b;
+}
+.vip-hint { color: #64748b; font-size: 0.7rem; font-style: italic; }
+.vip-toggle {
+  display: flex; align-items: center; gap: 0.5rem;
+  flex-direction: row !important;
+  color: #cbd5e1; font-size: 0.88rem; text-transform: none !important;
+}
+.vip-toggle input { width: auto; }
+.vip-user-picker input[readonly] {
+  cursor: pointer; background: rgba(245,158,11,0.1);
+}
+.vip-modal-actions {
+  display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1rem;
 }
 </style>
