@@ -5424,24 +5424,34 @@ def quiz_v2_start(req: BirthHourQuizV2StartRequest):
     from engine.yi_wiki.birth_hour_quiz_v2.derivation import derive_all_traits
     from engine.yi_wiki.birth_hour_quiz_v2.engine import detect_strategy, generate_questions
 
-    session_store.init_schema(_QUIZ_V2_DB)
+    try:
+        session_store.init_schema(_QUIZ_V2_DB)
 
-    hour_range = (req.hour_range.start, req.hour_range.end) if req.hour_range else None
-    candidates_list = build_candidates(
-        req.birth_date, req.timezone, hour_range, gender=req.gender,
-    )
-    if not candidates_list:
-        return {"status": "error", "message": "No candidates for given range"}
+        hour_range = (req.hour_range.start, req.hour_range.end) if req.hour_range else None
+        candidates_list = build_candidates(
+            req.birth_date, req.timezone, hour_range, gender=req.gender,
+        )
+        if not candidates_list:
+            return {"status": "error", "message": "Không có candidate nào trong khoảng giờ này"}
 
-    strategy = detect_strategy([c["chi"] for c in candidates_list])
-    predictions = derive_all_traits(candidates_list)
+        strategy = detect_strategy([c["chi"] for c in candidates_list])
+        predictions = derive_all_traits(candidates_list)
 
-    questions = generate_questions(
-        strategy=strategy,
-        candidates=[c["chi"] for c in candidates_list],
-        predictions=predictions,
-        used_dimensions=set(),
-    )
+        questions = generate_questions(
+            strategy=strategy,
+            candidates=[c["chi"] for c in candidates_list],
+            predictions=predictions,
+            used_dimensions=set(),
+        )
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).exception("quiz_v2_start failed")
+        return {
+            "status": "error",
+            "message": f"Engine lỗi khi tạo quiz: {type(e).__name__}: {str(e)[:200]}",
+            "hint": ("Nếu Anh chọn 'Không nhớ gì' (12 candidates) có thể LLM overload. "
+                     "Thử range hẹp hơn: vd 6h-12h, 19h-24h, 12h-18h."),
+        }
 
     sid = session_store.create_session(
         _QUIZ_V2_DB,

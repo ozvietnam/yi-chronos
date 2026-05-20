@@ -44,9 +44,18 @@ async function startQuiz() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
-    const d = await r.json();
+    const text = await r.text();
+    let d;
+    try {
+      d = JSON.parse(text);
+    } catch {
+      error.value = `Server lỗi (HTTP ${r.status}): ${text.slice(0, 200)}`;
+      stage.value = "input";
+      return;
+    }
     if (d.status !== "ok") {
-      error.value = d.message || "Không tạo được session";
+      error.value = (d.message || "Không tạo được session") +
+                    (d.hint ? ` — ${d.hint}` : "");
       stage.value = "input";
       return;
     }
@@ -75,7 +84,14 @@ async function submitRound() {
         answers: answers.value,
       }),
     });
-    const d = await r.json();
+    const text = await r.text();
+    let d;
+    try {
+      d = JSON.parse(text);
+    } catch {
+      error.value = `Server lỗi (HTTP ${r.status}): ${text.slice(0, 200)}`;
+      return;
+    }
     if (d.status === "CONTINUE") {
       currentRound.value = d.next_round;
       answers.value = {};
@@ -251,49 +267,195 @@ const sortedScores = computed(() => {
 </template>
 
 <style scoped>
-.bhq2 { max-width: 720px; margin: 0 auto; padding: 1rem; }
-.bhq2-field { display: block; margin: 0.6rem 0; }
-.bhq2-field > span:first-child { display: inline-block; min-width: 110px; font-weight: 500; }
-.bhq2-field input, .bhq2-field select { padding: 0.3rem; }
-.bhq2-radio { margin-right: 1rem; cursor: pointer; }
-.bhq2-hint { color: #666; font-size: 0.9em; margin-bottom: 1rem; }
-.bhq2-error { color: #c33; padding: 0.5rem; background: #fee; border-radius: 4px; }
-.bhq2-primary {
-  padding: 0.6rem 1.4rem; font-size: 1em; background: #4a90e2; color: #fff;
-  border: 0; border-radius: 6px; cursor: pointer; margin-top: 1rem; font-weight: 500;
+/* Dark theme matching YI-CHRONOS site palette (slate-900 + amber + purple). */
+.bhq2 {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  color: #e2e8f0;
 }
-.bhq2-primary:disabled { background: #aaa; cursor: not-allowed; }
-.bhq2-range { padding: 0.8rem; background: #f7faff; border-radius: 6px; margin: 1rem 0; }
-.bhq2-range-inputs { display: flex; gap: 1rem; margin: 0.5rem 0; }
-.bhq2-range-inputs input { width: 5em; padding: 0.3rem; }
+.bhq2 h2, .bhq2 h3, .bhq2 h4 { color: #fbbf24; margin: 0 0 0.8rem; }
+.bhq2 h2 { font-size: 1.15rem; }
+.bhq2 h3 { font-size: 1rem; }
+.bhq2-hint { color: #94a3b8; font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.5; }
+.bhq2-error {
+  color: #fca5a5;
+  padding: 0.7rem 0.9rem;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.4);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+}
+.bhq2-small { color: #94a3b8; font-size: 0.78rem; margin-top: 0.4rem; }
+
+/* Form fields */
+.bhq2-field {
+  display: block;
+  margin: 0.8rem 0;
+  font-size: 0.85rem;
+}
+.bhq2-field > span:first-child {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.bhq2-field input[type="date"],
+.bhq2-field input[type="number"],
+.bhq2-field select {
+  padding: 0.5rem 0.7rem;
+  background: rgba(15,23,42,0.6);
+  border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.bhq2-field select:focus,
+.bhq2-field input:focus {
+  outline: none;
+  border-color: #a78bfa;
+}
+.bhq2-radio {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1.2rem;
+  cursor: pointer;
+  color: #e2e8f0;
+}
+.bhq2-radio input { margin-right: 0.4rem; }
+
+/* Range slider area */
+.bhq2-range {
+  padding: 0.9rem 1rem;
+  background: rgba(167,139,250,0.08);
+  border: 1px solid rgba(167,139,250,0.2);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+.bhq2-range p { margin: 0 0 0.5rem; color: #cbd5e1; font-size: 0.85rem; }
+.bhq2-range-inputs {
+  display: flex;
+  gap: 1.2rem;
+  margin: 0.6rem 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.bhq2-range-inputs label { color: #cbd5e1; font-size: 0.85rem; }
+.bhq2-range-inputs input { width: 4em; padding: 0.3rem 0.5rem; }
 .bhq2-range-inputs.is-disabled { opacity: 0.4; }
-.bhq2-no-idea { display: block; margin-top: 0.5rem; cursor: pointer; }
+.bhq2-no-idea {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+
+/* Primary button */
+.bhq2-primary {
+  padding: 0.7rem 1.4rem;
+  font-size: 0.92rem;
+  background: linear-gradient(135deg, rgba(167,139,250,0.9), rgba(251,191,36,0.8));
+  color: #0f172a;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.bhq2-primary:disabled {
+  background: rgba(148,163,184,0.3);
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Round header + progress */
 .bhq2-round-header {
-  display: flex; justify-content: space-between; padding: 0.6rem 0;
-  border-bottom: 2px solid #4a90e2; margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(167,139,250,0.3);
+  margin-bottom: 1rem;
+  color: #fbbf24;
+  font-size: 0.9rem;
 }
-.bhq2-cands { color: #666; font-size: 0.9em; }
-.bhq2-questions { padding-left: 1.5rem; }
-.bhq2-question { margin-bottom: 1.4rem; }
-.bhq2-q-text { margin: 0 0 0.4rem 0; }
-.bhq2-domain { color: #999; font-size: 0.85em; font-weight: normal; margin-left: 0.5em; }
-.bhq2-options { display: flex; flex-direction: column; gap: 0.3rem; padding-left: 1rem; }
-.bhq2-option { cursor: pointer; padding: 0.3rem; border-radius: 4px; }
-.bhq2-option:hover { background: #f0f8ff; }
-.bhq2-option input { margin-right: 0.5rem; }
+.bhq2-cands { color: #94a3b8; font-size: 0.8rem; }
+
+/* Question list */
+.bhq2-questions { padding-left: 1.2rem; }
+.bhq2-question {
+  margin-bottom: 1.3rem;
+  padding: 0.6rem 0.8rem;
+  background: rgba(15,23,42,0.4);
+  border: 1px solid rgba(167,139,250,0.15);
+  border-radius: 6px;
+}
+.bhq2-q-text { margin: 0 0 0.6rem; color: #e2e8f0; font-size: 0.9rem; }
+.bhq2-domain {
+  color: #c4b5fd;
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin-left: 0.5em;
+  font-style: italic;
+}
+.bhq2-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 0.5rem;
+}
+.bhq2-option {
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.bhq2-option:hover { background: rgba(167,139,250,0.1); }
+.bhq2-option input { margin-top: 0.18rem; }
+
+/* Result winner card */
 .bhq2-winner {
-  padding: 1.2rem; background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
-  border-radius: 10px; margin: 1rem 0; text-align: center;
-  border: 2px solid #4a90e2;
+  padding: 1.4rem;
+  background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(167,139,250,0.12));
+  border: 2px solid rgba(251,191,36,0.5);
+  border-radius: 10px;
+  margin: 1rem 0;
+  text-align: center;
 }
-.bhq2-chi { font-size: 1.8em; font-weight: bold; color: #2a5db0; }
-.bhq2-range-text { font-size: 0.6em; color: #666; font-weight: normal; }
-.bhq2-conf { margin-top: 0.4rem; color: #333; }
-.bhq2-uncertain { color: #d4a000; font-size: 0.9em; }
-.bhq2-scores { padding-left: 1.5rem; list-style: none; }
-.bhq2-scores li { padding: 0.3rem; border-radius: 4px; }
-.bhq2-scores li.is-top { background: #fffbe6; font-weight: 500; }
-.bhq2-loading { text-align: center; padding: 3rem; }
-.bhq2-small { color: #888; font-size: 0.85em; margin-top: 0.4rem; }
-.bhq2-actions { margin-top: 1rem; }
+.bhq2-chi { font-size: 1.6rem; font-weight: bold; color: #fbbf24; }
+.bhq2-range-text { font-size: 0.65em; color: #c4b5fd; font-weight: normal; }
+.bhq2-conf { margin-top: 0.5rem; color: #e2e8f0; font-size: 0.9rem; }
+.bhq2-uncertain { color: #fbbf24; font-size: 0.8rem; }
+
+/* Scores */
+.bhq2-scores { padding-left: 1.2rem; list-style: none; margin: 0.5rem 0; }
+.bhq2-scores li {
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+.bhq2-scores li.is-top {
+  background: rgba(251,191,36,0.15);
+  color: #fbbf24;
+  font-weight: 500;
+}
+
+.bhq2-loading {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #cbd5e1;
+}
+.bhq2-actions { margin-top: 1.2rem; }
 </style>
