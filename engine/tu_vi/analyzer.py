@@ -841,6 +841,177 @@ KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai."""
         _cache_save(self.person.person_key, "phe_menh", data, self.person.user_id)
         return data
 
+    # ── 6c. Phê mệnh SÂU (VIP DeepSeek Pro) ─────────────────────────────────
+
+    SYSTEM_PHE_MENH_SAU = """Bạn là bậc trí giả Tử Vi Đẩu Số cao cấp — **Trần Đoàn** (Hi Di tiên sinh) chính tổ + **Thiệu Khang Tiết** bổ chú.
+
+Bạn viết **PHÊ MỆNH SÂU** (VIP DeepSeek Pro) cho lá số — depth gấp 3 lần free tier MiniMax.
+
+**KHÁC BIỆT SO VỚI FREE TIER**:
+- Free (MiniMax, 5 sections): khai_de, menh_than, dai_van, canh_bao, ket_tam_an
+- VIP (DeepSeek, 10 sections theo 10 BƯỚC METHODOLOGY Trần Đoàn Q4 p0266):
+  1. dinh_thoi_khac (Định thời khắc)
+  2. khoi_bat_tu (Khởi Bát Tự — Tứ Trụ)
+  3. lap_cach_dung_than (Lập cách Dụng Thần)
+  4. bai_tinh_than (An sao — 14 chính tinh + tứ hóa)
+  5. lap_toa_menh (Lập tọa Mệnh — tam phương tứ chính)
+  6. dai_van_phan_tich (Đại Vận — vận động 10 năm)
+  7. dai_han_luu_nien (Đại Hạn + Lưu Niên)
+  8. tu_hoa_dien_giai (Tứ Hóa diễn giải sâu)
+  9. hi_ky_canh_bao (Hỉ kỵ + đảo hạn thần sát)
+  10. ket_tam_an (Bài cát hung + paradigm "bất khả chấp nhất")
+
+⚠️ IRON RULES (vẫn áp dụng):
+
+1. **Phong cách phú thi**: 4-7 chữ mỗi câu, vần điệu, ẩn dụ (Phù Tang, Phượng Hoàng, mây che, lá rụng, Đào Nguyên, Đỉnh Hồ).
+   Mỗi section 8-15 câu phú + diễn giải VN sâu sắc.
+
+2. **"MỖ" PATTERN BẮT BUỘC** — KHÔNG bao giờ nói rõ năm/sao cụ thể khi nói về tương lai:
+   - ✅ "Mỗ niên mỗ tinh nghi thận"
+   - ✅ "Duy đáo mỗ tinh, vân yểm vô quang"
+   - ✅ "Lục tuần kỷ tuế tương thương thọ, hoa lạc vô thanh mãn địa hương"
+
+3. **DEEPER ANALYSIS** (VIP exclusive):
+   - Reference Q1 Phú Thái Vi + Q2 An Sao + Q3 Diễn Giải + Q4 Phê Mệnh templates
+   - Cross-reference Chiếu Đởm Kinh nếu có pattern match (vd Mệnh tọa phú môn)
+   - Cite verbatim source quotes Hán-Việt khi có dẫn chứng kinh điển
+   - Personalized — gọi tên user trong văn, viết như đối thoại
+
+4. **Dẫn chứng cổ nhân** (nhiều hơn free tier):
+   - Trác Mậu/Lỗ Cung/Cung Toại/Hoàng Bá/Sơ Quảng+Thụ (Thanh Quan Hán)
+   - An Lộc Sơn/Triệu Cao (cảnh báo Tử Phá Thìn Tuất)
+   - Khổng Tử/Tử Lộ (Thiên Di Tý/Ngọ)
+
+5. **Paradigm "bất khả chấp nhất"** (Q4 p0299): "Thập bát tinh chuyển, tại nhân biến thông."
+
+OUTPUT JSON 10 keys (mỗi key Markdown text, 8-15 câu phú + diễn giải VN sâu sắc 150-300 chữ):
+{
+  "dinh_thoi_khac": "...",
+  "khoi_bat_tu": "...",
+  "lap_cach_dung_than": "...",
+  "bai_tinh_than": "...",
+  "lap_toa_menh": "...",
+  "dai_van_phan_tich": "...",
+  "dai_han_luu_nien": "...",
+  "tu_hoa_dien_giai": "...",
+  "hi_ky_canh_bao": "...",
+  "ket_tam_an": "..."
+}"""
+
+    def phe_menh_sau(self) -> dict:
+        """Phê mệnh SÂU (VIP) — DeepSeek Pro, 10 sections theo methodology Trần Đoàn.
+
+        ⚠️ Endpoint caller PHẢI check VIP permission TRƯỚC khi gọi.
+        Engine không tự check — engine chỉ generate.
+        """
+        cached = None if self.force else _cache_load(self.person.person_key, "phe_menh_sau", self.person.user_id)
+        if cached:
+            return cached
+
+        # Force DeepSeek (skip cheap MiniMax for VIP tier quality)
+        from engine.ai.registry import get_registry
+        registry = get_registry()
+        try:
+            provider = registry.first_configured(["deepseek", "anthropic", "gemini", "minimax", "openrouter"])
+        except Exception as e:
+            return {"status": "error", "message": f"No LLM provider configured: {e}"}
+
+        # Build rich context (richer than free tier — include Q4 stuff)
+        ctx_parts = [self.chart_summary]
+
+        try:
+            cach_data = self.discover_cach_cuc()
+            cachs = cach_data.get("cach_cucs", [])[:8]  # more cách for VIP
+            if cachs:
+                ctx_parts.append("\n=== Cách cục đã match (top 8) ===")
+                for c in cachs:
+                    ctx_parts.append(f"- {c.get('ten')} ({c.get('cap_do')}): {c.get('y_nghia', '')[:200]}")
+        except Exception:
+            pass
+
+        try:
+            from engine.tu_vi.case_matcher import match_cases
+            cases = match_cases(self.la_so, top_n=3)
+            if cases.get("matches"):
+                ctx_parts.append("\n=== Nét giống lịch sử Q3+Q4 ===")
+                for m in cases["matches"]:
+                    ctx_parts.append(f"- {m['pattern_name']} ({m['polarity']}): {m['lesson_short']}")
+        except Exception:
+            pass
+
+        try:
+            from engine.tu_vi.psychological_safety import detect_safety_patterns
+            from core.chronos import calculate_chronos_state
+            chronos = calculate_chronos_state(self.person.birth_datetime_local, self.person.timezone)
+            year_stem = chronos.ganzhi.year.split()[0]
+            safety = detect_safety_patterns(self.la_so, year_stem)
+            if safety:
+                ctx_parts.append("\n=== Safety patterns (psych safety wrap) ===")
+                for p in safety:
+                    ctx_parts.append(f"- {p['title']}: {p['gentle_message']}")
+        except Exception:
+            pass
+
+        # VIP-only: Chart strength + Đẩu Quân + Cung readings preview
+        try:
+            from engine.tu_vi.mieu_vuong_ham import chart_strength
+            cs = chart_strength(self.la_so)
+            ctx_parts.append(f"\n=== Sức mạnh tổng thể (Q2 p0102 Miếu Vượng Hãm) ===")
+            ctx_parts.append(f"Weighted total: {cs.get('weighted_total_score')} ({cs.get('verdict')})")
+        except Exception:
+            pass
+
+        ctx = "\n".join(ctx_parts)
+        user_prompt = f"""{ctx}
+
+Viết phê mệnh SÂU 10 phần theo 10 BƯỚC METHODOLOGY Trần Đoàn (Q4 p0266).
+Mỗi phần 8-15 câu phú thi 4-7 chữ + diễn giải VN sâu sắc 150-300 chữ.
+KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai.
+
+**OUTPUT BẮT BUỘC**: JSON object đầy đủ 10 keys. KHÔNG markdown wrapper."""
+
+        try:
+            resp = provider.chat(
+                messages=[
+                    {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0.7,
+                max_tokens=8000,  # double of free tier
+            )
+        except Exception as e:
+            return {"status": "error", "message": f"LLM call failed ({provider.name}): {e}"}
+
+        content = resp.content if hasattr(resp, "content") else str(resp)
+        if content.startswith("```"):
+            lines = content.split("\n")
+            content = "\n".join(l for l in lines if not l.startswith("```"))
+
+        try:
+            phe = json.loads(content)
+        except Exception:
+            phe = {"dinh_thoi_khac": content}
+
+        prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
+        completion_tokens = getattr(resp, "completion_tokens", 0) or 0
+        cost = getattr(resp, "cost_usd", 0) or 0
+
+        data = {
+            "status": "ok",
+            "tier": "vip1",
+            "person_key": self.person.person_key,
+            "person_name": self.person.name,
+            "generated_at": int(time.time()),
+            "provider": provider.name,
+            "model": "pro_tier",
+            "cost_usd": round(cost, 6),
+            "tokens": {"prompt": prompt_tokens, "completion": completion_tokens},
+            "phe_menh_sau": phe,
+            "paradigm_note": "Phê mệnh SÂU theo 10 bước Trần Đoàn (Q4 p0266) — dùng 'mỗ' pattern. Iron Rule #6 + paradigm 'bất khả chấp nhất' (Q4 p0299).",
+        }
+        _cache_save(self.person.person_key, "phe_menh_sau", data, self.person.user_id)
+        return data
+
     # ── 7. Phú readings (top N personalized) ────────────────────────────────
 
     SYSTEM_PHU_READ = """Bạn là chuyên gia Tử Vi đọc sâu Phú Thái Vi áp dụng vào lá số CỤ THỂ.

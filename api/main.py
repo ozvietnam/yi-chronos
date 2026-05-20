@@ -5309,6 +5309,128 @@ def yi_tuvi_chieu_dom_cach_cuc() -> dict:
     return {"status": "ok", **json.loads(p.read_text())}
 
 
+# ─── VIP — Luận giải sâu (DeepSeek Pro) ────────────────────────────────
+
+@app.get("/api/user/my-vip-features")
+def yi_user_my_vip(request: Request) -> dict:
+    """Get all VIP subscriptions for current user (UI uses to show/hide buttons)."""
+    from api.auth import get_current_user
+    from engine.subscriptions import list_user_subscriptions, list_features
+    user = get_current_user(request)
+    if not user:
+        return {"status": "ok", "subscriptions": [], "catalog": list_features()}
+    subs = list_user_subscriptions(user["user_id"])
+    return {"status": "ok", "subscriptions": subs, "catalog": list_features()}
+
+
+@app.post("/api/tu-vi/phe-menh-sau")
+def yi_tuvi_phe_menh_sau(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận giải sâu Tử Vi (VIP DeepSeek Pro). VIP1-gated.
+
+    Engine generates 10-section deep phê mệnh per Trần Đoàn methodology.
+    """
+    from api.auth import get_current_user
+    from engine.subscriptions import check_access, consume_use
+    from engine.tu_vi.analyzer import TuViAnalyzer
+
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    user_id = user["user_id"]
+
+    # Owner bypass — owner luôn có quyền
+    if user.get("role") != "owner":
+        access = check_access(user_id, "tu_vi_phe_menh_sau")
+        if not access["allowed"]:
+            raise HTTPException(403, f"VIP required: {access['reason']}")
+
+    person = _resolve_person_from_request(req, request)
+    analyzer = TuViAnalyzer(person, force=req.force)
+    result = analyzer.phe_menh_sau()
+
+    # Consume 1 use only if successful AND not owner
+    if result.get("status") == "ok" and user.get("role") != "owner":
+        usage = consume_use(user_id, "tu_vi_phe_menh_sau")
+        result["usage"] = usage
+
+    return result
+
+
+# ─── Admin — Subscription management ───────────────────────────────────
+
+@app.get("/api/admin/subscriptions")
+def yi_admin_list_subscriptions(request: Request, feature_id: str = "") -> dict:
+    """Admin: list all subscriptions (optionally filter by feature)."""
+    from api.auth import get_current_user
+    from engine.subscriptions import list_all_subscriptions, list_features
+    user = get_current_user(request)
+    if not user or user.get("role") != "owner":
+        raise HTTPException(403, "Owner required")
+    subs = list_all_subscriptions(feature_id or None)
+    return {"status": "ok", "subscriptions": subs, "catalog": list_features()}
+
+
+class _GrantSubRequest(BaseModel):
+    user_id: int
+    feature_id: str
+    tier: str = "vip1"
+    enabled: bool = True
+    expires_at: Optional[int] = None
+    remaining_uses: Optional[int] = None
+    notes: Optional[str] = None
+
+
+@app.post("/api/admin/subscriptions/grant")
+def yi_admin_grant_subscription(req: _GrantSubRequest, request: Request) -> dict:
+    """Admin: grant or update a subscription."""
+    from api.auth import get_current_user
+    from engine.subscriptions import grant_subscription
+    user = get_current_user(request)
+    if not user or user.get("role") != "owner":
+        raise HTTPException(403, "Owner required")
+    result = grant_subscription(
+        user_id=req.user_id,
+        feature_id=req.feature_id,
+        tier=req.tier,
+        enabled=req.enabled,
+        expires_at=req.expires_at,
+        remaining_uses=req.remaining_uses,
+        granted_by=user["user_id"],
+        notes=req.notes,
+    )
+    return {"status": "ok" if result["ok"] else "error", **result}
+
+
+@app.post("/api/admin/subscriptions/revoke")
+def yi_admin_revoke_subscription(req: dict, request: Request) -> dict:
+    """Admin: revoke (disable) a subscription."""
+    from api.auth import get_current_user
+    from engine.subscriptions import revoke_subscription
+    user = get_current_user(request)
+    if not user or user.get("role") != "owner":
+        raise HTTPException(403, "Owner required")
+    user_id = req.get("user_id")
+    feature_id = req.get("feature_id")
+    if not user_id or not feature_id:
+        raise HTTPException(400, "user_id + feature_id required")
+    result = revoke_subscription(user_id, feature_id)
+    return {"status": "ok", **result}
+
+
+@app.get("/api/admin/users-list-for-vip")
+def yi_admin_users_list_for_vip(request: Request) -> dict:
+    """Admin: list all users (for picking who to grant VIP)."""
+    from api.auth import get_current_user, AUTH_DB
+    import sqlite3
+    user = get_current_user(request)
+    if not user or user.get("role") != "owner":
+        raise HTTPException(403, "Owner required")
+    db = sqlite3.connect(AUTH_DB)
+    rows = db.execute("SELECT user_id, email, display_name, role FROM users ORDER BY created_at DESC").fetchall()
+    db.close()
+    return {"status": "ok", "users": [{"user_id": r[0], "email": r[1], "display_name": r[2], "role": r[3]} for r in rows]}
+
+
 @app.post("/api/tu-vi/safety-check")
 def yi_tuvi_safety_check(req: _AnalyzeRequest, request: Request) -> dict:
     """Phát hiện psychological safety patterns trong lá số (Q1 p0027-p0028, Q3 p0186).

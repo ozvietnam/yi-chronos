@@ -37,6 +37,9 @@ const chartStrength = ref(null);  // ⭐ Miếu Vượng Hãm score (Q2 p0102)
 const safetyCheck = ref(null);    // ⭐ Psychological safety patterns
 const pheMenh = ref(null);        // ⭐ Phê mệnh phú thi (Q4 Khang Tiết)
 const pheMenhLoading = ref(false);
+const pheMenhSau = ref(null);     // ⭐ VIP1 — Luận giải sâu (DeepSeek Pro)
+const pheMenhSauLoading = ref(false);
+const vipFeatures = ref(null);    // ⭐ VIP subscriptions for current user
 const thienQuanArchetype = ref(null);  // ⭐ Q4 Thiên Quán 36 archetypes
 const loading = ref(false);
 const errorMsg = ref("");
@@ -119,6 +122,7 @@ async function castChart() {
     loadChartStrength();
     loadSafetyCheck();
     loadThienQuanArchetype();
+    loadVipFeatures();
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -197,6 +201,50 @@ async function loadPheMenh(force = false) {
     pheMenh.value = { error: String(e.message || e) };
   } finally {
     pheMenhLoading.value = false;
+  }
+}
+
+async function loadVipFeatures() {
+  try {
+    const resp = await fetch("/api/user/my-vip-features").then((r) => r.json());
+    if (resp.status === "ok") vipFeatures.value = resp;
+  } catch (e) { /* silent */ }
+}
+
+function vipFeatureStatus(featureId) {
+  if (!vipFeatures.value) return { hasAccess: false };
+  const sub = (vipFeatures.value.subscriptions || []).find((s) => s.feature_id === featureId);
+  if (!sub) return { hasAccess: false, reason: "no_subscription" };
+  if (!sub.enabled) return { hasAccess: false, reason: "disabled", subscription: sub };
+  const now = Math.floor(Date.now() / 1000);
+  if (sub.expires_at && now > sub.expires_at) return { hasAccess: false, reason: "expired", subscription: sub };
+  if (sub.remaining_uses !== null && sub.remaining_uses <= 0) return { hasAccess: false, reason: "no_uses_left", subscription: sub };
+  return { hasAccess: true, subscription: sub };
+}
+
+async function loadPheMenhSau(force = false) {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  pheMenhSauLoading.value = true;
+  try {
+    let resp = await fetch(`/api/tu-vi/analyze/${encodeURIComponent(personKey)}/phe_menh_sau`).then((r) => r.json()).catch(() => ({status:"not_cached"}));
+    if (resp.status !== "ok" || force) {
+      resp = await fetch("/api/tu-vi/phe-menh-sau", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ person_key: personKey, force }),
+      }).then((r) => r.json());
+    }
+    if (resp.status === "ok") {
+      pheMenhSau.value = resp;
+      loadVipFeatures(); // reload to update remaining_uses
+    } else {
+      pheMenhSau.value = { error: resp.message || resp.detail || "Tạo phê mệnh sâu thất bại" };
+    }
+  } catch (e) {
+    pheMenhSau.value = { error: String(e.message || e) };
+  } finally {
+    pheMenhSauLoading.value = false;
   }
 }
 
@@ -793,6 +841,87 @@ const grid = computed(() => {
           </article>
           <p v-if="pheMenh.paradigm_note" class="pm-paradigm">💡 {{ pheMenh.paradigm_note }}</p>
         </div>
+      </section>
+
+      <!-- ── Luận giải SÂU (VIP1 DeepSeek Pro — 10 sections theo 10 bước) ── -->
+      <section class="phe-menh-sau-block">
+        <header class="pms-head">
+          <h4>🌟 Luận giải SÂU — VIP DeepSeek Pro · 10 bước Trần Đoàn</h4>
+          <div class="pms-status">
+            <template v-if="vipFeatureStatus('tu_vi_phe_menh_sau').hasAccess">
+              <span class="pms-badge pms-vip">✓ VIP1</span>
+              <small v-if="vipFeatureStatus('tu_vi_phe_menh_sau').subscription?.remaining_uses !== null" class="pms-remaining">
+                Còn {{ vipFeatureStatus('tu_vi_phe_menh_sau').subscription.remaining_uses }} lượt
+              </small>
+              <small v-if="vipFeatureStatus('tu_vi_phe_menh_sau').subscription?.expires_at" class="pms-expires">
+                Hết hạn: {{ new Date(vipFeatureStatus('tu_vi_phe_menh_sau').subscription.expires_at * 1000).toLocaleDateString('vi-VN') }}
+              </small>
+            </template>
+            <template v-else>
+              <span class="pms-badge pms-locked">🔒 Cần VIP1</span>
+            </template>
+          </div>
+        </header>
+
+        <p class="pms-intro">
+          Phê mệnh SÂU theo <b>10 bước methodology Trần Đoàn</b> (Q4 p0266) — depth gấp 3 lần phê mệnh free tier.
+          Dùng <b>DeepSeek Pro</b> với context đầy đủ Q1+Q2+Q3+Q4 + cách cục + case lịch sử + Chiếu Đởm Kinh.
+          ~60 giây · ~$0.05/lượt.
+        </p>
+
+        <template v-if="!vipFeatureStatus('tu_vi_phe_menh_sau').hasAccess">
+          <div class="pms-locked-msg">
+            <p>🔒 <b>Tính năng VIP1</b> — anh chưa có quyền dùng. Liên hệ admin để được cấp.</p>
+            <p v-if="vipFeatureStatus('tu_vi_phe_menh_sau').reason === 'expired'" class="pms-locked-reason">
+              ⏰ Subscription đã hết hạn.
+            </p>
+            <p v-else-if="vipFeatureStatus('tu_vi_phe_menh_sau').reason === 'no_uses_left'" class="pms-locked-reason">
+              💧 Hết lượt dùng.
+            </p>
+            <p v-else-if="vipFeatureStatus('tu_vi_phe_menh_sau').reason === 'disabled'" class="pms-locked-reason">
+              ⏸ Tạm dừng bởi admin.
+            </p>
+          </div>
+        </template>
+
+        <template v-else>
+          <div class="pms-actions">
+            <button v-if="!pheMenhSau && !pheMenhSauLoading" class="pms-btn" @click="loadPheMenhSau(false)">
+              🌟 Tạo luận giải SÂU
+            </button>
+            <button v-if="pheMenhSau && !pheMenhSau.error && !pheMenhSauLoading" class="pms-btn pms-regen" @click="loadPheMenhSau(true)">
+              🔄 Viết lại (-1 lượt)
+            </button>
+          </div>
+
+          <p v-if="pheMenhSauLoading" class="pms-loading">
+            ⏳ Đang viết phê mệnh SÂU... (~60s — DeepSeek đọc cả Q1+Q2+Q3+Q4 + lá số anh)
+          </p>
+
+          <p v-if="pheMenhSau?.error" class="pms-error">⚠ {{ pheMenhSau.error }}</p>
+
+          <div v-if="pheMenhSau?.phe_menh_sau && !pheMenhSau.error" class="pms-content">
+            <div class="pms-meta">
+              <small>via {{ pheMenhSau.provider }} · {{ (pheMenhSau.tokens?.prompt + pheMenhSau.tokens?.completion).toLocaleString() }} tokens · ${{ pheMenhSau.cost_usd?.toFixed(4) }}</small>
+            </div>
+            <article v-for="(content, key) in pheMenhSau.phe_menh_sau" :key="key" class="pms-section">
+              <h5>{{ {
+                dinh_thoi_khac: '1️⃣ Định thời khắc',
+                khoi_bat_tu: '2️⃣ Khởi Bát Tự',
+                lap_cach_dung_than: '3️⃣ Lập cách Dụng Thần',
+                bai_tinh_than: '4️⃣ Bài tinh thần',
+                lap_toa_menh: '5️⃣ Lập tọa Mệnh',
+                dai_van_phan_tich: '6️⃣ Đại Vận phân tích',
+                dai_han_luu_nien: '7️⃣ Đại Hạn + Lưu Niên',
+                tu_hoa_dien_giai: '8️⃣ Tứ Hóa diễn giải',
+                hi_ky_canh_bao: '9️⃣ Hỉ kỵ + cảnh báo',
+                ket_tam_an: '🔟 Kết tâm an'
+              }[key] || key }}</h5>
+              <p>{{ content }}</p>
+            </article>
+            <p class="pms-paradigm">💡 {{ pheMenhSau.paradigm_note }}</p>
+          </div>
+        </template>
       </section>
 
       <!-- ── Case Studies — Lá số anh có nét giống ai (Q3+Q4) ──────── -->
@@ -1707,6 +1836,84 @@ const grid = computed(() => {
   background: rgba(148, 163, 184, 0.15);
   color: #cbd5e1;
   border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* ━━━━━━━━ VIP1 Luận giải sâu (DeepSeek Pro) ━━━━━━━━ */
+.phe-menh-sau-block {
+  margin: 24px 0;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(20, 30, 45, 0.5));
+  border: 2px solid rgba(245, 158, 11, 0.4);
+  border-radius: 10px;
+  position: relative;
+}
+.phe-menh-sau-block::before {
+  content: "✨ VIP";
+  position: absolute; top: -12px; right: 16px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #1a1a1a; padding: 2px 10px;
+  border-radius: 12px; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.04em;
+}
+.pms-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.pms-head h4 { margin: 0; color: #fbbf24; font-size: 15px; }
+.pms-status { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pms-badge {
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 600;
+}
+.pms-vip { background: rgba(90, 176, 122, 0.2); color: #88d39e; border: 1px solid #5ab07a; }
+.pms-locked { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #94a3b8; }
+.pms-remaining, .pms-expires { font-size: 11px; color: rgba(230, 238, 245, 0.7); }
+.pms-intro {
+  font-size: 12.5px; color: rgba(230, 238, 245, 0.85);
+  line-height: 1.6; margin: 8px 0;
+}
+.pms-intro b { color: #fbbf24; }
+.pms-locked-msg {
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  border-radius: 6px;
+  padding: 14px 16px; margin: 10px 0;
+  font-size: 13px; color: rgba(230, 238, 245, 0.8);
+}
+.pms-locked-msg b { color: #fbbf24; }
+.pms-locked-reason { color: #f5b08c; margin: 6px 0 0; font-size: 12px; }
+.pms-actions { display: flex; gap: 8px; margin: 10px 0; }
+.pms-btn {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  border: none; color: white;
+  padding: 8px 18px; border-radius: 6px;
+  font-size: 13px; cursor: pointer; font-weight: 600;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+  transition: transform 0.15s;
+}
+.pms-btn:hover { transform: translateY(-1px); }
+.pms-regen { background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; color: #fbbf24; box-shadow: none; }
+.pms-loading { font-size: 13px; color: #fbbf24; font-style: italic; padding: 12px; }
+.pms-error { font-size: 12.5px; color: #f5b08c; padding: 10px; background: rgba(214, 90, 74, 0.08); border-radius: 4px; }
+.pms-content { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.pms-meta { font-size: 10.5px; color: rgba(230, 238, 245, 0.5); font-style: italic; }
+.pms-section {
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.22);
+  border-left: 3px solid #fbbf24;
+  border-radius: 0 6px 6px 0;
+}
+.pms-section h5 { margin: 0 0 6px; color: #fcd34d; font-size: 13px; font-weight: 600; }
+.pms-section p {
+  margin: 0; font-size: 13px; line-height: 1.7;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.88));
+  white-space: pre-wrap;
+  font-family: "Times New Roman", "Palatino", serif;
+}
+.pms-paradigm {
+  margin: 10px 0 0; padding: 8px 12px;
+  background: rgba(91, 229, 211, 0.06);
+  border-left: 2px solid #5be5d3;
+  font-size: 11.5px; color: rgba(230, 238, 245, 0.78);
+  line-height: 1.55; font-style: italic;
+  border-radius: 0 3px 3px 0;
 }
 
 /* ━━━━━━━━ Q4 Thiên Quán Archetype ━━━━━━━━ */

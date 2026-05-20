@@ -203,6 +203,27 @@ def _init_schema(db: sqlite3.Connection) -> None:
         CREATE INDEX IF NOT EXISTS idx_audit_user ON audit_log(user_id);
         CREATE INDEX IF NOT EXISTS idx_audit_action ON audit_log(action);
         CREATE INDEX IF NOT EXISTS idx_audit_created ON audit_log(created_at);
+
+        -- ⭐ VIP feature subscriptions — admin grants/revokes per user per feature
+        -- Each grant has expiry date (optional) + remaining_uses (optional).
+        -- Engine deducts remaining_uses on each successful use.
+        CREATE TABLE IF NOT EXISTS user_subscriptions (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id         INTEGER NOT NULL,
+            feature_id      TEXT NOT NULL,                -- e.g. 'tu_vi_phe_menh_sau' | 'mai_hoa_premium' | ...
+            tier            TEXT NOT NULL DEFAULT 'vip1', -- 'vip1' | 'vip2' | 'vip_lifetime'
+            enabled         INTEGER NOT NULL DEFAULT 1,   -- 1=active, 0=paused
+            expires_at      INTEGER,                       -- unix timestamp, NULL = no expiry
+            remaining_uses  INTEGER,                       -- NULL = unlimited
+            total_uses      INTEGER NOT NULL DEFAULT 0,
+            granted_by      INTEGER,                       -- admin user_id
+            granted_at      INTEGER NOT NULL,
+            notes           TEXT,
+            FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+            UNIQUE(user_id, feature_id)
+        );
+        CREATE INDEX IF NOT EXISTS idx_subs_user ON user_subscriptions(user_id);
+        CREATE INDEX IF NOT EXISTS idx_subs_feature ON user_subscriptions(feature_id);
     """)
     db.commit()
 
