@@ -595,8 +595,13 @@ const grid = computed(() => {
               <div v-if="cungReading.palaces[r.palace_name].q3_passages?.length" class="cbp-section">
                 <h6 class="cbp-head">📖 Q3 Diễn Giải sao×cung ({{ cungReading.palaces[r.palace_name].q3_passages.length }} dòng)</h6>
                 <div v-for="(p, i) in cungReading.palaces[r.palace_name].q3_passages" :key="'q3-'+i"
-                     class="cbp-card cbp-q3">
-                  <div class="cbp-meta">trang {{ p.page }} · [{{ p.matched_stars?.join(', ') || '' }}]</div>
+                     class="cbp-card cbp-q3"
+                     :class="{ 'cbp-combo': p.match_type === 'combo_universal' }">
+                  <div class="cbp-meta">
+                    trang {{ p.page }} · [{{ p.matched_stars?.join(', ') || '' }}]
+                    <span v-if="p.match_type === 'combo_universal'" class="cbp-tag cbp-tag-combo">combo</span>
+                    <span v-else class="cbp-tag cbp-tag-anchor">cung</span>
+                  </div>
                   <div class="cbp-hv">{{ p.hanviet }}</div>
                   <div v-if="p.luangiai" class="cbp-lg">{{ p.luangiai }}</div>
                 </div>
@@ -1351,6 +1356,27 @@ const grid = computed(() => {
   color: var(--text-muted, rgba(230, 238, 245, 0.45));
   font-style: italic;
   margin-top: 6px;
+}
+.cbp-combo { opacity: 0.85; border-left-color: #94a3b8; }
+.cbp-tag {
+  display: inline-block;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+.cbp-tag-anchor {
+  background: rgba(167, 139, 250, 0.18);
+  color: #c4b5fd;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+.cbp-tag-combo {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
 }
 </style>
 

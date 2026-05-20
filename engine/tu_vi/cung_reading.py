@@ -122,9 +122,14 @@ def _stars_in_line(text: str) -> set[str]:
 def _scan_q3_for_palace(
     palace: str, branch: str, stars_in_palace: list[str],
 ) -> list[dict[str, Any]]:
-    """Find Q3 lines mentioning any star_in_palace + (palace name OR branch name).
+    """Find Q3 lines relevant to a palace.
 
-    Compound abbreviations (Tử Phủ, Cự Nhật, etc.) are recognized via COMPOUND_STAR_PATTERNS.
+    Two tiers of relevance:
+      - "anchored": line nhắc đến star_in_palace + (palace name OR branch). Best match.
+      - "combo_universal": cung có 2+ chính tinh AND line nhắc cả 2 chính tinh đó (qua
+        full name HOẶC compound abbrev như "Nhật Nguyệt", "Tử Phủ") — relevant dù
+        không có palace/branch reference, vì combo 2-sao là hằng số của lá số.
+
     Returns list of {source, page, line_id, hanviet, luangiai, matched_stars, match_type}.
     """
     if not stars_in_palace:
@@ -133,22 +138,36 @@ def _scan_q3_for_palace(
     if not chinh_in_pal:
         return []
     chinh_set = set(chinh_in_pal)
+    has_combo = len(chinh_set) >= 2  # cung có combo 2+ chính tinh
     out: list[dict[str, Any]] = []
-    seen: set[tuple[int, str]] = set()  # dedupe by (page, line_id)
+    seen: set[tuple[int, str]] = set()
     for page, lid, vi, lg in _q3_lines():
         text = vi + " " + lg
-        if palace not in text and branch not in text:
-            continue
         stars_in_text = _stars_in_line(text)
+        if not stars_in_text:
+            continue
         matched_stars = sorted(chinh_set & stars_in_text)
         if not matched_stars:
             continue
+
+        anchored = palace in text or branch in text
+        # Combo universal: line phải nhắc cả 2 (hoặc 3) chính tinh của cung
+        combo_universal = (
+            has_combo and len(set(matched_stars) & chinh_set) >= 2
+        )
+
+        if not (anchored or combo_universal):
+            continue
+
         key = (page, lid)
         if key in seen:
             continue
         seen.add(key)
-        # Match type: "full" if any matched star found by full name, else "compound"
-        has_full = any(s in text for s in matched_stars)
+
+        if anchored:
+            mt = "anchored"
+        else:
+            mt = "combo_universal"
         out.append({
             "source": "Q3",
             "page": page,
@@ -156,8 +175,10 @@ def _scan_q3_for_palace(
             "hanviet": vi,
             "luangiai": lg,
             "matched_stars": matched_stars,
-            "match_type": "full" if has_full else "compound",
+            "match_type": mt,
         })
+    # Sort anchored first
+    out.sort(key=lambda r: 0 if r["match_type"] == "anchored" else 1)
     return out
 
 
