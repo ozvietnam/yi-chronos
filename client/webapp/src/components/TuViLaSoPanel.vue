@@ -63,6 +63,23 @@ const HOA_COLOR = Object.freeze({
   "Kỵ":   "#d65a4a",
 });
 
+const BRANCH_NAMES = ['Tý','Sửu','Dần','Mão','Thìn','Tỵ','Ngọ','Mùi','Thân','Dậu','Tuất','Hợi'];
+
+// Ngũ hành của 12 địa chi
+const BRANCH_ELEMENT = ['Thủy','Thổ','Mộc','Mộc','Thổ','Hỏa','Hỏa','Thổ','Kim','Kim','Thổ','Thủy'];
+const ELEMENT_COLOR  = { 'Thủy':'#60a5fa','Mộc':'#4ade80','Hỏa':'#f87171','Kim':'#fbbf24','Thổ':'#d97706' };
+
+// Ngũ hành chính tinh (dùng để tô màu tên sao)
+const CHINH_TINH_HANH = {
+  'Tử Vi':'Thổ','Thiên Cơ':'Mộc','Thái Dương':'Hỏa','Vũ Khúc':'Kim','Thiên Đồng':'Thủy','Liêm Trinh':'Hỏa',
+  'Thiên Phủ':'Thổ','Thái Âm':'Thủy','Tham Lang':'Mộc','Cự Môn':'Thủy','Thiên Tướng':'Thủy','Thiên Lương':'Thổ',
+  'Thất Sát':'Kim','Phá Quân':'Thủy',
+};
+
+// Thiên Mã: năm chi → chi Thiên Mã
+// Dần/Ngọ/Tuất→Thân(8), Thân/Tý/Thìn→Dần(2), Tỵ/Dậu/Sửu→Hợi(11), Hợi/Mão/Mùi→Tỵ(5)
+const THIEN_MA_MAP = { 2:8, 6:8, 10:8, 8:2, 0:2, 4:2, 5:11, 9:11, 1:11, 11:5, 3:5, 7:5 };
+
 async function castChart() {
   if (!inputBirth.value) {
     errorMsg.value = "Cần nhập sinh thần.";
@@ -125,6 +142,21 @@ function formatSolarDateTime(iso) {
   return time ? `${day}/${m}/${y} ${time}` : `${day}/${m}/${y}`;
 }
 
+// Đại Vận lookup: branch_index → cycle info {start_age, end_age, cycle_index}
+const dvByBranch = computed(() => {
+  if (!data.value) return {};
+  const out = {};
+  for (const c of data.value.dai_van) out[c.branch_index] = c;
+  return out;
+});
+
+// Thiên Mã branch index (từ năm chi)
+const thienMaBranch = computed(() => {
+  if (!data.value) return null;
+  const idx = BRANCH_NAMES.indexOf(data.value.year_branch);
+  return idx >= 0 ? THIEN_MA_MAP[idx] : null;
+});
+
 // ── Derived: build per-cell content (palace info + stars at that branch).
 const cellByBranch = computed(() => {
   if (!data.value) return {};
@@ -157,6 +189,10 @@ const cellByBranch = computed(() => {
   }
   for (const [name, idx] of Object.entries(sat)) {
     out[idx].sat.push({ name });
+  }
+  // Thiên Mã (computed từ năm chi)
+  if (thienMaBranch.value !== null) {
+    out[thienMaBranch.value].sat.push({ name: 'Thiên Mã' });
   }
 
   // Q2 sao bộ — thâm nhuần Quyển 2 (12 sao Thái Tuế + 10 sao phụ)
@@ -285,84 +321,132 @@ const grid = computed(() => {
             }"
           >
             <template v-if="cell.type === 'palace'">
+              <!-- Header: element chip · branch — palace name — DV age -->
               <header class="cell-head">
-                <span class="cell-branch">{{ ['Tý','Sửu','Dần','Mão','Thìn','Tỵ','Ngọ','Mùi','Thân','Dậu','Tuất','Hợi'][cell.branchIndex] }}</span>
-                <span class="cell-palace">{{ cell.palace?.name }}</span>
+                <div class="cell-head-left">
+                  <span class="elem-chip"
+                    :style="{ background: ELEMENT_COLOR[BRANCH_ELEMENT[cell.branchIndex]] + '30',
+                              color: ELEMENT_COLOR[BRANCH_ELEMENT[cell.branchIndex]],
+                              borderColor: ELEMENT_COLOR[BRANCH_ELEMENT[cell.branchIndex]] + '60' }">
+                    {{ BRANCH_ELEMENT[cell.branchIndex][0] }}
+                  </span>
+                  <span class="cell-branch">{{ BRANCH_NAMES[cell.branchIndex] }}</span>
+                </div>
+                <span class="cell-palace"
+                  :class="{ 'is-menh-label': cell.palace?.name === 'Mệnh',
+                             'is-than-label': cell.branchIndex === data.than_index && cell.palace?.name !== 'Mệnh' }">
+                  {{ cell.palace?.name }}
+                  <span v-if="cell.palace?.name === 'Mệnh' && cell.branchIndex === data.than_index"> ·身</span>
+                </span>
+                <span v-if="dvByBranch[cell.branchIndex]" class="dv-age-badge">
+                  {{ dvByBranch[cell.branchIndex].start_age }}
+                </span>
               </header>
+
+              <!-- Chính tinh — lớn, có màu ngũ hành -->
               <ul class="stars chinh">
-                <li v-for="s in cell.chinh" :key="s.name" class="star chinh-tinh">
+                <li v-for="s in cell.chinh" :key="s.name" class="star chinh-tinh"
+                    :style="{ color: ELEMENT_COLOR[CHINH_TINH_HANH[s.name]] || '#f5e6b1' }">
                   {{ s.name }}
-                  <span v-if="s.hoa" class="hoa-badge" :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa], borderColor: HOA_COLOR[s.hoa] }">
+                  <span v-if="s.hoa" class="hoa-badge"
+                    :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa], borderColor: HOA_COLOR[s.hoa] }">
                     {{ s.hoa[0] }}
                   </span>
                 </li>
               </ul>
+
+              <!-- Phụ tinh + sát tinh + q2 — nhỏ hơn, gộp nhau -->
               <ul v-if="cell.phu.length" class="stars phu">
                 <li v-for="s in cell.phu" :key="s.name" class="star phu-tinh">
                   {{ s.name }}
-                  <span v-if="s.hoa" class="hoa-badge" :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa] }">
+                  <span v-if="s.hoa" class="hoa-badge"
+                    :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa] }">
                     {{ s.hoa[0] }}
                   </span>
                 </li>
               </ul>
               <ul v-if="cell.sat.length" class="stars sat">
-                <li v-for="s in cell.sat" :key="s.name" class="star sat-tinh">{{ s.name }}</li>
-              </ul>
-              <ul v-if="cell.q2 && cell.q2.length" class="stars q2"
-                  title="Sao bộ Q2 — thâm nhuần 2026-05-19 từ Tử Vi Đẩu Số Toàn Thư Quyển 2">
-                <li v-for="s in cell.q2" :key="s.name"
-                    :class="['star', 'q2-tinh', s.group === 'thai_tue' ? 'thai-tue' : 'phu-q2']">
+                <li v-for="s in cell.sat" :key="s.name" class="star sat-tinh"
+                    :class="{ 'loc-ton': s.name === 'Lộc Tồn', 'thien-ma': s.name === 'Thiên Mã' }">
                   {{ s.name }}
                 </li>
               </ul>
-              <span v-if="cell.palace?.name === 'Mệnh'" class="menh-mark">★ MỆNH</span>
-              <span v-if="cell.branchIndex === data.than_index" class="than-mark">身 THÂN</span>
-              <span v-if="cell.branchIndex === data.dau_quan_index" class="dauquan-mark"
-                    title="Đẩu Quân — sao tháng sinh. Source: TVDSTT Q.2 (Trần Đoàn)">
-                斗 ĐẨU QUÂN
-              </span>
+              <ul v-if="cell.q2?.length" class="stars q2">
+                <li v-for="s in cell.q2" :key="s.name"
+                    :class="['star','q2-tinh', s.group === 'thai_tue' ? 'thai-tue' : 'phu-q2']">
+                  {{ s.name }}
+                </li>
+              </ul>
+
+              <!-- Footer badges -->
+              <div class="cell-foot">
+                <span v-if="cell.palace?.name === 'Mệnh'" class="menh-mark">★ MỆNH</span>
+                <span v-if="cell.branchIndex === data.than_index && cell.palace?.name !== 'Mệnh'" class="than-mark">身 THÂN</span>
+                <span v-if="cell.branchIndex === data.dau_quan_index" class="dauquan-mark"
+                      title="Đẩu Quân — sao tháng sinh">斗</span>
+              </div>
             </template>
             <template v-else-if="cell.type === 'center-tl'">
-              <div class="center-info center-name">
-                <h3>{{ data.cuc_name }}</h3>
-                <p>Cục số {{ data.cuc }}</p>
+              <div class="center-info center-title">
+                <div class="ct-logo">紫微</div>
+                <div class="ct-sub">Tử Vi Đẩu Số · Bắc Phái</div>
+                <div class="ct-cuc">{{ data.cuc_name }}</div>
+                <div class="ct-row">
+                  <span class="ci-label">Mệnh</span>
+                  <b>{{ data.menh_branch }}</b>
+                  <span class="ci-label" style="margin-left:8px">Thân</span>
+                  <b>{{ data.than_branch }}</b>
+                </div>
+                <div class="ct-row" v-if="data.menh_chu">
+                  <span class="ci-label">Mệnh chủ</span>
+                  <b>{{ data.menh_chu }}</b>
+                </div>
+                <div class="ct-row" v-if="data.than_chu">
+                  <span class="ci-label">Thân chủ</span>
+                  <b>{{ data.than_chu }}</b>
+                </div>
               </div>
             </template>
             <template v-else-if="cell.type === 'center-tr'">
               <div class="center-info">
-                <span class="ci-label">Mệnh / Thân</span>
-                <p><b>{{ data.menh_branch }}</b> / <b>{{ data.than_branch }}</b></p>
-                <template v-if="data.menh_chu">
-                  <span class="ci-label">Mệnh chủ · Thân chủ</span>
-                  <p class="ms-chu"
-                     title="Mệnh chủ (theo địa chi Mệnh cung) + Thân chủ (theo địa chi năm sinh). Source: TVDSTT Q.2">
-                    ⭐ <b>{{ data.menh_chu }}</b><br/>
-                    ⭐ <b>{{ data.than_chu }}</b>
-                  </p>
-                </template>
-                <template v-else>
-                  <span class="ci-label">Giới tính</span>
-                  <p>{{ data.gender }}</p>
-                </template>
+                <div class="ci-row">
+                  <span class="ci-label">Năm</span>
+                  <span>{{ data.year_stem }} {{ data.year_branch }}</span>
+                </div>
+                <div class="ci-row">
+                  <span class="ci-label">Tháng âm</span>
+                  <span>{{ data.lunar_month }}</span>
+                </div>
+                <div class="ci-row">
+                  <span class="ci-label">Ngày âm</span>
+                  <span>{{ data.lunar_day }}</span>
+                </div>
+                <div class="ci-row">
+                  <span class="ci-label">Giờ</span>
+                  <span>{{ data.hour_branch }} · {{ data.gender }}</span>
+                </div>
               </div>
             </template>
             <template v-else-if="cell.type === 'center-bl'">
-              <div class="center-info">
-                <span class="ci-label">Năm sinh</span>
-                <p>{{ data.year_stem }} {{ data.year_branch }}</p>
-                <span class="ci-label">Sinh thần (âm)</span>
-                <p>{{ data.hour_branch }} · {{ data.lunar_day }}/{{ data.lunar_month }}</p>
-              </div>
-            </template>
-            <template v-else-if="cell.type === 'center-br'">
               <div class="center-info center-hoa">
-                <span class="ci-label">Tứ Hóa năm {{ data.year_stem }}</span>
-                <p class="hoa-line" v-for="(star, hoa) in data.tu_hoa" :key="hoa">
-                  <span class="hoa-tag" :style="{ background: HOA_COLOR[hoa] + '22', color: HOA_COLOR[hoa] }">
+                <div class="ci-hoa-title">Tứ Hóa năm {{ data.year_stem }}</div>
+                <div class="hoa-line" v-for="(star, hoa) in data.tu_hoa" :key="hoa">
+                  <span class="hoa-tag" :style="{ background: HOA_COLOR[hoa] + '30', color: HOA_COLOR[hoa], borderColor: HOA_COLOR[hoa] + '60' }">
                     {{ hoa }}
                   </span>
                   <em>{{ star }}</em>
-                </p>
+                </div>
+              </div>
+            </template>
+            <template v-else-if="cell.type === 'center-br'">
+              <div class="center-info center-dv-mini">
+                <div class="ci-hoa-title">Đại Vận</div>
+                <div v-for="c in data.dai_van.slice(0, 6)" :key="c.cycle_index"
+                  class="dv-mini-row"
+                  :class="{ 'dv-current': luuTru && luuTru.dai_han_cycle?.cycle_index === c.cycle_index }">
+                  <span class="dv-mini-age">{{ c.start_age }}</span>
+                  <span class="dv-mini-branch">{{ c.branch }}</span>
+                </div>
               </div>
             </template>
           </div>
@@ -638,60 +722,91 @@ const grid = computed(() => {
 .laso-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, minmax(140px, auto));
-  gap: 4px;
-  background: rgba(232, 201, 90, 0.04);
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid rgba(232, 201, 90, 0.2);
+  grid-template-rows: repeat(4, minmax(150px, auto));
+  gap: 3px;
+  background: rgba(232, 201, 90, 0.06);
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(232, 201, 90, 0.25);
+  box-shadow: 0 0 0 3px rgba(232, 201, 90, 0.04), inset 0 0 40px rgba(0,0,0,0.3);
 }
 
 .laso-cell {
-  background: rgba(20, 30, 45, 0.55);
-  border: 1px solid var(--border-soft, rgba(255, 255, 255, 0.08));
-  border-radius: 5px;
-  padding: 6px 7px;
-  font-size: 11.5px;
+  background: rgba(12, 18, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 5px 6px 4px;
+  font-size: 11px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   position: relative;
-  min-height: 0;
+  overflow: hidden;
 }
 .laso-cell.center {
-  background: rgba(232, 201, 90, 0.06);
-  border-color: rgba(232, 201, 90, 0.18);
+  background: rgba(20, 28, 42, 0.9);
+  border-color: rgba(232, 201, 90, 0.15);
 }
 .laso-cell.is-menh {
-  background: rgba(232, 201, 90, 0.12);
-  border-color: rgba(232, 201, 90, 0.5);
-  box-shadow: 0 0 0 1px rgba(232, 201, 90, 0.3);
+  background: rgba(232, 201, 90, 0.09);
+  border-color: rgba(232, 201, 90, 0.55);
+  box-shadow: 0 0 8px rgba(232, 201, 90, 0.15) inset;
 }
-.laso-cell.is-than {
-  border-left: 3px solid #d65a78;
+.laso-cell.is-than:not(.is-menh) {
+  border-left: 2px solid #d65a78;
 }
 
+/* ── Palace cell header ── */
 .cell-head {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-  padding-bottom: 3px;
-  margin-bottom: 2px;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 4px;
+  margin-bottom: 3px;
+}
+.cell-head-left { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.elem-chip {
+  font-size: 8px;
+  font-weight: 800;
+  padding: 0 3px;
+  border-radius: 2px;
+  border: 1px solid;
+  line-height: 14px;
+  letter-spacing: 0;
 }
 .cell-branch {
-  font-size: 10px;
-  color: var(--text-muted, rgba(230, 238, 245, 0.5));
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 9.5px;
+  color: rgba(230, 238, 245, 0.45);
   font-weight: 700;
+  letter-spacing: 0.3px;
 }
 .cell-palace {
-  font-size: 12px;
-  color: var(--accent-gold-soft, #f5e6b1);
+  flex: 1;
+  font-size: 11.5px;
+  color: rgba(245, 230, 177, 0.85);
   font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cell-palace.is-menh-label { color: #e8c95a; font-size: 12px; }
+.cell-palace.is-than-label { color: #f5a5b5; }
+.dv-age-badge {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(232, 201, 90, 0.6);
+  background: rgba(232, 201, 90, 0.08);
+  border-radius: 2px;
+  padding: 0 4px;
+  line-height: 16px;
+  min-width: 20px;
+  text-align: center;
 }
 
+/* ── Stars ── */
 .stars { list-style: none; margin: 0; padding: 0; }
 .star {
   display: flex;
@@ -700,9 +815,11 @@ const grid = computed(() => {
   line-height: 1.35;
   font-size: 11.5px;
 }
-.chinh-tinh { color: var(--accent-gold-soft, #f5e6b1); font-weight: 700; }
-.phu-tinh { color: var(--accent-teal, #5be5d3); font-size: 11px; }
-.sat-tinh { color: #d65a4a; font-size: 10.5px; }
+.chinh-tinh { font-weight: 800; font-size: 12px; line-height: 1.4; }
+.phu-tinh { color: #7dd3fc; font-size: 10.5px; }
+.sat-tinh { color: #fca5a5; font-size: 10px; }
+.sat-tinh.loc-ton { color: #86efac; font-weight: 700; }
+.sat-tinh.thien-ma { color: #fde68a; font-weight: 600; }
 .stars.q2 {
   margin-top: 3px; padding-top: 3px;
   border-top: 1px dashed rgba(168, 85, 247, 0.25);
@@ -728,90 +845,135 @@ const grid = computed(() => {
   font-weight: 700;
 }
 
-.menh-mark, .than-mark {
-  position: absolute;
-  bottom: 3px;
-  font-size: 9.5px;
+/* ── Cell footer badges ── */
+.cell-foot {
+  margin-top: auto;
+  display: flex;
+  gap: 4px;
+  padding-top: 2px;
+}
+.menh-mark, .than-mark, .dauquan-mark {
+  font-size: 8.5px;
   font-weight: 700;
-  padding: 1px 5px;
+  padding: 1px 4px;
   border-radius: 2px;
+  line-height: 14px;
 }
-.menh-mark {
-  right: 4px;
-  background: rgba(232, 201, 90, 0.2);
-  color: var(--accent-gold, #e8c95a);
-}
-.than-mark {
-  left: 4px;
-  background: rgba(214, 90, 120, 0.2);
-  color: #f5a5b5;
-}
-.dauquan-mark {
-  top: 3px;
-  right: 4px;
-  background: rgba(56, 189, 248, 0.18);
-  color: #7dd3fc;
-  font-family: "Songti SC", serif;
-}
-.ms-chu {
-  font-size: 11.5px;
-  margin: 0;
-  line-height: 1.35;
-  color: var(--accent-gold, #fde68a);
-}
-.ms-chu b {
-  color: #fff;
-}
+.menh-mark  { background: rgba(232, 201, 90, 0.2); color: #e8c95a; }
+.than-mark  { background: rgba(214, 90, 120, 0.2); color: #f5a5b5; }
+.dauquan-mark { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; font-family: "Songti SC", serif; }
 
-/* Center cells */
+/* ── Center cells ── */
 .center-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   font-size: 11px;
+  height: 100%;
+  padding: 2px;
 }
-.center-name h3 {
-  margin: 0;
-  font-size: 14px;
-  color: var(--accent-gold-soft, #f5e6b1);
+
+/* TL: title / cục / mệnh thân */
+.center-title {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
-.center-name p {
-  margin: 0;
+.ct-logo {
+  font-size: 22px;
+  font-weight: 900;
+  color: #e8c95a;
+  font-family: "Songti SC", "SimSun", serif;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.ct-sub {
+  font-size: 8.5px;
+  color: rgba(245, 230, 177, 0.4);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ct-cuc {
   font-size: 11px;
-  color: var(--text-muted, rgba(230, 238, 245, 0.6));
+  font-weight: 700;
+  color: #f5e6b1;
+  padding: 2px 8px;
+  border: 1px solid rgba(232, 201, 90, 0.3);
+  border-radius: 3px;
+  background: rgba(232, 201, 90, 0.07);
+  margin-bottom: 3px;
 }
+.ct-row {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+.ct-row b { color: #f5e6b1; font-size: 11px; }
+
+/* TR: birth detail rows */
+.ci-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+}
+.ci-row span:last-child { color: #e6eef5; }
+
 .ci-label {
-  font-size: 9px;
-  color: var(--text-muted, rgba(230, 238, 245, 0.45));
+  font-size: 8.5px;
+  color: rgba(230, 238, 245, 0.38);
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  margin-top: 3px;
+  flex-shrink: 0;
 }
-.center-info p {
-  margin: 0;
-  font-size: 12px;
-  color: var(--text-primary, #e6eef5);
+
+/* BL: Tứ Hóa */
+.ci-hoa-title {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(230, 238, 245, 0.4);
+  margin-bottom: 2px;
 }
-.center-info p b { color: var(--accent-gold-soft, #f5e6b1); }
 .hoa-line {
   display: flex;
   gap: 5px;
   font-size: 10.5px;
   align-items: center;
-  margin: 1px 0 !important;
 }
 .hoa-line em {
-  color: var(--text-secondary, rgba(230, 238, 245, 0.85));
+  color: rgba(230, 238, 245, 0.85);
   font-style: normal;
 }
 .hoa-tag {
-  font-size: 9.5px;
+  font-size: 9px;
   padding: 1px 5px;
   border-radius: 2px;
+  border: 1px solid;
   font-weight: 700;
-  min-width: 28px;
+  min-width: 32px;
   text-align: center;
 }
+
+/* BR: Đại Vận mini */
+.center-dv-mini { justify-content: flex-start; }
+.dv-mini-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+.dv-mini-row.dv-current {
+  background: rgba(232, 201, 90, 0.15);
+  border-left: 2px solid #e8c95a;
+}
+.dv-mini-age { color: rgba(232, 201, 90, 0.7); font-weight: 700; min-width: 20px; }
+.dv-mini-branch { color: #e6eef5; font-weight: 600; }
 
 /* ── Đại Vận strip ───────────────────────────────────────────────────── */
 .section-h {
