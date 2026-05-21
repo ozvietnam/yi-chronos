@@ -31,31 +31,66 @@ def _existing_canonical_vi(db: sqlite3.Connection) -> set[str]:
 
 
 def _extract_quotes(text: str) -> list[dict]:
-    """Extract Hán-Việt verbatim quotes."""
+    """Extract Hán-Việt verbatim quotes — supports multi-line + multiple quote chars."""
     quotes = []
-    # Pattern 1: "Cổ phú/Phú vân/Cổ ngữ: \"...\""
+    # All Vietnamese quote variations: straight " ' curly “ ” „ ‟ « »
+    QUOTE_CHARS = r'["‘’‚‛“”„‟«»`]'
+    # Pattern 1: Lead phrase + colon + quoted block (multiline OK with DOTALL)
     pat1 = re.compile(
-        r'(?:Phú\s+vân|Cổ\s+phú|Cổ\s+ngữ|Cổ\s+nhân\s+vị|Cổ\s+nhân\s+nói|Cổ\s+nhân\s+dạy|Cổ\s+huấn|Trần\s+Đoàn\s+vị)\s*[::]\s*[“"”„]([^“"”„]{6,200})[”"“„]',
-        re.UNICODE,
+        rf'(?:Phú\s+vân|Cổ\s+phú|Cổ\s+ngữ|Cổ\s+nhân\s+vị|Cổ\s+nhân\s+nói|Cổ\s+nhân\s+dạy|Cổ\s+huấn|Trần\s+Đoàn\s+vị|Đẩu\s+Số|Toàn\s+Thư)\s*[::]\s*{QUOTE_CHARS}([^{QUOTE_CHARS[1:-1]}]{{6,400}}){QUOTE_CHARS}',
+        re.UNICODE | re.DOTALL,
     )
     for m in pat1.finditer(text):
         body = m.group(1).strip()
         if body:
             quotes.append({"text": body, "type": "phu_quote"})
-    # Pattern 2: bare straight/curly quotes with mostly Hán-Việt chars
-    pat2 = re.compile(r'[“"”„]([^“"”„]{6,150})[”"“„]', re.UNICODE)
+    # Pattern 2: bare quoted block (multi-line, 12-400 chars) — Hán-Việt heavy
+    pat2 = re.compile(rf'{QUOTE_CHARS}([^{QUOTE_CHARS[1:-1]}]{{12,400}}){QUOTE_CHARS}', re.UNICODE | re.DOTALL)
+    # Filter words that disqualify a quote as "modern Vietnamese commentary"
+    MODERN_VI_DISQUALIFIERS = {
+        'anh', 'em', 'bạn', 'tôi', 'lời khuyên', 'ví dụ', 'tức là', 'nghĩa là',
+        'theo em', 'theo tôi', 'hãy', 'nên', 'cần phải', 'bạn ơi', 'anh ơi',
+    }
     for m in pat2.finditer(text):
         body = m.group(1).strip()
-        if re.search(r'[a-zA-Z]', body):  # skip if has Latin (likely English/code)
-            continue
         if any(q["text"] == body for q in quotes):
             continue
-        # Heuristic: looks like classical 4-7 char per phrase
-        words = body.replace(',', ' ').replace('.', ' ').replace(';', ' ').replace('—', ' ').split()
-        if not words:
+        # Skip too short (real classical phú = 12+ chars)
+        if len(body) < 12:
+            continue
+        # Avoid markdown wrappers / starts with punctuation
+        if body[0] in '*-#(.,;:[' or body.startswith('**'):
+            continue
+        if '**' in body:  # markdown bold inside — not classical
+            continue
+        # Avoid ending mid-sentence
+        if body.endswith((',', ':', ';', '–', '(', 'và', 'của', 'là', 'nhưng', 'mà', 'với', 'cùng', 'thì', 'rồi', 'được', 'gặp')):
+            continue
+        # Skip if contains digits (numerical metadata, not phú thi)
+        if re.search(r'\d', body):
+            continue
+        # Skip if starts with lowercase Vietnamese (fragment from middle of sentence)
+        first_char = body[0]
+        if first_char.isalpha() and first_char.islower():
+            continue
+        # Skip if pure English (no Vietnamese diacritic at all)
+        viet_diacritic = sum(1 for c in body if c.isalpha() and ord(c) > 127)
+        if viet_diacritic < 4:  # at least 4 Vietnamese-diacritic chars
+            continue
+        # Detect modern Vietnamese commentary (disqualifiers)
+        body_lower = body.lower()
+        if any(d in body_lower for d in MODERN_VI_DISQUALIFIERS):
+            continue
+        # Heuristic classical: should have at least 4 Vietnamese words
+        words = re.split(r'[\s,.;\n—–\-]+', body)
+        words = [w for w in words if w]
+        if len(words) < 4:
             continue
         avg_word_len = sum(len(w) for w in words) / len(words)
-        if avg_word_len < 1.5 or avg_word_len > 12:
+        if avg_word_len > 12:  # super-long words = probably URLs/code
+            continue
+        # Classical phú vần điệu: many short words (4-7 chars avg)
+        if avg_word_len > 6.5:  # commentary tends to longer Vietnamese words
             continue
         quotes.append({"text": body, "type": "embedded_quote"})
     return quotes
@@ -72,14 +107,23 @@ def _extract_cach_cuc_names(text: str) -> list[str]:
         n = m.group(1).strip()
         if 4 <= len(n) <= 60:
             names.add(n + " cách")
-    # Pattern bare: "Mệnh cách X cách"
+    # Pattern bare: "Mệnh cách X cách" — REQUIRE 2+ capitalized words (avoid "Những cách", "đời cách")
     pat2 = re.compile(rf"(?:^|[\.,;:\s\n])([A-Z{cap}]{char_class}{{3,40}})\s+(?:chi\s+)?cách\b", re.UNICODE)
+    # Common Vietnamese modifiers that should NOT lead a cách cục name
+    NON_CACH_PREFIXES = {
+        'Những', 'Các', 'Mọi', 'Một', 'Vài', 'Nhiều', 'Cả', 'Anh', 'Em', 'Bạn',
+        'Tôi', 'Chúng', 'Họ', 'Như', 'Nếu', 'Khi', 'Thì', 'Đến', 'Ngày', 'Cách',
+        'Đây', 'Đó', 'Kia', 'Theo', 'Sau', 'Trước', 'Trong', 'Ngoài',
+    }
     for m in pat2.finditer(text):
         n = m.group(1).strip()
-        # Filter: avoid "đời cách", "này cách" — must contain at least 2 capitalized words
         words = n.split()
+        # Skip modern Vietnamese pronouns + counters
+        if words[0] in NON_CACH_PREFIXES:
+            continue
         cap_words = [w for w in words if w and w[0].isupper()]
-        if len(cap_words) >= 1 and 4 <= len(n) <= 50:
+        # Require 2+ capitalized words (proper noun pattern: "Tử Vi cách", "Phúc Lộc cách")
+        if len(cap_words) >= 2 and 4 <= len(n) <= 50:
             names.add(n + " cách")
     return sorted(names)
 
