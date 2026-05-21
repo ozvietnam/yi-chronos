@@ -1,0 +1,9 @@
+﻿id,han_tu,ten_viet,muc_uu_tien,cung_uu_tien,muc_dich
+T001,天空星,Thiên Không,Ưu tiên rất cao,"命宫, 财帛宫, 官禄宫, 迁移宫",Tìm cách S5 mô tả Thiên Không theo cung
+T002,地劫星,Địa Kiếp,Ưu tiên rất cao,"命宫, 财帛宫, 官禄宫, 迁移宫",Tìm cách S5 mô tả Địa Kiếp theo cung
+T003,天虚星,Thiên Hư,Ưu tiên cao,"财帛宫, 福德宫, 夫妻宫, 子女宫",Đối chiếu với S1: 天虚守财帛进退
+T004,天哭星,Thiên Khốc,Ưu tiên cao,"财帛宫, 福德宫, 夫妻宫, 子女宫",Đối chiếu với S1: 天哭破耗人 / 破财多
+T005,大耗星,Đại Hao,Ưu tiên trung bình-cao,"财帛宫, 田宅宫, 官禄宫",Tách Hao khỏi Không/Kiếp
+T006,小耗星,Tiểu Hao,Ưu tiên trung bình-cao,"财帛宫, 田宅宫, 官禄宫","Rò rỉ nhỏ, hao âm ỉ"
+T007,化忌,Hóa Kỵ,Ưu tiên rất cao,"官禄宫, 命宫, 财帛宫",Liên hệ case Founder: Quan Lộc Cự Cơ Kỵ
+T008,破军,Phá Quân,Ưu tiên trung bình,"田宅宫, 财帛宫, 官禄宫",Phá cấu trúc; đối chiếu toán tử 破
