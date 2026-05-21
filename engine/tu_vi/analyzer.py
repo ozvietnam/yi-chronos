@@ -1495,6 +1495,15 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
                               "Iron Rule #6: đọc đồng dạng, không predict.",
         }
         _cache_save(self.person.person_key, "phe_menh_sau", data, self.person.user_id)
+
+        # AUTO-EXTRACT to wiki (post-gen hook) — anh đốt tiền DeepSeek = tích lũy tri thức
+        try:
+            from engine.tu_vi.wiki_extractor import extract_phe_menh_to_wiki
+            extract_result = extract_phe_menh_to_wiki(data, verbose=False)
+            data["wiki_extracted"] = extract_result
+        except Exception as e:
+            data["wiki_extracted"] = {"error": str(e)}
+
         return data
 
     # ── 7. Phú readings (top N personalized) ────────────────────────────────

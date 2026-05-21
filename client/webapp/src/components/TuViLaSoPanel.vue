@@ -39,6 +39,7 @@ const pheMenh = ref(null);        // ⭐ Phê mệnh phú thi (Q4 Khang Tiết)
 const pheMenhLoading = ref(false);
 const pheMenhSau = ref(null);     // ⭐ VIP1 — Luận giải sâu (DeepSeek Pro)
 const pheMenhSauLoading = ref(false);
+const collapsedSections = ref(new Set());  // ⭐ collapsible 10 sections phê mệnh sâu
 const vipFeatures = ref(null);    // ⭐ VIP subscriptions for current user
 const thienQuanArchetype = ref(null);  // ⭐ Q4 Thiên Quán 36 archetypes
 const loading = ref(false);
@@ -246,6 +247,88 @@ async function loadPheMenhSau(force = false) {
   } finally {
     pheMenhSauLoading.value = false;
   }
+}
+
+// ⭐ Phê mệnh sâu UI helpers — collapse / copy / format markdown 3-layer
+function togglePmsSection(key) {
+  const s = collapsedSections.value;
+  if (s.has(key)) {
+    s.delete(key);
+  } else {
+    s.add(key);
+  }
+  collapsedSections.value = new Set(s);  // trigger reactivity
+}
+
+async function copyPmsSection(key, content) {
+  try {
+    const title = {
+      dinh_thoi_khac: "1. Định thời khắc",
+      khoi_bat_tu: "2. Khởi Bát Tự",
+      lap_cach_dung_than: "3. Lập cách · Dụng thần",
+      bai_tinh_than: "4. Bài tinh thần",
+      lap_toa_menh: "5. Lập tọa Mệnh",
+      dai_van_phan_tich: "6. Đại Vận phân tích",
+      dai_han_luu_nien: "7. Đại Hạn + Lưu Niên",
+      tu_hoa_dien_giai: "8. Tứ Hóa diễn giải",
+      hi_ky_canh_bao: "9. Hỉ kỵ + Cảnh báo",
+      ket_tam_an: "10. Kết tâm an",
+    }[key] || key;
+    await navigator.clipboard.writeText(`## ${title}\n\n${content}`);
+  } catch (e) {
+    console.warn("Copy failed", e);
+  }
+}
+
+function escapeHtml(str) {
+  if (!str) return "";
+  return str
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+/** Format markdown 3-layer cho phê mệnh sâu output.
+ * - Lines bắt đầu "📜 Cổ huấn" hoặc "📜 ..." → blockquote class pms-classical
+ * - Lines bắt đầu "📜 Dịch nghĩa" → italic translation
+ * - "**...**" → <strong>
+ * - "_..._" → <em>
+ * - Hán-Việt term in (...) → highlight
+ * - Paragraph breaks on \n\n
+ */
+function formatPmsContent(text) {
+  if (!text || typeof text !== "string") return "";
+  let html = escapeHtml(text);
+  // Bold **...**
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  // Italic _..._
+  html = html.replace(/(^|\s)_([^_\n]+)_/g, "$1<em>$2</em>");
+  // Highlight giải nghĩa Hán-Việt: pattern (Xxx — yyy) hoặc (Xxx, yyy)
+  html = html.replace(/\(([A-ZÀ-Ỹ][^()]{2,80})\)/g, '<span class="pms-gloss">($1)</span>');
+  // Split into paragraphs
+  const paragraphs = html.split(/\n\n+/);
+  const out = [];
+  for (const para of paragraphs) {
+    const trimmed = para.trim();
+    if (!trimmed) continue;
+    // Check if paragraph is "📜 ..." — classical block
+    if (trimmed.startsWith("📜")) {
+      // Detect Dịch nghĩa vs Cổ huấn
+      const isDichNghia = trimmed.includes("Dịch nghĩa") || trimmed.includes("dịch nghĩa");
+      out.push(`<blockquote class="${isDichNghia ? 'pms-translation' : 'pms-classical'}">${trimmed.replace(/\n/g, "<br/>")}</blockquote>`);
+    } else if (/^[A-ZÀ-Ỹ][^\n]{2,40}:?$/m.test(trimmed.split("\n")[0]) && trimmed.split("\n")[0].length < 60) {
+      // Possible heading-like line
+      const lines = trimmed.split("\n");
+      const head = lines[0];
+      const rest = lines.slice(1).join("\n");
+      out.push(`<p class="pms-subhead"><strong>${head}</strong></p>`);
+      if (rest.trim()) {
+        out.push(`<p>${rest.replace(/\n/g, "<br/>")}</p>`);
+      }
+    } else {
+      out.push(`<p>${trimmed.replace(/\n/g, "<br/>")}</p>`);
+    }
+  }
+  return out.join("\n");
 }
 
 async function loadThienQuanArchetype() {
@@ -902,22 +985,39 @@ const grid = computed(() => {
 
           <div v-if="pheMenhSau?.phe_menh_sau && !pheMenhSau.error" class="pms-content">
             <div class="pms-meta">
-              <small>via {{ pheMenhSau.provider }} · {{ (pheMenhSau.tokens?.prompt + pheMenhSau.tokens?.completion).toLocaleString() }} tokens · ${{ pheMenhSau.cost_usd?.toFixed(4) }}</small>
+              <small>
+                via {{ pheMenhSau.provider }}
+                · {{ (pheMenhSau.tokens?.total || (pheMenhSau.tokens?.prompt + pheMenhSau.tokens?.completion) || 0).toLocaleString() }} tokens
+                · ${{ (pheMenhSau.cost_usd || 0).toFixed(4) }}
+                · {{ Math.round(pheMenhSau.avg_length_chars || 0).toLocaleString() }} chars/section avg
+                · <span v-if="pheMenhSau.wiki_extracted?.added_quotes >= 0">
+                    📚 +{{ pheMenhSau.wiki_extracted.added_quotes }} phú, +{{ pheMenhSau.wiki_extracted.added_cach_cuc }} cách → wiki
+                  </span>
+              </small>
             </div>
-            <article v-for="(content, key) in pheMenhSau.phe_menh_sau" :key="key" class="pms-section">
-              <h5>{{ {
-                dinh_thoi_khac: '1️⃣ Định thời khắc',
-                khoi_bat_tu: '2️⃣ Khởi Bát Tự',
-                lap_cach_dung_than: '3️⃣ Lập cách Dụng Thần',
-                bai_tinh_than: '4️⃣ Bài tinh thần',
-                lap_toa_menh: '5️⃣ Lập tọa Mệnh',
-                dai_van_phan_tich: '6️⃣ Đại Vận phân tích',
-                dai_han_luu_nien: '7️⃣ Đại Hạn + Lưu Niên',
-                tu_hoa_dien_giai: '8️⃣ Tứ Hóa diễn giải',
-                hi_ky_canh_bao: '9️⃣ Hỉ kỵ + cảnh báo',
-                ket_tam_an: '🔟 Kết tâm an'
-              }[key] || key }}</h5>
-              <p>{{ content }}</p>
+            <article v-for="(content, key) in pheMenhSau.phe_menh_sau" :key="key"
+                     v-show="!key.startsWith('_')"
+                     class="pms-section" :class="{ 'pms-collapsed': collapsedSections.has(key) }">
+              <header class="pms-section-header" @click="togglePmsSection(key)">
+                <h5>{{ {
+                  dinh_thoi_khac: '1️⃣ Định thời khắc',
+                  khoi_bat_tu: '2️⃣ Khởi Bát Tự (Tứ Trụ)',
+                  lap_cach_dung_than: '3️⃣ Lập cách · Dụng thần',
+                  bai_tinh_than: '4️⃣ Bài tinh thần (14 chính tinh)',
+                  lap_toa_menh: '5️⃣ Lập tọa Mệnh',
+                  dai_van_phan_tich: '6️⃣ Đại Vận phân tích',
+                  dai_han_luu_nien: '7️⃣ Đại Hạn + Lưu Niên',
+                  tu_hoa_dien_giai: '8️⃣ Tứ Hóa diễn giải sâu',
+                  hi_ky_canh_bao: '9️⃣ Hỉ kỵ + Cảnh báo',
+                  ket_tam_an: '🔟 Kết tâm an'
+                }[key] || key }}</h5>
+                <div class="pms-section-controls">
+                  <small class="pms-section-len">{{ (content?.length || 0).toLocaleString() }} chữ</small>
+                  <button class="pms-copy-btn" @click.stop="copyPmsSection(key, content)" :title="'Copy section'">📋</button>
+                  <span class="pms-toggle">{{ collapsedSections.has(key) ? '▸' : '▾' }}</span>
+                </div>
+              </header>
+              <div v-if="!collapsedSections.has(key)" class="pms-section-body" v-html="formatPmsContent(content)"></div>
             </article>
             <p class="pms-paradigm">💡 {{ pheMenhSau.paradigm_note }}</p>
           </div>
@@ -1899,14 +1999,63 @@ const grid = computed(() => {
   background: rgba(0, 0, 0, 0.22);
   border-left: 3px solid #fbbf24;
   border-radius: 0 6px 6px 0;
+  transition: background 0.18s;
 }
-.pms-section h5 { margin: 0 0 6px; color: #fcd34d; font-size: 13px; font-weight: 600; }
-.pms-section p {
-  margin: 0; font-size: 13px; line-height: 1.7;
-  color: var(--text-secondary, rgba(230, 238, 245, 0.88));
-  white-space: pre-wrap;
-  font-family: "Times New Roman", "Palatino", serif;
+.pms-section.pms-collapsed { padding: 8px 14px; }
+.pms-section.pms-collapsed:hover { background: rgba(0, 0, 0, 0.32); }
+.pms-section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; gap: 12px;
 }
+.pms-section-header h5 { margin: 0; color: #fcd34d; font-size: 13.5px; font-weight: 600; flex: 1; }
+.pms-section-controls { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.pms-section-len { color: rgba(230, 238, 245, 0.45); font-size: 10.5px; }
+.pms-copy-btn {
+  background: transparent; border: 1px solid rgba(252, 211, 77, 0.3);
+  color: #fbbf24; padding: 1px 6px; border-radius: 3px;
+  cursor: pointer; font-size: 11px; transition: background 0.15s;
+}
+.pms-copy-btn:hover { background: rgba(252, 211, 77, 0.15); }
+.pms-toggle { color: #fbbf24; font-size: 14px; }
+.pms-section-body {
+  margin-top: 10px;
+  font-size: 13.5px; line-height: 1.75;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.92));
+  font-family: "Charter", "Iowan Old Style", "Times New Roman", Georgia, serif;
+}
+.pms-section-body p {
+  margin: 0 0 10px;
+}
+.pms-section-body p.pms-subhead {
+  margin-top: 12px; margin-bottom: 4px;
+  color: #fcd34d; font-size: 13px; font-weight: 600;
+}
+.pms-section-body blockquote.pms-classical {
+  margin: 8px 0 6px; padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(251, 191, 36, 0.02));
+  border-left: 3px solid #fbbf24;
+  font-family: "Palatino", "Garamond", serif;
+  color: #fde68a; font-size: 13.5px; font-style: italic;
+  line-height: 1.65; letter-spacing: 0.2px;
+  border-radius: 0 4px 4px 0;
+}
+.pms-section-body blockquote.pms-translation {
+  margin: 4px 0 12px; padding: 6px 14px;
+  background: rgba(91, 229, 211, 0.05);
+  border-left: 2px solid #5be5d3;
+  color: rgba(230, 238, 245, 0.82);
+  font-size: 12.5px; font-style: italic;
+  line-height: 1.6;
+  border-radius: 0 3px 3px 0;
+}
+.pms-section-body .pms-gloss {
+  color: rgba(91, 229, 211, 0.95);
+  font-size: 0.9em; font-style: italic;
+  background: rgba(91, 229, 211, 0.06);
+  padding: 0 4px; border-radius: 2px;
+}
+.pms-section-body strong { color: #fde68a; font-weight: 700; }
+.pms-section-body em { color: rgba(252, 211, 77, 0.85); }
 .pms-paradigm {
   margin: 10px 0 0; padding: 8px 12px;
   background: rgba(91, 229, 211, 0.06);
