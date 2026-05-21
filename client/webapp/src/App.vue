@@ -34,7 +34,6 @@ import LienHoaPanel from "./components/LienHoaPanel.vue";
 import BatTuPanel from "./components/BatTuPanel.vue";
 import ChinhTinhGallery from "./components/ChinhTinhGallery.vue";
 import TuViLaSoPanel from "./components/TuViLaSoPanel.vue";
-import TuViOracleDeck from "./components/TuViOracleDeck.vue";
 import ChieuDomKinhPanel from "./components/ChieuDomKinhPanel.vue";
 import YiHermesChat from "./components/YiHermesChat.vue";
 import LexiconPanel from "./components/LexiconPanel.vue";
@@ -597,7 +596,6 @@ onBeforeUnmount(() => {
           ]"
         />
         <TuViLaSoPanel />
-        <TuViOracleDeck />
         <h3 class="schema-divider">📚 Tham chiếu — Schema 14 chính tinh</h3>
         <ChinhTinhGallery />
         <h3 class="schema-divider">📜 Phái khác — Chiếu Đởm Kinh + Nhập Cốt Tiên Kinh (Q4)</h3>

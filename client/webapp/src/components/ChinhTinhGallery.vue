@@ -10,6 +10,7 @@ import { computed, onMounted, ref } from "vue";
 import { getTuViChinhTinhList } from "../lib/api";
 
 const stars = ref([]);
+const oracleCards = ref([]);
 const loading = ref(false);
 const errorMsg = ref("");
 const activeId = ref("");
@@ -22,6 +23,26 @@ const ELEMENT_COLOR = {
   thổ: "#9a7b4a",
 };
 
+const ORACLE_TITLE_BY_STAR = {
+  "Tử Vi": "TỬ VI",
+  "Thiên Cơ": "THIÊN CƠ KỴ",
+  "Thái Dương": "THÁI DƯƠNG",
+  "Vũ Khúc": "VŨ KHÚC",
+  "Thiên Đồng": "THIÊN ĐỒNG",
+  "Liêm Trinh": "LIÊM TRINH + HỎA TINH",
+  "Thiên Phủ": "THIÊN PHỦ",
+  "Thái Âm": "THÁI ÂM",
+  "Tham Lang": "THAM LANG",
+  "Cự Môn": "CỰ MÔN",
+  "Thiên Tướng": "THIÊN TƯỚNG",
+  "Thất Sát": "THẤT SÁT",
+  "Phá Quân": "PHÁ QUÂN",
+};
+
+function normalizeTitle(value) {
+  return String(value || "").trim().toUpperCase();
+}
+
 function primaryElement(ngu_hanh) {
   // Some stars have alternatives like "mộc / thủy" — use first.
   return ngu_hanh.split(/[\s\/]+/)[0];
@@ -30,11 +51,18 @@ function primaryElement(ngu_hanh) {
 onMounted(async () => {
   loading.value = true;
   try {
-    const resp = await getTuViChinhTinhList();
+    const [resp, oracleResp] = await Promise.all([
+      getTuViChinhTinhList(),
+      fetch("/oracle-cards/tu-vi/cards.json").catch(() => null),
+    ]);
     if (resp.status === "ok") {
       stars.value = resp.stars;
     } else {
       errorMsg.value = "Không tải được danh sách chính tinh.";
+    }
+    if (oracleResp?.ok) {
+      const manifest = await oracleResp.json();
+      oracleCards.value = manifest.cards ?? [];
     }
   } catch (err) {
     errorMsg.value = err?.message || String(err);
@@ -48,6 +76,15 @@ function toggle(id) {
 }
 
 const activeStar = computed(() => stars.value.find((s) => s.id === activeId.value));
+const oracleCardsByTitle = computed(() => {
+  return new Map(oracleCards.value.map((card) => [normalizeTitle(card.title), card]));
+});
+function oracleCardFor(star) {
+  const oracleTitle = ORACLE_TITLE_BY_STAR[star?.ten_vi];
+  if (!oracleTitle) return null;
+  return oracleCardsByTitle.value.get(normalizeTitle(oracleTitle)) ?? null;
+}
+const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeStar.value) : null);
 </script>
 
 <template>
@@ -72,6 +109,16 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
         :class="{ active: activeId === s.id }"
         :style="{ borderLeft: '3px solid ' + ELEMENT_COLOR[primaryElement(s.ngu_hanh)] }"
         @click="toggle(s.id)">
+        <figure
+          v-if="oracleCardFor(s)"
+          class="ct-card-art"
+          :aria-label="`Ảnh thẻ ${s.ten_vi}`"
+        >
+          <img :src="oracleCardFor(s).image" :alt="`Thẻ ${s.ten_vi}`" loading="lazy" />
+        </figure>
+        <div v-else class="ct-card-art missing" aria-label="Chưa có ảnh đã duyệt">
+          <span>Chưa có ảnh duyệt</span>
+        </div>
         <header>
           <h4>{{ s.ten_vi }}</h4>
           <small>{{ s.ten_zh }} · {{ s.ngu_hanh }} · {{ s.am_duong }} · hóa khí: {{ s.hoa_khi }}</small>
@@ -92,6 +139,14 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
           <h3>{{ activeStar.ten_vi }} ({{ activeStar.ten_zh }})</h3>
           <button class="close-x" @click="activeId = ''">×</button>
         </header>
+        <div v-if="activeOracleCard" class="ct-detail-oracle">
+          <img :src="activeOracleCard.image" :alt="`Thẻ ${activeStar.ten_vi}`" />
+          <div>
+            <span>Ảnh oracle đã đối chiếu</span>
+            <p>{{ activeOracleCard.interpretation }}</p>
+            <small v-if="activeOracleCard.quality_note">{{ activeOracleCard.quality_note }}</small>
+          </div>
+        </div>
         <p class="detail-meta">
           <span>Ngũ hành: <b>{{ activeStar.ngu_hanh }}</b></span>
           <span>Âm-Dương: <b>{{ activeStar.am_duong }}</b></span>
@@ -188,13 +243,21 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
 
 .ct-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
 }
 .ct-card {
-  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: start;
+  min-height: 172px;
+  background:
+    linear-gradient(135deg, rgba(232, 201, 90, 0.07), transparent 44%),
+    rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-soft, rgba(255, 255, 255, 0.08));
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 12px;
   cursor: pointer;
   transition: background 0.15s, transform 0.15s;
@@ -207,6 +270,36 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
   background: rgba(232, 201, 90, 0.08);
   border-color: rgba(232, 201, 90, 0.4);
 }
+.ct-card-art {
+  grid-row: 1 / span 3;
+  width: 74px;
+  aspect-ratio: 2 / 3;
+  margin: 0;
+  border: 1px solid rgba(232, 201, 90, 0.22);
+  border-radius: 6px;
+  background: #071018;
+  overflow: hidden;
+}
+.ct-card-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ct-card-art.missing {
+  display: grid;
+  place-items: center;
+  border-style: dashed;
+  background: rgba(255, 255, 255, 0.025);
+}
+.ct-card-art.missing span {
+  max-width: 54px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.48));
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
 .ct-card header h4 {
   margin: 0;
   font-size: 15px;
@@ -217,6 +310,7 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
   font-size: 11px;
   color: var(--text-muted, rgba(230, 238, 245, 0.55));
   margin-bottom: 6px;
+  line-height: 1.35;
 }
 .kw-line { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .kw-chip {
@@ -228,6 +322,7 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
   border-radius: 3px;
 }
 .chu-ve {
+  grid-column: 2;
   font-size: 12px;
   color: var(--text-secondary, rgba(230, 238, 245, 0.72));
   margin: 8px 0 0 0;
@@ -257,6 +352,48 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
   margin: 0;
   color: var(--accent-gold-soft, #f5e6b1);
   font-size: 18px;
+}
+.ct-detail-oracle {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid rgba(232, 201, 90, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(232, 201, 90, 0.08), transparent 52%),
+    rgba(0, 0, 0, 0.14);
+}
+.ct-detail-oracle img {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #071018;
+}
+.ct-detail-oracle span {
+  display: block;
+  color: var(--accent-teal, #5be5d3);
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.ct-detail-oracle p {
+  margin: 8px 0 0;
+  color: rgba(248, 250, 252, 0.88);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.ct-detail-oracle small {
+  display: block;
+  margin-top: 10px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.54));
+  font-size: 11.5px;
+  line-height: 1.55;
 }
 .close-x {
   background: transparent;
@@ -417,6 +554,25 @@ const activeStar = computed(() => stars.value.find((s) => s.id === activeId.valu
 }
 
 @media (max-width: 720px) {
+  .ct-grid { grid-template-columns: 1fr; }
+  .ct-card {
+    grid-template-columns: 68px minmax(0, 1fr);
+    min-height: 154px;
+  }
+  .ct-card-art { width: 68px; }
+  .ct-detail-oracle {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
   .detail-pos-neg { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 460px) {
+  .ct-detail-oracle {
+    grid-template-columns: 1fr;
+  }
+  .ct-detail-oracle img {
+    width: min(180px, 100%);
+    margin: 0 auto;
+  }
 }
 </style>
