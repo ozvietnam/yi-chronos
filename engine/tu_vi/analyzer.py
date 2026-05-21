@@ -1082,6 +1082,20 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
     ❌ "Mỗ niên mỗ tinh nghi thận"
     ✅ "Một vài năm tới, khi sao X chiếu Y, Anh nên cẩn thận"
 
+8️⃣  **KHAI THÁC TRIỆT ĐỂ Q4 (Tử Vi Đẩu Số Toàn Thư Quyển 4)** — DUMP phía trên có sẵn:
+    - 🔸 **Mệnh chủ + Thân chủ + Đẩu Quân** — đoạn "⚠️ NHẮC LẠI QUAN TRỌNG" cuối DUMP. PHẢI dùng đúng tên sao Mệnh chủ (KHÔNG bịa Liêm Trinh nếu DUMP ghi Vũ Khúc).
+    - 🔸 **Thiên Quan Archetype** (Q4 p0268-p0271): 36 archetypes theo giờ × khắc. Tham chiếu cho section "Lập tọa Mệnh" — chủ nhân thuộc TYPE người nào.
+    - 🔸 **Chiếu Đởm Kinh** (Q4 p0269-p0299): hệ thống PARALLEL với 18 Phi Tinh. Dùng làm reference song song khi luận sao Tử Vi — nếu cách cục match Chiếu Đởm Kinh, có thể trích đối chiếu.
+    - 🔸 **Palace Weights** (Q4 p0276): cung nào quan trọng nhất (tier 1: Mệnh-Thân-Phúc-Quan-Tài; tier 2: Thiên Di-Phụ Mẫu-Tử Tức...). Tỷ trọng phân tích theo tier.
+    - 🔸 **Phú thi Q4 corpus** (786 lines từ p0257-p0300): các quote Hán-Việt verbatim được pre-filter cho sao của Anh. PHẢI quote 2-3 câu Hán-Việt + dịch nghĩa Việt thuần.
+    - 🔸 **Nhập Cốt Tiên Kinh** (Q4 p0297-p0298): 18 verdict templates 4-character (vd "phú quý song toàn", "thanh nhàn tự tại"). Dùng cho section "Kết tâm an" như câu kết tinh.
+    - 🔸 **10 BƯỚC Trần Đoàn** (Q4 p0266 — methodology pháp): 10 sections của output CHÍNH LÀ 10 bước này. Tuân thủ thứ tự + ý nghĩa từng bước.
+
+9️⃣  **KIỂM TRA CHỐNG NHẦM** — đọc lại DUMP trước khi viết section:
+    - Vũ Khúc ở cung nào? (Anh KHÔNG được nói "Vũ Khúc chủ mệnh" nếu trong DUMP Vũ Khúc ở Phụ Mẫu)
+    - Mệnh chủ (theo Phú Thái Vi Q.2) là sao nào? Trích chính xác.
+    - Tứ Hóa năm sinh (Lộc-Quyền-Khoa-Kỵ) rơi vào sao nào, ở cung nào? Tra DUMP.
+
 5 SECTIONS CỦA BATCH NÀY:
 {sections_block}
 
@@ -1263,6 +1277,135 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
             ctx_parts.append(f"  Weighted total: {cs.get('weighted_total_score')} ({cs.get('verdict', '?')})")
         except Exception:
             pass
+
+        # ═══════════════════════════════════════════════════════════
+        # Q4 ENRICHMENT — Chiếu Đởm Kinh, Thiên Quan, 10 bước, etc.
+        # ═══════════════════════════════════════════════════════════
+
+        # Q4 — Thiên Quan 36 archetypes (theo giờ × khắc)
+        try:
+            from engine.tu_vi.thien_quan_typology import get_archetype
+            hour = self.la_so.get('hour_branch', '')
+            # Khắc: thượng/trung/hạ (anh sinh 23:30 = Tý thượng khắc, 11:00 = Ngọ thượng v.v.)
+            # Đơn giản: dùng minute để chia
+            from datetime import datetime
+            try:
+                dt = datetime.fromisoformat(self.person.birth_datetime_local)
+                minute = dt.hour * 60 + dt.minute
+                # Giờ Tý 23-01, 2 giờ × 60 = 120 phút. Chia 3 khắc:
+                # Đơn giản hóa: chỉ dùng minute trong giờ hiện tại
+                m_in_hour = dt.minute
+                if m_in_hour < 20:
+                    khac = "thuong"
+                elif m_in_hour < 40:
+                    khac = "trung"
+                else:
+                    khac = "ha"
+            except Exception:
+                khac = "thuong"
+            arch = get_archetype(hour, khac)
+            if arch:
+                ctx_parts.append(f"\n━━━ THIÊN QUAN ARCHETYPE (Q4 p0268-p0271) ━━━")
+                ctx_parts.append(f"  Giờ {hour} - khắc {khac}: {arch.get('name_vi', '?')}")
+                ctx_parts.append(f"  Tính cách: {(arch.get('tinh_cach') or '')[:300]}")
+                ctx_parts.append(f"  Vận mệnh tổng: {(arch.get('van_menh_tong') or '')[:400]}")
+        except Exception as e:
+            pass
+
+        # Q4 — Chiếu Đởm Kinh (parallel system)
+        try:
+            from engine.tu_vi.chieu_dom_kinh_an_sao import cast_chieu_dom_kinh
+            from core.chronos import calculate_chronos_state
+            chronos = calculate_chronos_state(self.person.birth_datetime_local, self.person.timezone)
+            ys, yb = chronos.ganzhi.year.split()
+            cdk = cast_chieu_dom_kinh(
+                year_stem=ys,
+                year_branch=yb,
+                lunar_month=self.la_so.get('lunar_month', 1),
+                hour_branch=self.la_so.get('hour_branch', 'Tý'),
+                gender=self.person.gender,
+            )
+            if cdk and cdk.get('stars'):
+                ctx_parts.append(f"\n━━━ CHIẾU ĐỞM KINH (Q4 p0269-p0299 — parallel system) ━━━")
+                ctx_parts.append(f"  Mệnh CĐK: cung {cdk.get('menh_branch', '?')} (khác Tử Vi: {self.la_so['menh_branch']})")
+                stars_str = ", ".join(f"{s}={b}" for s, b in list(cdk['stars'].items())[:10])
+                ctx_parts.append(f"  10 Phi Tinh đầu: {stars_str}")
+        except Exception:
+            pass
+
+        # Q4 — Palace weights (tiers)
+        try:
+            import json as _json
+            with open('/Users/ozvietnamdesktop/Desktop/yi/data/tu_vi/palace_weights.json') as f:
+                pw = _json.load(f)
+            tiers = pw.get('tiers', {})
+            ctx_parts.append(f"\n━━━ TRỌNG SỐ CUNG (Q4 p0276 — 7 tiers) ━━━")
+            for tier_name, palaces in list(tiers.items())[:5]:
+                if isinstance(palaces, list):
+                    ctx_parts.append(f"  {tier_name}: {', '.join(palaces)}")
+                elif isinstance(palaces, dict):
+                    ps = palaces.get('palaces', palaces.get('cung', []))
+                    if ps:
+                        ctx_parts.append(f"  {tier_name}: {', '.join(ps)}")
+        except Exception:
+            pass
+
+        # Q4 — Phú thi corpus (top 3 lines related to user stars)
+        try:
+            import json as _json
+            with open('/Users/ozvietnamdesktop/Desktop/yi/data/tu_vi/q4_phu_thi_corpus.json') as f:
+                phu = _json.load(f)
+            lines = phu.get('lines', [])
+            # Filter lines mentioning user's key stars
+            user_stars = set(list(self.la_so.get('chinh_tinh', {}).keys())[:8])
+            matched = []
+            for ln in lines:
+                txt = ln.get('hv', '') or ln.get('text_hv', '') or str(ln)
+                if any(s in txt for s in user_stars):
+                    matched.append(ln)
+                    if len(matched) >= 5:
+                        break
+            if matched:
+                ctx_parts.append(f"\n━━━ PHÚ THI Q4 LIÊN QUAN (top 5) ━━━")
+                for ln in matched:
+                    hv = ln.get('hv', '') or ln.get('text_hv', '')[:120]
+                    nghia = (ln.get('nghia', '') or ln.get('y_nghia', ''))[:150]
+                    ctx_parts.append(f"  • \"{hv}\" — {nghia}")
+        except Exception:
+            pass
+
+        # Q4 — Nhập Cốt Tiên Kinh tổng đoán (18 verdicts)
+        try:
+            import json as _json
+            with open('/Users/ozvietnamdesktop/Desktop/yi/data/tu_vi/nhap_cot_tien_kinh_tong_doan.json') as f:
+                nck = _json.load(f)
+            verdicts = nck.get('verdicts', nck.get('tong_doan', []))
+            if isinstance(verdicts, list) and verdicts:
+                ctx_parts.append(f"\n━━━ NHẬP CỐT TIÊN KINH (Q4 p0297-p0298) — verdict templates ━━━")
+                ctx_parts.append(f"  {len(verdicts)} 4-character verdicts có sẵn (vd: {verdicts[0].get('verdict', verdicts[0]) if isinstance(verdicts[0], dict) else verdicts[0]})")
+        except Exception:
+            pass
+
+        # Q4 — 10 bước Trần Đoàn methodology header
+        try:
+            import json as _json
+            with open('/Users/ozvietnamdesktop/Desktop/yi/data/tu_vi/10_buoc_luan.json') as f:
+                muoi_buoc = _json.load(f)
+            steps = muoi_buoc.get('steps', muoi_buoc.get('buoc', []))
+            if steps:
+                ctx_parts.append(f"\n━━━ 10 BƯỚC TRẦN ĐOÀN (Q4 p0266 — methodology pháp) ━━━")
+                quote_hv = muoi_buoc.get('source_quote_hv', '')[:150]
+                if quote_hv:
+                    ctx_parts.append(f"  Quote: \"{quote_hv}\"")
+        except Exception:
+            pass
+
+        # ⚠️ EMPHASIZE Mệnh chủ — anh complain LLM hay nhầm
+        ctx_parts.append(f"\n━━━ ⚠️ NHẮC LẠI QUAN TRỌNG ━━━")
+        ctx_parts.append(f"  • Mệnh chủ (sao chủ mệnh đời) = **{self.la_so.get('menh_chu', '?')}** — KHÔNG phải sao gì khác.")
+        ctx_parts.append(f"  • Thân chủ (sao chủ hành động) = **{self.la_so.get('than_chu', '?')}**")
+        ctx_parts.append(f"  • Đẩu Quân (sao chủ duyên phận) tại cung = **{self.la_so.get('dau_quan_branch', '?')}**")
+        ctx_parts.append(f"  ⚠️ Tham khảo Phú Thái Vi Q.2 chuẩn TQ — KHÔNG dùng bảng Mệnh chủ VN (bị sai).")
 
         base_ctx = "\n".join(ctx_parts)
 
