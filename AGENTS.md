@@ -1,78 +1,78 @@
 <claude-mem-context>
 # Memory Context
 
-# [yi] recent context, 2026-05-12 5:45pm GMT+7
+# [yi] recent context, 2026-05-21 4:48pm GMT+7
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (17,528t read) | 1,208,334t work | 99% savings
+Stats: 50 obs (18,570t read) | 2,216,904t work | 99% savings
 
-### May 11, 2026
-S1309 Hội Đồng Tư Vấn Trí Tuệ (Sages Council) — complete backend AI layer with FastAPI endpoints, tests, and live verification (May 11 at 6:31 PM)
-S1311 User asked about embedding autonomous self-improving agents (Hermes for skill dev, MeiCurry for memory) into the yi project to run 24/7 — primary session responded with full backend status recap (May 11 at 6:37 PM)
-S1312 User asked about embedding autonomous self-improving agents (Hermes for skill dev, MeiCurry for memory) into yi project — primary session designed a 3-tier autonomous agent architecture called YI-CHRONOS Observer (May 11 at 6:49 PM)
-S1314 User asked about installing a Hermes agent for user reception, profiling, module mapping, Vietnamese glossary, and Socratic questioning — primary session designed 3-tier autonomous agent architecture (Observer/Self-correcting/Self-improving) and awaits user decisions (May 11 at 6:50 PM)
-S1313 User proposed a dedicated Hermes agent for yi project (user reception, profiling, module mapping, Vietnamese glossary, Socratic questioning) — primary session evaluated feasibility and designed a 3-tier autonomous agent architecture (May 11 at 8:11 PM)
-S1315 User confirmed Hermes agent concept — primary session delivered full architectural design for a 5-role meta-layer agent (Concierge + Profile Builder + Module Librarian + Vietnamese Glossary + Blind Spot Skill Generator) with 3-phase build plan (May 11 at 8:20 PM)
-S1316 User asked whether to use Hermes (custom agent) or Trae AI — primary session clarified these serve completely different roles and are not mutually exclusive (May 11 at 8:21 PM)
-S1317 User confirmed Hermes as in-app agent, asked about API key requirements and whether to build parallel UX (self-service + bot) — primary session delivered full UX design with auto-mode-decision and 3-phase build plan (May 11 at 8:26 PM)
-S1318 YI-Hermes chat engine glossary lookup improvements + intent detection fixes + full verification sweep (May 11 at 8:35 PM)
-2360 8:41p 🟣 yi_hermes Module Librarian Implemented — Anti-Hallucination Knowledge Index for 7 Schools
-2361 8:44p 🟣 Vietnamese Divination Glossary Seed — 46 Hand-Curated Terms Across 7 Schools
-2362 8:45p 🟣 GlossaryStore SQLite Backend Implemented — Full CRUD + Fuzzy Search for Vietnamese Divination Terms
-2363 " 🟣 yi_hermes Concierge System Prompt Written — Vietnamese-First Persona with Anti-Hallucination Rules
-2364 8:52p 🔴 Intent detection greeting false-positive on Vietnamese terms containing "hi"
-2365 " 🔴 Glossary lookup extended to "question" intent for short messages
-2366 " 🔴 Vietnamese question suffix ordering fixed to longest-first in glossary lookup
-2367 9:39p 🔵 NousResearch/hermes-agent identified as top GitHub result for "hermes agent"
-2368 " 🔵 Existing Hermes Agent installation found: v0.12.0, 604 commits behind main
-2369 " ✅ Created vendor/ and data/hermes_yi/ directories in yi project for Hermes integration
-2370 " ✅ NousResearch/hermes-agent cloned into vendor/hermes-agent at HEAD (includes v0.13.0)
-2371 " 🔵 Hermes Agent v0.13.0 "Tenacity Release" — major upgrade from installed v0.12.0
-2372 9:40p ✅ Isolated Python venv created inside vendor/hermes-agent for Hermes v0.13.0 install
-2373 " ✅ Hermes Agent v0.13.0 installed successfully in vendor venv (editable mode)
-2374 " 🟣 Hermes Agent v0.13.0 running isolated inside yi project with project-local HERMES_HOME
-2375 9:41p 🟣 Dual Hermes isolation confirmed — Mac v0.12.0 and YI v0.13.0 run independently with separate project paths
-2376 " 🟣 Created scripts/hermes-yi — wrapper script for YI-CHRONOS isolated Hermes Agent
-2377 " 🟣 scripts/hermes-yi wrapper verified working — full v0.13.0 command surface available
-2378 " 🔵 Hermes doctor reveals YI Hermes needs .env config and provider auth to be functional
-2379 9:42p ✅ Created docs/hermes-agent-setup.md — full setup guide for YI-CHRONOS isolated Hermes Agent
-2380 " 🔵 vendor/ directory NOT in .gitignore — vendored Hermes venv would be committed to git
-2381 " ✅ Updated .gitignore to exclude Hermes venv, pyc files, and sensitive data/hermes_yi/ contents
-S1319 User asked to find latest Hermes on GitHub and install it — completed: NousResearch/hermes-agent v0.13.0 installed isolated in vendor/ alongside existing Mac Hermes v0.12.0 (May 11 at 9:42 PM)
-### May 12, 2026
-2482 5:17p 🔵 Yi Project Structure — Vietnamese Astrology Web App
-2483 " 🔵 Yi-Chronos Frontend is Minimal Vue/Vite SPA with Only Two Source Files
-2484 5:18p 🔵 Yi-Chronos Frontend is Actually a Rich Multi-Panel Vue App with Three.js and 25+ Components
-2485 " 🔵 Full UI Asset Map: HexagramImage Expects SVG Files from /que-images/, Two Three.js Canvases, Multiple Inline SVG Charts
-2486 " 🔵 Dev Stack Is Live; Hexagram SVGs Exist Only in dist/, Not in public/ — HexagramImage May 404 in Dev Mode
-2487 " 🔵 All 64 Hexagram SVGs Are Correctly in public/que-images/ — Prior 404 Concern Was Unfounded
-2488 5:19p 🔵 Playwright ESM Named Import Fails — Must Use Default Import Destructuring on Node v22
-2493 " ⚖️ Upgrade Task Prioritization: Tasks 1 & 2 First
-2496 5:26p 🔵 Yi App: Vue.js Divination Platform with Multi-Tab Architecture
-2497 " ⚖️ Yi App UI Upgrade Plan: 4-Step Mobile-First Refactor
-2499 " 🔵 lucide-vue-next v0.468.0 Already Installed; Icons Bundled in Single CJS File
-2500 " 🔵 Yi Project docs/ Contains Active Roadmap and Upgrade Planning Documents
-2502 5:27p 🔵 All 15 Planned Lucide Replacement Icons Confirmed Available in Bundle
-2504 5:28p 🟣 SchoolIcon Component Created; Emoji Tabs Replaced with Lucide Icons; Mobile Responsive CSS Fixed
-2505 5:29p 🟣 Yi App Production Build Passes After Icon + Responsive CSS Upgrade
-2506 " 🟣 Playwright QA: Desktop and Mobile Pass — No Horizontal Overflow, Tab Navigation Functional
-2507 5:30p ⚖️ Kế hoạch nâng cấp: Ưu tiên làm nhiệm vụ 1 và 2 trước
-2508 " 🔵 Yi App mobile UI kiểm tra bố cục - không có tràn ngang, tab scroll rộng hơn viewport
-2509 5:31p ⚖️ Upgrade Task Ordering: Tasks 1 & 2 Prioritized First
-2510 5:32p ⚖️ Ưu tiên thực hiện nhiệm vụ 1 và 2 trước, ghi kế hoạch nâng cấp theo thứ tự
-2512 " ✅ Icon Selection Rejected by User — Previous Version Preferred
-2511 5:34p 🟣 UI visual upgrade: responsive topbar, icon tabs, và Playwright screenshot kiểm tra
-2513 5:39p ⚖️ User Feedback: Icon Selection Regression
-2514 5:40p 🔵 Yi App UI State: Tab Icon Uses Clipboard Emoji After Icon Change
-2515 " 🔵 Yi App Vite Build: Large JS Bundle Warning
-2516 " 🔴 Tab icon alignment fix in yi webapp main navigation
-2517 5:42p 🔴 Tab alignment fix verified — no horizontal overflow at 1600px viewport
-2518 " 🔵 Yi webapp tab bar visual state confirmed post-CSS fix
+### May 19, 2026
+3128 9:14p 🔵 LaunchAgent exit 126: macOS TCC/sandbox blocking script execution
+3129 9:15p ⚖️ LaunchAgent abandoned — manual daemon used instead due to macOS TCC Desktop sandbox block
+3130 9:24p ⚖️ Auto-sync daemon run strategy: manual start script, not LaunchAgent
+3131 " 🟣 ~/.zshrc hook auto-starts auto-sync daemon on every new terminal session
+3132 9:25p ✅ HANH-TRINH-NHAP-DAO.md: Lần update 15 — full Phase 0-5 deployment journal entry
+3133 9:27p 🔵 Auto-sync daemon commit 4f4b5be captured api/admin.py + api/auth.py, not HANH-TRINH-NHAP-DAO.md
+3134 " 🔵 Auto-sync daemon missed docs/ directory — HANH-TRINH-NHAP-DAO.md still uncommitted
+3137 9:30p 🔵 Auto-sync confirmed working for docs/ — HANH-TRINH-NHAP-DAO.md committed in 4ebfa9c after manual touch trigger
+3140 9:32p 🔵 Full auto-sync pipeline verified end-to-end including docs/ changes — kinhdich.online live and healthy
+3151 10:02p 🔵 Lịch vạn niên + tứ trụ integration location: BatTuPanel.vue under "Bát Tự" tab
+3152 " 🔵 Lịch vạn niên + tứ trụ architecture: 3 separate entry points across different panels
+3153 10:03p 🔵 AuspiciousDayPanel mounted inside Mai Hoa MasterView tab, not standalone — calls /api/yi-wiki/auspicious-day
+3154 " 🔵 AuspiciousDayPanel accessible via "Wiki Tổ sư" tab (🌌), not "Bát Tự" or "Mai Hoa" tab
+3158 10:09p 🔵 AuspiciousDayPanel has NO role-based visibility gate — all logged-in users can access it
+3159 " 🔵 Wiki Tổ sư tab IS owner-only — hidden inside v-if="isOwner" template block along with Lexicon, Research, Dịch sách, Admin
+3160 10:17p ⚖️ Option B chosen: move AuspiciousDayPanel into BatTuPanel tab for user visibility
+3161 " 🔵 AuspiciousDayPanel uses hardcoded form inputs — does NOT pull from activePerson store
+3162 10:18p 🟣 AuspiciousDayPanel embedded in BatTuPanel — lịch vạn niên + tứ trụ now accessible to all users
+S1505 Embed AuspiciousDayPanel into public BatTuPanel (completed) + explore birth_hour_quiz feature for potential improvement to AuspiciousDayPanel's birth hour input (May 19 at 10:18 PM)
+S1502 Embed AuspiciousDayPanel (lịch vạn niên + tứ trụ) into public BatTuPanel so regular users can access it (May 19 at 10:18 PM)
+S1517 Birth Hour Quiz v2 — Phase E/F completion + live test with founder's birth data (21h-24h, June 5, 1988) (May 19 at 10:22 PM)
+3164 10:23p ⚖️ Upgrade birth_hour_quiz — Bát Tự-driven hypothesis comparison approach
+3165 " 🟣 Birth Hour Quiz v2 design spec written — Bát Tự hypothesis comparison engine
+3166 " ✅ Birth Hour Quiz v2 spec refined — K_PER_ROUND constant and early convergence edge case
+3179 10:57p ⚖️ Birth Hour Quiz V2 — Hypothesis-Comparison Architecture Design
+3217 11:00p 🟣 Quiz Engine: Strategy Detection + Entropy-Ranked Question Generation
+3218 " 🔴 Fix test_value_labels_are_vietnamese: Use ord(ch) > 127 Instead of Narrow Charset
+3219 " 🟣 Candidate Pillars Generator Using Real Bát Tự Engine
+3220 " 🟣 Phase C Complete: Birth Hour Quiz V2 Engine Layer — 60 Tests All GREEN
+3180 11:10p 🟣 Birth Hour Quiz v2 — Full Implementation Plan Written
+3221 11:52p 🟣 Phase D–F Task Breakdown Created: Session Store, API Endpoints, Vue Frontend
+3222 11:53p 🟣 Full Task Breakdown Complete: 23 Tasks Covering All Phases 0–G
+3223 " 🟣 SQLite Session Store for Birth Hour Quiz V2
+3224 11:54p 🟣 Task D.1 Complete: SQLite Session Store — 5/5 Tests GREEN, Committed
+3225 " 🔵 API Structure: schemas.py Pattern and main.py Import Layout for Phase E
+3226 " 🟣 Pydantic Schemas Added to api/schemas.py for Birth Hour Quiz V2
+3227 11:55p 🔵 api/main.py Structure: 5323 Lines, SPA Mount at End, Yi-Wiki Endpoints at ~3426
+3235 " 🔴 Birth Hour Quiz v2 GET session endpoint response schema fixed
+3236 " 🟣 Birth Hour Quiz v2 — 4 FastAPI endpoints shipped (Phase E)
+3237 " 🟣 BirthHourQuizV2.vue component created — 4-stage state machine UI
+3238 " 🔵 QuickTasksPanel.vue contains v1 birth hour quiz — integration point for v2 upgrade
+3239 11:59p 🟣 QuickTasksPanel quiz modal upgraded from v1 to BirthHourQuizV2 component
+### May 20, 2026
+3242 12:00a 🔴 BirthHourQuizV2 import added to QuickTasksPanel — build verified clean
+3249 12:05a 🔄 QuickTasksPanel v1 quiz dead code removed — script cleaned up
+S1518 Founder submitting partial quiz answers for Birth Hour Quiz v2 — mapping physical/behavioral traits to Tý vs Hợi candidates (May 20 at 12:05 AM)
+3268 12:20a 🟣 Birth Hour Quiz v2 — Live Integration Test with Founder's Real Birth Data
+S1519 Founder requests minute-level birth time rectification within giờ Tý — "lập bài test xem kỹ sinh chính xác lúc mấy phút" (May 20 at 12:25 AM)
+3269 12:27a 🔵 Birth Hour Quiz v2 — Founder's Real Case Returns Tý (23h-1h) with High Confidence
+3270 " 🔵 Bat Tu Pillars Stable Across Full Tý Hour Window (23:00–00:59) for 1988-06-05
+3271 " 🔵 Dai Van Engine Returns Data Under Different Key Names Than Expected
+S1520 Founder confirms 2 life milestone events (married 2016, graduated 2010) and asks feasibility of minute-level birth time rectification (May 20 at 12:29 AM)
+S1521 Birth minute rectifier PoC run + honest feasibility verdict — founder asks if minute-level precision is achievable (May 20 at 12:34 AM)
+S1523 Design decision: qualitative early-Tý vs late-Tý contrast questionnaire to refine birth minute within giờ Tý (May 20 at 12:34 AM)
+3272 12:34a 🔵 Founder's Full Đại Vận Chain Confirmed — Starts Age 4, 8 Cycles Through Age 83
+3279 12:35a ⚖️ Birth Minute Rectification — Paradigm Shift from Math to Qualitative Contrast
+S1522 Founder proposes qualitative contrast approach for birth minute refinement — split Tý window and use adjacent cung trait blending instead of math (May 20 at 9:20 AM)
+S1524 Qualitative "Tý đầu vs Tý cuối" contrast questionnaire designed and presented to founder for self-identification (May 20 at 9:27 AM)
+3290 9:30a ⚖️ Founder Self-Identifies as Early Tý (23h-00h) — Confirms Hợi Residue Profile
+3305 9:35a 🟣 Chi Giờ Wiki — All 12 Hour Branches Seeded with Core Data
+3306 9:43a 🟣 Chi Giờ Wiki — Full JSON Schema + All 12 Hour Branch Data Files + Loader API Built
 
-Access 1208k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 2217k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>
 
 ## Runtime Execution Policy (User Preference)
