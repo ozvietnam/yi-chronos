@@ -11,7 +11,7 @@
  * Center 2×2 holds metadata (Mệnh, Cục, Đại Vận, etc.).
  */
 
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { castTuViLaSo } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
@@ -49,6 +49,8 @@ const showPhuThaiVi = ref(false);  // Phú Thái Vi modal
 const showCachCuc = ref(false);    // Cách cục đọc sâu modal
 const showDaiVan = ref(false);     // 12 Đại Vận modal
 const showLuuNien = ref(false);    // Lưu Niên 2026-2030 modal
+const oracleCards = ref([]);
+const selectedOracleCard = ref(null);
 
 useActivePersonBirth(inputBirth);
 
@@ -92,6 +94,70 @@ const CHINH_TINH_HANH = {
 // Thiên Mã: năm chi → chi Thiên Mã
 // Dần/Ngọ/Tuất→Thân(8), Thân/Tý/Thìn→Dần(2), Tỵ/Dậu/Sửu→Hợi(11), Hợi/Mão/Mùi→Tỵ(5)
 const THIEN_MA_MAP = { 2:8, 6:8, 10:8, 8:2, 0:2, 4:2, 5:11, 9:11, 1:11, 11:5, 3:5, 7:5 };
+
+const ORACLE_TITLE_BY_STAR = {
+  "Tử Vi": "TỬ VI",
+  "Thiên Cơ": "THIÊN CƠ KỴ",
+  "Thái Dương": "THÁI DƯƠNG",
+  "Vũ Khúc": "VŨ KHÚC",
+  "Thiên Đồng": "THIÊN ĐỒNG",
+  "Liêm Trinh": "LIÊM TRINH + HỎA TINH",
+  "Thiên Phủ": "THIÊN PHỦ",
+  "Thái Âm": "THÁI ÂM",
+  "Tham Lang": "THAM LANG",
+  "Cự Môn": "CỰ MÔN",
+  "Thiên Tướng": "THIÊN TƯỚNG",
+  "Thất Sát": "THẤT SÁT",
+  "Phá Quân": "PHÁ QUÂN",
+  "Tả Phù": "TẢ PHÙ - HỮU BẬT",
+  "Hữu Bật": "TẢ PHÙ - HỮU BẬT",
+  "Văn Xương": "VĂN XƯƠNG - VĂN KHÚC",
+  "Văn Khúc": "VĂN XƯƠNG - VĂN KHÚC",
+  "Thiên Việt": "THIÊN VIỆT",
+  "Lộc Tồn": "LỘC TỒN",
+  "Kình Dương": "KÌNH DƯƠNG - ĐÀ LA",
+  "Đà La": "KÌNH DƯƠNG - ĐÀ LA",
+  "Hỏa Tinh": "LIÊM TRINH + HỎA TINH",
+  "Linh Tinh": "LINH TINH",
+  "Địa Không": "ĐỊA KHÔNG",
+  "Địa Kiếp": "ĐỊA KIẾP",
+  "Hồng Loan": "HỒNG LOAN - THIÊN HỈ",
+  "Thiên Hỉ": "HỒNG LOAN - THIÊN HỈ",
+  "Cô Thần": "CÔ THẦN",
+  "Quả Tú": "QUẢ TÚ",
+  "Tam Thai": "TAM THAI",
+  "Thiên Khốc": "THIÊN KHỐC",
+  "Đẩu Quân": "ĐẨU QUÂN",
+};
+
+function normalizeOracleTitle(value) {
+  return String(value || "").trim().toUpperCase();
+}
+
+const oracleCardsByTitle = computed(() => {
+  return new Map(oracleCards.value.map((card) => [normalizeOracleTitle(card.title), card]));
+});
+
+function oracleCardForStarName(starName) {
+  const title = ORACLE_TITLE_BY_STAR[starName];
+  if (!title) return null;
+  return oracleCardsByTitle.value.get(normalizeOracleTitle(title)) ?? null;
+}
+
+function openOracleCard(card) {
+  if (card) selectedOracleCard.value = card;
+}
+
+onMounted(async () => {
+  try {
+    const response = await fetch("/oracle-cards/tu-vi/cards.json");
+    if (!response.ok) return;
+    const manifest = await response.json();
+    oracleCards.value = manifest.cards ?? [];
+  } catch (err) {
+    console.warn("Cannot load Tử Vi oracle cards:", err);
+  }
+});
 
 async function castChart() {
   if (!inputBirth.value) {
@@ -1130,10 +1196,21 @@ const grid = computed(() => {
             <p class="interp-reading">{{ r.main_reading }}</p>
             <div v-if="expandedPalace === r.palace_name && r.star_details.length" class="interp-stardetails">
               <div v-for="sd in r.star_details" :key="sd.ten_vi" class="sd-card">
-                <h6>{{ sd.ten_vi }} ({{ sd.ten_zh }}) · {{ sd.ngu_hanh }}</h6>
-                <p class="sd-kw">{{ sd.keywords.join(' · ') }}</p>
-                <p class="sd-pos">✦ {{ sd.tich_cuc }}</p>
-                <p class="sd-neg">⚠ {{ sd.tieu_cuc }}</p>
+                <button
+                  v-if="oracleCardForStarName(sd.ten_vi)"
+                  type="button"
+                  class="sd-card-art"
+                  :aria-label="`Mở ảnh ${sd.ten_vi}`"
+                  @click.stop="openOracleCard(oracleCardForStarName(sd.ten_vi))"
+                >
+                  <img :src="oracleCardForStarName(sd.ten_vi).image" :alt="`Thẻ ${sd.ten_vi}`" loading="lazy" />
+                </button>
+                <div class="sd-card-copy">
+                  <h6>{{ sd.ten_vi }} ({{ sd.ten_zh }}) · {{ sd.ngu_hanh }}</h6>
+                  <p class="sd-kw">{{ sd.keywords.join(' · ') }}</p>
+                  <p class="sd-pos">✦ {{ sd.tich_cuc }}</p>
+                  <p class="sd-neg">⚠ {{ sd.tieu_cuc }}</p>
+                </div>
               </div>
             </div>
             <!-- ⭐ Q1 Phú + Q3 sao×cung passages từ sách cổ -->
@@ -1206,6 +1283,26 @@ const grid = computed(() => {
           <button class="cc-modal-close" @click="showLuuNien = false">✕</button>
           <LuuNienPanel />
         </div>
+      </div>
+    </Teleport>
+
+    <Teleport to="body">
+      <div
+        v-if="selectedOracleCard"
+        class="tv-oracle-lightbox"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="`Ảnh lớn ${selectedOracleCard.title}`"
+        @click.self="selectedOracleCard = null"
+      >
+        <button class="tv-oracle-lightbox-close" type="button" @click="selectedOracleCard = null">×</button>
+        <figure>
+          <img :src="selectedOracleCard.image" :alt="selectedOracleCard.title" />
+          <figcaption>
+            <strong>{{ selectedOracleCard.title }}</strong>
+            <span>{{ selectedOracleCard.interpretation }}</span>
+          </figcaption>
+        </figure>
       </div>
     </Teleport>
   </section>
@@ -1833,9 +1930,32 @@ const grid = computed(() => {
   gap: 6px;
 }
 .sd-card {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 8px 10px;
+}
+.sd-card-art {
+  width: 68px;
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  border: 1px solid rgba(232, 201, 90, 0.24);
+  border-radius: 6px;
+  background: #071018;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.sd-card-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sd-card-copy {
+  min-width: 0;
 }
 .sd-card h6 {
   margin: 0 0 4px 0;
@@ -1850,11 +1970,89 @@ const grid = computed(() => {
 .sd-pos { margin: 2px 0; font-size: 11.5px; color: #88d39e; }
 .sd-neg { margin: 2px 0 0 0; font-size: 11.5px; color: #f5b08c; }
 
+.tv-oracle-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(6px);
+}
+.tv-oracle-lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #e5e7eb;
+  font-size: 24px;
+  cursor: pointer;
+}
+.tv-oracle-lightbox figure {
+  display: grid;
+  grid-template-columns: minmax(260px, 520px) minmax(260px, 420px);
+  gap: 18px;
+  align-items: center;
+  max-width: min(1080px, 100%);
+  max-height: 92vh;
+  margin: 0;
+}
+.tv-oracle-lightbox img {
+  display: block;
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #050b12;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.72);
+}
+.tv-oracle-lightbox figcaption {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(232, 201, 90, 0.25);
+  border-radius: 8px;
+  background: rgba(10, 18, 28, 0.86);
+}
+.tv-oracle-lightbox figcaption strong {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 24px;
+}
+.tv-oracle-lightbox figcaption span {
+  color: rgba(230, 238, 245, 0.82);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
 @media (max-width: 920px) {
   .laso-grid { grid-template-rows: repeat(4, minmax(120px, auto)); }
   .laso-cell { font-size: 10px; }
   .star { font-size: 10px; }
   .lt-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .sd-card {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+  .sd-card-art {
+    width: 56px;
+  }
+  .tv-oracle-lightbox {
+    padding: 52px 14px 18px;
+  }
+  .tv-oracle-lightbox figure {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .tv-oracle-lightbox img {
+    max-height: 72vh;
+  }
 }
 
 @media (max-width: 640px) {

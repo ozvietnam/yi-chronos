@@ -14,6 +14,7 @@ const oracleCards = ref([]);
 const loading = ref(false);
 const errorMsg = ref("");
 const activeId = ref("");
+const selectedOracleCard = ref(null);
 
 const ELEMENT_COLOR = {
   kim: "#c0a878",
@@ -75,6 +76,10 @@ function toggle(id) {
   activeId.value = activeId.value === id ? "" : id;
 }
 
+function openOracleCard(card) {
+  if (card) selectedOracleCard.value = card;
+}
+
 const activeStar = computed(() => stars.value.find((s) => s.id === activeId.value));
 const oracleCardsByTitle = computed(() => {
   return new Map(oracleCards.value.map((card) => [normalizeTitle(card.title), card]));
@@ -109,13 +114,15 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
         :class="{ active: activeId === s.id }"
         :style="{ borderLeft: '3px solid ' + ELEMENT_COLOR[primaryElement(s.ngu_hanh)] }"
         @click="toggle(s.id)">
-        <figure
+        <button
           v-if="oracleCardFor(s)"
           class="ct-card-art"
+          type="button"
           :aria-label="`Ảnh thẻ ${s.ten_vi}`"
+          @click.stop="openOracleCard(oracleCardFor(s))"
         >
           <img :src="oracleCardFor(s).image" :alt="`Thẻ ${s.ten_vi}`" loading="lazy" />
-        </figure>
+        </button>
         <div v-else class="ct-card-art missing" aria-label="Chưa có ảnh đã duyệt">
           <span>Chưa có ảnh duyệt</span>
         </div>
@@ -140,7 +147,10 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
           <button class="close-x" @click="activeId = ''">×</button>
         </header>
         <div v-if="activeOracleCard" class="ct-detail-oracle">
-          <img :src="activeOracleCard.image" :alt="`Thẻ ${activeStar.ten_vi}`" />
+          <button type="button" class="ct-detail-oracle-image" @click="openOracleCard(activeOracleCard)">
+            <img :src="activeOracleCard.image" :alt="`Thẻ ${activeStar.ten_vi}`" />
+            <span>Mở ảnh lớn</span>
+          </button>
           <div>
             <span>Ảnh oracle đã đối chiếu</span>
             <p>{{ activeOracleCard.interpretation }}</p>
@@ -221,6 +231,26 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
         </p>
       </article>
     </transition>
+
+    <Teleport to="body">
+      <div
+        v-if="selectedOracleCard"
+        class="oracle-lightbox"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="`Ảnh lớn ${selectedOracleCard.title}`"
+        @click.self="selectedOracleCard = null"
+      >
+        <button class="oracle-lightbox-close" type="button" @click="selectedOracleCard = null">×</button>
+        <figure>
+          <img :src="selectedOracleCard.image" :alt="selectedOracleCard.title" />
+          <figcaption>
+            <strong>{{ selectedOracleCard.title }}</strong>
+            <span>{{ selectedOracleCard.interpretation }}</span>
+          </figcaption>
+        </figure>
+      </div>
+    </Teleport>
   </section>
 </template>
 
@@ -275,10 +305,12 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
   width: 74px;
   aspect-ratio: 2 / 3;
   margin: 0;
+  padding: 0;
   border: 1px solid rgba(232, 201, 90, 0.22);
   border-radius: 6px;
   background: #071018;
   overflow: hidden;
+  cursor: zoom-in;
 }
 .ct-card-art img {
   display: block;
@@ -366,7 +398,16 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
     linear-gradient(135deg, rgba(232, 201, 90, 0.08), transparent 52%),
     rgba(0, 0, 0, 0.14);
 }
-.ct-detail-oracle img {
+.ct-detail-oracle-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.ct-detail-oracle-image img {
   display: block;
   width: 100%;
   max-height: 240px;
@@ -374,7 +415,19 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
   border-radius: 6px;
   background: #071018;
 }
-.ct-detail-oracle span {
+.ct-detail-oracle-image > span {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 7px;
+  border: 1px solid rgba(232, 201, 90, 0.4);
+  border-radius: 6px;
+  background: rgba(5, 12, 18, 0.78);
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 10px;
+  font-weight: 760;
+}
+.ct-detail-oracle > div > span {
   display: block;
   color: var(--accent-teal, #5be5d3);
   font-size: 11px;
@@ -553,6 +606,65 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
   text-align: right;
 }
 
+.oracle-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(6px);
+}
+.oracle-lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #e5e7eb;
+  font-size: 24px;
+  cursor: pointer;
+}
+.oracle-lightbox figure {
+  display: grid;
+  grid-template-columns: minmax(260px, 520px) minmax(260px, 420px);
+  gap: 18px;
+  align-items: center;
+  max-width: min(1080px, 100%);
+  max-height: 92vh;
+  margin: 0;
+}
+.oracle-lightbox img {
+  display: block;
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #050b12;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.72);
+}
+.oracle-lightbox figcaption {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(232, 201, 90, 0.25);
+  border-radius: 8px;
+  background: rgba(10, 18, 28, 0.86);
+}
+.oracle-lightbox figcaption strong {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 24px;
+}
+.oracle-lightbox figcaption span {
+  color: rgba(230, 238, 245, 0.82);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
 @media (max-width: 720px) {
   .ct-grid { grid-template-columns: 1fr; }
   .ct-card {
@@ -573,6 +685,16 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
   .ct-detail-oracle img {
     width: min(180px, 100%);
     margin: 0 auto;
+  }
+  .oracle-lightbox {
+    padding: 52px 14px 18px;
+  }
+  .oracle-lightbox figure {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .oracle-lightbox img {
+    max-height: 72vh;
   }
 }
 </style>
