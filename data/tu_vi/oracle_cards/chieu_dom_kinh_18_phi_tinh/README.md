@@ -46,13 +46,23 @@ web_ready/cdk_phi_XX_slug.webp
 1. Chọn thẻ từ `18_PHI_TINH_CARD_MANIFEST.md`.
 2. Viết prompt vào `prompts/`.
 3. Đưa ảnh gốc vào `generated_cards/`.
-4. Tối ưu ảnh cho web/mobile vào `web_ready/`.
-5. Cập nhật trạng thái trong manifest.
-6. Khi đủ bộ hoặc đủ nhóm ưu tiên, mới gắn vào UI.
+4. Chạy lệnh sync từ root dự án:
+
+```bash
+node scripts/sync-cdk-phi-tinh-cards.mjs
+```
+
+Script sẽ:
+
+- Tạo WebP vào `web_ready/` nếu ảnh WebP chưa có.
+- Copy PNG gốc + WebP sang `client/webapp/public/oracle-cards/chieu-dom-kinh/18-phi-tinh/`.
+- Ghi `cards.json` ở cả thư mục nguồn và public để giao diện tự đọc.
+
+5. Cập nhật QA trong `IMAGE_WIKI.md` và trạng thái trong `18_PHI_TINH_CARD_MANIFEST.md` nếu cần.
+6. Mở tab Tử Vi → Chiếu Đởm Kinh để kiểm tra ảnh đã nằm đúng sao.
 
 ## Nguyên tắc nguồn
 
 - Dữ liệu gốc lấy từ `data/tu_vi/chieu_dom_kinh_18_phi_tinh.json`.
 - Tổng đoán/hỷ cung lấy từ `data/tu_vi/nhap_cot_tien_kinh_tong_doan.json`.
 - Gói `hư tinh/hu_tinh_pack_v9` chỉ là manifest kiểm soát nguồn; S5 đang pending OCR, không ghi là trích dẫn chắc chắn.
-

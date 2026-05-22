@@ -4,33 +4,46 @@
  * 18 Phi Tinh + 12 cung × 18 sao matrix + cách cục mới + Nhập Cốt Tiên Kinh tổng đoán.
  * Source: Q4 p0269-p0300 (Phase A thâm nhuần 2026-05-20)
  */
-import { ref, onMounted } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { activePerson } from "../stores/userDataStore.js";
 
 const cdkChart = ref(null);
 const phiTinh18 = ref(null);
+const phiTinhCards = ref([]);
 const cachCuc = ref(null);
 const nhapCot = ref(null);
 const loading = ref(false);
 const error = ref("");
 const activeStarId = ref(null);
+const selectedArtCard = ref(null);
+
+const phiTinhCardsByStarId = computed(() => {
+  return new Map(phiTinhCards.value.map((card) => [card.star_id, card]));
+});
+
+function phiTinhArtFor(star) {
+  const card = phiTinhCardsByStarId.value.get(star?.id);
+  return card?.image ? card : null;
+}
 
 async function loadAll() {
   loading.value = true;
   error.value = "";
   const pk = activePerson.value?.person_key;
   try {
-    const [chart, phi, cach, ncot] = await Promise.all([
+    const [chart, phi, cards, cach, ncot] = await Promise.all([
       pk ? fetch("/api/tu-vi/q4/chieu-dom-kinh/cast", {
         method: "POST", headers: {"Content-Type":"application/json"},
         body: JSON.stringify({person_key: pk})
       }).then(r => r.json()) : Promise.resolve(null),
       fetch("/api/tu-vi/q4/chieu-dom-kinh-phi-tinh").then(r => r.json()),
+      fetch("/oracle-cards/chieu-dom-kinh/18-phi-tinh/cards.json").then(r => r.ok ? r.json() : null).catch(() => null),
       fetch("/api/tu-vi/q4/chieu-dom-kinh-cach-cuc").then(r => r.json()),
       fetch("/api/tu-vi/q4/nhap-cot-tien-kinh").then(r => r.json()),
     ]);
     if (chart && chart.status === "ok") cdkChart.value = chart;
     if (phi.status === "ok") phiTinh18.value = phi;
+    if (cards?.cards) phiTinhCards.value = cards.cards;
     if (cach.status === "ok") cachCuc.value = cach;
     if (ncot.status === "ok") nhapCot.value = ncot;
   } catch (e) {
@@ -44,6 +57,10 @@ onMounted(loadAll);
 
 function toggleStar(id) {
   activeStarId.value = activeStarId.value === id ? null : id;
+}
+
+function openArtCard(card) {
+  if (card) selectedArtCard.value = card;
 }
 </script>
 
@@ -90,17 +107,32 @@ function toggleStar(id) {
     <section v-if="phiTinh18" class="cdk-section">
       <h3>🌌 18 Phi Tinh — schema</h3>
       <p class="cdk-warning">{{ phiTinh18.warning_convention }}</p>
+      <p v-if="phiTinhCards.length" class="cdk-art-status">
+        Bộ ảnh Chiếu Đởm Kinh: <b>{{ phiTinhCards.filter((card) => card.image).length }}/18</b> thẻ đã web-ready.
+        Ảnh nhỏ dùng WebP nhẹ; bấm ảnh để mở bản gốc.
+      </p>
       <div class="cdk-tier-grid">
         <div class="cdk-tier cdk-tier-duong">
           <h4>9 Dương tinh</h4>
           <article v-for="s in phiTinh18.phi_tinh_9_duong" :key="s.id"
             class="cdk-phi-card" :class="{active: activeStarId === s.id}"
             @click="toggleStar(s.id)">
-            <header>
-              <strong>{{ s.name_vi }}</strong>
-              <small>({{ s.name_zh }})</small>
-            </header>
-            <small>{{ s.ngu_hanh }} · {{ s.polarity }}</small>
+            <button
+              v-if="phiTinhArtFor(s)"
+              type="button"
+              class="cdk-phi-art"
+              :aria-label="`Mở ảnh ${s.name_vi}`"
+              @click.stop="openArtCard(phiTinhArtFor(s))"
+            >
+              <img :src="phiTinhArtFor(s).image" :alt="`Ảnh ${s.name_vi}`" loading="lazy" />
+            </button>
+            <div class="cdk-phi-copy">
+              <header>
+                <strong>{{ s.name_vi }}</strong>
+                <small>({{ s.name_zh }})</small>
+              </header>
+              <small>{{ s.ngu_hanh }} · {{ s.polarity }}</small>
+            </div>
             <div v-if="activeStarId === s.id" class="cdk-phi-detail">
               <p v-if="s.an_position_mieu"><b>Miếu vị:</b> {{ s.an_position_mieu.join(' · ') }}</p>
               <p v-if="s.an_position"><b>An tại:</b> {{ s.an_position }}</p>
@@ -114,11 +146,22 @@ function toggleStar(id) {
           <article v-for="s in phiTinh18.phi_tinh_9_am" :key="s.id"
             class="cdk-phi-card cdk-phi-am" :class="{active: activeStarId === s.id}"
             @click="toggleStar(s.id)">
-            <header>
-              <strong>{{ s.name_vi }}</strong>
-              <small>({{ s.name_zh }})</small>
-            </header>
-            <small>{{ s.ngu_hanh }} · {{ s.polarity }}</small>
+            <button
+              v-if="phiTinhArtFor(s)"
+              type="button"
+              class="cdk-phi-art"
+              :aria-label="`Mở ảnh ${s.name_vi}`"
+              @click.stop="openArtCard(phiTinhArtFor(s))"
+            >
+              <img :src="phiTinhArtFor(s).image" :alt="`Ảnh ${s.name_vi}`" loading="lazy" />
+            </button>
+            <div class="cdk-phi-copy">
+              <header>
+                <strong>{{ s.name_vi }}</strong>
+                <small>({{ s.name_zh }})</small>
+              </header>
+              <small>{{ s.ngu_hanh }} · {{ s.polarity }}</small>
+            </div>
             <div v-if="activeStarId === s.id" class="cdk-phi-detail">
               <p v-if="s.an_position_mieu"><b>Miếu vị:</b> {{ s.an_position_mieu.join(' · ') }}</p>
               <p v-if="s.an_position_chinh"><b>Chính vị:</b> {{ s.an_position_chinh }}</p>
@@ -187,6 +230,17 @@ function toggleStar(id) {
         <p class="cdk-iron-rule">⚠ {{ nhapCot.ending_paradigm.iron_rule_note }}</p>
       </section>
     </section>
+
+    <div v-if="selectedArtCard" class="cdk-art-lightbox" @click="selectedArtCard = null">
+      <figure @click.stop>
+        <button type="button" class="cdk-lightbox-close" @click="selectedArtCard = null">×</button>
+        <img :src="selectedArtCard.full_image || selectedArtCard.image" :alt="selectedArtCard.title" />
+        <figcaption>
+          <b>{{ selectedArtCard.index }}. {{ selectedArtCard.title }} {{ selectedArtCard.name_zh }}</b>
+          <span>{{ selectedArtCard.polarity }} · {{ selectedArtCard.element }} · {{ selectedArtCard.id }}</span>
+        </figcaption>
+      </figure>
+    </div>
   </section>
 </template>
 
@@ -251,11 +305,25 @@ function toggleStar(id) {
   margin: 8px 0;
   border-radius: 0 4px 4px 0;
 }
+.cdk-art-status {
+  margin: 10px 0 12px;
+  padding: 9px 12px;
+  background: rgba(91, 229, 211, 0.08);
+  border-left: 3px solid #5be5d3;
+  border-radius: 0 4px 4px 0;
+  color: rgba(230, 238, 245, 0.76);
+  font-size: 12px;
+}
+.cdk-art-status b { color: #fcd34d; }
 
 .cdk-tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 768px) { .cdk-tier-grid { grid-template-columns: 1fr; } }
 .cdk-tier h4 { color: #fcd34d; font-size: 14px; margin: 0 0 8px; }
 .cdk-phi-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.03);
   border-left: 3px solid #c4b5fd;
   border-radius: 0 4px 4px 0;
@@ -267,11 +335,29 @@ function toggleStar(id) {
 .cdk-phi-card:hover { background: rgba(255, 255, 255, 0.06); }
 .cdk-phi-card.active { background: rgba(232, 201, 90, 0.1); }
 .cdk-phi-am { border-left-color: #f9a8d4; }
+.cdk-phi-art {
+  width: 58px;
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 230, 177, 0.32);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.32);
+  cursor: zoom-in;
+}
+.cdk-phi-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cdk-phi-copy { min-width: 0; }
 .cdk-phi-card header { display: flex; align-items: baseline; gap: 6px; }
 .cdk-phi-card strong { color: #f5e6b1; font-size: 14px; }
 .cdk-phi-card header small { color: rgba(230, 238, 245, 0.55); font-size: 11px; }
-.cdk-phi-card > small { display: block; font-size: 11px; color: rgba(230, 238, 245, 0.6); margin-top: 2px; }
+.cdk-phi-copy > small { display: block; font-size: 11px; color: rgba(230, 238, 245, 0.6); margin-top: 2px; }
 .cdk-phi-detail {
+  grid-column: 1 / -1;
   margin-top: 8px; padding: 8px;
   background: rgba(0, 0, 0, 0.2); border-radius: 4px;
   font-size: 12px; color: rgba(230, 238, 245, 0.82);
@@ -357,5 +443,61 @@ function toggleStar(id) {
   background: rgba(232, 201, 90, 0.06);
   border-left: 2px solid #fcd34d;
   font-size: 12px; color: rgba(230, 238, 245, 0.85);
+}
+.cdk-art-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 6, 23, 0.86);
+}
+.cdk-art-lightbox figure {
+  position: relative;
+  width: min(92vw, 620px);
+  max-height: 92vh;
+  margin: 0;
+  padding: 12px;
+  background: #0f172a;
+  border: 1px solid rgba(245, 230, 177, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
+}
+.cdk-art-lightbox img {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 5px;
+  background: #020617;
+}
+.cdk-art-lightbox figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  color: rgba(230, 238, 245, 0.72);
+  font-size: 12px;
+}
+.cdk-art-lightbox figcaption b { color: #f5e6b1; }
+.cdk-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(230, 238, 245, 0.3);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e6eef5;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+@media (max-width: 520px) {
+  .cdk-art-lightbox { padding: 10px; }
+  .cdk-art-lightbox figcaption { display: block; }
+  .cdk-art-lightbox figcaption span { display: block; margin-top: 4px; }
 }
 </style>
