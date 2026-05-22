@@ -21,6 +21,18 @@ const phiTinhCardsByStarId = computed(() => {
   return new Map(phiTinhCards.value.map((card) => [card.star_id, card]));
 });
 
+async function fetchJsonOrNull(url, options = {}) {
+  try {
+    const response = await fetch(url, options);
+    const text = await response.text();
+    if (!response.ok || !text) return null;
+    return JSON.parse(text);
+  } catch (err) {
+    console.warn("Cannot load Chiếu Đởm Kinh payload:", url, err);
+    return null;
+  }
+}
+
 function phiTinhArtFor(star) {
   const card = phiTinhCardsByStarId.value.get(star?.id);
   return card?.image ? card : null;
@@ -32,20 +44,20 @@ async function loadAll() {
   const pk = activePerson.value?.person_key;
   try {
     const [chart, phi, cards, cach, ncot] = await Promise.all([
-      pk ? fetch("/api/tu-vi/q4/chieu-dom-kinh/cast", {
+      pk ? fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh/cast", {
         method: "POST", headers: {"Content-Type":"application/json"},
         body: JSON.stringify({person_key: pk})
-      }).then(r => r.json()) : Promise.resolve(null),
-      fetch("/api/tu-vi/q4/chieu-dom-kinh-phi-tinh").then(r => r.json()),
-      fetch("/oracle-cards/chieu-dom-kinh/18-phi-tinh/cards.json").then(r => r.ok ? r.json() : null).catch(() => null),
-      fetch("/api/tu-vi/q4/chieu-dom-kinh-cach-cuc").then(r => r.json()),
-      fetch("/api/tu-vi/q4/nhap-cot-tien-kinh").then(r => r.json()),
+      }) : Promise.resolve(null),
+      fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh-phi-tinh"),
+      fetchJsonOrNull("/oracle-cards/chieu-dom-kinh/18-phi-tinh/cards.json"),
+      fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh-cach-cuc"),
+      fetchJsonOrNull("/api/tu-vi/q4/nhap-cot-tien-kinh"),
     ]);
     if (chart && chart.status === "ok") cdkChart.value = chart;
-    if (phi.status === "ok") phiTinh18.value = phi;
+    if (phi?.status === "ok") phiTinh18.value = phi;
     if (cards?.cards) phiTinhCards.value = cards.cards;
-    if (cach.status === "ok") cachCuc.value = cach;
-    if (ncot.status === "ok") nhapCot.value = ncot;
+    if (cach?.status === "ok") cachCuc.value = cach;
+    if (ncot?.status === "ok") nhapCot.value = ncot;
   } catch (e) {
     error.value = String(e.message || e);
   } finally {
