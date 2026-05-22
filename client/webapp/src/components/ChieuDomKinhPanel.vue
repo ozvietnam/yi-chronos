@@ -104,6 +104,132 @@ const cdkMenhStars = computed(() => {
     }));
 });
 
+// ─── Clock map geometry — vòng tròn 12 địa chi ───────────────────────────────
+// Quy ước la bàn Trung Hoa: Tý=12h (Bắc, top), Mão=3h (Đông, right),
+// Ngọ=6h (Nam, bottom), Dậu=9h (Tây, left).
+// Tam hợp 4 cục: Thân-Tý-Thìn (Thủy) · Hợi-Mão-Mùi (Mộc) · Dần-Ngọ-Tuất (Hỏa) · Tỵ-Dậu-Sửu (Kim).
+const CLOCK_GEOMETRY = {
+  cx: 240,
+  cy: 240,
+  nodeRadius: 38,  // mỗi địa chi node
+  ringRadius: 188, // khoảng cách từ tâm tới node
+  coreRadius: 96,  // core Mệnh giữa
+};
+
+const TAM_HOP_CUC = {
+  "Thủy": ["Thân", "Tý", "Thìn"],
+  "Mộc":  ["Hợi", "Mão", "Mùi"],
+  "Hỏa":  ["Dần", "Ngọ", "Tuất"],
+  "Kim":  ["Tỵ", "Dậu", "Sửu"],
+};
+
+function categoryToTone(category, isMenh) {
+  if (isMenh) return "menh";
+  if (!category) return "neutral";
+  const c = String(category).toLowerCase();
+  if (c.includes("cát") || c.includes("cat")) return "cat";
+  if (c.includes("hung")) return "hung";
+  if (c.includes("dương") || c.includes("duong")) return "duong";
+  if (c.includes("âm") || c.includes("am")) return "am";
+  return "neutral";
+}
+
+function polarToCartesian(angleDeg, radius) {
+  const rad = (angleDeg - 90) * Math.PI / 180; // -90 to start from top
+  return {
+    x: CLOCK_GEOMETRY.cx + radius * Math.cos(rad),
+    y: CLOCK_GEOMETRY.cy + radius * Math.sin(rad),
+  };
+}
+
+const cdkClockMap = computed(() => {
+  const menh = cdkChart.value?.menh_branch;
+  const starsByBranch = new Map(BRANCHES.map((b) => [b, []]));
+  for (const [star, branch] of Object.entries(cdkChart.value?.stars || {})) {
+    if (!starsByBranch.has(branch)) starsByBranch.set(branch, []);
+    starsByBranch.get(branch).push({
+      star,
+      branch,
+      art: chartArtFor(star),
+      meaning: starMeaningFor(star, branch),
+    });
+  }
+
+  // Find which Tam hợp cục contains Mệnh
+  let menhTamHopCuc = null;
+  let menhTamHopBranches = [];
+  for (const [cucName, branches] of Object.entries(TAM_HOP_CUC)) {
+    if (branches.includes(menh)) {
+      menhTamHopCuc = cucName;
+      menhTamHopBranches = branches;
+      break;
+    }
+  }
+  // Xung chiếu = opposite chi (180°)
+  const menhIndex = BRANCHES.indexOf(menh);
+  const xungChieuBranch = menhIndex >= 0 ? BRANCHES[(menhIndex + 6) % 12] : null;
+
+  // Build 12 nodes
+  const nodes = BRANCHES.map((branch, i) => {
+    const angle = i * 30; // start Tý at top (i=0), clockwise
+    const pos = polarToCartesian(angle, CLOCK_GEOMETRY.ringRadius);
+    const stars = starsByBranch.get(branch) || [];
+    const isMenh = branch === menh;
+    const isTamHopWithMenh = !isMenh && menhTamHopBranches.includes(branch);
+    const isXungChieu = branch === xungChieuBranch;
+    // Determine tone — Mệnh > dominant star category
+    let tone = "neutral";
+    if (isMenh) tone = "menh";
+    else if (stars.length) {
+      // Pick dominant category from stars at this branch (hung > âm > dương > cát > other)
+      const priority = { hung: 4, "âm": 3, "dương": 2, "cát": 1 };
+      const sorted = [...stars].sort((a, b) => (priority[b.meaning?.category] || 0) - (priority[a.meaning?.category] || 0));
+      tone = categoryToTone(sorted[0]?.meaning?.category, false);
+    }
+    return {
+      branch,
+      angle,
+      x: pos.x,
+      y: pos.y,
+      stars,
+      isMenh,
+      isTamHopWithMenh,
+      isXungChieu,
+      tone,
+    };
+  });
+
+  // Build tam hợp triangle polygon points (3 chi nodes connected)
+  let tamHopPoints = "";
+  if (menhTamHopBranches.length === 3) {
+    const triPositions = menhTamHopBranches.map((b) => {
+      const i = BRANCHES.indexOf(b);
+      return polarToCartesian(i * 30, CLOCK_GEOMETRY.ringRadius);
+    });
+    tamHopPoints = triPositions.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+  }
+
+  // Xung chiếu line endpoints
+  let xungChieuLine = null;
+  if (menh && xungChieuBranch) {
+    const menhIdx = BRANCHES.indexOf(menh);
+    const xungIdx = BRANCHES.indexOf(xungChieuBranch);
+    const p1 = polarToCartesian(menhIdx * 30, CLOCK_GEOMETRY.ringRadius);
+    const p2 = polarToCartesian(xungIdx * 30, CLOCK_GEOMETRY.ringRadius);
+    xungChieuLine = { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y };
+  }
+
+  return {
+    nodes,
+    menhTamHopCuc,
+    menhTamHopBranches,
+    xungChieuBranch,
+    tamHopPoints,
+    xungChieuLine,
+    geometry: CLOCK_GEOMETRY,
+  };
+});
+
 async function fetchJsonOrNull(url, options = {}) {
   try {
     const response = await fetch(url, options);
@@ -270,35 +396,127 @@ function openArtCard(card) {
         </section>
       </div>
 
-      <h4 class="cdk-map-title">Bản đồ 12 địa chi — sao nào kích hoạt vùng nào</h4>
-      <div class="cdk-branch-map">
-        <article
-          v-for="cell in cdkBranchMap"
-          :key="cell.branch"
-          class="cdk-branch-cell"
-          :class="{ 'is-menh': cell.isMenh }"
+      <h4 class="cdk-map-title">
+        Bản đồ 12 địa chi — Đồng hồ Phi Tinh
+        <small v-if="cdkClockMap.menhTamHopCuc">
+          · Tam hợp <b>{{ cdkClockMap.menhTamHopCuc }} cục</b> (Mệnh + {{ cdkClockMap.menhTamHopBranches.filter((b) => b !== cdkChart.menh_branch).join(' + ') }})
+          <span v-if="cdkClockMap.xungChieuBranch"> · Xung chiếu: <b>{{ cdkClockMap.xungChieuBranch }}</b></span>
+        </small>
+      </h4>
+      <div class="cdk-clock-wrap">
+        <svg
+          class="cdk-clock-svg"
+          viewBox="0 0 480 480"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Bản đồ 12 địa chi Chiếu Đởm Kinh"
         >
-          <header>
-            <strong>{{ cell.branch }}</strong>
-            <span v-if="cell.isMenh">Mệnh</span>
-          </header>
-          <div v-if="cell.stars.length" class="cdk-branch-stars">
-            <button
-              v-for="item in cell.stars"
-              :key="item.star"
-              type="button"
-              class="cdk-branch-star"
-              :class="{ 'has-art': item.art, 'is-hy': item.meaning.isHy }"
-              @click.stop="item.art ? openArtCard(item.art) : null"
-            >
-              <img v-if="item.art" :src="item.art.image" :alt="`Ảnh ${item.star}`" loading="lazy" />
-              <span>{{ item.star }}</span>
-              <small>{{ item.meaning.isHy ? 'hỷ' : item.meaning.category }}</small>
-            </button>
-          </div>
-          <p v-else>Chưa có Phi Tinh đóng</p>
-        </article>
+          <!-- Outer ring + ticks -->
+          <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy" r="220"
+                  class="cdk-clock-ring-outer" />
+          <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy"
+                  :r="cdkClockMap.geometry.ringRadius" class="cdk-clock-ring-mid" />
+          <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy"
+                  :r="cdkClockMap.geometry.coreRadius" class="cdk-clock-ring-inner" />
+
+          <!-- Tam hợp triangle (Mệnh's cục) -->
+          <polygon
+            v-if="cdkClockMap.tamHopPoints"
+            :points="cdkClockMap.tamHopPoints"
+            class="cdk-clock-tam-hop"
+          />
+
+          <!-- Xung chiếu line -->
+          <line
+            v-if="cdkClockMap.xungChieuLine"
+            :x1="cdkClockMap.xungChieuLine.x1"
+            :y1="cdkClockMap.xungChieuLine.y1"
+            :x2="cdkClockMap.xungChieuLine.x2"
+            :y2="cdkClockMap.xungChieuLine.y2"
+            class="cdk-clock-xung-chieu"
+          />
+
+          <!-- 12 chi nodes -->
+          <g v-for="node in cdkClockMap.nodes" :key="node.branch"
+             :class="['cdk-clock-node', `tone-${node.tone}`,
+                      node.isMenh && 'is-menh',
+                      node.isTamHopWithMenh && 'is-tam-hop',
+                      node.isXungChieu && 'is-xung-chieu']">
+            <circle :cx="node.x" :cy="node.y" :r="cdkClockMap.geometry.nodeRadius"
+                    class="cdk-clock-node-bg" />
+            <text :x="node.x" :y="node.y - 12" class="cdk-clock-chi"
+                  text-anchor="middle">{{ node.branch }}</text>
+            <text v-if="node.isMenh" :x="node.x" :y="node.y - 26"
+                  class="cdk-clock-menh-tag" text-anchor="middle">★ MỆNH</text>
+            <text v-for="(st, idx) in node.stars" :key="st.star"
+                  :x="node.x" :y="node.y + 4 + idx * 11"
+                  class="cdk-clock-star-name"
+                  :class="{'is-hy': st.meaning.isHy}"
+                  text-anchor="middle">{{ st.star }}</text>
+            <title>{{ node.branch }}{{ node.isMenh ? ' (Mệnh)' : node.isTamHopWithMenh ? ' (tam hợp với Mệnh)' : node.isXungChieu ? ' (xung chiếu Mệnh)' : '' }}{{ node.stars.length ? ' — ' + node.stars.map(s => s.star).join(', ') : '' }}</title>
+          </g>
+
+          <!-- Center: Mệnh info -->
+          <g class="cdk-clock-center">
+            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy - 36"
+                  class="cdk-clock-core-label" text-anchor="middle">MỆNH CDK</text>
+            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 8"
+                  class="cdk-clock-core-branch" text-anchor="middle">{{ cdkChart.menh_branch }}</text>
+            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 36"
+                  class="cdk-clock-core-stars" text-anchor="middle">
+              {{ cdkMenhStars.map((s) => s.star).join(' · ') }}
+            </text>
+            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 56"
+                  class="cdk-clock-core-count" text-anchor="middle">
+              {{ cdkMenhStars.length }} sao thủ
+            </text>
+          </g>
+        </svg>
+
+        <!-- Legend -->
+        <div class="cdk-clock-legend">
+          <span class="leg-item tone-menh"><span class="dot"></span>Mệnh CDK</span>
+          <span class="leg-item tone-tam-hop"><span class="dot"></span>Tam hợp với Mệnh</span>
+          <span class="leg-item tone-xung-chieu"><span class="dot"></span>Xung chiếu (đối diện)</span>
+          <span class="leg-item tone-cat"><span class="dot"></span>Cát</span>
+          <span class="leg-item tone-hung"><span class="dot"></span>Hung</span>
+          <span class="leg-item tone-am"><span class="dot"></span>Âm</span>
+          <span class="leg-item tone-duong"><span class="dot"></span>Dương</span>
+        </div>
       </div>
+
+      <!-- Fallback 4×3 grid trong details (chi tiết từng cung) -->
+      <details class="cdk-branch-detail">
+        <summary>Chi tiết 12 địa chi (xem nâng cao)</summary>
+        <div class="cdk-branch-map">
+          <article
+            v-for="cell in cdkBranchMap"
+            :key="cell.branch"
+            class="cdk-branch-cell"
+            :class="{ 'is-menh': cell.isMenh }"
+          >
+            <header>
+              <strong>{{ cell.branch }}</strong>
+              <span v-if="cell.isMenh">Mệnh</span>
+            </header>
+            <div v-if="cell.stars.length" class="cdk-branch-stars">
+              <button
+                v-for="item in cell.stars"
+                :key="item.star"
+                type="button"
+                class="cdk-branch-star"
+                :class="{ 'has-art': item.art, 'is-hy': item.meaning.isHy }"
+                @click.stop="item.art ? openArtCard(item.art) : null"
+              >
+                <img v-if="item.art" :src="item.art.image" :alt="`Ảnh ${item.star}`" loading="lazy" />
+                <span>{{ item.star }}</span>
+                <small>{{ item.meaning.isHy ? 'hỷ' : item.meaning.category }}</small>
+              </button>
+            </div>
+            <p v-else>Chưa có Phi Tinh đóng</p>
+          </article>
+        </div>
+      </details>
 
       <details class="cdk-raw-stars">
         <summary>Bảng sao → cung gốc</summary>
@@ -641,10 +859,207 @@ function openArtCard(card) {
   color: #f5e6b1;
 }
 .cdk-map-title {
-  margin: 16px 0 8px;
+  margin: 20px 0 10px;
   color: #f5e6b1;
-  font-size: 13px;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
 }
+.cdk-map-title small {
+  color: rgba(230, 238, 245, 0.64);
+  font-size: 12px;
+  font-weight: 400;
+}
+.cdk-map-title small b {
+  color: #fcd34d;
+  font-weight: 600;
+}
+
+/* ─── CDK Clock Map (đồng hồ tròn 12 địa chi) ─────────────────────────── */
+.cdk-clock-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  justify-items: center;
+  margin: 14px 0 22px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at center, rgba(252, 211, 77, 0.05), rgba(2, 6, 23, 0.6) 70%),
+    rgba(2, 6, 23, 0.3);
+  border: 1px solid rgba(167, 139, 250, 0.16);
+  border-radius: 12px;
+}
+.cdk-clock-svg {
+  width: min(480px, 100%);
+  height: auto;
+  display: block;
+}
+.cdk-clock-ring-outer {
+  fill: none;
+  stroke: rgba(167, 139, 250, 0.16);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+.cdk-clock-ring-mid {
+  fill: none;
+  stroke: rgba(91, 229, 211, 0.14);
+  stroke-width: 1;
+}
+.cdk-clock-ring-inner {
+  fill: rgba(2, 6, 23, 0.55);
+  stroke: rgba(252, 211, 77, 0.42);
+  stroke-width: 1.5;
+}
+
+/* Tam hợp triangle — vàng nhạt soft */
+.cdk-clock-tam-hop {
+  fill: rgba(252, 211, 77, 0.07);
+  stroke: rgba(252, 211, 77, 0.45);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+/* Xung chiếu — đỏ nhạt dashed */
+.cdk-clock-xung-chieu {
+  stroke: rgba(248, 113, 113, 0.5);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 5;
+}
+
+/* 12 chi nodes */
+.cdk-clock-node {
+  cursor: default;
+}
+.cdk-clock-node-bg {
+  fill: rgba(2, 6, 23, 0.7);
+  stroke: rgba(230, 238, 245, 0.18);
+  stroke-width: 1.5;
+  transition: stroke 160ms, fill 160ms;
+}
+.cdk-clock-node.tone-cat .cdk-clock-node-bg {
+  stroke: rgba(91, 229, 211, 0.6);
+  fill: rgba(15, 76, 70, 0.32);
+}
+.cdk-clock-node.tone-hung .cdk-clock-node-bg {
+  stroke: rgba(248, 113, 113, 0.6);
+  fill: rgba(76, 20, 20, 0.32);
+}
+.cdk-clock-node.tone-am .cdk-clock-node-bg {
+  stroke: rgba(196, 181, 253, 0.55);
+  fill: rgba(46, 30, 76, 0.32);
+}
+.cdk-clock-node.tone-duong .cdk-clock-node-bg {
+  stroke: rgba(252, 211, 77, 0.6);
+  fill: rgba(76, 56, 16, 0.28);
+}
+.cdk-clock-node.tone-menh .cdk-clock-node-bg {
+  stroke: #fcd34d;
+  stroke-width: 2.5;
+  fill: rgba(76, 56, 16, 0.5);
+  filter: drop-shadow(0 0 6px rgba(252, 211, 77, 0.6));
+}
+.cdk-clock-node.is-tam-hop .cdk-clock-node-bg {
+  stroke-dasharray: none;
+}
+.cdk-clock-node.is-xung-chieu .cdk-clock-node-bg {
+  stroke-width: 2;
+}
+
+.cdk-clock-chi {
+  font-size: 15px;
+  font-weight: 700;
+  fill: #f5e6b1;
+  user-select: none;
+}
+.cdk-clock-node.tone-menh .cdk-clock-chi {
+  fill: #fcd34d;
+  font-size: 17px;
+}
+.cdk-clock-menh-tag {
+  font-size: 8px;
+  font-weight: 700;
+  fill: #fcd34d;
+  letter-spacing: 1px;
+}
+.cdk-clock-star-name {
+  font-size: 10px;
+  fill: rgba(230, 238, 245, 0.78);
+  user-select: none;
+}
+.cdk-clock-star-name.is-hy {
+  fill: #5be5d3;
+  font-weight: 600;
+}
+.cdk-clock-node.tone-menh .cdk-clock-star-name {
+  fill: #fcd34d;
+  font-weight: 600;
+}
+
+/* Center: Mệnh info */
+.cdk-clock-center { pointer-events: none; }
+.cdk-clock-core-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  fill: rgba(230, 238, 245, 0.58);
+}
+.cdk-clock-core-branch {
+  font-size: 36px;
+  font-weight: 700;
+  fill: #fcd34d;
+}
+.cdk-clock-core-stars {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #5be5d3;
+}
+.cdk-clock-core-count {
+  font-size: 10px;
+  fill: rgba(230, 238, 245, 0.6);
+}
+
+/* Legend below clock */
+.cdk-clock-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 16px;
+  margin-top: 6px;
+  padding: 0 10px;
+}
+.cdk-clock-legend .leg-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: rgba(230, 238, 245, 0.74);
+}
+.cdk-clock-legend .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(230, 238, 245, 0.18);
+  background: rgba(2, 6, 23, 0.5);
+}
+.cdk-clock-legend .tone-menh .dot { background: #fcd34d; border-color: #fcd34d; }
+.cdk-clock-legend .tone-tam-hop .dot { background: rgba(252, 211, 77, 0.4); border-color: rgba(252, 211, 77, 0.7); border-style: dashed; }
+.cdk-clock-legend .tone-xung-chieu .dot { background: transparent; border-color: rgba(248, 113, 113, 0.7); border-style: dashed; }
+.cdk-clock-legend .tone-cat .dot { background: rgba(91, 229, 211, 0.7); }
+.cdk-clock-legend .tone-hung .dot { background: rgba(248, 113, 113, 0.7); }
+.cdk-clock-legend .tone-am .dot { background: rgba(196, 181, 253, 0.7); }
+.cdk-clock-legend .tone-duong .dot { background: rgba(252, 211, 77, 0.7); }
+
+.cdk-branch-detail {
+  margin-top: 6px;
+}
+.cdk-branch-detail > summary {
+  color: rgba(167, 139, 250, 0.85);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
 .cdk-branch-map {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
