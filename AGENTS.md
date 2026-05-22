@@ -1,16 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [yi] recent context, 2026-05-22 2:52pm GMT+7
+# [yi] recent context, 2026-05-22 3:06pm GMT+7
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (18,702t read) | 2,281,219t work | 99% savings
+Stats: 50 obs (18,755t read) | 2,348,278t work | 99% savings
 
 ### May 19, 2026
-3129 9:15p ⚖️ LaunchAgent abandoned — manual daemon used instead due to macOS TCC Desktop sandbox block
 3130 9:24p ⚖️ Auto-sync daemon run strategy: manual start script, not LaunchAgent
 3131 " 🟣 ~/.zshrc hook auto-starts auto-sync daemon on every new terminal session
 3132 9:25p ✅ HANH-TRINH-NHAP-DAO.md: Lần update 15 — full Phase 0-5 deployment journal entry
@@ -72,8 +71,9 @@ S1524 Qualitative "Tý đầu vs Tý cuối" contrast questionnaire designed and
 3306 9:43a 🟣 Chi Giờ Wiki — Full JSON Schema + All 12 Hour Branch Data Files + Loader API Built
 ### May 22, 2026
 3766 11:29a 🟣 Chiếu Đởm Kinh 18 Phi Tinh — 12 image-generation prompt files created for Priority 2 and 3 cards
+3767 " 🔵 Codex image generation for Phi Tinh oracle cards — 18 PNG files confirmed in local cache
 
-Access 2281k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 2348k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>
 
 ## Runtime Execution Policy (User Preference)

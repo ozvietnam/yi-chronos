@@ -17,6 +17,8 @@ const error = ref("");
 const activeStarId = ref(null);
 const selectedArtCard = ref(null);
 
+const BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+
 const CHART_STAR_ID = {
   "Tử": "tu",
   "Văn": "van",
@@ -40,8 +42,66 @@ const CHART_STAR_ID = {
   "Khốc": "khoc",
 };
 
+const NHAP_COT_STAR_NAME = {
+  "Tử": "Tử Vi",
+  "Hư": "Thiên Hư",
+  "Quý": "Thiên Quý",
+  "Ấn": "Thiên Ấn",
+  "Thọ": "Thiên Thọ",
+  "Không": "Thiên Hư",
+  "Loan": "Hồng Loan",
+  "Hồng": "Hồng Loan",
+  "Khố": "Thiên Khố",
+  "Quán": "Thiên Quán",
+  "Văn": "Văn Xương",
+  "Phúc": "Phúc Lộc",
+  "Lộc": "Phúc Lộc",
+  "Trượng": "Thiên Trượng",
+  "Dị": "Thiên Dị",
+  "Mao": "Mao Đầu",
+  "Nhận": "Thiên Nhận (Kình Dương)",
+  "Hình": "Thiên Hình",
+  "Khốc": "Thiên Khốc",
+  "Diêu": "Thiên Diêu",
+};
+
 const phiTinhCardsByStarId = computed(() => {
   return new Map(phiTinhCards.value.map((card) => [card.star_id, card]));
+});
+
+const nhapCotByStar = computed(() => {
+  return new Map((nhapCot.value?.per_star_tong_doan || []).map((item) => [item.star, item]));
+});
+
+const cdkBranchMap = computed(() => {
+  const map = new Map(BRANCHES.map((branch) => [branch, []]));
+  for (const [star, branch] of Object.entries(cdkChart.value?.stars || {})) {
+    if (!map.has(branch)) map.set(branch, []);
+    map.get(branch).push({
+      star,
+      branch,
+      art: chartArtFor(star),
+      meaning: starMeaningFor(star, branch),
+    });
+  }
+  return BRANCHES.map((branch) => ({
+    branch,
+    stars: map.get(branch) || [],
+    isMenh: branch === cdkChart.value?.menh_branch,
+  }));
+});
+
+const cdkMenhStars = computed(() => {
+  const menh = cdkChart.value?.menh_branch;
+  if (!menh) return [];
+  return Object.entries(cdkChart.value?.stars || {})
+    .filter(([, branch]) => branch === menh)
+    .map(([star, branch]) => ({
+      star,
+      branch,
+      art: chartArtFor(star),
+      meaning: starMeaningFor(star, branch),
+    }));
 });
 
 async function fetchJsonOrNull(url, options = {}) {
@@ -66,6 +126,20 @@ function chartArtFor(starName) {
   if (!starId) return null;
   const card = phiTinhCardsByStarId.value.get(starId);
   return card?.image ? card : null;
+}
+
+function starMeaningFor(starName, branch) {
+  const lookupName = NHAP_COT_STAR_NAME[starName] || starName;
+  const item = nhapCotByStar.value.get(lookupName);
+  const isHy = item?.hy_cung?.includes(branch) || false;
+  return {
+    lookupName,
+    category: item?.category || "chưa phân loại",
+    isHy,
+    status: item ? (isHy ? "Hỷ cung" : "Không thuộc hỷ cung") : "Chưa có tổng đoán",
+    summary: item?.verdict_summary || "Chưa có câu tổng đoán trong Nhập Cốt Tiên Kinh.",
+    source: item?.source_ref || "",
+  };
 }
 
 async function loadAll() {
@@ -142,21 +216,88 @@ function openArtCard(card) {
           <span>Đọc theo cặp “sao + cung đang đóng”, rồi đối chiếu Đại Hạn CDK bên dưới.</span>
         </div>
       </div>
-      <div class="cdk-stars-grid">
-        <div v-for="(branch, star) in cdkChart.stars" :key="star" class="cdk-star-pos">
-          <button
-            v-if="chartArtFor(star)"
-            type="button"
-            class="cdk-chart-art"
-            :aria-label="`Mở ảnh ${star}`"
-            @click.stop="openArtCard(chartArtFor(star))"
-          >
-            <img :src="chartArtFor(star).image" :alt="`Ảnh ${star}`" loading="lazy" />
-          </button>
-          <span class="cdk-star-name">{{ star }}</span>
-          <span class="cdk-star-branch">{{ branch }}</span>
-        </div>
+
+      <div class="cdk-chart-core">
+        <section class="cdk-menh-core">
+          <span class="cdk-core-label">Mệnh CDK</span>
+          <strong>{{ cdkChart.menh_branch }}</strong>
+          <small>Điểm tụ bản mệnh trong hệ Chiếu Đởm Kinh</small>
+        </section>
+        <section class="cdk-menh-stars">
+          <header>
+            <span>Sao thủ Mệnh</span>
+            <b>{{ cdkMenhStars.length }} sao</b>
+          </header>
+          <article v-for="item in cdkMenhStars" :key="item.star" class="cdk-menh-star">
+            <button
+              v-if="item.art"
+              type="button"
+              class="cdk-chart-art"
+              :aria-label="`Mở ảnh ${item.star}`"
+              @click.stop="openArtCard(item.art)"
+            >
+              <img :src="item.art.image" :alt="`Ảnh ${item.star}`" loading="lazy" />
+            </button>
+            <div>
+              <h4>{{ item.star }} tại {{ item.branch }}</h4>
+              <p>
+                <span :class="['cdk-status-chip', item.meaning.isHy ? 'is-hy' : '']">{{ item.meaning.status }}</span>
+                <span class="cdk-cat-chip">{{ item.meaning.category }}</span>
+              </p>
+              <small>{{ item.meaning.summary }}</small>
+            </div>
+          </article>
+        </section>
       </div>
+
+      <h4 class="cdk-map-title">Bản đồ 12 địa chi — sao nào kích hoạt vùng nào</h4>
+      <div class="cdk-branch-map">
+        <article
+          v-for="cell in cdkBranchMap"
+          :key="cell.branch"
+          class="cdk-branch-cell"
+          :class="{ 'is-menh': cell.isMenh }"
+        >
+          <header>
+            <strong>{{ cell.branch }}</strong>
+            <span v-if="cell.isMenh">Mệnh</span>
+          </header>
+          <div v-if="cell.stars.length" class="cdk-branch-stars">
+            <button
+              v-for="item in cell.stars"
+              :key="item.star"
+              type="button"
+              class="cdk-branch-star"
+              :class="{ 'has-art': item.art, 'is-hy': item.meaning.isHy }"
+              @click.stop="item.art ? openArtCard(item.art) : null"
+            >
+              <img v-if="item.art" :src="item.art.image" :alt="`Ảnh ${item.star}`" loading="lazy" />
+              <span>{{ item.star }}</span>
+              <small>{{ item.meaning.isHy ? 'hỷ' : item.meaning.category }}</small>
+            </button>
+          </div>
+          <p v-else>Chưa có Phi Tinh đóng</p>
+        </article>
+      </div>
+
+      <details class="cdk-raw-stars">
+        <summary>Bảng sao → cung gốc</summary>
+        <div class="cdk-stars-grid">
+          <div v-for="(branch, star) in cdkChart.stars" :key="star" class="cdk-star-pos">
+            <button
+              v-if="chartArtFor(star)"
+              type="button"
+              class="cdk-chart-art"
+              :aria-label="`Mở ảnh ${star}`"
+              @click.stop="openArtCard(chartArtFor(star))"
+            >
+              <img :src="chartArtFor(star).image" :alt="`Ảnh ${star}`" loading="lazy" />
+            </button>
+            <span class="cdk-star-name">{{ star }}</span>
+            <span class="cdk-star-branch">{{ branch }}</span>
+          </div>
+        </div>
+      </details>
       <p v-if="phiTinhCards.length" class="cdk-chart-art-note">
         Lá số này hiện có ảnh minh họa cho
         <b>{{ Object.keys(cdkChart.stars || {}).filter((star) => chartArtFor(star)).length }}</b>
@@ -363,6 +504,202 @@ function openArtCard(card) {
   font-size: 11.5px;
   line-height: 1.45;
 }
+.cdk-chart-core {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.85fr) minmax(0, 2fr);
+  gap: 12px;
+  align-items: stretch;
+  margin: 14px 0;
+}
+.cdk-menh-core {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 190px;
+  padding: 18px;
+  text-align: center;
+  border: 1px solid rgba(252, 211, 77, 0.46);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at center, rgba(252, 211, 77, 0.16), rgba(91, 229, 211, 0.04) 58%, rgba(2, 6, 23, 0.2)),
+    rgba(2, 6, 23, 0.28);
+}
+.cdk-core-label {
+  color: rgba(230, 238, 245, 0.58);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.cdk-menh-core strong {
+  margin: 8px 0;
+  color: #fcd34d;
+  font-size: 56px;
+  line-height: 1;
+}
+.cdk-menh-core small {
+  max-width: 190px;
+  color: rgba(230, 238, 245, 0.68);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.cdk-menh-stars {
+  padding: 12px;
+  border: 1px solid rgba(167, 139, 250, 0.24);
+  border-radius: 8px;
+  background: rgba(2, 6, 23, 0.22);
+}
+.cdk-menh-stars > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #f5e6b1;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cdk-menh-stars > header b {
+  color: #5be5d3;
+  font-size: 12px;
+}
+.cdk-menh-star {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(230, 238, 245, 0.08);
+}
+.cdk-menh-star:first-of-type { border-top: 0; }
+.cdk-menh-star h4 {
+  margin: 0 0 5px;
+  color: #fcd34d;
+  font-size: 14px;
+}
+.cdk-menh-star p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 0 6px;
+}
+.cdk-menh-star small {
+  display: block;
+  color: rgba(230, 238, 245, 0.74);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.cdk-status-chip,
+.cdk-cat-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.14);
+  color: rgba(230, 238, 245, 0.74);
+  font-size: 11px;
+  font-weight: 600;
+}
+.cdk-status-chip.is-hy {
+  background: rgba(91, 229, 211, 0.14);
+  color: #5be5d3;
+}
+.cdk-cat-chip {
+  background: rgba(252, 211, 77, 0.12);
+  color: #f5e6b1;
+}
+.cdk-map-title {
+  margin: 16px 0 8px;
+  color: #f5e6b1;
+  font-size: 13px;
+}
+.cdk-branch-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.cdk-branch-cell {
+  min-height: 104px;
+  padding: 9px;
+  border: 1px solid rgba(230, 238, 245, 0.08);
+  border-radius: 7px;
+  background: rgba(2, 6, 23, 0.22);
+}
+.cdk-branch-cell.is-menh {
+  border-color: rgba(252, 211, 77, 0.54);
+  background: rgba(252, 211, 77, 0.07);
+}
+.cdk-branch-cell header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+.cdk-branch-cell header strong {
+  color: #f5e6b1;
+  font-size: 14px;
+}
+.cdk-branch-cell header span {
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(252, 211, 77, 0.16);
+  color: #fcd34d;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.cdk-branch-cell p {
+  margin: 0;
+  color: rgba(230, 238, 245, 0.42);
+  font-size: 11.5px;
+}
+.cdk-branch-stars {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cdk-branch-star {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  width: 100%;
+  padding: 4px 6px;
+  border: 1px solid rgba(230, 238, 245, 0.08);
+  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.74);
+  color: rgba(230, 238, 245, 0.82);
+  text-align: left;
+}
+.cdk-branch-star.has-art { cursor: zoom-in; }
+.cdk-branch-star.is-hy { border-color: rgba(91, 229, 211, 0.3); }
+.cdk-branch-star img {
+  width: 22px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.cdk-branch-star span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #f5e6b1;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cdk-branch-star small {
+  color: #5be5d3;
+  font-size: 10.5px;
+}
+.cdk-raw-stars {
+  margin-top: 12px;
+}
+.cdk-raw-stars summary {
+  cursor: pointer;
+  color: rgba(230, 238, 245, 0.58);
+  font-size: 12px;
+}
 .cdk-stars-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 6px; margin: 10px 0;
@@ -438,8 +775,12 @@ function openArtCard(card) {
 .cdk-tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 768px) {
   .cdk-chart-guide,
+  .cdk-chart-core,
   .cdk-tier-grid {
     grid-template-columns: 1fr;
+  }
+  .cdk-branch-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 .cdk-tier h4 { color: #fcd34d; font-size: 14px; margin: 0 0 8px; }
