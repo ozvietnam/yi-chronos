@@ -145,12 +145,23 @@ function starMeaningFor(starName, branch) {
 async function loadAll() {
   loading.value = true;
   error.value = "";
-  const pk = activePerson.value?.person_key;
+  const person = activePerson.value;
+  const genderText = String(person?.gender || person?.gender_optional || "nam").toLowerCase();
+  const chartPayload = person?.person_key
+    ? { person_key: person.person_key }
+    : person?.birth_datetime_local
+      ? {
+          birth_datetime_local: person.birth_datetime_local,
+          timezone: person.timezone || "Asia/Ho_Chi_Minh",
+          gender: genderText.includes("nữ") || genderText.includes("nu") ? "nữ" : "nam",
+          name: person.name || person.label || "Người",
+        }
+      : null;
   try {
     const [chart, phi, cards, cach, ncot] = await Promise.all([
-      pk ? fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh/cast", {
+      chartPayload ? fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh/cast", {
         method: "POST", headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({person_key: pk})
+        body: JSON.stringify(chartPayload)
       }) : Promise.resolve(null),
       fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh-phi-tinh"),
       fetchJsonOrNull("/oracle-cards/chieu-dom-kinh/18-phi-tinh/cards.json"),
