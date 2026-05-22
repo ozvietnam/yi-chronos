@@ -5397,6 +5397,32 @@ def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
     return result
 
 
+@app.post("/api/tu-vi/q4/cdk/eval-cach-cuc")
+def yi_tuvi_cdk_eval_cach_cuc(req: _AnalyzeRequest, request: Request) -> dict:
+    """Eval 6 cách cục Chiếu Đởm Kinh cho lá số cụ thể.
+
+    Free endpoint — không cần VIP. Engine deterministic, no LLM call.
+    """
+    from engine.tu_vi.cdk_cach_cuc_matcher import evaluate_cdk_cach_cuc
+    from engine.tu_vi.chieu_dom_kinh_an_sao import cast_chieu_dom_kinh
+    from core.chronos import calculate_chronos_state
+    from datetime import datetime
+
+    person = _resolve_person_from_request(req, request)
+    chronos = calculate_chronos_state(person.birth_datetime_local, person.timezone)
+    _d, m_str, _y = chronos.almanac.lunar_date.split("/")
+    year_parts = chronos.ganzhi.year.split()
+    dt = datetime.fromisoformat(person.birth_datetime_local)
+    hour = dt.hour
+    BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
+    hour_branch = "Tý" if hour >= 23 or hour < 1 else BRANCHES[((hour + 1) // 2) % 12]
+    chart = cast_chieu_dom_kinh(
+        year_stem=year_parts[0], year_branch=year_parts[1],
+        lunar_month=int(m_str), hour_branch=hour_branch, gender=person.gender,
+    )
+    return evaluate_cdk_cach_cuc(chart, hour_branch)
+
+
 @app.post("/api/tu-vi/q4/cdk/luan-toan-bo")
 def yi_tuvi_cdk_luan_toan_bo(req: _AnalyzeRequest, request: Request) -> dict:
     """Luận TOÀN BỘ 12 cung CDK trong 1 phiên (2 batches × 6 cung song song).

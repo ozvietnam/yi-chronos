@@ -11,12 +11,41 @@ const cdkChart = ref(null);
 const phiTinh18 = ref(null);
 const phiTinhCards = ref([]);
 const cachCuc = ref(null);
+const cachCucEval = ref(null);  // personalized eval result for current lá số
 const nhapCot = ref(null);
 const loading = ref(false);
 const error = ref("");
 const activeStarId = ref(null);
 const selectedArtCard = ref(null);
 const selectedBranch = ref(null);
+
+// ─── Tooltip glossary (mini, inline) ───────────────────────────────────────
+const HV_GLOSSARY = {
+  "Thiên La": "Lưới trời — 2 cung Thìn-Tỵ, đại diện cho ràng buộc từ trên xuống (sếp, luật pháp, định mệnh).",
+  "Địa Võng": "Lưới đất — 2 cung Tuất-Hợi, đại diện cho ràng buộc từ dưới lên (gia đình, vật chất, sức khoẻ).",
+  "Phú môn": "Cửa nhà giàu — vị trí phát đạt, nhưng trong Chiếu Đởm Kinh nghĩa là KỲ CÁCH: chính cái hung biến thành cát.",
+  "Kình Dương": "Sao 'lưỡi dao mạnh' — chủ tính quyết liệt, cương cường, dễ va chạm. Còn gọi là Thiên Nhận.",
+  "Thiên Nhận": "Sao Kình Dương — chủ tính sắc bén, dao găm, kỷ luật cứng.",
+  "Thiên Hư": "Sao 'trống rỗng' — chủ sự hư huyễn, lo âu vô cớ. Còn gọi là Địa Không trong vài lưu phái.",
+  "Địa Không": "Sao 'không vong' — chủ sự mất mát, đứt đoạn, ảo tưởng.",
+  "Thân nịch giang hồ": "Thân chìm trong giang hồ — phiêu bạt không định cư.",
+  "Tử đầu la võng": "Đầu con cạm lưới — Mệnh ở vùng Thiên La hoặc Địa Võng, hay bị bó buộc.",
+  "Thân nhập bần dân": "Thân vào nhà bần hàn — Thân tọa Tỵ, lo lắng vợ con.",
+  "Ma chúc vi mệnh": "Nến mài làm mệnh — Mệnh có Kình Dương, đời đa thành đa bại.",
+  "Mệnh tọa phú môn": "Mệnh ngồi cửa nhà giàu — kỳ cách, hung-mà-không-hung, hết khổ tới sướng.",
+  "Xà nhập long cung": "Rắn vào long cung — Mệnh Mão + giờ Mão, rule mạnh, tốt mọi mặt.",
+  "Tam hợp": "3 cung cách nhau 120° cùng đồng nhịp với Mệnh.",
+  "Xung chiếu": "Cung đối diện 180° với Mệnh — tạo áp lực ngược.",
+  "Tứ Hóa": "4 dạng biến hóa của sao: Lộc (tài lộc), Quyền (quyền lực), Khoa (danh tiếng), Kỵ (cản trở).",
+  "Đại Hạn": "Vận 10 năm — cung Mệnh xoay theo tuổi, vận khí mỗi giai đoạn khác.",
+  "Lưu Niên": "Vận 1 năm — sao chạy qua cung mỗi năm cụ thể.",
+  "Mệnh chủ": "Sao chủ của cung Mệnh theo bảng Phú Thái Vi Q2 — đại diện linh hồn cốt lõi.",
+  "Thân chủ": "Sao chủ của cung Thân — đại diện hành động, biểu hiện ra đời.",
+  "Hỷ cung": "Cung mà sao đặc biệt tốt, đắc địa.",
+  "Thất vị": "Vị trí sao bị lạc nhà, không phát huy được sức.",
+  "Cách cục": "Tổ hợp sao + cung tạo thành mẫu lá số có ý nghĩa đặc biệt.",
+  "Kỳ cách": "Cách lạ — hung-mà-không-hung, ngoài quy luật bình thường.",
+};
 
 const BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
 
@@ -339,7 +368,7 @@ async function loadAll() {
         }
       : null;
   try {
-    const [chart, phi, cards, cach, ncot] = await Promise.all([
+    const [chart, phi, cards, cach, ncot, cachEval] = await Promise.all([
       chartPayload ? fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh/cast", {
         method: "POST", headers: {"Content-Type":"application/json"},
         body: JSON.stringify(chartPayload)
@@ -348,12 +377,17 @@ async function loadAll() {
       fetchJsonOrNull("/oracle-cards/chieu-dom-kinh/18-phi-tinh/cards.json"),
       fetchJsonOrNull("/api/tu-vi/q4/chieu-dom-kinh-cach-cuc"),
       fetchJsonOrNull("/api/tu-vi/q4/nhap-cot-tien-kinh"),
+      chartPayload ? fetchJsonOrNull("/api/tu-vi/q4/cdk/eval-cach-cuc", {
+        method: "POST", headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(chartPayload)
+      }) : Promise.resolve(null),
     ]);
     if (chart && chart.status === "ok") cdkChart.value = chart;
     if (phi?.status === "ok") phiTinh18.value = phi;
     if (cards?.cards) phiTinhCards.value = cards.cards;
     if (cach?.status === "ok") cachCuc.value = cach;
     if (ncot?.status === "ok") nhapCot.value = ncot;
+    if (cachEval?.status === "ok") cachCucEval.value = cachEval;
   } catch (e) {
     error.value = String(e.message || e);
   } finally {
@@ -380,6 +414,27 @@ function renderMarkdownInline(text) {
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/_([^_]+)_/g, '<em>$1</em>')
     .replace(/\n/g, '<br>');
+}
+
+// Wrap matching glossary terms with <abbr title="...">term</abbr> for hover tooltip
+function renderWithTooltips(text) {
+  if (!text) return '';
+  let escaped = String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/_([^_]+)_/g, '<em>$1</em>');
+  // Sort by length descending để match longer terms trước
+  const terms = Object.keys(HV_GLOSSARY).sort((a, b) => b.length - a.length);
+  for (const term of terms) {
+    const note = HV_GLOSSARY[term].replace(/"/g, '&quot;');
+    // Replace only first occurrence (case-sensitive) per term to avoid noise
+    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`(${escapedTerm})(?![^<]*>)`, '');  // not inside existing tag
+    escaped = escaped.replace(re, `<abbr class="hv-tooltip" title="${note}">$1</abbr>`);
+  }
+  return escaped;
 }
 
 onMounted(async () => {
@@ -1172,24 +1227,68 @@ const cdkDeepFeatureStatus = computed(() => {
       </div>
     </section>
 
-    <!-- 6 cách cục mới -->
-    <section v-if="cachCuc" class="cdk-section">
-      <h3>📐 6 Cách cục mới — Chiếu Đởm Kinh</h3>
-      <article v-for="c in cachCuc.cach_cuc" :key="c.id" class="cdk-cach-card"
-               :class="`cdk-cach-${c.polarity.replaceAll('_', '-')}`">
-        <header>
-          <strong>{{ c.name_vi }}</strong>
-          <small class="cdk-zh">{{ c.name_zh }}</small>
-          <span class="cdk-polarity-badge">{{ c.polarity }}</span>
-        </header>
-        <p class="cdk-lesson">{{ c.lesson_short }}</p>
-        <details>
-          <summary>Câu sách + paradigm</summary>
-          <em>« {{ c.source_quote_hv }} »</em>
-          <p v-if="c.paradigm_note" class="cdk-paradigm">💡 {{ c.paradigm_note }}</p>
-          <small>Nguồn: {{ c.source_ref }}</small>
-        </details>
-      </article>
+    <!-- 6 cách cục — PERSONALIZED cho lá số -->
+    <section v-if="cachCucEval || cachCuc" class="cdk-section">
+      <h3>📐 6 Cách cục Chiếu Đởm Kinh — so khớp lá số của Anh</h3>
+      <p class="cdk-intro" v-if="cachCucEval">
+        💡 Engine đã kiểm tra <b>6 mẫu cách cục</b> trong Q4 với lá số Anh.
+        <b v-if="cachCucEval.matched_count > 0" style="color: #fcd34d;">Trúng {{ cachCucEval.matched_count }} cách.</b>
+        <span v-else>Không cách nào khớp — lá số Anh không rơi vào các pattern đặc thù này.</span>
+      </p>
+
+      <!-- Matched -->
+      <div v-if="cachCucEval?.matched?.length" class="cdk-cach-group cdk-cach-group-matched">
+        <h4>✅ Cách cục TRÚNG ({{ cachCucEval.matched.length }})</h4>
+        <article v-for="c in cachCucEval.matched" :key="c.id"
+                 class="cdk-cach-card is-matched"
+                 :class="[`cdk-cach-${(c.polarity || 'cat').replaceAll('_', '-')}`, c.details?.ky_cach && 'is-ky-cach']">
+          <header>
+            <strong v-html="renderWithTooltips(c.name_vi)"></strong>
+            <small class="cdk-zh">{{ c.name_zh }}</small>
+            <span class="cdk-polarity-badge">{{ c.polarity }}</span>
+            <span v-if="c.details?.ky_cach" class="cdk-ky-cach-badge">✨ KỲ CÁCH</span>
+          </header>
+          <p class="cdk-match-reason">
+            <b>Vì sao trúng:</b> <span v-html="renderWithTooltips(c.reason)"></span>
+          </p>
+          <p class="cdk-lesson">📖 <span v-html="renderWithTooltips(c.lesson_short)"></span></p>
+          <details>
+            <summary>Câu kinh điển + paradigm note</summary>
+            <em>« {{ c.source_quote_hv }} »</em>
+            <p v-if="c.paradigm_note" class="cdk-paradigm">💡 {{ c.paradigm_note }}</p>
+            <small>Nguồn: {{ c.source_ref }}</small>
+          </details>
+        </article>
+      </div>
+
+      <!-- Not matched (collapse) -->
+      <details v-if="cachCucEval?.not_matched?.length" class="cdk-cach-not-matched">
+        <summary>⚪ {{ cachCucEval.not_matched.length }} cách không trúng (xem chi tiết)</summary>
+        <article v-for="c in cachCucEval.not_matched" :key="c.id"
+                 class="cdk-cach-card is-not-matched"
+                 :class="`cdk-cach-${(c.polarity || 'cat').replaceAll('_', '-')}`">
+          <header>
+            <strong v-html="renderWithTooltips(c.name_vi)"></strong>
+            <small class="cdk-zh">{{ c.name_zh }}</small>
+            <span class="cdk-polarity-badge">{{ c.polarity }}</span>
+          </header>
+          <p class="cdk-not-match-reason">⚪ {{ c.reason }}</p>
+          <p class="cdk-lesson"><span v-html="renderWithTooltips(c.lesson_short)"></span></p>
+        </article>
+      </details>
+
+      <!-- Fallback: render static if no eval -->
+      <template v-else-if="!cachCucEval && cachCuc">
+        <article v-for="c in cachCuc.cach_cuc" :key="c.id" class="cdk-cach-card"
+                 :class="`cdk-cach-${c.polarity.replaceAll('_', '-')}`">
+          <header>
+            <strong>{{ c.name_vi }}</strong>
+            <small class="cdk-zh">{{ c.name_zh }}</small>
+            <span class="cdk-polarity-badge">{{ c.polarity }}</span>
+          </header>
+          <p class="cdk-lesson">{{ c.lesson_short }}</p>
+        </article>
+      </template>
     </section>
 
     <!-- Nhập Cốt Tiên Kinh tổng đoán -->
@@ -2116,6 +2215,88 @@ const cdkDeepFeatureStatus = computed(() => {
   color: #5be5d3;
   font-size: 12px;
   text-align: center;
+}
+
+/* ─── Personalized cách cục ────────────────────────────────────────── */
+.cdk-cach-group {
+  margin-bottom: 18px;
+}
+.cdk-cach-group h4 {
+  margin: 14px 0 10px;
+  font-size: 14px;
+  color: #5be5d3;
+}
+.cdk-cach-group-matched h4 {
+  color: #fcd34d;
+}
+.cdk-cach-card.is-matched {
+  border-left: 3px solid #fcd34d;
+  background:
+    linear-gradient(135deg, rgba(252, 211, 77, 0.06) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.cdk-cach-card.is-matched.is-ky-cach {
+  border-left-color: #c4b5fd;
+  background:
+    linear-gradient(135deg, rgba(196, 181, 253, 0.08) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.5);
+}
+.cdk-ky-cach-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  margin-left: 8px;
+  background: rgba(196, 181, 253, 0.22);
+  color: #c4b5fd;
+  border-radius: 11px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.cdk-match-reason {
+  padding: 8px 10px;
+  background: rgba(252, 211, 77, 0.08);
+  border-left: 2px solid rgba(252, 211, 77, 0.4);
+  border-radius: 0 6px 6px 0;
+  color: rgba(230, 238, 245, 0.92);
+  font-size: 12.5px;
+  margin: 6px 0;
+}
+.cdk-match-reason b {
+  color: #fcd34d;
+}
+.cdk-cach-not-matched {
+  margin-top: 10px;
+}
+.cdk-cach-not-matched > summary {
+  cursor: pointer;
+  padding: 8px 12px;
+  color: rgba(230, 238, 245, 0.66);
+  font-size: 12.5px;
+  background: rgba(2, 6, 23, 0.3);
+  border-radius: 6px;
+}
+.cdk-cach-not-matched .cdk-cach-card.is-not-matched {
+  opacity: 0.7;
+  border-left: 2px dashed rgba(230, 238, 245, 0.16);
+}
+.cdk-not-match-reason {
+  margin: 4px 0;
+  color: rgba(230, 238, 245, 0.6);
+  font-size: 11.5px;
+  font-style: italic;
+}
+
+/* ─── HV tooltip (hover-show glossary) ────────────────────────────── */
+.hv-tooltip {
+  text-decoration: underline dotted rgba(91, 229, 211, 0.55);
+  text-underline-offset: 3px;
+  cursor: help;
+  color: #5be5d3;
+}
+.hv-tooltip:hover {
+  background: rgba(91, 229, 211, 0.12);
+  border-radius: 2px;
 }
 
 /* Animation drawer slide-in */
