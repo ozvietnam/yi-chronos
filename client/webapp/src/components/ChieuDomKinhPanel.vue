@@ -494,13 +494,18 @@ const selectedBranchInfo = computed(() => {
 // ─── Deep interpretation by DeepSeek (VIP) ─────────────────────────────────
 const cdkDeepInterp = ref({});  // {branchKey: {loading, data, error}}
 const cdkDeepFeature = ref(null);  // VIP feature status
+const cdkUserRole = ref(null);  // 'owner' | 'user' | null
 
 async function loadCdkDeepFeature() {
   try {
-    const r = await fetch('/api/user/my-vip-features');
+    const r = await fetch('/api/user/my-vip-features', { credentials: 'include' });
     if (!r.ok) return;
     const d = await r.json();
-    cdkDeepFeature.value = (d.features || []).find((f) => f.feature_id === 'tu_vi_cdk_luan_cung') || null;
+    // API returns { subscriptions: [...], catalog: [...] }
+    const sub = (d.subscriptions || []).find((s) => s.feature_id === 'tu_vi_cdk_luan_cung');
+    cdkDeepFeature.value = sub || null;
+    // Also check if user is owner (always allowed) via separate field if present
+    cdkUserRole.value = d.user_role || (d.role) || null;
   } catch (e) {
     console.warn('Cannot load VIP features:', e);
   }
@@ -555,15 +560,28 @@ function getDeepInterpSlot(branch) {
 }
 
 const cdkDeepFeatureStatus = computed(() => {
-  const f = cdkDeepFeature.value;
-  if (!f) return { allowed: false, label: '🔒 Chưa cấp VIP1', reason: 'no_data' };
-  if (!f.has_subscription) return { allowed: false, label: '🔒 Cần VIP1', reason: 'no_subscription' };
-  if (!f.allowed) return { allowed: false, label: `🔒 ${f.reason || 'Bị khóa'}`, reason: f.reason };
+  // Owner always allowed regardless of subscription
+  if (cdkUserRole.value === 'owner') {
+    return { allowed: true, label: '👑 Owner — không giới hạn', reason: 'owner' };
+  }
+  const sub = cdkDeepFeature.value;
+  if (!sub) return { allowed: false, label: '🔒 Chưa cấp VIP1', reason: 'no_subscription' };
+  if (!sub.enabled) return { allowed: false, label: '🔒 Bị tắt', reason: 'disabled' };
+  // Check expiry
+  if (sub.expires_at) {
+    const now = Math.floor(Date.now() / 1000);
+    if (now > sub.expires_at) return { allowed: false, label: '🔒 Đã hết hạn', reason: 'expired' };
+  }
+  // Check remaining uses
+  if (sub.remaining_uses !== null && sub.remaining_uses !== undefined && sub.remaining_uses <= 0) {
+    return { allowed: false, label: '🔒 Hết lượt', reason: 'no_uses_left' };
+  }
+  const remainingLabel = sub.remaining_uses == null ? '∞' : sub.remaining_uses;
   return {
     allowed: true,
-    label: `✓ VIP1 — Còn ${f.subscription?.remaining_uses ?? '∞'} lượt`,
+    label: `✓ VIP1 — Còn ${remainingLabel} lượt`,
     reason: 'ok',
-    remaining: f.subscription?.remaining_uses,
+    remaining: sub.remaining_uses,
   };
 });
 </script>

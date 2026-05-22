@@ -5442,9 +5442,15 @@ def yi_user_my_vip(request: Request) -> dict:
     from engine.subscriptions import list_user_subscriptions, list_features
     user = get_current_user(request)
     if not user:
-        return {"status": "ok", "subscriptions": [], "catalog": list_features()}
+        return {"status": "ok", "subscriptions": [], "catalog": list_features(), "user_role": None}
     subs = list_user_subscriptions(user["user_id"])
-    return {"status": "ok", "subscriptions": subs, "catalog": list_features()}
+    return {
+        "status": "ok",
+        "subscriptions": subs,
+        "catalog": list_features(),
+        "user_role": user.get("role"),
+        "user_id": user.get("user_id"),
+    }
 
 
 @app.post("/api/tu-vi/phe-menh-sau")
