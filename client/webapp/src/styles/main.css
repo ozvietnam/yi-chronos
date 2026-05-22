@@ -427,6 +427,69 @@ textarea {
   font-weight: 600;
 }
 
+.tuvi-school-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.tuvi-school-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 74px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--text-secondary);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.16s, border-color 0.16s, color 0.16s, transform 0.16s;
+}
+
+.tuvi-school-tabs button:hover {
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-primary);
+  border-color: rgba(232, 201, 90, 0.28);
+}
+
+.tuvi-school-tabs button.active {
+  background: linear-gradient(180deg, rgba(232, 201, 90, 0.16), rgba(91, 229, 211, 0.06));
+  border-color: var(--border-accent);
+  color: var(--accent-gold-soft, #f5e6b1);
+}
+
+.tuvi-school-tabs .school-mark {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(245, 230, 177, 0.25);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 20px;
+}
+
+.tuvi-school-tabs b {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.tuvi-school-tabs small {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
 .refresh-button,
 .primary-button {
   display: inline-flex;
@@ -1085,6 +1148,21 @@ textarea {
   .main-tabs button {
     padding: 8px 10px;
     min-height: 38px;
+  }
+
+  .tuvi-school-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .tuvi-school-tabs button {
+    min-height: 68px;
+    padding: 10px 12px;
+  }
+
+  .tuvi-school-tabs .school-mark {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
   }
 
   .core-stage,

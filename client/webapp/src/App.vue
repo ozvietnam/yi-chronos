@@ -67,6 +67,7 @@ const activeRuleset = ref(null);
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
+const activeTuViSchool = ref("bac-phai");
 const latestLucHaoResult = ref(null);
 const latestLucHaoMeta = ref(null);
 const urlBirthBanner = ref(null);
@@ -582,24 +583,65 @@ onBeforeUnmount(() => {
 
       <!-- Tab: Tử Vi — Lá số đầy đủ + 14 chính tinh schema -->
       <section v-else-if="activeMainTab === 'tu-vi'" class="single-column" aria-label="Tử Vi lá số">
-        <TabIntro
-          icon="tu-vi"
-          title="Tử Vi Đẩu Số — An sao + 14 chính tinh schema"
-          purpose="Lá số Tử Vi đầy đủ: 14 chính tinh + 6 phụ tinh + 7 sát tinh + Tứ Hóa đặt vào 12 cung. Engine theo Bắc Phái (chuẩn Vietnamese mainstream), cross-verified với iztro (MIT). Phía dưới: bảng tham chiếu 14 sao với diễn giải {tích cực, tiêu cực}."
-          :steps="[
-            'Bước 1: nhập sinh thần (datetime-local) + giới tính.',
-            'Bước 2: bấm An sao — engine tự convert Gregorian → âm lịch.',
-            'Bước 3: xem lá số 4×4 với 12 cung. Mệnh có ★, Thân có 身.',
-            'Bước 4: chính tinh (gold), phụ tinh (teal), sát tinh (đỏ); Tứ Hóa hiển thị badge L/Q/K/K.',
-            'Bước 5: xem Đại Vận strip ở dưới — chu kỳ 10 năm.',
-            'Schema 14 chính tinh ở section dưới để tham chiếu ý nghĩa từng sao.'
-          ]"
-        />
-        <TuViLaSoPanel />
-        <h3 class="schema-divider">📚 Tham chiếu — Schema 14 chính tinh</h3>
-        <ChinhTinhGallery />
-        <h3 class="schema-divider">📜 Phái khác — Chiếu Đởm Kinh + Nhập Cốt Tiên Kinh (Q4)</h3>
-        <ChieuDomKinhPanel />
+        <nav class="tuvi-school-tabs" aria-label="Hai trường phái Tử Vi">
+          <button
+            type="button"
+            :class="{ active: activeTuViSchool === 'bac-phai' }"
+            @click="activeTuViSchool = 'bac-phai'"
+          >
+            <span class="school-mark">🔮</span>
+            <span>
+              <b>Bắc Phái Đẩu Số</b>
+              <small>14 chính tinh · lá số 12 cung · ảnh nhân cách sao</small>
+            </span>
+          </button>
+          <button
+            type="button"
+            :class="{ active: activeTuViSchool === 'chieu-dom' }"
+            @click="activeTuViSchool = 'chieu-dom'"
+          >
+            <span class="school-mark">📜</span>
+            <span>
+              <b>Chiếu Đởm Kinh</b>
+              <small>18 phi tinh · pháp tượng · Nhập Cốt Tiên Kinh</small>
+            </span>
+          </button>
+        </nav>
+
+        <template v-if="activeTuViSchool === 'bac-phai'">
+          <TabIntro
+            icon="tu-vi"
+            title="Bắc Phái Tử Vi Đẩu Số — An sao + 14 chính tinh"
+            purpose="Trường phái chính để lập lá số cá nhân: 14 chính tinh + phụ tinh + sát tinh + Tứ Hóa đặt vào 12 cung. Mỹ thuật đi theo ngôn ngữ chân dung sao, cung vị và câu chuyện đời người."
+            :steps="[
+              'Bước 1: nhập sinh thần (datetime-local) + giới tính.',
+              'Bước 2: bấm An sao — engine tự convert Gregorian → âm lịch.',
+              'Bước 3: xem lá số 4×4 với 12 cung. Mệnh có ★, Thân có 身.',
+              'Bước 4: chính tinh (gold), phụ tinh (teal), sát tinh (đỏ); Tứ Hóa hiển thị badge L/Q/K/K.',
+              'Bước 5: xem Đại Vận strip ở dưới — chu kỳ 10 năm.',
+              'Bảng 14 chính tinh bên dưới là thư viện ảnh và schema tham chiếu của riêng Bắc Phái.'
+            ]"
+          />
+          <TuViLaSoPanel />
+          <h3 class="schema-divider">📚 Bắc Phái — thư viện 14 chính tinh</h3>
+          <ChinhTinhGallery />
+        </template>
+
+        <template v-else>
+          <TabIntro
+            icon="tu-vi"
+            title="Chiếu Đởm Kinh — 18 Phi Tinh + Nhập Cốt Tiên Kinh"
+            purpose="Một kinh phái riêng trong Q4: không trộn với 14 chính tinh Bắc Phái. 18 Phi Tinh dùng quy tắc an sao và mỹ thuật pháp tượng riêng, thiên về lực bay qua cung vị, dấu hiệu, vật khí và phán đoán 4 chữ."
+            :steps="[
+              'Bước 1: đọc cảnh báo quy ước âm-dương đảo của Chiếu Đởm Kinh.',
+              'Bước 2: xem 9 Dương tinh và 9 Âm tinh theo hệ 18 Phi Tinh.',
+              'Bước 3: sao nào đã có ảnh sẽ hiện thumbnail WebP; bấm ảnh để mở bản gốc.',
+              'Bước 4: xem 6 cách cục riêng của Chiếu Đởm Kinh.',
+              'Bước 5: dùng Nhập Cốt Tiên Kinh như bảng tổng đoán nhanh 4 chữ cho từng sao.'
+            ]"
+          />
+          <ChieuDomKinhPanel />
+        </template>
       </section>
 
       <!-- Tab 6: Gia đạo — multi-actor household system -->

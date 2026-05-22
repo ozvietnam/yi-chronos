@@ -1,16 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [yi] recent context, 2026-05-22 11:27am GMT+7
+# [yi] recent context, 2026-05-22 2:39pm GMT+7
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (18,570t read) | 2,216,904t work | 99% savings
+Stats: 50 obs (18,702t read) | 2,281,219t work | 99% savings
 
 ### May 19, 2026
-3128 9:14p 🔵 LaunchAgent exit 126: macOS TCC/sandbox blocking script execution
 3129 9:15p ⚖️ LaunchAgent abandoned — manual daemon used instead due to macOS TCC Desktop sandbox block
 3130 9:24p ⚖️ Auto-sync daemon run strategy: manual start script, not LaunchAgent
 3131 " 🟣 ~/.zshrc hook auto-starts auto-sync daemon on every new terminal session
@@ -71,8 +70,10 @@ S1524 Qualitative "Tý đầu vs Tý cuối" contrast questionnaire designed and
 3290 9:30a ⚖️ Founder Self-Identifies as Early Tý (23h-00h) — Confirms Hợi Residue Profile
 3305 9:35a 🟣 Chi Giờ Wiki — All 12 Hour Branches Seeded with Core Data
 3306 9:43a 🟣 Chi Giờ Wiki — Full JSON Schema + All 12 Hour Branch Data Files + Loader API Built
+### May 22, 2026
+3766 11:29a 🟣 Chiếu Đởm Kinh 18 Phi Tinh — 12 image-generation prompt files created for Priority 2 and 3 cards
 
-Access 2217k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 2281k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>
 
 ## Runtime Execution Policy (User Preference)
