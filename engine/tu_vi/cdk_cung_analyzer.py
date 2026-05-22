@@ -627,9 +627,17 @@ def luan_toan_bo_cung(person, force: bool = False) -> dict:
                 total_prompt_tokens += batch_result.get("_prompt_tokens", 0)
                 total_completion_tokens += batch_result.get("_completion_tokens", 0)
                 batch_data = batch_result.get("data", {})
+                # Normalize keys (strip whitespace, handle accent variants)
+                normalized = {}
+                for k, v in (batch_data.items() if isinstance(batch_data, dict) else []):
+                    if isinstance(k, str):
+                        normalized[k.strip()] = v
+                batch_data = normalized
                 for b in batch_result.get("_branches", []):
-                    cung_data = batch_data.get(b, {})
-                    if isinstance(cung_data, dict) and not cung_data.get("_parse_error"):
+                    cung_data = batch_data.get(b) or batch_data.get(b.strip()) or {}
+                    if not cung_data or not isinstance(cung_data, dict):
+                        print(f"⚠ Bulk: cung {b!r} không có data trong batch. LLM keys: {list(batch_data.keys())}")
+                    if isinstance(cung_data, dict) and not cung_data.get("_parse_error") and cung_data:
                         results[b] = cung_data
                         results[b]["_from_cache"] = False
                         fresh_calls += 1
