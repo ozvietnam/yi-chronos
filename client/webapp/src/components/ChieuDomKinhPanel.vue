@@ -486,6 +486,8 @@ function renderWithTooltips(text) {
 onMounted(async () => {
   await loadAll();
   await loadCdkDeepFeature();
+  // Auto-load cached Đại Hạn nếu đã có (instant)
+  tryLoadCachedDaiHan();
 });
 
 function toggleStar(id) {
@@ -645,6 +647,124 @@ async function loadCdkDeepFeature() {
 const cdkBulkLoading = ref(false);
 const cdkBulkError = ref(null);
 const cdkBulkSummary = ref(null);
+
+// ───── Đại Hạn 8 vòng — luận chi tiết 80 năm ─────
+const cdkDaiHan = ref(null);       // {dai_han: {vong_1..8}, dai_han_cycles, ...}
+const cdkDaiHanLoading = ref(false);
+const cdkDaiHanError = ref(null);
+
+// Auto-load cached Đại Hạn nếu có (chạy free, GET endpoint)
+async function tryLoadCachedDaiHan() {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      force: false,  // chỉ load cache, không gen mới
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    // Check cache trước qua HEAD-like: gọi với force=false, nếu cache có thì instant
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-dai-han', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+    if (!resp.ok) return;
+    const data = await resp.json();
+    if (data.status === 'ok' && data.from_cache) {
+      cdkDaiHan.value = data;
+    }
+  } catch (e) { /* silent — user click button if not cached */ }
+}
+
+async function loadDaiHan(force = false) {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  cdkDaiHanLoading.value = true;
+  cdkDaiHanError.value = null;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      force,
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-dai-han', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+    let data;
+    try { data = await resp.json(); }
+    catch { cdkDaiHanError.value = `HTTP ${resp.status} ${resp.statusText}`; return; }
+    if (!resp.ok) {
+      cdkDaiHanError.value = `HTTP ${resp.status} — ${data?.detail || data?.message || '?'}`;
+      return;
+    }
+    if (data.status === 'ok') {
+      cdkDaiHan.value = data;
+    } else {
+      cdkDaiHanError.value = data.message || 'Lỗi không xác định';
+    }
+  } catch (e) {
+    cdkDaiHanError.value = String(e.message || e);
+  } finally {
+    cdkDaiHanLoading.value = false;
+    loadCdkDeepFeature();
+  }
+}
+
+// Computed: 8 vòng với content + which is current
+const cdkDaiHanList = computed(() => {
+  if (!cdkDaiHan.value) return null;
+  const cycles = cdkDaiHan.value.dai_han_cycles || [];
+  const dh = cdkDaiHan.value.dai_han || {};
+  // Compute current age
+  const person = activePerson.value;
+  let currentAge = null;
+  if (person?.birth_datetime_local) {
+    try {
+      const born = new Date(person.birth_datetime_local);
+      currentAge = new Date().getFullYear() - born.getFullYear();
+    } catch {}
+  }
+  const menh = cdkDaiHan.value.menh_branch;
+  return cycles.map((c) => {
+    const content = dh[`vong_${c.cycle_index}`] || {};
+    const isCurrent = currentAge !== null && c.start_age <= currentAge && currentAge <= c.end_age;
+    const isMenhCycle = c.branch === menh;
+    return {
+      ...c,
+      tong_quan: content.tong_quan || '',
+      co_hoi_thach_thuc: content.co_hoi_thach_thuc || '',
+      loi_khuyen: content.loi_khuyen || '',
+      isCurrent,
+      isMenhCycle,
+    };
+  });
+});
+
+// Branch của vòng đại hạn hiện tại (để highlight clock)
+const currentDaiHanBranch = computed(() => {
+  const list = cdkDaiHanList.value;
+  if (!list) return null;
+  return list.find((v) => v.isCurrent)?.branch || null;
+});
 
 async function loadDeepInterpAll(force = false) {
   const person = activePerson.value;
@@ -909,6 +1029,7 @@ const cdkDeepFeatureStatus = computed(() => {
                         node.isMenh && 'is-menh',
                         node.isTamHopWithMenh && 'is-tam-hop',
                         node.isXungChieu && 'is-xung-chieu',
+                        currentDaiHanBranch === node.branch && 'is-current-dai-han',
                         (selectedBranch || cdkChart.menh_branch) === node.branch && 'is-selected']"
                @click="selectBranch(node.branch)"
                style="cursor: pointer;">
@@ -1183,14 +1304,91 @@ Verdict: {{ st.meaning.summary }}</title></text>
         <b>{{ Object.keys(cdkChart.stars || {}).filter((star) => chartArtFor(star)).length }}</b>
         sao trong bảng. Các sao còn lại sẽ tự hiện khi thợ vẽ đưa PNG đúng tên vào luồng sync.
       </p>
-      <details class="cdk-dai-han">
-        <summary>Đại Hạn CDK ({{ cdkChart.dai_han_cycles?.length }} cycles)</summary>
-        <ul>
-          <li v-for="c in cdkChart.dai_han_cycles" :key="c.cycle_index">
-            Cycle {{ c.cycle_index }}: <b>{{ c.branch }}</b> (tuổi {{ c.start_age }}-{{ c.end_age }})
-          </li>
-        </ul>
-      </details>
+      <!-- Đại Hạn 8 vòng: bảng raw + button luận chi tiết -->
+      <section class="cdk-dai-han-section">
+        <header class="cdk-dh-head">
+          <h4>⏳ Đại Hạn 8 vòng — 80 năm cuộc đời</h4>
+          <span v-if="cdkDaiHan" class="cdk-vip-badge is-ok">✓ Đã luận sâu</span>
+        </header>
+        <p class="cdk-intro">
+          Mỗi <abbr class="hv-tooltip" title="Vận 10 năm — cung Mệnh CDK xoay theo tuổi, vận khí mỗi giai đoạn khác nhau">đại hạn</abbr>
+          dài 10 năm, đi qua 1 cung địa chi. Cung nào kích hoạt = các sao tại đó tác động vào vận khí giai đoạn ấy.
+        </p>
+
+        <!-- Bảng raw 8 vòng -->
+        <div class="cdk-dh-cycles">
+          <article v-for="c in cdkChart.dai_han_cycles" :key="c.cycle_index"
+                   :class="['cdk-dh-cycle',
+                            currentDaiHanBranch === c.branch && 'is-current',
+                            c.branch === cdkChart.menh_branch && 'is-menh-cycle']">
+            <span class="cdk-dh-idx">V{{ c.cycle_index }}</span>
+            <div class="cdk-dh-meta">
+              <strong>{{ c.branch }}</strong>
+              <small>{{ c.start_age }}-{{ c.end_age }} tuổi</small>
+            </div>
+            <span v-if="currentDaiHanBranch === c.branch" class="cdk-dh-tag">⭐ Hiện tại</span>
+            <span v-else-if="c.branch === cdkChart.menh_branch" class="cdk-dh-tag is-menh">Mệnh gốc</span>
+          </article>
+        </div>
+
+        <!-- Đại Hạn detail (8 cards) -->
+        <div v-if="cdkDaiHan && cdkDaiHanList" class="cdk-dh-details">
+          <article v-for="v in cdkDaiHanList" :key="v.cycle_index"
+                   :class="['cdk-dh-card', v.isCurrent && 'is-current']">
+            <header>
+              <h5>
+                Vòng {{ v.cycle_index }} — Cung <b>{{ v.branch }}</b>
+                <small>({{ v.start_age }}-{{ v.end_age }} tuổi)</small>
+                <span v-if="v.isCurrent" class="cdk-current-badge">⭐ HIỆN TẠI</span>
+                <span v-else-if="v.isMenhCycle" class="cdk-menh-cycle-badge">Mệnh gốc</span>
+              </h5>
+            </header>
+            <div v-if="v.tong_quan" class="cdk-dh-section">
+              <h6>1️⃣ Tổng quan giai đoạn</h6>
+              <p v-html="renderWithTooltips(v.tong_quan)"></p>
+            </div>
+            <div v-if="v.co_hoi_thach_thuc" class="cdk-dh-section">
+              <h6>2️⃣ Cơ hội & Thử thách</h6>
+              <p v-html="renderWithTooltips(v.co_hoi_thach_thuc)"></p>
+            </div>
+            <div v-if="v.loi_khuyen" class="cdk-dh-section">
+              <h6>3️⃣ Lời khuyên</h6>
+              <p v-html="renderWithTooltips(v.loi_khuyen)"></p>
+            </div>
+          </article>
+        </div>
+
+        <!-- VIP button khi chưa có cache -->
+        <div v-else class="cdk-dh-cta">
+          <p class="cdk-bulk-explain">
+            💡 Engine đã có 8 vòng đại hạn raw (cung + tuổi).
+            Bấm bên dưới để DeepSeek V4 Pro luận sâu từng vòng — tổng quan + cơ hội + thử thách + lời khuyên.
+          </p>
+          <button type="button"
+                  class="cdk-deep-btn cdk-bulk-btn"
+                  :disabled="!cdkDeepFeatureStatus.allowed || cdkDaiHanLoading"
+                  @click="loadDaiHan(false)">
+            <span v-if="cdkDaiHanLoading">
+              <span class="cdk-spinner"></span>
+              Đang luận 8 vòng đại hạn... (~4-5 phút)
+            </span>
+            <span v-else-if="cdkDeepFeatureStatus.allowed">
+              🌟 Luận sâu 8 vòng Đại Hạn (~5 phút · tự lưu wiki)
+            </span>
+            <span v-else>🔒 {{ cdkDeepFeatureStatus.label }}</span>
+          </button>
+          <p v-if="cdkDaiHanError" class="cdk-deep-error" style="margin-top: 8px;">
+            ⚠ {{ cdkDaiHanError }}
+          </p>
+        </div>
+
+        <button v-if="cdkDaiHan && cdkDeepFeatureStatus.allowed"
+                type="button" class="cdk-deep-regen"
+                @click="loadDaiHan(true)">
+          🔄 Viết lại 8 vòng
+        </button>
+      </section>
+
       <p class="cdk-paradigm-note">⚠ {{ cdkChart.paradigm_note }}</p>
     </section>
 
@@ -2503,6 +2701,169 @@ Verdict: {{ st.meaning.summary }}</title></text>
   color: #fca5a5;
   font-size: 11.5px;
   margin: 4px 0;
+}
+
+/* ─── Đại Hạn 8 vòng section ──────────────────────────────────────── */
+.cdk-dai-han-section {
+  margin: 22px 0 14px;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(167, 139, 250, 0.05) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.3);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  border-radius: 10px;
+}
+.cdk-dh-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.cdk-dh-head h4 {
+  margin: 0;
+  color: #c4b5fd;
+  font-size: 15px;
+}
+.cdk-dh-cycles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 6px;
+  margin: 12px 0;
+}
+.cdk-dh-cycle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(230, 238, 245, 0.1);
+  border-radius: 7px;
+  font-size: 12px;
+}
+.cdk-dh-cycle.is-current {
+  border-color: #fcd34d;
+  background:
+    linear-gradient(135deg, rgba(252, 211, 77, 0.12) 0%, rgba(2, 6, 23, 0.4) 100%);
+  box-shadow: 0 0 14px rgba(252, 211, 77, 0.3);
+  animation: cdk-cycle-pulse 2s ease-in-out infinite;
+}
+.cdk-dh-cycle.is-menh-cycle:not(.is-current) {
+  border-color: rgba(252, 211, 77, 0.32);
+  border-style: dashed;
+}
+@keyframes cdk-cycle-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(252, 211, 77, 0.25); }
+  50% { box-shadow: 0 0 18px rgba(252, 211, 77, 0.5); }
+}
+.cdk-dh-idx {
+  font-weight: 700;
+  color: rgba(196, 181, 253, 0.85);
+  font-size: 11px;
+}
+.cdk-dh-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cdk-dh-meta strong {
+  color: #fcd34d;
+  font-size: 13px;
+  line-height: 1.1;
+}
+.cdk-dh-meta small {
+  color: rgba(230, 238, 245, 0.65);
+  font-size: 10.5px;
+}
+.cdk-dh-tag {
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(252, 211, 77, 0.22);
+  color: #fcd34d;
+}
+.cdk-dh-tag.is-menh {
+  background: rgba(252, 211, 77, 0.1);
+  color: rgba(252, 211, 77, 0.7);
+}
+
+.cdk-dh-details {
+  margin: 16px 0 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.cdk-dh-card {
+  padding: 14px 16px;
+  background: rgba(2, 6, 23, 0.45);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 9px;
+}
+.cdk-dh-card.is-current {
+  border-color: #fcd34d;
+  background:
+    linear-gradient(135deg, rgba(252, 211, 77, 0.07) 0%, rgba(2, 6, 23, 0.45) 100%);
+  box-shadow: 0 4px 18px rgba(252, 211, 77, 0.18);
+}
+.cdk-dh-card header h5 {
+  margin: 0 0 10px;
+  color: #fcd34d;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.cdk-dh-card header h5 small {
+  color: rgba(230, 238, 245, 0.6);
+  font-weight: 400;
+  font-size: 12px;
+}
+.cdk-current-badge {
+  padding: 3px 8px;
+  background: #fcd34d;
+  color: #1f1306;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.cdk-menh-cycle-badge {
+  padding: 3px 8px;
+  background: rgba(252, 211, 77, 0.18);
+  color: #fcd34d;
+  border-radius: 10px;
+  font-size: 10.5px;
+}
+.cdk-dh-section {
+  padding: 8px 10px;
+  margin: 6px 0;
+  background: rgba(2, 6, 23, 0.4);
+  border-radius: 6px;
+}
+.cdk-dh-section h6 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: #5be5d3;
+  font-weight: 700;
+}
+.cdk-dh-section p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(230, 238, 245, 0.9);
+}
+.cdk-dh-cta {
+  padding: 10px 0;
+}
+
+/* Clock node — vòng đại hạn hiện tại có pulse ring */
+.cdk-clock-node.is-current-dai-han .cdk-clock-node-bg {
+  animation: cdk-clock-pulse 2s ease-in-out infinite;
+}
+@keyframes cdk-clock-pulse {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(196, 181, 253, 0.5)); }
+  50% { filter: drop-shadow(0 0 14px rgba(196, 181, 253, 0.9)); }
 }
 
 /* Animation drawer slide-in */
