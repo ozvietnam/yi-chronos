@@ -36,6 +36,7 @@ const ORACLE_TITLE_BY_STAR = {
   "Tham Lang": "THAM LANG",
   "Cự Môn": "CỰ MÔN",
   "Thiên Tướng": "THIÊN TƯỚNG",
+  "Thiên Lương": "THIÊN LƯƠNG",
   "Thất Sát": "THẤT SÁT",
   "Phá Quân": "PHÁ QUÂN",
 };
