@@ -540,6 +540,71 @@ async function loadCdkDeepFeature() {
   }
 }
 
+// ───── BULK luận toàn bộ 12 cung (1 lần ~3-5 phút) ─────
+const cdkBulkLoading = ref(false);
+const cdkBulkError = ref(null);
+const cdkBulkSummary = ref(null);
+
+async function loadDeepInterpAll(force = false) {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  cdkBulkLoading.value = true;
+  cdkBulkError.value = null;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      force,
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-toan-bo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+    const data = await resp.json();
+    if (data.status === 'ok') {
+      // Populate cdkDeepInterp cho 12 cung
+      const results = data.results || {};
+      for (const [branch, sections] of Object.entries(results)) {
+        const key = `${person.person_key || person.birth_datetime_local}_${branch}`;
+        cdkDeepInterp.value[key] = {
+          loading: false,
+          error: null,
+          data: {
+            status: 'ok',
+            branch,
+            provider: data.provider,
+            luan_cung_compact: sections,
+            from_bulk: true,
+          },
+        };
+      }
+      cdkBulkSummary.value = {
+        fresh_calls: data.fresh_calls,
+        cached_count: data.cached_count,
+        provider: data.provider,
+        tokens: data.tokens,
+      };
+    } else {
+      cdkBulkError.value = data.message || 'Lỗi không xác định';
+    }
+  } catch (e) {
+    cdkBulkError.value = String(e.message || e);
+  } finally {
+    cdkBulkLoading.value = false;
+    loadCdkDeepFeature();
+  }
+}
+
+// Legacy per-cung loader (giữ cho force-regen 1 cung)
 async function loadDeepInterp(branch, force = false) {
   const person = activePerson.value;
   if (!person?.birth_datetime_local && !person?.person_key) return;
@@ -551,8 +616,7 @@ async function loadDeepInterp(branch, force = false) {
   try {
     const genderText = String(person?.gender || 'nam').toLowerCase();
     const payload = {
-      branch,
-      force,
+      branch, force,
       ...(person.person_key
         ? { person_key: person.person_key }
         : {
@@ -565,6 +629,7 @@ async function loadDeepInterp(branch, force = false) {
     const resp = await fetch('/api/tu-vi/q4/cdk/luan-cung', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify(payload),
     });
     const data = await resp.json();
@@ -577,7 +642,6 @@ async function loadDeepInterp(branch, force = false) {
     slot.error = String(e.message || e);
   } finally {
     slot.loading = false;
-    // Refresh VIP feature uses
     loadCdkDeepFeature();
   }
 }
@@ -877,35 +941,72 @@ const cdkDeepFeatureStatus = computed(() => {
                   {{ cdkDeepFeatureStatus.label }}
                 </span>
               </header>
+
+              <!-- Per-cung loading (legacy single cung force-regen) -->
               <div v-if="getDeepInterpSlot(selectedBranchInfo.branch).loading" class="cdk-deep-loading">
                 <span class="cdk-spinner"></span>
-                Đang nhờ DeepSeek V4 Pro phân tích cung {{ selectedBranchInfo.branch }}... (60-90s)
+                Đang nhờ DeepSeek phân tích cung {{ selectedBranchInfo.branch }}...
               </div>
               <p v-else-if="getDeepInterpSlot(selectedBranchInfo.branch).error" class="cdk-deep-error">
                 ⚠ {{ getDeepInterpSlot(selectedBranchInfo.branch).error }}
               </p>
               <div v-else-if="getDeepInterpSlot(selectedBranchInfo.branch).data" class="cdk-deep-content">
-                <div v-for="(section, key) in getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung || {}" :key="key" class="cdk-deep-section">
-                  <h6>{{ DEEP_SECTION_LABELS[key] || key }}</h6>
-                  <p v-html="renderMarkdownInline(String(section))"></p>
-                </div>
+                <!-- Compact 3-section format (from bulk or cache) -->
+                <template v-if="getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung_compact">
+                  <div class="cdk-deep-section">
+                    <h6>1️⃣ Bản chất cung & Quan hệ với Mệnh</h6>
+                    <p v-html="renderMarkdownInline(getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung_compact.ban_chat_va_quan_he || '')"></p>
+                  </div>
+                  <div class="cdk-deep-section">
+                    <h6>2️⃣ Phi Tinh đóng & Ý nghĩa</h6>
+                    <p v-html="renderMarkdownInline(getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung_compact.sao_dong_y_nghia || '')"></p>
+                  </div>
+                  <div class="cdk-deep-section">
+                    <h6>3️⃣ Áp dụng & Lời khuyên</h6>
+                    <p v-html="renderMarkdownInline(getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung_compact.ap_dung_loi_khuyen || '')"></p>
+                  </div>
+                </template>
+                <!-- Legacy 5-section format -->
+                <template v-else>
+                  <div v-for="(section, key) in getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung || {}" :key="key" class="cdk-deep-section">
+                    <h6>{{ DEEP_SECTION_LABELS[key] || key }}</h6>
+                    <p v-html="renderMarkdownInline(String(section))"></p>
+                  </div>
+                </template>
                 <small class="cdk-deep-meta">
                   Provider: {{ getDeepInterpSlot(selectedBranchInfo.branch).data.provider }} ·
-                  Đã tự lưu vào wiki ✓
+                  {{ getDeepInterpSlot(selectedBranchInfo.branch).data.from_bulk ? 'Đã luận cùng 12 cung' : 'Đã lưu wiki ✓' }}
                 </small>
-                <button v-if="cdkDeepFeatureStatus.allowed" type="button"
-                        class="cdk-deep-regen"
-                        @click="loadDeepInterp(selectedBranchInfo.branch, true)">
-                  🔄 Viết lại
-                </button>
               </div>
-              <button v-else type="button"
-                      class="cdk-deep-btn"
-                      :disabled="!cdkDeepFeatureStatus.allowed"
-                      @click="loadDeepInterp(selectedBranchInfo.branch)">
-                <span v-if="cdkDeepFeatureStatus.allowed">🌟 Gọi DeepSeek V4 Pro luận sâu cung này (60-90s, tự lưu wiki)</span>
-                <span v-else>🔒 {{ cdkDeepFeatureStatus.label }} — không thể luận sâu</span>
-              </button>
+
+              <!-- No data: show big bulk button -->
+              <div v-else class="cdk-bulk-cta">
+                <p class="cdk-bulk-explain">
+                  💡 Để tiết kiệm thời gian, anh nên <b>luận TOÀN BỘ 12 cung trong 1 lần</b> (~3-5 phút).
+                  Sau đó click chi nào cũng có sẵn luôn (cache vĩnh viễn).
+                </p>
+                <button type="button"
+                        class="cdk-deep-btn cdk-bulk-btn"
+                        :disabled="!cdkDeepFeatureStatus.allowed || cdkBulkLoading"
+                        @click="loadDeepInterpAll(false)">
+                  <span v-if="cdkBulkLoading">
+                    <span class="cdk-spinner"></span>
+                    Đang luận 12 cung song song bằng DeepSeek V4 Pro... (~3-5 phút)
+                  </span>
+                  <span v-else-if="cdkDeepFeatureStatus.allowed">
+                    🚀 Luận TOÀN BỘ 12 cung CDK (1 lần · ~3-5 phút · tự lưu wiki)
+                  </span>
+                  <span v-else>🔒 {{ cdkDeepFeatureStatus.label }} — không thể luận sâu</span>
+                </button>
+                <p v-if="cdkBulkError" class="cdk-deep-error" style="margin-top: 8px;">
+                  ⚠ {{ cdkBulkError }}
+                </p>
+                <p v-if="cdkBulkSummary" class="cdk-bulk-summary">
+                  ✅ Vừa luận {{ cdkBulkSummary.fresh_calls }} cung mới
+                  + {{ cdkBulkSummary.cached_count }} từ cache.
+                  Tokens: {{ cdkBulkSummary.tokens?.prompt }} prompt + {{ cdkBulkSummary.tokens?.completion }} completion.
+                </p>
+              </div>
             </section>
           </article>
         </transition>
@@ -1969,6 +2070,40 @@ const cdkDeepFeatureStatus = computed(() => {
 }
 .cdk-deep-regen:hover {
   background: rgba(167, 139, 250, 0.28);
+}
+
+/* Bulk CTA */
+.cdk-bulk-cta {
+  padding: 4px 2px;
+}
+.cdk-bulk-explain {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  background: rgba(91, 229, 211, 0.06);
+  border-left: 3px solid rgba(91, 229, 211, 0.4);
+  border-radius: 0 6px 6px 0;
+  color: rgba(230, 238, 245, 0.84);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.cdk-bulk-explain b {
+  color: #5be5d3;
+}
+.cdk-bulk-btn {
+  font-size: 14px;
+  padding: 14px;
+}
+.cdk-bulk-btn .cdk-spinner {
+  margin-right: 8px;
+}
+.cdk-bulk-summary {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(91, 229, 211, 0.1);
+  border-radius: 6px;
+  color: #5be5d3;
+  font-size: 12px;
+  text-align: center;
 }
 
 /* Animation drawer slide-in */

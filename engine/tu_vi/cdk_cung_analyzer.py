@@ -380,3 +380,321 @@ Schema bắt buộc:
         data["wiki_extracted"] = {"error": str(e)}
 
     return data
+
+
+# ─── Bulk luận 12 cung trong 2 batches song song ─────────────────────────────
+
+SYSTEM_PROMPT_BULK = """Bạn là chuyên gia **Chiếu Đởm Kinh** (照胆经) — giảng giải lá số CDK cho NGƯỜI VIỆT BÌNH THƯỜNG.
+
+🎯 NHIỆM VỤ: Luận giải **6 cung** trong 1 batch (cùng một lá số).
+
+⚠️ ĐỐI TƯỢNG ĐỌC: Người Việt không biết Hán-Việt. Văn phong:
+- Tiếng Việt thuần hiện đại, dễ hiểu
+- Mỗi thuật ngữ Hán-Việt LẦN ĐẦU phải giải nghĩa trong ngoặc đơn
+- Mỗi cung viết **NGẮN GỌN** (~1200-1800 chars Việt) — tập trung điểm quan trọng nhất
+- Có ví dụ đời sống cụ thể, không sa đà cổ văn
+- Paradigm CDK = đọc đồng dạng (Iron Rule #6), KHÔNG predict cứng
+
+📋 OUTPUT JSON THUẦN — 1 object, mỗi cung là 1 key, value là object 3 sections:
+{
+  "<chi 1>": {
+    "ban_chat_va_quan_he": "Bản chất cung + quan hệ với Mệnh (~400-600 chars).",
+    "sao_dong_y_nghia": "Phi Tinh đóng tại cung + ý nghĩa (đắc/thất vị, cát/hung) (~500-800 chars).",
+    "ap_dung_loi_khuyen": "Áp dụng đời sống + lời khuyên ngắn 2-3 điểm (~400-600 chars)."
+  },
+  "<chi 2>": {...},
+  ...
+}
+
+QUY TẮC:
+- BẮT ĐẦU output bằng `{`, KẾT THÚC bằng `}`. KHÔNG ``` fence, KHÔNG preamble.
+- Newline trong string dùng \\n. Quote " escape thành \\".
+- 6 keys CHÍNH XÁC đúng tên 6 chi của batch này.
+- Mỗi value là object với 3 fields: ban_chat_va_quan_he, sao_dong_y_nghia, ap_dung_loi_khuyen.
+"""
+
+
+def _build_bulk_context(person, batch_branches: list[str], cdk_chart: dict, nhap_cot: dict) -> str:
+    """Build context cho 1 batch 6 cung."""
+    menh_branch = cdk_chart.get("menh_branch")
+    nhap_cot_by_star = {item["star"]: item for item in nhap_cot.get("per_star_tong_doan", [])}
+    NAME_MAP = {
+        "Tử": "Tử Vi", "Hư": "Thiên Hư", "Quý": "Thiên Quý", "Ấn": "Thiên Ấn",
+        "Thọ": "Thiên Thọ", "Không": "Thiên Hư", "Loan": "Hồng Loan", "Hồng": "Hồng Loan",
+        "Khố": "Thiên Khố", "Quán": "Thiên Quán", "Văn": "Văn Xương",
+        "Phúc": "Phúc Lộc", "Lộc": "Phúc Lộc", "Trượng": "Thiên Trượng",
+        "Dị": "Thiên Dị", "Mao": "Mao Đầu", "Nhận": "Thiên Nhận (Kình Dương)",
+        "Hình": "Thiên Hình", "Khốc": "Thiên Khốc", "Diêu": "Thiên Diêu",
+    }
+    # Mệnh stars list
+    menh_stars = []
+    for star, b in (cdk_chart.get("stars") or {}).items():
+        if b == menh_branch:
+            full = NAME_MAP.get(star, star)
+            menh_stars.append(f"{star} ({full})")
+
+    lines = [
+        f"━━━ THÔNG TIN LÁ SỐ CDK ━━━",
+        f"  • Chủ nhân: {person.name} | Sinh: {person.birth_datetime_local}",
+        f"  • Mệnh CDK đóng tại: **{menh_branch}**",
+        f"  • Sao thủ Mệnh: {', '.join(menh_stars) or '(không)'}",
+        f"  • Tam hợp với Mệnh:",
+    ]
+    cuc_name = None
+    for c, members in TAM_HOP_CUC.items():
+        if menh_branch in members:
+            cuc_name = c
+            lines.append(f"      Tam hợp {c} cục: {' + '.join(members)}")
+            break
+    menh_idx = BRANCHES_ORDER.index(menh_branch) if menh_branch in BRANCHES_ORDER else -1
+    if menh_idx >= 0:
+        xung = BRANCHES_ORDER[(menh_idx + 6) % 12]
+        lines.append(f"  • Xung chiếu Mệnh: {xung}")
+    lines.append("")
+    lines.append(f"━━━ 6 CUNG CẦN LUẬN GIẢI BATCH NÀY ━━━")
+    for b in batch_branches:
+        info = BRANCH_INFO.get(b, {})
+        rel = "MỆNH" if b == menh_branch else (
+            "tam hợp" if cuc_name and b in TAM_HOP_CUC.get(cuc_name, []) else
+            ("xung chiếu" if menh_idx >= 0 and BRANCHES_ORDER.index(b) == (menh_idx + 6) % 12 else "phụ trợ")
+        )
+        # Stars at this branch
+        stars_at = []
+        for star, br in (cdk_chart.get("stars") or {}).items():
+            if br == b:
+                full = NAME_MAP.get(star, star)
+                item = nhap_cot_by_star.get(full, {})
+                is_hy = b in (item.get("hy_cung") or [])
+                cat = item.get("category", "?")
+                stars_at.append(f"{star} ({full}) — {cat}{' — HỶ' if is_hy else ' — thất vị' if item else ''}")
+        lines.append(f"")
+        lines.append(f"  ▸ Cung **{b}** ({info.get('conGiap', '?')})  [{rel}]")
+        lines.append(f"     Giờ: {info.get('gio', '?')} | Phương: {info.get('phuongVi', '?')} | {info.get('ngu_hanh', '?')}-{info.get('am_duong', '?')}")
+        lines.append(f"     Ý nghĩa khoảnh khắc: {info.get('y_nghia', '?')}")
+        if stars_at:
+            for s in stars_at:
+                lines.append(f"     ⭐ {s}")
+        else:
+            lines.append(f"     (không có Phi Tinh đóng)")
+    return "\n".join(lines)
+
+
+def _call_one_batch(person, batch_branches: list[str], cdk_chart: dict, nhap_cot: dict) -> dict:
+    """Call DeepSeek for 1 batch of 6 branches. Returns dict {branch: {3 sections}}."""
+    context = _build_bulk_context(person, batch_branches, cdk_chart, nhap_cot)
+    user_prompt = f"""{context}
+
+Viết luận giải cho 6 cung trên — output JSON 6 keys chính xác:
+{{
+{chr(10).join(f'  "{b}": {{"ban_chat_va_quan_he": "...", "sao_dong_y_nghia": "...", "ap_dung_loi_khuyen": "..."}}' + ("," if i < len(batch_branches) - 1 else "") for i, b in enumerate(batch_branches))}
+}}
+
+Tổng độ dài batch này khoảng 8000-12000 chars Việt cho 6 cung × 3 sections."""
+
+    from engine.ai.registry import get_registry
+    registry = get_registry()
+    chain = ["deepseek", "anthropic", "gemini", "openrouter", "minimax"]
+    candidates = []
+    for n in chain:
+        try:
+            p = registry.get(n)
+            if p and p.is_configured and not registry.is_unhealthy(n):
+                candidates.append(p)
+        except Exception:
+            pass
+    if not candidates:
+        return {"_error": "No provider configured"}
+
+    resp = None
+    last_err = None
+    provider_used = None
+    for cand in candidates:
+        try:
+            resp = cand.chat(
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT_BULK},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0.5,
+                max_tokens=12000,
+            )
+            provider_used = cand
+            break
+        except Exception as e:
+            err_str = str(e)
+            last_err = f"{cand.name}: {err_str[:200]}"
+            if any(sig in err_str for sig in ["401", "403", "1113", "invalid", "Authentication", "balance", "quota"]):
+                registry.mark_unhealthy(cand.name, err_str[:100])
+            continue
+    if resp is None:
+        return {"_error": last_err or "All providers failed"}
+
+    content = resp.content if hasattr(resp, "content") else str(resp)
+    if "```" in content:
+        m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, re.DOTALL)
+        if m:
+            content = m.group(1)
+        else:
+            content = "\n".join(l for l in content.split("\n") if not l.strip().startswith("```"))
+    parsed = None
+    try:
+        parsed = json.loads(content)
+    except Exception:
+        try:
+            start = content.find("{"); end = content.rfind("}")
+            if start >= 0 and end > start:
+                parsed = json.loads(content[start:end + 1])
+        except Exception:
+            pass
+    if parsed is None:
+        cleaned = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
+        cleaned = re.sub(r",(\s*[}\]])", r"\1", cleaned)
+        try:
+            start = cleaned.find("{"); end = cleaned.rfind("}")
+            if start >= 0 and end > start:
+                parsed = json.loads(cleaned[start:end + 1])
+        except Exception:
+            parsed = {"_parse_error": True, "_raw": content}
+
+    return {
+        "_provider": provider_used.name if provider_used else None,
+        "_prompt_tokens": getattr(resp, "prompt_tokens", 0) or 0,
+        "_completion_tokens": getattr(resp, "completion_tokens", 0) or 0,
+        "_branches": batch_branches,
+        "data": parsed,
+    }
+
+
+def luan_toan_bo_cung(person, force: bool = False) -> dict:
+    """Luận TOÀN BỘ 12 cung trong 2 batches × 6 cung (parallel).
+
+    Returns: {status, results: {Tý: {...}, Sửu: {...}, ...}, total_time, fresh_calls, provider, tokens}
+    """
+    import concurrent.futures
+
+    # Cast CDK + load Nhập Cốt once
+    try:
+        cdk_chart = _cdk_engine_cast(person)
+    except Exception as e:
+        return {"status": "error", "message": f"CDK cast failed: {e}"}
+    nhap_cot = _load_nhap_cot()
+
+    # Check cache for each cung — only fetch missing ones
+    results: dict[str, dict] = {}
+    missing: list[str] = []
+    for b in BRANCHES_ORDER:
+        cache_p = _cache_path(person.person_key, person.user_id, b)
+        if not force and cache_p.exists():
+            try:
+                with cache_p.open() as f:
+                    cached = json.load(f)
+                # Normalize to bulk schema (3 sections)
+                lc = cached.get("luan_cung", {})
+                if lc and isinstance(lc, dict):
+                    # Merge per-cung 5-section format → 3-section format for UI consistency
+                    results[b] = {
+                        "ban_chat_va_quan_he": lc.get("ban_chat_cung") or lc.get("ban_chat_va_quan_he", "") + (("\n\n" + lc.get("quan_he_voi_menh", "")) if lc.get("quan_he_voi_menh") else ""),
+                        "sao_dong_y_nghia": lc.get("sao_thu_cung") or lc.get("sao_dong_y_nghia", ""),
+                        "ap_dung_loi_khuyen": (lc.get("ap_dung_doi_song", "") + ("\n\n**Lời khuyên:**\n" + lc.get("loi_khuyen", "") if lc.get("loi_khuyen") else "")) or lc.get("ap_dung_loi_khuyen", ""),
+                        "_from_cache": True,
+                    }
+                    continue
+            except Exception:
+                pass
+        missing.append(b)
+
+    fresh_calls = 0
+    provider_used = None
+    total_prompt_tokens = 0
+    total_completion_tokens = 0
+
+    if missing:
+        # Split missing into 2 batches (or fewer if <6 missing)
+        batch_size = max(6, (len(missing) + 1) // 2)
+        batches = [missing[i:i + batch_size] for i in range(0, len(missing), batch_size)]
+
+        # Run in parallel with ThreadPoolExecutor
+        with concurrent.futures.ThreadPoolExecutor(max_workers=min(3, len(batches))) as ex:
+            futures = [
+                ex.submit(_call_one_batch, person, batch, cdk_chart, nhap_cot)
+                for batch in batches
+            ]
+            for fut in concurrent.futures.as_completed(futures):
+                batch_result = fut.result()
+                if batch_result.get("_error"):
+                    return {"status": "error", "message": f"Batch failed: {batch_result['_error']}"}
+                provider_used = batch_result.get("_provider", provider_used)
+                total_prompt_tokens += batch_result.get("_prompt_tokens", 0)
+                total_completion_tokens += batch_result.get("_completion_tokens", 0)
+                batch_data = batch_result.get("data", {})
+                for b in batch_result.get("_branches", []):
+                    cung_data = batch_data.get(b, {})
+                    if isinstance(cung_data, dict) and not cung_data.get("_parse_error"):
+                        results[b] = cung_data
+                        results[b]["_from_cache"] = False
+                        fresh_calls += 1
+                        # Save individual cache (compat with per-cung lookup)
+                        try:
+                            cache_p = _cache_path(person.person_key, person.user_id, b)
+                            cache_p.parent.mkdir(parents=True, exist_ok=True)
+                            # Save in BOTH formats for backward compat
+                            save_data = {
+                                "status": "ok",
+                                "person_key": person.person_key,
+                                "person_name": person.name,
+                                "branch": b,
+                                "menh_branch": cdk_chart.get("menh_branch"),
+                                "generated_at": int(time.time()),
+                                "provider": batch_result.get("_provider"),
+                                "model": "v4_pro_bulk",
+                                "luan_cung": {
+                                    # Keep 3-section bulk format
+                                    "ban_chat_cung": cung_data.get("ban_chat_va_quan_he", ""),
+                                    "sao_thu_cung": cung_data.get("sao_dong_y_nghia", ""),
+                                    "quan_he_voi_menh": "",
+                                    "ap_dung_doi_song": cung_data.get("ap_dung_loi_khuyen", ""),
+                                    "loi_khuyen": "",
+                                    "_compact": True,
+                                },
+                                "luan_cung_compact": cung_data,  # 3-section format
+                            }
+                            with cache_p.open("w") as f:
+                                json.dump(save_data, f, ensure_ascii=False, indent=2)
+                        except Exception as e:
+                            print(f"⚠ Cache save {b} failed: {e}")
+                    else:
+                        results[b] = {"_parse_error": True}
+
+    # Auto-extract wiki (use combined text)
+    try:
+        from engine.tu_vi.wiki_extractor import extract_phe_menh_to_wiki
+        combined = {}
+        for b, sections in results.items():
+            if isinstance(sections, dict):
+                combined[f"cung_{b}"] = " ".join(
+                    str(v) for k, v in sections.items() if not k.startswith("_") and isinstance(v, str)
+                )
+        adapter = {
+            "status": "ok",
+            "person_name": person.name,
+            "person_key": person.person_key,
+            "generated_at": int(time.time()),
+            "provider": provider_used or "?",
+            "phe_menh_sau": combined,
+        }
+        extract_phe_menh_to_wiki(adapter, verbose=False)
+    except Exception as e:
+        print(f"⚠ Wiki extract failed: {e}")
+
+    return {
+        "status": "ok",
+        "person_key": person.person_key,
+        "person_name": person.name,
+        "menh_branch": cdk_chart.get("menh_branch"),
+        "results": results,
+        "fresh_calls": fresh_calls,
+        "cached_count": 12 - fresh_calls,
+        "provider": provider_used,
+        "tokens": {"prompt": total_prompt_tokens, "completion": total_completion_tokens},
+        "generated_at": int(time.time()),
+    }

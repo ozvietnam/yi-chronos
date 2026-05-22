@@ -5397,6 +5397,37 @@ def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
     return result
 
 
+@app.post("/api/tu-vi/q4/cdk/luan-toan-bo")
+def yi_tuvi_cdk_luan_toan_bo(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận TOÀN BỘ 12 cung CDK trong 1 phiên (2 batches × 6 cung song song).
+
+    Faster than 12 per-cung calls. Persist cache per-cung for instant future lookup.
+    VIP1 gated (owner bypass). Charges 1 use only (not 12).
+    """
+    from engine.tu_vi.cdk_cung_analyzer import luan_toan_bo_cung
+    from engine.subscriptions import check_access, consume_use
+    from api.auth import get_current_user
+
+    user = get_current_user(request)
+    if not user:
+        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
+
+    if user.get("role") != "owner":
+        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
+        if not access.get("allowed"):
+            return {"status": "error", "message": f"Không có quyền VIP1 — {access.get('reason')}", "vip_check": access}
+
+    person = _resolve_person_from_request(req, request)
+    result = luan_toan_bo_cung(person, force=req.force)
+
+    # Consume 1 use only if fresh calls + not owner
+    if result.get("status") == "ok" and user.get("role") != "owner" and result.get("fresh_calls", 0) > 0:
+        usage = consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
+        result["usage_after"] = usage
+
+    return result
+
+
 @app.get("/api/tu-vi/q4/chieu-dom-12cung-matrix")
 def yi_tuvi_chieu_dom_12cung() -> dict:
     """12 cung × 18 sao matrix từ Chiếu Đởm Kinh (Q4 p0279-p0286). ~203 rules."""
