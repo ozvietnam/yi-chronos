@@ -1,10 +1,10 @@
 {
   "deck_id": "chieu_dom_kinh_18_phi_tinh_v1",
-  "generated_at": "2026-05-22T07:53:49.509Z",
+  "generated_at": "2026-05-22T08:17:00.759Z",
   "source_schema": "data/tu_vi/chieu_dom_kinh_18_phi_tinh.json",
   "public_base": "/oracle-cards/chieu-dom-kinh/18-phi-tinh",
   "total_cards": 18,
-  "ready_cards": 6,
+  "ready_cards": 18,
   "cards": [
     {
       "id": "cdk_phi_01_tu",
@@ -42,11 +42,11 @@
       "name_zh": "福",
       "polarity": "dương",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_03_phuc.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_03_phuc.png",
+      "source_image": "generated_cards/cdk_phi_03_phuc__fu__duong_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_03_phuc.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_04_loc",
@@ -56,11 +56,11 @@
       "name_zh": "禄",
       "polarity": "dương",
       "element": "mộc",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_04_loc.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_04_loc.png",
+      "source_image": "generated_cards/cdk_phi_04_loc__lu__duong_moc.png",
+      "web_ready_source": "web_ready/cdk_phi_04_loc.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_05_an",
@@ -70,11 +70,11 @@
       "name_zh": "印",
       "polarity": "dương",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_05_an.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_05_an.png",
+      "source_image": "generated_cards/cdk_phi_05_an__yin__duong_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_05_an.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_06_tho",
@@ -84,11 +84,11 @@
       "name_zh": "寿",
       "polarity": "dương",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_06_tho.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_06_tho.png",
+      "source_image": "generated_cards/cdk_phi_06_tho__shou__duong_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_06_tho.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_07_truong",
@@ -98,11 +98,11 @@
       "name_zh": "杖",
       "polarity": "dương",
       "element": "mộc",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_07_truong.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_07_truong.png",
+      "source_image": "generated_cards/cdk_phi_07_truong__zhang__duong_moc.png",
+      "web_ready_source": "web_ready/cdk_phi_07_truong.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_08_kho",
@@ -112,11 +112,11 @@
       "name_zh": "库",
       "polarity": "dương",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_08_kho.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_08_kho.png",
+      "source_image": "generated_cards/cdk_phi_08_kho__ku__duong_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_08_kho.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_09_dieu",
@@ -126,11 +126,11 @@
       "name_zh": "姚",
       "polarity": "dương",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_09_dieu.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_09_dieu.png",
+      "source_image": "generated_cards/cdk_phi_09_dieu__yao__duong_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_09_dieu.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_10_quy",
@@ -140,11 +140,11 @@
       "name_zh": "贵",
       "polarity": "âm",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_10_quy.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_10_quy.png",
+      "source_image": "generated_cards/cdk_phi_10_quy__gui__am_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_10_quy.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_11_hong",
@@ -154,11 +154,11 @@
       "name_zh": "红",
       "polarity": "âm",
       "element": "kim",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_11_hong.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_11_hong.png",
+      "source_image": "generated_cards/cdk_phi_11_hong__hong__am_kim.png",
+      "web_ready_source": "web_ready/cdk_phi_11_hong.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_12_di",
@@ -168,11 +168,11 @@
       "name_zh": "异",
       "polarity": "âm",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_12_di.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_12_di.png",
+      "source_image": "generated_cards/cdk_phi_12_di__yi__am_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_12_di.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_13_mao",
@@ -182,11 +182,11 @@
       "name_zh": "毛",
       "polarity": "âm",
       "element": "thủy",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_13_mao.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_13_mao.png",
+      "source_image": "generated_cards/cdk_phi_13_mao__mao__am_thuy.png",
+      "web_ready_source": "web_ready/cdk_phi_13_mao.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_14_hu",
@@ -210,11 +210,11 @@
       "name_zh": "贯",
       "polarity": "âm",
       "element": "thổ",
-      "image": null,
-      "full_image": null,
-      "source_image": null,
-      "web_ready_source": null,
-      "status": "planned"
+      "image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/web_ready/cdk_phi_15_quan.webp",
+      "full_image": "/oracle-cards/chieu-dom-kinh/18-phi-tinh/generated_cards/cdk_phi_15_quan.png",
+      "source_image": "generated_cards/cdk_phi_15_quan__guan__am_tho.png",
+      "web_ready_source": "web_ready/cdk_phi_15_quan.webp",
+      "status": "web_ready"
     },
     {
       "id": "cdk_phi_16_hinh",

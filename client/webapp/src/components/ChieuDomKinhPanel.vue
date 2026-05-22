@@ -128,6 +128,15 @@ function chartArtFor(starName) {
   return card?.image ? card : null;
 }
 
+function schemaMeaningFor(star) {
+  const item = nhapCotByStar.value.get(NHAP_COT_STAR_NAME[star?.name_vi] || star?.name_vi);
+  return {
+    category: item?.category || "",
+    summary: item?.verdict_summary || "Đang chờ tổng đoán Nhập Cốt cho sao này.",
+    hyCung: item?.hy_cung || star?.an_position_mieu || [],
+  };
+}
+
 function starMeaningFor(starName, branch) {
   const lookupName = NHAP_COT_STAR_NAME[starName] || starName;
   const item = nhapCotByStar.value.get(lookupName);
@@ -337,7 +346,7 @@ function openArtCard(card) {
         <div class="cdk-tier cdk-tier-duong">
           <h4>9 Dương tinh</h4>
           <article v-for="s in phiTinh18.phi_tinh_9_duong" :key="s.id"
-            class="cdk-phi-card" :class="{active: activeStarId === s.id}"
+            class="cdk-phi-card cdk-phi-large" :class="{active: activeStarId === s.id}"
             @click="toggleStar(s.id)">
             <button
               v-if="phiTinhArtFor(s)"
@@ -354,6 +363,12 @@ function openArtCard(card) {
                 <small>({{ s.name_zh }})</small>
               </header>
               <small>{{ s.ngu_hanh }} · {{ s.polarity }}</small>
+              <p class="cdk-phi-summary">{{ schemaMeaningFor(s).summary }}</p>
+              <p v-if="schemaMeaningFor(s).hyCung.length" class="cdk-phi-hy">
+                <b>Hỷ:</b>
+                <span v-for="c in schemaMeaningFor(s).hyCung" :key="c">{{ c }}</span>
+              </p>
+              <span v-if="schemaMeaningFor(s).category" class="cdk-phi-category">{{ schemaMeaningFor(s).category }}</span>
             </div>
             <div v-if="activeStarId === s.id" class="cdk-phi-detail">
               <p v-if="s.an_position_mieu"><b>Miếu vị:</b> {{ s.an_position_mieu.join(' · ') }}</p>
@@ -366,7 +381,7 @@ function openArtCard(card) {
         <div class="cdk-tier cdk-tier-am">
           <h4>9 Âm tinh</h4>
           <article v-for="s in phiTinh18.phi_tinh_9_am" :key="s.id"
-            class="cdk-phi-card cdk-phi-am" :class="{active: activeStarId === s.id}"
+            class="cdk-phi-card cdk-phi-large cdk-phi-am" :class="{active: activeStarId === s.id}"
             @click="toggleStar(s.id)">
             <button
               v-if="phiTinhArtFor(s)"
@@ -383,6 +398,12 @@ function openArtCard(card) {
                 <small>({{ s.name_zh }})</small>
               </header>
               <small>{{ s.ngu_hanh }} · {{ s.polarity }}</small>
+              <p class="cdk-phi-summary">{{ schemaMeaningFor(s).summary }}</p>
+              <p v-if="schemaMeaningFor(s).hyCung.length" class="cdk-phi-hy">
+                <b>Hỷ:</b>
+                <span v-for="c in schemaMeaningFor(s).hyCung" :key="c">{{ c }}</span>
+              </p>
+              <span v-if="schemaMeaningFor(s).category" class="cdk-phi-category">{{ schemaMeaningFor(s).category }}</span>
             </div>
             <div v-if="activeStarId === s.id" class="cdk-phi-detail">
               <p v-if="s.an_position_mieu"><b>Miếu vị:</b> {{ s.an_position_mieu.join(' · ') }}</p>
@@ -783,7 +804,7 @@ function openArtCard(card) {
 }
 .cdk-art-status b { color: #fcd34d; }
 
-.cdk-tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cdk-tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 768px) {
   .cdk-chart-guide,
   .cdk-chart-core,
@@ -794,17 +815,17 @@ function openArtCard(card) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-.cdk-tier h4 { color: #fcd34d; font-size: 14px; margin: 0 0 8px; }
+.cdk-tier h4 { color: #fcd34d; font-size: 14px; margin: 0 0 10px; }
 .cdk-phi-card {
   display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 10px;
+  grid-template-columns: minmax(112px, 0.36fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
   background: rgba(255, 255, 255, 0.03);
   border-left: 3px solid #c4b5fd;
-  border-radius: 0 4px 4px 0;
-  padding: 8px 12px;
-  margin: 5px 0;
+  border-radius: 0 7px 7px 0;
+  padding: 10px;
+  margin: 8px 0;
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -812,7 +833,7 @@ function openArtCard(card) {
 .cdk-phi-card.active { background: rgba(232, 201, 90, 0.1); }
 .cdk-phi-am { border-left-color: #f9a8d4; }
 .cdk-phi-art {
-  width: 58px;
+  width: 100%;
   aspect-ratio: 2 / 3;
   padding: 0;
   overflow: hidden;
@@ -827,11 +848,50 @@ function openArtCard(card) {
   height: 100%;
   object-fit: cover;
 }
-.cdk-phi-copy { min-width: 0; }
-.cdk-phi-card header { display: flex; align-items: baseline; gap: 6px; }
-.cdk-phi-card strong { color: #f5e6b1; font-size: 14px; }
+.cdk-phi-copy {
+  position: relative;
+  min-width: 0;
+  padding-right: 34px;
+}
+.cdk-phi-card header { display: flex; align-items: baseline; gap: 6px; margin-bottom: 2px; }
+.cdk-phi-card strong { color: #f5e6b1; font-size: 16px; }
 .cdk-phi-card header small { color: rgba(230, 238, 245, 0.55); font-size: 11px; }
 .cdk-phi-copy > small { display: block; font-size: 11px; color: rgba(230, 238, 245, 0.6); margin-top: 2px; }
+.cdk-phi-summary {
+  margin: 8px 0 0;
+  color: rgba(230, 238, 245, 0.8);
+  font-size: 12.5px;
+  line-height: 1.48;
+}
+.cdk-phi-hy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0 0;
+  color: rgba(230, 238, 245, 0.6);
+  font-size: 11px;
+}
+.cdk-phi-hy b {
+  color: rgba(230, 238, 245, 0.55);
+  margin-right: 2px;
+}
+.cdk-phi-hy span {
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(91, 229, 211, 0.12);
+  color: #5be5d3;
+}
+.cdk-phi-category {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(252, 211, 77, 0.12);
+  color: #f5e6b1;
+  font-size: 10.5px;
+  font-weight: 700;
+}
 .cdk-phi-detail {
   grid-column: 1 / -1;
   margin-top: 8px; padding: 8px;
@@ -975,5 +1035,17 @@ function openArtCard(card) {
   .cdk-art-lightbox { padding: 10px; }
   .cdk-art-lightbox figcaption { display: block; }
   .cdk-art-lightbox figcaption span { display: block; margin-top: 4px; }
+  .cdk-phi-card {
+    grid-template-columns: minmax(92px, 0.42fr) minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px;
+  }
+  .cdk-phi-card strong {
+    font-size: 14px;
+  }
+  .cdk-phi-summary {
+    font-size: 11.5px;
+    line-height: 1.42;
+  }
 }
 </style>
