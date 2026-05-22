@@ -569,7 +569,19 @@ async function loadDeepInterpAll(force = false) {
       credentials: 'include',
       body: JSON.stringify(payload),
     });
-    const data = await resp.json();
+    // Robust parse: nếu HTTP error / non-JSON, hiện status code
+    let data;
+    try {
+      data = await resp.json();
+    } catch (parseErr) {
+      const txt = await resp.text().catch(() => '');
+      cdkBulkError.value = `HTTP ${resp.status} ${resp.statusText} — ${txt.slice(0, 200) || 'không nhận được response JSON'}`;
+      return;
+    }
+    if (!resp.ok) {
+      cdkBulkError.value = `HTTP ${resp.status} — ${data?.detail || data?.message || JSON.stringify(data).slice(0, 200)}`;
+      return;
+    }
     if (data.status === 'ok') {
       // Populate cdkDeepInterp cho 12 cung
       const results = data.results || {};

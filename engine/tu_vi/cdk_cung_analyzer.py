@@ -613,16 +613,45 @@ def luan_toan_bo_cung(person, force: bool = False) -> dict:
         batch_size = max(6, (len(missing) + 1) // 2)
         batches = [missing[i:i + batch_size] for i in range(0, len(missing), batch_size)]
 
-        # Run in parallel with ThreadPoolExecutor
-        with concurrent.futures.ThreadPoolExecutor(max_workers=min(3, len(batches))) as ex:
-            futures = [
-                ex.submit(_call_one_batch, person, batch, cdk_chart, nhap_cot)
-                for batch in batches
-            ]
-            for fut in concurrent.futures.as_completed(futures):
-                batch_result = fut.result()
-                if batch_result.get("_error"):
-                    return {"status": "error", "message": f"Batch failed: {batch_result['_error']}"}
+        # SERIAL with retry-on-empty (tránh rate limit DeepSeek + retry nếu LLM trả empty)
+        batch_results = []
+        for batch_idx, batch in enumerate(batches):
+            print(f"📡 Batch {batch_idx + 1}/{len(batches)}: gen {batch}...")
+            attempts = 0
+            batch_result = None
+            while attempts < 3:
+                attempts += 1
+                br = _call_one_batch(person, batch, cdk_chart, nhap_cot)
+                # Check if empty
+                d = br.get("data", {})
+                normalized = {k.strip(): v for k, v in d.items() if isinstance(k, str)} if isinstance(d, dict) else {}
+                if br.get("_error"):
+                    print(f"   ⚠ Attempt {attempts} error: {br.get('_error')[:100]}")
+                    if attempts < 3:
+                        import time as _t; _t.sleep(2)
+                        continue
+                if not normalized or all(not v for v in normalized.values()):
+                    print(f"   ⚠ Attempt {attempts}: empty response (keys={list(normalized.keys())}). Retrying...")
+                    if attempts < 3:
+                        import time as _t; _t.sleep(3)
+                        continue
+                # Success
+                br["data"] = normalized
+                batch_result = br
+                print(f"   ✓ Batch {batch_idx + 1} OK ({len(normalized)} cung)")
+                break
+            if batch_result is None:
+                # Give up — record error but don't fail entire bulk
+                print(f"   ❌ Batch {batch_idx + 1} failed after 3 attempts")
+                batch_result = {"data": {}, "_branches": batch, "_provider": None,
+                                "_prompt_tokens": 0, "_completion_tokens": 0,
+                                "_error": "Empty after 3 retries"}
+            batch_results.append(batch_result)
+
+        # Process all batches
+        for batch_result in batch_results:
+                if batch_result.get("_error") and not batch_result.get("data"):
+                    continue  # Skip failed batches
                 provider_used = batch_result.get("_provider", provider_used)
                 total_prompt_tokens += batch_result.get("_prompt_tokens", 0)
                 total_completion_tokens += batch_result.get("_completion_tokens", 0)
