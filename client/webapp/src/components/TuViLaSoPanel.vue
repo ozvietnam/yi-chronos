@@ -97,11 +97,11 @@ const THIEN_MA_MAP = { 2:8, 6:8, 10:8, 8:2, 0:2, 4:2, 5:11, 9:11, 1:11, 11:5, 3:
 
 const ORACLE_TITLE_BY_STAR = {
   "Tử Vi": "TỬ VI",
-  "Thiên Cơ": "THIÊN CƠ KỴ",
+  "Thiên Cơ": "THIÊN CƠ",
   "Thái Dương": "THÁI DƯƠNG",
   "Vũ Khúc": "VŨ KHÚC",
   "Thiên Đồng": "THIÊN ĐỒNG",
-  "Liêm Trinh": "LIÊM TRINH + HỎA TINH",
+  "Liêm Trinh": "LIÊM TRINH",
   "Thiên Phủ": "THIÊN PHỦ",
   "Thái Âm": "THÁI ÂM",
   "Tham Lang": "THAM LANG",
@@ -138,10 +138,41 @@ const oracleCardsByTitle = computed(() => {
   return new Map(oracleCards.value.map((card) => [normalizeOracleTitle(card.title), card]));
 });
 
+const oracleCardsByType = computed(() => {
+  return oracleCards.value.reduce((acc, card) => {
+    const type = card.card_type || "THUAN";
+    if (!acc[type]) acc[type] = [];
+    acc[type].push(card);
+    return acc;
+  }, {});
+});
+
 function oracleCardForStarName(starName) {
   const title = ORACLE_TITLE_BY_STAR[starName];
   if (!title) return null;
   return oracleCardsByTitle.value.get(normalizeOracleTitle(title)) ?? null;
+}
+
+function contextOracleCardsForPalace(reading) {
+  const cards = oracleCardsByType.value.TOA_CUNG || [];
+  const palace = String(reading?.palace_name || "");
+  const branch = String(reading?.branch || "");
+  const stars = new Set(reading?.chinh_tinh || []);
+
+  return cards.filter((card) => {
+    const star = String(card.main_star || card.title_ascii || "").replaceAll("Thien", "Thiên");
+    const context = String(card.palace_context || "");
+    if (card.id === 31) {
+      return stars.has("Thiên Lương") && palace === "Thiên Di" && branch === "Hợi";
+    }
+    if (card.id === 32) {
+      return palace === "Tài Bạch" && branch === "Sửu";
+    }
+    if (card.id === 33) {
+      return palace === "Thiên Di" && /Bat Toa|Bát Tọa/i.test(star + context);
+    }
+    return false;
+  });
 }
 
 function openOracleCard(card) {
@@ -1213,6 +1244,23 @@ const grid = computed(() => {
                 </div>
               </div>
             </div>
+            <div v-if="expandedPalace === r.palace_name && contextOracleCardsForPalace(r).length"
+                 class="interp-context-cards"
+                 @click.stop>
+              <button
+                v-for="card in contextOracleCardsForPalace(r)"
+                :key="card.id"
+                type="button"
+                class="context-oracle-card"
+                @click="openOracleCard(card)"
+              >
+                <img :src="card.image" :alt="card.title" loading="lazy" />
+                <span>
+                  <b>{{ card.title }}</b>
+                  <small>{{ card.system_name || card.card_type }}</small>
+                </span>
+              </button>
+            </div>
             <!-- ⭐ Q1 Phú + Q3 sao×cung passages từ sách cổ -->
             <div v-if="expandedPalace === r.palace_name && cungReading?.palaces?.[r.palace_name]"
                  class="cung-book-passages" @click.stop>
@@ -1297,7 +1345,7 @@ const grid = computed(() => {
       >
         <button class="tv-oracle-lightbox-close" type="button" @click="selectedOracleCard = null">×</button>
         <figure>
-          <img :src="selectedOracleCard.image" :alt="selectedOracleCard.title" />
+          <img :src="selectedOracleCard.full_image || selectedOracleCard.image" :alt="selectedOracleCard.title" />
           <figcaption>
             <strong>{{ selectedOracleCard.title }}</strong>
             <span>{{ selectedOracleCard.interpretation }}</span>
@@ -1969,6 +2017,56 @@ const grid = computed(() => {
 }
 .sd-pos { margin: 2px 0; font-size: 11.5px; color: #88d39e; }
 .sd-neg { margin: 2px 0 0 0; font-size: 11.5px; color: #f5b08c; }
+
+.interp-context-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.context-oracle-card {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  width: min(260px, 100%);
+  padding: 7px;
+  border: 1px solid rgba(232, 201, 90, 0.24);
+  border-radius: 6px;
+  background: rgba(232, 201, 90, 0.06);
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  cursor: zoom-in;
+  text-align: left;
+}
+.context-oracle-card:hover {
+  border-color: rgba(232, 201, 90, 0.46);
+  background: rgba(232, 201, 90, 0.1);
+}
+.context-oracle-card img {
+  display: block;
+  width: 52px;
+  aspect-ratio: 2 / 3;
+  border-radius: 5px;
+  object-fit: cover;
+  background: #071018;
+}
+.context-oracle-card span,
+.context-oracle-card b,
+.context-oracle-card small {
+  display: block;
+  min-width: 0;
+}
+.context-oracle-card b {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 12px;
+  line-height: 1.25;
+}
+.context-oracle-card small {
+  margin-top: 3px;
+  color: rgba(230, 238, 245, 0.52);
+  font-size: 10.5px;
+  line-height: 1.35;
+}
 
 .tv-oracle-lightbox {
   position: fixed;

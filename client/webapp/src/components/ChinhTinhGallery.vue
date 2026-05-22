@@ -26,11 +26,11 @@ const ELEMENT_COLOR = {
 
 const ORACLE_TITLE_BY_STAR = {
   "Tử Vi": "TỬ VI",
-  "Thiên Cơ": "THIÊN CƠ KỴ",
+  "Thiên Cơ": "THIÊN CƠ",
   "Thái Dương": "THÁI DƯƠNG",
   "Vũ Khúc": "VŨ KHÚC",
   "Thiên Đồng": "THIÊN ĐỒNG",
-  "Liêm Trinh": "LIÊM TRINH + HỎA TINH",
+  "Liêm Trinh": "LIÊM TRINH",
   "Thiên Phủ": "THIÊN PHỦ",
   "Thái Âm": "THÁI ÂM",
   "Tham Lang": "THAM LANG",
@@ -243,7 +243,7 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
       >
         <button class="oracle-lightbox-close" type="button" @click="selectedOracleCard = null">×</button>
         <figure>
-          <img :src="selectedOracleCard.image" :alt="selectedOracleCard.title" />
+          <img :src="selectedOracleCard.full_image || selectedOracleCard.image" :alt="selectedOracleCard.title" />
           <figcaption>
             <strong>{{ selectedOracleCard.title }}</strong>
             <span>{{ selectedOracleCard.interpretation }}</span>
