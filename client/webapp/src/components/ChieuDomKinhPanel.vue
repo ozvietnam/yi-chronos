@@ -247,6 +247,35 @@ const cdkClockMap = computed(() => {
   };
 });
 
+const cdkClockCardGroups = computed(() => {
+  return cdkClockMap.value.nodes
+    .map((node) => {
+      const artStars = node.stars.filter((star) => star.art);
+      if (!artStars.length) return null;
+      const rad = (node.angle - 90) * Math.PI / 180;
+      const radiusPct = 45;
+      const xPct = 50 + radiusPct * Math.cos(rad);
+      const yPct = 50 + radiusPct * Math.sin(rad);
+      const selected = (selectedBranch.value || cdkChart.value?.menh_branch) === node.branch;
+      const horizontalAnchor = xPct < 24 ? "left" : xPct > 76 ? "right" : "center";
+      const verticalAnchor = yPct < 18 ? "top" : yPct > 82 ? "bottom" : "middle";
+      return {
+        branch: node.branch,
+        stars: artStars.slice(0, 3),
+        extraCount: Math.max(0, artStars.length - 3),
+        isSelected: selected,
+        isMenh: node.isMenh,
+        tone: node.tone,
+        anchorClass: `anchor-${horizontalAnchor} anchor-${verticalAnchor}`,
+        style: {
+          left: `${xPct.toFixed(2)}%`,
+          top: `${yPct.toFixed(2)}%`,
+        },
+      };
+    })
+    .filter(Boolean);
+});
+
 async function fetchJsonOrNull(url, options = {}) {
   try {
     const response = await fetch(url, options);
@@ -664,77 +693,103 @@ const cdkDeepFeatureStatus = computed(() => {
         </small>
       </h4>
       <div class="cdk-clock-wrap">
-        <svg
-          class="cdk-clock-svg"
-          viewBox="0 0 480 480"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Bản đồ 12 địa chi Chiếu Đởm Kinh"
-        >
-          <!-- Outer ring + ticks -->
-          <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy" r="220"
-                  class="cdk-clock-ring-outer" />
-          <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy"
-                  :r="cdkClockMap.geometry.ringRadius" class="cdk-clock-ring-mid" />
-          <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy"
-                  :r="cdkClockMap.geometry.coreRadius" class="cdk-clock-ring-inner" />
+        <div class="cdk-clock-stage">
+          <svg
+            class="cdk-clock-svg"
+            viewBox="0 0 480 480"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Bản đồ 12 địa chi Chiếu Đởm Kinh"
+          >
+            <!-- Outer ring + ticks -->
+            <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy" r="220"
+                    class="cdk-clock-ring-outer" />
+            <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy"
+                    :r="cdkClockMap.geometry.ringRadius" class="cdk-clock-ring-mid" />
+            <circle :cx="cdkClockMap.geometry.cx" :cy="cdkClockMap.geometry.cy"
+                    :r="cdkClockMap.geometry.coreRadius" class="cdk-clock-ring-inner" />
 
-          <!-- Tam hợp triangle (Mệnh's cục) -->
-          <polygon
-            v-if="cdkClockMap.tamHopPoints"
-            :points="cdkClockMap.tamHopPoints"
-            class="cdk-clock-tam-hop"
-          />
+            <!-- Tam hợp triangle (Mệnh's cục) -->
+            <polygon
+              v-if="cdkClockMap.tamHopPoints"
+              :points="cdkClockMap.tamHopPoints"
+              class="cdk-clock-tam-hop"
+            />
 
-          <!-- Xung chiếu line -->
-          <line
-            v-if="cdkClockMap.xungChieuLine"
-            :x1="cdkClockMap.xungChieuLine.x1"
-            :y1="cdkClockMap.xungChieuLine.y1"
-            :x2="cdkClockMap.xungChieuLine.x2"
-            :y2="cdkClockMap.xungChieuLine.y2"
-            class="cdk-clock-xung-chieu"
-          />
+            <!-- Xung chiếu line -->
+            <line
+              v-if="cdkClockMap.xungChieuLine"
+              :x1="cdkClockMap.xungChieuLine.x1"
+              :y1="cdkClockMap.xungChieuLine.y1"
+              :x2="cdkClockMap.xungChieuLine.x2"
+              :y2="cdkClockMap.xungChieuLine.y2"
+              class="cdk-clock-xung-chieu"
+            />
 
-          <!-- 12 chi nodes (clickable) -->
-          <g v-for="node in cdkClockMap.nodes" :key="node.branch"
-             :class="['cdk-clock-node', `tone-${node.tone}`,
-                      node.isMenh && 'is-menh',
-                      node.isTamHopWithMenh && 'is-tam-hop',
-                      node.isXungChieu && 'is-xung-chieu',
-                      (selectedBranch || cdkChart.menh_branch) === node.branch && 'is-selected']"
-             @click="selectBranch(node.branch)"
-             style="cursor: pointer;">
-            <circle :cx="node.x" :cy="node.y" :r="cdkClockMap.geometry.nodeRadius"
-                    class="cdk-clock-node-bg" />
-            <text :x="node.x" :y="node.y - 12" class="cdk-clock-chi"
-                  text-anchor="middle">{{ node.branch }}</text>
-            <text v-if="node.isMenh" :x="node.x" :y="node.y - 26"
-                  class="cdk-clock-menh-tag" text-anchor="middle">★ MỆNH</text>
-            <text v-for="(st, idx) in node.stars" :key="st.star"
-                  :x="node.x" :y="node.y + 4 + idx * 11"
-                  class="cdk-clock-star-name"
-                  :class="{'is-hy': st.meaning.isHy}"
-                  text-anchor="middle">{{ st.star }}</text>
-            <title>{{ node.branch }} — {{ BRANCH_INFO[node.branch]?.conGiap }} · {{ BRANCH_INFO[node.branch]?.gio }}{{ node.isMenh ? ' · MỆNH' : node.isTamHopWithMenh ? ' · tam hợp' : node.isXungChieu ? ' · xung chiếu' : '' }}</title>
-          </g>
+            <!-- 12 chi nodes (clickable) -->
+            <g v-for="node in cdkClockMap.nodes" :key="node.branch"
+               :class="['cdk-clock-node', `tone-${node.tone}`,
+                        node.isMenh && 'is-menh',
+                        node.isTamHopWithMenh && 'is-tam-hop',
+                        node.isXungChieu && 'is-xung-chieu',
+                        (selectedBranch || cdkChart.menh_branch) === node.branch && 'is-selected']"
+               @click="selectBranch(node.branch)"
+               style="cursor: pointer;">
+              <circle :cx="node.x" :cy="node.y" :r="cdkClockMap.geometry.nodeRadius"
+                      class="cdk-clock-node-bg" />
+              <text :x="node.x" :y="node.y - 12" class="cdk-clock-chi"
+                    text-anchor="middle">{{ node.branch }}</text>
+              <text v-if="node.isMenh" :x="node.x" :y="node.y - 26"
+                    class="cdk-clock-menh-tag" text-anchor="middle">★ MỆNH</text>
+              <text v-for="(st, idx) in node.stars" :key="st.star"
+                    :x="node.x" :y="node.y + 4 + idx * 11"
+                    class="cdk-clock-star-name"
+                    :class="{'is-hy': st.meaning.isHy}"
+                    text-anchor="middle">{{ st.star }}</text>
+              <title>{{ node.branch }} — {{ BRANCH_INFO[node.branch]?.conGiap }} · {{ BRANCH_INFO[node.branch]?.gio }}{{ node.isMenh ? ' · MỆNH' : node.isTamHopWithMenh ? ' · tam hợp' : node.isXungChieu ? ' · xung chiếu' : '' }}</title>
+            </g>
 
-          <!-- Center: Mệnh info -->
-          <g class="cdk-clock-center">
-            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy - 36"
-                  class="cdk-clock-core-label" text-anchor="middle">MỆNH CDK</text>
-            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 8"
-                  class="cdk-clock-core-branch" text-anchor="middle">{{ cdkChart.menh_branch }}</text>
-            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 36"
-                  class="cdk-clock-core-stars" text-anchor="middle">
-              {{ cdkMenhStars.map((s) => s.star).join(' · ') }}
-            </text>
-            <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 56"
-                  class="cdk-clock-core-count" text-anchor="middle">
-              {{ cdkMenhStars.length }} sao thủ
-            </text>
-          </g>
-        </svg>
+            <!-- Center: Mệnh info -->
+            <g class="cdk-clock-center">
+              <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy - 36"
+                    class="cdk-clock-core-label" text-anchor="middle">MỆNH CDK</text>
+              <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 8"
+                    class="cdk-clock-core-branch" text-anchor="middle">{{ cdkChart.menh_branch }}</text>
+              <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 36"
+                    class="cdk-clock-core-stars" text-anchor="middle">
+                {{ cdkMenhStars.map((s) => s.star).join(' · ') }}
+              </text>
+              <text :x="cdkClockMap.geometry.cx" :y="cdkClockMap.geometry.cy + 56"
+                    class="cdk-clock-core-count" text-anchor="middle">
+                {{ cdkMenhStars.length }} sao thủ
+              </text>
+            </g>
+          </svg>
+
+          <div class="cdk-clock-card-layer" aria-label="Vòng thẻ bài Phi Tinh theo 12 địa chi">
+            <div
+              v-for="group in cdkClockCardGroups"
+              :key="group.branch"
+              :class="['cdk-clock-card-group', group.anchorClass, `tone-${group.tone}`, group.isSelected && 'is-selected', group.isMenh && 'is-menh']"
+              :style="group.style"
+              @click.stop="selectBranch(group.branch)"
+            >
+              <span class="cdk-clock-card-branch">{{ group.branch }}</span>
+              <button
+                v-for="st in group.stars"
+                :key="`${group.branch}-${st.star}`"
+                type="button"
+                class="cdk-clock-mini-card"
+                :aria-label="`Mở ảnh ${st.star} tại ${group.branch}`"
+                @click.stop="openArtCard(st.art)"
+              >
+                <img :src="st.art.image" :alt="`Ảnh ${st.star}`" loading="lazy" />
+                <span>{{ st.star }}</span>
+              </button>
+              <span v-if="group.extraCount" class="cdk-clock-card-extra">+{{ group.extraCount }}</span>
+            </div>
+          </div>
+        </div>
 
         <!-- Hint -->
         <p class="cdk-clock-hint">
@@ -1262,10 +1317,129 @@ const cdkDeepFeatureStatus = computed(() => {
   border: 1px solid rgba(167, 139, 250, 0.16);
   border-radius: 12px;
 }
+.cdk-clock-stage {
+  position: relative;
+  width: min(860px, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
 .cdk-clock-svg {
-  width: min(480px, 100%);
+  width: min(520px, 62%);
   height: auto;
   display: block;
+  position: relative;
+  z-index: 1;
+}
+.cdk-clock-card-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.cdk-clock-card-group {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(2, 6, 23, 0.78), rgba(15, 23, 42, 0.52)),
+    rgba(2, 6, 23, 0.58);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  transition: opacity 160ms, transform 160ms, border-color 160ms, box-shadow 160ms;
+}
+.cdk-clock-card-group.anchor-left {
+  transform: translate(0, -50%);
+}
+.cdk-clock-card-group.anchor-right {
+  transform: translate(-100%, -50%);
+}
+.cdk-clock-card-group.anchor-center.anchor-top {
+  transform: translate(-50%, 0);
+}
+.cdk-clock-card-group.anchor-center.anchor-bottom {
+  transform: translate(-50%, -100%);
+}
+.cdk-clock-card-group.is-selected {
+  border-color: rgba(252, 211, 77, 0.82);
+  box-shadow: 0 0 26px rgba(252, 211, 77, 0.32);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+.cdk-clock-card-group.anchor-left.is-selected {
+  transform: translate(0, -50%) scale(1.06);
+}
+.cdk-clock-card-group.anchor-right.is-selected {
+  transform: translate(-100%, -50%) scale(1.06);
+}
+.cdk-clock-card-group.anchor-center.anchor-top.is-selected {
+  transform: translate(-50%, 0) scale(1.06);
+}
+.cdk-clock-card-group.anchor-center.anchor-bottom.is-selected {
+  transform: translate(-50%, -100%) scale(1.06);
+}
+.cdk-clock-card-branch {
+  position: absolute;
+  left: 6px;
+  top: -18px;
+  color: #f5e6b1;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 8px rgba(2, 6, 23, 0.8);
+}
+.cdk-clock-card-group.is-menh .cdk-clock-card-branch {
+  color: #fcd34d;
+}
+.cdk-clock-mini-card {
+  position: relative;
+  width: clamp(48px, 6.6vw, 66px);
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 230, 177, 0.28);
+  border-radius: 6px;
+  background: rgba(2, 6, 23, 0.72);
+  cursor: zoom-in;
+}
+.cdk-clock-mini-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.cdk-clock-mini-card span {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  padding: 2px 3px;
+  border-radius: 4px;
+  background: rgba(2, 6, 23, 0.78);
+  color: #fcd34d;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+.cdk-clock-mini-card:hover {
+  border-color: rgba(252, 211, 77, 0.82);
+  transform: translateY(-2px);
+}
+.cdk-clock-card-extra {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(252, 211, 77, 0.16);
+  color: #fcd34d;
+  font-size: 12px;
+  font-weight: 800;
 }
 .cdk-clock-ring-outer {
   fill: none;
@@ -1986,6 +2160,15 @@ const cdkDeepFeatureStatus = computed(() => {
   .cdk-chart-core,
   .cdk-tier-grid {
     grid-template-columns: 1fr;
+  }
+  .cdk-clock-stage {
+    width: min(520px, 100%);
+  }
+  .cdk-clock-svg {
+    width: min(480px, 100%);
+  }
+  .cdk-clock-card-layer {
+    display: none;
   }
   .cdk-branch-map {
     grid-template-columns: repeat(2, minmax(0, 1fr));
