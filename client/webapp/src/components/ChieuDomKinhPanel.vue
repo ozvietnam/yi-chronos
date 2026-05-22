@@ -431,12 +431,27 @@ function buildQuickInterpretation(branch, info, stars, relKey, menhTamHopCuc) {
     }
     out.push(starsLine);
   }
-  // Lớp 3: ý nghĩa thực tế
+  // Lớp 3: ý nghĩa thực tế — PARADIGM ĐÚNG (giờ sinh = khoảnh khắc ĐỒNG DẠNG với bản chất, không phải giờ đỉnh năng lượng)
   if (relKey === "menh") {
+    const HOUR_FEEL = {
+      "Tý":   "Vào giờ này (nửa đêm), Anh thường tĩnh lặng, suy nghĩ sâu, có ý tưởng đột phá. Đây là lúc lý tưởng để Anh đọc, viết, hoặc thiền — KHÔNG phải lúc ép mình tỉnh táo làm việc nặng.",
+      "Sửu":  "Vào giờ này (gần sáng), Anh có thể vẫn tỉnh táo trong khi người khác đã ngủ. Khoảnh khắc nuôi dưỡng nội tâm, không vội vàng.",
+      "Dần":  "Vào giờ này (rạng đông), Anh thức dậy sớm với năng lượng mạnh, sẵn sàng bứt phá. Lúc tốt nhất để khởi động ngày, tập thể dục.",
+      "Mão":  "Vào giờ này (sáng sớm), Anh tỉnh táo, sáng tạo, thích hợp cho công việc đòi hỏi suy luận tinh tế.",
+      "Thìn": "Vào giờ này (đầu ngày), Anh tích tụ năng lượng để bùng nổ. Lúc lý tưởng cho họp hành, ra quyết định lớn.",
+      "Tỵ":   "Vào giờ này (giữa sáng), Anh sắc bén, thông minh, biến hóa. Tốt cho thương lượng, đàm phán.",
+      "Ngọ":  "Vào giờ này (chính ngọ), Anh ở đỉnh dương khí. Mạnh mẽ, quyết đoán nhưng cũng có thể nóng nảy nếu không kiềm chế.",
+      "Mùi":  "Vào giờ này (xế trưa), Anh thư thái, hài lòng. Lúc lý tưởng để nghỉ ngơi ngắn, nạp lại năng lượng.",
+      "Thân": "Vào giờ này (xế chiều), Anh linh hoạt, tinh ranh, biết tận dụng cơ hội. Tốt cho networking, kinh doanh.",
+      "Dậu":  "Vào giờ này (chiều tà), Anh thường **mệt mỏi, muốn thu mình** — đúng với bản chất gà về chuồng. Sau bữa tối Anh dễ buồn ngủ luôn, không nên ép mình làm việc nặng. Là lúc tốt để kết thúc công việc, dọn dẹp, chuẩn bị nghỉ ngơi.",
+      "Tuất": "Vào giờ này (chập tối), Anh cảnh giác, trung thành, muốn ở gần người thân. Lúc tốt cho gia đình.",
+      "Hợi":  "Vào giờ này (đêm khuya), Anh muốn nghỉ ngơi sâu, tích lũy. Tránh các quyết định lớn vào giờ này — hãy ngủ ngon.",
+    };
+    const feel = HOUR_FEEL[branch] || `Vào giờ ${info.gio}, Anh sẽ cảm nhận năng lượng đặc trưng của ${info.conGiap}.`;
     out.push(
-      `**Trong đời sống**: vì ${info.conGiap} thuộc giờ **${info.gio}**, ` +
-      `Anh có xu hướng năng lượng đạt đỉnh / có ý nghĩa quan trọng vào khoảng thời gian này trong ngày. ` +
-      `Phương ${info.phuongVi} là hướng tốt cho công việc, nghỉ ngơi, hoặc kết nối quan trọng.`
+      `**Trong đời sống**: ${feel} ` +
+      `Phương **${info.phuongVi}** là hướng hợp với bản mệnh — ưu tiên ngồi quay mặt về hướng này khi làm việc, ` +
+      `hoặc đặt giường ngủ theo hướng đối lập để nghỉ ngơi tốt.`
     );
   }
   return out;
@@ -751,14 +766,27 @@ const cdkDeepFeatureStatus = computed(() => {
             </div>
             <div v-if="selectedBranchInfo.stars.length" class="cdk-drawer-stars">
               <h5>Phi Tinh đang đóng tại {{ selectedBranchInfo.branch }} ({{ selectedBranchInfo.stars.length }} sao)</h5>
-              <article v-for="st in selectedBranchInfo.stars" :key="st.star" class="cdk-drawer-star">
-                <header>
-                  <strong>{{ st.star }}</strong>
-                  <span :class="['cdk-status-chip', st.meaning.isHy ? 'is-hy' : '']">{{ st.meaning.status }}</span>
-                  <span class="cdk-cat-chip">{{ st.meaning.category }}</span>
-                </header>
-                <small>{{ st.meaning.summary }}</small>
-              </article>
+              <div class="cdk-drawer-star-row">
+                <article v-for="st in selectedBranchInfo.stars" :key="st.star" class="cdk-drawer-star">
+                  <button
+                    v-if="st.art"
+                    type="button"
+                    class="cdk-drawer-star-art"
+                    :aria-label="`Mở ảnh ${st.star}`"
+                    @click.stop="openArtCard(st.art)"
+                  >
+                    <img :src="st.art.image" :alt="`Ảnh ${st.star}`" loading="lazy" />
+                  </button>
+                  <div class="cdk-drawer-star-body">
+                    <header>
+                      <strong>{{ st.star }}</strong>
+                      <span :class="['cdk-status-chip', st.meaning.isHy ? 'is-hy' : '']">{{ st.meaning.status }}</span>
+                      <span class="cdk-cat-chip">{{ st.meaning.category }}</span>
+                    </header>
+                    <small>{{ st.meaning.summary }}</small>
+                  </div>
+                </article>
+              </div>
             </div>
             <p v-else class="cdk-drawer-empty">Cung {{ selectedBranchInfo.branch }} không có Phi Tinh nào đóng — vùng "tĩnh" chỉ kích hoạt khi Đại Hạn chạm tới.</p>
 
@@ -1523,29 +1551,71 @@ const cdkDeepFeatureStatus = computed(() => {
   font-size: 13px;
   font-weight: 700;
 }
+.cdk-drawer-star-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
 .cdk-drawer-star {
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  background: rgba(2, 6, 23, 0.4);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  padding: 10px;
+  min-width: 0;
+  background:
+    linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(2, 6, 23, 0.42)),
+    rgba(2, 6, 23, 0.4);
   border: 1px solid rgba(167, 139, 250, 0.18);
   border-radius: 8px;
+}
+.cdk-drawer-star-art {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(252, 211, 77, 0.26);
+  border-radius: 7px;
+  background: rgba(2, 6, 23, 0.72);
+  cursor: zoom-in;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.26);
+}
+.cdk-drawer-star-art img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.cdk-drawer-star-art:hover {
+  border-color: rgba(252, 211, 77, 0.72);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(252, 211, 77, 0.18);
+}
+.cdk-drawer-star-body {
+  min-width: 0;
 }
 .cdk-drawer-star header {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: 5px;
 }
 .cdk-drawer-star strong {
+  width: 100%;
   color: #fcd34d;
   font-size: 14px;
+  line-height: 1.15;
 }
 .cdk-drawer-star small {
-  display: block;
+  display: -webkit-box;
+  overflow: hidden;
   color: rgba(230, 238, 245, 0.78);
-  font-size: 12px;
-  line-height: 1.55;
+  font-size: 11.5px;
+  line-height: 1.42;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .cdk-drawer-empty {
   margin: 0;
@@ -1902,6 +1972,10 @@ const cdkDeepFeatureStatus = computed(() => {
   .cdk-branch-map {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .cdk-drawer-star-row {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
 }
 .cdk-tier h4 { color: #fcd34d; font-size: 14px; margin: 0 0 10px; }
 .cdk-phi-card {
@@ -2123,6 +2197,32 @@ const cdkDeepFeatureStatus = computed(() => {
   .cdk-art-lightbox { padding: 10px; }
   .cdk-art-lightbox figcaption { display: block; }
   .cdk-art-lightbox figcaption span { display: block; margin-top: 4px; }
+  .cdk-drawer-stars {
+    width: 100%;
+  }
+  .cdk-drawer-star-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding-bottom: 4px;
+  }
+  .cdk-drawer-star {
+    flex: 0 0 146px;
+    scroll-snap-align: start;
+    padding: 8px;
+  }
+  .cdk-drawer-star header {
+    gap: 5px;
+  }
+  .cdk-drawer-star strong {
+    font-size: 13px;
+  }
+  .cdk-drawer-star small {
+    font-size: 11.5px;
+    line-height: 1.42;
+  }
   .cdk-phi-card {
     grid-template-columns: minmax(92px, 0.42fr) minmax(0, 1fr);
     gap: 10px;
