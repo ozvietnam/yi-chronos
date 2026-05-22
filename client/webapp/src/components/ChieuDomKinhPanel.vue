@@ -16,8 +16,25 @@ const loading = ref(false);
 const error = ref("");
 const activeStarId = ref(null);
 const selectedArtCard = ref(null);
+const selectedBranch = ref(null);
 
 const BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+
+// ─── Branch info Việt thuần (dạy người mới) ──────────────────────────────────
+const BRANCH_INFO = {
+  "Tý":   { conGiap: "Chuột",  gio: "23h00 – 01h00 (nửa đêm)",   phuongVi: "Bắc",        ngu_hanh: "Thủy", am_duong: "Dương", y_nghia: "Khởi đầu chu kỳ. Lúc trời đất nghỉ ngơi tuyệt đối, hạt giống đang ngủ chờ nảy mầm." },
+  "Sửu":  { conGiap: "Trâu",   gio: "01h00 – 03h00 (gần sáng)",  phuongVi: "Bắc-Đông Bắc", ngu_hanh: "Thổ", am_duong: "Âm",    y_nghia: "Giai đoạn nuôi dưỡng trong đất. Hạt giống nằm trong lòng đất, chờ vươn lên." },
+  "Dần":  { conGiap: "Hổ",     gio: "03h00 – 05h00 (rạng đông)", phuongVi: "Đông-Đông Bắc", ngu_hanh: "Mộc", am_duong: "Dương", y_nghia: "Mầm cây nhú lên. Năng lượng mãnh liệt như con hổ vươn vai sau giấc ngủ dài." },
+  "Mão":  { conGiap: "Mèo (TQ: Thỏ)", gio: "05h00 – 07h00 (sáng sớm)", phuongVi: "Đông", ngu_hanh: "Mộc", am_duong: "Âm",   y_nghia: "Mặt trời mọc, cây cối đâm chồi. Mềm mại nhưng kiên trì, như thỏ/mèo." },
+  "Thìn": { conGiap: "Rồng",   gio: "07h00 – 09h00 (đầu ngày)",  phuongVi: "Đông-Đông Nam", ngu_hanh: "Thổ", am_duong: "Dương", y_nghia: "Sương tan, rồng cuộn mây. Lúc tích tụ năng lượng để bay cao." },
+  "Tỵ":   { conGiap: "Rắn",    gio: "09h00 – 11h00 (giữa sáng)", phuongVi: "Nam-Đông Nam", ngu_hanh: "Hỏa", am_duong: "Âm",    y_nghia: "Mặt trời lên cao, rắn ra khỏi hang sưởi ấm. Thông minh, biến hóa." },
+  "Ngọ":  { conGiap: "Ngựa",   gio: "11h00 – 13h00 (giữa trưa)", phuongVi: "Nam",        ngu_hanh: "Hỏa", am_duong: "Dương",  y_nghia: "Đỉnh cao của Dương. Mặt trời chính ngọ, ngựa phi nước đại — năng lượng tột bậc." },
+  "Mùi":  { conGiap: "Dê",     gio: "13h00 – 15h00 (xế trưa)",   phuongVi: "Nam-Tây Nam", ngu_hanh: "Thổ", am_duong: "Âm",     y_nghia: "Dê ăn cỏ ngon. Lúc thư thái sau bữa trưa, hài lòng với những gì có." },
+  "Thân": { conGiap: "Khỉ",    gio: "15h00 – 17h00 (xế chiều)",  phuongVi: "Tây-Tây Nam", ngu_hanh: "Kim", am_duong: "Dương", y_nghia: "Khỉ chuyền cành kiếm ăn. Tinh ranh, linh hoạt, biết tận dụng cơ hội." },
+  "Dậu":  { conGiap: "Gà",     gio: "17h00 – 19h00 (chiều tà)",  phuongVi: "Tây",        ngu_hanh: "Kim", am_duong: "Âm",    y_nghia: "Gà về chuồng, gọi đàn. Lúc thu mình kết thúc một chu kỳ làm việc." },
+  "Tuất": { conGiap: "Chó",    gio: "19h00 – 21h00 (chập tối)",  phuongVi: "Tây-Tây Bắc", ngu_hanh: "Thổ", am_duong: "Dương", y_nghia: "Chó canh nhà khi trời tối. Trung thành, cảnh giác trước những thay đổi." },
+  "Hợi":  { conGiap: "Lợn",    gio: "21h00 – 23h00 (đêm khuya)", phuongVi: "Bắc-Tây Bắc", ngu_hanh: "Thủy", am_duong: "Âm",   y_nghia: "Lợn ngủ no nê. Lúc nghỉ ngơi, tích lũy cho chu kỳ mới — chuẩn bị về Tý." },
+};
 
 const CHART_STAR_ID = {
   "Tử": "tu",
@@ -324,6 +341,41 @@ function toggleStar(id) {
 function openArtCard(card) {
   if (card) selectedArtCard.value = card;
 }
+
+// Click chi node → set selected (default = Mệnh)
+function selectBranch(branch) {
+  selectedBranch.value = selectedBranch.value === branch ? null : branch;
+}
+
+// Selected branch info — defaults to Mệnh CDK
+const selectedBranchInfo = computed(() => {
+  const branch = selectedBranch.value || cdkChart.value?.menh_branch;
+  if (!branch) return null;
+  const node = cdkClockMap.value?.nodes?.find((n) => n.branch === branch);
+  const info = BRANCH_INFO[branch];
+  if (!node || !info) return null;
+  // Determine relationship with Mệnh
+  let relationship = "Bình thường (không tương tác trực tiếp với Mệnh)";
+  let relKey = "normal";
+  if (node.isMenh) {
+    relationship = "Đây chính là cung Mệnh CDK của Anh.";
+    relKey = "menh";
+  } else if (node.isTamHopWithMenh) {
+    relationship = `Tam hợp ${cdkClockMap.value.menhTamHopCuc} cục với Mệnh — phối hợp tốt, hỗ trợ.`;
+    relKey = "tam-hop";
+  } else if (node.isXungChieu) {
+    relationship = "Xung chiếu (đối diện 180°) với Mệnh — tạo áp lực, lực kéo ngược.";
+    relKey = "xung-chieu";
+  }
+  return {
+    branch,
+    ...info,
+    stars: node.stars,
+    isMenh: node.isMenh,
+    relationship,
+    relKey,
+  };
+});
 </script>
 
 <template>
@@ -436,12 +488,15 @@ function openArtCard(card) {
             class="cdk-clock-xung-chieu"
           />
 
-          <!-- 12 chi nodes -->
+          <!-- 12 chi nodes (clickable) -->
           <g v-for="node in cdkClockMap.nodes" :key="node.branch"
              :class="['cdk-clock-node', `tone-${node.tone}`,
                       node.isMenh && 'is-menh',
                       node.isTamHopWithMenh && 'is-tam-hop',
-                      node.isXungChieu && 'is-xung-chieu']">
+                      node.isXungChieu && 'is-xung-chieu',
+                      (selectedBranch || cdkChart.menh_branch) === node.branch && 'is-selected']"
+             @click="selectBranch(node.branch)"
+             style="cursor: pointer;">
             <circle :cx="node.x" :cy="node.y" :r="cdkClockMap.geometry.nodeRadius"
                     class="cdk-clock-node-bg" />
             <text :x="node.x" :y="node.y - 12" class="cdk-clock-chi"
@@ -453,7 +508,7 @@ function openArtCard(card) {
                   class="cdk-clock-star-name"
                   :class="{'is-hy': st.meaning.isHy}"
                   text-anchor="middle">{{ st.star }}</text>
-            <title>{{ node.branch }}{{ node.isMenh ? ' (Mệnh)' : node.isTamHopWithMenh ? ' (tam hợp với Mệnh)' : node.isXungChieu ? ' (xung chiếu Mệnh)' : '' }}{{ node.stars.length ? ' — ' + node.stars.map(s => s.star).join(', ') : '' }}</title>
+            <title>{{ node.branch }} — {{ BRANCH_INFO[node.branch]?.conGiap }} · {{ BRANCH_INFO[node.branch]?.gio }}{{ node.isMenh ? ' · MỆNH' : node.isTamHopWithMenh ? ' · tam hợp' : node.isXungChieu ? ' · xung chiếu' : '' }}</title>
           </g>
 
           <!-- Center: Mệnh info -->
@@ -473,6 +528,12 @@ function openArtCard(card) {
           </g>
         </svg>
 
+        <!-- Hint -->
+        <p class="cdk-clock-hint">
+          💡 Bấm vào bất kỳ con giáp nào để xem giải thích Việt thuần.
+          Mặc định đang xem cung Mệnh ({{ cdkChart.menh_branch }}).
+        </p>
+
         <!-- Legend -->
         <div class="cdk-clock-legend">
           <span class="leg-item tone-menh"><span class="dot"></span>Mệnh CDK</span>
@@ -483,6 +544,50 @@ function openArtCard(card) {
           <span class="leg-item tone-am"><span class="dot"></span>Âm</span>
           <span class="leg-item tone-duong"><span class="dot"></span>Dương</span>
         </div>
+
+        <!-- Drawer info Việt thuần -->
+        <transition name="cdk-drawer">
+          <article v-if="selectedBranchInfo" :key="selectedBranchInfo.branch"
+                   :class="['cdk-branch-drawer', `rel-${selectedBranchInfo.relKey}`]">
+            <header class="cdk-drawer-head">
+              <div class="cdk-drawer-title">
+                <span class="cdk-drawer-chi">{{ selectedBranchInfo.branch }}</span>
+                <span class="cdk-drawer-con-giap">— {{ selectedBranchInfo.conGiap }}</span>
+              </div>
+              <span class="cdk-drawer-rel">{{ selectedBranchInfo.relationship }}</span>
+            </header>
+            <div class="cdk-drawer-grid">
+              <div class="cdk-drawer-fact">
+                <small>🕒 Giờ trong ngày</small>
+                <b>{{ selectedBranchInfo.gio }}</b>
+              </div>
+              <div class="cdk-drawer-fact">
+                <small>🧭 Phương vị</small>
+                <b>{{ selectedBranchInfo.phuongVi }}</b>
+              </div>
+              <div class="cdk-drawer-fact">
+                <small>☯ Ngũ hành · Âm-Dương</small>
+                <b>{{ selectedBranchInfo.ngu_hanh }} · {{ selectedBranchInfo.am_duong }}</b>
+              </div>
+              <div class="cdk-drawer-fact cdk-drawer-meaning">
+                <small>💭 Ý nghĩa khoảnh khắc</small>
+                <b>{{ selectedBranchInfo.y_nghia }}</b>
+              </div>
+            </div>
+            <div v-if="selectedBranchInfo.stars.length" class="cdk-drawer-stars">
+              <h5>Phi Tinh đang đóng tại {{ selectedBranchInfo.branch }} ({{ selectedBranchInfo.stars.length }} sao)</h5>
+              <article v-for="st in selectedBranchInfo.stars" :key="st.star" class="cdk-drawer-star">
+                <header>
+                  <strong>{{ st.star }}</strong>
+                  <span :class="['cdk-status-chip', st.meaning.isHy ? 'is-hy' : '']">{{ st.meaning.status }}</span>
+                  <span class="cdk-cat-chip">{{ st.meaning.category }}</span>
+                </header>
+                <small>{{ st.meaning.summary }}</small>
+              </article>
+            </div>
+            <p v-else class="cdk-drawer-empty">Cung {{ selectedBranchInfo.branch }} không có Phi Tinh nào đóng — vùng "tĩnh" chỉ kích hoạt khi Đại Hạn chạm tới.</p>
+          </article>
+        </transition>
       </div>
 
       <!-- Fallback 4×3 grid trong details (chi tiết từng cung) -->
@@ -1049,6 +1154,201 @@ function openArtCard(card) {
 .cdk-clock-legend .tone-hung .dot { background: rgba(248, 113, 113, 0.7); }
 .cdk-clock-legend .tone-am .dot { background: rgba(196, 181, 253, 0.7); }
 .cdk-clock-legend .tone-duong .dot { background: rgba(252, 211, 77, 0.7); }
+
+/* ─── Node hover + selected animation ────────────────────────────── */
+.cdk-clock-node {
+  transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.cdk-clock-node:hover .cdk-clock-node-bg {
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 8px rgba(252, 211, 77, 0.4));
+}
+.cdk-clock-node:hover {
+  transform: scale(1.08);
+}
+.cdk-clock-node.is-selected .cdk-clock-node-bg {
+  stroke-width: 3.5;
+  filter: drop-shadow(0 0 14px rgba(252, 211, 77, 0.85));
+}
+.cdk-clock-node.is-selected {
+  transform: scale(1.12);
+}
+.cdk-clock-node.is-selected .cdk-clock-chi {
+  fill: #fff;
+}
+
+/* Hint text */
+.cdk-clock-hint {
+  margin: 6px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(252, 211, 77, 0.78);
+  font-style: italic;
+}
+
+/* ─── Drawer info Việt thuần ────────────────────────────────── */
+.cdk-branch-drawer {
+  width: 100%;
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(252, 211, 77, 0.32);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(252, 211, 77, 0.05) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.cdk-branch-drawer.rel-menh {
+  border-color: #fcd34d;
+  box-shadow: 0 0 24px rgba(252, 211, 77, 0.35);
+}
+.cdk-branch-drawer.rel-tam-hop {
+  border-color: rgba(252, 211, 77, 0.6);
+  border-style: dashed;
+}
+.cdk-branch-drawer.rel-xung-chieu {
+  border-color: rgba(248, 113, 113, 0.55);
+  border-style: dashed;
+  background:
+    linear-gradient(135deg, rgba(248, 113, 113, 0.08) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.5);
+}
+
+.cdk-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(230, 238, 245, 0.1);
+}
+.cdk-drawer-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.cdk-drawer-chi {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fcd34d;
+  line-height: 1;
+}
+.cdk-drawer-con-giap {
+  font-size: 16px;
+  color: #5be5d3;
+  font-weight: 600;
+}
+.cdk-drawer-rel {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(167, 139, 250, 0.16);
+  color: rgba(230, 238, 245, 0.86);
+}
+.cdk-branch-drawer.rel-menh .cdk-drawer-rel {
+  background: rgba(252, 211, 77, 0.22);
+  color: #fcd34d;
+  font-weight: 600;
+}
+.cdk-branch-drawer.rel-tam-hop .cdk-drawer-rel {
+  background: rgba(252, 211, 77, 0.14);
+  color: #f5e6b1;
+}
+.cdk-branch-drawer.rel-xung-chieu .cdk-drawer-rel {
+  background: rgba(248, 113, 113, 0.18);
+  color: #fca5a5;
+}
+
+.cdk-drawer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.cdk-drawer-fact {
+  padding: 10px 12px;
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(230, 238, 245, 0.08);
+  border-radius: 8px;
+}
+.cdk-drawer-fact small {
+  display: block;
+  color: rgba(230, 238, 245, 0.58);
+  font-size: 11px;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+.cdk-drawer-fact b {
+  color: #f5e6b1;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.cdk-drawer-meaning {
+  grid-column: 1 / -1;
+}
+.cdk-drawer-meaning b {
+  color: rgba(230, 238, 245, 0.92);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.cdk-drawer-stars h5 {
+  margin: 0 0 10px;
+  color: #fcd34d;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cdk-drawer-star {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 8px;
+}
+.cdk-drawer-star header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.cdk-drawer-star strong {
+  color: #fcd34d;
+  font-size: 14px;
+}
+.cdk-drawer-star small {
+  display: block;
+  color: rgba(230, 238, 245, 0.78);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.cdk-drawer-empty {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(230, 238, 245, 0.6);
+  font-style: italic;
+}
+
+/* Animation drawer slide-in */
+.cdk-drawer-enter-active,
+.cdk-drawer-leave-active {
+  transition: opacity 280ms ease, transform 280ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.cdk-drawer-enter-from {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+}
+.cdk-drawer-leave-to {
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+}
 
 .cdk-branch-detail {
   margin-top: 6px;
