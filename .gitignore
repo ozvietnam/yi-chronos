@@ -42,6 +42,10 @@ data/yi_publishing_mineru/
 data/published/
 data/research/
 data/seeds/
+data/tu_vi/oracle_cards/runtime/
+data/tu_vi/oracle_cards/logs/
+data/tu_vi/oracle_cards/docx_rework/rendered/
+data/tu_vi/oracle_cards/docx_rework/rendered_cards/
 data/phase2_reading/
 data/hermes_yi/
 data/yi_hermes/
@@ -74,4 +78,3 @@ figures/
 deep-research-report.md
 # Built artifacts (keep dist-from-CI, not local builds)
 client/webapp/dist/
-
