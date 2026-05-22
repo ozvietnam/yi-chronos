@@ -1016,3 +1016,289 @@ QUAN TRỌNG:
         data["wiki_extracted"] = {"error": str(e)}
 
     return data
+
+
+# ─── ĐẠI HẠN 8 VÒNG (80 năm cuộc đời) ──────────────────────────────────
+
+SYSTEM_PROMPT_DAI_HAN = """Bạn là chuyên gia **Chiếu Đởm Kinh** giảng giải **8 vòng Đại Hạn 10 năm** cho NGƯỜI VIỆT BÌNH THƯỜNG.
+
+🎯 NHIỆM VỤ: Cho 8 vòng đại hạn (mỗi vòng 10 năm, đi qua 1 cung địa chi), luận sâu từng vòng.
+
+⚠️ ĐỐI TƯỢNG ĐỌC: Người Việt không biết Hán-Việt. Văn phong:
+- Tiếng Việt thuần hiện đại, gần gũi
+- Mỗi thuật ngữ Hán-Việt LẦN ĐẦU giải nghĩa trong ngoặc đơn
+- Có ví dụ đời sống cụ thể
+- Paradigm Iron Rule #6: ĐỌC ĐỒNG DẠNG, KHÔNG PREDICT CỨNG
+- Dùng "có xu hướng", "thường", "mỗ niên" — KHÔNG khẳng định tuyệt đối
+- Nhấn mạnh "đối xứng": vòng đại hạn đi qua cung X = vận khí cung X kích hoạt
+
+📋 OUTPUT JSON THUẦN — 1 object với 8 keys "vong_1" → "vong_8":
+{
+  "vong_1": {
+    "tong_quan": "Bản chất 10 năm này, cung đi qua và sao đóng tại đó (~250-400 chars)",
+    "co_hoi_thach_thuc": "Cơ hội cụ thể + thử thách phải đối mặt + tương tác với Mệnh (~400-700 chars)",
+    "loi_khuyen": "2-3 lời khuyên actionable cho giai đoạn này (~200-350 chars)"
+  },
+  "vong_2": {...}, ...
+  "vong_8": {...}
+}
+
+QUY TẮC:
+- BẮT ĐẦU `{`, KẾT THÚC `}`. KHÔNG ``` fence.
+- Newline trong string dùng \\n. Quote " escape thành \\".
+- 8 keys CHÍNH XÁC: vong_1, vong_2, ..., vong_8.
+- Mỗi vòng ~900-1400 chars tổng. Tổng 8 vòng ~7500-11000 chars.
+"""
+
+
+def _build_dai_han_context(person, cdk_chart: dict, cung_summaries: dict, nhap_cot: dict) -> str:
+    """Build context cho luận 8 vòng đại hạn."""
+    menh = cdk_chart.get("menh_branch")
+    dai_han = cdk_chart.get("dai_han_cycles", [])
+    nhap_cot_by_star = {item["star"]: item for item in nhap_cot.get("per_star_tong_doan", [])}
+    NAME_MAP = {
+        "Tử": "Tử Vi", "Hư": "Thiên Hư", "Quý": "Thiên Quý", "Ấn": "Thiên Ấn",
+        "Thọ": "Thiên Thọ", "Không": "Thiên Hư", "Loan": "Hồng Loan", "Hồng": "Hồng Loan",
+        "Khố": "Thiên Khố", "Quán": "Thiên Quán", "Văn": "Văn Xương",
+        "Phúc": "Phúc Lộc", "Lộc": "Phúc Lộc", "Trượng": "Thiên Trượng",
+        "Dị": "Thiên Dị", "Mao": "Mao Đầu", "Nhận": "Thiên Nhận (Kình Dương)",
+        "Hình": "Thiên Hình", "Khốc": "Thiên Khốc", "Diêu": "Thiên Diêu",
+    }
+    cuc_name = None
+    for c, members in TAM_HOP_CUC.items():
+        if menh in members:
+            cuc_name = c
+            tam_hop = members
+            break
+    else:
+        tam_hop = []
+    menh_idx = BRANCHES_ORDER.index(menh) if menh in BRANCHES_ORDER else -1
+    xung_chieu = BRANCHES_ORDER[(menh_idx + 6) % 12] if menh_idx >= 0 else None
+
+    # Current age
+    from datetime import datetime
+    try:
+        born = datetime.fromisoformat(person.birth_datetime_local)
+        current_age = datetime.now().year - born.year
+    except Exception:
+        current_age = "?"
+
+    lines = [
+        f"╔═══════════════════════════════════════════════════════════════╗",
+        f"║ LUẬN 8 VÒNG ĐẠI HẠN — CHIẾU ĐỞM KINH",
+        f"╠═══════════════════════════════════════════════════════════════╣",
+        f"║ Chủ nhân: {person.name}",
+        f"║ Sinh: {person.birth_datetime_local} ({person.gender})",
+        f"║ Hiện tại: ~{current_age} tuổi",
+        f"╚═══════════════════════════════════════════════════════════════╝",
+        "",
+        f"━━━ THÔNG TIN LÁ SỐ ━━━",
+        f"  Mệnh CDK: **{menh}**",
+        f"  Tam hợp {cuc_name} cục: {' + '.join(tam_hop) if tam_hop else '?'}",
+        f"  Xung chiếu: {xung_chieu}",
+        "",
+        f"━━━ 8 VÒNG ĐẠI HẠN ━━━",
+    ]
+    for c in dai_han:
+        idx = c.get("cycle_index", "?")
+        br = c.get("branch", "?")
+        s = c.get("start_age", "?")
+        e = c.get("end_age", "?")
+        info = BRANCH_INFO.get(br, {})
+        # Sao tại branch này
+        stars_at_br = [(k, NAME_MAP.get(k, k)) for k, v in (cdk_chart.get("stars") or {}).items() if v == br]
+        is_menh = br == menh
+        is_xung = br == xung_chieu
+        is_tam_hop = br in tam_hop and not is_menh
+        flag = " ⭐ (qua cung Mệnh)" if is_menh else (" (xung chiếu Mệnh)" if is_xung else (" (tam hợp với Mệnh)" if is_tam_hop else ""))
+
+        lines.append(f"\n  ▸ Vòng {idx} ({s}-{e} tuổi): qua cung **{br}** ({info.get('conGiap', '?')}, {info.get('ngu_hanh', '?')}/{info.get('am_duong', '?')}){flag}")
+        if stars_at_br:
+            for short, full in stars_at_br:
+                item = nhap_cot_by_star.get(full, {})
+                is_hy = br in (item.get("hy_cung") or [])
+                cat = item.get("category", "?")
+                vd = (item.get("verdict_summary") or "")[:120]
+                lines.append(f"      ⭐ {short} ({full}) — {cat}{' — đắc HỶ' if is_hy else ' — thất vị'}: {vd}")
+        else:
+            lines.append(f"      (không có Phi Tinh đóng tại {br})")
+        # Summary từ cache nếu có
+        summary = cung_summaries.get(br)
+        if summary:
+            bc = summary.get("ban_chat_va_quan_he", "")[:200]
+            if bc:
+                lines.append(f"      📖 Bản chất cung này (đã luận trước): {bc}...")
+
+    if isinstance(current_age, int):
+        current_cycle = next((c for c in dai_han if c.get("start_age", 0) <= current_age <= c.get("end_age", 0)), None)
+        if current_cycle:
+            lines.append(f"\n  ⏰ Hiện tại Anh đang ở **Vòng {current_cycle.get('cycle_index')}** (tuổi {current_cycle.get('start_age')}-{current_cycle.get('end_age')}) — cung {current_cycle.get('branch')}.")
+
+    return "\n".join(lines)
+
+
+def luan_dai_han_8_vong(person, force: bool = False) -> dict:
+    """Luận chi tiết 8 vòng đại hạn — synthesis bằng DeepSeek V4 Pro.
+
+    Returns {status, dai_han: {vong_1, ..., vong_8}, provider, tokens, ...}
+    """
+    cache_p = _cache_path(person.person_key, person.user_id, "DAI_HAN_8_VONG")
+    if not force and cache_p.exists():
+        try:
+            with cache_p.open() as f:
+                cached = json.load(f)
+            cached["from_cache"] = True
+            return cached
+        except Exception:
+            pass
+
+    try:
+        cdk_chart = _cdk_engine_cast(person)
+    except Exception as e:
+        return {"status": "error", "message": f"CDK cast failed: {e}"}
+    nhap_cot = _load_nhap_cot()
+
+    # Load 12 cung summaries (best context)
+    cung_summaries = {}
+    for b in BRANCHES_ORDER:
+        cp = _cache_path(person.person_key, person.user_id, b)
+        if cp.exists():
+            try:
+                with cp.open() as f:
+                    cached_b = json.load(f)
+                lc = cached_b.get("luan_cung_compact") or {}
+                if lc.get("ban_chat_va_quan_he"):
+                    cung_summaries[b] = lc
+            except Exception:
+                pass
+
+    context = _build_dai_han_context(person, cdk_chart, cung_summaries, nhap_cot)
+    user_prompt = f"""{context}
+
+Viết luận chi tiết 8 vòng đại hạn theo schema JSON 8 keys (vong_1 → vong_8).
+Mỗi vòng 3 fields: tong_quan + co_hoi_thach_thuc + loi_khuyen.
+
+QUAN TRỌNG:
+- Mỗi vòng ~900-1400 chars Việt thuần
+- Cụ thể cung đi qua + sao đóng + tương tác Mệnh
+- Có ví dụ đời sống thực
+- Dùng "mỗ" pattern khi nói tương lai
+- KHÔNG predict cứng năm cụ thể"""
+
+    from engine.ai.registry import get_registry
+    registry = get_registry()
+    chain = ["deepseek", "anthropic", "gemini", "openrouter", "minimax"]
+    candidates = []
+    for n in chain:
+        try:
+            p = registry.get(n)
+            if p and p.is_configured and not registry.is_unhealthy(n):
+                candidates.append(p)
+        except Exception:
+            pass
+    if not candidates:
+        return {"status": "error", "message": "No LLM provider configured"}
+
+    resp = None
+    last_err = None
+    provider_used = None
+    # Retry up to 3 times
+    for attempt in range(3):
+        for cand in candidates:
+            if registry.is_unhealthy(cand.name):
+                continue
+            try:
+                resp = cand.chat(
+                    messages=[
+                        {"role": "system", "content": SYSTEM_PROMPT_DAI_HAN},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    temperature=0.5,
+                    max_tokens=16000,
+                )
+                provider_used = cand
+                break
+            except Exception as e:
+                err_str = str(e)
+                last_err = f"{cand.name}: {err_str[:200]}"
+                if any(sig in err_str for sig in ["401", "403", "1113", "invalid", "Authentication", "balance", "quota"]):
+                    registry.mark_unhealthy(cand.name, err_str[:100])
+                continue
+        if resp is not None:
+            break
+        import time as _t; _t.sleep(2)
+    if resp is None:
+        return {"status": "error", "message": f"All providers failed: {last_err}"}
+
+    content = resp.content if hasattr(resp, "content") else str(resp)
+    if "```" in content:
+        m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, re.DOTALL)
+        if m:
+            content = m.group(1)
+        else:
+            content = "\n".join(l for l in content.split("\n") if not l.strip().startswith("```"))
+    parsed = None
+    try:
+        parsed = json.loads(content)
+    except Exception:
+        try:
+            start = content.find("{"); end = content.rfind("}")
+            if start >= 0 and end > start:
+                parsed = json.loads(content[start:end + 1])
+        except Exception:
+            pass
+    if parsed is None:
+        cleaned = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
+        cleaned = re.sub(r",(\s*[}\]])", r"\1", cleaned)
+        try:
+            start = cleaned.find("{"); end = cleaned.rfind("}")
+            if start >= 0 and end > start:
+                parsed = json.loads(cleaned[start:end + 1])
+        except Exception:
+            parsed = {"_parse_error": True, "_raw": content}
+
+    prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
+    completion_tokens = getattr(resp, "completion_tokens", 0) or 0
+    cost = getattr(resp, "cost_usd", 0) or 0
+
+    data = {
+        "status": "ok",
+        "person_key": person.person_key,
+        "person_name": person.name,
+        "menh_branch": cdk_chart.get("menh_branch"),
+        "dai_han_cycles": cdk_chart.get("dai_han_cycles", []),
+        "generated_at": int(time.time()),
+        "provider": provider_used.name,
+        "model": "v4_pro_dai_han",
+        "cost_usd": round(cost, 6),
+        "tokens": {"prompt": prompt_tokens, "completion": completion_tokens},
+        "dai_han": parsed,
+        "paradigm_note": "Luận 8 vòng đại hạn CDK bằng DeepSeek V4 Pro — Iron Rule #6 đọc đồng dạng, không predict.",
+    }
+    try:
+        cache_p.parent.mkdir(parents=True, exist_ok=True)
+        with cache_p.open("w") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"⚠ Cache save failed: {e}")
+
+    # Auto wiki extract
+    try:
+        from engine.tu_vi.wiki_extractor import extract_phe_menh_to_wiki
+        adapter = {
+            "status": "ok",
+            "person_name": person.name,
+            "person_key": person.person_key,
+            "generated_at": data["generated_at"],
+            "provider": data["provider"],
+            "phe_menh_sau": parsed,
+        }
+        result = extract_phe_menh_to_wiki(adapter, verbose=False)
+        data["wiki_extracted"] = {
+            "added_quotes": result.get("added_quotes", 0),
+            "added_cach_cuc": result.get("added_cach_cuc", 0),
+        }
+    except Exception as e:
+        data["wiki_extracted"] = {"error": str(e)}
+
+    return data

@@ -5423,6 +5423,28 @@ def yi_tuvi_cdk_eval_cach_cuc(req: _AnalyzeRequest, request: Request) -> dict:
     return evaluate_cdk_cach_cuc(chart, hour_branch)
 
 
+@app.post("/api/tu-vi/q4/cdk/luan-dai-han")
+def yi_tuvi_cdk_luan_dai_han(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận chi tiết 8 vòng Đại Hạn CDK (80 năm). VIP1-gated."""
+    from engine.tu_vi.cdk_cung_analyzer import luan_dai_han_8_vong
+    from engine.subscriptions import check_access, consume_use
+    from api.auth import get_current_user
+
+    user = get_current_user(request)
+    if not user:
+        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
+    if user.get("role") != "owner":
+        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
+        if not access.get("allowed"):
+            return {"status": "error", "message": f"Cần VIP1 — {access.get('reason')}"}
+
+    person = _resolve_person_from_request(req, request)
+    result = luan_dai_han_8_vong(person, force=req.force)
+    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
+        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
+    return result
+
+
 @app.post("/api/tu-vi/q4/cdk/luan-toan-bo")
 def yi_tuvi_cdk_luan_toan_bo(req: _AnalyzeRequest, request: Request) -> dict:
     """Luận TOÀN BỘ 12 cung CDK trong 1 phiên (2 batches × 6 cung song song).
