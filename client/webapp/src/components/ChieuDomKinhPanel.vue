@@ -137,6 +137,52 @@ const cdkBranchMap = computed(() => {
   }));
 });
 
+// 18 sao của lá số user — sắp xếp đắc địa → thất vị, kèm verdict Nhập Cốt
+const cdkNhapCotPersonalized = computed(() => {
+  if (!cdkChart.value?.stars || !nhapCot.value?.per_star_tong_doan) return null;
+  const ncByStar = new Map(
+    (nhapCot.value.per_star_tong_doan || []).map((item) => [item.star, item])
+  );
+  const menh = cdkChart.value.menh_branch;
+  const list = [];
+  for (const [star, branch] of Object.entries(cdkChart.value.stars)) {
+    const fullName = NHAP_COT_STAR_NAME[star] || star;
+    const nc = ncByStar.get(fullName);
+    const isHy = nc?.hy_cung?.includes(branch) || false;
+    const isMenh = branch === menh;
+    list.push({
+      star_short: star,
+      star_full: fullName,
+      branch,
+      isHy,
+      isMenh,
+      category: nc?.category || "?",
+      hyCung: nc?.hy_cung || [],
+      verdictSummary: nc?.verdict_summary || "Chưa có verdict trong Nhập Cốt.",
+      verdictQuote: nc?.verdict_quote_hv || "",
+      warning: nc?.warning || "",
+      sourceRef: nc?.source_ref || "",
+      art: chartArtFor(star),
+    });
+  }
+  // Sort: Mệnh trước, rồi đắc-địa (hỷ), rồi thất-vị
+  list.sort((a, b) => {
+    if (a.isMenh !== b.isMenh) return a.isMenh ? -1 : 1;
+    if (a.isHy !== b.isHy) return a.isHy ? -1 : 1;
+    return a.star_full.localeCompare(b.star_full);
+  });
+  const hyCount = list.filter((s) => s.isHy).length;
+  const menhStars = list.filter((s) => s.isMenh);
+  return {
+    list,
+    total: list.length,
+    hyCount,
+    thatViCount: list.length - hyCount,
+    menhStars,
+    menhBranch: menh,
+  };
+});
+
 const cdkMenhStars = computed(() => {
   const menh = cdkChart.value?.menh_branch;
   if (!menh) return [];
@@ -876,8 +922,10 @@ const cdkDeepFeatureStatus = computed(() => {
                     :x="node.x" :y="node.y + 4 + idx * 11"
                     class="cdk-clock-star-name"
                     :class="{'is-hy': st.meaning.isHy}"
-                    text-anchor="middle">{{ st.star }}</text>
-              <title>{{ node.branch }} — {{ BRANCH_INFO[node.branch]?.conGiap }} · {{ BRANCH_INFO[node.branch]?.gio }}{{ node.isMenh ? ' · MỆNH' : node.isTamHopWithMenh ? ' · tam hợp' : node.isXungChieu ? ' · xung chiếu' : '' }}</title>
+                    text-anchor="middle">{{ st.star }}<title>{{ st.star }} ({{ st.meaning.lookupName }}) — {{ st.meaning.isHy ? '✓ HỶ CUNG (đắc địa)' : '✗ thất vị' }}
+Nhóm: {{ st.meaning.category }}
+Verdict: {{ st.meaning.summary }}</title></text>
+              <title>{{ node.branch }} — {{ BRANCH_INFO[node.branch]?.conGiap }} · {{ BRANCH_INFO[node.branch]?.gio }}{{ node.isMenh ? ' · MỆNH CDK' : node.isTamHopWithMenh ? ' · tam hợp với Mệnh' : node.isXungChieu ? ' · xung chiếu Mệnh' : '' }}</title>
             </g>
 
             <!-- Center: Mệnh info -->
@@ -1291,38 +1339,68 @@ const cdkDeepFeatureStatus = computed(() => {
       </template>
     </section>
 
-    <!-- Nhập Cốt Tiên Kinh tổng đoán -->
-    <section v-if="nhapCot" class="cdk-section">
-      <h3>📚 Nhập Cốt Tiên Kinh — Tổng đoán 4-chữ</h3>
-      <p class="cdk-intro">{{ nhapCot.subtitle_meaning }}</p>
+    <!-- Nhập Cốt Tiên Kinh — PERSONALIZED cho lá số -->
+    <section v-if="cdkNhapCotPersonalized" class="cdk-section">
+      <h3>📚 Nhập Cốt Tiên Kinh — 18 sao của lá số Anh</h3>
+      <p class="cdk-intro">
+        💡 <b>Phép tổng đoán 4-chữ</b> cho từng sao. Engine đã match 18 Phi Tinh của lá số Anh
+        với verdict Q4 p0297:
+        <b style="color: #5be5d3;">{{ cdkNhapCotPersonalized.hyCount }}/18 đắc hỷ cung</b>
+        ·
+        <b style="color: #fca5a5;">{{ cdkNhapCotPersonalized.thatViCount }}/18 thất vị</b>
+        ·
+        <b style="color: #fcd34d;">3 sao tại Mệnh {{ cdkNhapCotPersonalized.menhBranch }}</b>
+      </p>
       <details>
-        <summary>Intro (verbatim Q4 p0297 r005-r007)</summary>
+        <summary>📖 Lời mở quyển (verbatim Q4 p0297 r005-r007)</summary>
         <em>« {{ nhapCot.intro_hv }} »</em>
         <p>{{ nhapCot.intro_meaning }}</p>
+        <p class="cdk-paradigm">💡 Triết lý nền: từ <abbr class="hv-tooltip" title="Một mối khí ban đầu, chưa phân chia">nhất nguyên hỗn khí</abbr> → ngũ hành → tam tài → âm dương → cát hung. Tất cả 18 sao có cát có hung, mỗi cái đúng theo lẽ riêng.</p>
       </details>
-      <div class="cdk-tong-doan-grid">
-        <article v-for="t in nhapCot.per_star_tong_doan" :key="t.star"
-                 class="cdk-tong-doan-card" :class="`cdk-tong-${t.category}`">
+
+      <div class="cdk-nhapcot-grid">
+        <article v-for="s in cdkNhapCotPersonalized.list" :key="s.star_short"
+                 :class="['cdk-nhapcot-card',
+                          `cdk-tong-${s.category}`,
+                          s.isMenh && 'is-menh',
+                          s.isHy ? 'is-hy' : 'is-that-vi']">
           <header>
-            <strong>{{ t.star }}</strong>
-            <span class="cdk-cat-badge">{{ t.category }}</span>
+            <div class="cdk-nc-title">
+              <button v-if="s.art" type="button" class="cdk-nc-art-btn"
+                      :aria-label="`Mở ảnh ${s.star_short}`"
+                      @click.stop="openArtCard(s.art)">
+                <img :src="s.art.image" :alt="`Ảnh ${s.star_short}`" loading="lazy" />
+              </button>
+              <div>
+                <strong>{{ s.star_short }}</strong>
+                <small class="cdk-nc-full">{{ s.star_full }}</small>
+              </div>
+            </div>
+            <div class="cdk-nc-tags">
+              <span v-if="s.isMenh" class="cdk-nc-menh-badge">⭐ MỆNH</span>
+              <span :class="['cdk-status-chip', s.isHy ? 'is-hy' : '']">
+                {{ s.isHy ? '✓ Hỷ cung' : '✗ Thất vị' }}
+              </span>
+              <span class="cdk-cat-chip">{{ s.category }}</span>
+            </div>
           </header>
-          <p class="cdk-tong-verdict">{{ t.verdict_summary }}</p>
-          <p v-if="t.hy_cung" class="cdk-hy-cung">
-            <b>Hỷ:</b>
-            <span v-for="c in t.hy_cung" :key="c" class="cdk-hy-chip">{{ c }}</span>
+          <p class="cdk-nc-position">
+            Đang đóng tại cung <b>{{ s.branch }}</b>
+            <span v-if="s.isHy" class="cdk-nc-hy-note">→ trong hỷ cung của sao này ({{ s.hyCung.join(', ') }})</span>
+            <span v-else class="cdk-nc-tv-note">→ hỷ cung của sao là {{ s.hyCung.join(', ') || '(không có)' }}, không trùng {{ s.branch }}</span>
           </p>
+          <p class="cdk-nc-verdict">📜 <span v-html="renderWithTooltips(s.verdictSummary)"></span></p>
           <details>
-            <summary>Verbatim</summary>
-            <em>« {{ t.verdict_quote_hv }} »</em>
-            <p v-if="t.warning" class="cdk-warning-inline">⚠ {{ t.warning }}</p>
-            <small>{{ t.source_ref }}</small>
+            <summary>Câu kinh điển (Hán-Việt) + cảnh báo</summary>
+            <em>« {{ s.verdictQuote }} »</em>
+            <p v-if="s.warning" class="cdk-warning-inline">⚠ {{ s.warning }}</p>
+            <small>Nguồn: {{ s.sourceRef }}</small>
           </details>
         </article>
       </div>
 
       <!-- Ending paradigm -->
-      <section v-if="nhapCot.ending_paradigm" class="cdk-ending">
+      <section v-if="nhapCot?.ending_paradigm" class="cdk-ending">
         <h4>🔚 Paradigm kết quyển</h4>
         <blockquote>{{ nhapCot.ending_paradigm.source_quote_hv }}</blockquote>
         <p>{{ nhapCot.ending_paradigm.meaning }}</p>
@@ -2297,6 +2375,134 @@ const cdkDeepFeatureStatus = computed(() => {
 .hv-tooltip:hover {
   background: rgba(91, 229, 211, 0.12);
   border-radius: 2px;
+}
+
+/* ─── Nhập Cốt personalized grid ─────────────────────────────────────── */
+.cdk-nhapcot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.cdk-nhapcot-card {
+  padding: 12px 14px;
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(230, 238, 245, 0.1);
+  border-radius: 8px;
+  transition: transform 160ms, border-color 160ms;
+}
+.cdk-nhapcot-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(252, 211, 77, 0.32);
+}
+.cdk-nhapcot-card.is-menh {
+  border-color: #fcd34d;
+  background:
+    linear-gradient(135deg, rgba(252, 211, 77, 0.08) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.5);
+  box-shadow: 0 4px 14px rgba(252, 211, 77, 0.18);
+}
+.cdk-nhapcot-card.is-hy {
+  border-left: 3px solid #5be5d3;
+}
+.cdk-nhapcot-card.is-that-vi {
+  border-left: 3px dashed rgba(248, 113, 113, 0.5);
+}
+.cdk-nhapcot-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.cdk-nc-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cdk-nc-art-btn {
+  width: 38px; height: 38px;
+  padding: 0;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 6px;
+  background: rgba(2, 6, 23, 0.55);
+  cursor: pointer;
+  overflow: hidden;
+}
+.cdk-nc-art-btn img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cdk-nhapcot-card strong {
+  display: block;
+  color: #fcd34d;
+  font-size: 14px;
+}
+.cdk-nc-full {
+  display: block;
+  color: rgba(230, 238, 245, 0.6);
+  font-size: 10.5px;
+}
+.cdk-nc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: flex-start;
+}
+.cdk-nc-menh-badge {
+  padding: 2px 6px;
+  background: rgba(252, 211, 77, 0.22);
+  color: #fcd34d;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.cdk-nc-position {
+  margin: 6px 0;
+  font-size: 12px;
+  color: rgba(230, 238, 245, 0.78);
+}
+.cdk-nc-position b {
+  color: #fcd34d;
+}
+.cdk-nc-hy-note {
+  display: block;
+  color: #5be5d3;
+  font-size: 11px;
+  margin-top: 2px;
+}
+.cdk-nc-tv-note {
+  display: block;
+  color: rgba(248, 113, 113, 0.85);
+  font-size: 11px;
+  margin-top: 2px;
+}
+.cdk-nc-verdict {
+  margin: 8px 0 4px;
+  padding: 8px 10px;
+  background: rgba(91, 229, 211, 0.05);
+  border-radius: 6px;
+  color: rgba(230, 238, 245, 0.92);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.cdk-nhapcot-card details {
+  margin-top: 8px;
+  font-size: 11.5px;
+}
+.cdk-nhapcot-card details summary {
+  cursor: pointer;
+  color: rgba(167, 139, 250, 0.85);
+}
+.cdk-nhapcot-card details em {
+  display: block;
+  margin: 6px 0;
+  color: rgba(230, 238, 245, 0.7);
+  font-style: italic;
+}
+.cdk-warning-inline {
+  color: #fca5a5;
+  font-size: 11.5px;
+  margin: 4px 0;
 }
 
 /* Animation drawer slide-in */
