@@ -23,10 +23,18 @@ FEATURE_CATALOG = {
     "tu_vi_phe_menh_sau": {
         "name_vi": "Luận giải sâu Tử Vi (DeepSeek Pro)",
         "name_zh": "紫微深度论命",
-        "description": "Phê mệnh sâu dùng DeepSeek-chat model — quality cao hơn free tier MiniMax, viết theo 10 bước methodology Trần Đoàn + 7 phê mệnh templates Q4 + 786 phú thi corpus.",
+        "description": "Phê mệnh sâu dùng DeepSeek V4 Pro — 10 sections theo 10 bước Trần Đoàn, ~30-40k chars Việt thuần.",
         "tier_required": "vip1",
         "cost_estimate_usd": 0.05,
         "approx_duration_sec": 60,
+    },
+    "tu_vi_cdk_luan_cung": {
+        "name_vi": "Luận giải cung Chiếu Đởm Kinh (DeepSeek V4 Pro)",
+        "name_zh": "照胆经宫位深度解读",
+        "description": "Luận sâu 1 cung CDK (5 sections Việt thuần) — bản chất cung, sao đóng, quan hệ với Mệnh, áp dụng đời sống, lời khuyên. DeepSeek V4 Pro, ~60-90s, tự lưu wiki.",
+        "tier_required": "vip1",
+        "cost_estimate_usd": 0.02,
+        "approx_duration_sec": 75,
     },
     # Future features:
     # "mai_hoa_premium": {...},

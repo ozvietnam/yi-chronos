@@ -5354,6 +5354,49 @@ def yi_tuvi_chieu_dom_cast(req: _AnalyzeRequest, request: Request) -> dict:
     return {"status": "ok", **result}
 
 
+class _LuanCungRequest(_AnalyzeRequest):
+    branch: str = ""
+
+
+@app.post("/api/tu-vi/q4/cdk/luan-cung")
+def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
+    """Luận giải sâu 1 cung CDK bằng DeepSeek V4 Pro — VIP1 gated.
+
+    Owner bypass VIP check + không consume_use. User thường cần subscription.
+    Auto-extract → wiki sau mỗi lần gen.
+    """
+    from engine.tu_vi.cdk_cung_analyzer import luan_cdk_cung, BRANCHES_ORDER
+    from engine.subscriptions import check_access, consume_use
+    from api.auth import get_current_user
+
+    if not req.branch or req.branch not in BRANCHES_ORDER:
+        return {"status": "error", "message": f"Invalid branch. Must be one of {BRANCHES_ORDER}"}
+
+    user = get_current_user(request)
+    if not user:
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng VIP."}
+
+    # VIP gating (owner bypass)
+    if user.get("role") != "owner":
+        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
+        if not access.get("allowed"):
+            return {
+                "status": "error",
+                "message": f"Không có quyền VIP1 — {access.get('reason', 'unknown')}",
+                "vip_check": access,
+            }
+
+    person = _resolve_person_from_request(req, request)
+    result = luan_cdk_cung(person, req.branch, force=req.force)
+
+    # Consume use only on success + not owner
+    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
+        usage = consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
+        result["usage_after"] = usage
+
+    return result
+
+
 @app.get("/api/tu-vi/q4/chieu-dom-12cung-matrix")
 def yi_tuvi_chieu_dom_12cung() -> dict:
     """12 cung × 18 sao matrix từ Chiếu Đởm Kinh (Q4 p0279-p0286). ~203 rules."""

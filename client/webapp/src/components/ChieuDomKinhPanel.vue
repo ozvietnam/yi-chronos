@@ -332,7 +332,31 @@ async function loadAll() {
   }
 }
 
-onMounted(loadAll);
+// Section labels cho deep interpretation từ DeepSeek
+const DEEP_SECTION_LABELS = {
+  ban_chat_cung: '1️⃣ Bản chất cung — năng lượng nền',
+  sao_thu_cung: '2️⃣ Phi Tinh đóng tại đây',
+  quan_he_voi_menh: '3️⃣ Quan hệ với Mệnh CDK',
+  ap_dung_doi_song: '4️⃣ Áp dụng vào đời sống',
+  loi_khuyen: '5️⃣ Lời khuyên cụ thể',
+};
+
+// Render markdown inline (bold **text** + italic _text_)
+function renderMarkdownInline(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/_([^_]+)_/g, '<em>$1</em>')
+    .replace(/\n/g, '<br>');
+}
+
+onMounted(async () => {
+  await loadAll();
+  await loadCdkDeepFeature();
+});
 
 function toggleStar(id) {
   activeStarId.value = activeStarId.value === id ? null : id;
@@ -345,6 +369,77 @@ function openArtCard(card) {
 // Click chi node → set selected (default = Mệnh)
 function selectBranch(branch) {
   selectedBranch.value = selectedBranch.value === branch ? null : branch;
+}
+
+// Build static interpretation Việt thuần dựa vào branch + sao + relationship
+function buildQuickInterpretation(branch, info, stars, relKey, menhTamHopCuc) {
+  const out = [];
+  // Lớp 1: bản chất chi
+  if (relKey === "menh") {
+    out.push(
+      `**Mệnh CDK của Anh đóng tại ${branch} (${info.conGiap}, hành ${info.ngu_hanh}, ${info.am_duong}).** ` +
+      `Điều này nghĩa là phần "lõi bản mệnh" của Anh thuộc về vùng năng lượng ${info.ngu_hanh}-${info.am_duong}, ` +
+      `gắn với khoảnh khắc **${info.gio}** và phương **${info.phuongVi}**. ` +
+      `Bản chất Anh mang nét: _${info.y_nghia.toLowerCase()}_`
+    );
+  } else if (relKey === "tam-hop") {
+    out.push(
+      `Cung **${branch} (${info.conGiap})** **tam hợp ${menhTamHopCuc} cục** với Mệnh CDK. ` +
+      `Nghĩa là vùng năng lượng ở đây **đồng nhịp** với bản mệnh của Anh — ` +
+      `khi Đại Hạn hoặc Lưu Niên đi qua ${branch}, các sao ở đây sẽ **hỗ trợ tăng cường** cho Mệnh.`
+    );
+  } else if (relKey === "xung-chieu") {
+    out.push(
+      `Cung **${branch} (${info.conGiap})** nằm **đối diện 180°** với Mệnh CDK — đây là cung **xung chiếu**. ` +
+      `Khi Đại Hạn/Lưu Niên chạm tới đây, các sao tại ${branch} sẽ tạo **lực kéo ngược, áp lực đối kháng** với bản mệnh — ` +
+      `Anh cần thận trọng những giai đoạn này.`
+    );
+  } else {
+    out.push(
+      `Cung **${branch} (${info.conGiap})** là vùng **phụ trợ** đối với Mệnh CDK của Anh. ` +
+      `Năng lượng ${info.ngu_hanh}-${info.am_duong} ở đây chỉ kích hoạt mạnh khi Đại Hạn đi qua, ` +
+      `bình thường nó "ngủ yên".`
+    );
+  }
+  // Lớp 2: phân tích sao đang đóng
+  if (stars.length === 0) {
+    out.push(`Hiện tại không có Phi Tinh nào đóng tại ${branch} — vùng này yên tĩnh.`);
+  } else {
+    const namedStars = stars.map((s) => s.star).join(", ");
+    const hyCount = stars.filter((s) => s.meaning.isHy).length;
+    const hungCount = stars.filter((s) => /hung/i.test(s.meaning.category || "")).length;
+    const amCount = stars.filter((s) => /âm/i.test(s.meaning.category || "")).length;
+    let starsLine = `Có **${stars.length} Phi Tinh** đang đóng tại ${branch}: **${namedStars}**. `;
+    if (relKey === "menh") {
+      if (hyCount === stars.length) {
+        starsLine += `Tuyệt vời — TẤT CẢ đều ở **hỷ cung** → Mệnh CDK của Anh rất đắc địa, lực vượng.`;
+      } else if (hyCount === 0) {
+        starsLine += `Đáng tiếc — KHÔNG sao nào ở hỷ cung của ${branch} (${stars.length}/${stars.length} thất vị). ` +
+                     `Đây là dấu hiệu Mệnh CDK của Anh **khắc nghiệt**, đòi hỏi tu thân + kỷ luật.`;
+      } else {
+        starsLine += `${hyCount}/${stars.length} sao đắc hỷ cung — Mệnh phân lực, vừa thuận vừa nghịch.`;
+      }
+      if (hungCount >= 2) {
+        starsLine += ` Có **${hungCount} sao thuộc nhóm hung** → khắc nghiệt thêm, nhưng cũng là lực rèn người.`;
+      }
+      if (amCount >= 1) {
+        starsLine += ` Sao âm (${amCount}) tại Mệnh = chiều sâu nội tâm.`;
+      }
+    } else {
+      starsLine += `Khi vận hạn chạm vào ${branch}, các sao này sẽ kích hoạt — ` +
+                   `${hyCount}/${stars.length} đắc hỷ cung tại đây.`;
+    }
+    out.push(starsLine);
+  }
+  // Lớp 3: ý nghĩa thực tế
+  if (relKey === "menh") {
+    out.push(
+      `**Trong đời sống**: vì ${info.conGiap} thuộc giờ **${info.gio}**, ` +
+      `Anh có xu hướng năng lượng đạt đỉnh / có ý nghĩa quan trọng vào khoảng thời gian này trong ngày. ` +
+      `Phương ${info.phuongVi} là hướng tốt cho công việc, nghỉ ngơi, hoặc kết nối quan trọng.`
+    );
+  }
+  return out;
 }
 
 // Selected branch info — defaults to Mệnh CDK
@@ -367,6 +462,9 @@ const selectedBranchInfo = computed(() => {
     relationship = "Xung chiếu (đối diện 180°) với Mệnh — tạo áp lực, lực kéo ngược.";
     relKey = "xung-chieu";
   }
+  const quickInterpretation = buildQuickInterpretation(
+    branch, info, node.stars, relKey, cdkClockMap.value?.menhTamHopCuc
+  );
   return {
     branch,
     ...info,
@@ -374,6 +472,83 @@ const selectedBranchInfo = computed(() => {
     isMenh: node.isMenh,
     relationship,
     relKey,
+    quickInterpretation,
+  };
+});
+
+// ─── Deep interpretation by DeepSeek (VIP) ─────────────────────────────────
+const cdkDeepInterp = ref({});  // {branchKey: {loading, data, error}}
+const cdkDeepFeature = ref(null);  // VIP feature status
+
+async function loadCdkDeepFeature() {
+  try {
+    const r = await fetch('/api/user/my-vip-features');
+    if (!r.ok) return;
+    const d = await r.json();
+    cdkDeepFeature.value = (d.features || []).find((f) => f.feature_id === 'tu_vi_cdk_luan_cung') || null;
+  } catch (e) {
+    console.warn('Cannot load VIP features:', e);
+  }
+}
+
+async function loadDeepInterp(branch, force = false) {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  const key = `${person.person_key || person.birth_datetime_local}_${branch}`;
+  if (!cdkDeepInterp.value[key]) cdkDeepInterp.value[key] = { loading: false, data: null, error: null };
+  const slot = cdkDeepInterp.value[key];
+  slot.loading = true;
+  slot.error = null;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      branch,
+      force,
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-cung', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await resp.json();
+    if (data.status === 'ok') {
+      slot.data = data;
+    } else {
+      slot.error = data.message || 'Lỗi không xác định';
+    }
+  } catch (e) {
+    slot.error = String(e.message || e);
+  } finally {
+    slot.loading = false;
+    // Refresh VIP feature uses
+    loadCdkDeepFeature();
+  }
+}
+
+function getDeepInterpSlot(branch) {
+  const person = activePerson.value;
+  const key = `${person?.person_key || person?.birth_datetime_local}_${branch}`;
+  return cdkDeepInterp.value[key] || { loading: false, data: null, error: null };
+}
+
+const cdkDeepFeatureStatus = computed(() => {
+  const f = cdkDeepFeature.value;
+  if (!f) return { allowed: false, label: '🔒 Chưa cấp VIP1', reason: 'no_data' };
+  if (!f.has_subscription) return { allowed: false, label: '🔒 Cần VIP1', reason: 'no_subscription' };
+  if (!f.allowed) return { allowed: false, label: `🔒 ${f.reason || 'Bị khóa'}`, reason: f.reason };
+  return {
+    allowed: true,
+    label: `✓ VIP1 — Còn ${f.subscription?.remaining_uses ?? '∞'} lượt`,
+    reason: 'ok',
+    remaining: f.subscription?.remaining_uses,
   };
 });
 </script>
@@ -586,6 +761,51 @@ const selectedBranchInfo = computed(() => {
               </article>
             </div>
             <p v-else class="cdk-drawer-empty">Cung {{ selectedBranchInfo.branch }} không có Phi Tinh nào đóng — vùng "tĩnh" chỉ kích hoạt khi Đại Hạn chạm tới.</p>
+
+            <!-- Quick interpretation (instant, free) -->
+            <section v-if="selectedBranchInfo.quickInterpretation?.length" class="cdk-drawer-interp">
+              <h5>📖 Nghĩa cung {{ selectedBranchInfo.branch }} cho Anh</h5>
+              <p v-for="(para, i) in selectedBranchInfo.quickInterpretation" :key="i" v-html="renderMarkdownInline(para)"></p>
+            </section>
+
+            <!-- VIP Deep interpretation by DeepSeek V4 Pro -->
+            <section class="cdk-drawer-deep">
+              <header class="cdk-deep-head">
+                <h5>🌟 Luận giải SÂU bởi DeepSeek V4 Pro</h5>
+                <span :class="['cdk-vip-badge', cdkDeepFeatureStatus.allowed ? 'is-ok' : 'is-locked']">
+                  {{ cdkDeepFeatureStatus.label }}
+                </span>
+              </header>
+              <div v-if="getDeepInterpSlot(selectedBranchInfo.branch).loading" class="cdk-deep-loading">
+                <span class="cdk-spinner"></span>
+                Đang nhờ DeepSeek V4 Pro phân tích cung {{ selectedBranchInfo.branch }}... (60-90s)
+              </div>
+              <p v-else-if="getDeepInterpSlot(selectedBranchInfo.branch).error" class="cdk-deep-error">
+                ⚠ {{ getDeepInterpSlot(selectedBranchInfo.branch).error }}
+              </p>
+              <div v-else-if="getDeepInterpSlot(selectedBranchInfo.branch).data" class="cdk-deep-content">
+                <div v-for="(section, key) in getDeepInterpSlot(selectedBranchInfo.branch).data.luan_cung || {}" :key="key" class="cdk-deep-section">
+                  <h6>{{ DEEP_SECTION_LABELS[key] || key }}</h6>
+                  <p v-html="renderMarkdownInline(String(section))"></p>
+                </div>
+                <small class="cdk-deep-meta">
+                  Provider: {{ getDeepInterpSlot(selectedBranchInfo.branch).data.provider }} ·
+                  Đã tự lưu vào wiki ✓
+                </small>
+                <button v-if="cdkDeepFeatureStatus.allowed" type="button"
+                        class="cdk-deep-regen"
+                        @click="loadDeepInterp(selectedBranchInfo.branch, true)">
+                  🔄 Viết lại
+                </button>
+              </div>
+              <button v-else type="button"
+                      class="cdk-deep-btn"
+                      :disabled="!cdkDeepFeatureStatus.allowed"
+                      @click="loadDeepInterp(selectedBranchInfo.branch)">
+                <span v-if="cdkDeepFeatureStatus.allowed">🌟 Gọi DeepSeek V4 Pro luận sâu cung này (60-90s, tự lưu wiki)</span>
+                <span v-else>🔒 {{ cdkDeepFeatureStatus.label }} — không thể luận sâu</span>
+              </button>
+            </section>
           </article>
         </transition>
       </div>
@@ -1334,6 +1554,159 @@ const selectedBranchInfo = computed(() => {
   font-size: 12px;
   color: rgba(230, 238, 245, 0.6);
   font-style: italic;
+}
+
+/* ─── Quick interpretation (static) ──────────────────────────────── */
+.cdk-drawer-interp {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: rgba(91, 229, 211, 0.04);
+  border-left: 3px solid rgba(91, 229, 211, 0.5);
+  border-radius: 0 8px 8px 0;
+}
+.cdk-drawer-interp h5 {
+  margin: 0 0 10px;
+  color: #5be5d3;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cdk-drawer-interp p {
+  margin: 0 0 10px;
+  color: rgba(230, 238, 245, 0.92);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.cdk-drawer-interp p:last-child { margin-bottom: 0; }
+.cdk-drawer-interp strong { color: #fcd34d; }
+.cdk-drawer-interp em { color: #c4b5fd; font-style: italic; }
+
+/* ─── Deep interpretation (VIP DeepSeek) ──────────────────────────── */
+.cdk-drawer-deep {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background:
+    linear-gradient(135deg, rgba(252, 211, 77, 0.05) 0%, rgba(167, 139, 250, 0.05) 100%),
+    rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(252, 211, 77, 0.22);
+  border-radius: 10px;
+}
+.cdk-deep-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.cdk-deep-head h5 {
+  margin: 0;
+  color: #fcd34d;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cdk-vip-badge {
+  padding: 3px 9px;
+  border-radius: 11px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.cdk-vip-badge.is-ok {
+  background: rgba(91, 229, 211, 0.18);
+  color: #5be5d3;
+}
+.cdk-vip-badge.is-locked {
+  background: rgba(167, 139, 250, 0.18);
+  color: #c4b5fd;
+}
+.cdk-deep-btn {
+  width: 100%;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+  color: #1f1306;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 160ms, box-shadow 160ms;
+}
+.cdk-deep-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(252, 211, 77, 0.45);
+}
+.cdk-deep-btn:disabled {
+  background: rgba(167, 139, 250, 0.18);
+  color: rgba(230, 238, 245, 0.6);
+  cursor: not-allowed;
+}
+.cdk-deep-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  color: #fcd34d;
+  font-size: 13px;
+}
+.cdk-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(252, 211, 77, 0.3);
+  border-top-color: #fcd34d;
+  border-radius: 50%;
+  animation: cdk-spin 0.8s linear infinite;
+}
+@keyframes cdk-spin {
+  to { transform: rotate(360deg); }
+}
+.cdk-deep-error {
+  margin: 0;
+  padding: 10px;
+  color: #fca5a5;
+  background: rgba(248, 113, 113, 0.1);
+  border-radius: 6px;
+  font-size: 12px;
+}
+.cdk-deep-content { font-size: 13px; }
+.cdk-deep-section {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  background: rgba(2, 6, 23, 0.3);
+  border-radius: 7px;
+}
+.cdk-deep-section h6 {
+  margin: 0 0 6px;
+  color: #fcd34d;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cdk-deep-section p {
+  margin: 0;
+  color: rgba(230, 238, 245, 0.9);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.cdk-deep-section strong { color: #fcd34d; }
+.cdk-deep-section em { color: #c4b5fd; }
+.cdk-deep-meta {
+  display: block;
+  margin-top: 8px;
+  text-align: right;
+  color: rgba(91, 229, 211, 0.75);
+  font-size: 11px;
+}
+.cdk-deep-regen {
+  display: block;
+  margin: 10px 0 0;
+  padding: 6px 14px;
+  background: rgba(167, 139, 250, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(167, 139, 250, 0.32);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.cdk-deep-regen:hover {
+  background: rgba(167, 139, 250, 0.28);
 }
 
 /* Animation drawer slide-in */
