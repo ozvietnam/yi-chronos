@@ -17,6 +17,29 @@ const error = ref("");
 const activeStarId = ref(null);
 const selectedArtCard = ref(null);
 
+const CHART_STAR_ID = {
+  "Tử": "tu",
+  "Văn": "van",
+  "Phúc": "phuc",
+  "Lộc": "loc",
+  "Ấn": "an",
+  "Thọ": "tho",
+  "Trượng": "truong",
+  "Khố": "kho",
+  "Không": "khong",
+  "Diêu": "dieu",
+  "Quý": "quy",
+  "Loan": "hong",
+  "Hồng": "hong",
+  "Dị": "di",
+  "Mao": "mao",
+  "Hư": "hu",
+  "Quán": "quan",
+  "Hình": "hinh",
+  "Nhận": "nhan",
+  "Khốc": "khoc",
+};
+
 const phiTinhCardsByStarId = computed(() => {
   return new Map(phiTinhCards.value.map((card) => [card.star_id, card]));
 });
@@ -35,6 +58,13 @@ async function fetchJsonOrNull(url, options = {}) {
 
 function phiTinhArtFor(star) {
   const card = phiTinhCardsByStarId.value.get(star?.id);
+  return card?.image ? card : null;
+}
+
+function chartArtFor(starName) {
+  const starId = CHART_STAR_ID[starName];
+  if (!starId) return null;
+  const card = phiTinhCardsByStarId.value.get(starId);
   return card?.image ? card : null;
 }
 
@@ -98,12 +128,40 @@ function openArtCard(card) {
         <span><b>Tháng âm:</b> {{ cdkChart.lunar_month }}</span>
         <span><b>Giờ:</b> {{ cdkChart.hour_branch }}</span>
       </div>
+      <div class="cdk-chart-guide">
+        <div>
+          <b>1. An sao</b>
+          <span>Engine đặt từng Phi Tinh vào một địa chi: ví dụ “Tử → Hợi” nghĩa là sao Tử đang đóng cung Hợi.</span>
+        </div>
+        <div>
+          <b>2. Ảnh sao</b>
+          <span>Ảnh là pháp tượng của sao, không phải ảnh cung. Sao nào đã vẽ sẽ hiện thumbnail; bấm để mở bản gốc.</span>
+        </div>
+        <div>
+          <b>3. Luận nghĩa</b>
+          <span>Đọc theo cặp “sao + cung đang đóng”, rồi đối chiếu Đại Hạn CDK bên dưới.</span>
+        </div>
+      </div>
       <div class="cdk-stars-grid">
         <div v-for="(branch, star) in cdkChart.stars" :key="star" class="cdk-star-pos">
+          <button
+            v-if="chartArtFor(star)"
+            type="button"
+            class="cdk-chart-art"
+            :aria-label="`Mở ảnh ${star}`"
+            @click.stop="openArtCard(chartArtFor(star))"
+          >
+            <img :src="chartArtFor(star).image" :alt="`Ảnh ${star}`" loading="lazy" />
+          </button>
           <span class="cdk-star-name">{{ star }}</span>
           <span class="cdk-star-branch">{{ branch }}</span>
         </div>
       </div>
+      <p v-if="phiTinhCards.length" class="cdk-chart-art-note">
+        Lá số này hiện có ảnh minh họa cho
+        <b>{{ Object.keys(cdkChart.stars || {}).filter((star) => chartArtFor(star)).length }}</b>
+        sao trong bảng. Các sao còn lại sẽ tự hiện khi thợ vẽ đưa PNG đúng tên vào luồng sync.
+      </p>
       <details class="cdk-dai-han">
         <summary>Đại Hạn CDK ({{ cdkChart.dai_han_cycles?.length }} cycles)</summary>
         <ul>
@@ -281,20 +339,69 @@ function openArtCard(card) {
 .cdk-chart h3 { margin: 0 0 10px; color: #c4b5fd; font-size: 16px; }
 .cdk-meta { display: flex; gap: 16px; flex-wrap: wrap; margin: 10px 0; font-size: 13px; }
 .cdk-meta b { color: rgba(230, 238, 245, 0.55); margin-right: 4px; font-weight: 500; }
+.cdk-chart-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.cdk-chart-guide div {
+  padding: 10px 12px;
+  background: rgba(2, 6, 23, 0.24);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 6px;
+}
+.cdk-chart-guide b {
+  display: block;
+  color: #f5e6b1;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.cdk-chart-guide span {
+  display: block;
+  color: rgba(230, 238, 245, 0.68);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
 .cdk-stars-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 6px; margin: 10px 0;
 }
 .cdk-star-pos {
-  display: flex; justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
   padding: 6px 10px;
   background: rgba(0, 0, 0, 0.25);
   border-left: 2px solid #a78bfa;
   border-radius: 0 4px 4px 0;
   font-size: 12.5px;
 }
+.cdk-chart-art {
+  width: 32px;
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  border: 1px solid rgba(245, 230, 177, 0.28);
+  border-radius: 3px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.28);
+  cursor: zoom-in;
+}
+.cdk-chart-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .cdk-star-name { color: #f5e6b1; }
 .cdk-star-branch { color: #5be5d3; font-weight: 600; }
+.cdk-chart-art-note {
+  margin: 8px 0 10px;
+  color: rgba(230, 238, 245, 0.64);
+  font-size: 12px;
+}
+.cdk-chart-art-note b { color: #fcd34d; }
 .cdk-dai-han { margin: 10px 0; font-size: 12px; }
 .cdk-dai-han summary { cursor: pointer; color: #fcd34d; }
 .cdk-dai-han ul { margin: 6px 0 0 16px; padding: 0; }
@@ -329,7 +436,12 @@ function openArtCard(card) {
 .cdk-art-status b { color: #fcd34d; }
 
 .cdk-tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 768px) { .cdk-tier-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .cdk-chart-guide,
+  .cdk-tier-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .cdk-tier h4 { color: #fcd34d; font-size: 14px; margin: 0 0 8px; }
 .cdk-phi-card {
   display: grid;

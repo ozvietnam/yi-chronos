@@ -61,6 +61,30 @@ Script sẽ:
 5. Cập nhật QA trong `IMAGE_WIKI.md` và trạng thái trong `18_PHI_TINH_CARD_MANIFEST.md` nếu cần.
 6. Mở tab Tử Vi → Chiếu Đởm Kinh để kiểm tra ảnh đã nằm đúng sao.
 
+## Cách gửi ảnh mới để website tự nhận
+
+Khi thợ vẽ giao ảnh, chỉ cần đặt PNG gốc vào `generated_cards/` theo đúng mẫu:
+
+```text
+cdk_phi_XX_slug__hanzi__polarity_element.png
+```
+
+Ví dụ:
+
+```text
+cdk_phi_03_phuc__fu__duong_tho.png
+cdk_phi_04_loc__lu__duong_moc.png
+cdk_phi_10_quy__gui__am_tho.png
+```
+
+Sau đó chạy:
+
+```bash
+node scripts/sync-cdk-phi-tinh-cards.mjs
+```
+
+Giao diện dùng file `cards.json` để biết sao nào đã có ảnh. Sao nào chưa có PNG đúng tên thì vẫn hiện chữ trong schema, nhưng chưa có thumbnail. Ảnh nhỏ trên web luôn là WebP nhẹ; khi bấm vào ảnh, website mở PNG gốc để xem rõ.
+
 ## Nguyên tắc nguồn
 
 - Dữ liệu gốc lấy từ `data/tu_vi/chieu_dom_kinh_18_phi_tinh.json`.

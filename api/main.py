@@ -3121,6 +3121,87 @@ def yi_wiki_stats() -> dict:
     return {"status": "ok", "stats": get_store().stats()}
 
 
+# ─── Tử Vi glossary endpoints (tooltip data + on-demand search) ───────────────
+
+_GLOSSARY_CACHE: dict = {}
+_GLOSSARY_MTIME: float = 0.0
+
+
+def _load_glossary() -> dict:
+    """Load + cache glossary JSON (reload if file mtime changes)."""
+    global _GLOSSARY_CACHE, _GLOSSARY_MTIME
+    from pathlib import Path
+    import json as _json
+    p = Path(__file__).resolve().parent.parent / "data/yi_wiki/glossary_tu_vi.json"
+    if not p.exists():
+        return {}
+    mtime = p.stat().st_mtime
+    if not _GLOSSARY_CACHE or mtime != _GLOSSARY_MTIME:
+        with p.open() as f:
+            _GLOSSARY_CACHE = _json.load(f)
+        _GLOSSARY_MTIME = mtime
+    return _GLOSSARY_CACHE
+
+
+@app.get("/api/yi-wiki/glossary/tu-vi")
+def yi_wiki_glossary_tuvi() -> dict:
+    """Trả full glossary Tử Vi (sao + cung + hóa + cách cục) cho frontend tooltip.
+
+    Frontend load 1 lần khi mount TuViLaSoPanel, cache in-memory để hover tooltip.
+    """
+    g = _load_glossary()
+    if not g:
+        return {"status": "error", "message": "Glossary not built. Run scripts/build_glossary_json.py"}
+    return {"status": "ok", "glossary": g}
+
+
+@app.get("/api/yi-wiki/search")
+def yi_wiki_search(q: str, limit: int = 20) -> dict:
+    """Tìm concept trong wiki (LIKE search on canonical_vi, aliases, short_note).
+
+    Dùng cho search bar trong UI khi user tra cứu thuật ngữ Hán-Việt.
+    """
+    import sqlite3
+    from pathlib import Path
+    q = (q or "").strip()
+    if len(q) < 2:
+        return {"status": "ok", "results": [], "count": 0, "message": "query too short (min 2 chars)"}
+    db_path = Path(__file__).resolve().parent.parent / "data/yi_wiki/wiki.sqlite3"
+    if not db_path.exists():
+        return {"status": "error", "message": "wiki.sqlite3 not found"}
+    db = sqlite3.connect(db_path)
+    try:
+        like = f"%{q}%"
+        rows = db.execute(
+            """SELECT canonical_vi, canonical_zh, short_note, category, school, first_seen_corpus
+               FROM concept_index
+               WHERE canonical_vi LIKE ? OR aliases LIKE ? OR short_note LIKE ?
+               ORDER BY
+                 CASE
+                   WHEN canonical_vi = ? THEN 0
+                   WHEN canonical_vi LIKE ? THEN 1
+                   ELSE 2
+                 END,
+                 LENGTH(canonical_vi)
+               LIMIT ?""",
+            (like, like, like, q, f"{q}%", limit),
+        ).fetchall()
+        results = [
+            {
+                "canonical_vi": r[0],
+                "canonical_zh": r[1] or "",
+                "short_note": (r[2] or "")[:400],
+                "category": r[3] or "khác",
+                "school": r[4] or "",
+                "source": r[5] or "",
+            }
+            for r in rows
+        ]
+        return {"status": "ok", "results": results, "count": len(results), "query": q}
+    finally:
+        db.close()
+
+
 @app.get("/api/yi-wiki/authors")
 def yi_wiki_list_authors() -> dict:
     """List toàn bộ Author trong lineage 5-tier."""
