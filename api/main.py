@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
@@ -4020,11 +4021,16 @@ def yi_wiki_lineage() -> dict:
 from fastapi import UploadFile, File, Form
 from fastapi.responses import FileResponse
 
-MINERU_OUTPUT_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing_mineru")
-TRANSLATIONS_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations")
-COVERS_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/covers")
-RAW_PDFS_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/raw_pdfs")
-UPLOAD_TEMP_ROOT = Path("/tmp/yi-publishing-uploads")
+# Project root — overrideable via env for tests (YI_PROJECT_ROOT)
+PUBLISHING_PROJECT_ROOT = Path(
+    os.environ.get("YI_PROJECT_ROOT", "/Users/ozvietnamdesktop/Desktop/yi")
+)
+
+MINERU_OUTPUT_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing_mineru"
+TRANSLATIONS_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "translations"
+COVERS_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "covers"
+RAW_PDFS_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "raw_pdfs"
+UPLOAD_TEMP_ROOT = PUBLISHING_PROJECT_ROOT / "tmp_uploads"
 
 
 @app.get("/api/yi-publishing/books")
@@ -4035,10 +4041,10 @@ def yi_publishing_books() -> dict:
     For books found in MinerU output but not in books_store, auto-register
     a stub entry (migration backward-compat).
     """
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.jobs import get_default_store as get_jobs_store
 
-    store = BooksStore()
+    store = get_store()
     jobs_store = get_jobs_store()
 
     # Auto-register MinerU-detected books not yet in store (migration)
@@ -4070,7 +4076,7 @@ def yi_publishing_books() -> dict:
         if cp and (Path(cp).is_absolute() and Path(cp).exists()):
             cover_url = f"/api/yi-publishing/books/{b['book_id']}/cover"
         elif cp:
-            full = Path("/Users/ozvietnamdesktop/Desktop/yi") / cp
+            full = PUBLISHING_PROJECT_ROOT / cp
             if full.exists():
                 cover_url = f"/api/yi-publishing/books/{b['book_id']}/cover"
 
@@ -5287,7 +5293,7 @@ def yi_publishing_upload_cover(temp_id: str):
 @app.post("/api/yi-publishing/books/finalize")
 def yi_publishing_finalize_book(req: FinalizeBookRequest) -> dict:
     """Step 3: move temp PDF + cover to permanent location, add to books_store."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.cover_extractor import extract_pdf_metadata
 
     temp_pdf = UPLOAD_TEMP_ROOT / f"{req.temp_id}.pdf"
@@ -5295,7 +5301,7 @@ def yi_publishing_finalize_book(req: FinalizeBookRequest) -> dict:
     if not temp_pdf.exists():
         raise HTTPException(status_code=404, detail=f"Temp upload {req.temp_id} not found or expired")
 
-    store = BooksStore()
+    store = get_store()
     if store.book_exists(req.book_id):
         raise HTTPException(status_code=409, detail=f"book_id {req.book_id!r} already exists")
 
@@ -5325,8 +5331,8 @@ def yi_publishing_finalize_book(req: FinalizeBookRequest) -> dict:
             language=req.language,
             school=req.school,
             notes=req.notes,
-            pdf_path=str(final_pdf.relative_to(Path("/Users/ozvietnamdesktop/Desktop/yi"))),
-            cover_path=str(final_cover.relative_to(Path("/Users/ozvietnamdesktop/Desktop/yi"))) if final_cover.exists() else "",
+            pdf_path=str(final_pdf.relative_to(PUBLISHING_PROJECT_ROOT)),
+            cover_path=str(final_cover.relative_to(PUBLISHING_PROJECT_ROOT)) if final_cover.exists() else "",
             cover_custom=False,
             page_count=page_count,
         )
@@ -5339,14 +5345,14 @@ def yi_publishing_finalize_book(req: FinalizeBookRequest) -> dict:
 @app.get("/api/yi-publishing/books/{book_id}/cover")
 def yi_publishing_book_cover(book_id: str):
     """Serve cover JPEG. Falls back to placeholder if missing."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
 
-    store = BooksStore()
+    store = get_store()
     book = store.get_book(book_id)
     if book and book.get("cover_path"):
         cp = Path(book["cover_path"])
         if not cp.is_absolute():
-            cp = Path("/Users/ozvietnamdesktop/Desktop/yi") / cp
+            cp = PUBLISHING_PROJECT_ROOT / cp
         if cp.exists():
             return FileResponse(cp, media_type="image/jpeg")
     # Default location guess
@@ -5359,10 +5365,10 @@ def yi_publishing_book_cover(book_id: str):
 @app.put("/api/yi-publishing/books/{book_id}/cover")
 async def yi_publishing_upload_custom_cover(book_id: str, file: UploadFile = File(...)) -> dict:
     """Override book cover with user upload (image/* accepted, normalized to JPEG)."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.cover_extractor import save_uploaded_cover
 
-    store = BooksStore()
+    store = get_store()
     book = store.get_book(book_id)
     if not book:
         raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
@@ -5382,7 +5388,7 @@ async def yi_publishing_upload_custom_cover(book_id: str, file: UploadFile = Fil
 
     updated = store.update_book(
         book_id,
-        cover_path=str(final_cover.relative_to(Path("/Users/ozvietnamdesktop/Desktop/yi"))),
+        cover_path=str(final_cover.relative_to(PUBLISHING_PROJECT_ROOT)),
         cover_custom=True,
     )
     return {"status": "ok", "book": updated}
@@ -5391,9 +5397,9 @@ async def yi_publishing_upload_custom_cover(book_id: str, file: UploadFile = Fil
 @app.patch("/api/yi-publishing/books/{book_id}")
 def yi_publishing_update_book_metadata(book_id: str, req: UpdateBookRequest) -> dict:
     """Update book metadata. Only non-null fields are applied."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
 
-    store = BooksStore()
+    store = get_store()
     if not store.book_exists(book_id):
         raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
 
@@ -5411,9 +5417,9 @@ def yi_publishing_update_book_metadata(book_id: str, req: UpdateBookRequest) -> 
 @app.delete("/api/yi-publishing/books/{book_id}")
 def yi_publishing_delete_book(book_id: str) -> dict:
     """Soft delete: sets deleted=true. PDF + cover remain on disk."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
 
-    store = BooksStore()
+    store = get_store()
     if not store.delete_book(book_id, soft=True):
         raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
     return {"status": "ok", "book_id": book_id, "deleted": True}
@@ -5422,9 +5428,9 @@ def yi_publishing_delete_book(book_id: str) -> dict:
 @app.post("/api/yi-publishing/books/{book_id}/recompute-progress")
 def yi_publishing_recompute_progress(book_id: str) -> dict:
     """Force progress recompute by scanning MinerU + translations folder."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
 
-    store = BooksStore()
+    store = get_store()
     if not store.book_exists(book_id):
         raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
     try:
@@ -5440,10 +5446,10 @@ def yi_publishing_recompute_progress(book_id: str) -> dict:
 @app.post("/api/yi-publishing/books/{book_id}/jobs/ocr")
 def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest) -> dict:
     """Trigger MinerU OCR job. Rejects if another OCR job is already active."""
-    from engine.yi_publishing.books_store import BooksStore
+    from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.jobs import get_default_store
 
-    store = BooksStore()
+    store = get_store()
     book = store.get_book(book_id)
     if not book:
         raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
@@ -5453,7 +5459,7 @@ def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest) -> dict:
         raise HTTPException(status_code=400, detail="Book has no pdf_path; please re-upload")
     pdf_abs = Path(pdf_rel)
     if not pdf_abs.is_absolute():
-        pdf_abs = Path("/Users/ozvietnamdesktop/Desktop/yi") / pdf_rel
+        pdf_abs = PUBLISHING_PROJECT_ROOT / pdf_rel
     if not pdf_abs.exists():
         raise HTTPException(status_code=404, detail=f"PDF file missing: {pdf_abs}")
 

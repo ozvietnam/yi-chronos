@@ -44,6 +44,7 @@ import QuickTasksPanel from "./components/QuickTasksPanel.vue";
 import MaiHoaCastPanel from "./components/wiki/MaiHoaCastPanel.vue";
 import CrossCastPanel from "./components/wiki/CrossCastPanel.vue";
 import PublishingWorkspace from "./components/publishing/PublishingWorkspace.vue";
+import LibraryView from "./components/publishing/LibraryView.vue";
 import { applyBirthFromUrlOnMount } from "./composables/useBirthShare.js";
 import { getActiveRuleset, getPlanetPositions, getUniverseNow, submitFeedback, submitPersonalProfile } from "./lib/api";
 import {
@@ -67,6 +68,10 @@ const activeRuleset = ref(null);
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
+// Publishing tab state: null = Library gallery, "<book_id>" = Workspace
+const publishingSelectedBook = ref(null);
+function openBookInWorkspace(bookId) { publishingSelectedBook.value = bookId; }
+function backToLibrary() { publishingSelectedBook.value = null; }
 const activeTuViSchool = ref("bac-phai");
 const latestLucHaoResult = ref(null);
 const latestLucHaoMeta = ref(null);
@@ -714,7 +719,15 @@ onBeforeUnmount(() => {
       </section>
 
       <section v-else-if="activeMainTab === 'publishing'" class="single-column" aria-label="Workspace dịch sách">
-        <PublishingWorkspace />
+        <LibraryView
+          v-if="!publishingSelectedBook"
+          @open-book="openBookInWorkspace"
+        />
+        <PublishingWorkspace
+          v-else
+          :book-id="publishingSelectedBook"
+          @back="backToLibrary"
+        />
       </section>
 
       <section v-else-if="activeMainTab === 'settings'" class="single-column" aria-label="Cài đặt hệ thống">
