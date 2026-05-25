@@ -21,26 +21,49 @@ const form = ref({
   end_page: props.book.page_count || 1,
   backend: "pipeline",
   language: "ch",
+  workers: 3,  // Mac M4 36GB sweet spot
 });
 
 const submitting = ref(false);
 const error = ref("");
 
+const MAX_WORKERS = 4;
+
 const pagesCount = computed(() => {
   return Math.max(0, form.value.end_page - form.value.start_page + 1);
 });
 
-const estimateMinutes = computed(() => {
-  // Rough estimate: 1.5 phút/trang với MinerU pipeline trên M4
-  return Math.round(pagesCount.value * 1.5);
+const pagesPerWorker = computed(() => {
+  const w = Math.max(1, form.value.workers);
+  return Math.ceil(pagesCount.value / w);
 });
 
-const estimateText = computed(() => {
-  const m = estimateMinutes.value;
+// Parallel speedup ~85% efficiency (overhead from spawn + I/O)
+const speedupFactor = computed(() => {
+  const w = Math.max(1, form.value.workers);
+  return w === 1 ? 1.0 : w * 0.85;
+});
+
+const estimateMinutes = computed(() => {
+  return Math.round((pagesCount.value * 1.5) / speedupFactor.value);
+});
+
+function fmtDuration(m) {
   if (m < 60) return `~${m} phút`;
   const h = Math.floor(m / 60);
   const min = m % 60;
-  return min > 0 ? `~${h}h ${min}p` : `~${h}h`;
+  return min > 0 ? `~${h}h${min}p` : `~${h}h`;
+}
+
+const estimateText = computed(() => fmtDuration(estimateMinutes.value));
+const sequentialEstimateText = computed(() =>
+  fmtDuration(Math.round(pagesCount.value * 1.5))
+);
+
+const speedupText = computed(() => {
+  const w = form.value.workers;
+  if (w === 1) return "tuần tự";
+  return `${speedupFactor.value.toFixed(1)}× nhanh hơn 1 worker`;
 });
 
 async function submit() {
@@ -116,14 +139,47 @@ function close() {
           </label>
         </div>
 
+        <!-- Swarm workers selector -->
+        <div class="form-row">
+          <label>
+            🐝 Workers song song
+            <span class="workers-help">
+              ({{ form.workers }} {{ form.workers === 1 ? "worker" : "workers" }} ·
+              {{ speedupText }})
+            </span>
+            <div class="workers-pills">
+              <button
+                v-for="n in MAX_WORKERS"
+                :key="n"
+                type="button"
+                :class="['worker-pill', { active: form.workers === n }]"
+                @click="form.workers = n"
+              >
+                {{ n }}{{ n === 1 ? '' : 'x' }}
+              </button>
+            </div>
+          </label>
+        </div>
+
         <div class="estimate-box">
-          📊 <strong>{{ pagesCount }}</strong> trang · ước tính <strong>{{ estimateText }}</strong>
-          (chạy nền, anh có thể đóng tab)
+          📊 <strong>{{ pagesCount }}</strong> trang
+          ÷ {{ form.workers }} workers = ~<strong>{{ pagesPerWorker }}</strong> trang/worker
+          <div class="estimate-time">
+            ⏱ Ước tính: <strong>{{ estimateText }}</strong>
+            <span v-if="form.workers > 1" class="estimate-savings">
+              (so với {{ sequentialEstimateText }} nếu chạy tuần tự)
+            </span>
+          </div>
+          <div class="estimate-note">Chạy nền, anh có thể đóng tab</div>
         </div>
 
         <p class="hint">
-          💡 MinerU "bắt khối ảnh": detect bố cục paragraphs / images / tables / captions
-          theo paradigm shift #5 (layout-first OCR). Chỉ 1 job OCR chạy tại 1 lần.
+          💡 <strong>"Bắt khối ảnh"</strong>: MinerU detect bố cục paragraphs /
+          images / tables / captions per page (paradigm shift #5 layout-first OCR).
+          <br/>
+          🐝 <strong>Swarm mode</strong>: chia page range thành N chunks, chạy
+          MinerU subprocess parallel, merge JSON outputs sau khi xong.
+          Max {{ MAX_WORKERS }} workers (giới hạn RAM Mac M4 ~36GB).
         </p>
 
         <p v-if="error" class="error-msg">⚠ {{ error }}</p>
@@ -220,11 +276,78 @@ function close() {
   font-size: 0.88rem;
 }
 
+.estimate-time {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(168, 124, 255, 0.18);
+  font-size: 0.92rem;
+}
+
+.estimate-time strong {
+  color: #ffd88a;
+  font-size: 1.04rem;
+}
+
+.estimate-savings {
+  color: rgba(220, 200, 240, 0.65);
+  font-size: 0.82rem;
+  margin-left: 0.3rem;
+}
+
+.estimate-note {
+  font-size: 0.76rem;
+  color: rgba(220, 200, 240, 0.5);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.workers-help {
+  font-weight: normal;
+  color: rgba(220, 200, 240, 0.65);
+  font-size: 0.78rem;
+  margin-left: 0.4rem;
+}
+
+.workers-pills {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.worker-pill {
+  flex: 1;
+  padding: 0.55rem 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(168, 124, 255, 0.2);
+  color: #d8c7ff;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.worker-pill:hover {
+  background: rgba(168, 124, 255, 0.15);
+}
+
+.worker-pill.active {
+  background: linear-gradient(135deg, #ffb74d, #ff9800);
+  color: #2a1a05;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(255, 180, 60, 0.35);
+}
+
 .hint {
   font-size: 0.78rem;
   color: rgba(220, 200, 240, 0.6);
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.55;
+}
+
+.hint strong {
+  color: #d8c7ff;
+  font-weight: 600;
 }
 
 .error-msg {

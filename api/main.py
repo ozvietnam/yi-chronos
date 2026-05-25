@@ -5217,11 +5217,12 @@ class UpdateBookRequest(BaseModel):
 
 
 class SubmitOcrRequest(BaseModel):
-    """POST /books/{id}/jobs/ocr — trigger OCR."""
+    """POST /books/{id}/jobs/ocr — trigger OCR (single or swarm mode)."""
     start_page: int = 1
     end_page: int
     backend: str = "pipeline"   # "pipeline" or "vlm"
     language: str = "ch"        # "ch" or "en"
+    workers: int = 1            # 1 = sequential, >1 = parallel swarm (capped at 4)
 
 
 @app.post("/api/yi-publishing/books/upload")
@@ -5472,6 +5473,7 @@ def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest) -> dict:
             end_page=req.end_page,
             backend=req.backend,
             language=req.language,
+            workers=req.workers,
         )
     except ValueError as e:
         raise HTTPException(status_code=409, detail=str(e))
