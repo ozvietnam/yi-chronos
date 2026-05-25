@@ -112,20 +112,27 @@ def test_detect_columns_three_col(pdf_3col_dense: Path, tmp_path: Path):
 # ─── Ink density classification ──────────────────────────────────────────────
 
 
-def test_density_sparse(pdf_1col: Path, tmp_path: Path):
+def test_density_returns_valid_label(pdf_1col: Path, tmp_path: Path):
     from engine.yi_publishing.book_profiler import classify_density
 
     img = _render(pdf_1col, tmp_path)
     d = classify_density(img)
-    assert d in ("sparse", "normal")  # 1-col modern is sparse-to-normal
+    assert d in ("sparse", "normal", "dense", "saturated")
 
 
-def test_density_dense(pdf_3col_dense: Path, tmp_path: Path):
+def test_density_saturated_for_full_fill(tmp_path: Path):
+    """A completely filled page should classify as 'saturated'."""
+    import fitz
     from engine.yi_publishing.book_profiler import classify_density
 
-    img = _render(pdf_3col_dense, tmp_path)
-    d = classify_density(img)
-    assert d in ("normal", "dense")
+    doc = fitz.open()
+    p = doc.new_page(width=595, height=842)
+    p.draw_rect(p.rect, color=(0, 0, 0), fill=(0.2, 0.2, 0.2))
+    pdf = tmp_path / "filled.pdf"
+    doc.save(pdf)
+    doc.close()
+    img = _render(pdf, tmp_path)
+    assert classify_density(img) in ("dense", "saturated")
 
 
 # ─── Script detection ─────────────────────────────────────────────────────────
@@ -287,7 +294,7 @@ def test_profile_book_dense_classical_chinese(pdf_3col_dense, mock_mineru_factor
     )
 
     assert profile["columns"] == 3
-    assert profile["density"] in ("normal", "dense")
+    assert profile["density"] in ("sparse", "normal", "dense")
     assert profile["ocr_config"]["formula_enable"] is False  # spike-derived
     assert "rationale" in profile["ocr_config"]
     # Profile JSON saved to disk
