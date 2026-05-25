@@ -1254,6 +1254,60 @@ Convergence: top - 2nd > 50% → STOP; else drop scores <50% top → next round
 
 🌸 **Tinh thần phiên này:** Anh nói _"suy nghĩ sâu"_ — em hiểu là không nhảy vào code, không lặp lại v1 đã có. Em invoke brainstorming, vẽ flow, chốt design 11 sections, viết plan 23 tasks, ship 73 tests PASS. Đây là cách em hiểu chữ _"suy nghĩ sâu"_ Anh dạy: design trước code, test trước implement, framework trước feature.
 
+### Lần update 16 — 2026-05-22: Workspace Dịch sách v2.0 — Library Gallery + OCR queue
+
+Anh chỉ đạo: _"sửa lại giao diện dịch sách. có ảnh, thông tin các đầu sách đang dịch, trạng thái đang dịch tới đâu rồi. thêm sách vào dịch, và đặt lịch scan ocr từ ảnh sang text - bắt khối ảnh..."_
+
+Đây là phiên **brainstorm-design-implement** end-to-end trong 1 session:
+
+#### Brainstorming (4 câu hỏi, Anh chốt thẳng)
+1. Layout: **2 màn riêng** Library + Editor (recommended)
+2. Cover: **Auto trang 1 PDF + override upload** (recommended)
+3. OCR scheduling: **Background queue + live progress** (recommended)
+4. Progress metric: **2 progress bars (OCR + Dịch) + stage badge** (recommended)
+
+Anh duyệt design → em viết spec 609 dòng `docs/superpowers/specs/2026-05-22-dich-sach-ui-v2-design.md` (14 sections).
+
+Anh chỉ đạo tiếp: _"dive thẳng vào code luôn"_ — skip writing-plans, em implement luôn.
+
+#### Implementation (4 commits, 5150 dòng net add)
+
+**Phase 1 — Backend foundation** (commit `030528b`)
+- `engine/yi_publishing/books_store.py` (424 LOC): BooksStore class, filelock + atomic write, derive_stage(), slugify(), recompute_progress()
+- `engine/yi_publishing/jobs.py` (493 LOC): single-worker threading queue, chunked OCR (10 pages/chunk), cooperative cancel, zombie detection on restart, ETA từ rolling avg, log_tail deque
+- **48 tests PASS** (33 store + 15 jobs)
+
+**Phase 2 — API endpoints** (commit `105a1ba`)
+- `engine/yi_publishing/cover_extractor.py` (98 LOC): PyMuPDF page-1 thumbnail JPEG
+- 11 new `/api/yi-publishing/*` endpoints: upload, finalize, books CRUD, cover GET/PUT, OCR job submit/list/cancel/recompute-progress
+- Auto-migration: scan MinerU output, auto-register existing books vào books.json
+- **21 tests PASS** (full TestClient flow với stubbed MinerU runner)
+
+**Phase 3 — Frontend** (commit `408f7e1`)
+- 6 components mới: `LibraryView`, `BookCard`, `AddBookModal` (3-step wizard), `OcrJobModal`, `EditMetadataModal`, `JobBadge`
+- App.vue routing toggle Library ↔ Workspace
+- PublishingWorkspace.vue header: back button + book title + stage badge
+- Polling jobs mỗi 5s, live progress trên cards
+- Webapp build: 1741 modules clean, 2.4s
+
+**Phase 4 — Bug fix** (commit `84d3cbd`)
+- Job ID: ms-precision để tránh sort collision khi 2+ jobs cùng giây
+
+#### Tổng kết
+
+- **22 files** changed (15 new, 7 modified) — **5150 lines** added
+- **69 tests PASS** (books_store + jobs + API integration)
+- Webapp build clean
+- Spec + implementation cùng phiên (~3h work)
+
+🎓 **Lesson #20 — Worktree edits không sync project root.** Khi làm trong worktree, edit files dùng absolute worktree path. Em đã sai 1 lần (edit project root `api/main.py` rồi tests fail), phải copy lại vào worktree. Đầu phiên sau làm trong worktree: verify `pwd` + dùng relative paths trong tool calls.
+
+🎓 **Lesson #21 — Singleton override cho tests.** Endpoints dùng `BooksStore()` mới mỗi call sẽ bypass monkey-patched singleton. Pattern đúng: endpoint dùng `get_store()` helper, test monkeypatch `_default_store`. Áp dụng cho mọi module có singleton.
+
+🎓 **Lesson #22 — Project root constant cho test isolation.** Hardcoded `Path("/Users/.../yi")` trong API endpoints không testable. Refactor thành `PUBLISHING_PROJECT_ROOT` module-level constant (env-overrideable) → fixture monkey-patch dễ dàng.
+
+🌸 **Tinh thần phiên này:** Anh nói _"dive thẳng vào code luôn"_ — em hiểu là Anh tin spec đủ rõ + tin em commit kỷ luật. Em không skip discipline (vẫn TDD backend, test trước/cùng implement; commit từng phase nhỏ; verify build); chỉ skip writing-plans skill vì spec đã đủ chi tiết cho em làm. Đây là cách em hiểu _"không cần plan formal mọi lần — nhưng kỷ luật implement luôn cần"_.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
