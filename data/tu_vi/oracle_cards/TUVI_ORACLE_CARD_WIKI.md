@@ -958,7 +958,7 @@ Muc tieu: bo sung cac the trong phan "Can phat trien them" cua wiki, uu tien Tu 
 
 Ngay tao: 2026-05-25
 
-Muc tieu: tiep tuc mo rong cac the Tu Hoa cu the va Toa Cung co gia tri luan giai cao: Quan Loc, Tai Bach, Menh.
+Trang thai: batch nay bi thay the boi yeu cau chuan hoa ID 61-68 o Dot 07. Cac anh dot 06 giu lai nhu ban nhap/lich su, nhung `cards.json` hien tro theo Dot 07.
 
 ### 61. [TU_HOA] LIEM TRINH HOA LOC @ QUAN_LOC
 
@@ -1057,3 +1057,139 @@ Muc tieu: tiep tuc mo rong cac the Tu Hoa cu the va Toa Cung co gia tri luan gia
 - Dien giai chuan: "Phu vao tai kho, giu cua thanh nen."
 - Ghi chu tranh lan: khong trung Loc Ton; Thien Phu la quan tri/kho phu tai Tai Bach.
 - Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/66-thien-phu-tai-bach.png`
+
+## Dot 07 - Bo Toa Cung Chuan Hoa Theo Yeu Cau 61-68
+
+Ngay tao: 2026-05-25
+
+Muc tieu: bo sung dung danh sach anh yeu cau, uu tien cac toa cung co gia tri luan giai cao: Menh, Tai Bach, Quan Loc, Dien Trach, Thien Di, Phu The.
+
+Contact sheet QA: `data/tu_vi/oracle_cards/tu_vi_bac_phai/references/tuvi_bac_phai_batch_61_68_requested_contact_sheet.png`
+
+### 61. [TOA_CUNG] TU VI @ MENH
+
+- Ten hien thi: TU VI MENH / TỬ VI MỆNH
+- Ten he thong: `[TOA_CUNG] TU VI @ MENH`
+- Kieu the: TOA_CUNG
+- Sao chinh: Tu Vi
+- Cung boi canh: Menh
+- Vai tro trong "bo phim la so": de tinh toa menh, trung tam ban nga, khi chu tri.
+- Khi chat: chu quyen noi tam, trung tam, menh truc.
+- Nhan vat: de tinh tim toa giua menh ban, khi chu tri tu vao truc ban than.
+- Bieu tuong chinh: menh ban, sao Bac Cuc, ngai noi tam, vong muoi hai cung, truc khi tim.
+- Mau chinh: tim de vuong, vang co, cham toi, ngoc.
+- Dien giai chuan: "De tinh toa menh, khi chu tri."
+- Ghi chu tranh lan: dung yeu cau 61-tu-vi-menh; khong dung ban cu id 65.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/61-tu-vi-menh.png`
+
+### 62. [TOA_CUNG] VU KHUC @ TAI_BACH
+
+- Ten hien thi: VU KHUC TAI BACH / VŨ KHÚC TÀI BẠCH
+- Ten he thong: `[TOA_CUNG] VU KHUC @ TAI_BACH`
+- Kieu the: TOA_CUNG
+- Sao chinh: Vu Khuc
+- Cung boi canh: Tai Bach
+- Vai tro trong "bo phim la so": kho kim, tien bac, quan tri tai san, tinh thuc dung.
+- Khi chat: kim tinh, thuc dung, quan tri cua cai.
+- Nhan vat: tai tinh kim khi kiem toan kho bac, so cai va bac nen.
+- Bieu tuong chinh: kho kim, so tai, can, chia khoa, bac nen, kiem lanh.
+- Mau chinh: bac thep, xanh den, vang co, ngoc den, do an.
+- Dien giai chuan: "Kho kim giu cua, tai san vao khuon."
+- Ghi chu tranh lan: khong trung ban Vu Khuc Hoa Quyen; day la toa Tai Bach.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/62-vu-khuc-tai-bach.png`
+
+### 63. [TOA_CUNG] THAI DUONG @ QUAN_LOC
+
+- Ten hien thi: THAI DUONG QUAN LOC / THÁI DƯƠNG QUAN LỘC
+- Ten he thong: `[TOA_CUNG] THAI DUONG @ QUAN_LOC`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thai Duong
+- Cung boi canh: Quan Loc
+- Vai tro trong "bo phim la so": danh vong, cong viec sang, vai tro dan duong.
+- Khi chat: cong khai, soi sang, dan dat.
+- Nhan vat: nhat tinh chieu qua cong quan loc, mo duong cong viec va danh vong.
+- Bieu tuong chinh: mat troi, cong quan loc, duong sang, cong van, co dan duong.
+- Mau chinh: vang mat troi, do son, trang am, dong, cham toi.
+- Dien giai chuan: "Quan loc sang danh, nhat quang dan duong."
+- Ghi chu tranh lan: phai sang, cong khai, khac Thai Am Tai Bach.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/63-thai-duong-quan-loc.png`
+
+### 64. [TOA_CUNG] THIEN PHU @ DIEN_TRACH
+
+- Ten hien thi: THIEN PHU DIEN TRACH / THIÊN PHỦ ĐIỀN TRẠCH
+- Ten he thong: `[TOA_CUNG] THIEN PHU @ DIEN_TRACH`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thien Phu
+- Cung boi canh: Dien Trach
+- Vai tro trong "bo phim la so": phu kho, nha dat, nen gia san on dinh.
+- Khi chat: an gia, tich san, kho phu.
+- Nhan vat: thien phu mo kho gia san trong san nha on dinh, dat khe va chia khoa an gia.
+- Bieu tuong chinh: phu kho, nha dat, dat khe, chia khoa, gao, san to nghiep.
+- Mau chinh: ngoc sam, vang co, nau am, cham, giay nga.
+- Dien giai chuan: "Phu kho an gia, dien san thanh nen."
+- Ghi chu tranh lan: khong dung ban Thien Phu Tai Bach; day la Dien Trach.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/64-thien-phu-dien-trach.png`
+
+### 65. [TOA_CUNG] THAT SAT @ QUAN_LOC
+
+- Ten hien thi: THAT SAT QUAN LOC / THẤT SÁT QUAN LỘC
+- Ten he thong: `[TOA_CUNG] THAT SAT @ QUAN_LOC`
+- Kieu the: TOA_CUNG
+- Sao chinh: That Sat
+- Cung boi canh: Quan Loc
+- Vai tro trong "bo phim la so": tuong lenh, canh tranh, nghe ap luc cao.
+- Khi chat: ap luc, quyet doan, chien luoc.
+- Nhan vat: tuong tinh o cong quan loc, ap luc nghe nghiep va lenh canh tranh.
+- Bieu tuong chinh: tuong lenh, ao giap, co tran, nui sac, cong nghe nghiep.
+- Mau chinh: thep, do tram, den, vang co, xanh bao.
+- Dien giai chuan: "Tuong lenh vao quan, ap luc ren cong."
+- Ghi chu tranh lan: khong gore; That Sat Quan Loc la ap luc nghe, khong bao luc thuan.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/65-that-sat-quan-loc.png`
+
+### 66. [TOA_CUNG] PHA QUAN @ THIEN_DI
+
+- Ten hien thi: PHA QUAN THIEN DI / PHÁ QUÂN THIÊN DI
+- Ten he thong: `[TOA_CUNG] PHA QUAN @ THIEN_DI`
+- Kieu the: TOA_CUNG
+- Sao chinh: Pha Quan
+- Cung boi canh: Thien Di
+- Vai tro trong "bo phim la so": ra ngoai pha cu mo moi, bien dong xa que.
+- Khi chat: bien dong, khai pha, roi que.
+- Nhan vat: Pha Quan roi cong cu, di vao bao xa que de mo duong moi.
+- Bieu tuong chinh: cong cu, day xich dut, co rach, duong xa, chan troi bao.
+- Mau chinh: xanh bao, den, xam sat, do tram, vang co.
+- Dien giai chuan: "Ra ngoai pha cu, xa que mo duong."
+- Ghi chu tranh lan: phai co chuyen dong Thien Di; khong chi ve Pha Quan pha huy.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/66-pha-quan-thien-di.png`
+
+### 67. [TOA_CUNG] CU MON @ PHU_THE
+
+- Ten hien thi: CU MON PHU THE / CỰ MÔN PHU THÊ
+- Ten he thong: `[TOA_CUNG] CU MON @ PHU_THE`
+- Kieu the: TOA_CUNG
+- Sao chinh: Cu Mon
+- Cung boi canh: Phu The
+- Vai tro trong "bo phim la so": ngon ngu, tranh luan, loi noi trong quan he.
+- Khi chat: doi thoai, tranh chap, thuong luong.
+- Nhan vat: Cu Mon dung giua hai nguoi trong cung Phu The, loi noi thanh cau hoac thanh cua chan.
+- Bieu tuong chinh: cong toi, doi bong, thu niem phong, dai tranh luan, khoi loi noi.
+- Mau chinh: cham toi, dong, do tram, giay nga, suong xam.
+- Dien giai chuan: "Loi vao phu the, noi dung moi hoa."
+- Ghi chu tranh lan: khong bao luc gia dinh, khong romance lo lieu; trong ngon ngu trong quan he.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/67-cu-mon-phu-the.png`
+
+### 68. [TOA_CUNG] THIEN TUONG @ QUAN_LOC
+
+- Ten hien thi: THIEN TUONG QUAN LOC / THIÊN TƯỚNG QUAN LỘC
+- Ten he thong: `[TOA_CUNG] THIEN TUONG @ QUAN_LOC`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thien Tuong
+- Cung boi canh: Quan Loc
+- Vai tro trong "bo phim la so": an tuong, quan tri, cong quyen, trach nhiem.
+- Khi chat: quan ly, cong vu, giu an.
+- Nhan vat: Thien Tuong cam an truoc cong duong quan loc, quan tri va giu trach nhiem.
+- Bieu tuong chinh: an tuong, cong duong, van thu, giap can bang, co luat.
+- Mau chinh: ngoc xanh, vang co, xanh dam, giay nga, do an.
+- Dien giai chuan: "An tuong vao quan, trach nhiem giu quyen."
+- Ghi chu tranh lan: khong ve loan tuong; Thien Tuong la quan tri va trach nhiem cong.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/68-thien-tuong-quan-loc.png`
