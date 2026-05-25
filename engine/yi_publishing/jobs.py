@@ -189,7 +189,11 @@ class JobsStore:
                         f"(book_id={j.get('book_id')})"
                     )
 
-            job_id = f"ocr-{datetime.now().strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:6]}"
+            _ts = datetime.now()
+            job_id = (
+                f"ocr-{_ts.strftime('%Y%m%d-%H%M%S')}"
+                f"-{_ts.microsecond:06d}-{uuid.uuid4().hex[:4]}"
+            )
             job = {
                 "job_id": job_id,
                 "book_id": book_id,
