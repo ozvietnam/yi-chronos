@@ -91,6 +91,11 @@ function oracleCardFor(star) {
   return oracleCardsByTitle.value.get(normalizeTitle(oracleTitle)) ?? null;
 }
 const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeStar.value) : null);
+const latestContextCards = computed(() => {
+  return oracleCards.value
+    .filter((card) => card.id >= 55 && card.id <= 60)
+    .sort((a, b) => a.id - b.id);
+});
 </script>
 
 <template>
@@ -139,6 +144,32 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
         </p>
       </article>
     </div>
+
+    <section v-if="latestContextCards.length" class="ct-context-strip">
+      <header>
+        <div>
+          <h3>Đợt mới 55-60 · Tứ Hóa và Tọa Cung</h3>
+          <p>Thẻ ngữ cảnh sẽ tự hiện trong phần luận cung khi lá số có đúng sao, đúng Hóa, đúng cung.</p>
+        </div>
+        <small>{{ latestContextCards.length }} thẻ đã web-ready</small>
+      </header>
+      <div class="ct-context-row">
+        <button
+          v-for="card in latestContextCards"
+          :key="card.id"
+          type="button"
+          class="ct-context-card"
+          @click="openOracleCard(card)"
+        >
+          <img :src="card.image" :alt="card.title" loading="lazy" />
+          <span>
+            <b>{{ card.id }}. {{ card.title }}</b>
+            <small>{{ card.system_name || card.card_type }}</small>
+            <em>{{ card.interpretation }}</em>
+          </span>
+        </button>
+      </div>
+    </section>
 
     <!-- Detail card pinned at the bottom when a star is active -->
     <transition name="fade">
@@ -362,6 +393,93 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
   line-height: 1.5;
 }
 .chu-ve b { color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-weight: 500; }
+
+.ct-context-strip {
+  padding: 14px;
+  border: 1px solid rgba(232, 201, 90, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(232, 201, 90, 0.07), rgba(91, 229, 211, 0.035)),
+    rgba(255, 255, 255, 0.025);
+}
+.ct-context-strip > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.ct-context-strip h3 {
+  margin: 0 0 4px;
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 15px;
+}
+.ct-context-strip p {
+  margin: 0;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.ct-context-strip > header small {
+  color: var(--accent-teal, #5be5d3);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ct-context-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.ct-context-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(232, 201, 90, 0.2);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.16);
+  color: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.ct-context-card:hover {
+  border-color: rgba(232, 201, 90, 0.48);
+  background: rgba(232, 201, 90, 0.07);
+}
+.ct-context-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #071018;
+}
+.ct-context-card span,
+.ct-context-card b,
+.ct-context-card small,
+.ct-context-card em {
+  display: block;
+  min-width: 0;
+}
+.ct-context-card b {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 12px;
+  line-height: 1.25;
+}
+.ct-context-card small {
+  margin-top: 3px;
+  color: rgba(230, 238, 245, 0.48);
+  font-size: 10px;
+  line-height: 1.3;
+}
+.ct-context-card em {
+  margin-top: 5px;
+  color: rgba(230, 238, 245, 0.74);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.4;
+}
 
 /* Detail pane */
 .ct-detail {
@@ -668,6 +786,22 @@ const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeS
 
 @media (max-width: 720px) {
   .ct-grid { grid-template-columns: 1fr; }
+  .ct-context-strip > header {
+    display: block;
+  }
+  .ct-context-strip > header small {
+    display: block;
+    margin-top: 6px;
+  }
+  .ct-context-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 3px;
+  }
+  .ct-context-card {
+    flex: 0 0 152px;
+  }
   .ct-card {
     grid-template-columns: 68px minmax(0, 1fr);
     min-height: 154px;

@@ -150,6 +150,25 @@ const oracleCardsByType = computed(() => {
   }, {});
 });
 
+function palaceStarNamesForReading(reading) {
+  const branchIdx = BRANCH_NAMES.indexOf(String(reading?.branch || ""));
+  const cell = branchIdx >= 0 ? cellByBranch.value?.[branchIdx] : null;
+  return new Set([
+    ...(reading?.chinh_tinh || []),
+    ...(cell?.chinh || []).map((s) => s.name),
+    ...(cell?.phu || []).map((s) => s.name),
+    ...(cell?.sat || []).map((s) => s.name),
+    ...(cell?.q2 || []).map((s) => s.name),
+  ]);
+}
+
+function tuHoaForStar(starName) {
+  for (const [hoa, star] of Object.entries(data.value?.tu_hoa || {})) {
+    if (star === starName) return hoa;
+  }
+  return "";
+}
+
 function oracleCardForStarName(starName) {
   const title = ORACLE_TITLE_BY_STAR[starName];
   if (!title) return null;
@@ -157,12 +176,14 @@ function oracleCardForStarName(starName) {
 }
 
 function contextOracleCardsForPalace(reading) {
-  const cards = oracleCardsByType.value.TOA_CUNG || [];
   const palace = String(reading?.palace_name || "");
   const branch = String(reading?.branch || "");
-  const stars = new Set(reading?.chinh_tinh || []);
+  const stars = palaceStarNamesForReading(reading);
+  const candidates = oracleCards.value.filter((card) => {
+    return ["TOA_CUNG", "TU_HOA"].includes(card.card_type) || [31, 32, 33].includes(card.id);
+  });
 
-  return cards.filter((card) => {
+  return candidates.filter((card) => {
     const star = String(card.main_star || card.title_ascii || "").replaceAll("Thien", "Thiên");
     const context = String(card.palace_context || "");
     if (card.id === 31) {
@@ -173,6 +194,24 @@ function contextOracleCardsForPalace(reading) {
     }
     if (card.id === 33) {
       return palace === "Thiên Di" && /Bat Toa|Bát Tọa/i.test(star + context);
+    }
+    if (card.slug === "tham-lang-hoa-loc-dien-trach") {
+      return palace === "Điền Trạch" && stars.has("Tham Lang") && tuHoaForStar("Tham Lang") === "Lộc";
+    }
+    if (card.slug === "thai-am-hoa-quyen") {
+      return stars.has("Thái Âm") && tuHoaForStar("Thái Âm") === "Quyền";
+    }
+    if (card.slug === "huu-bat-hoa-khoa") {
+      return stars.has("Hữu Bật") && tuHoaForStar("Hữu Bật") === "Khoa";
+    }
+    if (card.slug === "thien-co-hoa-ky-phap-ly") {
+      return stars.has("Thiên Cơ") && tuHoaForStar("Thiên Cơ") === "Kỵ";
+    }
+    if (card.slug === "tham-lang-dien-trach") {
+      return palace === "Điền Trạch" && stars.has("Tham Lang");
+    }
+    if (card.slug === "thai-am-tai-bach") {
+      return palace === "Tài Bạch" && stars.has("Thái Âm");
     }
     return false;
   });
