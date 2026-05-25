@@ -5,6 +5,7 @@ import SchoolIcon from "./components/SchoolIcon.vue";
 import UserBadge from "./components/UserBadge.vue";
 import OnboardingModal from "./components/OnboardingModal.vue";
 import AdminPanel from "./components/AdminPanel.vue";
+import MyPublicationsPanel from "./components/MyPublicationsPanel.vue";
 import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
 import UniverseCore from "./components/UniverseCore.vue";
@@ -348,6 +349,11 @@ onBeforeUnmount(() => {
             @click="activeMainTab = 'profiles'">
             <span class="tab-icon"><SchoolIcon name="profiles" /></span> Hồ sơ
           </button>
+          <button type="button" :class="{ active: activeMainTab === 'my-publications' }"
+            @click="activeMainTab = 'my-publications'"
+            title="Hồ sơ kết quả: PDF, Word, MD đã sinh thành">
+            <span class="tab-icon">📚</span> Kết quả
+          </button>
         </div>
         <div class="tab-divider"></div>
         <div class="tab-group">
@@ -434,6 +440,10 @@ onBeforeUnmount(() => {
       <p v-if="feedbackStatus" class="status-message success">{{ feedbackStatus }}</p>
 
       <!-- Tab 1: Hồ sơ — unified entity management (Persons/Families/Orgs/Events) -->
+      <section v-if="activeMainTab === 'my-publications'" class="single-column" aria-label="Hồ sơ kết quả">
+        <MyPublicationsPanel />
+      </section>
+
       <section v-if="activeMainTab === 'profiles'" class="single-column" aria-label="Hồ sơ thực thể">
         <TabIntro
           icon="profiles"

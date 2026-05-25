@@ -224,6 +224,45 @@ def _init_schema(db: sqlite3.Connection) -> None:
         );
         CREATE INDEX IF NOT EXISTS idx_subs_user ON user_subscriptions(user_id);
         CREATE INDEX IF NOT EXISTS idx_subs_feature ON user_subscriptions(feature_id);
+
+        -- 📚 User publications — registry các bản đã sinh thành (PDF/DOCX/MD)
+        -- Tự động register sau mỗi lần gen LLM thành công.
+        CREATE TABLE IF NOT EXISTS user_publications (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id         INTEGER NOT NULL,
+            person_key      TEXT NOT NULL,                -- 'self' | 'wife' | 'child_1' | ...
+            pub_type        TEXT NOT NULL,                -- 'phe_menh_sau' | 'cdk_12_cung' | 'cdk_dai_han' | 'cdk_luu_nien' | 'cdk_tong_doan' | 'master'
+            title           TEXT NOT NULL,
+            file_dir        TEXT NOT NULL,                -- 'data/user_publications/u1/self/phe_menh_sau_v4'
+            formats         TEXT NOT NULL DEFAULT '{}',   -- JSON {"pdf": "...", "docx": "...", "md": "...", "json": "..."}
+            total_chars     INTEGER DEFAULT 0,
+            cost_usd        REAL DEFAULT 0,
+            provider        TEXT,                          -- 'deepseek' | 'minimax' | ...
+            model           TEXT,                          -- 'v4_pro' | ...
+            version         TEXT,                          -- 'v4_q4_enriched' | ...
+            generated_at    INTEGER NOT NULL,
+            status          TEXT NOT NULL DEFAULT 'active',-- 'active' | 'archived'
+            notes           TEXT,
+            FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+            UNIQUE(user_id, person_key, pub_type)
+        );
+        CREATE INDEX IF NOT EXISTS idx_pub_user ON user_publications(user_id);
+        CREATE INDEX IF NOT EXISTS idx_pub_user_person ON user_publications(user_id, person_key);
+
+        -- 🔗 Publication shares — token-based public share link
+        CREATE TABLE IF NOT EXISTS publication_shares (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            publication_id  INTEGER NOT NULL,
+            token           TEXT UNIQUE NOT NULL,         -- random 32-char
+            created_by      INTEGER NOT NULL,             -- user_id của owner
+            created_at      INTEGER NOT NULL,
+            expires_at      INTEGER,                       -- NULL = không hết hạn
+            access_count    INTEGER NOT NULL DEFAULT 0,
+            max_accesses    INTEGER,                       -- NULL = unlimited views
+            note            TEXT,                          -- e.g. "Chia sẻ cho vợ"
+            FOREIGN KEY(publication_id) REFERENCES user_publications(id) ON DELETE CASCADE
+        );
+        CREATE INDEX IF NOT EXISTS idx_share_token ON publication_shares(token);
     """)
     db.commit()
 

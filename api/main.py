@@ -5932,6 +5932,167 @@ def yi_user_my_vip(request: Request) -> dict:
     }
 
 
+# ═════════════════════════════════════════════════════════════════════════════
+# 📚 USER PUBLICATIONS — Hồ sơ kết quả per-user
+# ═════════════════════════════════════════════════════════════════════════════
+
+@app.get("/api/user/publications")
+def yi_user_publications_list(request: Request, person_key: str = "") -> dict:
+    """List all publications của current user (optionally filter person)."""
+    from api.auth import get_current_user
+    from engine.publications import list_publications, user_stats, PUB_TYPES
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    pubs = list_publications(user["user_id"], person_key=person_key or None)
+    stats = user_stats(user["user_id"])
+    return {
+        "status": "ok",
+        "publications": pubs,
+        "stats": stats,
+        "catalog": [{"pub_type": k, **v} for k, v in PUB_TYPES.items()],
+    }
+
+
+@app.get("/api/user/publications/{pub_id}")
+def yi_user_publication_detail(pub_id: int, request: Request) -> dict:
+    """Detail single publication (must be owner)."""
+    from api.auth import get_current_user
+    from engine.publications import get_publication
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    pub = get_publication(pub_id)
+    if not pub:
+        raise HTTPException(404, "Publication not found")
+    if pub["user_id"] != user["user_id"] and user.get("role") != "owner":
+        raise HTTPException(403, "Permission denied")
+    return {"status": "ok", "publication": pub}
+
+
+@app.get("/api/user/publications/{pub_id}/file/{fmt}")
+def yi_user_publication_file(pub_id: int, fmt: str, request: Request):
+    """Download/serve a publication file (pdf/docx/md/json). Auth-gated."""
+    from api.auth import get_current_user
+    from engine.publications import get_publication, PROJECT_ROOT
+    from fastapi.responses import FileResponse
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    pub = get_publication(pub_id)
+    if not pub:
+        raise HTTPException(404, "Publication not found")
+    if pub["user_id"] != user["user_id"] and user.get("role") != "owner":
+        raise HTTPException(403, "Permission denied")
+    formats = pub.get("formats", {})
+    if fmt not in formats:
+        raise HTTPException(404, f"Format '{fmt}' not available. Available: {list(formats.keys())}")
+    file_path = PROJECT_ROOT / pub["file_dir"] / formats[fmt]
+    if not file_path.exists():
+        raise HTTPException(404, f"File missing on disk: {file_path}")
+    mime_map = {
+        "pdf": "application/pdf",
+        "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "md": "text/markdown; charset=utf-8",
+        "json": "application/json",
+    }
+    safe_title = pub["title"].replace(" ", "_").replace("—", "-")
+    return FileResponse(
+        str(file_path),
+        media_type=mime_map.get(fmt, "application/octet-stream"),
+        filename=f"{safe_title}.{fmt}",
+    )
+
+
+@app.post("/api/user/publications/{pub_id}/archive")
+def yi_user_publication_archive(pub_id: int, request: Request) -> dict:
+    """Archive a publication (soft-delete from listing, files preserved)."""
+    from api.auth import get_current_user
+    from engine.publications import archive_publication
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    return archive_publication(pub_id, user["user_id"])
+
+
+class _ShareCreateRequest(BaseModel):
+    publication_id: int
+    expires_in_days: Optional[int] = 7        # default 7 ngày
+    max_accesses: Optional[int] = None
+    note: Optional[str] = None
+
+
+@app.post("/api/user/publications/share")
+def yi_user_publication_share(req: _ShareCreateRequest, request: Request) -> dict:
+    """Tạo share token cho publication."""
+    from api.auth import get_current_user
+    from engine.publications import create_share_token
+    import time as _t
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    expires_at = None
+    if req.expires_in_days:
+        expires_at = int(_t.time()) + req.expires_in_days * 86400
+    return create_share_token(
+        req.publication_id, user["user_id"],
+        expires_at=expires_at,
+        max_accesses=req.max_accesses,
+        note=req.note,
+    )
+
+
+@app.get("/api/user/publications/shares/mine")
+def yi_user_my_shares(request: Request) -> dict:
+    """List share tokens current user đã tạo."""
+    from api.auth import get_current_user
+    from engine.publications import list_user_shares
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    return {"status": "ok", "shares": list_user_shares(user["user_id"])}
+
+
+@app.delete("/api/user/publications/shares/{share_id}")
+def yi_user_share_revoke(share_id: int, request: Request) -> dict:
+    """Revoke a share token."""
+    from api.auth import get_current_user
+    from engine.publications import revoke_share
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(401, "Login required")
+    return revoke_share(share_id, user["user_id"])
+
+
+@app.get("/api/share/{token}")
+def yi_share_resolve(token: str):
+    """Public endpoint — resolve share token → serve file (no auth needed)."""
+    from engine.publications import resolve_share_token, PROJECT_ROOT
+    from fastapi.responses import FileResponse, JSONResponse
+    info = resolve_share_token(token)
+    if not info:
+        return JSONResponse({"status": "error", "message": "Token không hợp lệ"}, status_code=404)
+    if info.get("_expired"):
+        return JSONResponse({"status": "error", "message": "Link đã hết hạn"}, status_code=410)
+    if info.get("_quota_exceeded"):
+        return JSONResponse({"status": "error", "message": "Đã vượt số lượt truy cập"}, status_code=429)
+    # Prefer PDF, fallback DOCX
+    formats = info.get("formats", {})
+    fmt = "pdf" if "pdf" in formats else ("docx" if "docx" in formats else None)
+    if not fmt:
+        return JSONResponse({"status": "error", "message": "Publication không có file"}, status_code=404)
+    file_path = PROJECT_ROOT / info["file_dir"] / formats[fmt]
+    if not file_path.exists():
+        return JSONResponse({"status": "error", "message": "File không tồn tại"}, status_code=404)
+    mime_map = {"pdf": "application/pdf", "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
+    safe_title = (info["title"] or "shared").replace(" ", "_").replace("—", "-")
+    return FileResponse(
+        str(file_path),
+        media_type=mime_map[fmt],
+        filename=f"{safe_title}.{fmt}",
+    )
+
+
 @app.post("/api/tu-vi/phe-menh-sau")
 def yi_tuvi_phe_menh_sau(req: _AnalyzeRequest, request: Request) -> dict:
     """Luận giải sâu Tử Vi (VIP DeepSeek Pro). VIP1-gated.
