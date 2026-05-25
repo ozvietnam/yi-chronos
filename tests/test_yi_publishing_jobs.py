@@ -343,6 +343,10 @@ def swarm_ocr_runner():
         )
         (out_dir / "images").mkdir(exist_ok=True)
         (out_dir / "images" / f"p{start}_img.png").write_bytes(b"fakepng")
+        # page_images (per-page renders): p0001.png, p0002.png, ...
+        (out_dir / "page_images").mkdir(exist_ok=True)
+        for i in range(pages):
+            (out_dir / "page_images" / f"p{start + i:04d}.png").write_bytes(b"fakepage")
 
     return runner, calls
 
@@ -395,6 +399,52 @@ def test_swarm_merges_chunks_into_canonical_folder(tmp_path: Path, fake_pdf: Pat
 
     swarm_tmp = tmp_path / "data" / "yi_publishing_mineru" / "_swarm" / j["job_id"]
     assert not swarm_tmp.exists()
+
+
+def test_swarm_merge_copies_page_images(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):
+    """After merge, page_images/ folder must have all per-page renders.
+
+    Regression: original merge only copied region images/, not page_images/.
+    Result: page-image endpoint failed for pages > first chunk size.
+    """
+    runner, _ = swarm_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="pageimg", pdf_path=fake_pdf, start_page=1, end_page=12, workers=3
+    )
+    _wait_for_status(s, j["job_id"], (STATUS_DONE,), timeout=10)
+
+    canonical_page_imgs = (
+        tmp_path / "data" / "yi_publishing_mineru" / "pageimg" / "auto" / "page_images"
+    )
+    assert canonical_page_imgs.exists()
+    pngs = sorted(p.name for p in canonical_page_imgs.glob("*.png"))
+    # All 12 pages should be present (4 per chunk × 3 chunks)
+    assert len(pngs) == 12
+    assert pngs[0] == "p0001.png"
+    assert pngs[-1] == "p0012.png"
+
+
+def test_swarm_merge_copies_source_pdf_as_origin(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):
+    """After merge, <book_id>_origin.pdf must be the full source PDF.
+
+    Regression: each chunk worker produced its own _origin.pdf for chunk pages
+    only; merge previously skipped this file → page-image endpoint rendered
+    wrong pages or returned 404 for pages beyond first chunk's slice.
+    """
+    runner, _ = swarm_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="origin", pdf_path=fake_pdf, start_page=1, end_page=10, workers=2
+    )
+    _wait_for_status(s, j["job_id"], (STATUS_DONE,), timeout=10)
+
+    canonical_origin = (
+        tmp_path / "data" / "yi_publishing_mineru" / "origin" / "auto" / "origin_origin.pdf"
+    )
+    assert canonical_origin.exists()
+    # Content should match the source fake_pdf
+    assert canonical_origin.read_bytes() == fake_pdf.read_bytes()
 
 
 def test_swarm_caps_at_max_workers(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):

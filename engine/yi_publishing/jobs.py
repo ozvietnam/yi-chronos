@@ -621,7 +621,9 @@ class JobsStore:
             )
             self._append_log(job_id, "🔗 Merging chunks into canonical folder...")
             try:
-                self._merge_swarm_chunks(book_id, swarm_root, actual_workers)
+                self._merge_swarm_chunks(
+                    book_id, swarm_root, actual_workers, pdf_path=pdf_path
+                )
                 # Cleanup swarm tmp
                 shutil.rmtree(swarm_root, ignore_errors=True)
             except Exception as e:
@@ -669,7 +671,12 @@ class JobsStore:
             self._cancel_flags.pop(job_id, None)
 
     def _merge_swarm_chunks(
-        self, book_id: str, swarm_root: Path, n_chunks: int
+        self,
+        book_id: str,
+        swarm_root: Path,
+        n_chunks: int,
+        *,
+        pdf_path: Optional[Path] = None,
     ) -> None:
         """Merge per-chunk MinerU outputs into canonical book folder.
 
@@ -681,14 +688,23 @@ class JobsStore:
             swarm_root/chunk_<i>/<book_id>/auto/images/...
 
         Output: mineru_output/<book_id>/auto/<book_id>_*.json + images/
+                + <book_id>_origin.pdf (copy of full source PDF, for page render)
 
         content_list_v2.json + content_list.json + middle.json.pdf_info are
         page-keyed arrays; concatenate in chunk order.
+
+        Args:
+            pdf_path: source PDF path. If provided, copied as <book_id>_origin.pdf
+                      so the page-image endpoint can render any page (each chunk
+                      worker only produces _origin.pdf for its slice, so we need
+                      the full source).
         """
         target_dir = self.mineru_output / book_id / "auto"
         target_dir.mkdir(parents=True, exist_ok=True)
         target_images = target_dir / "images"
         target_images.mkdir(parents=True, exist_ok=True)
+        target_page_images = target_dir / "page_images"
+        target_page_images.mkdir(parents=True, exist_ok=True)
 
         # Collect per-chunk JSONs in chunk order (0..N-1)
         v2_combined: list = []
@@ -734,11 +750,19 @@ class JobsStore:
                 if isinstance(mdata, list):
                     model_combined.extend(mdata)
 
-            # images: copy without overwrite (filenames already unique per page)
+            # images (region-level): copy without overwrite (filenames page-prefixed)
             chunk_images = chunk_auto / "images"
             if chunk_images.exists():
                 for img in chunk_images.iterdir():
                     target_img = target_images / img.name
+                    if not target_img.exists():
+                        shutil.copy2(img, target_img)
+
+            # page_images (per-page renders): also copy (p0001.png ... p0NNN.png)
+            chunk_page_images = chunk_auto / "page_images"
+            if chunk_page_images.exists():
+                for img in chunk_page_images.iterdir():
+                    target_img = target_page_images / img.name
                     if not target_img.exists():
                         shutil.copy2(img, target_img)
 
@@ -759,6 +783,14 @@ class JobsStore:
             (target_dir / f"{book_id}_model.json").write_text(
                 json.dumps(model_combined, ensure_ascii=False), encoding="utf-8"
             )
+
+        # Copy source PDF as <book_id>_origin.pdf so page-image endpoint can render
+        # any page. Each chunk worker only produces _origin.pdf for its slice, so
+        # we need the full PDF as the canonical origin.
+        if pdf_path and Path(pdf_path).exists():
+            origin_target = target_dir / f"{book_id}_origin.pdf"
+            shutil.copy2(pdf_path, origin_target)
+            logger.info(f"📄 Copied source PDF → {origin_target.name}")
 
         logger.info(
             f"🔗 Merged {n_chunks} chunks → {target_dir} "
