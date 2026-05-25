@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
@@ -4017,36 +4018,79 @@ def yi_wiki_lineage() -> dict:
 # Paradigm Shift #5 (2026-05-18): Layout-first OCR → MinerU
 # ═══════════════════════════════════════════════════════════════════════════
 
+from fastapi import UploadFile, File, Form
 from fastapi.responses import FileResponse
 
-MINERU_OUTPUT_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing_mineru")
-TRANSLATIONS_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations")
+# Project root — overrideable via env for tests (YI_PROJECT_ROOT)
+PUBLISHING_PROJECT_ROOT = Path(
+    os.environ.get("YI_PROJECT_ROOT", "/Users/ozvietnamdesktop/Desktop/yi")
+)
+
+MINERU_OUTPUT_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing_mineru"
+TRANSLATIONS_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "translations"
+COVERS_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "covers"
+RAW_PDFS_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "raw_pdfs"
+UPLOAD_TEMP_ROOT = PUBLISHING_PROJECT_ROOT / "tmp_uploads"
 
 
 @app.get("/api/yi-publishing/books")
 def yi_publishing_books() -> dict:
-    """List all books with MinerU output available."""
-    if not MINERU_OUTPUT_ROOT.exists():
-        return {"status": "ok", "books": []}
+    """List all books from books_store, merged with MinerU output detection.
+
+    Returns enhanced fields: cover_url, progress, stage, active_job_id.
+    For books found in MinerU output but not in books_store, auto-register
+    a stub entry (migration backward-compat).
+    """
+    from engine.yi_publishing.books_store import get_store
+    from engine.yi_publishing.jobs import get_default_store as get_jobs_store
+
+    store = get_store()
+    jobs_store = get_jobs_store()
+
+    # Auto-register MinerU-detected books not yet in store (migration)
+    if MINERU_OUTPUT_ROOT.exists():
+        for book_dir in MINERU_OUTPUT_ROOT.iterdir():
+            if not book_dir.is_dir():
+                continue
+            v2_files = list(book_dir.rglob("*_content_list_v2.json"))
+            if not v2_files:
+                continue
+            book_id = book_dir.name
+            if not store.get_book(book_id):
+                try:
+                    store.add_book(
+                        book_id=book_id,
+                        title_vi=book_id,  # placeholder, anh sửa sau
+                        language="zh",
+                        notes="Auto-registered from MinerU output (migration)",
+                    )
+                    store.recompute_progress(book_id)
+                except Exception as e:
+                    logger.warning(f"Auto-register {book_id} failed: {e}")
+
     books = []
-    for book_dir in MINERU_OUTPUT_ROOT.iterdir():
-        if not book_dir.is_dir():
-            continue
-        # Find content_list_v2.json (canonical schema)
-        v2_files = list(book_dir.rglob("*_content_list_v2.json"))
-        if not v2_files:
-            continue
-        v2_path = v2_files[0]
-        try:
-            data = json.loads(v2_path.read_text())
-            page_count = len(data) if isinstance(data, list) else 0
-        except Exception:
-            page_count = 0
+    for b in store.load_books():
+        # Build cover URL if cover exists
+        cover_url = None
+        cp = b.get("cover_path")
+        if cp and (Path(cp).is_absolute() and Path(cp).exists()):
+            cover_url = f"/api/yi-publishing/books/{b['book_id']}/cover"
+        elif cp:
+            full = PUBLISHING_PROJECT_ROOT / cp
+            if full.exists():
+                cover_url = f"/api/yi-publishing/books/{b['book_id']}/cover"
+
+        # Find active job
+        active_jobs = jobs_store.list_jobs(active=True, book_id=b["book_id"])
+        active_job = active_jobs[0] if active_jobs else None
+
         books.append({
-            "book_id": book_dir.name,
-            "page_count": page_count,
-            "content_path": str(v2_path.relative_to(MINERU_OUTPUT_ROOT.parent.parent)),
+            **b,
+            "cover_url": cover_url,
+            "active_job_id": active_job["job_id"] if active_job else None,
+            "active_job_progress": active_job["progress"] if active_job else None,
         })
+
     return {"status": "ok", "books": books}
 
 
@@ -5143,6 +5187,337 @@ def yi_publishing_luu_nguyet_2026_founder() -> dict:
     return _founder_cache_read("luu_nguyet", "_luu_nguyet_2026_founder.json")
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# YI Publishing — Library Gallery v2.0 (book CRUD + OCR job queue)
+# Spec: docs/superpowers/specs/2026-05-22-dich-sach-ui-v2-design.md
+# ═══════════════════════════════════════════════════════════════════════════
+
+class FinalizeBookRequest(BaseModel):
+    """Step 3 of upload wizard: confirm metadata + finalize book."""
+    temp_id: str
+    book_id: str
+    title_vi: str
+    hanzi_title: str = ""
+    author: str = ""
+    year: Optional[int] = None
+    language: str = "zh"
+    school: str = ""
+    notes: str = ""
+
+
+class UpdateBookRequest(BaseModel):
+    """PATCH /books/{id} — partial update."""
+    title_vi: Optional[str] = None
+    hanzi_title: Optional[str] = None
+    author: Optional[str] = None
+    year: Optional[int] = None
+    language: Optional[str] = None
+    school: Optional[str] = None
+    notes: Optional[str] = None
+
+
+class SubmitOcrRequest(BaseModel):
+    """POST /books/{id}/jobs/ocr — trigger OCR."""
+    start_page: int = 1
+    end_page: int
+    backend: str = "pipeline"   # "pipeline" or "vlm"
+    language: str = "ch"        # "ch" or "en"
+
+
+@app.post("/api/yi-publishing/books/upload")
+async def yi_publishing_upload_pdf(file: UploadFile = File(...)) -> dict:
+    """Step 1: save uploaded PDF to temp folder, extract trang-1 cover + metadata.
+
+    Returns temp_id (used in finalize step) + auto-extracted metadata.
+    """
+    from engine.yi_publishing.books_store import slugify
+    from engine.yi_publishing.cover_extractor import extract_cover, extract_pdf_metadata
+    import uuid
+
+    if not file.filename or not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="File must be a PDF")
+
+    UPLOAD_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+    temp_id = uuid.uuid4().hex[:12]
+    temp_pdf = UPLOAD_TEMP_ROOT / f"{temp_id}.pdf"
+    temp_cover = UPLOAD_TEMP_ROOT / f"{temp_id}-cover.jpg"
+
+    # Stream save (avoid loading entire file in memory)
+    MAX_SIZE = 200 * 1024 * 1024  # 200 MB
+    written = 0
+    with open(temp_pdf, "wb") as f:
+        while chunk := await file.read(1024 * 1024):
+            written += len(chunk)
+            if written > MAX_SIZE:
+                temp_pdf.unlink(missing_ok=True)
+                raise HTTPException(status_code=413, detail="File exceeds 200 MB")
+            f.write(chunk)
+
+    # Extract metadata + cover
+    try:
+        meta = extract_pdf_metadata(temp_pdf)
+        extract_cover(temp_pdf, temp_cover)
+    except Exception as e:
+        temp_pdf.unlink(missing_ok=True)
+        raise HTTPException(status_code=422, detail=f"Cannot parse PDF: {e}")
+
+    # Suggest book_id slug from original filename
+    base_name = Path(file.filename).stem
+    suggested_book_id = slugify(base_name) or temp_id
+
+    return {
+        "status": "ok",
+        "temp_id": temp_id,
+        "cover_url": f"/api/yi-publishing/uploads/{temp_id}/cover",
+        "suggested_metadata": {
+            "book_id": suggested_book_id,
+            "title_vi": meta.get("title") or base_name,
+            "hanzi_title": "",
+            "author": meta.get("author") or "",
+            "year": meta.get("year"),
+            "page_count": meta.get("page_count", 0),
+            "language": "zh",
+        },
+    }
+
+
+@app.get("/api/yi-publishing/uploads/{temp_id}/cover")
+def yi_publishing_upload_cover(temp_id: str):
+    """Serve temp cover during upload wizard."""
+    p = UPLOAD_TEMP_ROOT / f"{temp_id}-cover.jpg"
+    if not p.exists():
+        raise HTTPException(status_code=404, detail="Cover not found")
+    return FileResponse(p, media_type="image/jpeg")
+
+
+@app.post("/api/yi-publishing/books/finalize")
+def yi_publishing_finalize_book(req: FinalizeBookRequest) -> dict:
+    """Step 3: move temp PDF + cover to permanent location, add to books_store."""
+    from engine.yi_publishing.books_store import get_store
+    from engine.yi_publishing.cover_extractor import extract_pdf_metadata
+
+    temp_pdf = UPLOAD_TEMP_ROOT / f"{req.temp_id}.pdf"
+    temp_cover = UPLOAD_TEMP_ROOT / f"{req.temp_id}-cover.jpg"
+    if not temp_pdf.exists():
+        raise HTTPException(status_code=404, detail=f"Temp upload {req.temp_id} not found or expired")
+
+    store = get_store()
+    if store.book_exists(req.book_id):
+        raise HTTPException(status_code=409, detail=f"book_id {req.book_id!r} already exists")
+
+    # Move files to permanent location
+    RAW_PDFS_ROOT.mkdir(parents=True, exist_ok=True)
+    COVERS_ROOT.mkdir(parents=True, exist_ok=True)
+    final_pdf = RAW_PDFS_ROOT / f"{req.book_id}.pdf"
+    final_cover = COVERS_ROOT / f"{req.book_id}.jpg"
+    temp_pdf.replace(final_pdf)
+    if temp_cover.exists():
+        temp_cover.replace(final_cover)
+
+    # Extract page_count from final PDF
+    try:
+        meta = extract_pdf_metadata(final_pdf)
+        page_count = meta.get("page_count", 0)
+    except Exception:
+        page_count = 0
+
+    try:
+        book = store.add_book(
+            book_id=req.book_id,
+            title_vi=req.title_vi,
+            hanzi_title=req.hanzi_title,
+            author=req.author,
+            year=req.year,
+            language=req.language,
+            school=req.school,
+            notes=req.notes,
+            pdf_path=str(final_pdf.relative_to(PUBLISHING_PROJECT_ROOT)),
+            cover_path=str(final_cover.relative_to(PUBLISHING_PROJECT_ROOT)) if final_cover.exists() else "",
+            cover_custom=False,
+            page_count=page_count,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    return {"status": "ok", "book": book}
+
+
+@app.get("/api/yi-publishing/books/{book_id}/cover")
+def yi_publishing_book_cover(book_id: str):
+    """Serve cover JPEG. Falls back to placeholder if missing."""
+    from engine.yi_publishing.books_store import get_store
+
+    store = get_store()
+    book = store.get_book(book_id)
+    if book and book.get("cover_path"):
+        cp = Path(book["cover_path"])
+        if not cp.is_absolute():
+            cp = PUBLISHING_PROJECT_ROOT / cp
+        if cp.exists():
+            return FileResponse(cp, media_type="image/jpeg")
+    # Default location guess
+    default_cover = COVERS_ROOT / f"{book_id}.jpg"
+    if default_cover.exists():
+        return FileResponse(default_cover, media_type="image/jpeg")
+    raise HTTPException(status_code=404, detail="Cover not found")
+
+
+@app.put("/api/yi-publishing/books/{book_id}/cover")
+async def yi_publishing_upload_custom_cover(book_id: str, file: UploadFile = File(...)) -> dict:
+    """Override book cover with user upload (image/* accepted, normalized to JPEG)."""
+    from engine.yi_publishing.books_store import get_store
+    from engine.yi_publishing.cover_extractor import save_uploaded_cover
+
+    store = get_store()
+    book = store.get_book(book_id)
+    if not book:
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+    if not file.content_type or not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="File must be an image")
+
+    image_bytes = await file.read()
+    if len(image_bytes) > 10 * 1024 * 1024:
+        raise HTTPException(status_code=413, detail="Image > 10 MB")
+
+    COVERS_ROOT.mkdir(parents=True, exist_ok=True)
+    final_cover = COVERS_ROOT / f"{book_id}.jpg"
+    try:
+        save_uploaded_cover(image_bytes, final_cover)
+    except Exception as e:
+        raise HTTPException(status_code=422, detail=f"Cannot process image: {e}")
+
+    updated = store.update_book(
+        book_id,
+        cover_path=str(final_cover.relative_to(PUBLISHING_PROJECT_ROOT)),
+        cover_custom=True,
+    )
+    return {"status": "ok", "book": updated}
+
+
+@app.patch("/api/yi-publishing/books/{book_id}")
+def yi_publishing_update_book_metadata(book_id: str, req: UpdateBookRequest) -> dict:
+    """Update book metadata. Only non-null fields are applied."""
+    from engine.yi_publishing.books_store import get_store
+
+    store = get_store()
+    if not store.book_exists(book_id):
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+
+    fields = {k: v for k, v in req.model_dump().items() if v is not None}
+    if not fields:
+        raise HTTPException(status_code=400, detail="No fields to update")
+
+    try:
+        updated = store.update_book(book_id, **fields)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    return {"status": "ok", "book": updated}
+
+
+@app.delete("/api/yi-publishing/books/{book_id}")
+def yi_publishing_delete_book(book_id: str) -> dict:
+    """Soft delete: sets deleted=true. PDF + cover remain on disk."""
+    from engine.yi_publishing.books_store import get_store
+
+    store = get_store()
+    if not store.delete_book(book_id, soft=True):
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+    return {"status": "ok", "book_id": book_id, "deleted": True}
+
+
+@app.post("/api/yi-publishing/books/{book_id}/recompute-progress")
+def yi_publishing_recompute_progress(book_id: str) -> dict:
+    """Force progress recompute by scanning MinerU + translations folder."""
+    from engine.yi_publishing.books_store import get_store
+
+    store = get_store()
+    if not store.book_exists(book_id):
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+    try:
+        updated = store.recompute_progress(book_id)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Recompute failed: {e}")
+    return {"status": "ok", "book": updated}
+
+
+# ─── Jobs (OCR queue) ────────────────────────────────────────────────────────
+
+
+@app.post("/api/yi-publishing/books/{book_id}/jobs/ocr")
+def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest) -> dict:
+    """Trigger MinerU OCR job. Rejects if another OCR job is already active."""
+    from engine.yi_publishing.books_store import get_store
+    from engine.yi_publishing.jobs import get_default_store
+
+    store = get_store()
+    book = store.get_book(book_id)
+    if not book:
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+
+    pdf_rel = book.get("pdf_path") or ""
+    if not pdf_rel:
+        raise HTTPException(status_code=400, detail="Book has no pdf_path; please re-upload")
+    pdf_abs = Path(pdf_rel)
+    if not pdf_abs.is_absolute():
+        pdf_abs = PUBLISHING_PROJECT_ROOT / pdf_rel
+    if not pdf_abs.exists():
+        raise HTTPException(status_code=404, detail=f"PDF file missing: {pdf_abs}")
+
+    jobs_store = get_default_store()
+    try:
+        job = jobs_store.submit_ocr_job(
+            book_id=book_id,
+            pdf_path=pdf_abs,
+            start_page=req.start_page,
+            end_page=req.end_page,
+            backend=req.backend,
+            language=req.language,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=409, detail=str(e))
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    return {"status": "ok", "job": job}
+
+
+@app.get("/api/yi-publishing/jobs")
+def yi_publishing_list_jobs(
+    active: bool = False,
+    book_id: Optional[str] = None,
+    limit: int = 50,
+) -> dict:
+    """List jobs (newest first). Optional filters."""
+    from engine.yi_publishing.jobs import get_default_store
+
+    jobs_store = get_default_store()
+    jobs = jobs_store.list_jobs(active=active, book_id=book_id, limit=limit)
+    return {"status": "ok", "jobs": jobs, "count": len(jobs)}
+
+
+@app.get("/api/yi-publishing/jobs/{job_id}")
+def yi_publishing_get_job(job_id: str) -> dict:
+    """Single job status."""
+    from engine.yi_publishing.jobs import get_default_store
+
+    jobs_store = get_default_store()
+    job = jobs_store.get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail=f"Job {job_id} not found")
+    return {"status": "ok", "job": job}
+
+
+@app.delete("/api/yi-publishing/jobs/{job_id}")
+def yi_publishing_cancel_job(job_id: str) -> dict:
+    """Cancel job. Cooperative — current chunk finishes first."""
+    from engine.yi_publishing.jobs import get_default_store
+
+    jobs_store = get_default_store()
+    if not jobs_store.cancel_job(job_id):
+        raise HTTPException(
+            status_code=404,
+            detail=f"Job {job_id} not found or not in cancellable state",
+        )
+    return {"status": "ok", "job_id": job_id, "cancelled": True}
 
 
 # ─── Generic Tử Vi Analyzer endpoints ────────────────────────────────────────
@@ -5394,6 +5769,76 @@ def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
         usage = consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
         result["usage_after"] = usage
 
+    return result
+
+
+@app.post("/api/tu-vi/q4/cdk/eval-cach-cuc")
+def yi_tuvi_cdk_eval_cach_cuc(req: _AnalyzeRequest, request: Request) -> dict:
+    """Eval 6 cách cục Chiếu Đởm Kinh cho lá số cụ thể.
+
+    Free endpoint — không cần VIP. Engine deterministic, no LLM call.
+    """
+    from engine.tu_vi.cdk_cach_cuc_matcher import evaluate_cdk_cach_cuc
+    from engine.tu_vi.chieu_dom_kinh_an_sao import cast_chieu_dom_kinh
+    from core.chronos import calculate_chronos_state
+    from datetime import datetime
+
+    person = _resolve_person_from_request(req, request)
+    chronos = calculate_chronos_state(person.birth_datetime_local, person.timezone)
+    _d, m_str, _y = chronos.almanac.lunar_date.split("/")
+    year_parts = chronos.ganzhi.year.split()
+    dt = datetime.fromisoformat(person.birth_datetime_local)
+    hour = dt.hour
+    BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
+    hour_branch = "Tý" if hour >= 23 or hour < 1 else BRANCHES[((hour + 1) // 2) % 12]
+    chart = cast_chieu_dom_kinh(
+        year_stem=year_parts[0], year_branch=year_parts[1],
+        lunar_month=int(m_str), hour_branch=hour_branch, gender=person.gender,
+    )
+    return evaluate_cdk_cach_cuc(chart, hour_branch)
+
+
+@app.post("/api/tu-vi/q4/cdk/luan-luu-nien")
+def yi_tuvi_cdk_luan_luu_nien(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận Lưu Niên 10 năm tới. VIP1-gated."""
+    from engine.tu_vi.cdk_cung_analyzer import luan_luu_nien_10_nam
+    from engine.subscriptions import check_access, consume_use
+    from api.auth import get_current_user
+
+    user = get_current_user(request)
+    if not user:
+        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
+    if user.get("role") != "owner":
+        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
+        if not access.get("allowed"):
+            return {"status": "error", "message": f"Cần VIP1 — {access.get('reason')}"}
+
+    person = _resolve_person_from_request(req, request)
+    result = luan_luu_nien_10_nam(person, num_years=10, force=req.force)
+    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
+        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
+    return result
+
+
+@app.post("/api/tu-vi/q4/cdk/luan-dai-han")
+def yi_tuvi_cdk_luan_dai_han(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận chi tiết 8 vòng Đại Hạn CDK (80 năm). VIP1-gated."""
+    from engine.tu_vi.cdk_cung_analyzer import luan_dai_han_8_vong
+    from engine.subscriptions import check_access, consume_use
+    from api.auth import get_current_user
+
+    user = get_current_user(request)
+    if not user:
+        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
+    if user.get("role") != "owner":
+        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
+        if not access.get("allowed"):
+            return {"status": "error", "message": f"Cần VIP1 — {access.get('reason')}"}
+
+    person = _resolve_person_from_request(req, request)
+    result = luan_dai_han_8_vong(person, force=req.force)
+    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
+        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
     return result
 
 
