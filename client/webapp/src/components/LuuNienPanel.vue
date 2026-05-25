@@ -25,6 +25,7 @@ async function loadDauQuan() {
     const resp = await fetch("/api/tu-vi/dau-quan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify({ person_key: pk, luu_nguyet_year: activeYear.value }),
     }).then((r) => r.json());
     if (resp.status === "ok") dauQuanData.value = resp;
