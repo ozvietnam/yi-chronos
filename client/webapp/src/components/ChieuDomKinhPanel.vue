@@ -483,12 +483,60 @@ function renderWithTooltips(text) {
   return escaped;
 }
 
+// Auto-load bulk cache 12 cung khi mount (populate cdkDeepInterp instant cho drawer)
+async function tryLoadCachedBulk12Cung() {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      force: false,
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-toan-bo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+    if (!resp.ok) return;
+    const data = await resp.json();
+    if (data.status !== 'ok') return;
+    // Only populate if all results from cache (don't trigger unintended gen)
+    const allFromCache = (data.cached_count || 0) === 12 || (data.fresh_calls || 0) === 0;
+    if (!allFromCache) return;
+    const results = data.results || {};
+    for (const [branch, sections] of Object.entries(results)) {
+      const key = `${person.person_key || person.birth_datetime_local}_${branch}`;
+      cdkDeepInterp.value[key] = {
+        loading: false,
+        error: null,
+        data: {
+          status: 'ok',
+          branch,
+          provider: data.provider,
+          luan_cung_compact: sections,
+          from_bulk: true,
+        },
+      };
+    }
+  } catch (e) { /* silent */ }
+}
+
 onMounted(async () => {
   await loadAll();
   await loadCdkDeepFeature();
-  // Auto-load cached Đại Hạn + Lưu Niên nếu đã có (instant)
+  // Auto-load cached Đại Hạn + Lưu Niên + 12 cung bulk nếu đã có (instant render)
   tryLoadCachedDaiHan();
   tryLoadCachedLuuNien();
+  tryLoadCachedBulk12Cung();
 });
 
 function toggleStar(id) {
