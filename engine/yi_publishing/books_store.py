@@ -392,14 +392,20 @@ class BooksStore:
                         ):
                             translation_lines_done += 1
 
+        # Cap at 100% — counting heuristic can over-count when translation files
+        # contain line_ids not present in MinerU middle.json (e.g., manual additions
+        # or layout re-detection drift).
         ocr_pct = (
-            round(ocr_pages_done / max(ocr_pages_total, 1) * 100, 1)
+            min(100.0, round(ocr_pages_done / max(ocr_pages_total, 1) * 100, 1))
             if ocr_pages_total
             else 0
         )
         translation_pct = (
-            round(
-                translation_lines_done / max(translation_lines_total, 1) * 100, 1
+            min(
+                100.0,
+                round(
+                    translation_lines_done / max(translation_lines_total, 1) * 100, 1
+                ),
             )
             if translation_lines_total
             else 0
