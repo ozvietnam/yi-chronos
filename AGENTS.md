@@ -1,20 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [yi] recent context, 2026-05-22 4:19pm GMT+7
+# [yi] recent context, 2026-05-25 11:00am GMT+7
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (18,755t read) | 2,348,278t work | 99% savings
+Stats: 50 obs (19,395t read) | 2,307,671t work | 99% savings
 
 ### May 19, 2026
-3130 9:24p ⚖️ Auto-sync daemon run strategy: manual start script, not LaunchAgent
-3131 " 🟣 ~/.zshrc hook auto-starts auto-sync daemon on every new terminal session
-3132 9:25p ✅ HANH-TRINH-NHAP-DAO.md: Lần update 15 — full Phase 0-5 deployment journal entry
-3133 9:27p 🔵 Auto-sync daemon commit 4f4b5be captured api/admin.py + api/auth.py, not HANH-TRINH-NHAP-DAO.md
-3134 " 🔵 Auto-sync daemon missed docs/ directory — HANH-TRINH-NHAP-DAO.md still uncommitted
 3137 9:30p 🔵 Auto-sync confirmed working for docs/ — HANH-TRINH-NHAP-DAO.md committed in 4ebfa9c after manual touch trigger
 3140 9:32p 🔵 Full auto-sync pipeline verified end-to-end including docs/ changes — kinhdich.online live and healthy
 3151 10:02p 🔵 Lịch vạn niên + tứ trụ integration location: BatTuPanel.vue under "Bát Tự" tab
@@ -72,8 +67,13 @@ S1524 Qualitative "Tý đầu vs Tý cuối" contrast questionnaire designed and
 ### May 22, 2026
 3766 11:29a 🟣 Chiếu Đởm Kinh 18 Phi Tinh — 12 image-generation prompt files created for Priority 2 and 3 cards
 3767 " 🔵 Codex image generation for Phi Tinh oracle cards — 18 PNG files confirmed in local cache
+3768 5:44p 🟣 Book Translation UI Redesign — Task Scoped
+3769 " 🔵 YI-CHRONOS Publishing System — Codebase Architecture Mapped
+3770 5:45p 🔵 PublishingWorkspace.vue — Current 3-Pane Architecture (2346 lines)
+3771 " 🔵 Raw PDF and Restored Book Directories Are Nearly Empty
+3772 " 🔵 MinerU Pipeline Data Layout and Book Discovery Mechanism
 
-Access 2348k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 2308k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>
 
 ## Runtime Execution Policy (User Preference)

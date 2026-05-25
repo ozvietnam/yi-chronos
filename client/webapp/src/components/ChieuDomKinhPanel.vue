@@ -2062,13 +2062,14 @@ Verdict: {{ st.meaning.summary }}</title></text>
   height: auto;
   display: block;
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.36));
 }
 .cdk-clock-card-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
 }
 .cdk-clock-card-group {
   position: absolute;
@@ -2079,12 +2080,13 @@ Verdict: {{ st.meaning.summary }}</title></text>
   border: 1px solid rgba(167, 139, 250, 0.18);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(2, 6, 23, 0.78), rgba(15, 23, 42, 0.52)),
-    rgba(2, 6, 23, 0.58);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    linear-gradient(135deg, rgba(2, 6, 23, 0.52), rgba(15, 23, 42, 0.34)),
+    rgba(2, 6, 23, 0.34);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+  opacity: 0.82;
   pointer-events: auto;
   transform: translate(-50%, -50%);
-  transition: opacity 160ms, transform 160ms, border-color 160ms, box-shadow 160ms;
+  transition: opacity 160ms, transform 160ms, border-color 160ms, box-shadow 160ms, filter 160ms;
 }
 .cdk-clock-card-group.anchor-left {
   transform: translate(0, -50%);
@@ -2100,7 +2102,8 @@ Verdict: {{ st.meaning.summary }}</title></text>
 }
 .cdk-clock-card-group.is-selected {
   border-color: rgba(252, 211, 77, 0.82);
-  box-shadow: 0 0 26px rgba(252, 211, 77, 0.32);
+  box-shadow: 0 0 28px rgba(252, 211, 77, 0.24);
+  opacity: 0.94;
   transform: translate(-50%, -50%) scale(1.06);
 }
 .cdk-clock-card-group.anchor-left.is-selected {
@@ -2134,10 +2137,11 @@ Verdict: {{ st.meaning.summary }}</title></text>
   aspect-ratio: 2 / 3;
   padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(245, 230, 177, 0.28);
+  border: 1px solid rgba(245, 230, 177, 0.2);
   border-radius: 6px;
   background: rgba(2, 6, 23, 0.72);
   cursor: zoom-in;
+  filter: saturate(0.88) brightness(0.82);
 }
 .cdk-clock-mini-card img {
   width: 100%;
@@ -2162,6 +2166,7 @@ Verdict: {{ st.meaning.summary }}</title></text>
 .cdk-clock-mini-card:hover {
   border-color: rgba(252, 211, 77, 0.82);
   transform: translateY(-2px);
+  filter: saturate(1) brightness(1);
 }
 .cdk-clock-card-extra {
   display: inline-grid;
