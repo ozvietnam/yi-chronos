@@ -20,6 +20,7 @@ import PhuThaiViModal from "./PhuThaiViModal.vue";
 import CachCucPanel from "./CachCucPanel.vue";
 import DaiVanPanel from "./DaiVanPanel.vue";
 import LuuNienPanel from "./LuuNienPanel.vue";
+import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
 import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
 
 const inputBirth = ref("");
@@ -48,6 +49,7 @@ const expandedPalace = ref(null);
 const showPhuThaiVi = ref(false);  // Phú Thái Vi modal
 const showCachCuc = ref(false);    // Cách cục đọc sâu modal
 const showDaiVan = ref(false);     // 12 Đại Vận modal
+const showCompare = ref(false);    // So sánh TVĐS vs CDK modal
 const showLuuNien = ref(false);    // Lưu Niên 2026-2030 modal
 const oracleCards = ref([]);
 const selectedOracleCard = ref(null);
@@ -649,6 +651,11 @@ const grid = computed(() => {
         <button class="luu-nien-btn" type="button" @click="showLuuNien = true"
                 title="Vận năm 2026-2030 chi tiết (Đại Vận + Tiểu Hạn kết hợp)">
           📅 Lưu Niên 5 năm
+        </button>
+        <button class="dai-van-btn" type="button" @click="showCompare = true"
+                title="So sánh chéo Bắc Phái TVĐS vs Chiếu Đởm Kinh — 2 paradigm song hành"
+                style="background: linear-gradient(135deg, rgba(252,211,77,0.16), rgba(196,181,253,0.16));">
+          ⚖️ So sánh TVĐS ↔ CDK
         </button>
       </div>
     </div>
@@ -1331,6 +1338,16 @@ const grid = computed(() => {
         <div class="cc-modal">
           <button class="cc-modal-close" @click="showLuuNien = false">✕</button>
           <LuuNienPanel />
+        </div>
+      </div>
+    </Teleport>
+
+    <!-- So sánh TVĐS vs CDK modal -->
+    <Teleport to="body">
+      <div v-if="showCompare" class="cc-modal-backdrop" @click.self="showCompare = false">
+        <div class="cc-modal">
+          <button class="cc-modal-close" @click="showCompare = false">✕</button>
+          <TuViVsCDKCompare />
         </div>
       </div>
     </Teleport>

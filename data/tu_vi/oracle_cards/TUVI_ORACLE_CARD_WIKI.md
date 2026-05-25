@@ -850,3 +850,106 @@ Ghi chu dot 04: bo nay theo brief dat ve moi, format chung oracle card doc 2:3, 
 - Cac sat tinh nen manh va cang, nhung khong kinh di.
 - Cac phuc tinh nen sang, mem va co cam giac nang do.
 - Founder card phai giu nhan vat chinh la nguoi di qua van/giu tam, khong de cac than tinh tu lan at hoan toan.
+
+## Dot 05 - Mo Rong Tu Hoa Cu The Va Toa Cung
+
+Ngay tao: 2026-05-25
+
+Muc tieu: bo sung cac the trong phan "Can phat trien them" cua wiki, uu tien Tu Hoa cu the va Toa Cung co boi canh ro. Cac the nay khong thay the the tong quat 34-37, ma la ban cu the de truy vet logic.
+
+### 55. [TU_HOA] THAM LANG HOA LOC @ DIEN TRACH
+
+- Ten hien thi: THAM LANG HOA LOC / THAM LANG HÓA LỘC
+- Ten he thong: `[TU_HOA] THAM LANG HOA LOC @ DIEN TRACH`
+- Kieu the: TU_HOA
+- Sao chinh: Tham Lang
+- Cung boi canh: Dien Trach
+- Sao/tac nhan anh huong: Hoa Loc
+- Vai tro trong "bo phim la so": ham muon, tham my va dao hoa duoc chuyen hoa thanh tai san/nha dat.
+- Khi chat: cuon hut, sinh tai, dat dai mo duyen.
+- Nhan vat: than Tham Lang o nguong dien trach, tai khi xanh vang quan quanh dat nha.
+- Bieu tuong chinh: dien trach, dat khe, dao hoa, dong tien co, dong loc xanh vang.
+- Mau chinh: luc bao, do ruou, vang co, ngoc sam.
+- Dien giai chuan: "Dao hoa sinh tai, nha dat mo loc."
+- Ghi chu tranh lan: khong ve nhu Hoa Loc tong quat; phai thay Dien Trach va Tham Lang da bien trang thai.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/55-tham-lang-hoa-loc-dien-trach.png`
+
+### 56. [TU_HOA] THAI AM HOA QUYEN
+
+- Ten hien thi: THAI AM HOA QUYEN / THÁI ÂM HÓA QUYỀN
+- Ten he thong: `[TU_HOA] THAI AM HOA QUYEN`
+- Kieu the: TU_HOA
+- Sao chinh: Thai Am
+- Sao/tac nhan anh huong: Hoa Quyen
+- Vai tro trong "bo phim la so": noi luc am, tai san mem va gia toc duoc trao quyen dieu phoi.
+- Khi chat: tinh, sau, co quyen am.
+- Nhan vat: nguyet than hoac nguyet tuong cam an bac, dieu trieu nuoc duoi trang.
+- Bieu tuong chinh: trang lon, an bac, thuy trieu, ho dem, ngoc trai.
+- Mau chinh: bac trang, xanh dem, tim tram, vang nhat.
+- Dien giai chuan: "Nguyet quyen tinh lang, am luc nam trieu."
+- Ghi chu tranh lan: khong bien thanh chien nu mat troi; quyen phai tinh va am.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/56-thai-am-hoa-quyen.png`
+
+### 57. [TU_HOA] HUU BAT HOA KHOA
+
+- Ten hien thi: HUU BAT HOA KHOA / HỮU BẬT HÓA KHOA
+- Ten he thong: `[TU_HOA] HUU BAT HOA KHOA`
+- Kieu the: TU_HOA
+- Sao chinh: Huu Bat
+- Sao/tac nhan anh huong: Hoa Khoa
+- Vai tro trong "bo phim la so": tro luc duoc ghi nhan, cuu giai bang danh du va phuong phap.
+- Khi chat: phu ta, minh danh, giai nguy.
+- Nhan vat: phu ta tinh nang van thu, but ngoc va vong danh khoa phia sau.
+- Bieu tuong chinh: cuon sach, but ngoc, hao quang khoa bang, vong phu ta.
+- Mau chinh: ngoc, giay nga, bac, xanh trong, vang co.
+- Dien giai chuan: "Tro luc thanh danh, khoa minh giai nguy."
+- Ghi chu tranh lan: khong ve nhu Xuong Khuc song tinh; Huu Bat la phu ta nhan Khoa.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/57-huu-bat-hoa-khoa.png`
+
+### 58. [TU_HOA] THIEN CO HOA KY @ PHAP_LY_KE_HOACH
+
+- Ten hien thi: THIEN CO HOA KY / THIÊN CƠ HÓA KỴ
+- Ten he thong: `[TU_HOA] THIEN CO HOA KY @ PHAP_LY_KE_HOACH`
+- Kieu the: TU_HOA
+- Sao chinh: Thien Co
+- Sao/tac nhan anh huong: Hoa Ky
+- Vai tro trong "bo phim la so": tri tue thay loi he thong, ra phap ly va ke hoach truoc khi tien.
+- Khi chat: muu luoc bi nghen, soi loi, canh bao.
+- Nhan vat: quan su thien van soi hop dong roi, thien nghi nut va muc den noi dieu khoan an.
+- Bieu tuong chinh: thien nghi nut, hop dong, an do canh bao, banh rang mac ket, muc den.
+- Mau chinh: xanh den, muc den, dong co, do an, ngoc nhat.
+- Dien giai chuan: "Co ky soi loi, ke hoach phai ra."
+- Ghi chu tranh lan: khong ve thanh ac nhan; Ky la nghen va soi loi.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/58-thien-co-hoa-ky-phap-ly.png`
+
+### 59. [TOA_CUNG] THAM LANG @ DIEN TRACH
+
+- Ten hien thi: THAM LANG DIEN TRACH / THAM LANG ĐIỀN TRẠCH
+- Ten he thong: `[TOA_CUNG] THAM LANG @ DIEN TRACH`
+- Kieu the: TOA_CUNG
+- Sao chinh: Tham Lang
+- Cung boi canh: Dien Trach
+- Vai tro trong "bo phim la so": suc hut, tham my va ham muon mo duyen dien san.
+- Khi chat: vuon dem, nha dep, duyen dat.
+- Nhan vat: vuon dien trach dem, hoa dao, den do, khe dat va sao Tham Lang di vao cong nha.
+- Bieu tuong chinh: cong ngoc, hoa dao, khe dat, den do, duong sao vao nha.
+- Mau chinh: ngoc sam, do ruou, hong dao, vang co, den son mai.
+- Dien giai chuan: "Duc vong vao nha, dien san sinh duyen."
+- Ghi chu tranh lan: khong ve tuc hoac thanh Hong Loan; day la Tham Lang o boi canh nha dat.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/59-tham-lang-dien-trach.png`
+
+### 60. [TOA_CUNG] THAI AM @ TAI BACH
+
+- Ten hien thi: THAI AM TAI BACH / THÁI ÂM TÀI BẠCH
+- Ten he thong: `[TOA_CUNG] THAI AM @ TAI BACH`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thai Am
+- Cung boi canh: Tai Bach
+- Vai tro trong "bo phim la so": tai san am tham, tich luy mem, nguon luc gia dinh va tai san an.
+- Khi chat: nguyet tai, bac ngoc, tai loc tinh.
+- Nhan vat: nguyet nu ben ho tai kho, bac ngoc va so sach phan chieu duoi trang.
+- Bieu tuong chinh: ho trang, ngoc trai, bac nen, so tai, kho nuoc dem.
+- Mau chinh: bac, trang ngoc, xanh dem, vang nhat, ngoc den.
+- Dien giai chuan: "Nguyet chieu tai kho, am loc lang day."
+- Ghi chu tranh lan: khong ve cho tien sang; Thai Am Tai Bach la tai mem va tinh.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/60-thai-am-tai-bach.png`
