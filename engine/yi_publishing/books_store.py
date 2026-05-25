@@ -360,18 +360,37 @@ class BooksStore:
         if ocr_pages_total == 0 and ocr_pages_done > 0:
             ocr_pages_total = ocr_pages_done
 
-        # Translation lines done: count r{NNN}.json files with text_vi
+        # Translation lines done: count r{NNN}.json files with text_vi.
+        #
+        # Real schema (production):
+        #   {"lines": {"r001-l001": {"text_vi": "...", "status": "auto", ...}}}
+        # Lines is a DICT keyed by line_id; text_vi sits at top level of each line.
+        #
+        # Test/legacy schema also supported:
+        #   {"lines": [{"line_id": "...", "translation": {"text_vi": "..."}}]}
         if translations_root.exists():
             for region_file in translations_root.rglob("r*.json"):
                 try:
                     rdata = json.loads(region_file.read_text(encoding="utf-8"))
-                    # Region file structure varies; count lines with text_vi
-                    if isinstance(rdata, dict):
-                        for line in rdata.get("lines", []):
-                            if line.get("translation", {}).get("text_vi"):
-                                translation_lines_done += 1
                 except Exception:
-                    pass
+                    continue
+                if not isinstance(rdata, dict):
+                    continue
+                lines = rdata.get("lines")
+                if isinstance(lines, dict):
+                    # Production schema: dict keyed by line_id
+                    for _line_id, line_data in lines.items():
+                        if isinstance(line_data, dict) and line_data.get("text_vi"):
+                            translation_lines_done += 1
+                elif isinstance(lines, list):
+                    # Legacy/test schema: array with nested .translation.text_vi
+                    for line in lines:
+                        if not isinstance(line, dict):
+                            continue
+                        if line.get("translation", {}).get("text_vi") or line.get(
+                            "text_vi"
+                        ):
+                            translation_lines_done += 1
 
         ocr_pct = (
             round(ocr_pages_done / max(ocr_pages_total, 1) * 100, 1)

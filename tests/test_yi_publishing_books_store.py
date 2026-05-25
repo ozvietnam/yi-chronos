@@ -259,20 +259,41 @@ def _setup_mineru_output(project_root: Path, book_id: str, *, pages: int, lines_
 
 
 def _setup_translations(
-    project_root: Path, book_id: str, *, lines_done: int
+    project_root: Path, book_id: str, *, lines_done: int, schema: str = "production"
 ):
-    """Synthesize translation region files with N completed lines."""
+    """Synthesize translation region files with N completed lines.
+
+    Two schemas supported:
+      - "production" (real): {"lines": {"r1-l001": {"text_vi": "...", "status": ...}}}
+      - "legacy" (older spec): {"lines": [{"line_id": ..., "translation": {"text_vi": ...}}]}
+    """
     trans_dir = (
         project_root / "data" / "yi_publishing" / "translations" / book_id / "p0001"
     )
     trans_dir.mkdir(parents=True, exist_ok=True)
 
-    region_data = {
-        "lines": [
-            {"line_id": f"r1-l{i:03d}", "translation": {"text_vi": "đã dịch"}}
-            for i in range(lines_done)
-        ]
-    }
+    if schema == "production":
+        region_data = {
+            "lines": {
+                f"r1-l{i:03d}": {
+                    "text_vi": "đã dịch",
+                    "status": "auto",
+                    "translator": "test",
+                    "version": 1,
+                }
+                for i in range(lines_done)
+            }
+        }
+    elif schema == "legacy":
+        region_data = {
+            "lines": [
+                {"line_id": f"r1-l{i:03d}", "translation": {"text_vi": "đã dịch"}}
+                for i in range(lines_done)
+            ]
+        }
+    else:
+        raise ValueError(f"Unknown schema: {schema}")
+
     (trans_dir / "r001.json").write_text(
         json.dumps(region_data, ensure_ascii=False), encoding="utf-8"
     )
@@ -321,6 +342,51 @@ def test_recompute_progress_full_done(store: BooksStore):
     assert book["progress"]["ocr_pct"] == 100.0
     assert book["progress"]["translation_pct"] == 100.0
     assert book["stage"] == 6
+
+
+def test_recompute_progress_legacy_schema(store: BooksStore):
+    """Older translation files use array+nested translation.text_vi schema."""
+    store.add_book(book_id="legacy", title_vi="L", language="zh", page_count=2)
+    _setup_mineru_output(store.project_root, "legacy", pages=2, lines_per_page=3)
+    _setup_translations(
+        store.project_root, "legacy", lines_done=4, schema="legacy"
+    )
+
+    book = store.recompute_progress("legacy")
+    assert book["progress"]["translation_lines_done"] == 4
+    assert book["progress"]["translation_lines_total"] == 6
+
+
+def test_recompute_progress_production_schema_with_status(store: BooksStore):
+    """Production schema: lines is dict {line_id: {text_vi, status, ...}}.
+
+    Counts entries with non-empty text_vi.
+    """
+    store.add_book(book_id="prod", title_vi="P", language="zh", page_count=1)
+    _setup_mineru_output(store.project_root, "prod", pages=1, lines_per_page=5)
+
+    trans_dir = (
+        store.project_root / "data" / "yi_publishing" / "translations" / "prod" / "p0001"
+    )
+    trans_dir.mkdir(parents=True, exist_ok=True)
+    # Mix: 3 done, 2 empty
+    region_data = {
+        "lines": {
+            "r1-l001": {"text_vi": "Khang Tiết...", "status": "auto"},
+            "r1-l002": {"text_vi": "thuyết Dịch", "status": "approved"},
+            "r1-l003": {"text_vi": "", "status": "pending"},
+            "r1-l004": {"status": "pending"},  # no text_vi field at all
+            "r1-l005": {"text_vi": "third line", "status": "draft"},
+        }
+    }
+    (trans_dir / "r001.json").write_text(
+        json.dumps(region_data, ensure_ascii=False), encoding="utf-8"
+    )
+
+    book = store.recompute_progress("prod")
+    assert book["progress"]["translation_lines_done"] == 3
+    assert book["progress"]["translation_lines_total"] == 5
+    assert book["progress"]["translation_pct"] == 60.0
 
 
 def test_recompute_progress_missing_book_raises(store: BooksStore):
