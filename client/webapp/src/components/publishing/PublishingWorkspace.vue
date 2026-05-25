@@ -511,9 +511,15 @@ watch(selectedRegionIdx, () => {
     loadRedrawnVersions();
   }
 });
-onMounted(() => {
-  loadBooks();
+onMounted(async () => {
+  await loadBooks();
   loadTranslatorStatus();
+  // If bookId was provided via prop, selectedBook is already set but watchers
+  // don't fire on initial value — explicitly trigger pages + layout load.
+  if (props.bookId && selectedBook.value === props.bookId) {
+    await loadPages();
+    await loadLayout();
+  }
 });
 </script>
 
