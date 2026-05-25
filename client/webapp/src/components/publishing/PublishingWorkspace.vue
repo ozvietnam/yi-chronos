@@ -11,8 +11,18 @@
  */
 import { ref, computed, watch, onMounted } from "vue";
 
+const props = defineProps({
+  bookId: { type: String, default: null },  // if set, load this book directly
+});
+const emit = defineEmits(["back"]);
+
 const books = ref([]);
-const selectedBook = ref(null);
+const selectedBook = ref(props.bookId || null);
+const currentBookMeta = ref(null);  // full metadata from /books endpoint
+
+function goBackToLibrary() {
+  emit("back");
+}
 const pages = ref([]);
 const selectedPage = ref(1);
 const layout = ref(null);
@@ -197,6 +207,8 @@ async function loadBooks() {
       if (books.value.length && !selectedBook.value) {
         selectedBook.value = books.value[0].book_id;
       }
+      // Cache current book metadata for header display
+      currentBookMeta.value = books.value.find(b => b.book_id === selectedBook.value) || null;
     }
   } catch (e) {
     error.value = "Load books: " + e.message;
@@ -204,6 +216,11 @@ async function loadBooks() {
     loading.value = false;
   }
 }
+
+// Keep currentBookMeta in sync with selectedBook
+watch(selectedBook, (id) => {
+  currentBookMeta.value = books.value.find(b => b.book_id === id) || null;
+});
 
 async function loadPages() {
   if (!selectedBook.value) return;
@@ -503,11 +520,22 @@ onMounted(() => {
 <template>
   <div class="publishing-workspace">
     <header class="pw-header">
-      <h2>📖 Workspace dịch sách — line-level</h2>
+      <div class="pw-title-row">
+        <button type="button" class="pw-back-btn" @click="goBackToLibrary" title="Về thư viện">
+          ← Thư viện
+        </button>
+        <h2 class="pw-title">
+          📖 <strong>{{ currentBookMeta?.title_vi || selectedBook || "Dịch sách" }}</strong>
+          <span v-if="currentBookMeta?.hanzi_title" class="pw-zh">{{ currentBookMeta.hanzi_title }}</span>
+          <span v-if="currentBookMeta?.stage_label" class="pw-stage-badge">
+            🏷️ Stage {{ currentBookMeta.stage }}: {{ currentBookMeta.stage_label }}
+          </span>
+        </h2>
+      </div>
       <div class="pw-toolbar">
-        <select v-model="selectedBook" class="pw-select">
+        <select v-if="!props.bookId" v-model="selectedBook" class="pw-select">
           <option v-for="b in books" :key="b.book_id" :value="b.book_id">
-            {{ b.book_id }} ({{ b.page_count }} trang)
+            {{ b.title_vi || b.book_id }} ({{ b.page_count }} trang)
           </option>
         </select>
         <span class="pw-page-nav">
@@ -1045,6 +1073,62 @@ onMounted(() => {
   margin: 0 0 0.5rem;
   font-size: 1.1rem;
   color: #f9a8d4;
+}
+
+.pw-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pw-back-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.pw-back-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #64748b;
+}
+
+.pw-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #f9a8d4;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.pw-title strong {
+  font-weight: 600;
+  color: #f0e6ff;
+}
+
+.pw-zh {
+  font-family: "Source Han Serif SC", "Songti SC", serif;
+  font-weight: normal;
+  font-size: 0.92rem;
+  color: rgba(200, 180, 240, 0.75);
+}
+
+.pw-stage-badge {
+  font-size: 0.74rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(168, 124, 255, 0.2);
+  color: #d8c7ff;
+  font-weight: 500;
 }
 
 .pw-toolbar {
