@@ -5565,16 +5565,17 @@ def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
         # Look up from current user's user_persons
         from api.auth import AUTH_DB
         import sqlite3
+        # Legacy fallback: '_founder' always maps to hardcoded founder profile
+        # (so legacy cache + frontend default_person_id='_founder' still works for any user)
+        if req.person_key == "_founder":
+            return Person(
+                person_key="_founder",
+                name="Anh (Founder)",
+                birth_datetime_local="1988-06-05T23:30:00",
+                gender="nam",
+                user_id=uid,  # scope cache to current user if logged in
+            )
         if not user:
-            # Fallback: _founder profile from persons.sqlite3
-            if req.person_key == "_founder":
-                return Person(
-                    person_key="_founder",
-                    name="Anh (Founder)",
-                    birth_datetime_local="1988-06-05T23:30:00",
-                    gender="nam",
-                    user_id=None,  # founder fallback path
-                )
             raise HTTPException(401, "Login required to use person_key")
         db = sqlite3.connect(AUTH_DB)
         row = db.execute(
