@@ -17,13 +17,16 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
+import shutil
 import subprocess
 import tempfile
 import threading
 import time
 import uuid
 from collections import deque
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Optional
@@ -165,11 +168,17 @@ class JobsStore:
         end_page: int,
         backend: str = "pipeline",
         language: str = "ch",
+        workers: int = 1,
     ) -> dict:
         """Submit a new OCR job. Returns the job dict (with job_id).
 
+        Args:
+            workers: parallel MinerU subprocesses. 1 = sequential chunks.
+                     >1 = swarm mode (concurrent subprocesses on disjoint page
+                     ranges, merged after all complete). Capped at MAX_WORKERS.
+
         Raises:
-            ValueError if there's already an active OCR job (single-worker)
+            ValueError if there's already an active OCR job (single job constraint)
             FileNotFoundError if pdf_path doesn't exist
         """
         self._detect_zombies()
@@ -179,7 +188,10 @@ class JobsStore:
         if end_page < start_page:
             raise ValueError(f"end_page ({end_page}) < start_page ({start_page})")
 
-        # Single worker check
+        MAX_WORKERS = 4  # M4 36GB tested limit (each pipeline worker ~4 GB)
+        workers = max(1, min(MAX_WORKERS, int(workers)))
+
+        # Single active OCR job check
         with self._lock():
             data = self._read_raw()
             for j in data.get("jobs", []):
@@ -203,6 +215,7 @@ class JobsStore:
                     "current": 0,
                     "total": end_page - start_page + 1,
                     "stage": "queued",
+                    "workers": workers,
                 },
                 "params": {
                     "start_page": start_page,
@@ -210,6 +223,7 @@ class JobsStore:
                     "backend": backend,
                     "language": language,
                     "pdf_path": str(pdf_path),
+                    "workers": workers,
                 },
                 "started_at": None,
                 "ended_at": None,
@@ -222,8 +236,9 @@ class JobsStore:
 
         # Spawn worker thread
         self._cancel_flags[job_id] = threading.Event()
+        target = self._run_ocr_swarm if workers > 1 else self._run_ocr_job
         thread = threading.Thread(
-            target=self._run_ocr_job,
+            target=target,
             args=(job_id,),
             daemon=True,
             name=f"ocr-job-{job_id}",
@@ -231,7 +246,7 @@ class JobsStore:
         self._threads[job_id] = thread
         thread.start()
         logger.info(
-            f"📥 Submitted OCR job {job_id} for {book_id} (pages {start_page}-{end_page})"
+            f"📥 Submitted OCR job {job_id} for {book_id} (pages {start_page}-{end_page}, workers={workers})"
         )
         return job
 
@@ -441,6 +456,314 @@ class JobsStore:
             # Cleanup
             self._threads.pop(job_id, None)
             self._cancel_flags.pop(job_id, None)
+
+    # ─── Swarm runner (N parallel MinerU subprocesses) ───────────────────────
+
+    def _run_ocr_swarm(self, job_id: str) -> None:
+        """Thread target — process OCR job in parallel chunks (swarm mode).
+
+        Splits page range into N chunks (1 per worker), runs each MinerU
+        subprocess concurrently with isolated output dirs, then merges results
+        into canonical mineru_output/<book_id>/auto/ folder.
+        """
+        try:
+            job = self.get_job(job_id)
+            if not job:
+                logger.error(f"Job {job_id} disappeared before swarm started")
+                return
+
+            params = job["params"]
+            start_page = int(params["start_page"])
+            end_page = int(params["end_page"])
+            pdf_path = Path(params["pdf_path"])
+            backend = params.get("backend", "pipeline")
+            language = params.get("language", "ch")
+            workers = int(params.get("workers", 2))
+            book_id = job["book_id"]
+
+            total = end_page - start_page + 1
+            chunk_size = math.ceil(total / workers)
+
+            # Build N disjoint chunks
+            chunks: list[tuple[int, int]] = []
+            cs = start_page
+            for _ in range(workers):
+                if cs > end_page:
+                    break
+                ce = min(cs + chunk_size - 1, end_page)
+                chunks.append((cs, ce))
+                cs = ce + 1
+            actual_workers = len(chunks)
+
+            swarm_root = self.mineru_output / "_swarm" / job_id
+            swarm_root.mkdir(parents=True, exist_ok=True)
+
+            self._update_job(
+                job_id,
+                status=STATUS_RUNNING,
+                started_at=_now_iso(),
+                progress={
+                    "current": 0,
+                    "total": total,
+                    "stage": f"swarm-spawn ({actual_workers} workers)",
+                    "workers": actual_workers,
+                },
+            )
+            self._append_log(
+                job_id,
+                f"Swarm: {actual_workers} workers × ~{chunk_size} pages each",
+            )
+
+            # Track per-chunk progress (atomic int via dict for thread safety)
+            completed_pages = {"n": 0, "lock": threading.Lock()}
+            chunk_failure = {"err": None}
+
+            def worker_task(idx: int, cs: int, ce: int) -> None:
+                """Run 1 MinerU subprocess on chunk_dir_<idx>."""
+                if self._should_cancel(job_id):
+                    return
+                chunk_dir = swarm_root / f"chunk_{idx}"
+                chunk_dir.mkdir(parents=True, exist_ok=True)
+                t0 = time.time()
+                self._append_log(job_id, f"  Worker {idx}: pages {cs}-{ce} starting")
+                try:
+                    self._ocr_runner(
+                        pdf_path=pdf_path,
+                        book_id=book_id,
+                        start=cs,
+                        end=ce,
+                        backend=backend,
+                        language=language,
+                        mineru_bin=self.mineru_bin,
+                        output_root=chunk_dir,
+                    )
+                    pages_done = ce - cs + 1
+                    elapsed = time.time() - t0
+                    with completed_pages["lock"]:
+                        completed_pages["n"] += pages_done
+                        cur = completed_pages["n"]
+                    self._update_job(
+                        job_id,
+                        progress={
+                            "current": cur,
+                            "total": total,
+                            "stage": f"swarm-running ({actual_workers}w)",
+                            "workers": actual_workers,
+                        },
+                    )
+                    self._append_log(
+                        job_id,
+                        f"  Worker {idx}: done in {elapsed:.1f}s ({pages_done} pages)",
+                    )
+                except Exception as e:
+                    chunk_failure["err"] = f"worker {idx} (pages {cs}-{ce}): {e}"
+                    self._append_log(job_id, f"  ❌ Worker {idx} failed: {e}")
+                    raise
+
+            try:
+                with ThreadPoolExecutor(max_workers=actual_workers) as executor:
+                    futures = {
+                        executor.submit(worker_task, i, cs, ce): (i, cs, ce)
+                        for i, (cs, ce) in enumerate(chunks)
+                    }
+                    for f in as_completed(futures):
+                        try:
+                            f.result()
+                        except Exception:
+                            # Cancel remaining
+                            for other in futures:
+                                other.cancel()
+                            raise
+                        if self._should_cancel(job_id):
+                            for other in futures:
+                                other.cancel()
+                            break
+            except Exception as e:
+                self._update_job(
+                    job_id,
+                    status=STATUS_FAILED,
+                    ended_at=_now_iso(),
+                    error=str(chunk_failure["err"] or e),
+                    progress={
+                        "current": completed_pages["n"],
+                        "total": total,
+                        "stage": "failed",
+                        "workers": actual_workers,
+                    },
+                )
+                # Keep swarm dir for debugging on failure
+                return
+
+            if self._should_cancel(job_id):
+                self._update_job(
+                    job_id,
+                    status=STATUS_CANCELLED,
+                    ended_at=_now_iso(),
+                    progress={
+                        "current": completed_pages["n"],
+                        "total": total,
+                        "stage": "cancelled",
+                        "workers": actual_workers,
+                    },
+                )
+                logger.info(f"Swarm {job_id} cancelled")
+                return
+
+            # All chunks done — merge into canonical book folder
+            self._update_job(
+                job_id,
+                progress={
+                    "current": total,
+                    "total": total,
+                    "stage": "merging",
+                    "workers": actual_workers,
+                },
+            )
+            self._append_log(job_id, "🔗 Merging chunks into canonical folder...")
+            try:
+                self._merge_swarm_chunks(book_id, swarm_root, actual_workers)
+                # Cleanup swarm tmp
+                shutil.rmtree(swarm_root, ignore_errors=True)
+            except Exception as e:
+                err = f"Merge failed: {e}"
+                logger.exception(err)
+                self._update_job(
+                    job_id,
+                    status=STATUS_FAILED,
+                    ended_at=_now_iso(),
+                    error=err,
+                    progress={
+                        "current": completed_pages["n"],
+                        "total": total,
+                        "stage": "merge-failed",
+                        "workers": actual_workers,
+                    },
+                )
+                return
+
+            self._update_job(
+                job_id,
+                status=STATUS_DONE,
+                ended_at=_now_iso(),
+                progress={
+                    "current": total,
+                    "total": total,
+                    "stage": "done",
+                    "workers": actual_workers,
+                },
+                eta_seconds=0,
+            )
+            logger.info(f"✅ Swarm {job_id} completed ({actual_workers} workers)")
+
+            # Best-effort progress recompute
+            try:
+                from engine.yi_publishing.books_store import BooksStore
+
+                store = BooksStore(project_root=self.project_root)
+                store.recompute_progress(book_id)
+            except Exception as e:
+                logger.warning(f"Progress recompute failed for {book_id}: {e}")
+
+        finally:
+            self._threads.pop(job_id, None)
+            self._cancel_flags.pop(job_id, None)
+
+    def _merge_swarm_chunks(
+        self, book_id: str, swarm_root: Path, n_chunks: int
+    ) -> None:
+        """Merge per-chunk MinerU outputs into canonical book folder.
+
+        Each chunk has structure:
+            swarm_root/chunk_<i>/<book_id>/auto/<book_id>_content_list_v2.json
+            swarm_root/chunk_<i>/<book_id>/auto/<book_id>_middle.json
+            swarm_root/chunk_<i>/<book_id>/auto/<book_id>_content_list.json
+            swarm_root/chunk_<i>/<book_id>/auto/<book_id>_model.json
+            swarm_root/chunk_<i>/<book_id>/auto/images/...
+
+        Output: mineru_output/<book_id>/auto/<book_id>_*.json + images/
+
+        content_list_v2.json + content_list.json + middle.json.pdf_info are
+        page-keyed arrays; concatenate in chunk order.
+        """
+        target_dir = self.mineru_output / book_id / "auto"
+        target_dir.mkdir(parents=True, exist_ok=True)
+        target_images = target_dir / "images"
+        target_images.mkdir(parents=True, exist_ok=True)
+
+        # Collect per-chunk JSONs in chunk order (0..N-1)
+        v2_combined: list = []
+        v1_combined: list = []
+        middle_combined: Optional[dict] = None
+        model_combined: list = []
+
+        for i in range(n_chunks):
+            chunk_auto = swarm_root / f"chunk_{i}" / book_id / "auto"
+            if not chunk_auto.exists():
+                # Try "ocr" subdir as fallback
+                chunk_auto = swarm_root / f"chunk_{i}" / book_id / "ocr"
+            if not chunk_auto.exists():
+                raise FileNotFoundError(
+                    f"Chunk {i}: no MinerU output at {swarm_root / f'chunk_{i}' / book_id}"
+                )
+
+            # v2
+            v2_path = chunk_auto / f"{book_id}_content_list_v2.json"
+            if v2_path.exists():
+                v2_combined.extend(json.loads(v2_path.read_text(encoding="utf-8")))
+
+            # v1
+            v1_path = chunk_auto / f"{book_id}_content_list.json"
+            if v1_path.exists():
+                v1_combined.extend(json.loads(v1_path.read_text(encoding="utf-8")))
+
+            # middle
+            middle_path = chunk_auto / f"{book_id}_middle.json"
+            if middle_path.exists():
+                mdata = json.loads(middle_path.read_text(encoding="utf-8"))
+                if middle_combined is None:
+                    middle_combined = {
+                        k: v for k, v in mdata.items() if k != "pdf_info"
+                    }
+                    middle_combined["pdf_info"] = []
+                middle_combined["pdf_info"].extend(mdata.get("pdf_info", []))
+
+            # model (per-page array)
+            model_path = chunk_auto / f"{book_id}_model.json"
+            if model_path.exists():
+                mdata = json.loads(model_path.read_text(encoding="utf-8"))
+                if isinstance(mdata, list):
+                    model_combined.extend(mdata)
+
+            # images: copy without overwrite (filenames already unique per page)
+            chunk_images = chunk_auto / "images"
+            if chunk_images.exists():
+                for img in chunk_images.iterdir():
+                    target_img = target_images / img.name
+                    if not target_img.exists():
+                        shutil.copy2(img, target_img)
+
+        # Write merged
+        if v2_combined:
+            (target_dir / f"{book_id}_content_list_v2.json").write_text(
+                json.dumps(v2_combined, ensure_ascii=False), encoding="utf-8"
+            )
+        if v1_combined:
+            (target_dir / f"{book_id}_content_list.json").write_text(
+                json.dumps(v1_combined, ensure_ascii=False), encoding="utf-8"
+            )
+        if middle_combined:
+            (target_dir / f"{book_id}_middle.json").write_text(
+                json.dumps(middle_combined, ensure_ascii=False), encoding="utf-8"
+            )
+        if model_combined:
+            (target_dir / f"{book_id}_model.json").write_text(
+                json.dumps(model_combined, ensure_ascii=False), encoding="utf-8"
+            )
+
+        logger.info(
+            f"🔗 Merged {n_chunks} chunks → {target_dir} "
+            f"({len(v2_combined)} pages v2, {len(model_combined)} model entries)"
+        )
 
     # ─── Default OCR runner (subprocess MinerU) ──────────────────────────────
 

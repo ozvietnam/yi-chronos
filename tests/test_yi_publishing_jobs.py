@@ -304,3 +304,139 @@ def test_log_tail_captures_progress(store: JobsStore, fake_pdf: Path):
     final = _wait_for_status(store, j["job_id"], (STATUS_DONE,))
     assert len(final["log_tail"]) > 0
     assert any("Chunk" in line for line in final["log_tail"])
+
+
+# ─── Swarm mode (parallel MinerU workers) ────────────────────────────────────
+
+
+@pytest.fixture
+def swarm_ocr_runner():
+    """OCR runner that creates valid MinerU chunk output structure for merge tests."""
+    calls = []
+    lock = threading.Lock()
+
+    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root):
+        with lock:
+            calls.append({"start": start, "end": end, "output_root": str(output_root)})
+        # Simulate ~0.1s per chunk so parallelism is observable
+        time.sleep(0.1)
+        out_dir = Path(output_root) / book_id / "auto"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        pages = end - start + 1
+        v2 = [[{"type": "text", "text": f"page {start + i}"}] for i in range(pages)]
+        (out_dir / f"{book_id}_content_list_v2.json").write_text(
+            json.dumps(v2, ensure_ascii=False), encoding="utf-8"
+        )
+        v1 = [{"page_idx": start + i} for i in range(pages)]
+        (out_dir / f"{book_id}_content_list.json").write_text(
+            json.dumps(v1, ensure_ascii=False), encoding="utf-8"
+        )
+        middle = {
+            "version": "1.0",
+            "pdf_info": [
+                {"page_idx": start + i, "preproc_blocks": [{"lines": [{"spans": []}]}]}
+                for i in range(pages)
+            ],
+        }
+        (out_dir / f"{book_id}_middle.json").write_text(
+            json.dumps(middle, ensure_ascii=False), encoding="utf-8"
+        )
+        (out_dir / "images").mkdir(exist_ok=True)
+        (out_dir / "images" / f"p{start}_img.png").write_bytes(b"fakepng")
+
+    return runner, calls
+
+
+def test_swarm_spawns_n_workers(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):
+    runner, calls = swarm_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="swarm-test", pdf_path=fake_pdf, start_page=1, end_page=20, workers=4
+    )
+    final = _wait_for_status(s, j["job_id"], (STATUS_DONE,), timeout=10)
+    assert final["status"] == STATUS_DONE
+    assert final["params"]["workers"] == 4
+    # 4 workers × 5 pages each
+    assert len(calls) == 4
+    pages_seen = sorted([(c["start"], c["end"]) for c in calls])
+    assert pages_seen == [(1, 5), (6, 10), (11, 15), (16, 20)]
+
+
+def test_swarm_each_worker_isolated_output(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):
+    runner, calls = swarm_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="iso-test", pdf_path=fake_pdf, start_page=1, end_page=8, workers=2
+    )
+    _wait_for_status(s, j["job_id"], (STATUS_DONE,), timeout=10)
+    output_roots = {c["output_root"] for c in calls}
+    assert len(output_roots) == 2
+
+
+def test_swarm_merges_chunks_into_canonical_folder(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):
+    runner, _ = swarm_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="merged", pdf_path=fake_pdf, start_page=1, end_page=10, workers=3
+    )
+    _wait_for_status(s, j["job_id"], (STATUS_DONE,), timeout=10)
+
+    canonical = tmp_path / "data" / "yi_publishing_mineru" / "merged" / "auto"
+    v2 = canonical / "merged_content_list_v2.json"
+    middle = canonical / "merged_middle.json"
+    assert v2.exists()
+    assert middle.exists()
+
+    v2_data = json.loads(v2.read_text(encoding="utf-8"))
+    assert len(v2_data) == 10
+
+    middle_data = json.loads(middle.read_text(encoding="utf-8"))
+    assert len(middle_data["pdf_info"]) == 10
+
+    swarm_tmp = tmp_path / "data" / "yi_publishing_mineru" / "_swarm" / j["job_id"]
+    assert not swarm_tmp.exists()
+
+
+def test_swarm_caps_at_max_workers(tmp_path: Path, fake_pdf: Path, swarm_ocr_runner):
+    runner, _ = swarm_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="cap-test", pdf_path=fake_pdf, start_page=1, end_page=12, workers=100
+    )
+    _wait_for_status(s, j["job_id"], (STATUS_DONE,), timeout=10)
+    # MAX_WORKERS = 4 per current limit
+    assert j["params"]["workers"] == 4
+
+
+def test_swarm_failure_marks_whole_job_failed(tmp_path: Path, fake_pdf: Path):
+    call_count = {"n": 0}
+    lock = threading.Lock()
+
+    def flaky_runner(*, pdf_path, book_id, start, end, **kwargs):
+        with lock:
+            call_count["n"] += 1
+            n = call_count["n"]
+        time.sleep(0.05)
+        if n == 2:
+            raise RuntimeError(f"Synthetic fail on call {n}")
+        out_dir = Path(kwargs["output_root"]) / book_id / "auto"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / f"{book_id}_content_list_v2.json").write_text("[]", encoding="utf-8")
+
+    s = JobsStore(project_root=tmp_path, ocr_runner=flaky_runner)
+    j = s.submit_ocr_job(
+        book_id="flaky", pdf_path=fake_pdf, start_page=1, end_page=8, workers=3
+    )
+    final = _wait_for_status(s, j["job_id"], (STATUS_FAILED,), timeout=10)
+    assert final["status"] == STATUS_FAILED
+    assert "fail" in final["error"].lower()
+
+
+def test_workers_param_clamped_to_positive(tmp_path: Path, fake_pdf: Path, fast_ocr_runner):
+    runner, _ = fast_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+    j = s.submit_ocr_job(
+        book_id="z", pdf_path=fake_pdf, start_page=1, end_page=3, workers=0
+    )
+    _wait_for_status(s, j["job_id"], (STATUS_DONE,))
+    assert j["params"]["workers"] == 1
