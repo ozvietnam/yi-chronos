@@ -486,8 +486,9 @@ function renderWithTooltips(text) {
 onMounted(async () => {
   await loadAll();
   await loadCdkDeepFeature();
-  // Auto-load cached Đại Hạn nếu đã có (instant)
+  // Auto-load cached Đại Hạn + Lưu Niên nếu đã có (instant)
   tryLoadCachedDaiHan();
+  tryLoadCachedLuuNien();
 });
 
 function toggleStar(id) {
@@ -652,6 +653,109 @@ const cdkBulkSummary = ref(null);
 const cdkDaiHan = ref(null);       // {dai_han: {vong_1..8}, dai_han_cycles, ...}
 const cdkDaiHanLoading = ref(false);
 const cdkDaiHanError = ref(null);
+
+// ───── Lưu Niên 10 năm ─────
+const cdkLuuNien = ref(null);       // {luu_nien: {nam_2026..2035}, years, ...}
+const cdkLuuNienLoading = ref(false);
+const cdkLuuNienError = ref(null);
+
+async function tryLoadCachedLuuNien() {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      force: false,
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-luu-nien', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+    if (!resp.ok) return;
+    const data = await resp.json();
+    if (data.status === 'ok' && data.from_cache) {
+      cdkLuuNien.value = data;
+    }
+  } catch (e) { /* silent */ }
+}
+
+async function loadLuuNien(force = false) {
+  const person = activePerson.value;
+  if (!person?.birth_datetime_local && !person?.person_key) return;
+  cdkLuuNienLoading.value = true;
+  cdkLuuNienError.value = null;
+  try {
+    const genderText = String(person?.gender || 'nam').toLowerCase();
+    const payload = {
+      force,
+      ...(person.person_key
+        ? { person_key: person.person_key }
+        : {
+            birth_datetime_local: person.birth_datetime_local,
+            gender: genderText.includes('nữ') || genderText.includes('nu') ? 'nữ' : 'nam',
+            timezone: person.timezone || 'Asia/Ho_Chi_Minh',
+            name: person.name || 'Người',
+          }),
+    };
+    const resp = await fetch('/api/tu-vi/q4/cdk/luan-luu-nien', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+    let data;
+    try { data = await resp.json(); }
+    catch { cdkLuuNienError.value = `HTTP ${resp.status} ${resp.statusText}`; return; }
+    if (!resp.ok) {
+      cdkLuuNienError.value = `HTTP ${resp.status} — ${data?.detail || data?.message || '?'}`;
+      return;
+    }
+    if (data.status === 'ok') {
+      cdkLuuNien.value = data;
+    } else {
+      cdkLuuNienError.value = data.message || 'Lỗi không xác định';
+    }
+  } catch (e) {
+    cdkLuuNienError.value = String(e.message || e);
+  } finally {
+    cdkLuuNienLoading.value = false;
+    loadCdkDeepFeature();
+  }
+}
+
+// Computed: 10 năm với content + is_current
+const cdkLuuNienList = computed(() => {
+  if (!cdkLuuNien.value) return null;
+  const years = cdkLuuNien.value.years || [];
+  const ln = cdkLuuNien.value.luu_nien || {};
+  const thisYear = new Date().getFullYear();
+  return years.map((y) => {
+    const content = ln[`nam_${y.year}`] || {};
+    return {
+      ...y,
+      tong_quan: content.tong_quan || '',
+      co_hoi_thach_thuc: content.co_hoi_thach_thuc || '',
+      loi_khuyen: content.loi_khuyen || '',
+      isCurrent: y.year === thisYear,
+    };
+  });
+});
+
+// Selected year for drawer (default: current year)
+const selectedLuuNien = ref(null);
+function selectLuuNien(yearMeta) {
+  selectedLuuNien.value = selectedLuuNien.value?.year === yearMeta.year ? null : yearMeta;
+}
 
 // Auto-load cached Đại Hạn nếu có (chạy free, GET endpoint)
 async function tryLoadCachedDaiHan() {
@@ -1386,6 +1490,99 @@ Verdict: {{ st.meaning.summary }}</title></text>
                 type="button" class="cdk-deep-regen"
                 @click="loadDaiHan(true)">
           🔄 Viết lại 8 vòng
+        </button>
+      </section>
+
+      <!-- Lưu Niên 10 năm tới -->
+      <section class="cdk-luu-nien-section">
+        <header class="cdk-dh-head">
+          <h4>📅 Lưu Niên — 10 năm tới (vận khí từng năm)</h4>
+          <span v-if="cdkLuuNien" class="cdk-vip-badge is-ok">✓ Đã luận sâu</span>
+        </header>
+        <p class="cdk-intro">
+          Mỗi năm có
+          <abbr class="hv-tooltip" title="Sao Thái Tuế đại diện vận khí năm — chạy theo địa chi năm đó">lưu Thái Tuế</abbr>
+          rơi vào 1 cung trên lá số. Kết hợp với
+          <abbr class="hv-tooltip" title="Vận 10 năm đang chạy">đại hạn hiện tại</abbr>
+          → cho ra vận khí năm cụ thể.
+        </p>
+
+        <!-- Bảng 10 năm clickable -->
+        <div v-if="cdkLuuNienList" class="cdk-ln-grid">
+          <article v-for="y in cdkLuuNienList" :key="y.year"
+                   :class="['cdk-ln-chip',
+                            y.isCurrent && 'is-current',
+                            selectedLuuNien?.year === y.year && 'is-selected']"
+                   @click="selectLuuNien(y)">
+            <div class="cdk-ln-year">{{ y.year }}</div>
+            <div class="cdk-ln-can-chi">{{ y.can_chi }}</div>
+            <div class="cdk-ln-age">{{ y.age }} tuổi</div>
+            <div class="cdk-ln-thai-tue">Thái Tuế: <b>{{ y.luu_thai_tue_branch }}</b></div>
+            <span v-if="y.isCurrent" class="cdk-ln-tag">⭐ Hiện tại</span>
+          </article>
+        </div>
+
+        <!-- Drawer detail năm được chọn (default = current year) -->
+        <transition name="cdk-drawer">
+          <article v-if="selectedLuuNien || (cdkLuuNienList && cdkLuuNienList.find((y) => y.isCurrent))"
+                   :key="(selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.year"
+                   class="cdk-ln-drawer">
+            <header>
+              <div>
+                <h5>Năm {{ (selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.year }}
+                  · <b>{{ (selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.can_chi }}</b>
+                </h5>
+                <small>
+                  Tuổi {{ (selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.age }} ·
+                  Thái Tuế cung {{ (selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.luu_thai_tue_branch }}
+                </small>
+              </div>
+              <span v-if="(selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.isCurrent"
+                    class="cdk-current-badge">⭐ NĂM HIỆN TẠI</span>
+            </header>
+            <div v-if="(selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.tong_quan" class="cdk-dh-section">
+              <h6>1️⃣ Tổng quan năm</h6>
+              <p v-html="renderWithTooltips((selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.tong_quan)"></p>
+            </div>
+            <div v-if="(selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.co_hoi_thach_thuc" class="cdk-dh-section">
+              <h6>2️⃣ Cơ hội & Thử thách</h6>
+              <p v-html="renderWithTooltips((selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.co_hoi_thach_thuc)"></p>
+            </div>
+            <div v-if="(selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.loi_khuyen" class="cdk-dh-section">
+              <h6>3️⃣ Lời khuyên</h6>
+              <p v-html="renderWithTooltips((selectedLuuNien || cdkLuuNienList?.find((y) => y.isCurrent))?.loi_khuyen)"></p>
+            </div>
+          </article>
+        </transition>
+
+        <!-- VIP button khi chưa có cache -->
+        <div v-if="!cdkLuuNien" class="cdk-dh-cta">
+          <p class="cdk-bulk-explain">
+            💡 Engine đã tính sẵn can-chi + lưu Thái Tuế cho 10 năm.
+            Bấm bên dưới để DeepSeek V4 Pro luận sâu từng năm cụ thể.
+          </p>
+          <button type="button"
+                  class="cdk-deep-btn cdk-bulk-btn"
+                  :disabled="!cdkDeepFeatureStatus.allowed || cdkLuuNienLoading"
+                  @click="loadLuuNien(false)">
+            <span v-if="cdkLuuNienLoading">
+              <span class="cdk-spinner"></span>
+              Đang luận 10 năm... (~5 phút)
+            </span>
+            <span v-else-if="cdkDeepFeatureStatus.allowed">
+              📅 Luận sâu 10 năm Lưu Niên (~5 phút · tự lưu wiki)
+            </span>
+            <span v-else>🔒 {{ cdkDeepFeatureStatus.label }}</span>
+          </button>
+          <p v-if="cdkLuuNienError" class="cdk-deep-error" style="margin-top: 8px;">
+            ⚠ {{ cdkLuuNienError }}
+          </p>
+        </div>
+
+        <button v-if="cdkLuuNien && cdkDeepFeatureStatus.allowed"
+                type="button" class="cdk-deep-regen"
+                @click="loadLuuNien(true)">
+          🔄 Viết lại 10 năm
         </button>
       </section>
 
@@ -2864,6 +3061,113 @@ Verdict: {{ st.meaning.summary }}</title></text>
 @keyframes cdk-clock-pulse {
   0%, 100% { filter: drop-shadow(0 0 4px rgba(196, 181, 253, 0.5)); }
   50% { filter: drop-shadow(0 0 14px rgba(196, 181, 253, 0.9)); }
+}
+
+/* ─── Lưu Niên section ──────────────────────────────────────────────── */
+.cdk-luu-nien-section {
+  margin: 14px 0;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(91, 229, 211, 0.05) 0%, rgba(2, 6, 23, 0.4) 100%),
+    rgba(2, 6, 23, 0.3);
+  border: 1px solid rgba(91, 229, 211, 0.22);
+  border-radius: 10px;
+}
+.cdk-luu-nien-section .cdk-dh-head h4 {
+  color: #5be5d3;
+}
+.cdk-ln-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+  gap: 6px;
+  margin: 12px 0;
+}
+.cdk-ln-chip {
+  padding: 8px 9px;
+  background: rgba(2, 6, 23, 0.45);
+  border: 1px solid rgba(230, 238, 245, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  transition: transform 160ms, border-color 160ms;
+}
+.cdk-ln-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(91, 229, 211, 0.45);
+}
+.cdk-ln-chip.is-current {
+  border-color: #5be5d3;
+  background:
+    linear-gradient(135deg, rgba(91, 229, 211, 0.16) 0%, rgba(2, 6, 23, 0.45) 100%);
+  box-shadow: 0 0 12px rgba(91, 229, 211, 0.32);
+}
+.cdk-ln-chip.is-selected {
+  border-color: #fcd34d;
+  box-shadow: 0 0 14px rgba(252, 211, 77, 0.45);
+}
+.cdk-ln-year {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fcd34d;
+  line-height: 1.1;
+}
+.cdk-ln-can-chi {
+  font-size: 11.5px;
+  color: rgba(230, 238, 245, 0.86);
+  margin-top: 2px;
+}
+.cdk-ln-age {
+  font-size: 10.5px;
+  color: rgba(230, 238, 245, 0.6);
+  margin-top: 1px;
+}
+.cdk-ln-thai-tue {
+  font-size: 10px;
+  color: rgba(196, 181, 253, 0.85);
+  margin-top: 3px;
+}
+.cdk-ln-thai-tue b {
+  color: #c4b5fd;
+}
+.cdk-ln-tag {
+  position: absolute;
+  top: -8px;
+  right: 4px;
+  padding: 1px 6px;
+  background: #5be5d3;
+  color: #0f1a25;
+  font-size: 9.5px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+.cdk-ln-drawer {
+  margin: 14px 0 8px;
+  padding: 14px 16px;
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(91, 229, 211, 0.32);
+  border-radius: 10px;
+}
+.cdk-ln-drawer > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(230, 238, 245, 0.1);
+}
+.cdk-ln-drawer h5 {
+  margin: 0;
+  color: #5be5d3;
+  font-size: 15px;
+}
+.cdk-ln-drawer h5 b {
+  color: #fcd34d;
+}
+.cdk-ln-drawer small {
+  color: rgba(230, 238, 245, 0.6);
+  font-size: 12px;
 }
 
 /* Animation drawer slide-in */

@@ -1302,3 +1302,295 @@ QUAN TRỌNG:
         data["wiki_extracted"] = {"error": str(e)}
 
     return data
+
+
+# ─── LƯU NIÊN 10 NĂM ──────────────────────────────────────────────────
+
+SYSTEM_PROMPT_LUU_NIEN = """Bạn là chuyên gia **Chiếu Đởm Kinh** giảng giải **Lưu Niên** (mỗi năm cụ thể) cho NGƯỜI VIỆT BÌNH THƯỜNG.
+
+🎯 NHIỆM VỤ: Cho **10 năm liên tiếp** (mỗi năm có can-chi riêng + lưu Thái Tuế vào cung nào), luận từng năm.
+
+⚠️ ĐỐI TƯỢNG ĐỌC: Người Việt không biết Hán-Việt. Văn phong:
+- Tiếng Việt thuần hiện đại, gần gũi
+- Mỗi thuật ngữ Hán-Việt LẦN ĐẦU giải nghĩa trong ngoặc
+- Có ví dụ đời sống cụ thể, áp dụng cho user (sự nghiệp / sức khỏe / quan hệ)
+- Paradigm Iron Rule #6: ĐỌC ĐỒNG DẠNG, KHÔNG predict cứng
+- Dùng "có xu hướng", "cần chú ý", "thường" — KHÔNG khẳng định tuyệt đối
+- Mỗi năm có TUỔI cụ thể của user — nhắc rõ
+
+📋 OUTPUT JSON THUẦN — 1 object với 10 keys "nam_2026" → "nam_2035" (tùy năm thực):
+{
+  "nam_<YEAR>": {
+    "tong_quan": "Bản chất năm này — can-chi, lưu Thái Tuế cung nào, đại hạn nào (~300-450 chars)",
+    "co_hoi_thach_thuc": "Cơ hội cụ thể + thử thách trong năm + tương tác với Mệnh (~400-600 chars)",
+    "loi_khuyen": "2-3 lời khuyên actionable cho năm này (~200-300 chars)"
+  },
+  ...
+}
+
+QUY TẮC:
+- BẮT ĐẦU `{`, KẾT THÚC `}`. KHÔNG ``` fence.
+- Newline trong string dùng \\n. Quote " escape thành \\".
+- 10 keys chính xác đúng năm.
+- Mỗi năm ~900-1300 chars. Tổng ~9000-13000 chars cho 10 năm.
+"""
+
+
+def _compute_luu_nien_years(person, num_years: int = 10) -> list[dict]:
+    """Compute can-chi + lưu Thái Tuế (cung trên lá số) cho N năm tới."""
+    from core.chronos import calculate_chronos_state
+    from datetime import datetime
+    try:
+        born = datetime.fromisoformat(person.birth_datetime_local)
+        born_year = born.year
+    except Exception:
+        born_year = 1988
+    current_year = datetime.now().year
+    years = []
+    for offset in range(num_years):
+        year = current_year + offset
+        try:
+            c = calculate_chronos_state(f"{year}-01-01T12:00:00", person.timezone or "Asia/Ho_Chi_Minh")
+            parts = c.ganzhi.year.split()
+            can = parts[0] if parts else "?"
+            chi = parts[1] if len(parts) > 1 else "?"
+        except Exception:
+            can, chi = "?", "?"
+        age = year - born_year
+        years.append({
+            "year": year,
+            "can": can,
+            "chi": chi,
+            "can_chi": f"{can} {chi}",
+            "age": age,
+            "luu_thai_tue_branch": chi,  # Thái Tuế = chi năm hiện tại
+        })
+    return years
+
+
+def _build_luu_nien_context(person, cdk_chart: dict, years: list[dict], cung_summaries: dict) -> str:
+    """Build context cho luận lưu niên."""
+    menh = cdk_chart.get("menh_branch")
+    dai_han = cdk_chart.get("dai_han_cycles", [])
+    NAME_MAP = {
+        "Tử": "Tử Vi", "Hư": "Thiên Hư", "Quý": "Thiên Quý", "Ấn": "Thiên Ấn",
+        "Thọ": "Thiên Thọ", "Không": "Thiên Hư", "Loan": "Hồng Loan", "Hồng": "Hồng Loan",
+        "Khố": "Thiên Khố", "Quán": "Thiên Quán", "Văn": "Văn Xương",
+        "Phúc": "Phúc Lộc", "Lộc": "Phúc Lộc", "Trượng": "Thiên Trượng",
+        "Dị": "Thiên Dị", "Mao": "Mao Đầu", "Nhận": "Thiên Nhận (Kình Dương)",
+        "Hình": "Thiên Hình", "Khốc": "Thiên Khốc", "Diêu": "Thiên Diêu",
+    }
+    cuc_name = None
+    for c, members in TAM_HOP_CUC.items():
+        if menh in members:
+            cuc_name = c
+            tam_hop = members
+            break
+    else:
+        tam_hop = []
+    menh_idx = BRANCHES_ORDER.index(menh) if menh in BRANCHES_ORDER else -1
+    xung_chieu = BRANCHES_ORDER[(menh_idx + 6) % 12] if menh_idx >= 0 else None
+
+    lines = [
+        f"━━━ THÔNG TIN LÁ SỐ ━━━",
+        f"  Chủ nhân: {person.name}",
+        f"  Sinh: {person.birth_datetime_local}",
+        f"  Mệnh CDK: **{menh}** | Tam hợp {cuc_name}: {' + '.join(tam_hop) if tam_hop else '?'} | Xung chiếu: {xung_chieu}",
+        "",
+        f"━━━ 10 NĂM TỚI ━━━",
+    ]
+    for y in years:
+        chi = y["chi"]
+        info = BRANCH_INFO.get(chi, {})
+        # Stars at lưu Thái Tuế chi
+        stars_at_chi = [(k, NAME_MAP.get(k, k)) for k, v in (cdk_chart.get("stars") or {}).items() if v == chi]
+        # Quan hệ với Mệnh
+        rel = "MỆNH" if chi == menh else (
+            f"tam hợp {cuc_name}" if chi in tam_hop and chi != menh else (
+                "xung chiếu Mệnh" if chi == xung_chieu else "phụ trợ")
+        )
+        # Đại Hạn nào đang ở
+        current_dh = next((c for c in dai_han if c.get("start_age", 0) <= y["age"] <= c.get("end_age", 0)), None)
+        dh_str = f"Đại Hạn vòng {current_dh.get('cycle_index')} ({current_dh.get('branch')})" if current_dh else "?"
+        lines.append(f"\n  ▸ Năm {y['year']} (**{y['can_chi']}**) — tuổi {y['age']}")
+        lines.append(f"      Lưu Thái Tuế tại **{chi}** ({info.get('conGiap', '?')}) — quan hệ với Mệnh: {rel}")
+        lines.append(f"      {dh_str}")
+        if stars_at_chi:
+            for short, full in stars_at_chi:
+                lines.append(f"      Sao tại {chi}: {short} ({full})")
+        else:
+            lines.append(f"      Không có Phi Tinh đóng tại {chi}")
+    return "\n".join(lines)
+
+
+def luan_luu_nien_10_nam(person, num_years: int = 10, force: bool = False) -> dict:
+    """Luận Lưu Niên 10 năm tới — 1 LLM call."""
+    cache_key = f"LUU_NIEN_{num_years}_NAM"
+    cache_p = _cache_path(person.person_key, person.user_id, cache_key)
+    if not force and cache_p.exists():
+        try:
+            with cache_p.open() as f:
+                cached = json.load(f)
+            cached["from_cache"] = True
+            return cached
+        except Exception:
+            pass
+
+    try:
+        cdk_chart = _cdk_engine_cast(person)
+    except Exception as e:
+        return {"status": "error", "message": f"CDK cast failed: {e}"}
+
+    years = _compute_luu_nien_years(person, num_years)
+    if not years:
+        return {"status": "error", "message": "Cannot compute years"}
+
+    # Load 12 cung summaries (compact context)
+    cung_summaries = {}
+    for b in BRANCHES_ORDER:
+        cp = _cache_path(person.person_key, person.user_id, b)
+        if cp.exists():
+            try:
+                with cp.open() as f:
+                    cached_b = json.load(f)
+                lc = cached_b.get("luan_cung_compact") or {}
+                if lc.get("ban_chat_va_quan_he"):
+                    cung_summaries[b] = lc
+            except Exception:
+                pass
+
+    context = _build_luu_nien_context(person, cdk_chart, years, cung_summaries)
+    year_keys = [f"nam_{y['year']}" for y in years]
+    schema_lines = ",\n  ".join(f'"{k}": {{"tong_quan": "...", "co_hoi_thach_thuc": "...", "loi_khuyen": "..."}}' for k in year_keys)
+
+    user_prompt = f"""{context}
+
+Viết luận giải 10 năm liên tiếp theo schema JSON với {len(year_keys)} keys CHÍNH XÁC:
+{{
+  {schema_lines}
+}}
+
+QUAN TRỌNG:
+- Mỗi năm 3 fields: tong_quan + co_hoi_thach_thuc + loi_khuyen
+- Mỗi năm ~900-1300 chars Việt thuần
+- Cụ thể: nhắc rõ tuổi user trong năm đó, can-chi năm, lưu Thái Tuế cung nào
+- Dùng "có xu hướng", "cần chú ý" — KHÔNG predict cứng tháng/sự kiện
+- Liên kết với Đại Hạn đang ở (kết hợp lớp BIẾN)"""
+
+    from engine.ai.registry import get_registry
+    registry = get_registry()
+    chain = ["deepseek", "anthropic", "gemini", "openrouter", "minimax"]
+    candidates = []
+    for n in chain:
+        try:
+            p = registry.get(n)
+            if p and p.is_configured and not registry.is_unhealthy(n):
+                candidates.append(p)
+        except Exception:
+            pass
+    if not candidates:
+        return {"status": "error", "message": "No LLM provider configured"}
+
+    resp = None
+    last_err = None
+    provider_used = None
+    for attempt in range(3):
+        for cand in candidates:
+            if registry.is_unhealthy(cand.name):
+                continue
+            try:
+                resp = cand.chat(
+                    messages=[
+                        {"role": "system", "content": SYSTEM_PROMPT_LUU_NIEN},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    temperature=0.5,
+                    max_tokens=16000,
+                )
+                provider_used = cand
+                break
+            except Exception as e:
+                err_str = str(e)
+                last_err = f"{cand.name}: {err_str[:200]}"
+                if any(sig in err_str for sig in ["401", "403", "1113", "invalid", "Authentication", "balance", "quota"]):
+                    registry.mark_unhealthy(cand.name, err_str[:100])
+                continue
+        if resp is not None:
+            break
+        import time as _t; _t.sleep(2)
+    if resp is None:
+        return {"status": "error", "message": f"All providers failed: {last_err}"}
+
+    content = resp.content if hasattr(resp, "content") else str(resp)
+    if "```" in content:
+        m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", content, re.DOTALL)
+        if m:
+            content = m.group(1)
+        else:
+            content = "\n".join(l for l in content.split("\n") if not l.strip().startswith("```"))
+    parsed = None
+    try:
+        parsed = json.loads(content)
+    except Exception:
+        try:
+            start = content.find("{"); end = content.rfind("}")
+            if start >= 0 and end > start:
+                parsed = json.loads(content[start:end + 1])
+        except Exception:
+            pass
+    if parsed is None:
+        cleaned = content.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
+        cleaned = re.sub(r",(\s*[}\]])", r"\1", cleaned)
+        try:
+            start = cleaned.find("{"); end = cleaned.rfind("}")
+            if start >= 0 and end > start:
+                parsed = json.loads(cleaned[start:end + 1])
+        except Exception:
+            parsed = {"_parse_error": True, "_raw": content}
+
+    prompt_tokens = getattr(resp, "prompt_tokens", 0) or 0
+    completion_tokens = getattr(resp, "completion_tokens", 0) or 0
+    cost = getattr(resp, "cost_usd", 0) or 0
+
+    data = {
+        "status": "ok",
+        "person_key": person.person_key,
+        "person_name": person.name,
+        "menh_branch": cdk_chart.get("menh_branch"),
+        "years": years,  # raw years meta
+        "generated_at": int(time.time()),
+        "provider": provider_used.name,
+        "model": "v4_pro_luu_nien",
+        "cost_usd": round(cost, 6),
+        "tokens": {"prompt": prompt_tokens, "completion": completion_tokens},
+        "luu_nien": parsed,
+        "num_years": num_years,
+        "paradigm_note": "Lưu Niên 10 năm CDK — Iron Rule #6 đọc đồng dạng, không predict cứng.",
+    }
+    try:
+        cache_p.parent.mkdir(parents=True, exist_ok=True)
+        with cache_p.open("w") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"⚠ Cache save failed: {e}")
+
+    # Auto wiki extract
+    try:
+        from engine.tu_vi.wiki_extractor import extract_phe_menh_to_wiki
+        adapter = {
+            "status": "ok",
+            "person_name": person.name,
+            "person_key": person.person_key,
+            "generated_at": data["generated_at"],
+            "provider": data["provider"],
+            "phe_menh_sau": parsed,
+        }
+        result = extract_phe_menh_to_wiki(adapter, verbose=False)
+        data["wiki_extracted"] = {
+            "added_quotes": result.get("added_quotes", 0),
+            "added_cach_cuc": result.get("added_cach_cuc", 0),
+        }
+    except Exception as e:
+        data["wiki_extracted"] = {"error": str(e)}
+
+    return data
