@@ -222,6 +222,15 @@ watch(selectedBook, (id) => {
   currentBookMeta.value = books.value.find(b => b.book_id === id) || null;
 });
 
+// True when book has no MinerU OCR output yet — workspace can't do anything useful
+const notYetOcr = computed(() => {
+  // Use loaded pages list (authoritative) as truth; fall back to metadata progress
+  if (!loading.value && Array.isArray(pages.value) && pages.value.length === 0) {
+    return Boolean(selectedBook.value);  // skip when no book selected at all
+  }
+  return false;
+});
+
 async function loadPages() {
   if (!selectedBook.value) return;
   try {
@@ -557,9 +566,9 @@ onMounted(async () => {
           {{ layout.regions?.length || 0 }} regions
           · {{ layout.regions?.reduce((n, r) => n + (r.lines?.length || 0), 0) || 0 }} lines
         </span>
-        <button @click="autoTranslatePage(false)" :disabled="autoTranslating"
+        <button @click="autoTranslatePage(false)" :disabled="autoTranslating || notYetOcr"
                 class="pw-auto-trans-btn"
-                title="Tự dịch các dòng chưa có bản Việt (free, DeepSeek)">
+                :title="notYetOcr ? 'Cần OCR trước khi dịch' : 'Tự dịch các dòng chưa có bản Việt (free, DeepSeek)'">
           {{ autoTranslating ? "🤖 Đang dịch..." : "🤖 Tự dịch trang" }}
         </button>
         <span v-if="autoTranslateResult?.status === 'ok'" class="pw-stats" style="color: #34d399;">
@@ -579,7 +588,31 @@ onMounted(async () => {
       </div>
     </header>
 
-    <div class="pw-main" v-if="viewMode === 'editor'">
+    <!-- Empty state: book has no OCR output yet -->
+    <div v-if="notYetOcr" class="pw-empty-ocr">
+      <div class="pw-empty-icon">🔍</div>
+      <h3>Sách chưa được scan OCR</h3>
+      <p>
+        Sách <strong>{{ currentBookMeta?.title_vi || selectedBook }}</strong>
+        có <strong>{{ currentBookMeta?.page_count || "?" }} trang</strong>
+        nhưng chưa có MinerU OCR output. Workspace cần dữ liệu layout +
+        text để hiển thị regions và bản dịch.
+      </p>
+      <p class="pw-empty-help">
+        Quay về <strong>📚 Thư viện</strong>, mở menu <strong>⋯</strong> trên card,
+        chọn <strong>🔍 Đặt scan OCR</strong> để MinerU "bắt khối ảnh"
+        (detect bố cục paragraphs / images / tables) cho từng trang.
+      </p>
+      <p class="pw-empty-hint">
+        ⏰ Ước tính ~{{ Math.round((currentBookMeta?.page_count || 0) * 1.5 / 60) }}
+        giờ cho {{ currentBookMeta?.page_count || "?" }} trang trên Mac M4 (chạy nền).
+      </p>
+      <button type="button" class="pw-back-btn-large" @click="goBackToLibrary">
+        ← Về Thư viện để đặt scan OCR
+      </button>
+    </div>
+
+    <div class="pw-main" v-else-if="viewMode === 'editor'">
       <!-- LEFT: Page image with bbox overlay (regions + lines) -->
       <div class="pw-pane pw-pane-image">
         <div class="pw-image-container" v-if="selectedBook">
@@ -2393,6 +2426,85 @@ onMounted(async () => {
 .pw-auto-providers b {
   color: #cbd5e1;
   font-family: inherit;
+}
+
+/* ─── Empty state: book not yet OCR'd ─── */
+.pw-empty-ocr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(168, 124, 255, 0.04), rgba(255, 180, 60, 0.06));
+  border: 2px dashed rgba(255, 180, 60, 0.3);
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 720px;
+  color: #e0d3ff;
+}
+
+.pw-empty-icon {
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+  animation: pulse-icon 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.pw-empty-ocr h3 {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  color: #ffd88a;
+  font-weight: 600;
+}
+
+.pw-empty-ocr p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0.5rem 0;
+  max-width: 540px;
+  color: rgba(220, 200, 240, 0.85);
+}
+
+.pw-empty-ocr strong {
+  color: #f0e6ff;
+  font-weight: 600;
+}
+
+.pw-empty-help {
+  background: rgba(168, 124, 255, 0.1);
+  padding: 0.85rem 1.2rem;
+  border-radius: 8px;
+  border-left: 3px solid rgba(168, 124, 255, 0.5);
+}
+
+.pw-empty-hint {
+  font-size: 0.85rem !important;
+  color: rgba(220, 200, 240, 0.6) !important;
+  font-style: italic;
+}
+
+.pw-back-btn-large {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background: linear-gradient(135deg, #ffb74d, #ff9800);
+  color: #2a1a05;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 12px rgba(255, 180, 60, 0.25);
+}
+
+.pw-back-btn-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 180, 60, 0.4);
 }
 
 .pw-auto-providers code {
