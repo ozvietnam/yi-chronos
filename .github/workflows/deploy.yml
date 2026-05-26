@@ -98,9 +98,11 @@ jobs:
             docker compose pull
             echo "═══ Recreate container ═══"
             docker compose up -d --remove-orphans
-            sleep 5
+            sleep 8
             echo "═══ Status ═══"
             docker compose ps
+            echo "═══ Container logs (last 120 lines, for crash diagnosis) ═══"
+            docker logs --tail 120 yi-chronos 2>&1 || true
             echo "═══ Prune dangling images ═══"
             docker image prune -f --filter "until=24h" || true
 
