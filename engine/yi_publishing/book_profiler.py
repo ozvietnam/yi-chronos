@@ -362,10 +362,15 @@ def profile_book(
     density = classify_density(analysis_img)
 
     # ── Script detection ───
+    # If caller didn't supply text, run a quick OCR on first sample page
+    # for script classification. Use existing MinerU spike output if possible.
     if sample_text is None:
-        # In real flow, caller supplies OCR'd text. For now, default chinese.
         sample_text = ""
     script = classify_script(sample_text) if sample_text else "unknown"
+
+    # Infer chinese script from language hint if classify_script gave unknown
+    # (cuốn cổ Hán văn thường không có text layer → sample_text empty → unknown)
+    inferred_chinese = script == "unknown" and language in ("ch", "ch_server", "ch_lite", "chinese_cht")
 
     # ── Spike OCR ───
     spike_result = spike_ocr_configs(
@@ -393,9 +398,24 @@ def profile_book(
             f"spike default={default_cand['equation_ratio']:.2%} eq, "
             f"-f False={no_formula_cand['equation_ratio']:.2%} eq"
         )
-    if not formula_enable:
+
+    # ── Conservative rule for Hán cổ multi-col books ──────────────────────────
+    # Learned from Thiết Bản Thần Số (2026-05-26): spike sampling missed 9 problem
+    # pages out of 587 (rare table-grid pages with false equation detection).
+    # Heuristic: Chinese-language books with ≥2 columns are rarely real math books;
+    # downside of disabling formula parsing is small, upside (avoiding LaTeX
+    # false positives like \overrightarrow on chữ Hán table grids) is high.
+    is_chinese = (script == "chinese") or inferred_chinese
+    if is_chinese and columns >= 2 and formula_enable:
+        formula_enable = False
         rationale_parts.append(
-            "Disabled formula parsing to avoid false LaTeX detection on dense Hán text"
+            "Override: Chinese + multi-col → conservative -f False "
+            "(spike sampling can miss rare table-grid false positives; "
+            "Hán cổ books rarely contain real math formulas)"
+        )
+    elif not formula_enable:
+        rationale_parts.append(
+            "Disabled formula parsing per spike (lower equation_ratio)"
         )
 
     profile = {

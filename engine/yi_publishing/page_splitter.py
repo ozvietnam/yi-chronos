@@ -64,28 +64,26 @@ def _row_density_stddev(img) -> float:
 
 
 def detect_page_type(thumbnail_path: Path) -> str:
-    """Categorize a page: 'blank' | 'text' | 'image' | 'mixed'.
+    """Categorize a page: 'blank' | 'text' | 'image' | 'mixed'."""
+    info = detect_page_info(thumbnail_path)
+    return info["type"]
 
-    Heuristic (cheap, no ML):
-        1. ink_ratio < 2% → blank
-        2. ink_ratio > 35% → image (large filled area)
-        3. else → text (some content but not dense fill)
 
-    Note: "text" is a default-bucket for anything with meaningful but non-overwhelming
-    ink. For finer-grained classification (text vs sparse-illustration), do this in
-    book_profiler.py with more samples + spike OCR.
-    """
+def detect_page_info(thumbnail_path: Path) -> dict:
+    """Return type + ink_ratio for a page (for density-biased sampling)."""
     from PIL import Image
 
     with Image.open(thumbnail_path) as im:
         ws = _whitespace_ratio(im)
         ink_ratio = 1.0 - ws
 
-        if ink_ratio < BLANK_INK_THRESHOLD:
-            return "blank"
-        if ink_ratio > IMAGE_HEAVY_INK_THRESHOLD:
-            return "image"
-        return "text"
+    if ink_ratio < BLANK_INK_THRESHOLD:
+        ptype = "blank"
+    elif ink_ratio > IMAGE_HEAVY_INK_THRESHOLD:
+        ptype = "image"
+    else:
+        ptype = "text"
+    return {"type": ptype, "ink_ratio": round(ink_ratio, 4)}
 
 
 # ─── Thumbnail rendering ─────────────────────────────────────────────────────
@@ -175,11 +173,13 @@ def analyze_book(
     type_counts: dict[str, int] = {"blank": 0, "text": 0, "image": 0, "mixed": 0}
     for i, p in enumerate(paths):
         page_num = i + 1
-        ptype = detect_page_type(p)
+        info = detect_page_info(p)
+        ptype = info["type"]
         type_counts[ptype] = type_counts.get(ptype, 0) + 1
         pages_info.append({
             "page_num": page_num,
             "type": ptype,
+            "ink_ratio": info["ink_ratio"],
             "thumbnail": f"thumbnails/{p.name}",
         })
 
@@ -205,24 +205,61 @@ def pick_sample_pages_for_profile(
 ) -> list[int]:
     """Pick representative page numbers for profiling.
 
-    Strategy: skip first 10% (cover/TOC) + last 5% (index), sample from
-    pages of `prefer_type`. If not enough, fall back to "mixed".
+    Density-biased strategy (Level B):
+      - Skip first 5% cover + last 5% index
+      - From `prefer_type` pages, blend:
+          • 40% top-density pages (catch dense Hán cổ + woodblock sections)
+          • 60% evenly distributed (catch typical content)
+      - Always include 1 page from front 10-25% range if exists (where
+        cổ books often have problematic dense intro sections)
     """
     total = page_types_json["page_count"]
     if total == 0:
         return []
 
-    skip_front = max(1, total // 10)
+    skip_front = max(1, total // 20)   # skip 5%, not 10% — keep more early pages
     skip_back = max(0, total // 20)
     middle = page_types_json["pages"][skip_front : total - skip_back]
-    preferred = [p["page_num"] for p in middle if p["type"] == prefer_type]
-    if len(preferred) < n_samples:
-        preferred += [
-            p["page_num"]
-            for p in middle
-            if p["type"] == "mixed" and p["page_num"] not in preferred
-        ]
 
+    # Filter by prefer_type + fallback mixed
+    candidates = [p for p in middle if p.get("type") == prefer_type]
+    if len(candidates) < n_samples * 2:
+        candidates += [p for p in middle
+                       if p.get("type") == "mixed" and p not in candidates]
+
+    if not candidates:
+        return []
+
+    # Sort by ink_ratio descending (dense pages first)
+    has_ink = all("ink_ratio" in p for p in candidates)
+    if has_ink:
+        by_density = sorted(candidates, key=lambda p: p["ink_ratio"], reverse=True)
+        n_dense = max(1, int(n_samples * 0.4))  # 40% top-density
+        n_even = n_samples - n_dense
+
+        dense_pages = [p["page_num"] for p in by_density[:n_dense]]
+        # Evenly distributed across positional order (not density order)
+        rest = [p for p in candidates if p["page_num"] not in dense_pages]
+        if rest:
+            step = len(rest) / max(n_even, 1)
+            even_pages = [rest[min(int(i * step), len(rest) - 1)]["page_num"]
+                          for i in range(n_even)]
+        else:
+            even_pages = []
+
+        # Bonus: 1 from front 10-25% range if not already covered
+        front_range = page_types_json["pages"][total // 10 : total // 4]
+        front_text = [p["page_num"] for p in front_range
+                      if p.get("type") == prefer_type]
+        picked = list(set(dense_pages + even_pages))
+        if front_text and not any(p in front_text for p in picked):
+            # Replace last "even" pick with a front pick (median of front range)
+            picked = picked[:-1] + [front_text[len(front_text) // 2]]
+
+        return sorted(set(picked))[:n_samples]
+
+    # Fallback: original evenly-spaced sampling (no ink_ratio)
+    preferred = [p["page_num"] for p in candidates]
     # Evenly-spaced sampling
     if len(preferred) <= n_samples:
         return preferred

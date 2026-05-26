@@ -319,3 +319,33 @@ def test_profile_book_modern_single_col_keeps_default_config(pdf_1col, mock_mine
     assert profile["columns"] == 1
     # No false-positive equations → keep formula enabled
     assert profile["ocr_config"]["formula_enable"] is True
+
+
+def test_profile_chinese_multicol_forces_no_formula_even_if_spike_clean(
+    pdf_3col_dense, mock_mineru_factory, tmp_path
+):
+    """Conservative rule: Hán cổ multi-col → -f False regardless of spike result.
+
+    Spike can miss rare table-grid pages with false-positive equation detection
+    (as found with Thiết Bản Thần Số: 9/587 pages had issues, none sampled).
+    """
+    from engine.yi_publishing.book_profiler import profile_book
+
+    # Both configs clean — spike would normally pick "default" (formula_enable=True)
+    runner, _ = mock_mineru_factory({
+        "with_formula": 0.0,
+        "without_formula": 0.0,
+    })
+
+    profile = profile_book(
+        pdf_path=pdf_3col_dense,
+        sample_pages=[1],
+        output_root=tmp_path / "profile",
+        mineru_runner=runner,
+        language="ch",  # explicit Chinese hint
+    )
+
+    assert profile["columns"] == 3
+    # Conservative override should kick in despite clean spike
+    assert profile["ocr_config"]["formula_enable"] is False
+    assert "Override" in profile["ocr_config"]["rationale"]
