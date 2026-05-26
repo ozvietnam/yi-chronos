@@ -5223,6 +5223,7 @@ class SubmitOcrRequest(BaseModel):
     backend: str = "pipeline"   # "pipeline" or "vlm"
     language: str = "ch"        # "ch" or "en"
     workers: int = 1            # 1 = sequential, >1 = parallel swarm (capped at 4)
+    formula_enable: bool = True  # False for Hán cổ multi-col (avoid false LaTeX)
 
 
 @app.post("/api/yi-publishing/books/upload")
@@ -5474,6 +5475,7 @@ def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest) -> dict:
             backend=req.backend,
             language=req.language,
             workers=req.workers,
+            formula_enable=req.formula_enable,
         )
     except ValueError as e:
         raise HTTPException(status_code=409, detail=str(e))

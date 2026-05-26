@@ -169,6 +169,7 @@ class JobsStore:
         backend: str = "pipeline",
         language: str = "ch",
         workers: int = 1,
+        formula_enable: bool = True,
     ) -> dict:
         """Submit a new OCR job. Returns the job dict (with job_id).
 
@@ -224,6 +225,7 @@ class JobsStore:
                     "language": language,
                     "pdf_path": str(pdf_path),
                     "workers": workers,
+                    "formula_enable": formula_enable,
                 },
                 "started_at": None,
                 "ended_at": None,
@@ -339,6 +341,7 @@ class JobsStore:
             pdf_path = Path(params["pdf_path"])
             backend = params.get("backend", "pipeline")
             language = params.get("language", "ch")
+            formula_enable = bool(params.get("formula_enable", True))
             book_id = job["book_id"]
 
             total = end_page - start_page + 1
@@ -387,6 +390,7 @@ class JobsStore:
                         language=language,
                         mineru_bin=self.mineru_bin,
                         output_root=self.mineru_output,
+                        formula_enable=formula_enable,
                     )
                 except Exception as e:
                     err_msg = f"OCR chunk {chunk_start}-{chunk_end} failed: {e}"
@@ -479,6 +483,7 @@ class JobsStore:
             backend = params.get("backend", "pipeline")
             language = params.get("language", "ch")
             workers = int(params.get("workers", 2))
+            formula_enable = bool(params.get("formula_enable", True))
             book_id = job["book_id"]
 
             total = end_page - start_page + 1
@@ -536,6 +541,7 @@ class JobsStore:
                         language=language,
                         mineru_bin=self.mineru_bin,
                         output_root=chunk_dir,
+                        formula_enable=formula_enable,
                     )
                     pages_done = ce - cs + 1
                     elapsed = time.time() - t0
@@ -811,6 +817,8 @@ class JobsStore:
         mineru_bin: Path,
         output_root: Path,
         timeout: int = 1800,
+        formula_enable: bool = True,
+        **kwargs,
     ) -> None:
         """Invoke MinerU CLI for a page range. Raises on non-zero exit."""
         output_root.mkdir(parents=True, exist_ok=True)
@@ -823,8 +831,11 @@ class JobsStore:
             "-s", str(start),
             "-e", str(end),
             "-m", "auto",
+            "-f", str(formula_enable),
         ]
-        logger.info(f"  🔍 MinerU pages {start}-{end} (cmd: {' '.join(cmd[:5])}...)")
+        logger.info(
+            f"  🔍 MinerU pages {start}-{end} (formula={formula_enable})"
+        )
         proc = subprocess.run(
             cmd, capture_output=True, text=True, timeout=timeout
         )

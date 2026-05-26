@@ -33,7 +33,7 @@ def fast_ocr_runner():
     """OCR runner stub that returns instantly. Returns (runner, call_log)."""
     calls = []
 
-    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root):
+    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root, **kwargs):
         calls.append({"start": start, "end": end, "book_id": book_id})
         # Simulate fast OCR — sleep ~0.01s
         time.sleep(0.01)
@@ -46,7 +46,7 @@ def slow_ocr_runner():
     """OCR runner that sleeps ~0.2s per chunk (for cancel tests)."""
     calls = []
 
-    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root):
+    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root, **kwargs):
         calls.append({"start": start, "end": end})
         time.sleep(0.2)
 
@@ -315,7 +315,7 @@ def swarm_ocr_runner():
     calls = []
     lock = threading.Lock()
 
-    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root):
+    def runner(*, pdf_path, book_id, start, end, backend, language, mineru_bin, output_root, **kwargs):
         with lock:
             calls.append({"start": start, "end": end, "output_root": str(output_root)})
         # Simulate ~0.1s per chunk so parallelism is observable
