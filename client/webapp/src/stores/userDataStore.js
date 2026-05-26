@@ -12,6 +12,8 @@ import { currentUser, sessionToken, isAuthenticated } from "./authStore.js";
 import {
   persons as guestPersons,
   activePerson as guestActivePerson,
+  activePersonId as guestActivePersonId,
+  setActivePerson as guestSetActivePerson,
 } from "./profileStore.js";
 
 // ─── API-backed state (when logged in) ──────────────────────────────────────
@@ -127,9 +129,28 @@ export async function deleteMyPerson(id) {
   await loadMyPersons();
 }
 
-export function setActivePerson(personKey) {
-  apiActivePersonKey.value = personKey;
+export function setActivePerson(keyOrId) {
+  // Smart router: write to the right "active person" pointer for the current
+  // session. Logged-in users have a DB-backed `apiActivePersonKey`
+  // (person_key string); guests have a localStorage `activePersonId` (id).
+  if (isAuthenticated.value) {
+    apiActivePersonKey.value = keyOrId;
+  } else {
+    guestSetActivePerson(keyOrId);
+  }
 }
+
+/**
+ * activePersonKey — unified identifier for the currently active person.
+ *   - Logged in: person_key (string from user_persons.person_key)
+ *   - Guest: id (string from profileStore.persons[].id)
+ * Use this as the v-model / :value of any UI picker so the dropdown stays
+ * consistent across auth states.
+ */
+export const activePersonKey = computed(() => {
+  if (isAuthenticated.value) return apiActivePersonKey.value;
+  return guestActivePersonId.value;
+});
 
 // ─── Auto-save casting helper ───────────────────────────────────────────────
 

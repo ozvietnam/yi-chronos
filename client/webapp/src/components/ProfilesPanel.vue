@@ -4,8 +4,7 @@ import {
   EVENT_OUTCOMES,
   ORG_TYPES,
   PERSON_ROLES,
-  activePerson,
-  activePersonId,
+  activePersonId as guestActivePersonId,
   addEvent,
   addFamily,
   addOrganization,
@@ -15,20 +14,41 @@ import {
   getOrganizationById,
   getPersonById,
   organizations,
-  persons,
+  persons as guestPersons,
   removeEvent,
   removeFamily,
   removeOrganization,
   removePerson,
-  setActivePerson,
+  setActivePerson as setGuestActivePerson,
   updateEvent,
   updateFamily,
   updateOrganization,
   updatePerson,
 } from "../stores/profileStore.js";
+// Unified person store: returns DB persons when logged in, localStorage when guest.
+// The top "Active person" picker must use this so anh sees his family members
+// from the DB after login (not the legacy localStorage entries).
+import {
+  persons as unifiedPersons,
+  activePerson,
+  activePersonKey,
+  setActivePerson,
+} from "../stores/userDataStore.js";
 import BirthShareButton from "./BirthShareButton.vue";
 import UserPersonsPanel from "./UserPersonsPanel.vue";
 import { isAuthenticated } from "../stores/authStore.js";
+
+// Unified id for picker option values: DB rows expose `person_key`, localStorage
+// rows expose `id`. Normalise so the <select> works in both modes.
+function personPickerKey(p) {
+  return p?.person_key ?? p?.id ?? null;
+}
+function personPickerLabel(p) {
+  if (!p) return "";
+  const rel = p.relationship || p.role || "";
+  const year = p.birth_year || (p.birth_datetime_local || "").slice(0, 4) || "?";
+  return `${p.name} (${roleLabel(rel)}, ${year})`;
+}
 
 const activeSection = ref("persons");
 
@@ -119,7 +139,9 @@ function memberPreviewNames(idList) {
 }
 
 const stats = computed(() => ({
-  persons: persons.value.length,
+  // Top "active person" picker now sources from the unified store, so the
+  // count reflects what's actually selectable for that picker.
+  persons: unifiedPersons.value.length,
   families: families.value.length,
   organizations: organizations.value.length,
   events: events.value.length,
@@ -148,10 +170,10 @@ const stats = computed(() => ({
     <div class="active-bar">
       <label class="ab-block">
         <span class="ab-label">Bản thân (active person)</span>
-        <select :value="activePersonId" @change="(e) => setActivePerson(e.target.value || null)">
+        <select :value="activePersonKey" @change="(e) => setActivePerson(e.target.value || null)">
           <option :value="null">— chưa chọn —</option>
-          <option v-for="p in persons" :key="p.id" :value="p.id">
-            {{ p.name }} ({{ roleLabel(p.role) }}, {{ p.birth_year }})
+          <option v-for="p in unifiedPersons" :key="personPickerKey(p)" :value="personPickerKey(p)">
+            {{ personPickerLabel(p) }}
           </option>
         </select>
         <BirthShareButton
@@ -169,9 +191,17 @@ const stats = computed(() => ({
       </div>
     </div>
 
-    <div class="sub-tabs">
+    <!--
+      Legacy localStorage sub-tabs (Người · Gia đình · Tổ chức · Sự kiện).
+      For logged-in users, person management lives in UserPersonsPanel above
+      (DB-backed). Keeping these sub-tabs visible after login caused confusion:
+      the dropdown at top showed DB persons, but this section showed unrelated
+      localStorage rows like "Trần Hoàng Minh". Hide them post-login —
+      Families/Orgs/Events stay localStorage-only for now (separate feature).
+    -->
+    <div v-if="!isAuthenticated" class="sub-tabs">
       <button :class="{ on: activeSection === 'persons' }" @click="activeSection = 'persons'">
-        Người ({{ stats.persons }})
+        Người ({{ guestPersons.length }})
       </button>
       <button :class="{ on: activeSection === 'families' }" @click="activeSection = 'families'">
         Gia đình ({{ stats.families }})
@@ -183,6 +213,8 @@ const stats = computed(() => ({
         Sự kiện ({{ stats.events }})
       </button>
     </div>
+
+    <template v-if="!isAuthenticated">
 
     <!-- ====================== PERSONS ====================== -->
     <div v-if="activeSection === 'persons'" class="section">
@@ -211,8 +243,8 @@ const stats = computed(() => ({
         Vai trò "Bản thân" chỉ nên có 1. Ngày giờ chi tiết giúp tính chính xác hơn — nếu không có, dùng năm sinh.
       </p>
 
-      <h5>Danh sách đã có ({{ stats.persons }} người)</h5>
-      <div v-if="persons.length" class="entity-list-wrap">
+      <h5>Danh sách đã có ({{ guestPersons.length }} người)</h5>
+      <div v-if="guestPersons.length" class="entity-list-wrap">
         <div class="list-header">
           <span>Họ tên</span>
           <span>Vai trò</span>
@@ -222,7 +254,7 @@ const stats = computed(() => ({
           <span></span>
         </div>
         <ul class="entity-list">
-          <li v-for="p in persons" :key="p.id" :class="{ active: p.id === activePersonId }">
+          <li v-for="p in guestPersons" :key="p.id" :class="{ active: p.id === guestActivePersonId }">
             <input type="text" :value="p.name" @input="(e) => updatePerson(p.id, { name: e.target.value })" />
             <select :value="p.role" @change="(e) => updatePerson(p.id, { role: e.target.value })">
               <option v-for="r in PERSON_ROLES" :key="r.value" :value="r.value">{{ r.label }}</option>
@@ -230,9 +262,9 @@ const stats = computed(() => ({
             <input type="number" :value="p.birth_year" @input="(e) => updatePerson(p.id, { birth_year: Number(e.target.value) })" />
             <input type="datetime-local" step="60" :value="p.birth_datetime_local"
               @input="(e) => updatePerson(p.id, { birth_datetime_local: e.target.value })" />
-            <button class="select-btn" :class="{ on: p.id === activePersonId }" @click="setActivePerson(p.id)"
-              :title="p.id === activePersonId ? 'Đang là active person' : 'Đặt làm active person'">
-              {{ p.id === activePersonId ? '★ ACTIVE' : 'Chọn' }}
+            <button class="select-btn" :class="{ on: p.id === guestActivePersonId }" @click="setGuestActivePerson(p.id)"
+              :title="p.id === guestActivePersonId ? 'Đang là active person' : 'Đặt làm active person'">
+              {{ p.id === guestActivePersonId ? '★ ACTIVE' : 'Chọn' }}
             </button>
             <button class="del-btn" @click="removePerson(p.id)" title="Xoá">×</button>
           </li>
@@ -253,7 +285,7 @@ const stats = computed(() => ({
         <div class="member-select">
           <span>Chọn thành viên (từ Persons):</span>
           <div class="checkbox-grid">
-            <label v-for="p in persons" :key="p.id" class="cb">
+            <label v-for="p in guestPersons" :key="p.id" class="cb">
               <input type="checkbox"
                 :checked="newFamilyDraft.member_ids.includes(p.id)"
                 @change="toggleMemberInDraft(p.id, 'member_ids', newFamilyDraft)" />
@@ -337,10 +369,10 @@ const stats = computed(() => ({
           <input type="checkbox" v-model="newEventDraft.confirmed_fact" />
           <span>Là fact đã xác nhận (mặc định)</span>
         </label>
-        <div class="member-select" v-if="persons.length">
+        <div class="member-select" v-if="guestPersons.length">
           <span>Người liên quan:</span>
           <div class="checkbox-grid">
-            <label v-for="p in persons" :key="p.id" class="cb">
+            <label v-for="p in guestPersons" :key="p.id" class="cb">
               <input type="checkbox"
                 :checked="newEventDraft.related_person_ids.includes(p.id)"
                 @change="toggleMemberInDraft(p.id, 'related_person_ids', newEventDraft)" />
@@ -383,6 +415,7 @@ const stats = computed(() => ({
       </ul>
       <p v-else class="empty">Chưa có sự kiện nào.</p>
     </div>
+    </template>
   </section>
 </template>
 
