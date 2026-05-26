@@ -231,10 +231,13 @@ def spike_ocr_configs(
     sample_pages: list[int],
     output_root: Path,
     configs: list[dict],
-    mineru_runner: Callable = _default_mineru_runner,
+    mineru_runner: Optional[Callable] = None,
     backend: str = "pipeline",
     language: str = "ch",
 ) -> dict:
+    # Resolve runner: None → real MinerU subprocess
+    if mineru_runner is None:
+        mineru_runner = _default_mineru_runner
     """Run MinerU on `sample_pages` for each config; compare equation_ratio.
 
     `configs`: list of {"name": str, "formula_enable": bool, [other optional flags]}
@@ -248,48 +251,57 @@ def spike_ocr_configs(
     candidates = []
 
     for cfg in configs:
-        spike_dir = output_root / cfg["name"]
-        spike_dir.mkdir(parents=True, exist_ok=True)
+        # Run MinerU separately for each sample page (precise: only OCR
+        # the pages we'll analyze; previous "one call covering range" version
+        # OCR'd entire span between sampled pages → wasted 3 min + diluted signal).
+        all_pages_data: list = []
+        cfg_failed = False
+        err_msg = None
+        for sp in sample_pages:
+            per_page_dir = output_root / cfg["name"] / f"p{sp:04d}"
+            per_page_dir.mkdir(parents=True, exist_ok=True)
+            try:
+                mineru_runner(
+                    pdf_path=pdf_path,
+                    output_root=per_page_dir,
+                    start=sp,
+                    end=sp,
+                    backend=cfg.get("backend", backend),
+                    language=cfg.get("language", language),
+                    formula_enable=cfg["formula_enable"],
+                )
+            except Exception as e:
+                err_msg = str(e)
+                logger.warning(f"Spike {cfg['name']} page {sp} failed: {e}")
+                cfg_failed = True
+                break
 
-        # Run MinerU on each sample page (we keep it simple: one call covering range)
-        start = min(sample_pages)
-        end = max(sample_pages)
-        try:
-            mineru_runner(
-                pdf_path=pdf_path,
-                output_root=spike_dir,
-                start=start,
-                end=end,
-                backend=cfg.get("backend", backend),
-                language=cfg.get("language", language),
-                formula_enable=cfg["formula_enable"],
-            )
-        except Exception as e:
-            logger.warning(f"Spike {cfg['name']} failed: {e}")
-            candidates.append({
-                **cfg,
-                "equation_ratio": 1.0,  # mark as bad
-                "error": str(e),
-            })
+            # Locate v2 output for this page
+            v2_path = per_page_dir / book_id / "auto" / f"{book_id}_content_list_v2.json"
+            if not v2_path.exists():
+                v2_path = per_page_dir / book_id / "ocr" / f"{book_id}_content_list_v2.json"
+            if not v2_path.exists():
+                err_msg = f"No content_list_v2.json for page {sp}"
+                cfg_failed = True
+                break
+
+            try:
+                page_data = json.loads(v2_path.read_text(encoding="utf-8"))
+                all_pages_data.extend(page_data)
+            except Exception as e:
+                err_msg = f"Failed parse v2 for page {sp}: {e}"
+                cfg_failed = True
+                break
+
+        if cfg_failed:
+            candidates.append({**cfg, "equation_ratio": 1.0, "error": err_msg})
             continue
 
-        # Read output
-        v2_path = spike_dir / book_id / "auto" / f"{book_id}_content_list_v2.json"
-        if not v2_path.exists():
-            v2_path = spike_dir / book_id / "ocr" / f"{book_id}_content_list_v2.json"
-        if not v2_path.exists():
-            candidates.append({
-                **cfg,
-                "equation_ratio": 1.0,
-                "error": "No content_list_v2.json output",
-            })
-            continue
-
-        data = json.loads(v2_path.read_text(encoding="utf-8"))
-        ratio = _equation_ratio_for_pages(data)
+        ratio = _equation_ratio_for_pages(all_pages_data)
         candidates.append({
             **cfg,
             "equation_ratio": round(ratio, 4),
+            "sample_pages_count": len(sample_pages),
         })
 
     # Pick lowest equation_ratio (tie → first = prefer default config)
@@ -309,11 +321,15 @@ def profile_book(
     pdf_path: Path,
     sample_pages: list[int],
     output_root: Path,
-    mineru_runner: Callable = _default_mineru_runner,
+    mineru_runner: Optional[Callable] = None,
     sample_text: Optional[str] = None,
     backend: str = "pipeline",
     language: str = "ch",
 ) -> dict:
+    # Resolve runner: None → real MinerU subprocess (do here so callers
+    # can explicitly pass None to mean "use default")
+    if mineru_runner is None:
+        mineru_runner = _default_mineru_runner
     """Build full profile + recommended OCR config for a book.
 
     Steps:
