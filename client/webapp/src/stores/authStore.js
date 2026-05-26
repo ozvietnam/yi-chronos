@@ -2,8 +2,9 @@
  * Auth store — current user + session token.
  *
  * Calls `/api/auth/me` on init. If logged in, exposes `currentUser` + `currentPerson`.
- * If guest, `currentUser` is null but `guestPerson` falls back to founder
- * (so panels can still default to anh's 1988 profile without forcing login).
+ * If guest, `currentUser` is null AND `currentPerson` is null — we do NOT
+ * fall back to the founder profile anymore (that leaked anh's birth data
+ * to every visitor). Panels prompt guests to log in or enter their own birth.
  */
 import { ref, computed } from "vue";
 
@@ -57,9 +58,9 @@ export async function loadCurrentUser() {
       currentPerson.value = d.person;
       needsProfileSetup.value = !!d.needs_profile_setup;
     } else {
-      // Guest — still expose founder fallback person
+      // Guest — no person, no fallback (was leaking founder data).
       currentUser.value = null;
-      currentPerson.value = d.person;
+      currentPerson.value = d.person || null;
       needsProfileSetup.value = false;
     }
   } catch (err) {

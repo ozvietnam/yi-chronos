@@ -276,31 +276,11 @@ export function getEventById(id) {
 // Initialization — load from storage + migrate legacy.
 // -----------------------------------------------------------------------------
 
-// Founder profile defaults — anh (Founder of YI-CHRONOS).
-// Source: data/yi_hermes/founder_profile.md + data/yi_hermes/persons.sqlite3 (_founder).
-// Used as DEFAULT seed when localStorage is empty AND no legacy data exists.
-const FOUNDER_PROFILE = Object.freeze({
-  id: "_founder",
-  name: "Anh (Founder)",
-  role: "self",
-  birth_year: 1988,
-  birth_datetime_local: "1988-06-05T23:30:00",
-  timezone: "Asia/Ho_Chi_Minh",
-  gender: "nam",
-  email: "ceo@ngantin.vn",
-  is_owner: true,
-});
-
-function seedFounderProfile() {
-  const founder = { ...FOUNDER_PROFILE };
-  persons.value = [founder];
-  activePersonId.value = founder.id;
-  addFamily({
-    name: "Gia đình",
-    member_ids: [founder.id],
-    wedding_datetime_local: "",
-  });
-}
+// NOTE: We intentionally do NOT seed any default profile (previously the
+// founder's birth data was used as a "single-user convenience" fallback).
+// That leaked anh's personal info (DOB, time, email) to every guest of
+// kinhdich.online. Guests now start with an empty profile — the
+// ProfilesPanel UI prompts them to add their own person.
 
 function initialize() {
   const stored = loadFromStorage();
@@ -310,13 +290,10 @@ function initialize() {
     organizations.value = Array.isArray(stored.organizations) ? stored.organizations : [];
     events.value = Array.isArray(stored.events) ? stored.events : [];
     activePersonId.value = stored.activePersonId || null;
-    // If stored is empty (cleared) — re-seed founder.
-    if (persons.value.length === 0) {
-      seedFounderProfile();
-    }
     return;
   }
-  // First-run migration from legacy familyStore v1.
+  // First-run migration from legacy familyStore v1 (anh's own browser may
+  // still have legacy data — keep this migration path so we don't wipe it).
   const legacy = loadLegacyFamily();
   if (legacy && Array.isArray(legacy.members) && legacy.members.length) {
     const migrated = legacy.members.map((m) =>
@@ -336,8 +313,8 @@ function initialize() {
     }
     return;
   }
-  // Fresh install — seed founder profile so panels open with anh's defaults.
-  seedFounderProfile();
+  // Fresh install with no legacy data — leave empty. Panels prompt user
+  // to log in or add their own birth profile.
 }
 
 initialize();

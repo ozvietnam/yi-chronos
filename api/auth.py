@@ -617,15 +617,15 @@ def _load_user_self_person(user_id: int) -> Optional[dict]:
 def me(request: Request) -> dict:
     user = get_current_user(request)
     if not user:
-        # Fallback: return founder profile as "guest default" so panels still work
-        # WITHOUT login. This makes the system usable single-user but still
-        # supports multi-user auth on top.
-        founder_person = _load_person(FOUNDER_PERSON_ID)
+        # Guests get NO default person — previously we returned the founder
+        # profile as a single-user convenience, but that leaked anh's birth
+        # data (DOB, time, place, notes) to every visitor of kinhdich.online.
+        # Frontend panels handle person=null by prompting "đăng nhập / nhập
+        # ngày sinh".
         return {
             "status": "guest",
             "user": None,
-            "person": founder_person,
-            "default_used": "founder_fallback",
+            "person": None,
         }
     # Priority order for resolving the logged-in user's active person:
     #   1. user.default_person_id (legacy founder profile pointer)
