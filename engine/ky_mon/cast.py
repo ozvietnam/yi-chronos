@@ -13,6 +13,7 @@ from typing import Literal
 
 from .vendored.kinqimen import Qimen
 from .constants import (
+    CACH_CUC_CANON,
     CAN_NGU_HANH,
     CAN_VN,
     CHI_VN,
@@ -135,6 +136,11 @@ def cast(
     else:
         raw = qm.pan(_METHOD_MAP[method])
 
+    thien_ban_raw = raw.get("天盤", {})
+    dia_ban_raw = raw.get("地盤", {})
+    mon_raw = raw.get("門", {})
+    cach_cuc_detected = detect_cach_cuc(thien_ban_raw, dia_ban_raw, mon_raw)
+
     return {
         "method": method,
         "phuong_phap_zh": raw.get("排盤方式", ""),
@@ -150,13 +156,14 @@ def cast(
         "tiet_khi_vn": TIET_KHI_VN.get(raw.get("節氣", ""), ""),
         "tri_phu_tri_su": _format_tri_phu_tri_su(raw.get("值符值使", {})),
         "thien_at": raw.get("天乙", ""),
-        "thien_ban": _translate_cung_map(raw.get("天盤", {}), "can"),
-        "dia_ban": _translate_cung_map(raw.get("地盤", {}), "can"),
-        "mon": _translate_cung_map(raw.get("門", {}), "mon"),
+        "thien_ban": _translate_cung_map(thien_ban_raw, "can"),
+        "dia_ban": _translate_cung_map(dia_ban_raw, "can"),
+        "mon": _translate_cung_map(mon_raw, "mon"),
         "tinh": _translate_cung_map(raw.get("星", {}), "tinh"),
         "than": _translate_cung_map(raw.get("神", {}), "than"),
         "ma_tinh": raw.get("馬星", ""),
         "truong_sinh_van": raw.get("長生運", ""),
+        "cach_cuc_detected": cach_cuc_detected,
         "paradigm_note": (
             "Bàn này là bản đồ năng lượng thời-không tại thời điểm hỏi, "
             "phản chiếu cấu trúc vũ trụ — KHÔNG phải predict cát hung tuyệt đối. "
@@ -191,6 +198,82 @@ def _format_tri_phu_tri_su(raw: dict) -> dict:
         "tri_phu_tinh_cung": raw.get("值符星宮", []),
         "tri_su_mon_cung": raw.get("值使門宮", []),
     }
+
+
+def detect_cach_cuc(thien_ban_raw: dict, dia_ban_raw: dict, mon_raw: dict | None = None) -> list[dict]:
+    """Detect cách cục matching từ bàn KMDG (Đàm Liên Chương I phần V).
+
+    Args:
+        thien_ban_raw: dict {cung_zh: can_zh} from kinqimen output
+        dia_ban_raw: dict {cung_zh: can_zh} from kinqimen output
+        mon_raw: optional dict {cung_zh: mon_zh} for cách cục có môn
+
+    Returns:
+        List of matched cách cục dicts. Empty list nếu không match.
+    """
+    matched = []
+
+    # Loop qua 9 cung, check conditions cho cách cục đơn giản
+    for cung in thien_ban_raw:
+        thien_can = thien_ban_raw.get(cung)
+        dia_can = dia_ban_raw.get(cung)
+
+        if not thien_can or not dia_can:
+            continue
+
+        # Phi Điểu Trật Huyệt: Thiên Bàn Bính, Địa Bàn Lục Giáp (=Mậu ẩn Giáp Tý)
+        # Vì Giáp ẨN, mapping: Mậu=Giáp Tý, Kỷ=Giáp Tuất, etc. Bất kỳ Lục Nghi nào ở Địa Bàn = "Lục Giáp ẩn"
+        if thien_can == "丙" and dia_can in {"戊", "己", "庚", "辛", "壬", "癸"}:
+            cc = CACH_CUC_CANON["Phi Điểu Trật Huyệt"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên={thien_can} (Bính), Địa={dia_can} (ẩn Giáp)"
+            matched.append({"name": "Phi Điểu Trật Huyệt", **cc})
+
+        # Thanh Long Hồi Thủ: cần Trực Phù — skip auto-detect, vì cần state nhiều hơn
+
+        # Thanh Long Đào Tẩu: Thiên Bàn Ất, Địa Bàn Tân
+        if thien_can == "乙" and dia_can == "辛":
+            cc = CACH_CUC_CANON["Thanh Long Đào Tẩu"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên Ất 乙, Địa Tân 辛"
+            matched.append({"name": "Thanh Long Đào Tẩu", **cc})
+
+        # Bạch Hổ Xương Cuồng: Thiên Bàn Tân, Địa Bàn Ất
+        if thien_can == "辛" and dia_can == "乙":
+            cc = CACH_CUC_CANON["Bạch Hổ Xương Cuồng"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên Tân 辛, Địa Ất 乙"
+            matched.append({"name": "Bạch Hổ Xương Cuồng", **cc})
+
+        # Đằng Xà Yêu Dược: Thiên Bàn Quý, Địa Bàn Đinh
+        if thien_can == "癸" and dia_can == "丁":
+            cc = CACH_CUC_CANON["Đằng Xà Yêu Dược"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên Quý 癸, Địa Đinh 丁"
+            matched.append({"name": "Đằng Xà Yêu Dược", **cc})
+
+        # Chu Tước Đầu Giang: Thiên Bàn Đinh, Địa Bàn Quý
+        if thien_can == "丁" and dia_can == "癸":
+            cc = CACH_CUC_CANON["Chu Tước Đầu Giang"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên Đinh 丁, Địa Quý 癸"
+            matched.append({"name": "Chu Tước Đầu Giang", **cc})
+
+        # Hình Cách: Thiên Bàn Canh, Địa Bàn Kỷ
+        if thien_can == "庚" and dia_can == "己":
+            cc = CACH_CUC_CANON["Hình Cách"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên Canh 庚, Địa Kỷ 己"
+            matched.append({"name": "Hình Cách", **cc})
+
+        # Giao Thái: Thiên Ất + Địa Đinh (HOẶC Thiên Đinh + Địa Bính)
+        if (thien_can == "乙" and dia_can == "丁") or (thien_can == "丁" and dia_can == "丙"):
+            cc = CACH_CUC_CANON["Giao Thái"].copy()
+            cc["cung_phat_hien"] = cung
+            cc["chi_tiet"] = f"Cung {cung}: Thiên={thien_can}, Địa={dia_can}"
+            matched.append({"name": "Giao Thái", **cc})
+
+    return matched
 
 
 def _parse_cuc(s: str) -> dict:

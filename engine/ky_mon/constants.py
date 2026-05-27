@@ -191,6 +191,195 @@ NGUYET_GIA_NGUYEN_RULE = {
 
 # Quy luật Dương độn vs Âm độn — xếp 9 thiên can theo chiều
 # Source: Đàm Liên Chương I (hình 5, 6, 7) — bảng Dương độn + Âm độn
+# 25+ Cách Cục KMDG canon (Đàm Liên Chương I phần V — pages 43-50)
+# Mỗi cách cục có:
+#   - vn / zh: tên Việt / Hán
+#   - loai: "cat" | "hung"
+#   - tom: tóm tắt 1 câu
+#   - dieu_kien: điều kiện text (cho display)
+#   - usage: nên làm gì
+#   - check: optional function name cho auto-detection (None = browse-only)
+CACH_CUC_CANON = {
+    # ──── CÁT CÁCH ────
+    "Thanh Long Hồi Thủ": {
+        "zh": "青龍回首", "loai": "đại cát",
+        "tom": "Trăm sự bình an",
+        "dieu_kien": "Thiên Bàn Lục Giáp tại vị trí Trực Phù, Địa Bàn số Bính",
+        "usage": "Mọi sự đều bình an, tốt cho khởi sự lớn",
+        "check": "thanh_long_hoi_thu",
+    },
+    "Phi Điểu Trật Huyệt": {
+        "zh": "飛鳥跌穴", "loai": "đại cát",
+        "tom": "Trăm sự thuận lợi",
+        "dieu_kien": "Thiên Bàn số Bính, Địa Bàn Lục Giáp (cùng cung)",
+        "usage": "Mọi việc dễ thành công",
+        "check": "phi_dieu_trat_huyet",
+    },
+    "Thiên Độn": {
+        "zh": "天遁", "loai": "đại cát",
+        "tom": "Đánh điểm yếu, đánh nhanh, mở đường",
+        "dieu_kien": "Thiên Bàn Bính + Trung Bàn Sinh Môn + Thần Bàn Cửu Thiên",
+        "usage": "Tấn công, mở đường, ngăn sông, tạo tượng",
+        "check": None,
+    },
+    "Quỷ Độn": {
+        "zh": "鬼遁", "loai": "cát",
+        "tom": "Đánh lén, đánh nhanh",
+        "dieu_kien": "Thiên Bàn Ất + Trung Bàn Đỗ Môn + Thần Bàn Cửu Địa",
+        "usage": "Đánh lén, mai phục bất ngờ",
+        "check": None,
+    },
+    "Phong Độn": {
+        "zh": "風遁", "loai": "cát",
+        "tom": "Phục binh, hoả công",
+        "dieu_kien": "Thiên Bàn Ất hoặc Kỷ + Trung Bàn Khai/Hưu/Sinh + Địa Bàn cung 4 Tốn",
+        "usage": "Phục binh, dùng hỏa công",
+        "check": None,
+    },
+    "Vân Độn": {
+        "zh": "雲遁", "loai": "cát",
+        "tom": "Cầu mưa, mai phục",
+        "dieu_kien": "Thiên Bàn Ất + Trung Bàn Khai/Hưu/Sinh + Địa Bàn Giáp Ngọ Tân",
+        "usage": "Cầu mưa, phục kích, lập doanh trại",
+        "check": None,
+    },
+    "Long Độn": {
+        "zh": "龍遁", "loai": "cát",
+        "tom": "Cầu mưa, thuỷ chiến",
+        "dieu_kien": "Thiên Bàn Ất + Trung Bàn Khai/Hưu/Sinh + Địa Bàn cung 1 Khảm hoặc Giáp Dần Quý",
+        "usage": "Cầu mưa, mở đường, săn bắn, thuỷ chiến",
+        "check": None,
+    },
+    "Hổ Độn": {
+        "zh": "虎遁", "loai": "cát",
+        "tom": "Lập trại, chiêu hàng",
+        "dieu_kien": "Thiên Bàn Ất + Trung Bàn Hưu/Sinh + Địa Bàn cung 8 Cấn hoặc Giáp Ngọ Tân",
+        "usage": "Lập doanh trại, chiêu hàng",
+        "check": None,
+    },
+    "Trùng Trá": {
+        "zh": "重詐", "loai": "cát",
+        "tom": "Cầu tài, gặp người quyền quý, mai phục",
+        "dieu_kien": "Thiên Bàn Tam Kỳ (Ất/Bính/Đinh) + Trung Bàn Khai/Hưu/Sinh + Thần Bàn Cửu Địa + Lục Hợp",
+        "usage": "Cầu tài, nhận người, gặp quan, xuất quân",
+        "check": None,
+    },
+    "Hưu Trá": {
+        "zh": "休詐", "loai": "cát",
+        "tom": "Uống thuốc, trị bệnh",
+        "dieu_kien": "Thiên Bàn Tam Kỳ + Địa Bàn 3 cát môn + Thần Bàn Lục Hợp",
+        "usage": "Uống thuốc, trị bệnh",
+        "check": None,
+    },
+    "Đại Giả": {
+        "zh": "大假", "loai": "cát",
+        "tom": "Gặp người quyền quý, dâng kế",
+        "dieu_kien": "Thiên Bàn Tam Kỳ + Trung Bàn Cảnh môn + Thần Bàn Cửu Thiên",
+        "usage": "Gặp quý nhân, dâng kế sách, phát lệnh, kết giao ước",
+        "check": None,
+    },
+    "Địa Giả": {
+        "zh": "地假", "loai": "cát",
+        "tom": "Ẩn mình, lánh nạn",
+        "dieu_kien": "Thiên Bàn Tam Kỳ + Trung Bàn Đỗ môn + Thần Bàn Cửu Địa",
+        "usage": "Ẩn mình lánh nạn, thăm dò, điều tra",
+        "check": None,
+    },
+    "Giao Thái": {
+        "zh": "交泰", "loai": "cát",
+        "tom": "Đại lợi",
+        "dieu_kien": "Thiên Bàn Ất Kỳ + Địa Bàn Đinh Kỳ (hoặc Thiên Bàn Đinh + Địa Bàn Bính)",
+        "usage": "Đại lợi, cát môn",
+        "check": "giao_thai",
+    },
+
+    # ──── HUNG CÁCH ────
+    "Thanh Long Đào Tẩu": {
+        "zh": "青龍逃走", "loai": "đại hung",
+        "tom": "Bại trận, bỏ trốn",
+        "dieu_kien": "Thiên Bàn Ất, Địa Bàn Lục Tân (cùng cung)",
+        "usage": "Không dấy binh, tướng sĩ bỏ trốn, mất của",
+        "check": "thanh_long_dao_tau",
+    },
+    "Bạch Hổ Xương Cuồng": {
+        "zh": "白虎猖狂", "loai": "đại hung",
+        "tom": "Đại hung",
+        "dieu_kien": "Thiên Bàn Tân, Địa Bàn Ất (cùng cung)",
+        "usage": "Không dấy binh, hao tài, thị phi. Đi thuyền + kết hôn + tu tạo đều ĐẠI HUNG",
+        "check": "bach_ho_xuong_cuong",
+    },
+    "Đằng Xà Yêu Dược": {
+        "zh": "螣蛇妖矯", "loai": "hung",
+        "tom": "Kiện tụng",
+        "dieu_kien": "Thiên Bàn Lục Quý, Địa Bàn Cơ Đinh (cùng cung)",
+        "usage": "Vạn sự không tốt, dính kiện tụng",
+        "check": "dang_xa_yeu_duoc",
+    },
+    "Chu Tước Đầu Giang": {
+        "zh": "朱雀投江", "loai": "hung",
+        "tom": "Không thuận đi xa, lộ thông tin",
+        "dieu_kien": "Thiên Bàn Cơ Đinh, Địa Bàn Lục Quý (cùng cung)",
+        "usage": "Không đi xa, không thăng quan, không hôn nhân. Thủy tai, lộ thông tin",
+        "check": "chu_tuoc_dau_giang",
+    },
+    "Thái Bạch Nhập Huỳnh": {
+        "zh": "太白入熒", "loai": "hung",
+        "tom": "Phục binh cố thủ",
+        "dieu_kien": "Thiên Bàn Lục Canh, Địa Bàn Cơ Bính (cùng cung)",
+        "usage": "Phục binh cố thủ, không tấn công",
+        "check": None,
+    },
+    "Phục Can Cách": {
+        "zh": "伏干格", "loai": "đại hung",
+        "tom": "Bị bắt, tai hung",
+        "dieu_kien": "Thiên Bàn Lục Canh, Địa Bàn nhật can",
+        "usage": "Chủ và khách đều bị thương. Tham chiến bị bắt",
+        "check": None,
+    },
+    "Tam Kỳ Nhập Mộ": {
+        "zh": "三奇入墓", "loai": "hung",
+        "tom": "Mưu sự không thành",
+        "dieu_kien": "Ất đến cung 6 Càn (mộ); Đinh đến cung 8 Cấn (mộ); hoặc Bính/Đinh đến cung 6 Càn",
+        "usage": "Mọi việc không tốt, mưu sự không thành",
+        "check": None,
+    },
+    "Lục Nghi Kích Hình": {
+        "zh": "六儀擊刑", "loai": "đại hung",
+        "tom": "Cực hung",
+        "dieu_kien": "Giáp Tý→cung 3 Chấn; Giáp Tuất→cung 2 Khôn; Giáp Thân→cung 8 Cấn; Giáp Ngọ→cung 9 Ly; Giáp Thìn→cung 4 Tốn; Giáp Dần→cung 4 Tốn",
+        "usage": "ĐẠI KỴ xuất hành, không xây doanh trại",
+        "check": None,
+    },
+    "Hình Cách": {
+        "zh": "刑格", "loai": "đại hung",
+        "tom": "Khởi binh cực hung",
+        "dieu_kien": "Thiên Bàn Lục Canh, Địa Bàn Lục Kỷ (cùng cung)",
+        "usage": "Khởi binh cực hung, xuất hành nhiều khó khăn",
+        "check": "hinh_cach",
+    },
+    "Phục Ngâm (Tinh/Môn)": {
+        "zh": "伏吟", "loai": "hung",
+        "tom": "Bàn không động",
+        "dieu_kien": "Sao Thiên Bàn nằm chính cung chưa động (gọi 'sao Phục Ngâm'); Môn ở chính cung chưa động (gọi 'cửa Phục Ngâm')",
+        "usage": "Rất xấu. Dù đắc cát môn cũng không nên dùng",
+        "check": None,
+    },
+    "Phản Ngâm (Tinh/Môn)": {
+        "zh": "反吟", "loai": "hung",
+        "tom": "Bàn đối xung",
+        "dieu_kien": "Tinh Thiên Bàn đối xung với Tinh Địa Bàn (cùng cung)",
+        "usage": "Rất xấu, gấp đôi áp lực",
+        "check": None,
+    },
+    "Môn Cung Chế Bức": {
+        "zh": "門宮克剝", "loai": "hung",
+        "tom": "Môn khắc cung hoặc cung khắc môn",
+        "dieu_kien": "Hưu môn→cung 9 Ly (Thủy bị Hỏa); Sinh/Tử→cung 1 Khảm; Thương/Đỗ→cung 2 Khôn/8 Cấn; Khai/Kinh→cung 3 Chấn/4 Tốn",
+        "usage": "Môn bị suy giảm cát khí, hoặc tăng hung",
+        "check": "mon_cung_che_buc",
+    },
+}
+
 DUONG_AM_DON_RULE = {
     "Dương độn 陽遁": {
         "chieu": "thuận chiều (theo cung số 1→9)",

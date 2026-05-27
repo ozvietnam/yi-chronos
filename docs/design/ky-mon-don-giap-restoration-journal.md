@@ -14,8 +14,8 @@
 |---|---|---|---|---|
 | Sample | 1-20 | ✅ Done | Đàm Liên paradigm + 2 hệ KMDG + 5 cổ thư | `4aed3de` |
 | 1 | 21-30 | ✅ Done | Tam Kỳ Lục Nghi mapping + Cửu tinh 2 hệ tên + nguyệt gia rule + Dương/Âm độn chiều | `31c2c04` |
-| 2 | 31-40 | ✅ Done | 4 tầng Âm Dương Bàn + "Theo 3 tránh 5" + corrected 5 cat_hung Cửu tinh | _(this commit)_ |
-| 3 | 41-50 | ⏳ Pending | — | — |
+| 2 | 31-40 | ✅ Done | 4 tầng Âm Dương Bàn + "Theo 3 tránh 5" + corrected 5 cat_hung Cửu tinh | `cb78a4d` |
+| 3 | 41-50 | ✅ Done | **25+ Cách Cục KMDG canon + auto-detection engine** (Hình Cách / Phi Điểu Trật Huyệt / Giao Thái / 7 cách cục đơn giản) | _(this commit)_ |
 | 4 | 51-60 | ⏳ Pending | — | — |
 | ... | ... | Backlog | Toàn bộ 307 trang còn lại | future sessions |
 
@@ -212,5 +212,87 @@ Mỗi batch em sẽ:
 ### ⚠️ Behavior change cho user
 
 Bàn KMDG render trong UI sẽ có **cat_hung khác** cho 5 sao trên (Cầm Tâm = đại cát mới, Xung = cát mới, Trụ Anh = hung mới). Đây là SỬA SAI theo canon Đàm Liên, không phải bug.
+
+---
+
+## Batch 3 — Pages 41-50: **Cách Cục KMDG** (BIG payoff!)
+
+### Insights chính
+
+Pages 41-50 = Chương I phần V "**CÁCH CỤC CÁT HUNG**" — phần BIGGEST của KMDG luận. Đàm Liên list **50+ cách cục** canon. Em đọc được ~30 cách cục cụ thể trong batch này.
+
+**Cát cách quan trọng** (13 cách):
+- **Thanh Long Hồi Thủ** 青龍回首 — Trăm sự bình an
+- **Phi Điểu Trật Huyệt** 飛鳥跌穴 — Trăm sự thuận lợi
+- **Thiên Độn / Quỷ Độn / Phong Độn / Vân Độn / Long Độn / Hổ Độn** — 6 độn chiến thuật quân sự
+- **Tam Trá** (Trùng Trá / Hưu Trá / Đại Giả) — cầu tài, gặp quý nhân
+- **Địa Giả** — ẩn mình, lánh nạn
+- **Giao Thái** — đại lợi (Thiên Ất + Địa Đinh)
+
+**Hung cách quan trọng** (12 cách):
+- **Thanh Long Đào Tẩu** — bại trận, bỏ trốn (Ất/Tân)
+- **Bạch Hổ Xương Cuồng** — đại hung (Tân/Ất)
+- **Đằng Xà Yêu Dược** — kiện tụng
+- **Chu Tước Đầu Giang** — lộ thông tin
+- **Thái Bạch Nhập Huỳnh** — phục binh cố thủ
+- **Phục Can Cách** — tham chiến bị bắt
+- **Tam Kỳ Nhập Mộ** — mưu sự không thành
+- **Lục Nghi Kích Hình** — ĐẠI KỴ xuất hành
+- **Hình Cách** — khởi binh cực hung
+- **Phục Ngâm / Phản Ngâm** — bàn không động / đối xung
+- **Môn Cung Chế Bức** — môn↔cung khắc
+
+### Engine improvements (BIG!)
+
+1. `engine/ky_mon/constants.py`:
+   - `CACH_CUC_CANON` dict — 25+ entries với info (zh/loai/tom/dieu_kien/usage/check)
+
+2. `engine/ky_mon/cast.py`:
+   - `detect_cach_cuc(thien_ban, dia_ban, mon)` function — loop 9 cung + match conditions
+   - Implemented **7 cách cục auto-detection** đơn giản:
+     - Phi Điểu Trật Huyệt (Thiên Bính + Địa Lục Nghi)
+     - Thanh Long Đào Tẩu (Thiên Ất + Địa Tân)
+     - Bạch Hổ Xương Cuồng (Thiên Tân + Địa Ất)
+     - Đằng Xà Yêu Dược (Thiên Quý + Địa Đinh)
+     - Chu Tước Đầu Giang (Thiên Đinh + Địa Quý)
+     - Hình Cách (Thiên Canh + Địa Kỷ)
+     - Giao Thái (Thiên Ất + Địa Đinh hoặc Thiên Đinh + Địa Bính)
+   - `cast()` return giờ có thêm field `cach_cuc_detected: List[dict]`
+
+3. UI `KyMonPanel.vue`:
+   - Section "🎯 Cách cục phát hiện" hiển thị TRƯỚC trục bàn Trị Phù
+   - Color-code theo cát/hung (xanh đại cát / xanh nhạt cát / đỏ nhạt hung / đỏ đậm đại hung)
+   - Mỗi cách cục show: tên VN+ZH, badge cát/hung, tóm, chi tiết cung phát hiện, usage
+
+4. Tests: thêm 3 tests
+   - `test_cach_cuc_detect_founder_hinh_cach` — verify founder data detect Hình Cách
+   - `test_cach_cuc_canon_25_entries`
+   - `test_detect_cach_cuc_returns_list`
+
+### Founder data discovery
+
+Bàn KMDG founder (1988-06-05 23:30) **detected Hình Cách (đại hung)** ở cung Khảm:
+- Thiên Canh 庚 + Địa Kỷ 己 → "khởi binh cực hung"
+- Paradigm note: KHÔNG predict — đây là cấu trúc khoảnh khắc sinh, **không phải tuyên án đời founder**. Đối ứng tâm cảnh.
+
+### Verification
+
+- 24/24 tests PASS (21 cũ + 3 mới)
+- Webapp build clean (3.00s)
+- 10 pages OCR saved `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{41..50}.txt`
+
+### ⚠️ Behavior change
+
+UI bàn KMDG giờ hiển thị **section "Cách cục phát hiện"** mới phía trên trục Trị Phù. Sau cast, user thấy ngay 0-N cách cục matching với loại cát/hung + usage cụ thể.
+
+### 📊 Engine status
+
+| Layer | Before batch 3 | After batch 3 |
+|---|---|---|
+| Thiên Bàn render | ✓ | ✓ |
+| Cát/hung labels | ✓ (corrected) | ✓ |
+| Paradigm reasoning | tooltip cung | **+ cách cục detection** |
+| Luận bàn cổ điển | ❌ | ✅ 7 cách cục auto |
+| Canon coverage | 0% | ~50% (25/50+ entries) |
 
 ---

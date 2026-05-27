@@ -238,6 +238,50 @@ def test_am_duong_ban_4_tang():
     assert "Trung cung" in sec["trung_cung_trick"]
 
 
+def test_cach_cuc_detect_founder_hinh_cach():
+    """Founder data (1988-06-05 23:30) phải detect được Hình Cách (đại hung).
+
+    Per Đàm Liên Chương I phần V (page 49):
+    - Hình Cách: Thiên Bàn Lục Canh, Địa Bàn Lục Kỷ (cùng cung)
+    - Founder bàn: cung Khảm có Thiên Canh + Địa Kỷ → match
+    """
+    from engine.ky_mon import cast
+
+    r = cast(1988, 6, 5, 23, 30)
+    detected_names = {cc["name"] for cc in r["cach_cuc_detected"]}
+    assert "Hình Cách" in detected_names
+
+    hinh_cach = next(cc for cc in r["cach_cuc_detected"] if cc["name"] == "Hình Cách")
+    assert hinh_cach["loai"] == "đại hung"
+    assert hinh_cach["zh"] == "刑格"
+
+
+def test_cach_cuc_canon_25_entries():
+    """CACH_CUC_CANON có ít nhất 25 entries (13 cát + 12 hung)."""
+    from engine.ky_mon.constants import CACH_CUC_CANON
+
+    assert len(CACH_CUC_CANON) >= 25
+    cat = [k for k, v in CACH_CUC_CANON.items() if "cát" in v["loai"]]
+    hung = [k for k, v in CACH_CUC_CANON.items() if "hung" in v["loai"]]
+    assert len(cat) >= 12
+    assert len(hung) >= 10
+
+
+def test_detect_cach_cuc_returns_list():
+    """detect_cach_cuc() trả về list (có thể empty)."""
+    from engine.ky_mon.cast import detect_cach_cuc
+
+    # Empty case
+    result = detect_cach_cuc({}, {})
+    assert isinstance(result, list)
+    assert result == []
+
+    # Phi Điểu Trật Huyệt case: Thiên Bính + Địa Mậu (Lục Giáp ẩn)
+    result = detect_cach_cuc({"離": "丙"}, {"離": "戊"})
+    names = [cc["name"] for cc in result]
+    assert "Phi Điểu Trật Huyệt" in names
+
+
 def test_theo_3_tranh_5_rule():
     """Quy tắc 'Theo 3 tránh 5' — 3 cát môn + 5 hung môn."""
     from engine.ky_mon import WIKI

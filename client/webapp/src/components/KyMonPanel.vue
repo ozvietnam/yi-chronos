@@ -188,6 +188,24 @@ const catHungClass = (label) => {
         </div>
       </div>
 
+      <div v-if="state.cach_cuc_detected && state.cach_cuc_detected.length" class="km-cach-cuc">
+        <h4>🎯 Cách cục phát hiện ({{ state.cach_cuc_detected.length }})</h4>
+        <div v-for="cc in state.cach_cuc_detected" :key="cc.name" class="km-cc-item" :class="`km-cc-${cc.loai.replace(' ', '-')}`">
+          <div class="km-cc-header">
+            <strong>{{ cc.name }}</strong>
+            <span class="km-cc-zh">{{ cc.zh }}</span>
+            <span class="km-cc-badge" :class="`km-cc-badge-${cc.loai.replace(' ', '-')}`">{{ cc.loai }}</span>
+          </div>
+          <p class="km-cc-tom">{{ cc.tom }}</p>
+          <p class="km-cc-chitiet"><em>{{ cc.chi_tiet }}</em></p>
+          <p class="km-cc-usage"><strong>Nên:</strong> {{ cc.usage }}</p>
+        </div>
+        <p class="km-cc-note">
+          <em>Cách cục = combo Thiên-Địa-Môn-Thần đặc thù với rule cát/hung cổ điển.
+          Detect 7 cách cục đơn giản (Thiên+Địa bàn). Full 50+ canon trong wiki backlog.</em>
+        </p>
+      </div>
+
       <div class="km-tri-phu" v-if="state.tri_phu_tri_su">
         <h4>Trị Phù – Trị Sử (trục bàn)</h4>
         <div class="km-tri-phu-grid">
@@ -458,6 +476,27 @@ const catHungClass = (label) => {
 .km-info-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
 .km-info-value { font-size: 0.95rem; color: #e2e8f0; }
 .mono { font-family: "JetBrains Mono", "SF Mono", monospace; }
+
+.km-cach-cuc { background: #0f172a; padding: 14px 16px; border-radius: 8px; margin-bottom: 16px; border-left: 4px solid #fbbf24; }
+.km-cach-cuc h4 { margin: 0 0 10px; color: #fbbf24; font-size: 1rem; }
+.km-cc-item { padding: 10px 12px; background: #1e293b; border-radius: 6px; margin-bottom: 8px; }
+.km-cc-item.km-cc-đại-cát { border-left: 3px solid #86efac; }
+.km-cc-item.km-cc-cát { border-left: 3px solid #bbf7d0; }
+.km-cc-item.km-cc-hung { border-left: 3px solid #fca5a5; }
+.km-cc-item.km-cc-đại-hung { border-left: 3px solid #ef4444; }
+.km-cc-header { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 6px; }
+.km-cc-header strong { color: #e2e8f0; font-size: 0.95rem; }
+.km-cc-zh { color: #94a3b8; font-size: 0.85rem; }
+.km-cc-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; }
+.km-cc-badge-đại-cát { background: rgba(134, 239, 172, 0.2); color: #86efac; }
+.km-cc-badge-cát { background: rgba(187, 247, 208, 0.2); color: #bbf7d0; }
+.km-cc-badge-hung { background: rgba(252, 165, 165, 0.2); color: #fca5a5; }
+.km-cc-badge-đại-hung { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.km-cc-tom { margin: 4px 0; font-size: 0.88rem; color: #cbd5e1; }
+.km-cc-chitiet { margin: 4px 0; font-size: 0.78rem; color: #94a3b8; }
+.km-cc-usage { margin: 4px 0; font-size: 0.82rem; color: #cbd5e1; }
+.km-cc-usage strong { color: #fbbf24; }
+.km-cc-note { margin-top: 10px; font-size: 0.75rem; color: #64748b; }
 
 .km-tri-phu { background: #0f172a; padding: 12px; border-radius: 6px; margin-bottom: 16px; border-left: 3px solid #d4a574; }
 .km-tri-phu h4 { margin: 0 0 8px; color: #d4a574; font-size: 0.95rem; }
