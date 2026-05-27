@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, haLacLuanGiai } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, batTuSucKhoe, haLacLuanGiai } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -35,6 +35,9 @@ const suNghiepError = ref("");
 const taiVanData = ref(null);
 const taiVanLoading = ref(false);
 const taiVanError = ref("");
+const sucKhoeData = ref(null);
+const sucKhoeLoading = ref(false);
+const sucKhoeError = ref("");
 const haLacLuanData = ref(null);
 const haLacLuanLoading = ref(false);
 const haLacLuanError = ref("");
@@ -138,6 +141,8 @@ function reset() {
   suNghiepError.value = "";
   taiVanData.value = null;
   taiVanError.value = "";
+  sucKhoeData.value = null;
+  sucKhoeError.value = "";
   haLacLuanData.value = null;
   haLacLuanError.value = "";
   errorMsg.value = "";
@@ -230,6 +235,24 @@ async function loadTaiVan() {
     taiVanError.value = err?.message || String(err);
   } finally {
     taiVanLoading.value = false;
+  }
+}
+
+async function loadSucKhoe() {
+  if (!inputBirth.value) return;
+  sucKhoeLoading.value = true;
+  sucKhoeError.value = "";
+  try {
+    const r = await batTuSucKhoe({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    sucKhoeData.value = r.suc_khoe;
+  } catch (err) {
+    sucKhoeError.value = err?.message || String(err);
+  } finally {
+    sucKhoeLoading.value = false;
   }
 }
 
@@ -1294,6 +1317,106 @@ function formatSolarDateTime(iso) {
 
       <!-- Closing -->
       <div class="lg-block lg-closing" v-html="renderMd(taiVanData.closing)"></div>
+    </template>
+
+    <!-- ── Sức Khỏe (Trung y cross-ref) ─────────────────────────────────────
+         Engine suc_khoe — ngũ hành thừa/thiếu → tạng phủ + diet + lifestyle.
+    -->
+    <div v-if="batTuData" class="sk-trigger-section">
+      <button v-if="!sucKhoeData" class="apply-btn sk-trigger-btn"
+        @click="loadSucKhoe" :disabled="sucKhoeLoading">
+        {{ sucKhoeLoading ? "Đang phân tích Sức Khỏe..." : "❤️‍🩹 Sức Khỏe — Trung y cross-ref" }}
+      </button>
+      <p v-if="sucKhoeError" class="status-message error">{{ sucKhoeError }}</p>
+    </div>
+
+    <template v-if="sucKhoeData">
+      <h4 class="section-h sk-h">❤️‍🩹 Sức Khỏe — đọc tạng phủ qua ngũ hành</h4>
+      <p class="lg-paradigm">{{ sucKhoeData.paradigm_guard }}</p>
+
+      <!-- Ngũ hành ↔ Tạng phủ table -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">📊 Ngũ Hành ↔ Tạng Phủ (Trung y)</h5>
+        <table class="sk-table">
+          <thead>
+            <tr>
+              <th>Hành</th><th>Count</th><th>Tạng</th><th>Phủ</th><th>Khiếu</th><th>Vị</th><th>Cảm xúc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in sucKhoeData.ngu_hanh_table" :key="row.element">
+              <td><b>{{ row.element.toUpperCase() }}</b></td>
+              <td>{{ row.count.toFixed(1) }}</td>
+              <td>{{ row.tang }}</td>
+              <td>{{ row.phu }}</td>
+              <td>{{ row.khieu }}</td>
+              <td>{{ row.vi }}</td>
+              <td><small>{{ row.emotion }}</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Constitution -->
+      <div class="lg-block sk-constitution">
+        <h5 class="lg-section-title">🌱 Tinh khí thần (Day Master {{ sucKhoeData.constitution.element.toUpperCase() }})</h5>
+        <p>Tạng chủ: <b>{{ sucKhoeData.constitution.primary_tang }}</b> · Phủ: {{ sucKhoeData.constitution.primary_phu }}
+          · Khiếu: {{ sucKhoeData.constitution.khieu }} · Thể: {{ sucKhoeData.constitution.the }}
+        </p>
+        <p>{{ sucKhoeData.constitution.narrative }}</p>
+      </div>
+
+      <!-- Tạng phủ warnings -->
+      <div v-if="sucKhoeData.tang_phu_warnings.length" class="lg-block">
+        <h5 class="lg-section-title">⚠ Cảnh báo Tạng Phủ</h5>
+        <article v-for="(w, i) in sucKhoeData.tang_phu_warnings" :key="i" class="sk-warning"
+          :data-type="w.type">
+          <header>
+            <strong>{{ w.element.toUpperCase() }} {{ w.type === 'excess' ? 'THỪA' : 'THIẾU' }}</strong>
+            <small>{{ w.tang }} / {{ w.phu }}</small>
+          </header>
+          <p>{{ w.symptoms }}</p>
+        </article>
+      </div>
+
+      <!-- Đại Vận warnings -->
+      <div v-if="sucKhoeData.dai_van_health_warnings.length" class="lg-block sk-dv-warn">
+        <h5 class="lg-section-title">🌀 Đại Vận cần đề phòng (vào Kỵ Thần)</h5>
+        <ul>
+          <li v-for="w in sucKhoeData.dai_van_health_warnings" :key="w.cycle_index">
+            <b>V{{ w.cycle_index }}</b> ({{ w.stem }} {{ w.branch }}, tuổi {{ w.age_range }}):
+            đề phòng <em>{{ w.tang_at_risk }}</em>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Dietary -->
+      <div class="lg-block sk-diet">
+        <h5 class="lg-section-title">🍲 Dietary (Dụng + Hỷ Thần)</h5>
+        <p>{{ sucKhoeData.dietary.narrative }}</p>
+        <div class="sk-diet-grid">
+          <article class="sk-diet-cell" data-role="dung">
+            <header><strong>★ Dụng: {{ sucKhoeData.dietary.by_dung_than.element.toUpperCase() }}</strong></header>
+            <small>Vị: {{ sucKhoeData.dietary.by_dung_than.vi }}</small>
+            <ul><li v-for="f in sucKhoeData.dietary.by_dung_than.thuc_pham" :key="f">{{ f }}</li></ul>
+            <small class="sk-diet-avoid">⚠ Tránh: {{ sucKhoeData.dietary.by_dung_than.tranh }}</small>
+          </article>
+          <article class="sk-diet-cell" data-role="hy">
+            <header><strong>Hỷ: {{ sucKhoeData.dietary.by_hy_than.element.toUpperCase() }}</strong></header>
+            <small>Vị: {{ sucKhoeData.dietary.by_hy_than.vi }}</small>
+            <ul><li v-for="f in sucKhoeData.dietary.by_hy_than.thuc_pham" :key="f">{{ f }}</li></ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- Lifestyle -->
+      <div class="lg-block sk-lifestyle">
+        <h5 class="lg-section-title">🧘 Lifestyle</h5>
+        <p>{{ sucKhoeData.lifestyle_narrative }}</p>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(sucKhoeData.closing)"></div>
     </template>
 
     <!-- ── Bát Tự Hà Lạc Luận Giải ─────────────────────────────────────────
@@ -2557,6 +2680,99 @@ function formatSolarDateTime(iso) {
   background: rgba(214, 90, 74, 0.08);
   border-left: 2px solid rgba(214, 90, 74, 0.55);
 }
+
+/* ── Sức Khỏe section ──────────────────────────────────────────────────── */
+.sk-trigger-section {
+  margin: 20px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sk-trigger-btn {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.18), rgba(90, 176, 122, 0.14));
+  border-color: rgba(244, 114, 182, 0.4);
+  color: #f9a8d4;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.sk-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(244, 114, 182, 0.7);
+}
+.sk-h {
+  color: #f9a8d4;
+  font-size: 14px;
+  border-top: 1px dashed rgba(244, 114, 182, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+.sk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.sk-table th {
+  text-align: left;
+  padding: 4px 6px;
+  background: rgba(244, 114, 182, 0.08);
+  color: #f9a8d4;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.sk-table td {
+  padding: 5px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.sk-table tr:hover { background: rgba(255, 255, 255, 0.03); }
+.sk-constitution { border-left-color: rgba(244, 114, 182, 0.55); }
+.sk-warning {
+  margin: 6px 0;
+  padding: 7px 9px;
+  border-radius: 4px;
+}
+.sk-warning[data-type="excess"] {
+  background: rgba(214, 90, 74, 0.07);
+  border-left: 2px solid rgba(214, 90, 74, 0.55);
+}
+.sk-warning[data-type="deficient"] {
+  background: rgba(91, 229, 211, 0.06);
+  border-left: 2px solid rgba(91, 229, 211, 0.5);
+}
+.sk-warning header { display: flex; gap: 8px; align-items: baseline; margin-bottom: 3px; }
+.sk-warning[data-type="excess"] strong { color: #d65a4a; font-size: 12.5px; }
+.sk-warning[data-type="deficient"] strong { color: #5be5d3; font-size: 12.5px; }
+.sk-warning small { color: var(--text-muted, rgba(230, 238, 245, 0.6)); font-size: 11px; }
+.sk-warning p { margin: 0; font-size: 12px; }
+
+.sk-dv-warn { border-left-color: rgba(214, 90, 74, 0.5); }
+.sk-dv-warn ul { margin: 0; padding: 0 0 0 18px; font-size: 12px; }
+.sk-dv-warn em { color: #d65a4a; font-style: normal; font-weight: 600; }
+
+.sk-diet { border-left-color: rgba(90, 176, 122, 0.5); }
+.sk-diet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+.sk-diet-cell {
+  background: rgba(90, 176, 122, 0.06);
+  padding: 8px 10px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(90, 176, 122, 0.4);
+}
+.sk-diet-cell[data-role="dung"] {
+  border-left-color: var(--accent-gold-soft, #f5e6b1);
+  background: rgba(245, 230, 177, 0.06);
+}
+.sk-diet-cell header strong { font-size: 12px; color: var(--accent-gold-soft, #f5e6b1); }
+.sk-diet-cell[data-role="hy"] header strong { color: #5be5d3; }
+.sk-diet-cell small { display: block; font-size: 11px; color: var(--text-muted, rgba(230, 238, 245, 0.6)); margin: 3px 0; }
+.sk-diet-cell ul { margin: 4px 0 0 18px; padding: 0; font-size: 11.5px; }
+.sk-diet-avoid { color: #d65a4a !important; }
+
+.sk-lifestyle { border-left-color: rgba(91, 229, 211, 0.5); }
 
 .bt-form {
   display: grid;

@@ -527,6 +527,34 @@ export function batTuTaiVan({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh",
   });
 }
 
+export function batTuSucKhoe({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
+  return request(`/api/bat-tu/suc-khoe`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  });
+}
+
+export function batTuBaoMenhPDF({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
+  // Returns a PDF blob URL the caller can open / download
+  return fetch(`/api/bat-tu/bao-menh-pdf`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  }).then(async (r) => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const blob = await r.blob();
+    return URL.createObjectURL(blob);
+  });
+}
+
 export function haLacLuanGiai({
   birthDatetimeLocal,
   timezone = "Asia/Ho_Chi_Minh",

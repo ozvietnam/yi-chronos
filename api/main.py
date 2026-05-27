@@ -1394,6 +1394,59 @@ def bat_tu_bao_menh_pdf(request: BatTuBaoMenhPDFRequest):
     )
 
 
+@app.post("/api/bat-tu/luc-than")
+def bat_tu_luc_than(request: BatTuLifeDomainRequest) -> dict[str, object]:
+    """Lục Thân — Cha + Mẹ + Anh chị em + Vợ/Chồng + Con cái analysis qua Thập Thần."""
+    from engine.bat_tu import analyze_luc_than, cast_bat_tu
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    lt = analyze_luc_than(state)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "luc_than": lt,
+    }
+
+
+class BatTuAuspiciousEventRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    event_type: str = "general"  # wedding / business_opening / moving_house / signing_contract / travel / general
+    start_date: str  # YYYY-MM-DD
+    end_date: str
+    top_n: int = 10
+
+
+@app.post("/api/bat-tu/auspicious-event")
+def bat_tu_auspicious_event(request: BatTuAuspiciousEventRequest) -> dict[str, object]:
+    """Chọn ngày tốt cho event cụ thể dựa trên Bát Tự + nature of event."""
+    from engine.bat_tu import cast_bat_tu, pick_auspicious_dates
+
+    user_chart = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    result = pick_auspicious_dates(
+        user_chart,
+        event_type=request.event_type,
+        start_date=request.start_date,
+        end_date=request.end_date,
+        timezone=request.timezone,
+        top_n=request.top_n,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "user_chart": user_chart,
+        "auspicious_event": result,
+    }
+
+
 class HaLacLuanGiaiRequest(BaseModel):
     birth_datetime_local: str
     timezone: str = "Asia/Ho_Chi_Minh"
