@@ -14,6 +14,7 @@ import BookCard from "./BookCard.vue";
 import AddBookModal from "./AddBookModal.vue";
 import OcrJobModal from "./OcrJobModal.vue";
 import EditMetadataModal from "./EditMetadataModal.vue";
+import PlanReviewModal from "./PlanReviewModal.vue";
 import JobBadge from "./JobBadge.vue";
 
 const emit = defineEmits(["open-book"]);
@@ -25,8 +26,10 @@ const filterStage = ref("all");
 const showAddModal = ref(false);
 const showOcrModal = ref(false);
 const showMetadataModal = ref(false);
+const showPlanModal = ref(false);
 const showJobsPanel = ref(false);
 const selectedBookForModal = ref(null);
+const pendingPlanForBookId = ref(null);   // book waiting for onboarding done
 const loading = ref(false);
 const error = ref("");
 const coverInputRef = ref(null);
@@ -82,6 +85,30 @@ async function loadJobs() {
     if (activeD.status === "ok") activeJobs.value = activeD.jobs || [];
     if (allD.status === "ok") allJobs.value = allD.jobs || [];
 
+    // Check: if a pending onboard job has just completed, auto-open PlanReview
+    if (pendingPlanForBookId.value) {
+      const stillActive = activeJobs.value.find(
+        (j) => j.book_id === pendingPlanForBookId.value && j.type === "onboard"
+      );
+      if (!stillActive) {
+        // Look for it in recent allJobs to confirm status=done
+        const recent = allJobs.value.find(
+          (j) => j.book_id === pendingPlanForBookId.value && j.type === "onboard"
+        );
+        if (recent && recent.status === "done") {
+          const book = getBook(pendingPlanForBookId.value);
+          if (book) {
+            selectedBookForModal.value = book;
+            showPlanModal.value = true;
+          }
+          pendingPlanForBookId.value = null;
+        } else if (recent && recent.status === "failed") {
+          alert(`Onboarding thất bại cho ${pendingPlanForBookId.value}: ${recent.error || "unknown error"}`);
+          pendingPlanForBookId.value = null;
+        }
+      }
+    }
+
     // Update books with active job progress
     if (activeJobs.value.length) {
       const jobsByBook = Object.fromEntries(
@@ -122,7 +149,9 @@ function handleOpen(bookId) {
 function handleMenu(action, bookId) {
   const book = getBook(bookId);
   if (!book) return;
-  if (action === "ocr") {
+  if (action === "plan") {
+    triggerOnboarding(book);
+  } else if (action === "ocr") {
     selectedBookForModal.value = book;
     showOcrModal.value = true;
   } else if (action === "metadata") {
@@ -133,6 +162,48 @@ function handleMenu(action, bookId) {
     coverInputRef.value?.click();
   } else if (action === "delete") {
     confirmDelete(bookId);
+  }
+}
+
+async function triggerOnboarding(book) {
+  // If onboarding already exists for this book (cached), open PlanReview directly
+  try {
+    const r = await fetch(`/api/yi-publishing/books/${book.book_id}/plan`);
+    if (r.ok) {
+      selectedBookForModal.value = book;
+      showPlanModal.value = true;
+      return;
+    }
+  } catch (_e) {
+    // ignore — fall through to submit
+  }
+
+  // Else trigger onboard job
+  if (!confirm(
+    `Lập kế hoạch dịch cho "${book.title_vi}"?\n\n` +
+    `Pipeline sẽ chạy ~3-5 phút:\n` +
+    `1. Render thumbnails + detect page types\n` +
+    `2. Profile sách (cột, mật độ, văn tự)\n` +
+    `3. Spike OCR 3 trang × 2 configs để chọn cấu hình tốt nhất\n` +
+    `4. Detect mục lục + generate plan dịch\n\n` +
+    `Anh có thể đóng tab; em sẽ ping khi xong.`
+  )) return;
+
+  try {
+    const r = await fetch(`/api/yi-publishing/books/${book.book_id}/onboard`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ n_sample_pages: 3 }),
+    });
+    const d = await r.json();
+    if (!r.ok) {
+      alert(`Submit thất bại: ${d.detail || d.message}`);
+      return;
+    }
+    pendingPlanForBookId.value = book.book_id;
+    loadJobs();
+  } catch (e) {
+    alert(`Lỗi mạng: ${e.message}`);
   }
 }
 
@@ -186,6 +257,12 @@ function onBookAdded(_book) {
 
 function onOcrSubmitted() {
   showOcrModal.value = false;
+  selectedBookForModal.value = null;
+  loadJobs();
+}
+
+function onOcrSubmittedFromPlan(_job) {
+  showPlanModal.value = false;
   selectedBookForModal.value = null;
   loadJobs();
 }
@@ -331,6 +408,12 @@ onBeforeUnmount(() => {
       :book="selectedBookForModal"
       @close="showMetadataModal = false; selectedBookForModal = null"
       @updated="onMetadataUpdated"
+    />
+    <PlanReviewModal
+      v-if="showPlanModal && selectedBookForModal"
+      :book="selectedBookForModal"
+      @close="showPlanModal = false; selectedBookForModal = null"
+      @ocr-submitted="onOcrSubmittedFromPlan"
     />
   </div>
 </template>

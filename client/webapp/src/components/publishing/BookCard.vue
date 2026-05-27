@@ -149,9 +149,13 @@ function toggleMenu(e) {
             ⋯
           </button>
           <div v-if="menuOpen" class="menu-dropdown" @click.stop>
-            <button type="button" @click="handleMenu('ocr', $event)">
-              🔍 Đặt scan OCR
+            <button type="button" @click="handleMenu('plan', $event)">
+              📋 Lập kế hoạch dịch
             </button>
+            <button type="button" @click="handleMenu('ocr', $event)">
+              🔍 Đặt scan OCR (skip plan)
+            </button>
+            <hr />
             <button type="button" @click="handleMenu('cover', $event)">
               🖼️ Đổi cover
             </button>
