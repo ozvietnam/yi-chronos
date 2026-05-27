@@ -20,7 +20,28 @@ from pathlib import Path
 from typing import Optional
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-_SKILLS_ROOT = _PROJECT_ROOT / "data" / "hermes_yi" / "skills" / "kinh-dich"
+
+
+def _resolve_skills_root() -> Path:
+    """Resolve kinh-dich skills folder. Prefer mounted data/, fallback embedded_data/.
+
+    Local dev: data/hermes_yi/skills/kinh-dich/ (git-tracked, mounted)
+    Production VPS: volume mount /opt/yi-chronos/data shadows data/ in image,
+    nhưng /opt/yi-chronos/data có thể không có skills/. Fallback embedded_data/
+    (đã COPY vào Docker image — version-controlled knowledge).
+    """
+    primary = _PROJECT_ROOT / "data" / "hermes_yi" / "skills" / "kinh-dich"
+    if (primary / "INDEX.md").exists():
+        return primary
+    embedded = _PROJECT_ROOT / "embedded_data" / "hermes_yi" / "skills" / "kinh-dich"
+    if (embedded / "INDEX.md").exists():
+        return embedded
+    # Last resort: still return primary so caller sees consistent path in
+    # error messages (load returns empty body).
+    return primary
+
+
+_SKILLS_ROOT = _resolve_skills_root()
 
 # 8 bát quái → quẻ thuần (cùng tên trên-dưới) → file citation
 # Hiện chỉ có Càn + Khôn. Sau khi đọc tiếp sẽ có thêm.

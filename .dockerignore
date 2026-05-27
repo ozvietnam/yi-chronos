@@ -12,6 +12,15 @@ client/webapp/node_modules/
 data/
 !data/__init__.py
 !data/database.py
+# Exception: knowledge citations từ sách phải vào image (version-controlled,
+# không phụ thuộc VPS volume mount). Dockerfile COPY explicit.
+!data/hermes_yi/
+!data/hermes_yi/skills/
+!data/hermes_yi/skills/kinh-dich/
+!data/hermes_yi/skills/kinh-dich/**
+
+# Docs (not needed in runtime image) — except citation markdown:
+# .md files trong skills/kinh-dich/ phải vào image cho RAG luận sâu
 
 # Logs
 *.log
@@ -33,6 +42,9 @@ data/
 docs/
 **/*.md
 !README.md
+# Knowledge citations - keep these .md files for RAG luận sâu
+!data/hermes_yi/skills/kinh-dich/**/*.md
+!data/hermes_yi/skills/kinh-dich/INDEX.md
 
 # Tests
 tests/

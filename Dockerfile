@@ -48,6 +48,15 @@ COPY core/ ./core/
 COPY engine/ ./engine/
 COPY collectors/ ./collectors/
 
+# Copy knowledge citations (knowledge from sách — version-controlled,
+# must be in image, not via volume mount which contains user data).
+# Volume mount /opt/yi-chronos/data sẽ shadow data/ → cần copy skills/
+# vào path KHÁC trong image, hoặc copy vào data/ rồi container đọc
+# direct nhưng runtime volume mount sẽ overwrite. Workaround: copy
+# vào /app/embedded_data/, engine resolve path qua env var.
+RUN mkdir -p ./embedded_data/hermes_yi/skills
+COPY data/hermes_yi/skills/kinh-dich/ ./embedded_data/hermes_yi/skills/kinh-dich/
+
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 
