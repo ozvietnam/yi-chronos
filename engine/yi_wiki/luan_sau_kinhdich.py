@@ -16,6 +16,7 @@ Source citation files: data/hermes_yi/skills/kinh-dich/{quẻ,tam-phap}/*.md
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -229,6 +230,125 @@ def _load_citation_file(relpath: str) -> str:
         return ""
 
 
+# Tên hào trong markdown (Sơ Cửu/Lục, Cửu Nhị, ..., Thượng Cửu/Lục)
+_HAO_NAMES_BY_NUM = {
+    1: ["Sơ Cửu", "Sơ Lục"],
+    2: ["Cửu Nhị", "Lục Nhị"],
+    3: ["Cửu Tam", "Lục Tam"],
+    4: ["Cửu Tứ", "Lục Tứ"],
+    5: ["Cửu Ngũ", "Lục Ngũ"],
+    6: ["Thượng Cửu", "Thượng Lục"],
+}
+
+
+def _compact_citation(body: str, moving_line: int = 0, *, max_chars: int = 4000) -> str:
+    """Trích section relevant từ body markdown để giảm token LLM.
+
+    Strategy (Phong "nhật trung tắc trắc" — đỉnh phải biết tiết):
+    1. GIỮ section trước "## 6 hào" (Tóm cốt + Lời Kinh + Lời Thoán + Lời Tượng + Insight cốt)
+    2. Nếu có moving_line (1-6): trong table "## 6 hào", chỉ giữ DÒNG đó + section "## Insight {hào}"
+    3. SKIP "## Cross-ref" cuối (cross-quẻ network — không cần cho prompt)
+    4. Truncate nếu vẫn > max_chars (giữ phần đầu).
+
+    Args:
+        body: markdown body của 1 quẻ
+        moving_line: 1-6, hào động. 0 = không có (đọc cả quẻ → giữ insight chung)
+        max_chars: cap cứng
+
+    Returns:
+        Compact markdown (50-70% kích thước gốc, giữ insight cốt).
+    """
+    if not body:
+        return ""
+
+    lines = body.split("\n")
+    # Find anchors
+    section_starts: list[tuple[int, str]] = []
+    for i, ln in enumerate(lines):
+        m = re.match(r"^##\s+(.+)$", ln.strip())
+        if m:
+            section_starts.append((i, m.group(1).strip()))
+
+    # Identify "6 hào" section + "Cross-ref" section
+    hao_section_start = -1
+    crossref_start = -1
+    insight_starts: list[tuple[int, str, int]] = []  # (line_idx, title, hao_num)
+
+    for idx, (line_idx, title) in enumerate(section_starts):
+        title_lower = title.lower()
+        if hao_section_start < 0 and "6 hào" in title_lower:
+            hao_section_start = line_idx
+        if crossref_start < 0 and ("cross-ref" in title_lower or "cross synthesis" in title_lower):
+            crossref_start = line_idx
+        # Insight {hào} sections
+        if "insight" in title_lower:
+            # Try detect hào: "Sơ Cửu", "Cửu Nhị" etc. in title
+            for n, names in _HAO_NAMES_BY_NUM.items():
+                if any(name in title for name in names):
+                    insight_starts.append((line_idx, title, n))
+                    break
+
+    out: list[str] = []
+
+    # === Part 1: Trước "## 6 hào" (giữ nguyên Lời Kinh + Lời Thoán + Lời Tượng) ===
+    pre_end = hao_section_start if hao_section_start > 0 else (crossref_start if crossref_start > 0 else len(lines))
+    out.extend(lines[:pre_end])
+
+    # === Part 2: 6 hào table — chỉ giữ moving_line row ===
+    if hao_section_start >= 0 and moving_line in _HAO_NAMES_BY_NUM:
+        hao_end = crossref_start if crossref_start > hao_section_start else len(lines)
+        # Find table within [hao_section_start, hao_end)
+        table_started = False
+        kept_rows: list[str] = []
+        header_row = None
+        sep_row = None
+        names_for_hao = _HAO_NAMES_BY_NUM[moving_line]
+        for i in range(hao_section_start, hao_end):
+            ln = lines[i]
+            if ln.strip().startswith("|"):
+                if not table_started:
+                    header_row = ln
+                    table_started = True
+                    continue
+                if sep_row is None and re.match(r"^\|\s*[-:]+", ln.strip()):
+                    sep_row = ln
+                    continue
+                # Data row — keep only if contains hào name
+                if any(name in ln for name in names_for_hao):
+                    kept_rows.append(ln)
+            elif table_started and ln.strip() == "":
+                # Table ended
+                break
+        if header_row and kept_rows:
+            out.append("")
+            out.append(f"## 6 hào (chỉ hào động {moving_line})")
+            out.append("")
+            out.append(header_row)
+            if sep_row:
+                out.append(sep_row)
+            out.extend(kept_rows)
+
+    # === Part 3: Insight section cho hào động (nếu match) ===
+    if moving_line > 0:
+        for (line_idx, _title, n) in insight_starts:
+            if n == moving_line:
+                # Find next section or crossref or end
+                next_section_line = len(lines)
+                for next_idx, _ in section_starts:
+                    if next_idx > line_idx:
+                        next_section_line = next_idx
+                        break
+                out.append("")
+                out.extend(lines[line_idx:next_section_line])
+
+    text = "\n".join(out)
+
+    # === Truncate if still over budget ===
+    if len(text) > max_chars:
+        text = text[:max_chars] + "\n\n_(...compacted)_"
+    return text
+
+
 def select_citations(
     *,
     chinh_upper: str,
@@ -238,7 +358,9 @@ def select_citations(
     ho_upper: str,
     ho_lower: str,
     intent: Optional[str] = None,
+    moving_line: int = 0,
     max_chars: int = 12000,
+    compact: bool = True,
 ) -> dict:
     """Chọn citation files cho 1 lần luận sâu.
 
@@ -259,13 +381,20 @@ def select_citations(
     citations: list[dict] = []
     total = 0
 
-    def _try_add(path: str, reason: str) -> None:
+    def _try_add(path: str, reason: str, hexagram_compact: bool = False, hao: int = 0) -> None:
+        """Add citation. If hexagram_compact, extract relevant section per hao."""
         nonlocal total
         if not path or path in seen_paths:
             return
         body = _load_citation_file(path)
         if not body:
             return
+        # COST OPTIMIZATION (Idea E 2026-05-27):
+        # Quẻ markdown trung bình ~5500 chars. 3 quẻ + tâm-pháp + INDEX = 18-22k.
+        # Compact: giữ Lời Kinh/Thoán/Tượng + dòng hào động + insight hào →
+        # giảm ~50-60% per quẻ → tổng ~9-10k (đủ budget LLM).
+        if compact and hexagram_compact:
+            body = _compact_citation(body, moving_line=hao)
         if total + len(body) > max_chars:
             return
         seen_paths.add(path)
@@ -278,6 +407,8 @@ def select_citations(
     # 2. Hexagram exact match — CHỈ inject quẻ đã THÂM NHUẦN ĐẦY ĐỦ
     # (stub files đợt 4-6 chỉ có paradigm chung, KHÔNG có trích dẫn nguyên văn
     # → KHÔNG đủ depth cho LLM luận sâu).
+    # COST OPTIMIZATION: compact ALL hexagram files (chính keeps moving_line hào;
+    # biến/hỗ drop hào table entirely + cross-ref → giảm ~50% total context).
     for label, upper, lower in [
         ("chính", chinh_upper, chinh_lower),
         ("biến", bien_upper, bien_lower),
@@ -285,7 +416,10 @@ def select_citations(
     ]:
         path = _HEXAGRAM_TO_FILE.get((upper, lower))
         if path and path in _DEEP_QUE_FILES:
-            _try_add(path, f"quẻ {label} {upper}/{lower}")
+            # chính: giữ hào động; biến/hỗ: drop hào table (chỉ giữ Lời Kinh/Thoán)
+            hao_for_quẻ = moving_line if label == "chính" else 0
+            _try_add(path, f"quẻ {label} {upper}/{lower}",
+                     hexagram_compact=True, hao=hao_for_quẻ)
         elif path:
             # File tồn tại nhưng là stub → ghi nhận để UI báo user
             citations.append({

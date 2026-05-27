@@ -4276,6 +4276,7 @@ def yi_wiki_maihoa_luan_sau(req: MaiHoaLuanSauRequest) -> dict:
         ho_upper=cast.ho_quai.upper_que,
         ho_lower=cast.ho_quai.lower_que,
         intent=req.intent,
+        moving_line=cast.moving_line,  # cost optimize: compact chính quẻ theo hào động
     )
 
     # Build minimal cast + analyze dicts cho prompt
