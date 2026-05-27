@@ -486,6 +486,80 @@ def test_wiki_than_binh_gia_tone():
     assert "tone_binh_gia_note" in WIKI
 
 
+def test_personal_reading_founder_9_insights():
+    """interpret_personal_chart trả về 9 insights cho founder (per deep-read Đàm Liên)."""
+    from engine.ky_mon import cast, interpret_personal_chart
+
+    state = cast(1988, 6, 5, 23, 30)
+    insights = interpret_personal_chart(state)
+
+    # Founder phải có >= 7 insights (em đã verify 9 paradigm tác động)
+    assert len(insights) >= 7
+
+    # Mỗi insight phải có structure đầy đủ
+    for ins in insights:
+        assert "id" in ins
+        assert "title" in ins
+        assert "cung" in ins
+        assert "category" in ins
+        assert "dam_lien_quote" in ins
+        assert "paradigm" in ins
+        assert "life_application" in ins
+
+    # Founder phải có Hình Cách insight (đã verify trong commit batch 3)
+    ids = {ins["id"] for ins in insights}
+    assert "hinh_cach" in ids
+
+    # Hình Cách insight ở cung Khảm (Vietnamese, not Chinese)
+    hc = next(ins for ins in insights if ins["id"] == "hinh_cach")
+    assert hc["cung"] == "Khảm"
+    assert hc["category"] == "hung"
+
+
+def test_personal_reading_includes_tri_phu_location():
+    """Engine identify cung nào có Trị Phù (trục vận khí)."""
+    from engine.ky_mon import cast, interpret_personal_chart
+
+    state = cast(1988, 6, 5, 23, 30)
+    insights = interpret_personal_chart(state)
+
+    tri_phu = next((ins for ins in insights if ins["id"] == "tri_phu_cung"), None)
+    assert tri_phu is not None
+    # Founder Trị Phù ở Khôn
+    assert tri_phu["cung"] == "Khôn"
+    assert "Khôn" in tri_phu["title"]
+
+
+def test_api_personal_reading_endpoint():
+    """POST /api/ky-mon/personal-reading trả ky_mon_state + personal_insights."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    r = client.post("/api/ky-mon/personal-reading", json={
+        "year": 1988, "month": 6, "day": 5, "hour": 23, "minute": 30
+    })
+    assert r.status_code == 200
+    j = r.json()
+    assert "ky_mon_state" in j
+    assert "personal_insights" in j
+    assert len(j["personal_insights"]) >= 7
+
+
+def test_api_founder_birth_data():
+    """GET /api/ky-mon/founder-birth-data trả founder defaults."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    r = client.get("/api/ky-mon/founder-birth-data")
+    assert r.status_code == 200
+    j = r.json()
+    assert j["data"]["year"] == 1988
+    assert j["data"]["month"] == 6
+    assert j["data"]["day"] == 5
+
+
 def test_api_tasks_endpoint():
     """GET /api/ky-mon/tasks return 16 tasks."""
     from api.main import app

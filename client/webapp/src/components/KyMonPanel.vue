@@ -24,18 +24,73 @@ const selectedCung = ref(null);
 const showDetailBan = ref(false);
 const showIntroWiki = ref(false);
 
+// 📜 Personal reading state — "Đọc lá số sinh tôi theo Đàm Liên"
+const personalInsights = ref(null);
+const personalLoading = ref(false);
+const personalError = ref("");
+const founderBirth = ref(null);
+
 onMounted(async () => {
   try {
-    const [wikiR, tasksR] = await Promise.all([
+    const [wikiR, tasksR, founderR] = await Promise.all([
       fetch("/api/ky-mon/wiki"),
       fetch("/api/ky-mon/tasks"),
+      fetch("/api/ky-mon/founder-birth-data"),
     ]);
     if (wikiR.ok) wiki.value = (await wikiR.json()).wiki;
     if (tasksR.ok) tasks.value = (await tasksR.json()).tasks;
+    if (founderR.ok) founderBirth.value = (await founderR.json()).data;
   } catch (e) {
     // best-effort fetch
   }
 });
+
+async function readPersonalChart() {
+  personalLoading.value = true;
+  personalError.value = "";
+  personalInsights.value = null;
+  try {
+    const birth = founderBirth.value || {
+      year: form.value.year,
+      month: form.value.month,
+      day: form.value.day,
+      hour: form.value.hour,
+      minute: form.value.minute,
+    };
+    const r = await fetch("/api/ky-mon/personal-reading", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        year: birth.year, month: birth.month, day: birth.day,
+        hour: birth.hour, minute: birth.minute,
+        method: "chabu",
+      }),
+    });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const j = await r.json();
+    personalInsights.value = {
+      state: j.ky_mon_state,
+      insights: j.personal_insights,
+      birth: birth,
+    };
+  } catch (e) {
+    personalError.value = String(e);
+  } finally {
+    personalLoading.value = false;
+  }
+}
+
+function categoryBadge(category) {
+  const map = {
+    "đại cát": { color: "#86efac", bg: "rgba(134, 239, 172, 0.15)" },
+    "cát": { color: "#bbf7d0", bg: "rgba(187, 247, 208, 0.15)" },
+    "paradox": { color: "#fbbf24", bg: "rgba(251, 191, 36, 0.15)" },
+    "hung": { color: "#fca5a5", bg: "rgba(252, 165, 165, 0.15)" },
+    "đại hung": { color: "#ef4444", bg: "rgba(239, 68, 68, 0.15)" },
+    "structural": { color: "#a5b4fc", bg: "rgba(165, 180, 252, 0.15)" },
+  };
+  return map[category] || map.structural;
+}
 
 function openCungParadigm(cungVn) {
   if (!wiki.value?.cung?.[cungVn]) return;
@@ -149,6 +204,80 @@ const catHungClass = (label) => {
       <em>KHÔNG predict cát hung tuyệt đối</em>. Phương vị tương đối (tùy trung tâm).
       Một việc bói một lần, không nghi không bói.
     </div>
+
+    <!-- 📜 Đàm Liên luận lá số sinh — feature CỐT từ deep-read pages 36-50 -->
+    <section class="km-personal">
+      <div class="km-personal-header">
+        <h3>📜 Đàm Liên luận lá số sinh anh</h3>
+        <p class="km-personal-sub">
+          Em đã đọc kỹ Đàm Liên Chương I phần IV-V (pages 36-50) + đối chiếu
+          với bàn sinh anh (<span v-if="founderBirth" class="mono">{{ founderBirth.year }}-{{ String(founderBirth.month).padStart(2,'0') }}-{{ String(founderBirth.day).padStart(2,'0') }} {{ String(founderBirth.hour).padStart(2,'0') }}:{{ String(founderBirth.minute).padStart(2,'0') }}</span>).
+          Bấm nút để xem các paradigm TÁC ĐỘNG anh.
+        </p>
+        <button type="button" @click="readPersonalChart" :disabled="personalLoading"
+                class="btn-primary km-personal-btn">
+          {{ personalLoading ? "Đang luận..." : "📖 Đọc lá số anh theo Đàm Liên" }}
+        </button>
+        <p v-if="personalError" class="km-error">⚠️ {{ personalError }}</p>
+      </div>
+
+      <div v-if="personalInsights" class="km-personal-result">
+        <div class="km-personal-meta">
+          <div><span class="lbl">Tứ trụ:</span> <span class="mono">{{ personalInsights.state.tu_tru_zh }}</span></div>
+          <div><span class="lbl">Tiết khí:</span> {{ personalInsights.state.tiet_khi_vn }}</div>
+          <div><span class="lbl">Bài cục:</span>
+            {{ personalInsights.state.bai_cuc?.duong_am }} {{ personalInsights.state.bai_cuc?.cuc_so }}
+            — {{ personalInsights.state.bai_cuc?.nguyen }}
+          </div>
+        </div>
+
+        <p class="km-personal-count">
+          🎯 <strong>{{ personalInsights.insights.length }} paradigm tác động</strong>
+          em đã identify từ bàn sinh anh:
+        </p>
+
+        <article v-for="(ins, idx) in personalInsights.insights" :key="ins.id"
+                 class="km-insight"
+                 :style="{ borderLeftColor: categoryBadge(ins.category).color }">
+          <header class="km-insight-header">
+            <span class="km-insight-num">{{ idx + 1 }}</span>
+            <h4 class="km-insight-title">{{ ins.title }}</h4>
+            <span class="km-insight-badge"
+                  :style="{ background: categoryBadge(ins.category).bg, color: categoryBadge(ins.category).color }">
+              {{ ins.category }}
+            </span>
+          </header>
+
+          <div class="km-insight-cung">📍 Cung: <strong>{{ ins.cung }}</strong></div>
+
+          <div class="km-insight-elements">
+            <div v-for="el in ins.elements" :key="el[0]" class="km-insight-el">
+              <span class="lbl">{{ el[0] }}:</span> <span>{{ el[1] }}</span>
+            </div>
+          </div>
+
+          <blockquote class="km-insight-quote">
+            <strong>📜 Đàm Liên:</strong>
+            <p>{{ ins.dam_lien_quote }}</p>
+          </blockquote>
+
+          <div class="km-insight-paradigm">
+            <strong>🔍 Đọc đồng dạng:</strong>
+            <p>{{ ins.paradigm }}</p>
+          </div>
+
+          <div class="km-insight-life">
+            <strong>🌱 Áp dụng đời thực:</strong>
+            <p>{{ ins.life_application }}</p>
+          </div>
+        </article>
+
+        <p class="km-personal-footer">
+          <em>📜 Đây là <strong>quan-sát đồng dạng</strong> theo Iron Rule #4 — KHÔNG predict
+          cát hung. Đàm Liên là source canonical em đã chọn. Tradition khác có thể luận khác.</em>
+        </p>
+      </div>
+    </section>
 
     <section class="km-form">
       <h3>An cục</h3>
@@ -544,6 +673,69 @@ const catHungClass = (label) => {
 }
 .km-paradigm-banner strong { color: #d4a574; }
 .km-paradigm-banner em { color: #fbbf24; font-style: italic; }
+
+/* 📜 Personal Reading section — Đàm Liên luận lá số sinh */
+.km-personal {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.06), rgba(212, 165, 116, 0.03));
+  border: 1px solid rgba(212, 165, 116, 0.3); border-radius: 10px;
+  padding: 20px; margin-bottom: 16px;
+}
+.km-personal-header h3 { margin: 0 0 6px; color: #fbbf24; font-size: 1.25rem; }
+.km-personal-sub { margin: 0 0 12px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
+.km-personal-btn { background: #fbbf24 !important; color: #1e293b !important; font-size: 1rem !important; }
+.km-personal-result { margin-top: 16px; padding-top: 16px; border-top: 1px dashed #475569; }
+.km-personal-meta {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  padding: 10px 12px; background: #0f172a; border-radius: 6px;
+  margin-bottom: 16px; font-size: 0.88rem;
+}
+.km-personal-meta .lbl { color: #94a3b8; margin-right: 4px; }
+.km-personal-count { font-size: 1.05rem; color: #e2e8f0; margin: 0 0 14px; }
+.km-personal-count strong { color: #fbbf24; }
+.km-insight {
+  background: #0f172a; border: 1px solid #334155; border-left: 4px solid #fbbf24;
+  border-radius: 8px; padding: 16px; margin-bottom: 14px;
+}
+.km-insight-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.km-insight-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #fbbf24; color: #1e293b;
+  display: grid; place-items: center; font-weight: 700; font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.km-insight-title { margin: 0; color: #e2e8f0; font-size: 1.02rem; flex: 1; }
+.km-insight-badge {
+  font-size: 0.72rem; padding: 3px 9px; border-radius: 10px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.km-insight-cung {
+  font-size: 0.85rem; color: #94a3b8; margin: 4px 0 10px;
+  padding: 4px 10px; background: rgba(212, 165, 116, 0.05); border-radius: 4px;
+  display: inline-block;
+}
+.km-insight-elements {
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+  padding: 8px 10px; background: rgba(148, 163, 184, 0.05); border-radius: 4px;
+  margin: 8px 0;
+}
+.km-insight-el { font-size: 0.82rem; color: #cbd5e1; }
+.km-insight-el .lbl { color: #64748b; }
+.km-insight-quote {
+  margin: 12px 0; padding: 10px 14px;
+  background: rgba(212, 165, 116, 0.08); border-left: 3px solid #d4a574;
+  border-radius: 4px; font-size: 0.88rem; color: #cbd5e1;
+}
+.km-insight-quote strong { color: #d4a574; display: block; margin-bottom: 4px; }
+.km-insight-quote p { margin: 0; font-style: italic; line-height: 1.6; }
+.km-insight-paradigm, .km-insight-life {
+  margin: 10px 0; padding: 10px 14px; border-radius: 4px;
+  background: #1e293b; font-size: 0.9rem; line-height: 1.6;
+}
+.km-insight-paradigm strong { color: #67e8f9; display: block; margin-bottom: 4px; }
+.km-insight-life { background: rgba(134, 239, 172, 0.05); }
+.km-insight-life strong { color: #86efac; display: block; margin-bottom: 4px; }
+.km-insight-paradigm p, .km-insight-life p { margin: 0; color: #cbd5e1; }
+.km-personal-footer { margin-top: 18px; padding: 10px; background: rgba(212, 165, 116, 0.05); border-radius: 4px; font-size: 0.82rem; color: #94a3b8; text-align: center; }
 
 /* Task dropdown — prominent */
 .km-task-label { display: flex; flex-direction: column; margin-bottom: 14px; }

@@ -1219,6 +1219,39 @@ def ky_mon_tasks() -> dict[str, object]:
     return {"status": "ok", "tasks": list_tasks()}
 
 
+@app.post("/api/ky-mon/personal-reading")
+def ky_mon_personal_reading(request: KyMonCastRequest) -> dict[str, object]:
+    """Đọc lá số sinh cá nhân theo Đàm Liên — luận paradigm tác động user.
+
+    Cast bàn KMDG tại khoảnh khắc sinh + run interpret_personal_chart →
+    return list of insights specific to user's birth chart.
+
+    Paradigm: KMDG cross-paradigm reading — đọc cấu trúc thời-không tại
+    khoảnh khắc ra đời (theo Iron Rule #4 'đọc đồng dạng'), không predict.
+    """
+    from engine.ky_mon import cast as cast_ky_mon, interpret_personal_chart
+
+    state = cast_ky_mon(
+        year=request.year, month=request.month, day=request.day,
+        hour=request.hour, minute=request.minute, method=request.method,
+    )
+    insights = interpret_personal_chart(state)
+
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ky_mon_state": state,
+        "personal_insights": insights,
+    }
+
+
+@app.get("/api/ky-mon/founder-birth-data")
+def ky_mon_founder_birth() -> dict[str, object]:
+    """Founder default birth data — used để prefill 'Đọc lá số sinh tôi' UI."""
+    from engine.ky_mon import list_founder_data
+
+    return {"status": "ok", "data": list_founder_data()}
+
+
 @app.get("/api/tu-vi/chinh-tinh")
 def tu_vi_chinh_tinh_list() -> dict[str, object]:
     """Return all 14 chính tinh metadata + interpretation templates."""
