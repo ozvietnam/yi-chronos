@@ -26,11 +26,19 @@ ENV TZ=Asia/Ho_Chi_Minh \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1
 
-# Install minimal system deps (curl for healthcheck, sqlite3 for backup)
+# Install minimal system deps + WeasyPrint libs (Pango/Cairo/HarfBuzz for PDF rendering)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tzdata \
     curl \
     sqlite3 \
+    libpango-1.0-0 \
+    libpangoft2-1.0-0 \
+    libharfbuzz0b \
+    libgdk-pixbuf-2.0-0 \
+    libffi8 \
+    libfontconfig1 \
+    fonts-dejavu-core \
+    fonts-noto-cjk \
     && rm -rf /var/lib/apt/lists/* \
     && ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
 
