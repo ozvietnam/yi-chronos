@@ -25,6 +25,13 @@ FREE_TRANSLATION_MODELS = [
     "google/gemma-4-26b-a4b-it:free",    # 262K context
 ]
 
+# MiniMax middle tier — Coding Plan (prepaid tokens, no per-call cost to anh)
+# sk-cp-* keys use api.minimax.io OpenAI-style chat completions.
+MINIMAX_TRANSLATION_MODELS = [
+    "MiniMax-M2",   # reasoning model — may emit <think> blocks (stripped post-hoc)
+]
+MINIMAX_URL = "https://api.minimax.io/v1"
+
 # Paid escalation — DeepSeek NATIVE API (not via OpenRouter).
 # Cheap ($0.27/M in, $1.10/M out) but premium quality for CJK.
 PAID_TRANSLATION_MODELS = [
@@ -35,6 +42,7 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1"
 DEEPSEEK_NATIVE_URL = "https://api.deepseek.com/v1"
 
 _CLIENT = None              # OpenRouter client (free chain)
+_MINIMAX_CLIENT = None      # MiniMax Coding Plan client (middle tier)
 _DEEPSEEK_CLIENT = None     # DeepSeek native client (paid fallback)
 
 
@@ -101,6 +109,46 @@ def get_deepseek_client():
             api_key=key,
         )
     return _DEEPSEEK_CLIENT
+
+
+def _get_minimax_key() -> Optional[str]:
+    """Load MiniMax key from env or ai_keys.json. Returns None if not configured."""
+    import os
+    key = os.getenv("MINIMAX_API_KEY")
+    if key:
+        return key
+    keys_path = Path("/Users/ozvietnamdesktop/Desktop/yi/data/ai_keys.json")
+    if keys_path.exists():
+        keys = json.loads(keys_path.read_text())
+        v = keys.get("minimax")
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+        if isinstance(v, dict):
+            return v.get("api_key")
+    return None
+
+
+def get_minimax_client():
+    """Lazy-init MiniMax client (OpenAI-compatible). Raises if key not configured."""
+    global _MINIMAX_CLIENT
+    if _MINIMAX_CLIENT is None:
+        key = _get_minimax_key()
+        if not key:
+            raise RuntimeError(
+                "MiniMax API key not configured. "
+                "Add 'minimax' to data/ai_keys.json or set MINIMAX_API_KEY env."
+            )
+        from openai import OpenAI
+        _MINIMAX_CLIENT = OpenAI(
+            base_url=MINIMAX_URL,
+            api_key=key,
+        )
+    return _MINIMAX_CLIENT
+
+
+def has_minimax_fallback() -> bool:
+    """Check if MiniMax middle tier is available."""
+    return _get_minimax_key() is not None
 
 
 def has_paid_fallback() -> bool:
@@ -451,11 +499,14 @@ Các dòng cần dịch:
 Trả về JSON: {{"translations": ["dòng 1 dịch", "dòng 2 dịch", ...]}} với đúng {len(lines)} dòng.
 KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Việt hoá."""
 
-    # Build candidate list: [explicit model] OR [free chain] (+ paid fallback if enabled)
+    # Build candidate list: [explicit model] OR [free chain] (+ MiniMax middle) (+ paid fallback if enabled)
+    # Tier order: free OpenRouter (rẻ nhất) → MiniMax (anh has Coding Plan = prepaid) → DeepSeek paid ($)
     if model:
         # Auto-route: if explicit model is a paid DeepSeek name, use native
         if model in PAID_TRANSLATION_MODELS or model.startswith("deepseek-"):
             models_to_try = [(model, "deepseek-native")]
+        elif model in MINIMAX_TRANSLATION_MODELS or model.startswith("MiniMax-"):
+            models_to_try = [(model, "minimax")]
         else:
             models_to_try = [(model, "openrouter")]
     elif two_layer and allow_paid_fallback and has_paid_fallback():
@@ -463,10 +514,14 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
         # PAID-FIRST: tránh waste time retry free chain.
         # Free chỉ làm fallback nếu paid lỗi.
         models_to_try = [(m, "deepseek-native") for m in PAID_TRANSLATION_MODELS]
+        if has_minimax_fallback():
+            models_to_try.extend([(m, "minimax") for m in MINIMAX_TRANSLATION_MODELS])
         models_to_try.extend([(m, "openrouter") for m in FREE_TRANSLATION_MODELS])
     else:
-        # Single-layer: free chain first (rẻ), paid fallback
+        # Single-layer: free chain first (rẻ), MiniMax middle (prepaid), then DeepSeek paid
         models_to_try = [(m, "openrouter") for m in FREE_TRANSLATION_MODELS]
+        if has_minimax_fallback():
+            models_to_try.extend([(m, "minimax") for m in MINIMAX_TRANSLATION_MODELS])
         if allow_paid_fallback and has_paid_fallback():
             models_to_try.extend([(m, "deepseek-native") for m in PAID_TRANSLATION_MODELS])
 
@@ -477,10 +532,15 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
             t0 = time.time()
             logger.info(f"Translating {len(lines)} lines [{kind}] with {m} via {provider}...")
             # Pick client per provider
-            active_client = get_deepseek_client() if provider == "deepseek-native" else client
+            if provider == "deepseek-native":
+                active_client = get_deepseek_client()
+            elif provider == "minimax":
+                active_client = get_minimax_client()
+            else:
+                active_client = client
             # Generous max_tokens — DeepSeek-chat supports 8K output;
-            # OpenRouter free typically caps around 4K.
-            max_out = 8000 if provider == "deepseek-native" else 4000
+            # MiniMax-M2 supports ~8K; OpenRouter free typically caps around 4K.
+            max_out = 8000 if provider in ("deepseek-native", "minimax") else 4000
             response = active_client.chat.completions.create(
                 model=m,
                 messages=[
@@ -493,6 +553,13 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
             )
             elapsed = time.time() - t0
             content = response.choices[0].message.content
+            # MiniMax-M2 (reasoning) prepends <think>...</think> + may wrap in ```json``` markdown
+            if provider == "minimax" and content:
+                import re as _re
+                content = _re.sub(r"<think>.*?</think>\s*", "", content, flags=_re.DOTALL | _re.IGNORECASE).strip()
+                # Strip markdown code fence
+                content = _re.sub(r"^```(?:json)?\s*\n?", "", content)
+                content = _re.sub(r"\n?```\s*$", "", content).strip()
 
             # Parse JSON with multi-stage fallback
             translations = []
