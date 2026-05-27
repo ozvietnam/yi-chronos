@@ -490,3 +490,99 @@ def test_workers_param_clamped_to_positive(tmp_path: Path, fake_pdf: Path, fast_
     )
     _wait_for_status(s, j["job_id"], (STATUS_DONE,))
     assert j["params"]["workers"] == 1
+
+
+# ─── Onboard job ──────────────────────────────────────────────────────────────
+
+
+def test_submit_onboard_job_creates_entry(tmp_path: Path, monkeypatch):
+    """Onboard job submission creates entry with type=onboard."""
+    import engine.yi_publishing.onboarding as onb
+
+    # Replace onboard_book with a fast stub that creates expected output
+    def fake_onboard(*, book_id, pdf_path, output_dir, n_sample_pages=3, **kwargs):
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        return {
+            "book_id": book_id,
+            "page_count": 10,
+            "profile": {"columns": 1, "density": "normal", "script": "chinese"},
+            "ocr_config": {"workers": 2, "formula_enable": True},
+            "toc": {"strategy": "fallback", "chapter_count": 1},
+            "plan": {"chunks_count": 2, "estimated_ocr_hours": 0.5},
+            "duration_s": 1.0,
+            "output_dir": str(output_dir),
+        }
+
+    monkeypatch.setattr(onb, "onboard_book", fake_onboard)
+
+    # Fake PDF
+    pdf = tmp_path / "book.pdf"
+    pdf.write_bytes(b"%PDF-fake\n")
+
+    s = JobsStore(project_root=tmp_path)
+    job = s.submit_onboard_job(
+        book_id="test", pdf_path=pdf, output_dir=tmp_path / "out", n_sample_pages=2
+    )
+    assert job["type"] == "onboard"
+    assert job["job_id"].startswith("onboard-")
+    assert job["status"] == STATUS_PENDING
+
+    final = _wait_for_status(s, job["job_id"], (STATUS_DONE, STATUS_FAILED), timeout=5)
+    assert final["status"] == STATUS_DONE
+    assert final["result"]["plan"]["chunks_count"] == 2
+    assert final["result"]["profile"]["columns"] == 1
+
+
+def test_onboard_rejects_when_ocr_active(tmp_path: Path, fake_pdf, slow_ocr_runner):
+    """Cannot start onboard when OCR job already running (single-job rule)."""
+    runner, _ = slow_ocr_runner
+    s = JobsStore(project_root=tmp_path, ocr_runner=runner)
+
+    j1 = s.submit_ocr_job(
+        book_id="a", pdf_path=fake_pdf, start_page=1, end_page=20
+    )
+    time.sleep(0.05)
+    with pytest.raises(ValueError, match="already active"):
+        s.submit_onboard_job(
+            book_id="b", pdf_path=fake_pdf, output_dir=tmp_path / "out"
+        )
+    s.cancel_job(j1["job_id"])
+    _wait_for_status(s, j1["job_id"], (STATUS_DONE, STATUS_CANCELLED, STATUS_FAILED))
+
+
+def test_ocr_rejects_when_onboard_active(tmp_path: Path, fake_pdf, monkeypatch):
+    """Cannot start OCR when onboard job running."""
+    import engine.yi_publishing.onboarding as onb
+
+    onboard_started = threading.Event()
+
+    def slow_onboard(*, book_id, pdf_path, output_dir, **kwargs):
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        onboard_started.set()
+        time.sleep(0.3)
+        return {
+            "book_id": book_id,
+            "page_count": 5,
+            "profile": {"columns": 1, "density": "normal", "script": "chinese"},
+            "ocr_config": {"workers": 1, "formula_enable": True},
+            "toc": {"strategy": "fallback", "chapter_count": 1},
+            "plan": {"chunks_count": 1, "estimated_ocr_hours": 0.1},
+            "duration_s": 0.3,
+            "output_dir": str(output_dir),
+        }
+
+    monkeypatch.setattr(onb, "onboard_book", slow_onboard)
+    s = JobsStore(project_root=tmp_path)
+
+    j_onb = s.submit_onboard_job(
+        book_id="x", pdf_path=fake_pdf, output_dir=tmp_path / "out"
+    )
+    onboard_started.wait(timeout=2)
+    time.sleep(0.05)  # Ensure onboard transitioned to STATUS_RUNNING
+
+    with pytest.raises(ValueError, match="already active"):
+        s.submit_ocr_job(
+            book_id="y", pdf_path=fake_pdf, start_page=1, end_page=5
+        )
+
+    _wait_for_status(s, j_onb["job_id"], (STATUS_DONE, STATUS_FAILED), timeout=3)

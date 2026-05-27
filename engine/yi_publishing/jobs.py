@@ -192,14 +192,14 @@ class JobsStore:
         MAX_WORKERS = 4  # M4 36GB tested limit (each pipeline worker ~4 GB)
         workers = max(1, min(MAX_WORKERS, int(workers)))
 
-        # Single active OCR job check
+        # Single active job check (any type — OCR or onboard)
         with self._lock():
             data = self._read_raw()
             for j in data.get("jobs", []):
-                if j.get("type") == "ocr_mineru" and j.get("status") in ACTIVE_STATUSES:
+                if j.get("status") in ACTIVE_STATUSES:
                     raise ValueError(
-                        f"Another OCR job is already active: {j['job_id']} "
-                        f"(book_id={j.get('book_id')})"
+                        f"Another job is already active: {j['job_id']} "
+                        f"(type={j.get('type')}, book_id={j.get('book_id')})"
                     )
 
             _ts = datetime.now()
@@ -251,6 +251,158 @@ class JobsStore:
             f"📥 Submitted OCR job {job_id} for {book_id} (pages {start_page}-{end_page}, workers={workers})"
         )
         return job
+
+    def submit_onboard_job(
+        self,
+        *,
+        book_id: str,
+        pdf_path: Path,
+        output_dir: Path,
+        n_sample_pages: int = 3,
+        skip_thumbnails: bool = False,
+    ) -> dict:
+        """Submit a new onboarding job. Runs Smart Onboarding Pipeline
+        (page split → profile + spike → TOC → plan) in background.
+
+        Single-active-job constraint shared with OCR jobs (Mac M4 RAM limit).
+        Returns the job dict (with job_id).
+        """
+        self._detect_zombies()
+        pdf_path = Path(pdf_path)
+        if not pdf_path.exists():
+            raise FileNotFoundError(f"PDF not found: {pdf_path}")
+
+        # Single active job check (any type — OCR or onboard)
+        with self._lock():
+            data = self._read_raw()
+            for j in data.get("jobs", []):
+                if j.get("status") in ACTIVE_STATUSES:
+                    raise ValueError(
+                        f"Another job is already active: {j['job_id']} "
+                        f"(type={j.get('type')}, book_id={j.get('book_id')})"
+                    )
+
+            _ts = datetime.now()
+            job_id = (
+                f"onboard-{_ts.strftime('%Y%m%d-%H%M%S')}"
+                f"-{_ts.microsecond:06d}-{uuid.uuid4().hex[:4]}"
+            )
+            job = {
+                "job_id": job_id,
+                "book_id": book_id,
+                "type": "onboard",
+                "status": STATUS_PENDING,
+                "progress": {
+                    "current": 0,
+                    "total": 4,           # 4 stages
+                    "stage": "queued",
+                },
+                "params": {
+                    "pdf_path": str(pdf_path),
+                    "output_dir": str(output_dir),
+                    "n_sample_pages": n_sample_pages,
+                    "skip_thumbnails": skip_thumbnails,
+                },
+                "started_at": None,
+                "ended_at": None,
+                "eta_seconds": None,
+                "error": None,
+                "log_tail": [],
+                "result": None,           # populated when done — onboarding summary
+            }
+            data.setdefault("jobs", []).append(job)
+            self._write_raw(data)
+
+        self._cancel_flags[job_id] = threading.Event()
+        thread = threading.Thread(
+            target=self._run_onboard_job,
+            args=(job_id,),
+            daemon=True,
+            name=f"onboard-job-{job_id}",
+        )
+        self._threads[job_id] = thread
+        thread.start()
+        logger.info(f"📥 Submitted onboard job {job_id} for {book_id}")
+        return job
+
+    def _run_onboard_job(self, job_id: str) -> None:
+        """Thread target — run Smart Onboarding Pipeline."""
+        try:
+            job = self.get_job(job_id)
+            if not job:
+                return
+            params = job["params"]
+            pdf_path = Path(params["pdf_path"])
+            output_dir = Path(params["output_dir"])
+            n_samples = int(params.get("n_sample_pages", 3))
+            skip_thumbs = bool(params.get("skip_thumbnails", False))
+            book_id = job["book_id"]
+
+            self._update_job(
+                job_id,
+                status=STATUS_RUNNING,
+                started_at=_now_iso(),
+                progress={"current": 0, "total": 4, "stage": "starting"},
+            )
+            self._append_log(job_id, "🚀 Onboarding started")
+
+            # Import lazily to avoid circular imports + faster module load
+            from engine.yi_publishing.onboarding import onboard_book
+
+            # We can't easily intercept onboard_book's internal stage timings,
+            # so we report a coarse progress: 0 → done after blocking call.
+            # Future improvement: refactor onboard_book to accept a progress callback.
+            self._append_log(
+                job_id, f"Running pipeline (page split + profile + spike + TOC + plan)..."
+            )
+            try:
+                summary = onboard_book(
+                    book_id=book_id,
+                    pdf_path=pdf_path,
+                    output_dir=output_dir,
+                    n_sample_pages=n_samples,
+                    skip_thumbnails=skip_thumbs,
+                )
+            except Exception as e:
+                err = f"Onboarding failed: {e}"
+                logger.exception(err)
+                self._append_log(job_id, f"❌ {err}")
+                self._update_job(
+                    job_id,
+                    status=STATUS_FAILED,
+                    ended_at=_now_iso(),
+                    error=str(e),
+                    progress={"current": 0, "total": 4, "stage": "failed"},
+                )
+                return
+
+            if self._should_cancel(job_id):
+                self._update_job(
+                    job_id,
+                    status=STATUS_CANCELLED,
+                    ended_at=_now_iso(),
+                    progress={"current": 4, "total": 4, "stage": "cancelled"},
+                )
+                return
+
+            self._update_job(
+                job_id,
+                status=STATUS_DONE,
+                ended_at=_now_iso(),
+                progress={"current": 4, "total": 4, "stage": "done"},
+                eta_seconds=0,
+                result=summary,
+            )
+            self._append_log(
+                job_id,
+                f"✅ Onboarding done: cols={summary['profile']['columns']}, "
+                f"chunks={summary['plan']['chunks_count']}, "
+                f"ETA OCR {summary['plan']['estimated_ocr_hours']}h",
+            )
+            logger.info(f"✅ Onboard job {job_id} completed")
+        finally:
+            self._threads.pop(job_id, None)
+            self._cancel_flags.pop(job_id, None)
 
     def get_job(self, job_id: str) -> Optional[dict]:
         self._detect_zombies()

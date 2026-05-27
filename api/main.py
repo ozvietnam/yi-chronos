@@ -5540,6 +5540,110 @@ def yi_publishing_recompute_progress(book_id: str) -> dict:
     return {"status": "ok", "book": updated}
 
 
+# ─── Smart Onboarding ────────────────────────────────────────────────────────
+
+
+class SubmitOnboardRequest(BaseModel):
+    """POST /books/{id}/onboard — run Smart Onboarding Pipeline."""
+    n_sample_pages: int = 3
+    skip_thumbnails: bool = False
+
+
+@app.post("/api/yi-publishing/books/{book_id}/onboard")
+def yi_publishing_submit_onboard_job(book_id: str, req: SubmitOnboardRequest) -> dict:
+    """Trigger Smart Onboarding Pipeline (page split → profile → TOC → plan).
+
+    Runs ~3-5 phút (real MinerU spike). Returns job_id for polling.
+    Rejects if another job is already active.
+    """
+    from engine.yi_publishing.books_store import get_store
+    from engine.yi_publishing.jobs import get_default_store
+
+    store = get_store()
+    book = store.get_book(book_id)
+    if not book:
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+
+    pdf_rel = book.get("pdf_path") or ""
+    if not pdf_rel:
+        raise HTTPException(status_code=400, detail="Book has no pdf_path")
+    pdf_abs = Path(pdf_rel)
+    if not pdf_abs.is_absolute():
+        pdf_abs = PUBLISHING_PROJECT_ROOT / pdf_rel
+    if not pdf_abs.exists():
+        raise HTTPException(status_code=404, detail=f"PDF file missing: {pdf_abs}")
+
+    output_dir = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "onboarding" / book_id
+
+    jobs_store = get_default_store()
+    try:
+        job = jobs_store.submit_onboard_job(
+            book_id=book_id,
+            pdf_path=pdf_abs,
+            output_dir=output_dir,
+            n_sample_pages=req.n_sample_pages,
+            skip_thumbnails=req.skip_thumbnails,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=409, detail=str(e))
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    return {"status": "ok", "job": job}
+
+
+@app.get("/api/yi-publishing/books/{book_id}/plan")
+def yi_publishing_get_plan(book_id: str) -> dict:
+    """Get onboarding plan artifacts (profile + TOC + OCR config) for a book.
+
+    Returns 404 if book hasn't been onboarded yet.
+    """
+    from engine.yi_publishing.books_store import get_store
+
+    store = get_store()
+    if not store.book_exists(book_id):
+        raise HTTPException(status_code=404, detail=f"Book {book_id} not found")
+
+    onboard_dir = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "onboarding" / book_id
+    if not onboard_dir.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Book not onboarded yet — run POST /onboard first",
+        )
+
+    result: dict = {"status": "ok", "book_id": book_id}
+
+    # Plan summary
+    plan_summary_path = onboard_dir / "_PLAN-SUMMARY.json"
+    if plan_summary_path.exists():
+        result["plan_summary"] = json.loads(plan_summary_path.read_text(encoding="utf-8"))
+
+    # Profile
+    profile_path = onboard_dir / "book_profile.json"
+    if profile_path.exists():
+        result["profile"] = json.loads(profile_path.read_text(encoding="utf-8"))
+
+    # OCR config (the one Anh-duyệt-able)
+    ocr_cfg_path = onboard_dir / "_OCR-CONFIG.json"
+    if ocr_cfg_path.exists():
+        result["ocr_config"] = json.loads(ocr_cfg_path.read_text(encoding="utf-8"))
+
+    # TOC markdown (human-readable)
+    toc_path = onboard_dir / "_TOC.md"
+    if toc_path.exists():
+        result["toc_markdown"] = toc_path.read_text(encoding="utf-8")
+
+    # Reading + translation plans
+    reading_path = onboard_dir / "_READING-PLAN.md"
+    if reading_path.exists():
+        result["reading_plan_markdown"] = reading_path.read_text(encoding="utf-8")
+
+    translation_path = onboard_dir / "_TRANSLATION-PLAN.md"
+    if translation_path.exists():
+        result["translation_plan_markdown"] = translation_path.read_text(encoding="utf-8")
+
+    return result
+
+
 # ─── Jobs (OCR queue) ────────────────────────────────────────────────────────
 
 
