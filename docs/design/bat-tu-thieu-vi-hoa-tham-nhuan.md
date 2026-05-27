@@ -244,7 +244,115 @@ Engine `engine/bat_tu/tu_tru.py` đã implement. Sách dạy thủ công:
 
 ---
 
-## (Continued — Phần C sẽ thêm khi Anh muốn em đọc tiếp Chương 3+ về Thập Thần kỹ thuật chi tiết)
+---
+
+## Chương 3 — TÍNH CHẤT CỦA MƯỜI THẦN (tr. 50-100)
+
+Đây là chương **bản lề** giữa lý thuyết và kỹ thuật. Sách trình bày 10 Thần KHÔNG chỉ là tags — mỗi Thần là một **lực lượng** với:
+- **Tâm tính** (đức tính tích cực + tiêu cực)
+- **Biểu tượng** (Lục Thân: vợ chồng cha mẹ con cái...)
+- **Công năng** (sinh khắc với các thần khác — tốt khi nào, xấu khi nào)
+- **Quy tắc Vượng-Suy** (mạnh yếu tùy lệnh tháng + đắc địa + sinh + trợ giúp)
+
+### I. 5 quy tắc Vượng Thân (tr. 70 — CORE TECHNIQUE)
+
+Thiệu Vĩ Hoa dạy 5 điều kiện đánh giá Nhật Chủ vượng/nhược:
+
+1. **Được lệnh** — chi tháng = vượng địa của Day Master (Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan, Đế Vương)
+2. **Đắc địa** — chi khác = Lộc / Kình Dương / Mộ Kho (có gốc)
+3. **Được sinh** — Chính/Thiên Ấn của các can chi khác trong Tứ trụ sinh thân
+4. **Được trợ giúp** — Tỷ Kiên / Kiếp Tài cùng loại trợ thân
+
+**Phán đoán**:
+- Được lệnh + 1/3 còn lại → **Thân Vượng**
+- Được lệnh + 2/3 → **Rất Vượng**
+- Được lệnh + 3/3 → **Quá Vượng / Cực Vượng**
+- KHÔNG được lệnh nhưng 2/3 mạnh → vẫn **Thân Vượng**
+- KHÔNG được lệnh + Tam Hợp / Tam Hội = Ấn cục hoặc Tỷ cục → **Thân Vượng**
+
+**Quan trọng** (tr. 73):
+> _"Năm can dương tính theo chiều thuận, năm can âm tính theo chiều nghịch của 12 cung. Vì trong một số sách phủ định năm can âm không tính theo chiều nghịch — đó là điều không đúng."_
+
+→ Engine `engine/bat_tu/truong_sinh.py` đã implement đúng (Yang đếm thuận / Yin đếm nghịch).
+
+### II. Quy tắc Sinh-Khắc 10 Thần (tr. 80)
+
+**Tương sinh** (vòng):
+Tài (Chính + Thiên) → **Quan Sát** → Ấn Kiêu → **Day Master / Kiếp Tỷ** → Thương Thực → Tài
+
+**Tương khắc** (cách ngôi):
+Tài khắc Ấn → Ấn khắc Thương Thực → Thương Thực khắc Quan Sát → Quan Sát khắc Day Master/Kiếp Tỷ → Day Master/Kiếp Tỷ khắc Tài
+
+**Insight quan trọng** (tr. 80):
+> _"Mệnh tốt hay xấu cũng không phải lấy sinh và khắc để mà bàn. Phàm sinh hay khắc... đều có thể sinh có thể khắc."_
+
+→ Tử Bình KHÔNG nói "khắc = xấu, sinh = tốt". Phải xét **CỤ THỂ**. Vd: Thực Thần CHẾ Sát = tốt khi Sát quá mạnh.
+
+**"Vật đến cực tất quay trở lại"** (tr. 81):
+> _"Khi một thần nào đó quá mạnh hoặc quá yếu thì cũng tuân theo quy luật: vật đến cực tất quay trở lại, tức là cái vốn sinh thì ngược lại không thể sinh, cái vốn khắc trở thành cái bị khắc."_
+
+→ Cross-ref Iron Rule paradigm "Thái quá / Bất cập" (Chương 2). Đây là nguyên tắc dialectic.
+
+### III. Công năng 10 Thần (tr. 83-87)
+
+Mỗi Thần có **4 năng lực** quy chiếu Day Master:
+
+| Thần | Năng lực |
+|---|---|
+| **Chính Quan** | Bảo vệ Tài, sinh Ấn, áp chế thân, khắc chế Kiếp |
+| **Thất Sát** | Tổn hao Tài, sinh Ấn, công phá thân, khắc Kiếp |
+| **Chính Tài** | Sinh Quan, hao Ấn, hao Tỷ, bị Kiếp đoạt |
+| **Thiên Tài** | Sinh Sát, hao Ấn, hao Tỷ, bị Kiếp đoạt |
+| **Chính Ấn** | Sinh Day Master, áp Thương, hao Tài |
+| **Thiên Ấn (Kiêu)** | Sinh Day Master, đoạt Thực, hao Tài |
+| **Thực Thần** | Sinh Tài, chế Sát, làm xì hơi Day Master, bị Kiêu đoạt |
+| **Thương Quan** | Sinh Tài, đối địch Quan, làm xì hơi Day Master |
+| **Tỷ Kiên** | Trợ Day Master, đoạt Tài, đối lập Quan Sát |
+| **Kiếp Tài** | Đoạt Tài mạnh, hợp Quan, đối lập Tài |
+
+→ Đây là **dynamic rules** cần encode trong engine luận giải. Khi thấy Sát vượng + có Thực Thần → "Sát có chế hóa" → quý hiển. Khi thấy Tài vượng + có Tỷ Kiếp → "Tài bị đoạt" → cảnh báo.
+
+### IV. Tâm tính 10 Thần (tr. 88 — PSYCH PROFILE)
+
+Đây là phần "đọc đồng dạng" — Thập Thần phản chiếu **tâm tính bẩm sinh** (không phải predict hành vi):
+
+| Thần | Tâm tính TÍCH | Tâm tính TIÊU |
+|---|---|---|
+| **Tỷ Kiên** | Cương nghị, mạo hiểm, dũng cảm, chí tiến thủ | Cô độc, ít hòa nhập, đơn côi |
+| **Kiếp Tài** | Nhiệt thành, thẳng thắn, kiên nhẫn, phấn đấu | Mù quáng, thiếu lí trí, manh động |
+| **Thực Thần** | Ôn hòa, rộng rãi, hiền lành, thân mật | Bề ngoài không thật, nhút nhát, giả tạo |
+| **Thương Quan** | Thông minh, hoạt bát, tài hoa, hiếu thắng | Tùy tiện, thiếu kiểm chế, tự do vô chính phủ |
+| **Chính Tài** | Cần cù, tiết kiệm, chắc chắn, thật thà | Cẩu thả, thiếu tiến thủ, nhu nhược |
+| **Thiên Tài** | Khẳng khái, trọng tình, thông minh, phóng khoáng | Ba hoa, bề ngoài, thiếu kiểm chế, phù phiếm |
+| **Chính Quan** | Trung chính, công bằng, kỷ luật, danh tiếng | Cứng nhắc, gò bó, áp lực |
+| **Thất Sát** | Quyết đoán, dũng mãnh, leadership | Tai họa nếu không chế, kẻ thù |
+| **Chính Ấn** | Trí tuệ, nhân từ, học vấn, từ thiện | Ỷ lại, lười suy nghĩ độc lập |
+| **Thiên Ấn** | Sáng tạo, trực giác, độc lập | Cô độc, đoạt Thực, phi truyền thống |
+
+→ Engine luận giải sẽ chọn Thần **NỔI BẬT** trong Tứ Trụ (Thần có nhiều can chi thuộc loại đó) → đọc tâm tính tương ứng.
+
+### V. Thông quan (tr. 100 — paradigm)
+
+> _"Khi hai loại ngũ hành trong mệnh cục đối lập nhau, thế lực đối địch ngang nhau thì hai cái đều tổn thất, đó cũng là mệnh cục có bệnh."_
+
+→ Bệnh = mất cân bằng giữa 2 hành đối lập. Thuốc = 1 hành **TRUNG GIAN** hóa giải. Vd: Kim khắc Mộc ngang nhau → cần Thủy (Kim sinh Thủy, Thủy sinh Mộc) làm trung gian. Đây là **Thông Quan** = principle of mediation.
+
+---
+
+## Tổng kết Phần C — patterns cho engine luận giải
+
+Em rút **10 patterns** sẽ encode vào `engine/bat_tu/luan_giai.py`:
+
+1. **5 quy tắc Vượng Thân**: dùng để verify `day_master.strength_tag` engine đã compute
+2. **Sinh-Khắc 10 Thần**: detect dynamic combinations (Sát + Thực Chế Sát = quý hiển)
+3. **"Vật đến cực tất quay trở lại"**: khi count 1 hành > 4 → cảnh báo phản tác dụng
+4. **Công năng 4 cánh** mỗi Thần: encode rule table → narrative
+5. **Tâm tính positive + negative**: từ Thần nổi bật → đọc 2 mặt
+6. **Tài bị Kiếp đoạt**: cảnh báo khi Chính/Thiên Tài + Kiếp Tài nhiều
+7. **Thương Quan kiến Quan**: cảnh báo đại hung khi Thương Quan + Chính Quan đồng lộ + Day Master nhược
+8. **Thực Thần chế Sát hoặc Ấn hóa Sát**: tốt khi Thất Sát + (Thực Thần | Ấn) trong lá số
+9. **Thông quan**: detect 2 hành đối lập → đề xuất hành trung gian
+10. **"Có thuốc"**: lá số có Dụng Thần + Đại Vận đi đúng → mệnh có cứu
 
 ---
 
