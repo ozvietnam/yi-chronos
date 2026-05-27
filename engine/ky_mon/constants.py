@@ -211,9 +211,12 @@ MON_CAT_HUNG = {
     "休": "cát", "生": "đại cát", "傷": "hung", "杜": "trung bình",
     "景": "trung bình", "死": "đại hung", "驚": "hung", "開": "đại cát",
 }
+# Corrected per Đàm Liên Chương I phần IV (pages 39-40):
+# - 5 cát tinh: Phụ Cầm Tâm (đại cát) + Xung Nhậm (tiểu cát)
+# - 4 hung tinh: Bồng Nhuế (đại hung) + Trụ Anh (tiểu hung)
 TINH_CAT_HUNG = {
-    "蓬": "đại hung", "任": "cát", "沖": "trung bình", "輔": "đại cát",
-    "禽": "cát", "心": "cát", "柱": "trung bình", "英": "trung bình", "芮": "đại hung",
+    "蓬": "đại hung", "任": "cát", "沖": "cát", "輔": "đại cát",
+    "禽": "đại cát", "心": "đại cát", "柱": "hung", "英": "hung", "芮": "đại hung",
 }
 THAN_CAT_HUNG = {
     "符": "đại cát", "蛇": "hung", "陰": "cát", "合": "cát",

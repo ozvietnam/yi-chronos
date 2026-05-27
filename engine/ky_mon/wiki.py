@@ -125,26 +125,26 @@ WIKI = {
                  "desc": "Mở đầu, công khai, hành sự lớn. Tốt cho mọi việc trừ tang lễ."},
     },
 
-    # ─── 9 tinh ───
+    # ─── 9 tinh (cat_hung CORRECTED per Đàm Liên Chương I phần IV) ───
     "tinh": {
         "Thiên Bồng": {"zh": "天蓬", "ngu_hanh": "Thủy", "cat_hung": "đại hung",
-                       "desc": "Đầu hung tinh — Bắc Đẩu thứ nhất. Chủ trộm cướp, dâm dục, mưu kế đen."},
+                       "desc": "Đầu hung tinh — Bắc Đẩu thứ nhất. Chủ trộm cướp, dâm dục, mưu kế đen. Hợp xuân/hè, khắc thu/đông."},
         "Thiên Nhậm": {"zh": "天任", "ngu_hanh": "Thổ", "cat_hung": "cát",
-                       "desc": "Bảo trì, đảm nhận. Cát cho việc lâu dài, tích lũy."},
-        "Thiên Xung": {"zh": "天沖", "ngu_hanh": "Mộc", "cat_hung": "trung bình",
-                       "desc": "Kích phạt, xung đột. Tốt cho người võ, tranh đấu chính nghĩa."},
+                       "desc": "Tiểu cát. Bảo trì, đảm nhận. Cát cho việc lâu dài, tích lũy."},
+        "Thiên Xung": {"zh": "天沖", "ngu_hanh": "Mộc", "cat_hung": "cát",
+                       "desc": "Tiểu cát. Kích phạt, xung đột. Tốt cho người võ, tranh đấu chính nghĩa."},
         "Thiên Phụ": {"zh": "天輔", "ngu_hanh": "Mộc", "cat_hung": "đại cát",
-                      "desc": "Phù trợ. Đại cát cho học hành, văn thư, du lịch."},
-        "Thiên Cầm": {"zh": "天禽", "ngu_hanh": "Thổ", "cat_hung": "cát",
-                      "desc": "Trung tâm, ổn định (luôn ở Trung cung). Đi cùng Trị Phù."},
-        "Thiên Tâm": {"zh": "天心", "ngu_hanh": "Kim", "cat_hung": "cát",
-                      "desc": "Y dược, lành bệnh. Cát cho sức khỏe, nghiên cứu sâu."},
-        "Thiên Trụ": {"zh": "天柱", "ngu_hanh": "Kim", "cat_hung": "trung bình",
-                      "desc": "Phòng thủ, cố thủ. Cát cho giữ thành, bất lợi cho công thành."},
-        "Thiên Anh": {"zh": "天英", "ngu_hanh": "Hỏa", "cat_hung": "trung bình",
-                      "desc": "Chiếu rọi, văn thư, danh tiếng. Hư danh, dễ bị hỏa thiêu."},
+                      "desc": "Đại cát. Phù trợ. Đại cát cho học hành, văn thư, du lịch."},
+        "Thiên Cầm": {"zh": "天禽", "ngu_hanh": "Thổ", "cat_hung": "đại cát",
+                      "desc": "Đại cát. Trung tâm, ổn định (luôn ở Trung cung). Đi cùng Trị Phù."},
+        "Thiên Tâm": {"zh": "天心", "ngu_hanh": "Kim", "cat_hung": "đại cát",
+                      "desc": "Đại cát. Y dược, lành bệnh. Cát cho sức khỏe, nghiên cứu sâu."},
+        "Thiên Trụ": {"zh": "天柱", "ngu_hanh": "Kim", "cat_hung": "hung",
+                      "desc": "Tiểu hung. Phòng thủ, cố thủ. Cát cho giữ thành, bất lợi cho công thành."},
+        "Thiên Anh": {"zh": "天英", "ngu_hanh": "Hỏa", "cat_hung": "hung",
+                      "desc": "Tiểu hung. Chiếu rọi, văn thư, danh tiếng. Hư danh, dễ bị hỏa thiêu."},
         "Thiên Nhuế": {"zh": "天芮", "ngu_hanh": "Thổ", "cat_hung": "đại hung",
-                       "desc": "Đầu bệnh tinh. Chủ bệnh tật, tang sự. Tránh đi xa, mua bán quan trọng."},
+                       "desc": "Đầu bệnh tinh. Chủ bệnh tật, tang sự. Tránh đi xa, mua bán quan trọng. Hợp đông/thu, khắc xuân/hè."},
     },
 
     # ─── 8 thần ───
@@ -273,6 +273,77 @@ WIKI = {
             "Dương độn 陽遁": "Đông Chí → Hạ Chí (6 tháng). 9 thiên can xếp THUẬN chiều (cung 1→9).",
             "Âm độn 陰遁": "Hạ Chí → Đông Chí (6 tháng). 9 thiên can xếp NGƯỢC chiều (cung 9→1).",
         },
+    },
+
+    # ─── Cấu trúc 4 tầng Âm Dương Bàn (Đàm Liên Chương I phần IV) ───
+    "am_duong_ban_4_tang": {
+        "overview": "Âm Dương Bàn hoàn chỉnh = 4 tầng đồng tâm. Chuyển bàn = 4 đường tròn xoay được. Phi bàn = 4 đường tròn cố định cùng mặt phẳng.",
+        "tang_1_dia_ban": {
+            "name": "Địa Bàn 地盤",
+            "size": "Lớn nhất (đáy)",
+            "movement": "CỐ ĐỊNH, không di chuyển",
+            "content": "8 cung Bát Quái cố định + cơ sở chuẩn xác để bài bàn",
+        },
+        "tang_2_mon_ban": {
+            "name": "Môn Bàn 門盤",
+            "size": "Lớn thứ 2",
+            "movement": "Chuyển bàn: tầng xoay được. Phi bàn: 8 môn biến đổi theo giờ",
+            "content": "8 môn (Hưu Sinh Thương Đỗ Cảnh Tử Kinh Khai)",
+        },
+        "tang_3_thien_ban": {
+            "name": "Thiên Bàn 天盤",
+            "size": "Lớn thứ 3",
+            "movement": "Chuyển động theo Trực Phù + Trực Sử",
+            "content": "9 cung + Lục Nghi Tam Kỳ + 9 sao (Thiên Bồng/Nhậm/...)",
+        },
+        "tang_4_than_ban": {
+            "name": "Thần Bàn 神盤",
+            "size": "Nhỏ nhất (đỉnh)",
+            "movement": "Phi bàn: chỉ 1 đường tròn (do Thiên Bàn lộ rõ)",
+            "content": "8 thần thứ tự: Trực Phù → Đằng Xà → Thái Âm → Lục Hợp → Câu Trần → Chu Tước (Huyền Vũ) → Cửu Địa → Cửu Thiên",
+        },
+        "trung_cung_trick": "Trung cung số 5 GỬI vào cung Khôn số 2 (vì 3 tầng dưới che lấp Trung cung — không thể nhìn thấy trực tiếp).",
+    },
+
+    # ─── Quy tắc "Theo 3 tránh 5" (Đàm Liên Chương I phần IV) ───
+    "theo_3_tranh_5": {
+        "proverb": "Theo 3 tránh 5 (cho 8 môn)",
+        "cat_mon": ["Khai môn", "Hưu môn", "Sinh môn"],
+        "hung_mon": ["Thương môn", "Đỗ môn", "Cảnh môn", "Tử môn", "Kinh môn"],
+        "rule": "Chọn 3 môn cát → hành động. Tránh 5 môn hung → đợi thời cơ khác.",
+        "nuance": {
+            "khai_mon": "Tứ thông bát đạt — thông suốt mọi việc. Nhưng nếu nằm cung Chấn/Tốn (Mộc) → 'kim khắc' (môn Kim bị Mộc khắc) → không may",
+            "canh_mon": "Còn gọi 'bình môn' — bình thường, kéo dài không lâu. Tốt cho thi đấu, ký kết.",
+            "tu_mon": "Đại hung — chỉ tốt cho việc tang lễ. Tránh khởi sự lớn.",
+        },
+    },
+
+    # ─── Phân cấp Cửu tinh chính xác (Đàm Liên Chương I phần IV pages 39-40) ───
+    "cuu_tinh_phan_cap": {
+        "overview": "9 sao chia 2 nhóm × 2 mức độ. 5 cát + 4 hung. Em đã CORRECTED constants per Đàm Liên (commit batch 2).",
+        "cat_tinh": {
+            "dai_cat (3 sao)": ["Thiên Phụ 天輔", "Thiên Cầm 天禽", "Thiên Tâm 天心"],
+            "tieu_cat (2 sao)": ["Thiên Xung 天沖", "Thiên Nhậm 天任"],
+        },
+        "hung_tinh": {
+            "dai_hung (2 sao)": ["Thiên Bồng 天蓬", "Thiên Nhuế 天芮"],
+            "tieu_hung (2 sao)": ["Thiên Trụ 天柱", "Thiên Anh 天英"],
+        },
+    },
+
+    # ─── Sinh khắc Môn ↔ Cung (rule luận) ───
+    "sinh_khac_mon_cung": {
+        "overview": "Mỗi môn có ngũ hành riêng. Khi đặt vào cung (cũng có ngũ hành), check sinh khắc Môn↔Cung để xác định cát/hung TĂNG/GIẢM.",
+        "vd_khai_mon": "Khai môn = Kim. Nếu đặt cung Chấn (3, Mộc) hoặc Tốn (4, Mộc) → Mộc khắc Kim → 'kim khắc' = Khai môn bị suy giảm cát khí.",
+        "vd_thuong_mon": "Thương môn = Mộc. Nếu đặt cung Khôn (2, Thổ) hoặc Cấn (8, Thổ) → Mộc khắc Thổ → tăng độ hung.",
+        "principle": "Tổng cát/hung của 1 cung = (cat_hung gốc của môn/tinh/thần) × (sinh/khắc/đồng/khoảng cung) × (mùa hợp/khắc)",
+    },
+
+    # ─── Mùa hợp/khắc cho Cửu tinh (Đàm Liên page 40+) ───
+    "mua_hop_khac_tinh": {
+        "Thiên Bồng (Thủy)": "Hợp xuân/hè (Mộc/Hỏa cần Thủy), khắc thu/đông (Kim/Thủy dư)",
+        "Thiên Nhuế (Thổ)": "Hợp đông/thu (Thủy/Kim cần Thổ), khắc hè/xuân (Hỏa/Mộc)",
+        "principle": "Đàm Liên gắn từng tinh với mùa hợp — thêm 1 chiều luận ngoài cung+môn+thần",
     },
 
     # ─── Sách reference em đọc trong YI-CHRONOS ───

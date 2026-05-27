@@ -13,8 +13,8 @@
 | Batch | Pages | Trạng thái | Insight chính | Commit |
 |---|---|---|---|---|
 | Sample | 1-20 | ✅ Done | Đàm Liên paradigm + 2 hệ KMDG + 5 cổ thư | `4aed3de` |
-| 1 | 21-30 | ✅ Done | Tam Kỳ Lục Nghi mapping + Cửu tinh 2 hệ tên + nguyệt gia rule + Dương/Âm độn chiều | _(this commit)_ |
-| 2 | 31-40 | 🔄 Pending | — | — |
+| 1 | 21-30 | ✅ Done | Tam Kỳ Lục Nghi mapping + Cửu tinh 2 hệ tên + nguyệt gia rule + Dương/Âm độn chiều | `31c2c04` |
+| 2 | 31-40 | ✅ Done | 4 tầng Âm Dương Bàn + "Theo 3 tránh 5" + corrected 5 cat_hung Cửu tinh | _(this commit)_ |
 | 3 | 41-50 | ⏳ Pending | — | — |
 | 4 | 51-60 | ⏳ Pending | — | — |
 | ... | ... | Backlog | Toàn bộ 307 trang còn lại | future sessions |
@@ -146,5 +146,71 @@ Mỗi batch em sẽ:
 - 18/18 tests PASS (13 cũ + 5 mới)
 - Webapp build clean (1749 modules, 3.03s)
 - 10 pages OCR saved `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{21..30}.txt`
+
+---
+
+## Batch 2 — Pages 31-40: Cấu trúc 4 tầng Âm Dương Bàn + phân cấp cát/hung Cửu tinh
+
+### Insights chính
+
+1. **Âm Dương Bàn HOÀN CHỈNH = 4 tầng đồng tâm**:
+   - Tầng 1 (đáy, lớn nhất, CỐ ĐỊNH): **Địa Bàn** 地盤 — 8 cung Bát Quái cố định
+   - Tầng 2: **Môn Bàn** — 8 môn (Chuyển bàn xoay, Phi bàn biến theo giờ)
+   - Tầng 3: **Thiên Bàn** 天盤 — Lục Nghi Tam Kỳ + 9 sao (xoay theo Trực Phù)
+   - Tầng 4 (đỉnh, nhỏ nhất): **Thần Bàn** 神盤 — 8 thần (Phi bàn chỉ 1 đường tròn)
+
+2. **Trung cung trick**: Trung cung số 5 GỬI vào cung Khôn số 2 (vì 3 tầng dưới che lấp Trung cung — không nhìn thấy trực tiếp).
+
+3. **Bát thần thứ tự (canonical)**: Trực Phù → Đằng Xà (rắn bay) → Thái Âm → Lục Hợp → Câu Trần → Chu Tước (= Huyền Vũ) → Cửu Địa → Cửu Thiên. Dương độn xếp xuôi, Âm độn xếp ngược.
+
+4. **Quy tắc "Theo 3 tránh 5"** (proverb cốt):
+   - **3 cát môn**: Khai, Hưu, Sinh
+   - **5 hung môn**: Thương, Đỗ, Cảnh, Tử, Kinh
+   - Rule: chọn cát → hành động, tránh hung → đợi thời
+
+5. **Phân cấp Cửu tinh CHÍNH XÁC** (em đã set SAI ở wiki ban đầu, batch 2 sửa):
+   - **3 Đại cát**: Phụ 輔, Cầm 禽, Tâm 心
+   - **2 Tiểu cát**: Xung 沖, Nhậm 任
+   - **2 Đại hung**: Bồng 蓬, Nhuế 芮
+   - **2 Tiểu hung**: Trụ 柱, Anh 英
+   - → Sửa: Cầm + Tâm từ "cát" → **"đại cát"**, Xung từ "trung bình" → **"cát"**, Trụ + Anh từ "trung bình" → **"hung"**
+
+6. **Sinh khắc Môn ↔ Cung**:
+   - Mỗi môn có ngũ hành. Đặt vào cung → check sinh/khắc/đồng
+   - VD: Khai môn (Kim) cung Chấn/Tốn (Mộc) → Mộc khắc Kim → "kim khắc" suy giảm cát
+   - VD: Thương môn (Mộc) cung Khôn/Cấn (Thổ) → Mộc khắc Thổ → tăng hung
+   - Principle: cat_hung tổng = (cat_hung gốc) × (sinh/khắc cung) × (mùa hợp)
+
+7. **Mùa hợp/khắc cho Cửu tinh**:
+   - Thiên Bồng (Thủy): hợp xuân/hè, khắc thu/đông
+   - Thiên Nhuế (Thổ): hợp đông/thu, khắc xuân/hè
+   - → Đàm Liên gắn từng tinh với mùa hợp — thêm 1 chiều luận
+
+### Engine improvements
+
+1. `engine/ky_mon/constants.py`:
+   - `TINH_CAT_HUNG` corrected (5 sao thay đổi giá trị)
+
+2. `engine/ky_mon/wiki.py`:
+   - Section "am_duong_ban_4_tang" (4 tầng + Trung cung trick)
+   - Section "theo_3_tranh_5" (3 cát + 5 hung + nuance từng môn)
+   - Section "cuu_tinh_phan_cap" (đại/tiểu cát/hung documented)
+   - Section "sinh_khac_mon_cung" (rule luận sinh khắc)
+   - Section "mua_hop_khac_tinh" (Thiên Bồng/Nhuế mùa hợp/khắc)
+   - `WIKI['tinh']` updated cat_hung cho 5 sao (sync với TINH_CAT_HUNG)
+
+3. Tests: thêm 4 tests
+   - `test_cuu_tinh_cat_hung_corrected`
+   - `test_am_duong_ban_4_tang`
+   - `test_theo_3_tranh_5_rule`
+
+### Verification
+
+- 21/21 tests PASS (17 cũ + 4 mới)
+- 10 pages OCR saved `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{31..40}.txt`
+
+### ⚠️ Behavior change cho user
+
+Bàn KMDG render trong UI sẽ có **cat_hung khác** cho 5 sao trên (Cầm Tâm = đại cát mới, Xung = cát mới, Trụ Anh = hung mới). Đây là SỬA SAI theo canon Đàm Liên, không phải bug.
 
 ---

@@ -202,6 +202,53 @@ def test_duong_am_don_chieu():
     assert "ngược" in DUONG_AM_DON_RULE["Âm độn 陰遁"]["chieu"]
 
 
+def test_cuu_tinh_cat_hung_corrected():
+    """9 sao cat_hung CORRECTED per Đàm Liên Chương I phần IV (batch 2).
+
+    - 5 cát: Phụ Cầm Tâm (đại cát), Xung Nhậm (tiểu cát)
+    - 4 hung: Bồng Nhuế (đại hung), Trụ Anh (tiểu hung)
+    """
+    from engine.ky_mon.constants import TINH_CAT_HUNG
+
+    # Đại cát = 3 sao
+    assert TINH_CAT_HUNG["輔"] == "đại cát"  # Phụ
+    assert TINH_CAT_HUNG["禽"] == "đại cát"  # Cầm
+    assert TINH_CAT_HUNG["心"] == "đại cát"  # Tâm
+
+    # Tiểu cát = 2 sao
+    assert TINH_CAT_HUNG["沖"] == "cát"      # Xung
+    assert TINH_CAT_HUNG["任"] == "cát"      # Nhậm
+
+    # Đại hung = 2 sao
+    assert TINH_CAT_HUNG["蓬"] == "đại hung"  # Bồng
+    assert TINH_CAT_HUNG["芮"] == "đại hung"  # Nhuế
+
+    # Tiểu hung = 2 sao (corrected from "trung bình")
+    assert TINH_CAT_HUNG["柱"] == "hung"      # Trụ
+    assert TINH_CAT_HUNG["英"] == "hung"      # Anh
+
+
+def test_am_duong_ban_4_tang():
+    """Âm Dương Bàn = 4 tầng (Địa/Môn/Thiên/Thần) per Đàm Liên phần IV."""
+    from engine.ky_mon import WIKI
+
+    sec = WIKI["am_duong_ban_4_tang"]
+    assert sec["tang_1_dia_ban"]["name"] == "Địa Bàn 地盤"
+    assert sec["tang_4_than_ban"]["name"] == "Thần Bàn 神盤"
+    assert "Trung cung" in sec["trung_cung_trick"]
+
+
+def test_theo_3_tranh_5_rule():
+    """Quy tắc 'Theo 3 tránh 5' — 3 cát môn + 5 hung môn."""
+    from engine.ky_mon import WIKI
+
+    rule = WIKI["theo_3_tranh_5"]
+    assert set(rule["cat_mon"]) == {"Khai môn", "Hưu môn", "Sinh môn"}
+    assert set(rule["hung_mon"]) == {"Thương môn", "Đỗ môn", "Cảnh môn", "Tử môn", "Kinh môn"}
+    assert len(rule["cat_mon"]) == 3
+    assert len(rule["hung_mon"]) == 5
+
+
 def test_to_su_paradigm():
     """Verify tổ sư paradigm Lưu Bá Ôn được ghi nhận."""
     from engine.ky_mon import WIKI
