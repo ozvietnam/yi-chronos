@@ -243,42 +243,101 @@ def _compose_overview(state: dict) -> str:
 
 
 def _luan_cuong_do(state: dict) -> dict:
-    """Phân tích Cường độ Nhật Chủ — Vượng / Nhược / Trung hòa."""
+    """Phân tích Cường độ Nhật Chủ — Vượng / Nhược / Trung hòa.
+
+    Inject lá số data: month branch (đắc lệnh?), positions của Ấn + Tỷ/Kiếp + Tài + Quan + Thực Thương.
+    """
     dm_assess = state["ngu_hanh"]["day_master_assessment"]
     tag = dm_assess["strength_tag"]
     label = dm_assess["strength_label"]
     support = dm_assess.get("support_score", 0)
     drain = dm_assess.get("drain_score", 0)
     diff = support - drain
+    pillars = state["tu_tru"]["pillars"]
+    dm_stem = state["tu_tru"]["day_master"]["stem"]
+    dm_el = state["tu_tru"]["day_master"]["element"]
+    month_branch = pillars["month"]["branch"]
+    month_branch_el = pillars["month"]["branch_element"]
+    dist = state.get("thap_than_distribution", {})
+    visible = dist.get("visible", {})
+    hidden = dist.get("hidden", {})
+    count = lambda tt: visible.get(tt, 0) + hidden.get(tt, 0)
     narrative_base = STRENGTH_NARRATIVE.get(tag, "")
+
+    # 1. Đắc lệnh check
+    from .constants import ELEMENT_GENERATES
+    if month_branch_el == dm_el:
+        loi_label = "ĐẮC LỆNH (chi tháng cùng hành)"
+    elif ELEMENT_GENERATES.get(month_branch_el) == dm_el:
+        loi_label = "ĐẮC LỆNH (chi tháng sinh Day Master)"
+    elif ELEMENT_GENERATES.get(dm_el) == month_branch_el:
+        loi_label = "TIẾT KHÍ (Day Master sinh chi tháng → mất khí)"
+    else:
+        from .constants import ELEMENT_CONTROLS
+        if ELEMENT_CONTROLS.get(month_branch_el) == dm_el:
+            loi_label = "BỊ KHẮC (chi tháng khắc Day Master)"
+        elif ELEMENT_CONTROLS.get(dm_el) == month_branch_el:
+            loi_label = "HAO KHẮC (Day Master khắc chi tháng → hao sức)"
+        else:
+            loi_label = "không đắc lệnh"
+
+    # 2. Support breakdown
+    an_count = count("Chính Ấn") + count("Thiên Ấn")
+    ty_count = count("Tỷ Kiên") + count("Kiếp Tài")
+    # 3. Drain breakdown
+    tai_count = count("Chính Tài") + count("Thiên Tài")
+    quan_count = count("Chính Quan") + count("Thất Sát")
+    thuc_count = count("Thực Thần") + count("Thương Quan")
+
+    # 4. Mức độ extra
     if tag == "strong":
         if diff >= 4:
-            extra = "Mức độ **quá vượng** — cần hao/tiết mạnh để tránh phản tác dụng."
+            extra = "Mức độ **quá vượng** — cần hao/tiết mạnh, tránh tự đại thái quá."
         elif diff >= 2:
-            extra = "Mức độ **rất vượng** — có khí gốc đầy đủ."
+            extra = "Mức độ **rất vượng** — gốc đầy đủ, sức mạnh ổn."
         else:
             extra = "Mức độ **vượng vừa phải** — đắc lệnh nhưng không quá."
     elif tag == "weak":
         if diff <= -4:
-            extra = "Mức độ **quá nhược** — cần Ấn/Tỷ cứu thân khẩn thiết."
+            extra = "Mức độ **quá nhược** — Ấn/Tỷ phải cấp cứu, không thì áp lực thân lớn."
         elif diff <= -2:
-            extra = "Mức độ **rất nhược** — nguồn sinh trợ thiếu."
+            extra = "Mức độ **rất nhược** — sinh trợ thiếu, dễ mệt, sức bền hạn chế."
         else:
-            extra = "Mức độ **nhược nhẹ** — gần trung hòa."
+            extra = "Mức độ **nhược nhẹ** — gần trung hòa, không quá khắc nghiệt."
     else:
         extra = "Trạng thái này thuận để Dụng Thần phát huy theo khí thiếu/điều hậu."
+
+    # 5. Detailed narrative
+    detail_lines = [
+        f"Nhật Chủ **{dm_stem} ({dm_el})** sinh tháng **{month_branch} ({month_branch_el})** → **{loi_label}**.",
+        f"📊 **Support** (sinh-trợ Day Master): Ấn = {an_count} vị trí, Tỷ/Kiếp = {ty_count} vị trí → "
+        f"tổng support score = **{support:.1f}**.",
+        f"📉 **Drain** (hao-tiết Day Master): Tài = {tai_count}, Quan/Sát = {quan_count}, "
+        f"Thực/Thương = {thuc_count} → tổng drain score = **{drain:.1f}**.",
+        f"⚖ Δ (support − drain) = **{diff:+.1f}** → kết luận: {extra}",
+    ]
     return {
         "tag": tag,
         "label": label,
         "support_score": support,
         "drain_score": drain,
         "diff": diff,
-        "narrative": f"{narrative_base} {extra}",
+        "loi_label": loi_label,
+        "an_count": an_count,
+        "ty_count": ty_count,
+        "tai_count": tai_count,
+        "quan_count": quan_count,
+        "thuc_count": thuc_count,
+        "narrative": f"{narrative_base}\n\n" + "\n".join(detail_lines),
     }
 
 
 def _luan_ngu_hanh(state: dict) -> dict:
-    """Phân tích cân bằng ngũ hành + đề xuất hành cần BỔ."""
+    """Phân tích cân bằng ngũ hành + đề xuất hành cần BỔ.
+
+    Inject: pct cụ thể từng hành, tạng phủ tương ứng (Trung y), Đại Vận hiện tại
+    có bổ khí thiếu không.
+    """
     counts = state["ngu_hanh"]["counts"]
     total = sum(counts.values()) or 1
     sorted_counts = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
@@ -286,33 +345,83 @@ def _luan_ngu_hanh(state: dict) -> dict:
     thieu = [el for el, c in counts.items() if c == 0]
     can_bo = thieu if thieu else [el for el, c in sorted_counts[-2:] if c <= 1]
 
+    # Trung y mapping cho hành thừa/thiếu
+    TANG_PHU = {
+        "mộc": ("Can/Đởm", "gan + mật, mắt, gân"),
+        "hỏa": ("Tâm/Tiểu Trường", "tim, mạch + lưỡi"),
+        "thổ": ("Tỳ/Vị", "lá lách + dạ dày, miệng + cơ"),
+        "kim": ("Phế/Đại Trường", "phổi + ruột già, mũi + da"),
+        "thủy": ("Thận/Bàng Quang", "thận, tai + xương"),
+    }
+
     parts = []
+
+    # 1. Full distribution
+    pct_lines = []
+    for el, c in sorted_counts:
+        pct = c / total * 100
+        marker = "🔴" if c >= 3 else ("🟢" if c >= 1.5 else ("🟡" if c >= 0.5 else "⚪"))
+        pct_lines.append(f"  {marker} {el.title()}: {c:.1f} ({pct:.0f}%)")
+    parts.append("📊 **Phân bố ngũ hành** (Tổng = {:.1f}):\n{}".format(
+        total, "\n".join(pct_lines)
+    ))
+
+    # 2. Thừa with tạng phủ + symptoms
     if thua:
-        thua_str = " · ".join(f"{el.title()} ({counts[el]})" for el in thua)
-        parts.append(f"Khí **THỪA**: {thua_str}.")
+        thua_lines = []
+        for el in thua:
+            tang, body_part = TANG_PHU.get(el, ("", ""))
+            thua_lines.append(
+                f"  • **{el.title()} THỪA ({counts[el]:.1f} = {counts[el]/total*100:.0f}%)** → "
+                f"Tạng/Phủ {tang} dễ quá vượng → cần ý thức {body_part}."
+            )
+        parts.append("🔥 **Khí THỪA**:\n" + "\n".join(thua_lines))
+
+    # 3. Thiếu hoặc mỏng with tạng phủ
     if thieu:
-        thieu_str = " · ".join(f"{el.title()}" for el in thieu)
-        parts.append(f"Khí **THIẾU** (vắng mặt): {thieu_str}.")
+        thieu_lines = []
+        for el in thieu:
+            tang, body_part = TANG_PHU.get(el, ("", ""))
+            thieu_lines.append(
+                f"  • **{el.title()} VẮNG MẶT (0%)** → "
+                f"Tạng/Phủ {tang} thiếu sinh khí → cần BỔ qua {body_part}."
+            )
+        parts.append("❄ **Khí THIẾU (vắng mặt)**:\n" + "\n".join(thieu_lines))
     else:
         weakest = [el for el, c in sorted_counts if c <= 1]
         if weakest:
-            parts.append(f"Khí mỏng: {' · '.join(el.title() for el in weakest)}.")
+            mong_lines = []
+            for el in weakest:
+                tang, body_part = TANG_PHU.get(el, ("", ""))
+                mong_lines.append(
+                    f"  • **{el.title()} mỏng ({counts[el]:.1f} = {counts[el]/total*100:.0f}%)** → "
+                    f"Tạng/Phủ {tang} cần bồi dưỡng nhẹ."
+                )
+            parts.append("🟡 **Khí mỏng**:\n" + "\n".join(mong_lines))
 
-    # "Vật đến cực tất quay trở lại" — warn when count > 4
+    # 4. Vật đến cực
     overflow = [el for el, c in counts.items() if c > 4]
     if overflow:
         parts.append(
-            f"⚠ **Cảnh báo cực** (vật đến cực tất quay trở lại): "
-            f"{' · '.join(el.title() for el in overflow)} quá vượng — "
-            f"sinh thái quá hóa hại."
+            "⚠ **Cảnh báo cực** (vật đến cực tất quay trở lại): "
+            + ", ".join(f"{el.title()}={counts[el]:.1f}" for el in overflow)
+            + " — sinh thái quá hóa hại, cần tiết khí có ý thức (theo Thiệu Vĩ Hoa Chương 2 tr.22 và tr.81)."
         )
+
+    # 5. Bổ hint
+    if can_bo:
+        bo_lines = []
+        for el in can_bo:
+            tang, _ = TANG_PHU.get(el, ("", ""))
+            bo_lines.append(f"  • **{el.title()}** (bổ qua nghề/màu/phương → hỗ trợ {tang})")
+        parts.append("🎯 **Cần BỔ** (theo Thiệu Vĩ Hoa Q1 ch.2 - chìa khóa vàng):\n" + "\n".join(bo_lines))
 
     return {
         "counts": counts,
         "thua": thua,
         "thieu": thieu,
         "can_bo": can_bo,
-        "narrative": " ".join(parts) if parts else "Ngũ hành tương đối cân bằng.",
+        "narrative": "\n\n".join(parts) if parts else "Ngũ hành tương đối cân bằng.",
     }
 
 
@@ -415,17 +524,15 @@ def _luan_dung_than(state: dict) -> dict:
 
 
 def _luan_thap_than_pattern(state: dict) -> dict:
-    """Tìm Thập Thần NỔI BẬT (visible + hidden) → tâm tính + công năng."""
+    """Tìm Thập Thần NỔI BẬT (visible + hidden) → tâm tính + công năng + positions cụ thể."""
     dist = state.get("thap_than_distribution", {})
     visible = dist.get("visible", {})
     hidden = dist.get("hidden", {})
-    # Combined weighted (visible = 2x, hidden = 1x)
     combined: dict[str, float] = {}
     for tt, n in visible.items():
         combined[tt] = combined.get(tt, 0) + n * 2.0
     for tt, n in hidden.items():
         combined[tt] = combined.get(tt, 0) + n * 1.0
-    # Top 3 dominant
     sorted_tt = sorted(combined.items(), key=lambda kv: kv[1], reverse=True)
     top = [tt for tt, _ in sorted_tt[:3] if combined[tt] >= 2.0]
     profiles = []
@@ -433,13 +540,28 @@ def _luan_thap_than_pattern(state: dict) -> dict:
         tt_data = THAP_THAN_TAM_TINH.get(tt)
         if not tt_data:
             continue
+        positions = _find_thap_than_positions_in_state(state, tt)
+        v_count = visible.get(tt, 0)
+        h_count = hidden.get(tt, 0)
+        narrative = (
+            f"**Vị trí trong lá số Anh** ({v_count} visible + {h_count} hidden = "
+            f"trọng số {combined[tt]:.0f}):\n"
+            + "\n".join(f"  • {p}" for p in positions[:6])
+            + f"\n\n**Tâm tính tích cực**: {tt_data['tich_cuc']}\n"
+            + f"**Tâm tính tiêu cực**: {tt_data['tieu_cuc']}\n\n"
+            + f"**Công năng** (Thiệu Vĩ Hoa Q1 ch.3): {THAP_THAN_FUNCTION.get(tt, '')}"
+        )
         profiles.append({
             "name": tt,
             "weight": combined[tt],
+            "visible_count": v_count,
+            "hidden_count": h_count,
+            "positions": positions,
             "tich_cuc": tt_data["tich_cuc"],
             "tieu_cuc": tt_data["tieu_cuc"],
             "cong_nang": THAP_THAN_FUNCTION.get(tt, ""),
             "meaning_short": THAP_THAN_MEANING.get(tt, ""),
+            "narrative": narrative,
         })
     return {
         "dominant": top,
@@ -447,84 +569,180 @@ def _luan_thap_than_pattern(state: dict) -> dict:
     }
 
 
+def _find_thap_than_positions_in_state(state: dict, target_tt: str) -> list[str]:
+    """Find positions of a specific Thập Thần in the chart (visible + hidden), returning labels."""
+    pillars = state["tu_tru"]["pillars"]
+    day_master = state["tu_tru"]["day_master"]["stem"]
+    positions = []
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars[pos]
+        if pos != "day":
+            stem_tt = p.get("stem_thap_than")
+            if stem_tt == target_tt:
+                positions.append(f"can {p['stem']} ở {p.get('position_vi', pos)} (visible)")
+        for h in p.get("hidden_stems_with_thap_than", []):
+            if h.get("thap_than") == target_tt:
+                positions.append(f"tàng {h['stem']} trong {p.get('position_vi', pos)} ({p['branch']})")
+    return positions
+
+
 def _detect_favorable_combinations(state: dict) -> list[dict]:
-    """Detect classical combinations: Thực Thần chế Sát, Ấn hóa Sát, Thương Quan phối Ấn, etc."""
+    """Detect classical combinations: Thực Thần chế Sát, Ấn hóa Sát, ... with specific positions injected."""
     dist = state.get("thap_than_distribution", {})
     visible = dist.get("visible", {})
     hidden = dist.get("hidden", {})
     has = lambda tt: visible.get(tt, 0) + hidden.get(tt, 0) > 0
     out = []
+
     if has("Thất Sát") and has("Thực Thần"):
+        sat_pos = _find_thap_than_positions_in_state(state, "Thất Sát")
+        thuc_pos = _find_thap_than_positions_in_state(state, "Thực Thần")
         out.append({
             "name": "Thực Thần chế Sát",
             "polarity": "lành",
-            "narrative": "Thực Thần khắc chế Thất Sát → Sát biến thành QUYỀN, không thành tai họa. "
-                         "Cấu hình quý hiển (Chương 3 tr. 86).",
+            "positions": {"Thất Sát": sat_pos, "Thực Thần": thuc_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Thất Sát ở [{', '.join(sat_pos) or 'không tìm thấy'}], "
+                f"Thực Thần ở [{', '.join(thuc_pos) or 'không tìm thấy'}]. "
+                f"Thực Thần khắc chế Thất Sát → Sát mất tính HUNG, biến thành QUYỀN "
+                f"(quyền lực có kỷ luật, không thành tai họa). "
+                f"Cấu hình quý hiển kinh điển — Thiệu Vĩ Hoa Q1 Chương 3 tr. 86. "
+                f"💡 Actionable: Tận dụng cấu hình bằng nghề có áp lực + đòi sáng tạo "
+                f"(quân đội + chiến lược, lãnh đạo + sáng tạo, kinh doanh mạo hiểm có kỷ luật)."
+            ),
         })
     if has("Thất Sát") and (has("Chính Ấn") or has("Thiên Ấn")):
+        sat_pos = _find_thap_than_positions_in_state(state, "Thất Sát")
+        an_pos = (_find_thap_than_positions_in_state(state, "Chính Ấn")
+                  + _find_thap_than_positions_in_state(state, "Thiên Ấn"))
         out.append({
             "name": "Ấn hóa Sát",
             "polarity": "lành",
-            "narrative": "Ấn sinh thân + hóa Sát thành sinh khí → áp lực biến thành học vấn/quý nhân. "
-                         "Cấu hình bảo hộ.",
+            "positions": {"Thất Sát": sat_pos, "Ấn": an_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Thất Sát ở [{', '.join(sat_pos) or '∅'}], "
+                f"Ấn ở [{', '.join(an_pos) or '∅'}]. "
+                f"Ấn sinh thân + hóa Sát → Sát biến thành sinh khí. "
+                f"Áp lực chuyển thành học vấn/quý nhân. Cấu hình bảo hộ kinh điển. "
+                f"💡 Actionable: Đầu tư học vấn + tìm thầy/quý nhân → "
+                f"áp lực bên ngoài sẽ chuyển thành cơ hội học hỏi."
+            ),
         })
     if has("Thương Quan") and has("Chính Ấn"):
+        thuong_pos = _find_thap_than_positions_in_state(state, "Thương Quan")
+        an_pos = _find_thap_than_positions_in_state(state, "Chính Ấn")
         out.append({
             "name": "Thương Quan phối Ấn",
             "polarity": "lành",
-            "narrative": "Thương Quan có Ấn dạy bảo → tài năng có khuôn, không phá. "
-                         "Cấu hình của nghệ sĩ + học giả độc đáo.",
+            "positions": {"Thương Quan": thuong_pos, "Chính Ấn": an_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Thương Quan ở [{', '.join(thuong_pos) or '∅'}], "
+                f"Chính Ấn ở [{', '.join(an_pos) or '∅'}]. "
+                f"Thương Quan có Ấn dạy bảo → tài năng vượt khuôn khổ có 'phanh', "
+                f"không phá vào Quan. Cấu hình của nghệ sĩ độc đáo + học giả + công nghệ. "
+                f"💡 Actionable: Khi sáng tạo, luôn quay về Ấn (học vấn, từ thiện, "
+                f"truyền thống) để 'phanh' tài năng — tránh nổi loạn phá hoại."
+            ),
         })
-    if has("Chính Tài") and (has("Thực Thần") or has("Thương Quan")):
+    if (has("Chính Tài") or has("Thiên Tài")) and (has("Thực Thần") or has("Thương Quan")):
+        tai_pos = (_find_thap_than_positions_in_state(state, "Chính Tài")
+                   + _find_thap_than_positions_in_state(state, "Thiên Tài"))
+        thuc_pos = (_find_thap_than_positions_in_state(state, "Thực Thần")
+                    + _find_thap_than_positions_in_state(state, "Thương Quan"))
         out.append({
             "name": "Thực Thương sinh Tài",
             "polarity": "lành",
-            "narrative": "Thực Thần / Thương Quan sinh ra Tài → tài lộc bền vững có sáng tạo. "
-                         "Cần Day Master vượng để gánh.",
+            "positions": {"Tài": tai_pos, "Thực/Thương": thuc_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Tài tinh ở [{', '.join(tai_pos) or '∅'}], "
+                f"Thực/Thương ở [{', '.join(thuc_pos) or '∅'}]. "
+                f"Thực/Thương SINH Tài → tài lộc đến qua sáng tạo + lao động bền vững. "
+                f"Đây là 1 trong 3 cấu hình PHÚ kinh điển của Tử Bình. "
+                f"💡 Actionable: Chọn nghề có sản phẩm/dịch vụ sáng tạo + thương mại "
+                f"(không phải kinh doanh thuần). Cần Day Master vượng để 'gánh' Tài."
+            ),
         })
     return out
 
 
 def _detect_warnings(state: dict) -> list[dict]:
-    """Detect classical warnings: Thương Quan kiến Quan, Tài bị Kiếp đoạt, etc."""
+    """Detect classical warnings — with specific positions in lá số."""
     dist = state.get("thap_than_distribution", {})
     visible = dist.get("visible", {})
     hidden = dist.get("hidden", {})
     has = lambda tt: visible.get(tt, 0) + hidden.get(tt, 0) > 0
+    count = lambda tt: visible.get(tt, 0) + hidden.get(tt, 0)
     dm_tag = state["ngu_hanh"]["day_master_assessment"]["strength_tag"]
     out = []
-    # "Thương Quan kiến Quan" — đại hung khi Day Master nhược
+
     if has("Thương Quan") and has("Chính Quan") and dm_tag == "weak":
+        thuong_pos = _find_thap_than_positions_in_state(state, "Thương Quan")
+        quan_pos = _find_thap_than_positions_in_state(state, "Chính Quan")
         out.append({
             "name": "Thương Quan kiến Quan",
             "polarity": "hung",
-            "narrative": "Thương Quan + Chính Quan đồng hiện + Day Master nhược → đại hung. "
-                         "Cần cẩn trọng quan hệ với cấp trên / pháp luật (Chương 3 tr. 86).",
+            "positions": {"Thương Quan": thuong_pos, "Chính Quan": quan_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Thương Quan ở [{', '.join(thuong_pos) or '∅'}], "
+                f"Chính Quan ở [{', '.join(quan_pos) or '∅'}], Day Master NHƯỢC. "
+                f"⚠ 'Thương Quan kiến Quan vi họa bách đoan' (Thiệu Vĩ Hoa Q1 ch.3 tr.86): "
+                f"Thương Quan PHÁ Chính Quan → đại hung cho danh tiếng + quan lộ. "
+                f"💊 **Hóa giải**: Thêm Chính Ấn (học vấn) để 'Thương Quan phối Ấn'. "
+                f"Tránh kích thích cấp trên/pháp luật, không nổi loạn vì cảm xúc."
+            ),
         })
-    # "Tài bị Kiếp đoạt" — khi có Tài + Kiếp Tài
+
     if (has("Chính Tài") or has("Thiên Tài")) and has("Kiếp Tài"):
+        tai_pos = (_find_thap_than_positions_in_state(state, "Chính Tài")
+                   + _find_thap_than_positions_in_state(state, "Thiên Tài"))
+        kiep_pos = _find_thap_than_positions_in_state(state, "Kiếp Tài")
         out.append({
             "name": "Tài bị Kiếp đoạt",
             "polarity": "cẩn trọng",
-            "narrative": "Có Tài + có Kiếp Tài → cần đề phòng tổn tài bất ngờ, "
-                         "bạn bè / đồng nghiệp tranh đoạt.",
+            "positions": {"Tài": tai_pos, "Kiếp Tài": kiep_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Tài tinh ở [{', '.join(tai_pos) or '∅'}], "
+                f"Kiếp Tài ở [{', '.join(kiep_pos) or '∅'}]. "
+                f"Kiếp Tài đoạt Tài → đề phòng TỔN TÀI từ bạn bè/cộng sự cùng giới "
+                f"(tranh đoạt, lừa đảo, đầu tư chung mất). "
+                f"Đặc biệt nguy hiểm khi Đại Vận hoặc Lưu Niên Kiếp Tài kích hoạt. "
+                f"💊 **Hóa giải**: Tránh partnership tài chính không hợp đồng. "
+                f"Diversify đầu tư. Không cho mượn tiền nhóm bạn."
+            ),
         })
-    # "Kiêu đoạt Thực" — khi có Thực Thần + Thiên Ấn
+
     if has("Thực Thần") and has("Thiên Ấn"):
+        thuc_pos = _find_thap_than_positions_in_state(state, "Thực Thần")
+        kieu_pos = _find_thap_than_positions_in_state(state, "Thiên Ấn")
         out.append({
             "name": "Kiêu đoạt Thực",
             "polarity": "cẩn trọng",
-            "narrative": "Thiên Ấn (Kiêu Thần) đoạt mất Thực Thần → có thể giảm phúc lộc, "
-                         "ăn uống / hưởng thụ. Cần cân nhắc lựa chọn nghề nghiệp.",
+            "positions": {"Thực Thần": thuc_pos, "Thiên Ấn (Kiêu Thần)": kieu_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Thực Thần ở [{', '.join(thuc_pos) or '∅'}], "
+                f"Thiên Ấn (Kiêu) ở [{', '.join(kieu_pos) or '∅'}]. "
+                f"Kiêu Thần ĐOẠT Thực Thần → có thể giảm phúc lộc + hưởng thụ. "
+                f"💊 **Hóa giải**: Có Chính Tài giúp khắc Kiêu để bảo vệ Thực Thần. "
+                f"Hoặc chọn nghề sáng tạo có deadline/output cụ thể (không để Kiêu ngủ quên Thực)."
+            ),
         })
-    # Day Master nhược + Tài nhiều
-    if dm_tag == "weak" and (visible.get("Chính Tài", 0) + visible.get("Thiên Tài", 0)
-                              + hidden.get("Chính Tài", 0) + hidden.get("Thiên Tài", 0)) >= 2:
+
+    if dm_tag == "weak" and (count("Chính Tài") + count("Thiên Tài")) >= 2:
+        tai_count = count("Chính Tài") + count("Thiên Tài")
+        tai_pos = (_find_thap_than_positions_in_state(state, "Chính Tài")
+                   + _find_thap_than_positions_in_state(state, "Thiên Tài"))
         out.append({
             "name": "Thân nhược không gánh nổi Tài",
             "polarity": "cẩn trọng",
-            "narrative": "Day Master yếu mà Tài tinh nhiều → có Tài cũng khó giữ. "
-                         "Cần Tỷ/Kiếp hoặc Ấn cứu thân trước.",
+            "positions": {"Tài tinh": tai_pos},
+            "narrative": (
+                f"**Trong lá số Anh**: Day Master NHƯỢC + có {tai_count} vị trí Tài tinh "
+                f"({', '.join(tai_pos) or '∅'}). "
+                f"⚠ 'Tài đa thân nhược' — có Tài cũng không giữ được. "
+                f"Khởi nghiệp/kinh doanh áp lực cao = mất sức + dễ phá tài. "
+                f"💊 **Hóa giải**: ĐỜI 1 BỒI THÂN trước (học vấn, kỹ năng, đối tác Tỷ/Kiếp), "
+                f"ĐỜI 2 mới gánh Tài. Tránh áp lực tài chính lớn khi Đại Vận chưa thuận."
+            ),
         })
     return out
 
@@ -588,20 +806,22 @@ def _luan_than_sat(state: dict) -> dict:
 
 
 def _luan_dai_van_current(state: dict, current_age: int | None = None) -> dict:
-    """Đại Vận hiện tại — đang ở cycle nào, đi đúng/sai Dụng Thần."""
+    """Đại Vận hiện tại — đi đúng/sai Dụng Thần + interaction với 4 trụ gốc."""
     dv = state.get("dai_van", {})
     cycles = dv.get("cycles", [])
     dt = state.get("dung_than", {})
     dung_el = dt.get("dung_than_element", "")
+    hy_el = dt.get("hy_than_element", "")
     ky_el = dt.get("ky_than_element", "")
+    pillars = state["tu_tru"]["pillars"]
+    day_master = state["tu_tru"]["day_master"]["stem"]
 
     if not cycles or current_age is None:
         return {
             "current_cycle": None,
             "narrative": (
-                "Đại Vận đầy đủ ở phần 'Đại Vận' bên trên. "
-                "Mỗi cycle 10 năm — vận đi vào Dụng Thần (= "
-                f"{dung_el.title()}) → 10 năm thuận. "
+                f"Đại Vận đầy đủ ở phần 'Đại Vận' bên trên. "
+                f"Mỗi cycle 10 năm — vận đi vào Dụng Thần ({dung_el.title()}) → 10 năm thuận. "
                 f"Vận đi vào Kỵ Thần ({ky_el.title()}) → cần đề phòng."
             ),
         }
@@ -617,31 +837,89 @@ def _luan_dai_van_current(state: dict, current_age: int | None = None) -> dict:
             "narrative": f"Tuổi {current_age} chưa vào Đại Vận đầu tiên hoặc đã qua hết chu kỳ.",
         }
 
-    stem_el = STEM_ELEMENT.get(current.get("stem", ""), "")
-    branch_el = state["tu_tru"]["pillars"]["year"].get("branch_element", "")  # fallback
     from .constants import BRANCH_ELEMENT
+    stem_el = STEM_ELEMENT.get(current.get("stem", ""), "")
     branch_el = BRANCH_ELEMENT.get(current.get("branch", ""), "")
-
     matches_dung = stem_el == dung_el or branch_el == dung_el
+    matches_hy = stem_el == hy_el or branch_el == hy_el
     matches_ky = stem_el == ky_el or branch_el == ky_el
 
+    # Interactions với 4 trụ gốc
+    from .luu_nien import LUC_HAI, LUC_HOP, LUC_XUNG, TAM_HINH_GROUPS
+    dv_branch = current.get("branch")
+    interactions = []
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars[pos]
+        pair = frozenset([dv_branch, p["branch"]])
+        if pair in LUC_HOP:
+            interactions.append(
+                f"  ✓ Lục HỢP với {p.get('position_vi', pos)} ({p['branch']}) → "
+                f"hành {LUC_HOP[pair].title()} kích hoạt"
+            )
+        if pair in LUC_XUNG:
+            interactions.append(
+                f"  ⚔ Lục XUNG với {p.get('position_vi', pos)} ({p['branch']}) → "
+                f"biến động lĩnh vực {p.get('domain_vi', pos)}"
+            )
+        if pair in LUC_HAI:
+            interactions.append(
+                f"  ✗ Lục HẠI với {p.get('position_vi', pos)} ({p['branch']}) → "
+                f"bất hòa ngầm"
+            )
+        for group in TAM_HINH_GROUPS:
+            if dv_branch in group and p["branch"] in group and dv_branch != p["branch"]:
+                interactions.append(
+                    f"  ⚖ Tương HÌNH với {p.get('position_vi', pos)} → kiện tụng / va chạm"
+                )
+                break
+
+    # Verdict
     if matches_dung:
-        verdict = "✦ Đại Vận đi vào **Dụng Thần** → 10 năm THUẬN, là thời cơ để Anh phát huy + cân bằng khí thiếu."
+        verdict = (
+            f"✦ Đại Vận đi vào **Dụng Thần** ({dung_el.title()}) → 10 năm THUẬN. "
+            f"Đây là thời cơ phát huy + cân bằng khí thiếu."
+        )
     elif matches_ky:
-        verdict = "⚠ Đại Vận đi vào **Kỵ Thần** → 10 năm THỬ THÁCH, cần đề phòng + dùng các phương tiện 'Bổ' tích cực hơn."
+        verdict = (
+            f"⚠ Đại Vận đi vào **Kỵ Thần** ({ky_el.title()}) → 10 năm THỬ THÁCH. "
+            f"Cần dùng phương tiện 'Bổ' Dụng Thần ({dung_el.title()}) + Hỷ Thần "
+            f"({hy_el.title()}) tích cực hơn để hóa giải. "
+            f"Hợp thời gian này: học hỏi + tích nội lực + chọn lọc cơ hội kỹ."
+        )
+    elif matches_hy:
+        verdict = (
+            f"✧ Đại Vận có khí Hỷ Thần ({hy_el.title()}) → vận tích lũy, "
+            f"không bứt phá nhưng ổn định, chuẩn bị cho Đại Vận tiếp theo."
+        )
     else:
-        verdict = "Đại Vận khí trung tính — không hỗ trợ mạnh nhưng cũng không cản."
+        verdict = (
+            f"Đại Vận khí trung tính ({stem_el.title()}/{branch_el.title()}) — "
+            f"không hỗ trợ mạnh nhưng cũng không cản. Năm 'Bổ' tự thân."
+        )
+
+    inter_text = ""
+    if interactions:
+        inter_text = "\n\n📍 **Tương tác với 4 trụ gốc**:\n" + "\n".join(interactions)
+    else:
+        inter_text = "\n\n📍 Đại Vận không có tương tác đặc biệt với 4 trụ gốc."
+
+    narrative = (
+        f"Tuổi **{current_age}** → Đại Vận **{current.get('stem')} {current.get('branch')}** "
+        f"({current.get('start_age')}-{current.get('end_age')} tuổi, "
+        f"hành {stem_el.title()}/{branch_el.title()}).\n\n"
+        f"{verdict}"
+        f"{inter_text}"
+    )
+
     return {
         "current_cycle": current,
         "stem_element": stem_el,
         "branch_element": branch_el,
         "matches_dung_than": matches_dung,
+        "matches_hy_than": matches_hy,
         "matches_ky_than": matches_ky,
-        "narrative": (
-            f"Tuổi {current_age} → Đại Vận **{current.get('stem')} {current.get('branch')}** "
-            f"({current.get('start_age')}-{current.get('end_age')} tuổi). "
-            f"{verdict}"
-        ),
+        "interactions_with_4_pillars": interactions,
+        "narrative": narrative,
     }
 
 
