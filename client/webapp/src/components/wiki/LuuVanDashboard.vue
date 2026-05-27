@@ -5,34 +5,22 @@
  * ⚠️ Iron Rule #4: KHÔNG hiển thị "cát/hung". Chỉ paradigm CẤU TRÚC.
  * Reference: docs/design/MAI-HOA-LUU-VAN-GOAL.md
  *
- * 3 view:
- *   A. Snapshot bây giờ (7 quẻ + giao thoa)
- *   B. Diễn giải paradigm từng vòng
- *   C. (sau phase 2) Nhật ký việc thực
+ * Input: solar datetime (dương lịch) — engine tự convert → lunar.
+ * Hiển thị: SONG SONG dương + âm + can chi.
+ * Auto-load: nếu user logged in → tự fetch birth từ profile DB.
  */
 import { ref, computed, onMounted, watch } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
 
-// Birth input — default founder (sẽ wire user profile sau)
-const birthInput = ref({
-  year_chi: "Thìn",
-  lunar_month: 4,
-  lunar_day: 22,
-  hour_chi: "Tý",
-});
-const customNow = ref(false);
-const nowInput = ref({
-  year_chi: "Ngọ",
-  lunar_month: 4,
-  lunar_day: 12,
-  hour_chi: "Tý",
-});
+// Solar birth input — default founder (sẽ thay khi auto-load)
+const birthSolar = ref("1988-06-05T23:30");
+const useNow = ref(true);
+const nowSolar = ref("");
 
+const autoLoadUser = ref(true);  // Try logged-in user first
 const snapshot = ref(null);
 const loading = ref(false);
 const error = ref("");
-
-const CHI_LIST = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];
 
 const VONG_ORDER = [
   { key: "vong_1_khoi_sinh", color: "#f59e0b", label: "1. Khởi Sinh" },
@@ -57,24 +45,23 @@ async function loadSnapshot() {
   loading.value = true;
   error.value = "";
   const body = {
-    birth_year_chi: birthInput.value.year_chi,
-    birth_lunar_month: parseInt(birthInput.value.lunar_month),
-    birth_lunar_day: parseInt(birthInput.value.lunar_day),
-    birth_hour_chi: birthInput.value.hour_chi,
+    auto_load_user: autoLoadUser.value,
+    birth_solar: birthSolar.value.replace("T", " "),
   };
-  if (customNow.value) {
-    body.now_year_chi = nowInput.value.year_chi;
-    body.now_lunar_month = parseInt(nowInput.value.lunar_month);
-    body.now_lunar_day = parseInt(nowInput.value.lunar_day);
-    body.now_hour_chi = nowInput.value.hour_chi;
+  if (!useNow.value && nowSolar.value) {
+    body.now_solar = nowSolar.value.replace("T", " ");
   }
   try {
     const r = await fetch("/api/yi-wiki/luu-van/snapshot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify(body),
     });
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    if (!r.ok) {
+      const txt = await r.text();
+      throw new Error(`HTTP ${r.status}: ${txt}`);
+    }
     snapshot.value = await r.json();
   } catch (e) {
     error.value = String(e.message || e);
@@ -82,6 +69,9 @@ async function loadSnapshot() {
     loading.value = false;
   }
 }
+
+const calendarsBirth = computed(() => snapshot.value?.calendars?.birth);
+const calendarsNow = computed(() => snapshot.value?.calendars?.now);
 
 onMounted(loadSnapshot);
 </script>
@@ -96,38 +86,54 @@ onMounted(loadSnapshot);
     </header>
 
     <div class="lvd-form">
-      <div class="form-row">
-        <span class="form-label">Sinh:</span>
-        <select v-model="birthInput.year_chi">
-          <option v-for="c in CHI_LIST" :key="c" :value="c">{{ c }}</option>
-        </select>
-        <input type="number" v-model="birthInput.lunar_month" min="1" max="12" placeholder="Tháng âm" />
-        <input type="number" v-model="birthInput.lunar_day" min="1" max="30" placeholder="Ngày âm" />
-        <select v-model="birthInput.hour_chi">
-          <option v-for="c in CHI_LIST" :key="c" :value="c">{{ c }}</option>
-        </select>
-      </div>
       <label class="form-toggle">
-        <input type="checkbox" v-model="customNow" />
-        Tự nhập "thời điểm hiện tại" âm lịch (mặc định = server time approx)
+        <input type="checkbox" v-model="autoLoadUser" />
+        Tự load ngày sinh từ profile (nếu đã đăng nhập)
       </label>
-      <div v-if="customNow" class="form-row">
-        <span class="form-label">Bây giờ:</span>
-        <select v-model="nowInput.year_chi">
-          <option v-for="c in CHI_LIST" :key="c" :value="c">{{ c }}</option>
-        </select>
-        <input type="number" v-model="nowInput.lunar_month" min="1" max="12" />
-        <input type="number" v-model="nowInput.lunar_day" min="1" max="30" />
-        <select v-model="nowInput.hour_chi">
-          <option v-for="c in CHI_LIST" :key="c" :value="c">{{ c }}</option>
-        </select>
+
+      <div class="form-row">
+        <span class="form-label">📅 Sinh (dương):</span>
+        <input type="datetime-local" v-model="birthSolar" />
+        <small class="form-hint">→ sẽ tự convert sang âm lịch + can chi</small>
       </div>
+
+      <label class="form-toggle">
+        <input type="checkbox" v-model="useNow" />
+        Dùng thời điểm hiện tại (bỏ check để chọn 1 thời điểm cụ thể)
+      </label>
+      <div v-if="!useNow" class="form-row">
+        <span class="form-label">⏰ Bây giờ (dương):</span>
+        <input type="datetime-local" v-model="nowSolar" />
+      </div>
+
       <button class="btn-load" @click="loadSnapshot" :disabled="loading">
         {{ loading ? '⏳ Đang tính...' : '🔄 Tính 7 vòng' }}
       </button>
     </div>
 
     <div v-if="error" class="lvd-error">{{ error }}</div>
+
+    <!-- Lịch song song -->
+    <div v-if="calendarsBirth && calendarsNow" class="lvd-calendars">
+      <div class="cal-card">
+        <div class="cal-head">📅 Sinh</div>
+        <div class="cal-grid">
+          <div><span>Dương:</span> <code>{{ calendarsBirth.solar }}</code></div>
+          <div><span>Âm:</span> <code>{{ calendarsBirth.lunar }}{{ calendarsBirth.is_leap ? ' (nhuận)' : '' }}</code></div>
+          <div><span>Năm:</span> <b>{{ calendarsBirth.year_can_chi }}</b></div>
+          <div><span>Giờ:</span> <b>{{ calendarsBirth.hour_chi }}</b></div>
+        </div>
+      </div>
+      <div class="cal-card">
+        <div class="cal-head">⏰ Bây giờ</div>
+        <div class="cal-grid">
+          <div><span>Dương:</span> <code>{{ calendarsNow.solar }}</code></div>
+          <div><span>Âm:</span> <code>{{ calendarsNow.lunar }}{{ calendarsNow.is_leap ? ' (nhuận)' : '' }}</code></div>
+          <div><span>Năm:</span> <b>{{ calendarsNow.year_can_chi }}</b></div>
+          <div><span>Giờ:</span> <b>{{ calendarsNow.hour_chi }}</b></div>
+        </div>
+      </div>
+    </div>
 
     <!-- 7 vòng -->
     <div v-if="snapshot" class="lvd-grid">
@@ -189,7 +195,13 @@ onMounted(loadSnapshot);
 
     <!-- Paradigm footer -->
     <div v-if="snapshot" class="lvd-foot">
-      <p><b>⚠️ Paradigm Tổ sư Khang Tiết</b>: <i>"Quan vật chí huyền chí vi, lý chỉ dị minh"</i> — Trần Đoàn. {{ snapshot._paradigm_note }}</p>
+      <p>
+        <b>⚠️ Paradigm Tổ sư Khang Tiết</b>: <i>"Quan vật chí huyền chí vi, lý chỉ dị minh"</i> — Trần Đoàn.
+        {{ snapshot._paradigm_note }}
+      </p>
+      <p v-if="snapshot.birth_source" class="src">
+        Source sinh thần: <code>{{ snapshot.birth_source }}</code>
+      </p>
     </div>
   </div>
 </template>
@@ -212,26 +224,52 @@ onMounted(loadSnapshot);
   border-radius: 6px; padding: 0.6rem 0.9rem; margin-bottom: 1rem;
 }
 .form-row {
-  display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.4rem;
+  display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin: 0.3rem 0;
 }
-.form-label { color: #fcd34d; font-size: 0.85rem; min-width: 80px; font-weight: 600; }
-.form-row select, .form-row input {
+.form-label { color: #fcd34d; font-size: 0.85rem; min-width: 130px; font-weight: 600; }
+.form-row input[type=datetime-local] {
   background: #1e1b4b; color: #e0e7ff;
   border: 1px solid rgba(196, 181, 253, 0.3);
-  padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;
+  padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.85rem;
 }
-.form-row input[type=number] { width: 80px; }
+.form-hint { color: #6b7280; font-size: 0.75rem; font-style: italic; }
 .form-toggle {
-  font-size: 0.78rem; color: #cbd5e1; display: flex; align-items: center; gap: 0.3rem;
-  margin: 0.3rem 0;
+  font-size: 0.82rem; color: #cbd5e1; display: flex; align-items: center; gap: 0.35rem;
+  margin: 0.3rem 0; cursor: pointer;
 }
 .btn-load {
   background: rgba(167, 139, 250, 0.2); border: 1px solid rgba(167, 139, 250, 0.5);
-  color: #c4b5fd; padding: 0.4rem 0.9rem; border-radius: 5px; cursor: pointer;
-  font-size: 0.85rem; margin-top: 0.3rem;
+  color: #c4b5fd; padding: 0.45rem 1rem; border-radius: 5px; cursor: pointer;
+  font-size: 0.88rem; margin-top: 0.4rem;
 }
 .btn-load:hover { background: rgba(167, 139, 250, 0.3); }
-.lvd-error { color: #f87171; padding: 0.5rem; }
+.lvd-error {
+  color: #f87171; padding: 0.5rem 0.8rem;
+  background: rgba(248, 113, 113, 0.08);
+  border-left: 2px solid #f87171;
+  border-radius: 4px; margin-bottom: 0.5rem;
+}
+
+/* Lịch song song */
+.lvd-calendars {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem;
+}
+.cal-card {
+  background: rgba(252, 211, 77, 0.06);
+  border: 1px solid rgba(252, 211, 77, 0.18);
+  border-radius: 5px; padding: 0.5rem 0.7rem;
+}
+.cal-head { color: #fcd34d; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem; }
+.cal-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem 0.6rem;
+  font-size: 0.8rem; color: #cbd5e1;
+}
+.cal-grid span { color: #94a3b8; margin-right: 0.3rem; }
+.cal-grid b { color: #fbbf24; }
+.cal-grid code {
+  background: rgba(196, 181, 253, 0.12); padding: 1px 4px; border-radius: 3px;
+  color: #c4b5fd; font-size: 0.78rem;
+}
 
 .lvd-grid {
   display: grid;
@@ -248,7 +286,7 @@ onMounted(loadSnapshot);
 }
 .vong-header { display: flex; justify-content: space-between; align-items: baseline; }
 .vong-label { font-weight: 600; font-size: 0.85rem; }
-.vong-doi-moi { font-size: 0.65rem; color: #6b7280; font-style: italic; }
+.vong-doi-moi { font-size: 0.65rem; color: #6b7280; font-style: italic; text-align: right; }
 .vong-svg { text-align: center; margin: 0.2rem 0; }
 .vong-name { color: #fcd34d; font-size: 0.95rem; text-align: center; font-weight: 600; }
 .vong-meta { font-size: 0.78rem; color: #cbd5e1; text-align: center; }
@@ -260,9 +298,7 @@ onMounted(loadSnapshot);
   background: rgba(196, 181, 253, 0.12); padding: 1px 4px; border-radius: 3px;
   color: #c4b5fd; font-size: 0.7rem;
 }
-.vong-paradigm {
-  margin-top: 0.3rem; font-size: 0.78rem;
-}
+.vong-paradigm { margin-top: 0.3rem; font-size: 0.78rem; }
 .vong-paradigm summary { color: #94a3b8; cursor: pointer; font-size: 0.75rem; }
 .vong-paradigm p { color: #cbd5e1; margin: 0.3rem 0; line-height: 1.4; }
 .vong-paradigm i { color: #fbbf24; }
@@ -286,4 +322,14 @@ onMounted(loadSnapshot);
 }
 .lvd-foot b { color: #fbbf24; }
 .lvd-foot i { color: #fde68a; }
+.lvd-foot .src { font-size: 0.7rem; color: #6b7280; margin-top: 0.3rem; }
+.lvd-foot code {
+  background: rgba(196, 181, 253, 0.12); padding: 1px 4px; border-radius: 3px;
+  color: #c4b5fd;
+}
+
+@media (max-width: 700px) {
+  .lvd-calendars { grid-template-columns: 1fr; }
+  .cal-grid { grid-template-columns: 1fr; }
+}
 </style>

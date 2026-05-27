@@ -4542,67 +4542,172 @@ def yi_wiki_kinhdich_daily(date: str | None = None) -> dict:
 class LuuVanSnapshotRequest(BaseModel):
     """Input cho snapshot 7 vòng quẻ.
 
-    Birth: ngày-giờ sinh âm lịch của user.
-    Now: thời điểm hiện tại âm lịch (optional — server tự tính nếu không có).
+    3 cách cấp birth (theo ưu tiên):
+    1. `auto_load_user=True` + đã login → tự load từ profile DB
+    2. `birth_solar="YYYY-MM-DD HH:MM"` → convert sang lunar
+    3. Cấp trực tiếp lunar (cho backward compat)
     """
-    # Sinh thần
-    birth_year_chi: str          # vd "Thìn"
-    birth_lunar_month: int       # 1-12
-    birth_lunar_day: int         # 1-30
-    birth_hour_chi: str          # vd "Tý"
-    # Thời điểm hiện tại (optional)
-    now_year_chi: str | None = None
-    now_lunar_month: int | None = None
-    now_lunar_day: int | None = None
-    now_hour_chi: str | None = None
+    # Cách 1: auto-load (nếu logged in)
+    auto_load_user: bool = False
+
+    # Cách 2: solar string
+    birth_solar: str | None = None     # vd "1988-06-05 23:30"
+
+    # Cách 3: lunar trực tiếp (deprecated soft — giữ cho UI cũ)
+    birth_year_chi: str | None = None
+    birth_lunar_month: int | None = None
+    birth_lunar_day: int | None = None
+    birth_hour_chi: str | None = None
+
+    # Thời điểm hiện tại (default = server time → lunar)
+    now_solar: str | None = None       # override server time nếu có
+
+
+def _solar_to_birthinfo(solar_str: str):
+    """'1988-06-05 23:30' → BirthInfo + raw lunar dict."""
+    from engine.yi_wiki.lich_conversion import parse_solar_string, solar_to_lunar
+    from engine.yi_wiki.luu_van import BirthInfo
+    s = parse_solar_string(solar_str)
+    l = solar_to_lunar(s)
+    return BirthInfo(
+        year_chi=l.year_chi,
+        lunar_month=l.lunar_month,
+        lunar_day=l.lunar_day,
+        hour_chi=l.hour_chi,
+    ), l
+
+
+def _now_solar_to_nowinfo(solar_str: str | None):
+    """None → datetime.now(). Convert → NowInfo + raw lunar dict."""
+    from engine.yi_wiki.lich_conversion import (
+        SolarDateTime, parse_solar_string, solar_to_lunar
+    )
+    from engine.yi_wiki.luu_van import NowInfo
+    if solar_str:
+        s = parse_solar_string(solar_str)
+    else:
+        import datetime as _dt
+        nowdt = _dt.datetime.now()
+        s = SolarDateTime(
+            year=nowdt.year, month=nowdt.month, day=nowdt.day,
+            hour=nowdt.hour, minute=nowdt.minute,
+        )
+    l = solar_to_lunar(s)
+    return NowInfo(
+        year_chi=l.year_chi,
+        lunar_month=l.lunar_month,
+        lunar_day=l.lunar_day,
+        hour_chi=l.hour_chi,
+    ), l
 
 
 @app.post("/api/yi-wiki/luu-van/snapshot")
-def yi_wiki_luu_van_snapshot(req: LuuVanSnapshotRequest) -> dict:
+def yi_wiki_luu_van_snapshot(req: LuuVanSnapshotRequest, request: Request) -> dict:
     """Snapshot 7 vòng quẻ Mai Hoa cho user tại thời điểm hiện tại.
 
-    Trả về:
-    - 7 quẻ (Khởi Sinh / Lưu Niên / Lưu Nguyệt / Lưu Nhật / Lưu Thời / Vũ trụ / Cộng hưởng)
-    - 6 giao thoa Ngũ hành (sinh / khắc / tỉ hoà)
-
     ⚠️ Iron Rule #4: KHÔNG predict cát/hung tĩnh. Đây là CẤU TRÚC paradigm.
+
+    Authentication-aware: nếu `auto_load_user=True` + user đăng nhập → tự load
+    birth từ profile DB. Guest user phải cấp `birth_solar`.
     """
     from engine.yi_wiki.luu_van import BirthInfo, NowInfo, quan_sat_luu_van
-    import datetime as _dt
 
-    birth = BirthInfo(
-        year_chi=req.birth_year_chi,
-        lunar_month=req.birth_lunar_month,
-        lunar_day=req.birth_lunar_day,
-        hour_chi=req.birth_hour_chi,
-    )
+    # Cấp 1: auto-load birth từ user profile (nếu logged in)
+    birth: BirthInfo | None = None
+    birth_lunar_info = None
+    birth_source = "unknown"
 
-    # Default now = server time → convert sang âm lịch
-    if req.now_year_chi is None:
-        # Fallback đơn giản — em sẽ wire solar→lunar converter sau
-        # Hiện dùng: năm dương = năm âm gần đúng, tháng/ngày dương ≈ âm
-        nowdt = _dt.datetime.now()
-        # Năm 2026 = Bính Ngọ → chi Ngọ
-        chi_table = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
-        year_chi_idx = (nowdt.year - 1984) % 12   # 1984 = Giáp Tý baseline
-        # Giờ: 23:00-1:00 = Tý, 1-3 Sửu, ... 21-23 Hợi
-        hour_chi_idx = ((nowdt.hour + 1) // 2) % 12
-        now = NowInfo(
-            year_chi=chi_table[year_chi_idx],
-            lunar_month=nowdt.month,  # approx
-            lunar_day=nowdt.day,      # approx
-            hour_chi=chi_table[hour_chi_idx],
+    if req.auto_load_user:
+        # Try get user from session — reuse existing auth logic
+        try:
+            user_data = _get_current_user_optional(request)  # helper dưới
+            if user_data and user_data.get("birth_iso"):
+                # Birth ISO format: "1988-06-05T23:30:00"
+                birth, birth_lunar_info = _solar_to_birthinfo(user_data["birth_iso"])
+                birth_source = f"user_profile:{user_data.get('user_id', '?')}"
+        except Exception:
+            pass
+
+    # Cấp 2: từ solar string
+    if birth is None and req.birth_solar:
+        birth, birth_lunar_info = _solar_to_birthinfo(req.birth_solar)
+        birth_source = "solar_input"
+
+    # Cấp 3: lunar trực tiếp (backward compat)
+    if birth is None and req.birth_year_chi:
+        birth = BirthInfo(
+            year_chi=req.birth_year_chi,
+            lunar_month=req.birth_lunar_month or 1,
+            lunar_day=req.birth_lunar_day or 1,
+            hour_chi=req.birth_hour_chi or "Tý",
         )
-    else:
-        now = NowInfo(
-            year_chi=req.now_year_chi,
-            lunar_month=req.now_lunar_month,
-            lunar_day=req.now_lunar_day,
-            hour_chi=req.now_hour_chi,
-        )
+        birth_source = "lunar_input"
+
+    if birth is None:
+        raise HTTPException(400, (
+            "Phải cung cấp 1 trong 3: (a) auto_load_user=true + đăng nhập, "
+            "(b) birth_solar='YYYY-MM-DD HH:MM', (c) birth_year_chi + lunar_month/day + hour_chi"
+        ))
+
+    # Now: từ solar string (override) hoặc server time
+    now, now_lunar_info = _now_solar_to_nowinfo(req.now_solar)
 
     snapshot = quan_sat_luu_van(birth, now)
+
+    # Thêm thông tin lịch song song (âm + dương)
+    snapshot["calendars"] = {
+        "birth": {
+            "solar": f"{birth_lunar_info.solar_year}-{birth_lunar_info.solar_month:02d}-{birth_lunar_info.solar_day:02d} {birth_lunar_info.solar_hour:02d}:{birth_lunar_info.solar_minute:02d}" if birth_lunar_info else None,
+            "lunar": f"{birth_lunar_info.lunar_year}/{birth_lunar_info.lunar_month}/{birth_lunar_info.lunar_day}" if birth_lunar_info else None,
+            "year_can_chi": birth_lunar_info.year_can_chi if birth_lunar_info else None,
+            "hour_chi": birth_lunar_info.hour_chi if birth_lunar_info else None,
+            "is_leap": birth_lunar_info.is_leap_month if birth_lunar_info else False,
+        },
+        "now": {
+            "solar": f"{now_lunar_info.solar_year}-{now_lunar_info.solar_month:02d}-{now_lunar_info.solar_day:02d} {now_lunar_info.solar_hour:02d}:{now_lunar_info.solar_minute:02d}",
+            "lunar": f"{now_lunar_info.lunar_year}/{now_lunar_info.lunar_month}/{now_lunar_info.lunar_day}",
+            "year_can_chi": now_lunar_info.year_can_chi,
+            "hour_chi": now_lunar_info.hour_chi,
+            "is_leap": now_lunar_info.is_leap_month,
+        },
+    }
+    snapshot["birth_source"] = birth_source
+
     return {"status": "ok", **snapshot}
+
+
+def _get_current_user_optional(request: Request) -> dict | None:
+    """Try resolve user from session. Return None if not logged in.
+
+    Includes birth_iso fetched from user's default person (if any).
+    """
+    try:
+        from api.auth import get_current_user
+        user = get_current_user(request)
+        if not user:
+            return None
+        # User dict from auth: user_id, email, role, default_person_id, ...
+        # Need to also fetch person.birth_iso
+        person_id = user.get("default_person_id") or user.get("person_id")
+        if person_id:
+            birth_iso = _fetch_person_birth_iso(person_id, user.get("user_id"))
+            if birth_iso:
+                user["birth_iso"] = birth_iso
+        return user
+    except Exception:
+        return None
+
+
+def _fetch_person_birth_iso(person_id: str, user_id: str | None) -> str | None:
+    """Fetch person.birth_datetime_local from yi_hermes persons store."""
+    try:
+        from engine.yi_hermes.persons import get_person
+        p = get_person(person_id)
+        if p:
+            return p.birth_datetime_local
+    except Exception:
+        pass
+    return None
 
 
 @app.get("/api/yi-wiki/luu-van/vu-tru-now")
@@ -4611,22 +4716,17 @@ def yi_wiki_luu_van_vu_tru_now() -> dict:
 
     Cùng cho mọi người gieo cùng giờ. Đổi mỗi 2 tiếng.
     """
-    from engine.yi_wiki.luu_van import NowInfo, cast_que_vu_tru
-    import datetime as _dt
-    nowdt = _dt.datetime.now()
-    chi_table = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
-    year_chi_idx = (nowdt.year - 1984) % 12
-    hour_chi_idx = ((nowdt.hour + 1) // 2) % 12
-    now = NowInfo(
-        year_chi=chi_table[year_chi_idx],
-        lunar_month=nowdt.month,
-        lunar_day=nowdt.day,
-        hour_chi=chi_table[hour_chi_idx],
-    )
+    from engine.yi_wiki.luu_van import cast_que_vu_tru
+    now, now_lunar = _now_solar_to_nowinfo(None)
     cast = cast_que_vu_tru(now)
     return {
         "status": "ok",
-        "now": now.__dict__,
+        "calendars": {
+            "solar": f"{now_lunar.solar_year}-{now_lunar.solar_month:02d}-{now_lunar.solar_day:02d} {now_lunar.solar_hour:02d}:{now_lunar.solar_minute:02d}",
+            "lunar": f"{now_lunar.lunar_year}/{now_lunar.lunar_month}/{now_lunar.lunar_day}",
+            "year_can_chi": now_lunar.year_can_chi,
+            "hour_chi": now_lunar.hour_chi,
+        },
         "que": {
             "chinh": cast.chinh_quai.name,
             "bien": cast.bien_quai.name,
