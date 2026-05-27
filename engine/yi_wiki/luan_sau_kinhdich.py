@@ -53,17 +53,26 @@ _BAT_QUAI_TO_FILE: dict[str, str] = {
 
 # 64 hexagram (upper, lower) → file citation (chỉ những quẻ đã thấm)
 _HEXAGRAM_TO_FILE: dict[tuple[str, str], str] = {
-    ("Càn", "Càn"): "quẻ/01-kien.md",        # Kiền
-    ("Khôn", "Khôn"): "quẻ/02-khon.md",      # Khôn
-    ("Khảm", "Chấn"): "quẻ/03-truan.md",     # Truân (Khảm trên Chấn dưới)
-    ("Cấn", "Khảm"): "quẻ/04-mong.md",       # Mông (Cấn trên Khảm dưới)
-    ("Khảm", "Càn"): "quẻ/05-nhu.md",        # Nhu (Khảm trên Kiền dưới)
-    ("Càn", "Khảm"): "quẻ/06-tung.md",       # Tụng (Càn trên Khảm dưới)
-    ("Khảm", "Khôn"): "quẻ/08-ty.md",        # Tỵ (Khảm trên Khôn dưới)
-    ("Khôn", "Càn"): "quẻ/11-thai.md",       # Thái (Khôn trên Kiền dưới — đảo!)
-    ("Càn", "Khôn"): "quẻ/12-bi.md",         # Bĩ (Càn trên Khôn dưới — tự nhiên)
-    ("Khôn", "Cấn"): "quẻ/15-khiem.md",      # Khiêm (Khôn trên Cấn dưới)
-    ("Tốn", "Khôn"): "quẻ/20-quan.md",       # Quán (Tốn trên Khôn dưới)
+    ("Càn", "Càn"): "quẻ/01-kien.md",        # 1 Kiền
+    ("Khôn", "Khôn"): "quẻ/02-khon.md",      # 2 Khôn
+    ("Khảm", "Chấn"): "quẻ/03-truan.md",     # 3 Truân
+    ("Cấn", "Khảm"): "quẻ/04-mong.md",       # 4 Mông
+    ("Khảm", "Càn"): "quẻ/05-nhu.md",        # 5 Nhu
+    ("Càn", "Khảm"): "quẻ/06-tung.md",       # 6 Tụng
+    ("Khôn", "Khảm"): "quẻ/07-su.md",        # 7 Sư
+    ("Khảm", "Khôn"): "quẻ/08-ty.md",        # 8 Tỵ
+    ("Tốn", "Càn"): "quẻ/09-tieu-suc.md",    # 9 Tiểu Súc
+    ("Càn", "Đoài"): "quẻ/10-ly.md",         # 10 Lý
+    ("Khôn", "Càn"): "quẻ/11-thai.md",       # 11 Thái (đảo!)
+    ("Càn", "Khôn"): "quẻ/12-bi.md",         # 12 Bĩ
+    ("Càn", "Ly"): "quẻ/13-dong-nhan.md",    # 13 Đồng Nhân
+    ("Ly", "Càn"): "quẻ/14-dai-huu.md",      # 14 Đại Hữu
+    ("Khôn", "Cấn"): "quẻ/15-khiem.md",      # 15 Khiêm
+    ("Chấn", "Khôn"): "quẻ/16-du.md",        # 16 Dự
+    ("Đoài", "Chấn"): "quẻ/17-tuy.md",       # 17 Tùy
+    ("Cấn", "Tốn"): "quẻ/18-co.md",          # 18 Cổ
+    ("Khôn", "Đoài"): "quẻ/19-lam.md",       # 19 Lâm
+    ("Tốn", "Khôn"): "quẻ/20-quan.md",       # 20 Quán
 }
 
 # Intent → tâm-phap file

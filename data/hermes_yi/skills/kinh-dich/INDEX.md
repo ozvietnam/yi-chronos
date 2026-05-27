@@ -50,19 +50,19 @@ Cấu trúc 3-tier:
 | 4 | Mông | 蒙 | [quẻ/04-mong.md](quẻ/04-mong.md) | ✅ đợt 2 |
 | 5 | Nhu | 需 | [quẻ/05-nhu.md](quẻ/05-nhu.md) | ✅ đợt 3 |
 | 6 | Tụng | 訟 | [quẻ/06-tung.md](quẻ/06-tung.md) | ✅ đợt 3 |
-| 7 | Sư | 師 | (chưa) | ⬜ |
+| 7 | Sư | 師 | [quẻ/07-su.md](quẻ/07-su.md) | ✅ đợt 4 |
 | 8 | Tỵ | 比 | [quẻ/08-ty.md](quẻ/08-ty.md) | ✅ đợt 3 |
-| 9 | Tiểu Súc | 小畜 | (chưa) | ⬜ |
-| 10 | Lý | 履 | (chưa) | ⬜ |
+| 9 | Tiểu Súc | 小畜 | [quẻ/09-tieu-suc.md](quẻ/09-tieu-suc.md) | ✅ đợt 4 |
+| 10 | Lý | 履 | [quẻ/10-ly.md](quẻ/10-ly.md) | ✅ đợt 4 |
 | 11 | Thái | 泰 | [quẻ/11-thai.md](quẻ/11-thai.md) | ✅ đợt 1 |
 | 12 | Bĩ | 否 | [quẻ/12-bi.md](quẻ/12-bi.md) | ✅ đợt 1 |
-| 13 | Đồng Nhân | 同人 | (chưa) | ⬜ |
-| 14 | Đại Hữu | 大有 | (chưa) | ⬜ |
+| 13 | Đồng Nhân | 同人 | [quẻ/13-dong-nhan.md](quẻ/13-dong-nhan.md) | ✅ đợt 4 |
+| 14 | Đại Hữu | 大有 | [quẻ/14-dai-huu.md](quẻ/14-dai-huu.md) | ✅ đợt 4 |
 | 15 | Khiêm | 謙 | [quẻ/15-khiem.md](quẻ/15-khiem.md) | ✅ đợt 1 |
-| 16 | Dự | 豫 | (chưa) | ⬜ |
-| 17 | Tùy | 隨 | (chưa) | ⬜ |
-| 18 | Cổ | 蠱 | (chưa) | ⬜ |
-| 19 | Lâm | 臨 | (chưa) | ⬜ |
+| 16 | Dự | 豫 | [quẻ/16-du.md](quẻ/16-du.md) | ✅ đợt 4 |
+| 17 | Tùy | 隨 | [quẻ/17-tuy.md](quẻ/17-tuy.md) | ✅ đợt 4 |
+| 18 | Cổ | 蠱 | [quẻ/18-co.md](quẻ/18-co.md) | ✅ đợt 4 |
+| 19 | Lâm | 臨 | [quẻ/19-lam.md](quẻ/19-lam.md) | ✅ đợt 4 (bypass content.md bug via raw_ocr) |
 | 20 | Quán | 觀 | [quẻ/20-quan.md](quẻ/20-quan.md) | ✅ đợt 3 (bypass content.md bug via raw_ocr) |
 | 21 | Phệ Hạp | 噬嗑 | (defer, cần Bookflow v3.0) | ⏸️ |
 | 22 | Bí | 賁 | (defer, cần Bookflow v3.0) | ⏸️ |
