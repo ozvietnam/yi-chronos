@@ -516,6 +516,17 @@ export function batTuSuNghiep({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh
   });
 }
 
+export function batTuTaiVan({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
+  return request(`/api/bat-tu/tai-van`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  });
+}
+
 export function haLacLuanGiai({
   birthDatetimeLocal,
   timezone = "Asia/Ho_Chi_Minh",

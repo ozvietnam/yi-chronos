@@ -1288,6 +1288,29 @@ def bat_tu_su_nghiep(request: BatTuLifeDomainRequest) -> dict[str, object]:
     }
 
 
+@app.post("/api/bat-tu/tai-van")
+def bat_tu_tai_van(request: BatTuLifeDomainRequest) -> dict[str, object]:
+    """Tài Vận — phân tích Tài tinh + DM balance + 6 patterns + Đại Vận tài timing.
+
+    Hoàn thành 'tam thân': Hôn nhân ✅ + Sự nghiệp ✅ + Tài vận ✅.
+    Source: Thiệu Vĩ Hoa Q. 4-6.
+    Paradigm: KHÔNG predict tài lộc khi nào, đọc cấu hình khí tài.
+    """
+    from engine.bat_tu import analyze_tai_van, cast_bat_tu
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    tv = analyze_tai_van(state)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "tai_van": tv,
+    }
+
+
 class HaLacLuanGiaiRequest(BaseModel):
     birth_datetime_local: str
     timezone: str = "Asia/Ho_Chi_Minh"

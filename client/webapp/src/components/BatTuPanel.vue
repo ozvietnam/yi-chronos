@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, haLacLuanGiai } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, haLacLuanGiai } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -32,6 +32,9 @@ const honNhanError = ref("");
 const suNghiepData = ref(null);
 const suNghiepLoading = ref(false);
 const suNghiepError = ref("");
+const taiVanData = ref(null);
+const taiVanLoading = ref(false);
+const taiVanError = ref("");
 const haLacLuanData = ref(null);
 const haLacLuanLoading = ref(false);
 const haLacLuanError = ref("");
@@ -133,6 +136,8 @@ function reset() {
   honNhanError.value = "";
   suNghiepData.value = null;
   suNghiepError.value = "";
+  taiVanData.value = null;
+  taiVanError.value = "";
   haLacLuanData.value = null;
   haLacLuanError.value = "";
   errorMsg.value = "";
@@ -207,6 +212,24 @@ async function loadSuNghiep() {
     suNghiepError.value = err?.message || String(err);
   } finally {
     suNghiepLoading.value = false;
+  }
+}
+
+async function loadTaiVan() {
+  if (!inputBirth.value) return;
+  taiVanLoading.value = true;
+  taiVanError.value = "";
+  try {
+    const r = await batTuTaiVan({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    taiVanData.value = r.tai_van;
+  } catch (err) {
+    taiVanError.value = err?.message || String(err);
+  } finally {
+    taiVanLoading.value = false;
   }
 }
 
@@ -1160,6 +1183,117 @@ function formatSolarDateTime(iso) {
 
       <!-- Closing -->
       <div class="lg-block lg-closing" v-html="renderMd(suNghiepData.closing)"></div>
+    </template>
+
+    <!-- ── Tài Vận ──────────────────────────────────────────────────────────
+         Engine tai_van — Tài tinh + DM balance + 6 patterns + Đại Vận tài.
+    -->
+    <div v-if="batTuData" class="tv-trigger-section">
+      <button v-if="!taiVanData" class="apply-btn tv-trigger-btn"
+        @click="loadTaiVan" :disabled="taiVanLoading">
+        {{ taiVanLoading ? "Đang phân tích Tài Vận..." : "💰 Tài Vận — Tài tinh + Đại Vận tài" }}
+      </button>
+      <p v-if="taiVanError" class="status-message error">{{ taiVanError }}</p>
+    </div>
+
+    <template v-if="taiVanData">
+      <h4 class="section-h tv-h">💰 Tài Vận — đọc cấu hình khí tài</h4>
+      <p class="lg-paradigm">{{ taiVanData.paradigm_guard }}</p>
+
+      <!-- DM-Tài Balance (header verdict) -->
+      <div class="lg-block tv-balance" :data-polarity="taiVanData.dm_tai_balance.polarity">
+        <h5 class="lg-section-title">⚖ Day Master vs Tài tinh</h5>
+        <div class="tv-balance-row">
+          <span class="tv-balance-tag">{{ taiVanData.dm_tai_balance.status.toUpperCase() }}</span>
+          <small>polarity: {{ taiVanData.dm_tai_balance.polarity }}</small>
+        </div>
+        <p>{{ taiVanData.dm_tai_balance.narrative }}</p>
+        <p class="tv-recommend">💡 <b>Recommend</b>: {{ taiVanData.dm_tai_balance.recommend }}</p>
+      </div>
+
+      <!-- Tài Map (positions) -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">📍 Tài Tinh Map (vị trí trong lá số)</h5>
+        <div class="tv-map-row">
+          <span class="tv-map-stat"><b>Chính Tài</b>: {{ taiVanData.tai_map.total_chinh_tai }}</span>
+          <span class="tv-map-stat"><b>Thiên Tài</b>: {{ taiVanData.tai_map.total_thien_tai }}</span>
+          <span class="tv-map-stat">Tổng: <b>{{ taiVanData.tai_map.total_count }}</b></span>
+        </div>
+        <ul v-if="taiVanData.tai_map.chinh_tai_positions.length || taiVanData.tai_map.thien_tai_positions.length" class="tv-positions">
+          <li v-for="(p, i) in taiVanData.tai_map.chinh_tai_positions" :key="'c'+i" data-type="chinh">
+            <strong class="wiki-link" @click="openConcept('Chính Tài')">Chính Tài</strong>
+            tại <em>{{ p.position_vi }}</em> ({{ p.type === 'visible_stem' ? 'thiên can' : 'tàng can ' + p.branch }}: {{ p.stem }})
+          </li>
+          <li v-for="(p, i) in taiVanData.tai_map.thien_tai_positions" :key="'t'+i" data-type="thien">
+            <strong class="wiki-link" @click="openConcept('Thiên Tài')">Thiên Tài</strong>
+            tại <em>{{ p.position_vi }}</em> ({{ p.type === 'visible_stem' ? 'thiên can' : 'tàng can ' + p.branch }}: {{ p.stem }})
+          </li>
+        </ul>
+      </div>
+
+      <!-- Sources -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">🎯 Nguồn Tài (Chính / Thiên)</h5>
+        <article v-for="s in taiVanData.sources" :key="s.type" class="tv-source">
+          <header>
+            <strong>{{ s.type }}</strong>
+            <small>x{{ s.count }}</small>
+          </header>
+          <p><b>Bản chất</b>: {{ s.essence }}</p>
+          <p><b>Hợp</b>: {{ s.favorable }}</p>
+          <p class="tv-source-ky"><b>Kỵ</b>: {{ s.kỵ || s["kỵ"] }}</p>
+          <p><b>Nghề</b>: {{ s.career }}</p>
+        </article>
+      </div>
+
+      <!-- Patterns -->
+      <div v-if="taiVanData.patterns?.length" class="lg-block">
+        <h5 class="lg-section-title">🌀 Patterns phát hiện</h5>
+        <article v-for="p in taiVanData.patterns" :key="p.name" class="tv-pattern"
+          :data-polarity="p.polarity.includes('lành') || p.polarity.includes('quý') ? 'positive' : (p.polarity.includes('cảnh') ? 'warning' : 'neutral')">
+          <header>
+            <strong>{{ p.name }}</strong>
+            <span class="tv-pattern-polarity">{{ p.polarity }}</span>
+          </header>
+          <p>{{ p.narrative }}</p>
+          <p class="tv-actionable">💡 <em>Actionable</em>: {{ p.actionable }}</p>
+        </article>
+      </div>
+
+      <!-- Đại Vận Tài Timing -->
+      <div v-if="taiVanData.dai_van_tai_timing?.length" class="lg-block tv-timing">
+        <h5 class="lg-section-title">⏳ Thời điểm Tài kích hoạt (Đại Vận)</h5>
+        <p class="tv-legend">
+          <small>✦ <b>kích hoạt</b> · · <b>bình</b> · ○ <b>yên</b></small>
+        </p>
+        <div class="tv-dv-grid">
+          <article v-for="c in taiVanData.dai_van_tai_timing" :key="c.cycle_index"
+            class="tv-dv-cell" :data-verdict="c.verdict">
+            <header>
+              <strong>V{{ c.cycle_index }}</strong>
+              <small>{{ c.start_age }}-{{ c.end_age }}t</small>
+            </header>
+            <div class="tv-dv-gz">{{ c.stem }} {{ c.branch }}</div>
+            <div class="tv-dv-verdict">{{ c.mark }} {{ c.verdict }}</div>
+            <ul v-if="c.reasons.length" class="tv-dv-reasons">
+              <li v-for="(r, i) in c.reasons" :key="i">{{ r }}</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- Strategy -->
+      <div class="lg-block tv-strategy">
+        <h5 class="lg-section-title">🎯 Chiến lược (Strategy)</h5>
+        <ul>
+          <li v-for="(s, i) in taiVanData.strategy" :key="i" :data-polarity="s.startsWith('✦') ? 'positive' : (s.startsWith('⚠') ? 'warning' : 'neutral')">
+            {{ s }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(taiVanData.closing)"></div>
     </template>
 
     <!-- ── Bát Tự Hà Lạc Luận Giải ─────────────────────────────────────────
@@ -2223,6 +2357,206 @@ function formatSolarDateTime(iso) {
 }
 
 .hl-bo { border-left-color: rgba(244, 114, 182, 0.6); }
+
+/* ── Tài Vận section ──────────────────────────────────────────────────── */
+.tv-trigger-section {
+  margin: 20px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tv-trigger-btn {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(232, 201, 90, 0.16));
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.tv-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(245, 158, 11, 0.7);
+}
+
+.tv-h {
+  color: #fbbf24;
+  font-size: 14px;
+  border-top: 1px dashed rgba(245, 158, 11, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+
+.tv-balance { border-left-color: rgba(245, 158, 11, 0.55); }
+.tv-balance[data-polarity="lành"] { border-left-color: rgba(90, 176, 122, 0.7); background: rgba(90, 176, 122, 0.06); }
+.tv-balance[data-polarity="cảnh báo cao"] { border-left-color: rgba(214, 90, 74, 0.7); background: rgba(214, 90, 74, 0.06); }
+.tv-balance[data-polarity="trung tính"] { border-left-color: rgba(148, 163, 184, 0.55); }
+
+.tv-balance-row {
+  display: flex; gap: 10px; align-items: baseline; margin-bottom: 5px;
+}
+.tv-balance-tag {
+  font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08); letter-spacing: 0.4px;
+}
+.tv-balance[data-polarity="lành"] .tv-balance-tag { background: rgba(90, 176, 122, 0.18); color: #5ab07a; }
+.tv-balance[data-polarity="cảnh báo cao"] .tv-balance-tag { background: rgba(214, 90, 74, 0.18); color: #d65a4a; }
+.tv-balance-row small { color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-size: 11px; }
+.tv-recommend {
+  margin-top: 6px;
+  padding: 6px 9px;
+  background: rgba(91, 229, 211, 0.06);
+  border-radius: 4px;
+  font-size: 12.5px;
+}
+.tv-recommend b { color: #5be5d3; }
+
+.tv-map-row {
+  display: flex; gap: 12px; margin-bottom: 8px; flex-wrap: wrap;
+}
+.tv-map-stat {
+  background: rgba(245, 158, 11, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.tv-map-stat b { color: #fbbf24; }
+.tv-positions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.tv-positions li {
+  font-size: 12px;
+  padding: 4px 9px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.025);
+}
+.tv-positions li[data-type="chinh"] strong { color: #5ab07a; }
+.tv-positions li[data-type="thien"] strong { color: #fbbf24; }
+.tv-positions em { color: var(--accent-gold-soft, #f5e6b1); font-style: normal; }
+
+.tv-source {
+  margin: 8px 0;
+  padding: 10px 12px;
+  background: rgba(245, 158, 11, 0.05);
+  border-radius: 5px;
+  border-left: 2px solid rgba(245, 158, 11, 0.4);
+}
+.tv-source header {
+  display: flex; align-items: baseline; gap: 8px; margin-bottom: 5px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08); padding-bottom: 4px;
+}
+.tv-source strong { color: #fbbf24; font-size: 13px; }
+.tv-source small {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.tv-source p { margin: 3px 0; font-size: 12.5px; }
+.tv-source b { color: var(--accent-gold-soft, #f5e6b1); }
+.tv-source-ky b { color: #d65a4a; }
+
+.tv-pattern {
+  margin: 8px 0;
+  padding: 9px 11px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+}
+.tv-pattern[data-polarity="positive"] {
+  background: rgba(90, 176, 122, 0.07);
+  border-left-color: rgba(90, 176, 122, 0.55);
+}
+.tv-pattern[data-polarity="warning"] {
+  background: rgba(214, 90, 74, 0.07);
+  border-left-color: rgba(214, 90, 74, 0.55);
+}
+.tv-pattern[data-polarity="neutral"] {
+  background: rgba(148, 163, 184, 0.06);
+  border-left-color: rgba(148, 163, 184, 0.4);
+}
+.tv-pattern header {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; flex-wrap: wrap;
+}
+.tv-pattern strong { font-size: 13px; }
+.tv-pattern[data-polarity="positive"] strong { color: #5ab07a; }
+.tv-pattern[data-polarity="warning"] strong { color: #d65a4a; }
+.tv-pattern[data-polarity="neutral"] strong { color: #94a3b8; }
+.tv-pattern-polarity {
+  font-size: 10.5px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-style: italic;
+}
+.tv-pattern p { margin: 3px 0; font-size: 12.5px; }
+.tv-actionable {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 8px;
+  border-radius: 3px;
+  font-size: 11.5px !important;
+  margin-top: 5px !important;
+}
+.tv-actionable em { color: var(--accent-gold-soft, #f5e6b1); }
+
+.tv-timing { border-left-color: rgba(245, 158, 11, 0.55); }
+.tv-legend { font-size: 11px !important; color: var(--text-muted, rgba(230, 238, 245, 0.55)); margin: 0 0 8px 0 !important; }
+
+.tv-dv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+.tv-dv-cell {
+  background: rgba(255, 255, 255, 0.025);
+  padding: 8px 10px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  font-size: 11px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.tv-dv-cell[data-verdict="tài lộc kích hoạt"] {
+  border-left-color: rgba(245, 158, 11, 0.65);
+  background: rgba(245, 158, 11, 0.08);
+}
+.tv-dv-cell[data-verdict="tài lộc bình"] {
+  border-left-color: rgba(148, 163, 184, 0.5);
+  background: rgba(148, 163, 184, 0.04);
+}
+.tv-dv-cell[data-verdict="tài lộc yên"] {
+  border-left-color: rgba(99, 102, 120, 0.4);
+  background: rgba(99, 102, 120, 0.04);
+}
+.tv-dv-cell header { display: flex; justify-content: space-between; align-items: baseline; }
+.tv-dv-cell header strong { font-size: 11px; color: #fbbf24; }
+.tv-dv-cell header small { font-size: 9.5px; color: var(--text-muted, rgba(230, 238, 245, 0.5)); }
+.tv-dv-gz { font-weight: 700; color: var(--accent-gold-soft, #f5e6b1); font-family: ui-monospace, monospace; font-size: 11.5px; }
+.tv-dv-verdict { font-size: 10.5px; color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-style: italic; }
+.tv-dv-reasons {
+  margin: 4px 0 0 14px;
+  padding: 0;
+  font-size: 10px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.7));
+}
+
+.tv-strategy { border-left-color: rgba(245, 158, 11, 0.55); }
+.tv-strategy ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.tv-strategy li {
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12.5px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.tv-strategy li[data-polarity="positive"] {
+  background: rgba(90, 176, 122, 0.08);
+  border-left: 2px solid rgba(90, 176, 122, 0.55);
+}
+.tv-strategy li[data-polarity="warning"] {
+  background: rgba(214, 90, 74, 0.08);
+  border-left: 2px solid rgba(214, 90, 74, 0.55);
+}
 
 .bt-form {
   display: grid;
