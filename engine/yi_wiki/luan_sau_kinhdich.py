@@ -65,6 +65,8 @@ _DEEP_QUE_FILES: set[str] = {
     "quẻ/12-bi.md",
     "quẻ/15-khiem.md",
     "quẻ/20-quan.md",
+    "quẻ/21-phe-hap.md",   # 2026-05-27 cuối ngày — đọc raw_ocr p382-396
+    "quẻ/22-bi.md",        # 2026-05-27 cuối ngày — đọc raw_ocr p397-408
 }
 
 # 64 hexagram (upper, lower) → file citation.
@@ -92,6 +94,8 @@ _HEXAGRAM_TO_FILE: dict[tuple[str, str], str] = {
     ("Cấn", "Tốn"): "quẻ/18-co.md",          # 18 Cổ
     ("Khôn", "Đoài"): "quẻ/19-lam.md",       # 19 Lâm
     ("Tốn", "Khôn"): "quẻ/20-quan.md",       # 20 Quán
+    ("Ly", "Chấn"): "quẻ/21-phe-hap.md",     # 21 Phệ Hạp (đọc raw_ocr)
+    ("Cấn", "Ly"): "quẻ/22-bi.md",           # 22 Bí (đọc raw_ocr)
     # Đợt 5 — skim mode
     ("Cấn", "Khôn"): "quẻ/23-bac.md",        # 23 Bác
     ("Khôn", "Chấn"): "quẻ/24-phuc.md",      # 24 Phục

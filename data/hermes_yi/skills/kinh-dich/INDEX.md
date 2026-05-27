@@ -64,14 +64,21 @@ Cấu trúc 3-tier:
 | 18 | Cổ | 蠱 | [quẻ/18-co.md](quẻ/18-co.md) | ✅ đợt 4 |
 | 19 | Lâm | 臨 | [quẻ/19-lam.md](quẻ/19-lam.md) | ✅ đợt 4 (bypass content.md bug via raw_ocr) |
 | 20 | Quán | 觀 | [quẻ/20-quan.md](quẻ/20-quan.md) | ✅ đợt 3 (bypass content.md bug via raw_ocr) |
-| 21 | Phệ Hạp | 噬嗑 | (defer, cần Bookflow v3.0) | ⏸️ |
-| 22 | Bí | 賁 | (defer, cần Bookflow v3.0) | ⏸️ |
-| 23-64 | 42 quẻ còn lại | ... | xem `quẻ/{NN-name}.md` | ✅ đợt 5+6 (skim mode) |
+| 21 | Phệ Hạp | 噬嗑 | [quẻ/21-phe-hap.md](quẻ/21-phe-hap.md) | ✅ DEEP (đọc raw_ocr 2026-05-27 cuối) |
+| 22 | Bí | 賁 | [quẻ/22-bi.md](quẻ/22-bi.md) | ✅ DEEP (đọc raw_ocr 2026-05-27 cuối) |
+| 23-64 | 42 quẻ còn lại | ... | xem `quẻ/{NN-name}.md` | ⚠️ STUB (đợt 4-6, paradigm chung — chờ thâm nhuần thực) |
 
-**Hoàn thành 62/64 quẻ Kinh Dịch Trọn Bộ (Ngô Tất Tố)**:
-- ✅ Đợt 1-5: 32 quẻ chi tiết (Kiền, Khôn, Truân, Mông, Nhu, Tụng, Sư, Tỵ, Tiểu Súc, Lý, Thái, Bĩ, Đồng Nhân, Đại Hữu, Khiêm, Dự, Tùy, Cổ, Lâm, Quán, Bác, Phục, Di, Đại Quá, Hàm, Hằng, Tấn, Minh Di, Kiển, Giải, Tổn, Ích)
-- ✅ Đợt 6: 30 quẻ skim siêu compact (25-26 + 29-30 + 33-34 + 37-38 + 43-64)
-- ⏸️ 2 defer: 21 Phệ Hạp + 22 Bí (Bookflow v3.0 rebuild)
+## ⚠️ Cảnh báo độ depth (cập nhật 2026-05-27 cuối ngày)
+
+Em đã thừa nhận với Anh: đợt 4-6 viết quá nhanh = đọc lướt qua đường. 51 file (đợt 4-6) chỉ có **vỏ paradigm**, KHÔNG có Trình Di + Chu Hy + Tiên Nho nguyên văn.
+
+**Engine `select_citations()` giờ phân loại:**
+- **13 file DEEP**: Kiền, Khôn, Truân, Mông, Nhu, Tụng, Tỵ, Thái, Bĩ, Khiêm, Quán, Phệ Hạp, Bí — đọc thật → inject vào LLM prompt
+- **51 file STUB**: 23-64 + 25-26 + 29-30 + 33-34 + 37-38 + Lâm + 9 quẻ đợt 4 — SKIP inject (chỉ ghi marker để UI báo user)
+
+→ Khi user gieo quẻ trúng STUB, LLM luận sâu CHỈ có INDEX + tâm-pháp (không trích dẫn quẻ cụ thể). UI hiện cảnh báo "Quẻ này chưa thâm nhuần đầy đủ — phê quẻ paradigm chung".
+
+→ **Roadmap thâm nhuần 51 quẻ stub** (task #76): mỗi phiên đọc THẬT 3-5 quẻ × ~13 phiên. Ưu tiên cụm có ý nghĩa liên kết.
 
 ## III. Pattern dùng
 
