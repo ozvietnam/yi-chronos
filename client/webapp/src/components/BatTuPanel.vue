@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -20,6 +20,9 @@ const showHourQuiz = ref(false);
 
 const batTuData = ref(null);
 const haLacData = ref(null);
+const luanGiaiData = ref(null);
+const luanGiaiLoading = ref(false);
+const luanGiaiError = ref("");
 const loading = ref(false);
 const errorMsg = ref("");
 
@@ -110,7 +113,27 @@ async function castAll() {
 function reset() {
   batTuData.value = null;
   haLacData.value = null;
+  luanGiaiData.value = null;
+  luanGiaiError.value = "";
   errorMsg.value = "";
+}
+
+async function loadLuanGiai() {
+  if (!inputBirth.value) return;
+  luanGiaiLoading.value = true;
+  luanGiaiError.value = "";
+  try {
+    const r = await batTuLuanGiai({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    luanGiaiData.value = r.luan_giai;
+  } catch (err) {
+    luanGiaiError.value = err?.message || String(err);
+  } finally {
+    luanGiaiLoading.value = false;
+  }
 }
 
 // ── Derived ──────────────────────────────────────────────────────────────────
@@ -146,6 +169,20 @@ function openConcept(name) {
   // Normalize: trim chinese-tail like "Chính Quan cách (正官格)" → "Chính Quan cách"
   const cleaned = String(name).replace(/\s*\([^)]+\)\s*$/, "").trim();
   openConceptPopup(cleaned);
+}
+
+// Minimal Markdown renderer for **bold** in luận giải narrative strings.
+// Engine outputs short snippets only — we don't need a full MD parser.
+function renderMd(s) {
+  if (!s) return "";
+  // Escape HTML first
+  let html = String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  // **bold** → <b>
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+  return html;
 }
 
 function formatSolarDateTime(iso) {
@@ -540,6 +577,161 @@ function formatSolarDateTime(iso) {
       <p class="footer-ref">Nguồn: {{ haLacData.source_ref }}</p>
     </template>
 
+    <!-- ── Luận Giải Tổng Hợp ──────────────────────────────────────────────
+         Synthesizer engine — Thiệu Vĩ Hoa Q1 Chương 1-3 paradigm-tone narrative.
+    -->
+    <div v-if="batTuData" class="luan-giai-trigger">
+      <button v-if="!luanGiaiData" class="apply-btn lg-trigger-btn"
+        @click="loadLuanGiai" :disabled="luanGiaiLoading">
+        {{ luanGiaiLoading ? "Đang luận giải tổng hợp..." : "📜 Luận Giải Tổng Hợp (Thiệu Vĩ Hoa)" }}
+      </button>
+      <p v-if="luanGiaiError" class="status-message error">{{ luanGiaiError }}</p>
+    </div>
+
+    <template v-if="luanGiaiData">
+      <h4 class="section-h lg-h">📜 Luận Giải Tổng Hợp — paradigm Thiệu Vĩ Hoa</h4>
+      <p class="lg-paradigm">{{ luanGiaiData.paradigm_guard }}</p>
+
+      <!-- Overview -->
+      <div class="lg-block lg-overview" v-html="renderMd(luanGiaiData.overview)"></div>
+
+      <!-- Cường độ Nhật Chủ -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">⚖ Cường độ Nhật Chủ</h5>
+        <div class="lg-strength-row" :data-tag="luanGiaiData.cuong_do_nhat_chu.tag">
+          <span class="lg-tag">{{ luanGiaiData.cuong_do_nhat_chu.label }}</span>
+          <small>Support {{ luanGiaiData.cuong_do_nhat_chu.support_score }} ·
+            Drain {{ luanGiaiData.cuong_do_nhat_chu.drain_score }} ·
+            Δ {{ luanGiaiData.cuong_do_nhat_chu.diff.toFixed(1) }}</small>
+        </div>
+        <p v-html="renderMd(luanGiaiData.cuong_do_nhat_chu.narrative)"></p>
+      </div>
+
+      <!-- Ngũ Hành Balance -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">🌳🔥🌍⚒️💧 Ngũ Hành Balance</h5>
+        <p v-html="renderMd(luanGiaiData.ngu_hanh_balance.narrative)"></p>
+        <p v-if="luanGiaiData.ngu_hanh_balance.can_bo?.length" class="lg-can-bo">
+          🎯 <b>Cần BỔ</b>: {{ luanGiaiData.ngu_hanh_balance.can_bo.join(", ") }}
+        </p>
+      </div>
+
+      <!-- Cách Cục -->
+      <div v-if="luanGiaiData.cach_cuc_luan.present" class="lg-block lg-cach-cuc">
+        <h5 class="lg-section-title">🎴 Cách Cục</h5>
+        <p v-html="renderMd(luanGiaiData.cach_cuc_luan.narrative)"></p>
+      </div>
+
+      <!-- Dụng Thần -->
+      <div class="lg-block lg-dung-than">
+        <h5 class="lg-section-title">★ Dụng Thần — thuốc cứu mệnh</h5>
+        <p v-html="renderMd(luanGiaiData.dung_than_luan.narrative)"></p>
+      </div>
+
+      <!-- Thập Thần dominant -->
+      <div v-if="luanGiaiData.thap_than_pattern.profiles?.length" class="lg-block">
+        <h5 class="lg-section-title">🌟 Thập Thần nổi bật — tâm tính + công năng</h5>
+        <article v-for="p in luanGiaiData.thap_than_pattern.profiles" :key="p.name" class="lg-tt-profile">
+          <header>
+            <strong class="wiki-link" @click="openConcept(p.name)">{{ p.name }}</strong>
+            <span class="lg-tt-weight">trọng số {{ p.weight.toFixed(0) }}</span>
+          </header>
+          <p><b>Tích cực</b>: {{ p.tich_cuc }}</p>
+          <p><b>Tiêu cực</b>: {{ p.tieu_cuc }}</p>
+          <p class="lg-tt-cong-nang" v-html="renderMd(p.cong_nang)"></p>
+        </article>
+      </div>
+
+      <!-- Favorable combinations -->
+      <div v-if="luanGiaiData.favorable_combinations?.length" class="lg-block lg-favorable">
+        <h5 class="lg-section-title">✦ Cấu hình thuận lợi (cổ điển)</h5>
+        <article v-for="fc in luanGiaiData.favorable_combinations" :key="fc.name" class="lg-fc">
+          <strong>✦ {{ fc.name }}</strong>
+          <p>{{ fc.narrative }}</p>
+        </article>
+      </div>
+
+      <!-- Warnings -->
+      <div v-if="luanGiaiData.warnings?.length" class="lg-block lg-warnings">
+        <h5 class="lg-section-title">⚠ Cảnh báo (cấu hình cần đề phòng)</h5>
+        <article v-for="w in luanGiaiData.warnings" :key="w.name" class="lg-warn">
+          <strong>⚠ {{ w.name }}</strong>
+          <p>{{ w.narrative }}</p>
+        </article>
+      </div>
+
+      <!-- Thông quan -->
+      <div v-if="luanGiaiData.thong_quan" class="lg-block lg-thong-quan">
+        <h5 class="lg-section-title">🌉 Thông Quan</h5>
+        <p v-html="renderMd(luanGiaiData.thong_quan.narrative)"></p>
+      </div>
+
+      <!-- Trường Sinh -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">⏳ Vòng Trường Sinh — sức sống tổng thể</h5>
+        <p v-html="renderMd(luanGiaiData.truong_sinh_luan.narrative)"></p>
+      </div>
+
+      <!-- Thần Sát Highlights -->
+      <div v-if="luanGiaiData.than_sat_highlights.present" class="lg-block">
+        <h5 class="lg-section-title">✨ Thần Sát nổi bật</h5>
+        <p v-html="renderMd(luanGiaiData.than_sat_highlights.narrative)"></p>
+        <ul class="lg-stars">
+          <li v-for="s in luanGiaiData.than_sat_highlights.highlights" :key="s.name"
+            :data-polarity="s.polarity">
+            <strong class="wiki-link" @click="openConcept(s.name)">{{ s.name }}</strong>
+            <span class="lg-star-polarity">({{ s.polarity }})</span>
+            <small>tại trụ {{ s.pillar }}</small>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Đại Vận hiện tại -->
+      <div class="lg-block lg-dv-current">
+        <h5 class="lg-section-title">🌀 Đại Vận hiện tại</h5>
+        <p v-html="renderMd(luanGiaiData.dai_van_current.narrative)"></p>
+      </div>
+
+      <!-- Bổ hướng (actionable) -->
+      <div class="lg-block lg-bo-huong">
+        <h5 class="lg-section-title">🎯 Bổ Hướng — chìa khóa vàng (actionable)</h5>
+        <p v-html="renderMd(luanGiaiData.bo_huong.narrative)"></p>
+        <div class="lg-bo-grid">
+          <article v-for="(rec, key) in luanGiaiData.bo_huong.recommend" :key="key" class="lg-bo-cell"
+            :data-role="key">
+            <header>
+              <strong>{{ key === 'dung' ? '★ Dụng Thần' : 'Hỷ Thần' }}: {{ rec.element.toUpperCase() }}</strong>
+            </header>
+            <div class="lg-bo-cat">
+              <small>💼 Nghề</small>
+              <span>{{ rec.nghe_nghiep.slice(0, 5).join(" · ") }}{{ rec.nghe_nghiep.length > 5 ? '...' : '' }}</span>
+            </div>
+            <div class="lg-bo-cat">
+              <small>🎨 Màu</small>
+              <span>{{ rec.mau_sac.join(" · ") }}</span>
+            </div>
+            <div class="lg-bo-cat">
+              <small>🧭 Phương</small>
+              <span>{{ rec.phuong_vi.join(" · ") }}</span>
+            </div>
+            <div class="lg-bo-cat">
+              <small>🍲 Ẩm thực</small>
+              <span>{{ rec.am_thuc.join(" · ") }}</span>
+            </div>
+          </article>
+        </div>
+        <div v-if="luanGiaiData.bo_huong.tranh" class="lg-bo-tranh">
+          <strong>⚠ Tránh (Kỵ Thần: {{ luanGiaiData.bo_huong.tranh.element.toUpperCase() }})</strong>
+          — không phải tránh hoàn toàn, mà giảm liều lượng.
+          Phương: {{ luanGiaiData.bo_huong.tranh.phuong_vi.join(", ") }}.
+          Màu: {{ luanGiaiData.bo_huong.tranh.mau_sac.join(", ") }}.
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(luanGiaiData.closing)"></div>
+    </template>
+
     <!-- Citation + paradigm footer -->
     <div v-if="batTuData" class="bt-citation">
       <p>
@@ -640,6 +832,231 @@ function formatSolarDateTime(iso) {
 }
 .bt-paradigm-footer { color: #93c5fd !important; font-style: italic; }
 .bt-paradigm-footer b { color: #5be5d3 !important; font-style: normal; }
+
+/* ── Luận Giải Tổng Hợp section ──────────────────────────────────────────── */
+.luan-giai-trigger {
+  margin: 20px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lg-trigger-btn {
+  background: linear-gradient(135deg, rgba(245, 230, 177, 0.18), rgba(94, 234, 212, 0.14));
+  border-color: rgba(245, 230, 177, 0.4);
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.lg-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(245, 230, 177, 0.7);
+}
+
+.lg-h {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 14px;
+  border-top: 1px dashed rgba(245, 230, 177, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+.lg-paradigm {
+  font-size: 12px;
+  color: #5be5d3;
+  font-style: italic;
+  border-left: 2px solid rgba(94, 234, 212, 0.55);
+  padding-left: 10px;
+  margin: 0 0 14px 0;
+  line-height: 1.55;
+}
+
+.lg-block {
+  margin: 14px 0;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  border-left: 3px solid rgba(245, 230, 177, 0.28);
+  line-height: 1.65;
+  font-size: 13.5px;
+}
+.lg-block p { margin: 6px 0; }
+.lg-block p:first-child { margin-top: 0; }
+.lg-block p:last-child { margin-bottom: 0; }
+.lg-block b { color: var(--accent-gold-soft, #f5e6b1); }
+
+.lg-overview {
+  background: rgba(245, 230, 177, 0.06);
+  border-left-color: rgba(245, 230, 177, 0.55);
+}
+
+.lg-section-title {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.lg-strength-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.lg-tag {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.lg-strength-row[data-tag="strong"] .lg-tag { background: rgba(255, 175, 94, 0.15); color: #ffaf5e; }
+.lg-strength-row[data-tag="weak"] .lg-tag { background: rgba(91, 229, 211, 0.15); color: #5be5d3; }
+.lg-strength-row[data-tag="balanced"] .lg-tag { background: rgba(90, 176, 122, 0.15); color: #5ab07a; }
+.lg-strength-row small { color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-size: 11px; }
+
+.lg-can-bo {
+  background: rgba(91, 229, 211, 0.08);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12.5px;
+}
+
+.lg-cach-cuc { border-left-color: rgba(91, 142, 229, 0.45); }
+.lg-dung-than { border-left-color: rgba(232, 201, 90, 0.55); }
+
+.lg-tt-profile {
+  margin: 10px 0;
+  padding: 9px 11px;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 5px;
+  border-left: 2px solid rgba(147, 197, 253, 0.45);
+}
+.lg-tt-profile header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.lg-tt-profile strong {
+  color: #93c5fd;
+  font-size: 14px;
+}
+.lg-tt-weight {
+  font-size: 10px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.5));
+  background: rgba(147, 197, 253, 0.12);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.lg-tt-profile p { margin: 4px 0; font-size: 12.5px; }
+.lg-tt-cong-nang {
+  font-size: 12px !important;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+  background: rgba(0, 0, 0, 0.15);
+  padding: 6px 8px;
+  border-radius: 3px;
+  margin-top: 5px !important;
+}
+
+.lg-favorable { border-left-color: rgba(90, 176, 122, 0.5); }
+.lg-fc {
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: rgba(90, 176, 122, 0.08);
+  border-radius: 4px;
+}
+.lg-fc strong { display: block; color: #5ab07a; font-size: 13px; margin-bottom: 3px; }
+.lg-fc p { margin: 0; font-size: 12.5px; }
+
+.lg-warnings { border-left-color: rgba(214, 90, 74, 0.5); }
+.lg-warn {
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: rgba(214, 90, 74, 0.08);
+  border-radius: 4px;
+}
+.lg-warn strong { display: block; color: #d65a4a; font-size: 13px; margin-bottom: 3px; }
+.lg-warn p { margin: 0; font-size: 12.5px; }
+
+.lg-thong-quan { border-left-color: rgba(167, 139, 250, 0.5); }
+
+.lg-stars {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.lg-stars li {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 9px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.lg-stars li[data-polarity="lành"] { color: #5ab07a; }
+.lg-stars li[data-polarity="dữ"] { color: #d65a4a; }
+.lg-stars li[data-polarity="trung tính"] { color: #94a3b8; }
+.lg-stars small { color: var(--text-muted, rgba(230, 238, 245, 0.5)); font-size: 10px; }
+
+.lg-dv-current { border-left-color: rgba(232, 201, 90, 0.65); }
+
+.lg-bo-huong { border-left-color: rgba(94, 234, 212, 0.6); }
+.lg-bo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.lg-bo-cell {
+  background: rgba(94, 234, 212, 0.06);
+  padding: 9px 11px;
+  border-radius: 5px;
+  border-left: 2px solid rgba(94, 234, 212, 0.4);
+}
+.lg-bo-cell[data-role="dung"] {
+  border-left-color: var(--accent-gold-soft, #f5e6b1);
+  background: rgba(245, 230, 177, 0.06);
+}
+.lg-bo-cell header { margin-bottom: 6px; }
+.lg-bo-cell header strong { color: var(--accent-gold-soft, #f5e6b1); font-size: 12.5px; }
+.lg-bo-cell[data-role="hy"] header strong { color: #5be5d3; }
+.lg-bo-cat {
+  display: flex;
+  gap: 7px;
+  margin: 4px 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+.lg-bo-cat small {
+  min-width: 60px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  font-size: 11px;
+  white-space: nowrap;
+}
+.lg-bo-cat span {
+  color: var(--text-strong, #e6eef5);
+  flex: 1;
+}
+.lg-bo-tranh {
+  margin-top: 10px;
+  padding: 7px 10px;
+  background: rgba(214, 90, 74, 0.06);
+  border-radius: 4px;
+  font-size: 11.5px;
+  border-left: 2px solid rgba(214, 90, 74, 0.4);
+}
+.lg-bo-tranh strong { color: #d65a4a; }
+
+.lg-closing {
+  background: linear-gradient(180deg, rgba(245, 230, 177, 0.08), rgba(91, 229, 211, 0.06));
+  border-left-color: rgba(245, 230, 177, 0.6);
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.7;
+}
 
 .bt-form {
   display: grid;

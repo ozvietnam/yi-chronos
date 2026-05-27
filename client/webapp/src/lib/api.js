@@ -456,6 +456,23 @@ export function castBatTu({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", g
   });
 }
 
+export function batTuLuanGiai({
+  birthDatetimeLocal,
+  timezone = "Asia/Ho_Chi_Minh",
+  gender = "nam",
+  currentAge = null,
+}) {
+  return request(`/api/bat-tu/luan-giai`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+      current_age: currentAge,
+    }),
+  });
+}
+
 export function castHaLac({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
   return request(`/api/ha-lac/cast`, {
     method: "POST",

@@ -1152,6 +1152,46 @@ def bat_tu_cast(request: BatTuCastRequest) -> dict[str, object]:
     }
 
 
+class BatTuLuanGiaiRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    current_age: int | None = None  # for Đại Vận current cycle detection
+
+
+@app.post("/api/bat-tu/luan-giai")
+def bat_tu_luan_giai(request: BatTuLuanGiaiRequest) -> dict[str, object]:
+    """Luận giải tổng hợp Bát Tự — synthesize Tứ Trụ + Thập Thần + Cách Cục +
+    Trường Sinh + Đại Vận + Dụng Thần into a paradigm-tone narrative.
+
+    Source: Thiệu Vĩ Hoa & Trần Viên — Dự đoán theo Tứ trụ (Chương 1-3).
+    Paradigm: Tử Bình KHÔNG predict, đọc đồng dạng → tri mệnh → Bổ cân bằng.
+    """
+    from engine.bat_tu import cast_bat_tu, compose_luan_giai
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    # Auto-compute current_age from birth if not provided
+    age = request.current_age
+    if age is None:
+        try:
+            from datetime import datetime
+            birth_year = int(request.birth_datetime_local[:4])
+            age = datetime.now().year - birth_year
+        except (ValueError, IndexError):
+            age = None
+
+    luan = compose_luan_giai(state, current_age=age)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "luan_giai": luan,
+    }
+
+
 @app.post("/api/ha-lac/cast")
 def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
     """Cast Bát Tự Hà Lạc — derives 2 personal hexagrams + decade trajectory.
