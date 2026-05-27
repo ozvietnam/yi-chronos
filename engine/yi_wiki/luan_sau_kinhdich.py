@@ -110,6 +110,14 @@ _DEEP_QUE_FILES: set[str] = {
     "quẻ/54-qui-muoi.md",  # cụm 8 (canonical)
     "quẻ/55-phong.md",     # cụm 8 (canonical)
     "quẻ/56-lu.md",        # cụm 8 (canonical)
+    "quẻ/57-ton-hexagram.md",  # 2026-05-27 cụm 9 final (canonical)
+    "quẻ/58-doai.md",      # cụm 9
+    "quẻ/59-hoan.md",      # cụm 9
+    "quẻ/60-tiet.md",      # cụm 9
+    "quẻ/61-trung-phu.md", # cụm 9 (Trung Phu = gốc "hữu phu")
+    "quẻ/62-tieu-qua.md",  # cụm 9
+    "quẻ/63-ky-te.md",     # cụm 9
+    "quẻ/64-vi-te.md",     # cụm 9 — HOÀN THÀNH 64 quẻ
 }
 
 # 64 hexagram (upper, lower) → file citation.
