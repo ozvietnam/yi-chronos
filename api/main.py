@@ -1159,6 +1159,15 @@ class BatTuLuanGiaiRequest(BaseModel):
     current_age: int | None = None  # for Đại Vận current cycle detection
 
 
+class BatTuLuuNienRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    current_age: int | None = None
+    target_year: int | None = None  # default = current year
+    include_luu_nguyet: bool = True
+
+
 @app.post("/api/bat-tu/luan-giai")
 def bat_tu_luan_giai(request: BatTuLuanGiaiRequest) -> dict[str, object]:
     """Luận giải tổng hợp Bát Tự — synthesize Tứ Trụ + Thập Thần + Cách Cục +
@@ -1189,6 +1198,42 @@ def bat_tu_luan_giai(request: BatTuLuanGiaiRequest) -> dict[str, object]:
         "algorithm_version": ALGORITHM_VERSION,
         "bat_tu_state": state,
         "luan_giai": luan,
+    }
+
+
+@app.post("/api/bat-tu/luu-nien")
+def bat_tu_luu_nien(request: BatTuLuuNienRequest) -> dict[str, object]:
+    """Lưu Niên — phân tích năm hiện tại đi qua lá số + 12 tháng (Lưu Nguyệt).
+
+    Source: Thiệu Vĩ Hoa & Trần Viên — Dự đoán theo Tứ trụ.
+    Paradigm: Lưu Niên phản chiếu cấu hình khí năm hiện tại, KHÔNG predict.
+    """
+    from engine.bat_tu import analyze_luu_nien, cast_bat_tu
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    age = request.current_age
+    if age is None:
+        try:
+            from datetime import datetime
+            birth_year = int(request.birth_datetime_local[:4])
+            age = datetime.now().year - birth_year
+        except (ValueError, IndexError):
+            age = None
+    luu = analyze_luu_nien(
+        state,
+        current_age=age,
+        target_year=request.target_year,
+        timezone=request.timezone,
+        include_luu_nguyet=request.include_luu_nguyet,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "luu_nien": luu,
     }
 
 

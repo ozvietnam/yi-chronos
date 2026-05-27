@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -23,6 +23,9 @@ const haLacData = ref(null);
 const luanGiaiData = ref(null);
 const luanGiaiLoading = ref(false);
 const luanGiaiError = ref("");
+const luuNienData = ref(null);
+const luuNienLoading = ref(false);
+const luuNienError = ref("");
 const loading = ref(false);
 const errorMsg = ref("");
 
@@ -115,6 +118,8 @@ function reset() {
   haLacData.value = null;
   luanGiaiData.value = null;
   luanGiaiError.value = "";
+  luuNienData.value = null;
+  luuNienError.value = "";
   errorMsg.value = "";
 }
 
@@ -133,6 +138,24 @@ async function loadLuanGiai() {
     luanGiaiError.value = err?.message || String(err);
   } finally {
     luanGiaiLoading.value = false;
+  }
+}
+
+async function loadLuuNien() {
+  if (!inputBirth.value) return;
+  luuNienLoading.value = true;
+  luuNienError.value = "";
+  try {
+    const r = await batTuLuuNien({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    luuNienData.value = r.luu_nien;
+  } catch (err) {
+    luuNienError.value = err?.message || String(err);
+  } finally {
+    luuNienLoading.value = false;
   }
 }
 
@@ -732,6 +755,107 @@ function formatSolarDateTime(iso) {
       <div class="lg-block lg-closing" v-html="renderMd(luanGiaiData.closing)"></div>
     </template>
 
+    <!-- ── Lưu Niên — Năm hiện tại ──────────────────────────────────────────
+         Engine luu_nien — phân tích năm + 12 tháng + Đại Vận hiện tại.
+    -->
+    <div v-if="batTuData" class="luu-nien-trigger">
+      <button v-if="!luuNienData" class="apply-btn ln-trigger-btn"
+        @click="loadLuuNien" :disabled="luuNienLoading">
+        {{ luuNienLoading ? "Đang phân tích Lưu Niên..." : "🌀 Lưu Niên — Năm hiện tại" }}
+      </button>
+      <p v-if="luuNienError" class="status-message error">{{ luuNienError }}</p>
+    </div>
+
+    <template v-if="luuNienData">
+      <h4 class="section-h ln-h">
+        🌀 Lưu Niên {{ luuNienData.target_year }} — Năm
+        <b class="ln-ganzhi">{{ luuNienData.luu_nien.stem }} {{ luuNienData.luu_nien.branch }}</b>
+        đi qua lá số
+      </h4>
+      <p class="lg-paradigm">{{ luuNienData.paradigm_guard }}</p>
+
+      <!-- Overall verdict header -->
+      <div class="lg-block ln-overall" :data-verdict="luuNienData.overall_verdict.verdict">
+        <h5 class="lg-section-title">📊 Đánh giá tổng năm</h5>
+        <div class="ln-verdict-row">
+          <span class="ln-verdict-tag">{{ luuNienData.overall_verdict.verdict.toUpperCase() }}</span>
+          <small>Thập Thần năm:
+            <span class="wiki-link" @click="openConcept(luuNienData.luu_nien.thap_than_vs_dm)">
+              {{ luuNienData.luu_nien.thap_than_vs_dm }}
+            </span>
+            · Hành {{ luuNienData.luu_nien.stem_element.toUpperCase() }}/{{ luuNienData.luu_nien.branch_element.toUpperCase() }}
+          </small>
+        </div>
+        <p v-html="renderMd(luuNienData.overall_verdict.narrative)"></p>
+      </div>
+
+      <!-- Tương tác Lưu Niên vs 4 trụ gốc -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">⚖ Tương tác với 4 Trụ gốc</h5>
+        <div class="ln-pillars-grid">
+          <article v-for="(info, pos) in luuNienData.vs_chart.vs_pillars" :key="pos" class="ln-pillar-cell">
+            <header>
+              <strong>{{ info.pillar_position_vi }}</strong>
+              <small>{{ info.natal_stem }} {{ info.natal_branch }}</small>
+            </header>
+            <div class="ln-inter-row" :data-polarity="info.stem_interaction.polarity">
+              <small>Can</small>
+              <span>{{ info.stem_interaction.type }}</span>
+            </div>
+            <div v-for="(ci, i) in info.chi_interactions" :key="i" class="ln-inter-row" :data-polarity="ci.polarity">
+              <small>Chi</small>
+              <span>{{ ci.type }}</span>
+            </div>
+            <div v-if="!info.chi_interactions.length" class="ln-inter-row" data-polarity="trung">
+              <small>Chi</small>
+              <span style="opacity:0.5">không tương tác</span>
+            </div>
+          </article>
+        </div>
+        <div v-if="luuNienData.vs_chart.tam_hop_detected.length" class="ln-tam-hop">
+          <h6>🌀 Tam Hợp / Bán Hợp với Lưu Niên</h6>
+          <p v-for="(th, i) in luuNienData.vs_chart.tam_hop_detected" :key="i">{{ th.narrative }}</p>
+        </div>
+      </div>
+
+      <!-- Vs Đại Vận hiện tại -->
+      <div v-if="luuNienData.vs_dai_van.current_dai_van" class="lg-block ln-vs-dv">
+        <h5 class="lg-section-title">🌊 Lưu Niên vs Đại Vận hiện tại</h5>
+        <p v-html="renderMd(luuNienData.vs_dai_van.narrative)"></p>
+      </div>
+
+      <!-- 12 tháng Lưu Nguyệt -->
+      <div v-if="luuNienData.luu_nguyet?.length" class="lg-block ln-luu-nguyet">
+        <h5 class="lg-section-title">🗓 12 Tháng — Lưu Nguyệt theo Tiết khí</h5>
+        <p class="ln-month-legend">
+          <small>
+            ✦ <b>thuận</b> · ⚖ <b>hỗn tạp</b> · ⚠ <b>thử thách</b> · · <b>trung tính</b>
+          </small>
+        </p>
+        <div class="ln-month-grid">
+          <article v-for="m in luuNienData.luu_nguyet" :key="m.month_index" class="ln-month-cell"
+            :data-verdict="m.verdict">
+            <header>
+              <strong>Tháng {{ m.month_index }}</strong>
+              <small>{{ m.tiet_khi }}</small>
+            </header>
+            <div class="ln-month-gz">{{ m.stem }} {{ m.branch }}</div>
+            <div class="ln-month-tt wiki-link" @click="openConcept(m.thap_than)">{{ m.thap_than }}</div>
+            <div class="ln-month-marker">{{ m.short_marker }} {{ m.verdict }}</div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Bổ Hướng năm -->
+      <div class="lg-block lg-bo-huong ln-bo">
+        <h5 class="lg-section-title">🎯 Bổ Hướng cho năm {{ luuNienData.target_year }}</h5>
+        <p v-html="renderMd(luuNienData.bo_huong_nam.narrative)"></p>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(luuNienData.closing)"></div>
+    </template>
+
     <!-- Citation + paradigm footer -->
     <div v-if="batTuData" class="bt-citation">
       <p>
@@ -1057,6 +1181,177 @@ function formatSolarDateTime(iso) {
   font-size: 13px;
   line-height: 1.7;
 }
+
+/* ── Lưu Niên section ────────────────────────────────────────────────────── */
+.luu-nien-trigger {
+  margin: 20px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ln-trigger-btn {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.18), rgba(94, 234, 212, 0.14));
+  border-color: rgba(167, 139, 250, 0.4);
+  color: #c4b5fd;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.ln-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(167, 139, 250, 0.7);
+}
+
+.ln-h {
+  color: #c4b5fd;
+  font-size: 14px;
+  border-top: 1px dashed rgba(167, 139, 250, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+.ln-ganzhi {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.12);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.ln-overall {
+  border-left-color: rgba(167, 139, 250, 0.55);
+}
+.ln-overall[data-verdict="thuận"] { border-left-color: rgba(90, 176, 122, 0.7); background: rgba(90, 176, 122, 0.06); }
+.ln-overall[data-verdict="thuận nhẹ"] { border-left-color: rgba(90, 176, 122, 0.5); background: rgba(90, 176, 122, 0.04); }
+.ln-overall[data-verdict="thử thách"] { border-left-color: rgba(214, 90, 74, 0.7); background: rgba(214, 90, 74, 0.06); }
+.ln-overall[data-verdict="hỗn tạp"] { border-left-color: rgba(232, 201, 90, 0.7); background: rgba(232, 201, 90, 0.06); }
+
+.ln-verdict-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.ln-verdict-tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  letter-spacing: 0.5px;
+}
+.ln-overall[data-verdict="thuận"] .ln-verdict-tag { background: rgba(90, 176, 122, 0.18); color: #5ab07a; }
+.ln-overall[data-verdict="thuận nhẹ"] .ln-verdict-tag { background: rgba(90, 176, 122, 0.12); color: #5ab07a; }
+.ln-overall[data-verdict="thử thách"] .ln-verdict-tag { background: rgba(214, 90, 74, 0.18); color: #d65a4a; }
+.ln-overall[data-verdict="hỗn tạp"] .ln-verdict-tag { background: rgba(232, 201, 90, 0.18); color: #e8c95a; }
+.ln-overall[data-verdict="trung tính"] .ln-verdict-tag { background: rgba(148, 163, 184, 0.18); color: #94a3b8; }
+.ln-verdict-row small { color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-size: 11.5px; }
+
+.ln-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.ln-pillar-cell {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 10px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(167, 139, 250, 0.35);
+}
+.ln-pillar-cell header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+.ln-pillar-cell header strong { font-size: 12px; color: #c4b5fd; }
+.ln-pillar-cell header small { font-size: 10.5px; color: var(--accent-gold-soft, #f5e6b1); font-family: ui-monospace, monospace; }
+.ln-inter-row {
+  display: flex;
+  gap: 5px;
+  font-size: 11px;
+  margin: 2px 0;
+  align-items: baseline;
+}
+.ln-inter-row small {
+  min-width: 24px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.5));
+  font-size: 10px;
+}
+.ln-inter-row[data-polarity="lành"] span { color: #5ab07a; }
+.ln-inter-row[data-polarity="hung"] span { color: #d65a4a; }
+.ln-inter-row[data-polarity="trung"] span { color: #cbd5e1; }
+
+.ln-tam-hop {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: rgba(232, 201, 90, 0.06);
+  border-radius: 4px;
+  border-left: 2px solid rgba(232, 201, 90, 0.45);
+}
+.ln-tam-hop h6 { margin: 0 0 4px 0; font-size: 12px; color: var(--accent-gold-soft, #f5e6b1); }
+.ln-tam-hop p { margin: 3px 0; font-size: 12px; }
+
+.ln-vs-dv { border-left-color: rgba(94, 234, 212, 0.5); }
+
+.ln-luu-nguyet { border-left-color: rgba(167, 139, 250, 0.5); }
+.ln-month-legend {
+  font-size: 11px !important;
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  margin: 0 0 8px 0 !important;
+}
+.ln-month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  gap: 6px;
+}
+.ln-month-cell {
+  background: rgba(255, 255, 255, 0.025);
+  padding: 7px 9px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  font-size: 11.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ln-month-cell[data-verdict="thuận"] {
+  border-left-color: rgba(90, 176, 122, 0.65);
+  background: rgba(90, 176, 122, 0.06);
+}
+.ln-month-cell[data-verdict="thử thách"] {
+  border-left-color: rgba(214, 90, 74, 0.65);
+  background: rgba(214, 90, 74, 0.05);
+}
+.ln-month-cell[data-verdict="hỗn tạp"] {
+  border-left-color: rgba(232, 201, 90, 0.55);
+  background: rgba(232, 201, 90, 0.04);
+}
+.ln-month-cell header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 5px;
+}
+.ln-month-cell header strong { font-size: 11px; color: #c4b5fd; }
+.ln-month-cell header small { font-size: 9.5px; color: var(--text-muted, rgba(230, 238, 245, 0.5)); font-style: italic; }
+.ln-month-gz {
+  font-weight: 700;
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 12px;
+  font-family: ui-monospace, monospace;
+}
+.ln-month-tt {
+  font-size: 11px;
+  color: #93c5fd;
+}
+.ln-month-marker {
+  font-size: 10px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  font-style: italic;
+}
+
+.ln-bo { border-left-color: rgba(167, 139, 250, 0.6); }
 
 .bt-form {
   display: grid;

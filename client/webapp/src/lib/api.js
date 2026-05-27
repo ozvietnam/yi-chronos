@@ -473,6 +473,27 @@ export function batTuLuanGiai({
   });
 }
 
+export function batTuLuuNien({
+  birthDatetimeLocal,
+  timezone = "Asia/Ho_Chi_Minh",
+  gender = "nam",
+  currentAge = null,
+  targetYear = null,
+  includeLuuNguyet = true,
+}) {
+  return request(`/api/bat-tu/luu-nien`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+      current_age: currentAge,
+      target_year: targetYear,
+      include_luu_nguyet: includeLuuNguyet,
+    }),
+  });
+}
+
 export function castHaLac({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
   return request(`/api/ha-lac/cast`, {
     method: "POST",
