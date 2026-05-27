@@ -27,11 +27,14 @@ ENV TZ=Asia/Ho_Chi_Minh \
     PIP_NO_CACHE_DIR=1
 
 # Install minimal system deps + WeasyPrint libs (Pango/Cairo/HarfBuzz for PDF rendering)
+# Build deps (g++ + python3-dev) needed for sxtwl + ephem C++ extensions on Python 3.14
+# (sxtwl chưa có wheel cp314 trên PyPI tại thời điểm Python 3.14 release)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tzdata \
     curl \
     sqlite3 \
     g++ \
+    python3-dev \
     libpango-1.0-0 \
     libpangoft2-1.0-0 \
     libpangocairo-1.0-0 \
