@@ -4070,6 +4070,8 @@ def yi_wiki_maihoa_luan_sau(req: MaiHoaLuanSauRequest) -> dict:
         "tokens_used": llm_result.get("tokens_used", 0),
         "citations_used": citations_pack["files_used"],
         "citations_total_chars": citations_pack["total_chars"],
+        "stubs_skipped": citations_pack.get("stubs_skipped", []),
+        "has_deep_citations": citations_pack.get("has_deep_citations", False),
         "cast_summary": {
             "chinh": cast.chinh_quai.name,
             "bien": cast.bien_quai.name,

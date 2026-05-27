@@ -51,7 +51,26 @@ _BAT_QUAI_TO_FILE: dict[str, str] = {
     # Đoài, Ly, Chấn, Tốn, Khảm, Cấn → chưa có quẻ thuần citation
 }
 
-# 64 hexagram (upper, lower) → file citation (chỉ những quẻ đã thấm)
+# 11 quẻ đã THÂM NHUẦN ĐẦY ĐỦ (đọc Trình Di + Chu Hy + Tiên Nho nguyên văn).
+# Citation files 80-130 dòng, có trích dẫn nguyên văn → LLM luận sâu chính xác.
+_DEEP_QUE_FILES: set[str] = {
+    "quẻ/01-kien.md",
+    "quẻ/02-khon.md",
+    "quẻ/03-truan.md",
+    "quẻ/04-mong.md",
+    "quẻ/05-nhu.md",
+    "quẻ/06-tung.md",
+    "quẻ/08-ty.md",
+    "quẻ/11-thai.md",
+    "quẻ/12-bi.md",
+    "quẻ/15-khiem.md",
+    "quẻ/20-quan.md",
+}
+
+# 64 hexagram (upper, lower) → file citation.
+# Đợt 4-6 (51 quẻ) là STUB ultra-skim — chỉ có paradigm chung, KHÔNG có trích dẫn
+# nguyên văn Trình Di/Chu Hy. select_citations() SẼ KHÔNG inject stub vào prompt.
+# Roadmap thâm nhuần 51 quẻ stub: ~13 phiên × 3-5 quẻ/phiên đọc Trình Di + Chu Hy thật.
 _HEXAGRAM_TO_FILE: dict[tuple[str, str], str] = {
     ("Càn", "Càn"): "quẻ/01-kien.md",        # 1 Kiền
     ("Khôn", "Khôn"): "quẻ/02-khon.md",      # 2 Khôn
@@ -201,15 +220,25 @@ def select_citations(
     # 1. Index master (~500 chars, always)
     _try_add("INDEX.md", "master router")
 
-    # 2. Hexagram exact match
+    # 2. Hexagram exact match — CHỈ inject quẻ đã THÂM NHUẦN ĐẦY ĐỦ
+    # (stub files đợt 4-6 chỉ có paradigm chung, KHÔNG có trích dẫn nguyên văn
+    # → KHÔNG đủ depth cho LLM luận sâu).
     for label, upper, lower in [
         ("chính", chinh_upper, chinh_lower),
         ("biến", bien_upper, bien_lower),
         ("hỗ", ho_upper, ho_lower),
     ]:
         path = _HEXAGRAM_TO_FILE.get((upper, lower))
-        if path:
+        if path and path in _DEEP_QUE_FILES:
             _try_add(path, f"quẻ {label} {upper}/{lower}")
+        elif path:
+            # File tồn tại nhưng là stub → ghi nhận để UI báo user
+            citations.append({
+                "path": path,
+                "body": "",
+                "reason": f"⚠️ quẻ {label} {upper}/{lower} chưa thâm nhuần đầy đủ (stub)",
+                "is_stub": True,
+            })
 
     # 3. Bát quái thuần (fallback) cho 2 trigrams của chính quẻ
     # Vd: Quẻ Đại Hữu (Ly/Càn) chưa có file → load Càn (01-kien) làm gốc Dương
@@ -226,10 +255,16 @@ def select_citations(
     # Fallback intent
     _try_add("tam-phap/giao-thoa.md", "tâm-pháp default (Thái-Bĩ paradigm)")
 
+    # Phân loại: deep (có body) vs stub (chỉ marker — KHÔNG inject prompt)
+    deep_cites = [c for c in citations if not c.get("is_stub")]
+    stub_cites = [c for c in citations if c.get("is_stub")]
+
     return {
-        "citations": citations,
+        "citations": deep_cites,        # chỉ deep dùng cho LLM prompt
         "total_chars": total,
-        "files_used": [c["path"] for c in citations],
+        "files_used": [c["path"] for c in deep_cites],
+        "stubs_skipped": [c["path"] for c in stub_cites],
+        "has_deep_citations": bool(deep_cites and total > 1000),
     }
 
 
