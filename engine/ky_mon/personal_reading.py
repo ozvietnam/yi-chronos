@@ -393,15 +393,408 @@ def interpret_personal_chart(state: dict) -> list[dict]:
             "paradigm": (
                 f"Bàn sinh anh có {len(cat_cungs)} sao đại cát (Phụ/Cầm/Tâm) phân bố ở "
                 f"{len(cat_cungs)} cung khác nhau. Trong KMDG, đây là cấu trúc 'rải "
-                "đại cát' — vận khí có NHIỀU đường để hồi phục khi gặp hung. KHÔNG "
-                "phải tất cả cát ở 1 chỗ, mà PHỦ NHIỀU MẶT đời."
+                "đại cát' — vận khí có NHIỀU đường để hồi phục khi gặp hung."
             ),
             "life_application": (
                 "Anh có 'redundancy' của may mắn: 1 mặt bị hung không có nghĩa toàn "
-                "đời hung. Khi 1 hướng tắc, hướng đại cát khác mở. Cấu trúc 'cá tính "
-                "dẻo dai' — anh có sức bật vì cát phủ nhiều mặt."
+                "đời hung. Khi 1 hướng tắc, hướng đại cát khác mở."
             ),
         })
+
+    # ─── Insight 10: Cộng hưởng 4 TRỤC Bát Quái ───
+    insights.append({
+        "id": "4_truc_resonance",
+        "title": "🧭 Bốn trục Bát Quái cộng hưởng — bản đồ năng lượng tổng thể",
+        "cung": "4 trục (Bắc-Nam, Đông Bắc-Tây Nam, Đông-Tây, Đông Nam-Tây Bắc)",
+        "category": "structural",
+        "dam_lien_quote": (
+            "Lạc Thư 9 cung tổ chức theo 4 trục đối xứng. Trong KMDG truyền thống, "
+            "đối xứng = 'Phản Ngâm' nếu xung khắc, 'Hợp Trục' nếu cộng hưởng. "
+            "(Đàm Liên Chương II pages 51-53)"
+        ),
+        "elements": [
+            ("Trục Bắc–Nam (Khảm-Ly)", "Hình Cách + Thương môn = 2 HUNG axis (khởi binh + tổn thương)"),
+            ("Trục Đông Bắc–Tây Nam (Cấn-Khôn)", "2 Tam Kỳ + Trị Phù = TRỤC CHÍNH cát (tỏa sáng + cứu cấp)"),
+            ("Trục Đông–Tây (Chấn-Đoài)", "Thiên Tâm + Thiên Phụ = đại cát kép (học + lập)"),
+            ("Trục Đông Nam–Tây Bắc (Tốn-Càn)", "Thiên Bồng + Thiên Anh = 2 HUNG tinh (trục yếu nhất)"),
+        ],
+        "paradigm": (
+            "Bàn anh có 2 TRỤC CÁT MẠNH (Cấn-Khôn = tỏa sáng+cứu cấp; Chấn-Đoài = "
+            "học+lập) và 2 TRỤC HUNG (Khảm-Ly = khởi binh+tổn thương; Tốn-Càn = "
+            "thủy tặc+cha vắng). Cát/hung trục = 2/2 — cân bằng nhưng các trục có "
+            "ý nghĩa KHÁC NHAU."
+        ),
+        "life_application": (
+            "TRỤC CHÍNH của anh: Cấn (Đông Bắc) ↔ Khôn (Tây Nam). Tỏa sáng từ Cấn, "
+            "cứu cấp từ Khôn. Đây là 2 hướng anh nên DUY TRÌ vật lý lâu dài "
+            "(workspace, đầu giường, hướng làm việc).\n\n"
+            "TRỤC THỨ HAI: Chấn (Đông) ↔ Đoài (Tây). Đông để học/chữa lành; Tây để "
+            "phù trợ/lập danh. Tránh thấy 2 trục Bắc-Nam và Tốn-Càn là TRỤC YẾU — "
+            "không bố trí 'long mạch' ở đó."
+        ),
+    })
+
+    # ─── Insight 11: Cross-ref Tử Vi (Mệnh Tỵ Hỏa + Mệnh chủ Vũ Khúc Kim) ───
+    ly_tinh = tinh.get("Ly", {})
+    ly_than = than.get("Ly", {})
+    can_mon = mon.get("Càn", {})
+    insights.append({
+        "id": "cross_ref_tu_vi",
+        "title": "🔮 Cross-ref Tử Vi — Mệnh Tỵ Hỏa + Mệnh chủ Vũ Khúc Kim",
+        "cung": "Ly (Hỏa) + Càn-Đoài (Kim)",
+        "category": "structural",
+        "dam_lien_quote": (
+            "KMDG và Tử Vi cùng cấu trúc 9 cung Lạc Thư. Tử Vi Mệnh tại cung chi "
+            "Hỏa (Tỵ) → KMDG cung Ly (Hỏa) đặc biệt. Mệnh chủ Vũ Khúc (Kim) → "
+            "KMDG cung Kim (Càn Tây Bắc + Đoài Tây). Tradition Khang Tiết: 'tam "
+            "tài đồng dạng — vũ trụ, người, thời khắc'."
+        ),
+        "elements": [
+            ("Tử Vi Mệnh", "Thiên Đồng tại Tỵ (chi Tỵ = Hỏa)"),
+            ("Tử Vi Mệnh chủ", "Vũ Khúc (Kim)"),
+            ("KMDG cung Hỏa = Ly", f"{ly_tinh.get('tinh_vn', '?')} + Thương môn + Cửu Thiên (cấu trúc danh tiếng + tổn thương)"),
+            ("KMDG cung Kim = Càn", f"Tử môn (đại hung) + Thiên Anh (hung) — KMDG nói KHÔNG cầu danh"),
+            ("KMDG cung Kim = Đoài", "Cảnh môn + Thiên Phụ (đại cát) — Tây phù trợ"),
+        ],
+        "paradigm": (
+            "TRÙNG khớp Tử Vi → KMDG: Mệnh Tỵ (Hỏa) ở KMDG = Ly cung (Hỏa) — "
+            "Nhật Kỳ + Thương môn + Cửu Thiên = 'danh tiếng qua tranh đấu' (insight #4). "
+            "Mệnh chủ Vũ Khúc Kim ở KMDG: 2 cung Kim (Càn + Đoài). Càn bị Tử môn/Thiên "
+            "Anh = authority bị tang (insight #5). NHƯNG Đoài là Cảnh môn + Thiên Phụ "
+            "(đại cát) → ÁNH SÁNG Kim của anh ở phương TÂY, không Tây Bắc. Vũ Khúc "
+            "khai mở qua Đoài (vui đúng + phù trợ), KHÔNG qua Càn (cha vắng)."
+        ),
+        "life_application": (
+            "Khi anh cần KÍCH HOẠT năng lượng Mệnh chủ Vũ Khúc (quyết định cứng + "
+            "lãnh đạo): hướng TÂY (Đoài) — không phải Tây Bắc (Càn). Phương Tây có "
+            "Thiên Phụ phù trợ + Cảnh môn thi đấu thắng. Phương Tây Bắc có Thiên Anh "
+            "+ Tử môn — cố cầu danh phương đó = mệnh chủ bị xung.\n\n"
+            "Mệnh Tỵ Hỏa ↔ Ly cung Hỏa: anh thắp sáng qua tranh đấu chính nghĩa "
+            "(Thương môn + Cửu Thiên hùng dũng). Đây là CỘNG HƯỞNG Tử Vi-KMDG đặc thù."
+        ),
+    })
+
+    # ─── Insight 12: Cross-ref Bát Tự (Dụng Mộc + Hỷ Thủy + Kỵ Kim) ───
+    chan_tinh = tinh.get("Chấn", {})
+    ton_tinh = tinh.get("Tốn", {})
+    kham_than = than.get("Khảm", {})
+    insights.append({
+        "id": "cross_ref_bat_tu",
+        "title": "💧🌳 Cross-ref Bát Tự — Dụng Mộc + Hỷ Thủy + Kỵ Kim",
+        "cung": "Chấn + Tốn (Mộc) + Khảm (Thủy) + Càn/Đoài (Kim)",
+        "category": "structural",
+        "dam_lien_quote": (
+            "KMDG 9 cung mỗi cung có ngũ hành: Khảm (Thủy), Chấn-Tốn (Mộc), Ly "
+            "(Hỏa), Khôn-Cấn-Trung (Thổ), Càn-Đoài (Kim). Bát Tự dụng thần định "
+            "hướng nào trong KMDG là 'thuận khí' cho người. Tradition: KMDG dùng "
+            "trong context bản mệnh người."
+        ),
+        "elements": [
+            ("Bát Tự Dụng thần", "Mộc (Tỷ Kiếp đồng loại — bổ trợ nhật chủ nhược)"),
+            ("Bát Tự Hỷ thần", "Thủy (Ấn — sinh Mộc, dưỡng nhật chủ)"),
+            ("Bát Tự Kỵ thần", "Kim (Quan Sát — khắc Mộc, áp lực)"),
+            ("KMDG Mộc cung (Chấn)", f"Hưu môn + {chan_tinh.get('tinh_vn', '?')} (đại cát) — CỘNG HƯỞNG dụng thần"),
+            ("KMDG Mộc cung (Tốn)", f"Sinh môn + {ton_tinh.get('tinh_vn', '?')} (đại hung paradox)"),
+            ("KMDG Thủy cung (Khảm)", f"{kham_than.get('than_vn', '?')} + Hình Cách (Hỷ thần BỊ XUNG)"),
+        ],
+        "paradigm": (
+            "Cross-ref Bát Tự xác nhận:\n"
+            "• DỤNG MỘC ↔ KMDG Chấn (Hưu + Thiên Tâm đại cát) = anh nên hướng ĐÔNG cho "
+            "y dược + học hành (mở Tỷ Kiếp đồng loại)\n"
+            "• DỤNG MỘC ↔ KMDG Tốn (Sinh + Thiên Bồng paradox) = anh cần partner sáng "
+            "khi mở Tốn (Đông Nam) — không solo\n"
+            "• HỶ THỦY ↔ KMDG Khảm (Hình Cách đại hung) — TRỚ TRÊU: hướng Thủy là HỶ "
+            "nhưng cung Khảm BỊ HÌNH CÁCH. Anh không dễ uống Thủy từ phương Bắc.\n"
+            "• KỴ KIM ↔ KMDG Càn (Tử + Thiên Anh) — Kỵ thần ở cung HUNG, consistent. "
+            "Tây Bắc đáng tránh kép."
+        ),
+        "life_application": (
+            "Thực hành ngũ hành + KMDG kết hợp:\n"
+            "• Bổ Dụng Mộc: ngồi face ĐÔNG (Chấn) khi học/chữa lành. Trồng cây phía Đông.\n"
+            "• Bổ Hỷ Thủy nhưng tránh Hình Cách Bắc: dùng nước phía ĐÔNG NAM (Tốn — "
+            "Thủy-Mộc giao thoa), NOT Bắc. Hoặc đặt bể cá ở Tốn.\n"
+            "• Tránh Kỵ Kim: KHÔNG bố trí kim loại lớn ở Tây Bắc (Càn) — sẽ kép áp lực.\n"
+            "Trùng khớp 3 chiều (KMDG + Bát Tự + Tử Vi) cho anh: ĐÔNG + ĐÔNG BẮC là "
+            "trục tỏa sáng + năng lượng."
+        ),
+    })
+
+    # ─── Insight 13: Cross-ref Kinh Dịch Bát Thuần ───
+    insights.append({
+        "id": "cross_ref_kinh_dich",
+        "title": "📿 Cross-ref Kinh Dịch — 8 cung KMDG ↔ 8 quẻ Bát Thuần Quái",
+        "cung": "Tất cả 8 cung",
+        "category": "structural",
+        "dam_lien_quote": (
+            "KMDG 8 cung gốc từ Bát Quái Hậu Thiên (Kinh Dịch Q1, Q2, Q29, Q30, "
+            "Q51, Q52, Q57, Q58 là 8 quẻ thuần). Mỗi cung KMDG = 1 quẻ thuần với "
+            "paradigm cốt. Tradition Khang Tiết: 'đọc đồng dạng qua cấu trúc'."
+        ),
+        "elements": [
+            ("Cấn (cung tỏa sáng)", "Q52 Cấn — 'thì chỉ tắc chỉ, thì hành tắc hành' — anh TỎA SÁNG khi BIẾT DỪNG ĐÚNG THỜI"),
+            ("Khôn (Trị Phù cứu cấp)", "Q2 Khôn — 'lý sương kiên băng chí' — anh nhạy với 'sương' (dấu hiệu sớm) từ trục cứu cấp"),
+            ("Khảm (Hình Cách)", "Q29 Tập Khảm — 'hữu phu, duy tâm hanh' — trong hiểm chỉ tâm thật vượt được"),
+            ("Ly (Nhật Kỳ + Thương)", "Q30 Ly — 'hoàng ly nguyên cát' — anh TRUNG (vàng) > CỰC (đỏ) trong danh tiếng"),
+            ("Chấn (Đinh + Hưu + Tâm)", "Q51 Chấn — 'bất tang chủy sưởng' — trong sấm vẫn giữ thìa rượu (giữ paradigm)"),
+            ("Tốn (paradox Sinh+Bồng)", "Q57 Tốn — 'trùng tốn dĩ thân mệnh' — lệnh phải LẶP, không 1 lần đủ"),
+        ],
+        "paradigm": (
+            "8 quẻ Bát Thuần là FRACTAL của 8 cung KMDG. Đọc đồng dạng (Iron Rule #4):\n"
+            "• Cấn Q52 + 2 Tam Kỳ + Khai môn = anh 'dừng để tỏa sáng' — paradox khởi đầu\n"
+            "• Khôn Q2 + Trị Phù = anh có 'lý sương' (cảm nhận dấu hiệu sớm) từ trục cứu cấp\n"
+            "• Khảm Q29 + Hình Cách = anh phải 'duy tâm hanh' khi gặp khởi binh hung\n"
+            "• Ly Q30 + Nhật Kỳ + Thương + Cửu Thiên = anh phải 'hoàng' (trung) không 'hồng' (cực) — "
+            "danh tiếng vừa, không khoe"
+        ),
+        "life_application": (
+            "Mỗi cung KMDG có 1 'mantra' Kinh Dịch tương ứng:\n"
+            "• Cần TỎA SÁNG → niệm 'thì chỉ tắc chỉ' (Cấn) — biết dừng đúng thời\n"
+            "• Cần CỨU CẤP → niệm 'lý sương kiên băng chí' (Khôn) — quan sát dấu hiệu sớm\n"
+            "• Trong KHỦNG HOẢNG → niệm 'duy tâm hanh' (Khảm) — chỉ tâm thật vượt được\n"
+            "• Khi DANH TIẾNG đến → niệm 'hoàng ly nguyên cát' (Ly) — trung không cực\n"
+            "• Critical incident → niệm 'bất tang chủy sưởng' (Chấn) — giữ paradigm\n"
+            "• Khi LỆNH/QUYẾT → niệm 'trùng tốn dĩ thân mệnh' (Tốn) — lặp nhiều lần\n"
+            "Các câu mantra này KHÔNG mê tín — là PARADIGM REMINDER cho anh tự tu."
+        ),
+    })
+
+    # ─── Insight 14: Trung cung Quý-Quý ĐÔI ───
+    trung_thien = thien.get("Trung", {})
+    trung_dia = dia.get("Trung", {})
+    if trung_thien.get("can_zh") == "癸" and trung_dia.get("can_zh") == "癸":
+        insights.append({
+            "id": "trung_cung_quy_doi",
+            "title": "💧💧 Trung cung Quý-Quý đôi — trục tinh thần Thủy âm sâu",
+            "cung": "Trung cung số 5",
+            "category": "structural",
+            "dam_lien_quote": (
+                "Trung cung là 'gửi vào Khôn số 2' (Đàm Liên page 33) vì 3 tầng "
+                "dưới che lấp. Khi Trung cung có CÙNG 1 thiên can trên Thiên + Địa "
+                "Bàn → cấu trúc 'gốc' đặc thù. Quý = Thủy âm (Hỷ thần của Bát Tự "
+                "anh — Thủy nhuận Mộc dụng)."
+            ),
+            "elements": [
+                ("Trung cung Thiên Bàn", "Quý 癸 (Thủy âm)"),
+                ("Trung cung Địa Bàn", "Quý 癸 (Thủy âm)"),
+                ("Ngũ hành", "Thủy đôi tại trục — Hỷ thần Bát Tự CỘNG HƯỞNG"),
+            ],
+            "paradigm": (
+                "Quý 癸 Thiên + Quý 癸 Địa cùng Trung cung = trục TINH THẦN Thủy âm "
+                "đôi. Trong KMDG, Trung là TRỤC bàn — nơi Thiên Cầm thường trú. "
+                "Quý-Quý đôi nghĩa anh có nội tâm SÂU (Thủy âm = ẩn, sâu, dòng "
+                "chảy ngầm). Đây là RARE pattern.\n\n"
+                "Lực Bát Tự: Hỷ thần Thủy bị 'Hình Cách' chặn ở Khảm (phương Bắc). "
+                "NHƯNG Trung cung Quý-Quý cứu — Thủy âm trong nội tâm thay vì "
+                "phương Bắc bên ngoài."
+            ),
+            "life_application": (
+                "Anh có TRỤC TINH THẦN nội tâm rất mạnh (Quý-Quý Thủy âm đôi). Đây "
+                "là nơi anh tự sinh năng lượng (Hỷ thần tự nhiên). Thực hành:\n"
+                "• Meditation/silence MỖI NGÀY — không phải optional, là kích trục\n"
+                "• Khi mất hướng: NGỒI YÊN giữa workspace (Trung), KHÔNG đi tìm câu "
+                "trả lời bên ngoài. Quý-Quý tự kích.\n"
+                "• Đây cũng là gốc 'self-made authority' (Insight #5) — anh không cần "
+                "cha bên ngoài vì có Thủy âm nội."
+            ),
+        })
+
+    # ─── Insight 15: Tỉ lệ Bát thần cát/hung ───
+    cat_than_count = sum(1 for c in than.values() if c.get("cat_hung") in {"cát", "đại cát"})
+    hung_than_count = sum(1 for c in than.values() if c.get("cat_hung") in {"hung", "đại hung"})
+    insights.append({
+        "id": "than_ratio",
+        "title": f"⚖️ Bát thần: {cat_than_count} cát / {hung_than_count} hung — anh có gì",
+        "cung": "(tổng thể)",
+        "category": "structural" if cat_than_count == hung_than_count else ("đại cát" if cat_than_count > hung_than_count else "hung"),
+        "dam_lien_quote": (
+            "8 thần KMDG: Trị Phù + Cửu Thiên + Cửu Địa + Thái Âm + Lục Hợp (5 cát) "
+            "vs Đằng Xà + Câu Trần + Chu Tước (3 hung). Tỉ lệ cát/hung BẨM SINH = 5:3. "
+            "Nhưng phân bố trong bàn anh có thể khác — Đàm Liên (page 43): 'mỗi cung "
+            "có 1 thần đặc thù, đọc đồng dạng theo vị trí'."
+        ),
+        "elements": [
+            ("Cát thần trong bàn", f"{cat_than_count}/5 cát thần (Trị Phù/Cửu Thiên/Cửu Địa/Thái Âm/Lục Hợp)"),
+            ("Hung thần trong bàn", f"{hung_than_count}/3 hung thần (Đằng Xà/Câu Trần/Chu Tước)"),
+            ("Cát thần tại đâu", ", ".join([f"{c}={t.get('than_vn', '?')}" for c, t in than.items() if t.get("cat_hung") in {"cát", "đại cát"}])),
+            ("Hung thần tại đâu", ", ".join([f"{c}={t.get('than_vn', '?')}" for c, t in than.items() if t.get("cat_hung") in {"hung", "đại hung"}])),
+        ],
+        "paradigm": (
+            f"Bàn anh có {cat_than_count} cát thần + {hung_than_count} hung thần trong "
+            f"8 cung. Đây là pattern '{'cát ưu' if cat_than_count > hung_than_count else 'hung ưu' if hung_than_count > cat_than_count else 'cân bằng'}'. "
+            "Cát thần BẢO VỆ + chỉ hướng; hung thần CẢNH BÁO + làm anh tăng strategic alert."
+        ),
+        "life_application": (
+            f"Cát/hung thần ratio của anh = {cat_than_count}:{hung_than_count}. "
+            f"Anh có {'NHIỀU bảo vệ' if cat_than_count > hung_than_count else 'NHIỀU cảnh báo'} hơn. "
+            "Trong các quyết định lớn: identify thần ở cung target → cát thần thì DỄ "
+            "đi qua, hung thần phải có strategic alert (Câu Trần = đề phòng đánh bất "
+            "ngờ, Chu Tước = đề phòng mật thám, Đằng Xà = đề phòng ác mộng/lừa)."
+        ),
+    })
+
+    # ─── Insight 16: Mang Chủng — sinh ngưỡng tiết khí ───
+    if state.get("tiet_khi_zh") == "芒種":
+        insights.append({
+            "id": "mang_chung_threshold",
+            "title": "🌾 Mang Chủng + Dương Cục 9 — sinh ở NGƯỠNG Dương-Âm",
+            "cung": "(thời gian)",
+            "category": "structural",
+            "dam_lien_quote": (
+                "Mang Chủng (Tiết) = 'lúa trổ đòng đầy mạch' (~6/6 hàng năm). 17 ngày "
+                "sau là Hạ Chí (Trung Khí) — 'nhất âm sinh' (1 hào Âm bắt đầu, theo "
+                "lý tiêu trưởng của Dịch). Dương Cục 9 = đỉnh cuối Dương Độn. Cộng "
+                "hạ nguyên = cuối cycle 5 ngày. Anh sinh ở 3 lớp 'cuối Dương'."
+            ),
+            "elements": [
+                ("Tiết khí sinh", "Mang Chủng (lúa trổ đòng đầy)"),
+                ("Cách Hạ Chí", "~17 ngày (Hạ Chí = nhất âm sinh)"),
+                ("Cục", "Dương 9 (đỉnh cuối) — Hạ nguyên (cuối cycle)"),
+                ("Cấu trúc", "3 lớp 'cuối Dương' chồng — anh là NGƯỠNG (boundary)"),
+            ],
+            "paradigm": (
+                "Anh sinh tại đỉnh Dương cuối cycle, 17 ngày trước khi 'nhất âm sinh'. "
+                "Trong Kinh Dịch (Q24 Phục): 'thất nhật lai phục' — 7 ngày một chu kỳ "
+                "âm dương tiêu trưởng. Anh sinh ngay TRƯỚC NGƯỠNG chuyển → bản thân "
+                "LÀ ngưỡng = bridge giữa expansion (Dương) và introspection (Âm).\n\n"
+                "Tượng Mang Chủng: lúa trổ đòng = giống mới sinh + trưởng thành chuẩn "
+                "bị gặt. Anh sinh ra với 'mầm đã ra hoa, đợi thu' — cấu trúc 'lên đỉnh "
+                "sớm + thu hoạch dài'."
+            ),
+            "life_application": (
+                "Cấu trúc thời gian anh:\n"
+                "• ĐẠT ĐỈNH SỚM (Dương cuối) — anh có expansion energy strong sớm trong đời\n"
+                "• CHUẨN BỊ NỘI THU (sắp nhất âm sinh) — sau đỉnh, phải build foundation\n"
+                "• ANH LÀ BRIDGE giữa 2 phase — vừa expansion-leader, vừa "
+                "introspection-builder\n"
+                "• Đời anh có CYCLE 'lên đỉnh → xuống nội thu → lên đỉnh tiếp', không "
+                "phải tuyến tính. Đừng sợ giai đoạn 'xuống' — đó là Âm Độn cần thiết."
+            ),
+        })
+
+    # ─── Insight 17: Trục Đông 3 cung Cấn-Chấn-Tốn HỢP LỰC ───
+    if (mon.get("Cấn", {}).get("mon_zh") == "開" and
+        mon.get("Chấn", {}).get("mon_zh") == "休" and
+        mon.get("Tốn", {}).get("mon_zh") == "生"):
+        insights.append({
+            "id": "truc_dong_hop_luc",
+            "title": "🌅 Trục Đông hợp lực — Khai + Hưu + Sinh (3 cát môn liên kề)",
+            "cung": "Cấn (ĐB) + Chấn (Đ) + Tốn (ĐN)",
+            "category": "đại cát",
+            "dam_lien_quote": (
+                "3 cát môn KMDG = Khai (mở đầu), Hưu (sum họp), Sinh (sinh sôi) "
+                "(Đàm Liên page 38). 'Theo 3 tránh 5'. Khi 3 CÁT MÔN cùng đặt 3 cung "
+                "LIÊN KỀ (Cấn-Chấn-Tốn = 3 cung Đông phía), đây là cấu trúc 'TRỤC "
+                "ĐÔNG HỢP LỰC' — hiếm."
+            ),
+            "elements": [
+                ("Cấn (Đông Bắc)", "Khai môn (đại cát) + 2 Tam Kỳ"),
+                ("Chấn (Đông)", "Hưu môn (cát) + Thiên Tâm (đại cát) + Tinh Kỳ"),
+                ("Tốn (Đông Nam)", "Sinh môn (đại cát) + Cửu Địa (cát)"),
+                ("Tổng", "3 cát môn liên kề bao trùm PHÍA ĐÔNG"),
+            ],
+            "paradigm": (
+                "TRỤC ĐÔNG (Cấn + Chấn + Tốn) của anh có CẢ 3 CÁT MÔN. Đây là 'TRỤC "
+                "CHÍNH KÍCH HOẠT' của vận khí. Khi đứng ở cung Trung nhìn về phía "
+                "Đông, anh thấy: KHAI (mở đường) → HƯU (sum họp) → SINH (sinh sôi) "
+                "— trình tự sinh khí hoàn chỉnh.\n\n"
+                "Cross-ref Bát Tự: Dụng Mộc + Hỷ Thủy — Mộc ở Chấn/Tốn (phía Đông), "
+                "Thủy ở Khảm (phía Bắc, bị Hình Cách chặn). Vậy KÍCH MỘC + né Khảm = "
+                "trục Đông là CON ĐƯỜNG tự nhiên."
+            ),
+            "life_application": (
+                "ĐÔNG là hướng VẬN MỆNH của anh. Cụ thể:\n"
+                "• Workspace face ĐÔNG (Chấn) — kích Hưu môn + Thiên Tâm\n"
+                "• Lớn hơn: mua nhà / xây thì cửa chính hướng ĐÔNG\n"
+                "• Du lịch / công tác: ưu tiên phía Đông (TPHCM thay vì Hà Nội?)\n"
+                "• Network: kết bạn quý nhân ở phía Đông\n"
+                "• Trình tự khởi sự: Cấn (Khai mở dự án) → Chấn (Hưu họp team) → Tốn "
+                "(Sinh tăng trưởng) — đi tuần tự, KHÔNG nhảy bước."
+            ),
+        })
+
+    # ─── Insight 18: Cycle Đại Vận KMDG (9 năm/cycle theo cung) ───
+    age = 2026 - 1988
+    current_cycle = (age // 9) + 1   # 1-based
+    cycle_name_map = {1: "Khảm (Bắc)", 2: "Khôn (Tây Nam)", 3: "Chấn (Đông)",
+                      4: "Tốn (Đông Nam)", 5: "Trung", 6: "Càn (Tây Bắc)",
+                      7: "Đoài (Tây)", 8: "Cấn (Đông Bắc)", 9: "Ly (Nam)"}
+    current_cung = cycle_name_map.get(current_cycle % 9 if current_cycle % 9 else 9, "?")
+    next_cycle = current_cycle + 1
+    next_cung = cycle_name_map.get(next_cycle % 9 if next_cycle % 9 else 9, "?")
+    insights.append({
+        "id": "dai_van_cycle",
+        "title": f"🔄 Đại Vận KMDG — {age} tuổi (2026), cycle {current_cycle}, hiện ở cung {current_cung}",
+        "cung": current_cung,
+        "category": "structural",
+        "dam_lien_quote": (
+            "KMDG có nhiều paradigm cycle: 9 cục/cycle theo tiết khí (60 ngày), 9 năm "
+            "= 1 đại vận (theo Lạc Thư 9 cung tuần hoàn). Anh sinh 1988, năm 2026 = "
+            f"{age} tuổi → cycle {current_cycle} đang trú cung {current_cung}. "
+            "(Tradition vận dụng KMDG cho lưu niên — Đàm Liên Chương II)"
+        ),
+        "elements": [
+            ("Tuổi hiện tại (2026)", f"{age} tuổi"),
+            ("Cycle hiện tại", f"{current_cycle} ({age - (current_cycle-1)*9} tuổi trong cycle)"),
+            ("Cung trú hiện tại", current_cung),
+            ("Cung tiếp theo", f"{next_cung} (từ năm {1988 + current_cycle*9})"),
+        ],
+        "paradigm": (
+            f"Năm 2026 anh đang trú cung {current_cung} trong cycle {current_cycle} "
+            f"đại vận KMDG. Cung này có cấu trúc đặc thù trong bàn sinh — đem các "
+            f"insight đã đọc về cung {current_cung} áp vào năm hiện tại + năm tiếp "
+            f"theo.\n\n"
+            f"Đây KHÔNG predict cát/hung 2026, mà là 'context' năng lượng anh đang "
+            f"vận. Cung {current_cung} của anh có sao/môn/thần gì → đó là 'tone' của "
+            f"đời anh giai đoạn này."
+        ),
+        "life_application": (
+            f"Năm 2026 và giai đoạn sắp tới của anh được color bởi cung "
+            f"{current_cung}. Đọc lại insight về cung này (ở phần trên) → "
+            f"áp dụng vào quyết định lớn.\n\n"
+            f"Khoảng năm {1988 + current_cycle*9} anh sẽ chuyển sang cung "
+            f"{next_cung} — chuẩn bị paradigm shift năng lượng."
+        ),
+    })
+
+    # ─── Insight 19: Cấu trúc fingerprint tổng thể ───
+    cat_mon_count = sum(1 for c in mon.values() if c.get("cat_hung") in {"cát", "đại cát"})
+    hung_mon_count = sum(1 for c in mon.values() if c.get("cat_hung") in {"hung", "đại hung"})
+    cat_tinh_count = sum(1 for c in tinh.values() if c.get("cat_hung") in {"cát", "đại cát"})
+    hung_tinh_count = sum(1 for c in tinh.values() if c.get("cat_hung") in {"hung", "đại hung"})
+    insights.append({
+        "id": "fingerprint_summary",
+        "title": "🧬 Fingerprint lá số anh — tổng kết cấu trúc",
+        "cung": "(tổng thể)",
+        "category": "structural",
+        "dam_lien_quote": (
+            "Mỗi lá số KMDG = 1 'dấu vân tay' năng lượng độc nhất. Trong KMDG truyền "
+            "thống, 4320 bố cục lý thuyết → 1080 thực dụng → 72 canon → 18 cục Địa "
+            "Bàn (Đàm Liên Chương II). Mỗi người sinh có 1 trong ~4320 'snapshot' — "
+            "đọc đồng dạng = quan-sát fingerprint này."
+        ),
+        "elements": [
+            ("Tỉ lệ Môn", f"{cat_mon_count} cát / {hung_mon_count} hung (canonical: 3 cát / 5 hung)"),
+            ("Tỉ lệ Tinh", f"{cat_tinh_count} cát / {hung_tinh_count} hung (canonical: 5 cát / 4 hung)"),
+            ("Tỉ lệ Thần", f"{cat_than_count} cát / {hung_than_count} hung (canonical: 5 cát / 3 hung)"),
+            ("Cách cục detected", ", ".join({cc.get("name", "?") for cc in state.get("cach_cuc_detected", [])}) or "(none)"),
+            ("Tam Kỳ hội tụ", "Cấn (Đông Bắc) — Bính + Ất trùng cung"),
+            ("Tổng paradigm CỐT", "Trục Cấn-Khôn cát + trục Khảm-Càn cảnh báo"),
+        ],
+        "paradigm": (
+            "Fingerprint anh có 3 trục năng lượng chính:\n"
+            "1. TỎA SÁNG: Cấn (2 Tam Kỳ + Khai) → Ly (Nhật Kỳ + Cửu Thiên)\n"
+            "2. CỨU CẤP: Khôn (Trị Phù) → Trung (Quý-Quý nội tâm)\n"
+            "3. CẢNH BÁO: Khảm (Hình Cách) + Càn (Tử + Anh) = 2 cung HUNG đối nhau"
+        ),
+        "life_application": (
+            "Tổng kết hành động:\n"
+            "• HƯỚNG CHÍNH (luôn ưu tiên): Đông Bắc (Cấn) + Tây Nam (Khôn) + ĐÔNG\n"
+            "• HƯỚNG TRÁNH (cảnh báo): Bắc (Khảm) + Tây Bắc (Càn)\n"
+            "• THỰC HÀNH TRỤC: ngồi face Đông sáng, cầu cứu Tây Nam khi gấp\n"
+            "• PARADIGM MANTRA: 'thì chỉ tắc chỉ' (Cấn) khi cần dừng để tỏa sáng\n"
+            "• TRỤC TINH THẦN: Trung cung Quý-Quý = meditation/silence hàng ngày"
+        ),
+    })
 
     return insights
 
