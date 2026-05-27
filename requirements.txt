@@ -7,3 +7,7 @@ pytest>=8.0
 skyfield>=1.50
 SQLAlchemy>=2.0
 uvicorn[standard]>=0.30
+# Kỳ Môn Độn Giáp engine deps (vendored kinqimen từ kentang2017/kinqimen)
+# Required cho engine/ky_mon/vendored/kinqimen/config.py
+sxtwl>=2.0
+ephem>=4.1
