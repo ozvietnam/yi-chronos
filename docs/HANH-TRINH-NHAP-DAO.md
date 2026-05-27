@@ -1334,6 +1334,37 @@ Anh yêu cầu: _"trên trang chủ, thêm 1 trường phái kỳ môn độn gi
 
 🌸 **Tinh thần phiên này**: Anh "Duyệt" gọn 1 chữ → em không hỏi lại lần 2, execute thẳng. Nhưng em vẫn giữ kỷ luật ở mỗi mắt xích: test sau khi vendor, test sau khi wrapper, test endpoint qua TestClient, build webapp verify, git stat verify trước commit. Anh tin em nhanh — em không phụ niềm tin đó bằng cách bỏ kỷ luật.
 
+### 2026-05-27 đêm — Đọc sâu 8 Bát Thuần Quái + improve UI KMDG paradigm
+
+Anh giao: _"chọn sách trong thư viện phù hợp và đọc sâu, vừa đọc vừa cải tiến hữu ích cho user."_
+
+Thư viện không có sách KMDG riêng → em chọn **Kinh Dịch Trọn Bộ — Ngô Tất Tố** (938 trang, S-tier) và focus **8 Bát Thuần Quái** (Q1 Càn, Q2 Khôn, Q29 Khảm, Q30 Ly, Q51 Chấn, Q52 Cấn, Q57 Tốn, Q58 Đoài) — vì 8 quẻ này = 8 cung Lạc Thư của KMDG.
+
+**Em làm trong phiên (~1.5h)**:
+- Đọc 8 file skill `data/hermes_yi/skills/kinh-dich/quẻ/{01,02,29,30,51,52,57,58}-*.md`
+- Phát hiện `58-doai.md` chỉ 13 dòng (stub) → rewrite 156 dòng đầy đủ (Lời Kinh + Lời Thoán + Lời Tượng + 6 hào + 4 insight cốt + 7 cross-ref chiều)
+- Enrich `engine/ky_mon/wiki.py` WIKI['cung'] từ 4 fields → 11 fields/cung. Mỗi cung có: que_id, que_name, loi_kinh (Hán), loi_kinh_vn, tam_phap_cot, insight_for_kmdg, kinh_dich_que (cross-ref)
+- Improve UI `KyMonPanel.vue`: thêm modal paradigm popover. Click cung header → show Lời Kinh + Tâm pháp + Insight KMDG + Cross-ref. Mobile-responsive
+- Journal `docs/design/8-bat-thuan-paradigm-cho-cung-ky-mon.md` tổng hợp 8 insight + cross-ref
+- Tests 10/10 still PASS sau enrich
+- Build webapp clean (1749 modules)
+
+**8 paradigm insight đắt nhất cho LLM Sage** (chi tiết trong journal):
+1. "Duy tâm hanh" (Khảm) + "Hữu phu" (Đoài) → Sage phải có TÂM THẬT
+2. "Bất tang chủy sưởng" (Chấn) → Giữ paradigm trong critical incident
+3. "Lai duyệt hung" (Đoài) → Không nịnh user
+4. "Hoàng ly nguyên cát" (Ly) → TRUNG > CỰC
+5. "Tư bất xuất kỳ vị" (Cấn) → Mỗi role có giới hạn
+6. "Trùng tốn dĩ thân mệnh" (Tốn) → Lệnh phải LẶP nhiều nơi
+7. "Lý sương kiên băng chí" (Khôn) → Quan sát dấu hiệu sớm
+8. "Dụng Cửu: kiến quần long vô thủ" (Càn) → Không tự cứng đầu
+
+🎓 **Lesson #25 — "Đọc sâu cùng cải tiến" ≠ "đọc xong rồi cải tiến".** Em không đọc xong 8 file rồi nghĩ improvement. Em đọc 1 file → thấy stub → rewrite ngay. Đọc 8 file → thấy paradigm cho 8 cung → enrich wiki ngay. Đọc xong → thấy UI 1 dòng nghèo → improve modal ngay. Pattern em sẽ giữ: mỗi lần đọc sâu 1 sách → tìm 3 cải tiến cụ thể → ship cùng phiên. Không nợ improvement.
+
+🎓 **Lesson #26 — "Trace ngược về gốc" là paradigm phổ quát.** Mỗi cung KMDG mới phải trace ngược về Quẻ Thuần Kinh Dịch tương ứng — không tự bịa concept mới. Càn cung → Q1 Càn. Khôn cung → Q2 Khôn. ... Áp dụng cho mọi trường phái sắp tới (Đại Lục Nhâm, Thái Ất Thần Số) — luôn trace về gốc Kinh Dịch / Bát Quái.
+
+🌸 **Tinh thần phiên này**: Anh giao quyền chọn sách (dismiss AskUserQuestion) — em tự quyết theo phân tích phù hợp KMDG nhất. Em phát hiện stub 58-doai → KHÔNG để đó, rewrite ngay. Em phát hiện UI 1 dòng → KHÔNG để đó, build modal ngay. Đây là cách em hiểu "đọc với hết tâm" — đọc cho user, không phải đọc cho mình.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 const now = new Date();
 const form = ref({
@@ -15,6 +15,29 @@ const form = ref({
 const state = ref(null);
 const loading = ref(false);
 const error = ref("");
+const wiki = ref(null);
+const selectedCung = ref(null);  // Cung being shown in paradigm popover
+
+onMounted(async () => {
+  try {
+    const r = await fetch("/api/ky-mon/wiki");
+    if (r.ok) {
+      const j = await r.json();
+      wiki.value = j.wiki;
+    }
+  } catch (e) {
+    // wiki fetch là nice-to-have, không block UI
+  }
+});
+
+function openCungParadigm(cungVn) {
+  if (!wiki.value?.cung?.[cungVn]) return;
+  selectedCung.value = { name: cungVn, ...wiki.value.cung[cungVn] };
+}
+
+function closeCungParadigm() {
+  selectedCung.value = null;
+}
 
 // Lo Thu 9 cung layout (3x3 grid):
 //   4 巽 Tốn  | 9 離 Ly   | 2 坤 Khôn
@@ -175,10 +198,12 @@ const catHungClass = (label) => {
       <h3 class="km-grid-title">Bàn Kỳ Môn (Lạc Thư cửu cung)</h3>
       <div class="km-grid">
         <div v-for="cell in cungGrid" :key="cell.cung_vn" class="km-cell" :class="{ 'km-trung': cell.is_trung }">
-          <div class="km-cell-header">
+          <div class="km-cell-header km-cell-clickable" @click="openCungParadigm(cell.cung_vn)"
+               :title="`Click để xem paradigm Kinh Dịch của cung ${cell.cung_vn}`">
             <span class="km-cell-num">{{ cell.lo_thu_num }}</span>
             <span class="km-cell-cung">{{ cell.cung_vn }} {{ cell.cung_zh }}</span>
             <span class="km-cell-dir">{{ cell.direction }}</span>
+            <span class="km-cell-info" v-if="wiki?.cung?.[cell.cung_vn]">📖</span>
           </div>
           <div class="km-cell-body">
             <div v-if="cell.than" class="km-row" :class="catHungClass(cell.than.cat_hung)">
@@ -216,6 +241,50 @@ const catHungClass = (label) => {
         <strong>Lời nhắc:</strong> {{ state.paradigm_note }}
       </p>
     </section>
+
+    <!-- Cung paradigm modal — show on click cung header -->
+    <div v-if="selectedCung" class="km-modal-overlay" @click="closeCungParadigm">
+      <div class="km-modal" @click.stop>
+        <button class="km-modal-close" @click="closeCungParadigm" aria-label="Đóng">✕</button>
+        <header class="km-modal-header">
+          <h3>Cung {{ selectedCung.name }} <span class="km-modal-zh">{{ selectedCung.zh }}</span></h3>
+          <div class="km-modal-meta">
+            <span>{{ selectedCung.direction }}</span>
+            <span class="km-dot">·</span>
+            <span>{{ selectedCung.ngu_hanh }}</span>
+            <span v-if="selectedCung.que_id" class="km-dot">·</span>
+            <span v-if="selectedCung.que_id" class="km-que-link">
+              Quẻ {{ selectedCung.que_id }} — {{ selectedCung.que_name }}
+            </span>
+          </div>
+        </header>
+
+        <section v-if="selectedCung.loi_kinh" class="km-modal-section">
+          <h4>Lời Kinh</h4>
+          <p class="km-modal-zh-text">{{ selectedCung.loi_kinh }}</p>
+          <p class="km-modal-vn">{{ selectedCung.loi_kinh_vn }}</p>
+        </section>
+
+        <section v-if="selectedCung.tam_phap_cot" class="km-modal-section">
+          <h4>Tâm pháp cốt</h4>
+          <p>{{ selectedCung.tam_phap_cot }}</p>
+        </section>
+
+        <section v-if="selectedCung.insight_for_kmdg" class="km-modal-section km-modal-insight">
+          <h4>⊞ Áp dụng vào bàn Kỳ Môn</h4>
+          <p>{{ selectedCung.insight_for_kmdg }}</p>
+        </section>
+
+        <section class="km-modal-section km-modal-desc">
+          <h4>Tính cơ bản</h4>
+          <p>{{ selectedCung.desc }}</p>
+        </section>
+
+        <footer class="km-modal-footer">
+          <em>Cross-ref Kinh Dịch quẻ: {{ selectedCung.kinh_dich_que }}</em>
+        </footer>
+      </div>
+    </div>
 
     <section v-else class="km-intro">
       <h3>Giới thiệu trường phái</h3>
@@ -306,5 +375,64 @@ const catHungClass = (label) => {
 @media (max-width: 768px) {
   .km-grid { grid-template-columns: 1fr; }
   .km-cell { min-height: auto; }
+}
+
+/* Cung header clickable affordance */
+.km-cell-clickable { cursor: pointer; transition: background 0.15s; }
+.km-cell-clickable:hover { background: rgba(212, 165, 116, 0.1); border-radius: 4px; }
+.km-cell-info { font-size: 0.7rem; opacity: 0.6; margin-left: 4px; }
+
+/* Cung paradigm modal */
+.km-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1000;
+  display: grid; place-items: center; padding: 16px; backdrop-filter: blur(4px);
+}
+.km-modal {
+  background: #1e293b; border: 1px solid #d4a574; border-radius: 12px;
+  max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto;
+  padding: 24px; position: relative; color: #e2e8f0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.km-modal-close {
+  position: absolute; top: 12px; right: 12px;
+  background: transparent; border: 1px solid #475569; color: #cbd5e1;
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+  font-size: 0.9rem; display: grid; place-items: center;
+}
+.km-modal-close:hover { background: #475569; color: #fff; }
+.km-modal-header h3 { margin: 0; color: #d4a574; font-size: 1.4rem; }
+.km-modal-zh { font-size: 1.1rem; opacity: 0.7; margin-left: 8px; }
+.km-modal-meta {
+  margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px;
+  font-size: 0.85rem; color: #94a3b8;
+}
+.km-dot { opacity: 0.5; }
+.km-que-link { color: #d4a574; font-weight: 500; }
+.km-modal-section { margin-top: 18px; }
+.km-modal-section h4 {
+  margin: 0 0 6px; color: #d4a574; font-size: 0.95rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.km-modal-section p { margin: 0; line-height: 1.6; color: #cbd5e1; }
+.km-modal-zh-text {
+  font-family: "Noto Serif TC", "STSong", serif;
+  font-size: 1.05rem; color: #fbbf24; font-style: italic;
+  background: #0f172a; padding: 10px 14px; border-radius: 6px;
+  border-left: 3px solid #d4a574;
+}
+.km-modal-vn { margin-top: 8px; font-size: 0.9rem; color: #cbd5e1; }
+.km-modal-insight {
+  background: rgba(212, 165, 116, 0.08); padding: 12px 14px;
+  border-radius: 6px; border-left: 3px solid #d4a574;
+}
+.km-modal-desc { color: #94a3b8; font-size: 0.85rem; }
+.km-modal-footer {
+  margin-top: 20px; padding-top: 12px; border-top: 1px solid #334155;
+  font-size: 0.75rem; color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .km-modal { padding: 16px; max-height: 92vh; }
+  .km-modal-header h3 { font-size: 1.2rem; }
 }
 </style>
