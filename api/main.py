@@ -4508,23 +4508,139 @@ def yi_wiki_kinhdich_graph() -> dict:
 
 @app.get("/api/yi-wiki/kinh-dich/daily")
 def yi_wiki_kinhdich_daily(date: str | None = None) -> dict:
-    """1 quẻ/ngày — deterministic theo ngày.
+    """⚠️ DEPRECATED 2026-05-27 đêm: paradigm SAI (horoscope-style).
 
-    Paradigm: KHÔNG random — cùng ngày = cùng quẻ. Cho morning brief, daily mantra.
+    Tổ sư Khang Tiết Q3: 'Bất nghi bất bốc' — không nghi không bói.
+    KHÔNG đọc 'hôm nay tốt/xấu'. Dùng `/api/yi-wiki/luu-van/*` để xem 7 vòng đúng paradigm.
 
-    Query param `date` optional (YYYY-MM-DD). Mặc định = hôm nay (server timezone).
+    Endpoint giữ tạm để không phá UI cũ — sẽ xóa sau khi LuuVanDashboard ổn.
     """
     from engine.yi_wiki.luan_sau_kinhdich import get_daily_hexagram
     import datetime as _dt
     if date is None:
         date = _dt.date.today().isoformat()
     try:
-        # Validate format
         _dt.date.fromisoformat(date)
     except ValueError:
         raise HTTPException(400, f"Date phải YYYY-MM-DD, không phải: {date}")
     data = get_daily_hexagram(date)
-    return {"status": "ok", **data}
+    return {
+        "status": "ok",
+        "deprecation_warning": (
+            "Endpoint này paradigm SAI (Iron Rule #4 — KHÔNG predict cát/hung tĩnh). "
+            "Dùng /api/yi-wiki/luu-van/* thay thế."
+        ),
+        **data,
+    }
+
+
+# ============================================================================
+# Mai Hoa Lưu Vận — 7 vòng quẻ paradigm Khang Tiết (2026-05-27)
+# Reference: docs/design/MAI-HOA-LUU-VAN-GOAL.md — CẤM QUÊN
+# ============================================================================
+
+class LuuVanSnapshotRequest(BaseModel):
+    """Input cho snapshot 7 vòng quẻ.
+
+    Birth: ngày-giờ sinh âm lịch của user.
+    Now: thời điểm hiện tại âm lịch (optional — server tự tính nếu không có).
+    """
+    # Sinh thần
+    birth_year_chi: str          # vd "Thìn"
+    birth_lunar_month: int       # 1-12
+    birth_lunar_day: int         # 1-30
+    birth_hour_chi: str          # vd "Tý"
+    # Thời điểm hiện tại (optional)
+    now_year_chi: str | None = None
+    now_lunar_month: int | None = None
+    now_lunar_day: int | None = None
+    now_hour_chi: str | None = None
+
+
+@app.post("/api/yi-wiki/luu-van/snapshot")
+def yi_wiki_luu_van_snapshot(req: LuuVanSnapshotRequest) -> dict:
+    """Snapshot 7 vòng quẻ Mai Hoa cho user tại thời điểm hiện tại.
+
+    Trả về:
+    - 7 quẻ (Khởi Sinh / Lưu Niên / Lưu Nguyệt / Lưu Nhật / Lưu Thời / Vũ trụ / Cộng hưởng)
+    - 6 giao thoa Ngũ hành (sinh / khắc / tỉ hoà)
+
+    ⚠️ Iron Rule #4: KHÔNG predict cát/hung tĩnh. Đây là CẤU TRÚC paradigm.
+    """
+    from engine.yi_wiki.luu_van import BirthInfo, NowInfo, quan_sat_luu_van
+    import datetime as _dt
+
+    birth = BirthInfo(
+        year_chi=req.birth_year_chi,
+        lunar_month=req.birth_lunar_month,
+        lunar_day=req.birth_lunar_day,
+        hour_chi=req.birth_hour_chi,
+    )
+
+    # Default now = server time → convert sang âm lịch
+    if req.now_year_chi is None:
+        # Fallback đơn giản — em sẽ wire solar→lunar converter sau
+        # Hiện dùng: năm dương = năm âm gần đúng, tháng/ngày dương ≈ âm
+        nowdt = _dt.datetime.now()
+        # Năm 2026 = Bính Ngọ → chi Ngọ
+        chi_table = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+        year_chi_idx = (nowdt.year - 1984) % 12   # 1984 = Giáp Tý baseline
+        # Giờ: 23:00-1:00 = Tý, 1-3 Sửu, ... 21-23 Hợi
+        hour_chi_idx = ((nowdt.hour + 1) // 2) % 12
+        now = NowInfo(
+            year_chi=chi_table[year_chi_idx],
+            lunar_month=nowdt.month,  # approx
+            lunar_day=nowdt.day,      # approx
+            hour_chi=chi_table[hour_chi_idx],
+        )
+    else:
+        now = NowInfo(
+            year_chi=req.now_year_chi,
+            lunar_month=req.now_lunar_month,
+            lunar_day=req.now_lunar_day,
+            hour_chi=req.now_hour_chi,
+        )
+
+    snapshot = quan_sat_luu_van(birth, now)
+    return {"status": "ok", **snapshot}
+
+
+@app.get("/api/yi-wiki/luu-van/vu-tru-now")
+def yi_wiki_luu_van_vu_tru_now() -> dict:
+    """Quẻ Vũ trụ tại giờ hiện tại — KHÔNG cá nhân hóa.
+
+    Cùng cho mọi người gieo cùng giờ. Đổi mỗi 2 tiếng.
+    """
+    from engine.yi_wiki.luu_van import NowInfo, cast_que_vu_tru
+    import datetime as _dt
+    nowdt = _dt.datetime.now()
+    chi_table = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    year_chi_idx = (nowdt.year - 1984) % 12
+    hour_chi_idx = ((nowdt.hour + 1) // 2) % 12
+    now = NowInfo(
+        year_chi=chi_table[year_chi_idx],
+        lunar_month=nowdt.month,
+        lunar_day=nowdt.day,
+        hour_chi=chi_table[hour_chi_idx],
+    )
+    cast = cast_que_vu_tru(now)
+    return {
+        "status": "ok",
+        "now": now.__dict__,
+        "que": {
+            "chinh": cast.chinh_quai.name,
+            "bien": cast.bien_quai.name,
+            "ho": cast.ho_quai.name,
+            "moving_line": cast.moving_line,
+            "upper_que": cast.chinh_quai.upper_que,
+            "lower_que": cast.chinh_quai.lower_que,
+        },
+        "formula_trace": cast.formula_trace,
+        "paradigm_note": (
+            "Quẻ Vũ trụ THUẦN — không cá nhân. Mọi người gieo cùng giờ sẽ ra "
+            "cùng quẻ. KHÔNG predict cát/hung. Đọc đồng dạng vũ trụ đang ở đâu."
+        ),
+    }
 
 
 @app.get("/api/yi-wiki/kinh-dich/que/{slug}")

@@ -47,7 +47,10 @@ import MaiHoaCastPanel from "./components/wiki/MaiHoaCastPanel.vue";
 import KinhDichBrowser from "./components/wiki/KinhDichBrowser.vue";
 import KinhDichGraph from "./components/wiki/KinhDichGraph.vue";
 import HaoSpacedRepetition from "./components/wiki/HaoSpacedRepetition.vue";
-import DailyHexagramPanel from "./components/wiki/DailyHexagramPanel.vue";
+import LuuVanDashboard from "./components/wiki/LuuVanDashboard.vue";
+// DailyHexagramPanel: DEPRECATED 2026-05-27 đêm — paradigm SAI (horoscope-style).
+// Thay bằng LuuVanDashboard (7 vòng quẻ đúng paradigm Khang Tiết).
+// import DailyHexagramPanel from "./components/wiki/DailyHexagramPanel.vue";
 import CrossCastPanel from "./components/wiki/CrossCastPanel.vue";
 import PublishingWorkspace from "./components/publishing/PublishingWorkspace.vue";
 import LibraryView from "./components/publishing/LibraryView.vue";
@@ -534,7 +537,7 @@ onBeforeUnmount(() => {
             'Phía dưới: Timeline narrative + Diệp + Quẻ bản mệnh (giữ nguyên).'
           ]"
         />
-        <DailyHexagramPanel />
+        <LuuVanDashboard />
 
         <MaiHoaCastPanel />
 
