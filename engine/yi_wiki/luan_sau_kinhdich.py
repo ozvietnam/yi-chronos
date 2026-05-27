@@ -100,6 +100,10 @@ _DEEP_QUE_FILES: set[str] = {
     "quẻ/44-cau.md",       # cụm 6 (canonical Trình Di)
     "quẻ/45-tuy-hexagram.md",  # cụm 6 (canonical)
     "quẻ/46-thang.md",     # cụm 6 (canonical)
+    "quẻ/47-khon-hexagram.md", # 2026-05-27 cụm 7 (canonical Trình Di)
+    "quẻ/48-tinh.md",      # cụm 7 (canonical)
+    "quẻ/49-cach.md",      # cụm 7 (canonical)
+    "quẻ/50-dinh.md",      # cụm 7 (canonical)
 }
 
 # 64 hexagram (upper, lower) → file citation.
