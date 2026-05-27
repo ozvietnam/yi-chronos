@@ -142,7 +142,109 @@ Cát-hung, họa-phúc theo từng giai đoạn
 
 ---
 
-## (Continued — sẽ thêm sau khi đọc thêm Chương 2-3)
+### II. Bản tính của ngũ hành (tr. 24-26)
+
+**Tinh thần chốt — chữ "BỔ" là chìa khóa vàng:**
+
+> _"Chương hai của cuốn sách này mọi nội dung đều xoay quanh chữ 'Bổ', coi đó là chìa khóa vàng cho Nhập môn dự đoán theo Tứ trụ."_ — tr. 24
+
+→ "Bổ" = bổ sung khí ngũ hành THIẾU trong Tứ Trụ → CÂN BẰNG. Phương tiện bổ:
+1. **Nghề nghiệp + phương vị** (tr. 26): thuộc Mộc → nghề mộc/giấy/cây, phương Đông. Thuộc Hỏa → chiếu sáng/quang học/dầu/rượu/văn nghệ, phương Nam. Thuộc Thổ → thổ sản/đất đai/kiến trúc/môi giới, vùng giữa. Thuộc Thủy → hàng hải/thủy sản/chiêm bốc, phương Bắc. Thuộc Kim → kim loại/võ thuật/ô tô/cơ khí, phương Tây.
+2. **Ẩm thực**: thuộc Mộc thiếu → thèm chua. (Tự bổ bản năng)
+3. **Tính tình** (tr. 25-26):
+   - Mộc → chủ NHÂN. Vượng: thẳng, ôn hòa, bác ái, chất phác. Suy: gầy, hẹp hòi, đố kị.
+   - Hỏa → chủ LỄ. Vượng: lễ độ, hoạt bát, nóng nhanh. Suy: dối trá, cay độc, không đầu đuôi.
+   - Thổ → chủ TÍN. Vượng: trung hậu, chân thành, độ lượng. Suy: ác độc, bất tín, vô tình.
+   - Kim → chủ NGHĨA. Vượng: cương trực, trọng nghĩa khinh tài. Suy: nham hiểm, tham lam.
+   - Thủy → chủ TRÍ. Vượng: thông minh, hiền lành, túc trí đa mưu. Suy: bất thường, vô mưu.
+
+→ Đây là 5 ĐỨC TÍNH gắn với 5 KHÍ — cùng paradigm với Mai Hoa (ngũ thể) và Tử Vi (ngũ tinh).
+
+**Cross-ref với engine**:
+- Engine `dung_than.py` model đúng paradigm "Bổ" qua Dụng Thần (cường độ) + Điều Hậu (khí hậu).
+- Engine `ngu_hanh.py` đếm counts cho UI hiển thị.
+- **Gap**: engine CHƯA model "bổ qua nghề nghiệp + ẩm thực" — có thể là feature roadmap tương lai cho Panel.
+
+### III. Mười Thiên Can — ý nghĩa từng chữ (tr. 27-30)
+
+Sách "Quần thư khảo dị" (tr. 28) giải nghĩa từng can theo etymology vạn vật:
+
+| Can | Nghĩa | Mô tả |
+|---|---|---|
+| Giáp | "nứt vỏ" | Vạn vật nứt mầm khỏi vỏ |
+| Ất | "uốn mầm" | Mầm uốn cong vươn lên |
+| Bính | "rõ ràng" | Vạn vật trổ ra rõ ràng |
+| Đinh | "mạnh" | Vạn vật bắt đầu mạnh lên |
+| Mậu | "rậm rạp" | Vạn vật xum xuê |
+| Kỷ | "ghi nhớ" | Vạn vật có hình phân biệt |
+| Canh | "chắc lại" | Có quả, chắc |
+| Tân | "mới" | Có sự thu hoạch |
+| Nhâm | "gánh vác" | Dương khí nuôi dưỡng vạn vật |
+| Quý | "đo lường" | Vạn vật đo lường được |
+
+→ Tên 10 can KHÔNG ngẫu nhiên — phản ánh **10 giai đoạn vòng đời** của vạn vật trong 1 chu kỳ dương khí (1 năm Mặt Trời).
+
+### IV. Mười Hai Địa Chi — ý nghĩa từng chữ (tr. 28)
+
+Tương tự, 12 chi phản ánh **12 giai đoạn vòng đời** trong chu kỳ Mặt Trăng:
+
+| Chi | Nghĩa | Mô tả |
+|---|---|---|
+| Tý | "tư bổ nuôi dưỡng" | Mầm mống nảy nở nhờ dương khí |
+| Sửu | "kết lại" | Mầm non lớn lên |
+| Dần | "đổi dời" | Mầm vươn khỏi mặt đất |
+| Mão | "đội" | Đội đất mà lên |
+| Thìn | "chấn động" | Qua chấn động mà lớn |
+| Tỵ | "bắt đầu" | Có sự bắt đầu |
+| Ngọ | "tỏa ra" | Mọc cành lá |
+| Mùi | "ám muội" | Âm khí bắt đầu, hơi suy |
+| Thân | "thân thể" | Thân thể trưởng thành |
+| Dậu | "già" | Già dặn, thành thục |
+| Tuất | "diệt" | Suy diệt |
+| Hợi | "hạt" | Thu tàng thành hạt |
+
+→ Mặt Trời (10 can) = dương khí. Mặt Trăng (12 chi) = âm khí. Tổ hợp tạo 60 Giáp Tý.
+
+### V. Tiết Khí (24 tiết) (tr. 42+)
+
+**Tiết khí KHÔNG dùng mùng 1 Tết âm lịch**. Dùng **Lập Xuân (4-5/2 dương)** làm mốc đổi Trụ Năm.
+
+- Tháng Giêng = Lập Xuân + Vũ Thủy
+- Tháng 2 = Kinh Trập + Xuân Phân
+- ... (24 tiết, mỗi tháng 2 tiết — Tiết đầu + Khí giữa)
+
+Engine `engine/bat_tu/dai_van.py` đã model: Đại Vận khởi tính từ khoảng cách giờ sinh đến Tiết khí gần nhất.
+
+### VI. Cách xếp Tứ Trụ (tr. 46-49)
+
+Engine `engine/bat_tu/tu_tru.py` đã implement. Sách dạy thủ công:
+1. Tra Trụ Năm theo bảng 60 Giáp Tý (sau Lập Xuân thì đổi sang năm sau).
+2. Tra Trụ Tháng theo "Ngũ Hổ Độn" (xem can năm → can tháng tương ứng).
+3. Tra Trụ Ngày theo Vạn Niên Lịch (engine dùng pyephem để compute).
+4. Tra Trụ Giờ theo "Ngũ Thử Độn" (xem can ngày → can giờ tương ứng).
+
+**Insight quan trọng** (tr. 46):
+> _"Đối với người có kĩ thuật đoán cao, có thể thông qua đoán quá khứ của người đó để thử, xác định lại ngày giờ sinh cho chuẩn."_
+
+→ Đây chính là **Birth Hour Rectification** = chính lý thuyết em đã build trong **Birth Hour Quiz V2** (2026-05-19) bằng Bát Tự hypothesis comparison. Em không phát minh — em **đang khôi phục một kỹ thuật cổ điển** mà sách này đã ghi từ 1994.
+
+---
+
+## Tổng kết Phần B — Chương 2 paradigm
+
+| Concept | Position |
+|---|---|
+| **Âm Dương + Ngũ Hành** | Ngôn ngữ biểu diễn khí — không phải vật chất |
+| **Tương sinh + Tương khắc** | Hai mặt thống nhất, không có khắc thì không có cân bằng |
+| **Thái quá + Bất cập** | Quy tắc tinh tế — sinh quá hóa hại, khắc đúng hóa dụng |
+| **BỔ** | Chìa khóa vàng — cân bằng khí thiếu qua nghề/môi trường/ẩm thực/hôn nhân |
+| **5 đức tính (Nhân-Lễ-Tín-Nghĩa-Trí)** | Cross với Mai Hoa + Tử Vi paradigm |
+| **Etymology 10 can / 12 chi** | KHÔNG ngẫu nhiên — phản ánh chu kỳ vạn vật |
+| **Tiết khí làm mốc** | Tử Bình DÙNG tiết khí, KHÔNG dùng mùng 1 ÂL |
+
+---
+
+## (Continued — Phần C sẽ thêm khi Anh muốn em đọc tiếp Chương 3+ về Thập Thần kỹ thuật chi tiết)
 
 ---
 
