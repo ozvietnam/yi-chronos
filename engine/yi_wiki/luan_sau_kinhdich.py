@@ -455,3 +455,203 @@ def call_llm_luan_sau(prompt: str) -> dict:
     raise RuntimeError(
         f"Tất cả provider thất bại. Last error: {last_error or 'no provider configured'}"
     )
+
+
+# ============================================================================
+# Hexagram Browser API helpers (2026-05-27 — feature: tra cứu trực tiếp 64 quẻ)
+# ============================================================================
+
+# Metadata cho 64 quẻ — derived từ _HEXAGRAM_TO_FILE + parse filename
+# Format: {slug: {number, name_vi, name_zh, upper, lower, structure_unicode, file}}
+
+_BAT_QUAI_UNICODE = {
+    "Càn": "☰", "Khôn": "☷", "Khảm": "☵", "Ly": "☲",
+    "Chấn": "☳", "Tốn": "☴", "Cấn": "☶", "Đoài": "☱",
+}
+
+_HEXAGRAM_META: list[dict] = [
+    # (number, slug, name_vi, name_zh, upper, lower)
+    (1, "kien", "Kiền", "乾", "Càn", "Càn"),
+    (2, "khon", "Khôn", "坤", "Khôn", "Khôn"),
+    (3, "truan", "Truân", "屯", "Khảm", "Chấn"),
+    (4, "mong", "Mông", "蒙", "Cấn", "Khảm"),
+    (5, "nhu", "Nhu", "需", "Khảm", "Càn"),
+    (6, "tung", "Tụng", "訟", "Càn", "Khảm"),
+    (7, "su", "Sư", "師", "Khôn", "Khảm"),
+    (8, "ty", "Tỵ", "比", "Khảm", "Khôn"),
+    (9, "tieu-suc", "Tiểu Súc", "小畜", "Tốn", "Càn"),
+    (10, "ly", "Lý", "履", "Càn", "Đoài"),
+    (11, "thai", "Thái", "泰", "Khôn", "Càn"),
+    (12, "bi", "Bĩ", "否", "Càn", "Khôn"),
+    (13, "dong-nhan", "Đồng Nhân", "同人", "Càn", "Ly"),
+    (14, "dai-huu", "Đại Hữu", "大有", "Ly", "Càn"),
+    (15, "khiem", "Khiêm", "謙", "Khôn", "Cấn"),
+    (16, "du", "Dự", "豫", "Chấn", "Khôn"),
+    (17, "tuy", "Tùy", "隨", "Đoài", "Chấn"),
+    (18, "co", "Cổ", "蠱", "Cấn", "Tốn"),
+    (19, "lam", "Lâm", "臨", "Khôn", "Đoài"),
+    (20, "quan", "Quán", "觀", "Tốn", "Khôn"),
+    (21, "phe-hap", "Phệ Hạp", "噬嗑", "Ly", "Chấn"),
+    (22, "bi", "Bí", "賁", "Cấn", "Ly"),
+    (23, "bac", "Bác", "剝", "Cấn", "Khôn"),
+    (24, "phuc", "Phục", "復", "Khôn", "Chấn"),
+    (25, "vo-vong", "Vô Vọng", "無妄", "Càn", "Chấn"),
+    (26, "dai-suc", "Đại Súc", "大畜", "Cấn", "Càn"),
+    (27, "di", "Di", "頤", "Cấn", "Chấn"),
+    (28, "dai-qua", "Đại Quá", "大過", "Đoài", "Tốn"),
+    (29, "kham", "Khảm (thuần)", "坎", "Khảm", "Khảm"),
+    (30, "ly-hexagram", "Ly (thuần)", "離", "Ly", "Ly"),
+    (31, "ham", "Hàm", "咸", "Đoài", "Cấn"),
+    (32, "hang", "Hằng", "恆", "Chấn", "Tốn"),
+    (33, "don", "Độn", "遯", "Càn", "Cấn"),
+    (34, "dai-trang", "Đại Tráng", "大壯", "Chấn", "Càn"),
+    (35, "tan", "Tấn", "晉", "Ly", "Khôn"),
+    (36, "minh-di", "Minh Di", "明夷", "Khôn", "Ly"),
+    (37, "gia-nhan", "Gia Nhân", "家人", "Tốn", "Ly"),
+    (38, "khue", "Khuê", "睽", "Ly", "Đoài"),
+    (39, "kien", "Kiển", "蹇", "Khảm", "Cấn"),
+    (40, "giai", "Giải", "解", "Chấn", "Khảm"),
+    (41, "ton", "Tổn", "損", "Cấn", "Đoài"),
+    (42, "ich", "Ích", "益", "Tốn", "Chấn"),
+    (43, "quai", "Quải", "夬", "Đoài", "Càn"),
+    (44, "cau", "Cấu", "姤", "Càn", "Tốn"),
+    (45, "tuy-hexagram", "Tụy", "萃", "Đoài", "Khôn"),
+    (46, "thang", "Thăng", "升", "Khôn", "Tốn"),
+    (47, "khon-hexagram", "Khốn", "困", "Đoài", "Khảm"),
+    (48, "tinh", "Tỉnh", "井", "Khảm", "Tốn"),
+    (49, "cach", "Cách", "革", "Đoài", "Ly"),
+    (50, "dinh", "Đỉnh", "鼎", "Ly", "Tốn"),
+    (51, "chan", "Chấn (thuần)", "震", "Chấn", "Chấn"),
+    (52, "can-hexagram", "Cấn (thuần)", "艮", "Cấn", "Cấn"),
+    (53, "tiem", "Tiệm", "漸", "Tốn", "Cấn"),
+    (54, "qui-muoi", "Quy Muội", "歸妹", "Chấn", "Đoài"),
+    (55, "phong", "Phong", "豐", "Chấn", "Ly"),
+    (56, "lu", "Lữ", "旅", "Ly", "Cấn"),
+    (57, "ton-hexagram", "Tốn (thuần)", "巽", "Tốn", "Tốn"),
+    (58, "doai", "Đoài (thuần)", "兌", "Đoài", "Đoài"),
+    (59, "hoan", "Hoán", "渙", "Tốn", "Khảm"),
+    (60, "tiet", "Tiết", "節", "Khảm", "Đoài"),
+    (61, "trung-phu", "Trung Phu", "中孚", "Tốn", "Đoài"),
+    (62, "tieu-qua", "Tiểu Quá", "小過", "Chấn", "Cấn"),
+    (63, "ky-te", "Ký Tế", "既濟", "Khảm", "Ly"),
+    (64, "vi-te", "Vị Tế", "未濟", "Ly", "Khảm"),
+]
+
+
+def _parse_yaml_frontmatter(text: str) -> dict:
+    """Trích lightweight metadata từ frontmatter — không cần PyYAML.
+
+    Chỉ parse `description:` và `routing_keys: [...]` (đủ cho list view).
+    """
+    if not text.startswith("---"):
+        return {}
+    end = text.find("\n---", 3)
+    if end < 0:
+        return {}
+    fm = text[3:end]
+    out: dict = {}
+    # description: lấy dòng đầu của trường (có thể wrap)
+    for line in fm.splitlines():
+        s = line.strip()
+        if s.startswith("description:"):
+            out["description"] = s.split(":", 1)[1].strip()
+        elif "routing_keys:" in s:
+            # routing_keys: [a, b, c] — extract giữa []
+            i = s.find("[")
+            j = s.rfind("]")
+            if i >= 0 and j > i:
+                out["routing_keys"] = [k.strip() for k in s[i + 1:j].split(",") if k.strip()]
+    return out
+
+
+def _hexagram_slug_to_filename(slug: str, number: int) -> str:
+    """Map (number, slug) → filename trong quẻ/. Format: NN-slug.md (zero-padded)."""
+    return f"quẻ/{number:02d}-{slug}.md"
+
+
+def list_hexagrams() -> list[dict]:
+    """Liệt kê 64 quẻ với metadata cơ bản + description từ frontmatter.
+
+    Returns:
+        List 64 dict, mỗi dict có: number, slug, name_vi, name_zh, upper, lower,
+        structure_unicode, file, description (parsed).
+    """
+    out: list[dict] = []
+    for number, slug, name_vi, name_zh, upper, lower in _HEXAGRAM_META:
+        filename = _hexagram_slug_to_filename(slug, number)
+        # Parse description từ frontmatter
+        f = _SKILLS_ROOT / filename
+        description = ""
+        if f.exists():
+            try:
+                text = f.read_text(encoding="utf-8")
+                fm = _parse_yaml_frontmatter(text)
+                description = fm.get("description", "")
+            except Exception:
+                pass
+        out.append({
+            "number": number,
+            "slug": slug,
+            "name_vi": name_vi,
+            "name_zh": name_zh,
+            "upper": upper,
+            "lower": lower,
+            "structure_unicode": _BAT_QUAI_UNICODE.get(upper, "") + _BAT_QUAI_UNICODE.get(lower, ""),
+            "file": filename,
+            "description": description,
+            "has_deep": filename in _DEEP_QUE_FILES,
+        })
+    return out
+
+
+def get_hexagram(slug_or_number: str) -> Optional[dict]:
+    """Đọc 1 quẻ theo slug (vd: 'kien', 'thai') hoặc số (vd: '1', '63').
+
+    Returns:
+        {number, slug, name_vi, name_zh, upper, lower, structure_unicode,
+         file, description, body_markdown, has_deep} hoặc None nếu không tìm thấy.
+    """
+    target_meta = None
+    # Try parse số trước
+    try:
+        num = int(slug_or_number)
+        for meta in _HEXAGRAM_META:
+            if meta[0] == num:
+                target_meta = meta
+                break
+    except ValueError:
+        pass
+    # Fallback: match by slug
+    if target_meta is None:
+        for meta in _HEXAGRAM_META:
+            if meta[1] == slug_or_number:
+                target_meta = meta
+                break
+    if target_meta is None:
+        return None
+
+    number, slug, name_vi, name_zh, upper, lower = target_meta
+    filename = _hexagram_slug_to_filename(slug, number)
+    f = _SKILLS_ROOT / filename
+    if not f.exists():
+        return None
+    try:
+        text = f.read_text(encoding="utf-8")
+    except Exception:
+        return None
+    fm = _parse_yaml_frontmatter(text)
+    body = _strip_yaml_frontmatter(text)
+    return {
+        "number": number,
+        "slug": slug,
+        "name_vi": name_vi,
+        "name_zh": name_zh,
+        "upper": upper,
+        "lower": lower,
+        "structure_unicode": _BAT_QUAI_UNICODE.get(upper, "") + _BAT_QUAI_UNICODE.get(lower, ""),
+        "file": filename,
+        "description": fm.get("description", ""),
+        "routing_keys": fm.get("routing_keys", []),
+        "body_markdown": body,
+        "has_deep": filename in _DEEP_QUE_FILES,
+    }

@@ -460,6 +460,15 @@ const relation = computed(() => {
             <span v-if="luanSau.model">Model: {{ luanSau.model }}</span>
             <span v-if="luanSau.tokens_used">Tokens: {{ luanSau.tokens_used }}</span>
             <span>Citations: {{ luanSau.citations_used?.length || 0 }} file</span>
+            <span v-if="luanSau.has_deep_citations" class="badge-deep" title="Mỗi quẻ có Trình Di + Chu Hy + Tiên Nho nguyên văn trong prompt LLM">
+              📜 Có deep citation
+            </span>
+            <span v-else-if="luanSau.citations_used?.length" class="badge-shallow" title="LLM dùng INDEX + tâm-pháp paradigm, không có hào nguyên văn">
+              ⚠️ Paradigm-only
+            </span>
+            <span v-if="luanSau.stubs_skipped?.length" class="badge-stub" :title="`Quẻ chưa thâm nhuần: ${luanSau.stubs_skipped.join(', ')}`">
+              ⚠️ {{ luanSau.stubs_skipped.length }} quẻ stub bị skip
+            </span>
           </div>
           <div class="ls-narrative" v-html="luanSau.narrative.replace(/\n/g, '<br>')"></div>
           <details class="ls-citations">
@@ -1170,6 +1179,22 @@ const relation = computed(() => {
 }
 .badge-v { background: #34d399; color: #064e3b; }
 .badge-s { background: #f87171; color: #7f1d1d; }
+/* Luận sâu citation badges */
+.badge-deep {
+  display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px;
+  font-size: 0.7rem; font-weight: 600; margin-left: 0.4rem;
+  background: #fcd34d; color: #7c2d12; cursor: help;
+}
+.badge-shallow {
+  display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px;
+  font-size: 0.7rem; font-weight: 600; margin-left: 0.4rem;
+  background: rgba(251,191,36,0.18); color: #fbbf24; cursor: help;
+}
+.badge-stub {
+  display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px;
+  font-size: 0.7rem; font-weight: 600; margin-left: 0.4rem;
+  background: rgba(248,113,113,0.18); color: #f87171; cursor: help;
+}
 
 /* ⭐ Interpretation block */
 .interp-block {

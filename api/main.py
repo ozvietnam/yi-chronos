@@ -4128,6 +4128,48 @@ def yi_wiki_interpret(req: MaiHoaInterpretRequest) -> dict:
     }
 
 
+# ============================================================================
+# Hexagram Browser API (2026-05-27)
+# Tra cứu 64 quẻ Kinh Dịch trực tiếp (không cần gieo).
+# ============================================================================
+
+@app.get("/api/yi-wiki/kinh-dich/list")
+def yi_wiki_kinhdich_list() -> dict:
+    """Liệt kê 64 quẻ Kinh Dịch với metadata cơ bản.
+
+    Dùng cho UI Hexagram Browser (8×8 grid, tra cứu, learning).
+    Returns nhẹ — chỉ metadata + description, KHÔNG body markdown.
+    """
+    from engine.yi_wiki.luan_sau_kinhdich import list_hexagrams
+    items = list_hexagrams()
+    return {
+        "status": "ok",
+        "total": len(items),
+        "deep_count": sum(1 for h in items if h["has_deep"]),
+        "hexagrams": items,
+    }
+
+
+@app.get("/api/yi-wiki/kinh-dich/que/{slug}")
+def yi_wiki_kinhdich_get(slug: str) -> dict:
+    """Đọc 1 quẻ Kinh Dịch trực tiếp.
+
+    slug có thể là:
+    - Slug (vd: 'kien', 'thai', 'vi-te')
+    - Số (vd: '1', '63')
+
+    Returns full body markdown (Lời Kinh + 6 hào + Trình Di + Chu Hy + cross-ref).
+    """
+    from engine.yi_wiki.luan_sau_kinhdich import get_hexagram
+    data = get_hexagram(slug)
+    if data is None:
+        raise HTTPException(404, f"Không tìm thấy quẻ: {slug}")
+    return {
+        "status": "ok",
+        **data,
+    }
+
+
 class MaiHoaLuanSauRequest(BaseModel):
     """Luận sâu Mai Hoa — gọi LLM với citation Kinh Dịch nguyên văn (RAG)."""
     year_chi: str

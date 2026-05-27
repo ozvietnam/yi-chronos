@@ -43,6 +43,7 @@ import ResearchPanel from "./components/ResearchPanel.vue";
 import MasterView from "./components/wiki/MasterView.vue";
 import QuickTasksPanel from "./components/QuickTasksPanel.vue";
 import MaiHoaCastPanel from "./components/wiki/MaiHoaCastPanel.vue";
+import KinhDichBrowser from "./components/wiki/KinhDichBrowser.vue";
 import CrossCastPanel from "./components/wiki/CrossCastPanel.vue";
 import PublishingWorkspace from "./components/publishing/PublishingWorkspace.vue";
 import LibraryView from "./components/publishing/LibraryView.vue";
@@ -526,6 +527,16 @@ onBeforeUnmount(() => {
           ]"
         />
         <MaiHoaCastPanel />
+
+        <h3 style="color: #fcd34d; font-size: 0.95rem; margin-top: 1.5rem; border-top: 1px solid rgba(252,211,77,0.25); padding-top: 0.75rem;">
+          📜 Tra cứu 64 quẻ Kinh Dịch (Trình Di + Chu Hy nguyên văn)
+        </h3>
+        <details>
+          <summary style="cursor: pointer; color: #fcd34d; padding: 0.4rem 0; font-size: 0.85rem;">
+            Bấm để mở bảng 8×8 — duyệt + đọc trực tiếp 1 quẻ, không cần gieo
+          </summary>
+          <KinhDichBrowser />
+        </details>
 
         <h3 style="color: #c4b5fd; font-size: 0.9rem; margin-top: 1.5rem; border-top: 1px solid rgba(196,181,253,0.2); padding-top: 0.75rem;">
           🔗 Đối chiếu chéo nhiều cast (Cải tiến #4)
