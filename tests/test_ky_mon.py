@@ -93,11 +93,14 @@ def test_engine_methods():
 
 
 def test_wiki_categories():
-    """Verify wiki có đủ 6 categories."""
+    """Verify wiki có core 6 categories + extended sections từ Đàm Liên book."""
     from engine.ky_mon import WIKI, list_categories, get_concept
 
-    cats = list_categories()
-    assert set(cats) == {"cung", "mon", "tinh", "than", "structure", "to_su"}
+    cats = set(list_categories())
+    # Core 6 (gốc)
+    assert {"cung", "mon", "tinh", "than", "structure", "to_su"}.issubset(cats)
+    # Extended từ Đàm Liên Chương I (added 2026-05-27)
+    assert {"co_thu_canon", "he_kmdg", "source_book"}.issubset(cats)
 
     # Lookup specific concepts
     khai = get_concept("mon", "Khai")
@@ -108,6 +111,41 @@ def test_wiki_categories():
     tri_phu = get_concept("than", "Trị Phù")
     assert tri_phu is not None
     assert tri_phu["zh"] == "值符"
+
+
+def test_source_book_dam_lien():
+    """Verify source book Đàm Liên info chính xác."""
+    from engine.ky_mon import WIKI
+
+    sb = WIKI["source_book"]
+    assert sb["author"] == "Đàm Liên"
+    assert sb["title"] == "Kỳ Môn Độn Giáp"
+    assert sb["pages"] == 367
+    assert "đa tư duy" in sb["key_quote_1"]
+    assert "tương đối" in sb["key_quote_2"]
+    assert "Iron Rule" in sb["paradigm_alignment"]
+
+
+def test_he_kmdg_two_systems():
+    """KMDG có 2 hệ Chuyển bàn + Phi bàn (per Đàm Liên Chương I)."""
+    from engine.ky_mon import WIKI
+
+    he = WIKI["he_kmdg"]
+    assert "Chuyển bàn 轉盤" in he
+    assert "Phi bàn 飛盤" in he
+
+
+def test_co_thu_canon_5_books():
+    """5 cổ thư canon KMDG (4 Chuyển bàn + 1 Phi bàn)."""
+    from engine.ky_mon import WIKI
+
+    canon = WIKI["co_thu_canon"]
+    assert len(canon) == 5
+    chuyen_ban = [k for k, v in canon.items() if v["he"] == "Chuyển bàn"]
+    phi_ban = [k for k, v in canon.items() if v["he"] == "Phi bàn"]
+    assert len(chuyen_ban) == 4
+    assert len(phi_ban) == 1
+    assert "Kỳ môn pháp khiếu" in phi_ban
 
 
 def test_to_su_paradigm():

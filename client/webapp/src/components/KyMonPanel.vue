@@ -122,12 +122,14 @@ const catHungClass = (label) => {
     <header class="km-header">
       <h2>⊞ Kỳ Môn Độn Giáp <span class="km-zh">奇門遁甲</span></h2>
       <p class="km-subtitle">
-        Trường phái <strong>Đế vương chi học</strong> — Tổ sư <strong>Lưu Bá Ôn</strong> (1311–1375).
-        Bàn 9 cung × 8 môn × 9 tinh × 8 thần phản chiếu cấu trúc năng lượng thời-không.
+        <em>"KMDG là sự kết hợp dung hoà sâu sắc giữa đa tư duy, cái lập thể và sự vận động,
+        giữa thời gian, không gian và những con số."</em>
+        <span class="km-attrib">— Đàm Liên, "Kỳ Môn Độn Giáp", NXB Thời Đại</span>
       </p>
       <p class="km-paradigm">
-        <em>Paradigm: ĐỌC ĐỒNG DẠNG — Khí (bàn) → Tính (bản chất khoảnh khắc) → Đối ứng tâm cảnh.
-        KHÔNG phải predict cát hung tuyệt đối.</em>
+        <em>Phương vị KMDG là <strong>tương đối, không tuyệt đối</strong> (tùy trung tâm).
+        Bàn 9 cung × 8 môn × 9 tinh × 8 thần = bản đồ năng lượng thời-không phản chiếu khoảnh khắc.
+        <strong>ĐỌC ĐỒNG DẠNG, không predict</strong> (Iron Rule #4 + #6).</em>
       </p>
     </header>
 
@@ -289,21 +291,44 @@ const catHungClass = (label) => {
     <section v-else class="km-intro">
       <h3>Giới thiệu trường phái</h3>
       <p>
-        <strong>Kỳ Môn Độn Giáp</strong> (奇門遁甲) là môn cổ thuật phức tạp nhất Đông phương —
-        được mệnh danh "<strong>Đế vương chi học</strong>" vì xưa kia chỉ truyền cho mưu sĩ
-        bậc cao (Khương Tử Nha → Trương Lương → Gia Cát Lượng → Lưu Bá Ôn).
+        <strong>Kỳ Môn Độn Giáp</strong> (奇門遁甲) là môn cổ thuật phức tạp nhất Đông phương,
+        cùng với <em>Thái Ất</em> và <em>Lục Nhâm</em> tạo thành <strong>tam đại cổ bốc</strong> Trung Hoa.
       </p>
       <p>
         Bàn Kỳ Môn = bản đồ năng lượng thời-không tại 1 thời điểm cụ thể, gồm:
       </p>
       <ul>
-        <li><strong>9 cung Lạc Thư</strong> — vị trí không gian (Bắc/Đông/...)</li>
+        <li><strong>9 cung Lạc Thư</strong> — vị trí không gian (Bắc/Đông/...) — <em>click cung trong bàn (📖) để xem paradigm Kinh Dịch</em></li>
         <li><strong>8 môn</strong> (Hưu/Sinh/Thương/Đỗ/Cảnh/Tử/Kinh/Khai) — cánh cửa hành động</li>
         <li><strong>9 tinh</strong> (Thiên Bồng/Nhậm/Xung/Phụ/Cầm/Tâm/Trụ/Anh/Nhuế) — loại khí</li>
         <li><strong>8 thần</strong> (Trị Phù/Đằng Xà/Thái Âm/Lục Hợp/Câu Trần/Chu Tước/Cửu Địa/Cửu Thiên) — thái độ vũ trụ</li>
         <li><strong>Thiên bàn + Địa bàn</strong> — 10 thiên can (3 kỳ + 6 nghi + Giáp ẩn)</li>
       </ul>
-      <p>
+
+      <div v-if="wiki?.source_book" class="km-source-card">
+        <h4>📚 Sách reference</h4>
+        <p>
+          <strong>{{ wiki.source_book.title }}</strong> — {{ wiki.source_book.author }}, {{ wiki.source_book.publisher }}.
+          {{ wiki.source_book.pages }} trang.
+          <span class="km-source-note">{{ wiki.source_book.restoration_status }}</span>
+        </p>
+        <p class="km-source-paradigm">
+          <em>{{ wiki.source_book.paradigm_alignment }}</em>
+        </p>
+      </div>
+
+      <div v-if="wiki?.he_kmdg" class="km-he-card">
+        <h4>🌀 Hai hệ KMDG</h4>
+        <div class="km-he-grid">
+          <div v-for="(info, name) in wiki.he_kmdg" :key="name" class="km-he-item">
+            <h5>{{ name }}</h5>
+            <p>{{ info.desc }}</p>
+            <p class="km-he-note"><em>{{ info.popularity }}</em></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="km-intro-cta">
         Nhập thời gian phía trên + bấm <em>An cục KMDG</em> để xem bàn đầu tiên.
       </p>
     </section>
@@ -314,8 +339,38 @@ const catHungClass = (label) => {
 .ky-mon-panel { max-width: 1200px; margin: 0 auto; padding: 16px; color: #e2e8f0; }
 .km-header h2 { margin: 0; font-size: 1.6rem; color: #d4a574; }
 .km-zh { font-size: 1.1rem; opacity: 0.7; margin-left: 8px; }
-.km-subtitle { margin: 8px 0 4px; color: #cbd5e1; }
-.km-paradigm { margin: 4px 0 16px; font-size: 0.9rem; color: #94a3b8; }
+.km-subtitle { margin: 8px 0 4px; color: #cbd5e1; line-height: 1.5; }
+.km-attrib { display: block; margin-top: 4px; font-size: 0.8rem; color: #94a3b8; font-style: normal; }
+.km-paradigm { margin: 4px 0 16px; font-size: 0.9rem; color: #94a3b8; line-height: 1.5; }
+
+/* Source book + he KMDG cards in intro */
+.km-source-card, .km-he-card {
+  margin-top: 18px; padding: 14px 16px;
+  background: rgba(212, 165, 116, 0.06); border-radius: 8px;
+  border-left: 3px solid #d4a574;
+}
+.km-source-card h4, .km-he-card h4 {
+  margin: 0 0 8px; color: #d4a574; font-size: 1rem;
+}
+.km-source-note {
+  display: inline-block; margin-left: 6px; padding: 2px 8px;
+  background: rgba(148, 163, 184, 0.2); border-radius: 10px;
+  font-size: 0.75rem; color: #cbd5e1;
+}
+.km-source-paradigm { margin-top: 8px; font-size: 0.85rem; color: #cbd5e1; }
+.km-he-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin-top: 8px;
+}
+.km-he-item { padding: 10px; background: #0f172a; border-radius: 6px; }
+.km-he-item h5 { margin: 0 0 4px; color: #fbbf24; font-size: 0.9rem; }
+.km-he-item p { margin: 4px 0; font-size: 0.82rem; line-height: 1.5; color: #cbd5e1; }
+.km-he-note { color: #94a3b8; }
+.km-intro-cta { margin-top: 16px; font-size: 0.95rem; color: #fbbf24; }
+
+@media (max-width: 768px) {
+  .km-he-grid { grid-template-columns: 1fr; }
+}
 
 .km-form { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
 .km-form h3 { margin: 0 0 12px; color: #d4a574; font-size: 1.1rem; }

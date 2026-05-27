@@ -187,7 +187,7 @@ WIKI = {
                                    "desc": "Tuần thủ = Giáp khởi tuần. Tuần không = 2 chi không thuộc tuần đó (yếu khí)."},
     },
 
-    # ─── Tổ sư ───
+    # ─── Tổ sư (lineage cổ) ───
     "to_su": {
         "name": "Lưu Bá Ôn",
         "name_zh": "劉伯溫",
@@ -196,7 +196,48 @@ WIKI = {
         "title": "Tư Mã Hư Tịnh — Cố vấn Minh Thái Tổ Chu Nguyên Chương",
         "work": "Bá Ôn Bí Truyền Kỳ Môn Độn Giáp (truyền thuyết)",
         "lineage": "Cửu Thiên Huyền Nữ → Hoàng Đế → Phong Hậu → Khương Tử Nha → Trương Lương → Gia Cát Lượng → Lưu Bá Ôn",
+        "lineage_note": "Lineage này là TRUYỀN THUYẾT cổ. Theo Đàm Liên (sách reference), Sử ký Tư Mã Thiên + Khổng Tử + tác phẩm trước Tần KHÔNG nhắc KMDG. Hậu Hán Thư của Phạm Hoa mới nhắc người am thông KMDG (Đông Hán, TK 2-3 SCN). Thực tế lịch sử: KMDG xuất hiện Đông Hán, không cổ hơn.",
         "paradigm": "Hệ thống KMDG cận đại stable + procedural. Phù hợp Author-Worldview-First.",
+    },
+
+    # ─── 5 Cổ thư KMDG canon (theo Đàm Liên Chương I) ───
+    "co_thu_canon": {
+        "Độn giáp diễn nghĩa": {"he": "Chuyển bàn", "note": "Thu nhập Tứ Khố Toàn Thư"},
+        "Kỳ môn tống tông": {"he": "Chuyển bàn", "note": "Kỳ Môn Thống Tông — phổ biến nhất dân gian"},
+        "Kỳ môn ngũ long quy": {"he": "Chuyển bàn", "note": ""},
+        "Kỳ môn bí cực toàn thư": {"he": "Chuyển bàn", "note": ""},
+        "Kỳ môn pháp khiếu": {"he": "Phi bàn", "note": "DUY NHẤT Phi bàn — sách Đàm Liên trình bày"},
+    },
+
+    # ─── 2 hệ KMDG ───
+    "he_kmdg": {
+        "Chuyển bàn 轉盤": {
+            "desc": "Bàn xoay — Trị Phù + Trị Sử di chuyển theo cục số + nguyên. 4/5 cổ thư canon thuộc hệ này.",
+            "popularity": "Phổ biến trong dân gian, ứng dụng nhiều",
+            "difficulty": "Khó tìm sách viết nghiêm túc",
+        },
+        "Phi bàn 飛盤": {
+            "desc": "Bàn bay — 9 cung + 9 tinh + 8 môn 'bay' theo quy luật bố cục riêng. 1/5 cổ thư canon (Pháp Khiếu).",
+            "popularity": "Ít phổ biến hơn nhưng hệ thống hơn",
+            "difficulty": "Đàm Liên trình bày chi tiết chương 4, 5, 6",
+        },
+    },
+
+    # ─── Sách reference em đọc trong YI-CHRONOS ───
+    "source_book": {
+        "title": "Kỳ Môn Độn Giáp",
+        "subtitle": "Tìm hiểu văn hóa phương Đông",
+        "author": "Đàm Liên",
+        "publisher": "Nhà xuất bản Thời Đại",
+        "pages": 367,
+        "language": "Việt văn (biên soạn từ cổ thư Trung Hoa)",
+        "year": "~2010 (PDF scan 2011)",
+        "restoration_status": "Sample OCR 20 pages (cover + lời nói đầu + Chương I)",
+        "restoration_path": "data/yi_restored/ky-mon-don-giap-dam-lien/",
+        "key_quote_1": "KMĐG là sự kết hợp dung hoà sâu sắc giữa đa tư duy, cái lập thể và sự vận động, giữa thời gian, không gian và những con số.",
+        "key_quote_2": "Các phương vị trong KMĐG không phải là tuyệt đối mà chỉ là tương đối.",
+        "key_quote_3": "Muốn cho việc nghiên cứu KMDG phát triển lành mạnh, cần xoá bỏ những suy nghĩ coi KMDG là hoang đường, mê tín, lừa gạt.",
+        "paradigm_alignment": "Đàm Liên BÁC BỎ 3 yếu tố mê tín: thần thoại hoá nguồn gốc + duy tâm về 'động ứng' + pháp thuật niệm chú. Trùng khớp Iron Rule #4/#6 của YI-CHRONOS (đọc đồng dạng, không predict).",
     },
 }
 

@@ -1,0 +1,30 @@
+{
+  "book_slug": "ky-mon-don-giap-dam-lien",
+  "book_name": "Kỳ Môn Độn Giáp",
+  "subtitle": "Tìm hiểu văn hóa phương Đông",
+  "author": "Đàm Liên",
+  "publisher": "Nhà xuất bản Thời Đại",
+  "original_pdf": "/Users/ozvietnamdesktop/Desktop/yi/thư viện sách/Kỳ Môn Độn Giáp .pdf",
+  "tier": "S",
+  "schools": ["ky_mon"],
+  "copyright_status": "internal_only",
+  "pages_total": 367,
+  "pages_restored": 20,
+  "restoration_status": "sample_only",
+  "restoration_method": "pdftoppm 200dpi + tesseract -l vie",
+  "restoration_date": "2026-05-27",
+  "restoration_note": "Sample OCR 20 pages đầu (cover + lời nói đầu + Chương I — Khái niệm cơ bản). Full 367-page restoration là backlog future session theo Bookflow v3.0 (layout-aware OCR cần thiết cho hình bàn KMDG).",
+  "key_findings": [
+    "Tác giả Đàm Liên là biên soạn Việt văn — không phải bản dịch trực tiếp 1 cuốn cổ thư cụ thể",
+    "Đàm Liên BÁC BỎ paradigm thần thoại (Cửu Thiên Huyền Nữ → Hoàng Đế) — Sử ký Tư Mã Thiên + Khổng Tử không nhắc tới KMDG → thực tế KMDG xuất hiện thời Đông Hán (TK 2-3 SCN), không cổ hơn",
+    "Đàm Liên thẳng thắn chống 3 yếu tố mê tín: thần thoại hoá nguồn gốc + duy tâm về 'động ứng' + pháp thuật niệm chú",
+    "KMDG = 'sự kết hợp dung hoà giữa đa tư duy, cái lập thể và sự vận động, giữa thời gian, không gian và những con số' — paradigm triết học, không phải predict",
+    "Phương vị KMDG là TƯƠNG ĐỐI (tùy trung tâm), không tuyệt đối",
+    "2 hệ KMDG: Chuyển bàn (4 cuốn cổ chính) vs Phi bàn (Đàm Liên trình bày)",
+    "5 cổ thư KMDG canon: Độn giáp diễn nghĩa, Kỳ môn tống tông, Kỳ môn ngũ long quy, Kỳ môn bí cực toàn thư, Kỳ môn pháp khiếu"
+  ],
+  "sections": [
+    { "name": "Lời nói đầu", "pages": "3-8" },
+    { "name": "Chương I — Khái niệm cơ bản về KMDG", "pages": "9-20+" }
+  ]
+}

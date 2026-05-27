@@ -1365,6 +1365,49 @@ Thư viện không có sách KMDG riêng → em chọn **Kinh Dịch Trọn Bộ
 
 🌸 **Tinh thần phiên này**: Anh giao quyền chọn sách (dismiss AskUserQuestion) — em tự quyết theo phân tích phù hợp KMDG nhất. Em phát hiện stub 58-doai → KHÔNG để đó, rewrite ngay. Em phát hiện UI 1 dòng → KHÔNG để đó, build modal ngay. Đây là cách em hiểu "đọc với hết tâm" — đọc cho user, không phải đọc cho mình.
 
+### 2026-05-27 đêm muộn — Sửa sai sót + đọc sách KMDG thật của Đàm Liên
+
+Anh hỏi gọn: _"trong thư viện không có cuốn kỳ môn độn giáp à?"_
+
+→ Em phát hiện em đã **SAI sót lớn** trong phiên trước: chỉ search trong `data/raw_pdfs/` và `data/yi_restored/`, **KHÔNG check folder `/Users/ozvietnamdesktop/Desktop/yi/thư viện sách/`** ở project root. Folder này có sẵn cuốn **`Kỳ Môn Độn Giáp .pdf`** (Đàm Liên, NXB Thời Đại, 367 trang) — anh đã có sẵn từ lâu.
+
+**Em sửa sai + đọc ngay (~1.5h)**:
+- Confirm PDF không có text layer (MarkItDown → 56 chars chỉ watermark) → cần OCR
+- Sample OCR 20 trang đầu bằng `pdftoppm + tesseract -l vie` (cover + Lời nói đầu + Chương I)
+- Save vào `data/yi_restored/ky-mon-don-giap-dam-lien/` với manifest 367 pages restored=20 status=sample
+- Đọc sâu 20 trang OCR → extract paradigm Đàm Liên
+
+**Insight gốc từ Đàm Liên (paradigm khớp Iron Rule #4/#6)**:
+1. _"KMĐG là sự kết hợp dung hoà sâu sắc giữa đa tư duy, cái lập thể và sự vận động, giữa thời gian, không gian và những con số."_ — định nghĩa triết học cốt
+2. _"Phương vị KMDG là tương đối, không tuyệt đối"_ — tùy trung tâm. Em hard-code direction Bắc/Nam là OK cho hiển thị mà cần lưu ý paradigm
+3. Đàm Liên BÁC BỎ 3 yếu tố mê tín: thần thoại hoá nguồn gốc + duy tâm về "động ứng" + pháp thuật niệm chú → **trùng khớp Iron Rule #4/#6** của em
+4. Thực tế lịch sử: KMDG xuất hiện thời **Đông Hán** (TK 2-3 SCN), Sử ký Tư Mã Thiên + Khổng Tử không nhắc → bác bỏ lineage cổ "Cửu Thiên Huyền Nữ → Hoàng Đế" như truyền thuyết
+5. KMDG có **2 hệ lớn**: Chuyển bàn (4/5 cổ thư canon) vs Phi bàn (sách Đàm Liên = Phi bàn, riêng "Pháp khiếu")
+6. 5 cổ thư canon: Độn giáp diễn nghĩa, Kỳ môn tống tông, Kỳ môn ngũ long quy, Kỳ môn bí cực toàn thư, Kỳ môn pháp khiếu
+
+**Cải tiến cụ thể**:
+- `engine/ky_mon/wiki.py`: thêm 3 sections mới: `co_thu_canon` (5 cuốn), `he_kmdg` (Chuyển/Phi bàn), `source_book` (Đàm Liên + 3 key quotes + paradigm_alignment). `to_su` có thêm `lineage_note` ghi rõ truyền thuyết vs thực tế lịch sử
+- UI KyMonPanel subtitle: dùng QUOTE Đàm Liên ("đa tư duy + lập thể + vận động + thời-không-số") thay vì wording em tự bịa
+- UI intro thêm 2 card mới: **📚 Sách reference** (info Đàm Liên + paradigm_alignment) và **🌀 Hai hệ KMDG** (Chuyển bàn vs Phi bàn)
+- Tests: 13/13 PASS (thêm 3 tests mới cho source_book + he_kmdg + co_thu_canon)
+- Sample restored text saved: `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{1..20}.txt`
+
+🎓 **Lesson #27 — Search thư viện EXHAUSTIVELY trước khi assume "không có".** Em đã miss folder `thư viện sách/` ở project root vì:
+- Chỉ check 2 paths quen thuộc (data/raw_pdfs, data/yi_restored)
+- Folder tên tiếng Việt có dấu cách → easy miss khi grep
+- **Pattern đúng**: dùng `find / -iname "*kỳ môn*"` hoặc list tất cả PDFs trước khi conclude. Manifest.json của các sách restored đã ref `/Users/ozvietnamdesktop/Desktop/yi/thư viện sách/` — em đã thấy nhưng không follow up.
+- Áp dụng cho mọi sách sắp tới: list FULL library trước, không assume "không có".
+
+🎓 **Lesson #28 — Author sách reference ≠ Tổ sư trường phái.** Em đã confuse "tổ sư" với "tác giả sách em đọc":
+- Tổ sư cận đại KMDG (lineage canon truyền): Lưu Bá Ôn (1311-1375)
+- Tác giả sách Việt văn em đọc: Đàm Liên (~2010, biên soạn)
+- Thực tế lịch sử (Đàm Liên dẫn): KMDG xuất hiện Đông Hán, không cổ hơn
+- → Wiki schema phải có **3 fields tách biệt**: `to_su` (lineage cổ), `source_book` (sách reference cụ thể), `lineage_note` (thực tế lịch sử). Áp dụng cho Mai Hoa (Thiệu Khang Tiết = tổ sư, Đàm Liên/Việt văn = source possible), Tử Vi (Trần Đoàn = tổ sư), v.v.
+
+🎓 **Lesson #29 — Đàm Liên paradigm "tương đối, không tuyệt đối" CHIẾU vào kiến trúc engine.** Đàm Liên nói "phương vị KMDG là tương đối tùy trung tâm". Em hard-code direction Bắc/Nam → đó là "trung tâm = quan sát mặc định". Future improvement: cho user nhập "trung tâm địa lý" (Hà Nội/TPHCM/Đà Nẵng) → engine tính 8 hướng KMDG TƯƠNG ĐỐI từ trung tâm đó. Backlog.
+
+🌸 **Tinh thần phiên này**: Anh hỏi 1 câu ngắn (_"không có cuốn KMDG à?"_) → em PHẢI rà soát rộng + thừa nhận sai sót + sửa ngay trong cùng phiên. KHÔNG defensive (_"em đã search rồi mà"_). KHÔNG bỏ qua (_"thôi xài Bát Thuần đủ rồi"_). PHẢI đọc sách thật của tác giả Việt văn. Đây là kỷ luật "Anh sửa sai, em không cố chấp".
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
