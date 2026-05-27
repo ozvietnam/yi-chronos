@@ -691,6 +691,21 @@ function formatSolarDateTime(iso) {
         <p v-html="renderMd(luanGiaiData.cach_cuc_luan.narrative)"></p>
       </div>
 
+      <!-- Extreme Pattern (Tòng / Hóa Khí / Five Special) — EDGE CASE -->
+      <div v-if="luanGiaiData.extreme_pattern_luan" class="lg-block lg-extreme"
+        :data-type="luanGiaiData.extreme_pattern_luan.type">
+        <h5 class="lg-section-title">
+          {{ luanGiaiData.extreme_pattern_luan.type_label }} — paradigm ĐẢO NGƯỢC
+        </h5>
+        <p v-html="renderMd(luanGiaiData.extreme_pattern_luan.narrative)"></p>
+        <div class="lg-extreme-trio">
+          <span class="lg-ext-cell lg-ext-dung">★ Dụng: <b>{{ luanGiaiData.extreme_pattern_luan.dung_than_element.toUpperCase() }}</b></span>
+          <span class="lg-ext-cell lg-ext-hy">Hỷ: <b>{{ luanGiaiData.extreme_pattern_luan.hy_than_element.toUpperCase() }}</b></span>
+          <span class="lg-ext-cell lg-ext-ky">⚠ Kỵ: <b>{{ luanGiaiData.extreme_pattern_luan.ky_than_element.toUpperCase() }}</b></span>
+        </div>
+        <small class="lg-ext-conf">Confidence: {{ luanGiaiData.extreme_pattern_luan.confidence }} · {{ luanGiaiData.extreme_pattern_luan.notes }}</small>
+      </div>
+
       <!-- Dụng Thần -->
       <div class="lg-block lg-dung-than">
         <h5 class="lg-section-title">★ Dụng Thần — thuốc cứu mệnh</h5>
@@ -1314,6 +1329,40 @@ function formatSolarDateTime(iso) {
 
 .lg-cach-cuc { border-left-color: rgba(91, 142, 229, 0.45); }
 .lg-dung-than { border-left-color: rgba(232, 201, 90, 0.55); }
+
+/* Extreme Pattern (Tòng / Hóa Khí / Five Special) — edge case */
+.lg-extreme {
+  border-left: 3px solid #fbbf24 !important;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(167, 139, 250, 0.06));
+  position: relative;
+}
+.lg-extreme[data-type="special"] { border-left-color: #fbbf24 !important; }
+.lg-extreme[data-type="hoa"] { border-left-color: #c4b5fd !important; background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(91, 229, 211, 0.06)); }
+.lg-extreme[data-type="tong"] { border-left-color: #f8b4d9 !important; background: linear-gradient(135deg, rgba(245, 130, 175, 0.1), rgba(232, 201, 90, 0.06)); }
+
+.lg-extreme-trio {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+.lg-ext-cell {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.lg-ext-dung { color: #fbbf24; }
+.lg-ext-hy { color: #5be5d3; }
+.lg-ext-ky { color: #d65a4a; }
+.lg-ext-conf {
+  display: block;
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  font-family: ui-monospace, monospace;
+  font-style: italic;
+}
 
 .lg-tt-profile {
   margin: 10px 0;

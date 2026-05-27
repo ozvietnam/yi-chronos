@@ -6,6 +6,7 @@ Public function: cast_bat_tu(birth_datetime_local, timezone='Asia/Ho_Chi_Minh', 
 from __future__ import annotations
 
 from .cach_cuc import classify_cach_cuc
+from .cach_cuc_extended import detect_extreme_pattern
 from .constants import BRANCH_ELEMENT, THAP_THAN_MEANING, THAP_THAN_SHORT
 from .dai_van import build_dai_van_chart
 from .dung_than import determine_dung_than
@@ -123,8 +124,24 @@ def cast_bat_tu(
         month_branch=month_branch,
     )
 
-    # Cách cục classifier
+    # Cách cục classifier (v1 — normal patterns)
     cach_cuc = classify_cach_cuc(base["pillars"], day_master)
+
+    # Cách cục v2 — extreme patterns (Five Special / Hóa Khí / Tòng cách)
+    # When extreme pattern detected, paradigm REVERSES: don't support Day Master,
+    # follow the dominant force. Dụng Thần choice updated accordingly.
+    dm_diff = (dm_assessment.get("support_score", 0)
+               - dm_assessment.get("drain_score", 0))
+    extreme_pattern = detect_extreme_pattern(
+        pillars=pillars_annotated,
+        day_master_stem=day_master,
+        element_counts=element_counts,
+        thap_than_dist={
+            "visible": thap_than_distribution,
+            "hidden": hidden_thap_than_distribution,
+        },
+        dm_strength_diff=dm_diff,
+    )
 
     return {
         "method_id": METHOD_ID,
@@ -156,9 +173,11 @@ def cast_bat_tu(
         # cach_cuc is already a dict (classify_cach_cuc returns CachCucResult.to_dict())
         # The dict contains both `cach_name` AND the alias `cach_cuc_label` (added 2026-05-12)
         "cach_cuc": cach_cuc,
+        # v2: extreme cách cục (Five Special / Hóa Khí / Tòng) — None when chart is normal
+        "extreme_pattern": extreme_pattern,
         "deferred_layers": [
             "Thần Sát mở rộng (hiện ship 15 sao cốt lõi) — full set ~80 sao",
-            "Tòng cách + Hóa khí cách (extreme patterns) — cần Day Master strength ≥ 8 hoặc ≤ -8",
-            # NOTE: Điều hậu added in dung_than v2 (2026-05-12) — removed from deferred.
+            # Tòng + Hóa Khí: shipped in cach_cuc_extended (2026-05-27)
+            # Điều hậu: shipped in dung_than v2 (2026-05-12)
         ],
     }

@@ -317,8 +317,12 @@ def _luan_ngu_hanh(state: dict) -> dict:
 
 
 def _luan_cach_cuc(state: dict) -> dict:
-    """Phân tích Cách Cục — pattern recognition + reading."""
+    """Phân tích Cách Cục — pattern recognition + reading.
+
+    If extreme_pattern detected, mention it overrides normal cách cục.
+    """
     cc = state.get("cach_cuc")
+    extreme = state.get("extreme_pattern")
     if not cc:
         return {"present": False, "narrative": "Cách cục chưa xác định được."}
     name = cc.get("cach_name", "")
@@ -327,6 +331,19 @@ def _luan_cach_cuc(state: dict) -> dict:
     favorable = cc.get("favorable", "")
     ky = cc.get("ky", "")
     based_on = cc.get("based_on", "")
+    narrative = (
+        f"Lá số rơi vào **{name}** ({polarity}), xác định dựa trên {based_on}. "
+        f"**Bản chất**: {essence} "
+        f"**Hợp**: {favorable} "
+        f"**Kỵ**: {ky}"
+    )
+    if extreme:
+        narrative += (
+            f"\n\n⚠ **OVERRIDE** — Lá số CŨNG phát hiện cách đặc biệt: "
+            f"**{extreme['name']}** ({extreme['pattern_type']}, confidence={extreme['confidence']}). "
+            f"Paradigm đặc biệt này ĐẢO NGƯỢC heuristic vượng/nhược thường — "
+            f"Dụng Thần thực sự là {extreme['dung_than_element'].title()} (chứ không phải theo Day Master support thường)."
+        )
     return {
         "present": True,
         "name": name,
@@ -334,11 +351,42 @@ def _luan_cach_cuc(state: dict) -> dict:
         "essence": essence,
         "favorable": favorable,
         "ky": ky,
+        "narrative": narrative,
+        "has_extreme_override": bool(extreme),
+    }
+
+
+def _luan_extreme_pattern(state: dict) -> dict | None:
+    """Dedicated section for extreme cách cục (Five Special / Hóa Khí / Tòng).
+
+    Returns None if no extreme pattern detected (chart is "normal").
+    """
+    extreme = state.get("extreme_pattern")
+    if not extreme:
+        return None
+    type_labels = {
+        "special": "🌟 Ngũ Khí Triều Nguyên (Five Special)",
+        "hoa": "🔄 Hóa Khí cách (Transform pattern)",
+        "tong": "↗ Tòng cách (Follow pattern)",
+    }
+    return {
+        "type": extreme["pattern_type"],
+        "type_label": type_labels.get(extreme["pattern_type"], extreme["pattern_type"]),
+        "name": extreme["name"],
+        "essence": extreme["essence"],
+        "dung_than_element": extreme["dung_than_element"],
+        "hy_than_element": extreme["hy_than_element"],
+        "ky_than_element": extreme["ky_than_element"],
+        "confidence": extreme["confidence"],
+        "notes": extreme["notes"],
         "narrative": (
-            f"Lá số rơi vào **{name}** ({polarity}), xác định dựa trên {based_on}. "
-            f"**Bản chất**: {essence} "
-            f"**Hợp**: {favorable} "
-            f"**Kỵ**: {ky}"
+            f"Lá số phát hiện **{extreme['name']}** "
+            f"(confidence={extreme['confidence']}). {extreme['essence']} "
+            f"**LƯU Ý**: Đây là paradigm ĐẢO NGƯỢC heuristic vượng/nhược thông thường — "
+            f"Dụng Thần thực sự = {extreme['dung_than_element'].title()}, "
+            f"Hỷ Thần = {extreme['hy_than_element'].title()}, "
+            f"Kỵ Thần = {extreme['ky_than_element'].title()}. "
+            f"Đại Vận đi vào {extreme['dung_than_element'].title()}/{extreme['hy_than_element'].title()} → thuận."
         ),
     }
 
@@ -722,6 +770,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "cuong_do_nhat_chu": _luan_cuong_do(bat_tu_state),
         "ngu_hanh_balance": _luan_ngu_hanh(bat_tu_state),
         "cach_cuc_luan": _luan_cach_cuc(bat_tu_state),
+        "extreme_pattern_luan": _luan_extreme_pattern(bat_tu_state),
         "dung_than_luan": _luan_dung_than(bat_tu_state),
         "thap_than_pattern": _luan_thap_than_pattern(bat_tu_state),
         "favorable_combinations": _detect_favorable_combinations(bat_tu_state),
