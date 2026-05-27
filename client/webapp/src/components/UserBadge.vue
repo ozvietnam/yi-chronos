@@ -25,7 +25,10 @@ const showPasswordModal = ref(false);
 const showUsersModal = ref(false);
 const showSwitchPersonModal = ref(false);
 
-const loginForm = ref({ email: "ceo@ngantin.vn", password: "" });
+// IMPORTANT: do NOT pre-fill with anh's own email. Previously this was
+// `ceo@ngantin.vn` as a dev convenience — meant every visitor clicking
+// "Đăng nhập" saw the owner's email pre-filled. Leak. Leave blank.
+const loginForm = ref({ email: "", password: "" });
 const loginError = ref("");
 const passwordForm = ref({ current: "", next: "", confirm: "" });
 const passwordError = ref("");

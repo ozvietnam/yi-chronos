@@ -1733,39 +1733,56 @@ def yi_hermes_glossary_delete(term_vi: str) -> dict:
 # ─── YI-Hermes Soul + Memory endpoints ────────────────────────────────────
 
 
+# Helper for yi-hermes per-user resources: must be the calling user OR owner.
+# Previously these endpoints were fully unauthenticated — anyone could curl
+# /api/yi-hermes/soul/1 and read anh's communication style + learned traits.
+def _yi_hermes_require_self_or_owner(user_id: str, request: Request) -> dict:
+    from api.auth import require_user
+    user = require_user(request)
+    if user.get("role") == "owner":
+        return user
+    if str(user.get("user_id")) == str(user_id):
+        return user
+    raise HTTPException(403, "forbidden")
+
+
 @app.get("/api/yi-hermes/soul/{user_id}")
-def yi_hermes_soul_get(user_id: str) -> dict:
+def yi_hermes_soul_get(user_id: str, request: Request) -> dict:
     """Get user's Soul profile (creates default if not seen before)."""
     from engine.yi_hermes import get_soul
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     soul = get_soul(user_id)
     return {"status": "ok", "soul": soul.to_dict()}
 
 
 @app.put("/api/yi-hermes/soul/{user_id}")
-def yi_hermes_soul_update(user_id: str, request: YiHermesSoulUpdateRequest) -> dict:
+def yi_hermes_soul_update(user_id: str, req: YiHermesSoulUpdateRequest, request: Request) -> dict:
     """Partial update to Soul (only non-None fields are applied)."""
     from engine.yi_hermes import update_soul
 
-    patch = {k: v for k, v in request.model_dump().items() if v is not None}
+    _yi_hermes_require_self_or_owner(user_id, request)
+    patch = {k: v for k, v in req.model_dump().items() if v is not None}
     soul = update_soul(user_id, patch)
     return {"status": "ok", "soul": soul.to_dict()}
 
 
 @app.delete("/api/yi-hermes/soul/{user_id}")
-def yi_hermes_soul_reset(user_id: str) -> dict:
+def yi_hermes_soul_reset(user_id: str, request: Request) -> dict:
     """Wipe Soul → restart with default."""
     from engine.yi_hermes import reset_soul
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     soul = reset_soul(user_id)
     return {"status": "ok", "soul": soul.to_dict()}
 
 
 @app.get("/api/yi-hermes/memory/{user_id}/facts")
-def yi_hermes_memory_list_facts(user_id: str, category: str | None = None, limit: int = 50) -> dict:
-    """List facts about user."""
+def yi_hermes_memory_list_facts(user_id: str, request: Request, category: str | None = None, limit: int = 50) -> dict:
+    """List facts about user. Self-or-owner only."""
     from engine.yi_hermes import fact_categories_summary, list_facts
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     facts = list_facts(user_id, category=category, limit=limit)
     return {
         "status": "ok",
@@ -1776,32 +1793,38 @@ def yi_hermes_memory_list_facts(user_id: str, category: str | None = None, limit
 
 
 @app.post("/api/yi-hermes/memory/{user_id}/facts")
-def yi_hermes_memory_add_fact(user_id: str, request: YiHermesFactAddRequest) -> dict:
-    """Add a fact about user."""
+def yi_hermes_memory_add_fact(user_id: str, req: YiHermesFactAddRequest, request: Request) -> dict:
+    """Add a fact about user. Self-or-owner only."""
     from engine.yi_hermes import add_fact
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     fact_id = add_fact(
         user_id=user_id,
-        fact=request.fact,
-        category=request.category,
-        confidence=request.confidence,
-        notes=request.notes,
+        fact=req.fact,
+        category=req.category,
+        confidence=req.confidence,
+        notes=req.notes,
     )
     return {"status": "ok", "fact_id": fact_id}
 
 
 @app.delete("/api/yi-hermes/memory/facts/{fact_id}")
-def yi_hermes_memory_delete_fact(fact_id: int) -> dict:
+def yi_hermes_memory_delete_fact(fact_id: int, request: Request) -> dict:
+    """Delete a memory fact. Owner-only (we don't have fact→user mapping
+    cheaply here; restrict to owner)."""
+    from api.auth import require_owner
     from engine.yi_hermes import delete_fact
 
+    require_owner(request)
     deleted = delete_fact(fact_id)
     return {"status": "ok" if deleted else "not_found", "fact_id": fact_id}
 
 
 @app.get("/api/yi-hermes/memory/{user_id}/summaries")
-def yi_hermes_memory_list_summaries(user_id: str, limit: int = 20) -> dict:
+def yi_hermes_memory_list_summaries(user_id: str, request: Request, limit: int = 20) -> dict:
     from engine.yi_hermes import list_summaries
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     summaries = list_summaries(user_id, limit=limit)
     return {
         "status": "ok",
@@ -1811,23 +1834,25 @@ def yi_hermes_memory_list_summaries(user_id: str, limit: int = 20) -> dict:
 
 
 @app.post("/api/yi-hermes/memory/{user_id}/summaries")
-def yi_hermes_memory_add_summary(user_id: str, request: YiHermesSummaryAddRequest) -> dict:
+def yi_hermes_memory_add_summary(user_id: str, req: YiHermesSummaryAddRequest, request: Request) -> dict:
     from engine.yi_hermes import add_summary
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     sid = add_summary(
         user_id=user_id,
-        summary=request.summary,
-        key_topics=request.key_topics,
-        chart_data_hash=request.chart_data_hash,
+        summary=req.summary,
+        key_topics=req.key_topics,
+        chart_data_hash=req.chart_data_hash,
     )
     return {"status": "ok", "summary_id": sid}
 
 
 @app.get("/api/yi-hermes/memory/{user_id}/search")
-def yi_hermes_memory_search(user_id: str, q: str, limit: int = 5) -> dict:
-    """FTS search past summaries."""
+def yi_hermes_memory_search(user_id: str, q: str, request: Request, limit: int = 5) -> dict:
+    """FTS search past summaries. Self-or-owner only."""
     from engine.yi_hermes import search_summaries
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     results = search_summaries(user_id, q, limit=limit)
     return {
         "status": "ok",
@@ -1838,9 +1863,10 @@ def yi_hermes_memory_search(user_id: str, q: str, limit: int = 5) -> dict:
 
 
 @app.get("/api/yi-hermes/memory/{user_id}/top-terms")
-def yi_hermes_memory_top_terms(user_id: str, limit: int = 10) -> dict:
+def yi_hermes_memory_top_terms(user_id: str, request: Request, limit: int = 10) -> dict:
     from engine.yi_hermes import top_viewed_terms
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     rows = top_viewed_terms(user_id, limit=limit)
     return {
         "status": "ok",
@@ -1849,8 +1875,9 @@ def yi_hermes_memory_top_terms(user_id: str, limit: int = 10) -> dict:
 
 
 @app.get("/api/yi-hermes/memory/{user_id}/full")
-def yi_hermes_memory_full(user_id: str) -> dict:
-    """Full memory + soul snapshot for the 'Hermes nhớ về anh' UI panel."""
+def yi_hermes_memory_full(user_id: str, request: Request) -> dict:
+    """Full memory + soul snapshot for the 'Hermes nhớ về anh' UI panel.
+    Self-or-owner only — previously unrestricted."""
     from engine.yi_hermes import (
         get_soul,
         list_facts,
@@ -1859,6 +1886,7 @@ def yi_hermes_memory_full(user_id: str) -> dict:
         fact_categories_summary,
     )
 
+    _yi_hermes_require_self_or_owner(user_id, request)
     soul = get_soul(user_id)
     facts = list_facts(user_id, limit=20)
     summaries = list_summaries(user_id, limit=10)
@@ -1892,18 +1920,32 @@ def yi_hermes_get_manifest() -> dict:
 
 
 @app.put("/api/yi-hermes/context/manifest")
-def yi_hermes_update_manifest(request: YiHermesContentUpdateRequest) -> dict:
-    """Overwrite project manifest. Hermes reloads automatically."""
+def yi_hermes_update_manifest(req: YiHermesContentUpdateRequest, request: Request) -> dict:
+    """Overwrite project manifest. Hermes reloads automatically. Owner-only —
+    previously anyone could PUT and wipe the project manifest file."""
+    from api.auth import require_owner
     from engine.yi_hermes import update_manifest
 
-    update_manifest(request.content)
-    return {"status": "ok", "size_chars": len(request.content)}
+    require_owner(request)
+    update_manifest(req.content)
+    return {"status": "ok", "size_chars": len(req.content)}
 
 
 @app.get("/api/yi-hermes/context/founder")
-def yi_hermes_get_founder() -> dict:
-    """Get the founder profile that Hermes reads when chatting with anh."""
+def yi_hermes_get_founder(request: Request) -> dict:
+    """Get the founder profile that Hermes reads when chatting with anh.
+
+    Owner-only: this file contains anh's personal identity (email,
+    Telegram ID, location, communication style, Bát Tự pillars, etc.).
+    Previously unrestricted — `curl /api/yi-hermes/context/founder`
+    returned the full markdown to any visitor.
+    """
+    from api.auth import get_current_user
     from engine.yi_hermes import get_founder_profile, get_founder_soul_keys
+
+    user = get_current_user(request)
+    if not user or user.get("role") != "owner":
+        raise HTTPException(403, "owner-only")
 
     content = get_founder_profile()
     return {
@@ -1915,12 +1957,21 @@ def yi_hermes_get_founder() -> dict:
 
 
 @app.put("/api/yi-hermes/context/founder")
-def yi_hermes_update_founder(request: YiHermesContentUpdateRequest) -> dict:
-    """Overwrite founder profile. Hermes reloads automatically."""
+def yi_hermes_update_founder(req: YiHermesContentUpdateRequest, request: Request) -> dict:
+    """Overwrite founder profile. Hermes reloads automatically.
+
+    Owner-only: previously any caller could PUT and replace anh's
+    profile file on disk — content integrity + Hermes behavior leak.
+    """
+    from api.auth import get_current_user
     from engine.yi_hermes import update_founder_profile
 
-    update_founder_profile(request.content)
-    return {"status": "ok", "size_chars": len(request.content)}
+    user = get_current_user(request)
+    if not user or user.get("role") != "owner":
+        raise HTTPException(403, "owner-only")
+
+    update_founder_profile(req.content)
+    return {"status": "ok", "size_chars": len(req.content)}
 
 
 @app.post("/api/yi-hermes/context/reload")
@@ -1947,23 +1998,36 @@ def yi_hermes_context_summary_for(soul_key: str) -> dict:
 # ─── Person + Relationship + Dyad endpoints ─────────────────────────────────
 
 
+# ─── Note on /api/yi-hermes/persons/* gating ─────────────────────────────────
+# This namespace is anh's personal social graph: founder Bát Tự + family +
+# colleagues + relationship notes. Previously entirely unauthenticated —
+# `curl /api/yi-hermes/persons/_founder` returned anh's full chart. Gating
+# everything to owner-only since these endpoints are not exposed to public
+# users (each end-user has their own `user_persons` namespace via /api/auth/my).
+
+
 @app.post("/api/yi-hermes/persons")
-def yi_hermes_create_person(req: PersonCreateRequest) -> dict:
-    """Create a new Person profile."""
+def yi_hermes_create_person(req: PersonCreateRequest, request: Request) -> dict:
+    """Create a new Person profile (owner-only — anh's social graph)."""
+    from api.auth import require_owner
     from engine.yi_hermes.persons import create_person
 
+    require_owner(request)
     p = create_person(**req.model_dump())
     return {"status": "ok", "person": p.to_dict()}
 
 
 @app.get("/api/yi-hermes/persons")
 def yi_hermes_list_persons(
+    request: Request,
     relationship_to_founder: str | None = None,
     day_master: str | None = None,
     limit: int = 100,
 ) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.persons import list_persons
 
+    require_owner(request)
     persons = list_persons(
         relationship_to_founder=relationship_to_founder,
         day_master=day_master, limit=limit,
@@ -1972,9 +2036,11 @@ def yi_hermes_list_persons(
 
 
 @app.get("/api/yi-hermes/persons/{person_id}")
-def yi_hermes_get_person(person_id: str) -> dict:
+def yi_hermes_get_person(person_id: str, request: Request) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.persons import get_person
 
+    require_owner(request)
     p = get_person(person_id)
     if not p:
         return {"status": "not_found", "person_id": person_id}
@@ -1982,9 +2048,11 @@ def yi_hermes_get_person(person_id: str) -> dict:
 
 
 @app.put("/api/yi-hermes/persons/{person_id}")
-def yi_hermes_update_person(person_id: str, req: PersonUpdateRequest) -> dict:
+def yi_hermes_update_person(person_id: str, req: PersonUpdateRequest, request: Request) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.persons import update_person
 
+    require_owner(request)
     patch = {k: v for k, v in req.model_dump().items() if v is not None}
     p = update_person(person_id, patch)
     if not p:
@@ -1993,10 +2061,12 @@ def yi_hermes_update_person(person_id: str, req: PersonUpdateRequest) -> dict:
 
 
 @app.post("/api/yi-hermes/persons/{person_id}/layer")
-def yi_hermes_update_layer(person_id: str, req: PersonLayerUpdateRequest) -> dict:
-    """Merge `patch` into the named layer of person (career/health/physiognomy/...)."""
+def yi_hermes_update_layer(person_id: str, req: PersonLayerUpdateRequest, request: Request) -> dict:
+    """Merge `patch` into the named layer of person (career/health/physiognomy/...). Owner-only."""
+    from api.auth import require_owner
     from engine.yi_hermes.persons import update_layer
 
+    require_owner(request)
     p = update_layer(person_id, req.layer, req.patch, confidence=req.confidence)
     if not p:
         return {"status": "not_found", "person_id": person_id}
@@ -2004,9 +2074,11 @@ def yi_hermes_update_layer(person_id: str, req: PersonLayerUpdateRequest) -> dic
 
 
 @app.post("/api/yi-hermes/persons/{person_id}/notes")
-def yi_hermes_add_person_note(person_id: str, req: PersonNoteRequest) -> dict:
+def yi_hermes_add_person_note(person_id: str, req: PersonNoteRequest, request: Request) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.persons import add_note
 
+    require_owner(request)
     note_id = add_note(
         person_id, req.body, source=req.source,
         confidence=req.confidence, layer_hint=req.layer_hint,
@@ -2015,18 +2087,22 @@ def yi_hermes_add_person_note(person_id: str, req: PersonNoteRequest) -> dict:
 
 
 @app.get("/api/yi-hermes/persons/{person_id}/notes")
-def yi_hermes_list_person_notes(person_id: str, layer_hint: str | None = None, limit: int = 50) -> dict:
+def yi_hermes_list_person_notes(person_id: str, request: Request, layer_hint: str | None = None, limit: int = 50) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.persons import list_notes
 
+    require_owner(request)
     notes = list_notes(person_id, layer_hint=layer_hint, limit=limit)
     return {"status": "ok", "notes": [n.to_dict() for n in notes]}
 
 
 @app.post("/api/yi-hermes/persons/{person_id}/cast-bat-tu")
-def yi_hermes_person_cast_bat_tu(person_id: str) -> dict:
-    """Lazy-cast (and cache) Bát Tự for a person who has birth_datetime_local set."""
+def yi_hermes_person_cast_bat_tu(person_id: str, request: Request) -> dict:
+    """Lazy-cast (and cache) Bát Tự for a person who has birth_datetime_local set. Owner-only."""
+    from api.auth import require_owner
     from engine.yi_hermes.persons import cast_bat_tu_for, get_person
 
+    require_owner(request)
     p = get_person(person_id)
     if not p:
         return {"status": "not_found", "person_id": person_id}
@@ -2037,9 +2113,11 @@ def yi_hermes_person_cast_bat_tu(person_id: str) -> dict:
 
 
 @app.delete("/api/yi-hermes/persons/{person_id}")
-def yi_hermes_delete_person(person_id: str) -> dict:
+def yi_hermes_delete_person(person_id: str, request: Request) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.persons import delete_person
 
+    require_owner(request)
     ok = delete_person(person_id)
     return {"status": "ok" if ok else "not_found", "person_id": person_id}
 
@@ -2048,22 +2126,28 @@ def yi_hermes_delete_person(person_id: str) -> dict:
 
 
 @app.post("/api/yi-hermes/relationships")
-def yi_hermes_add_relationship(req: RelationshipCreateRequest) -> dict:
+def yi_hermes_add_relationship(req: RelationshipCreateRequest, request: Request) -> dict:
+    """Owner-only: relationships are anh's personal social graph."""
+    from api.auth import require_owner
     from engine.yi_hermes.relationships import add_relationship
 
+    require_owner(request)
     rel = add_relationship(**req.model_dump())
     return {"status": "ok", "relationship": rel.to_dict()}
 
 
 @app.get("/api/yi-hermes/relationships")
 def yi_hermes_list_relationships(
+    request: Request,
     person_id: str | None = None,
     rel_type: str | None = None,
     direction: str = "from",
     limit: int = 100,
 ) -> dict:
+    from api.auth import require_owner
     from engine.yi_hermes.relationships import list_relationships
 
+    require_owner(request)
     rels = list_relationships(
         person_id=person_id, rel_type=rel_type,
         direction=direction, limit=limit,
@@ -2072,9 +2156,23 @@ def yi_hermes_list_relationships(
 
 
 @app.get("/api/yi-hermes/network/{founder_id}")
-def yi_hermes_network(founder_id: str) -> dict:
-    """Return the founder's social graph (depth 1)."""
+def yi_hermes_network(founder_id: str, request: Request) -> dict:
+    """Return the founder's social graph (depth 1).
+
+    Owner-only when querying `_founder` — that returns anh's full Bát Tự,
+    day master, cách cục, birth datetime, and entire relationship graph
+    (spouse, children, colleagues). For non-`_founder` IDs, still require
+    login since this endpoint exposes personal birth data either way.
+    """
+    from api.auth import get_current_user
     from engine.yi_hermes.relationships import founder_network
+
+    user = get_current_user(request)
+    if founder_id == "_founder":
+        if not user or user.get("role") != "owner":
+            raise HTTPException(403, "owner-only")
+    elif not user:
+        raise HTTPException(401, "login required")
 
     return {"status": "ok", "graph": founder_network(founder_id)}
 
@@ -5569,15 +5667,20 @@ def _resolve_person_from_request(req: _AnalyzeRequest, request: Request):
         # Look up from current user's user_persons
         from api.auth import AUTH_DB
         import sqlite3
-        # Legacy fallback: '_founder' always maps to hardcoded founder profile
-        # (so legacy cache + frontend default_person_id='_founder' still works for any user)
+        # Legacy '_founder' shortcut now restricted to the owner — previously
+        # it returned anh's hardcoded birth profile to ANY caller (including
+        # guests) which let kinhdich.online be used as an oracle backed by
+        # anh's personal chart. Owner-only keeps the legacy cache working
+        # for anh's own browser while closing the leak.
         if req.person_key == "_founder":
+            if not user or user.get("role") != "owner":
+                raise HTTPException(404, "person_key not found")
             return Person(
                 person_key="_founder",
                 name="Anh (Founder)",
                 birth_datetime_local="1988-06-05T23:30:00",
                 gender="nam",
-                user_id=uid,  # scope cache to current user if logged in
+                user_id=uid,
             )
         if not user:
             raise HTTPException(401, "Login required to use person_key")
@@ -6417,6 +6520,11 @@ def yi_tuvi_run_all(person_key: str, request: Request, background_tasks: Backgro
     user = get_current_user(request)
     uid = user["user_id"] if user else None
     if person_key == "_founder":
+        # Owner-only: legacy founder profile was returning anh's hardcoded
+        # birth to ANY caller (used to be a guest-mode oracle). Now any
+        # non-owner triggering pipeline against _founder gets 404.
+        if not user or user.get("role") != "owner":
+            raise HTTPException(404, "person not found")
         person = Person(person_key="_founder", name="anh (Founder)",
                         birth_datetime_local="1988-06-05T23:30:00", gender="nam",
                         user_id=uid)
