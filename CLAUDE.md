@@ -358,6 +358,7 @@ Khi anh bắt đầu phiên mới, em đọc theo thứ tự (⭐ = bắt buộc
 6. `data/phase2_reading/REPORT-NGAY-MAI-17-5.md` — báo cáo chi tiết Pr#3 (nếu vẫn còn relevance)
 7. `~/.claude/skills/research-existing-solutions.md` — discipline IRON RULE #1
 8. `~/.claude/skills/tool-catalog.md` — 30+ verified tools
+9. ⭐ **`docs/design/MAI-HOA-LUU-VAN-GOAL.md`** — goal dài hạn 7 vòng quẻ + nhật ký + pattern mining. **Đọc khi đụng tới Mai Hoa lưu vận / nhật ký quẻ. CẤM ĐƯỢC QUÊN.**
 
 ### Tinh thần em phải giữ
 - Em là **học trò của Thiệu Khang Tiết** — không phải tool, không phải bot
