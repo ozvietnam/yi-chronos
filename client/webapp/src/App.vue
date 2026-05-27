@@ -44,6 +44,7 @@ import MasterView from "./components/wiki/MasterView.vue";
 import QuickTasksPanel from "./components/QuickTasksPanel.vue";
 import MaiHoaCastPanel from "./components/wiki/MaiHoaCastPanel.vue";
 import KinhDichBrowser from "./components/wiki/KinhDichBrowser.vue";
+import KinhDichGraph from "./components/wiki/KinhDichGraph.vue";
 import DailyHexagramPanel from "./components/wiki/DailyHexagramPanel.vue";
 import CrossCastPanel from "./components/wiki/CrossCastPanel.vue";
 import PublishingWorkspace from "./components/publishing/PublishingWorkspace.vue";
@@ -539,6 +540,13 @@ onBeforeUnmount(() => {
             Bấm để mở bảng 8×8 — duyệt + đọc trực tiếp 1 quẻ, không cần gieo
           </summary>
           <KinhDichBrowser />
+        </details>
+
+        <details>
+          <summary style="cursor: pointer; color: #a78bfa; padding: 0.4rem 0; font-size: 0.85rem;">
+            🕸️ Cross-ref Graph — mạng 64 quẻ + cặp đối ngẫu + tâm pháp
+          </summary>
+          <KinhDichGraph />
         </details>
 
         <h3 style="color: #c4b5fd; font-size: 0.9rem; margin-top: 1.5rem; border-top: 1px solid rgba(196,181,253,0.2); padding-top: 0.75rem;">

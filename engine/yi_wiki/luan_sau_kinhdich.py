@@ -738,6 +738,130 @@ def list_hexagrams() -> list[dict]:
     return out
 
 
+def build_hexagram_graph() -> dict:
+    """Build cross-reference graph cho 64 quẻ.
+
+    Edges:
+    1. **Sequential** — 1→2, 2→3, ..., 63→64 (chu kỳ Kinh Dịch)
+    2. **Đối ngẫu/Cặp** — quẻ đảo theo Tự quái:
+       - Cặp Thái-Bĩ (11-12), Lâm-Quán (19-20), Bác-Phục (23-24), v.v.
+    3. **Cùng quẻ thuần** — 8 quẻ thuần: Càn-Khôn, Khảm-Ly, Chấn-Cấn, Tốn-Đoài
+    4. **Cross-ref từ frontmatter** — refs khai báo trong từng quẻ (vd Bác→Phục)
+
+    Returns:
+        {"nodes": [...], "edges": [...]}
+        node = {id, number, name_vi, name_zh, upper, lower, group}
+        edge = {source, target, type, label}
+    """
+    items = list_hexagrams()
+    nodes = []
+    edges = []
+
+    # === Nodes ===
+    # Group by thượng kinh (1-30) vs hạ kinh (31-64)
+    for h in items:
+        group = "thuong-kinh" if h["number"] <= 30 else "ha-kinh"
+        # Special groups: thuần (Càn/Khôn/Khảm/Ly/Chấn/Cấn/Tốn/Đoài)
+        if h["upper"] == h["lower"]:
+            group = "thuan"
+        nodes.append({
+            "id": h["number"],
+            "number": h["number"],
+            "name_vi": h["name_vi"],
+            "name_zh": h["name_zh"],
+            "upper": h["upper"],
+            "lower": h["lower"],
+            "structure_unicode": h["structure_unicode"],
+            "group": group,
+        })
+
+    # === Edges ===
+    # 1. Sequential (64 → 1 cycle)
+    for i in range(1, 65):
+        nxt = (i % 64) + 1
+        edges.append({"source": i, "target": nxt, "type": "sequential", "label": "tiếp"})
+
+    # 2. Cặp Tự quái — quẻ chẵn-lẻ tiếp nhau là cặp đối ngẫu (1-2, 3-4, ..., 63-64)
+    # Đa số là đối ngẫu nghĩa (Tống-Sư, Thái-Bĩ, Khiêm-Dự, ...)
+    pair_labels = {
+        (1, 2): "trời-đất",
+        (3, 4): "khó-mở",
+        (5, 6): "chờ-tranh",
+        (7, 8): "đánh-gần",
+        (9, 10): "chứa-bước",
+        (11, 12): "thái-bĩ (giao-cách)",
+        (13, 14): "đồng-hữu",
+        (15, 16): "khiêm-dự",
+        (17, 18): "tùy-cổ",
+        (19, 20): "lâm-quán",
+        (21, 22): "phệ-bí",
+        (23, 24): "bác-phục",
+        (25, 26): "vọng-súc",
+        (27, 28): "di-đại quá",
+        (29, 30): "khảm-ly (thuần)",
+        (31, 32): "hàm-hằng (vợ chồng)",
+        (33, 34): "độn-tráng",
+        (35, 36): "tấn-minh di",
+        (37, 38): "gia-khuê",
+        (39, 40): "kiển-giải",
+        (41, 42): "tổn-ích",
+        (43, 44): "quải-cấu",
+        (45, 46): "tụy-thăng",
+        (47, 48): "khốn-tỉnh",
+        (49, 50): "cách-đỉnh",
+        (51, 52): "chấn-cấn",
+        (53, 54): "tiệm-quy muội",
+        (55, 56): "phong-lữ",
+        (57, 58): "tốn-đoài",
+        (59, 60): "hoán-tiết",
+        (61, 62): "trung phu-tiểu quá",
+        (63, 64): "ký tế-vị tế",
+    }
+    for (a, b), lbl in pair_labels.items():
+        edges.append({"source": a, "target": b, "type": "pair", "label": lbl})
+
+    # 3. Quẻ thuần — 8 quẻ thuần liên kết với nhau (1, 2, 29, 30, 51, 52, 57, 58)
+    thuan_ids = [1, 2, 29, 30, 51, 52, 57, 58]
+    for a in thuan_ids:
+        for b in thuan_ids:
+            if a < b:
+                edges.append({"source": a, "target": b, "type": "thuan", "label": "thuần"})
+
+    # 4. Cross-ref từ frontmatter (lazy — chỉ check kinh_dich refs)
+    for h in items:
+        detail = get_hexagram(str(h["number"]))
+        if not detail:
+            continue
+        body = detail.get("body_markdown", "")
+        # Tìm mentions của quẻ khác trong cross-ref section
+        # Pattern: 'quẻ NN' or '(quẻ NN ...)' or '[NN-name]'
+        crossref_section = ""
+        m = re.search(r"##\s+Cross-ref[^\n]*\n(.*?)(?=\n##\s|\Z)", body, re.S)
+        if m:
+            crossref_section = m.group(1)
+        ref_numbers = set()
+        for m2 in re.finditer(r"\(quẻ\s+(\d+)\)|\[(\d+)-", crossref_section):
+            n = m2.group(1) or m2.group(2)
+            if n:
+                ref_numbers.add(int(n))
+        for ref in ref_numbers:
+            if ref != h["number"] and 1 <= ref <= 64:
+                # Check duplicate with sequential/pair edges
+                edge_key = (min(h["number"], ref), max(h["number"], ref))
+                already = any(
+                    (e["source"], e["target"]) in [edge_key, (edge_key[1], edge_key[0])]
+                    and e["type"] in ("sequential", "pair")
+                    for e in edges
+                )
+                if not already:
+                    edges.append({
+                        "source": h["number"], "target": ref,
+                        "type": "crossref", "label": "cross-ref",
+                    })
+
+    return {"nodes": nodes, "edges": edges}
+
+
 def get_daily_hexagram(date_iso: str) -> dict:
     """1 quẻ/ngày — deterministic hash từ YYYY-MM-DD → 1 trong 64.
 

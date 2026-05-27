@@ -4212,6 +4212,20 @@ def yi_wiki_kinhdich_list() -> dict:
     }
 
 
+@app.get("/api/yi-wiki/kinh-dich/graph")
+def yi_wiki_kinhdich_graph() -> dict:
+    """Cross-ref graph 64 quẻ — nodes + edges cho UI visualization.
+
+    Edge types:
+    - sequential: 1→2→...→64→1 (chu kỳ)
+    - pair: cặp Tự quái (Bác-Phục, Thái-Bĩ, Tổn-Ích...)
+    - thuan: 8 quẻ thuần liên kết
+    - crossref: từ frontmatter của từng quẻ
+    """
+    from engine.yi_wiki.luan_sau_kinhdich import build_hexagram_graph
+    return {"status": "ok", **build_hexagram_graph()}
+
+
 @app.get("/api/yi-wiki/kinh-dich/daily")
 def yi_wiki_kinhdich_daily(date: str | None = None) -> dict:
     """1 quẻ/ngày — deterministic theo ngày.
