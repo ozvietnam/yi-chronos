@@ -73,6 +73,19 @@ _HEXAGRAM_TO_FILE: dict[tuple[str, str], str] = {
     ("Cấn", "Tốn"): "quẻ/18-co.md",          # 18 Cổ
     ("Khôn", "Đoài"): "quẻ/19-lam.md",       # 19 Lâm
     ("Tốn", "Khôn"): "quẻ/20-quan.md",       # 20 Quán
+    # Đợt 5 — skim mode
+    ("Cấn", "Khôn"): "quẻ/23-bac.md",        # 23 Bác
+    ("Khôn", "Chấn"): "quẻ/24-phuc.md",      # 24 Phục
+    ("Cấn", "Chấn"): "quẻ/27-di.md",         # 27 Di
+    ("Đoài", "Tốn"): "quẻ/28-dai-qua.md",    # 28 Đại Quá
+    ("Đoài", "Cấn"): "quẻ/31-ham.md",        # 31 Hàm
+    ("Chấn", "Tốn"): "quẻ/32-hang.md",       # 32 Hằng
+    ("Ly", "Khôn"): "quẻ/35-tan.md",         # 35 Tấn
+    ("Khôn", "Ly"): "quẻ/36-minh-di.md",     # 36 Minh Di
+    ("Khảm", "Cấn"): "quẻ/39-kien.md",       # 39 Kiển
+    ("Chấn", "Khảm"): "quẻ/40-giai.md",      # 40 Giải
+    ("Cấn", "Đoài"): "quẻ/41-ton.md",        # 41 Tổn
+    ("Tốn", "Chấn"): "quẻ/42-ich.md",        # 42 Ích
 }
 
 # Intent → tâm-phap file
