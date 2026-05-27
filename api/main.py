@@ -47,6 +47,7 @@ from api.schemas import (
     YiHermesSummaryAddRequest,
     BatTuCastRequest,
     HaLacCastRequest,
+    KyMonCastRequest,
     LienHoaCastRequest,
     TuViCastRequest,
     LucHaoCastRequest,
@@ -1169,6 +1170,39 @@ def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
         "algorithm_version": ALGORITHM_VERSION,
         "ha_lac_state": result,
     }
+
+
+@app.post("/api/ky-mon/cast")
+def ky_mon_cast(request: KyMonCastRequest) -> dict[str, object]:
+    """Cast a Kỳ Môn Độn Giáp chart (奇門遁甲).
+
+    Trường phái thứ 6 của YI-Chronos. Tổ sư: Lưu Bá Ôn (1311-1375).
+    Paradigm: ĐỌC ĐỒNG DẠNG, không predict (Iron Rule #4 + #6).
+
+    Returns 9 cung × 8 môn × 9 tinh × 8 thần — bản đồ năng lượng thời-không.
+    """
+    from engine.ky_mon import cast as cast_ky_mon
+
+    result = cast_ky_mon(
+        year=request.year,
+        month=request.month,
+        day=request.day,
+        hour=request.hour,
+        minute=request.minute,
+        method=request.method,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ky_mon_state": result,
+    }
+
+
+@app.get("/api/ky-mon/wiki")
+def ky_mon_wiki() -> dict[str, object]:
+    """Return full KMDG wiki — categories: cung, mon, tinh, than, structure, to_su."""
+    from engine.ky_mon import WIKI
+
+    return {"status": "ok", "wiki": WIKI}
 
 
 @app.get("/api/tu-vi/chinh-tinh")

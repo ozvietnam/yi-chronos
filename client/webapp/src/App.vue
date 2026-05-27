@@ -33,6 +33,7 @@ import ProfilesPanel from "./components/ProfilesPanel.vue";
 import TabIntro from "./components/TabIntro.vue";
 import LienHoaPanel from "./components/LienHoaPanel.vue";
 import BatTuPanel from "./components/BatTuPanel.vue";
+import KyMonPanel from "./components/KyMonPanel.vue";
 import ChinhTinhGallery from "./components/ChinhTinhGallery.vue";
 import TuViLaSoPanel from "./components/TuViLaSoPanel.vue";
 import ChieuDomKinhPanel from "./components/ChieuDomKinhPanel.vue";
@@ -386,6 +387,10 @@ onBeforeUnmount(() => {
             @click="activeMainTab = 'tu-vi'">
             <span class="tab-icon"><SchoolIcon name="tu-vi" /></span> Tử Vi
           </button>
+          <button type="button" :class="{ active: activeMainTab === 'ky-mon' }"
+            @click="activeMainTab = 'ky-mon'">
+            <span class="tab-icon"><SchoolIcon name="ky-mon" /></span> Kỳ Môn
+          </button>
           <button type="button" :class="{ active: activeMainTab === 'pytago' }"
             @click="activeMainTab = 'pytago'">
             <span class="tab-icon"><SchoolIcon name="pytago" /></span> Pytago
@@ -657,6 +662,22 @@ onBeforeUnmount(() => {
           />
           <ChieuDomKinhPanel />
         </template>
+      </section>
+
+      <!-- Tab Kỳ Môn Độn Giáp — trường phái thứ 6 -->
+      <section v-else-if="activeMainTab === 'ky-mon'" class="single-column" aria-label="Kỳ Môn Độn Giáp">
+        <TabIntro
+          icon="ky-mon"
+          title="Kỳ Môn Độn Giáp — Đế vương chi học"
+          purpose="Môn cổ thuật phức tạp nhất Đông phương. Bàn 9 cung × 8 môn × 9 tinh × 8 thần phản chiếu cấu trúc năng lượng thời-không tại 1 thời điểm cụ thể. Tổ sư cận đại: Lưu Bá Ôn (1311-1375). Paradigm: ĐỌC ĐỒNG DẠNG, không predict."
+          :steps="[
+            'Bước 1: nhập thời gian khoảnh khắc anh muốn quan-sát (mặc định bây giờ).',
+            'Bước 2: chọn phương pháp — Chabu (giờ, phổ thông) là default. Kim Hàm Ngọc Kính cho bàn theo ngày.',
+            'Bước 3: bấm An cục — bàn 3×3 Lạc Thư hiện ra với 9 cung + môn/tinh/thần/thiên-địa bàn.',
+            'Bước 4: đọc đồng dạng — bàn này phản chiếu khoảnh khắc anh hỏi, không predict tương lai.'
+          ]"
+        />
+        <KyMonPanel />
       </section>
 
       <!-- Tab 6: Gia đạo — multi-actor household system -->

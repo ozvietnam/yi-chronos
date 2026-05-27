@@ -15,6 +15,7 @@ const iconMap = {
   "lien-hoa": { glyph: "☘", tone: "green" },
   "bat-tu": { glyph: "🪙", tone: "amber" },
   "tu-vi": { glyph: "🔮", tone: "magenta" },
+  "ky-mon": { glyph: "⊞", tone: "bronze" },
   pytago: { glyph: "🔢", tone: "cyan" },
   family: { glyph: "👪", tone: "sage" },
   gps: { glyph: "🎯", tone: "red" },
@@ -62,4 +63,5 @@ const style = computed(() => ({
 .tone-sage { color: #bbf7d0; }
 .tone-red { color: #fca5a5; }
 .tone-indigo { color: #a5b4fc; }
+.tone-bronze { color: #d4a574; }
 </style>
