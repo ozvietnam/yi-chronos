@@ -1308,6 +1308,32 @@ Anh chỉ đạo tiếp: _"dive thẳng vào code luôn"_ — skip writing-plans
 
 🌸 **Tinh thần phiên này:** Anh nói _"dive thẳng vào code luôn"_ — em hiểu là Anh tin spec đủ rõ + tin em commit kỷ luật. Em không skip discipline (vẫn TDD backend, test trước/cùng implement; commit từng phase nhỏ; verify build); chỉ skip writing-plans skill vì spec đã đủ chi tiết cho em làm. Đây là cách em hiểu _"không cần plan formal mọi lần — nhưng kỷ luật implement luôn cần"_.
 
+### 2026-05-27 tối — Thêm trường phái thứ 6 vào hệ thống: **Kỳ Môn Độn Giáp**
+
+Anh yêu cầu: _"trên trang chủ, thêm 1 trường phái kỳ môn độn giáp vào hệ thống nhé"_.
+
+**Scope**: Full engine + UI (anh quyết). Tổ sư: **Lưu Bá Ôn** (1311-1375) — cận đại, stable, "Bá Ôn Bí Truyền KMDG".
+
+**Discipline em giữ được (Iron Rule #1)**:
+- Em research 5 phút TRƯỚC khi propose plan: 6 candidates trên GitHub, top = `kentang2017/kinqimen` (MIT, PyPI, 90 stars).
+- Spike test với founder data 1988-06-05 23:30 → output structured dict 16 keys (Tứ trụ, Bài cục, Tiết khí, 9 cung × 4 layers).
+- Phát hiện bug nhỏ trong kinqimen (`import config` Python 2 style + `ephem` dep không build Python 3.14) → vendor + patch thay vì from-scratch.
+
+**Em làm trong 1 phiên (~2h)**:
+- Vendor kinqimen 0.0.6.6 vào `engine/ky_mon/vendored/` + fix import bug
+- Wrapper `engine/ky_mon/{cast.py, constants.py, wiki.py}` — TQ↔Việt mapping + paradigm note enforced
+- API `/api/ky-mon/cast` + `/api/ky-mon/wiki`
+- Vue `KyMonPanel.vue` — Lạc Thư 3×3 grid render với cat_hung color hint
+- Tests: 10/10 PASS (engine + 4 methods + wiki + API + no-predict-language assertion)
+- Build webapp clean (1749 modules, 2.69s)
+- Commit theo Iron Rule #7 (git add specific paths, không nới gitignore, verify staged count 16 files / 2502 insertions / 0 sensitive)
+
+🎓 **Lesson #23 — Vendor 3rd-party MIT khi upstream có bug nhỏ.** Em đã muốn `pip install kinqimen` đơn giản, nhưng `ephem` dep fail Python 3.14 + `import config` Python 2 style fail. Vendor + patch (chỉ 1 dòng) + NOTICE.md ghi nhận license là pattern đúng. Không touch upstream, không waste 1-2 ngày build from-scratch khi MIT code có sẵn.
+
+🎓 **Lesson #24 — Paradigm enforcement TỪ ĐẦU.** Em không chờ Iron Rule #4/#6 violation rồi mới fix. Mỗi layer (engine docstring, `paradigm_note` field trong output, UI subtitle, TabIntro purpose, test `test_no_predict_language_in_paradigm_note`) đều có wording "đọc đồng dạng, không predict". Đây là cách scale Iron Rule cho mọi trường phái mới — paradigm là FIRST-CLASS contract, không phải afterthought.
+
+🌸 **Tinh thần phiên này**: Anh "Duyệt" gọn 1 chữ → em không hỏi lại lần 2, execute thẳng. Nhưng em vẫn giữ kỷ luật ở mỗi mắt xích: test sau khi vendor, test sau khi wrapper, test endpoint qua TestClient, build webapp verify, git stat verify trước commit. Anh tin em nhanh — em không phụ niềm tin đó bằng cách bỏ kỷ luật.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
