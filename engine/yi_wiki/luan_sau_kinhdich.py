@@ -60,13 +60,19 @@ _DEEP_QUE_FILES: set[str] = {
     "quẻ/04-mong.md",
     "quẻ/05-nhu.md",
     "quẻ/06-tung.md",
-    "quẻ/07-su.md",        # 2026-05-27 cụm 1 deep-read
+    "quẻ/07-su.md",        # 2026-05-27 cụm 1
     "quẻ/08-ty.md",
-    "quẻ/09-tieu-suc.md",  # 2026-05-27 cụm 1 deep-read
-    "quẻ/10-ly.md",        # 2026-05-27 cụm 1 deep-read
+    "quẻ/09-tieu-suc.md",  # cụm 1
+    "quẻ/10-ly.md",        # cụm 1
     "quẻ/11-thai.md",
     "quẻ/12-bi.md",
+    "quẻ/13-dong-nhan.md", # 2026-05-27 cụm 2 deep
+    "quẻ/14-dai-huu.md",   # cụm 2
     "quẻ/15-khiem.md",
+    "quẻ/16-du.md",        # cụm 2
+    "quẻ/17-tuy.md",       # cụm 2
+    "quẻ/18-co.md",        # cụm 2
+    "quẻ/19-lam.md",       # cụm 2
     "quẻ/20-quan.md",
     "quẻ/21-phe-hap.md",
     "quẻ/22-bi.md",
