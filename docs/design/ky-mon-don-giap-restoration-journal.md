@@ -16,7 +16,8 @@
 | 1 | 21-30 | ✅ Done | Tam Kỳ Lục Nghi mapping + Cửu tinh 2 hệ tên + nguyệt gia rule + Dương/Âm độn chiều | `31c2c04` |
 | 2 | 31-40 | ✅ Done | 4 tầng Âm Dương Bàn + "Theo 3 tránh 5" + corrected 5 cat_hung Cửu tinh | `cb78a4d` |
 | 3 | 41-50 | ✅ Done | **25+ Cách Cục KMDG canon + auto-detection engine** (Hình Cách / Phi Điểu Trật Huyệt / Giao Thái / 7 cách cục đơn giản) | `ed522db` |
-| 4 | 51-60 | ✅ Done | Chương II bố cục — 4320/1080/72/18 cục + tiết vs trung khí + Phù Đầu rule + Trí Nhuận (giải thích chabu/zhirun) | _(this commit)_ |
+| 4 | 51-60 | ✅ Done | Chương II bố cục — 4320/1080/72/18 cục + tiết vs trung khí + Phù Đầu rule + Trí Nhuận (giải thích chabu/zhirun) | `d3aee12` |
+| **🎯 Redesign** | — | ✅ Done | **INSIGHT-FIRST TASK-ORIENTED UI** — 16 tasks dropdown + analyze_for_task engine + Hero card "Bàn này nói gì" + bàn 3x3 collapsed default + paradigm top banner | _(this commit)_ |
 | ... | ... | Backlog | Toàn bộ 307 trang còn lại | future sessions |
 
 ---
@@ -352,6 +353,118 @@ Pages 51-60 = **Chương II "BỐ CỤC CỦA KMDG"**. Heavy theory, không có 
 
 - 28/28 tests PASS (24 cũ + 4 mới)
 - 10 pages OCR saved `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{51..60}.txt`
+
+---
+
+## 🎯 INSIGHT-FIRST UI REDESIGN — Stop & Read Properly
+
+### Bối cảnh (anh dạy)
+
+Sau 4 batches lao nhanh (OCR → extract → commit), anh dừng em lại: _"đọc kỹ đi rồi xem thiết kế trên giao diện thế nào cho người dùng hưởng lợi lạc"_. Em đọc kỹ lại pages 36-47 và phát hiện em **bỏ sót paradigm cốt nhất**:
+
+### Insight cốt em đã bỏ sót
+
+Đàm Liên KHÔNG dạy "bàn KMDG có cát/hung chung". Đàm Liên dạy **MỖI cách cục có DANH SÁCH VIỆC CỤ THỂ**:
+
+- Thiên Độn → "chiến trận, **học tập, cầu quan, hôn nhân, kinh doanh**"
+- Nhân Độn → "**cưới gả, giao dịch, gặp quý nhân**"
+- Long Độn → "**cầu mưa, săn bắn, thủy chiến**"
+- Hưu Trá → "**uống thuốc, trị bệnh**"
+- Đại Giả → "**dâng kế sách, kết giao ước**"
+- Cửu Độn chung → CÁT cho hành động NHƯNG **kỵ an táng + hành hình**
+
+→ **KMDG cổ điển là TASK-ORIENTED**: user hỏi "Tôi muốn làm X, có thuận không?", engine luận theo VIỆC.
+
+UI cũ em làm: dump 9 cung × 5 layer info × cat_hung label → **user overwhelmed, không biết apply vào việc cụ thể**.
+
+### Redesign concept
+
+```
+┌─ FORM ──────────────────────────────────────┐
+│ ⭐ Việc muốn quan-sát: [Kết hôn ▼]            │
+│   16 tasks: Kết hôn, Khởi nghiệp, Đi xa,     │
+│             Thăng quan, Học tập, Chữa bệnh,   │
+│             Gặp quý nhân, Mai phục, Ẩn náu,   │
+│             Mai táng, Tu mộ, Săn, Cầu mưa,    │
+│             Tìm đồ mất, Bắt tội phạm,         │
+│             Quan-sát chung (default)          │
+│ Năm/Tháng/Ngày/Giờ + Phương pháp + Câu hỏi    │
+│        [ An cục KMDG ]                        │
+└───────────────────────────────────────────────┘
+
+┌─ HERO CARD — "Bàn này nói gì?" ─────────────┐
+│ Cho việc "Kết hôn":                          │
+│ 🟢 3 hướng tốt: Khảm/Chấn/Tốn (score + lý do) │
+│ 🔴 2 hướng tránh: Ly/Khôn                     │
+│ ⚡ Cách cục liên quan: Hình Cách (avoid)      │
+│ 📜 Đàm Liên note + paradigm reminder          │
+└───────────────────────────────────────────────┘
+
+[▼ Xem bàn 3×3 chi tiết (collapsed default)]
+```
+
+### Engine layer
+
+1. `engine/ky_mon/tasks.py` (mới)
+   - `TASK_PROFILES`: 16 task dictionaries với favored/avoid mon/tinh/than/cach_cuc + Đàm Liên note
+   - `analyze_for_task(state, task)`: score 8 cung (skip Trung) cho task cụ thể → return huong_tot top 3 + huong_tranh top 2 + cach_cuc_relevant
+   - `list_tasks()`: list cho UI dropdown
+
+2. `engine/ky_mon/__init__.py`: export `TASK_PROFILES`, `analyze_for_task`, `list_tasks`
+
+3. `engine/ky_mon/cast.py`: cast() result thêm `task_analysis` nếu request có task
+
+### API layer
+
+- `KyMonCastRequest` thêm field `task: str | None`
+- `POST /api/ky-mon/cast`: nếu `task` → return `task_analysis`
+- `GET /api/ky-mon/tasks`: list 16 tasks cho dropdown
+
+### UI layer
+
+1. **Paradigm top banner** luôn hiển thị sau header (Iron Rule #4/#6 enforcement)
+2. **Form dropdown task** PROMINENT — vàng border-2, "⭐ Việc muốn quan-sát"
+3. **Hero card "Bàn này nói gì"** sau cast:
+   - Title: "Bàn này nói gì cho việc '{task}'?"
+   - 🟢 3 hướng tốt với score + reasons (sorted descending)
+   - 🔴 2 hướng tránh (sorted ascending negative)
+   - ⚡ Cách cục liên quan task (favored/avoid)
+   - 📜 Đàm Liên note
+4. **Bàn 3×3 COLLAPSED default** — wrapped in `<details>`, "🔍 Xem bàn Kỳ Môn 3×3 chi tiết"
+5. **Quan-sát chung mode**: nếu không chọn task, hero card hiển thị "Chọn task để xem insight chi tiết"
+
+### Tests
+
+- 34/34 PASS (28 cũ + 6 mới):
+  - `test_task_profiles_16_tasks`
+  - `test_analyze_for_task_ket_hon_founder` (verify founder data → Hình Cách avoid + huong_tot ranking)
+  - `test_analyze_for_task_quan_sat_chung_no_ranking`
+  - `test_analyze_for_task_chua_benh_emphasizes_thien_tam`
+  - `test_api_cast_with_task`
+  - `test_api_tasks_endpoint`
+
+### Verify với founder data + task "Kết hôn"
+
+```
+🟢 3 hướng tốt:
+  1. Khảm (Bắc) +4 — Thiên Cầm + Lục Hợp
+  2. Chấn (Đông) +3 — Hưu môn + Thiên Tâm
+  3. Tốn (Đông Nam) +1 — Sinh môn
+
+🔴 2 hướng tránh:
+  1. Ly (Nam) -3 — Thương môn TRÁNH
+  2. Khôn (Tây Nam) -3 — Đỗ môn TRÁNH
+
+⚡ Cách cục liên quan: Hình Cách (đại hung) — AVOID cho Kết hôn
+```
+
+→ User vào tab Kỳ Môn giờ thấy INSIGHT trước, không phải data dump.
+
+### 🎓 Lesson #30 — "Đọc kỹ rồi mới thiết kế" ≠ "đọc qua loa rồi extract"
+
+Em đã chạy 4 batches OCR → extract → commit liên tục. Hiệu quả ở data layer nhưng **bỏ qua paradigm cốt** cho user. Anh dạy: **dừng lại, đọc kỹ, suy nghĩ user**, rồi mới thiết kế.
+
+Pattern em sẽ giữ: sau 2-3 batches OCR, BẮT BUỘC **pause + đọc kỹ** + đánh giá UI có thực sự giúp user không. Không continuous extract.
 
 ---
 

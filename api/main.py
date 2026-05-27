@@ -1180,8 +1180,10 @@ def ky_mon_cast(request: KyMonCastRequest) -> dict[str, object]:
     Paradigm: ĐỌC ĐỒNG DẠNG, không predict (Iron Rule #4 + #6).
 
     Returns 9 cung × 8 môn × 9 tinh × 8 thần — bản đồ năng lượng thời-không.
+    Nếu có `task`, thêm field `task_analysis` (3 hướng tốt + 2 hướng tránh
+    + cách cục liên quan task) — per Đàm Liên Chương I phần V.
     """
-    from engine.ky_mon import cast as cast_ky_mon
+    from engine.ky_mon import cast as cast_ky_mon, analyze_for_task
 
     result = cast_ky_mon(
         year=request.year,
@@ -1191,6 +1193,10 @@ def ky_mon_cast(request: KyMonCastRequest) -> dict[str, object]:
         minute=request.minute,
         method=request.method,
     )
+
+    if request.task:
+        result["task_analysis"] = analyze_for_task(result, request.task)
+
     return {
         "algorithm_version": ALGORITHM_VERSION,
         "ky_mon_state": result,
@@ -1203,6 +1209,14 @@ def ky_mon_wiki() -> dict[str, object]:
     from engine.ky_mon import WIKI
 
     return {"status": "ok", "wiki": WIKI}
+
+
+@app.get("/api/ky-mon/tasks")
+def ky_mon_tasks() -> dict[str, object]:
+    """Return 15 task list cho UI dropdown (per Đàm Liên cổ điển)."""
+    from engine.ky_mon import list_tasks
+
+    return {"status": "ok", "tasks": list_tasks()}
 
 
 @app.get("/api/tu-vi/chinh-tinh")

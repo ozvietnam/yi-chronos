@@ -9,6 +9,7 @@ const form = ref({
   hour: now.getHours(),
   minute: now.getMinutes(),
   method: "chabu",
+  task: "Quan-sát chung",  // default
   question: ""
 });
 
@@ -16,17 +17,23 @@ const state = ref(null);
 const loading = ref(false);
 const error = ref("");
 const wiki = ref(null);
-const selectedCung = ref(null);  // Cung being shown in paradigm popover
+const tasks = ref([]);
+const selectedCung = ref(null);
+
+// Collapsible state — bàn 3x3 và wiki cards default collapsed (insight-first UX)
+const showDetailBan = ref(false);
+const showIntroWiki = ref(false);
 
 onMounted(async () => {
   try {
-    const r = await fetch("/api/ky-mon/wiki");
-    if (r.ok) {
-      const j = await r.json();
-      wiki.value = j.wiki;
-    }
+    const [wikiR, tasksR] = await Promise.all([
+      fetch("/api/ky-mon/wiki"),
+      fetch("/api/ky-mon/tasks"),
+    ]);
+    if (wikiR.ok) wiki.value = (await wikiR.json()).wiki;
+    if (tasksR.ok) tasks.value = (await tasksR.json()).tasks;
   } catch (e) {
-    // wiki fetch là nice-to-have, không block UI
+    // best-effort fetch
   }
 });
 
@@ -85,12 +92,14 @@ async function cast() {
         hour: parseInt(form.value.hour),
         minute: parseInt(form.value.minute),
         method: form.value.method,
-        question_text: form.value.question || null
+        question_text: form.value.question || null,
+        task: form.value.task !== "Quan-sát chung" ? form.value.task : null,
       })
     });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const j = await r.json();
     state.value = j.ky_mon_state;
+    showDetailBan.value = false; // reset collapsed mỗi lần cast mới
   } catch (e) {
     error.value = String(e);
   } finally {
@@ -133,8 +142,24 @@ const catHungClass = (label) => {
       </p>
     </header>
 
+    <!-- 📜 Paradigm banner — LUÔN hiển thị (Iron Rule #4 + #6 enforcement) -->
+    <div class="km-paradigm-banner">
+      <strong>📜 Paradigm:</strong>
+      KMDG là <strong>quan-sát đồng dạng</strong> giữa khoảnh khắc + cấu trúc vũ trụ —
+      <em>KHÔNG predict cát hung tuyệt đối</em>. Phương vị tương đối (tùy trung tâm).
+      Một việc bói một lần, không nghi không bói.
+    </div>
+
     <section class="km-form">
       <h3>An cục</h3>
+
+      <label class="km-task-label">
+        <span class="km-task-prompt">⭐ Việc muốn quan-sát:</span>
+        <select v-model="form.task" class="km-task-select">
+          <option v-for="t in tasks" :key="t.key" :value="t.key">{{ t.label }}</option>
+        </select>
+      </label>
+
       <div class="km-form-grid">
         <label>Năm <input type="number" v-model.number="form.year" min="1900" max="2100" /></label>
         <label>Tháng <input type="number" v-model.number="form.month" min="1" max="12" /></label>
@@ -163,29 +188,76 @@ const catHungClass = (label) => {
     </section>
 
     <section v-if="state" class="km-result">
-      <div class="km-info-bar">
-        <div class="km-info-item">
-          <span class="km-info-label">Tứ trụ</span>
-          <span class="km-info-value mono">{{ state.tu_tru_zh }}</span>
+      <!-- 🎯 HERO INSIGHT CARD — Task-oriented analysis (Đàm Liên paradigm) -->
+      <div v-if="state.task_analysis" class="km-hero">
+        <h3 class="km-hero-title">
+          🎯 Bàn này nói gì cho việc <span class="km-hero-task">"{{ state.task_analysis.task_label }}"</span>?
+        </h3>
+        <p class="km-hero-meta">
+          🕐 <strong>{{ state.tiet_khi_vn }}</strong>
+          · {{ state.bai_cuc?.duong_am }} {{ state.bai_cuc?.cuc_so }} — {{ state.bai_cuc?.nguyen }}
+          · Tứ trụ <span class="mono">{{ state.tu_tru_zh }}</span>
+        </p>
+
+        <div v-if="state.task_analysis.huong_tot.length" class="km-hero-section km-hero-tot">
+          <h4>🟢 3 hướng tốt nhất cho việc này</h4>
+          <ol class="km-hero-list">
+            <li v-for="(h, i) in state.task_analysis.huong_tot" :key="h.cung">
+              <strong>{{ h.cung }} ({{ h.direction }})</strong>
+              <span class="km-hero-score">+{{ h.score }}</span>
+              <ul class="km-hero-reasons">
+                <li v-for="r in h.reasons" :key="r">{{ r }}</li>
+              </ul>
+            </li>
+          </ol>
         </div>
-        <div class="km-info-item">
-          <span class="km-info-label">Tiết khí</span>
-          <span class="km-info-value">{{ state.tiet_khi_vn }} ({{ state.tiet_khi_zh }})</span>
+
+        <div v-if="state.task_analysis.huong_tranh.length" class="km-hero-section km-hero-tranh">
+          <h4>🔴 Hướng tránh</h4>
+          <ol class="km-hero-list">
+            <li v-for="h in state.task_analysis.huong_tranh" :key="h.cung">
+              <strong>{{ h.cung }} ({{ h.direction }})</strong>
+              <span class="km-hero-score km-hero-score-neg">{{ h.score }}</span>
+              <ul class="km-hero-reasons">
+                <li v-for="r in h.reasons" :key="r">{{ r }}</li>
+              </ul>
+            </li>
+          </ol>
         </div>
-        <div class="km-info-item">
-          <span class="km-info-label">Bài cục</span>
-          <span class="km-info-value">
-            {{ state.bai_cuc?.duong_am }} {{ state.bai_cuc?.cuc_so }} — {{ state.bai_cuc?.nguyen }}
-          </span>
+
+        <div v-if="state.task_analysis.cach_cuc_relevant.length" class="km-hero-section">
+          <h4>⚡ Cách cục liên quan task</h4>
+          <ul class="km-hero-cc-list">
+            <li v-for="cc in state.task_analysis.cach_cuc_relevant" :key="cc.name"
+                :class="`km-hero-cc-${cc.task_match}`">
+              <strong>{{ cc.name }}</strong> ({{ cc.loai }})
+              — {{ cc.task_match === 'favored' ? '✅ phù hợp' : '⚠️ ngại' }} cho việc
+              <em>"{{ state.task_analysis.task_label }}"</em>
+            </li>
+          </ul>
         </div>
-        <div class="km-info-item">
-          <span class="km-info-label">Tuần thủ</span>
-          <span class="km-info-value mono">{{ state.tuan_thu }}</span>
-        </div>
-        <div class="km-info-item" v-if="state.tuan_khong">
-          <span class="km-info-label">Tuần không</span>
-          <span class="km-info-value mono">Nhật: {{ state.tuan_khong['日空'] }} · Thời: {{ state.tuan_khong['時空'] }}</span>
-        </div>
+
+        <p v-if="!state.task_analysis.huong_tot.length && !state.task_analysis.huong_tranh.length"
+           class="km-hero-empty">
+          ⚊ Khoảnh khắc này không có hướng cát/hung nổi bật cho việc này. Có thể đợi thời, hoặc xem bàn chi tiết để tự luận.
+        </p>
+
+        <p class="km-hero-note">
+          📜 {{ state.task_analysis.note }}
+        </p>
+      </div>
+
+      <!-- 🌌 Quan-sát chung — chỉ hiển thị khi task = "Quan-sát chung" hoặc không task -->
+      <div v-else class="km-hero km-hero-quan-sat">
+        <h3 class="km-hero-title">🌌 Bàn này — Quan-sát chung</h3>
+        <p class="km-hero-meta">
+          🕐 <strong>{{ state.tiet_khi_vn }}</strong>
+          · {{ state.bai_cuc?.duong_am }} {{ state.bai_cuc?.cuc_so }} — {{ state.bai_cuc?.nguyen }}
+          · Tứ trụ <span class="mono">{{ state.tu_tru_zh }}</span>
+        </p>
+        <p class="km-hero-empty">
+          <em>Chọn "Việc muốn quan-sát" ở form phía trên + cast lại để xem 3 hướng tốt nhất / hướng tránh cho việc cụ thể.</em>
+        </p>
       </div>
 
       <div v-if="state.cach_cuc_detected && state.cach_cuc_detected.length" class="km-cach-cuc">
@@ -215,8 +287,12 @@ const catHungClass = (label) => {
         </div>
       </div>
 
-      <h3 class="km-grid-title">Bàn Kỳ Môn (Lạc Thư cửu cung)</h3>
-      <div class="km-grid">
+      <details class="km-grid-details" :open="showDetailBan">
+        <summary @click.prevent="showDetailBan = !showDetailBan">
+          🔍 {{ showDetailBan ? 'Thu gọn' : 'Xem' }} bàn Kỳ Môn 3×3 chi tiết (9 cung + 4 tầng)
+        </summary>
+        <h3 class="km-grid-title">Bàn Kỳ Môn (Lạc Thư cửu cung)</h3>
+        <div class="km-grid">
         <div v-for="cell in cungGrid" :key="cell.cung_vn" class="km-cell" :class="{ 'km-trung': cell.is_trung }">
           <div class="km-cell-header km-cell-clickable" @click="openCungParadigm(cell.cung_vn)"
                :title="`Click để xem paradigm Kinh Dịch của cung ${cell.cung_vn}`">
@@ -256,6 +332,8 @@ const catHungClass = (label) => {
           </div>
         </div>
       </div>
+
+      </details>
 
       <p class="km-paradigm-note">
         <strong>Lời nhắc:</strong> {{ state.paradigm_note }}
@@ -457,6 +535,26 @@ const catHungClass = (label) => {
   .km-he-grid, .km-tklm-grid { grid-template-columns: 1fr; }
 }
 
+/* Paradigm banner (top, always visible) */
+.km-paradigm-banner {
+  margin: 12px 0 16px; padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.12), rgba(212, 165, 116, 0.04));
+  border: 1px solid rgba(212, 165, 116, 0.3); border-left: 4px solid #d4a574;
+  border-radius: 6px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.5;
+}
+.km-paradigm-banner strong { color: #d4a574; }
+.km-paradigm-banner em { color: #fbbf24; font-style: italic; }
+
+/* Task dropdown — prominent */
+.km-task-label { display: flex; flex-direction: column; margin-bottom: 14px; }
+.km-task-prompt { font-size: 0.95rem; color: #fbbf24; font-weight: 600; margin-bottom: 4px; }
+.km-task-select {
+  padding: 10px 12px; background: #0f172a; color: #e2e8f0;
+  border: 2px solid #d4a574; border-radius: 6px; font-size: 1rem;
+  cursor: pointer;
+}
+.km-task-select:focus { outline: none; border-color: #fbbf24; }
+
 .km-form { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
 .km-form h3 { margin: 0 0 12px; color: #d4a574; font-size: 1.1rem; }
 .km-form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
@@ -471,6 +569,62 @@ const catHungClass = (label) => {
 .km-error { color: #fca5a5; margin-top: 12px; }
 
 .km-result { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; }
+
+/* 🎯 Hero insight card — task-oriented */
+.km-hero {
+  background: linear-gradient(135deg, #1a1f2e, #0f172a);
+  border: 2px solid #d4a574; border-radius: 10px;
+  padding: 20px; margin-bottom: 18px;
+  box-shadow: 0 4px 20px rgba(212, 165, 116, 0.15);
+}
+.km-hero-title { margin: 0 0 8px; color: #fbbf24; font-size: 1.3rem; }
+.km-hero-task { color: #d4a574; font-style: italic; }
+.km-hero-meta { margin: 0 0 16px; font-size: 0.88rem; color: #94a3b8; }
+.km-hero-meta strong { color: #fbbf24; }
+.km-hero-section { margin-top: 16px; padding: 12px 14px; background: #0f172a; border-radius: 8px; }
+.km-hero-section h4 { margin: 0 0 10px; font-size: 0.95rem; }
+.km-hero-tot { border-left: 4px solid #86efac; }
+.km-hero-tot h4 { color: #86efac; }
+.km-hero-tranh { border-left: 4px solid #fca5a5; }
+.km-hero-tranh h4 { color: #fca5a5; }
+.km-hero-list { margin: 0; padding-left: 22px; }
+.km-hero-list > li { margin-bottom: 10px; }
+.km-hero-list > li strong { color: #e2e8f0; font-size: 1rem; }
+.km-hero-score {
+  display: inline-block; margin-left: 8px;
+  font-size: 0.75rem; padding: 2px 8px; border-radius: 10px;
+  background: rgba(134, 239, 172, 0.15); color: #86efac;
+}
+.km-hero-score-neg { background: rgba(252, 165, 165, 0.15); color: #fca5a5; }
+.km-hero-reasons { margin: 4px 0 0; padding-left: 18px; font-size: 0.82rem; color: #cbd5e1; line-height: 1.5; }
+.km-hero-cc-list { list-style: none; padding: 0; margin: 0; }
+.km-hero-cc-list li { padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; }
+.km-hero-cc-favored { background: rgba(134, 239, 172, 0.08); color: #cbd5e1; }
+.km-hero-cc-avoid { background: rgba(252, 165, 165, 0.08); color: #cbd5e1; }
+.km-hero-empty { font-style: italic; color: #94a3b8; font-size: 0.88rem; }
+.km-hero-note {
+  margin-top: 14px; padding: 10px 12px;
+  background: rgba(212, 165, 116, 0.08); border-radius: 6px;
+  font-size: 0.85rem; color: #cbd5e1; font-style: italic;
+}
+.km-hero-quan-sat { border-color: #475569; }
+.km-hero-quan-sat .km-hero-title { color: #94a3b8; }
+
+/* Bàn 3x3 grid wrapped in details (collapsed default) */
+.km-grid-details {
+  margin: 16px 0 0;
+  background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+}
+.km-grid-details summary {
+  cursor: pointer; padding: 14px 18px;
+  color: #d4a574; font-weight: 600; font-size: 0.95rem;
+  user-select: none;
+}
+.km-grid-details summary:hover { background: rgba(212, 165, 116, 0.04); }
+.km-grid-details[open] summary { border-bottom: 1px solid #334155; }
+.km-grid-details > h3, .km-grid-details > .km-grid { padding: 0 18px; }
+.km-grid-details > h3 { margin-top: 12px; }
+.km-grid-details > .km-grid { padding-bottom: 18px; }
 .km-info-bar { display: flex; flex-wrap: wrap; gap: 16px; padding: 12px; background: #0f172a; border-radius: 6px; margin-bottom: 16px; }
 .km-info-item { display: flex; flex-direction: column; gap: 2px; }
 .km-info-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }

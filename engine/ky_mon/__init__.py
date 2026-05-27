@@ -7,6 +7,10 @@ Core engine vendor từ kentang2017/kinqimen (MIT), wrap + dịch TQ→Việt.
 """
 
 from .cast import cast
+from .tasks import TASK_PROFILES, analyze_for_task, list_tasks
 from .wiki import WIKI, get_concept, list_categories
 
-__all__ = ["cast", "WIKI", "get_concept", "list_categories"]
+__all__ = [
+    "cast", "WIKI", "get_concept", "list_categories",
+    "TASK_PROFILES", "analyze_for_task", "list_tasks",
+]

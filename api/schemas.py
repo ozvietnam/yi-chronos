@@ -98,6 +98,9 @@ class KyMonCastRequest(BaseModel):
     - zhirun (置閏): hour-based, alternative method
     - minute (分家): minute-precision
     - gpan (金函玉鏡): daily Golden Mirror chart
+
+    Task: optional task-oriented analysis (per Đàm Liên Chương I phần V).
+    Examples: "Kết hôn", "Khởi nghiệp", "Đi xa", "Chữa bệnh", ...
     """
     year: int
     month: int
@@ -106,6 +109,7 @@ class KyMonCastRequest(BaseModel):
     minute: int = 0
     method: Literal["chabu", "zhirun", "minute", "gpan"] = "chabu"
     question_text: str | None = None
+    task: str | None = None
 
 
 class AiProviderKeyRequest(BaseModel):

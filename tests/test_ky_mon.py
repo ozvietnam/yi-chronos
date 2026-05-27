@@ -310,6 +310,100 @@ def test_tri_nhuan_explain_chabu_zhirun():
     assert tn["chabu_拆補"]["library_value"] == "method='chabu' trong kinqimen (default)"
 
 
+def test_task_profiles_16_tasks():
+    """16 task profiles (15 cụ thể + Quan-sát chung)."""
+    from engine.ky_mon import TASK_PROFILES, list_tasks
+
+    assert len(TASK_PROFILES) == 16
+    assert "Kết hôn" in TASK_PROFILES
+    assert "Chữa bệnh" in TASK_PROFILES
+    assert "Quan-sát chung" in TASK_PROFILES
+
+    tasks = list_tasks()
+    assert len(tasks) == 16
+    assert all("key" in t and "label" in t for t in tasks)
+
+
+def test_analyze_for_task_ket_hon_founder():
+    """Founder data + task 'Kết hôn' should rank hướng tốt/tránh."""
+    from engine.ky_mon import cast, analyze_for_task
+
+    state = cast(1988, 6, 5, 23, 30)
+    analysis = analyze_for_task(state, "Kết hôn")
+
+    assert analysis["task"] == "Kết hôn"
+    assert analysis["task_label"] == "Kết hôn / Cưới gả"
+    assert "Đàm Liên" in analysis["note"]
+
+    # huong_tot có 3 entries (sorted by score desc)
+    assert len(analysis["huong_tot"]) <= 3
+    if analysis["huong_tot"]:
+        scores = [h["score"] for h in analysis["huong_tot"]]
+        assert scores == sorted(scores, reverse=True)
+        assert all(h["score"] > 0 for h in analysis["huong_tot"])
+
+    # huong_tranh có scores âm
+    if analysis["huong_tranh"]:
+        assert all(h["score"] < 0 for h in analysis["huong_tranh"])
+
+    # cách cục relevant: founder có Hình Cách → avoid cho Kết hôn
+    cc_names = {cc["name"] for cc in analysis["cach_cuc_relevant"]}
+    assert "Hình Cách" in cc_names
+    hinh_cach = next(cc for cc in analysis["cach_cuc_relevant"] if cc["name"] == "Hình Cách")
+    assert hinh_cach["task_match"] == "avoid"
+
+
+def test_analyze_for_task_quan_sat_chung_no_ranking():
+    """Task 'Quan-sát chung' không có ranking."""
+    from engine.ky_mon import cast, analyze_for_task
+
+    state = cast(1988, 6, 5, 23, 30)
+    analysis = analyze_for_task(state, "Quan-sát chung")
+
+    assert analysis["task"] == "Quan-sát chung"
+    assert analysis["huong_tot"] == []
+    assert analysis["huong_tranh"] == []
+
+
+def test_analyze_for_task_chua_benh_emphasizes_thien_tam():
+    """Task 'Chữa bệnh' favor Thiên Tâm + Hưu Trá per Đàm Liên."""
+    from engine.ky_mon import TASK_PROFILES
+
+    p = TASK_PROFILES["Chữa bệnh"]
+    assert "心" in p["favored_tinh"]  # Thiên Tâm
+    assert "Hưu Trá" in p["favored_cach_cuc"]
+    assert "uống thuốc" in p["note"].lower() or "y dược" in p["note"].lower()
+
+
+def test_api_cast_with_task():
+    """API endpoint trả task_analysis khi request có task."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    r = client.post("/api/ky-mon/cast", json={
+        "year": 1988, "month": 6, "day": 5, "hour": 23, "minute": 30,
+        "task": "Kết hôn",
+    })
+    assert r.status_code == 200
+    j = r.json()
+    assert "task_analysis" in j["ky_mon_state"]
+    assert j["ky_mon_state"]["task_analysis"]["task"] == "Kết hôn"
+
+
+def test_api_tasks_endpoint():
+    """GET /api/ky-mon/tasks return 16 tasks."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    r = client.get("/api/ky-mon/tasks")
+    assert r.status_code == 200
+    j = r.json()
+    assert j["status"] == "ok"
+    assert len(j["tasks"]) == 16
+
+
 def test_detect_cach_cuc_returns_list():
     """detect_cach_cuc() trả về list (có thể empty)."""
     from engine.ky_mon.cast import detect_cach_cuc
