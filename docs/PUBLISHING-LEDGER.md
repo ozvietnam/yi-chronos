@@ -98,3 +98,17 @@ v2.0 thêm Stage 2 (planning), Stage 3 (routing), Stage 4 (4-way image handling)
 
 **Effort delta**: Q3 v1.2 mất ~6h ad-hoc + 2h retry images. Sách sau theo v2.0 estimate **5-8h tường minh** (loại retry).
 
+
+## 📜 2026-05-27 — Kinh Dịch Tâm Pháp Trình Di & Chu Hy v1.0
+
+**File**: `data/published_books/kinh-dich-tam-phap/Kinh-Dich-Tam-Phap-v1.0.pdf`
+**Pages**: 275 A4 | **Size**: 1.4 MB
+**Tổng hợp**: 64 quẻ deep + 7 tâm pháp synthesis + paradigm manifesto
+**Sources**:
+- Trình Di Truyện (1033-1107)
+- Bản nghĩa Chu Hy (1130-1200)
+- Bản dịch Ngô Tất Tố 1936
+- Tâm pháp Thiệu Khang Tiết (Mai Hoa Dịch Số)
+
+**Generator**: `scripts/compile_kinh_dich_book.py` (pandoc + WeasyPrint)
+**Status**: ✅ FINAL v1.0 — sẵn cho user offline

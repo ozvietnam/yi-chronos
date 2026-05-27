@@ -4212,6 +4212,27 @@ def yi_wiki_kinhdich_list() -> dict:
     }
 
 
+@app.get("/api/yi-wiki/kinh-dich/daily")
+def yi_wiki_kinhdich_daily(date: str | None = None) -> dict:
+    """1 quẻ/ngày — deterministic theo ngày.
+
+    Paradigm: KHÔNG random — cùng ngày = cùng quẻ. Cho morning brief, daily mantra.
+
+    Query param `date` optional (YYYY-MM-DD). Mặc định = hôm nay (server timezone).
+    """
+    from engine.yi_wiki.luan_sau_kinhdich import get_daily_hexagram
+    import datetime as _dt
+    if date is None:
+        date = _dt.date.today().isoformat()
+    try:
+        # Validate format
+        _dt.date.fromisoformat(date)
+    except ValueError:
+        raise HTTPException(400, f"Date phải YYYY-MM-DD, không phải: {date}")
+    data = get_daily_hexagram(date)
+    return {"status": "ok", **data}
+
+
 @app.get("/api/yi-wiki/kinh-dich/que/{slug}")
 def yi_wiki_kinhdich_get(slug: str) -> dict:
     """Đọc 1 quẻ Kinh Dịch trực tiếp.

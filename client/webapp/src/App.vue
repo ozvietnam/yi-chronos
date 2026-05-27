@@ -44,6 +44,7 @@ import MasterView from "./components/wiki/MasterView.vue";
 import QuickTasksPanel from "./components/QuickTasksPanel.vue";
 import MaiHoaCastPanel from "./components/wiki/MaiHoaCastPanel.vue";
 import KinhDichBrowser from "./components/wiki/KinhDichBrowser.vue";
+import DailyHexagramPanel from "./components/wiki/DailyHexagramPanel.vue";
 import CrossCastPanel from "./components/wiki/CrossCastPanel.vue";
 import PublishingWorkspace from "./components/publishing/PublishingWorkspace.vue";
 import LibraryView from "./components/publishing/LibraryView.vue";
@@ -526,6 +527,8 @@ onBeforeUnmount(() => {
             'Phía dưới: Timeline narrative + Diệp + Quẻ bản mệnh (giữ nguyên).'
           ]"
         />
+        <DailyHexagramPanel />
+
         <MaiHoaCastPanel />
 
         <h3 style="color: #fcd34d; font-size: 0.95rem; margin-top: 1.5rem; border-top: 1px solid rgba(252,211,77,0.25); padding-top: 0.75rem;">

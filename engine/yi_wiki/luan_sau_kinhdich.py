@@ -738,6 +738,85 @@ def list_hexagrams() -> list[dict]:
     return out
 
 
+def get_daily_hexagram(date_iso: str) -> dict:
+    """1 quẻ/ngày — deterministic hash từ YYYY-MM-DD → 1 trong 64.
+
+    Paradigm: KHÔNG random thật — cùng ngày = cùng quẻ (cho user check lại).
+
+    Args:
+        date_iso: 'YYYY-MM-DD'
+
+    Returns:
+        Full hexagram data (như get_hexagram) + extra:
+        - daily_date: ngày input
+        - daily_seed: hash debug
+        - daily_excerpt: 1-2 paragraph cốt cho morning brief
+    """
+    # Hash đơn giản: sum (year*10000 + month*100 + day) → mod 64
+    try:
+        y, m, d = date_iso.split("-")
+        seed = int(y) * 10000 + int(m) * 100 + int(d)
+    except Exception:
+        # Fallback
+        import hashlib
+        seed = int(hashlib.md5(date_iso.encode()).hexdigest()[:8], 16)
+    # Deterministic shuffle so consecutive days don't follow 1→2→3 pattern.
+    # Multiply by large prime (61) + offset → spread across 64.
+    hex_num = ((seed * 61 + 7) % 64) + 1
+    detail = get_hexagram(str(hex_num))
+    if detail is None:
+        # Should not happen — fallback to Kiền
+        detail = get_hexagram("1")
+    # Extract excerpt: first paragraph of "Tóm cốt" + "Insight CỐT" if found
+    body = detail.get("body_markdown", "")
+    excerpt = _extract_daily_excerpt(body)
+    detail["daily_date"] = date_iso
+    detail["daily_seed"] = seed
+    detail["daily_excerpt"] = excerpt
+    return detail
+
+
+def _extract_daily_excerpt(body: str, max_chars: int = 800) -> str:
+    """Trích 1-2 đoạn cốt từ body cho morning brief.
+
+    Strategy:
+    - Tìm section '## Tóm cốt' → giữ đoạn đầu
+    - Tìm 1 blockquote đầu tiên (Lời Kinh nguyên văn)
+    - Cap max_chars
+    """
+    lines = body.split("\n")
+    out = []
+    in_tom_cot = False
+    found_first_quote = False
+    for ln in lines:
+        s = ln.strip()
+        if s.startswith("## Tóm cốt"):
+            in_tom_cot = True
+            continue
+        if in_tom_cot:
+            if s.startswith("##"):
+                # Next section reached — stop
+                in_tom_cot = False
+                continue
+            if s:
+                out.append(ln)
+            if len("\n".join(out)) > 400:
+                in_tom_cot = False
+        # First blockquote outside tom-cot (Lời Kinh)
+        if not in_tom_cot and not found_first_quote and s.startswith("> ") and not s.startswith("> _"):
+            found_first_quote = True
+            out.append("")
+            out.append(ln)
+            # Also grab next 1-2 lines if they're continuation
+        if found_first_quote and len("\n".join(out)) > 700:
+            break
+
+    text = "\n".join(out).strip()
+    if len(text) > max_chars:
+        text = text[:max_chars] + "..."
+    return text
+
+
 def get_hexagram(slug_or_number: str) -> Optional[dict]:
     """Đọc 1 quẻ theo slug (vd: 'kien', 'thai') hoặc số (vd: '1', '63').
 
