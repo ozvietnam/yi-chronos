@@ -1412,6 +1412,42 @@ def bat_tu_luc_than(request: BatTuLifeDomainRequest) -> dict[str, object]:
     }
 
 
+class BatTuAIChatRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    question: str
+    history: list[dict] | None = None
+    provider_preferred: list[str] | None = None
+
+
+@app.post("/api/bat-tu/ai-chat")
+def bat_tu_ai_chat(request: BatTuAIChatRequest) -> dict[str, object]:
+    """AI Chat về lá số Bát Tự — Q&A với LLM, context = full luận giải.
+
+    Paradigm: LLM bị strict guard không được predict, chỉ đọc cấu hình khí.
+    """
+    from engine.bat_tu import cast_bat_tu, chat_about_chart, compose_luan_giai
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    luan = compose_luan_giai(state)
+    result = chat_about_chart(
+        state,
+        request.question,
+        history=request.history,
+        luan_giai=luan,
+        provider_preferred=request.provider_preferred,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        **result,
+    }
+
+
 class BatTuAuspiciousEventRequest(BaseModel):
     birth_datetime_local: str
     timezone: str = "Asia/Ho_Chi_Minh"
