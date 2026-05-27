@@ -1377,15 +1377,25 @@ class BatTuBaoMenhPDFRequest(BaseModel):
 @app.post("/api/bat-tu/bao-menh-pdf")
 def bat_tu_bao_menh_pdf(request: BatTuBaoMenhPDFRequest):
     """Báo Mệnh PDF — compose all luận giải vào 1 PDF artifact (Bookflow v2.0)."""
-    from engine.bat_tu.bao_menh_pdf import generate_bao_menh_pdf
-    from fastapi.responses import Response
-
-    pdf_bytes = generate_bao_menh_pdf(
-        birth_datetime_local=request.birth_datetime_local,
-        timezone=request.timezone,
-        gender=request.gender,
-        current_age=request.current_age,
-    )
+    import traceback
+    from fastapi.responses import JSONResponse, Response
+    try:
+        from engine.bat_tu.bao_menh_pdf import generate_bao_menh_pdf
+        pdf_bytes = generate_bao_menh_pdf(
+            birth_datetime_local=request.birth_datetime_local,
+            timezone=request.timezone,
+            gender=request.gender,
+            current_age=request.current_age,
+        )
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={
+                "error": str(e),
+                "type": type(e).__name__,
+                "traceback": traceback.format_exc(limit=20),
+            },
+        )
     safe_birth = request.birth_datetime_local.replace(":", "-").replace("T", "_")
     filename = f"BaoMenh_{safe_birth}.pdf"
     return Response(
