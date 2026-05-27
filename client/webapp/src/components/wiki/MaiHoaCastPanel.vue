@@ -58,6 +58,12 @@ const error = ref("");
 const savedPredId = ref(null);
 const tamNote = ref("");
 
+// ⭐ 2026-05-27 — Luận sâu Kinh Dịch (LLM + citation RAG)
+const luanSau = ref(null);          // { narrative, provider, citations_used, ... }
+const luanSauLoading = ref(false);
+const luanSauError = ref("");
+const userQuestion = ref("");
+
 // ⭐ Phase A 18/5 — BƯỚC 3 + 4 Tổ sư (Q3 tr.112-114)
 const externalOmen = ref("");  // ngoại ứng — hiện tượng bất thường lúc khởi quẻ
 const posture = ref("");        // tư thế: nằm/ngồi/đứng/đi/chạy
@@ -152,6 +158,39 @@ async function cast(saveIt = false) {
     error.value = String(e.message || e);
   } finally {
     loading.value = false;
+  }
+}
+
+// ⭐ Luận sâu Kinh Dịch — LLM + citation RAG (2026-05-27)
+async function callLuanSau() {
+  luanSauError.value = "";
+  luanSauLoading.value = true;
+  luanSau.value = null;
+  try {
+    const r = await fetch("/api/yi-wiki/maihoa/luan-sau-kinhdich", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        year_chi: yearChi.value,
+        month: month.value,
+        day: day.value,
+        hour_chi: hourChi.value,
+        intent: intent.value || "general",
+        external_omen: externalOmen.value || null,
+        posture: posture.value || null,
+        user_question: userQuestion.value || null,
+      }),
+    });
+    const d = await r.json();
+    if (d.status === "ok") {
+      luanSau.value = d;
+    } else {
+      luanSauError.value = d.detail || d.message || "Luận sâu thất bại";
+    }
+  } catch (e) {
+    luanSauError.value = String(e.message || e);
+  } finally {
+    luanSauLoading.value = false;
   }
 }
 
@@ -397,6 +436,41 @@ const relation = computed(() => {
         </button>
       </div>
       <p v-if="error" class="error">{{ error }}</p>
+
+      <!-- ⭐ 2026-05-27 — Luận sâu Kinh Dịch (LLM + citation RAG) -->
+      <div v-if="interpretation" class="luan-sau-block">
+        <h4>📜 Luận sâu Kinh Dịch nguyên văn</h4>
+        <p class="ls-hint">
+          Bậc trí giả (LLM với citation Trình Di + Chu Hy nguyên văn) viết phê quẻ
+          sâu theo paradigm <b>đồng dạng</b> (Iron Rule #4 — không predict cát/hung tĩnh).
+        </p>
+        <label class="ls-q-label">
+          <span>Câu hỏi cụ thể (tuỳ chọn)</span>
+          <input v-model="userQuestion" type="text"
+                 placeholder="vd: Em đang phân vân việc khởi nghiệp..." />
+        </label>
+        <button class="btn-secondary ls-btn" @click="callLuanSau" :disabled="luanSauLoading">
+          {{ luanSauLoading ? '⏳ Đang luận sâu...' : '📜 Luận sâu Kinh Dịch' }}
+        </button>
+        <p v-if="luanSauError" class="error">{{ luanSauError }}</p>
+
+        <div v-if="luanSau" class="ls-result">
+          <div class="ls-meta">
+            <span>Provider: <b>{{ luanSau.provider }}</b></span>
+            <span v-if="luanSau.model">Model: {{ luanSau.model }}</span>
+            <span v-if="luanSau.tokens_used">Tokens: {{ luanSau.tokens_used }}</span>
+            <span>Citations: {{ luanSau.citations_used?.length || 0 }} file</span>
+          </div>
+          <div class="ls-narrative" v-html="luanSau.narrative.replace(/\n/g, '<br>')"></div>
+          <details class="ls-citations">
+            <summary>📚 Citation files đã dùng ({{ luanSau.citations_used?.length || 0 }})</summary>
+            <ul>
+              <li v-for="c in luanSau.citations_used" :key="c"><code>{{ c }}</code></li>
+            </ul>
+            <small>Tổng {{ luanSau.citations_total_chars }} chars Kinh Dịch citation inject vào prompt.</small>
+          </details>
+        </div>
+      </div>
     </section>
 
     <!-- Result -->

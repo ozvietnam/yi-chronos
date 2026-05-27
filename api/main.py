@@ -3980,6 +3980,106 @@ def yi_wiki_interpret(req: MaiHoaInterpretRequest) -> dict:
     }
 
 
+class MaiHoaLuanSauRequest(BaseModel):
+    """Luận sâu Mai Hoa — gọi LLM với citation Kinh Dịch nguyên văn (RAG)."""
+    year_chi: str
+    month: int
+    day: int
+    hour_chi: str
+    intent: str = "general"
+    external_omen: str | None = None
+    posture: str | None = None
+    user_question: str | None = None  # câu hỏi cụ thể của user (optional)
+
+
+@app.post("/api/yi-wiki/maihoa/luan-sau-kinhdich")
+def yi_wiki_maihoa_luan_sau(req: MaiHoaLuanSauRequest) -> dict:
+    """Luận sâu Mai Hoa với citation Kinh Dịch nguyên văn.
+
+    Khác `/api/yi-wiki/interpret` (thuần tính toán):
+    - Gọi LLM (DeepSeek-Reasoner / MiniMax / Ollama fallback)
+    - Context = citation files từ data/hermes_yi/skills/kinh-dich/ (RAG)
+    - Output = narrative phê quẻ ~600-1200 chữ theo paradigm Iron Rule #4
+      (đọc đồng dạng, KHÔNG predict cát hung tĩnh)
+    """
+    from engine.yi_wiki.cast import cast_by_time
+    from engine.yi_wiki.interpret import analyze
+    from engine.yi_wiki.luan_sau_kinhdich import (
+        build_luan_sau_prompt, call_llm_luan_sau, select_citations,
+    )
+
+    try:
+        cast = cast_by_time(req.year_chi, req.month, req.day, req.hour_chi)
+    except KeyError as e:
+        raise HTTPException(400, f"Chi không hợp lệ: {e}")
+
+    r = analyze(cast, month=req.month, intent=req.intent,
+                external_omen=req.external_omen, posture=req.posture)
+
+    citations_pack = select_citations(
+        chinh_upper=cast.chinh_quai.upper_que,
+        chinh_lower=cast.chinh_quai.lower_que,
+        bien_upper=cast.bien_quai.upper_que,
+        bien_lower=cast.bien_quai.lower_que,
+        ho_upper=cast.ho_quai.upper_que,
+        ho_lower=cast.ho_quai.lower_que,
+        intent=req.intent,
+    )
+
+    # Build minimal cast + analyze dicts cho prompt
+    cast_dict = {
+        "chinh_quai": {"name": cast.chinh_quai.name},
+        "bien_quai": {"name": cast.bien_quai.name},
+        "ho_quai": {"name": cast.ho_quai.name},
+        "moving_line": cast.moving_line,
+        "ho_warning": cast.ho_warning or "",
+    }
+    analyze_dict = {
+        "the_dung": {
+            "the_que": r.the_dung.the_que,
+            "dung_que": r.the_dung.dung_que,
+            "relationship": r.the_dung.relationship,
+            "auspice": r.the_dung.auspice,
+        },
+        "quai_khi": {
+            "season": r.quai_khi["season"],
+            "vuong": r.quai_khi["vuong"],
+            "suy": r.quai_khi["suy"],
+            "the_status": r.the_quaikhi,
+        },
+        "overall": r.overall,
+        "intent": {"label": r.intent_label, "key": r.intent},
+    }
+
+    prompt = build_luan_sau_prompt(
+        cast=cast_dict, analyze=analyze_dict,
+        citations_pack=citations_pack,
+        user_question=req.user_question,
+    )
+
+    try:
+        llm_result = call_llm_luan_sau(prompt)
+    except Exception as exc:
+        raise HTTPException(503, f"LLM provider failed: {exc}")
+
+    return {
+        "status": "ok",
+        "narrative": llm_result["narrative"],
+        "provider": llm_result["provider"],
+        "model": llm_result.get("model", ""),
+        "tokens_used": llm_result.get("tokens_used", 0),
+        "citations_used": citations_pack["files_used"],
+        "citations_total_chars": citations_pack["total_chars"],
+        "cast_summary": {
+            "chinh": cast.chinh_quai.name,
+            "bien": cast.bien_quai.name,
+            "ho": cast.ho_quai.name,
+            "moving_line": cast.moving_line,
+        },
+        "auspice": r.the_dung.auspice,
+    }
+
+
 class CorrelateCastInput(BaseModel):
     """1 entry trong cross-cast correlation request."""
     label: str
