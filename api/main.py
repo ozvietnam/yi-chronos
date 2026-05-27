@@ -1311,6 +1311,89 @@ def bat_tu_tai_van(request: BatTuLifeDomainRequest) -> dict[str, object]:
     }
 
 
+@app.post("/api/bat-tu/suc-khoe")
+def bat_tu_suc_khoe(request: BatTuLifeDomainRequest) -> dict[str, object]:
+    """Sức Khỏe — ngũ hành thừa/thiếu → tạng phủ (Trung y) + Đại Vận cảnh báo + dietary."""
+    from engine.bat_tu import analyze_suc_khoe, cast_bat_tu
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    sk = analyze_suc_khoe(state)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "suc_khoe": sk,
+    }
+
+
+class BatTuCompatibilityRequest(BaseModel):
+    person_a_birth: str
+    person_b_birth: str
+    person_a_gender: str = "nam"
+    person_b_gender: str = "nữ"
+    timezone: str = "Asia/Ho_Chi_Minh"
+    relationship_type: str = "spouse"
+
+
+@app.post("/api/bat-tu/compatibility")
+def bat_tu_compatibility(request: BatTuCompatibilityRequest) -> dict[str, object]:
+    """So 2 lá số Bát Tự (vợ-chồng / partner / cha-con / sibling).
+
+    Source: Nạp Âm + 5 hợp Can + Lục/Tam hợp chi.
+    Paradigm: KHÔNG predict ly hôn/hạnh phúc, đọc cấu hình tương tác.
+    """
+    from engine.bat_tu import analyze_compatibility, cast_bat_tu
+
+    chart_a = cast_bat_tu(
+        birth_datetime_local=request.person_a_birth,
+        timezone=request.timezone,
+        gender=request.person_a_gender,
+    )
+    chart_b = cast_bat_tu(
+        birth_datetime_local=request.person_b_birth,
+        timezone=request.timezone,
+        gender=request.person_b_gender,
+    )
+    result = analyze_compatibility(chart_a, chart_b, request.relationship_type)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "chart_a": chart_a,
+        "chart_b": chart_b,
+        "compatibility": result,
+    }
+
+
+class BatTuBaoMenhPDFRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    current_age: int | None = None
+
+
+@app.post("/api/bat-tu/bao-menh-pdf")
+def bat_tu_bao_menh_pdf(request: BatTuBaoMenhPDFRequest):
+    """Báo Mệnh PDF — compose all luận giải vào 1 PDF artifact (Bookflow v2.0)."""
+    from engine.bat_tu.bao_menh_pdf import generate_bao_menh_pdf
+    from fastapi.responses import Response
+
+    pdf_bytes = generate_bao_menh_pdf(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+        current_age=request.current_age,
+    )
+    safe_birth = request.birth_datetime_local.replace(":", "-").replace("T", "_")
+    filename = f"BaoMenh_{safe_birth}.pdf"
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
 class HaLacLuanGiaiRequest(BaseModel):
     birth_datetime_local: str
     timezone: str = "Asia/Ho_Chi_Minh"
@@ -4209,6 +4292,23 @@ def yi_wiki_kinhdich_list() -> dict:
         "total": len(items),
         "deep_count": sum(1 for h in items if h["has_deep"]),
         "hexagrams": items,
+    }
+
+
+@app.get("/api/yi-wiki/kinh-dich/cards")
+def yi_wiki_kinhdich_cards() -> dict:
+    """Spaced repetition cards — ~343 hào card (64 quẻ × 6 hào, 1 số thiếu).
+
+    Mỗi card = 1 hào với front (tên) + back (Lời + tâm pháp).
+    Client side dùng localStorage SM-2 algorithm để track progress.
+    """
+    from engine.yi_wiki.luan_sau_kinhdich import extract_hao_cards
+    cards = extract_hao_cards()
+    return {
+        "status": "ok",
+        "total": len(cards),
+        "ideal": 384,
+        "cards": cards,
     }
 
 

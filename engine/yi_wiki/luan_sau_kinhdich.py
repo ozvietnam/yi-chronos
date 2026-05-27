@@ -738,6 +738,128 @@ def list_hexagrams() -> list[dict]:
     return out
 
 
+def extract_hao_cards() -> list[dict]:
+    """Extract 384 cards (64 quẻ × 6 hào) cho spaced repetition learning.
+
+    Mỗi card = 1 hào với:
+    - front: tên hào (Sơ Cửu / Lục Nhị / ...) + tên quẻ
+    - back: nội dung hào (Lời + tâm pháp) parse từ table "## 6 hào"
+
+    Returns:
+        list of {card_id, hexagram_num, hexagram_name, hao_num, hao_name, front, back, lookup_key}
+    """
+    items = list_hexagrams()
+    cards: list[dict] = []
+    card_id = 0
+
+    for h in items:
+        detail = get_hexagram(str(h["number"]))
+        if not detail:
+            continue
+        body = detail.get("body_markdown", "")
+        # Find "## 6 hào" table (case-insensitive — vài file viết "6 Hào")
+        m = re.search(r"##\s+6\s+hào[^\n]*\n(.*?)(?=\n##\s|\Z)", body, re.S | re.IGNORECASE)
+
+        # Fallback: parse "## Hào XXX" sections individually (file cũ format Kiền/Khôn/Thái)
+        if not m:
+            hao_section_matches = list(re.finditer(
+                r"##\s+(?:Hào\s+)?(Sơ Cửu|Sơ Lục|Cửu Nhị|Lục Nhị|Cửu Tam|Lục Tam|Cửu Tứ|Lục Tứ|Cửu Ngũ|Lục Ngũ|Thượng Cửu|Thượng Lục)[^\n]*\n(.*?)(?=\n##\s|\Z)",
+                body, re.S
+            ))
+            if hao_section_matches:
+                hao_order = ["Sơ Cửu", "Sơ Lục", "Cửu Nhị", "Lục Nhị", "Cửu Tam", "Lục Tam",
+                             "Cửu Tứ", "Lục Tứ", "Cửu Ngũ", "Lục Ngũ", "Thượng Cửu", "Thượng Lục"]
+                for sec_m in hao_section_matches:
+                    hao_name_raw = sec_m.group(1).strip()
+                    hao_content = sec_m.group(2).strip()
+                    # Determine hao_num
+                    name_to_num = {
+                        "Sơ Cửu": 1, "Sơ Lục": 1, "Cửu Nhị": 2, "Lục Nhị": 2,
+                        "Cửu Tam": 3, "Lục Tam": 3, "Cửu Tứ": 4, "Lục Tứ": 4,
+                        "Cửu Ngũ": 5, "Lục Ngũ": 5, "Thượng Cửu": 6, "Thượng Lục": 6,
+                    }
+                    hao_num = name_to_num.get(hao_name_raw, 0)
+                    if hao_num == 0:
+                        continue
+                    card_id += 1
+                    cards.append({
+                        "card_id": card_id,
+                        "hexagram_num": h["number"],
+                        "hexagram_name": h["name_vi"],
+                        "hexagram_zh": h["name_zh"],
+                        "hexagram_structure": h["structure_unicode"],
+                        "hao_num": hao_num,
+                        "hao_name": hao_name_raw,
+                        "front": f"Quẻ {h['number']} {h['name_vi']} · {hao_name_raw}",
+                        "back": hao_content[:1000],  # cap
+                        "lookup_key": f"{h['number']}.{hao_num}",
+                    })
+            continue
+        section = m.group(1)
+        # Parse table rows. Format: | Hào | ... | ... |
+        rows = []
+        in_table = False
+        for ln in section.split("\n"):
+            ls = ln.strip()
+            if ls.startswith("|"):
+                if not in_table:
+                    in_table = True
+                    continue  # skip header
+                if re.match(r"^\|\s*[-:]+", ls):
+                    continue  # skip separator
+                cells = [c.strip() for c in ls.strip("|").split("|")]
+                rows.append(cells)
+            elif in_table and ls == "":
+                break
+
+        # Map row → hào
+        hao_order = ["Sơ", "Cửu Nhị", "Cửu Tam", "Cửu Tứ", "Cửu Ngũ", "Thượng"]
+        hao_order_alt = ["Sơ", "Lục Nhị", "Lục Tam", "Lục Tứ", "Lục Ngũ", "Thượng"]
+        for row in rows[:6]:  # cap 6
+            if len(row) < 2:
+                continue
+            hao_name = row[0].replace("**", "").strip()
+            # Determine hao number (1-6)
+            hao_num = 0
+            for i, name in enumerate(hao_order, 1):
+                if name in hao_name:
+                    hao_num = i
+                    break
+            if hao_num == 0:
+                for i, name in enumerate(hao_order_alt, 1):
+                    if name in hao_name:
+                        hao_num = i
+                        break
+            if hao_num == 0:
+                continue
+
+            # Build front/back
+            front = f"Quẻ {h['number']} {h['name_vi']} · {hao_name}"
+            # Back: tất cả cells còn lại (Lời + tâm pháp)
+            back_parts = []
+            for cell in row[1:]:
+                cell_clean = cell.replace("**", "").strip()
+                if cell_clean:
+                    back_parts.append(cell_clean)
+            back = "\n\n".join(back_parts)
+
+            card_id += 1
+            cards.append({
+                "card_id": card_id,
+                "hexagram_num": h["number"],
+                "hexagram_name": h["name_vi"],
+                "hexagram_zh": h["name_zh"],
+                "hexagram_structure": h["structure_unicode"],
+                "hao_num": hao_num,
+                "hao_name": hao_name,
+                "front": front,
+                "back": back,
+                "lookup_key": f"{h['number']}.{hao_num}",  # vd "1.2" = Kiền Cửu Nhị
+            })
+
+    return cards
+
+
 def build_hexagram_graph() -> dict:
     """Build cross-reference graph cho 64 quẻ.
 
