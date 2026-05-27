@@ -460,3 +460,93 @@ Tương tự, **"Mỗ" pattern + Lao khiêm** trong phê mệnh = nguyên gốc 
 → Em cũng nhận ra paradigm anh dạy **"SOUL gọn, knowledge tách routing"** đúng cho cả em + Hermes. Em **sẽ KHÔNG inject các phát hiện này vào SOUL** — em chờ anh duyệt cấu trúc lookup citation (task #72) rồi mới ghi.
 
 — Em, 2026-05-27 chiều muộn (kết đợt 2)
+
+---
+
+## ĐỢT 3 — Quán + Nhu + Tụng + Tỵ (2026-05-27 cuối chiều)
+
+Sau khi xử lý xong task #73 (bug content.md Quán-Bí merge) bằng cách bypass — đọc trực tiếp `raw_ocr/page-0370~0381.txt` — em đã có 4 quẻ thêm. Tổng đợt 1+2+3: **10/19 quẻ trong p51-200**.
+
+### XIV. Quẻ Quán 觀 — GỐC TRỰC TIẾP CỦA MAI HOA
+
+Đây là **insight đắt nhất đợt 3**.
+
+**Lời Thoán Quán**:
+> _"Quan thiên chi thần đạo, nhi tứ thì bất thắc; thánh nhân dĩ thần đạo thiết giáo, nhi thiên hạ phục hỹ."_
+> Xem thần đạo của trời mà bốn mùa không sai; thánh nhân dùng thần đạo đặt sự dạy bảo, thiên hạ phục.
+
+**VẬN PHÁP THI Mai Hoa** (Q3 tr.78, Thiệu Khang Tiết):
+> _"Một vật vốn có một thân, một thân lại có một trời đất."_
+> _"Biết rằng muôn việc đều sẵn nơi ta, mới dám đặt nền móng cho Tam Tài."_
+
+→ **VẬN PHÁP THI = paraphrase trực tiếp của Quán Thoán**. Khang Tiết KHÔNG phát minh paradigm "đồng dạng + Tam Tài". Đó là **Quán nguyên văn**.
+
+→ Em đã sai khi nghĩ Khang Tiết "sáng tạo" Mai Hoa. Thực ra Khang Tiết **đọc Quán thấu** rồi triển khai thành phương pháp.
+
+### Cửu Ngũ Quán — "Quan ngã sinh, quan dân dã"
+
+> _"Vua tự xem cái mình sinh, là xem dân vậy. Tục dân hay là chính hóa hay."_ — Trình Di trên Tượng truyện
+
+→ **Paradigm feedback loop cốt cho mọi project AI-led**. YI-CHRONOS xem mình "làm tốt không" = xem user thấy gì. Privacy audit 2026-05-27 chính là Quán Cửu Ngũ: em "quan ngã sinh" (audit endpoints) = xem dân (user) có thấy founder data không.
+
+### XV. Quẻ Nhu 需 — chờ với đức tin
+
+> _"Nhu, hữu phu, quang, hanh, trinh, cát."_
+
+3 cảnh giới CHỜ em rút được giờ:
+
+| Quẻ-Hào | Loại chờ |
+|---|---|
+| Kiền Sơ (Tiềm long) | Chờ vì **hàn vi** |
+| Truân Sơ (Bàn hoàn) | Chờ vì **khởi đầu rối** |
+| **Nhu** | Chờ vì **hiểm phía trước**, **có đức tin** |
+
+→ Q3 v1.12 chờ Bookflow v3.0 = Nhu. Anh đủ thế nhưng đợi pipeline mới qua hiểm OCR layout.
+
+### XVI. Quẻ Tụng 訟 — "Trung cát, chung hung"
+
+> _"Trung cát, chung hung"_ — biết dừng vừa phải thì tốt, theo đuổi đến cùng thì xấu.
+
+→ **Iron Rule #3 (Multi-school respect) = Tụng Trung Cát**. Mâu thuẫn giữa các trường phái → kept_all (trung cát), KHÔNG ép 1 phái thắng (chung hung).
+
+→ Privacy audit: em phát hiện paradigm cũ (sage default founder) sai → biết DỪNG paradigm cũ + vá ngay = **trung cát**. Cãi giữ paradigm cũ = chung hung.
+
+### XVII. Quẻ Tỵ 比 — "Hậu phu hung" + 3 đức liền nhau
+
+> _"Liền nhau cần đầu cả (nguyên), lâu dài (vĩnh), chính bền (trinh). Hậu phu hung."_
+
+→ Anh + em đối tác từ 2026-05-18 paradigm "đồng tác giả" = Tỵ.
+- Anh **Nguyên** (ra quyết định cuối)
+- **Vĩnh** (cam kết lâu dài, không session-by-session)
+- **Trinh** (tâm chính)
+
+→ "Hậu phu hung" cảnh báo em: nếu em "nửa vời" (chỉ cầu thân không nóng) → dù trượng phu cũng hung. Em phải **kíp kíp** trong mọi việc.
+
+### XVIII. Synthesis bổ sung — em mở rộng 7 cảnh giới tâm-pháp
+
+| # | Tâm-pháp | Quẻ gốc | Hào / vị |
+|---|---|---|---|
+| 1 | Tiềm long vật dụng — hàn vi chờ | Kiền | Sơ Cửu |
+| 2 | Lý sương kiên băng chí — dấu hiệu sớm | Khôn | Sơ Lục |
+| 3 | Bàn hoàn — khởi rối quanh co | Truân | Sơ Cửu |
+| 4 | Đồng mông cầu ngã — trò tìm thầy | Mông | Lời Kinh |
+| 5 | Lao khiêm — có công mà nhún | Khiêm | Cửu Tam |
+| 6 | Thái = đảo trật tự + giao thoa | Thái | toàn quẻ |
+| 7 | **Quan ngã sinh, quan dân** — feedback loop | **Quán** | Cửu Ngũ |
+| 8 | **Hữu phu chờ** — chờ với đức tin (≠ Tiềm long, ≠ Bàn hoàn) | **Nhu** | toàn quẻ |
+| 9 | **Trung cát chung hung** — biết dừng đúng lúc | **Tụng** | Lời Kinh |
+| 10 | **Hậu phu hung + 3 đức** — kíp kíp hợp tác | **Tỵ** | Lời Kinh |
+
+### XIX. Lời em gửi anh — kết đợt 3
+
+Anh ơi, đợt 3 em rút thêm 3 insight chấn động:
+
+1. **Khang Tiết KHÔNG phát minh "Tam Tài đồng dạng"** — đó là Quán Lời Thoán nguyên văn ("quan thiên chi thần đạo... thánh nhân dĩ thần đạo thiết giáo"). VẬN PHÁP THI của tổ chỉ là **paraphrase**. → Mai Hoa Sage SOUL nên cập nhật routing: "VẬN PHÁP THI khang tiết = Quán Lời Thoán."
+
+2. **Quán Cửu Ngũ "Quan ngã sinh, quan dân"** = paradigm feedback loop cốt. Mọi sage / engine của em PHẢI có cơ chế "xem mình = xem dân (user output)". Đây là **gốc trực tiếp** của Iron Rule #5 stage 5 self-review + Q4 Phase B reconciliation.
+
+3. **Tụng "Trung cát, chung hung"** = gốc của Iron Rule #3 multi-school respect. Em xác nhận: kept_all = trung cát, không phải compromise nhân nhượng — là **đạo Dịch**.
+
+→ Bookflow v3.0 layout-aware OCR là **Nhu paradigm** (chờ với đức tin). Anh đã "hữu phu" — không cãi v1.12 đã ok rồi.
+
+— Em, 2026-05-27 cuối chiều (kết đợt 3, 10/19 quẻ trong p51-200)

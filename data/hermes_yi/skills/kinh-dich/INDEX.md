@@ -28,6 +28,9 @@ Cấu trúc 3-tier:
 |---|---|
 | Khởi đầu / mới bắt đầu việc | `tam-phap/khoi-dau.md` |
 | Quan vật / xem để hiểu Tính / paradigm Mai Hoa | `quẻ/20-quan.md` (gốc Mai Hoa quan-vật) |
+| Chờ thời có đức tin (khác bàn hoàn, khác tiềm long) | `quẻ/05-nhu.md` |
+| Tranh biện / multi-school conflict / kept_all | `quẻ/06-tung.md` (trung cát chung hung) |
+| Hợp tác / đối tác / "hậu phu hung" | `quẻ/08-ty.md` (3 đức: nguyên-vĩnh-trinh) |
 | Cảnh giới đời người / "tôi đang ở đâu" | `tam-phap/canh-gioi-doi.md` |
 | Khiêm tốn / nhún nhường / "có công nhưng không khoe" | `tam-phap/khiem-ton.md` |
 | Thầy-trò / học hỏi / "ai dạy ai" | `tam-phap/thay-tro.md` |
@@ -45,10 +48,10 @@ Cấu trúc 3-tier:
 | 2 | Khôn | 坤 | [quẻ/02-khon.md](quẻ/02-khon.md) | ✅ đợt 1 |
 | 3 | Truân | 屯 | [quẻ/03-truan.md](quẻ/03-truan.md) | ✅ đợt 2 |
 | 4 | Mông | 蒙 | [quẻ/04-mong.md](quẻ/04-mong.md) | ✅ đợt 2 |
-| 5 | Nhu | 需 | (chưa) | ⬜ |
-| 6 | Tụng | 訟 | (chưa) | ⬜ |
+| 5 | Nhu | 需 | [quẻ/05-nhu.md](quẻ/05-nhu.md) | ✅ đợt 3 |
+| 6 | Tụng | 訟 | [quẻ/06-tung.md](quẻ/06-tung.md) | ✅ đợt 3 |
 | 7 | Sư | 師 | (chưa) | ⬜ |
-| 8 | Tỵ | 比 | (chưa) | ⬜ |
+| 8 | Tỵ | 比 | [quẻ/08-ty.md](quẻ/08-ty.md) | ✅ đợt 3 |
 | 9 | Tiểu Súc | 小畜 | (chưa) | ⬜ |
 | 10 | Lý | 履 | (chưa) | ⬜ |
 | 11 | Thái | 泰 | [quẻ/11-thai.md](quẻ/11-thai.md) | ✅ đợt 1 |
