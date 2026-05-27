@@ -246,33 +246,42 @@ LƯU Ý CRITICAL:
 
 
 def call_llm_luan_sau(prompt: str) -> dict:
-    """Gọi LLM (DeepSeek-Reasoner ưu tiên, fallback MiniMax-M2).
+    """Gọi LLM (chain DeepSeek → MiniMax → Ollama → Mock fallback).
 
     Returns:
-        {"narrative": str, "provider": str, "tokens_used": int, "cost_usd": float}
+        {"narrative": str, "provider": str, "model": str, "tokens_used": int}
     """
     from engine.ai.registry import get_registry
 
     registry = get_registry()
-    # Provider chain: deepseek (paid quality) → minimax (fast cloud) → ollama (free fallback)
+    last_error: Optional[Exception] = None
+    # Provider chain: deepseek (paid quality) → minimax (fast cloud) → ollama (free local) → mock
     for provider_id in ("deepseek", "minimax", "ollama"):
         try:
-            provider = registry.get_provider(provider_id)
-            if not provider or not provider.is_configured():
-                continue
+            provider = registry.get(provider_id)
+        except KeyError:
+            continue
+        # `is_configured` là @property, không phải method
+        if not provider.is_configured:
+            continue
+        try:
             response = provider.chat(
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.65,
                 max_tokens=1800,
             )
+            # response là LLMResponse dataclass (content, provider, model,
+            # prompt_tokens, completion_tokens, total_tokens, raw)
             return {
-                "narrative": response.get("content", "").strip(),
-                "provider": provider_id,
-                "tokens_used": response.get("tokens_used", 0),
-                "model": response.get("model", ""),
+                "narrative": (response.content or "").strip(),
+                "provider": response.provider,
+                "model": response.model,
+                "tokens_used": response.total_tokens,
             }
         except Exception as exc:
-            # Fall through to next provider
             last_error = exc
+            registry.mark_unhealthy(provider_id, str(exc))
             continue
-    raise RuntimeError(f"Tất cả provider thất bại. Last error: {last_error if 'last_error' in dir() else 'no provider configured'}")
+    raise RuntimeError(
+        f"Tất cả provider thất bại. Last error: {last_error or 'no provider configured'}"
+    )
