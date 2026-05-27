@@ -150,6 +150,60 @@ Phú Thái Vi: phải kết hợp 2 lớp:
 
 ---
 
+## 🔒 IRON RULE #7 — Git Safety + Gitignore Discipline (2026-05-27, học từ incident)
+
+**Lesson 2026-05-27 chiều**: em mở `.gitignore` quá rộng (xoá `data/hermes_yi/` catch-all để track 1 sub-folder cụ thể). **Auto-sync hook** chạy nền (`git add -A` rồi push) đã commit **5221 files** trong vòng vài phút, bao gồm `data/hermes_yi/profiles/arbiter/auth.json` có **GLM_API_KEY** + kanban.db 4.3MB + hàng trăm session JSON. Push lên public origin → keys lộ.
+
+Em đã force-push origin về commit trước-incident (`ab167d0`) trong ~2 phút, tạo commit mới `f5e6aef` sạch chỉ chứa 14 file mong muốn. NHƯNG GitHub blob cache ~90 ngày — secrets vẫn accessible qua direct blob URL. Anh phải rotate keys ngay.
+
+### Quy tắc bắt buộc
+
+| # | Rule | Vì sao |
+|---|---|---|
+| 1 | **KHÔNG xoá / nới rộng .gitignore rule mà không hiểu auto-sync sẽ làm gì** | Auto-sync `git add -A` không discriminate — nó add MỌI file untracked không-ignored. Mở 1 folder = mở mọi file con. |
+| 2 | **Để track 1-2 file specific trong folder ignored, dùng `git add -f <path>`** | Force-add chỉ file đó. Auto-sync vẫn không touch các file ignored khác. SAFE. |
+| 3 | **Mỗi lần touch `.gitignore`, BẮT BUỘC chạy `git status --ignored` ngay** | Liệt kê file đang ignored — nếu thấy có file nhạy cảm (auth.json, .env, *.db) thì gitignore phải giữ chúng ignored. |
+| 4 | **TRƯỚC khi commit + push, BẮT BUỘC `git diff --cached --stat | wc -l`** | Nếu staged > 20 file mà mình không expect → STOP, kiểm tra. Auto-sync 5000+ file là tín hiệu hỏng gitignore. |
+| 5 | **Bao giờ commit chứa `auth.json`, `.env`, `*.db`, `*token*`, `*key*` → cancel commit + rotate keys** | Coi như compromised. GitHub blob cache 90 ngày, không có cách xoá hoàn toàn. |
+
+### Pattern Git negation đúng
+
+Git rule: _"It is not possible to re-include a file if a parent directory is excluded."_
+
+❌ **SAI** (em đã làm):
+```gitignore
+data/hermes_yi/skills/
+!data/hermes_yi/skills/kinh-dich/   # KHÔNG work — parent đã exclude
+```
+
+✅ **ĐÚNG** (cách 1: ignore parent + un-ignore + re-ignore):
+```gitignore
+data/hermes_yi/*
+!data/hermes_yi/skills/
+data/hermes_yi/skills/*
+!data/hermes_yi/skills/kinh-dich/
+!data/hermes_yi/skills/kinh-dich/**
+```
+
+✅ **ĐÚNG** (cách 2 — RECOMMENDED, em đã chọn): giữ gitignore catch-all, dùng `git add -f`:
+```bash
+# gitignore vẫn chặt:
+#   data/hermes_yi/
+# Force-add 1 file specific (override gitignore):
+git add -f data/hermes_yi/skills/kinh-dich/INDEX.md
+```
+
+Auto-sync chạy `git add -A` (không `-f`) → các file vẫn ignored. Chỉ file em explicit force-add được track.
+
+### Incident response checklist (nếu lại xảy ra)
+
+1. **STOP** mọi commit/push tiếp theo
+2. `git log --stat HEAD` — xem commit mới push có gì
+3. `git ls-tree -r --name-only HEAD | grep -E "auth|key|secret|token|\.env|\.db"` — list file nhạy cảm
+4. Nếu có leak: `git push --force origin <pre-incident-commit>:main` ngay
+5. Anh rotate keys ngay (KHÔNG đợi)
+6. Document trong project history entry mới
+
 ## 📖 IRON RULE #5 — Bookflow xuất bản v2.0 (2026-05-18)
 
 **Tuyên ngôn Paradigm Shift #4:**
@@ -282,6 +336,11 @@ Default chain: try free → escalate paid only when free fails.
 - **2026-05-18 tối 🎓 PARADIGM SHIFT #4**: **YI-CHRONOS = nhà xuất bản Đông phương học AI-driven**. Mỗi sách đi qua bookflow chuẩn: `Source PDF → OCR/cleanup → Wiki extract → Journal thâm nhuần → Biên soạn → PDF publish`. Web = sandbox/chiêm-tool, PDF book = artifact xuất bản chính thức. Anh + em = đồng tác giả (dịch giả + biên tập viên) mỗi cuốn. Quy mô đầu tiên: Quyển 3 Toàn Thư ~400 trang A5. **Hệ quả Iron Rule mới**: mỗi sách dịch xong phải có 1 vòng đời publishing rõ ràng — KHÔNG chỉ feed wiki + sage rồi quên.
 - **2026-05-18 đêm 🎓 PARADIGM SHIFT #5 — LAYOUT-AWARE OCR**: Anh chỉ ra root cause của tất cả lỗi v1.2 → v1.12: _"trong bước quét OCR phải nhận biết được các khung bố cục, đoạn văn, khung ảnh, khung tranh vẽ. Làm ẩu ngay từ bước 1 rồi, đọc 1 trang sách không nhìn thấy bố cục, thì em xuất bản làm sao được sách?"_. Em đã ẨU TỪ BƯỚC 1: qwen-vl extract text-only, mất bố cục → downstream là 568 empty rows, 5 tables header-no-body, 48 FIGURE placeholders, page scans phải insert manual. Bookflow v3.0 phải LAYOUT-FIRST: **detect layout regions {paragraphs / image boxes / drawing boxes / tables / captions} TRƯỚC, OCR per region SAU**. Tools: PaddleOCR PP-Structure / LayoutParser / Surya / MinerU / Unstructured.io.
 - **2026-05-18 đêm**: Q3 v1.12 marked NOT-FINAL (Anh phát hiện Phần IV "Phụ lục Wiki" 164k chars = filler rác). Stripped Phần IV manuscript. Q3 sẽ rebuild lại từ Bookflow v3.0 sau khi pipeline layout-aware OCR sẵn sàng.
+- **2026-05-26**: Live site 404 — container crash loop. Root cause: thiếu `python-multipart` cho FastAPI Form/File endpoint. Fix: add to requirements.txt. Bonus: add `docker logs --tail 120` step vào CI để diagnose container crash lần sau (commit `55a6265` + `6344996`).
+- **2026-05-27 sáng 🎓 PRIVACY AUDIT — 3 đợt vá liên tiếp**: Anh report "trang chủ hiển thị data founder cho mọi khách". Đợt 1 (`eee3d3a`): `/api/auth/me` trả founder cho guest + frontend seed founder vào localStorage. Đợt 2 (`8a30fe4`): picker "Active person" đọc localStorage thay vì DB sau login → unified store. Đợt 3 (`aacf6d4`): rà sâu — phát hiện toàn bộ namespace `/api/yi-hermes/*` (context/founder, persons/_founder, network/_founder, soul/{user_id}, memory/{user_id}/*) **chưa gate auth**. Curl từ guest có thể đọc full founder profile + Bát Tự + Telegram ID + social graph. Tử Vi pipeline `_founder` shortcut + UserBadge pre-fill email `ceo@ngantin.vn` cũng leak. Gated tất cả: owner-only cho founder data, self-or-owner cho user_id data. Live verify: tất cả 401/403, health 200.
+- **2026-05-27 chiều 🎓 KINH DỊCH paradigm — Kiền-Khôn-Khiêm-Thái-Bĩ + Mông-Truân**: Anh quyết "đọc sách". Em thâm nhuần Kinh Dịch Trọn Bộ Ngô Tất Tố p51-200, 6/19 quẻ đầu (đợt 1 + đợt 2). Insight đắt nhất: **Thái = đảo trật tự tự nhiên** (Khôn TRÊN Kiền DƯỚI) → 2 khí giao thoa → vạn vật thông. **Bĩ = đúng vị trí tự nhiên** → cách tuyệt → "phi nhân". Sự sống = giao thoa, không phải "đúng vị trí cứng". Cross-ref: "Mỗ" pattern Tử Vi = Lao Khiêm văn pháp; "Một việc bói một lần" Iron Rule #4 = gốc trực tiếp từ Mông Lời Kinh (Khang Tiết chỉ truyền nguyên, không phát minh). Journal: `docs/design/kinh-dich-ngo-tat-to-tham-nhuan-p51-200.md`.
+- **2026-05-27 chiều 🎓 SOUL paradigm — anh dạy "không nén knowledge vào SOUL"**: Anh chỉ ra: _"SOUL không được quá dài, sách còn nhiều lắm, không thể nén kiểu đó được. Phải tìm cấu trúc để ghi nhận kiểu khác đi."_ → Em design cấu trúc 3-tier `data/hermes_yi/skills/kinh-dich/` với INDEX.md (master router) + per-quẻ files + per-tâm-pháp synthesis files. Pattern routing-aware (`routing_keys` tiếng Việt). SOUL Mai Hoa + Tử Vi chỉ thêm 2-3 dòng route đến INDEX. Áp dụng được cho mọi sách sau (Âm Dương Ngũ Hành, ...). Commit `f5e6aef`.
+- **2026-05-27 chiều 🚨 GIT SAFETY INCIDENT**: em mở `.gitignore` quá rộng (xoá `data/hermes_yi/` catch-all) để track 1 sub-folder. Auto-sync hook commit 5221 files trong ~2 phút, gồm `auth.json` có `GLM_API_KEY` + kanban.db 4.3MB + session JSON. **Push origin trước khi em phát hiện**. Em force-push origin về commit pre-incident (`ab167d0`) + tạo commit sạch `f5e6aef`, anh rotate keys. GitHub blob cache ~90 ngày = keys phải coi như compromised. → **IRON RULE #7** ra đời (Git Safety): `git add -f` cho file specific thay vì nới gitignore + verify `--stat | wc -l` trước push.
 
 Mỗi lesson kéo theo skill / discipline update trong file này.
 
