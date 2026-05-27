@@ -267,6 +267,49 @@ def test_cach_cuc_canon_25_entries():
     assert len(hung) >= 10
 
 
+def test_bo_cuc_numbers_4320_1080_72_18():
+    """4 cấp số bố cục KMDG (Đàm Liên Chương II)."""
+    from engine.ky_mon import WIKI
+
+    bc = WIKI["bo_cuc_numbers"]
+    assert "4320" in bc
+    assert "1080" in bc
+    assert "72" in bc
+    assert "18_dia_ban" in bc
+    assert "Yên Ba Chước Du Ca" in bc["18_dia_ban"]
+
+
+def test_tiet_vs_trung_khi_12_12():
+    """24 tiết khí = 12 Tiết + 12 Trung Khí (Đàm Liên Chương II)."""
+    from engine.ky_mon import WIKI
+
+    tk = WIKI["tiet_vs_trung_khi"]
+    assert len(tk["12_tiet"]) == 12
+    assert len(tk["12_trung_khi"]) == 12
+    assert "Lập Xuân" in tk["12_tiet"]
+    assert "Hạ Chí" in tk["12_trung_khi"]
+
+
+def test_phu_dau_rule_3_nguyen():
+    """Phù Đầu rule: Thượng=Tứ Trọng, Trung=Tứ Mạnh, Hạ=Tứ Quý."""
+    from engine.ky_mon import WIKI
+
+    pd = WIKI["phu_dau_rule"]
+    assert "Tứ Trọng" in pd["thuong_nguyen"]
+    assert "Tứ Mạnh" in pd["trung_nguyen"]
+    assert "Tứ Quý" in pd["ha_nguyen"]
+
+
+def test_tri_nhuan_explain_chabu_zhirun():
+    """Wiki giải thích chabu vs zhirun (methods trong kinqimen)."""
+    from engine.ky_mon import WIKI
+
+    tn = WIKI["tri_nhuan_chabu"]
+    assert "chabu_拆補" in tn
+    assert "zhirun_置閏" in tn
+    assert tn["chabu_拆補"]["library_value"] == "method='chabu' trong kinqimen (default)"
+
+
 def test_detect_cach_cuc_returns_list():
     """detect_cach_cuc() trả về list (có thể empty)."""
     from engine.ky_mon.cast import detect_cach_cuc

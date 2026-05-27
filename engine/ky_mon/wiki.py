@@ -346,6 +346,50 @@ WIKI = {
         "principle": "Đàm Liên gắn từng tinh với mùa hợp — thêm 1 chiều luận ngoài cung+môn+thần",
     },
 
+    # ─── Bố cục KMDG: 4320 → 1080 → 72 → 18 (Đàm Liên Chương II pages 51-53) ───
+    "bo_cuc_numbers": {
+        "overview": "KMDG có nhiều cấp số bố cục. Mỗi cấp giảm theo trùng lặp.",
+        "4320": "Theoretical: 360 ngày × 12 giờ/ngày = 4320 giờ → 4320 bố cục (Thiên Bàn + Môn Bàn biến theo giờ)",
+        "1080": "Practical: 4320 ÷ 4 (trùng lặp 4 lần/năm) = 1080 bố cục thực dụng",
+        "72": "Canon: 24 tiết khí × 3 nguyên (Thượng/Trung/Hạ) = 72 bố cục",
+        "18_dia_ban": "Địa Bàn cố định: 72 ÷ 4 = 18 cục (9 Dương Độn + 9 Âm Độn). Trích Yên Ba Chước Du Ca: 'Chế ra thời gian 1800 giờ, Thái Công chia 72, đến Hán Trương Tử Phòng tiết giảm còn 18 cục'",
+        "implication": "Khi cast, kinqimen library xử lý đủ 4320 case. UI hiển thị 1 cục (1 bố cục cụ thể của thời điểm). Wiki + UI tooltip cho user hiểu 18 cục gốc.",
+    },
+
+    # ─── Tiết vs Trung Khí (Đàm Liên Chương II page 55) ───
+    "tiet_vs_trung_khi": {
+        "overview": "Người ta thường nói '24 tiết khí' nhưng thực ra là 12 TIẾT + 12 KHÍ (trung khí).",
+        "tiet": "Nửa tháng ĐẦU mỗi tháng âm lịch. VD Lập Xuân (tháng giêng), Kinh Chập (tháng hai), Thanh Minh (tháng ba)...",
+        "trung_khi": "Nửa tháng SAU mỗi tháng. VD Vũ Thủy (tháng giêng), Xuân Phân (tháng hai), Cốc Vũ (tháng ba)...",
+        "12_tiet": ["Lập Xuân", "Kinh Chập", "Thanh Minh", "Lập Hạ", "Mang Chủng", "Tiểu Thử", "Lập Thu", "Bạch Lộ", "Hàn Lộ", "Lập Đông", "Đại Tuyết", "Tiểu Hàn"],
+        "12_trung_khi": ["Vũ Thủy", "Xuân Phân", "Cốc Vũ", "Tiểu Mãn", "Hạ Chí", "Đại Thử", "Xử Thử", "Thu Phân", "Sương Giáng", "Tiểu Tuyết", "Đông Chí", "Đại Hàn"],
+    },
+
+    # ─── Phù Đầu rule (Đàm Liên pages 58-59) ───
+    "phu_dau_rule": {
+        "overview": "Mỗi đơn Nguyên = 5 ngày, khởi từ Phù Đầu (ngày Giáp hoặc Kỷ). Pattern chi xác định Nguyên nào.",
+        "thuong_nguyen": "Phù Đầu = Giáp/Kỷ + chi Tứ Trọng (Tý Ngọ Mão Dậu) — chi giữa mùa",
+        "trung_nguyen": "Phù Đầu = Giáp/Kỷ + chi Tứ Mạnh (Dần Thân Tỵ Hợi) — chi đầu mùa",
+        "ha_nguyen": "Phù Đầu = Giáp/Kỷ + chi Tứ Quý (Thìn Tuất Sửu Mùi) — chi cuối mùa",
+        "vd_thoi_gia": "Đông Chí cung 1 Khảm → Thượng Nguyên = Dương Độn 1 cục. Hạ Chí cung 9 Ly → Âm Độn 9 cục. Lập Xuân cung 2 Khôn → Âm Độn 2 cục.",
+    },
+
+    # ─── Trí Nhuận (Đàm Liên pages 59-60) — explain method 'zhirun' trong kinqimen ───
+    "tri_nhuan_chabu": {
+        "overview": "Khi Phù Đầu cách tiết khí > 9 ngày → cần 'Trí Nhuận' để chỉnh. Đây là 2 methods chính trong kinqimen.",
+        "chabu_拆補": {
+            "name_vn": "Chabu — Tách bổ",
+            "rule": "Mặc định. Mỗi 5 ngày 1 nguyên, không insert ngày bổ sung. Phù hợp khi Phù Đầu cách tiết khí < 9 ngày.",
+            "library_value": "method='chabu' trong kinqimen (default)",
+        },
+        "zhirun_置閏": {
+            "name_vn": "Zhirun — Trí Nhuận (Đặt nhuận)",
+            "rule": "Khi Phù Đầu cách tiết khí > 9 ngày, insert 15 ngày trùng lặp (lặp Thượng/Trung/Hạ Nguyên). Siêu Thần → Tiếp Khí.",
+            "library_value": "method='zhirun' trong kinqimen",
+        },
+        "implication": "User chọn 'Zhirun 置閏' trong dropdown UI khi muốn theo phương pháp lịch nhuận (cận đại hơn). Mặc định 'Chabu' cho đơn giản.",
+    },
+
     # ─── Sách reference em đọc trong YI-CHRONOS ───
     "source_book": {
         "title": "Kỳ Môn Độn Giáp",

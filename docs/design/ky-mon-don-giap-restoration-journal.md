@@ -15,8 +15,8 @@
 | Sample | 1-20 | ✅ Done | Đàm Liên paradigm + 2 hệ KMDG + 5 cổ thư | `4aed3de` |
 | 1 | 21-30 | ✅ Done | Tam Kỳ Lục Nghi mapping + Cửu tinh 2 hệ tên + nguyệt gia rule + Dương/Âm độn chiều | `31c2c04` |
 | 2 | 31-40 | ✅ Done | 4 tầng Âm Dương Bàn + "Theo 3 tránh 5" + corrected 5 cat_hung Cửu tinh | `cb78a4d` |
-| 3 | 41-50 | ✅ Done | **25+ Cách Cục KMDG canon + auto-detection engine** (Hình Cách / Phi Điểu Trật Huyệt / Giao Thái / 7 cách cục đơn giản) | _(this commit)_ |
-| 4 | 51-60 | ⏳ Pending | — | — |
+| 3 | 41-50 | ✅ Done | **25+ Cách Cục KMDG canon + auto-detection engine** (Hình Cách / Phi Điểu Trật Huyệt / Giao Thái / 7 cách cục đơn giản) | `ed522db` |
+| 4 | 51-60 | ✅ Done | Chương II bố cục — 4320/1080/72/18 cục + tiết vs trung khí + Phù Đầu rule + Trí Nhuận (giải thích chabu/zhirun) | _(this commit)_ |
 | ... | ... | Backlog | Toàn bộ 307 trang còn lại | future sessions |
 
 ---
@@ -294,5 +294,73 @@ UI bàn KMDG giờ hiển thị **section "Cách cục phát hiện"** mới ph�
 | Paradigm reasoning | tooltip cung | **+ cách cục detection** |
 | Luận bàn cổ điển | ❌ | ✅ 7 cách cục auto |
 | Canon coverage | 0% | ~50% (25/50+ entries) |
+
+---
+
+## Batch 4 — Pages 51-60: Chương II "Bố cục" + Trí Nhuận
+
+### Insights chính
+
+Pages 51-60 = **Chương II "BỐ CỤC CỦA KMDG"**. Heavy theory, không có cách cục mới — focus vào MATH + lịch sử giảm số bố cục:
+
+1. **4 cấp số bố cục**:
+   - **4320 cục** theoretical (360 ngày × 12 giờ)
+   - **1080 cục** practical (4320 ÷ 4 trùng lặp)
+   - **72 bố cục** canon (24 tiết khí × 3 nguyên)
+   - **18 cục Địa Bàn** cố định (9 Dương + 9 Âm)
+   - Trích Yên Ba Chước Du Ca: "Chế ra thời gian 1800 giờ, Thái Công chia 72, đến Hán Trương Tử Phòng tiết giảm còn 18 cục"
+
+2. **Tiết ≠ Trung Khí**:
+   - 12 **Tiết** = nửa tháng đầu (Lập Xuân, Kinh Chập, ...)
+   - 12 **Trung Khí** = nửa tháng sau (Vũ Thủy, Xuân Phân, ...)
+   - "24 tiết khí" thực ra là phiếm xưng cho 12+12
+
+3. **Phù Đầu rule** (Đông phương cổ điển):
+   - Thượng Nguyên: Phù Đầu Giáp/Kỷ + **Tứ Trọng** (Tý Ngọ Mão Dậu)
+   - Trung Nguyên: + **Tứ Mạnh** (Dần Thân Tỵ Hợi)
+   - Hạ Nguyên: + **Tứ Quý** (Thìn Tuất Sửu Mùi)
+   - VD Đông Chí cung 1 Khảm → Dương Độn 1 cục. Hạ Chí cung 9 Ly → Âm Độn 9 cục.
+
+4. **Trí Nhuận** 置閏 (explain methods em đã hỗ trợ):
+   - **Chabu 拆補** (default): Mỗi 5 ngày 1 nguyên, không insert. Khi Phù Đầu cách tiết khí < 9 ngày.
+   - **Zhirun 置閏**: Khi Phù Đầu cách tiết khí > 9 ngày → insert 15 ngày lặp Thượng/Trung/Hạ Nguyên. "Siêu Thần" → "Tiếp Khí".
+   - → Mapping với `method='chabu'` vs `method='zhirun'` trong kinqimen library!
+
+### Engine improvements
+
+1. `engine/ky_mon/wiki.py`: thêm 4 sections mới
+   - `bo_cuc_numbers` — 4 cấp số 4320/1080/72/18
+   - `tiet_vs_trung_khi` — phân biệt 12 Tiết / 12 Trung Khí
+   - `phu_dau_rule` — 3 nguyên với chi pattern
+   - `tri_nhuan_chabu` — giải thích chabu vs zhirun (mapping kinqimen library values)
+
+2. Tests: thêm 4 tests
+   - `test_bo_cuc_numbers_4320_1080_72_18`
+   - `test_tiet_vs_trung_khi_12_12`
+   - `test_phu_dau_rule_3_nguyen`
+   - `test_tri_nhuan_explain_chabu_zhirun`
+
+### Insight đắt nhất batch 4
+
+**Mapping rõ ràng giữa Chabu/Zhirun trong dropdown UI ↔ Trí Nhuận paradigm**. Trước em note "Chabu (giờ, phổ thông) / Zhirun (giờ, lịch nhuận)" mơ hồ. Giờ em hiểu:
+- Chabu = method KMDG cổ điển, không có Trí Nhuận
+- Zhirun = method KMDG hiệu chỉnh khi gặp Siêu Thần (Phù Đầu cách tiết khí > 9 ngày)
+
+→ User chọn dropdown method giờ có ngữ cảnh rõ.
+
+### Verification
+
+- 28/28 tests PASS (24 cũ + 4 mới)
+- 10 pages OCR saved `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{51..60}.txt`
+
+---
+
+## 📊 Tổng tiến độ phiên này
+
+- **60/367 pages restored** (16% sách Đàm Liên)
+- **5 commits** (`4aed3de` → `cb78a4d` → `ed522db` → batch 4 → ...)
+- **28 tests passing** (gốc 10 → +18 từ 4 batches)
+- **Engine từ "render bàn" → "luận bàn cách cục cổ điển" + paradigm sâu**
+- **Backlog**: Phần V còn ~25+ cách cục chưa extract (auto-detect cần expand), Chương III–VII còn nguyên (pages 61-367)
 
 ---
