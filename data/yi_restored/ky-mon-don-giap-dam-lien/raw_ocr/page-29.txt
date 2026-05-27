@@ -1,0 +1,17 @@
+Lại lấy ví dụ về Dương độn hai phần, Âm độn hai phần.
+Dương độn một phần được sắp xếp như bảng và
+
+hình dưới đây:
+
+Lục | Giáp | Giáp | Giáp | Giáp | Giáp | Giáp | Đỉnh | Bính | Kỷ
+nghĩa Tý | Tuất |Thân| Ngọ | Thìn | Dần | cơ | Cơ | Cơ
+Tam | Mậu | Kỷ |Canh| Tân |Nhâm | Canh
+
+Im | Cung | Cung Cung | Trung | Cung | Cung | Cung | Cung | Cũng
+[cung Khôn Chấn | Tốn | cung | Cần | đoài | Cấn | Ly | Khảm
+| |số2 |số3 | số4 | số5 | số6 | số7 | số8 | số9 | sốI
+
+Hình 7
+
+31
+

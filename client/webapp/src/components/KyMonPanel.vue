@@ -328,6 +328,41 @@ const catHungClass = (label) => {
         </div>
       </div>
 
+      <div v-if="wiki?.tam_ky_luc_nghi" class="km-tklm-card">
+        <h4>🔑 Tam Kỳ + Lục Nghi (9 thiên can KMDG, ẩn Giáp)</h4>
+        <p class="km-tklm-overview">{{ wiki.tam_ky_luc_nghi.overview }}</p>
+        <div class="km-tklm-grid">
+          <div class="km-tklm-block">
+            <h5>3 Kỳ 三奇 — 3 thiên thể sáng</h5>
+            <ul>
+              <li v-for="(info, name) in wiki.tam_ky_luc_nghi.tam_ky" :key="name">
+                <strong>{{ name }}</strong> = {{ info.can }} ({{ info.thien_the }}, {{ info.ngu_hanh }})
+              </li>
+            </ul>
+          </div>
+          <div class="km-tklm-block">
+            <h5>6 Nghi 六儀 — ẩn 6 Giáp</h5>
+            <ul>
+              <li v-for="(detail, name) in wiki.tam_ky_luc_nghi.luc_nghi" :key="name">
+                <strong>{{ name }}</strong> — {{ detail }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="km-tklm-insight"><em>💡 {{ wiki.tam_ky_luc_nghi.insight }}</em></p>
+      </div>
+
+      <details v-if="wiki?.cuu_tinh_two_naming" class="km-cuutinh-details">
+        <summary>⭐ Cửu tinh — 2 hệ tên gọi (Số+Màu / Tên cổ)</summary>
+        <p class="km-overview">{{ wiki.cuu_tinh_two_naming.overview }}</p>
+        <ul class="km-cuutinh-list">
+          <li v-for="(name, key) in wiki.cuu_tinh_two_naming.mapping" :key="key">
+            <strong>{{ key }}</strong> ↔ {{ name }}
+          </li>
+        </ul>
+        <p class="km-overview"><em>{{ wiki.cuu_tinh_two_naming.cross_school }}</em></p>
+      </details>
+
       <p class="km-intro-cta">
         Nhập thời gian phía trên + bấm <em>An cục KMDG</em> để xem bàn đầu tiên.
       </p>
@@ -368,8 +403,40 @@ const catHungClass = (label) => {
 .km-he-note { color: #94a3b8; }
 .km-intro-cta { margin-top: 16px; font-size: 0.95rem; color: #fbbf24; }
 
+/* Tam Kỳ Lục Nghi card */
+.km-tklm-card {
+  margin-top: 18px; padding: 14px 16px;
+  background: rgba(212, 165, 116, 0.06); border-radius: 8px;
+  border-left: 3px solid #d4a574;
+}
+.km-tklm-card h4 { margin: 0 0 8px; color: #d4a574; font-size: 1rem; }
+.km-tklm-overview { margin: 0 0 12px; font-size: 0.88rem; color: #cbd5e1; }
+.km-tklm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.km-tklm-block { padding: 10px; background: #0f172a; border-radius: 6px; }
+.km-tklm-block h5 { margin: 0 0 6px; color: #fbbf24; font-size: 0.88rem; }
+.km-tklm-block ul { margin: 0; padding-left: 18px; font-size: 0.82rem; color: #cbd5e1; line-height: 1.6; }
+.km-tklm-insight {
+  margin-top: 10px; padding: 8px 12px;
+  background: rgba(212, 165, 116, 0.1); border-radius: 4px;
+  font-size: 0.85rem; color: #fbbf24;
+}
+
+/* Cửu tinh collapsible */
+.km-cuutinh-details {
+  margin-top: 14px; padding: 10px 14px;
+  background: #0f172a; border-radius: 6px;
+  border: 1px solid #334155;
+}
+.km-cuutinh-details summary {
+  cursor: pointer; color: #d4a574; font-weight: 600;
+  font-size: 0.95rem; padding: 4px 0;
+}
+.km-cuutinh-details[open] summary { margin-bottom: 8px; }
+.km-cuutinh-list { margin: 8px 0 0; padding-left: 18px; font-size: 0.82rem; color: #cbd5e1; line-height: 1.7; }
+.km-overview { font-size: 0.85rem; color: #94a3b8; margin: 6px 0; }
+
 @media (max-width: 768px) {
-  .km-he-grid { grid-template-columns: 1fr; }
+  .km-he-grid, .km-tklm-grid { grid-template-columns: 1fr; }
 }
 
 .km-form { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 16px; }

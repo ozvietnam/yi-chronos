@@ -120,10 +120,90 @@ TIET_KHI_VN = {
 }
 
 # Tam kỳ + Lục nghi (3 kỳ 6 nghi = 9 thiên can KMDG, ẩn 甲 Giáp)
+# Source: Đàm Liên Chương I (pages 25-27) — "Tam kỳ Lục nghi"
 TAM_KY = {"乙": "Ất kỳ", "丙": "Bính kỳ", "丁": "Đinh kỳ"}
 LUC_NGHI = {
     "戊": "Mậu nghi", "己": "Kỷ nghi", "庚": "Canh nghi",
     "辛": "Tân nghi", "壬": "Nhâm nghi", "癸": "Quý nghi",
+}
+
+# Tên đầy đủ Tam Kỳ (3 kỳ = 3 thiên thể sáng)
+TAM_KY_FULL_NAME = {
+    "乙": {"vn": "Nhật kỳ", "zh": "日奇", "thien_the": "Mặt trời"},
+    "丙": {"vn": "Nguyệt kỳ", "zh": "月奇", "thien_the": "Mặt trăng"},
+    "丁": {"vn": "Tinh kỳ", "zh": "星奇", "thien_the": "Sao"},
+}
+
+# Mapping Lục Nghi ↔ Giáp ẩn (mỗi Lục Nghi ẩn 1 Giáp tuần)
+# Source: Đàm Liên Chương I — "Lục Nghi thường đặt Giáp đứng trước các can khác"
+LUC_NGHI_GIAP_MAPPING = {
+    "戊": {"giap": "甲子", "giap_vn": "Giáp Tý", "tuan": "Giáp Tý tuần (戊)"},
+    "己": {"giap": "甲戌", "giap_vn": "Giáp Tuất", "tuan": "Giáp Tuất tuần (己)"},
+    "庚": {"giap": "甲申", "giap_vn": "Giáp Thân", "tuan": "Giáp Thân tuần (庚)"},
+    "辛": {"giap": "甲午", "giap_vn": "Giáp Ngọ", "tuan": "Giáp Ngọ tuần (辛)"},
+    "壬": {"giap": "甲辰", "giap_vn": "Giáp Thìn", "tuan": "Giáp Thìn tuần (壬)"},
+    "癸": {"giap": "甲寅", "giap_vn": "Giáp Dần", "tuan": "Giáp Dần tuần (癸)"},
+}
+
+# Cửu tinh — tên thay thế theo SỐ + MÀU (Huyền Không Phi Tinh hệ + KMDG)
+# Source: Đàm Liên Chương I (pages 21-25) — "9 sao: Nhất bạch, Nhị hắc, ..."
+# Mapping song song với 9 tinh KMDG (Thiên Bồng etc).
+CUU_TINH_NUMBER_NAME = {
+    1: {"vn": "Nhất bạch", "zh": "一白", "color": "trắng", "kmdg_tinh": "Thiên Bồng"},
+    2: {"vn": "Nhị hắc", "zh": "二黑", "color": "đen", "kmdg_tinh": "Thiên Nhuế"},
+    3: {"vn": "Tam bích", "zh": "三碧", "color": "lục", "kmdg_tinh": "Thiên Xung"},
+    4: {"vn": "Tứ lục", "zh": "四綠", "color": "xanh lá", "kmdg_tinh": "Thiên Phụ"},
+    5: {"vn": "Ngũ hoàng", "zh": "五黃", "color": "vàng", "kmdg_tinh": "Thiên Cầm"},
+    6: {"vn": "Lục bạch", "zh": "六白", "color": "trắng", "kmdg_tinh": "Thiên Tâm"},
+    7: {"vn": "Thất xích", "zh": "七赤", "color": "đỏ", "kmdg_tinh": "Thiên Trụ"},
+    8: {"vn": "Bát bạch", "zh": "八白", "color": "trắng", "kmdg_tinh": "Thiên Nhậm"},
+    9: {"vn": "Cửu tử", "zh": "九紫", "color": "tím", "kmdg_tinh": "Thiên Anh"},
+}
+
+# Phân loại 12 địa chi theo Tam Hợp / Tứ chính
+# Source: Đàm Liên Chương I — dùng để xác định Thượng/Trung/Hạ Nguyên (nguyệt gia)
+TU_MANH = ["寅", "申", "巳", "亥"]   # Tứ Mạnh: Dần Thân Tỵ Hợi
+TU_TRONG = ["子", "午", "卯", "酉"]  # Tứ Trọng: Tý Ngọ Mão Dậu
+TU_QUY = ["辰", "戌", "丑", "未"]    # Tứ Quý: Thìn Tuất Sửu Mùi
+
+# Nguyên xác định cho Kỳ Môn Nguyệt Gia (5 năm = 1 nguyên, 60 tháng)
+# Source: Đàm Liên Chương I (page 22-23)
+NGUYET_GIA_NGUYEN_RULE = {
+    "Thượng Nguyên": {
+        "nien_chi_class": "Tứ Mạnh",
+        "nien_chi_list": TU_MANH,
+        "starting_cung": "Khảm số 1",
+        "note": "Niên can Giáp/Kỷ + niên chi Tứ Mạnh → năm Giáp Tý của Thượng Nguyên",
+    },
+    "Trung Nguyên": {
+        "nien_chi_class": "Tứ Trọng",
+        "nien_chi_list": TU_TRONG,
+        "starting_cung": "Đoài số 7",
+        "note": "Niên chi Tứ Trọng → năm Giáp Tý của Trung Nguyên",
+    },
+    "Hạ Nguyên": {
+        "nien_chi_class": "Tứ Quý",
+        "nien_chi_list": TU_QUY,
+        "starting_cung": "Tốn số 4",
+        "note": "Niên chi Tứ Quý → năm Giáp Tý của Hạ Nguyên (đều là âm độn)",
+    },
+}
+
+# Quy luật Dương độn vs Âm độn — xếp 9 thiên can theo chiều
+# Source: Đàm Liên Chương I (hình 5, 6, 7) — bảng Dương độn + Âm độn
+DUONG_AM_DON_RULE = {
+    "Dương độn 陽遁": {
+        "chieu": "thuận chiều (theo cung số 1→9)",
+        "tiet_khi_range": "Đông Chí → Hạ Chí (6 tháng dương khí tăng)",
+        "cuc_so_range": "1 đến 9 (9 cục)",
+        "vd_part_1": "Giáp Tý Mậu → cung Khảm số 1, Giáp Tuất Kỷ → cung Khôn số 2, ... Ất Kỳ → cung Ly số 9",
+    },
+    "Âm độn 陰遁": {
+        "chieu": "ngược chiều (theo cung số 9→1)",
+        "tiet_khi_range": "Hạ Chí → Đông Chí (6 tháng âm khí tăng)",
+        "cuc_so_range": "1 đến 9 (9 cục)",
+        "vd_part_1": "Giáp Tý Mậu → cung Ly số 9, Giáp Tuất Kỷ → cung Cấn số 8, ... Ất Kỳ → cung Khảm số 1",
+    },
 }
 
 # Cát/hung tổng quát của môn, tinh, thần (tham khảo cổ điển — không tuyệt đối)

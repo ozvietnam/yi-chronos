@@ -223,6 +223,58 @@ WIKI = {
         },
     },
 
+    # ─── Tam Kỳ Lục Nghi chi tiết (Đàm Liên Chương I) ───
+    "tam_ky_luc_nghi": {
+        "overview": "9 thiên can trong KMDG = Tam Kỳ + Lục Nghi (ẨN Giáp). Mỗi Lục Nghi đứng đầu 1 tuần Giáp.",
+        "tam_ky": {
+            "Nhật kỳ 日奇": {"can": "Ất 乙", "thien_the": "Mặt trời", "ngu_hanh": "Mộc"},
+            "Nguyệt kỳ 月奇": {"can": "Bính 丙", "thien_the": "Mặt trăng", "ngu_hanh": "Hỏa"},
+            "Tinh kỳ 星奇": {"can": "Đinh 丁", "thien_the": "Sao", "ngu_hanh": "Hỏa"},
+        },
+        "luc_nghi": {
+            "Mậu nghi (戊)": "Giáp Tý tuần 甲子 — Giáp Tý ẩn dưới Mậu",
+            "Kỷ nghi (己)": "Giáp Tuất tuần 甲戌 — Giáp Tuất ẩn dưới Kỷ",
+            "Canh nghi (庚)": "Giáp Thân tuần 甲申 — Giáp Thân ẩn dưới Canh",
+            "Tân nghi (辛)": "Giáp Ngọ tuần 甲午 — Giáp Ngọ ẩn dưới Tân",
+            "Nhâm nghi (壬)": "Giáp Thìn tuần 甲辰 — Giáp Thìn ẩn dưới Nhâm",
+            "Quý nghi (癸)": "Giáp Dần tuần 甲寅 — Giáp Dần ẩn dưới Quý",
+        },
+        "insight": "Giáp ẨN không xuất hiện trực tiếp trong bàn — chỉ thể hiện qua Lục Nghi. Đây là gốc tên 'Độn Giáp' (giấu Giáp).",
+    },
+
+    # ─── Cửu tinh: 2 hệ tên gọi song song ───
+    "cuu_tinh_two_naming": {
+        "overview": "9 sao KMDG có 2 cách gọi: theo TÊN (Thiên Bồng/Nhậm/...) và theo SỐ+MÀU (Nhất bạch/Nhị hắc/...). Cùng 1 sao.",
+        "mapping": {
+            "1 - Nhất bạch 一白 (trắng)": "Thiên Bồng 天蓬 — Thủy, đầu hung tinh",
+            "2 - Nhị hắc 二黑 (đen)": "Thiên Nhuế 天芮 — Thổ, bệnh tinh",
+            "3 - Tam bích 三碧 (lục)": "Thiên Xung 天沖 — Mộc, kích phạt",
+            "4 - Tứ lục 四綠 (xanh)": "Thiên Phụ 天輔 — Mộc, phù trợ đại cát",
+            "5 - Ngũ hoàng 五黃 (vàng)": "Thiên Cầm 天禽 — Thổ, trung cung",
+            "6 - Lục bạch 六白 (trắng)": "Thiên Tâm 天心 — Kim, y dược",
+            "7 - Thất xích 七赤 (đỏ)": "Thiên Trụ 天柱 — Kim, phòng thủ",
+            "8 - Bát bạch 八白 (trắng)": "Thiên Nhậm 天任 — Thổ, bảo trì",
+            "9 - Cửu tử 九紫 (tím)": "Thiên Anh 天英 — Hỏa, sáng",
+        },
+        "cross_school": "Hệ SỐ+MÀU dùng trong Huyền Không Phi Tinh phong thủy. KMDG dùng cả 2 hệ tùy context.",
+    },
+
+    # ─── Phương pháp an cục KMDG ───
+    "phuong_phap_an_cuc": {
+        "overview": "KMDG có 4 hệ thời gian (per Đàm Liên): niên gia / nguyệt gia / nhật gia / thời gia. Mỗi hệ có cách xác định Nguyên + cục số khác nhau.",
+        "ky_mon_thoi_gia": "60 đơn vị (60 giờ) = 1 nguyên. Phổ biến nhất, library kinqimen support full.",
+        "ky_mon_nguyet_gia": {
+            "desc": "60 tháng (5 năm) = 1 nguyên",
+            "rule_thuong_nguyen": "Niên can Giáp/Kỷ + niên chi Tứ Mạnh (Dần Thân Tỵ Hợi) → năm Giáp Tý Thượng Nguyên → cung Khảm số 1",
+            "rule_trung_nguyen": "Niên chi Tứ Trọng (Tý Ngọ Mão Dậu) → năm Giáp Tý Trung Nguyên → cung Đoài số 7",
+            "rule_ha_nguyen": "Niên chi Tứ Quý (Thìn Tuất Sửu Mùi) → năm Giáp Tý Hạ Nguyên → cung Tốn số 4. ALL âm độn.",
+        },
+        "duong_am_don": {
+            "Dương độn 陽遁": "Đông Chí → Hạ Chí (6 tháng). 9 thiên can xếp THUẬN chiều (cung 1→9).",
+            "Âm độn 陰遁": "Hạ Chí → Đông Chí (6 tháng). 9 thiên can xếp NGƯỢC chiều (cung 9→1).",
+        },
+    },
+
     # ─── Sách reference em đọc trong YI-CHRONOS ───
     "source_book": {
         "title": "Kỳ Môn Độn Giáp",

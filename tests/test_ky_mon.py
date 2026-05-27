@@ -148,6 +148,60 @@ def test_co_thu_canon_5_books():
     assert "Kỳ môn pháp khiếu" in phi_ban
 
 
+def test_tam_ky_full_name_3_thien_the():
+    """Tam Kỳ: Đinh=Tinh kỳ, Bính=Nguyệt kỳ, Ất=Nhật kỳ (per Đàm Liên Chương I)."""
+    from engine.ky_mon.constants import TAM_KY_FULL_NAME
+
+    assert TAM_KY_FULL_NAME["乙"]["vn"] == "Nhật kỳ"
+    assert TAM_KY_FULL_NAME["丙"]["vn"] == "Nguyệt kỳ"
+    assert TAM_KY_FULL_NAME["丁"]["vn"] == "Tinh kỳ"
+
+
+def test_luc_nghi_giap_mapping():
+    """Mỗi Lục Nghi ẩn 1 Giáp tuần (per Đàm Liên Chương I)."""
+    from engine.ky_mon.constants import LUC_NGHI_GIAP_MAPPING
+
+    assert LUC_NGHI_GIAP_MAPPING["戊"]["giap_vn"] == "Giáp Tý"
+    assert LUC_NGHI_GIAP_MAPPING["己"]["giap_vn"] == "Giáp Tuất"
+    assert LUC_NGHI_GIAP_MAPPING["庚"]["giap_vn"] == "Giáp Thân"
+    assert LUC_NGHI_GIAP_MAPPING["辛"]["giap_vn"] == "Giáp Ngọ"
+    assert LUC_NGHI_GIAP_MAPPING["壬"]["giap_vn"] == "Giáp Thìn"
+    assert LUC_NGHI_GIAP_MAPPING["癸"]["giap_vn"] == "Giáp Dần"
+
+
+def test_cuu_tinh_two_naming_mapping():
+    """9 sao có 2 hệ tên: Thiên Bồng/... (KMDG) vs Nhất bạch/... (Huyền Không Phi Tinh)."""
+    from engine.ky_mon.constants import CUU_TINH_NUMBER_NAME
+
+    assert CUU_TINH_NUMBER_NAME[1]["vn"] == "Nhất bạch"
+    assert CUU_TINH_NUMBER_NAME[1]["kmdg_tinh"] == "Thiên Bồng"
+    assert CUU_TINH_NUMBER_NAME[5]["vn"] == "Ngũ hoàng"
+    assert CUU_TINH_NUMBER_NAME[5]["kmdg_tinh"] == "Thiên Cầm"
+    assert CUU_TINH_NUMBER_NAME[9]["vn"] == "Cửu tử"
+    assert CUU_TINH_NUMBER_NAME[9]["color"] == "tím"
+
+
+def test_nguyet_gia_nguyen_rule():
+    """Tứ Mạnh→Thượng, Tứ Trọng→Trung, Tứ Quý→Hạ (per Đàm Liên p22-23)."""
+    from engine.ky_mon.constants import NGUYET_GIA_NGUYEN_RULE, TU_MANH, TU_TRONG, TU_QUY
+
+    assert set(TU_MANH) == {"寅", "申", "巳", "亥"}
+    assert set(TU_TRONG) == {"子", "午", "卯", "酉"}
+    assert set(TU_QUY) == {"辰", "戌", "丑", "未"}
+
+    assert NGUYET_GIA_NGUYEN_RULE["Thượng Nguyên"]["starting_cung"] == "Khảm số 1"
+    assert NGUYET_GIA_NGUYEN_RULE["Trung Nguyên"]["starting_cung"] == "Đoài số 7"
+    assert NGUYET_GIA_NGUYEN_RULE["Hạ Nguyên"]["starting_cung"] == "Tốn số 4"
+
+
+def test_duong_am_don_chieu():
+    """Dương độn thuận chiều, Âm độn ngược chiều (per Đàm Liên hình 5-6)."""
+    from engine.ky_mon.constants import DUONG_AM_DON_RULE
+
+    assert "thuận" in DUONG_AM_DON_RULE["Dương độn 陽遁"]["chieu"]
+    assert "ngược" in DUONG_AM_DON_RULE["Âm độn 陰遁"]["chieu"]
+
+
 def test_to_su_paradigm():
     """Verify tổ sư paradigm Lưu Bá Ôn được ghi nhận."""
     from engine.ky_mon import WIKI
