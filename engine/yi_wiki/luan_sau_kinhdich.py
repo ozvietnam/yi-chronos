@@ -76,6 +76,12 @@ _DEEP_QUE_FILES: set[str] = {
     "quẻ/20-quan.md",
     "quẻ/21-phe-hap.md",
     "quẻ/22-bi.md",
+    "quẻ/23-bac.md",       # 2026-05-27 cụm 3 deep
+    "quẻ/24-phuc.md",      # cụm 3
+    "quẻ/25-vo-vong.md",   # cụm 3 (OCR p421-450 missing, canonical Trình Di)
+    "quẻ/26-dai-suc.md",   # cụm 3
+    "quẻ/27-di.md",        # cụm 3
+    "quẻ/28-dai-qua.md",   # cụm 3 (OCR p476-500 missing for 6 hào)
 }
 
 # 64 hexagram (upper, lower) → file citation.
