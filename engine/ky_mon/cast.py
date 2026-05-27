@@ -273,6 +273,25 @@ def detect_cach_cuc(thien_ban_raw: dict, dia_ban_raw: dict, mon_raw: dict | None
             cc["chi_tiet"] = f"Cung {cung}: Thiên={thien_can}, Địa={dia_can}"
             matched.append({"name": "Giao Thái", **cc})
 
+    # Tam Cơ Thăng Điện: Ất→Chấn, Bính→Ly, Đinh→Đoài (3 cung concurrent)
+    # Đại cát môn, kỵ Mộ bức (Đàm Liên page 47)
+    if (thien_ban_raw.get("震") == "乙" and
+        thien_ban_raw.get("離") == "丙" and
+        thien_ban_raw.get("兌") == "丁"):
+        cc = CACH_CUC_CANON["Tam Cơ Thăng Điện"].copy()
+        cc["cung_phat_hien"] = "Chấn + Ly + Đoài"
+        cc["chi_tiet"] = "Ất tại Chấn + Bính tại Ly + Đinh tại Đoài — VẠN SỰ"
+        matched.append({"name": "Tam Cơ Thăng Điện", **cc})
+
+    # Tam Kỳ đắc Lộc: Ất→Chấn, Bính→Tốn, Đinh→Ly
+    if (thien_ban_raw.get("震") == "乙" and
+        thien_ban_raw.get("巽") == "丙" and
+        thien_ban_raw.get("離") == "丁"):
+        cc = CACH_CUC_CANON["Tam Kỳ đắc Lộc"].copy()
+        cc["cung_phat_hien"] = "Chấn + Tốn + Ly"
+        cc["chi_tiet"] = "Ất tại Chấn + Bính tại Tốn + Đinh tại Ly"
+        matched.append({"name": "Tam Kỳ đắc Lộc", **cc})
+
     return matched
 
 

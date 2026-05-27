@@ -391,6 +391,101 @@ def test_api_cast_with_task():
     assert j["ky_mon_state"]["task_analysis"]["task"] == "Kết hôn"
 
 
+def test_cach_cuc_canon_expanded_50plus():
+    """CACH_CUC_CANON expand từ 25 → 50+ entries (commit 2 add Cửu Độn đầy đủ + Ngũ Giả + 15 hung cách)."""
+    from engine.ky_mon.constants import CACH_CUC_CANON
+
+    assert len(CACH_CUC_CANON) >= 50
+
+    # Cửu Độn đầy đủ
+    cuu_don_names = ["Thiên Độn", "Địa Độn", "Nhân Độn", "Thần Độn",
+                     "Quỷ Độn", "Phong Độn", "Vân Độn", "Long Độn", "Hổ Độn"]
+    for name in cuu_don_names:
+        assert name in CACH_CUC_CANON, f"{name} missing from Cửu Độn"
+
+    # Ngũ Giả đầy đủ
+    ngu_gia_names = ["Đại Giả", "Địa Giả", "Vật Giả", "Nhân Giả", "Quy Giả"]
+    for name in ngu_gia_names:
+        assert name in CACH_CUC_CANON, f"{name} missing from Ngũ Giả"
+
+    # Mới hung cách
+    assert "Ngũ Bất Ngộ" in CACH_CUC_CANON
+    assert CACH_CUC_CANON["Ngũ Bất Ngộ"]["loai"] == "đại hung"
+    assert "DÙ ĐẮC CƠ ĐẮC MÔN" in CACH_CUC_CANON["Ngũ Bất Ngộ"]["usage"]
+
+    # Tam Cơ Thăng Điện
+    assert "Tam Cơ Thăng Điện" in CACH_CUC_CANON
+    assert "VẠN SỰ" in CACH_CUC_CANON["Tam Cơ Thăng Điện"]["tom"]
+
+
+def test_task_profile_thang_quan_no_thien_anh():
+    """Bias fix: 'Thăng quan' KHÔNG favored Thiên Anh (Đàm Liên: 'SAO XẤU').
+
+    Đàm Liên page 41: 'Thiên Anh — không nên cầu danh, cầu tài đều không có kết quả'.
+    Engine cũ em đã bias add Thiên Anh vào favored — FIX trong commit 2.
+    """
+    from engine.ky_mon import TASK_PROFILES
+
+    p = TASK_PROFILES["Thăng quan"]
+    assert "英" not in p.get("favored_tinh", []), "Thiên Anh phải KHÔNG ở favored"
+    assert "英" in p.get("avoid_tinh", []), "Thiên Anh phải ở AVOID per Đàm Liên"
+    # Thiên Phụ + Thiên Nhậm là favored cho Thăng quan
+    assert "輔" in p["favored_tinh"]
+    assert "任" in p["favored_tinh"]
+
+
+def test_task_profile_khoi_nghiep_avoid_thien_tru():
+    """Bias fix: 'Khởi nghiệp' AVOID Thiên Trụ (Đàm Liên: 'LẬP TỨC GẶP XẤU')."""
+    from engine.ky_mon import TASK_PROFILES
+
+    p = TASK_PROFILES["Khởi nghiệp"]
+    assert "柱" in p.get("avoid_tinh", []), "Thiên Trụ phải avoid cho Khởi nghiệp"
+
+
+def test_wiki_mon_has_5_fields_dam_lien():
+    """Wiki mon mỗi entry phải có 5 fields verbatim Đàm Liên (tinh_chat, viec_thuan, viec_tranh, ngoai_le, desc)."""
+    from engine.ky_mon import WIKI
+
+    for mon_name, mon_data in WIKI["mon"].items():
+        assert "tinh_chat" in mon_data, f"{mon_name} missing tinh_chat"
+        assert "viec_thuan" in mon_data, f"{mon_name} missing viec_thuan"
+        assert "ngoai_le" in mon_data, f"{mon_name} missing ngoai_le"
+        assert "Đàm Liên" in mon_data["desc"], f"{mon_name} desc not verbatim from Đàm Liên"
+
+
+def test_wiki_tinh_corrected_thien_tru():
+    """Wiki tinh Thiên Trụ phải reflect Đàm Liên (not em-bias)."""
+    from engine.ky_mon import WIKI
+
+    tru = WIKI["tinh"]["Thiên Trụ"]
+    # Đàm Liên dứt khoát: TẤT CẢ MỌI VIỆC KHÔNG THUẬN
+    assert "KHÔNG THUẬN" in tru["tinh_chat"] or "không thuận" in tru["tinh_chat"]
+    assert "Đàm Liên" in tru["desc"]
+    # KHÔNG được có wording "phòng thủ giữ thành" (em-bias cũ)
+    assert "giữ thành" not in tru.get("viec_thuan", "")
+
+
+def test_wiki_than_binh_gia_tone():
+    """Wiki thần phải có tone binh-gia (Đàm Liên page 43-44)."""
+    from engine.ky_mon import WIKI
+
+    # Cửu Địa = phòng thủ binh tướng
+    cuu_dia = WIKI["than"]["Cửu Địa"]
+    assert "binh tướng" in cuu_dia["rule"] or "PHÒNG THỦ" in cuu_dia["rule"]
+    assert cuu_dia.get("tone_binh_gia") == "true"
+
+    # Cửu Thiên = sắp xếp binh lính chiến đấu
+    cuu_thien = WIKI["than"]["Cửu Thiên"]
+    assert "binh lính" in cuu_thien["rule"] or "CHIẾN ĐẤU" in cuu_thien["rule"]
+
+    # Trị Phù = "Thiên Ất" alias
+    tri_phu = WIKI["than"]["Trị Phù"]
+    assert tri_phu.get("alias") == "Thần Thiên Ất 天乙"
+
+    # Note tone binh-gia có trong wiki
+    assert "tone_binh_gia_note" in WIKI
+
+
 def test_api_tasks_endpoint():
     """GET /api/ky-mon/tasks return 16 tasks."""
     from api.main import app

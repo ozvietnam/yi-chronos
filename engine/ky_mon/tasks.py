@@ -12,46 +12,53 @@ KHÔNG phải "Bàn này tốt/xấu chung". Iron Rule #4/#6 vẫn giữ — đ�
 TASK_PROFILES = {
     "Kết hôn": {
         "label": "Kết hôn / Cưới gả",
-        "favored_mon": ["休", "生"],     # Hưu, Sinh
-        "favored_tinh": ["輔", "禽", "心"],  # Phụ, Cầm, Tâm
-        "favored_than": ["合"],           # Lục Hợp
-        "favored_cach_cuc": ["Trùng Trá", "Hưu Trá", "Tam Cơ Thăng Điện", "Nhân Độn", "Tam Trá"],
+        "favored_mon": ["休", "生"],
+        # Đàm Liên: Thiên Nhậm "kết hôn được"; Thiên Phụ "kết hôn"
+        "favored_tinh": ["輔", "禽", "心", "任"],
+        "favored_than": ["合"],
+        "favored_cach_cuc": ["Trùng Trá", "Hưu Trá", "Tam Cơ Thăng Điện", "Nhân Độn"],
         "avoid_mon": ["傷", "杜", "死"],
-        "avoid_tinh": ["蓬", "芮"],
+        # Đàm Liên: Bồng/Nhuế/Xung/Anh đều KHÔNG nên kết hôn
+        "avoid_tinh": ["蓬", "芮", "沖", "英"],
         "avoid_than": ["蛇", "雀"],
-        "avoid_cach_cuc": ["Hình Cách", "Phục Can Cách", "Bạch Hổ Xương Cuồng"],
-        "note": "Đàm Liên: Hôn nhân hợp Hưu môn (sum họp) + Sinh môn (sinh sôi) + Lục Hợp (môi giới). Tránh Thương môn (thị phi) + Bồng/Nhuế (hung tinh).",
+        "avoid_cach_cuc": ["Hình Cách", "Phục Can Cách", "Bạch Hổ Xương Cuồng", "Chu Tước Đầu Giang", "Ngũ Bất Ngộ"],
+        "note": "Đàm Liên: Hưu (sum họp) + Sinh + Thiên Nhậm + Lục Hợp = cát. Tránh Thiên Xung 'kết hôn gặp tai họa', Thiên Anh 'không nên kết hôn'.",
     },
     "Khởi nghiệp": {
         "label": "Khởi nghiệp / Kinh doanh / Cầu tài",
         "favored_mon": ["開", "生"],
-        "favored_tinh": ["輔", "心", "禽"],
-        "favored_than": ["符", "天"],     # Trực Phù, Cửu Thiên
-        "favored_cach_cuc": ["Thanh Long Hồi Thủ", "Phi Điểu Trật Huyệt", "Thiên Độn", "Trùng Trá"],
+        "favored_tinh": ["輔", "心", "禽", "任"],   # +Nhậm (kinh doanh thuận lợi)
+        "favored_than": ["符", "天"],
+        "favored_cach_cuc": ["Thanh Long Hồi Thủ", "Phi Điểu Trật Huyệt", "Thiên Độn", "Trùng Trá", "Tam Cơ Thăng Điện", "Yêu Vận Xương Khí", "Hoa Nghĩa"],
         "avoid_mon": ["死", "驚"],
-        "avoid_tinh": ["蓬", "芮"],
-        "avoid_cach_cuc": ["Hình Cách", "Phục Ngâm (Tinh/Môn)", "Thanh Long Đào Tẩu"],
-        "note": "Khởi nghiệp cần Khai môn (mở đầu) + Sinh môn (sinh sôi). Trị Phù dẫn dắt. Tránh Tử/Kinh (kết thúc/giật mình).",
+        "avoid_tinh": ["蓬", "芮", "柱"],   # +Thiên Trụ (Đàm Liên: kinh doanh lập tức gặp xấu)
+        "avoid_cach_cuc": ["Hình Cách", "Phục Ngâm (Tinh/Môn)", "Thanh Long Đào Tẩu", "Bột Cách", "Ngũ Bất Ngộ"],
+        "note": "Đàm Liên: Thiên Cầm + Thiên Nhậm 'kinh doanh thuận lợi'; Thiên Tâm 'làm ăn buôn bán nhiều lợi lộc'. Tránh Thiên Trụ (Đàm Liên: 'làm kinh doanh LẬP TỨC GẶP XẤU').",
     },
     "Đi xa": {
         "label": "Đi xa / Xuất hành",
         "favored_mon": ["開", "生", "休"],
-        "favored_tinh": ["輔"],
-        "favored_than": ["天"],          # Cửu Thiên
-        "favored_cach_cuc": ["Thanh Long Hồi Thủ", "Tam Cơ Thăng Điện"],
+        # Đàm Liên: Thiên Cầm "rất dễ đi xa, làm ăn buôn bán nhiều lợi lộc"
+        "favored_tinh": ["輔", "禽"],
+        "favored_than": ["天"],
+        "favored_cach_cuc": ["Thanh Long Hồi Thủ", "Tam Cơ Thăng Điện", "Đại Cách (nếu bắt tù binh)"],
         "avoid_mon": ["傷", "驚"],
-        "avoid_cach_cuc": ["Lục Nghi Kích Hình", "Hình Cách"],
-        "note": "Đi xa cần Khai (mở đường) + Cửu Thiên (vươn cao). Tránh Thương (tai nạn đường) + Lục Nghi Kích Hình (đại kỵ).",
+        "avoid_tinh": ["柱"],   # Đàm Liên: Thiên Trụ KHÔNG nên xuất hành
+        "avoid_cach_cuc": ["Lục Nghi Kích Hình", "Hình Cách", "Phi Can Cách", "Đại Cách", "Tiểu Cách", "Ngũ Bất Ngộ"],
+        "note": "Đàm Liên: Thiên Cầm 'rất dễ đi xa'. Tránh Thương môn (tai nạn) + Lục Nghi Kích Hình (đại kỵ xuất hành) + Ngũ Bất Ngộ (dù đắc cơ đắc môn cũng không dùng).",
     },
     "Thăng quan": {
         "label": "Thăng quan / Cầu quan",
         "favored_mon": ["開", "景"],
-        "favored_tinh": ["輔", "英"],
+        # Đàm Liên page 41: Thiên Anh = SAO XẤU, KHÔNG cầu danh. REMOVED em-bias.
+        # Đàm Liên: Thiên Phụ "rất dễ thăng quan"; Thiên Nhậm "tế lễ cầu danh"
+        "favored_tinh": ["輔", "任"],
         "favored_than": ["天"],
-        "favored_cach_cuc": ["Đại Giả", "Tam Cơ Thăng Điện", "Thiên Độn"],
+        "favored_cach_cuc": ["Đại Giả", "Tam Cơ Thăng Điện", "Tam Kỳ đắc Lộc", "Thiên Độn"],
         "avoid_mon": ["死"],
-        "avoid_cach_cuc": ["Phục Ngâm (Tinh/Môn)"],
-        "note": "Đại Giả 'gặp quý nhân dâng kế'. Cảnh môn (truyền tin) + Thiên Anh (sáng danh) + Cửu Thiên.",
+        "avoid_tinh": ["英"],   # Đàm Liên dứt khoát: Thiên Anh KHÔNG cầu danh
+        "avoid_cach_cuc": ["Phục Ngâm (Tinh/Môn)", "Ngũ Bất Ngộ"],
+        "note": "Đàm Liên (page 41): 'Thiên Phụ rất dễ thăng quan tiến chức'. Đại Giả 'gặp quý nhân dâng kế'. Tam Kỳ đắc Lộc 'thăng quan cầu tài'. Tránh Thiên Anh (Đàm Liên: 'SAO XẤU, cầu danh KHÔNG kết quả').",
     },
     "Học tập": {
         "label": "Học tập / Thi cử",
