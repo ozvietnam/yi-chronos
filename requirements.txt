@@ -11,3 +11,6 @@ uvicorn[standard]>=0.30
 # Required cho engine/ky_mon/vendored/kinqimen/config.py
 sxtwl>=2.0
 ephem>=4.1
+# Báo Mệnh PDF endpoint (engine/bat_tu/bao_menh_pdf.py)
+# Pango/Cairo/HarfBuzz system libs đã add trong Dockerfile.
+weasyprint>=68.0
