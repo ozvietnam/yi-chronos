@@ -1168,6 +1168,13 @@ class BatTuLuuNienRequest(BaseModel):
     include_luu_nguyet: bool = True
 
 
+class BatTuLifeDomainRequest(BaseModel):
+    """Generic request for Hôn nhân / Sự nghiệp endpoints."""
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+
+
 @app.post("/api/bat-tu/luan-giai")
 def bat_tu_luan_giai(request: BatTuLuanGiaiRequest) -> dict[str, object]:
     """Luận giải tổng hợp Bát Tự — synthesize Tứ Trụ + Thập Thần + Cách Cục +
@@ -1234,6 +1241,50 @@ def bat_tu_luu_nien(request: BatTuLuuNienRequest) -> dict[str, object]:
         "algorithm_version": ALGORITHM_VERSION,
         "bat_tu_state": state,
         "luu_nien": luu,
+    }
+
+
+@app.post("/api/bat-tu/hon-nhan")
+def bat_tu_hon_nhan(request: BatTuLifeDomainRequest) -> dict[str, object]:
+    """Hôn nhân — phân tích Cung Phối + Tài/Quan tinh + Đào hoa + thời điểm.
+
+    Paradigm: KHÔNG dự đoán lấy ai/khi nào — đọc cấu trúc khí.
+    Source: Thiệu Vĩ Hoa Q. 4-6.
+    """
+    from engine.bat_tu import analyze_hon_nhan, cast_bat_tu
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    hn = analyze_hon_nhan(state)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "hon_nhan": hn,
+    }
+
+
+@app.post("/api/bat-tu/su-nghiep")
+def bat_tu_su_nghiep(request: BatTuLifeDomainRequest) -> dict[str, object]:
+    """Sự nghiệp — recommend nghề từ Cách Cục + Dụng Thần + Thập Thần patterns.
+
+    Paradigm: KHÔNG predict, đọc cấu trúc khí → recommend hành phù hợp.
+    Source: Thiệu Vĩ Hoa Q. 2 + Q. 4.
+    """
+    from engine.bat_tu import analyze_su_nghiep, cast_bat_tu
+
+    state = cast_bat_tu(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    sn = analyze_su_nghiep(state)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "bat_tu_state": state,
+        "su_nghiep": sn,
     }
 
 

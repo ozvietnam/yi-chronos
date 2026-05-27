@@ -494,6 +494,28 @@ export function batTuLuuNien({
   });
 }
 
+export function batTuHonNhan({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
+  return request(`/api/bat-tu/hon-nhan`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  });
+}
+
+export function batTuSuNghiep({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
+  return request(`/api/bat-tu/su-nghiep`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  });
+}
+
 export function castHaLac({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
   return request(`/api/ha-lac/cast`, {
     method: "POST",

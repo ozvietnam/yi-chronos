@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -26,6 +26,12 @@ const luanGiaiError = ref("");
 const luuNienData = ref(null);
 const luuNienLoading = ref(false);
 const luuNienError = ref("");
+const honNhanData = ref(null);
+const honNhanLoading = ref(false);
+const honNhanError = ref("");
+const suNghiepData = ref(null);
+const suNghiepLoading = ref(false);
+const suNghiepError = ref("");
 const loading = ref(false);
 const errorMsg = ref("");
 
@@ -120,6 +126,10 @@ function reset() {
   luanGiaiError.value = "";
   luuNienData.value = null;
   luuNienError.value = "";
+  honNhanData.value = null;
+  honNhanError.value = "";
+  suNghiepData.value = null;
+  suNghiepError.value = "";
   errorMsg.value = "";
 }
 
@@ -156,6 +166,42 @@ async function loadLuuNien() {
     luuNienError.value = err?.message || String(err);
   } finally {
     luuNienLoading.value = false;
+  }
+}
+
+async function loadHonNhan() {
+  if (!inputBirth.value) return;
+  honNhanLoading.value = true;
+  honNhanError.value = "";
+  try {
+    const r = await batTuHonNhan({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    honNhanData.value = r.hon_nhan;
+  } catch (err) {
+    honNhanError.value = err?.message || String(err);
+  } finally {
+    honNhanLoading.value = false;
+  }
+}
+
+async function loadSuNghiep() {
+  if (!inputBirth.value) return;
+  suNghiepLoading.value = true;
+  suNghiepError.value = "";
+  try {
+    const r = await batTuSuNghiep({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    suNghiepData.value = r.su_nghiep;
+  } catch (err) {
+    suNghiepError.value = err?.message || String(err);
+  } finally {
+    suNghiepLoading.value = false;
   }
 }
 
@@ -856,6 +902,228 @@ function formatSolarDateTime(iso) {
       <div class="lg-block lg-closing" v-html="renderMd(luuNienData.closing)"></div>
     </template>
 
+    <!-- ── Hôn Nhân ─────────────────────────────────────────────────────────
+         Engine hon_nhan — Cung Phối + Tài/Quan stars + thời điểm.
+    -->
+    <div v-if="batTuData" class="hn-trigger-section">
+      <button v-if="!honNhanData" class="apply-btn hn-trigger-btn"
+        @click="loadHonNhan" :disabled="honNhanLoading">
+        {{ honNhanLoading ? "Đang phân tích Hôn nhân..." : "💞 Hôn Nhân — Cung Phối + Tài/Quan" }}
+      </button>
+      <p v-if="honNhanError" class="status-message error">{{ honNhanError }}</p>
+    </div>
+
+    <template v-if="honNhanData">
+      <h4 class="section-h hn-h">💞 Hôn Nhân — đọc cấu trúc Cung Phối</h4>
+      <p class="lg-paradigm">{{ honNhanData.paradigm_guard }}</p>
+
+      <!-- Overall verdict -->
+      <div class="lg-block hn-overall" :data-label="honNhanData.overall.label">
+        <h5 class="lg-section-title">📊 Đánh giá cấu trúc</h5>
+        <div class="hn-verdict-row">
+          <span class="hn-verdict-tag">{{ honNhanData.overall.label.toUpperCase() }}</span>
+          <small>điểm cấu hình: {{ honNhanData.overall.score }}</small>
+        </div>
+        <p>{{ honNhanData.overall.narrative }}</p>
+      </div>
+
+      <!-- Cung Phối -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">🏠 Cung Phối — Trụ Ngày
+          <span class="wiki-link" @click="openConcept(honNhanData.cung_phoi.branch)">
+            chi {{ honNhanData.cung_phoi.branch }}
+          </span>
+          ({{ honNhanData.cung_phoi.branch_element }})
+        </h5>
+        <p>{{ honNhanData.cung_phoi.trait_narrative }}</p>
+        <div v-if="honNhanData.cung_phoi.tang_can?.length" class="hn-tang-can">
+          <small><b>Tàng can</b>:</small>
+          <span v-for="t in honNhanData.cung_phoi.tang_can" :key="t.stem" class="hn-tang-item">
+            <em>{{ t.stem }}</em> →
+            <span class="wiki-link" @click="openConcept(t.thap_than)">{{ t.thap_than }}</span>
+          </span>
+        </div>
+        <div v-if="honNhanData.cung_phoi.interactions_with_other_pillars?.length" class="hn-interactions">
+          <small><b>Tương tác với 3 trụ khác</b>:</small>
+          <ul>
+            <li v-for="(inter, i) in honNhanData.cung_phoi.interactions_with_other_pillars" :key="i"
+              :data-polarity="inter.polarity">{{ inter.narrative }}</li>
+          </ul>
+        </div>
+        <p v-if="honNhanData.cung_phoi.dao_hoa_chi" class="hn-dao-hoa">
+          🌸 <b>Đào hoa</b> của lá số: chi {{ honNhanData.cung_phoi.dao_hoa_chi }}
+          ({{ honNhanData.cung_phoi.has_dao_hoa_in_chart ? "✓ XUẤT HIỆN trong Tứ Trụ" : "không xuất hiện trong Tứ Trụ" }})
+        </p>
+      </div>
+
+      <!-- Partner Star -->
+      <div class="lg-block">
+        <h5 class="lg-section-title">⭐ Star vợ/chồng
+          ({{ honNhanData.gender === "nam" ? "Tài tinh" : "Quan tinh" }})
+        </h5>
+        <p>
+          Tổng số đếm: <b>{{ honNhanData.partner_star.total_count }}</b>.
+          Main star: <span class="wiki-link" @click="openConcept(honNhanData.partner_star.main_star)">{{ honNhanData.partner_star.main_star }}</span>,
+          phụ: <span class="wiki-link" @click="openConcept(honNhanData.partner_star.secondary_star)">{{ honNhanData.partner_star.secondary_star }}</span>.
+        </p>
+        <div v-if="honNhanData.partner_star.visible_positions?.length" class="hn-star-list">
+          <small><b>Hiện rõ</b>:</small>
+          <ul><li v-for="(pos, i) in honNhanData.partner_star.visible_positions" :key="i">{{ pos }}</li></ul>
+        </div>
+        <div v-if="honNhanData.partner_star.hidden_positions?.length" class="hn-star-list">
+          <small><b>Ẩn (tàng can)</b>:</small>
+          <ul><li v-for="(pos, i) in honNhanData.partner_star.hidden_positions" :key="i">{{ pos }}</li></ul>
+        </div>
+      </div>
+
+      <!-- Warnings -->
+      <div v-if="honNhanData.warnings?.length" class="lg-block lg-warnings">
+        <h5 class="lg-section-title">⚠ Cảnh báo cấu hình</h5>
+        <article v-for="w in honNhanData.warnings" :key="w.name" class="lg-warn">
+          <strong>⚠ {{ w.name }}</strong>
+          <p>{{ w.narrative }}</p>
+        </article>
+      </div>
+
+      <!-- Special stars -->
+      <div v-if="Object.keys(honNhanData.special_stars).length" class="lg-block">
+        <h5 class="lg-section-title">✨ Sao đặc biệt</h5>
+        <ul class="hn-stars">
+          <li v-for="(info, name) in honNhanData.special_stars" :key="name" :data-polarity="info.polarity">
+            <strong class="wiki-link" @click="openConcept(name)">{{ name }}</strong>
+            <span>({{ info.polarity }}) tại {{ info.pillar }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Timing suggestions -->
+      <div class="lg-block hn-timing">
+        <h5 class="lg-section-title">⏳ Thời điểm khả thi (theo Đại Vận)</h5>
+        <p>{{ honNhanData.timing_suggestions.narrative }}</p>
+        <div v-if="honNhanData.timing_suggestions.favorable_cycles?.length" class="hn-fav-cycles">
+          <article v-for="c in honNhanData.timing_suggestions.favorable_cycles" :key="c.cycle_index" class="hn-cycle-cell">
+            <header>
+              <strong>V{{ c.cycle_index }} {{ c.stem }} {{ c.branch }}</strong>
+              <small>{{ c.start_age }}-{{ c.end_age }}t · điểm {{ c.score }}</small>
+            </header>
+            <ul>
+              <li v-for="(r, i) in c.reasons" :key="i">{{ r }}</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(honNhanData.closing)"></div>
+    </template>
+
+    <!-- ── Sự Nghiệp ──────────────────────────────────────────────────────
+         Engine su_nghiep — Cách Cục + Dụng Thần + Thập Thần patterns.
+    -->
+    <div v-if="batTuData" class="sn-trigger-section">
+      <button v-if="!suNghiepData" class="apply-btn sn-trigger-btn"
+        @click="loadSuNghiep" :disabled="suNghiepLoading">
+        {{ suNghiepLoading ? "Đang phân tích Sự nghiệp..." : "💼 Sự Nghiệp — Cách Cục + Dụng Thần" }}
+      </button>
+      <p v-if="suNghiepError" class="status-message error">{{ suNghiepError }}</p>
+    </div>
+
+    <template v-if="suNghiepData">
+      <h4 class="section-h sn-h">💼 Sự Nghiệp — đọc hành thuận + cách cục</h4>
+      <p class="lg-paradigm">{{ suNghiepData.paradigm_guard }}</p>
+
+      <!-- Cách Cục summary -->
+      <div class="lg-block sn-cach">
+        <h5 class="lg-section-title">🎴 Cách Cục
+          <span class="wiki-link" @click="openConcept(suNghiepData.cach_cuc_summary.name)">
+            {{ suNghiepData.cach_cuc_summary.name }}
+          </span>
+        </h5>
+        <p><b>Career style</b>: {{ suNghiepData.cach_cuc_summary.career_style }}</p>
+        <p>{{ suNghiepData.cach_cuc_summary.narrative }}</p>
+      </div>
+
+      <!-- Career patterns -->
+      <div v-if="suNghiepData.career_patterns?.length" class="lg-block">
+        <h5 class="lg-section-title">🌀 Patterns phát hiện</h5>
+        <article v-for="p in suNghiepData.career_patterns" :key="p.name" class="sn-pattern">
+          <strong>✦ {{ p.name }}</strong>
+          <p>{{ p.narrative }}</p>
+          <p class="sn-hint">💡 <em>Hint</em>: {{ p.career_hint }}</p>
+        </article>
+      </div>
+
+      <!-- Dominant Thập Thần styles -->
+      <div v-if="suNghiepData.dominant_thap_than_styles?.length" class="lg-block">
+        <h5 class="lg-section-title">🌟 Thập Thần nổi bật — career style</h5>
+        <ul class="sn-styles">
+          <li v-for="d in suNghiepData.dominant_thap_than_styles" :key="d.name">
+            <strong class="wiki-link" @click="openConcept(d.name)">{{ d.name }}</strong>:
+            {{ d.style }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="lg-block sn-rec">
+        <h5 class="lg-section-title">🎯 Recommend ngành nghề</h5>
+        <div class="sn-rec-grid">
+          <article class="sn-rec-cell" data-role="dung">
+            <header>
+              <strong>★ Dụng Thần: {{ suNghiepData.recommendations.by_dung_than.element.toUpperCase() }}</strong>
+            </header>
+            <div v-for="ind in suNghiepData.recommendations.by_dung_than.industries" :key="ind.category" class="sn-ind">
+              <strong>{{ ind.category }}</strong>
+              <small>{{ ind.examples }}</small>
+            </div>
+          </article>
+          <article class="sn-rec-cell" data-role="hy">
+            <header>
+              <strong>Hỷ Thần: {{ suNghiepData.recommendations.by_hy_than.element.toUpperCase() }}</strong>
+            </header>
+            <div v-for="ind in suNghiepData.recommendations.by_hy_than.industries" :key="ind.category" class="sn-ind">
+              <strong>{{ ind.category }}</strong>
+              <small>{{ ind.examples }}</small>
+            </div>
+          </article>
+        </div>
+        <div class="sn-cach-list">
+          <h6>Theo Cách Cục:</h6>
+          <ul>
+            <li v-for="ind in suNghiepData.recommendations.by_cach_cuc" :key="ind">{{ ind }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Avoid -->
+      <div class="lg-block sn-avoid">
+        <h5 class="lg-section-title">⚠ Giảm liều lượng (Kỵ Thần)</h5>
+        <p>{{ suNghiepData.avoid.narrative }}</p>
+        <ul class="sn-avoid-list">
+          <li v-for="ind in suNghiepData.avoid.from_ky_than" :key="ind.category">{{ ind.category }}</li>
+        </ul>
+      </div>
+
+      <!-- Timing by Đại Vận -->
+      <div v-if="suNghiepData.timing_by_dai_van?.length" class="lg-block sn-timing">
+        <h5 class="lg-section-title">⏳ Thời điểm phát triển (Đại Vận)</h5>
+        <div class="sn-dv-grid">
+          <article v-for="c in suNghiepData.timing_by_dai_van" :key="c.cycle_index"
+            class="sn-dv-cell" :data-verdict="c.verdict">
+            <header>
+              <strong>V{{ c.cycle_index }}</strong>
+              <small>{{ c.start_age }}-{{ c.end_age }}t</small>
+            </header>
+            <div class="sn-dv-gz">{{ c.stem }} {{ c.branch }}</div>
+            <div class="sn-dv-mark">{{ c.mark }} {{ c.verdict }}</div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(suNghiepData.closing)"></div>
+    </template>
+
     <!-- Citation + paradigm footer -->
     <div v-if="batTuData" class="bt-citation">
       <p>
@@ -1352,6 +1620,255 @@ function formatSolarDateTime(iso) {
 }
 
 .ln-bo { border-left-color: rgba(167, 139, 250, 0.6); }
+
+/* ── Hôn Nhân section ──────────────────────────────────────────────────── */
+.hn-trigger-section, .sn-trigger-section {
+  margin: 20px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hn-trigger-btn {
+  background: linear-gradient(135deg, rgba(245, 130, 175, 0.18), rgba(232, 201, 90, 0.14));
+  border-color: rgba(245, 130, 175, 0.4);
+  color: #f8b4d9;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.hn-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(245, 130, 175, 0.7);
+}
+
+.hn-h {
+  color: #f8b4d9;
+  font-size: 14px;
+  border-top: 1px dashed rgba(245, 130, 175, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+
+.hn-overall {
+  border-left-color: rgba(245, 130, 175, 0.55);
+}
+.hn-overall[data-label="thuận"] { border-left-color: rgba(90, 176, 122, 0.7); background: rgba(90, 176, 122, 0.06); }
+.hn-overall[data-label="trung bình"] { border-left-color: rgba(232, 201, 90, 0.6); background: rgba(232, 201, 90, 0.04); }
+.hn-overall[data-label="thử thách"] { border-left-color: rgba(214, 90, 74, 0.7); background: rgba(214, 90, 74, 0.06); }
+
+.hn-verdict-row {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px;
+}
+.hn-verdict-tag {
+  font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+  background: rgba(245, 130, 175, 0.18); color: #f8b4d9;
+}
+.hn-overall[data-label="thuận"] .hn-verdict-tag { background: rgba(90, 176, 122, 0.2); color: #5ab07a; }
+.hn-overall[data-label="thử thách"] .hn-verdict-tag { background: rgba(214, 90, 74, 0.2); color: #d65a4a; }
+
+.hn-tang-can {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.hn-tang-can small { color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-size: 11px; }
+.hn-tang-item {
+  font-size: 12px;
+  background: rgba(245, 230, 177, 0.08);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.hn-tang-item em { color: var(--accent-gold-soft, #f5e6b1); font-style: normal; font-weight: 600; }
+
+.hn-interactions ul, .hn-star-list ul {
+  list-style: disc;
+  margin: 4px 0 0 18px;
+  padding: 0;
+  font-size: 12px;
+}
+.hn-interactions li[data-polarity="lành"] { color: #5ab07a; }
+.hn-interactions li[data-polarity="hung"] { color: #d65a4a; }
+
+.hn-dao-hoa {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(245, 130, 175, 0.08);
+  border-radius: 4px;
+  font-size: 12.5px;
+}
+
+.hn-stars { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.hn-stars li {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 9px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  display: flex; gap: 5px; align-items: center;
+}
+.hn-stars li[data-polarity="lành"] strong { color: #5ab07a; }
+.hn-stars li[data-polarity="dữ"] strong { color: #d65a4a; }
+.hn-stars li[data-polarity="trung tính"] strong { color: #94a3b8; }
+.hn-stars li span { color: var(--text-muted, rgba(230, 238, 245, 0.6)); font-size: 11px; }
+
+.hn-timing { border-left-color: rgba(245, 130, 175, 0.5); }
+.hn-fav-cycles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.hn-cycle-cell {
+  background: rgba(245, 130, 175, 0.06);
+  padding: 8px 10px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(245, 130, 175, 0.45);
+}
+.hn-cycle-cell header { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; flex-wrap: wrap; }
+.hn-cycle-cell header strong { font-size: 12px; color: #f8b4d9; }
+.hn-cycle-cell header small { font-size: 10.5px; color: var(--text-muted, rgba(230, 238, 245, 0.55)); }
+.hn-cycle-cell ul { margin: 0 0 0 16px; padding: 0; font-size: 11px; }
+.hn-cycle-cell li { color: var(--text-secondary, rgba(230, 238, 245, 0.72)); margin: 1px 0; }
+
+/* ── Sự Nghiệp section ──────────────────────────────────────────────────── */
+.sn-trigger-btn {
+  background: linear-gradient(135deg, rgba(94, 142, 229, 0.18), rgba(91, 229, 211, 0.14));
+  border-color: rgba(94, 142, 229, 0.4);
+  color: #93c5fd;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.sn-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(94, 142, 229, 0.7);
+}
+
+.sn-h {
+  color: #93c5fd;
+  font-size: 14px;
+  border-top: 1px dashed rgba(94, 142, 229, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+
+.sn-cach { border-left-color: rgba(94, 142, 229, 0.55); }
+
+.sn-pattern {
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: rgba(94, 142, 229, 0.05);
+  border-radius: 4px;
+  border-left: 2px solid rgba(94, 142, 229, 0.4);
+}
+.sn-pattern strong { display: block; color: #93c5fd; font-size: 13px; margin-bottom: 3px; }
+.sn-pattern p { margin: 3px 0; font-size: 12.5px; }
+.sn-hint {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 11.5px !important;
+  margin-top: 5px !important;
+}
+.sn-hint em { color: var(--accent-gold-soft, #f5e6b1); }
+
+.sn-styles { list-style: none; padding: 0; margin: 0; }
+.sn-styles li {
+  margin: 5px 0;
+  padding: 5px 9px;
+  background: rgba(91, 142, 229, 0.06);
+  border-radius: 3px;
+  font-size: 12.5px;
+}
+.sn-styles strong { color: #93c5fd; }
+
+.sn-rec { border-left-color: rgba(91, 229, 211, 0.55); }
+.sn-rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+.sn-rec-cell {
+  background: rgba(91, 229, 211, 0.05);
+  padding: 9px 11px;
+  border-radius: 5px;
+  border-left: 2px solid rgba(91, 229, 211, 0.4);
+}
+.sn-rec-cell[data-role="dung"] {
+  border-left-color: var(--accent-gold-soft, #f5e6b1);
+  background: rgba(245, 230, 177, 0.05);
+}
+.sn-rec-cell header strong { font-size: 12.5px; color: var(--accent-gold-soft, #f5e6b1); }
+.sn-rec-cell[data-role="hy"] header strong { color: #5be5d3; }
+.sn-ind {
+  margin: 4px 0;
+  padding: 4px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.sn-ind:last-child { border-bottom: 0; }
+.sn-ind strong { display: block; font-size: 11.5px; color: var(--text-strong, #e6eef5); }
+.sn-ind small { font-size: 11px; color: var(--text-muted, rgba(230, 238, 245, 0.55)); }
+
+.sn-cach-list {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: rgba(94, 142, 229, 0.06);
+  border-radius: 4px;
+}
+.sn-cach-list h6 { margin: 0 0 4px 0; font-size: 11px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.5px; }
+.sn-cach-list ul { margin: 0 0 0 18px; padding: 0; font-size: 12px; }
+
+.sn-avoid { border-left-color: rgba(214, 90, 74, 0.5); }
+.sn-avoid-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.sn-avoid-list li {
+  background: rgba(214, 90, 74, 0.08);
+  padding: 4px 9px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  color: #d65a4a;
+}
+
+.sn-timing { border-left-color: rgba(94, 142, 229, 0.5); }
+.sn-dv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 6px;
+  margin-top: 6px;
+}
+.sn-dv-cell {
+  background: rgba(255, 255, 255, 0.025);
+  padding: 6px 8px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  font-size: 11px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.sn-dv-cell[data-verdict="thuận lợi"] {
+  border-left-color: rgba(90, 176, 122, 0.65);
+  background: rgba(90, 176, 122, 0.06);
+}
+.sn-dv-cell[data-verdict="thử thách"] {
+  border-left-color: rgba(214, 90, 74, 0.65);
+  background: rgba(214, 90, 74, 0.05);
+}
+.sn-dv-cell[data-verdict="tích lũy"] {
+  border-left-color: rgba(91, 229, 211, 0.5);
+  background: rgba(91, 229, 211, 0.04);
+}
+.sn-dv-cell[data-verdict="hỗn tạp"] {
+  border-left-color: rgba(232, 201, 90, 0.55);
+  background: rgba(232, 201, 90, 0.04);
+}
+.sn-dv-cell header { display: flex; justify-content: space-between; align-items: baseline; }
+.sn-dv-cell header strong { font-size: 11px; color: #93c5fd; }
+.sn-dv-cell header small { font-size: 9.5px; color: var(--text-muted, rgba(230, 238, 245, 0.5)); }
+.sn-dv-gz { font-weight: 700; color: var(--accent-gold-soft, #f5e6b1); font-family: ui-monospace, monospace; font-size: 11.5px; }
+.sn-dv-mark { font-size: 10px; color: var(--text-muted, rgba(230, 238, 245, 0.6)); font-style: italic; }
 
 .bt-form {
   display: grid;
