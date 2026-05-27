@@ -86,6 +86,37 @@ _HEXAGRAM_TO_FILE: dict[tuple[str, str], str] = {
     ("Chấn", "Khảm"): "quẻ/40-giai.md",      # 40 Giải
     ("Cấn", "Đoài"): "quẻ/41-ton.md",        # 41 Tổn
     ("Tốn", "Chấn"): "quẻ/42-ich.md",        # 42 Ích
+    # Đợt 6 — hoàn thành 62/64 quẻ (2 defer: 21 Phệ Hạp + 22 Bí)
+    ("Càn", "Chấn"): "quẻ/25-vo-vong.md",    # 25 Vô Vọng
+    ("Cấn", "Càn"): "quẻ/26-dai-suc.md",     # 26 Đại Súc
+    ("Khảm", "Khảm"): "quẻ/29-kham.md",      # 29 Khảm (thuần)
+    ("Ly", "Ly"): "quẻ/30-ly-hexagram.md",   # 30 Ly (thuần)
+    ("Càn", "Cấn"): "quẻ/33-don.md",         # 33 Độn
+    ("Chấn", "Càn"): "quẻ/34-dai-trang.md",  # 34 Đại Tráng
+    ("Tốn", "Ly"): "quẻ/37-gia-nhan.md",     # 37 Gia Nhân
+    ("Ly", "Đoài"): "quẻ/38-khue.md",        # 38 Khuê
+    ("Đoài", "Càn"): "quẻ/43-quai.md",       # 43 Quải
+    ("Càn", "Tốn"): "quẻ/44-cau.md",         # 44 Cấu
+    ("Đoài", "Khôn"): "quẻ/45-tuy-hexagram.md",  # 45 Tụy
+    ("Khôn", "Tốn"): "quẻ/46-thang.md",      # 46 Thăng
+    ("Đoài", "Khảm"): "quẻ/47-khon-hexagram.md",  # 47 Khốn
+    ("Khảm", "Tốn"): "quẻ/48-tinh.md",       # 48 Tỉnh
+    ("Đoài", "Ly"): "quẻ/49-cach.md",        # 49 Cách
+    ("Ly", "Tốn"): "quẻ/50-dinh.md",         # 50 Đỉnh
+    ("Chấn", "Chấn"): "quẻ/51-chan.md",      # 51 Chấn (thuần)
+    ("Cấn", "Cấn"): "quẻ/52-can-hexagram.md", # 52 Cấn (thuần)
+    ("Tốn", "Cấn"): "quẻ/53-tiem.md",        # 53 Tiệm
+    ("Chấn", "Đoài"): "quẻ/54-qui-muoi.md",  # 54 Qui Muội
+    ("Chấn", "Ly"): "quẻ/55-phong.md",       # 55 Phong
+    ("Ly", "Cấn"): "quẻ/56-lu.md",           # 56 Lữ
+    ("Tốn", "Tốn"): "quẻ/57-ton-hexagram.md", # 57 Tốn (thuần)
+    ("Đoài", "Đoài"): "quẻ/58-doai.md",      # 58 Đoài (thuần)
+    ("Tốn", "Khảm"): "quẻ/59-hoan.md",       # 59 Hoán
+    ("Khảm", "Đoài"): "quẻ/60-tiet.md",      # 60 Tiết
+    ("Tốn", "Đoài"): "quẻ/61-trung-phu.md",  # 61 Trung Phu
+    ("Chấn", "Cấn"): "quẻ/62-tieu-qua.md",   # 62 Tiểu Quá
+    ("Khảm", "Ly"): "quẻ/63-ky-te.md",       # 63 Ký Tế
+    ("Ly", "Khảm"): "quẻ/64-vi-te.md",       # 64 Vị Tế (QUẺ CUỐI)
 }
 
 # Intent → tâm-phap file

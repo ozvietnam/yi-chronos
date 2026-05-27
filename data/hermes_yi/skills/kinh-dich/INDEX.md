@@ -66,8 +66,12 @@ Cấu trúc 3-tier:
 | 20 | Quán | 觀 | [quẻ/20-quan.md](quẻ/20-quan.md) | ✅ đợt 3 (bypass content.md bug via raw_ocr) |
 | 21 | Phệ Hạp | 噬嗑 | (defer, cần Bookflow v3.0) | ⏸️ |
 | 22 | Bí | 賁 | (defer, cần Bookflow v3.0) | ⏸️ |
-| 23 | Bác | 剝 | (chưa) | ⬜ |
-| 24-64 | ... | ... | ... | ⬜ |
+| 23-64 | 42 quẻ còn lại | ... | xem `quẻ/{NN-name}.md` | ✅ đợt 5+6 (skim mode) |
+
+**Hoàn thành 62/64 quẻ Kinh Dịch Trọn Bộ (Ngô Tất Tố)**:
+- ✅ Đợt 1-5: 32 quẻ chi tiết (Kiền, Khôn, Truân, Mông, Nhu, Tụng, Sư, Tỵ, Tiểu Súc, Lý, Thái, Bĩ, Đồng Nhân, Đại Hữu, Khiêm, Dự, Tùy, Cổ, Lâm, Quán, Bác, Phục, Di, Đại Quá, Hàm, Hằng, Tấn, Minh Di, Kiển, Giải, Tổn, Ích)
+- ✅ Đợt 6: 30 quẻ skim siêu compact (25-26 + 29-30 + 33-34 + 37-38 + 43-64)
+- ⏸️ 2 defer: 21 Phệ Hạp + 22 Bí (Bookflow v3.0 rebuild)
 
 ## III. Pattern dùng
 
