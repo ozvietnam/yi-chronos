@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, haLacLuanGiai } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -32,6 +32,9 @@ const honNhanError = ref("");
 const suNghiepData = ref(null);
 const suNghiepLoading = ref(false);
 const suNghiepError = ref("");
+const haLacLuanData = ref(null);
+const haLacLuanLoading = ref(false);
+const haLacLuanError = ref("");
 const loading = ref(false);
 const errorMsg = ref("");
 
@@ -130,6 +133,8 @@ function reset() {
   honNhanError.value = "";
   suNghiepData.value = null;
   suNghiepError.value = "";
+  haLacLuanData.value = null;
+  haLacLuanError.value = "";
   errorMsg.value = "";
 }
 
@@ -202,6 +207,24 @@ async function loadSuNghiep() {
     suNghiepError.value = err?.message || String(err);
   } finally {
     suNghiepLoading.value = false;
+  }
+}
+
+async function loadHaLacLuan() {
+  if (!inputBirth.value) return;
+  haLacLuanLoading.value = true;
+  haLacLuanError.value = "";
+  try {
+    const r = await haLacLuanGiai({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    haLacLuanData.value = r.luan_giai;
+  } catch (err) {
+    haLacLuanError.value = err?.message || String(err);
+  } finally {
+    haLacLuanLoading.value = false;
   }
 }
 
@@ -1139,6 +1162,111 @@ function formatSolarDateTime(iso) {
       <div class="lg-block lg-closing" v-html="renderMd(suNghiepData.closing)"></div>
     </template>
 
+    <!-- ── Bát Tự Hà Lạc Luận Giải ─────────────────────────────────────────
+         Engine ha_lac/luan_giai — Tiên + Hậu thiên + 12 hào trajectory.
+    -->
+    <div v-if="batTuData" class="hl-trigger-section">
+      <button v-if="!haLacLuanData" class="apply-btn hl-trigger-btn"
+        @click="loadHaLacLuan" :disabled="haLacLuanLoading">
+        {{ haLacLuanLoading ? "Đang luận giải Hà Lạc..." : "🪷 Hà Lạc Luận Giải — Học Năng 1974" }}
+      </button>
+      <p v-if="haLacLuanError" class="status-message error">{{ haLacLuanError }}</p>
+    </div>
+
+    <template v-if="haLacLuanData">
+      <h4 class="section-h hl-h">🪷 Bát Tự Hà Lạc — đọc 2 quẻ + quỹ đạo 12 hào</h4>
+      <p class="lg-paradigm">{{ haLacLuanData.paradigm_guard }}</p>
+
+      <!-- Overview -->
+      <div class="lg-block lg-overview" v-html="renderMd(haLacLuanData.overview)"></div>
+
+      <!-- Tiên thiên + Hậu thiên — 2 cột -->
+      <div class="hl-quai-grid">
+        <article class="hl-quai-cell hl-tien">
+          <header>
+            <h5>🌒 {{ haLacLuanData.tien_thien_luan.role }}</h5>
+            <strong>{{ haLacLuanData.tien_thien_luan.name_vi }}</strong>
+            <small>quẻ {{ haLacLuanData.tien_thien_luan.king_wen }}</small>
+          </header>
+          <div class="hl-quai-trigrams">
+            <span class="wiki-link" @click="openConcept(haLacLuanData.tien_thien_luan.upper_trigram)">
+              {{ haLacLuanData.tien_thien_luan.upper_trigram }}
+            </span>
+            <small>({{ haLacLuanData.tien_thien_luan.upper_element }})</small>
+            <span class="hl-trigram-sep">/</span>
+            <span class="wiki-link" @click="openConcept(haLacLuanData.tien_thien_luan.lower_trigram)">
+              {{ haLacLuanData.tien_thien_luan.lower_trigram }}
+            </span>
+            <small>({{ haLacLuanData.tien_thien_luan.lower_element }})</small>
+          </div>
+          <div class="hl-nd">
+            🌟 <b>Nguyên Đường</b>: hào {{ haLacLuanData.tien_thien_luan.nguyen_duong_line }}
+            <small>{{ haLacLuanData.tien_thien_luan.nguyen_duong_phase }}</small>
+          </div>
+        </article>
+        <article class="hl-quai-cell hl-hau">
+          <header>
+            <h5>☀ {{ haLacLuanData.hau_thien_luan.role }}</h5>
+            <strong>{{ haLacLuanData.hau_thien_luan.name_vi }}</strong>
+            <small>quẻ {{ haLacLuanData.hau_thien_luan.king_wen }}</small>
+          </header>
+          <div class="hl-quai-trigrams">
+            <span class="wiki-link" @click="openConcept(haLacLuanData.hau_thien_luan.upper_trigram)">
+              {{ haLacLuanData.hau_thien_luan.upper_trigram }}
+            </span>
+            <small>({{ haLacLuanData.hau_thien_luan.upper_element }})</small>
+            <span class="hl-trigram-sep">/</span>
+            <span class="wiki-link" @click="openConcept(haLacLuanData.hau_thien_luan.lower_trigram)">
+              {{ haLacLuanData.hau_thien_luan.lower_trigram }}
+            </span>
+            <small>({{ haLacLuanData.hau_thien_luan.lower_element }})</small>
+          </div>
+          <div class="hl-nd">
+            🌟 <b>Nguyên Đường</b>: hào {{ haLacLuanData.hau_thien_luan.nguyen_duong_line }}
+            <small>{{ haLacLuanData.hau_thien_luan.nguyen_duong_phase }}</small>
+          </div>
+        </article>
+      </div>
+
+      <!-- Comparison -->
+      <div class="lg-block hl-compare" :data-pattern="haLacLuanData.comparison.pattern">
+        <h5 class="lg-section-title">⚖ So sánh Tiên ↔ Hậu</h5>
+        <div class="hl-pattern-tag">{{ haLacLuanData.comparison.pattern.toUpperCase() }}</div>
+        <p>{{ haLacLuanData.comparison.narrative }}</p>
+      </div>
+
+      <!-- Quỹ đạo 12 hào -->
+      <div class="lg-block hl-trajectory">
+        <h5 class="lg-section-title">🌀 Quỹ Đạo 12 Hào ({{ haLacLuanData.lifespan.total_years }} năm)</h5>
+        <p>{{ haLacLuanData.trajectory_luan.summary_narrative }}</p>
+        <p class="hl-current-line" v-if="haLacLuanData.trajectory_luan.current"
+          v-html="renderMd(haLacLuanData.trajectory_luan.current_narrative)"></p>
+        <ol class="hl-stages">
+          <li v-for="s in haLacLuanData.trajectory_luan.stages" :key="s.stage_index"
+            :data-hexagram="s.hexagram"
+            :data-polarity="s.polarity"
+            :class="{ 'is-nd': s.is_nguyen_duong, 'is-current': s.is_current }">
+            <span class="hl-stage-marker">{{ s.is_current ? '★' : (s.is_nguyen_duong ? '●' : '·') }}</span>
+            <span class="hl-stage-meta">
+              S{{ s.stage_index }} · {{ s.hexagram === 'tien' ? 'Tiên' : 'Hậu' }} hào {{ s.line_position }}
+              · {{ s.polarity }} {{ s.years_span }}n
+              · tuổi {{ s.age_start }}-{{ s.age_end }}
+            </span>
+            <span class="hl-stage-label">{{ s.phase_label }}</span>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Bổ hướng giai đoạn -->
+      <div class="lg-block lg-bo-huong hl-bo">
+        <h5 class="lg-section-title">🎯 Bổ Hướng cho giai đoạn hiện tại</h5>
+        <p v-html="renderMd(haLacLuanData.bo_huong_stage)"></p>
+      </div>
+
+      <!-- Closing -->
+      <div class="lg-block lg-closing" v-html="renderMd(haLacLuanData.closing)"></div>
+    </template>
+
     <!-- Citation + paradigm footer -->
     <div v-if="batTuData" class="bt-citation">
       <p>
@@ -1918,6 +2046,183 @@ function formatSolarDateTime(iso) {
 .sn-dv-cell header small { font-size: 9.5px; color: var(--text-muted, rgba(230, 238, 245, 0.5)); }
 .sn-dv-gz { font-weight: 700; color: var(--accent-gold-soft, #f5e6b1); font-family: ui-monospace, monospace; font-size: 11.5px; }
 .sn-dv-mark { font-size: 10px; color: var(--text-muted, rgba(230, 238, 245, 0.6)); font-style: italic; }
+
+/* ── Bát Tự Hà Lạc section ──────────────────────────────────────────────── */
+.hl-trigger-section {
+  margin: 20px 0 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hl-trigger-btn {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.18), rgba(167, 139, 250, 0.16));
+  border-color: rgba(244, 114, 182, 0.4);
+  color: #f9a8d4;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.hl-trigger-btn:hover:not(:disabled) {
+  filter: brightness(1.18);
+  border-color: rgba(244, 114, 182, 0.7);
+}
+
+.hl-h {
+  color: #f9a8d4;
+  font-size: 14px;
+  border-top: 1px dashed rgba(244, 114, 182, 0.3);
+  padding-top: 18px;
+  margin-top: 22px;
+}
+
+.hl-quai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+.hl-quai-cell {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 14px;
+  border-radius: 6px;
+  border-left: 3px solid rgba(244, 114, 182, 0.4);
+}
+.hl-quai-cell.hl-tien { border-left-color: rgba(167, 139, 250, 0.55); background: rgba(167, 139, 250, 0.05); }
+.hl-quai-cell.hl-hau { border-left-color: rgba(245, 230, 177, 0.55); background: rgba(245, 230, 177, 0.05); }
+.hl-quai-cell header {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-bottom: 6px;
+}
+.hl-quai-cell header h5 {
+  margin: 0 0 3px 0;
+  font-size: 11px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.55));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.hl-quai-cell header strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-family: "Songti SC", "Noto Serif CJK SC", serif;
+}
+.hl-quai-cell.hl-tien header strong { color: #c4b5fd; }
+.hl-quai-cell header small {
+  color: var(--text-muted, rgba(230, 238, 245, 0.5));
+  font-size: 11px;
+  font-family: ui-monospace, monospace;
+}
+.hl-quai-trigrams {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.hl-quai-trigrams .wiki-link {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-weight: 600;
+}
+.hl-trigram-sep { color: var(--text-muted, rgba(230, 238, 245, 0.4)); font-size: 14px; }
+.hl-quai-trigrams small { color: var(--text-muted, rgba(230, 238, 245, 0.55)); font-size: 10.5px; }
+.hl-nd {
+  margin-top: 4px;
+  padding: 5px 8px;
+  background: rgba(245, 230, 177, 0.08);
+  border-radius: 3px;
+  font-size: 11.5px;
+}
+.hl-nd b { color: var(--accent-gold-soft, #f5e6b1); }
+.hl-nd small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+  font-size: 11px;
+  font-style: italic;
+}
+
+.hl-compare { border-left-color: rgba(167, 139, 250, 0.55); }
+.hl-compare[data-pattern="tỷ hòa"], .hl-compare[data-pattern="Tiên sinh Hậu"] {
+  border-left-color: rgba(90, 176, 122, 0.65) !important;
+  background: rgba(90, 176, 122, 0.06);
+}
+.hl-compare[data-pattern*="khắc"] {
+  border-left-color: rgba(214, 90, 74, 0.6) !important;
+  background: rgba(214, 90, 74, 0.05);
+}
+.hl-compare[data-pattern="trùng lặp"] {
+  border-left-color: rgba(232, 201, 90, 0.6) !important;
+  background: rgba(232, 201, 90, 0.05);
+}
+.hl-pattern-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.hl-trajectory { border-left-color: rgba(244, 114, 182, 0.5); }
+.hl-current-line {
+  background: rgba(245, 230, 177, 0.12);
+  padding: 8px 10px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(245, 230, 177, 0.6);
+  margin: 8px 0 !important;
+}
+.hl-current-line b { color: var(--accent-gold-soft, #f5e6b1); }
+
+.hl-stages {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.hl-stages li {
+  display: grid;
+  grid-template-columns: 20px 220px 1fr;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 3px;
+  font-size: 11.5px;
+  border-left: 2px solid transparent;
+}
+.hl-stages li[data-hexagram="tien"] { border-left-color: rgba(167, 139, 250, 0.35); }
+.hl-stages li[data-hexagram="hau"] { border-left-color: rgba(245, 230, 177, 0.35); }
+.hl-stages li.is-nd {
+  background: rgba(245, 230, 177, 0.06);
+  border-left-color: rgba(245, 230, 177, 0.7) !important;
+}
+.hl-stages li.is-current {
+  background: rgba(244, 114, 182, 0.12);
+  border-left-color: rgba(244, 114, 182, 0.8) !important;
+  border: 1px solid rgba(244, 114, 182, 0.4);
+}
+.hl-stage-marker {
+  text-align: center;
+  font-size: 13px;
+}
+.hl-stages li.is-nd .hl-stage-marker { color: var(--accent-gold-soft, #f5e6b1); }
+.hl-stages li.is-current .hl-stage-marker { color: #f9a8d4; }
+.hl-stage-meta {
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+  font-family: ui-monospace, monospace;
+  font-size: 10.5px;
+}
+.hl-stage-label {
+  color: var(--text-strong, #e6eef5);
+  font-size: 11px;
+}
+
+.hl-bo { border-left-color: rgba(244, 114, 182, 0.6); }
 
 .bt-form {
   display: grid;

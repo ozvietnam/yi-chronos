@@ -1288,6 +1288,45 @@ def bat_tu_su_nghiep(request: BatTuLifeDomainRequest) -> dict[str, object]:
     }
 
 
+class HaLacLuanGiaiRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    current_age: int | None = None
+
+
+@app.post("/api/ha-lac/luan-giai")
+def ha_lac_luan_giai_endpoint(request: HaLacLuanGiaiRequest) -> dict[str, object]:
+    """Bát Tự Hà Lạc — luận giải tổng hợp (Học Năng 1974 paradigm).
+
+    Output: 2 quẻ (Tiên thiên + Hậu thiên) + comparison + 12 hào trajectory +
+    current stage + Bổ Hướng.
+
+    Paradigm: KHÔNG predict, đọc cấu trúc khí 84-90 năm cuộc đời.
+    """
+    from engine.ha_lac import cast_ha_lac, compose_ha_lac_luan_giai
+
+    state = cast_ha_lac(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    age = request.current_age
+    if age is None:
+        try:
+            from datetime import datetime
+            birth_year = int(request.birth_datetime_local[:4])
+            age = datetime.now().year - birth_year
+        except (ValueError, IndexError):
+            age = None
+    luan = compose_ha_lac_luan_giai(state, current_age=age)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ha_lac_state": state,
+        "luan_giai": luan,
+    }
+
+
 @app.post("/api/ha-lac/cast")
 def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
     """Cast Bát Tự Hà Lạc — derives 2 personal hexagrams + decade trajectory.

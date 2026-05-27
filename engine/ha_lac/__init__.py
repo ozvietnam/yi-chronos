@@ -8,10 +8,12 @@ Public API:
 """
 
 from .cast import METHOD_ID, SOURCE_REF, cast_ha_lac
+from .luan_giai import compose_ha_lac_luan_giai
 
 
 __all__ = [
     "METHOD_ID",
     "SOURCE_REF",
     "cast_ha_lac",
+    "compose_ha_lac_luan_giai",
 ]
