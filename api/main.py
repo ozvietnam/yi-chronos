@@ -3402,15 +3402,27 @@ def yi_wiki_list_cases() -> dict:
 
 
 @app.get("/api/yi-wiki/concepts/by-name")
-def yi_wiki_concept_by_name(name: str) -> dict:
-    """Lookup concept theo canonical_vi (vd 'Quẻ Càn')."""
+def yi_wiki_concept_by_name(name: str, school: str | None = None) -> dict:
+    """Lookup concept theo canonical_vi (vd 'Quẻ Càn').
+
+    Khi cùng `canonical_vi` tồn tại ở nhiều school (vd 'Thất Sát' có cả ở Tử Vi
+    với chữ 七杀 và Tử Bình với chữ 七殺), pass `school` để ưu tiên school đó.
+    """
     from engine.yi_wiki import get_store
     from engine.yi_wiki.store import _dec
     s = get_store()
     with s._conn() as conn:
-        row = conn.execute(
-            "SELECT * FROM concept_index WHERE canonical_vi=?", (name,)
-        ).fetchone()
+        row = None
+        if school:
+            row = conn.execute(
+                "SELECT * FROM concept_index WHERE canonical_vi=? AND school=? ORDER BY concept_id LIMIT 1",
+                (name, school),
+            ).fetchone()
+        if row is None:
+            row = conn.execute(
+                "SELECT * FROM concept_index WHERE canonical_vi=? ORDER BY concept_id LIMIT 1",
+                (name,),
+            ).fetchone()
     if not row:
         return {"status": "not_found"}
     d = dict(row)

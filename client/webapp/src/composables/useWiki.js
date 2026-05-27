@@ -14,6 +14,22 @@ export const getStats = () => _get("/stats").then(d => d.stats);
 export const getLineage = () => _get("/lineage").then(d => d.tiers);
 export const getAuthor = (id) => _get(`/authors/${id}`);
 export const getConcepts = () => _get("/concepts").then(d => d.concepts);
+
+/**
+ * Lookup concept by canonical_vi. When the same Vietnamese name exists in multiple
+ * schools (e.g. "Thất Sát" in Tử Vi vs Tử Bình), pass `school` to prefer one.
+ * Returns null if not found.
+ */
+export async function getConceptByName(name, school = null) {
+  if (!name) return null;
+  const qs = new URLSearchParams({ name });
+  if (school) qs.set("school", school);
+  const r = await fetch(`${BASE}/concepts/by-name?${qs.toString()}`);
+  if (!r.ok) return null;
+  const d = await r.json();
+  if (d.status !== "ok" || !d.concept) return null;
+  return d.concept;
+}
 export const getMethods = (authorId) =>
   _get(`/methods${authorId ? `?author_id=${authorId}` : ""}`).then(d => d.methods);
 export const getPassages = (params = {}) => {

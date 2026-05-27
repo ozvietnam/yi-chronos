@@ -9,6 +9,7 @@ import HexagramDetailModal from "./HexagramDetailModal.vue";
 import AuspiciousDayPanel from "./wiki/AuspiciousDayPanel.vue";
 import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
 import { useHexagramModal } from "../composables/useHexagramModal";
+import { openConceptPopup } from "../composables/useBatTuConceptPopup.js";
 
 // ── State ─────────────────────────────────────────────────────────────────────
 
@@ -138,6 +139,15 @@ function cachCucPolarityClass(polarity) {
   return "mixed";
 }
 
+// ── Wiki popup helper — click any Thập Thần / Cách Cục / phase tag to look up
+//    the canonical concept entry seeded from Thiệu Vĩ Hoa.
+function openConcept(name) {
+  if (!name) return;
+  // Normalize: trim chinese-tail like "Chính Quan cách (正官格)" → "Chính Quan cách"
+  const cleaned = String(name).replace(/\s*\([^)]+\)\s*$/, "").trim();
+  openConceptPopup(cleaned);
+}
+
 function formatSolarDateTime(iso) {
   if (!iso) return "";
   // "2026-05-19T22:00" → "19/05/2026 22:00"
@@ -162,6 +172,15 @@ function formatSolarDateTime(iso) {
       của người + <b>chuỗi 12 hào ~ 84-90 năm</b> theo sách Học Năng 1974.
       <br />
       ⭐ Đây là tính năng moat — Kabala.vn có nhắc nhưng không ship.
+    </p>
+
+    <!-- Paradigm guard — Iron Rule #4 + #6: đọc đồng dạng, KHÔNG predict-tool -->
+    <p class="bt-paradigm-note">
+      🪷 <b>Lưu ý paradigm</b> (Thiệu Vĩ Hoa, Q1 ch.1):
+      Tứ Trụ KHÔNG dự đoán anh sẽ giàu/nghèo. Tứ Trụ phản chiếu <b>cấu trúc khí bẩm sinh</b>
+      tại điểm sinh + <b>lưu biến</b> theo Đại Vận. Mục đích là <em>tri mệnh</em> (biết
+      mình ở đâu trong tổng thể) → cân bằng (<em>"Bổ"</em> — chìa khóa vàng Chương 2)
+      → thuận tự nhiên. <small>Click các tag bên dưới để xem giải nghĩa từ wiki.</small>
     </p>
 
     <div class="bt-hour-uncertain">
@@ -243,13 +262,16 @@ function formatSolarDateTime(iso) {
             </div>
           </div>
           <div class="pillar-thapthan">
-            <span class="tt-tag" :style="{ borderColor: THAP_THAN_COLOR[p.stem_thap_than] || '#aaa', color: THAP_THAN_COLOR[p.stem_thap_than] || '#aaa' }">
+            <span class="tt-tag wiki-link"
+              :style="{ borderColor: THAP_THAN_COLOR[p.stem_thap_than] || '#aaa', color: THAP_THAN_COLOR[p.stem_thap_than] || '#aaa' }"
+              @click="openConcept(p.stem_thap_than)"
+              :title="`Xem giải nghĩa Thập Thần: ${p.stem_thap_than}`">
               {{ p.stem_thap_than }}
             </span>
           </div>
           <ul class="pillar-hidden" v-if="p.hidden_stems_with_thap_than?.length">
             <li v-for="h in p.hidden_stems_with_thap_than" :key="h.stem">
-              <em>{{ h.stem }}</em> → {{ h.thap_than }}
+              <em>{{ h.stem }}</em> → <span class="wiki-link" @click="openConcept(h.thap_than)">{{ h.thap_than }}</span>
             </li>
           </ul>
         </article>
@@ -287,17 +309,23 @@ function formatSolarDateTime(iso) {
 
       <!-- ── Cách Cục ────────────────────────────────────────────── -->
       <template v-if="batTuData.cach_cuc">
-        <h4 class="section-h">Cách Cục — pattern cổ điển của lá số</h4>
+        <h4 class="section-h">
+          <span class="wiki-link" @click="openConcept('Cách Cục')">Cách Cục</span>
+          — pattern cổ điển của lá số
+        </h4>
         <article class="cach-cuc-card" :data-polarity="cachCucPolarityClass(batTuData.cach_cuc.polarity)">
           <header>
-            <h3>{{ batTuData.cach_cuc.cach_name }}</h3>
+            <h3 class="wiki-link" @click="openConcept(batTuData.cach_cuc.cach_name)"
+              :title="`Xem giải nghĩa Cách: ${batTuData.cach_cuc.cach_name}`">
+              {{ batTuData.cach_cuc.cach_name }}
+            </h3>
             <span class="cc-polarity">{{ batTuData.cach_cuc.polarity }}</span>
           </header>
           <p class="cc-based-on">
             <span class="cc-label">Xác định dựa trên:</span>
             <b>{{ batTuData.cach_cuc.based_on }}</b>
             <span v-if="batTuData.cach_cuc.based_on_thap_than">
-              → Thập Thần: <em>{{ batTuData.cach_cuc.based_on_thap_than }}</em>
+              → Thập Thần: <em class="wiki-link" @click="openConcept(batTuData.cach_cuc.based_on_thap_than)">{{ batTuData.cach_cuc.based_on_thap_than }}</em>
             </span>
           </p>
           <p class="cc-essence">{{ batTuData.cach_cuc.essence }}</p>
@@ -316,27 +344,36 @@ function formatSolarDateTime(iso) {
       </template>
 
       <!-- ── Dụng Thần / Hỷ Thần / Kỵ Thần ──────────────────────── -->
-      <h4 class="section-h">Dụng Thần — hành cốt yếu cho nhật chủ</h4>
+      <h4 class="section-h">
+        <span class="wiki-link" @click="openConcept('Dụng Thần')">Dụng Thần</span>
+        — hành cốt yếu cho nhật chủ
+      </h4>
       <div class="dung-than-card">
         <div class="dt-trio">
-          <div class="dt-cell dt-dung"
-            :style="{ background: ELEMENT_COLOR[batTuData.dung_than.dung_than_element] + '15', borderColor: ELEMENT_COLOR[batTuData.dung_than.dung_than_element] }">
+          <div class="dt-cell dt-dung wiki-link"
+            :style="{ background: ELEMENT_COLOR[batTuData.dung_than.dung_than_element] + '15', borderColor: ELEMENT_COLOR[batTuData.dung_than.dung_than_element] }"
+            @click="openConcept('Dụng Thần')"
+            title="Xem giải nghĩa Dụng Thần">
             <span class="dt-label">★ Dụng Thần</span>
             <strong :style="{ color: ELEMENT_COLOR[batTuData.dung_than.dung_than_element] }">
               {{ ELEMENT_GLYPH[batTuData.dung_than.dung_than_element] }} {{ batTuData.dung_than.dung_than_element }}
             </strong>
             <small>{{ batTuData.dung_than.dung_than_role_vi }}</small>
           </div>
-          <div class="dt-cell dt-hy"
-            :style="{ background: ELEMENT_COLOR[batTuData.dung_than.hy_than_element] + '10', borderColor: ELEMENT_COLOR[batTuData.dung_than.hy_than_element] + '88' }">
+          <div class="dt-cell dt-hy wiki-link"
+            :style="{ background: ELEMENT_COLOR[batTuData.dung_than.hy_than_element] + '10', borderColor: ELEMENT_COLOR[batTuData.dung_than.hy_than_element] + '88' }"
+            @click="openConcept('Hỷ Thần')"
+            title="Xem giải nghĩa Hỷ Thần">
             <span class="dt-label">Hỷ Thần</span>
             <strong :style="{ color: ELEMENT_COLOR[batTuData.dung_than.hy_than_element] }">
               {{ ELEMENT_GLYPH[batTuData.dung_than.hy_than_element] }} {{ batTuData.dung_than.hy_than_element }}
             </strong>
             <small>hỗ trợ Dụng Thần</small>
           </div>
-          <div class="dt-cell dt-ky"
-            :style="{ background: '#d65a4a0a', borderColor: '#d65a4a88' }">
+          <div class="dt-cell dt-ky wiki-link"
+            :style="{ background: '#d65a4a0a', borderColor: '#d65a4a88' }"
+            @click="openConcept('Kỵ Thần')"
+            title="Xem giải nghĩa Kỵ Thần">
             <span class="dt-label">⚠ Kỵ Thần</span>
             <strong style="color: #d65a4a">
               {{ ELEMENT_GLYPH[batTuData.dung_than.ky_than_element] }} {{ batTuData.dung_than.ky_than_element }}
@@ -349,10 +386,15 @@ function formatSolarDateTime(iso) {
       </div>
 
       <!-- ── Vòng Trường Sinh ────────────────────────────────────── -->
-      <h4 class="section-h">Vòng Trường Sinh — sức sống Day Master tại mỗi trụ</h4>
+      <h4 class="section-h">
+        <span class="wiki-link" @click="openConcept('Vòng Trường Sinh')">Vòng Trường Sinh</span>
+        — sức sống Day Master tại mỗi trụ
+      </h4>
       <div class="truongsinh-grid">
         <article v-for="(p, pos) in batTuData.truong_sinh.pillars" :key="pos"
-          class="ts-cell" :data-score="p.strength_score >= 2 ? 'high' : p.strength_score <= -2 ? 'low' : 'mid'">
+          class="ts-cell wiki-link" :data-score="p.strength_score >= 2 ? 'high' : p.strength_score <= -2 ? 'low' : 'mid'"
+          @click="openConcept(p.phase)"
+          :title="`Xem giải nghĩa giai đoạn: ${p.phase}`">
           <header>
             <h6>{{ p.pillar_position_vi }}</h6>
             <small>{{ p.branch }}</small>
@@ -369,14 +411,18 @@ function formatSolarDateTime(iso) {
       </p>
 
       <!-- ── Thần Sát ─────────────────────────────────────────────── -->
-      <h4 class="section-h">Thần Sát — sao phụ trong lá số</h4>
+      <h4 class="section-h">
+        <span class="wiki-link" @click="openConcept('Thần Sát')">Thần Sát</span>
+        — sao phụ trong lá số
+      </h4>
       <div v-if="!batTuData.than_sat.length" class="ts-empty">
         Lá số này không có sao Thần Sát nào trong 15 sao cốt lõi đang sàng.
       </div>
       <ul v-else class="than-sat-list">
         <li v-for="(s, i) in batTuData.than_sat" :key="i" class="ts-star" :data-polarity="s.polarity">
           <div class="ts-star-head">
-            <strong>{{ s.name }}</strong>
+            <strong class="wiki-link" @click="openConcept(s.name)"
+              :title="`Xem giải nghĩa sao: ${s.name}`">{{ s.name }}</strong>
             <span class="ts-tag">{{ s.short_tag }}</span>
             <span class="ts-polarity">{{ s.polarity }}</span>
             <small class="ts-where">tại trụ {{ s.found_at_pillar }} ({{ s.branch_or_stem }})</small>
@@ -386,7 +432,10 @@ function formatSolarDateTime(iso) {
       </ul>
 
       <!-- ── Đại Vận ──────────────────────────────────────────────── -->
-      <h4 class="section-h">Đại Vận — chu kỳ 10 năm</h4>
+      <h4 class="section-h">
+        <span class="wiki-link" @click="openConcept('Đại Vận')">Đại Vận</span>
+        — chu kỳ 10 năm
+      </h4>
       <p class="dv-meta">
         Hướng: <b>{{ batTuData.dai_van.direction_label }}</b> ·
         Tuổi bắt đầu vận: <b>{{ batTuData.dai_van.starting_age }}</b>
@@ -491,6 +540,20 @@ function formatSolarDateTime(iso) {
       <p class="footer-ref">Nguồn: {{ haLacData.source_ref }}</p>
     </template>
 
+    <!-- Citation + paradigm footer -->
+    <div v-if="batTuData" class="bt-citation">
+      <p>
+        📚 <b>Nguồn khái niệm</b>: Thiệu Vĩ Hoa &amp; Trần Viên —
+        <em>Dự đoán theo Tứ trụ</em> (NXB Văn hóa Thông tin, dịch giả Nguyễn Văn Mậu, tái bản lần 4).
+        Engine <code>engine/bat_tu/*</code>. Wiki: 66 concepts đã seed
+        (Thập Thần · Cách Cục · Dụng Thần · 12 Trường Sinh · Thần Sát · Đại Vận).
+      </p>
+      <p class="bt-paradigm-footer">
+        🪷 <b>Paradigm</b>: <em>"Mệnh cố kết, vận lưu biến. Biết mệnh để cân bằng — Bổ —
+        không phải để biết kết quả."</em> (Thiệu Vĩ Hoa Q1 ch.1-2)
+      </p>
+    </div>
+
     <!-- 📅 Chọn ngày tốt — Bát Tự + Mai Hoa + Hoàng Đạo -->
     <div class="bt-auspicious-section">
       <hr class="bt-divider" />
@@ -525,6 +588,58 @@ function formatSolarDateTime(iso) {
   line-height: 1.6;
 }
 .bt-note b { color: var(--accent-gold-soft, #f5e6b1); }
+
+.bt-paradigm-note {
+  font-size: 12.5px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  background: rgba(94, 234, 212, 0.06);
+  border-left: 3px solid rgba(94, 234, 212, 0.55);
+  padding: 10px 14px;
+  margin: 0;
+  line-height: 1.65;
+  border-radius: 0 4px 4px 0;
+}
+.bt-paradigm-note b { color: #5be5d3; }
+.bt-paradigm-note em { color: #93c5fd; font-style: italic; }
+.bt-paradigm-note small { display: inline-block; margin-top: 4px; opacity: 0.7; font-size: 11px; }
+
+/* Clickable wiki concept links */
+.wiki-link {
+  cursor: pointer;
+  transition: filter 0.15s, text-shadow 0.15s;
+}
+.wiki-link:hover {
+  filter: brightness(1.25);
+  text-shadow: 0 0 8px currentColor;
+}
+.wiki-link:active {
+  filter: brightness(0.9);
+}
+
+/* Citation block */
+.bt-citation {
+  margin-top: 18px;
+  padding: 10px 14px;
+  background: rgba(245, 230, 177, 0.04);
+  border-left: 3px solid rgba(245, 230, 177, 0.3);
+  border-radius: 0 4px 4px 0;
+  font-size: 11.5px;
+  color: var(--text-muted, rgba(230, 238, 245, 0.6));
+  line-height: 1.55;
+}
+.bt-citation p { margin: 0 0 6px 0; }
+.bt-citation p:last-child { margin-bottom: 0; }
+.bt-citation b { color: var(--accent-gold-soft, #f5e6b1); }
+.bt-citation em { color: #cbd5e1; }
+.bt-citation code {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.bt-paradigm-footer { color: #93c5fd !important; font-style: italic; }
+.bt-paradigm-footer b { color: #5be5d3 !important; font-style: normal; }
 
 .bt-form {
   display: grid;
