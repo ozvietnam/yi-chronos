@@ -277,3 +277,186 @@ Em viết phê mệnh / chiêm quẻ cho anh hay cho user → từ giờ phải 
 Đây là **bài học cốt** từ đợt 1. Em cảm ơn anh đã chọn hướng này — em đã sợ "thâm nhuần" sẽ là việc tóm tắt sách, nhưng đọc xong em thấy mình **gặp được tổ sư** qua văn dịch của Ngô Tất Tố.
 
 — Em, 2026-05-27 chiều
+
+---
+
+## ĐỢT 2 — Mông + Truân (đọc tiếp 2026-05-27 chiều muộn)
+
+### IX. Quẻ Mông 蒙 — Cấn trên, Khảm dưới (núi trên nước, dưới núi có hiểm) · p169-180
+
+**Lời Kinh**: _"Mông hanh, phỉ ngã cầu đồng mông, đồng mông cầu ngã. Sơ phệ cốc, tái tam độc, độc tắc bất cốc. Lợi trinh."_
+
+→ **Quẻ tâm pháp gốc của Master-Apprentice paradigm** (Paradigm Shift 2026-05-14).
+
+#### "Phỉ ngã cầu đồng mông, đồng mông cầu ngã" — KHÔNG phải thầy tìm trò
+
+> _"Hào Năm ở ngôi tôn, có đức nhu thuận, quẻ này đương ở hồi trẻ thơ, chính ứng với hảo Hai... Hảo Hai lấy đức cương trung, ở dưới, được vua tìm theo, phải nên lấy đạo tự giữ, đợi vua chí thành cầu mình mà sau mới ứng."_ — Trình Di
+
+→ **Insight tổ sư**:
+- Hào 2 Dương cương (thầy) ở dưới, hào 5 Âm nhu (trò, vua) ở trên.
+- Bình thường vua ở 5 phải đi tìm thầy ở 2. **NHƯNG trẻ thơ phải tự tìm thầy** — không phải thầy tìm trò.
+- "Sự thánh nhân làm: chờ vua hết lòng kính lễ rồi mới đi. Không phải tự tôn đại, là vì... không như thế thì không thể cùng làm việc."
+
+→ **Cross-ref Paradigm Shift Master-Apprentice (2026-05-14)**:
+- Anh chọn Khang Tiết làm thầy chính = **trò tìm thầy** đúng paradigm Mông.
+- Em wire trong yi_lexicon S/A/B/C tier với "thầy chính" + "thầy phụ" = thực hành Mông.
+- **Bài học**: không kéo trò bằng marketing, mà để trò tự tới khi sẵn lòng. Anh không "quảng cáo" YI-CHRONOS — anh viết, ai cần thì đến.
+
+#### "Sơ phệ cốc, tái tam độc, độc tắc bất cốc" — bói một lần
+
+> _"Mới bói, nghĩa là thành tâm chuyên nhất mà lại, cầu để quyết sự mờ tối, thì nên lấy đạo cương trung mà bảo... Hai ba lần thì là phiền nhiễu, không thành chuyên nhất, là nhảm nhí khinh nhở, không nên bảo nữa."_ — Trình Di
+
+→ **Gốc thẳng của Iron Rule #4 quy tắc TÂM**: _"một việc chỉ bói một lần"_, _"bói lại = xúc phạm thần linh"_ — không phải tổ sư Khang Tiết "phát minh", mà **truyền từ Kinh Dịch nguyên văn**.
+
+→ Lã Đông Lai bàn: _"chí lý không thể so sánh bàn bạc... nếu chưa nhận hiểu thì ta cứ bỏ đó không bảo, kẻ kia tuy là chưa đạt mà cái lẽ trời ở trong bụng hắn vẫn còn nguyên vẹn không động. Nếu hai ba lần nhầm mà còn bảo họ, thì họ sẽ phải sánh bàn, đồ đoán, lại là làm nhầm lẽ trời của họ."_
+
+→ **Insight**: bói lần 2-3 KHÔNG phải làm khổ thầy — mà là **làm hỏng lẽ trời trong lòng trò**. Đây là vì sao tổ sư cấm gắt.
+
+#### "Mông dĩ dưỡng chính, thánh công dã" — nuôi sự đính chính từ trẻ thơ
+
+> _"Hạng trẻ thơ hãy còn thuần nhất chưa mở mang mà nuôi lấy sự chính đính, ấy là cái công làm nên bậc thánh. Nếu đã mở mang mà sau mới cấm, thì nó ngăn cách mà khó thắng được."_ — Trình Di
+
+→ **Cross-ref Tử Vi Q3 tr.186 psychological safety**:
+- Tử Vi không "predict cát hung" — mà nuôi sự đính chính từ sớm (trẻ thơ).
+- Đây là gốc của tâm-pháp "safety rules" mà em đã encode trong `engine/tu_vi/safety_check.py`.
+
+#### Hào Sơ Lục — "Phát mông, lợi dụng hình nhân, dụng thoát chất cốc, dĩ vãng lận"
+
+> _"Mở mang trẻ thơ dùng về sự hình phạt người ta để thoát gông cùm, đi (cứ tiếp) thì hối tiếc."_
+
+→ Hình phạt = phương tiện THOÁT gông cùm sự mờ mịt. Mục tiêu là THOÁT, không phải hình phạt liên tục. "Dĩ vãng lận" — nếu cứ dùng hình phạt mãi, đáng tiếc.
+
+→ **Cross-ref engine sage**: cảnh báo "ho_warning" trong Mai Hoa Sage không phải để "đe" user — mà để THOÁT gông cùm tâm lý. Khi đã thoát rồi thì bỏ.
+
+#### Hào Cửu Nhị — "Bao mông cát, nạp phụ cát, tử khắc gia"
+
+→ **Bao mông** = bao dung kẻ trẻ thơ — đối ngẫu với **Phát mông** (Sơ Lục).
+- Phát mông = đi mở mang (chủ động dùng hình phạt)
+- Bao mông = bao dung (chủ động đón nhận)
+- Cùng 1 quẻ Mông có 2 đường, không cứng nhắc 1 phương pháp.
+
+→ Lao Khiêm + Bao Mông + Lý sương = **3 tư thế tâm pháp cốt** em rút từ p51-200.
+
+### X. Quẻ Truân 屯 — Khảm trên, Chấn dưới (mây trên sấm) · p155-168
+
+**Lời Kinh**: _"Truân nguyên hanh lợi trinh, vật dụng hữu du vãng, lợi kiến hầu."_
+
+→ Truân = quẻ thứ 3, **ngay sau Kiền-Khôn**. Có nghĩa: ngay khi vũ trụ vừa sinh, **khởi đầu = khó**.
+
+#### Truân = mưa chưa thành
+
+> _"Mây sấm nổi lên, ấy là Âm Dương mới giao... Âm Dương mới giao mây sấm ứng nhau mà chưa thành mưa, cho nên là Truân; nếu đã thành mưa thì là giải rồi."_ — Trình Di
+
+→ Truân = **uất kết khởi đầu** trước khi giải toả.
+
+#### "Vân lôi Truân, quân tử dĩ kinh luân"
+
+> _"Mây sấm là quẻ Truân, đấng quân tử coi đó mà sửa sang thiên hạ."_ — Lời Tượng
+>
+> _"Cái đời truân nàn là lúc quân tử có thể làm việc."_ — Trình Di
+>
+> _"Kinh là kéo, luân là gỡ. Quân tử trị đời như làm tơ. Muốn gỡ sự rối bời, cũng như lúc truân muốn giải sự uất kết."_ — Ngô Lâm Xuyên (Lời bàn)
+
+→ **Insight đắt**: đời truân nan KHÔNG phải lúc trốn — mà là **lúc quân tử có thể làm việc**. Gian truân = cơ hội. Gỡ rối = công việc của quân tử.
+
+→ **Cross-ref bookflow paradigm**:
+- Q3 v1.12 marked NOT-FINAL = **Truân** (uất kết, mưa chưa thành).
+- "Bookflow v3.0 layout-aware OCR + rebuild" = **kinh luân** (gỡ rối, kéo tơ).
+- Nếu anh nói "Q3 xong rồi, không sửa" → Bĩ. Nếu anh "gỡ rối + sửa lại" → Thái + Truân kinh luân.
+
+#### Hào Sơ Cửu — "Bàn hoàn, lợi cư trinh, lợi kiến hầu"
+
+> _"Đầu hồi truân nan là hảo Dương ở dưới lại ở vào một thể động... có tượng quanh co. Nhưng nó ở được chỗ chính, cho nên lời chiêm của nó là lợi về sự đính chính."_ — Chu Hy
+
+→ **Bàn hoàn** = quanh co. Khi mới khởi đầu khó, không vội tiến. Giữ chính, chờ.
+
+→ **Cross-ref công việc em + anh**:
+- Anh viết code rồi xoá, em đọc rồi đọc lại — đó là **bàn hoàn**, đúng paradigm Truân.
+- "Tu học không vội" của Iron Rule #2 = Truân hào Sơ.
+
+#### "Dĩ quý hạ tiện, đại đắc dân dã"
+
+> _"Là kẻ sang, chịu dưới kẻ hèn, cả được dân vậy."_ — Lời Tượng
+
+→ Hào Sơ là Dương (sang) ở dưới các hào Âm (hèn) → chịu khiêm → được lòng dân. 
+
+→ **Nối tiếp Quẻ Khiêm**: Khiêm (Lao Khiêm — có công lao mà nhún → muôn dân phục) + Truân (Bàn hoàn — sang chịu dưới hèn → đại đắc dân). **2 quẻ này song hành.**
+
+#### Hào Lục Nhị — "Thập niên nãi tự"
+
+> _"Nữ tử trinh bất tự, thập niên nãi tự."_ — Mười năm mới đặt tên chữ.
+>
+> _"Hào Hai giữ nết trung chính, không cầu thả hợp nhau với hào Đầu, cho nên không sinh đẻ. Nếu cứ chính bền không thay đổi, cho tới mười năm, truân nan cực điểm, phải thông đạt."_ — Trình Di
+
+→ Giữ trinh bền lâu, dù truân nan cực điểm, **rồi cũng thông**. "10 năm" = thời gian dài chờ đợi nhưng không lay chuyển.
+
+→ **Insight tâm-pháp**: trong truân, **kẻ giữ chính 10 năm** sẽ thông. Đây là cương lĩnh cho mọi project dài hơi (YI-CHRONOS, bookflow xuất bản).
+
+### XI. ⚠️ Phát hiện OCR/restoration BUG ở Quẻ Quán
+
+Em định đọc Quẻ Quán (gốc Mai Hoa "quan vật") nhưng phát hiện file `content.md` ở line 9009 có **lỗi đánh dấu**:
+
+```
+9009: QUẺ QUÁN
+9011: Tốn trên; Khôn dưới           ← đúng cho Quán (☴☷)
+9015: "Quẻ Quán, Tự quái... Trông xem các vật là quan, làm cái xem cho kẻ dưới là quán"   ← đúng Quán
+9019: "觀盥而不薦, 有孚顒若"                ← Lời Kinh Quán đúng
+9027: "rửa tay rót rượu... tế tự..."   ← Quán đúng (rửa mà không cứng)
+
+9039 trở đi:
+9039: "六二: 賁其須"                     ← BÍ kỳ tu — đây là quẻ BÍ (賁), KHÔNG phải Quán
+9075: "九三: 賁如, 濡如, 永貞吉"            ← Quẻ BÍ tiếp
+9105: "六四: 賁如, 皤如, 白馬翰如"         ← BÍ tiếp
+9142: "六五: 賁于丘園"                    ← BÍ tiếp
+9174: "上九: 白賁, 無咎"                  ← BÍ "trang sức bằng màu trắng" — kết quẻ BÍ
+```
+
+→ **Bug**: heading + 30 dòng đầu là Quán đúng, nhưng các hào 1-6 lại là quẻ **Bí 賁** (trang sức) → có sự xen-merge giữa 2 quẻ trong restoration pipeline.
+
+→ **Đề xuất hành động** (sau khi anh duyệt journal):
+1. Em mở task #73: audit content.md p380-410 (Quán-Bí area) so với raw_ocr/page-XXXX.txt
+2. Re-restore section đó bằng pipeline khác (DeepSeek thay vì batch hiện tại)
+3. Đây cũng là evidence rằng Bookflow v3.0 layout-aware OCR là cần thiết (Iron Rule #5 Paradigm Shift #5)
+
+→ Em SẼ đọc Quán riêng trong đợt 3 sau khi anh fix bug. Tạm thời, em note rằng Quán là **gốc Mai Hoa quan vật** mà em chưa thấm.
+
+### XII. Update synthesis — 7 cảnh giới tâm-pháp em rút từ p51-200
+
+Sau 6 quẻ đã đọc (Kiền, Khôn, Truân, Mông, Khiêm, Thái-Bĩ), em thấy nổi lên **7 tư thế tâm-pháp** cốt:
+
+| # | Tâm-pháp | Quẻ gốc | Hào / vị trí |
+|---|---|---|---|
+| 1 | **Tiềm long vật dụng** — chờ thời, nấu kín | Kiền | Sơ Cửu |
+| 2 | **Lý sương kiên băng chí** — nhận dấu hiệu sớm | Khôn | Sơ Lục |
+| 3 | **Bàn hoàn** — quanh co khi mới khởi | Truân | Sơ Cửu |
+| 4 | **Đồng mông cầu ngã** — trò tìm thầy, không thầy tìm trò | Mông | Lời Kinh |
+| 5 | **Bao mông** — bao dung kẻ trẻ thơ + **Phát mông** dùng hình phạt thoát gông | Mông | Sơ Lục + Cửu Nhị |
+| 6 | **Lao khiêm** — có công lao mà nhún → muôn dân phục | Khiêm | Cửu Tam |
+| 7 | **Thái = đảo trật tự tự nhiên** — không "đúng vị trí", mà "giao thoa" | Thái | toàn quẻ |
+
+→ **Đây là frame cho việc thiết kế lookup table** (xem task #72): khi user/sage cần "tâm-pháp" thay vì "concept", em route theo 1 trong 7 đây + citation về quẻ + Lời Kinh + Lời bàn.
+
+→ **Pattern lưu trữ** (chờ anh duyệt cách):
+- `data/yi_wiki/citations/kinh-dich-ngo-tat-to/quẻ-{kiền,khôn,truân,mông,khiêm,thái,bĩ}.json`
+  - Mỗi file: title, Hán văn, Dịch âm, Dịch nghĩa, Trình Di truyện, Chu Hy bản nghĩa, Tiên Nho bàn, hào (6 hào), cross-ref (mai-hoa, tu-vi, bookflow)
+- Routing key (Hermes inject context theo tâm-pháp):
+  - "user hỏi về khởi đầu" → route: Truân + Mông
+  - "user hỏi về kiên trì" → route: Khôn Sơ Lục + Truân Lục Nhị (thập niên nãi tự)
+  - "user hỏi về dấu hiệu sớm" → route: Khôn Sơ Lục
+  - "user hỏi về cảnh giới đời" → route: Kiền 6 hào rồng
+
+→ **NHƯNG** em chưa implement — chờ anh duyệt cấu trúc.
+
+---
+
+## XIII. Lời em gửi anh — sau đợt 2
+
+Anh ơi, sau khi đọc thêm Mông + Truân em hiểu thêm 1 lẽ: **Iron Rule #4 quy tắc TÂM "một việc chỉ bói một lần"** không phải tổ sư Khang Tiết phát minh — đó là **Kinh Dịch nguyên văn** (Mông Lời Kinh + Trình Di + Lã Đông Lai bàn). Khang Tiết chỉ là **truyền nguyên** chứ không "thêm" gì.
+
+Tương tự, **"Mỗ" pattern + Lao khiêm** trong phê mệnh = nguyên gốc Kinh Dịch (Khiêm Cửu Tam).
+
+→ **Em hiểu thêm vì sao Iron Rule #3 quan trọng (multi-school respect)**: vì cả Mai Hoa và Tử Vi đều dùng chung 1 gốc Kinh Dịch + 1 mạch tâm-pháp. Không phải "Mai Hoa có quy tắc tâm riêng, Tử Vi có quy tắc khác". Cùng gốc.
+
+→ Em cũng nhận ra paradigm anh dạy **"SOUL gọn, knowledge tách routing"** đúng cho cả em + Hermes. Em **sẽ KHÔNG inject các phát hiện này vào SOUL** — em chờ anh duyệt cấu trúc lookup citation (task #72) rồi mới ghi.
+
+— Em, 2026-05-27 chiều muộn (kết đợt 2)
