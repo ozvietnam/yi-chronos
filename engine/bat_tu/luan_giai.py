@@ -1037,7 +1037,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
     if "tu_tru" not in bat_tu_state:
         raise ValueError("bat_tu_state must contain 'tu_tru' key (from cast_bat_tu)")
 
-    return {
+    result = {
         "method_id": METHOD_ID,
         "source_ref": SOURCE_REF,
         "paradigm_guard": (
@@ -1060,3 +1060,9 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "bo_huong": _bo_huong_recommendations(bat_tu_state),
         "closing": _compose_closing(bat_tu_state),
     }
+    # Causal reasoning layer — "vì sao + liên kết" (v3)
+    from .causal_reasoning import analyze_causal_reasoning
+    result["causal_reasoning"] = analyze_causal_reasoning(
+        bat_tu_state, luan_giai=result, current_age=current_age
+    )
+    return result

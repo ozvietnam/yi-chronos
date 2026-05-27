@@ -9,6 +9,7 @@ Foundation for the upcoming Bát Tự Hà Lạc cross-module (mục 5.1 in the p
 from .ai_chat import chat_about_chart
 from .auspicious_event import pick_auspicious_dates
 from .cach_cuc_extended import detect_extreme_pattern
+from .causal_reasoning import analyze_causal_reasoning
 from .cast import METHOD_ID, SOURCE_REF, cast_bat_tu
 from .compatibility import analyze_compatibility
 from .hon_nhan import analyze_hon_nhan
