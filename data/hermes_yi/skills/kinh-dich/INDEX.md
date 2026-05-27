@@ -27,6 +27,7 @@ Cấu trúc 3-tier:
 | Intent của user | Route đến |
 |---|---|
 | Khởi đầu / mới bắt đầu việc | `tam-phap/khoi-dau.md` |
+| Quan vật / xem để hiểu Tính / paradigm Mai Hoa | `quẻ/20-quan.md` (gốc Mai Hoa quan-vật) |
 | Cảnh giới đời người / "tôi đang ở đâu" | `tam-phap/canh-gioi-doi.md` |
 | Khiêm tốn / nhún nhường / "có công nhưng không khoe" | `tam-phap/khiem-ton.md` |
 | Thầy-trò / học hỏi / "ai dạy ai" | `tam-phap/thay-tro.md` |
@@ -59,8 +60,11 @@ Cấu trúc 3-tier:
 | 17 | Tùy | 隨 | (chưa) | ⬜ |
 | 18 | Cổ | 蠱 | (chưa) | ⬜ |
 | 19 | Lâm | 臨 | (chưa) | ⬜ |
-| 20 | Quán | 觀 | (OCR bug — task #73 fix) | ⚠️ |
-| 21-64 | ... | ... | ... | ⬜ |
+| 20 | Quán | 觀 | [quẻ/20-quan.md](quẻ/20-quan.md) | ✅ đợt 3 (bypass content.md bug via raw_ocr) |
+| 21 | Phệ Hạp | 噬嗑 | (defer, cần Bookflow v3.0) | ⏸️ |
+| 22 | Bí | 賁 | (defer, cần Bookflow v3.0) | ⏸️ |
+| 23 | Bác | 剝 | (chưa) | ⬜ |
+| 24-64 | ... | ... | ... | ⬜ |
 
 ## III. Pattern dùng
 
