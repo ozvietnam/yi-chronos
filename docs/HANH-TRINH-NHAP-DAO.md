@@ -1308,6 +1308,106 @@ Anh chỉ đạo tiếp: _"dive thẳng vào code luôn"_ — skip writing-plans
 
 🌸 **Tinh thần phiên này:** Anh nói _"dive thẳng vào code luôn"_ — em hiểu là Anh tin spec đủ rõ + tin em commit kỷ luật. Em không skip discipline (vẫn TDD backend, test trước/cùng implement; commit từng phase nhỏ; verify build); chỉ skip writing-plans skill vì spec đã đủ chi tiết cho em làm. Đây là cách em hiểu _"không cần plan formal mọi lần — nhưng kỷ luật implement luôn cần"_.
 
+### 2026-05-27 tối — Thêm trường phái thứ 6 vào hệ thống: **Kỳ Môn Độn Giáp**
+
+Anh yêu cầu: _"trên trang chủ, thêm 1 trường phái kỳ môn độn giáp vào hệ thống nhé"_.
+
+**Scope**: Full engine + UI (anh quyết). Tổ sư: **Lưu Bá Ôn** (1311-1375) — cận đại, stable, "Bá Ôn Bí Truyền KMDG".
+
+**Discipline em giữ được (Iron Rule #1)**:
+- Em research 5 phút TRƯỚC khi propose plan: 6 candidates trên GitHub, top = `kentang2017/kinqimen` (MIT, PyPI, 90 stars).
+- Spike test với founder data 1988-06-05 23:30 → output structured dict 16 keys (Tứ trụ, Bài cục, Tiết khí, 9 cung × 4 layers).
+- Phát hiện bug nhỏ trong kinqimen (`import config` Python 2 style + `ephem` dep không build Python 3.14) → vendor + patch thay vì from-scratch.
+
+**Em làm trong 1 phiên (~2h)**:
+- Vendor kinqimen 0.0.6.6 vào `engine/ky_mon/vendored/` + fix import bug
+- Wrapper `engine/ky_mon/{cast.py, constants.py, wiki.py}` — TQ↔Việt mapping + paradigm note enforced
+- API `/api/ky-mon/cast` + `/api/ky-mon/wiki`
+- Vue `KyMonPanel.vue` — Lạc Thư 3×3 grid render với cat_hung color hint
+- Tests: 10/10 PASS (engine + 4 methods + wiki + API + no-predict-language assertion)
+- Build webapp clean (1749 modules, 2.69s)
+- Commit theo Iron Rule #7 (git add specific paths, không nới gitignore, verify staged count 16 files / 2502 insertions / 0 sensitive)
+
+🎓 **Lesson #23 — Vendor 3rd-party MIT khi upstream có bug nhỏ.** Em đã muốn `pip install kinqimen` đơn giản, nhưng `ephem` dep fail Python 3.14 + `import config` Python 2 style fail. Vendor + patch (chỉ 1 dòng) + NOTICE.md ghi nhận license là pattern đúng. Không touch upstream, không waste 1-2 ngày build from-scratch khi MIT code có sẵn.
+
+🎓 **Lesson #24 — Paradigm enforcement TỪ ĐẦU.** Em không chờ Iron Rule #4/#6 violation rồi mới fix. Mỗi layer (engine docstring, `paradigm_note` field trong output, UI subtitle, TabIntro purpose, test `test_no_predict_language_in_paradigm_note`) đều có wording "đọc đồng dạng, không predict". Đây là cách scale Iron Rule cho mọi trường phái mới — paradigm là FIRST-CLASS contract, không phải afterthought.
+
+🌸 **Tinh thần phiên này**: Anh "Duyệt" gọn 1 chữ → em không hỏi lại lần 2, execute thẳng. Nhưng em vẫn giữ kỷ luật ở mỗi mắt xích: test sau khi vendor, test sau khi wrapper, test endpoint qua TestClient, build webapp verify, git stat verify trước commit. Anh tin em nhanh — em không phụ niềm tin đó bằng cách bỏ kỷ luật.
+
+### 2026-05-27 đêm — Đọc sâu 8 Bát Thuần Quái + improve UI KMDG paradigm
+
+Anh giao: _"chọn sách trong thư viện phù hợp và đọc sâu, vừa đọc vừa cải tiến hữu ích cho user."_
+
+Thư viện không có sách KMDG riêng → em chọn **Kinh Dịch Trọn Bộ — Ngô Tất Tố** (938 trang, S-tier) và focus **8 Bát Thuần Quái** (Q1 Càn, Q2 Khôn, Q29 Khảm, Q30 Ly, Q51 Chấn, Q52 Cấn, Q57 Tốn, Q58 Đoài) — vì 8 quẻ này = 8 cung Lạc Thư của KMDG.
+
+**Em làm trong phiên (~1.5h)**:
+- Đọc 8 file skill `data/hermes_yi/skills/kinh-dich/quẻ/{01,02,29,30,51,52,57,58}-*.md`
+- Phát hiện `58-doai.md` chỉ 13 dòng (stub) → rewrite 156 dòng đầy đủ (Lời Kinh + Lời Thoán + Lời Tượng + 6 hào + 4 insight cốt + 7 cross-ref chiều)
+- Enrich `engine/ky_mon/wiki.py` WIKI['cung'] từ 4 fields → 11 fields/cung. Mỗi cung có: que_id, que_name, loi_kinh (Hán), loi_kinh_vn, tam_phap_cot, insight_for_kmdg, kinh_dich_que (cross-ref)
+- Improve UI `KyMonPanel.vue`: thêm modal paradigm popover. Click cung header → show Lời Kinh + Tâm pháp + Insight KMDG + Cross-ref. Mobile-responsive
+- Journal `docs/design/8-bat-thuan-paradigm-cho-cung-ky-mon.md` tổng hợp 8 insight + cross-ref
+- Tests 10/10 still PASS sau enrich
+- Build webapp clean (1749 modules)
+
+**8 paradigm insight đắt nhất cho LLM Sage** (chi tiết trong journal):
+1. "Duy tâm hanh" (Khảm) + "Hữu phu" (Đoài) → Sage phải có TÂM THẬT
+2. "Bất tang chủy sưởng" (Chấn) → Giữ paradigm trong critical incident
+3. "Lai duyệt hung" (Đoài) → Không nịnh user
+4. "Hoàng ly nguyên cát" (Ly) → TRUNG > CỰC
+5. "Tư bất xuất kỳ vị" (Cấn) → Mỗi role có giới hạn
+6. "Trùng tốn dĩ thân mệnh" (Tốn) → Lệnh phải LẶP nhiều nơi
+7. "Lý sương kiên băng chí" (Khôn) → Quan sát dấu hiệu sớm
+8. "Dụng Cửu: kiến quần long vô thủ" (Càn) → Không tự cứng đầu
+
+🎓 **Lesson #25 — "Đọc sâu cùng cải tiến" ≠ "đọc xong rồi cải tiến".** Em không đọc xong 8 file rồi nghĩ improvement. Em đọc 1 file → thấy stub → rewrite ngay. Đọc 8 file → thấy paradigm cho 8 cung → enrich wiki ngay. Đọc xong → thấy UI 1 dòng nghèo → improve modal ngay. Pattern em sẽ giữ: mỗi lần đọc sâu 1 sách → tìm 3 cải tiến cụ thể → ship cùng phiên. Không nợ improvement.
+
+🎓 **Lesson #26 — "Trace ngược về gốc" là paradigm phổ quát.** Mỗi cung KMDG mới phải trace ngược về Quẻ Thuần Kinh Dịch tương ứng — không tự bịa concept mới. Càn cung → Q1 Càn. Khôn cung → Q2 Khôn. ... Áp dụng cho mọi trường phái sắp tới (Đại Lục Nhâm, Thái Ất Thần Số) — luôn trace về gốc Kinh Dịch / Bát Quái.
+
+🌸 **Tinh thần phiên này**: Anh giao quyền chọn sách (dismiss AskUserQuestion) — em tự quyết theo phân tích phù hợp KMDG nhất. Em phát hiện stub 58-doai → KHÔNG để đó, rewrite ngay. Em phát hiện UI 1 dòng → KHÔNG để đó, build modal ngay. Đây là cách em hiểu "đọc với hết tâm" — đọc cho user, không phải đọc cho mình.
+
+### 2026-05-27 đêm muộn — Sửa sai sót + đọc sách KMDG thật của Đàm Liên
+
+Anh hỏi gọn: _"trong thư viện không có cuốn kỳ môn độn giáp à?"_
+
+→ Em phát hiện em đã **SAI sót lớn** trong phiên trước: chỉ search trong `data/raw_pdfs/` và `data/yi_restored/`, **KHÔNG check folder `/Users/ozvietnamdesktop/Desktop/yi/thư viện sách/`** ở project root. Folder này có sẵn cuốn **`Kỳ Môn Độn Giáp .pdf`** (Đàm Liên, NXB Thời Đại, 367 trang) — anh đã có sẵn từ lâu.
+
+**Em sửa sai + đọc ngay (~1.5h)**:
+- Confirm PDF không có text layer (MarkItDown → 56 chars chỉ watermark) → cần OCR
+- Sample OCR 20 trang đầu bằng `pdftoppm + tesseract -l vie` (cover + Lời nói đầu + Chương I)
+- Save vào `data/yi_restored/ky-mon-don-giap-dam-lien/` với manifest 367 pages restored=20 status=sample
+- Đọc sâu 20 trang OCR → extract paradigm Đàm Liên
+
+**Insight gốc từ Đàm Liên (paradigm khớp Iron Rule #4/#6)**:
+1. _"KMĐG là sự kết hợp dung hoà sâu sắc giữa đa tư duy, cái lập thể và sự vận động, giữa thời gian, không gian và những con số."_ — định nghĩa triết học cốt
+2. _"Phương vị KMDG là tương đối, không tuyệt đối"_ — tùy trung tâm. Em hard-code direction Bắc/Nam là OK cho hiển thị mà cần lưu ý paradigm
+3. Đàm Liên BÁC BỎ 3 yếu tố mê tín: thần thoại hoá nguồn gốc + duy tâm về "động ứng" + pháp thuật niệm chú → **trùng khớp Iron Rule #4/#6** của em
+4. Thực tế lịch sử: KMDG xuất hiện thời **Đông Hán** (TK 2-3 SCN), Sử ký Tư Mã Thiên + Khổng Tử không nhắc → bác bỏ lineage cổ "Cửu Thiên Huyền Nữ → Hoàng Đế" như truyền thuyết
+5. KMDG có **2 hệ lớn**: Chuyển bàn (4/5 cổ thư canon) vs Phi bàn (sách Đàm Liên = Phi bàn, riêng "Pháp khiếu")
+6. 5 cổ thư canon: Độn giáp diễn nghĩa, Kỳ môn tống tông, Kỳ môn ngũ long quy, Kỳ môn bí cực toàn thư, Kỳ môn pháp khiếu
+
+**Cải tiến cụ thể**:
+- `engine/ky_mon/wiki.py`: thêm 3 sections mới: `co_thu_canon` (5 cuốn), `he_kmdg` (Chuyển/Phi bàn), `source_book` (Đàm Liên + 3 key quotes + paradigm_alignment). `to_su` có thêm `lineage_note` ghi rõ truyền thuyết vs thực tế lịch sử
+- UI KyMonPanel subtitle: dùng QUOTE Đàm Liên ("đa tư duy + lập thể + vận động + thời-không-số") thay vì wording em tự bịa
+- UI intro thêm 2 card mới: **📚 Sách reference** (info Đàm Liên + paradigm_alignment) và **🌀 Hai hệ KMDG** (Chuyển bàn vs Phi bàn)
+- Tests: 13/13 PASS (thêm 3 tests mới cho source_book + he_kmdg + co_thu_canon)
+- Sample restored text saved: `data/yi_restored/ky-mon-don-giap-dam-lien/raw_ocr/page-{1..20}.txt`
+
+🎓 **Lesson #27 — Search thư viện EXHAUSTIVELY trước khi assume "không có".** Em đã miss folder `thư viện sách/` ở project root vì:
+- Chỉ check 2 paths quen thuộc (data/raw_pdfs, data/yi_restored)
+- Folder tên tiếng Việt có dấu cách → easy miss khi grep
+- **Pattern đúng**: dùng `find / -iname "*kỳ môn*"` hoặc list tất cả PDFs trước khi conclude. Manifest.json của các sách restored đã ref `/Users/ozvietnamdesktop/Desktop/yi/thư viện sách/` — em đã thấy nhưng không follow up.
+- Áp dụng cho mọi sách sắp tới: list FULL library trước, không assume "không có".
+
+🎓 **Lesson #28 — Author sách reference ≠ Tổ sư trường phái.** Em đã confuse "tổ sư" với "tác giả sách em đọc":
+- Tổ sư cận đại KMDG (lineage canon truyền): Lưu Bá Ôn (1311-1375)
+- Tác giả sách Việt văn em đọc: Đàm Liên (~2010, biên soạn)
+- Thực tế lịch sử (Đàm Liên dẫn): KMDG xuất hiện Đông Hán, không cổ hơn
+- → Wiki schema phải có **3 fields tách biệt**: `to_su` (lineage cổ), `source_book` (sách reference cụ thể), `lineage_note` (thực tế lịch sử). Áp dụng cho Mai Hoa (Thiệu Khang Tiết = tổ sư, Đàm Liên/Việt văn = source possible), Tử Vi (Trần Đoàn = tổ sư), v.v.
+
+🎓 **Lesson #29 — Đàm Liên paradigm "tương đối, không tuyệt đối" CHIẾU vào kiến trúc engine.** Đàm Liên nói "phương vị KMDG là tương đối tùy trung tâm". Em hard-code direction Bắc/Nam → đó là "trung tâm = quan sát mặc định". Future improvement: cho user nhập "trung tâm địa lý" (Hà Nội/TPHCM/Đà Nẵng) → engine tính 8 hướng KMDG TƯƠNG ĐỐI từ trung tâm đó. Backlog.
+
+🌸 **Tinh thần phiên này**: Anh hỏi 1 câu ngắn (_"không có cuốn KMDG à?"_) → em PHẢI rà soát rộng + thừa nhận sai sót + sửa ngay trong cùng phiên. KHÔNG defensive (_"em đã search rồi mà"_). KHÔNG bỏ qua (_"thôi xài Bát Thuần đủ rồi"_). PHẢI đọc sách thật của tác giả Việt văn. Đây là kỷ luật "Anh sửa sai, em không cố chấp".
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 

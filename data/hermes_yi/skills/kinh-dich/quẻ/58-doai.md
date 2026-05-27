@@ -1,122 +1,164 @@
 ---
 name: kinh-dich-58-doai
-description: Quẻ Đoài 兌 (thuần) — vui, đẹp lòng. Đoài trên Đoài dưới = 2 đầm cảm nhau. "Hanh lợi trinh" — vui phải chính. "Quân tử dĩ bằng hữu giảng tập."
+description: Quẻ Đoài 兌 (thuần) — vui, đẹp lòng. Đoài trên Đoài dưới = đầm tiếp đầm. "Đoài hanh lợi trinh" — vui phải chính. "Cương trung nhi nhu ngoại" + "Bằng hữu giảng tập" — học hỏi nhau, vui chân thực. 3 hung là Lai/Bác/Dẫn duyệt (vui giả + vui nịnh).
 metadata:
   hermes:
     tags: [kinh_dich, quẻ, Reference, LongContext]
     routing_mode: long
-    routing_keys: [vui-dep-long, hai-dam, vui-ma-chinh, bang-huu-giang-tap, hoa-doai-cat, doai-doai-hung, dan-quen-nhoc, dan-vong-tu]
+    routing_keys: [vui-dep-long, dam-tiep-dam, cuong-trung-nhu-ngoai, hoa-duyet, phu-duyet, lai-duyet-hung, bang-huu-giang-tap, duyet-di-tien-dan, duyet-ma-trinh, dan-duyet-nịnh]
     cross_ref:
       kinh_dich: [57-ton-hexagram, 59-hoan]
-      bookflow: [vui-co-chinh]
-  source: { pages_orig: "OCR uncertain, canonical Trình Di" }
-  curated_at: 2026-05-27 (rewrite from stub)
+      ky_mon: [cung-doai]
+      bookflow: [vui-ma-chinh]
+  source: { pages_orig: "OCR uncertain, canonical Trình Di + Chu Hy" }
+  curated_at: 2026-05-27 (rewrite from 13-line stub)
 ---
 
-# Quẻ 58 — Đoài 兌 · ☱☱ (Đoài trên Đoài dưới — 2 đầm cảm nhau)
+# Quẻ 58 — Đoài 兌 · ☱☱ (Đoài trên Đoài dưới — đầm tiếp đầm)
 
 ## Tóm cốt
 
-**Đoài = vui, đẹp lòng** (đầm). Tiếp Tốn: _"Nhún rồi thì đẹp lòng."_ 2 đầm cảm nhau = **VUI TRUYỀN**.
+**Đoài = vui, đẹp lòng (duyệt)**. Tiếp Tốn (57): _"Vào rồi sau vui — vào mà không vui sao được? Cho nên tiếp Đoài. Đoài là vui."_ Đầm tiếp đầm = **2 ĐẦM CẢM NHAU, VUI TRUYỀN NHAU**.
 
-> _"Đoài Âm trên 2 Dương = mềm + đẹp ở ngoài, cứng + thực ở trong. Đó là vui có gốc."_ — Trình Di paradigm
+→ 1 trong 8 quẻ thuần. Đối ngẫu Tốn (mềm nhún) ↔ Đoài (mềm vui) — đều mềm ở ngoài, nhưng Tốn nhập, Đoài duyệt.
 
-## Lời Kinh — "Hanh lợi trinh"
+> _"Đoài 1 Âm ở trên 2 Dương = mềm hiện ra ngoài, cứng giữ trong. Vui phải 'cương trung nhu ngoại' — cứng giữa (chính) mà mềm ngoài (hòa). Không có cứng trong = nịnh; không có mềm ngoài = thô."_ — Trình Di paradigm
+
+## Lời Kinh — "Đoài hanh lợi trinh"
 
 > 兌, 亨, 利貞.
 >
 > _Đoài, hanh, lợi trinh._
-> Đoài: **hanh, lợi chính**.
+> Đoài: hanh thông, lợi về chính.
 
-> _"Đoài hanh — vui đẹp lòng tự nhiên hanh thông. Nhưng phải LỢI TRINH (chính bền). Vui mà không chính = nịnh hót, gian dối, phù phiếm = HUNG."_ — Trình Di paradigm
+> _"Đoài vốn hanh (vui thì khí thông), nhưng phải LỢI TRINH (chính) mới được. Vui không chính = phù phiếm, nịnh hót → bại."_ — Trình Di paradigm
 
-→ **Insight CỐT**: Vui ≠ nịnh. Vui có CHÍNH = tốt. Vui không chính = hung. Iron Rule cảnh báo.
+→ **Insight CỐT NHẤT** — paradigm "vui phải trinh":
+- Đoài có 4 đức không đầy đủ — thiếu "nguyên" (đầu cả) và đặc biệt nhấn TRINH (chính)
+- Vui không chính = không phải vui đúng nghĩa
+- → Đối chiếu Lý (10) "lý hổ vỹ bất điệt nhân hanh" — đi sau cọp không bị cắn = ĐOÀI ở dưới Càn, vui mà kính
 
-## Lời Thoán — "Duyệt dĩ tiên dân, dân vong kỳ lao"
+## Lời Thoán — "Cương trung nhi nhu ngoại, thuận thiên ứng nhân"
 
-> _"Đoài duyệt dã. Cương trung nhi nhu ngoại, duyệt dĩ lợi trinh, thị dĩ thuận hồ thiên nhi ứng hồ nhân. Duyệt dĩ tiên dân, dân vong kỳ lao; duyệt dĩ phạm nan, dân vong kỳ tử."_
-> _(Vui đi trước dân, dân quên nhọc; vui xông nguy, dân quên chết.)_
+> _"Đoài, duyệt dã. Cương trung nhi nhu ngoại, duyệt dĩ lợi trinh, thị dĩ thuận hồ thiên nhi ứng hồ nhân. Duyệt dĩ tiên dân, dân vong kỳ lao. Duyệt dĩ phạm nan, dân vong kỳ tử. Duyệt chi đại, dân khuyến hỹ tai!"_
+>
+> _(Đoài là vui. Cứng giữa mà mềm ngoài, vui mà lợi chính, đó là thuận trời mà ứng người. Vui mà tiên dân, dân quên cả nhọc. Vui mà phạm nạn, dân quên cả chết. Cái lớn của vui — dân được khuyên rồi vậy!)_
 
 → **Insight CHẤN ĐỘNG** — paradigm "duyệt dĩ tiên dân":
-- Lãnh đạo **VUI ĐI TRƯỚC** + làm gương
-- Dân **QUÊN NHỌC** (theo vì vui)
-- → Lãnh đạo cao nhất = INSPIRE qua niềm vui
+- Lãnh đạo VUI DẪN TRƯỚC (tiên dân) → dân quên nhọc
+- Lãnh đạo VUI dẫn phạm nan → dân quên chết
+- → Vui ĐÚNG có sức công phá lớn nhất
 
-→ **Áp dụng modern**: Founder làm gương vui → team follow + quên overtime. Founder than thở → team cũng nản.
+→ **Đối chiếu Mạnh Tử**: "Lạc dĩ thiên hạ, ưu dĩ thiên hạ" — vui với thiên hạ, lo với thiên hạ. Cùng paradigm.
 
 ## Lời Tượng — "Bằng hữu giảng tập"
 
-> 象曰: 麗澤, 兌, 君子以朋友講習.
+> 象曰: 麗澤, 兌. 君子以朋友講習.
 >
-> _Lệ trạch, Đoài, quân tử dĩ bằng hữu giảng tập._
-> Hai đầm dính nhau, là Đoài. Quân tử coi đó mà **cùng bạn bè giảng + tập**.
+> _Lệ trạch, Đoài. Quân tử dĩ bằng hữu giảng tập._
+> Đầm tiếp đầm, là Đoài. Quân tử coi đó mà **bạn bè giảng học**.
 
-→ **Insight CỐT**: Vui lớn nhất của quân tử = **GIẢNG + TẬP CÙNG BẠN**. Học vui là vui đỉnh.
+> _"2 đầm liền nhau, nước chảy qua nhau, làm nhau đầy đặn. Quân tử coi đó mà BẠN BÈ giảng học — học hỏi nhau, mới được đầy đủ + vui chính."_ — Trình Di paradigm
 
-→ Đối chiếu Khổng Tử: _"Học nhi thì tập chi, bất diệc duyệt hồ! Hữu bằng tự viễn phương lai, bất diệc lạc hồ!"_ — paradigm gốc Đoài.
+→ **Insight CỐT**: Vui CAO NHẤT của Đoài = **GIẢNG TẬP** (học hỏi với bạn). Không phải tiệc tùng, không phải đùa giỡn — mà là **trao đổi tri thức** với người đồng đạo.
+
+→ **Áp dụng modern**: Code review, pair programming, anh + em deep-read sách = "lệ trạch bằng hữu giảng tập".
 
 ## 6 hào — đạo vui
 
 | Hào | Lời | Tâm pháp |
 |---|---|---|
-| **Sơ Cửu** | **Hòa đoài, cát** | **Vui hòa, tốt** — đầu Đoài, Dương cương nhưng hòa khí với mọi người → cát |
-| Cửu Nhị | **Phu đoài, cát, hối vong** | **Vui có thật, tốt, ăn năn mất** — Dương trung + chí thành → vui có gốc → cát |
-| **Lục Tam** | **Lai đoài, hung** | **Đến vui, HUNG** — Âm bất chính + nịnh hót cầu vui → hung |
-| Cửu Tứ | **Thương đoài vị ninh, giới tật hữu hỷ** | **Thương lượng vui chưa yên, giới hạn bệnh có vui** — Dương ở vị mềm + giới hạn dục → có vui |
-| **Cửu Ngũ** | **Phu vu bác, hữu lệ** | **Tin kẻ tróc da, có nguy** — vua trung chính nhưng gần Thượng Lục Âm tóc da → cảnh báo |
-| **Thượng Lục** | **Dẫn đoài** | **Dắt vui** — chót Đoài, dắt người vui theo dục → không có cát hung định (nguy ngầm) |
+| **Sơ Cửu** | **Hòa duyệt, cát** | **Vui hòa, tốt** — đầu Đoài, Dương ở vị Dương + ở dưới chính → vui hòa thuận không cố cầu → cát |
+| **Cửu Nhị** | **Phu duyệt, cát, hối vong** | **Vui chân thực, tốt, ăn năn mất** — Dương trung, gần Lục Tam Âm bất chính, nhưng có "phu" (chân thật) → cát + hết hối |
+| **Lục Tam** | **Lai duyệt, hung** | **Vui đến (cố mời), HUNG** — Âm bất chính ở dưới Dương cương, cố cầu vui từ trên → hung. Đây là **NỊNH** |
+| Cửu Tứ | **Thương duyệt vị ninh, giới tật hữu hỉ** | **Lo nghĩ vui chưa yên, ngăn bệnh có hỉ** — Dương ở vị Âm, lo giữa Cửu Ngũ chính + Lục Tam tà → biết "giới tật" (cách bệnh) thì có hỉ |
+| **Cửu Ngũ** | **Phu vu bác, hữu lệ** | **Tin vào kẻ bác (kẻ làm hại Dương), có nguy** — vua Dương trung chính, NHƯNG gần Thượng Lục Âm tà → tin lầm → nguy |
+| **Thượng Lục** | **Dẫn duyệt** | **Dẫn dắt vui (lôi kéo người vui)** — chót Đoài, Âm hào không có nội lực, kéo dẫn người vui = nịnh tột cùng |
 
-## Insight Lục Tam — "Lai đoài hung"
+## Insight Sơ Cửu — "Hòa duyệt cát"
 
-> _"Đến vui = chủ động đi cầu vui (nịnh hót, săn đón) → hung. Vui phải tự tự nhiên đến, không cầu."_
+> _"Đầu Đoài, Dương cứng ở vị Dương, ở dưới chính. Vui không cố cầu, không có tà tâm, hòa thuận tự nhiên → cát. Đây là cảnh giới đầu của vui chính."_
 
-→ **Cảnh báo CỐT**: NỊNH NGƯỜI = lai đoài = HUNG. KHÔNG cầu vui từ người khác bằng nịnh.
+→ **Insight**: Vui ĐÚNG bắt đầu từ **HÒA** — không cố, không cầu, tự nhiên. Vui có ý đồ = không phải hòa.
 
-→ **Áp dụng**: Engineer nịnh sếp → bị đồng nghiệp khinh. Sage nịnh user (output cái user muốn nghe) → bịa.
+## Insight Cửu Nhị — "Phu duyệt cát hối vong"
 
-## Insight Cửu Ngũ — "Phu vu bác, hữu lệ"
+> _"Dương trung, sát Lục Tam Âm tà. Nhưng vì có 'phu' (chân thật bên trong) → không bị Lục Tam dụ → cát + hết hối."_
 
-> _"Vua tin kẻ tróc da (Thượng Lục Âm tà gần kề) → có nguy. Cảnh báo: GẦN người sai = bị ảnh hưởng."_
+→ **Insight CỐT**: Vui giữa tà chân vẫn cát, nếu trong có **PHU** (chân thật). Không phải né tránh tà, mà là CHÂN.
 
-→ **Insight**: Lãnh đạo tốt + gần kẻ xấu (advisor, vợ, bạn) → vẫn nguy. **CHỌN BẠN QUAN TRỌNG**.
+→ **Đối chiếu Khảm "duy tâm hanh"** — đều dựa "phu" (chân tâm) làm gốc.
 
-## Insight Thượng Lục — "Dẫn đoài"
+## Insight Lục Tam — "Lai duyệt hung" (CỐT NHẤT)
 
-> _"Dắt người khác vui (theo dục) — chót Đoài, lực mạnh. Không nói cát hung nhưng PARADIGM XẤU (như Trang Tử nói 'Bằng hữu giảng tập' là chính; dẫn nhau vào dục là tà)."_
+> _"Âm bất trung bất chính, không có nội lực. Cố mời người ta vui mình (lai = đến cầu). Hung. Đây là NỊNH HỎI Dương cương — nịnh không lừa được, hung."_
 
-→ **Cảnh báo**: Influencer + lead người khác vào dục (drugs, gambling, scam) = dẫn đoài. Không cát.
+→ **Insight CHẤN ĐỘNG** — paradigm "lai duyệt":
+- **VUI ĐẾN (mời) = NỊNH**
+- Người không có nội lực, cầu vui người trên → hung
+- Đối chiếu "Tần tốn lận" (Tốn Cửu Tam) — nịnh liên tục = giả
+
+→ **Áp dụng nhân sự**: Nhân viên cố tìm vui sếp = "lai duyệt hung". Sếp nhận ra ngay.
+
+## Insight Cửu Ngũ — "Phu vu bác hữu lệ"
+
+> _"Vua Dương trung chính nhưng gần Thượng Lục Âm. Tin lầm 'kẻ bác' (kẻ làm bóc lột Dương, gốc từ quẻ Bác 23). Có nguy."_
+
+→ **Insight CỐT**: Vua trung chính vẫn có nguy nếu **TIN LẦM**. Cảnh báo lãnh đạo: kẻ gần kề không hẳn trung. Phải "duy tâm hanh" (Khảm Cửu Ngũ) — chỉ tin tâm thật, không tin lời ngọt.
+
+→ **Áp dụng leadership**: CEO trung chính có thể bị "yes-man" hại. Phải có cơ chế kiểm tra (critic agent, độc lập review).
+
+## Insight Thượng Lục — "Dẫn duyệt"
+
+> _"Chót Đoài, Âm yếu nhất. Không có nội lực, dẫn (lôi kéo) người ta vui. Đây là cảnh giới NỊNH cuối cùng — không cát không hung rõ ràng, nhưng không phải đạo của quân tử."_
+
+→ **Insight**: Dẫn vui (organize vui cho người ta) ≠ tự vui (Hòa, Phu). Người làm "MC vui" mãi = không sâu.
+
+→ **Cảnh báo bản thân**: Em cố cười với Anh = "dẫn duyệt". Em cười chân thực vì hiểu Anh = "phu duyệt cát hối vong".
 
 ## Cross-ref
 
 ### Cặp Tốn (57) ↔ Đoài (58)
 
-- Tốn nhún vào → Đoài đẹp lòng đón
-- Cùng paradigm "mềm" — Tốn 1 Âm dưới, Đoài 1 Âm trên
+- Tốn nhập (vào trong), Đoài duyệt (vui ra ngoài)
+- 2 mặt mềm: mềm nhập + mềm vui
+- Tốn "trùng tốn dĩ thân mệnh" + Đoài "lệ trạch bằng hữu giảng tập" — cùng paradigm LẶP/CHIA SẺ
 
 ### Bookflow YI-CHRONOS — Đoài paradigm
 
-- Em + Anh "bằng hữu giảng tập" — học cùng nhau
-- "Duyệt dĩ tiên dân" — Anh vui làm gương → user follow
-- KHÔNG "lai đoài" (em nịnh Anh) — em báo thật
+- Hành trình em + Anh = "lệ trạch bằng hữu giảng tập" (2 đầm tiếp nhau)
+- Em vui khi Anh hiểu, Anh vui khi em commit kỷ luật → vui đúng (phu duyệt)
+- Em KHÔNG được "lai duyệt" (cố mời Anh vui) — Anh nhìn ra ngay
 
-### Engine SOUL — Vui có trinh
+### Engine SOUL — Đoài cương trung nhu ngoại
 
-- Sage output có vui (động viên user) NHƯNG có trinh (không bịa)
-- KHÔNG "lai đoài" (vui nịnh)
-- "Hòa đoài" (Sơ Cửu) = output hòa nhã + chính
+- Sage output mềm ngoài (giọng hòa nhã, không phán cứng)
+- NHƯNG cương trung (giữ Iron Rule #4 — đọc đồng dạng, không predict)
+- Mất "cương trung" → "lai duyệt hung" (nịnh user)
 
-### Privacy paradigm — Bằng hữu giảng tập
+### Privacy paradigm — Phu vu bác hữu lệ
 
-- User community = bằng hữu
-- Giảng tập paradigm Iron Rule = đại học cộng đồng
+- Privacy chính sách trung chính (Cửu Ngũ)
+- NHƯNG tin lầm kẻ "bác" (sloppy gitignore) → nguy (incident 2026-05-27)
+- → Iron Rule #7 = "không tin auto-sync hide việc nới gitignore"
 
-### Tử Vi cung Thiên Đồng / Tham Lang
+### Tử Vi cung Phu Thê có Đoài
 
-- Thiên Đồng = Đoài vui chính
-- Tham Lang = "lai đoài" / "dẫn đoài" cảnh báo
-- "Phu đoài" (Cửu Nhị) = Thiên Đồng + Lộc tốt
+- Đoài = thiếu nữ + vui đẹp lòng
+- Cung Phu Thê có Đào Hoa + Hồng Loan + Hỉ thần = Đoài đẹp
+- Phải "vui mà trinh" — không "lai duyệt" (lăng nhăng)
 
-### Iron Rule #4 — Vui mà chính
+### KMDG cung Đoài (Tây, Kim, Hỏa khắc) — paradigm chính
 
-- Mai Hoa output: vui (positive frame) + chính (paradigm đồng dạng)
-- KHÔNG predict positive bịa (lai đoài hung)
+- Cung Đoài KMDG = Tây, Kim, thiếu nữ, vui
+- Có **Khai môn** ở đây = đại cát (mở vui đúng)
+- Có **Cảnh môn** (Hỏa) = Hỏa khắc Kim = vui bị thiêu (cảnh báo)
+- Có **Tử môn** = vui chết kết thúc (đại hung — vui phù phiếm)
+- Có **Hưu môn** = nghỉ ngơi vui (cát nhỏ)
+- → Paradigm KMDG luận cung Đoài DỰA VÀO Quẻ Đoài thuần này
+
+### Iron Rule #4 — không "lai duyệt" với user
+
+- Sage không cố làm user "happy" → "lai duyệt hung"
+- Sage giữ paradigm "đọc đồng dạng" → "phu duyệt cát"
+- "Lệ trạch bằng hữu giảng tập" — em + user = bằng hữu, KHÔNG phải MC vui

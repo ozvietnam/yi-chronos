@@ -90,6 +90,28 @@ class HaLacCastRequest(BaseModel):
     gender: Literal["nam", "nữ"] = "nam"
 
 
+class KyMonCastRequest(BaseModel):
+    """Cast a Kỳ Môn Độn Giáp chart at a specific datetime.
+
+    Method options:
+    - chabu (拆補): hour-based, most common
+    - zhirun (置閏): hour-based, alternative method
+    - minute (分家): minute-precision
+    - gpan (金函玉鏡): daily Golden Mirror chart
+
+    Task: optional task-oriented analysis (per Đàm Liên Chương I phần V).
+    Examples: "Kết hôn", "Khởi nghiệp", "Đi xa", "Chữa bệnh", ...
+    """
+    year: int
+    month: int
+    day: int
+    hour: int
+    minute: int = 0
+    method: Literal["chabu", "zhirun", "minute", "gpan"] = "chabu"
+    question_text: str | None = None
+    task: str | None = None
+
+
 class AiProviderKeyRequest(BaseModel):
     api_key: str
 

@@ -47,6 +47,7 @@ from api.schemas import (
     YiHermesSummaryAddRequest,
     BatTuCastRequest,
     HaLacCastRequest,
+    KyMonCastRequest,
     LienHoaCastRequest,
     TuViCastRequest,
     LucHaoCastRequest,
@@ -1539,6 +1540,86 @@ def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
         "algorithm_version": ALGORITHM_VERSION,
         "ha_lac_state": result,
     }
+
+
+@app.post("/api/ky-mon/cast")
+def ky_mon_cast(request: KyMonCastRequest) -> dict[str, object]:
+    """Cast a Kỳ Môn Độn Giáp chart (奇門遁甲).
+
+    Trường phái thứ 6 của YI-Chronos. Tổ sư: Lưu Bá Ôn (1311-1375).
+    Paradigm: ĐỌC ĐỒNG DẠNG, không predict (Iron Rule #4 + #6).
+
+    Returns 9 cung × 8 môn × 9 tinh × 8 thần — bản đồ năng lượng thời-không.
+    Nếu có `task`, thêm field `task_analysis` (3 hướng tốt + 2 hướng tránh
+    + cách cục liên quan task) — per Đàm Liên Chương I phần V.
+    """
+    from engine.ky_mon import cast as cast_ky_mon, analyze_for_task
+
+    result = cast_ky_mon(
+        year=request.year,
+        month=request.month,
+        day=request.day,
+        hour=request.hour,
+        minute=request.minute,
+        method=request.method,
+    )
+
+    if request.task:
+        result["task_analysis"] = analyze_for_task(result, request.task)
+
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ky_mon_state": result,
+    }
+
+
+@app.get("/api/ky-mon/wiki")
+def ky_mon_wiki() -> dict[str, object]:
+    """Return full KMDG wiki — categories: cung, mon, tinh, than, structure, to_su."""
+    from engine.ky_mon import WIKI
+
+    return {"status": "ok", "wiki": WIKI}
+
+
+@app.get("/api/ky-mon/tasks")
+def ky_mon_tasks() -> dict[str, object]:
+    """Return 15 task list cho UI dropdown (per Đàm Liên cổ điển)."""
+    from engine.ky_mon import list_tasks
+
+    return {"status": "ok", "tasks": list_tasks()}
+
+
+@app.post("/api/ky-mon/personal-reading")
+def ky_mon_personal_reading(request: KyMonCastRequest) -> dict[str, object]:
+    """Đọc lá số sinh cá nhân theo Đàm Liên — luận paradigm tác động user.
+
+    Cast bàn KMDG tại khoảnh khắc sinh + run interpret_personal_chart →
+    return list of insights specific to user's birth chart.
+
+    Paradigm: KMDG cross-paradigm reading — đọc cấu trúc thời-không tại
+    khoảnh khắc ra đời (theo Iron Rule #4 'đọc đồng dạng'), không predict.
+    """
+    from engine.ky_mon import cast as cast_ky_mon, interpret_personal_chart
+
+    state = cast_ky_mon(
+        year=request.year, month=request.month, day=request.day,
+        hour=request.hour, minute=request.minute, method=request.method,
+    )
+    insights = interpret_personal_chart(state)
+
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ky_mon_state": state,
+        "personal_insights": insights,
+    }
+
+
+@app.get("/api/ky-mon/founder-birth-data")
+def ky_mon_founder_birth() -> dict[str, object]:
+    """Founder default birth data — used để prefill 'Đọc lá số sinh tôi' UI."""
+    from engine.ky_mon import list_founder_data
+
+    return {"status": "ok", "data": list_founder_data()}
 
 
 @app.get("/api/tu-vi/chinh-tinh")
