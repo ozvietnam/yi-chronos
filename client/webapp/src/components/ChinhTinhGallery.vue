@@ -147,11 +147,14 @@ const latestContextCards = computed(() => {
       </article>
     </div>
 
-    <section v-if="latestContextCards.length" class="ct-context-strip">
+    <details v-if="latestContextCards.length" class="ct-context-strip">
+      <summary>
+        Kho ảnh Tọa Cung đã duyệt · {{ latestContextCards.length }} thẻ
+      </summary>
       <header>
         <div>
           <h3>Đợt mới 67-81 · Tọa Cung đời sống</h3>
-          <p>Thẻ ngữ cảnh sẽ tự hiện trong phần luận cung khi lá số có đúng sao, đúng Hóa, đúng cung.</p>
+          <p>Kho tham chiếu cho thợ vẽ và kiểm duyệt. Trên lá số thật, thẻ chỉ hiện khi đúng sao, đúng Hóa, đúng cung.</p>
         </div>
         <small>{{ latestContextCards.length }} thẻ đã web-ready</small>
       </header>
@@ -171,7 +174,7 @@ const latestContextCards = computed(() => {
           </span>
         </button>
       </div>
-    </section>
+    </details>
 
     <!-- Detail card pinned at the bottom when a star is active -->
     <transition name="fade">
