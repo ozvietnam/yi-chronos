@@ -53,17 +53,19 @@ function primaryElement(ngu_hanh) {
 onMounted(async () => {
   loading.value = true;
   try {
-    const [resp, oracleResp] = await Promise.all([
+    const [starsResult, oracleResult] = await Promise.allSettled([
       getTuViChinhTinhList(),
-      fetch("/oracle-cards/tu-vi/cards.json").catch(() => null),
+      fetch("/oracle-cards/tu-vi/cards.json"),
     ]);
-    if (resp.status === "ok") {
-      stars.value = resp.stars;
+
+    if (starsResult.status === "fulfilled" && starsResult.value?.status === "ok") {
+      stars.value = starsResult.value.stars;
     } else {
-      errorMsg.value = "Không tải được danh sách chính tinh.";
+      errorMsg.value = "Không tải được danh sách chính tinh, vẫn hiển thị bộ ảnh đã duyệt bên dưới.";
     }
-    if (oracleResp?.ok) {
-      const manifest = await oracleResp.json();
+
+    if (oracleResult.status === "fulfilled" && oracleResult.value?.ok) {
+      const manifest = await oracleResult.value.json();
       oracleCards.value = manifest.cards ?? [];
     }
   } catch (err) {
@@ -93,7 +95,7 @@ function oracleCardFor(star) {
 const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeStar.value) : null);
 const latestContextCards = computed(() => {
   return oracleCards.value
-    .filter((card) => card.id >= 67 && card.id <= 73)
+    .filter((card) => card.id >= 67 && card.id <= 81)
     .sort((a, b) => a.id - b.id);
 });
 </script>
@@ -148,7 +150,7 @@ const latestContextCards = computed(() => {
     <section v-if="latestContextCards.length" class="ct-context-strip">
       <header>
         <div>
-          <h3>Đợt mới 67-73 · Tọa Cung đời sống</h3>
+          <h3>Đợt mới 67-81 · Tọa Cung đời sống</h3>
           <p>Thẻ ngữ cảnh sẽ tự hiện trong phần luận cung khi lá số có đúng sao, đúng Hóa, đúng cung.</p>
         </div>
         <small>{{ latestContextCards.length }} thẻ đã web-ready</small>

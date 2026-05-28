@@ -137,6 +137,61 @@ function normalizeOracleTitle(value) {
   return String(value || "").trim().toUpperCase();
 }
 
+const ASCII_STAR_TO_VI = {
+  "Tu Vi": "Tử Vi",
+  "Thien Phu": "Thiên Phủ",
+  "Thien Luong": "Thiên Lương",
+  "Thien Dong": "Thiên Đồng",
+  "Thien Co": "Thiên Cơ",
+  "Thien Tuong": "Thiên Tướng",
+  "Thai Am": "Thái Âm",
+  "Thai Duong": "Thái Dương",
+  "Liem Trinh": "Liêm Trinh",
+  "Vu Khuc": "Vũ Khúc",
+  "Tham Lang": "Tham Lang",
+  "Cu Mon": "Cự Môn",
+  "That Sat": "Thất Sát",
+  "Pha Quan": "Phá Quân",
+  "Van Xuong": "Văn Xương",
+  "Huu Bat": "Hữu Bật",
+};
+
+const ASCII_PALACE_TO_VI = {
+  Menh: "Mệnh",
+  PhuMau: "Phụ Mẫu",
+  "Phu Mau": "Phụ Mẫu",
+  PhucDuc: "Phúc Đức",
+  "Phuc Duc": "Phúc Đức",
+  DienTrach: "Điền Trạch",
+  "Dien Trach": "Điền Trạch",
+  QuanLoc: "Quan Lộc",
+  "Quan Loc": "Quan Lộc",
+  NoBoc: "Nô Bộc",
+  "No Boc": "Nô Bộc",
+  ThienDi: "Thiên Di",
+  "Thien Di": "Thiên Di",
+  TatAch: "Tật Ách",
+  "Tat Ach": "Tật Ách",
+  TaiBach: "Tài Bạch",
+  "Tai Bach": "Tài Bạch",
+  TuTuc: "Tử Tức",
+  "Tu Tuc": "Tử Tức",
+  PhuThe: "Phu Thê",
+  "Phu The": "Phu Thê",
+  HuynhDe: "Huynh Đệ",
+  "Huynh De": "Huynh Đệ",
+};
+
+function normalizeOracleStarName(value) {
+  const raw = String(value || "").trim();
+  return ASCII_STAR_TO_VI[raw] || raw;
+}
+
+function normalizeOraclePalaceName(value) {
+  const raw = String(value || "").trim();
+  return ASCII_PALACE_TO_VI[raw] || raw;
+}
+
 const oracleCardsByTitle = computed(() => {
   return new Map(oracleCards.value.map((card) => [normalizeOracleTitle(card.title), card]));
 });
@@ -251,6 +306,10 @@ function contextOracleCardsForPalace(reading) {
     }
     if (card.slug === "thien-tuong-quan-loc") {
       return palace === "Quan Lộc" && stars.has("Thiên Tướng");
+    }
+    if (card.card_type === "TOA_CUNG" && card.main_star && card.palace_context) {
+      return palace === normalizeOraclePalaceName(card.palace_context)
+        && stars.has(normalizeOracleStarName(card.main_star));
     }
     return false;
   });

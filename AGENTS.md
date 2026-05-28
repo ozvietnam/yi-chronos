@@ -1,19 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [yi] recent context, 2026-05-28 5:34pm GMT+7
+# [yi] recent context, 2026-05-28 11:38pm GMT+7
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (19,395t read) | 2,307,671t work | 99% savings
+Stats: 50 obs (19,478t read) | 2,483,596t work | 99% savings
 
 ### May 19, 2026
-3137 9:30p 🔵 Auto-sync confirmed working for docs/ — HANH-TRINH-NHAP-DAO.md committed in 4ebfa9c after manual touch trigger
-3140 9:32p 🔵 Full auto-sync pipeline verified end-to-end including docs/ changes — kinhdich.online live and healthy
-3151 10:02p 🔵 Lịch vạn niên + tứ trụ integration location: BatTuPanel.vue under "Bát Tự" tab
-3152 " 🔵 Lịch vạn niên + tứ trụ architecture: 3 separate entry points across different panels
 3153 10:03p 🔵 AuspiciousDayPanel mounted inside Mai Hoa MasterView tab, not standalone — calls /api/yi-wiki/auspicious-day
 3154 " 🔵 AuspiciousDayPanel accessible via "Wiki Tổ sư" tab (🌌), not "Bát Tự" or "Mai Hoa" tab
 3158 10:09p 🔵 AuspiciousDayPanel has NO role-based visibility gate — all logged-in users can access it
@@ -72,8 +68,13 @@ S1524 Qualitative "Tý đầu vs Tý cuối" contrast questionnaire designed and
 3770 5:45p 🔵 PublishingWorkspace.vue — Current 3-Pane Architecture (2346 lines)
 3771 " 🔵 Raw PDF and Restored Book Directories Are Nearly Empty
 3772 " 🔵 MinerU Pipeline Data Layout and Book Discovery Mechanism
+### May 28, 2026
+3781 3:39p 🔵 movis 0.7.1 incompatible with Python 3.14 — numpy 0-d array TypeError
+3782 " 🟣 OZSlide Movis template created at shared/oz_slide.py
+3783 " 🔴 movis LayerItem has no set_opacity() — use solid layered rectangles instead
+3784 " 🔵 Vietnamese TikTok logistics/customs education niche has no existing creator using dark+neon+info-card template
 
-Access 2308k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 2484k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>
 
 ## Runtime Execution Policy (User Preference)
