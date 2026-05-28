@@ -427,11 +427,15 @@ const latestContextCards = computed(() => {
   white-space: nowrap;
 }
 .ct-context-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
   gap: 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding-bottom: 4px;
 }
 .ct-context-card {
+  flex: 0 0 164px;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   gap: 8px;
@@ -792,12 +796,6 @@ const latestContextCards = computed(() => {
   .ct-context-strip > header small {
     display: block;
     margin-top: 6px;
-  }
-  .ct-context-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 3px;
   }
   .ct-context-card {
     flex: 0 0 152px;
