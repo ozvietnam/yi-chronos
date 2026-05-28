@@ -1193,3 +1193,137 @@ Contact sheet QA: `data/tu_vi/oracle_cards/tu_vi_bac_phai/references/tuvi_bac_ph
 - Dien giai chuan: "An tuong vao quan, trach nhiem giu quyen."
 - Ghi chu tranh lan: khong ve loan tuong; Thien Tuong la quan tri va trach nhiem cong.
 - Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/68-thien-tuong-quan-loc.png`
+
+---
+
+## Dot 08 - Bo sung toa cung doi song con trong
+
+Contact sheet QA: `data/tu_vi/oracle_cards/tu_vi_bac_phai/references/tuvi_bac_phai_batch_74_81_dot08_contact_sheet.png`
+
+### 74. [TOA_CUNG] THIEN LUONG @ PHUC_DUC
+
+- Ten hien thi: THIEN LUONG PHUC DUC / THIÊN LƯƠNG PHÚC ĐỨC
+- Ten he thong: `[TOA_CUNG] THIEN LUONG @ PHUC_DUC`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thien Luong
+- Cung boi canh: Phuc Duc
+- Vai tro trong "bo phim la so": phuc am, duc to tien, long che cho va kha nang tu sua nghiep.
+- Khi chat: phuc am, che cho, tu sua nghiep.
+- Nhan vat: lao quan hien luong giu den phuc am trong tu duong.
+- Bieu tuong chinh: den tho to, sach gia pha, mai nha co, anh sang vang diu, cay tung.
+- Mau chinh: vang tram, ngoc xanh, nau go, xanh den.
+- Dien giai chuan: "Luong phuc che than, duc am nang do."
+- Ghi chu tranh lan: khong ve nhu Thien Luong thuan; phai thay Phuc Duc va to tien.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/74-thien-luong-phuc-duc.png`
+
+### 75. [TOA_CUNG] THIEN DONG @ PHUC_DUC
+
+- Ten hien thi: THIEN DONG PHUC DUC / THIÊN ĐỒNG PHÚC ĐỨC
+- Ten he thong: `[TOA_CUNG] THIEN DONG @ PHUC_DUC`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thien Dong
+- Cung boi canh: Phuc Duc
+- Vai tro trong "bo phim la so": niem vui noi tam, phuc mem, kha nang hoi phuc tam hon.
+- Khi chat: an vui, hoi phuc, phuc mem.
+- Nhan vat: dong tu thanh khi ngoi ben ho sen trong mien phuc am.
+- Bieu tuong chinh: ho sen, chuong nho, den long, may diu, vuon yen.
+- Mau chinh: xanh thuy, trang ngoc, vang nhe, hong sen.
+- Dien giai chuan: "Phuc mem duong tam, an vui hoi phuc."
+- Ghi chu tranh lan: khong ve tre con don gian; can co chieu sau noi tam.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/75-thien-dong-phuc-duc.png`
+
+### 76. [TOA_CUNG] THAI AM @ PHU_MAU
+
+- Ten hien thi: THAI AM PHU MAU / THÁI ÂM PHỤ MẪU
+- Ten he thong: `[TOA_CUNG] THAI AM @ PHU_MAU`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thai Am
+- Cung boi canh: Phu Mau
+- Vai tro trong "bo phim la so": me, am duc gia dinh, su cham soc va tai san mem tu dong me.
+- Khi chat: mau tinh, am duc, che cho.
+- Nhan vat: nguyet mau ben khung cua nha co, trao den bac cho con.
+- Bieu tuong chinh: trang tron, man lua, chau ngoc, thu nha, den dem.
+- Mau chinh: bac, xanh dem, trang ngoc, tim tram.
+- Dien giai chuan: "Nguyet mau che cho, am duc nuoi than."
+- Ghi chu tranh lan: khong ve lai Thai Am Tai Bach; phai nhan vao cha me/gia dinh.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/76-thai-am-phu-mau.png`
+
+### 77. [TOA_CUNG] THAI DUONG @ PHU_MAU
+
+- Ten hien thi: THAI DUONG PHU MAU / THÁI DƯƠNG PHỤ MẪU
+- Ten he thong: `[TOA_CUNG] THAI DUONG @ PHU_MAU`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thai Duong
+- Cung boi canh: Phu Mau
+- Vai tro trong "bo phim la so": cha, danh gia, khuon phep va anh sang gia dao.
+- Khi chat: phu tinh, khuon phep, gia phong.
+- Nhan vat: nhat quan/phu than dung truoc cong nha, anh mat troi chieu len gia pha.
+- Bieu tuong chinh: mat troi, gia pha, cong nha, an vang, bong cha.
+- Mau chinh: vang kim, do tram, xanh den, trang nang.
+- Dien giai chuan: "Nhat phu dinh gia, anh sang lap khuon."
+- Ghi chu tranh lan: khong ve thanh Quan Loc; day la anh sang phu mau.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/77-thai-duong-phu-mau.png`
+
+### 78. [TOA_CUNG] LIEM TRINH @ TAT_ACH
+
+- Ten hien thi: LIEM TRINH TAT ACH / LIÊM TRINH TẬT ÁCH
+- Ten he thong: `[TOA_CUNG] LIEM TRINH @ TAT_ACH`
+- Kieu the: TOA_CUNG
+- Sao chinh: Liem Trinh
+- Cung boi canh: Tat Ach
+- Vai tro trong "bo phim la so": ky luat than the, doc to tich tu, viem nhiet, can thanh loc.
+- Khi chat: ky luat, canh bao, thanh loc.
+- Nhan vat: quan giam y quan soi than mach trong phong duoc toi.
+- Bieu tuong chinh: mach do, duoc binh, lua nho, xi xich mong, kinh mach.
+- Mau chinh: do ruou, vang dong, den son mai, xanh duoc thao.
+- Dien giai chuan: "Liem hoa trong than, ky luat giai ach."
+- Ghi chu tranh lan: khong kinh di, khong ve benh mau me; can sang trong va canh bao.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/78-liem-trinh-tat-ach.png`
+
+### 79. [TOA_CUNG] THIEN CO @ HUYNH_DE
+
+- Ten hien thi: THIEN CO HUYNH DE / THIÊN CƠ HUYNH ĐỆ
+- Ten he thong: `[TOA_CUNG] THIEN CO @ HUYNH_DE`
+- Kieu the: TOA_CUNG
+- Sao chinh: Thien Co
+- Cung boi canh: Huynh De
+- Vai tro trong "bo phim la so": anh em, ban dong hang, mang luoi y tuong, lien ket qua muu tri.
+- Khi chat: muu tri, dong hang, ket noi.
+- Nhan vat: quan su tre cung huynh de xem ban co/thien nghi.
+- Bieu tuong chinh: ban co, ban ve sao, hai ba bong nguoi, day ket noi, thu tin.
+- Mau chinh: xanh ngoc, dong co, vang nhat, den tram.
+- Dien giai chuan: "Co muu noi huynh de, y tuong ket dong hang."
+- Ghi chu tranh lan: khong ve lai Thien Co Hoa Ky; day la mang luoi anh em.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/79-thien-co-huynh-de.png`
+
+### 80. [TOA_CUNG] THAM LANG @ NO_BOC
+
+- Ten hien thi: THAM LANG NO BOC / THAM LANG NÔ BỘC
+- Ten he thong: `[TOA_CUNG] THAM LANG @ NO_BOC`
+- Kieu the: TOA_CUNG
+- Sao chinh: Tham Lang
+- Cung boi canh: No Boc
+- Vai tro trong "bo phim la so": ban be, mang xa hoi, quan he loi ich, suc hut trong tap the.
+- Khi chat: giao du, mang luoi, loi ich.
+- Nhan vat: Tham Lang giua tiec dem quy phai, nhieu khach quy vay quanh.
+- Bieu tuong chinh: ban tiec, hoa dao, chen ngoc, hop dong mong, den do.
+- Mau chinh: do ruou, luc bao, vang co, tim dem.
+- Dien giai chuan: "Ban be sinh duyen, loi ich cung dong."
+- Ghi chu tranh lan: khong ve tuc; can thay No Boc la quan he va mang luoi.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/80-tham-lang-no-boc.png`
+
+### 81. [TOA_CUNG] VU KHUC @ TU_TUC
+
+- Ten hien thi: VU KHUC TU TUC / VŨ KHÚC TỬ TỨC
+- Ten he thong: `[TOA_CUNG] VU KHUC @ TU_TUC`
+- Kieu the: TOA_CUNG
+- Sao chinh: Vu Khuc
+- Cung boi canh: Tu Tuc
+- Vai tro trong "bo phim la so": con cai, truyen tai san/ky luat, hau due gan voi gia tri thuc te.
+- Khi chat: ke thua, ky luat, gia tri thuc te.
+- Nhan vat: Vu Khuc trao hop kim ngan va sach gia quy cho hau due.
+- Bieu tuong chinh: hop kim, so tai san, tre/hau due o bong sau, cay non, an tin.
+- Mau chinh: kim sam, den xanh, vang dong, ngoc tram.
+- Dien giai chuan: "Kim kho truyen hau, ky luat nuoi con."
+- Ghi chu tranh lan: khong ve thanh Tai Bach; can thay truyen thua cho Tu Tuc.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/81-vu-khuc-tu-tuc.png`
