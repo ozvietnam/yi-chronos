@@ -231,6 +231,27 @@ function contextOracleCardsForPalace(reading) {
     if (card.slug === "thien-phu-tai-bach") {
       return palace === "Tài Bạch" && stars.has("Thiên Phủ");
     }
+    if (card.slug === "vu-khuc-tai-bach") {
+      return palace === "Tài Bạch" && stars.has("Vũ Khúc");
+    }
+    if (card.slug === "thai-duong-quan-loc") {
+      return palace === "Quan Lộc" && stars.has("Thái Dương");
+    }
+    if (card.slug === "thien-phu-dien-trach") {
+      return palace === "Điền Trạch" && stars.has("Thiên Phủ");
+    }
+    if (card.slug === "that-sat-quan-loc") {
+      return palace === "Quan Lộc" && stars.has("Thất Sát");
+    }
+    if (card.slug === "pha-quan-thien-di") {
+      return palace === "Thiên Di" && stars.has("Phá Quân");
+    }
+    if (card.slug === "cu-mon-phu-the") {
+      return palace === "Phu Thê" && stars.has("Cự Môn");
+    }
+    if (card.slug === "thien-tuong-quan-loc") {
+      return palace === "Quan Lộc" && stars.has("Thiên Tướng");
+    }
     return false;
   });
 }

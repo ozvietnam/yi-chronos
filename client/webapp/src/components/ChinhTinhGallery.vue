@@ -93,7 +93,7 @@ function oracleCardFor(star) {
 const activeOracleCard = computed(() => activeStar.value ? oracleCardFor(activeStar.value) : null);
 const latestContextCards = computed(() => {
   return oracleCards.value
-    .filter((card) => card.id >= 61 && card.id <= 66)
+    .filter((card) => card.id >= 67 && card.id <= 73)
     .sort((a, b) => a.id - b.id);
 });
 </script>
@@ -148,7 +148,7 @@ const latestContextCards = computed(() => {
     <section v-if="latestContextCards.length" class="ct-context-strip">
       <header>
         <div>
-          <h3>Đợt mới 61-66 · Tứ Hóa và Tọa Cung</h3>
+          <h3>Đợt mới 67-73 · Tọa Cung đời sống</h3>
           <p>Thẻ ngữ cảnh sẽ tự hiện trong phần luận cung khi lá số có đúng sao, đúng Hóa, đúng cung.</p>
         </div>
         <small>{{ latestContextCards.length }} thẻ đã web-ready</small>
