@@ -233,6 +233,119 @@ def cast_que_cong_huong(birth: BirthInfo, now: NowInfo) -> CastResult:
 # Snapshot — 7 vòng cùng lúc + giao thoa
 # ============================================================================
 
+def _build_tong_doc_narrative(vongs: dict, *casts) -> dict:
+    """Tổng đọc 7 vòng + giao thoa → narrative cho user.
+
+    KHÔNG bịa, KHÔNG predict cát/hung. Chỉ kể cấu trúc.
+    Tạo 4 đoạn:
+    1. Cấu trúc gốc (Khởi Sinh) — anh sinh trong cấu trúc gì
+    2. Vận năm này (Lưu Niên) — năm hiện tại ánh xạ paradigm gì
+    3. Vận tháng + ngày (Lưu Nguyệt + Nhật) — paradigm ngắn hạn
+    4. Vũ trụ + cộng hưởng — giờ này anh × vũ trụ ra paradigm gì
+    """
+    from engine.yi_wiki.giao_thoa import (
+        BAT_QUAI_NGU_HANH, giao_thoa_2_quẻ, ngu_hanh_relation,
+    )
+
+    v1, v2, v3, v4, v6, v7 = casts
+
+    def _q_intro(v_key: str) -> str:
+        """1 dòng intro cho 1 vòng."""
+        vong = vongs[v_key]
+        c = vong["chinh"]
+        lg = vong["luan_giai"]
+        ten_quẻ = f"#{c['number']} {c['name_vi']}" if c.get("number") else c["name"]
+        tom = lg.get("tom_cot", "").split(".")[0].strip()[:120] if lg.get("tom_cot") else ""
+        return f"**{vong['paradigm_meta']['ten']}** = {ten_quẻ} ({c['name']}). {tom}"
+
+    def _hao_line(v_key: str) -> str:
+        """1 dòng hào động."""
+        vong = vongs[v_key]
+        hb = vong["luan_giai"].get("hao_brief", "")
+        if not hb:
+            return ""
+        # Strip markdown
+        return hb.replace("**", "").split("—")[0].strip()[:200]
+
+    # Đoạn 1: Cấu trúc gốc
+    section_1 = f"""## 1. Cấu trúc Khởi Sinh — gốc cố định cả đời
+
+{_q_intro('vong_1_khoi_sinh')}
+
+Hào động {v1.moving_line}: {_hao_line('vong_1_khoi_sinh')}
+
+→ Đây là **TƯỢNG SINH** của anh — KHÔNG predict đời, chỉ là cấu trúc tham chiếu.
+"""
+
+    # Đoạn 2: Vận năm
+    gt_khoi_nien = giao_thoa_2_quẻ(v1.chinh_quai, v2.chinh_quai)
+    section_2 = f"""## 2. Lưu Niên — năm anh đi qua
+
+{_q_intro('vong_2_luu_nien')}
+
+Hào động {v2.moving_line}: {_hao_line('vong_2_luu_nien')}
+
+**Giao thoa với Khởi Sinh**:
+- Thể vs Thể: {gt_khoi_nien['the_vs_the']['label_vi']}
+- Dụng vs Dụng: {gt_khoi_nien['dung_vs_dung']['label_vi']}
+
+→ {gt_khoi_nien['the_vs_the']['paradigm_note']} Năm này phản chiếu paradigm này cho anh.
+"""
+
+    # Đoạn 3: Vận tháng + ngày
+    gt_nien_nguyet = giao_thoa_2_quẻ(v2.chinh_quai, v3.chinh_quai)
+    section_3 = f"""## 3. Lưu Nguyệt + Lưu Nhật — paradigm ngắn hạn
+
+**Tháng**: {_q_intro('vong_3_luu_nguyet')}
+
+**Ngày**: {_q_intro('vong_4_luu_nhat')}
+
+Hào động ngày {v4.moving_line}: {_hao_line('vong_4_luu_nhat')}
+
+**Giao thoa Lưu Niên ↔ Lưu Nguyệt**:
+- Thể: {gt_nien_nguyet['the_vs_the']['label_vi']}
+- {gt_nien_nguyet['the_vs_the']['paradigm_note']}
+"""
+
+    # Đoạn 4: Vũ trụ + cộng hưởng
+    gt_khoi_vu_tru = giao_thoa_2_quẻ(v1.chinh_quai, v6.chinh_quai)
+    section_4 = f"""## 4. Vũ trụ giờ này + Cộng hưởng Tam Tài
+
+**Quẻ Vũ trụ** (chung mọi người): {_q_intro('vong_6_vu_tru')}
+
+**Cộng hưởng** (anh × vũ trụ): {_q_intro('vong_7_cong_huong')}
+
+**Giao thoa Khởi Sinh ↔ Vũ trụ giờ này**:
+- Thể: {gt_khoi_vu_tru['the_vs_the']['label_vi']}
+- {gt_khoi_vu_tru['the_vs_the']['paradigm_note']}
+
+→ Khoảnh khắc này vũ trụ ở paradigm **{vongs['vong_6_vu_tru']['chinh']['name_vi']}** — anh phản chiếu qua quẻ Cộng hưởng **{vongs['vong_7_cong_huong']['chinh']['name_vi']}**.
+"""
+
+    # Cảnh báo paradigm cuối
+    foot = """## ⚠️ Cảnh báo paradigm
+
+Iron Rule #4 (Khang Tiết Q3): **Mai Hoa = đọc đồng dạng, KHÔNG predict cát/hung tĩnh.**
+
+7 vòng trên là **CẤU TRÚC** vũ trụ tại thời điểm — anh là **người đọc**, không phải nhận lệnh.
+
+> _"Một vật vốn có một thân, một thân lại có một trời đất. Biết rằng muôn việc đều sẵn nơi ta, mới dám đặt nền móng cho Tam Tài."_ — Thiệu Khang Tiết, **Vận Pháp Thi**
+
+Trong nhật ký Phase 2 sắp tới, anh gắn việc thực vào → sau N tháng pattern mới hiện ra. Hiện tại chỉ là **tượng**, chưa phải **kiểm chứng**.
+"""
+
+    return {
+        "narrative": section_1 + "\n" + section_2 + "\n" + section_3 + "\n" + section_4 + "\n" + foot,
+        "sections": {
+            "khoi_sinh": section_1,
+            "luu_nien": section_2,
+            "luu_nguyet_nhat": section_3,
+            "vu_tru_cong_huong": section_4,
+            "paradigm_warn": foot,
+        },
+    }
+
+
 def quan_sat_luu_van(birth: BirthInfo, now: NowInfo) -> dict:
     """Snapshot 7 vòng + giao thoa giữa các vòng.
 
@@ -291,11 +404,7 @@ def quan_sat_luu_van(birth: BirthInfo, now: NowInfo) -> dict:
             },
         }
 
-    return {
-        "input": {
-            "birth": birth.__dict__,
-            "now": now.__dict__,
-        },
+    vongs = {
         "vong_1_khoi_sinh": _serialize(vong_1, "khoi_sinh"),
         "vong_2_luu_nien": _serialize(vong_2, "luu_nien"),
         "vong_3_luu_nguyet": _serialize(vong_3, "luu_nguyet"),
@@ -303,6 +412,18 @@ def quan_sat_luu_van(birth: BirthInfo, now: NowInfo) -> dict:
         "vong_5_luu_thoi": _serialize(vong_5, "luu_thoi"),
         "vong_6_vu_tru": _serialize(vong_6, "vu_tru"),
         "vong_7_cong_huong": _serialize(vong_7, "cong_huong"),
+    }
+
+    # Tổng đọc narrative — gắn paradigm cụ thể cho mỗi vòng + giao thoa
+    tong_doc = _build_tong_doc_narrative(vongs, vong_1, vong_2, vong_3, vong_4, vong_6, vong_7)
+
+    return {
+        "input": {
+            "birth": birth.__dict__,
+            "now": now.__dict__,
+        },
+        **vongs,
+        "tong_doc": tong_doc,
         "giao_thoa": {
             "khoi_sinh_vs_luu_nien": giao_thoa_2_quẻ(vong_1.chinh_quai, vong_2.chinh_quai),
             "khoi_sinh_vs_luu_nguyet": giao_thoa_2_quẻ(vong_1.chinh_quai, vong_3.chinh_quai),

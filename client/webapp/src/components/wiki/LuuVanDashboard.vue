@@ -73,6 +73,52 @@ async function loadSnapshot() {
 const calendarsBirth = computed(() => snapshot.value?.calendars?.birth);
 const calendarsNow = computed(() => snapshot.value?.calendars?.now);
 
+// Lightweight markdown renderer cho narrative
+function renderInline(s) {
+  if (!s) return "";
+  return String(s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+    .replace(/_([^_]+)_/g, "<i>$1</i>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>");
+}
+
+function renderMarkdown(md) {
+  if (!md) return "";
+  const lines = md.split("\n");
+  const out = [];
+  let inList = false;
+  for (let i = 0; i < lines.length; i++) {
+    const ln = lines[i];
+    const s = ln.trim();
+    if (!s) {
+      if (inList) { out.push("</ul>"); inList = false; }
+      continue;
+    }
+    let m;
+    if ((m = s.match(/^(#{2,4})\s+(.*)$/))) {
+      const lvl = m[1].length;
+      if (inList) { out.push("</ul>"); inList = false; }
+      out.push(`<h${lvl}>${renderInline(m[2])}</h${lvl}>`);
+      continue;
+    }
+    if (s.startsWith("> ")) {
+      if (inList) { out.push("</ul>"); inList = false; }
+      out.push(`<blockquote>${renderInline(s.slice(2))}</blockquote>`);
+      continue;
+    }
+    if (s.startsWith("- ") || s.startsWith("→ ")) {
+      if (!inList) { out.push("<ul>"); inList = true; }
+      out.push(`<li>${renderInline(s.replace(/^[-→]\s+/, ""))}</li>`);
+      continue;
+    }
+    if (inList) { out.push("</ul>"); inList = false; }
+    out.push(`<p>${renderInline(s)}</p>`);
+  }
+  if (inList) out.push("</ul>");
+  return out.join("\n");
+}
+
 onMounted(loadSnapshot);
 </script>
 
@@ -150,20 +196,46 @@ onMounted(loadSnapshot);
             :moving-line="snapshot[vong.key].moving_line"
             :size="80" :show-label="false" />
         </div>
-        <div class="vong-name">{{ snapshot[vong.key].chinh.name }}</div>
+        <div class="vong-name">
+          <span v-if="snapshot[vong.key].chinh.number">#{{ snapshot[vong.key].chinh.number }} </span>
+          {{ snapshot[vong.key].chinh.name_vi || snapshot[vong.key].chinh.name }}
+          <span v-if="snapshot[vong.key].chinh.name_zh && snapshot[vong.key].chinh.name_zh !== '?'" class="vn-zh">{{ snapshot[vong.key].chinh.name_zh }}</span>
+        </div>
+        <div class="vong-struct">{{ snapshot[vong.key].chinh.name }}</div>
         <div class="vong-meta">
           <span>Hào động: <b>{{ snapshot[vong.key].moving_line }}</b></span>
         </div>
+
+        <!-- Luận giải CỐT (mới) -->
+        <div v-if="snapshot[vong.key].luan_giai?.loi_kinh" class="vong-luan">
+          <div class="vong-han" v-if="snapshot[vong.key].luan_giai.loi_kinh">
+            <span class="lbl">📜</span> {{ snapshot[vong.key].luan_giai.loi_kinh }}
+          </div>
+          <div class="vong-dich" v-if="snapshot[vong.key].luan_giai.loi_kinh_dich">
+            <i>{{ snapshot[vong.key].luan_giai.loi_kinh_dich }}</i>
+          </div>
+          <div class="vong-hao" v-if="snapshot[vong.key].luan_giai.hao_brief">
+            <span class="lbl">▸</span>
+            <span v-html="renderInline(snapshot[vong.key].luan_giai.hao_brief)"></span>
+          </div>
+          <details v-if="snapshot[vong.key].luan_giai.tom_cot" class="vong-tom">
+            <summary>📖 Tóm cốt + paradigm</summary>
+            <p class="tom-cot">{{ snapshot[vong.key].luan_giai.tom_cot }}</p>
+            <p class="paradigm-line"><b>Paradigm:</b> {{ snapshot[vong.key].paradigm_meta.paradigm }}</p>
+          </details>
+        </div>
+
         <div class="vong-bien-ho">
           <span>Biến: <code>{{ snapshot[vong.key].bien.name }}</code></span>
           <span>Hỗ: <code>{{ snapshot[vong.key].ho.name }}</code></span>
         </div>
-        <details class="vong-paradigm">
-          <summary>📜 Paradigm</summary>
-          <p>{{ snapshot[vong.key].paradigm_meta.phan_anh }}</p>
-          <p><i>{{ snapshot[vong.key].paradigm_meta.paradigm }}</i></p>
-        </details>
       </div>
+    </div>
+
+    <!-- Tổng đọc (narrative) -->
+    <div v-if="snapshot?.tong_doc" class="lvd-tong-doc">
+      <h4>📖 Tổng đọc — 7 vòng kể chuyện gì?</h4>
+      <article v-html="renderMarkdown(snapshot.tong_doc.narrative)"></article>
     </div>
 
     <!-- Giao thoa -->
@@ -302,6 +374,74 @@ onMounted(loadSnapshot);
 .vong-paradigm summary { color: #94a3b8; cursor: pointer; font-size: 0.75rem; }
 .vong-paradigm p { color: #cbd5e1; margin: 0.3rem 0; line-height: 1.4; }
 .vong-paradigm i { color: #fbbf24; }
+
+/* CỐT: luận giải Lời Kinh + hào động */
+.vong-struct {
+  text-align: center; font-size: 0.72rem; color: #6b7280; margin-top: -0.1rem;
+}
+.vn-zh { font-size: 0.85rem; color: #e0e7ff; margin-left: 0.2rem; }
+.vong-luan {
+  background: rgba(252, 211, 77, 0.05);
+  border-left: 2px solid rgba(252, 211, 77, 0.4);
+  padding: 0.4rem 0.5rem; margin: 0.4rem 0;
+  font-size: 0.78rem; line-height: 1.5;
+}
+.vong-han {
+  color: #fde68a; font-weight: 600; margin-bottom: 0.2rem;
+}
+.vong-han .lbl { color: #fcd34d; margin-right: 0.25rem; }
+.vong-dich { color: #cbd5e1; margin-bottom: 0.3rem; font-size: 0.78rem; }
+.vong-dich i { color: #e0e7ff; font-style: italic; }
+.vong-hao {
+  color: #c4b5fd;
+  border-top: 1px dashed rgba(196, 181, 253, 0.2);
+  padding-top: 0.3rem;
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+.vong-hao .lbl { color: #a78bfa; }
+.vong-hao :deep(b) { color: #fbbf24; }
+.vong-hao :deep(i) { color: #fde68a; }
+.vong-tom { margin-top: 0.4rem; }
+.vong-tom summary { color: #94a3b8; cursor: pointer; font-size: 0.7rem; }
+.vong-tom .tom-cot { color: #cbd5e1; font-size: 0.75rem; margin: 0.3rem 0; line-height: 1.5; }
+.vong-tom .paradigm-line { color: #94a3b8; font-size: 0.72rem; font-style: italic; }
+.vong-tom .paradigm-line b { color: #fbbf24; font-style: normal; }
+
+/* TỔNG ĐỌC narrative */
+.lvd-tong-doc {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, rgba(252, 211, 77, 0.06), rgba(167, 139, 250, 0.06));
+  border: 1px solid rgba(252, 211, 77, 0.25);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+}
+.lvd-tong-doc h4 {
+  color: #fcd34d; margin: 0 0 0.5rem; font-size: 1rem;
+}
+.lvd-tong-doc article :deep(h2) {
+  color: #fbbf24; font-size: 0.95rem; margin: 1rem 0 0.4rem;
+  border-bottom: 1px solid rgba(252, 211, 77, 0.18); padding-bottom: 0.2rem;
+}
+.lvd-tong-doc article :deep(p) {
+  color: #cbd5e1; line-height: 1.65; margin: 0.4rem 0; font-size: 0.88rem;
+}
+.lvd-tong-doc article :deep(b) { color: #fcd34d; }
+.lvd-tong-doc article :deep(i) { color: #fde68a; }
+.lvd-tong-doc article :deep(code) {
+  background: rgba(196, 181, 253, 0.12); color: #c4b5fd;
+  padding: 1px 5px; border-radius: 3px; font-size: 0.85rem;
+}
+.lvd-tong-doc article :deep(blockquote) {
+  background: rgba(252, 211, 77, 0.06);
+  border-left: 2px solid #fbbf24;
+  padding: 0.4rem 0.7rem; margin: 0.5rem 0;
+  font-style: italic; color: #fef3c7;
+}
+.lvd-tong-doc article :deep(ul) {
+  padding-left: 1.4rem; line-height: 1.6; color: #cbd5e1;
+}
+.lvd-tong-doc article :deep(li) { margin: 0.2rem 0; }
 
 .lvd-giao-thoa { margin-top: 1.2rem; }
 .lvd-giao-thoa h4 { color: #a78bfa; font-size: 0.95rem; margin: 0 0 0.4rem; }
