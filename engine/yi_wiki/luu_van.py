@@ -259,19 +259,36 @@ def quan_sat_luu_van(birth: BirthInfo, now: NowInfo) -> dict:
     vong_6 = cast_que_vu_tru(now)
     vong_7 = cast_que_cong_huong(birth, now)
 
+    from engine.yi_wiki.luan_sau_kinhdich import extract_loi_kinh_and_hao_brief
+
     def _serialize(c: CastResult, paradigm_key: str) -> dict:
+        # Trích Lời Kinh + hào động + insight cốt từ 64 file deep
+        brief = extract_loi_kinh_and_hao_brief(
+            c.chinh_quai.upper_que, c.chinh_quai.lower_que, c.moving_line,
+        )
         return {
             "paradigm_key": paradigm_key,
             "paradigm_meta": VONG_PARADIGM[paradigm_key],
             "chinh": {"upper": c.chinh_quai.upper_que, "lower": c.chinh_quai.lower_que,
                       "name": c.chinh_quai.name, "upper_num": c.chinh_quai.upper_num,
-                      "lower_num": c.chinh_quai.lower_num},
+                      "lower_num": c.chinh_quai.lower_num,
+                      "name_vi": brief.get("name_vi", "?"),
+                      "name_zh": brief.get("name_zh", "?"),
+                      "number": brief.get("number", 0)},
             "bien": {"upper": c.bien_quai.upper_que, "lower": c.bien_quai.lower_que,
                      "name": c.bien_quai.name},
             "ho": {"upper": c.ho_quai.upper_que, "lower": c.ho_quai.lower_que,
                    "name": c.ho_quai.name},
             "moving_line": c.moving_line,
             "formula_trace": c.formula_trace,
+            # CỐT: luận giải cụ thể cho UI
+            "luan_giai": {
+                "tom_cot": brief.get("tom_cot", ""),
+                "loi_kinh": brief.get("loi_kinh", ""),
+                "loi_kinh_dich": brief.get("loi_kinh_dich", ""),
+                "hao_brief": brief.get("hao_brief", ""),
+                "insight_cot": brief.get("insight_cot", ""),
+            },
         }
 
     return {

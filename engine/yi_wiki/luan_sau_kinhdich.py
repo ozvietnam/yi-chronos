@@ -738,6 +738,122 @@ def list_hexagrams() -> list[dict]:
     return out
 
 
+def extract_loi_kinh_and_hao_brief(upper: str, lower: str, hao_num: int) -> dict:
+    """Trích 'Lời Kinh' + dòng hào động + 1-2 insight cốt cho 1 quẻ.
+
+    Output dùng cho UI LuuVanDashboard hiển thị tóm tắt mỗi vòng quẻ.
+
+    Args:
+        upper: bát quái thượng (vd "Cấn")
+        lower: bát quái hạ (vd "Khôn")
+        hao_num: hào động 1-6
+
+    Returns:
+        {
+            "number": 23, "name_vi": "Bác", "name_zh": "剝",
+            "loi_kinh": "Bác bất lợi hữu du vãng.",
+            "loi_kinh_dich": "Bác không lợi có thừa đi.",
+            "hao_brief": "**Lục Nhị**: Bác sàng dĩ biện, miệt trinh, hung — đẽo bằng bễ...",
+            "insight_cot": "Bác xuất hiện do gốc dưới mỏng. Cứu Bác = dày cho gốc.",
+            "tom_cot": "Bác = đẽo gọt rụng. 5 Âm gọt 1 Dương cuối...",
+        }
+    """
+    file_rel = _HEXAGRAM_TO_FILE.get((upper, lower))
+    if not file_rel:
+        return {
+            "number": 0, "name_vi": f"{upper}/{lower}", "name_zh": "?",
+            "loi_kinh": "", "loi_kinh_dich": "",
+            "hao_brief": "", "insight_cot": "",
+            "tom_cot": "Quẻ chưa có trong corpus.",
+        }
+    # Find number from filename: "quẻ/23-bac.md" → 23
+    import re as _re
+    m = _re.match(r"quẻ/(\d+)-", file_rel)
+    if not m:
+        return {"number": 0, "name_vi": f"{upper}/{lower}", "name_zh": "?",
+                "loi_kinh": "", "loi_kinh_dich": "", "hao_brief": "",
+                "insight_cot": "", "tom_cot": ""}
+    number = int(m.group(1))
+    detail = get_hexagram(str(number))
+    if not detail:
+        return {"number": number, "name_vi": f"{upper}/{lower}", "name_zh": "?",
+                "loi_kinh": "", "loi_kinh_dich": "", "hao_brief": "",
+                "insight_cot": "", "tom_cot": ""}
+
+    body = detail["body_markdown"]
+
+    # 1) Tóm cốt = section "## Tóm cốt" (first paragraph)
+    tom_cot = ""
+    m1 = re.search(r"##\s+Tóm cốt\s*\n+(.+?)(?=\n##\s|\n>\s|\Z)", body, re.S)
+    if m1:
+        tom_cot = m1.group(1).strip()[:400]
+
+    # 2) Lời Kinh = first blockquote with Hán + first italic line
+    loi_kinh = ""
+    loi_kinh_dich = ""
+    m2 = re.search(r"##\s+Lời Kinh[^\n]*\n(.+?)(?=\n##\s|\Z)", body, re.S)
+    if m2:
+        section = m2.group(1)
+        # Find Hán line (blockquote with CJK majority)
+        for line in section.split("\n"):
+            ls = line.strip()
+            if ls.startswith("> ") and not ls.startswith("> _"):
+                content = ls[2:].strip()
+                cjk_count = sum(1 for ch in content if "一" <= ch <= "鿿")
+                if cjk_count >= 2 and not loi_kinh:
+                    loi_kinh = content
+            elif ls.startswith("> _") and ls.endswith("_") and not loi_kinh_dich:
+                loi_kinh_dich = ls[3:-1].strip()
+
+    # 3) Hào động — tìm dòng table "6 hào" có tên hào tương ứng
+    hao_brief = ""
+    if hao_num in _HAO_NAMES_BY_NUM:
+        hao_names = _HAO_NAMES_BY_NUM[hao_num]
+        m3 = re.search(r"##\s+6\s+hào[^\n]*\n(.*?)(?=\n##\s|\Z)", body, re.S | re.IGNORECASE)
+        if m3:
+            section = m3.group(1)
+            for line in section.split("\n"):
+                ls = line.strip()
+                if ls.startswith("|") and any(name in ls for name in hao_names):
+                    # Found row — extract content (drop pipes)
+                    cells = [c.strip().replace("**", "") for c in ls.strip("|").split("|")]
+                    if len(cells) >= 2:
+                        # cells[0] = hào name, cells[1+] = lời/tâm pháp
+                        hao_brief = f"**{cells[0]}**: " + " — ".join(cells[1:])[:400]
+                    break
+        # Fallback: "## Insight {hào}" section
+        if not hao_brief:
+            for name in hao_names:
+                m4 = re.search(rf"##\s+(?:Insight\s+)?{re.escape(name)}[^\n]*\n(.+?)(?=\n##\s|\Z)", body, re.S)
+                if m4:
+                    content = m4.group(1).strip()
+                    # Take first 400 chars
+                    hao_brief = f"**{name}**: {content[:400]}"
+                    break
+
+    # 4) Insight cốt — section bắt đầu "## Insight CỐT" hoặc "→ **Insight cốt"
+    insight_cot = ""
+    m5 = re.search(r"##\s+Insight\s+(?:CỐT|cốt)[^\n]*\n(.+?)(?=\n##\s|\Z)", body, re.S)
+    if m5:
+        insight_cot = m5.group(1).strip()[:400]
+    else:
+        # Fallback: tìm dòng "→ **Insight cốt**" trong body
+        m5b = re.search(r"→\s+\*\*Insight\s+[Cc]ốt[^*]*\*\*[:\s]*(.+?)(?=\n\n|\n→|\Z)", body, re.S)
+        if m5b:
+            insight_cot = m5b.group(1).strip()[:400]
+
+    return {
+        "number": number,
+        "name_vi": detail.get("name_vi", "?"),
+        "name_zh": detail.get("name_zh", "?"),
+        "loi_kinh": loi_kinh,
+        "loi_kinh_dich": loi_kinh_dich,
+        "hao_brief": hao_brief,
+        "insight_cot": insight_cot,
+        "tom_cot": tom_cot,
+    }
+
+
 def extract_hao_cards() -> list[dict]:
     """Extract 384 cards (64 quẻ × 6 hào) cho spaced repetition learning.
 
