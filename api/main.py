@@ -4710,6 +4710,139 @@ def _fetch_person_birth_iso(person_id: str, user_id: str | None) -> str | None:
     return None
 
 
+# ============================================================================
+# Nhật ký vận — Phase 2A (2026-05-28)
+# Reference: docs/design/MAI-HOA-LUU-VAN-GOAL.md — Phase 2
+# ============================================================================
+
+class NhatKyCreateRequest(BaseModel):
+    happened_at_iso: str         # "YYYY-MM-DD HH:MM" solar
+    title: str
+    body: str = ""
+    tags: list[str] = []
+    importance: int = 3
+    sentiment: str = "chua_ro"
+    birth_solar: str | None = None   # nếu không cấp, load từ profile DB
+
+
+class NhatKyUpdateOutcomeRequest(BaseModel):
+    outcome: str
+    sentiment: str | None = None
+
+
+def _resolve_birth_solar(request: Request, supplied: str | None) -> str | None:
+    """Resolve birth_solar: supplied param hoặc auto từ user profile."""
+    if supplied:
+        return supplied
+    user = _get_current_user_optional(request)
+    if user and user.get("birth_iso"):
+        return user["birth_iso"]
+    return None
+
+
+def _resolve_user_id(request: Request, default: str = "founder") -> str:
+    user = _get_current_user_optional(request)
+    if user and user.get("user_id"):
+        return user["user_id"]
+    return default
+
+
+@app.post("/api/yi-wiki/nhat-ky/create")
+def yi_wiki_nhat_ky_create(req: NhatKyCreateRequest, request: Request) -> dict:
+    """Tạo entry nhật ký + auto-snapshot 7 vòng quẻ tại happened_at."""
+    from engine.yi_wiki.nhat_ky_van import create_entry, entry_to_dict
+    user_id = _resolve_user_id(request)
+    birth = _resolve_birth_solar(request, req.birth_solar)
+    if not birth:
+        raise HTTPException(400, "Không có birth_solar — không thể snapshot 7 vòng. Đăng nhập hoặc cấp birth_solar.")
+    entry = create_entry(
+        user_id=user_id,
+        happened_at_iso=req.happened_at_iso,
+        title=req.title,
+        body=req.body,
+        tags=req.tags,
+        importance=req.importance,
+        sentiment=req.sentiment,
+        birth_solar=birth,
+    )
+    return {"status": "ok", "entry": entry_to_dict(entry)}
+
+
+@app.get("/api/yi-wiki/nhat-ky/list")
+def yi_wiki_nhat_ky_list(request: Request, limit: int = 100) -> dict:
+    """Liệt kê nhật ký user (latest first)."""
+    from engine.yi_wiki.nhat_ky_van import list_entries, entry_to_dict, get_stats
+    user_id = _resolve_user_id(request)
+    entries = list_entries(user_id=user_id, limit=limit)
+    return {
+        "status": "ok",
+        "total": len(entries),
+        "stats": get_stats(user_id),
+        "entries": [entry_to_dict(e) for e in entries],
+    }
+
+
+@app.get("/api/yi-wiki/nhat-ky/get/{entry_id}")
+def yi_wiki_nhat_ky_get(entry_id: int, request: Request) -> dict:
+    from engine.yi_wiki.nhat_ky_van import get_entry, entry_to_dict
+    user_id = _resolve_user_id(request)
+    e = get_entry(entry_id)
+    if not e:
+        raise HTTPException(404, "Entry không tồn tại")
+    if e.user_id != user_id:
+        raise HTTPException(403, "Entry không thuộc về user này")
+    return {"status": "ok", "entry": entry_to_dict(e)}
+
+
+@app.post("/api/yi-wiki/nhat-ky/update-outcome/{entry_id}")
+def yi_wiki_nhat_ky_update_outcome(entry_id: int, req: NhatKyUpdateOutcomeRequest, request: Request) -> dict:
+    from engine.yi_wiki.nhat_ky_van import get_entry, update_outcome, entry_to_dict
+    user_id = _resolve_user_id(request)
+    e = get_entry(entry_id)
+    if not e:
+        raise HTTPException(404, "Entry không tồn tại")
+    if e.user_id != user_id:
+        raise HTTPException(403, "Entry không thuộc về user này")
+    updated = update_outcome(entry_id, outcome=req.outcome, sentiment=req.sentiment)
+    return {"status": "ok", "entry": entry_to_dict(updated)}
+
+
+@app.delete("/api/yi-wiki/nhat-ky/delete/{entry_id}")
+def yi_wiki_nhat_ky_delete(entry_id: int, request: Request) -> dict:
+    from engine.yi_wiki.nhat_ky_van import delete_entry
+    user_id = _resolve_user_id(request)
+    ok = delete_entry(entry_id, user_id=user_id)
+    if not ok:
+        raise HTTPException(404, "Entry không tồn tại hoặc không thuộc về user")
+    return {"status": "ok", "deleted": entry_id}
+
+
+class TimelineRequest(BaseModel):
+    birth_solar: str | None = None
+    year_chi_list: list[str]    # vd ["Ất Tỵ", "Bính Ngọ", "Đinh Mùi"] (3 năm)
+    months: list[int] | None = None
+
+
+@app.post("/api/yi-wiki/luu-van/timeline")
+def yi_wiki_luu_van_timeline(req: TimelineRequest, request: Request) -> dict:
+    """Timeline 12 Lưu Nguyệt qua N năm — so sánh."""
+    from engine.yi_wiki.luu_van import BirthInfo, timeline_luu_nguyet_nam
+    from engine.yi_wiki.lich_conversion import parse_solar_string, solar_to_lunar
+    birth_solar = _resolve_birth_solar(request, req.birth_solar)
+    if not birth_solar:
+        raise HTTPException(400, "Không có birth_solar")
+    bs = parse_solar_string(birth_solar)
+    bl = solar_to_lunar(bs)
+    birth = BirthInfo(
+        year_chi=bl.year_chi, lunar_month=bl.lunar_month,
+        lunar_day=bl.lunar_day, hour_chi=bl.hour_chi,
+    )
+    data = timeline_luu_nguyet_nam(
+        birth, year_chi_list=req.year_chi_list, months=req.months,
+    )
+    return {"status": "ok", **data}
+
+
 @app.get("/api/yi-wiki/luu-van/vu-tru-now")
 def yi_wiki_luu_van_vu_tru_now() -> dict:
     """Quẻ Vũ trụ tại giờ hiện tại — KHÔNG cá nhân hóa.

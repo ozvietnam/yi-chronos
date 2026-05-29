@@ -233,6 +233,69 @@ def cast_que_cong_huong(birth: BirthInfo, now: NowInfo) -> CastResult:
 # Snapshot — 7 vòng cùng lúc + giao thoa
 # ============================================================================
 
+def timeline_luu_nguyet_nam(
+    birth: BirthInfo,
+    year_chi_list: list[str],
+    months: list[int] | None = None,
+) -> dict:
+    """Timeline 12 Lưu Nguyệt qua N năm — so sánh cùng tháng các năm khác nhau.
+
+    Args:
+        birth: sinh thần
+        year_chi_list: list chi năm (vd ["Giáp Ngọ", "Ất Mùi", ...] hoặc chỉ ["Ngọ","Mùi"])
+        months: list tháng âm muốn xem (default: [1..12])
+
+    Returns:
+        {
+            "rows": [{"month": 1, "by_year": {"Ngọ": {chinh, hao, ngu_hanh_vs_birth}, ...}}, ...],
+            "birth_summary": {...}
+        }
+    """
+    months = months or list(range(1, 13))
+    rows = []
+    for m in months:
+        by_year = {}
+        for yc in year_chi_list:
+            # Chỉ lấy chi (last word nếu format "Bính Ngọ")
+            chi_only = yc.split()[-1] if " " in yc else yc
+            try:
+                now = NowInfo(
+                    year_chi=chi_only, lunar_month=m,
+                    lunar_day=birth.lunar_day, hour_chi=birth.hour_chi,
+                )
+                cast = cast_luu_nguyet(birth, now)
+                # Giao thoa với Khởi Sinh
+                from engine.yi_wiki.giao_thoa import (
+                    BAT_QUAI_NGU_HANH, ngu_hanh_relation,
+                )
+                khoi_sinh = cast_que_khoi_sinh(birth)
+                hanh_birth = BAT_QUAI_NGU_HANH[khoi_sinh.chinh_quai.upper_que]
+                hanh_now = BAT_QUAI_NGU_HANH[cast.chinh_quai.upper_que]
+                relation = ngu_hanh_relation(hanh_birth, hanh_now)
+                by_year[yc] = {
+                    "chinh": cast.chinh_quai.name,
+                    "chinh_upper": cast.chinh_quai.upper_que,
+                    "chinh_lower": cast.chinh_quai.lower_que,
+                    "moving_line": cast.moving_line,
+                    "vs_birth": relation["label_vi"],
+                    "vs_birth_relation": relation["relation"],
+                }
+            except Exception as e:
+                by_year[yc] = {"error": str(e)}
+        rows.append({"month": m, "by_year": by_year})
+    return {
+        "birth_summary": {
+            "year_chi": birth.year_chi,
+            "lunar_month": birth.lunar_month,
+            "lunar_day": birth.lunar_day,
+            "hour_chi": birth.hour_chi,
+        },
+        "years": year_chi_list,
+        "months": months,
+        "rows": rows,
+    }
+
+
 def _build_tong_doc_narrative(vongs: dict, *casts) -> dict:
     """Tổng đọc 7 vòng + giao thoa → narrative cho user.
 

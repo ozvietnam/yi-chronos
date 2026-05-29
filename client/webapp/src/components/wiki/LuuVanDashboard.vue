@@ -73,6 +73,33 @@ async function loadSnapshot() {
 const calendarsBirth = computed(() => snapshot.value?.calendars?.birth);
 const calendarsNow = computed(() => snapshot.value?.calendars?.now);
 
+// Drawer chi tiết quẻ (Cải tiến B)
+const drawerHexagram = ref(null);
+const drawerLoading = ref(false);
+const drawerError = ref("");
+
+async function openDrawer(vongKey) {
+  const v = snapshot.value?.[vongKey];
+  if (!v?.chinh?.number) return;
+  drawerHexagram.value = { loading: true, vongLabel: v.paradigm_meta.ten, movingLine: v.moving_line };
+  drawerLoading.value = true;
+  drawerError.value = "";
+  try {
+    const r = await fetch(`/api/yi-wiki/kinh-dich/que/${v.chinh.number}`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    drawerHexagram.value = { ...data, vongLabel: v.paradigm_meta.ten, movingLine: v.moving_line };
+  } catch (e) {
+    drawerError.value = String(e.message || e);
+    drawerHexagram.value = null;
+  } finally {
+    drawerLoading.value = false;
+  }
+}
+function closeDrawer() {
+  drawerHexagram.value = null;
+}
+
 // Lightweight markdown renderer cho narrative
 function renderInline(s) {
   if (!s) return "";
@@ -87,35 +114,45 @@ function renderMarkdown(md) {
   if (!md) return "";
   const lines = md.split("\n");
   const out = [];
-  let inList = false;
+  let inList = false, inTable = false;
   for (let i = 0; i < lines.length; i++) {
     const ln = lines[i];
     const s = ln.trim();
-    if (!s) {
-      if (inList) { out.push("</ul>"); inList = false; }
+    // Tables
+    if (s.startsWith("|") && s.endsWith("|")) {
+      if (!inTable) { out.push("<table>"); inTable = true; }
+      if (s.match(/^\|\s*[-:]+\s*\|/)) continue; // separator
+      const cells = s.slice(1, -1).split("|").map(c => c.trim());
+      const isHeader = (i + 1 < lines.length && lines[i + 1].trim().match(/^\|\s*[-:]+/));
+      const tag = isHeader ? "th" : "td";
+      out.push("<tr>" + cells.map(c => `<${tag}>${renderInline(c)}</${tag}>`).join("") + "</tr>");
       continue;
-    }
+    } else if (inTable) { out.push("</table>"); inTable = false; }
+
+    if (!s) { if (inList) { out.push("</ul>"); inList = false; } continue; }
     let m;
-    if ((m = s.match(/^(#{2,4})\s+(.*)$/))) {
+    if ((m = s.match(/^(#{1,6})\s+(.*)$/))) {
       const lvl = m[1].length;
       if (inList) { out.push("</ul>"); inList = false; }
       out.push(`<h${lvl}>${renderInline(m[2])}</h${lvl}>`);
       continue;
     }
+    if (s === "---") { out.push("<hr>"); continue; }
     if (s.startsWith("> ")) {
       if (inList) { out.push("</ul>"); inList = false; }
       out.push(`<blockquote>${renderInline(s.slice(2))}</blockquote>`);
       continue;
     }
-    if (s.startsWith("- ") || s.startsWith("→ ")) {
+    if (s.startsWith("- ") || s.startsWith("→ ") || s.match(/^[*]\s+/)) {
       if (!inList) { out.push("<ul>"); inList = true; }
-      out.push(`<li>${renderInline(s.replace(/^[-→]\s+/, ""))}</li>`);
+      out.push(`<li>${renderInline(s.replace(/^[-→*]\s+/, ""))}</li>`);
       continue;
     }
     if (inList) { out.push("</ul>"); inList = false; }
     out.push(`<p>${renderInline(s)}</p>`);
   }
   if (inList) out.push("</ul>");
+  if (inTable) out.push("</table>");
   return out.join("\n");
 }
 
@@ -184,7 +221,8 @@ onMounted(loadSnapshot);
     <!-- 7 vòng -->
     <div v-if="snapshot" class="lvd-grid">
       <div v-for="(vong, i) in VONG_ORDER" :key="vong.key" class="vong-card"
-           :style="{borderTopColor: vong.color}">
+           :style="{borderTopColor: vong.color}"
+           @click="openDrawer(vong.key)" :title="'Bấm để mở chi tiết quẻ'">
         <div class="vong-header">
           <span class="vong-label" :style="{color: vong.color}">{{ vong.label }}</span>
           <span class="vong-doi-moi">{{ snapshot[vong.key].paradigm_meta.doi_moi_khi }}</span>
@@ -264,6 +302,22 @@ onMounted(loadSnapshot);
         </tbody>
       </table>
     </div>
+
+    <!-- Drawer chi tiết quẻ (Cải tiến B) -->
+    <aside v-if="drawerHexagram" class="lvd-drawer">
+      <div class="ldr-head">
+        <button class="ldr-close" @click="closeDrawer">✕</button>
+        <span class="ldr-title">
+          <small>{{ drawerHexagram.vongLabel }} · hào động {{ drawerHexagram.movingLine }}</small>
+          <span v-if="drawerHexagram.number">#{{ drawerHexagram.number }} {{ drawerHexagram.name_vi }} {{ drawerHexagram.name_zh }}</span>
+        </span>
+      </div>
+      <div class="ldr-body">
+        <div v-if="drawerLoading" class="ldr-status">Đang đọc quẻ...</div>
+        <div v-if="drawerError" class="ldr-error">Lỗi: {{ drawerError }}</div>
+        <article v-if="drawerHexagram.body_markdown" v-html="renderMarkdown(drawerHexagram.body_markdown)"></article>
+      </div>
+    </aside>
 
     <!-- Paradigm footer -->
     <div v-if="snapshot" class="lvd-foot">
@@ -355,6 +409,12 @@ onMounted(loadSnapshot);
   border-radius: 6px;
   padding: 0.6rem 0.7rem;
   display: flex; flex-direction: column; gap: 0.3rem;
+  cursor: pointer; transition: all .15s;
+}
+.vong-card:hover {
+  background: rgba(252, 211, 77, 0.04);
+  border-color: rgba(252, 211, 77, 0.3);
+  transform: translateY(-1px);
 }
 .vong-header { display: flex; justify-content: space-between; align-items: baseline; }
 .vong-label { font-weight: 600; font-size: 0.85rem; }
@@ -468,8 +528,51 @@ onMounted(loadSnapshot);
   color: #c4b5fd;
 }
 
+/* Drawer chi tiết quẻ (Cải tiến B) */
+.lvd-drawer {
+  position: fixed; top: 60px; right: 0; bottom: 0; width: 540px; max-width: 92vw;
+  background: #0f172a; border-left: 2px solid #fcd34d; z-index: 200;
+  display: flex; flex-direction: column; box-shadow: -4px 0 24px rgba(0,0,0,0.5);
+}
+.ldr-head {
+  padding: 0.6rem 0.9rem; background: #422006; color: white;
+  display: flex; gap: 0.7rem; align-items: center; flex-shrink: 0;
+}
+.ldr-close {
+  background: rgba(255,255,255,0.18); border: none; color: white;
+  padding: 0.25rem 0.6rem; border-radius: 4px; cursor: pointer; font-weight: bold;
+}
+.ldr-close:hover { background: rgba(255,255,255,0.3); }
+.ldr-title { display: flex; flex-direction: column; line-height: 1.2; }
+.ldr-title small { color: #fde68a; font-size: 0.72rem; font-style: italic; }
+.ldr-title span { color: #fcd34d; font-weight: 600; }
+.ldr-body { flex: 1; overflow-y: auto; padding: 1rem 1.2rem; }
+.ldr-status, .ldr-error { padding: 1rem; text-align: center; color: #94a3b8; }
+.ldr-error { color: #f87171; }
+.ldr-body :deep(h1) { font-size: 1.25rem; color: #fcd34d; margin: 0.5rem 0; }
+.ldr-body :deep(h2) { font-size: 1.05rem; color: #fbbf24; margin: 1rem 0 0.4rem; border-bottom: 1px solid rgba(252,211,77,0.18); padding-bottom: 0.2rem; }
+.ldr-body :deep(h3) { font-size: 0.95rem; color: #fde68a; margin: 0.7rem 0 0.3rem; }
+.ldr-body :deep(p) { color: #cbd5e1; line-height: 1.6; margin: 0.4rem 0; font-size: 0.88rem; }
+.ldr-body :deep(b) { color: #fcd34d; }
+.ldr-body :deep(i) { color: #fde68a; }
+.ldr-body :deep(code) { background: rgba(196,181,253,0.12); color: #c4b5fd; padding: 1px 5px; border-radius: 3px; font-size: 0.85rem; }
+.ldr-body :deep(blockquote) {
+  background: rgba(252,211,77,0.06); border-left: 2px solid #fbbf24;
+  padding: 0.4rem 0.7rem; margin: 0.5rem 0; color: #fef3c7; font-style: italic;
+}
+.ldr-body :deep(table) { border-collapse: collapse; width: 100%; margin: 0.5rem 0; font-size: 0.82rem; }
+.ldr-body :deep(th), .ldr-body :deep(td) {
+  border: 1px solid rgba(196,181,253,0.15); padding: 0.3rem 0.5rem; text-align: left; vertical-align: top;
+}
+.ldr-body :deep(th) { background: rgba(252,211,77,0.08); color: #fcd34d; }
+.ldr-body :deep(td) { color: #cbd5e1; }
+.ldr-body :deep(ul) { padding-left: 1.3rem; line-height: 1.55; }
+.ldr-body :deep(li) { color: #cbd5e1; margin: 0.2rem 0; }
+.ldr-body :deep(hr) { border: 0; border-top: 1px dashed rgba(252,211,77,0.25); margin: 1rem 0; }
+
 @media (max-width: 700px) {
   .lvd-calendars { grid-template-columns: 1fr; }
   .cal-grid { grid-template-columns: 1fr; }
+  .lvd-drawer { width: 100%; }
 }
 </style>
