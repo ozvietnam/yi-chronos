@@ -49,6 +49,7 @@ import KinhDichGraph from "./components/wiki/KinhDichGraph.vue";
 import HaoSpacedRepetition from "./components/wiki/HaoSpacedRepetition.vue";
 import LuuVanDashboard from "./components/wiki/LuuVanDashboard.vue";
 import NhatKyVanPanel from "./components/wiki/NhatKyVanPanel.vue";
+import LuuNguyetTimeline from "./components/wiki/LuuNguyetTimeline.vue";
 // DailyHexagramPanel: DEPRECATED 2026-05-27 đêm — paradigm SAI (horoscope-style).
 // Thay bằng LuuVanDashboard (7 vòng quẻ đúng paradigm Khang Tiết).
 // import DailyHexagramPanel from "./components/wiki/DailyHexagramPanel.vue";
@@ -541,8 +542,15 @@ onBeforeUnmount(() => {
         <LuuVanDashboard />
 
         <details>
+          <summary style="cursor: pointer; color: #c4b5fd; padding: 0.4rem 0; font-size: 0.9rem; border-top: 1px solid rgba(196,181,253,0.2); margin-top: 1rem;">
+            📅 Timeline 12 Lưu Nguyệt × 3 năm — so sánh paradigm các năm
+          </summary>
+          <LuuNguyetTimeline />
+        </details>
+
+        <details>
           <summary style="cursor: pointer; color: #34d399; padding: 0.4rem 0; font-size: 0.9rem; border-top: 1px solid rgba(52,211,153,0.2); margin-top: 1rem;">
-            📓 Nhật ký vận — gắn việc thực × 7 quẻ (Phase 2A)
+            📓 Nhật ký vận — gắn việc thực × 7 quẻ (+ LLM đọc lại)
           </summary>
           <NhatKyVanPanel />
         </details>

@@ -4898,6 +4898,229 @@ def yi_wiki_luu_van_timeline(req: TimelineRequest, request: Request) -> dict:
     return {"status": "ok", **data}
 
 
+class LuuVanLLMRequest(BaseModel):
+    """Tổng đọc 7 vòng dùng LLM."""
+    birth_solar: str | None = None
+    now_solar: str | None = None
+    user_question: str | None = None  # câu hỏi cụ thể (tùy chọn)
+
+
+@app.post("/api/yi-wiki/luu-van/llm-tong-doc")
+def yi_wiki_luu_van_llm_tong_doc(req: LuuVanLLMRequest, request: Request) -> dict:
+    """V1 — LLM Tổng đọc CÁ NHÂN HÓA cho 7 vòng (DeepSeek/MiniMax).
+
+    Context: 7 quẻ + Lời Kinh + hào động + patterns + lịch song song.
+    Output: narrative ~1500 chars, paradigm Iron Rule #4 (đọc đồng dạng).
+    """
+    from engine.yi_wiki.luu_van import (
+        BirthInfo, NowInfo, quan_sat_luu_van,
+    )
+    from engine.yi_wiki.lich_conversion import parse_solar_string, solar_to_lunar
+    from engine.yi_wiki.luan_sau_kinhdich import call_llm_luan_sau
+
+    birth_solar = _resolve_birth_solar(request, req.birth_solar)
+    if not birth_solar:
+        raise HTTPException(400, "Không có birth_solar")
+
+    bs = parse_solar_string(birth_solar)
+    bl = solar_to_lunar(bs)
+    birth = BirthInfo(year_chi=bl.year_chi, lunar_month=bl.lunar_month,
+                     lunar_day=bl.lunar_day, hour_chi=bl.hour_chi)
+
+    if req.now_solar:
+        ns = parse_solar_string(req.now_solar)
+    else:
+        import datetime as _dt
+        from engine.yi_wiki.lich_conversion import SolarDateTime
+        nowdt = _dt.datetime.now()
+        ns = SolarDateTime(year=nowdt.year, month=nowdt.month, day=nowdt.day,
+                          hour=nowdt.hour, minute=nowdt.minute)
+    nl = solar_to_lunar(ns)
+    now = NowInfo(year_chi=nl.year_chi, lunar_month=nl.lunar_month,
+                 lunar_day=nl.lunar_day, hour_chi=nl.hour_chi)
+
+    snapshot = quan_sat_luu_van(birth, now)
+
+    # Build prompt — đầy đủ paradigm + cá nhân hóa
+    vong_summary = []
+    for i in range(1, 8):
+        k = [x for x in snapshot.keys() if x.startswith(f"vong_{i}_")][0]
+        v = snapshot[k]
+        lg = v.get("luan_giai", {})
+        vong_summary.append(
+            f"**{v['paradigm_meta']['ten']}** = quẻ #{v['chinh'].get('number','?')} "
+            f"{v['chinh'].get('name_vi','?')} {v['chinh'].get('name_zh','')} "
+            f"({v['chinh']['name']}, hào động {v['moving_line']})\n"
+            f"  - Lời Kinh: {lg.get('loi_kinh','(không có)')}\n"
+            f"  - Dịch: {lg.get('loi_kinh_dich','(không có)')}\n"
+            f"  - Hào: {lg.get('hao_brief','(không có)')[:200]}"
+        )
+
+    patterns_summary = "\n".join(
+        f"- [{p['severity']}] {p['label']}: {p['detail']}"
+        for p in snapshot.get("patterns", [])
+    ) or "(không phát hiện pattern đặc biệt)"
+
+    cal_b = snapshot["calendars"]["birth"]
+    cal_n = snapshot["calendars"]["now"]
+
+    prompt = f"""Bạn là **bậc trí giả Mai Hoa Dịch Số** kế thừa Thiệu Khang Tiết.
+
+## ⚠️ Paradigm BẮT BUỘC (Iron Rule #4)
+
+Mai Hoa = **ĐỌC ĐỒNG DẠNG**, KHÔNG predict cát/hung tĩnh.
+
+❌ TRÁNH: "anh sẽ thành công/thất bại", "ngày tốt/xấu"
+✅ DÙNG: "khoảnh khắc anh phản chiếu cái gì", "vũ trụ đang nói qua khoảnh khắc này"
+
+## Dữ liệu
+
+**Sinh thần Anh**: {cal_b.get('solar')} (âm {cal_b.get('lunar')}, {cal_b.get('year_can_chi')} giờ {cal_b.get('hour_chi')})
+**Hiện tại**: {cal_n.get('solar')} (âm {cal_n.get('lunar')}, {cal_n.get('year_can_chi')} giờ {cal_n.get('hour_chi')})
+
+## 7 vòng quẻ
+
+{chr(10).join(vong_summary)}
+
+## Patterns phát hiện
+
+{patterns_summary}
+
+{f'## Câu hỏi cụ thể của Anh: {req.user_question}' if req.user_question else ''}
+
+## Yêu cầu luận sâu
+
+Viết **phê quẻ tổng** ~1200-1800 chữ theo cấu trúc:
+
+1. **Quan vật khoảnh khắc** (~200 chữ): khoảnh khắc Anh đang đứng, vũ trụ phản chiếu gì qua 7 vòng. Đặc biệt nhấn pattern dominant (nếu có).
+
+2. **Khởi Sinh × Lưu Niên** (~250 chữ): cấu trúc gốc gặp năm này → paradigm gì. Dẫn nguyên văn Lời Kinh + hào động cụ thể.
+
+3. **Lưu Nguyệt + Lưu Nhật** (~250 chữ): paradigm ngắn hạn. Trích dẫn hào.
+
+4. **Vũ trụ + Cộng hưởng Tam Tài** (~250 chữ): giờ này vũ trụ rung gì, Anh phản chiếu qua Cộng hưởng thành quẻ gì.
+
+5. **Tâm pháp cho Anh** (~250 chữ): KHÔNG kê hành động cụ thể. Chỉ ra cảnh giới + phận, dùng 1-2 câu Thầy Tổ.
+
+LƯU Ý CRITICAL:
+- Viết tiếng Việt, xưng "Anh"
+- Trích nguyên văn từ Lời Kinh / Trình Di / Chu Hy có trong context
+- KHÔNG bịa quẻ / hào không có
+- KHÔNG dùng tone fortune-telling
+"""
+
+    try:
+        llm_result = call_llm_luan_sau(prompt)
+    except Exception as exc:
+        raise HTTPException(503, f"LLM failed: {exc}")
+
+    return {
+        "status": "ok",
+        "narrative": llm_result["narrative"],
+        "provider": llm_result["provider"],
+        "model": llm_result.get("model", ""),
+        "tokens_used": llm_result.get("tokens_used", 0),
+        "patterns_count": len(snapshot.get("patterns", [])),
+        "context_summary": {
+            "birth": cal_b,
+            "now": cal_n,
+            "vong_count": 7,
+        },
+    }
+
+
+class NhatKyReadbackRequest(BaseModel):
+    entry_id: int
+    user_question: str | None = None
+
+
+@app.post("/api/yi-wiki/nhat-ky/llm-doc-lai")
+def yi_wiki_nhat_ky_llm_doc_lai(req: NhatKyReadbackRequest, request: Request) -> dict:
+    """V5 — LLM ĐỌC LẠI 1 entry nhật ký với 7 quẻ snapshot.
+
+    Paradigm: phản chiếu việc thực vs paradigm quẻ. KHÔNG predict.
+    Đây là tiền đề Phase 3 pattern mining manual.
+    """
+    from engine.yi_wiki.nhat_ky_van import get_entry
+    from engine.yi_wiki.luan_sau_kinhdich import call_llm_luan_sau
+    user_id = _resolve_user_id(request)
+    e = get_entry(req.entry_id)
+    if not e:
+        raise HTTPException(404, "Entry không tồn tại")
+    if e.user_id != user_id:
+        raise HTTPException(403, "Entry không thuộc user này")
+
+    snap = e.luu_van_snapshot or {}
+    vong_lines = []
+    for i in range(1, 8):
+        ks = [k for k in snap.keys() if k.startswith(f"vong_{i}_")]
+        if not ks:
+            continue
+        v = snap[ks[0]]
+        lg = v.get("luan_giai", {})
+        vong_lines.append(
+            f"- **{v['paradigm_meta']['ten']}** = #{v['chinh'].get('number','?')} "
+            f"{v['chinh'].get('name_vi','?')} hào {v['moving_line']}: "
+            f"{lg.get('hao_brief','')[:200]}"
+        )
+
+    patterns = snap.get("patterns", [])
+    pattern_text = ""
+    if patterns:
+        pattern_text = "\n\n## Patterns:\n" + "\n".join(
+            f"- {p.get('label','')}: {p.get('detail','')[:150]}" for p in patterns[:3]
+        )
+
+    prompt = f"""Bạn là **bậc trí giả Mai Hoa Dịch Số** kế thừa Thiệu Khang Tiết.
+
+⚠️ Iron Rule #4: ĐỌC ĐỒNG DẠNG, KHÔNG predict cát/hung.
+
+## Việc thực user ghi vào nhật ký
+
+**Title**: {e.title}
+**Thời điểm**: {e.happened_at_iso}
+**Importance**: {e.importance}/5
+**Tags**: {', '.join(e.tags or [])}
+
+**Nội dung**:
+{e.body or '(không có nội dung chi tiết)'}
+
+**Outcome** (đã ghi sau khi việc xong):
+{e.outcome or '(chưa có outcome)'}
+
+**Sentiment user gán**: {e.sentiment}
+
+## 7 vòng quẻ tại thời điểm việc xảy ra
+
+{chr(10).join(vong_lines)}
+{pattern_text}
+
+{f'## Câu hỏi cụ thể: {req.user_question}' if req.user_question else ''}
+
+## Yêu cầu
+
+Viết **phản chiếu** ngắn (~600-1000 chữ):
+
+1. **Đối chiếu việc thực × 7 quẻ** (~300 chữ): Việc Anh ghi xảy ra trong cấu trúc paradigm gì? Dẫn 1-2 quẻ + hào cụ thể.
+
+2. **Outcome ↔ paradigm** (~250 chữ): Nếu có outcome — outcome có khớp/lệch paradigm quẻ không? KHÔNG nói "đúng/sai" — nói "khớp/lệch + giải thích".
+
+3. **Bài học rút ra cho lần sau** (~200 chữ): trong paradigm này, lần sau gặp việc tương tự nên đọc/quan sát thế nào? KHÔNG kê hành động — chỉ paradigm.
+
+KHÔNG bịa, KHÔNG fortune-telling. Viết tiếng Việt, xưng "Anh".
+"""
+    try:
+        llm_result = call_llm_luan_sau(prompt)
+    except Exception as exc:
+        raise HTTPException(503, f"LLM failed: {exc}")
+    return {
+        "status": "ok",
+        "narrative": llm_result["narrative"],
+        "provider": llm_result["provider"],
+        "tokens_used": llm_result.get("tokens_used", 0),
+    }
+
+
 @app.get("/api/yi-wiki/luu-van/vu-tru-now")
 def yi_wiki_luu_van_vu_tru_now() -> dict:
     """Quẻ Vũ trụ tại giờ hiện tại — KHÔNG cá nhân hóa.

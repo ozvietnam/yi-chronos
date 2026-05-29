@@ -73,6 +73,43 @@ async function loadSnapshot() {
 const calendarsBirth = computed(() => snapshot.value?.calendars?.birth);
 const calendarsNow = computed(() => snapshot.value?.calendars?.now);
 
+// V1 — LLM Tổng đọc
+const llmNarrative = ref("");
+const llmLoading = ref(false);
+const llmError = ref("");
+const llmMeta = ref(null);
+
+async function callLLMTongDoc() {
+  llmLoading.value = true;
+  llmError.value = "";
+  llmNarrative.value = "";
+  try {
+    const body = {};
+    if (birthSolar.value) body.birth_solar = birthSolar.value.replace("T", " ");
+    if (!useNow.value && nowSolar.value) body.now_solar = nowSolar.value.replace("T", " ");
+    const r = await fetch("/api/yi-wiki/luu-van/llm-tong-doc", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify(body),
+    });
+    if (!r.ok) {
+      const t = await r.text();
+      throw new Error(`HTTP ${r.status}: ${t}`);
+    }
+    const d = await r.json();
+    llmNarrative.value = d.narrative || "(LLM trả về empty)";
+    llmMeta.value = {
+      provider: d.provider, model: d.model,
+      tokens: d.tokens_used, patterns: d.patterns_count,
+    };
+  } catch (e) {
+    llmError.value = String(e.message || e);
+  } finally {
+    llmLoading.value = false;
+  }
+}
+
 // Drawer chi tiết quẻ (Cải tiến B)
 const drawerHexagram = ref(null);
 const drawerLoading = ref(false);
@@ -270,7 +307,33 @@ onMounted(loadSnapshot);
       </div>
     </div>
 
-    <!-- Tổng đọc (narrative) -->
+    <!-- V2 — Patterns insight box -->
+    <div v-if="snapshot?.patterns?.length" class="lvd-patterns">
+      <h4>🔮 Patterns phát hiện ({{ snapshot.patterns.length }})</h4>
+      <div v-for="(p, i) in snapshot.patterns" :key="i" class="pattern-card" :class="`sev-${p.severity}`">
+        <div class="p-label">{{ p.label }}</div>
+        <div class="p-detail">{{ p.detail }}</div>
+      </div>
+    </div>
+
+    <!-- V1 — LLM Tổng đọc -->
+    <div v-if="snapshot" class="lvd-llm-section">
+      <div class="llm-header">
+        <h4>🤖 LLM Tổng đọc sâu (DeepSeek)</h4>
+        <button class="btn-llm" @click="callLLMTongDoc" :disabled="llmLoading">
+          {{ llmLoading ? '⏳ Đang luận sâu (~15s)...' : (llmNarrative ? '🔄 Đọc lại' : '📜 Gọi LLM luận sâu') }}
+        </button>
+      </div>
+      <div v-if="llmError" class="lvd-error">{{ llmError }}</div>
+      <div v-if="llmNarrative" class="llm-result">
+        <div v-if="llmMeta" class="llm-meta">
+          Provider: <b>{{ llmMeta.provider }}</b> · Model: {{ llmMeta.model }} · Tokens: {{ llmMeta.tokens }} · Patterns: {{ llmMeta.patterns }}
+        </div>
+        <article class="llm-narrative" v-html="renderMarkdown(llmNarrative)"></article>
+      </div>
+    </div>
+
+    <!-- Tổng đọc rule-based (fallback narrative) -->
     <div v-if="snapshot?.tong_doc" class="lvd-tong-doc">
       <h4>📖 Tổng đọc — 7 vòng kể chuyện gì?</h4>
       <article v-html="renderMarkdown(snapshot.tong_doc.narrative)"></article>
@@ -291,12 +354,18 @@ onMounted(loadSnapshot);
           <tr v-for="(gt, k) in snapshot.giao_thoa" :key="k">
             <td><b>{{ k.replace(/_/g, ' ') }}</b><br><small>{{ gt.que_A }} ↔ {{ gt.que_B }}</small></td>
             <td>
-              <span :style="{color: RELATION_COLOR[gt.the_vs_the.relation]}">●</span>
-              {{ gt.the_vs_the.label_vi }}
+              <div>
+                <span :style="{color: RELATION_COLOR[gt.the_vs_the.relation]}">●</span>
+                {{ gt.the_vs_the.label_vi }}
+              </div>
+              <div v-if="gt.the_vs_the.paradigm_rich" class="gt-rich">{{ gt.the_vs_the.paradigm_rich }}</div>
             </td>
             <td>
-              <span :style="{color: RELATION_COLOR[gt.dung_vs_dung.relation]}">●</span>
-              {{ gt.dung_vs_dung.label_vi }}
+              <div>
+                <span :style="{color: RELATION_COLOR[gt.dung_vs_dung.relation]}">●</span>
+                {{ gt.dung_vs_dung.label_vi }}
+              </div>
+              <div v-if="gt.dung_vs_dung.paradigm_rich" class="gt-rich">{{ gt.dung_vs_dung.paradigm_rich }}</div>
             </td>
           </tr>
         </tbody>
@@ -526,6 +595,65 @@ onMounted(loadSnapshot);
 .lvd-foot code {
   background: rgba(196, 181, 253, 0.12); padding: 1px 4px; border-radius: 3px;
   color: #c4b5fd;
+}
+
+/* V2 — Patterns insight */
+.lvd-patterns {
+  margin-top: 1rem;
+  background: rgba(248, 113, 113, 0.04);
+  border: 1px solid rgba(248, 113, 113, 0.18);
+  border-radius: 8px; padding: 0.8rem 1rem;
+}
+.lvd-patterns h4 { color: #f87171; margin: 0 0 0.5rem; font-size: 0.95rem; }
+.pattern-card {
+  padding: 0.5rem 0.7rem; margin-bottom: 0.5rem; border-radius: 5px;
+  border-left: 3px solid;
+}
+.pattern-card.sev-high { background: rgba(248, 113, 113, 0.08); border-color: #f87171; }
+.pattern-card.sev-medium { background: rgba(251, 191, 36, 0.06); border-color: #fbbf24; }
+.pattern-card.sev-low { background: rgba(52, 211, 153, 0.06); border-color: #34d399; }
+.p-label { font-weight: 600; color: #fcd34d; font-size: 0.92rem; margin-bottom: 0.2rem; }
+.p-detail { color: #cbd5e1; font-size: 0.82rem; line-height: 1.5; }
+
+/* V1 — LLM section */
+.lvd-llm-section {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(252,211,77,0.04));
+  border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 8px; padding: 0.8rem 1rem;
+}
+.llm-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.llm-header h4 { color: #c4b5fd; margin: 0; font-size: 0.95rem; }
+.btn-llm {
+  background: rgba(167, 139, 250, 0.25); border: 1px solid rgba(167, 139, 250, 0.55);
+  color: #c4b5fd; padding: 0.45rem 0.95rem; border-radius: 5px; cursor: pointer; font-size: 0.85rem;
+}
+.btn-llm:hover { background: rgba(167, 139, 250, 0.35); }
+.btn-llm:disabled { opacity: 0.6; cursor: wait; }
+.llm-result { margin-top: 0.7rem; }
+.llm-meta {
+  font-size: 0.74rem; color: #94a3b8; padding: 0.3rem 0.5rem;
+  background: rgba(15, 23, 42, 0.4); border-radius: 4px; margin-bottom: 0.5rem;
+}
+.llm-meta b { color: #c4b5fd; }
+.llm-narrative :deep(h1), .llm-narrative :deep(h2), .llm-narrative :deep(h3) {
+  color: #fbbf24; margin: 0.8rem 0 0.4rem;
+}
+.llm-narrative :deep(h1) { font-size: 1.1rem; }
+.llm-narrative :deep(h2) { font-size: 1rem; border-bottom: 1px solid rgba(252,211,77,0.18); padding-bottom: 0.15rem; }
+.llm-narrative :deep(h3) { font-size: 0.92rem; }
+.llm-narrative :deep(p) { color: #e2e8f0; line-height: 1.7; margin: 0.5rem 0; font-size: 0.9rem; }
+.llm-narrative :deep(b) { color: #fcd34d; }
+.llm-narrative :deep(i) { color: #fde68a; font-style: italic; }
+.llm-narrative :deep(blockquote) {
+  background: rgba(252,211,77,0.06); border-left: 2px solid #fbbf24;
+  padding: 0.4rem 0.7rem; margin: 0.5rem 0; font-style: italic; color: #fef3c7;
+}
+
+/* V3 — paradigm_rich trong giao thoa */
+.gt-rich {
+  font-size: 0.75rem; color: #fde68a; margin-top: 0.2rem;
+  font-style: italic; line-height: 1.4;
 }
 
 /* Drawer chi tiết quẻ (Cải tiến B) */

@@ -163,10 +163,51 @@ const outcomeForm = ref({});
 function openOutcome(entry) {
   outcomeForm.value = { ...entry, _outcome: entry.outcome || "", _sentiment: entry.sentiment || "chua_ro" };
   selectedEntry.value = entry;
+  llmReadback.value = "";
+  llmReadbackError.value = "";
 }
 function saveOutcome() {
   if (!selectedEntry.value) return;
   updateOutcome(selectedEntry.value, outcomeForm.value._outcome, outcomeForm.value._sentiment);
+}
+
+// V5 — LLM đọc lại
+const llmReadback = ref("");
+const llmReadbackLoading = ref(false);
+const llmReadbackError = ref("");
+
+async function callLLMReadback() {
+  if (!selectedEntry.value) return;
+  llmReadbackLoading.value = true;
+  llmReadbackError.value = "";
+  llmReadback.value = "";
+  try {
+    const r = await fetch("/api/yi-wiki/nhat-ky/llm-doc-lai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ entry_id: selectedEntry.value.id }),
+    });
+    if (!r.ok) {
+      const t = await r.text();
+      throw new Error(`HTTP ${r.status}: ${t}`);
+    }
+    const d = await r.json();
+    llmReadback.value = d.narrative || "(LLM trả về empty)";
+  } catch (e) {
+    llmReadbackError.value = String(e.message || e);
+  } finally {
+    llmReadbackLoading.value = false;
+  }
+}
+
+function renderMd(s) {
+  if (!s) return "";
+  return s
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+    .replace(/_([^_]+)_/g, "<i>$1</i>")
+    .replace(/\n/g, "<br>");
 }
 
 onMounted(loadEntries);
@@ -291,7 +332,17 @@ onMounted(loadEntries);
         </label>
         <div class="drawer-actions">
           <button class="btn-save" @click="saveOutcome">💾 Lưu outcome</button>
-          <button class="btn-del" @click="deleteEntry(selectedEntry)">🗑 Xóa entry</button>
+          <button class="btn-llm" @click="callLLMReadback" :disabled="llmReadbackLoading">
+            {{ llmReadbackLoading ? '⏳ Đang đọc...' : '🤖 LLM đọc lại' }}
+          </button>
+          <button class="btn-del" @click="deleteEntry(selectedEntry)">🗑 Xóa</button>
+        </div>
+
+        <!-- V5 — LLM readback result -->
+        <div v-if="llmReadbackError" class="nky-error">{{ llmReadbackError }}</div>
+        <div v-if="llmReadback" class="llm-readback">
+          <h5>📜 LLM phản chiếu việc × paradigm</h5>
+          <article v-html="renderMd(llmReadback)"></article>
         </div>
       </div>
     </aside>
@@ -400,7 +451,22 @@ onMounted(loadEntries);
   background: #1e1b4b; color: #e0e7ff; border: 1px solid rgba(196, 181, 253, 0.3);
   padding: 0.3rem 0.5rem; border-radius: 4px;
 }
-.drawer-actions { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
+.drawer-actions { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+.btn-llm {
+  background: rgba(167, 139, 250, 0.2); border: 1px solid rgba(167, 139, 250, 0.5);
+  color: #c4b5fd; padding: 0.4rem 0.85rem; border-radius: 5px; cursor: pointer; font-size: 0.85rem;
+}
+.btn-llm:hover { background: rgba(167, 139, 250, 0.3); }
+.btn-llm:disabled { opacity: 0.6; cursor: wait; }
+.llm-readback {
+  margin-top: 1rem; padding: 0.7rem 0.9rem;
+  background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(252,211,77,0.04));
+  border: 1px solid rgba(167,139,250,0.3); border-radius: 6px;
+}
+.llm-readback h5 { color: #c4b5fd; margin: 0 0 0.5rem; font-size: 0.92rem; }
+.llm-readback article { color: #e2e8f0; line-height: 1.65; font-size: 0.88rem; }
+.llm-readback :deep(b) { color: #fcd34d; }
+.llm-readback :deep(i) { color: #fde68a; }
 
 @media (max-width: 700px) {
   .form-grid { grid-template-columns: 1fr; }

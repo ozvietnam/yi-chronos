@@ -296,6 +296,134 @@ def timeline_luu_nguyet_nam(
     }
 
 
+def detect_patterns(vongs: dict) -> list[dict]:
+    """Phát hiện pattern giữa 7 vòng quẻ (CỐT cho UI insight box).
+
+    Returns list of patterns, mỗi pattern:
+    {
+        "type": "dominant_que" | "dominant_trigram" | "moving_line_repeat" | "all_ti_hoa",
+        "severity": "high" | "medium" | "low",  -- mức độ chú ý
+        "label": str,
+        "detail": str,
+        "vong_keys": [keys involved]
+    }
+    """
+    patterns = []
+    if not vongs:
+        return patterns
+
+    # Pattern 1: Quẻ chính trùng nhau ở 2+ vòng → dominant
+    chinh_groups: dict[str, list[str]] = {}
+    for vk, v in vongs.items():
+        if not vk.startswith("vong_"):
+            continue
+        que = v.get("chinh", {}).get("name", "")
+        if not que:
+            continue
+        chinh_groups.setdefault(que, []).append(vk)
+    for que, vks in chinh_groups.items():
+        if len(vks) >= 2:
+            ten_quẻ = vongs[vks[0]]["chinh"].get("name_vi", que)
+            number = vongs[vks[0]]["chinh"].get("number", 0)
+            paradigm_short = vongs[vks[0]].get("luan_giai", {}).get("tom_cot", "").split(".")[0][:120]
+            severity = "high" if len(vks) >= 3 else "medium"
+            labels = [vongs[vk]["paradigm_meta"]["ten"] for vk in vks]
+            patterns.append({
+                "type": "dominant_que",
+                "severity": severity,
+                "label": f"🔁 Quẻ #{number} {ten_quẻ} ({que}) xuất hiện ở {len(vks)} vòng",
+                "detail": (
+                    f"Quẻ này dominant tại các vòng: {', '.join(labels)}. "
+                    f"Paradigm cốt: {paradigm_short}. "
+                    f"→ Đáng quan tâm. Vũ trụ đang nhấn mạnh paradigm này nhiều lớp."
+                ),
+                "vong_keys": vks,
+            })
+
+    # Pattern 2: Bát quái thượng/hạ trùng nhau ở 3+ vòng → dominant trigram
+    upper_groups: dict[str, list[str]] = {}
+    for vk, v in vongs.items():
+        if not vk.startswith("vong_"):
+            continue
+        upper = v.get("chinh", {}).get("upper", "")
+        if upper:
+            upper_groups.setdefault(upper, []).append(vk)
+    for upper, vks in upper_groups.items():
+        if len(vks) >= 4:  # 4+ vòng cùng thượng quái
+            from engine.yi_wiki.giao_thoa import BAT_QUAI_NGU_HANH
+            hanh = BAT_QUAI_NGU_HANH.get(upper, "?")
+            patterns.append({
+                "type": "dominant_trigram",
+                "severity": "high",
+                "label": f"⛰ Bát quái {upper} ({hanh}) chiếm {len(vks)}/7 vòng",
+                "detail": (
+                    f"Hành {hanh} ({upper}) đang dominant ở thượng quái nhiều vòng. "
+                    f"→ Năng lượng {hanh} mạnh trong khoảng thời gian này."
+                ),
+                "vong_keys": vks,
+            })
+
+    # Pattern 3: Hào động lặp lại 3+ lần
+    hao_groups: dict[int, list[str]] = {}
+    for vk, v in vongs.items():
+        if not vk.startswith("vong_"):
+            continue
+        hao = v.get("moving_line", 0)
+        if hao:
+            hao_groups.setdefault(hao, []).append(vk)
+    for hao, vks in hao_groups.items():
+        if len(vks) >= 4:
+            patterns.append({
+                "type": "moving_line_repeat",
+                "severity": "medium",
+                "label": f"📍 Hào động {hao} lặp ở {len(vks)}/7 vòng",
+                "detail": (
+                    f"Vũ trụ đang gọi tâm pháp hào {hao} mạnh. "
+                    f"Xét lời hào của các quẻ tại vòng này để tìm chung."
+                ),
+                "vong_keys": vks,
+            })
+
+    # Pattern 4: Khởi Sinh × Vũ trụ tỉ hoà → ngày bình thuận với Anh
+    v1 = vongs.get("vong_1_khoi_sinh", {})
+    v6 = vongs.get("vong_6_vu_tru", {})
+    if v1 and v6:
+        from engine.yi_wiki.giao_thoa import BAT_QUAI_NGU_HANH, ngu_hanh_relation
+        try:
+            hanh_birth = BAT_QUAI_NGU_HANH[v1["chinh"]["upper"]]
+            hanh_vu_tru = BAT_QUAI_NGU_HANH[v6["chinh"]["upper"]]
+            rel = ngu_hanh_relation(hanh_birth, hanh_vu_tru)
+            if rel["relation"] == "ti_hoa":
+                patterns.append({
+                    "type": "khoi_sinh_vu_tru_ti_hoa",
+                    "severity": "low",
+                    "label": f"☯ Khởi Sinh ↔ Vũ trụ hiện tại: TỈ HOÀ ({hanh_birth})",
+                    "detail": (
+                        f"Vũ trụ giờ này cùng hành {hanh_birth} với Khởi Sinh — "
+                        f"không xung không sinh. Khoảnh khắc bình thuận với Anh."
+                    ),
+                    "vong_keys": ["vong_1_khoi_sinh", "vong_6_vu_tru"],
+                })
+            elif rel["relation"] == "B_khac_A":
+                patterns.append({
+                    "type": "khoi_sinh_vu_tru_xung",
+                    "severity": "medium",
+                    "label": f"⚡ Vũ trụ {hanh_vu_tru} khắc Khởi Sinh {hanh_birth}",
+                    "detail": (
+                        f"Vũ trụ giờ này áp Anh. {rel.get('paradigm_rich', '')} "
+                        f"→ Khoảnh khắc cần thận trọng, giữ chính bền."
+                    ),
+                    "vong_keys": ["vong_1_khoi_sinh", "vong_6_vu_tru"],
+                })
+        except KeyError:
+            pass
+
+    # Sort: high > medium > low
+    severity_order = {"high": 0, "medium": 1, "low": 2}
+    patterns.sort(key=lambda p: severity_order.get(p.get("severity", "low"), 3))
+    return patterns
+
+
 def _build_tong_doc_narrative(vongs: dict, *casts) -> dict:
     """Tổng đọc 7 vòng + giao thoa → narrative cho user.
 
@@ -480,6 +608,9 @@ def quan_sat_luu_van(birth: BirthInfo, now: NowInfo) -> dict:
     # Tổng đọc narrative — gắn paradigm cụ thể cho mỗi vòng + giao thoa
     tong_doc = _build_tong_doc_narrative(vongs, vong_1, vong_2, vong_3, vong_4, vong_6, vong_7)
 
+    # V2: Patterns (vòng trùng quẻ, dominant trigram, hào lặp, giao thoa special)
+    patterns = detect_patterns(vongs)
+
     return {
         "input": {
             "birth": birth.__dict__,
@@ -487,6 +618,7 @@ def quan_sat_luu_van(birth: BirthInfo, now: NowInfo) -> dict:
         },
         **vongs,
         "tong_doc": tong_doc,
+        "patterns": patterns,
         "giao_thoa": {
             "khoi_sinh_vs_luu_nien": giao_thoa_2_quẻ(vong_1.chinh_quai, vong_2.chinh_quai),
             "khoi_sinh_vs_luu_nguyet": giao_thoa_2_quẻ(vong_1.chinh_quai, vong_3.chinh_quai),
