@@ -546,6 +546,125 @@ def test_api_personal_reading_endpoint():
     assert len(j["personal_insights"]) >= 7
 
 
+def test_deep_readings_size():
+    """deep_readings.py có đủ entries cho mon/tinh/than/combo."""
+    from engine.ky_mon import MON_DEEP, TINH_DEEP, THAN_DEEP, COMBO_LUAN_GIAI
+
+    assert len(MON_DEEP) == 8  # 8 môn
+    assert len(TINH_DEEP) == 9  # 9 tinh
+    assert len(THAN_DEEP) == 8  # 8 thần
+    assert len(COMBO_LUAN_GIAI) >= 10  # 14+ combos
+
+
+def test_deep_readings_mon_khai_full_fields():
+    """Khai môn deep có đủ 5 fields chính."""
+    from engine.ky_mon import MON_DEEP
+
+    khai = MON_DEEP["Khai"]
+    required = ["tam_phap_ung_xu", "combo_voi_than", "nguoi_co_quy_dung",
+                "cam_ky", "cau_chu_co_dien", "ngu_hanh_chi_tiet"]
+    for field in required:
+        assert field in khai, f"Khai môn thiếu field {field}"
+    # Combo với 8 thần
+    assert len(khai["combo_voi_than"]) == 8
+
+
+def test_deep_readings_tinh_thien_phu():
+    """Thiên Phụ deep — đại cát, đầy đủ combo và tâm pháp."""
+    from engine.ky_mon import TINH_DEEP
+
+    phu = TINH_DEEP["Thiên Phụ"]
+    assert "tam_phap" in phu
+    assert "combo_voi_mon" in phu
+    assert len(phu["combo_voi_mon"]) == 8
+    assert "ĐẠI CÁT" in phu["tam_phap"] or "đại cát" in phu["tam_phap"]
+
+
+def test_deep_readings_than_tri_phu_modern():
+    """Trị Phù có modern_application — guardian angel pattern."""
+    from engine.ky_mon import THAN_DEEP
+
+    tri = THAN_DEEP["Trị Phù"]
+    assert "modern_application" in tri
+    assert "tam_phap_ung_xu" in tri
+    assert "chien_thuat" in tri
+
+
+def test_interpret_cell_deep_founder_khon():
+    """Founder Khôn cung (Đỗ + Thiên Xung + Trị Phù) → cell deep matched."""
+    from engine.ky_mon import interpret_cell_deep
+
+    r = interpret_cell_deep("Khôn", mon_vn="Đỗ", tinh_vn="Thiên Xung", than_vn="Trị Phù")
+    assert r["mon_deep"] is not None
+    assert r["tinh_deep"] is not None
+    assert r["than_deep"] is not None
+    assert len(r["elements"]) == 3
+    # Combo Đỗ + Trị Phù trong MON_DEEP["Đỗ"]["combo_voi_than"]["Trị Phù"]
+    assert "combo_with_current_than" in r["mon_deep"]
+    assert r["mon_deep"]["combo_with_current_than"]["than"] == "Trị Phù"
+
+
+def test_combo_luan_giai_triple_cat():
+    """COMBO_LUAN_GIAI có cát combos quan trọng."""
+    from engine.ky_mon import COMBO_LUAN_GIAI
+
+    # Khai + Thiên Phụ + Cửu Thiên = đại cát kép
+    assert "Khai_TrieuPhu_CuuThien" in COMBO_LUAN_GIAI
+    cat = COMBO_LUAN_GIAI["Khai_TrieuPhu_CuuThien"]
+    assert "đại cát" in cat["loai"]
+    assert "expansion" in cat["luan"].lower() or "MỞ" in cat["luan"]
+
+
+def test_api_combo_patterns():
+    """GET /api/ky-mon/combo-patterns trả patterns."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    r = client.get("/api/ky-mon/combo-patterns")
+    assert r.status_code == 200
+    j = r.json()
+    assert "patterns" in j
+    assert len(j["patterns"]) >= 10
+
+
+def test_api_cell_deep():
+    """POST /api/ky-mon/cell-deep luận cell."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    r = client.post("/api/ky-mon/cell-deep", json={
+        "cung_vn": "Khôn",
+        "mon_vn": "Đỗ",
+        "tinh_vn": "Thiên Xung",
+        "than_vn": "Trị Phù",
+    })
+    assert r.status_code == 200
+    j = r.json()
+    assert j["status"] == "ok"
+    assert j["cell_deep"]["mon_deep"] is not None
+    assert "overall_assessment" in j["cell_deep"]
+
+
+def test_api_element_deep():
+    """GET /api/ky-mon/element-deep/{kind}/{name}."""
+    from api.main import app
+    from fastapi.testclient import TestClient
+
+    client = TestClient(app)
+    # Khai môn
+    r = client.get("/api/ky-mon/element-deep/mon/Khai")
+    assert r.status_code == 200
+    assert r.json()["status"] == "ok"
+    # Not found
+    r = client.get("/api/ky-mon/element-deep/mon/NotExist")
+    assert r.json()["status"] == "not_found"
+    # Bad kind
+    r = client.get("/api/ky-mon/element-deep/foo/Khai")
+    assert r.json()["status"] == "not_found"
+
+
 def test_api_founder_birth_data():
     """GET /api/ky-mon/founder-birth-data trả founder defaults."""
     from api.main import app

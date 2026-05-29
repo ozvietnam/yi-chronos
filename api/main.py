@@ -1632,6 +1632,61 @@ def ky_mon_founder_birth() -> dict[str, object]:
     return {"status": "ok", "data": list_founder_data()}
 
 
+@app.get("/api/ky-mon/combo-patterns")
+def ky_mon_combo_patterns() -> dict[str, object]:
+    """Return danh sách 14+ combo Môn × Tinh × Thần patterns (từ deep_readings)."""
+    from engine.ky_mon import list_combo_patterns
+
+    return {"status": "ok", "patterns": list_combo_patterns()}
+
+
+class KyMonCellDeepRequest(BaseModel):
+    """Luận sâu 1 cell trong bàn KMDG."""
+    cung_vn: str
+    mon_vn: str | None = None
+    tinh_vn: str | None = None
+    than_vn: str | None = None
+    thien_can: str | None = None
+    dia_can: str | None = None
+
+
+@app.post("/api/ky-mon/cell-deep")
+def ky_mon_cell_deep(request: KyMonCellDeepRequest) -> dict[str, object]:
+    """Luận sâu 1 cell (cung + môn + tinh + thần) — micro-readings từ Đàm Liên.
+
+    Trả về: mon_deep + tinh_deep + than_deep + triple_combo (nếu có) + overall.
+    """
+    from engine.ky_mon import interpret_cell_deep
+
+    result = interpret_cell_deep(
+        cung_vn=request.cung_vn,
+        mon_vn=request.mon_vn,
+        tinh_vn=request.tinh_vn,
+        than_vn=request.than_vn,
+        thien_can=request.thien_can,
+        dia_can=request.dia_can,
+    )
+    return {"status": "ok", "cell_deep": result}
+
+
+@app.get("/api/ky-mon/element-deep/{kind}/{name}")
+def ky_mon_element_deep(kind: str, name: str) -> dict[str, object]:
+    """Luận sâu 1 element (mon/tinh/than) — for UI quick lookup.
+
+    kind: 'mon' | 'tinh' | 'than'
+    name: VN name (Khai, Thiên Phụ, Trị Phù, ...)
+    """
+    from engine.ky_mon import MON_DEEP, TINH_DEEP, THAN_DEEP
+
+    pool = {"mon": MON_DEEP, "tinh": TINH_DEEP, "than": THAN_DEEP}.get(kind)
+    if pool is None:
+        return {"status": "not_found", "reason": f"unknown kind: {kind}"}
+    data = pool.get(name)
+    if data is None:
+        return {"status": "not_found", "reason": f"{kind} '{name}' không có trong deep_readings"}
+    return {"status": "ok", "kind": kind, "name": name, "deep": data}
+
+
 @app.get("/api/tu-vi/chinh-tinh")
 def tu_vi_chinh_tinh_list() -> dict[str, object]:
     """Return all 14 chính tinh metadata + interpretation templates."""
