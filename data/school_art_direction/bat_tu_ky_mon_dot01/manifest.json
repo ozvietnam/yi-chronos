@@ -1,0 +1,110 @@
+{
+  "brief": "data/school_art_direction/REQUEST_DOT_01_BAT_TU_KY_MON_ART_BRIEF.md",
+  "generated_at": "2026-05-29T00:00:00+07:00",
+  "batch": "dot01_priority_ky_mon_a",
+  "assets": [
+    {
+      "id": "ky-mon-01-nine-palace-command-board",
+      "kind": "background",
+      "source_png": "data/school_art_direction/bat_tu_ky_mon_dot01/source/ky-mon-01-nine-palace-command-board.png",
+      "webp": "data/school_art_direction/bat_tu_ky_mon_dot01/web_ready/ky-mon-01-nine-palace-command-board.webp",
+      "source_size": [
+        2200,
+        2200
+      ],
+      "web_size": [
+        1600,
+        1600
+      ],
+      "web_bytes": 308670
+    },
+    {
+      "id": "ky-mon-02-eight-gates-icon-set",
+      "kind": "sprite",
+      "source_png": "data/school_art_direction/bat_tu_ky_mon_dot01/source/ky-mon-02-eight-gates-icon-set.png",
+      "webp": "data/school_art_direction/bat_tu_ky_mon_dot01/web_ready/ky-mon-02-eight-gates-icon-set.webp",
+      "source_size": [
+        2200,
+        2200
+      ],
+      "web_size": [
+        1200,
+        1200
+      ],
+      "web_bytes": 154704,
+      "grid": {
+        "cols": 4,
+        "rows": 2
+      },
+      "sliced_icons_webp": [
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/01-khai.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/02-huu.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/03-sinh.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/04-thuong.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/05-do.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/06-canh.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/07-tu.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-02-eight-gates-icon-set/08-kinh.webp"
+      ]
+    },
+    {
+      "id": "ky-mon-03-nine-stars-glyph-set",
+      "kind": "sprite",
+      "source_png": "data/school_art_direction/bat_tu_ky_mon_dot01/source/ky-mon-03-nine-stars-glyph-set.png",
+      "webp": "data/school_art_direction/bat_tu_ky_mon_dot01/web_ready/ky-mon-03-nine-stars-glyph-set.webp",
+      "source_size": [
+        2200,
+        2200
+      ],
+      "web_size": [
+        1200,
+        1200
+      ],
+      "web_bytes": 169548,
+      "grid": {
+        "cols": 3,
+        "rows": 3
+      },
+      "sliced_icons_webp": [
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/01-thien-bong.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/02-thien-nham.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/03-thien-xung.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/04-thien-phu.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/05-thien-cam.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/06-thien-tam.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/07-thien-tru.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/08-thien-anh.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-03-nine-stars-glyph-set/09-thien-nhue.webp"
+      ]
+    },
+    {
+      "id": "ky-mon-04-eight-deities-banner-set",
+      "kind": "sprite",
+      "source_png": "data/school_art_direction/bat_tu_ky_mon_dot01/source/ky-mon-04-eight-deities-banner-set.png",
+      "webp": "data/school_art_direction/bat_tu_ky_mon_dot01/web_ready/ky-mon-04-eight-deities-banner-set.webp",
+      "source_size": [
+        2200,
+        2200
+      ],
+      "web_size": [
+        1200,
+        1200
+      ],
+      "web_bytes": 172178,
+      "grid": {
+        "cols": 4,
+        "rows": 2
+      },
+      "sliced_icons_webp": [
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/01-tri-phu.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/02-dang-xa.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/03-thai-am.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/04-luc-hop.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/05-cau-tran.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/06-chu-tuoc.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/07-cuu-dia.webp",
+        "data/school_art_direction/bat_tu_ky_mon_dot01/icons/ky-mon-04-eight-deities-banner-set/08-cuu-thien.webp"
+      ]
+    }
+  ]
+}
