@@ -41,9 +41,18 @@ PAID_TRANSLATION_MODELS = [
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
 DEEPSEEK_NATIVE_URL = "https://api.deepseek.com/v1"
 
+# LM Studio local — OpenAI-compatible @ localhost:1234/v1 (no auth)
+# Anh đã thay Ollama bằng LM Studio + cài Gemma 4 (2026-05-31)
+import os as _os_lms
+LMSTUDIO_URL = _os_lms.environ.get("LMSTUDIO_URL", "http://localhost:1234/v1")
+LMSTUDIO_TRANSLATION_MODELS = [
+    "google/gemma-4-e4b",   # Gemma 4 8B variant — anh đã pull
+]
+
 _CLIENT = None              # OpenRouter client (free chain)
 _MINIMAX_CLIENT = None      # MiniMax Coding Plan client (middle tier)
 _DEEPSEEK_CLIENT = None     # DeepSeek native client (paid fallback)
+_LMSTUDIO_CLIENT = None     # LM Studio local client (free, top of chain)
 
 
 def _get_api_key() -> str:
@@ -149,6 +158,30 @@ def get_minimax_client():
 def has_minimax_fallback() -> bool:
     """Check if MiniMax middle tier is available."""
     return _get_minimax_key() is not None
+
+
+def get_lmstudio_client():
+    """Lazy-init LM Studio local client (OpenAI-compatible). No real auth needed."""
+    global _LMSTUDIO_CLIENT
+    if _LMSTUDIO_CLIENT is None:
+        from openai import OpenAI
+        _LMSTUDIO_CLIENT = OpenAI(
+            base_url=LMSTUDIO_URL,
+            api_key="lm-studio",  # dummy — LM Studio không check
+        )
+    return _LMSTUDIO_CLIENT
+
+
+def has_lmstudio() -> bool:
+    """Check LM Studio @ localhost:1234 is reachable. Cached weakly."""
+    import urllib.request
+    import urllib.error
+    try:
+        req = urllib.request.Request(f"{LMSTUDIO_URL}/models")
+        with urllib.request.urlopen(req, timeout=1.5) as r:
+            return r.status == 200
+    except Exception:
+        return False
 
 
 def has_paid_fallback() -> bool:
@@ -507,6 +540,8 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
             models_to_try = [(model, "deepseek-native")]
         elif model in MINIMAX_TRANSLATION_MODELS or model.startswith("MiniMax-"):
             models_to_try = [(model, "minimax")]
+        elif model in LMSTUDIO_TRANSLATION_MODELS or model.startswith("google/gemma-") or model.startswith("lmstudio:"):
+            models_to_try = [(model.replace("lmstudio:", ""), "lmstudio")]
         else:
             models_to_try = [(model, "openrouter")]
     elif two_layer and allow_paid_fallback and has_paid_fallback():
@@ -518,8 +553,11 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
             models_to_try.extend([(m, "minimax") for m in MINIMAX_TRANSLATION_MODELS])
         models_to_try.extend([(m, "openrouter") for m in FREE_TRANSLATION_MODELS])
     else:
-        # Single-layer: free chain first (rẻ), MiniMax middle (prepaid), then DeepSeek paid
-        models_to_try = [(m, "openrouter") for m in FREE_TRANSLATION_MODELS]
+        # Single-layer: LM Studio LOCAL first (free, $0, no rate limit) → free OpenRouter → MiniMax → DeepSeek paid
+        models_to_try = []
+        if has_lmstudio():
+            models_to_try.extend([(m, "lmstudio") for m in LMSTUDIO_TRANSLATION_MODELS])
+        models_to_try.extend([(m, "openrouter") for m in FREE_TRANSLATION_MODELS])
         if has_minimax_fallback():
             models_to_try.extend([(m, "minimax") for m in MINIMAX_TRANSLATION_MODELS])
         if allow_paid_fallback and has_paid_fallback():
@@ -536,25 +574,69 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
                 active_client = get_deepseek_client()
             elif provider == "minimax":
                 active_client = get_minimax_client()
+            elif provider == "lmstudio":
+                active_client = get_lmstudio_client()
             else:
                 active_client = client
-            # Generous max_tokens — DeepSeek-chat supports 8K output;
-            # MiniMax-M2 supports ~8K; OpenRouter free typically caps around 4K.
-            max_out = 8000 if provider in ("deepseek-native", "minimax") else 4000
+            # Generous max_tokens — DeepSeek-chat supports 8K; MiniMax-M2 ~8K;
+            # OpenRouter free caps ~4K; LM Studio Gemma 4 e4b context 8K (safe 3K out).
+            if provider in ("deepseek-native", "minimax"):
+                max_out = 8000
+            elif provider == "lmstudio":
+                max_out = 3000  # gemma-4-e4b local cap
+            else:
+                max_out = 4000
+            # LM Studio chỉ chấp nhận json_schema / text — không json_object
+            if provider == "lmstudio":
+                if two_layer:
+                    item_schema = {
+                        "type": "object",
+                        "properties": {
+                            "hanviet": {"type": "string"},
+                            "luangiai": {"type": "string"},
+                        },
+                        "required": ["hanviet", "luangiai"],
+                    }
+                else:
+                    item_schema = {"type": "string"}
+                rf = {
+                    "type": "json_schema",
+                    "json_schema": {
+                        "name": "translations_response",
+                        "strict": True,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "translations": {
+                                    "type": "array",
+                                    "items": item_schema,
+                                    "minItems": len(lines),
+                                    "maxItems": len(lines),
+                                },
+                            },
+                            "required": ["translations"],
+                            "additionalProperties": False,
+                        },
+                    },
+                }
+            else:
+                rf = {"type": "json_object"}
+
             response = active_client.chat.completions.create(
                 model=m,
                 messages=[
                     {"role": "system", "content": sys_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
-                response_format={"type": "json_object"},
+                response_format=rf,
                 timeout=timeout,
                 max_tokens=max_out,
             )
             elapsed = time.time() - t0
             content = response.choices[0].message.content
             # MiniMax-M2 (reasoning) prepends <think>...</think> + may wrap in ```json``` markdown
-            if provider == "minimax" and content:
+            # LM Studio Gemma 4 sometimes wraps in ```json``` too
+            if provider in ("minimax", "lmstudio") and content:
                 import re as _re
                 content = _re.sub(r"<think>.*?</think>\s*", "", content, flags=_re.DOTALL | _re.IGNORECASE).strip()
                 # Strip markdown code fence
