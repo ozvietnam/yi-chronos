@@ -46,8 +46,36 @@ DEEPSEEK_NATIVE_URL = "https://api.deepseek.com/v1"
 import os as _os_lms
 LMSTUDIO_URL = _os_lms.environ.get("LMSTUDIO_URL", "http://localhost:1234/v1")
 LMSTUDIO_TRANSLATION_MODELS = [
-    "google/gemma-4-e4b",   # Gemma 4 8B variant — anh đã pull
+    # Ưu tiên Qwen (Hán-Việt mạnh hơn Gemma cho Tử Vi/Mai Hoa)
+    "qwen/qwen3-8b",
+    "qwen/qwen2.5-14b-instruct",
+    "qwen/qwen2.5-7b-instruct",
+    "google/gemma-4-e4b",   # Fallback — Gemma 4 e4b: nhanh nhưng sai term Tử Vi
 ]
+
+
+def _resolve_lmstudio_model(requested: str | None = None) -> str | None:
+    """Pick the first available model from LMSTUDIO_TRANSLATION_MODELS based on
+    what's actually loaded in LM Studio. Returns None if LM Studio unreachable.
+    """
+    import urllib.request
+    try:
+        req = urllib.request.Request(f"{LMSTUDIO_URL}/models")
+        with urllib.request.urlopen(req, timeout=1.5) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        loaded = {m.get("id", "") for m in data.get("data", [])}
+    except Exception:
+        return None
+    if requested and requested in loaded:
+        return requested
+    for m in LMSTUDIO_TRANSLATION_MODELS:
+        if m in loaded:
+            return m
+    # If none of preferred list loaded, fall back to first non-embedding model
+    for mid in loaded:
+        if "embed" not in mid.lower():
+            return mid
+    return None
 
 _CLIENT = None              # OpenRouter client (free chain)
 _MINIMAX_CLIENT = None      # MiniMax Coding Plan client (middle tier)
@@ -555,8 +583,9 @@ KHÔNG được trả lại nguyên Trung văn — mỗi ký tự Hán phải Vi
     else:
         # Single-layer: LM Studio LOCAL first (free, $0, no rate limit) → free OpenRouter → MiniMax → DeepSeek paid
         models_to_try = []
-        if has_lmstudio():
-            models_to_try.extend([(m, "lmstudio") for m in LMSTUDIO_TRANSLATION_MODELS])
+        lms_model = _resolve_lmstudio_model()
+        if lms_model:
+            models_to_try.append((lms_model, "lmstudio"))
         models_to_try.extend([(m, "openrouter") for m in FREE_TRANSLATION_MODELS])
         if has_minimax_fallback():
             models_to_try.extend([(m, "minimax") for m in MINIMAX_TRANSLATION_MODELS])
