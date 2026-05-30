@@ -1,0 +1,55 @@
+{
+  "book_id": "du-doan-tu-tru-thieu-vy-hoa",
+  "source_pdf": "thư viện sách/Dự đoán theo tự trụ _ thiệu vỹ hoa (bản đẹp).pdf",
+  "page_range": [
+    20,
+    24
+  ],
+  "total_pages": 5,
+  "total_seconds": 103.9,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 2,
+  "pages": [
+    {
+      "page": 20,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 41.32,
+      "raw_chars": 1745,
+      "cleaned_chars": 1750,
+      "md_path": "du-doan-tu-tru-thieu-vy-hoa/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 40.11,
+      "raw_chars": 2105,
+      "cleaned_chars": 2104,
+      "md_path": "du-doan-tu-tru-thieu-vy-hoa/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 29.54,
+      "raw_chars": 1383,
+      "cleaned_chars": 1287,
+      "md_path": "du-doan-tu-tru-thieu-vy-hoa/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 35.76,
+      "raw_chars": 1922,
+      "cleaned_chars": 2063,
+      "md_path": "du-doan-tu-tru-thieu-vy-hoa/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 31.9,
+      "raw_chars": 2434,
+      "cleaned_chars": 2387,
+      "md_path": "du-doan-tu-tru-thieu-vy-hoa/pages/p0024.md"
+    }
+  ]
+}
