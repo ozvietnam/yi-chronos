@@ -1,0 +1,24 @@
+le 4 tru 1.pdf : l "¬
+Giờ đậu : ' 17 giờ - trước 19 giờ;
+Giờ tuất : — 19 giờ - trước 21 giờ,
+Giờhgi : 21 giờ - trước 23 giờ;
+
+Phương pháp tra bảng lấy giờ theo ngày, kết hợp với giờ đồng hồ sẽ
+tìm ra can chi của giờ. Cách tra là: mỗi lần gặp can ngày sinh là ngày
+giáp, ngày kỉ, nếu sinh từ 23 giờ đến 1 giờ thì đó là giờ tí, can chỉ giờ là
+giáp tí. Ta có bài ca truyền miệng như sau: _ -
+
+Giáp, kỉ còn thêm giáp; ất, canh bính làm đầu.
+Bính, tân tính từ mậu; định nhâm tính từ cưnh. ,
+`” Mậu quí từ nhóm tí. l
+
+Ví dụ muốn tính ngày kỉ sửu can chỉ giờ mão là gì, ta căn cứ câu
+“Giáp, kỉ còn thêm giáp” thì có thể biết được ngày kỉ, giờ tí là giáp tí. Khi
+tính dùng ngón tay cái của bàn tay trái đặt lên ngôi tí, đọc là giáp tí,
+thuận đếm đến sửu là ất sửu, dần là bính dần, mão là đỉnh mão. Đinh
+mão chính là can chi giờ của ngày kỉ sửu.
+
+BẢNG LẤY GIỜ THEO NGÀY "
+gày sa  ấ l SỐ x2
+| Giáp, kỉ Át,canh | Bính, tân | Đính nhâm | Mậu quý
+47
