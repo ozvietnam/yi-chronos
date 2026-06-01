@@ -408,6 +408,14 @@ onBeforeUnmount(() => {
         </div>
         <div class="tab-divider"></div>
         <div class="tab-group">
+          <span class="tab-group-label">Tri thức</span>
+          <button type="button" :class="{ active: activeMainTab === 'library' }"
+            @click="activeMainTab = 'library'">
+            <span class="tab-icon">📚</span> Thư viện
+          </button>
+        </div>
+        <div class="tab-divider"></div>
+        <div class="tab-group">
           <span class="tab-group-label">Tổng hợp</span>
           <button type="button" :class="{ active: activeMainTab === 'family' }"
             @click="activeMainTab = 'family'">
@@ -554,13 +562,6 @@ onBeforeUnmount(() => {
             📓 Nhật ký vận — gắn việc thực × 7 quẻ (+ LLM đọc lại)
           </summary>
           <NhatKyVanPanel />
-        </details>
-
-        <details open>
-          <summary style="cursor: pointer; color: #fcd34d; padding: 0.4rem 0; font-size: 0.95rem; border-top: 1px solid rgba(252,211,77,0.25); margin-top: 1rem; font-weight: 600;">
-            📚 Thư viện phục chế — sách Việt Đông phương (Tứ Trụ, Tử Vi, Chu Dịch, Bát Tự)
-          </summary>
-          <RestoredLibrary />
         </details>
 
         <MaiHoaCastPanel />
@@ -800,6 +801,22 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'research'" class="single-column" aria-label="AI Research Agent">
         <ResearchPanel />
+      </section>
+
+      <!-- Tab Thư viện: phục chế sách Việt Đông phương (OCR + cleanup local) -->
+      <section v-else-if="activeMainTab === 'library'" class="single-column" aria-label="Thư viện phục chế">
+        <TabIntro
+          icon="lexicon"
+          title="📚 Thư viện phục chế — Sách Việt Đông phương"
+          purpose="Sách Tứ Trụ / Tử Vi / Chu Dịch / Bát Tự / Bốc Phệ tiếng Việt — đã phục chế từ PDF scan qua Tesseract OCR + Gemma 4 cleanup, hoặc trực tiếp text-layer qua MarkItDown. Tất cả publish-ready markdown, đọc trực tiếp trên web. Anh đọc, tham chiếu, search full-text trên toàn bộ corpus."
+          :steps="[
+            'Sidebar trái: 14+ sách grouped 8 categories (Kinh Điển / Tứ Trụ / Tử Vi / Bốc Phệ / Chu Dịch / Dịch Số / Chuyên Đề / Lịch).',
+            'Click 1 sách → render markdown, paginate 20K chars/trang để load nhanh.',
+            'Search bar: full-text trên 12.5M chars — gõ thuật ngữ (Thiên Can, Dụng Thần, Tả Phụ, ...) → click hit → mở đúng sách.',
+            'Mỗi đêm sau khi pipeline phục chế xong thêm sách → CI deploy → auto hiện trên đây.'
+          ]"
+        />
+        <RestoredLibrary />
       </section>
 
       <section v-else-if="activeMainTab === 'wiki'" class="single-column" aria-label="Wiki Tổ sư - Đệ tử">
