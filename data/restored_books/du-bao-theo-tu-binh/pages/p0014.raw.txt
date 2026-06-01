@@ -1,0 +1,33 @@
+tu binh 2.pdf : Ti -
+Vấn đề dự báo số phận một người qua thời gian sinh
+theo mệnh lý không khó, mà phức tạp ở chỗ nắm chính
+xác tính chất của từng vị trí không gian (10 can) và thời -
+gian (12 chỉ), sự phối kết hợp của 12 chi với 10 can (thành
+60 cặp thời gian, gọi là một hoa giáp). Sau đây là những
+đặc trưng của thời gian can chi trong các hệ dự báo của
+dịch lý, ở đây chủ yếu cho hệ dự báo qua 4 cột thời gian
+hay còn gọi là dự báo theo Tử Bình hay tứ trụ.
+L THỜI GIAN CAN CHỊ VÀ TÍNH CHẤT
+Từ thời Đông Hán, năm Kiến Vũ thứ 30 (năm
+0054), người Trung Họa bắt đầu dùng hệ Can Chi để ghi
+năm và tháng. Mỗi một năm ứng với một cặp Can Chị,
+như năm Giáp Tý, ất Sửu, Bính Dần.,.Các năm cứ lần
+lượt trôi đi ứng với chu kỳ 60 cặp Can Chi, đến cuối lại
+vòng trở lại. Như năm 1946 là năm Bính Tuất, đến năm
+._ 2006 lại là năm Bính Tuất.
+. Về tháng, người ta lấy tháng có ngày Đông chí tức
+là tháng Một (tháng 11) làm tháng Tý, tháng Chạp làm
+tháng Sửu, tháng Giêng làm tháng Dần, tháng Hai làm
+tháng Mão, tháng Ba làm tháng Thìn...Về sau cũng từ
+thời Hán, người tạ bắt đầu ghép thêm 10 Can vào tháng
+để gọi tháng đẩy đủ cả Can Chi. Do vậy cứ sau Š năm _
+tức 60 tháng mới hoàn nguyên, nghĩa là trở lại tháng có
+cùng Can Chi. ì l
+Về Can Chi ngày, xuất hiện sớm nhất trong văn...
+giáp cốt tìm thấy ở di chỉ đời nhà Ân Trung Hoa cổ đại
+cách nay hơn 3000 năm, tại thôn Tiểu Đồn, huyện An
+Dương tỉnh Hà Nam hiện nay. Trong một di vật có ghi
+dòng chữ: “Quý Dậu trinh nhật tịch hựu thực, giai
+nhược”, nghĩa là: ngày Quý Dậu hỏi xem hoàng hôn hôm
+-_ đó có nhật thực, phải chăng là điểm lành.
+14

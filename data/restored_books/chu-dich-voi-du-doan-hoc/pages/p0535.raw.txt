@@ -1,0 +1,35 @@
+I- PHƯƠNG PHáP GI€O QUẺ 3
+CÓ HẾT HỢP Với TÊN CỦA ĐỊR PHƯƠNG :
+| Trong sách Chu dịch dự đoán học, khi bàn về phương pháp dự đoán thời >
+| tiết chủ yếu chỉ giới thiệu phương pháp gieo quê theo thời gian và phương 3
+_ pháp dự đoán theo sáu hào. Tôi trong dự đoán thời tiết thường gieo quẻ vào
+' giờ Tý hàng ngày. Vì giờ Tý là bắt đâu của một ngày, do đó mọi thông tin
+Ẵ của ngày này đều tàng trữ ở trong quẻ. Dùng phương pháp này để dự đoán
+| ` thời tiết, có thể đoán trước cho cả tháng, thậm chí trước mấy tháng, mấy
+. l năm. Khi dự đoán thời tiết bằng phương pháp gieo quẻ theo thời gian, ví dụ 1
+ƒ dự đoán ở Tây An, thì phương pháp này chỉ thích hợp cho Tây An (tức chỗ
+: gieo quẻ), không thích hợp cho nơi khác. Vì cả nước có nhiều vùng, do đó R
+tượng quê ở Tây An không thể đại diện cho khí hậu ở các vùng khác. )
+Tôi khi dự đoán thời tiết cho các thành phố khác, để đoán được chính
+xác tượng quẻ cho những thành phố đó, thường phải tiến hành theo hai giai 3
+đoạn. Giai đoạn thứ nhất là thêm số quê theo phương vị vào năm, tháng, )
+l ngày rồi chia cho 8, dùng số dự làm quẻ thượng, cộng thêm số giờ chia cho .
+L) 8 dùng số dư làm quẻ hạ, chia cho 6 lấy số dư làm hào động, sau đó căn cứ
+bọ. \ tượng quẻ mà dự báo. Qua một. thời gian thử nghiệm, độ chính xác đều đạt
+- : trên 60%, thậm chí có lúc trên 70%. Giai đoạn thứ hai, là cộng thêm số nét
+° ` bút của tên thành phố đó vào năm, tháng, ngày, chia cho 8, số dư là quẻ
+=> : thượng; cộng thêm giờ chia cho 8 lấy số dư làm quê hạ; chia cho 6 lấy số dư
+s : làm hào động. Như thế sẽ tìm được tượng quẻ. Dù là đoán thời tiết cho bất
+cứ thành phố hay quận huyện nào tượng quẻ đều khác nhau. Qua một thời
+gian thử nghiệm khá lâu, độ chính xác của phương pháp này (tức tính thêm
+. phương vị) có thể đạt 79%. So với Đài phát thanh Trung ương dự báo thì cao
+| " - hơn, so với Đài Thiểm Tây dự báo thì thấp hơn vì Đài Thiểm Tây dự báo
+cho hôm sau liên đó, Song nó có thể dự báo cho bất kỳ thời gian nào, bất
+kỳ địa phương nào, đó là tính ưu việt của phương pháp dự đoán này. ——
+Đương nhiên ngoài gieo quẻ chính xác, còn cần phải nắm vững kỹ thuật =
+đoán quẻ, không thể đoán quẻ một cách cứng nhắc. Cho nên nói dự đoán
+đúng nhiều hay ít phụ thuộc chính vào khả năng của người dự đoán.
+Khi gieo quê kết hợp với số nét của tên địa phương, nhất định phải lấy
+chữ phổn thể mới chuẩn. Ngoài ra, chú ý tất cả mọi tháng, ngày, giờ đưa ra
+trong sách này đều là theo âm lịch.
+ã39

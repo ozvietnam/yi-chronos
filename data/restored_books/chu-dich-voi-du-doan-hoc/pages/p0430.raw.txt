@@ -1,0 +1,40 @@
+k Lấy số can của năm cộng thêm số tháng, số ngày (theo âm lịch) chia
+cho 8, số dư là số quẻ thượng; lấy số quẻ thượng cộng thêm số giờ, đem tổng
+, số chia 8, số dư là số quê hạ. Lấy tổng số này chia 6, số dư là số hào động.
+Chỗ đặc biệt của cách lập quẻ này so với cách gieo quẻ bình thường là
+| ở chỗ : dùng số can của năm chứ không dùng số chi của năm. Ngoài ra, trong
+| dự đoán theo 6 hào đã giới thiệu cách lập quẻ này là để tiện cho việc lấy lục
+| thân và chọn dụng thần trong khi đoán. Nếu muốn biết ở năm nào có tin
+' mừng, hoặc có công danh thì có thể lấy hào phụ mẫu làm dụng thần để đoán
+ì biết. Muốn biết năm nào lấy vợ thì lấy hào thê tài làm dụng thần để đoán
+| - (nữ lấy chông thì phải lấy hào quan quỷ để đoán hôn nhân). Muốn biết khi
+: nào thăng quan tiến chức hoặc có con cái đều có thể chọn lục thân tương ứng
+£ làm dụng thần để đoán. Ngược lại, năm nào bị bãi chức hoặc kiếp tài, hoặc
+có tin buổn về cha mẹ đều có thấy rõ trong quê đó.
+Đưới đây lấy ví dụ đoán vận khí cuộc đời như thế nào.
+Sinh giờ thìn ngày 26 tháng 12 (âm lịch) năm 1940.
+Tức : giờ Nhâm thìn, ngày Tân mùi, tháng Ñỷ sửu, năm Canh thìn
+Quê thượng : 7+12+26=45 ;  46:8=6 dưõ
+Ð l Quẻ hạ : 4õ + 5= 50 h 50 : 8 = 6 dư 2
+bị. : Hào động : 50:6 = 8 dư 2.
+NI ụ Quả thượng của quê chủ là tốn là phong, quẻ hạ số 2 là đoài là trạch.
+Kh ` Quẻ thượng của quế biến là quẻ phong, quẻ hạ là Lôi, là quẻ Ích của quẻ
+—Ẵ `
+_ Trung phù.
+¬ , Quê chú : Phong trạch trung phù Quẻ biến : Phong lôi ích
+Quan quỷ mão mộc - Quan quỷ mão mộc —
+| l Phụ mẫu ty hỏa - Phụ mẫu ty hỏa -
+| : Huynh đệ mùi thổ (thế) - - Huynh đệ mùi thổ - -
+_" l Huynh đệ sửu thổ - - Huynh đệ thìn thổ - -
+: Quan quỷ mão mộc, động ~ Quan quỷ dần mộc - -
+‹ Phụ mẫu ty hỏa (ứng) - Thê tài tý thủy - - “
+Quẻ này rõ nhất là hào huynh đệ trì thế, lâm nguyệt kiến nhật thìn,
+quê vượng thân vượng, hào phụ mẫu hai lần xuất hiện sinh thế, hơn nữa lại
+có 1 hào phụ mẫu ở ngôi 5 là ngôi vua. "Ngôi 5 sinh thế thì đường thanh
+vân bằng phẳng". Phụ mẫu chủ về việc văn thư, là tượng người nổi tiếng
+đương thời. Nhưng về hôn nhân thì không thuận : Huynh đệ vượng mà trì
+thế, lại xuất hiện nhiều lần, nhiều anh em thì kiếp tài (của cải khó khăn)
+lại không có tử tôn sinh tài, hào thê tài không có trên quẻ thượng tức là vô
+tài vô thê, nếu có vợ thì cũng là tượng khó giữ. Những việc cụ thể khác trong
+cuộc đời qua tính toán về hình xung, khắc hại và sinh khác, chế hóa đều có
+433

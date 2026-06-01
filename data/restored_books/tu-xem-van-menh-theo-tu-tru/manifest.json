@@ -1,0 +1,1519 @@
+{
+  "book_id": "tu-xem-van-menh-theo-tu-tru",
+  "source_pdf": "thư viện sách/Tu-xem-van-menh-theo-tu-tru.pdf",
+  "page_range": [
+    1,
+    188
+  ],
+  "total_pages": 188,
+  "total_seconds": 3538.6,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 1.24,
+      "raw_chars": 311,
+      "cleaned_chars": 487,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 17.55,
+      "raw_chars": 32,
+      "cleaned_chars": 34,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 27,
+      "cleaned_chars": 20,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 56.28,
+      "raw_chars": 1583,
+      "cleaned_chars": 1354,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 54.1,
+      "raw_chars": 2640,
+      "cleaned_chars": 2228,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 34.86,
+      "raw_chars": 2283,
+      "cleaned_chars": 1885,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 54.17,
+      "raw_chars": 3811,
+      "cleaned_chars": 2516,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 1.4,
+      "cleanup_seconds": 43.93,
+      "raw_chars": 3925,
+      "cleaned_chars": 2428,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 1.32,
+      "cleanup_seconds": 56.0,
+      "raw_chars": 3747,
+      "cleaned_chars": 2640,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 1.46,
+      "cleanup_seconds": 48.07,
+      "raw_chars": 3786,
+      "cleaned_chars": 1978,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 48.59,
+      "raw_chars": 2879,
+      "cleaned_chars": 2091,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 53.28,
+      "raw_chars": 2647,
+      "cleaned_chars": 3023,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 1.13,
+      "cleanup_seconds": 66.15,
+      "raw_chars": 3180,
+      "cleaned_chars": 3092,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 65.57,
+      "raw_chars": 2595,
+      "cleaned_chars": 2930,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 44.79,
+      "raw_chars": 2203,
+      "cleaned_chars": 1922,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 66.95,
+      "raw_chars": 2452,
+      "cleaned_chars": 2067,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 41.9,
+      "raw_chars": 2116,
+      "cleaned_chars": 1741,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 63.04,
+      "raw_chars": 2324,
+      "cleaned_chars": 2210,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 62.8,
+      "raw_chars": 2808,
+      "cleaned_chars": 2082,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 42.37,
+      "raw_chars": 2121,
+      "cleaned_chars": 1498,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 48.42,
+      "raw_chars": 1280,
+      "cleaned_chars": 1176,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 65.66,
+      "raw_chars": 2868,
+      "cleaned_chars": 2837,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 54.26,
+      "raw_chars": 2372,
+      "cleaned_chars": 1607,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 41.65,
+      "raw_chars": 2350,
+      "cleaned_chars": 1916,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 68.95,
+      "raw_chars": 3167,
+      "cleaned_chars": 2640,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 52.52,
+      "raw_chars": 1446,
+      "cleaned_chars": 1012,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 68.39,
+      "raw_chars": 2891,
+      "cleaned_chars": 2521,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 42.51,
+      "raw_chars": 2622,
+      "cleaned_chars": 1441,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 57.4,
+      "raw_chars": 2662,
+      "cleaned_chars": 2250,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 77.42,
+      "raw_chars": 2755,
+      "cleaned_chars": 2473,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 33.01,
+      "raw_chars": 1589,
+      "cleaned_chars": 1007,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 61.59,
+      "raw_chars": 2851,
+      "cleaned_chars": 2581,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 52.77,
+      "raw_chars": 3101,
+      "cleaned_chars": 2608,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 48.57,
+      "raw_chars": 1727,
+      "cleaned_chars": 1644,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 52.44,
+      "raw_chars": 2724,
+      "cleaned_chars": 2585,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 49.45,
+      "raw_chars": 2495,
+      "cleaned_chars": 2280,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 50.88,
+      "raw_chars": 3317,
+      "cleaned_chars": 2818,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 58.65,
+      "raw_chars": 1611,
+      "cleaned_chars": 1599,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 51.66,
+      "raw_chars": 2958,
+      "cleaned_chars": 2738,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 1.19,
+      "cleanup_seconds": 51.98,
+      "raw_chars": 3310,
+      "cleaned_chars": 2466,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 42.06,
+      "raw_chars": 1727,
+      "cleaned_chars": 1442,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 74.5,
+      "raw_chars": 2246,
+      "cleaned_chars": 2675,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 55.17,
+      "raw_chars": 3471,
+      "cleaned_chars": 2992,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 45.99,
+      "raw_chars": 2478,
+      "cleaned_chars": 2599,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 81.54,
+      "raw_chars": 3146,
+      "cleaned_chars": 2556,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 48.87,
+      "raw_chars": 1647,
+      "cleaned_chars": 1698,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 44.07,
+      "raw_chars": 2301,
+      "cleaned_chars": 2328,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 57.03,
+      "raw_chars": 2546,
+      "cleaned_chars": 2402,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 59.15,
+      "raw_chars": 3207,
+      "cleaned_chars": 2977,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 66.62,
+      "raw_chars": 3287,
+      "cleaned_chars": 3016,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 60.57,
+      "raw_chars": 2887,
+      "cleaned_chars": 2874,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 58.77,
+      "raw_chars": 1888,
+      "cleaned_chars": 1692,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 44.03,
+      "raw_chars": 1671,
+      "cleaned_chars": 1758,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 44.62,
+      "raw_chars": 3009,
+      "cleaned_chars": 2033,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 75.68,
+      "raw_chars": 3074,
+      "cleaned_chars": 2689,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 74.38,
+      "raw_chars": 2986,
+      "cleaned_chars": 2450,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 50.36,
+      "raw_chars": 2301,
+      "cleaned_chars": 2177,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 1.39,
+      "cleanup_seconds": 86.64,
+      "raw_chars": 3774,
+      "cleaned_chars": 2601,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 57.37,
+      "raw_chars": 2274,
+      "cleaned_chars": 1897,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 66.11,
+      "raw_chars": 2967,
+      "cleaned_chars": 2485,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 51.9,
+      "raw_chars": 3101,
+      "cleaned_chars": 2040,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 61.96,
+      "raw_chars": 2451,
+      "cleaned_chars": 2023,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 53.83,
+      "raw_chars": 3269,
+      "cleaned_chars": 2672,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 64.54,
+      "raw_chars": 2727,
+      "cleaned_chars": 2282,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 57.07,
+      "raw_chars": 2117,
+      "cleaned_chars": 1973,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 47.58,
+      "raw_chars": 1660,
+      "cleaned_chars": 1467,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 52.38,
+      "raw_chars": 1863,
+      "cleaned_chars": 1722,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 48.41,
+      "raw_chars": 2970,
+      "cleaned_chars": 2653,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 1.24,
+      "cleanup_seconds": 71.07,
+      "raw_chars": 3328,
+      "cleaned_chars": 2746,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 71.13,
+      "raw_chars": 2629,
+      "cleaned_chars": 2582,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 46.07,
+      "raw_chars": 1740,
+      "cleaned_chars": 1523,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 69.32,
+      "raw_chars": 2058,
+      "cleaned_chars": 1699,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 64.43,
+      "raw_chars": 2595,
+      "cleaned_chars": 2989,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 68.24,
+      "raw_chars": 2495,
+      "cleaned_chars": 1957,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 78.29,
+      "raw_chars": 2827,
+      "cleaned_chars": 2601,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 70.74,
+      "raw_chars": 2648,
+      "cleaned_chars": 2403,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 65.23,
+      "raw_chars": 2605,
+      "cleaned_chars": 1994,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 46.67,
+      "raw_chars": 2684,
+      "cleaned_chars": 2212,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 68.01,
+      "raw_chars": 2869,
+      "cleaned_chars": 1798,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 53.61,
+      "raw_chars": 1504,
+      "cleaned_chars": 1420,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 47.41,
+      "raw_chars": 2578,
+      "cleaned_chars": 1761,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 45.06,
+      "raw_chars": 1821,
+      "cleaned_chars": 1630,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 48.91,
+      "raw_chars": 2440,
+      "cleaned_chars": 2060,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 46.95,
+      "raw_chars": 2169,
+      "cleaned_chars": 1593,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 46.53,
+      "raw_chars": 2599,
+      "cleaned_chars": 1959,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 56.83,
+      "raw_chars": 2433,
+      "cleaned_chars": 1889,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 48.56,
+      "raw_chars": 2476,
+      "cleaned_chars": 1993,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 46.25,
+      "raw_chars": 2257,
+      "cleaned_chars": 2238,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 63.02,
+      "raw_chars": 2561,
+      "cleaned_chars": 2209,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 71.92,
+      "raw_chars": 1834,
+      "cleaned_chars": 1543,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 66.73,
+      "raw_chars": 2208,
+      "cleaned_chars": 1906,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 54.8,
+      "raw_chars": 2014,
+      "cleaned_chars": 1745,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 40.42,
+      "raw_chars": 1815,
+      "cleaned_chars": 1263,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 45.69,
+      "raw_chars": 2536,
+      "cleaned_chars": 2078,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 59.6,
+      "raw_chars": 1822,
+      "cleaned_chars": 1702,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 42.39,
+      "raw_chars": 3085,
+      "cleaned_chars": 2162,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 1.37,
+      "cleanup_seconds": 55.24,
+      "raw_chars": 3601,
+      "cleaned_chars": 2919,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 63.29,
+      "raw_chars": 2973,
+      "cleaned_chars": 2339,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 52.27,
+      "raw_chars": 2617,
+      "cleaned_chars": 2657,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 66.17,
+      "raw_chars": 2843,
+      "cleaned_chars": 2225,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 1.4,
+      "cleanup_seconds": 59.66,
+      "raw_chars": 3406,
+      "cleaned_chars": 2755,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 48.25,
+      "raw_chars": 2862,
+      "cleaned_chars": 2305,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 45.33,
+      "raw_chars": 2912,
+      "cleaned_chars": 2263,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 74.08,
+      "raw_chars": 2718,
+      "cleaned_chars": 2361,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 46.99,
+      "raw_chars": 2540,
+      "cleaned_chars": 2288,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 58.31,
+      "raw_chars": 2974,
+      "cleaned_chars": 2627,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 37.0,
+      "raw_chars": 1617,
+      "cleaned_chars": 927,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 52.65,
+      "raw_chars": 2676,
+      "cleaned_chars": 2195,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 39.81,
+      "raw_chars": 2523,
+      "cleaned_chars": 1371,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 52.6,
+      "raw_chars": 2546,
+      "cleaned_chars": 1973,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 48.6,
+      "raw_chars": 2538,
+      "cleaned_chars": 1958,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 61.34,
+      "raw_chars": 2763,
+      "cleaned_chars": 2225,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 48.78,
+      "raw_chars": 2644,
+      "cleaned_chars": 2284,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 55.55,
+      "raw_chars": 2745,
+      "cleaned_chars": 2643,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 51.1,
+      "raw_chars": 1946,
+      "cleaned_chars": 1763,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 59.05,
+      "raw_chars": 3170,
+      "cleaned_chars": 3047,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 55.49,
+      "raw_chars": 2611,
+      "cleaned_chars": 2118,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 74.0,
+      "raw_chars": 2882,
+      "cleaned_chars": 2633,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 47.88,
+      "raw_chars": 3236,
+      "cleaned_chars": 2818,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 60.34,
+      "raw_chars": 3435,
+      "cleaned_chars": 3252,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 45.01,
+      "raw_chars": 3138,
+      "cleaned_chars": 2307,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 1.26,
+      "cleanup_seconds": 57.03,
+      "raw_chars": 3552,
+      "cleaned_chars": 2933,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 59.45,
+      "raw_chars": 3005,
+      "cleaned_chars": 2313,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 76.85,
+      "raw_chars": 2962,
+      "cleaned_chars": 2998,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 45.69,
+      "raw_chars": 3380,
+      "cleaned_chars": 2278,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 51.22,
+      "raw_chars": 2945,
+      "cleaned_chars": 2937,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 55.08,
+      "raw_chars": 3390,
+      "cleaned_chars": 3149,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 49.24,
+      "raw_chars": 2924,
+      "cleaned_chars": 2234,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 50.31,
+      "raw_chars": 3126,
+      "cleaned_chars": 2670,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 52.92,
+      "raw_chars": 3288,
+      "cleaned_chars": 2738,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 46.18,
+      "raw_chars": 3152,
+      "cleaned_chars": 2455,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 38.06,
+      "raw_chars": 3208,
+      "cleaned_chars": 1825,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 45.31,
+      "raw_chars": 2872,
+      "cleaned_chars": 1968,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 57.31,
+      "raw_chars": 3220,
+      "cleaned_chars": 3209,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 50.37,
+      "raw_chars": 3082,
+      "cleaned_chars": 2482,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 49.17,
+      "raw_chars": 3037,
+      "cleaned_chars": 2125,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 45.54,
+      "raw_chars": 2955,
+      "cleaned_chars": 2050,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 52.67,
+      "raw_chars": 2799,
+      "cleaned_chars": 2708,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 1.13,
+      "cleanup_seconds": 58.5,
+      "raw_chars": 3295,
+      "cleaned_chars": 3186,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 75.4,
+      "raw_chars": 3456,
+      "cleaned_chars": 3248,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 64.91,
+      "raw_chars": 3017,
+      "cleaned_chars": 2219,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 54.82,
+      "raw_chars": 2573,
+      "cleaned_chars": 2292,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 74.02,
+      "raw_chars": 3168,
+      "cleaned_chars": 2646,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 47.62,
+      "raw_chars": 2632,
+      "cleaned_chars": 2128,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 70.15,
+      "raw_chars": 3336,
+      "cleaned_chars": 2632,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 74.46,
+      "raw_chars": 3088,
+      "cleaned_chars": 2655,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 44.43,
+      "raw_chars": 2366,
+      "cleaned_chars": 2122,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 1.24,
+      "cleanup_seconds": 87.64,
+      "raw_chars": 3422,
+      "cleaned_chars": 2362,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 1.19,
+      "cleanup_seconds": 84.92,
+      "raw_chars": 3367,
+      "cleaned_chars": 2826,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 1.25,
+      "cleanup_seconds": 79.99,
+      "raw_chars": 3395,
+      "cleaned_chars": 2884,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 77.55,
+      "raw_chars": 3129,
+      "cleaned_chars": 3183,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 1.24,
+      "cleanup_seconds": 60.38,
+      "raw_chars": 3474,
+      "cleaned_chars": 3013,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 60.86,
+      "raw_chars": 2191,
+      "cleaned_chars": 2402,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 51.23,
+      "raw_chars": 2411,
+      "cleaned_chars": 2377,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 60.84,
+      "raw_chars": 2780,
+      "cleaned_chars": 2234,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 50.44,
+      "raw_chars": 2997,
+      "cleaned_chars": 2696,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 62.42,
+      "raw_chars": 2678,
+      "cleaned_chars": 2562,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 44.78,
+      "raw_chars": 3022,
+      "cleaned_chars": 1941,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 47.1,
+      "raw_chars": 2734,
+      "cleaned_chars": 1976,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 61.51,
+      "raw_chars": 2587,
+      "cleaned_chars": 1942,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 50.53,
+      "raw_chars": 2541,
+      "cleaned_chars": 2964,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 53.04,
+      "raw_chars": 2816,
+      "cleaned_chars": 2031,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 49.74,
+      "raw_chars": 2861,
+      "cleaned_chars": 2866,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 60.4,
+      "raw_chars": 2827,
+      "cleaned_chars": 2455,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 47.63,
+      "raw_chars": 2744,
+      "cleaned_chars": 2797,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 74.39,
+      "raw_chars": 2876,
+      "cleaned_chars": 2993,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 49.59,
+      "raw_chars": 2769,
+      "cleaned_chars": 2930,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 63.36,
+      "raw_chars": 2478,
+      "cleaned_chars": 2204,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 40.56,
+      "raw_chars": 2137,
+      "cleaned_chars": 1989,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 54.81,
+      "raw_chars": 2917,
+      "cleaned_chars": 2824,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 55.88,
+      "raw_chars": 2769,
+      "cleaned_chars": 2303,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 55.17,
+      "raw_chars": 2423,
+      "cleaned_chars": 2062,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 44.42,
+      "raw_chars": 2752,
+      "cleaned_chars": 2181,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 57.33,
+      "raw_chars": 2133,
+      "cleaned_chars": 2198,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 44.19,
+      "raw_chars": 2268,
+      "cleaned_chars": 1704,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 63.62,
+      "raw_chars": 2950,
+      "cleaned_chars": 2698,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 52.73,
+      "raw_chars": 3094,
+      "cleaned_chars": 2397,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 52.82,
+      "raw_chars": 2624,
+      "cleaned_chars": 2841,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 62.6,
+      "raw_chars": 2028,
+      "cleaned_chars": 2306,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 70.34,
+      "raw_chars": 2479,
+      "cleaned_chars": 2618,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 84.88,
+      "raw_chars": 3169,
+      "cleaned_chars": 2608,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 54.64,
+      "raw_chars": 3201,
+      "cleaned_chars": 2872,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 52.96,
+      "raw_chars": 2810,
+      "cleaned_chars": 2882,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 54.89,
+      "raw_chars": 2946,
+      "cleaned_chars": 2527,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 60.79,
+      "raw_chars": 2443,
+      "cleaned_chars": 1497,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 1.34,
+      "cleanup_seconds": 54.14,
+      "raw_chars": 3602,
+      "cleaned_chars": 1676,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 44.86,
+      "raw_chars": 2989,
+      "cleaned_chars": 1694,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 21.64,
+      "raw_chars": 532,
+      "cleaned_chars": 482,
+      "md_path": "tu-xem-van-menh-theo-tu-tru/pages/p0188.md"
+    }
+  ]
+}

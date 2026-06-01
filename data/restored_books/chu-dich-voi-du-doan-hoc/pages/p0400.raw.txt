@@ -1,0 +1,39 @@
+: 3 là 1 quẻ được gieo hoàn chỉnh. Tượng quẻ được gieo như thế có thể là quẻ
+, thượng và quê hạ giống nhau, ví dụ quẻ thượng và quẻ hạ đều là quẻ đoài. |
+S cả bài quê doài chồng lên nhau là : SE Cũng có thể là được một — _
+tổ hợp khác, ví dụ : quẻ thượng là quẻ đoài, quẻ hạ là quẻ càn. Trước hết »
+| đọc quẻ thượng, sau đó đọc quẻ hạ. Quẻ thượng là đoài vi trạch, quẻ hạ là |
+| càn vi thiên, cả hai quẻ đọc là : trạch thiên quải.
+' Nếu hào động là hào hai, thì ở bên cạnh quẻ thuần đánh dấu để nhớ.
+q ì Bất kể là gieo quẻ hay tìm quê động đều phải dùng số quẻ để vẽ các
+| quẻ. Số quẻ là lấy số quẻ tiên thiên bát quái để định ra quề thượng và quẻ |
+. ; hạ. Dư 1 là càn, dư 2 là đoài, dư 3 là ly, dư 4 là chấn, dư 5 là tốn, dư 6 là
+: khảm, dư 7 là cấn, dư 8 là khôn. |
+Dưới đây, ta thao tác 1 ví dụ thực tế để nói rõ vấn đề : Ví dụ : gieo quẻ }
+vào giờ Sửu, ngày 3 tháng 3 nhuận âm lịch năm 1993. Năm 1993 là năm Ị
+Quý dậu, năm dậu lấy số 10, tháng 3 nhuận là số 3, ngày 3 là số 3, giờ sửu |
+số 2 (chú ý về mặt xác định số nên ôn kỹ đoạn cuối của Tiết 3, Chương l). l
+Tìm quẻ thượng : năm + tháng + ngày = 10 + 3 + 3 = 16; 16 chia 8
+, không có số dư nên lấy 8 làm số quẻ, tức quẻ khôn.
+k) Tìm quẻ hạ : năm + tháng + ngày + giờ = 10 + 3 + 3 + 2 = 18; 18 chia
+h. : 8 dư 9, số 2 là quẻ đoài, vậy quê hạ là quê đoài.
+q `
+— \ ° ca ` : ¬ ¿ ˆ
+¬Í " Tìm hào động : Tổng số quẻ hạ là 18, chia 6 vừa hết, nên số hào động
+en . là 6, tức hào sáu là hào động.
+' Gieo quê theo thời gian là quẻ gốc, ở quế này quể thượng là khôn, là
+địa, quẻ hạ là đoài, là trạch. Quẻ thượng và quẻ hạ chồng lên nhau được quế
+địa trạch lâm, thêm hào 6 động lấy quẻ khảm (ứng với số 6) để biểu thị hào
+| ====
+: t động, nên tượng quẻ của quẻ gốc, biểu thị thành ; =E =*
+hon l Dưới đây giới thiệu những phương pháp gieo quẻ khác. ;
+- Căn cứ số vật đếm được để gieo quẻ. Đối với những vật có thể đếm
+được, thì số đếm được là quẻ thượng, lấy giờ đếm đó phối thành quẻ hạ. Lấy
+số quẻ thượng cộng thêm với số giờ chia cho 6 để tìm hào động.
+- Căn cứ số tiếng đếm được để gieo quẻ. Phàm những tiếng nghe được
+như tiếng động vật kêu, tiếng gõ cửa... làm số của quẻ thượng. Số tiếng kêu
+đó cộng với số giờ lúc gieo quẻ chia cho 8, lấy số dư làm quẻ hạ. Lấy số quẻ
+thượng cộng số giờ chia cho 6, lấy số dư làm hào động.
+— Căn cứ chữ số để gieo quẻ : phàm gặp trường hợp viết chữ lấy tổng số
+chữ chia đôi làm quê thượng, 1 nửa làm quẻ hạ. Nếu số chữ là lẻ thì lấy nửa
+: 403

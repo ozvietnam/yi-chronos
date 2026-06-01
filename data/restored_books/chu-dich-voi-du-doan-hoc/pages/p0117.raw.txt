@@ -1,0 +1,38 @@
+h thêm với giờ sau đó chia 8; số dư là quẻ hạ. Tổng số của năm, tháng, ngày,
+: giờ chia cho 6, lấy số dư làm hào động.
+, Phàm khi gieo quẻ, lấy số 8 làm quẻ, số quá số 8 thì chia cho 8 lấy số
+dư làm quẻ.
+Muốn tìm hào thì chia cho 6; lấy tổng số của năm, tháng, ngày, giờ chia
+cho 6, số dư là số của hào.
+| , Vì sao muốn tính quẻ phải chia cho 8 ? Hào thì chía cho 6 ? Vì quẻ có
+| l 8 phương, nên phải chia 8; quẻ có 3 hào, nên phải chia 6.
+| Gieo quê : Sau khi chia 8 lấy số dư làm quẻ. Dư 3 tức là quẻ Ly, dư 7
+l : làm quẻ Cấn, dư 0 thì lấy số 8 làm quẻ tức là quê RKhôn. Số nhỏ hơn 8 tức
+| í không đủ chia cho 8 thì lấy luôn số đó làm quẻ. Nếu số đó là 4 là quẻ Chấn,
+' 6 là quẻ Khảm... (theo tác giả : đây là theo cách gieo quê số tiên thiên của
+Phục Hy. Xem số đó tương ứng với quẻ nào, xin xem ở hình vẽ thứ tự bát
+quái của Phục Hy. Tức là : Càn - 1, Đoài - 2, Ly - 3, Chấn - 4, Tốn - 5,
+Khẩm - 6, Cấn - 7, Khôn - 8).
+Cách tìm hào động : Sau khi chia 6, số dư là hào động. Dư 1 là hào một
+động, dư 2 là hào 2 động, 4 là hào 4 động, 5 là hào động 5. Nếu chia 6 vừa
+l hết vẫn lấy 6 là hào động. Trường hợp số nhỏ hơn 6 thì lấy số đó làm hào
+: : động. Số 4 là hào 4 động.
+“ : Ví dụ : Năm 1985, tháng 12, ngày 28, 3 giờ 35` chiều có người đến hỏi :
+` ”? giờ rưỡi tối nay đội Bóng chuyển nữ Trung Quốc đấu với Liên đội nữ ngôi
+sao thế giới ở Bắc Kinh, ai thắng ai thua ?".
+; Theo ám lịch là âm Ất Sửu, tháng 11 ngày 17 giờ Thân, tức : Ất Sửu,
+Mậu Tý, Tân Sửu, Bính thân.
+| Cách tính quê như sau : 2 + 11 + 17 = 30; 30 chia 8 dư 6. 6 là khảm,
+: là quê thượng. 30 + 9 (giờ Thân) = 39; 39 chia 8 dư 7, 7 là cấn, là quẻ Hạ.
+—— 39 chia 6 dư 3 - tức là hào 3 động. Tượng quể là "thủy sơn kiến SE _
+. =. Qưẻ thượng là Khẩm, là thủy, là đội bóng nữ của Trung Quốc, quê hạ
+là Cấn, Cấn là Thổ, là đội ngôi sao thế giới. Nhưng mùa đông là mùa thủy
+vượng. Khảm thủy lâm nguyệt kiến, nên lực mạnh. Đội thế giới tuy ở ngôi
+Thổ, nhưng là ở đất hưu tù vô lực nên không khắc Thủy vượng được. Do đó
+đội nữ ta nhất định thắng. Kết quả cuối cùng đúng như dự đoán.
+2. Gieo quẻ theo phương của người đến
+Ví dụ : ngày Kỷ Sửu, giờ Mão có 1 ông già từ phương Tốn đến, sắc mặt
+lo lắng, hỏi "Vì sao mà ông lo ?". Ông không nói gì cả. Lạ quá nên phải
+đoán ! Lấy chỗ ông già ở là Càn làm quẻ thượng. Phương đi đến (phương
+Tốn) là quẻ hạ, là quẻ "thiên phong cấu". Lại lấy số càn 1,.Tốn 5 cộng thêm
+118

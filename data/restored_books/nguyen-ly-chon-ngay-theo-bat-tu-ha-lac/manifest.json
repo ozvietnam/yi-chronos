@@ -1,0 +1,1431 @@
+{
+  "book_id": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac",
+  "source_pdf": "thư viện sách/Nguyên lý chọn ngày theo bát tự hà lạc (Phương pháp chọn ngày.pdf",
+  "page_range": [
+    1,
+    177
+  ],
+  "total_pages": 177,
+  "total_seconds": 2822.8,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 16.43,
+      "raw_chars": 90,
+      "cleaned_chars": 41,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.09,
+      "cleanup_seconds": 16.5,
+      "raw_chars": 31,
+      "cleaned_chars": 19,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 22.41,
+      "raw_chars": 180,
+      "cleaned_chars": 132,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 37.84,
+      "raw_chars": 2205,
+      "cleaned_chars": 1060,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 51.6,
+      "raw_chars": 1853,
+      "cleaned_chars": 1870,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 52.73,
+      "raw_chars": 2125,
+      "cleaned_chars": 2109,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 40.82,
+      "raw_chars": 1515,
+      "cleaned_chars": 1520,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 39.05,
+      "raw_chars": 705,
+      "cleaned_chars": 772,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 45.26,
+      "raw_chars": 831,
+      "cleaned_chars": 932,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 47.35,
+      "raw_chars": 1134,
+      "cleaned_chars": 1196,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 43.65,
+      "raw_chars": 684,
+      "cleaned_chars": 990,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 43.54,
+      "raw_chars": 1359,
+      "cleaned_chars": 1380,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 45.94,
+      "raw_chars": 920,
+      "cleaned_chars": 1097,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 44.06,
+      "raw_chars": 1354,
+      "cleaned_chars": 1365,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 46.63,
+      "raw_chars": 1321,
+      "cleaned_chars": 1287,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 47.93,
+      "raw_chars": 1462,
+      "cleaned_chars": 1500,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 40.72,
+      "raw_chars": 984,
+      "cleaned_chars": 1024,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 40.09,
+      "raw_chars": 858,
+      "cleaned_chars": 879,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 54.89,
+      "raw_chars": 1371,
+      "cleaned_chars": 1494,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 33.32,
+      "raw_chars": 734,
+      "cleaned_chars": 610,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 51.99,
+      "raw_chars": 1285,
+      "cleaned_chars": 1284,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 46.9,
+      "raw_chars": 1755,
+      "cleaned_chars": 1882,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 55.16,
+      "raw_chars": 1953,
+      "cleaned_chars": 1984,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 53.28,
+      "raw_chars": 2003,
+      "cleaned_chars": 2062,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 51.0,
+      "raw_chars": 1857,
+      "cleaned_chars": 1924,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 40.12,
+      "raw_chars": 1748,
+      "cleaned_chars": 1760,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 48.22,
+      "raw_chars": 1651,
+      "cleaned_chars": 1518,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 52.41,
+      "raw_chars": 1797,
+      "cleaned_chars": 1831,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 51.74,
+      "raw_chars": 1932,
+      "cleaned_chars": 1965,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 45.42,
+      "raw_chars": 1756,
+      "cleaned_chars": 1945,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 48.85,
+      "raw_chars": 1565,
+      "cleaned_chars": 1637,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 48.48,
+      "raw_chars": 1722,
+      "cleaned_chars": 1796,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 46.48,
+      "raw_chars": 1621,
+      "cleaned_chars": 1625,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 48.37,
+      "raw_chars": 2197,
+      "cleaned_chars": 2168,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 50.64,
+      "raw_chars": 1564,
+      "cleaned_chars": 1666,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 50.25,
+      "raw_chars": 2076,
+      "cleaned_chars": 2105,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 43.1,
+      "raw_chars": 1683,
+      "cleaned_chars": 1683,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 47.47,
+      "raw_chars": 1437,
+      "cleaned_chars": 1544,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 49.6,
+      "raw_chars": 1558,
+      "cleaned_chars": 1678,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 42.84,
+      "raw_chars": 1672,
+      "cleaned_chars": 1659,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 45.83,
+      "raw_chars": 960,
+      "cleaned_chars": 1105,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 45.02,
+      "raw_chars": 1140,
+      "cleaned_chars": 1461,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 46.69,
+      "raw_chars": 1371,
+      "cleaned_chars": 1412,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 50.51,
+      "raw_chars": 1972,
+      "cleaned_chars": 2007,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 53.97,
+      "raw_chars": 1715,
+      "cleaned_chars": 1730,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 49.46,
+      "raw_chars": 1802,
+      "cleaned_chars": 1889,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 62.37,
+      "raw_chars": 1035,
+      "cleaned_chars": 1182,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 48.26,
+      "raw_chars": 507,
+      "cleaned_chars": 727,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 50.16,
+      "raw_chars": 1178,
+      "cleaned_chars": 1343,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 49.8,
+      "raw_chars": 1734,
+      "cleaned_chars": 1743,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 51.13,
+      "raw_chars": 1233,
+      "cleaned_chars": 1305,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 54.57,
+      "raw_chars": 1719,
+      "cleaned_chars": 1780,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 44.9,
+      "raw_chars": 1463,
+      "cleaned_chars": 1671,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 38.87,
+      "raw_chars": 1211,
+      "cleaned_chars": 1301,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 40.75,
+      "raw_chars": 1221,
+      "cleaned_chars": 1242,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 52.22,
+      "raw_chars": 1864,
+      "cleaned_chars": 1883,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 51.7,
+      "raw_chars": 1709,
+      "cleaned_chars": 1840,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 42.34,
+      "raw_chars": 1225,
+      "cleaned_chars": 1239,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.96,
+      "raw_chars": 1489,
+      "cleaned_chars": 1491,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 36.24,
+      "raw_chars": 1137,
+      "cleaned_chars": 1110,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 47.34,
+      "raw_chars": 1268,
+      "cleaned_chars": 1384,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.63,
+      "raw_chars": 1445,
+      "cleaned_chars": 1443,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 43.48,
+      "raw_chars": 1272,
+      "cleaned_chars": 1274,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 43.04,
+      "raw_chars": 1006,
+      "cleaned_chars": 529,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 47.77,
+      "raw_chars": 1613,
+      "cleaned_chars": 1659,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 47.52,
+      "raw_chars": 1720,
+      "cleaned_chars": 1732,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 49.94,
+      "raw_chars": 1735,
+      "cleaned_chars": 1783,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 46.06,
+      "raw_chars": 1850,
+      "cleaned_chars": 1856,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 50.44,
+      "raw_chars": 1686,
+      "cleaned_chars": 1781,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.83,
+      "raw_chars": 1521,
+      "cleaned_chars": 1678,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 50.24,
+      "raw_chars": 1718,
+      "cleaned_chars": 1798,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 51.74,
+      "raw_chars": 2148,
+      "cleaned_chars": 2187,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 54.36,
+      "raw_chars": 1958,
+      "cleaned_chars": 2009,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.12,
+      "raw_chars": 1365,
+      "cleaned_chars": 1454,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 52.93,
+      "raw_chars": 1746,
+      "cleaned_chars": 1867,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 27.09,
+      "raw_chars": 432,
+      "cleaned_chars": 426,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 46.04,
+      "raw_chars": 1068,
+      "cleaned_chars": 1186,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 55.9,
+      "raw_chars": 1931,
+      "cleaned_chars": 2033,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.74,
+      "raw_chars": 1509,
+      "cleaned_chars": 1610,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 42.4,
+      "raw_chars": 1930,
+      "cleaned_chars": 2065,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 26.39,
+      "raw_chars": 371,
+      "cleaned_chars": 370,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 51.45,
+      "raw_chars": 635,
+      "cleaned_chars": 647,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 54.38,
+      "raw_chars": 822,
+      "cleaned_chars": 985,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.13,
+      "cleanup_seconds": 21.6,
+      "raw_chars": 106,
+      "cleaned_chars": 111,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 30.43,
+      "raw_chars": 355,
+      "cleaned_chars": 310,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 49.15,
+      "raw_chars": 1516,
+      "cleaned_chars": 1615,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 86.75,
+      "raw_chars": 2154,
+      "cleaned_chars": 1975,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 46.44,
+      "raw_chars": 1410,
+      "cleaned_chars": 1364,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 49.39,
+      "raw_chars": 1426,
+      "cleaned_chars": 1347,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 51.72,
+      "raw_chars": 1932,
+      "cleaned_chars": 1587,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 42.47,
+      "raw_chars": 1399,
+      "cleaned_chars": 1185,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 31.13,
+      "raw_chars": 1360,
+      "cleaned_chars": 278,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 40.98,
+      "raw_chars": 1486,
+      "cleaned_chars": 627,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 47.26,
+      "raw_chars": 1703,
+      "cleaned_chars": 1471,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 51.2,
+      "raw_chars": 1502,
+      "cleaned_chars": 1654,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 30.76,
+      "raw_chars": 1448,
+      "cleaned_chars": 190,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 41.71,
+      "raw_chars": 1486,
+      "cleaned_chars": 1033,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 39.46,
+      "raw_chars": 1820,
+      "cleaned_chars": 1045,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 41.68,
+      "raw_chars": 1449,
+      "cleaned_chars": 772,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 73.33,
+      "raw_chars": 1876,
+      "cleaned_chars": 3277,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 58.35,
+      "raw_chars": 1699,
+      "cleaned_chars": 2356,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 29.13,
+      "raw_chars": 1346,
+      "cleaned_chars": 172,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 75.95,
+      "raw_chars": 1364,
+      "cleaned_chars": 1655,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 55.56,
+      "raw_chars": 1402,
+      "cleaned_chars": 1382,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 32.07,
+      "raw_chars": 1320,
+      "cleaned_chars": 290,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 49.07,
+      "raw_chars": 1327,
+      "cleaned_chars": 1322,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 41.0,
+      "raw_chars": 1433,
+      "cleaned_chars": 985,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 41.66,
+      "raw_chars": 1519,
+      "cleaned_chars": 820,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 42.11,
+      "raw_chars": 1426,
+      "cleaned_chars": 1119,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 78.93,
+      "raw_chars": 1428,
+      "cleaned_chars": 240,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 23.82,
+      "raw_chars": 1485,
+      "cleaned_chars": 254,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 57.86,
+      "raw_chars": 1396,
+      "cleaned_chars": 1273,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 85.76,
+      "raw_chars": 1693,
+      "cleaned_chars": 4018,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.3,
+      "raw_chars": 1588,
+      "cleaned_chars": 1469,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 46.33,
+      "raw_chars": 1474,
+      "cleaned_chars": 1247,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 49.77,
+      "raw_chars": 1492,
+      "cleaned_chars": 1535,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 50.73,
+      "raw_chars": 1525,
+      "cleaned_chars": 1726,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 51.81,
+      "raw_chars": 1411,
+      "cleaned_chars": 1350,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 51.37,
+      "raw_chars": 1302,
+      "cleaned_chars": 1536,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 35.65,
+      "raw_chars": 1455,
+      "cleaned_chars": 460,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 57.04,
+      "raw_chars": 1596,
+      "cleaned_chars": 2311,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 60.84,
+      "raw_chars": 1448,
+      "cleaned_chars": 1081,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 45.09,
+      "raw_chars": 1424,
+      "cleaned_chars": 1340,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 76.46,
+      "raw_chars": 1452,
+      "cleaned_chars": 1618,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 58.61,
+      "raw_chars": 1537,
+      "cleaned_chars": 2102,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 70.76,
+      "raw_chars": 1470,
+      "cleaned_chars": 1630,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 32.7,
+      "raw_chars": 1449,
+      "cleaned_chars": 408,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 41.2,
+      "raw_chars": 2018,
+      "cleaned_chars": 979,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 51.3,
+      "raw_chars": 1395,
+      "cleaned_chars": 1389,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 37.06,
+      "raw_chars": 480,
+      "cleaned_chars": 670,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 59.97,
+      "raw_chars": 1288,
+      "cleaned_chars": 1015,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 72.9,
+      "raw_chars": 1856,
+      "cleaned_chars": 3220,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 73.66,
+      "raw_chars": 1981,
+      "cleaned_chars": 3519,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 34.63,
+      "raw_chars": 1329,
+      "cleaned_chars": 278,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 43.55,
+      "raw_chars": 1424,
+      "cleaned_chars": 1287,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 37.04,
+      "raw_chars": 1511,
+      "cleaned_chars": 535,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 44.94,
+      "raw_chars": 1603,
+      "cleaned_chars": 929,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.09,
+      "raw_chars": 1576,
+      "cleaned_chars": 2039,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 63.78,
+      "raw_chars": 1530,
+      "cleaned_chars": 2250,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 39.23,
+      "raw_chars": 1472,
+      "cleaned_chars": 1241,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 37.77,
+      "raw_chars": 1842,
+      "cleaned_chars": 751,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 24.58,
+      "raw_chars": 1452,
+      "cleaned_chars": 172,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 55.83,
+      "raw_chars": 1355,
+      "cleaned_chars": 2085,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 39.16,
+      "raw_chars": 1398,
+      "cleaned_chars": 1243,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 50.72,
+      "raw_chars": 1386,
+      "cleaned_chars": 1493,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 40.94,
+      "raw_chars": 1509,
+      "cleaned_chars": 786,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 41.29,
+      "raw_chars": 1434,
+      "cleaned_chars": 1081,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 44.83,
+      "raw_chars": 1471,
+      "cleaned_chars": 1236,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 41.99,
+      "raw_chars": 1305,
+      "cleaned_chars": 1287,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 39.66,
+      "raw_chars": 1377,
+      "cleaned_chars": 564,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 50.93,
+      "raw_chars": 1487,
+      "cleaned_chars": 2099,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 40.35,
+      "raw_chars": 825,
+      "cleaned_chars": 770,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 42.09,
+      "raw_chars": 1251,
+      "cleaned_chars": 1087,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 34.35,
+      "raw_chars": 1392,
+      "cleaned_chars": 509,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 43.87,
+      "raw_chars": 1449,
+      "cleaned_chars": 1124,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.25,
+      "raw_chars": 1544,
+      "cleaned_chars": 1224,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 46.69,
+      "raw_chars": 1495,
+      "cleaned_chars": 1378,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 38.56,
+      "raw_chars": 1372,
+      "cleaned_chars": 194,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 45.98,
+      "raw_chars": 1362,
+      "cleaned_chars": 1247,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 69.68,
+      "raw_chars": 1365,
+      "cleaned_chars": 2427,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 47.62,
+      "raw_chars": 1476,
+      "cleaned_chars": 1444,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 32.26,
+      "raw_chars": 1481,
+      "cleaned_chars": 254,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 38.55,
+      "raw_chars": 1502,
+      "cleaned_chars": 955,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 39.9,
+      "raw_chars": 1351,
+      "cleaned_chars": 968,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 43.09,
+      "raw_chars": 1594,
+      "cleaned_chars": 1050,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 49.72,
+      "raw_chars": 1446,
+      "cleaned_chars": 1316,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 68.48,
+      "raw_chars": 1318,
+      "cleaned_chars": 2600,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 61.24,
+      "raw_chars": 1548,
+      "cleaned_chars": 2310,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 41.83,
+      "raw_chars": 1474,
+      "cleaned_chars": 1201,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 52.77,
+      "raw_chars": 1508,
+      "cleaned_chars": 1105,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 46.61,
+      "raw_chars": 1453,
+      "cleaned_chars": 1158,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 85.2,
+      "raw_chars": 1651,
+      "cleaned_chars": 3897,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 77.0,
+      "raw_chars": 1582,
+      "cleaned_chars": 1703,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 29.91,
+      "raw_chars": 1338,
+      "cleaned_chars": 190,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 45.83,
+      "raw_chars": 486,
+      "cleaned_chars": 745,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 29.79,
+      "raw_chars": 399,
+      "cleaned_chars": 420,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 9.99,
+      "raw_chars": 104,
+      "cleaned_chars": 69,
+      "md_path": "nguyen-ly-chon-ngay-theo-bat-tu-ha-lac/pages/p0177.md"
+    }
+  ]
+}

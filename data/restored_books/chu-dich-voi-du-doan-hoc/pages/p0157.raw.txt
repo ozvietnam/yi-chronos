@@ -1,0 +1,31 @@
+| X hào thượng! dấuX — là vạch đứt là âm —~ Ì Đài
+' Quẻ ngoại Ì . _ hào năm 1 chấm là đơn là đương — vi
+' O_ hào bốn 1 vòng là 1 chấm là đương — trạch
+¡ „ hào ba 2 chấm là vạch đứt là âm - ~ Chấn
+| h Quênội |... hào hai 2 chấm __— là vạch đứt là âm -— | vì
+_ | O hào đầu 1 vòng là 1 chấm là dương - | lôi
+'
+' Lúc xếp hào thì xếp từ dưới lên trên. Lúc xếp tên quẻ thì lại xếp từ trên
+| ; xuống dưới. Quẻ này có quẻ nội là chấn, quể ngoại là đoài, là kim trên, mộc
+' đưới, là quẻ "trạch lôi tùy”.
+Dưới đây giới thiệu hình tượng quế của 8 quẻ đơn :
+GÀN # l1 chấm là vạch liền, cả 3 hào là vạch liên
+ĐOÀI # hào đầu, hào hai là vạch liền, hào ba là vạch đứt
+UY = hào đầu, hào ba là vạch liền; hào hai là vạch đứt
+: CHẤN #E hào đầu là vạch liên; hào hai, hào ba là vạch đứt
+` -s x—. R R
+Bà ` TỐN #= hào đâu là vạch đứt; hào hai, hào ba là vạch liên
+` RKHẢM # hào đâu và hào ba là vạch dứt; hào hai là vạch liên
+. CẤN SE hào đầu và hào hai đều là vạch đứt; hào ba là vạch liển
+, „mm
+KHÔN E cả ba hào đều là vạch đứt
+| Hai quế đơn trên dưới chồng lên nhau thì được một quẻ mới là quẻ kép.
+| h Có 64 quẻ này lại chia thành 8 nhóm gọi là ˆ8 cung”, mỗi cung có 8 quẻ, mỗi
+" . quê đều có tên riêng.
+Người xưa trong thực tiễn dự đoán đã phát hiện bát quái và ngũ hành
+l có quan hệ mật thiết với nhau. Căn cứ vào kinh nghiệm thực tiễn đã tổng “—
+kết ra các thuộc tính của các quẻ trong 8 cung, đểng thời phát hiện ra 6 hào
+của mỗi quẻ lại có thuộc tính với ngũ hành của nó và hàm chứa một thông
+tin nào đó, gọi là "tượng hào”. Để cung cấp cho độc giả học tập, nghiên cứu
+dưới đây xin giới thiệu tượng hào của 64 quẻ.
+1°

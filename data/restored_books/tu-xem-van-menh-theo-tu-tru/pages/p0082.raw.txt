@@ -1,0 +1,31 @@
+HÀNG THĂNG LũNG F l Trung tầm nghiên cứu ứng tụng kiến trúc phong thủy
+| 10. An thập thần vào từng ngũ hành: để biết ngũ hành b b. Tam hợp: trong tứ trụ, địa chỉ chia thành bốn tam hợp
+| đó thuộc thập thần gì. . của bốn loại ngũ hành, kim, mộc, thủy, hỏa và có độ vượng qui
+Trình tự thực hiện 10 bước trên đây hết sức quan trọng, Ƒ định như sau: .
+nếu thực hiện sai trình tự qui định trên đây nhất định sẽ sai : | Tamhjp |  Mgũhàh | Thành húa
+: lệch đến kết quả tính toán vượng độ. : Dân - Ngọ -Tiất | Ha |  60đ — —-|
+: ; Thân - Tý - Thìn 60 độ
+TR PHƯƠNG PHXP TÍNH TOÁN ïx“: r Hn mm
+Để thực hiện được mười bước trên, ta lần lượt thực hiện : Ví dụ về tam hợp hóa:
+l các bước tính toán sau: l ì X X Bính X
+„ l Thì Dần
+1. Bước 1: - Tuất Ngọ ìn ả
+- Trước hết cần xem xét tất cả các địa chỉ trong tứ trụ, Ỉ Tam hợp hóa hỏa 60 độ ị
+có hội hợp xung hóa hay không để biết được các can tàng ,: Tam hợp Dần Ngọ, Tuất hóa hỏa, thành công nhờ có can
+l độn còn lại ngũ hành là gì. + Bính dẫn. l
+Muốn làm bước một, ta cần nghiên cứu về nguyên tắc hội Ẵ Bán tam hợp. .
+xung hợp hóa của địa chỉ. , -Địa chi chia ra 8 cặp bán tam hợp, trong đó bốn cặp bán
+_ 1,1 Hội hợp của địa chỉ : , tam hợp Sinh và bốn cặp bán tam hợp Mộ, có vượng độ qui
+a.Tam hội: trong phần lý thuyết về âm dương ngũ hành ta ì định như sau: ———
+đã biết, địa chỉ chia thành bốn tam hội, trên địa bàn là Đông, Ƒ  -BánbmMp |  Mũhih Tôn
+CV TẾ V VỐN SẠN: _— | Mg-tt | TH: | mg |
+CÔ —| Mi | Pươy —Ï màng | | Í— TT —Ƒ— —wn —Ƒ] —-Đg——|
+THẾ, mm | Thấn-
+ng mẻ | HT:
+Hợ-1ý-§U Từ | TBb | Ø8... | He TC TT ng
+Ví dụ về tam hội hóa: ì Mão - Mùi | Mộc |  40đ — |
+X X X Đỉnh ì Ví dụ về bán tam hợp hóa:. `
+Ty - Ngọ .__X Mùi - Ề X: - X Bính : X
+ma. b. Dân Ngọ Thân  . - Mùi
+Tam hội hóa hỏa 72 độ ; : "
+l Tam hội Ty Ngọ Mùi hóa hỏa thành công nhờ có Đinh dẫn. : 40 độ hỏa PầNM: KĐA l

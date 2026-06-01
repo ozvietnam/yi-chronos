@@ -1,0 +1,44 @@
+" năm, tháng ngày giờ thêm số nét của tên họ làm quẻ hạ. Lấy tổng số chia 6
+: lấy số dư làm hào động. Sau đó căn cứ vào quê của 3 người khác nhau để
+| Ồ đoán cát hung.
+| Gặp việc hôn nhân, mai táng cũng có thể dùng cách này. Người có tang
+| thì thêm họ, người có hôn thì thêm số nét của chữ nam hoặc nữ để gieo quẻ.
+Phương pháp gieo quẻ theo năm tháng ngày giờ, trong 1 giờ chỉ có 1 tượng
+; quẻ, như giờ Giáp lấy quẻ được quẻ Khảm, những thông tin của quẻ Khảm
+thuộc về anh A, anh B không thể dùng. Anh B muốn đoán, phải theo phương
+Ũ pháp "gieo quề theo phương vị", hoặc bảo anh ta viết chữ để gieo quẻ, như
+l , thế cũng sẽ tìm được những thông tin anh ta cần biết.
+- 7. Hào động
+
+Những phương pháp gieo quẻ trên đây đều có hào động, hơn nữa trong
+quế chỉ có 1 hào động. Như vậy trọng điểm của quẻ đã lộ ra, có lợi cho dự
+đoán.
+
+Hào động của qué là sau khi chia cho 6 được số dư, số đó là số của hào
+động. Tác dụng của hào động là :
+
+nì , 1. Hào động là tiêu chí chủ yếu dùng để phân biệt quẻ Thể và quẻ Dụng.
+x - Một quẻ chia thành quẻ thượng và quê hạ, quẻ nào có hào động là quẻ dụng,
+` không có hào động là quẻ Thể. Hào động ở quề Hạ thì quẻ Hạ là quẻ dụng,
+x * quề thượng là quẻ Thể, và ngược lại. Quẻ Thể là mình, quê Dụng là người
+_ khác hay việc muốn đoán.
+= ' 2. Hào động là tiêu chí chủ yếu của quẻ Biến. Có động thì có biến, hào
+_ dương động biến thành hào âm và ngược lại. Hào biến thì quẻ cũng biến. Ví
+dụ : hào chín đầu của quê Càn động là từ hào dương biến thành hào âm, nên
+: quẻ Càn biến thành quẻ "Thiên phong cấu".
+| _ „ 3. Hào động là tiêu chí để đoán cát hung của sự việc cần đoán. Sau khi
+-. thành quẻ, tuy dùng ngũ hành và quẻ thể, quẻ dụng tương sinh tương khắc
+" để đoán cát hung, nhưng phải tham khảo thêm hào từ trong quẻ đó. Ví dụ : —
+; ` hào đầu động thì xem từ của hào đầu. Hào 5 động thì xem từ của hào 5 để
+biết nó chủ về gì. Ví dụ : được quẻ Càn, hào chín đầu động hào từ của nó
+nói : "Tiểm long vật dụng" thì có thể đoán là : thời cơ của sự việc chưa đến,
+trước mắt không nên tham làm.
+
+4. Hào động là sự việc biến thành tốt hay xấu, tức là tiêu chí chủ yếu
+để phân biệt biến sinh, biến khắc, biến ngang nhau, và biến xấu đi. Ví dụ :
+gieo được quẻ Càn, hào chín hai động, sẽ biến thành quẻ : "Thiên hỏa đồng
+nhân". Quê thượng là càn, là quê thể, là kim; quê hạ là ly, là quẻ dụng, là
+hỏa; hỏa khắc kim tức quẻ dụng khắc quẻ Thể, nên có thể đoán là : việc này
+trước lành sau đữ,
+
+121

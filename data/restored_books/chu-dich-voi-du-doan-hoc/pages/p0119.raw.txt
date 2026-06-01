@@ -1,0 +1,36 @@
+"¬ - ð chữ : 2 chữ đâu là quẻ thượng, 3 chữ sau là quẻ hạ.
+- 68 chữ : 3 chữ đầu là quẻ thượng, 3 chữ sau là quẻ hạ.
+~ 7 chữ : 3 chữ đầu là quẻ thượng, 4 chữ sau là quẻ hạ.
+~ 8 chữ : 4 chữ đâu là quẻ thượng, 4 chữ sau là quẻ hạ. ,
+- 9 chữ : 4 chữ đâu là quẻ thượng, ð chữ sau là quẻ hạ.
+~ 10 chữ : 5 chữ đâu là quê thượng, ð chữ sau là quê hạ.
+| Cách lấy hào động : giống trường hợp lấy cho 3 chữ. l
+| Từ 11 chữ đến 100 chữ đều có thể gieo quê được, cứ theo nguyên tắc :
+: nửa đầu là quẻ thượng, nửa sau là quẻ hạ. Lấy tổng số chữ của nó chia cho
+| ⁄ 6 để tìm hào động của nó.
+: Cách gieo quê theo chữ cho dù là phổn thể hay giản thể đều phải viết
+rõ ràng chuẩn xác, nét bút không rõ không dùng được.
+4. Gieo quẻ theo âm thanh
+Phàm nghe tiếng kêu, đếm được mấy số thì lấy đó làm quẻ thượng, thêm
+số thời gian làm quẻ hạ. Lấy tổng số trừ 6, số dư là hào động. Nếu tiếng kêu
+l của động vật thì kêu mấy tiếng, hoặc nghe người đánh mấy tiếng trống đều
+Š ` có thể gieo quẻ.
+- : Ở quê động vật : thấy bẩy vật đang chuyển động thì không thể lấy quẻ.
+l Nếu thấy một ít vật thì có thể giao quê được. Động vật là quẻ thượng, phương
+từ đó đi đến là quê hạ. Ví dụ : có tiếng bò rống ở phương Khẩm, bò thuộc
+, hôn là quẻ thượng, phương Khảm là quẻ hạ. Khôn cộng với Khảm thêm
+giờ, số của nó chia cho 6 số dư là hào động.
+mm 5. Gieo quẻ theo kích thước
+có. \ . Vật có kích thước, lấy số trượng tính ra quẻ thượng, lấy số xích làm quẻ
+hạ. Tổng số của trượng và xích chia 6, số dư làm hào động. Số lẻ thốn (tấc)
+không kể. Quê xích thốn thì lấy số xích làm quẻ thượng, số thốn làm quẻ —
+h hạ, tổng số xích và số thốn để tìm hào động. Số phân bỏ qua.
+6. Gieo quê theo cách gia số
+Cách gieo quẻ theo năm tháng ngày giờ, cùng trong 1 giờ chỉ có 1 quẻ.
+Nhưng trong cùng một giờ lại có nhiễu người đến lấy quẻ thì không thể lấy
+cùng 1 quẻ ra mà đoán được. Hoặc giả có nhiều người cùng đến không thể
+từ 1 quê mà đoán cho nhiều người. Để giải quyết vấn để này, có thể dùng
+cách cộng thêm số nét của tên họ để quyết định quẻ.
+Ví dụ : có 3 người họ : Vương, Điển, Hàn đồng thời đến hỏi về việc làm
+nhà. Có thể phân biệt lấy quẻ như sau : năm, tháng, ngày làm quẻ thượng :
+120 l

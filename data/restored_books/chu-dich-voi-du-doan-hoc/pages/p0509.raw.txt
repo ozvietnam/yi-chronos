@@ -1,0 +1,54 @@
+- Thàng 11 không có ngày giáp tý. Ngày 24 là tiết tiểu hàn, giao tiết
+3 tháng 12.
+Ngày 27 tháng 12 là ngày giáp tý. Ngày 24 là ngày lập xuân năm giáp
+- tuất, tức ngày 4 tháng 2 năm 1994.
+
+Qua bảng năm 1993 ta có thể thấy : tiết lệnh của âm lịch (tức lệnh
+
+tháng) không phải cố định xuất biện ở từng tháng, đó là do có tháng nhuận
+
+_ tạo nên. Tôi lấy xuân, hạ, thu, đông để biểu thị lập xuân lệnh của tháng
+
+_ giêng, lập hạ lệnh của tháng tư, lập thu lệnh của tháng bảy, lập đông lệnh
+
+, của tháng mười thì cho dù có tháng nhưận cũng không đến nổi sai lệch. Dấu
+
+: "" ở trong bảng này để biểu thị tháng đó không có tiết lệnh, nguyên nhân
+
+| ˆ vì trong âm lịch, tháng trước sắp kết thúc nhưng tháng sau vẫn chưa bắt
+
+: đầu, nên dùng chấm nhỏ để biểu thị những ngày âm lịch không có tiết lệnh
+h thì tiết lệnh vẫn được tính trong đó.
+
+Chữ "thiếu" là để chỉ tháng đó thiếu, tức chỉ có 29 ngày. Tháng đủ 30
+ngày không cẩn ghi nữa. Tác dụng của nó là : khi một tháng nào đó không
+có ngày giáp tý thì phải đếm từ ngày giáp tý tháng trước đến tháng sau, và
+phải chú ý số ngày của tháng thiếu không phải là bội số của 10, nên lúc tính
+ngày phải thêm vào một can chí ngày (phần dưới có ví dụ để nói rõ hơn). `
+
+n : 2. Giải thích cách sử dụng bảng `
+h ` 1. Căn cứ ngày giáp tý để tính can chỉ ngày sinh của một người nào đó l
+sa ` là căn cứ vào quy luật khoảng giữa hai ngày giáp tý có chứa ngày sinh của
+Si % người đó. Vì địa chỉ trên hình bàn tay cố định, nên chỉ cần tính ra thiên
+> can, sau suy ra chỉ rồi hợp can chỉ lại là được.
+s : Cách suy cụ thể như sau : Bắt đầu từ ngày giáp tý đếm cách ngôi ngược
+chiều kim đông hồ (tức sau ngày giáp tý mười ngày là ngày giáp tuất, sau
+giáp tuất 10 ngày là ngày giáp thân, ví dụ ngày mồng một là giáp tý, sau,
+| 10 ngày, ngày thứ 11 là giáp tuất; qua 10 ngày nữa, ngày thứ hai mươi mốt
+| „ là ngày giáp thân. Mỗi tháng không thể quá 30 ngày, nên trong bảng tháng
+ok l nào mà có ngày giáp tý thì tính đến ngày giáp thân là đã đủ lắm rỗi, số dư
+- thì thuận chiều kim đồng hồ đếm đến ngày sinh hoặc đếm đến ngày dự đoán
+‹ theo âm lịch. :
+
+Lấy tháng 9 âm lịch năm 1994 làm ví dụ.
+
+Nếu muốn biết trụ ngày của ngày mỏng 4 tháng 9 âm lịch năm 1994 thì
+trong bảng : tháng 9 âm lịch của năm 1994 tra ra ngày giáp tý là mông 1,
+từ bàn tay trái, lấy ngón cái đếm : "ngôi tý làm mồng một giáp tý, ngôi sửu
+là mồng hai ất sửu, ngôi dần mồng ba bính dân, mão là mỗng bốn định mão".
+Như vậy sẽ biết được mỗổng 4 là định mão.
+
+Muốn biết can chỉ ngày mười lăm tháng 9 : từ ngôi tý tính ngày giáp
+tý là mỗng 1, cách ngôi đếm ngược đến tuất suy ra ngày giáp tuất là ngày
+
+B12

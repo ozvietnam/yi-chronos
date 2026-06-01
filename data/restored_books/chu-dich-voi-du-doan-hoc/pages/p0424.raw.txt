@@ -1,0 +1,55 @@
+hào thành = bá đây đã hoàn nguyên thành quẻ cần là quê đầu của cung
+, gốc. Quê này là quẻ thứ Š,,tức quẻ quỷ hồn. Hào thế là hào 3.
+
+Qua đó ta thấy rõ thứ tự của phép phản biến là từ hào đầu đến hào bai,
+| hào 3, hào 4, hào 5, hào 4; quẻ hạ biến toàn bộ thì nó sẽ hoàn nguyên quê
+_ đầu. Nếu không sẽ rất khó phốt xếp hào thế, hào ứng.
+
+' Phép phản biến của 7 cung khác cũng tương tự. Để thuận tiện cho độc
+l giả, chúng tôi xin giới thiệu cách.biến đổi 8 cung như dưới đây : (xem trang :
+_ 427 - 429). : ` -
+ị Trong vận dụng tực ‡ế, muốn phản biến được chính xác thì phải chú ý
+, phản biến tuần tự, nếu khôfg.sẽ rất dễ lẫn lộn.
+
+Ví dụ : quê thứ 7-của cung Đoài, phía trước nó là các quẻ : Trạch thủy
+khốn ==, trạch địa tụy SE, trạch sơn hàm ==, chỉ cân đối chiếu quẻ thượng
+với quẻ hạ hào cuối cùng sau khi biến đổi để quẻ hạ giống quẻ thượng, tức
+là hào đó là hào thế của quẻ. Từ sau quẻ thủy sơn kiển, cả 3 hào của quẻ hạ
+sau khi biến đổi vẫn chưa giống quẻ thượng, ta tiếp tục biến đổi đồng thời
+
+"ì l 8 hào của quả hạ để quẻ thượng của quẻ thủy sơn kiển là khẩm, quê hạ từ
+
+hà. ` cấn biến thành đoài, lấy quẻ thượng khảm so sánh với quẻ hạ đoài ta thấy
+
+* ` chỉ cần biến đổi hào 4 quẻ thượng là sẽ được hai quẻ giống nhau, do đó biết
+
+Si Ắ được quê kiến là quẻ thuộc cung đoài, hào 4 trì thế, Quẻ sơn địa khiêm
+
+° l EE quê thượng khôn, quẻ hạ từ cấn biến thành đoài, đối chiếu quẻ hạ và
+
+` , quê thượng, sau khi đã biến đổi hào 4, tiếp tục biến đổi hào 5 ta sẽ được hai
+
+quẻ thượng, hạ giống nhau, tức biết được quẻ thuộc cung đoài, hào ð trì thế.
+
+Quẻ Lôi sơn tiểu quá sau khi theo cách biến đổi trên hai quả thượng hạ vẫn
+
+', khác nhau : quê hạ từ cấn biến thành đoài, quê thượng hào 4, hào ð sau khi
+
+- l biến là khẩm. Nhưng có thể đem quẻ thượng khảm du về 1 ngôi ở phía dưới,
+_ biến quẻ hạ giống với quê thượng, tức là quẻ du hồn của cung đoài, hào 4 trì —
+
+: thế. Quê Lôi trạch quy muội , sau khi biến đổi theo cách trên, quẻ hạ
+
+biến thành đoài, vừa đúng ngược với hào âm dương của quẻ cấn, qua đó ta
+
+biết được đó là quê quy hồn. Biến đổi toàn bộ 3 hào của quẻ cấn sẽ trở về
+
+hoàn nguyên, tức quẻ quy muội là quẻ thuộc cung đoài, hào 3 trì thế.
+
+Phép phản biến vừa giới thiệu ở trên là rất cẩn thiết, nhưng nếu ngay
+một lúc chưa hiểu lắm hoặc chưa nắm vững thì cũng không hề gì, có thể
+luyện tập dần trong thực tiễn là được. Vì ngày nay đã có bộ thể dự toán theo
+6 hào do thầy Thiệu Vĩ Hoa phát minh, dùng rất thuận tiện, cho nên không
+cần phải nhớ nữa.
+
+427

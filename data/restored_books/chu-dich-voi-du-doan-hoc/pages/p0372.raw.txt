@@ -1,0 +1,43 @@
+" II. CẾCH TÍNH CAN, CHI CỦA NĂM, THẮNG, NGÀV, GIỜ
+' 1. Cách tính can, chỉ của năm |
+Mười can và mười hai chỉ lần lượt từng cặp phối với nhau, phối 60 lần "
+| thì đủ một vòng, ví dụ : giáp tý, ất sửu, bính dần, định mão,... mãi cho đến ị
+| quý hợi. Vì lấy can giáp và chỉ tý phối với nhau làm năm thứ nhất, nên phối
+| : kết một lượt toàn bộ can chỉ là 60 năm, gọi là 60 giáp tý. Sáu mươi năm âm
+q lịch cũng gọi là một hoa giáp. Sau một hoa giáp thì can chỉ lại phối lại từ
+| ì đầu, cứ thế lặp đi, lặp lại mãi.
+Dưới đây giới thiệu bảng giáp tý 60 năm |
+|
+|
+|
+|
+_
+p
+-
+|
+Trong kỷ niên can chỉ hiện đại, 60 năm trước năm 1924 gọi là thượng
+| nguyên, 60 năm từ 1924 đến 1984 gọi là trung nguyên, 60 năm từ sau 1984
+gọi là hạ nguyên. Như vậy là đã làm rõ can chỉ năm của nguyên nào. Dưới
+| ` đây giới thiệu can chỉ 120 năm cuối của thế kỷ 20 tương ứng với các năm
+" l dương lịch và cẩm tỉnh từng năm để tham khảo (xem trang 376 - 377).
+. 2. Cách tính can, chỉ của tháng —
+Tháng giêng kiến Dần Tháng hai kiến Tháng ba kiến Thìn Tháng tư kiến Ty
+(Từ lập xuân Mão (Thanh mình (Từ lập hạ
+đến kinh trập) (Từ trập đến lập hạ) đến mang chủng)
+đến thanh minh)
+Tháng 5 kiến Ngọ Tháng 6 kiến Mùi Tháng 7 kiến Thân Tháng 8 kiến Dậu
+(Mang chủng (Tiểu thử (Lập thu (Bạch lộ
+đến tiểu thử) đến lập thu) đến bạch lộ) đến hàn lộ)
+Tháng 8 kiến Tuất Tháng 10 kiến Hợi Tháng 11 kiến Tý Tháng 12 kiến Sửu
+(Hàn lộ (Lập đông (Đại tuyết (Tiểu hàn
+đến lập đông) đến đại tuyết) đến tiểu hàn) đến lập xuân)
+375
+=.. —
+——
+>> - †<>smeo
+¬ NNg
+NN
+ào ` SN
+Nà ọ
+s°% ọ
+¬>».`*ẽŠ

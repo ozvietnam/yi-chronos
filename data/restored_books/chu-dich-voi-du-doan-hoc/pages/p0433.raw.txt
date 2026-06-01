@@ -1,0 +1,35 @@
+. mà thành, cho nên khi nạp địa chỉ ngũ hành của 56 quê còn lại là dựa nguyễn
+h tắc địa chỉ của quẻ thượng thì đùng cho quẻ thượng, quê hạ thì dùng cho quê
+: hạ. Vì vậy việc nạp địa chỉ cho 56 quẻ còn lại là dựa theo nguyễn tắc đã giới
+- thiệu ở 8 quẻ thuần trên.
+Ví dụ : Địa chi của quẻ Thiên phong cấu : .
+| Tuất
+| | Thân | (Nạp địa chỉ quẻ thượng của quẻ Càn)
+' ' Ị *
+"Thiên ị Ngo
+| \ phong cấu Ì Dâu
+¡ | Hợi ị (Địa chỉ quê hạ của quẻ Tốn)
+“ | Sửu
+Ví dụ : Địa chỉ của quê hỏa thiên đại hữu :
+[ Ty
+Höa Mùi ị (địa chi quê thượng của quẻ Ly)
+thiên — J Đêm
+` đại Thìn
+h : hữu | Dẫn (địa chỉ quẻ hạ quê Càn)
+` ` L Tý
+A :
+i 4. Bàn quay nạp địa chí cho 6 hào và cách nhớ
+Vì những người mới học không dễ mà nhớ được địa chỉ của quẻ thượng
+ị và quẻ hạ, cho nên chúng tôi giới thiệu bàn quay nạp địa chỉ cho 6 hào để
+| l mọi người tham khảo. Phản trên và phần dưới của bàn này, mỗi phần có
+"mm : 8 quê kinh đã được nạp địa chí. Khi quay nửa bàn ngoài để cho hai quể chồng
+lên nhau thì ta sẽ được 1 quẻ mới trong đó sáu hào của quẻ đã có đây đủ địa
+l chí. Ví dụ : muốn tra địa chi của quẻ Thiên sơn độn, đầu tiên ta quay quẻ cấn ¬
+của bàn ngoài (quẻ hạ) trùng với quê càn của bàn tròng là quê thượng, như
+vậy ta sẽ được quẻ Thiên sơn độn, có hào đầu la thìn thổ, hào hai là ngọ hỏa,
+hào ba thân kim, hào bốn ngọ hỏa, hào năm thân kim, hào thượng tuất thể.
+Trong ứng dụng thực tế, căn cứ vào tượng quẻ gieo được để quay bàn này, rất
+nhanh, ta sẽ được quẻ đã có sẵn địa chi của 6 hào mà không cần phải nhớ.
+Còn về lục thân, vì 64 quẻ thay đổi khác nhau nên bàn quay này không
+thể biểu thị được, mà phải căn cứ vào 8 cung để xác định.
+436

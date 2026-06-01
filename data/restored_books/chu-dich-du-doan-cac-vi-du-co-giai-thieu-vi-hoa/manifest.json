@@ -1,0 +1,2895 @@
+{
+  "book_id": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa",
+  "source_pdf": "thư viện sách/Chu Dịch Dự Đoán Các Ví Dụ Có Giải - Thiệu Vĩ Hoa.pdf",
+  "page_range": [
+    1,
+    360
+  ],
+  "total_pages": 360,
+  "total_seconds": 5817.4,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 29.78,
+      "raw_chars": 592,
+      "cleaned_chars": 20,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.09,
+      "cleanup_seconds": 9.22,
+      "raw_chars": 35,
+      "cleaned_chars": 41,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 15.86,
+      "raw_chars": 108,
+      "cleaned_chars": 125,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 48.17,
+      "raw_chars": 1416,
+      "cleaned_chars": 1394,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 82.82,
+      "raw_chars": 1954,
+      "cleaned_chars": 1993,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 58.03,
+      "raw_chars": 1847,
+      "cleaned_chars": 1838,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 74.14,
+      "raw_chars": 2020,
+      "cleaned_chars": 2038,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 55.48,
+      "raw_chars": 1611,
+      "cleaned_chars": 1602,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 67.3,
+      "raw_chars": 1792,
+      "cleaned_chars": 1786,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 44.64,
+      "raw_chars": 1401,
+      "cleaned_chars": 1414,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 55.8,
+      "raw_chars": 1841,
+      "cleaned_chars": 1903,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 50.96,
+      "raw_chars": 1771,
+      "cleaned_chars": 1942,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 54.86,
+      "raw_chars": 1830,
+      "cleaned_chars": 1855,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 48.34,
+      "raw_chars": 1413,
+      "cleaned_chars": 1437,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 39.68,
+      "raw_chars": 1412,
+      "cleaned_chars": 1396,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 46.8,
+      "raw_chars": 1226,
+      "cleaned_chars": 1373,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 46.55,
+      "raw_chars": 1355,
+      "cleaned_chars": 1492,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 51.9,
+      "raw_chars": 1556,
+      "cleaned_chars": 1575,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 51.86,
+      "raw_chars": 1702,
+      "cleaned_chars": 1716,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 51.02,
+      "raw_chars": 1445,
+      "cleaned_chars": 1430,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 51.84,
+      "raw_chars": 1475,
+      "cleaned_chars": 1531,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 54.79,
+      "raw_chars": 1298,
+      "cleaned_chars": 1397,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 58.12,
+      "raw_chars": 1590,
+      "cleaned_chars": 1596,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 53.08,
+      "raw_chars": 1721,
+      "cleaned_chars": 1729,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 43.47,
+      "raw_chars": 1514,
+      "cleaned_chars": 1592,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 50.08,
+      "raw_chars": 1418,
+      "cleaned_chars": 1664,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 49.93,
+      "raw_chars": 1803,
+      "cleaned_chars": 1846,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 41.54,
+      "raw_chars": 1436,
+      "cleaned_chars": 1514,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.56,
+      "raw_chars": 1508,
+      "cleaned_chars": 1558,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 46.84,
+      "raw_chars": 1226,
+      "cleaned_chars": 1353,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 49.51,
+      "raw_chars": 1278,
+      "cleaned_chars": 1255,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 29.1,
+      "raw_chars": 603,
+      "cleaned_chars": 602,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 44.27,
+      "raw_chars": 1335,
+      "cleaned_chars": 1342,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 40.53,
+      "raw_chars": 1799,
+      "cleaned_chars": 1974,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 47.75,
+      "raw_chars": 1501,
+      "cleaned_chars": 1638,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 50.47,
+      "raw_chars": 1689,
+      "cleaned_chars": 1722,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 45.44,
+      "raw_chars": 1285,
+      "cleaned_chars": 1418,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 59.86,
+      "raw_chars": 1580,
+      "cleaned_chars": 1613,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.96,
+      "raw_chars": 1539,
+      "cleaned_chars": 1763,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 50.14,
+      "raw_chars": 1740,
+      "cleaned_chars": 1790,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 54.32,
+      "raw_chars": 1496,
+      "cleaned_chars": 1644,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 55.72,
+      "raw_chars": 1775,
+      "cleaned_chars": 1864,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 51.82,
+      "raw_chars": 1609,
+      "cleaned_chars": 1834,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 47.28,
+      "raw_chars": 1869,
+      "cleaned_chars": 1926,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 43.06,
+      "raw_chars": 1614,
+      "cleaned_chars": 1598,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 40.15,
+      "raw_chars": 1455,
+      "cleaned_chars": 1539,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 45.94,
+      "raw_chars": 1579,
+      "cleaned_chars": 1630,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 58.16,
+      "raw_chars": 1579,
+      "cleaned_chars": 1612,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 54.54,
+      "raw_chars": 1684,
+      "cleaned_chars": 1728,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 49.72,
+      "raw_chars": 1937,
+      "cleaned_chars": 1955,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 49.36,
+      "raw_chars": 1796,
+      "cleaned_chars": 1794,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 52.91,
+      "raw_chars": 1237,
+      "cleaned_chars": 1156,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 63.76,
+      "raw_chars": 1595,
+      "cleaned_chars": 1591,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 67.12,
+      "raw_chars": 1637,
+      "cleaned_chars": 1696,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 40.35,
+      "raw_chars": 1396,
+      "cleaned_chars": 1531,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 63.51,
+      "raw_chars": 1466,
+      "cleaned_chars": 1496,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 50.66,
+      "raw_chars": 1698,
+      "cleaned_chars": 1699,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 45.5,
+      "raw_chars": 1378,
+      "cleaned_chars": 1383,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 46.5,
+      "raw_chars": 1666,
+      "cleaned_chars": 1748,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 69.79,
+      "raw_chars": 1469,
+      "cleaned_chars": 1516,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 43.34,
+      "raw_chars": 1537,
+      "cleaned_chars": 1514,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 51.65,
+      "raw_chars": 1557,
+      "cleaned_chars": 1749,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 60.19,
+      "raw_chars": 1679,
+      "cleaned_chars": 1781,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 37.39,
+      "raw_chars": 1522,
+      "cleaned_chars": 1511,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 52.94,
+      "raw_chars": 1380,
+      "cleaned_chars": 1373,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 46.94,
+      "raw_chars": 1542,
+      "cleaned_chars": 1616,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 53.15,
+      "raw_chars": 1623,
+      "cleaned_chars": 1651,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 49.77,
+      "raw_chars": 1478,
+      "cleaned_chars": 1539,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 62.86,
+      "raw_chars": 1887,
+      "cleaned_chars": 1901,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 53.28,
+      "raw_chars": 1371,
+      "cleaned_chars": 1425,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 59.57,
+      "raw_chars": 1819,
+      "cleaned_chars": 1848,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 51.43,
+      "raw_chars": 1309,
+      "cleaned_chars": 1522,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 61.78,
+      "raw_chars": 1865,
+      "cleaned_chars": 1939,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 52.66,
+      "raw_chars": 1573,
+      "cleaned_chars": 1579,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 45.88,
+      "raw_chars": 1538,
+      "cleaned_chars": 1579,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 47.5,
+      "raw_chars": 1540,
+      "cleaned_chars": 1612,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 49.45,
+      "raw_chars": 1510,
+      "cleaned_chars": 1596,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 54.0,
+      "raw_chars": 1466,
+      "cleaned_chars": 1542,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 61.28,
+      "raw_chars": 1496,
+      "cleaned_chars": 1766,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 43.35,
+      "raw_chars": 1710,
+      "cleaned_chars": 1730,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 41.97,
+      "raw_chars": 1283,
+      "cleaned_chars": 1325,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 58.74,
+      "raw_chars": 1446,
+      "cleaned_chars": 1580,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 49.51,
+      "raw_chars": 1816,
+      "cleaned_chars": 1820,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 51.13,
+      "raw_chars": 1374,
+      "cleaned_chars": 1413,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 48.68,
+      "raw_chars": 1225,
+      "cleaned_chars": 1312,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 47.86,
+      "raw_chars": 1668,
+      "cleaned_chars": 1751,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 56.51,
+      "raw_chars": 1527,
+      "cleaned_chars": 1588,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 49.49,
+      "raw_chars": 1406,
+      "cleaned_chars": 1599,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 38.58,
+      "raw_chars": 1739,
+      "cleaned_chars": 1747,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 37.83,
+      "raw_chars": 1364,
+      "cleaned_chars": 1563,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 47.28,
+      "raw_chars": 1912,
+      "cleaned_chars": 2068,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 40.23,
+      "raw_chars": 1789,
+      "cleaned_chars": 1918,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 52.2,
+      "raw_chars": 1566,
+      "cleaned_chars": 1580,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 68.93,
+      "raw_chars": 1897,
+      "cleaned_chars": 2033,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 50.94,
+      "raw_chars": 1540,
+      "cleaned_chars": 1741,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 49.72,
+      "raw_chars": 1710,
+      "cleaned_chars": 1760,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 48.48,
+      "raw_chars": 1635,
+      "cleaned_chars": 1679,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 52.58,
+      "raw_chars": 1519,
+      "cleaned_chars": 1883,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 51.41,
+      "raw_chars": 1832,
+      "cleaned_chars": 1830,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 56.75,
+      "raw_chars": 1456,
+      "cleaned_chars": 1560,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 51.17,
+      "raw_chars": 1433,
+      "cleaned_chars": 1512,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 47.31,
+      "raw_chars": 1529,
+      "cleaned_chars": 1561,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 36.2,
+      "raw_chars": 1550,
+      "cleaned_chars": 1604,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 49.83,
+      "raw_chars": 1625,
+      "cleaned_chars": 1738,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 39.39,
+      "raw_chars": 1412,
+      "cleaned_chars": 1553,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 42.4,
+      "raw_chars": 1438,
+      "cleaned_chars": 1543,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 47.99,
+      "raw_chars": 1427,
+      "cleaned_chars": 1582,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 50.73,
+      "raw_chars": 1551,
+      "cleaned_chars": 1725,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 43.05,
+      "raw_chars": 1549,
+      "cleaned_chars": 1689,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.75,
+      "raw_chars": 1551,
+      "cleaned_chars": 1639,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 47.59,
+      "raw_chars": 1403,
+      "cleaned_chars": 1594,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 49.76,
+      "raw_chars": 1523,
+      "cleaned_chars": 1824,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 48.1,
+      "raw_chars": 1477,
+      "cleaned_chars": 1543,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 53.0,
+      "raw_chars": 1902,
+      "cleaned_chars": 2000,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 52.95,
+      "raw_chars": 1571,
+      "cleaned_chars": 1763,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 41.79,
+      "raw_chars": 1550,
+      "cleaned_chars": 1727,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 45.4,
+      "raw_chars": 1362,
+      "cleaned_chars": 1439,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 47.21,
+      "raw_chars": 1422,
+      "cleaned_chars": 1487,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 53.14,
+      "raw_chars": 1469,
+      "cleaned_chars": 1733,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 43.61,
+      "raw_chars": 1326,
+      "cleaned_chars": 1501,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 52.23,
+      "raw_chars": 1606,
+      "cleaned_chars": 1596,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 54.87,
+      "raw_chars": 1626,
+      "cleaned_chars": 1650,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 43.86,
+      "raw_chars": 1319,
+      "cleaned_chars": 1484,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 39.59,
+      "raw_chars": 1841,
+      "cleaned_chars": 1873,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 50.95,
+      "raw_chars": 1500,
+      "cleaned_chars": 1616,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 42.54,
+      "raw_chars": 1437,
+      "cleaned_chars": 1436,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 47.42,
+      "raw_chars": 1117,
+      "cleaned_chars": 1158,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 41.7,
+      "raw_chars": 1637,
+      "cleaned_chars": 1683,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 48.0,
+      "raw_chars": 1620,
+      "cleaned_chars": 1667,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 56.9,
+      "raw_chars": 1581,
+      "cleaned_chars": 1729,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 50.04,
+      "raw_chars": 1638,
+      "cleaned_chars": 1770,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 42.33,
+      "raw_chars": 1726,
+      "cleaned_chars": 1726,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 57.14,
+      "raw_chars": 1531,
+      "cleaned_chars": 1541,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 48.36,
+      "raw_chars": 1311,
+      "cleaned_chars": 1307,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 53.75,
+      "raw_chars": 1675,
+      "cleaned_chars": 1715,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 50.75,
+      "raw_chars": 1579,
+      "cleaned_chars": 1778,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 45.71,
+      "raw_chars": 1413,
+      "cleaned_chars": 1478,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 50.01,
+      "raw_chars": 1638,
+      "cleaned_chars": 1674,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 43.23,
+      "raw_chars": 1233,
+      "cleaned_chars": 1270,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 51.77,
+      "raw_chars": 1365,
+      "cleaned_chars": 1385,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 46.63,
+      "raw_chars": 1478,
+      "cleaned_chars": 1503,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 45.73,
+      "raw_chars": 1336,
+      "cleaned_chars": 1406,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 46.83,
+      "raw_chars": 1838,
+      "cleaned_chars": 1851,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 57.67,
+      "raw_chars": 1569,
+      "cleaned_chars": 1865,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 56.89,
+      "raw_chars": 1437,
+      "cleaned_chars": 1611,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 55.3,
+      "raw_chars": 1338,
+      "cleaned_chars": 1399,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 50.17,
+      "raw_chars": 1542,
+      "cleaned_chars": 1573,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 50.12,
+      "raw_chars": 1439,
+      "cleaned_chars": 1524,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 40.28,
+      "raw_chars": 1394,
+      "cleaned_chars": 1392,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 37.06,
+      "raw_chars": 1766,
+      "cleaned_chars": 1769,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 47.76,
+      "raw_chars": 1564,
+      "cleaned_chars": 1584,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.55,
+      "raw_chars": 1519,
+      "cleaned_chars": 1793,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 54.47,
+      "raw_chars": 1544,
+      "cleaned_chars": 1642,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 58.34,
+      "raw_chars": 1681,
+      "cleaned_chars": 1671,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 51.35,
+      "raw_chars": 1538,
+      "cleaned_chars": 1632,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 65.98,
+      "raw_chars": 1242,
+      "cleaned_chars": 1247,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 46.42,
+      "raw_chars": 1392,
+      "cleaned_chars": 1433,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 47.47,
+      "raw_chars": 1497,
+      "cleaned_chars": 1539,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 41.79,
+      "raw_chars": 1452,
+      "cleaned_chars": 1477,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 40.42,
+      "raw_chars": 1313,
+      "cleaned_chars": 1481,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 47.84,
+      "raw_chars": 1785,
+      "cleaned_chars": 1786,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 49.38,
+      "raw_chars": 1446,
+      "cleaned_chars": 1740,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 48.02,
+      "raw_chars": 1564,
+      "cleaned_chars": 1678,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 44.19,
+      "raw_chars": 1574,
+      "cleaned_chars": 1608,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 54.24,
+      "raw_chars": 1677,
+      "cleaned_chars": 1709,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 44.99,
+      "raw_chars": 1538,
+      "cleaned_chars": 1548,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 42.0,
+      "raw_chars": 1611,
+      "cleaned_chars": 1609,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.44,
+      "raw_chars": 1514,
+      "cleaned_chars": 1552,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 46.09,
+      "raw_chars": 1593,
+      "cleaned_chars": 1676,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 46.36,
+      "raw_chars": 1562,
+      "cleaned_chars": 1608,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 41.18,
+      "raw_chars": 1543,
+      "cleaned_chars": 1625,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.76,
+      "raw_chars": 1541,
+      "cleaned_chars": 1743,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 41.55,
+      "raw_chars": 1578,
+      "cleaned_chars": 1655,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 49.09,
+      "raw_chars": 1582,
+      "cleaned_chars": 1634,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 42.94,
+      "raw_chars": 1962,
+      "cleaned_chars": 1965,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 48.16,
+      "raw_chars": 1518,
+      "cleaned_chars": 1545,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 39.16,
+      "raw_chars": 1772,
+      "cleaned_chars": 1775,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 47.24,
+      "raw_chars": 1522,
+      "cleaned_chars": 1557,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 47.77,
+      "raw_chars": 1340,
+      "cleaned_chars": 1342,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 49.59,
+      "raw_chars": 1594,
+      "cleaned_chars": 1626,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 50.82,
+      "raw_chars": 1450,
+      "cleaned_chars": 1508,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 49.47,
+      "raw_chars": 1477,
+      "cleaned_chars": 1490,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 42.96,
+      "raw_chars": 1149,
+      "cleaned_chars": 1161,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 51.89,
+      "raw_chars": 1351,
+      "cleaned_chars": 1370,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 40.44,
+      "raw_chars": 1349,
+      "cleaned_chars": 976,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 40.7,
+      "raw_chars": 1158,
+      "cleaned_chars": 1155,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 36.01,
+      "raw_chars": 1481,
+      "cleaned_chars": 1479,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 35.29,
+      "raw_chars": 1497,
+      "cleaned_chars": 1539,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 49.28,
+      "raw_chars": 1482,
+      "cleaned_chars": 1547,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 45.9,
+      "raw_chars": 1523,
+      "cleaned_chars": 1554,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 48.08,
+      "raw_chars": 1436,
+      "cleaned_chars": 1490,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 48.42,
+      "raw_chars": 1698,
+      "cleaned_chars": 1712,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 50.21,
+      "raw_chars": 1622,
+      "cleaned_chars": 1659,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 49.27,
+      "raw_chars": 1649,
+      "cleaned_chars": 1684,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 58.84,
+      "raw_chars": 1580,
+      "cleaned_chars": 1681,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 46.35,
+      "raw_chars": 1500,
+      "cleaned_chars": 1442,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 49.07,
+      "raw_chars": 1558,
+      "cleaned_chars": 1696,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 38.97,
+      "raw_chars": 1519,
+      "cleaned_chars": 1544,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 42.09,
+      "raw_chars": 1813,
+      "cleaned_chars": 1877,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 42.63,
+      "raw_chars": 1417,
+      "cleaned_chars": 1485,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 43.81,
+      "raw_chars": 1273,
+      "cleaned_chars": 1291,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 52.01,
+      "raw_chars": 1590,
+      "cleaned_chars": 1715,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0202.md"
+    },
+    {
+      "page": 203,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 46.05,
+      "raw_chars": 1484,
+      "cleaned_chars": 1510,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0203.md"
+    },
+    {
+      "page": 204,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 46.72,
+      "raw_chars": 1511,
+      "cleaned_chars": 1526,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0204.md"
+    },
+    {
+      "page": 205,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 32.09,
+      "raw_chars": 774,
+      "cleaned_chars": 775,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0205.md"
+    },
+    {
+      "page": 206,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 40.77,
+      "raw_chars": 1186,
+      "cleaned_chars": 1214,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0206.md"
+    },
+    {
+      "page": 207,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 47.34,
+      "raw_chars": 1860,
+      "cleaned_chars": 1851,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0207.md"
+    },
+    {
+      "page": 208,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 47.55,
+      "raw_chars": 1690,
+      "cleaned_chars": 1790,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0208.md"
+    },
+    {
+      "page": 209,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 46.18,
+      "raw_chars": 1423,
+      "cleaned_chars": 1727,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0209.md"
+    },
+    {
+      "page": 210,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 51.48,
+      "raw_chars": 1415,
+      "cleaned_chars": 1466,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0210.md"
+    },
+    {
+      "page": 211,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 40.29,
+      "raw_chars": 1382,
+      "cleaned_chars": 1487,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0211.md"
+    },
+    {
+      "page": 212,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 50.59,
+      "raw_chars": 1630,
+      "cleaned_chars": 1668,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0212.md"
+    },
+    {
+      "page": 213,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 57.32,
+      "raw_chars": 1819,
+      "cleaned_chars": 1852,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0213.md"
+    },
+    {
+      "page": 214,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.04,
+      "raw_chars": 1599,
+      "cleaned_chars": 1753,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0214.md"
+    },
+    {
+      "page": 215,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 50.04,
+      "raw_chars": 1717,
+      "cleaned_chars": 1700,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0215.md"
+    },
+    {
+      "page": 216,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 60.97,
+      "raw_chars": 1674,
+      "cleaned_chars": 1787,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0216.md"
+    },
+    {
+      "page": 217,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 40.41,
+      "raw_chars": 1890,
+      "cleaned_chars": 1884,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0217.md"
+    },
+    {
+      "page": 218,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 56.57,
+      "raw_chars": 1718,
+      "cleaned_chars": 1861,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0218.md"
+    },
+    {
+      "page": 219,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 47.9,
+      "raw_chars": 1633,
+      "cleaned_chars": 1653,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0219.md"
+    },
+    {
+      "page": 220,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 51.53,
+      "raw_chars": 1811,
+      "cleaned_chars": 1776,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0220.md"
+    },
+    {
+      "page": 221,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 38.01,
+      "raw_chars": 1298,
+      "cleaned_chars": 1290,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0221.md"
+    },
+    {
+      "page": 222,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 47.7,
+      "raw_chars": 1494,
+      "cleaned_chars": 1493,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0222.md"
+    },
+    {
+      "page": 223,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 52.97,
+      "raw_chars": 1731,
+      "cleaned_chars": 1766,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0223.md"
+    },
+    {
+      "page": 224,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 54.2,
+      "raw_chars": 1699,
+      "cleaned_chars": 1670,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0224.md"
+    },
+    {
+      "page": 225,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 69.16,
+      "raw_chars": 1580,
+      "cleaned_chars": 1571,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0225.md"
+    },
+    {
+      "page": 226,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 46.17,
+      "raw_chars": 1529,
+      "cleaned_chars": 1577,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0226.md"
+    },
+    {
+      "page": 227,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 50.76,
+      "raw_chars": 1433,
+      "cleaned_chars": 1577,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0227.md"
+    },
+    {
+      "page": 228,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 40.23,
+      "raw_chars": 1354,
+      "cleaned_chars": 1417,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0228.md"
+    },
+    {
+      "page": 229,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 44.8,
+      "raw_chars": 1477,
+      "cleaned_chars": 1557,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0229.md"
+    },
+    {
+      "page": 230,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.53,
+      "raw_chars": 1581,
+      "cleaned_chars": 1606,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0230.md"
+    },
+    {
+      "page": 231,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 50.58,
+      "raw_chars": 1666,
+      "cleaned_chars": 1744,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0231.md"
+    },
+    {
+      "page": 232,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 52.57,
+      "raw_chars": 1754,
+      "cleaned_chars": 1937,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0232.md"
+    },
+    {
+      "page": 233,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 47.21,
+      "raw_chars": 1608,
+      "cleaned_chars": 1642,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0233.md"
+    },
+    {
+      "page": 234,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 46.92,
+      "raw_chars": 1448,
+      "cleaned_chars": 1491,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0234.md"
+    },
+    {
+      "page": 235,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 37.47,
+      "raw_chars": 1324,
+      "cleaned_chars": 1401,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0235.md"
+    },
+    {
+      "page": 236,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 44.93,
+      "raw_chars": 1471,
+      "cleaned_chars": 1527,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0236.md"
+    },
+    {
+      "page": 237,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 42.6,
+      "raw_chars": 1478,
+      "cleaned_chars": 1534,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0237.md"
+    },
+    {
+      "page": 238,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 46.84,
+      "raw_chars": 1525,
+      "cleaned_chars": 1627,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0238.md"
+    },
+    {
+      "page": 239,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 48.62,
+      "raw_chars": 1778,
+      "cleaned_chars": 1772,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0239.md"
+    },
+    {
+      "page": 240,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 50.13,
+      "raw_chars": 1458,
+      "cleaned_chars": 1444,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0240.md"
+    },
+    {
+      "page": 241,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 51.75,
+      "raw_chars": 1544,
+      "cleaned_chars": 1600,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0241.md"
+    },
+    {
+      "page": 242,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 57.44,
+      "raw_chars": 1509,
+      "cleaned_chars": 1935,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0242.md"
+    },
+    {
+      "page": 243,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 44.65,
+      "raw_chars": 1465,
+      "cleaned_chars": 1426,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0243.md"
+    },
+    {
+      "page": 244,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 44.84,
+      "raw_chars": 1322,
+      "cleaned_chars": 1336,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0244.md"
+    },
+    {
+      "page": 245,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 59.03,
+      "raw_chars": 1438,
+      "cleaned_chars": 1350,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0245.md"
+    },
+    {
+      "page": 246,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 50.67,
+      "raw_chars": 1483,
+      "cleaned_chars": 1478,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0246.md"
+    },
+    {
+      "page": 247,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 41.34,
+      "raw_chars": 1280,
+      "cleaned_chars": 1299,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0247.md"
+    },
+    {
+      "page": 248,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 38.35,
+      "raw_chars": 1517,
+      "cleaned_chars": 1565,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0248.md"
+    },
+    {
+      "page": 249,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 42.53,
+      "raw_chars": 1450,
+      "cleaned_chars": 1502,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0249.md"
+    },
+    {
+      "page": 250,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 52.44,
+      "raw_chars": 1595,
+      "cleaned_chars": 1767,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0250.md"
+    },
+    {
+      "page": 251,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 47.1,
+      "raw_chars": 1442,
+      "cleaned_chars": 1555,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0251.md"
+    },
+    {
+      "page": 252,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 49.83,
+      "raw_chars": 1441,
+      "cleaned_chars": 1606,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0252.md"
+    },
+    {
+      "page": 253,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 32.95,
+      "raw_chars": 723,
+      "cleaned_chars": 720,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0253.md"
+    },
+    {
+      "page": 254,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 35.73,
+      "raw_chars": 1610,
+      "cleaned_chars": 1606,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0254.md"
+    },
+    {
+      "page": 255,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 53.9,
+      "raw_chars": 1613,
+      "cleaned_chars": 1853,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0255.md"
+    },
+    {
+      "page": 256,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.47,
+      "raw_chars": 1563,
+      "cleaned_chars": 1785,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0256.md"
+    },
+    {
+      "page": 257,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.35,
+      "raw_chars": 1774,
+      "cleaned_chars": 1851,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0257.md"
+    },
+    {
+      "page": 258,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 46.81,
+      "raw_chars": 1301,
+      "cleaned_chars": 1452,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0258.md"
+    },
+    {
+      "page": 259,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 47.4,
+      "raw_chars": 1599,
+      "cleaned_chars": 1603,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0259.md"
+    },
+    {
+      "page": 260,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 46.18,
+      "raw_chars": 1292,
+      "cleaned_chars": 1450,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0260.md"
+    },
+    {
+      "page": 261,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 49.72,
+      "raw_chars": 1507,
+      "cleaned_chars": 1519,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0261.md"
+    },
+    {
+      "page": 262,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 59.35,
+      "raw_chars": 1284,
+      "cleaned_chars": 1357,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0262.md"
+    },
+    {
+      "page": 263,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 57.31,
+      "raw_chars": 1510,
+      "cleaned_chars": 1477,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0263.md"
+    },
+    {
+      "page": 264,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.63,
+      "raw_chars": 1497,
+      "cleaned_chars": 1536,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0264.md"
+    },
+    {
+      "page": 265,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 44.85,
+      "raw_chars": 1482,
+      "cleaned_chars": 1482,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0265.md"
+    },
+    {
+      "page": 266,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 36.0,
+      "raw_chars": 1557,
+      "cleaned_chars": 1602,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0266.md"
+    },
+    {
+      "page": 267,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 43.74,
+      "raw_chars": 1510,
+      "cleaned_chars": 1552,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0267.md"
+    },
+    {
+      "page": 268,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 43.45,
+      "raw_chars": 1480,
+      "cleaned_chars": 1405,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0268.md"
+    },
+    {
+      "page": 269,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 51.3,
+      "raw_chars": 1414,
+      "cleaned_chars": 1570,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0269.md"
+    },
+    {
+      "page": 270,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 52.31,
+      "raw_chars": 1586,
+      "cleaned_chars": 1598,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0270.md"
+    },
+    {
+      "page": 271,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 56.26,
+      "raw_chars": 1903,
+      "cleaned_chars": 1902,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0271.md"
+    },
+    {
+      "page": 272,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 47.42,
+      "raw_chars": 1490,
+      "cleaned_chars": 1630,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0272.md"
+    },
+    {
+      "page": 273,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 51.97,
+      "raw_chars": 1606,
+      "cleaned_chars": 1624,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0273.md"
+    },
+    {
+      "page": 274,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 48.08,
+      "raw_chars": 1707,
+      "cleaned_chars": 1650,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0274.md"
+    },
+    {
+      "page": 275,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 44.7,
+      "raw_chars": 1296,
+      "cleaned_chars": 1354,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0275.md"
+    },
+    {
+      "page": 276,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 51.16,
+      "raw_chars": 1478,
+      "cleaned_chars": 1546,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0276.md"
+    },
+    {
+      "page": 277,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 45.06,
+      "raw_chars": 1509,
+      "cleaned_chars": 1494,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0277.md"
+    },
+    {
+      "page": 278,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 48.11,
+      "raw_chars": 1600,
+      "cleaned_chars": 1665,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0278.md"
+    },
+    {
+      "page": 279,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 53.92,
+      "raw_chars": 1429,
+      "cleaned_chars": 1475,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0279.md"
+    },
+    {
+      "page": 280,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 49.14,
+      "raw_chars": 1603,
+      "cleaned_chars": 1718,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0280.md"
+    },
+    {
+      "page": 281,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 58.35,
+      "raw_chars": 1525,
+      "cleaned_chars": 1611,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0281.md"
+    },
+    {
+      "page": 282,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 40.8,
+      "raw_chars": 1421,
+      "cleaned_chars": 1542,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0282.md"
+    },
+    {
+      "page": 283,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 37.74,
+      "raw_chars": 1437,
+      "cleaned_chars": 1479,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0283.md"
+    },
+    {
+      "page": 284,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 50.9,
+      "raw_chars": 1594,
+      "cleaned_chars": 1627,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0284.md"
+    },
+    {
+      "page": 285,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 50.64,
+      "raw_chars": 1779,
+      "cleaned_chars": 1777,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0285.md"
+    },
+    {
+      "page": 286,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 46.69,
+      "raw_chars": 1498,
+      "cleaned_chars": 1545,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0286.md"
+    },
+    {
+      "page": 287,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 48.14,
+      "raw_chars": 1466,
+      "cleaned_chars": 1740,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0287.md"
+    },
+    {
+      "page": 288,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 49.11,
+      "raw_chars": 1460,
+      "cleaned_chars": 1475,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0288.md"
+    },
+    {
+      "page": 289,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 47.11,
+      "raw_chars": 1552,
+      "cleaned_chars": 1543,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0289.md"
+    },
+    {
+      "page": 290,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 45.29,
+      "raw_chars": 1441,
+      "cleaned_chars": 1444,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0290.md"
+    },
+    {
+      "page": 291,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 48.02,
+      "raw_chars": 1686,
+      "cleaned_chars": 1679,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0291.md"
+    },
+    {
+      "page": 292,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 47.63,
+      "raw_chars": 1311,
+      "cleaned_chars": 1509,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0292.md"
+    },
+    {
+      "page": 293,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 45.61,
+      "raw_chars": 1645,
+      "cleaned_chars": 1690,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0293.md"
+    },
+    {
+      "page": 294,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 37.06,
+      "raw_chars": 1391,
+      "cleaned_chars": 1340,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0294.md"
+    },
+    {
+      "page": 295,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 52.88,
+      "raw_chars": 1753,
+      "cleaned_chars": 1859,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0295.md"
+    },
+    {
+      "page": 296,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 43.49,
+      "raw_chars": 1370,
+      "cleaned_chars": 1415,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0296.md"
+    },
+    {
+      "page": 297,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 43.61,
+      "raw_chars": 1901,
+      "cleaned_chars": 1886,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0297.md"
+    },
+    {
+      "page": 298,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 41.23,
+      "raw_chars": 1831,
+      "cleaned_chars": 1828,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0298.md"
+    },
+    {
+      "page": 299,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 48.93,
+      "raw_chars": 1653,
+      "cleaned_chars": 1635,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0299.md"
+    },
+    {
+      "page": 300,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 50.54,
+      "raw_chars": 1497,
+      "cleaned_chars": 1500,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0300.md"
+    },
+    {
+      "page": 301,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 41.33,
+      "raw_chars": 1520,
+      "cleaned_chars": 1438,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0301.md"
+    },
+    {
+      "page": 302,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.55,
+      "raw_chars": 1498,
+      "cleaned_chars": 1491,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0302.md"
+    },
+    {
+      "page": 303,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 43.07,
+      "raw_chars": 1397,
+      "cleaned_chars": 1423,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0303.md"
+    },
+    {
+      "page": 304,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 51.55,
+      "raw_chars": 1593,
+      "cleaned_chars": 1771,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0304.md"
+    },
+    {
+      "page": 305,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 47.07,
+      "raw_chars": 1645,
+      "cleaned_chars": 1559,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0305.md"
+    },
+    {
+      "page": 306,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 36.18,
+      "raw_chars": 1426,
+      "cleaned_chars": 1492,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0306.md"
+    },
+    {
+      "page": 307,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 57.0,
+      "raw_chars": 1772,
+      "cleaned_chars": 1777,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0307.md"
+    },
+    {
+      "page": 308,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 51.82,
+      "raw_chars": 1576,
+      "cleaned_chars": 1661,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0308.md"
+    },
+    {
+      "page": 309,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 46.52,
+      "raw_chars": 1736,
+      "cleaned_chars": 1771,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0309.md"
+    },
+    {
+      "page": 310,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 45.66,
+      "raw_chars": 1780,
+      "cleaned_chars": 1791,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0310.md"
+    },
+    {
+      "page": 311,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 44.3,
+      "raw_chars": 1591,
+      "cleaned_chars": 1586,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0311.md"
+    },
+    {
+      "page": 312,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 51.4,
+      "raw_chars": 1624,
+      "cleaned_chars": 1662,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0312.md"
+    },
+    {
+      "page": 313,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 49.82,
+      "raw_chars": 1585,
+      "cleaned_chars": 1572,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0313.md"
+    },
+    {
+      "page": 314,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 47.12,
+      "raw_chars": 1553,
+      "cleaned_chars": 1604,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0314.md"
+    },
+    {
+      "page": 315,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 43.81,
+      "raw_chars": 1518,
+      "cleaned_chars": 1540,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0315.md"
+    },
+    {
+      "page": 316,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 40.94,
+      "raw_chars": 1392,
+      "cleaned_chars": 1478,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0316.md"
+    },
+    {
+      "page": 317,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 50.8,
+      "raw_chars": 1717,
+      "cleaned_chars": 1731,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0317.md"
+    },
+    {
+      "page": 318,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 46.06,
+      "raw_chars": 1338,
+      "cleaned_chars": 1407,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0318.md"
+    },
+    {
+      "page": 319,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 44.71,
+      "raw_chars": 1524,
+      "cleaned_chars": 1786,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0319.md"
+    },
+    {
+      "page": 320,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 47.84,
+      "raw_chars": 1291,
+      "cleaned_chars": 1553,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0320.md"
+    },
+    {
+      "page": 321,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 54.04,
+      "raw_chars": 1580,
+      "cleaned_chars": 1654,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0321.md"
+    },
+    {
+      "page": 322,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 45.44,
+      "raw_chars": 1686,
+      "cleaned_chars": 1683,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0322.md"
+    },
+    {
+      "page": 323,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 45.49,
+      "raw_chars": 1318,
+      "cleaned_chars": 1525,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0323.md"
+    },
+    {
+      "page": 324,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 50.1,
+      "raw_chars": 1425,
+      "cleaned_chars": 1555,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0324.md"
+    },
+    {
+      "page": 325,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 49.76,
+      "raw_chars": 1595,
+      "cleaned_chars": 1600,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0325.md"
+    },
+    {
+      "page": 326,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 48.77,
+      "raw_chars": 1603,
+      "cleaned_chars": 1594,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0326.md"
+    },
+    {
+      "page": 327,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 39.85,
+      "raw_chars": 1700,
+      "cleaned_chars": 1696,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0327.md"
+    },
+    {
+      "page": 328,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 51.56,
+      "raw_chars": 1780,
+      "cleaned_chars": 1753,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0328.md"
+    },
+    {
+      "page": 329,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 50.46,
+      "raw_chars": 1872,
+      "cleaned_chars": 1885,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0329.md"
+    },
+    {
+      "page": 330,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 44.03,
+      "raw_chars": 1805,
+      "cleaned_chars": 1815,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0330.md"
+    },
+    {
+      "page": 331,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 42.34,
+      "raw_chars": 1446,
+      "cleaned_chars": 1410,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0331.md"
+    },
+    {
+      "page": 332,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 46.14,
+      "raw_chars": 1552,
+      "cleaned_chars": 1565,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0332.md"
+    },
+    {
+      "page": 333,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 48.03,
+      "raw_chars": 1522,
+      "cleaned_chars": 1638,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0333.md"
+    },
+    {
+      "page": 334,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 50.02,
+      "raw_chars": 1699,
+      "cleaned_chars": 1896,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0334.md"
+    },
+    {
+      "page": 335,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 41.6,
+      "raw_chars": 1537,
+      "cleaned_chars": 1656,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0335.md"
+    },
+    {
+      "page": 336,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 48.9,
+      "raw_chars": 1073,
+      "cleaned_chars": 1211,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0336.md"
+    },
+    {
+      "page": 337,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 33.74,
+      "raw_chars": 460,
+      "cleaned_chars": 402,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0337.md"
+    },
+    {
+      "page": 338,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 45.78,
+      "raw_chars": 1454,
+      "cleaned_chars": 1539,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0338.md"
+    },
+    {
+      "page": 339,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 46.86,
+      "raw_chars": 1077,
+      "cleaned_chars": 1028,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0339.md"
+    },
+    {
+      "page": 340,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 49.41,
+      "raw_chars": 1124,
+      "cleaned_chars": 1105,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0340.md"
+    },
+    {
+      "page": 341,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 51.37,
+      "raw_chars": 1061,
+      "cleaned_chars": 1176,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0341.md"
+    },
+    {
+      "page": 342,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 67.61,
+      "raw_chars": 1104,
+      "cleaned_chars": 1047,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0342.md"
+    },
+    {
+      "page": 343,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 39.67,
+      "raw_chars": 1066,
+      "cleaned_chars": 910,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0343.md"
+    },
+    {
+      "page": 344,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 49.72,
+      "raw_chars": 1109,
+      "cleaned_chars": 1119,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0344.md"
+    },
+    {
+      "page": 345,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 37.25,
+      "raw_chars": 1096,
+      "cleaned_chars": 937,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0345.md"
+    },
+    {
+      "page": 346,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 51.73,
+      "raw_chars": 1099,
+      "cleaned_chars": 1146,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0346.md"
+    },
+    {
+      "page": 347,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 36.68,
+      "raw_chars": 713,
+      "cleaned_chars": 810,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0347.md"
+    },
+    {
+      "page": 348,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 32.7,
+      "raw_chars": 860,
+      "cleaned_chars": 965,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0348.md"
+    },
+    {
+      "page": 349,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 41.94,
+      "raw_chars": 1374,
+      "cleaned_chars": 1425,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0349.md"
+    },
+    {
+      "page": 350,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 46.49,
+      "raw_chars": 1797,
+      "cleaned_chars": 1794,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0350.md"
+    },
+    {
+      "page": 351,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 43.78,
+      "raw_chars": 1697,
+      "cleaned_chars": 1696,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0351.md"
+    },
+    {
+      "page": 352,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.15,
+      "raw_chars": 1675,
+      "cleaned_chars": 1690,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0352.md"
+    },
+    {
+      "page": 353,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 38.26,
+      "raw_chars": 651,
+      "cleaned_chars": 749,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0353.md"
+    },
+    {
+      "page": 354,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 49.7,
+      "raw_chars": 1472,
+      "cleaned_chars": 1451,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0354.md"
+    },
+    {
+      "page": 355,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 46.99,
+      "raw_chars": 1612,
+      "cleaned_chars": 1771,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0355.md"
+    },
+    {
+      "page": 356,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 32.19,
+      "raw_chars": 1248,
+      "cleaned_chars": 1435,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0356.md"
+    },
+    {
+      "page": 357,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 32.85,
+      "raw_chars": 1733,
+      "cleaned_chars": 828,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0357.md"
+    },
+    {
+      "page": 358,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 29.87,
+      "raw_chars": 1063,
+      "cleaned_chars": 550,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0358.md"
+    },
+    {
+      "page": 359,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 20.14,
+      "raw_chars": 524,
+      "cleaned_chars": 20,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0359.md"
+    },
+    {
+      "page": 360,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 7.62,
+      "raw_chars": 84,
+      "cleaned_chars": 20,
+      "md_path": "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa/pages/p0360.md"
+    }
+  ]
+}

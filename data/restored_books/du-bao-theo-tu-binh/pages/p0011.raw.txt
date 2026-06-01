@@ -1,0 +1,22 @@
+ta có Thiên tài, với Tân ta có Thiên ấn, ghi các dữ liệu l
+này vào cột giờ. -
+
+Chi Sửu ngày chứa Quý, Tân, Kỷ>lấy Quý nhật chủ
+đối chiếu với Kỷ ta có Thất sát, với Tân ta có Thiên ấn, với
+Qúy ta có Tỷ kiên, ghi các dữ liệu này vào cột ngày.
+
+Chi Tý giờ chứa Quý->lấy Quý nhật chủ đối chiếu
+với Quý ta có Tỷ kiên, ghi dữ liệu này vào cột giờ.
+
+Tổng hợp lại;ta có sơ đổ dự báo ban đầu như sau:
+| Thương quan | Thươnggun | — — lgếpại — |
+
+Mậu: C.quan | Mậu: C.quan Kỷ: Thất sát Quý: Tỷ kiên
+Ất: Thực thần | Đinh:Thiêntài | Tân: Thiên ấn
+Quý:Tỷ Kiên | Tân:Thiên ấn Quý: Tỷ kiên
+
+Trên đây là những nét khái quát nhất khi dự báo
+qua Tử Bình, chỉ tiết hơn sẽ được trình bày trong những
+phần tiếp theo. :
+
+11

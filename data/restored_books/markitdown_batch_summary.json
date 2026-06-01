@@ -1,0 +1,71 @@
+{
+  "total_seconds": 71.9,
+  "books": [
+    {
+      "book_id": "tu-thu-binh-giai",
+      "status": "ok",
+      "chars": 2885682,
+      "seconds": 25.2
+    },
+    {
+      "book_id": "tu-vi-dau-so-toan-thu-vn",
+      "status": "ok",
+      "chars": 435252,
+      "seconds": 1.9
+    },
+    {
+      "book_id": "tam-thien-dich-so",
+      "status": "ok",
+      "chars": 371636,
+      "seconds": 4.7
+    },
+    {
+      "book_id": "sach-tu-vi-vo-long",
+      "status": "ok",
+      "chars": 115169,
+      "seconds": 1.9
+    },
+    {
+      "book_id": "khong-minh-than-toan-384-que",
+      "status": "ok",
+      "chars": 432839,
+      "seconds": 3.5
+    },
+    {
+      "book_id": "hoang-lich",
+      "status": "ok",
+      "chars": 1616828,
+      "seconds": 10.0
+    },
+    {
+      "book_id": "ha-do-trong-van-minh-dai-viet",
+      "status": "ok",
+      "chars": 479163,
+      "seconds": 10.3
+    },
+    {
+      "book_id": "dich-hoc-tinh-hoa-nguyen-duy-can",
+      "status": "ok",
+      "chars": 347233,
+      "seconds": 6.4
+    },
+    {
+      "book_id": "chua-benh-theo-chu-dich",
+      "status": "ok",
+      "chars": 433758,
+      "seconds": 2.4
+    },
+    {
+      "book_id": "lap-va-giai-tu-vi",
+      "status": "ok",
+      "chars": 156842,
+      "seconds": 3.4
+    },
+    {
+      "book_id": "lien-hoa-don",
+      "status": "ok",
+      "chars": 124840,
+      "seconds": 2.1
+    }
+  ]
+}

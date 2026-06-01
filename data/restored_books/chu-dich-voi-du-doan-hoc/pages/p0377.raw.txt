@@ -1,0 +1,37 @@
+. 4. Cách tính can, chi của giờ
+h Can, chỉ của giờ là phối can, chỉ lại rồi phối tương ứng với 60 giờ thành
+một chu kỳ.
+: Sau khi biết được can, chỉ của ngày, muốn tính ra can, chỉ của giờ có
+thể dùng bài và sau :
+| Giáp kỳ — : tý là giáp
+| Ất, canh :_ bính làm đầu
+_ ' Bính,thân : tý từ mậu
+l Định, nhâm : tý là canh
+| ` Mậu, quý :_ nhâm là tý.
+: i "Giáp, kỷ : tý là giáp" nghĩa là : khi can ngày là giáp hoặc kỷ thì giờ
+‹ tý là giáp tý. Biết được thiên can của giờ tý là giáp, thì giờ sửu tất nhiên sẽ
+là ất sửu... Ví dụ giờ tý ngày 5 tháng 2 ăm lịch năm 1991, trong tứ trụ sẽ
+là : năm tân mùi, tháng tân mãa, ngày kỷ sửu, giờ giáp tý.
+"Ất, canh : bính làm đấu" là, ngày ất hoặc ngày canh thì giờ tý là bính
+tý, giờ sửủu sẽ là đính sửu...
+BẢNG TÍNH GIỜ THEO NGÀY
+Ð)
+3 ` Giờ Ì Giờ | Giờ | Giờ | Giờ | Giờ | Giờ | Giờ Giờ
+-¬ l , x y ,
+x h Can ngày tý | sửu | dấn | mão | thin | ty | ngọ | mùi hợi
+° : Giáp ky | SiẾP Ất | Bính Kỷ |Canh | Tân |Nhâm| Quý | Giáp | Ất
+' PS tý | sửu | dần ty | ngọ | mùi | thân | đậu | tuất | hợi
+` Ất cann - | Bính | Đính | Mậu | Kỳ {Oanh | Tản |Nhâm| Quý | Giáp Ất Định
+| y can tý | sửu | dần | mão | thìn | ty | ngọ | mùi | thân | dậu hi
+|
+`, Mậu | Kỳ | Canh | Tân |Nham) Quý | Giáp | Ất Định Kỷ
+Canh | Tàn |Nhâm| Quý | Giáp | Ất | Bính | Định | Mậu | Kỳ Ì Canh | Tân
+l tỷ | sửu | dẩn | mão | thn | ty | ngọ | mùi | thân | đậu | tuất | hợi
+Mậu Nhâm| Quý | Giáp Ất | Bính | Định Canh | Tân |Nhâm| Quý
+'SUỬ | tụ | sửu | dẩn | mão | thìn | t thân | dậu | tuất | hợi
+"Bính, tân : tý từ mậu" là ngày pính hoặc ngày tân, giờ tý là mậu tý.
+"Đinh, nhâm : tý là canh" là ngày đinh hoặc ngày nhâm, giờ tý là canh tý.
+"Mậu, Quý : nhâm là tý" là ngày mệu hoặc ngày quý, giờ tý là nhâm tý.
+Tính can chỉ của giờ taeo đốt ngón tay, nếu thuộc bài vè trên thì sẽ rất
+thuận tiện.
+, 880
