@@ -18,6 +18,12 @@ data/
 !data/hermes_yi/skills/
 !data/hermes_yi/skills/kinh-dich/
 !data/hermes_yi/skills/kinh-dich/**
+# Restored books (markdown phục chế) — vào image để live đọc được
+# CHỈ content.md (skip pages/*.raw.txt to keep image gọn)
+!data/restored_books/
+!data/restored_books/**/content.md
+!data/restored_books/**/manifest.json
+!data/restored_books/markitdown_batch_summary.json
 
 # Docs (not needed in runtime image) — except citation markdown:
 # .md files trong skills/kinh-dich/ phải vào image cho RAG luận sâu
@@ -45,6 +51,8 @@ docs/
 # Knowledge citations - keep these .md files for RAG luận sâu
 !data/hermes_yi/skills/kinh-dich/**/*.md
 !data/hermes_yi/skills/kinh-dich/INDEX.md
+# Restored books markdown (cho live reading)
+!data/restored_books/**/content.md
 
 # Tests
 tests/

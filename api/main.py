@@ -2840,6 +2840,50 @@ def yi_lexicon_current_week() -> dict:
 
 # ─── Library / Thủ thư endpoints (v3, 2026-05-12) ────────────────────────────
 
+# ─── Restored Books Library — phục chế sách Việt qua OCR/MarkItDown ───
+# Anh đọc trực tiếp trên live — content.md đã embedded vào image
+
+@app.get("/api/library/restored-books/list")
+def yi_library_restored_books_list() -> dict:
+    """List all restored books (Tứ Trụ, Tử Vi, Chu Dịch Việt) đã phục chế."""
+    from engine.yi_library.restored_books import list_books
+    books = list_books()
+    # Group by category
+    by_category: dict[str, list] = {}
+    for b in books:
+        by_category.setdefault(b["category"], []).append(b)
+    total_chars = sum(b["chars"] for b in books)
+    total_pages = sum(b["total_pages"] for b in books)
+    return {
+        "status": "ok",
+        "total_books": len(books),
+        "total_chars": total_chars,
+        "total_pages": total_pages,
+        "categories": by_category,
+        "books": books,
+    }
+
+
+@app.get("/api/library/restored-books/{book_id}/content")
+def yi_library_restored_book_content(book_id: str, page: int | None = None) -> dict:
+    """Get full markdown content of a restored book, hoặc 1 page cụ thể."""
+    from engine.yi_library.restored_books import get_book_content
+    return get_book_content(book_id, page=page)
+
+
+@app.get("/api/library/restored-books/search")
+def yi_library_restored_books_search(q: str, max_results: int = 30) -> dict:
+    """Full-text search across all restored books. Returns snippets with context."""
+    from engine.yi_library.restored_books import search_books
+    hits = search_books(q, max_results=max_results)
+    return {
+        "status": "ok",
+        "query": q,
+        "total_hits": len(hits),
+        "hits": hits,
+    }
+
+
 @app.get("/api/yi-lexicon/library")
 def yi_lexicon_library_list(
     tier: str | None = None,

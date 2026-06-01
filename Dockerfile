@@ -72,6 +72,11 @@ COPY collectors/ ./collectors/
 RUN mkdir -p ./embedded_data/hermes_yi/skills
 COPY data/hermes_yi/skills/kinh-dich/ ./embedded_data/hermes_yi/skills/kinh-dich/
 
+# Restored books markdown (live reading library)
+# Path /app/embedded_data/restored_books/ — engine resolve qua env hoặc fallback
+RUN mkdir -p ./embedded_data/restored_books
+COPY data/restored_books/ ./embedded_data/restored_books/
+
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 

@@ -50,6 +50,7 @@ import HaoSpacedRepetition from "./components/wiki/HaoSpacedRepetition.vue";
 import LuuVanDashboard from "./components/wiki/LuuVanDashboard.vue";
 import NhatKyVanPanel from "./components/wiki/NhatKyVanPanel.vue";
 import LuuNguyetTimeline from "./components/wiki/LuuNguyetTimeline.vue";
+import RestoredLibrary from "./components/library/RestoredLibrary.vue";
 // DailyHexagramPanel: DEPRECATED 2026-05-27 đêm — paradigm SAI (horoscope-style).
 // Thay bằng LuuVanDashboard (7 vòng quẻ đúng paradigm Khang Tiết).
 // import DailyHexagramPanel from "./components/wiki/DailyHexagramPanel.vue";
@@ -553,6 +554,13 @@ onBeforeUnmount(() => {
             📓 Nhật ký vận — gắn việc thực × 7 quẻ (+ LLM đọc lại)
           </summary>
           <NhatKyVanPanel />
+        </details>
+
+        <details open>
+          <summary style="cursor: pointer; color: #fcd34d; padding: 0.4rem 0; font-size: 0.95rem; border-top: 1px solid rgba(252,211,77,0.25); margin-top: 1rem; font-weight: 600;">
+            📚 Thư viện phục chế — sách Việt Đông phương (Tứ Trụ, Tử Vi, Chu Dịch, Bát Tự)
+          </summary>
+          <RestoredLibrary />
         </details>
 
         <MaiHoaCastPanel />
