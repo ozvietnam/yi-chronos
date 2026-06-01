@@ -1,0 +1,28 @@
+Trụ năm chính là can chỉ năm sinh của một người, có hai cách sắp xếp; dưới đây là ví
+dụ về cách sắp xếp của người vào năm 2009 (năm Kỷ Sửu) được 35 tuổi.
+PHƯƠNG PHÁP THỨ NHẤT
+Tra trong bảng Lục Thập Giáp Tý, tính ngược từ can chỉ của
+năm hiện tại, tới can chỉ của số tuổi, chính là can chỉ của năm sinh.
+
+|————-_-----.-=-.-.-=cr-s=cr-s=cr-snc-.-.ờ-
+01 Giáp Tý 11 Giáp Tuất 21 Giáp Thân 31 Giáp Ngọ 41 Giáp Thìn 51 Giáp Dân
+02Ất Sửu 12Ất Hợi 22Ất Dậu 32 Ất Mùi 42Ất Tị 52 Ất Mão
+03 Bính Dần 18 Bính Tý 23 Bính Tuất 38 Bính Thân 48 Bính Ngọ ð3 Bính Thìn
+04 Đinh Mão 14 Đinh Sửu 24 Đinh Hợi 34 Đinh Dậu 44 Đinh Mùi 54 Đinh Tị
+0ãMậu Thìn, 15Mậu Dần 25 Mậu Tý 35 Mậu Tuất 45 Mậu Thân ð5 Mậu Ngọ
+06Kỷ TỊ 16 Kỷ Mão 26Kÿ Sửu 36 Kỷ Hợi 46 Kỷ Dậu ð6 Kỷ Mùi
+07 Canh Ngọ 17 Canh Thìn 27 Canh Dần 37 Canh Tý 47 Canh Tuất ð7 Canh Thân
+08 Tân Mùi 18Tân Tị 28 Tân Mão 38 Tân Sửu 48 Tân Hợi ð8Tân Dậu
+09 Nhâm Thâ 19 Nhâm Ngọ 39 Nhâm Thìn 39 Nhâm Dần 49 Nhâm Tý 59 Nhâm Tuất
+10 Quý Dậu 20 Quý Mùi 30 Quý Tị 40 Quý Mão 50 Quý Sửu 60 Quý Hợi
+
+|——
+
+PHƯƠNG PHÁP THƯ HAI
+Tính ngược từ can chỉ của năm hiện tại, đếm 10 uị trí, giữa hai
+địa chỉ là 10 tuổi. Sau đó lại tính ngược lại số đơn 0, lờ tra ra can chỉ
+của năm sinh.
+5 tuổi
+10 tuổi 10 tuổi 10 tuổi 5 tuổi
+—=—° —— —° —°
+[59]

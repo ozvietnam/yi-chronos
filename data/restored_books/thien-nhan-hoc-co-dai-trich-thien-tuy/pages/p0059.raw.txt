@@ -1,0 +1,29 @@
+https://sachhoc.com
+Sắp xếp trụ tháng cần chú ý là, ranh giới phân chia từng tháng không phải là ngày
+mùng một đầu tháng âm lịch, mà là theo thời gian giao tiết lệnh để tính. Khi sắp xếp trụ giờ
+cân chú ý, ranh giới phân chia giữa hai ngày không phải là lúc 24h, mà là 23h.
+
+[  xácpwmrRummAnc _ Can tháng có liên quan đến can năm, uì thế
+phương pháp xác định can tháng là tính can tháng
+theo cơn năm, cụ thể xem bảng dưới đây:
+
+TH Giáp Kỷ Ất Canh Bính Tân  ĐinhNhâm Mậu, Quý
+Tháng 1 Bính Dần Mậu Dần Canh Dần Nhâm Dần Giáp Dần
+Tháng 2 Đinh Mão Kỷ Mão Tân Mão Quý Mão Ất Mão
+Tháng 3 Mậu Thìn Canh Thìn Nhâm Thìn Giáp Thìn Bính Thìn
+Tháng 4 Kỷ Tị Tân Tị Quý Tị Ất T¡ Đinh Tị
+Tháng 5 Canh Ngọ Nhâm Ngọ Giáp Ngọ Bính Ngọ Mậu Ngọ
+Tháng 6 Tân Mùi Quý Mùi Ất Mùi Đỉnh Mùi Kỷ Mùi
+Tháng 7 Nhâm Thân Giáp Thân Bính Thân Mậu Thân Canh Thân
+Tháng 8 Quý Dậu Ất Dậu Đinh Dậu Kỷ Dậu Tân Dậu
+Tháng 9 Giáp Tuất Bính Tuất Mậu Tuất Canh Tuất ˆ Nhâm Tuất
+Tháng 10 Ất Hợi Định Hợi Kỷ Hợi Tân Hợi Quý Hợi
+Tháng 11 Bính Tý Mậu Tý Canh Tý Nhâm Tý Giáp Tý
+
+Tháng Đinh Sửu Kỷ Sửu Tân Sửu Quý Sửu Ất Sửu
+
+Í  xácpwmmmyeờ  ] Xác định can giờ có liên quan đến cơn ngày,
+nên cách tính đó còn được gọt là cách tính giờ theo
+can ngày; cụ thểnhư bằng dưới đây:
+
+[60]

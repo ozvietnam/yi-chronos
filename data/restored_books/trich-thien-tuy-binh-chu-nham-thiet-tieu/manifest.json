@@ -1,0 +1,1631 @@
+{
+  "book_id": "trich-thien-tuy-binh-chu-nham-thiet-tieu",
+  "source_pdf": "thư viện sách/Trích Thiên tuỷ bình chú (Full)- Nhậm Thiết Tiều.pdf",
+  "page_range": [
+    1,
+    202
+  ],
+  "total_pages": 202,
+  "total_seconds": 4369.0,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 12.8,
+      "raw_chars": 53,
+      "cleaned_chars": 20,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 42.48,
+      "raw_chars": 1949,
+      "cleaned_chars": 463,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 38.5,
+      "raw_chars": 1647,
+      "cleaned_chars": 542,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 37.84,
+      "raw_chars": 2114,
+      "cleaned_chars": 922,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 47.09,
+      "raw_chars": 1328,
+      "cleaned_chars": 1237,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 21.88,
+      "raw_chars": 195,
+      "cleaned_chars": 142,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 61.76,
+      "raw_chars": 2662,
+      "cleaned_chars": 2653,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 84.41,
+      "raw_chars": 2869,
+      "cleaned_chars": 2588,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 63.83,
+      "raw_chars": 2840,
+      "cleaned_chars": 2821,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 58.54,
+      "raw_chars": 3040,
+      "cleaned_chars": 3007,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 1.13,
+      "cleanup_seconds": 62.88,
+      "raw_chars": 2845,
+      "cleaned_chars": 3210,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 67.48,
+      "raw_chars": 2841,
+      "cleaned_chars": 2810,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 53.23,
+      "raw_chars": 2797,
+      "cleaned_chars": 2732,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 50.46,
+      "raw_chars": 2904,
+      "cleaned_chars": 2864,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 1.25,
+      "cleanup_seconds": 84.26,
+      "raw_chars": 3257,
+      "cleaned_chars": 3229,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 55.62,
+      "raw_chars": 3356,
+      "cleaned_chars": 3242,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 80.41,
+      "raw_chars": 3443,
+      "cleaned_chars": 3414,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 80.27,
+      "raw_chars": 3339,
+      "cleaned_chars": 3302,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 1.26,
+      "cleanup_seconds": 87.05,
+      "raw_chars": 3511,
+      "cleaned_chars": 2786,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 1.18,
+      "cleanup_seconds": 86.31,
+      "raw_chars": 3253,
+      "cleaned_chars": 3353,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 84.56,
+      "raw_chars": 3204,
+      "cleaned_chars": 3453,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 60.63,
+      "raw_chars": 3369,
+      "cleaned_chars": 3317,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 79.77,
+      "raw_chars": 3167,
+      "cleaned_chars": 3175,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 57.57,
+      "raw_chars": 3315,
+      "cleaned_chars": 3388,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 58.97,
+      "raw_chars": 2925,
+      "cleaned_chars": 2923,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 79.58,
+      "raw_chars": 3313,
+      "cleaned_chars": 3527,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 74.18,
+      "raw_chars": 3066,
+      "cleaned_chars": 3099,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 57.24,
+      "raw_chars": 3319,
+      "cleaned_chars": 3335,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 56.32,
+      "raw_chars": 3206,
+      "cleaned_chars": 3147,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 64.5,
+      "raw_chars": 3405,
+      "cleaned_chars": 3402,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 56.25,
+      "raw_chars": 3442,
+      "cleaned_chars": 3428,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 64.9,
+      "raw_chars": 3031,
+      "cleaned_chars": 2873,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 84.38,
+      "raw_chars": 2604,
+      "cleaned_chars": 232,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 64.14,
+      "raw_chars": 2659,
+      "cleaned_chars": 2766,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 83.41,
+      "raw_chars": 2613,
+      "cleaned_chars": 3054,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 69.57,
+      "raw_chars": 2805,
+      "cleaned_chars": 2636,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 57.0,
+      "raw_chars": 3191,
+      "cleaned_chars": 3337,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 80.2,
+      "raw_chars": 2844,
+      "cleaned_chars": 2848,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 1.18,
+      "cleanup_seconds": 79.91,
+      "raw_chars": 3092,
+      "cleaned_chars": 3473,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 60.22,
+      "raw_chars": 2763,
+      "cleaned_chars": 3289,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 66.61,
+      "raw_chars": 2957,
+      "cleaned_chars": 3144,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 83.62,
+      "raw_chars": 2754,
+      "cleaned_chars": 506,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 47.33,
+      "raw_chars": 2535,
+      "cleaned_chars": 2367,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 66.2,
+      "raw_chars": 2733,
+      "cleaned_chars": 2966,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 57.54,
+      "raw_chars": 2869,
+      "cleaned_chars": 2989,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 54.1,
+      "raw_chars": 2754,
+      "cleaned_chars": 2783,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 71.44,
+      "raw_chars": 2499,
+      "cleaned_chars": 2603,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 74.27,
+      "raw_chars": 2828,
+      "cleaned_chars": 2841,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 63.37,
+      "raw_chars": 2864,
+      "cleaned_chars": 3017,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 78.13,
+      "raw_chars": 2786,
+      "cleaned_chars": 2772,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 55.14,
+      "raw_chars": 2715,
+      "cleaned_chars": 2671,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 84.86,
+      "raw_chars": 2882,
+      "cleaned_chars": 2940,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 50.44,
+      "raw_chars": 2672,
+      "cleaned_chars": 2653,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 73.71,
+      "raw_chars": 2564,
+      "cleaned_chars": 2553,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 51.56,
+      "raw_chars": 3048,
+      "cleaned_chars": 2941,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 65.29,
+      "raw_chars": 2755,
+      "cleaned_chars": 2739,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 1.19,
+      "cleanup_seconds": 81.67,
+      "raw_chars": 3354,
+      "cleaned_chars": 3405,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 46.64,
+      "raw_chars": 2760,
+      "cleaned_chars": 2716,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 79.75,
+      "raw_chars": 3150,
+      "cleaned_chars": 3250,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 74.63,
+      "raw_chars": 2898,
+      "cleaned_chars": 2861,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 64.08,
+      "raw_chars": 3308,
+      "cleaned_chars": 3348,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 57.06,
+      "raw_chars": 2652,
+      "cleaned_chars": 2778,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 66.36,
+      "raw_chars": 2765,
+      "cleaned_chars": 2962,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 66.95,
+      "raw_chars": 3237,
+      "cleaned_chars": 3165,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 53.05,
+      "raw_chars": 2129,
+      "cleaned_chars": 2173,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 59.14,
+      "raw_chars": 2607,
+      "cleaned_chars": 2804,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 54.67,
+      "raw_chars": 2177,
+      "cleaned_chars": 2329,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 72.34,
+      "raw_chars": 2718,
+      "cleaned_chars": 2750,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 83.18,
+      "raw_chars": 2524,
+      "cleaned_chars": 789,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 72.6,
+      "raw_chars": 2379,
+      "cleaned_chars": 2750,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 77.44,
+      "raw_chars": 2456,
+      "cleaned_chars": 2567,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 56.28,
+      "raw_chars": 2968,
+      "cleaned_chars": 2964,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 59.98,
+      "raw_chars": 2690,
+      "cleaned_chars": 2708,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 46.68,
+      "raw_chars": 2114,
+      "cleaned_chars": 2061,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 58.94,
+      "raw_chars": 2333,
+      "cleaned_chars": 2774,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 51.33,
+      "raw_chars": 2755,
+      "cleaned_chars": 2737,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 46.09,
+      "raw_chars": 2326,
+      "cleaned_chars": 2406,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 69.49,
+      "raw_chars": 2632,
+      "cleaned_chars": 2793,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 51.3,
+      "raw_chars": 2811,
+      "cleaned_chars": 2822,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 59.9,
+      "raw_chars": 2572,
+      "cleaned_chars": 2722,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 64.09,
+      "raw_chars": 2948,
+      "cleaned_chars": 3234,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 56.15,
+      "raw_chars": 2395,
+      "cleaned_chars": 2323,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 52.56,
+      "raw_chars": 2401,
+      "cleaned_chars": 2445,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 69.44,
+      "raw_chars": 2527,
+      "cleaned_chars": 2517,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 52.33,
+      "raw_chars": 2372,
+      "cleaned_chars": 2407,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 61.76,
+      "raw_chars": 2189,
+      "cleaned_chars": 2283,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 77.81,
+      "raw_chars": 2401,
+      "cleaned_chars": 2761,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 72.24,
+      "raw_chars": 2511,
+      "cleaned_chars": 2507,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 72.38,
+      "raw_chars": 2664,
+      "cleaned_chars": 2796,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 8.09,
+      "raw_chars": 2370,
+      "cleaned_chars": 2502,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 0.15,
+      "raw_chars": 2424,
+      "cleaned_chars": 2556,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 52.67,
+      "raw_chars": 2756,
+      "cleaned_chars": 2764,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 1.13,
+      "cleanup_seconds": 79.16,
+      "raw_chars": 3041,
+      "cleaned_chars": 2932,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 69.24,
+      "raw_chars": 2698,
+      "cleaned_chars": 2646,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 75.43,
+      "raw_chars": 2771,
+      "cleaned_chars": 2809,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 45.98,
+      "raw_chars": 2514,
+      "cleaned_chars": 2464,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 51.9,
+      "raw_chars": 3228,
+      "cleaned_chars": 3259,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 58.29,
+      "raw_chars": 3257,
+      "cleaned_chars": 3234,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 65.36,
+      "raw_chars": 3184,
+      "cleaned_chars": 3210,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 54.84,
+      "raw_chars": 3057,
+      "cleaned_chars": 3124,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 62.66,
+      "raw_chars": 2991,
+      "cleaned_chars": 2944,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 71.28,
+      "raw_chars": 2690,
+      "cleaned_chars": 2660,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 61.27,
+      "raw_chars": 2698,
+      "cleaned_chars": 2642,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 73.9,
+      "raw_chars": 2823,
+      "cleaned_chars": 2787,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 85.06,
+      "raw_chars": 2913,
+      "cleaned_chars": 1450,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 48.99,
+      "raw_chars": 2958,
+      "cleaned_chars": 2316,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 68.63,
+      "raw_chars": 2846,
+      "cleaned_chars": 2866,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 56.07,
+      "raw_chars": 2791,
+      "cleaned_chars": 2753,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 68.01,
+      "raw_chars": 2424,
+      "cleaned_chars": 2409,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.13,
+      "cleanup_seconds": 14.81,
+      "raw_chars": 73,
+      "cleaned_chars": 18,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 35.16,
+      "raw_chars": 2314,
+      "cleaned_chars": 1187,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 55.34,
+      "raw_chars": 2908,
+      "cleaned_chars": 3014,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 57.18,
+      "raw_chars": 2246,
+      "cleaned_chars": 2391,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 48.4,
+      "raw_chars": 2673,
+      "cleaned_chars": 2932,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 75.52,
+      "raw_chars": 2547,
+      "cleaned_chars": 2534,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 52.38,
+      "raw_chars": 2539,
+      "cleaned_chars": 2433,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 61.15,
+      "raw_chars": 2591,
+      "cleaned_chars": 2886,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 48.01,
+      "raw_chars": 2364,
+      "cleaned_chars": 2336,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 70.41,
+      "raw_chars": 2462,
+      "cleaned_chars": 2520,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 56.79,
+      "raw_chars": 2802,
+      "cleaned_chars": 3101,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 84.53,
+      "raw_chars": 2810,
+      "cleaned_chars": 3258,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 56.47,
+      "raw_chars": 3098,
+      "cleaned_chars": 3080,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 83.78,
+      "raw_chars": 2626,
+      "cleaned_chars": 2655,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 83.31,
+      "raw_chars": 2978,
+      "cleaned_chars": 3176,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 1.13,
+      "cleanup_seconds": 80.58,
+      "raw_chars": 3119,
+      "cleaned_chars": 3154,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 61.71,
+      "raw_chars": 2714,
+      "cleaned_chars": 2702,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 70.47,
+      "raw_chars": 3018,
+      "cleaned_chars": 3060,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 53.96,
+      "raw_chars": 2693,
+      "cleaned_chars": 2827,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 75.85,
+      "raw_chars": 3261,
+      "cleaned_chars": 3179,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 77.39,
+      "raw_chars": 2824,
+      "cleaned_chars": 2958,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 48.03,
+      "raw_chars": 3003,
+      "cleaned_chars": 3030,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 70.62,
+      "raw_chars": 3360,
+      "cleaned_chars": 4405,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 83.51,
+      "raw_chars": 2628,
+      "cleaned_chars": 1129,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 84.47,
+      "raw_chars": 2951,
+      "cleaned_chars": 2430,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 79.39,
+      "raw_chars": 2585,
+      "cleaned_chars": 2657,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 63.64,
+      "raw_chars": 2847,
+      "cleaned_chars": 2827,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 54.58,
+      "raw_chars": 2841,
+      "cleaned_chars": 2770,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 83.29,
+      "raw_chars": 2825,
+      "cleaned_chars": 3019,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 56.81,
+      "raw_chars": 2738,
+      "cleaned_chars": 2728,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 60.91,
+      "raw_chars": 2705,
+      "cleaned_chars": 3027,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 1.3,
+      "cleanup_seconds": 55.74,
+      "raw_chars": 3090,
+      "cleaned_chars": 3170,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 73.44,
+      "raw_chars": 3005,
+      "cleaned_chars": 2964,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 75.33,
+      "raw_chars": 2916,
+      "cleaned_chars": 3025,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 66.59,
+      "raw_chars": 2457,
+      "cleaned_chars": 2397,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 65.12,
+      "raw_chars": 3078,
+      "cleaned_chars": 3331,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 70.92,
+      "raw_chars": 2802,
+      "cleaned_chars": 2715,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 51.17,
+      "raw_chars": 2702,
+      "cleaned_chars": 2631,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 54.47,
+      "raw_chars": 2808,
+      "cleaned_chars": 2886,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 75.86,
+      "raw_chars": 3072,
+      "cleaned_chars": 3208,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 60.72,
+      "raw_chars": 2645,
+      "cleaned_chars": 2631,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 56.3,
+      "raw_chars": 2502,
+      "cleaned_chars": 2537,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 81.87,
+      "raw_chars": 3004,
+      "cleaned_chars": 2992,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 57.11,
+      "raw_chars": 2867,
+      "cleaned_chars": 2968,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 51.94,
+      "raw_chars": 2773,
+      "cleaned_chars": 2743,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 69.86,
+      "raw_chars": 2509,
+      "cleaned_chars": 2559,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 49.31,
+      "raw_chars": 2968,
+      "cleaned_chars": 2851,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 58.99,
+      "raw_chars": 2638,
+      "cleaned_chars": 2811,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 1.13,
+      "cleanup_seconds": 74.28,
+      "raw_chars": 2740,
+      "cleaned_chars": 2889,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 48.75,
+      "raw_chars": 2602,
+      "cleaned_chars": 2595,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 58.34,
+      "raw_chars": 2472,
+      "cleaned_chars": 2396,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 58.26,
+      "raw_chars": 2858,
+      "cleaned_chars": 2595,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 79.32,
+      "raw_chars": 2842,
+      "cleaned_chars": 3009,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 66.43,
+      "raw_chars": 2910,
+      "cleaned_chars": 2999,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 79.81,
+      "raw_chars": 2812,
+      "cleaned_chars": 2900,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 70.71,
+      "raw_chars": 2957,
+      "cleaned_chars": 2624,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 83.63,
+      "raw_chars": 2750,
+      "cleaned_chars": 2429,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 59.92,
+      "raw_chars": 2970,
+      "cleaned_chars": 3284,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 66.63,
+      "raw_chars": 2699,
+      "cleaned_chars": 2954,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 59.78,
+      "raw_chars": 2752,
+      "cleaned_chars": 2753,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 77.62,
+      "raw_chars": 2800,
+      "cleaned_chars": 2688,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 55.2,
+      "raw_chars": 2756,
+      "cleaned_chars": 2725,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 75.72,
+      "raw_chars": 2777,
+      "cleaned_chars": 2910,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 59.33,
+      "raw_chars": 2584,
+      "cleaned_chars": 2571,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 52.96,
+      "raw_chars": 2587,
+      "cleaned_chars": 2635,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 66.52,
+      "raw_chars": 2793,
+      "cleaned_chars": 3231,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 57.75,
+      "raw_chars": 2897,
+      "cleaned_chars": 2863,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 79.75,
+      "raw_chars": 2768,
+      "cleaned_chars": 2855,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 51.58,
+      "raw_chars": 2764,
+      "cleaned_chars": 2684,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 79.1,
+      "raw_chars": 2780,
+      "cleaned_chars": 2684,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 64.64,
+      "raw_chars": 2629,
+      "cleaned_chars": 2717,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 59.69,
+      "raw_chars": 3072,
+      "cleaned_chars": 2988,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 83.87,
+      "raw_chars": 2852,
+      "cleaned_chars": 1545,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 74.51,
+      "raw_chars": 2577,
+      "cleaned_chars": 2566,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 84.15,
+      "raw_chars": 2960,
+      "cleaned_chars": 2743,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 72.15,
+      "raw_chars": 2818,
+      "cleaned_chars": 2950,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 76.84,
+      "raw_chars": 3119,
+      "cleaned_chars": 3232,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 57.27,
+      "raw_chars": 2966,
+      "cleaned_chars": 2921,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 72.27,
+      "raw_chars": 2600,
+      "cleaned_chars": 2836,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 78.59,
+      "raw_chars": 2602,
+      "cleaned_chars": 2558,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 54.1,
+      "raw_chars": 2782,
+      "cleaned_chars": 2832,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 50.26,
+      "raw_chars": 2509,
+      "cleaned_chars": 2399,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 71.6,
+      "raw_chars": 2231,
+      "cleaned_chars": 2320,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 77.02,
+      "raw_chars": 2686,
+      "cleaned_chars": 2830,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 50.59,
+      "raw_chars": 2484,
+      "cleaned_chars": 2518,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 84.68,
+      "raw_chars": 2949,
+      "cleaned_chars": 2908,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 57.11,
+      "raw_chars": 2554,
+      "cleaned_chars": 2535,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 74.8,
+      "raw_chars": 3146,
+      "cleaned_chars": 3094,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 58.3,
+      "raw_chars": 2963,
+      "cleaned_chars": 3053,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 73.88,
+      "raw_chars": 2736,
+      "cleaned_chars": 2621,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 76.99,
+      "raw_chars": 2667,
+      "cleaned_chars": 2628,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 47.13,
+      "raw_chars": 3481,
+      "cleaned_chars": 3424,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 23.02,
+      "raw_chars": 201,
+      "cleaned_chars": 143,
+      "md_path": "trich-thien-tuy-binh-chu-nham-thiet-tieu/pages/p0202.md"
+    }
+  ]
+}
