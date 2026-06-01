@@ -1,0 +1,44 @@
+a - Đối với người Nam tuổi Dương (Năm sinh có Can
+Chỉ Dương), gọi tất là Đương Mam, Nữ tuổi Âm (Năm sinh
+có Can Chỉ âm), gọi tất là Âm Nữ: thì xếp hệ số lẻ, còn ĐỌI SỐ
+Dương. ở hàng trên: hệ số chẩn, còn gọi số Âm, ở hàng dưới.
+Ký hiệu: Dương/ Âm.
+
+b- Đối với người Âm Nưm, Dương Nữ: xếp hệ số Âm
+ở hàng trên, hệ sổ Dương ở hàng dưới. Ký hiệu: Âm/ Dương.
+
+e - Lần lượi cộng các hàng số Âm Dương, ta sẽ có hai
+trị số Âm, Dương quan trọng.
+
+4 - Từm Mã vố que và xác định Quể Tiên Thién. Mã
+số quẻ là mã số của 8 quẻ Dịch đơn. Sau đây là bảng Mã số
+quẻ. Ta sẽ thấy Mã số quẻ tương ứng với Mã số Can.
+
+Bảng Mã số 8 que lịch đơn tương ứng với Mã số Can
+QU: | Cần [Khảm| Cấn | Chấn | Tốn Khôn
+TRE TRETmIRENIRTIEIIE:
+CAN | Giáp | Mậu | Bính | Canh | Tân | Kỷ | Ất | Đình
+Nhâm | Quý
+mm “71 |8 j3 i4+|9s 1217|
+Bảng 11
+
+Quy tác: a - Sử lý Trị số Âm hoặc Dương bàng trên
+trước, kết quả sẽ cho ta Äđ số của Quê Thượng (Hức que
+Ngoại) trong qué Kép 6 hào.
+
+b- Cách sử lý như sau: Nếu đó là trị số Dương, lớn
+hơn 25 thì thực hiện Modulo 25 (cố nghĩa là trừ 25, trừ một
+lần) ký hiệu là M25. Mếu đó là trị số Âm, lớn hơn 30 thì thực
+hiện Medulo 3Ô (có nghĩa là trừ 30, trừ một lần) ký hiệu là
+M30.
+
+e~ Kết quả Modulo tiếp tục sử lý như sau:
+
+cl - Nếu đó là con số dưới 10 thì đó chính là Mã sổ
+quẻ Thượng .
+
+c2 - Nếu đó là 10 hoặc bội số của I0 thì bỏ số không,
+giữ lại con số có nghĩa tức con số không phải số không, Ví dụ
+
+. L0 lấy 1, 20 lấy 2, 40 lấy 4.
+31

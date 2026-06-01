@@ -1,0 +1,38 @@
+- BÀI BA
+ĐỀ TOÁN. LẬP PHƯƠNG TRÌNH VÀ GIẢI.
+CẤU TRÚC QUẺ HÀ LẠC.
+
+Í - LẬP ĐỂ UOÁN - Thực ra một đề toán Hà Lạc chí cẩn
+có đám chữ Cạn Chỉ phản ánh Năm, Tháng, Ngày, Giờ sinh
+của một người là đủ, Nhưng theo ý chúng tôi, đối với các bạn
+mới nhập môn, cần nạp đú những đữ liệu sau đây thì mới
+thuận tiện trong việc lập và giải phương trình tiếp theo,
+
+1 - Chủ thể: a - Họ và Tên, b - Giới. Toán Hà Lạc
+chia ra 3 giới người. Giới Quan chức gốm những viên chức
+trong hệ thống chính quyền, ngày nay gồm cả những người
+điều khiển các cơ quan doanh nghiệp tư nhân, các cơ quan
+dân sự; giới Sĩ pồm những người đang học tập (học sinh, sinh
+viên) , nghiên cứu học thuật, các văn nghệ sĩ, các trí thức nói
+chung: Người thường, gồm những người cồn lại so với hai
+giới kể trên. Mực Giới có thể phi lĩnh hoại cốt để khi dự đoán
+hình dung chủ thể thuộc giới nào. Dữ liệu Giới còn dùng để
+dự đoán cho chủ thể từng năm.
+
+2 - Ngày, Giờ sinh: Dương lịch hoặc âm lịch. Mục
+này yêu cầu ghi đương lịch ra dương lịch, ãm lịch ra âm lịch
+và có đủ 4 yếu tố: Giờ sinh, Ngày sinh, Tháng sinh, Năm
+sinh. Dữ liệu sử đụng là âm lịch, nhưng nếu không nhớ thì có
+thể từ đương lịch tra ra âm lịch, bằng Lịch thế kỷ.
+
+3 - Các tiết khí: a - Tiết lệnh tháng sinh. (Xem chỉ
+dẫn lập Can Chi Tháng sinh).
+
+b- Tiết lệnh để tính Hoá Công, gồm
+2 tiết lệnh, phi rõ Hoá Công thuộc quẻ gì (xem chỉ đẫn xác
+định Hóa công)
+
+4- Sinh giờ khí Dương hay Giờ khí ám. Các giờ khí
+Lương: Tý, Sửu, Dần, Mão, Thìn, TỊ. Các giờ khí âm: Ngọ,
+Mùi, Thân, Dậu, Tuất, Hợi. l
+28

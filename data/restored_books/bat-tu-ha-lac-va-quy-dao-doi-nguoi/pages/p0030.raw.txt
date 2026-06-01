@@ -1,0 +1,44 @@
+phải tính là tháng Năm. Như vậy, năm sinh là Ất Mùi. thắng
+sinh là Vhđm Ngọ. ngày sinh mã số 47 là Canh Tuất, giờ
+sinh là Cơn Thìn. (Chúng tôi sẽ sử dụng ví dụ trên cho đến
+hết hài toán)
+
+2 - Đổi Can Chỉ thành mã xố Can Chỉ: Thuật toán
+Hà L.ác sắng tạo ra một hệ thống các mã số của Can Chỉ. Các
+Mã xố của Thiên Can bất nguồn từ Lạc Thư. Các Mã số Địa
+Chỉ bắt nguồn từ Hà Đồ. Bảng các mã số như sau:
+
+Bảng Mà số Can
+
+| CAN | Nhâm | Mậu | Bính | Canh | Tân | Ký | Ất
+
+Giáp uý
+
+Mà số| 6 1L | 8 | 3 |4 |9 | 2 |7
+Bảng 9
+_ _ Bảng Mã số Chỉ
+Ị Hợi TỊ Đần Thân Thìn
+| c1HI Tý | Nhộ Mão Dậu Tuất Sửu
+Mùi
+TM T176 1:8
+Bảng 10
+
+Đổi Can Chỉ ra các Mã số Can Chị theo các bước như
+saU:
+
+- Căn cứ hai bảng Mã số (9&10) liệt kê các mã số
+tưởng ứng với tám chữ Can Chỉ: Theo ví dụ trên ta sẽ có ẤI:
+2, Mùi: 5 - 10, Nhâm: 6, Ngọ: 2 - 7, Canh: 3, Tuất: 5 - I0,
+Canh: 3. Thìn: Š - 10.
+
+- Sắp xếp các số trên thành hệ số chẩn, lẻ. Ta sẽ có
+các số chấn: 2, 10, 6, 2, 10, 10. Các số lẻ: 5, 7, 3, 5, 3, 5.
+Kiểm tra: Xem lại cho đủ 12 con số.
+
+4A - Tính Trừ số Âm Đương. Tn số Âm Dương là hai
+con số quy tụ của Tám chữ Can Chỉ mở đầu cho toàn bộ bành
+lane số mệnh của một đời người. Tờ đây mà tìm ra Cấu trúc
+Hà Lạc của mỗi chủ thể. Bản thân trị số này đã có vai trò
+
+trone dự đoán. Quy tắc:
+Ki

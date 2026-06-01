@@ -1,0 +1,54 @@
+TỬ VI HÀM SỐ - Nguyễn Phát Lộc 76
+
+Nhưng dù thất bại trong việc khám phá toàn bộ bí mật của thiên cơ và nhân cơ, khoa Tử - Vi cũng
+đạt tiến bộ ít nhiều trong việc tìm ra hàm số của các bộ phận của guồng máy đó.
+
+C. ĐẶC TÍNH CỦA HÀM SỐ TỬ - VI
+
+1) Tính cách tổng quát của Hàm số Tử ~ Vi
+
+Hàm số Tử - Vi không phải là một công thức. Nó chỉ có tính cách tổng quát. Nó chỉ nói lên một
+tương quan trực tiếp giữa các yếu tố. Nó chỉ nhằm tìm hiểu một dữ kiển trong sự liên hệ nhân quả của
+các yếu tố. Vì thế, không thể đòi hỏi nơi hàm số này mức độ cụ thể hay mức chính xác tuyệt đối của
+một công thức. Vả chăng, khi nói đến hàm số là nói đến sự lệ thuộc và những ẩn số. Ấn số đó lại là một
+biến cố cho nên hàm số cũng biến thiên theo ẩn số. Nếu người giải đoán tìm được giải đáp của ẩn số
+biến thiên đó thì có thể xác định được hàm số một cách thích đáng.
+
+Thật vậy, mỗi sao trong một cung có nhiễu ý nghĩa. Ý nghĩa đó thay đổi hay gia giảm tùy theo sự
+kết hợp với sao khác. Người giải đoán phải lựa chọn ý nghĩa nào thích hợp nhất trong thế liên hoàn kết
+hợp đó. Chính vì phải lựa chọn như vậy, nên, trên một sao, có thể có nhiều hướng luận đoán, căn cứ trên
+nhiễu ý nghĩa khác nhau của sao. Để tìm ý nghĩa thích hợp, phương pháp áp dụng là phương pháp hàm
+số. Ngoài ra, không có phương pháp nào khác.
+
+2) Tính cách phức tạp của Hàm số Tử - Vì
+
+Những hàm số Tử - Vi mà chúng ta vừa diễn đạt trên đây chỉ nhấn mạnh đến các cung, xem như
+yếu tố căn bản của hàm số. Đi sâu vào chỉ tiết, người ta thấy trong mỗi cung có cả chính tinh lẫn phụ
+tỉnh. Các sao này tác hóa lẫn nhau theo quy luật tương quan về âm dương ngũ hành và theo ảnh hưởng
+chế hóa lẫn nhau về ý nghĩa. Vì vậy, đi sâu đến các sao trong một cung, hàm số Tử — Vi càng phức tạp
+hơn. Chẳng những hàm số này phải quan tâm đến sự chế hóa trên 2 bình diện âm dương ngũ hành và ý
+nghĩa các sao mà còn phải lưu ý số lượng các sao tốt xấu trong cung. Người lý giải phải nhận định về
+lượng (appréciation quantiative) và cả về phẩm appréciation quanlitative).
+
+Tính cách phức tạp này còn thể hiện qua hàm số hợp hay phức tạp của phúc đức. lăng kính này có
+thể làm giảm chế hay tăng cường ý nghĩa của sao, cung rất nhiều. Trong khi đó, chính phúc đức cũng là
+một hàm số khác.
+
+Tính cách phức tạp này là đặc trưng cố hữu của hàm số về con người. Sinh vật này không đơn giản
+trong sự cấu tạo, trong sự phản ứng. Nó có quá nhiều nhân tố cấu tạo. Nó cũng không bao giờ phản ứng
+theo một căn bản nào. Có khi lý trí lấn át tình cảm, có khi tình cảm ưu thắng hơn. Có người chẳng phản
+ứng theo căn bản nào mà chỉ xu hướng theo dư luận.
+
+Đó là những lý do khiến cho hàm số Tử — Vi không thể là phương trình cụ thể, không phải là một
+công thức, không thể đổ biểu hóa bằng trực tuyến hay đường vòng, kho đo lường được về lượng cũng
+như về phẩm một cách chính xác. Chính các đặc tính này làm cho khoa Tử - Vi rất tương đối.
+
+Thành thử nghỉ vấn được nêu lên là vì tính cách tổng quát và phức tạp của hàm số Tử - Vi đó, liệu
+hàm số này có công dụng nào hay không?
+
+D. CÔNG DỤNG THỰC TIỄN CỦA HÀM SỐ TỬ - VI
+
+Thật sự, hàm số Tử — Vi không hẳn là vô dụng.
+
+1) Trước hết, qua ý niệm hàm số, người ta mới thấy được hệ thống tương quan giữa các yếu tố tạp
+bác.

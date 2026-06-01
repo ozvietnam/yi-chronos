@@ -1,0 +1,34 @@
+Hạ Kinh bắt đầu bằng cặp kẻ Hàm - Hằng là một cặp quề có đối
+xứng qua tâm, nghĩa là hình ảnh của quẻ này là hình ảnh của quẻ kia
+khi đã quay đi 180 độ.
+
+Trạch Sơn HÀM Lôi Phong HẰNG
+Đối xúng qua tâm quay 180 độ
+
+64 quẻ Dịch của Chu Dịch đều được sắp xếp thành 32 cặp quả đối
+xứng như vậy. Có một số quẻ Dịch khi quay 180 độ vẫn giữ hình dạng
+cũ (có 8 quẻ như vậy) chẳng hạn:
+
+Sơn Lôi DI Trạch Phong Lôi Sơn Phong Trạch
+
+ĐẠI QUÁ TIỂU QUÁ: TRUNG PHU
+
+Trong những trường hợp đó, quẻ cặp sẽ là một quẻ có đối xứng
+gương:
+
+- Cặp Sơn Lôi Di và Trạch Phong Đại Quá
+
+- Cặp Lôi Sơn Tiểu Quá và Phong Trạch Trung Phu
+
+Toàn bộ 64 quẻ Dịch đều được sắp xếp theo cách đó. Từ đó ta có
+thế nói rằng cho ta một quẻ lẻ bất kỳ, ta sẽ có thể nói ngay quẻ chấn
+tiếp theo của nó là quẻ gì và ngược lại.
+
+Cách cấu trúc như trên của Kinh Dịch hiện nay cho thấy người
+sắp xếp lại đã thể hiện sâu sắc nguyên lý đối xứng, một nguyên lý cơ
+bản của vũ trụ.
+
+Khoa học hiện nay đã liên hệ thấy nhiều nguyên lý của Dịch học
+thể hiện những nguyên lý khoa học hiện đại.
+
+9

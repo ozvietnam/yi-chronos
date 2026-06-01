@@ -1,0 +1,38 @@
+những nguyên lý toán Nhị phân — cơ sở của Dịch cổ còn rất ít nhà
+nghiên cứu phát hiện và lý giải, nhiều người còn coi đó là cuốn sách
+“thần bí” và khó hiểu, nên các học giải chỉ đi vào khai thác khía cạnh
+triết học của Dịch, nên rất ít người để cập đến hệ toán Nhị phân
+(systeme binaire). Tuy nhiên, hệ toán này đã được người xưa nghiên
+cứu rất kỹ ngay từ thời kỳ con người chưa tìm ra chữ viết. Hình thức
+chữ số đâu tiên là dùng “vạch đứt” và “vạch liền” để ghi hai con số
+“0” và “1”. Hai ký hiệu đó cũng để chỉ hay loại số khác nhau là các
+số lẻ (cơ) bắt đầu từ 1 đến 3, 5, 7, 9... và các số chẳn (ngẫu) bắt đầu từ
+số 2 đến 4, 6, 8, 10... Chính chúng là nguồn gốc của lý thuyết “Âm
+dương” sau này và hai ký hiệu “vạch đứt” và “vạch liền” trở thành
+hai kí hiệu “âm dương” để chỉ sự phân cực của Tạo hoá ngay từ thuở
+ban đầu. Cổ nhân đã chỉ dùng hai chiếc đũa, một chiếc để nguyên,
+một chiếc bẻ đôi thành hai nửa bằng nhau và sắp xếp chúng theo
+những tập hợp từ hai hàng vạch, bốn năm đến sàu hàng vạch để ghi
+các con số từ nhỏ đến lớn. Từ đó đã phát hiện ra nguyên lý của hệ
+toán “Nhị tiến”, cùng phép ghi các con số của hệ này bằng hai ký
+hiệu “Âm dương”. Người xưa đã nhận ra rằng trong “tượng” của các
+số nhị phân tàng chứa nhiều quy luât phổ biến của thời tiết, nắng mưa
+và cả của mọi sự vật trong vũ trụ, kể cả con người. Vì vậy, tượng số
+nhị phân cùng với hai bảng số Hà đồ và Lạc thư đã là nền tảng của
+Lịch toán và nhiều môn dự báo cổ. Hà đô là cơ sở toán học của lý
+thuyết Âm Dương —- Ngũ hành mà những người không hiểu cho là
+“mê tín”, thực ra chỉ là một khái niệm cổ dùng để chĩ một hệ toạ độ
+không gian . Năm điểm đại diện cho 5 hướng của không gian, mang
+tính “số học” và triết học rất thâm thuý. Sự phân cực của vạn vật diễn
+ra trong không gian mà con người quan sát được. Không gian đó chỉ
+có bốn phương chính và một phương gốc là Trung tâm (cộng tất cả là
+5 phương) mà thôi. Năm hướng chính đó ứng với 5 số đếm đầu tiên,
+cũng tương ứng với 5 chủng loại vật chất cơ bản trên mặt đất là Nước,
+Lửa, Đất, Kim loại và thế giới sinh vật (tượng trưng là Mộc). Cổ nhân
+cũng đã dùng tên 5 chủng loại vậ chất cơ bản này để đặt tên cho 5
+hành tinh mà mắt người nhìn thấy trên bầu trời là sao Thuỷ, sao Kim,
+sao Thổ, sao Hoả và sao Mộc. Như vậy Ngũ hành không chỉ tượng
+trung cho 5 hành tinh vận động trên bầu trời mà còn tượng trưng cho 5
+lực lượng lớn tôn tại trên mặt đất, 5 loại “Thiên Khí” của vũ trụ luôn
+vận động, chuyển hoá lẫn nhau, tạo nên mọi sự biến hoá của khí hậu
+8

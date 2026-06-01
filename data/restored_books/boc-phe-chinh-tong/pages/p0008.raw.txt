@@ -1,0 +1,42 @@
+Lấy giờ dự đoán theo ngày dự đoán. Giờ dự đoán dừng ở
+đâu theo sơ đồ trên đó là Ngoại quái (quê trên).
+
+Ví dụ: tháng 5/ ngày 22 (Tân Sửu), giờ Ngọ bắt đầu
+dự đoán. Ta làm như sau:
+
+Trên sơ đô, tháng 5 (ô Ly) khởi mỗổng L (bao giờ cũng
+là mồng 1!) theo chiều kim đồng hồ , mông 2 ở Khôn,
+mắng 8 ở Đoài..,vậy 22 ở Cấn: nội quái là Cấn.
+
+Từ ô ngày dự báo là Cấn ta khởi giờ Tý (bao giờ bắt
+đầu cũng là Tý!), tiếp Sửu ở Chấn, Đần ở Tốn..., vậy giờ
+Ngọ ở Càn: Còn !à Ngoại quái. Sau bai lần tính ta có
+quẻ: Càn (Thiên)/Cấn (Sơn)--> Thiên Sơn Độn.
+
+b. Phương pháp gieo 3 đồng tiền bằng lim leại:
+
+* Gieo tìm Nội quái trước: lần gieo thứ nhất được sở
+hào (hào 1), lần gieo thứ hai được hào 2, thứ ba được hào
+3: ta viết ra Nội quái
+
+* Gieo tìm Ngoại quái sau: lần gieo thứ tư được hào
+4, thứ năm được hào 5, thứ sáu được hào 6: ta viết ra
+Ngoại quái. Kết quả hai lần gieo ta viết ra Ngoại quái/
+Nội quái = Quề, tra bảng 64 Quê sau đây để luận.
+
+Thứ hai: tìm hào động
+
+a. Tìm hàe động qua phép độn quẻ: lấy tổng trị số của
+Nội quái và Ngoại quái chía cho 6, số dư là vị trí hào
+động. Trong ví dụ trên quẻ Càn/ Cấn; Càn=1, Cấn=7, vậy
+tổng I+7=15, đem 15: 6=2 dư 3, vậy hào thứ ba động.
+
+Nếu phép chia không dư thì hào thứ 6 động.
+
+b. Bởi với phép giee đồng tiêm, hào động được xác
+định qua các lần gieo đồng tiển. Nếu lần gieo nào có 3
+
+: đông tiển đểu sếp (gọi là Đơn hay Trùng), hoặc cả 3
+đồng đều ngửa (gọi la Giao) thì đó là vị trí hào phát
+động. Do vậy khi lập quê bằng gieo đồng tiền có khi
+8

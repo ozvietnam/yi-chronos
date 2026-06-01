@@ -1,0 +1,47 @@
+” Lạc thư tuy là ngang dọc có số 15, thật ra đều là những số 7,
+8, 9, 6 đắp đổi tiêu lón: Số 1 được 5 thành 9, mà đắp đổi tiêu lón với
+số 9 ở phương Nam. Số 4 được 5 thành 8 mà đắp đổi tiêu lớn vói số
+7 ö phương Tây. Số 2 được 5 thành 7 mà đắp đổi tiêu lớn với số 8 ở
+Đông Bắc. Những số tiến lên là lón, lui đi là tiêu. Số lón đã lui thì
+phải tiêu đi, số tiêu đã tiến thì phải lón lên.Sáu tiến đến 9 thì 9 lón
+mà 6 tiêu, 9 lui làm sáu thì 9 tiêu mà 6 lại lón, 7 tiến làm 8 thì 8 lón
+mà 7 tiêu, 8 lui làm 7 thì 8 tiêu mà 7 lại lớn. “Bỏ trống số 5, chia sẻ
+số 9” nghĩa là đem số 5 ổ giữa mà trừ đi các số ở ngoài thì các bề
+nganh, bề dọc chỉ còn 10. Đem số 10 ấy mà chia sẻ đi thì 9 là số
+thừa của 1 trừ 10, 8 là số thừa của 2 trừ 10, 7 là số thừa của 3 trừ 10,
+6 là số thừa của 4 trừ 10. Thế là “3, 5 lộn góp, tói đâu cũng gặp số
+hợp”.
+
+Chú thích (Trong sách đã dẫn):
+
+* Hoàng Miễn Trai chua rằng: “Từ 1 đến 10 chỉ nói về sự
+nhiều ít của số lễ, chăn, không phải nói về thứ tự. Trời được số lẻ mà
+làm ra nước. Cho nên nói rằng: “Số 1 sinh hành Thủy. Số 1 cùng cực
+thì thành số 3, cho nên nói rằng: “Số 3 sinh hành Mộc”. Đất được số
+chăn mà làm ra Lửa, cho nên nói rằng: “Số hai sinh ra hành Hỏa”. Số
+2 cùng cực thì thành số 4, cho nên nói rằng: “Số 4 sinh ra hành Kim”.
+Sao lại là vậy? Là vì dùng một cạnh mà vặn cho tròn thì thành 3
+cạnh, thế là số một cùng cực thì thành số 3, dùng hai cạnh mà bẻ
+cho vuông thì thành bốn cạnh, thế là số 2 cùng cực thì thành số
+4..Số 6 hoàn thành hành Thủy cũng giống như tượng quẻ Khảẩm,
+một hào Dương ở giữa, túc là số trời 1 sinh Thủy, số 6 của Đất bao
+bọc bên ngoài. Dương ít, Âm nhiều thì Thủy mói thịnh. Số 7 hoàn
+thành hành Hỏa cũng giống như tượng quẻ Ly, một hào Âm ở giữa
+tức là số 2 của Đất sinh hành Hỏa, số 7 của trời bao bọc bên ngoài.
+Âm ít Dương nhiều thì Hỏa mới thịnh. Khảm thuộc về Dương, Ly
+thuộc về Âm, ở trong là cái để sinh, ở ngoài là cái để làm cho thành.
+
+* Số để sinh sản.
+
+*** Hà đồ số chẵn thừa mà lẻ thiếu, tức là số Trời 25 (5x5), số
+Đất 30 (5x6). Lạc thư lẻ thừa mà chăn thiếu, tức là số trời 25 (5x5),
+số Đất 20 (5x4). Hà đồ để trống số 15 ở giữa, Lạc thư để trống số 5
+ở giữa thì số của Âm Dương đều đúng 20. Chu Hy chua vậy.
+
+Sự trích dẫn dưới đây là tiếp tục của đoạn trên trong sách đã
+dẫn, để quí vị tham khảo những nhận xét về nội dung Hà đồ của các
+nhà lý học Hoa Hạ.
+
+Lại hỏi:
+
+45

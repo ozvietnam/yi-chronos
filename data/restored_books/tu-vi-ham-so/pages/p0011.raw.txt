@@ -1,0 +1,30 @@
+TỬ VI HÀM SỐ - Nguyễn Phát Lộc 10
+Khi xác định được ngày, giờ, tháng, năm sinh đúng rồi thì biên vào khoảng giữa lá số.
+C. Xác định tuổi Âm hay Dương và Bản Mệnh
+Có 2 cách phân biệt tuổi Âm hay Dương:
+1) Tính theo hàng CAN của năm sinh
+2) Tính theo hàng CHI của năm sinh
+DƯƠNG Tý Dần Thìn Ngọ Thân Tuất
+Cách tính nào cũng đưa đến kết quả giống nhau.
+Nếu là trai, tuổi Dương thì gọi là DƯƠNG NAM, tuổi ÂM thì gọi là ÂM NAM.
+Nếu là gái, tuổi Dương thì gọi là DƯƠNG NỮ, tuổi ÂM thì gọi là ÂM NỮ.
+Biên tuổi Dương Nam hoặc Âm Nam, hoặc Dương Nữ hoặc Âm nữ vào khoảng giữa lá số.
+Tiếp theo là tìm bản mệnh, đúng hơn là loại hành của Bản Mệnh, căn cứ theo can và chỉ
+của tuổi, theo bảng liệt kê sau đây.
+D. XÁC ĐỊNH LOẠI HÌNH CỦA BẢN MỆNH
+CAN
+CHI h x l ọ 2 ñ R Z
+NĂM GIÁP AT | BÌNH | ĐINH | MẠU KY |CANH TÂN |NHAM| QUY
+SINH
+Hải Giản Tích Bích
+2 trun hạ lịch thượn Tang
+TÝ " h _ ` đố mộc
+kim thủy hỏa thổ 191 2
+1924 1936 1948 1960
+Hải Giản Tích Bích Tang
+SỬU trung hạ lịch thượng đố
+kim thủy hỏa thổ mộc
+1925 1937 1949 1961 1913
+Ạ Đại Lộ Thành Tùng Kim
+DÀN khê trung đầu bạc bạc
+thủy hỏa thổ mộc kim

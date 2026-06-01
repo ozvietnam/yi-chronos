@@ -1,0 +1,50 @@
+Quy tác:
+
+a - Ngưỡng để xem xét số Âm Dương có hợp mùa
+sinh hay không là hai con số 25 và 30 đã dùng làm modulo
+để tìm Mã số Quẻ. Số 25 là số Dương, số 30 là số Âm.
+
+Chuẩn mực để xem xét là: Tỷ lệ hai số Âm, Dương
+phải hợp với mùa sinh. i
+
+Sinh mùa Xuân hai số ấy phải ở Tỷ lệ ngang hoà,
+nghĩa là số Đương khoảng 25 hơn kém một ít tùy theo quẻ
+Nguyệt lệnh. Số Âm khoảng 30 hơn kém một ít, tầy theo quẻ
+Nguyệt lệnh, Càng sang Hạ số Dương cao đần, số Âm thấp
+đần.
+
+Sinh mùa Hạ, số Dương phải cao, số Âm phải thấp.
+Theo Nguyệt lệnh, càng sang Thu số Dương thấp dần, số Âm
+cao dần.
+
+Sinh mùa Thu, số Âm Dương lại ngang hoà, nhưng
+càng sanp Đông, số Đương thấp dần, số Ấm cao đần.
+
+Sinh mùa Đông, số Âm phải cao, số Dương phải thấp.
+Theo Nguyệt lệnh, càng sang Xuân, số Âm thấp dân, số
+Dương cao dần để trở về ngang hoà.
+
+Tháng Tư, Tháng Mười. Nguyệt lệnh thuần Đương và
+thuần Âm nhưng không có nghĩa chỉ có số Dương hoặc chỉ có
+số Âm. VỀ nguyên tắc vẫn có đẩy đủ hai số Âm Dương, tất
+nhiên với tỷ lệ cao và thấp. Nhưng ngưỡng cao thấp cũng
+không nên quá, sẽ phạm vào Cô Âm, Có Dương.
+
+.— Người xưa khóng định được con số cụ thể cho các tỷ
+số Âm Dương, chỉ nêu nguyên tắc như trên để vận dụng.
+Hình 2 (xem phụ lục) biểu diễn một cách tài tình sự vận động
+tiêu - trưởng số Âm Dương và quẻ Nguyệt lệnh.
+
+Sau đây là những chỉ dẫn cụ thể hơn:
+
+Số Đương thuận nưìa sinh:
+
+~ Từ sau tiết Đông chí đến trước Vũ Thủy (Tháng I1,
+12 và đầu tháng Giêng) số Dương ít là tốt. Nhiều thì sẽ bị
+hình khắc, thương tổn.
+
+- Từ sau Lập Xuân đến trước Xuân phân (Tháng 1 -
+2) số Dương nên vừa phải (Nguyệt lệnh là quẻ Thái). Số
+Dương ít thì không phấn phát lên được. :
+
+53

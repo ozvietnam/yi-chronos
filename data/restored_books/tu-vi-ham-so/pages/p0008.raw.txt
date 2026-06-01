@@ -1,0 +1,55 @@
+TỬ VI HÀM SỐ - Nguyễn Phát Lộc 7
+
+Việc xếp hàng này rất lợi ích khi giải đoán lá số, bởi vì lúc giải đoán, thường phải so sánh
+số lượng sao tốt và sao xấu trong một cung để cân nhắc.
+
+Sau đó mới bắt đầu tiến hành các giai đoạn lấy số. Có 7 giai đoạn:
+
+— Xác định ngày, giờ, tháng, năm sinh cho đúng.
+
+— Xác định tuổi Âm, Dương, Bản Mệnh.
+
+—_ Xác định vị trí cung Mệnh, cung Thân và các cung khác trên lá số.
+
+— Xác định Cục.
+
+— An Tử- Vi, Thiên Phủ và những chính tỉnh khác.
+
+—_ An các phụ tĩnh.
+
+—_ An các thập niên và tên cung tiểu hạn.
+B. Xác đỉnh ngày giờ tháng năm sinh
+
+Khoa Tử - Vi bao giờ cũng dùng ÂM LỊCH để tính tuổi, ngày, tháng, năm, giờ sinh. Cho
+nên phải đổi ngày dương lịch ra ngày âm lịch. Bản đối chiếu Dương lịch và Âm lịch được ghi
+trong một quyển sách có bày bán ở thị trường gọi là “Hai trăm năm dương lịch và âm lịch đối
+chiếu 1780 — 1980” của tác giả Nguyễn Như Lân. Sách này là dụng cụ cần thiết để đổi ngày.
+
+Trước hết, phải biết chắc chắn ngày sanh. Chỉ lấy số theo ngày sanh chớ không lấy theo
+ngày khai sanh.
+
+Ngày sanh gồm những yết tố sau:
+
+— Năm âm lịch,
+
+— Tháng âm lịch,
+
+— Ngày âm lịch,
+
+— Giờ âm lịch.
+
+Quan trọng nhất là tháng và giờ âm lịch. Cần phải lưu ý các điểm sau:
+
+1) Tháng âm lịch nhuân
+
+Có năm nhuần thì có đến 2 tháng âm lịch giống nhau. Ví dụ: Năm Quý Dậu (1993) có 2
+tháng 5 âm lịch. Dù sanh ở tháng 5 trước hay tháng 5 sau đều phải coi như tháng 5, không phân
+biệt trước sau.
+
+Có quan điểm cho rằng những người sanh từ 15 đến 30 tháng 5 sau phải coi như sanh vào
+tháng 6. Nhưng quan điểm này bị một số nhà khảo cứu cho là sai. Vấn để còn đang tranh chấp.
+
+2) Giờ âm lịch
+
+Âm lịch có 12 giờ mỗi ngày, mỗi giờ kéo dài 2 tiếng đồng hồ. Bảng giờ Âm lịch được vẽ
+như sau:

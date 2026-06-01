@@ -1,0 +1,39 @@
+quẻ Địch và các triết lý, các hình thức biểu hiện và cơ chế vận
+hành của chúng cồn là một điểu xa lạ với cêng chúng, mậi
+khác còn bị những hình thức mẻ tín làm chơ bị xuyên lạc.
+Ngày nay-trong cuộc đổi mới đất nước, nhiều loại sách về
+khoa học Phương Đông trong đó rất nhiều xách Kinh Dịch đã
+được giới thiệu với bạn dọc. Một hộ phận lớn công chúng đã
+làm quen với các quẻ Dịch và suy ngẫm về nội dung triết học
+cũng như khả năng Lự đoán học của chúng.
+
+Tôi không có tham vọng biên soạn một cuốn sách đầy
+đủ về Thuật toán này. Đây chỉ là những bài giáng thực hành
+tụi một Câu lạc bộ nghiên cứu về Kinh Dịch. Trong đó có cả
+mội hộ phận nội dung do chúng tôi trao đối mây mồ tìm ra và
+thấy ứng nghiệm trong thực tế, trong khí chưa tìm được các
+tư liệu nguồn. Do vậy tôi xi phép lướt quá những yếu tố lịch
+xử, cân nguyên, mối quan hệ, ý nghĩa khoa học của các chỉ
+tiẻi, các công thức của thuật toán. Tôi coi cuốn sách nầy như
+một chiếc ânglen siương lên để tìm đến các chuyên gia Hà
+Lạc đang tần mát trên đất nước.
+
+Cuốn sách gồm ba phản: Phần Một gồm những bài
+giảng thực hành. Phân Hai pồm 64 quẻ Dịch được khai thác
+phần nội dung dự đoán học của thuật toán Hà Lạc. Khi trình
+bày 64 qué Dịch, tôi cố gắng vận dụng những kinh nghiệm Ít
+ỏi của mình, dựa vào cuốn Bứứ tự Hà Lạc lược khảo của Học
+Nẵng là chính. có khai thác thêm các tác phẩm dịch và biên
+soạn của ban Bội Cháu, Ngô Tất Tố, Nguyễn Hiến Lẻ,
+Nguyễn Hoàng Phương và gần đây của Bài Biên Hòa. hy
+vọng làm phong phú thêm phần giải đoán so với những sách
+Hà Lạc đã lưu hành. Phần Ba gồm một số chán dụng nhà văn
+hiện đại Việt Nam được soi chiếu mong ánh sáng Hà Lạc.
+Chúng tôi hy vọng phần Ba này sẽ đem lại hứng thú cho bạn
+đọc. Mục đích của cuốn sách này là giúp các bạn thuận tiện
+trong việc thực hành tự mình giải một bài toán Hà Lạc cho
+bản thân và những người thân. Trong nhiều trường hợp tôi chỉ
+khai thác và trình bày dưới hình thức hướng dẫn thực hành
+
+: những gì liên quan đến một bài toán Hà Lạc. Cần đối với bạn
+7

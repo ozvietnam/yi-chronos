@@ -1,0 +1,37 @@
+sung thêm lời cho từng hào (hào là một vạch âm, dương trong
+một quẻ), tổng cộng 384 hào phản ánh 384 tình huống liêu
+biểu trong các thời của con người. Ngày nay người ta gọi
+những lời quẻ, lời hào ấy là những lời của thánh nhân. Thoạt
+nghe thấy nó âm u, ngây thơ, huyền bí, nhưng đào sâu thì
+tính khát quát bao hầm cả vũ trụ và nhân thế, Có một sự may
+mắn cho loài người là toàn bộ di sản nói trên cồn nguyên vẹn :
+cho đến nay, thời Tần Thuỷ Hoàng đã đốt toàn bộ sách, chỉ
+còn để lại bộ Kinh Dịch đó, chỉ vì nó được coi là sách thánh.
+Cả nghìn nàm sau, hàng trăm pho sách của các học giả đã ra
+công tìm hiểu, luận giải các hình tượng và chữ nghĩa của
+thánh nhân để lại. Cho đến nay đến lượt các học giả phương
+Tây tiếp tục thay nhau khám phá, càng khám phá càng kinh
+ngạc về khả năng tiếp cận với bản chất của vũ trụ của người xưa.
+
+Thuật toán TCHL, bao gồm hai bước. Bước mội: ấp
+dụng các công thức tính toán từ các mã số Can Chỉ của Năh!,
+Tháng, Ngày, Giờ sinh tầm ra mã số ¿wể. Từ mã số này tìm ra
+quẻ Kinh Dịch phân ánh đường nét cơ bản của Quỹ đạo đời
+người đồng thời là Tiền vận của đời người, gọi là gué Tiền
+thiền. Từ quê Tiên thiên, căn cứ giờ sinh tìm ra hào bản
+mệnh, gọi là hào Nguyên đường, phản ánh Tính cách chủ đạo
+và hành lang vận mệnh của con người. Từ quẻ Tiên thiên và
+hào Nguyên đường tìm ra guể Hậu thiên đồng thời là Hậu
+vận. Từ hai quẻ Tiên thiên và Hậu thiên tìm ra hai guẻ Hỗ
+(trong nhóm từ hỗ trợ) phản ánh bố sung cho hai quẻ nói
+trên, gọi là /!ô Tiên thiên và Hỗ Háu thiên. Từ các quê này
+tìm ra các đại vận của cả đời người, gồm hai loại đai vận:
+chín năm và sáu năm. Mỗi hào của quẻ Tiên thiên, hoặc Hậu
+thiên đại diện cho một đại vận. Hào Nguyên đường Tiền
+Thiên là hào mở đầu cho Đại vận số 1, bất đầu từ năm lên
+một tuổi. Người ta xem Tượng và Lời hào để biết Thánh nhân
+đã "cho ý kiến thế nào" về đại vận đó. Từ các Đại vận này tìm
+ra Tiểu vận của từng năm. Mỗi tiểu vận là một quẻ trong 64
+quẻ Kinh Dịch. Có thể một lần áp dụng công thức theo Luật
+phản phục của Kinh Dịch tìm ra tất cả các quẻ ứng với các
+4

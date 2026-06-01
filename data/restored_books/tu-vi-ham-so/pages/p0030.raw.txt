@@ -1,0 +1,57 @@
+TỬ VI HÀM SỐ - Nguyễn Phát Lộc 29
+
+Cung xung chiếu là cung đối diện trực tiếp. Ví dụ: Cung xung chiếu của Tuất là Thìn, của
+Thìn là Tuất, của Dần là Thân, của Thân là Dần, của Ty là Hợi, của Hợi là Ty, của Sửu là Mùi,
+của Mùi là Sửu v.v... không bao giờ thay đổi. Vì chiếu trực tiếp nên cung xung chiếu quan trọng
+hơn 2 cung tam chiếu và cung nhị hợp.
+
+2) Tam chiếu
+
+Chiếu vào cung chánh có đến 2 cung tam chiếu. Sở dĩ gọi như thế là vì mỗi cung tam
+chiếu các cung chánh cung, chiều thuận và chiểu nghịch. Ví dụ nếu cung chánh là Dần thì 2
+cung tam chiếu kia là Ngọ (chiều thuận) và Tuất (chiều nghịch). Chỉ có 4 bộ cung tam chiếu
+trong lá số mà thôi, và hướng tam chiếu này không bao giờ thay đổi. Đó là:
+
+a. Dần - Ngọ - Tuất c. Ty - Dậu —- Sửu
+
+b. Thân - Tý — Thìn d. Hợi - Mão - Mùi
+
+Trong mỗi bộ như thế bao giờ cũng được gọi là tam chiếu với cung kia trong bộ. Tam
+chiếu với Ngọ là Dẫn, Tuất, tam chiếu với Tuất là Dần, Ngọ.
+
+3) Nhị hợp
+
+Thế chiếu nhị hợp trong lá số cũng không bao giờ thay đổi.
+
+Tý nhị hợp với Sửu Sửu nhị hợp với Tý
+
+Dần nhị hợp với Hợi Hợi nhị hợp với Dần
+
+Mão nhị hợp với Tuất Tuất nhị hợp với Mão
+
+Thìn nhị hợp với Dậu Dậu nhị hợp với Thìn
+
+Ty nhị hợp với Thân Thân nhị hợp với Ty
+
+Ngọ nhị hợp với Mùi Mùi nhị hợp với Ngọ
+
+Tóm lại, khi xem cung nào phải ĐỒNG THỜI xem cả cung xung chiếu, 2 cung tam chiếu và cung
+nhị hợp, tức là phải xem 5 cung cùng một lúc để cân nhắc chung.
+
+Thông thường người ta xem 5 cung có tầm quan trọng ngang nhau. Nhưng có người tỉnh vi hơn
+muốn đánh giá 5 cung đó theo ưu tiên quan trọng khác nhau.
+
+Theo quan điểm này thì:
+
+— Quan trọng nhất là cung chánh (ví dụ như Tuất)
+
+— Quan trọng nhì là cung xung chiếu (Thìn)
+
+— Quan trọng ba là 2 cung tam chiếu (Dân và Ngọ)
+
+— Quan trọng bốn là cung nhị hợp (Mão)
+
+Sự đánh giá này xét qua cũng hợp lý vì bao giờ sao tọa thủ tại cung chánh cũng nặng cân hơn cả,
+rồi đến các sao tọa thủ tại cung trực chiếu, rồi đến tam chiếu và sau cùng là nhị hợp. Sự đánh giá này
+phân biệt được ảnh hưởng trực tiếp và các ảnh hưởng gián tiếp ngõ hầu cân nhắc sự nặng nhẹ của biến
+cố, giúp cho việc luận đoán tỉnh vi hơn, cụ thể hơn, có thể chính xác hơn, đây đủ hơn. Trái lại, nếu gọp

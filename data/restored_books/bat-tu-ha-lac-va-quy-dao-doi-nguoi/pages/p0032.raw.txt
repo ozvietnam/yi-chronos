@@ -1,0 +1,49 @@
+__— {3 - Nếu đó là con số trên hàng chục thì bỏ số hàng
+chục, glữ lại số lẻ. Ví dụ I7 bỏ 10 lấy 7; 22 bỏ 20 lấy 2; 36
+bỏ 30 lấy 6.
+
+Những cơn số giữ lại (tất cả đều dưới 10) chính là M4
+xố que Thượng. Bạn chỉ việc đối chiếu với bảng M số 8
+quế... (bàng 11) tìm ra tên 2u£ Thượng.
+
+Niêng đối với xố S sẽ sử lý theo Luật Tam nguyên dưới
+đây.
+
+c4 - Nếu con số giữ lại là số 5 thì sử lý như sau:
+
+- Nếu chủ thể sinh vào Thượng nguyên thì không kể
+tuổi Âm hay Dương, cứ Nam là quẻ Cấn, nữ là Khôn.
+
+- Sinh vào Hạ nguyên, không kể tuổi Âm Dương,
+Nam là Ly. Nữ là Đoài.
+
+- Sinh vào Trung nguyên: Dương Nam, Âm nữ là Cấn
+
+Dương Nữ, Âm Nam là Khôn.
+
+đ - Tiếp tục sử lý mrị số Âm hoặc Dương hàng dưới,
+theo cách như trên, kết quả sẽ cho ta mã số guẻ Hạ (tức quê
+
+đ - Sấp xếp hai quẻ Ngoại (Thượng), Nội (Hạ) ta sẽ
+được quẻ Kép. Quẻ đó trong cấu trúc Toán Hà Lạc gọi là Quể
+Tiền Thiên , thuộc tiền vận của đời người.
+
+e - Ví dụ đối với chủ thể Hoàng Hoa Cúc:
+
+Âm Nữ: Dương/ Âm
+
+Trị số Dương: 5+7+3+5+3+S=28 M2S = 3 Mã số
+Quẻ: 3: Chấn (Lôi)
+
+Trị số Âm: 2t101642+10+10=40 — M30 = 10 Mã số
+Quẻ: 1: Khảm (Thủy)
+
+Quê Tiên Thiên là Lôi Thủy Giải.
+
+5 - Xác dịnh Hào Nguyên Đường. Hào Nguyên
+Đường là hào chủ mệnh của Tiền vận (gắn với quẻ Tiền
+Thiên) hoặc Hậu vận (gắn với quẻ Hậu Thiên) của đời người.
+Nguyên đường của Hà Lạc cũng giống như cung Mệnh, cung
+Thân trong thuật Từ vi. Nguyên đường tốt xấu có ảnh hưởng
+cả đời người. Nguyên đường quyết định vận hạn đời người
+32

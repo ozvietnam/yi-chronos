@@ -1,0 +1,1383 @@
+{
+  "book_id": "tu-vi-dau-so-toan-thu-vu-tai-luc",
+  "source_pdf": "thư viện sách/Tu Vi dau so toan thu.pdf",
+  "page_range": [
+    1,
+    171
+  ],
+  "total_pages": 171,
+  "total_seconds": 3181.7,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 18.25,
+      "raw_chars": 301,
+      "cleaned_chars": 20,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 37.07,
+      "raw_chars": 749,
+      "cleaned_chars": 710,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 48.39,
+      "raw_chars": 2497,
+      "cleaned_chars": 2462,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 51.32,
+      "raw_chars": 2620,
+      "cleaned_chars": 2618,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 1.18,
+      "cleanup_seconds": 52.72,
+      "raw_chars": 3362,
+      "cleaned_chars": 3409,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 50.41,
+      "raw_chars": 3168,
+      "cleaned_chars": 3211,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 52.88,
+      "raw_chars": 2901,
+      "cleaned_chars": 2977,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 58.61,
+      "raw_chars": 2523,
+      "cleaned_chars": 2636,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 52.93,
+      "raw_chars": 2818,
+      "cleaned_chars": 2949,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 1.31,
+      "cleanup_seconds": 62.3,
+      "raw_chars": 3592,
+      "cleaned_chars": 3609,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 1.21,
+      "cleanup_seconds": 62.36,
+      "raw_chars": 3339,
+      "cleaned_chars": 3355,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 1.26,
+      "cleanup_seconds": 66.31,
+      "raw_chars": 3451,
+      "cleaned_chars": 3573,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 46.77,
+      "raw_chars": 2682,
+      "cleaned_chars": 2750,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 43.32,
+      "raw_chars": 1844,
+      "cleaned_chars": 1796,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 44.97,
+      "raw_chars": 2789,
+      "cleaned_chars": 2774,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 1.07,
+      "cleanup_seconds": 47.99,
+      "raw_chars": 2855,
+      "cleaned_chars": 2861,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 63.66,
+      "raw_chars": 2898,
+      "cleaned_chars": 3009,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 62.36,
+      "raw_chars": 2180,
+      "cleaned_chars": 2365,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 61.16,
+      "raw_chars": 2958,
+      "cleaned_chars": 2976,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 46.09,
+      "raw_chars": 2760,
+      "cleaned_chars": 2728,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 63.08,
+      "raw_chars": 2540,
+      "cleaned_chars": 2775,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 57.79,
+      "raw_chars": 2230,
+      "cleaned_chars": 2507,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 84.44,
+      "raw_chars": 2932,
+      "cleaned_chars": 0,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 55.04,
+      "raw_chars": 2366,
+      "cleaned_chars": 2424,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 44.2,
+      "raw_chars": 2110,
+      "cleaned_chars": 2147,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 49.02,
+      "raw_chars": 2038,
+      "cleaned_chars": 2017,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 66.22,
+      "raw_chars": 2730,
+      "cleaned_chars": 2699,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 44.31,
+      "raw_chars": 2219,
+      "cleaned_chars": 1952,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 55.8,
+      "raw_chars": 2237,
+      "cleaned_chars": 2237,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 60.16,
+      "raw_chars": 2530,
+      "cleaned_chars": 2160,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 61.47,
+      "raw_chars": 2057,
+      "cleaned_chars": 2074,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 78.21,
+      "raw_chars": 2540,
+      "cleaned_chars": 2857,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 55.29,
+      "raw_chars": 2992,
+      "cleaned_chars": 3023,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 66.81,
+      "raw_chars": 2686,
+      "cleaned_chars": 1951,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 52.98,
+      "raw_chars": 2859,
+      "cleaned_chars": 3173,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 44.09,
+      "raw_chars": 2278,
+      "cleaned_chars": 2401,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 59.83,
+      "raw_chars": 2485,
+      "cleaned_chars": 2586,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 43.43,
+      "raw_chars": 2052,
+      "cleaned_chars": 2099,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 57.09,
+      "raw_chars": 2892,
+      "cleaned_chars": 3026,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 67.28,
+      "raw_chars": 2321,
+      "cleaned_chars": 2428,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 49.97,
+      "raw_chars": 2818,
+      "cleaned_chars": 2938,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 48.2,
+      "raw_chars": 1881,
+      "cleaned_chars": 1957,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 46.89,
+      "raw_chars": 2408,
+      "cleaned_chars": 2461,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 59.94,
+      "raw_chars": 2068,
+      "cleaned_chars": 2132,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 64.08,
+      "raw_chars": 1893,
+      "cleaned_chars": 1916,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 49.59,
+      "raw_chars": 2420,
+      "cleaned_chars": 2574,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 57.05,
+      "raw_chars": 2154,
+      "cleaned_chars": 2267,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 50.35,
+      "raw_chars": 2359,
+      "cleaned_chars": 2517,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 47.54,
+      "raw_chars": 1966,
+      "cleaned_chars": 2015,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 58.93,
+      "raw_chars": 2583,
+      "cleaned_chars": 2672,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 48.43,
+      "raw_chars": 2470,
+      "cleaned_chars": 2755,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 40.52,
+      "raw_chars": 2169,
+      "cleaned_chars": 2171,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 57.18,
+      "raw_chars": 1981,
+      "cleaned_chars": 2155,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 49.72,
+      "raw_chars": 1538,
+      "cleaned_chars": 1624,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 44.67,
+      "raw_chars": 2035,
+      "cleaned_chars": 2039,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 39.79,
+      "raw_chars": 1641,
+      "cleaned_chars": 1633,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 35.56,
+      "raw_chars": 1850,
+      "cleaned_chars": 1877,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 63.41,
+      "raw_chars": 2352,
+      "cleaned_chars": 2672,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 83.45,
+      "raw_chars": 2999,
+      "cleaned_chars": 3027,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 50.27,
+      "raw_chars": 2316,
+      "cleaned_chars": 2542,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 42.78,
+      "raw_chars": 2496,
+      "cleaned_chars": 2619,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 46.85,
+      "raw_chars": 1516,
+      "cleaned_chars": 1606,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 54.89,
+      "raw_chars": 2019,
+      "cleaned_chars": 2096,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 56.13,
+      "raw_chars": 2356,
+      "cleaned_chars": 2391,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 47.32,
+      "raw_chars": 2398,
+      "cleaned_chars": 2484,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 32.31,
+      "raw_chars": 1915,
+      "cleaned_chars": 1242,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 50.25,
+      "raw_chars": 1726,
+      "cleaned_chars": 1742,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 47.34,
+      "raw_chars": 2059,
+      "cleaned_chars": 2218,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 54.56,
+      "raw_chars": 1798,
+      "cleaned_chars": 2485,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 50.35,
+      "raw_chars": 1829,
+      "cleaned_chars": 1993,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 48.26,
+      "raw_chars": 1464,
+      "cleaned_chars": 1719,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 56.51,
+      "raw_chars": 1924,
+      "cleaned_chars": 2484,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 43.62,
+      "raw_chars": 1738,
+      "cleaned_chars": 1821,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 42.64,
+      "raw_chars": 1744,
+      "cleaned_chars": 1785,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 56.05,
+      "raw_chars": 1765,
+      "cleaned_chars": 1973,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 54.5,
+      "raw_chars": 1915,
+      "cleaned_chars": 1759,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 50.88,
+      "raw_chars": 1792,
+      "cleaned_chars": 1856,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 1.19,
+      "cleanup_seconds": 77.91,
+      "raw_chars": 2986,
+      "cleaned_chars": 3096,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 63.39,
+      "raw_chars": 2120,
+      "cleaned_chars": 2166,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 83.32,
+      "raw_chars": 2989,
+      "cleaned_chars": 2325,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 71.11,
+      "raw_chars": 2544,
+      "cleaned_chars": 2761,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 79.61,
+      "raw_chars": 2694,
+      "cleaned_chars": 2900,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 72.79,
+      "raw_chars": 2653,
+      "cleaned_chars": 2806,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 49.01,
+      "raw_chars": 1936,
+      "cleaned_chars": 2109,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 83.59,
+      "raw_chars": 2644,
+      "cleaned_chars": 3020,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 33.33,
+      "raw_chars": 1367,
+      "cleaned_chars": 1410,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 51.03,
+      "raw_chars": 2645,
+      "cleaned_chars": 2973,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 72.67,
+      "raw_chars": 2429,
+      "cleaned_chars": 2658,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 75.83,
+      "raw_chars": 2334,
+      "cleaned_chars": 2555,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 55.21,
+      "raw_chars": 2285,
+      "cleaned_chars": 2396,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 49.6,
+      "raw_chars": 2920,
+      "cleaned_chars": 2818,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 48.79,
+      "raw_chars": 1759,
+      "cleaned_chars": 2044,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 44.24,
+      "raw_chars": 1422,
+      "cleaned_chars": 1547,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 68.18,
+      "raw_chars": 1353,
+      "cleaned_chars": 1549,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 49.92,
+      "raw_chars": 2868,
+      "cleaned_chars": 2890,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 53.55,
+      "raw_chars": 3347,
+      "cleaned_chars": 3383,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 62.32,
+      "raw_chars": 2539,
+      "cleaned_chars": 2722,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 31.96,
+      "raw_chars": 1659,
+      "cleaned_chars": 1424,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 43.13,
+      "raw_chars": 1736,
+      "cleaned_chars": 1814,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 48.54,
+      "raw_chars": 1544,
+      "cleaned_chars": 1639,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 51.16,
+      "raw_chars": 1715,
+      "cleaned_chars": 1962,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 35.15,
+      "raw_chars": 1722,
+      "cleaned_chars": 1726,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 38.65,
+      "raw_chars": 1822,
+      "cleaned_chars": 1907,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 45.34,
+      "raw_chars": 1577,
+      "cleaned_chars": 1607,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 37.61,
+      "raw_chars": 1531,
+      "cleaned_chars": 1614,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 41.49,
+      "raw_chars": 1544,
+      "cleaned_chars": 1564,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 50.42,
+      "raw_chars": 1897,
+      "cleaned_chars": 1692,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 55.3,
+      "raw_chars": 1823,
+      "cleaned_chars": 1926,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 40.47,
+      "raw_chars": 1753,
+      "cleaned_chars": 1959,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 45.78,
+      "raw_chars": 1481,
+      "cleaned_chars": 1575,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.74,
+      "raw_chars": 1681,
+      "cleaned_chars": 1785,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 49.28,
+      "raw_chars": 1625,
+      "cleaned_chars": 1751,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 46.55,
+      "raw_chars": 1505,
+      "cleaned_chars": 1777,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 51.1,
+      "raw_chars": 1466,
+      "cleaned_chars": 1647,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 48.33,
+      "raw_chars": 1562,
+      "cleaned_chars": 1653,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 48.93,
+      "raw_chars": 1636,
+      "cleaned_chars": 1804,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 49.2,
+      "raw_chars": 1543,
+      "cleaned_chars": 1607,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 53.77,
+      "raw_chars": 1709,
+      "cleaned_chars": 1825,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 55.72,
+      "raw_chars": 2341,
+      "cleaned_chars": 2397,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 62.05,
+      "raw_chars": 1440,
+      "cleaned_chars": 1428,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 60.58,
+      "raw_chars": 1513,
+      "cleaned_chars": 1622,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 46.76,
+      "raw_chars": 2465,
+      "cleaned_chars": 2455,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 59.88,
+      "raw_chars": 2765,
+      "cleaned_chars": 2902,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 68.27,
+      "raw_chars": 2651,
+      "cleaned_chars": 2702,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 54.07,
+      "raw_chars": 2763,
+      "cleaned_chars": 2926,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 1.19,
+      "cleanup_seconds": 84.1,
+      "raw_chars": 3271,
+      "cleaned_chars": 2800,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 84.27,
+      "raw_chars": 3426,
+      "cleaned_chars": 2978,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 65.62,
+      "raw_chars": 2704,
+      "cleaned_chars": 2743,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 63.61,
+      "raw_chars": 1719,
+      "cleaned_chars": 2353,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 72.17,
+      "raw_chars": 2747,
+      "cleaned_chars": 3199,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 61.7,
+      "raw_chars": 2856,
+      "cleaned_chars": 3209,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 71.63,
+      "raw_chars": 2690,
+      "cleaned_chars": 2822,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 68.67,
+      "raw_chars": 2709,
+      "cleaned_chars": 2859,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 59.0,
+      "raw_chars": 2698,
+      "cleaned_chars": 2787,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 51.56,
+      "raw_chars": 2573,
+      "cleaned_chars": 2708,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 61.73,
+      "raw_chars": 2780,
+      "cleaned_chars": 2755,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 34.4,
+      "raw_chars": 1411,
+      "cleaned_chars": 1477,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 42.11,
+      "raw_chars": 1424,
+      "cleaned_chars": 1508,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 51.5,
+      "raw_chars": 1818,
+      "cleaned_chars": 1710,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 56.34,
+      "raw_chars": 2031,
+      "cleaned_chars": 1853,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 61.61,
+      "raw_chars": 1408,
+      "cleaned_chars": 1648,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 38.59,
+      "raw_chars": 1388,
+      "cleaned_chars": 1399,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 56.3,
+      "raw_chars": 1817,
+      "cleaned_chars": 1891,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 38.79,
+      "raw_chars": 1796,
+      "cleaned_chars": 1342,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 57.38,
+      "raw_chars": 1641,
+      "cleaned_chars": 2013,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 52.31,
+      "raw_chars": 1583,
+      "cleaned_chars": 1739,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 48.62,
+      "raw_chars": 1504,
+      "cleaned_chars": 1454,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 54.62,
+      "raw_chars": 1618,
+      "cleaned_chars": 1759,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 41.88,
+      "raw_chars": 1775,
+      "cleaned_chars": 1912,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 46.01,
+      "raw_chars": 1531,
+      "cleaned_chars": 1544,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 65.93,
+      "raw_chars": 2268,
+      "cleaned_chars": 2483,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 60.26,
+      "raw_chars": 2425,
+      "cleaned_chars": 2525,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 74.96,
+      "raw_chars": 2561,
+      "cleaned_chars": 2650,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 70.44,
+      "raw_chars": 2338,
+      "cleaned_chars": 2436,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 74.9,
+      "raw_chars": 2290,
+      "cleaned_chars": 2568,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 61.25,
+      "raw_chars": 2348,
+      "cleaned_chars": 2502,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 63.76,
+      "raw_chars": 2154,
+      "cleaned_chars": 2177,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 68.83,
+      "raw_chars": 2321,
+      "cleaned_chars": 2422,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 55.96,
+      "raw_chars": 2610,
+      "cleaned_chars": 2490,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 79.3,
+      "raw_chars": 2486,
+      "cleaned_chars": 2542,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 78.37,
+      "raw_chars": 2344,
+      "cleaned_chars": 2630,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 79.94,
+      "raw_chars": 2051,
+      "cleaned_chars": 2903,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 57.92,
+      "raw_chars": 1593,
+      "cleaned_chars": 1689,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 39.18,
+      "raw_chars": 1461,
+      "cleaned_chars": 1464,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 67.57,
+      "raw_chars": 1410,
+      "cleaned_chars": 1492,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 67.79,
+      "raw_chars": 1448,
+      "cleaned_chars": 1511,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.25,
+      "raw_chars": 1488,
+      "cleaned_chars": 1559,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 48.45,
+      "raw_chars": 1486,
+      "cleaned_chars": 1530,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 40.89,
+      "raw_chars": 1652,
+      "cleaned_chars": 1523,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 45.44,
+      "raw_chars": 2161,
+      "cleaned_chars": 2174,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 16.14,
+      "raw_chars": 39,
+      "cleaned_chars": 48,
+      "md_path": "tu-vi-dau-so-toan-thu-vu-tai-luc/pages/p0171.md"
+    }
+  ]
+}

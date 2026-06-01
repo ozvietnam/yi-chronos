@@ -1,0 +1,1919 @@
+{
+  "book_id": "tu-vi-ham-so",
+  "source_pdf": "thư viện sách/Tu-vi-ham-so.pdf",
+  "page_range": [
+    1,
+    238
+  ],
+  "total_pages": 238,
+  "total_seconds": 3774.4,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 19.44,
+      "raw_chars": 156,
+      "cleaned_chars": 142,
+      "md_path": "tu-vi-ham-so/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 1.15,
+      "cleanup_seconds": 54.25,
+      "raw_chars": 3153,
+      "cleaned_chars": 3185,
+      "md_path": "tu-vi-ham-so/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 1.47,
+      "cleanup_seconds": 68.33,
+      "raw_chars": 4174,
+      "cleaned_chars": 4285,
+      "md_path": "tu-vi-ham-so/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 1.18,
+      "cleanup_seconds": 51.31,
+      "raw_chars": 3197,
+      "cleaned_chars": 3127,
+      "md_path": "tu-vi-ham-so/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 45.68,
+      "raw_chars": 2490,
+      "cleaned_chars": 2459,
+      "md_path": "tu-vi-ham-so/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "tu-vi-ham-so/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 45.15,
+      "raw_chars": 1360,
+      "cleaned_chars": 1425,
+      "md_path": "tu-vi-ham-so/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.51,
+      "raw_chars": 1718,
+      "cleaned_chars": 1747,
+      "md_path": "tu-vi-ham-so/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 55.38,
+      "raw_chars": 1665,
+      "cleaned_chars": 1808,
+      "md_path": "tu-vi-ham-so/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 38.68,
+      "raw_chars": 1506,
+      "cleaned_chars": 1438,
+      "md_path": "tu-vi-ham-so/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 44.88,
+      "raw_chars": 1092,
+      "cleaned_chars": 1568,
+      "md_path": "tu-vi-ham-so/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 37.71,
+      "raw_chars": 774,
+      "cleaned_chars": 624,
+      "md_path": "tu-vi-ham-so/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 31.02,
+      "raw_chars": 1372,
+      "cleaned_chars": 517,
+      "md_path": "tu-vi-ham-so/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 34.22,
+      "raw_chars": 1242,
+      "cleaned_chars": 719,
+      "md_path": "tu-vi-ham-so/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 21.02,
+      "raw_chars": 158,
+      "cleaned_chars": 124,
+      "md_path": "tu-vi-ham-so/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 30.87,
+      "raw_chars": 495,
+      "cleaned_chars": 496,
+      "md_path": "tu-vi-ham-so/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 57.65,
+      "raw_chars": 1178,
+      "cleaned_chars": 1922,
+      "md_path": "tu-vi-ham-so/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 51.29,
+      "raw_chars": 1033,
+      "cleaned_chars": 1766,
+      "md_path": "tu-vi-ham-so/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 28.81,
+      "raw_chars": 215,
+      "cleaned_chars": 174,
+      "md_path": "tu-vi-ham-so/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 25.76,
+      "raw_chars": 768,
+      "cleaned_chars": 445,
+      "md_path": "tu-vi-ham-so/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 27.16,
+      "raw_chars": 327,
+      "cleaned_chars": 398,
+      "md_path": "tu-vi-ham-so/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 28.32,
+      "raw_chars": 605,
+      "cleaned_chars": 486,
+      "md_path": "tu-vi-ham-so/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.67,
+      "raw_chars": 743,
+      "cleaned_chars": 884,
+      "md_path": "tu-vi-ham-so/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 40.78,
+      "raw_chars": 1268,
+      "cleaned_chars": 1209,
+      "md_path": "tu-vi-ham-so/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 54.5,
+      "raw_chars": 1761,
+      "cleaned_chars": 2302,
+      "md_path": "tu-vi-ham-so/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.87,
+      "raw_chars": 1454,
+      "cleaned_chars": 1600,
+      "md_path": "tu-vi-ham-so/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 39.57,
+      "raw_chars": 1129,
+      "cleaned_chars": 1379,
+      "md_path": "tu-vi-ham-so/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 39.2,
+      "raw_chars": 1221,
+      "cleaned_chars": 1272,
+      "md_path": "tu-vi-ham-so/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 1.11,
+      "cleanup_seconds": 50.28,
+      "raw_chars": 2852,
+      "cleaned_chars": 2856,
+      "md_path": "tu-vi-ham-so/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 64.83,
+      "raw_chars": 2169,
+      "cleaned_chars": 2110,
+      "md_path": "tu-vi-ham-so/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 60.53,
+      "raw_chars": 2354,
+      "cleaned_chars": 2324,
+      "md_path": "tu-vi-ham-so/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 50.25,
+      "raw_chars": 2474,
+      "cleaned_chars": 2633,
+      "md_path": "tu-vi-ham-so/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 50.86,
+      "raw_chars": 1748,
+      "cleaned_chars": 1927,
+      "md_path": "tu-vi-ham-so/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 44.82,
+      "raw_chars": 2034,
+      "cleaned_chars": 2098,
+      "md_path": "tu-vi-ham-so/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 39.86,
+      "raw_chars": 1480,
+      "cleaned_chars": 1535,
+      "md_path": "tu-vi-ham-so/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 36.73,
+      "raw_chars": 1602,
+      "cleaned_chars": 1597,
+      "md_path": "tu-vi-ham-so/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 46.06,
+      "raw_chars": 2615,
+      "cleaned_chars": 2674,
+      "md_path": "tu-vi-ham-so/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 61.81,
+      "raw_chars": 2215,
+      "cleaned_chars": 2394,
+      "md_path": "tu-vi-ham-so/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 1.14,
+      "cleanup_seconds": 53.76,
+      "raw_chars": 3032,
+      "cleaned_chars": 3211,
+      "md_path": "tu-vi-ham-so/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 47.84,
+      "raw_chars": 3010,
+      "cleaned_chars": 3045,
+      "md_path": "tu-vi-ham-so/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 46.17,
+      "raw_chars": 2777,
+      "cleaned_chars": 2821,
+      "md_path": "tu-vi-ham-so/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 52.02,
+      "raw_chars": 2244,
+      "cleaned_chars": 2384,
+      "md_path": "tu-vi-ham-so/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 43.88,
+      "raw_chars": 2513,
+      "cleaned_chars": 2545,
+      "md_path": "tu-vi-ham-so/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 46.53,
+      "raw_chars": 2121,
+      "cleaned_chars": 2240,
+      "md_path": "tu-vi-ham-so/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 61.31,
+      "raw_chars": 2664,
+      "cleaned_chars": 2639,
+      "md_path": "tu-vi-ham-so/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 48.97,
+      "raw_chars": 2523,
+      "cleaned_chars": 2532,
+      "md_path": "tu-vi-ham-so/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 59.84,
+      "raw_chars": 2786,
+      "cleaned_chars": 3074,
+      "md_path": "tu-vi-ham-so/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 58.4,
+      "raw_chars": 2892,
+      "cleaned_chars": 2922,
+      "md_path": "tu-vi-ham-so/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 41.82,
+      "raw_chars": 2271,
+      "cleaned_chars": 2268,
+      "md_path": "tu-vi-ham-so/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 65.07,
+      "raw_chars": 2923,
+      "cleaned_chars": 2891,
+      "md_path": "tu-vi-ham-so/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 1.25,
+      "cleanup_seconds": 46.03,
+      "raw_chars": 3147,
+      "cleaned_chars": 3147,
+      "md_path": "tu-vi-ham-so/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 64.67,
+      "raw_chars": 3043,
+      "cleaned_chars": 3075,
+      "md_path": "tu-vi-ham-so/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 49.81,
+      "raw_chars": 1859,
+      "cleaned_chars": 1901,
+      "md_path": "tu-vi-ham-so/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 46.1,
+      "raw_chars": 1972,
+      "cleaned_chars": 2003,
+      "md_path": "tu-vi-ham-so/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 1.19,
+      "cleanup_seconds": 76.27,
+      "raw_chars": 3207,
+      "cleaned_chars": 3446,
+      "md_path": "tu-vi-ham-so/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 55.85,
+      "raw_chars": 1504,
+      "cleaned_chars": 1761,
+      "md_path": "tu-vi-ham-so/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 52.13,
+      "raw_chars": 1412,
+      "cleaned_chars": 1410,
+      "md_path": "tu-vi-ham-so/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.24,
+      "raw_chars": 1297,
+      "cleaned_chars": 1500,
+      "md_path": "tu-vi-ham-so/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 53.72,
+      "raw_chars": 3141,
+      "cleaned_chars": 3128,
+      "md_path": "tu-vi-ham-so/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 39.99,
+      "raw_chars": 2153,
+      "cleaned_chars": 2187,
+      "md_path": "tu-vi-ham-so/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 50.94,
+      "raw_chars": 2759,
+      "cleaned_chars": 2838,
+      "md_path": "tu-vi-ham-so/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 48.44,
+      "raw_chars": 3026,
+      "cleaned_chars": 2984,
+      "md_path": "tu-vi-ham-so/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 1.17,
+      "cleanup_seconds": 79.2,
+      "raw_chars": 3175,
+      "cleaned_chars": 3320,
+      "md_path": "tu-vi-ham-so/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 77.94,
+      "raw_chars": 2876,
+      "cleaned_chars": 3184,
+      "md_path": "tu-vi-ham-so/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 59.95,
+      "raw_chars": 2926,
+      "cleaned_chars": 2948,
+      "md_path": "tu-vi-ham-so/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 1.3,
+      "cleanup_seconds": 47.44,
+      "raw_chars": 3520,
+      "cleaned_chars": 3619,
+      "md_path": "tu-vi-ham-so/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 68.69,
+      "raw_chars": 2682,
+      "cleaned_chars": 2705,
+      "md_path": "tu-vi-ham-so/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 1.1,
+      "cleanup_seconds": 50.5,
+      "raw_chars": 2729,
+      "cleaned_chars": 2726,
+      "md_path": "tu-vi-ham-so/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 38.25,
+      "raw_chars": 1815,
+      "cleaned_chars": 1919,
+      "md_path": "tu-vi-ham-so/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 48.96,
+      "raw_chars": 2472,
+      "cleaned_chars": 2598,
+      "md_path": "tu-vi-ham-so/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 75.69,
+      "raw_chars": 3224,
+      "cleaned_chars": 3204,
+      "md_path": "tu-vi-ham-so/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 45.05,
+      "raw_chars": 1023,
+      "cleaned_chars": 1172,
+      "md_path": "tu-vi-ham-so/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 1.49,
+      "cleanup_seconds": 59.27,
+      "raw_chars": 4028,
+      "cleaned_chars": 4179,
+      "md_path": "tu-vi-ham-so/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 38.05,
+      "raw_chars": 2175,
+      "cleaned_chars": 2231,
+      "md_path": "tu-vi-ham-so/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 49.97,
+      "raw_chars": 2257,
+      "cleaned_chars": 2455,
+      "md_path": "tu-vi-ham-so/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 47.66,
+      "raw_chars": 2206,
+      "cleaned_chars": 2339,
+      "md_path": "tu-vi-ham-so/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 50.61,
+      "raw_chars": 3187,
+      "cleaned_chars": 3139,
+      "md_path": "tu-vi-ham-so/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 1.23,
+      "cleanup_seconds": 68.5,
+      "raw_chars": 3209,
+      "cleaned_chars": 3159,
+      "md_path": "tu-vi-ham-so/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 1.4,
+      "cleanup_seconds": 55.03,
+      "raw_chars": 3944,
+      "cleaned_chars": 3877,
+      "md_path": "tu-vi-ham-so/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 1.47,
+      "cleanup_seconds": 73.35,
+      "raw_chars": 4127,
+      "cleaned_chars": 4122,
+      "md_path": "tu-vi-ham-so/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 51.73,
+      "raw_chars": 1964,
+      "cleaned_chars": 1957,
+      "md_path": "tu-vi-ham-so/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 1.31,
+      "cleanup_seconds": 53.71,
+      "raw_chars": 3625,
+      "cleaned_chars": 3560,
+      "md_path": "tu-vi-ham-so/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 1.28,
+      "cleanup_seconds": 72.66,
+      "raw_chars": 3461,
+      "cleaned_chars": 3322,
+      "md_path": "tu-vi-ham-so/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 48.32,
+      "raw_chars": 2173,
+      "cleaned_chars": 2101,
+      "md_path": "tu-vi-ham-so/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 71.82,
+      "raw_chars": 1794,
+      "cleaned_chars": 1813,
+      "md_path": "tu-vi-ham-so/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 51.81,
+      "raw_chars": 1927,
+      "cleaned_chars": 1974,
+      "md_path": "tu-vi-ham-so/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 44.79,
+      "raw_chars": 1840,
+      "cleaned_chars": 2011,
+      "md_path": "tu-vi-ham-so/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 46.82,
+      "raw_chars": 1451,
+      "cleaned_chars": 1567,
+      "md_path": "tu-vi-ham-so/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 52.34,
+      "raw_chars": 1573,
+      "cleaned_chars": 1915,
+      "md_path": "tu-vi-ham-so/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 40.27,
+      "raw_chars": 1902,
+      "cleaned_chars": 1976,
+      "md_path": "tu-vi-ham-so/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 46.9,
+      "raw_chars": 1903,
+      "cleaned_chars": 1944,
+      "md_path": "tu-vi-ham-so/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 37.58,
+      "raw_chars": 1839,
+      "cleaned_chars": 1990,
+      "md_path": "tu-vi-ham-so/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 59.05,
+      "raw_chars": 1673,
+      "cleaned_chars": 1919,
+      "md_path": "tu-vi-ham-so/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 47.67,
+      "raw_chars": 1447,
+      "cleaned_chars": 1503,
+      "md_path": "tu-vi-ham-so/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 46.77,
+      "raw_chars": 2328,
+      "cleaned_chars": 2382,
+      "md_path": "tu-vi-ham-so/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 46.03,
+      "raw_chars": 1995,
+      "cleaned_chars": 2090,
+      "md_path": "tu-vi-ham-so/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 45.27,
+      "raw_chars": 1877,
+      "cleaned_chars": 2151,
+      "md_path": "tu-vi-ham-so/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 27.11,
+      "raw_chars": 497,
+      "cleaned_chars": 496,
+      "md_path": "tu-vi-ham-so/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 36.01,
+      "raw_chars": 1306,
+      "cleaned_chars": 1353,
+      "md_path": "tu-vi-ham-so/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 47.51,
+      "raw_chars": 2505,
+      "cleaned_chars": 2559,
+      "md_path": "tu-vi-ham-so/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 61.3,
+      "raw_chars": 1740,
+      "cleaned_chars": 2018,
+      "md_path": "tu-vi-ham-so/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 48.18,
+      "raw_chars": 2302,
+      "cleaned_chars": 2439,
+      "md_path": "tu-vi-ham-so/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 52.37,
+      "raw_chars": 2143,
+      "cleaned_chars": 2247,
+      "md_path": "tu-vi-ham-so/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 43.31,
+      "raw_chars": 2063,
+      "cleaned_chars": 2028,
+      "md_path": "tu-vi-ham-so/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 43.11,
+      "raw_chars": 1799,
+      "cleaned_chars": 1743,
+      "md_path": "tu-vi-ham-so/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 46.45,
+      "raw_chars": 1593,
+      "cleaned_chars": 1657,
+      "md_path": "tu-vi-ham-so/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 53.29,
+      "raw_chars": 1679,
+      "cleaned_chars": 1769,
+      "md_path": "tu-vi-ham-so/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 44.78,
+      "raw_chars": 1949,
+      "cleaned_chars": 2004,
+      "md_path": "tu-vi-ham-so/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 43.18,
+      "raw_chars": 1807,
+      "cleaned_chars": 1814,
+      "md_path": "tu-vi-ham-so/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 41.97,
+      "raw_chars": 2285,
+      "cleaned_chars": 2303,
+      "md_path": "tu-vi-ham-so/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 45.16,
+      "raw_chars": 2066,
+      "cleaned_chars": 2113,
+      "md_path": "tu-vi-ham-so/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 49.84,
+      "raw_chars": 1430,
+      "cleaned_chars": 1577,
+      "md_path": "tu-vi-ham-so/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 39.51,
+      "raw_chars": 1594,
+      "cleaned_chars": 1639,
+      "md_path": "tu-vi-ham-so/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 50.28,
+      "raw_chars": 1971,
+      "cleaned_chars": 2030,
+      "md_path": "tu-vi-ham-so/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 42.91,
+      "raw_chars": 1937,
+      "cleaned_chars": 2013,
+      "md_path": "tu-vi-ham-so/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 43.92,
+      "raw_chars": 2119,
+      "cleaned_chars": 2142,
+      "md_path": "tu-vi-ham-so/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 51.45,
+      "raw_chars": 2111,
+      "cleaned_chars": 2493,
+      "md_path": "tu-vi-ham-so/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 46.27,
+      "raw_chars": 1781,
+      "cleaned_chars": 1920,
+      "md_path": "tu-vi-ham-so/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 38.68,
+      "raw_chars": 1843,
+      "cleaned_chars": 1927,
+      "md_path": "tu-vi-ham-so/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 60.17,
+      "raw_chars": 1887,
+      "cleaned_chars": 1968,
+      "md_path": "tu-vi-ham-so/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 56.49,
+      "raw_chars": 1869,
+      "cleaned_chars": 1982,
+      "md_path": "tu-vi-ham-so/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 27.13,
+      "raw_chars": 378,
+      "cleaned_chars": 370,
+      "md_path": "tu-vi-ham-so/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 42.89,
+      "raw_chars": 1872,
+      "cleaned_chars": 1947,
+      "md_path": "tu-vi-ham-so/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.89,
+      "raw_chars": 1430,
+      "cleaned_chars": 1484,
+      "md_path": "tu-vi-ham-so/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 56.17,
+      "raw_chars": 1985,
+      "cleaned_chars": 2111,
+      "md_path": "tu-vi-ham-so/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 45.63,
+      "raw_chars": 2227,
+      "cleaned_chars": 2373,
+      "md_path": "tu-vi-ham-so/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 51.62,
+      "raw_chars": 1899,
+      "cleaned_chars": 2101,
+      "md_path": "tu-vi-ham-so/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 45.63,
+      "raw_chars": 1858,
+      "cleaned_chars": 1905,
+      "md_path": "tu-vi-ham-so/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 56.34,
+      "raw_chars": 1629,
+      "cleaned_chars": 1688,
+      "md_path": "tu-vi-ham-so/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 40.51,
+      "raw_chars": 1673,
+      "cleaned_chars": 1671,
+      "md_path": "tu-vi-ham-so/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 40.45,
+      "raw_chars": 1697,
+      "cleaned_chars": 1763,
+      "md_path": "tu-vi-ham-so/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 59.61,
+      "raw_chars": 2131,
+      "cleaned_chars": 2164,
+      "md_path": "tu-vi-ham-so/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 45.75,
+      "raw_chars": 2046,
+      "cleaned_chars": 2227,
+      "md_path": "tu-vi-ham-so/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 32.54,
+      "raw_chars": 624,
+      "cleaned_chars": 664,
+      "md_path": "tu-vi-ham-so/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 41.52,
+      "raw_chars": 2229,
+      "cleaned_chars": 2154,
+      "md_path": "tu-vi-ham-so/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 55.55,
+      "raw_chars": 1989,
+      "cleaned_chars": 2064,
+      "md_path": "tu-vi-ham-so/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 59.26,
+      "raw_chars": 1927,
+      "cleaned_chars": 2161,
+      "md_path": "tu-vi-ham-so/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 55.1,
+      "raw_chars": 2195,
+      "cleaned_chars": 2295,
+      "md_path": "tu-vi-ham-so/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 56.52,
+      "raw_chars": 2258,
+      "cleaned_chars": 2129,
+      "md_path": "tu-vi-ham-so/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 71.73,
+      "raw_chars": 2194,
+      "cleaned_chars": 2392,
+      "md_path": "tu-vi-ham-so/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 41.06,
+      "raw_chars": 1649,
+      "cleaned_chars": 1791,
+      "md_path": "tu-vi-ham-so/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 51.71,
+      "raw_chars": 1685,
+      "cleaned_chars": 1707,
+      "md_path": "tu-vi-ham-so/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 46.21,
+      "raw_chars": 1866,
+      "cleaned_chars": 1957,
+      "md_path": "tu-vi-ham-so/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 45.6,
+      "raw_chars": 1780,
+      "cleaned_chars": 1885,
+      "md_path": "tu-vi-ham-so/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 28.19,
+      "raw_chars": 755,
+      "cleaned_chars": 829,
+      "md_path": "tu-vi-ham-so/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 35.23,
+      "raw_chars": 662,
+      "cleaned_chars": 675,
+      "md_path": "tu-vi-ham-so/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 34.04,
+      "raw_chars": 908,
+      "cleaned_chars": 881,
+      "md_path": "tu-vi-ham-so/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 40.58,
+      "raw_chars": 2127,
+      "cleaned_chars": 2150,
+      "md_path": "tu-vi-ham-so/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 34.64,
+      "raw_chars": 1059,
+      "cleaned_chars": 1050,
+      "md_path": "tu-vi-ham-so/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 42.79,
+      "raw_chars": 1196,
+      "cleaned_chars": 1213,
+      "md_path": "tu-vi-ham-so/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 45.16,
+      "raw_chars": 2429,
+      "cleaned_chars": 2426,
+      "md_path": "tu-vi-ham-so/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 46.55,
+      "raw_chars": 2048,
+      "cleaned_chars": 2116,
+      "md_path": "tu-vi-ham-so/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 42.68,
+      "raw_chars": 1114,
+      "cleaned_chars": 1224,
+      "md_path": "tu-vi-ham-so/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 36.41,
+      "raw_chars": 1457,
+      "cleaned_chars": 1500,
+      "md_path": "tu-vi-ham-so/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 37.73,
+      "raw_chars": 1472,
+      "cleaned_chars": 1464,
+      "md_path": "tu-vi-ham-so/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 47.31,
+      "raw_chars": 1561,
+      "cleaned_chars": 1608,
+      "md_path": "tu-vi-ham-so/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 38.9,
+      "raw_chars": 1287,
+      "cleaned_chars": 1334,
+      "md_path": "tu-vi-ham-so/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 47.34,
+      "raw_chars": 2571,
+      "cleaned_chars": 2549,
+      "md_path": "tu-vi-ham-so/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 48.91,
+      "raw_chars": 2892,
+      "cleaned_chars": 2933,
+      "md_path": "tu-vi-ham-so/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 43.31,
+      "raw_chars": 1851,
+      "cleaned_chars": 1779,
+      "md_path": "tu-vi-ham-so/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 54.49,
+      "raw_chars": 2755,
+      "cleaned_chars": 2959,
+      "md_path": "tu-vi-ham-so/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 48.83,
+      "raw_chars": 2094,
+      "cleaned_chars": 2170,
+      "md_path": "tu-vi-ham-so/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 42.95,
+      "raw_chars": 1513,
+      "cleaned_chars": 1901,
+      "md_path": "tu-vi-ham-so/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 39.67,
+      "raw_chars": 1554,
+      "cleaned_chars": 1615,
+      "md_path": "tu-vi-ham-so/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 30.77,
+      "raw_chars": 1280,
+      "cleaned_chars": 1312,
+      "md_path": "tu-vi-ham-so/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 45.87,
+      "raw_chars": 1977,
+      "cleaned_chars": 1946,
+      "md_path": "tu-vi-ham-so/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 52.33,
+      "raw_chars": 1829,
+      "cleaned_chars": 1856,
+      "md_path": "tu-vi-ham-so/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 64.01,
+      "raw_chars": 2420,
+      "cleaned_chars": 2386,
+      "md_path": "tu-vi-ham-so/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 44.07,
+      "raw_chars": 2251,
+      "cleaned_chars": 2323,
+      "md_path": "tu-vi-ham-so/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 60.91,
+      "raw_chars": 1958,
+      "cleaned_chars": 1958,
+      "md_path": "tu-vi-ham-so/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 42.62,
+      "raw_chars": 1237,
+      "cleaned_chars": 1289,
+      "md_path": "tu-vi-ham-so/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 49.6,
+      "raw_chars": 2057,
+      "cleaned_chars": 2126,
+      "md_path": "tu-vi-ham-so/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 42.68,
+      "raw_chars": 1678,
+      "cleaned_chars": 1701,
+      "md_path": "tu-vi-ham-so/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 50.01,
+      "raw_chars": 2026,
+      "cleaned_chars": 2054,
+      "md_path": "tu-vi-ham-so/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 52.36,
+      "raw_chars": 1636,
+      "cleaned_chars": 1740,
+      "md_path": "tu-vi-ham-so/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 45.85,
+      "raw_chars": 1227,
+      "cleaned_chars": 1257,
+      "md_path": "tu-vi-ham-so/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 45.25,
+      "raw_chars": 1623,
+      "cleaned_chars": 1677,
+      "md_path": "tu-vi-ham-so/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 42.1,
+      "raw_chars": 1102,
+      "cleaned_chars": 1167,
+      "md_path": "tu-vi-ham-so/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 48.42,
+      "raw_chars": 2069,
+      "cleaned_chars": 2397,
+      "md_path": "tu-vi-ham-so/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 51.96,
+      "raw_chars": 1588,
+      "cleaned_chars": 1662,
+      "md_path": "tu-vi-ham-so/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 42.19,
+      "raw_chars": 1951,
+      "cleaned_chars": 1945,
+      "md_path": "tu-vi-ham-so/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 42.25,
+      "raw_chars": 1273,
+      "cleaned_chars": 797,
+      "md_path": "tu-vi-ham-so/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 39.94,
+      "raw_chars": 1526,
+      "cleaned_chars": 1616,
+      "md_path": "tu-vi-ham-so/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 51.79,
+      "raw_chars": 1451,
+      "cleaned_chars": 1698,
+      "md_path": "tu-vi-ham-so/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 45.35,
+      "raw_chars": 1830,
+      "cleaned_chars": 1882,
+      "md_path": "tu-vi-ham-so/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 39.95,
+      "raw_chars": 1302,
+      "cleaned_chars": 1299,
+      "md_path": "tu-vi-ham-so/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 33.21,
+      "raw_chars": 1084,
+      "cleaned_chars": 1236,
+      "md_path": "tu-vi-ham-so/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 51.26,
+      "raw_chars": 1941,
+      "cleaned_chars": 2104,
+      "md_path": "tu-vi-ham-so/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 45.17,
+      "raw_chars": 1665,
+      "cleaned_chars": 1697,
+      "md_path": "tu-vi-ham-so/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 44.78,
+      "raw_chars": 1708,
+      "cleaned_chars": 1748,
+      "md_path": "tu-vi-ham-so/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 49.39,
+      "raw_chars": 1275,
+      "cleaned_chars": 1299,
+      "md_path": "tu-vi-ham-so/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 36.94,
+      "raw_chars": 1454,
+      "cleaned_chars": 1519,
+      "md_path": "tu-vi-ham-so/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 49.25,
+      "raw_chars": 1281,
+      "cleaned_chars": 1275,
+      "md_path": "tu-vi-ham-so/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 46.16,
+      "raw_chars": 1620,
+      "cleaned_chars": 1557,
+      "md_path": "tu-vi-ham-so/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 44.64,
+      "raw_chars": 1641,
+      "cleaned_chars": 1656,
+      "md_path": "tu-vi-ham-so/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 42.97,
+      "raw_chars": 1330,
+      "cleaned_chars": 1389,
+      "md_path": "tu-vi-ham-so/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 46.52,
+      "raw_chars": 1788,
+      "cleaned_chars": 1799,
+      "md_path": "tu-vi-ham-so/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 51.56,
+      "raw_chars": 1310,
+      "cleaned_chars": 1319,
+      "md_path": "tu-vi-ham-so/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 41.35,
+      "raw_chars": 1656,
+      "cleaned_chars": 1669,
+      "md_path": "tu-vi-ham-so/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 43.78,
+      "raw_chars": 1856,
+      "cleaned_chars": 1951,
+      "md_path": "tu-vi-ham-so/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 43.58,
+      "raw_chars": 1924,
+      "cleaned_chars": 1989,
+      "md_path": "tu-vi-ham-so/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 45.9,
+      "raw_chars": 1726,
+      "cleaned_chars": 1823,
+      "md_path": "tu-vi-ham-so/pages/p0202.md"
+    },
+    {
+      "page": 203,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 42.91,
+      "raw_chars": 1565,
+      "cleaned_chars": 1688,
+      "md_path": "tu-vi-ham-so/pages/p0203.md"
+    },
+    {
+      "page": 204,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 41.01,
+      "raw_chars": 1871,
+      "cleaned_chars": 1931,
+      "md_path": "tu-vi-ham-so/pages/p0204.md"
+    },
+    {
+      "page": 205,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 53.83,
+      "raw_chars": 1690,
+      "cleaned_chars": 1699,
+      "md_path": "tu-vi-ham-so/pages/p0205.md"
+    },
+    {
+      "page": 206,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 55.84,
+      "raw_chars": 1923,
+      "cleaned_chars": 2061,
+      "md_path": "tu-vi-ham-so/pages/p0206.md"
+    },
+    {
+      "page": 207,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 40.27,
+      "raw_chars": 1628,
+      "cleaned_chars": 1654,
+      "md_path": "tu-vi-ham-so/pages/p0207.md"
+    },
+    {
+      "page": 208,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 39.68,
+      "raw_chars": 1357,
+      "cleaned_chars": 1423,
+      "md_path": "tu-vi-ham-so/pages/p0208.md"
+    },
+    {
+      "page": 209,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 42.28,
+      "raw_chars": 1107,
+      "cleaned_chars": 1228,
+      "md_path": "tu-vi-ham-so/pages/p0209.md"
+    },
+    {
+      "page": 210,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 45.85,
+      "raw_chars": 2174,
+      "cleaned_chars": 2214,
+      "md_path": "tu-vi-ham-so/pages/p0210.md"
+    },
+    {
+      "page": 211,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 40.23,
+      "raw_chars": 1469,
+      "cleaned_chars": 1476,
+      "md_path": "tu-vi-ham-so/pages/p0211.md"
+    },
+    {
+      "page": 212,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 47.6,
+      "raw_chars": 1151,
+      "cleaned_chars": 1175,
+      "md_path": "tu-vi-ham-so/pages/p0212.md"
+    },
+    {
+      "page": 213,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 38.87,
+      "raw_chars": 1768,
+      "cleaned_chars": 1779,
+      "md_path": "tu-vi-ham-so/pages/p0213.md"
+    },
+    {
+      "page": 214,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 39.72,
+      "raw_chars": 1709,
+      "cleaned_chars": 1830,
+      "md_path": "tu-vi-ham-so/pages/p0214.md"
+    },
+    {
+      "page": 215,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 40.84,
+      "raw_chars": 1296,
+      "cleaned_chars": 1372,
+      "md_path": "tu-vi-ham-so/pages/p0215.md"
+    },
+    {
+      "page": 216,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 47.4,
+      "raw_chars": 1445,
+      "cleaned_chars": 1506,
+      "md_path": "tu-vi-ham-so/pages/p0216.md"
+    },
+    {
+      "page": 217,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 37.7,
+      "raw_chars": 1527,
+      "cleaned_chars": 1571,
+      "md_path": "tu-vi-ham-so/pages/p0217.md"
+    },
+    {
+      "page": 218,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 33.91,
+      "raw_chars": 1262,
+      "cleaned_chars": 1377,
+      "md_path": "tu-vi-ham-so/pages/p0218.md"
+    },
+    {
+      "page": 219,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 37.34,
+      "raw_chars": 2071,
+      "cleaned_chars": 2063,
+      "md_path": "tu-vi-ham-so/pages/p0219.md"
+    },
+    {
+      "page": 220,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 38.17,
+      "raw_chars": 1503,
+      "cleaned_chars": 1547,
+      "md_path": "tu-vi-ham-so/pages/p0220.md"
+    },
+    {
+      "page": 221,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 42.38,
+      "raw_chars": 1530,
+      "cleaned_chars": 1590,
+      "md_path": "tu-vi-ham-so/pages/p0221.md"
+    },
+    {
+      "page": 222,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 58.26,
+      "raw_chars": 1602,
+      "cleaned_chars": 1780,
+      "md_path": "tu-vi-ham-so/pages/p0222.md"
+    },
+    {
+      "page": 223,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 45.08,
+      "raw_chars": 2185,
+      "cleaned_chars": 2203,
+      "md_path": "tu-vi-ham-so/pages/p0223.md"
+    },
+    {
+      "page": 224,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 49.44,
+      "raw_chars": 2353,
+      "cleaned_chars": 2376,
+      "md_path": "tu-vi-ham-so/pages/p0224.md"
+    },
+    {
+      "page": 225,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 44.53,
+      "raw_chars": 2073,
+      "cleaned_chars": 2172,
+      "md_path": "tu-vi-ham-so/pages/p0225.md"
+    },
+    {
+      "page": 226,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 66.21,
+      "raw_chars": 2935,
+      "cleaned_chars": 2905,
+      "md_path": "tu-vi-ham-so/pages/p0226.md"
+    },
+    {
+      "page": 227,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 47.2,
+      "raw_chars": 2579,
+      "cleaned_chars": 2675,
+      "md_path": "tu-vi-ham-so/pages/p0227.md"
+    },
+    {
+      "page": 228,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 38.71,
+      "raw_chars": 1588,
+      "cleaned_chars": 1662,
+      "md_path": "tu-vi-ham-so/pages/p0228.md"
+    },
+    {
+      "page": 229,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 46.53,
+      "raw_chars": 1334,
+      "cleaned_chars": 1416,
+      "md_path": "tu-vi-ham-so/pages/p0229.md"
+    },
+    {
+      "page": 230,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 37.04,
+      "raw_chars": 1236,
+      "cleaned_chars": 1238,
+      "md_path": "tu-vi-ham-so/pages/p0230.md"
+    },
+    {
+      "page": 231,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 42.7,
+      "raw_chars": 1322,
+      "cleaned_chars": 1377,
+      "md_path": "tu-vi-ham-so/pages/p0231.md"
+    },
+    {
+      "page": 232,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 40.38,
+      "raw_chars": 1720,
+      "cleaned_chars": 1842,
+      "md_path": "tu-vi-ham-so/pages/p0232.md"
+    },
+    {
+      "page": 233,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 54.17,
+      "raw_chars": 2758,
+      "cleaned_chars": 2900,
+      "md_path": "tu-vi-ham-so/pages/p0233.md"
+    },
+    {
+      "page": 234,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 46.7,
+      "raw_chars": 2006,
+      "cleaned_chars": 2118,
+      "md_path": "tu-vi-ham-so/pages/p0234.md"
+    },
+    {
+      "page": 235,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 32.13,
+      "raw_chars": 689,
+      "cleaned_chars": 722,
+      "md_path": "tu-vi-ham-so/pages/p0235.md"
+    },
+    {
+      "page": 236,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 32.59,
+      "raw_chars": 751,
+      "cleaned_chars": 896,
+      "md_path": "tu-vi-ham-so/pages/p0236.md"
+    },
+    {
+      "page": 237,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 29.94,
+      "raw_chars": 221,
+      "cleaned_chars": 208,
+      "md_path": "tu-vi-ham-so/pages/p0237.md"
+    },
+    {
+      "page": 238,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 24.83,
+      "raw_chars": 611,
+      "cleaned_chars": 729,
+      "md_path": "tu-vi-ham-so/pages/p0238.md"
+    }
+  ]
+}

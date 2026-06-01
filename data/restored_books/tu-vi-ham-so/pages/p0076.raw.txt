@@ -1,0 +1,50 @@
+TỬ VI HÀM SỐ - Nguyễn Phát Lộc 75
+ys =ƒ (phúc lá số, phúc thực tại, bản mệnh, cục)
+
+Hàm số này có ghép thêm phần phúc thực tại. Lý do là vì phúc thực tại là một yếu tố ảnh hưởng
+đến phúc của lá số. Đặc biệt đối với những người trùng giờ sinh, ngày sinh, Phúc thực tại quyết định sự
+khác biệt giữa 2 vận mạng.
+
+Phức tạp hơn thì có hàm số sau:
+
+yø =ƒ (phúc lá số, 11 cung khác)
+
+Đây là một hàm số mơ hồ nhất và là hàm số đa cấp. Mơ hồ là vì phạm vi quá ư rộng rãi của Phúc
+đức, liên quan đến Mệnh, Thân, Di, Quan, Phu Thê, Tử, Bào, Phụ, Nô, Điển, tất cả đều bị ảnh hưởng
+vừa đồng loạt, vừa đồng tính chất.
+
+Đa cấp là vì chính mỗi cung kể trên là hàm số của một vài cung khác theo thể thức ảnh hưởng hỗ
+tương, và phải tùy thuộc lại cung Phúc trên một hệ cấp khác.
+
+7) Hàm số vận hạn
+
+Vận mệnh con người biến đổi theo chu kỳ, lúc thịnh, lúc suy. Cho nên vận hạn lệ thuộc vào Phúc,
+Mệnh, Thân, vì mỗi cung hạn. Ý niệm này được biểu hiện qua hàm số:
+
+Y¡¿ = ƒ (phúc, mệnh, thân, hạn)
+
+Hạn ở đây chỉ danh, vừa đại hạn, tức là từng thập niên, vừa tiểu hạn, tức là từng năm riêng rẽ.
+Việc xem hạn vì phải lổng trong khung cảnh của phúc, mệnh, thân cho nên bị 3 yếu tố này chỉ phối rất
+trực tiếp. riêng đại hạn còn chi phối tiểu hạn, tiệu hạn chi phối nguyệt hạn, nguyệt hàn chỉ phối thời
+hạn.
+
+Thành thử, hàm số vận hạn cũng là hàm số đa cấp. Càng xuống hạn ngắn chừng nào, hệ cấp càng
+nhiễu thêm, hàm số càng phức tạp hơn.
+
+8) Những hàm số khác
+
+Ngoài 10 loại hàm số trên có thể kể các hàm số khác liên quan đến lá số nói chung, đến đời người
+nói chung. Như một lá số do ngày sinh, Bản Mệnh, Cục mà có, được biểu hiện bằng hàm số:
+
+y¡r¡ =ƒ (ngày sinh, bản mệnh, cục)
+
+Con đời người nhất định phải là một hàm số hết sức phức tạp: đó là hàm số của các hàm số kể
+trên, biểu diễn bằng:
+
+y =ƒ (ÿI; Y2; Y3... Y10)
+
+Phải chăng đây là một hàm số bực 2, bực 3... Lý giải được hàm số này, tác giả đó nhất định phải là
+Thượng đế, người nắm hết cơ trời, cơ người trong không gian và thời gian. Trên phương diện Tử - Vi
+học, cơ trời và cơ người được biểu diễn bằng hàm số chung cuộc đó. Khoa Tử - Vi có thể tìm phương
+trình diễn đạt các yếu tố của thiên cơ và nhân cơ, nhưng vẫn không thấu triệt được chính xác toàn thể bộ
+máy.

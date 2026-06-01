@@ -1,0 +1,50 @@
+TỬ VI HÀM SỐ - Nguyễn Phát Lộc 73
+Vi không phải là một công thức. Tùy theo trình độ của tác giả giải đoán cao thấp, hàm số Tử - Vi sẽ có
+một kết luận khác.
+
+B. CÁC LOẠI HÀM SỐ TỬ - VI
+
+Để có một ý niệm cụ thể hơn về hàm số Tử — Vi, ta thử phân tích những loại hàm số quan trọng.
+
+Như đã trình bày, đối tượng khoa Tử — Vi nhằm tìm hiểu con người và đời người trong tương quan
+với gia đình, với xã hội, với sự nghiệp với phúc đức.
+
+Chẳng những cá nhân con người, tự nó là một hàm số, mà tương quan gia đình, xã hội, sự nghiệp,
+phúc đức cũng là những hàm số liên hệ khác.
+
+1) Hàm số cá nhân
+
+Trong khoa Tử — Vi, những yếu tố ?rực tiếp liên hệ đến cá nhân gồm có:
+
+—_ Phân di truyễn của tổ tiên (hérédité) được diễn đạt trong phúc đức của lá số.
+
+— Phân cơ hữu của đương sự (facteurs intrinsèques) bao gồm các đặc trưng về cơ thể, tướng mạo,
+tính tình, bệnh tật, được diễn đạt trong các cung Mệnh, Thân, Tật.
+
+Chúng ta không kể đến các yếu tố liên hệ gián tiếp như xã hội, phu thê, bạn bè, tài lộc. Thành
+thử, hàm số cá nhân có thể biểu hiện qua phương trình sau:
+
+y¡ = ƒ (phúc, mệnh, thân, tật)
+
+y là kết luận về cá nhân dương số, ƒ chỉ sự lệ thuộc trực tiếp. Phúc, Mệnh, Thân, Tật là những yếu
+tố ảnh hưởng trực tiếp. Đây là một hàm số tổng quát, rút tỉa từ những yếu tố trực tiếp ảnh hưởng đến cá
+tính của bất cứ người nào hay của con người nói chung. Đối với những người nói riêng, hay một vài
+hạng người đặc biệt, các yếu tố này có thể thay đổi. Chẳng hạn như có vài người chịu ảnh hưởng nặng
+nề của cha mẹ (hay anh em): lúc bấy giờ yếu tố của hàm số nhất định phải là phúc, mệnh, thân, tật, phụ
+mẫu (hay huynh đệ).
+
+Trong sự diễn đạt hàm số, tác giả không quan tâm đến những trường hợp đặc biệt của một vài
+hạng người mà chú ý đế cô nương người (I home universe).
+
+2) Hàm số gia đình
+
+Đối với môi trường sinh sống của một vài cá nhân trong thời niên thiếu, hai yếu tố ảnh hưởng trực
+tiếp đến đương sự là cha mẹ và anh em được diễn đạt bằng 2 cung Phụ Mẫu và Huynh Đệ. Do đó, hàm
+số gia đình này là:
+
+yz =ƒ (phụ, huynh)
+
+Đối với cá nhân đã lập gia đình, thì vợ chồng, con cái là 2 yếu tố chi phối trực tiếp giữa tiểu gia
+đình được diễn xuất bằng hàm số:
+
+3 =ƒ (phu thê, tử)

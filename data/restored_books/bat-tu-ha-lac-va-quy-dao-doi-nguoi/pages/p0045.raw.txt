@@ -1,0 +1,42 @@
+phương án tính que Tháng, đối chiếu với thực tế thấy ứng
+nghiệm. Xin trình bày như sau:
+
+Quy tác (dự thảo): a - Mỗi quê Năm có 6 hào, vậy
+mỗi hào phản ánh 2 tháng. Hào chủ là hào chủ mệnh của cả
+nâm đồng thời phản ánh Tháng Giêng và Tháng Bẩy. Các hào
+tiếp theo phần ánh từng cập Tháng: tháng Hai, tháng Tám:
+tháng Ba, tháng Chín; tháng Tư, tháng Mười: tháng Năm,
+tháng Mười Mội: tháng Sáu, tháng Mười Hai.
+
+b - Nếu là Năm Dương (Can Chỉ Năm Dương. ví dụ
+Mậu Đần), hướng phát triển các hào là hướng đi lên, ví dụ
+hào 3 tiếp đến hào 4. Nếu là Năm Âm (Can Chỉ năm Âm, ví
+dụ Kỷ Mão), hướng phát triển các hào là hưởng đi xuống, ví
+dụ hào 3 tiếp đến hào 2.
+
+c - Đo một hào phản ánh hai tháng, hai tháng đó lại là
+cập xung nhau. ví dụ Dần Thân, Mão Dậu. Thìn Tuất, TỊ Hợi.
+Ngọ Tý, Mùi Sửu, nên khi dự đoán cần đựa vào bảng Nguyệt
+lệnh, bảng Năm hành pặp quẻ, kết hợp với bảng Sinh Vượng
+Tử Tuyệt của Toán tứ trụ, dùng Lý để vận dụng vào Số. Đây
+chính là một điểm linh diệu của Toán Hà Lạc, lời hào giếng
+nhau mà dự đoán không giống nhau.
+
+d- Từ hào Tháng, chỉ việc biến hào này Dương thành
+Âm, hoặc Âm thành Dương, ta sẽ có quẻ mới, quẻ đó là quẻ
+Tháng. Quẻ này sẽ được sử dụng để dự đoán Ngày.
+
+Chú ý: Phép tính vận tháng không giếng phép tính
+vận Năm. Tính vận Năm bắt đầu từ hào Đại vận, sau đó từ
+qué Năm này, dùng phép biến hào sinh ra quẻ Năm tiếp theo.
+Có nghĩa là que Năm trước sinh ra que Năm vàn. Tính vận
+Tháng thì lấy quẻ Năm làm gốc, lần lượt biến từng hào một.
+từ một quẻ gốc sinh ra 6 quê mới. Ví dụ, Chủ thể Hoàng Hoa
+Cúc. quẻ năm IŠ tuổi, năm Kỷ Dậu (1969) là Sơn Thiên Đại
+Sức. Hào chủ mệnh của Năm là hào 2. Hào phản ánh tháng
+Giêng và tháng Bẩy cũng là hào 2. Vì Kỷ Dậu là năm Âm,
+nên hướng phát triển các hào Tháng là bướng đi xuống, hào
+Tháng 2, tháng 8 là Hào 1; hào tháng 3, tháng 9 là hào 6; hào
+
+. tháng 4, tháng 1Ó là hào 5...
+45

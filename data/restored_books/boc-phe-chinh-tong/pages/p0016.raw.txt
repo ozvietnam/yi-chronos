@@ -1,0 +1,35 @@
+3. Địa Chí hay Toạ độ thời gian
+
+Chiều dài thời gian trong không gian Kinh Dịch
+chuyển dịch kế tiếp nhau theo một chu kỳ khép kín - là
+vòng tròn. Mỗi một thời điểm dịch chuyển là một toạ độ
+thời gian (TĐTG). Có 12 TĐTG trong không gian Kinh
+Dịch là: Tý, Sửu, Dân, Mão, Thìn, Ty, Ngọ, Mùi, Thân,
+Dậu, Tuất, Hợi. Các nhà Dịch học cổ xưa cũng quan
+niệm rằng, thời gian không tách rời khỏi không gian. Do
+vậy các TĐTG luô: luôn gắn với Toạ độ không gian
+tương ứng để tạo ra Toạ độ Không - Thời gian (TĐKTG).
+Chẳng hạn TĐKTG là Giáp Tý, Đinh Mão, Ất Dậu. ..
+Trên thực tế người ta gọi các TĐTG có kèm theo TĐKG
+như gọi là giờ Giáp Tý, Đinh Mão..
+
+Những Địa Chỉ có tính chất sau:
+
+Những can Dương kết hợp với chỉ Dương, Âm với
+Âm để tạo ra thời gian Can Chị. Như: Năm, (tháng,
+ngày, giờ): Giáp Tý, Nhâm Dần, Ất Sửu, Ất Mão...
+
+Sự tương hợp của Địa Chỉ như sau:
+
+Tý hợp Sửu Thìn hợp Dậu
+
+Dần hợp Hợi Ty hợp Thân
+
+Mão hợp Tuất Ngọ hợp Mùi
+
+Sự tam hợp của Địa Chỉ
+
+Thân Tý Thìn Dần Ngọ Tuất
+
+Ty Dậu Sửu Hợi Mão Mùi
+16

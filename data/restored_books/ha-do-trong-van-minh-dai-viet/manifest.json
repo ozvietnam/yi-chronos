@@ -1,0 +1,2447 @@
+{
+  "book_id": "ha-do-trong-van-minh-dai-viet",
+  "source_pdf": "thư viện sách/Hà đồ trong văn minh đại việt.pdf",
+  "page_range": [
+    1,
+    304
+  ],
+  "total_pages": 304,
+  "total_seconds": 4128.3,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 17.19,
+      "raw_chars": 81,
+      "cleaned_chars": 49,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 27,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 58.21,
+      "raw_chars": 2097,
+      "cleaned_chars": 2092,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 60.75,
+      "raw_chars": 2485,
+      "cleaned_chars": 2514,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 50.92,
+      "raw_chars": 2059,
+      "cleaned_chars": 2062,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 57.06,
+      "raw_chars": 2049,
+      "cleaned_chars": 2068,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 43.34,
+      "raw_chars": 2347,
+      "cleaned_chars": 2354,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 57.43,
+      "raw_chars": 2248,
+      "cleaned_chars": 2249,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 28.89,
+      "raw_chars": 946,
+      "cleaned_chars": 937,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 9,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 58.21,
+      "raw_chars": 2173,
+      "cleaned_chars": 2171,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 25.73,
+      "raw_chars": 365,
+      "cleaned_chars": 319,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 48.72,
+      "raw_chars": 2041,
+      "cleaned_chars": 2046,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 45.84,
+      "raw_chars": 1913,
+      "cleaned_chars": 1903,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 42.67,
+      "raw_chars": 1903,
+      "cleaned_chars": 1928,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 50.23,
+      "raw_chars": 2085,
+      "cleaned_chars": 2088,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 52.8,
+      "raw_chars": 1973,
+      "cleaned_chars": 1977,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 40.44,
+      "raw_chars": 1429,
+      "cleaned_chars": 1426,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 15.6,
+      "raw_chars": 53,
+      "cleaned_chars": 42,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 3,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 35.0,
+      "raw_chars": 1800,
+      "cleaned_chars": 1786,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 45.48,
+      "raw_chars": 2139,
+      "cleaned_chars": 2246,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 50.49,
+      "raw_chars": 2180,
+      "cleaned_chars": 2179,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 57.49,
+      "raw_chars": 2311,
+      "cleaned_chars": 2348,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 53.19,
+      "raw_chars": 2262,
+      "cleaned_chars": 2271,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 65.58,
+      "raw_chars": 2718,
+      "cleaned_chars": 2737,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 59.14,
+      "raw_chars": 2577,
+      "cleaned_chars": 2561,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 66.05,
+      "raw_chars": 2634,
+      "cleaned_chars": 2634,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 65.32,
+      "raw_chars": 2557,
+      "cleaned_chars": 2664,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 46.54,
+      "raw_chars": 2615,
+      "cleaned_chars": 2639,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 51.07,
+      "raw_chars": 2034,
+      "cleaned_chars": 2067,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 58.26,
+      "raw_chars": 2385,
+      "cleaned_chars": 2404,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 38.38,
+      "raw_chars": 1687,
+      "cleaned_chars": 1680,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 3,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 35.64,
+      "raw_chars": 952,
+      "cleaned_chars": 947,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 38.44,
+      "raw_chars": 884,
+      "cleaned_chars": 831,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 44.99,
+      "raw_chars": 2382,
+      "cleaned_chars": 2416,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 59.43,
+      "raw_chars": 2388,
+      "cleaned_chars": 2417,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 56.81,
+      "raw_chars": 2445,
+      "cleaned_chars": 2376,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 51.78,
+      "raw_chars": 2111,
+      "cleaned_chars": 2094,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 65.72,
+      "raw_chars": 2355,
+      "cleaned_chars": 2354,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 63.95,
+      "raw_chars": 2327,
+      "cleaned_chars": 2289,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 47.06,
+      "raw_chars": 2639,
+      "cleaned_chars": 2681,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 41.03,
+      "raw_chars": 1424,
+      "cleaned_chars": 1485,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 38.87,
+      "raw_chars": 1074,
+      "cleaned_chars": 961,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 17.59,
+      "raw_chars": 241,
+      "cleaned_chars": 207,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 38.38,
+      "raw_chars": 1724,
+      "cleaned_chars": 1694,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 29.17,
+      "raw_chars": 458,
+      "cleaned_chars": 620,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 42.7,
+      "raw_chars": 1477,
+      "cleaned_chars": 1505,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 41.1,
+      "raw_chars": 866,
+      "cleaned_chars": 822,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 40.31,
+      "raw_chars": 1111,
+      "cleaned_chars": 1133,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 23.05,
+      "raw_chars": 543,
+      "cleaned_chars": 256,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 36.83,
+      "raw_chars": 1444,
+      "cleaned_chars": 1493,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 45.97,
+      "raw_chars": 1846,
+      "cleaned_chars": 1958,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 47.57,
+      "raw_chars": 1890,
+      "cleaned_chars": 1905,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 48.91,
+      "raw_chars": 2030,
+      "cleaned_chars": 2038,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 40.99,
+      "raw_chars": 1653,
+      "cleaned_chars": 1654,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 41.98,
+      "raw_chars": 1654,
+      "cleaned_chars": 1646,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 15.58,
+      "raw_chars": 106,
+      "cleaned_chars": 91,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 9,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 45.8,
+      "raw_chars": 1557,
+      "cleaned_chars": 1534,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 21.06,
+      "raw_chars": 451,
+      "cleaned_chars": 213,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 50.17,
+      "raw_chars": 1933,
+      "cleaned_chars": 1942,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 26.79,
+      "raw_chars": 362,
+      "cleaned_chars": 161,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 34.99,
+      "raw_chars": 902,
+      "cleaned_chars": 892,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 28.15,
+      "raw_chars": 422,
+      "cleaned_chars": 307,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 32.65,
+      "raw_chars": 687,
+      "cleaned_chars": 465,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 45.05,
+      "raw_chars": 1986,
+      "cleaned_chars": 1997,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 43.08,
+      "raw_chars": 1703,
+      "cleaned_chars": 1929,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 34.07,
+      "raw_chars": 828,
+      "cleaned_chars": 1066,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 26.62,
+      "raw_chars": 172,
+      "cleaned_chars": 176,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 32.83,
+      "raw_chars": 616,
+      "cleaned_chars": 581,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 58.16,
+      "raw_chars": 1778,
+      "cleaned_chars": 1821,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 37.28,
+      "raw_chars": 1635,
+      "cleaned_chars": 1534,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 52.24,
+      "raw_chars": 1740,
+      "cleaned_chars": 1743,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 49.32,
+      "raw_chars": 2088,
+      "cleaned_chars": 2246,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 56.89,
+      "raw_chars": 2034,
+      "cleaned_chars": 2224,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 36.53,
+      "raw_chars": 868,
+      "cleaned_chars": 928,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 45.98,
+      "raw_chars": 1867,
+      "cleaned_chars": 1863,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 15.06,
+      "raw_chars": 308,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 13.94,
+      "raw_chars": 588,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 35.94,
+      "raw_chars": 574,
+      "cleaned_chars": 543,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 47.8,
+      "raw_chars": 1639,
+      "cleaned_chars": 1617,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 43.73,
+      "raw_chars": 1825,
+      "cleaned_chars": 1829,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 27.94,
+      "raw_chars": 890,
+      "cleaned_chars": 531,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 46.2,
+      "raw_chars": 1706,
+      "cleaned_chars": 1741,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 46.73,
+      "raw_chars": 1985,
+      "cleaned_chars": 2004,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 40.28,
+      "raw_chars": 1256,
+      "cleaned_chars": 1232,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 46.59,
+      "raw_chars": 569,
+      "cleaned_chars": 714,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 45.87,
+      "raw_chars": 471,
+      "cleaned_chars": 477,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 30.18,
+      "raw_chars": 715,
+      "cleaned_chars": 877,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 40.14,
+      "raw_chars": 1045,
+      "cleaned_chars": 1053,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 34.09,
+      "raw_chars": 1185,
+      "cleaned_chars": 1025,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 38.13,
+      "raw_chars": 1228,
+      "cleaned_chars": 1209,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 24.74,
+      "raw_chars": 430,
+      "cleaned_chars": 402,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 10,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 37.13,
+      "raw_chars": 1651,
+      "cleaned_chars": 1630,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 45.74,
+      "raw_chars": 1153,
+      "cleaned_chars": 1218,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 59.81,
+      "raw_chars": 1948,
+      "cleaned_chars": 1940,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 52.2,
+      "raw_chars": 1914,
+      "cleaned_chars": 1898,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 50.26,
+      "raw_chars": 2153,
+      "cleaned_chars": 2161,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 38.0,
+      "raw_chars": 890,
+      "cleaned_chars": 798,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 39.01,
+      "raw_chars": 723,
+      "cleaned_chars": 588,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 41.58,
+      "raw_chars": 1065,
+      "cleaned_chars": 1025,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 53.63,
+      "raw_chars": 1848,
+      "cleaned_chars": 1863,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 53.95,
+      "raw_chars": 1906,
+      "cleaned_chars": 1904,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 45.39,
+      "raw_chars": 1850,
+      "cleaned_chars": 1915,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 38.64,
+      "raw_chars": 1258,
+      "cleaned_chars": 1025,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 47.99,
+      "raw_chars": 2113,
+      "cleaned_chars": 2127,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 36.34,
+      "raw_chars": 773,
+      "cleaned_chars": 752,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 17.05,
+      "raw_chars": 80,
+      "cleaned_chars": 71,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 10,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 47.85,
+      "raw_chars": 1685,
+      "cleaned_chars": 1649,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 44.87,
+      "raw_chars": 2263,
+      "cleaned_chars": 2274,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 41.22,
+      "raw_chars": 1773,
+      "cleaned_chars": 1806,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 49.69,
+      "raw_chars": 1972,
+      "cleaned_chars": 1990,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 46.09,
+      "raw_chars": 1892,
+      "cleaned_chars": 1885,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 43.97,
+      "raw_chars": 1374,
+      "cleaned_chars": 1157,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.96,
+      "raw_chars": 1368,
+      "cleaned_chars": 1135,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 31.17,
+      "raw_chars": 902,
+      "cleaned_chars": 837,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 35.4,
+      "raw_chars": 920,
+      "cleaned_chars": 842,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 35.96,
+      "raw_chars": 700,
+      "cleaned_chars": 634,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 27.04,
+      "raw_chars": 179,
+      "cleaned_chars": 101,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 39.76,
+      "raw_chars": 1211,
+      "cleaned_chars": 1237,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 48.35,
+      "raw_chars": 1298,
+      "cleaned_chars": 1329,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 45.19,
+      "raw_chars": 1729,
+      "cleaned_chars": 1806,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.62,
+      "raw_chars": 1430,
+      "cleaned_chars": 1408,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 43.4,
+      "raw_chars": 1190,
+      "cleaned_chars": 1169,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 44.86,
+      "raw_chars": 1909,
+      "cleaned_chars": 1927,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 33.15,
+      "raw_chars": 926,
+      "cleaned_chars": 914,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 34.8,
+      "raw_chars": 999,
+      "cleaned_chars": 936,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 27.91,
+      "raw_chars": 182,
+      "cleaned_chars": 101,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 31.35,
+      "raw_chars": 202,
+      "cleaned_chars": 89,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 37.75,
+      "raw_chars": 1407,
+      "cleaned_chars": 1398,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 57.12,
+      "raw_chars": 2123,
+      "cleaned_chars": 2134,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 45.89,
+      "raw_chars": 1741,
+      "cleaned_chars": 1716,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 25.62,
+      "raw_chars": 759,
+      "cleaned_chars": 652,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 43.86,
+      "raw_chars": 1014,
+      "cleaned_chars": 1053,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 31.55,
+      "raw_chars": 757,
+      "cleaned_chars": 778,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 37.18,
+      "raw_chars": 794,
+      "cleaned_chars": 508,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 47.49,
+      "raw_chars": 1863,
+      "cleaned_chars": 1872,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 45.66,
+      "raw_chars": 1974,
+      "cleaned_chars": 1965,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 50.25,
+      "raw_chars": 1845,
+      "cleaned_chars": 1870,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 30.52,
+      "raw_chars": 1202,
+      "cleaned_chars": 666,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 45.33,
+      "raw_chars": 613,
+      "cleaned_chars": 787,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 29.22,
+      "raw_chars": 670,
+      "cleaned_chars": 616,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 38.98,
+      "raw_chars": 677,
+      "cleaned_chars": 892,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 38.16,
+      "raw_chars": 601,
+      "cleaned_chars": 805,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 45.72,
+      "raw_chars": 1720,
+      "cleaned_chars": 1754,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 46.5,
+      "raw_chars": 1250,
+      "cleaned_chars": 1696,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 42.02,
+      "raw_chars": 1531,
+      "cleaned_chars": 1529,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.13,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 14,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 51.45,
+      "raw_chars": 1785,
+      "cleaned_chars": 1820,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 52.5,
+      "raw_chars": 2209,
+      "cleaned_chars": 2249,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 50.98,
+      "raw_chars": 2187,
+      "cleaned_chars": 2188,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 29.06,
+      "raw_chars": 399,
+      "cleaned_chars": 364,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 32.41,
+      "raw_chars": 605,
+      "cleaned_chars": 543,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 34.71,
+      "raw_chars": 950,
+      "cleaned_chars": 887,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 36.1,
+      "raw_chars": 1053,
+      "cleaned_chars": 983,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 29.11,
+      "raw_chars": 446,
+      "cleaned_chars": 537,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 49.1,
+      "raw_chars": 1810,
+      "cleaned_chars": 1979,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 38.67,
+      "raw_chars": 1652,
+      "cleaned_chars": 1743,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 39.85,
+      "raw_chars": 1228,
+      "cleaned_chars": 1159,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 45.34,
+      "raw_chars": 1593,
+      "cleaned_chars": 1587,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 41.65,
+      "raw_chars": 1060,
+      "cleaned_chars": 1129,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 43.98,
+      "raw_chars": 1333,
+      "cleaned_chars": 1350,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 39.72,
+      "raw_chars": 1020,
+      "cleaned_chars": 1033,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 27.96,
+      "raw_chars": 729,
+      "cleaned_chars": 537,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 43.32,
+      "raw_chars": 840,
+      "cleaned_chars": 1060,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 38.64,
+      "raw_chars": 1423,
+      "cleaned_chars": 1400,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 28.23,
+      "raw_chars": 523,
+      "cleaned_chars": 525,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 36.35,
+      "raw_chars": 1750,
+      "cleaned_chars": 1733,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 39.92,
+      "raw_chars": 1853,
+      "cleaned_chars": 1836,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 47.66,
+      "raw_chars": 2739,
+      "cleaned_chars": 2728,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 48.49,
+      "raw_chars": 2929,
+      "cleaned_chars": 3020,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 54.34,
+      "raw_chars": 2543,
+      "cleaned_chars": 2550,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 46.77,
+      "raw_chars": 1888,
+      "cleaned_chars": 1887,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 44.71,
+      "raw_chars": 2021,
+      "cleaned_chars": 2067,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 39.57,
+      "raw_chars": 1276,
+      "cleaned_chars": 1308,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 36.09,
+      "raw_chars": 1779,
+      "cleaned_chars": 1769,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 45.35,
+      "raw_chars": 1515,
+      "cleaned_chars": 1239,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 54.65,
+      "raw_chars": 2146,
+      "cleaned_chars": 2151,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 39.12,
+      "raw_chars": 2211,
+      "cleaned_chars": 2220,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 49.03,
+      "raw_chars": 1843,
+      "cleaned_chars": 1879,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 33.16,
+      "raw_chars": 607,
+      "cleaned_chars": 545,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 38.72,
+      "raw_chars": 1135,
+      "cleaned_chars": 1119,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 39.51,
+      "raw_chars": 1755,
+      "cleaned_chars": 1772,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 49.3,
+      "raw_chars": 1855,
+      "cleaned_chars": 1841,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 50.37,
+      "raw_chars": 2182,
+      "cleaned_chars": 2177,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 39.92,
+      "raw_chars": 1192,
+      "cleaned_chars": 1185,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 23.32,
+      "raw_chars": 85,
+      "cleaned_chars": 61,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 10,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 28.6,
+      "raw_chars": 731,
+      "cleaned_chars": 701,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 18,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 47.29,
+      "raw_chars": 1605,
+      "cleaned_chars": 1599,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 48.52,
+      "raw_chars": 1863,
+      "cleaned_chars": 1869,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 38.03,
+      "raw_chars": 1097,
+      "cleaned_chars": 1102,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 61.07,
+      "raw_chars": 1549,
+      "cleaned_chars": 1633,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 28.35,
+      "raw_chars": 533,
+      "cleaned_chars": 496,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 12,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 41.44,
+      "raw_chars": 1442,
+      "cleaned_chars": 1448,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 42.11,
+      "raw_chars": 2094,
+      "cleaned_chars": 2124,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0202.md"
+    },
+    {
+      "page": 203,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 56.87,
+      "raw_chars": 2296,
+      "cleaned_chars": 2318,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0203.md"
+    },
+    {
+      "page": 204,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 71.31,
+      "raw_chars": 2514,
+      "cleaned_chars": 2559,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0204.md"
+    },
+    {
+      "page": 205,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 46.69,
+      "raw_chars": 2301,
+      "cleaned_chars": 2337,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0205.md"
+    },
+    {
+      "page": 206,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 50.6,
+      "raw_chars": 2125,
+      "cleaned_chars": 2123,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0206.md"
+    },
+    {
+      "page": 207,
+      "ocr_seconds": 1.03,
+      "cleanup_seconds": 54.03,
+      "raw_chars": 2753,
+      "cleaned_chars": 2788,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0207.md"
+    },
+    {
+      "page": 208,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 57.17,
+      "raw_chars": 1850,
+      "cleaned_chars": 1994,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0208.md"
+    },
+    {
+      "page": 209,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 71.23,
+      "raw_chars": 2763,
+      "cleaned_chars": 2760,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0209.md"
+    },
+    {
+      "page": 210,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 47.23,
+      "raw_chars": 2136,
+      "cleaned_chars": 2134,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0210.md"
+    },
+    {
+      "page": 211,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 54.3,
+      "raw_chars": 2094,
+      "cleaned_chars": 2115,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0211.md"
+    },
+    {
+      "page": 212,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 66.08,
+      "raw_chars": 2157,
+      "cleaned_chars": 2342,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0212.md"
+    },
+    {
+      "page": 213,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 46.55,
+      "raw_chars": 2142,
+      "cleaned_chars": 2232,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0213.md"
+    },
+    {
+      "page": 214,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 65.71,
+      "raw_chars": 2499,
+      "cleaned_chars": 2556,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0214.md"
+    },
+    {
+      "page": 215,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 62.86,
+      "raw_chars": 2348,
+      "cleaned_chars": 2420,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0215.md"
+    },
+    {
+      "page": 216,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 49.06,
+      "raw_chars": 1252,
+      "cleaned_chars": 1685,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0216.md"
+    },
+    {
+      "page": 217,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 45.23,
+      "raw_chars": 1439,
+      "cleaned_chars": 1577,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0217.md"
+    },
+    {
+      "page": 218,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 42.43,
+      "raw_chars": 1905,
+      "cleaned_chars": 1943,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0218.md"
+    },
+    {
+      "page": 219,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 67.9,
+      "raw_chars": 2243,
+      "cleaned_chars": 2374,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0219.md"
+    },
+    {
+      "page": 220,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 62.59,
+      "raw_chars": 2230,
+      "cleaned_chars": 2299,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0220.md"
+    },
+    {
+      "page": 221,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 44.39,
+      "raw_chars": 2168,
+      "cleaned_chars": 2209,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0221.md"
+    },
+    {
+      "page": 222,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 68.82,
+      "raw_chars": 1934,
+      "cleaned_chars": 1929,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0222.md"
+    },
+    {
+      "page": 223,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 49.82,
+      "raw_chars": 1742,
+      "cleaned_chars": 1779,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0223.md"
+    },
+    {
+      "page": 224,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 35.76,
+      "raw_chars": 866,
+      "cleaned_chars": 939,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0224.md"
+    },
+    {
+      "page": 225,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 36.79,
+      "raw_chars": 976,
+      "cleaned_chars": 920,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0225.md"
+    },
+    {
+      "page": 226,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 40.16,
+      "raw_chars": 1969,
+      "cleaned_chars": 1969,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0226.md"
+    },
+    {
+      "page": 227,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 48.42,
+      "raw_chars": 1644,
+      "cleaned_chars": 1657,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0227.md"
+    },
+    {
+      "page": 228,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 42.89,
+      "raw_chars": 1390,
+      "cleaned_chars": 1416,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0228.md"
+    },
+    {
+      "page": 229,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 42.74,
+      "raw_chars": 1218,
+      "cleaned_chars": 1248,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0229.md"
+    },
+    {
+      "page": 230,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 27.74,
+      "raw_chars": 452,
+      "cleaned_chars": 460,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0230.md"
+    },
+    {
+      "page": 231,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 21.83,
+      "raw_chars": 114,
+      "cleaned_chars": 106,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0231.md"
+    },
+    {
+      "page": 232,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 24.37,
+      "raw_chars": 139,
+      "cleaned_chars": 81,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0232.md"
+    },
+    {
+      "page": 233,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 40.88,
+      "raw_chars": 1446,
+      "cleaned_chars": 1447,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0233.md"
+    },
+    {
+      "page": 234,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 45.74,
+      "raw_chars": 724,
+      "cleaned_chars": 867,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0234.md"
+    },
+    {
+      "page": 235,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 37.19,
+      "raw_chars": 704,
+      "cleaned_chars": 610,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0235.md"
+    },
+    {
+      "page": 236,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 23.1,
+      "raw_chars": 238,
+      "cleaned_chars": 200,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0236.md"
+    },
+    {
+      "page": 237,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 13.67,
+      "raw_chars": 533,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0237.md"
+    },
+    {
+      "page": 238,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 16.01,
+      "raw_chars": 511,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0238.md"
+    },
+    {
+      "page": 239,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 26.16,
+      "raw_chars": 444,
+      "cleaned_chars": 400,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0239.md"
+    },
+    {
+      "page": 240,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 39.98,
+      "raw_chars": 1095,
+      "cleaned_chars": 1105,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0240.md"
+    },
+    {
+      "page": 241,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 38.6,
+      "raw_chars": 958,
+      "cleaned_chars": 1057,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0241.md"
+    },
+    {
+      "page": 242,
+      "ocr_seconds": 0.1,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 4,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0242.md"
+    },
+    {
+      "page": 243,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 43.25,
+      "raw_chars": 1506,
+      "cleaned_chars": 1464,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0243.md"
+    },
+    {
+      "page": 244,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 42.85,
+      "raw_chars": 923,
+      "cleaned_chars": 1067,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0244.md"
+    },
+    {
+      "page": 245,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 42.14,
+      "raw_chars": 1310,
+      "cleaned_chars": 1312,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0245.md"
+    },
+    {
+      "page": 246,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 51.16,
+      "raw_chars": 2008,
+      "cleaned_chars": 2007,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0246.md"
+    },
+    {
+      "page": 247,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 45.47,
+      "raw_chars": 1705,
+      "cleaned_chars": 1705,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0247.md"
+    },
+    {
+      "page": 248,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 43.51,
+      "raw_chars": 1703,
+      "cleaned_chars": 1798,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0248.md"
+    },
+    {
+      "page": 249,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 42.9,
+      "raw_chars": 1968,
+      "cleaned_chars": 1997,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0249.md"
+    },
+    {
+      "page": 250,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 51.16,
+      "raw_chars": 2038,
+      "cleaned_chars": 2047,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0250.md"
+    },
+    {
+      "page": 251,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 34.69,
+      "raw_chars": 576,
+      "cleaned_chars": 482,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0251.md"
+    },
+    {
+      "page": 252,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 45.69,
+      "raw_chars": 1071,
+      "cleaned_chars": 1352,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0252.md"
+    },
+    {
+      "page": 253,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 32.42,
+      "raw_chars": 1177,
+      "cleaned_chars": 1162,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0253.md"
+    },
+    {
+      "page": 254,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 49.76,
+      "raw_chars": 2062,
+      "cleaned_chars": 2074,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0254.md"
+    },
+    {
+      "page": 255,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 49.86,
+      "raw_chars": 2082,
+      "cleaned_chars": 2091,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0255.md"
+    },
+    {
+      "page": 256,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 22.29,
+      "raw_chars": 330,
+      "cleaned_chars": 277,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0256.md"
+    },
+    {
+      "page": 257,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 37.12,
+      "raw_chars": 1763,
+      "cleaned_chars": 1767,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0257.md"
+    },
+    {
+      "page": 258,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 40.32,
+      "raw_chars": 2306,
+      "cleaned_chars": 2299,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0258.md"
+    },
+    {
+      "page": 259,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 46.76,
+      "raw_chars": 1905,
+      "cleaned_chars": 1915,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0259.md"
+    },
+    {
+      "page": 260,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 44.79,
+      "raw_chars": 1984,
+      "cleaned_chars": 1974,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0260.md"
+    },
+    {
+      "page": 261,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 32.14,
+      "raw_chars": 1356,
+      "cleaned_chars": 1346,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0261.md"
+    },
+    {
+      "page": 262,
+      "ocr_seconds": 0.1,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 4,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0262.md"
+    },
+    {
+      "page": 263,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 46.37,
+      "raw_chars": 1559,
+      "cleaned_chars": 1548,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0263.md"
+    },
+    {
+      "page": 264,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 41.47,
+      "raw_chars": 952,
+      "cleaned_chars": 1013,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0264.md"
+    },
+    {
+      "page": 265,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 37.77,
+      "raw_chars": 657,
+      "cleaned_chars": 630,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0265.md"
+    },
+    {
+      "page": 266,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 48.21,
+      "raw_chars": 1301,
+      "cleaned_chars": 1447,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0266.md"
+    },
+    {
+      "page": 267,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 26.83,
+      "raw_chars": 399,
+      "cleaned_chars": 409,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0267.md"
+    },
+    {
+      "page": 268,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 49.18,
+      "raw_chars": 1540,
+      "cleaned_chars": 1582,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0268.md"
+    },
+    {
+      "page": 269,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 47.0,
+      "raw_chars": 2371,
+      "cleaned_chars": 2380,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0269.md"
+    },
+    {
+      "page": 270,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 39.8,
+      "raw_chars": 1082,
+      "cleaned_chars": 974,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0270.md"
+    },
+    {
+      "page": 271,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 36.15,
+      "raw_chars": 488,
+      "cleaned_chars": 502,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0271.md"
+    },
+    {
+      "page": 272,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 42.51,
+      "raw_chars": 821,
+      "cleaned_chars": 833,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0272.md"
+    },
+    {
+      "page": 273,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 42.88,
+      "raw_chars": 1819,
+      "cleaned_chars": 1918,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0273.md"
+    },
+    {
+      "page": 274,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 47.24,
+      "raw_chars": 1542,
+      "cleaned_chars": 1569,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0274.md"
+    },
+    {
+      "page": 275,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 39.76,
+      "raw_chars": 741,
+      "cleaned_chars": 863,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0275.md"
+    },
+    {
+      "page": 276,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 37.37,
+      "raw_chars": 1589,
+      "cleaned_chars": 1697,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0276.md"
+    },
+    {
+      "page": 277,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 49.76,
+      "raw_chars": 1643,
+      "cleaned_chars": 1797,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0277.md"
+    },
+    {
+      "page": 278,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 38.35,
+      "raw_chars": 1225,
+      "cleaned_chars": 1026,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0278.md"
+    },
+    {
+      "page": 279,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 26.84,
+      "raw_chars": 649,
+      "cleaned_chars": 521,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0279.md"
+    },
+    {
+      "page": 280,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 34.05,
+      "raw_chars": 699,
+      "cleaned_chars": 607,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0280.md"
+    },
+    {
+      "page": 281,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 35.1,
+      "raw_chars": 719,
+      "cleaned_chars": 717,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0281.md"
+    },
+    {
+      "page": 282,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 36.55,
+      "raw_chars": 959,
+      "cleaned_chars": 956,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0282.md"
+    },
+    {
+      "page": 283,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 27.13,
+      "raw_chars": 774,
+      "cleaned_chars": 647,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0283.md"
+    },
+    {
+      "page": 284,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 41.33,
+      "raw_chars": 1446,
+      "cleaned_chars": 1463,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0284.md"
+    },
+    {
+      "page": 285,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 34.14,
+      "raw_chars": 809,
+      "cleaned_chars": 810,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0285.md"
+    },
+    {
+      "page": 286,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 36.66,
+      "raw_chars": 1460,
+      "cleaned_chars": 1399,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0286.md"
+    },
+    {
+      "page": 287,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 31.93,
+      "raw_chars": 630,
+      "cleaned_chars": 628,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0287.md"
+    },
+    {
+      "page": 288,
+      "ocr_seconds": 0.11,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 12,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0288.md"
+    },
+    {
+      "page": 289,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 19.63,
+      "raw_chars": 161,
+      "cleaned_chars": 94,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0289.md"
+    },
+    {
+      "page": 290,
+      "ocr_seconds": 0.13,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 12,
+      "cleaned_chars": 20,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0290.md"
+    },
+    {
+      "page": 291,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 53.29,
+      "raw_chars": 1684,
+      "cleaned_chars": 1744,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0291.md"
+    },
+    {
+      "page": 292,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 54.92,
+      "raw_chars": 2171,
+      "cleaned_chars": 2161,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0292.md"
+    },
+    {
+      "page": 293,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 43.42,
+      "raw_chars": 1992,
+      "cleaned_chars": 2017,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0293.md"
+    },
+    {
+      "page": 294,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 39.58,
+      "raw_chars": 1654,
+      "cleaned_chars": 1670,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0294.md"
+    },
+    {
+      "page": 295,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 29.65,
+      "raw_chars": 655,
+      "cleaned_chars": 519,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0295.md"
+    },
+    {
+      "page": 296,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 33.12,
+      "raw_chars": 847,
+      "cleaned_chars": 814,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0296.md"
+    },
+    {
+      "page": 297,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 51.73,
+      "raw_chars": 1723,
+      "cleaned_chars": 1732,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0297.md"
+    },
+    {
+      "page": 298,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 40.29,
+      "raw_chars": 2351,
+      "cleaned_chars": 2417,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0298.md"
+    },
+    {
+      "page": 299,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 51.45,
+      "raw_chars": 1950,
+      "cleaned_chars": 1914,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0299.md"
+    },
+    {
+      "page": 300,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 45.75,
+      "raw_chars": 1860,
+      "cleaned_chars": 1845,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0300.md"
+    },
+    {
+      "page": 301,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 42.5,
+      "raw_chars": 1751,
+      "cleaned_chars": 1753,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0301.md"
+    },
+    {
+      "page": 302,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 51.63,
+      "raw_chars": 2149,
+      "cleaned_chars": 2162,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0302.md"
+    },
+    {
+      "page": 303,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 35.11,
+      "raw_chars": 2069,
+      "cleaned_chars": 2041,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0303.md"
+    },
+    {
+      "page": 304,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 26.92,
+      "raw_chars": 913,
+      "cleaned_chars": 885,
+      "md_path": "ha-do-trong-van-minh-dai-viet/pages/p0304.md"
+    }
+  ]
+}

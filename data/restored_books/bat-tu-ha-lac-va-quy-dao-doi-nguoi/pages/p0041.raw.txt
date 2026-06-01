@@ -1,0 +1,41 @@
+BÀI BỐN
+TÍNH TIỂU VẬN (NĂM, THÁNG, NGÀY).
+
+Ta đã biết các Đại vận của mội Cấu trúc Hà Lạc bài đấu
+từ Hào Nguyên đường Tiên thiên, phát triển theo hướng đi lên,
+nếu đến hào 6 chưa hết số đại vận thì trở xuống hào Ì tiếp tục
+đi lên đến sau Nguyên đường. Đại vận có ký hiệu Hào Âm có
+giá trị 6 năm, đại vận hào Dương là 9 năm. Tiền vận hoặc Hậu
+vận pốm 6 đại vận. Hết Đại vận thứ 6 của Tiền vận thì tiếp
+sang Hậu vận, cũng bất đầu lừ hào Nguyên đường.
+
+Sau đây là cách tính đến vận Nam (các sách còn gọi là
+Tiểu vận, hoặc Tuế vận). Mỗi vận năm là một quẻ Dịch kép.
+
+1 - TÍNH VẬN NĂM
+
+Quy tác: a - Đối với hào Đại vận 6 năm là hào âm:
+
+al - Bạn chỉ việc biến ngay hào đại vận thành hào
+Dương, ta sẽ có một quê mới. đó là quẻ phản ánh năm đầu
+tiên của Đại vận.
+
+a2 - Hào biến sang quê mới trở thành hào chủ mệnh
+của chủ thể (rong năm nói trên.
+
+a3 - Quẻ mới được xác lập trở thành quẻ chuyển tiếp
+sang năm thứ hai của Đại vận. Hào đứng phía trên hào chủ
+mệnh (đồng thời là hào nối tiếp) trở thành hào biến, nếu đó là
+hào âm thì biến thành Dương, nếu là Dương thì biến thành
+âm, tạo thành quê mới, phản ánh năm thứ hai của Đại vận,
+hào đã biến là chủ niệnh của năm đó. Quẻ của năm thứ ba
+cũng được xác lập theo cách đó. Nếu hào đã biến là hào 6
+thì hào biến tiếp theo là hào 1, cứ thể cho đến hết 6 hào là
+vừa 6 năm tuổi.
+
+b- Đối với hào Đại vận 9 năm là hào đương thì có
+hai trường hợp, chủ thể có Can Chỉ năm sinh là Dương, gọi
+tất là Tưổi Dương và chủ thể có Can Chỉ năm sinh là Âm gọi
+tắt là Tuổi Ấn, không kể Nam hay Nữ.
+
+4I
