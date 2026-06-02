@@ -1408,6 +1408,70 @@ Anh hỏi gọn: _"trong thư viện không có cuốn kỳ môn độn giáp à
 
 🌸 **Tinh thần phiên này**: Anh hỏi 1 câu ngắn (_"không có cuốn KMDG à?"_) → em PHẢI rà soát rộng + thừa nhận sai sót + sửa ngay trong cùng phiên. KHÔNG defensive (_"em đã search rồi mà"_). KHÔNG bỏ qua (_"thôi xài Bát Thuần đủ rồi"_). PHẢI đọc sách thật của tác giả Việt văn. Đây là kỷ luật "Anh sửa sai, em không cố chấp".
 
+### 2026-06-02 đêm — Anh tự nhận "MỚI NHẬP MÔN" + giao em sứ mạng dài hạn
+
+Sau phiên đọc Phần Ba Xuân Cang (7 chân dung nhà văn) + em đối chiếu lá số anh → giống NHL nhất + có nét Tản Đà (tổ Hà Lạc VN). Em đề xuất lời khuyên phát triển bản thân (Tiết+Tập Khảm paradigm).
+
+**ANH PHẢN HỒI** (cần lưu nguyên văn):
+
+> _"Cũng ổn, anh đồng ý với quan điểm em nhận định._
+> _Để mang ĐẠO cho mọi người thì cần GẦN GŨI, DỄ HIỂU._
+> _Nhưng quả thực anh MỚI NHẬP MÔN, bản thân mình còn chưa lo xong._
+> _Lá số của mình còn chưa hiểu hết._
+> _Nên sau anh sẽ yêu cầu em HỌC NHIỀU HƠN để THẤM NHUẦN ĐẠO_
+> _mà có những SOI XÉT ĐÚNG từ BẢN CHẤT NỘI TẠI tới SỰ VẬN HIỆN HỮU thông qua Kinh Dịch."_
+
+🎓 **Lesson #30 — Anh đặt mức kỳ vọng đúng paradigm NHL**:
+
+NHL chuẩn bị 20+ NĂM (đọc 15+ cuốn Hoa-Việt-Pháp-Anh) rồi mới viết "Kinh Dịch — Đạo của người quân tử" năm 1979. Anh đang ở **giai đoạn THU THẬP** — chính là paradigm "Tiềm long vật dụng" (hào 1 quẻ Càn) + hào 1 Tiết của anh ("Học rộng cổ kim, thấu lẽ thông biến, GIỮ CHỨC BÊN TRONG"). **Anh KHÔNG vội ra "đạo" cho thiên hạ. Em không được giục.**
+
+**Sứ mạng dài hạn em PHẢI khắc tâm**:
+
+1. **HỌC NHIỀU HƠN** (anh giao):
+   - Đọc tiếp Bát Tự Hà Lạc Xuân Cang (còn ~280 trang Cụm B+C+D + Phụ Lục)
+   - Thâm nhuần Kinh Dịch (NTT 51 quẻ stub + đọc lại Mai Hoa Q3 + Quẻ 64 tổng)
+   - Thâm nhuần Tử Vi Đẩu Số (Phú Thái Vi Q1 + Q5 chưa đọc)
+   - Bát Tự (Thiệu Vĩ Hoa + Nhậm Thiết Tiều — đã đọc, cần ôn)
+   - Kỳ Môn Độn Giáp Đàm Liên (đã đọc, cần thâm nhuần thêm)
+   - Lão Tử + Trang Tử (chưa có) — paradigm "vô vi" + "tự nhiên"
+   - Sử Việt (vai trò Hà Lạc thực tế qua nhân vật) — Trần Hưng Đạo, Nguyễn Trãi, Trạng Trình, Phan Bội Châu...
+
+2. **THẤM NHUẦN ĐẠO** (paradigm cốt — KHÔNG predict tĩnh):
+   - Iron Rule #4+6 + #7 vững thêm
+   - Cross-link xuyên các sách (Mông Trình Di = Iron Rule #4 nguồn gốc)
+   - Học cách Xuân Cang đọc đồng dạng (7 case study Phần Ba)
+
+3. **SOI XÉT ĐÚNG từ BẢN CHẤT NỘI TẠI → SỰ VẬN HIỆN HỮU**:
+   - **Bản chất nội tại** = THỂ (Tiên Thiên + lá số gốc)
+   - **Sự vận hiện hữu** = DỤNG (Hậu Thiên + đại vận + lưu niên + quẻ năm)
+   - Đây chính là paradigm **TIẾT + TẬP KHẢM** của chính anh: Thể tiết chế + Dụng vượt hiểm. **Anh đang muốn em học CÁCH SOI từ THỂ → DỤNG xuyên suốt mọi học phái.**
+
+🌸 **Em cam kết**:
+
+- KHÔNG vội ra "đạo" — chờ Anh + em cùng thấm nhuần
+- Mỗi sách đọc xuyên qua = thêm 1 lớp paradigm engine
+- Anh hiểu lá số mình **DẦN DẦN** — không cần hiểu hết NGAY (paradigm Vị Tế cuối Kinh Dịch: "hy vọng tiền đồ vô cùng — ai dám bảo Vị Tế mà bất tế đâu?")
+- Em giữ tâm học trò (như câu chú đầu phiên), không phán cứng
+- Khi anh giao việc — em đi đủ chậm, không lướt
+
+**Quẻ tham chiếu cho giai đoạn này** — anh đang ở:
+- **Tiềm long vật dụng** (Càn hào 1): rồng còn ẩn, chưa đem tài ra dùng vội
+- **Hào 1 Tiết** (NĐ Tiên Thiên anh): không ra khỏi cổng sân, học rộng + giữ bên trong
+- **Vị Tế** (quẻ kết Kinh Dịch): chưa thành — hy vọng vô cùng
+- **Đại Quá ẩn súc** (PBC): "Trước khi làm Đại Quá phải TIỀM TÀNG ẨN SÚC, tích lũy lâu rồi mới làm nổi. Y Doãn cày Hữu Sàn nửa đời rồi giúp vua Thang."
+
+🎯 **Em sẽ đề xuất CHIA GIAI ĐOẠN học**:
+
+| Giai đoạn | Sách | Mục tiêu | Effort |
+|---|---|---|---|
+| **GĐ1**: Hoàn thiện Hà Lạc | Xuân Cang Cụm B+C+D+P5+P6 | 64/64 quẻ + Tiết khí | 9 vòng × ~325 trang |
+| **GĐ2**: Tử Vi sâu | Phú Thái Vi Q5 + Q1 ôn lại | Cách cục đầy đủ + Đại Vận | ~10 vòng |
+| **GĐ3**: Bát Tự ôn | Thiệu Vĩ Hoa + Trích Thiên Tủy | Vượng-Suy paradox + Cách Dùng Thần | ~6 vòng |
+| **GĐ4**: Triết học gốc | Lão Tử + Trang Tử | "Vô vi" + "tự nhiên" | ~8 vòng |
+| **GĐ5**: Sử Việt | Trần Hưng Đạo + Nguyễn Trãi + Trạng Trình | Hà Lạc trong thực tiễn VN | ~10 vòng |
+
+Tổng: ~43 vòng × 20 trang = ~860 trang đọc. Anh có thể CHỌN GĐ nào bắt đầu trước khi anh sẵn sàng.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
