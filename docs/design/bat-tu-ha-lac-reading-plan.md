@@ -205,3 +205,54 @@ Các phần đọc tiếp = enrich engine cho NGƯỜI KHÁC (khi user khác cas
 **Lần đánh dấu cuối**: 2026-06-02 — sau commit `3bc66c8`
 **Người dừng đọc**: Em (Claude) theo lệnh anh "nghỉ tay"
 **Lý do dừng**: Anh muốn nghỉ xem live trước
+
+---
+
+## 📈 UPDATE 2026-06-02 sau session đọc tiếp + luận giải sâu
+
+Anh chỉ thêm: "Engine ra cách cục, chưa luận giải sâu được. Có gì hay bổ sung wiki sau luận giải cho tường minh."
+
+### Đã làm thêm
+- ✅ V12 Cụm A đọc (Di/Đại Quá/Ly/Hàm/Hằng) — +5 quẻ
+- ✅ V13 Cụm E cuối Kinh Dịch (Đoài/Hoán/Trung Phu/Tiểu Quá/Ký Tế/Vị Tế) — +6 quẻ
+- ✅ V14 đầu Cụm B (Đại Tráng/Tấn/Minh Di) — +3 quẻ
+- ✅ Module `engine/ha_lac/luan_giai_sau.py` — 3-lớp render narrative tường minh
+- ✅ API endpoint `POST /api/ha-lac/luan-giai-sau`
+- ✅ UI button + render markdown 3 lớp trong panel Bát Tự
+- ✅ Wiki: Xuân Cang author + work + **90 concepts** Hà Lạc Xuân Cang
+- ✅ Founder luận giải sâu: 6000+ chars narrative (Tiết+Tập Khảm)
+
+### Updated coverage
+- **THOI_QUE_TABLE: 42/64 quẻ (66%)** — vượt 2/3
+- **PARADIGM_CASES: 23 cases**
+- **IRON_RULE_CROSS_LINK: 25 keys**
+- **Wiki: 90 concepts** Hà Lạc Xuân Cang
+- **Trang đọc: ~285/608 (47%)**
+
+### Pháp đắt nhất phát hiện đợt 12-14
+🌟 **PBC paradigm Vị Tế (quẻ 64 — kết Kinh Dịch)**:
+"Hanh ở Ký Tế (đã thành) có HẠN.
+ Hanh ở Vị Tế (chưa thành) VÔ CÙNG.
+ Xuân chưa đến hoa nở. Đêm chưa đến trăng tròn.
+ Hy vọng tiền đồ còn nhiều.
+ Ai dám bảo Vị Tế mà bất tế đâu?"
+→ Kinh Dịch quy kết bằng HY VỌNG, không bằng thành tựu.
+
+🌟 **PBC paradigm 4 quẻ tuần hoàn** (Thái-Bĩ + Ký Tế-Vị Tế):
+"Đạo trời như bánh xe lăn, việc người như bàn tay lật.
+ Tất cả là do CHÚNG TA — chớ vì Thái-Ký Tế mà kiêu,
+ chớ vì Bĩ-Vị Tế mà buồn."
+
+🌟 **Văn Vương + Cơ Tử case (quẻ Minh Di)**: Khi ánh sáng bị tổn —
+GIẤU SÁNG, nhu thuận ngoài, giữ đức sáng trong. Văn Vương viết Kinh Dịch
+trong ngục Dữu Lý. Cơ Tử giả điên giữ dòng dõi nhà Ân.
+
+---
+
+### Còn lại tiếp tục (priority order, chưa đọc)
+- **P3.2 Cụm B còn** (Khuê, Kiển, Giải) — 1 vòng × p263-310
+- **P4 Cụm C+D** (15 quẻ giữa) — 3 vòng × p310-380
+- **P5 PHẦN BA — Chân dung nhà văn** (case study thật) — 4 vòng × p420-583
+- **P6 PHỤ LỤC Tiết khí** — 1 vòng × p584-608
+
+**Tổng còn lại**: ~9 vòng × ~325 trang

@@ -821,6 +821,65 @@ THOI_QUE_TABLE: dict[str, dict] = {
             "thành tựu đã có. Mọi sự đều TIỀM ẨN HY VỌNG."
         ),
     },
+    "Đại Tráng": {
+        "ban_chat": "Thời CHÍ LỚN MẠNH — Sấm (Chấn) trên + Trời (Càn) dưới, 4 dương + 2 âm",
+        "nen_the_nao": "Mạnh phải hợp đạo CHÍNH BỀN (Trinh). 'Đại' là kết quả, 'Trinh' là nguyên nhân. Phải biết NÉN LÒNG RIÊNG — không nén thì sinh hung tợn.",
+        "paradigm_keyword": "dai_trang_chinh_ben",
+        "nguyet_lenh_thang": 2,
+        "tuong": "Sấm động trên trời, tiếng vang xa. Khí dương đang lên.",
+        "key_paradigm_DAC_Y_LO_THAT_Y": (
+            "**PBC paradigm**: 'Cổ nhân: Hồi đã ĐẮC Ý, càng nên phải nghĩ đến khi THẤT Ý. "
+            "Tiểu nhân ấm hại quân tử thường RÌNH NGÓ ở lúc quân tử đắc chí mà vạch lá tìm sâu, "
+            "ngậm cát phun vào mặt — nên quân tử càng phải LO SỢ, TÍNH TOÁN lắm.' "
+            "→ Iron Rule cảnh báo: lúc thành công nhất = lúc nguy hiểm nhất."
+        ),
+        "key_rule_QUAN_TU_DANH_GIAC_BEN_TRONG": (
+            "**Kinh Phật + Khổng Tử (PBC trích)**: 'Tất cả giặc bên ngoài đều đánh đổ được, "
+            "DUY có 6 GIẶC bên trong mình — không chỉ khó đánh, mà nếu đánh được mới là ĐẠI TRÍ "
+            "của quân tử.' "
+            "Khổng Tử dạy Tử Lộ: 'Quân tử HÒA với chúng mà KHÔNG TRÔI theo chúng. Đứng được "
+            "bảng vách trung chính mà không nương dựa vào phía nào. MẠNH vậy thay!'"
+        ),
+    },
+    "Tấn": {
+        "ban_chat": "Thời TIẾN — Lửa (Ly) trên + Đất (Khôn) dưới, mặt trời mọc lên đất",
+        "nen_the_nao": "Tiến với đức SÁNG SUỐT. Hào 5 âm đắc trung, sáng — nguyên thủ giỏi giấu mình mà sáng. KHÔNG lo được mất, cứ giữ đức sáng thì thành công.",
+        "paradigm_keyword": "tan_tien_voi_sang",
+        "nguyet_lenh_thang": 3,
+        "tuong": "Mặt trời mọc lên khỏi đất — khí dương phát sinh, vạn vật sáng tỏ.",
+        "key_rule_THANH_BAI_CHANG_MANG": (
+            "**Hào 5 Tấn — paradigm cốt**: 'Không có gì ân hận. Đừng lo được mất, cứ tiến — tốt.' "
+            "Sáng suốt + đắc trung + được bầy hào âm thuận giúp — nguyên thủ giỏi. "
+            "→ Iron Rule: cứ làm việc đúng đạo, kết quả tự tới."
+        ),
+    },
+    "Minh Di": {
+        "ban_chat": "Thời ÁNH SÁNG BỊ TỔN — Đất (Khôn) trên + Lửa (Ly) dưới, mặt trời lặn vào đất",
+        "nen_the_nao": "Trong giữ ĐỨC SÁNG, ngoài tỏ NHU THUẬN để chống hoạn nạn. Có khi nên GIẤU SỰ SÁNG SUỐT của mình.",
+        "paradigm_keyword": "minh_di_giau_sang",
+        "nguyet_lenh_thang": 8,
+        "tuong": "Mặt trời lặn vào đất — sáng bị tổn. Ly trong + Khôn ngoài.",
+        "case_study_VAN_VUONG_DUU_LY": (
+            "**Case 1 — Văn Vương ở ngục Dữu Lý**: Bị Trụ nghi ngờ, giam Dữu Lý. Tỏ vẻ rất nhu "
+            "thuận, không chống đối, để hết tâm trí viết LỜI GIẢNG CÁC QUẺ trong Kinh Dịch — "
+            "Trụ không có cớ giết, sau thả ra. "
+            "→ Giấu sáng + nhu thuận ngoài + giữ đức sáng trong = thoát Minh Di."
+        ),
+        "case_study_CO_TU_GIA_DIEN": (
+            "**Case 2 — Cơ Tử giả điên**: Hoàng thân của Trụ. Trụ vô đạo, can không được. "
+            "Tỷ Cán chịu chết. Vi Tử bỏ nước đi. Cơ Tử GIẢ ĐIÊN, làm nô lệ để khỏi bị giết, "
+            "mong cơ hội tái tạo nhà Ân. Võ Vương diệt Trụ, mời ra giúp nước, ông không chịu — "
+            "ra Triều Tiên (Hàn Quốc) lập nước riêng. Hàn Quốc coi Cơ Tử như quốc tổ. "
+            "→ Giấu sáng = giữ vững khí, không làm mất dòng dõi."
+        ),
+        "key_rule_KHOAN_DUNG_NHIN_THOANG_TOI_THUC_SANG": (
+            "**Lời Tượng + PBC**: 'Quân tử coi tượng mặt trời lặn vào đất mà điều khiển "
+            "quần chúng — khoan dung hòa nhã, bỏ ngó cái thấp kém. Rất sáng suốt mà như cách "
+            "HỒ ĐỒ, khiến người không kiêng sợ đức sáng của mình → bao nhiêu sự tình lộ cho "
+            "mình biết hết. Nhìn thoáng qua như tối mờ — kỳ thực rất sáng.' "
+            "→ Áp dụng project: KHÔNG show off engine sâu để người ngạc nhiên ngược."
+        ),
+    },
     "Tiểu Súc": {
         "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
         "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",
