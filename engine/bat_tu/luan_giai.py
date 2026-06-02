@@ -1000,6 +1000,59 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _build_dung_than_cascade(state: dict) -> list[dict]:
+    """Build cascade 2-3 Dụng Thần theo Thiệu Vĩ Hoa tr. 101-109.
+
+    Output structure cho UI hiển thị #1/#2/#3 priority.
+    """
+    from .dung_than import determine_dung_than_cascade
+    ngu_hanh = state.get("ngu_hanh", {})
+    counts = ngu_hanh.get("counts", {})
+    assessment = ngu_hanh.get("day_master_assessment", {})
+    day_element = (assessment.get("day_master_element") or "").lower()
+    strength_tag = assessment.get("strength_tag", "balanced")
+    if not day_element or not counts:
+        return []
+    try:
+        return determine_dung_than_cascade(
+            day_element=day_element,
+            element_counts=counts,
+            strength_tag=strength_tag,
+        )
+    except Exception:
+        return []
+
+
+def _detect_tu_tru_kho(state: dict) -> dict | None:
+    """Tứ Trụ KHÔ — mệnh cục thiếu 2+ ngũ hành (Thiệu Vĩ Hoa tr. 108).
+
+    Paradigm: "Tứ trụ rất khô, ngoài Tài Tinh ra không có gì có thể giải cứu."
+    KHÔNG predict-tool — KHÔNG output "khó nuôi/chết yếu". Chỉ output WARNING
+    + suggest điều hòa qua môi trường + hành động.
+    """
+    counts = state.get("ngu_hanh", {}).get("counts", {})
+    if not counts:
+        return None
+    missing = [el for el in ("kim", "mộc", "thủy", "hỏa", "thổ") if counts.get(el, 0) == 0]
+    if len(missing) < 2:
+        return None
+    # Severity by số hành thiếu
+    sev = "critical" if len(missing) >= 3 else "high"
+    return {
+        "missing_elements": missing,
+        "missing_count": len(missing),
+        "severity": sev,
+        "narrative": (
+            f"**Tứ Trụ KHÔ** ⚠️ — mệnh cục thiếu {len(missing)} hành: "
+            f"{', '.join(m.title() for m in missing)}. "
+            f"Thiệu Vĩ Hoa tr. 108: _'Tứ trụ rất khô, ngoài Tài Tinh ra không có gì giải cứu.'_ "
+            f"Paradigm KHÔNG predict tĩnh — đây là **TÍN HIỆU cân bằng** qua môi trường + hành động: "
+            f"chọn nghề / nơi ở / quan hệ có nhiều {' + '.join(missing)} để bổ hành thiếu. "
+            f"Đặc biệt chú ý sức khoẻ liên quan các hành missing (xem mục Sức Khoẻ)."
+        ),
+    }
+
+
 def _compose_closing(state: dict) -> str:
     """Paradigm closing — tri mệnh."""
     return (
@@ -1054,6 +1107,8 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "favorable_combinations": _detect_favorable_combinations(bat_tu_state),
         "warnings": _detect_warnings(bat_tu_state),
         "thong_quan": _detect_thong_quan(bat_tu_state),
+        "tu_tru_kho": _detect_tu_tru_kho(bat_tu_state),
+        "dung_than_cascade": _build_dung_than_cascade(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),

@@ -364,13 +364,33 @@ def detect_than_sat(pillars: dict, day_master_stem: str) -> list[dict]:
                 found_at_pillar=pos, branch_or_stem=target,
             ))
 
-    # 4. Dương Nhận
+    # 4. Dương Nhận (羊刃, còn gọi Kình Dương) — paradigm Thiệu Vĩ Hoa tr. 107:
+    # "Lộc quá thì sinh kình dương" — đất cực thịnh của thiên can, cạnh Lộc 1 chi.
+    # Lệnh tháng (chi tháng) = XẤU NHẤT vì nhật chủ kiến mộc cực vượng.
+    # KHÔNG predict-tool: cùng Kình Dương lệnh tháng, người chém mướn / người thăng tướng
+    # — tùy môi trường + kỷ luật (case study 2 nam 20 tuổi Thiệu Vĩ Hoa tr. 107-108).
     target = DUONG_NHAN.get(day_master_stem)
     if target:
         for pos in _scan_for_branch_target(pillars, target):
+            if pos == "month":
+                desc = (
+                    "Sao quyền lực có lưỡi sắc — ở LỆNH THÁNG = nặng nhất "
+                    "(Thiệu Vĩ Hoa tr. 107: 'kiến mộc, cực thịnh của thiên can'). "
+                    "KHÔNG phải án định — paradigm là 'khí thừa cần kỷ luật chuyển hóa'. "
+                    "Cùng Kình Dương lệnh tháng, người chém mướn / người thăng tướng — "
+                    "tùy môi trường + hành động cương trực."
+                )
+                tag = "D.Nhận⚠"
+            else:
+                desc = (
+                    "Sao quyền lực có lưỡi sắc — ở Trụ {pos} = mild. "
+                    "Nguy cơ xung đột / tai nạn khi gặp Thất Sát phối Nhận (羊刃逢沖). "
+                    "Sức cương cần kênh thoát qua kỷ luật / võ tướng / phẫu thuật."
+                ).format(pos={"year":"Năm","day":"Ngày","hour":"Giờ"}.get(pos, pos))
+                tag = "D.Nhận"
             out.append(ThanSatStar(
-                name="Dương Nhận", short_tag="D.Nhận", polarity="dữ",
-                description="Sao quyền lực có lưỡi sắc — nguy cơ tai nạn / xung đột.",
+                name="Dương Nhận", short_tag=tag, polarity="dữ",
+                description=desc,
                 found_at_pillar=pos, branch_or_stem=target,
             ))
 

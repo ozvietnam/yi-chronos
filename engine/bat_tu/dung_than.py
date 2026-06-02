@@ -319,3 +319,97 @@ def determine_dung_than(
         strength_climate_agree=strength_climate_agree,
         confidence=confidence,
     )
+
+
+# ─── Cascade Dụng Thần (Thiệu Vĩ Hoa tr. 101-109) ───────────────────────────
+# Mỗi tình huống → 2-3 dụng thần xếp hạng #1/#2/#3
+# Paradigm: "Bệnh-Thuốc" — nguồn bệnh quyết định thứ tự thuốc.
+
+def _dominant_role_against_dm(
+    *, day_element: str, element_counts: dict[str, float]
+) -> str:
+    """Tìm role có count cao nhất (= nguồn 'bệnh' chính của mệnh cục).
+    Returns one of: pressure, wealth, output, self, seal.
+    """
+    roles = classify_elements_role(day_element)
+    role_counts: dict[str, float] = {}
+    for el, role in roles.items():
+        role_counts[role] = role_counts.get(role, 0) + element_counts.get(el, 0)
+    # Day Master's own element ("self") = bản thân, không tính là bệnh
+    role_counts.pop("self", None)
+    if not role_counts:
+        return "pressure"
+    return max(role_counts.items(), key=lambda kv: kv[1])[0]
+
+
+def determine_dung_than_cascade(
+    *, day_element: str, element_counts: dict[str, float], strength_tag: str
+) -> list[dict]:
+    """Cascade Dụng Thần #1/#2/#3 theo Thiệu Vĩ Hoa tr. 101-109.
+
+    Returns list of {rank, role, role_vi, element, reason}.
+
+    5 trường hợp (Bệnh-Thuốc paradigm):
+    - Weak + Quan Sát nhiều  → Ấn → Tỉ Kiếp
+    - Weak + Tài nhiều        → Tỉ Kiếp → Ấn
+    - Weak + Thực Thương nhiều → Ấn → Tỉ Kiếp
+    - Strong + Ấn nhiều       → Tài → Quan Sát → Thực Thương
+    - Strong + Tỉ Kiếp nhiều  → Quan Sát → Thực Thương → Tài
+    """
+    roles = classify_elements_role(day_element)
+    role_to_el = {role: el for el, role in roles.items()}
+    dominant = _dominant_role_against_dm(
+        day_element=day_element, element_counts=element_counts
+    )
+
+    # Define cascade per situation
+    if strength_tag == "weak":
+        if dominant == "pressure":
+            cascade_roles = ["seal", "self"]
+            paradigm = "Nhược + Quan Sát nhiều → Ấn hóa Sát sinh thân + Tỉ Kiếp giúp đỡ"
+        elif dominant == "wealth":
+            cascade_roles = ["self", "seal"]
+            paradigm = (
+                "Nhược + Tài nhiều → Tỉ Kiếp giúp thân thắng tài + Ấn sinh thân. "
+                "Của cải = mầm tai họa nếu thân không gánh nổi."
+            )
+        elif dominant == "output":
+            cascade_roles = ["seal", "self"]
+            paradigm = "Nhược + Thực Thương nhiều → Ấn vừa sinh thân vừa chế Thực Thương"
+        else:
+            cascade_roles = ["seal", "self"]
+            paradigm = "Nhược chung — Ấn + Tỉ Kiếp giúp đỡ"
+    elif strength_tag == "strong":
+        if dominant == "seal":
+            cascade_roles = ["wealth", "pressure", "output"]
+            paradigm = (
+                "Vượng + Ấn nhiều → Tài chế áp Ấn + hao thân. Quan Sát + Thực Thương "
+                "là thuốc thứ hai/ba khi không có Tài."
+            )
+        elif dominant == "self":
+            cascade_roles = ["pressure", "output", "wealth"]
+            paradigm = (
+                "Vượng + Tỉ Kiếp nhiều → Quan Sát chế áp Kiếp + Thực Thương xì hơi vượng. "
+                "Tài là thuốc cuối khi không có 2 cái trên."
+            )
+        else:
+            cascade_roles = ["pressure", "wealth", "output"]
+            paradigm = "Vượng chung — Quan Sát + Tài + Thực Thương tiêu hao"
+    else:
+        # Trung hòa — không cần cascade dramatic
+        return []
+
+    cascade = []
+    for rank, role in enumerate(cascade_roles, start=1):
+        if role not in role_to_el:
+            continue
+        el = role_to_el[role]
+        cascade.append({
+            "rank": rank,
+            "role": role,
+            "role_vi": ROLE_VI[role],
+            "element": el,
+            "element_count_in_chart": element_counts.get(el, 0),
+            "paradigm": paradigm if rank == 1 else "",
+        })
+    return cascade
