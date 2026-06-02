@@ -25,16 +25,19 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 
 
-# Map 3-bit binary (top-down, "abc") → Bát Quái name
+# Map 3-bit binary (TOP-DOWN: first char = top yao) → Bát Quái name
+# Convention verified với data/seeds/hexagrams_master.json
+# VD: Thái (000111) = upper Khôn (000) + lower Càn (111)
+#     Bác (100000) = upper Cấn (100) + lower Khôn (000) → 100 = Cấn ✓
 TRIGRAM_FROM_BINARY: dict[str, str] = {
-    "111": "Càn",   # ☰ Thiên
-    "110": "Đoài",  # ☱ Trạch
-    "101": "Ly",    # ☲ Hỏa
-    "100": "Chấn",  # ☳ Lôi
-    "011": "Tốn",   # ☴ Phong
-    "010": "Khảm",  # ☵ Thủy
-    "001": "Cấn",   # ☶ Sơn
-    "000": "Khôn",  # ☷ Địa
+    "111": "Càn",   # ☰ Thiên — 3 dương
+    "110": "Tốn",   # ☴ Phong — 2 dương trên + 1 âm dưới
+    "101": "Ly",    # ☲ Hỏa — dương-âm-dương
+    "100": "Cấn",   # ☶ Sơn — 1 dương trên + 2 âm dưới
+    "011": "Đoài",  # ☱ Trạch — 1 âm trên + 2 dương dưới
+    "010": "Khảm",  # ☵ Thủy — âm-dương-âm
+    "001": "Chấn",  # ☳ Lôi — 2 âm trên + 1 dương dưới
+    "000": "Khôn",  # ☷ Địa — 3 âm
 }
 
 # Trigram name → Element + Tượng
