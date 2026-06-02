@@ -201,6 +201,103 @@ CASE_STUDIES_PHAN_BA: list[dict] = [
         ),
     },
     {
+        "ten": "Tô Hoài",
+        "sinh": "1920-09-27 giờ Dậu (Canh Thân, Ất Dậu, Mậu Tý, Tân Dậu), Mệnh Mộc thạch lựu",
+        "tien_thien": "Đại Quá",
+        "hau_thien": "Tiểu Súc",
+        "ho_quai": "Khuê",
+        "hoa_cong": "Đoài ở Tiên Thiên + Hậu Thiên",
+        "phuong_phap_match": (
+            "Tô Hoài mệnh ĐẠI QUÁ + có Hóa Công → làm việc phi thường: 150+ đầu sách, đi khắp thế giới. "
+            "Cấu trúc Phong (gió) + Thiên (trời) + Đoài (đầm hồ) → 'làn gió bay trên trời cao'. "
+            "Khi tập trung paradigm Đoài (đầm hồ) → viết về quê đầm hồ Tây (Hà Nội): Dế Mèn, "
+            "Giảng Thề, Quê Nhà, Cát Bụi, Chuyện Cũ → kiệt tác."
+        ),
+        "paradigm_nhan_xet": (
+            "**Tiếc**: Có Đại Quá + Hóa Công thì có thể làm phi thường, nhưng nếu Tô Hoài tập trung "
+            "150 đầu sách vào QUÊ ĐẦM HỒ (paradigm chính của cấu trúc), bạn đọc nước nhà còn nhờ "
+            "nhiều hơn — Đại Quá có ưu tiên năng lượng nhưng vẫn nên đi đúng paradigm tượng quẻ."
+        ),
+        "source": "Xuân Cang p.465",
+    },
+    {
+        "ten": "Nguyên Ngọc",
+        "sinh": "1932-09-05 giờ Mão (Nhâm Thân, tháng Bảy)",
+        "tien_thien": "Địa Phong Thăng",
+        "ho_tien": "Lôi Trạch Quy Muội",
+        "hau_thien": "Thủy Địa Tỷ",
+        "ho_hau": "Sơn Địa Bác",
+        "hao_chu_menh_tt": 3,
+        "hao_chu_menh_ht": 6,
+        "dia_nguyen_khi": "Khôn (3 quẻ Khôn trong cấu trúc — rất giàu ĐNK)",
+        "phuong_phap_match": (
+            "Cấu trúc 4 quẻ: Địa + Phong + Thủy + Sơn — toàn ĐẤT + CÂY + NƯỚC. "
+            "→ Toàn bộ tác phẩm Nguyên Ngọc: 'Đất Nước Đứng Lên', 'Đất Quảng', 'Mạch nước ngầm', "
+            "'Rừng xanh', 'Mùa hoa thuốc phiện cuối cùng' — đều ĐẤT và NƯỚC. Không đi đâu ra "
+            "khỏi paradigm tượng quẻ. **Nguyên Ngọc → tự nhận ngỡ ngàng khi nhận ra.**"
+        ),
+        "paradigm_cay_mam_len_loi": (
+            "**Hào 3 quẻ Thăng (chủ mệnh tiền vận)**: 'Tiến lên DỄ NHƯ vào ấp không người.' "
+            "Tượng quẻ: cây mầm LEN LỎI lên qua sỏi đá, vượt trở ngại, hướng về ánh nắng. "
+            "→ Nguyên Ngọc là người: nhạy cảm với CÁI MỚI, ủng hộ cái mới hết lòng, giàu MƠ MỘNG + "
+            "TƯỞNG TƯỢNG + NIỀM TIN tâm linh (tin trong lòng, không lễ lạt). "
+            "Đường đời: học giỏi, vào bộ đội Tây Nguyên 1945, gặp quý nhân, sớm vào nghề làm báo."
+        ),
+        "paradigm_quy_muoi_cuc_doan": (
+            "**Hỗ Tiên Quy Muội** → Bạn bè dùng chữ CỰC ĐOAN để chỉ Nguyên Ngọc. "
+            "1987 làm Tổng Biên Tập báo Văn Nghệ — quẻ Tỷ → để xuất hàng loạt quan điểm đổi mới + "
+            "quá đà ('văn chương phải đạo', 'lời ai điếu cho văn chương minh họa'). "
+            "Cuối cùng chỉ làm được việc nhỏ, chưa đúng tham vọng lớn — paradigm Quy Muội."
+        ),
+        "source": "Xuân Cang p.466-482",
+    },
+    {
+        "ten": "Trần Đăng Khoa",
+        "sinh": "ngày tháng năm — cấu trúc giống NHL chỉ khác Hóa Công",
+        "tien_thien": "Phong Địa Quán",
+        "hau_thien": "Địa Thiên Thái",
+        "ho_quai": "Lôi Trạch Quy Muội + Sơn Địa Bác",
+        "hoa_cong": "Chấn ở Hỗ Hậu Thiên (NHL không có)",
+        "phuong_phap_match": (
+            "Cấu trúc Trần Đăng Khoa GIỐNG HỆT Nguyễn Hiến Lê (cả 4 quẻ + 2 hào nguyên đường)! "
+            "Chỉ khác: TĐK có Hóa Công Chấn (sấm) trong Hỗ Hậu Thiên — NHL không có. "
+            "Hóa Công Chấn → TĐK là THẦN ĐỒNG (Tử Quán trong Tứ Trụ — nổi danh rất sớm)."
+        ),
+        "paradigm_nhin_tu_troi_xuong": (
+            "**Hậu vận Thái** → cả Trần Đăng Khoa và NHL đều có tố chất TRỜI chiếm lĩnh tâm trí. "
+            "→ Cái nhìn TỪ TRỜI XUỐNG — bao quát, rộng rãi, phóng khoáng, công bằng, độ lượng. "
+            "TĐK: thơ + phê bình văn chương (Chân Dung và Đối Thoại). "
+            "NHL: tổng kết sách Khổng-Mạnh-Trang-Tử-Hàn Phi từ cái nhìn cao."
+        ),
+        "case_di_chech_hanh_lang": (
+            "**Đi chệch hành lang ngắn**: TĐK có ý định trở thành nhà thơ HẢI QUÂN — nhưng "
+            "TĐK không có duyên VÙNG TRỜI NƯỚC trong cấu trúc. Sau đó về đúng paradigm = "
+            "nhà thơ của ĐẤT TRỜI + GIÓ CÂY + ĐẦM HỒ + SẤM CHỚP."
+        ),
+        "source": "Xuân Cang p.495-519",
+    },
+    {
+        "ten": "Nguyễn Thị Thu Huệ",
+        "sinh": "1966-08-12 sau 3am giờ Dần (Bính Ngọ, Bính Thân, Quý Mão)",
+        "tien_thien": "Thiên Địa Bĩ",
+        "ho_tien": "Phong Sơn Tiệm (?)",
+        "hau_thien": "Địa Lôi Phục",
+        "thien_nguyen_khi": "Càn ở Hỗ Tiên Thiên",
+        "phuong_phap_match": (
+            "Tiền Thiên BĨ → Thu Huệ tự bạch: 'ĐẶC BIỆT SỢ NHỮNG NGƯỜI LỪA LỌC.' "
+            "→ Thu Huệ là BẠN của những THÂN PHẬN BĨ — người khốn khó, bế tắc, trôi dạt, cô đơn, "
+            "nhiều người được xếp 'tiểu nhân'. Truyện ngắn 'Ký ức': anh họa sĩ vì tôn trọng "
+            "tiết trinh người con gái mà làm cô không biết hạnh phúc dâng hiến — paradigm Bĩ."
+        ),
+        "paradigm_troi_dat": (
+            "**Tượng Thiên + Địa chi phối** → cảm xúc văn chương Thu Huệ về TRỜI ĐẤT: "
+            "trăng, hoa sữa, cát biển (không phải sóng — cát là tượng ĐẤT, không phải nước). "
+            "Hào 6 Bĩ: 'chí lớn cương quyết, có tài sắp đặt hơn người' → Thu Huệ làm PHIM từ "
+            "văn học (đòi hỏi cái nhìn bao quát, tỉnh táo, từ trên xuống)."
+        ),
+        "source": "Xuân Cang p.520-531",
+    },
+    {
         "ten": "Đoàn Thị Lam Luyến",
         "sinh": "1951-07-18 (Tân Mão, mệnh Mộc tùng bách)",
         "tien_thien": "Lôi Thiên Đại Tráng",
