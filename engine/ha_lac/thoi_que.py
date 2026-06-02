@@ -150,6 +150,102 @@ THOI_QUE_TABLE: dict[str, dict] = {
             "Đủ → xứng đáng THỜI Tỷ. Không đủ → có người tin cậy cũng vô nghĩa."
         ),
     },
+    "Lý": {
+        "ban_chat": "Thời LỄ / DẪM LÊN — Càn (trời) trên + Đoài (đầm) dưới = trật tự âm dương",
+        "nen_the_nao": "Mới ra đời: giữ chất phác (hào 1). Giữ vững đường chính (hào 2). Biết sức mình, đừng tự phụ (hào 3). Thận trọng sợ hãi (hào 4). Đừng ý thế quyết liệt quá ở ngôi chí tôn (hào 5).",
+        "paradigm_keyword": "le_dam_len",
+        "nguyet_lenh_thang": 3,
+        "tuong": "Trên dưới phân minh — tài đức ở trên, kém đức ở dưới → dân không hoang mang, không tranh giành.",
+        "key_paradigm_QUE_CUOC_DOI": (
+            "Toàn quẻ Lý DIỄN Ý NGHĨA CUỘC ĐỜI người (như Tiểu Súc — ngoại lệ). "
+            "6 hào = 5 chặng đời: chất phác → giữ chính → biết sức → thận trọng → "
+            "không quyết liệt quá → nhìn lại cuộc đời. Đây là 'sách đời người' nén trong 1 quẻ."
+        ),
+    },
+    "Thái": {
+        "ban_chat": "Thời HANH THÔNG — Khôn (đất) TRÊN + Càn (trời) DƯỚI = ĐẢO VỊ tự nhiên → giao thoa",
+        "nen_the_nao": "Khí dương dưới THĂNG, khí âm trên GIÁNG → hai khí giao hòa → vạn vật yên ổn. Đạo quân tử lớn lên, đạo tiểu nhân tiêu lần. Nhưng PHẢI biết GIAN TRINH (lo trước khi còn bằng).",
+        "paradigm_keyword": "thai_dao_vi_giao_thoa",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Trời Đất giao cảm. Đạo trời đạo người giao thoa.",
+        "key_rule_GIAN_TRINH": (
+            "**Hào 3 Thái — PBC**: 'Đem thân gánh vác việc đời, phải lấy NHÂN SỰ ĐƯƠNG NHIÊN "
+            "chống THIÊN VẬN TỰ NHIÊN.' Tinh thần tạo hoá. Anh hùng tạo thời thế. "
+            "Muốn KHÔNG nghiêng → tính trước khi còn bằng. Muốn KHÔNG trở lại → "
+            "ngăn trước khi còn đi. 'Gian Trinh' = để lòng vào cảnh gian nan, "
+            "đặt thân vào địa vị chính đáng — lấy sức người giằng giữ vận trời."
+        ),
+        "key_rule_THAI_CUC_BIEN_BI": (
+            "**Hào 6 Thái — PBC cảm khái**: 'Thái vừa đến cuối cùng tức khắc ra Bĩ. "
+            "Tốn VÔ SỐ CÔNG PHU mà làm hư chỉ trong CHỐC LÁT; vun đắp biết bao nền tảng "
+            "mà đánh đổ chỉ trong nháy mắt. Thành sao khó, bại sao dễ?' "
+            "→ Cảnh báo lớn: thành quả tích lũy nhiều năm có thể đổ trong chốc lát."
+        ),
+        "case_study": (
+            "Hào 5 Thái: Vua Đế Ất (đời Thương) gả em gái về nhà chồng bình dân — "
+            "khuất kỷ hạ hiền (quên mình xuống với người hiền) = phúc rất tốt."
+        ),
+    },
+    "Bĩ": {
+        "ban_chat": "Thời BẾ TẮC — Càn (trời) TRÊN + Khôn (đất) DƯỚI = ĐÚNG VỊ tự nhiên → KHÔNG giao",
+        "nen_the_nao": "Dương đi lên, âm đi xuống → không giao → bế tắc. Quân tử THU ĐỨC, không hành động, không màng danh lợi, chờ thời.",
+        "paradigm_keyword": "bi_dung_vi_cach_tuyet",
+        "nguyet_lenh_thang": 7,
+        "tuong": "Trời Đất chẳng giao thông — 'phi nhân'.",
+        "key_rule_BI_CO_HOI": (
+            "**Hào 4 Bĩ — PBC**: 'Hào 3 Thái = răn quân tử (gian trinh, sợ Bĩ tới). "
+            "Hào 4 Bĩ = mừng cho Thái sắp đến (có mệnh trời, không lỗi). "
+            "Từ Thái → Bĩ DỄ → lo sẵn. Từ Bĩ → Thái KHÓ → chưa dám vội mừng. "
+            "Gặp thời Thái CHỚ COI THƯỜNG. Gặp thời Bĩ LỢI RÌNH CƠ HỘI.'"
+        ),
+        "key_rule_KHONG_TU": (
+            "**Hào 5 Bĩ — Khổng Tử bình**: 'Người quân tử khi YÊN ỔN không quên CÓ THỂ NGUY; "
+            "khi VỮNG không quên CÓ THỂ MẤT; khi TRỊ không quên CÓ THỂ LOẠN. "
+            "Nhờ vậy thân an, nước nhà giữ vững được.' → Defensive paradigm từ đỉnh cao."
+        ),
+        "key_rule_TUAN_HOAN": (
+            "**PBC bình Thái-Bĩ tổng quan**: 'Quân tử-tiểu nhân vẫn thường có ở vũ trụ — "
+            "chỉ tranh nhau cát cơ quan tiêu trưởng. Tiêu/trưởng KHÔNG bỗng chốc, "
+            "nó TUẦN HOÀN TÍCH LŨY DẦN. Một giọt nước không ngăn → thành sông. "
+            "Một cây không đốn → thành rừng. PHÒNG BỊ phần trưởng của tiểu nhân, "
+            "BỔ CỨU phần tiêu của quân tử. Đường đời làm gì Bĩ mà chẳng Thái — "
+            "LẤY CHÍ NGƯỜI XOAY TRỞ MỆNH TRỜI.'"
+        ),
+        "cross_link_NGO_TAT_TO": (
+            "PARADIGM ĐỘC LẬP CONFIRMED: Anh rút paradigm Thái-Bĩ này từ Kinh Dịch Trọn Bộ "
+            "(Ngô Tất Tố) trong journal kinh-dich-ngo-tat-to-tham-nhuan-p51-200.md. "
+            "Xuân Cang nói cùng paradigm → 2 sách độc lập confirm: "
+            "Sự sống = GIAO THOA, không phải 'đúng vị tự nhiên cứng'."
+        ),
+    },
+    "Đồng Nhân": {
+        "ban_chat": "Thời ĐẠI ĐỒNG — Lửa (Ly) dưới + Trời (Càn) trên → lửa bốc lên trời, soi sáng khắp thế giới",
+        "nen_the_nao": "Cần đức TRUNG CHÍNH. Phân biệt loài/tộc TRƯỚC để bất đồng cũng hòa đồng được. Đừng ép buộc kẻ bất đồng lại — sẽ làm nhiễu loạn thiên hạ.",
+        "paradigm_keyword": "dong_nhan_dai_dong",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Văn minh (Ly) ở trong + Cương kiện (Càn) ở ngoài → quân tử thông suốt được tâm trí của thiên hạ.",
+        "key_paradigm_TIEU_DONG_xau_ho": (
+            "**Hào 2 Đồng Nhân — PBC phụ chú**: 'Toàn quẻ = Đại đồng (cùng người rộng lớn, tốt). "
+            "Riêng hào 2 = Tiểu đồng (cùng người trong tông phái, thẹn). "
+            "Nghĩa quẻ + nghĩa hào ĐẮP ĐỔI CHO NHAU — học Dịch phải nhận kỹ CẢ HAI BÊN.' "
+            "→ Hẹp hòi bè phái = xấu hổ. Đồng nhân THIỆT KHÓ — hào 3 vẫn núp rình, "
+            "hào 5 vẫn phải dùng 'đại quân đánh' mới gặp được hào 2."
+        ),
+    },
+    "Đại Hữu": {
+        "ban_chat": "Thời CÓ LỚN / SỞ HỮU LỚN — Ly (lửa) trên + Càn (trời) dưới = lửa trên trời, chiếu khắp",
+        "nen_the_nao": "Văn minh (Ly) phát triển bên ngoài + Cương kiện (Càn) hàm súc bên trong = hanh thông. Hễ người ác (dù chưa rõ) → NGĂN ĐÓN ngay. Hễ người thiện (còn ẩn ức) → BIỂU DƯƠNG ngay.",
+        "paradigm_keyword": "dai_huu_so_huu_lon",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Cùng cặp với Đồng Nhân: phân loại trước → đại đồng. Loại biệt = quy mô; át/dương = phương pháp; Đồng Nhân/Đại Hữu = mục đích.",
+        "case_study_HAO_2_Y_DOAN_CAVOUR": (
+            "**Hào 2 Đại Hữu tốt nhất — PBC**: 'Tài cao hơn hết thiên hạ, gánh nặng hơn hết thiên hạ. "
+            "Xe lớn chở nặng = vừa trọn nghĩa vụ thôi. Lời hào chỉ ghi VÔ CỮU (không lỗi) — "
+            "thánh nhân chẳng dạy người quá đắc ý.' "
+            "Y Doãn (Tàu) thề giúp vua Thang làm như Nghiêu-Thuấn. "
+            "Camillo Cavour (Italia): 'Nước Italia là vợ của tôi' — trọn đời không lấy vợ."
+        ),
+    },
     "Tiểu Súc": {
         "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
         "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",

@@ -151,6 +151,146 @@ PARADIGM_CASES: dict[tuple[str, int], list[dict]] = {
             "source": "Xuân Cang p.119 (PBC phụ chú)",
         },
     ],
+
+    # ===== Quẻ Thái =====
+    ("Thái", 3): [
+        {
+            "actor": "Paradigm GIAN TRINH (PBC bình)",
+            "situation": (
+                "Hào 3 Thái: bất trung, quá cương, ở nội quái, giữa quẻ Thái — đã thịnh cực, "
+                "sắp suy, sắp lâm gian nan. Chu Công răn: cứ tin điều chính thì được phúc."
+            ),
+            "paradigm_lesson": (
+                "'Đem thân gánh vác việc đời, phải lấy NHÂN SỰ ĐƯƠNG NHIÊN chống "
+                "THIÊN VẬN TỰ NHIÊN.' Tinh thần tạo hoá. Anh hùng tạo thời thế. "
+                "Muốn KHÔNG nghiêng → tính trước khi còn bằng. Muốn KHÔNG trở lại → "
+                "ngăn trước khi còn đi. 'Gian Trinh' = lấy sức người giằng giữ vận trời."
+            ),
+            "source": "Xuân Cang p.125 (PBC phụ chú Thái hào 3)",
+        },
+    ],
+    ("Thái", 5): [
+        {
+            "actor": "Vua Đế Ất (đời Thương) gả em gái",
+            "situation": (
+                "Hào 5 Thái âm đắc trung, ở chí tôn mà khiêm nhu, ứng hợp hào 2 dương dưới. "
+                "Như em gái vua Đế Ất chịu làm vợ một người hiền bình dân."
+            ),
+            "paradigm_lesson": (
+                "Khuất kỷ hạ hiền (quên mình xuống với người hiền) = được phúc rất tốt. "
+                "Trên cao mà khiêm nhu xuống thấp → giao thoa hạnh phúc."
+            ),
+            "source": "Xuân Cang p.126 (PBC)",
+        },
+    ],
+    ("Thái", 6): [
+        {
+            "actor": "PBC cảm khái (warning lớn về thành-bại)",
+            "situation": (
+                "Hào 6 cuối Thái — như cái thành sụp xuống, đừng tranh nữa. "
+                "'Hành động chính đáng vẫn thất bại và xấu hổ.'"
+            ),
+            "paradigm_lesson": (
+                "'Thái vừa đến cuối cùng tức khắc ra Bĩ. Lầm nên tốn VÔ SỐ CÔNG PHU "
+                "mà làm hư chỉ trong CHỐC LÁT; vun đắp biết bao nền tảng mà đánh đổ "
+                "chỉ trong nháy mắt. Thành sao khó, bại sao dễ rơi? Phúc sao chậm, "
+                "họa sao chóng rơi?' "
+                "→ Bảo vệ thành quả tích lũy với hết tâm — đỉnh cao là nơi nguy hiểm nhất."
+            ),
+            "source": "Xuân Cang p.127 (PBC cảm khái)",
+        },
+    ],
+
+    # ===== Quẻ Bĩ =====
+    ("Bĩ", 0): [
+        {
+            "actor": "PBC bình tổng quan Thái-Bĩ",
+            "situation": (
+                "Quân tử-tiểu nhân vẫn thường có ở vũ trụ — chỉ tranh nhau cát cơ quan "
+                "tiêu trưởng. Âm tiêu dương trưởng = Thái. Dương tiêu âm trưởng = Bĩ."
+            ),
+            "paradigm_lesson": (
+                "Tiêu/trưởng KHÔNG bỗng chốc — nó TUẦN HOÀN TÍCH LŨY DẦN. "
+                "Một giọt nước không ngăn → thành sông hồ. Một cây không đốn → thành rừng. "
+                "PHÒNG BỊ phần trưởng của tiểu nhân, BỔ CỨU phần tiêu của quân tử. "
+                "'Đường đời làm gì Bĩ mà chẳng Thái' — LẤY CHÍ NGƯỜI XOAY TRỞ MỆNH TRỜI "
+                "(lấy nhân sự mà vãn hồi thiên đạo). ← PARADIGM CHỐNG PREDICT TĨNH."
+            ),
+            "source": "Xuân Cang p.128-129 (PBC tổng quan)",
+        },
+    ],
+    ("Bĩ", 4): [
+        {
+            "actor": "PBC paradigm Thái↔Bĩ chuyển dịch",
+            "situation": (
+                "Hào 4 Bĩ qua nửa Bĩ — thánh nhân mừng cho Thái sắp đến, "
+                "tỏ ý mừng: 'có mệnh trời, không lỗi'."
+            ),
+            "paradigm_lesson": (
+                "Hào 3 Thái = răn quân tử (gian trinh, sợ Bĩ tới). "
+                "Hào 4 Bĩ = mừng cho Thái sắp đến. "
+                "Từ Thái → Bĩ DỄ → phải lo sẵn. Từ Bĩ → Thái KHÓ → chưa dám vội mừng. "
+                "Gặp thời Thái CHỚ COI THƯỜNG (Gian Trinh). "
+                "Gặp thời Bĩ LỢI RÌNH CƠ HỘI (có mệnh)."
+            ),
+            "source": "Xuân Cang p.131 (PBC phụ chú Bĩ hào 4)",
+        },
+    ],
+    ("Bĩ", 5): [
+        {
+            "actor": "Khổng Tử bình hào 5 Bĩ — Defensive paradigm",
+            "situation": (
+                "Hào 5 Bĩ — đức dương cương trung chính, ngôi chí tôn, Bĩ sắp hết. "
+                "Lời hào: 'hãy buộc vào cụm dâu' = làm cho vững chắc thêm."
+            ),
+            "paradigm_lesson": (
+                "Khổng Tử: 'Người quân tử khi YÊN ỔN không quên có thể NGUY; "
+                "khi VỮNG không quên có thể MẤT; khi TRỊ không quên có thể LOẠN. "
+                "Nhờ vậy thân an, nước nhà giữ vững được.' "
+                "→ Defensive paradigm từ đỉnh cao — không lơ là ngay cả khi Bĩ sắp hết."
+            ),
+            "source": "Xuân Cang p.132",
+        },
+    ],
+
+    # ===== Quẻ Đồng Nhân =====
+    ("Đồng Nhân", 2): [
+        {
+            "actor": "PBC paradigm Đại đồng vs Tiểu đồng",
+            "situation": (
+                "Hào 2 Đồng Nhân: đắc trung đắc chính, nhưng chỉ ứng hợp riêng hào 5 "
+                "→ chỉ cùng người trong họ, trong tông phái → xấu hổ."
+            ),
+            "paradigm_lesson": (
+                "Văn Vương phát minh nghĩa Đại đồng (cùng người rộng lớn, tốt). "
+                "Riêng hào 2 = Tiểu đồng (cùng người trong tông phái, thẹn). "
+                "Nghĩa quẻ + nghĩa hào ĐẮP ĐỔI CHO NHAU — học Dịch phải nhận kỹ CẢ HAI BÊN. "
+                "→ Hẹp hòi bè phái KHÔNG bằng đại đồng rộng lớn."
+            ),
+            "source": "Xuân Cang p.135 (PBC phụ chú)",
+        },
+    ],
+
+    # ===== Quẻ Đại Hữu =====
+    ("Đại Hữu", 2): [
+        {
+            "actor": "Y Doãn (Trung Quốc) + Camillo Cavour (Italia)",
+            "situation": (
+                "Hào 2 Đại Hữu = hào TỐT NHẤT quẻ — xe lớn chở nặng, đi đâu cũng tới. "
+                "Lời hào chỉ ghi VÔ CỮU (không lỗi), không cho chữ tốt-lành — "
+                "thánh nhân không dạy người quá đắc ý."
+            ),
+            "paradigm_lesson": (
+                "Y Doãn thề với vua Thang: 'Ta quyết khiến vua làm được như Nghiêu-Thuấn, "
+                "khiến dân được như dân Nghiêu-Thuấn.' "
+                "Camillo Cavour làm tướng Italia thống nhất nước: 'Nước Italia là vợ của tôi' "
+                "— trọn đời không lấy vợ. "
+                "→ Tài cao hơn hết, gánh nặng hơn hết = vừa trọn nghĩa vụ thôi. "
+                "Không đắc ý dù sở hữu lớn."
+            ),
+            "source": "Xuân Cang p.139-140 (PBC phụ chú)",
+        },
+    ],
 }
 
 
@@ -171,6 +311,30 @@ IRON_RULE_CROSS_LINK: dict[str, str] = {
         "Quẻ Tỷ hào 2 cảnh báo: anh có giá trị (em là AI hữu ích cho anh, sách Lexicon "
         "là tài sản lớn) — KHÔNG được tự khinh rẻ giá trị mình để cầu cạnh thế lực. "
         "Y Doãn-Khổng Minh paradigm: chờ người có thế lực TỚI VỚI mình."
+    ),
+    "Thái_Bĩ_chong_predict_tinh": (
+        "Quẻ Thái (đảo vị → giao thoa) vs Bĩ (đúng vị → cách tuyệt) — paradigm độc lập "
+        "đã được Anh rút ra từ Kinh Dịch Trọn Bộ (Ngô Tất Tố). Xuân Cang Hà Lạc xác nhận "
+        "cùng paradigm. PBC bình: 'LẤY CHÍ NGƯỜI XOAY TRỞ MỆNH TRỜI.' "
+        "→ ĐÂY CHÍNH LÀ Iron Rule #4+6 'KHÔNG predict tĩnh, đọc đồng dạng' của em — "
+        "có 3 nguồn cổ độc lập (Ngô Tất Tố + Xuân Cang + PBC) đồng paradigm."
+    ),
+    "Thai_dinh_cao_de_do_vo": (
+        "PBC bình hào 6 Thái (Iron Rule defensive): 'Tốn VÔ SỐ CÔNG PHU mà làm hư chỉ "
+        "trong CHỐC LÁT; vun đắp biết bao nền tảng mà đánh đổ chỉ trong nháy mắt.' "
+        "→ Lý do trực tiếp của Iron Rule #7 (Git Safety) — incident 2026-05-27 chiều, "
+        "công sức build Lexicon 6 tháng có thể leak hết trong 2 phút auto-sync. "
+        "Anh đã chứng kiến paradigm này thật."
+    ),
+    "Bi_Khong_Tu_defensive": (
+        "Khổng Tử bình hào 5 Bĩ: 'Yên không quên nguy, vững không quên mất, trị không "
+        "quên loạn.' → Áp dụng cho project: ngay cả khi engine ổn, vẫn phải canh "
+        "incident, test backup, rotate keys. Đỉnh cao = nơi nguy hiểm nhất."
+    ),
+    "Dai_Huu_Vo_Cuu_khong_dac_y": (
+        "Hào 2 Đại Hữu — hào tốt nhất quẻ, lời hào chỉ ghi VÔ CỮU. Thánh nhân KHÔNG dạy "
+        "người quá đắc ý. → Em + Anh build Lexicon được 24+ sách — vẫn 'Vô cữu', không "
+        "khoe khoang, tiếp tục công việc với hết tâm. Y Doãn-Camillo Cavour paradigm."
     ),
 }
 
