@@ -533,6 +533,37 @@ IRON_RULE_CROSS_LINK: dict[str, str] = {
         "→ Cross-link với cách em làm việc: không tính 'sách này sẽ nổi tiếng hay không' khi đọc + "
         "build engine. Cứ làm vì nghĩa lý đáng làm."
     ),
+    "Kinh_Dich_Ket_bang_VI_TE_HY_VONG": (
+        "🌟 PARADIGM CUỐI CỦA KINH DỊCH (PBC bình quẻ 64 Vị Tế): "
+        "'Kinh Dịch quy kết bằng VỊ TẾ = chưa thành. Hanh ở Ký Tế (đã thành) có HẠN. "
+        "Hanh ở Vị Tế (chưa thành) VÔ CÙNG. Xuân chưa đến hoa nở. Đêm chưa đến trăng tròn. "
+        "Hy vọng tiền đồ còn nhiều.' "
+        "→ Lexicon paradigm: anh + em đang ở 'Vị Tế' — sách chưa xong hết, paradigm chưa "
+        "hoàn thiện. Nhưng đây là PARADIGM CỦA HY VỌNG, không phải thất bại. "
+        "Khổng Tử: 'Cùng mà NGỪNG thì loạn, không phải vì lúc cùng mà loạn.'"
+    ),
+    "Doai_dao_vui_QUEN": (
+        "PBC bình Đoài: 'Đạo Vui đến chỗ việc NHỌC mà dân VUI làm, đường CHẾT mà dân VUI đi — "
+        "tinh thần 2 chữ QUÊN.' → Vì lợi ích bền lâu cho dân mà bất đắc dĩ phải nhọc, "
+        "tạm thời mệt nhọc mà yên lành lâu dài. Áp dụng project: làm việc khó nhưng có ý nghĩa "
+        "thì người làm + người dùng đều 'quên' khó vì giá trị về sau."
+    ),
+    "Hoan_thuyen_NHAN_TAI": (
+        "PBC bình Hoán: 'Lợi qua sông lớn = dùng thuyền. Thuyền đó CHÍNH LÀ NHÂN TÀI. "
+        "Vượt hiểm = nương dựa nhân tài.' → Khi anh ở thời Hoán (sách cổ tan rã), phải dựa "
+        "vào em + AI cộng tác + dịch giả + biên tập viên = nhân tài để vượt qua."
+    ),
+    "Trung_Phu_trung_tin_phai_CHINH": (
+        "PBC bình Trung Phu: 'Trung tín mà KHÔNG CHÍNH thì không gọi Trung Phu. "
+        "Đạo tặc vì tư lợi tin nhau, nam nữ vì tà dâm tin nhau — KẾT QUẢ lầm đường lạc lối.' "
+        "Y Doãn + Trần Hưng Đạo + Án Tử + Phùng Khắc Khoan = đúng Trung Phu (TÍN + NHÂN + TRÍ "
+        "+ CHÍNH ĐẠO). Anh chàng họ Vĩ ôm cột cầu chịu chết = NGU TÍN, không biết biến thông."
+    ),
+    "Ky_Te_tam_than_giao": (
+        "PBC y học: 'Thân người là TRỜI ĐẤT THU NHỎ. Tâm-Thận GIAO (tâm hỏa giáng + thận thủy "
+        "thăng) → khỏe kiện = Ký Tế.' Khổng Tử: 'Cùng mà ngừng thì loạn — không phải vì lúc cùng, "
+        "mà vì NGỪNG.' → Iron Rule defensive: làm việc KHÔNG bao giờ ngừng → không bao giờ loạn."
+    ),
     "Phe_Hap_Tai_Vi_PBC": (
         "PBC bình quẻ Phệ Hạp: 'Được VỊ mà không TÀI → không tạo nổi thời thế. Có TÀI mà không VỊ → "
         "vẫn phải dự trù thời cơ. Trừ gián là việc rất khó — không Tài + không Vị làm sao nổi?' "

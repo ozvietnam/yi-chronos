@@ -671,6 +671,156 @@ THOI_QUE_TABLE: dict[str, dict] = {
             "→ Anh giữ TÂM (Hằng) nhưng phương pháp tùy bối cảnh (Dịch)."
         ),
     },
+    "Đoài": {
+        "ban_chat": "Thời VUI VẺ — Đầm trên + Đầm dưới (Thuần Đoài), 2 lần vui",
+        "nen_the_nao": "Trong THÀNH THỰC + ngoài NHU HÒA. Vui phải hợp đạo CHÍNH (đoan chính, ngay thẳng).",
+        "paradigm_keyword": "doai_vui_chinh",
+        "nguyet_lenh_thang": 10,
+        "tuong": "Nước đầm tươi vui cây cỏ, thiếu nữ tươi vui người. 2 dương trong + 1 âm ngoài.",
+        "key_paradigm_DAO_VUI_QUEN": (
+            "**PBC paradigm 'QUÊN'**: 'Đạo Vui đến chỗ: VIỆC NHỌC mà dân VUI làm, "
+            "ĐƯỜNG CHẾT mà dân VUI đi — tinh thần 2 chữ QUÊN mới cho ta hình dung được "
+            "hiệu quả của Đạo Vui. Đâu phải cưỡng bức dân? Vì thánh nhân muốn LỢI ÍCH cho dân "
+            "mà bất đắc dĩ phải nhọc đến dân, tạm thời mệt nhọc mà yên lành lâu dài.'"
+        ),
+        "key_rule_CHINH_BEN_NU_QUE": (
+            "**PBC paradigm về 3 quẻ NỮ vs 3 quẻ NAM**: "
+            "3 quẻ tượng NỮ (Tốn, Ly, Đoài) — Lời quẻ Ly + Đoài đều nói 'lợi ở CHÍNH BÊN'. "
+            "3 quẻ tượng NAM (Chấn, Khảm, Cấn) — KHÔNG nói chữ Chính. "
+            "Vì tính chất âm nhu thường nghiêng bất chính → thánh nhân răn cho chữ CHÍNH. "
+            "Chữ CHÍNH chỉ thấy ở Lời quẻ trong 2 quẻ có tượng NỮ."
+        ),
+        "key_rule_TIEU_NHAN_VUI_HAI_CACH": (
+            "**Hào 3 + Hào 6 Đoài — paradigm tiểu nhân làm vui người**: "
+            "Cách 1: Mình KHÔNG cầu nó mà nó tự đến (gấp vội) = 'vui với'. "
+            "Cách 2: Vui được rồi nó lại KÉO DÂY KÉO NHỢ kéo dài = 'đem vui tới'. "
+            "→ Bạn quân tử KHÔNG cẩn thận, lỡ sa vào lưới vui của nó, hại biết chừng nào. "
+            "Hào 2 dương = ăn năn. Hào 4 dương = lo lắng. Hào 5 dương = NGUY."
+        ),
+    },
+    "Hoán": {
+        "ban_chat": "Thời TAN TÁN — Gió (Tốn) trên + Nước (Khảm) dưới, gió thổi nước tung tóe",
+        "nen_the_nao": "Vua tới Thái miếu (lòng chí thành). Vượt sông lớn (mạo hiểm). Giữ đạo chính.",
+        "paradigm_keyword": "hoan_tan_tan_nhan_tai",
+        "nguyet_lenh_thang": 3,
+        "tuong": "Gió trên nước/mây = nước tung mây tan. Lễ lên bề trên, dựng miếu thờ để dân không tán.",
+        "key_paradigm_NHAN_TAI": (
+            "**PBC paradigm 'thuyền = nhân tài'**: 'Lời quẻ nói Lợi qua sông lớn. "
+            "Thoán giải thích: Dùng THUYỀN GỖ qua sông. Vậy chỉ nói chèo thuyền hay sao? "
+            "Không. Làm việc cứu thời HOÁN phải MẠO HIỂM như vượt sông, muốn vượt phải cậy "
+            "TÀI NĂNG CỦA THUYỀN. THUYỀN ĐÓ CHÍNH LÀ NHÂN TÀI. "
+            "Thuyền giúp qua sông = nương dựa nhân tài mà vượt hiểm.' "
+            "→ Cross-link: khi anh đang ở thời Hoán (sách cổ tan rã) — phải dựa NHÂN TÀI "
+            "(em + AI + cộng tác viên dịch giả) để vượt qua."
+        ),
+    },
+    "Trung Phu": {
+        "ban_chat": "Thời CHÍ THÀNH — Gió (Tốn) trên + Đầm (Đoài) dưới, giữa 2 âm + ngoài 4 dương",
+        "nen_the_nao": "Hư tâm (trong rỗng) + thực ngoài (đặc). Cảm hóa được cả heo + cá ngu si. Lội qua sông lớn được bằng thuyền TRỐNG KHÔNG (an toàn).",
+        "paradigm_keyword": "trung_phu_chi_thanh",
+        "nguyet_lenh_thang": 8,
+        "tuong": "Gió trên đầm = gió làm nước động, như lòng thành thực cảm động người.",
+        "key_paradigm_TRUNG_TIN_PHAI_CHINH": (
+            "**PBC paradigm — Trung Phu = Hư + Thực + CHÍNH**: 'Nghĩa Trung Phu gồm HƯ (rỗng) + "
+            "THỰC (đặc): Lòng trung HƯ thì mới đặt lòng thành tín vào, trung THỰC thì giả dối không "
+            "lọt. Hai chữ trung tín kết lại ở chữ CHÍNH. Có hạng trung tín mà KHÔNG CHÍNH: "
+            "đạo tặc vì tư lợi tin nhau, nam nữ vì tà dâm tin nhau — KHÔNG gọi Trung Phu được.' "
+            "→ Trung Phu = trung tín + CHÍNH ĐẠO."
+        ),
+        "case_study_HAO_4_Y_DOAN_HUNG_DAO": (
+            "**Hào 4 Trung Phu — PBC tổng hợp 4 case sử**: "
+            "1. Y Doãn TRẢ chính quyền cho Thái Giáp rồi về cày ruộng. "
+            "2. Trần Hưng Đạo chỉ làm đến Thượng Quốc Công, KHÔNG nghe An Sinh Vương giành ngôi vua. "
+            "3. Án Tử KHÔNG vào với đảng Thôi/Trần ở Tề. "
+            "4. Phùng Khắc Khoan đời nhà Mạc đương thịnh mà KHÔNG theo. "
+            "→ 'Trăng gần đến rằm, ngựa bỏ bạn mà tiến lên, không lỗi.' "
+            "Kết quả: Thôi/Trần bại — Án Tử hiển danh. Mạc vong — Phùng nên sự nghiệp."
+        ),
+        "key_rule_TIN_NGU_VI_TU": (
+            "**Hào 6 Trung Phu — case ngu tín**: 'Anh chàng họ Vĩ (Vị) thời Xuân thu hẹn với "
+            "cô gái dưới cầu, người đó không tới — anh ÔM CỘT CẦU mà chịu CHẾT.' "
+            "→ Tín như vậy là NGU, không biết biến thông. "
+            "Hết thời tin rồi mà cứ tin = hỏng. Hào 6 dương cương không đắc trung."
+        ),
+        "key_rule_THANH_SANG_HINH_NGUC": (
+            "**Tượng Trung Phu trong hình ngục**: 'Tượng truyện 5 quẻ về hình ngục: "
+            "Phệ Hạp + Bí + Phong + Lữ chú trọng đức SÁNG. Duy Trung Phu chú trọng đức THÀNH. "
+            "Sáng mà không thành tâm → lạm dụng. Thành mà không sáng → bị lừa. "
+            "Thành + Sáng đầy đủ → hình ngục công bằng. THÀNH làm gốc, SÁNG làm phương pháp.'"
+        ),
+    },
+    "Tiểu Quá": {
+        "ban_chat": "Thời NHỎ QUÁ — Sấm (Chấn) trên + Núi (Cấn) dưới, sấm trên núi bị nghẹt thu hẹp",
+        "nen_the_nao": "Chỉ nên QUÁ trong việc NHỎ — quá cung kính, quá thương cảm, quá tiết kiệm. KHÔNG được quá việc lớn.",
+        "paradigm_keyword": "tieu_qua_chim_bay_thap",
+        "nguyet_lenh_thang": 2,
+        "tuong": "Trên Núi có Sấm, bị núi nghẹt. Chim bay nên xuống thấp, không nên bay cao.",
+        "key_paradigm_QUA_NHO_KHONG_QUA_LON": (
+            "**Lời Thoán Tiểu Quá**: 'Quá trong việc nhỏ hậu quả không tai hại. Quá trong việc lớn "
+            "một ly đi một dặm — hậu quả nặng (chiến tranh, sụp đổ kinh tế).' "
+            "Tả truyện: 'Quân tử hay KIÊNG SỢ ở việc nhỏ, mới không hoạn nạn lớn.' "
+            "→ Cross-link Iron Rule #7 (Git Safety): chú ý việc NHỎ (.gitignore, file cụ thể) — "
+            "không để incident lớn."
+        ),
+        "key_rule_CHIM_BAY_THAP": (
+            "**Lời quẻ**: 'Đừng bay cao mà BAY THẤP, tốt lắm.' "
+            "Ở thời âm thịnh hơn dương, tiểu nhân đắc thế hơn quân tử — phe quân tử chỉ nên "
+            "THOÁI xuống thấp, không nên TIẾN lên cao. "
+            "Hào 3 dương ở vị dương ham lên → mắc xấu. Hào 4 dương ở vị âm xuống thấp → tốt."
+        ),
+    },
+    "Ký Tế": {
+        "ban_chat": "Thời ĐÃ THÀNH — Nước (Khảm) trên + Lửa (Ly) dưới, hai khí giao = thành công",
+        "nen_the_nao": "Việc lớn đã xong — còn việc nhỏ cũng phải làm cho xong. PHÒNG LOẠN ngay từ lúc trị, phòng suy ngay lúc thịnh.",
+        "paradigm_keyword": "ky_te_da_thanh_phong_loan",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Nước trên Lửa = nồi nước trên bếp lửa: lửa bốc lên, nước nóng sôi → thành công.",
+        "key_paradigm_THUY_HOA_GIAO": (
+            "**PBC paradigm vĩ đại — Kinh Dịch kết bằng Khảm-Ly hợp thể**: "
+            "'Vũ trụ lớn nhất là TRỜI ĐẤT (Càn-Khôn đầu Kinh). Công dụng tạo hóa lớn nhất là "
+            "THỦY-HỎA (Khảm-Ly cuối Kinh Thượng). KẾT Kinh bằng Ký Tế (Khảm trên Ly dưới) + "
+            "Vị Tế (Ly trên Khảm dưới). Vũ trụ có bắt đầu có kết thúc — chỉ thiên-địa-thủy-hỏa "
+            "biểu hiện được. Khoa học ngày càng phát triển không trật ngoài đạo lý ấy. "
+            "Than đá nấu nước thành hơi nước, hơi nước phát động máy điện = Nước-Lửa tác động.'"
+        ),
+        "key_paradigm_4_QUE_TUAN_HOAN": (
+            "**4 quẻ tuần hoàn vũ trụ-nhân sự**: "
+            "Thái + Bĩ (Thiên-Địa giao/không giao). Ký Tế + Vị Tế (Thủy-Hỏa giao/không giao). "
+            "Thái trước → Ký Tế sau. Bĩ trước → Vị Tế sau. "
+            "Hồi Thái-Ký Tế phải nhận: '7 hành đổ về rãnh' + 'mới đầu tốt sau loạn'. "
+            "Hồi Bĩ-Vị Tế phải nhận: 'có niềm tin không lỗi' + 'Bĩ đến mừng'. "
+            "→ 'Đạo trời như bánh xe lăn, việc người như bàn tay lật. "
+            "Tất cả là do CHÚNG TA — chớ vì Thái-Ký Tế mà kiêu, chớ vì Bĩ-Vị Tế mà buồn.'"
+        ),
+        "key_paradigm_TAM_THAN_GIAO": (
+            "**Phụ chú y học (PBC)**: 'Quẻ Ký Tế gắn với y học + vận khí: thân người là "
+            "TRỜI ĐẤT THU NHỎ. Tâm hỏa GIÁNG (xuống) giao với Thận thủy THĂNG (lên) — "
+            "tâm-thận giao = thân thể KHỎE KIỆN. Nếu hỏa không thăng + thủy không giáng → "
+            "bệnh phù thũng.' "
+            "→ Cross-link Đông y."
+        ),
+        "key_rule_KHONG_TU_CUNG_THI_LOAN": (
+            "**Khổng Tử bình Ký Tế**: 'Cùng mà NGỪNG thì loạn — KHÔNG phải vì lúc cùng mà loạn, "
+            "mà vì NGỪNG thì loạn.' "
+            "→ Việc người KHÔNG bao giờ ngừng, thì mới không bao giờ loạn."
+        ),
+    },
+    "Vị Tế": {
+        "ban_chat": "Thời CHƯA THÀNH — Lửa (Ly) trên + Nước (Khảm) dưới, không giao, MÂT THĂNG BẰNG",
+        "nen_the_nao": "Chớ bi quan — VẪN CÓ HY VỌNG. Cẩn thận phân biệt mọi sự, đặt vào đúng phương (chỗ).",
+        "paradigm_keyword": "vi_te_chua_thanh_hy_vong",
+        "nguyet_lenh_thang": 7,
+        "tuong": "Lửa trên Nước = Nước-Lửa không giao, không giúp nhau. Cả 6 hào đều ở TRÁI NGÔI.",
+        "key_paradigm_KINH_DICH_KET_BANG_VI_TE": (
+            "**PBC paradigm CỰC ĐẮT — Kinh Dịch quy kết bằng Vị Tế**: "
+            "'Hanh ở KÝ TẾ = con đã TRƯỞNG THÀNH, việc dĩ vãng, hanh có HẠN. "
+            "Hanh ở VỊ TẾ = con còn THƠ BÉ, phúc tương lai, hanh VÔ CÙNG. "
+            "Dịch quy kết bằng VỊ TẾ = XUÂN chưa đến lúc hoa nở, ĐÊM chưa đến lúc trăng tròn — "
+            "hy vọng TIỀN ĐỒ hãy còn nhiều lắm. Ai dám bảo VỊ TẾ mà bất tế đâu?' "
+            "→ Iron Rule paradigm cuối: Kinh Dịch KẾT bằng HY VỌNG VÔ CÙNG, không kết bằng "
+            "thành tựu đã có. Mọi sự đều TIỀM ẨN HY VỌNG."
+        ),
+    },
     "Tiểu Súc": {
         "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
         "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",
