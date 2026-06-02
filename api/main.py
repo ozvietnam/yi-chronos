@@ -1636,6 +1636,30 @@ def bat_tu_glossary_lookup(key: str) -> dict[str, object]:
     }
 
 
+@app.post("/api/bat-tu/tong-cach-route")
+def bat_tu_tong_cach_route(request: HaLacCastRequest) -> dict[str, object]:
+    """Route Tòng Cách — 4 path khi Day Master cực đoan (TTT chương 17 bậc 2).
+
+    Anh duyệt 2026-06-02 sau thâm nhuần TTT chương 17. Engine check trước
+    Phù-Ức bình thường: nếu match Tòng Cách → đảo paradigm.
+
+    4 path: Tòng Tài / Tòng Sát / Tòng Vượng / Tòng Cường.
+    Nếu không match → trả is_tong=False với lý do.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.tong_cach_route import route_tong_cach, render_tong_markdown
+
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    result = route_tong_cach(tu_tru)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "tong_cach": result.to_dict(),
+        "markdown": render_tong_markdown(result),
+    }
+
+
 @app.post("/api/bat-tu/phu-uc-route")
 def bat_tu_phu_uc_route(request: HaLacCastRequest) -> dict[str, object]:
     """Route Phù-Ức (Trợ vs Sinh) — 8 path theo Trích Thiên Tủy.

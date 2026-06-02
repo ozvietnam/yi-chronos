@@ -151,12 +151,22 @@ def luan_giai_tu_tru_soi_nhieu_sach(tu_tru: dict) -> dict:
         "_pending": "Wire ha_lac cast result vào module này",
     }
 
-    # ── F. PHÙ-ỨC ROUTE (NEW 2026-06-02 — paradigm "Ấn Tỷ ánh sáng") ──
+    # ── F. TÒNG CÁCH check trước (TTT chương 17 — bậc 2) ────────────────
+    from engine.bat_tu.tong_cach_route import route_tong_cach, render_tong_markdown
+    tong = route_tong_cach(tu_tru)
+    tong_section = {
+        "result": tong.to_dict(),
+        "narrative": render_tong_markdown(tong),
+    }
+
+    # ── G. PHÙ-ỨC ROUTE — paradigm "Ấn Tỷ ánh sáng" (bậc 1) ──────────────
+    # Nếu Tòng đã match thì Phù-Ức chỉ là fallback hiển thị
     from engine.bat_tu.phu_uc_route import route_phu_uc, render_phu_uc_markdown
     phu_uc = route_phu_uc(tu_tru)
     phu_uc_section = {
         "result": phu_uc.to_dict(),
         "narrative": render_phu_uc_markdown(phu_uc),
+        "applies": not tong.is_tong,  # Nếu Tòng thì Phù-Ức không áp dụng
     }
 
     # ── G. CONCEPT GLOSSARY (auto-highlight keywords) ──────────────────
@@ -186,6 +196,7 @@ def luan_giai_tu_tru_soi_nhieu_sach(tu_tru: dict) -> dict:
         "vuong_suy_cross_ref": vuong_suy_section,
         "cach_dung_than": cach_dung_section,
         "hoang_tuan_cross": hoang_tuan_section,
+        "tong_cach": tong_section,
         "phu_uc": phu_uc_section,
         "glossary": glossary_section,
         "synthesis": synthesis,
@@ -361,11 +372,13 @@ def render_full_markdown(luan_giai_result: dict) -> str:
         luan_giai_result["cach_dung_than"]["narrative"],
         "\n## E. Hoàng Tuấn cross-trường phái\n",
         luan_giai_result["hoang_tuan_cross"]["nien_menh_text"],
-        "\n## F. Phù-Ức Route (Ấn Tỷ ánh sáng)\n",
+        "\n## F. Tòng Cách Check (TTT chương 17 — bậc 2)\n",
+        luan_giai_result["tong_cach"]["narrative"],
+        "\n## G. Phù-Ức Route (Ấn Tỷ ánh sáng — bậc 1)\n",
         luan_giai_result["phu_uc"]["narrative"],
-        "\n## G. Thuật Ngữ Sáng Tỏ\n",
+        "\n## H. Thuật Ngữ Sáng Tỏ\n",
         luan_giai_result["glossary"]["narrative"],
-        "\n## H. Synthesis\n",
+        "\n## I. Synthesis\n",
         luan_giai_result["synthesis"],
         "\n---\n",
         luan_giai_result["paradigm_guard"],
