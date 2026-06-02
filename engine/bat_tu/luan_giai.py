@@ -1000,6 +1000,15 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _luan_cha_me_in_state(state: dict) -> dict:
+    """Luận cha mẹ from Tứ Trụ — paradigm Thiệu Vĩ Hoa Tập 2 Ch.12-13."""
+    from .cha_me import luan_cha_me
+    try:
+        return luan_cha_me(state)
+    except Exception as e:
+        return {"patterns": [], "narrative": "", "paradigm_guard": "", "_error": str(e)[:200]}
+
+
 def _detect_can_hoa_hop_in_state(state: dict) -> list[dict]:
     """Wrap luu_nien.detect_can_hoa_hop with state's pillars."""
     from .luu_nien import detect_can_hoa_hop
@@ -1214,6 +1223,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "tai_lo_vs_tang": _detect_tai_lo_vs_tang(bat_tu_state),
         "sat_tang_an_thau": _detect_sat_tang_an_thau(bat_tu_state),
         "can_hoa_hop": _detect_can_hoa_hop_in_state(bat_tu_state),
+        "cha_me": _luan_cha_me_in_state(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),
