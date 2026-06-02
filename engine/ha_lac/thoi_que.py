@@ -413,6 +413,151 @@ THOI_QUE_TABLE: dict[str, dict] = {
             "Trong văn học: sau thời 'duy mỹ' quá mức → 'phục cổ' về văn bình dị tự nhiên."
         ),
     },
+    "Bác": {
+        "ban_chat": "Thời TIÊU MÒN — Núi (Cấn) trên + Đất (Khôn) dưới, 5 âm + 1 dương trên cùng",
+        "nen_the_nao": "Quân tử CHỜ THỜI, làm bằng TÂM TRÍ — âm thầm kín đáo, KHÔNG loè loẹt. 'Có óc khôn mà làm như người ngu' (Lão Tử).",
+        "paradigm_keyword": "bac_tieu_mon_cho_thoi",
+        "nguyet_lenh_thang": 9,
+        "tuong": "Núi đặt trên đất — đất là nền móng của núi. Đất đầy thì núi mới vững → người trên phải lo cho dân an cư.",
+        "key_paradigm_cho_thoi": (
+            "**PBC bình quẻ Bác**: 'Cơ SUY thường nấp ở lúc THỊNH, cơ THỊNH thường nấp ở lúc SUY. "
+            "Quân tử ở thời đại Bác KHÔNG phải không việc làm — làm bằng cách TINH THẦN (tâm trí). "
+            "Nên âm thầm chớ loè loẹt, kín đáo chớ nhố nhãn.' "
+            "Lão Tử: 'Có óc khôn mà làm như người ngu, có mưu khéo mà làm như người vụng, "
+            "có đức dày mà làm như người con.'"
+        ),
+        "key_rule_TRAI_LON_KHONG_HET": (
+            "**Hào 6 Bác (hào dương duy nhất)**: 'Trái cây lớn còn lại trên cây, không hái xuống ăn'. "
+            "→ Đạo quân tử KHÔNG BAO GIỜ HẾT. Trái rơi xuống mọc mầm thành quẻ Phục."
+        ),
+    },
+    "Phục": {
+        "ban_chat": "Thời TRỞ LẠI — Đất (Khôn) trên + Sấm (Chấn) dưới, 1 dương đầu tiên sinh sau Khôn cực âm",
+        "nen_the_nao": "Đóng cửa tĩnh dưỡng (như tiên vương ngày Đông Chí), không kiểm tra biên giới — để mạch lặng cho khí dương sinh.",
+        "paradigm_keyword": "phuc_trở_lại",
+        "nguyet_lenh_thang": 11,
+        "tuong": "Sấm trong đất — khí dương phục sinh ở dưới sau khi âm cực thịnh ở trên.",
+        "key_paradigm_DUC_NHAN": (
+            "**Hào 2 Phục — PBC paradigm CỰC ĐẮT**: 'Quẻ Phục miêu tả TÂM SINH VẬT của Trời đất "
+            "= đức NHÂN. Lời Tượng 384 hào DUY NHẤT hào 2 quẻ Phục có chữ Nhân. "
+            "Hạt cây gọi bằng nhân (đào nhân, hạnh nhân) — chính từ lẽ ấy.' "
+            "→ Đức NHÂN = gốc làm người."
+        ),
+        "key_rule_DUONG_NGAM_SINH": (
+            "**PBC paradigm âm dương vô hình**: 'Quẻ Khôn tháng 10 thuần âm, nhưng mỗi ngày dương "
+            "sinh ngầm 1 phân — cuối tháng đủ 30 phân, đầu tháng 11 thành quẻ Phục. "
+            "Giữa lúc thiên hạ CỰC LOẠN, chính là CÒN NHÀ TRỊ đã sinh ngầm rồi. "
+            "Mắt chúng ta chỉ thấy hữu hình, không thấy vô hình. "
+            "Than ôi! Thiên Đạo bất trắc, nhân sự vô thường — vậy nên càng nên nghiên cứu Dịch lý.'"
+        ),
+    },
+    "Vô Vọng": {
+        "ban_chat": "Thời KHÔNG DỤC VỌNG — Trời (Càn) trên + Sấm (Chấn) dưới, hành động hợp lẽ trời",
+        "nen_the_nao": "Khi cày KHÔNG nghĩ tới lúc gặt. Hễ nghĩa lý đáng làm thì làm, KHÔNG kể công mưu lợi. 'Đã VÔ VỌNG thì phúc, lợi tự nhiên đến.'",
+        "paradigm_keyword": "vo_vong_khong_ky_vong",
+        "nguyet_lenh_thang": 2,
+        "tuong": "Sấm chạy dưới trời — âm dương giao hòa, vạn vật phát sinh tự nhiên.",
+        "key_paradigm_BIET_THOI": (
+            "**PBC paradigm THỜI riêng từng hào**: "
+            "Hào 1, 2 — thời nên ĐỘNG → động là Vô Vọng (tốt). "
+            "Hào 4, 5 — thời nên TĨNH → tĩnh là Vô Vọng (tốt). "
+            "Hào 6 — thời nên TĨNH mà động → động là VỌNG (xấu). "
+            "→ Hồ Văn Phong: 'Người khéo học Dịch quý nhất là biết chữ THỜI.' "
+            "Phải có BỘ ÓC xét thời + CẶP MẮT xem thời — soi thời chung + cân thời riêng."
+        ),
+        "case_study_KHONG_THUOC": (
+            "**Hào 5 Vô Vọng**: 'Tự nhiên bị bệnh, ĐỪNG THUỐC THANG → tai qua nạn khỏi.' "
+            "Văn Vương tù Dữu Lý + Khổng Tử tuyệt lương Trần Thái + bị giam ở Khuông "
+            "(người Khuông nhận lầm với Dương Hổ) — không can thiệp, sau qua nạn."
+        ),
+    },
+    "Đại Súc": {
+        "ban_chat": "Thời TÍCH TRỮ LỚN — Núi (Cấn) trên + Trời (Càn) dưới, núi chứa được trời",
+        "nen_the_nao": "Quân tử coi LỜI + VIỆC đời trước đã tổng kết — để NUÔI ĐỨC. ĐỐC THỰC (dày dặn) + UY QUANG (sáng sủa). Đốc thực mà nảy ra huy quang = chân chính huy quang.",
+        "paradigm_keyword": "dai_suc_tich_tru_loi_xua",
+        "nguyet_lenh_thang": 12,
+        "tuong": "Núi chứa Trời — sức chứa lớn vô cùng. Tài đức uẩn súc, mỗi ngày một mới.",
+        "key_paradigm_DOC_THUC_HUY_QUANG": (
+            "**PBC bình Đại Súc**: 'ĐỐC THỰC + UY QUANG. Người trong thiên hạ — nhiều hạng có "
+            "huy quang mà không đốc thực = loè loẹt vỏ bọc, văn minh giả → đạo TIỂU NHÂN tuy rực rỡ "
+            "mà ngày càng mất. ĐỐC THỰC mà nảy ra HUY QUANG = đạo đức trong + văn thái ngoài = chân chính.' "
+            "→ Cross-link Lexicon paradigm: đọc 24+ sách = đốc thực, KHÔNG khoe khoang văn minh giả."
+        ),
+        "key_rule_GONG_SUNG_NGHE_NON": (
+            "**Hào 4 Đại Súc**: 'Gông sừng nghé non khi mới nhú' — ngăn điều ác từ lúc MỚI MANH NHA. "
+            "Tục ngữ: 'Dạy con từ thuở còn thơ, dạy vợ từ thuở mới đưa vợ về.'"
+        ),
+        "key_rule_THIEN_HEO": (
+            "**Hào 5 Đại Súc**: Không cần bẻ nanh heo — THIẾN (cất cái thế của nó) → không cần bẻ nanh, "
+            "không cắn. Trừ ác KHÔNG ở thủ đoạn, mà ở GỐC + RỄ. "
+            "Lão Tử: 'Dân không sợ chết, hay gì đem cái chết dọa dân.'"
+        ),
+    },
+    "Khảm": {
+        "ban_chat": "Thời TẬP KHẢM (HAI LẦN HIỂM) — Thủy trên + Thủy dưới, 1 dương hãm giữa 2 âm, lặp 2 lần",
+        "nen_the_nao": "TÂM CHÍ THÀNH — hoàn cảnh hiểm + thời hiểm nhưng TÂM hanh thông. Hành động được trọng, tai nạn qua khỏi, có công.",
+        "paradigm_keyword": "kham_tap_kham_hai_lan_hiem",
+        "nguyet_lenh_thang": 10,
+        "tuong": "Một dương hãm giữa hai âm = HIỂM. Hai lần = TẬP HIỂM. Lời Thoán KHẢM thêm chữ DỤNG (khác mọi quẻ).",
+        "key_rule_HIEM_CO_THOI_CO_DUNG": (
+            "**PBC paradigm cực đắt cho Khảm**: 'Hiểm có THỜI có DỤNG, lớn vậy thay! "
+            "Hiểm thuộc về Thời = cảnh ngộ không bình thường. Hiểm thuộc về Dụng = công việc thường làm. "
+            "Trong nước có họa loạn, trong nhà có tai biến = thời hiểm. Việc binh, hình, dạy dân để "
+            "ngăn ngừa họa loạn = DỤNG HIỂM. Tích thuốc thang để phòng tai nạn = DỤNG HIỂM.'"
+        ),
+        "key_paradigm_TAP_RÈN_TAP_QUAN": (
+            "**Hai nghĩa chữ TẬP (PBC)**: "
+            "(1) TẬP RÈN — ôn đi tập lại không ngừng → trau dồi đức hạnh. "
+            "(2) TẬP QUÁN — ngày đêm rót sâu đúc chín thành thói quen → giáo dục dân. "
+            "'Nước từ một dòng suối chảy hoài → thành sông biển. Người từ một việc tốt làm hoài → thành hiển vinh.'"
+        ),
+        "key_rule_TAM_CHI_THANH": (
+            "Câu thơ Tống: 'Ngày thường giữ TRUNG, ngày sóng gió sợ gì.' "
+            "Câu Nhật: 'Những chốn lòng thành thấu tới đá tảng cũng phải nứt.' "
+            "→ Đằng đạo TÍN THÀNH cho cái tâm sáng, mà bước qua thời hiểm."
+        ),
+        "thien_co_dat_si": (
+            "**Thiên Cơ Đật Sĩ (nhà Dịch học VN ở nước ngoài) — về người có quẻ TẬP KHẢM**: "
+            "'Họ thường thích PHÙ SUY hơn PHÙ THỊNH. Là người có TÀI TRÍ, VỊ THA, CAN ĐẢM, DẤN THÂN, "
+            "nhưng phải cẩn trọng khi nhập cuộc. Biết mình có quẻ Tập Khảm thì cần giữ TÂM TRÍ NGAY THẲNG, "
+            "chờ qua lúc gian nguy. Nếu có thể DI CHUYỂN NƠI CHỐN thì tốt.'"
+        ),
+    },
+    "Tiết": {
+        "ban_chat": "Thời TIẾT CHẾ — Thủy (Khảm) trên + Đầm (Đoài) dưới, bờ đầm hạn chế số nước = chừng mực",
+        "nen_the_nao": "Cái gì cũng VỪA PHẢI mới tốt — thái quá cũng như bất cập đều xấu. Nhưng tiết chế quá → không ai chịu được lâu → không hanh thông.",
+        "paradigm_keyword": "tiet_che_chung_muc",
+        "nguyet_lenh_thang": 11,
+        "tuong": "Trên đầm có nước — bờ đầm hạn chế số nước chứa. 3 cương + 3 nhu cân bằng. Hào 2 + Hào 5 đều dương cương đắc trung.",
+        "key_paradigm_KE_HOACH_HOA": (
+            "**Đại Tượng Truyện**: 'Đặt ra SỐ + ĐỘ — hạn định chừng mực cho sự làm việc + hưởng thụ "
+            "của dân, tùy đạo đức tài nghệ của mỗi người.' "
+            "→ Chữ TIẾT có tác dụng lớn, gần như chữ KẾ HOẠCH HÓA hiện nay, mục đích thực hiện CÔNG BẰNG xã hội."
+        ),
+        "key_rule_TIET_SAU_HOAN": (
+            "**PBC paradigm CỰC ĐẮT (hào 6 Tiết)**: 'Quẻ Tiết ở SAU thời HOÁN (tan rã) về Dịch học "
+            "rất hay. Quốc gia vừa trải qua một cuộc Hoán: phong tục đổi bại, công nghệ hoang phế, "
+            "trật tự nhiễu nhương, kinh tế cùng quẫn... Nếu KHÔNG đúng đạo TIẾT → nguy hiểm cho "
+            "vận mệnh đất nước. Tài chính tiết chế đỡ hao tổn. Giáo dục tiết chế thích ứng. "
+            "Quân sự tiết chế nghiêm minh. Chính phủ phải trọng DANH TIẾT.' "
+            "→ Cross-link YI-Chronos: anh đang ở thời Tiết SAU Hoán (sách cổ VN tan rã thời chiến + "
+            "hiện đại). Lexicon = TIẾT CHẾ đúng mức để khôi phục."
+        ),
+        "key_rule_DAC_TRUNG": (
+            "Tiết phải ĐẮC TRUNG (đúng mực): "
+            "Quá KHỔ → nhân tình không chịu được. "
+            "Quá DỄ chịu → không đúng nghĩa lý."
+        ),
+        "key_rule_HAO_1_FOUNDER": (
+            "**Hào 1 Tiết — đúng NĐ Tiên Thiên của Anh**: 'Chẳng ra khỏi cổng sân, không lỗi.' "
+            "Hào 1 dương cương đắc chính, ở đầu thời Tiết — biết thận trọng, không ra ngoài, "
+            "vì biết thời chưa thông. 'Liệu thời mà tự thủ thì khỏi nhục.' "
+            "→ **MHC Hào 1**: 'Học rộng cổ kim, thấu lẽ thông biến, giữ chức bên trong, hoặc việc công chính, "
+            "lớn thì ở trung ương, nhỏ thì ở quận xã.' "
+            "→ Cross-link: Anh đang ĐÚNG paradigm hào 1 quẻ Tiết — học rộng (24+ sách), thấu thông biến, "
+            "giữ việc bên trong (Lexicon là internal asset)."
+        ),
+    },
     "Tiểu Súc": {
         "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
         "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",
@@ -446,9 +591,24 @@ THOI_DOI_LAP: list[tuple[str, str]] = [
 ]
 
 
+QUAI_ALIASES: dict[str, str] = {
+    "Tập Khảm": "Khảm",
+    "Thuần Khảm": "Khảm",
+    "Thuần Càn": "Càn",
+    "Thuần Khôn": "Khôn",
+    "Thuần Ly": "Ly",
+    "Thuần Đoài": "Đoài",
+    "Thuần Chấn": "Chấn",
+    "Thuần Tốn": "Tốn",
+    "Thuần Cấn": "Cấn",
+    "Trung Phu": "Trung Phu",
+}
+
+
 def lookup_thoi(quai_name: str) -> dict | None:
-    """Trả về paradigm guidance cho quẻ này."""
-    return THOI_QUE_TABLE.get(quai_name)
+    """Trả về paradigm guidance cho quẻ này. Hỗ trợ alias (Tập Khảm → Khảm, etc)."""
+    key = QUAI_ALIASES.get(quai_name, quai_name)
+    return THOI_QUE_TABLE.get(key)
 
 
 def describe_thoi_cau_truc(tien_thien_name: str, hau_thien_name: str) -> dict:

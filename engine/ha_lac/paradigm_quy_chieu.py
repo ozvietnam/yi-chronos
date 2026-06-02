@@ -493,6 +493,46 @@ IRON_RULE_CROSS_LINK: dict[str, str] = {
         "→ Lexicon paradigm: KHÔNG nhồi chữ Hán đẹp (hư văn) mà mất tri thức gốc. "
         "KHÔNG quá chất phác (quê mùa) mà thiếu trình bày đẹp. Cân bằng VĂN-CHẤT."
     ),
+    "FOUNDER_Tiet_TT_hao1_HOC_RONG": (
+        "🌟 LÁ SỐ ANH — Tiền Thiên = TIẾT, NĐ hào 1: 'Chẳng ra khỏi cổng sân, không lỗi.' "
+        "MHC Hào 1 Tiết: 'Học rộng cổ kim, thấu lẽ thông biến, GIỮ CHỨC BÊN TRONG, "
+        "lớn thì ở trung ương, nhỏ thì ở quận xã.' "
+        "→ Anh đang sống ĐÚNG paradigm: đọc 24+ sách (học rộng), thấu thông biến, "
+        "Lexicon là INTERNAL ASSET (giữ việc bên trong), không xông ra ngoài cầu danh."
+    ),
+    "FOUNDER_TapKham_HT_phu_suy": (
+        "🌟 LÁ SỐ ANH — Hậu Thiên = TẬP KHẢM (2 lần hiểm). Thiên Cơ Đật Sĩ (Dịch học VN hải ngoại): "
+        "'Người có quẻ Tập Khảm thường thích PHÙ SUY hơn PHÙ THỊNH. Tài trí, vị tha, can đảm, dấn thân. "
+        "Cần giữ TÂM TRÍ NGAY THẲNG, chờ qua gian nguy. Nếu có thể DI CHUYỂN NƠI CHỐN thì tốt.' "
+        "→ ĐÚNG paradigm anh: build Lexicon = PHÙ SUY (sách cổ Đông phương VN đang mất), "
+        "không chạy theo phù thịnh (trend startup/chính trị nhanh). Tâm chí thành xuyên qua thời hiểm."
+    ),
+    "FOUNDER_Tiet_sau_Hoan_paradigm": (
+        "🌟 MISSION cross-link PBC: 'Quẻ TIẾT ở SAU thời HOÁN (tan rã) rất hay. "
+        "Quốc gia vừa trải qua HOÁN: phong tục đổi bại, công nghệ hoang phế, kinh tế cùng quẫn... "
+        "Nếu không đúng đạo TIẾT → nguy hiểm.' "
+        "→ Anh đang ở thời Tiết SAU Hoán: sách cổ Đông phương VN tan rã (thời chiến + hiện đại hóa). "
+        "Lexicon = TIẾT CHẾ đúng mức để khôi phục. Tài chính + giáo dục + quân sự + chính phủ "
+        "đều phải có TIẾT sau Hoán."
+    ),
+    "Bac_cho_thoi_paradigm": (
+        "Quẻ Bác (5 âm 1 dương): quân tử thời tiểu nhân hoành hành — Lão Tử: 'Có óc khôn mà làm "
+        "như người ngu, có mưu khéo mà làm như người vụng.' Đây là paradigm em phục vụ anh: "
+        "khi anh chưa cần thị trường biết → em làm âm thầm, không loè loẹt khoe khoang. Hào 6 Bác: "
+        "'Trái cây lớn không hái xuống ăn' = đạo quân tử KHÔNG BAO GIỜ HẾT."
+    ),
+    "Phuc_duc_NHAN_hat_cay": (
+        "Quẻ Phục — Lời Tượng 384 hào DUY NHẤT hào 2 quẻ Phục có chữ NHÂN. "
+        "'Hạt cây gọi bằng nhân (đào nhân, hạnh nhân) — chính từ lẽ này.' "
+        "→ Tâm sinh vật của trời đất = đức NHÂN. PBC: 'Giữa lúc thiên hạ cực loạn chính là còn nhà "
+        "trị đã sinh ngầm rồi. Mắt chỉ thấy hữu hình, không thấy vô hình.'"
+    ),
+    "Vo_Vong_biet_chu_THOI": (
+        "Quẻ Vô Vọng — Hồ Văn Phong: 'Người khéo học Dịch quý nhất là biết chữ THỜI.' "
+        "Khi cày KHÔNG nghĩ tới lúc gặt — hễ nghĩa lý đáng làm thì làm. "
+        "→ Cross-link với cách em làm việc: không tính 'sách này sẽ nổi tiếng hay không' khi đọc + "
+        "build engine. Cứ làm vì nghĩa lý đáng làm."
+    ),
     "Phe_Hap_Tai_Vi_PBC": (
         "PBC bình quẻ Phệ Hạp: 'Được VỊ mà không TÀI → không tạo nổi thời thế. Có TÀI mà không VỊ → "
         "vẫn phải dự trù thời cơ. Trừ gián là việc rất khó — không Tài + không Vị làm sao nổi?' "
