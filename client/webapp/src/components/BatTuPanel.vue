@@ -309,6 +309,23 @@ function openConcept(name) {
   openConceptPopup(cleaned);
 }
 
+// Format Mệnh Hợp Cách tiêu chuẩn key → label tiếng Việt
+function formatTcLabel(key) {
+  const map = {
+    tc1_ten_que: "TC1 Tên quẻ",
+    tc2_vi_tri_nd: "TC2 Vị trí Nguyên Đường",
+    tc3_loi_hao_nd: "TC3 Lời hào NĐ",
+    tc4_nguyet_lenh: "TC4 Nguyệt lệnh",
+    tc5_yem_tro: "TC5 Yểm trợ",
+    tc6_so_am_duong: "TC6 Số Âm-Dương hợp mùa",
+    tc7_hanh_menh: "TC7 Hành Mệnh × quẻ",
+    tc8_dang_vi: "TC8 Đáng vị",
+    tc9_can_nam: "TC9 Can năm hợp quẻ",
+    tc10_quan_chung: "TC10 Quần chúng",
+  };
+  return map[key] || key;
+}
+
 // Minimal Markdown renderer for **bold** in luận giải narrative strings.
 // Engine outputs short snippets only — we don't need a full MD parser.
 function renderMd(s) {
@@ -685,6 +702,98 @@ function formatSolarDateTime(iso) {
             </div>
           </div>
         </article>
+      </div>
+
+      <!-- ── THÂM NHUẦN HÀ LẠC (vòng 1-9, em đã đọc 180/600 trang Xuân Cang) ──── -->
+      <div v-if="haLacData.menh_hop_cach || haLacData.hoa_cong_nguyen_khi || haLacData.ho_quai_tien || haLacData.thoi_que" class="halac-tham-nhuan">
+        <h4 class="section-h tn-h">📚 Thâm Nhuần Hà Lạc — Xuân Cang paradigm (em học p1-180)</h4>
+        <p class="tn-intro">Engine paradigm xây từ vòng 1-9 đọc kỹ sách Xuân Cang. Mỗi section dưới = 1 lớp đọc đồng dạng cấu trúc lá số.</p>
+
+        <!-- ── Mệnh Hợp Cách 10 tiêu chuẩn (vòng 3) ── -->
+        <details v-if="haLacData.menh_hop_cach && !haLacData.menh_hop_cach._error" class="tn-block" open>
+          <summary class="tn-summary">
+            🎯 <b>Mệnh Hợp Cách</b> — đạt <b>{{ haLacData.menh_hop_cach.score }}/10 tiêu chuẩn</b>
+            <span class="tn-tag" :data-grade="haLacData.menh_hop_cach.grade">{{ haLacData.menh_hop_cach.verdict }}</span>
+          </summary>
+          <ul class="tn-list">
+            <li v-for="(item, key) in haLacData.menh_hop_cach.breakdown" :key="key"
+                :class="['tn-item', item.score > 0 ? 'tn-pos' : (item.score < 0 ? 'tn-neg' : 'tn-neutral')]">
+              <span class="tn-icon">{{ item.score > 0 ? '✓' : (item.score < 0 ? '✗' : '·') }}</span>
+              <b>{{ formatTcLabel(key) }}</b>: {{ item.reason }}
+            </li>
+          </ul>
+          <p class="tn-guard">{{ haLacData.menh_hop_cach.paradigm_guard }}</p>
+        </details>
+
+        <!-- ── Hóa Công + Thiên/Địa Nguyên Khí (vòng 2) ── -->
+        <details v-if="haLacData.hoa_cong_nguyen_khi && !haLacData.hoa_cong_nguyen_khi._error" class="tn-block" open>
+          <summary class="tn-summary">
+            🌬 <b>Hóa Công + Thiên/Địa Nguyên Khí</b>
+            <span class="tn-tag" :data-grade="haLacData.hoa_cong_nguyen_khi.has_phu_quy_song_toan ? 'khanh_tuong' : 'trung_binh'">
+              {{ haLacData.hoa_cong_nguyen_khi.verdict }}
+            </span>
+          </summary>
+          <ul class="tn-list">
+            <li :class="['tn-item', haLacData.hoa_cong_nguyen_khi.hoa_cong.present ? 'tn-pos' : 'tn-neutral']">
+              <span class="tn-icon">{{ haLacData.hoa_cong_nguyen_khi.hoa_cong.present ? '✓' : '·' }}</span>
+              <b>Hóa Công</b> ({{ haLacData.hoa_cong_nguyen_khi.hoa_cong.tiet_khi }}):
+              cần quẻ <b>{{ haLacData.hoa_cong_nguyen_khi.hoa_cong.trigram }}</b> — {{ haLacData.hoa_cong_nguyen_khi.hoa_cong.narrative }}
+            </li>
+            <li :class="['tn-item', haLacData.hoa_cong_nguyen_khi.thien_nguyen_khi.present ? 'tn-pos' : 'tn-neutral']">
+              <span class="tn-icon">{{ haLacData.hoa_cong_nguyen_khi.thien_nguyen_khi.present ? '✓' : '·' }}</span>
+              <b>Thiên Nguyên Khí</b> (SANG TRỌNG): {{ haLacData.hoa_cong_nguyen_khi.thien_nguyen_khi.narrative }}
+            </li>
+            <li :class="['tn-item', haLacData.hoa_cong_nguyen_khi.dia_nguyen_khi.present ? 'tn-pos' : 'tn-neutral']">
+              <span class="tn-icon">{{ haLacData.hoa_cong_nguyen_khi.dia_nguyen_khi.present ? '✓' : '·' }}</span>
+              <b>Địa Nguyên Khí</b> (GIÀU CÓ): {{ haLacData.hoa_cong_nguyen_khi.dia_nguyen_khi.narrative }}
+            </li>
+          </ul>
+          <p class="tn-guard">{{ haLacData.hoa_cong_nguyen_khi.paradigm_guard }}</p>
+        </details>
+
+        <!-- ── Quẻ Hỗ Tiên + Hậu (vòng 1) ── -->
+        <details v-if="haLacData.ho_quai_tien || haLacData.ho_quai_hau" class="tn-block">
+          <summary class="tn-summary">
+            🌀 <b>Quẻ Hỗ</b> — khí ẩn bên trong (mặt động / phần hồn của quẻ chính)
+          </summary>
+          <div v-if="haLacData.ho_quai_tien" class="tn-ho-pair">
+            <p><b>Hỗ Quái Tiên Thiên</b>: {{ haLacData.ho_quai_tien.ngoai_ho_trigram }}-{{ haLacData.ho_quai_tien.noi_ho_trigram }}
+              <em v-if="haLacData.ho_quai_tien.ho_name_vi">= {{ haLacData.ho_quai_tien.ho_name_vi }}</em></p>
+            <p class="tn-narr">{{ haLacData.ho_quai_tien.narrative }}</p>
+          </div>
+          <div v-if="haLacData.ho_quai_hau" class="tn-ho-pair">
+            <p><b>Hỗ Quái Hậu Thiên</b>: {{ haLacData.ho_quai_hau.ngoai_ho_trigram }}-{{ haLacData.ho_quai_hau.noi_ho_trigram }}
+              <em v-if="haLacData.ho_quai_hau.ho_name_vi">= {{ haLacData.ho_quai_hau.ho_name_vi }}</em></p>
+            <p class="tn-narr">{{ haLacData.ho_quai_hau.narrative }}</p>
+          </div>
+        </details>
+
+        <!-- ── THỜI Quẻ (vòng 5-9) ── -->
+        <details v-if="haLacData.thoi_que" class="tn-block">
+          <summary class="tn-summary">
+            ⏳ <b>THỜI Quẻ</b> — Tiên Thiên (THỂ) + Hậu Thiên (DỤNG)
+          </summary>
+          <div v-if="haLacData.thoi_que.tien_thien_thoi" class="tn-thoi-block">
+            <p v-html="renderMd(haLacData.thoi_que.tien_thien_thoi.narrative)"></p>
+            <div v-if="haLacData.thoi_que.tien_thien_thoi.data" class="tn-thoi-detail">
+              <p><b>Nên thế nào:</b> {{ haLacData.thoi_que.tien_thien_thoi.data.nen_the_nao }}</p>
+              <p v-if="haLacData.thoi_que.tien_thien_thoi.data.tuong"><b>Tượng:</b> {{ haLacData.thoi_que.tien_thien_thoi.data.tuong }}</p>
+              <p v-if="haLacData.thoi_que.tien_thien_thoi.data.yeu_dieu_canh_bao"><b>⚠️ Cảnh báo:</b> {{ haLacData.thoi_que.tien_thien_thoi.data.yeu_dieu_canh_bao }}</p>
+              <p v-if="haLacData.thoi_que.tien_thien_thoi.data.case_study"><b>📖 Case study:</b> {{ haLacData.thoi_que.tien_thien_thoi.data.case_study }}</p>
+            </div>
+          </div>
+          <div v-if="haLacData.thoi_que.hau_thien_thoi" class="tn-thoi-block">
+            <p v-html="renderMd(haLacData.thoi_que.hau_thien_thoi.narrative)"></p>
+            <div v-if="haLacData.thoi_que.hau_thien_thoi.data" class="tn-thoi-detail">
+              <p><b>Nên thế nào:</b> {{ haLacData.thoi_que.hau_thien_thoi.data.nen_the_nao }}</p>
+              <p v-if="haLacData.thoi_que.hau_thien_thoi.data.tuong"><b>Tượng:</b> {{ haLacData.thoi_que.hau_thien_thoi.data.tuong }}</p>
+              <p v-if="haLacData.thoi_que.hau_thien_thoi.data.yeu_dieu_canh_bao"><b>⚠️ Cảnh báo:</b> {{ haLacData.thoi_que.hau_thien_thoi.data.yeu_dieu_canh_bao }}</p>
+              <p v-if="haLacData.thoi_que.hau_thien_thoi.data.case_study"><b>📖 Case study:</b> {{ haLacData.thoi_que.hau_thien_thoi.data.case_study }}</p>
+            </div>
+          </div>
+          <p class="tn-guard">{{ haLacData.thoi_que.paradigm_guard }}</p>
+          <p class="tn-source"><em>{{ haLacData.thoi_que.source }}</em></p>
+        </details>
       </div>
 
       <h4 class="section-h">Lộ trình 12 hào — {{ haLacData.lifespan_span.total_years }} năm cuộc đời</h4>
@@ -3128,6 +3237,122 @@ function formatSolarDateTime(iso) {
   margin: 0;
 }
 .halac-notes-block b { color: #f5b08c; }
+
+/* ── Thâm Nhuần Hà Lạc (vòng 1-9, Xuân Cang p1-180) ───────────────────── */
+.halac-tham-nhuan {
+  margin: 18px 0 24px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(232, 201, 90, 0.04), rgba(91, 229, 211, 0.04));
+  border: 1px solid rgba(232, 201, 90, 0.18);
+  border-radius: 8px;
+}
+.tn-h {
+  color: var(--accent-gold, #e8c95a);
+  margin-top: 0;
+  font-size: 14px;
+}
+.tn-intro {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+  margin: 0 0 14px;
+}
+.tn-block {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 6px;
+  border-left: 3px solid rgba(232, 201, 90, 0.4);
+}
+.tn-block[open] { border-left-color: var(--accent-gold, #e8c95a); }
+.tn-summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-primary, #e6eef5);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tn-summary::-webkit-details-marker { display: none; }
+.tn-summary::before {
+  content: "▸";
+  color: var(--accent-gold, #e8c95a);
+  font-size: 10px;
+  transition: transform 0.15s;
+}
+.tn-block[open] .tn-summary::before { transform: rotate(90deg); }
+.tn-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 10px;
+  background: rgba(91, 229, 211, 0.14);
+  color: var(--accent-teal, #5be5d3);
+  margin-left: 4px;
+}
+.tn-tag[data-grade="khanh_tuong"] { background: rgba(232, 201, 90, 0.22); color: #f5e6b1; }
+.tn-tag[data-grade="phu_quy"] { background: rgba(91, 229, 211, 0.18); color: #5be5d3; }
+.tn-tag[data-grade="trung_binh"] { background: rgba(245, 176, 140, 0.18); color: #f5b08c; }
+.tn-tag[data-grade="khong_hop_cach"] { background: rgba(255, 100, 100, 0.18); color: #ff8e8e; }
+.tn-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.tn-item {
+  font-size: 12px;
+  line-height: 1.55;
+  padding: 5px 0;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+.tn-item:last-child { border-bottom: none; }
+.tn-icon {
+  flex-shrink: 0;
+  width: 14px;
+  font-weight: bold;
+}
+.tn-pos .tn-icon { color: #6dd0a8; }
+.tn-neg .tn-icon { color: #f08585; }
+.tn-neutral .tn-icon { color: rgba(255, 255, 255, 0.35); }
+.tn-pos b { color: #6dd0a8; }
+.tn-neg b { color: #f08585; }
+.tn-guard {
+  margin-top: 10px;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.55));
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+}
+.tn-ho-pair {
+  margin: 8px 0;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+.tn-ho-pair p { margin: 4px 0; font-size: 12px; }
+.tn-ho-pair em { color: var(--accent-gold-soft, #f5e6b1); font-style: italic; }
+.tn-narr { font-size: 11px; color: var(--text-secondary, rgba(230, 238, 245, 0.65)); }
+.tn-thoi-block {
+  margin: 10px 0;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  border-left: 2px solid var(--accent-teal, #5be5d3);
+}
+.tn-thoi-block p { margin: 4px 0; font-size: 12px; line-height: 1.6; }
+.tn-thoi-detail p b { color: var(--accent-gold-soft, #f5e6b1); }
+.tn-source {
+  font-size: 10px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.4));
+  text-align: right;
+  margin: 4px 0 0;
+}
 
 .halac-interpretation {
   font-size: 13px;
