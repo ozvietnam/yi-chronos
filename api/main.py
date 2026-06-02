@@ -1636,6 +1636,39 @@ def bat_tu_glossary_lookup(key: str) -> dict[str, object]:
     }
 
 
+class SucKhoeSauRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    chan_thuong: str = ""
+    current_age: int | None = None
+
+
+@app.post("/api/bat-tu/suc-khoe-sau")
+def bat_tu_suc_khoe_sau(request: SucKhoeSauRequest) -> dict[str, object]:
+    """Sức Khỏe SÂU — tích hợp Bát Tự + Đông y + chấn thương cụ thể.
+
+    Anh duyệt 2026-06-02: trang sức khỏe riêng. Engine tích hợp Phù-Ức +
+    Nguyên Lưu + chấn thương input → lời khuyên thực tiễn (dinh dưỡng, vận động).
+    🪷 KHÔNG predict — chỉ đọc cấu trúc thân thể.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.suc_khoe_sau import analyze_suc_khoe_sau, render_suc_khoe_sau_markdown
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    result = analyze_suc_khoe_sau(
+        tu_tru,
+        chan_thuong=request.chan_thuong,
+        current_age=request.current_age,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "suc_khoe_sau": result.to_dict(),
+        "markdown": render_suc_khoe_sau_markdown(result),
+    }
+
+
 @app.post("/api/bat-tu/nguyen-luu-trace")
 def bat_tu_nguyen_luu_trace(request: HaLacCastRequest) -> dict[str, object]:
     """Trace Nguyên Lưu (TTT chương 19) — dòng chảy ngũ hành trong 4 trụ."""

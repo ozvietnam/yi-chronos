@@ -33,6 +33,7 @@ import ProfilesPanel from "./components/ProfilesPanel.vue";
 import TabIntro from "./components/TabIntro.vue";
 import LienHoaPanel from "./components/LienHoaPanel.vue";
 import BatTuPanel from "./components/BatTuPanel.vue";
+import HealthPanel from "./components/HealthPanel.vue";
 import KyMonPanel from "./components/KyMonPanel.vue";
 import ChinhTinhGallery from "./components/ChinhTinhGallery.vue";
 import TuViLaSoPanel from "./components/TuViLaSoPanel.vue";
@@ -425,6 +426,11 @@ onBeforeUnmount(() => {
             @click="activeMainTab = 'gps'">
             <span class="tab-icon"><SchoolIcon name="gps" /></span> GPS
           </button>
+          <button type="button" :class="{ active: activeMainTab === 'health' }"
+            @click="activeMainTab = 'health'"
+            title="Sức khỏe — Bát Tự × Đông y">
+            <span class="tab-icon">🌿</span> Sức khỏe
+          </button>
           <button type="button" :class="{ active: activeMainTab === 'settings' }"
             @click="activeMainTab = 'settings'">
             <span class="tab-icon">⚙️</span> Cài đặt
@@ -782,6 +788,11 @@ onBeforeUnmount(() => {
           warning="EXPERIMENTAL_MODE đang ON — chế độ single-user. Không công khai cho cộng đồng cho tới khi validate đủ N."
         />
         <GPSPanel />
+      </section>
+
+      <!-- Tab Sức Khỏe — Bát Tự × Đông y (2026-06-02) -->
+      <section v-else-if="activeMainTab === 'health'" class="single-column" aria-label="Sức khỏe — Bát Tự × Đông y">
+        <HealthPanel />
       </section>
 
       <section v-else-if="activeMainTab === 'lexicon'" class="single-column" aria-label="Lexicon — Dịch tự điển">
