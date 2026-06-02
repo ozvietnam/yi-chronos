@@ -471,6 +471,317 @@ GLOSSARY: dict[str, ConceptDef] = {
         iron_rule_link="Iron Rule #6 (Tử Vi đồng dạng)",
     ),
 
+    # ═══ Thâm Nhuần TTT Chương 17-18-19 (2026-06-02 — added after Phù-Ức) ═══
+
+    "tứ_lệnh": ConceptDef(
+        key="tứ_lệnh",
+        ten_han_viet="Tứ Lệnh (Năm-Tháng-Ngày-Giờ)",
+        chu_han="四令",
+        nghia_co_ban=(
+            "Day Master KHÔNG chỉ nắm lệnh tháng. Trích Thiên Tủy: 'Không nắm lệnh tháng, "
+            "cũng có thể nắm lệnh năm, lệnh ngày, lệnh giờ mà sinh vượng được.' "
+            "Đánh giá Vượng-Suy phải xét cả 4 trụ, không chỉ chi tháng."
+        ),
+        han_viet_explained=(
+            "**Tứ (四)** = bốn. **Lệnh (令)** = mệnh lệnh. Bốn vị trí năm-tháng-ngày-giờ "
+            "đều có thể là 'lệnh' của Day Master."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú",
+                "dong": 2269,
+                "noi_dung": (
+                    "Đắc lệnh thì luận là vượng, thất lệnh dễ cho là suy, tuy là chí lý, "
+                    "nhưng cũng dễ chết vì sai lầm. Ngũ khí lưu hành bốn mùa, tuy nhật can "
+                    "chuyên lệnh, kỳ thực chuyên lệnh trong chi. Bát tự tuy lấy lệnh tháng "
+                    "làm trọng, mà luận vượng tướng hưu tù, thì năm chi ngày cũng có thể "
+                    "sinh khác nhật chủ vậy."
+                ),
+            },
+        ],
+        related_concepts=["đắc_lệnh", "nguyệt_lệnh", "vượng_suy"],
+    ),
+
+    "mộ": ConceptDef(
+        key="mộ",
+        ten_han_viet="Mộ",
+        chu_han="墓",
+        nghia_co_ban=(
+            "Chi tàng kho lưu khí của Can. Giáp Ất gặp Mùi, Bính Đinh gặp Tuất, "
+            "Canh Tân gặp Sửu, Nhâm Quý gặp Thìn = Mộ. Khí ẩn vào kho, có nhưng yếu."
+        ),
+        han_viet_explained="**Mộ (墓)** = mộ huyệt — khí của Can được lưu lại trong Chi đó.",
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú",
+                "dong": 2283,
+                "noi_dung": (
+                    "Mộ, là như Giáp Ất gặp Mùi Thổ, Bính Đinh gặp Tuất, Canh Tân gặp Sửu, "
+                    "Nhâm Quý gặp Thìn."
+                ),
+            },
+        ],
+        related_concepts=["dư_khí", "thông_căn", "12_trường_sinh"],
+    ),
+
+    "dư_khí": ConceptDef(
+        key="dư_khí",
+        ten_han_viet="Dư Khí",
+        chu_han="余气",
+        nghia_co_ban=(
+            "Chi mang chút khí còn sót lại của Can mùa trước. Bính Đinh gặp Mùi, "
+            "Giáp Ất gặp Thìn, Canh Tân gặp Tuất, Nhâm Quý gặp Sửu. Khí mỏng nhưng có."
+        ),
+        han_viet_explained="**Dư (余)** = còn lại. **Khí (气)** = năng lượng — khí còn sót sau mùa.",
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú",
+                "dong": 2284,
+                "noi_dung": (
+                    "Dư khí, là như Bính Đinh gặp Mùi, Giáp Ất gặp Thìn, Canh Tân gặp Tuất, "
+                    "Nhâm Quý gặp Sửu; đắc hai can tương trợ, không bằng một chi Trường Sinh "
+                    "Lộc vượng; nhiều can không bằng thông căn nơi địa chỉ."
+                ),
+            },
+        ],
+        related_concepts=["mộ", "thông_căn", "trường_sinh"],
+    ),
+
+    "vượng_suy_điên_đảo": ConceptDef(
+        key="vượng_suy_điên_đảo",
+        ten_han_viet="Vượng Suy Điên Đảo (20 lý lẽ)",
+        chu_han="旺衰颠倒",
+        nghia_co_ban=(
+            "Paradigm CỐT: cực vượng/cực suy KHÔNG cùng quy tắc với vượng/suy thường. "
+            "20 lý lẽ: Mộc thái vượng tựa Kim → cần Hỏa rèn; Mộc cực vượng tựa Hỏa → "
+            "cần Thủy khắc; Mộc thái suy tựa Thủy → cần Kim sinh; v.v. "
+            "Đảo ngược logic — vì cực đoan thì chuyển hóa thành hành đối nghịch."
+        ),
+        han_viet_explained=(
+            "**Điên (颠)** = lộn. **Đảo (倒)** = ngược. Lý lẽ Ngũ Hành ngược lại bình thường."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú",
+                "dong": 2288,
+                "noi_dung": (
+                    "Chỗ này còn có tài tại lý lẽ điên đảo (đảo nghịch), có 12 lý lẽ: "
+                    "Mộc thái vượng, mà tựa như Kim, mừng được Hỏa rèn luyện. "
+                    "Mộc cực vượng, mà tựa như Hỏa, mừng gặp Thủy khắc. "
+                    "...Mộc thái suy, mà tựa như Thủy vậy, cần lấy Kim sinh. "
+                    "Mộc cực suy, mà tựa như Thổ, cần lấy Hỏa sinh."
+                ),
+            },
+        ],
+        related_concepts=["vượng_suy", "tòng_cách", "trung_hòa"],
+        iron_rule_link="Engine `vuong_suy_dao_nghich.py` đã wire 20 patterns",
+    ),
+
+    "tòng_cách": ConceptDef(
+        key="tòng_cách",
+        ten_han_viet="Tòng Cách",
+        chu_han="从格",
+        nghia_co_ban=(
+            "Khi Day Master quá yếu KHÔNG thể phù lên → đành 'tòng theo' khí dominant. "
+            "4 loại chính: Tòng Tài, Tòng Sát, Tòng Vượng, Tòng Cường. "
+            "Paradigm đảo: không hỗ trợ DM nữa mà thuận theo cường thần."
+        ),
+        han_viet_explained="**Tòng (从)** = theo, thuận. **Cách (格)** = cách cục.",
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú (case 103)",
+                "dong": 2343,
+                "noi_dung": (
+                    "Nhật chủ quá nhược, sát vượng nên tòng sát. "
+                    "Gặp vận Thổ, Kim tức vận Tài, Quan là cát vận."
+                ),
+            },
+        ],
+        related_concepts=["tòng_tài", "tòng_sát", "tòng_vượng", "tòng_cường"],
+    ),
+
+    "tòng_tài": ConceptDef(
+        key="tòng_tài",
+        ten_han_viet="Tòng Tài",
+        chu_han="从财",
+        nghia_co_ban=(
+            "Day Master vô căn + Tài cực vượng (lộ trên Can) → tòng theo Tài. "
+            "Dụng thần: Thực Thương + Tài. Vận tốt: Tài + Thực Thương. "
+            "Vận xấu: Tỷ Kiếp + Ấn (vì phá Tài)."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú (case 116)",
+                "dong": 2474,
+                "noi_dung": (
+                    "Nhật chủ quá nhược, trong mệnh cục thực tài quan đã vượng. "
+                    "Thành cách tòng thủy (= tòng tài). Dụng thân mộc, gặp mộc vận "
+                    "(tài vận) thì tốt, gặp thủy vận (thực thương vận) trung bình."
+                ),
+            },
+        ],
+        related_concepts=["tòng_cách", "tài"],
+    ),
+
+    "tòng_sát": ConceptDef(
+        key="tòng_sát",
+        ten_han_viet="Tòng Sát",
+        chu_han="从杀",
+        nghia_co_ban=(
+            "Day Master cô yếu vô căn + Quan Sát cực vượng → tòng theo Sát. "
+            "Dụng thần: Tài + Quan Sát. Kỵ: Ấn (vì Ấn cứu thân chống Sát = phản đồ)."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú (case 108)",
+                "dong": 2406,
+                "noi_dung": (
+                    "Chỉ có thủy vượng, trên lại lộ sát, nhật chủ cô yếu vô căn. "
+                    "Thành cách tòng sát."
+                ),
+            },
+        ],
+        related_concepts=["tòng_cách", "quan_sát"],
+    ),
+
+    "tòng_vượng": ConceptDef(
+        key="tòng_vượng",
+        ten_han_viet="Tòng Vượng",
+        chu_han="从旺",
+        nghia_co_ban=(
+            "Day Master + Tỷ Kiếp đều vượng, không có Tài Quan chế → tòng theo khí vượng. "
+            "Dụng thần: Tỷ Kiếp + Thực Thương. Kỵ: Tài Quan (vì chống cường thần)."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú (case 117)",
+                "dong": 2479,
+                "noi_dung": (
+                    "Cách tòng vượng, do trong mệnh cục kiếp vượng, ấn suy lại có thực thương. "
+                    "Gặp mộc vận (thực thương vận) là tốt nhất, kế đến là kiếp vận."
+                ),
+            },
+        ],
+        related_concepts=["tòng_cách", "tỷ_kiên"],
+    ),
+
+    "tòng_cường": ConceptDef(
+        key="tòng_cường",
+        ten_han_viet="Tòng Cường",
+        chu_han="从强",
+        nghia_co_ban=(
+            "Ấn + Kiếp đều vượng (Mẹ + Anh em đều mạnh) → tòng theo cường thần. "
+            "Dụng thần: Ấn + Tỷ Kiếp. Kỵ: Thực Thương + Tài Quan."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy bình chú (case 106)",
+                "dong": 2380,
+                "noi_dung": (
+                    "Trụ này Ấn Kiếp đều vượng, thành cách tòng cường. "
+                    "Nên dụng thần là Ấn Kiếp. Tuyệt đối không nên gặp vận Thực Tài Quan."
+                ),
+            },
+        ],
+        related_concepts=["tòng_cách", "ấn", "tỷ_kiên"],
+    ),
+
+    "trung_hòa": ConceptDef(
+        key="trung_hòa",
+        ten_han_viet="Trung Hòa",
+        chu_han="中和",
+        nghia_co_ban=(
+            "Cốt tủy Tử Bình — lá số cân bằng Ngũ Hành, không thiên lệch. "
+            "Người trung hòa: tâm chính trực, hiếu lễ không kiêu, an nhàn ít hiềm trở. "
+            "Trung hòa CHÍNH KHÍ = đắc phú quý tự nhiên."
+        ),
+        han_viet_explained="**Trung (中)** = giữa. **Hòa (和)** = hòa hợp.",
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy chương 18",
+                "dong": 2515,
+                "noi_dung": (
+                    "Trung hòa, cốt tủy trong mệnh lý vậy. Tức đắc trung hòa chính khí, "
+                    "danh lợi làm sao mà không toại được? Một đời an nhàn, không uất ức "
+                    "mà sung sướng toại nguyện, ít hiềm trở mà nhiêu cát, làm người hiệu "
+                    "lễ mà không kiêu căng siếm nịnh, tâm chính trực mà không câu thả."
+                ),
+            },
+        ],
+        related_concepts=["bệnh_thuốc", "vượng_suy"],
+    ),
+
+    "bệnh_thuốc": ConceptDef(
+        key="bệnh_thuốc",
+        ten_han_viet="Bệnh-Thuốc",
+        chu_han="病药",
+        nghia_co_ban=(
+            "Paradigm CỐT: 'Hữu bệnh phương vi quý, vô thương bát thị kỳ' — "
+            "có bệnh có thuốc chữa mới là quý; không bệnh không thuốc thì hoạ phúc khó đoán. "
+            "Lá số có khuyết nhưng có thần CHẾ được → vẫn cát."
+        ),
+        han_viet_explained="**Bệnh (病)** = khuyết. **Thuốc (药)** = thần chế khuyết.",
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy chương 18",
+                "dong": 2511,
+                "noi_dung": (
+                    "Hữu bệnh phương vi quý, vô thương bát thị kỳ. Có bệnh có thuốc chữa, "
+                    "cát hung dễ dàng nghiệm đúng, không bệnh không thuốc, hoạ phúc khó đoán."
+                ),
+            },
+        ],
+        related_concepts=["trung_hòa", "dụng_thần"],
+    ),
+
+    "nguyên_lưu": ConceptDef(
+        key="nguyên_lưu",
+        ten_han_viet="Nguyên Lưu",
+        chu_han="原流",
+        nghia_co_ban=(
+            "Khí lưu thông trong lá số — vượng thần nguồn chảy đến đâu? "
+            "Khởi tại Tỷ Kiếp kết thúc tại Tài Quan = hỉ. Khởi tại Tài Quan kết thúc "
+            "tại Tỷ Kiếp = kỳ. Lưu thông sinh hóa thì cát."
+        ),
+        han_viet_explained=(
+            "**Nguyên (原)** = nguồn. **Lưu (流)** = chảy — khí chảy từ nguồn đến đâu."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy chương 19",
+                "dong": 2560,
+                "noi_dung": (
+                    "Nguyên lưu, tức vượng thần trong Tứ Trụ vậy, bất luận Tài, Quan, "
+                    "Ấn, Thụ, Thực Thương, Tỷ Kiếp, đều có thể là nguyên lưu vậy. "
+                    "Tổn quát cân lưu thông sinh hóa, đắc cục đắc mỹ thì cát."
+                ),
+            },
+        ],
+        related_concepts=["thông_quan", "trung_hòa"],
+    ),
+
+    "vượng_cực_không_thể_tốn": ConceptDef(
+        key="vượng_cực_không_thể_tốn",
+        ten_han_viet="Vượng Cực Không Thể Tốn",
+        chu_han="旺极不可损",
+        nghia_co_ban=(
+            "Khi khí 1 hành CỰC vượng → KHÔNG được chế (tốn) ngược lại. "
+            "Đảo lại: phải tòng theo (Tòng Vượng/Tòng Cường). "
+            "Suy cực cũng tương tự: không thể sinh thêm → phải tòng theo cực suy."
+        ),
+        trich_sach=[
+            {
+                "sach": "Trích Thiên Tủy chương 17",
+                "dong": 2505,
+                "noi_dung": (
+                    "Vượng cực không thể tốn, suy cực không thể sinh — tức vượng cực, "
+                    "suy cực vậy. Đặc biệt tuyển lựa để minh chứng cho hậu nhân."
+                ),
+            },
+        ],
+        related_concepts=["vượng_suy_điên_đảo", "tòng_cách"],
+    ),
+
     "đức_năng_thắng_số": ConceptDef(
         key="đức_năng_thắng_số",
         ten_han_viet="Đức Năng Thắng Số",
