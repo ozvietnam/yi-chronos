@@ -1590,6 +1590,29 @@ def chu_de_catalog_detail(chu_de_id: str) -> dict[str, object]:
     }
 
 
+@app.post("/api/bat-tu/luan-giai-soi-nhieu-sach")
+def bat_tu_luan_giai_soi_nhieu_sach(request: HaLacCastRequest) -> dict[str, object]:
+    """Luận Giải Tứ Trụ SOI 4 SÁCH paradigm (Anh duyệt 2026-06-02).
+
+    Pull tứ trụ → cross-reference 4 sách CỐT (TTT + Thiệu Vĩ Hoa + Tử Bình + Hoàng Tuấn)
+    → render luận giải tường minh với citation rõ ràng từng nguồn.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.luan_giai_soi_nhieu_sach import (
+        luan_giai_tu_tru_soi_nhieu_sach,
+        render_full_markdown,
+    )
+
+    tu_tru = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    luan = luan_giai_tu_tru_soi_nhieu_sach(tu_tru)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": tu_tru,
+        "luan_giai_soi_nhieu_sach": luan,
+        "markdown": render_full_markdown(luan),
+    }
+
+
 @app.post("/api/ha-lac/luan-giai-sau")
 def ha_lac_luan_giai_sau(request: HaLacCastRequest) -> dict[str, object]:
     """Luận giải SÂU Hà Lạc — render paradigm thành narrative tường minh.
