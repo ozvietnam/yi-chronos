@@ -1552,6 +1552,44 @@ def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
     }
 
 
+@app.get("/api/chu-de-catalog")
+def chu_de_catalog_list(truong_phai: str | None = None, keyword: str | None = None) -> dict[str, object]:
+    """Chủ Đề Catalog — quản trị 30+ sách Đông phương theo CHỦ ĐỀ.
+
+    Paradigm Anh duyệt (2026-06-02): VÒNG 3 cross-reference theo chủ đề.
+
+    Query params:
+    - truong_phai: filter by trường phái (bat-tu / tu-vi / ha-lac / mai-hoa / kmdg / cross / nen-tang / kinh-dich)
+    - keyword: search trong tên, mô tả, related_concepts
+    """
+    from engine.yi_research.chu_de_catalog import (
+        CATALOG, search_chu_de, list_chu_de_by_truong_phai, get_summary_stats,
+    )
+    if keyword:
+        results = search_chu_de(keyword)
+    elif truong_phai:
+        results = list_chu_de_by_truong_phai(truong_phai)
+    else:
+        results = list(CATALOG)
+    return {
+        "stats": get_summary_stats(),
+        "results": [c.to_dict() for c in results],
+    }
+
+
+@app.get("/api/chu-de-catalog/{chu_de_id}")
+def chu_de_catalog_detail(chu_de_id: str) -> dict[str, object]:
+    """Detail 1 chủ đề + markdown render."""
+    from engine.yi_research.chu_de_catalog import get_chu_de, render_chu_de_markdown
+    c = get_chu_de(chu_de_id)
+    if not c:
+        return {"error": f"Không có chủ đề id={chu_de_id}"}
+    return {
+        "chu_de": c.to_dict(),
+        "markdown": render_chu_de_markdown(c),
+    }
+
+
 @app.post("/api/ha-lac/luan-giai-sau")
 def ha_lac_luan_giai_sau(request: HaLacCastRequest) -> dict[str, object]:
     """Luận giải SÂU Hà Lạc — render paradigm thành narrative tường minh.
