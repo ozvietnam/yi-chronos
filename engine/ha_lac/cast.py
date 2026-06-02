@@ -19,6 +19,7 @@ from engine.bat_tu import extract_tu_tru
 from .decade_trajectory import build_trajectory
 from .hau_thien import derive_hau_thien
 from .ho_quai import derive_ho_quai
+from .hoa_cong import analyze_hoa_cong_nguyen_khi
 from .nguyen_duong import nguyen_duong_line
 from .number_pools import compute_number_pools
 from .quai_assembly import assemble_tien_thien
@@ -29,6 +30,38 @@ SOURCE_REF = (
     "Học Năng, Bát Tự Hà Lạc Lược Khảo, Saigon 1974. "
     "Cross-verified with Chen Tuan (陈抟) lineage."
 )
+
+
+def _compute_hoa_cong_nguyen_khi(birth_dt_str, tu_tru, tien_thien, hau_thien, ho_tien, ho_hau) -> dict | None:
+    """Helper — gather structural trigrams + run hoa_cong analysis."""
+    try:
+        # Parse month from birth dt
+        import re
+        m = re.search(r"\d{4}-(\d{2})", birth_dt_str)
+        if not m:
+            return None
+        month = int(m.group(1))
+        # Gather trigrams from structure
+        trigrams = []
+        for q in (tien_thien, hau_thien):
+            if hasattr(q, "upper_trigram"):
+                trigrams.append(q.upper_trigram)
+            if hasattr(q, "lower_trigram"):
+                trigrams.append(q.lower_trigram)
+        for h in (ho_tien, ho_hau):
+            if h:
+                trigrams.append(h.get("ngoai_ho_trigram"))
+                trigrams.append(h.get("noi_ho_trigram"))
+        trigrams = [t for t in trigrams if t]
+        year = tu_tru["pillars"]["year"]
+        return analyze_hoa_cong_nguyen_khi(
+            birth_month=month,
+            year_stem=year["stem"],
+            year_branch=year["branch"],
+            structural_trigrams=trigrams,
+        )
+    except Exception as e:
+        return {"_error": str(e)[:200]}
 
 
 def cast_ha_lac(
@@ -104,6 +137,9 @@ def cast_ha_lac(
         },
         "ho_quai_tien": ho_tien,
         "ho_quai_hau": ho_hau,
+        "hoa_cong_nguyen_khi": _compute_hoa_cong_nguyen_khi(
+            birth_datetime_local, tu_tru, tien_thien, hau_thien, ho_tien, ho_hau
+        ),
         "decade_trajectory": trajectory,
         "lifespan_span": {
             "start_age": trajectory[0]["age_start"] if trajectory else 1,
