@@ -766,6 +766,76 @@ Lý do: _"Ấn đã khắc Thương Quan suy, gặp Quan thêm khắc thân → 
 
 ---
 
-## 🎯 Vòng 6 (tr. 101-120)
+---
 
-Dự đoán: tiếp ví dụ Thương Quan + Chương 23 Thanh Khí + Chương 24 Trọc Khí.
+# 🎓 TỔNG KẾT TOÀN QUYỂN Trích Thiên Tủy — Nhậm Thiết Tiều (202p)
+
+## Engine modules NEW từ quyển này (7 modules)
+
+| # | Module | Chương | Function chính |
+|---|---|---|---|
+| 1 | `thong_can.py` | Ch.3 Nhân Đạo | Thiên Can có gốc trong Địa Chi → score 0-10 (Lộc Vượng/Thông Căn/Thông Căn Yếu/Hư Phù) |
+| 2 | `nhi_khi_thanh_tuong.py` | Ch.11 Phương Cục | 5 cặp Nhị Khí (Mộc-Hỏa, Hỏa-Thổ, Thổ-Kim, Kim-Thủy, Thủy-Mộc) |
+| 3 | `vuong_suy_dao_nghich.py` | Ch.17 Suy Vượng | 20 lý lẽ Vượng-Suy điên đảo (thái/cực × vượng/suy) |
+| 4 | `cach_dung_than_ttt.py` | Ch.21-22 Quan/Thương | 5+5+8 cách dụng thần Quan Sát + Thương Quan |
+| 5 | `chan_doai_kham_ly.py` | Ch.33-34 Chấn Đoài + Khảm Ly | 5 lý lẽ Mộc-Kim (Công/Thành/Nhuận/Tòng/Noãn) + 4 Thủy-Hỏa pattern |
+| 6 | `nu_menh.py` | Ch.6 Nữ Mệnh | Khắc Phu / Có con / Phong lưu / Tính cách + paradigm guard hiện đại |
+| 7 | `tue_van_paradigm.py` | Ch.28 Tuế Vận | 4 paradigm Đại Vận-Lưu Niên (Chiến/Xung/Hòa/Tốt) — 7 subtypes |
+
+Cộng với 2 patterns mới trong `luu_nien.py` (Tam Hội Cục, Thiên Can Hóa Hợp) + `_build_paradigm_notes` cross-ref Tương Hình.
+
+## 🚨 PHÁT HIỆN CỘT TỬ CHO LÁ SỐ ANH
+
+Cross-validate 7 vòng:
+
+| Vòng | Phát hiện | Implication |
+|---|---|---|
+| 1 — Thông Căn | Giáp Mộc **HƯ PHÙ score 0** | Nhật Chủ không có rễ |
+| 4 — Vượng Suy | DM 21% + Ấn 15% = support 35% (bình thường) | Không cực vượng/suy |
+| 5 — TQ Kiến Quan | **HUNG** (TQ nhược + Ấn + Quan) | Quan đến = khắc thân |
+| 6 — Chấn Đoài | **NHUẬN — Hạ lệnh** | Dụng **THỦY** |
+| 7 — Nữ Mệnh | n/a (nam) | — |
+| 8 — Tuế Vận | active | Đại Vận hiện Vận-Tuế classify |
+
+### 🎯 Dụng Thần cho anh (composite từ 4 sách)
+
+| Nguồn | Dụng Thần |
+|---|---|
+| Thiệu Vĩ Hoa cascade | #1 Tỉ Kiếp (Mộc) → #2 Ấn (Thủy) |
+| Trích Thiên Tủy Chấn Đoài | **THỦY** (nhuận hạ lệnh) |
+| Trích Thiên Tủy Thông Căn | bù Mộc/Thủy (gốc + sinh) |
+| Trích Thiên Tủy TQ Kiến Quan | tránh Quan Sát (Kim) |
+
+→ **THỦY là dụng thần thật** cho anh — bù Mộc qua nguồn sinh.
+→ **KIM là kỵ thần** rõ rệt — Đại Vận / Lưu Niên Kim (Canh, Tân, Thân, Dậu) phải cẩn trọng.
+
+## 5 Paradigm chấn động nhất em học từ Trích Thiên Tủy
+
+### 1. THÔNG CĂN > Đắc Lệnh
+Nhậm Thị: "Nhật Chủ KHÔNG luận hư tù nguyệt lệnh, chỉ cần Tứ Trụ HỮU CĂN, liền có thể đảm nhận Tài Quan Thực Thương Thất Sát."
+→ Engine có thông_can.py.
+
+### 2. CÓ THỂ DÙNG KỴ THẦN ĐỂ CỨU
+"Rằng dụng tài tinh có thể dụng Kiếp, rằng dụng quan tinh có thể dụng Thương Quan..."
+→ Khác Thiệu Vĩ Hoa "Kiếp đoạt Tài luôn xấu".
+
+### 3. VƯỢNG-SUY ĐIÊN ĐẢO (20 nghịch lý)
+Khi 1 hành cực điểm, BIẾN TÍNH — dụng thần đảo logic.
+→ Engine vuong_suy_dao_nghich.py.
+
+### 4. BÁC BỎ TƯƠNG HÌNH / LỤC HẠI / TƯƠNG PHÁ
+"Tương hình, tương hại vốn đã không lấy Chỉ làm bằng chứng, thật lầm lỗi lớn."
+→ Engine có _build_paradigm_notes cross-ref warn.
+
+### 5. CHẤN ĐOÀI 5 LÝ LẼ
+Cùng cặp Mộc-Kim nhưng dụng thần KHÁC theo mùa (Công/Thành/Nhuận/Tòng/Noãn).
+→ Engine chan_doai_kham_ly.py.
+
+## Phase 2 Tứ Trụ tiếp theo
+
+3 sách còn lại trong queue:
+1. **Bát Tự Hà Lạc & quỹ đạo đời người** (608p) — paradigm Hà Lạc + Bát Tự hợp lưu
+2. **Dự Báo Theo Tử Bình** (424p)
+3. **Thiên Nhân Học — Trích Thiên Tủy** (119p, phụ sách này)
+
+Quyển Trích Thiên Tủy này = ⭐⭐⭐⭐⭐ TUYỆT ĐỐI cho engine Tứ Trụ. Em đã học được CỐT của Nhậm Thiết Tiều.
