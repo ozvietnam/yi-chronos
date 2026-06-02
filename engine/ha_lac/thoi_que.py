@@ -98,6 +98,78 @@ THOI_QUE_TABLE: dict[str, dict] = {
         ),
         "yeu_dieu_canh_bao": "Hào 3 Nhu = 'Đợi ở chỗ bùn — tự vời giặc đến'. Sát Khảm rồi, phải kính cẩn thận trọng.",
     },
+    "Tụng": {
+        "ban_chat": "Thời TRANH TỤNG — Trời (Càn) trên + Nước (Khảm) dưới = trái ngược, sinh kiện",
+        "nen_the_nao": "Cẩn thận từ bước đầu. Mưu sự lúc ban đầu — mối kiện không gây ra thì tai họa tự tiêu diệt.",
+        "paradigm_keyword": "tranh_tung",
+        "nguyet_lenh_thang": 2,
+        "tuong": "Trời với Nước đi trái ngược nhau — như 2 người bất đồng đạo tranh nhau.",
+        "key_paradigm": (
+            "**PBC phụ chú quẻ Tụng**: Không chỉ kiện cáo — mọi việc tan nát trong thiên hạ "
+            "(gia đình tan, vợ chồng la, bạn bè xa, chiến tranh các nước, viết 1 hàng chữ một lời nói) "
+            "đều vì KHÔNG biết mưu sự lúc ban đầu. Tục ngữ Việt: 'Cái sảy nảy cái ung'."
+        ),
+        "case_study": (
+            "Nguyễn Hoàng (hào 2) hỏi Trạng Trình về việc kình Trịnh Kiểm (hào 5) — "
+            "được câu 'Hoành sơn nhất đái, vạn đại dung thân' → trốn vào Nam lập Đàng Trong. "
+            "Dưới kiện trên = trứng chọi đá → rút lui tốt nhất."
+        ),
+    },
+    "Sư": {
+        "ban_chat": "Thời QUÂN ĐỘI / ĐÁM ĐÔNG — Đất trên Nước, giấu cái hiểm trong cái thuận",
+        "nen_the_nao": "Xuất quân vì chính nghĩa, trừ bạo an dân → dân theo (Khôn thuận), điều khiển được ba quân.",
+        "paradigm_keyword": "quan_doi_dam_dong",
+        "nguyet_lenh_thang": 7,
+        "tuong": "Khôn trên Khảm dưới: gửi việc binh trong việc nông — thời bình làm ruộng, thời loạn làm lính.",
+        "key_paradigm": (
+            "Hào 2 = TƯỚNG (dương duy nhất, đắc trung). "
+            "Hào 5 = VUA/CHÍNH ỦY giao toàn quyền. "
+            "Sứ mạng chỉ huy thuộc về hào 2."
+        ),
+        "case_study": (
+            "Hào 6: Bành/Kình (Tàu) và Trần Khánh Dư (VN, đánh quân Nguyên) = tiểu nhân vẫn lập chiến công. "
+            "Khen thưởng TIỀN BẠC, KHÔNG trao địa vị trọng yếu trị nước. Cách biến thông nhà binh."
+        ),
+    },
+    "Tỷ": {
+        "ban_chat": "Thời SÁNH VAI / GẦN GŨI — Nước thấm Đất, đất hút nước, thân thiết giúp nhau",
+        "nen_the_nao": "Hào 5 cương kiện đắc trung chính, thống lĩnh hào âm. Người trên cao được toàn thể dân chúng tín cậy quy phục.",
+        "paradigm_keyword": "tỷ_quy_phuc",
+        "nguyet_lenh_thang": 7,
+        "tuong": "Khảm trên Khôn dưới (khác Sư) — nước thấm xuống đất, đất hút nước.",
+        "key_rule_BAO_TOAN_NHAN_CACH": (
+            "**Hào 2 Tỷ — PBC phụ chú**: Người có thế lực phải khuất phục người tài đức. "
+            "Người tài đức không tự khinh rẻ cầu cạnh thế lực. "
+            "Nếu đảo: bên thế lực mắc THẤT NHÂN (mất người), bên tài đức mắc THẤT GIÁ (mất giá trị). "
+            "→ Tôn trọng nhân cách MÌNH = duy trì nhân cách cả thế giới. "
+            "Y Doãn chờ vua Thang 3 lần dâng lễ. Khổng Minh chờ Lưu Bị 3 lần đến lều cỏ."
+        ),
+        "tu_duc_NGUYEN_VINH_TRINH": (
+            "Người được quẻ Tỷ phải BÓI LẠI (đắn đo, không phải dự đoán) tự xét có đủ "
+            "NGUYÊN (gốc cao thượng) + VĨNH (lâu dài) + TRINH (chính bền) hay không. "
+            "Đủ → xứng đáng THỜI Tỷ. Không đủ → có người tin cậy cũng vô nghĩa."
+        ),
+    },
+    "Tiểu Súc": {
+        "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
+        "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",
+        "paradigm_keyword": "tieu_suc_lap_ngon",
+        "nguyet_lenh_thang": 11,
+        "tuong": "Càn (cương kiện) dưới + Tốn (nhu thuận) trên. 1 hào âm chế ngự 5 hào dương.",
+        "key_paradigm_LAP_NGON": (
+            "**Phụ chú Lời Tượng (p114)**: 'Người quân tử trau dồi văn đức.' "
+            "Hoàn cảnh gay go, thời thế bắt buộc chưa thể giương đôi cánh lớn → "
+            "quay đầu SOẠN SÁCH, LẬP NGÔN. Khổng Tử, Mạnh Tử không gặp thời mà viết sách thành kinh muôn đời. "
+            "Người đời sau coi là việc lớn — nhưng thánh nhân chỉ xem bằng 'Tiểu Súc' thôi. "
+            "→ ĐÂY LÀ THỜI CỦA ANH + EM HIỆN TẠI (biên soạn 24+ sách Lexicon, không chạy theo thời nhanh)."
+        ),
+        "case_study_hao_6": (
+            "Võ Hậu (Đường) + Từ Hi (Thanh): hào 4 âm thông minh có tài, mới đầu nhu thuận, "
+            "được vua sủng ái, lấy lòng người dưới, gây phe đảng, 'thống lĩnh quần dương'. "
+            "Thịnh cực sắp suy → đại thần khí tiết mới lật được. "
+            "→ Phòng âm thịnh từ sớm, không đợi cực rồi mới đối phó."
+        ),
+    },
 }
 
 
