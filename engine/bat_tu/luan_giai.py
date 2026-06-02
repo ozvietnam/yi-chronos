@@ -1000,6 +1000,46 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _detect_chan_doai_in_state(state: dict) -> dict | None:
+    """Chấn Đoài 5 lý lẽ Mộc-Kim — Trích Thiên Tủy Ch.33."""
+    from .chan_doai_kham_ly import analyze_chan_doai
+    from .constants import BRANCH_ELEMENT, STEM_ELEMENT
+    assess = state.get("ngu_hanh", {}).get("day_master_assessment", {})
+    dm_el = (assess.get("day_master_element") or "").lower()
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    month_branch = pillars.get("month", {}).get("branch")
+    # Check has Kim
+    has_kim = False
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars.get(pos, {})
+        if STEM_ELEMENT.get(p.get("stem", ""), "").lower() == "kim":
+            has_kim = True
+            break
+        if BRANCH_ELEMENT.get(p.get("branch", ""), "").lower() == "kim":
+            has_kim = True
+            break
+    if not dm_el or not month_branch:
+        return None
+    try:
+        return analyze_chan_doai(dm_el, month_branch, has_kim)
+    except Exception:
+        return None
+
+
+def _detect_kham_ly_in_state(state: dict) -> dict | None:
+    """Khảm Ly Thủy-Hỏa giao tế — Trích Thiên Tủy Ch.34."""
+    from .chan_doai_kham_ly import analyze_kham_ly
+    assess = state.get("ngu_hanh", {}).get("day_master_assessment", {})
+    dm_el = (assess.get("day_master_element") or "").lower()
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not dm_el or not pillars:
+        return None
+    try:
+        return analyze_kham_ly(dm_el, pillars)
+    except Exception:
+        return None
+
+
 def _classify_tq_kq_in_state(state: dict) -> dict | None:
     """Thương Quan kiến Quan 8 patterns — Trích Thiên Tủy Ch.22."""
     from .cach_dung_than_ttt import classify_thuong_quan_kien_quan
@@ -1369,6 +1409,8 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "nhi_khi_thanh_tuong": _detect_nhi_khi_in_state(bat_tu_state),
         "vuong_suy_dao_nghich": _detect_vuong_suy_paradox_in_state(bat_tu_state),
         "thuong_quan_kien_quan_ttt": _classify_tq_kq_in_state(bat_tu_state),
+        "chan_doai": _detect_chan_doai_in_state(bat_tu_state),
+        "kham_ly": _detect_kham_ly_in_state(bat_tu_state),
         "paradigm_notes": _build_paradigm_notes(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
