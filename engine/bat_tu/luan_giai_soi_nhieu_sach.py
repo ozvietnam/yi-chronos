@@ -151,7 +151,33 @@ def luan_giai_tu_tru_soi_nhieu_sach(tu_tru: dict) -> dict:
         "_pending": "Wire ha_lac cast result vào module này",
     }
 
-    # ── F. SYNTHESIS cross-source ───────────────────────────────────────
+    # ── F. PHÙ-ỨC ROUTE (NEW 2026-06-02 — paradigm "Ấn Tỷ ánh sáng") ──
+    from engine.bat_tu.phu_uc_route import route_phu_uc, render_phu_uc_markdown
+    phu_uc = route_phu_uc(tu_tru)
+    phu_uc_section = {
+        "result": phu_uc.to_dict(),
+        "narrative": render_phu_uc_markdown(phu_uc),
+    }
+
+    # ── G. CONCEPT GLOSSARY (auto-highlight keywords) ──────────────────
+    from engine.bat_tu.concept_glossary import auto_highlight_text, render_concept_markdown
+    # Gom mọi narrative để auto-highlight
+    all_text = " ".join([
+        snapshot["narrative"],
+        truong_sinh_section["narrative"],
+        vuong_suy_section["narrative"],
+        cach_dung_section["narrative"],
+        phu_uc_section["narrative"],
+    ])
+    highlights = auto_highlight_text(all_text, depth="tooltip")
+    glossary_section = {
+        "highlights": highlights,
+        "narrative": "## 📚 Thuật Ngữ Trong Luận Giải Này\n\n" + "\n\n---\n\n".join(
+            render_concept_markdown(h["key"]) for h in highlights
+        ) if highlights else "_(Không phát hiện thuật ngữ trong glossary)_",
+    }
+
+    # ── H. SYNTHESIS cross-source ───────────────────────────────────────
     synthesis = _build_synthesis(day_master_stem, month_branch, day_master_elem, pillars)
 
     return {
@@ -160,6 +186,8 @@ def luan_giai_tu_tru_soi_nhieu_sach(tu_tru: dict) -> dict:
         "vuong_suy_cross_ref": vuong_suy_section,
         "cach_dung_than": cach_dung_section,
         "hoang_tuan_cross": hoang_tuan_section,
+        "phu_uc": phu_uc_section,
+        "glossary": glossary_section,
         "synthesis": synthesis,
         "paradigm_guard": (
             "⚠️ Iron Rule #4+6: Engine ra cách cục, KHÔNG predict tĩnh. "
@@ -333,7 +361,12 @@ def render_full_markdown(luan_giai_result: dict) -> str:
         luan_giai_result["cach_dung_than"]["narrative"],
         "\n## E. Hoàng Tuấn cross-trường phái\n",
         luan_giai_result["hoang_tuan_cross"]["nien_menh_text"],
-        "\n" + luan_giai_result["synthesis"],
+        "\n## F. Phù-Ức Route (Ấn Tỷ ánh sáng)\n",
+        luan_giai_result["phu_uc"]["narrative"],
+        "\n## G. Thuật Ngữ Sáng Tỏ\n",
+        luan_giai_result["glossary"]["narrative"],
+        "\n## H. Synthesis\n",
+        luan_giai_result["synthesis"],
         "\n---\n",
         luan_giai_result["paradigm_guard"],
     ]

@@ -1613,6 +1613,50 @@ def bat_tu_luan_giai_soi_nhieu_sach(request: HaLacCastRequest) -> dict[str, obje
     }
 
 
+@app.get("/api/bat-tu/glossary")
+def bat_tu_glossary_list() -> dict[str, object]:
+    """List tất cả thuật ngữ Bát Tự trong glossary (paradigm 'Ấn Tỷ ánh sáng')."""
+    from engine.bat_tu.concept_glossary import GLOSSARY
+    return {
+        "count": len(GLOSSARY),
+        "concepts": [cd.to_dict() for cd in GLOSSARY.values()],
+    }
+
+
+@app.get("/api/bat-tu/glossary/{key}")
+def bat_tu_glossary_lookup(key: str) -> dict[str, object]:
+    """Lookup 1 thuật ngữ → full definition + trích sách + render markdown."""
+    from engine.bat_tu.concept_glossary import glossary_explain, render_concept_markdown
+    cd = glossary_explain(key, depth="full")
+    if not cd:
+        raise HTTPException(status_code=404, detail=f"Không tìm thấy thuật ngữ '{key}'")
+    return {
+        "concept": cd,
+        "markdown": render_concept_markdown(key),
+    }
+
+
+@app.post("/api/bat-tu/phu-uc-route")
+def bat_tu_phu_uc_route(request: HaLacCastRequest) -> dict[str, object]:
+    """Route Phù-Ức (Trợ vs Sinh) — 8 path theo Trích Thiên Tủy.
+
+    Anh duyệt 2026-06-02: paradigm 'Ấn Tỷ ánh sáng' — engine generalize
+    cho mọi lá số. Trả về Dụng-Kỵ thần + trích sách + hành động cụ thể.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.phu_uc_route import route_phu_uc, render_phu_uc_markdown
+
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    result = route_phu_uc(tu_tru)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "phu_uc": result.to_dict(),
+        "markdown": render_phu_uc_markdown(result),
+    }
+
+
 @app.post("/api/ha-lac/luan-giai-sau")
 def ha_lac_luan_giai_sau(request: HaLacCastRequest) -> dict[str, object]:
     """Luận giải SÂU Hà Lạc — render paradigm thành narrative tường minh.
