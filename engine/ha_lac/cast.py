@@ -19,7 +19,8 @@ from engine.bat_tu import extract_tu_tru
 from .decade_trajectory import build_trajectory
 from .hau_thien import derive_hau_thien
 from .ho_quai import derive_ho_quai
-from .hoa_cong import analyze_hoa_cong_nguyen_khi
+from .hoa_cong import analyze_hoa_cong_nguyen_khi, determine_season_from_month
+from .menh_hop_cach import evaluate_menh_hop_cach
 from .nguyen_duong import nguyen_duong_line
 from .number_pools import compute_number_pools
 from .quai_assembly import assemble_tien_thien
@@ -30,6 +31,41 @@ SOURCE_REF = (
     "Học Năng, Bát Tự Hà Lạc Lược Khảo, Saigon 1974. "
     "Cross-verified with Chen Tuan (陈抟) lineage."
 )
+
+
+def _compute_menh_hop_cach(birth_dt_str, tu_tru, tien_thien, nd_tien, pools, year_stem) -> dict | None:
+    """Helper — evaluate Mệnh Hợp Cách 10 tiêu chuẩn."""
+    try:
+        import re
+        m = re.search(r"\d{4}-(\d{2})", birth_dt_str)
+        month = int(m.group(1)) if m else 6
+        season = determine_season_from_month(month)
+        # Nạp âm: extract from year pillar if available
+        year_pillar = tu_tru["pillars"]["year"]
+        nap_am_raw = year_pillar.get("nap_am") or year_pillar.get("element") or ""
+        # Map to one of Kim/Mộc/Thủy/Hỏa/Thổ
+        mang = None
+        for k in ("Kim", "Mộc", "Thủy", "Hỏa", "Thổ"):
+            if k.lower() in str(nap_am_raw).lower():
+                mang = k
+                break
+        year_polarity = "dương" if year_stem in ("Giáp", "Bính", "Mậu", "Canh", "Nhâm") else "âm"
+        result = evaluate_menh_hop_cach(
+            source_quai_name=tien_thien.name_vi,
+            upper_trigram=tien_thien.upper_trigram,
+            lower_trigram=tien_thien.lower_trigram,
+            binary_top_down=tien_thien.binary_top_down,
+            nguyen_duong_line=nd_tien,
+            year_polarity=year_polarity,
+            so_duong=pools.tien_raw,
+            so_am=pools.dia_raw,
+            season_key=season,
+            birth_month_amlich=None,  # TODO: convert dương→âm lịch
+            mang_nap_am=mang,
+        )
+        return result.to_dict()
+    except Exception as e:
+        return {"_error": str(e)[:200]}
 
 
 def _compute_hoa_cong_nguyen_khi(birth_dt_str, tu_tru, tien_thien, hau_thien, ho_tien, ho_hau) -> dict | None:
@@ -139,6 +175,9 @@ def cast_ha_lac(
         "ho_quai_hau": ho_hau,
         "hoa_cong_nguyen_khi": _compute_hoa_cong_nguyen_khi(
             birth_datetime_local, tu_tru, tien_thien, hau_thien, ho_tien, ho_hau
+        ),
+        "menh_hop_cach": _compute_menh_hop_cach(
+            birth_datetime_local, tu_tru, tien_thien, nd_tien, pools, year_stem
         ),
         "decade_trajectory": trajectory,
         "lifespan_span": {
