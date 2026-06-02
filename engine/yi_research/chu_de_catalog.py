@@ -105,12 +105,24 @@ CATALOG: tuple[ChuDe, ...] = (
         truong_phai="kinh-dich",
         mo_ta="Toàn bộ 64 quẻ x 6 hào — paradigm gốc Đông phương.",
         refs=(
-            SachRef("kinh-dich-tron-bo-ngo-tat-to", "Kinh Dịch Trọn Bộ", "Ngô Tất Tố", priority=1, note="Bản dịch chính tiếng Việt"),
+            SachRef("kinh-dich-tron-bo-ngo-tat-to", "Kinh Dịch Trọn Bộ", "Ngô Tất Tố", priority=1, note="⭐⭐ Bản dịch CỐT TV — 1.6M chars, full 64 quẻ + Trình Di + Chu Hy + Phan Bội Châu"),
             SachRef("dich-hoc-tinh-hoa-nguyen-duy-can", "Dịch học Tinh hoa", "Nguyễn Duy Cần", priority=1),
             SachRef("bat-tu-ha-lac-va-quy-dao-doi-nguoi", "Bát Tự Hà Lạc & Quỹ Đạo Đời Người", "Xuân Cang", (76, 415), priority=1, note="Phần II 64 quẻ"),
             SachRef("chu-dich-voi-du-doan-hoc", "Chu Dịch với Dự Đoán Học", "Thiệu Vĩ Hoa", priority=2, note="798p kinh điển TQ"),
             SachRef("nhap-mon-chu-dich-du-doan-hoc", "Nhập môn Chu Dịch", "Thiệu Vĩ Hoa?", priority=2),
         ),
+    ),
+    ChuDe(
+        id="am_duong_ngu_hanh",
+        ten="Học thuyết Âm Dương Ngũ Hành",
+        truong_phai="nen-tang",
+        mo_ta="Triết học gốc Đông phương — Âm Dương + Ngũ Hành sinh khắc. Cốt cho mọi engine.",
+        refs=(
+            SachRef("hoc-thuyet-am-duong-ngu-hanh-le-van-suu", "Học Thuyết Âm Dương Ngũ Hành", "Lê Văn Sửu", priority=1, note="⭐⭐ Triết học gốc — đã restore, nhưng CID encoding, cần OCR ảnh phục hồi"),
+            SachRef("bi-an-cua-bat-quai", "Bí Ẩn Bát Quái", "Vương Ngọc Đức et al.", priority=2),
+            SachRef("dich-hoc-tinh-hoa-nguyen-duy-can", "Dịch học Tinh hoa", "Nguyễn Duy Cần", priority=2),
+        ),
+        related_concepts=("âm dương", "ngũ hành", "sinh khắc"),
     ),
     ChuDe(
         id="thai_bi_paradigm",
@@ -219,6 +231,17 @@ CATALOG: tuple[ChuDe, ...] = (
             SachRef("ly-thuyet-tuong-so-hoang-tuan", "Lý Thuyết Tượng Số", "Hoàng Tuấn", (5, 25), priority=1),
             SachRef("kinh-dich-va-he-nhi-phan", "Kinh Dịch và Hệ Nhị Phân", "Hoàng Tuấn", priority=2),
         ),
+    ),
+    ChuDe(
+        id="nien_menh_dac_the",
+        ten="Niên Mệnh + Đắc Thể (Hà Lạc nâng cao)",
+        truong_phai="ha-lac",
+        mo_ta="Niên Mệnh (nạp âm 60 Giáp Tý) × Quẻ Tiên Thiên (sinh nhập/xuất). Đắc Thể = Niên Mệnh × Quẻ cung Thiên Can.",
+        refs=(
+            SachRef("ly-thuyet-tuong-so-hoang-tuan", "Lý Thuyết Tượng Số", "Hoàng Tuấn", (65, 72), priority=1, note="⭐ Paradigm độc đắc Hoàng Tuấn"),
+            SachRef("bat-tu-ha-lac-va-quy-dao-doi-nguoi", "Hà Lạc Xuân Cang", "Xuân Cang", priority=2),
+        ),
+        related_concepts=("niên mệnh", "đắc thể", "nạp âm", "sinh nhập"),
     ),
     ChuDe(
         id="chan_dung_ha_lac",
