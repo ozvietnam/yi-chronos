@@ -39,6 +39,47 @@ from .thap_than import thap_than_of
 
 # ─── Reference tables ────────────────────────────────────────────────────────
 
+# Thiên Can Hóa Hợp (天干合化) — Thiệu Vĩ Hoa Tập 2 Ch.3 (5 cặp can)
+CAN_HOA_HOP: dict[frozenset, tuple[str, str]] = {
+    frozenset(["Giáp", "Kỷ"]): ("thổ", "Trung Chính"),   # 甲己合化土
+    frozenset(["Ất", "Canh"]): ("kim", "Nhân Nghĩa"),     # 乙庚合化金
+    frozenset(["Bính", "Tân"]): ("thủy", "Uy Chế"),       # 丙辛合化水
+    frozenset(["Đinh", "Nhâm"]): ("mộc", "Dâm Loạn"),     # 丁壬合化木
+    frozenset(["Mậu", "Quý"]): ("hỏa", "Vô Tình"),        # 戊癸合化火
+}
+
+
+def detect_can_hoa_hop(pillars: dict) -> list[dict]:
+    """Detect Thiên Can Hóa Hợp trong Tứ Trụ.
+
+    Paradigm Thiệu Vĩ Hoa Tập 2 Ch.3: 2 can lộ + cạnh nhau → có thể hóa hợp
+    tạo hành mới. Chỉ thực sự hóa khi đủ điều kiện môi trường + lệnh tháng.
+    """
+    stems_at: dict[str, list[str]] = {}
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars.get(pos, {})
+        st = p.get("stem")
+        if st:
+            stems_at.setdefault(st, []).append(pos)
+    out = []
+    for pair, (hop_el, quality) in CAN_HOA_HOP.items():
+        s1, s2 = sorted(pair)
+        if s1 in stems_at and s2 in stems_at:
+            positions = stems_at[s1] + stems_at[s2]
+            out.append({
+                "pair": [s1, s2],
+                "hop_element": hop_el,
+                "quality": quality,
+                "positions": positions,
+                "narrative": (
+                    f"**{s1}-{s2} hóa hợp {hop_el.title()}** ({quality}) — "
+                    f"2 can lộ ở Trụ {' + '.join(positions)}. "
+                    f"Hóa hợp thực sự khi điều kiện lệnh tháng + môi trường thuận."
+                ),
+            })
+    return out
+
+
 # Lục Hợp (六合) — 6 cặp địa chi hợp lành
 LUC_HOP: dict[frozenset, str] = {
     frozenset(["Tý", "Sửu"]): "thổ",

@@ -1000,6 +1000,18 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _detect_can_hoa_hop_in_state(state: dict) -> list[dict]:
+    """Wrap luu_nien.detect_can_hoa_hop with state's pillars."""
+    from .luu_nien import detect_can_hoa_hop
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not pillars:
+        return []
+    try:
+        return detect_can_hoa_hop(pillars)
+    except Exception:
+        return []
+
+
 def _detect_tai_lo_vs_tang(state: dict) -> dict | None:
     """Tài Tinh lộ vs tàng — paradigm Thiệu Vĩ Hoa tr. 123.
 
@@ -1201,6 +1213,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "dung_than_cascade": _build_dung_than_cascade(bat_tu_state),
         "tai_lo_vs_tang": _detect_tai_lo_vs_tang(bat_tu_state),
         "sat_tang_an_thau": _detect_sat_tang_an_thau(bat_tu_state),
+        "can_hoa_hop": _detect_can_hoa_hop_in_state(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),
