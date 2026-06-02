@@ -1000,6 +1000,96 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _detect_tai_lo_vs_tang(state: dict) -> dict | None:
+    """Tài Tinh lộ vs tàng — paradigm Thiệu Vĩ Hoa tr. 123.
+
+    - Tài lộ + vượng → khẳng khái, đại phóng (nhưng kị Tỉ Kiếp = bị cướp đoạt)
+    - Tài tàng (có mộ kho) → giàu mà biển lận, nhỏ nhen
+    - Vừa lộ vừa tàng → tích lũy + không mất đại phóng (ưu thế)
+    """
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not pillars:
+        return None
+    # Find Tài Tinh positions
+    tai_lo_pillars = []      # stems showing Chính Tài / Thiên Tài
+    tai_tang_pillars = []    # hidden stems showing Tài
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars.get(pos, {})
+        stem_tt = p.get("stem_thap_than", "")
+        if "Tài" in stem_tt and "Kiếp" not in stem_tt:
+            tai_lo_pillars.append(pos)
+        for h in p.get("hidden_stems_thap_than", []) or []:
+            tt = h.get("thap_than", "") if isinstance(h, dict) else str(h)
+            if "Tài" in tt and "Kiếp" not in tt:
+                tai_tang_pillars.append(pos)
+                break
+
+    has_lo = len(tai_lo_pillars) > 0
+    has_tang = len(tai_tang_pillars) > 0
+    if not (has_lo or has_tang):
+        return None
+
+    if has_lo and has_tang:
+        pattern = "ca_lo_va_tang"
+        narrative = (
+            "**Tài lộ + Tàng kết hợp** ⭐ — vừa tích lũy được, vừa giữ được sự đại phóng. "
+            "Thiệu Vĩ Hoa tr. 123: 'Vừa có can tàng, can lộ — có thể tích lũy lại không bị mất đại phóng.'"
+        )
+    elif has_lo:
+        pattern = "chi_lo"
+        narrative = (
+            "**Tài lộ** trên thiên can — khẳng khái, đại phóng với tiền bạc. "
+            "⚠️ Kị Tỉ Kiếp xung khắc — Đại Vận / Lưu Niên gặp Tỉ Kiếp = nguy cơ bị cướp đoạt / hợp tác đổ vỡ."
+        )
+    else:
+        pattern = "chi_tang"
+        narrative = (
+            "**Tài tàng** trong địa chi (mộ kho) — của giấu kín, có xu hướng biển lận, dè sẻn. "
+            "Thiệu Vĩ Hoa: 'càng giàu càng nhỏ nhen' nếu chỉ có tàng không lộ."
+        )
+    return {
+        "pattern": pattern,
+        "tai_lo_pillars": tai_lo_pillars,
+        "tai_tang_pillars": list(set(tai_tang_pillars)),
+        "narrative": narrative,
+    }
+
+
+def _detect_sat_tang_an_thau(state: dict) -> dict | None:
+    """Sát tàng + Ấn thấu — paradigm Thiệu Vĩ Hoa tr. 123.
+
+    'Người địa chi tàng Sát, thiên can thấu Ấn — bộ mặt hiền từ, tâm dạ độc ác.'
+    """
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not pillars:
+        return None
+    sat_in_chi = []
+    an_in_can = []
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars.get(pos, {})
+        stem_tt = p.get("stem_thap_than", "")
+        if "Ấn" in stem_tt:  # Chính Ấn / Thiên Ấn (Kiêu)
+            an_in_can.append(pos)
+        for h in p.get("hidden_stems_thap_than", []) or []:
+            tt = h.get("thap_than", "") if isinstance(h, dict) else str(h)
+            if "Thất Sát" in tt:
+                sat_in_chi.append(pos)
+                break
+    if not (sat_in_chi and an_in_can):
+        return None
+    return {
+        "sat_in_chi_pillars": sat_in_chi,
+        "an_in_can_pillars": an_in_can,
+        "narrative": (
+            "**Sát tàng + Ấn thấu** ⚠️ — Thiệu Vĩ Hoa tr. 123: "
+            "'bộ mặt hiền từ, tâm dạ độc ác'. "
+            "Cấu trúc này KHÔNG predict tĩnh — chỉ cảnh báo xu hướng bề ngoài hoà nhã nhưng có thể "
+            "ẩn giấu sát khí. Lưu ý khi đánh giá người bằng vẻ ngoài. "
+            "Mặt tốt: tu dưỡng đúng cách → trí huệ sâu, có khả năng quyết đoán cứng rắn khi cần."
+        ),
+    }
+
+
 def _build_dung_than_cascade(state: dict) -> list[dict]:
     """Build cascade 2-3 Dụng Thần theo Thiệu Vĩ Hoa tr. 101-109.
 
@@ -1109,6 +1199,8 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "thong_quan": _detect_thong_quan(bat_tu_state),
         "tu_tru_kho": _detect_tu_tru_kho(bat_tu_state),
         "dung_than_cascade": _build_dung_than_cascade(bat_tu_state),
+        "tai_lo_vs_tang": _detect_tai_lo_vs_tang(bat_tu_state),
+        "sat_tang_an_thau": _detect_sat_tang_an_thau(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),

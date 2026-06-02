@@ -521,6 +521,104 @@ Engine `engine/bat_tu/` đã có đầy đủ logic. Wiki SQLite (2788 concepts)
 | Tứ trụ khô | mệnh cục thiếu 2+ hành | 108 |
 | Bệnh-Thuốc paradigm | "coi bệnh bốc thuốc, bệnh nặng dùng thuốc mạnh" | 102 |
 
-## 🎯 Vòng tiếp theo (Vòng 7, tr. 120-140)
+---
 
-Dự đoán: Chương 5 — Cách Cục cụ thể (10 cách + 2 đặc biệt). Em chờ anh duyệt vòng 6 trước.
+# 📖 VÒNG 7 — tr. 120-140 (đọc 2026-06-02)
+
+## Chương 6 — ĐẠI VẬN + LƯU NIÊN (Tuế Vận)
+
+### I. Cách tính khởi vận (tr. 120)
+
+**Hướng tính** (đã trong engine `starting_age.py`):
+- Nam Dương / Nữ Âm → thuận
+- Nữ Dương / Nam Âm → ngược
+
+**Công thức**:
+- Tổng ngày từ ngày sinh → tiết khí (kết thúc lệnh tháng) / 3 = tuổi khởi vận
+- Dư 1 ngày = +4 tháng; Dư 2 ngày = +8 tháng
+
+### II. INSIGHT CHẤN ĐỘNG — Thiệu Vĩ Hoa BÁC BỎ thông lệ (tr. 122)
+
+> _"Đại Vận 10 năm... CAN-CHI KHÔNG TÁCH — không có chuyện can quản 5 năm, chi quản 5 năm."_
+
+Các sách cũ chia 4-6, 3-7, 5-5 → Thiệu Vĩ Hoa GẠT TẤT:
+- _"Phàm can chi của lệnh tháng đều quản chung sự việc của một tháng, không có can quản nửa tháng, chi quản nửa tháng."_
+- Đại Vận = 10 năm trọn, can-chi cùng tác động đồng thời
+
+→ **Quy luật mới**: 
+- **Đại Vận** quyết định tốt/xấu **TỔNG** của 10 năm
+- **Lưu Niên** quyết định **CỤ THỂ** cát/hung từng năm trong 10 năm đó
+
+### III. Đại Vận = trụ thứ 5, Lưu Niên = trụ thứ 6 (tr. 123) — CỐT
+
+Thiệu Vĩ Hoa: 
+> _"Đại Vận và Lưu Niên giống như **trụ thứ năm và trụ thứ sáu**, không những chúng tham gia vào sự cân bằng tổng hợp của Tứ trụ mà còn trực tiếp..."_
+
+→ Đại Vận + Lưu Niên KHÔNG phải "yếu tố ngoài" — chúng là 2 trụ thực thụ tham gia mệnh cục.
+
+### IV. Quy tắc tương tác Can-Chi trong Đại Vận (tr. 123)
+
+| Tương tác | Hiệu ứng |
+|---|---|
+| Can trên khắc Chi dưới | Khí can trên bị TỔN HAO |
+| Can trên sinh Chi dưới | Khí can trên bị XÌ HƠI |
+| Chi dưới khắc Can trên | ÁP CHẾ khí can trên |
+| Chi dưới sinh / cùng loại Can trên | SINH PHÙ khí can trên |
+
+### V. Tài lộ vs Tài tàng (tr. 123) — 2 paradigm phân biệt
+
+| Pattern | Tính cách | Cảnh báo |
+|---|---|---|
+| **Tài lộ** (thiên can) | Khẳng khái, đại phóng | Kị Tỉ Kiếp = bị cướp đoạt |
+| **Tài tàng** (chi mộ kho) | Giàu mà biển lận, nhỏ nhen | — |
+| **Vừa lộ vừa tàng** ⭐ | Tích lũy + đại phóng | Ưu thế |
+
+### VI. Sát tàng + Ấn thấu (tr. 123)
+
+> _"Người địa chi tàng sát, thiên can thấu ấn là người có bộ mặt hiền từ, nhưng thực ra tâm dạ độc ác."_
+
+→ Pattern: Thất Sát ẩn trong Chi + Chính/Thiên Ấn lộ trên Can → cảnh báo "bề mặt hiền, tâm sắc".
+
+### VII. Mười Thần của Đại Vận = mạch chính của Mệnh (tr. 120)
+
+- Thập Thần Đại Vận = **HỈ** của Dụng Thần → vận TỐT
+- Thập Thần Đại Vận = **KỊ** của Dụng Thần → vận XẤU
+- _"Nắm vững được hỉ kị của đại vận cũng tức là nắm được mạch chính của Mệnh."_
+
+## 🔧 Engine Updates (đã build vòng 7)
+
+### NEW
+1. **`_detect_tai_lo_vs_tang`** trong `luan_giai.py` — detect Tài Tinh lộ vs tàng + 3 patterns narrative
+2. **`_detect_sat_tang_an_thau`** trong `luan_giai.py` — detect Sát tàng + Ấn thấu pattern + paradigm
+
+### CONFIRMED OK
+- ✅ `starting_age.py` đã có direction thuận/ngược cho 4 cases (Nam/Nữ × Dương/Âm)
+- ✅ Đại Vận trong `dai_van.py` đã có Thập Thần mapping
+
+### GAP còn lại (build vòng sau)
+- ❌ Encode quy tắc "Can trên khắc/sinh Chi dưới" cho mỗi Đại Vận pillar → narrative cường độ
+- ❌ Đại Vận / Lưu Niên = trụ 5/6 paradigm chưa expose UI
+
+## 🧪 Smoke test với lá số anh (1988-06-05 23:30)
+
+Result: **Tài lộ pattern detected** at Trụ Năm (Mậu Thìn) → output cảnh báo:
+> _"⚠️ Kị Tỉ Kiếp xung khắc — Đại Vận / Lưu Niên gặp Tỉ Kiếp = nguy cơ bị cướp đoạt / hợp tác đổ vỡ."_
+
+→ Đúng paradigm Thiệu Vĩ Hoa. Anh nên cẩn thận khi vào Đại Vận / Lưu Niên có Mộc lộ.
+
+## 📚 Concepts mới (8 thuật ngữ, tr. 120-140)
+
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Tuế Vận | Đại Vận + Lưu Niên + Lệnh Tháng tổng hợp | 121 |
+| Khởi vận tổng ngày | đếm ngày sinh → tiết khí kế tiếp, chia 3 | 120 |
+| Đại Vận = trụ 5 | Đại Vận tham gia cân bằng Tứ Trụ như trụ thực | 123 |
+| Lưu Niên = trụ 6 | Lưu Niên = trụ thứ 6 | 123 |
+| Tài lộ | Tài Tinh hiện trên thiên can | 123 |
+| Tài tàng | Tài Tinh ẩn trong địa chi mộ kho | 123 |
+| Sát tàng Ấn thấu | Thất Sát chi + Ấn thấu can → mặt hiền tâm sắc | 123 |
+| Hỉ-Kị Mười Thần Đại Vận | = mạch chính Mệnh | 120 |
+
+## 🎯 Vòng tiếp theo (Vòng 8, tr. 140-160)
+
+Dự đoán: Tiếp Chương 6 — Đoán cát hung Đại Vận / Lưu Niên cụ thể, hoặc Chương 7 mới về Mệnh-Vận tổng hợp. Em chờ anh duyệt vòng 7 trước.
