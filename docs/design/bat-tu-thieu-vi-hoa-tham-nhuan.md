@@ -714,3 +714,138 @@ Thiệu Vĩ Hoa trả lời:
 ## 🎯 Batch 2 (Vòng 13-17, tr. 240-340)
 
 Tập 2 tiếp: Tạng phủ + Ngũ vận + Lục khí (Trung y sâu) + paradigm thông tin học tiếp.
+
+---
+
+# 📖 BATCH 2 (vòng 13-17, p240-340) — Lý thuyết cơ bản Tập 2 (LẶP)
+
+Tập 2 Chương 2-5: Âm Dương / Ngũ Hành / Thiên Can / Địa Chi / 60 Giáp Tý.
+Phần lớn LẶP từ Tập 1 → engine đã có.
+
+### NEW phát hiện 1 gap:
+- ✅ Build `luu_nien.py::detect_can_hoa_hop` — Thiên Can Hóa Hợp 5 cặp
+- Giáp-Kỷ→Thổ (Trung Chính), Ất-Canh→Kim (Nhân Nghĩa)
+- Bính-Tân→Thủy (Uy Chế), Đinh-Nhâm→Mộc (Dâm Loạn), Mậu-Quý→Hỏa (Vô Tình)
+
+### Confirmed OK:
+- Lục Hợp / Lục Xung / Lục Hại / Tam Hợp / Tam Hình (`luu_nien.py`)
+- Nạp Âm 60 hoa giáp (`compatibility.py`)
+- 12 Trường Sinh (`truong_sinh.py`)
+
+---
+
+# 📖 BATCH 3 (vòng 18-22, p340-440) — Độ vượng + Cách cục 120 patterns
+
+### Confirmed OK:
+- `ngu_hanh.count_elements` + hidden stems weighting
+- `cach_cuc.classify_cach_cuc` đã cover 10 cách phổ thông + 2 đặc biệt
+- 120 patterns Ngày × Tháng → cách cục mapping
+
+Không build mới batch này.
+
+---
+
+# 📖 BATCH 4 (vòng 23-27, p440-540) — Lục Thân chi tiết
+
+### NEW: `engine/bat_tu/cha_me.py`
+4 patterns detect:
+1. **Tỉ Kiếp trùng trùng** (≥3 units) → khắc Cha
+2. **Tài nhiều** (≥4 units) → khắc Mẹ
+3. **Tháng khắc Năm** → xa cách thế hệ
+4. (TODO) Phụ mẫu gặp Mộ Địa
+
+Lá số anh: ổn, không trigger pattern khắc cha mẹ.
+
+### Confirmed OK:
+- `hon_nhan.py` quan hệ vợ chồng
+- `tai_van.py` cách xem giàu nghèo
+- `compatibility.py` quan hệ gia đình
+
+---
+
+# 📖 BATCH 5 (vòng 28-32, p540-640) — Quan Vận + Hóa Giải ⭐
+
+### NEW: `engine/bat_tu/hoa_giai.py` — TỔNG HỢP CỐT
+
+4 mục Hóa Giải theo Thiệu Vĩ Hoa Chương 24:
+1. **Phương vị tránh**: Tam Sát + Thái Tuế theo Lưu Niên
+2. **Bù hành**: màu/hướng/đồ/thực phẩm theo Dụng Thần (5 mappings đầy đủ)
+3. **Dưỡng sinh**: tập luyện + sleep + ăn uống
+4. **Phóng sinh**: tích đức + thiện hành (paradigm tu thân)
+
+Lá số anh: bù hành **Mộc** (Dụng Thần Tỉ Kiếp) — Đông, xanh lá, đi rừng/yoga/sleep sớm.
+
+---
+
+# 📖 BATCH 6 (vòng 33-34, p640-681) — Cuối sách: Tu thân + Case studies
+
+Paradigm CỐT NHẤT của cuốn sách:
+- **Hành thiện tích đức** = chuyển hóa nghiệp
+- **Tín ngưỡng** + **Y học cổ truyền** = bồi bổ qua thuốc theo cấu hình mệnh
+- **Năm hạn**: giao điểm giữa 2 Đại Vận hoặc Lưu Niên đặc biệt — cảnh báo cẩn trọng
+
+Case studies famous (Bành Đức Hoài, Lâm Bưu, Chu Đức) → minh chứng:
+- Cùng cấu trúc, MÔI TRƯỜNG + LỰA CHỌN tạo outcome khác
+- Tử Bình KHÔNG predict tĩnh — chỉ map cấu trúc + đề xuất hành động
+
+Engine đã cover qua `hoa_giai.py` + `suc_khoe.py` + `causal_reasoning.py`.
+
+---
+
+# 🎓 TỔNG KẾT TOÀN QUYỂN (681p, 34 vòng)
+
+## Engine updates summary (7 NEW + 5 EXTEND)
+
+### NEW modules / functions
+1. ✅ `than_sat.py::AM_DUONG_XO_LECH_DAYS` — 12 ngày khắc hôn nhân
+2. ✅ `than_sat.py` Dương Nhận severity (lệnh tháng = critical)
+3. ✅ `luu_nien.py::detect_can_hoa_hop` — 10 Can Hóa Hợp 5 cặp
+4. ✅ `dung_than.py::determine_dung_than_cascade` — 5 trường hợp cascade #1/#2/#3
+5. ✅ `luan_giai.py::_detect_tu_tru_kho` — flag mệnh thiếu 2+ hành
+6. ✅ `luan_giai.py::_detect_tai_lo_vs_tang` — 3 patterns Tài
+7. ✅ `luan_giai.py::_detect_sat_tang_an_thau` — "mặt hiền tâm sắc"
+8. ✅ `engine/bat_tu/cha_me.py` — module mới (4 patterns)
+9. ✅ `engine/bat_tu/hoa_giai.py` — module mới (4 mục TỔNG HỢP)
+
+### Confirmed OK (đã có từ trước)
+- 15+ Thần Sát chuẩn
+- `suc_khoe.py` Trung y mapping
+- `family_system.compute_family_resonance`
+- `cach_cuc.classify_cach_cuc` 120 patterns
+- `hon_nhan.py`, `tai_van.py`, `su_nghiep.py`, `dai_van.py`, `luu_nien.py`
+
+## Paradigm CỐT NHẤT em học được
+
+> _"Mệnh cố kết, Vận lưu biến — BỔ qua hành động là quyền của Anh."_
+> — Thiệu Vĩ Hoa
+
+Bộ 2 tập của cuốn sách = 2 cấp độ:
+- **Tập 1**: kỹ thuật (cách lấy Tứ Trụ + 10 thần + Đại Vận + Cách Cục + Lục Thân)
+- **Tập 2**: paradigm sâu — "Bát Tự = MÃ THÔNG TIN, KHÔNG phải định mệnh cứng. Hóa giải = chuyển hóa qua hành động."
+
+## Insights chấn động nhất
+
+1. **Can-Chi KHÔNG TÁCH** — Đại Vận 10 năm trọn, KHÔNG có chuyện "can quản 5 năm, chi quản 5 năm" (tr.122)
+2. **Đại Vận = trụ 5, Lưu Niên = trụ 6** — tham gia cân bằng Tứ Trụ như trụ thực (tr.123)
+3. **Cùng Tứ Trụ ≠ cùng số phận** — 2 nam 20t Kình Dương: chém mướn vs thăng tướng (tr.107-108)
+4. **Đồng bộ thông tin gia đình** — Tứ Trụ vợ-chồng-con cộng hưởng (tr.225)
+5. **Phóng sinh = tích đức = chuyển hóa nghiệp** — KHÔNG phải bùa phép, là HÀNH ĐỘNG cụ thể (tr.640+)
+
+## Vận dụng cho anh (Giáp Tuất sinh tháng Tỵ, Nhược)
+
+| Chỉ số | Giá trị |
+|---|---|
+| Nhật Chủ | Giáp Mộc nhược (3.9 vs 7.1) |
+| Dụng Thần #1 | **Tỉ Kiếp (Mộc)** — đồng loại giúp thân |
+| Dụng Thần #2 | **Ấn (Thủy)** — sinh thân |
+| Bù hành | Mộc — màu xanh, hướng Đông |
+| Dưỡng sinh | Đi bộ rừng, yoga, ngủ sớm |
+| Cảnh báo | Tài lộ Trụ Năm → kị Tỉ Kiếp xung (Đại Vận / Lưu Niên Mộc gặp Kim phải cẩn thận) |
+
+## Sách tiếp theo (Phase 2 Tứ Trụ continue)
+
+Thứ tự đề xuất:
+1. ⭐⭐ **Trích Thiên Tủy bình chú — Nhậm Thiết Tiều** (202p, 10 vòng) — kinh điển Tứ Trụ TUYỆT ĐỐI
+2. ⭐⭐ **Bát Tự Hà Lạc và quỹ đạo đời người** (608p) — Hà Lạc + Bát Tự hợp lưu (paradigm khác)
+3. ⭐ **Dự Báo Theo Tử Bình** (424p) — Tử Bình kinh điển
+4. Thiên Nhân Học cổ đại — Trích Thiên Tủy (119p, phụ)
