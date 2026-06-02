@@ -863,6 +863,11 @@ function formatSolarDateTime(iso) {
             <div class="lgs-section" v-html="renderMd(haLacLuanSauData.hau_thien.hao_nguyen_duong)"></div>
             <div class="lgs-section lgs-ironrule" v-html="renderMd(haLacLuanSauData.hau_thien.iron_rule_links)"></div>
 
+            <!-- Phương pháp 7 bước (NEW Phần Ba) -->
+            <div v-if="haLacLuanSauData.phuong_phap_7_buoc"
+                 class="lgs-section lgs-phuong-phap"
+                 v-html="renderMd(haLacLuanSauData.phuong_phap_7_buoc)"></div>
+
             <!-- Ứng dụng -->
             <div class="lgs-section lgs-guard" v-html="renderMd(haLacLuanSauData.tien_thien.ung_dung)"></div>
           </details>
@@ -3464,6 +3469,13 @@ function formatSolarDateTime(iso) {
   background: rgba(245, 176, 140, 0.05);
   border-left: 2px solid var(--accent-coral, #f5b08c);
   border-radius: 4px;
+}
+.lgs-section.lgs-phuong-phap {
+  background: linear-gradient(135deg, rgba(91, 229, 211, 0.05), rgba(232, 201, 90, 0.04));
+  border-left: 3px solid var(--accent-teal, #5be5d3);
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin-top: 14px;
 }
 .lgs-section.lgs-guard {
   font-size: 11.5px;

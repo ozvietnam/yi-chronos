@@ -23,6 +23,11 @@ from __future__ import annotations
 
 from .thoi_que import lookup_thoi, QUAI_ALIASES
 from .paradigm_quy_chieu import lookup_cases_for, lookup_iron_rule_link
+from .phuong_phap_doc_chan_dung import (
+    PHUONG_PHAP_7_BUOC,
+    CASE_STUDIES_PHAN_BA,
+    PARADIGM_CHO_LLM_LUAN_GIAI,
+)
 
 
 def luan_giai_thoi_que_sau(
@@ -215,15 +220,72 @@ def render_full_luan_giai(cast_result: dict) -> dict:
     # Tổng synthesis Tiên-Hậu
     tong = _synthesize_tien_hau(tt_quai.get("name_vi", ""), ht_quai.get("name_vi", ""))
 
+    # Phương pháp 7 bước extract từ Phần Ba Xuân Cang
+    phuong_phap_section = _build_phuong_phap_section(cast_result)
+
     return {
         "tien_thien": tt_luan,
         "hau_thien": ht_luan,
         "tong_synthesis": tong,
+        "phuong_phap_7_buoc": phuong_phap_section,
         "paradigm_guard": (
             "⚠️ Luận giải sâu = đọc đồng dạng cấu trúc khoảnh khắc sinh. "
-            "Iron Rule #4+6 — KHÔNG predict tĩnh."
+            "Iron Rule #4+6 — KHÔNG predict tĩnh. "
+            "Phương pháp 7 bước Xuân Cang (Phần Ba) — vận dụng linh hoạt từng người."
         ),
     }
+
+
+def _build_phuong_phap_section(cast_result: dict) -> str:
+    """Build phương pháp 7 bước section + case study Phần Ba."""
+    tt = cast_result.get("tien_thien_quai", {}).get("name_vi", "?")
+    ht = cast_result.get("hau_thien_quai", {}).get("name_vi", "?")
+    nd = cast_result.get("tien_thien_quai", {}).get("nguyen_duong_line", "?")
+
+    lines = [
+        "## 🎓 Phương pháp 7 BƯỚC đọc chân dung (Xuân Cang Phần Ba)",
+        "",
+        "Đây là phương pháp Xuân Cang dùng đọc 7 chân dung nhà văn VN (Tản Đà, Tô Hoài, "
+        "Nguyên Ngọc, Trần Đăng Khoa, Thu Huệ, Nguyễn Hiến Lê, Đoàn Thị Lam Luyến). "
+        "Anh có thể áp dụng cho lá số của mình hoặc người khác:",
+        "",
+    ]
+    for step in PHUONG_PHAP_7_BUOC:
+        lines.append(f"**Bước {step['step']}: {step['title']}**")
+        lines.append(step["desc"])
+        lines.append("")
+
+    lines.append("## 📚 Case study Xuân Cang đã làm (Phần Ba)")
+    lines.append("")
+    for c in CASE_STUDIES_PHAN_BA:
+        lines.append(f"### {c['ten']}")
+        lines.append(f"- **Sinh**: {c['sinh']}")
+        if "tien_thien" in c:
+            lines.append(f"- **Tiên Thiên**: {c['tien_thien']}")
+        if "hau_thien" in c:
+            lines.append(f"- **Hậu Thiên**: {c['hau_thien']}")
+        if "phuong_phap_match" in c:
+            lines.append(f"- **Match**: {c['phuong_phap_match']}")
+        if "su_kien_match" in c:
+            lines.append("- **Sự kiện match**:")
+            for e in c["su_kien_match"][:3]:
+                lines.append(f"  - {e}")
+        lines.append("")
+
+    lines.append("## 🎯 Áp dụng cho lá số HIỆN TẠI")
+    lines.append("")
+    lines.append(
+        f"Lá số anh: **Tiên Thiên {tt}** + **Hậu Thiên {ht}**, NĐ hào {nd}. "
+        f"Anh có thể tự kiểm tra phương pháp bằng cách:"
+    )
+    lines.append(
+        f"1. Cross-link tên anh, tên đất, nghề nghiệp với tượng quẻ {tt} + {ht}\n"
+        f"2. Lấy 3-5 sự kiện đời cụ thể (xuất bản sách, biến cố, di chuyển) → tra quẻ năm tương ứng → "
+        f"match với lời quẻ\n"
+        f"3. Đếm quẻ lặp lại nhiều trong 72 quẻ năm cuộc đời → đặc tính nổi bật\n"
+        f"4. Hào chủ mệnh {nd} của Tiên Thiên = paradigm hành xử cốt — phải match cách anh sống thực"
+    )
+    return "\n".join(lines)
 
 
 def _synthesize_tien_hau(tt: str, ht: str) -> str:
