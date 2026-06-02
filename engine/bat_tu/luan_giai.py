@@ -1000,6 +1000,24 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _luan_thong_can_in_state(state: dict) -> dict:
+    """Thông Căn analysis — Trích Thiên Tủy paradigm."""
+    from .thong_can import analyze_all_thong_can, summarize_day_master_thong_can
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not pillars:
+        return {}
+    try:
+        all_stems = analyze_all_thong_can(pillars)
+        day_master = summarize_day_master_thong_can(pillars)
+        return {
+            "all_stems": all_stems,
+            "day_master": day_master,
+            "paradigm_source": "Trích Thiên Tủy bình chú — Nhậm Thiết Tiều, Chương 3 Nhân Đạo",
+        }
+    except Exception as e:
+        return {"_error": str(e)[:200]}
+
+
 def _luan_hoa_giai_in_state(state: dict, current_age: int | None = None) -> dict:
     """Wrap hoa_giai.luan_hoa_giai — auto-resolve Lưu Niên chi from current_age + Dai Van."""
     from .hoa_giai import luan_hoa_giai
@@ -1239,6 +1257,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "can_hoa_hop": _detect_can_hoa_hop_in_state(bat_tu_state),
         "cha_me": _luan_cha_me_in_state(bat_tu_state),
         "hoa_giai": _luan_hoa_giai_in_state(bat_tu_state, current_age=current_age),
+        "thong_can": _luan_thong_can_in_state(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),
