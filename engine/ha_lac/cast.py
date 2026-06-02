@@ -22,6 +22,7 @@ from .ho_quai import derive_ho_quai
 from .hoa_cong import analyze_hoa_cong_nguyen_khi, determine_season_from_month
 from .menh_hop_cach import evaluate_menh_hop_cach
 from .nguyen_duong import nguyen_duong_line
+from .thoi_que import describe_thoi_cau_truc
 from .number_pools import compute_number_pools
 from .quai_assembly import assemble_tien_thien
 
@@ -179,6 +180,7 @@ def cast_ha_lac(
         "menh_hop_cach": _compute_menh_hop_cach(
             birth_datetime_local, tu_tru, tien_thien, nd_tien, pools, year_stem
         ),
+        "thoi_que": describe_thoi_cau_truc(tien_thien.name_vi, hau_thien.name_vi),
         "decade_trajectory": trajectory,
         "lifespan_span": {
             "start_age": trajectory[0]["age_start"] if trajectory else 1,
