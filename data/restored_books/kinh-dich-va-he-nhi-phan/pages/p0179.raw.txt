@@ -1,0 +1,39 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+1. Bản chất các dãy số theo nguyên lý nhị phân là không
+cân bằng về giá trị âm dương : Đó là một đặc tính thuộc về các
+“tượng số” viết theo cơ chế nhi phân. Nói cách khác, đặc tính đó thuộc
+vẻ bản chất “âm đương” của các con số. Các con số viết theo ký hiệu đơn
+thuần, như số Ả Rập hay số La Ma không thể hiện được bản chất đó.
+Suy rộng ra thì vạn vật trong một Vũ trụ mà bản chất là điện từ, cũng
+tức là đã được phân cực âm dương, cũng giống như các “tượng số” nhị
+phân, đều sinh ra đã đẳng hướng nhưng không cân bằng âm dương.
+Ngay trong hai “tượng” âm dương mà người xưa đã dùng là vạch liền
+(—`) và vạch đứt (- -) cũng đã biểu hiện “dương thừa mà âm thiếu”. Xét
+tất cả các dãy số nhị phân, từ nhỏ đến lớn đều mang tính chất đó. Ví dụ :
+dãy 4 số Tứ tượng (0-1-2-3), có tổng các số dương là 1+3 = 4; còn tổng
+các số âm chỉ là 0+2 = 2. Dương lớn hơn âm, mặc đầu số hào của dãy số
+bằng nhau (4 hào dương và 4 hào âm) == == == ). Dãy 8 số Bát
+quái (0-1-2- 3-4-5-6-7) cũng thế, có tổng các số dương là 1+3+5+7 = 16;
+còn tổng các số âm chỉ là 2+4+6 = 12, mặc dầu trong dãy này cúng có
+tổng số hào dương bằng tổng số hào âm (mỗi bên 12 hào) :
+
+Dãy 16 số hay 32 số cũng thế, tổng giá trị các số đương trong dãy
+bao giờ cúng lớn hơn tổng giá trị các số âm, mặc dầu các dãy số đều có .
+số hào dương bằng số hào âm. Dãy 64 trùng quái cũng không đứng
+ngoài qui luật đó. Dãy số này có tổng giá trị các số dương là 1014, còn
+tổng giá trị các số âm chỉ là 1002, mặc đầu số hào đương và số hào âm
+của các số đều bằng 192. Ta có thể rút ra kết luận chung : Năng lượng
+thuộc phần dương bao giờ cứng lớn hơn năng lượng thuộc phân âm.
+
+2. Dương thường hữu dư, âm thưởng bất túc - Dương sinh,
+Âm trưởng. Tạo hoá sinh ra các số dương bao giờ cúng dư ra, còn các
+số âm thì lại hụt đi, mặc đầu tổng số hào âm dương của các số trong một
+đãy số đều bằng nhau. Cổ nhân đi đến một nhận xét ngắn gọn : “Dương
+thường hứu dư, âm thường bất túc”. Người không nắm vững Dịch lý
+dựa trên “tượng số” cúa hệ nhị phân, thường không hiểu nguyên nhân
+tại sao và cho đó là một ý kiến chủ quan của người xưa, không đáng tin
+cậy. Thực ra đó là một kết luận dựa trên toán học nghiêm chỉnh.
+
+Trong Y học cổ, có một môn phái đã dựa trên kết luận này đề xướng
+180

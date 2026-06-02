@@ -1,0 +1,51 @@
+xm ...............
+
+Số của quẻ Thương : Đó là số dư của tổng ba số thuộc “Ngày — Tháng
+— Năm trừ đi 8 (hoặc chia cho 8).
+
+Sô của que Hạ : Đó là số dư của tổng bốn số thuộc “Giờ — Ngày -
+Tháng - Nãm” trừ đi 8 (hoặc chia cho 8).
+
+Tìm Hào động: Đem tổng bốn số thuộc “Giờ — Ngày - Tháng ~ Năm”
+chia cho 6 (chứ không phải 8) vì mỗi quê chỉ có 6 hào, số dư là số của “Hào
+Động (tính từ đưới lên). Tìm hào động để tìm quẻ Biến, để dự báo quá
+trình điễn biến của sự việc.
+
+Ví dụ 1: Ngày mồng 4 tháng ba năm Định Sửu, vào giờ Thìn, sẽ khai
+trương cửa hàng. Muốn bói Dịch xem có lợi không ?
+
+"Ta có các số : ngày 4 tháng 3 (Năm chỉ cần số thứ tự của Địa Chí) năm
+Sửu thuộc chỉ thứ 2. Tống của ba số thuộc “ngày, tháng, năm” là 4+2+3=9;
+9-8=1. Theo thứ tự Tiên Thiên, số 1 là số của quẻ Càn. Vậy ta được quẻ
+Thượng là Can.
+
+Giờ khai trương là giờ Thìn, đứng thứ 5 của 12 Chỉ. Đem cộng với ba
+số trên, ta có Tổng của bốn số thuộc “giờ, ngày, tháng, năm” là 9+5=14;
+14-8=6. Ta biết số 6 là số Tiên Thiên của quẻ Khảm. Vậy ta được quẻ Hạ
+là quẻ Khám.
+
+Như vậy ta có quê Gốc là quẻ Thiên/Thủy= Tụng.
+
+Hào Động: Đem tổng bốn số (14) chia cho 6, được 2, dư 2; số 2là Hào -
+2 biến.
+
+Vị du 2 : Ngày 15 tháng 6 năm Bính Tý vào khoảng 9 giờ tốt đi du lịch
+bằng máy bay, xem có thuận lợi không ?
+
+Ta có :
+
++ Quê Thương: 15+6+1 (năm Bính Tý thuộc số 1)=22; 22:8=2, dư 6; số
+6 là số Tiên Thiên của quẻ Khảm.
+
++ Quẻ Ha : 9 giờ tối là vào giờ Tuất âm lịch (đứng thứ 11 của 12 Chị),
+ta có tổng 4 số: 22+11=33; 38:8=4, dư 1. Số 1 là số quẻ Cân.
+
+Ta được quẻ Gốc là Thuy/Thiên=Nhu.
+
++ Hào Đông: Cũng lấy Tổng 4 số (33) chia cho 6, được 5, dư 3. Số 3 là
+số của hào biến.
+
+1.2: Nghe tiếng kêu (âm thanh) tìm quê : Đây là cách chiêm bốc
+theo âm thanh. Œó thể đếm số lượng tiếng đã phát ra để tìm số quẻ Thượng.
+Nêu số lượng âm thanh nhiều thì cũng trừ đi 8, lấy số đư tìm quẻ. Sau đó
+KD - 32 Aoz

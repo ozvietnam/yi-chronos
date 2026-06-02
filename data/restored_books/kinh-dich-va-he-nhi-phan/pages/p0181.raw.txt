@@ -1,0 +1,37 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+Khôn), tính từ quẻ Cấu(31) đến quẻ Khôn(0) có tổng giá trị chi bằng
+992. Như vậy là âm dương quá chênh lệch. Vì vậy mà dẫn đến trật
+tự Hậu thiên để có cân bằng giá trị giữa hai nhóm quẻ, nghĩa là mỗi
+nhóm đều phải bằng 1008. Muốn thế các nhóm quẻ phải được xếp
+theo trật tự Hậu thiên của 8 quẻ cơ bản. Trong Hậu thiên Bát quái,
+hai quẻ Đoài(6), Ly(5) vốn thuộc miền Càn-dương đã phải chuyển
+sang miền Khôn-âm; ngược lại, hai quẻ Khảm(2), Cấn(1) vốn thuộc
+miễn Khôn-âm phải chuyển sang miền Càn-dương. Nay đối với 64
+trùng quái thì 4 nhóm quẻ thuộc bốn quẻ eơ bản đó cùng phải đổi
+chỗ cho nhau. Cụ thể là: Thuộc quẻ Ly gồm 8 quẻ, từ quẻ Minh
+di(40) đến quẻ Đồng nhân(47); thuộc quẻ Đoài gồm 8 quẻ, từ quẻ
+Lãm(48) đến quẻ Lý(55) phải chuyển sang miên 32 quẻ thuộc Khôn-
+âm. Cũng như thế, 8 quẻ thuộc Cấn, từ quẻ Khiêm(8) đến quẻ Độn(15)
+và 8 quẻ thuộc Khảm, từ quẻ Sư(16) đến quẻ Tụng(23) phải chuyển
+sang miền 32 quẻ Càn-đương. Ta sẽ có 64 quẻ theo trật tự Hậu
+thiên của 8 nhóm quẻ cơ bản dưới đây (Hình 42a và b) :
+TRẬT TỰ 1 z 3 4 $ § 7 8
+HẬU THiÊ¡ CÀN KHĂM CẤN CHẤN TỐN LY KHÔN ĐOÀI
+1 2 k 4 5 6 7 8
+f-CẤNM | Cản3 | Quải-62 | Ð.Hữu-61 | Tráng-60 | T.Súo-59 | Nhu-58 | Ð.Súc57 | Thái-5ð
+9 10 11 12 13 14 15 16 l
+2-KHẢM | Tụng-23 | Khổn-22 | Vitế-21 | Giả-20 | Hoán-19 | Khảm-18 | Mông-17| Sư-16
+17 18 19 20 21 F3 23 24
+#CẤN | Độn-15 | Ham-14 | Lữ13 |TOuá-t2 | Tiệm-11 | Kiếnt0 | Gấn9 | Khiêm-8
+25 26 27 28 30 31 a2
+4.CHẤN | VAVong-39| Tuỳ-a8 | P.Hạp-37 | Chấn-36 Triân-34 | Di-33 | Phục-32
+3 kÔ 45 38 37 38 39 40
+gTỔN | Cấu-31 | ĐÐ.Quá-30 | Đừn-2g | Hằng-28 | Tến-27 | Tỉnh28 | G25 |Thăng-24
+4 42 43 4 45 48 47 48
+6LY |ĐÐ/Nhân-47| Cách46 | Ly-45 |Phong44 |G.Nhân-43| Kýtổ-42 | Bí41 | M.DI-40
+4Ð S0 sĩ 52 s bó 55 56
+ZKHÕN | Bỉ7 | Tụy8 | Tăng Dự“ | Quan-3 | Tỷ2 Bác1 | Khôn-0
+s7 58 s9 80 61 82 63 @
+@Đ0Ai | Lý-55 | Đoà:54 | Khuả-53 | Muộ-52 |TrPhu-51| Tiếc50 | Tổn-49 | Làm-48
+Hình 42a : Trắt tự 64 quẻ Hâu thiên của Văn Vương
+182

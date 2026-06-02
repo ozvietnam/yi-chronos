@@ -1,0 +1,37 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+KINH DỊCH - - PHẦN 64 QUẺ DỊCH
+
+Trong phần này, để phục vụ cho việc khảo sát khả năng dự báo
+của Dịch, mỗi quẻ Dịch, ngoài lời Kinh, lời Tượng trong nguyên bản
+(tham khảo trong nhiều tài liệu đã được dịch sang tiếng Việt, nhưng
+chủ yếu dựa vào hai tác phẩm của Ngô Tất Tố và Phan Bội Châu),
+chúng tôi còn thêm phần dự báo theo Hà Đề và Lạc Thư của người
+xưa để bạn đọc tự tham khảo và đánh giá 'Ê?, l
+
+Tác giả xếp 64 quẻ theo trât tư tiên thiên, tức là đếm ngược, từ số
+lớn đến số nhỏ (có nghĩa là từ số 63 đến số 1 rồi đến số 0). Như vậy số
+thư tự của quẻ là thuận: tức quẻ Càn (63) mang số thứ tự 1..., đến quẻ
+Bác (1) mang số thứ tự là 63 và quẻ Khôn (0) có số thư tự là 64. Ta có z
+kết quả là nếu cộng giá trị của quê và số thứ tự của nó, ta luôn luôn
+được một số cố định là 64. Đó cũng là tổng số của từng cặp quẻ đối xứng
+“biến dịch”. Xếp theo các cách khác thì ta không có số thành này.
+
+1-QUẺ THUẢNCÀN  (hayBátThuân Càn)
+
+(Là Quê tốt) —— Là số 63
+
+Trên Càn, dưới Càn. Là một trong bốn quẻ “bất biến” cơ bản (Càn-
+Khôn-Ly-Khảm), tức quay chiều nào cũng không đổi. Còn gọi là Bát
+Thuần Càn. Thuần Càn đứng đầu trật tự Tiên Thiên, cũng là quẻ đứng
+đầu Kinh Dịch cổ.
+
+Quẻ Nguyệt Lệnh của tháng tư, thuộc Dương im, mang số Sinh,
+Thành của Kim là (4 và 9), thứ tự Tiên Thiên là số (1), thứ tự Hậu
+Thiên ở Cung số (6) Lạc Thư. Vì vậy các số của quẻ này có ảnh hưởng là
+(1-4-6-9), trong đó các số (1) thuộc vị trí Tiên Thiên, các số (4) và (9)
+thuộc bản mệnh, còn số (6) là thuộc cung số trong Lạc Thư (Hậu Thiên ).
+
+Càn có nghĩa là Trời, là đầu mối muôn vât, là phần thuần Dương
+(62) Học năng: Bát tự Hà Lạc. Cơ sở xuất bản Phạm quang khai- Sải Gòn-1974.
+
+298

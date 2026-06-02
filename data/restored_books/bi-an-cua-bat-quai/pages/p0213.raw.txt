@@ -1,0 +1,33 @@
+QUAN NIỆM TƯ TƯỞNG 215
+điều kiện không ngừng thay đổi, do đố, có sự việc phát triển theo
+hướng dự đoán, có sự việc thì phát triển theo hướng khác với đự đoán.
+
+Chính vì vậy, phân tích cặn kẽ bát, quái. ta thấy ràng, bát quái
+rất íL khi khẳng định sự vật sẽ phát triển như thế này, mà lưôn nói
+rằng đại khái là như thế này. Có người biết rằng, đoán mệnh thường
+là nói nước đòi, thực ra đây là tài nghệ của người bói, bát quái luôn
+nhấn mạnh sự vật biến hóa không ngừng, vậy làm sao có thể tuyệt
+đối hóa khi nói về sự việc. Bát quái thường nói rằng, sự việc đại để
+là như vậy, nhưng phải có sự cố gắng của bản thân mỗi người mới
+đạt được, quả thực đây là ch đáng quí của bản thân bát quái.
+
+Vậy vì sao bát quái có thể từ trong sự phát triển của sự vật
+tổng kết được qui luật đại để là như vậy? Ta biết rằng, nghiên cứu
+về quy luật ngẫu nhiên mới là công việc của 300 năm nay. Cách
+đây 300 năm, người ta bát đầu phát hiện ra rằng, đối với tình hình
+phát triển của sự việc, có thể tính ra qui luật xác suất, tức dùng phép
+suy đoán kiểu ngẫu nhiên, để dự đoán tương lai. Thí dụ, tung một
+đồng xu, kết quả có thể là mặt phải, mà cũng có thể là mặt trái, vậy
+kết quả được mặt phải đại khái là 1/2, kết quả được mát trái cũng
+đại khái là 1/2, dùng công thức sau đây để biểu thị:
+
+111
+
+p(ab) = p(a). p(b) = 775
+
+Vì vậy cơ hội xuất hiện mặt phải và mật trái là bằng nhau.
+đều là 1/2, mà cơ hội để một mật xuất hiện là I/4, đây là khả năng
+nói chung. Đương nhiên, nói chung sự vật không đơn giản như vậy,
+không phải là mỗi mặt chiếm một nửa, nghĩa là nói chung sự vật
+
+. bao giờ cũng có một mát khả năng nhiều hơn, còn mặt kia khả năng

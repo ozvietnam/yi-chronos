@@ -1,0 +1,46 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN CỐ
+Tiêu đã là người đầu tiên nghiên cứu các vòng số nhị phân lớn hơn
+vòng 64 số. Ông đã chồng hai quẻ 6 vạch lên thành 4096 quẻ 12
+vạch (64 x 64 = 4096) và coi số lượng 4096 quẻ đó như 4096 những
+trường hợp, hoàn cánh, thời cuộc, sự việc có thể xảy ra trong cuộc
+đời để dự báo. Ông căn cứ vào tượng của chúng, làm tới trên bốn
+ngàn bài thơ để giải thích từng quẻ. Cũng chính ông là một trong
+những người đầu tiên đã đưa những tư tưởng của đạo đức Nho học
+vào trong ý nghĩa các quẻ, dùng ẩn ý để nói lên việc đời, việc người
+tương ứng trong các tượng quẻ. Ngôn ngữ thường ngắn gọn, súc
+tích, mượn cách ngôn để trình bày triết lý, mượn gần nói xa, mượn
+xưa nói nay, mượn vật nói người... Ở nhiều bài *ý tại ngôn ngoa
+nên đôi khi thâm sâu, khó hiểu. Vì vậy mà nhiều nhà nghiên cứu đã
+liệt sách của ông vào loại bói toán. Ngày nay thì nhiêu người lại
+thấy sách của ông không những có giá trị về toán và triết học nhị
+phân mà còn có giá trị lớn về văn hợc 2®,
+
+Tiêu Diên Thọ đã gọi tên các quẻ 12 vạch theo tên hai trùng
+quái chồng lên nhau, quề trùng quái đưới gọi trước, trùng quái trên
+gọi sau. Ví dụ :
+
+e Số 1 là quẻ Khôn chi Bác : 000.000.000.001
+
+e Số 2 là quẻ Khôn chỉ Tỷ : 000.000.000.010 ,
+
+e Số 10 là quẻ Khôn chỉ Kiển : 000.000.001.010 ,
+
+e Số 42 là quẻ Khôn chi Ký Tế:  000.000.101.010
+
+e Số 63 là quẻ Khôn chị Càn : 000.000.111.111
+
+e Số 448 là quẻ Bỉ chỉ Khồn : 000.111.000.000
+
+e Số 512 là quẻ Khiêm chí Khôn :  001.000.000.000
+
+e Số 1024 là quẻ Sư chi Khôn : 010.000.000.000
+
+e Số 2048 là quẻ Phục chi Khôn:  100.000.000.000
+
+e Số 8584 là quê Thái chỉ Khôn:  111.000.000.000. v.v...
+
+Viết các quẻ trên chẳng có gì là khó, nếu ta nhớ lại giá trị các
+_(28) Vương Cổng và Ngưu Lực Đat ; Đại điễn tân giải. NXB Tế Nam TQ. 1992, Bản
+tiếng Việt do Phạm Việt Chương và Nguyễn Ảnh biên dịch. NXB Văn boá Thông tin,
+Hà Nội, 2000
+72

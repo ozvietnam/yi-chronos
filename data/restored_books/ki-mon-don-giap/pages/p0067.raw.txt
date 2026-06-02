@@ -1,0 +1,21 @@
+Môn bàn chỉ có một chữ. Sau đó, thông qua tâm vẽ 4
+đường kính, phân thành 8 phần bằng nhau, hình
+thành 08 cung, cộng thêm một vòng tròn nhỏ nhất là
+thành 09 cung. Rồi đặt cho mỗi một cung những tên
+cung (Khảm một, Khôn hai, Chấn ba, Tốn bốn, Trung
+năm, Càn sáu, Thuyết bảy, Lương tám, Ly chính).
+Thần Bàn phải làm hai cái, mỗi bên đều có Âm
+Độn, Dương Độn. Hình dáng giống hình bức vách.
+Vòng tròn ngoài cùng có kích thước giống với vòng
+trong thứ tư đếm từ ngoài vào của Hoạt Bàn. Vòng
+tròn trong với vòng tròn thứ 5ð có kích thước như
+nhau, khiến cho năm cung đều lộ ra. Phương hướng
+sắp xếp của Bát Thần trên Thần Bàn Dương Độn và
+Thần Bàn Âm Độn khác nhau. Bát Thần Dương Độn
+được sắp xếp thuận chiều kim đồng hồ. Bát Thần Âm
+Độn được sắp xếp ngược chiều kim đồng hồ.
+Tốn
+4à
+sứ
+Hình 12
+69

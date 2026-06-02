@@ -1,0 +1,39 @@
+3. Cách tính can,chi của ngày
+
+Can chỉ của ngày cũng giống can chỉ năm, tháng, cho nên
+cách tính can chỉ ngày là lấy 60 ngày làm một chu kỳ tuần
+hoàn để tính. Ví tháng có tháng đủ, tháng thiếu, năm có
+năm nhuận nên can chi của ngày phải tra lịch vạn niên mới
+biết được. Trong dân gian có một số người mù đoán mệnh
+theo tứ trụ, họ dựa vào bài vè để tính can chỉ ngày. Ô đây
+tác giả xin giới thiệu bảng tính tóm tắt can chỉ ngày ở bảng
+phụ lục cuối sách để bạn đọc mới học tham khảo. Cũng có
+những cách tính dùng được cho cả năm nhuận, đối với các
+bạn học mới nhập môn thì không nên hao phí tâm lực nhiều
+vào đó.
+
+4. Cách tính can,chi của giờ
+
+Can chỉ của giờ là phối can chỉ lại rồi phối tương ứng với
+60 giờ thành một chu kỳ.
+
+Sau khi biết được can chi của ngày, muốn tính ra can chí
+của giờ có thể dùng bài về sau :
+
+Giáp, kỉ : tí là giáp
+
+Ất, canh : bính làm đầu
+Bính, thân : tí từ mậu
+Định, nhâm : Tí là canh
+Mậu, quý : nhâm là tí.
+
+"Gián, kỉ : tí là giáp" nghĩa là : khi can ngày là giáp hoặc
+kỉ thì giờ tí là giáp tí. Biết được thiên can của giờ tí là giáp,
+thì giờ sửu tất nhiên sẽ là ất sửu... Ví dụ giờ tí ngày õ tháng
+2 âm lịch năm 1991, trong tứ trụ sẽ là : năm tân mùi, tháng
+tân mão, ngày kỉ sửu, giờ giáp tí.
+
+"Ất canh : bính làm đầu" là, ngày ất hoặc ngày canh thì
+giờ tí là bính tí, giờ sửu sẽ là đình sửu...
+
+31

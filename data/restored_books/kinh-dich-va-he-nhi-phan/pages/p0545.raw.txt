@@ -1,0 +1,50 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN ___. ¬ :
+IV- Tìm Tổng số Âm Dương của
+ngày, giờ, tháng, năm sinh
+
+1- Các ví dụ :
+
+* Ví dụ 1: Tìm số Âm Dương Hà Lạc của ông Lê Văn A, sinh lúc 20 giờ
+10 phút ngày 2 tháng 4 nãm 1971.
+
+1,1 Đầu tiên, ta đổi ngay Dương trên sang Can Chi ngày, giò, tháng,
+năm Am lịch. Ta có :
+
+e&Năm 1971 (đã sang tháng 4) là thuộc năm Tân Hợi. Năm Tân Hợi là
+năm âm; vậy ông Lẻ Văn A, thuộc tuổi “Âm Nam”.
+
+e Tháng 4-1971, mông 2 là thuộc mồng 7 tháng ba Âm lịch. Tháng Ba
+Hà Lạc bắt đầu từ Tiết Thanh Minh, mà tiết này mãi đến mồng 10 mới
+bắt đầu, ở đây mới mảng 7, như vậy vẫn thuộc tháng củ là tháng 2 âm, tức
+tháng Tân Mão, năm Tân Hợi.
+
+eNgay 2 tháng 4 Dương tức ngày mỏng 7 tháng ba âm, là ngày Đình Ty.
+
+eGờ : lúc 20 giờ 10 phút là giờ Tuất. Theo luật “Ngũ Tý” đã nói ở
+trên, ngày Đình bát đầu bằng giờ Canh Tý. Tính cho đến giờ Tuất vấn là
+giờ Canh Tuất.
+
+Kết quả ta có Tám chữ Hệ Can Chỉ ngày sinh tháng đẻ cúa ông Lê
+Văn A như sáu : “Giờ Canh Tuất, Ngày Định Ty, Tháng Tân Mão, Năm
+Tân Hợi”,
+
+1.2) Tìm sở Hà Đồ và Lạc thư của Tám chữ Can Chỉ của ông À :
+
+Theo nguyên tắc Thiên Can theo số cung Lạc Thư tương ứng; Địa Chi
+là số “sinh-thảnh” của Hành bản mệnh theo Hà Đề. Ta thu được các số
+sau đây :
+
+eCanh Tuất : +Canh : cung số 3; +Tuât (thuộc Thổ) : số 5 và 10.
+eĐinh Ty : +Đinh : cung số 7; +Ty (thuộc Hỏa): số 2 và 7.
+
+eTân Mão : +Tân: cung số 4; +Mão (thuộc Mộc) : số 3 và8.
+eTân Hợi : +Tân : cung số 4; +Hợi (thuộc Thủy) : số 1 và 6.
+
+1.3) Tim Tổng số Âm Dương của 8 chữ Can Chỉ trên : Ta cộng riêng
+các số lẻ (Dương) và các số chẵn (Âm) của chúng :
+
+eTổng số Dương (lẻ) : 3+ỗ+7+7+3+1=26
+
+eTốổng sô Âm (chăn) : 10+2+4+8+4+6=34
+
+546

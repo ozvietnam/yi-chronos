@@ -1,0 +1,35 @@
+lịch bằng hai giờ dương lịch. Giờ đầu tiên của một ngày theo âm
+lịch là giờ Tý, là thời gian nửa đêm, qua giờ Sửu, giờ Dần đến
+
+- giờ Mão là tảng sáng, rồi sang giờ Thìn, đến giờ Ty: đó là 6 giờ
+thuộc Dương. Từ giờ Ngọ là thời gian giữa trưa, qua giờ Mùi,
+giờ Thân đến giờ Dậu là chập tối, rồi sang giờ Tuất, giờ Hợi: đó
+là 6 giờ thuộc âm.
+
+Địa Chi của giờ như thế là cố định, chỉ có Thiên Can của giờ
+là thay đổi. Ta đã biết giờ Giáp Tý đầu tiên thuộc về năm Giáp
+Tý đầu tiên, tháng Giáp Tý đầu tiên, ngày Giáp Tý đầu tiên của _.
+kỷ nguyên Can Chi mà ta đã nói ở trên. Từ đó các nhà làm lịch
+xưa đã tính ra được quy luật về Thiên Can của giờ là phụ thuộc
+vào Thiên Can của ngày. Chỉ cần biết Thiên Can giờ Tý của mỗi
+ngày là ta có thể tính ra được Thiên Can của 12 giờ tiếp theo
+trong ngày.
+
+Đối chiếu giờ Dương lịch và giờ Âm lịch
+e6lờò tHuộc| Giò Tý | Giờ Sửu | Giò Dần | Giờ Mão | Giờ Thìn | Giờ Tv
+DƯƠNG 23-1 giờ | 1-3 giờ đ-õ giồ 5-7 gìồ 7-9 gìờ 9-11 giờ
+6 6ð THUỘC | Giờ Ngọ | Giờ Mùi. | Giờ Thân | Giờ Dâu Ì Giờ Tuất | Giờ Hơi
+AM 11-13 giờ | 13-15 giờ | 15-17 giờ | 17-19 giờ | 19-91 giờ | 21-23 giờ
+Thiên Can của Giờ theo Thiên Coa củo ngòu
+: (Luật Ngũ Tý)
+Thiên Caa của Ngòu Thiên Con của Giờ Tú
+Ngày Giáp, ngày Kỷ Giáp Tý (Chuột xanh)
+Ngày Ất, ngày Canh Bính Tý (Chuột đỏ)
+Ngày Bính, ngày Tân Mậu Ty (Chuột 0uàng)
+Ngày Đình, ngày Nhâm Canh Tý (Chuột trắng)
+Ngày Mậu, ngày Quý Nhâm Tý (Chuột đen)
+
+Có thể tra cứu nhanh Thiên Can của từng giờ trong ngày
+theo bảng dưới đây:
+
+. 27

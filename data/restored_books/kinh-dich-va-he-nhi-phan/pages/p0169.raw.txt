@@ -1,0 +1,42 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+Số 0 00000000
+Số 1 00000001
+Số 2 00000010
+Số 3 00000011
+Số 4 00000100
+Số 5 00000101
+Số 6 00000110
+Số 7 00000111
+Số 8 00001000
+Số 9 00001001
+Số 10 00001010
+SỐ 50 S 00110010
+Số 100 01100100
+`... 11601606
+`... tang
+Số 255 11111111
+
+Trong máy tính người ta dùng các con số để mã hoá các chữ cái, mã hoá
+các dấu và mọi ký tự khác. Để thống nhất các mã số này ngày nay người ta
+dùng theo bộ mã gọi là Mã ASCTII (Hình 41). Ví dụ : trong bộ mã này chữ Á
+được mã hoá là 01000001 (tương ứng với số 6B); chữ RB được mã là 01000010
+(tương ứng với số 66); chữ C được mã là 01000011 (tương ứng với số 67)...
+chữ X được mã là 01011000 (tương ứng với số 88); chữ Ÿ mã là 01011001.
+(tương ứng với 89); dấu (!) được mã là 00100001 (tương ứng với số 33),
+đấu(?) được mã là 00111111; dấu (!) được mã là 00111111 (tức số 63) v.v...
+
+Kilô Bơi (KByte) : Nếu ta có một hàng 10 bóng đèn liên hoàn,
+ta có thể ghi được 512 x 2 = 1024 Bai thông tin. Người ta gọi đó là
+một Kilô Bai thông tin. Như vậy mỗi KB có 1024 Bai, tương ứng với
+một hàng 10 bóng đèn điện tử.
+
+Maga Bai (MB): Dung lượng bộ nhớ các máy tính được tính bằng
+Mềga Bai ở ổ đĩa cứng. Một MB bằng 1024 Kilô Bai. Trong cấu trúc máy
+tính các hàng bóng đèn cũng được xếp theo phương đồ hay hình ma
+phương (Ma trận) như trong mô hình các quẻ cúa Dịch. Thường một
+máy tính có dung lượng từ 40 MB, 80 MB, 120 MB cho đến 210, 410
+MB hoặc cao hơn, đến 800 hay 1000 MB hoặc cao hơn nửa. Một đĩa
+mềm đường kính là 5,25 inch có dung lượng cao có thể ghi được 1,2 MB
+thông tỉn, tương đương khoảng 500 trang sách khổ 18 x 19 em, thì một
+máy tính có dung lượng bộ nhớ 410 MB sẽ bằng trên 341 đĩa mềm đó.
+170

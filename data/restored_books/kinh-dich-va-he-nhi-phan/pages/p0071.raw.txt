@@ -1,0 +1,57 @@
+HOÀNG TUẤN
+hào trong hệ nhị phân hơn kém nhau 2 lần thì ta đế dàng nhận ra
+trị số của các hào theo thứ tự trên dưới của chúng. Dưới đây xin
+nhắc lại, (theo giá trị từ trên xuống) :
+
+Hào thượng (12) :cógiá trị là 1 (hoặc 012) —
+
+Hào thứ 11 tờ - - 3 : (11) — | 7
+
+Hào thứ 10 so + - - 4. - (100 — 68
+
+Hào thứ 9 tha ca 8 ~ @)——
+
+Hào thứ 8 tha ca - đồ : ø —|5
+
+Hào thư 7` ta“ -. - 323 - (7) ——
+
+Hào thư 6  - - - 64 - (6) ——
+
+Hào thứ ð ta - - - 128 - đà — l8
+
+Haothứ4 ` :- - - - 3256 - (@—
+
+Hào thứ 3  - - - 512 -  ()— —=
+
+Hào thứ 2 th ca - - 1024 - (2) — |ssm
+
+Hào hạ (thứ 1) tờ - - - 2048 - (1) ——
+
+Tổng cộng giá trị : 4095
+
+Nếu chia thành 4 nhóm quẻ ba vạch và dọc từ trên xuống, ta đễ
+dàng nhận ra rằng :
+
+e Tổng giá trị ba quẻ trên cùng là (7). .
+
+e Tổng giá trị ba quẻ thứ hai là (56).
+
+e Tổng giá trị ba quẻ thứ ba là (448).
+
+e Tổng giá trị ba quê thứ tư là (3584) — ˆ
+
+Như vậy giá trị quê “Trùng Căn” thượng là 63, quẻ “Trùng Càn” hạ
+là 4032. Và cứ theo nguyên tắc đó, cứ thêm một hào dưới thì giá trị lại
+tăng gấp đôi. Quẻ càng nhiều vạch thì giá trị các vạch phía dưới càng
+lớn. Ví dụ :
+
+- Vạch thứ 18 sẽ có giá trị là : 2048 x 2 = 4096;
+
+- Vạch thứ 14 sẽ có giá trị là : 4096 x 2 = 8192;
+
+- Vạch thư 15 sẽ có giá trị là : 8192 x 2 = 16.384. v.v...
+
+Để có nhứng con số lớn bằng ký hiệu “đóng mở” các bóng đèn điện
+tử, trong kỹ thuật hiện đại người ta không cần sắp xếp các bóng đèn
+
+73

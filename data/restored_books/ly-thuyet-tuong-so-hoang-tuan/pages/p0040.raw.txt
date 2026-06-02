@@ -1,0 +1,38 @@
+nhiều sách viết về số Hà Lạc đã nhầm lẫn, không đựa trên một
+nguyên tắc nào thống nhất để trừ các số đư lớn như 13, 27, 32...
+Họ chỉ viết rằng: "bỏ hòng chục đi uà lấy số đơn uị là các số 3,
+số 7, số 2 của các số trên, tức là số của các quẻ”. Viết như thế là
+sai ! Ở đây chúng ta không theo cách đó vì nó không đựa trên
+nguyên lý thống nhất đã nêu ra ở trên và cũng không có gì
+chứng minh là hợp lý.
+
+1.8: Trường hợp Tổng số Âm Dương bằng hoặc dưới
+mức Sổ cơ bản:
+
+Ví du: Tổng số Dương của ông X. bằng 15 hay Tổng số Âm
+của bà Y. bằng 30. Lúc đó ta không cần trừ với số cơ bản, mà
+phải theo quy luật trên, như sau:
+
+* Nếu là các số hàng chục chẫn như 10, 20, 30... thì ta bỏ số
+0 mà lấy sế đầu hàng chục (như trường hợp bà Y. có Tổng số
+Âm = 30, ta lấy số 3 đầu) để tìm quê.
+
+* Nếu là trường hợp Tổng số Âm hay Dương dưới các số cơ
+bản 2ð hay 30, nhưng lại là những số hàng chục có số lẻ như 13,
+17, 24 v.v.. thì ta cũng phải trừ dần đi 9 hay bội số của 9 đến
+khi còn số lẻ từ 1 đến 9 là ta đã được số cung quẻ định tìm (như
+trường hợp ông X. ở trên, có Tổng số Dương là 15, ta phải trừ đi
+9 còn 6. Số dư 6 này là số cung quẻ định tìm.
+
+1.4: Trường hợp số dư là số õ: Chúng ta đã biết, trong
+tám cung ngoại vi của Lạc Thư không có số 5. Số 5 ở trung
+tâm, là số "sinh" của Hành Thổ. Hành này trong Hậu Thiên
+Đồ đã chia thành hai Hành: Cấn-Thổ thuộc Dương, đóng ở
+cung số 8 của Lạc Thư; Khôn-Thổ thuộc Âm đóng ở cung số 2
+của Lạc Thư. Số của hai quẻ Cân và Khôn cộng lại bằng số
+"thành" của Hành Thổ (8 + 9 = 10). Vị trí Hậu Thiên của quê
+Cấn hiện nay lại vốn là vị trí Tiên Thiên của quẻ Đoài; còn vi
+trí của quẻ Ly hiện nay vốn là vị trí Tiên Thiên của quẻ Khôn.
+Do những tính toán phức tạp của người xưa, số 5 ở trung tâm
+liên quan đến 4 quẻ cơ bản đó. Vì vậy nếu số dư là 5 thì phải
+42

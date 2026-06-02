@@ -1,0 +1,2831 @@
+{
+  "book_id": "can-chi-thong-luan",
+  "source_pdf": "thư viện sách/CAN CHI THÔNG LUẬN.pdf",
+  "page_range": [
+    1,
+    352
+  ],
+  "total_pages": 352,
+  "total_seconds": 4490.3,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 24.4,
+      "raw_chars": 136,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 17.98,
+      "raw_chars": 82,
+      "cleaned_chars": 87,
+      "md_path": "can-chi-thong-luan/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 44.29,
+      "raw_chars": 978,
+      "cleaned_chars": 966,
+      "md_path": "can-chi-thong-luan/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 29.74,
+      "raw_chars": 959,
+      "cleaned_chars": 965,
+      "md_path": "can-chi-thong-luan/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 42.04,
+      "raw_chars": 1395,
+      "cleaned_chars": 1427,
+      "md_path": "can-chi-thong-luan/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 48.98,
+      "raw_chars": 1305,
+      "cleaned_chars": 1320,
+      "md_path": "can-chi-thong-luan/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 38.33,
+      "raw_chars": 1220,
+      "cleaned_chars": 1234,
+      "md_path": "can-chi-thong-luan/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 34.72,
+      "raw_chars": 953,
+      "cleaned_chars": 871,
+      "md_path": "can-chi-thong-luan/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 48.1,
+      "raw_chars": 1263,
+      "cleaned_chars": 1318,
+      "md_path": "can-chi-thong-luan/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.69,
+      "raw_chars": 1251,
+      "cleaned_chars": 1265,
+      "md_path": "can-chi-thong-luan/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 44.5,
+      "raw_chars": 1331,
+      "cleaned_chars": 1342,
+      "md_path": "can-chi-thong-luan/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 36.1,
+      "raw_chars": 1039,
+      "cleaned_chars": 1050,
+      "md_path": "can-chi-thong-luan/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 32.18,
+      "raw_chars": 894,
+      "cleaned_chars": 875,
+      "md_path": "can-chi-thong-luan/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 55.18,
+      "raw_chars": 1345,
+      "cleaned_chars": 1449,
+      "md_path": "can-chi-thong-luan/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 47.94,
+      "raw_chars": 1313,
+      "cleaned_chars": 1478,
+      "md_path": "can-chi-thong-luan/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 34.39,
+      "raw_chars": 1006,
+      "cleaned_chars": 1087,
+      "md_path": "can-chi-thong-luan/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 42.29,
+      "raw_chars": 757,
+      "cleaned_chars": 958,
+      "md_path": "can-chi-thong-luan/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 36.09,
+      "raw_chars": 662,
+      "cleaned_chars": 777,
+      "md_path": "can-chi-thong-luan/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 50.08,
+      "raw_chars": 772,
+      "cleaned_chars": 1003,
+      "md_path": "can-chi-thong-luan/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 45.84,
+      "raw_chars": 648,
+      "cleaned_chars": 890,
+      "md_path": "can-chi-thong-luan/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 1.33,
+      "cleanup_seconds": 85.03,
+      "raw_chars": 1811,
+      "cleaned_chars": 1974,
+      "md_path": "can-chi-thong-luan/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 40.02,
+      "raw_chars": 628,
+      "cleaned_chars": 626,
+      "md_path": "can-chi-thong-luan/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 43.35,
+      "raw_chars": 999,
+      "cleaned_chars": 1015,
+      "md_path": "can-chi-thong-luan/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 26.38,
+      "raw_chars": 1073,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 44.81,
+      "raw_chars": 1022,
+      "cleaned_chars": 1123,
+      "md_path": "can-chi-thong-luan/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 41.04,
+      "raw_chars": 902,
+      "cleaned_chars": 890,
+      "md_path": "can-chi-thong-luan/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 22.69,
+      "raw_chars": 597,
+      "cleaned_chars": 102,
+      "md_path": "can-chi-thong-luan/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 24.42,
+      "raw_chars": 662,
+      "cleaned_chars": 24,
+      "md_path": "can-chi-thong-luan/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 41.9,
+      "raw_chars": 739,
+      "cleaned_chars": 806,
+      "md_path": "can-chi-thong-luan/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 31.54,
+      "raw_chars": 641,
+      "cleaned_chars": 649,
+      "md_path": "can-chi-thong-luan/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 36.16,
+      "raw_chars": 915,
+      "cleaned_chars": 1104,
+      "md_path": "can-chi-thong-luan/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 39.56,
+      "raw_chars": 492,
+      "cleaned_chars": 703,
+      "md_path": "can-chi-thong-luan/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 49.04,
+      "raw_chars": 821,
+      "cleaned_chars": 1307,
+      "md_path": "can-chi-thong-luan/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 33.74,
+      "raw_chars": 609,
+      "cleaned_chars": 472,
+      "md_path": "can-chi-thong-luan/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 51.74,
+      "raw_chars": 742,
+      "cleaned_chars": 1167,
+      "md_path": "can-chi-thong-luan/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 44.01,
+      "raw_chars": 762,
+      "cleaned_chars": 1037,
+      "md_path": "can-chi-thong-luan/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 49.77,
+      "raw_chars": 815,
+      "cleaned_chars": 1741,
+      "md_path": "can-chi-thong-luan/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 42.29,
+      "raw_chars": 1248,
+      "cleaned_chars": 1376,
+      "md_path": "can-chi-thong-luan/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 46.59,
+      "raw_chars": 1194,
+      "cleaned_chars": 1004,
+      "md_path": "can-chi-thong-luan/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 35.94,
+      "raw_chars": 573,
+      "cleaned_chars": 644,
+      "md_path": "can-chi-thong-luan/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 30.18,
+      "raw_chars": 394,
+      "cleaned_chars": 330,
+      "md_path": "can-chi-thong-luan/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 29.76,
+      "raw_chars": 729,
+      "cleaned_chars": 762,
+      "md_path": "can-chi-thong-luan/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 36.39,
+      "raw_chars": 664,
+      "cleaned_chars": 905,
+      "md_path": "can-chi-thong-luan/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 36.63,
+      "raw_chars": 562,
+      "cleaned_chars": 585,
+      "md_path": "can-chi-thong-luan/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 32.03,
+      "raw_chars": 1094,
+      "cleaned_chars": 1135,
+      "md_path": "can-chi-thong-luan/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 38.69,
+      "raw_chars": 918,
+      "cleaned_chars": 902,
+      "md_path": "can-chi-thong-luan/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 39.36,
+      "raw_chars": 794,
+      "cleaned_chars": 970,
+      "md_path": "can-chi-thong-luan/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 38.28,
+      "raw_chars": 413,
+      "cleaned_chars": 530,
+      "md_path": "can-chi-thong-luan/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 28.45,
+      "raw_chars": 458,
+      "cleaned_chars": 427,
+      "md_path": "can-chi-thong-luan/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 28.65,
+      "raw_chars": 1712,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 1.12,
+      "cleanup_seconds": 31.66,
+      "raw_chars": 1834,
+      "cleaned_chars": 428,
+      "md_path": "can-chi-thong-luan/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 49.75,
+      "raw_chars": 1786,
+      "cleaned_chars": 1810,
+      "md_path": "can-chi-thong-luan/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 21.34,
+      "raw_chars": 1233,
+      "cleaned_chars": 27,
+      "md_path": "can-chi-thong-luan/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 40.9,
+      "raw_chars": 1622,
+      "cleaned_chars": 1476,
+      "md_path": "can-chi-thong-luan/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 1.22,
+      "cleanup_seconds": 38.98,
+      "raw_chars": 2202,
+      "cleaned_chars": 814,
+      "md_path": "can-chi-thong-luan/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 1.36,
+      "cleanup_seconds": 27.24,
+      "raw_chars": 2652,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 31.66,
+      "raw_chars": 456,
+      "cleaned_chars": 458,
+      "md_path": "can-chi-thong-luan/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 39.78,
+      "raw_chars": 958,
+      "cleaned_chars": 1018,
+      "md_path": "can-chi-thong-luan/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 36.07,
+      "raw_chars": 866,
+      "cleaned_chars": 894,
+      "md_path": "can-chi-thong-luan/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.62,
+      "raw_chars": 913,
+      "cleaned_chars": 1071,
+      "md_path": "can-chi-thong-luan/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 43.1,
+      "raw_chars": 940,
+      "cleaned_chars": 1053,
+      "md_path": "can-chi-thong-luan/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 38.0,
+      "raw_chars": 783,
+      "cleaned_chars": 811,
+      "md_path": "can-chi-thong-luan/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 48.98,
+      "raw_chars": 761,
+      "cleaned_chars": 781,
+      "md_path": "can-chi-thong-luan/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 39.84,
+      "raw_chars": 740,
+      "cleaned_chars": 760,
+      "md_path": "can-chi-thong-luan/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 37.34,
+      "raw_chars": 894,
+      "cleaned_chars": 949,
+      "md_path": "can-chi-thong-luan/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 27.22,
+      "raw_chars": 945,
+      "cleaned_chars": 1001,
+      "md_path": "can-chi-thong-luan/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 32.79,
+      "raw_chars": 953,
+      "cleaned_chars": 1157,
+      "md_path": "can-chi-thong-luan/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 39.95,
+      "raw_chars": 842,
+      "cleaned_chars": 906,
+      "md_path": "can-chi-thong-luan/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 40.49,
+      "raw_chars": 820,
+      "cleaned_chars": 895,
+      "md_path": "can-chi-thong-luan/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 43.05,
+      "raw_chars": 797,
+      "cleaned_chars": 860,
+      "md_path": "can-chi-thong-luan/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 51.83,
+      "raw_chars": 933,
+      "cleaned_chars": 959,
+      "md_path": "can-chi-thong-luan/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 32.26,
+      "raw_chars": 682,
+      "cleaned_chars": 680,
+      "md_path": "can-chi-thong-luan/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 41.38,
+      "raw_chars": 1098,
+      "cleaned_chars": 1305,
+      "md_path": "can-chi-thong-luan/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 43.23,
+      "raw_chars": 1113,
+      "cleaned_chars": 874,
+      "md_path": "can-chi-thong-luan/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 51.34,
+      "raw_chars": 1785,
+      "cleaned_chars": 1402,
+      "md_path": "can-chi-thong-luan/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 48.5,
+      "raw_chars": 1327,
+      "cleaned_chars": 731,
+      "md_path": "can-chi-thong-luan/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 37.24,
+      "raw_chars": 805,
+      "cleaned_chars": 901,
+      "md_path": "can-chi-thong-luan/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 28.79,
+      "raw_chars": 388,
+      "cleaned_chars": 406,
+      "md_path": "can-chi-thong-luan/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 36.97,
+      "raw_chars": 990,
+      "cleaned_chars": 1009,
+      "md_path": "can-chi-thong-luan/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 40.06,
+      "raw_chars": 1036,
+      "cleaned_chars": 1042,
+      "md_path": "can-chi-thong-luan/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 34.74,
+      "raw_chars": 636,
+      "cleaned_chars": 697,
+      "md_path": "can-chi-thong-luan/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 33.03,
+      "raw_chars": 718,
+      "cleaned_chars": 720,
+      "md_path": "can-chi-thong-luan/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 44.91,
+      "raw_chars": 1114,
+      "cleaned_chars": 1128,
+      "md_path": "can-chi-thong-luan/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 26.72,
+      "raw_chars": 316,
+      "cleaned_chars": 279,
+      "md_path": "can-chi-thong-luan/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 1.45,
+      "cleanup_seconds": 39.18,
+      "raw_chars": 2025,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 1.16,
+      "cleanup_seconds": 29.18,
+      "raw_chars": 1893,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 1.24,
+      "cleanup_seconds": 72.63,
+      "raw_chars": 2067,
+      "cleaned_chars": 2104,
+      "md_path": "can-chi-thong-luan/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 1.2,
+      "cleanup_seconds": 30.99,
+      "raw_chars": 1952,
+      "cleaned_chars": 462,
+      "md_path": "can-chi-thong-luan/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 33.54,
+      "raw_chars": 1049,
+      "cleaned_chars": 314,
+      "md_path": "can-chi-thong-luan/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 44.06,
+      "raw_chars": 1899,
+      "cleaned_chars": 1623,
+      "md_path": "can-chi-thong-luan/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.58,
+      "raw_chars": 1296,
+      "cleaned_chars": 1365,
+      "md_path": "can-chi-thong-luan/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 57.66,
+      "raw_chars": 2787,
+      "cleaned_chars": 2784,
+      "md_path": "can-chi-thong-luan/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 23.42,
+      "raw_chars": 236,
+      "cleaned_chars": 263,
+      "md_path": "can-chi-thong-luan/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 28.66,
+      "raw_chars": 490,
+      "cleaned_chars": 497,
+      "md_path": "can-chi-thong-luan/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 33.02,
+      "raw_chars": 511,
+      "cleaned_chars": 426,
+      "md_path": "can-chi-thong-luan/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 37.61,
+      "raw_chars": 926,
+      "cleaned_chars": 884,
+      "md_path": "can-chi-thong-luan/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 59.78,
+      "raw_chars": 1692,
+      "cleaned_chars": 1478,
+      "md_path": "can-chi-thong-luan/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 50.81,
+      "raw_chars": 1613,
+      "cleaned_chars": 976,
+      "md_path": "can-chi-thong-luan/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 34.74,
+      "raw_chars": 745,
+      "cleaned_chars": 742,
+      "md_path": "can-chi-thong-luan/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 37.96,
+      "raw_chars": 890,
+      "cleaned_chars": 863,
+      "md_path": "can-chi-thong-luan/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.35,
+      "raw_chars": 988,
+      "cleaned_chars": 1009,
+      "md_path": "can-chi-thong-luan/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 47.1,
+      "raw_chars": 1070,
+      "cleaned_chars": 1101,
+      "md_path": "can-chi-thong-luan/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 36.82,
+      "raw_chars": 952,
+      "cleaned_chars": 1067,
+      "md_path": "can-chi-thong-luan/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 34.49,
+      "raw_chars": 591,
+      "cleaned_chars": 646,
+      "md_path": "can-chi-thong-luan/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 27.57,
+      "raw_chars": 424,
+      "cleaned_chars": 401,
+      "md_path": "can-chi-thong-luan/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 53.65,
+      "raw_chars": 1185,
+      "cleaned_chars": 1177,
+      "md_path": "can-chi-thong-luan/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 48.92,
+      "raw_chars": 1032,
+      "cleaned_chars": 1111,
+      "md_path": "can-chi-thong-luan/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 38.91,
+      "raw_chars": 931,
+      "cleaned_chars": 495,
+      "md_path": "can-chi-thong-luan/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 35.14,
+      "raw_chars": 979,
+      "cleaned_chars": 1026,
+      "md_path": "can-chi-thong-luan/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 35.97,
+      "raw_chars": 1044,
+      "cleaned_chars": 899,
+      "md_path": "can-chi-thong-luan/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 36.98,
+      "raw_chars": 873,
+      "cleaned_chars": 1091,
+      "md_path": "can-chi-thong-luan/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 37.98,
+      "raw_chars": 1004,
+      "cleaned_chars": 1041,
+      "md_path": "can-chi-thong-luan/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 45.16,
+      "raw_chars": 952,
+      "cleaned_chars": 1217,
+      "md_path": "can-chi-thong-luan/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 39.6,
+      "raw_chars": 1206,
+      "cleaned_chars": 1195,
+      "md_path": "can-chi-thong-luan/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 39.67,
+      "raw_chars": 668,
+      "cleaned_chars": 702,
+      "md_path": "can-chi-thong-luan/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 40.34,
+      "raw_chars": 859,
+      "cleaned_chars": 748,
+      "md_path": "can-chi-thong-luan/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 45.21,
+      "raw_chars": 1013,
+      "cleaned_chars": 1554,
+      "md_path": "can-chi-thong-luan/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 27.02,
+      "raw_chars": 451,
+      "cleaned_chars": 61,
+      "md_path": "can-chi-thong-luan/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 20.39,
+      "raw_chars": 433,
+      "cleaned_chars": 72,
+      "md_path": "can-chi-thong-luan/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 22.06,
+      "raw_chars": 510,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 28.31,
+      "raw_chars": 500,
+      "cleaned_chars": 38,
+      "md_path": "can-chi-thong-luan/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 33.74,
+      "raw_chars": 643,
+      "cleaned_chars": 775,
+      "md_path": "can-chi-thong-luan/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 36.84,
+      "raw_chars": 534,
+      "cleaned_chars": 339,
+      "md_path": "can-chi-thong-luan/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 20.73,
+      "raw_chars": 477,
+      "cleaned_chars": 20,
+      "md_path": "can-chi-thong-luan/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 20.28,
+      "raw_chars": 595,
+      "cleaned_chars": 97,
+      "md_path": "can-chi-thong-luan/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 33.91,
+      "raw_chars": 496,
+      "cleaned_chars": 652,
+      "md_path": "can-chi-thong-luan/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 23.04,
+      "raw_chars": 453,
+      "cleaned_chars": 37,
+      "md_path": "can-chi-thong-luan/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 35.0,
+      "raw_chars": 405,
+      "cleaned_chars": 506,
+      "md_path": "can-chi-thong-luan/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 31.22,
+      "raw_chars": 306,
+      "cleaned_chars": 356,
+      "md_path": "can-chi-thong-luan/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 25.75,
+      "raw_chars": 355,
+      "cleaned_chars": 293,
+      "md_path": "can-chi-thong-luan/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 20.68,
+      "raw_chars": 324,
+      "cleaned_chars": 63,
+      "md_path": "can-chi-thong-luan/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 20.07,
+      "raw_chars": 472,
+      "cleaned_chars": 52,
+      "md_path": "can-chi-thong-luan/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 20.23,
+      "raw_chars": 422,
+      "cleaned_chars": 78,
+      "md_path": "can-chi-thong-luan/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 33.58,
+      "raw_chars": 251,
+      "cleaned_chars": 290,
+      "md_path": "can-chi-thong-luan/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 23.19,
+      "raw_chars": 393,
+      "cleaned_chars": 90,
+      "md_path": "can-chi-thong-luan/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 26.12,
+      "raw_chars": 355,
+      "cleaned_chars": 160,
+      "md_path": "can-chi-thong-luan/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 28.26,
+      "raw_chars": 462,
+      "cleaned_chars": 109,
+      "md_path": "can-chi-thong-luan/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 28.06,
+      "raw_chars": 476,
+      "cleaned_chars": 18,
+      "md_path": "can-chi-thong-luan/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 26.41,
+      "raw_chars": 558,
+      "cleaned_chars": 117,
+      "md_path": "can-chi-thong-luan/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 23.49,
+      "raw_chars": 379,
+      "cleaned_chars": 9,
+      "md_path": "can-chi-thong-luan/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 24.76,
+      "raw_chars": 528,
+      "cleaned_chars": 40,
+      "md_path": "can-chi-thong-luan/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 44.89,
+      "raw_chars": 1082,
+      "cleaned_chars": 1126,
+      "md_path": "can-chi-thong-luan/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 46.07,
+      "raw_chars": 1076,
+      "cleaned_chars": 1002,
+      "md_path": "can-chi-thong-luan/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 41.56,
+      "raw_chars": 958,
+      "cleaned_chars": 937,
+      "md_path": "can-chi-thong-luan/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 39.13,
+      "raw_chars": 1087,
+      "cleaned_chars": 1110,
+      "md_path": "can-chi-thong-luan/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 34.59,
+      "raw_chars": 657,
+      "cleaned_chars": 666,
+      "md_path": "can-chi-thong-luan/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 30.25,
+      "raw_chars": 694,
+      "cleaned_chars": 718,
+      "md_path": "can-chi-thong-luan/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 33.09,
+      "raw_chars": 670,
+      "cleaned_chars": 670,
+      "md_path": "can-chi-thong-luan/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 37.27,
+      "raw_chars": 565,
+      "cleaned_chars": 595,
+      "md_path": "can-chi-thong-luan/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 35.42,
+      "raw_chars": 648,
+      "cleaned_chars": 690,
+      "md_path": "can-chi-thong-luan/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 35.91,
+      "raw_chars": 542,
+      "cleaned_chars": 591,
+      "md_path": "can-chi-thong-luan/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 31.48,
+      "raw_chars": 560,
+      "cleaned_chars": 564,
+      "md_path": "can-chi-thong-luan/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 37.84,
+      "raw_chars": 512,
+      "cleaned_chars": 544,
+      "md_path": "can-chi-thong-luan/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 28.81,
+      "raw_chars": 616,
+      "cleaned_chars": 635,
+      "md_path": "can-chi-thong-luan/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 35.21,
+      "raw_chars": 764,
+      "cleaned_chars": 863,
+      "md_path": "can-chi-thong-luan/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 33.98,
+      "raw_chars": 735,
+      "cleaned_chars": 865,
+      "md_path": "can-chi-thong-luan/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 41.16,
+      "raw_chars": 807,
+      "cleaned_chars": 1047,
+      "md_path": "can-chi-thong-luan/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 44.13,
+      "raw_chars": 868,
+      "cleaned_chars": 969,
+      "md_path": "can-chi-thong-luan/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 46.16,
+      "raw_chars": 859,
+      "cleaned_chars": 915,
+      "md_path": "can-chi-thong-luan/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 41.8,
+      "raw_chars": 944,
+      "cleaned_chars": 1028,
+      "md_path": "can-chi-thong-luan/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 34.11,
+      "raw_chars": 845,
+      "cleaned_chars": 871,
+      "md_path": "can-chi-thong-luan/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 36.79,
+      "raw_chars": 857,
+      "cleaned_chars": 905,
+      "md_path": "can-chi-thong-luan/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 46.87,
+      "raw_chars": 817,
+      "cleaned_chars": 880,
+      "md_path": "can-chi-thong-luan/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 29.5,
+      "raw_chars": 966,
+      "cleaned_chars": 1035,
+      "md_path": "can-chi-thong-luan/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 40.03,
+      "raw_chars": 764,
+      "cleaned_chars": 847,
+      "md_path": "can-chi-thong-luan/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 39.92,
+      "raw_chars": 1181,
+      "cleaned_chars": 1284,
+      "md_path": "can-chi-thong-luan/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 46.6,
+      "raw_chars": 792,
+      "cleaned_chars": 827,
+      "md_path": "can-chi-thong-luan/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 29.34,
+      "raw_chars": 684,
+      "cleaned_chars": 715,
+      "md_path": "can-chi-thong-luan/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 35.95,
+      "raw_chars": 1112,
+      "cleaned_chars": 1247,
+      "md_path": "can-chi-thong-luan/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 42.73,
+      "raw_chars": 1030,
+      "cleaned_chars": 1075,
+      "md_path": "can-chi-thong-luan/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 45.63,
+      "raw_chars": 1137,
+      "cleaned_chars": 1478,
+      "md_path": "can-chi-thong-luan/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 33.73,
+      "raw_chars": 865,
+      "cleaned_chars": 908,
+      "md_path": "can-chi-thong-luan/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 35.57,
+      "raw_chars": 810,
+      "cleaned_chars": 833,
+      "md_path": "can-chi-thong-luan/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 36.01,
+      "raw_chars": 966,
+      "cleaned_chars": 969,
+      "md_path": "can-chi-thong-luan/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 32.68,
+      "raw_chars": 935,
+      "cleaned_chars": 974,
+      "md_path": "can-chi-thong-luan/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 37.13,
+      "raw_chars": 957,
+      "cleaned_chars": 964,
+      "md_path": "can-chi-thong-luan/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 40.2,
+      "raw_chars": 951,
+      "cleaned_chars": 982,
+      "md_path": "can-chi-thong-luan/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 36.07,
+      "raw_chars": 915,
+      "cleaned_chars": 885,
+      "md_path": "can-chi-thong-luan/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 35.49,
+      "raw_chars": 811,
+      "cleaned_chars": 879,
+      "md_path": "can-chi-thong-luan/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 35.78,
+      "raw_chars": 733,
+      "cleaned_chars": 778,
+      "md_path": "can-chi-thong-luan/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 31.04,
+      "raw_chars": 868,
+      "cleaned_chars": 950,
+      "md_path": "can-chi-thong-luan/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 47.4,
+      "raw_chars": 1013,
+      "cleaned_chars": 960,
+      "md_path": "can-chi-thong-luan/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 33.06,
+      "raw_chars": 981,
+      "cleaned_chars": 1001,
+      "md_path": "can-chi-thong-luan/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 39.05,
+      "raw_chars": 845,
+      "cleaned_chars": 1105,
+      "md_path": "can-chi-thong-luan/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 32.99,
+      "raw_chars": 701,
+      "cleaned_chars": 821,
+      "md_path": "can-chi-thong-luan/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 35.41,
+      "raw_chars": 986,
+      "cleaned_chars": 1072,
+      "md_path": "can-chi-thong-luan/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.4,
+      "raw_chars": 918,
+      "cleaned_chars": 1060,
+      "md_path": "can-chi-thong-luan/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 34.03,
+      "raw_chars": 766,
+      "cleaned_chars": 820,
+      "md_path": "can-chi-thong-luan/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 34.76,
+      "raw_chars": 972,
+      "cleaned_chars": 1042,
+      "md_path": "can-chi-thong-luan/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 38.47,
+      "raw_chars": 953,
+      "cleaned_chars": 1115,
+      "md_path": "can-chi-thong-luan/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 37.25,
+      "raw_chars": 867,
+      "cleaned_chars": 956,
+      "md_path": "can-chi-thong-luan/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 37.98,
+      "raw_chars": 957,
+      "cleaned_chars": 1265,
+      "md_path": "can-chi-thong-luan/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 37.36,
+      "raw_chars": 917,
+      "cleaned_chars": 1008,
+      "md_path": "can-chi-thong-luan/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 36.69,
+      "raw_chars": 789,
+      "cleaned_chars": 878,
+      "md_path": "can-chi-thong-luan/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 33.04,
+      "raw_chars": 909,
+      "cleaned_chars": 998,
+      "md_path": "can-chi-thong-luan/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 41.2,
+      "raw_chars": 902,
+      "cleaned_chars": 932,
+      "md_path": "can-chi-thong-luan/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 38.5,
+      "raw_chars": 938,
+      "cleaned_chars": 1051,
+      "md_path": "can-chi-thong-luan/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 40.69,
+      "raw_chars": 983,
+      "cleaned_chars": 1046,
+      "md_path": "can-chi-thong-luan/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 35.52,
+      "raw_chars": 932,
+      "cleaned_chars": 1019,
+      "md_path": "can-chi-thong-luan/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 35.31,
+      "raw_chars": 1017,
+      "cleaned_chars": 1065,
+      "md_path": "can-chi-thong-luan/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 37.63,
+      "raw_chars": 959,
+      "cleaned_chars": 1031,
+      "md_path": "can-chi-thong-luan/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 37.39,
+      "raw_chars": 1114,
+      "cleaned_chars": 1208,
+      "md_path": "can-chi-thong-luan/pages/p0202.md"
+    },
+    {
+      "page": 203,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 29.29,
+      "raw_chars": 922,
+      "cleaned_chars": 941,
+      "md_path": "can-chi-thong-luan/pages/p0203.md"
+    },
+    {
+      "page": 204,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 33.38,
+      "raw_chars": 957,
+      "cleaned_chars": 979,
+      "md_path": "can-chi-thong-luan/pages/p0204.md"
+    },
+    {
+      "page": 205,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.35,
+      "raw_chars": 1046,
+      "cleaned_chars": 1182,
+      "md_path": "can-chi-thong-luan/pages/p0205.md"
+    },
+    {
+      "page": 206,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 36.07,
+      "raw_chars": 483,
+      "cleaned_chars": 491,
+      "md_path": "can-chi-thong-luan/pages/p0206.md"
+    },
+    {
+      "page": 207,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 38.87,
+      "raw_chars": 841,
+      "cleaned_chars": 847,
+      "md_path": "can-chi-thong-luan/pages/p0207.md"
+    },
+    {
+      "page": 208,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 32.99,
+      "raw_chars": 837,
+      "cleaned_chars": 923,
+      "md_path": "can-chi-thong-luan/pages/p0208.md"
+    },
+    {
+      "page": 209,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 38.96,
+      "raw_chars": 833,
+      "cleaned_chars": 954,
+      "md_path": "can-chi-thong-luan/pages/p0209.md"
+    },
+    {
+      "page": 210,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 33.96,
+      "raw_chars": 830,
+      "cleaned_chars": 867,
+      "md_path": "can-chi-thong-luan/pages/p0210.md"
+    },
+    {
+      "page": 211,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 36.39,
+      "raw_chars": 850,
+      "cleaned_chars": 928,
+      "md_path": "can-chi-thong-luan/pages/p0211.md"
+    },
+    {
+      "page": 212,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 36.85,
+      "raw_chars": 771,
+      "cleaned_chars": 766,
+      "md_path": "can-chi-thong-luan/pages/p0212.md"
+    },
+    {
+      "page": 213,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 31.41,
+      "raw_chars": 838,
+      "cleaned_chars": 872,
+      "md_path": "can-chi-thong-luan/pages/p0213.md"
+    },
+    {
+      "page": 214,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 41.51,
+      "raw_chars": 877,
+      "cleaned_chars": 861,
+      "md_path": "can-chi-thong-luan/pages/p0214.md"
+    },
+    {
+      "page": 215,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 32.74,
+      "raw_chars": 827,
+      "cleaned_chars": 918,
+      "md_path": "can-chi-thong-luan/pages/p0215.md"
+    },
+    {
+      "page": 216,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 29.54,
+      "raw_chars": 735,
+      "cleaned_chars": 724,
+      "md_path": "can-chi-thong-luan/pages/p0216.md"
+    },
+    {
+      "page": 217,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 30.56,
+      "raw_chars": 725,
+      "cleaned_chars": 719,
+      "md_path": "can-chi-thong-luan/pages/p0217.md"
+    },
+    {
+      "page": 218,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 28.31,
+      "raw_chars": 614,
+      "cleaned_chars": 595,
+      "md_path": "can-chi-thong-luan/pages/p0218.md"
+    },
+    {
+      "page": 219,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 35.39,
+      "raw_chars": 660,
+      "cleaned_chars": 923,
+      "md_path": "can-chi-thong-luan/pages/p0219.md"
+    },
+    {
+      "page": 220,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 34.73,
+      "raw_chars": 1107,
+      "cleaned_chars": 1159,
+      "md_path": "can-chi-thong-luan/pages/p0220.md"
+    },
+    {
+      "page": 221,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.21,
+      "raw_chars": 897,
+      "cleaned_chars": 1000,
+      "md_path": "can-chi-thong-luan/pages/p0221.md"
+    },
+    {
+      "page": 222,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 33.67,
+      "raw_chars": 1163,
+      "cleaned_chars": 1156,
+      "md_path": "can-chi-thong-luan/pages/p0222.md"
+    },
+    {
+      "page": 223,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 39.62,
+      "raw_chars": 1145,
+      "cleaned_chars": 1226,
+      "md_path": "can-chi-thong-luan/pages/p0223.md"
+    },
+    {
+      "page": 224,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 35.21,
+      "raw_chars": 1173,
+      "cleaned_chars": 1198,
+      "md_path": "can-chi-thong-luan/pages/p0224.md"
+    },
+    {
+      "page": 225,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 53.47,
+      "raw_chars": 1171,
+      "cleaned_chars": 1219,
+      "md_path": "can-chi-thong-luan/pages/p0225.md"
+    },
+    {
+      "page": 226,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 37.51,
+      "raw_chars": 1259,
+      "cleaned_chars": 1246,
+      "md_path": "can-chi-thong-luan/pages/p0226.md"
+    },
+    {
+      "page": 227,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 32.92,
+      "raw_chars": 651,
+      "cleaned_chars": 758,
+      "md_path": "can-chi-thong-luan/pages/p0227.md"
+    },
+    {
+      "page": 228,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 38.69,
+      "raw_chars": 1222,
+      "cleaned_chars": 1259,
+      "md_path": "can-chi-thong-luan/pages/p0228.md"
+    },
+    {
+      "page": 229,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 34.79,
+      "raw_chars": 929,
+      "cleaned_chars": 997,
+      "md_path": "can-chi-thong-luan/pages/p0229.md"
+    },
+    {
+      "page": 230,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 39.83,
+      "raw_chars": 1234,
+      "cleaned_chars": 1323,
+      "md_path": "can-chi-thong-luan/pages/p0230.md"
+    },
+    {
+      "page": 231,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 36.87,
+      "raw_chars": 1043,
+      "cleaned_chars": 1093,
+      "md_path": "can-chi-thong-luan/pages/p0231.md"
+    },
+    {
+      "page": 232,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 39.44,
+      "raw_chars": 953,
+      "cleaned_chars": 952,
+      "md_path": "can-chi-thong-luan/pages/p0232.md"
+    },
+    {
+      "page": 233,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 23.34,
+      "raw_chars": 217,
+      "cleaned_chars": 217,
+      "md_path": "can-chi-thong-luan/pages/p0233.md"
+    },
+    {
+      "page": 234,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.85,
+      "raw_chars": 1001,
+      "cleaned_chars": 986,
+      "md_path": "can-chi-thong-luan/pages/p0234.md"
+    },
+    {
+      "page": 235,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 44.29,
+      "raw_chars": 1376,
+      "cleaned_chars": 1471,
+      "md_path": "can-chi-thong-luan/pages/p0235.md"
+    },
+    {
+      "page": 236,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 43.86,
+      "raw_chars": 1198,
+      "cleaned_chars": 1233,
+      "md_path": "can-chi-thong-luan/pages/p0236.md"
+    },
+    {
+      "page": 237,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 34.09,
+      "raw_chars": 1253,
+      "cleaned_chars": 1267,
+      "md_path": "can-chi-thong-luan/pages/p0237.md"
+    },
+    {
+      "page": 238,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 48.13,
+      "raw_chars": 1268,
+      "cleaned_chars": 1255,
+      "md_path": "can-chi-thong-luan/pages/p0238.md"
+    },
+    {
+      "page": 239,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 45.07,
+      "raw_chars": 1436,
+      "cleaned_chars": 1453,
+      "md_path": "can-chi-thong-luan/pages/p0239.md"
+    },
+    {
+      "page": 240,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 40.31,
+      "raw_chars": 1320,
+      "cleaned_chars": 1302,
+      "md_path": "can-chi-thong-luan/pages/p0240.md"
+    },
+    {
+      "page": 241,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 38.2,
+      "raw_chars": 1282,
+      "cleaned_chars": 1374,
+      "md_path": "can-chi-thong-luan/pages/p0241.md"
+    },
+    {
+      "page": 242,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.42,
+      "raw_chars": 1412,
+      "cleaned_chars": 1492,
+      "md_path": "can-chi-thong-luan/pages/p0242.md"
+    },
+    {
+      "page": 243,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 41.46,
+      "raw_chars": 1335,
+      "cleaned_chars": 1328,
+      "md_path": "can-chi-thong-luan/pages/p0243.md"
+    },
+    {
+      "page": 244,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 39.49,
+      "raw_chars": 1291,
+      "cleaned_chars": 1333,
+      "md_path": "can-chi-thong-luan/pages/p0244.md"
+    },
+    {
+      "page": 245,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 38.47,
+      "raw_chars": 1197,
+      "cleaned_chars": 1187,
+      "md_path": "can-chi-thong-luan/pages/p0245.md"
+    },
+    {
+      "page": 246,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 33.13,
+      "raw_chars": 1322,
+      "cleaned_chars": 1312,
+      "md_path": "can-chi-thong-luan/pages/p0246.md"
+    },
+    {
+      "page": 247,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 39.06,
+      "raw_chars": 1323,
+      "cleaned_chars": 1333,
+      "md_path": "can-chi-thong-luan/pages/p0247.md"
+    },
+    {
+      "page": 248,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 40.68,
+      "raw_chars": 1368,
+      "cleaned_chars": 1456,
+      "md_path": "can-chi-thong-luan/pages/p0248.md"
+    },
+    {
+      "page": 249,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 41.49,
+      "raw_chars": 1351,
+      "cleaned_chars": 1331,
+      "md_path": "can-chi-thong-luan/pages/p0249.md"
+    },
+    {
+      "page": 250,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 32.18,
+      "raw_chars": 1167,
+      "cleaned_chars": 1143,
+      "md_path": "can-chi-thong-luan/pages/p0250.md"
+    },
+    {
+      "page": 251,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 47.15,
+      "raw_chars": 865,
+      "cleaned_chars": 885,
+      "md_path": "can-chi-thong-luan/pages/p0251.md"
+    },
+    {
+      "page": 252,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 27.7,
+      "raw_chars": 1113,
+      "cleaned_chars": 1112,
+      "md_path": "can-chi-thong-luan/pages/p0252.md"
+    },
+    {
+      "page": 253,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 33.28,
+      "raw_chars": 361,
+      "cleaned_chars": 377,
+      "md_path": "can-chi-thong-luan/pages/p0253.md"
+    },
+    {
+      "page": 254,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 43.42,
+      "raw_chars": 933,
+      "cleaned_chars": 989,
+      "md_path": "can-chi-thong-luan/pages/p0254.md"
+    },
+    {
+      "page": 255,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 50.97,
+      "raw_chars": 1283,
+      "cleaned_chars": 1303,
+      "md_path": "can-chi-thong-luan/pages/p0255.md"
+    },
+    {
+      "page": 256,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 40.28,
+      "raw_chars": 1235,
+      "cleaned_chars": 1244,
+      "md_path": "can-chi-thong-luan/pages/p0256.md"
+    },
+    {
+      "page": 257,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 53.36,
+      "raw_chars": 1093,
+      "cleaned_chars": 1068,
+      "md_path": "can-chi-thong-luan/pages/p0257.md"
+    },
+    {
+      "page": 258,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 40.39,
+      "raw_chars": 847,
+      "cleaned_chars": 879,
+      "md_path": "can-chi-thong-luan/pages/p0258.md"
+    },
+    {
+      "page": 259,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 37.28,
+      "raw_chars": 759,
+      "cleaned_chars": 770,
+      "md_path": "can-chi-thong-luan/pages/p0259.md"
+    },
+    {
+      "page": 260,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.65,
+      "raw_chars": 918,
+      "cleaned_chars": 951,
+      "md_path": "can-chi-thong-luan/pages/p0260.md"
+    },
+    {
+      "page": 261,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 37.43,
+      "raw_chars": 896,
+      "cleaned_chars": 939,
+      "md_path": "can-chi-thong-luan/pages/p0261.md"
+    },
+    {
+      "page": 262,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 37.33,
+      "raw_chars": 753,
+      "cleaned_chars": 844,
+      "md_path": "can-chi-thong-luan/pages/p0262.md"
+    },
+    {
+      "page": 263,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 29.86,
+      "raw_chars": 795,
+      "cleaned_chars": 795,
+      "md_path": "can-chi-thong-luan/pages/p0263.md"
+    },
+    {
+      "page": 264,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 40.81,
+      "raw_chars": 1186,
+      "cleaned_chars": 1288,
+      "md_path": "can-chi-thong-luan/pages/p0264.md"
+    },
+    {
+      "page": 265,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 40.44,
+      "raw_chars": 1201,
+      "cleaned_chars": 1195,
+      "md_path": "can-chi-thong-luan/pages/p0265.md"
+    },
+    {
+      "page": 266,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 37.1,
+      "raw_chars": 1280,
+      "cleaned_chars": 1301,
+      "md_path": "can-chi-thong-luan/pages/p0266.md"
+    },
+    {
+      "page": 267,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 37.63,
+      "raw_chars": 1322,
+      "cleaned_chars": 1377,
+      "md_path": "can-chi-thong-luan/pages/p0267.md"
+    },
+    {
+      "page": 268,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 38.83,
+      "raw_chars": 1344,
+      "cleaned_chars": 1360,
+      "md_path": "can-chi-thong-luan/pages/p0268.md"
+    },
+    {
+      "page": 269,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 38.72,
+      "raw_chars": 1326,
+      "cleaned_chars": 1463,
+      "md_path": "can-chi-thong-luan/pages/p0269.md"
+    },
+    {
+      "page": 270,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 38.47,
+      "raw_chars": 1334,
+      "cleaned_chars": 1333,
+      "md_path": "can-chi-thong-luan/pages/p0270.md"
+    },
+    {
+      "page": 271,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 38.97,
+      "raw_chars": 1287,
+      "cleaned_chars": 1294,
+      "md_path": "can-chi-thong-luan/pages/p0271.md"
+    },
+    {
+      "page": 272,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 42.04,
+      "raw_chars": 1368,
+      "cleaned_chars": 1397,
+      "md_path": "can-chi-thong-luan/pages/p0272.md"
+    },
+    {
+      "page": 273,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 34.41,
+      "raw_chars": 1377,
+      "cleaned_chars": 1357,
+      "md_path": "can-chi-thong-luan/pages/p0273.md"
+    },
+    {
+      "page": 274,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 32.58,
+      "raw_chars": 569,
+      "cleaned_chars": 559,
+      "md_path": "can-chi-thong-luan/pages/p0274.md"
+    },
+    {
+      "page": 275,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 30.35,
+      "raw_chars": 698,
+      "cleaned_chars": 688,
+      "md_path": "can-chi-thong-luan/pages/p0275.md"
+    },
+    {
+      "page": 276,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 47.63,
+      "raw_chars": 1299,
+      "cleaned_chars": 1281,
+      "md_path": "can-chi-thong-luan/pages/p0276.md"
+    },
+    {
+      "page": 277,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 43.87,
+      "raw_chars": 1144,
+      "cleaned_chars": 1162,
+      "md_path": "can-chi-thong-luan/pages/p0277.md"
+    },
+    {
+      "page": 278,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 49.12,
+      "raw_chars": 1283,
+      "cleaned_chars": 1389,
+      "md_path": "can-chi-thong-luan/pages/p0278.md"
+    },
+    {
+      "page": 279,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 44.78,
+      "raw_chars": 1384,
+      "cleaned_chars": 1444,
+      "md_path": "can-chi-thong-luan/pages/p0279.md"
+    },
+    {
+      "page": 280,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 40.45,
+      "raw_chars": 877,
+      "cleaned_chars": 957,
+      "md_path": "can-chi-thong-luan/pages/p0280.md"
+    },
+    {
+      "page": 281,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.17,
+      "raw_chars": 862,
+      "cleaned_chars": 854,
+      "md_path": "can-chi-thong-luan/pages/p0281.md"
+    },
+    {
+      "page": 282,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 35.62,
+      "raw_chars": 379,
+      "cleaned_chars": 390,
+      "md_path": "can-chi-thong-luan/pages/p0282.md"
+    },
+    {
+      "page": 283,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 29.26,
+      "raw_chars": 763,
+      "cleaned_chars": 787,
+      "md_path": "can-chi-thong-luan/pages/p0283.md"
+    },
+    {
+      "page": 284,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 50.12,
+      "raw_chars": 1063,
+      "cleaned_chars": 1167,
+      "md_path": "can-chi-thong-luan/pages/p0284.md"
+    },
+    {
+      "page": 285,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 27.98,
+      "raw_chars": 944,
+      "cleaned_chars": 909,
+      "md_path": "can-chi-thong-luan/pages/p0285.md"
+    },
+    {
+      "page": 286,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 43.61,
+      "raw_chars": 967,
+      "cleaned_chars": 1040,
+      "md_path": "can-chi-thong-luan/pages/p0286.md"
+    },
+    {
+      "page": 287,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 36.08,
+      "raw_chars": 1050,
+      "cleaned_chars": 1125,
+      "md_path": "can-chi-thong-luan/pages/p0287.md"
+    },
+    {
+      "page": 288,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 25.5,
+      "raw_chars": 492,
+      "cleaned_chars": 491,
+      "md_path": "can-chi-thong-luan/pages/p0288.md"
+    },
+    {
+      "page": 289,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 27.73,
+      "raw_chars": 696,
+      "cleaned_chars": 720,
+      "md_path": "can-chi-thong-luan/pages/p0289.md"
+    },
+    {
+      "page": 290,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 51.34,
+      "raw_chars": 958,
+      "cleaned_chars": 978,
+      "md_path": "can-chi-thong-luan/pages/p0290.md"
+    },
+    {
+      "page": 291,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 40.89,
+      "raw_chars": 1008,
+      "cleaned_chars": 1106,
+      "md_path": "can-chi-thong-luan/pages/p0291.md"
+    },
+    {
+      "page": 292,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 30.72,
+      "raw_chars": 866,
+      "cleaned_chars": 995,
+      "md_path": "can-chi-thong-luan/pages/p0292.md"
+    },
+    {
+      "page": 293,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 40.37,
+      "raw_chars": 993,
+      "cleaned_chars": 1057,
+      "md_path": "can-chi-thong-luan/pages/p0293.md"
+    },
+    {
+      "page": 294,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 43.22,
+      "raw_chars": 1004,
+      "cleaned_chars": 1062,
+      "md_path": "can-chi-thong-luan/pages/p0294.md"
+    },
+    {
+      "page": 295,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 33.01,
+      "raw_chars": 1106,
+      "cleaned_chars": 1082,
+      "md_path": "can-chi-thong-luan/pages/p0295.md"
+    },
+    {
+      "page": 296,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 37.29,
+      "raw_chars": 939,
+      "cleaned_chars": 978,
+      "md_path": "can-chi-thong-luan/pages/p0296.md"
+    },
+    {
+      "page": 297,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 18.89,
+      "raw_chars": 145,
+      "cleaned_chars": 129,
+      "md_path": "can-chi-thong-luan/pages/p0297.md"
+    },
+    {
+      "page": 298,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 33.7,
+      "raw_chars": 891,
+      "cleaned_chars": 891,
+      "md_path": "can-chi-thong-luan/pages/p0298.md"
+    },
+    {
+      "page": 299,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 34.91,
+      "raw_chars": 1241,
+      "cleaned_chars": 1217,
+      "md_path": "can-chi-thong-luan/pages/p0299.md"
+    },
+    {
+      "page": 300,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.31,
+      "raw_chars": 989,
+      "cleaned_chars": 1119,
+      "md_path": "can-chi-thong-luan/pages/p0300.md"
+    },
+    {
+      "page": 301,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 40.76,
+      "raw_chars": 1046,
+      "cleaned_chars": 1097,
+      "md_path": "can-chi-thong-luan/pages/p0301.md"
+    },
+    {
+      "page": 302,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 38.82,
+      "raw_chars": 885,
+      "cleaned_chars": 940,
+      "md_path": "can-chi-thong-luan/pages/p0302.md"
+    },
+    {
+      "page": 303,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 33.63,
+      "raw_chars": 916,
+      "cleaned_chars": 1069,
+      "md_path": "can-chi-thong-luan/pages/p0303.md"
+    },
+    {
+      "page": 304,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 34.79,
+      "raw_chars": 891,
+      "cleaned_chars": 931,
+      "md_path": "can-chi-thong-luan/pages/p0304.md"
+    },
+    {
+      "page": 305,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 50.15,
+      "raw_chars": 831,
+      "cleaned_chars": 891,
+      "md_path": "can-chi-thong-luan/pages/p0305.md"
+    },
+    {
+      "page": 306,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 57.3,
+      "raw_chars": 852,
+      "cleaned_chars": 835,
+      "md_path": "can-chi-thong-luan/pages/p0306.md"
+    },
+    {
+      "page": 307,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 35.58,
+      "raw_chars": 899,
+      "cleaned_chars": 950,
+      "md_path": "can-chi-thong-luan/pages/p0307.md"
+    },
+    {
+      "page": 308,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 33.29,
+      "raw_chars": 759,
+      "cleaned_chars": 778,
+      "md_path": "can-chi-thong-luan/pages/p0308.md"
+    },
+    {
+      "page": 309,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 38.6,
+      "raw_chars": 814,
+      "cleaned_chars": 962,
+      "md_path": "can-chi-thong-luan/pages/p0309.md"
+    },
+    {
+      "page": 310,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 40.81,
+      "raw_chars": 959,
+      "cleaned_chars": 998,
+      "md_path": "can-chi-thong-luan/pages/p0310.md"
+    },
+    {
+      "page": 311,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 40.99,
+      "raw_chars": 1091,
+      "cleaned_chars": 1195,
+      "md_path": "can-chi-thong-luan/pages/p0311.md"
+    },
+    {
+      "page": 312,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 31.83,
+      "raw_chars": 947,
+      "cleaned_chars": 1095,
+      "md_path": "can-chi-thong-luan/pages/p0312.md"
+    },
+    {
+      "page": 313,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 36.37,
+      "raw_chars": 1001,
+      "cleaned_chars": 1019,
+      "md_path": "can-chi-thong-luan/pages/p0313.md"
+    },
+    {
+      "page": 314,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 38.4,
+      "raw_chars": 864,
+      "cleaned_chars": 875,
+      "md_path": "can-chi-thong-luan/pages/p0314.md"
+    },
+    {
+      "page": 315,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 37.93,
+      "raw_chars": 954,
+      "cleaned_chars": 1092,
+      "md_path": "can-chi-thong-luan/pages/p0315.md"
+    },
+    {
+      "page": 316,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 38.53,
+      "raw_chars": 983,
+      "cleaned_chars": 1047,
+      "md_path": "can-chi-thong-luan/pages/p0316.md"
+    },
+    {
+      "page": 317,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 41.9,
+      "raw_chars": 903,
+      "cleaned_chars": 927,
+      "md_path": "can-chi-thong-luan/pages/p0317.md"
+    },
+    {
+      "page": 318,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 45.59,
+      "raw_chars": 1148,
+      "cleaned_chars": 1296,
+      "md_path": "can-chi-thong-luan/pages/p0318.md"
+    },
+    {
+      "page": 319,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 42.32,
+      "raw_chars": 1057,
+      "cleaned_chars": 1063,
+      "md_path": "can-chi-thong-luan/pages/p0319.md"
+    },
+    {
+      "page": 320,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 42.72,
+      "raw_chars": 971,
+      "cleaned_chars": 1034,
+      "md_path": "can-chi-thong-luan/pages/p0320.md"
+    },
+    {
+      "page": 321,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 42.45,
+      "raw_chars": 1051,
+      "cleaned_chars": 1058,
+      "md_path": "can-chi-thong-luan/pages/p0321.md"
+    },
+    {
+      "page": 322,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 46.74,
+      "raw_chars": 997,
+      "cleaned_chars": 1022,
+      "md_path": "can-chi-thong-luan/pages/p0322.md"
+    },
+    {
+      "page": 323,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 35.84,
+      "raw_chars": 1076,
+      "cleaned_chars": 1051,
+      "md_path": "can-chi-thong-luan/pages/p0323.md"
+    },
+    {
+      "page": 324,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 50.19,
+      "raw_chars": 1029,
+      "cleaned_chars": 1191,
+      "md_path": "can-chi-thong-luan/pages/p0324.md"
+    },
+    {
+      "page": 325,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 37.06,
+      "raw_chars": 841,
+      "cleaned_chars": 943,
+      "md_path": "can-chi-thong-luan/pages/p0325.md"
+    },
+    {
+      "page": 326,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 25.23,
+      "raw_chars": 229,
+      "cleaned_chars": 227,
+      "md_path": "can-chi-thong-luan/pages/p0326.md"
+    },
+    {
+      "page": 327,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 35.78,
+      "raw_chars": 834,
+      "cleaned_chars": 845,
+      "md_path": "can-chi-thong-luan/pages/p0327.md"
+    },
+    {
+      "page": 328,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 41.11,
+      "raw_chars": 1197,
+      "cleaned_chars": 1329,
+      "md_path": "can-chi-thong-luan/pages/p0328.md"
+    },
+    {
+      "page": 329,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 39.77,
+      "raw_chars": 1104,
+      "cleaned_chars": 1116,
+      "md_path": "can-chi-thong-luan/pages/p0329.md"
+    },
+    {
+      "page": 330,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 39.06,
+      "raw_chars": 1104,
+      "cleaned_chars": 1118,
+      "md_path": "can-chi-thong-luan/pages/p0330.md"
+    },
+    {
+      "page": 331,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 39.04,
+      "raw_chars": 1036,
+      "cleaned_chars": 1051,
+      "md_path": "can-chi-thong-luan/pages/p0331.md"
+    },
+    {
+      "page": 332,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 40.93,
+      "raw_chars": 1282,
+      "cleaned_chars": 1486,
+      "md_path": "can-chi-thong-luan/pages/p0332.md"
+    },
+    {
+      "page": 333,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 44.14,
+      "raw_chars": 1076,
+      "cleaned_chars": 1022,
+      "md_path": "can-chi-thong-luan/pages/p0333.md"
+    },
+    {
+      "page": 334,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 35.16,
+      "raw_chars": 1005,
+      "cleaned_chars": 1085,
+      "md_path": "can-chi-thong-luan/pages/p0334.md"
+    },
+    {
+      "page": 335,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 34.75,
+      "raw_chars": 827,
+      "cleaned_chars": 886,
+      "md_path": "can-chi-thong-luan/pages/p0335.md"
+    },
+    {
+      "page": 336,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 27.39,
+      "raw_chars": 209,
+      "cleaned_chars": 211,
+      "md_path": "can-chi-thong-luan/pages/p0336.md"
+    },
+    {
+      "page": 337,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 34.41,
+      "raw_chars": 663,
+      "cleaned_chars": 669,
+      "md_path": "can-chi-thong-luan/pages/p0337.md"
+    },
+    {
+      "page": 338,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 38.38,
+      "raw_chars": 1104,
+      "cleaned_chars": 1406,
+      "md_path": "can-chi-thong-luan/pages/p0338.md"
+    },
+    {
+      "page": 339,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 45.75,
+      "raw_chars": 1058,
+      "cleaned_chars": 1056,
+      "md_path": "can-chi-thong-luan/pages/p0339.md"
+    },
+    {
+      "page": 340,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 48.57,
+      "raw_chars": 843,
+      "cleaned_chars": 972,
+      "md_path": "can-chi-thong-luan/pages/p0340.md"
+    },
+    {
+      "page": 341,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 41.05,
+      "raw_chars": 868,
+      "cleaned_chars": 1240,
+      "md_path": "can-chi-thong-luan/pages/p0341.md"
+    },
+    {
+      "page": 342,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 52.54,
+      "raw_chars": 663,
+      "cleaned_chars": 683,
+      "md_path": "can-chi-thong-luan/pages/p0342.md"
+    },
+    {
+      "page": 343,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 39.38,
+      "raw_chars": 785,
+      "cleaned_chars": 885,
+      "md_path": "can-chi-thong-luan/pages/p0343.md"
+    },
+    {
+      "page": 344,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 30.08,
+      "raw_chars": 847,
+      "cleaned_chars": 984,
+      "md_path": "can-chi-thong-luan/pages/p0344.md"
+    },
+    {
+      "page": 345,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 35.1,
+      "raw_chars": 759,
+      "cleaned_chars": 968,
+      "md_path": "can-chi-thong-luan/pages/p0345.md"
+    },
+    {
+      "page": 346,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 42.03,
+      "raw_chars": 842,
+      "cleaned_chars": 770,
+      "md_path": "can-chi-thong-luan/pages/p0346.md"
+    },
+    {
+      "page": 347,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 36.97,
+      "raw_chars": 823,
+      "cleaned_chars": 851,
+      "md_path": "can-chi-thong-luan/pages/p0347.md"
+    },
+    {
+      "page": 348,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 32.57,
+      "raw_chars": 687,
+      "cleaned_chars": 593,
+      "md_path": "can-chi-thong-luan/pages/p0348.md"
+    },
+    {
+      "page": 349,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 19.88,
+      "raw_chars": 227,
+      "cleaned_chars": 206,
+      "md_path": "can-chi-thong-luan/pages/p0349.md"
+    },
+    {
+      "page": 350,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 25.82,
+      "raw_chars": 225,
+      "cleaned_chars": 287,
+      "md_path": "can-chi-thong-luan/pages/p0350.md"
+    },
+    {
+      "page": 351,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 19.14,
+      "raw_chars": 164,
+      "cleaned_chars": 166,
+      "md_path": "can-chi-thong-luan/pages/p0351.md"
+    },
+    {
+      "page": 352,
+      "ocr_seconds": 1.92,
+      "cleanup_seconds": 47.06,
+      "raw_chars": 2304,
+      "cleaned_chars": 1890,
+      "md_path": "can-chi-thong-luan/pages/p0352.md"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+tổng của quẻ thượng cộng thêm số giờ, chia cho B, được số
+dư là số của quẻ hạ. Ngoài ra còn phải tìm hào động để
+xác định quả thể, quẻ dụng dùng đoán quê. Cách tìm hào
+động là lấy tổng số của năm, tháng, ngày, giờ chia cho 6, số
+dư là số hào của hào động. Đến đây mới gọi là 1 quẻ được
+gieo hoàn chỉnh. Tượng quẻ được gieo như thế có thể là
+quẻ thượng và quẻ hạ giống nhau, ví dụ quẻ thượng và quẻ
+hạ đều là quẻ đoài.
+
+==_, cả hai quẻ đoài chông lên nhau là :E. Cũng có
+thể là được một tổ hợp khác, ví dụ : quẻ thượng là quẻ
+đoài _, quể hạ là quẻ càn. Trước hết đọc quẻ thượng, sau
+đó đọc quẻ hạ. Quẻ thượng là đoài vi trạch, quẻ hạ là càn
+vi thiên, cả hai quê đọc là : trạch thiên quải.
+
+Nếu hào động là hào hai, thì ở bên cạnh quẻ thuần đánh
+dấu để nhớ.
+
+Bất kể là gieo quẻ hay tìm quẻ động đều phải đùng số
+quẻ để vẽ các quẻ. Số quẻ là lấy số quẻ tiên thiên bát quái
+để định ra quẻ thượng và quê hạ. Dư 1 là cần, dư 2 là
+đoài, dư 3 là ly, dư 4 là chấn, dư 5 là tốn, dư 6 là khảm,
+dư 7 là cấn, dư 8 là khôn.
+
+Dưới đây, ta thao tác 1 ví dụ thực tế để nói rõ vấn để :
+Ví dụ : gieo quẻ vào giờ Sửu, ngày 3 tháng 3 nhuận âm lịch
+năm 1993. Năm 1993 là năm Quý dậu, năm dậu lấy số 10,
+tháng 3 nhuận là số 3, ngày 3 là số 3, giờ sửu số 2 (chú ý
+về mặt xác định số nên ôn ký đoạn cuối của Tiết 3, chương l).
+
+Tìm quẻ thượng : năm + tháng + ngày = l0 + 3+3 =
+16 ; 16 chia 8 không có số dư nền lấy 8 làm số quẻ, tức
+quẻ khôn.
+
+67

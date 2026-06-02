@@ -1,0 +1,39 @@
+giáp trên thực tế đã bị phép nạp chỉ thay thế và gọi chung
+lại là cách dự đoán theo 6 hào. Cho nên để tránh cho độc
+giả khỏi đi sâu vào mất thì giờ ở đây chỉ giới thiệu vê phép
+nạp giáp như thế.
+
+2. Nạp địa chì cho bát quái
+
+Ỏ tiết trước ta đã tìm hiểu thông qua tượng quẻ để tìm
+ra quẻ đó ở cung nào và cách phối với lục thân ra sao, đồng
+thời cũng đã đặt cơ sở cho việc phối địa chỉ vào 6 hào.
+Dưới đây chúng ta sẽ nạp địa chỉ cho 64 quẻ.
+
+Trước khi nạp địa chỉ cho 64 quẻ, cần phải biết cách nạp
+địa chỉ cho 8 quẻ thuần (càn, khảm, cấn, chấn, tốn, ly, khôn,
+đoài). Nám được ký xảo nạp địa chỉ cho 8 quê thuần thì ta
+sẽ rất dễ dàng nạp địa chỉ cho 56 quẻ còn lại.
+
+Tám quẻ thuân là dựa theo 4 cung dương và 4 cung âm
+của bát quái Văn Vương. bốn cung dương là : can, khảm,
+cấn, chấn, nó được phối hợp với các chì dương của 12 địa
+chi. Bốn cung âm : tống ly, khòn đoài, các hào cảu nó được
+phối hợp các chí âm của 12 địa chỉ.
+
+Nạp địa chí cho 6 hào của 8 quẻ thuần là bắt đầu từ hào
+đầu tức từ dưới lên trên đến hào 6. Cách phối xếp các hào
+của các quẻ trong 4 cung dương là dựa theo hình 12 địa chí
+trên bản tay, sắp xếp cách ngôi, chỉ đương thuận theo chiều
+kim đồng hồ, phối từ dưới lên trên, cụ thể như sau :
+
+Tuất — Tý __ Dân —— Tuất — —
+Thân _— Tuất ___ Tý —— Thân___
+
+Quẻ | Ngọ — Thân __ .. Tuất _.— Ngo ——
+Can | Thìn PhẲM no —_ CẤP | mạn Chẩn| mụm_ —_
+Dần __ Thin —— Ngọ —— Dân ——
+
+Tý __— Dần —— Thìn —— Tý ——
+
+113

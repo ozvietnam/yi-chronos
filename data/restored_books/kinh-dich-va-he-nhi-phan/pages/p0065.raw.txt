@@ -1,0 +1,33 @@
+HOÀNG TUẤN
+khi xét việc sắp tới thì phải theo trật tự nghịch của các số. ứng dụng của
+Dịch là cốt để dự báo tương lai, nên Dịch phải đọc ngược, từ số lớn đến
+số nhỏ.
+
+IV. Cách chuyển một số từ hệ thập phân sang
+hệ nhị phân
+Để viết một số theo hệ nhị phân ta phải biết cách chuyển số đó sang
+hệ này. Đơn giản là đem số đó chia liên tiếp cho số 2, cho đến khi hết
+hoặc chỉ còn thừa 1. Mỗi lần chia ta ghỉ lấy số đư : nếu chia hết số dư sẽ
+là 0; nếu không hết, số dư sẽ là 1. Cuối cùng ta ghi được đãy số dư theo
+chiều ngược từ dưới lên trên. Đó chính là con số ban đầu đã được viết
+theo hệ nhị phân.
+Ví du (1): Viết số 2B theo nhị phân :
+Chia 25 liên tiếp cho 2, ta được các số dư sau: 25 : 2 = 12 --- đư (1)
+12:2= 6 ---dư (0)
+6:2= 3---dư(0)
+3:2 =(1)... dư (1)
+Lấy tất cả các số 1 và số 0, ghi từ dưới lên, ta có đấy số
+Đây là số 25 viết theo nhị phân. Kiểm tra lại theo cơ chế “nhị tiến” như
+đã nói ở trèn, ta thấy :
+- Hàng 1 (đơn v)= 1
+- Hàng 2 là (2) = 0
+- Hàng 3 là (4) = 0
+- Hàng 4 là (8) = 8
+- Hàng ð là (16) _ 16.
+Cộng: 2ð
+Ví du (2) : Viết số 120 theo hệ nhị phân :
+Đem số 120 chia liên tiếp cho 2, ta được các số dư :
+190 : 2 = 60 --- dư (0)
+680: 2= 30 --- dư (0) l
+30 : 2 = 1ã --- dư (0)
+15:2= Z7--- dư(1)

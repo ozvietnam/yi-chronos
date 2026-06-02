@@ -1,0 +1,2951 @@
+{
+  "book_id": "ki-mon-don-giap",
+  "source_pdf": "thư viện sách/Kỳ Môn Độn Giáp .pdf",
+  "page_range": [
+    1,
+    367
+  ],
+  "total_pages": 367,
+  "total_seconds": 4859.0,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 15.51,
+      "raw_chars": 323,
+      "cleaned_chars": 20,
+      "md_path": "ki-mon-don-giap/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 17.14,
+      "raw_chars": 68,
+      "cleaned_chars": 44,
+      "md_path": "ki-mon-don-giap/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 40.44,
+      "raw_chars": 1206,
+      "cleaned_chars": 1232,
+      "md_path": "ki-mon-don-giap/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 45.8,
+      "raw_chars": 1485,
+      "cleaned_chars": 1504,
+      "md_path": "ki-mon-don-giap/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 40.07,
+      "raw_chars": 1514,
+      "cleaned_chars": 1508,
+      "md_path": "ki-mon-don-giap/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 38.74,
+      "raw_chars": 1478,
+      "cleaned_chars": 1478,
+      "md_path": "ki-mon-don-giap/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 43.75,
+      "raw_chars": 1522,
+      "cleaned_chars": 1525,
+      "md_path": "ki-mon-don-giap/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 31.72,
+      "raw_chars": 796,
+      "cleaned_chars": 767,
+      "md_path": "ki-mon-don-giap/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 40.94,
+      "raw_chars": 984,
+      "cleaned_chars": 974,
+      "md_path": "ki-mon-don-giap/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 40.28,
+      "raw_chars": 1502,
+      "cleaned_chars": 1509,
+      "md_path": "ki-mon-don-giap/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 45.26,
+      "raw_chars": 1432,
+      "cleaned_chars": 1498,
+      "md_path": "ki-mon-don-giap/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 40.0,
+      "raw_chars": 1300,
+      "cleaned_chars": 1340,
+      "md_path": "ki-mon-don-giap/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 48.26,
+      "raw_chars": 1404,
+      "cleaned_chars": 1513,
+      "md_path": "ki-mon-don-giap/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 26.22,
+      "raw_chars": 669,
+      "cleaned_chars": 538,
+      "md_path": "ki-mon-don-giap/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 31.59,
+      "raw_chars": 670,
+      "cleaned_chars": 624,
+      "md_path": "ki-mon-don-giap/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 46.84,
+      "raw_chars": 1311,
+      "cleaned_chars": 1323,
+      "md_path": "ki-mon-don-giap/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 42.58,
+      "raw_chars": 1438,
+      "cleaned_chars": 1488,
+      "md_path": "ki-mon-don-giap/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 44.3,
+      "raw_chars": 1491,
+      "cleaned_chars": 1528,
+      "md_path": "ki-mon-don-giap/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 40.86,
+      "raw_chars": 1472,
+      "cleaned_chars": 1540,
+      "md_path": "ki-mon-don-giap/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.07,
+      "raw_chars": 1427,
+      "cleaned_chars": 1564,
+      "md_path": "ki-mon-don-giap/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 47.99,
+      "raw_chars": 1275,
+      "cleaned_chars": 1342,
+      "md_path": "ki-mon-don-giap/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 45.93,
+      "raw_chars": 904,
+      "cleaned_chars": 852,
+      "md_path": "ki-mon-don-giap/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 45.17,
+      "raw_chars": 1457,
+      "cleaned_chars": 1518,
+      "md_path": "ki-mon-don-giap/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 53.07,
+      "raw_chars": 1473,
+      "cleaned_chars": 1478,
+      "md_path": "ki-mon-don-giap/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 20.37,
+      "raw_chars": 370,
+      "cleaned_chars": 347,
+      "md_path": "ki-mon-don-giap/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 52.54,
+      "raw_chars": 1548,
+      "cleaned_chars": 1654,
+      "md_path": "ki-mon-don-giap/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 34.87,
+      "raw_chars": 450,
+      "cleaned_chars": 521,
+      "md_path": "ki-mon-don-giap/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 35.4,
+      "raw_chars": 505,
+      "cleaned_chars": 631,
+      "md_path": "ki-mon-don-giap/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 35.2,
+      "raw_chars": 472,
+      "cleaned_chars": 696,
+      "md_path": "ki-mon-don-giap/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 41.02,
+      "raw_chars": 427,
+      "cleaned_chars": 443,
+      "md_path": "ki-mon-don-giap/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 53.88,
+      "raw_chars": 1415,
+      "cleaned_chars": 1513,
+      "md_path": "ki-mon-don-giap/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 29.26,
+      "raw_chars": 685,
+      "cleaned_chars": 546,
+      "md_path": "ki-mon-don-giap/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 37.84,
+      "raw_chars": 1457,
+      "cleaned_chars": 1492,
+      "md_path": "ki-mon-don-giap/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 43.74,
+      "raw_chars": 1475,
+      "cleaned_chars": 1483,
+      "md_path": "ki-mon-don-giap/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 35.23,
+      "raw_chars": 495,
+      "cleaned_chars": 573,
+      "md_path": "ki-mon-don-giap/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 30.07,
+      "raw_chars": 583,
+      "cleaned_chars": 427,
+      "md_path": "ki-mon-don-giap/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 45.32,
+      "raw_chars": 1384,
+      "cleaned_chars": 1534,
+      "md_path": "ki-mon-don-giap/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 49.87,
+      "raw_chars": 1369,
+      "cleaned_chars": 1406,
+      "md_path": "ki-mon-don-giap/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 47.01,
+      "raw_chars": 1380,
+      "cleaned_chars": 1402,
+      "md_path": "ki-mon-don-giap/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.19,
+      "raw_chars": 1390,
+      "cleaned_chars": 1421,
+      "md_path": "ki-mon-don-giap/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 39.06,
+      "raw_chars": 1300,
+      "cleaned_chars": 1312,
+      "md_path": "ki-mon-don-giap/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 43.31,
+      "raw_chars": 1260,
+      "cleaned_chars": 1286,
+      "md_path": "ki-mon-don-giap/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 39.41,
+      "raw_chars": 1173,
+      "cleaned_chars": 1214,
+      "md_path": "ki-mon-don-giap/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 50.76,
+      "raw_chars": 1263,
+      "cleaned_chars": 1346,
+      "md_path": "ki-mon-don-giap/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.51,
+      "raw_chars": 1294,
+      "cleaned_chars": 1315,
+      "md_path": "ki-mon-don-giap/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 60.53,
+      "raw_chars": 1262,
+      "cleaned_chars": 1283,
+      "md_path": "ki-mon-don-giap/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 60.1,
+      "raw_chars": 1273,
+      "cleaned_chars": 1299,
+      "md_path": "ki-mon-don-giap/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 45.94,
+      "raw_chars": 1340,
+      "cleaned_chars": 1390,
+      "md_path": "ki-mon-don-giap/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 47.0,
+      "raw_chars": 1293,
+      "cleaned_chars": 1338,
+      "md_path": "ki-mon-don-giap/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 34.01,
+      "raw_chars": 822,
+      "cleaned_chars": 864,
+      "md_path": "ki-mon-don-giap/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 49.25,
+      "raw_chars": 881,
+      "cleaned_chars": 886,
+      "md_path": "ki-mon-don-giap/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 45.88,
+      "raw_chars": 1527,
+      "cleaned_chars": 1527,
+      "md_path": "ki-mon-don-giap/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 42.84,
+      "raw_chars": 1334,
+      "cleaned_chars": 1337,
+      "md_path": "ki-mon-don-giap/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 48.06,
+      "raw_chars": 1482,
+      "cleaned_chars": 1460,
+      "md_path": "ki-mon-don-giap/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 42.6,
+      "raw_chars": 1491,
+      "cleaned_chars": 1539,
+      "md_path": "ki-mon-don-giap/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 44.1,
+      "raw_chars": 1484,
+      "cleaned_chars": 1475,
+      "md_path": "ki-mon-don-giap/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 41.11,
+      "raw_chars": 1356,
+      "cleaned_chars": 1211,
+      "md_path": "ki-mon-don-giap/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 41.45,
+      "raw_chars": 1488,
+      "cleaned_chars": 1541,
+      "md_path": "ki-mon-don-giap/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 44.45,
+      "raw_chars": 1573,
+      "cleaned_chars": 1631,
+      "md_path": "ki-mon-don-giap/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 43.35,
+      "raw_chars": 1592,
+      "cleaned_chars": 1655,
+      "md_path": "ki-mon-don-giap/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 44.06,
+      "raw_chars": 1383,
+      "cleaned_chars": 1378,
+      "md_path": "ki-mon-don-giap/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 42.35,
+      "raw_chars": 1238,
+      "cleaned_chars": 1249,
+      "md_path": "ki-mon-don-giap/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 56.48,
+      "raw_chars": 1294,
+      "cleaned_chars": 1638,
+      "md_path": "ki-mon-don-giap/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 45.02,
+      "raw_chars": 1250,
+      "cleaned_chars": 993,
+      "md_path": "ki-mon-don-giap/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 26.33,
+      "raw_chars": 391,
+      "cleaned_chars": 390,
+      "md_path": "ki-mon-don-giap/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 42.59,
+      "raw_chars": 1032,
+      "cleaned_chars": 1114,
+      "md_path": "ki-mon-don-giap/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 34.14,
+      "raw_chars": 793,
+      "cleaned_chars": 863,
+      "md_path": "ki-mon-don-giap/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 38.1,
+      "raw_chars": 1458,
+      "cleaned_chars": 1453,
+      "md_path": "ki-mon-don-giap/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 42.71,
+      "raw_chars": 1440,
+      "cleaned_chars": 1457,
+      "md_path": "ki-mon-don-giap/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 51.2,
+      "raw_chars": 1285,
+      "cleaned_chars": 1374,
+      "md_path": "ki-mon-don-giap/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 41.12,
+      "raw_chars": 975,
+      "cleaned_chars": 1272,
+      "md_path": "ki-mon-don-giap/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 24.67,
+      "raw_chars": 285,
+      "cleaned_chars": 248,
+      "md_path": "ki-mon-don-giap/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 46.94,
+      "raw_chars": 1118,
+      "cleaned_chars": 1146,
+      "md_path": "ki-mon-don-giap/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 31.38,
+      "raw_chars": 472,
+      "cleaned_chars": 643,
+      "md_path": "ki-mon-don-giap/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 47.59,
+      "raw_chars": 1411,
+      "cleaned_chars": 1456,
+      "md_path": "ki-mon-don-giap/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 65.66,
+      "raw_chars": 1466,
+      "cleaned_chars": 1494,
+      "md_path": "ki-mon-don-giap/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 54.5,
+      "raw_chars": 1396,
+      "cleaned_chars": 1421,
+      "md_path": "ki-mon-don-giap/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 30.62,
+      "raw_chars": 844,
+      "cleaned_chars": 698,
+      "md_path": "ki-mon-don-giap/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 30.88,
+      "raw_chars": 775,
+      "cleaned_chars": 629,
+      "md_path": "ki-mon-don-giap/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 34.39,
+      "raw_chars": 741,
+      "cleaned_chars": 936,
+      "md_path": "ki-mon-don-giap/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 37.54,
+      "raw_chars": 682,
+      "cleaned_chars": 620,
+      "md_path": "ki-mon-don-giap/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 34.82,
+      "raw_chars": 596,
+      "cleaned_chars": 409,
+      "md_path": "ki-mon-don-giap/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 26.15,
+      "raw_chars": 228,
+      "cleaned_chars": 243,
+      "md_path": "ki-mon-don-giap/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 21.6,
+      "raw_chars": 109,
+      "cleaned_chars": 93,
+      "md_path": "ki-mon-don-giap/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 24.77,
+      "raw_chars": 265,
+      "cleaned_chars": 283,
+      "md_path": "ki-mon-don-giap/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 27.8,
+      "raw_chars": 356,
+      "cleaned_chars": 457,
+      "md_path": "ki-mon-don-giap/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 30.44,
+      "raw_chars": 344,
+      "cleaned_chars": 399,
+      "md_path": "ki-mon-don-giap/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 34.51,
+      "raw_chars": 477,
+      "cleaned_chars": 845,
+      "md_path": "ki-mon-don-giap/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 28.71,
+      "raw_chars": 233,
+      "cleaned_chars": 404,
+      "md_path": "ki-mon-don-giap/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 39.25,
+      "raw_chars": 364,
+      "cleaned_chars": 542,
+      "md_path": "ki-mon-don-giap/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 26.52,
+      "raw_chars": 328,
+      "cleaned_chars": 273,
+      "md_path": "ki-mon-don-giap/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 36.58,
+      "raw_chars": 331,
+      "cleaned_chars": 490,
+      "md_path": "ki-mon-don-giap/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 27.5,
+      "raw_chars": 256,
+      "cleaned_chars": 280,
+      "md_path": "ki-mon-don-giap/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 30.3,
+      "raw_chars": 402,
+      "cleaned_chars": 477,
+      "md_path": "ki-mon-don-giap/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 28.93,
+      "raw_chars": 414,
+      "cleaned_chars": 350,
+      "md_path": "ki-mon-don-giap/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 28.07,
+      "raw_chars": 366,
+      "cleaned_chars": 594,
+      "md_path": "ki-mon-don-giap/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 26.43,
+      "raw_chars": 299,
+      "cleaned_chars": 681,
+      "md_path": "ki-mon-don-giap/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 32.84,
+      "raw_chars": 518,
+      "cleaned_chars": 545,
+      "md_path": "ki-mon-don-giap/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 19.42,
+      "raw_chars": 263,
+      "cleaned_chars": 37,
+      "md_path": "ki-mon-don-giap/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 31.23,
+      "raw_chars": 381,
+      "cleaned_chars": 460,
+      "md_path": "ki-mon-don-giap/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 26.79,
+      "raw_chars": 290,
+      "cleaned_chars": 425,
+      "md_path": "ki-mon-don-giap/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 31.92,
+      "raw_chars": 465,
+      "cleaned_chars": 590,
+      "md_path": "ki-mon-don-giap/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 24.99,
+      "raw_chars": 294,
+      "cleaned_chars": 124,
+      "md_path": "ki-mon-don-giap/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 33.72,
+      "raw_chars": 422,
+      "cleaned_chars": 993,
+      "md_path": "ki-mon-don-giap/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 27.26,
+      "raw_chars": 371,
+      "cleaned_chars": 549,
+      "md_path": "ki-mon-don-giap/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 29.58,
+      "raw_chars": 404,
+      "cleaned_chars": 408,
+      "md_path": "ki-mon-don-giap/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 27.45,
+      "raw_chars": 254,
+      "cleaned_chars": 360,
+      "md_path": "ki-mon-don-giap/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 41.28,
+      "raw_chars": 409,
+      "cleaned_chars": 719,
+      "md_path": "ki-mon-don-giap/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 34.73,
+      "raw_chars": 365,
+      "cleaned_chars": 858,
+      "md_path": "ki-mon-don-giap/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 36.83,
+      "raw_chars": 349,
+      "cleaned_chars": 673,
+      "md_path": "ki-mon-don-giap/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 22.24,
+      "raw_chars": 228,
+      "cleaned_chars": 210,
+      "md_path": "ki-mon-don-giap/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 30.66,
+      "raw_chars": 478,
+      "cleaned_chars": 462,
+      "md_path": "ki-mon-don-giap/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 32.92,
+      "raw_chars": 335,
+      "cleaned_chars": 544,
+      "md_path": "ki-mon-don-giap/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 39.63,
+      "raw_chars": 491,
+      "cleaned_chars": 1003,
+      "md_path": "ki-mon-don-giap/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 21.58,
+      "raw_chars": 285,
+      "cleaned_chars": 53,
+      "md_path": "ki-mon-don-giap/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 33.7,
+      "raw_chars": 283,
+      "cleaned_chars": 325,
+      "md_path": "ki-mon-don-giap/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 27.49,
+      "raw_chars": 297,
+      "cleaned_chars": 300,
+      "md_path": "ki-mon-don-giap/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 31.03,
+      "raw_chars": 521,
+      "cleaned_chars": 599,
+      "md_path": "ki-mon-don-giap/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 27.12,
+      "raw_chars": 330,
+      "cleaned_chars": 231,
+      "md_path": "ki-mon-don-giap/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 33.3,
+      "raw_chars": 427,
+      "cleaned_chars": 451,
+      "md_path": "ki-mon-don-giap/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 23.2,
+      "raw_chars": 305,
+      "cleaned_chars": 361,
+      "md_path": "ki-mon-don-giap/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 31.45,
+      "raw_chars": 462,
+      "cleaned_chars": 481,
+      "md_path": "ki-mon-don-giap/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 30.01,
+      "raw_chars": 341,
+      "cleaned_chars": 563,
+      "md_path": "ki-mon-don-giap/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 30.24,
+      "raw_chars": 318,
+      "cleaned_chars": 483,
+      "md_path": "ki-mon-don-giap/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 26.72,
+      "raw_chars": 383,
+      "cleaned_chars": 320,
+      "md_path": "ki-mon-don-giap/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 33.17,
+      "raw_chars": 435,
+      "cleaned_chars": 715,
+      "md_path": "ki-mon-don-giap/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 34.44,
+      "raw_chars": 308,
+      "cleaned_chars": 385,
+      "md_path": "ki-mon-don-giap/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 34.2,
+      "raw_chars": 379,
+      "cleaned_chars": 703,
+      "md_path": "ki-mon-don-giap/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 34.79,
+      "raw_chars": 357,
+      "cleaned_chars": 641,
+      "md_path": "ki-mon-don-giap/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 20.57,
+      "raw_chars": 462,
+      "cleaned_chars": 327,
+      "md_path": "ki-mon-don-giap/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 31.79,
+      "raw_chars": 320,
+      "cleaned_chars": 365,
+      "md_path": "ki-mon-don-giap/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 39.13,
+      "raw_chars": 467,
+      "cleaned_chars": 731,
+      "md_path": "ki-mon-don-giap/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.24,
+      "cleanup_seconds": 31.9,
+      "raw_chars": 354,
+      "cleaned_chars": 444,
+      "md_path": "ki-mon-don-giap/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 30.18,
+      "raw_chars": 405,
+      "cleaned_chars": 483,
+      "md_path": "ki-mon-don-giap/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 25.3,
+      "raw_chars": 310,
+      "cleaned_chars": 391,
+      "md_path": "ki-mon-don-giap/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 33.08,
+      "raw_chars": 349,
+      "cleaned_chars": 592,
+      "md_path": "ki-mon-don-giap/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 25.95,
+      "raw_chars": 225,
+      "cleaned_chars": 121,
+      "md_path": "ki-mon-don-giap/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 28.98,
+      "raw_chars": 439,
+      "cleaned_chars": 480,
+      "md_path": "ki-mon-don-giap/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 26.36,
+      "raw_chars": 258,
+      "cleaned_chars": 320,
+      "md_path": "ki-mon-don-giap/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 28.67,
+      "raw_chars": 437,
+      "cleaned_chars": 481,
+      "md_path": "ki-mon-don-giap/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 29.79,
+      "raw_chars": 294,
+      "cleaned_chars": 528,
+      "md_path": "ki-mon-don-giap/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 34.97,
+      "raw_chars": 439,
+      "cleaned_chars": 609,
+      "md_path": "ki-mon-don-giap/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 35.66,
+      "raw_chars": 318,
+      "cleaned_chars": 392,
+      "md_path": "ki-mon-don-giap/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 29.67,
+      "raw_chars": 474,
+      "cleaned_chars": 443,
+      "md_path": "ki-mon-don-giap/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 30.37,
+      "raw_chars": 343,
+      "cleaned_chars": 361,
+      "md_path": "ki-mon-don-giap/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 36.09,
+      "raw_chars": 484,
+      "cleaned_chars": 792,
+      "md_path": "ki-mon-don-giap/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 30.06,
+      "raw_chars": 322,
+      "cleaned_chars": 447,
+      "md_path": "ki-mon-don-giap/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 34.3,
+      "raw_chars": 379,
+      "cleaned_chars": 549,
+      "md_path": "ki-mon-don-giap/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 28.77,
+      "raw_chars": 345,
+      "cleaned_chars": 476,
+      "md_path": "ki-mon-don-giap/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 30.32,
+      "raw_chars": 440,
+      "cleaned_chars": 533,
+      "md_path": "ki-mon-don-giap/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 31.44,
+      "raw_chars": 285,
+      "cleaned_chars": 249,
+      "md_path": "ki-mon-don-giap/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.26,
+      "cleanup_seconds": 37.67,
+      "raw_chars": 410,
+      "cleaned_chars": 866,
+      "md_path": "ki-mon-don-giap/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 27.14,
+      "raw_chars": 266,
+      "cleaned_chars": 162,
+      "md_path": "ki-mon-don-giap/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 24.69,
+      "raw_chars": 343,
+      "cleaned_chars": 378,
+      "md_path": "ki-mon-don-giap/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 28.48,
+      "raw_chars": 249,
+      "cleaned_chars": 336,
+      "md_path": "ki-mon-don-giap/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.32,
+      "cleanup_seconds": 32.33,
+      "raw_chars": 647,
+      "cleaned_chars": 615,
+      "md_path": "ki-mon-don-giap/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.91,
+      "raw_chars": 1000,
+      "cleaned_chars": 1111,
+      "md_path": "ki-mon-don-giap/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.68,
+      "raw_chars": 891,
+      "cleaned_chars": 905,
+      "md_path": "ki-mon-don-giap/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 38.56,
+      "raw_chars": 880,
+      "cleaned_chars": 938,
+      "md_path": "ki-mon-don-giap/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.48,
+      "raw_chars": 932,
+      "cleaned_chars": 1024,
+      "md_path": "ki-mon-don-giap/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 42.21,
+      "raw_chars": 927,
+      "cleaned_chars": 1031,
+      "md_path": "ki-mon-don-giap/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 43.49,
+      "raw_chars": 921,
+      "cleaned_chars": 1058,
+      "md_path": "ki-mon-don-giap/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 49.22,
+      "raw_chars": 902,
+      "cleaned_chars": 968,
+      "md_path": "ki-mon-don-giap/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 40.35,
+      "raw_chars": 930,
+      "cleaned_chars": 945,
+      "md_path": "ki-mon-don-giap/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 39.26,
+      "raw_chars": 1017,
+      "cleaned_chars": 1040,
+      "md_path": "ki-mon-don-giap/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 32.17,
+      "raw_chars": 856,
+      "cleaned_chars": 998,
+      "md_path": "ki-mon-don-giap/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 50.76,
+      "raw_chars": 1027,
+      "cleaned_chars": 1016,
+      "md_path": "ki-mon-don-giap/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 36.45,
+      "raw_chars": 927,
+      "cleaned_chars": 1050,
+      "md_path": "ki-mon-don-giap/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 37.0,
+      "raw_chars": 925,
+      "cleaned_chars": 947,
+      "md_path": "ki-mon-don-giap/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 36.76,
+      "raw_chars": 955,
+      "cleaned_chars": 1053,
+      "md_path": "ki-mon-don-giap/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 44.15,
+      "raw_chars": 991,
+      "cleaned_chars": 1011,
+      "md_path": "ki-mon-don-giap/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 39.13,
+      "raw_chars": 930,
+      "cleaned_chars": 1023,
+      "md_path": "ki-mon-don-giap/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 38.58,
+      "raw_chars": 885,
+      "cleaned_chars": 933,
+      "md_path": "ki-mon-don-giap/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 42.35,
+      "raw_chars": 841,
+      "cleaned_chars": 892,
+      "md_path": "ki-mon-don-giap/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 37.64,
+      "raw_chars": 896,
+      "cleaned_chars": 966,
+      "md_path": "ki-mon-don-giap/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 30.13,
+      "raw_chars": 721,
+      "cleaned_chars": 732,
+      "md_path": "ki-mon-don-giap/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.22,
+      "raw_chars": 789,
+      "cleaned_chars": 967,
+      "md_path": "ki-mon-don-giap/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 42.06,
+      "raw_chars": 983,
+      "cleaned_chars": 986,
+      "md_path": "ki-mon-don-giap/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 42.87,
+      "raw_chars": 902,
+      "cleaned_chars": 1055,
+      "md_path": "ki-mon-don-giap/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 45.82,
+      "raw_chars": 1009,
+      "cleaned_chars": 1097,
+      "md_path": "ki-mon-don-giap/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 49.78,
+      "raw_chars": 1067,
+      "cleaned_chars": 1140,
+      "md_path": "ki-mon-don-giap/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 48.33,
+      "raw_chars": 891,
+      "cleaned_chars": 953,
+      "md_path": "ki-mon-don-giap/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 43.95,
+      "raw_chars": 987,
+      "cleaned_chars": 1125,
+      "md_path": "ki-mon-don-giap/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 37.82,
+      "raw_chars": 858,
+      "cleaned_chars": 977,
+      "md_path": "ki-mon-don-giap/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 43.63,
+      "raw_chars": 1018,
+      "cleaned_chars": 1061,
+      "md_path": "ki-mon-don-giap/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 36.06,
+      "raw_chars": 820,
+      "cleaned_chars": 832,
+      "md_path": "ki-mon-don-giap/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 36.32,
+      "raw_chars": 971,
+      "cleaned_chars": 976,
+      "md_path": "ki-mon-don-giap/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 39.77,
+      "raw_chars": 926,
+      "cleaned_chars": 940,
+      "md_path": "ki-mon-don-giap/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 37.09,
+      "raw_chars": 927,
+      "cleaned_chars": 1019,
+      "md_path": "ki-mon-don-giap/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.68,
+      "raw_chars": 985,
+      "cleaned_chars": 1057,
+      "md_path": "ki-mon-don-giap/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 45.21,
+      "raw_chars": 932,
+      "cleaned_chars": 1165,
+      "md_path": "ki-mon-don-giap/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 37.03,
+      "raw_chars": 748,
+      "cleaned_chars": 774,
+      "md_path": "ki-mon-don-giap/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 33.24,
+      "raw_chars": 905,
+      "cleaned_chars": 1048,
+      "md_path": "ki-mon-don-giap/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 33.79,
+      "raw_chars": 881,
+      "cleaned_chars": 895,
+      "md_path": "ki-mon-don-giap/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 38.65,
+      "raw_chars": 798,
+      "cleaned_chars": 963,
+      "md_path": "ki-mon-don-giap/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 40.81,
+      "raw_chars": 830,
+      "cleaned_chars": 885,
+      "md_path": "ki-mon-don-giap/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 37.2,
+      "raw_chars": 899,
+      "cleaned_chars": 945,
+      "md_path": "ki-mon-don-giap/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 38.52,
+      "raw_chars": 838,
+      "cleaned_chars": 900,
+      "md_path": "ki-mon-don-giap/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 41.09,
+      "raw_chars": 863,
+      "cleaned_chars": 903,
+      "md_path": "ki-mon-don-giap/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 41.65,
+      "raw_chars": 887,
+      "cleaned_chars": 947,
+      "md_path": "ki-mon-don-giap/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 40.84,
+      "raw_chars": 915,
+      "cleaned_chars": 1029,
+      "md_path": "ki-mon-don-giap/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 47.48,
+      "raw_chars": 955,
+      "cleaned_chars": 1133,
+      "md_path": "ki-mon-don-giap/pages/p0202.md"
+    },
+    {
+      "page": 203,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 44.09,
+      "raw_chars": 999,
+      "cleaned_chars": 1087,
+      "md_path": "ki-mon-don-giap/pages/p0203.md"
+    },
+    {
+      "page": 204,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 39.46,
+      "raw_chars": 850,
+      "cleaned_chars": 958,
+      "md_path": "ki-mon-don-giap/pages/p0204.md"
+    },
+    {
+      "page": 205,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 55.17,
+      "raw_chars": 883,
+      "cleaned_chars": 983,
+      "md_path": "ki-mon-don-giap/pages/p0205.md"
+    },
+    {
+      "page": 206,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 30.37,
+      "raw_chars": 726,
+      "cleaned_chars": 724,
+      "md_path": "ki-mon-don-giap/pages/p0206.md"
+    },
+    {
+      "page": 207,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 45.72,
+      "raw_chars": 933,
+      "cleaned_chars": 1033,
+      "md_path": "ki-mon-don-giap/pages/p0207.md"
+    },
+    {
+      "page": 208,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 42.03,
+      "raw_chars": 943,
+      "cleaned_chars": 950,
+      "md_path": "ki-mon-don-giap/pages/p0208.md"
+    },
+    {
+      "page": 209,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.6,
+      "raw_chars": 996,
+      "cleaned_chars": 1185,
+      "md_path": "ki-mon-don-giap/pages/p0209.md"
+    },
+    {
+      "page": 210,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 36.46,
+      "raw_chars": 950,
+      "cleaned_chars": 1018,
+      "md_path": "ki-mon-don-giap/pages/p0210.md"
+    },
+    {
+      "page": 211,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 47.42,
+      "raw_chars": 839,
+      "cleaned_chars": 951,
+      "md_path": "ki-mon-don-giap/pages/p0211.md"
+    },
+    {
+      "page": 212,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 45.51,
+      "raw_chars": 882,
+      "cleaned_chars": 892,
+      "md_path": "ki-mon-don-giap/pages/p0212.md"
+    },
+    {
+      "page": 213,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 34.58,
+      "raw_chars": 856,
+      "cleaned_chars": 951,
+      "md_path": "ki-mon-don-giap/pages/p0213.md"
+    },
+    {
+      "page": 214,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 42.51,
+      "raw_chars": 925,
+      "cleaned_chars": 1102,
+      "md_path": "ki-mon-don-giap/pages/p0214.md"
+    },
+    {
+      "page": 215,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 52.62,
+      "raw_chars": 858,
+      "cleaned_chars": 1009,
+      "md_path": "ki-mon-don-giap/pages/p0215.md"
+    },
+    {
+      "page": 216,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 43.08,
+      "raw_chars": 952,
+      "cleaned_chars": 997,
+      "md_path": "ki-mon-don-giap/pages/p0216.md"
+    },
+    {
+      "page": 217,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 39.48,
+      "raw_chars": 755,
+      "cleaned_chars": 752,
+      "md_path": "ki-mon-don-giap/pages/p0217.md"
+    },
+    {
+      "page": 218,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 47.89,
+      "raw_chars": 890,
+      "cleaned_chars": 932,
+      "md_path": "ki-mon-don-giap/pages/p0218.md"
+    },
+    {
+      "page": 219,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 35.46,
+      "raw_chars": 917,
+      "cleaned_chars": 984,
+      "md_path": "ki-mon-don-giap/pages/p0219.md"
+    },
+    {
+      "page": 220,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 34.2,
+      "raw_chars": 972,
+      "cleaned_chars": 1062,
+      "md_path": "ki-mon-don-giap/pages/p0220.md"
+    },
+    {
+      "page": 221,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 47.74,
+      "raw_chars": 863,
+      "cleaned_chars": 878,
+      "md_path": "ki-mon-don-giap/pages/p0221.md"
+    },
+    {
+      "page": 222,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.84,
+      "raw_chars": 975,
+      "cleaned_chars": 967,
+      "md_path": "ki-mon-don-giap/pages/p0222.md"
+    },
+    {
+      "page": 223,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 55.14,
+      "raw_chars": 897,
+      "cleaned_chars": 947,
+      "md_path": "ki-mon-don-giap/pages/p0223.md"
+    },
+    {
+      "page": 224,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 41.63,
+      "raw_chars": 909,
+      "cleaned_chars": 959,
+      "md_path": "ki-mon-don-giap/pages/p0224.md"
+    },
+    {
+      "page": 225,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 46.4,
+      "raw_chars": 862,
+      "cleaned_chars": 869,
+      "md_path": "ki-mon-don-giap/pages/p0225.md"
+    },
+    {
+      "page": 226,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 33.15,
+      "raw_chars": 846,
+      "cleaned_chars": 905,
+      "md_path": "ki-mon-don-giap/pages/p0226.md"
+    },
+    {
+      "page": 227,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 45.46,
+      "raw_chars": 949,
+      "cleaned_chars": 1046,
+      "md_path": "ki-mon-don-giap/pages/p0227.md"
+    },
+    {
+      "page": 228,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 38.74,
+      "raw_chars": 706,
+      "cleaned_chars": 699,
+      "md_path": "ki-mon-don-giap/pages/p0228.md"
+    },
+    {
+      "page": 229,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 44.78,
+      "raw_chars": 786,
+      "cleaned_chars": 915,
+      "md_path": "ki-mon-don-giap/pages/p0229.md"
+    },
+    {
+      "page": 230,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 50.17,
+      "raw_chars": 884,
+      "cleaned_chars": 995,
+      "md_path": "ki-mon-don-giap/pages/p0230.md"
+    },
+    {
+      "page": 231,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 39.67,
+      "raw_chars": 843,
+      "cleaned_chars": 866,
+      "md_path": "ki-mon-don-giap/pages/p0231.md"
+    },
+    {
+      "page": 232,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 50.29,
+      "raw_chars": 959,
+      "cleaned_chars": 1045,
+      "md_path": "ki-mon-don-giap/pages/p0232.md"
+    },
+    {
+      "page": 233,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 44.62,
+      "raw_chars": 948,
+      "cleaned_chars": 956,
+      "md_path": "ki-mon-don-giap/pages/p0233.md"
+    },
+    {
+      "page": 234,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 47.14,
+      "raw_chars": 914,
+      "cleaned_chars": 944,
+      "md_path": "ki-mon-don-giap/pages/p0234.md"
+    },
+    {
+      "page": 235,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 58.21,
+      "raw_chars": 975,
+      "cleaned_chars": 1085,
+      "md_path": "ki-mon-don-giap/pages/p0235.md"
+    },
+    {
+      "page": 236,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 40.14,
+      "raw_chars": 948,
+      "cleaned_chars": 1099,
+      "md_path": "ki-mon-don-giap/pages/p0236.md"
+    },
+    {
+      "page": 237,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.23,
+      "raw_chars": 871,
+      "cleaned_chars": 949,
+      "md_path": "ki-mon-don-giap/pages/p0237.md"
+    },
+    {
+      "page": 238,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 52.76,
+      "raw_chars": 890,
+      "cleaned_chars": 891,
+      "md_path": "ki-mon-don-giap/pages/p0238.md"
+    },
+    {
+      "page": 239,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 50.34,
+      "raw_chars": 974,
+      "cleaned_chars": 986,
+      "md_path": "ki-mon-don-giap/pages/p0239.md"
+    },
+    {
+      "page": 240,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 43.59,
+      "raw_chars": 802,
+      "cleaned_chars": 976,
+      "md_path": "ki-mon-don-giap/pages/p0240.md"
+    },
+    {
+      "page": 241,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.25,
+      "raw_chars": 880,
+      "cleaned_chars": 979,
+      "md_path": "ki-mon-don-giap/pages/p0241.md"
+    },
+    {
+      "page": 242,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.41,
+      "raw_chars": 899,
+      "cleaned_chars": 891,
+      "md_path": "ki-mon-don-giap/pages/p0242.md"
+    },
+    {
+      "page": 243,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 42.97,
+      "raw_chars": 986,
+      "cleaned_chars": 1093,
+      "md_path": "ki-mon-don-giap/pages/p0243.md"
+    },
+    {
+      "page": 244,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 43.08,
+      "raw_chars": 974,
+      "cleaned_chars": 1059,
+      "md_path": "ki-mon-don-giap/pages/p0244.md"
+    },
+    {
+      "page": 245,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 34.78,
+      "raw_chars": 932,
+      "cleaned_chars": 949,
+      "md_path": "ki-mon-don-giap/pages/p0245.md"
+    },
+    {
+      "page": 246,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 48.92,
+      "raw_chars": 935,
+      "cleaned_chars": 1034,
+      "md_path": "ki-mon-don-giap/pages/p0246.md"
+    },
+    {
+      "page": 247,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 42.8,
+      "raw_chars": 993,
+      "cleaned_chars": 1111,
+      "md_path": "ki-mon-don-giap/pages/p0247.md"
+    },
+    {
+      "page": 248,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 46.22,
+      "raw_chars": 932,
+      "cleaned_chars": 1058,
+      "md_path": "ki-mon-don-giap/pages/p0248.md"
+    },
+    {
+      "page": 249,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 44.76,
+      "raw_chars": 918,
+      "cleaned_chars": 1085,
+      "md_path": "ki-mon-don-giap/pages/p0249.md"
+    },
+    {
+      "page": 250,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 37.04,
+      "raw_chars": 773,
+      "cleaned_chars": 798,
+      "md_path": "ki-mon-don-giap/pages/p0250.md"
+    },
+    {
+      "page": 251,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.22,
+      "raw_chars": 969,
+      "cleaned_chars": 975,
+      "md_path": "ki-mon-don-giap/pages/p0251.md"
+    },
+    {
+      "page": 252,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 39.95,
+      "raw_chars": 922,
+      "cleaned_chars": 931,
+      "md_path": "ki-mon-don-giap/pages/p0252.md"
+    },
+    {
+      "page": 253,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 34.27,
+      "raw_chars": 982,
+      "cleaned_chars": 990,
+      "md_path": "ki-mon-don-giap/pages/p0253.md"
+    },
+    {
+      "page": 254,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 45.62,
+      "raw_chars": 891,
+      "cleaned_chars": 994,
+      "md_path": "ki-mon-don-giap/pages/p0254.md"
+    },
+    {
+      "page": 255,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 40.64,
+      "raw_chars": 910,
+      "cleaned_chars": 1027,
+      "md_path": "ki-mon-don-giap/pages/p0255.md"
+    },
+    {
+      "page": 256,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 42.55,
+      "raw_chars": 941,
+      "cleaned_chars": 1002,
+      "md_path": "ki-mon-don-giap/pages/p0256.md"
+    },
+    {
+      "page": 257,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 40.88,
+      "raw_chars": 878,
+      "cleaned_chars": 901,
+      "md_path": "ki-mon-don-giap/pages/p0257.md"
+    },
+    {
+      "page": 258,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 31.42,
+      "raw_chars": 934,
+      "cleaned_chars": 952,
+      "md_path": "ki-mon-don-giap/pages/p0258.md"
+    },
+    {
+      "page": 259,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 37.75,
+      "raw_chars": 872,
+      "cleaned_chars": 937,
+      "md_path": "ki-mon-don-giap/pages/p0259.md"
+    },
+    {
+      "page": 260,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 47.11,
+      "raw_chars": 954,
+      "cleaned_chars": 1013,
+      "md_path": "ki-mon-don-giap/pages/p0260.md"
+    },
+    {
+      "page": 261,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 47.61,
+      "raw_chars": 792,
+      "cleaned_chars": 799,
+      "md_path": "ki-mon-don-giap/pages/p0261.md"
+    },
+    {
+      "page": 262,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 40.78,
+      "raw_chars": 802,
+      "cleaned_chars": 823,
+      "md_path": "ki-mon-don-giap/pages/p0262.md"
+    },
+    {
+      "page": 263,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.08,
+      "raw_chars": 944,
+      "cleaned_chars": 1191,
+      "md_path": "ki-mon-don-giap/pages/p0263.md"
+    },
+    {
+      "page": 264,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 38.54,
+      "raw_chars": 931,
+      "cleaned_chars": 958,
+      "md_path": "ki-mon-don-giap/pages/p0264.md"
+    },
+    {
+      "page": 265,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 44.89,
+      "raw_chars": 923,
+      "cleaned_chars": 1015,
+      "md_path": "ki-mon-don-giap/pages/p0265.md"
+    },
+    {
+      "page": 266,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 40.38,
+      "raw_chars": 911,
+      "cleaned_chars": 997,
+      "md_path": "ki-mon-don-giap/pages/p0266.md"
+    },
+    {
+      "page": 267,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 44.56,
+      "raw_chars": 865,
+      "cleaned_chars": 864,
+      "md_path": "ki-mon-don-giap/pages/p0267.md"
+    },
+    {
+      "page": 268,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 43.22,
+      "raw_chars": 955,
+      "cleaned_chars": 1045,
+      "md_path": "ki-mon-don-giap/pages/p0268.md"
+    },
+    {
+      "page": 269,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 38.01,
+      "raw_chars": 870,
+      "cleaned_chars": 939,
+      "md_path": "ki-mon-don-giap/pages/p0269.md"
+    },
+    {
+      "page": 270,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 34.62,
+      "raw_chars": 831,
+      "cleaned_chars": 769,
+      "md_path": "ki-mon-don-giap/pages/p0270.md"
+    },
+    {
+      "page": 271,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 34.92,
+      "raw_chars": 741,
+      "cleaned_chars": 638,
+      "md_path": "ki-mon-don-giap/pages/p0271.md"
+    },
+    {
+      "page": 272,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 42.74,
+      "raw_chars": 899,
+      "cleaned_chars": 998,
+      "md_path": "ki-mon-don-giap/pages/p0272.md"
+    },
+    {
+      "page": 273,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 32.69,
+      "raw_chars": 920,
+      "cleaned_chars": 933,
+      "md_path": "ki-mon-don-giap/pages/p0273.md"
+    },
+    {
+      "page": 274,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.58,
+      "raw_chars": 957,
+      "cleaned_chars": 1064,
+      "md_path": "ki-mon-don-giap/pages/p0274.md"
+    },
+    {
+      "page": 275,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 41.91,
+      "raw_chars": 888,
+      "cleaned_chars": 987,
+      "md_path": "ki-mon-don-giap/pages/p0275.md"
+    },
+    {
+      "page": 276,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 39.15,
+      "raw_chars": 846,
+      "cleaned_chars": 900,
+      "md_path": "ki-mon-don-giap/pages/p0276.md"
+    },
+    {
+      "page": 277,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 42.66,
+      "raw_chars": 990,
+      "cleaned_chars": 1043,
+      "md_path": "ki-mon-don-giap/pages/p0277.md"
+    },
+    {
+      "page": 278,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 41.23,
+      "raw_chars": 887,
+      "cleaned_chars": 975,
+      "md_path": "ki-mon-don-giap/pages/p0278.md"
+    },
+    {
+      "page": 279,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 46.17,
+      "raw_chars": 882,
+      "cleaned_chars": 964,
+      "md_path": "ki-mon-don-giap/pages/p0279.md"
+    },
+    {
+      "page": 280,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 42.45,
+      "raw_chars": 909,
+      "cleaned_chars": 1034,
+      "md_path": "ki-mon-don-giap/pages/p0280.md"
+    },
+    {
+      "page": 281,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 47.04,
+      "raw_chars": 860,
+      "cleaned_chars": 962,
+      "md_path": "ki-mon-don-giap/pages/p0281.md"
+    },
+    {
+      "page": 282,
+      "ocr_seconds": 0.33,
+      "cleanup_seconds": 45.65,
+      "raw_chars": 676,
+      "cleaned_chars": 713,
+      "md_path": "ki-mon-don-giap/pages/p0282.md"
+    },
+    {
+      "page": 283,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 40.49,
+      "raw_chars": 886,
+      "cleaned_chars": 894,
+      "md_path": "ki-mon-don-giap/pages/p0283.md"
+    },
+    {
+      "page": 284,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 32.1,
+      "raw_chars": 852,
+      "cleaned_chars": 920,
+      "md_path": "ki-mon-don-giap/pages/p0284.md"
+    },
+    {
+      "page": 285,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 38.87,
+      "raw_chars": 887,
+      "cleaned_chars": 961,
+      "md_path": "ki-mon-don-giap/pages/p0285.md"
+    },
+    {
+      "page": 286,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 39.7,
+      "raw_chars": 959,
+      "cleaned_chars": 982,
+      "md_path": "ki-mon-don-giap/pages/p0286.md"
+    },
+    {
+      "page": 287,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 40.77,
+      "raw_chars": 886,
+      "cleaned_chars": 892,
+      "md_path": "ki-mon-don-giap/pages/p0287.md"
+    },
+    {
+      "page": 288,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 44.48,
+      "raw_chars": 904,
+      "cleaned_chars": 1161,
+      "md_path": "ki-mon-don-giap/pages/p0288.md"
+    },
+    {
+      "page": 289,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 46.42,
+      "raw_chars": 943,
+      "cleaned_chars": 1041,
+      "md_path": "ki-mon-don-giap/pages/p0289.md"
+    },
+    {
+      "page": 290,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 36.57,
+      "raw_chars": 888,
+      "cleaned_chars": 924,
+      "md_path": "ki-mon-don-giap/pages/p0290.md"
+    },
+    {
+      "page": 291,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 41.14,
+      "raw_chars": 950,
+      "cleaned_chars": 1100,
+      "md_path": "ki-mon-don-giap/pages/p0291.md"
+    },
+    {
+      "page": 292,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 36.44,
+      "raw_chars": 753,
+      "cleaned_chars": 882,
+      "md_path": "ki-mon-don-giap/pages/p0292.md"
+    },
+    {
+      "page": 293,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 51.1,
+      "raw_chars": 971,
+      "cleaned_chars": 1089,
+      "md_path": "ki-mon-don-giap/pages/p0293.md"
+    },
+    {
+      "page": 294,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 44.55,
+      "raw_chars": 799,
+      "cleaned_chars": 793,
+      "md_path": "ki-mon-don-giap/pages/p0294.md"
+    },
+    {
+      "page": 295,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 44.0,
+      "raw_chars": 849,
+      "cleaned_chars": 1098,
+      "md_path": "ki-mon-don-giap/pages/p0295.md"
+    },
+    {
+      "page": 296,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 42.1,
+      "raw_chars": 928,
+      "cleaned_chars": 1055,
+      "md_path": "ki-mon-don-giap/pages/p0296.md"
+    },
+    {
+      "page": 297,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 39.61,
+      "raw_chars": 803,
+      "cleaned_chars": 812,
+      "md_path": "ki-mon-don-giap/pages/p0297.md"
+    },
+    {
+      "page": 298,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 50.87,
+      "raw_chars": 966,
+      "cleaned_chars": 1106,
+      "md_path": "ki-mon-don-giap/pages/p0298.md"
+    },
+    {
+      "page": 299,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 49.79,
+      "raw_chars": 889,
+      "cleaned_chars": 1031,
+      "md_path": "ki-mon-don-giap/pages/p0299.md"
+    },
+    {
+      "page": 300,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 44.18,
+      "raw_chars": 855,
+      "cleaned_chars": 888,
+      "md_path": "ki-mon-don-giap/pages/p0300.md"
+    },
+    {
+      "page": 301,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 38.7,
+      "raw_chars": 984,
+      "cleaned_chars": 1046,
+      "md_path": "ki-mon-don-giap/pages/p0301.md"
+    },
+    {
+      "page": 302,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 33.92,
+      "raw_chars": 774,
+      "cleaned_chars": 819,
+      "md_path": "ki-mon-don-giap/pages/p0302.md"
+    },
+    {
+      "page": 303,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 41.62,
+      "raw_chars": 909,
+      "cleaned_chars": 964,
+      "md_path": "ki-mon-don-giap/pages/p0303.md"
+    },
+    {
+      "page": 304,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 47.11,
+      "raw_chars": 842,
+      "cleaned_chars": 1204,
+      "md_path": "ki-mon-don-giap/pages/p0304.md"
+    },
+    {
+      "page": 305,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 39.84,
+      "raw_chars": 946,
+      "cleaned_chars": 1121,
+      "md_path": "ki-mon-don-giap/pages/p0305.md"
+    },
+    {
+      "page": 306,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 36.3,
+      "raw_chars": 863,
+      "cleaned_chars": 957,
+      "md_path": "ki-mon-don-giap/pages/p0306.md"
+    },
+    {
+      "page": 307,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 41.37,
+      "raw_chars": 923,
+      "cleaned_chars": 978,
+      "md_path": "ki-mon-don-giap/pages/p0307.md"
+    },
+    {
+      "page": 308,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 40.37,
+      "raw_chars": 818,
+      "cleaned_chars": 902,
+      "md_path": "ki-mon-don-giap/pages/p0308.md"
+    },
+    {
+      "page": 309,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 41.92,
+      "raw_chars": 1003,
+      "cleaned_chars": 1083,
+      "md_path": "ki-mon-don-giap/pages/p0309.md"
+    },
+    {
+      "page": 310,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 48.27,
+      "raw_chars": 894,
+      "cleaned_chars": 1030,
+      "md_path": "ki-mon-don-giap/pages/p0310.md"
+    },
+    {
+      "page": 311,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 45.89,
+      "raw_chars": 990,
+      "cleaned_chars": 1109,
+      "md_path": "ki-mon-don-giap/pages/p0311.md"
+    },
+    {
+      "page": 312,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 42.54,
+      "raw_chars": 851,
+      "cleaned_chars": 958,
+      "md_path": "ki-mon-don-giap/pages/p0312.md"
+    },
+    {
+      "page": 313,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.52,
+      "raw_chars": 880,
+      "cleaned_chars": 930,
+      "md_path": "ki-mon-don-giap/pages/p0313.md"
+    },
+    {
+      "page": 314,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 42.85,
+      "raw_chars": 866,
+      "cleaned_chars": 984,
+      "md_path": "ki-mon-don-giap/pages/p0314.md"
+    },
+    {
+      "page": 315,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 46.26,
+      "raw_chars": 936,
+      "cleaned_chars": 1012,
+      "md_path": "ki-mon-don-giap/pages/p0315.md"
+    },
+    {
+      "page": 316,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 55.53,
+      "raw_chars": 868,
+      "cleaned_chars": 919,
+      "md_path": "ki-mon-don-giap/pages/p0316.md"
+    },
+    {
+      "page": 317,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.12,
+      "raw_chars": 974,
+      "cleaned_chars": 994,
+      "md_path": "ki-mon-don-giap/pages/p0317.md"
+    },
+    {
+      "page": 318,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 44.96,
+      "raw_chars": 975,
+      "cleaned_chars": 1078,
+      "md_path": "ki-mon-don-giap/pages/p0318.md"
+    },
+    {
+      "page": 319,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 48.4,
+      "raw_chars": 985,
+      "cleaned_chars": 1062,
+      "md_path": "ki-mon-don-giap/pages/p0319.md"
+    },
+    {
+      "page": 320,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 38.64,
+      "raw_chars": 894,
+      "cleaned_chars": 1009,
+      "md_path": "ki-mon-don-giap/pages/p0320.md"
+    },
+    {
+      "page": 321,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 42.91,
+      "raw_chars": 887,
+      "cleaned_chars": 897,
+      "md_path": "ki-mon-don-giap/pages/p0321.md"
+    },
+    {
+      "page": 322,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 41.31,
+      "raw_chars": 789,
+      "cleaned_chars": 791,
+      "md_path": "ki-mon-don-giap/pages/p0322.md"
+    },
+    {
+      "page": 323,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 41.26,
+      "raw_chars": 792,
+      "cleaned_chars": 915,
+      "md_path": "ki-mon-don-giap/pages/p0323.md"
+    },
+    {
+      "page": 324,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 41.32,
+      "raw_chars": 982,
+      "cleaned_chars": 1034,
+      "md_path": "ki-mon-don-giap/pages/p0324.md"
+    },
+    {
+      "page": 325,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 42.65,
+      "raw_chars": 832,
+      "cleaned_chars": 939,
+      "md_path": "ki-mon-don-giap/pages/p0325.md"
+    },
+    {
+      "page": 326,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.07,
+      "raw_chars": 955,
+      "cleaned_chars": 961,
+      "md_path": "ki-mon-don-giap/pages/p0326.md"
+    },
+    {
+      "page": 327,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.42,
+      "raw_chars": 973,
+      "cleaned_chars": 1076,
+      "md_path": "ki-mon-don-giap/pages/p0327.md"
+    },
+    {
+      "page": 328,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 45.13,
+      "raw_chars": 995,
+      "cleaned_chars": 1107,
+      "md_path": "ki-mon-don-giap/pages/p0328.md"
+    },
+    {
+      "page": 329,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 40.11,
+      "raw_chars": 878,
+      "cleaned_chars": 959,
+      "md_path": "ki-mon-don-giap/pages/p0329.md"
+    },
+    {
+      "page": 330,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 41.09,
+      "raw_chars": 894,
+      "cleaned_chars": 958,
+      "md_path": "ki-mon-don-giap/pages/p0330.md"
+    },
+    {
+      "page": 331,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 39.95,
+      "raw_chars": 945,
+      "cleaned_chars": 1016,
+      "md_path": "ki-mon-don-giap/pages/p0331.md"
+    },
+    {
+      "page": 332,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 39.96,
+      "raw_chars": 937,
+      "cleaned_chars": 950,
+      "md_path": "ki-mon-don-giap/pages/p0332.md"
+    },
+    {
+      "page": 333,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 43.64,
+      "raw_chars": 884,
+      "cleaned_chars": 1020,
+      "md_path": "ki-mon-don-giap/pages/p0333.md"
+    },
+    {
+      "page": 334,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 44.91,
+      "raw_chars": 968,
+      "cleaned_chars": 1022,
+      "md_path": "ki-mon-don-giap/pages/p0334.md"
+    },
+    {
+      "page": 335,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 42.4,
+      "raw_chars": 976,
+      "cleaned_chars": 1089,
+      "md_path": "ki-mon-don-giap/pages/p0335.md"
+    },
+    {
+      "page": 336,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 43.93,
+      "raw_chars": 927,
+      "cleaned_chars": 1027,
+      "md_path": "ki-mon-don-giap/pages/p0336.md"
+    },
+    {
+      "page": 337,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 51.83,
+      "raw_chars": 941,
+      "cleaned_chars": 1007,
+      "md_path": "ki-mon-don-giap/pages/p0337.md"
+    },
+    {
+      "page": 338,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 39.4,
+      "raw_chars": 934,
+      "cleaned_chars": 1055,
+      "md_path": "ki-mon-don-giap/pages/p0338.md"
+    },
+    {
+      "page": 339,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 41.64,
+      "raw_chars": 980,
+      "cleaned_chars": 977,
+      "md_path": "ki-mon-don-giap/pages/p0339.md"
+    },
+    {
+      "page": 340,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 41.1,
+      "raw_chars": 946,
+      "cleaned_chars": 963,
+      "md_path": "ki-mon-don-giap/pages/p0340.md"
+    },
+    {
+      "page": 341,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 35.61,
+      "raw_chars": 869,
+      "cleaned_chars": 888,
+      "md_path": "ki-mon-don-giap/pages/p0341.md"
+    },
+    {
+      "page": 342,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 58.3,
+      "raw_chars": 949,
+      "cleaned_chars": 1062,
+      "md_path": "ki-mon-don-giap/pages/p0342.md"
+    },
+    {
+      "page": 343,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 27.45,
+      "raw_chars": 369,
+      "cleaned_chars": 408,
+      "md_path": "ki-mon-don-giap/pages/p0343.md"
+    },
+    {
+      "page": 344,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 33.69,
+      "raw_chars": 824,
+      "cleaned_chars": 909,
+      "md_path": "ki-mon-don-giap/pages/p0344.md"
+    },
+    {
+      "page": 345,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.21,
+      "raw_chars": 1005,
+      "cleaned_chars": 1065,
+      "md_path": "ki-mon-don-giap/pages/p0345.md"
+    },
+    {
+      "page": 346,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 41.58,
+      "raw_chars": 1095,
+      "cleaned_chars": 1139,
+      "md_path": "ki-mon-don-giap/pages/p0346.md"
+    },
+    {
+      "page": 347,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 41.07,
+      "raw_chars": 1133,
+      "cleaned_chars": 1177,
+      "md_path": "ki-mon-don-giap/pages/p0347.md"
+    },
+    {
+      "page": 348,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 37.15,
+      "raw_chars": 1108,
+      "cleaned_chars": 1142,
+      "md_path": "ki-mon-don-giap/pages/p0348.md"
+    },
+    {
+      "page": 349,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 37.59,
+      "raw_chars": 1174,
+      "cleaned_chars": 1209,
+      "md_path": "ki-mon-don-giap/pages/p0349.md"
+    },
+    {
+      "page": 350,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 44.43,
+      "raw_chars": 1105,
+      "cleaned_chars": 1116,
+      "md_path": "ki-mon-don-giap/pages/p0350.md"
+    },
+    {
+      "page": 351,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 40.5,
+      "raw_chars": 1226,
+      "cleaned_chars": 1264,
+      "md_path": "ki-mon-don-giap/pages/p0351.md"
+    },
+    {
+      "page": 352,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 38.14,
+      "raw_chars": 1035,
+      "cleaned_chars": 1041,
+      "md_path": "ki-mon-don-giap/pages/p0352.md"
+    },
+    {
+      "page": 353,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 41.52,
+      "raw_chars": 1034,
+      "cleaned_chars": 1130,
+      "md_path": "ki-mon-don-giap/pages/p0353.md"
+    },
+    {
+      "page": 354,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 42.41,
+      "raw_chars": 1142,
+      "cleaned_chars": 1195,
+      "md_path": "ki-mon-don-giap/pages/p0354.md"
+    },
+    {
+      "page": 355,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 33.94,
+      "raw_chars": 923,
+      "cleaned_chars": 1014,
+      "md_path": "ki-mon-don-giap/pages/p0355.md"
+    },
+    {
+      "page": 356,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 40.43,
+      "raw_chars": 995,
+      "cleaned_chars": 1051,
+      "md_path": "ki-mon-don-giap/pages/p0356.md"
+    },
+    {
+      "page": 357,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 41.07,
+      "raw_chars": 1047,
+      "cleaned_chars": 1060,
+      "md_path": "ki-mon-don-giap/pages/p0357.md"
+    },
+    {
+      "page": 358,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 39.01,
+      "raw_chars": 965,
+      "cleaned_chars": 1021,
+      "md_path": "ki-mon-don-giap/pages/p0358.md"
+    },
+    {
+      "page": 359,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 39.72,
+      "raw_chars": 1035,
+      "cleaned_chars": 1103,
+      "md_path": "ki-mon-don-giap/pages/p0359.md"
+    },
+    {
+      "page": 360,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 42.17,
+      "raw_chars": 1074,
+      "cleaned_chars": 1237,
+      "md_path": "ki-mon-don-giap/pages/p0360.md"
+    },
+    {
+      "page": 361,
+      "ocr_seconds": 0.38,
+      "cleanup_seconds": 37.81,
+      "raw_chars": 840,
+      "cleaned_chars": 905,
+      "md_path": "ki-mon-don-giap/pages/p0361.md"
+    },
+    {
+      "page": 362,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 42.68,
+      "raw_chars": 820,
+      "cleaned_chars": 865,
+      "md_path": "ki-mon-don-giap/pages/p0362.md"
+    },
+    {
+      "page": 363,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 36.1,
+      "raw_chars": 513,
+      "cleaned_chars": 594,
+      "md_path": "ki-mon-don-giap/pages/p0363.md"
+    },
+    {
+      "page": 364,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 53.04,
+      "raw_chars": 2088,
+      "cleaned_chars": 1459,
+      "md_path": "ki-mon-don-giap/pages/p0364.md"
+    },
+    {
+      "page": 365,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 42.49,
+      "raw_chars": 2124,
+      "cleaned_chars": 1350,
+      "md_path": "ki-mon-don-giap/pages/p0365.md"
+    },
+    {
+      "page": 366,
+      "ocr_seconds": 0.22,
+      "cleanup_seconds": 23.19,
+      "raw_chars": 435,
+      "cleaned_chars": 265,
+      "md_path": "ki-mon-don-giap/pages/p0366.md"
+    },
+    {
+      "page": 367,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 8.47,
+      "raw_chars": 43,
+      "cleaned_chars": 20,
+      "md_path": "ki-mon-don-giap/pages/p0367.md"
+    }
+  ]
+}

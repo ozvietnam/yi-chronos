@@ -1,0 +1,36 @@
+"... ..Ô,..........\.
+1H. Kinh Dịch nói gì ?
+Kinh Dịch là cuốn sách diễn giải vẻ đạo Dịch. Vậy đạo Dịch là gì ?
+Đó là lý thuyết khái quát cúa người xưa về vũ trụ và nhân sinh dựa
+theo hình tượng biến hoá của các con số viết dưới dạng “âm dương”
+(vạch đứt và vạch liên), gọi là các Quái (quẻ). Nội dung chủ yếu của
+Kinh Dịch cổ là “tượng” của 64 con số đầu (từ 0 đến 63) viết theo hệ “nhị
+tiến” hay hệ “nhị phân” (système binaire). Các con số viết dưới dạng
+này, mỗi con số sẽ có một dạng đặc trưng, không những thể hiện những
+qui luật biến thiên về bản chất âm đương bên trong của chúng, mà
+người xưa còn cho rằng chính những qui luật đó củng là những qui luật
+biến thiên chung của vũ trụ và vạn vật kể cả con người. Như vậy, rõ ràng
+nội dung Dịch là dựa theo những qui luật biến hoá của các con số đề giải
+thích sự biến hoá chung của vạn vật và con người. Để có cơ sở vững chắc cho
+Việc giải thích đó, người xưa đã rút từ trong sự biến hoá “Tượng” của 64 con
+số đầu ra "hứng nguyên lý có tính triết học phổ quát nhất. Từ đó ta có thể
+kết luận, nội dung cơ bản của Dịch là lý thuyết vẻ “Tượng số”. Trong các
+sách nghiên cứu Dịch từ cổ đại đến hiện đại, cả ở Trung Quốc lân ở ta, chỉ
+có rất ít cuốn nói qua về “Tượng số”, viết sơ sài, còn hầu hết đều nghiên cứu
+về mặt triết bọc của Dịch, nhằm tán đương khoa đạo đức học và phương
+thức xử thế của người xưa; hoặc khảo sát về mặt sử dụng Dịch trong bói
+toán (khoa dự báo cổ). Tại sao lại có tình trạng đó ? Theo thiển ý của chúng
+tôi thì, tại nhiều người nghiên cứu Dịch, không phải tất cả nhưng là số rất
+đông, thật ra không đọc được hoặc chưa có thói quen đọc các con số viết
+theo cơ chế “nhị tiến”. Một chứng cớ hiển nhiên là trong nhiều bộ sách
+khảo cứu đó, nhiều tác giả không viết được thật đúng các quẻ theo vị trí
+bắt buộc của một hệ viết, nhất là khi phải sắp xếp các quê theo hình tròn
+(viết quẻ Chấn thành quẻ Cấn, hay quê Đoài thành quẻ Tốn) hoặc ngược
+lại). Ví dụ khi ta viết số 1 theo hệ thập phân, trong một dãy ba số hay sáu
+số, ta phải đề số 1 ở cuối hàng (001 hoặc 000001 vẫn là số 1). Nếu ta để
+số 1 ở đầu hàng thì số 1 sẽ thành một trăm hoặc một trăm ngàn, chứ
+không còn là số 1 nữa (100 hoặc số 100000). Cũng như vậy, các số viết
+theo hệ nhị phân cũng phải giữ đúng vị trí qui định của chúng. Số đơn
+vị phải viết ở trên cùng (nếu viết từ trên xuống) hoặc ở ngoài cùng (nếu
+viết theo đường tròn). Ví dụ số 1 = 001 hoặc 000001 đều là số 1. Nếu
+11

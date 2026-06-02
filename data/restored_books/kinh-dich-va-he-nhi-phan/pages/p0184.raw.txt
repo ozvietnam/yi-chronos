@@ -1,0 +1,39 @@
+V. Các cách sắp xếp khác của Trùng Quái
+
+Chúng ta đã nghiên cứu hai cách sắp xếp cơ bản 64 quẻ Dịch, gọi là
+Tiên thiên của Phục Hi và Hậu thiên của Văn Vương. Cả hai cách sắp
+xếp đó đêu dựa theo 8 đáy số theo hàng ngang cúa Phương đô Tiên
+thiên. Đó là 8 hàng thuộc 8 đơn quái là “Càn-Đoài-Ly-Chấn-Tốn- Khảm-
+Cấn-Khôn”. Các đơn quái đó là “quẻ nội” của trùng quái. Chỉ cần nhìn
+vào quê nội của trùng quái là ta có thể biết quẻ đó thuộc nhóm nào. Ví
+dụ, tất cả các trùng quái có quẻ nội là Càn đều thuộc nhóm Càn; tất cả
+trùng quái có quẻ nội là Đoài đều thuộc nhóm Đoài v.v... (xem lại tượng
+64 quẻ Tiên thiên, hình 42b).
+
+Cả hai cách sắp xếp Tiên thiên và Hậu thiên đều gồm lẫn lộn cả số
+Cơ (đương) và số NÑgẫu (Am). Nhìn trên phương đỏ 64 quẻ Tiên thiên,
+chúng ta nhận thấy 8 cột dọc của các quê chính là 8 cột số xếp theo Cơ
+(1), Ngẫu (chăn) của 64 số. Đề phân biệt tính Cơ Ngẫu của các số lại
+phải dựa vào “quẻ ngoa¿”. Quê ngoại là Càn-7 thuộc cột số Cơ (dương);
+quê ngoại là Đoài-6 thuộc cột số Ñgẫu(âm); quẻ ngoại là Ly-ð thuộc cột
+dương; quẻ ngoại là Chấn-4 thuộc cột âm; quẻ ngoai! là Tốn-3 thuộc cột.
+dương; quẻ ngoại là Khảm-2 thuộc cột âm; quẻ ngoại là Cấn-1 thuộc cột
+đương; quê ngoại là Khôn-0 thuộc cột âm. Ta dễ dàng nhận ra rằng :
+
+e Tất cả các số Cơ (dương) đều có “Hào thượng” là hào dương (——)
+e Tất cả các số Ngẫu (âm) đều có “Hào thượng” là hào âm (= >).
+
+Ta có kết luận về quan hệ của các dãy quẻ theo các hàng ngang hay
+đọc như sau :
+
+1/ Theo hàng ngang : Có qrẻ Nội giống nhau, các quẻ thuộc nhóm
+quê Nội.
+
+2/ Theo cột dọc : Có quẻ Ngoại giống nhau, là eác quê theo nhóm số
+Cơ (—) hay Ngẫu (- -).
+
+1. Xếp 64 quẻ theo Cơ Ngẫu : Chỉ cần !ấy các quẻ theo cột dọc, ta sẽ
+có hai phương đề các tượng số thuần cơ hay thuần ngẫu, mỗi bên 32 số
+đưới đây (Hình 43) :
+
+185

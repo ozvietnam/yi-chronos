@@ -1,0 +1,35 @@
+Mỗi câu có 6 tiết khí, bốn cầu tổng cộng là 24 tiết khí,
+
+Từ hình vẽ số 1. có thể thấy mỗi một Thượng
+Nguyên của một tiết khí. Số cục của một Thượng
+Nguyên trong tiết khí mỗi một cung với số cung là
+hoàn toàn giống nhau. Sau Đông chí là Dương Độn.
+tiết kbí đầu tiên trong Cung 1 Khẩm của Đông chí là
+bố cục thứ nhất của Đương Độn Đông chí: Lập xuân
+chính là tiết khí thứ nhất của Cung 4 Tốn. Thượng
+Nguyên Lập hạ chính là Dương Độn bốn cục. Sau Hạ
+chí là Âm Độn, Hạ chí là tiết khí thứ nhất của Cung 9
+Ly, do vậy, Hạ chí chính là Thượng Nguyên của Âm
+Độn chín bố cục; lập xuân là tiết khí đầu tiên của
+cung 2 Khôn, do đó Lập xuân là Thượng Nguyên của
+Âm Độn bai bế cục; Thu Phân là tiết khí đầu tiên của
+cung 7 Đoài, do đó. Thu Phân chính là Thượng
+Nguyên của Âm Độn bảy bố cục.
+
+Biết là mỗi một cung trong tâm cung có Thượng
+Nguyên là mấy bố cục, thì cũng có thể đoán ra được
+số bố cục của Thượng Nguyên các tiết khí tiếp theo.
+
+Phía trên là đang nói đến Dương Độn. Mỗi số bố
+cục Thượng Nguyên của tiết khí trên mỗi một cung
+trong Dương Độn cũng có liên quan đến nhau. Nếu
+thứ tự của cung 9 Lả là: Hạ chí, Tiểu Thủ, Đại Thủ,
+thì Thượng Nguyên Hạ chí là Âm Độn chín bố cục,
+Thượng Nguyên của Tiểu Thủ sẽ là Âm Độn tám bố
+cục, Thượng Nguyên của Đại Thủ sẽ là bảy bố cục.
+Như vậy thì, Thượng Nguyên của 24 tiết khí có bao
+nhiêu bố cục. chúng ta đều đã biết. Nếu đã biết dược số
+bố cục của Thượng Nguyên và Trung Nguyên của tiết
+khí thì sẽ biết đoán ra được số bố cục cửa Hạ Nguyên.
+
+38

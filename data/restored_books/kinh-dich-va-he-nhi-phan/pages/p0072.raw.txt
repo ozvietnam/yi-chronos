@@ -1,0 +1,15 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+theo dãy dài, mà xếp thành các phương đồ hay ma trận, để thu gọn
+chiều dài lại. Ví dụ xếp cụm 9 bóng thành ba hàng mỗi hàng 8 bóng;
+hay cụm 1ổ bóng thành 4 hàng, mãi hàng 4 bóng.
+
+Cách đây hai ngàn năm, chính Tiêu Diên Thọ đã sắp xếp 4096 quẻ
+12 vạch thành một hình khối vuông, mỗi chiều 16 quẻ rất tài tình (16 x
+16 x 16 = 4098).
+
+Chính nhờ sách của họ Tiêu mà sau này, vào thời Bắc Nguy, một
+nhà Dịch học tỉnh thông toán nhị phân khác là Quan Lang đã suy ra số
+Đại diễn tới 72 triệu số.
+
+74

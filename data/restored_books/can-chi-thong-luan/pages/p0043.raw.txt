@@ -1,0 +1,29 @@
+40 ĐẠI TIỂU VÂN VÀ LƯU NIÊN
+
+Lấy can chỉ của trụ tháng làm chế tính. Dựa theo
+âm dương của can năm mệnh nam hay nữ mà sắp xếp
+can chỉ đại vận thuận hay nghịch.
+
+1. Dương nam âm) nữ: Tính thuận: Lấy vị trí can
+chi kế tiếp của can chỉ tháng trụ làm tổ hợp đại vận can
+chỉ thứ nhất. sau đó cứ tuần tự tính.
+
+2. Âm nam dương nữ: Tính ngược: Lấy vị trí can
+chi trước can chỉ tháng trụ làm tổ hợp đại vận can chỉ
+thứ nhất sau đó cứ tuần tự tính ngược lại.
+
+* Ví dụ: Mệnh Nam sinh năm Ất Hợi có năm can
+ấm (tính ngược lại):
+
+Năm Tháng Ngày Giờ
+
+Ất hợi Tân ty Bính thân Canh đần
+
+Đạt cận Can chỉ
+1 Canh tý
+2 Kỷ hợi :
+3 Mậu tuất
+4 Định dậu
+ỗ Bính thân
+6 Ấ Pmũi
+7 Giúp) ngọ

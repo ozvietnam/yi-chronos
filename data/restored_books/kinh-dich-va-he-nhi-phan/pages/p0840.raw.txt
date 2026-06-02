@@ -1,0 +1,14 @@
+- HOÀNG TUẤN
+
+1I- An 12 cung của Tử Vi bắt đầu từ hai cung Mệnh, Thân 616
+HI- Tìm Cục: Dựa theo vị trí cũng mệnh 617
+IV- An Sao 619
+V. Ghi Đại Hạn, Tiểu Hạn và các sao lưu hạn 6832
+VỊ- Giải Đoán một lá số 640
+Giải đoán một số lá số mẫu 678
+Đôi dòng kết luân 705
+
+Phần Phuc Luc: Lịch Tiết Khí 120 năm
+(bừ 1900 đến 2010) (phục vụ việc tính số Hà Lạc) 706
+Thư mục tham khảo 829
+841

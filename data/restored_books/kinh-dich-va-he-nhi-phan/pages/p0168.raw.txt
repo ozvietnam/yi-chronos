@@ -1,0 +1,34 @@
+HOÀNG TUẤN
+Trong chương nói về phép nhị phân, chúng ta đã biết các ký hiệu
+âm dương của quẻ Dịch hoàn toàn trùng hợp với hai ký hiệu 0 và 1 của
+máy tính điện tử hiện đại. Ký hiệu “âm” (- -) tương ứng với số 0, có
+nghĩa là “đóng”, khi bóng đèn điện tử của máy tính không có dòng điện
+chạy qua. Ký hiệu “dương” (—) tương ứng với số 1, có nghĩa là “mở”, khi
+bóng đền điện tử có dòng điện đi qua và bật sáng. Chúng ta củng đ1
+biết, hệ nhị phân chỉ có 1 con số hàng đơn vị, đó là số 1. Mỗi khi số 1 dịch
+chuyển lên phía cột trước thì giá trị lại tăng lên gấp đôi. Viết theo lối cổ
+của Dịch theo hàng đọc thì mỗi khi vạch liền chuyển xuống dưới hàng
+đơn vị một hàng là giá trị lại tăng lên gấp đôi. Ta có các giá trị theo
+hàng như sau :
+e Hàng thứ nhất (đơn v)là: 1
+e Hàng thứ hai là: 2
+e Hàng thứ ba là: 4
+e Hàng thứ tư là: 8
+e Hàng thứ năm là: 16
+e Hàng thứ sáu là: 32
+e Hàng thứ bảy là: 64
+e Hàng thứ tám là ;: 128 :
+e Hàng thứ chín là : 256 :
+Cứ như thế, mỗi khi tăng lên một hàng thì các con số tăng lên gấp đôi.
+Trong máy tính, hai số 0 và 1 được gọi là “một Bít thông tìm°. Như
+vậy ta cũng có thể gọi hai ký hiệu “âm dương” (- -) (—) là một Bít thông
+tin. Nói một cách khác, cứ mỗi bóng đèn điện tử hoạt đông theo hai quá
+trình “đóng và mở” tương ứng với một Bít thông tin. Một hàng ba bóng
+đèn điện tứ là ba Bít thông tin. Ba bóng đèn đó có thể biểu điễn được 8
+số y như trong mô hình Bát quái vậy. l l
+Bai (Bvyte) thông tin : Nếu ta có một hàng § háng đèn điện tử,
+tức 8 Bít thông tín, ta có thể ghi được 25 con số (tu: -š 9 đến số 255).
+Đó chính là một “Bai” (Byte) thông tin. Như vậy x2ột Bai chứa các
+con số tương ứng với sự đóng mở các bóng đèn điện tứ theo trật tự
+hệ nhị phân như sau :
+: 169

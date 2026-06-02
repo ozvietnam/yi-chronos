@@ -1,0 +1,42 @@
+HOÀNG TUẤN
+tiết, phù hợp với đương lịch. Àm lịch tính theo cả thời tiết lẫn theo chu
+kỳ trăng, nên số ngày còn thiếu sẽ tính vào năm có tháng nhuận (*).
+Như vậy lấy đãy số từ 0 đến 63 làm các số đề tính lịch là tiện lợi và phù
+hợp. Dãy số nhỏ hơn là không đủ để tính toán. Còn dãy số lớn hơn là
+quá nhiều và không thuận tiên về nhiều mặt.
+
+2. Tổ hợp quẻ 6 vạch là cấu trúc đối xứng âm dương của Hào
+và Quái: Mỗi trùng quái là tổ hợp của hai đơn quái, một quê ở trên,
+một quẻ ở dưới, làm âm dương cho nhan, phù hợp với nguyên lý đối
+xứng mà caúng ta đã khảo sát ở chương IV và chương V. Như vậy mỗi
+hào trong đơn quái (quẻ ba vạch) cũng phải tồn tại đối xứng. Quẻ 6
+vạch đáp ứng được yêu cầu hợp lý đó : mỗi hào đều có đối xứng “âm
+dương” : hai vạch trên cùng là Thiên, hai vạch giữa là Nhân, hai vạch l
+đưới là Địa. Điêu đó cho phép giải thích các mối quan hệ trong những
+hệ quả ứng dụng một cách đễ dàng và hợp lý hơn rât nhiều.
+
+3. Tổ hợp quê 6 vạch là “tam tài” của lưỡng nghỉ. Ngoài ý
+nghĩa là đối xứng âm dương của hào và đơn quái, quẻ 6 vạch còn có một
+ý nghĩa khác không kém phần quan trọng, xưa nay ít người nói đến, đó
+là tam tài của lưỡng nghỉ : “Ba trong bốn tượng cơ bản” chỏng nhau,
+làm “tam tài” cho nhau. Ví dụ :
+
+- Quẻ Càn —— là do 3 tượng “Thái dương” —— hợp thành; :
+
+- Quê Khôn = £ là do 3 tượng “Thái âm” = = hợp thành;
+
+- Quê Khảm — = là do 3 tượng : ' Thiếu âm” =_—=, “Thái âm”= =,
+
+—— và “Thiếu đương”. — hợp thành;
+
+- Quẻ Ly —hàdo3 tượng : “Thiếu dương' —=,“Thái dương”"——,
+
+và “Thiếu âm”— —hợp thành.
+
+Các quẻ khác cũng đều do 3 tượng hợp thành. Chúng ta đã biết, có
+4 tượng cơ bản, mà cứ 3 tượng ghép thành một quẻ, cuối cùng ta cũng
+chỉ có 4 x 4x 4 = 64 cách sắp xếp khác nhau mà thôi.
+
+{*) Xmn tham khảa thêm tài liệu :"Phương pháp chọn ngày theo ch Can chỉ” - Hoàng
+Tuấn, NXB VHTT, Hà Nội, 1999).
+141

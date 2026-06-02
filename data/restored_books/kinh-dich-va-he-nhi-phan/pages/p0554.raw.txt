@@ -1,0 +1,42 @@
+số đơn vị từ 1 đến 9. Trong 3 số trên, số 13 chỉ cần trừ một lần 9
+cồn 4. Số dư 4 chính là số cung Lạc Thư định tìm. Số thứ hai là 27,
+đem trừ dần 3 lần số 9 thì =0 (vì 3x9=27), ta coi số Ô trên là số 9.
+(Cũng như đem 27 trừ đi 2 lần số 9 còn 9 vậy (3x9=27). Ta còn số
+39-27=5. Số 5 là số cung Lạc Thư của quẻ định tìm. Trường hợp
+này rất quan trọng, vì nhiều sách viết về số Hà Lạc đã nhầm lẫn,
+không dựa trên một nguyên tắc nào thống nhất để trừ các số dư lớn
+như 13, 97, 32... chỉ cần bỏ hàng chục đi và lấy số đơn vị là các số
+3, số 7, số 3 của các số trên là tìm ra quẻ. ở đây chúng ta không
+theo cách đó vì nó không dựa trên nguyên lý thống nhất đã nêu ra
+ở trên và cũng không có gì chứng mình là hợp lý.
+
+1.3: Trường hơp Tổng số Âm Dương bằng hoặc đưới mức số cơ bản :
+
+Ví du Tổng số Dương của ông X bằng 15 hay Tổng số Âm của bà Y.
+bằng 30. Lúc đó ta không cần trừ với số cơ bản, mà phải theo quy luật
+trên, như sau : + Nếu là các số hàng chục chẳn như 10, 20, 30... thì ta bỏ
+số 0 mà lấy số đầu hàng chục (như trường hợp bà Y. có Tổng số Âm =30,
+ta lấy số 3 đầu) để tìm quẻ. + Nếu là trường hợp Tổng số Âm hay Dương
+dưới các số cơ bản 25 hay 30, nhưng lại là những số hàng chục có số lẻ
+như 13, 17, 24 v.v.. thì ta cũng phải trừ dần đi 9 hay bội số của 9 đến khi
+còn số lẻ từ 1 đến 9 là ta đã được số cung quẻ định tìm (như trường hợp
+ông X. ở trên, có Tổng số Dương là 15, ta phải trừ đi 9 còn 6. Số đư6này  -
+là số cung quẻ định tìm. : l
+
+1.4: Trường hơp số dư là số ð : Chúng ta đã biết, trong tám cung
+ngoại vị của Lạc Thư không có số 5. Số 5 ở trung tâm, là số “sinh” của
+Hành Thổ. Hành này trong Hậu Thiên Đồ đã chia thành hai Hành : Cấn-
+Thổ thuộc dương, đóng ở cung số 8 của Lạc Thư; Khôn-Thổ thuộc Âm
+đóng ở cung số 2 của Lạc Thư. Số của 2 quẻ Cấn và Khôn cộng lại bằng số
+“thành” của Hành Thổ (8+2=10). Vị trí Hậu Thiên của quẻ Cấn hiện nay
+lại vốn là vị trí Tiên Thiên của quẻ Đoài; còn vị trí của quẻ Ly hiện nay
+vốn là vị trí Tiên Thiên của quẻ Khôn. Do những tính toán phức tạp của
+người xưa, số ð ở trung tâm liên quan đến 4 quẻ cơ bản đó. Vì vậy nếu số
+dư là 5 thì phải tính theo “Nguyên” của năm sinh để xác định quẻ riêng
+cho Nam, Nữ như sau :
+
+eSinh Thượng Nguyên : Nam Cấn; Nứ Khôn.
+
+eSinh Trung Nguyên : Dương Nam, Âm Nữ : quê Cấn; Âm Nam,
+
+555 -

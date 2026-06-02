@@ -1,0 +1,35 @@
+. HOÀNG TUẤN
+- Hàng 10 (là 512)= 512
+- Hàng 11 (là 1024) 1024
+Cộng : 2000
+Chuyền số có số lê : Ví du (4) : Chuyển số 43,20 sang hệ nhị phân:
+Ta phải chia Số này ra hai nhóm : nhóm số nguyên là 43 và nhóm số
+lẻ là 20, rồi làm theo phương pháp như trên.
+1. Nhóm số nguyên (43) : 43 : 2 = 21 --- dư (1)
+21:2 =10 --- dư (1)
+10:2= 5-¬-- dư(0)
+5:2 = 2---dư(1)
+2:2 = 1¬-dư(0)
+Ta được đãy số nhị phân thuộc phần số nguyên là : (1-0-1-0-1-1).
+2. Nhóm số lẻ (0,20) : 20 : 2 = 10 --- dư (0)
+10:2= 5---dư(0)
+5:2= 2--dư(1)
+2:2= 1---dư(0)
+Ta được dãy số nhị phân thuộc phần số lẻ là : (1-0-1-0-0)
+Kết quả cuối cùng, ta có số nhị phân của số 48,20 = 101011,10100
+Như vậy, ta có thể chuyển bất kỳ con số nào của hệ thập phân
+sang hệ nhị phân, với hai ký tự (0) và (1). Hệ quả là bất kỳ thông tin
+nào trong cuộc sống mà có thể mã hoá được bằng hai ký hiệu đêu có
+thể “toán hoá” bằng hệ nhị phân, Mô hình 8 đơn quái và 64 trùng
+quái của Dịch cổ cũng là dựa trên nguyên lý này. Khoảng năm ngàn
+năm về trước cổ nhân đã dùng hai ký hiệu vạch đứt (- -) là âm và
+vạch liên (—) là dương để viết các con số. Những từ “lưỡng nghỉ”,
+“tứ tượng”, “bát quái”, “trùng quái” chính là cách viết các con số đầu
+tiên từ số “0” đến số “1”, số “4”, số “8” đến 64 số đầu bằng hệ nhị
+phân. Mô hình 8 đơn quái và 64 trùng quái của Dịch cổ cũng là dựa
+trên nguyên lý này. Khoảng năm ngàn năm về trước cổ nhân đã
+dùng hai ký hiệu : vạch đứt (- -) là âm, và vạch liền (—) là dương để
+ghỉ các số theo cơ chế nhị phân như chúng ta đang dùng hai ký tự (0)
+và (1) ngày nay. Thật là một điêu kỳ diệu, vì đó là một phát minh vô
+cùng quan trọng của thuật toán cổ. Cái mà nhiều người vội vàng
+69

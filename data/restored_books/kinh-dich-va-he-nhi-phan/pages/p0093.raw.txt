@@ -1,0 +1,48 @@
+HOÀNG TUẤN
+
+2. (C== đối xưng với ( ——);, tức Thiếu dương đối xứng với Thiếu Am,
+
+hay (01) đối xứng với (10) (tức số 1 đối xứng với số 2).
+
+Như vậy mỗi cặp số đều có tổng số bằng 3, tức bằng trị số lớn nhất
+của dãy 4 số đầu tiên. Tóm lại, nếu dùng tập hợp hai hàng vạch, ta có
+thể viết được 4 con số và chỉ 4 con số mà thôi. Nếu dùng tập hợp ba
+hàng vạch, ta có thể viết được các con số nhiêu gấp đôi, tức là 4 x 2 = 8 số.
+
+2. Bdứt quái : 8 số đầu tiền viết được với tập hợp ba hàng vạch,
+người xưa gọi là bát quái (tức 8 quẻ) đựa theo “tượng” của chúng. Ta có:
+Quẻ Khôn SE tức số 0; Quẻ Cấn £E# tức số 1; Quẻ Khảm == tức số 2,
+Quẻ Tốn ==tưc số 3; Quẻ Chấn £ E tức số 4; Quẻ Ly== tức số 5; Quẻ
+Đoài = tức số 6; Quẻ Càn — tức số 7.
+
+Viết theo ký hiệu hiện đại : Khôn : (000); Cấn : (001); Khảm : (010);
+Tốn : (011); Chấn : (100); Ly : (101); Đoài : (110); Càn : (111).
+
+Ở đây ta cũng thấy các con số đối xứng từng đôi một và các cặp đối
+xứng đều có tổng giá trị bằng số lớn nhất của dãy, tức bằng trị số của
+quê Càn là 7. Ta có 4 cặp số đối xứng theo “tượng” của chúng như sau :
+
+1. Cặp Khôn-Càn S= “— hoặc (000)-(111), tức 2 số (0) và (7); (Ö + 7 = 7).
+
+2. Cặp Cấn-Đoài ZZ ZE hoặc (001){110), tức 2 số(1) và (6);(1 + 6= 7).
+
+3. Cặp Khâm-Ly Z# =E hoặc (0100101), tức 2 số (9) và (8); (2 + 5 =7).
+
+4. Cặp Tốn-Chấn =E Z=£ hoặc (01104100), tức 2 số(8) và (4); (3 + 4= 7).
+
+Như vậy là từ Tứ Tượng, thêm một hàng vạch là thành Bát Quái.
+
+Người xưa đã dựa vào “tượng âm dương” của 8 số đầu tiên đó để đặt
+tên cho 8 trạng thái ban đầu của vũ trụ quanh ta. Đó là : Khôn là đất,
+Càn là trời, Cấn là núi (ỏi lên), Đoài là đầm (lõm xuống), Khảm là
+nước, Ly là lửa, Tốn là gió, Chấn là sấm. Đó cũng chính là quang cảnh
+vật lý đại thể trên mặt đất lúc ban đầu, có 8 hiện tượng lớn : mặt đất,
+bầu trời, lửa, nước, núi, đầm, gió, sấm.
+
+Như vây là nếu dùng tập hợp ba hòng uach âm dương, ta có thể uiết
+được 8 số uà chỉ 8 số mà thôi. Muốn viết thêm các số ta lại phải tăng số
+hàng vạch lên. Với 4 hàng vạch ta sẽ viết được 8 x 2 = 16 số. Với 5 hàng
+vạch ta sẽ viết được 16 x 2 = 32 số. Với 6 hàng vạch ta sẽ viết được 32 x
+2 = 64 số v.v... Ta có thêm một qui luật của hệ nhị phân như sau :
+
+QaK=

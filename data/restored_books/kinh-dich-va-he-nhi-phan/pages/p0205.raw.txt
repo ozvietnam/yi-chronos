@@ -1,0 +1,39 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+Tuy nhiên, nếu sắp xếp 64 quẻ theo tượng “Biến dịch” thì ta có đủ
+32 cặp biến dịch. Như vậy là các quẻ đều có biến dịch, riêng 56 quê
+(28 cặp) ngoài biến dịch còn có phản dịch. Biến dịch và phản dịch luôn
+luôn có những mối quan hệ cấu thành từng nhóm quẻ. Ta có thể dựa
+theo những tính chất đó, chia 64 quẻ trùng quái ra thành nhứng loại
+sau đây :
+
+1. Dịch trên cơ sở Bất Dịch : Bốn quẻ Bất biến cơ bản :
+
+Các quẻ đều biến đổi bản chất và giá trị, có nghĩa là sẽ trở thành
+một số khác, khi ta thay đổi vị trí của chúng theo hai cách :
+
+1/ Quay ngược chúng 1800: ví dụ quê Bác = chà số 1, nếu quay 1809
+sẽ thành quẻ Phục E Ê là số 32.
+
+2/ Hoặc hoán vị quẻ thượng xuống quẻ hạ, quẻ hạ lên quẻ thượng :
+ví dụ quê Bác là gồm 2 quẻ Cân trên, Khôn dưới, tức Sơn/Địa=Bác; nay
+ta đưa quẻ Khôn lên trên, đem quẻ Căn xuống dưới, quẻ Bác sẽ trở
+thành quẻ Đia/Sơn=Khiêm =_E là số 8. Riêng có 4 quê là bất biến khi
+bị hoán vị các quẻ thượng hạ, hoặc khi bị quay 1809, chúng vẫn giữ
+nguyên bản chất ban đầu vốn có. Bốn quẻ đó là :
+
+Quê Càn - Quê Khôn - Quẻ Ly - Quẻ Khảm
+(63) (0) (45) (8)
+
+Đó là “4 quẻ bất biến” cơ bản cúa Tạo hoá. Chúng không có quẻ
+phản dịch tương ứng. Chúng có vai trò như những nguyên lý ban đầu
+bất biến. Đó cũng chính là hai trục Tiên thiên và Hậu thiên của 8 quê
+cơ bản (Bát quái) : Trục Càn-Khôn thuộc Tiên thiên; trục Ly-Khảm
+thuộc Hậu thiên. Chúng cúng là hai cặp đối xứng “âm dương” của nhau.
+Các con số sinh ra vô tận nhưng đều là tượng biến đổi xoay quanh 4 tượng
+bất biến đó. Người xưa đã dựa trên tính chất này đẻ định nghĩa Dịch là
+“biến dịch” trên cơ sở “bất biến”, hoặc đẻ ra triết lý xử thế “Di bất biến ứng
+vạn biến” (lấy cái bất biến để ứng với vạn điều biến) cũng có nghĩa là phải
+giữ vững cái nguyên lý ban đầu để ứng phó với vạn điều thay đối xảy ra.
+Một lằn nữa chúng ta lại có thêm bằng chứng vẻ qui luật của tự nhiên
+206

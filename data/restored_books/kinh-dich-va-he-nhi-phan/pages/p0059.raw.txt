@@ -1,0 +1,30 @@
+HOÀNG TUẤN
+sẽ có số 32 x 2 = 64 (1000000); với 7 số 0 ta sẽ có số 64 x 2 = 128
+(10000000) v.v...
+1U " = hàng số Hàng 6 Hàng 5 Hàng 4 Hàng 3 Hàng 2 Hàng 1
+(từ phải sang trái) (Đơnv)
+=ememml is | v La [+ [+] v,
+Chu ý : Số thập phân có 9 con số hàng đơn uị, còn số nhị phân chỉ
+dùng có 2 ký hiệu là 0 uà 1 (tương ứng uới âm đương cổ) nên hàng đơn
+Uỷ chí có 1 con số, đó là 1.
+Thứ tự các hàng số Hàng 12 Hàng 11 Hàng 10 Hàng 9 Hàng 8 Hàng 7
+(từ phải sang trái) (Đm vụ
+Giá trị theo Tháp phản | 100.000,000000 |0.000.000000 | .000.000000 ( 100.00000 | 10.000.000. | 1.000.000
+ca Á- MÀ. 2048 1024 B12 256 128 &4
+Trong cách viết chữ Hán của người Á Đông xưa, cũng như viết chứ
+Nôm của ta, người xưa đều viết từ phải sang trái, từ trên xuống đưới,
+đòng theo hàng đọc, khác hẳn với lối viết theo phương Tây hiện đại
+là từ trái sang phải và theo hàng ngang. Vì vậy các con số viết theo
+hàng đọc thì hàng đơn vị là trên cùng, rồi theo trật tự nhân đôi, càng
+ở hàng đưới thì giá trị càng lớn dần. Nay nếu ta viết 64 số đầu (từ số 0
+đến số 63) với ký hiệu nhị phân hiện đại, rồi đem thay số 0 bằng một
+vạch đứt (— —) và thay số 1 bằng một vạch liền (——) của người xưa, sau
+đó xoay các số 90 độ theo hàng dọc để cho ký hiệu hàng đơn vị ở trên
+cùng, chúng ta sẽ có ngay các quẻ Dịch tương ứng với các số nhị phân
+hiện đại.
+Ví dụ số 1, theo nhị phân là 000001, số 1 ở hàng trên cùng, ta có
+ngay quẻ tương ứng là : quẻ Bác. #Z
+Số 2 = 000010, số 1 ở hàng thứ hai, ta có quê tương ứng là: quẻ Tý SE
+Số 4 = 000100, số 1 ở hàng thứ ba, ta có quẻ tương ứng là : quê Dự
+Số 8 = 001000, số 1 ởhàng thứ bốn, ta có quê tương ứng là : quê Khiêm ==
+61

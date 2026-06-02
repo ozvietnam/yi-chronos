@@ -1,0 +1,26 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+8 3 / 185
+| 9 / 5
+L_ TT Ti
+“Ị“ ZNNPn»
+L 7 N 4
+48 49 J $4 55
+Hình 43 : Phương đề của 64 số (từ 0 đến 83)
+(Các số đều đối xứng theo đường thẳng đi qua ¿iểm giữa .
+hai đường chéo góc) (Tổng số đối xứng = 68)
+
+3. Đối xứng phản dịch : Ngoài đối xứng “biến địch” còn một loại
+đối xứng khác, người xưa gọi là đối xứng “Phản địch”. Loại đối xứng
+này chỉ là đối xứng theo “tượng” đảo ngược của chúng, không có tổng giá
+trị đối xứng chung cho toàn các cặp số. Vì vậy hoàn toàn phải dựa trên
+“tượng nghịch đảo” của các số để tìm giá trị đối xứng cho từng cặp số.
+
+Xét từ đầu : 3.1. Giai đoan phân cưc thành “lưỡng nghị” chỉ có đối
+xứng âm dương. 8.2. Giai đoan “tứ tương”:
+
++ 1 cặp chỉ đối xứng biến dịch (tức đối xứng âm dương) là : Thái âm
+== và Thái dương —
+
++ 1 cặp vừa đối xứng âm dương, vừa đối xứng phản dịch là : Thiếu
+âm= = và Thiếu đương ——= (quẻ nọ quay 180o thì thành quẻ kia).
+150

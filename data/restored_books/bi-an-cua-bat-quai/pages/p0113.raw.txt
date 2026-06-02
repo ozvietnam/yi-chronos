@@ -1,0 +1,32 @@
+114 BÍ ẨN CỦA BÁT QUÁI
+
+Nhưng phát minhh của Leibnit, được gợi ý từ bát quải của
+Trung Quốc. Ông từng trao đổi thư từ với vua Khang Hi triểu
+Thanh, cho rằng sự sắp xếp 64 quái chính là đùng phép nhị tiến viết
+ra 64 cơn số. Nếu coi hào đương là 1, hào âm là 0, tính từ dưới lèn
+coi ba vạch hào là con số tam vị, thì cố thể biểu thị như sau: Từ Càn
+đến Khôn thể hiện quan hệ “số nghịch". Nếu dùng máy tính điện tử
+căn cứ vào "Phục Hi lục thập tứ quái thứ tự đồ" của Thiệu Ung (để
+xem 64 quái sắp xếp như thế nào), xếp Cần là (6 3), Khôn là
+000000 (số không) thì rất trùng hợp với chế độ nhị tiến. Đây là
+chuyện khiến mọi người vô cùng tán thưởng.
+
+Theo trích dẫn của Lý Địch trong "Trung Quốc số học sử giản
+biên", Leibnit đánh giá rất cao bát quái. Ông nói: "Địch đồ là món
+quà lưu niệm cố xưa nhất của khoa học lưu truyền trong võ trụ”. Lại
+nói: "Không cần bàn cãi, tôi phát hiện điểu này trong khi lí giải
+những bí mật về văn tự cổ cách đáy ba nghìn năm của Phục Hi -
+ông vua đầu tiên đồng thời là nhà triết học duy nhất của Trung
+Quếc cổ đại. Đây là điều đáng tự hào đối với người Trung Quốc, vì
+rằng người Trung Quốc đã để rơi bí mật về văn tự của họ cách đây
+hai nghìn năm, giờ đây đột nhiên phát hiện ra phương pháp tính:
+toán mà xưa nay chưa bao giờ đem ra dùng”.
+
+Thậm chí có người còn cho rằng, học thuyết bát quái bao
+gồm đặc tính của máy tính điện tử, công năng vận toán của địch
+số, công năng Logic của dịch lý, công năng ghỉ chép còn để lại
+của dịch tượng, đều có những điểm giống như công năng của máy
+
+\ tính điện tử.
+Một số ít học giả cho rằng, có sự ngâu hợp giữa bát quái và
+, thuyết tương đối. Thuyết tương đối là do nhà vật lý người Đức

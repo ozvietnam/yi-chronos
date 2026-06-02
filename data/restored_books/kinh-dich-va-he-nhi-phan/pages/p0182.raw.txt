@@ -1,0 +1,22 @@
+HOÀNG TUẤN
+Nếu ta công giá tri các nhóm quẻ cơ bản, ta sẽ có các giá trí như sau:
+e Nhóm quẻ Càn: 63 + 62+61+60+ã9+58+57+56 = 476 Miền Dương
+e Nhóm quẻ Khám: 23+22+21+20+19+18+17+16 = 156 1008
+e Nhóm quẻ Cấn: 15+14+13+12+11+10+9+8 = 92
+e Nhóm quẻ Chấn: 39+38+37+36+35+34+33+32 = 284
+e Nhóm quẻ Tốn: 31+30+29+28+27+26+25+24 = 220 Miễn Âm
+e Nhóm quẻ Ly : 47+46+45+44+43+42+41+40 = 348 1008
+e Nhóm quẻ Khôn : 7+6+B+4+3+2+1+0 = 28
+e Nhóm quẻ Đoài : 55+54+53+52+51+50+49+48 = 412
+Kết quá là trật tự Hậu thiên của Văn Vương đã đưa lại sự cân bằng
+giữa hai miền âm dương cho 54 quề Trùng quái, mỗi miền 32 quẻ đều
+có tổng giá trị là 1008. Tuy nhiên, trong cả hai cách sắp xếp, các nhóm
+quê đều gồm cả số lẻ (dương) và số chấn (âm), chứ không pbải là sắp
+xếp riêng các số Cơ (dương) riêng các số Ngẫu (âm) riêng. Trong các
+nhóm quẻ đều lần lượt một số “cơ” (đương) lại một số “ngẫu” (Am)
+song đôi nhau. Ví dụ trong nhóm 8 quẻ thuộc Càn, ta thấy : Càn(+),
+Quải(-), Đại Hữu(+), Đại Tráng (-), Tiểu Súc(+), Nhu(-), Đại Súc(+),
+Thái(-). Các nhóm khác cũng thế. Chương sau ta sẽ khảo sát các
+cách sắp xếp khác.
+
+183

@@ -1,0 +1,39 @@
+QUAN NIỆM TƯ TƯỜNG 217
+
+A, B, C trong công thức chỉ tung ba lần. Khả năng xuất hiện
+hào âm bằng chúng, cũng là
+
+111_L
+222. 8
+
+Như vậy, khả năng xuất hiện âm dương sắp xếp được vừa vạn
+8 kiểu:
+
+1- đương dương dương
+
+2- đương dương âm
+
+3 - dương âm đương
+
+4 - dương âm âm
+
+5 - âm đương dương
+
+6 - âm dương âm
+
+7 - âm âm dương
+
+8 - âm âm âm
+
+thay bằng phù hiệu ta được:
+
+Il-==(àn) 2-EE(Tốn) 3-#E(L)  4-E= (cấn)
+
+Ã. =SE (doài) 6- =E (khảm) 7-== (chấn) §- Z= (khôn)
+
+Từ bát quái điễn biến thành 64 quái cũng phù hợp với phép
+tính toán theo luật hoặc nhiên. Khả năng xuất hiện âm dương là 1/
+2, nếu như mỗi khả năng xuất hiện 6 lần chứ không phải ba tần thì
+xác suất là : . `
+
+, p(A.B.C.D.E.F) = P(A) x P(Œ) x P(C) x P(D) x P(E) x PŒ)

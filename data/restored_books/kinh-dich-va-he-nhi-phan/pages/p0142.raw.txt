@@ -1,0 +1,37 @@
+HOÀNG TUẤN
+quá tuổi 60 là bước vào thời kỳ suy giảm r-hừng chức năng sinh học, suy
+giảm hệ nội tiết nói chung. Tuy có người í›, người nhiều, người có những
+biểu hiện rõ rệt, hoặc người không có mấy những rối loạn chức năng,
+nhưng không ai tránh được quá trình tiến hoá có tính qui luật đó. Xã
+hội hiện đại tuy đã có rất nhiều tiến bộ vể mặt y học và mức sống đã
+được nâng cao, tuổi thọ trung bình đã tăng lên một mức đáng kể, nhưng
+nói chung đó là những thành quả về mặt vệ sinh xã hội, chiến thắng
+được các bệnh nhiễm trùng, ký sinh trùng và các nạn dịch, đã hạ thấp
+được tỷ lệ tử vong ở trẻ sơ sinh nên đã nâng cao được tuổi thọ trung
+bình lên khá cao, nhưng thực ra chưa thể ảnh hưởng gì trực tiếp đến
+được quá trình lão hoá của con người cả. Những chu trình sinh học vẫn
+cứ tiếp diễn theo nhịp điệu như từ khi có con người đến nay. Quả tìm
+con người vẫn cứ đập từ 60 đến 70 lần trong một phút. Nhịp thở trung
+bình vẫn cứ bằng 1⁄3 mạch đập...
+
+ð. Dãy số trùng quái là đãy số có ma phương bậc 8.
+
+64 số cuả trùng quái ngoài khả năng xếp thành phương đồ (8 x 8)
+còn có thể sắp xếp thành ma phương bậc 8 với tổng mỗi hàng ngang
+cũng như đọc và hai đường chéo đều bằng 260 (xem hình 32). Khảo sát
+các dãy số của hệ nhị phân, ta thấy dây Bát quái không có rna phương
+nên nó phải mượn ma phương bậc ba của 9 số đơn vị hệ thập phân, tức
+Lạc thư nhưng phải bỏ số ở tâm (Lạc thư hư tâm). Dãy lồ số có ma
+phương bậc bốn. Dãy 32 số (tập hợp ð hàng vạch) không có cả phương
+đô lần ma phương, vì phương đô (5 x ñ) chỉ cần 25 số, còn phương đô (6
+x6) lại cần 86 số. Số 32 đứng giữa hai sấ đó nên không thể có phương đỏ
+và ma phương. Dãy 64 số của tập hợp 6 hàng vạch là một dãy số hoàn
+chỉnh. Chúng có phương đồ 8 x 8 viết từ số nhỏ đến số lớn hay ngược lại,
+theo 8 hàng, mỗi hàng 8 số. Dãy số này củng như các dãy số nhị phân
+khác, đều có hai ma phương. Ở đây là ma phương bậc 8: - nếu lấy từ số
+0, ta có ma phương từ số 0 đến số 63, với mỗi hàng ngang hay dọc cũng
+như hai cạnh chéo đều nhau bằng 252) (xem hình 33a); - nếu lấy từ số
+1, ta có ma phương từ số 1 đến số 64, với mỗi nàng ngang hay dọc củng
+như hai cạnh chéo đều bằng 260 (xem bảng ma phương trang dưới).
+
+143

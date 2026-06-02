@@ -1,0 +1,42 @@
+IX- Tìm quẻ Hỗ trong quẻ Tiên Thiên và xác định
+Thể và Dung trong quê Tiên Thiên
+
+1- Tìm quê Hỗ : Cũng giống như trong bói Dịch, khi ta đã có quẻ
+Tiên Thiên thì tìm quẻ Hỗ bằng cách chỉ lấy 4 hào giữa của quẻ Tiên
+Thiên đó (bỏ hào Thượng và hào Sơ). Ta có :
+
+- Ba hào 5, 4, 3 là Quẻ Thượng của Quẻ Hỗ,
+- Ba hào 4, 3, 2 là Quê Hạ của Quẻ Hồ,
+
+Đối với ba ví dụ trên : — =—=
+
+* Ví dụ 1 : Ông Lê Văn A, què Tiên Thiên là ———= —==
+Phong/Thủy=Hoán. Vậy Quẻ Hỗ của Quê Hoán là O.Hoán QDi
+quẻ Sơn⁄ôi=lDi.
+
+* Vị dụ 2 :Bà Trần Thị B, quẻ Tiên Thiên là “=2 ——
+Địa/Trạch=Lâm. Quẻ Hỗ của Quẻ Lâm là quẻ Ð;a/ = ====
+Lõi-Phục. — —=
+
+O.Lâm O,Phục
+
+* Ví dụ 3: Ông Nguyễn Văn Ơ, quê Tiên Thiên —_— —=—
+là Hòa/Trạch=Khuê. Quẻ Hồ cúa Quẻ Khuê là quẻ¿ ———= — —
+Thuy/Hỏa=Ký Tế. O.Khue Q.Ký Tế
+
+2- Xác định Thể và Dụng trong Quê Tiên Thiên : Cũng như trong
+bói Dịch mỗi quẻ Trùng quái gồm 2 quẻ đơn Thượng và Hạ. Quẻ có Hào
+Biến là quẻ Dụng, quẻ không có Hào Biến là quê Thể. (Khi xác định Thể
+và Dụng trong Quẻ Hậu Thiên củng theo nguyên tắc này). Khi đã xác
+định được Thể và dụng trong quẻ Tiên Thiên ta tiếp tục xác định “Hành”
+của chúng rồi đánh giá quẻ Tiên Thiên là loại “tương sinh”, “tương khác”
+hay “đồng hành” (lấy Thể làm đối tượng). Sau đó lại phải xác định thêm
+Thể và Dụng trong Quẻ Biến để đối chiếu tương tác giữa Thể và Dụng
+xem tốt hay xấu để giải đoán mới có thể đưa ra những kết quả chính xác.
+(Xin xem lại lý thuyết trong Tiểu mục 4, “Xác định Thể và Dụng trong
+quê Dịch” ở mục Bói Dịch bằng Cô Thi ở trên).
+
+eVí dụ 1 : Ông Lê Văn A. Quẻ Tiên Thiên là Phong/Thủy=Hoán, có
+hào 3 biến. Quẻ Hoán gồm hai quẻ đơn : quẻ Thượng là Tốn (Mộc), quẻ
+
+569

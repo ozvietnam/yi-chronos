@@ -1,0 +1,43 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+e Dãy 16 số của tổ hợp bốn hàng vạch. Dãy này có số lớn nhất là 15;
+bán chu kỳ của dãy là 16/2 = 8. Như vậy tổng giá trị của dãy bằng :
+1ỗx8 = 120
+
+Cộng giá trị của tất cả 16 số trong đãy ta củng được tổng số như
+trên.
+
+e Dãy 32 số của tổ hợp năm hàng vạch. Dãy có số lớn nhất là 31;
+bán chu kỳ của đãy là 32/2 = 16. Như vậy tổng giá trị của dãy bằng :
+31x16 = 496.
+
+e Đến lượt dãy 64 số của tổ hợp 6 hàng vạch. Day có số lớn nhất
+là 63; bán chu kỳ của dãy là 64/2 = 32. Tổng giá trị của đãy là:
+63x32 = 2016. .
+
+Giá trị đó cũng đạt được khi cộng tất cả các trị số trong dãy lại.
+
+Cứ như thế, các dãy số lớn hơn sẽ có những giá trị lớn hơn. Những
+tổng giá trị đó có thể coi như những nguồn năng lượng nội tại của các
+dãy số, mang tính bản thể của chúng. Chúng có thể biến dịch trong
+phạm vi của dãy nhưng tổng giá trị của từng đãy là không đổi; số này ít
+thì số kia nhiều, âm tăng thì dương giảm và ngược lại. Cái đã tiêu hao
+trong quá khứ nhiều thì cái sẽ có trong tương lai sẽ ít đi. Cái giảm trong
+tiền vận là cái tăng trong hậu lai. Còn thời gian những biến dịch đó xảy
+ra là tuỳ từng việc, ngắn thì tính bằng giờ phút, ngày, tuần; đài thì tính
+bằng tháng, năm, một đời người, hay nhiều thế kỷ. Cũng như thời tiết ˆ
+bốn mùa có tính tuần hoàn đối xứng, hết lạnh đến nóng, hết đông sang
+xuân; nơi này oi nóng thì nơi kia gió mát, vùng này hạn hán thì vùng
+kia bão lụt; năng lượng của các dãy số không mất đi, không thêm ra, nó
+chỉ biến dịch mà thôi. Xã hội con người củng thế, khi thịnh khi suy, lúc
+cường lúc nhược. Lịch sử các nền văn mình đã chứng tỏ nguyên lý đó.
+Rất nhiều nền văn minh huy hoàng trong quá khứ ởã bị suy tàn; hết,
+thời kỳ phương Đông thịnh lại đến phương Tây lên ngôi. Chưa có gì bảo
+đảm chắc chắn rằng.nên văn minh công nghiệp hiện đại lại không bị
+suy tàn do những nghịch lý bản thân nền văn minh đó gây ra, như nạn
+ð nhiễm nặng nề ngày một gia tăng đối với môi trường sống, hiệu ứng
+nhà kính gây tăng nhiệt độ trái đất có thể làm tan những khối băng lớn
+đã từng tồn tại hàng ngàn vạn năm ở hai cực địa câu, tạo ra nạn hồng
+thuỷ mới, sự bùng nổ quá mức đân số làm thu hẹp điện tích rừng toàn
+cầu gây nên lụt lội, lũ quét, nạn xói mòn, bạc đất, sa mạc hoá v.v...,
+166

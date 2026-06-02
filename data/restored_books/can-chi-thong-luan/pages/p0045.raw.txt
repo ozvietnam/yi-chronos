@@ -1,0 +1,33 @@
+42 ĐẠI TIỂU VẬN VÀ LƯU NIÊN
+
+2. Dương nữ âm nam: Tính ngược lại. Lấy ngày
+giờ lúc sinh làm chuẩn. sau đó tính ngược lại ngày giờ
+trung tiết trước xem được mấy ngày mấy giờ.
+
+3. Ngày sinh và ngày trung tiết không tính. chỉ
+tính số giờ.
+
+4. Sau khi đếm số ngày và giờ xong lại tính tiếp.
+Lấy 3 ngày, tính là một tuổi, một ngày tính là 4 tháng, một
+giờ tính là 10 ngày thì sẽ ra được số tuổi khổi đại vận.
+
+# Vị dụ I:
+
+1. Mệnh nam sinh giờ đậu ngày 23 tháng 1 năm
+Định mão (Năm can thuộc âm) tính vận ngược. Từ ngày
+giờ sinh tính ngược đến Trung tiết trước (Lập xuân) thì
+dừng. cộng xem số ngày giờ bao nhiêu.
+
+2. Lập xuân giờ thân ngày 7 tháng 1. Ngày sinh
+giờ đậu 23 tháng 1.
+
+3. Ngày sinh và ngày Trung tiết không tính, chỉ
+tính số giờ. Lập xuân giờ thân (từ giờ thân tính đến giờ
+tý) hôm đó được 4 giờ, ngày sinh giờ dận (tt giờ tý tính
+đến giờ đậu) hôm đó được 9 giờ cộng lại được 13 giờ.
+
+4. Số 2 ngày đầu và cuối không tính thì 23 ngày
+trừ đi một ngày. lại trừ đi 7 ngày còn 15 ngày.
+
+5. Lấy 15 ngày chia cho 3 để lấy năm tuổi khỏi
+đại vận là 5 tuổi. còn 13 giờ thì tính là 130 ngày khoảng

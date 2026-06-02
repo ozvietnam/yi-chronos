@@ -1,0 +1,32 @@
+22 BẢN NẠP ÂM GIÁP TÝ
+
+1. Bắt đầu của mỗi năm lấy ngày Lập xuân làm
+chuẩn mà tính là ngày 1 tháng 1. Lại dựa theo ngày giờ
+ghi của lịch thế kỷ, ngày giờ trước Lập xuân vẫn tính là
+năm trước.
+
+Ví dụ: Can chỉ nầm 1995 là ất hợi, Lập xuân ngày
+B5 tháng giêng, thì từ ngày ð tháng 1 trở đi tính là năm
+ất hợi, còn trước ngày 5 tháng 1 thì tính năm can chỉ là
+giáp tuất.
+
+2. Bắt đầu của mỗi tháng lấy ngày giờ Trung tiết
+làm chuẩn mà tính ngày mùng một của tháng. Dựa theo
+ngày giờ ghi của lịch thế kỷ. Ngày giờ trước Trung tiết
+coi như là của tháng trước.
+
+Ví dụ: 5 giờ ngày 6 tháng 3 năm 1995 Thanh
+mình thì từ 5 giờ ngày 6 tháng 3 trở đi thì tính là
+tháng canh thìn. Trước 5 giờ ngày 6 tháng 3 vẫn tính
+là tháng Kỷ mão.
+
+3. Đầu tiên của một ngày lấy giờ tý (23 giờ đến 1
+giờ) làm chuẩn quá 11 giờ thì tính theo ngày mới.
+
+Ví như ngày Bính thân quá 11 giờ là thuộc ngày
+Đỉnh dậu.
+
+3. Phương pháp sắp xếp tứ trụ tám chữ.
+
+Tứ trụ tám chữ là dựa theo năm tháng ngày giờ
+can chỉ, gọi là nàm trụ, tháng trụ, ngày trụ, và giờ trụ.

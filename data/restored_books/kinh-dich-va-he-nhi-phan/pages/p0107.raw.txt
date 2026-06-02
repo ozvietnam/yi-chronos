@@ -1,0 +1,43 @@
+HOÀNG TUẤN
+7 Cấn - 1 7+1=8
+8 Khôn - 0 0+8=8
+
+Nếu đánh số thư tự thuận thì ta không thể có một kết quả thống
+nhất như trên.
+
+Chúng ta đã biết, việc phát hiện ra con số 0 và đưa được nó vào
+phép tính toán là một phát minh lớn và là một bước nhảy vọt trong tư
+duy toán học của người xưa, mà mãi nhiều thế kỷ sau công nguyên
+con người mới đạt đến. Số 0 hiện đại được người Ấn Độ tìm ra, càng
+với phưỡñg pháp tính toán có số 0 nó được truyền sang châu Âu
+thông qua người Á Rạp. Nghiên cứu Dịch chúng ta lại thấy rằng, với
+sự phát Riện ra cách viết các con số theo hệ nhị tiến bằng hai ký
+hiệu âm đương, chính người Trung Quốc xưa mới là người tìm ra
+con số 0 đầu tiên từ nhiều thiên niên kỷ trước công lịch (với ký hiệu là
+vạch đứt (- -), nhưng việc đưa nó vào các phép tính cơ bản thì lại sau
+người Ấn Độ và châu Âu.
+
+Với cách đánh số ngược như trên, 64 quê “trùng quái của tập hợp 6
+hàng vạch, cũng được đọc ngược từ số 63 đến số 1 và số 0. Như vậy
+chúng ta cũng luôn luồn được số 64 nếu cộng số thứ tự và trị số của mỗi
+số với nhau. l
+
+Thực ra vấn đề đọc ngược côn nằm trong ẩn ý sâu xa về mặt triết
+học mang một phần tính chất siêu hình của Dịch. Như ta đá khảo sát,
+vũ trụ nguyên thuỷ là từ “không” đến “có”, tức từ “am” sang “dương”, đó
+là chiều thuận. Tuy nhiên, khí vú trụ đã hình thành, thì cái “có” đầu
+tiên là “1”, có số 1 mới đến số 2. Số 1 là số lẻ thuộc dương, số tiếp theo 2
+là số chãn thuộc âm, rỏi lại đến số 3 dương, số 4 âm và cứ thế tiếp diễn.
+Các con số được sinh ra theo từng cặp “dương-âm” liên tiếp nhau. Chính
+vì đó mà Dịch phải đọc ngược “từ dương đến âm” chứ không phải từ “âm
+đến dương” như thuở ban đầu khi hình thành ra thế giới.
+
+Đây cũng là một điều cơ bản trong phép dự báo của Dịch, mà Chu
+Hy đã giải thích: ˆ
+
+“Để hiểu cái đã xây ra thì theo chiểu thuận (tức chiều từ âm đến
+dương), để biết cái sắp tới thì phải theo chiều nghịch (tức chiều từ dương
+sang âm), Cái “dụng” của Dịch là dùng để dự báo tương lai, cho nên
+Dịch phải đọc ngược. Từ đó chúng ta cũng có thể hiểu một cách vững
+
+109

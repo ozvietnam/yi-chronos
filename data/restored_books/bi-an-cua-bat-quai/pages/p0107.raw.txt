@@ -1,0 +1,11 @@
+108 Bí ẨN CỦA BÁT QUÁI
+Hình 12
+"Lưỡng nghi sinh tứ tượng". Tứ tượng có thể dùng biểu đồ tọa
+độ đẻ biểu thị, âm (nhỏ hơn 0) và đương (lớn hơn 0) của các tượng
+hoàn toàn phù hợp với phù hiệu trên trục x và y.
+"Tứ tượng sinh bát quái”. Bát quái thể hiện tư tưởng sắp xếp
+theo tổ hợp. Cách sắp xếp này hoàn toàn thỏa đáng:
+=£ âm +âm +âm =EŠ dương + âm + âm
+= dương + dương + đương + âm + dương + đương
+= dương + dương + âm E âm + dương + âm
+E=EZ âm+âm + dương == dương + ám + dương

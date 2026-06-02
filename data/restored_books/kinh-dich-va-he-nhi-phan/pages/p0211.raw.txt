@@ -1,0 +1,46 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+ta hãy khảo sát thêm về giá trị “số” của chúng.
+
+1X. Giá trị các “trùnir quái “ so với các “đơn quát”.
+
+Ta đã biết Trùng quái gồm 2 đơn quái phối hợp “quẻ Thượng” (Ngoại)
+và “quẻ Hạ” (Nội). Khi đánh số “Hào” các trùng quái ta đánh từ dưới
+lên; như vậy quẻ Thượng gồm ba hào 4-5-6, còn quê Hạ gồm ba hào 1-2-
+3. Ta có các giá trị sau :
+
+1. Giá trị của các quẻ thượng (quẻ ngoai) :
+
+Giá trị các quẻ thượng (hay quẻ ngoại) bằng giá trị các đơn quái, có
+nghĩa là : Càn (thương) = 7, Đoài (thương) = 6, Ly (thượng) = 5, Chấn
+(thương) = 4, Tốn (thương) = 3, Khảm (thương) = 2, Cấn (thương) = 1,
+Kkhôn (thương) = 0. Và tổng giá trị 8 quê thượng bằng tổng giá trị 8 quê
+cơ bản, tức = 28.
+
+2. Giá trị của các quẻ hạ (quẻ nội) :
+
+(Ba hào quề nội là : - Hào 3 = 0 hoặc 8; - Hào 2 = 0 hoặc 16; - Hào
+1 = 0 hoặc 32). Ta có giá trị các quê hạ (nội) bằng 8 lần quê thượng
+(ngoại) tương ứng : Càn (ha) = 7x8=B6; Đoài (ha) = 6x8=48; Lv (ha) =
+ãx8=40; Chấn (ha) = 4x8=32: tốn(ha) = 3x8=24; Khảm(ha) = 2x8=16;
+Cấn (ha) = 1x8=8: Khôn (ha) = 0x8=0. Và tổng giá trị 8 quẻ Hạ (nội)
+bằng : 56 + 48 + 40 + 32 + 24 + 16 + 8 +0 = 224 (hay 8 lần tổng giá trị
+8 đơn quái = 28x8). .
+
+3. Giá trị số của các Trùng quái.
+
+Giá trị số của các trùng quái là giá trị của quẻ Thượng (ngoạ1) cộng
+với giá trị của quẻ Hạ (nội). Như vậy mỗi quẻ trùng quái có giá trị số lớn
+gấp 9 lần mỗi đơn quái tương ứng : Thuần Càn = 7x9 = 63: Thuần Đoài
+= 6x9 = 54; Thuần Ly = ðx9 = 45; Thuần Chấn = 4x9 = 36; Thuần Tốn
+= 3x9 = 27: Tâp Khảm = 2x9 = 18: Thuần Cấn = 1x8 = 9: Thuần Khôn =
+0x9 =0.
+
+Tổng giá trị 8 trùng quái cơ bản cũng bằng 9 lần tổng giá trị 8 đơn
+quải cơ bản : 63 + ð4 + 4ð + 36 + 27 + 18 + 9 + 0 = 2ã2 hay 28x98 = 2ã2.
+IL Sự thăng giáng của các hào âm dương trong hai quẻ
+
+“Thuần càn” và “Thuần Khôn”:
+
+Nếu ta sắp xếp 6 hào đương của hai quẻ này lần lượt biến sang âm
+
+312

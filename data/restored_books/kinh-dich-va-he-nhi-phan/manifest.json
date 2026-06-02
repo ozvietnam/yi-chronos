@@ -1,0 +1,6751 @@
+{
+  "book_id": "kinh-dich-va-he-nhi-phan",
+  "source_pdf": "thư viện sách/Kinh Dich va he nhi phan.pdf",
+  "page_range": [
+    1,
+    842
+  ],
+  "total_pages": 842,
+  "total_seconds": 14533.3,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 26.65,
+      "raw_chars": 113,
+      "cleaned_chars": 161,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 22.35,
+      "raw_chars": 129,
+      "cleaned_chars": 119,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 78.33,
+      "raw_chars": 2284,
+      "cleaned_chars": 2231,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.13,
+      "cleanup_seconds": 26.27,
+      "raw_chars": 64,
+      "cleaned_chars": 40,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 47.79,
+      "raw_chars": 1669,
+      "cleaned_chars": 1582,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 59.04,
+      "raw_chars": 2235,
+      "cleaned_chars": 2290,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 58.36,
+      "raw_chars": 2337,
+      "cleaned_chars": 2334,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 33.1,
+      "raw_chars": 781,
+      "cleaned_chars": 574,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 55.48,
+      "raw_chars": 2414,
+      "cleaned_chars": 2367,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 45.87,
+      "raw_chars": 2011,
+      "cleaned_chars": 2011,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 53.01,
+      "raw_chars": 2080,
+      "cleaned_chars": 2099,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 49.96,
+      "raw_chars": 2090,
+      "cleaned_chars": 2106,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 49.98,
+      "raw_chars": 2272,
+      "cleaned_chars": 2189,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 66.48,
+      "raw_chars": 2276,
+      "cleaned_chars": 2186,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 65.27,
+      "raw_chars": 2285,
+      "cleaned_chars": 2293,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 43.31,
+      "raw_chars": 2390,
+      "cleaned_chars": 2417,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 54.58,
+      "raw_chars": 2220,
+      "cleaned_chars": 2097,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 60.31,
+      "raw_chars": 2216,
+      "cleaned_chars": 2131,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 55.94,
+      "raw_chars": 2172,
+      "cleaned_chars": 2170,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 65.62,
+      "raw_chars": 2456,
+      "cleaned_chars": 2458,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 50.38,
+      "raw_chars": 2289,
+      "cleaned_chars": 2280,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 52.11,
+      "raw_chars": 1396,
+      "cleaned_chars": 1452,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 48.46,
+      "raw_chars": 1747,
+      "cleaned_chars": 1710,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 44.34,
+      "raw_chars": 2235,
+      "cleaned_chars": 2276,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 39.8,
+      "raw_chars": 1725,
+      "cleaned_chars": 1746,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 1.08,
+      "cleanup_seconds": 61.7,
+      "raw_chars": 2504,
+      "cleaned_chars": 2515,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 42.3,
+      "raw_chars": 1875,
+      "cleaned_chars": 1861,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 54.7,
+      "raw_chars": 2172,
+      "cleaned_chars": 1854,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 52.07,
+      "raw_chars": 2087,
+      "cleaned_chars": 2003,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 44.11,
+      "raw_chars": 2161,
+      "cleaned_chars": 2159,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 64.08,
+      "raw_chars": 2238,
+      "cleaned_chars": 2001,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 56.41,
+      "raw_chars": 2017,
+      "cleaned_chars": 1972,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 42.72,
+      "raw_chars": 2254,
+      "cleaned_chars": 2257,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 44.74,
+      "raw_chars": 1380,
+      "cleaned_chars": 1373,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 51.75,
+      "raw_chars": 1673,
+      "cleaned_chars": 1682,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 56.71,
+      "raw_chars": 2169,
+      "cleaned_chars": 2051,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 51.43,
+      "raw_chars": 1901,
+      "cleaned_chars": 1800,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 53.19,
+      "raw_chars": 1344,
+      "cleaned_chars": 1210,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 29.77,
+      "raw_chars": 855,
+      "cleaned_chars": 734,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 51.46,
+      "raw_chars": 1389,
+      "cleaned_chars": 1235,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 39.86,
+      "raw_chars": 1942,
+      "cleaned_chars": 1848,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 47.4,
+      "raw_chars": 1230,
+      "cleaned_chars": 1229,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 58.82,
+      "raw_chars": 1806,
+      "cleaned_chars": 1828,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 60.6,
+      "raw_chars": 1591,
+      "cleaned_chars": 1691,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 41.93,
+      "raw_chars": 1898,
+      "cleaned_chars": 1883,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 34.28,
+      "raw_chars": 643,
+      "cleaned_chars": 547,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 22.88,
+      "raw_chars": 180,
+      "cleaned_chars": 47,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 20.36,
+      "raw_chars": 103,
+      "cleaned_chars": 37,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.37,
+      "cleanup_seconds": 25.35,
+      "raw_chars": 353,
+      "cleaned_chars": 164,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 28.8,
+      "raw_chars": 316,
+      "cleaned_chars": 85,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 24.41,
+      "raw_chars": 245,
+      "cleaned_chars": 75,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 25.67,
+      "raw_chars": 794,
+      "cleaned_chars": 89,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 50.3,
+      "raw_chars": 1677,
+      "cleaned_chars": 1661,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 65.09,
+      "raw_chars": 2518,
+      "cleaned_chars": 2550,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 53.44,
+      "raw_chars": 1753,
+      "cleaned_chars": 1751,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 57.55,
+      "raw_chars": 1637,
+      "cleaned_chars": 1704,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 54.31,
+      "raw_chars": 2024,
+      "cleaned_chars": 2080,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 41.93,
+      "raw_chars": 2023,
+      "cleaned_chars": 2018,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 44.22,
+      "raw_chars": 1622,
+      "cleaned_chars": 1541,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.17,
+      "raw_chars": 906,
+      "cleaned_chars": 951,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 47.81,
+      "raw_chars": 499,
+      "cleaned_chars": 611,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 45.38,
+      "raw_chars": 454,
+      "cleaned_chars": 747,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 31.94,
+      "raw_chars": 463,
+      "cleaned_chars": 516,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 58.55,
+      "raw_chars": 1305,
+      "cleaned_chars": 1341,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 50.16,
+      "raw_chars": 1213,
+      "cleaned_chars": 1324,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 62.8,
+      "raw_chars": 760,
+      "cleaned_chars": 935,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 60.91,
+      "raw_chars": 1645,
+      "cleaned_chars": 1739,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 51.17,
+      "raw_chars": 1815,
+      "cleaned_chars": 1833,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 56.89,
+      "raw_chars": 2253,
+      "cleaned_chars": 2230,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 53.12,
+      "raw_chars": 1859,
+      "cleaned_chars": 1653,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 40.61,
+      "raw_chars": 1390,
+      "cleaned_chars": 1421,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 33.37,
+      "raw_chars": 519,
+      "cleaned_chars": 515,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 38.7,
+      "raw_chars": 1480,
+      "cleaned_chars": 1440,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 66.26,
+      "raw_chars": 2072,
+      "cleaned_chars": 2073,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 42.41,
+      "raw_chars": 2088,
+      "cleaned_chars": 2011,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 63.14,
+      "raw_chars": 2438,
+      "cleaned_chars": 2468,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 48.58,
+      "raw_chars": 1166,
+      "cleaned_chars": 1107,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 56.82,
+      "raw_chars": 2208,
+      "cleaned_chars": 2312,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 11.97,
+      "raw_chars": 69,
+      "cleaned_chars": 38,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 62.32,
+      "raw_chars": 1836,
+      "cleaned_chars": 1866,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 61.03,
+      "raw_chars": 2182,
+      "cleaned_chars": 2217,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 49.76,
+      "raw_chars": 1458,
+      "cleaned_chars": 1265,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 48.21,
+      "raw_chars": 2531,
+      "cleaned_chars": 2549,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 56.3,
+      "raw_chars": 2316,
+      "cleaned_chars": 2345,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 46.72,
+      "raw_chars": 1621,
+      "cleaned_chars": 1530,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 1.04,
+      "cleanup_seconds": 61.61,
+      "raw_chars": 2381,
+      "cleaned_chars": 2394,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 41.68,
+      "raw_chars": 1391,
+      "cleaned_chars": 1176,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 39.09,
+      "raw_chars": 1231,
+      "cleaned_chars": 1225,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 54.73,
+      "raw_chars": 1661,
+      "cleaned_chars": 1649,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 61.12,
+      "raw_chars": 2215,
+      "cleaned_chars": 2234,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 55.82,
+      "raw_chars": 2397,
+      "cleaned_chars": 2408,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 47.7,
+      "raw_chars": 1767,
+      "cleaned_chars": 1793,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 66.51,
+      "raw_chars": 2178,
+      "cleaned_chars": 2473,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 41.78,
+      "raw_chars": 1070,
+      "cleaned_chars": 1176,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 49.0,
+      "raw_chars": 1827,
+      "cleaned_chars": 1818,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 17.71,
+      "raw_chars": 302,
+      "cleaned_chars": 20,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 57.5,
+      "raw_chars": 2214,
+      "cleaned_chars": 2222,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 49.15,
+      "raw_chars": 2366,
+      "cleaned_chars": 2369,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 43.0,
+      "raw_chars": 1933,
+      "cleaned_chars": 1879,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 57.15,
+      "raw_chars": 2077,
+      "cleaned_chars": 2203,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 49.77,
+      "raw_chars": 1672,
+      "cleaned_chars": 1704,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 43.61,
+      "raw_chars": 1567,
+      "cleaned_chars": 1561,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 66.23,
+      "raw_chars": 2125,
+      "cleaned_chars": 2221,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 54.46,
+      "raw_chars": 1452,
+      "cleaned_chars": 1366,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 47.48,
+      "raw_chars": 1561,
+      "cleaned_chars": 1552,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 62.63,
+      "raw_chars": 1765,
+      "cleaned_chars": 1921,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 44.69,
+      "raw_chars": 2019,
+      "cleaned_chars": 2137,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 58.72,
+      "raw_chars": 1693,
+      "cleaned_chars": 1641,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 55.52,
+      "raw_chars": 1981,
+      "cleaned_chars": 1851,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 59.86,
+      "raw_chars": 1740,
+      "cleaned_chars": 1806,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 45.17,
+      "raw_chars": 1549,
+      "cleaned_chars": 1348,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 60.21,
+      "raw_chars": 2176,
+      "cleaned_chars": 2014,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 50.16,
+      "raw_chars": 1570,
+      "cleaned_chars": 1298,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 60.78,
+      "raw_chars": 2429,
+      "cleaned_chars": 2398,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 34.42,
+      "raw_chars": 1017,
+      "cleaned_chars": 985,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 30.78,
+      "raw_chars": 1012,
+      "cleaned_chars": 737,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 56.22,
+      "raw_chars": 1738,
+      "cleaned_chars": 1846,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 45.81,
+      "raw_chars": 2031,
+      "cleaned_chars": 2067,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 59.48,
+      "raw_chars": 2282,
+      "cleaned_chars": 2269,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 40.12,
+      "raw_chars": 1203,
+      "cleaned_chars": 1168,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 54.82,
+      "raw_chars": 1684,
+      "cleaned_chars": 1722,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 57.34,
+      "raw_chars": 2157,
+      "cleaned_chars": 2154,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 47.89,
+      "raw_chars": 1596,
+      "cleaned_chars": 1584,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 53.89,
+      "raw_chars": 1916,
+      "cleaned_chars": 1894,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 36.76,
+      "raw_chars": 1583,
+      "cleaned_chars": 1392,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 53.1,
+      "raw_chars": 2187,
+      "cleaned_chars": 2193,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 38.18,
+      "raw_chars": 755,
+      "cleaned_chars": 619,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 50.37,
+      "raw_chars": 986,
+      "cleaned_chars": 672,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 50.77,
+      "raw_chars": 1173,
+      "cleaned_chars": 1198,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 57.25,
+      "raw_chars": 1939,
+      "cleaned_chars": 1984,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 37.61,
+      "raw_chars": 1054,
+      "cleaned_chars": 771,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 58.76,
+      "raw_chars": 2058,
+      "cleaned_chars": 2052,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 60.71,
+      "raw_chars": 2086,
+      "cleaned_chars": 2189,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 62.96,
+      "raw_chars": 1872,
+      "cleaned_chars": 2060,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 53.44,
+      "raw_chars": 1514,
+      "cleaned_chars": 1497,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 58.25,
+      "raw_chars": 2049,
+      "cleaned_chars": 2137,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 37.35,
+      "raw_chars": 792,
+      "cleaned_chars": 718,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 49.31,
+      "raw_chars": 1609,
+      "cleaned_chars": 1619,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 63.58,
+      "raw_chars": 2236,
+      "cleaned_chars": 2293,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 61.95,
+      "raw_chars": 1830,
+      "cleaned_chars": 1713,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 44.83,
+      "raw_chars": 2048,
+      "cleaned_chars": 2066,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 52.14,
+      "raw_chars": 2164,
+      "cleaned_chars": 2185,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 36.31,
+      "raw_chars": 830,
+      "cleaned_chars": 768,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 52.25,
+      "raw_chars": 976,
+      "cleaned_chars": 2285,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 66.1,
+      "raw_chars": 1044,
+      "cleaned_chars": 1871,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 29.44,
+      "raw_chars": 678,
+      "cleaned_chars": 549,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 64.4,
+      "raw_chars": 2277,
+      "cleaned_chars": 2338,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 36.28,
+      "raw_chars": 951,
+      "cleaned_chars": 961,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 33.07,
+      "raw_chars": 908,
+      "cleaned_chars": 712,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 55.35,
+      "raw_chars": 1533,
+      "cleaned_chars": 1524,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 55.46,
+      "raw_chars": 1934,
+      "cleaned_chars": 1953,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 43.85,
+      "raw_chars": 2019,
+      "cleaned_chars": 2030,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 44.52,
+      "raw_chars": 1169,
+      "cleaned_chars": 1179,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 24.76,
+      "raw_chars": 713,
+      "cleaned_chars": 42,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 45.89,
+      "raw_chars": 1629,
+      "cleaned_chars": 1558,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 30.07,
+      "raw_chars": 651,
+      "cleaned_chars": 269,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 54.01,
+      "raw_chars": 1157,
+      "cleaned_chars": 1088,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 46.43,
+      "raw_chars": 910,
+      "cleaned_chars": 835,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 51.97,
+      "raw_chars": 1522,
+      "cleaned_chars": 1658,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 71.0,
+      "raw_chars": 2063,
+      "cleaned_chars": 2134,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 68.33,
+      "raw_chars": 2180,
+      "cleaned_chars": 2128,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 60.17,
+      "raw_chars": 2000,
+      "cleaned_chars": 1877,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 54.68,
+      "raw_chars": 2032,
+      "cleaned_chars": 2089,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 62.35,
+      "raw_chars": 2357,
+      "cleaned_chars": 2383,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 61.07,
+      "raw_chars": 2218,
+      "cleaned_chars": 2214,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 50.4,
+      "raw_chars": 2381,
+      "cleaned_chars": 2382,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 67.99,
+      "raw_chars": 2101,
+      "cleaned_chars": 2109,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 50.12,
+      "raw_chars": 1701,
+      "cleaned_chars": 1709,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 38.44,
+      "raw_chars": 1656,
+      "cleaned_chars": 1414,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 32.3,
+      "raw_chars": 430,
+      "cleaned_chars": 192,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 27.34,
+      "raw_chars": 354,
+      "cleaned_chars": 20,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 44.56,
+      "raw_chars": 1145,
+      "cleaned_chars": 1181,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 58.05,
+      "raw_chars": 1567,
+      "cleaned_chars": 1653,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 38.33,
+      "raw_chars": 552,
+      "cleaned_chars": 1035,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 34.83,
+      "raw_chars": 512,
+      "cleaned_chars": 442,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 42.17,
+      "raw_chars": 442,
+      "cleaned_chars": 748,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 59.65,
+      "raw_chars": 2280,
+      "cleaned_chars": 2314,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 66.31,
+      "raw_chars": 2177,
+      "cleaned_chars": 2124,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 46.18,
+      "raw_chars": 2246,
+      "cleaned_chars": 2245,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 69.74,
+      "raw_chars": 2389,
+      "cleaned_chars": 2482,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 60.11,
+      "raw_chars": 1953,
+      "cleaned_chars": 2150,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 50.48,
+      "raw_chars": 1103,
+      "cleaned_chars": 1249,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 45.09,
+      "raw_chars": 778,
+      "cleaned_chars": 787,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 49.34,
+      "raw_chars": 1785,
+      "cleaned_chars": 1822,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 76.7,
+      "raw_chars": 1605,
+      "cleaned_chars": 2377,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 43.87,
+      "raw_chars": 1923,
+      "cleaned_chars": 1817,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.21,
+      "cleanup_seconds": 26.47,
+      "raw_chars": 206,
+      "cleaned_chars": 182,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 62.64,
+      "raw_chars": 2199,
+      "cleaned_chars": 2337,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 48.18,
+      "raw_chars": 1284,
+      "cleaned_chars": 1187,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 60.6,
+      "raw_chars": 2244,
+      "cleaned_chars": 2247,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 54.01,
+      "raw_chars": 2331,
+      "cleaned_chars": 2478,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 66.82,
+      "raw_chars": 2101,
+      "cleaned_chars": 2209,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 54.93,
+      "raw_chars": 1798,
+      "cleaned_chars": 1971,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 44.67,
+      "raw_chars": 1889,
+      "cleaned_chars": 1935,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 60.02,
+      "raw_chars": 1900,
+      "cleaned_chars": 1943,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 47.57,
+      "raw_chars": 2115,
+      "cleaned_chars": 2117,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 52.02,
+      "raw_chars": 2187,
+      "cleaned_chars": 2226,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 64.88,
+      "raw_chars": 2106,
+      "cleaned_chars": 2125,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0198.md"
+    },
+    {
+      "page": 199,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 63.12,
+      "raw_chars": 2022,
+      "cleaned_chars": 2293,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0199.md"
+    },
+    {
+      "page": 200,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 57.32,
+      "raw_chars": 2045,
+      "cleaned_chars": 2070,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0200.md"
+    },
+    {
+      "page": 201,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 47.41,
+      "raw_chars": 1947,
+      "cleaned_chars": 1962,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0201.md"
+    },
+    {
+      "page": 202,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 40.08,
+      "raw_chars": 1238,
+      "cleaned_chars": 1054,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0202.md"
+    },
+    {
+      "page": 203,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 52.54,
+      "raw_chars": 1015,
+      "cleaned_chars": 1529,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0203.md"
+    },
+    {
+      "page": 204,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 59.38,
+      "raw_chars": 1146,
+      "cleaned_chars": 1953,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0204.md"
+    },
+    {
+      "page": 205,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 53.68,
+      "raw_chars": 1878,
+      "cleaned_chars": 1905,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0205.md"
+    },
+    {
+      "page": 206,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 41.74,
+      "raw_chars": 1483,
+      "cleaned_chars": 1428,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0206.md"
+    },
+    {
+      "page": 207,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 53.33,
+      "raw_chars": 1102,
+      "cleaned_chars": 1454,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0207.md"
+    },
+    {
+      "page": 208,
+      "ocr_seconds": 0.39,
+      "cleanup_seconds": 37.42,
+      "raw_chars": 621,
+      "cleaned_chars": 804,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0208.md"
+    },
+    {
+      "page": 209,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 34.62,
+      "raw_chars": 374,
+      "cleaned_chars": 434,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0209.md"
+    },
+    {
+      "page": 210,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 65.17,
+      "raw_chars": 1763,
+      "cleaned_chars": 1788,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0210.md"
+    },
+    {
+      "page": 211,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 58.09,
+      "raw_chars": 1863,
+      "cleaned_chars": 2222,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0211.md"
+    },
+    {
+      "page": 212,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 48.47,
+      "raw_chars": 1610,
+      "cleaned_chars": 1564,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0212.md"
+    },
+    {
+      "page": 213,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 45.24,
+      "raw_chars": 1145,
+      "cleaned_chars": 1320,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0213.md"
+    },
+    {
+      "page": 214,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 55.03,
+      "raw_chars": 2020,
+      "cleaned_chars": 2023,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0214.md"
+    },
+    {
+      "page": 215,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 60.93,
+      "raw_chars": 2279,
+      "cleaned_chars": 2266,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0215.md"
+    },
+    {
+      "page": 216,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 42.16,
+      "raw_chars": 959,
+      "cleaned_chars": 1018,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0216.md"
+    },
+    {
+      "page": 217,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 49.97,
+      "raw_chars": 1246,
+      "cleaned_chars": 1214,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0217.md"
+    },
+    {
+      "page": 218,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 50.47,
+      "raw_chars": 2181,
+      "cleaned_chars": 2274,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0218.md"
+    },
+    {
+      "page": 219,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 82.36,
+      "raw_chars": 2050,
+      "cleaned_chars": 2069,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0219.md"
+    },
+    {
+      "page": 220,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 66.66,
+      "raw_chars": 2174,
+      "cleaned_chars": 2151,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0220.md"
+    },
+    {
+      "page": 221,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 62.93,
+      "raw_chars": 1961,
+      "cleaned_chars": 1988,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0221.md"
+    },
+    {
+      "page": 222,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 75.51,
+      "raw_chars": 1385,
+      "cleaned_chars": 1765,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0222.md"
+    },
+    {
+      "page": 223,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 45.58,
+      "raw_chars": 1591,
+      "cleaned_chars": 1542,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0223.md"
+    },
+    {
+      "page": 224,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 52.83,
+      "raw_chars": 994,
+      "cleaned_chars": 1002,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0224.md"
+    },
+    {
+      "page": 225,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 57.74,
+      "raw_chars": 1928,
+      "cleaned_chars": 1871,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0225.md"
+    },
+    {
+      "page": 226,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 78.77,
+      "raw_chars": 2123,
+      "cleaned_chars": 2094,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0226.md"
+    },
+    {
+      "page": 227,
+      "ocr_seconds": 1.34,
+      "cleanup_seconds": 54.97,
+      "raw_chars": 2408,
+      "cleaned_chars": 1800,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0227.md"
+    },
+    {
+      "page": 228,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 74.5,
+      "raw_chars": 2224,
+      "cleaned_chars": 2326,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0228.md"
+    },
+    {
+      "page": 229,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 58.38,
+      "raw_chars": 1449,
+      "cleaned_chars": 1336,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0229.md"
+    },
+    {
+      "page": 230,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 62.44,
+      "raw_chars": 2289,
+      "cleaned_chars": 2286,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0230.md"
+    },
+    {
+      "page": 231,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 57.9,
+      "raw_chars": 2214,
+      "cleaned_chars": 2209,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0231.md"
+    },
+    {
+      "page": 232,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 58.02,
+      "raw_chars": 2242,
+      "cleaned_chars": 2224,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0232.md"
+    },
+    {
+      "page": 233,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 60.72,
+      "raw_chars": 2169,
+      "cleaned_chars": 2172,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0233.md"
+    },
+    {
+      "page": 234,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 57.07,
+      "raw_chars": 2159,
+      "cleaned_chars": 2145,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0234.md"
+    },
+    {
+      "page": 235,
+      "ocr_seconds": 0.97,
+      "cleanup_seconds": 60.6,
+      "raw_chars": 2396,
+      "cleaned_chars": 2373,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0235.md"
+    },
+    {
+      "page": 236,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 12.93,
+      "raw_chars": 57,
+      "cleaned_chars": 26,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0236.md"
+    },
+    {
+      "page": 237,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 47.0,
+      "raw_chars": 1604,
+      "cleaned_chars": 1612,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0237.md"
+    },
+    {
+      "page": 238,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 38.85,
+      "raw_chars": 1939,
+      "cleaned_chars": 1942,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0238.md"
+    },
+    {
+      "page": 239,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 27.71,
+      "raw_chars": 455,
+      "cleaned_chars": 433,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0239.md"
+    },
+    {
+      "page": 240,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 23.11,
+      "raw_chars": 237,
+      "cleaned_chars": 59,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0240.md"
+    },
+    {
+      "page": 241,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 59.5,
+      "raw_chars": 1914,
+      "cleaned_chars": 1944,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0241.md"
+    },
+    {
+      "page": 242,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 56.69,
+      "raw_chars": 2507,
+      "cleaned_chars": 2569,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0242.md"
+    },
+    {
+      "page": 243,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 62.65,
+      "raw_chars": 2472,
+      "cleaned_chars": 2516,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0243.md"
+    },
+    {
+      "page": 244,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 47.16,
+      "raw_chars": 1850,
+      "cleaned_chars": 1616,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0244.md"
+    },
+    {
+      "page": 245,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 53.9,
+      "raw_chars": 2017,
+      "cleaned_chars": 2039,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0245.md"
+    },
+    {
+      "page": 246,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 33.0,
+      "raw_chars": 1079,
+      "cleaned_chars": 1055,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0246.md"
+    },
+    {
+      "page": 247,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 67.94,
+      "raw_chars": 2260,
+      "cleaned_chars": 2228,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0247.md"
+    },
+    {
+      "page": 248,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 56.23,
+      "raw_chars": 2156,
+      "cleaned_chars": 2198,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0248.md"
+    },
+    {
+      "page": 249,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 56.47,
+      "raw_chars": 1886,
+      "cleaned_chars": 1773,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0249.md"
+    },
+    {
+      "page": 250,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 41.38,
+      "raw_chars": 1426,
+      "cleaned_chars": 1135,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0250.md"
+    },
+    {
+      "page": 251,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 37.17,
+      "raw_chars": 899,
+      "cleaned_chars": 924,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0251.md"
+    },
+    {
+      "page": 252,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 58.17,
+      "raw_chars": 2252,
+      "cleaned_chars": 2137,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0252.md"
+    },
+    {
+      "page": 253,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 55.68,
+      "raw_chars": 2112,
+      "cleaned_chars": 2065,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0253.md"
+    },
+    {
+      "page": 254,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 35.24,
+      "raw_chars": 2018,
+      "cleaned_chars": 1792,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0254.md"
+    },
+    {
+      "page": 255,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 26.86,
+      "raw_chars": 276,
+      "cleaned_chars": 320,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0255.md"
+    },
+    {
+      "page": 256,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 53.83,
+      "raw_chars": 1655,
+      "cleaned_chars": 1805,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0256.md"
+    },
+    {
+      "page": 257,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 65.5,
+      "raw_chars": 2219,
+      "cleaned_chars": 2240,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0257.md"
+    },
+    {
+      "page": 258,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 51.46,
+      "raw_chars": 2358,
+      "cleaned_chars": 2362,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0258.md"
+    },
+    {
+      "page": 259,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 47.66,
+      "raw_chars": 2139,
+      "cleaned_chars": 2181,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0259.md"
+    },
+    {
+      "page": 260,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 62.19,
+      "raw_chars": 2322,
+      "cleaned_chars": 2296,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0260.md"
+    },
+    {
+      "page": 261,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 52.8,
+      "raw_chars": 1552,
+      "cleaned_chars": 1602,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0261.md"
+    },
+    {
+      "page": 262,
+      "ocr_seconds": 0.96,
+      "cleanup_seconds": 46.49,
+      "raw_chars": 2301,
+      "cleaned_chars": 2289,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0262.md"
+    },
+    {
+      "page": 263,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 51.16,
+      "raw_chars": 1536,
+      "cleaned_chars": 1499,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0263.md"
+    },
+    {
+      "page": 264,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 39.28,
+      "raw_chars": 2027,
+      "cleaned_chars": 1758,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0264.md"
+    },
+    {
+      "page": 265,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 60.52,
+      "raw_chars": 2292,
+      "cleaned_chars": 2409,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0265.md"
+    },
+    {
+      "page": 266,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 60.53,
+      "raw_chars": 2253,
+      "cleaned_chars": 2351,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0266.md"
+    },
+    {
+      "page": 267,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 49.83,
+      "raw_chars": 1579,
+      "cleaned_chars": 1586,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0267.md"
+    },
+    {
+      "page": 268,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 63.23,
+      "raw_chars": 2331,
+      "cleaned_chars": 2333,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0268.md"
+    },
+    {
+      "page": 269,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 63.56,
+      "raw_chars": 2252,
+      "cleaned_chars": 2200,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0269.md"
+    },
+    {
+      "page": 270,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 47.05,
+      "raw_chars": 1990,
+      "cleaned_chars": 1911,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0270.md"
+    },
+    {
+      "page": 271,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 48.55,
+      "raw_chars": 1902,
+      "cleaned_chars": 1906,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0271.md"
+    },
+    {
+      "page": 272,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 51.36,
+      "raw_chars": 1775,
+      "cleaned_chars": 1775,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0272.md"
+    },
+    {
+      "page": 273,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 64.44,
+      "raw_chars": 2361,
+      "cleaned_chars": 2340,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0273.md"
+    },
+    {
+      "page": 274,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 14.3,
+      "raw_chars": 106,
+      "cleaned_chars": 34,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0274.md"
+    },
+    {
+      "page": 275,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 67.98,
+      "raw_chars": 2369,
+      "cleaned_chars": 2409,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0275.md"
+    },
+    {
+      "page": 276,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 67.13,
+      "raw_chars": 2261,
+      "cleaned_chars": 2030,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0276.md"
+    },
+    {
+      "page": 277,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 20.88,
+      "raw_chars": 108,
+      "cleaned_chars": 19,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0277.md"
+    },
+    {
+      "page": 278,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 59.94,
+      "raw_chars": 2131,
+      "cleaned_chars": 2169,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0278.md"
+    },
+    {
+      "page": 279,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 32.45,
+      "raw_chars": 1361,
+      "cleaned_chars": 1368,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0279.md"
+    },
+    {
+      "page": 280,
+      "ocr_seconds": 0.34,
+      "cleanup_seconds": 26.54,
+      "raw_chars": 308,
+      "cleaned_chars": 98,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0280.md"
+    },
+    {
+      "page": 281,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 51.53,
+      "raw_chars": 1891,
+      "cleaned_chars": 1742,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0281.md"
+    },
+    {
+      "page": 282,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 61.09,
+      "raw_chars": 2158,
+      "cleaned_chars": 2144,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0282.md"
+    },
+    {
+      "page": 283,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 27.49,
+      "raw_chars": 539,
+      "cleaned_chars": 106,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0283.md"
+    },
+    {
+      "page": 284,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 24.06,
+      "raw_chars": 534,
+      "cleaned_chars": 40,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0284.md"
+    },
+    {
+      "page": 285,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 44.24,
+      "raw_chars": 2193,
+      "cleaned_chars": 2222,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0285.md"
+    },
+    {
+      "page": 286,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 61.53,
+      "raw_chars": 2433,
+      "cleaned_chars": 2463,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0286.md"
+    },
+    {
+      "page": 287,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 41.34,
+      "raw_chars": 2333,
+      "cleaned_chars": 2301,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0287.md"
+    },
+    {
+      "page": 288,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 37.97,
+      "raw_chars": 1471,
+      "cleaned_chars": 1461,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0288.md"
+    },
+    {
+      "page": 289,
+      "ocr_seconds": 0.12,
+      "cleanup_seconds": 16.36,
+      "raw_chars": 50,
+      "cleaned_chars": 60,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0289.md"
+    },
+    {
+      "page": 290,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 54.83,
+      "raw_chars": 2088,
+      "cleaned_chars": 2088,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0290.md"
+    },
+    {
+      "page": 291,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 59.34,
+      "raw_chars": 1722,
+      "cleaned_chars": 1595,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0291.md"
+    },
+    {
+      "page": 292,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 42.55,
+      "raw_chars": 1825,
+      "cleaned_chars": 1929,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0292.md"
+    },
+    {
+      "page": 293,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 49.84,
+      "raw_chars": 1975,
+      "cleaned_chars": 2025,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0293.md"
+    },
+    {
+      "page": 294,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 53.52,
+      "raw_chars": 1970,
+      "cleaned_chars": 2032,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0294.md"
+    },
+    {
+      "page": 295,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 57.47,
+      "raw_chars": 1787,
+      "cleaned_chars": 1855,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0295.md"
+    },
+    {
+      "page": 296,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 34.02,
+      "raw_chars": 987,
+      "cleaned_chars": 983,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0296.md"
+    },
+    {
+      "page": 297,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 40.39,
+      "raw_chars": 1686,
+      "cleaned_chars": 1681,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0297.md"
+    },
+    {
+      "page": 298,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 45.66,
+      "raw_chars": 1844,
+      "cleaned_chars": 1636,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0298.md"
+    },
+    {
+      "page": 299,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 71.88,
+      "raw_chars": 2200,
+      "cleaned_chars": 2218,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0299.md"
+    },
+    {
+      "page": 300,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 50.95,
+      "raw_chars": 1875,
+      "cleaned_chars": 1909,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0300.md"
+    },
+    {
+      "page": 301,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 55.53,
+      "raw_chars": 1814,
+      "cleaned_chars": 1880,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0301.md"
+    },
+    {
+      "page": 302,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 60.3,
+      "raw_chars": 1699,
+      "cleaned_chars": 1690,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0302.md"
+    },
+    {
+      "page": 303,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 42.88,
+      "raw_chars": 2247,
+      "cleaned_chars": 2284,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0303.md"
+    },
+    {
+      "page": 304,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 53.69,
+      "raw_chars": 1794,
+      "cleaned_chars": 1916,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0304.md"
+    },
+    {
+      "page": 305,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 56.54,
+      "raw_chars": 1983,
+      "cleaned_chars": 2053,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0305.md"
+    },
+    {
+      "page": 306,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 57.45,
+      "raw_chars": 1816,
+      "cleaned_chars": 1839,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0306.md"
+    },
+    {
+      "page": 307,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 42.3,
+      "raw_chars": 1873,
+      "cleaned_chars": 1686,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0307.md"
+    },
+    {
+      "page": 308,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 51.87,
+      "raw_chars": 1867,
+      "cleaned_chars": 1904,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0308.md"
+    },
+    {
+      "page": 309,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 50.64,
+      "raw_chars": 1635,
+      "cleaned_chars": 1645,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0309.md"
+    },
+    {
+      "page": 310,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 46.22,
+      "raw_chars": 1825,
+      "cleaned_chars": 1792,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0310.md"
+    },
+    {
+      "page": 311,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 56.71,
+      "raw_chars": 1769,
+      "cleaned_chars": 1792,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0311.md"
+    },
+    {
+      "page": 312,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 47.25,
+      "raw_chars": 1898,
+      "cleaned_chars": 2176,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0312.md"
+    },
+    {
+      "page": 313,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 55.18,
+      "raw_chars": 2057,
+      "cleaned_chars": 2100,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0313.md"
+    },
+    {
+      "page": 314,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 58.58,
+      "raw_chars": 2037,
+      "cleaned_chars": 2070,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0314.md"
+    },
+    {
+      "page": 315,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 54.66,
+      "raw_chars": 2178,
+      "cleaned_chars": 2186,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0315.md"
+    },
+    {
+      "page": 316,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 41.81,
+      "raw_chars": 2059,
+      "cleaned_chars": 2092,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0316.md"
+    },
+    {
+      "page": 317,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 55.48,
+      "raw_chars": 1856,
+      "cleaned_chars": 1933,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0317.md"
+    },
+    {
+      "page": 318,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 56.55,
+      "raw_chars": 2140,
+      "cleaned_chars": 2016,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0318.md"
+    },
+    {
+      "page": 319,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 60.4,
+      "raw_chars": 2001,
+      "cleaned_chars": 2039,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0319.md"
+    },
+    {
+      "page": 320,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 51.91,
+      "raw_chars": 1711,
+      "cleaned_chars": 1764,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0320.md"
+    },
+    {
+      "page": 321,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 54.55,
+      "raw_chars": 1671,
+      "cleaned_chars": 1694,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0321.md"
+    },
+    {
+      "page": 322,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 55.96,
+      "raw_chars": 1986,
+      "cleaned_chars": 2001,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0322.md"
+    },
+    {
+      "page": 323,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 58.64,
+      "raw_chars": 1808,
+      "cleaned_chars": 1865,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0323.md"
+    },
+    {
+      "page": 324,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 68.83,
+      "raw_chars": 2134,
+      "cleaned_chars": 2290,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0324.md"
+    },
+    {
+      "page": 325,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 54.6,
+      "raw_chars": 1988,
+      "cleaned_chars": 1979,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0325.md"
+    },
+    {
+      "page": 326,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 48.9,
+      "raw_chars": 2043,
+      "cleaned_chars": 2103,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0326.md"
+    },
+    {
+      "page": 327,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 40.89,
+      "raw_chars": 1794,
+      "cleaned_chars": 1769,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0327.md"
+    },
+    {
+      "page": 328,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 52.42,
+      "raw_chars": 1721,
+      "cleaned_chars": 1719,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0328.md"
+    },
+    {
+      "page": 329,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 56.76,
+      "raw_chars": 1936,
+      "cleaned_chars": 1987,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0329.md"
+    },
+    {
+      "page": 330,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 52.99,
+      "raw_chars": 1668,
+      "cleaned_chars": 1736,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0330.md"
+    },
+    {
+      "page": 331,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 57.74,
+      "raw_chars": 2093,
+      "cleaned_chars": 2254,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0331.md"
+    },
+    {
+      "page": 332,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 62.45,
+      "raw_chars": 1989,
+      "cleaned_chars": 2071,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0332.md"
+    },
+    {
+      "page": 333,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 50.07,
+      "raw_chars": 1623,
+      "cleaned_chars": 1750,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0333.md"
+    },
+    {
+      "page": 334,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 56.26,
+      "raw_chars": 1918,
+      "cleaned_chars": 2146,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0334.md"
+    },
+    {
+      "page": 335,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 50.75,
+      "raw_chars": 1656,
+      "cleaned_chars": 1415,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0335.md"
+    },
+    {
+      "page": 336,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 56.99,
+      "raw_chars": 1728,
+      "cleaned_chars": 1693,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0336.md"
+    },
+    {
+      "page": 337,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 42.93,
+      "raw_chars": 1951,
+      "cleaned_chars": 2034,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0337.md"
+    },
+    {
+      "page": 338,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 54.91,
+      "raw_chars": 1894,
+      "cleaned_chars": 1968,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0338.md"
+    },
+    {
+      "page": 339,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 56.58,
+      "raw_chars": 1936,
+      "cleaned_chars": 1880,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0339.md"
+    },
+    {
+      "page": 340,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 56.96,
+      "raw_chars": 1849,
+      "cleaned_chars": 1929,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0340.md"
+    },
+    {
+      "page": 341,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 49.7,
+      "raw_chars": 1678,
+      "cleaned_chars": 1596,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0341.md"
+    },
+    {
+      "page": 342,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 40.71,
+      "raw_chars": 1905,
+      "cleaned_chars": 2000,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0342.md"
+    },
+    {
+      "page": 343,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 55.44,
+      "raw_chars": 1724,
+      "cleaned_chars": 1784,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0343.md"
+    },
+    {
+      "page": 344,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 51.67,
+      "raw_chars": 1859,
+      "cleaned_chars": 2043,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0344.md"
+    },
+    {
+      "page": 345,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 49.48,
+      "raw_chars": 1940,
+      "cleaned_chars": 2070,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0345.md"
+    },
+    {
+      "page": 346,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 50.42,
+      "raw_chars": 1750,
+      "cleaned_chars": 1845,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0346.md"
+    },
+    {
+      "page": 347,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 42.87,
+      "raw_chars": 1767,
+      "cleaned_chars": 1949,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0347.md"
+    },
+    {
+      "page": 348,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 60.14,
+      "raw_chars": 2021,
+      "cleaned_chars": 2116,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0348.md"
+    },
+    {
+      "page": 349,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 50.5,
+      "raw_chars": 1595,
+      "cleaned_chars": 1667,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0349.md"
+    },
+    {
+      "page": 350,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 55.33,
+      "raw_chars": 1804,
+      "cleaned_chars": 1873,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0350.md"
+    },
+    {
+      "page": 351,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 49.63,
+      "raw_chars": 1915,
+      "cleaned_chars": 2007,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0351.md"
+    },
+    {
+      "page": 352,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 58.36,
+      "raw_chars": 1851,
+      "cleaned_chars": 2024,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0352.md"
+    },
+    {
+      "page": 353,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 54.05,
+      "raw_chars": 1872,
+      "cleaned_chars": 1951,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0353.md"
+    },
+    {
+      "page": 354,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 52.45,
+      "raw_chars": 1799,
+      "cleaned_chars": 1730,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0354.md"
+    },
+    {
+      "page": 355,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 50.13,
+      "raw_chars": 1812,
+      "cleaned_chars": 1861,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0355.md"
+    },
+    {
+      "page": 356,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 62.84,
+      "raw_chars": 1867,
+      "cleaned_chars": 1956,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0356.md"
+    },
+    {
+      "page": 357,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 63.35,
+      "raw_chars": 1951,
+      "cleaned_chars": 2035,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0357.md"
+    },
+    {
+      "page": 358,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 51.23,
+      "raw_chars": 1695,
+      "cleaned_chars": 1903,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0358.md"
+    },
+    {
+      "page": 359,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 64.96,
+      "raw_chars": 1975,
+      "cleaned_chars": 2137,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0359.md"
+    },
+    {
+      "page": 360,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 41.92,
+      "raw_chars": 1678,
+      "cleaned_chars": 1724,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0360.md"
+    },
+    {
+      "page": 361,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 56.75,
+      "raw_chars": 1789,
+      "cleaned_chars": 1948,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0361.md"
+    },
+    {
+      "page": 362,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 44.68,
+      "raw_chars": 1830,
+      "cleaned_chars": 1889,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0362.md"
+    },
+    {
+      "page": 363,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 55.52,
+      "raw_chars": 1783,
+      "cleaned_chars": 1878,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0363.md"
+    },
+    {
+      "page": 364,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 49.32,
+      "raw_chars": 1858,
+      "cleaned_chars": 1823,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0364.md"
+    },
+    {
+      "page": 365,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 55.66,
+      "raw_chars": 1895,
+      "cleaned_chars": 1995,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0365.md"
+    },
+    {
+      "page": 366,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 46.72,
+      "raw_chars": 1826,
+      "cleaned_chars": 1973,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0366.md"
+    },
+    {
+      "page": 367,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 55.6,
+      "raw_chars": 1782,
+      "cleaned_chars": 1809,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0367.md"
+    },
+    {
+      "page": 368,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 57.92,
+      "raw_chars": 1946,
+      "cleaned_chars": 1914,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0368.md"
+    },
+    {
+      "page": 369,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 51.06,
+      "raw_chars": 1687,
+      "cleaned_chars": 1665,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0369.md"
+    },
+    {
+      "page": 370,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 52.92,
+      "raw_chars": 1816,
+      "cleaned_chars": 1785,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0370.md"
+    },
+    {
+      "page": 371,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 49.75,
+      "raw_chars": 1865,
+      "cleaned_chars": 1915,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0371.md"
+    },
+    {
+      "page": 372,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 58.0,
+      "raw_chars": 1949,
+      "cleaned_chars": 2032,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0372.md"
+    },
+    {
+      "page": 373,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 56.93,
+      "raw_chars": 2028,
+      "cleaned_chars": 2186,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0373.md"
+    },
+    {
+      "page": 374,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 52.19,
+      "raw_chars": 1667,
+      "cleaned_chars": 1706,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0374.md"
+    },
+    {
+      "page": 375,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 56.2,
+      "raw_chars": 2091,
+      "cleaned_chars": 2077,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0375.md"
+    },
+    {
+      "page": 376,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 51.1,
+      "raw_chars": 1710,
+      "cleaned_chars": 1781,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0376.md"
+    },
+    {
+      "page": 377,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 53.66,
+      "raw_chars": 1645,
+      "cleaned_chars": 1471,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0377.md"
+    },
+    {
+      "page": 378,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 64.49,
+      "raw_chars": 2054,
+      "cleaned_chars": 2023,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0378.md"
+    },
+    {
+      "page": 379,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 46.07,
+      "raw_chars": 1963,
+      "cleaned_chars": 2056,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0379.md"
+    },
+    {
+      "page": 380,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 55.62,
+      "raw_chars": 1737,
+      "cleaned_chars": 2020,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0380.md"
+    },
+    {
+      "page": 381,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 52.89,
+      "raw_chars": 1846,
+      "cleaned_chars": 1874,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0381.md"
+    },
+    {
+      "page": 382,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 49.8,
+      "raw_chars": 1672,
+      "cleaned_chars": 1848,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0382.md"
+    },
+    {
+      "page": 383,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 53.69,
+      "raw_chars": 1690,
+      "cleaned_chars": 1828,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0383.md"
+    },
+    {
+      "page": 384,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 54.26,
+      "raw_chars": 1926,
+      "cleaned_chars": 1884,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0384.md"
+    },
+    {
+      "page": 385,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 54.98,
+      "raw_chars": 1656,
+      "cleaned_chars": 1790,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0385.md"
+    },
+    {
+      "page": 386,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 58.59,
+      "raw_chars": 1786,
+      "cleaned_chars": 2150,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0386.md"
+    },
+    {
+      "page": 387,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 54.9,
+      "raw_chars": 1931,
+      "cleaned_chars": 1782,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0387.md"
+    },
+    {
+      "page": 388,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 55.1,
+      "raw_chars": 1781,
+      "cleaned_chars": 1942,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0388.md"
+    },
+    {
+      "page": 389,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 44.85,
+      "raw_chars": 1811,
+      "cleaned_chars": 1911,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0389.md"
+    },
+    {
+      "page": 390,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 55.7,
+      "raw_chars": 1767,
+      "cleaned_chars": 1838,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0390.md"
+    },
+    {
+      "page": 391,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 53.59,
+      "raw_chars": 1707,
+      "cleaned_chars": 1888,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0391.md"
+    },
+    {
+      "page": 392,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 45.41,
+      "raw_chars": 1524,
+      "cleaned_chars": 1551,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0392.md"
+    },
+    {
+      "page": 393,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 64.7,
+      "raw_chars": 1948,
+      "cleaned_chars": 2068,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0393.md"
+    },
+    {
+      "page": 394,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 43.32,
+      "raw_chars": 1892,
+      "cleaned_chars": 1978,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0394.md"
+    },
+    {
+      "page": 395,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 45.19,
+      "raw_chars": 1696,
+      "cleaned_chars": 1877,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0395.md"
+    },
+    {
+      "page": 396,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 53.93,
+      "raw_chars": 1708,
+      "cleaned_chars": 1742,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0396.md"
+    },
+    {
+      "page": 397,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 59.4,
+      "raw_chars": 1621,
+      "cleaned_chars": 1725,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0397.md"
+    },
+    {
+      "page": 398,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 51.09,
+      "raw_chars": 2102,
+      "cleaned_chars": 1971,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0398.md"
+    },
+    {
+      "page": 399,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 64.28,
+      "raw_chars": 2063,
+      "cleaned_chars": 2246,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0399.md"
+    },
+    {
+      "page": 400,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 45.9,
+      "raw_chars": 1544,
+      "cleaned_chars": 1577,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0400.md"
+    },
+    {
+      "page": 401,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 53.61,
+      "raw_chars": 2405,
+      "cleaned_chars": 2541,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0401.md"
+    },
+    {
+      "page": 402,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 52.18,
+      "raw_chars": 1805,
+      "cleaned_chars": 1894,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0402.md"
+    },
+    {
+      "page": 403,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 61.46,
+      "raw_chars": 1837,
+      "cleaned_chars": 1975,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0403.md"
+    },
+    {
+      "page": 404,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 44.49,
+      "raw_chars": 1997,
+      "cleaned_chars": 2026,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0404.md"
+    },
+    {
+      "page": 405,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 53.97,
+      "raw_chars": 1928,
+      "cleaned_chars": 2020,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0405.md"
+    },
+    {
+      "page": 406,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 54.86,
+      "raw_chars": 1673,
+      "cleaned_chars": 1729,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0406.md"
+    },
+    {
+      "page": 407,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 69.25,
+      "raw_chars": 2021,
+      "cleaned_chars": 2163,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0407.md"
+    },
+    {
+      "page": 408,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 38.46,
+      "raw_chars": 1814,
+      "cleaned_chars": 1876,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0408.md"
+    },
+    {
+      "page": 409,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 41.95,
+      "raw_chars": 2097,
+      "cleaned_chars": 2109,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0409.md"
+    },
+    {
+      "page": 410,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 55.35,
+      "raw_chars": 1963,
+      "cleaned_chars": 2062,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0410.md"
+    },
+    {
+      "page": 411,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 52.04,
+      "raw_chars": 1670,
+      "cleaned_chars": 1789,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0411.md"
+    },
+    {
+      "page": 412,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 45.18,
+      "raw_chars": 2004,
+      "cleaned_chars": 1984,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0412.md"
+    },
+    {
+      "page": 413,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 60.09,
+      "raw_chars": 1979,
+      "cleaned_chars": 2023,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0413.md"
+    },
+    {
+      "page": 414,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 42.02,
+      "raw_chars": 1935,
+      "cleaned_chars": 2072,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0414.md"
+    },
+    {
+      "page": 415,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 58.89,
+      "raw_chars": 1953,
+      "cleaned_chars": 1975,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0415.md"
+    },
+    {
+      "page": 416,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 62.65,
+      "raw_chars": 2102,
+      "cleaned_chars": 2181,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0416.md"
+    },
+    {
+      "page": 417,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 51.75,
+      "raw_chars": 1817,
+      "cleaned_chars": 1866,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0417.md"
+    },
+    {
+      "page": 418,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 47.83,
+      "raw_chars": 1407,
+      "cleaned_chars": 1448,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0418.md"
+    },
+    {
+      "page": 419,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 45.9,
+      "raw_chars": 1915,
+      "cleaned_chars": 1925,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0419.md"
+    },
+    {
+      "page": 420,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 54.1,
+      "raw_chars": 2125,
+      "cleaned_chars": 2160,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0420.md"
+    },
+    {
+      "page": 421,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 53.82,
+      "raw_chars": 1762,
+      "cleaned_chars": 1888,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0421.md"
+    },
+    {
+      "page": 422,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 59.32,
+      "raw_chars": 1627,
+      "cleaned_chars": 1631,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0422.md"
+    },
+    {
+      "page": 423,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 57.25,
+      "raw_chars": 1865,
+      "cleaned_chars": 1917,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0423.md"
+    },
+    {
+      "page": 424,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 39.98,
+      "raw_chars": 1775,
+      "cleaned_chars": 1822,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0424.md"
+    },
+    {
+      "page": 425,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 45.49,
+      "raw_chars": 1993,
+      "cleaned_chars": 1925,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0425.md"
+    },
+    {
+      "page": 426,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 60.4,
+      "raw_chars": 2022,
+      "cleaned_chars": 2144,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0426.md"
+    },
+    {
+      "page": 427,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 57.55,
+      "raw_chars": 1703,
+      "cleaned_chars": 1734,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0427.md"
+    },
+    {
+      "page": 428,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 60.43,
+      "raw_chars": 1889,
+      "cleaned_chars": 2044,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0428.md"
+    },
+    {
+      "page": 429,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 66.65,
+      "raw_chars": 1832,
+      "cleaned_chars": 1891,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0429.md"
+    },
+    {
+      "page": 430,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 51.71,
+      "raw_chars": 1752,
+      "cleaned_chars": 1802,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0430.md"
+    },
+    {
+      "page": 431,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 53.4,
+      "raw_chars": 1938,
+      "cleaned_chars": 1809,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0431.md"
+    },
+    {
+      "page": 432,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 51.53,
+      "raw_chars": 1982,
+      "cleaned_chars": 2107,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0432.md"
+    },
+    {
+      "page": 433,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 44.55,
+      "raw_chars": 1810,
+      "cleaned_chars": 1884,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0433.md"
+    },
+    {
+      "page": 434,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 46.33,
+      "raw_chars": 1928,
+      "cleaned_chars": 2013,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0434.md"
+    },
+    {
+      "page": 435,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 73.64,
+      "raw_chars": 1897,
+      "cleaned_chars": 1953,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0435.md"
+    },
+    {
+      "page": 436,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 43.41,
+      "raw_chars": 1816,
+      "cleaned_chars": 1846,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0436.md"
+    },
+    {
+      "page": 437,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 49.22,
+      "raw_chars": 1845,
+      "cleaned_chars": 2045,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0437.md"
+    },
+    {
+      "page": 438,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 57.82,
+      "raw_chars": 1831,
+      "cleaned_chars": 1978,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0438.md"
+    },
+    {
+      "page": 439,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 47.01,
+      "raw_chars": 1741,
+      "cleaned_chars": 1808,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0439.md"
+    },
+    {
+      "page": 440,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 54.43,
+      "raw_chars": 1833,
+      "cleaned_chars": 1787,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0440.md"
+    },
+    {
+      "page": 441,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 57.86,
+      "raw_chars": 1870,
+      "cleaned_chars": 1933,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0441.md"
+    },
+    {
+      "page": 442,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 54.31,
+      "raw_chars": 1874,
+      "cleaned_chars": 1787,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0442.md"
+    },
+    {
+      "page": 443,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 46.41,
+      "raw_chars": 2055,
+      "cleaned_chars": 2213,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0443.md"
+    },
+    {
+      "page": 444,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 58.81,
+      "raw_chars": 1865,
+      "cleaned_chars": 1897,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0444.md"
+    },
+    {
+      "page": 445,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 54.59,
+      "raw_chars": 1910,
+      "cleaned_chars": 2217,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0445.md"
+    },
+    {
+      "page": 446,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 53.61,
+      "raw_chars": 1876,
+      "cleaned_chars": 1899,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0446.md"
+    },
+    {
+      "page": 447,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 59.22,
+      "raw_chars": 1815,
+      "cleaned_chars": 1906,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0447.md"
+    },
+    {
+      "page": 448,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 59.38,
+      "raw_chars": 1637,
+      "cleaned_chars": 1756,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0448.md"
+    },
+    {
+      "page": 449,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 53.59,
+      "raw_chars": 1719,
+      "cleaned_chars": 1773,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0449.md"
+    },
+    {
+      "page": 450,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 42.08,
+      "raw_chars": 1712,
+      "cleaned_chars": 1734,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0450.md"
+    },
+    {
+      "page": 451,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 51.76,
+      "raw_chars": 1678,
+      "cleaned_chars": 1636,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0451.md"
+    },
+    {
+      "page": 452,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 49.75,
+      "raw_chars": 1996,
+      "cleaned_chars": 2107,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0452.md"
+    },
+    {
+      "page": 453,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 41.88,
+      "raw_chars": 1673,
+      "cleaned_chars": 1737,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0453.md"
+    },
+    {
+      "page": 454,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 58.87,
+      "raw_chars": 1984,
+      "cleaned_chars": 1951,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0454.md"
+    },
+    {
+      "page": 455,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 55.8,
+      "raw_chars": 1839,
+      "cleaned_chars": 1953,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0455.md"
+    },
+    {
+      "page": 456,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 44.57,
+      "raw_chars": 1836,
+      "cleaned_chars": 1828,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0456.md"
+    },
+    {
+      "page": 457,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 53.1,
+      "raw_chars": 1926,
+      "cleaned_chars": 1877,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0457.md"
+    },
+    {
+      "page": 458,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 56.15,
+      "raw_chars": 1804,
+      "cleaned_chars": 1928,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0458.md"
+    },
+    {
+      "page": 459,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 47.75,
+      "raw_chars": 1611,
+      "cleaned_chars": 1598,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0459.md"
+    },
+    {
+      "page": 460,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 56.06,
+      "raw_chars": 2064,
+      "cleaned_chars": 2075,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0460.md"
+    },
+    {
+      "page": 461,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 58.27,
+      "raw_chars": 1847,
+      "cleaned_chars": 2005,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0461.md"
+    },
+    {
+      "page": 462,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 52.57,
+      "raw_chars": 1774,
+      "cleaned_chars": 1735,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0462.md"
+    },
+    {
+      "page": 463,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 45.72,
+      "raw_chars": 1870,
+      "cleaned_chars": 1959,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0463.md"
+    },
+    {
+      "page": 464,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 54.23,
+      "raw_chars": 1797,
+      "cleaned_chars": 1884,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0464.md"
+    },
+    {
+      "page": 465,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 51.22,
+      "raw_chars": 1689,
+      "cleaned_chars": 1916,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0465.md"
+    },
+    {
+      "page": 466,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 56.05,
+      "raw_chars": 1749,
+      "cleaned_chars": 1923,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0466.md"
+    },
+    {
+      "page": 467,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 52.61,
+      "raw_chars": 1715,
+      "cleaned_chars": 1799,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0467.md"
+    },
+    {
+      "page": 468,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 56.96,
+      "raw_chars": 1600,
+      "cleaned_chars": 1558,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0468.md"
+    },
+    {
+      "page": 469,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 58.6,
+      "raw_chars": 2068,
+      "cleaned_chars": 2205,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0469.md"
+    },
+    {
+      "page": 470,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 41.78,
+      "raw_chars": 1800,
+      "cleaned_chars": 1848,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0470.md"
+    },
+    {
+      "page": 471,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 52.8,
+      "raw_chars": 1791,
+      "cleaned_chars": 1892,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0471.md"
+    },
+    {
+      "page": 472,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 56.49,
+      "raw_chars": 1757,
+      "cleaned_chars": 1807,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0472.md"
+    },
+    {
+      "page": 473,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 54.25,
+      "raw_chars": 1822,
+      "cleaned_chars": 1934,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0473.md"
+    },
+    {
+      "page": 474,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 58.26,
+      "raw_chars": 1835,
+      "cleaned_chars": 1741,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0474.md"
+    },
+    {
+      "page": 475,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 54.57,
+      "raw_chars": 1771,
+      "cleaned_chars": 1842,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0475.md"
+    },
+    {
+      "page": 476,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.36,
+      "raw_chars": 1412,
+      "cleaned_chars": 1443,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0476.md"
+    },
+    {
+      "page": 477,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 46.45,
+      "raw_chars": 1966,
+      "cleaned_chars": 2109,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0477.md"
+    },
+    {
+      "page": 478,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 61.23,
+      "raw_chars": 1997,
+      "cleaned_chars": 2111,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0478.md"
+    },
+    {
+      "page": 479,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 50.41,
+      "raw_chars": 1739,
+      "cleaned_chars": 1861,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0479.md"
+    },
+    {
+      "page": 480,
+      "ocr_seconds": 1.26,
+      "cleanup_seconds": 56.86,
+      "raw_chars": 1766,
+      "cleaned_chars": 1770,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0480.md"
+    },
+    {
+      "page": 481,
+      "ocr_seconds": 0.2,
+      "cleanup_seconds": 19.9,
+      "raw_chars": 32,
+      "cleaned_chars": 11,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0481.md"
+    },
+    {
+      "page": 482,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 42.8,
+      "raw_chars": 1935,
+      "cleaned_chars": 1930,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0482.md"
+    },
+    {
+      "page": 483,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 46.13,
+      "raw_chars": 2108,
+      "cleaned_chars": 2084,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0483.md"
+    },
+    {
+      "page": 484,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 43.64,
+      "raw_chars": 1897,
+      "cleaned_chars": 1890,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0484.md"
+    },
+    {
+      "page": 485,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 67.86,
+      "raw_chars": 2205,
+      "cleaned_chars": 2220,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0485.md"
+    },
+    {
+      "page": 486,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 61.88,
+      "raw_chars": 1953,
+      "cleaned_chars": 1956,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0486.md"
+    },
+    {
+      "page": 487,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 52.88,
+      "raw_chars": 2223,
+      "cleaned_chars": 2122,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0487.md"
+    },
+    {
+      "page": 488,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 45.59,
+      "raw_chars": 2236,
+      "cleaned_chars": 2247,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0488.md"
+    },
+    {
+      "page": 489,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 61.52,
+      "raw_chars": 2228,
+      "cleaned_chars": 2200,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0489.md"
+    },
+    {
+      "page": 490,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 57.36,
+      "raw_chars": 2136,
+      "cleaned_chars": 2107,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0490.md"
+    },
+    {
+      "page": 491,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 63.53,
+      "raw_chars": 2332,
+      "cleaned_chars": 2291,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0491.md"
+    },
+    {
+      "page": 492,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 52.88,
+      "raw_chars": 2419,
+      "cleaned_chars": 2402,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0492.md"
+    },
+    {
+      "page": 493,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 47.86,
+      "raw_chars": 2253,
+      "cleaned_chars": 2182,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0493.md"
+    },
+    {
+      "page": 494,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 43.82,
+      "raw_chars": 1941,
+      "cleaned_chars": 1962,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0494.md"
+    },
+    {
+      "page": 495,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 81.62,
+      "raw_chars": 2201,
+      "cleaned_chars": 2227,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0495.md"
+    },
+    {
+      "page": 496,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 58.54,
+      "raw_chars": 1865,
+      "cleaned_chars": 2459,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0496.md"
+    },
+    {
+      "page": 497,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 47.43,
+      "raw_chars": 2180,
+      "cleaned_chars": 2216,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0497.md"
+    },
+    {
+      "page": 498,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 46.5,
+      "raw_chars": 2250,
+      "cleaned_chars": 2210,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0498.md"
+    },
+    {
+      "page": 499,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 67.8,
+      "raw_chars": 2262,
+      "cleaned_chars": 2304,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0499.md"
+    },
+    {
+      "page": 500,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 62.16,
+      "raw_chars": 2094,
+      "cleaned_chars": 2042,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0500.md"
+    },
+    {
+      "page": 501,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 60.42,
+      "raw_chars": 1672,
+      "cleaned_chars": 1685,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0501.md"
+    },
+    {
+      "page": 502,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 53.05,
+      "raw_chars": 1690,
+      "cleaned_chars": 1776,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0502.md"
+    },
+    {
+      "page": 503,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 70.75,
+      "raw_chars": 2237,
+      "cleaned_chars": 2237,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0503.md"
+    },
+    {
+      "page": 504,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 56.7,
+      "raw_chars": 1787,
+      "cleaned_chars": 1769,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0504.md"
+    },
+    {
+      "page": 505,
+      "ocr_seconds": 0.43,
+      "cleanup_seconds": 46.45,
+      "raw_chars": 834,
+      "cleaned_chars": 848,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0505.md"
+    },
+    {
+      "page": 506,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 74.9,
+      "raw_chars": 1244,
+      "cleaned_chars": 2092,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0506.md"
+    },
+    {
+      "page": 507,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 61.67,
+      "raw_chars": 2152,
+      "cleaned_chars": 2163,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0507.md"
+    },
+    {
+      "page": 508,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 68.32,
+      "raw_chars": 1911,
+      "cleaned_chars": 1898,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0508.md"
+    },
+    {
+      "page": 509,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 55.71,
+      "raw_chars": 1459,
+      "cleaned_chars": 1469,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0509.md"
+    },
+    {
+      "page": 510,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 49.85,
+      "raw_chars": 1421,
+      "cleaned_chars": 1579,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0510.md"
+    },
+    {
+      "page": 511,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 74.65,
+      "raw_chars": 2273,
+      "cleaned_chars": 2339,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0511.md"
+    },
+    {
+      "page": 512,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 67.0,
+      "raw_chars": 2122,
+      "cleaned_chars": 2258,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0512.md"
+    },
+    {
+      "page": 513,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 41.95,
+      "raw_chars": 1389,
+      "cleaned_chars": 1243,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0513.md"
+    },
+    {
+      "page": 514,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 60.09,
+      "raw_chars": 1949,
+      "cleaned_chars": 2127,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0514.md"
+    },
+    {
+      "page": 515,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 55.87,
+      "raw_chars": 2053,
+      "cleaned_chars": 2078,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0515.md"
+    },
+    {
+      "page": 516,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 54.7,
+      "raw_chars": 1689,
+      "cleaned_chars": 2005,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0516.md"
+    },
+    {
+      "page": 517,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 44.22,
+      "raw_chars": 1775,
+      "cleaned_chars": 1820,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0517.md"
+    },
+    {
+      "page": 518,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 50.14,
+      "raw_chars": 1675,
+      "cleaned_chars": 1753,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0518.md"
+    },
+    {
+      "page": 519,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 58.98,
+      "raw_chars": 1756,
+      "cleaned_chars": 1868,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0519.md"
+    },
+    {
+      "page": 520,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 59.88,
+      "raw_chars": 1776,
+      "cleaned_chars": 1766,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0520.md"
+    },
+    {
+      "page": 521,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 64.67,
+      "raw_chars": 1781,
+      "cleaned_chars": 2005,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0521.md"
+    },
+    {
+      "page": 522,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 48.67,
+      "raw_chars": 1798,
+      "cleaned_chars": 1965,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0522.md"
+    },
+    {
+      "page": 523,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 54.3,
+      "raw_chars": 1835,
+      "cleaned_chars": 1911,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0523.md"
+    },
+    {
+      "page": 524,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 56.97,
+      "raw_chars": 1856,
+      "cleaned_chars": 1886,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0524.md"
+    },
+    {
+      "page": 525,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 56.04,
+      "raw_chars": 1910,
+      "cleaned_chars": 1922,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0525.md"
+    },
+    {
+      "page": 526,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 44.65,
+      "raw_chars": 2039,
+      "cleaned_chars": 2057,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0526.md"
+    },
+    {
+      "page": 527,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 63.41,
+      "raw_chars": 2464,
+      "cleaned_chars": 2493,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0527.md"
+    },
+    {
+      "page": 528,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 39.77,
+      "raw_chars": 2224,
+      "cleaned_chars": 2207,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0528.md"
+    },
+    {
+      "page": 529,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 59.75,
+      "raw_chars": 2143,
+      "cleaned_chars": 2143,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0529.md"
+    },
+    {
+      "page": 530,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 47.19,
+      "raw_chars": 1462,
+      "cleaned_chars": 1456,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0530.md"
+    },
+    {
+      "page": 531,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 44.4,
+      "raw_chars": 1886,
+      "cleaned_chars": 1856,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0531.md"
+    },
+    {
+      "page": 532,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 54.2,
+      "raw_chars": 2050,
+      "cleaned_chars": 2062,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0532.md"
+    },
+    {
+      "page": 533,
+      "ocr_seconds": 0.31,
+      "cleanup_seconds": 31.13,
+      "raw_chars": 620,
+      "cleaned_chars": 594,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0533.md"
+    },
+    {
+      "page": 534,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 70.84,
+      "raw_chars": 1950,
+      "cleaned_chars": 2216,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0534.md"
+    },
+    {
+      "page": 535,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 57.29,
+      "raw_chars": 1787,
+      "cleaned_chars": 1319,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0535.md"
+    },
+    {
+      "page": 536,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 41.02,
+      "raw_chars": 1364,
+      "cleaned_chars": 1355,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0536.md"
+    },
+    {
+      "page": 537,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 67.86,
+      "raw_chars": 2171,
+      "cleaned_chars": 2327,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0537.md"
+    },
+    {
+      "page": 538,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 84.44,
+      "raw_chars": 2350,
+      "cleaned_chars": 3301,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0538.md"
+    },
+    {
+      "page": 539,
+      "ocr_seconds": 0.65,
+      "cleanup_seconds": 40.03,
+      "raw_chars": 1618,
+      "cleaned_chars": 1660,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0539.md"
+    },
+    {
+      "page": 540,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 56.22,
+      "raw_chars": 1431,
+      "cleaned_chars": 1581,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0540.md"
+    },
+    {
+      "page": 541,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 61.65,
+      "raw_chars": 2275,
+      "cleaned_chars": 2268,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0541.md"
+    },
+    {
+      "page": 542,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 51.84,
+      "raw_chars": 1839,
+      "cleaned_chars": 1969,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0542.md"
+    },
+    {
+      "page": 543,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 39.91,
+      "raw_chars": 911,
+      "cleaned_chars": 937,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0543.md"
+    },
+    {
+      "page": 544,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 54.01,
+      "raw_chars": 1966,
+      "cleaned_chars": 2152,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0544.md"
+    },
+    {
+      "page": 545,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 48.0,
+      "raw_chars": 1654,
+      "cleaned_chars": 1862,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0545.md"
+    },
+    {
+      "page": 546,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 53.04,
+      "raw_chars": 1828,
+      "cleaned_chars": 1885,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0546.md"
+    },
+    {
+      "page": 547,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 63.75,
+      "raw_chars": 1726,
+      "cleaned_chars": 1871,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0547.md"
+    },
+    {
+      "page": 548,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 55.11,
+      "raw_chars": 1965,
+      "cleaned_chars": 2030,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0548.md"
+    },
+    {
+      "page": 549,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 45.84,
+      "raw_chars": 2314,
+      "cleaned_chars": 2314,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0549.md"
+    },
+    {
+      "page": 550,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 71.09,
+      "raw_chars": 2067,
+      "cleaned_chars": 2063,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0550.md"
+    },
+    {
+      "page": 551,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 58.78,
+      "raw_chars": 2106,
+      "cleaned_chars": 2111,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0551.md"
+    },
+    {
+      "page": 552,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 46.86,
+      "raw_chars": 1701,
+      "cleaned_chars": 1615,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0552.md"
+    },
+    {
+      "page": 553,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 51.54,
+      "raw_chars": 2287,
+      "cleaned_chars": 2439,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0553.md"
+    },
+    {
+      "page": 554,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 48.64,
+      "raw_chars": 2277,
+      "cleaned_chars": 2308,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0554.md"
+    },
+    {
+      "page": 555,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 46.85,
+      "raw_chars": 1748,
+      "cleaned_chars": 1970,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0555.md"
+    },
+    {
+      "page": 556,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 59.34,
+      "raw_chars": 1816,
+      "cleaned_chars": 1863,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0556.md"
+    },
+    {
+      "page": 557,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 61.23,
+      "raw_chars": 2121,
+      "cleaned_chars": 2278,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0557.md"
+    },
+    {
+      "page": 558,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 45.69,
+      "raw_chars": 1643,
+      "cleaned_chars": 1638,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0558.md"
+    },
+    {
+      "page": 559,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 47.22,
+      "raw_chars": 1677,
+      "cleaned_chars": 1666,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0559.md"
+    },
+    {
+      "page": 560,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.95,
+      "raw_chars": 1309,
+      "cleaned_chars": 1235,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0560.md"
+    },
+    {
+      "page": 561,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 45.58,
+      "raw_chars": 1142,
+      "cleaned_chars": 1100,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0561.md"
+    },
+    {
+      "page": 562,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 48.28,
+      "raw_chars": 1280,
+      "cleaned_chars": 1166,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0562.md"
+    },
+    {
+      "page": 563,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 44.19,
+      "raw_chars": 1249,
+      "cleaned_chars": 1253,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0563.md"
+    },
+    {
+      "page": 564,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 56.49,
+      "raw_chars": 1931,
+      "cleaned_chars": 2011,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0564.md"
+    },
+    {
+      "page": 565,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 56.24,
+      "raw_chars": 1659,
+      "cleaned_chars": 1781,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0565.md"
+    },
+    {
+      "page": 566,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 48.68,
+      "raw_chars": 1647,
+      "cleaned_chars": 1647,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0566.md"
+    },
+    {
+      "page": 567,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 44.41,
+      "raw_chars": 1627,
+      "cleaned_chars": 1747,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0567.md"
+    },
+    {
+      "page": 568,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 54.92,
+      "raw_chars": 1643,
+      "cleaned_chars": 1648,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0568.md"
+    },
+    {
+      "page": 569,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 67.85,
+      "raw_chars": 2083,
+      "cleaned_chars": 2314,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0569.md"
+    },
+    {
+      "page": 570,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 52.84,
+      "raw_chars": 1454,
+      "cleaned_chars": 1578,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0570.md"
+    },
+    {
+      "page": 571,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 50.94,
+      "raw_chars": 2029,
+      "cleaned_chars": 2019,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0571.md"
+    },
+    {
+      "page": 572,
+      "ocr_seconds": 0.28,
+      "cleanup_seconds": 30.59,
+      "raw_chars": 537,
+      "cleaned_chars": 502,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0572.md"
+    },
+    {
+      "page": 573,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 52.43,
+      "raw_chars": 1187,
+      "cleaned_chars": 1490,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0573.md"
+    },
+    {
+      "page": 574,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 43.61,
+      "raw_chars": 1191,
+      "cleaned_chars": 1562,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0574.md"
+    },
+    {
+      "page": 575,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 49.43,
+      "raw_chars": 1759,
+      "cleaned_chars": 1782,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0575.md"
+    },
+    {
+      "page": 576,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 48.13,
+      "raw_chars": 1275,
+      "cleaned_chars": 1311,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0576.md"
+    },
+    {
+      "page": 577,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 52.65,
+      "raw_chars": 1451,
+      "cleaned_chars": 1630,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0577.md"
+    },
+    {
+      "page": 578,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 40.63,
+      "raw_chars": 1674,
+      "cleaned_chars": 1715,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0578.md"
+    },
+    {
+      "page": 579,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 56.39,
+      "raw_chars": 1924,
+      "cleaned_chars": 2037,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0579.md"
+    },
+    {
+      "page": 580,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 40.63,
+      "raw_chars": 1554,
+      "cleaned_chars": 1624,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0580.md"
+    },
+    {
+      "page": 581,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 55.57,
+      "raw_chars": 2317,
+      "cleaned_chars": 2276,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0581.md"
+    },
+    {
+      "page": 582,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 43.67,
+      "raw_chars": 1169,
+      "cleaned_chars": 1075,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0582.md"
+    },
+    {
+      "page": 583,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 45.62,
+      "raw_chars": 1753,
+      "cleaned_chars": 1976,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0583.md"
+    },
+    {
+      "page": 584,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 41.61,
+      "raw_chars": 1743,
+      "cleaned_chars": 1760,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0584.md"
+    },
+    {
+      "page": 585,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 53.63,
+      "raw_chars": 2118,
+      "cleaned_chars": 2074,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0585.md"
+    },
+    {
+      "page": 586,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 42.94,
+      "raw_chars": 2458,
+      "cleaned_chars": 2502,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0586.md"
+    },
+    {
+      "page": 587,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 66.34,
+      "raw_chars": 2637,
+      "cleaned_chars": 2626,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0587.md"
+    },
+    {
+      "page": 588,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 50.35,
+      "raw_chars": 2533,
+      "cleaned_chars": 2544,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0588.md"
+    },
+    {
+      "page": 589,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 61.62,
+      "raw_chars": 2444,
+      "cleaned_chars": 2450,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0589.md"
+    },
+    {
+      "page": 590,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 57.02,
+      "raw_chars": 1773,
+      "cleaned_chars": 1708,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0590.md"
+    },
+    {
+      "page": 591,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 47.64,
+      "raw_chars": 1849,
+      "cleaned_chars": 1983,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0591.md"
+    },
+    {
+      "page": 592,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 38.3,
+      "raw_chars": 1193,
+      "cleaned_chars": 1087,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0592.md"
+    },
+    {
+      "page": 593,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 48.05,
+      "raw_chars": 1330,
+      "cleaned_chars": 1310,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0593.md"
+    },
+    {
+      "page": 594,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 53.24,
+      "raw_chars": 2006,
+      "cleaned_chars": 2046,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0594.md"
+    },
+    {
+      "page": 595,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 56.06,
+      "raw_chars": 2446,
+      "cleaned_chars": 2484,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0595.md"
+    },
+    {
+      "page": 596,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 42.92,
+      "raw_chars": 2162,
+      "cleaned_chars": 2139,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0596.md"
+    },
+    {
+      "page": 597,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 53.55,
+      "raw_chars": 2006,
+      "cleaned_chars": 2025,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0597.md"
+    },
+    {
+      "page": 598,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 53.48,
+      "raw_chars": 1634,
+      "cleaned_chars": 1770,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0598.md"
+    },
+    {
+      "page": 599,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 57.76,
+      "raw_chars": 1972,
+      "cleaned_chars": 2013,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0599.md"
+    },
+    {
+      "page": 600,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 59.29,
+      "raw_chars": 1884,
+      "cleaned_chars": 1869,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0600.md"
+    },
+    {
+      "page": 601,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 49.76,
+      "raw_chars": 1837,
+      "cleaned_chars": 1918,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0601.md"
+    },
+    {
+      "page": 602,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 55.57,
+      "raw_chars": 1877,
+      "cleaned_chars": 1913,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0602.md"
+    },
+    {
+      "page": 603,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 55.4,
+      "raw_chars": 1754,
+      "cleaned_chars": 1764,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0603.md"
+    },
+    {
+      "page": 604,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 58.44,
+      "raw_chars": 2105,
+      "cleaned_chars": 2148,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0604.md"
+    },
+    {
+      "page": 605,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 55.19,
+      "raw_chars": 2070,
+      "cleaned_chars": 2118,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0605.md"
+    },
+    {
+      "page": 606,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 51.76,
+      "raw_chars": 2300,
+      "cleaned_chars": 2329,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0606.md"
+    },
+    {
+      "page": 607,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 58.16,
+      "raw_chars": 1907,
+      "cleaned_chars": 2022,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0607.md"
+    },
+    {
+      "page": 608,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 65.71,
+      "raw_chars": 2347,
+      "cleaned_chars": 2296,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0608.md"
+    },
+    {
+      "page": 609,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 60.51,
+      "raw_chars": 2246,
+      "cleaned_chars": 2236,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0609.md"
+    },
+    {
+      "page": 610,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 63.5,
+      "raw_chars": 2309,
+      "cleaned_chars": 2290,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0610.md"
+    },
+    {
+      "page": 611,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 59.37,
+      "raw_chars": 2077,
+      "cleaned_chars": 2086,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0611.md"
+    },
+    {
+      "page": 612,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 53.54,
+      "raw_chars": 1965,
+      "cleaned_chars": 1976,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0612.md"
+    },
+    {
+      "page": 613,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 43.24,
+      "raw_chars": 900,
+      "cleaned_chars": 1122,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0613.md"
+    },
+    {
+      "page": 614,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 46.75,
+      "raw_chars": 1392,
+      "cleaned_chars": 1204,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0614.md"
+    },
+    {
+      "page": 615,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 58.3,
+      "raw_chars": 2123,
+      "cleaned_chars": 2107,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0615.md"
+    },
+    {
+      "page": 616,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 41.35,
+      "raw_chars": 1351,
+      "cleaned_chars": 1423,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0616.md"
+    },
+    {
+      "page": 617,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 46.11,
+      "raw_chars": 1556,
+      "cleaned_chars": 1481,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0617.md"
+    },
+    {
+      "page": 618,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 52.32,
+      "raw_chars": 1963,
+      "cleaned_chars": 2248,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0618.md"
+    },
+    {
+      "page": 619,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 63.78,
+      "raw_chars": 2012,
+      "cleaned_chars": 1977,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0619.md"
+    },
+    {
+      "page": 620,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 41.6,
+      "raw_chars": 1797,
+      "cleaned_chars": 1811,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0620.md"
+    },
+    {
+      "page": 621,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 49.61,
+      "raw_chars": 1378,
+      "cleaned_chars": 1361,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0621.md"
+    },
+    {
+      "page": 622,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 36.54,
+      "raw_chars": 319,
+      "cleaned_chars": 282,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0622.md"
+    },
+    {
+      "page": 623,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 77.67,
+      "raw_chars": 2470,
+      "cleaned_chars": 3660,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0623.md"
+    },
+    {
+      "page": 624,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 48.95,
+      "raw_chars": 1578,
+      "cleaned_chars": 1912,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0624.md"
+    },
+    {
+      "page": 625,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 42.49,
+      "raw_chars": 1127,
+      "cleaned_chars": 1490,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0625.md"
+    },
+    {
+      "page": 626,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 48.79,
+      "raw_chars": 1223,
+      "cleaned_chars": 1261,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0626.md"
+    },
+    {
+      "page": 627,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 29.71,
+      "raw_chars": 1053,
+      "cleaned_chars": 775,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0627.md"
+    },
+    {
+      "page": 628,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 43.19,
+      "raw_chars": 1398,
+      "cleaned_chars": 1635,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0628.md"
+    },
+    {
+      "page": 629,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 38.93,
+      "raw_chars": 955,
+      "cleaned_chars": 1031,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0629.md"
+    },
+    {
+      "page": 630,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 36.35,
+      "raw_chars": 1435,
+      "cleaned_chars": 1236,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0630.md"
+    },
+    {
+      "page": 631,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 58.2,
+      "raw_chars": 1695,
+      "cleaned_chars": 1850,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0631.md"
+    },
+    {
+      "page": 632,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 36.64,
+      "raw_chars": 1200,
+      "cleaned_chars": 1151,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0632.md"
+    },
+    {
+      "page": 633,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 49.06,
+      "raw_chars": 1786,
+      "cleaned_chars": 1875,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0633.md"
+    },
+    {
+      "page": 634,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 43.47,
+      "raw_chars": 1005,
+      "cleaned_chars": 1240,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0634.md"
+    },
+    {
+      "page": 635,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 42.48,
+      "raw_chars": 1285,
+      "cleaned_chars": 1392,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0635.md"
+    },
+    {
+      "page": 636,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 45.57,
+      "raw_chars": 1272,
+      "cleaned_chars": 1376,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0636.md"
+    },
+    {
+      "page": 637,
+      "ocr_seconds": 0.4,
+      "cleanup_seconds": 34.51,
+      "raw_chars": 793,
+      "cleaned_chars": 894,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0637.md"
+    },
+    {
+      "page": 638,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 49.49,
+      "raw_chars": 1933,
+      "cleaned_chars": 1817,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0638.md"
+    },
+    {
+      "page": 639,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 49.74,
+      "raw_chars": 1817,
+      "cleaned_chars": 1902,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0639.md"
+    },
+    {
+      "page": 640,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 56.07,
+      "raw_chars": 1338,
+      "cleaned_chars": 1397,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0640.md"
+    },
+    {
+      "page": 641,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 32.32,
+      "raw_chars": 1136,
+      "cleaned_chars": 1143,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0641.md"
+    },
+    {
+      "page": 642,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 41.16,
+      "raw_chars": 1444,
+      "cleaned_chars": 1477,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0642.md"
+    },
+    {
+      "page": 643,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 52.66,
+      "raw_chars": 1316,
+      "cleaned_chars": 1511,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0643.md"
+    },
+    {
+      "page": 644,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 49.36,
+      "raw_chars": 1792,
+      "cleaned_chars": 1644,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0644.md"
+    },
+    {
+      "page": 645,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 53.63,
+      "raw_chars": 1878,
+      "cleaned_chars": 1874,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0645.md"
+    },
+    {
+      "page": 646,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 50.97,
+      "raw_chars": 1771,
+      "cleaned_chars": 1938,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0646.md"
+    },
+    {
+      "page": 647,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 60.73,
+      "raw_chars": 1700,
+      "cleaned_chars": 1887,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0647.md"
+    },
+    {
+      "page": 648,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 53.79,
+      "raw_chars": 1857,
+      "cleaned_chars": 2035,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0648.md"
+    },
+    {
+      "page": 649,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 59.34,
+      "raw_chars": 1667,
+      "cleaned_chars": 1613,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0649.md"
+    },
+    {
+      "page": 650,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 62.46,
+      "raw_chars": 1809,
+      "cleaned_chars": 2022,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0650.md"
+    },
+    {
+      "page": 651,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 64.77,
+      "raw_chars": 1809,
+      "cleaned_chars": 2017,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0651.md"
+    },
+    {
+      "page": 652,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 38.69,
+      "raw_chars": 1951,
+      "cleaned_chars": 1939,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0652.md"
+    },
+    {
+      "page": 653,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 38.14,
+      "raw_chars": 1032,
+      "cleaned_chars": 1098,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0653.md"
+    },
+    {
+      "page": 654,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 70.26,
+      "raw_chars": 2002,
+      "cleaned_chars": 2144,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0654.md"
+    },
+    {
+      "page": 655,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 60.96,
+      "raw_chars": 1791,
+      "cleaned_chars": 1721,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0655.md"
+    },
+    {
+      "page": 656,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 47.56,
+      "raw_chars": 1507,
+      "cleaned_chars": 1535,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0656.md"
+    },
+    {
+      "page": 657,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 35.97,
+      "raw_chars": 880,
+      "cleaned_chars": 667,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0657.md"
+    },
+    {
+      "page": 658,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 41.11,
+      "raw_chars": 1303,
+      "cleaned_chars": 1237,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0658.md"
+    },
+    {
+      "page": 659,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 45.76,
+      "raw_chars": 1856,
+      "cleaned_chars": 1914,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0659.md"
+    },
+    {
+      "page": 660,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 71.76,
+      "raw_chars": 1830,
+      "cleaned_chars": 1999,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0660.md"
+    },
+    {
+      "page": 661,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 67.69,
+      "raw_chars": 1696,
+      "cleaned_chars": 1877,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0661.md"
+    },
+    {
+      "page": 662,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 63.77,
+      "raw_chars": 1745,
+      "cleaned_chars": 1884,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0662.md"
+    },
+    {
+      "page": 663,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 63.06,
+      "raw_chars": 1959,
+      "cleaned_chars": 2186,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0663.md"
+    },
+    {
+      "page": 664,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 55.36,
+      "raw_chars": 1785,
+      "cleaned_chars": 1850,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0664.md"
+    },
+    {
+      "page": 665,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 60.84,
+      "raw_chars": 1829,
+      "cleaned_chars": 1855,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0665.md"
+    },
+    {
+      "page": 666,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 61.52,
+      "raw_chars": 1684,
+      "cleaned_chars": 1875,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0666.md"
+    },
+    {
+      "page": 667,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 52.13,
+      "raw_chars": 1851,
+      "cleaned_chars": 1985,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0667.md"
+    },
+    {
+      "page": 668,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 54.61,
+      "raw_chars": 1848,
+      "cleaned_chars": 1992,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0668.md"
+    },
+    {
+      "page": 669,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 57.18,
+      "raw_chars": 1863,
+      "cleaned_chars": 2047,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0669.md"
+    },
+    {
+      "page": 670,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 59.35,
+      "raw_chars": 2013,
+      "cleaned_chars": 2095,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0670.md"
+    },
+    {
+      "page": 671,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 62.06,
+      "raw_chars": 1679,
+      "cleaned_chars": 1772,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0671.md"
+    },
+    {
+      "page": 672,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 52.81,
+      "raw_chars": 1685,
+      "cleaned_chars": 1750,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0672.md"
+    },
+    {
+      "page": 673,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 54.12,
+      "raw_chars": 1711,
+      "cleaned_chars": 1783,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0673.md"
+    },
+    {
+      "page": 674,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 40.45,
+      "raw_chars": 1882,
+      "cleaned_chars": 1978,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0674.md"
+    },
+    {
+      "page": 675,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 39.7,
+      "raw_chars": 2176,
+      "cleaned_chars": 2241,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0675.md"
+    },
+    {
+      "page": 676,
+      "ocr_seconds": 0.29,
+      "cleanup_seconds": 12.79,
+      "raw_chars": 211,
+      "cleaned_chars": 20,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0676.md"
+    },
+    {
+      "page": 677,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 48.38,
+      "raw_chars": 1117,
+      "cleaned_chars": 1084,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0677.md"
+    },
+    {
+      "page": 678,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 46.24,
+      "raw_chars": 1589,
+      "cleaned_chars": 1615,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0678.md"
+    },
+    {
+      "page": 679,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 26.74,
+      "raw_chars": 715,
+      "cleaned_chars": 336,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0679.md"
+    },
+    {
+      "page": 680,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 57.91,
+      "raw_chars": 1105,
+      "cleaned_chars": 1754,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0680.md"
+    },
+    {
+      "page": 681,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 51.94,
+      "raw_chars": 1320,
+      "cleaned_chars": 1832,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0681.md"
+    },
+    {
+      "page": 682,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 40.64,
+      "raw_chars": 1367,
+      "cleaned_chars": 1374,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0682.md"
+    },
+    {
+      "page": 683,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 53.23,
+      "raw_chars": 1187,
+      "cleaned_chars": 1436,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0683.md"
+    },
+    {
+      "page": 684,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 43.0,
+      "raw_chars": 961,
+      "cleaned_chars": 900,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0684.md"
+    },
+    {
+      "page": 685,
+      "ocr_seconds": 0.42,
+      "cleanup_seconds": 53.69,
+      "raw_chars": 882,
+      "cleaned_chars": 1089,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0685.md"
+    },
+    {
+      "page": 686,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 34.34,
+      "raw_chars": 954,
+      "cleaned_chars": 922,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0686.md"
+    },
+    {
+      "page": 687,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 35.4,
+      "raw_chars": 902,
+      "cleaned_chars": 1087,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0687.md"
+    },
+    {
+      "page": 688,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 50.34,
+      "raw_chars": 1059,
+      "cleaned_chars": 1432,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0688.md"
+    },
+    {
+      "page": 689,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 50.57,
+      "raw_chars": 994,
+      "cleaned_chars": 1385,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0689.md"
+    },
+    {
+      "page": 690,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 44.44,
+      "raw_chars": 1361,
+      "cleaned_chars": 1705,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0690.md"
+    },
+    {
+      "page": 691,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 28.35,
+      "raw_chars": 674,
+      "cleaned_chars": 702,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0691.md"
+    },
+    {
+      "page": 692,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 63.35,
+      "raw_chars": 1952,
+      "cleaned_chars": 2335,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0692.md"
+    },
+    {
+      "page": 693,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 66.75,
+      "raw_chars": 1884,
+      "cleaned_chars": 2067,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0693.md"
+    },
+    {
+      "page": 694,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 36.92,
+      "raw_chars": 1199,
+      "cleaned_chars": 1233,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0694.md"
+    },
+    {
+      "page": 695,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 55.2,
+      "raw_chars": 1231,
+      "cleaned_chars": 1669,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0695.md"
+    },
+    {
+      "page": 696,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 42.33,
+      "raw_chars": 1108,
+      "cleaned_chars": 1536,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0696.md"
+    },
+    {
+      "page": 697,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 54.49,
+      "raw_chars": 2149,
+      "cleaned_chars": 2524,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0697.md"
+    },
+    {
+      "page": 698,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 62.43,
+      "raw_chars": 1798,
+      "cleaned_chars": 2652,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0698.md"
+    },
+    {
+      "page": 699,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 47.93,
+      "raw_chars": 1824,
+      "cleaned_chars": 2006,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0699.md"
+    },
+    {
+      "page": 700,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 54.27,
+      "raw_chars": 1645,
+      "cleaned_chars": 2421,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0700.md"
+    },
+    {
+      "page": 701,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 46.84,
+      "raw_chars": 1244,
+      "cleaned_chars": 1273,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0701.md"
+    },
+    {
+      "page": 702,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 51.59,
+      "raw_chars": 1259,
+      "cleaned_chars": 1579,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0702.md"
+    },
+    {
+      "page": 703,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 47.1,
+      "raw_chars": 1718,
+      "cleaned_chars": 1579,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0703.md"
+    },
+    {
+      "page": 704,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 47.34,
+      "raw_chars": 1803,
+      "cleaned_chars": 1796,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0704.md"
+    },
+    {
+      "page": 705,
+      "ocr_seconds": 0.35,
+      "cleanup_seconds": 35.33,
+      "raw_chars": 725,
+      "cleaned_chars": 738,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0705.md"
+    },
+    {
+      "page": 706,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 65.82,
+      "raw_chars": 1253,
+      "cleaned_chars": 1218,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0706.md"
+    },
+    {
+      "page": 707,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 38.0,
+      "raw_chars": 1019,
+      "cleaned_chars": 1200,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0707.md"
+    },
+    {
+      "page": 708,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 42.55,
+      "raw_chars": 1055,
+      "cleaned_chars": 1008,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0708.md"
+    },
+    {
+      "page": 709,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 42.07,
+      "raw_chars": 1188,
+      "cleaned_chars": 1266,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0709.md"
+    },
+    {
+      "page": 710,
+      "ocr_seconds": 0.45,
+      "cleanup_seconds": 56.59,
+      "raw_chars": 1085,
+      "cleaned_chars": 897,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0710.md"
+    },
+    {
+      "page": 711,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 73.14,
+      "raw_chars": 1161,
+      "cleaned_chars": 1176,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0711.md"
+    },
+    {
+      "page": 712,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 59.31,
+      "raw_chars": 1201,
+      "cleaned_chars": 1151,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0712.md"
+    },
+    {
+      "page": 713,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 46.38,
+      "raw_chars": 1145,
+      "cleaned_chars": 1116,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0713.md"
+    },
+    {
+      "page": 714,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 37.68,
+      "raw_chars": 1148,
+      "cleaned_chars": 1027,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0714.md"
+    },
+    {
+      "page": 715,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 47.96,
+      "raw_chars": 1162,
+      "cleaned_chars": 1325,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0715.md"
+    },
+    {
+      "page": 716,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 40.76,
+      "raw_chars": 1101,
+      "cleaned_chars": 1260,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0716.md"
+    },
+    {
+      "page": 717,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 46.66,
+      "raw_chars": 1228,
+      "cleaned_chars": 1153,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0717.md"
+    },
+    {
+      "page": 718,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 37.76,
+      "raw_chars": 1130,
+      "cleaned_chars": 1095,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0718.md"
+    },
+    {
+      "page": 719,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 39.83,
+      "raw_chars": 1157,
+      "cleaned_chars": 1039,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0719.md"
+    },
+    {
+      "page": 720,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 46.06,
+      "raw_chars": 1209,
+      "cleaned_chars": 1438,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0720.md"
+    },
+    {
+      "page": 721,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 76.68,
+      "raw_chars": 1095,
+      "cleaned_chars": 1319,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0721.md"
+    },
+    {
+      "page": 722,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 61.37,
+      "raw_chars": 1120,
+      "cleaned_chars": 1537,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0722.md"
+    },
+    {
+      "page": 723,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 47.85,
+      "raw_chars": 1136,
+      "cleaned_chars": 1393,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0723.md"
+    },
+    {
+      "page": 724,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 37.38,
+      "raw_chars": 1142,
+      "cleaned_chars": 1184,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0724.md"
+    },
+    {
+      "page": 725,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 47.09,
+      "raw_chars": 1210,
+      "cleaned_chars": 1412,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0725.md"
+    },
+    {
+      "page": 726,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 46.09,
+      "raw_chars": 1148,
+      "cleaned_chars": 1220,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0726.md"
+    },
+    {
+      "page": 727,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 46.83,
+      "raw_chars": 1188,
+      "cleaned_chars": 1270,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0727.md"
+    },
+    {
+      "page": 728,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 58.0,
+      "raw_chars": 1190,
+      "cleaned_chars": 1147,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0728.md"
+    },
+    {
+      "page": 729,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 45.09,
+      "raw_chars": 1124,
+      "cleaned_chars": 1033,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0729.md"
+    },
+    {
+      "page": 730,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 41.05,
+      "raw_chars": 1168,
+      "cleaned_chars": 1063,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0730.md"
+    },
+    {
+      "page": 731,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 44.39,
+      "raw_chars": 1190,
+      "cleaned_chars": 1142,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0731.md"
+    },
+    {
+      "page": 732,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 45.48,
+      "raw_chars": 1123,
+      "cleaned_chars": 1138,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0732.md"
+    },
+    {
+      "page": 733,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 41.34,
+      "raw_chars": 1174,
+      "cleaned_chars": 1260,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0733.md"
+    },
+    {
+      "page": 734,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 36.91,
+      "raw_chars": 1170,
+      "cleaned_chars": 1151,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0734.md"
+    },
+    {
+      "page": 735,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 59.01,
+      "raw_chars": 1146,
+      "cleaned_chars": 1458,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0735.md"
+    },
+    {
+      "page": 736,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 59.92,
+      "raw_chars": 1188,
+      "cleaned_chars": 1247,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0736.md"
+    },
+    {
+      "page": 737,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 44.93,
+      "raw_chars": 1214,
+      "cleaned_chars": 1070,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0737.md"
+    },
+    {
+      "page": 738,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 42.29,
+      "raw_chars": 1253,
+      "cleaned_chars": 933,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0738.md"
+    },
+    {
+      "page": 739,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 45.98,
+      "raw_chars": 1188,
+      "cleaned_chars": 1302,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0739.md"
+    },
+    {
+      "page": 740,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 66.98,
+      "raw_chars": 1083,
+      "cleaned_chars": 1000,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0740.md"
+    },
+    {
+      "page": 741,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 48.56,
+      "raw_chars": 1196,
+      "cleaned_chars": 1094,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0741.md"
+    },
+    {
+      "page": 742,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 58.33,
+      "raw_chars": 1293,
+      "cleaned_chars": 1569,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0742.md"
+    },
+    {
+      "page": 743,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 62.42,
+      "raw_chars": 1169,
+      "cleaned_chars": 1417,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0743.md"
+    },
+    {
+      "page": 744,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 41.24,
+      "raw_chars": 1196,
+      "cleaned_chars": 1147,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0744.md"
+    },
+    {
+      "page": 745,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 43.04,
+      "raw_chars": 1180,
+      "cleaned_chars": 1118,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0745.md"
+    },
+    {
+      "page": 746,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 45.53,
+      "raw_chars": 1178,
+      "cleaned_chars": 1436,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0746.md"
+    },
+    {
+      "page": 747,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 62.91,
+      "raw_chars": 1224,
+      "cleaned_chars": 1253,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0747.md"
+    },
+    {
+      "page": 748,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 45.15,
+      "raw_chars": 1128,
+      "cleaned_chars": 1174,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0748.md"
+    },
+    {
+      "page": 749,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 79.18,
+      "raw_chars": 1226,
+      "cleaned_chars": 1331,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0749.md"
+    },
+    {
+      "page": 750,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 41.57,
+      "raw_chars": 1228,
+      "cleaned_chars": 1113,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0750.md"
+    },
+    {
+      "page": 751,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 47.62,
+      "raw_chars": 1168,
+      "cleaned_chars": 1418,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0751.md"
+    },
+    {
+      "page": 752,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 59.04,
+      "raw_chars": 1098,
+      "cleaned_chars": 1243,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0752.md"
+    },
+    {
+      "page": 753,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 37.6,
+      "raw_chars": 1158,
+      "cleaned_chars": 1152,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0753.md"
+    },
+    {
+      "page": 754,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 57.87,
+      "raw_chars": 1129,
+      "cleaned_chars": 1407,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0754.md"
+    },
+    {
+      "page": 755,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 54.64,
+      "raw_chars": 1182,
+      "cleaned_chars": 1341,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0755.md"
+    },
+    {
+      "page": 756,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 37.96,
+      "raw_chars": 1104,
+      "cleaned_chars": 1224,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0756.md"
+    },
+    {
+      "page": 757,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 63.53,
+      "raw_chars": 1130,
+      "cleaned_chars": 1083,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0757.md"
+    },
+    {
+      "page": 758,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 47.81,
+      "raw_chars": 1349,
+      "cleaned_chars": 947,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0758.md"
+    },
+    {
+      "page": 759,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 52.4,
+      "raw_chars": 1134,
+      "cleaned_chars": 1128,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0759.md"
+    },
+    {
+      "page": 760,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 42.38,
+      "raw_chars": 1100,
+      "cleaned_chars": 1160,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0760.md"
+    },
+    {
+      "page": 761,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 45.09,
+      "raw_chars": 1162,
+      "cleaned_chars": 1349,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0761.md"
+    },
+    {
+      "page": 762,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 43.96,
+      "raw_chars": 1168,
+      "cleaned_chars": 1205,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0762.md"
+    },
+    {
+      "page": 763,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 44.7,
+      "raw_chars": 1152,
+      "cleaned_chars": 1303,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0763.md"
+    },
+    {
+      "page": 764,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 36.1,
+      "raw_chars": 1071,
+      "cleaned_chars": 1035,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0764.md"
+    },
+    {
+      "page": 765,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 45.4,
+      "raw_chars": 1103,
+      "cleaned_chars": 1090,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0765.md"
+    },
+    {
+      "page": 766,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 38.88,
+      "raw_chars": 1134,
+      "cleaned_chars": 1086,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0766.md"
+    },
+    {
+      "page": 767,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 58.59,
+      "raw_chars": 1159,
+      "cleaned_chars": 1466,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0767.md"
+    },
+    {
+      "page": 768,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 36.63,
+      "raw_chars": 1103,
+      "cleaned_chars": 1033,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0768.md"
+    },
+    {
+      "page": 769,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 45.29,
+      "raw_chars": 1109,
+      "cleaned_chars": 1332,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0769.md"
+    },
+    {
+      "page": 770,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 47.14,
+      "raw_chars": 1245,
+      "cleaned_chars": 986,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0770.md"
+    },
+    {
+      "page": 771,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 58.2,
+      "raw_chars": 1153,
+      "cleaned_chars": 1230,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0771.md"
+    },
+    {
+      "page": 772,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 52.68,
+      "raw_chars": 1078,
+      "cleaned_chars": 1033,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0772.md"
+    },
+    {
+      "page": 773,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 49.21,
+      "raw_chars": 1169,
+      "cleaned_chars": 1873,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0773.md"
+    },
+    {
+      "page": 774,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 47.59,
+      "raw_chars": 1103,
+      "cleaned_chars": 1843,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0774.md"
+    },
+    {
+      "page": 775,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 44.81,
+      "raw_chars": 1169,
+      "cleaned_chars": 1001,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0775.md"
+    },
+    {
+      "page": 776,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 55.72,
+      "raw_chars": 1098,
+      "cleaned_chars": 2236,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0776.md"
+    },
+    {
+      "page": 777,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 69.34,
+      "raw_chars": 1175,
+      "cleaned_chars": 1757,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0777.md"
+    },
+    {
+      "page": 778,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 61.59,
+      "raw_chars": 1152,
+      "cleaned_chars": 999,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0778.md"
+    },
+    {
+      "page": 779,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 53.27,
+      "raw_chars": 1159,
+      "cleaned_chars": 1075,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0779.md"
+    },
+    {
+      "page": 780,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 61.08,
+      "raw_chars": 967,
+      "cleaned_chars": 1453,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0780.md"
+    },
+    {
+      "page": 781,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 41.27,
+      "raw_chars": 1312,
+      "cleaned_chars": 1354,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0781.md"
+    },
+    {
+      "page": 782,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 41.42,
+      "raw_chars": 1156,
+      "cleaned_chars": 1081,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0782.md"
+    },
+    {
+      "page": 783,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 42.69,
+      "raw_chars": 1085,
+      "cleaned_chars": 1109,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0783.md"
+    },
+    {
+      "page": 784,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 44.69,
+      "raw_chars": 1190,
+      "cleaned_chars": 1048,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0784.md"
+    },
+    {
+      "page": 785,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 64.27,
+      "raw_chars": 1174,
+      "cleaned_chars": 1240,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0785.md"
+    },
+    {
+      "page": 786,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 43.71,
+      "raw_chars": 1112,
+      "cleaned_chars": 1308,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0786.md"
+    },
+    {
+      "page": 787,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 64.12,
+      "raw_chars": 1048,
+      "cleaned_chars": 975,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0787.md"
+    },
+    {
+      "page": 788,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 43.7,
+      "raw_chars": 1150,
+      "cleaned_chars": 1237,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0788.md"
+    },
+    {
+      "page": 789,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 59.03,
+      "raw_chars": 1132,
+      "cleaned_chars": 1605,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0789.md"
+    },
+    {
+      "page": 790,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 69.4,
+      "raw_chars": 1196,
+      "cleaned_chars": 1098,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0790.md"
+    },
+    {
+      "page": 791,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 56.58,
+      "raw_chars": 1146,
+      "cleaned_chars": 1202,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0791.md"
+    },
+    {
+      "page": 792,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 41.8,
+      "raw_chars": 1121,
+      "cleaned_chars": 1102,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0792.md"
+    },
+    {
+      "page": 793,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 59.04,
+      "raw_chars": 1168,
+      "cleaned_chars": 1277,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0793.md"
+    },
+    {
+      "page": 794,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 53.52,
+      "raw_chars": 1116,
+      "cleaned_chars": 1169,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0794.md"
+    },
+    {
+      "page": 795,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 36.28,
+      "raw_chars": 1086,
+      "cleaned_chars": 1106,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0795.md"
+    },
+    {
+      "page": 796,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 40.28,
+      "raw_chars": 1038,
+      "cleaned_chars": 1011,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0796.md"
+    },
+    {
+      "page": 797,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 42.94,
+      "raw_chars": 958,
+      "cleaned_chars": 1286,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0797.md"
+    },
+    {
+      "page": 798,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 54.97,
+      "raw_chars": 1157,
+      "cleaned_chars": 1158,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0798.md"
+    },
+    {
+      "page": 799,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 69.84,
+      "raw_chars": 1203,
+      "cleaned_chars": 1133,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0799.md"
+    },
+    {
+      "page": 800,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 37.42,
+      "raw_chars": 1202,
+      "cleaned_chars": 1223,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0800.md"
+    },
+    {
+      "page": 801,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 47.12,
+      "raw_chars": 1229,
+      "cleaned_chars": 1381,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0801.md"
+    },
+    {
+      "page": 802,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 44.82,
+      "raw_chars": 1102,
+      "cleaned_chars": 1340,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0802.md"
+    },
+    {
+      "page": 803,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 71.59,
+      "raw_chars": 1222,
+      "cleaned_chars": 1180,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0803.md"
+    },
+    {
+      "page": 804,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 44.31,
+      "raw_chars": 1160,
+      "cleaned_chars": 1105,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0804.md"
+    },
+    {
+      "page": 805,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 38.4,
+      "raw_chars": 1076,
+      "cleaned_chars": 1070,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0805.md"
+    },
+    {
+      "page": 806,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 76.13,
+      "raw_chars": 1121,
+      "cleaned_chars": 1159,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0806.md"
+    },
+    {
+      "page": 807,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 42.67,
+      "raw_chars": 1301,
+      "cleaned_chars": 1304,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0807.md"
+    },
+    {
+      "page": 808,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 51.75,
+      "raw_chars": 975,
+      "cleaned_chars": 1020,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0808.md"
+    },
+    {
+      "page": 809,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 55.59,
+      "raw_chars": 1019,
+      "cleaned_chars": 974,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0809.md"
+    },
+    {
+      "page": 810,
+      "ocr_seconds": 0.44,
+      "cleanup_seconds": 58.36,
+      "raw_chars": 1026,
+      "cleaned_chars": 1173,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0810.md"
+    },
+    {
+      "page": 811,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 53.66,
+      "raw_chars": 1052,
+      "cleaned_chars": 1286,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0811.md"
+    },
+    {
+      "page": 812,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 51.29,
+      "raw_chars": 951,
+      "cleaned_chars": 1293,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0812.md"
+    },
+    {
+      "page": 813,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 48.93,
+      "raw_chars": 1154,
+      "cleaned_chars": 1307,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0813.md"
+    },
+    {
+      "page": 814,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 34.54,
+      "raw_chars": 1063,
+      "cleaned_chars": 975,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0814.md"
+    },
+    {
+      "page": 815,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 38.17,
+      "raw_chars": 1047,
+      "cleaned_chars": 643,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0815.md"
+    },
+    {
+      "page": 816,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 43.95,
+      "raw_chars": 1171,
+      "cleaned_chars": 1111,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0816.md"
+    },
+    {
+      "page": 817,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 48.22,
+      "raw_chars": 1163,
+      "cleaned_chars": 1141,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0817.md"
+    },
+    {
+      "page": 818,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 46.68,
+      "raw_chars": 1186,
+      "cleaned_chars": 1055,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0818.md"
+    },
+    {
+      "page": 819,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 37.41,
+      "raw_chars": 1152,
+      "cleaned_chars": 1233,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0819.md"
+    },
+    {
+      "page": 820,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 61.1,
+      "raw_chars": 1153,
+      "cleaned_chars": 975,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0820.md"
+    },
+    {
+      "page": 821,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 32.92,
+      "raw_chars": 1185,
+      "cleaned_chars": 786,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0821.md"
+    },
+    {
+      "page": 822,
+      "ocr_seconds": 0.52,
+      "cleanup_seconds": 44.96,
+      "raw_chars": 1186,
+      "cleaned_chars": 1149,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0822.md"
+    },
+    {
+      "page": 823,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 43.57,
+      "raw_chars": 1263,
+      "cleaned_chars": 1368,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0823.md"
+    },
+    {
+      "page": 824,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 41.68,
+      "raw_chars": 1116,
+      "cleaned_chars": 1604,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0824.md"
+    },
+    {
+      "page": 825,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 42.02,
+      "raw_chars": 1268,
+      "cleaned_chars": 1226,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0825.md"
+    },
+    {
+      "page": 826,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 33.97,
+      "raw_chars": 1123,
+      "cleaned_chars": 1025,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0826.md"
+    },
+    {
+      "page": 827,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 51.6,
+      "raw_chars": 1549,
+      "cleaned_chars": 1544,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0827.md"
+    },
+    {
+      "page": 828,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 52.19,
+      "raw_chars": 1690,
+      "cleaned_chars": 1521,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0828.md"
+    },
+    {
+      "page": 829,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 45.69,
+      "raw_chars": 1716,
+      "cleaned_chars": 1714,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0829.md"
+    },
+    {
+      "page": 830,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 59.03,
+      "raw_chars": 1543,
+      "cleaned_chars": 1787,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0830.md"
+    },
+    {
+      "page": 831,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 55.47,
+      "raw_chars": 1559,
+      "cleaned_chars": 1574,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0831.md"
+    },
+    {
+      "page": 832,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 58.37,
+      "raw_chars": 1787,
+      "cleaned_chars": 1829,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0832.md"
+    },
+    {
+      "page": 833,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 59.26,
+      "raw_chars": 1617,
+      "cleaned_chars": 1641,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0833.md"
+    },
+    {
+      "page": 834,
+      "ocr_seconds": 0.36,
+      "cleanup_seconds": 34.51,
+      "raw_chars": 689,
+      "cleaned_chars": 725,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0834.md"
+    },
+    {
+      "page": 835,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 44.11,
+      "raw_chars": 1061,
+      "cleaned_chars": 1113,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0835.md"
+    },
+    {
+      "page": 836,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 49.62,
+      "raw_chars": 1427,
+      "cleaned_chars": 1145,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0836.md"
+    },
+    {
+      "page": 837,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 49.8,
+      "raw_chars": 1296,
+      "cleaned_chars": 1186,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0837.md"
+    },
+    {
+      "page": 838,
+      "ocr_seconds": 0.49,
+      "cleanup_seconds": 47.32,
+      "raw_chars": 1033,
+      "cleaned_chars": 998,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0838.md"
+    },
+    {
+      "page": 839,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 34.95,
+      "raw_chars": 1135,
+      "cleaned_chars": 1046,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0839.md"
+    },
+    {
+      "page": 840,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 30.75,
+      "raw_chars": 379,
+      "cleaned_chars": 397,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0840.md"
+    },
+    {
+      "page": 841,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 29.64,
+      "raw_chars": 415,
+      "cleaned_chars": 194,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0841.md"
+    },
+    {
+      "page": 842,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 34.26,
+      "raw_chars": 1326,
+      "cleaned_chars": 1330,
+      "md_path": "kinh-dich-va-he-nhi-phan/pages/p0842.md"
+    }
+  ]
+}

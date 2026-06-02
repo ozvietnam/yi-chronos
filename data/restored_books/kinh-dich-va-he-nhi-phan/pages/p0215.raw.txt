@@ -1,0 +1,42 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+2. Các đơn quái biến từ hào trên xuống hào dưới rồi lại từ
+đưới lên cho đến khi đủ 8 lần biến.
+
+Bắt đầu biến từ hào thượng (hào trên cùng) đến hào giữa rồi xuống
+hào hạ (hào dưới cùng). Lần biến thư tư thì lại đi lên hào giữa (lần thứ
+hai). Lần biến thư 5 đến hào thượng (lần thứ hai). Sang lần biến thứ
+sáu, lại xuống hào giữa (lần thứ ba) và lần biến thứ 7 thì xuống hào hạ
+(lần thứ hai). Lần biến thứ 8 lại đi lên hào giữa (lần thứ tư) để trở về
+tượng ban đầu. Như vậy là trải qua 8 lần biến thì hào thượng của quẻ
+biến 2 lần, hào hạ biến 2 lần, riêng hào giữa biến tới 4 lần (Hình 5ã).
+Đặc điểm vẻ sự biến thể này chỉ có ở Tượng số nhị phân. Viết các con số
+theo ký hiệu đơn thuần không thể phát hiện ra tính chất này. Đây là
+một bí mật của Tạo hoá được tàng ẩn trong cơ chế “nhì phân”, vì chỉ khi
+viết các số với nguyên lý phân cực âm dương mới tạo ra được “tượng
+phấn cực” của chúng, Đó cũng là điều bí ẩn thuộc về thế giới “điện từ”
+(theo ngôn ngữ ngày nay) của Vũ trụ mà người xưa đã tìm ra và phát
+biểu đưới ngôn ngữ “âm dương”. Trải qua nhiều thiên niên kỷ cũng
+chính cổ nhân đã dày công nghiên cưu rất sầu về nó.
+
+3. Sự xung hợp của 8 đơn quái.
+
+Trong chương nghiên cứu về Hậu thiên Bát quái chúng ta đã biết,
+khi phối hợp Bát quái với Lạc thư thì mỗi đơn quái mang một số Lạc ,
+thư nhất định. Số đó định vị các quái trong không gian, mỗi quẻ tương
+tng với một vị trí trong “bốn phương, tám hướng” của trời đất. (Cần
+chú ý rằng trong Tiên thiên đồ, vị trí của các quẻ khác vị trí chúng
+trong Hậu thiên đồ; trong ứng dụng dự báo thường người xưa dùng vị
+trí quẻ Hậu thiên. Để tránh nhầm lẫn, người xưa thường ghi cả hai vị
+trí, (quẻ Tiên thiên đứng trước/quẻ Hậu thiên đứng sau), ví dụ : phương
+“Khôõn-Khảm” tức là chính bác, vì quê Khôn trong Tiên thiên là ở chính
+bắc, còn trong Hậu thiên thì chính bắc lại là quẻ Khảm. Ghi phương
+“Càn-Ly” tức là chính nam, vì trong Tiên thiên quẻ Càn ở chính
+nam, còn trong Hậu thiên thì chính nam là quẻ Ly. Các phương
+khác cũng thế : phương “Ly-Chấn” là chính đông; phương “Khảm-
+Đoài” là chính tây; phương “Chấn-Cấn” là đông bắc; phương “GCấn-
+Càn” là tây bắc; phương “Đoài-Tốn” là đông nam; phương “Tốn-Khôn”
+là tây nam). (Để dễ nhận biết xin xem “hình 56” Tiên thiên và Hậu
+thiên Bát quái dưới).
+
+216

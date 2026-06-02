@@ -1,0 +1,41 @@
+HOÀNG TUẤN
+
+Tuy nhiên nếu chúng ta khảo sát các quẻ Dịch dưới ánh sáng của
+các số nhị phân, ta sẽ nhận ngay ra rằng 8 hàng quẻ của bản Dịch này
+chính là 8 cột dọc của bản 64 quẻ Tiên thiên của Phục Hi được xếp theo
+hàng ngang. Như vậy trật tự bản Dịch này có những điểm khác hẳn
+bản Tiên thiên và Hậu thiên như sau :
+
+2.1. Bản Dịch Tiên thiên uà Hậu thiên xếp các nhóm quê theo hàng
+ngang, lấy quẻ Nội (quẻ Hạ) làm căn cứ. Ví dụ : 8 quẻ thuộc nhóm Càn
+đều có quẻ Nội là quẻ Càn đơn; 8 quê thuộc nhóm Khám đều có quẻ Nội
+là quả Khảm đơn v.v... Các quẻ thuộc các nhóm Cấn, Chấn, Tốn, Ly,
+Khôn, Đoài đều như thế, đều lấy quê Nội làm cơ sở của nhóm. Còn
+trong bản Đổi Mã Vương thì sắp xếp các nhóm quẻ cũng theo hàng
+ngang nhưng nội dung các quẻ lại theo cột dọc của bản Hậu thiên, lấy
+quẻ Ngoại (quẻ thượng) làm cơ sở, có nghĩa là 8 quẻ nhóm Càn đều có
+quẻ Ngoại là Càn; các nhóm khác cũng thế. Còn quẻ Nội của bản này
+thì sắp xếp theo trật tự từng cặp đối xứng : từ Càn-Khôn đến Cấn-Đoài,
+đến Khảm-Ly và cuối cùng là Chấn-Tốn. Các quẻ từng cặp trên chỉ
+được đưa ra đầu hàng khi hàng đó thuộc về một trong 8 quẻ cơ bản.
+
+2.2. Bản Dịch Tiên thiên uà Hệu thiên, trật tự các số trong mỗi
+nhóm đều lùi dân từ số lớn đến số nhỏ, vì vậy, trừ nhóm quê Càn là có
+quê “thuần Càn” đứng đầu, còn các nhóm khác, các quẻ “thuần” không -
+đứng đầu mà lọt vào các số ở giữa hàng. Nhóm quê Khôn thì quê “thuần
+Khôn” lại đứng cuối cùng vì là số nhỏ nhất. Còn trong bản Mã Vương
+thì các quẻ “thuần” đều được xếp ra đầu hàng.
+
+2.3. Bán Đải Ma Vương có chỗ không theo trật tự Hậu thiên là
+“Càn-Khảm-Cấn-Chãn” (bốn hàng quẻ thuộc đương) rồi “Tốn-Ly-Khôn-
+Đoài” (bến hàng quẻ thuộc âm), mà theo trật tự “Càn-Cấn-Khảm-Chấn”
+(bốn hàng quẻ thuộc dương) và tiếp là “Khôn-Đoài-Ly-Tến” (bốn quẻ
+thuộc âm). Trừ hai quê đứng đầu dương âm là Càn-Khôn, còn ở phần
+dương từ Cấn đến Chân là xếp theo các con số lớn dần; ở phần âm từ
+Đoài đến Tốn là xếp theo các con số nhỏ đần. Tuy nhiên cả hai cách sắp
+xếp đếu dẫn đến kết quả là 4 nhóm quẻ thuộc đương có tổng giá trị
+bằng 4 nhóm quẻ thuộc âm, tức mỗi bên đều bằng 1008. Để đễ nhận
+thấy ta hãy xem bảng viết các quê Đổi Mã Vương bằng chính các chữ số
+thập phân hiện đại dưới đây.
+
+189

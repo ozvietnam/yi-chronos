@@ -1,0 +1,34 @@
+đây đã giới thiệu cách gieo quẻ theo thời gian, thì trong quẻ
+chỉ có L hào động, nên sự việc được nổi rõ dễ đoán. Vì vậy
+đối với những việc phức tạp khó đoán nền chờ khi ký thuật
+đoán đã thành thạo thì sẽ đoán được dễ dàng hơn.
+
+3. Quẻ chủ, quẻ hỗ và quẻ biến
+
+Phương pháp gieo quẻ theo thời gian và những cách gieo
+quê khác tìm ra quẻ đầu tiên gọi là quẻ gốc. Nếu muốn
+biết quá trình phát triển của sự việc để tham khảo trong ˆ
+lúc đoán thì cần phải thông qua biến dịch. Trong trường
+hợp đó, quẻ gốc trở thành quẻ chủ. Rhi phán đoán cát
+hung, hối lận, quẻ chủ là tượng quẻ chính có tác dụng chủ
+đạo, tác đụng quyết định. Quê chủ có thể căn cứ nhu cầu
+của sự việc để quyết định cần hay không cần đến quẻ hỗ
+hay quẻ biến. Quẻ chủ, chủ vẽ đầu sự việc, quẻ hỗ ứng
+với thời gian giữa, quẻ biến ứng với thời gian cuối của sự
+việc dự đoán.
+
+1) Quê biến
+
+Quẻ biến là thông qua tổng số của quẻ chủ chìa cho
+6, lấy số dư làm hào động, sau khi hào động biến ta có
+được quẻ biến. Thông thường giá trị tham khảo của quẻ
+biến cao hơn quẻ hỗ. Khí hào động nằm ở ngôi hào
+dương của quẻ chủ, động thì biến thành âm ; hào Âm
+của quẻ chủ động thì biến dương, còn các hào khác
+không thay đổi. Lúc đó ta sẽ biết được quẻ biến. Ví
+dụ : quả gốc của quẻ Địa trạch lâm có hào 6 động, lúc
+đó thì hào thứ 6 âm biến thành dương, tức quê thượng
+từ quẻ khòn biến thành cấn, quẻ bạ vẫn là quẻ đoài.
+Và bây giờ quẻ biến là Sơn trạch tốn, ;
+
+71

@@ -1,0 +1,1487 @@
+{
+  "book_id": "so-tien-dinh-lap-thanh",
+  "source_pdf": "thư viện sách/So tien dinh lap thanh.pdf",
+  "page_range": [
+    1,
+    184
+  ],
+  "total_pages": 184,
+  "total_seconds": 21.8,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 3,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 12.11,
+      "raw_chars": 203,
+      "cleaned_chars": 25,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 1.35,
+      "cleanup_seconds": 20.44,
+      "raw_chars": 1403,
+      "cleaned_chars": 911,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.27,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.23,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.14,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.16,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.15,
+      "cleanup_seconds": 0.0,
+      "raw_chars": 0,
+      "cleaned_chars": 20,
+      "md_path": "so-tien-dinh-lap-thanh/pages/p0184.md"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+“Táp hợp các hùng uach tăng lên theo cấp số công thì con số hình
+
+thành sẽ theo cấp số nhân”.
+
+Với 1 hàng vạch : ta viết được 2 số,
+
+Với 2 hàng vạch : ta viết được 2 x 2 = 4 số,
+
+Với 3 hàng vạch : ta viết được 4 x 2 = 8 số,
+
+Với 4 hàng vạch : ta viết được 8 x 2 = 16 số,
+
+Với 5 hàng vạch : ta viết được 16 x 2 = 32 số,
+
+Với 6 hàng vạch : ta viết được 32 x 2 = 64 số,
+
+Với 7 hàng vạch : ta viết được 64 x 2 = 128 số,
+
+Với 8 hàng vạch : ta viết được 128 x 2 = 2ã6 số,
+
+Với 9 hàng vạch : ta viết được 2B6 x 2 = ð12 số,
+
+Với 10 hàng vạch : ta viết được 512 x 2 = 1024 số. v.v...
+
+Cứ tập hợp hàng vạch tăng lên thêm 1 hàng thì con số viết được
+sẽ tăng gấp đôi.
+
+Như vậy là các con số sinh ra theo từng vòng, lớn dần theo số lượng
+cấp cộng của các phần tử “âm đương” trong tập hợp, cứ mỗi vòng ngoài
+lại lớn gấp đôi vòng kế cận bên trong (xem hình 20).
+
+Chia độ theo hình vẽ _.
+- - Tứ Tượng
+Lưỡng Nghỉ Ầ 4
+(vòng 2 số) (vòng 4 số)
+Vòng 16 số
+Bát Quái Vòng 32 số
+(vỏng 8 số)
+Vòng 64 số
+{ 64 Trùng Quải)
+Hình 20a : Vòng tròn các dãy só theo nhi phận
+96

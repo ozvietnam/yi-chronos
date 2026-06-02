@@ -1,0 +1,28 @@
+- _ KINH DỊCH VÀ HỆ NHỊ PHÂN
+Ị
+| Con số. Ký hiệu nhị phân Tên quẻ Dịch
+56 111000 Địa / Thiên = Thái
+Súc
+58 111010 Thủy / Thiên = Nhu
+— Phong / Thiên =
+59 =
+Lôi / Thiên = Đại
+1 111106 __ BH, Tráng
+Hữu
+62 111110 S8 mã / Thiên = Quải
+63 111111 == Bát Thuần Càn
+Trong đồ hình Tiên thiên 64 quẻ của Phục Hy, phân Phương đồ bên
+trong (đồ hình vuông), các quê xếp thuận đúng theo trật tự các số, từ số
+0 qua số 1,2,3... đến số 64, tức bắt đầu từ quê Khôn ở góc trái hàng trên
+cùng đến quê Càn ở góc phải hàng cuối cùng. Còn phần Viên đồ bao
+quanh (đề hình tròn ở ngoài!) thì xếp ngược lại : quẻ Khôn lại ở đưới, quả
+Càn lên trên, theo hướng bắc trên, nam dưới. Phía tay phải ta là 32 quẻ
+thuộc Khôn, đi từ Khôn qua Bác, Quan Dự... lên đến quẻ Cấu (tức số 31)
+ở sát bên phải quê Càn. Như vậy là đi ngược chiều kim đồng hồ nhưng
+Jại là thuận theo các số (lớn dần từ 0 qua 1,2,3... đến 31). Phía tay trái
+ta là 32 quẻ thuộc Càn, đi từ Càn qua Quải, Đại Hưu, Đại Tráng...
+xuống quẻ Phục (tức số 32) ở sát bên trái quẻ Khôn. Như vậy cung là đi
+ngược chiêu kim đồng hỏ và cũng ngược theo các số (nhỏ dân từ 68 qua
+62, 61, 60... đến 32). (Xem các đồ hình của Phục Hy kèm theo).
+Chỉ tiết này cần phải hết sức chư ý khi nghiên cứu Dịch, vì theo lý
+giải của người xưa thì, khi xét việc đã qua phải theo trật tự thuận, còn

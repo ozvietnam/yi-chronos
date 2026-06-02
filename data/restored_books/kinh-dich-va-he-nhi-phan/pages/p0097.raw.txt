@@ -1,0 +1,35 @@
+"“.. ._ .........
+Vì vậy các con số được nối tiếp sinh ra vô cùng như vạn vật trong vũ
+trụ, nhưng đều phải có vị trí trong không gian theo phương vị của 8 số
+cơ bản đó, không thể có một vị trí nào khác. (Các nhà phong thuỷ sau
+này có chia ra 32 hướng cũng chỉ là đem 8 hướng cơ bản trên chia nhỏ
+mỗi hướng ra thành 4 vị trí khác nhau mà thôi). Đó là những lý do
+chính để người xưa chọn tập hợp ba hàng vạch để viết 8 số đầu làm
+tượng cho 8 quẻ cơ bản nhất của Dịch. Tuy nhiên chỉ lấy 8 số trong 8
+hướng để khảo sát mọi biến thiên của trời đất và con người thì thật
+không đủ. Lấy số nhiều hơn của các tập hợp bốn hàng vạch là 16 số, của
+ð hàng vạch là 32 số... hay một tập hợp gồm 7,8,9 hay 10 hàng vạch thì
+lại quá lớn và điều quan trọng là không thể dựa trên một lý luận vững
+chắc nào làm nên tảng. Chỉ có khảo sát thêm tập hợp 6 hàng vạch của
+64 số (từ 0 đến 63) là vừa đủ để đại điện cho mọi biến thiên trong vú trụ
+và trong xã hội con người, là tương đối hợp lý nhất. Vẻ mặt lý luận tập
+hợp đó là hai tập hợp “thiên - địa - nhân” ghép lại, có thể làm âm dương
+cho nhau, làm nội ngoại ứng nhau, làm thể dụng bù nhau, rất hợp với
+qui luật đối xứng của vũ trụ và các con số. Thêm nửa, 64 số cúng là số
+của một ma phương (8 x 8), còn tập hợp 32 số thì không có ma phương
+tương ứng (vì ma phương ð x 5ð = 25; ma phương 6 x 6 = 36). Riêng tập
+hợp bốn hàng vạch gồm 16 số, có ma phương tương ứng là (4 x 4 = 16),
+nhưng vẫn là số quá nhỏ không thể diễn giải mọi tình huống của vật
+chất bằng 64 số. Đó cũng là những lý do cơ bản nhất để người xưa lấy
+64 tượng số của tập hợp 6 hàng vạch làm 64 quề nên tảng của toàn bộ
+Kinh Dịch.
+IV. Tiên thiên và hậu thiên
+Chúng ta đã khảo sát trong bảng Hà đồ ở trên : 5 con số đầu tiên (từ
+số 1 đến số 5) được người xưa gọi là “5 số sinh”. Chúng là những số cơ
+bản của một hệ toạ độ không gian nguyên thuỷ. Chứng được sinh ra
+cùng với sự hình thành vũ trụ, hay nói cách khác, vú trụ khi được sinh
+ra cũng phải bắt đầu từ nhỏ đến lớn theo nguyên lý đối xứng nhị phân
+như các con số. Vị trí ban đầu của các con số như ta đã khảo sát, theo
+người xưa là không thể khác được, vì không có cách lý giải nào hợp lý
+hơn. Người xưa cho là đo ý trời, không phải do con người có thể áp đặt.
+99

@@ -1,0 +1,25 @@
+78 BÍ ẨN CỦA BÁT QUÁI
+Nếu số dư là 1 thì biến hào là hào sơ. Nếu số dư là 6, thì biến
+hào là hào thượng. Nếu số dư là 7, thì biến hào cũng là hào thượng.
+Nếu số dự là J3, biến hào là hào sơ. Nếu số dư là 9, biến hào là hào
+thượng. Cứ vậy mà suy ra, số dư nhất định trong khoảng từ lđến 19.
+Khi bói, người có lúc đùng quất từ, cố lúc dùng hào từ, vậy
+căn cứ vào đâu? Thì ra cổ nhân dùng cửu, lục trong tứ doanh làm
+hào khả biến; dùng (thất, bát làm hào bất biến. Khi bói, biến hào
+là cửu thì ứng biến thành lục, là lục thì ứng biến thành cửu để
+cầu được quẻ. Căn cứ hào biến để xác định dùng quái từ hay
+dùng hào từ để bói (xem quẻ). Khi sáu hào của quát đều là thất
+(7), bất (8) như:
+Bất
+- bá Hào lục không biến, thì
+quái Thăng _ —_ át lấy quái từ của quái Thăng
+: =-~ bí để xem quẻ
+Thất
+thất
+Bát
+bát
+cửu
+Khí phệ (bói cỏ thi) được quái Tỉnh == bí
+ñ thất
+thất
+: bát

@@ -1,0 +1,40 @@
+KINH DỊCH VÀ HỆ NHI PHÂN
+
+đem thay đổi vị trí con 1 vào đầu đòng, thì trong hệ nhị phân chúng sẽ
+không còn là số 1 nữa, mà ký hiệu 100 sẽ là số 4 của hệ nhị phân và ký
+hiệu 100000 sẽ là số 32 của hệ nhị phân). Thứ đem vạch đứt (— —) thay
+vào số 0 và vạch liền (=--) thay vào số 1, chúng ta sẽ có các số của Dịch
+cổ mà người xưa gọi là “Quái số”. Số (1) = 001 (viết ngang) sẽ thành quê
+Cấn == (viết theo chiều dọc, cũng là số 1). Nếu viết ngược lại thì số I
+sẽ trở thành số 4 = (100) là quê Chấn #= Với 6 hàng : ký hiệu nhị phân
+của số 1 = 000001, đem chuyển sang vạch đứt và vạch liên ký hiệu đó sẽ
+là quê kép “Bác” cũng là số 1E. Nếu viết ngược thì số 1 thành số 32=
+100000, cũng là quẻ kép “Phục” § S của Dịch cổ.
+
+Rõ ràng cách viết theo hệ nhị phân vẫn còn khó khăn đối với chúng
+ta hiện nay, huống hỗ đối với những nhà nghiên cứu củ. Điều này
+không có gì là lạ, khi mà từ xưa tới nay, mọi người không được học
+tập và không hề được đào tạo để viết các con số theo hệ nhị tiến. Mọi
+người chỉ được đào tạo ký lưỡng để có thể viết và làm toán theo các
+con số của hệ thập phân. Ngay thời hiện đại, khi mà máy tính điện
+tử đã được dùng phổ biến mà đối với nhiều người, mặc dầu họ có khả
+năng sử dụng máy tính thành thạo, nhưng khi phải đọc hay viết các
+con số theo hệ nhị tiến, họ vẫn lúng túng và nhiều người viết sai, thậm
+chí không đọc được. l
+
+Như vậy thì nhiều sách khảo sát về Dịch không thể giải mã nổi các
+con số nên cũng không thể để cập sâu vào lý thuyết “Tượng số” cũng là
+điều tất nhiên. (Điều này chúng ta sẽ khảo sát kỹ hơn ở chương “Quẻ
+Dịch với hệ nhị tiến”).
+
+1V. Dịch là gì ?
+
+Theo chiết tự, chứ Dịch gồm chữ “nhật” là mặt trời ở trên và
+chử “nguyệt” là mặt trăng ở dưới, nên nhiều nhà nghiên cứu giải
+thích : Dịch là sự biến đổi có chu kỳ của mặt trời và mặt trăng, hai thiên
+thể eó ảnh hưởng lớn tới quả đất đối với sự tạo thành khí hậu bốn mùa
+cũng như sự suy thịnh của muôn vật. Đó là lời giải thích có lẽ hợp lý
+nhất.
+
+Có tác giả lại cho rằng Dịch là tượng của một giống thần lần khi di
+12

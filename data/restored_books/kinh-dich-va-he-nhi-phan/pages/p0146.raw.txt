@@ -1,0 +1,16 @@
+¬... ........À
+57 | 6 | 28 | 35 | 53
+7 56 34 29 11 52 4B 17
+62 Em 50 13 36
+0 “. 41 | 22 12 2~
+Hình Ma phương bậc 8 của 64 số, từ số 0 đến 63
+(Tổng số các hàng = 252
+"= 15 | 25 40. :
+1 64 23 13 s2 38 27
+Hình Ma phương bâc 8 của 64 số từ 1 đến 64 (Tổng số các hàng = 260)
+Đến đây chúng ta đã điểm qua những lý do cơ bản đề agười xưa lấy
+thêm đãy 64 số (dãy Trùng quái), ngoài dãy 8 số đầu (Bát quái), để tính
+toán, mà không lấy các đãy số khác. Tuy nhiên vị trí các con số trong
+không gian không thể đứng ngoài bốn phương tám hướng, vì không
+gian chỉ có 8 hướng cơ bản gồm 4 hướng chính và 4 hướng góc mà thôi.
+Vì vậy 64 số hay bất kỳ một dãy số lớn nào khác, các con số đều phải

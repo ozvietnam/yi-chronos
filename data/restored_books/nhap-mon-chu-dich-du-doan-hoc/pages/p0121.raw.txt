@@ -1,0 +1,34 @@
+quẻ chủ làm chính, quẻ biến làm phụ. Trong trường hợp có
+quẻ biến thì lục thân của quẻ biến phải căn cứ vào ngũ hành
+của cung có quẻ chủ để sắp xếp. Tức quẻ chủ thuộc cung
+nào thì lục thân quẻ biến cũng biến theo quẻ chủ, quẻ biến
+.của nó vẫn lấy địa chỉ của quẻ chủ. Hào thế và hào ứng
+trong quả biến vị trí vẫn không đổi. Còn lục thân thì phải
+căn cứ vào quẻ chủ. Tóm lại, lục thân của quẻ chủ là căn
+cứ cung có quẻ chủ để xác định.
+
+Ví dụ : Quà Đồng nhân của quê Càn, quê cần ở cung
+cần, quê đồng nhân ở cung Ly. Lục thân của quẻ đồng nhân
+trong cung Ly hào đầu là phụ mẫu mão mộc, hào hai là tử
+tôn sửu thổ, hào 3 là quan quỉ hợi thủy, hào 4 là huynh đệ
+ngọ hỏa., hào 5ð là thê tài thân kim, hào thượng là tử tôn
+tuất thể. Nhưng trong quẻ biến, lục thân của cung đó không
+dòng nữa :
+
+Quẻ chủ (Càn) Quẻ biến (đồng nhân)
+Phụ mẫu tmất thổ - thế Phụ mẫu tuất thổ - ứng
+Huynh đệ thân kim Huynh đệ thân kim_
+Quan quỷ ngọ hỏa- Quan quỷ ngọ hỏa...
+Phụ mấu thìn thổ - ứng Tử tôn hợi thủy - thế
+Thê tài dân mộc - động Phụ mẫu sửu thổ--
+Tử tôn tý thủy- Thê tài mão mộc -
+
+Trong quẻ thượng của quẻ biến : Hào 4 ngọ hỏa, hào õ
+thân kim, hào 6 tất thổ, địa chỉ nạp giống với qué thượng
+của quẻ chủ, cho nên dời lục thân sang là được. Khi xác
+định lục thân của quẻ hạ, vì hào 2 quẻ hạ của quẻ chủ
+động, nên cả quẻ hạ của quẻ biến từ quề càn của quả chủ
+có các chi tý dần thìn biến thành quẻ ly là mão sửu hợi. Cả
+3ä hào đểu piỳ theo lục thân của cung có quẻ chủ mà biến
+ra. Hào đầu mão mộc là cái mà kim của cung có quẻ chủ
+120

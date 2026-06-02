@@ -1,0 +1,34 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN :
+Thứil Thứ2 Thứ3 Thứ4 Thứá Thứ6 Thứ? Thứ8
+Cân Đoài ự Chấn Tốn Khảm Cấn Khôn
+"Tai sao phải đoc ngược ? Thiệu Khang Tiết chú giải : "Nói Càn 1,
+Đoài 2, Ly 3, Chấn 4, Tốn 5, Khám 6, Cấn 7, Khôn 8 thì đều được các
+quẻ chưa sinh, như người kể ngược thứ tự bốn mùa vậy”. (Kinh Dịch -
+Ngô Tất Tố, tr.27). Chu Hy chú thêm : “... Kể cái đã qua là thuận, tìm
+biết cái sắp tới là nghịch do đó Dịch là đọc ngược vậy” (... sổ vãng giả
+thuận, tri lai giả ngịch, thi cố Dịch nghịch sổ dã). (Sách đã dân, tr.30).
+Theo chúng tôi, có thể còn một lý do nửa để người xưa phải dùng
+cách tính ngược mà chưa ai nói đến, đó là khái niệm về số 0, trong toán
+cổ trong thực hành chưa quan niệm được rõ ràng như ngày nay, mặc đâu
+người xưa đá phát hiện ra cách viết nó bằng vạch đứt (= ~) (âm) hay
+Thái âm (= =) hoặc quê Khôn (C =), nhưng chưa đưa được số 0 vào
+phép tính cụ thể. Khi viết 8 số đầu bằng ký hiệu “âm dương”, người xưa
+nhận ra rằng, chỉ có 7 số thực. Kết quả 8 mà chỉ có 7, thiếu mất một số,
+Muốn viết số 8 phải thêm một hàng vạch nữa là bốn hàng. Như vậy số
+8 thuộc tập hợp dãy số của 4 hàng vạch, tức dãy 8 x 2 = 16 số, chứ không
+thuộc tập hợp 3 hàng vạch. :
+Nhưng tập hợp 4 hàng vạch 16 số lại củng chỉ có 15 số thực, cũng
+thiếu một số. Các dãy gồm ð hay 6 vạch đều như thế. Để khắc phục điều
+này, để tập hợp ba vạch luôn luôn đếm đủ tám số, người xưa phải dùng
+cách đánh số thứ tự ngược và gọi là các quẻ theo thứ tự ngược của
+chúng. Làm theo cách này thì khi cộng trị số thực của mỗi quê với số
+thứ tự cúa chúng, bao giờ ta cũng được tổng số là 8, không thiếu số nào.
+Ta xem kết quả sau đây :
+8ố thư tư Các quê đọc ngược kết quả : Tầng số
+1 Càn - 7 1+7=8
+2 Đoài - 6 2+6=§
+3 Ly - 5 3+5=8:
+4 Chấn - 4 4+4=8_...
+5 Tốn - 3 ð+8=8
+6 Khảm - 2 _ 6+9=8
+108

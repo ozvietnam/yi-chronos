@@ -1,0 +1,39 @@
+2. Giải thích cách sử dụng bảng
+
+1. Căn cứ ngày giáp tí để tính can chỉ ngày sinh của một
+người nào đó là căn cứ vào qui luật khoảng giữa hai ngày
+giáp tí có chứa ngày sinh của người đó. Vì địa chí trên hình
+bàn tay cố định, nên chỉ cân tính ra thiên can, sau suy ra
+chỉ rồi hợp can chỉ lại là được.
+
+Cách suy cụ thể như sau : Bất đầu từ ngày giáp tí đếm
+cách ngôi ngược chiêu kim đồng hồ (tức sau ngày giáp tí mười
+ngày là ngày giáp tuất, sau giáp tiất 10 ngày là ngày gián thân,
+ví dụ ngày mồng một là giáp tí, sau 1O ngày, ngày thứ 11 là
+gián tuất ; qua 10 ngày nữa, ngày thứ hai mươi mốt là ngày
+giáp thân. Mỗi tháng không thể quá 30 ngày, nên trong bảng
+tháng nào mà có ngày giáp tí thì tính đến ngày giáp thân là
+đã đủ lắm rôi, số dư thì thuận chiêu kim đồng hồ đếm đến
+ngày sinh hoặc đếm đến ngày dự đoán theo âm lịch.
+
+Lấy tháng 9 âm lịch năm 1994 làm ví dụ.
+
+Nấu muốn biết trụ ngày của ngày mồng 4 tháng 9 Âm lịch
+năm 1994 thì trong bảng : tháng 9 âm lịch của năm 1994 tra
+ra ngày giáp tí là mồng 1, từ bàn tay trái, lấy ngón tay cái
+đếm : "ngôi tí là mổng một giáp tí, ngôi sửu là mồng hai ất
+sửu, ngôi dần mồng ba bính dân, mão là mồng bốn đỉnh
+mão". Như vậy sẽ biết được mồng 4 là đỉnh mão.
+
+Muốn biết can chỉ ngày mười lãm tháng 9 : từ ngôi tí tính
+ngày giáp tí là mống 1, cách ngôi đếm ngược đến tuất suy
+ra ngày giáp tuất là ngày L1, sau đó đếm thuận theo : "hợi
+là ngày 12 ất hợi, tí là 13 bính tí, sửu là 14 đỉnh sửu, dần
+là 15 mậu dần". Như vậy là biết được người sinh ngày lỗ
+tháng 9 âm lịch năm 1984 có can chỉ ngày là mậu dần.
+
+Muốn biết can chỉ ngày 2B thì tính như sau : từ tí đến
+giáp tí mồng 1, cách ngôi đếm ngược lên tuất, tính giáp tuất
+ngày 11, lại cách ngôi đếm ngược lèn thân tính giáp thân
+
+l 225

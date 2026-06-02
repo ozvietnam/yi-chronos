@@ -1,0 +1,43 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN —
+
+1- Nguyên tắc tìm số các Đơn Quái :
+
+1.1: Chỉ có một nguyên tác duy nhất, đó là : Lấy Tổng số Dương và
+Tổng số Âm trừ đị số cơ bản (25 và 30), số còn dư dùng để tìm số của các
+
+quẻ_ Thương và Hạ. Tuy nhiên việc trừ các số Âm Dương cơ bản chỉ áp
+dụng cho những trường hợp có Tổng số Dương lớn hơn 25 và Tổng số Âm
+lớn hơn 30 mà thôi. Trường hợp Tổng số Âm hoặc Dương bằng hoặc dưới
+mức các số đó thì không phải trừ mà dùng ngay chính số đó để tìm số các
+quẻ, coi như đã trừ được rôi. Vì sao vậy ? Vì răng “số” của mỗi người là đo
+“luật” của Tạo Hóa ban cho ngay từ khi chào đời. Số đó bao gôm cả số Âm
+Dương cơ bản của Tạo Hoá; vì vậy nó như món nợ đối với Tạo Hoá. Muốn
+tìm số đích thực của mình, phải trả lại cho Tạo Hóa món nợ đó, số còn lại
+đem tìm số quẻ của mình mới chính xác. Còn những trường hợp Tổng số
+Âm Dương bằng hay không đủ so với các Tổng số Âm Dương cơ bản thì
+coi như “bất túc”, Tạo Hoá đã ban cho anh không đủ số thì không phải
+trả lại khi tìm quẻ. Cần chú ý là lấy Tổng số Dương thì trừ 2ð; Tổng số
+Âm trừ 30 và chỉ được trừ 1 lần, số còn lại là số Gốc. Dùng số Gốc này để
+tìm số dư là số của các đơn quái Thượng và Hạ. Sốdư của Tổng số Dương
+là số của Quá Thượng (Ngoại). Số dư của Tổng số Âm là số của Quẻ Hạ
+(Nội).
+
+1.2 : Các trường hợp của số dư - Tổng các số Âm Dương sau khi đã trừ
+đi các số cơ bản (25 và 30) như trên, số còn lại gọi là Số Gốc. Vì số cung
+Lạc Thư chỉ có đến 9 nên phải đem số Gốc trừ đi 9 (trường hợp Số Gốc
+còn quá lớn thi trừ đi bội số của 9), để số dư không thể vượt quá 9. Số dư
+từ 1 đến 9 chính là số cung Lạc Thư của các Đơn Quái định tìm.
+
+Ví dụ, một người có Tổng số Dương là 37. Ta sẽ có : 37-25=12 Ta phải
+đem số 12 trừ thêm 9, sẽ còn 3. Số dư 3 là số cung Lạc Thư của quẻ định
+tìm. Hoặc một người có Tổng số Âm là 55. Ta có : 55-30=25. Ta phải đem
+25 trừ thêm 2 lần số 9 là 18, còn 7. Số dư 7 là số cưng quẻ định tìm.
+
+eNếu số dư nhiều hơn 9 từng hàng chục chăn như 10, 20, 30... thì bỏ
+số0, lấy số đơn vị ở đầu là 1, 2,3... vì nếu ta đem 10 bớt đi 9 thì cũng còn
+1; đem 20 bớt đi (2x9=18) thì cũng còn 2; đem 30 bớt đi (3x9=27) thì cũng
+còn 3 v.v... l
+
+eNếu số dư là những số hàng chục có lẻ như 18, 27, 32... hay một số
+bất kỳ khác thì ta phải trừ đi 9 hay bội số của 9, cho đến khi số đư là một
+B54 l

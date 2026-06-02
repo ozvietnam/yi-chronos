@@ -1,0 +1,34 @@
+"5. .....À.........
+CHƯƠNG III
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+
+Ai nghiên cứu Kinh Dịch đều biết, nội dung chủ yếu của Dịch là mô
+hình âm dương, 8 quẻ đơn và 64 quẻ kép theo những lý giải về hình
+tượng chung của người xưa.
+
+Ngày nay chúng ta đều biết hình tượng các quẻ Dịch chỉ là cách ghi
+các con số bằng hai ký hiệu “âm đương” (tức vạch đứt và vạch liên) của
+cổ nhân, theo cơ chế “nhị phân” hay còn gọi là “nhị tiến pháp”. Người
+đầu tiên phát hiện ra 64 quẻ Dịch cổ chính là 64 con số ghi theo phương
+pháp này là nhà toán học kiêm triết gia Đức ở thế kỷ thứ 17 là C.
+Leibnitz (đã nói ở chương trên). Khác các con số ÂÁ Rập ta đang dùng
+ngày nay (1, 2, 3, 4..., 9...) chỉ là những ký hiệu đơn thuần không mang
+một ý nghĩa triết học nào, các con số ghi theo cơ chế nhị phân lại mang
+một bản chất “âm dương” bên trong, rất kỳ lạ. Chúng chứa đựng trong
+lòng những qui luật biến thiên phổ quát về sự “đóng mở” của âm dương
+(cũng là của dòng điện) rất lôgic và rất chặt chẽ mang tính chất toán
+học rõ rệt mà chúng ta có thể quan sát được. Vì vậy thực chất của Kinh
+Dịch chỉ là cuốn sách viết về sự biến thiên của các “tượng số” viết theo
+hệ nhị phân. Nghiên cứu Dịch mà bỏ qua lý thuyết này là bỏ qua phần
+cốt lõi làm nên toàn bộ triết lý của Dịch. Để hiểu được vấn đề này,
+chúng ta hãy tìm hiểu những điêu cơ bản về hệ nhị phân hay nhị tiến
+pháp hoặc hệ cơ số đếm đến 2.
+
+I. Hệ đếm cơ số 2 : hệ nhị phân
+
+Trong lịch sử cổ xưa, loài người đã từng dùng nhiều cơ số đếm trước
+khi dùng phổ biến cơ số 10 (cơ số thập phân) hiện nay. Cơ số đếm đơn
+giản nhất là cơ số 2 hay hệ nhị phân, rồi đến cơ số 5 hay hệ ngũ phân.
+Nhiều bộ lạc lúc sơ khai chỉ biết đếm đến 2, có lẽ do nhận thức được
+
+KK

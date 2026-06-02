@@ -1,0 +1,42 @@
+KINH DỊCH VÀ HẼ NHỊ PHÂN
+Lý | Đoài | Khuê ¡ Muội |Tr.Phu| Tiết Tên | Lâm | Tổng số
+Đoài 55 54 33 52 81 50 49 48
+— | _ jKhiêm| Cấn | Kiển | Tiệm |TQuái Lữ | Hàm| Độn | 504
+| Cân 8 9 10 11 12 | 13 14 15 |
+Nhân Cách | Ly | Phong | Nhân | Kýtế | Bí | M.Di | Tổng số |
+t 47 | 4ê | 45 4 | 43 | 42 | 41 | 40 |
+Nhóm :
+Khả Sư | Mông | Khảm | Hoán | Giải | Vị Tế | Khốn | Tụng | 504
+m
+“54B tạ | +; 18 19 20 | 21 22 23
+Vxvong| Tuỳ | P.Hạp | Chấn | Ích |Truản. Di | Phục Ì Tổng số|
+ky 398 | 48 | 37 36 | 35 | 34 | 33 | 32
+, |Thăng| Cổ | Tỉnh | Tến | Hằng | Đỉnh | Ð.Quá| Cấu | 504
+Kham
+24 | 25 26 27 28 | 29 30 31 |
+Ta nhận thấy tổng giá trị các quê của cả 4 nhóm đối xứng là : 504 x
+4 = 2016.
+
+Số 2016 củng là tổng giá trị của 63 số kể cả số Ô :
+
+(0+1+2+3+4+5+...+59+60+61+62+63 = 2016) l
+
+Như vậy giá trị các quẻ trong mỗi nhóm đối xứng bằng 1⁄4 tổng giá
+trị của 63 số, tức bằng | 2016 : 4 = 504
+
+Nếu ta lấy các quẻ Tiên thiên theo hàng doc ta cúng được kết quả
+đối xứng như trên.
+
+2.4 Không đối xứng theo miền : âm dương không cân bằng
+giú trị :
+
+Cũng như trong 8 đơn quái, các quẻ trùng quái Tiên thiên chỉ đối
+xứng theo trục ở mọi phương hướng, nhưng lại không cân bằng giữa
+hai miền âm dương : giá trị 32 quẻ dương lớn hơn giá trị 32 quẻ âm.
+Như chúng ta đã thấy ở chương trước, trong 8 quẻ cơ bản thì 4 quẻ
+thuộc dương là Càn, Đoài, Ly, Chấn có tổng số là 22 (7 + 6 + 5 + 4 = 22);
+còn 4 quẻ thuộc âm là Tốn, Khảm, Cân, Khôn có tổng số chỉ là 6 (3 + 2+
+1+0=6).
+
+Ở 64 quẻ Trùng quái Tiên thiên ta cũng thấy như vậy. Bốn nhóm
+160

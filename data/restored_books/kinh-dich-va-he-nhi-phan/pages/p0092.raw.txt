@@ -1,0 +1,47 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+xuống một nhô ra.
+
+Sau đây chúng ta sẽ thấy nguyên lý đối xứng xuyên suốt qua tượng
+các con số. Chúng đối xứng từng cặp một, nếu biết tượng của một số bất
+kỳ thì có thể viết ra được tượng của số đối xứng của số đó. Điều này
+chính là một trong những điểm cơ sở của khoa dự bảo cổ.
+
+II. Tứ Tượng - Bát Quái
+
+Ở trên chúng ta đã điễn giải, hai ký hiệu “am dương” của Dịch cũng
+là hai ký hiệu cổ của hệ nhị phân, tương ứng với hai ký hiệu hiện đại là
+0 và 1. Nếu chỉ dùng hai ký hiệu đó đơn lẻ thì ta chỉ viết được hai số là
+“0” và “1.
+
+(--)=0;—) = (1)
+
+1. Tư tượng : Nếu dùng tập hợp hai hàng vạch ta có thể viết được
+4 con số, giống như khi ta dùng hai cột số 0 và 1 vậy. Theo ngôn ngữ của
+Dịch cổ, đó là Tư Tượng :
+
+(Z*=) = Thái âm (số 0); (—=) = Thiếu dương (số 1);
+
+(==') = Thiếu âm (số 2); (—) = Thái dương (số 3).
+
+Đó cũng chính là 4 con số từ số 0 đến số 3. Nếu viết theo các ký hiệu
+hiện đại ta sẽ được 4 số theo đúng tượng của các số trên, chỉ khác là các :
+
+-Tượng thì viết từ trên xuống, còn các ký hiệu hiện đại thì viết theo hàng
+từ trái sang phải mà thôi.
+
+Số 0= (00); Số (1) = (01); Số 2 = (10); Số 3 = (11)
+
+Người xưa gọi 4 số đầu tiên trên là 4 hiện tượng lớn của vũ trụ khi
+đã hình thành. Đó là Trời, Đất, Trăng và Sao. Mặt trời tương ứng với
+Thái dương; Mặt trăng tương ứng với Thiếu âm; Quả đất tương ứng với
+Thái âm; Các vì sao tương ứng với Thiếu dương. Kết quả là lưỡng Nghỉ
+sinh ra tứ Tượng. Tính đối xứng đã nằm trong lưỡng Nghỉ tất yếu phải
+nằm trong tứ Tượng. Ta thấy bốn tượng trên đối xứng uới nhau từng
+cặp 0à tổng số của mỗi cặp đối xứng đều bằng 3, tức là bằng trị số lớn
+nhất của đấy số.
+
+1.(==) đối xứng với ( ); tức Thái âm đối xứng với Thái đương,
+
+hay (00) đối xứng với (11) (tức số 0 đối xứng với số 3).
+
+94

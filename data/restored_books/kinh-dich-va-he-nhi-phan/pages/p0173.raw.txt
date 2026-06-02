@@ -1,0 +1,33 @@
+KINH DỊCH VÀ HỆ NHỊ PHÂN
+PHỤ LỤC CHƯƠNG VII
+CÁC MA PHƯƠNG TỪ BẬC 3 ĐẾN BẬC 10
+(Ma phương bạc 3 còn được gọi là ma phương bậc cơ sở)
+
+Trong các sách toán nói về ma phương (hay ma trận) đều chỉ đề cập
+đến các ma phương bắt đầu từ số 1, ví dụ bậc ba là ma phương của 9 số
+từ 1 đến 9; Ma phương bậc bốn là của 4 x 4 = 16, từ 1 đến 16; Ma
+phương bậc 5 là của 5 x 5 = 25 số, từ 1 đến 25; Ma phương bậc 10 là của
+10 x 10 = 100 số, từ 1 đến 100 v.v... Không thấy để cập đến ma phương bắt
+đâu từ số 0, có lẽ do trong ứng dụng của các cen số khi đếm, người ta chỉ
+đếm từ số 1 trở đi, không ai đếm từ số 0 trở đi. Lý luận Dịch học cho rằng :
+cái Thể Tiên thiên của các dãy số khi được sinh thành bao giờ cũng bao
+gồm cả số 0. Đó chính là “Nghi âm” trong lưỡng Nghĩ (- -), Thái âm (==)
+trong tứ Tượng, quê Khôn ( SE) trong Bát quái, và quẻ
+Bát thuần Khôn ( E E ) trong trùng quái. Các con số sinh ra từ “không”
+đến “có”. TT
+
+Cái “có” đầu tiên là số 1. Vì vậy, từ số 0 mà “thành” chỉ là cái “thể”
+của các con số; còn từ số 1 mà sinh ra mãi là nói về cái “dụng” của các
+con số. Có lẽ chính vì lý do đó mà cổ nhân dùng ma phương bậc ba của
+9 số từ số 1 đến số 9, chứ không đùng ma phương 9 số từ số 0 đến số 8.
+Trong khi khảo sát về các ma phương, chúng tôi nhận thấy tất cả các
+ma phương đều có hai loại “thể” và “dụng”. Thể bắt đầu từ số 0; Dụng
+bát đầu từ số 1; ta hãy xem các ma phương dưới đây :
+
+Ma phương bậc cơ sở = bậc ba (3 x 3 = 9 số)
+Thể ; (Từ số 0 đến số 8) Dung : CTừ số 1 đến số 9)
+(Mỗi chiều đều bằng 12) (Mỗi chiều đều bàng 15)
+[7 0|5 2|9|2
+BI :
+|3|8|1 8|1]6
+174 l

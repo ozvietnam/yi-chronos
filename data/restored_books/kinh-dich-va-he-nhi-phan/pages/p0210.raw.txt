@@ -1,0 +1,30 @@
+HOÀNG TUẦN
+CHƯƠNG VIII
+BIẾN DỊCH CỦA TƯỢNG SỐ
+Chúng ta đã biết, các con số viết theo ký hiệu “âm đương” chứa
+đựng trong lòng nó lẫn lộn những hào âm và hào đương. Đối với dãy 64
+số thì số lượng các loại hào trong mỗi quẻ chỉ có 8. Trừ quẻ Càn chỉ gồm
+toàn hào đương và quẻ Khôn chỉ gồm toàn hào âm, còn 62 quẻ khác đều
+là tập hợp 6 hào gồm cả âm lân dương. Chúng ta lại cũng đã biết tuỳ
+theo vị trí trên dưới của các hàng vạch mà giá trị của chúng khác nhau.
+Nếu ta đánh số các hào từ dưới lên, có nghĩa là : Hào 1 ở dưới cùng (hào
+hạ), hào 6 ở trên cùng (hào thượng), ta sẽ có các giá trị như sau :
+- Hào 6 (trên cùng) là hàng đơn vị, có giá trị = 0 (hào âm), hoặc = 1
+(hào dương).
+- Hào ð (trên xuống) có giá trị = 0 (hào âm), hoặc = 2 (hào đương).
+- Hào 4 có giá trị = 0 (hào âm), hoặc = 4 (hào dương).
+- Hào 8 có giá trị = 0 (hào âm), hoặc = 8 (hào dương).
+- Hào 2 có giá trị = 0 (hào am), hoặc = 16 (hào đương).
+- Hào 1 (dưới cùng) có giá trị = 0 (hào âm), hoặc = 32 (hào dương).
+Như vậy các hào biến ở vị trí nào thì giá trị số đó sẽ tăng hay giảm
+theo trị số của hào đó. Ví dụ quẻ Càn có 6 hào dương, có tổng giá trị là
+63, nếu hào 6 biến thành hào âm, có nghĩa là số 63 mất đi số 1 hàng đơn
+vị, trở thành quẻ Quải = 62. Nếu quê Quải lại có hào 1 (tức hào dưới
+cùng) biến, tức là số 62 bị mất đi 32 đơn vị giá trị, trở thành quê Đại quá =
+30. Nếu quê Đại quá lại có hào 3 biến, có nghĩa là số 30 bị mất đi 8 đơn vị,
+trở thành quê Khồn = 22. Lấy ví dụ quẻ Khôn =0 cũng thế. Nếu hào 1 (đưới
+cùng) biến thành hào dương, có nghĩa là quẻ Khôn được thêm lên 32 đơn vị
+trở thành quê Phục = 32. Nếu quẻ Phục có hào 2 biến, có nghĩa là quẻ đó
+được thêm 16 đơn vị, trở thành quê Lâm = 48 v.v...
+Trước khi nghiên cứu sự biến hoá của các hào trong các trùng quái,
+211

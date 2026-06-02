@@ -1,0 +1,27 @@
+26 BẢN NẠP ÂM GIÁP TỶ
+
+5. Cách lấy can chi giờ theo ngày can :
+
+Một ngày có 12 canh giờ đều có tên gọi can chỉ
+nhất định. Bảng bên là để tính theo can ngày lấy giờ
+can.
+
+Ví dụ: Sinh giờ mùi ngày Kỷ ty. Từ can ngày đưa
+ta giờ mùi kẻ xuống ta có giờ chi là Tân mùi
+
+Đến đây ta có thể tự lập được một bảng ngày sinh
+tháng để theo can chi một cách đơn giản chỉ cần biết
+được can chỉ của ngày là có thể tính ra.
+
+Ví dụ: Sinh giờ sửu ngày 12 tháng 3 năm 1995
+ta cố:
+
+Năm 1995 là năm Ất hợi. Lấy can năm Ất hợi đối
+chiếu với bảng tính can chỉ tháng ra ngày canh thìn. Từ
+ngày can Nhâm thân đối chiếu với bảng tính can chỉ giờ
+ta có giờ Tân sửu. Vậy tổ hợp can chỉ ngày giờ năm
+tháng đó là:
+
+Năm Tháng Ngày Giờ
+
+Ất hợi Canh thìn Nhâm thân Tân sửu

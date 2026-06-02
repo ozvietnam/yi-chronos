@@ -1,0 +1,39 @@
+người đối với Tạo Hóa. Muốn tìm số đích thực của mình, phải
+trả lại cho Tạo Hóa món nợ đó, số còn lại đem tìm số quê của
+mình mới chính xác. Còn những trường hợp Tổng số Âm Dương
+bằng hay không đủ so với các Tổng số Âm Dương cơ bản thì coi
+như "bất túc", Tạo Hóa đã ban cho anh không đủ số thì không
+phải trả lại khi tìm quẻ. Cần chú ý là lấy Tổng số Dương trừ 25,
+Tổng số Âm trừ 30 uà chỉ được trừ 1 lần, số cồn lại là số Gốc.
+Dùng số Gốc này để tìm số dư là số của các đơn quái Thượng uà
+Hạ. Số dư của Tổng số Dương là số của Quả Thương (Ngoai). Số
+dư của Tổng số Âm là số của Quê Hạ (Nôi).
+
+1.8: Các trường hợp của sổ dư: Tổng các số Âm Dương
+sau khi đã trừ đi các số cơ bản (25 và 30) như trên, số còn lại gọi
+là Số Gốc. Vì số cung Lạc Thư chỉ có đến 9 nên phải đem số Gốc
+trừ đi 9. Nếu Số Gốc quá lớn thì phải trừ đi bội số của 9, để số
+dư không thể vượt quá 9. Số dư từ 1 đến 9 chính là số cung Lạc
+Thư của các Đơn Quái định tìm.
+
+* Ví dụ một người có Tổng số Dương là 37. Ta sẽ có: 37- 25=
+12. Ta phải đem số 12 trừ thêm 9, sẽ còn 3. Số dư 3 là số cung
+Lạc Thư của quẻ định tìm. Hoặc một người có Tổng Âm là 55.
+Ta có: ð5-30= 25. Ta phải đem 2ð trừ thêm 2 lần số 9 là 18, còn
+7. Số dư 7 là số cung quẻ định tìm.
+
+* Nếu số'dư nhiều hơn 9 từng hàng chục chăn như 10, 20,
+30... thì bỏ số 0, lấy số đơn vị ở đầu là 1, 2, 3... vì nếu ta đem 10
+bớt đi 9 thì cũng còn 1; đem 20 bớt đi (2 x 9 = 18) thì cũng còn 2;
+đem 30 bớt đi (3 x 9 = 27) thì cũng còn 3 v.v...
+
+* Nếu số dư là những số hàng chục có lẻ như 13, 27, 32...
+hay một số bất kỳ khác thì ta phải trừ đi 9 hay bội số của 9, cho
+đến khi số dư là một số đơn vị từ 1 đến 9. Trong 3 số trên, số 13
+chỉ cần trừ một lần 9 còn 4. Số dư 4 chính là số cung Lạc Thư
+định tìm. Số thứ hai là 27, đem trừ dần 3 lần số 9 thì = 0 (vì 3 x
+9= 97), ta coi số 0 trên là số 9. (Cũng như đem 27 trừ đi 2 lần
+số 9 còn 9 vậy (3 x 9= 27). Ta còn số 32- 27= 5. Số 5 là số cung
+Lạc Thư của quẻ định tìm. Trường hợp này rất quan trọng, vì
+
+" 41

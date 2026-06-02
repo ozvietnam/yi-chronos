@@ -1,0 +1,38 @@
+Tìm quẻ hạ : năm + tháng + ngày + giờ = 10 + 3 +
+3+ 2= 18; 18 chia 8 dư 2, số 2 là quẻ đoài, vậy quẻ hạ
+là quẻ đoài.
+
+Tìm hào động : Tổng số quê hạ là 18, chia 6 vừa hết,
+nên số hào động là 6, tức hào sáu là hào động.
+
+Gieo quẻ theo thời gian là quẻ gốc, ở quẻ này quê thượng
+là khôn là địa, quẻ hạ là đoài là trạch. Quả thượng và quả
+hạ chồng lên nhau được quẻ địa trạch lâm, thêm hào 6 động
+lấy quẻ khảm (ứng với số 6) để biểu thị hào động, nên
+tượng quẻ của quẻ gốc, biểu thị thành :s ==
+
+Dưới đây giới thiệu những phương pháp gieo quẻ khác.
+
+- Căn cứ số vật đếm được để gieo quẻ. Đối với những
+vật có thể đếm được, thì số đếm được là quẻ thượng, lấy
+giờ đếm đó phối thành quẻ hạ. Lấy số quẻ thượng cộng
+thêm với số giờ chia cho 6 để tìm hào động.
+
+- Căn cứ số tiếng đếm dược để gieo quẻ. Phàm những
+tiếng nghe được như tiếng động vật kêu, tiếng gõ cửa ... làm
+số của quẻ thượng. Số tiếng kêu đó cộng với số giờ lúc gieo
+quẻ chía cho 8, lấy số dư làm quẻ hạ. Lấy số quẻ thượng
+cộng số giờ chia cho 6, lấy số dư làm hào động.
+
+- Căn cứ chữ số để gieo quẻ : phàm gặp trưởng hợp viết
+chữ lấy tổng số chữ chia đôi làm quế thượng, 1 nửa làm quẻ
+hạ. Nếu số chữ là lẻ thì lấy nửa ít làm quẻ thượng, nửa nhiều
+thêm 1 chữ làm quẻ hạ, (ví dụ 7 chữ : số 3 làm quẻ thượng,
+số 4 làm quẻ hạ. Quả thượng là ly, quẻ hạ là chấn, tức quẻ
+hỏa lôi phệ hạp). Nếu chỉ 1 chữ thì lấy số nét nửa trái làm
+quề thượng, số nét nửa phải làm quẻ bạ. Nếu số chữ nhiều
+thì xem cách lập quẻ trong sách " Chu dịch và đự đoán học".
+
+- Gieo quẻ theo chiều dài thước, tấc. Đối với vật có
+thể đo được, lấy số trượng làm quẻ thượng, số thước làm
+68
