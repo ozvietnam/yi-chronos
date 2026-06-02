@@ -18,6 +18,7 @@ from engine.bat_tu import extract_tu_tru
 
 from .decade_trajectory import build_trajectory
 from .hau_thien import derive_hau_thien
+from .ho_quai import derive_ho_quai
 from .nguyen_duong import nguyen_duong_line
 from .number_pools import compute_number_pools
 from .quai_assembly import assemble_tien_thien
@@ -62,6 +63,16 @@ def cast_ha_lac(
     # Step 5: Hậu thiên + its nguyên đường.
     hau_thien, nd_hau, hau_notes = derive_hau_thien(tien_thien, nd_tien, hour_branch)
 
+    # Step 5b: Hỗ quái cho cả Tiên Thiên + Hậu Thiên (Xuân Cang p.4)
+    try:
+        ho_tien = derive_ho_quai(tien_thien.binary_top_down, source_name=tien_thien.name_vi).to_dict()
+    except Exception:
+        ho_tien = None
+    try:
+        ho_hau = derive_ho_quai(hau_thien.binary_top_down, source_name=hau_thien.name_vi).to_dict()
+    except Exception:
+        ho_hau = None
+
     # Step 6: decade trajectory.
     trajectory = build_trajectory(
         tien_binary=tien_thien.binary_top_down,
@@ -91,6 +102,8 @@ def cast_ha_lac(
             **hau_thien.to_dict(),
             "nguyen_duong_line": nd_hau,
         },
+        "ho_quai_tien": ho_tien,
+        "ho_quai_hau": ho_hau,
         "decade_trajectory": trajectory,
         "lifespan_span": {
             "start_age": trajectory[0]["age_start"] if trajectory else 1,
