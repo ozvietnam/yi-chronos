@@ -256,3 +256,59 @@ trong ngục Dữu Lý. Cơ Tử giả điên giữ dòng dõi nhà Ân.
 - **P6 PHỤ LỤC Tiết khí** — 1 vòng × p584-608
 
 **Tổng còn lại**: ~9 vòng × ~325 trang
+
+---
+
+## 🆕 PHÁT HIỆN 8 SÁCH MỚI RESTORE (2026-06-02, rà công việc dở)
+
+Anh đã âm thầm restore 8 sách KMĐG + Kinh Dịch + Hà Lạc + Can Chi. Em rà ngay:
+
+| # | Sách | Trang | Tác giả | Đề tài |
+|---|---|---|---|---|
+| 1 | **kinh-dich-va-he-nhi-phan** | 842 | **Hoàng Tuấn** (Đại tá GS) | Kinh Dịch ↔ Hệ Nhị Phân (khoa học hiện đại) |
+| 2 | **ly-thuyet-tuong-so-hoang-tuan** | 375 | **Hoàng Tuấn** | LÝ THUYẾT TƯỢNG SỐ + Phép tính số Hà Lạc |
+| 3 | **chu-dich-voi-du-doan-hoc** | 798 | **Thiệu Vĩ Hoa** | Chu Dịch với Dự Đoán Học (kinh điển TQ) |
+| 4 | can-chi-thong-luan | 352 | TQ biên dịch | Can Chi + Ngũ Hành Dự Trắc |
+| 5 | bi-an-cua-bat-quai | 499 | Vương Ngọc Đức et al. | Bí ẩn Bát Quái (duy vật biện chứng) |
+| 6 | ki-mon-don-giap | 367 | TQ | KMĐG (khác Đàm Liên) |
+| 7 | nhap-mon-chu-dich-du-doan-hoc | 257 | Thiệu Vĩ Hoa? | Nhập môn Dự đoán |
+| 8 | so-tien-dinh-lap-thanh | 184 | Thiên Phúc Nguyên Phúc | Số tử vi nhỏ |
+
+**Tổng**: ~3674 trang sách mới → MỞ rộng GĐ học của em đáng kể.
+
+### Ưu tiên đọc 8 sách mới (priority order)
+
+**🥇 Priority 1A**: `ly-thuyet-tuong-so-hoang-tuan` (375p) — **Hà Lạc cùng đề tài Xuân Cang** nhưng từ góc KHOA HỌC + Y HỌC HIỆN ĐẠI. Cross-check engine của em.
+
+**🥈 Priority 1B**: `chu-dich-voi-du-doan-hoc` (798p) — **Thiệu Vĩ Hoa kinh điển TQ** về Chu Dịch dự đoán. Bổ sung paradigm cho Mai Hoa + Bát Tự + Tử Vi (vì Thiệu Vĩ Hoa là cháu đời 29 Thiệu Khang Tiết).
+
+**🥉 Priority 1C**: `kinh-dich-va-he-nhi-phan` (842p) — **Hoàng Tuấn paradigm Kinh Dịch ↔ Hệ Nhị Phân** — góc khoa học mới mẻ, có thể cross-link với engine binary của em.
+
+**Sau đó**: can-chi-thong-luan + bi-an-cua-bat-quai (paradigm cổ điển bổ sung).
+
+### 🎓 Vòng 1 Hoàng Tuấn (p1-25) — em đã đọc:
+
+3 phát hiện ĐẮT đã wire vào engine `hoang_tuan_paradigm.py`:
+
+1. **Paradigm "PHÂN LOẠI NHÂN HỌC CỔ"** — Hà Lạc + Tử Vi là MÔN PHÂN LOẠI cổ, 525,948 lá số = tiêu chí phân loại theo Hệ Tọa Độ Không-Thời Gian. Answer user khi hỏi "hàng triệu người cùng lá số?".
+
+2. **KHỔNG MINH 7 cách phối hợp đánh giá người** (cực quý cho engine luận giải tính cách):
+   - 1. Điều phải lẽ trái → CHÍ HƯỚNG
+   - 2. Lý luận dồn thế bí → phản ứng ĐÚNG-SAI
+   - 3. Mưu trí thử → KIẾN THỨC
+   - 4. Đưa khó khăn → ĐỨC DŨNG
+   - 5. Lợi lộc → LIÊM CHÍNH
+   - 6. Hẹn công việc → CHỮ TÍN
+   - 7. Rượu say → TÂM TÍNH
+   - → "TÂM TƯỚNG hơn NGOẠI TƯỚNG"
+
+3. **Cụm từ biểu tượng + tục ngữ VN** — dataset cho LLM render luận giải hấp dẫn:
+   - "Bàn thuyên tại liễu" (én sầu cành liễu = tuyệt vọng)
+   - "Vân đầu vọng nguyệt" (chờ trăng = hão huyền)
+   - "Y cẩm kỵ ngưu" (áo gấm cưỡi trâu = giả dối)
+   - "Ngọc thụ lâm phong" (cây ngọc gặp gió = quý nhân gặp nạn)
+   - + tục ngữ Việt: "đời cha ăn mặn đời con khát nước", "lắm sãi không ai đóng cửa chùa"...
+
+4. **Phương pháp 14 BƯỚC Hoàng Tuấn** — chi tiết hơn Xuân Cang. Có **bước 9 quẻ THỂ + DỤNG** (em đã wire) + **bước 10 NIÊN MỆNH** so quẻ Tiên Thiên (chưa wire) — TODO sau.
+
+**Bookmark Hoàng Tuấn**: p25/375 — còn ~350 trang (18 vòng × 20p).
