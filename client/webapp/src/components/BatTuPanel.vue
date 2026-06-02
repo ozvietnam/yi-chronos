@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, batTuSucKhoe, haLacLuanGiai, haLacLuanGiaiSau } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, batTuSucKhoe, batTuLuanGiaiSoiNhieuSach, batTuGlossaryLookup, haLacLuanGiai, haLacLuanGiaiSau } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -44,6 +44,55 @@ const haLacLuanError = ref("");
 const haLacLuanSauData = ref(null);
 const haLacLuanSauLoading = ref(false);
 const haLacLuanSauError = ref("");
+// ── Soi 4 Sách paradigm "Ấn Tỷ ánh sáng" ─────────────────────────────────────
+const soiNhieuSachData = ref(null);
+const soiNhieuSachLoading = ref(false);
+const soiNhieuSachError = ref("");
+const glossaryCache = ref({});  // key → concept def (cached)
+
+async function fetchSoiNhieuSach() {
+  if (!inputBirth.value) return;
+  soiNhieuSachLoading.value = true;
+  soiNhieuSachError.value = "";
+  try {
+    soiNhieuSachData.value = await batTuLuanGiaiSoiNhieuSach({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+  } catch (e) {
+    soiNhieuSachError.value = e.message || String(e);
+  } finally {
+    soiNhieuSachLoading.value = false;
+  }
+}
+
+async function lookupGlossary(key) {
+  if (glossaryCache.value[key]) return glossaryCache.value[key];
+  try {
+    const data = await batTuGlossaryLookup(key);
+    glossaryCache.value[key] = data;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+const glossaryHoverKey = ref("");
+const glossaryHoverData = ref(null);
+const glossaryHoverPos = ref({ x: 0, y: 0 });
+
+async function onGlossaryHover(event, key) {
+  glossaryHoverKey.value = key;
+  const rect = event.target.getBoundingClientRect();
+  glossaryHoverPos.value = { x: rect.left, y: rect.bottom + 6 };
+  glossaryHoverData.value = await lookupGlossary(key);
+}
+
+function onGlossaryLeave() {
+  glossaryHoverKey.value = "";
+  glossaryHoverData.value = null;
+}
 const loading = ref(false);
 const errorMsg = ref("");
 
@@ -1711,6 +1760,106 @@ function formatSolarDateTime(iso) {
       <div class="lg-block lg-closing" v-html="renderMd(haLacLuanData.closing)"></div>
     </template>
 
+    <!-- ── 🔆 Soi 4 Sách (paradigm "Ấn Tỷ ánh sáng") ───────────────── -->
+    <template v-if="batTuData">
+      <h4 class="section-h sn-h">🔆 Soi 4 Sách Cốt — Trích Thiên Tủy + Thiệu Vĩ Hoa + Tử Bình + Hoàng Tuấn</h4>
+      <p class="sn-intro">
+        Engine 2 bậc: <b>Phù-Ức</b> (8 path) + <b>Tòng Cách</b> (4 path).
+        Cross-reference 4 sách cổ. Glossary 40 thuật ngữ tự sáng (hover để xem).
+      </p>
+      <button class="sn-btn" :disabled="soiNhieuSachLoading" @click="fetchSoiNhieuSach">
+        {{ soiNhieuSachLoading ? "⏳ Đang soi..." : "📖 Soi 4 Sách" }}
+      </button>
+      <p v-if="soiNhieuSachError" class="sn-error">{{ soiNhieuSachError }}</p>
+
+      <template v-if="soiNhieuSachData">
+        <!-- Phù-Ức -->
+        <div class="sn-card sn-phuuc" v-if="soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc">
+          <h5>🔆 Phù-Ức Route (Ấn Tỷ ánh sáng)</h5>
+          <p>
+            <b>Path:</b>
+            <code>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.path_id }}</code>
+            · <b>Day Master:</b> {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.day_master_stem }}
+            ({{ soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.day_master_element }})
+            · <b>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.strength_tag.toUpperCase() }}</b>
+          </p>
+          <p>
+            ✅ <b>Dụng thần:</b>
+            <span class="sn-thanh"
+              v-for="(d, i) in soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.dung_than"
+              :key="'d'+i"
+              @mouseenter="onGlossaryHover($event, d.toLowerCase().replaceAll(' ', '_'))"
+              @mouseleave="onGlossaryLeave">{{ d }}</span>
+            <small>({{ soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.dung_than_elements.join(' + ') }})</small>
+          </p>
+          <p>
+            ❌ <b>Kỵ thần:</b>
+            <span class="sn-thanh sn-ky"
+              v-for="(k, i) in soiNhieuSachData.luan_giai_soi_nhieu_sach.phu_uc.result.ky_than"
+              :key="'k'+i">{{ k }}</span>
+          </p>
+        </div>
+
+        <!-- Tòng Cách -->
+        <div class="sn-card sn-tong" v-if="soiNhieuSachData.luan_giai_soi_nhieu_sach.tong_cach.result.is_tong">
+          <h5>🌀 Tòng Cách (TTT chương 17 — bậc 2)</h5>
+          <p><b>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.tong_cach.result.ten_viet }}</b></p>
+          <p>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.tong_cach.result.ly_do_sach }}</p>
+        </div>
+        <div class="sn-card sn-tong-none" v-else>
+          <h5>🚫 KHÔNG phải Tòng Cách</h5>
+          <p>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.tong_cach.result.not_tong_reason }}</p>
+        </div>
+
+        <!-- Nguyên Lưu -->
+        <div class="sn-card sn-nl" v-if="soiNhieuSachData.luan_giai_soi_nhieu_sach.nguyen_luu">
+          <h5>🌊 Nguyên Lưu (TTT chương 19)</h5>
+          <p>
+            <b>Nguyên:</b> {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.nguyen_luu.result.nguyen_element }}
+            · <b>Dòng:</b>
+            <code>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.nguyen_luu.result.luu_chain.join(' → ') }}</code>
+            · <b>Score:</b> {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.nguyen_luu.result.cat_hung_score }}/10
+          </p>
+          <p><em>{{ soiNhieuSachData.luan_giai_soi_nhieu_sach.nguyen_luu.result.y_nghia }}</em></p>
+        </div>
+
+        <!-- Bệnh-Thuốc -->
+        <div class="sn-card sn-bt" v-if="soiNhieuSachData.luan_giai_soi_nhieu_sach.benh_thuoc">
+          <h5>💊 Bệnh-Thuốc (TTT chương 18) — {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.benh_thuoc.result.overall_grade.toUpperCase() }}</h5>
+          <p>
+            <b>Bệnh phát hiện:</b> {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.benh_thuoc.result.benh_count }} ·
+            <b>có thuốc:</b> {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.benh_thuoc.result.co_thuoc_count }} ·
+            <b>chưa thuốc:</b> {{ soiNhieuSachData.luan_giai_soi_nhieu_sach.benh_thuoc.result.vo_thuoc_count }}
+          </p>
+          <ul class="sn-benh-list">
+            <li v-for="(b, i) in soiNhieuSachData.luan_giai_soi_nhieu_sach.benh_thuoc.result.benh_list" :key="i">
+              <strong>{{ b.benh_name }}</strong>
+              <span class="sn-sev" :data-sev="b.benh_severity">{{ b.benh_severity }}</span>
+              {{ b.thuoc_present ? '✅ có thuốc' : '⚠️ chưa thuốc' }} ·
+              <em>thuốc: {{ b.thuoc_thần }} ({{ b.thuoc_element }})</em>
+              <p>{{ b.fix_suggestion }}</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Full markdown render -->
+        <details class="sn-md-details">
+          <summary>📜 Xem markdown đầy đủ ({{ soiNhieuSachData.markdown.length }} chars)</summary>
+          <div class="sn-md" v-html="renderMd(soiNhieuSachData.markdown)"></div>
+        </details>
+      </template>
+    </template>
+
+    <!-- Glossary tooltip -->
+    <div v-if="glossaryHoverData && glossaryHoverData.concept" class="glossary-tooltip"
+      :style="{ left: glossaryHoverPos.x + 'px', top: glossaryHoverPos.y + 'px' }">
+      <strong>{{ glossaryHoverData.concept.ten_han_viet }}</strong>
+      <small>({{ glossaryHoverData.concept.chu_han }})</small>
+      <p>{{ glossaryHoverData.concept.nghia_co_ban }}</p>
+      <p v-if="glossaryHoverData.concept.han_viet_explained" class="gt-han"
+        v-html="renderMd(glossaryHoverData.concept.han_viet_explained)"></p>
+    </div>
+
     <!-- Citation + paradigm footer -->
     <div v-if="batTuData" class="bt-citation">
       <p>
@@ -1749,6 +1898,69 @@ function formatSolarDateTime(iso) {
 
 <style scoped>
 .bt-panel { display: flex; flex-direction: column; gap: 14px; }
+
+/* ── Soi 4 Sách paradigm "Ấn Tỷ ánh sáng" ──────────────────────────── */
+.sn-h { color: #f5e6b1; margin-top: 24px; border-top: 1px solid rgba(245,230,177,0.2); padding-top: 16px; }
+.sn-intro { font-size: 13px; color: rgba(230,238,245,0.72); margin-bottom: 8px; }
+.sn-btn {
+  background: linear-gradient(135deg, #c25a78 0%, #d4af37 100%);
+  color: #1a1a2e; border: none; padding: 10px 18px; border-radius: 6px;
+  font-weight: 600; cursor: pointer; font-size: 14px;
+}
+.sn-btn:disabled { opacity: 0.5; cursor: wait; }
+.sn-error { color: #e85a78; font-size: 13px; margin-top: 8px; }
+.sn-card {
+  margin-top: 12px; padding: 12px 14px;
+  background: rgba(20, 20, 40, 0.4); border-radius: 8px;
+  border-left: 3px solid #c25a78;
+}
+.sn-card h5 { color: #f5e6b1; margin: 0 0 8px 0; font-size: 14px; }
+.sn-card p { margin: 4px 0; font-size: 13px; }
+.sn-tong { border-left-color: #5be5d3; }
+.sn-tong-none { border-left-color: rgba(150,150,150,0.5); opacity: 0.7; }
+.sn-nl { border-left-color: #3a6cb0; }
+.sn-bt { border-left-color: #d65a4a; }
+.sn-thanh {
+  display: inline-block; padding: 2px 8px; margin: 0 4px; border-radius: 4px;
+  background: rgba(94, 224, 122, 0.2); color: #5ab07a; font-weight: 600;
+  cursor: help; border-bottom: 1px dotted #5ab07a;
+}
+.sn-thanh.sn-ky { background: rgba(214, 90, 74, 0.2); color: #e85a4a; border-bottom-color: #e85a4a; }
+.sn-benh-list { padding-left: 18px; }
+.sn-benh-list li { margin-bottom: 10px; font-size: 13px; }
+.sn-sev {
+  display: inline-block; padding: 1px 6px; margin: 0 4px; border-radius: 3px;
+  font-size: 11px; font-weight: 600;
+}
+.sn-sev[data-sev="nặng"] { background: #d65a4a; color: white; }
+.sn-sev[data-sev="vừa"] { background: #e8c95a; color: #1a1a2e; }
+.sn-sev[data-sev="nhẹ"] { background: #5ab07a; color: white; }
+.sn-md-details { margin-top: 16px; }
+.sn-md-details summary { cursor: pointer; font-weight: 600; color: rgba(245,230,177,0.8); }
+.sn-md {
+  margin-top: 12px; padding: 16px;
+  background: rgba(10,10,25,0.6); border-radius: 6px;
+  font-size: 13px; line-height: 1.7;
+  max-height: 600px; overflow-y: auto;
+}
+
+/* Glossary tooltip */
+.glossary-tooltip {
+  position: fixed; z-index: 9999;
+  max-width: 360px; padding: 12px 14px;
+  background: rgba(15, 15, 30, 0.97); border: 1px solid #d4af37;
+  border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  font-size: 13px; color: #e6eef5;
+  pointer-events: none;
+}
+.glossary-tooltip strong { color: #f5e6b1; font-size: 15px; }
+.glossary-tooltip small { color: #c0a878; margin-left: 6px; }
+.glossary-tooltip p { margin: 6px 0 0 0; line-height: 1.5; }
+.glossary-tooltip .gt-han {
+  font-size: 12px; color: rgba(230,238,245,0.7);
+  border-top: 1px solid rgba(245,230,177,0.2);
+  padding-top: 6px; margin-top: 8px;
+}
 
 .bt-note {
   font-size: 13px;

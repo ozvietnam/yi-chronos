@@ -159,6 +159,22 @@ def luan_giai_tu_tru_soi_nhieu_sach(tu_tru: dict) -> dict:
         "narrative": render_tong_markdown(tong),
     }
 
+    # ── F2. NGUYÊN LƯU TRACE (TTT chương 19) ─────────────────────────────
+    from engine.bat_tu.nguyen_luu_trace import trace_nguyen_luu, render_nguyen_luu_markdown
+    nguyen_luu = trace_nguyen_luu(tu_tru)
+    nguyen_luu_section = {
+        "result": nguyen_luu.to_dict(),
+        "narrative": render_nguyen_luu_markdown(nguyen_luu),
+    }
+
+    # ── F3. BỆNH-THUỐC DETECTOR (TTT chương 18) ──────────────────────────
+    from engine.bat_tu.benh_thuoc_detector import detect_benh_thuoc, render_benh_thuoc_markdown
+    benh_thuoc = detect_benh_thuoc(tu_tru)
+    benh_thuoc_section = {
+        "result": benh_thuoc.to_dict(),
+        "narrative": render_benh_thuoc_markdown(benh_thuoc),
+    }
+
     # ── G. PHÙ-ỨC ROUTE — paradigm "Ấn Tỷ ánh sáng" (bậc 1) ──────────────
     # Nếu Tòng đã match thì Phù-Ức chỉ là fallback hiển thị
     from engine.bat_tu.phu_uc_route import route_phu_uc, render_phu_uc_markdown
@@ -197,6 +213,8 @@ def luan_giai_tu_tru_soi_nhieu_sach(tu_tru: dict) -> dict:
         "cach_dung_than": cach_dung_section,
         "hoang_tuan_cross": hoang_tuan_section,
         "tong_cach": tong_section,
+        "nguyen_luu": nguyen_luu_section,
+        "benh_thuoc": benh_thuoc_section,
         "phu_uc": phu_uc_section,
         "glossary": glossary_section,
         "synthesis": synthesis,
@@ -374,6 +392,10 @@ def render_full_markdown(luan_giai_result: dict) -> str:
         luan_giai_result["hoang_tuan_cross"]["nien_menh_text"],
         "\n## F. Tòng Cách Check (TTT chương 17 — bậc 2)\n",
         luan_giai_result["tong_cach"]["narrative"],
+        "\n## F2. Nguyên Lưu Trace (TTT chương 19)\n",
+        luan_giai_result["nguyen_luu"]["narrative"],
+        "\n## F3. Bệnh-Thuốc (TTT chương 18)\n",
+        luan_giai_result["benh_thuoc"]["narrative"],
         "\n## G. Phù-Ức Route (Ấn Tỷ ánh sáng — bậc 1)\n",
         luan_giai_result["phu_uc"]["narrative"],
         "\n## H. Thuật Ngữ Sáng Tỏ\n",

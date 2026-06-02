@@ -555,6 +555,21 @@ export function batTuBaoMenhPDF({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Mi
   });
 }
 
+export function batTuLuanGiaiSoiNhieuSach({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam" }) {
+  return request(`/api/bat-tu/luan-giai-soi-nhieu-sach`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  });
+}
+
+export function batTuGlossaryLookup(key) {
+  return request(`/api/bat-tu/glossary/${encodeURIComponent(key)}`);
+}
+
 export function haLacLuanGiai({
   birthDatetimeLocal,
   timezone = "Asia/Ho_Chi_Minh",

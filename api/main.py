@@ -1636,6 +1636,38 @@ def bat_tu_glossary_lookup(key: str) -> dict[str, object]:
     }
 
 
+@app.post("/api/bat-tu/nguyen-luu-trace")
+def bat_tu_nguyen_luu_trace(request: HaLacCastRequest) -> dict[str, object]:
+    """Trace Nguyên Lưu (TTT chương 19) — dòng chảy ngũ hành trong 4 trụ."""
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.nguyen_luu_trace import trace_nguyen_luu, render_nguyen_luu_markdown
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    result = trace_nguyen_luu(tu_tru)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "nguyen_luu": result.to_dict(),
+        "markdown": render_nguyen_luu_markdown(result),
+    }
+
+
+@app.post("/api/bat-tu/benh-thuoc")
+def bat_tu_benh_thuoc(request: HaLacCastRequest) -> dict[str, object]:
+    """Detect Bệnh-Thuốc (TTT chương 18) — phát hiện bệnh + tìm thần thuốc."""
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.benh_thuoc_detector import detect_benh_thuoc, render_benh_thuoc_markdown
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    result = detect_benh_thuoc(tu_tru)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "benh_thuoc": result.to_dict(),
+        "markdown": render_benh_thuoc_markdown(result),
+    }
+
+
 @app.post("/api/bat-tu/tong-cach-route")
 def bat_tu_tong_cach_route(request: HaLacCastRequest) -> dict[str, object]:
     """Route Tòng Cách — 4 path khi Day Master cực đoan (TTT chương 17 bậc 2).
