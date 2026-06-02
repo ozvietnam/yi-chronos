@@ -39,6 +39,55 @@ from .thap_than import thap_than_of
 
 # ─── Reference tables ────────────────────────────────────────────────────────
 
+# Tam Hội Cục (三會局) — 3 chi LIỀN NHAU theo mùa-phương
+# Trích Thiên Tủy bình chú Chương 8: "Dần Mão Thìn — phương Đông Mộc"
+# Khác Tam Hợp (Tam Hợp = 3 chi cách 4: Hợi Mão Mùi). Tam Hội = 3 chi liền.
+TAM_HOI: dict[frozenset, tuple[str, str, str]] = {
+    # frozenset → (element, direction_vi, season)
+    frozenset(["Dần", "Mão", "Thìn"]): ("mộc", "Đông", "Xuân"),
+    frozenset(["Tỵ", "Ngọ", "Mùi"]):   ("hỏa", "Nam", "Hạ"),
+    frozenset(["Thân", "Dậu", "Tuất"]): ("kim", "Tây", "Thu"),
+    frozenset(["Hợi", "Tý", "Sửu"]):    ("thủy", "Bắc", "Đông"),
+}
+
+
+def detect_tam_hoi(pillars: dict) -> list[dict]:
+    """Detect Tam Hội Cục trong Tứ Trụ.
+
+    Khác Tam Hợp: Tam Hội = 3 chi LIỀN MÙA (Dần-Mão-Thìn Đông Mộc).
+    Tam Hội mạnh hơn Tam Hợp về CỤC HÓA — khí phương vị thuần.
+
+    Paradigm Trích Thiên Tủy: Tam Hội cục thì khí thế tất vượng.
+    Cần Thiên Can phù hợp khí cục, không thì 'phản phá'.
+    """
+    branches_at: dict[str, list[str]] = {}
+    for pos in ("year", "month", "day", "hour"):
+        p = pillars.get(pos, {})
+        b = p.get("branch")
+        if b:
+            branches_at.setdefault(b, []).append(pos)
+
+    out = []
+    for trio, (el, direction, season) in TAM_HOI.items():
+        b1, b2, b3 = list(trio)
+        if all(b in branches_at for b in (b1, b2, b3)):
+            positions = sorted(set(p for b in trio for p in branches_at[b]))
+            out.append({
+                "branches": sorted(trio),
+                "hoi_element": el,
+                "direction": direction,
+                "season": season,
+                "positions": positions,
+                "narrative": (
+                    f"**Tam Hội Cục {' '.join(sorted(trio))} → phương {direction} ({el.title()})** — "
+                    f"3 chi liền mùa {season}, khí phương vị THUẦN VƯỢNG. "
+                    f"Trích Thiên Tủy: 'Tam Hội cục khí thế tất vượng'. "
+                    f"Thiên Can cần phù hợp khí {el}, không thì 'phản phá'."
+                ),
+            })
+    return out
+
+
 # Thiên Can Hóa Hợp (天干合化) — Thiệu Vĩ Hoa Tập 2 Ch.3 (5 cặp can)
 CAN_HOA_HOP: dict[frozenset, tuple[str, str]] = {
     frozenset(["Giáp", "Kỷ"]): ("thổ", "Trung Chính"),   # 甲己合化土

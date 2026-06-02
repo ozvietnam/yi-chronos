@@ -207,10 +207,191 @@ Khái niệm:
 
 ---
 
-## 🎯 Vòng 2 (tr. 21-40)
+---
 
-Dự đoán: tiếp Chương 7 Thiên Can — bài thơ Kỷ Thổ, Canh Tân Kim, Nhâm Quý Thủy. Sau đó Chương 8 (Địa Chi) hoặc tương tự.
+# 📖 VÒNG 2 — tr. 21-40 (đọc 2026-06-02)
 
-**Em CHỜ ANH REVIEW vòng 1 này trước khi đọc vòng 2.**
+## Cấu trúc trang
+- p21: Chương 7 tiếp — Kỷ Thổ, Canh Kim
+- p22: Tân Kim, Nhâm Thủy
+- p23-24: Quý Thủy + Chương 8 Địa Chi
+- p24-30: Phân biệt Sinh phương / Mộ địa / Bại địa + 10+ case studies
+- p31-33: Chương 9 Can Chi Tổng Luận — BÁC BỎ âm sinh dương tử
+- p34-40: Tam Hội Cục + Dương noãn/hàn + Âm noãn/hàn + 13 case studies tiếp
 
-⚠️ Em nhớ: KHÔNG đi nhanh. Đọc kỹ, quote nguyên văn, build engine khi có gap quan trọng.
+---
+
+## 🎯 Insight cốt tử em rút được
+
+### A. Chương 7 tiếp — 5 bài thơ Thiên Can còn lại
+
+**Kỷ Thổ** (Âm Thổ, ẩm thấp):
+- Tính trung chính, sâu tàng
+- KHÔNG sợ Mộc thịnh (tài bồi), KHÔNG lo Thủy cuồng (dung nạp)
+- Bính Hỏa làm cho mát sáng (vô vi lấy hữu vi làm diệu dụng)
+
+**Canh Kim** (Dương Kim, túc sát mùa thu):
+- _"Háo sát, cương kiện, tối mạnh"_
+- Được Thủy thì thanh thoát; được Hỏa thì sắc bén
+- Đảm Giáp huynh (khắc Giáp), thâu Ất muội (hợp Ất hóa Kim)
+
+**Tân Kim** (Âm Kim, châu ngọc):
+- _"Nhuyễn nhược, ôn nhuận thanh — sợ Thổ chôn lấp, vui Thủy đầy đủ"_
+- Tân lấy Bính làm thần → hợp Bính hóa Thủy bảo vệ Nhâm Thủy
+- Nóng thì hỷ Mẫu (sinh Kim); Hàn thì hỷ Đinh (sưởi ấm)
+
+**Nhâm Thủy** (Dương Thủy, sông lớn):
+> _"Thông căn thấu Quý, xung thiên bôn địa"_
+
+→ Nhâm + Quý thấu can + Thân-Tý-Thìn → **xung thiên bôn địa** = khí thể không thể ngăn nổi (lụt lớn).
+
+**Quý Thủy** (Âm Thủy, mưa móc):
+> _"Đắc Long nhi vận, công hóa Tý Thìn"_
+
+→ **PARADIGM ĐẮC LONG**: Quý Thủy gặp Long (Thìn) thì hóa Vân Vũ. Phải có chân Long (chi Thìn + can thấu) mới hóa được. Mậu Quý hợp hóa Hỏa CHỈ khi đủ điều kiện.
+
+### B. Chương 8 ĐỊA CHI — Paradigm 3 group ⭐⭐
+
+> _"Dương chỉ động thả cường, tốc đạt hiển tai tường; âm chỉ tĩnh thả chuyên, phú thái mỗi kinh niên."_
+
+| Loại | Chi | Tính | Phát hiện |
+|---|---|---|---|
+| **Dương Chi** | Tý, Dần, Thìn, Ngọ, Thân, Tuất | Động, cương mãnh | **NHANH RÕ** |
+| **Âm Chi** | Sửu, Mão, Tỵ, Mùi, Dậu, Hợi | Tĩnh, mềm yếu | **CHẬM KÉM RÕ** |
+
+> _"Sinh phương phạ động nghĩ khai, Bại địa gặp xung tử tế suy."_
+
+3 NHÓM 4 CHI:
+1. **Sinh phương** (Dần Thân Tỵ Hợi) = Trường Sinh — **KỴ XUNG** (xung phá gốc)
+2. **Mộ địa** (Thìn Tuất Sửu Mùi) = Tứ Khố — **CẦN XUNG** (mở kho khí)
+3. **Bại địa / Tứ Chính** (Tý Ngọ Mão Dậu) — **TÙY** (xét vượng-suy)
+
+### C. ⭐⭐⭐ NHẬM THIẾT TIỀU BÁC BỎ — Tương Hình / Lục Hại / Tương Phá
+
+Quote trực tiếp:
+> _"Cái nghĩa của việc tương hình thật không lấy Chỉ làm nhất định."_
+>
+> _"Tự hình: như Hợi hình Hợi, Thìn hình Thìn... vốn là Địa Chi gặp Địa Chi, cùng đồng khí cớ sao lại tương hình?"_
+>
+> _"Tam Hình, lại còn có tự hình, đều là **ngụy luận hẳn nên vứt bỏ**."_
+>
+> _"Tý Mùi tương hại, chẳng không tương khắc; Sửu Ngọ Dần Hợi tương hại, đều là tương sinh, cớ sao lại tương hại?"_
+>
+> _"Tương hình, tương hại vốn đã không lấy Chỉ làm bằng chứng, thật **lầm lỗi lớn**."_
+>
+> _"Đến như Tương Phá cũng như thế cả, không tương hại tức tương hình, lỗi lầm do **không thuộc ở kinh**, nên cớ bỏ vậy."_
+
+→ **Theo Trích Thiên Tủy = CHỈ XUNG MỚI CÓ THẬT**. Hình / Hại / Phá đều bịa đặt.
+
+**ENGINE GAP**: `engine/bat_tu/luu_nien.py` hiện có TUONG_HINH + LUC_HAI + output narrative "tương hình → kiện tụng". Theo Nhậm Thị = SAI. Em đã build `_build_paradigm_notes` để CROSS-REF — output WARNING khi có pattern này: "Engine output theo Thiệu Vĩ Hoa, nhưng Trích Thiên Tủy bác bỏ — coi như tín hiệu mềm".
+
+### D. ÁM XUNG / ÁM HỢP — Xung khởi vs Bị xung ⭐
+
+> _"Ám xung ám hội vưu vị hý, bí xung ngã hề giai xung khởi."_
+
+Khái niệm:
+- **Minh xung** = Tứ Trụ tự xung khắc (engine đã có)
+- **Ám xung** = Lưu Niên / Đại Vận xung Tứ Trụ
+- **Xung khởi (HY)** = Ta đến xung người → tốt khi xung hung thần
+- **Bị xung (KỴ)** = Người đến xung ta → xấu khi xung hỷ thần
+
+> _"Ta đến xung người tất xung khởi; người đến xung ta tất xung không khởi lên được."_
+
+→ Engine GAP: chưa phân biệt CHỦ ĐỘNG vs BỊ ĐỘNG khi Đại Vận / Lưu Niên xung. TODO build sau.
+
+### E. Quy tắc VƯỢNG-SUY xung khắc ⭐
+
+> _"Vượng giả xung suy suy giá bạt, suy thần xung vượng vượng thần phát."_
+
+- Vượng xung suy → suy CÀNG SUY + bại
+- Suy xung vượng → vượng CÀNG VƯỢNG + PHÁT (nghịch lý)
+
+> _"Cái địa chi có lực thì có thể xung khử cái địa chi vô lực... cái địa chi vô lực mà đi xung khắc có lực chẳng những không thể xung khử được mà trái lại còn bị xung khắc ngược trở lại."_
+
+→ Engine GAP: xung khắc cần WEIGHT theo vượng-suy của 2 chi. Hiện engine chỉ output "xung" mà không phân biệt cường-nhược → KHÔNG ĐỦ.
+
+### F. Chương 9 — Bác bỏ Âm sinh Dương tử ⭐
+
+> _"Lại còn nói là 'Địa Tý Ngọ cung không thể sinh kim sinh mộc'... Ất gặp ngọ, kỷ gặp dậu... lấy thực thiên tiết khí luận, **toàn không lấy ý rằng sinh luận**."_
+>
+> _"Ất gặp hơi, quý gặp thân lấy án luận, **không nên luận tứ**."_
+
+→ Nhậm Thị: Âm Dương ĐỒNG SINH ĐỒNG TỬ. Giáp tử ở Ngọ thì Ất cũng tử ở Ngọ.
+
+### G. Tam HỘI Cục ⭐⭐ (chưa có trong engine)
+
+> _"Dần Mão Thìn — phương Đông Mộc"_
+
+Khác Tam Hợp (Tam Hợp = 3 chi cách 4: Hợi-Mão-Mùi). Tam Hội = **3 chi LIỀN MÙA**:
+
+| Tam Hội | Phương | Hành | Mùa |
+|---|---|---|---|
+| Dần-Mão-Thìn | Đông | Mộc | Xuân |
+| Tỵ-Ngọ-Mùi | Nam | Hỏa | Hạ |
+| Thân-Dậu-Tuất | Tây | Kim | Thu |
+| Hợi-Tý-Sửu | Bắc | Thủy | Đông |
+
+→ **Engine BUILD vòng này**: `luu_nien.py::detect_tam_hoi`.
+
+### H. Dương noãn / Hàn × Âm noãn / Hàn — Điều hậu phân chia mới ⭐
+
+| Hướng | Loại Dương | Loại Âm |
+|---|---|---|
+| **Đông Nam** (noãn — ấm) | Dần, Thìn, Ngọ | Mão, Tỵ, Mùi |
+| **Tây Bắc** (hàn — lạnh) | Thân, Tuất, Tý | Dậu, Hợi, Sửu |
+
+Quy tắc:
+- Tứ Trụ chi DƯƠNG NOÃN (Đ.Nam) → cần vận ÂM HÀN (T.Bắc)
+- Tứ Trụ chi DƯƠNG HÀN (T.Bắc) → cần vận ÂM NOÃN (Đ.Nam)
+- → CHÉO HƯỚNG để cân bằng
+
+Engine `dung_than.py::CLIMATE_PREFERENCE` ĐÃ có Điều Hậu cơ bản. Paradigm chéo này CHƯA explicit. TODO.
+
+---
+
+## 🔧 Engine Updates (vòng 2)
+
+### NEW
+1. **`luu_nien.py::detect_tam_hoi`** — Tam Hội Cục 4 phương (Đông Mộc / Nam Hỏa / Tây Kim / Bắc Thủy)
+2. **`luan_giai.py::_build_paradigm_notes`** — CROSS-REF warning khi engine output Tương Hình / Lục Hại (paradigm difference Thiệu Vĩ Hoa vs Trích Thiên Tủy)
+
+### Smoke test lá số anh
+- Chi anh: Thìn / Tỵ / Tuất / Tý → KHÔNG match Tam Hội nào
+- KHÔNG có Tương Hình / Lục Hại → KHÔNG trigger paradigm note
+- Engine clean
+
+### GAP TỒN ĐỌNG (vòng sau build)
+1. **Xung khởi vs Bị xung** — chủ động vs bị động khi Tuế Vận xung
+2. **Vượng-Suy weighted xung** — engine cần weight cường-nhược
+3. **Mộ Khố detection** — xung mở kho vs xung hủy gốc
+4. **Dương noãn/hàn × Âm noãn/hàn paradigm** — Điều hậu chéo hướng
+
+---
+
+## 📚 Concepts mới (15 thuật ngữ vòng 2)
+
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Xung Thiên Bôn Địa | Nhâm + Quý thấu can + Thân-Tý-Thìn → khí lụt lớn | 22 |
+| Đắc Long | Quý Thủy gặp Thìn hóa Vân Vũ | 23 |
+| Dương Chi | Tý-Dần-Thìn-Ngọ-Thân-Tuất, động cương, phát nhanh rõ | 23 |
+| Âm Chi | Sửu-Mão-Tỵ-Mùi-Dậu-Hợi, tĩnh mềm, phát chậm | 23 |
+| Sinh phương | Dần-Thân-Tỵ-Hợi — kỵ xung phá gốc | 24 |
+| Tứ Khố (Mộ địa) | Thìn-Tuất-Sửu-Mùi — cần xung mở khí | 24 |
+| Bại địa | Tý-Ngọ-Mão-Dậu — tứ chính, xét vượng-suy | 24 |
+| Ám xung | Tuế vận xung Tứ Trụ | 28 |
+| Xung khởi | Mình xung người (HY) | 28 |
+| Bị xung | Người xung mình (KỴ) | 28 |
+| Tam Hội Cục | 3 chi liền mùa → cục hóa phương | 33 |
+| Dương Noãn | Dần-Thìn-Ngọ — đông nam | 36 |
+| Dương Hàn | Thân-Tuất-Tý — tây bắc | 36 |
+| Vượng xung suy bại | Vượng đến xung suy → suy càng suy | 29 |
+| Suy xung vượng phát | Suy đến xung vượng → vượng càng phát | 29 |
+
+---
+
+## 🎯 Vòng 3 (tr. 41-60)
+
+Dự đoán: tiếp Chương 9 Can Chi Tổng Luận + Chương 10 (Hình Tượng) hoặc Chương 11 Phương Cục.
+
+**Em chờ anh review vòng 2 này.**

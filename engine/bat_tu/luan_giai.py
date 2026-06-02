@@ -1000,6 +1000,76 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _detect_tam_hoi_in_state(state: dict) -> list[dict]:
+    """Tam Hội Cục — Trích Thiên Tủy Chương 8."""
+    from .luu_nien import detect_tam_hoi
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not pillars:
+        return []
+    try:
+        return detect_tam_hoi(pillars)
+    except Exception:
+        return []
+
+
+def _build_paradigm_notes(state: dict) -> dict:
+    """Paradigm cross-reference khi engine có pattern bị 1 trường phái bác bỏ.
+
+    Trích Thiên Tủy bình chú (Nhậm Thiết Tiều, Ch.8) BÁC BỎ:
+    - Tương Hình (Tý Mão, Dần Tỵ Thân, Sửu Tuất Mùi) → 'lầm lỗi lớn'
+    - Lục Hại (xuyên hại) → 'không tương khắc'
+    - Tương Phá → 'không thuộc ở kinh, nên cớ bỏ vậy'
+
+    Vẫn giữ: chỉ Xung mới có thật.
+
+    Engine output Tương Hình từ luu_nien.py vẫn theo Thiệu Vĩ Hoa tradition.
+    Note paradigm difference cho user biết.
+    """
+    notes = []
+    # Detect if any Tương Hình / Lục Hại being output
+    pillars = state.get("tu_tru", {}).get("pillars", {})
+    if not pillars:
+        return {"notes": notes}
+    try:
+        from .luu_nien import LUC_HAI, TUONG_HINH
+        branches = [p.get("branch") for pos in ("year", "month", "day", "hour")
+                    for p in [pillars.get(pos, {})] if p.get("branch")]
+        has_hinh = False
+        has_hai = False
+        for i, b1 in enumerate(branches):
+            for b2 in branches[i+1:]:
+                pair = frozenset([b1, b2])
+                if pair in LUC_HAI:
+                    has_hai = True
+                if any(b1 in g and b2 in g for g in [
+                    frozenset(["Dần","Tỵ","Thân"]),
+                    frozenset(["Sửu","Tuất","Mùi"]),
+                    frozenset(["Tý","Mão"]),
+                ]):
+                    has_hinh = True
+        if has_hinh or has_hai:
+            notes.append({
+                "type": "paradigm_cross_ref",
+                "subject": "Tương Hình / Lục Hại",
+                "narrative": (
+                    "⚠️ Tứ Trụ có pattern **Tương Hình hoặc Lục Hại**. "
+                    "Engine output theo paradigm Thiệu Vĩ Hoa (truyền thống nhị Quan Bình "
+                    "+ Tử Bình hiện đại). Tuy nhiên **Trích Thiên Tủy bình chú** (Nhậm Thiết Tiều, "
+                    "Ch.8) BÁC BỎ Tương Hình + Lục Hại là 'lầm lỗi lớn, ngụy luận'. "
+                    "Theo Trích Thiên Tủy chỉ XUNG mới có thật. "
+                    "Anh có thể xem narrative Tương Hình như TÍN HIỆU CẢNH BÁO MỀM, "
+                    "không phải verdict tuyệt đối."
+                ),
+                "sources": [
+                    "Engine output: Thiệu Vĩ Hoa 'Dự đoán theo Tứ Trụ' tr.144 + Tử Bình tradition",
+                    "Counter: Nhậm Thiết Tiều, 'Trích Thiên Tủy bình chú' Ch.8 Địa Chi",
+                ],
+            })
+    except Exception:
+        pass
+    return {"notes": notes}
+
+
 def _luan_thong_can_in_state(state: dict) -> dict:
     """Thông Căn analysis — Trích Thiên Tủy paradigm."""
     from .thong_can import analyze_all_thong_can, summarize_day_master_thong_can
@@ -1258,6 +1328,8 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "cha_me": _luan_cha_me_in_state(bat_tu_state),
         "hoa_giai": _luan_hoa_giai_in_state(bat_tu_state, current_age=current_age),
         "thong_can": _luan_thong_can_in_state(bat_tu_state),
+        "tam_hoi": _detect_tam_hoi_in_state(bat_tu_state),
+        "paradigm_notes": _build_paradigm_notes(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),
