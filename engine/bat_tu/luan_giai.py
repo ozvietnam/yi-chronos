@@ -1000,6 +1000,20 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _detect_vuong_suy_paradox_in_state(state: dict) -> dict | None:
+    """Vượng Suy Điên Đảo — 20 lý lẽ Trích Thiên Tủy Ch.17."""
+    from .vuong_suy_dao_nghich import detect_vuong_suy_paradox
+    counts = state.get("ngu_hanh", {}).get("counts", {})
+    assess = state.get("ngu_hanh", {}).get("day_master_assessment", {})
+    day_el = assess.get("day_master_element", "")
+    if not counts or not day_el:
+        return None
+    try:
+        return detect_vuong_suy_paradox(day_el, counts)
+    except Exception:
+        return None
+
+
 def _detect_nhi_khi_in_state(state: dict) -> dict | None:
     """Nhị Khí Thành Tượng — Trích Thiên Tủy Chương 11."""
     from .nhi_khi_thanh_tuong import detect_nhi_khi_thanh_tuong
@@ -1344,6 +1358,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "thong_can": _luan_thong_can_in_state(bat_tu_state),
         "tam_hoi": _detect_tam_hoi_in_state(bat_tu_state),
         "nhi_khi_thanh_tuong": _detect_nhi_khi_in_state(bat_tu_state),
+        "vuong_suy_dao_nghich": _detect_vuong_suy_paradox_in_state(bat_tu_state),
         "paradigm_notes": _build_paradigm_notes(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),

@@ -522,8 +522,146 @@ Nhậm Thị (Chương 13 Thể Dụng):
 
 ---
 
-## 🎯 Vòng 4 (tr. 61-80)
+---
 
-Dự đoán: Chương 13-14 (Thể Dụng + Tình Thần) + Chương 15 Nguyệt Lệnh.
+# 📖 VÒNG 4 — tr. 61-80 (đọc 2026-06-02)
 
-**Em chờ anh review vòng 3.**
+## Cấu trúc trang
+- p61-62: Chương 14 Tinh Khí Thần
+- p62-64: Chương 15 Nguyệt Lệnh + Nhân Nguyên dụng sự
+- p64-65: Chương 16 Sinh Thời (giờ sinh phân khắc)
+- p65-67: Chương 17 Suy Vượng ⭐⭐ — **20 LÝ LẼ ĐIÊN ĐẢO** (CỘT TỬ)
+- p67-78: 20+ case studies về Suy Vượng
+- p78-80: Chương 18 Trung Hòa + Chương 19 Nguyên Lưu (mở)
+
+---
+
+## 🎯 Insight cốt tử em rút được
+
+### A. Chương 14 — TINH KHÍ THẦN ⭐
+
+Quote Nhậm Thị:
+> _"Tỉnh là thần SINH ta; Thần là cái KHẮC ta; Khí là đủ thông bản khí."_
+>
+> _"Tỉnh quá đủ nên bồi thêm Khí, Khí quá vượng nên trợ thêm Thần, Thần quá tiết nên bồi thêm Tinh."_
+
+3 chiều của khí trong Tứ Trụ:
+- **Tinh** (精) = hành SINH ta = Ấn Thụ
+- **Khí** (氣) = hành chính bản thân = Day Master
+- **Thần** (神) = hành ta khắc (Tài) hoặc khắc ta (Quan) = biểu hiện
+
+→ **PARADIGM "Tổn-Ích"**: 3 chiều phải lưu thông. Không 1 chiều nào được chuyên nhất.
+
+Quote sâu hơn (Nhậm Thị):
+> _"Nếu Tỉnh quá đủ, lại tôn Khí, Khí quá vượng, lại tổn thương Thần, Thần quá tiết, lại ức chế Tỉnh, thì thiên khô tạp loạn."_
+
+Paradigm chống mất cân bằng:
+- Tỉnh quá → bồi Khí (cho Day Master mạnh)
+- Khí quá → trợ Thần (cho biểu hiện)
+- Thần quá → bồi Tinh (cho gốc rễ)
+
+### B. Chương 15 — NGUYỆT LỆNH + NHÂN NGUYÊN DỤNG SỰ ⭐
+
+Quote nguyên chú:
+> _"Người sinh tháng Dần, sau Lập Xuân khoảng 7 ngày đều là Mậu Thổ dụng sự; sau 8 đến 14 ngày là Bính Hỏa dụng sự; và sau 15 ngày là Giáp Mộc dụng sự."_
+
+→ Mỗi tháng chia 3 giai đoạn dụng sự theo Nhân Nguyên:
+- Dư khí (tháng trước) — 7 ngày đầu
+- Trường sinh (middle) — 8-14 ngày
+- Chính khí (cuối) — 15+ ngày
+
+Engine cũ: chỉ dùng "primary hidden stem" — KHÔNG phân biệt thời điểm trong tháng. Đây là GAP refinement sau.
+
+### C. Chương 16 — SINH THỜI (Giờ sinh)
+
+Tương tự nguyệt lệnh: giờ chia 2 phần dụng sự (dư + chính). Khó áp dụng vì cận đại không biết chính xác phút sinh.
+
+Nhậm Thị thừa nhận:
+> _"Nếu không đúng giờ, 10 có tới 4,5 sai."_
+
+### D. ⭐⭐⭐⭐ Chương 17 — SUY VƯỢNG (CỰC CỐT)
+
+Quote chấn động:
+> _"Đắc lệnh thì luận là vượng, thất lệnh dễ cho là suy, tuy là chí lý, **nhưng cũng dễ chết vì sai lầm**."_
+
+Nhậm Thị BÁC BỎ thông lệ "đắc lệnh = vượng":
+> _"Bát tự tuy lấy lệnh tháng làm trọng, mà luận vượng tướng hưu tù, thì năm chi ngày cũng có thể sinh khác nhật chủ."_
+>
+> _"Cho nên Nhật Chủ KHÔNG luận hư tù nguyệt lệnh, **chỉ cần Tứ Trụ HỮU CĂN**, liền có thể đảm nhận Tài Quan Thực Thương Thất Sát."_
+
+→ Quay lại **THÔNG CĂN** (em đã build vòng 1).
+
+### E. ⭐⭐⭐⭐⭐ 20 LÝ LẼ ĐIÊN ĐẢO (PARADOX) — CỘT TỬ TRÍCH THIÊN TỦY
+
+**Tâm điểm của cả quyển sách**. Khi 1 hành đạt cực điểm, BIẾN TÍNH:
+
+**Vượng:**
+
+| Hành | Thái vượng (tựa hành KHẮC) | Cực vượng (tựa hành mình SINH) |
+|---|---|---|
+| Mộc | Tựa **Kim** → Hỏa rèn luyện | Tựa **Hỏa** → Thủy khắc |
+| Hỏa | Tựa **Thủy** → Thổ ngăn | Tựa **Thổ** → Mộc khắc |
+| Thổ | Tựa **Mộc** → Kim khắc | Tựa **Thủy** → Hỏa luyện |
+| Kim | Tựa **Hỏa** → Thủy cứu | Tựa **Thủy** → Thổ ngăn |
+| Thủy | Tựa **Thổ** → Mộc khắc | Tựa **Mộc** → Kim khắc |
+
+**Suy:**
+
+| Hành | Thái suy (tựa hành mình SINH) | Cực suy (tựa hành KHẮC) |
+|---|---|---|
+| Mộc | Tựa **Thủy** → Kim sinh | Tựa **Thổ** → Hỏa sinh |
+| Hỏa | Tựa **Mộc** → Thủy sinh | Tựa **Kim** → Thổ sinh |
+| Thổ | Tựa **Hỏa** → Mộc sinh | Tựa **Thủy** → Kim sinh |
+| Kim | Tựa **Thổ** → Hỏa sinh | Tựa **Mộc** → Thủy sinh |
+| Thủy | Tựa **Kim** → Thổ sinh | Tựa **Hỏa** → Mộc sinh |
+
+**Đây là 20 nghịch lý** — dụng thần ĐẢO NGƯỢC logic thông thường khi cực điểm.
+
+→ **Engine BUILD vòng này**: `engine/bat_tu/vuong_suy_dao_nghich.py`
+- Classify state: thai_vuong (≥65% support) / cuc_vuong (≥80%) / thai_suy (≤18%) / cuc_suy (≤10%)
+- Detect element similarity (biến tính)
+- Suggest yong_than theo paradigm Trích Thiên Tủy
+
+## 🔧 Engine Updates (vòng 4)
+
+### NEW
+1. **`engine/bat_tu/vuong_suy_dao_nghich.py`** — module mới
+   - 20 patterns Vượng-Suy paradox đầy đủ
+   - Threshold tự động classify state
+   - Suggest dụng thần đảo logic
+
+### TODO vòng sau
+- Nhân Nguyên dụng sự theo thời điểm trong tháng (3 giai đoạn)
+- Tinh-Khí-Thần balance check
+
+## Smoke test lá số anh
+- DM Mộc share 21%, Ấn Thủy share 15% → Support 35%
+- KHÔNG cực vượng / cực suy → KHÔNG trigger paradox
+- Engine output sạch (không false positive)
+
+**Test edge case** (4 Dần fake): Mộc 8/10 → CỰC VƯỢNG → paradigm "tựa Hỏa, cần Thủy khắc" — output đúng paradigm Trích Thiên Tủy.
+
+---
+
+## 📚 Concepts mới (12 thuật ngữ vòng 4)
+
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Tinh-Khí-Thần | 3 chiều khí trong Tứ Trụ (Ấn-DM-Tài/Quan) | 61 |
+| Tổn-Ích | Cân bằng qua khắc-sinh | 61 |
+| Nhân Nguyên dụng sự | Chi tháng chia 3 giai đoạn 7+7+15 ngày | 63 |
+| Thái vượng | ≥65% support (DM + Ấn) | 67 |
+| Cực vượng | ≥80% support | 67 |
+| Thái suy | ≤18% support | 67 |
+| Cực suy | ≤10% support | 67 |
+| Vượng-Suy điên đảo | 20 nghịch lý cực điểm | 67 |
+| Biến tính (hành) | Cực vượng → tựa hành mình sinh | 67 |
+| Sinh khác trong nguyệt lệnh | Năm-Ngày-Giờ có thể bù vào | 66 |
+| Tinh quá đủ bồi Khí | Ấn quá → cần DM mạnh | 61 |
+| Khí quá vượng trợ Thần | DM quá → cần biểu hiện ra Tài/Quan | 61 |
+
+---
+
+## 🎯 Vòng 5 (tr. 81-100)
+
+Dự đoán: tiếp Chương 18 Trung Hòa + Chương 19 Nguyên Lưu + Chương 20 Thông Quan.
