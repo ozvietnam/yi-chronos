@@ -390,8 +390,140 @@ Engine `dung_than.py::CLIMATE_PREFERENCE` ĐÃ có Điều Hậu cơ bản. Para
 
 ---
 
-## 🎯 Vòng 3 (tr. 41-60)
+---
 
-Dự đoán: tiếp Chương 9 Can Chi Tổng Luận + Chương 10 (Hình Tượng) hoặc Chương 11 Phương Cục.
+# 📖 VÒNG 3 — tr. 41-60 (đọc 2026-06-02)
 
-**Em chờ anh review vòng 2 này.**
+## Cấu trúc trang
+- p41-43: Tiếp Chương 9 Can Chi Tổng Luận
+- p43-46: Cách Độc Vượng (5 cách) + Nhị Khí Thành Tượng (Mộc-Hỏa, Thổ-Kim, ...)
+- p46-49: Chương 11 — Phương vs Cục, Phương Cục Hỗn
+- p49-52: 10+ case studies về Phương Cục
+- p52-60: Chương 12 — Bát Cách (5 patterns hỉ-kỵ) + Chương 13 Thể Dụng
+
+---
+
+## 🎯 Insight cốt tử em rút được
+
+### A. 5 CÁCH ĐỘC VƯỢNG ⭐ (engine cũ ĐÃ có)
+
+Quote nguyên văn Nhậm Thị:
+> _"Tòng một phương chi sẽ tú khí cát lợi, không giống sáu cách thường tình, cần phải đắc lệnh tháng, vượng lại được sinh."_
+
+| Cách | Ngày | Điều kiện |
+|---|---|---|
+| **Khúc Trực** (曲直) | Mộc | Tam Hội/Hợp toàn Mộc + KHÔNG có Kim khắc |
+| **Viêm Thượng** (炎上) | Hỏa | Tam Hội/Hợp toàn Hỏa + KHÔNG có Thủy khắc |
+| **Giá Sắc** (稼穡) | Thổ | Tứ trụ toàn Thìn-Tuất-Sửu-Mùi + KHÔNG có Mộc khắc |
+| **Tòng Cách** (從革) | Kim | Tam Hội/Hợp toàn Kim + KHÔNG có Hỏa khắc |
+| **Nhuận Hạ** (潤下) | Thủy | Tam Hội/Hợp toàn Thủy + KHÔNG có Thổ khắc |
+
+→ Engine `cach_cuc_extended.py` ĐÃ COVER 5 cách này.
+
+### B. NHỊ KHÍ THÀNH TƯỢNG (2 hành thành tượng) ⭐⭐ — NEW
+
+Quote Nhậm Thị:
+> _"Phàm hai khí thành tượng, cần phải Nhật chủ không được sinh, dụng thần hoặc thực hoặc thương quan. **Gọi là tinh anh tú khí, thông tuệ phú quý đều có**; vận khắc dụng thần, phá cục thì không tránh gặp họa."_
+
+5 cặp Nhị Khí (theo vòng sinh):
+1. **Mộc-Hỏa** (木火通明) — văn chương, sáng tạo
+2. **Hỏa-Thổ** (火土慈祥) — giáo dục, từ thiện
+3. **Thổ-Kim** (土金毓秀) — luật, tài chính
+4. **Kim-Thủy** (金水相涵) — khoa học, nghiên cứu
+5. **Thủy-Mộc** (水木清華) — giáo dục, y học
+
+→ **Engine BUILD vòng này**: `engine/bat_tu/nhi_khi_thanh_tuong.py`.
+- Detect 2 hành liên tiếp chiếm ≥70% Tứ Trụ
+- Day Master role (sheng / receive / outsider)
+- Quality tag (loaded ≥85% / moderate ≥78% / weak ≥70%)
+- Dụng Thần suggestion theo paradigm Trích Thiên Tủy
+
+### C. PHƯƠNG CỤC HỖN ⭐
+
+Quote:
+> _"Phương là phương, cục là cục, muốn được phương chớ nên hỗn cục."_
+> _"Tam hội cục Dần-Mão-Thìn lực lượng mạnh hơn tam hợp Hợi-Mão-Mùi."_
+
+**Phương** = Tam Hội (3 chi liền mùa)
+**Cục** = Tam Hợp (3 chi cách 4)
+
+**Hỗn** = cả Tam Hội + Tam Hợp cùng hành trong Tứ Trụ:
+- Dần-Mão-Thìn (Hội) + Hợi hoặc Mùi (Hợp Mộc) → phương + cục hỗn
+- Lý: phương cục cùng có → khí quá vượng
+
+Nguyên tắc: _"Can đầu không phản phục"_ — Thiên Can cần thuận theo khí phương cục, không nên có Kim khắc Mộc (phản).
+
+### D. NGHỊCH LÝ Tiết-Khắc ⭐⭐⭐ CỐT
+
+Nhậm Thị (Chương 13 Thể Dụng):
+> _"Cùng là vượng mà có khi tiết hóa lại hại họa, khắc chế lại có lợi; hoặc tiết hóa có lợi, khắc chế có hại."_
+
+4 trường hợp PHÂN BIỆT (vượng-nhược × tiết-trợ):
+
+| Tình huống | Hành động đúng | Hành động sai |
+|---|---|---|
+| Vượng + **Quan suy nhược** | DỤNG KHẮC CHẾ (tiết hóa hại Quan) | Tiết Hóa |
+| Vượng + **toàn Tỉ Kiếp** (không Quan) | DỤNG TIẾT HÓA (khắc chế phá Quan dễ vỡ) | Khắc Chế |
+| Suy + **Tài trùng điệp** (Ấn không gốc) | DỤNG TỈ KIẾP trợ thân + khắc Tài | Ấn |
+| Suy + **Quan Sát thừa vượng** | DỤNG ẤN (hóa Sát sinh thân) | Tỉ Kiếp |
+
+→ Engine `dung_than.py::determine_dung_than_cascade` đã có 5 patterns. Cần REFINE thêm 2 patterns nuances này (TODO vòng sau).
+
+### E. 5 patterns Vượng × Tài-Quan (Chương 12 Bát Cách)
+
+| Pattern | Hỉ vận | Kỵ vận |
+|---|---|---|
+| Nhật vượng + Thương Quan sinh Tài | Tài + Quan (đặc biệt) | tỉ kiếp đoạt tài |
+| Nhật vượng + Thương Quan khinh + có Ấn | Tài | Quan (vì Ấn không bảo vệ kịp) |
+| Nhật vượng + Tài khinh + tỉ kiếp | Quan (chế kiếp) | Tài (kiếp đoạt) |
+| Nhật vượng + Tài Quan đều có | Tài | Quan |
+| Nhật suy + Quan Ấn tương sinh | Ấn | tỉ kiếp (yếu) |
+
+---
+
+## 🔧 Engine Updates (vòng 3)
+
+### NEW
+1. **`engine/bat_tu/nhi_khi_thanh_tuong.py`** — module mới detect 5 cặp Nhị Khí + Day Master role + Dụng Thần suggestion paradigm
+
+### Confirmed OK (đã có)
+- ✅ 5 Cách Độc Vượng trong `cach_cuc_extended.py`
+- ✅ Tam Hội Cục trong `luu_nien.py` (vòng 2)
+- ✅ Tam Hợp Cục trong `luu_nien.py` (từ trước)
+
+### TODO vòng sau
+- Phương Cục Hỗn detection (Tam Hội + Tam Hợp cùng hành)
+- Refine 4 patterns nghịch lý Tiết-Khắc trong `dung_than.py`
+
+## Smoke test lá số anh
+- Counts: kim 0.6, mộc 2.3, thủy 1.6, hỏa 2.6, thổ 3.9
+- 5 cặp test: mộc-hỏa 45% / hỏa-thổ 59% / thổ-kim 41% / kim-thủy 20% / thủy-mộc 35%
+- Max 59% < threshold 70% → **KHÔNG match Nhị Khí**
+- Hỏa-Thổ cận biên nhất nhưng vẫn không đủ chiếm dominantly
+
+→ Anh có Tứ Trụ TƯƠNG ĐỐI CÂN BẰNG, không có hành dominant + child dominant. Đây là pattern PHỔ THÔNG cần luận theo Dụng Thần thông thường.
+
+---
+
+## 📚 Concepts mới (10 thuật ngữ vòng 3)
+
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Nhị Khí Thành Tượng | 2 hành liên tiếp (sinh) chiếm ≥70% Tứ Trụ | 44 |
+| Khúc Trực Cách | Mộc độc vượng | 45 |
+| Viêm Thượng Cách | Hỏa độc vượng | 45 |
+| Giá Sắc Cách | Thổ độc vượng | 45 |
+| Tòng Cách | Kim độc vượng | 45 |
+| Nhuận Hạ Cách | Thủy độc vượng | 45 |
+| Phương Cục Hỗn | Tam Hội + Tam Hợp cùng hành | 50 |
+| Can đầu không phản phục | Thiên Can thuận theo khí phương cục | 52 |
+| Tinh anh tú khí | Khí lưu hành sạch trong (Nhị Khí điều kiện) | 44 |
+| Mộc-Hỏa Thông Minh | Cụm thuật ngữ cho Mộc-Hỏa Nhị Khí | 45 |
+
+---
+
+## 🎯 Vòng 4 (tr. 61-80)
+
+Dự đoán: Chương 13-14 (Thể Dụng + Tình Thần) + Chương 15 Nguyệt Lệnh.
+
+**Em chờ anh review vòng 3.**
