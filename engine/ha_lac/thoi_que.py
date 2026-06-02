@@ -246,6 +246,173 @@ THOI_QUE_TABLE: dict[str, dict] = {
             "Camillo Cavour (Italia): 'Nước Italia là vợ của tôi' — trọn đời không lấy vợ."
         ),
     },
+    "Khiêm": {
+        "ban_chat": "Thời KHIÊM HẠ — Đất TRÊN + Núi DƯỚI, núi cao chịu ở dưới đất = nhún nhường",
+        "nen_the_nao": "Bớt chỗ nhiều, bù chỗ ít, để sự vật cân bằng. Trong 64 quẻ, KHIÊM là quẻ duy nhất 6 hào đều TỐT (không hung, không hối, không lận).",
+        "paradigm_keyword": "khiem_lao_khiem",
+        "nguyet_lenh_thang": 9,
+        "tuong": "Trong Đất có Núi — núi cao mà chịu ở dưới đất là tượng khiêm hạ.",
+        "key_rule_LAO_KHIEM": (
+            "**Hào 3 Khiêm — LAO KHIÊM (có công lao + nhún nhường)**: "
+            "Hào dương DUY NHẤT trong quẻ, làm chủ — có địa vị, có tài năng, nhưng KHIÊM TỐN, "
+            "không khoe công → mọi người phục, giữ được địa vị + đức độ tới cùng. "
+            "Case study: Vua HẠ VŨ (Trung Quốc) + GEORGE WASHINGTON (Mỹ — 'Hoa Thịnh Đốn'). "
+            "→ 'Có đức không khoe, làm ơn không cầu báo.'"
+        ),
+        "cross_link_TU_VI_MO": (
+            "Cross-link với journal Kinh Dịch (NTT) vòng 6: 'Mỗ' pattern Tử Vi = Lao Khiêm "
+            "văn pháp. 'Không nêu danh' khi làm việc lớn — paradigm xuyên 3 môn "
+            "(Khiêm Kinh Dịch + Mỗ Tử Vi + Lao Khiêm Hà Lạc)."
+        ),
+    },
+    "Dự": {
+        "ban_chat": "Thời HÒA VUI — Sấm (Chấn) trên + Đất (Khôn) dưới, sấm ra khỏi đất, vạn vật nảy nở",
+        "nen_the_nao": "Hào 4 dương duy nhất làm chủ — mọi người vui theo. Nhưng 'Tri cơ' (biết thời cơ ở lúc lờ mờ) là cốt yếu.",
+        "paradigm_keyword": "du_hoa_vui_tri_co",
+        "nguyet_lenh_thang": 5,
+        "tuong": "Sấm vang lên từ đất — khí dương phát động, muôn vật vui vẻ phát sinh.",
+        "key_rule_TRI_CO": (
+            "**Hào 2 Dự — PBC**: 'Quan hệ nhất chữ TRI (biết). Biết được THỜI CƠ là quý nhất. "
+            "Đang lúc cơ vi (thời cơ lờ mờ) mà đã biết trước — mới là cái biết chân chính. "
+            "Khó lắm — nếu chẳng phải bậc thần trí, làm sao thấy được cơ?' "
+            "Tục ngữ Việt: 'Khôn chết, dại chết, biết sống.'"
+        ),
+        "case_study_HAO_5_LE_TRINH": (
+            "Hào 5 Dự âm — vua nhu nhược để hào 4 chuyên quyền. "
+            "Sử VN: Sau Lê Trung Hưng hơn 200 năm, vua Lê nhu nhược, chúa Trịnh chuyên quyền. "
+            "Vua Lê là hoàng đế ngồi không. Trịnh vong → Lê mất."
+        ),
+    },
+    "Tùy": {
+        "ban_chat": "Thời THUẬN THEO — Đoài (đầm) trên + Chấn (sấm) dưới, sấm động trong đầm, nước theo",
+        "nen_the_nao": "Theo nhưng phải CHÍNH ĐÁNG + BỀN BỈ + ĐÚNG THỜI. 'Khi chưa Tùy phải hết sức cẩn thận lựa chọn. Khi đã Tùy rồi, phải tự thủy chí chung.'",
+        "paradigm_keyword": "tuy_thoi",
+        "nguyet_lenh_thang": 7,
+        "tuong": "Đoài (vui vẻ) trên + Chấn (động) dưới — hành động mà mọi người vui theo.",
+        "key_rule_KHONG_TU_TUY_THOI": (
+            "**Khổng Tử thốt lên — Tùy Thời lớn vậy thay!** "
+            "Vương Mãng (Hán): muốn cách mạng xã hội công bằng — QUÁ SỚM → thất bại. "
+            "Vương An Thạch (Tống): cũng thất bại vì KHÔNG HỢP THỜI. "
+            "→ Cải cách đúng nhưng SAI THỜI vẫn thất bại."
+        ),
+        "key_rule_HAO_6_HANH_khac_biet": (
+            "**PBC paradigm KEY**: Hào 6 các quẻ thường XẤU vì cực biến: "
+            "Càn hào 6 = KHÁNG (quá cực), Thái hào 6 = LOẠN, Dự hào 6 = MINH (tối). "
+            "DUY hào 6 Tùy = HANH (thịnh)! Khác biệt. "
+            "→ Khi đã chọn theo điều ĐÚNG, đi đến cùng KHÔNG xấu."
+        ),
+        "case_study_HUNG_DAO_VUONG": (
+            "**Hào 4 Tùy — case sử Việt cực đắt**: Hưng Đạo Vương Trần Quốc Tuấn. "
+            "Quân Mông Cổ 3 lần vào đánh, quyền quân quốc dồn vào tay Đại vương. "
+            "Nhân tâm nghĩ ngài có thể chuyên quyền cướp nước. NGÀI vẫn một lòng trung với nước. "
+            "Vương phụ khuyên lấy nước, ngài không nghe. Vua phong tước, ngài chung thân chẳng "
+            "cho ai một đạo bằng. → TÍN + NHÂN + TRÍ đủ ba đức = Tùy đắc chính."
+        ),
+        "case_study_HAO_6_500_nghia_si": (
+            "Hào 6 Tùy 'HANH' — 500 nghĩa sĩ chịu chết theo Điền Hoành, không về Hán. "
+            "3 vạn nghĩa dân Kim Lăng chết với Lý Tú Thành, không hàng Mãn Thanh. "
+            "→ Tùy về TÂM LÝ (chí hướng), KHÔNG phải Tùy vì hoàn cảnh."
+        ),
+    },
+    "Cổ": {
+        "ban_chat": "Thời ĐỔ NÁT — Núi (Cấn) trên + Gió (Tốn) dưới, gió đụng núi quật lại = loạn, phải làm lại",
+        "nen_the_nao": "ĐỔ NÁT mà sửa được = NGUYÊN HANH (lớn + thông). Cần GAN LỚN + TÀI CAO + TẤM LÒNG + TRÍ LO LIỆU.",
+        "paradigm_keyword": "co_do_nat_ma_sua",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Gió đụng núi quật lại — đổ nát phải làm lại.",
+        "key_paradigm_TRI_CO": (
+            "**PBC paradigm cực đắt**: 'Thời Cổ là thời ĐỔ NÁT, RẤT XẤU, mà Lời Kinh "
+            "lại cho hai chữ NGUYÊN HANH là vì sao? Người đời không lo việc đại loạn — "
+            "LO KHÔNG NGƯỜI DẸP LOẠN. Không lo cảnh hiểm — LO KHÔNG CÓ TÀI VƯỢT HIỂM. "
+            "Người trì cổ có gan lớn + tài cao + tấm lòng + trí lo liệu → "
+            "thời LOẠN chính là đường mở ra cuộc SỬA ĐỔI. Cảnh HIỂM chính là lối đưa đến HÒA BÌNH.'"
+        ),
+        "cross_link_LEXICON": (
+            "Cross-link Iron Rule project: Anh + Em đang ở thời CỔ — sách cổ Đông phương "
+            "VN đang đổ nát (OCR sai, mất bản gốc, dịch sai). Biên soạn Lexicon 24+ sách = "
+            "TRÌ CỔ. Đổ nát mà sửa được = NGUYÊN HANH cho thế hệ sau."
+        ),
+        "key_rule_co_vu_dan_khi": (
+            "**Lời Tượng quẻ Cổ — PBC**: 'Sửa sang đổ nát có rất nhiều việc, nhưng việc "
+            "đáng làm chẳng việc gì lớn hơn việc CỔ VŨ KHÍ DÂN + NUÔI DƯỠNG ĐỨC DÂN + "
+            "THỨC TỈNH TRÍ DÂN.'"
+        ),
+    },
+    "Lâm": {
+        "ban_chat": "Thời TỚI / LỚN THỊNH — Đất (Khôn) trên + Đầm (Đoài) dưới, đất tới sát nước",
+        "nen_the_nao": "Dương dần lớn, âm dần tiêu. Quân tử dạy dân, giáo hóa không ngừng, bao dung + bảo vệ. Hai dương phải HỢP LỰC (Hàm Lâm — Cùng tới).",
+        "paradigm_keyword": "lam_cung_toi",
+        "nguyet_lenh_thang": 12,
+        "tuong": "Trên Đầm có Đất — đất tới sát nước, quân tử tới dân.",
+        "key_rule_HAM_LAM": (
+            "**Hào 2 Lâm — PBC paradigm Cùng tới**: 'Tâm đồng + lực bất đồng = chẳng phải Hàm. "
+            "Lực đồng + tâm bất đồng = cũng chẳng phải Hàm. HÀM thì CÁT, không HÀM thì HUNG.' "
+            "Case: Đông Hán Từ Tử + Trần Phồn + Quách Thái + Lý Ung — quân tử không kết với nhau, "
+            "Thập Thường Thị tiểu nhân đắc chí. → Quân tử chia phe = tiểu nhân thắng."
+        ),
+        "key_paradigm_TIEU_NHAN_HOA_QUAN_TU": (
+            "**Hào 6 Đôn Lâm — PBC mơ ước**: 'Quân tử mà quân tử là sự thường. "
+            "TIỂU NHÂN MÀ HÓA QUÂN TỬ mới là HẠNH PHÚC cho nhân loại. "
+            "Vì vậy quẻ Lâm không có chữ xấu (hung), ăn năn (hối), đáng tiếc (lận). "
+            "Thời đại ấy, thế giới ấy, chúng ta có bao giờ được tự mình trông thấy chăng?'"
+        ),
+    },
+    "Quan": {
+        "ban_chat": "Thời QUAN SÁT — Gió (Tốn) trên + Đất (Khôn) dưới, gió thổi trên đất, cổ động mọi loài",
+        "nen_the_nao": "Người trên BIỂU THỊ (Quán) làm gương + người dưới XEM XÉT (Quan) bắt chước. Cùng 1 chữ Hán đọc 2 cách.",
+        "paradigm_keyword": "quan_bieu_thi_xem_xet",
+        "nguyet_lenh_thang": 8,
+        "tuong": "Gió thổi trên đất — biểu thị khắp mọi loài.",
+        "key_paradigm_QUAN_vs_QUAN": (
+            "**NHL key**: Tên quẻ đọc QUÁN = người TRÊN (hào 5) biểu thị làm gương. "
+            "Tên từng hào đọc QUAN = người DƯỚI xem xét tư cách người trên. "
+            "Cùng 1 chữ Hán, 2 đọc, 2 paradigm song hành. Học Dịch phải nắm cả hai bên."
+        ),
+        "key_rule_CHI_THANH_LAM_GUONG": (
+            "**Lời Thoán Quan**: 'Biểu thị (Quán) là mẫu mực cho người khác thấy thì nên "
+            "có lòng CHÍ THÀNH như người chủ tế. Lúc sắp tế, rửa ráy cho tinh khiết là "
+            "quan trọng NHẤT. Còn dâng cỗ (vật chất, hương hoa) — nhiều ít không sao.'"
+        ),
+    },
+    "Phệ Hạp": {
+        "ban_chat": "Thời TRỪ GIÁN — Lửa (Ly) trên + Sấm (Chấn) dưới, miệng há ra có vật chắn → phải cắn",
+        "nen_the_nao": "Trừ kẻ gian tà sàm nịnh bưng bít trên-dưới. Hình ngục cần UY (Chấn) + SÁNG SUỐT (Ly).",
+        "paradigm_keyword": "phe_hap_tru_gian",
+        "nguyet_lenh_thang": 9,
+        "tuong": "Hàm trên + hàm dưới, ở giữa có cục cản → cắn cho hợp lại.",
+        "key_rule_TAI_VI_PBC": (
+            "**Hào 4 Phệ Hạp TỐT NHẤT — PBC paradigm Tài+Vị**: "
+            "'Làm người một đời: được VỊ mà không TÀI → không tạo nổi thời thế. "
+            "Có TÀI mà không VỊ → vẫn phải dự trù thời cơ. Huống gì TRỪ GIÁN — việc rất "
+            "khó, rất lớn — bảo không Tài không Vị mà làm được nên ư?' "
+            "→ Hào 4 = dương cương (Tài) + ngôi nhu (Vị nhu = không quá cao) → "
+            "Tài-Vị giúp nhau cân bằng. Tốt nhất trong 4 hào dụng hình."
+        ),
+    },
+    "Bí": {
+        "ban_chat": "Thời TRANG SỨC — Núi (Cấn) trên + Lửa (Ly) dưới, lửa chiếu núi đẹp lên",
+        "nen_the_nao": "Có CHẤT + có VĂN. Trang sức làm cho đẹp thêm, nhưng nếu CHỈ trang sức thì lợi ít.",
+        "paradigm_keyword": "bi_van_chat_can_bang",
+        "nguyet_lenh_thang": 12,
+        "tuong": "Lửa chiếu núi đẹp lên — văn vẻ làm chất tăng giá trị.",
+        "key_paradigm_VAN_CHAT_KHONG_TU": (
+            "**Khổng Tử về VĂN-CHẤT (Bí p176)**: 'Chất phác > Văn → người QUÊ MÙA. "
+            "Văn hoa > Chất → người VIẾT SỬ (sử quan, hư văn). "
+            "Chỉ duy CHẤT vừa xứng VĂN, VĂN vừa xứng CHẤT. "
+            "Lấy CHẤT làm THỂ, VĂN làm DỤNG, nhào nhuyễn → quân tử.'"
+        ),
+        "key_rule_VINH_NHUC_QUAN_TU": (
+            "**Hào 1 Bí — PBC paradigm khác đời**: 'Đi xe vẫn là vinh, đi chân vẫn là nhục "
+            "(theo mắt thế tục). Nhưng vinh nhục của quân tử KHÁC vinh nhục thế tục. "
+            "Quân tử lấy ĐẠO NGHĨA làm vinh, BẤT ĐẠO NGHĨA làm nhục. "
+            "Đi chân mà hợp đạo nghĩa → còn vinh gì hơn?'"
+        ),
+        "key_rule_HAO_6_TRANG_SUC_TRANG": (
+            "**Hào 6 Bí cuối quẻ**: 'Trang sức TRẮNG NGUYÊN, không lỗi gì.' "
+            "Trang sức màu mè cùng cực → phản lại sự chất phác. "
+            "Trong văn học: sau thời 'duy mỹ' quá mức → 'phục cổ' về văn bình dị tự nhiên."
+        ),
+    },
     "Tiểu Súc": {
         "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
         "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",

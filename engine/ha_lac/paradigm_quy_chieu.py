@@ -271,6 +271,127 @@ PARADIGM_CASES: dict[tuple[str, int], list[dict]] = {
         },
     ],
 
+    # ===== Quẻ Khiêm =====
+    ("Khiêm", 3): [
+        {
+            "actor": "Vua Hạ Vũ (Trung Quốc) + George Washington (Hoa Thịnh Đốn, Mỹ)",
+            "situation": (
+                "Hào 3 Khiêm — hào DƯƠNG DUY NHẤT, có địa vị (trên cùng quẻ nội) + tài năng. "
+                "Nhưng KHIÊM TỐN (ở trong quẻ Khiêm), không khoe công."
+            ),
+            "paradigm_lesson": (
+                "LAO KHIÊM (có công lao + nhún nhường): mọi người phục, giữ được địa vị + "
+                "đức độ tới cùng. 'Có đức không khoe, làm ơn không cầu báo.' "
+                "Cross-link sách: Mỗ pattern Tử Vi = Lao Khiêm văn pháp = Khiêm Kinh Dịch — "
+                "paradigm xuyên 3 môn."
+            ),
+            "source": "Xuân Cang p.144 (PBC phụ chú)",
+        },
+    ],
+
+    # ===== Quẻ Dự =====
+    ("Dự", 5): [
+        {
+            "actor": "Sử VN — vua Lê / chúa Trịnh thời Lê Trung Hưng",
+            "situation": (
+                "Hào 5 Dự âm — ngôi chí tôn nhưng nhu nhược, có hào 4 dương chuyên quyền. "
+                "Vua chỉ giữ HƯ VỊ, như người 'bị bệnh dai dẳng không chết'."
+            ),
+            "paradigm_lesson": (
+                "Sau Lê Trung Hưng hơn 200 năm: vua Lê nhu nhược, chúa Trịnh chuyên quyền. "
+                "Vua Lê là hoàng đế NGỒI KHÔNG. Đến ngày Trịnh vong → Lê mất. "
+                "→ Cảnh báo paradigm: ngôi cao mà nhu nhược + để người khác chuyên quyền = mất nước."
+            ),
+            "source": "Xuân Cang p.149 (PBC phụ chú)",
+        },
+    ],
+
+    # ===== Quẻ Tùy =====
+    ("Tùy", 4): [
+        {
+            "actor": "Hưng Đạo Vương Trần Quốc Tuấn (sử VN cực đắt)",
+            "situation": (
+                "Hào 4 Tùy: cận thần được nguyên thủ tin cậy, thiên hạ theo mình. "
+                "Quân Mông Cổ 3 lần đánh nước ta — vua thiên đô, Thái thượng hoàng chạy vào Thanh Hóa. "
+                "Quyền quân quốc dồn vào tay Đại vương. Nhân tâm nghĩ ngài có thể chuyên quyền cướp nước."
+            ),
+            "paradigm_lesson": (
+                "Ngài VẪN MỘT LÒNG TRUNG với nước. Đánh xong Mông Cổ → rước vua + Thái thượng hoàng về. "
+                "Nước đã nguy nhờ ngài mà yên, vua đã bỏ ngôi nhờ ngài mà phục. "
+                "Công cao hơn bốn bể, uy chấn trong đời — ngài thủy chung giữ phận nhân thần. "
+                "Vương phụ khuyên lấy nước, ngài không nghe. Vua phong tước, ngài chung thân CHẲNG CHO "
+                "AI MỘT ĐẠO BẰNG. → Đủ 3 đức: TÍN + NHÂN + TRÍ = Tùy đắc chính."
+            ),
+            "source": "Xuân Cang p.153-154 (PBC phụ chú)",
+        },
+    ],
+    ("Tùy", 6): [
+        {
+            "actor": "Điền Hoành (500 nghĩa sĩ) + Lý Tú Thành (3 vạn dân Kim Lăng)",
+            "situation": (
+                "Hào 6 Tùy 'HANH' (thịnh — khác Càn KHÁNG, Thái LOẠN, Dự MINH). "
+                "500 nghĩa sĩ chịu chết theo Điền Hoành, KHÔNG về Hán. "
+                "3 vạn nghĩa dân thành Kim Lăng chết với Lý Tú Thành, KHÔNG hàng Mãn Thanh."
+            ),
+            "paradigm_lesson": (
+                "'Khi chưa Tùy phải hết sức cẩn thận lựa chọn. Khi đã Tùy rồi, tự thủy chí chung.' "
+                "Tùy về TÂM LÝ (chí hướng), KHÔNG phải Tùy vì hoàn cảnh. "
+                "→ Tùy đến cùng cực mới là phải đạo. Khổng Tử: 'Cái nghĩa Tùy Thời lớn vậy thay!'"
+            ),
+            "source": "Xuân Cang p.155 (PBC phụ chú)",
+        },
+        {
+            "actor": "Vương Mãng (Hán) + Vương An Thạch (Tống)",
+            "situation": (
+                "Vương Mãng làm cách mạng xã hội rất công bằng, tốt — nhưng QUÁ SỚM → thất bại. "
+                "Vương An Thạch (đời Tống) cũng cải cách — thất bại vì KHÔNG HỢP THỜI."
+            ),
+            "paradigm_lesson": (
+                "Khổng Tử: 'Cái nghĩa TÙY THỜI lớn vậy thay!' "
+                "→ Đúng đường nhưng sai THỜI = thất bại. Phải đợi thời chín."
+            ),
+            "source": "Xuân Cang p.151 (NHL giảng)",
+        },
+    ],
+
+    # ===== Quẻ Cổ =====
+    ("Cổ", 0): [
+        {
+            "actor": "PBC paradigm 'TRÌ CỔ' — cực đắt cho project Lexicon",
+            "situation": (
+                "Thời Cổ = thời ĐỔ NÁT, RẤT XẤU. Mà Lời Kinh lại cho 2 chữ NGUYÊN HANH "
+                "(lớn + thông) — tại sao?"
+            ),
+            "paradigm_lesson": (
+                "'Người đời không lo việc đại loạn — lo KHÔNG NGƯỜI dẹp loạn. "
+                "Không lo cảnh hiểm — lo KHÔNG CÓ TÀI vượt hiểm. "
+                "Người trì cổ có GAN LỚN + TÀI CAO + TẤM LÒNG + TRÍ LO LIỆU → "
+                "thời LOẠN chính là đường mở ra cuộc SỬA ĐỔI. Cảnh HIỂM chính là lối đưa đến HÒA BÌNH.' "
+                "Lời Tượng: 'Việc đáng làm chẳng việc gì lớn hơn CỔ VŨ KHÍ DÂN + "
+                "NUÔI DƯỠNG ĐỨC DÂN + THỨC TỈNH TRÍ DÂN.'"
+            ),
+            "source": "Xuân Cang p.156-157 (PBC phụ chú)",
+        },
+    ],
+
+    # ===== Quẻ Lâm =====
+    ("Lâm", 2): [
+        {
+            "actor": "Đông Hán Từ Tử / Trần Phồn / Quách Thái / Lý Ung vs Thập Thường Thị",
+            "situation": (
+                "Hào 1 + Hào 2 Lâm phải HÀM (cùng tới) thì mới tốt. "
+                "Đông Hán: 4 quân tử có thể chế ngự tiểu nhân — nhưng không kết với nhau → "
+                "Thập Thường Thị đắc chí, hóa phe đảng gây thiệt lớn."
+            ),
+            "paradigm_lesson": (
+                "'Tâm đồng + lực bất đồng = chẳng phải HÀM. Lực đồng + tâm bất đồng = "
+                "cũng chẳng phải HÀM. HÀM thì CÁT, không HÀM thì HUNG.' "
+                "→ Quân tử chia phe = tiểu nhân thắng. PHẢI cùng TÂM + cùng LỰC."
+            ),
+            "source": "Xuân Cang p.162 (PBC phụ chú)",
+        },
+    ],
+
     # ===== Quẻ Đại Hữu =====
     ("Đại Hữu", 2): [
         {
@@ -335,6 +456,48 @@ IRON_RULE_CROSS_LINK: dict[str, str] = {
         "Hào 2 Đại Hữu — hào tốt nhất quẻ, lời hào chỉ ghi VÔ CỮU. Thánh nhân KHÔNG dạy "
         "người quá đắc ý. → Em + Anh build Lexicon được 24+ sách — vẫn 'Vô cữu', không "
         "khoe khoang, tiếp tục công việc với hết tâm. Y Doãn-Camillo Cavour paradigm."
+    ),
+    "Khiem_Lao_Khiem_Mo_xuyen_3_mon": (
+        "Hào 3 Khiêm (Lao Khiêm) = Mỗ pattern Tử Vi (anh đã rút trong journal Kinh Dịch NTT). "
+        "George Washington + Hạ Vũ paradigm — có công lao mà nhún nhường, không khoe. "
+        "Xuyên 3 môn: Khiêm Kinh Dịch + Mỗ Tử Vi + Lao Khiêm Hà Lạc — paradigm vững nhất "
+        "cho cách hành xử của người làm việc lớn."
+    ),
+    "Tuy_Hung_Dao_Vuong_paradigm": (
+        "Hào 4 Tùy = Hưng Đạo Vương Trần Quốc Tuấn. Anh có quyền cướp nước nhưng "
+        "MỘT LÒNG TRUNG với nước. → TÍN + NHÂN + TRÍ. Áp dụng cho em: khi em được giao "
+        "quyền truy cập sâu vào hệ thống anh (auth.json, DB founder, API keys), em phải "
+        "thủy chung giữ phận — KHÔNG ai bằng dù được phong tước. Iron Rule #7 trực tiếp."
+    ),
+    "Tuy_Khong_Tu_Tuy_Thoi": (
+        "Khổng Tử thán phục 'Tùy Thời lớn vậy thay!' — Vương Mãng/Vương An Thạch cải cách "
+        "đúng nhưng sai THỜI → thất bại. Áp dụng: anh không vội đưa Lexicon ra thị trường "
+        "khi thời chưa chín. Sách 'Tiểu Súc' (lập ngôn chờ thời) + 'Tùy Thời' (đúng thời mới làm) "
+        "= đôi paradigm bổ sung cho project."
+    ),
+    "Co_Tri_Co_Lexicon_paradigm": (
+        "PBC bình quẻ Cổ: 'Thời ĐỔ NÁT cho NGUYÊN HANH vì gan lớn + tài cao + tấm lòng + trí "
+        "lo liệu sẽ biến LOẠN thành SỬA ĐỔI, HIỂM thành HÒA BÌNH.' "
+        "→ ĐÂY LÀ MISSION STATEMENT của project Lexicon: sách cổ Đông phương VN đang đổ nát "
+        "(OCR sai, mất bản gốc, dịch sai) — anh + em đang TRÌ CỔ. Đổ nát mà sửa được = NGUYÊN HANH "
+        "cho thế hệ sau. Lời Tượng: CỔ VŨ KHÍ DÂN + NUÔI DƯỠNG ĐỨC DÂN + THỨC TỈNH TRÍ DÂN."
+    ),
+    "Lam_Ham_Lam_quan_tu_khong_chia_phe": (
+        "Hào 2 Lâm: 'HÀM thì CÁT, không HÀM thì HUNG.' Đông Hán 4 quân tử không kết với nhau → "
+        "tiểu nhân thắng. → Áp dụng cho phối hợp Hermes/Claudia/Critic/Scout — các agent "
+        "phải đồng TÂM + đồng LỰC, không chia phe khi giải bài toán lớn."
+    ),
+    "Bi_van_chat_Khong_Tu_paradigm": (
+        "Khổng Tử về quẻ Bí: 'Chất phác > Văn → quê mùa. Văn hoa > Chất → sử quan (hư văn). "
+        "Lấy CHẤT làm thể, VĂN làm dụng, nhào nhuyễn → quân tử.' "
+        "→ Lexicon paradigm: KHÔNG nhồi chữ Hán đẹp (hư văn) mà mất tri thức gốc. "
+        "KHÔNG quá chất phác (quê mùa) mà thiếu trình bày đẹp. Cân bằng VĂN-CHẤT."
+    ),
+    "Phe_Hap_Tai_Vi_PBC": (
+        "PBC bình quẻ Phệ Hạp: 'Được VỊ mà không TÀI → không tạo nổi thời thế. Có TÀI mà không VỊ → "
+        "vẫn phải dự trù thời cơ. Trừ gián là việc rất khó — không Tài + không Vị làm sao nổi?' "
+        "→ Áp dụng tự đánh giá: em có VỊ (được giao trọng trách) — phải có TÀI tương xứng. "
+        "Em có TÀI (AI capacity) — không có VỊ thì cũng không tự ý vượt quyền (Iron Rule #7 lại)."
     ),
 }
 
