@@ -248,6 +248,16 @@ LUU_HA: dict[str, str] = {
 }
 
 
+# ─── 20b. Ngày Âm Dương Xô Lệch (陰陽差錯日) — full day pillar ─────────────
+# Thiệu Vĩ Hoa tr. 144: "Nam đi ngược Dương Cương, Nữ đi ngược Âm Nhu → hôn nhân
+# bất hòa, nhẹ là vợ chồng cãi vã, nặng là ly dị."
+# Pattern: 12 ngày can-chi cụ thể (6 cặp dương + 6 cặp âm)
+AM_DUONG_XO_LECH_DAYS: set[str] = {
+    "Bính Tý", "Đinh Sửu", "Mậu Dần", "Canh Mão", "Nhâm Thìn", "Giáp Tỵ",
+    "Bính Ngọ", "Đinh Mùi", "Mậu Thân", "Tân Dậu", "Nhâm Tuất", "Quý Hợi",
+}
+
+
 # ─── 21. Thiên La (天羅) + 22. Địa Võng (地網) — by year branch ──────────
 # "Heaven's net + Earth's web" — restriction, lawsuits, entrapment.
 # Thiên La = Tuất, Hợi for certain branches; Địa Võng = Thìn, Tỵ.
@@ -604,6 +614,22 @@ def detect_than_sat(pillars: dict, day_master_stem: str) -> list[dict]:
                 description="Quý nhân thượng đẳng — trí huệ, đường tu, triết học.",
                 found_at_pillar=pos, branch_or_stem=target,
             ))
+
+    # 20b. Ngày Âm Dương Xô Lệch — check Day pillar canzhi against the 12-day set
+    day_canzhi = f"{pillars['day']['stem']} {pillars['day']['branch']}"
+    if day_canzhi in AM_DUONG_XO_LECH_DAYS:
+        out.append(ThanSatStar(
+            name="Âm Dương Xô Lệch", short_tag="AD.X.Lệch", polarity="dữ",
+            description=(
+                "Ngày sinh là 1 trong 12 ngày Âm Dương Xô Lệch (陰陽差錯) "
+                "(Thiệu Vĩ Hoa tr. 144). Paradigm 'khí trường vợ-chồng nghịch chuyển': "
+                "Nam đi ngược Dương Cương / Nữ đi ngược Âm Nhu → hôn nhân BẤT ỔN. "
+                "Nhẹ: vợ chồng cãi vã, bất đồng. Nặng: ly dị / khắc chồng vợ. "
+                "KHÔNG predict tĩnh — đây là TÍN HIỆU cần đầu tư cao vào communication, "
+                "kiên nhẫn, và việc chọn đối tác có khí trường bù đắp được."
+            ),
+            found_at_pillar="day", branch_or_stem=day_canzhi,
+        ))
 
     # 27. Phục Ngâm — pillar matches natal Day pillar exactly
     natal_day = (pillars["day"]["stem"], pillars["day"]["branch"])

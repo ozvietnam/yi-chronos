@@ -619,6 +619,98 @@ Result: **Tài lộ pattern detected** at Trụ Năm (Mậu Thìn) → output c�
 | Sát tàng Ấn thấu | Thất Sát chi + Ấn thấu can → mặt hiền tâm sắc | 123 |
 | Hỉ-Kị Mười Thần Đại Vận | = mạch chính Mệnh | 120 |
 
-## 🎯 Vòng tiếp theo (Vòng 8, tr. 140-160)
+---
 
-Dự đoán: Tiếp Chương 6 — Đoán cát hung Đại Vận / Lưu Niên cụ thể, hoặc Chương 7 mới về Mệnh-Vận tổng hợp. Em chờ anh duyệt vòng 7 trước.
+# 📖 BATCH 1 — Vòng 8-12 (tr. 140-240, đọc 2026-06-02)
+
+⚠️ **Phát hiện**: PDF bản đẹp 681p là **BỘ 2 TẬP** trong 1 file!
+- Tập 1 (p1-200): Lý thuyết cơ bản + Đại Vận + Đoán cát hung + Thần Sát + Lục Thân
+- Tập 2 (p200+): **Mở rộng paradigm "thông tin học"** — "Cơ thể người = máy cảm ứng thông tin"
+
+## Vòng 8-10 (tr. 140-200): Tập 1 — Thần Sát + Lục Thân
+
+### Thần Sát (Chương 9 — đã verify engine cover)
+✅ Có sẵn engine: Văn Xương / Hoa Cái / Tướng Tinh / Trạch Mã / Kim Dư / Thiên Y / Kình Dương (Dương Nhận) / Lục Giáp Không Vong / Đào Hoa / Kiếp Sát / Thiên La Địa Võng / Tang Môn / Bạch Hổ / Điếu Khách / Thái Cực Quý Nhân / Phục Ngâm / Phản Ngâm
+
+### ❌ GAP — Ngày Âm Dương Xô Lệch (tr. 144) — đã BUILD vòng này
+12 ngày can-chi đặc biệt → khắc hôn nhân:
+- Bính Tý, Đinh Sửu, Mậu Dần, Canh Mão, Nhâm Thìn, Giáp Tỵ
+- Bính Ngọ, Đinh Mùi, Mậu Thân, Tân Dậu, Nhâm Tuất, Quý Hợi
+
+Engine update: `than_sat.py::AM_DUONG_XO_LECH_DAYS` + detect logic + narrative paradigm.
+
+### Lục Thân paradigm (Chương 10, tr. 150-180)
+- **Cha mẹ** = trụ Năm + trụ Tháng + Ấn Tinh
+- **Anh chị em** = Tỉ Kiếp + trụ Tháng
+- **Vợ chồng** = Tài Tinh + trụ Ngày
+- **Con cái** = Thực Thương + trụ Giờ
+
+→ Engine có `hon_nhan.py` + `compatibility.py` ✅, GAP: chưa có module dedicated cho **con cái** (chỉ trong constants + truong_sinh). Build sau.
+
+### Cách xem giàu (Chương 11, tr. 180-200)
+- **Tài + Quan trong Bát Tự**: Tài sinh Quan = phú quý đầy đủ
+- **Thân vượng + Tài vượng** = giàu mà bền
+- **Thân nhược dùng Ấn** = giàu nhờ phụ mẫu / học vấn
+- **Cách xem nghèo**: Tài bị Tỉ Kiếp cướp đoạt + thân nhược + không có Ấn
+
+→ Engine `tai_van.py` đã có ✅
+
+## Vòng 11-12 (tr. 200-240): Tập 2 — Paradigm Mở Rộng
+
+### CHƯƠNG 1 — Cơ thể người = máy cảm ứng thông tin (tr. 200-220)
+
+**Insight cốt** (Thiệu Vĩ Hoa, tr. 200):
+> _"Cơ thể người có chức năng PHÁT và THU nhận thông tin. 'Nhắc đến Tào Tháo, Tào Tháo đến ngay' — đó là sự đồng bộ thông tin."_
+
+→ Paradigm: Bát Tự = MÃ THÔNG TIN của cơ thể, không phải định mệnh cứng. Đồng bộ giữa cơ thể-vũ trụ.
+
+### Bệnh tật theo Thiên Can Địa Chi (tr. 215)
+
+Engine `suc_khoe.py` ĐÃ FULL mapping ✅:
+- Giáp Ất Mộc → Can/Đởm (Gan/Mật) + mắt + gân
+- Bính Đinh Hỏa → Tâm/Tiểu Trường + lưỡi + mạch
+- Mậu Kỷ Thổ → Tỳ/Vị + miệng + cơ
+- Canh Tân Kim → Phế/Đại Trường + mũi + da
+- Nhâm Quý Thủy → Thận/Bàng Quang + tai + xương
+
+### Đồng bộ thông tin gia đình (tr. 225-235)
+
+Thiệu Vĩ Hoa: Tứ Trụ của vợ-chồng-con có **ĐỒNG BỘ thông tin**.
+- Chồng phát đạt → vợ cũng được phú quý theo
+- Con cái sinh ra trong nhà giàu → mang Tứ Trụ "tốt" theo nhà
+- Ngược lại: nhà nghèo → con cũng "đồng bộ" vận khó
+
+→ Engine có `family_system.compute_family_resonance` ✅
+
+### Người sinh cùng giờ — mệnh có giống nhau? (tr. 235-240)
+
+Thiệu Vĩ Hoa trả lời:
+> _"KHÔNG hoàn toàn — vì phong thủy, môi trường, nghiệp tích lũy, hành động cá nhân KHÁC NHAU."_
+
+→ Paradigm "đồng bộ + khác biệt" cùng tồn tại. Cùng Tứ Trụ = cùng MẪU SỐ THÔNG TIN, nhưng biểu hiện khác.
+
+## 🔧 Engine Updates Batch 1
+
+### NEW (1 patch)
+1. **`than_sat.py::AM_DUONG_XO_LECH_DAYS`** + detect logic (12 ngày khắc hôn nhân)
+
+### CONFIRMED OK (đã có)
+- ✅ 15+ Thần Sát chuẩn (Văn Xương, Hoa Cái, Tướng Tinh, Trạch Mã, Kim Dư, Thiên Y, Kình Dương, Đào Hoa, ...)
+- ✅ `suc_khoe.py` Trung y mapping 5 ngũ hành ↔ tạng phủ
+- ✅ `family_system.compute_family_resonance` đồng bộ thông tin gia đình
+- ✅ `tai_van.py` cách xem giàu nghèo
+
+### GAP TỒN ĐỌNG (build sau)
+- Module **con cái dedicated** (xem Thực Thương + trụ Giờ → quan hệ con / số con / chất lượng con)
+
+## 📚 Concepts mới (5 thuật ngữ)
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Âm Dương Xô Lệch | 12 ngày can-chi đặc biệt khắc hôn nhân | 144 |
+| Cơ thể máy thông tin | Bát Tự = mã thông tin cơ thể, không định mệnh cứng | 200 |
+| Đồng bộ gia đình | Tứ Trụ vợ-chồng-con có cộng hưởng thông tin | 225 |
+| Đồng bộ + khác biệt | Cùng Tứ Trụ ≠ cùng số phận (môi trường, nghiệp khác) | 235 |
+
+## 🎯 Batch 2 (Vòng 13-17, tr. 240-340)
+
+Tập 2 tiếp: Tạng phủ + Ngũ vận + Lục khí (Trung y sâu) + paradigm thông tin học tiếp.
