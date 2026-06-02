@@ -197,3 +197,90 @@ def get_cum_tu_bieu_tuong_dataset() -> dict:
 def get_phan_loai_nhan_hoc_answer() -> str:
     """Trả lời user khi hỏi 'tại sao hàng triệu người cùng lá số?'."""
     return PHAN_LOAI_NHAN_HOC_PARADIGM["answer_cho_user"]
+
+
+# ── 5. SỐ MÙA CỤ THỂ Hoàng Tuấn — bổ sung TC6 Mệnh Hợp Cách ─────────────────
+# Source: Hoàng Tuấn p33-34. Thuận mùa theo các tháng cụ thể.
+SO_MUA_HOANG_TUAN: dict[str, dict] = {
+    "xuan_phan": {
+        "thang_am": "Dần (1), Mão (2), Thìn (3)",
+        "duong_thuan": (25, 35),
+        "am_thuan": (30, 34),
+        "ngay_diem": "Xuân Phân ~21-22/3 dương — ngày đêm bằng nhau",
+    },
+    "ha_chi": {
+        "thang_am": "Tỵ (4), Ngọ (5), Mùi (6)",
+        "duong_thuan": (35, 55),
+        "am_thuan": (27, 30),
+        "ngay_diem": "Hạ Chí ~21-22/6 dương — ngày dài nhất Bắc bán cầu",
+    },
+    "thu_phan": {
+        "thang_am": "Thân (7), Dậu (8), Tuất (9)",
+        "duong_thuan": (25, 29),
+        "am_thuan": (30, 40),
+        "ngay_diem": "Thu Phân ~23-24/9 dương — ngày đêm bằng nhau",
+    },
+    "dong_chi": {
+        "thang_am": "Hợi (10), Tý (11), Sửu (12)",
+        "duong_thuan": (22, 25),
+        "am_thuan": (30, 60),
+        "ngay_diem": "Đông Chí ~22-23/12 dương — đêm dài nhất Bắc bán cầu",
+    },
+}
+
+
+# ── 6. PARADIGM "VĨ NHÂN NGHỊCH SỐ" — Hoàng Tuấn cảnh báo ───────────────────
+PARADIGM_VI_NHAN_NGHICH_SO: dict[str, str] = {
+    "main": (
+        "Thời xưa quan niệm SỐ TRUNG HÒA là tốt nhất — người cân bằng tinh thần thể chất, "
+        "hòa nhã, dễ mến, không hết lòng giúp ai. NHƯNG nhiều VĨ NHÂN trong văn học nghệ thuật + "
+        "khoa học tự nhiên + chính trị xã hội KHÔNG bình thường về tâm lý."
+    ),
+    "vi_du": (
+        "Hemingway (nhà văn Mỹ), Van Gogh (họa sĩ), Beethoven (nhạc), Lobachevsky (toán học), "
+        "Stalin, Mao Trạch Đông... — đều là NGHỊCH SỐ mà lỗi lạc."
+    ),
+    "ket_luan": (
+        "**NGHỊCH SỐ chưa chắc xấu. HỢP SỐ chưa chắc tốt.** Phải kết hợp nhiều yếu tố. "
+        "→ Cross-link Iron Rule #4+6: KHÔNG predict tĩnh dựa trên 1 yếu tố."
+    ),
+    "ap_dung_founder": (
+        "Lá số anh: Dương 26 (gần Số Cơ Bản 25) + Âm 40 (vượt 30 = 10 đơn vị) — "
+        "NGHỊCH mùa Hạ (sinh 5/6 → giữa Xuân Phân-Hạ Chí). Nhưng Dương 26 chỉ hơn 25 chút, "
+        "Âm 40 cũng KHÔNG quá xa 30 → 'TRUNG HÒA NGHIÊNG VỀ TỐT'. "
+        "Engine TC6 hiện trả 'nghịch mùa' (hơi cứng) — phải mềm hóa: 'TRUNG HÒA dù nghịch nhẹ'."
+    ),
+}
+
+
+# ── 7. "ĐỨC NĂNG THẮNG SỐ" — câu cốt yếu nhất Hoàng Tuấn ────────────────────
+DUC_NANG_THANG_SO: str = (
+    "**Đức năng thắng số** — câu cổ nhân, Hoàng Tuấn trích p37:\n\n"
+    "'Số Hà Lạc chỉ là môn XÁC SUẤT CỔ, dùng để dự báo những KHẢ NĂNG có thể xảy ra. "
+    "Nó KHÔNG THỂ trả lời những sự việc cụ thể của từng người trong tương lai. "
+    "Điều đó PHẢI DO CHÍNH ĐƯƠNG SỰ căn cứ vào những khả năng đã được dự báo "
+    "ĐỂ TỰ TRẢ LỜI.'\n\n"
+    "Cốt: Số CHỈ HƯỚNG. ĐỨC + TÀI + Ý CHÍ + THỜI CƠ làm thay đổi số. "
+    "→ Iron Rule #4+6 paradigm CỰC ĐẮT (xác nhận nguồn thứ 4 sau Khang Tiết, Trình Di, PBC)."
+)
+
+
+# ── 8. SỐ CƠ BẢN 25/30 — paradigm "trả nợ Tạo Hóa" ──────────────────────────
+SO_CO_BAN_PARADIGM: str = (
+    "**Số CƠ BẢN của Tạo Hóa** = Dương 25 (1+3+5+7+9) + Âm 30 (2+4+6+8+10) = 55 (tổng 10 số Hà Đồ).\n\n"
+    "Người sinh ra mang số CỦA TẠO HÓA. Khi tính quẻ Hà Lạc — phải trừ 25/30 (như TRẢ NỢ Tạo Hóa) "
+    "→ số còn lại là 'Số Gốc của mình'.\n\n"
+    "**Exception**: nếu Dương ≤ 25 hoặc Âm ≤ 30 → KHÔNG trừ (Tạo Hóa chưa ban đủ thì không phải trả).\n\n"
+    "→ Đây là quy tắc số học cốt yếu Xuân Cang + Hoàng Tuấn ĐỒNG nói. Engine `number_pools.py` "
+    "của em đã wire đúng."
+)
+
+
+def get_so_mua_detail() -> dict:
+    """Số mùa cụ thể Hoàng Tuấn — bổ sung TC6 Mệnh Hợp Cách."""
+    return SO_MUA_HOANG_TUAN
+
+
+def get_vi_nhan_nghich_so_summary() -> str:
+    """Paradigm 'vĩ nhân nghịch số' — answer khi user lo Mệnh Hợp Cách thấp."""
+    return "\n\n".join(f"**{k}**: {v}" for k, v in PARADIGM_VI_NHAN_NGHICH_SO.items())
