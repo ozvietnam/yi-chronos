@@ -1000,6 +1000,15 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _classify_tq_kq_in_state(state: dict) -> dict | None:
+    """Thương Quan kiến Quan 8 patterns — Trích Thiên Tủy Ch.22."""
+    from .cach_dung_than_ttt import classify_thuong_quan_kien_quan
+    try:
+        return classify_thuong_quan_kien_quan(state)
+    except Exception:
+        return None
+
+
 def _detect_vuong_suy_paradox_in_state(state: dict) -> dict | None:
     """Vượng Suy Điên Đảo — 20 lý lẽ Trích Thiên Tủy Ch.17."""
     from .vuong_suy_dao_nghich import detect_vuong_suy_paradox
@@ -1359,6 +1368,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "tam_hoi": _detect_tam_hoi_in_state(bat_tu_state),
         "nhi_khi_thanh_tuong": _detect_nhi_khi_in_state(bat_tu_state),
         "vuong_suy_dao_nghich": _detect_vuong_suy_paradox_in_state(bat_tu_state),
+        "thuong_quan_kien_quan_ttt": _classify_tq_kq_in_state(bat_tu_state),
         "paradigm_notes": _build_paradigm_notes(bat_tu_state),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
