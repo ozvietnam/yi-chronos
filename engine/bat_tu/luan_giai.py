@@ -1008,15 +1008,20 @@ def _detect_chan_doai_in_state(state: dict) -> dict | None:
     dm_el = (assess.get("day_master_element") or "").lower()
     pillars = state.get("tu_tru", {}).get("pillars", {})
     month_branch = pillars.get("month", {}).get("branch")
-    # Check has Kim
+    # Check has Kim (stem, branch chính khí, hidden stems)
     has_kim = False
     for pos in ("year", "month", "day", "hour"):
         p = pillars.get(pos, {})
         if STEM_ELEMENT.get(p.get("stem", ""), "").lower() == "kim":
-            has_kim = True
-            break
+            has_kim = True; break
         if BRANCH_ELEMENT.get(p.get("branch", ""), "").lower() == "kim":
-            has_kim = True
+            has_kim = True; break
+        # Hidden stems
+        for h in p.get("hidden_stems", []) or []:
+            hs = h.get("stem") if isinstance(h, dict) else h
+            if STEM_ELEMENT.get(hs, "").lower() == "kim":
+                has_kim = True; break
+        if has_kim:
             break
     if not dm_el or not month_branch:
         return None
