@@ -555,6 +555,17 @@ export function batTuBaoMenhPDF({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Mi
   });
 }
 
+export function dongYFull({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam", chanThuong = "" }) {
+  return request(`/api/dong-y/full`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone, gender,
+      chan_thuong: chanThuong,
+    }),
+  });
+}
+
 export function batTuSucKhoeSau({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam", chanThuong = "", currentAge = null }) {
   return request(`/api/bat-tu/suc-khoe-sau`, {
     method: "POST",

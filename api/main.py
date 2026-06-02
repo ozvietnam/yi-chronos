@@ -1636,6 +1636,74 @@ def bat_tu_glossary_lookup(key: str) -> dict[str, object]:
     }
 
 
+class DongYRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    chan_thuong: str = ""
+
+
+@app.post("/api/dong-y/full")
+def dong_y_full_analysis(request: DongYRequest) -> dict[str, object]:
+    """Đông Y full — Tạng phủ + Kinh lạc + Âm dương + Liệu pháp tượng số.
+
+    Anh duyệt 2026-06-02: trang sức khỏe + đọc 'Chữa bệnh theo Chu Dịch'.
+    4 module mới: tang_phu_chan_doan + kinh_lac + am_duong + lieu_phap_tuong_so.
+    🪷 Iron Rule #4+6: KHÔNG predict, chỉ đọc cấu trúc thân thể.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.dong_y.tang_phu_chan_doan import chan_doan_tang_phu, render_tang_phu_markdown
+    from engine.dong_y.kinh_lac_overview import tra_kinh_lac, render_kinh_lac_markdown
+    from engine.dong_y.am_duong_can_bang import evaluate_am_duong_can_bang, render_am_duong_markdown
+    from engine.dong_y.lieu_phap_tuong_so import tim_tuong_so, render_tuong_so_markdown
+
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+
+    # 1. Tạng phủ chẩn đoán
+    tang_phu = chan_doan_tang_phu(request.chan_thuong)
+
+    # 2. Kinh lạc (lookup theo primary tạng)
+    kinh_lac = tra_kinh_lac(tang_phu.primary_tang) if tang_phu.primary_tang else None
+
+    # 3. Âm dương cân bằng
+    am_duong = evaluate_am_duong_can_bang(tu_tru, chan_thuong=request.chan_thuong)
+
+    # 4. Liệu pháp tượng số
+    tuong_so = tim_tuong_so(request.chan_thuong)
+
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "tang_phu_chan_doan": {
+            "result": tang_phu.to_dict(),
+            "markdown": render_tang_phu_markdown(tang_phu),
+        },
+        "kinh_lac": {
+            "result": kinh_lac.to_dict() if kinh_lac else None,
+            "markdown": render_kinh_lac_markdown(kinh_lac) if kinh_lac else "_(Không tra được kinh)_",
+        },
+        "am_duong": {
+            "result": am_duong.to_dict(),
+            "markdown": render_am_duong_markdown(am_duong),
+        },
+        "lieu_phap_tuong_so": {
+            "result": tuong_so.to_dict(),
+            "markdown": render_tuong_so_markdown(tuong_so),
+        },
+        "iron_rule_note": (
+            "🪷 Iron Rule #4+6: 4 module đọc cấu trúc thân thể theo paradigm "
+            "Bát Quái + Hoàng Đế Nội Kinh + 'Chữa bệnh theo Chu Dịch'. "
+            "KHÔNG predict, KHÔNG thay y học hiện đại. Đức năng thắng số."
+        ),
+        "sources": [
+            "Chữa bệnh theo Chu Dịch (Lý Ngọc Sơn + Lý Kiện Dân)",
+            "Hoàng Đế Nội Kinh (paradigm chung)",
+            "Engine YI-Chronos Bát Tự",
+        ],
+    }
+
+
 class SucKhoeSauRequest(BaseModel):
     birth_datetime_local: str
     timezone: str = "Asia/Ho_Chi_Minh"
