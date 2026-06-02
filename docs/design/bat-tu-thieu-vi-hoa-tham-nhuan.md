@@ -417,3 +417,110 @@ Engine `engine/bat_tu/` đã có đầy đủ logic. Wiki SQLite (2788 concepts)
 - Đại Vận / Lưu Niên
 - Khởi vận theo Tiết khí
 - Hướng vận (Thuận / Nghịch)
+
+---
+
+# 📖 VÒNG 6 — tr. 100-120 (đọc 2026-06-02)
+
+## Chương 4 — DỤNG THẦN (CORE TECHNIQUE — 30 trang)
+
+### I. Thông Quan + Điều Hòa (tr. 100)
+- **Thông Quan**: 2 hành đối lập ngang nhau → cả 2 tổn → cần hành thứ 3 làm trung gian → "hóa địch thành bạn"
+  - Hỏa-Kim tranh → Thổ
+  - Mộc-Thổ tranh → Hỏa
+  - Thủy-Hỏa tranh → Mộc
+  - Kim-Mộc tranh → Thủy
+  - Thổ-Thủy tranh → Kim
+- **Điều Hòa (Hàn/Noãn/Táo/Thấp)**: tháng hạ → cần Thủy điều hòa; tháng đông → cần Hỏa
+  - VD: Canh Kim sinh tháng đông không có Hỏa → "kim hàn, thủy lạnh" → Canh chủ gân cốt → "khí huyết không thông sinh bệnh tật, thậm chí tàn tật"
+- Quy tắc Thổ: trung ương quán xuyến 8 phương, mỗi hành vượng 18 ngày trước lập 4 mùa
+
+### II. DỤNG THẦN SINH PHÙ — Bổ Cứu MỘT (Nhật Can NHƯỢC, tr. 101-104)
+
+**Quy tắc "Vật cực tất phản"** (PARADIGM CỐT):
+> _"kim sinh thủy nhưng thủy nhiều thì kim chìm; thủy sinh mộc nhưng mộc nhiều thủy bị dồn co; mộc sinh hỏa nhưng hỏa nhiều mộc bị đốt; hỏa sinh thổ nhưng thổ nhiều hỏa âm ỉ; thổ sinh kim nhưng kim nhiều thổ biến yếu"_
+
+→ Sinh thái KHÔNG đơn chiều — đảo ngược khi 1 hành quá vượng.
+
+**3 trường hợp Nhật Can nhược + chọn Dụng Thần:**
+
+| Tình huống | Dụng Thần #1 | Dụng Thần #2 | Paradigm |
+|---|---|---|---|
+| **Nhược + Quan Sát nhiều** | Ấn Tinh | Tỉ Kiếp | Ấn hóa Sát + sinh thân |
+| **Nhược + Tài Tinh nhiều** | Tỉ Kiếp | Ấn Tinh | "thê tài cướp thân" — của cải = mầm tai họa |
+| **Nhược + Thực Thương nhiều** | Ấn Tinh | Tỉ Kiếp | Ấn vừa sinh thân + khắc thực thương |
+
+### III. DỤNG THẦN SINH PHÙ — Bổ Cứu HAI (Nhật Can VƯỢNG, tr. 105-109)
+
+**2 trường hợp Nhật Can vượng:**
+
+| Tình huống | Dụng Thần #1 | Dụng Thần #2 | #3 |
+|---|---|---|---|
+| **Vượng + Ấn Tinh nhiều** | Tài Tinh | Quan Sát | Thực Thương |
+| **Vượng + Tỉ Kiếp nhiều** | Quan Sát | Thực Thương | Tài |
+
+**Warning Tứ trụ KHÔ (chỉ còn 3 hành Ấn/Tỉ/Tài)**:
+> _"Tứ trụ rất khô, ngoài Tài Tinh ra không có gì có thể giải cứu... Người mà Tứ trụ như thế thì nhất định khó nuôi hoặc chết yếu"_
+
+→ Engine cần WARN flag khi 2+ hành missing.
+
+### IV. KÌNH DƯƠNG (tr. 107) — ⚠️ ENGINE THIẾU
+
+> _"Kình Dương là hung thần ác sát. 'Dương' có nghĩa là cứng, 'kình' là cắt, chặt mạnh mẽ. Lộc quá thì sinh kình dương, thành công quá nên lui mà không lui thì vượt quá mức nên bị hại"_
+
+- Định nghĩa: nằm cạnh Lộc (1 chi sau), đất cực thịnh của thiên can
+- VD: Giáp → Lộc Dần → Kình Dương Mão; Bính → Lộc Tỵ → Kình Dương Ngọ
+- Hung khi ở **lệnh tháng** (chi tháng) — XẤU NHẤT
+
+### V. CASE STUDIES (tr. 107-108) — paradigm "biến hóa qua hành động"
+
+**2 nam thanh niên 20 tuổi, đều Kình Dương ở lệnh tháng:**
+- **Người 1**: lang thang đâm thuê chém mướn, vết thương đầy người, đến cửa tòa án
+- **Người 2**: nhờ thầy Thiệu khuyên nhập ngũ → kỷ luật quân đội hạn chế cá tính → "Thiên tính ngang ngược chuyển thành tố chất kiên quyết của người chỉ huy" → thăng cấp đều đặn
+
+→ **INSIGHT CỐT NHẤT** — paradigm KHÔNG predict tĩnh:
+- Cùng cấu trúc, **2 outcome khác nhau** tùy môi trường + lựa chọn
+- "Kình Dương lệnh tháng" KHÔNG = án tử số phận
+- Engine không output "anh sẽ chém mướn" — chỉ output "khí thừa, cần kỷ luật cương để chuyển hóa"
+
+## 🔧 Engine Update Suggestions
+
+### 1. Cover hiện tại (CONFIRMED OK)
+- ✅ `engine/bat_tu/dung_than.py::determine_dung_than` — strength heuristic + climate
+- ✅ `engine/bat_tu/luan_giai.py::_detect_thong_quan` — 2 hành đối lập + mediator
+- ✅ Hàn/Noãn/Táo/Thấp via `dung_than.py`
+
+### 2. GAP — cần BUILD
+1. **`engine/bat_tu/than_sat.py` — thêm Kình Dương (Yang Ren)**
+   - Detect Kình Dương qua mapping Day Stem → branch
+   - Flag "in_month_branch" (XẤU nhất)
+   - Output narrative paradigm "cần kỷ luật chuyển hóa, không phải án định"
+2. **`engine/bat_tu/dung_than.py` — explicit 5 trường hợp + cascade ranking**
+   - Hiện engine output 1 Dụng Thần. Theo Thiệu Vĩ Hoa: cần Dụng Thần #1/#2/#3 theo cascade
+   - Encode 5 trường hợp Nhược + 2 trường hợp Vượng = 7 patterns rõ ràng
+3. **`engine/bat_tu/luan_giai.py` — thêm `_detect_tu_tru_kho`**
+   - Khi mệnh cục thiếu 2+ hành → flag "khô" + safety message (KHÔNG "khó nuôi/chết yếu" — chỉ "cần điều hòa ngũ hành qua hành động + môi trường")
+
+### 3. Wiki concepts cần thêm (school=tu_binh_ba_tu)
+- Kình Dương (羊刃 — Yang Ren) + định nghĩa + 5 mapping Can→Chi
+- Thông Quan 5 cặp (chính xác công thức)
+- Điều Hòa Hàn/Noãn (4 loại × 5 hành = 20 patterns)
+- Tứ Trụ Khô (mệnh cục thiếu hành)
+- "Vật cực tất phản" — paradigm sinh-khắc đảo ngược
+
+## 📚 Concepts mới (15 thuật ngữ, tr. 100-120)
+
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Thông Quan | hành trung gian giữa 2 hành đối lập ngang nhau | 100 |
+| Điều Hòa | dùng Hỏa/Thủy cân bằng hàn-noãn theo mùa sinh | 100 |
+| Dụng Thần Sinh Phù | dụng thần bổ cứu Nhật Can nhược | 101 |
+| Vật cực tất phản | sinh-khắc đảo khi 1 hành quá vượng | 102 |
+| Lộc | đất cùng loại ngang vai với Thiên Can (vd: Giáp-Dần) | 107 |
+| Kình Dương | hung thần cạnh Lộc, đất cực thịnh, cứng-cắt | 107 |
+| Tứ trụ khô | mệnh cục thiếu 2+ hành | 108 |
+| Bệnh-Thuốc paradigm | "coi bệnh bốc thuốc, bệnh nặng dùng thuốc mạnh" | 102 |
+
+## 🎯 Vòng tiếp theo (Vòng 7, tr. 120-140)
+
+Dự đoán: Chương 5 — Cách Cục cụ thể (10 cách + 2 đặc biệt). Em chờ anh duyệt vòng 6 trước.
