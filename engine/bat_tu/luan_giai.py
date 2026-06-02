@@ -1000,6 +1000,20 @@ def _detect_thong_quan(state: dict) -> dict | None:
     return None
 
 
+def _luan_hoa_giai_in_state(state: dict, current_age: int | None = None) -> dict:
+    """Wrap hoa_giai.luan_hoa_giai — auto-resolve Lưu Niên chi from current_age + Dai Van."""
+    from .hoa_giai import luan_hoa_giai
+    # Try to get current Lưu Niên chi from dai_van (current_year branch)
+    current_chi = None
+    dai_van = state.get("dai_van", {})
+    if isinstance(dai_van, dict):
+        current_chi = dai_van.get("current_year_branch")
+    try:
+        return luan_hoa_giai(state, current_luu_nien_chi=current_chi)
+    except Exception as e:
+        return {"_error": str(e)[:200]}
+
+
 def _luan_cha_me_in_state(state: dict) -> dict:
     """Luận cha mẹ from Tứ Trụ — paradigm Thiệu Vĩ Hoa Tập 2 Ch.12-13."""
     from .cha_me import luan_cha_me
@@ -1224,6 +1238,7 @@ def compose_luan_giai(bat_tu_state: dict, current_age: int | None = None) -> dic
         "sat_tang_an_thau": _detect_sat_tang_an_thau(bat_tu_state),
         "can_hoa_hop": _detect_can_hoa_hop_in_state(bat_tu_state),
         "cha_me": _luan_cha_me_in_state(bat_tu_state),
+        "hoa_giai": _luan_hoa_giai_in_state(bat_tu_state, current_age=current_age),
         "truong_sinh_luan": _luan_truong_sinh(bat_tu_state),
         "than_sat_highlights": _luan_than_sat(bat_tu_state),
         "dai_van_current": _luan_dai_van_current(bat_tu_state, current_age),
