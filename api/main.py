@@ -1552,6 +1552,35 @@ def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
     }
 
 
+@app.post("/api/ha-lac/luan-giai-sau")
+def ha_lac_luan_giai_sau(request: HaLacCastRequest) -> dict[str, object]:
+    """Luận giải SÂU Hà Lạc — render paradigm thành narrative tường minh.
+
+    Paradigm Anh (2026-06-02): 'Engine ra được cách cục, chứ chưa luận giải sâu được.'
+    → Module này = bước cuối: cast() → engine output → narrative tường minh.
+
+    3 lớp luận giải cho cả Tiên Thiên + Hậu Thiên:
+    1. LỚP NỀN: bản chất + nên thế nào + tượng + key paradigm + case study
+    2. LỚP HÀO NĐ: case study cho hào nguyên đường (hoặc generic guidance)
+    3. LỚP IRON RULE CROSS-LINK: paradigm cổ ↔ Iron Rule project
+    + Tổng synthesis THỂ-DỤNG (đặc biệt cho founder paradigm).
+    """
+    from engine.ha_lac import cast_ha_lac
+    from engine.ha_lac.luan_giai_sau import render_full_luan_giai
+
+    cast_result = cast_ha_lac(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    luan = render_full_luan_giai(cast_result)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "ha_lac_state": cast_result,
+        "luan_giai_sau": luan,
+    }
+
+
 @app.post("/api/ky-mon/cast")
 def ky_mon_cast(request: KyMonCastRequest) -> dict[str, object]:
     """Cast a Kỳ Môn Độn Giáp chart (奇門遁甲).

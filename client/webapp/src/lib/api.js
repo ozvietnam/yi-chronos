@@ -583,6 +583,21 @@ export function castHaLac({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", g
   });
 }
 
+export function haLacLuanGiaiSau({
+  birthDatetimeLocal,
+  timezone = "Asia/Ho_Chi_Minh",
+  gender = "nam",
+}) {
+  return request(`/api/ha-lac/luan-giai-sau`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone,
+      gender,
+    }),
+  });
+}
+
 export function getTuViChinhTinhList() {
   return request("/api/tu-vi/chinh-tinh");
 }

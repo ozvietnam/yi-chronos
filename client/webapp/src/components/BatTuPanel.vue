@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
-import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, batTuSucKhoe, haLacLuanGiai } from "../lib/api";
+import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, batTuSucKhoe, haLacLuanGiai, haLacLuanGiaiSau } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
@@ -41,6 +41,9 @@ const sucKhoeError = ref("");
 const haLacLuanData = ref(null);
 const haLacLuanLoading = ref(false);
 const haLacLuanError = ref("");
+const haLacLuanSauData = ref(null);
+const haLacLuanSauLoading = ref(false);
+const haLacLuanSauError = ref("");
 const loading = ref(false);
 const errorMsg = ref("");
 
@@ -274,6 +277,24 @@ async function loadHaLacLuan() {
   }
 }
 
+async function loadHaLacLuanSau() {
+  if (!inputBirth.value) return;
+  haLacLuanSauLoading.value = true;
+  haLacLuanSauError.value = "";
+  try {
+    const r = await haLacLuanGiaiSau({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+    });
+    haLacLuanSauData.value = r.luan_giai_sau;
+  } catch (err) {
+    haLacLuanSauError.value = err?.message || String(err);
+  } finally {
+    haLacLuanSauLoading.value = false;
+  }
+}
+
 // ── Derived ──────────────────────────────────────────────────────────────────
 
 const dayMasterStem = computed(() => batTuData.value?.tu_tru?.day_master?.stem);
@@ -326,8 +347,9 @@ function formatTcLabel(key) {
   return map[key] || key;
 }
 
-// Minimal Markdown renderer for **bold** in luận giải narrative strings.
-// Engine outputs short snippets only — we don't need a full MD parser.
+// Minimal Markdown renderer — supports **bold**, ## headings, ### subheadings,
+// bullet lists "- ", and double-newline paragraphs. Engine outputs short
+// snippets — no full MD parser needed.
 function renderMd(s) {
   if (!s) return "";
   // Escape HTML first
@@ -335,8 +357,24 @@ function renderMd(s) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+  // Headings
+  html = html.replace(/^### (.+)$/gm, "<h6 class='md-h6'>$1</h6>");
+  html = html.replace(/^## (.+)$/gm, "<h5 class='md-h5'>$1</h5>");
+  // Bullet lists
+  html = html.replace(/(?:^|\n)- (.+)/g, "\n<li>$1</li>");
+  html = html.replace(/(<li>.*?<\/li>)(\n<li>.*?<\/li>)+/gs, m => "<ul class='md-ul'>" + m + "</ul>");
+  html = html.replace(/(<li>.*?<\/li>)(?!<\/ul>|<li>)/g, "<ul class='md-ul'>$1</ul>");
+  // Italic _x_ → <em>
+  html = html.replace(/_([^_\n]+)_/g, "<em>$1</em>");
   // **bold** → <b>
   html = html.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+  // Paragraphs from double newlines
+  html = html
+    .split(/\n\n+/)
+    .map(p => p.trim())
+    .filter(Boolean)
+    .map(p => (p.startsWith("<h") || p.startsWith("<ul") ? p : `<p>${p.replace(/\n/g, "<br>")}</p>`))
+    .join("\n");
   return html;
 }
 
@@ -794,6 +832,41 @@ function formatSolarDateTime(iso) {
           <p class="tn-guard">{{ haLacData.thoi_que.paradigm_guard }}</p>
           <p class="tn-source"><em>{{ haLacData.thoi_que.source }}</em></p>
         </details>
+
+        <!-- ── Luận Giải Sâu trigger ── -->
+        <div class="lgs-trigger">
+          <button v-if="!haLacLuanSauData" class="apply-btn lgs-btn"
+            @click="loadHaLacLuanSau" :disabled="haLacLuanSauLoading">
+            {{ haLacLuanSauLoading ? "Đang luận giải sâu Hà Lạc..." : "📖 Luận Giải Sâu — paradigm Xuân Cang (mới)" }}
+          </button>
+          <p v-if="haLacLuanSauError" class="status-message error">{{ haLacLuanSauError }}</p>
+        </div>
+
+        <template v-if="haLacLuanSauData">
+          <details class="tn-block lgs-result" open>
+            <summary class="tn-summary">
+              📖 <b>Luận Giải Sâu Hà Lạc</b> — 3 lớp tường minh (em vừa build vòng 12)
+            </summary>
+
+            <!-- Tổng synthesis trước -->
+            <div class="lgs-tong" v-html="renderMd(haLacLuanSauData.tong_synthesis)"></div>
+
+            <!-- Tiên Thiên -->
+            <h5 class="lgs-h">⭐ Tiên Thiên (THỂ)</h5>
+            <div class="lgs-section" v-html="renderMd(haLacLuanSauData.tien_thien.lop_nen)"></div>
+            <div class="lgs-section" v-html="renderMd(haLacLuanSauData.tien_thien.hao_nguyen_duong)"></div>
+            <div class="lgs-section lgs-ironrule" v-html="renderMd(haLacLuanSauData.tien_thien.iron_rule_links)"></div>
+
+            <!-- Hậu Thiên -->
+            <h5 class="lgs-h">🌊 Hậu Thiên (DỤNG)</h5>
+            <div class="lgs-section" v-html="renderMd(haLacLuanSauData.hau_thien.lop_nen)"></div>
+            <div class="lgs-section" v-html="renderMd(haLacLuanSauData.hau_thien.hao_nguyen_duong)"></div>
+            <div class="lgs-section lgs-ironrule" v-html="renderMd(haLacLuanSauData.hau_thien.iron_rule_links)"></div>
+
+            <!-- Ứng dụng -->
+            <div class="lgs-section lgs-guard" v-html="renderMd(haLacLuanSauData.tien_thien.ung_dung)"></div>
+          </details>
+        </template>
       </div>
 
       <h4 class="section-h">Lộ trình 12 hào — {{ haLacData.lifespan_span.total_years }} năm cuộc đời</h4>
@@ -3352,6 +3425,73 @@ function formatSolarDateTime(iso) {
   color: var(--text-secondary, rgba(230, 238, 245, 0.4));
   text-align: right;
   margin: 4px 0 0;
+}
+
+/* ── Luận Giải Sâu (vòng 12+) ──────────────────────────────────────────── */
+.lgs-trigger { margin-top: 14px; }
+.lgs-btn {
+  background: linear-gradient(135deg, rgba(232, 201, 90, 0.18), rgba(91, 229, 211, 0.16));
+  border: 1px solid rgba(232, 201, 90, 0.4);
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 13px;
+  padding: 9px 14px;
+}
+.lgs-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(232, 201, 90, 0.28), rgba(91, 229, 211, 0.24));
+}
+.lgs-result { margin-top: 14px; border-left-color: var(--accent-gold, #e8c95a); }
+.lgs-tong {
+  background: rgba(232, 201, 90, 0.06);
+  border-left: 3px solid var(--accent-gold, #e8c95a);
+  padding: 12px 14px;
+  margin: 10px 0 14px;
+  border-radius: 4px;
+}
+.lgs-h {
+  color: var(--accent-teal, #5be5d3);
+  font-size: 14px;
+  margin: 16px 0 8px;
+  border-bottom: 1px dashed rgba(91, 229, 211, 0.25);
+  padding-bottom: 4px;
+}
+.lgs-section {
+  margin: 8px 0;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+.lgs-section.lgs-ironrule {
+  background: rgba(245, 176, 140, 0.05);
+  border-left: 2px solid var(--accent-coral, #f5b08c);
+  border-radius: 4px;
+}
+.lgs-section.lgs-guard {
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.65));
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  margin-top: 14px;
+  padding-top: 10px;
+}
+.md-h5 {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 13px;
+  margin: 10px 0 6px;
+}
+.md-h6 {
+  color: var(--accent-teal, #5be5d3);
+  font-size: 12.5px;
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+.md-ul {
+  margin: 6px 0;
+  padding-left: 22px;
+}
+.md-ul li {
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 3px 0;
 }
 
 .halac-interpretation {

@@ -558,6 +558,119 @@ THOI_QUE_TABLE: dict[str, dict] = {
             "giữ việc bên trong (Lexicon là internal asset)."
         ),
     },
+    "Di": {
+        "ban_chat": "Thời NUÔI DƯỠNG — Núi (Cấn) trên + Sấm (Chấn) dưới, miệng dưới hàm trên",
+        "nen_the_nao": "3 hào dưới CẦU NGƯỜI nuôi mình. 3 hào trên có TRÁCH NHIỆM nuôi người. Nuôi về tinh thần, không chỉ về thể xác.",
+        "paradigm_keyword": "di_nuoi_duong",
+        "nguyet_lenh_thang": 11,
+        "tuong": "Núi trên Sấm dưới — hàm trên với miệng dưới ăn vào nuôi thân.",
+        "key_paradigm_LO_TRUOC_VUI_SAU": (
+            "**Hào 6 Di — Phạm Văn Chính**: 'Kẻ LO TRƯỚC cái lo của thiên hạ, "
+            "VUI SAU cái vui của thiên hạ.' "
+            "→ Tâm sự thánh hiền: lấy họa phúc thiên hạ làm họa phúc mình. "
+            "Hào 6 = bậc làm thầy cho nguyên thủ, thiên hạ nhờ mình mà được nuôi → trách nhiệm lớn."
+        ),
+        "key_rule_NUOI_DUC_NGHIA": (
+            "**Hào 4 Di — PBC paradigm khác cát hung**: 'Hào 2 cầu nuôi MIỆNG ĂN (xấu) — "
+            "Hào 4 cầu nuôi ĐỨC NGHĨA (tốt). Như Ngu Công cầu ngọc (xấu) vs Vua Thang cầu tài "
+            "đức với Y Doãn (tốt). Cùng cầu nuôi nhưng cát hung khác — đó là chân lý Dịch học.'"
+        ),
+    },
+    "Đại Quá": {
+        "ban_chat": "Thời QUÁ LỚN — Đầm (Đoài) trên + Gió (Tốn) dưới, 4 dương giữa + 2 âm 2 đầu = cột cong",
+        "nen_the_nao": "Người PHI THƯỜNG mới làm việc PHI THƯỜNG. Phải TIỀM TÀNG ẨN SÚC tích lũy lâu rồi mới làm nổi.",
+        "paradigm_keyword": "dai_qua_phi_thuong",
+        "nguyet_lenh_thang": 2,
+        "tuong": "Đầm ngập cây — nước lớn quá. Cột giữa to ngọn-chân nhỏ, chống không nổi phải cong.",
+        "key_paradigm_PHI_THUONG": (
+            "**PBC paradigm Đại Quá**: 'Sách Sử Ký: Tất có người PHI THƯỜNG mới làm nên việc "
+            "phi thường. Những việc phi thường không phải hạng người thường làm nổi.' "
+            "→ Y Doãn cày Hữu Sàn nửa đời, ngâm thơ đọc sách Nghiêu Thuấn rồi giúp vua Thang. "
+            "→ Camillo Cavour cày ruộng đọc sách 10 năm rồi thống nhất Italia. "
+            "→ Cách mạng Pháp đổi quân chủ thành dân chủ. Đức Thích Ca lập Phật giáo. "
+            "Lê-nin lập Chính phủ Xã hội."
+        ),
+        "key_rule_TIEM_TANG_AN_SUC": (
+            "**Quy luật cốt yếu**: 'Trước khi làm Đại Quá phải TIỀM TÀNG ẨN SÚC, tích lũy "
+            "nuôi dưỡng. Sức dưỡng đầy đủ → phát triển mới lớn lao. Tuyệt CHƯA THẤY AI không "
+            "súc dưỡng mà làm nên Đại Quá.' "
+            "→ Cross-link Lexicon: anh đang TIỀM TÀNG ẨN SÚC đọc 24+ sách Đông phương — "
+            "đúng paradigm chuẩn bị Đại Quá."
+        ),
+        "key_rule_DOC_LAP_BAT_CU": (
+            "**Lời Tượng Đại Quá**: 'Người quân tử thời Đại Quá MỘT MÌNH ĐỨNG RIÊNG độc lập "
+            "với thiên hạ cũng không sợ, dù phải trốn đời cũng không phiền muộn.' "
+            "Mạnh Tử: 'Phú quý bất năng dâm, bần tiện bất năng di, uy vũ bất năng khuất.'"
+        ),
+    },
+    "Ly": {
+        "ban_chat": "Thời SÁNG TỎ — Lửa trên + Lửa dưới (Thuần Ly), văn minh + phụ thuộc",
+        "nen_the_nao": "Văn minh đẹp đẽ — nhưng phải bám vào (phụ thuộc) đạo chính. Đắc trung như Hào 2 (sắc vàng giữa).",
+        "paradigm_keyword": "ly_van_minh_phu_thuoc",
+        "nguyet_lenh_thang": 4,
+        "tuong": "Lửa chiếu liên tục — sáng rực rỡ. Quẻ giữa rỗng, trên dưới đặc.",
+        "key_paradigm_HAO_2_SAC_VANG": (
+            "**Hào 2 Ly — hào tốt nhất**: 'Sắc vàng ở giữa, rất tốt.' "
+            "Vàng là màu ở giữa ngũ hành = đắc trung. Uyển chuyển, khiêm nhường, giúp người trên + "
+            "hòa người dưới → thành nếp văn minh."
+        ),
+        "case_study_HAO_4_DONG_TRAC": (
+            "**Hào 4 Ly — paradigm cảnh báo**: 'Đột nhiên chạy tới, lồng lộn muốn đốt người 5.' "
+            "Sử Tàu: ĐỒNG TRÁC (Tam Quốc). Sử Việt: NGUYỄN HỮU CHỈNH (Tây Sơn). "
+            "→ Bất chính bất trung, mới ở quẻ nội lên đã táo bạo lấn át → tự chuốc chết."
+        ),
+        "case_study_HAO_3_XE_CHIEU": (
+            "**Hào 3 Ly — mặt trời xế chiều**: 'Khi thì gõ vò mà hát, khi than thở thân già nua.' "
+            "Đường thi: 'Hát Ngỏ na Sở dở dang. Mặt trời đã núa ngầm ương nõn Đoài.' "
+            "→ Đức sáng đã đến lúc nhòe, không còn lâu. Hiểu rõ lẽ thịnh suy, vơi đầy → an mệnh."
+        ),
+    },
+    "Hàm": {
+        "ban_chat": "Thời CẢM (giao cảm) — Đầm (Đoài thiếu nữ) trên + Núi (Cấn thiếu nam) dưới",
+        "nen_the_nao": "Thiếu nam HẠ MÌNH cầu thiếu nữ → mới đạo Hàm. Lòng phải TRỐNG KHÔNG (vô ngã, vô tư) mới dung nạp được người.",
+        "paradigm_keyword": "ham_cam_trong_khong",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Trên núi có đầm — núi rỗng giữa mới đựng được nước. Lòng rỗng mới chứa được đạo.",
+        "key_paradigm_TAM_LY_TRONG_KHONG": (
+            "**PBC paradigm Tâm Lý**: 'Bản chất tâm lý phải TRUNG THỰC (chứa chí thành). "
+            "Cách ứng dụng phải TRỐNG RỖNG bên trong (không ham muốn riêng tư) mới dung nạp "
+            "đạo lý cổ kim. Nghiên cứu Tâm lý học phải đủ HAI phương diện.' "
+            "→ Đại Súc DÀY DẶN (đốc thực) + Hàm TRỐNG KHÔNG (hư) = HAI NGHĨA BỔ SUNG."
+        ),
+        "key_rule_TRI_HANH_VUONG_DUONG_MINH": (
+            "**Hào 4 Hàm — Vương Dương Minh paradigm**: 'TRÍ kết hợp với HÀNH trong một việc. "
+            "Trí đến nơi tất Hành được đến nơi. Cái Trí vun đắp nên tảng của cái Hành. "
+            "Cái Hành mở rộng phạm vi cái Trí.' "
+            "Nhật Bản thời duy tân rất trọng thuyết Trí Hành của Vương Dương Minh. "
+            "→ Áp dụng project: hiểu paradigm (Trí) + áp dụng đời sống (Hành)."
+        ),
+        "key_rule_KINH_HA_NHAN_SU": (
+            "**Vị trí Hàm-Hằng**: Kinh Thượng bắt đầu Càn-Khôn (trời đất). "
+            "Kinh Hạ bắt đầu Hàm-Hằng nói về NHÂN SỰ. "
+            "Hàm = trai gái cùng nhau (mới gặp). Hằng = vợ chồng ăn ở lâu dài."
+        ),
+    },
+    "Hằng": {
+        "ban_chat": "Thời BỀN LÂU — Sấm (Chấn) trên + Gió (Tốn) dưới, trưởng nam ở trên + trưởng nữ ở dưới",
+        "nen_the_nao": "Giữ vững CHỖ ĐỨNG, KHÔNG đổi hướng — nhưng VẪN PHẢI THEO THỜI. Hằng không phải cứng nhắc.",
+        "paradigm_keyword": "hang_ben_lau_theo_thoi",
+        "nguyet_lenh_thang": 1,
+        "tuong": "Sấm Gió giúp nhau — Chấn động trước, Tốn theo sau = thuận đạo.",
+        "key_paradigm_DICH_HANG_TUONG_DOI": (
+            "**PBC paradigm CỰC ĐẮT — Dịch & Hằng**: 'DỊCH (biến đổi) với HẰNG (bền) là "
+            "TƯƠNG ĐỐI. Tuyệt đối Dịch không ra Hằng. Tuyệt đối Hằng không ra Dịch. "
+            "Vũ trụ cổ kim KHÔNG GÌ TUYỆT ĐỐI. Nóng tuyệt đối thì không có lạnh, không thành "
+            "thiên tướng không gian. Mùa hạ nóng tất có mùa đông lạnh. Nhỏ như giấc ngủ/thức, "
+            "lớn như loạn lâu phải trị → cũng chỉ tương đối thay đổi.' "
+            "→ Iron Rule sâu nhất: KHÔNG có tuyệt đối — chỉ có biến chuyển tương đối."
+        ),
+        "key_rule_TAM_GUONG_PARADIGM": (
+            "**Tượng tấm gương treo lên (PBC)**: 'BẢN THỂ quang minh không bao giờ đổi → "
+            "không đổi phương hướng (Hằng). Khi gặp vật soi vào, TÁC DỤNG tùy vật — tròn thì "
+            "tròn, vuông thì vuông (Dịch/Thời).' "
+            "→ Anh giữ TÂM (Hằng) nhưng phương pháp tùy bối cảnh (Dịch)."
+        ),
+    },
     "Tiểu Súc": {
         "ban_chat": "Thời CHỨA NHỎ / NGĂN CẢN NHỎ — gió bay trên trời, sức ngăn còn nhỏ",
         "nen_the_nao": "TRAU DỒI VĂN ĐỨC. Chưa thể giương đôi cánh lớn → soạn sách, lập ngôn, tích lũy.",
