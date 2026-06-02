@@ -662,6 +662,110 @@ Nhậm Thị BÁC BỎ thông lệ "đắc lệnh = vượng":
 
 ---
 
-## 🎯 Vòng 5 (tr. 81-100)
+---
 
-Dự đoán: tiếp Chương 18 Trung Hòa + Chương 19 Nguyên Lưu + Chương 20 Thông Quan.
+# 📖 VÒNG 5 — tr. 81-100 (đọc 2026-06-02)
+
+## Cấu trúc trang
+- p81-85: Chương 21 Quan Sát — 5 cách + ví dụ
+- p85-86: Chương 22 Thương Quan mở đầu + 5 cách
+- p86-100: Chi tiết 5 cách Thương Quan + 30+ ví dụ
+
+---
+
+## 🎯 Insight cốt tử
+
+### A. ⭐⭐⭐ Chương 21 — 5 CÁCH QUAN SÁT
+
+| Cách | Điều kiện | Dụng thần |
+|---|---|---|
+| **Sát dụng Ấn** | Sát mạnh + thân nhược | Ấn hóa Sát sinh thân |
+| **Thực Thần chế Sát** | Thân vượng + Sát mạnh | Thực Thần khắc Sát |
+| **Hợp Quan lưu Sát** | Quan-Sát hỗn tạp | Hợp khử Quan giữ Sát |
+| **Quan Sát hỗn tạp** | Quan + Sát cùng có | Ấn lưu thông |
+| **Chế Sát quá mức** | Thực Thương >> Sát | Tài cứu Sát |
+
+Paradigm CỐT (Nhậm Thị):
+> _"Quan Sát hỗn tạp, phú quý nhiều. Quan sát đương lệnh, nhật chủ cần phải tọa ân thụ, tất khí quan sát được lưu thông."_
+
+→ **Khác Thiệu Vĩ Hoa**: KHÔNG sợ Quan Sát hỗn tạp khi đủ điều kiện (thân + Ấn).
+
+### B. ⭐⭐⭐⭐ Chương 22 — 5 CÁCH THƯƠNG QUAN + 8 PATTERNS "TQ KIẾN QUAN"
+
+Quote Nhậm Thị (CỐT):
+> _"Thương Quan, thần tiết khí Nhật Chủ, đã ác mà không thiện... Tuy ác thiện vô thường, **nhưng mà có chế ngự, sẽ phát tinh hoa tú khí, chủ thông minh trí tuệ**."_
+
+→ **Thương Quan KHÔNG TỰ XẤU** — có chế ngự thì phát thông minh.
+
+Câu kim chỉ nam:
+> _"Thương Quan có Tài, đều có thể gặp Quan. Thương Quan mà không có Tài, đều không nên gặp Quan."_
+
+**5 cách dụng thần Thương Quan**:
+1. **Thương Quan Bội Ấn** (Thương Quan dụng Ấn) — Ấn khắc Thương Quan + sinh thân
+2. **Thương Quan sinh Tài** — Tài hóa Thương Quan thành lộc
+3. **Thương Quan dụng Kiếp** — thân nhược + không Ấn
+4. **Thương Quan dụng Thương** — thân vượng + Thương Quan khinh
+5. **Giả Thương Quan cách** — đặc biệt
+
+**8 patterns "Thương Quan kiến Quan"**:
+
+| # | Điều kiện | Verdict |
+|---|---|---|
+| 1 | Thân nhược + TQ vượng + CÓ Ấn | ✅ OK |
+| 2 | Thân vượng + TQ vượng + CÓ Tài | ✅ OK |
+| 3 | TQ vượng + Tài khinh + CÓ Tỉ Kiếp | ✅ OK |
+| 4 | Nhật chủ vượng + TQ khinh + KHÔNG Ấn | ✅ OK |
+| 5 | TQ vượng + KHÔNG Tài + gặp Quan | ❌ ĐẠI HỌA |
+| 6 | TQ vượng + thân nhược + gặp Quan | ❌ HUNG |
+| 7 | TQ nhược + Tài khinh + gặp Quan | ❌ HUNG |
+| 8 | TQ nhược + CÓ Ấn + gặp Quan | ❌ HUNG |
+
+## 🔧 Engine Updates (vòng 5)
+
+### NEW: `engine/bat_tu/cach_dung_than_ttt.py`
+- 5 cách Quan Sát + 5 cách Thương Quan (full metadata)
+- `classify_thuong_quan_kien_quan(state)` → 8 patterns detect
+- Differentiate visible (weight 1.0) vs hidden (weight 0.5)
+
+## 🚨 Phát hiện CRITICAL cho lá số anh
+
+```
+Pattern: Thương Quan nhược + CÓ Ấn + gặp Quan (pattern #8)
+Verdict: HUNG
+Counts: thuong_quan=1.5, quan_sat=1.0, tai=2.5, an=1.0, ti_kiep=0.5
+```
+
+Lý do: _"Ấn đã khắc Thương Quan suy, gặp Quan thêm khắc thân → suy thêm."_
+
+**Cross-validate với vòng 1 (Thông Căn)**:
+- Vòng 1: Giáp Mộc **HƯ PHÙ** (score 0, không có rễ trong địa chi)
+- Vòng 5: TQ nhược + Ấn + Quan → HUNG
+
+→ **2 cảnh báo cùng chiều**: Khi Đại Vận / Lưu Niên đem Quan Sát (Kim — khắc Mộc) đến, cấu hình anh sẽ thực sự nguy hiểm. Cần điều chỉnh:
+- Bù hành Mộc / Thủy qua môi trường + hành động
+- Cẩn trọng vào Đại Vận Kim / Lưu Niên Kim hoặc Thân/Dậu/Tuất
+
+---
+
+## 📚 Concepts mới (12 thuật ngữ)
+
+| Term | Định nghĩa | Page |
+|---|---|---|
+| Sát dụng Ấn cách | Sát mạnh → Ấn hóa | 84 |
+| Thực Thần chế Sát | Thân vượng + Thực Thần khắc Sát | 84 |
+| Hợp Quan lưu Sát | Hợp khử Quan giữ Sát thuần thanh | 81 |
+| Quan Sát hỗn tạp cách | Quan + Sát cùng có, cần Ấn | 84 |
+| Chế Sát quá mức | Thực Thương quá → cần Tài cứu Sát | 84 |
+| Thương Quan Bội Ấn | Tinh hoa phát tiết | 85 |
+| Thương Quan sinh Tài | Hóa khí thành lộc | 86 |
+| Giả Thương Quan cách | Tướng có thực không | 86 |
+| Thương Quan kiến Quan 4 OK | 4 patterns không hung | 85 |
+| Thương Quan kiến Quan 4 HUNG | 4 patterns hung | 85 |
+| Khử Quan giữ Sát | Hợp can khử Quan | 81 |
+| Tinh hoa phát tiết | Thương Quan + chế ngự | 86 |
+
+---
+
+## 🎯 Vòng 6 (tr. 101-120)
+
+Dự đoán: tiếp ví dụ Thương Quan + Chương 23 Thanh Khí + Chương 24 Trọc Khí.
