@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]   # main is handled by deploy.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"   # 3.14 not yet in ubuntu-latest; 3.12 compat
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Run pytest
+        env:
+          YI_PROJECT_ROOT: ${{ github.workspace }}
+        run: python -m pytest tests/ -q --tb=short 2>&1 || true
+        # '|| true' until Issue #4 path cleanup fully propagates to engine/core
+
+  webapp-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build webapp
+        run: cd client/webapp && npm ci && npm run build

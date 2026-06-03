@@ -170,7 +170,8 @@ app.include_router(admin_router)
 # ⭐ Serve figures from restored books — cho UI hiển thị ảnh minh hoạ
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path as _Path
-_FIGURES_ROOT = _Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_restored")
+_YI_ROOT = _Path(os.environ.get("YI_PROJECT_ROOT", "/Users/ozvietnamdesktop/Desktop/yi"))
+_FIGURES_ROOT = _YI_ROOT / "data" / "yi_restored"
 if _FIGURES_ROOT.exists():
     app.mount("/figures", StaticFiles(directory=str(_FIGURES_ROOT)), name="figures")
 
@@ -4643,7 +4644,7 @@ def yi_wiki_figures(corpus_id: str = "thieu-khang-tiet-tq") -> dict:
     Served qua /figures/{corpus_id}/figures/{filename}
     """
     from pathlib import Path as _P
-    base = _P("/Users/ozvietnamdesktop/Desktop/yi/data/yi_restored") / corpus_id / "figures"
+    base = _YI_ROOT / "data" / "yi_restored" / corpus_id / "figures"
     if not base.exists():
         return {"status": "ok", "figures": []}
 
@@ -6351,7 +6352,7 @@ def yi_publishing_save_translation(
     return {"status": "ok", "region_id": region_id, "version": version}
 
 
-REDRAWN_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/redrawn")
+REDRAWN_ROOT = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "redrawn"
 
 
 class RedrawRequest(BaseModel):
@@ -6457,7 +6458,7 @@ def yi_publishing_list_redrawn(book_id: str, page_num: int, region_id: str) -> d
 # YI Publishing — Wiki term-catch (add concepts while translating)
 # ═══════════════════════════════════════════════════════════════════════════
 
-YI_WIKI_DB = "/Users/ozvietnamdesktop/Desktop/yi/data/yi_wiki/wiki.sqlite3"
+YI_WIKI_DB = str(PUBLISHING_PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3")
 
 
 @app.get("/api/yi-publishing/wiki/lookup")
@@ -7089,7 +7090,7 @@ def yi_publishing_phu_thai_vi() -> dict:
     Source: Q4 Tử Vi Đẩu Số Toàn Thư, Trần Đoàn (p16-17).
     Layer 3 is plain Vietnamese explanation (no jargon) for first-time readers.
     """
-    layer3_path = Path("/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_phu_thai_vi_layer3.json")
+    layer3_path = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "translations" / "tuvidauso-zh" / "_phu_thai_vi_layer3.json"
     if not layer3_path.exists():
         return {"status": "error", "message": "Layer 3 not generated yet"}
     try:
@@ -7107,13 +7108,14 @@ def yi_publishing_phu_thai_vi() -> dict:
 
 def _founder_cache_read(kind: str, legacy_filename: str) -> dict:
     """Read founder cache: new structure first, fall back to legacy path."""
-    new_p = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/analysis_cache/_founder/{kind}.json")
+    _pub_data = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing"
+    new_p = _pub_data / "analysis_cache" / "_founder" / f"{kind}.json"
     if new_p.exists():
         try:
             return {"status": "ok", **json.loads(new_p.read_text())}
         except Exception as e:
             return {"status": "error", "message": str(e)}
-    legacy = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/{legacy_filename}")
+    legacy = _pub_data / "translations" / "tuvidauso-zh" / legacy_filename
     if not legacy.exists():
         return {"status": "error", "message": "Not generated yet"}
     try:
@@ -7135,7 +7137,7 @@ def yi_publishing_cach_cuc_founder(cach_id: str, request: Request) -> dict:
     """Return founder's deep reading for a specific cách cục. Owner-only."""
     from api.auth import require_owner
     require_owner(request)
-    p = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_cach_{cach_id}_founder.json")
+    p = PUBLISHING_PROJECT_ROOT / "data" / "yi_publishing" / "translations" / "tuvidauso-zh" / f"_cach_{cach_id}_founder.json"
     if not p.exists():
         return {"status": "error", "message": f"Cách cục '{cach_id}' chưa có deep reading"}
     try:
@@ -8654,7 +8656,7 @@ from api.schemas import (
     BirthHourQuizV2SaveRequest,
 )
 
-_QUIZ_V2_DB = "/Users/ozvietnamdesktop/Desktop/yi/data/yi_users/users.sqlite3"
+_QUIZ_V2_DB = str(PUBLISHING_PROJECT_ROOT / "data" / "yi_users" / "users.sqlite3")
 
 _QUIZ_V2_MAX_ROUNDS = {"single_round": 1, "two_round": 2, "three_round": 3}
 
