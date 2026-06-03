@@ -555,6 +555,16 @@ export function batTuBaoMenhPDF({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Mi
   });
 }
 
+export function dongYMonthlyHealth({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam", year = 2026 }) {
+  return request(`/api/dong-y/monthly-health`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone, gender, year,
+    }),
+  });
+}
+
 export function dongYFull({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam", chanThuong = "" }) {
   return request(`/api/dong-y/full`, {
     method: "POST",

@@ -1643,6 +1643,29 @@ class DongYRequest(BaseModel):
     chan_thuong: str = ""
 
 
+class MonthlyHealthRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    year: int = 2026
+
+
+@app.post("/api/dong-y/monthly-health")
+def dong_y_monthly_health(request: MonthlyHealthRequest) -> dict[str, object]:
+    """Lịch sức khỏe 12 tháng cá nhân — Bát Tự Lưu Nguyệt × Đông Y × chân dung sức khỏe."""
+    from engine.bat_tu import extract_tu_tru
+    from engine.dong_y.health_monthly_view import build_monthly_health_view, render_monthly_view_markdown
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    view = build_monthly_health_view(tu_tru, current_year=request.year)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "tu_tru": base,
+        "monthly_view": view,
+        "markdown": render_monthly_view_markdown(view),
+    }
+
+
 @app.get("/api/dong-y/paradigm")
 def dong_y_paradigm_overview() -> dict[str, object]:
     """Paradigm overview Liệu pháp Tượng Số — 5 phương pháp + quy tắc số 0 + 6 lưu ý."""

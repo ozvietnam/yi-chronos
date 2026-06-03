@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import { batTuSucKhoeSau, dongYFull } from "../lib/api";
+import { batTuSucKhoeSau, dongYFull, dongYMonthlyHealth } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 
 const inputBirth = ref("");
@@ -19,6 +19,30 @@ const errorMsg = ref("");
 const dongYData = ref(null);
 const dongYLoading = ref(false);
 const dongYError = ref("");
+
+// Monthly health view (mới)
+const monthlyData = ref(null);
+const monthlyLoading = ref(false);
+const monthlyError = ref("");
+const monthlyYear = ref(2026);
+
+async function analyzeMonthly() {
+  if (!inputBirth.value) { monthlyError.value = "Cần ngày-giờ sinh."; return; }
+  monthlyLoading.value = true;
+  monthlyError.value = "";
+  try {
+    monthlyData.value = await dongYMonthlyHealth({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+      year: Number(monthlyYear.value),
+    });
+  } catch (e) {
+    monthlyError.value = e.message || String(e);
+  } finally {
+    monthlyLoading.value = false;
+  }
+}
 
 async function analyzeDongY() {
   if (!inputBirth.value) { dongYError.value = "Cần ngày-giờ sinh."; return; }
@@ -142,12 +166,73 @@ const sk = computed(() => data.value?.suc_khoe_sau);
           {{ loading ? "⏳ Đang..." : "🌿 Bát Tự × Đông Y (engine cũ)" }}
         </button>
         <button class="hp-btn hp-btn-dy" :disabled="dongYLoading" @click="analyzeDongY">
-          {{ dongYLoading ? "⏳ Đang..." : "☯ Đông Y Chuyên Sâu (4 module mới)" }}
+          {{ dongYLoading ? "⏳ Đang..." : "☯ Đông Y Chuyên Sâu (4 module)" }}
         </button>
+        <button class="hp-btn hp-btn-month" :disabled="monthlyLoading" @click="analyzeMonthly">
+          {{ monthlyLoading ? "⏳ Đang..." : `📅 Lịch 12 Tháng (${monthlyYear})` }}
+        </button>
+        <input type="number" v-model="monthlyYear" min="2020" max="2100" class="hp-year-input" />
       </div>
       <p v-if="errorMsg" class="hp-error">{{ errorMsg }}</p>
       <p v-if="dongYError" class="hp-error">{{ dongYError }}</p>
+      <p v-if="monthlyError" class="hp-error">{{ monthlyError }}</p>
     </div>
+
+    <!-- ── Lịch 12 Tháng Sức Khỏe ────────────────────────────────────── -->
+    <template v-if="monthlyData">
+      <header class="hp-dy-header">
+        <h3>📅 Lịch Sức Khỏe 12 Tháng — {{ monthlyData.monthly_view.current_year }}</h3>
+        <p>{{ monthlyData.monthly_view.summary.tong_quat }}</p>
+      </header>
+
+      <article class="hp-card" style="border-left-color: #d4af37;">
+        <h3>🎯 Chiến lược cả năm</h3>
+        <ul>
+          <li v-for="(s, i) in monthlyData.monthly_view.summary.loi_khuyen_chien_luoc" :key="'s'+i">{{ s }}</li>
+        </ul>
+      </article>
+
+      <article v-if="monthlyData.monthly_view.summary.thang_can_trong.length" class="hp-card" style="border-left-color: #e85a78;">
+        <h3>⚠️ Tháng cẩn trọng</h3>
+        <ul>
+          <li v-for="(t, i) in monthlyData.monthly_view.summary.thang_can_trong" :key="'r'+i">{{ t }}</li>
+        </ul>
+      </article>
+
+      <article v-if="monthlyData.monthly_view.summary.thang_tot_nhat.length" class="hp-card" style="border-left-color: #5ab07a;">
+        <h3>✨ Tháng tốt nhất</h3>
+        <ul>
+          <li v-for="(t, i) in monthlyData.monthly_view.summary.thang_tot_nhat" :key="'g'+i">{{ t }}</li>
+        </ul>
+      </article>
+
+      <article class="hp-card">
+        <h3>🗓 12 Tháng chi tiết</h3>
+        <div class="hp-month-grid">
+          <div v-for="m in monthlyData.monthly_view.months" :key="m.month_index" class="hp-month-cell"
+            :data-level="m.level">
+            <div class="hp-month-head">
+              <span class="hp-month-lvl">{{ m.level }}</span>
+              <strong>T{{ m.month_index }}</strong>
+              <small>{{ m.tiet_khi }}</small>
+            </div>
+            <div class="hp-month-can-chi">{{ m.stem }} {{ m.branch }} <small>({{ m.branch_element }})</small></div>
+            <div class="hp-month-meaning">{{ m.level_meaning }}</div>
+            <div class="hp-month-tang">🩺 {{ m.tang_dac_biet }}</div>
+            <div class="hp-month-ts">🔢 <code>{{ m.tuong_so_goi_y }}</code></div>
+            <div v-if="m.cross_chan_thuong" class="hp-month-cross">{{ m.cross_chan_thuong }}</div>
+            <details class="hp-month-detail">
+              <summary>Chi tiết</summary>
+              <div><b>Giờ vượng:</b> {{ m.gio_vuong }}</div>
+              <div><b>Nên:</b><ul><li v-for="(h,j) in m.hanh_dong" :key="j">{{ h }}</li></ul></div>
+              <div><b>Tránh:</b><ul><li v-for="(t,j) in m.tranh" :key="j">{{ t }}</li></ul></div>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <p class="hp-iron-rule-footer">{{ monthlyData.monthly_view.paradigm_note }}</p>
+    </template>
 
     <!-- ── Đông Y Full (4 module mới) ─────────────────────────────────── -->
     <template v-if="dongYData">
@@ -493,4 +578,40 @@ const sk = computed(() => data.value?.suc_khoe_sau);
   border-left: 3px solid #e85a78; border-radius: 4px; margin-top: 10px;
 }
 .hp-sources { font-size: 12px; color: rgba(230,238,245,0.6); text-align: center; }
+
+/* ── Lịch 12 Tháng ──────────────────────────────────────────────────── */
+.hp-btn-month { background: linear-gradient(135deg, #d4af37 0%, #5b8ee5 100%); }
+.hp-year-input {
+  width: 80px; padding: 8px 10px; border: 1px solid rgba(230,238,245,0.2);
+  background: rgba(10,10,25,0.6); color: #e6eef5; border-radius: 4px; font-size: 14px;
+}
+.hp-month-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px; margin-top: 12px;
+}
+.hp-month-cell {
+  background: rgba(10,10,25,0.5); padding: 10px 12px; border-radius: 6px;
+  border-left: 3px solid #888; font-size: 12px;
+}
+.hp-month-cell[data-level="🟢"] { border-left-color: #5ab07a; background: rgba(90,176,122,0.08); }
+.hp-month-cell[data-level="🟡"] { border-left-color: #e8c95a; background: rgba(232,201,90,0.08); }
+.hp-month-cell[data-level="🟠"] { border-left-color: #d68f4a; background: rgba(214,143,74,0.08); }
+.hp-month-cell[data-level="🔴"] { border-left-color: #e85a78; background: rgba(232,90,120,0.12); }
+.hp-month-head { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.hp-month-head strong { color: #f5e6b1; font-size: 14px; }
+.hp-month-head small { color: rgba(230,238,245,0.6); font-size: 11px; }
+.hp-month-lvl { font-size: 16px; }
+.hp-month-can-chi { color: #d4af37; font-size: 13px; margin-bottom: 4px; }
+.hp-month-meaning { color: rgba(230,238,245,0.85); margin-bottom: 4px; font-size: 12px; }
+.hp-month-tang { color: #8be0a3; font-size: 11px; margin-bottom: 2px; }
+.hp-month-ts { font-size: 11px; }
+.hp-month-ts code { background: rgba(212,175,55,0.15); color: #f5e6b1; padding: 1px 6px; border-radius: 3px; }
+.hp-month-cross {
+  margin-top: 6px; padding: 6px 8px; background: rgba(232,90,120,0.08);
+  border-left: 2px solid #e85a78; font-size: 11px; color: #f5cbd0;
+}
+.hp-month-detail { margin-top: 6px; font-size: 11px; }
+.hp-month-detail summary { cursor: pointer; color: rgba(245,230,177,0.7); }
+.hp-month-detail ul { padding-left: 16px; margin: 4px 0; }
+.hp-month-detail li { margin: 2px 0; }
 </style>
