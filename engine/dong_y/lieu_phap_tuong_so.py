@@ -96,16 +96,27 @@ QUY_TAC_SO_0: dict = {
         "20.0000 (0000 sau): sơ giải dương",
         "003 = trị Can hỏa làm mắt đỏ (00 thủy khắc hỏa)",
     ],
+    "nang_cao_Q7": [
+        "0 đặt SAU = làm mạnh tín hiệu + thông kinh lạc + điều hòa (DEFAULT)",
+        "Bệnh CẤP TÍNH + bệnh NGOAN CỐ → thêm 0 cả TRƯỚC + SAU = cường hóa",
+        "Người THIÊN ÂM HƯ / DƯƠNG THỊNH → 0 KHÔNG đặt trước, chỉ đặt SAU",
+        "0 chẵn (00, 0000) = âm tính (hoãn, làm dịu)",
+        "0 lẻ (0, 000) = dương tính (ấm, kích hoạt)",
+    ],
 }
 
-# 6 LƯU Ý KHI NIỆM (dòng 3316-3377):
+# 6 LƯU Ý KHI NIỆM (dòng 3316-3377) + Q&A insights (dòng 10468+):
 LUU_Y_KHI_NIEM: list[str] = [
     "Niệm KHÔNG cảm thấy gì → vẫn tiếp tục (tác dụng vẫn có). Cảm ứng dễ chịu (mát đầu, nhẹ thân) = đúng số. Khó chịu ở đầu/dạ dày/tim = lập số sai → đổi số.",
     "Không câu nệ thời gian / địa điểm / tư thế: đi/ngồi/nằm đều niệm được. Tốt nhất: trước khi ngủ + sau thức giấc + lúc thả lỏng nhập tĩnh.",
     "Đã khỏi vẫn tiếp tục niệm để củng cố + tăng cường sức khỏe.",
     "Trong khi niệm, năng lượng tin tức xung kích vào ô bệnh → chứng trạng có thể tạm thời nặng lên. Chỉ cần đầu/dạ dày/tim không khó chịu là OK, cứ niệm tiếp.",
-    "Có thể phối hợp châm cứu, hoặc dùng riêng rẽ.",
-    "Tuỳ bệnh tình điều chỉnh số: nếu thấy dễ chịu thì giữ, khó chịu thì đổi.",
+    "Có thể phối hợp châm cứu / ấn huyệt. KHÔNG phối hợp với các loại khí công khác (có thể ảnh hưởng tin tức tượng số). (Q9)",
+    "Tuỳ bệnh tình điều chỉnh số: nếu thấy dễ chịu thì giữ, khó chịu thì đổi. Phép 'chìa nào mở khóa nấy' — biện chứng từng người. (Q12)",
+    "TỐC ĐỘ niệm: trung bình — nhanh quá → bị nóng, chậm quá → bị lạnh. Giữa các nguyên (dấu chấm) dừng 1 chút. Niệm không thành tiếng, hoặc phối ý niệm. (Q6)",
+    "Cảm ứng xuất hiện sau mấy phút → mười mấy phút = loại RÕ. Sau nửa giờ trở lên = loại NGẦM (chữa chậm hơn nhưng vẫn ổn định). (Q8)",
+    "Liệu pháp này điều chỉnh CHỈNH THỂ → thường chữa luôn cả bệnh kèm theo (vd case 69: chữa viêm mũi + khỏi hoa mắt + bỏ kính). (Q10)",
+    "Niệm tinh lực tăng, không thấy mệt — vì cộng chấn trường bát quái cơ thể với trường bát quái vũ trụ. (Q11)",
 ]
 
 # CHỐNG CHỈ ĐỊNH (dòng 3373-3377):
@@ -179,6 +190,144 @@ CONG_THUC_TUONG_SO: list[dict] = [
             "Hay cáu gắt vô cớ",
         ],
         "trich_sach": "Dòng 3241",
+    },
+    {
+        "tuong_so": "260.50.30.80",
+        "y_nghia": "Đau nửa đầu mạn tính do thủy bất hàm mộc",
+        "phan_tich": (
+            "260=Đoài sinh Khảm tăng dịch thận, 50=Tốn Can âm, 30=Ly an thần, 80=Khôn kiện tỳ. "
+            "Bài cuối cùng sau khi điều chỉnh từ 650 → 60.50 → 60.50.30 → 60.50.30.820 → 260.50.30.80."
+        ),
+        "chi_dinh": [
+            "Đau nửa đầu kéo dài nhiều năm",
+            "Đau khi suy nghĩ căng, buồn bực mất ngủ",
+            "Chân tay nóng về tối, mắt khô",
+            "Lưỡi khô, người gầy (bệnh lao tâm)",
+        ],
+        "trich_sach": "Case 40 (dòng 5217): Bà Trương 54t đau nửa đầu 10 năm.",
+    },
+    {
+        "tuong_so": "2000.60",
+        "y_nghia": "Bệnh ngoài da mạn tính — sơ tán tà da, tư âm trừ phiền",
+        "phan_tich": (
+            "2=Đoài/Phế chủ bì mao. 2000 đứng trước = sơ giải biểu tà mạnh + thanh nhiệt. 60=tư âm trừ phiền."
+        ),
+        "chi_dinh": [
+            "Nấm da mạn tính, lan toàn thân",
+            "Mẩn ngứa kéo dài không hết",
+            "Da khô nóng, nước vàng",
+            "Eczema, viêm da tiết bã",
+        ],
+        "trich_sach": "Case 41 (dòng 5279): Bà Trương 58t nấm da 20 năm, 2 tháng khỏi.",
+    },
+    {
+        "tuong_so": "820",
+        "y_nghia": "Đau vai / viêm quanh vai — hoạt huyết tản hàn",
+        "phan_tich": (
+            "8=Khôn/Tỳ chủ cơ bắp + chủ vai phải. 2=Đoài tả tà hàn ngưng. 820 đi thẳng khu bệnh."
+        ),
+        "chi_dinh": [
+            "Viêm quanh vai (frozen shoulder)",
+            "Đau khớp vai, giơ tay khó",
+            "Đau cơ bắp lan tỏa",
+            "Co cứng vai gáy",
+        ],
+        "trich_sach": "Case 42 (dòng 5298): Bà Mai viêm quanh vai 6 tháng, niệm 1 tháng khỏi.",
+    },
+    {
+        "tuong_so": "40.60.3800",
+        "y_nghia": "Viêm túi mật + đau dạ dày + đau nửa đầu phối hợp",
+        "phan_tich": (
+            "40=Chấn sơ Can lợi đảm, 60=Khảm sơ tiết Can-Đảm, 3800=Ly-Khôn ôn kiện tỳ vị. "
+            "Bài cho 'mộc uất thừa thổ'."
+        ),
+        "chi_dinh": [
+            "Viêm túi mật mạn tính",
+            "Đau dạ dày + tiêu hóa kém",
+            "Đau nửa đầu kèm tiêu hóa kém (Đảm kinh)",
+        ],
+        "trich_sach": "Case 43 (dòng 5328): Cô Quách viêm túi mật 5 năm, 1 tháng khỏi.",
+    },
+    {
+        "tuong_so": "720.40",
+        "y_nghia": "Bệnh tim mạn — ôn tỳ hòa vị, ôn thông tâm dương",
+        "phan_tich": (
+            "7=Cấn dừng tim đập thất thường + chấn dương Tỳ-Vị. 2=Đoài an thần. 4=Chấn sơ đạo khí giáng trọc."
+        ),
+        "chi_dinh": [
+            "Hồi hộp đánh trống ngực kéo dài",
+            "Tim đập thất thường, run toàn thân",
+            "Đầu căng + cao huyết áp tâm dương suy",
+            "Mệt mỏi tinh thần do tim",
+        ],
+        "trich_sach": "Case 44 (dòng 5369): Bà Trương 61t bệnh tim 30 năm, niệm nửa năm khỏe. ⚠️ Tránh giờ Ngọ + Dần mùa xuân.",
+    },
+    {
+        "tuong_so": "260",
+        "y_nghia": "Cao huyết áp + xơ vữa — bổ thận ích khí tư âm tiềm dương",
+        "phan_tich": "2=Đoài kim sinh 6=Khảm thủy → bổ thận. Can-Thận đồng nguồn nên đồng thời ích Can.",
+        "chi_dinh": [
+            "Cao huyết áp do âm hư dương cang",
+            "Xơ vữa động mạch",
+            "Hay cáu gắt mệt mỏi tuổi trung niên",
+            "Huyết áp thấp / cao do hư khí (cùng cơ lý)",
+        ],
+        "trich_sach": "Case 61 (dòng 6003): Bà Vương 66t cao HA + xơ vữa + di chứng não, 3 tháng chuyển biến rõ.",
+    },
+    {
+        "tuong_so": "6000.20",
+        "y_nghia": "Đau lưng cấp / mạn — ôn thận thông lạc",
+        "phan_tich": "6=Khảm thận chủ lưng. 6000 ôn thông kinh lạc. 20=Đoài tuyên đạo khí cơ.",
+        "chi_dinh": [
+            "Đau lưng kéo dài, hô hấp khó",
+            "Đau lưng do hàn tà",
+            "Trẹo lưng cấp (sau nhảy/sai tư thế)",
+            "Đau thận vùng lưng dưới",
+        ],
+        "trich_sach": "Case 63-64 (dòng 6072-6099): Cô Liên 22t trẹo lưng, 6000 10 phút khỏi.",
+    },
+    {
+        "tuong_so": "7000.20",
+        "y_nghia": "Thần kinh tọa đùi — ôn kinh tản hàn",
+        "phan_tich": (
+            "7=Cấn (lồi, khớp, chân trái). 7000 đi thẳng vào ô bệnh, ôn thông khí huyết. "
+            "20=Đoài sơ tản uất trệ cục bộ."
+        ),
+        "chi_dinh": [
+            "Đau thần kinh tọa lan từ lưng xuống đùi",
+            "Đau cơ bắp đùi do hàn ẩm",
+            "Đau xương khớp lan tỏa",
+            "Cứng khớp háng / đùi sau lao động",
+        ],
+        "trich_sach": "Case 65 (dòng 6136): Chị Trương đau thần kinh tọa 2 năm, 30 phút khỏi.",
+    },
+    {
+        "tuong_so": "003",
+        "y_nghia": "Mắt đỏ cấp tính (Can hỏa lên) — thủy khắc hỏa",
+        "phan_tich": (
+            "3=Ly hỏa chủ mục, là con của Chấn mộc. 00=số chẵn thiên âm. "
+            "003 = thủy khắc hỏa + tử hỏa tả mẫu (truy đuổi đến cùng)."
+        ),
+        "chi_dinh": [
+            "Mắt đỏ sưng đột ngột",
+            "Viêm kết mạc cấp",
+            "Đau nhức mắt do Can hỏa",
+        ],
+        "trich_sach": "Case 60 (dòng 5971): Cô Vương 23t niệm 2 ngày khỏi. ⚠️ Nếu vị nguyên hư hàn không dùng lâu.",
+    },
+    {
+        "tuong_so": "20.650.380",
+        "y_nghia": "Phong thấp toàn thân + bệnh ngoan cố — vực chính trừ tà",
+        "phan_tich": (
+            "Bài CƠ SỞ có thể gia giảm. 20=Đoài tuyên khí, 650=Khảm-Tốn ôn thận, 380=Ly-Khôn kiện tỳ ôn dương."
+        ),
+        "chi_dinh": [
+            "Phong thấp toàn thân nhiều năm",
+            "Kinh nguyệt không đều / viêm cổ tử cung kèm dạ dày",
+            "Bệnh ngoan cố tổn chính khí",
+            "Thể trạng giảm dần không lý do",
+        ],
+        "trich_sach": "Case 66 (dòng 6161): Bà Lý 51t phong thấp 10 năm, mấy tháng giảm rõ.",
     },
     {
         "tuong_so": "650.3820",
@@ -267,38 +416,87 @@ class TuongSoResult:
         return asdict(self)
 
 
+def _score_formula(formula: dict, ct: str) -> int:
+    """Đếm số keyword khớp giữa formula chi_dinh và input."""
+    score = 0
+    # Cộng điểm cho mỗi chi_dinh có keyword match
+    for chi in formula["chi_dinh"]:
+        chi_lower = chi.lower()
+        # Match từng từ có ý nghĩa
+        for word in chi_lower.replace(",", " ").replace("(", " ").replace(")", " ").split():
+            if len(word) >= 3 and word in ct:
+                score += 1
+                break  # mỗi chi_dinh tính 1 lần
+    # Cộng thêm điểm nếu y_nghia có overlap
+    yn = formula["y_nghia"].lower()
+    for word in yn.split():
+        if len(word) >= 4 and word in ct:
+            score += 1
+    return score
+
+
 def tim_tuong_so(chan_thuong: str) -> TuongSoResult:
-    """Tìm công thức tượng số phù hợp với triệu chứng."""
+    """Tìm công thức tượng số phù hợp với triệu chứng (score-based)."""
     ct = chan_thuong.lower()
-    matched = []
+
+    # Score tất cả công thức
+    scored = []
     for formula in CONG_THUC_TUONG_SO:
-        for chi in formula["chi_dinh"]:
-            # Loose match — bất cứ keyword chính nào
-            chi_lower = chi.lower()
-            keywords = [w for w in chi_lower.split() if len(w) >= 3]
-            if any(k in ct for k in keywords) or any(c in ct for c in chi_lower.split(",")[0].split()):
-                matched.append(formula)
-                break
+        s = _score_formula(formula, ct)
+        if s > 0:
+            scored.append((s, formula))
+
+    # Sort by score desc
+    scored.sort(key=lambda x: -x[0])
+    matched = [f for _, f in scored]
 
     if not matched:
         # Fallback: nếu có gân/đầu gối → 640
         if any(k in ct for k in ["gân", "đầu gối", "móng", "khớp"]):
             matched.append(CONG_THUC_TUONG_SO[0])  # 640
 
-    # Re-priority: KHỚP + (mạn / kéo dài / thoái hóa / nhiều năm) → ưu tiên 720.650.380
-    chronic_keywords = ["mạn", "kéo dài", "thoái hóa", "nhiều năm", "lâu", "đã mổ", "sau mổ"]
+    # Re-priority bonus: KHỚP + mạn → 720.650.380 (override score)
+    chronic_keywords = ["mạn", "kéo dài", "thoái hóa", "nhiều năm", "lâu năm", "đã mổ", "sau mổ"]
     if "khớp" in ct and any(k in ct for k in chronic_keywords):
         for i, f in enumerate(matched):
             if f["tuong_so"] == "720.650.380":
-                # Move to front
                 matched.insert(0, matched.pop(i))
                 break
 
-    # Trẹo / bong gân cấp tính → ưu tiên 0004000
-    acute_keywords = ["trẹo", "bong gân", "sưng tấy", "vừa bị", "mới bị"]
-    if any(k in ct for k in acute_keywords):
+    # Trẹo / bong gân cấp → 0004000 (chỉ khi có CHÂN/GÓT/BÀN)
+    acute_keywords = ["trẹo", "bong gân"]
+    foot_keywords = ["chân", "gót", "bàn chân", "cổ chân"]
+    if any(k in ct for k in acute_keywords) and any(k in ct for k in foot_keywords):
         for i, f in enumerate(matched):
             if f["tuong_so"] == "0004000":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Mật / túi mật → 40.60.3800
+    if any(k in ct for k in ["túi mật", "mật", "sỏi mật"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "40.60.3800":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Mắt đỏ / mắt sưng → 003
+    if "mắt" in ct and any(k in ct for k in ["đỏ", "sưng", "viêm kết mạc"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "003":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Đau nửa đầu mạn tính → 260.50.30.80
+    if any(k in ct for k in ["nửa đầu", "đau đầu kéo dài", "đau đầu nhiều năm"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "260.50.30.80":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Đau đầu + Can dương / mất ngủ → 640.30.80
+    if "đau đầu" in ct and any(k in ct for k in ["can dương", "mất ngủ", "buồn bực", "cáu", "huyết áp"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "640.30.80":
                 matched.insert(0, matched.pop(i))
                 break
 

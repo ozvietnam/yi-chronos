@@ -79,7 +79,43 @@
 
 ---
 
-## VI. Roadmap mở rộng (Anh chỉ thì làm)
+## VI. v2 update 2026-06-03 — Đọc sâu chương II (101 case studies)
+
+Sau khi Anh chỉ "đọc sâu tiếp", em đọc batch case 40-66 + Q&A 23 câu cuối chương.
+
+### Thêm 10 công thức mới (verified case studies):
+
+| Tượng số | Ý nghĩa | Case verified |
+|---|---|---|
+| `260.50.30.80` | Đau nửa đầu mạn (thủy bất hàm mộc) | Case 40 — bà Trương 54t, 10 năm |
+| `2000.60` | Bệnh ngoài da mạn — sơ tà da | Case 41 — bà Trương 58t, nấm 20 năm |
+| `820` | Đau vai / viêm quanh vai | Case 42 — bà Mai, 6 tháng → 1 tháng khỏi |
+| `40.60.3800` | Viêm túi mật + dạ dày + nửa đầu | Case 43 — cô Quách, 5 năm → 1 tháng khỏi |
+| `720.40` | Bệnh tim mạn — ôn thông tâm dương | Case 44 — bà Trương 61t, 30 năm bệnh tim |
+| `260` | Cao huyết áp + xơ vữa | Case 61 — bà Vương 66t, 3 tháng chuyển biến |
+| `6000.20` | Đau lưng cấp/mạn — ôn thận thông lạc | Case 63-64 |
+| `7000.20` | Thần kinh tọa đùi | Case 65 — chị Trương 2 năm, 30 phút khỏi |
+| `003` | Mắt đỏ cấp — thủy khắc hỏa | Case 60 |
+| `20.650.380` | Phong thấp toàn thân ngoan cố | Case 66 — bà Lý 51t, 10 năm |
+
+**Tổng công thức: 10 → 20.** Test pass **14/14 case**.
+
+### Q&A insights (10 lưu ý đầy đủ — từ 6 → 10):
+
+- **Tốc độ niệm** (Q6): trung bình — nhanh quá → nóng, chậm quá → lạnh. Giữa các nguyên dừng chút.
+- **Số 0 nâng cao** (Q7): bệnh cấp + ngoan cố → thêm 0 trước+sau cường hóa. Âm hư/dương thịnh → 0 KHÔNG đặt trước.
+- **Cảm ứng** (Q8): loại RÕ (mấy phút) vs loại NGẦM (nửa giờ+) — đều ổn định.
+- **Không phối khí công khác** (Q9): có thể ảnh hưởng tin tức tượng số.
+- **Chữa luôn bệnh kèm** (Q10): điều chỉnh chỉnh thể → case 69 chữa viêm mũi + bỏ kính.
+- **Tinh lực tăng** (Q11): cộng chấn trường bát quái cơ thể × vũ trụ.
+- **"Chìa nào mở khóa nấy"** (Q12): biện chứng từng người, không cứng nhắc ngũ hành.
+
+### Logic match engine v2 (score-based):
+
+- Score tất cả formulas, sort desc
+- Priority rules: nửa đầu → 260.50.30.80; khớp+mạn → 720.650.380; trẹo+chân → 0004000; mật → 40.60.3800; mắt đỏ → 003; đau đầu+Can dương → 640.30.80
+
+## VII. Roadmap mở rộng (Anh chỉ thì làm)
 
 1. **Đọc Hoàng Đế Nội Kinh** khi Anh có PDF (em build engine v2 đầy đủ hơn — Vận khí, Tạng tượng, Kinh mạch chi tiết)
 2. **OCR lại Lê Văn Sửu** (Âm Dương Ngũ Hành) — hiện CID encoding hỏng
