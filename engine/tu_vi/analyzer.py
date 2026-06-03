@@ -95,16 +95,27 @@ def _cache_save(person_key: str, kind: str, data: dict, user_id: Optional[int] =
 
 
 def _cast_chart(birth: str, gender: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
-    """Cast Tử Vi lá số — uses core.chronos for lunar conversion (same as API /tu-vi/cast)."""
+    """Cast Tử Vi lá số.
+
+    Uses lich_conversion.solar_to_lunar for lunar day/month (handles 早子時 rollover:
+    hour ≥ 23 → lunar date of the NEXT day, matching project convention).
+    Uses core.chronos for year can-chi (UTC-boundary corrected in #12).
+    """
     from .an_sao import cast_la_so
     from core.chronos import calculate_chronos_state
     from datetime import datetime as _dt
+    from engine.yi_wiki.lich_conversion import SolarDateTime, solar_to_lunar
 
     chronos = calculate_chronos_state(birth, timezone)
-    d_str, m_str, _y = chronos.almanac.lunar_date.split("/")
-    lunar_month = int(m_str)
-    lunar_day = int(d_str)
     local_dt = _dt.fromisoformat(birth)
+    # lich_conversion already applies 早子時: hour≥23 → rolls to next lunar day
+    solar = SolarDateTime(
+        year=local_dt.year, month=local_dt.month, day=local_dt.day,
+        hour=local_dt.hour, minute=local_dt.minute,
+    )
+    lunar = solar_to_lunar(solar)
+    lunar_month = lunar.lunar_month
+    lunar_day = lunar.lunar_day
     hour = local_dt.hour
     # Map hour → branch (Tý=23-1, Sửu=1-3, …, Hợi=21-23)
     if hour == 23:

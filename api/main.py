@@ -2221,15 +2221,20 @@ def tu_vi_cast(request: TuViCastRequest) -> dict[str, object]:
     # Resolve inputs.
     if request.birth_datetime_local:
         from core.chronos import calculate_chronos_state
+        from engine.yi_wiki.lich_conversion import SolarDateTime, solar_to_lunar
 
         chronos = calculate_chronos_state(request.birth_datetime_local, request.timezone)
-        # Parse lunar date from "DD/MM/YYYY".
-        d_str, m_str, _ = chronos.almanac.lunar_date.split("/")
-        lunar_month = int(m_str)
-        lunar_day = int(d_str)
-        # Hour branch from local datetime hour.
         from datetime import datetime as _dt
         local_dt = _dt.fromisoformat(request.birth_datetime_local)
+        # lich_conversion handles 早子時: hour≥23 → lunar day of next day (#13 fix)
+        solar = SolarDateTime(
+            year=local_dt.year, month=local_dt.month, day=local_dt.day,
+            hour=local_dt.hour, minute=local_dt.minute,
+        )
+        lunar = solar_to_lunar(solar)
+        lunar_month = lunar.lunar_month
+        lunar_day = lunar.lunar_day
+        # Hour branch from local datetime hour.
         hour_branch = _hour_branch_from_hour(local_dt.hour)
         # Year stem/branch from chronos.ganzhi.
         year_parts = chronos.ganzhi.year.split()
