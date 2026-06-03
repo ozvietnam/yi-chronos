@@ -32,10 +32,19 @@
 - ⭐ Case Nã-phá-luân + Viên Thế Khải vs Hoa Thịnh Đốn
 - ⭐ Quẻ Cấn "Cấn ở lưng không thấy thân" — vô ngã
 
-### Trang dừng đọc cuối cùng (cập nhật 2026-06-03 tối):
-- **p380** — Cụm A + B + C + D DONE
-- Đã đọc: 58/64 quẻ (91%)
-- Tiếp Cụm E (Đoài/Hoán/Trung Phu/Tiểu Quá/Ký Tế/Vị Tế) — 6 quẻ HOÀN THÀNH
+### ✅ Cụm E Cuối Kinh Dịch — DONE 2026-06-03 🆕🎉 64/64 (100%)
+- 7 quẻ (gồm Tiết Tiên Thiên): Đoài, Hoán, **Tiết**, Trung Phu, Tiểu Quá, Ký Tế, Vị Tế
+- Journal: `docs/design/ha-lac-cum-e-tham-nhuan.md`
+- Paradigm cốt: HOÀN THÀNH / VÔ KẾT THÚC
+- ⭐⭐⭐ PBC Phụ chú 3 Ký Tế: **Tâm hỏa GIÁNG + Thận thủy THĂNG = thân thể Ký Tế**
+  → áp được vào 3 triệu chứng founder (máu chậm, đau nửa đầu trái, cổ vai gáy)
+- ⭐ Vị Tế kết Kinh Dịch: "Hanh vô cùng. Xuân chưa nở hoa, đêm chưa rằm trăng"
+- ⭐ Tổ sư khẳng định: **chữ TIẾT tóm cả Kinh Dịch** → quẻ Tiên Thiên founder = QUẺ KẾT Dịch học
+
+### Trang dừng đọc cuối cùng (2026-06-03):
+- **p420** — 64/64 quẻ Kinh Dịch (100%) 🎉
+- Tiếp: Phần Ba — Chân dung nhà văn (Tản Đà mở đầu, p420-580)
+- Tản Đà = Mông Tiên Thiên (gốc Hà Lạc Việt Nam — Nguyễn Khắc Hiếu, hàng Hà Lạc lý số 1938-1939 Bạch Mai Hà Nội)
 
 ### Trang dừng đọc trước đó:
 - **p180** — vòng 1-9 (đọc tuần tự): Phần I + 22 quẻ đầu (Càn → Bí)
