@@ -46,6 +46,74 @@ QUE_TANG: dict[str, str] = {
 }
 
 
+# 5 PHƯƠNG PHÁP LẬP SỐ (yếu lĩnh dòng 3309-3312):
+# "Bát quái vi thể, ngũ hành vi dụng; Tỷ loại thủ tướng, dĩ tượng định số;
+#  biện chứng thi trị, bình hoành âm dương."
+PHUONG_PHAP_LAP_SO: list[dict] = [
+    {
+        "phuong_phap": "1. Theo tượng bát quái (bộ phận cơ thể)",
+        "vi_du": "Bệnh ở chân → 4 (Chấn) + 0 trước/sau",
+        "case": "Học sinh Lý Viện trẹo gót → 0004000 → 20 phút khỏi",
+        "trich_dong": "3181-3198",
+    },
+    {
+        "phuong_phap": "2. Theo lý luận tàng tượng (tạng chủ)",
+        "vi_du": "Bệnh về da → 2 (Đoài/Phế) chủ 'bì mao' + 000 → 0002",
+        "case": "Nữ giáo sư người Mông mẩn ngứa → 0002 → mấy phút hết ngứa",
+        "trich_dong": "3200-3213",
+    },
+    {
+        "phuong_phap": "3. Theo 'quân cự tả sứ' (như đơn thuốc Đông y)",
+        "vi_du": "Can dương tăng (đau đầu, mất ngủ) → 640.30.80",
+        "case": "6=quân (Khảm, mát thận âm) + 4=cự (Chấn, bổ Can âm) + 30=tả (Ly, an thần) + 80=sứ (Khôn, kiện tỳ)",
+        "trich_dong": "3215-3246",
+    },
+    {
+        "phuong_phap": "4. Theo kinh lạc tuần hành",
+        "vi_du": "Bệnh mũi → 07 (Cấn → Vị kinh → mũi)",
+        "case": "Bệnh nhân Lăng viêm mũi → 07 → 1 ngày khỏi",
+        "trich_dong": "3248-3255",
+    },
+    {
+        "phuong_phap": "5. Theo quy luật ngũ hành sinh khắc",
+        "vi_du": "650.30.820 = ôn thông thận dương + kiện tỳ ích khí",
+        "case": "6 (Thủy) → 5 (Mộc) → 3 (Hỏa) → 8 (Thổ) → 2 (Kim) → vòng tròn sinh khắc",
+        "trich_dong": "3259-3287",
+    },
+]
+
+# QUY TẮC SỐ 0 (dòng 3144-3158, 3279-3287):
+QUY_TAC_SO_0: dict = {
+    "y_nghia": "Số 0 = khí hỗn nguyên thái cực, làm tăng năng lượng sóng tin tức để thông kinh khí âm dương.",
+    "quy_tac": [
+        "0 chẵn (00, 0000) = thiên ÂM (lạnh, làm dịu)",
+        "0 lẻ (0, 000) = thiên ÔN DƯƠNG (ấm, kích hoạt)",
+        "0 đặt TRƯỚC tượng số = hơi thiên về ÂM (phòng tổn âm)",
+        "0 đặt SAU tượng số = hơi thiên về DƯƠNG (đẩy khí ra)",
+    ],
+    "vi_du": [
+        "0002 (000 trước 2): trị mẩn ngứa - thiên âm để giữ âm khi sơ phong",
+        "20.0000 (0000 sau): sơ giải dương",
+        "003 = trị Can hỏa làm mắt đỏ (00 thủy khắc hỏa)",
+    ],
+}
+
+# 6 LƯU Ý KHI NIỆM (dòng 3316-3377):
+LUU_Y_KHI_NIEM: list[str] = [
+    "Niệm KHÔNG cảm thấy gì → vẫn tiếp tục (tác dụng vẫn có). Cảm ứng dễ chịu (mát đầu, nhẹ thân) = đúng số. Khó chịu ở đầu/dạ dày/tim = lập số sai → đổi số.",
+    "Không câu nệ thời gian / địa điểm / tư thế: đi/ngồi/nằm đều niệm được. Tốt nhất: trước khi ngủ + sau thức giấc + lúc thả lỏng nhập tĩnh.",
+    "Đã khỏi vẫn tiếp tục niệm để củng cố + tăng cường sức khỏe.",
+    "Trong khi niệm, năng lượng tin tức xung kích vào ô bệnh → chứng trạng có thể tạm thời nặng lên. Chỉ cần đầu/dạ dày/tim không khó chịu là OK, cứ niệm tiếp.",
+    "Có thể phối hợp châm cứu, hoặc dùng riêng rẽ.",
+    "Tuỳ bệnh tình điều chỉnh số: nếu thấy dễ chịu thì giữ, khó chịu thì đổi.",
+]
+
+# CHỐNG CHỈ ĐỊNH (dòng 3373-3377):
+CHONG_CHI_DINH: str = (
+    "⛔ CẤM dùng cho: người tinh thần không bình thường (rối loạn tâm thần) + người trí nhớ kém."
+)
+
+
 # Công thức tượng số chuẩn (verified từ sách)
 CONG_THUC_TUONG_SO: list[dict] = [
     {
@@ -60,6 +128,57 @@ CONG_THUC_TUONG_SO: list[dict] = [
             "Đau lưng + gối yếu (kèm thận hư)",
         ],
         "trich_sach": "Dòng 2426: 'Những chứng bệnh do Can không đủ máu, nói chung lấy tượng là 640 hoặc 40'",
+    },
+    {
+        "tuong_so": "720.650.380",
+        "y_nghia": "ĐAU KHỚP GỐI mạn tính — ôn bổ dương Tỳ-Thận, hàn thấp tự mất",
+        "phan_tich": (
+            "3 nguyên: 720 (tác động khớp gối) + 650 (chấn thận dương) + 380 (ôn tỳ táo thấp). "
+            "7=Cấn(núi/khớp), 2=Đoài sơ giải cục bộ, 6=Khảm thận, 5=Tốn mộc, 3=Ly hỏa, 8=Khôn thổ."
+        ),
+        "chi_dinh": [
+            "Đau khớp gối mạn tính",
+            "Đau khớp lan tỏa, hàn thấp",
+            "Thoái hóa khớp tuổi trung niên",
+            "Đau khớp sau chấn thương (như đứt gân đã mổ)",
+        ],
+        "trich_sach": (
+            "Case 71 (dòng 6325): Bà Trương 53t đau 2 khớp gối từ 1992, đã chữa nhiều không khỏi. "
+            "Niệm 720.650.380 + nhĩ áp 3 tháng → khỏi + tóc bạc đen lại + sinh khí tăng."
+        ),
+    },
+    {
+        "tuong_so": "0004000",
+        "y_nghia": "Trẹo gót / khớp bàn chân — tản ứ hoạt huyết, tiêu sưng",
+        "phan_tich": (
+            "4=Chấn (chân) ở giữa, 000 trước + 000 sau để tăng lợi tiểu + tiêu sưng + "
+            "tản ứ hoạt huyết. Số 0 chẵn = thiên âm."
+        ),
+        "chi_dinh": [
+            "Trẹo khớp gót / khớp cổ chân",
+            "Sưng tấy chân sau chấn thương",
+            "Đau bộ phận chân do tổn thương",
+            "Bong gân chân cấp tính",
+        ],
+        "trich_sach": (
+            "Case học sinh Lý Viện (dòng 3192): trẹo gót sưng tấy không đi nổi. "
+            "Niệm 0004000 → 20 phút thấy lạnh→nóng→dễ chịu, 4 ngày hết sưng."
+        ),
+    },
+    {
+        "tuong_so": "640.30.80",
+        "y_nghia": "Đau đầu, mất ngủ, buồn bực — Can dương hơi tăng",
+        "phan_tich": (
+            "4 nguyên 'quân cự tả sứ': 640 (tư âm tiềm dương) + 30 (Ly an thần) + 80 (Khôn kiện tỳ). "
+            "6=quân, 4=cự, 3=tả, 8=sứ."
+        ),
+        "chi_dinh": [
+            "Đau đầu kéo dài (do Can dương lên)",
+            "Mất ngủ buồn bực",
+            "Cao huyết áp nhẹ",
+            "Hay cáu gắt vô cớ",
+        ],
+        "trich_sach": "Dòng 3241",
     },
     {
         "tuong_so": "650.3820",
@@ -166,6 +285,23 @@ def tim_tuong_so(chan_thuong: str) -> TuongSoResult:
         if any(k in ct for k in ["gân", "đầu gối", "móng", "khớp"]):
             matched.append(CONG_THUC_TUONG_SO[0])  # 640
 
+    # Re-priority: KHỚP + (mạn / kéo dài / thoái hóa / nhiều năm) → ưu tiên 720.650.380
+    chronic_keywords = ["mạn", "kéo dài", "thoái hóa", "nhiều năm", "lâu", "đã mổ", "sau mổ"]
+    if "khớp" in ct and any(k in ct for k in chronic_keywords):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "720.650.380":
+                # Move to front
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Trẹo / bong gân cấp tính → ưu tiên 0004000
+    acute_keywords = ["trẹo", "bong gân", "sưng tấy", "vừa bị", "mới bị"]
+    if any(k in ct for k in acute_keywords):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "0004000":
+                matched.insert(0, matched.pop(i))
+                break
+
     primary = matched[0] if matched else CONG_THUC_TUONG_SO[0]
 
     huong_dan = (
@@ -213,5 +349,45 @@ def render_tuong_so_markdown(result: TuongSoResult) -> str:
         for f in result.matched_formulas[1:]:
             lines.append(f"- **{f['tuong_so']}**: {f['y_nghia']}")
 
+    # 5 phương pháp lập số
+    lines.append("\n### 📐 5 Phương pháp lập số (yếu lĩnh chương I)")
+    for pp in PHUONG_PHAP_LAP_SO:
+        lines.append(f"\n**{pp['phuong_phap']}**")
+        lines.append(f"- Ví dụ: {pp['vi_du']}")
+        lines.append(f"- Case: _{pp['case']}_")
+
+    # Quy tắc số 0
+    lines.append("\n### 🔢 Quy tắc số 0")
+    lines.append(f"_{QUY_TAC_SO_0['y_nghia']}_\n")
+    for rule in QUY_TAC_SO_0['quy_tac']:
+        lines.append(f"- {rule}")
+
+    # 6 lưu ý
+    lines.append("\n### 📋 6 Lưu ý khi niệm (cốt từ sách)")
+    for i, ly in enumerate(LUU_Y_KHI_NIEM, 1):
+        lines.append(f"{i}. {ly}")
+
+    lines.append(f"\n{CHONG_CHI_DINH}\n")
     lines.append(f"\n---\n\n{result.iron_rule_warning}")
     return "\n".join(lines)
+
+
+def get_paradigm_overview() -> dict:
+    """Trả về paradigm tổng quan để frontend display."""
+    return {
+        "yeu_linh": (
+            "Bát quái vi thể, ngũ hành vi dụng; "
+            "Tỷ loại thủ tướng, dĩ tượng định số; "
+            "Biện chứng thi trị, bình hoành âm dương."
+        ),
+        "yeu_linh_giai": (
+            "Bát quái là thể (gốc), ngũ hành là dụng (cách dùng). "
+            "Lấy tượng theo phân loại, dùng tượng để định số. "
+            "Biện chứng để chữa trị, cân bằng âm dương."
+        ),
+        "phuong_phap_lap_so": PHUONG_PHAP_LAP_SO,
+        "quy_tac_so_0": QUY_TAC_SO_0,
+        "luu_y_khi_niem": LUU_Y_KHI_NIEM,
+        "chong_chi_dinh": CHONG_CHI_DINH,
+        "source": "Chữa bệnh theo Chu Dịch — Lý Ngọc Sơn + Lý Kiện Dân, chương I (dòng 3100-3380)",
+    }

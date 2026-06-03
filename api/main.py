@@ -1643,6 +1643,13 @@ class DongYRequest(BaseModel):
     chan_thuong: str = ""
 
 
+@app.get("/api/dong-y/paradigm")
+def dong_y_paradigm_overview() -> dict[str, object]:
+    """Paradigm overview Liệu pháp Tượng Số — 5 phương pháp + quy tắc số 0 + 6 lưu ý."""
+    from engine.dong_y.lieu_phap_tuong_so import get_paradigm_overview
+    return get_paradigm_overview()
+
+
 @app.post("/api/dong-y/full")
 def dong_y_full_analysis(request: DongYRequest) -> dict[str, object]:
     """Đông Y full — Tạng phủ + Kinh lạc + Âm dương + Liệu pháp tượng số.
