@@ -146,3 +146,57 @@ def test_dataclass_to_dict_includes_climate_fields():
     for k in ("climate_dung_than", "climate_secondary", "climate_reason",
               "strength_climate_agree", "confidence"):
         assert k in d, f"Missing v2 field {k} in to_dict()"
+
+
+# ─── Regression: hỷ/kỵ thần computed relative to NHẬT CHỦ (issue #16) ──────────
+# Bug was: hy=_generating(dung), ky=_controlling(dung) → for weak DM the hỷ thần
+# resolved to 官殺 (the element that KILLS the day master). Must be the supporting
+# group {印, 比劫} instead, with 官殺 as kỵ thần.
+
+
+@pytest.mark.parametrize(
+    "dm, seal, pressure",
+    [
+        ("mộc", "thủy", "kim"),
+        ("hỏa", "mộc", "thủy"),
+        ("thổ", "hỏa", "mộc"),
+        ("kim", "thổ", "hỏa"),
+        ("thủy", "kim", "thổ"),
+    ],
+)
+def test_weak_dm_hy_is_self_not_pressure(dm, seal, pressure):
+    """Weak DM using Ấn (印): hỷ must be 比劫 (=DM element), kỵ must be 官殺.
+
+    Previously hỷ wrongly resolved to 官殺 (the killing element).
+    """
+    counts = {e: 0.5 for e in ("mộc", "hỏa", "thổ", "kim", "thủy")}
+    counts[seal] = 3.0  # make seal (印) the dụng thần
+    dt = determine_dung_than(
+        day_element=dm, strength_tag="weak", element_counts=counts
+    )
+    assert dt.dung_than_element == seal, f"dung should be 印={seal}"
+    assert dt.hy_than_element == dm, (
+        f"hỷ must be 比劫 (={dm}), got {dt.hy_than_element} — "
+        f"must NOT be 官殺 ({pressure})"
+    )
+    assert dt.ky_than_element == pressure, f"kỵ must be 官殺 ({pressure})"
+
+
+@pytest.mark.parametrize("dm", ["mộc", "hỏa", "thổ", "kim", "thủy"])
+def test_strong_dm_ky_is_seal_not_output(dm):
+    """Strong DM: kỵ thần must be 印 (seal — fuels the strong DM), and hỷ must be
+    in the draining/restraining group {食傷, 財, 官殺}."""
+    from engine.bat_tu.dung_than import classify_elements_role
+
+    roles = classify_elements_role(dm)
+    role_to_el = {r: e for e, r in roles.items()}
+    counts = {e: 0.5 for e in ("mộc", "hỏa", "thổ", "kim", "thủy")}
+    counts[role_to_el["pressure"]] = 2.0  # dung = pressure
+    counts[role_to_el["wealth"]] = 1.0
+    dt = determine_dung_than(
+        day_element=dm, strength_tag="strong", element_counts=counts
+    )
+    assert dt.ky_than_element == role_to_el["seal"], "kỵ must be 印 for strong DM"
+    favorable = {role_to_el["output"], role_to_el["wealth"], role_to_el["pressure"]}
+    assert dt.hy_than_element in favorable
+    assert dt.hy_than_element != dt.dung_than_element

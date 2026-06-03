@@ -114,6 +114,24 @@ def _element_controlling(target: str) -> str:
     raise ValueError(f"Unknown element: {target}")
 
 
+def _pick_secondary_favorable(
+    favorable_roles: list[str],
+    dung_role: str,
+    role_to_el: dict[str, str],
+    element_counts: dict[str, float],
+) -> str:
+    """Pick the Hỷ Thần role: a favorable role (≠ dung) with the highest count.
+
+    Tie-break by the order in `favorable_roles` (priority list). Guarantees the
+    returned role is in the favorable group relative to the Day Master.
+    """
+    others = [r for r in favorable_roles if r != dung_role]
+    if not others:
+        return dung_role
+    # Highest count first; stable order preserves priority on ties.
+    return max(others, key=lambda r: element_counts.get(role_to_el[r], 0.0))
+
+
 def classify_elements_role(day_element: str) -> dict[str, str]:
     """Map each of the 5 elements to its role relative to the Day Master.
 
@@ -193,13 +211,14 @@ def determine_dung_than(
 
     if strength_tag == "strong":
         # Strong DM: prefer to drain or restrain.
-        # Priority: pressure (官殺) → wealth (財) → output (食傷)
-        # Pick whichever role has highest count in chart.
-        candidates_priority = ["pressure", "wealth", "output"]
+        # Favorable group (relative to NHẬT CHỦ): {食傷 output, 財 wealth, 官殺 pressure}.
+        # Unfavorable group: {印 seal, 比劫 self} — these only add fuel to an already
+        # strong DM. Priority for Dụng Thần: pressure → wealth → output (by count).
+        favorable_roles = ["pressure", "wealth", "output"]
         # Among non-zero candidates, choose one with highest count.
         best_role = None
         best_count = -1.0
-        for role in candidates_priority:
+        for role in favorable_roles:
             el = role_to_el[role]
             if element_counts.get(el, 0) > best_count:
                 best_count = element_counts[el]
@@ -207,24 +226,30 @@ def determine_dung_than(
         if best_role is None:
             best_role = "pressure"
         dung_el = role_to_el[best_role]
-        # Hỷ Thần: element that generates Dụng Thần
-        hy_el = _element_generating(dung_el)
-        hy_role = roles.get(hy_el, "self")
-        # Kỵ Thần: element that controls Dụng Thần (the "enemy" of favorable)
-        ky_el = _element_controlling(dung_el)
-        ky_role = roles.get(ky_el, "self")
+        # Hỷ Thần = another FAVORABLE role (relative to DM), not derived from dung's
+        # generating chain. Pick the favorable role ≠ dung with the highest count.
+        hy_role = _pick_secondary_favorable(
+            favorable_roles, best_role, role_to_el, element_counts
+        )
+        hy_el = role_to_el[hy_role]
+        # Kỵ Thần = the element that fuels a strong DM most directly: 印 (seal).
+        ky_role = "seal"
+        ky_el = role_to_el[ky_role]
         reason = (
             f"Nhật chủ {day_element} vượng — cần tiết / khắc bớt sinh khí. "
-            f"Chọn {ROLE_VI[best_role]} làm Dụng Thần (vai trò tiêu hao mạnh nhất hiện hữu)."
+            f"Chọn {ROLE_VI[best_role]} làm Dụng Thần (vai trò tiêu hao mạnh nhất hiện hữu). "
+            f"Kỵ Ấn ({ky_el}) vì sinh thân càng vượng."
         )
 
     elif strength_tag == "weak":
         # Weak DM: prefer support.
-        # Priority: seal (印) → self (比劫)
-        candidates_priority = ["seal", "self"]
+        # Favorable group (relative to NHẬT CHỦ): {印 seal, 比劫 self}.
+        # Unfavorable group: {官殺 pressure, 財 wealth, 食傷 output}.
+        # Priority for Dụng Thần: seal (印) → self (比劫) by count.
+        favorable_roles = ["seal", "self"]
         best_role = None
         best_count = -1.0
-        for role in candidates_priority:
+        for role in favorable_roles:
             el = role_to_el[role]
             if element_counts.get(el, 0) > best_count:
                 best_count = element_counts[el]
@@ -232,13 +257,18 @@ def determine_dung_than(
         if best_role is None:
             best_role = "seal"
         dung_el = role_to_el[best_role]
-        hy_el = _element_generating(dung_el)
-        hy_role = roles.get(hy_el, "self")
-        ky_el = _element_controlling(dung_el)
-        ky_role = roles.get(ky_el, "pressure")
+        # Hỷ Thần = the OTHER supporting role (印↔比劫), NOT _generating(dung) —
+        # which for a weak DM would resolve to 官殺 (the element that controls DM).
+        hy_role = "self" if best_role == "seal" else "seal"
+        hy_el = role_to_el[hy_role]
+        # Kỵ Thần = 官殺 (pressure) — the element that directly controls/harms the
+        # already-weak Day Master.
+        ky_role = "pressure"
+        ky_el = role_to_el[ky_role]
         reason = (
             f"Nhật chủ {day_element} nhược — cần nguồn lực bồi dưỡng. "
-            f"Chọn {ROLE_VI[best_role]} làm Dụng Thần (vai trò bổ trợ chính)."
+            f"Chọn {ROLE_VI[best_role]} làm Dụng Thần (vai trò bổ trợ chính). "
+            f"Kỵ Quan Sát ({ky_el}) vì khắc thân đang yếu."
         )
 
     else:
