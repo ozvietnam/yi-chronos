@@ -14,3 +14,5 @@ ephem>=4.1
 # Báo Mệnh PDF endpoint (engine/bat_tu/bao_menh_pdf.py)
 # Pango/Cairo/HarfBuzz system libs đã add trong Dockerfile.
 weasyprint>=68.0
+# File locking for concurrent job queue (engine/yi_publishing/)
+filelock>=3.13

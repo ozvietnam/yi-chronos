@@ -145,9 +145,14 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="YI-CHRONOS MVP", version=ALGORITHM_VERSION, lifespan=lifespan)
+_cors_env = os.environ.get("YI_CHRONOS_CORS_ORIGINS", "")
+_CORS_ORIGINS = [o.strip() for o in _cors_env.split(",") if o.strip()] or [
+    "http://localhost:5173",
+    "http://localhost:5174",
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -2102,10 +2107,12 @@ def ky_mon_personal_reading(request: KyMonCastRequest) -> dict[str, object]:
 
 
 @app.get("/api/ky-mon/founder-birth-data")
-def ky_mon_founder_birth() -> dict[str, object]:
-    """Founder default birth data — used để prefill 'Đọc lá số sinh tôi' UI."""
+def ky_mon_founder_birth(request: Request) -> dict[str, object]:
+    """Founder default birth data — owner-only (contains personal birth datetime)."""
+    from api.auth import require_owner
     from engine.ky_mon import list_founder_data
 
+    require_owner(request)
     return {"status": "ok", "data": list_founder_data()}
 
 
@@ -2293,8 +2300,10 @@ def tu_vi_cast(request: TuViCastRequest) -> dict[str, object]:
 
 
 @app.get("/api/ai/providers")
-def ai_list_providers() -> dict:
-    """List all LLM providers + their status (configured? unhealthy?)."""
+def ai_list_providers(http_request: Request) -> dict:
+    """List all LLM providers + their status (configured? unhealthy?). Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.registry import get_registry
 
     reg = get_registry()
@@ -2305,13 +2314,15 @@ def ai_list_providers() -> dict:
 
 
 @app.post("/api/ai/providers/{name}/key")
-def ai_set_provider_key(name: str, request: AiProviderKeyRequest) -> dict:
-    """Update API key for a provider at runtime."""
+def ai_set_provider_key(name: str, req: AiProviderKeyRequest, http_request: Request) -> dict:
+    """Update API key for a provider at runtime. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.registry import get_registry
 
     reg = get_registry()
     try:
-        status = reg.set_api_key(name, request.api_key)
+        status = reg.set_api_key(name, req.api_key)
         reg.reset_health()  # clear unhealthy marks since key changed
         return {"status": "ok", "provider": status}
     except KeyError:
@@ -2319,8 +2330,10 @@ def ai_set_provider_key(name: str, request: AiProviderKeyRequest) -> dict:
 
 
 @app.post("/api/ai/providers/reset-health")
-def ai_reset_provider_health() -> dict:
-    """Clear all unhealthy marks — useful after recharging account."""
+def ai_reset_provider_health(http_request: Request) -> dict:
+    """Clear all unhealthy marks — useful after recharging account. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.registry import get_registry
 
     get_registry().reset_health()
@@ -2328,8 +2341,8 @@ def ai_reset_provider_health() -> dict:
 
 
 @app.post("/api/ai/providers/{name}/notes")
-def ai_set_provider_notes(name: str, req: AiProviderNotesRequest) -> dict:
-    """Update notes + plan_type cho provider.
+def ai_set_provider_notes(name: str, req: AiProviderNotesRequest, http_request: Request) -> dict:
+    """Update notes + plan_type cho provider. Owner-only.
 
     plan_type:
       - 'coding_plan'        — Claude Code subscription, Cursor Pro, etc.
@@ -2337,6 +2350,8 @@ def ai_set_provider_notes(name: str, req: AiProviderNotesRequest) -> dict:
       - 'free_tier'          — free credit, has quota limit
       - 'local'              — Ollama, self-hosted
     """
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.registry import get_registry
     try:
         notes = get_registry().set_notes(
@@ -2348,8 +2363,10 @@ def ai_set_provider_notes(name: str, req: AiProviderNotesRequest) -> dict:
 
 
 @app.post("/api/ai/providers/{name}/test")
-def ai_test_provider(name: str, req: AiProviderTestRequest) -> dict:
-    """Test 1 call ngắn tới provider. Đo latency + verify key/config OK."""
+def ai_test_provider(name: str, req: AiProviderTestRequest, http_request: Request) -> dict:
+    """Test 1 call ngắn tới provider. Đo latency + verify key/config OK. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.registry import get_registry
     import time as _time
     reg = get_registry()
@@ -2396,8 +2413,10 @@ def ai_test_provider(name: str, req: AiProviderTestRequest) -> dict:
 
 
 @app.get("/api/ai/agents")
-def ai_list_agents() -> dict:
-    """List 7 agents with metadata."""
+def ai_list_agents(http_request: Request) -> dict:
+    """List agents with metadata. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.prompt_store import AGENT_IDS, AGENT_METADATA, is_overridden
 
     agents = []
@@ -2415,8 +2434,10 @@ def ai_list_agents() -> dict:
 
 
 @app.get("/api/ai/prompts/{agent_id}")
-def ai_get_prompt(agent_id: str) -> dict:
-    """Get current prompt (override if exists, else default) + default for reset."""
+def ai_get_prompt(agent_id: str, http_request: Request) -> dict:
+    """Get current prompt (override if exists, else default) + default for reset. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.prompt_store import ALL_PROMPT_IDS, get_default, get_prompt, is_overridden
 
     if agent_id not in ALL_PROMPT_IDS:
@@ -2431,19 +2452,23 @@ def ai_get_prompt(agent_id: str) -> dict:
 
 
 @app.put("/api/ai/prompts/{agent_id}")
-def ai_set_prompt(agent_id: str, request: AiPromptUpdateRequest) -> dict:
-    """Save user override for a prompt."""
+def ai_set_prompt(agent_id: str, req: AiPromptUpdateRequest, http_request: Request) -> dict:
+    """Save user override for a prompt. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.prompt_store import ALL_PROMPT_IDS, set_prompt
 
     if agent_id not in ALL_PROMPT_IDS:
         return {"status": "not_found", "agent_id": agent_id}
-    set_prompt(agent_id, request.content)
+    set_prompt(agent_id, req.content)
     return {"status": "ok", "agent_id": agent_id}
 
 
 @app.delete("/api/ai/prompts/{agent_id}")
-def ai_reset_prompt(agent_id: str) -> dict:
-    """Reset prompt to default (delete user override)."""
+def ai_reset_prompt(agent_id: str, http_request: Request) -> dict:
+    """Reset prompt to default (delete user override). Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.prompt_store import ALL_PROMPT_IDS, reset_prompt
 
     if agent_id not in ALL_PROMPT_IDS:
@@ -2453,18 +2478,20 @@ def ai_reset_prompt(agent_id: str) -> dict:
 
 
 @app.post("/api/ai/council/consult")
-def ai_council_consult(request: AiCouncilRequest) -> dict:
-    """Run a full council consultation (3-round Socratic debate)."""
+def ai_council_consult(req: AiCouncilRequest, http_request: Request) -> dict:
+    """Run a full council consultation (3-round Socratic debate). Login required."""
+    from api.auth import require_user
+    require_user(http_request)
     from engine.ai.council import consult_council
 
     result = consult_council(
-        question=request.question,
-        chart_data=request.chart_data,
-        chart_summary=request.chart_summary,
-        explicit_agents=request.explicit_agents,
-        parallel=request.parallel,
-        skip_challenge=request.skip_challenge,
-        persist=request.persist,
+        question=req.question,
+        chart_data=req.chart_data,
+        chart_summary=req.chart_summary,
+        explicit_agents=req.explicit_agents,
+        parallel=req.parallel,
+        skip_challenge=req.skip_challenge,
+        persist=req.persist,
     )
     return {"status": "ok", "session": result}
 
@@ -2490,8 +2517,8 @@ def ai_council_session(session_id: int) -> dict:
 
 
 @app.post("/api/ai/council/kanban/consult")
-def ai_kanban_council_consult(request: AiKanbanCouncilRequest) -> dict:
-    """Spawn a P3-quorum kanban council consultation.
+def ai_kanban_council_consult(req: AiKanbanCouncilRequest, http_request: Request) -> dict:
+    """Spawn a P3-quorum kanban council consultation. Login required.
 
     Server auto-precasts engine outputs for selected sages (if `birth` or
     `event` supplied) so sages don't waste tokens recomputing. Caller can
@@ -2499,26 +2526,28 @@ def ai_kanban_council_consult(request: AiKanbanCouncilRequest) -> dict:
 
     Returns immediately with root_id; client polls /kanban/sessions/{root_id}.
     """
+    from api.auth import require_user
+    require_user(http_request)
     from engine.ai.kanban_council import consult, save_session, select_sages
     from engine.ai.precast import precast_for_sages
 
-    sages = request.sages or select_sages(request.question)
+    sages = req.sages or select_sages(req.question)
 
     # Build precast: explicit precast_data takes precedence, then auto from birth/event
     precast: dict[str, dict] = {}
-    if request.birth or request.event:
+    if req.birth or req.event:
         precast.update(
-            precast_for_sages(sages, birth=request.birth, event=request.event)
+            precast_for_sages(sages, birth=req.birth, event=req.event)
         )
-    if request.precast_data:
-        precast.update(request.precast_data)  # explicit wins
+    if req.precast_data:
+        precast.update(req.precast_data)  # explicit wins
 
     session = consult(
-        question=request.question,
+        question=req.question,
         sages=sages,
         precast_data=precast,
-        chart_context=request.chart_context,
-        soul_key=request.soul_key,
+        chart_context=req.chart_context,
+        soul_key=req.soul_key,
     )
     save_session(session)
     return {
@@ -2600,15 +2629,17 @@ def ai_council_critiques_stats() -> dict:
 
 @app.post("/api/ai/council/critiques/{critique_id}/resolve")
 def ai_council_critique_resolve(
-    critique_id: int, request: AiCritiqueResolveRequest
+    critique_id: int, req: AiCritiqueResolveRequest, http_request: Request,
 ) -> dict:
-    """Mark a critique as resolved (anh fixed it) or dismissed (won't fix)."""
+    """Mark a critique as resolved (anh fixed it) or dismissed (won't fix). Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.ai.critique_store import dismiss_critique, resolve_critique
 
-    if request.action == "dismiss":
-        ok = dismiss_critique(critique_id, reason=request.resolution)
+    if req.action == "dismiss":
+        ok = dismiss_critique(critique_id, reason=req.resolution)
     else:
-        ok = resolve_critique(critique_id, resolution=request.resolution)
+        ok = resolve_critique(critique_id, resolution=req.resolution)
     return {"status": "ok" if ok else "not_found", "id": critique_id}
 
 
@@ -2616,12 +2647,14 @@ def ai_council_critique_resolve(
 
 
 @app.post("/api/yi-hermes/chat")
-def yi_hermes_chat(request: YiHermesChatRequest) -> dict:
-    """Send a message to YI-Hermes — multi-turn chat."""
+def yi_hermes_chat(req: YiHermesChatRequest, http_request: Request) -> dict:
+    """Send a message to YI-Hermes — multi-turn chat. Login required."""
+    from api.auth import require_user
+    require_user(http_request)
     from engine.yi_hermes import HermesChat, HermesContext
     from engine.yi_hermes.chat import HermesTurn
 
-    ctx_dict = request.context.model_dump() if request.context else {}
+    ctx_dict = req.context.model_dump() if req.context else {}
     ctx = HermesContext(**ctx_dict)
     history = [
         HermesTurn(
@@ -2630,12 +2663,12 @@ def yi_hermes_chat(request: YiHermesChatRequest) -> dict:
             intent=h.get("intent", ""),
             tokens_used=h.get("tokens_used", 0),
         )
-        for h in request.history
+        for h in req.history
     ]
 
     chat = HermesChat()
     result = chat.send(
-        user_message=request.user_message,
+        user_message=req.user_message,
         context=ctx,
         history=history,
     )
@@ -2698,25 +2731,30 @@ def yi_hermes_glossary_get(term_vi: str) -> dict:
 
 
 @app.put("/api/yi-hermes/glossary/term/{term_vi}")
-def yi_hermes_glossary_upsert(term_vi: str, request: YiHermesGlossaryUpsertRequest) -> dict:
-    """Add or update a glossary term."""
+def yi_hermes_glossary_upsert(term_vi: str, req: YiHermesGlossaryUpsertRequest, http_request: Request) -> dict:
+    """Add or update a glossary term. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.yi_hermes import GlossaryTerm, get_glossary_store
 
     term = GlossaryTerm(
-        term_vi=request.term_vi or term_vi,
-        term_zh=request.term_zh,
-        module=request.module,
-        short_def=request.short_def,
-        long_def=request.long_def,
-        example=request.example,
-        see_also=request.see_also,
+        term_vi=req.term_vi or term_vi,
+        term_zh=req.term_zh,
+        module=req.module,
+        short_def=req.short_def,
+        long_def=req.long_def,
+        example=req.example,
+        see_also=req.see_also,
     )
     get_glossary_store().upsert(term)
     return {"status": "ok", "term": term.to_dict()}
 
 
 @app.delete("/api/yi-hermes/glossary/term/{term_vi}")
-def yi_hermes_glossary_delete(term_vi: str) -> dict:
+def yi_hermes_glossary_delete(term_vi: str, http_request: Request) -> dict:
+    """Delete glossary term. Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.yi_hermes import get_glossary_store
 
     deleted = get_glossary_store().delete(term_vi)
@@ -4201,12 +4239,14 @@ from pathlib import Path  # ensure Path import (used in get_report)
 
 
 @app.post("/api/yi-hermes/dyad/analyze")
-def yi_hermes_dyad_analyze(req: DyadAnalysisRequest) -> dict:
-    """Compute cosmology compatibility between 2 persons.
+def yi_hermes_dyad_analyze(req: DyadAnalysisRequest, http_request: Request) -> dict:
+    """Compute cosmology compatibility between 2 persons. Login required.
 
     Both persons must have birth_datetime_local + we'll lazy-cast Bát Tự.
     If `cache_in_relationship=True`, write back into relationships.cosmology_compat.
     """
+    from api.auth import require_user
+    require_user(http_request)
     from engine.ai.dyad_analysis import analyze_dyad
     from engine.yi_hermes.persons import cast_bat_tu_for, get_person
     from engine.yi_hermes.relationships import get_relationship, update_compat
@@ -5325,7 +5365,9 @@ def _resolve_user_id(request: Request, default: str = "founder") -> str:
 
 @app.post("/api/yi-wiki/nhat-ky/create")
 def yi_wiki_nhat_ky_create(req: NhatKyCreateRequest, request: Request) -> dict:
-    """Tạo entry nhật ký + auto-snapshot 7 vòng quẻ tại happened_at."""
+    """Tạo entry nhật ký + auto-snapshot 7 vòng quẻ tại happened_at. Login required."""
+    from api.auth import require_user
+    require_user(request)
     from engine.yi_wiki.nhat_ky_van import create_entry, entry_to_dict
     user_id = _resolve_user_id(request)
     birth = _resolve_birth_solar(request, req.birth_solar)
@@ -5346,7 +5388,9 @@ def yi_wiki_nhat_ky_create(req: NhatKyCreateRequest, request: Request) -> dict:
 
 @app.get("/api/yi-wiki/nhat-ky/list")
 def yi_wiki_nhat_ky_list(request: Request, limit: int = 100) -> dict:
-    """Liệt kê nhật ký user (latest first)."""
+    """Liệt kê nhật ký user (latest first). Login required."""
+    from api.auth import require_user
+    require_user(request)
     from engine.yi_wiki.nhat_ky_van import list_entries, entry_to_dict, get_stats
     user_id = _resolve_user_id(request)
     entries = list_entries(user_id=user_id, limit=limit)
@@ -5360,6 +5404,9 @@ def yi_wiki_nhat_ky_list(request: Request, limit: int = 100) -> dict:
 
 @app.get("/api/yi-wiki/nhat-ky/get/{entry_id}")
 def yi_wiki_nhat_ky_get(entry_id: int, request: Request) -> dict:
+    """Get single diary entry. Login required."""
+    from api.auth import require_user
+    require_user(request)
     from engine.yi_wiki.nhat_ky_van import get_entry, entry_to_dict
     user_id = _resolve_user_id(request)
     e = get_entry(entry_id)
@@ -5372,6 +5419,9 @@ def yi_wiki_nhat_ky_get(entry_id: int, request: Request) -> dict:
 
 @app.post("/api/yi-wiki/nhat-ky/update-outcome/{entry_id}")
 def yi_wiki_nhat_ky_update_outcome(entry_id: int, req: NhatKyUpdateOutcomeRequest, request: Request) -> dict:
+    """Update diary entry outcome. Login required."""
+    from api.auth import require_user
+    require_user(request)
     from engine.yi_wiki.nhat_ky_van import get_entry, update_outcome, entry_to_dict
     user_id = _resolve_user_id(request)
     e = get_entry(entry_id)
@@ -5385,6 +5435,9 @@ def yi_wiki_nhat_ky_update_outcome(entry_id: int, req: NhatKyUpdateOutcomeReques
 
 @app.delete("/api/yi-wiki/nhat-ky/delete/{entry_id}")
 def yi_wiki_nhat_ky_delete(entry_id: int, request: Request) -> dict:
+    """Delete diary entry. Login required."""
+    from api.auth import require_user
+    require_user(request)
     from engine.yi_wiki.nhat_ky_van import delete_entry
     user_id = _resolve_user_id(request)
     ok = delete_entry(entry_id, user_id=user_id)
@@ -5557,11 +5610,13 @@ class NhatKyReadbackRequest(BaseModel):
 
 @app.post("/api/yi-wiki/nhat-ky/llm-doc-lai")
 def yi_wiki_nhat_ky_llm_doc_lai(req: NhatKyReadbackRequest, request: Request) -> dict:
-    """V5 — LLM ĐỌC LẠI 1 entry nhật ký với 7 quẻ snapshot.
+    """V5 — LLM ĐỌC LẠI 1 entry nhật ký với 7 quẻ snapshot. Login required.
 
     Paradigm: phản chiếu việc thực vs paradigm quẻ. KHÔNG predict.
     Đây là tiền đề Phase 3 pattern mining manual.
     """
+    from api.auth import require_user
+    require_user(request)
     from engine.yi_wiki.nhat_ky_van import get_entry
     from engine.yi_wiki.luan_sau_kinhdich import call_llm_luan_sau
     user_id = _resolve_user_id(request)
@@ -6266,9 +6321,11 @@ class LineTranslationSaveRequest(BaseModel):
 @app.put("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/translation")
 def yi_publishing_save_translation(
     book_id: str, page_num: int, region_id: str,
-    req: TranslationSaveRequest,
+    req: TranslationSaveRequest, request: Request,
 ) -> dict:
-    """Save translation for whole region (legacy)."""
+    """Save translation for whole region (legacy). Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     trans_dir = TRANSLATIONS_ROOT / book_id / f"p{page_num:04d}"
     trans_dir.mkdir(parents=True, exist_ok=True)
     trans_path = trans_dir / f"{region_id}.json"
@@ -6309,12 +6366,14 @@ class RedrawRequest(BaseModel):
 
 @app.post("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/redraw")
 def yi_publishing_redraw_region(
-    book_id: str, page_num: int, region_id: str, req: RedrawRequest,
+    book_id: str, page_num: int, region_id: str, req: RedrawRequest, request: Request,
 ) -> dict:
-    """Generate AI redraw for an image region via ComfyUI FLUX.1 schnell.
+    """Generate AI redraw for an image region via ComfyUI FLUX.1 schnell. Owner-only.
 
     Output: data/yi_publishing/redrawn/{book}/{page}-{region}-{seq}.png
     """
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.image_redraw import build_redraw_prompt, generate_redraw
 
     # Build output path with sequence number
@@ -6531,11 +6590,13 @@ class WikiAddConceptRequest(BaseModel):
 
 
 @app.post("/api/yi-publishing/wiki/concepts")
-def yi_publishing_wiki_add(req: WikiAddConceptRequest) -> dict:
-    """Add new concept caught during translation.
+def yi_publishing_wiki_add(req: WikiAddConceptRequest, request: Request) -> dict:
+    """Add new concept caught during translation. Owner-only.
 
     If canonical_zh already exists, returns existing (no duplicate).
     """
+    from api.auth import require_owner
+    require_owner(request)
     import sqlite3
     con = sqlite3.connect(YI_WIKI_DB)
     cur = con.cursor()
@@ -6594,12 +6655,14 @@ class AutoTranslatePageRequest(BaseModel):
 
 @app.post("/api/yi-publishing/pages/{book_id}/{page_num}/auto-translate")
 def yi_publishing_auto_translate_page(
-    book_id: str, page_num: int, req: AutoTranslatePageRequest,
+    book_id: str, page_num: int, req: AutoTranslatePageRequest, request: Request,
 ) -> dict:
-    """Auto-translate all text lines on a page in ONE API call.
+    """Auto-translate all text lines on a page in ONE API call. Owner-only.
 
     Uses page-level batching to avoid OpenRouter rate limits (20 req/min free).
     """
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.translator import translate_page_lines
 
     layout_resp = yi_publishing_page_layout(book_id, page_num)
@@ -6811,11 +6874,13 @@ class AutoBatchRequest(BaseModel):
 
 
 @app.post("/api/yi-publishing/books/{book_id}/auto-batch")
-def yi_publishing_auto_batch(book_id: str, req: AutoBatchRequest) -> dict:
-    """Auto-translate pages [start_page..end_page] sequentially with quality reports.
+def yi_publishing_auto_batch(book_id: str, req: AutoBatchRequest, request: Request) -> dict:
+    """Auto-translate pages [start_page..end_page] sequentially. Owner-only.
 
     Returns per-page status + warnings + aggregate fit score.
     """
+    from api.auth import require_owner
+    require_owner(request)
     if req.end_page < req.start_page:
         return {"status": "error", "message": "end_page < start_page"}
     if req.end_page - req.start_page > 50:
@@ -6981,9 +7046,11 @@ def yi_publishing_auto_batch(book_id: str, req: AutoBatchRequest) -> dict:
 @app.put("/api/yi-publishing/regions/{book_id}/{page_num}/{region_id}/lines/{line_id}/translation")
 def yi_publishing_save_line_translation(
     book_id: str, page_num: int, region_id: str, line_id: str,
-    req: LineTranslationSaveRequest,
+    req: LineTranslationSaveRequest, request: Request,
 ) -> dict:
-    """Save translation for a single line within a region."""
+    """Save translation for a single line within a region. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     trans_dir = TRANSLATIONS_ROOT / book_id / f"p{page_num:04d}"
     trans_dir.mkdir(parents=True, exist_ok=True)
     trans_path = trans_dir / f"{region_id}.json"
@@ -7056,14 +7123,18 @@ def _founder_cache_read(kind: str, legacy_filename: str) -> dict:
 
 
 @app.get("/api/yi-publishing/phu/founder-reading")
-def yi_publishing_phu_founder_reading() -> dict:
-    """Return personalized Phú Thái Vi readings for founder chart."""
+def yi_publishing_phu_founder_reading(request: Request) -> dict:
+    """Return personalized Phú Thái Vi readings for founder chart. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     return _founder_cache_read("phu_reading", "_phu_reading_founder.json")
 
 
 @app.get("/api/yi-publishing/cach-cuc/founder/{cach_id}")
-def yi_publishing_cach_cuc_founder(cach_id: str) -> dict:
-    """Return founder's deep reading for a specific cách cục."""
+def yi_publishing_cach_cuc_founder(cach_id: str, request: Request) -> dict:
+    """Return founder's deep reading for a specific cách cục. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     p = Path(f"/Users/ozvietnamdesktop/Desktop/yi/data/yi_publishing/translations/tuvidauso-zh/_cach_{cach_id}_founder.json")
     if not p.exists():
         return {"status": "error", "message": f"Cách cục '{cach_id}' chưa có deep reading"}
@@ -7074,8 +7145,10 @@ def yi_publishing_cach_cuc_founder(cach_id: str) -> dict:
 
 
 @app.get("/api/yi-publishing/anh-deep-analysis")
-def yi_publishing_anh_deep() -> dict:
-    """Return anh's deep analysis (cách cục discovery + synastry with wife)."""
+def yi_publishing_anh_deep(request: Request) -> dict:
+    """Return anh's deep analysis (cách cục discovery + synastry with wife). Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     return _founder_cache_read("deep_analysis", "_anh_deep_analysis.json")
 
 
@@ -7086,20 +7159,26 @@ import os as _os
 from fastapi.responses import FileResponse as _FileResponse
 
 @app.get("/api/yi-publishing/dai-van/founder")
-def yi_publishing_dai_van_founder() -> dict:
-    """Return anh's 12 Đại Vận annotations."""
+def yi_publishing_dai_van_founder(request: Request) -> dict:
+    """Return anh's 12 Đại Vận annotations. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     return _founder_cache_read("dai_van", "_dai_van_founder.json")
 
 
 @app.get("/api/yi-publishing/luu-nien/founder")
-def yi_publishing_luu_nien_founder() -> dict:
-    """Return anh's Lưu Niên 2026-2030."""
+def yi_publishing_luu_nien_founder(request: Request) -> dict:
+    """Return anh's Lưu Niên 2026-2030. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     return _founder_cache_read("luu_nien", "_luu_nien_founder.json")
 
 
 @app.get("/api/yi-publishing/luu-nguyet-2026/founder")
-def yi_publishing_luu_nguyet_2026_founder() -> dict:
-    """Return anh's Lưu Nguyệt 12 tháng âm năm 2026."""
+def yi_publishing_luu_nguyet_2026_founder(request: Request) -> dict:
+    """Return anh's Lưu Nguyệt 12 tháng âm năm 2026. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     return _founder_cache_read("luu_nguyet", "_luu_nguyet_2026_founder.json")
 
 
@@ -7143,11 +7222,13 @@ class SubmitOcrRequest(BaseModel):
 
 
 @app.post("/api/yi-publishing/books/upload")
-async def yi_publishing_upload_pdf(file: UploadFile = File(...)) -> dict:
-    """Step 1: save uploaded PDF to temp folder, extract trang-1 cover + metadata.
+async def yi_publishing_upload_pdf(request: Request, file: UploadFile = File(...)) -> dict:
+    """Step 1: save uploaded PDF to temp folder, extract trang-1 cover + metadata. Owner-only.
 
     Returns temp_id (used in finalize step) + auto-extracted metadata.
     """
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import slugify
     from engine.yi_publishing.cover_extractor import extract_cover, extract_pdf_metadata
     import uuid
@@ -7209,8 +7290,10 @@ def yi_publishing_upload_cover(temp_id: str):
 
 
 @app.post("/api/yi-publishing/books/finalize")
-def yi_publishing_finalize_book(req: FinalizeBookRequest) -> dict:
-    """Step 3: move temp PDF + cover to permanent location, add to books_store."""
+def yi_publishing_finalize_book(req: FinalizeBookRequest, request: Request) -> dict:
+    """Step 3: move temp PDF + cover to permanent location, add to books_store. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.cover_extractor import extract_pdf_metadata
 
@@ -7281,8 +7364,10 @@ def yi_publishing_book_cover(book_id: str):
 
 
 @app.put("/api/yi-publishing/books/{book_id}/cover")
-async def yi_publishing_upload_custom_cover(book_id: str, file: UploadFile = File(...)) -> dict:
-    """Override book cover with user upload (image/* accepted, normalized to JPEG)."""
+async def yi_publishing_upload_custom_cover(book_id: str, request: Request, file: UploadFile = File(...)) -> dict:
+    """Override book cover with user upload (image/* accepted, normalized to JPEG). Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.cover_extractor import save_uploaded_cover
 
@@ -7313,8 +7398,10 @@ async def yi_publishing_upload_custom_cover(book_id: str, file: UploadFile = Fil
 
 
 @app.patch("/api/yi-publishing/books/{book_id}")
-def yi_publishing_update_book_metadata(book_id: str, req: UpdateBookRequest) -> dict:
-    """Update book metadata. Only non-null fields are applied."""
+def yi_publishing_update_book_metadata(book_id: str, req: UpdateBookRequest, request: Request) -> dict:
+    """Update book metadata. Only non-null fields are applied. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
 
     store = get_store()
@@ -7333,8 +7420,10 @@ def yi_publishing_update_book_metadata(book_id: str, req: UpdateBookRequest) -> 
 
 
 @app.delete("/api/yi-publishing/books/{book_id}")
-def yi_publishing_delete_book(book_id: str) -> dict:
-    """Soft delete: sets deleted=true. PDF + cover remain on disk."""
+def yi_publishing_delete_book(book_id: str, request: Request) -> dict:
+    """Soft delete: sets deleted=true. PDF + cover remain on disk. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
 
     store = get_store()
@@ -7344,8 +7433,10 @@ def yi_publishing_delete_book(book_id: str) -> dict:
 
 
 @app.post("/api/yi-publishing/books/{book_id}/recompute-progress")
-def yi_publishing_recompute_progress(book_id: str) -> dict:
-    """Force progress recompute by scanning MinerU + translations folder."""
+def yi_publishing_recompute_progress(book_id: str, request: Request) -> dict:
+    """Force progress recompute by scanning MinerU + translations folder. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
 
     store = get_store()
@@ -7368,12 +7459,14 @@ class SubmitOnboardRequest(BaseModel):
 
 
 @app.post("/api/yi-publishing/books/{book_id}/onboard")
-def yi_publishing_submit_onboard_job(book_id: str, req: SubmitOnboardRequest) -> dict:
-    """Trigger Smart Onboarding Pipeline (page split → profile → TOC → plan).
+def yi_publishing_submit_onboard_job(book_id: str, req: SubmitOnboardRequest, request: Request) -> dict:
+    """Trigger Smart Onboarding Pipeline (page split → profile → TOC → plan). Owner-only.
 
     Runs ~3-5 phút (real MinerU spike). Returns job_id for polling.
     Rejects if another job is already active.
     """
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.jobs import get_default_store
 
@@ -7466,8 +7559,10 @@ def yi_publishing_get_plan(book_id: str) -> dict:
 
 
 @app.post("/api/yi-publishing/books/{book_id}/jobs/ocr")
-def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest) -> dict:
-    """Trigger MinerU OCR job. Rejects if another OCR job is already active."""
+def yi_publishing_submit_ocr_job(book_id: str, req: SubmitOcrRequest, request: Request) -> dict:
+    """Trigger MinerU OCR job. Rejects if another OCR job is already active. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.books_store import get_store
     from engine.yi_publishing.jobs import get_default_store
 
@@ -7531,8 +7626,10 @@ def yi_publishing_get_job(job_id: str) -> dict:
 
 
 @app.delete("/api/yi-publishing/jobs/{job_id}")
-def yi_publishing_cancel_job(job_id: str) -> dict:
-    """Cancel job. Cooperative — current chunk finishes first."""
+def yi_publishing_cancel_job(job_id: str, request: Request) -> dict:
+    """Cancel job. Cooperative — current chunk finishes first. Owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
     from engine.yi_publishing.jobs import get_default_store
 
     jobs_store = get_default_store()
@@ -7672,11 +7769,13 @@ def yi_tuvi_analyze_get(person_key: str, kind: str, request: Request) -> dict:
     """GET version: load cached analysis result without running new one.
 
     Scoped per-user: each logged-in user only sees cache from their own namespace.
-    Legacy `_founder` cache (founder's pre-namespace data) still accessible.
+    `_founder` cache (special prefix) is owner-only.
     """
     from engine.tu_vi.analyzer import _cache_load
     from api.auth import get_current_user
     user = get_current_user(request)
+    if person_key.startswith("_") and (not user or user.get("role") != "owner"):
+        raise HTTPException(403, "owner-only for special person keys")
     uid = user["user_id"] if user else None
     cached = _cache_load(person_key, kind, uid)
     if cached:
@@ -8529,11 +8628,13 @@ def yi_tuvi_job_status(job_id: str) -> dict:
 # ─── PDF Report ──────────────────────────────────────────────────────────────
 @app.get("/api/tu-vi/report-pdf/{person_key}")
 def yi_tuvi_report_pdf(person_key: str, request: Request):
-    """Generate "Báo cáo Lá Số" PDF for a person. Returns file."""
+    """Generate "Báo cáo Lá Số" PDF for a person. Special (_) keys are owner-only."""
     from fastapi.responses import FileResponse
     from engine.tu_vi.report_pdf import generate_pdf
     from api.auth import get_current_user
     user = get_current_user(request)
+    if person_key.startswith("_") and (not user or user.get("role") != "owner"):
+        raise HTTPException(403, "owner-only for special person keys")
     uid = user["user_id"] if user else None
     try:
         pdf_path = generate_pdf(person_key, user_id=uid)
