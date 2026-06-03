@@ -7,9 +7,19 @@
 
 ---
 
-## 🔖 BOOKMARK hiện tại (2026-06-02)
+## 🔖 BOOKMARK hiện tại (2026-06-03)
 
-### Trang dừng đọc cuối cùng:
+### ✅ Cụm A Sau Khảm — DONE 2026-06-03
+- 5 quẻ: Di, Đại Quá, Ly, Hàm, Hằng (p213-260)
+- Journal: `docs/design/ha-lac-cum-a-tham-nhuan.md`
+- Paradigm cốt: NUÔI → ẨN SÚC → GIẤU SÁNG → HƯ TÂM → GIỮ TRUNG
+- 5 quẻ đã có đầy đủ data trong `engine/ha_lac/thoi_que.py`
+
+### Trang dừng đọc cuối cùng (cập nhật 2026-06-03):
+- **p260** — Cụm A DONE
+- Tiếp Cụm B (p240-300) — 8 quẻ Mệnh-Thân paradigm
+
+### Trang dừng đọc trước đó:
 - **p180** — vòng 1-9 (đọc tuần tự): Phần I + 22 quẻ đầu (Càn → Bí)
 - **p200** — vòng 10-11: Bác/Phục/Vô Vọng/Đại Súc/Di/Khảm
 - **p389-394** — JUMP tới quẻ 60 **Tiết** (Tiền Thiên founder) — đọc kỹ vì cần cho lá số anh
