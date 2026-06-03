@@ -1,14 +1,16 @@
 """Accurate Đại Vận starting-age via real tiết khí dates.
 
 Classical 子平 rule (起運法):
-- For thuận (forward) direction: count days from BIRTH to the NEXT tiết khí.
-- For nghịch (backward) direction: count days from PREVIOUS tiết khí to BIRTH.
+- For thuận (forward) direction: count days from BIRTH to the NEXT 節 (tiết lệnh).
+- For nghịch (backward) direction: count days from PREVIOUS 節 to BIRTH.
 - 3 days = 1 year; final result clamped to [1, 10].
 
 Implementation:
 - Uses `core.chronos.estimate_solar_longitude` as the inverse-solvable model.
-- A tiết khí is a 15° solar longitude crossing.
-- Solve for the next/previous datetime where solar_longitude = round(L_birth / 15) * 15 ± 15.
+- 節 (tiết lệnh — the 12 "establishment" solar terms) are at longitude 15 + 30k
+  (k=0..11): 15,45,75,105,135,165,195,225,255,285,315,345°.
+- 中氣 (trung khí — the 12 secondary terms) are at 0+30k: 0,30,60,90,…,330°.
+- Khởi vận uses ONLY 節, NOT 中氣 (step = 30°, origin = 15°).
 
 This v2 algorithm replaces the rough default (3 thuận / 7 nghịch) used in v1.
 """
@@ -16,6 +18,7 @@ This v2 algorithm replaces the rough default (3 thuận / 7 nghịch) used in v1
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
+from math import floor as _floor
 
 from core.chronos import estimate_solar_longitude
 
@@ -91,32 +94,40 @@ def _algebraic_estimate(target_longitude: float, near_dt: datetime) -> datetime:
 
 
 def next_tiet_khi_date(birth_dt: datetime) -> datetime:
-    """Find the next tiết khí (15° solar-longitude crossing) AFTER birth."""
+    """Find the next 節 (tiết lệnh, longitude 15+30k) AFTER birth.
+
+    節 are at 15,45,75,105,...,345° (step 30°, NOT 15°).
+    中氣 at 0,30,60,...,330° are excluded from khởi vận calculation.
+    """
     cur_lon = estimate_solar_longitude(birth_dt)
-    # Next 15° boundary.
-    next_boundary = ((int(cur_lon // 15) + 1) * 15) % 360
-    candidate = _date_when_longitude_is(next_boundary, birth_dt + timedelta(days=7))
-    # Ensure candidate > birth_dt.
+    # Smallest 節 longitude strictly greater than cur_lon.
+    # 節 = 15 + 30k → k = floor((cur_lon - 15) / 30) + 1
+    k = _floor((cur_lon - 15) / 30) + 1
+    next_boundary = (15 + 30 * k) % 360
+    candidate = _date_when_longitude_is(next_boundary, birth_dt + timedelta(days=15))
     if candidate <= birth_dt:
-        # Try the boundary after.
-        next_boundary = (next_boundary + 15) % 360
-        candidate = _date_when_longitude_is(next_boundary, birth_dt + timedelta(days=20))
+        next_boundary = (next_boundary + 30) % 360
+        candidate = _date_when_longitude_is(next_boundary, birth_dt + timedelta(days=35))
     return candidate
 
 
 def prev_tiet_khi_date(birth_dt: datetime) -> datetime:
-    """Find the previous tiết khí BEFORE birth."""
+    """Find the previous 節 BEFORE birth.
+
+    節 are at 15,45,75,105,...,345° (step 30°).
+    """
     cur_lon = estimate_solar_longitude(birth_dt)
-    # Previous 15° boundary.
-    prev_boundary_idx = int(cur_lon // 15)
-    if abs(cur_lon - prev_boundary_idx * 15) < 0.001:
-        # Birth IS at a tiết khí → use the one before.
-        prev_boundary_idx -= 1
-    prev_boundary = (prev_boundary_idx * 15) % 360
-    candidate = _date_when_longitude_is(prev_boundary, birth_dt - timedelta(days=7))
+    # Largest 節 longitude strictly less than cur_lon.
+    # 節 = 15 + 30k → k = floor((cur_lon - 15) / 30)
+    k = _floor((cur_lon - 15) / 30)
+    prev_boundary = (15 + 30 * k) % 360
+    if abs(cur_lon - prev_boundary) < 0.001:
+        # Birth IS exactly on a 節 → use the one before.
+        prev_boundary = (prev_boundary - 30) % 360
+    candidate = _date_when_longitude_is(prev_boundary, birth_dt - timedelta(days=15))
     if candidate >= birth_dt:
-        prev_boundary = (prev_boundary - 15) % 360
-        candidate = _date_when_longitude_is(prev_boundary, birth_dt - timedelta(days=20))
+        prev_boundary = (prev_boundary - 30) % 360
+        candidate = _date_when_longitude_is(prev_boundary, birth_dt - timedelta(days=35))
     return candidate
 
 
