@@ -19,18 +19,23 @@
 - Journal: `docs/design/ha-lac-cum-b-tham-nhuan.md`
 - ⭐ Minh Di Hào 2: "đau đùi BÊN TRÁI nhưng sẽ mau khỏi"
 
-### ✅ Cụm C Tổn-Ích-Quải-Cấu — DONE 2026-06-03 🆕
+### ✅ Cụm C Tổn-Ích-Quải-Cấu — DONE 2026-06-03
 - 8 quẻ: Tổn, Ích, Quải, Cấu, Tụy, Thăng, Khốn, Tỉnh
 - Journal: `docs/design/ha-lac-cum-c-tham-nhuan.md`
-- Paradigm cốt: QUYẾT ĐỊNH (mất-được, dứt khoát)
-- ⭐ Cặp Tổn-Ích: "Tổn dưới → trên cũng tổn; Tổn trên → cả hai cùng ích"
-- ⭐ Case Phùng Hoan đốt khế = "mua nghĩa" cho Mạnh Thường Quân
-- ⭐ Khốn + Văn Vương + Khổng Tử: "Khốn mà Hanh"
+- ⭐ Cặp Tổn-Ích + Phùng Hoan đốt khế + Khốn mà Hanh
 
-### Trang dừng đọc cuối cùng (cập nhật 2026-06-03 chiều):
-- **p340** — Cụm A + B + C DONE
-- Đã đọc: 49/64 quẻ (77%)
-- Tiếp Cụm D Cách-Đỉnh-Chấn-Cấn (p340-380) — 9 quẻ CHUYỂN HÓA
+### ✅ Cụm D Cách-Đỉnh-Chấn-Cấn — DONE 2026-06-03 🆕
+- 9 quẻ: Cách, Đỉnh, Chấn, Cấn, Tiệm, Quy Muội, Phong, Lữ, Tốn
+- Journal: `docs/design/ha-lac-cum-d-tham-nhuan.md`
+- Paradigm cốt: CHUYỂN HÓA
+- ⭐ Quẻ Cách: 5 đức (Thời + Đạo + Sáng + Hòa + **CHÍ THÀNH**) + "Cách xong phải NGỪNG"
+- ⭐ Case Nã-phá-luân + Viên Thế Khải vs Hoa Thịnh Đốn
+- ⭐ Quẻ Cấn "Cấn ở lưng không thấy thân" — vô ngã
+
+### Trang dừng đọc cuối cùng (cập nhật 2026-06-03 tối):
+- **p380** — Cụm A + B + C + D DONE
+- Đã đọc: 58/64 quẻ (91%)
+- Tiếp Cụm E (Đoài/Hoán/Trung Phu/Tiểu Quá/Ký Tế/Vị Tế) — 6 quẻ HOÀN THÀNH
 
 ### Trang dừng đọc trước đó:
 - **p180** — vòng 1-9 (đọc tuần tự): Phần I + 22 quẻ đầu (Càn → Bí)
