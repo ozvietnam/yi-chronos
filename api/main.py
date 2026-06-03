@@ -1666,6 +1666,38 @@ def dong_y_monthly_health(request: MonthlyHealthRequest) -> dict[str, object]:
     }
 
 
+@app.post("/api/dong-y/ngu-van-luc-khi")
+def dong_y_ngu_van_luc_khi(request: MonthlyHealthRequest) -> dict[str, object]:
+    """Ngũ Vận Lục Khí — vận khí năm + Lục Dâm cảnh báo (Lê Văn Sửu).
+
+    Paradigm Hoàng Đế Nội Kinh — tính trung vận + khí trời năm,
+    cross với Day Master để cảnh báo 6 tà khí ngoài.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.luu_nien import compute_luu_nien_pillar_by_year
+    from engine.dong_y.ngu_van_luc_khi import compute_ngu_van_luc_khi, render_ngu_van_luc_khi_markdown
+    from engine.bat_tu.constants import STEM_ELEMENT as SE
+
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    dm_stem = base["pillars"]["day"]["stem"]
+    dm_el = SE.get(dm_stem, "")
+
+    year_pillar = compute_luu_nien_pillar_by_year(request.year)
+    result = compute_ngu_van_luc_khi(
+        can_nam=year_pillar["stem"],
+        chi_nam=year_pillar["branch"],
+        year=request.year,
+        day_master_element=dm_el,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "year_pillar": year_pillar,
+        "day_master_element": dm_el,
+        "result": result.to_dict(),
+        "markdown": render_ngu_van_luc_khi_markdown(result),
+    }
+
+
 @app.get("/api/dong-y/paradigm")
 def dong_y_paradigm_overview() -> dict[str, object]:
     """Paradigm overview Liệu pháp Tượng Số — 5 phương pháp + quy tắc số 0 + 6 lưu ý."""
