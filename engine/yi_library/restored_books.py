@@ -47,7 +47,6 @@ BOOK_TITLES = {
     "chu-dich-voi-du-doan-hoc": "Chu Dịch với Dự Đoán Học",
     # Stage A MarkItDown
     "tu-thu-binh-giai": "Tứ Thư Bình Giải",
-    "tu-vi-dau-so-toan-thu-vn": "Tử Vi Đẩu Số Toàn Thư (VN — Vũ Tài Lục)",
     "tam-thien-dich-so": "Tam Thiên Dịch Số",
     "sach-tu-vi-vo-long": "Sách Tử Vi Vô Lông",
     "khong-minh-than-toan-384-que": "Khổng Minh Thần Toán — 384 Quẻ",
@@ -66,6 +65,16 @@ BOOK_TITLES = {
     "tu-vi-ham-so": "Tử Vi Hàm Số",
     "boc-phe-chinh-tong": "Bốc Phệ Chính Tông",
     "bat-tu-ha-lac-va-quy-dao-doi-nguoi": "Bát Tự Hà Lạc và Quỹ Đạo Đời Người",
+    # Đêm 2 + Lê Văn Sửu batch (OCR mới — bổ sung 2026-06-03)
+    "bi-an-cua-bat-quai": "Bí Ẩn Của Bát Quái",
+    "can-chi-thong-luan": "Can Chi Thông Luận",
+    "hoc-thuyet-am-duong-ngu-hanh-le-van-suu": "Học Thuyết Âm Dương Ngũ Hành — Lê Văn Sửu",
+    "ki-mon-don-giap": "Kỳ Môn Độn Giáp",
+    "kinh-dich-va-he-nhi-phan": "Kinh Dịch và Hệ Nhị Phân",
+    "ly-thuyet-tuong-so-hoang-tuan": "Lý Thuyết Tượng Số — Hoàng Tuấn",
+    "nhap-mon-chu-dich-du-doan-hoc": "Nhập Môn Chu Dịch Dự Đoán Học",
+    "so-tien-dinh-lap-thanh": "Sổ Tiên Định Lập Thành",
+    "trung-chau-tu-vi-dau-so-2": "Trung Châu Tử Vi Đẩu Số 2",
 }
 
 # Categories — for grouping in UI
@@ -81,7 +90,6 @@ BOOK_CATEGORIES = {
     "bat-tu-ha-lac-va-quy-dao-doi-nguoi": "Tứ Trụ — Bát Tự",
     "trich-thien-tuy-binh-chu-nham-thiet-tieu": "Tứ Trụ — Bát Tự",
     "thien-nhan-hoc-co-dai-trich-thien-tuy": "Tứ Trụ — Bát Tự",
-    "tu-vi-dau-so-toan-thu-vn": "Tử Vi Đẩu Số",
     "tu-vi-dau-so-toan-thu-vu-tai-luc": "Tử Vi Đẩu Số",
     "tu-vi-nghiem-ly-toan-thu-thien-luong": "Tử Vi Đẩu Số",
     "tu-vi-ham-so": "Tử Vi Đẩu Số",
@@ -95,6 +103,16 @@ BOOK_CATEGORIES = {
     "lien-hoa-don": "Chuyên Đề",
     "chua-benh-theo-chu-dich": "Chuyên Đề",
     "hoang-lich": "Lịch — Phong Thuỷ",
+    # Đêm 2 + Lê Văn Sửu batch (OCR mới — bổ sung 2026-06-03)
+    "bi-an-cua-bat-quai": "Chu Dịch — Dự Đoán",
+    "kinh-dich-va-he-nhi-phan": "Chu Dịch — Dự Đoán",
+    "nhap-mon-chu-dich-du-doan-hoc": "Chu Dịch — Dự Đoán",
+    "hoc-thuyet-am-duong-ngu-hanh-le-van-suu": "Kinh Điển",
+    "can-chi-thong-luan": "Tứ Trụ — Bát Tự",
+    "trung-chau-tu-vi-dau-so-2": "Tử Vi Đẩu Số",
+    "ly-thuyet-tuong-so-hoang-tuan": "Dịch Số",
+    "ki-mon-don-giap": "Chuyên Đề",
+    "so-tien-dinh-lap-thanh": "Lịch — Phong Thuỷ",
 }
 
 
