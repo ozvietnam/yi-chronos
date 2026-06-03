@@ -394,6 +394,39 @@ CONG_THUC_TUONG_SO: list[dict] = [
         "trich_sach": "Dòng 6801: niệm thấy như máu trong chân chảy, đầu ngón chân xì hơi lạnh, sau đó nhẹ nhàng.",
     },
     {
+        "tuong_so": "80.20",
+        "y_nghia": "⭐ Đau CỔ-VAI-GÁY do hàn — tản hàn giải cơ",
+        "phan_tich": (
+            "8=Khôn/Tỳ chủ cơ bắp (vai gáy thuộc cơ + Khôn), thiên ôn để tản hàn giải cơ. "
+            "2=Đoài chủ khí cơ, giúp túc giáng trọc tà. "
+            "Cổ vai gáy là nơi 3 kinh dương chạy qua (Bàng quang Khảm + Đởm Tốn + Đại trường Càn) — "
+            "khi hàn tà xâm nhập làm 3 kinh tắc → đau cứng."
+        ),
+        "chi_dinh": [
+            "Đau cổ vai gáy do gió lùa / thời tiết lạnh",
+            "Cứng cổ vai gáy sáng dậy không quay được",
+            "Đau vai trái / phải do hàn",
+            "Đau vai gáy + lan xuống bả vai",
+            "Đau cổ sau khi ngủ điều hòa lạnh",
+        ],
+        "trich_sach": "Case 86 (dòng 6896): Cô Kim 22t đau vai trái + 2 khớp gối do thời tiết rét, niệm 80.20 → 1 ngày vai khỏi hẳn.",
+    },
+    {
+        "tuong_so": "8000.70",
+        "y_nghia": "Đau vai + chân (Can-Thận kém người trung niên+) — phấn chấn tỳ dương",
+        "phan_tich": (
+            "8000=Khôn (Tỳ) + 3 số 0 trợ lực tản hàn. 70=Cấn (chân/đùi) ôn thông. "
+            "Bài cho người trung niên Can-Thận kém → gân mạch mất bồi dưỡng → đau vai + co gân chân."
+        ),
+        "chi_dinh": [
+            "Đau vai + bắp chân co gân cùng lúc",
+            "Viêm khớp vai mạn + đau đùi",
+            "Người trung niên trở lên Can-Thận hư, gân mạch yếu",
+            "Đau xương khớp lan tỏa nhiều vùng",
+        ],
+        "trich_sach": "Case 87 (dòng 6940): Bà Diêm 68t bệnh mạch vành + vai phải bị thương + đùi trái co gân, niệm 8000.70 → vài chục phút vai+chân tiêu tán.",
+    },
+    {
         "tuong_so": "0002",
         "y_nghia": "Mẩn ngứa cấp da — sơ phong lợi thấp",
         "phan_tich": (
@@ -576,6 +609,27 @@ def tim_tuong_so(chan_thuong: str) -> TuongSoResult:
     if "mắt" in ct and any(k in ct for k in ["đỏ", "sưng", "viêm kết mạc"]):
         for i, f in enumerate(matched):
             if f["tuong_so"] == "003":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Đau cổ-vai-gáy (do hàn / gió lùa / ngủ máy lạnh) → 80.20
+    if any(k in ct for k in ["cổ vai gáy", "vai gáy", "cứng cổ", "đau cổ", "đau vai gáy", "cổ vai"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "80.20":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Đau nửa đầu BÊN TRÁI (Can huyết hư) → 260.50.30.80
+    if any(k in ct for k in ["nửa đầu bên trái", "nửa đầu trái", "nửa đầu", "migraine trái"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "260.50.30.80":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Đau vai + chân/đùi cùng lúc (Can-Thận kém) → 8000.70
+    if "vai" in ct and any(k in ct for k in ["chân", "đùi", "bắp chân", "co gân"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "8000.70":
                 matched.insert(0, matched.pop(i))
                 break
 
