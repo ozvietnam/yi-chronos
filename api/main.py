@@ -1666,6 +1666,69 @@ def dong_y_monthly_health(request: MonthlyHealthRequest) -> dict[str, object]:
     }
 
 
+class WeeklyPlanRequest(BaseModel):
+    birth_datetime_local: str
+    timezone: str = "Asia/Ho_Chi_Minh"
+    gender: str = "nam"
+    start_date: str | None = None
+
+
+@app.post("/api/dong-y/ha-lac-tat-ach")
+def dong_y_ha_lac_tat_ach(request: MonthlyHealthRequest) -> dict[str, object]:
+    """Hà Lạc Tật Ách — đọc tạng phủ qua 2 quẻ + hào nguyên đường."""
+    from engine.ha_lac import cast_ha_lac
+    from engine.ha_lac.tat_ach import analyze_ha_lac_tat_ach, render_ha_lac_tat_ach_markdown
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.constants import STEM_ELEMENT as SE
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    dm_el = SE.get(base["pillars"]["day"]["stem"], "")
+    ha_lac = cast_ha_lac(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+    )
+    result = analyze_ha_lac_tat_ach(ha_lac, day_master_element=dm_el)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "result": result.to_dict(),
+        "markdown": render_ha_lac_tat_ach_markdown(result),
+    }
+
+
+@app.post("/api/dong-y/synthesis")
+def dong_y_synthesis(request: MonthlyHealthRequest) -> dict[str, object]:
+    """Health Synthesis — báo cáo tổng hợp 4 trường phái."""
+    from engine.dong_y.health_synthesis import build_health_synthesis, render_synthesis_markdown
+    result = build_health_synthesis(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+        current_year=request.year,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "result": result.to_dict(),
+        "markdown": render_synthesis_markdown(result),
+    }
+
+
+@app.post("/api/dong-y/weekly-plan")
+def dong_y_weekly_plan(request: WeeklyPlanRequest) -> dict[str, object]:
+    """Lịch dưỡng sinh 7 ngày cá nhân hóa."""
+    from engine.dong_y.weekly_planner import build_weekly_plan, render_weekly_markdown
+    result = build_weekly_plan(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+        start_date=request.start_date,
+    )
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "result": result.to_dict(),
+        "markdown": render_weekly_markdown(result),
+    }
+
+
 @app.post("/api/dong-y/benh-tat-ttt")
 def dong_y_benh_tat_ttt(request: MonthlyHealthRequest) -> dict[str, object]:
     """Bệnh tật theo Trích Thiên Tủy chương 25 (Nhâm Thiết Tiều).
