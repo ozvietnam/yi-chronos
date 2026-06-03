@@ -15,15 +15,22 @@
 - Paradigm cốt: NUÔI → ẨN SÚC → GIẤU SÁNG → HƯ TÂM → GIỮ TRUNG
 
 ### ✅ Cụm B Mệnh-Thân — DONE 2026-06-03
-- 8 quẻ: Độn, Đại Tráng, Tấn, Minh Di, Gia Nhân, Khuê, Kiển, Giải (p234-280)
+- 8 quẻ: Độn, Đại Tráng, Tấn, Minh Di, Gia Nhân, Khuê, Kiển, Giải
 - Journal: `docs/design/ha-lac-cum-b-tham-nhuan.md`
-- Paradigm cốt: ỨNG XỬ với THỜI — Lùi/Tiến/Giải/Chống
-- ⭐ Minh Di Hào 2: "đau đùi BÊN TRÁI nhưng sẽ mau khỏi" — cross founder
+- ⭐ Minh Di Hào 2: "đau đùi BÊN TRÁI nhưng sẽ mau khỏi"
 
-### Trang dừng đọc cuối cùng (cập nhật 2026-06-03):
-- **p280** — Cụm A + B DONE
-- Đã đọc: 41/64 quẻ (64%)
-- Tiếp Cụm C Tổn-Ích-Quải-Cấu (p300-340) — 8 quẻ QUYẾT ĐỊNH
+### ✅ Cụm C Tổn-Ích-Quải-Cấu — DONE 2026-06-03 🆕
+- 8 quẻ: Tổn, Ích, Quải, Cấu, Tụy, Thăng, Khốn, Tỉnh
+- Journal: `docs/design/ha-lac-cum-c-tham-nhuan.md`
+- Paradigm cốt: QUYẾT ĐỊNH (mất-được, dứt khoát)
+- ⭐ Cặp Tổn-Ích: "Tổn dưới → trên cũng tổn; Tổn trên → cả hai cùng ích"
+- ⭐ Case Phùng Hoan đốt khế = "mua nghĩa" cho Mạnh Thường Quân
+- ⭐ Khốn + Văn Vương + Khổng Tử: "Khốn mà Hanh"
+
+### Trang dừng đọc cuối cùng (cập nhật 2026-06-03 chiều):
+- **p340** — Cụm A + B + C DONE
+- Đã đọc: 49/64 quẻ (77%)
+- Tiếp Cụm D Cách-Đỉnh-Chấn-Cấn (p340-380) — 9 quẻ CHUYỂN HÓA
 
 ### Trang dừng đọc trước đó:
 - **p180** — vòng 1-9 (đọc tuần tự): Phần I + 22 quẻ đầu (Càn → Bí)
