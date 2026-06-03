@@ -1666,6 +1666,37 @@ def dong_y_monthly_health(request: MonthlyHealthRequest) -> dict[str, object]:
     }
 
 
+@app.post("/api/dong-y/benh-tat-ttt")
+def dong_y_benh_tat_ttt(request: MonthlyHealthRequest) -> dict[str, object]:
+    """Bệnh tật theo Trích Thiên Tủy chương 25 (Nhâm Thiết Tiều).
+
+    Kỳ thần nhập ngũ tạng = bệnh hung. Khách thần du lục kinh = bệnh nhẹ.
+    Cross với Day Master + kỵ thần để cá nhân hóa.
+    """
+    from engine.bat_tu import extract_tu_tru
+    from engine.bat_tu.phu_uc_route import route_phu_uc
+    from engine.bat_tu.constants import STEM_ELEMENT as SE
+    from engine.dong_y.benh_tat_ttt import analyze_benh_tat_ttt, render_benh_tat_ttt_markdown
+
+    base = extract_tu_tru(request.birth_datetime_local, request.timezone)
+    tu_tru = {"pillars": base["pillars"]}
+    dm_stem = base["pillars"]["day"]["stem"]
+    dm_el = SE.get(dm_stem, "")
+
+    # Get kỵ thần từ Phù-Ức
+    phu_uc = route_phu_uc(tu_tru)
+    ky_than_els = phu_uc.ky_than_elements or []
+
+    result = analyze_benh_tat_ttt(dm_el, ky_than_els)
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "day_master_element": dm_el,
+        "ky_than_elements": ky_than_els,
+        "result": result.to_dict(),
+        "markdown": render_benh_tat_ttt_markdown(result),
+    }
+
+
 @app.post("/api/dong-y/ngu-van-luc-khi")
 def dong_y_ngu_van_luc_khi(request: MonthlyHealthRequest) -> dict[str, object]:
     """Ngũ Vận Lục Khí — vận khí năm + Lục Dâm cảnh báo (Lê Văn Sửu).

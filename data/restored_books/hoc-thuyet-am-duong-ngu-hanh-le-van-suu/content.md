@@ -1,3744 +1,6140 @@
 # Học Thuyết Âm Dương Ngũ Hành — Lê Văn Sửu
 
-_(OCR Tesseract VN từ PDF, 100 trang đầu — 300 DPI)_
+_(OCR Tesseract VN từ PDF, 151 trang đầu — 300 DPI)_
 
 ---
 
 
-<!-- page 1 -->
+<!-- page 101 -->
 
-NT Hỗ THAN EI PHƯỡNP bÑð &'
+Sự khác nhau về tính đồng dạng của hai loại ngũ hành ở hai quy luật cũng
 
-——_ LiVán Sưu
+cần phân tích như sau: Ngũ vận là những đơn vì thời gian theo năm gọi là đại
+A Z ...— ^ À 2 x 365,35 ngày ` z Z ^ *
+vận. Tính thời gian theo một phần của năm (————) là các bước sơ vận, nhị
 
-\jJjUIll
-TINH
+vận, tam vận, tứ vận, chung vận, dùng để tính chủ vận và biến hoá của khách vận
+(xem cách tính chi tiết lục khí - ngũ vận trong sách Trung y khái luận) - Ngũ
+hành tính theo từng cặp thiên can trong chu kỳ 10 can lại có tính đồng dạng
+trong cả bốn đơn vị tính thời gian là ngày, giờ, tháng, năm. Ví dụ ở các năm
+mậu, kỷ, tháng có can mậu, kỷ, ngày có can mậu, kỷ và giờ có can mậu kỷ đều
 
+mang trong nó hành thổ.
 
+Về ảnh hưởng do hai loại ngũ hành gây ra ở hai quy luật cũng khác nhau.
+Ngũ hành ở ngũ vận để biết được những bệnh diễn ra ở những tạng khí có hành
+tương ứng. Như ở thổ vận, ta có thể biết được rằng tạng khí tương ứng sẽ có bệnh
+là tỳ và vị. Ngũ hành theo cặp can ở 10 thiên can lại cho ta biết được rằng ở tạng
+khí tương ứng theo hành sẽ có diễn biến công năng sinh lý theo chiều hướng thúc
+đẩy, hỗ trợ hay kìm hãm, khác chế. Ví dụ: vào những ngày, giờ, tháng, năm, có
+can mậu, kỷ, tạng khí tương ứng với hành thổ là tỳ, vy được hỗ trợ cho nên hoạt
+động khoẻ hơn, có khả năng chống đỡ bệnh tật tốt hơn. Ngược lại, cùng lúc đó
+các tạng khí tương ứng với hành thuỷ lại bị khắc chế, khả năng hoạt động và sức
 
-<!-- page 2 -->
+chống bệnh tật giảm đi đó là thận và bàng quang.
 
-VĂN HOÁ THẦN BÍ PHƯƠNG ĐÔNG
-LÊ VĂN SỬU
+Sách Châm cứu đại thành, trang 33, đoạn trích dẫn "Nạn kinh” nói về tính
 
-HỌC THUYẾT
+chất này như sau:
 
-AM DƯƠNG NGỮŨ HÀNH
++ Nạn thứ 56 viết: Tích của ngũ tạng có tên chăng? - Lấy ngày nào, tháng
+nào đắc cái đó ? Thưa, tích ở can tên là phì khí (thính vậy), ở phía dưới sườn
+trái, như cái chén úp có đầu chân, lâu ngày không khỏi, làm cho người ta ho
+ngược lên mà sốt rét kéo dài, liền hàng năm không dứt Lấy cuối mùa hạ, vào
+ngày mậu, ngày kỷ đắc cái đó. Vì sao mà nói như thế Phế bệnh chuyển sang can,
+can đón chuyển sang lý, tỳ ở cuối mùa hạ, thích hợp làm vượng (vương) tỳ vượng
+không chịu, can lai muốn trả lại cho phế, phế không gánh chịu đằng lưng, làm
+cho lưu kết lại mà thành ra tích, cho nên biết phì khí lấy ngày mậu, ngày kỷ ở
 
-NHÀ XUẤT BẢN VĂN HOÁ THÔNG TIN
+cuối mùa hạ là đắc cái đó...
 
+100
 
 
-<!-- page 3 -->
 
-LỜI NÓI ĐẦU
+<!-- page 102 -->
 
-Âm dương - Ngũ hành là học tuyết tiền để của triết học cổ Phương Đông,
-nó đã gắn bó với người Phương Đông từ nhiều thế kỷ qua ở các lĩnh vực: Khoa
-học tự nhiên và xã hội, tư duy, tâm lý, tình cảm.
+Bảng so sánh sự khác nhau về ảnh hưởng của ngũ hành trong hai loại chu
 
-Từ trước tới nay đã có nhiều sách của các học giả Đông, Tây bàn về học
-thuyết Âm Dương Ngũ Hành trên nhiều bình diện khác nhau. Cuốn sách Học
-thuyết Âm Dương Ngũ Hành của tác giả - nhà nghiên cứu Đông y và triết học cổ
-Phương Đông: Lê Văn Sửu, sẽ giúp bạn đọc tìm hiểu về học thuyết này với các
-nội dung:
+kỳ ngũ vân và thập thiên can như sau (Bảng 3-7):
 
-- Lịch sử của học thuyết Âm Dương Ngũ Hành.
+(Bảng 3-7)
+Ngũ vận Tạng có bệnh 10 thiên can Vượng Khắc
+giáp, kỷ tỳ giáp, ất, mộc can, đảm tỳ, VỊ
+thổ vị
+ất, canh phế, bính, đinh, hoả tâm, phế,
+kim đại trường tiểu trường đại trường
+bính, tân, thận, mậu, kỷ, thổ tỷ, VỊ thận,
+thuỷ bàng quang bàng quang
+đinh, nhâm, can, đảm canh, tân, kim phế, can, đảm
+mộc đại trường
+mậu, quý, tâm, nhâm, quý, thuỷ tâm, tiểu
+hoả tiểu trường trường
 
-- Bản chất của học thuyết Âm Dương Ngũ Hành.
+d. Hành thổ trong ngũ hành nạp âm của 60 hoa giáp (ở phép tính tử
+vi). Ngũ hành nạp âm thường gọi là mệnh, là loại ngũ hành tính theo ảnh hưởng
+tổng hợp của nhiều quy luật thời gian như: Hỗn hợp can chi của năm, nhịp âm
+dương, cung độ âm dương, quy luật bát quái, quy luật ngũ vận lục khí. Sự tổng
+hợp đó nhằm mô tả một mặt của khí chất con người có năm sinh tương ứng. Vì là
+khí chất tổng hợp, cho nên sự sắp xếp thuận tự của ngũ hành không theo thuận tự
+riêng của một loại chu kỳ nào, mà là một công thức phức tạp, chuyển đổi qua
 
-- Quy luật Âm Dương Ngũ Hành trong ngôn ngữ tiếng Việt và trong các
-yếu tố của nghệ thuật tạo hình Phương Đông.
+nhiều bước.
+* Các bước tính như sau:
 
-Mong rằng cuốn sách sẽ là tài liệu tham khảo làm phong phú thêm kiến
-thức của bạn đọc về nền triết học cổ Phương Đông.
+- Trước hết xem tên can chi của năm là gì? ví dụ năm sinh 1944: giáp
 
-Nhà xuất bản văn hoá - thông tin
+thân.
 
+- Xem tên can chi đó là số thứ tự bao nhiêu trong 60 hoa giáp. 60 năm can
+chi khởi đầu từ giáp tý, giáp thân là thứ 21
 
+- Đem số thứ tự đó so với số 30, nếu từ 30 trở lại thì để nguyên, trên 30
 
-<!-- page 4 -->
+phải trừ đi 30 Giáp thân là số 21, nhỏ hơn 30 nên để nguyên.
 
-CHƯƠNG 1
-LỊCH SỬ HỌC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+101
 
-I. ĐẶC ĐIỂM HOÀN CẢNH SỐNG Ở PHƯƠNG ĐÔNG QUÊ
-HƯƠNG CỦA HỌC THUYẾT ÂM DƯƠNG - NGŨ HÀNH
 
-Học thuyết Âm dương - Ngũ hành là sản phẩm tinh thần của con người
-Phương Đông, nó đã hình thành và tồn tại lâu dài trong lịch sử Phương Đông, nó
-cũng được coi là một học thuyết đặc thù chỉ có ở Phương Đông mà thôi. Cái nền
-tảng để làm nên tính chất đặc thù của nó có hai mặt: Một là đặc điểm địa dư, khí
 
-hậu; hai là phương pháp tư duy khoa học.
-A. Về đặc điểm địa dư, khí hậu:
+<!-- page 103 -->
 
-Phương Đông bao gồm các nước phía đông dãy núi Hy Mã Lạp Sơn như
-Mông Cổ, Nhật Bản, Triều Tiên, Trung Quốc, Malaixia, Philippin, Việt Nam,
-Lào, Campuchia... Trong đó Trung Quốc, Việt Nam, Triều Tiên và Nhật Bản
-được coi là trung tâm của nền văn minh cổ đại Phương Đông. Đặc điểm địa dư ở
-đây có các chiều đối nghịch về cấu tạo vật chất như: Phía đông của khu vực này
-là biển Thái Bình Dương, một khối nước không gì lớn bằng, không øì sâu bằng.
-Phía tây của khu vực này là dãy núi Hy Mã Lạp Sơn, một khối đất đá không gì
-lớn bằng, không gì cao bằng.
+- Sau khi đã so với số 30 xong, lại đem so với số 12 để quy đổi chắn lẻ như
+sau: nếu số đem so từ 12 trở xuống, chắn thì phải đổi thành số lẻ trước nó, số
+đem so là số lẻ thì giữ nguyên, trường hợp số đem so trên 12 là số chắn thì vẫn
+giữ nguyên, số lẻ phải đem đổi thành số chắn sau nó, tức là đều phải + 1 nữa.
 
-Phía bắc của khu vực này là hàn đới, gần bắc cực, lạnh giá quanh năm. Phía
-nam khu vực này là xích đạo, nóng nực cả bốn mùa. Đặc điểm khí hậu ở đây có
-hai nét lớn, một là gió theo mùa, mỗi mùa một hướng gió: Mùa xuân gió đông,
-mùa hạ gió nam, mùa thu gió tây, mùa đông gió bắc, Gió mỗi mùa từ mỗi hướng
-thổi về lại mang theo đặc điểm khí hậu của hướng gió ấy: Gió đông ẩm, gió nam
-nóng, gió tây hanh khô, gió bắc lạnh. Ngoài điểm này ra, khu vực Phương Đông
-còn chịu cảnh tràn áp suất không khí từ biển đông tới lục địa vào mùa nóng, gây
-lên nhiều trận bão lớn, lụt to. Sức mạnh tàn phá của thiên nhiên được biểu hiện ở
-thiên tai lụt bão, mưa nắng thất thường, con người tồn tại ở đây phải chịu đựng
+Giáp thân 21 phải + 1 = số 22.
 
-muôn vàn gian khổ.
+- Đem kết quả chuyển đổi lần cuối cùng này chia cho 8 tìm số dư. Số dư
+đó chính là số của cung quái (1 = càn, 2 = đoài, 3 = ly, 4 = chấn, 5 = tốn, 6 =
+khám, 7 = cấn, 8 = khôn).
+
+- Khi đã tìm ra cung quái, lấy hành của cung quái đó làm ngũ hành nạp
+âm, hay còn gọi là mệnh của tuổi. Số của giáp thân 21 + 1 = 22, lấy 22 chia cho
+§ được 2 lần, còn dư 6, số 6 là quẻ khảm, hành của quẻ khảm là thuỷ vậy ngũ
+
+hành nạp âm của giáp thân là thuỷ, giáp thân có mệnh là thuỷ.
+
+Bảng 3-8. Bảng tương ứng giữa cung quái, số và hành:
 
+Càn Đoài Ly Chấn Tốn Khảm Cấn Khôn
+l 2 3 4 5 6 7 8
+Kim Hoả Mộc Thuỷ Thổ
 
+Trong khi chuyển đổi lần cuối cùng để đem chia cho số 8 tìm số dư, có
+một biệt lệ bắt buộc là: Những năm mậu tý, kỷ sửu, (số 25,26), mậu ngọ, kỷ mùi
+(số 55,56) sau khi chuyển đổi thành số 26, nếu đem chia cho 8 dư 2, theo cung
+quái là đoài, hành là kim, nhưng không lấy nạp âm (hay mệnh) là kim, mà phải
+lấy là hoả, (tích lịch hoả, thiên thượng hoả). Sở dĩ có biệt lệ này là do: Theo cách
+tính của quy luật lục khí ngũ vận thì những năm mậu tý, mậu ngọ vận đồng với
+khí đều là hoả, còn gọi là những năm thiên phù (xem cách tính ờ lục khí, ngũ
+vận), Vận đồng với khí là hoả tuy chỉ ở hai năm mậu tý mậu ngọ nhưng sức
+mạnh của hoả khí thiên phù do khí và vân gây ra đã lấn át ảnh hưởng của nhịp
+âm dương và ảnh hưởng của cung quái cho nên mới có tình trạng nạp âm của
 
-<!-- page 5 -->
+những năm mậu tý, mậu ngọ, kỷ sửu, kỷ mùi đều là hành hoả cả (đây là biệt lệ)
 
-B. Về mặt phương pháp tư duy:
+102
 
-Có thể nói tư duy của người Phương Đông trước hết vì sự tồn tại của đời
-sống thường ngày. Đứng trước uy lực lớn lao của thiên nhiên, họ phải quan sát
-vạn vật trong sự vận động của không gian và thời gian để tìm ra những giá trị
-tương ứng với điều kiện sống. Vào thời gian nào, ở vùng nào, loài nào sống tốt;
-vào thời gian nào, ở vùng nào, loài nào sống khó khăn hoặc bị diệt vong. Những
-kinh nghiệm tích luỹ được sẽ giúp họ biết chọn thời điểm, địa điểm tốt để hành
-động giành lấy điều kiện sống tốt; khi gặp thời điểm, địa điểm xấu biết né tránh,
-ẩn náu để bảo tồn sức sống và vật chất nuôi sống. Người ta gọi đó là " vũ trụ
 
-quan” Phương Đông.
 
+<!-- page 104 -->
 
+Bảng ngũ hành nạp âm của 60 hoa giáp (mệnh của 60 hoa giáp) qua các
 
-<!-- page 6 -->
+bước chuyển đổi như sau (bảng 3-9):
 
-II. NHỮNG NÉT KHỞI ĐẦU CỦA HỌC THUYẾT ÂM DƯƠNG -
-NGŨ HÀNH
+Bảng 3-9
+Năm can | Số thứ | Số đã Hành | Năm can | Số thứ | Số đã Hành
+chỉ tự chuyền chỉ tự chuyền
 
-Trong quá trình hình thành kinh nghiệm, thoạt đầu cư dân Phương Đông
-phải làm công việc tích luỹ số liệu, nghĩa là người ta tiến hành ghi chép thời
-gian, địa điểm, khí hậu, loài gì có sự biến đổi tương ứng tốt hay xấu. Người ta
-gọi những tài liệu đó thuộc loại "khí vật tương ứng", sau gọi tắt là "khí ứng"
+Giáp tý l 1 Km | Giáp Ngọ .31-30 1 Kim
+Ất Sửu 2 Ất Mùi 32
+Bính Dần 3 3 Hoả | Bính Thân | .33-30 3 Hoả
+Định Mão 4 Định Dậu 34
+Mậu Thìn 5 5 Mộc | Mậu Tuất .35-30 5 Mộc
+Kỷ Ty 6 Kỷ Hợi 36
+Canh Ngọ vị 7 Thổ | Canh Tý .37-30 7 Thổ
+Tân Mùi 6 Tân Sửu 38
+Nhâm Thân .0-8 1 Kim | Nhâm Dần | 30 1 Kim
+Quý Dậu 10 Quý Mão 40
+Giáp Tuất .11-8 3 Hoả | Giáp Thìn 41 3 Hoả
+Ất Hợi 12 Ất Ty 42
+Bính Tý 13 6 Thuỷ | Bính Ngọ 43 6 Thuỷ
+Đinh Sửu .14-8 Định Mùi | 44?
+Mậu Dần 15 8 Thổ | Mậu Thân 45 8 Thổ
+Kỷ Mão .16-8 Kỷ Dậu 46
+Canh Thìn 17 2 Km | Canh Tuất 47 2 Kim
+Tân Ty .18-8 Tân Hợi 48"
+Nhâm Ngọ 19 4 Mộc | Nhâm Tuất 49 4 Mộc
+Quý Mùi .20-8 Quý Sửu 50
+Giáp Thân 21 6 Thuỷ | Giáp Dần 51 6 Thuỷ
+Ất Dậu 22-8 Ất Mão 52
+Bính Tuất 23 6 Thổ | Bính Thìn 53 6 Thổ
+Đinh Hợi 24-8 Đinh Ty
 
-(thuật ngữ của lịch pháp cổ đại).
+103
 
-Khi đã có nhiều số liệu được ghi chép, người ta tiến hành so sánh để nhận
-thức và phân loại. So sánh (đối tỷ) là phương pháp nhận thức hiệu quả nhất của
-con người Phương Đông xưa. Cơ sở đem so sánh để nhận thức là hình dáng, tính
-chất và biểu hiện của vạn vật, gọi là "tượng" của vạn vật. Muốn có kết quả so
-sánh rõ nét để nhận thức nhanh, người ta phải dựa vào những "tượng" của vạn vật
-đối lập nhau, các mặt đối lập đó được quy vào hai loại lớn là "dương" và "âm”.
-Dương là những tượng có thuộc tính nóng, sáng, động v v ; âm là những tượng có
 
-thuộc tính lạnh, tối, tính v.v... (ta sẽ tìm hiểu sâu hơn ở sau).
 
-Lâu dần, số liệu tích luỹ càng nhiều, yêu cầu nhận thức thế giới của con
-người ngày càng cao, hai mặt đối lập "dương” và "âm” không đủ giải thích mọi
-diễn biến của vạn sự, vạn vật, từ phát sinh đến phát triển, trưởng thành, suy giảm
-cho tới diệt vong, người ta lại tiến hành phân loại "tượng” theo các quá trình từ
-sinh đến diệt của vạn sự, vạn vật theo năm bước, gọi là ngũ hành (5 hành). Môi
-bước trong năm bước tác động qua lại với nhau hình thành các quy luật thúc đẩy,
-hỗ trợ, kìm hãm, tiêu diệt lẫn nhau, người ta gọi chúng là ngũ hành tương sinh,
-ngũ hành tương khắc, ngũ hành tương chế, ngũ hành tương hoá, (ta sẽ tìm hiểu
+<!-- page 105 -->
 
-sâu hơn ở sau).
+54"
+Mậu Tý 25 biệtlệ - Hoá | Mậu Ngọ 55 biệt lệ Hoả
+Kỷ Sửu .26-8 2 Kỷ Mùi 56 2
+Canh Dần 27 4 Mộc | Canh Thân 57 4 Mộc
+Tân Mão .28-8 Kỷ Dậu 58
+Nhâm Thìn 29 6 Thuỷ | Nhâm Tuất 59 6 Thuỷ
+Quý Ty 30-8 QuýHợi | 60”
 
-Khi có được kết quả nhận thức thế giới theo hai học thuyết âm dương -
-Ngũ hành, người Phương Đông xa lại sử dụng ngay nó làm công cụ nhận thức
-thế giới, giải thích thế giới. Từ hiện tượng cảm nhận bằng giác quan máu thịt, tới
-những cảm nhận trừu tượng, thần bí; từ cái đã biểu hiện ở quá khứ, đến cái dự
-cảm sẽ thấy trong tương lai, nhất nhất đều không thoát ra khỏi thiên la, địa võng
+Loại ngũ hành này khác hẳn các loại ngũ hành ở ngũ vận, lục khí, thập
+thiên can. Mọi loại kia là cách tính ảnh hưởng theo chiêm tính học. Tuy vậy,
+trong đó cũng không thể không căn cứ vào khí hậu môi trường, tức là phần bị
 
-của âm dương - Ngũ hành, thưa nhưng mà chặt chẽ, ít mà có mặt ở mọi nơi. Cái
+quy luật vận khí chi phối.
 
+e. Hành thổ theo tứ quý: Tứ quý là cung đột thời gian giai đoạn cuối của
+bốn mùa. Theo các tài liệu cổ nói về tứ quý thì nó là khoảng thời gian chừng 13
+ngày ở cuối mỗi mùa, nội dung chủ yếu của nó là giai đoạn chuyển mùa. Do có
+sự phân chia cung độ không bằng nhau đều đặn như cung tiết, hoặc tháng, cho
+nên mỗi mùa có ba cung đoạn được đặt bằng một loại tên khác. Đầu mùa gọi là
+mạnh, như: Mạnh xuân, mạnh hạ, mạnh thu, mạnh đông. Giữa mùa gọi là trọng,
+như: Trọng xuân, trọng hạ, trọng thu, trọng đông. Cuối mùa gọi là quý, như: Quý
+xuân, quý hạ, quý thu, quý đông. Đầu mỗi mùa được xác định bằng ngày tiết lập,
+như: Lập xuân, lập hạ, lập thu, lập đông. Các ngày này do phép tích lịch định ra
+cho từng năm (xem "Lịch và lịch Việt Nam” của Hoàng Xuân Hãn). Trong giai
+đoạn chuyển mùa này tình trạng khí là trung bình, trong đời sống thường xảy ra
 
+dịch bệnh lây lan, đó là tính chất của hành thổ.
 
-<!-- page 7 -->
+Cung độ thời gian của tứ quý lại có sự tương ứng với các cung tháng địa
+chi là thìn, tuất, sửu, mùi, cho nên có người đã nhầm tưởng rằng ở phương
+phướng mặt đất, các cung thìn, tuất cũng là hành thổ, tức là khí thổ cũng có ở hai
+hướng gió đông nam và tây bắc. Điều này là một sai lầm. Thổ khí chỉ có ở đông
 
-vĩ đại, cái huyền diệu của học thuyết âm dương - Ngũ hành ta có thể học suốt đời
-không hết. Tuy ta không hiểu được về nó là bao, nhưng nó bám chặt lấy cuộc đời
+bắc và tây nam, còn ở hướng tây bắc tổng tý lệ khí (cả % âm và dương) bằng
 
-ta từ sinh đến diệt, từ vui đến buồn, không khi nào rời ta gang tấc.
+104
 
 
 
-<!-- page 8 -->
+<!-- page 106 -->
 
-HI. THUẬT ÂM DƯƠNG - NGŨ HÀNH RA ĐỜI TỪ BAO GIỜ
+nhau với tổng tỷ lệ khí ở hướng tây, cho nên khí là hành kim, hướng đông nam
+có tổng tý lệ khí bằng nhau với tổng tý lệ khí ở hướng đông, cho nên người ta
+xếp vào hành mộc.
 
-Thuật ngữ âm dương - Ngũ hành ra đời từ bao giờ, đến nay chưa có ai dám
-khẳng định. Ta thử làm việc tìm về ngược dòng lịch sử, dựa vào thư tịch hiện còn
+Đứng về khía cạnh khác mà xét, khía cạnh sinh trưởng của từng loài vật
+theo mùa, cũng là sự sinh trưởng của một loại khí theo mùa. Người ta đã chia
+mỗi mùa ra làm ba giai đoạn: sinh, vượng, mộ. Tương ứng với ba mức của mùa
+là mạnh, trọng, quý. Trong phép tính tử vi, người ta lấy các cung có tên sinh,
+vượng, mộ để xét đoán tình hình ảnh hưởng của các sao trong các cung đó khác
 
-là chính, sau đó mới dựa vào ước đoán qua tài liệu chuyển tải trung gian.
-A. Thư tịch hiện còn có thuật ngữ âm dương - Ngũ hành là:
+nhau (Bảng 3-10,3-1 1).
 
-1. Hoàng đế Nội kinh : Mọi sách dẫn giải về Nội kinh đều cho rằng niên
-đại thành sách ở vào thời Chiến quốc, trước đây khoảng hơn 2000 năm. Nội dung
-của nhiều thiên sách đã dùng thuật ngữ âm dương - Ngũ hành để dẫn giải mối
-quan hệ giữa thiên nhiên với vạn vật và con người, cho tới phòng bệnh, chữa
-bệnh v.v...
+Bảng 3-10. Bảng tương ứng các tên gọi
 
-2. "Địa lý chỉ mông" của Quản Lộ thời Tam quốc, cách ngày nay đến
-gần 2000 năm. Ở nhiều đoạn trong sách, Quản Lộ đã nói đến âm dương - Ngũ
-hành.
+Tên quá trình phát triển
+Tên tháng địa chỉ „ Mức độ mùa
+của loài vật theo mùa
 
-11
+Dân, Thân, Ty, Hợi Sinh Mạnh
+Tý, Ngọ, Mão, Dậu Vượng Trọng
+Thìn, Tuất, Sửu, Mùi Mộ Quý
 
-3." Thiên văn chí" trong "Sử ký" của Tư Mã Thiên đời nhà Hán, trước
-Công nguyên khoảng hơn 200 năm có một thiên, "Thiên quan thư” nói về can chỉ,
+Bảng 3-1 1. Bảng tỷ lệ khí theo hành ở các cung thìn, tuất, sửu, mùi
 
-28 tú, âm dương, ngũ hành.
+Cung địa chỉ Tỷ lệ khí .
 
-4. Sách lụa " Ngũ tỉnh chiêm" tìm thấy trong mộ Hán ở đồi Mã Vương
-thuộc thành phố Trường Sa. Theo các nhà nghiên cứu, nội dung sách chép về
-thuật chiêm tính của Cam Đức và thuật thiên văn của Thạch Thân thời Chiến
-quốc. Sách gốc của hai vị Cam, Thạch đã thất truyền, nhưng các nhà nghiên cứu
-cho rằng sách lụa Ngũ tinh chiêm được viết vào khoảng trên dưới 170 năm trước
-công nguyên, trong đó có đoạn phân loại ngũ phương, ngũ đế, ngũ thừa, ngũ
-thần theo ngũ hành.
+- ` Tổng tỷ lệ Hành
 
-5. Trong sách " Hoài nam tử" có một thiên "Thiên văn huấn" sách này
-muộn hơn "Ngũ tinh chiêm" 30 năm, nội dung nói về biến hoá của nhị khí âm
+hướng gió Nhiệt ẩm
 
-dương và dùng việc quan hệ với ngũ hành trong một năm.
+Thìn 75% 75% 150% Mộc
+Dân, Mão 50% 100% 150% Mộc
+Tuất 25% 25% 50% Kim
+Thân, Dậu 50% 0% 50% Kim
+Sửu 25% 75% 100% Thổ
 
+105
 
 
-<!-- page 9 -->
 
-6. Từ sau "Sở ký" của Tư Mã Thiên đời Hán, các triều đại nối nhau kế
-thừa truyền thống, trong chính sử của mình đều có lệ chuyên chép “Thiên văn
+<!-- page 107 -->
 
-chí” hoặc "Ngũ hành chí”.
+Mùi 75% 25% 100% Thổ
+Trung ương 50% 50% 100% Thổ
 
-B. Thư tịch nói về nội dung âm dương - Ngũ hành nhưng không có
+Trong khi soạn thảo đến phần này, tôi có mời một số bạn bè tham khảo
+một trong số đó là người bạn còn trẻ và rất hăng hái, bạn đã đề nghị tôi tìm các
+thuật ngữ mới thay cho năm hành là kim, mộc, thuỷ, hoả, thổ, để người ngày nay
+tránh khỏi sự ám thị do nhận thức chưa đúng mà cho rằng đó là những vật chất
+cơ bản cấu thành vạn vật trong vũ trụ. Tôi nghĩ rằng việc đó rất khó. Vả lại trước
+hết phải làm cho mọi người hiểu trở lại đúng với bản chất của nó, rồi đến việc
+tìm các tên sao cho tên đó hàm nghĩa đủ các mặt, các mối quan hệ như tôi đã
+khai thác được và giới thiệu trong phần viết này. Nếu không đủ các điều kiện ấy,
+hà tất đã phải nghĩ đến việc thay tên. Có lẽ tốt nhất vẫn là giữ nguyên các tên cũ
+và hiểu cho hết những điều cần thiết về nó là đủ. Và có lẽ cũng là hướng đi đúng
 
-thuật ngữ âm dương - Ngũ hành cụ thể, như:
+hơn cả.
 
-1. Đạo đức kinh" của Lão Tử thời Chiến quốc, trước Công nguyên
-khoảng gần 1000 năm. Trong chương I, ông viết về hữu và vô..., ở các chương
-khác ông sử dụng các mặt đối lập trong vạn sự vạn vật để mô tả cái "đồng, vị chi
-huyền, chúng diệu chi môn” của âm và dương. ở chương 15, ông đã nêu rõ tác
-động của ngũ sắc, ngũ âm, ngũ vị đối với các giác quan của con người, đó chính
+106
 
-là nội dung ngũ hành.
 
-2. Lịch nhà Đường Ngu và phép làm lịch của vua Nghiêu được chép lại
-trong chương "Nghiêu điển" ở bộ "Thượng thư" có nội dung vua Nghiêu sai hai
-dòng họ Hy, Hoà phụ trách quan sát thiên văn, tính tượng ở bốn phương, tám
-hướng, theo bốn mùa. Dùng "toàn cơ ngọc hành" (máy đo thiên văn cổ) đo chép
-để tế thất chính (thời điểm 7 hành tinh trong hệ mặt trời cùng trên một mặt
-phẳng thắng đứng ở hướng tiêu chuẩn khởi đầu của phép làm lịch), để quan trắc
-7 vật thể phát sáng trên trời là mặt trời, mặt trăng và 5 hành tinh lớn: Thuỷ, kim,
-hoả, mộc, thổ, định mùa tiết sản xuất nông nghiệp. Đo đạc vị trí 28 tú, 10 can, 12
-chi v.v... Đương nhiên lịch pháp đã có chứa âm dương - ngũ hành trong các đơn
 
-vị thời gian của lịch.
+<!-- page 108 -->
 
-3. Sách "Thái ất số thống tông đại toàn" trong phần "Thuật cầu thái ất
-tích niên", viết: Từ thượng cổ năm giáp tý, tháng giáp tý, ngày giáp tý, giờ giáp
-tý, đúng ngày đông chí, mặt trời, mặt trăng họp thành vành tròn rỗng, với ngũ
-tinh thành chuỗi ngọc, đều hợp ở tý, là tính làm số thượng nguyên từ đó về sau.
-Nếu như lấy Đế Nghiêu giáp tý tạo lịch đến nay (đời Thanh) chỉ trên dưới ba
-nghìn sáu trăm năm, không phải là thuật "thất diệu tế nguyên" đó. Cho nên bốn
-số tính thái ất của năm, tháng, ngày, giờ ở thượng cổ tế nguyên giáp tý làm
-thượng nguyên đệ nhất kỷ đầu tiên... Nay lấy thượng nguyên giáp tý cách năm
-Cảnh Thái thứ 2, tức năm Tân mùi (1 .451 dương lịch) là 1.015 vạn 5.367 năm...
+H. Sinh, khắc, chế, hoá của ngũ hành.
 
+Sinh, khắc, chế, hoá của ngũ hành là cách tính hệ quả tương tác giữa một
+hành với một hành, tuỳ theo quan hệ giữa chúng với nhau theo một thứ tự nào đó
+trong thứ tự chung của 5 hành. Nó do bản chất tỷ lệ khí quyết định. Ở đây tôi chỉ
 
+giới thiệu quan hệ thứ tự như sau (Hình 3- 14) :
 
-<!-- page 10 -->
+Sinh thuận theo thứ tự: Thuỷ, mộc, hoả, kim, thổ, thì thuỷ sinh mộc, mộc
+sinh hoả, hoả sinh thổ, thổ sinh kim, kim sinh thuỷ. Cái trước là mẹ, sinh cái sau
 
-Sách "Thái ất dị giản lục" của Lê Quý Đôn nói về giáp tý thời thượng cổ đến
-năm Nhâm thìn là năm thứ 15 niên hiệu vua Quang Hưng của bản triều (1.592
-dương lịch) tương đương với năm thứ 20 niên hiệu Vạn Lịch nhà Minh, tính
-được là 1.015 vạn 5.509 năm.
+là con.
 
-Như vậy, phép tính lịch can chi theo năm, tháng, ngày giờ khởi đầu từ giáp
-tý thời thượng cổ, trước công nguyên 10 triệu, 153 nghìn, 916 năm. .
+Khắc thuận theo mà cách một hành là khắc: Thuỷ khắc hoả, hoả khắc
+kim, kim khắc mộc, mộc khác thổ, thổ khắc thuỷ. Cái trước là cái đi khắc, là sở
+thắng. Cái sau là cái bị khắc, là bất sở thắng.
 
-Lời tựa sách "Thái ất số thống tông đại toàn" lại viết: Thuyết về Thái ất,
-nguyên là tên số thiên can, mà ở dòng phái phương kỹ thai tức (phép thở dưỡng
-sinh của dòng thuật sĩ), đạo gia bàn về tin tức giờ giấc trăng sao của trời đất (có
+Chế cái đi khắc bị cái trước nó cách một hành khác, cái đó khắc cái sở
+thắng, có giá trị giúp cái bị khắc sở bất thắng, gọi là tương chế.
 
-liên quan tới âm dương - ngũ hành giữa trời đất và con người).
+Hoá cái sở bất thắng bị cái sở thắng đứng trước nó cách một hành khác,
+nhưng lại có cái đứng sát trước sở bất thắng sinh ra sở bất thắng, quan hệ sinh
 
-4- Kinh dịch - Theo truyền thuyết do vua Phục Hy làm dịch bát quái: Lúc
-đầu kinh dịch :chỉ có 8 quẻ, mỗi quẻ có ba vạch hoặc liền, hoặc dứt, chưa có chữ
-nghĩa gì hết. Sau đó Chu Văn Vương khi bị vua Trụ giam vào ngục, ông bí mật
-nghiên cứu sâu cái lý của trời và người, đem bát quái diễn hoá làm 64 quái, và đã
-viết quái từ. Từ đó gọi là Chu Dịch (dịch của nhà Chu - 1 .060 năm trước Công
-nguyên). Người ta cho rằng quẻ dịch tượng trưng cho âm dương đó chỉ là căn cứ
-vào hình tượng của vạch (hào) trong quẻ có liền, đứt khác nhau mà bàn. Đến
-Khổng Tử (thời Chiến quốc) đã dựa vào lý biến hoá âm dương của trời đất, nhân
-đó bàn vào việc người, lấy sự biến hoá của hào dương, hào âm trong quẻ dịch
-làm tượng trưng cho biến hoá âm dương của trời đất. Từ đó về sau, đương nhiên
+này gọi là tương hoá.
 
-ai cũng cho rằng kinh Dịch là sách bàn về đạo biến hoá âm dương.
-C. Nhận định bước đâu về lịch sử học thuyết Âm dương - Ngũ hành:
+Sách "Thần bí dịch tinh tượng” Nhà xuất bản Nhân dân xuất bản xã Quảng
 
-Theo cách tính của Thái ất số thống tông đại toàn và Thái ất dị giản lục,
-nếu phép tính lịch quả có sử dụng quy luật can chi từ giáp tý thượng nguyên,
-cách ngày nay hơn 10 triệu năm, thì cũng là từ lúc ấy, con người Phương Đông
-đã nắm bắt được mối quan hệ giữa sự vận động của không gian, tính bằng đơn vị
-thời gian và mọi giá frỊ tương ứng, tương tác giữa chúng với con người theo học
+Tây, trang 117 - 118 viết về sinh, khắc, chế, hoá như sau:
 
-thuyết âm dương - Ngũ hành.
+"Sinh: Sinh nhau chỉ tương sinh của ngũ hành, ngũ tính cũng có quan hệ
+tương sinh, giống với ngũ hành. Tĩnh mệnh học lại phối quan hệ tương sinh trên
+mệnh cung, tài bạch cung và biến diệu, thần sát với cung chủ, độ chủ. Phàm là
+tinh diệu thần sát vận hành đến kinh ấy với tính chất cung ấy, cung chủ, độ chủ
+là để nó quan hệ sinh ngã thì tốt. Như mệnh cung ở cung tý, thuộc thổ, có kháp
+với sao hoả vận hành đến cung tý, thì hoả sinh thổ, mệnh cung tốt. Quan hệ ngũ
+hành của độ chủ với' sao đến cũng là dạng giống thế. Phàm sinh ngã sẽ là chưa
+mẹ, có lợi đối với ta, cho nên tốt. Ta, chỉ người được đo mệnh, lấy họ làm chủ,
+cho nên gọi là ngã. Ngã lại thuộc thể, loại sao đến thuộc dụng, thuộc khách.
 
-Theo thư tịch hiện còn, nếu có nói đến thuật ngữ âm dương - Ngũ hành,
+Dụng sinh thể thì tốt, thể sinh dụng thì không tốt bởi có tổn ở thể.
 
-chỉ có thể xuất hiện được sớm nhất là từ thời Chiến quốc Cứ thuận lẽ tự nhiên,
+107
 
 
 
-<!-- page 11 -->
+<!-- page 109 -->
 
-học thuyết âm dương - Ngũ hành chắc chắn phải hình thành trong đời sống loài
-người sớm hơn thời Chiến quốc rất nhiều, tuy chưa được thành văn bản, hoặc đã
-thành văn bản mà lại đã sớm mất đi. Xuất hiện sớm hơn là bao nhiêu, chúng ta
-
-còn phải đợi khoa học nghiên cứu lịch sử, sau này sẽ cho ta thấy rõ hơn.
-
-10
-
-
-
-<!-- page 12 -->
-
-IV. HỌC THUYẾT ÂM DƯƠNG - NGŨ HÀNH TRONG NỀN VĂN
-MINH NHÂN LOẠI
-
-Mỗi dân tộc đều có niềm tự hào về nền văn minh, văn hoá của dân tộc
-mình, đó là niềm tự hào chính đáng. Bởi vì bất cứ một dân tộc nào, lịch sử tồn tại
-của họ cũng phải trải qua đấu tranh gay go, gian khổ với mọi thế lực có hại cho
-sự sống của họ. Những kinh nghiệm tích luỹ được đã phải đổi bằng mồ hôi, nước
-mắt và cả bằng xương máu, tính mạng của con em các dân tộc, có lẽ nào không
-
-đáng trân trọng, tự hào.
-
-Nhưng ở mỗi dân tộc, bên cạnh niềm tự hào về nền văn minh, văn hoá của
-dân tộc mình, bao giờ cũng có lòng mong ước hướng về các kinh nghiệm hay,
-các nề nếp tốt đẹp của các dân tộc khác để học tập, ứng dụng vào đời sống dân
-tộc mình. Vì thế, trong những quốc gia, những dân tộc khác nhau, nếu một dân
-tộc nào đó có một nền văn minh, văn hoá cao hơn, quả cũng xứng đáng được
-hưởng niềm tự hào cao hơn, và càng thấy trách nhiệm cao hơn trong việc duy trì
-
-và nâng cao không ngừng đời sống vật chất, tinh thần của dân tộc mình.
-
-Nền văn minh, văn hoá của một dân tộc được coi là cao, trước hết phải có
-được một hệ thống ý thức hoàn chỉnh. Sự hoàn chỉnh của hệ thống ý thức phải
-giải đáp được vấn đề của nhận thức thế giới vạn vật, từ nguồn gốc vũ trụ đến
-chung quy luật vận động của vũ trụ và mối quan hệ giữa vũ trụ với vạn vật, con
-người.
-
-Trong lịch sử loài người, có hai hệ thống ý thức như sau:
-
-Loại thứ nhất, nhận thức nguồn gốc vũ trụ là do một đấng thần linh tối cao
-tạo ra; sự vận động của vũ trụ là do đấng đó điều khiển; mọi sinh mạng con
-người là do đấng đó định đoạt. Loại này là hệ thống ý thức tôn giáo, có thứ nảy
-sinh và tồn tại ở trong phạm vi một dân tộc, có thứ đã lan tràn sang vùng các dân
-tộc gần nhau, có thứ đã ảnh hưởng rất rộng mang tính toàn cầu. Có thể ở mỗi dân
-tộc khác nhau có một biểu tượng đường tối cao khác nhau, nhưng về ảnh hưởng
-
-tới vạn vật và con người thì đều đã nhận thức giống nhau như trên.
-
-11
-
-
-
-<!-- page 13 -->
-
-Loại thứ hai, nhận thức nguồn gốc vũ trụ, sự vận động của vũ trụ, mối
-quan hệ giữa vũ trụ với vạn vật và con người bằng con đường thực nghiệm khoa
-
-học.
-
-Ngày nay, nền văn minh cơ giới đã và đang dùng các phương tiện kỹ thuật
-cao để khám phá bản chất vật chất các thiên thể trong vũ trụ, đo đạc khoảng cách
-và tốc độ vận động của chúng, theo dõi các mối quan hệ tương tác giữa vũ trụ và
-
-cuộc sống con người.
-
-Những thành tựu đã đạt được quả là to lớn lắm, cũng đã mang lại nhiều lợi
-ích cho đời sống con người. Nhưng nhìn chung, trải qua quá trình khám phá vũ
-trụ bằng phương tiện kỹ thuật cao, tới nay có những câu hỏi đặt ra vẫn còn nhiều
-vớng mắc chưa giải đáp xong như: Nguồn gốc vũ trụ từ đâu? Quy luật hoạt động
-của vũ trụ ở các cấp hệ xa hơn hệ mặt trời như thế nào? mối quan hệ có tính quy
-luật giữa ảnh hởng của vũ trụ với đời sống con người mọi mặt có bản chất là gì?
-Ở những vấn đề này, thành tựu đã đạt được chỉ mới là những mảng, những nét lẻ
-
-tẻ mà chưa có được hình ảnh tổng quát và quy luật phổ quát.
-
-Song song với việc dùng phương tiện kỹ thuật cao khảo sát vũ trụ như trên,
-còn một xu hướng tìm lại di sản văn hoá Phương Đông cổ xa. Trong nền văn
-minh cổ Phương Đông này, người ta đã tìm thấy được một hệ thống ý thức hoàn
-chỉnh theo đúng ý nghĩa của từ ấy trong đó có hình ảnh tổng quát, quy luật phổ
-quát và những quy luật cụ thể cho từng mối quan hệ. Nó đã giải đáp câu hỏi về
-nguồn gốc vũ trụ, quy luật vận động vũ trụ ở các cấp hệ khác nhau, mối quan hệ
-có tính quy luật tương tác giữa sự vận động vũ trụ với đời sống vạn vật và con
-người. Trong ấy mấu chốt nhất, phổ quát nhất là học thuyết âm dương - Ngũ
-hành. Học thuyết này đã được các thời đại kế tiếp nhau vừa dùng làm công cụ
-giáo dục nhận thức thế giới, vừa là phương pháp vận dụng của các môn, ngành
-phục vụ đời sống con người trong suốt bề dầy lịch sử tồn tại của người Phương
-
-Đông.
-
-Học thuyết âm dương - Ngũ hành có một hạn chế lịch sử là do ra đời đã
-quá lâu, những thuật ngữ, khái niệm mô tả yếu tố thành phần học thuyết vẫn giữ
-
-nguyên gốc đã trở thành khó hiểu với con người hiện tại. Đã có lúc, có nơi người
-
-12
-
-
-
-<!-- page 14 -->
-
-ta coi nó như một sản phẩm tinh thần của xã hội chưa văn minh tiến bộ, nhìn nó
-như những quy ước của lòng mê tín dị đoan. Người có chút thiện cảm thì coi đó
-
-là những quy luật mờ.
-
-Đối với những người có ý thức trân trọng hiệu quả, họ đã thấy được rằng
-sự thử thách trong lịch sử lâu dài là một bằng chứng đáng tin cậy kinh nghiệm
-lịch sử nhận thức cho biết rằng quy luật loại thải luôn lấy hiệu quả làm công cụ
-đo định, do vậy trải qua thử thách lâu dài, học thuyết âm dương - Ngũ hành thêm
-thuần khiết về nội dung, mạnh mẽ về sức sống. Ngày nay không ít người, không
-ít nơi trên toàn cầu đang tìm hiểu học thuyết này bằng cả hai phía: Học và làm
-theo lối cổ truyền về những ứng dụng của nó và phân tích nó theo lối thực
-nghiệm lý, hoá, điện từ, y, sinh hiện đại. Các kết quả thực hành, thực nghiệm
-
-ngày càng chứng minh tính hiệu quả, tính quy luật của nó là có thật.
-
-Loài người hiện đại sau chặng đường dài công nghiệp hoá, điện khí hoá,
-hoá học hoá, đời sống đã và đang bị đảo lộn nhiều mặt, trong đó mối đe doạ
-mạnh mẽ, đáng sợ nhất là điều kiện môi trường sống không còn phù hợp cho sự
-sống tốt đẹp. Như bụi khói ở các nhà máy xả vào khí quyển có nơi dày đặc đã
-cản ánh sáng mặt trời chiếu xuống mặt đất, chất thải công nghiệp làm ô nhiễm
-nguồn nước, hoá chất trừ sâu làm sinh vật cải tạo đất và chim thú có ích bị diệt
-chủng, rừng bị phá mà đất bị xói lở bạc màu, ở nhà cao tầng làm cho cơ thể mất
-đi nhịp điệu tự nhiên vốn có, do trong đồ ăn uống có pha trộn hoá chất mà gây ra
-rối loạn chức năng chuyển hoá của các tạng phủ, làm cho ngày càng phát hiện ra
-
-nhiều loại bệnh lạ lùng ở loài người.
-
-Từ những hiện tượng có thật như trên, cuộc sống con người đang đặt ra
-yêu cầu cấp thiết là trả lại điều kiện tự nhiên cho môi trường sống càng nhiều,
-
-càng nhanh thì càng tốt.
-
-Trả lại điều kiện tự nhiên cho cuộc sống con người trong tình trạng các
-điều kiện sống của con người đã xã hội hoá và cơ giới hoá cao không có nghĩa là
-xoá bỏ tất cả để trở về cuộc sống hoang sơ, mà trước hết phải hiểu được quy luật
-của tự nhiên là gì, rồi đến dùng những phương tiện của đời sống cho hợp với tự
-
-nhiên, gần gũi với tự nhiên mà vẫn lợi ích nhiều nhất. Những ví dụ về việc gây
-
-18
-
-
-
-<!-- page 15 -->
-
-hại của công cụ điện rất nhiều, xin đơn cử hiện tượng thừa ion dương trong
-phòng có nhiều máy dùng điện năng làm cho con người mệt mỏi, người ta đã
-phải chế ra máy phóng ion âm vào môi trường ấy để cân bằng lại. Nếu nắm được
-quy luật tự nhiên và mối quan hệ của nó với đời sống con người thì ngay từ ý đồ
-chế tạo tiện nghi, công cụ, chúng ta sẽ có được những đồ án thiết kế phù hợp,
-tránh được hiện tượng chạy theo để khắc phục hậu quả một cách tốn kém. Rất
-nhiều trường hợp phải chịu tổn thất lớn lao mới phát hiện ra lỗi lầm để rồi cùng
-
-nhau đau xót.
-
-Kinh nghiệm tư tưởng Phương Đông xa có câu: "Thuận thiên giả tồn,
-nghịch thiên giả vong” (tức là thuận theo lẽ tự nhiên của trời đất thì còn sự sống,
-trái với lẽ tự nhiên của trời đất thì chết). Thuận theo lẽ tự nhiên của trời đất cũng
-chính là thuận theo quy luật âm dương - Ngũ hành của nền văn minh Phương
-
-Đông.
-
-14
-
-
-
-<!-- page 16 -->
-
-CHƯƠNG 2: ÂM DƯƠNG
-
-I. CÁC CĂN CỨ ĐỀ TIẾN HÀNH BÀN LUẬN VỀ ÂM DƯƠNG
-
-Tôi chọn các ký hiệu và đồ hình về Âm, Dương mà các sách vở đều coi là
-cổ nhất, đều coi là của trời đất cho, hoặc do Thánh nhân lập ra để làm căn cứ tiến
-hành bàn luận nh sau: (hình 2-Ì)
-
-- Bát quái hoành đồ.
-
-- Thái cực đồ.
-
-- Tiên thiên bát quái đồ.
-- Hậu thiên bát quái đồ.
-
-- Hà đồ và lạc thư.
-
-15
-
-
-
-<!-- page 17 -->
-
-II. PHƯƠNG HƯỚNG TIẾN HÀNH BÀN LUẬN
-
-Trên cơ sở những định nghĩa theo truyền thuyết cổ xưa rằng: Tiên thiên
-bát quái do vua Phục Hi lập ra. Ngài lấy hai nửa dương của trời và âm của đất mà
-làm thành. Nó là cái thể của âm dương. Hậu thiên bát quái do Chu Văn Vương
-lập ra. Ngài dựa vào tứ thời bát tiết mà làm thành, nó là cái dụng của âm dương.
-Và trên cơ sở ứng dụng của âm dương vào các môn khoa học đời sống cụ thể.
-Tôi thấy khi người ta đem lồng ghép các giá trị tương ứng và tương tác của âm
-dương vào vạn sự, vạn vật thì trong đó, cái đã làm nên tác dụng quyết định cho
-sự thay đổi các giá trị tương ứng và tương tác kia chính là do sự vận động của vũ
-trụ được tính bằng các đơn vị thời gian. Điều này phù hợp với các phát hiện mới
-của khoa học thực nghiệm hiện đại gọi là "nhịp thời sinh học”. Cho nên tôi dựa
-vào mối quan hệ giữa thời gian với những lý thuyết về âm dương để phân tích
-
-các ký hiệu và đồ hình âm dương nêu trên.
-
-16
-
-
-
-<!-- page 18 -->
-
-7
-KHẢM CẤN
-
-5
-N
-
-x
-|—
-
-r
-
-3 4
-LY — CHẤN
-|
-
-2
-ĐOÀI
-
-1
-CÀN
-
-THÁI CỰC
-
-| HẬU THIÊN BÁT QUÁI |
-
-[L TIÊN THIÊN BẬT QUÁI |
-
-8
-5
-
-17
-
-Hình 2-†
-
-
-
-<!-- page 19 -->
-
-II. BẢN CHẤT CỦA TỪNG LOẠI KÝ HIỆU VÀ ĐỔ HÌNH ÂM
-DƯƠNG CỔ
-
-A. Bát quái hoành đồ (Thứ tự 8 quẻ của Văn Vương)
-
-1. Nội dung: Theo các tài liệu cổ thì Bát quái là tám phần nhỏ do biến hoá
-
-của Thái cực (cái toàn nhất) mà ra.
-
-- Thái cực sinh lưỡng nghi (hai nửa) là âm và dương.
-
-- Lưỡng nghi sinh tứ tượng (bốn hình ảnh) là Thái dương - Thiếu âm,
-Thiếu dương, Thái âm.
-
-- Tứ tượng sinh bát quái (tám quái, tám quẻ): Cần, đoài, ly, chấn, tốn,
-
-khám, cấn, khôn.
-
-Theo những tài liệu tôi thu lượm được gần đây nhất, người Trung Quốc
-
-trên đất Trung Quốc vẫn cho rằng học thuyết âm dương là thần bí.
-
-Trong sách “Thần bí đích bát quái" của Vương Ngọc Đức, Diêu Vĩ Quân,
-Tăng Lỗi Quang, nhà xuất bản Quảng Tây Nhân dân xuất bản xã, 7- 1992, các
-tác giả đã cố gắng lý giải sự thần bí của tượng 8 quái qua các đoạn văn trích, ví
-dụ: "Thiệu Ủng, Chu Hy nhà Tống cho rằng bát quái là sự gặp gỡ giữa lý và số,
-
-đối với cổ nhân, gạn hỏi là gặp gỡ thế nào, các ông nói không rõ,,," (trang 22)
-
-"Quách Mạt Nhược, trong bài "Trung Quốc cổ đại xã hội nghiên cứu đề ra
-bát quái là hình ảnh khí quan tính (máy sinh dục) trai, gái: "Gốc rễ của bái quái,
-nơi chúng ta rất rõ ràng có thể nhìn thấy là sự sùng bái máy sinh dục từ đời xa
-còn sót lại. Vạch - lấy hình ảnh gốc nam, phân làm hai - lấy hình ảnh của nữ âm,
-cho nên từ đó mà diễn ra quan niệm nam, nữ, phụ mẫu, âm dương, cương nhu,
-thiên địa. Quan niệm chữ số của người xưa lấy 3 làm tối đa, 3 là tối thần bí. Từ I
-nét của l nét âm, l nét dương giao thoa chung, chồng lớp mà thành 3, đầu mối
-
-tốt có thể đã thành 8 loại hình thức khác nhau,,,"
-
-"Về sau, Quách Mạt Nhược lại cho rằng bát quái có quan hệ với nét chữ.
-Kỳ thực Dương Vạn Lý đời Tống và Hoàng Tôn Viêm đời Minh đã từng đưa ra
-
-cách nhìn đó. Gần đây Phạm Văn Lan cũng từng đưa ra bát quái có thể là hình
-
-18
-
-
-
-<!-- page 20 -->
-
-hướng đến văn tự nước ta. Chỗ khác nhau với Phạm là Quách cho rằng không
-phải bát quái đã dẫn đến văn tự, mà là văn tự đã dẫn đến bát quái, đại bộ phận
-của bát quái là do văn tự đã thành dẫn dụ mà ra. Trong sách khảo chứng “Thanh
-
-đồng thời đại" của Quách nói : Khảm ((C——) tượng thuỷ, thuỷ trong văn tự cổ
-
-^'
-( s ) từ hình dựng đứng biến hình nằm ngang thành khảm, cái khẩm là
-hãm, thuỷ đọng ở nơi khảm hãm. Chữ gốc của khôn là ( NỈ) đem mỗi nét cắt
-
-đứt, từ dựng đứng biến nằm ngang thành khôn (— —). Chấn là chữ ( Je )
-
-bớt đi.
-
-Đoài là (=) chữ đoài bớt đi (  JÓ } Càn tượng trời, chữ cổ thiên
-(trời) là ( ®#_), bỏ rơi đi cái dựng đứng ở giữa, hơi sửa đổi thêm thành —). Ly
-tượng lửa (hoả), văn ở đồ minh khí có ( ® ) có thể biến thành ly (——). Cấn khó
-[Ì
-
-giải thích, nghi là chữ môn ( ) biến thành (——). Chữ tốn không giải
-
-thích được..."
-Lời của học giả họ Quách giải thích nguồn gốc tượng của 8 quẻ thật khó
-
-chấp nhận.
-
-Bản thân bố cục sách “Thần bí đích bát quái”, các tác giả đã cố ý dàn dựng
-các đề mục cho đủ số 64 (8x8 = 64) cũng làm ra vẻ thần bí thêm, nhưng nội
-dung trong một số chương có phần nào rườm rà không sát, cộng với sự lúng túng
-ở các lời văn trích dẫn đã cho ta thấy rõ họ chưa có một định hướng khoa học
-hợp với nguồn gốc vốn có của nội dung tám quẻ.
-
-Cách lý giải về bát quái như sau:
-
-Nguyên tiếng "Quái" là do chữ "Quải" nghĩa là treo. Thủa ban đầu, người
-ta dùng tám thanh tre (hoặc mảnh gỗ đẽo) vẽ lên đó ký hiệu âm dương rồi đem
-treo ở tám cọc trên tám hướng (hoặc tám cửa), từ đó thường được gọi là tám.
-quải hoặc tám quái.
-
-Các sách cổ đã vẽ về biến hoá từ thái cực thành ra bát quái như sau: (Xem
-
-từ dưới lên trên - Hình 2-2)
-
-19
-
-
-
-<!-- page 21 -->
-
-TỨ TƯỢNG SINH BÁT QUÁI
-
-Càn Đôài Ly Chấn Tốn Khảim Cấn Khôn
-LƯỠNG NGHI SINH TỨ TƯƠNG
-
-Thái Dương Thiếu Âm Thiếu Dương Thái Âm
-
-THÁI CỰC SINH LƯỠNG NGHI
-
-Dương Âm
-THÁI CỰC
-
-Hình 2-2
-
-2. Tính chất âm dương: Nếu ngày nay máy tính điện tử chỉ dùng có 2 tín
-hiệu thông tin là I và 0 để miêu tả vạn sự, vạn vật, thì quả là cách đây mấy nghìn
-năm người cổ Phương Đông đã biết dùng ký hiệu âm dương (với dương bằng
-một vạch liên - , âm bằng một vạch đứt -- ) để chỉ vạn sự, vạn vật. Hãy lấy bát
-quái hoành đồ làm ví dụ: Trong tám cung quái, mỗi quái đều có 3 vạch (vạch gọi
-là "hào"), vạch thứ nhất ở dưới chỉ rằng quái đó thuộc nửa dương hay âm, vạch
-thứ hai ở giữa chỉ rằng quái đó thuộc góc I phần 4 dương hay âm, vạch thứ ba ở
-
-trên chỉ rằng quái đó thuốc góc 1 phần 8 dương hay âm (Hình 2 - 3).
-
-1phầnB: ——:——:——:——.—.—=—: —— — —
-
-1 phần 4:
-
-TÔ NH1 HHƠNGG GUEƠNNNG ) VHƠNNG NGON NGON NNNNGENNNNNNH
-
-1 phần 2: k , l  =————= _- —X .—ằ———-...
-
-Càn  Đoài Ly Chấn Tôn Khảm Cấn Khôn
-Hình 2-3
-
-Ở mỗi cung quái có đủ ký hiệu âm dương do 3 lần lưỡng phân từ cái toàn
-
-nhất mà thành ra. Có thể nói rõ điều này bằng đồ hình đường tròn như sau:
-
-20
-
-
-
-<!-- page 22 -->
-
-8 KHÔN
-
-5 TỐN
-
-CHẴN 4
-
-Hình 2-4
-
-Bảng 2 - I
-Tên quẻ Số Vạch dưới Vạch giữa Vạch trên
-
-Quẻ càn Số 1 Có nửa dương | Góc 1 phần tư dương | Góc 1 phần 8 dương
-Quẻđoài | Số2 Có --- dương | Góc 1 phần tư dương ' Góc 1 phần 8 âm
-Quẻ ly Số 3 Có --- dương | Góc 1 phần tư âm Góc I phần 8 dương
-Quẻchấn | Số4 Có --- dương | Góc 1 phần tư âm Góc I phần § âm
-Quẻ tốn Số 5 Có --- âm Góc 1 phần tư dương | Góc 1 phần 8 dương
-Quẻ khảm | Số6 Có --- âm Góc I phần tư dương Góc I phần § âm
-Quẻ cấn Số 7 Có --- âm Góc I phần tư âm Góc 1 phần 8 dương
-Quẻkhôn |Số§  |Có---âm Góc I phântưam — Góc l phần 8 âm
-
-Như trên, chỉ với hai loại vạch dương và âm xếp theo tổ hợp chập 3, đặt
-
-theo một thứ tự nhất định, bát quái hoành đồ đã nói được những tính chất của
-
-quy luật âm dương như sau (Hình 2 - 5):
-
-- Mối quan hệ về vị trí và tính âm dương ở từng cung quái trong cái toàn
-
-nhất (như vừa mô tả ở trên).
-
-- Trong cái toàn nhất có hai nửa âm và dương
-
-21
-
-
-
-<!-- page 23 -->
-
-—-... —— L_ ==E==-== Pa mem lRERSORNG —-asanse=e= ˆ—<ỐJj¡ La ——==~..
-
-——==<==' — GK_RE==—=. — &—Q ——_ ——=—
-
-_é= — — Ỷ=- >—=——=-—It_x. LÔ L —=ố ——= __
-ĐOÀI LY CHẤN TỔN KHAM CẤN
-
-Khi DƯƠNG tăng thì ÂM giảm
-
-Khi DƯƠNG giảm thì ÂM tăng
-
-Hinh 2-5
-
-- Trong dương có âm, trong âm có dương (xem các cung quái từ đoài đến
-
-cấn)
-- Nhịp âm dương: Dương trước, âm sau; lẻ là dương, chắn là âm.
-
-- Chiều âm dương: Thuận là từ dương sang âm, nghịch là từ âm sang
-
-dương.
-
-3. Kết luận: Bát quái hoành đồ là hệ thống ký hiệu biểu thị các nguyên lý
-biến hoá âm dương trong vũ trụ và vạn vật, nó thuộc về loại lý thuyết cơ bản,
-chưa mang giá trị ứng dụng trong đó. Nó giống như một tiêu chuẩn để xem xét
-vũ trụ và vạn vật trong mọi hoàn cảnh, mọi biến hoá bình thường và dị thường,
-trong nội bộ tự thân và trong các mối quan hệ tương tác lẫn nhau. Những nguyên
-
-lý này vốn sẵn có trong tự nhiên và mãi mãi tồn tại trong tự nhiên.
-
-Bát quái hoành đồ với nội dung như trên đã đạt tới trình độ cao của khoa
-học tin học, vì nó là một đồ hình đơn giản mà lại chứa đựng trong đó một khối
-lượng thông tin rất nhiều.
-
-Thiết tưởng rằng những nhà thông thái của thời nay cũng khó có thể vượt
-
-qua tài năng sắp xếp đồ hình của người xưa thể hiện trong bát quái đồ này.
-
-22
-
-
-
-<!-- page 24 -->
-
-B. Thái cực đồ
-
-Theo Tuệ Tĩnh thì:
-
-- Thái sơ là khí mới bắt đầu.
-
-- Thái cực là hình mới bắt đầu.
-
-- Thái tố là chất mới bắt đầu.
-
-1. Nội dung: Thái cực đồ là một hình tròn chia làm hai nửa âm dương.
-Giữa hai nửa âm dương là một ranh giới hình chữ S, tạo thành hai nửa đều nhau
-và cùng có hình giống nhau như hai con cá cắn đuôi nhau. Nửa đen bên trái, nơi
-đen cực đại ở phía trên. Nửa trắng bên phải, nơi trắng cực đại ở phía dưới. Giữa
-nơi cực đại của nửa trắng có một điểm đen. Giữa nơi cực đại của nửa đen có một
-điểm trắng. Theo truyền thuyết, Trần Đoàn thời Ngũ Đại được bí chỉ ở Ma Y
-Đạo, vẽ ra Thái cực đồ.
-
-2. Tính chất âm dương: ở đồ hình này các yếu tố biểu thị cho tính chất
-âm dương và các giá trị biến đổi âm dương đơn giản hơn một bước so với bát
-quái hoành đồ. Để biểu thị cho âm dương, mầu đen là âm, mầu trắng là dương.
-Biểu thị các tính chất khác nhau của quy luật biến đổi âm dương, tác giả đã dùng
-hình của màu để diễn tả. Nội dung thái cực đồ chứa đựng các tính chất như sau
-(Hình 2-6):
-
-- Trong cái toàn nhất có hai nửa âm dương (trắng là dương, đem là âm).
-
-- Trong dương có âm, trong âm có dương (nơi cực đại trắng có điểm đen,
-
-nơi cực đại đen có điểm trắng).
-
-- Khi dương giảm thì âm tăng (phần trắng nhỏ dần đến đâu, phần đen to
-
-dần theo sát bên), và ngược lại.
-- Nhịp âm dương, theo thứ tự trước sau, trước là dương, sau là âm.
-- Chiều âm dương - từ đương sang âm là thuận, âm sang dương là nghịch.
-
-3. Kết luận: Giá trị biểu trưng của bát quái hoành đồ là loại ký hiệu thông
-tin, nó đi vào nhận thức của người xem qua rất nhiều quá trình xử lý thông tin,
-
-còn như giá trị biểu trưng của thái cực đồ là giá trị của nghệ thuật tạo hình, nó đi
-
-23
-
-
-
-<!-- page 25 -->
-
-vào nhận thức người xem bằng con đường cảm nhận trực giác, do đó nó gây
-được ấn tượng mạnh mẽ, cùng một lúc nhiều mặt nội dung của quy luật âm
-
-dương.
-
-Hình 2-6
-
-24
-
-
-
-<!-- page 26 -->
-
-C. Tiên thiên bát quái đồ (phương vị 8 quẻ của Phục Hi)
-
-Truyền thuyết kể rằng: Đồ hình Tiên thiên bát quái do vua Phục Hi lập ra,
-Ngài lấy hai nửa dương của trời và âm của đất mà làm thành, nó là cái thể của
-âm dương. Đó cũng chính là định nghĩa xưa và duy nhất về Tiên thiên bát quái
-đồ.
-
-Trong sách "Thần bí đích bát quái", các tác giả chỉ nói sơ lược về phương
-vị bát quái của Phục Hi rằng: Phương vị bát quái của Phục Hi ở trên phương diện
-chữ số chú ý đến tính đối xứng và tính ổn định... Sau đó tác giả chứng minh
-nhận định của mình bằng hình thức sắp xếp các con số mà không bàn gì về bản
-chất của nó.
-
-Nay để thấy hết giá trị của Tiên thiên bát quái, tôi xin trình bày các quy
-luật âm dương chứa đựng trong nội dung của nó như sau:
-
-1. Ngoài những giá trị của từng cung quái theo tên riêng của cung đó
-giống như ở bát quái hoành đồ ra, qua sự xếp sắp các cung quái trong đồ hình,
-chúng ta còn thấy được rất rõ hai hệ quy chiếu của hai nửa âm dương trong vũ
-trụ. Dương ở trời, ở nửa dương đi ngược, đó là hệ quy chiếu nhật tâm. Âm ở đất,
-ở nửa âm đi thuận, đó là hệ quy chiếu địa tâm. Ở hệ quy chiếu địa tâm, mặt trời
-đi quanh quả đất theo chiều thuận. Ở hệ quy chiếu nhật tâm, quả đất đi quanh
-mặt trời theo chiều nghịch (Hình 2-7).
-
-Bắc
-
-Tây
-Buọq
-
-UIEN
-
-Hình 2-7
-
-25
-
-
-
-<!-- page 27 -->
-
-2. Qua việc sắp xếp các cung quái theo hai hệ quy chiếu này, chúng ta còn
-thấy được quy luật kết cấu bền vững của vũ trụ. Thông qua tỷ lệ âm dương trong
-các cặp cung quái có vị trí đối nhau qua tâm đồ hình, trong từng cặp, trong tất cả
-
-cặp chúng ta thấy sự đối đãi âm dương của chúng giống nhau, như (Hình 2-8):
-
-mE==———'! ——“=< —m
-TỐN "mm đố vớ CHẴN mm —
-— —— —_DDỪỮ
-L_— ____ —— —_
-Ly mm mm đốvớ KHM mm—
-maaassrmmn đ —=
-mmmxrrrmm=m ——m — n
-CN mm mm. đố DO. Tm=—
-—— `
-—— mrrrxssnmanm
-KHÔN “Em mm dđốvi CAN mm——
-_  .__' ra
-Hình 2-8
-
-Sự đối đãi trái dấu âm dương kể trên giống như kết hợp hai vật thể có từ
-tính. Khi đầu cực nam của một khối từ được đặt ở phía đầu cực bắc của một khối
-từ khác, chúng hút nhau, làm thành một khối từ mới, có lực từ mạnh hơn, chúng
-bám vào nhau rất chắc chắn (Hình 2-9).
-
-Quan hệ giữa mặt trời và quả đất trong sự vận động không ngừng ấy, nếu
-thiếu đi lực tương tác hấp dẫn kiểu đối đãi âm dương này thì hẳn là hệ thống vũ
-trụ mà ta đang tồn tại đã chẳng còn có để ta sống trên đó mà bàn về âm dương
-
-hôm nay.
-
-26
-
-
-
-<!-- page 28 -->
-
-\
-“ụ ⁄ B \ v mx<==R, Ù -_—.-
-t ' ' Ù ú —=à I⁄ `
-
-f ! Z ⁄ "éX,Z.- ”x \
-Dự 1 ¬. ; ⁄ *‡ R `
-Ù ' t | / ứ z `
-
-VÀ 1 h ` \
-VÀ N|!z,† tố / B +
-và Xe J2 ⁄ ' L `
-7N M \ \
-¬--Ẽ...`.®*.. f ‡ I {
-~_— l -“ Ï { ï 1
-I I 1
-Z= =.. I
-2i kẺ Ñ I 1 N 1 Ị I
-Pa Ũ Ũ B JN.
-„7| B |A VÀ ' h ' n bó,
-† f Ù Ù \ !
-
-h ' ) / ⁄
-Lạ l Am" \ N \ N h ti
-tu Ï | ` ` ¿ NT.
-\ L ` ` Em ⁄#
-
-vÀ N ru — 5 ⁄
-
-VN ⁄Z , SA — ⁄
-N MT.  Z ˆ 1⁄2 S< ^“
-`» _“Z .N [
-¡S) Š
-Hinh 2-9
-
-3.Tiên thiên bát quái đồ còn được coi như một biểu chuẩn để xem xét
-quan hệ tương tác âm dương của vạn sự, vạn vật trong vũ trụ. Khi các cặp cung
-quái đối nhau qua tâm của Tiên thiên bát quái đồ là đối đãi âm dương trái dấu
-nhau, là tương tác hấp dẫn, là kết cấu bền vững. Các cặp cung quái tương tác
-theo các chiều hướng khác, thì sẽ tuỳ theo góc độ kết hợp mà tạo ra các giá trị
-
-tương tác khác nhau.
-
-Người xưa đã theo các góc độ kết hợp trong Tiên thiên bát quái đồ mà lập
-ra bảng bát biến cung phi, gọi là "cửu cung phi". Trong bảng này, các cặp cung
-quái tương tác trái dấu âm dương được coi là kết hợp tốt nhất, có tên Diên niên;
-các cặp cung quái tương tác có vị trí ân dương kề nhau cùng trong một góc l
-phần 4, là cặp tốn khảm, cấn khôn, càn đoài, ly chấn, được coi là loại kết hợp tốt
-với tên Sïnh khí, các cặp cung quái tương tác có vị trí âm dương gần đối nhau
-qua tâm, nghĩa là đã đối nhau qua hai trục chia đôi và trục chia tư, là các cặp tốn
-ly, khảm chấn, càn cấn, đoài khôn, cũng được coi là loại kết hợp tốt với tên
-Thiên y. Các cặp cung quái tương tác có vị trí âm dương vuông góc nhau qua trục
-chia đôi, vuông góc nhau qua trục chia tư, hoặc song song ngang với trục chia
-đôi, song song ngang với trụ chia tư đều là những kết hợp có hại, nó giống như
-những sắp xếp hai khối từ những góc kết hợp như trên làm cho lực từ đẩy nhau
-hoặc triệt tiêu nhau, do đó được đặt bằng các tên Megñ quỷ, Hoa hại, Lục sát,
-
-tuyệt mệnh (Hình 2- 10).
-
-27
-
-
-
-<!-- page 29 -->
-
-Tương tác cửu cung có giá trị để so sánh, đánh giá hệ quá tương tác lực từ
-giữa con người với con người, con người với thời gian và con người với không
-gian sống. Người xưa cho rằng mỗi con người có bản mệnh cửu cung riêng, điều
-này cho tới gần đây khoa học Phương Tây mới phát hiện ra. Theo l tạp chí thế
-giới mới số 32-92 viết theo Libération 3-16-]992: ,,„ tại viện kỹ nghệ CALTECH
-danh tiếng ở Califorma (Mỹ), qua quan sát trên kính hiển vi điện tử, giáo sư
-Kirshvink cùng hai đồng nghiệp đã thật ngạc nhiên khi phát hiện ra những tinh
-thể manhêtít trong mô não,,„ Thật là hiển nhiên, có manhêtít tất phải có tương tác
-lực từ.
-
-4. Sự khác nhau giữa bát quái hoành đồ và Tiên thiên bát quái là ở chỗ:
-
-Bát quái hoành đồ vừa là hệ thống sắp xếp các ký hiệu âm dương trong
-từng cung quái, vừa là hệ thống sắp xếp các cung quái, nó tượng trưng cho các
-tính chất âm đương trong vũ trụ, trong vạn sự, vạn vật theo tự nhiên của nó -
-Tiên thiên bát quái đồ là hình vẽ về hai hệ quy chiếu và quy luật tương tác bên
-
-vững của vũ trụ, của vạn sự, vạn vật.
-
-28
-
-
-
-<!-- page 30 -->
-
-D. Hậu thiên bát quái đồ (Phương vị 8 quẻ của Văn Vương)
-
-1. Nội dung: Hậu thiên bát quái đồ là hình vẽ trong đó sắp xếp 8 cung
-quái theo một ước định về sự tương ứng giữa các hiện tượng thiên nhiên theo tứ
-thời bát tiết với tám hướng và tám cung quái. Theo truyền thuyết thì hình vẽ này
-do Chu Văn Vương làm ra (Hình 2-]l).
-
-29
-
-
-
-<!-- page 31 -->
-
-|A 2ñHad
-
-ĐNVN 13AñL
-
-AN3IHL
-
-IVH VÒH
-
-0L-Z UUIH
-
-1VS Oñ1
-
-N3IN NãIq
-
-AfD 9N
-
-IH3 HNIS
-
-Iynp lyg
-N3IH1 NãIL
-`
-
-=— —— MHO|—— Noa|—— ww|— —No[—C— Mo
-—— NyHx [— — NH3 |— — NyHo — wos|— wol—— xl—— Mo|—— họi —— Ni
-— \9!i—— Mo|—— x1|— Mo|—— Nos|—— Mwno —T— NoH1|—— wvHI|—— họi
-—— NHo|—— Woa|—— wyHi|— — NoHI|—— N2 — NoL|—— Mo|—— l|—— Nho
-——= xM|— Mo|— Ngi|[—— Myo|——Noni|—— nựH|—— voa|——wHo|—=— ~l
-—— Wos|— — NvHo —— NOH»|—— WyH› —— NỌI|—— Ny9 ——- ^ —— NV2|—— Wwoe
-— Mo|——- ~!|—-— Mo|—— Ngi|—— AyHi|— — Nghị |— — NyHo|—— Woa — M2
-ĐN"HI N3Ịa | WHNaIg | ĐNnHLNạI8 | ĐNÔRHLNạI8 | ĐNIMLNEIS |  VHNSIE- | 9NnHLNaIE | 9NÓnHL NH8 | 2oø yynp
-
-y8 LyHL 9ñ 9N fI NVL ÏHN „ IYHN | Y7”
-
-x
-
-IHd ĐNn2 n2
-
-30
-
-
-
-<!-- page 32 -->
-
-Tác giả Hậu thiên bát quái đồ đã đặt từng cung quái ở từng hướng với các
-ý nghĩa sau:
-
-- Phương bắc, mùa đông, tiết đông chí, khí trời giá lạnh, nước đóng thành
-băng, là hiện tượng âm khí hãm dương khí, ông đã lấy quẻ Khảm có hình tượng
-
-hai hào âm bao bọc một hào dương đặt ở đó.
-
-- Phương nam, mùa hạ, tiết hạ chí, khí trời nóng, lửa dễ cháy, là hiện
-tượng dương khí hãm âm khí, ông đã lấy quả Ly có hình tượng hai hào dương
-
-bao bọc một hào âm đặt ở đó.
-
-- Phương đông, mùa xuân, tiết xuân phân, dương khí ở trên giáng xuống,
-âm khí ở dưới bốc lên, hai khí âm dương va chạm nhau mà thành tiếng sấm, ông
-
-đã lấy quẻ Chấn có hình tượng hai hào âm ở trên, một hào dương ở dưới đặt ở đó.
-
-- Phương tây, mùa thu, tiết thu phân, khí trời hanh khô đó là dương khí đã
-chiếm hết mặt đất, ông đã lấy quẻ Đoài có hình tượng một hào âm ở trên, hai hào
-dương ở dưới đặt ở đây.
-
-- Phương đông bắc, tiết lập xuân, dương khí vừa thoái khỏi sự bao bọc của
-âm khí, ông đã lấy quẻ Cấn có hình tượng một hào dương ở trên, hai hào âm ở
-dưới đặt ở đó.
-
-- Phương đông nam, tiết lập hạ, bắt đầu mùa gió chướng và mùa bão,
-người ta cho rằng đây là hiện tượng dương khí lấn lớt âm khí, ông đã lấy quẻ Tốn
-
-có hình tượng hai hào dương ở trên, một hào âm ở dưới đặt ở đó.
-
-Khi
-
-
-
-<!-- page 33 -->
-
-PHƯƠNG VỊ HẬU THIÊN BÁT QUAI
-
-r® TY BÍNH NGỌ ĐỊNH - MÙI `
-£ S
-z +
-Em >›
-ng ~Z
+TƯƠNG SINH - TƯƠNG KHẮC
+HỖA HÓA
 °
-: Zz
-T
-“e)
-= +
-= Cc
-œ ¬
-= s
-( Z
-¬
-< C
-Ỗ 3
-4 | 4O
-“©Đ ñASÃẼ AnO AL VHN IÔH s®
-
-Hình 2-11
-
-- Phương tây nam, tiết lập thu, lúc này là vào mùa mưa người ta cho rằng
-đây là hiện tượng âm khí thắng dương khí, ông đã láy quẻ Khôn có hình tượng cả
-ba hào đều là âm đặt ở đó.
-
-- Phương tây bắc, tiết lập đông, khí hậu lúc này là cực độ của sự hanh khô,
-
-vạn vật trở nên cứng rắn, ông đã lấy quẻ Càn có cả ba hào đều là dương đặt ở đó.
-
-Ở sách "Thần bí đích bát quái", các tác giả không có một trích dẫn hoặc
-lời bàn nào của mình về bản chất nội dung Hậu thiên bát quái, chỉ có đoạn trích
-về ứng dụng của nó trong khí tượng học như sau:
-
-"Sách "Khai nguyên chiếm kinh" nói: "Sấm nổi lên ở cung Cần, nhân dân
-
-lắm bệnh, nước yên. Sấm nổi lên ở cung Khẩm, mưa nhiều. Nổi ở cung Cấn, lúa
-
-32
-
-
-
-<!-- page 34 -->
-
-nếp tốt, vừng dài bông, ngũ cốc hạ giá. Nổi ở cung Chấn, ngũ cốc rất quý, người
-nhiều tuổi bị bệnh đột ngột, quan tài rất đắt. Nổi ở cung Tốn, mưa đá hại ngũ
-cốc, sinh sâu, sương hạn hán xuống sớm. Nổi ở cung Ly, mùa hạ ít nước, hạn
-hán, sâu phá lúa. Nổi ở cung Khôn, ra ở cung Khôn, hại ngũ cốc. Nổi ở cung
-Đoài, binh nổi lên, cung đồng sắt. Nổi lên ở thuỷ môn, lụt lội tràn trề". (Trang
-83)
-
-2. Bản chất nội dung: Nay để làm rõ về bản chất nội dung Hậu thiên bát
-quái, tôi xin trích dẫn và so sánh tìm sự giống nhau và khác nhau giữa chu kỳ
-
-Cửu cung và chu kỳ Hậu thiên bát quái.
-a. Giống nhau:
-
-Cửu cung là một quy luật biến đổi âm dương trong thời gian. Người ta tính
-giá tri âm dương ở mỗi đơn vị thời gian tương ứng với một cung quái. Có 9 đơn
-vị thời gian làm một vòng, hết 9 thì lặp lại. Quy luật Cửu cung được ứng dụng
-trong nhiều bộ môn khoa học đời sống cổ Phương Đông, hãy lấy cách tính Cửu
-
-cung cưu thần cấm kị làm một ví dụ: (Hình 2-1 2)
-
-Sách Châm cứu đại thành (nhà xuất bản Nhân dân vệ sinh xuất bản xã,
-Bắc Kinh, 1973), trang 170 có hình vẽ và chú thích về Cửu cung cưu thần cấm kị
-
-như sau:
-- 1 tuổi, cung Khôn, kị ở hai cổ chân.
-- 2 tuổi, cung Chấn, kị ở răng và đầu ngón.
-- 3 tuổi, cung Tốn, kị ở miệng, vú, đầu.
-- 4 tuổi, cung Trung, kị ở xương đuôi và vai.
-- 5 tuổi, cung Cần, kị ở mắt, lưng, mặt.
-- 6 tuổi, cung Đoài, kị ở cánh tay, bàn tay.
-- 7 tuổi, cung Cấn, kị ở gáy, thắt lưng.
-- 8 tuổi, cung Ly, kị ở xương sườn, đầu gối.
-
-- 9 tuổi, cung Khẩm, kị ở bụng, chân, khuỷu tay.
-
-33
-
-
-
-<!-- page 35 -->
-
-- Hết vòng thì lặp lại" .
-
-Trong hình vẽ và chú thích nêu trên, chúng ta hiểu rằng trong cách tính sự
-sống của con người, bao giờ cũng bắt đầu từ lúc hình thành trong bào thai, như
-vậy, khi đứa trẻ một tuổi thì đã là năm thứ hai của sự sống ấy, do đó, cung Khảm
-sẽ là số I , cung Khôn sẽ là số 2, Chấn số 3, Tốn số 4, Trung số 5, Càn số 6,
-Đoài số 7, Cấn số 8, Ly số 9. Ta hãy xếp nửa đâu của Cửu cung theo chiều thuận,
-Trung cung đưa vào giữa, nửa sau của Cửu cung xếp theo chiều nghịch, đại cung
-Khảẩm ở hướng bắc, cung Ly ở hướng nam, cung Chấn ở hướng đông, cung Đoài
-ở hướng tây, hai cung Càn và Tốn cùng ở Tây bắc và Đông nam như ở trong Hậu
-
-thiên bát quái đồ, hai cung Khôn và Cấn cũng ở Đông bắc và Tây nam.
-
-34
-
-
-
-<!-- page 36 -->
-
-HẬU THIÊN BÀI QUÁI CỬU CUNG
-
-9
-CĂN KHẢM _KHÔN
-°
-
-Nữ
-
-8 |ĐOÀI»e CẤN ®CHẤN|2
-
-— ®)
-ö k
-ạ 5 NI
-ÖÔ® ° ma
-7 |CĂN LY TỒN |3
-8
-CỬU CUNG CỬU THÂN CẤM KY
-ÁÐ nẠnu»
-'Bung
-«&t ueu2
-vo _ NVHM .%
-_ @
-Hình 2-12
-b. Khác nhau:
-
-So với Hậu thiên bát quái đồ thì hai vị trí Khôn và Cấn này bị hoán vị cho
-
-nhau. Nhận xét về sự khác nhau này như sau (Hình 2 - 13):
-
-35
-
-
-
-<!-- page 37 -->
-
-BẮC BẮC
-CÀN KHẢM KHÔN CÀN . KHẨM. . CẤN
-° .c.ầ.°
-.,*, `  Ý : . 1® Ý 7
-TÂY | ĐOÀIe CẤN saCHÂN [póne TÂY | ĐOÀIe CẮN. eCHÂN [ĐÔNG
-Ỷ Ỷ Y
-, *,—=è> ® se. _ *“*>® ` ° ñ
-CÂN - LY TỒN KHÔN LY TỔN
-NAM NAM
-
-4 /ÑÀ
-
-—
-
-Nà
-
-⁄
-\*._
-CỬU CUNG TRONG PHƯƠNG VỊ BÀT QUÁI HẬU THIÊN
-
-Hình 2-13
-
-- Cửu cung và Bát quái hậu thiên giống nhau ở chỗ đều là cái dụng của âm
-dương trong thời gian, một đằng Cửu cung cưu thần cấm kị tính theo năm, một
-
-đằng Hậu thiên bát quái tính theo tứ thời bát tiết.
-
-- Khi đem cửu cung ghép vào với phương vị mặt đất như Bát quái hậu
-thiên chúng ta thấy chỗ khác nhau chỉ sảy ra sự hoán vị của hai cung Cấn, Khôn
-ở hai hướng Đông bắc và Tây nam. Do có chỗ giống và khác nhau này có thể
-khẳng định rằng Cửu cung là cái dụng của âm dương trong thời gian, Hậu thiên
-
-bát quái là cái dụng của âm dương trong không gian.
-3. Nghỉ án
-
-Trong sự lệch nhau giữa hai đồ hình về phương vị của Cửu cung và Hậu
-thiên bát quái như vừa vẽ ra trên đây, cho phép chúng ta nảy ra một nghĩ án rằng:
-Cách giải thích về chỗ dựa để làm căn cứ hình thành đồ hình Hậu thiên bát quái
-có thật sự là từ tứ thời bát tiết mà ra hay không ? Hay là sự ra đời của Hậu thiên
-bát quái chính là từ mối liên hệ tương ứng giữa âm dương ở thời gian và âm
-
-dương ở không gian được căn cứ từ Cửu cung và tám hướng?
-
-36
-
-
-
-<!-- page 38 -->
-
-Nếu vấn đề này được đặt ra để thảo luận, thì riêng tôi cho rằng sự hợp lý
-thuộc về thời gian là Cửu cung. Bởi vì, trong Lạc thư, số chỉ đại biểu sự lớn nhất
-của âm là số 8. Trong bát quái hoành đồ, cung quái Khôn là đại biểu cho âm
-nhiều nhất. Thế là cả hai loại vừa chu kỳ, vừa đồ hình đều trùng nhau một điểm.
-Trong việc giải thích ra đời của cung Quái có thể giả định rằng chính Chu Văn
-Vương cũng chỉ có trong tay những tài liệu nói về bát quái ứng với vạn sự, vạn
-vật chung chung, cho nên mới có sự giải thích khác nhau và sắp xếp khác nhau
-
-về hai vị trí của cung quái Khôn và Cấn nh đã nêu ở trên.
-
-37
-
-
-
-<!-- page 39 -->
-
-E. Hà đồ và Lạc thư
-
-Hà đồ và Lạc thư được người xưa coi là có nguồn gốc từ thần linh. Các
-sách cổ đều nói rằng: " Hà xuất đồ, Lạc xuất thư, Thánh nhân tắc chi", nghĩa là
-sông Hoàng hà xuất hiện đồ hình trên con Long mã, Thánh nhân theo đó vẽ lại,
-sông Lạc xuất hiện con Thần quy trên lưng có những dấu chấm, Thánh nhân theo
-đó vẽ lại Sách "Thần bí đích bát quái" viết về hà đồ - lạc thư như sau: ,„ "Hà đồ,
-
-Lạc thư là gì?
-
-Từ xưa đến nay có rất nhiều người đều thử tìm sâu đáp án của hình vẽ đã
-
-hình thành môn học về Hà Lạc.
-
-Trong sách cổ "Thượng thư cố mệnh" ghi chép Hà đồ rất sớm, nói: Sau khi
-Chu Thành Vương chết, ở dãy cột phòng mé hiên đông có bày Hà đồ. "Cố mệnh
-truyện" đem Hà đồ và bát quái gắn liền lại: Hà đồ bát quái, Phục Hi vua của
-thiên hạ, long mã ra ở Hà, khắp minh nó là nét, lấy để vẽ bát quái, gọi đó là Hà
-đồ,, (Hà đồ bát quái, Phục Hi vương thiên hạ, long mã xuất Hà, toại tắc kỳ văn,
-đĩ hoạ bát quái, vị chi Hà đồ) (trang 74)"
-
-Trong lịch sử học thuật ở Phương Đông, hai đồ hình Hà đồ và Lạc thư
-được bàn đến nhiều nhất, và khi người ta càng bàn sâu về mọi khía cạnh của nó
-thì nó lại càng trở nên huyền bí, khó hiểu. Trong phạm vi bài này, tôi thấy không
-cần phải nhắc lại những lời bàn đó để xin phép trình bày ngay những điệu mà tôi
-đã đốn ngộ về hai công án đó.
-
-(Nội dung của từng đồ hình Hà đồ và Lạc thư cũng như so sánh Hà đồ và
-lạc thư với Tiên thiên bát quái tôi đã có một bài đăng trong tạp chí "Công trình
-nghiên cứu y học quân sự” số 4 năm 1990 với tiêu đề "Hà đồ và Lạc thư” từ trang
-16 đến trang 27. Ở đây tôi chỉ bàn riêng về quy luật âm dương trong Hà đồ và
-lạc thư mà thôi).
-
-1. Hà đồ
-
-a. Hình thức của Hà đồ: Hà đồ là một hình sắp xếp mười con số có hình
-nét chấm tròn và có dây nối nhau, trong đó gồm có 5 số dương là 1,3,5,7,9 bằng
-
-chấm trắng, và 5 số âm là 2,4,6,8,10 bằng chấm đen. Các số được xếp thành ba
-
-38
-
-
-
-<!-- page 40 -->
-
-vòng, vòng trong cùng có số 5 và số 10 (số 10 được chia làm hai nhóm 5 chấm
-đen kẹp lấy số 5 bằng chấm trắng), vòng giữa có bốn số 1,3,2,4, vòng ngoài cùng
-có bốn số 6,8,7,9. ở vòng giữa và vòng ngoài các số dương và số âm đều lớn dần
-theo chiều thuận. (Hình 2-14)
-
-vị
-
-°
-
-© e
-
-HÀ ĐỒ
-
-Hình 2-14
-b. Nội dung của Hà đồ: Qua phân tích các khía cạnh của Hà đồ tôi nhận
-ra rằng Hà đồ là một hình vẽ ghi lại guy luật biên đối nhịp âm dương, trong đó
-nhịp âm dương nhỏ bị nhịp âm dương lớn chỉ phổi làm cho biên đối âm dương.
-Để dễ nhận ra quy luật này, trước hết ta tiến hành khoanh riêng ba vòng số
-
-như đã nêu trên phần hình thức của nó (Hình 2-]Š5):
-
-Hình 2-15.
-
-Khi đã để riêng hai số 5 và 10 ở trong cùng ra, ta dễ đàng nhận ra rằng các
-số ở vòng giữa thuộc nửa trước (nửa dương) của chu kỳ 10 là các số 1,3,2,4; các
-
-số ở vòng ngoài thuộc nửa sau (nửa âm) của chu kỳ 10 là các số 6,8,7,0.
-
-39
-
-
-
-<!-- page 41 -->
-
-Kẻ một đường chéo chia toàn bộ đồ hình làm hai phần âm dương, đường
-này phía trên bên trái từ giữa hai số 7 và 8, xuống đến phía dưới bên phải giữa
-hai số 9 và 6, lấy nửa phía dưới làm phần dương, nửa phía trên làm phần âm.
-Theo cách chia ba vòng và hai nửa này chúng ta nhận ra sự thay đổi âm dương
-như sau (Hình 2-16):
-
-- Ở nửa dương của chu kỳ 10 (các số 1 -2-3 -4), các số dương 1 -3 nằm ở
-phần dương, các số âm 2-4 nằm ở phần âm.
-- Ở nửa âm của chu kỳ 10 (các số 6-7-8-9), các số dương 7-9 nằm ở phần
-
-âm, các số âm 6-8 nằm ở phần dương.
-
-Hình 2-16
-Có thể biểu thị quy luật này trên đường tròn hoàn lưu như sau (Hình 2-17)
-
-Hình 2-17
-
-Hoặc cũng có thể biểu thị quy luật này trên hình vẽ hàng ngang như sau
-
-(Hình 2-18): Nhịp âm dương nhỏ trong chu kỳ 5.
-
-40
-
-
-
-<!-- page 42 -->
-
-Nhịp âm dương nhỏ trong chu kỳ lớn gồm hai chu kỳ 5 (bằng 10)
-
-c. Giá trị của Hà đồ: Qua những quy luật biến đổi âm dương trong Hà đồ
-
-ta thấy Hà đồ là hình vẽ ghi lại một lý thuyết cơ bản về âm dương trong vũ trụ và
-
-Hình 2-18
-
-vạn sự, vạn vật, đó là nhịp âm dương và quy luật biến đổi nhịp âm dương.
-
-Xin nêu một hiện tượng tự nhiên là khí hậu các năm theo ngũ vận, trong
-
-đó có nhịp âm dương và quy luật biến đổi nhịp âm dương đã làm rõ giá trị của
-
-Hà đồ. Cụ thể như sau:
-
-Học thuyết Ngũ vận - Lục khí nói về tương ứng giữa thiên can và đại vận,
-cứ 5 can là một vòng, 10 thiên can được chia làm hai vòng lặp lại, do đó có sự
-tương ứng là:
-
-Giáp, Kỷ - Đại vận là thổ ; Ất, Canh - Đại vận là kim; Bính, Tân- Đại vận
-
-là thuỷ; Định, Nhâm - Đại vận là mộc; Mậu, quí Đại vận là hoả;
-
-Có thể xếp nối tiếp nhau thành bảng hàng ngang tương ứng (Bảng 2 - 2):
-
-Bảng 2-2
-10 can Giáp. ất Bính ' Đỉnh | Mậu. Kỷ | Canh. Tân | Nhâm | Quý
-Hành của Vận |Thổ |Kim Thuỷ |Mộc |Hoả Thổ |Kim |Thuỷ Mộc | Hoả
-Số thứ tự l| 2 3 4 5 l| 2 3 4 5
-
-Đại vận như trên chỉ được coi là luận thuyết cơ bản và dùng trong so sánh
-với khí tư thiên hàng niên chi để tìm ra vế thịnh hay suy, còn bản thân vận, khi
-
-tính thành khách vận hàng năm theo niên can, bắt buộc phải căn cứ vào niên can
-
-41
-
-
-
-<!-- page 43 -->
-
-là dương hay âm để chuyển đổi, niên can là dương hay âm lại tính trong cả hai
-
-nhóm ngũ vận gộp lại theo kế tiếp làm thành chu kỳ 10 thiên can.
-
-Các dương can sẽ là Giáp, Bính, Mậu, Canh, Nhâm, các âm can sẽ là ất,
-
-Định, Kỷ, Tân, Quý.
-Vào những năm âm can gọi là bất cập, bất cập thì khí khắc nó lưu hành.
-
-Ta hãy đem so sánh hành của đại vận và hành của vận đã qua biến hoá của
-
-thái quá, bất cập được chuyển đổi mà thành (Bảng 2-3):
-
-Bảng 2-3
-
-Chu kỳ nhỏ 1 2 3 4 5 1 2 3 4
-
-Can Giáp | Ất ¡ Bính | Đinh | Mậu Kỷ |Canh | Tân | Nhâm
-Đại vận Thổ ' Kim | Thuỷ | Mộc | Hoả | Thổ | Kim ' Thuỷ | Mộc
-Can Thái quá | Giáp Bính Mậu Canh Nhâm
-Can bất cập Ất Đinh Ký Tân
-
-Khí lưu hành | Thổ | Hoả | Thuỷ | Kim | Hoả ¡ Mộc | Kim '. Thổ | Mộc
-
-Chu kỳ lớn 1 2 3 4 5 1 2 3 4
-
-42
-
-
-
-<!-- page 44 -->
-
-—........ ẽ...a.a....«
-
-NHỊP ÂM DƯƠNG LỚN
-BIẾN ĐỔI NHỊP ÂM DƯƠNG TRÊN TIẾN TRÌNH HÀNG NGANG
-
-P
-(lo
-
-BIẾN ĐỔI NHỊP ÂM DƯƠNG Ở
-HÀ ĐÔ
-Hình 2-19
-
-Trong cách tính của ngũ vận như trên có nhiều loại biến đổi:
-
-- Biến đổi thứ tự các số từ 1 đến 5 ở vòng sau thành các số từ 6 đến 10
-
-- Ở trong nửa trước của chu kỳ 10 các Can chẵn là âm, bị chuyển đổi
-
-thành khí khắc nó lưu hành.
-
-- Ở trong nửa sau của chu kỳ 10 Can, các Can lẻ ở chu kỳ 5 biến thành
-
-Can chắn của chu kỳ 10, chẵn là âm, bị chuyển đổi thành khí khắc nó lưu hành,
-còn các Can vốn là chắn ở chu kỳ 5 thì nay thành lẻ ở chu kỳ 10, do đó không bị
-
-chuyển đổi mà vẫn giữ bản khí lưu hành, (khí lu hành có lên bằng ngũ hành).
-
-43
-
-
-
-<!-- page 45 -->
-
-Trong y học cổ Phương Đông còn có nhiều loại chu kỳ có sự biến đổi nhịp
-âm dương, như trong quan hệ giữa giờ âm dương tương ứng với khí kinh lạc có vị
-trí âm dương trên các phần âm dương của cơ thể: Hoặc như quan hệ giữa niên chi
-âm dương với các mức độ âm dương trong chu kỳ lục khí 6 năm cũng do nhịp
-âm dương của niên chi tạo thành.
-
-Những chuyên đề này, tôi đã có bàn riêng, trong sách "Nguyên lý thời
-sinh học cổ Phương Đông" NXB Văn Hoá Thông Tin 1996.
-
-2. Lạc thư:
-
-a. Hình thức của Lạc thư: Lạc thư là một hình vẽ sắp xếp chín con số có
-hình nét chấm và dây nối nhau, trong đó gồm có 5 số dương là 1-3-5-7-9 bằng
-chấm trắng, 4 số âm . là 2-4-6-8 bằng chấm đen. Các con số trong Lạc thư được
-
-xếp trong giữa và tám hướng nh sau (Hình 2-20):
-
-Số 5 ở giữa Số 1 ở hướng Bắc Số 9 ở hướng Nam
-Số 3 ở hướng Đông Số 7 ở hướng Tây Số § ở Đông bắc
-Số 6 ở Tây bắc Số 4 ở Đông nam Số 2 ở Tây nam.
-
-44
-
-
-
-<!-- page 46 -->
-
-NAM
-
-4 8 2
-ĐÔNG 3 5 7
-8 1 6
-BẮC
-NAM
-ĐÔNG
-
-b. Nội dung của Lạc thư: Lạc thư là hình vẽ ghi lại hai chiều hướng phát
-triển của hai mặt âm và dương âm. Âm được dùng số chắn để biểu thị, dương
-được dùng số lẻ để biểu thị. Theo sự sắp xếp đã nêu trên, số âm tối đa đông bắc
-= 8, giảm dần theo hướng từ đông bắc xuống tây nam là và tối thiểu ở đây = 2 ;
-số dương tối đa ở hướng nam = 9; giảm dần theo hướng từ nam lên bắc và tối
-thiểu ở đây = 1. Nhưng không chỉ dừng ở đó, trong sự sắp xếp các số âm dương
-còn lại, đã cho ta thấy thêm nội dung tương tác giữa hai thành phần âm và
-dương, khi âm gần số dương nhiều thì âm giảm, khi âm gần số dương ít thì âm
-tăng và khi dương gần số âm ít thì dương tăng, dương gần số âm nhiều thì dương
-giảm. Theo chiều hướng phát triển giảm dần của số dương từ nam lên bắc, ở giữa
-
-là trung bình, là số 5, ở hướng đông tuy cùng ngang với trung bình, nhưng vì gần
-
-"y
-
-:
-HN
-
-Hình 2-20
-
-45
-
-TÂY
-
-TÂY
-
-
-
-<!-- page 47 -->
-
-số âm lớn nên dương bị giảm từ 5 xuống còn 3; ở hướng tây tuy cùng ngang với
-trung bình nhưng số dương gần với số âm ít nên dương tăng từ 5 lên thành 7.
-Theo chiều hướng phát triển giảm dần của âm từ đông bắc xuống tây nam, ở giữa
-là trung bình của số âm. ở hướng đông nam cũng là trung bình của âm, nhưng vì
-đông nam, gần số dương lớn nên âm giảm xuống còn 4. Ở hướng tây bắc tuy
-cùng ngang với trung bình của số âm, nhưng âm gần số dương ít âm tăng lên
-thành 6. Ngay bản thân số 8 đại biểu cho âm nhiều nhất được xếp ở đông bắc,
-gần với hướng bác, là nơi có số dương ít nhất = 1, và số 9 đại biểu cho số dương
-nhiều nhất xếp ở hướng nam gần với số âm ít nhất là số 2 ở tây nam cũng là theo
-
-tương tác mà thành.
-
-c. Cơ sở để hình thành Lạc thư: Cơ sở để hình thành sự sắp xếp các con
-số tượng trưng cho hai chiều hướng phát triển âm dương và quy luật tương tác
-âm dương trong Lạc thư chính là chiều hướng phát triển của hai thành phần âm
-
-dương trong khí hậu môi trường khu vực Phương Đông.
-
-Nhìn vào bản đồ địa lý khu vực chúng ta thấy vùng phía nam sông Dương
-
-Tử và phía bắc Việt Nam có hoàn cảnh môi trường là:
-
-- Phía đông, cả một khối nước khổng lồ của Thái Bình Dương là gốc của
-
-độ ẩm trong không khí môi trường.
-
-- Phía tây, cả một dãy trường sơn hùng vĩ của mạch tổ Hy Mã Lạp Sơn và
-trung tâm đại lục đại, nơi đây độ ẩm trong không khí môi trường được coi là ít
-nhất.
-
-- Phía nam là nhiệt đới và xích đạo, được coI là vùng nóng nhất khu vực.
-
-- Phía bắc là hàn đới và bắc cực, được coi là vùng lạnh nhất khu vực.
-
-Theo đó, tác giả Lạc thư coi độ ẩm trong không khí là âm, nhiệt độ trong
-không khí là dương. Thoạt đầu, chiều hướng phát triển của dương đã được xác
-lập là tối đa ở phía nam và giảm dần về phía bắc, chiều hướng phát triển của âm
-được xác lập là tối đa ở phía đông và giảm dần về phía tây Tiếp theo đó, để biểu
-thị được quy luật tương tác âm dương giữa độ ẩm và nhiệt độ là ẩm vốn ưa lạnh
-
-ghét nóng, gặp lạnh thì ẩm tăng, gặp nóng thì ẩm giảm, người ta đã đưa ẩm tối
-
-46
-
-
-
-<!-- page 48 -->
-
-đa chuyển lên đông bắc, ẩm tối thiểu chuyển xuống tây nam, ở đông nam ẩm
-trung bình giảm, ở tây bắc ẩm trung bình tăng. Còn như biểu thị nhiệt gặp ẩm thì
-nhiệt giảm, ở phía đông nhiệt từ trung bình = 5 giảm xuống còn = 3; nhiệt gặp
-
-khô thì nhiệt tăng, ở phía tây nhiệt từ trung bình = 5 tăng lên thành = 7.
-
-Qua sự so sánh nguyên tắc sắp xếp các con số âm dương theo hai chiều
-hướng phát triển của âm dương và quy luật tương tác âm dương trong đồ hình
-Lạc th với thực tế tình hình chiều hướng phát triển của hai thành phần âm dương
-trong khí hậu môi trường khu vực Phương Đông là độ ẩm và nhiệt độ, chúng ta
-thấy rằng Lạc thư là sản phẩm của nền khoa học thực nghiệm và khoa học tin
-học ở trình độ cao chứ không phải là nguồn gốc thần bí như nhiều người lâu nay
-thường nói (Hình 2 - 21).
-
-d. Sự khác nhau giữa Hà đồ và Lạc thư:
-
-Hà đồ là một đồ hình ghi lại quy luật biến đổi âm dương trong mối quan
-
-hệ giữa nhịp âm dương nhỏ của chu kỳ nhỏ nằm trong nhịp âm dương lớn của
-
-chu kỳ lớn, nó có tính chất thời gian.
-
-Lạc thư là một đồ hình ghi lại hai chiều hướng phát triển của âm dương và
-quy luật biến đổi các mức độ âm dương do tương tác âm dương gây ra. Nó có
-
-tính chất không gian.
-
-47
-
-
-
-<!-- page 49 -->
-
-IV. BIẾN ĐỔI ÂM DƯƠNG TRONG THIÊN NHIÊN, TRONG VAN
-VẬT LÀ BIẾN ĐỔI CHẤT TRONG SỰ SỐNG CỦA VAN VẬT
-
-A. Trong sự sống loài cây: Lấy loài cây để là dẫn chứng khi âm dương
-trong khí hậu theo mùa thay đổi thì loài cây thay đổi sự sống tương ứng như sau:
-
-- Mùa xuân, độ ẩm cao, nhiệt độ vừa phải, loài cây nảy sinh và phát triển
-rất mạnh. Người xa nói xuân sinh là như thế.
-
-- Mùa hạ, nhiệt độ cao, độ ẩm vừa phải, loài cây trưởng thành khai hoa kết
-trái. Người xa nói hạ rưởng là như thế.
-
-- Mùa thu, nhiệt độ vừa phải, độ ẩm thấp, nhựa gom về thân không nuôi
-cành lá nên lá rụng. Người xưa nói /hw ?hâu là như thế.
-
-- Mùa đông, nhiệt độ thấp, độ ẩm vừa phải, khí trời lạnh giá, nước đóng
-băng, nhựa gom về gốc rễ để như nhờ đất ủ ấm mà giữ gìn sự sống. Người xưa
-
-nói đông fàng như thế.
-
-48
-
-
-
-<!-- page 50 -->
-
-NAM
-
-ĐÔNG 3 5 7 TÂY
-
-BẮC
-SỐ DƯƠNG
-đại biểu cho nhiệt độ
-phát triển và biến hóa
-
-NAM
-
-4 2
-Z4
-"Ñ
-ĐÔNG | ,__-|J#-5~~|- TÂY
-
-8 6
-
-BẮC
-
-SỐ ÂM
-
-đại biểu cho độ ẩm
-phát triển và biến hóa
-
-Hình 2-21
-
-- Cuối hạ đầu thu, khí hậu nóng cao, mưa nhiều, độ ẩm cao, vạn vật dễ hư
-hỏng thối nát. Người xưa nói trưởng hạ hoá là như thế.
-
-"Xuân ®ïnh, Hạ Trưởng, Trưởng Hạ Hoá, Thu Tháu, Đông Tàng” là nội
-dung khí hoá của một vòng khí hậu cả năm.
-
-B. Trong sự sống con người: Y học đã chứng minh được rằng khi âm
-dương trong nội môi hay ngoại môi thay đổi đều ảnh hưởng đến sự sống con
-
-người.
-
-49
-
-
-
-<!-- page 51 -->
-
-1. Trong nội môi: Dương là nhiệt độ trong người (thân nhiệt), mức trung
-bình là 37 độ C, lên trên 38 độ C là sốt nóng, trên 39 độ C là sốt cao, dễ sinh co
-giật (nhiệt cực sinh phong), xuống dưới 36 độ C là hạ nhiệt độ, dễ truy tim mạch
-(chứng vong dương rất nguy hiểm). âm là độ nước trong người, mức nước vừa
-phải thì người khoẻ mạnh, thừa nước sinh ra phù thũng, thiếu nước sinh ra chứng
-
-mất nước rối loạn điện giải rất nguy hiểm (chứng vong âm).
-
-2. Ở ngoại môi: Dương là nhiệt độ không khí, mức độ nhiệt của không
-khí từ 18 đến 32 độ C là thuận lợi cho sự sống, trên 32 độ C gọi là nóng nực, trên
-37 độ C là viêm nhiệt, dễ sinh chứng say nóng (thương thử) và các bệnh tim
-mạch như choáng ngất. Nóng kéo dài gây mệt mỏi vì chất đạm trong người bị
-tiêu huỷ nhanh, men tiêu hoá hỏng, thức ăn khó biến thành chất bổ nuôi dưỡng
-và bù đắp cho những hao tổn mất mát. Mức nhiệt độ của không khí xuống quá
-thấp gây ra co thất các mạch máu, trở ngại tuần hoàn sinh ra tê buốt đau đớn,
-làm giảm khả năng vận động của cơ thể, lạnh quá gây nhiễm lạnh vào cơ thể làm
-sng phổi hoặc rối loạn tiêu hoá (hàn tà phạm phế, hoặc hàn thương trường vị).
-Thậm chí gây ra chứng thương hàn, trúng hàn là những chứng nguy hiểm cho
-tính mạng con người. âm là độ ẩm không khí, độ ẩm trong không khí vừa phải cơ
-thể thoải mái, độ ẩm ít, không khí khô gây ra chứng da dẻ khô nứt, mũi thở khó,
-họng khô, rát, ho hen, gọi là táo khí tượng kim. Độ ẩm không khí cao gây ra áp
-lực không khí mạnh, trở ngại cho tuần hoàn cũng gây ra nhức mỏi đau đớn gọi là
-thấp tà, có khi nhiễm sâu gây ra hại tỳ vị, trở ngại tiêu hoá, gây ra chứng vừa thổ
-vừa tả cũng rất nguy hiểm, và khi thành dịch thời khí sẽ gây chết người không ít
-
-trong một thời gian không dài và ở một vùng không hẹp.
-
-50
-
-
-
-<!-- page 52 -->
-
-V. KẾT LUẬN VỀ ÂM DƯƠNG:
-
-Muốn ứng dụng bất kể một môn khoa học nào vào việc phục vụ đời sống
-con người cũng cần phải nắm được quy luật biến đổi âm dương trung thiên
-nhiên, trong vạn vật và trong con người ở cả hai phía tương ứng và tương tác
-thích nghĩa tương ứng là khí vật tương ứng, là khí hoá và tương tác là tương sinh
-hay tương khắc, là bát biến cung phi, mới mong đem lại lợi ích, tránh được thiệt
-hại cho sự sống của con người. Nhưng phải biết những vấn đề vừa nêu với nội
-dung khách quan, khoa học, và biết một cách tường tận mới mong tránh khỏi
-vòng luẩn quẩn của sự mê tín dị đoan, mới đưa cuộc sống của cộng đồng con
-
-người vào con đường hoà hợp cùng tiến bộ.
-
-S1
-
-
-
-<!-- page 53 -->
-
-CHƯƠNG 3: NGŨ HÀNH
-
-Với đầu đề này, ta đi vào xem xét cụ thể về tính chất nhiều mặt của nó.
-Trước hết, ta hãy xem xét những bản văn có ghi chép về quy luật ngũ hành tiêu
-biểu cho nhiều loại ứng dụng của nó. Trên cơ sở đó, ta không bỏ sót các khía
-
-cạnh, không đánh giá hạn hẹp, hay sai lầm về nó.
-
-A. Những đoạn văn trích về Ngũ hành
-
-Ở những đoạn văn trích về ngũ hành, tôi trích trọn vẹn những chỉ tiết của
-quy luật, không cắt bỏ, để có đầy đủ cơ sở xem xét, đánh giá. Lối làm này có thể
-
-có những đoạn hơi dài, nhưng theo tôi là cần thiết, thứ tự các đoạn văn sắp xếp
-
-như sau:
-
-- Tuệ Tĩnh giải thích về âm dương ngũ hành qua đoạn "Khí hoá-âm
-
-dương”.
-
-- Ngũ hành theo sách "Nội kinh" được Dương Kế Châu ghi lại trong sách
-
-"Châm cứu đại thành”.
-- Ngũ hành trong thiên Hồng phạm.
-- Ngũ hành trong thiên Nguyệt lệnh.
-- Lời bàn về ngũ hành của Trâu Diễn.
-- Lời bàn về ngũ hành trong vũ trụ luận của Đổng Trọng Thư.
-
-1. Tuệ Tĩnh giải thích về âm dương ngũ hành qua đoạn "khí hoá - âm
-
-dương”
-
-Trong sách "Hông nghĩa giác tư y thư” (nhà xuất bản y học Hà Nội, 1978),
-trang 66, tác giả Tuệ Tĩnh đã giải thích phần khí hoá - âm dương ở "Tăng bổ tập
-
-vạn kim nhất thống thuật” như sau:
-"Khí hoá - âm dương”.
-"Vạn kim" là tỉnh tuý của muôn hình tượng.
-
-"Nhất thống" là then máy của một tổng quát.
-
-52
-
-
-
-<!-- page 54 -->
-
-Thái sơ là khí mới bắt đầu.
-
-Thái cực là hình mới bắt đầu.
-
-Thái tố là chất mới bắt đầu.
-
-Trời là khí nhẹ, trong mà nổi lên.
-
-Đất là khí nặng, đục mà lắng xuống.
-
-Tình của khí dương là mặt trời, mọc ở phương đông, mà lặn ở Phương tây.
-Tỉnh của khí âm là mặt trăng, ban đêm hiện ra, mà ban ngày ẩn đi.
-
-Trời khuyết phương tây bắc, cho nên phương tây bắc là âm mà tai mắt bên
-
-phải con người không tinh bằng bên trái.
-
-Đất khuyết phương đông nam, cho nên phương đông nam là dương mà
-
-chân tay bên trái của con người không mạnh bằng, bên phải.
-
-Khí trời giáng xuống, khí đất bốc lên. Trong âm có dương, trong dương có
-âm. Từ sáng sớm (tảng sáng đến giữa trưa) thuộc phần dương của ngày là dương
-trong dương. Từ giữa trưa đến chạng vạng tối, cũng thuộc phần dương của ngày,
-nhưng là âm trong dương. Từ chạng vạng tối đến lúc gà gáy, thuộc phần âm của
-ngày, là âm trong âm. Từ gà gáy đến sáng, cũng thuộc phần âm của ngày, nhưng
-
-là dương trong âm.
-Cho nên người ta cũng tương ứng như vậy.
-
-Trời đất là trên, dưới của muôn vật, âm dương là đối đãi của khí huyết,
-nam nữ, bên trái, bên phải là đường lối của âm dương, thuỷ hoả là chứng nghiệm
-
-của âm dương, kim mộc là đầu mối của sự sinh thành.
-- Khí đen tụ ở trên không, nước (thuỷ) bắt đầu sinh.
-- Khí đỏ rực ở trên không, lửa (hoả) bắt đầu sinh.
-- Khí xanh ở trên không, loài cây (mộc) bắt đầu sinh.
-- Khí trắng ngáng ở trên không, loài kim (kim) bắt đầu sinh.
-- Khí vàng rộp ở trên không, đất (thổ) bắt đầu sinh.
-
-Trời đất kết khí với nhau mà muôn vật được chung đúc.
-
-53
-
-
-
-<!-- page 55 -->
-
-Nam nữ giao tính với nhau mà muôn vật được hoá sinh.
-
-Tam tài là trời, đất, người. Con người riêng được chính khí của trời đất,
-
-tinh khôn hơn muôn Vật.
-
-Mệnh là cái bẩm phú của trời.
-
-Tỉnh là cái nguồn gốc của cơ thể.
-
-Hình là nhà ở của sinh mệnh.
-
-Khí là cơ bản của sinh mệnh
-
-Thần là chủ tế của sinh mệnh.
-
-2. Ngũ hành theo sách "Nội kinh" được Dương Kế Châu ghỉ lại trong
-sách "Châm cứu đại thành".
-
-Trong sách "Châm cứu đại thành” của Dương Kế Châu đời Minh (nhà xuất
-bản nhân dân vệ sinh xuất bản xã Bắc Kinh, 1973, từ trang 192 đến trang 224)
-ông đã trích ở "Nội kinh" những phần nói về ngũ hành tương ứng với tâm sinh lý
-con người để đa vào phần nói về tạng phủ, kinh lạc, huyệt vi. Nay trích dịch lại
-những phần nói về tương ứng giữ ngũ hành với tạng phủ và sinh lý, bệnh lý như
+MỘC ® ® THỔ MỘC THỔ
+k : `
+THỦY f—” KM THỦY Sài
+HỎA HÒA
+MỘC THỔ MỘC THÔ
+l KIM THỦY DIẾI
+THỦY T—< É- =rê
+TƯƠNG CHẾ TƯƠNG HÓA
+Hình 3-14
+
+Khác: Dùng với phản nhau, gọi là quan hệ tương khắc trong ngũ hành:
+tức mộc khắc thổ, thổ khác thuỷ, thuỷ khắc hoả, hoả khắc kim, kim khắc mộc,
+khắc lại viết là quan quỷ. Người được đo mệnh thuộc về chủ, gọi là ngã ngũ hành
+của cung mệnh, cung tài bạch nếu như bị ngũ hành khắc của ngũ tinh vận hành
+đến cung ấy thì người bị đo xấu. Nếu như ngã khắc sao đến thì tốt, nhưng cũng
+không tốt như sao đến sinh ngã, bởi vì khắc cần tiêu hao năng lượng của tự thân.
+Phàm là khắc ngã, gọi làm quan quỷ.
+
+Chế: Cũng là một loại tương khác, nhưng không giống với khắc, như
+kim vốn để khắc mộc, nhưng có hoả khắc kim, lúc đó hoả khắc kim đối với
+mộc lại nói đã là chế, có ý tứ trợ cho mộc. Quan hệ ngũ hành tương chế như
 sau:
 
-Thủ thái âm phê" kinh huyệt chủ trị..
+- Kim khắc mộc, được hoả chế kim, bởi vì mộc sinh hoả, hoả khắc kim,
+cho nên được hoả có thể chế kim.
 
-"Nội kinh" nói rằng: Phế là chức vụ phó tướng, chủ về tiết xuất
+- Hoả khắc kim, được thuỷ chế hoả. Bởi vì kim sinh thuỷ thuỷ khắc hoả,
+cho nên được thuỷ chế hoả.
 
-Phế là gốc của khí, là chỗ chứa của phách, cái đó thấy rõ ở lông, sung (đầy
-đủ) ở da, là thái âm trong dương, thông với khí mùa thu.
+- Thuỷ khắc hoả, được thổ lại có thể chế thuỷ. Bởi vì hoả sinh thổ, thổ
+khắc thuỷ.
 
-Phương tây màu trắng, thông vào với phế, khai khiếu ở mũi, tàng tỉnh ở
-phế, làm bệnh ở lưng trên, vị là cay, loài là kim, súc là ngựa, ứng với bốn mùa.
-Trên trời thấy sao Thái bạch đã biết là bệnh ở da lông, âm là thương, số là 9(),
-mùi là tanh, dịch là nước mũi.
+108
 
-Phương tây sinh táo (khí táo) táo sinh kim, kim sinh cay, cay sinh phế,
 
-phế sinh da lông, da lông sinh thận.
 
-C ) ở sách CCĐT đã xếp các số sau các âm, đó là số lần luyện khí công bằng âm máy
+<!-- page 110 -->
 
-54
+- Thổ khác thuỷ, thuỷ được mộc lại có thể chế thổ, bởi vì thuỷ sinh mộc,
 
+mộc khác thổ.
 
+- Mộc khắc thổ, thổ được kim lại có thể chế mộc, bởi vì thổ sinh kim, kim
 
-<!-- page 56 -->
+khắc mộc.
+Chế: Cũng là người chế phục làm hại ngã.
 
-Phế chủ mũi, ở trời là táo, ở đất là kim, ở thân người là da lông, ở tạng là
-phổi, ở tiếng là khóc, ở biến động là ho, ở chí là lo buồn, nóng hại da lông, lạnh
-thắng nóng, cay hại da lông đắng thắng cay...
+Hoá: ý tứ là nói hoá ác quy thiện về ngã, cũng dựa vào quan hệ hành
 
-Túc thái âm ty kinh huyệt chủ trị:
+tương sinh mà ra, cụ thể như sau:
 
-"Nội kinh" nói rằng: Tỳ là chức quan gián nghị, trí vòng quanh ở đó mà
-Ta.
+Kim khắc mộc, được thuỷ đến sinh mộc, lại có thể hoá giải khắc của kim
+đối với mộc.
 
-Cái tỳ, cái gốc của kho chứa, chỗ ở của sự tươi tốt, cái đó thấy rõ ở môi, tứ
-bạch, cái đó biến hoá ở bắp thịt, là loại âm tột bực, thông với thổ khí, riêng một
-lạng đó quán tứ phương, tỳ chủ tứ chi, cùng với vị mà làm ra tân dịch.
+Thuỷ khắc hoả, được mộc hoá, tức lợi dụng quan hệ mộc sinh hoả, thuỷ
 
-Trung ương màu vàng, thông vào với tỳ, khai khiếu ở miệng, tàng tinh ở
-tỳ, làm bệnh ở gốc lưỡi, vị đó là ngọt, súc đó là trâu, lúa đó là lúa tẻ, cái đó ứng
-bốn mùa. Trên trời thấy sao Trấn đã biết là bệnh ở bắp thịt, âm đó là cung, số đó
-là 5, mùi là thơm, dịch là nước dãi.
+sinh mộc, do mộc tự hoả hoá giảm bớt cái khắc của thuỷ đối với hoả.
 
-Trung ương sinh thấp, thấp sinh thổ, thổ sinh vị ngọt, vị ngọt sinh tỳ, tỳ
-sinh bắp thịt, thịt sinh phế, phế chủ miệng. Ở trời là thấp, ở đất là thổ, ở thân thể
-là thịt, ở tạng là tỳ, ở tiếng là lời ca, ở biến động là oẹ, ở chí là suy nghĩ, suy nghĩ
-thì hại tỳ, giận thắng suy nghĩ thấp làm hại thịt, phong thắng thấp, ngọt làm hại
-thịt, chua thắng ngọt...
+Mộc khắc thổ, được hoả hoá. Tức lợi dụng quan hệ mộc sinh hoả, hoả sinh
+thổ, thổ được hoả đến giúp đỡ mà hoá giảm bớt cái khắc của mộc đối với thổ.
 
-Thủ thiếu âm tâm kinh huyệt chủ trị:
+Hoả khắc kim, được thổ hoá. Tức lợi dụng quan hệ thổ sinh kim, hoả lại
+sinh thổ, kim được thổ đến giúp đỡ mà hoá giảm bớt cái khắc của hoả đối với
+kim.
 
-"Nội kinh" nói rằng: Tâm là chức vụ quân chủ, thần minh từ đó mà ra.
+Thổ khắc thuỷ, được kim hoá. Tức lợi dụng quan hệ kim sinh thuỷ, thổ
+sinh kim, thuỷ được kim đến giúp đỡ mà hoá giảm bớt cái khác của thổ đối với
+thuỷ.
 
-Tâm là gốc của sự sống, thần của biến, cái đó thấy rõ ở mặt, cái đó sung ở
-huyết mạch, là dương trong thái dương, thông với khí mùa hạ.
+Sinh, khác, chế, hoá, kể trên, nền tảng ở quan hệ hỗ tương giữa ngũ hành
+với nhau. Trong tinh mệnh học phán đoán quan hệ ngũ tinh với cung chủ, độ chủ
+12 cung, suy đo tác dụng của các sao với vận mệnh của người được đo mệnh, là
+một phương pháp trọng yếu của tinh mệnh học.
 
-Phương nam màu đỏ, thông vào với tâm, khai khiếu ở lưỡi, chứa tinh ở
-tâm, làm bệnh ở ngũ tạng, vị đó đắng, loại đó là hoả, súc là dê, cốc là lúa nếp,
-cái đó ứng bốn mùa. Trên trời thấy sao Vĩnh hoặc, là đã biết bệnh ở mạch, âm là
-chuỳ, số là 7, mùi là khét, dịch là mồ hôi.
+Để tiện tra cứu, sử dụng, tôi tóm tắt theo kiểu hệ thống thành mấy bảng: -
+Bảng ngũ hành tương ứng trong các quy luật, - bảng tỷ lệ khí trong ngũ hành, -
+bảng tương ứng khí với âm dương, bát quái. Dưới đây là những bảng lần lượt
 
-Phương nam sinh nhiệt, nhiệt sinh hoả, hoả sinh vị đắng, vị đắng sinh tâm,
+theo thứ tự kể trên:
 
-tâm sinh huyết, huyết sinh tỳ, tâm chủ lưỡi. Ở trên trời là nhiệt, ở đất là hoả, trên
+109
 
-55
 
 
+<!-- page 111 -->
 
-<!-- page 57 -->
+LNgũ hành tương ứng trong các quy luật
 
-thân người là mạch, ở tạng là tâm, ở tiếng là tiếng cười, ở biến động là lo lắng
-(ưu), ở chí là vui mừng. Vui mừng hại tâm, sợ thắng vui, nhiệt hại khí, hàn tháng
-nhiệt, đắng hại khí, mặn thắng đắng...
+Các quy luật chứa ngũ hành và cung độ của hành (Bảng 3-12).
+1. Hành mộc:
 
-Túc thiếu âm thận kinh huyệt chủ trị:
+- Ở mùa : Mùa xuân.
 
-"Nội kinh" nói rằng: Cái thận, chức vụ tác quan, kỹ xảo từ đó mà ra.
+- Ở lục khí : Khách khí tư thiên là quyết âm phong mộc vào những năm tỊ,
 
-Cái thận, chủ ẩn náu, cái gốc của sự chứa kín, tinh ở đó.
+hợi.
+- Ở Ngũ vận: Khách vận có đại vận là mộc vào những năm định, nhâm.
+- Ở thập thiên can: Hành mộc vào những năm can giáp, ất
+- Ở thập nhị địa chi: Hành mộc vào những cung dần, mão.
+- Ở tiết quý: Hành mộc là mạnh xuân, trọng xuân.
+- Ở bát quái: Hành mộc ở các cung chấn, tốn.
+- Ở cửu cung: Hành mộc ở các cung số 3, 4.
+- Ở phương hướng: Hành mộc ở các hướng đông, đông nam.
+- Ở khí: Tên là phong khí.
+2. Hành hoả:
+- Ở mùa: Mùa hạ.
 
-Phương bắc, màu đen, thông vào với thận, khai khiếu ở tai, tàng tỉnh ở
-thận, làm bệnh tại khe, vị đó mặn, loại là thuy, súc là lợn, cốc là đậu, là ứng với
-bốn mùa. Trên trời thấy sao Thìn, là đã biết bệnh đó ở xương, âm là vũ, số là 6,
-mùi là khai, dịch là nước bọt.
+- Ở lục khí: Khách khí tư thiên có hai loại hoả: Thiếu âm quân hoả ở các
 
-Phương bắc sinh ra lạnh, lạnh sinh thuỷ (nước) thuỷ sinh ra vị mặn, mặn
-sinh thận, thận sinh ra xương tuỷ, tuỷ sinh can, thận chủ tai. ở trời là lạnh, ở đất
-là nước, ở thể là xương, ở tạng là thận. ở tiếng là rên, ở biến động là run rẩy, ở
-chí là sợ hãi, sợ hãi hại thận, lo nghĩ thắng sợ hãi. Hàn hại huyết, táo thắng hàn,
-mặn hại huyết, ngọt thắng mặn..."
+năm tý, ngọ; Thiếu dương tướng hoả ở các năm thân, dần.
+- Ở ngũ vận: Khách vận có đại vận là hoả ở các năm mậu, quý.
+- Ở thập thiên can: Hành hoả ở vào các năm bính, đinh.
+- Ở thập nhị địa chỉ: Hành hoả ở các cung tị, ngọ
+- Ở tiết quý: Hành hoả ở mạnh hạ, trọng hạ.
 
-Túc quyết âm can kinh huyệt chủ trị:
+- Ở bát quái: Hành hoả ở cung ly.
 
-"Nội kinh" nói rằng: can là chức vụ tướng quân, mưu lự từ đó mà ra.
+110
 
-Can, cái gốc của sự quyết đoán, chỗ ở của hồn. Cái đó thấy rõ ở móng, cái
-đó sung ở gân, đã sinh ra huyết khí, là dương trong thiếu dương, thông với khí
-mùa xuân.
 
-Phương đông màu xanh, thông với can, khai khiếu ở mắt, chứa tinh ở gan,
-là bệnh phát co giật, vị là chua, loài là thảo mộc, súc là gà, cốc là mạch, là ứng
-với bốn mùa, trên trời là Tuế tinh, thì đã biết là bệnh ở gân. âm là giốc, số là 8,
-mùi là hôi, dịch là nước mắt.
 
-Phương đông sinh phong, phong sinh mộc, mộc sinh vị chua, vị chua sinh
-can, can chủ cân, can sinh tâm, can chủ mắt. Ở trời là huyền, ở người là đạo, ở
-đất là hoá, hoá sinh ra hiểu biết. Huyền sinh ra thần, ở trời là phong, ở đất là
+<!-- page 112 -->
 
-mộc, ở mình mẩy là gân, ở tạng là can, ở sắc là màu xanh rêu, ở thanh là tiếng
+- Ở cửu cung: Hành hoả ở số 9.
 
-56
+- Ở phương hướng: Hành hoả ở hướng nam.
 
+- Ở khí: Tên là thử khí.
 
+3. Hành thổ:
 
-<!-- page 58 -->
+- Ở mùa: Trưởng hạ (cuối hạ, đầu thu).
 
-hô, ở biến động là nắm chặt tay lại, ở chí là giận dữ. Giận dữ thì hại gan, buồn
-thì thắng giận dữ, phong thì hại gân, táo thắng phong, chua thì hại gân, cay thắng
+- Ở lục khí: Khách khí tư thiên là thái âm thấp thổ các năm sửu, mùi.
+- Ở ngũ vận: Khách vận có đại vận là thổ ở các năm giáp, kỷ.
 
-chua...
-3. Ngũ hành trong thiên " Hồng phạm" .
+- Ở thập thiên can: Hành thổ ở vào các năm mậu, kỷ.
 
-Trong sách "Đại cương triết học sử Trung Quốc" (trang 141) ông Phùng
-Hữu Lan viết (*):
+- Ở thập nhị địa chi: Hành thổ ở vào các cung thìn, tuất, sửu, mùi.
 
-“Iiếng "Ngũ hành” thường được dịch là năm yếu tố. Nhưng ta không nên
-coi chúng là những yếu tố tinh, mà nên coi là năm thế lực động có ảnh hưởng
-trên nhau. Tiếng "hành" có nghĩa là "làm", "hoạt động”; cho nên chữ ngũ hành
-theo nghĩa đen, có nghĩa là năm hoạt động, hay năm tác nhân. Người ta cũng gọi
+- Ở tiết quý: Hành thổ ở tứ quý: quý xuân, quý hạ, quý thu, quý đông.
+- Ở bát quái: Hành thổ ở các cung cấn, khôn.
 
-là "ngũ đức”, có nghĩa là năm thế lực.
+- Ở cửu cung: Hành thổ ở các cung số 8, 2, 5, I
 
-"Chữ ngũ hành đã có trong một văn bản theo truyền thuyết được viết vào
-thế kỷ XX trước tây lịch (xem Thư kinh, phần III, quyển II, thiên 1 ,3). Ta không
-thể chứng minh sự chân thực của bản văn ấy, nhưng, dầu có thật, ta cũng không
-thể chắc rằng chữ ngũ hành trong ấy có cùng nghĩa với trong các văn bản khác,
-mà thời đại được định rõ hơn. Sự đề cập đầu tiên, phần đích xác về ngũ hành
-được thấy trong đoạn văn khác của Thư kinh (phần V, quyển IV), dưới tên
+- Ở phương hướng: Là các hướng đông bắc, tây nam, trung ương đều mang
+hành thổ.
 
-"Hồng phạm”, nghĩa là "khuôn lớn".
+- Ở khí: Tên khí là thấp khí.
+4. Hành kim:
+- Ở mùa: Mùa thu.
 
-"Truyền thuyết cho biết rằng thiên "Hồng phạm" thuật lại lời Cơ Tử cáo
-với vua Vũ nhà Chu. Tử là một vương hầu nhà Thương, bị vu Vũ lật đổ vào cuối
+- Ở lục khí: Khách khí tư thiên có tên dương minh táo kim ở vào các năm
 
-thế kỷ XI trước tây lịch.
+mão, dậu.
+- Ở ngũ vận: Khách vận có tên đại vận là kim ở vào các năm ất, canh.
+- Ở thập thiên can: Hành kim ở vào các năm có can canh, tân.
+- Ở thập nhị địa chi: Hành kim ở các cung thân, dậu.
 
-“Trong bài cáo, Cơ Tử cho những ý nghĩa của mình là của vua Vũ, người
-sáng lập nhà Hạ, theo truyền thuyết, sống vào thế kỷ XXII trước tây lịch. Chúng
-tôi nêu truyền thuyết này là coi như ví dụ về thể thức, theo đó tác giả Thư kinh
-đã thử mang lại sự trọng yếu cho thuyết ngũ hành. Về thời đại thật của thiên
-"Hồng phạm” thì khoa học hiện đại có ý đặt vào thế kỷ thứ IV hay II.
+- Ở tiết quý: Hành kim ở mạnh thu, trọng thu
 
-"Trong thiên "Hồng phạm” ta thấy bản "Cửu trù, thứ nhất trong cửu trù là
+111
 
-ngũ hành, thứ nhất trong ngũ hành là thuỷ, nhì là hoả, ba là mộc, tư là kim, năm
 
-S7
 
+<!-- page 113 -->
 
+- Ở bát quái: Hành kim ở các cung càn, đoài
 
-<!-- page 59 -->
+- Ở cửu cung: Hành kim ở các cung số 6, 7
 
-là thổ. (Tính) thuỷ là ướt và xuống: hoả là cháy và lên; mộc là cong và thẳng;
+- Ở phương hướng: Hành kim ở các hướng tây, tây bắc.
 
-kim là theo và đổi; thổ là để gieo mạ làm mùa".
+- Ở tên khí: Tên là táo khí.
 
-“Theo đó là phạm trù của ngũ sự: "Thứ nhì là ngũ sự. Nhất là dáng; nhì là
-lời; ba là thấy; tư là nghe; năm là nghĩ. Dáng là phải kính, lời là phải xuôi, thấy
-là phải sáng, nghe là phải rõ, nghĩ là phải sâu. Kính làm cho nghiêm; xuôi làm
-cho đều; sáng làm cho khôn; rõ làm cho lanh; sâu làm cho thánh".
+5. Hành thuỷ:
 
-"Với phạm trù thứ 8 trong cửu trù, ta đến cái mà "Hồng phạm” gọi là dấu.
+- Ở mùa: Mùa đông.
 
-”[hứ 8 là các dấu, là mưa, là sáng, là nóng, là lạnh, là gió, là hợp thời.
-Nếu cả năm đến chỉ theo thứ tự mỗi cái, thì cỏ tốt tươi. Một cái rất nhiều, là dữ;
-một cái rất ít, là dữ. Dấu tốt là: Đức nghiêm của vua có mưa hợp thời; đức đều có
-nắng hợp thời; đức khôn có ấm hợp thời; đức lanh có lạnh hợp thời; đức thánh có
-gió hợp thời. Dấu xấu là: Khùng thì mưa luôn; lấn thì nắng luôn, nhác thì nóng
+- Ở lục khí: Khách khí tư thiên có tên thái dương hàn thuỷ ở vào các năm
 
-luôn, gấp thì lạnh luôn, tối thì gió luôn”.
+thìn, tuất.
 
-"Trong thiên "Hồng phạm” ta thấy ý tưởng ngũ hành còn ở trong giai đoạn
-chưa hoàn thành, tác giả đang còn tư tưởng bằng từ ngữ những vật thể có thật
-như nước, lửa v.v... thay vì tư tưởng bằng những lực lượng trừu tượng mang các
-tên ấy như ngũ hành được quan niệm về sau. Tác giả cũng cho ta biết rằng nhân
-gian và tạo vật có liên hệ với nhau; cách cai trị sai lầm của ông vua sẽ tạo ra
-những hiện tượng bất thường trong trời đất. Lý thuyết này được phu diễn đầy đủ
+- Ở ngũ vận: Khách vận có đại vận là thuỷ ở vào các năm bính, tân.
 
-về sau bởi âm dương gia, người ta gọi là thuyết "thiên nhân tương dữ".
+- Ở thập thiên can: Hành thuỷ ở vào các năm nhâm, quý
 
-"Hai lý thuyết được đưa ra để giải thích lý do của sự hỗ tương ảnh hưởng
-nói trên. Thuyết thứ nhất này, thì chỉ cách cư xử sai lầm của ông vua làm cho trời
-nổi giận. Sự giận của trời gây ra những hiện tượng bất thường trong tự nhiên, tức
+- Ở thập nhị địa chỉ: Hành thuỷ ở vào hai cung hợi, tý.
 
-là trời báo trước cho vua biết. Thuyết thứ hai thuộc về duy cơ thuyết.
+- Ở tiết quý: Hành thuỷ ở vào trọng đông, mạnh đông.
 
-Theo thuyết này, thì cách cư xử sai lầm của ông vua sẽ tự nhiên gây ra rối
-loạn trong trời và đất và do đó những hiện tượng bất thường cũng xảy ra một
-cách máy móc. Toàn thể vũ trụ là một cơ giới, khi một phần của cơ giới ra khỏi
-trật tự, thì những phần khác cũng bị tổn thương. Thuyết này biểu thị cho tinh
-thần khoa học của âm dương gia, còn thuyết thứ nhất phản ánh những nguồn gốc
+- Ở bát quái: Hành thuỷ ở vào cung khảm.
 
-huyền bí...".
+- Ở cửu cung: Hành thuỷ ở cung số 1.
 
-58
+- Ở phương hướng: Hành thuỷ ở hướng bắc.
 
+- Ở khí: Tên là hàn khí.
 
+Bảng 3-12. Nội dung ngũ hành tương ứng trong các quy luật:
 
-<!-- page 60 -->
+Ngũ hành Mộc Hoả Thổ Kim Thuỷ
+Mùa Xuân Hạ Trưởng hạ Thu Đông
+Lục khí Năm Năm Năm Năm Năm
+Ty, Hợi Tý, Ngọ Sửu, Mùi Mão, Dậu | Thìn, Tuất
+Quyếtâm | Thiếu âm Thái âm Dương Thái dương
+phong mộc |_ quân hoả Thấp thổ minh hàn thuỷ
 
-4. Ngũ hành trong thiên nguyệt lệnh
+112
 
-Sách Đại cương triết học sử Trung Quốc (trang 143) ông Phùng Hữu Lan
-VIẾ(:
 
-"Sau thiên "Hồng phạm”, tài liệu trọng yếu nhất của âm dương gia là thiên
-"Nguyệt lệnh”. Thiên này trước hết thấy được chép trong sách Lã thị xuân thu,
-tác phẩm vào cuối thế kỷ thứ 3 trước tây lịch. Về sau, thiên ấy được đa vào sách
-Lễ ký.
 
-"Nguyệt lệnh” có tên ấy, vì vốn là cuốn lịch trình cho vua là mọi người nói
-chung những bổn phận phải làm hàng tháng, để cho hợp với thời thời. Cách cấu
-tạo vũ trụ trong thiên này được diễn tả bằng từ ngữ của âm dương gia. Cách cấu
-tạo này có tính chất vũ trụ, nghĩa là liên quan tới thời gian và không gian. Người
-Trung Hoa xa ở về bắc bán cầu tất phải coi phương nam là phương của sức nóng
-và phương bắc là phương của khí lạnh. Vì lý do ấy, âm dương gia đưa ra sự
-tương quan giữa bốn mùa và bốn phương. Mùa hè có tương quan tới phương
-nam; mùa đông, phương bắc; mùa xuân, phương đông; vì mặt trời mọc ở phương
-đông; mùa thu phong tây, vì mặt trời lặn ở phương tây. Phái này cũng coi sự thay
-đổi của bốn mùa trong năm vào một tỷ lệ nhỏ. Cho nên buổi sáng tượng trưng là
+<!-- page 114 -->
 
-mùa xuân; buổi trưa, mùa hè; buổi chiều, mùa thu; buổi tối, mùa đông.
+Năm táo kim
+Dần, Thân
+thiếu dương
+tướng hoả
+Ngũ vận Năm Năm Năm Năm Năm
+Đình, Mậu, Quý | Giáp, Kỷ Ất, Canh Bính, Tân
+Nhâm
+10 thiên Giáp, Ất _ Bính, Đinh | Mậu, Kỷ Canh, Tân | Nhâm, Quý
+can
+12 địachi | Dần, Mão Ty, Ngọ Thìn, Tuất | Thân, Dậu Hợi, Tý
+Sửu, Mùi
+Tiếtquý | Mạnh xuân. Mạnhhạ | Quý xuân, | Mạnh thu, | Mạnh đông
+trong xuân _ trọng hạ quý hạ, trọng thu trọng đông
+quý thu,
+quý đông
+Bát quái | Chấn, Tốn Ly Cấn, Trung Đoài Khảm
+Cửu cung ở 3,4 9 8,5,2 7,6 l|
+Lạc thu
+Phương Đông, Nam Đông bắc Tây, Bắc
+hướng Đông nam giữa, Tây bắc
+Tây nam
+Khí Phong Thử Thấp Táo Hàn
 
-"Phương nam và mùa hè thì nóng, vì phương nam và mùa hè là lúc mà
-hành hoả mạnh hơn cả; phương bắc và mùa đông thì lạnh vì phương bắc là
-phương và mùa đông là lúc hành thuỷ mạnh hơn cả; nước lại liên hệ tới nước đá
-và tuyết là vật lạnh. Cũng vậy, mộc là hành mạnh ở phương đông và mùa xuân,
-bởi vì mùa xuân là mùa mà cỏ bắt đầu mọc, và vì phương đông có liên quan tới
-mùa xuân. Hành kim mạnh ở phương tây và mùa thu, bởi vì kim khí được coi là
-cứng và thô, vì mùa thu là mùa gió, cây cỏ hết mùa, và vì phương tây có liên
-quan tới mùa thu. Như vậy, bốn mùa trong năm hành đã được cắt nghĩa. Chỉ còn
-hành thổ là chưa có vị trí và mùa. Nhưng theo thiên "Nguyệt lệnh", thổ là hành
-chính của ngũ hành, vì vậy nó được vị trí trung ương của bốn mùa; lúc mà thổ
+K. Phương hướng, tỷ lệ khí trong từng hành của Ngũ hành (Bảng 3-
 
-mạnh là vào một khoảng ngắn giữa mùa hè và mùa thu.
+13)
 
-59
+113
 
 
 
-<!-- page 61 -->
+<!-- page 115 -->
 
-"Do lý thuyết vũ trụ ấy, âm dương gia đã cố giải thích những hiện tượng tự
-nhiên bằng những từ ngữ vừa thời gian vừa không gian, và còn chủ trương rằng
-những hiện tượng ấy còn liên quan tới tâm tính con người, vì vậy, như đã nói ở
-trên thiên "Nguyệt lệnh” đa ra những điều lệ mà ông vua phải theo từng tháng,
+Bảng 3-13. Phương hướng, tỷ lệ khí trong từng hành của Ngũ hành
 
-do đó mà có tên "Nguyệt lệnh".
+Tên Hành Phương % Nhiệt % ấm Tổng cộng tỷ
+hướng lệ
+Hành Mộc Đông 50% 100% 150%
+Đông Nam 75% 75% 150%
+Hành Hoả Nam 100% 50% 150%
+Hành Thổ Đông bắc 25% 75% 100%
+Tây nam 75% 25% 100%
+Trung ương 50% 50% 100%
+Hành Kim Tây 50% 0% 50%
+Hành Thuỷ Tây Bắc 25% 25% 50%
+Bắc 0% 50% 50%
 
-"Vì vậy có người nói: "Tháng giêng, mùa xuân, gió xuân thổi tan hơi lạnh.
-Sinh vật nam im trong mùa đông bắt đầu vùng dậy... Đó là mùa khí trời toả
-xuống, khí đất xông lên. Trời đất hoà hợp với nhau, cây cỏ đâm chổi nẩy lộc".
-(Lễ ký, thiên 4).
+Qua bảng phương hướng, tỷ lệ khí của từng hành trong ngũ hành vừa nêu
 
-"Bởi vì cách cư xử của người phải hoà hợp với đạo trời trong tháng đó, cho
-nên (vua) sai công khanh đại phu ban bố đạo đức, điều hoà mệnh lệnh để làm
-điều vui, thi ơn cho triểu dân .. . Cấm chặt cây, không được lật tổ... Trong
-tháng đó không thể dấy binh; dấy binh ắt bị hoạ trời. Không dấy binh nghĩa là
+trên, ở phần tổng tỷ lệ khí ta thấy chúng hình thành ba nhóm số có cùng tổng tỷ
 
-không khởi sự trước".
+lệ: Nhóm thứ nhất với tổng tỷ lệ 150% bao quát khu vực hướng đông, đông nam
 
-Nếu, trong một tháng, ông vua không làm theo khuôn phép tháng đó mà
-lại theo quy tắc cư xử hợp cho tháng khác, thì những hiện tượng bất thường ngoài
-tự nhiên sẽ xảy ra tháng mạnh xuân mà thi hành lệnh mùa hè, thì mưa không hợp
-thời, cỏ cây khô héo, quốc gia luôn có điều sợ. Nếu thi hành lệnh mùa thu, thì
+và nam, gồm hai hành mộc và hoả. Nhóm thứ hai có tổng tỷ lệ khí 100%, bao
 
-dân có bệnh dịch lớn. Gió dữ, mưa mạnh sẽ tới.
+quát đường chéo từ đông bắc qua trung ương đến tây nam, nhưng cùng chung
+một hành thổ. Nhóm thứ ba có tổng tỷ lệ khí 50%, bao quát các hướng tây, tây
 
-Nếu thi hành lệnh mùa đông, thì nước lụt sẽ làm hại, tuyết sương rơi
-nhiều.
+bắc, bắc, gồm hai hành kim và thuỷ.
 
-5. Lời bàn về ngũ hành của Trâu Diễn
+Nếu ta tiến hành phân các nhóm đó theo cách chia âm dương, nghĩa là
 
-Trong sách Đại cương triết học sử Trung Quốc, trang 145 ông Phùng Hữu
-Lan viết:
+nhóm có tỷ lệ phần trăm trên trung bình thuộc về nửa dương, nhóm có tỷ lệ phần
 
-"Về quan niệm của Trâu Diễn đối với sử ký, Tư Mã Thiên viết: "Trước hết,
-kể việc nay trở lên tới Hoàng đế, học giả ai cũng thuật, cũng theo thịnh suy của
-đời mà chép điềm tốt xấu của chế độ, suy xa hơn, cho tới khi trời đất chưa sinh,
+trăm dưới trung bình thuộc về nửa âm. Tiếp tục theo cách đó, ta lại tiến hành
 
-tới chỗ tối tăm mờ mịt chưa có thể khảo cứu tới được... Cho tới khi trời đất phân,
+phân chia âm dương theo các khí có cùng tổng tỷ lệ bằng phần trăm nhiệt và
 
-60
+114
 
 
 
-<!-- page 62 -->
+<!-- page 116 -->
 
-thì nói sự vận chuyển, biến hoá của ngũ hành, chính trì, mọi điều ứng với mọi
-hành.
+phần trăm ẩm trong từng khí, nếu phần trăm nhiệt trội hơn số phần trăm ẩm tức
 
-"Lịch sử quan:
+là dương trội, và ngược lại, số phần trăm ẩm trội là âm trội.
 
-"Những dòng cuối của đoạn văn trên cho ta thấy Trâu Diễn (âm dương gia
-thế kỷ HI trước tây lịch) đã triển khai một lịch sử quan mới, theo đó những biến
-chuyển lịch sử đều được giải thích ăn khớp với sự vận chuyển và biến hoá của
-ngũ hành. Chi tiết của thuyết này không được Tư Mã Thiên thuật lại, nhưng được
-chép trong một đoạn sách Lã thị xuân thu, mặc dầu tên của Trâu Diễn không
+Kết quả ta có:
 
-được nói rõ. Sách này chép (VII,2):
+- Nhóm có tổng tỷ lệ 150 % là nửa dương.
 
-"Phàm đế vương sắp lên ngôi, trời đất trước hiện điểm lành cho hạ dân.
-Thời Hoàng đế, thì trời hiện nhiều màu vàng, nhiều dế. Hoàng đế nói: "Khí đất
-thắng". Khí đất thắng nên sắc chuộng màu vàng, việc phỏng theo hành thổ.
+Trong đó:
 
-"Đến đời vua Vũ (người khai sáng nhà Hạ), trời trước hiện ra cỏ cây, thu
-đông không chết. Vua Vũ nói: "khí gỗ thắng nên " sắc chuộng màu xanh, việc
+Phong khí, ở hướng đông, nhiệt 50%, ẩm là 100% tổng tỷ lệ 150%, do ẩm
+trội nên là: âm trong dương.
 
-phỏng theo hành mộc.
+Ở hướng đông nam, nhiệt 75%, ẩm 75% tổng tỷ lệ 150%, do nhiệt ẩm
+quân bình nên là: trung bình của dương.
 
-"Đến thời vua Thang (người khai sáng nhà Thương), trời trước hiện ra lưỡi
+Hoả khí, ở hướng nam, nhiệt 100%, ẩm 50%, tổng tỷ lệ 150%, do nhiệt
 
-dao trong nước. Vua Thang nói: "Khí kim thắng".
-Khí kim thắng nên sắc chuộng màu trắng, việc phỏng theo hành kim.
+trội hơn ẩm nên là: dương trong dương.
+- Nhóm có tổng tỷ lệ 100% là trung bình.
 
-"Đến đời vua Văn (người khai sáng nhà Chu), trời trước hiện ra lửa, quạ
-đỏ ngậm sách đỏ đậu tại nền xã nhà Chu. Vua Văn nói: "Khí lửa thắng". Khí lửa
-thắng nên sắc chuộng màu đỏ, việc phỏng theo hành hoả.
+Trong đó: Tuy cùng là thổ khí nhưng các mức độ âm dương khác nhau
 
-"Thay cho lửa tất là nước, trời lại trước hiện ra khí nước thắng. Khí nước
-thắng, nên sắc chuộng màu đến, việc phỏng theo hành thuỷ... Khi vòng đã đủ, lại
+như sau:
 
-bắt đầu từ hành thổ".
+Ở hướng đông bắc, nhiệt 25% ẩm 75%, tổng tỷ lệ 100%, do ẩm trội hơn
+nhiệt, nên là âm trong trung bình.
 
-"Âm dương gia chủ trương ngũ hành tương sinh, tương khắc theo một thứ
-tự cố định. Phái ấy cũng chủ trương rằng sự liên tục của bốn mùa là phù hợp với
-tiến trình tương sinh của ngũ hành. Cho nên mộc thịnh mùa xuân, sinh hoả, mùa
-hè; hoả lại sinh thổ, thịnh ở "trung ương"; thổ lại sinh kim, thịnh mùa thu; kim
+Ở hướng tây nam, nhiệt 75%, ẩm 25%, tổng tỷ lệ 100%, do nhiệt trội hơn
+ẩm, nên là dương trong trung bình.
 
-sinh thuỷ, thịnh mùa đông; thuỷ lại sinh mộc, thịnh mùa xuân.
+Ở trung ương, nhiệt 50%, ẩm 50% tổng tỷ lệ 100%, nên là trung bình
+trong trung bình.
 
-61
+- Nhóm có tổng tỷ lệ 50%, là nửa âm.
 
+Trong đó có:
 
+Táo khí: ở hướng tây, nhiệt 50%, ẩm 00/0, tổng tỷ lệ 50%, do nhiệt trội
 
-<!-- page 63 -->
+hơn ẩm, nên là dương trong âm. Ở hướng tây bắc, nhiệt 25%, ẩm 25%, tổng tỷ lệ
 
-"Cũng theo đoạn trên thì sự kế tục các triều đại cũng hợp theo sự kế tục tự
-nhiên của ngũ hành. Cho nên hành thổ là hành của vua Hoàng đế trị vì, được
-thay đổi bởi hành kim của nhà Thương. Hành hoả của nhà Chu thắng hành kim,
-và hành hoả đến lượt nó, lại bị thua bởi hành thuỷ của một triều này, lại bị thay
+50%, do nhiệt và ẩm bằng nhau, cho nên là trung bình của âm.
 
-bởi hành thổ của triều tiếp theo, nh vậy sự tuần hoàn đã đủ...
+115
 
-"Những ý tưởng ấy, được trình bày trong sách Lã thị xuân thu, chỉ là một
-thuyết, nhưng sau đó lại được áp dụng trong phạm vi chính trị thực tế. Vì vậy vào
-năm 221 trước tây lịch, vua Tần Thuỷ Hoàng (246-2 10 trước TL) chinh phục
-mọi nước chư hầu cạnh tranh và thống nhất đế quốc Trung Hoa dưới danh hiệu
-nhà Tần. Vì là người kế tục nhà Chu, Thuỷ Hoàng tin chắc rằng: "Khí nước
-thắng" cho nên theo sách Sử ký của Tư Mã Thiên, ông lấy màu đen làm gốc" và,
-"việc theo hành thuỷ". "Tên sông Hoàng Hà, theo Sử ký, được đổi là Đức thuỷ, vì
-lấy đức của hành thuỷ làm đầu. Cứng rắn và hà khắc, mọi người đều quyết định
-theo pháp luật, khắc hoạ, vô nhân, ân và nghĩa, sau mới hợp với số của ngũ đức".
-(quyền 6).
 
-"Do sự hà khắc quá đáng ấy mà nhà Tần chăng trị vì được lâu, tiếp theo đó
-là nhà Hán cũng tin rằng họ lên ngôi là do một trong ngũ đức, nhưng người ta
-bàn luận nhiều để biết là đức nào. Một số người cho rằng nhà Hán là tiếp theo
-nhà Tân, do đó cai trị thì theo hành thổ, một số người khác lại cho rằng nhà Tân
-quá là hà khắc và quá ngắn, không thể kể vào các triều đại chính thống, vì vậy,
-thật ra là nhà Hán lên ngôi tiếp theo nhà Chu. Ý kiến hai bên đều dựa vào nhiều
-điều, mà người ta giải thích mỗi người một cách.
 
-Cuối cùng, vào năm 104, Vũ có quyết định và tuyên bố rõ ràng hành thổ0
-là đức của nhà Hán. Tuy vậy, sau đó cũng còn nhiều ý kiến khác được nêu ra.
+<!-- page 117 -->
 
-Sau nhà Hán, người ta không chú trọng nhiều đến vấn đề ấy nữa. Nhưng
-vào cuối năm 1911, khi triểu đại cuối cùng bị lật đổ bởi chính phủ Trung Hoa
-dân quốc, tôn hiệu của Hoàng đế vẫn là: "Hoàng đế thừa (mệnh) trời, theo sự vận
-chuyển (của ngũ hành)... "
+Hàn khí: ở hướng bắc, nhiệt 0%, ẩm 50%, tổng tỷ lệ 50% do ẩm trội hơn
 
-6. Lời bàn về ngũ hành trong vũ trụ luận của Đồng Trọng Thư (179-
-I01 trước tây lịch)
+nhiệt, nên là âm trong âm.
+L. Tương ứng giữa phương hưởng, mức độ âm dương, với cung quái.
 
-62
+Quy luật bát quái cho ta biết rằng fiên thiên bát quái là quy luật biến đổi
+từ dương sang âm qua 8 mức độ, các mức độ này tiến dần như trong điều kiện lý
+tưởng, nó có tính chất lôgíc của toán học. Thứ tự các cung quái từ một đến tám,
+từ càn đến khôn, từ dương đến âm. Chiều hướng vận động của tiên thiên bát quái
+là chiều hướng vận động tương tác giữa quả đất với mặt trời. Nửa dương của tiên
+thiên bát quái đi ngược chiều kim đồng hồ, là đường đi của quả đất trên quỹ đạo
+quanh mặt trời, theo hệ quy chiếu nhật tâm. Nửa âm của tiên thiên bát quái đi
+thuận chiều kim đồng hồ, là đường đi của mặt trời quanh quả đất, theo hệ quy
+chiếu địa tâm. Đó là nội dung âm dương trong cung quái và vòng tiên thiên bát
+quái. Hậu thiên bát quái, theo Kinh dịch gọi là cái dụng, tức là các cung quái
+phân bố theo phương hướng mặt đất, theo đó tính chất âm dương của hậu thiên
+bát quái phụ thuộc vào vị trí phương hướng mặt đất của cung quái như sau:
 
+- Ở nửa dương có các cung chấn, tốn, ly, ở nửa âm có các cung khảm, càn,
+đoài.
 
+- Ở đường ranh giới âm dương có các cung cấn, khôn.
 
-<!-- page 64 -->
+- Trong nửa dương lại chia ra các mức: Ly là dương trong dương, tốn là
+trung bình của dương chấn là âm trong dương.
 
-Trong Đại cương triết học sử Trung Quốc (ĐCTHSTQ) (trang 198) ông
+- Trong nửa âm lại chia ra các mức: Đoài là dương trong âm, càn là trung
+bình của âm, khảm là âm của âm.
 
-Phùng Hữu Lan viết:
+Trong đường ranh giới âm dương lại chia ra các mức: Cấn là âm của trung
+bình, trung ương là trung bình của trung bình, khôn là dương của trung bình.
 
-"Theo Đổng Trọng Thư, vũ trụ gồm mời loại thành phần: Trời, đất, âm,
-dương, ngũ hành, (mộc, hoả, thổ, kim, thuỷ) và người, tư tưởng ông về âm dương
+Hậu thiên bát quái cũng như cửu cung bát quái, nguồn gốc của nó đều là
+các quy luật thời gian tính theo năm. Trong quá trình theo dõi ảnh hưởng của nó
+tới vạn vật, người ta đã theo cách xem xét sự tương ứng giữa khí và vật, giống
+như khi quan sát gió theo mùa ảnh hưởng tới vạn vật, do đó việc xếp vị trí âm
 
-rất là cụ thể. ông nói:
+dương của hậu thiên bát quái khác hẳn với tiên thiên bát quái, và mức độ khí âm
 
-”TIrong khoảng trời đất là khí âm dương, thường bao bọc người như nước
+116
 
-bao bọc cá. Sở dĩ khác với nước là thấy được và không thấy được mà thôi".
 
-"Thứ tự ngũ hành do Đổng Trọng Thư đưa ra có khác với thứ tự trong
 
-thiên "Hồng phạm” (xem chương XII trong sách này).
+<!-- page 118 -->
 
-Theo ông thì "một là mộc, hai là hoả, ba là thổ, bốn là kim, năm là thuỷ.
-Một trong năm hành đến lợt nó sinh ra hành sau; mỗi hành, đến lợt lại thắng bởi
-hành thứ hai đến sau." (thiên 42). Cho nên mộc sinh hoả, hoả sinh thổ, thổ sinh
+dương của hậu thiên bát quái trong trắng cung không theo mức độ được ghi
 
-kim, kim sinh thuỷ, thuỷ sinh mộc. Đó là quá trình tương sinh.
+trong các hào (vạch) của cung quái (Bảng 3-14):
 
-Nhưng mộc thắng thổ, thổ thắng thuỷ, thuỷ thắng hoả, hoả thắng kim, kim
+Bắng 3-14. Phương hướng, cung quái và mức độ âm dương
 
-thắng mộc, đó là quá trình tương khác...
+Phương huống | Tên khí, Múc độ âm dương Cung quái | Số quối | Vạch (hào)
+Đông Phong | âm trong dương chấn 4 ==
+l R l —
+đông nam | phong | trung bình dương tốn 5 —=
+R —=———=
+nam thử dương trong dương ly 3 ——=
+đông bắc thấp ( âm trong trung bình cấn 7 —==|
+tây nam thấp | dương trong trunh bình khôn 8 = ='ˆ
+—.=—
+tây táo dương trong âm đoài 2 ——
+ˆ ⁄ Z ` —
+tây bặc táo trung bình âm càn | ——
+bắc hàn âm trong âm -_ khẩm 6 —
 
-"Theo Đổng Trọng Thư, cũng như âm dương gia, thì mộc, hoả, thổ, kim,
+Tỷ lệ khí ở phương hướng, bát quái (bảng 3-15)
 
-thuỷ, mỗi hành chủ một trong 4 mùa và 4 phương.
+Bảng 3-15. Phương hướng, chung quái, tỷ lệ và mức độ âm dương
 
-Mộc chủ phương đông và mùa xuân; hoả chủ phương nam và mùa hạ; kim
-chủ phương tây và mùa thu; thuỷ chủ phương bắc và mùa đông. Thổ thì chủ
-trung ương và giúp cho các hành khác. Bốn mùa luân lưu là do sự biến hoá của
+Tỷ lệ khí „ í
+Tên | Phương 5 Tổng | So | Mức | Tạn -
+khí hướng | “ |œảm tỷýlệ | sánh | ” | quái | S5
+nhiệt dương
+Phong Đông 50% 100% 150% |ẩm âm chấn |4
+trội trong
+dương
+Đông |75% | 75% 150% |bằng ,trung |tốn 5
+nam nhau bình ở
+dương
+Thử nam 100% | 50% 150% |dương | dương | ly 3
+trội trong
+dương
+Thấp đông 25% | 75% 100% lâm âm cấn 7
+bắc trội trong
+trung
+bình
+trung 50% |50% 100% | bằng
+ương nhau
 
-âm dương.
+117
 
-"Âm và dương thịnh, suy theo những vòng cố định mang chúng qua khắp
-bốn phương. Dương hễ thịnh thì đời sang đông giúp cho mộc để là mùa xuân.
-Dương càng thịnh thì đời sang nam giúp cho hoả để làm mùa hạ. Nhưng theo
-những luật phổ quát về "phản phục" của Lão Tử và "Dịch truyện" hễ có thịnh
 
-phải có suy. Vì vậy dương cực thịnh thì bắt đầu suy, để đến lượt âm thịnh.
 
-"Âm thịnh, thì dời sang tây giúp cho kim để làm mùa thu; âm càng thịnh,
-lại đời sang bắc giúp cho thuỷ để làm mùa đông. Nhưng cực thịnh thì âm lại suy,
+<!-- page 119 -->
 
-và đương lại bắt đầu một chu kỳ mới.
+tây nam | 75% 25% 100% dương | dương | khôn
+trội trong
+trung
+bình
+Táo tây 50% 0% 50% dương | dương | đoài
+trội trong
+âm
+tây bắc |25% |25% ¡50% |bằng |trung |cần
+nhau bình ở
+âm
+Hàn | bắc 0% 50% 50% lẩm âm khảm
+trội trong
 
-63
+^A
 
+ảín
 
+118
 
-<!-- page 65 -->
 
-"Cho nên sự đổi thay và thuận tự của bốn mùa là do âm dương và do kế
-tục của âm dương mà thành; Đổng Trọng Thư nói: "Lẽ thường của trời đất là do
-một dương một âm, dương là đức của trời, âm là hình của trời... Đạo trời cổ ba
-mùa (xuân, hạ, thu) đề thành và sinh, và một mùa (đông) để tang và chết. (thiên
-49).
 
-"Vậy theo họ Đổng, điều ấy cho ta thấy rằng: trời tin ở dương mà không
-tin ở âm; hiếu đức mà không hiếu hình”. (thiên 47). "Điều ấy cũng cho thấy rằng
-trời có những nỗi vui, giận và có cả tâm trí để cảm thấy buồn, khổ, sung sướng
-giống như tình cảm của người. Vậy nếu sắp loại thì trời và người là một" (thiên
-49).
+<!-- page 120 -->
 
-"Do đó, người là phó bản, là hình ảnh thu gọn của trời, về khía cạnh sinh
-lý cũng như tâm lý, " (thiên 41 ). Vì vậy người có địa vị cao quý hơn cả trong
-muôn vật. Người, trời, đất, là gốc của muôn vật”. "Trời sinh ra, đất dưỡng dục,
-người hoàn thành". (thiên 19) Để làm trọn sự hoàn thành ấy, Đồng Trọng Thư
-cho rằng phải cần tới lễ nhạc, tức là văn minh và văn hoá. Nếu không văn minh
-và văn hoá, thì thiên hạ khác nào một công tác dở dang, và trời đất cũng không
-thể hoàn thành. Cho nên, về trời, đất và người, ông nói: "cả ba cũng như tay,
+II. XUẤT XỨ CỦA QUY LUẬT NGŨ HÀNH
+A. Mục đích tìm xuất xứ của quy luật ngũ hành
 
-chân họp lại thành hình thể không thể thiếu được một". (thiên 19).
+Học thuyết ngũ hành là một bộ phận trọng yếu trong nền văn minh
+Phương Đông. Ngày nay, song song với việc làm rõ bản chất của nó để khai thác
+những gì có thể ứng dụng trong đời sống hiện đại phục vụ con người, ta còn phải
+tìm ra xuất xứ của nó, để từ đó, cũng như các ngành khảo cổ, sử học định rõ niên
+đại ra đời và những bối cảnh lịch sử, xã hội đã sản sinh ra nó mới mong có thể
+tìm được phương pháp chế định ra nó. Ngoài ra, việc làm rõ xuất xứ một cách.
+khoa học, có căn cứ xác đáng, cũng là việc đem lại niềm tự hào cho mảnh đất,
+con người đã có công tạo ra nó, gìn giữ nó trong suốt lịch sử sự sống của họ, và
+hiểu được cội nguồn của sức mạnh ẩn tàng trong cuộc sống ý thức tinh thần của
+họ.
 
-64
+Khi có đầy đủ các hiểu biết trên, cũng là lúc có thể hiểu được điều kiện
+trước khi học thuyết này ra đời (điều kiện trước nó), những giá trị của học thuyết
+đã đóng góp cho cuộc sống (hoàn cảnh sau nó). Trên cơ sở đó, việc nhìn nhận
+giá trị thật của học thuyết và những hạn chế của nó được đúng đắn hơn, và cũng
+giúp cho việc khai thác, tuyển chọn những tính tuý của nó đưa vào ứng dụng
 
+trong đời sống ngày càng tốt hơn.
 
+Để đạt được mục đích nêu trên, chúng ta phải vượt qua nhiều trở ngại
+trong ý thức, như: Phải vượt qua những mặc cảm giới hạn thuộc về lịch sử các
+dân tộc cận kề nhau, phải vượt qua mặc cảm giới hạn biên cơng do lịch sử đã
+hoạch định của các dân tộc cư trú cận kề nhau mới tránh được những thiên kiến,
 
-<!-- page 66 -->
+mới tôn trọng tính khách quan tự nhiên của nội dung quy luật.
 
-B. Nhận xét về các đoạn văn trích
+119
 
-Sau khi đã giới thiệu sáu đoạn văn trên, tôi lân lượt nêu nhận xét của tôi
 
-qua nội dung từng đoạn văn đó như sau:
 
-1. Đoạn văn thứ nhất do thiền sư Tuệ Tĩnh, người Việt Nam thế kỷ 13 viết
-bằng chữ nôm để dẫn giải y lý:
+<!-- page 121 -->
 
-Với đầu đề "Khí hoá âm dương", ông nêu lên những hiểu biết của con
-người Phương Đông về vũ trụ và mối quan hệ giữa vũ trụ với vạn vật, con người.
-ở đó, ông không giảng rằng ngũ hành là 5 yếu tố cấu thành vật chất trong vũ trụ
-(như đến ngày nay, ở nhiều nơi vẫn còn có người hiểu sai đi như thế), mà ông đã
-nói về bản chất của ngũ hành, tuy cô đọng nhưng lại là khoa học nhất. Theo nội
-dung, ta có thể hiểu ngay rằng: "khí hoá" là khi khí hậu môi trường biến đổi,
-được biểu thị bằng "năm màu', đã làm cho cùng lúc đó các vật chất ở mặt đất có
-biến đổi tương ứng, được biểu thị điển hình bằng "năm hành", sự hoá đó được
-diễn đạt bằng chữ "sinh". Thực chất "khí hoá" là khi các thành phần cơ bản của
-khí hậu môi trường có biến đổi, cũng chính là tác nhân gây biến đổi vật lý, hoá
-học trong vạn vật làm cho vạn vật phải biến đổi theo. Tuỳ theo tỷ lệ nhiệt độ, độ
-ẩm của khí khác nhau mà người xưa đã cảm nhận rõ nhất để đặt thành các tên
-khí khác nhau như phong, hàn, thử, thấp, táo. Mỗi thứ khí này sẽ chỉ phù hợp cho
-điều kiện phát sinh và phát triển của một số loài điển hình được chọn làm tên
-hành. (ở đoạn sau tôi sẽ dựa trên tinh thần nội dung này và nêu ra những con số
-đại biểu của tỷ lệ khí tương ứng với hành, chúng ta sẽ thấy rõ thêm một bước
-nãa).
+B. Những giả thiết đã có về xuất xứ của học thuyết ngũ hành
 
-2. Đoạn văn thứ hai do ông Dương Kế Châu người đời Minh ở Trung
-Quốc, ông là tác giả bộ sách đồ sộ "Châm cứu đại thành”. Đây là đoạn ông ghi
-lại lời văn trong bộ sách thuốc cổ xưa nhất ở Phương Đông có tên "Nội kinh".
+Những giả thiết đã có gần như thống nhất cho rằng: Học thuyết ngũ hành
+là sản phẩm của nên văn minh nông nghiệp lúa nước. Nơi ra đời là phía nam
+sông Dương Tử. Những giả thiết này đã căn cứ vào nội dung các bản văn Cửu trù
+hồng phạm, Nguyệt lệnh. Có người không những chỉ căn cứ vào nội dung có
+quan hệ giữa thời tiết với công tác gieo cấy lúa, làm mùa vụ, mà lại còn căn cứ
+vào thư tịch ghi các triều đại ứng dụng lịch đó, cho nên họ khẳng định rằng học
+thuyết ngũ hành là sản phẩm tính thần của dân tộc Trung Hoa. Theo tôi nghĩ,
+nếu chỉ thế thì những ý kiến đó chưa có cơ sở chắc chắn. Trước hết là ở chỗ ngay
+nguồn gốc của Cửu trù hồng phạm và Nguyệt lệnh cũng còn đang nằm trong
+phạm vi ngờ vực của sử học. Sau nữa là đến nội dung ngũ hành trong các tài liệu
+đó đem lại thì cũng chỉ được trình bày chung chung như chúng ta đã tham khảo
+ở phần trên. Thử hỏi những giả thiết dựa trên những căn cứ như thế, có thể coi là
 
-Khác với Tuệ Tĩnh, ông đã sao lại mà không có giải thích gì thêm. Nội
-dung ghi là cách quan sát khí vật tương ứng. Sự tương ứng ấy được cử ra bằng
-các đại biểu các loại cụ thể: ở thời gian là mùa tiết. - Ở không gian là phương
+đúng đắn nhất sao được?
 
-hướng mặt đất và tinh tú trên bầu trời. - Ở vạn vật là: màu sắc, súc vật, ngũ cốc, -
+120
 
-65
 
 
+<!-- page 122 -->
 
-<!-- page 67 -->
+C. Nhận xét mới trên cơ sở môi trường sống của địa lý khu vực và nội
 
-Ở người là tạng phủ, ngũ quan, thất khiếu, thể chất, thể dịch, động thái, và tâm
+dung thư (tịch.
 
-lý, tình cảm v.v...
+1. Về phương diện địa lý: Trong phần nói về bản chất của ngũ hành, việc
+phân tích quan hệ giữa tỷ lệ khí tương ứng với phương hướng, tương ứng với biến
+đổi vật chất, với các biến đổi là hành, ta đã có cơ sở để đi tới một sự loại trừ như
 
-3. Đoạn văn thứ ba ghi lời Cơ Tử cáo với vua Vũ nhà Chu trong "Cửu trù
-hồng phạm". Ở nội dung này, ngũ hành về mặt tự nhiên, được trình bày bằng
-những tên của 5 loại vật chất cụ thể, kèm theo là tính chất của loại vật chất đó
-cũng rất cụ thể, thô thiển. Ngược lại, quan hệ của ngũ hành với các vấn đề triết
-lý, đạo đức luật pháp thì lại được bàn rất đầy đủ, sinh động. Vê mặt quan hệ giữa
-thiên nhiên với vạn vật và con người thì không được bàn theo kiểu "khí hoá" của
-Tuệ Tĩnh, hay kiểu "khí vật tương ứng" của Nội kinh, mà bàn tới uy quyền của
-trời và vua (con trời) có quan hệ tới sự biến đổi của thiên nhiên và và vạn vật, gọi
-là "thiên nhân tương dữ". Ở đây ta thấy một ý dỗ chính trị xã hội rõ nét. Tôi
-không cho rằng đấy /à:... "ý tưởng ngũ hành còn ở giai đoạn chưa hoàn thành... ",
-nh nhận xét mà giáo sư hùng Hữu Lan đã viết (ĐC THS TỌ trang 142). Hãy xét
-thêm một số đoạn văn nữa, lúc đó ta sẽ có thêm cơ sở để phân tích rõ hơn về ý đồ
+Sau:
 
-chính trị đó.
+- Nếu chỉ nói chung rằng nền văn minh nông nghiệp lúa nước là nền tảng
+của học thuyết ngũ hành thì ta rất có thể coi đây là một nhận xét quá rộng,
+không thể chỉ căn cứ ở nội dung các văn bản nói về ngũ hành có quan hệ tới
+công tác gieo lúa, làm mùa, theo phương hướng, thời vụ mà đi đến nhận xét như
+trên, bởi vì các nước trong vùng Viễn đông, và Đông nam châu á nh Triều Tiên,
+Nhật Bản, Việt Nam, Campuchia, Nam Dương, Mã Lai, Phi Luật Tân, đều có
 
-4. Đoạn văn thứ tư là thiên "Nguyệt lệnh” trong sách "Lã thị xuân thu”.
-Trong tác phẩm của mình, ông Phùng Hữu Lan đã viết: "Cách cấu tạo vũ trụ
-trong thiên này được diễn tả bằng từ ngữ của âm dương gia. Cách cấu tạo này có
-tính chất vũ trụ, nghĩa là liên quan tới không gian và thời gian”... (ĐC THS TỌ
-trang 143). Thật ra, trong thiên này, phần nói về quan hệ giữa ngũ hành với thế
-giới tự nhiên tuy có rõ hơn một ít, nhưng cũng chỉ có thể coi là diễn tả sự tương
-ứng như: ngũ hành với phương hướng, với mùa, với tình trạng khí hậu, trong khi
-ấy phần nói về quan hệ giữa các hoạt động của ông vua có liên quan tới các biến
-đổi về khí hậu và vạn vật thì lại được mô tả nh một quy luật, có những hình ảnh
-rất sinh động, tế nhị làm dẫn chứng cho thuyết "thiên nhân tương dữ”. Cũng
-giống như thiên "Cửu trù hồng phạm”, ý đồ chính trị ở "Nguyệt lệnh" đã được
-nâng lên tới mức thể chế hoá các hành động của ông vua theo ngũ hành. Người
-ta đã lấy sự chặt chẽ của thuận tự ngũ hành và quan hệ sinh khắc của nó để làm
-mực thước tiến hành cai trị xã hội, trong khi họ chưa từng giải thích nổi bản chất
+lịch sử lâu đời về nghề trồng lúa nước.
 
-của quy luật ngũ hành. Chứng cứ để tôi có nhận định này rõ ràng, như chính ông
+- Điều cốt yếu là khi xem xét về địa dư ở các quốc gia có nghề trồng lúa
+nước kể trên là cái để cho chúng ta so sánh sẽ rõ. Sự so sánh giữa địa dư theo ngũ
+hành và địa dư từng nước như sau: Bán đảo Triều Tiên phía bắc là đất liền, ba
+mặt là biển, hướng gió từ bốn phía thổi về trung tâm sẽ có tý lệ khí theo các
+hướng gió khác hẳn nội dung khí theo phương hướng và hành của ngũ hành. Ở
+Triều Tiên có thể có gió đông ẩm, nhưng không phải là gió tây hanh khô được. Ở
+Nhật Bản, một quần đảo bốn bề là biển bao bọc, nếu xét hướng gió từ bốn phía
+tới, có lẽ chỉ có tỷ lệ nhiệt thay đổi, còn tỷ lệ ẩm chắc chắn chẳng có sự khác
 
-66
+nhau giữa các hướng là bao nhiêu.
 
+- Cứ theo cách đó, ta lần lượt xem đến các nước còn lại trong vùng với các
+điều kiện địa dư chung quanh nước đó. Cuối cùng, chúng ta sẽ thấy chỉ còn hai
+nơi có địa hình chung quanh đúng với điều kiện cần có để nhận thức ra tý lệ khí
+theo hướng gió như trong bản chất ngũ hành đã giới thiệu ở phần trên. Điều kiện
+đó là: Phía đông là biển, phía tây là núi cao trên lục địa, phía bắc lạnh, phía nam
 
+nóng. Hai nơi đó là lưu vực sông Dương Tử và lưu vực sông Hồng Hà.
 
-<!-- page 68 -->
+121
 
-Phùng Hữu Lan đã viết: "...như vậy bốn trong năm hành đã được cắt nghĩa chỉ
-còn hành thổ là chưa có vị trí và mùa..." Và ông đã đa ra lý do không lấy gì làm
-sáng tỏ về hành thổ như sau... "Nhưng theo thiên "Nguyệt lệnh", thổ là hành
-chính của ngũ hành, vì vậy nó được vị trí trung ơng của bốn mùa, lúc mà thổ
-mạnh là vào một khoảng ngắn "iữa mùa hè và mùa thu "... (ĐC THS TQ trang
-143). Theo lý do này, ta vẫn còn chỗ chưa hiểu được là: Cái đã làm cho hành thổ
 
-mạnh ở vào một khoảng ngắn giữa mùa hè và mùa thu là cái gì ?
 
-5. Đoạn văn thư năm nói về lịch sử quan của Trâu Diễn, ông Phùng Hữu
-Lan đã viết: "Trâu Diễn là một nhân vật trọng yếu của âm dương gia vào thế kỷ
-thứ 3 trước tây lịch. Theo cuốn Sử ký của Tư Mã Thiên thì Trâu Diễn là người
-nước Tề, ở giữa vùng Sơn Đông bây giờ. "Viết sách trên mời vạn lời". "Thấy đều
-thất tán"... Nhưng trong cuốn Sử ký, T Mã Thiên thuật lại khá kỹ lý thuyết của
-Trâu Diễn (như ông Phùng Hữu Lan đã viết trong ĐC THS TQ trang 146). Cũng
-giống như Cơ Tử là tác giả của "Cửu trù hông phạm” và tác giả vô danh nào đó
-của bảng "Nguyệt lệnh”, Trâu Diễn khi đưa thuyết ngũ hành vào lịch sử quan,
-ông đã cố tình dùng sự thuận tự của quy luật ngũ hành để gán ghép cho tính chất
-thuận tự ở các triều đại vua trong lịch sử. Ý tưởng của ông đã biến thành một nếp
-khẳng định trong ý thức hệ của giai cấp phong kiến. Đến nỗi đã gây ra cuộc
-tranh luận về chọn tên hành cho triều đại nhà Hán. Nh ông Phùng Hữu Lan đã
+<!-- page 123 -->
 
-mô tả lại ở trang 147 sách Đại cương triết học sử Trung Quốc của ông.
+2. Vê phương diện thư tịch chữ Hán: Các giả thiết có trước lại đã căn cứ
+vào các bản văn Cửu trù hồng phạm và Nguyệt lệnh hiện lưu truyền bằng chữ
+Hán mà cho rằng đó là thành tựu văn hoá của Hán tộc. Nhận định này cũng chỉ
 
-6. Ở đoạn văn thử sáu theo ông Phùng Hữu Lan viết về nhận thức của
-Đổng Trọng Thư với học thuyết ngũ hành, ta có thể thấy khác với Cơ Tử và Trâu
-Diễn, Đồng Trọng Thư đã đi sâu vào hình thái của quy luật ngũ hành. Họ Đồng
-nêu thuận tự của ngũ hành bắt đầu từ mộc, qua hoả, thổ, kim, thuỷ rồi trở về
-mộc, cũng như nêu rõ tương sinh, tương khắc của ngũ hành, là ông đã dựa hẳn
-vào sự diễn biến khí hậu của bốn mùa bắt đầu từ mùa xuân, khởi đầu vào mỗi
-năm. ông giải thích rằng: Sở dĩ có sự vận chuyển 4 mùa là do khí âm dương biến
-đổi. Về quan hệ tương ứng giữa thiên nhiên và con người, theo Đổng Trọng Thư
-thì trời có những niềm vui, giận và có cả tâm trí để cảm thấy buồn, khổ, sung
+là chấp nhận hiện tượng, về bản chất còn có chỗ để bàn.
 
-sướng giống như tình cảm của người, vậy nếu sắp loại thì trời và người là một
+Ta chăng còn phải suy nghĩ thêm khi được biết nhiều nhà Trung Hoa học
+cận đại và hiện đại đã cho rằng lịch sử hình thành đế quốc Trung Hoa phong
+kiến là lịch sử thôn tính. Các dân tộc đi thôn tính là vùng chăn nuôi du mục ở
+phương bắc, các dân tộc bị thôn tính là vùng định cư, chăn nuôi, trồng trọt ở
+trung nguyên và phía nam. Có lẽ đây cũng là một sự đồng dạng với lịch sử quan
+hệ giữa các nước trên thế giới. Ngày nay người ta gọi quan hệ bắc nam là quan
+hệ xâm lược và bóc lột, quan hệ nam nam là quan hệ hỗ trợ. Trong lịch sử Trung
+Hoa xưa, do sợ các dân tộc bị thôn tính có nền văn minh cao hơn sẽ nổi dậy
+chống đối, kẻ đi thôn tính thường mang theo những cuộc huỷ diệt văn hoá.
+Những cuộc huỷ diệt văn hoá lớn mà lịch sử Việt Nam đã ghi lại là giặc ân (tức
+nhà Thương) rồi giặc Nguyên đến giặc Minh, khi xâm lược nước Việt Nam đã
+đốt sách, chôn sống thày đồ... Các dân tộc phía nam lục địa Trung Hoa trước khi
+trở thành một bộ phận trong cộng đồng các dân tộc Trung Hoa ngày nay, cũng
+đã trải qua số phận như dân tộc Việt Nam, sách vở bị đốt, chỉ được phép để lại
 
-67
+sách thuốc và sách bói.
 
+Lịch sử Trung Quốc ghi nhận rằng nhà Chu, triều đại thay thế nhà
+Thương, sau khi ổn định xã hội, trên cơ sở nền kinh tế nông nghiệp phát đạt, đời
+sống văn hoá đòi hỏi ngày càng phải nâng cao, nhà vua đã cho sưu tầm và ghi
+chép thành văn những thành tựu khoa học trước đó. Loại văn tự đã dùng là loại
+chữ tượng hình. Loại văn tự tượng hình này lúc đầu ghi chép trên mu rùa và
+xương trâu bò cho nên gọi là giáp cốt tự, mục đích dùng để ghi chép các phương
+pháp bói toán. Sau này cải tiến chữ về hình thức và được viết trên những thanh
+tre vót mỏng và những mảnh da thú đã nạo mỏng. Thời Chiến quốc ngài Khổng
+Phu Tử và sau đó là các nho gia dùng loại văn tự để ghi chép những sưu tập gọi
+là tứ thư, ngũ kinh. Ngài đem truyền bá trong thiên hạ những thứ đó, cùng với
+các nguyên tắc xây dựng xã hội, nguyên tắc xử sự trong quan hệ con người với
 
+con người, từ đó đạo của Ngài được người đời gọi là đạo Nho, loại chữ viết đó
 
-<!-- page 69 -->
+122
 
-(thiên 41). Đây cũng chỉ là quan niệm "thiên nhân tương dữ" mà thôi. Cái điểm
 
-khác mà ta đáng trân trọng vì ông đã coi con người là ”.... có địa vị cao quý hơn
-cả trong muôn vật”... và vai trò của con người trong bộ ba thiên, địa, nhân cũng
 
-rất quan trọng, con người không còn bị sự sai khiến, xếp đặt theo ý của trời nữa,
-như ông đã nói: "cả ba cũng như tay, chân họp lại mà thành hình thể, không thể
-thiếu một". (thiên 19). Đây là một quan điểm tiến bộ hơn so với Cơ Tử và Trâu
+<!-- page 124 -->
 
-Diễn, nhưng cũng chưa đưa ta tới được bản chất của ngũ hành.
+được gọi là chữ Nho, tức là đạo và chữ của những người có nghề làm lúa nước;
+chữ nho gồm có các bộ phận tượng hình cấu thành là: nhân đứng nghĩa là người,
+nhi là cái bừa, ở dưới, vũ là mưa ở trên. Đến đời Hán, chữ viết được cải tiến đến
+độ hoàn chỉnh về cấu tạo và có sự thuận tiện trong khi viết, lại có độ thẩm mỹ
 
-7. Nhận xét chung: Qua 6 đoạn văn trên, sau khi đã phân tích nội dung
-của từng bản văn, tôi có một nhận xét chung lại là: Những đoạn văn ghi về nội
-dung của mối quan hệ tương ứng, hay chỉ về quan hệ biến hoá của ngũ hành với
-tự nhiên giới thì thật rõ ràng, phong phú, chặt chẽ thành quy luật, có thể theo đó
-kiểm nghiệm ở thực tế, có thể vận dụng vào thực tiễn đời sống con người, do đó
-có thể dùng quy luật ngũ hành như công cụ hướng dẫn chúng ta nhận biết thêm
-về bản thể con người, về thiên nhiên và vạn vật. Những đoạn văn ghi nội dung
-của mối quan hệ giữa trời (tạo hoá), vua và thể chế, đạo đức xã hội tương ứng với
-ngũ hành thì sự tương ứng là gò gẫm cứng nhắc. Rõ nét nhất là ý tưởng mượn sự
-thuận tự của ngũ hành để đặt tên hành cho các triều đại, mà điển hình cho sự tác
-hại của nó là hành thuỷ của nhà Tần, chỉ vì để cho hợp với hành thuỷ mà các
-thiết chế theo hành thuỷ dã hà khắc vô nhân, gây bao đau khổ cho nhân dân. Sự
-gò ép có tính chất chính trị chủ quan của giai cấp thống trị phong kiến Trung
-Quốc khiến họ đã bất chấp thực tế khách quan tự nhiên còn được thể hiện đầy đủ
-nhất trong cuộc bàn cãi để xác định tên hành cho triều đại nhà Hán mà lịch sử
-triết học Trung Quốc đã không thể bỏ qua. Nó càng chứng minh thêm rằng: Quy
-luật ngũ hành, trước hết là quy luật vận động tự nhiên của thiên nhiên, vạn vật,
-con người. Nó không hề phù hợp với một sự suy diễn chủ quan của ý thức nào
-trái với quy luật tự nhiên.
+cao, từ đó thường được gọi là chữ Hán.
 
-Do tính chất chặt chế của quy luật tự nhiên trong học thuyết âm dương
-ngũ hành, có thể thấy được ở mọi lúc, mọi nơi trong đời sống của vạn vật, cho
-nên các triết gia cổ đại đã hiểu đơn giản rằng trạng thái "khí vật tương ứng" đồng
+Mô tả về giai đoạn khoa học được ghi chép thành văn ở đời nhà Chu, sách
+"Trung Quốc Y học sử trung cấp giảng nghĩa" viết rằng: "Tây Chu mới bước đầu
+tiến vào xã hội phong kiến, kinh tế, văn hoá đều có được nâng cao, Đông Chu đã
+sử dụng sắt làm công cụ khiến cho nông nghiệp phát triển một bước rất cao, thủ
 
-nghĩa với "thiên nhân tương dữ”, và sự đơn giản này đã là cho nó trở thành công
+công nghiệp đã có sự phân công rất tỷ mỹ, thương nghiệp cũng đã rất phát triển.
 
-68
+Do sự phát triển của nền kinh tế xã hội đã thúc đẩy tư tưởng học thuật tiến
+bước. Từ Xuân thu Chiến quốc trở lại, có một số ít người đại biểu cho các giai
+tầng, giai cấp khác nhau, trên chính trị, trên học thuật, đều đã đề xuất rất nhiều
+kiến giải khác nhau, đã tự phát hình thành cục diện "trăm nhà đua tiếng” đã xuất
+hiện cao trào văn hoá "trứ thư lập ngôn" (làm sách để nêu quan niệm riêng của
+mình), thêm nhiều chất biện chứng duy vật luận, học thuyết âm dương - ngũ
+hành rất thịnh hành, càng làm cho các nhà y học cao minh có điều kiện tổng kết
+kinh nghiệm sáng tạo của nhân dân lao động trường kỳ đấu tranh với bệnh tật,... "
+(sách Trung Quốc y học sử trung cấp giảng nghĩa - nhà xuất bản nhân dân vệ
+sinh xuất bản xã - Bắc kinh, 1962 - 1965 trang 7 và 8).
 
+Những bộ sách ra đời ở thời kỳ này có nói về âm dương - ngũ hành là
+"Chu lễ", "Lễ ký", "Chu dịch", và đặc biệt là "Hoàng đế Nội kinh".
 
+Chúng ta lần lượt xét các th tịch này ở ba mặt: Nội dung, tác giả, hình thức
+bố cục và dẫn giải.
 
-<!-- page 70 -->
+a. Vê nội dung: ở phần thứ hai lớn trước, chúng ta đã có dịp phân tích nội
+dung ngũ hành trong các bản văn và đã đi đến kết luận đó là những quy luật chặt
 
-cụ chính trị xã hội của giai cấp thống trị phong kiến. Ở trong điều kiện kinh tế,
-kỹ thuật của xã hội phong kiến, bản chất của ngũ hành không được làm rõ, vì
-vậy mặc dù sự vận dụng thuận tự ngũ hành vào triều đại nhà Tân, nhà Hán đã
-gây ra những sự kiện lịch sử to lớn, cái lầm của các triết gia và cái ý đồ chính trị
-của vua chúa phong kiến Trung Quốc vẫn tiếp tục kéo dài trong suốt lịch sử
-phong kiến Trung Quốc. Xin nêu mấy ví dụ như sau, tôi còn nhớ rằng trước đây
-tôi có được xem một bản đồ về địa giới hành chính 9 châu quận ở Trung Quốc
-đời nhà Hán. Trong đó mượn ý nghĩa của bảng số ma phương có tên "Lạc thư”,
-theo bảng này 1 ô chính giữa, 8 ô bao quanh theo hình vuông, ô chính giữa mang
+chế và phong phú.
 
-số 5 (Hình 3-]).
+Đặc biệt là ở Hoàng đế Nội kinh, sự phong phú, tỷ mỷ, ở các khía cạnh
+tương ứng tới các phần nhỏ trong cơ thể, tới các khí chất, tính cách, các hoạt
 
-NAM
-4 9 2
-ĐONG 3 5 7 TÂY
-8 1 6
-BẮC
-Hinh 3 - 1
+động công năng của cơ thể con người, nhất nhất không ngoài quan hệ tương ứng
 
-Tuy kinh đô nhà Hán bấy giờ ở vùng Bắc Kinh, ngày nay ở lệch về phía
-đông bắc của Trung Hoa lục địa, nhưng người ta cố tình coi đó là vị trí trung
-ương nên phải mang tên châu số 5, các châu khác theo phương hướng của Lạc
-thư mà đặt tên và định đường ranh giới hành chính, kể từ chung quanh châu số 5
-cho ra tới biên giới bốn bề, (bắc VN hồi đó mang số 9 gọi là quận Cửu chân) do
+123
 
-đó nhìn bản dỗ ta thấy rõ sự gò gẫm quái dị. Có thể cho tới gần đây với tư tưởng
 
-69
 
+<!-- page 125 -->
 
+với ngũ hành kể cả ở nội môi và với ngoại môi. Trong các sách còn lại, phần nói
+về ngũ hành quan hệ với thể chế, quan hệ với trời, vua, cũng như các hoạt động
+của vua với thời tiết khí hậu, thuận tự của ngũ hành với thuận tự của các triều đại
+v.v... đều là những ý tưởng øò gẫm, chủ quan, không có căn cứ khoa học, cho
+nên hậu quả là những ý tưởng đó đã trở thành không tưởng, mê tín, phản lại
+quyền lợi của con người. Nó được đưa ra thi hành trong đời sống do ý thức thống
+trị của giai cấp phong kiến. Vì họ muốn lợi dụng tính chất chặt chẽ của quy luật
+ngũ hành trong các mối quan hệ ở tự nhiên giới, họ giải thích rằng vua là con
+trời, con trời sẽ thay trời điều kiện mọi hoạt động của muôn dân. Khi ông vua
+hành động thuận theo quy luật, đời sống xã hội được ổn định, ông vua được coi
+là minh quân. Khi ông vua hành động trái quy luật, gây thiệt hại cho con dân,
+cho đất nước thì lại đổ cho trời cái tội đã trừng phạt cả một dân tộc, một đất nước
+đó. Qua những ý tưởng của giai cấp phong kiến, bản chất vật chất của quy luật
+ngũ hành, sự tương tác trong lự nhiên giới bị lu mờ đi, có chỗ sai lạc tưởng như
+mất hẳn, do đó, ta có thể nói ràng ý tưởng cho ngũ hành là quy luật của xã hội
 
-<!-- page 71 -->
+học, của triết học là một nhận thức sai lầm.
 
-truyền thống cho ràng đất Trung Quốc là trung tâm của thế giới, người Hoa ở Sài
-Gòn cũng cho rằng nơi người Hoa ở phải là trung tâm của đô thị, nên họ đã tìm
-mọi cách để chính quyển Sài Gòn cũ chấp nhận khu Chợ Lớn là quận 5 của
-thành phố cho xứng đáng với truyền thống Trung Hoa. Quận danh đó còn đang
-được sử dụng ở thành phố Hồ Chí Minh hiện nay như một bằng chứng lịch sử
-sống động. (sau còn quận 10, cũng do người Hoa ở đông đúc mà có tên, số 10 là
+b. Về tác giả: Trước hết, ta có thể nói ngay rằng vấn đề tác giả của các
 
-trung tâm Hà đồ).
+bản văn Trung Quốc nói về ngũ hành đều là khuyết danh.
 
-70
+Khi bàn về tác giả thiên Hồng phạm, ông Phùng Hữu Lan đã viết: "Truyền
+thuyết cho biết rằng thiên "Hồng phạm" thuật lại lời Cơ Tử cáo với vua Vũ nhà
+Chu, Tử là một vương hầu nhà Thương, bị vua Vũ lật đổ vào cuối thế kỷ XII
+trước tây lịch. Trong bài cáo, Cơ Tử cho những ý nghĩ của mình là của vua Vũ,
+người sáng lập nhà Hạ, theo truyền thuyết sống vào thế kỷ XXII trước tây lịch”...
 
+Đến thiên "Nguyệt lệnh", ông Phùng Hữu Lan chỉ đưa được các bản văn
+có ghi nội dung đó mà không đa ra được tên một âm dương gia nào đã phát minh
+ra nó, ông viết:
 
+"Sau thiên trọng phạm”, tài liệu trọng yếu nhất của âm dương gia là thiên
+"Nguyệt lệnh" . Thiên này trước hết thấy chép ở sách Lã thị xuân thu, tác phẩm
+vào cuối thế kỷ thứ ba trước tây lịch, về sau, thiên ấy được đưa vào sách Lễ
+ký...".
 
-<!-- page 72 -->
+124
 
-II. BẢN CHẤT VẬT CHẤT QUY LUẬT NGŨ HÀNH
 
-A. Phạm vỉ ứng dụng quy luật ngũ hành trong đời sống ở Phương
 
-Đông xưa.
+<!-- page 126 -->
 
-Đối chiếu với những ý niệm xã hội, chính trị về quy luật ngũ hành, những
-ứng dụng thực tiễn của ngũ hành theo quan niệm duy vật, trực quan như "Khí
-hoá", "Khí vật tương ứng”, đã đi vào các môn khoa học phục vụ đời sống con
-người Phương Đông một cách hiệu quả, do đó sự tồn tại và phổ cập của nó rất
+Về tác giả Kinh dịch ông Phùng Hữu Lan đã viết như sau: “Theo truyền
+thuyết, thì Phục Hi, ông vua hoang đường đầu tiên của Trung Hoa trước cả
+Hoàng đế, được coi là đã đặt ra tám quẻ. Theo vài học giả, chính Phục Hi đã
+chồng tám quẻ thành sáu mươi bốn quẻ, theo những người khác, thì đó là công
+việc của Văn Vương, vào thể kỷ thứ XII trước tây lịch, theo những người về sau
+này, vua Văn viết lời giải thích về quẻ, còn lời giải thích về hào là việc của Chu
+Công, người con nổi tiếng của Văn Vương. Đúng hay sai, những lời ấy chứng tỏ
+sự chú ý đặc biệt của người Trung Hoa đối với bát quái và sáu mươi bốn quẻ, "...
+Theo lời mô tả của ông giáo sư Phùng, chúng ta hãy xếp tác giả Kinh dịch vào
 
-đáng chú ý như sau:
+hàng khuyết danh chắc là phải nhất.
 
-1. Trong thiên văn học: Ngoài ngũ tinh phương vị, tức là 5 ngôi sao
-trong thái dương hệ ứng với phương hướng, mùa tiết và màu sắc theo 5 hành ra,
-hệ thống nhị thập bát tú (28 chòm sao) ở bầu trời sao cố định cũng được phân
-theo ngũ hành để xét tính chất của sao, sự vận chuyển tương tác của chúng với
-mặt trăng, mặt trời là nguyên nhân gây ra biến đổi khí hậu nên được coi là điểm
-báo về khí tượng, và các hiện tượng tự nhiên, xã hội khác (xem Ngọc hạp và
+Về tác giả bộ sách sớm nhất trong lịch sử y học Trung Quốc là bộ "Nội
 
-Khải đồng thuyết ước, Bí truyền vạn pháp quy tông).
+kinh", sách Trung Quốc y học sử trung cấp giảng nghĩa viết:
 
-2. Trong địa lý học: Vê môi trường cư trú, còn gọi là dương trạch, sau khi
-chia ngũ hành cho 8 hướng theo các tên cung quái, chia tam nguyên (ba vòng
-hỗn hợp can chi 60 x 3 = 180 năm) cho cung quái, người ta vẫn dùng ngũ hành
-để xét ảnh hưởng tốt xấu giữa hướng nhà ở, hướng các vật thể kiến trúc trong
-cảnh quan môi trường (nh các công trình phụ: bếp, giếng, chuồng chăn nuôi, nhà
-vệ sinh, cổng ngõ), với vị trí năm sinh trong tam nguyên của chủ nhân nhà ở
-(xem "Bát trạch minh cảnh"). Về âm phần, người ta cho rằng ảnh hưởng giữa vị
-trí cảnh quan và hướng nhìn của người chết nằm trong mộ có tác động vào đời
-sống nhiều mặt của con cháu theo quan hệ sinh khắc của ngũ hành (xem "Địa lý
-bí truyền cảo tập”, "Địa lý ngũ quyết").
+Thời kỳ "Xuân thu Chiến quốc", chính trị, kinh tế, khoa học, văn hoá, đều
+có phát triển mới, thêm vào đó, trăm nhà đua tiếng, ảnh hưởng của không khí
+học thuật tràn lan, trên khách quan cũng là yêu cầu của y gia đương thời thấy cần
+phải lấy thực tế chứng minh, đem kinh nghiệm và lý luận y học trước thời Chiến
+quốc gọt giũa thành một thứ hệ thống tổng kết, tiến lên một bước chỉ đạo thực
+tiễn chữa bệnh, "Hoàng đế Nội kinh" là loại sản phẩm trong thực tế cần thiết đó.
+"Hoàng đế Nội kinh" là một bộ sách có tính tổng kết sớm nhất trong văn hiến y
+học hiện còn ở nước ta, nó đại ước là được viết thành ở thời đại Xuân thu Chiến
+quốc, mượn tên tác phẩm của Hoàng đế, cho nên gọi là "Hoàng đế Nội kinh".
+Xét về mặt nội dung của nó thì không thể là trước tác của một cá nhân, ...” Như
+thế, Hoàng đế Nội kinh đã rõ là không có tác giả cụ thể.
 
-3. Trong binh pháp: Ngũ hành cũng được dùng để xét địa thế núi sông,
-hình trận, hiệu cờ, để đóng dinh, lập trại. Kết hợp với các kiến thức khác như
-thiên văn, địa lý, khí hậu là những nội dung yêu cầu một người cầm quân phải
+Các trước tác khác như Lạc thư, Hà đồ cũng đều không có tác giả cụ thể.
 
-biết (xem Binh thư yếu lược, Bạch thoại Tôn Tử binh pháp).
+c. Về bố cục: Cách bố cục các bản văn có nội dung ngũ hành như đã nêu
+trên thường theo lối mượn lời, như: Lời cáo của bầy tôi với vua (Hồng phạm),
+mệnh lệnh của nhà vua với thần dân (Nguyệt lệnh), trời trao cho vua qua các con
+vật thiêng (Lạc thư, Hà đồ), vua hỏi và bày tôi trả lời (Nội kinh Tố vấn), truyền
 
-71
+thuyết về Kinh dịch với ông vua Phục Hi
 
+125
 
 
-<!-- page 73 -->
 
-4. Trong vũ thuật: Các thế tấn, chuyển bộ, các pháp của thủ, cước thân,
-theo ngũ hình đều được vận dụng theo âm dương, ngũ hành để tạo thành sự vững
-chãi, mạnh mẽ, linh hoạt và bền bỉ trong chiến đấu cá nhân (Thái cực quyền,
+<!-- page 127 -->
 
-Thiếu Lâm nội công bí truyền).
+d. Về lời dẫn giải: Lời dẫn giải nội dung ngũ hành trong các bản văn ta
+thấy có hai xu hướng rõ rệt, một xu hướng lấy quy luật tự nhiên và các mối quan
+hệ của nó để giải thích ngũ hành; một xu hướng lấy uy lực và ý đồ sắp xếp của
+ông trời để dẫn giải ngũ hành. Trong bộ Nội kinh, người ta mượn những câu trả
+lời của Kỳ Bá dễ dẫn giải nội dung y học, y thuật rất cụ thể, tỷ mỹ theo quy luật
+ngũ hành vận động trong thế giới khách quan tự nhiên, hợp với sự phát triển của
+tự nhiên giới, cho nên tự nó tồn tại mấy nghìn năm mà không có thêm một lời
+bàn nào của các danh nhân các thời đại về sau. ở tất cả các bản văn khác, tuy
+hình thức mang tải ngũ hành có khác nhau, lời dẫn giải có khác nhau đôi chút,
+nhưng chúng đều có chung một mục đích để người xem phải hiểu rằng quy luật
+ngũ hành do trời định, các thuận tự ngũ hành bất kể là trong thiên nhiên hay lịch
+sử xã hội đều do ý trời xếp đặt, không thể một ai trong cõi đời này đặt ra được.
+Do đó, không một ai được phép sửa lại, và tất nhiên là không một ai được quyền
 
-5. Trong ngôn ngữ học: Ngôn ngữ thông qua đặc trưng là các loại thanh:
-thượng, hạ, khứ, hồi, trường, đoản đã từ tình cảm tạo ra, và đã tác động vào cảm
-quan bản năng của tâm sinh lý con người. Các điều kiện môi trường sống, tập
-quán sinh hoạt ở các vùng khác nhau đã tạo ra tập quán ngôn ngữ khác nhau. Tất
-cả các mối quan hệ đó đều tuân theo một quy luật tự nhiên, quy luật của bản
-năng sinh học. Vì vậy khi dùng quy luật âm dương ngũ hành để xem xét ta có
-thể lý giải được bản chất của ngôn ngữ và tập quán ngôn ngữ, (xem "Quy luật
+không tuân theo, kể cả những øì do nhà vua dựa vào đó mà thể chế hoá ra.
 
-âm dương ngũ hành trong ngôn ngữ tiếng Việt và dân ca tộc Việt” ở phía sau).
+Trải suốt mấy nghìn năm lịch sử, không có một bản văn nào nói về bản
+chất của quy luật ngũ hành. Thản hoặc có một đôi người cố công muốn lý giải
+nó một cách tự nhiên, nhưng rốt cuộc những khía cạnh tự nhiên ấy cũng rất sơ
+sài và đã không tránh khỏi quan niệm sắn tự nhiên với ý định của trời.
 
-6. Trong văn học: Một số tác phẩm văn học cổ điển của Phương Đông đã
-dựa vào đặc điểm tâm sinh lý con người theo ngũ hành để xây dựng nhân vật.
-Phương pháp này đã bảo đảm cho trong quá trình diễn biến tác phẩm, các nhân
-vật không đi quá xa cá tính của mình, cho nên các nhân vật chủ yếu đã trở thành
-điển hình chung cho mỗi loại tâm lý, tính cách con người (như trong Tây du ký
-có Đường Tam Tạng, Trư Bát Giới, Tôn Ngộ Không, Bạch Cốt Tĩnh, Sa Tăng,
-tượng trưng cho ngũ hành, Phật bà Quan âm tượng trưng cho thái cực, điều tiết
-chung các hành đó. Trong Tam quốc chí có các nhân vật chính là Lưu BỊ, Quan
-vân Trường, Trơng Dực Đức, Tào Tháo, Gia Cát Lượng tượng trưng cho tính
-cách của ngũ hành. Trong Thuỷ Hử, số nhân vật anh hùng hảo hán là 108 ngôi
-sao trong phép tính tử vi, các khí chất tính cách đó đã dựa vào ngũ hành và các
-ảnh hưởng sinh khắc của nó cho nên rất phong phú nhưng cũng rất khác biệt
-nhau).
+Có thể dẫn việc xếp vị trí các con số trong Lạc thư làm ví dụ: Lạc thư là
+một bảng số ma phương, nguồn gốc thật của Lạc thư chỉ là một bảng ghi nhận
 
-Trong các tác phẩm nói trên, nội dung có nhiều hoàn cảnh diễn biến khác
-nhau, nhưng ta cũng thấy được rằng tuỳ mỗi hoàn cảnh khác nhau đó mà cá tính
-các nhân vật có những diễn biến thích hợp, và nhất nhất không ngoài quy luật
+một loại ảnh hưởng của vũ trụ gây ra biến đổi khí hậu môi trường.
 
-sinh khắc của ngũ hành giữa nhân vật và hoàn cảnh. Cho nên hiệu quả là tác
+Cửu Cung theo chu kỳ 9 năm, tên gọi mỗi năm là một cung theo tên cung
+của bát quái. Năm đầu có ảnh hưởng tương tự như hệ quả của khí từ phương bắc
+tới, nên số (một) là cung khảm; năm thứ hai ảnh hưởng như cung khôn ở hướng
+tây nam tới nên mang số 2: năm thứ ba ảnh hưởng như hệ quả của khí từ phương
+đông tới, nên số 3 là cung chấn năm thứ tư ảnh hưởng như hệ quả của từ hướng
+đông nam tới, nên số 4 là cung tốn; năm thứ năm ảnh hưởng như hệ quả của khí
+từ hướng đông bắc tới, nhưng năm thứ năm mang số 5 lại ở giữa của chu kỳ cho
+nên người ta đã xếp ở giữa, giữa cũng thuộc về hành thổ, có tỷ lệ khí tổng cộng
 
-72
+là trung bình; năm thứ sáu ảnh hưởng như hệ quả của khí từ hướng tây bắc tới,
 
+126
 
 
-<!-- page 74 -->
 
-phẩm trở thành tiêu biểu, nhân vật trở thành điển hình ngay từ khi ra đời tới nay,
+<!-- page 128 -->
 
-và cũng sẽ còn giữ được vị trí này trong tương lai văn học nhân loại.
+nên số 6 là cung càn; năm thứ bày ảnh hưởng như hệ quả của khí từ hướng tây
+tới nên số 7 là cung đoài; năm thứ tám ảnh hưởng như hệ quả của khí từ hướng
+đông bắc tới nên số 8 là cung cấn; năm thứ chín ảnh hưởng như hệ quả của khí từ
+hướng nam tới, nên số 9 là cung ly. Để tiện xem xét, người ta vẽ một hình có 9 ô,
+các ô ngăn cách nhau bằng một hình chữ tỉnh ( # ), các con số biểu thị thứ tự của
+9 năm được xếp vào các ô có vị trí theo phương hướng của hậu thiên bát quái
+như tôi vừa miêu tả ở trên.
 
-7. Trong nghệ thuật tạo hình: Kể cả ba loại hình nghệ thuật kiến trúc,
-điêu khác, hội hoạ ở Phương Đông đều có đặc điểm là tuân theo quy luật hài hoà
-của tự nhiên, với tự nhiên. Riêng ngành kiến trúc rất triệt để khai thác quy luật
-này trong quan hệ kiến trúc với cảnh quan môi trường và trong quan hệ nội bộ
-các thành phần của một công trình kiến trúc, quan hệ nội bộ giữa các chi tiết
+Sự trùng lặp lạ lùng giữa nguyên tắc sắp xếp của Lạc Thư và Cửu cung vừa
+nêu trên với nguyên tắc của một bảng ma phương toán học nói chung, như: Nếu
+ta đem cộng tất cả các con số của từng hàng ngang thì hàng nào ta cũng có kết
+quả bằng con số 15. Ta lại đem cộng tất cả các con số của từng hàng dọc thì
+hàng nào cũng có kết quả bằng con số 15 , Cuối cùng, ta đem cộng các con số
+của từng hàng chéo góc ta lại cũng được kết quả bằng con số 15. Sự trùng lặp ấy
+chỉ có thể giải thích đúng nhất là trở lại với sự cân bằng âm dương trong tổng
 
-trong một thành phần của công trình.
+thể, trong đó mỗi vị trí là một bộ phận của một tổng thể.
 
-Tuỳ theo yêu cầu về hiệu quả cần phải đạt được mà người ta định ra kích
-thớc, tỷ lệ, hình dáng, đường. nét, màu sắc, tố chất, nhằm thông qua tính chất
-ngũ hành của các yếu tố tạo hình đó tác động thẳng vào cảm quan bản năng gây
-ra hiệu quả chiều sâu tâm lý, tình cảm tương ứng ở người xem (Như khu Văn
-Miếu - Quốc Tử Giám ở Hà Nội). Điêu khắc và hội hoạ tuy riêng rẽ, nhưng cũng
-không thể nào đem lại hiệu quả thẩm mỹ như mong muốn nếu nó thoát khỏi quy
-luật tương ứng giữa tính chất ngũ hành của các yếu tố đặc trưng ấy với cảm quan
-bản năng của sinh lý con người. (Xem "Quy luật âm dương ngũ hành trong các
+Ta trở lại vấn đề tổng tỷ lệ âm dương (nhiệt và ẩm) của khí theo hướng gió
 
-yếu tố nghệ thuật tạo hình Phương Đông và tâm sinh lý con người” ở phần sau).
+chưa qua tương tác âm dương để xem xét.
+Nếu đem xếp các hướng gió theo hàng ngang ta có:
 
-8. Trong tướng pháp: Hình dáng con người được tạo ra với những quan
-hệ nội bộ của từng cá biệt, đó là mối quan hệ giữa nội tạng và ngoại hình, giữa
-nội tạng với tâm lý, tính cách theo một quy luật. Người ta đã dựa vào quy luật đó
-để tìm ra mối quan hệ giữa ngoại hình với tâm lý, tính cách của từng cá nhân con
-người. Đi sâu hơn nữa, người ta còn tìm ra được quy luật về mối quan hệ giữa
-tính chất của từng bộ phận ngoại hình với nhau, kết quả là sự nhận biết về tâm
-lý, tính cách cá nhân thêm đa dạng, phức tạp. Các nhận xét này hoàn toàn dựa
-trên cơ sở học thuyết ngũ hành về quan hệ giữa tạng phủ với ngũ quan, ngũ thể,
-ngũ sắc, ngũ chí v.v... của y sinh học cổ Phương Đông, cho nên hiệu quả đáng
+- Bên trái phía trên là hướng đông nam, cung tốn, nhiệt 75%, ẩm 75% tổng
+số 150%.
 
-tin cậy (xem Ma y thần tướng).
+- Chính giữa phía trên là hướng nam, cung ly, nhiệt 100%, ẩm 50%, tổng
+số 150%;
 
-9. Trong chiêm tỉnh học: Chiêm tình học Phương Đông có ba môn lớn là
+- Bên phải phía trên là hướng tây nam, cung khôn, nhiệt 75%, ẩm 25%,
+tổng số 100%.
 
-bát tự hà lạc, tử bình và tử vi.
+- Bên trái, hàng giữa là hướng đông, cung chấn, nhiệt 50%, ẩm 100% tổng
+số 150%.
 
-73
+- Chính giữa hàng giữa là trung ương, nhiệt 50%, ẩm 50%, tổng số 100%.
+- Bên phải hàng giữa là hướng tây, cung đoài, nhiệt 50%, ẩm 0% tổng số
 
+50%.
 
+127
 
-<!-- page 75 -->
 
-Tử bình là phép tìm khí chất, tính cách bẩm sinh của con người cho nên
-phải dựa vào thời điểm sinh cả ngày, giờ, tháng, năm bằng các tên thiên can và
 
-địa chi. Mỗi đơn vị ngày, giờ, tháng, năm đều phải có đủ hai tên can và chỉ.
+<!-- page 129 -->
 
-Vì tất cả có 8 chữ nên gọi là bát tự. Hà lạc là cách gọi tắt về tượng số học
-của Hà đồ, Lạc thư. Các cách tính này dựa vào mối quan hệ sinh, khắc giữa các
-hành theo tên can, chi của ngày, giờ, tháng, năm làm chính, ngoài ra còn theo số
-của Lạc thư đổi ra ngũ hành để nhận định các mặt cần hiểu biết về một con
+- Bên trái hàng dưới là hướng đông bắc, cung cấn, nhiệt 25%, ẩm 75%
+tổng số 100%.
 
-người cụ thể đó.
+- Chính giữa hàng dưới là hướng bắc, cung khẩm, nhiệt 0%, ẩm 50%, tổng
+số 50%.
 
-Tử vi là cách tìm khí chất, tính cách và các mối quan hệ của một con
-người. Cách tính này căn cứ vào thời điểm sinh cả ngày, giờ, tháng, năm, những
-tên gọi các đơn vị thời gian đó khác với tử bình và bát tự Hà lạc. Năm thì đủ tên
-can và chi, tháng và ngày thì theo đơn vị tính của âm lịch (tháng của tuần trăng),
-giờ thì thào tên giờ địa chi. Người ta đem các điều đã biết ấy tính thành vị trí
-mệnh cung và cục, sau đó an các cung số (huynh, thê, tử, tài, ách, di, nô, quan,
-điền, phúc, phụ) có quan hệ với con người đó vào một hình vành khăn chữ nhật
-có 12 ô, các ô này mang tên và thứ tự theo vị trí phương hướng của 12 địa chi.
-Tiếp đó, người ta lần lượt an các sao (do cách tính riêng của từng vòng sao khác
-nhau tìm ra) vào các cung (các ô lúc này đã có tên cung). Khi đã an đủ các sao
-vào trong các cung, người ta bắt đầu xem xét mỗi ảnh hưởng qua lại nhờ sự so
+- Bên phải hàng dưới là hướng tây bắc, cung càn, nhiệt 25%, ẩm 25% tổng
+số 50%.
 
-sánh như sau:
-- So sánh tính chất từng sao với cung an sao đó.
-- So sánh tính chất các sao trong cùng một cung với nhau.
+Sơ đồ tỷ lệ khí theo hình ma phương như sau (Hình 3-15)
 
-- So sánh tính chất các sao ở các ô khác với cung mệnh theo quan hệ xung,
+đôngnam nam(hoả) tây nam Thổ = 400
 
-chiếu.
-- So sánh tên cung với tên ô theo vị trí 12 địa chị.
-- So sánh tính chất từng sao với tên địa chi của ô an sao đó.
+150% 150% ˆ 100%
+tây (kim
+đông (mộc) | 150% 100% 50% LẺ dinh )
+400% 50% 50% =200
+Thổ đông bắc bắc (thủy) tây bắc l l
+đường chéo dọc dọc dọc đường chéo
+300 400 300 300 300
+Hình 3-15
 
-Phần lớn các nhận định có được là nhờ ở quan hệ sinh, khắc của ngũ hành
+Ta tiến hành cộng kiểu ma phương những hành tỷ lệ khí, ta có kết quả như
 
-trong các so sánh đó đem lại. Xem "Bát tự hà lạc", "Tử vi đầu số áo bí", "Tử bình
+nhau:
 
-74
+- Hàng dọc giữa, từ nam qua trung ương đến bắc: 150 + 100 + 50 = 300.
 
+- Hàng ngang giữa, từ đông qua trung ương đến tây: 150 + 100 + 50 =
+300.
 
+- Hàng chéo, từ đông nam qua trung ương đến tây bắc: 150 + 100 + 50 =
+300.
 
-<!-- page 76 -->
+- Hàng chéo, từ tây nam qua trung ương đến đông bắc: 150 + 100 + 50 =
+300.
 
-thuyết minh", "Khí chất bẩm sinh của người Việt Nam" (sách sắp in của Lê Văn
-Sửu).
+Chỉ có các đường ngang trên, ngang dưới và đường dọc bên trái, dọc bên
 
-10. Trong y học: Trong tất cả các ngành khoa học ở Phương Đông thì y
-học coI trọng đặc biệt học thuyết âm dương ngũ hành. Các học thuyết kinh lạc,
-tạng phủ, và học thuyết ngũ, vận - lục khí đều lấy các mối quan hệ tương ứng,
-tương sinh, tương khắc của ngũ hành để xem xét. Các diễn biến sinh lý, bệnh lý,
-quan hệ nội bộ các tạng phủ trong con người cũng như quan hệ con người với
-biến hoá khí hậu của ngoại giới gây ra cũng đều lấy quan hệ ngũ hành để biện
-chứng. Các nguyên tắc chạy chữa, để phòng bệnh tật, cũng như tuyển chọn vị
-thuốc, nhất nhất đều lấy quan hệ tương ứng, tương sinh, tương khắc của ngũ
-hành làm đầu mối sử dụng (xem Nội kinh Tố vấn, Hồng nghĩa giác tư y thư, Hải
+phải khi cộng con số không phải là 300.
 
-Thượng Y tông tâm lĩnh, Trung y khái luận).
+128
 
-75
 
 
+<!-- page 130 -->
 
-<!-- page 77 -->
+Ở trong bảng này, nếu ta đổi vị trí và tỷ lệ của đông nam 150 sang tây bắc,
 
-B. Nội dung của ngũ hành
-1. Ngũ hành là kim, mộc, thuỷ, hoả, thổ. Giá trị tương ứng của ngũ hành
-đã có trong các thư tịch cổ được trình bây theo lối sơ đồ hoá như sau:
-a. Ngũ hành theo Hà Đồ lạc thư (Hình 3-2)
-a. Ngũ hàuh theo Hà đồ lạc thư (Hình 3-2).
-HÀ ĐỒ
+ở đông nam nhận tỷ lệ của tây bắc 50 thì toàn bộ bảng sẽ là một bảng ma phương
 
-Hóa
-NAM
+hoàn chỉnh, ở tất cả hàng dọc, ngang, chéo, tổng số sẽ đều là con số 300.
 
-ĐỒNG TÂY
-Mộc Kim
+Ta hãy xem bảng đã đổi vị trí và tý lệ như sau (Hình 3-16)
 
-BẮC
-Thủy
+đông nam nam tây nam
+ngang 50 150 100 =300
+đông, ngang 150 100 50 =300 tây
+ngang 100 50 150 =300
+đông bắc bắc tây bắc
+đường chéo dọc dọc dọc đường chéo
+300 300 300 300 300
+Hình 3-16
+Và đây là bảng ma phương Lạc thư để so sánh (Hình 3-17):
+đông nam nam tây nam,
+4 9 2 | ngang=15
+đông 3 5 7 tây ngang=15
+8 1 8 ngang=15
+đông bắc bắc tây bắc
+đường chéo dọc dọc dọc đường chéo
+15 15 15 15 15
+Hình 3-17
 
-LẠC THƯ
+So sánh bảng tỷ lệ khí của ngũ hành phương hướng đã đổi vị trí và tỷ lệ
+khí với bảng Lạc thư, ta thấy tính chất của chúng hoàn toàn giống nhau, đó chính
+là nội dung cân bằng, hài hoà âm dương trong cùng một tổng thể.
 
-Hóa
-NAM
+So sánh bằng tỷ lệ khí theo phương hướng mặt đất với vị trí của Lạc thư thì
+có chỗ khác nhau và chỉ đúng một nửa của bảng ma phương, vì có một vị trí bị
+thay dối tỷ lệ khí. Ở đây ta có thể hiểu rằng bảng ghi nhận thứ tự số của Lạc thư
+trở thành ma phương, trong đó mỗi con số của thứ tự là một bộ phận tỷ lệ âm
+dương để làm nên cái tổng thể hài hoà, nó đã phải qua tương tác âm dương như
 
-=
+đã trình bầy ở phần Lạc thư.
 
-“
+129
 
-ĐÔNG
-Mộc
 
-4.
 
-BẮC
-Thủy
+<!-- page 131 -->
 
-Hình 3-2
-b. Ngũ hành theo Bát quái hoành đồ (Hình 3-3)
+Thế nhưng những người Trung Hoa xưa chỉ bám lấy tính chất chặt chẽ của
 
-76
+bảng ma phương mà dẫn giải rằng sự sắp xếp đó chỉ do trời định mới thành.
 
+Ngoài bảng Lạc thư và chu kỳ 9 năm gọi là cửu cung ra, còn có một chu
+kỳ 10 được xếp thứ tự và phương hướng gần như Lạc thư, số 10 người ta xếp vào
 
+trung cung cùng với tính chất số 5 của Lạc thư, gọi đó là Hà đồ.
 
-<!-- page 78 -->
+Cách giải thích về các con số trong Lạc thư và Hà đồ được người Trung
 
-Hình 3 - 3
+Hoa xưa gọi là "Tượng số học”, số lẻ được coi là số trời, số chắn là số đất.
 
-c. Ngũ hành theo Tiên thiên bát quái và Hậu thiên bát quái (Hình 3-4)
+Trong sách Đại cương triết học sử Trung Quốc, ông Phùng Hữu Lan viết
 
-HẬU THIÊN BÀI QUÁ
+về tượng số học như sau:
 
-Hinh 3-4
+"Bên cạnh quan niệm âm dương, còn có tư tưởng trọng yếu khác trong
+"Dịch truyện”, là quan niệm về số. Vì người xưa thường coi bói toán là phép tiết
+lộ bí mật của vũ trụ và vì phép bói bằng cỏ thi căn cứ trên sự tồ hợp của nhiều số,
+nên ta không lạ gì mà thấy các tác giả khuyết danh trong "Dịch truyện” có xu
+hướng tin rằng bí ẩn của vũ trụ có thể nhìn thấy trong các con số. Bởi thế, theo
+họ số dương bao giờ cũng lẻ và số âm bao giờ cũng chắn. Cho nên ta đọc thấy
+trong "Hệ từ": Trời một, đất hai, trời ba, đất bốn, trời năm, đất sáu, trời bẩy, đất
+tám, trời chín, đất mời, số trời năm, số đất năm. Năm ngôi tương đắc là mỗi cái
+trùng hợp, số trời là hai mươi lăm, số đất là ba mươi, số trời số đất là năm mươi
 
-d. Ngũ hành theo Cửu trù hồng phạm (Hình 3-5):
+lăm, do đó mà biến hoá mà quỷ thần hành động vậy".
 
-T7
+"Về sau, âm dương gia cố nối liền ngũ hành với âm dương bằng các số.
+Cho nên phái ấy chủ trương rằng một là số trời, sinh thuỷ, và sáu là số đất bổ túc.
+Hai số đất sinh hoả, và bảy số trời bổ túc. Ba, số trời, sinh mộc, và tám, số đất,
+bổ túc. Bốn, số đất sinh kim, và chín, số trời, bổ túc. Năm, số trời, sinh thổ, và
+mời, số đất, bổ túc. Xem Trịnh Huyền (127-200 sau tây lịch). Lời chú thích
+"Nguyệt lệnh” trong sách Lễ ký thiên 4), “... (trang 147 sách đại cương triết học
 
+sử Trung Quốc).
 
+Sau khi đã sơ bộ điểm qua tình hình của các phần cần xem xét là về tác
 
-<!-- page 79 -->
+giả, về bố cục, về lời dẫn giải, ta có thể đặt ra các câu hỏi như sau:
 
-CUU TRỤ HỎNG PHAII
+180
 
-Hoa
-NAKM1
 
-3G
 
-Hình 3-5
+<!-- page 132 -->
 
-d. Ngũ hành theo Nguyệt lệnh (Hình 3-6)
+Tại sao các bản văn Hồng phạm, Nguyệt lệnh, Kinh dịch nguyên thuỷ,
+Lạc thư, Hà đồ không có tác giả?, - Tại sao chỉ riêng Nội kinh lại có tác giả là
+Hoàng đế và Kỳ Bá?, Tại sao phần âm dương ngũ hành ở tác phẩm Hoàng đế
+Nội kinh lại không có một học giả phong kiến Trung Quốc nào dẫn giải sai lạc
+đi?,. Như Dương Kế Châu là một danh y đời Minh cũng chỉ có trích đoạn nguyên
+văn về học thuyết ngũ hành, cửu cung, bát quái ở đó để đưa vào sách Châm cứu
+đại thành của mình mà không có lấy một lời dẫn giải gì ngoài nội dung đó.
+Trong khi, về những bản văn không có tác giả kể trên, các học giả phong kiến
+Trung Hoa xưa đã thả sức suy tưởng theo hướng quy tụ về cho trời đất. Coi sự
+thuận tự của quy luật, cũng như những mối quan hệ nội tại khác của quy luật là
 
-NGUYỆT LỆNH
+do trời định, và do đó được đem vận dụng vào công cuộc cai trỊ xã hội.
 
-Hoa
-Mùa Ha NAM
+181
 
-S QUỐI HA ĐẦU THU
-S
-ĐỒNG C) C) C) TÂY
-Mộc Kim
 
-Mua Xuân THỔ Mùa Thu
 
-©
+<!-- page 133 -->
 
-BẮC
-Thủy
-Mùa Đông
+3. Khả năng giải đáp đúng về xuất xứ của quy luật ngũ hành:
 
-Hình 3-6
+Để giải đáp được những câu hỏi trên, cũng buộc ta phái tìm đến những yếu
+tố được coi là khả năng chủ yếu đưa ta tới xuất xứ của quy luật mà các bản văn
+đã miêu tả.
 
-e. Ngũ hành theo Trâu Diễn (Hình 3-7):
+Một trong những yếu tố có khả năng chủ yếu phải là khí chất sinh học
+trong nòi giống dân tộc, từ cảm quan bản năng tiến hoá lên ý thức. Khi ý thức
+phát động thì nảy ra phương pháp t duy. Tôi không bàn ở đây về các phương
+pháp tư duy truyền thống khác nhau của các dân tộc khác nhau, công việc đó là
 
-78
+của các nhà "tư duy học”.
 
+Ở phần cuối sách này, tôi sẽ làm rõ khí chất sinh học Việt Nam ở hai giác
+quan nghe, nhìn của người Việt. Hai giác quan này nói chung liên hệ chặt chẽ
+với ý thức, là cơ sở cung cấp nguyên liệu cho tư duy. Nhưng ở người Việt, cảm
+nhận từ hai giác quan ấy đúng với quy luật âm dương, ngũ hành như cùng một
+bản chất, do đó tôi cho rằng: '' Học thuyết âm dương, Ngũ hành là của văn
 
+hoá Việt Nam ".
 
-<!-- page 80 -->
+Hai chuyên đề nghe nhìn phải đặt ở cuối sách cho tiện bàn sâu xin quý vị
 
-Theo TRÂU DIỄN
+độc giả lưu ý chắc chắn sẽ thấy lời bàn trên của tôi có nền tảng vững chắc.
 
-HẠ Hỏa
+182
 
-®
 
-cô, C—>O
 
-THỔ
+<!-- page 134 -->
 
-©
+IV. TRIỂN VỌNG VỀ NHỮNG ỨNG DỤNG CỦA HỌC THUYẾT
+NGŨ HÀNH RONG NỀN VĂN MINH NHÂN LOẠI TƯƠNG LAI
 
-ĐÔNG
-Thủy
+A. Học thuyết Ngũ Hành với đời sống con người ngoài khu vực
 
-Hình 3-7
+Phương Đông
 
-ø. Ngũ hành theo Đồng Trọng Thư (Hình 3-8)
+Những nhà nghiên cứu hiện đại Phương Tây đã đưa ra những câu hỏi theo
+thực tế địa khu mà họ cư trú, chẳng hạn như: Ngũ hành là quy luật tương ứng ở
+Phương Đông, vậy thì ở những địa khu khác ngoài Phương Đông sự tương ứng
+ấy còn đúng không? Nếu không tương ứng, quy luật ngũ hành sao còn là quy
+luật phổ quát được?
 
-Theo Đồng Trọng Thư
-TƯƠNG SINH
-HÓA
-e
-MÓC # ® THỔ
-§ R
-THỦY ——— KIM
-TƯƠNG KHẮC
-HÓA
-MỘC THÔ
-THỦY ¬
-Hình 3-8
+Để đi đến giải đáp câu hỏi trên một cách chính xác hơn, trước hết tôi xin
+nêu lại lịch sử của câu hỏi này trong quá khứ giao lưu văn hoá Đông, Tây. Khi
+những câu hỏi này mới nảy sinh trong một số người ở Phương Tây, cũng là lúc
+khoa học cơ giới đang chiếm vị trí lý tưởng ở cuộc sống trong thời kỳ chủ nghĩa
+tư bản đang phát triển. Nó chỉ có ý nghĩa tò mò, bao hàm cả sự coi thường đối
+với một của lạ tinh thần do đời sống kinh tế kém phát triển và ít giao lưu đẻ ra.
+Khi chủ nghĩa tư bản Phương Tây trở thành chủ nghĩa đế quốc, trong khi trinh
+sát những vùng đất mới, chuẩn bị cho những kế hoạch xâm lược, nô lệ hoá các
+dân tộc Phương Đông, những người giáo sĩ, những người thương nhân của các
+nước tư bản đã nhận ra rằng hệ thống ý thức hoàn chỉnh của Phương Đông bao
+gồm những hiểu biết về nguồn gốc vũ trụ, những quy luật vận động của vũ trụ và
+các mối quan hệ giữa vũ trụ với vạn vật và con người, không những là cơ sở vững
+chắc của các ngành khoa học phục vụ đời sống con người Phương Đông, mà còn
+là nòng cốt cuộc sống tinh thần con người bản địa. Họ đã tìm hiểu rất kỹ, nhưng
+với hy vọng đem cuộc sống vật chất rất phương tiện, đem lối sống và cơ chế xã
+hội Phương Tây khích lệ mọi tham vọng cá nhân trong vòng uy lực của đồng tiền
+làm món hàng thay thế. Họ khoe khoang cái giá trị tinh thần ấy đã giúp họ trở
+thành giàu có trước con người Phương Đông một cách kiêu hãnh, hợm lĩnh, ở
+mỗi trường hợp có thể, từ trong những cuộc tiếp khách xã giao, từ trọng những
+cuộc phô diễn nghệ thuật, và ngay cả khi họ nã súng xâm lược vào những người
 
-79
+dân bản địa.
 
+183
 
 
-<!-- page 81 -->
 
-h. Ngũ hành theo Ngũ Vận - Lục khí (Hình 3-9):
+<!-- page 135 -->
 
-NGŨ VẬN
+Nhưng lạ lùng thay, trải qua mấy thế kỷ, kể từ khi những người Phương
+Tây đầu tiên đặt chân đến Trung Hoa và Việt Nam tới nay, dù cho đã trải qua
+thời kỳ thịnh nhất của chủ nghĩa đế quốc là lúc cả đất nước Việt Nam và một
+phần đất đai Trung Hoa thành thuộc địa, tô giới của chủ nghĩa tư bản, thì ảnh
+hưởng của tư nền tư tưởng văn minh cơ giới Phương Tây cũng vẫn còn nằm gọn
+trong các đô thị lớn, chưa tới được đời sống dân chúng nông thôn. Còn như đến
+ngày nay, khi mà cuộc sống vật chất, trình độ công nghiệp của Phương Tây đang
+là ngưỡng vọng và mục đích phấn đấu để đưa vào xã hội Phương Đông, thì,
+không những là hệ thống ý thức Phương Đông đang còn rất vững chắc trong đời
+sống tinh thần của tuyệt đại đa số con người Phương Đông, mà ngược lại, nó đã
+bước đầu đậm nét trong vùng xám của bộ óc những con người khoa học Phương
+Tây.
 
-Giáp - Kỷ
+Lịch sử câu hỏi là độ xoáy tăng dần trong ý thức khoa học của người
+Phương Tây. Nó bắt đầu từ sự tò mò có tính cách hiếu kỳ, tiến dần lên đến mức
+ngỡ ngàng, sửng sốt, và ngày nay thì thật là ngưỡng mộ. Họ bắt đầu công việc
+khai thác nó với những cố gắng cao nhất và bằng phương tiện hiện đại nhất, với
+sự khát khao muốn nắm được các quy luật âm dương ngũ hành như họ đã nắm
+được quy luật ở bảng tuần hoàn Men Đê Lê ép để rồi sẽ hoá phép lạ chế ra nhiều
+loại vật chất mới cho xã hội, hoặc như đã điều khiển được những máy tính điện
+tử tân kỳ.
 
-/ự
-Mậu - Quý „ à
+Tin tức về những cuộc thí nghiệm mới nhất, kết quả lạ nhất cứ dồn dập
+đến trên các trang báo chí và trên sóng của các bản tin phát thanh, truyền hình đã
+có lúc tưởng như đó là những phát minh mới của các nhà khoa học lỗi lạc, làm
+xôn xao dư luận đương thời. Xin nêu mấy cuộc thí nghiệm để làm ví dụ:
 
-HỎA KIM Ất - Canh
+Cách đây vài mươi năm, ba bệnh viện lớn ở Anh, Pháp, Mỹ cộng tác
+nghiên cứu, đã tổng kết trên ba vạn ca viêm gan cấp tính, họ thấy rằng phát bệnh
+đều xảy ra vào khoảng 2 giờ sáng (giờ Sửu ).
 
-MÔ THÚY
-Đính- Nhâm *———Z Bính - Tân
+Cách đây đã lâu, một nhà khoa học trẻ người Nga xuống một hầm mỏ cũ,
+lối và sâu trong lòng đất, dùng các máy móc tinh vi đo đạc hoạt động công năng
 
-LỤC KHÍ
+tạng phủ trong cơ thể liên tục trong hơn năm mươi ngày đêm và nhận xét rằng
 
-Thái dương han thủy
-THÍN - TUẤT
+134
 
-MÃO - DẬU Z TY - HỢI
-Dương minh, Quyết âm
 
-- * TỸ - NGỌ
-DẦN - làn) SN N Thiếu âm
-Thiêều dương —a quân hỏa
 
-tướng hỏa SƯ - MUI
+<!-- page 136 -->
 
-Thái âm thấp thổ
+các hoạt động đó rất đều đặn, sự sai lạc theo nhịp ngày đêm là không đáng kể,
+trong đó thứ tự các hoạt động tạng phủ tương ứng như chu kỳ 12 địa chi. Gần
+đây nhất một nhà khoa học Pháp đã tiêm một chất có tính đặc biệt vào huyệt vị
+rồi dùng máy chụp theo dõi đường đi của chất đó và thấy rằng đường đi của chất
 
-Hinh 3-9
+đó trùng với đường kinh lạc.
 
-¡. Ngũ hành theo Thiên can - Địa chỉ (Hình 3-10):
+Và đây là một đoạn của một bài trong báo Khoa học kỹ thuật kinh tế số 3
+(172) thứ 5 ngày 16/1/1986, trang 7, nhan đề "Màu sắc với sức khoẻ con người”
+" Giáo sư Phờ Răng Xoa Pa Ra, phó chủ nhiệm phòng thí nghiệm vật lý ứng
+dụng của Viện bảo tàng lịch sử tự nhiên quốc gia Pháp, thành viên ban quản trị
+hiệp hội màu sắc quốc tế cho biết: "Chúng tôi đã ghi được những nhiễu loạn do
+sự cảm thụ màu sắc gây ra trên điện não đồ và điện tâm đồ của nhiều người. Còn
+giáo sư sinh vật học Ha-lốt-uôn-phát của trường đại học A-bô-Đôn (Canada) lại
+cho biết thêm, trong một môi trường có nền là ánh sáng đỏ, nhịp tim và huyết áp
+của người ta tăng thêm 17%. Một bệnh viện ở Béc Lanh (CHDC Đức) đã nghiên
+cứu qua 3000 người bệnh và nhận thấy rằng những người bị bệnh về chức năng
+tim đều "chối" với màu đỏ. Nhà tâm lý học Thuy Sỹ Mác-luy-xi-e cho rằng đó là
+một loại phản ứng có tính tự vệ, những người bị bệnh tim theo bản năng đã cự
+tuyệt trước màu đỏ, một màu có tính kích thích do ấy mà có thề gây nguy hại
+cho tim của họ... Trong một báo cáo thí nghiệm ở một bệnh viện, M.Luy-xi-e
 
-80
+đã rút ra kết luận rằng:
 
+Thuốc có màu sắc thích hợp có thể tăng thêm lòng tin của người bệnh đối
 
+với tác dụng chữa bệnh của nó.
 
-<!-- page 82 -->
+Có người đã đề nghị: Tránh dùng màu đỏ cho những thuốc về bệnh tim
+mạch, không được dùng màu xanh lục đậm cho những thuốc an thần, vì màu này
+cũng có thể gây căng thẳng tâm lý, thần kinh cho người bệnh... ở một bệnh viện
+ở Luân Đôn: màn vàng hấp dẫn với những người bị chứng buồn bực, nhưng
+người say rượu không ưa. Người bệnh dạ dày sợ màu xanh lục, 60 người bị
+cường tuyến giáp ưa thích màu tím. Những người đạt, đầu và co thắt mạch thích
 
-THIÊN CAN
+màu xanh đen"...
 
-Bính - Định
-mm
-Giáp - Ất MỘC THỔ Mậu - Kỷ
-THỦY KIMS-. nh - Tân
-Nhâm - Quý lở
-ĐỊA CHỈ
-Ty - Ngọ
-HỎA
-Thin Z” N. Mùi
-THÒ THÔ
-MãoO Q2 \ Thân
-Dần vậC DJ Dậu
-Sửu THỔ THỔ n
-Tuất
->> ty
-Tý - Hợi
-- Hình 3-10
+185
 
-2. Phân loại theo tính chất vũ trụ của các bảng ngũ hành tương ứng
 
-kể trên:
-a. Về không gian
-Lạc thư (xưa gh1)
-Hà đồ (xưa ghi)
-Nguyệt lệnh
-Trâu Diễn
 
-Đồng Trọng Thư
+<!-- page 137 -->
 
-Phương hướng mặt đất.
-Phương hướng mặt đất.
-Phương hướng mặt đất.
-Phương hướng mặt đất.
+Bây giờ ta hãy đem ba thí nghiệm về hoạt động của tạng phủ mà người
+phương Tây đã tiến hành như trên so sánh với bài ca về hoạt động của tạng phủ
+theo giờ địa chi đã được ông Dương Kế Châu đời Minh phi lại trong sách Châm
 
-Phương hướng mặt đất.
+cứu đại thành (trang 153) để mà xem xét, bài ca như sau:
+“Thập nhị kinh nạp địa chị ca:
+Phế dần, đại mão, vị thìn cung; tỳ tI, tâm ngọ, tiểu mùi trung.
+Thân bàng, dậu thận, tâm bào tuất; hợi tam, tí đảm, sửu can thông”
 
-Hậu thiên bát quái Phương hướng la bàn.
+Ta chưa cần phải tìm đến niên đại ra đời bài ca này, chỉ cần tính từ khi ông
+Dương Kế Châu ghi lại trong tác phẩm của ông, thì nhịp công năng sinh lý theo
+chu kỳ lặp lại này đã có trước thời đại khoa học tinh vi ngày nay chừng non 400
 
-81
+năm (Sách khắc in năm 1601 - năm tân sửu, niên hiệu Vạn Lịch đời Minh) .
 
+Tiếp theo, ta lại đem các thí nghiệm của các ông Phờ Răng Xoa Pa Ra, Ha
+Lốt Uôn Phát và Mác Luy Xi E để so với bảng ngũ hành tương ứng trong sách
+Nội Kinh đã được ông Dương Kế Châu ghi lại trong sách Châm cứu đại thành
+mà tôi đã trích giới thiệu trên phần hai sẽ thấy sự giống nhau trong mối quan hệ
+tương ứng giữa tạng phủ và màu sắc, như thế thì trước đây hơn hai nghìn năm
+người Phương Đông cũng đã rút ra quy luật tương ứng mà chẳng cần đợi phải có
 
+những máy móc tinh xảo như ngày nay, điều đó chẳng đáng ngạc nhiên lắm sao?
 
-<!-- page 83 -->
+Điều đáng rút ra nhất trong những dẫn chứng mà tôi nêu lên để so sánh,
+chính lại là chỗ nhằm giải đáp vào câu hỏi về quy luật tương ứng của ngũ hành
+đối với địa khu ngoài Phương Đông. Trong những so sánh nêu trên, cho phép ta
 
-Tiên thiên bát quái Chiều hướng thuận nghịch.
+kết luận được rằng:
 
-Địa chì
+Nơi làm thí nghiệm cách xa nhau hàng ngàn dặm và thời gian làm thí
+nghiệm cách xa nhau hàng ngàn năm thì sự tương ứng của ngũ hành đối với tâm
 
-Thiên can
+sinh lý con người vẫn còn là như nhau.
 
-b. Vê thời gian
-Nguyệt lệnh
-Trâu Diễn
+136
 
-Đồng Trọng Thư
-Lục khí
 
-Ngũ vận
 
-10 thiên can
+<!-- page 138 -->
 
-12 địa chỉ
+B. Các loại hiện tượng tương ứng khác nhau của ngũ hành
 
-Phương hướng la bàn.
+Là một người Phương Đông, tôi cho rằng người Phương Tây có những
+thắc mắc về ngũ hành như trên cũng là tất nhiên. Bởi vì, bất kể là vấn đề gì, khi
+mà ta chưa hiểu bản chất của nó thì ta làm sao có thể hiểu được những biểu hiện
 
-Phương hướng la bàn.
+khác nhau của nó cũng như những giới hạn của nó.
 
-Theo bốn mùa
-Theo bốn mùa
-Theo bốn mùa
-Chu kỳ 6 năm
-Chu kỳ 5 năm
-Chu kỳ 10 năm
-10 tháng
+Người Phương Đông xưa có một khía cạnh khác người Phương Tây ở chỗ,
+do quá tín nhiệm giá trị tương ứng của ngũ hành, cho nên có những mặt biểu
+hiện của nó đã dùng nhầm phạm vi tương ứng đến khi gặp trở ngại thì đã đem tư
+tưởng chấp nhận số phận lắp hết khe hở trong ý thức, không còn chỗ để có thể
+nảy sinh ra được những nghi ngờ về các mặt biểu hiện khác nhau của ngũ hành
+ấy bị những giới hạn gì khi ứng dụng nó vào đời sống. Hơn nữa muốn hiểu cho
+hết các khía cạnh của vấn đề này đòi hỏi sức hiểu biết phải nhiều, thời gian để
+xem xét kỹ cũng phải dài, trong khi cái điều cốt yếu ấy không phải bất cứ người
 
-10 ngày
+nào cũng có thể có được
 
-10 giờ
+Nhân dịp khảo sát kỹ lại nội dung tương ứng của ngũ hành để viết theo
 
-Chu kỳ 12 năm
-12 tháng
+những tài liệu cổ và những thực nghiệm khoa học hiện đại, tôi thấy như sau:
 
-12 ngày
+1. Sự tương ứng giữa ngũ hành với các màu, các mùi vị, các thể chất,
+các khiếu, với lục phủ, ngũ tạng, với các mùa trong năm là hoàn toàn phù hợp
 
-12 giờ
+với con người ở khắp nơi thuộc nửa cầu phía Bắc.
 
-3. Bản chất của ngũ hành:
+2. Sự tương ứng theo mùa ở phía nam bán cầu, các hành vẫn tương ứng
+với quan hệ tâm sinh lý con người. Riêng về thành phần nhiệt độ của khí theo
+phương hướng đã có sự thay đổi. Sự thay đổi nhiệt độ của khí so với bắc bán cầu
+là do thời điểm mặt trời chiếu sáng vuông góc với chí tuyến nam ngược chiếu với
+thời điểm mặt trời chiếu sáng vuông góc với chí tuyến bắc. Vào ngày đông chí,
+mặt trời chiếu sáng vuông góc với chí tuyến nam, lúc này không khí ở đây nóng
+lên, đồng thời ở chí tuyến bắc lạnh đi. Vào ngày hạ chí, mặt trời chiếu sáng
+vuông góc với chí tuyến bắc, lúc này không khí đây nóng lên, đồng thời ở chi
+tuyến nam lạnh đi. Sự khác nhau này làm cho tính chất nóng, lạnh, ẩm, hanh
+theo mùa ở hai nửa bán cầu tuy có cùng một hành trong một mùa, nhưng có hai
 
-a. Khí, gió, và hành:
+nhiệt độ môi trường do góc chiếu sáng khác nhau tạo ra.
 
-Tìm bản chất của ngũ hành là một công việc có tính chất khảo cổ, truy
+187
 
-nguyên.
 
-Học thuyết ngũ hành cũng có chung một số phận nh học thuyết kinh lạc,
-nó đang đặt ra trước con người hiện đại một thắc mắc là: Người xưa với nền tảng
-kinh tế thấp kém xã hội mông muội, họ đã dùng phương pháp gì để phát hiện
-được quy luật ấy, trong khi hiện nay con người đang có trong tay nhiều loại công
 
-cụ tinh xảo, chính xác để tìm hiểu về nhiều vấn đề mà còn phải ngỡ ngàng.
+<!-- page 139 -->
 
-L2
+Sự thay đổi nhiệt độ theo mùa không những chỉ do góc chiếu sáng giữa
+các mùa vuông góc trên những vùng khác nhau tạo ra mà còn do vị trí của cả quả
+đất trên quỹ đạo khác nhau khi ở các mùa khác nhau. Sự thay đổi vị trí của quả
+đất trên quỹ đạo khác nhau đem đến sự thay đổi nhiệt độ môi trường nhiều hơn
+sự thay đổi góc chiếu sáng trên quả đất gây ra. Tôi chưa có số liệu cụ thể trong
+tay về sự chênh lệch nhiệt độ giữa hai mùa ở nam chí tuyến nói riêng và ở nam
 
+bán cầu nói chung, nhưng ta có thể dự đoán bằng các phép tính sau:
+Trước hết ta hãy thống nhất với nhau rằng:
 
+- Góc chiếu sáng thay đổi lớn nhất gây ra chênh lệch nhiệt độ lớn nhất
 
-<!-- page 84 -->
+trong ngày là giữa trưa và giữa đêm.
 
-Thậm chí có người còn cho rằng những quy luật ấy có thể đã được xác lập từ một
-nền văn minh cực thịnh của loài người ở giai đoạn trước, sau đó, loài người vì
-một lý do nào đó mà trở lại một vòng mới, bắt đầu từ mông muội đi lên cho tới
-hiện nay, và những quy luật ấy may mắn còn để lại trong ứng dụng, do đó ta
+- Vị trí quả đất thay đổi khác nhau trên quỹ đạo lớn nhất gây ra chênh lệch
+nhiệt độ lớn nhất giữa các mùa là vào giữa mùa hạ và giữa mùa đông.
 
-không thể nào hiểu nổi phương pháp xây dựng ra nó.
+- Ở hai nửa cầu trái đất vào giữa hai mùa đông và hạ có sự chênh lệch
+nhau về nhiệt độ, sự chênh lệch này bằng tổng số của cả hai sự chênh lệch,
+chênh lệch vị trí quả đất trên quỹ đạo, chênh lệch góc chiếu sáng giữa các vùng
 
-Riêng về học thuyết ngũ hành, từ trước đến nay đã có nhiều học giả cố
-công tìm kiếm nguồn gốc và bản chất của nó, đáng tiếc thay, những người có ý,
-có công ấy hầu hết lại là các triết gia, những nhà xã hội học. Từ xưa như Cơ Tử
-Trâu Diễn, Đổng Trọng Thư v.v..., tới cận đại như Walhem, Kim Định, Phùng
-Hữu Lan v.v..., với phương pháp tư duy không phù hợp, họ đã tỏ ra rất lúng túng
-khi phải đụng tới bản chất của ngũ hành. Để thấy được sự lúng túng ấy rõ nét, tôi
-xin nêu lại lời bàn của ông Phùng Hữu Lan, giáo sư trường đại học Thanh Hoa
-làm dẫn chứng: Trong tác phẩm "Đại cương triết học sử Trung Quốc" khi dẫn về
-thiên "Nguyệt lệnh” ông đã viết như sau: ... "phương nam và mùa hè thì nóng, vì
-phương nam là phương và mùa hè là lức mà hành hoả mạnh hơn cả,...........
-.. Như vậy, bốn trong năm hành đã được cắt nghĩa, chỉ còn hành thổ là chưa có
-vị trí và mùa. Nhưng theo thiên "Nguyệt lệnh", thổ là hành chính của ngũ hành,
-vì vậy nó được vị trí trung ương của bốn mùa, lúc mà hành thổ mạnh là vào một
-khoảng ngắn giữa mùa hè và mùa thu. "... Tiếp đó, ông giáo sư họ Phùng cũng
-không nói rõ thêm vì sao hành thổ trở thành hành chính của ngũ hành, vì sao
+trên trái đất gây ra.
 
-hành thổ lại mạnh ở vào khoảng ngắn giữa mùa hè và mùa thu.
+Đó là những nguyên tắc do thực tế tình hình tạo ra. Bây giờ tôi lấy tình
 
-Sau khi phân tích các văn bản cổ nói về ngũ hành, xem xét kỹ phương
-pháp tư duy của các triết gia, tôi đã chuyển hướng suy nghĩ của mình sang phía
-xét quan hệ ngũ hành với giới tự nhiên. Chỗ dựa để tôi đào sâu suy nghĩ từ đó
-tìm về bản chất của ngũ hành là thuyết "Khí hoá” trong sách "Hồng nghĩa giác tư
-thư” của thiền sư Tuệ Tĩnh và "Khí vật tương ứng” ở nội kinh.
+hình cụ thể ở Việt Nam làm những con tính để chứng minh nguyên tắc trên.
 
-Như ở phần thứ nhất ta xét kỹ 6 đoạn văn trích giới thiệu. Trong nội dung
-"khí hoá" thiền sư Tuệ Tĩnh đã cho ta hiểu rằng "khí hoá" là khí hậu môi trường
-biến hoá, biểu hiện của khí là "mầu sắc" trên trời, vật chất có biến hoá tương ứng
+Nhiệt độ chênh lệch tối đa giữa ngày và đêm ở khắp lãnh thổ Việt Nam
+trung bình thường là từ 10 đến 12 độ C ; Chênh lệch tối đa giữa hai mùa hạ và
+đông ở Hà Nội là khoảng 20 độ C.
 
-với khí có những đại biểu là năm hành. Tên của khí tương ứng với hành thì trong
+Nếu góc chiếu sáng thay đổi lớn nhất là bằng 180 độ, tức là giữa trưa và
+giữa đêm (theo con số trung bình ở Việt Nam) bằng 10 đến 12 độ C, thì sự chênh
+lệch nhiệt độ do góc chiếu sáng khác nhau ở hai chí tuyến Bắc và Nam sẽ có thể
+bằng nhiệt độ chênh lệch tối đa trong ngày đem chia cho 180 độ rồi nhân với
+khoảng cách giữa hai chí tuyến bắc và nam.
 
-83
+(10 đến 12 độ C) x (22 độ 33 phút x 2 = 44 độ 46 phút)
 
+= từ 2,5 đến 3 độ C
+180 l
 
+138
 
-<!-- page 85 -->
 
-"Nội kinh” đã gọi là phong, hàn, thử, thấp, táo. Các tên này lại được định rõ tính
-chất và quan hệ cụ thể, như phong là ấm ở mùa xuân, ở phương đông, hành là
-mộc. Hàn là lạnh ở mùa đông, ở phương bắc, hành là thuỷ. Thử là nóng, ở mùa
-hạ, ở phương nam, hành là hoá. Táo là hanh khô, ở mùa thu, ở phương tây, hành
-là kim. Thấp là ẩm ở phương tây nam, cuối hạ đầu thu, hành là thổ. Tôi cho rằng
-các tính chất ấm, lạnh, nóng, khô, ẩm, là người xưa đã dựa trên hai mặt nhiệt độ
 
-và độ ẩm trong không khí mà quy định.
+<!-- page 140 -->
 
-Bằng một cách chọn lọc chính xác, tuy với phương tiện đơn giản, sẵn có là
-giác quan con người, người ta dễ cảm nhận, dễ quan sát, dễ so sánh, nhưng
-không vì thế mà thiếu cơ sở khoa học. Thật vậy, mặc dù khoa học ngày nay cho
-ta biết rằng sự biến đổi của vật chất phụ thuộc vào nhiều tác nhân, nhưng quan
-trọng nhất làm biến đổi lý, hoá trong vạn vật là từ sự biến đổi nhiệt độ và độ ẩm
-của môi trường. Trong sinh giới thì dù biến đổi ở mức độ nhỏ nhất của ngoại
-cảnh về nhiệt độ, độ ẩm cũng đã làm thay đổi điều kiện lý hoá bên trong (nhất là
+Theo kết quả tính toán như trên, sự chênh lệch nhiệt độ do góc chiếu sáng
+khác nhau trên hai chí tuyến vào giữa hai mùa đông và hạ chỉ làm cho nhiệt độ
+tối đa giữa hai mùa co lại, mà không làm cho khí hậu bốn mùa theo các tính chất
+nóng, lạnh, ẩm, hanh thay đổi (Nếu không tinh đến các điều kiện khả năng hấp
 
-đối với cơ thể con người) làm cho các hoạt động sống có sự thay đổi.
+thụ nhiệt khác nhau ở những vùng khác nhau).
 
-Chữ "khí" là một danh từ chung, những tên phong, hàn, thử, thấp, táo, là
-những tên khí cụ thể, có tỷ lệ thành phần ẩm và nhiệt khác nhau, nội dung của
-khí mà sách cổ ghi lại bao giờ cũng gắn với một mùa tiết nhất định, một phương
-hướng nhất định. Như vậy “khí” cũng chính là "gió". Khí ứng với mùa là quy luật
-lớn của sự vận động bình thường trong một năm, nhưng cũng có khi bất thường.
-Vào những mùa nhất định, nhưng gió từ một hướng tới lại không theo đúng sự
-thuận tự của mùa đó người ta gọi đó là "tà khí” (gió chéo) hoặc là "nghịch khí”
-(gió ngược chiều). Xét ảnh hưởng của khí đến sinh lý, bệnh lý người, người xưa
-cho rằng: gió thuận tự theo mùa nhưng phái êm ái, gọi là "thuận hoà"; gió thuận
-tự theo mùa nhưng quá mạnh, ngoài khả năng thích nghi của cơ thể gọi là "dâm
-khí" cũng có thể gây bệnh. Những hiện tượng gió chéo, gió ngược, là những hiện
+Khoảng chênh lệch nhiệt độ hai mùa ở nam chí tuyến có thể bằng: 20 độ
 
-tượng không theo đúng quy luật phát triển của tự nhiên.
+C +(2,5 đến 3 độ C x 2) = 14 đến 15 độ C, hoặc bằng 25 đến 26 độ C.
+3. Sự tương ứng theo tỷ lệ khí với hướng gió:
 
-Đó là môi trường khí không phù hợp với sự phát triển sinh lý bình thường
+Về tỷ lệ khí theo phương hướng gió ở mặt đất, có thể có sự không trùng
+lặp theo phương hướng mà ngũ hành đã xếp loại tương ứng. Tuỳ theo tình hình
+địa dư cụ thể, mỗi loại địa hình sẽ cho một tỷ lệ khí nhất định, lúc này ta phải bỏ
+qua khía cạnh tương ứng của phương hướng mặt đất theo hành mà chỉ lấy tỷ lệ
+khí theo hành làm chính. Bởi vì: Như ta đã biết, tỷ lệ khí mới là nội dung bản
+chất của ngũ hành. Ví dụ: Bờ phía tây đại lục địa âu, á, ở đây tuy cùng là ven
+biển như phía đông, tình trạng nóng, lạnh ở hai phía bắc và nam cũng giống như
+ở vùng Phương Đông, nhưng ở hai hướng đông và tây có địa hình mang tính chất
+ngược nhau. Ở Phương Đông thì phía đông là biển, gió đông ở bờ phía tây đại
+lục địa là hanh khô mà không thể làm ẩm ấm như gió đông đã ghi trong sự tương
 
-của con người, của vạn vật.
+ứng của ngũ hành ở Phương Đông.
 
-b. Điều kiện có trước để nhận thức ra tính chất của khí và hành.
+Tuy sự khác nhau về địa hình ở các phương hướng trong vùng cụ thể làm
+cho các hướng gió trong vùng cụ thể đó có tỷ lệ khí khác với tỷ lệ khí theo
+phương hướng ứng với ngũ hành ở Phương Đông, nhưng sự khác nhau này chỉ
+làm ảnh hưởng - tới hướng gió theo mùa, làm cho tình trạng gió theo mùa ở các
+vùng khác nhau có tỷ lệ khí khác nhau, còn như các sự tương ứng về các mặt
+khác của tự nhiên với ngũ hành thì không có sự khác nhau, dù ở những vùng có
+địa hình và khí hậu rất khác nhau như đã nêu trong những kết quả thực nghiệm
 
-84
+của các nhà khoa học Phương Tây.
 
+189
 
 
-<!-- page 86 -->
 
-Học thuyết ngũ hành với các giá trị tương ứng của nó như mùa, phương
-hướng, khí, màu sắc v.v... là một sản phẩm tinh thần rất đặc thù, nảy sinh từ đặc
-điểm của điều kiện môi trường sống ở Phương Đông, bởi vì chỉ có ở Phương
-Đông mới có các điều kiện tương ứng ấy.
+<!-- page 141 -->
 
-Xin mời xem bản đồ địa lý vùng Phương Đông (Hình 3-1 I):
+C. Triển vọng về những ứng dụng của học thuyết Ngũ Hành trong
 
-Theo bản đồ này, chúng ta thấy có các đặc điểm địa hình như sau:
+nền văn minh nhân loại tương lai.
 
-- Phía đông là Thái Bình Dương, một khối lượng nước khổng lồ và hơi
-nước bốc lên ngày đêm không ngừng, độ ẩm không khí bão hoà.
+Từ khi nền khoa học phân tích Phương Tây đưa ra một kết luận tóm tắt là
+môi trường sống quyết định quá trình phát sinh và phát triển của sự sống, cũng
+như những năm gần đây nền đại công nghiệp phát triển đã làm ô nhiễm môi
+trường đến mức đe doa sự sống của loài người, người ta đã ngày càng chú ý tới
+công cuộc bảo vệ môi trường sống trên trái đất. Nhiều dự án về nghiên cứu tình
+trạng sa mạc hoá, nghiên cứu nguyên nhân của những đợt nóng, lạnh đột ngột
+khác thường trên những vùng rộng lớn đã được tiến hành với quy mô thế giới.
+Ngành sinh vật học khi nghiên cứu tạo giống cũng rất coi trọng điều kiện tiêu
+chuẩn hoá môi trường phòng thí nghiệm một cách nghiêm ngặt. Riêng ngành y -
+sinh học đã bắt đầu chú ý đến những biến đổi sinh học theo những chu kỳ thời
 
-- Phía tây là trung tâm đại lục địa á, âu với những cao nguyên nổi tiếng là
-nóc nhà của thế giới, nơi mà mật độ không khí loãng nhất, khô nhất.
+gian mà người ta gọi là "nhịp thời sinh học”.
 
-- Phía nam là nhiệt đới và xích đạo, khí hậu luôn nóng nhất địa cầu.
+Ở Phương Đông xưa, những vấn đề như vừa nêu trên đã được con người
+nghiên cứu kỹ và tìm ra những quy luật tỷ mỹ, mỗi quy luật được đo bằng một
+loại đơn vị thời gian khác nhau. Cũng có khi cùng một đơn vị thời gian nhưng lại
+có hai quy luật ảnh hưởng khác nhau. Mặt khác, có rất nhiều quy luật đồng thời
+ảnh hưởng đến những điều kiện môi trường sống bằng không nét riêng biệt của
+mình, mà đơn vị để tính thời gian lại dùng rất ít khái niệm để quy ước, người ta
+đã phải đặt ra những khái niệm chỉ loại ảnh hưởng riêng đó để dùng kèm theo
+các khái niệm chỉ thời gian nói chung, do đó việc tính toán trở nên phức tạp, đây
+cũng là một đặc điểm riêng của lối tính toán ứng dụng ở Phương Đông. Nếu
+không nắm được bản chất của từng loại ảnh hưởng khác nhau do các quy luật
+khác nhau tạo ra, không những chỉ xảy ra sự nhầm lẫn trong khi tính toán mà
 
-- Phía bắc là hàn đới và bắc cực, khí hậu luôn lạnh nhất địa cầu.
+còn dùng nhầm các loại ảnh hưởng khác nhau, đem lại hiệu quả sai lạc.
 
-Sự trùng lặp kiểu đồng dạng giữa gió theo mùa và khí theo phương hướng
-ở địa bàn này là một đặc điểm không nơi nào trên quả địa cầu giống như thế. Khí
-(gió) theo thuận tự của các mùa tiết là tính theo thời gian, nhưng về mặt vũ trụ
-vẫn là không gian, một không gian quá lớn, ở vị trí quả đất nơi địa bàn này là
-không gian hẹp hơn, nhưng tỷ lệ thành phần của gió theo phương hướng mặt đất
+Trong nhiều năm tìm hiểu tác dụng của từng loại ảnh hưởng khác nhau,
+trên các đơn vị thời gian khác nhau, tôi bước đầu giới thiệu để mọi người cùng
+theo dõi, nếu ứng dụng vào công việc nghiên cứu y sinh học, chắc có thể rút
+ngắn được chặng đường thực nghiệm tốn kém và ít hiệu quả như chúng ta hiện
 
-và gió theo thuận tự của mùa là giống nhau, cho nên tên gọi giống nhau.
+đang có lúc có nơi còn mắc phải.
 
-85
+140
 
 
 
-<!-- page 87 -->
+<!-- page 142 -->
+
+Nội dung ảnh hưởng của từng quy luật thời gian có chu kỳ khác nhau tôi
+đã trình bày trong phần thứ ba, đặc biệt là trong đoạn nói rõ thêm về tính chất
+của hành thổ. Khi cần thiết ta có thể tìm đến những chi tiết tỷ mỹ của từng quy
+luật trong phạm vi ứng dụng vào môn khoa học cụ thể. Ở đây, tôi chỉ xin nhắc
+một điểm đáng lưu ý là, đối với các quy luật có chu kỳ thời gian khác nhau,
+ngoài việc tính giá trị tương ứng cụ thể về ngũ hành của nó, còn có một đặc điểm
+chung tương ứng giống nhau của tất cả các loại chu kỳ là sự so sánh giá trị của
+các hành trong nội bộ của chu kỳ như sau: mộc là sinh, hoả là trưởng, thổ là hoá,
+
+kim là thâu, thuỷ là tàng.
+
+Sơ đồ minh hoạ tính chất chung này như sau (Hình 3-18):
+
+Hinh 3 - 18
+
+Nếu con người có thể khai thác đầy đủ những quy luật ảnh hưởng khác
+nhau ấy tới môi trường, tới con người, chắc chắn con người trong tương lai sẽ có
+thể thật sự làm chủ mỗi cuộc đời mình, dưới sự hướng dẫn của khoa học, sẽ được
+hưởng những phương tiện phục vụ có hiệu ích nhất theo tương ứng của quy luật
+ngũ hành phong phú này. Các hiện tượng có hại cho con người, cho cuộc sống
+vạn vật sẽ được báo trước, sẽ có cách phòng tránh tốt nhất. Lúc đó, thiên nhiên
+chăng còn là bí ẩn, là đáng sợ cho con người. Và cũng chính lúc đó cõi đời này
+sẽ trở thành thiên đường thật sự, con người và trời đất là một, theo đúng nghĩa
+
+nhất của từ ngữ ấy.
+
+141
+
+
+
+<!-- page 143 -->
+
+: CHUƯƠNG 4:
+KHÍ CHÂT SINH HỌC NGƯỜI VIỆT NAM
+VÀ ÂM DƯƠNG NGŨ HÀNH
+
+I. CẢM GIÁC VÀ Ý THỨC TRONG QUY LUẬT TỰ NHIÊN
+
+Triết học cho rằng ý thức người bắt nguồn từ cảm giác của con người.
+Người ta còn cho rằng cảm giác là bản năng của loài vật được tạo hoá ban cho để
+phục vụ cuộc sống của bản thân loài vật. Công trình nghiên cứu phản xạ thần
+kinh của Páp-lốp đã chia phản xạ thần kinh làm hai loại: Một là phản xạ không
+điều kiện, nó có tính chất di truyền; hai là phản xạ có điều kiện, tức là khi không
+có đối tượng trực tiếp của cơ quan cảm giác, nhưng có một loại tín hiệu nào đó
+trước đây đã có lúc cùng xuất hiện với đối tượng trực tiếp của cơ quan cảm giác
+lúc này, riêng nó cũng có thể gây cho cơ quan cảm giác hoạt động cảm nhận.
+Loại tín hiệu gây ra phản xạ có điều kiện thường chỉ tác dụng lên hai giác quan
+
+nghe và nhìn là chủ yếu.
+
+Thuyết phản xạ thần kinh đã đi đến nhận định rằng loài động vật càng có
+nhiều khả năng phản xạ có điều kiện, hệ thần kinh loài vật càng phát triển cao,
+hay nói một cách khác là loài đó càng có khả năng tiếp thu sự giáo dục nhanh,
+
+trong đó, hệ thần kinh phát triển cao nhất là loài người.
+
+Ở Phương Đông xưa, người ta không nghiên cứu con người về phản xạ
+thần kinh, mà người ta tìm hiểu hoạt động của giác quan có liên quan đến hoạt
+động của tạng phủ. Người ta đã tìm ra hoạt động của mỗi tạng phủ có liên quan
+tới hoạt động của một giác quan cụ thể. Như Gan với mắt nhìn, thận với tai
+ngược, tỳ với lưỡi nếm, tâm với bàn tay sờ mó, phế với mũi ngửi.
+
+Mỗi giác quan khi cảm nhận đối tượng của mình lại tuỳ theo mức độ hình
+thái biểu hiện của đối tượng đó mà phân phối tác động của nó cho các tạng phủ
+tương ứng hưởng thụ. Ví dụ: Đối tượng chủ yếu của mắt nhìn là màu sắc, sáng
+tối, sau đó đến hình dáng, vị trí, v.v... Tuy gan chủ mắt, nhưng màu sắc qua mắt
+
+không chỉ vào gan, mà mỗi mầu lại theo tạng phủ tương ứng của nó mà vào: Màu
+
+142
+
+
+
+<!-- page 144 -->
+
+xanh vào gan, màu đỏ vào tim, màu vàng vào tỳ, màu trắng vào phế, màu đen
+vào thận. Tuy lưỡi chủ nếm, nhưng vị của đồ ăn qua lưỡi nếm không chỉ vào tỳ
+mà mỗi vị lại theo tạng phủ tương ứng của nó mà vào: Vị ngọt vào tỳ, vị chua
+
+vào gan, vị đắng vào tâm, vị cay vào phế, vị mặn vào thận...
+
+Tiến lên một bước, người ta đem so sánh hoạt động của mỗi tạng phủ có
+thời điểm tương ứng với hoạt động mạnh yếu khác nhau của nó, có phương vị
+
+tương ứng với hoạt động mạnh yếu khác nhau của nó.
+
+Như nội dung ngũ hành tương ứng của y học cổ Phương Đông đã nêu rõ,
+nếu ta để ý, ta sẽ thấy trong quy luật tương ứng của ngũ hành khả năng đã bao
+gồm cả tính chất phản xạ không có, và có điều kiện trong hoạt động của giác
+quan và tạng phủ con người. Ví dụ: Phương Đông, mùa xuân, màu xanh, vị chua,
+hành mộc, gan, mật. Trong đó, không nhất thiết phải là ở Phương Đông, mà ở
+ngay Phương Tây người ta làm thí nghiệm cũng thấy màu xanh ảnh hưởng công
+năng của gan, màu đỏ ảnh hưởng công năng của tim v.v. . Cũng không nhất thiết
+phải là mùa xuân vị chua mới ảnh hưởng tới gan, mà ở bất cứ thời điểm nào ăn
+quá nhiều chua đều hại cho gan.
+
+Rất rõ ràng là cơ quan cảm giác của con người nói chung tương ứng với
+hoạt động công năng tạng phủ, và các vấn đề phản xạ có điều kiện, phản xạ
+không có điều kiện của chức năng chuyền dẫn cảm giác của con người đã được
+học thuyết âm dương - ngũ hành ở Phương Đông khái quát lại sớm nhất. Những
+gì gần đây khoa học thực nghiệm Phương Tây tiến hành khảo sát chỉ có ý nghĩa
+làm sáng tỏ giá trị khoa học của nền văn minh cổ Phương Đông trong thời đại
+ngày nay.
+
+Phần dưới đây tôi phân tích sâu hai giác quan nghe, nhìn và đối tượng của
+
+chúng gây tác động cho nhau theo quy luật âm dương - ngũ hành ở người Việt.
+
+Trước hết xin bàn chung về âm thanh trong quan niệm Phương Đông: âm
+thanh sau khi vào tai nghe được chuyển đến các tạng phủ gây ra sự cảm nhận, ta
+thấy có hai hiện tượng:
+
+- Về âm, loài người cảm nhận và có cảm xúc tinh thần của âm giống nhau,
+
+cho nên âm nhạc đã được coi là ngôn ngữ tình cảm của toàn nhân loại.
+
+143
+
+
+
+<!-- page 145 -->
+
+- Về thanh, là chỉ về riêng tiếng nói của các dân tộc, là loại tín hiệu quy
+ước hình thành loại phản xạ có điều kiện do tập quán lâu đời của mỗi dân tộc
+xây dựng lên, cho nên mỗi dân tộc có một tiếng nói rất riêng. Trung Quốc cũng
+như các quốc gia khác, càng nhiều dân tộc hợp thành thì càng nhiều loại ngôn
+
+ngữ khác nhau.
+
+Việt Nam cũng là một quốc gia bao gồm nhiều dân tộc anh em, mỗi dân
+tộc anh em ấy lại có một ngôn ngữ riêng. Duy nhất có dân tộc Việt không chỉ so
+trong quốc gia mình, nếu đem so với cả vùng Phương Đông cũng vẫn là đặc biệt.
+Nét đặc biệt của ngôn ngữ dân tộc Việt là cảm nhận thanh, phát âm ngôn ngữ
+
+đều tuân theo quy luật tương ứng giữa thanh với âm dương - ngũ hành.
+
+Trong các phần trước, sau khi tìm ra bản chất các ký hiệu và đồ hình âm
+dương, tìm ra bản chất, xuất xứ của học thuyết ngũ hành như tôi đã trình bây,
+nhưng đó mới là những điều kiện về địa dư khí hậu để nhận thức ra nội dung của
+nó, tiếp theo tiến lên phân tích cảm quan của người Việt mới có thể nhìn ra cái
+bản chất bên trong của hiện tượng mà xây dựng lên học thuyết âm dương - ngũ
+hành. Trong các phần dưới đây, tôi xin đa toàn bộ hai công trình nghiên cứu của
+tôi về âm dương - ngũ hành trong các yếu tố nghệ thuật tạo hình Phương Đông
+và trong ngôn ngữ tiếng Việt, để thêm một bằng chứng độc đáo của khí chất sinh
+
+học người Việt trong học thuyết âm dương - ngũ hành.
+
+144
+
+
+
+<!-- page 146 -->
+
+I. QUY LUẬT ÂM DƯƠNG NGŨ HÀNH TRONG NGÔN NGỮ
+TIẾNG VIỆT VÀ DÂN CA TỘC VIỆT
+
+A. Bản chất sinh học của ngôn ngữ tiếng Việt là thanh
+
+1. Thanh trong ngôn ngữ đa âm tiết và đơn âm tiết
+
+Tiếng nói các dân tộc được phân loại theo nhiều mặt mà nghiên cứu, một
+
+trong các mặt được xét đến là xem từ ngữ thuộc loại đơn âm tiết hay đa âm tiết.
+
+Các ngôn ngữ có đa âm tiết thì cách biểu đạt và cảm thụ tình cảm thông
+qua ngữ điệu, nghĩa là thông qua thay đổi trọng âm có kèm theo thông qua thay
+đổi cao độ và trường độ của âm. Thực chất là thay đổi trọng điểm hơi từ âm tiết
+
+này sang âm tiết khác và thay đổi thanh trong các âm tiết.
+
+Ví dụ: Tiếng Nga có từ ma ma là mẹ, nhưng khi nói mà thay đổi vị trí của
+
+trọng âm và thay đổi thanh của các âm tiết thì tình cảm thay đổi rõ rệt như sau:
+má ma mamà màmá
++ + ++
+
+Tiếng Việt là ngôn ngữ đơn âm tiết, nghĩa là mỗi từ chỉ có một âm, muốn
+diễn đạt tình cảm khác nhau thì phải dùng từ khác nhau, tức là phải dùng các
+thanh khác nhau. Thực chất là việc thay đổi cao độ, trường độ của một thanh giữ
+vai trò chính về tình cảm và có giá trị ngang việc thay đổi âm khác nhau để biểu
+
+đạt sự vật, sự việc khác nhau.
+Ví dụ: Thay đổi âm trên cùng thanh: la, lai, le, lo, lung, liêm, lư
+Thay đổi thanh trên cùng âm: la, là, lã, lạ, lá, lả.
+Nếu để ý ta nhận xét thêm, chúng ta sẽ nhận thấy một khía cạnh nữa là:
+
+- Những từ cùng thanh nhưng khác âm thường dùng để chỉ các loài vật, sự
+
+việc có tính chất quy ước do tập quán sử dụng hình thành như:
+cà, nhà, bà, và, càng, vàng, chàng, nàng.
+
+- Những từ có cùng âm nhưng khác thanh chỉ tác động biểu đạt và cảm thụ
+
+trực tiếp trạng thái tinh thần khác nhau, như những từ về âm thanh:
+
+145
+
+
+
+<!-- page 147 -->
+
+Tĩnh, tình, tỉnh, tình, tịnh, tính.
+
+Tưng, từng, từng, từng, từng, từng.
+
+- Công, cồng, cồng, cổng, cộng, cống.
+
+2. Tác động của âm thanh đối với con người.
+
+Giá trị của các thanh khác nhau đối với tình cảm đã được chứng minh
+bằng nghệ thuật âm nhạc. Mỗi thanh tác động vào một loại tình cảm. Một hệ
+thống thanh tác động thành một chuỗi diễn biến tình cảm: Một hệ thống thanh
+được biểu hiện bằng nhiều loại công cụ có âm sắc khác nhau làm tăng cường
+
+hình ảnh cần biểu đạt và cho cảm thụ phong phú.
+
+Tác động này không chỉ riêng cho con người, khoa học đã làm thực
+nghiệm và chứng minh rằng động vật, thực vật đâu có khả năng cảm thụ âm
+thanh và khi chịu tác động âm thanh khác nhau thì gây ra diễn biến sinh học
+
+khác nhau.
+
+Nên y sinh học cổ ở Trung Quốc ngày xưa đã tổng kết và quy nạp tác
+động của âm thanh tới sinh học theo quy luật ngũ hành, ngũ âm tương ứng như
+
+sau:
+Hành Mộc, can, âm giốc - đều mà thẳng - tương ứng như tiếng hô.
+Hành Hoả, tâm, âm chuỳ - êm mà dài - tương ứng như tiếng cười.
+Hành Thổ, tỳ, âm cung - to mà êm - tương ứng như tiếng ca.
+Hành Kim, phế, âm thương - nhẹ mà động - tương ứng như tiếng khóc.
+Hành Thuỷ, thận, âm vũ - trầm mà sâu - tương ứng như tiếng rên .
+(theo sách Châm cứu đại thành)
+
+Những âm đã dùng trong bảng quy nạp trên đây có tính chất là tổng hoà
+
+âm, nó bao gồm các mặt cao độ, trường độ, cường độ và sắc thái của âm.
+3. Phân loại thanh trong tiếng Việt
+Ở Việt Nam các nhà sáng tạo chữ nôm và theo đó những người la tinh hoá
+
+tiếng Việt đã chia tiếng Việt ra làm hai loại lớn là thanh bằng và thanh trắc:
+
+146
+
+
+
+<!-- page 148 -->
+
+- Thanh bằng là những từ có thanh ở độ cao vừa phải và dưới độ cao trung
+bình một ít, có độ dài trung bình và hơn trung bình một ít, tình cảm tương ứng là
+
+êm ái, dịu dàng, đại biểu cho tính chất âm, mang dấu huyền và không dấu.
+
+- Thanh trắc là những thanh có độ cao trên và dưới trung bình xưa hơn
+thanh bằng, khi la tỉnh hoá thì mang dấu sắc, hỏi, ngã, nặng, tình cảm thì mạnh
+
+mẽ, biến động mang tính dương.
+Thanh trắc gồm có bốn thanh:
++ Thượng thanh mang dấu sắc (/)
++ Hạ thanh mang đấu nặng (.)
++ Khứ thanh mang dấu ngã (~)
++ Hồi thanh mang dấu hỏi (?)
+Thanh bằng gồm có hai thanh:
++ Đoản bình thanh không mang dấu.
++ Trường bình thanh mang dấu huyền (`
+
+Trong ngôn ngữ văn học thời xưa, người ta rất chú ý sắp xếp từ ngữ trong
+câu theo luật bằng, trắc. Còn 6 thanh cho phép được bộc lộ thoải mái theo tình
+cảm tự nhiên, do đó đạt đến sự tinh tế về giá trị truyền cảm nhưng vẫn giữ được
+quy luật cân bằng cửa tự nhiên.
+
+Bàn về luật bằng, trắc thì đã có nhiều đời và nhiều người bàn, đã đi đến
+những quy tắc gọi là niêm luật, nhưng về 6 thanh thì chưa có người bàn kỹ về
+
+quy luật tự nhiên nào đã chi phối tình cảm của nó trong khi nói và viết.
+
+Nay tôi xin đem quy luật âm dương, ngũ hành cổ (mà cũng rất mới) phân
+tích về luật bằng trắc và 6 thanh trong tiếng Việt nhằm góp một hướng mới
+
+nghiên cứu về ngôn ngữ Việt Nam trên khí chất sinh học.
+
+147
+
+
+
+<!-- page 149 -->
+
+B. Hình thái của thanh trong tiếng Việt
+
+Định nghĩa của thanh là gì tôi không đặt lại ở đây, tôi xin nêu các cơ SỞ
+
+hình thành và các mặt biểu hiện của thanh, gọi chung là hình thái của thanh.
+1. Cơ sở hình thành hình thái của thanh
+
+Từ rất xa xưa, người Việt đã quy nạp ngôn ngữ của mình vào 6 thanh theo
+thứ tự cao thấp của dáng đầu, cổ và sức hơi khi phát ra từ ngữ, những hình dáng
+
+theo các thanh như sau:
+Đầu cổ ngửa lên: Thượng thanh.
+Hất đầu cổ ngửa lên rồi từ từ hạ xuống: Khứ thanh.
+Đầu cổ ngay ngắn bình thường: Đoản bình thanh.
+Đầu cổ ngay ngắn, hơi từ từ cúi xuống: Trường bình thanh.
+Cúi gập mạnh xuống rồi từ từ nâng lên: Hồi thanh.
+Đầu cổ cúi gập xuống: Hạ thanh.
+
+Đến thời cận đại, những người la tính hoá chữ Việt là chữ hiện dùng đã
+dựa vào dáng và sức hơi của các thanh ghi thành ký hiệu gọi là dấu, các dấu
+
+tương ứng với các thanh như sau:
+Dấu sắc, Thượng thanh.
+Dấu ngã, Khứ thanh.
+Không dấu, Đoản bình thanh.
+Dấu huyền, Trường bình thanh.
+Dấu hỏi, Hồi thanh.
+Dấu nặng, Hạ thanh.
+
+Dấu được ghép vào chữ còn để chỉ cao độ và trường độ của âm khác nhau,
+
+đó là mặt nội dung của thanh.
+
+2. Mô hình hoá hình thái của thanh
+
+148
+
+
+
+<!-- page 150 -->
+
+Nếu mô hình hoá các dấu của thanh trên một bảng phóng to, chúng ta có
+
+thể nhận xét về thanh ở các mặt:
+- Đường hình của thanh trong không gian.
+- Trọng điểm hơi của thanh trên đường hình.
+- Dư thanh.
+- Chiều hướng phát triển của thanh.
+- Tính chất âm dương của thanh.
+Cụ thể từng thanh:
+
+a. Đoản bình thanh: là một thanh có đường hình đơn giản nhất. Vì từ A
+(nơi xuất phát) đến B (nơi kết thúc) hơi luôn luôn ở độ cao bằng nhau, lại không
+có trọng điểm hơi trên đường hình, thời gian hoàn thành vừa phải, có dư thanh
+không biết đổi và ít (Hình 4-1)
+
+Hinh 4-1
+
+b. Trường bình thanh: Đường hình hơi dài, hơi có chiều hướng đi xuống,
+sức hơi giảm dần, thời gian hoàn thành dài hơn, dư thanh dài và cùng chiều
+(Hình 4-2).
+
+Hình 4-2
+
+149
+
+
+
+<!-- page 151 -->
+
+c. Thượng thanh: Đường hình ngắn theo chiều hướng đi lên, trọng điểm
+
+hơi ở cuối đường hình, thời gian hoàn thành ngắn, không có dư thanh (Hình 4-3):
+
+⁄#" ấ
+^—
+
+Hinh 4-3
+
+d. Khứ thanh: Đường hình phức tạp, A có độ cao bằng đoản thanh kéo
+đài hơi một ít rồi bất ngờ vọt lên và nhấn mạnh hơi ở độ cao giữa đoản và thượng
+rồi từ từ hạ xuống đoản, biến đoạn đuôi thành đoản thanh, thời gian hoàn thành
+
+ngắn hơn đoản thanh, dài hơn thượng thanh (Hình 4-4):
+
+L4
+Â Ý c— E2
+Ta ]=Ì
+
+Hinh 4-4
+
+đ. Hồi thanh: Đường hình cũng phức tạp, A có độ cao bằng đoản thanh
+kéo ra một ít rồi chuyển xuống giữa trường và hạ, từ đó lại cong lên đoản, điểm
+nhấn mạnh hơi là ở chỗ xuống thấp nhất của đường hình, thời gian hoàn thành
+kéo dài nhất trong 6 thanh (Hình 4-5):
+
+150
+
+
+
+<!-- page 152 -->
+
+Hi
+
+_— =“—— `
+
+Hình 4-5
+
+e. Hạ thanh: Đường hình có điểm A xuất hiện bất ngờ từ khoang thấp vừa
+phải nhấn mạnh hơi theo độ giảm xuống và đứt ở điểm thấp nhất, thời gian hoàn
+
+thành ngắn nhất không có dư thanh (Hình 4-6):
+
+^ `
+
+À
+
+Hình 4-6
+
+¡m) ®
+N7
+
+3. Mấy kết luận về đường hình của thanh:
+- Trong 6 thanh thì có 4 thanh xuất phát từ vị trí A ở độ cao của đoản.
+
+- Chỉ có 2 thanh thượng và hạ không có d thanh vì điểm B không trở về vị
+trí của đoản và trường.
+
+Hai kết luận này chúng ta sẽ bàn đến để phân tích điệp ngữ, hư từ trong
+
+tiếng Việt ở phần dưới.
+
+4. Về tính chất âm dương của thanh
+
+Theo lý thuyết âm dương: trục dọc là dương, trục ngang là âm. Ta quy nạp
+
+chiều hướng đường hình phát triển về một gốc rồi nhận xét (Hình 4-7):
+
+151
+
+
+
+<!-- page 153 -->
+
+Theo mô hình trên ta có đoản thanh và trường bình thanh có hướng phát
+triển theo trục ngang, cho nên nó là âm; các thanh thượng, khứ, hồi, hạ đều có
+hướng phát triển mạnh theo chiêu dọc, tính chất diễn biến phức tạp của đường
+
+hình cũng như sức hơi mạnh mẽ đều là những tính chất của dương.
+
+152
+
+
+
+<!-- page 154 -->
+
+C. Tính chất tượng hình của thanh trong ngôn ngữ tiếng Việt
+
+Tính chất tượng hình của thanh trong ngôn ngữ tiếng Việt có một sự trùng
+lặp thú vị. Tôi chưa làm thống kê xác định, nhưng chỉ với một số từ dẫn chứng ví
+dụ cũng đã cho chúng ta thấy tính quy luật như sau:
+
+1. Những từ chỉ chiêu hướng thế nào thì cũng là thanh có cùng chiều
+
+hướng đường hình như thế
+Ví dụ:
+
+- Chiều hướng phát triển ngang bằng, đều đều là những từ đi đi, lăn lăn,
+cân, ngang, có cùng hình ảnh của đoản bình thanh.
+
+- Chiểu hướng phát triển đều đều, hơi chậm là những từ đò la, từ từ, lò cò,
+vừa vừa, thường thường, có cùng hình ảnh của trường bình thanh.
+
+- Chiều hướng phát triển đi lên, càng cao càng phải gắng sức thêm nhiều
+hơn là những từ tiến, tới, cố, gắng, chóng, với (lên cao) tay lên, có cùng hình ảnh
+của thượng thanh.
+
+- Chiều hướng phát triển bất ngờ bị vấp phải trở ngại vọt lên, mất thăng
+bằng rồi từ từ trở lại, như ngã, cãi vã, vã mồ hôi, nhưng đã, có cùng hình ảnh của
+khứ thanh.
+
+- Chiều hướng phát triển của một vật có tính đàn hồi, rơi xuống gặp một
+vật cản mà nảy trở lên như những từ nảy trở lên, gảy đàn, đòn bảy, cục tẩy, tẩy
+chữ, bẩy lên, nảy ra, sảy gạo, sảy lúa:.., có cùng hình ảnh hồi thanh.
+
+- Chiều hướng phát triển như một vật không đàn hồi, rơi xuống với gia tốc
+lớn và bất ngờ bị chặn giữ lại một cách đột ngột là những từ rụng, lụp búp, chộp,
+đập, đạp, quật, lịch bịch, chậm chạp, trở ngại, bậy bạ..., những từ này có chung
+hình ảnh của hạ thanh.
+
+2. Muốn dùng những từ chỉ hành động cần thiết dùng để ngăn chặn,
+cản trở các chiều hướng phát triển khác nhau như trên, chúng ta lại phải
+dùng những từ có cùng hình ảnh của thanh theo chiều hướng mà hình ảnh
+
+phát triển đã dùng.
+
+153
+
+
+
+<!-- page 155 -->
+
+Ví dụ:
+
+- Cần trở chiều hướng của đoản thanh là những từ có đoán thanh như ngăn,
+
+can, khuyên răn, bênh che...
+
+- Cản trở chiều hướng của trường bình thanh có từ là trường bình thanh
+
+như ngừa, đề phòng...
+
+- Cản trở chiều hướng của sự đi lên cao là những từ có thượng thanh như
+
+tắc (súng tắc), bắt (cướp bị bắt), trói, cấm đoán...
+
+- Cản trở những sự việc bị trở ngại tạm thời của khứ thanh cũng thường
+phải dùng những từ có khứ thanh như giữ (giữ vững), đỡ (nâng đỡ), gỡ (tháo gỡ
+
+vớng mắc)...
+
+- Ngăn chặn những chiều hướng có tính vướng nẩy như hình ảnh của hồi
+thanh, thì phải dùng những từ có hồi thanh như cản, trở, đổi, sửa, cởi, hỏi, chỉ
+
+bảo...
+
+- Ngăn ngừa những chiêu hướng phát triển của hạ thanh cũng phải dùng từ
+
+có hạ thanh như chặn lại, đội lên, bợ lên, cạy lên, buộc tội, phạt...
+
+Hình ảnh cùng chiều hướng của hình dáng cánh tay người ta với các từ có
+
+thanh tương ứng như sau (Hình 4-8):
+
+Vớitay Vẫy tay Đưatay Chỉa tay Thả tay Gập tay
+
+ð ð Ñ'#x#<
+
+Níu xuống Đỡ Giang tay Cầm tay Vẩy tay Kẹp tay
+Hinh 4-8
+
+154
+
+
+
+<!-- page 156 -->
+
+D. Âm dương của thanh trong ngôn ngữ văn học Việt Nam
+
+Mỗi tiểu phẩm văn học là một kết cấu của ngôn ngữ, cũng là kết cấu của
+
+các thanh, nó phải tuân theo quy luật tự nhiên.
+
+Trước hết, về nội dung, luôn luôn trong một tiểu phẩm phải có hai vế, vế
+nêu vấn đề và vế làm trọn vấn đề. Nêu vấn đề là dương, làm trọn vấn đề là âm.
+
+Đó là hai mặt âm dương của tiểu phẩm.
+
+Một nội dung nữa là số lượng từ ngữ trong tiểu phẩm được chia theo hai
+
+loại thanh bằng và trắc, đó là âm dương của ngôn ngữ.
+
+1. Tôi xin lấy ca dao, câu đối để phân tích nội dung âm dương vừa nêu
+
+trên như sau:
+
+Ca dao, câu đối có chung hình thức hai vế, vế trước, nêu câu hỏi, đó là vế
+dương theo nghĩa dương phát tán; vế sau phải giải quyết vấn đề, bổ sung, đối
+chọi để trọn vẹn ý nghĩa của tiểu phẩm, đó là vế âm, theo nghĩa âm thu nạp.
+
+Để đảm bảo đúng ý nghĩa của vế, nội dung từng vế hoàn toàn phụ thuộc
+vào nội dung âm dương của thanh; cũng như nội dung tình cảm của cả tiểu
+phẩm, tuỳ theo tý lệ giữa hai loại thanh âm (bằng) và trắc (đương) quyết định.
+
+Để dễ khái quát khi đánh giá nội dung một tiểu phẩm tôi quy nạp theo
+bảng như sau (Bảng 4-1):
+
+Bảng 4-l
+Dương Âm
+- Nêu vấn đề - Bổ túc vấn đề
+- Thanh trắc - Thanh bằng
+
+- Có số lượng thanh trắc nhiều hơn |- Có số lượng thanh bằng nhiều hơn
+thanh bằng thanh trắc
+
+- Tỉnh cảm sôi nổi, biến động hơn - Có tình cảm êm ái, dịu dàng hơn
+
+155
+
+
+
+<!-- page 157 -->
+
+Những tiểu phẩm có số lượng thanh dương và âm bằng nhau hoặc chênh
+
+nhau ít là những tiểu phẩm có nội dung phê phán mạnh mẽ.
+
+Tôi xin nêu mấy ví dụ để minh hoạ cho quy luật tình cảm tự nhiên của số
+
+lượng thanh âm dương như sau:
+a. Về ca dao
+Câu 1: Con cò bay lá bay la.
+Bay từ đồng ruộng bay ra phố phường.
+
+Để dễ phân tích, trước hết ta đánh dấu âm dương cho các từ trong câu:
+
+Bay từ đồng ruộng bay ra cánh đồng
+-_ -_ -_ + -_ -_ + -_
+
+Trong câu ca dao này, vế nêu vấn đề có nội dung tình cảm nhẹ nhàng, man
+mác, êm ái cho nên trong 6 thanh thì chỉ có một dương ở từ /ở, vế bổ túc vấn đề
+có nội dung tình cảm biến điệu phong phú hơn cho nên trong 8 thanh đã có 2
+
+thanh dương ở những từ ruộng, phố.
+
+Nội dung của tiểu phẩm này có tình cảm nhẹ nhàng, êm ái cho nên trong
+
+tổng số 14 thanh thì có 3 thanh dương và 1 1 thanh âm
+Câu 2: Hối cô tát nước bên đàng!
+Sao cô múc ánh trăng vàng đổ đi?
+Ta đánh dấu âm dương cho các từ trong câu:
+HốI co tát: nước bên đàng!
+
+_ - _ _ - -
+
+156
+
+
+
+<!-- page 158 -->
+
+Sao cô múc ánh trăng vàng đổ đi?
+- - + + - - + -
+
+Trong câu ca dao thứ hai này, vế nêu vấn đề có nội dung tình cảm gay gắt,
+trịnh thượng, cho nên trong 6 từ đã có đến 3 thanh dương, ở vế thứ hai tuy vẫn là
+câu hỏi, nhưng là bổ túc vấn đề nội dung tình cảm đã ngả sang trữ tình, có hình
+
+ảnh thơ mộng hơn cho nên trong 8 từ chỉ có 3 thanh dương, còn lại là 5 thanh
+
+^A
+
+ảm.
+
+Nội dung của tiểu phẩm là một câu hỏi có tính chất gợi mở, bắt đầu một
+câu truyện tình tự nhưng chưa có lời đáp cho nên tổng số từ dùng trong tiểu
+phẩm là 14, đã có tới 6 thanh dương và 8 thanh âm. Tỷ lệ âm dương chênh nhau
+
+ít lả sự gay cấn vướng mắc của tình cảm.
+
+b. Về câu đối, tôi xin lấy 2 câu đối của Cao Bá Quát làm minh hoạ như
+
+sau:
+Câu Ï.
+Ông Nghè ra vế đối:
+Ngói đỏ lớp nghè, lớp trên đè lớp dưới.
+Ông Quát đối rằng:
+Đá xanh xây cống, hòn dưới nống hòn trên.
+Ta đánh dấu âm dương cho các từ trong 2 vế đối:
+Ngói đỏ lợp nghề lớp trên đè lớp dưới.
++ + + - + - - + +
+Đá xanh xây cống hòn dưới nống hòn trên.
++ - - + - + + - -
+
+Theo luật đối, ngoài việc đối ý, đối nghĩa của từ (thường gọi là nghĩa bóng
+và nghĩa đen), người đối còn phải đối về tính chất âm dương của từ theo thứ tự
+
+trong câu đối.
+
+157
+
+
+
+<!-- page 159 -->
+
+Theo quy luật tình cảm mà xét, ta thấy vế ra đối 9 từ, trong đó có 6 thanh
+dương và 3 thanh âm. Tính dương lấn át âm, nó rất phù hợp với ý của ông nghè
+mượn thế bề trên cả về tuổi tác và học vị, dùng từ ngữ có hình ảnh trấn áp như
+lợp, đè. Và buộc đối phương chỉ được đối lại với nội dung cho phép trong phạm
+vi từ ngữ đi) 6 thanh âm và 3 thanh dương.
+
+Cao Bá Quát có vốn hiểu biết sâu sắc về bản chất ngôn ngữ tiếng Việt,
+ngoài việc dùng từ ngữ đối ý, đối phương của nghĩa từ như z„ống đối với đè, xanh
+đối với đở, dưới đối với rên, đá đối với ngói, ông còn phá bỏ tỷ lệ bắt buộc phải
+có trong vế đối âm dương là 6-, 3+, thay và đó bằng tỷ lệ 5-, 4 +. Tỷ lệ được ông
+dùng 5-; 4+ đã bộc lộ tâm trạng gay gắt của ông, thanh được thay thế tạo tỷ lệ
+mới này lại nằm ngay ở từ đầu tiên của vế đối. Từ được dùng là đá đối với ngói
+là rất chỉnh. Ông nghè tuy hiểu rằng Quát đã rất coi thường ông, nhưng về tài
+văn chương của Quát tỏ ra xuất chúng, nên ông nghè đành phải chấp nhận một
+sự thật cay đắng chà sát vào tính cao ngạo của nghè.
+
+Câu 2
+
+Vua Minh Mạng ra vế đối:
+
+Nước trong leo lẻo cá đớp cá.
+
+Cao Bá Quát đối:
+
+Trời nắng chang chang người trói người.
+
+Câu đối này được ra và đối trong điều kiện số phận người học trò trẻ bị
+trói trước thiên tử. Dưới chế độ phong kiến, cái chết sống của cậu học trò vi
+phạm điều cấm về nghi lễ chỉ được giải thoát bằng tài năng văn chương như ông
+vua đã hoạch định, và chỉ trong khoảnh khắc đối từ ngắn ngủi của thời gian.
+
+Ta cũng đem đánh dấu âm dương của từng từ ngữ ở cả 2 vế đối như sau:
+
+Nước trong leo lẻo cá đớp cá.
+
++ — - + + + +
+
+Trời nắng chang chang người trói người
+
+158
+
+
+
+<!-- page 160 -->
+
+-_ + -_ -_ -_ + -_
+
+Trong câu này ta bỏ qua vấn đề về ngữ nghĩa, chỉ xét tài năng của ông
+
+Quát về âm dương của từ, ta thấy như sau :
+
+Trước mặt là thiên tử, một ông vua hay chữ, Cao Bá Quát buộc mình phải
+tuân thủ luật đối. Trong vế ra đối có 5+ và 2 -, tất nhiên vế đối phải là 5- và 2+,
+về điều này Quát không dám sai phạm như đối với lần gặp ông nghè. Nhưng do
+tính chất kiêu kỳ, ương ngạnh của tài năng, tuy vẫn giữ đúng tỷ lệ âm dương,
+ông đã đổi vị trí của một thanh dương về nơi cần thiết nhất, làm cho vế đối giữ
+được khí phách của ông, vế đối không hề bị mềm yếu trước uy quyền, trái lại, nó
+có sức tố cáo, có âm vang truyền cảm, thắng cả uy lực trong lòng ông vua ham
+
+văn chương thời đó (Bảng 4-2).
+
+Bảng 4-2. Bảng so sánh âm dương trong câu đối 2
+
+Thực tế Cao Bá Quát đối
+Theo luật
+lại
+Ra +--++++,5+2- +--++++,5+2-
+Đối -++----,)-2+ -+---+-,5-2+
+
+Ở trong câu đối này, phần cuối cùng của vế trên và vế dưới mới là nội
+dung chủ yếu của câu đối. Tỷ lệ theo luật nếu muốn đối lại với 3 từ cá đớp cá thì
+phải có 3 từ có thanh bằng. Cao Bá Quát đã khôn khéo đưa từ thứ ba phải là trắc
+thay sang thanh bằng, rồi mới dùng thanh trắc ở đó chuyển xuống vị trí thứ sáu
+để cho ba thanh cuối có một thanh trắc là dương, làm cho nội dung tình cảm
+
+mạnh mẽ hơn lên nhiều.
+
+2. Đối với văn xuôi, nội dung của từng phần cũng nh nội dung của toàn
+bài đều nằm trong quy luật tự nhiên của tình cảm như trên, tôi xin chọn một bài
+
+để minh hoạ, đó là bài tả người nghiện thuốc phiện như sau:
+
+- Mở bài: Trông thầy chánh còm ai cũng biết là người nghiện.
+
+159
+
+
+
+<!-- page 161 -->
+
+- Thân bài: Trước kia thầy là người béo tốt, phương phi, tinh nhanh, khôn
+khéo, mà bây giờ mặt bủng, da chì, so vai, rụt cổ, giọng nói khàn khàn, cái môi
+
+thâm xịt, trông người lẻo khéo như cò hương.
+
+- Kết luận: Thày mới ăn thuốc phiện mấy năm nay mà đã khác hẳn đi như
+
+vậy.
+
+Phần mở đầu gồm mời từ, trong đó 6 thanh âm và 4 thanh dương, phù hợp
+với tình cảm của nội dung, tuy là nêu vấn đề để phê phán nhưng gay cấn chưa
+
+nhiều, cho nên số thanh âm nhiều hơn thanh dương.
+
+Phần thân bài có 39 từ, trong đó có 25 thanh âm và 14 thanh dương. Trong
+phần này, nếu xét từng đoạn ngắn chúng ta thấy có những khúc biên độ chênh
+lệch cao thấp của các thanh cạnh nhau là rất nhiều, chứng tỏ sự phân tích là kỹ
+càng, tỉ mỉ về mọi nhẽ, nhưng nhìn chung cả phần ta thấy tỷ lệ thanh âm vẫn
+nhiều hơn thanh dương cho nên tình cảm vẫn thiên về sự xót xưa, thương tiếc.
+
+Phần kết luận có I5 từ, gồm 7 thanh âm và 8 thanh dương. Tỷ lệ xấp xỉ
+nhau về âm dương trong số thanh ở phần này phù hợp với nội dung đấu tranh phê
+phán trong nội dung tư tưởng, tình cảm của tác giả.
+
+Nhìn chung toàn bộ bài có 62 từ, trong đó có 24 thanh dương và 38 thanh
+âm, tình cảm nói chung toàn bài là có đấu tranh, phê phán, nhưng vẫn còn là êm
+
+ái dịu đàng, thiên về xót xưa thương cảm.
+
+160
+
+
+
+<!-- page 162 -->
+
+E. Đường hình kết cấu thanh trong câu văn học.
+
+Theo vị trí tương quan của 6 thanh trong ngôn ngữ tiếng Việt, chúng ta có
+thể tiến hành mô hình hoá một câu nói trong sinh hoạt hàng ngày hay một câu
+văn học. Theo thứ tự trước sau của từng từ ngữ, ta ghi đúng độ cao tương ứng của
+thanh theo từng từ rồi ta nối các độ cho đó với nhau, chúng ta sẽ có một mô hình
+kết cấu thanh trong câu. Đường hình kết cấu thanh cũng cho ta một nhận xét thú
+vị giữa diễn biến tình cảm của đường hình và tình cảm của nội dung từ ngữ là
+trùng nhau.
+
+Điều lý thú này khi tôi trình bày trước các cán bộ nghiên cứu khoa lý luận
+thuộc Nhạc viện Hà Nội, các vị đều tỏ ra thích thú. Bà Nhung là chủ nhiệm khoa
+(1983) nói với tôi rằng có thể coi đây như phương pháp ghi nhạc không lời của
+khoa học âm nhạc Phương Tây. Điều này còn tỏ ra chính xác hơn nữa khi tôi
+trình bày về quy luật tương ứng giữa tác động truyền cảm theo bản năng sinh học
+của từng thanh. Theo đó chúng ta có thể xem một đường hình kết cấu thanh của
+câu mà hiểu được nội dung tình cảm của từng từ, từng đoạn trong câu cũng như
+cả câu.
+
+Bây giờ tôi lấy bài văn xuôi trên để mô hình hoá làm ví dụ:
+
+- Phần mở bài có tổng số 10 thanh, gồm 6-,4+, có đường hình như sau
+(Hình 4-9):
+
+chánh biết
+
+Ầ
+Trông / À cũng\,
+—N ai À_ người
+Thày còm \\
+À nên
+
+Hình 4-9
+- Phần thân bài có tổng số thanh 39 gồm có 25-, 14+, có đường hình như
+
+sau (Hình 4-10):
+
+161
+
+
+
+<!-- page 163 -->
+
+- Phần kết luận, tổng số có I5 thanh gồm 7-, 8+ có đường hình như sau
+(Hình 4-11):
+
+Trước khéo nói — cái
+5 paof § H H
+lổã | bây đa so vai thâm trông như hương
+phương ô
+
+thảy là người tỉnh mà chỉ | cổ khàn khàn,
+nhanh
+khôn bùng lẻo khẻo
+mặt rụt giọng xịt
+Hinh 4-10
+
++ /V TT VÀ
+V.u. hẳn \
+
+Hinh 4-11
+
+162
+
+
+
+<!-- page 164 -->
+
+G. Quy luật âm dương trong từ ghép, từ lấp láy (điệp từ) hư thanh, hư
+
+Lâu nay nhiều nhà nghiên cứu tiếng Việt bị vướng ở đoạn này. Theo lời bà
+Tuyết Minh, chủ nhiệm khoa tiếng Nga trường Đại học sư phạm ngoại ngữ Hà
+Nội (1983) kể lại, có một vị giáo sư ngôn ngữ học người Nga cũng chỉ mới nói
+được rằng hình như tiếng nói của người Phương Đông có một quy luật nào đó
+
+trong khi dùng những từ ghép và từ lấp láy để cho êm ái thuận nghe.
+
+1. Trước hết, tội xin trình bày quy luật âm dương trong từ ghép, từ
+
+lấp láy như sau:
+
+a. Muốn giảm hình ảnh của nghĩa từ, thì phải làm cho tổng âm dương của
+
+từ ghép và từ lấp láy mang dấu âm, không kể từ ghép đứng trước hoặc sau.
+Ví dụ :
+tối tăm: + - = - tim tím : - + =-
+đo đỏ : + = - đa đã: - + - -
+cỏn con : + - - tàm tạm : - + - -
+làm lụng : - + = - hầu hạ: - + -
+
+b. Muốn tăng hình ảnh nghĩa từ thì phải làm cho tổng âm dương của từ
+
+ghép hoặc từ lấp láy mang dấu dương, không kể từ ghép đứng trước hoặc sau:
+Ví dụ:
+khênh khang : + + = + chếnh choáng : + + = +
+cãi vã: + + = + lảo đảo : + +=+
+
+vá víu: + += + đi thoã : + + =+
+
+Oang oang: - - - + lung tung : - - = +
+lưa thưa : - - : + rầm Trì: - - = +
+thì thầm : - - - + loà xoà: - - = +
+
+163
+
+
+
+<!-- page 165 -->
+
+Đối với những từ ghép đôi, loại mà khi tách riêng hai từ thì mỗi từ trong
+đó không mang một ý nghĩa gì, hoặc một trong hai không có ý nghĩa tự nó, hoặc
+hoàn toàn khác với ý nghĩa từ ghép, như những từ: xúng xính, lập cập, láng
+cháng, quấy quá, cập rập, lụng bụng, lã chã, bàng hoàng, cù lần, bập bênh, chơi
+vơi, chới với... ngoài việc làm tăng giảm nghĩa từ ra, nó còn mang tính chất
+
+tượng hình như tôi đã trình bày ở phần trước.
+2. Vê hư thanh, hư từ cũng tuân theo quy luật xếp đặt như sau:
+
+- Hư từ là những yếu tố kết hợp dùng để tạo thành từ ghép và từ lấp láy
+
+cũng như dùng để đệm trong phân câu, cuối câu khi hát thành ca dao hay dân ca.
+
+- Hư thanh có khi được coi nh một từ, nếu ở câu văn học, còn như trong
+
+câu hát nó ở vị trí đệm nối thì chỉ có ý nghĩa là hư thanh như 1, ới, a, ì, ì,ư ...
+
+Khi một từ nằm ở cuối phân câu, cuối câu hát nhưng do yêu cầu của nhịp
+điệu mà khoảng cách thời gian nối tiếp sang đoạn sau có độ dài hơn độ tự nhiên
+của thanh ở từ đó, thì người ta thêm hư thanh hoặc hư từ vào. Bản thân hư thanh,
+hư từ chỉ có giá trị làm chỗ đệm thời gian theo độ dài cần thiết mà không có giá
+trị nghĩa từ nó, cũng không có giá trị làm tăng giảm giá trị của nghĩa từ đứng
+trước nó. Giá trị của tăng giảm độ dài thời gian ở những quãng đệm cuối phân
+câu, cuối câu chính là ở chỗ nó làm cẩn bằng âm dương của cả câu và làm phong
+
+phú thêm sức truyền cảm của nội dung câu văn học.
+
+Ví dụ khi hát cò lả, chúng ta chú ý những hư thanh, hư từ tôi gạch dưới
+
+chữ trong câu sau đây:
+Con cò là cò bay lả ì ì bay la.
+
+164
+
+
+
+<!-- page 166 -->
 
 HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH TÁC GIÁ LƯƠNG V LÊ VĂN SỬU
 
-Hinh 3-11
+Bay từ là từ đồng ruộng í í bay ra là ra phố phường
 
-Giai cấp phong kiến Trung Hoa xa ngộ nhận rằng nước họ là ở giữa nhất
-của thế giới, giữa nhất của vũ trụ cho nên mới lấy tên nước là Trung Hoa, Trung
-Quốc. Họ lại cho rằng với địa bàn "trung tâm" ấy họ đã là những người được trời
-trao cho quyền thống trị bốn phương, do đó suốt lịch sử phong kiến Trung Hoa là
+Tình tính tang là tang tính tình, cô nàng rằng, cô nàng ƠI,
 
-lịch sử của những công cuộc thôn tính về bốn phương.
+rằng có biết, biết hay không.
 
-86
+Khi hát trống quân thì hư thanh và hư từ được dùng vào những
+quãng đệm ở câu văn học lại khác đi như:
 
+Có cánh ư con gà này, cưới em thời có cánh ư con gà này,
+° ° ° kQ © ©
 
+có dăm thời sợi bún, có và mà nắm xôi ì ï ì I.
 
-<!-- page 88 -->
+Cưới em thời còn nữa chứ anh ơi,
 
-C. Tỷ lệ khí theo ngũ hành
+còn một đĩa đậu, hai muôi rau cần ì I ì 1.
 
-Để có thể so sánh cụ thể theo kiểu tư duy đương đại, tôi mượn phép tính
+165
 
-số học chứng minh bản chất của ngũ hành trong nội dung quy luật ngũ hành.
 
-Lấy một cách tính cụ thể để lý giải một quy luật tổng quát, nhìn qua tưởng
-như một việc làm trái quấy, nhưng không, ở đây ta đã có một cơ sở chắc chắn,
 
-một hướng đích đúng đắn, ta có thể dùng bất kể phương tiện gì để ta tới bản chất.
-Trước hết, tôi nêu giới hạn của nhiệt độ, độ ẩm bằng con số như sau:
-- Nhiệt tối đa 100% nhiệt tối thiểu 0%.
-- Ẩm tối đa 100%, ẩm tối thiểu = 0%.
-Giả thử: Phương tây ẩm tối thiểu = 0%. Phương đông ẩm tối đa = 100%
+<!-- page 167 -->
 
-Vậy trung tâm, hoặc phương bắc, hoặc phương nam, ẩm sẽ là trung bình,
+H. Tính chất âm dương trong ngôn ngữ giao tiếp xã hội Việt Nam
 
-tức là có tỷ lệ ẩm bằng 50%.
+1. Kết cấu âm dương trong ngôn ngữ giao tiếp.
 
-Giả thử: Phương nam nhiệt độ tối đa 100%. Phương bắc nhiệt tối thiểu =
-0%
+Hình thức giao tiếp gồm có cả cử chỉ và ngôn ngữ, ở đây ta chỉ bàn về
+ngôn ngữ giao tiếp. Cũng giống như ngôn ngữ văn học, ngôn ngữ giao tiếp có hai
+vế âm dương, về nội dung cũng theo tỷ lệ âm dương của số thanh. Các vế âm
 
-Vậy trung tâm, hoặc phương đông, hoặc phương tây, nhiệt sẽ là trung
-bình, tức là sẽ có tỷ lệ bằng 50%.
+dương trong giao tiếp phân ra như sau (Bảng 4-3).
 
-Ta có thể sơ đồ hoá tình hình đó bằng sơ đồ tỷ lệ như sau (Hình 3-12, 3-
-13, Bảng 3-I):
+Bảng 4-3
 
-87
+Dương (khách) Âm (chủ)
+- Chào - Đáp lễ
+- Hỏi - Trả lời
 
+2. Tỉ lệ âm dương và hiệu quả giao tiếp
 
+Khi xét về mặt hình thức, chúng ta thấy bất kỳ một trong hai vế, tỉ lệ âm
 
-<!-- page 89 -->
+dương không hài hoà thì hiệu quả giao tiếp là xấu, có thể dẫn ra một số ví dụ sau
 
-BẮC
+(Bảng 5-5):
 
-NAM
-HƯỚNG VÀ TỶ LỆ ẤM
+Bảng 4-5
 
-@œZOGœ®œ
+Dương âm Hiệu quả tiếp xúc
 
-<>¬
+Khách có chào Chủ có đáp lễ Lịch thiệp, vui vẻ
+Khách có chào Chủ không đáp lễ Khách bực mình
+Khách không chào Có hỏi Chủ bực mình
+Khách có chào Không hỏi Chủ chờ đợi
+Khách có chào Có hỏi Chủ vui vẻ
 
-NAM
-HƯỚNG VÀ TỶ LỆ NHIỆT
+166
 
-œZO:0
 
-Hình 3 - 12
 
-88
+<!-- page 168 -->
 
+Khách chào rất trịnh
 
+trọng, khúm núm
 
-<!-- page 90 -->
+Nhưng chỉ yêu cầu rất
 
-Hình 3-13
+nhỏ bé
 
-Bảng 3-1. Bảng tổng hợp phương hướng và tỷ lệ ẩm nhiệt
+Chủ nghi ngờ tâm địa của
+khách không thật
 
-Phương Bắc | Nam Đông Trung | Tây | Đông Đông lây Tây
-hướng bắc | ương | nam | nam bắc
+Khách chào vẻ xấc xược,
 
-% nhiệt 0% {100% | 25% |; 50% | 75% | 75% | 50% | 25% | 50%
-% âm 50% | 50% 75% | 50% | 25% | 75% | 100% [| 25% | 0%
+hỗn láo
 
-Tổng% | 50% | 150% | 100% | 100% | 100% | 150% | 150% | 50% | 50%
-Hành | Thuỷ | Hoả Thổ Mộc Kim
+Nhưng lại yêu cầu thật
 
-Tổng hợp hai yếu tố lại, ta có tỷ lệ thành phần khí hậu (nhiệt, ẩm) còn gọi
-là gió và từ các hướng tới như sau (Bảng 3-2):
+nhiều
 
-89
+Chủ không vui, không
+đáp ứng đủ
 
+Khách vui vẻ hoà nhã
 
+Nên yêu cầu vừa phải
 
-<!-- page 91 -->
+Chủ thoải mái vui lòng
 
-Bảng 3-2. Thành phần khí hậu theo hướng gió
+167
 
-Hướng gió Tên khí % nhiệt % ẩm
-Gió từ phương bắc tới Hàn 0% 50%
-Gió từ hướng đông tới Phong 50% 100%
-Gió từ hướng đông nam tới Phong 75% 75%
-Gió từ hướng nam tới Hoả 100% 50%
-Gió từ hướng tây tới Táo 50% 0%
-Gió từ hướng tây bắc tới Táo 25% 25%
-Gió từ hướng tây nam tới Thấp 75% 25%
-Gió từ hướng đông bắc tới Thấp 25% 75%
 
-Tương ứng giữa phương hướng, tên khí, tên hành và tỷ lệ % nhiệt, ẩm
 
-(Bảng 3-3).
-Bảng 3-3
-Phương hướng Tên khí Tên hành % nhiệt % ấm
-Bắc Hàn Thuỷ 0% 50%
-Nam Thử Hoả 100% 50%
-Đông Phong Mộc 50% 100%
-Tây Táo Kim 50% 0%
-Trung ương Thấp Thổ 50% 50%
+<!-- page 169 -->
 
-Tỷ lệ trong bảng là tỷ lệ nội bộ trong từng địa bàn, trong từng chu kỳ thời
+I. Tính chất ngũ hành tương ứng với tâm sinh lý với độ cao, độ dài ở
+thanh tự nhiên trong tiếng Việt
 
-gian thuộc vùng nam Trung Hoa và bắc Việt Nam.
+1. Tương ứng giữa thành và tâm sinh lý
 
-90
+Trong ngôn ngữ tiếng Việt có hai phần âm và thanh, trong thanh có độ cao
 
+và độ dài được quy loại theo ngũ hành, ta lần lượt tách ra từng loại như sau:
 
+a. Tương ứng giữa độ cao của thanh với tâm sinh lý (Bảng 4-6)
 
-<!-- page 92 -->
+Bảng 4-6
+Tên thanh Dấu Độ cao Tình cảm Sinh lý Ngũ hành
+Thượng Sắc Rấtcao | Thần minh, | Tâm, tiểu Hoả
+Vvul trường
+Khứ Ngã Hơi cao Mưu lự, Can, đảm Mộc
+giận
+Đoản Không dấu | Vừa phải | Bình thản
+Tì, vị Thổ
+Trường Huyền Hơi thấp Lo lắng
+Hồi Hỏi Thấp Trị tiết, Phế, đại Kim
+buồn trường
+Hạ Nặng Rất thấp Kĩíxảo, | Thận, bàng Thuỷ
+kinh hãi quang
 
-D. Tỷ lệ khí tương ứng với biến đổi vật chất, với hành
+b. Tương ứng giữa độ dài của thanh với tâm sinh lý (Bảng 4-7)
 
-Nếu khoa học thực nghiệm ngày nay cho một kết luận chung rằng: Khi ta
+Bảng 4-7
 
-thay đổi nhiệt độ thí nghiệm sẽ là cho vật thí nghiệm thay đổi tính chất lý, hoá,
+Tên thanh
 
-và khi ta thay đổi độ ẩm thí nghiệm cũng sẽ làm thay đổi tính chất lý, hoá của
+Dấu
 
-vật thí nghiệm, thì chúng ta hãy đem kết luận này so sánh với tổng kết của người
+Độ dài
 
-xưa để rồi tự rút ra những suy nghĩ cho mình.
+Tình cảm
 
-Bảng tổng kết về sự tương ứng khí, vật, hành của người xưa như sau (Bảng
+Sinh lý
 
-3-4):
+Ngũ hành
 
-Bảng 3-4
+168
 
-Tên khí
 
-Tên hành
 
-Loài vật biến đổi tương ứng
+<!-- page 170 -->
 
-Tỷ lệ khí
+Thượng Sắc Ngắn Thần minh, | Tâm, tiểu Hoả
+Vvul trường
+Khứ Ngã Hơi ngắn Mưu lự, Can, đảm Mộc
+giận
+Đoản Không dấu Vừa Bình thản
+Tì, vị Thổ
+Trường Huyền Hơi dài Lo lắng
+Hồi Hỏi Dài Tritiết | Phế đại Kim
+buồn trường
+Hạ Năng Rất ngắn Kĩxảo, | Thận, bàng Thuỷ
+kinh hãi quang
 
-% nhiệt
+2. Thanh và hiệu quả diễn đạt bằng ngôn ngữ.
+Trong hai bảng trên, chúng ta đem so sánh với nhau thì thấy sự tương ứng
+tâm sinh lý theo ngũ hành với độ cao và độ dài của thanh cơ bản là giống nhau
 
-Hàn
+duy chỉ có thanh Hạ thấp nhất ở độ cao, nhưng lại có thời gian hoàn thành ngắn
 
-Thuỷ
+nhất, ở đây ta cũng thấy nét rất đặc biệt của tâm sinh lý như sau:
 
-Nhựa cây gom xuống rễ, vạn
-vật ẩn náu, không phát triển,
+- Nếu có kỹ xảo, tất sẽ làm nhanh.
 
-nước đóng băng, tuyết lạnh.
+- Sự sợ hãi thường xảy ra rất đột ngột và không kéo dài.
 
-0%
+Những tâm sinh lý biểu hiện ra mà sách Nội kinh ghi theo quan hệ ngũ
+hành tương ứng chỉ là những nét đại biểu khái quát nhất cho từng loại, trong mỗi
+loại còn có nhiều mức khác nhau, chúng ta đem xét trong đời sống cũng không
+thể máy móc được, nhưng điều cần thiết là phải quy về cho đúng loại, nhất là
+những mức ở hai gianh giới của hai loại kề nhau. Ví dụ: lo nghĩ, lo lắng, lo buồn
 
-Phong
+thì không được tâm lẫn, Vì:
 
-Vạn vật nảy sinh, phát triển,
-cây cối lớn nhanh, màu xanh
+- Nghĩ thuộc loại mưu lự, hành Mộc.
 
-đây trời đất, khí trời ấm áp.
+- Lo lắng và bình thản thuộc loại hành Thổ.
 
-50%
+- Buồn thuộc loại trị tiết hành Kim.
 
-100%
+Như vậy ta thấy:
 
-Hoả
+169
 
-Vạn vật đã trưởng thành, ra
-hoa, kết quả, khí hậu nóng nực,
 
-mặt trời màu đỏ, lửa dễ cháy.
 
-100%
+<!-- page 171 -->
 
-50%
+- Lo nghĩ là Mộc.+ Thổ.
+- Lo buồn là Thổ + Kim.
 
+Sự giao thoa, tổ hợp giữa các loại tâm sinh lý khác nhau đã sản sinh ra
+những tâm lý vô cùng phong phú, từ ngữ do đó cũng có sự giao thoa, tổ hợp mới
+đáp ứng và biểu đạt, nổi. Những từ ngữ dùng giao thoa, tổ hợp sai quy luật không
+thể diễn đạt nổi ý mình, mà còn gây hiểu lâm cho người nghe, bởi vì tác động
+
+âm thanh là trực tiếp, bản năng.
+
+Tình trạng cãi vã nhau không chỉ xảy ra khi nói chuyện với nhau ở người
+không được học, mà ngay cả những người có học với nhau cũng thường xảy ra.
+Đã có người cho rằng đó là do ngữ khí của người nói gây nên. Thế thì giải thích
+thế nào được những hiện tượng ngữ khí rất êm ái mà gây được cảm giác kích
+động. Phải chăng ngoài hiểu biết cốt truyện cần nói; người nói đã dùng từ ngữ có
+thanh tương ứng thật phù hợp với nội dung cần nói chăng? Ta cũng cần phải xét
+
+về mặt này nữa mới không bị gọi là chưa kín kẽ.
+
+Nếu thận trọng, có thể phải kể đến cái lỗi của một vài nhà văn đã tung ra
+xã hội một số từ ngữ mang tính khái niệm quy ước xã hội, mà trong từ ngữ đó
+giữa ý nghĩa của từ với dấu thanh không phù hợp với quy luật tác động tự nhiên,
+do đó trước khi bị thời gian thử thách loại thải, nó đã gây ra rất nhiều hoang
+
+mang trong nhận thức con người.
+
+Tôi xin nêu một số ví dụ về quy luật ngũ hành và tình cảm với một số từ
+
+tương ứng (Bảng4-8):
+
+Bảng 4-8
+Ngũ hành Tình cảm Những từ có thanh tương ứng
+Hoá Thần minh, vui, tếu Sáng suốt, thấu đáu, kín tiếng, sướng
+quá, múa hát, đánh trống, lấy (vợ), đấy
+đấy, thế, cứ thế, lếu tếu, líu tíu, tíu tít...
+Mộc Mưu lự, giận, vương | Dũng mãnh, cãi vã, sĩ (diện), vẫn, cũng,
+bướng, cáu gắt, hỗn láo, | giữ vững, bãi miễn, gãy, vãi, tãi, giữa,
+
+170
+
+
+
+<!-- page 172 -->
+
+dũng cảm ngỡ, (cực chẳng) đã...
+
+Thổ Bình thản, lo lắng, ôn Qua loa, vâng, ghi, chung chung, xem
+hoà, dịu dàng, tình cảm, | xem, anh em tôi, ta, ư, sang ngang,
+chăm lo ngoan, thương thương, em ơi, cha con,
+
+chờ xem...
+
+Kim Trị tiết, buồn, khát khe, Chẳng phải bở, thử hỏi, xỉ vả, gả
+xoi mói, thương hại, thở | (chồng), chỉ bảo, kể lể, khủng hoảng,
+than, tỉ mỉ, cẩn thận. bủn xỉn, tỉ mỉ, khoả đả, thu thỉ...
+
+Thuỷ Kĩ xảo, kinh hãi, nghi | Sợ, ngại, hậm hực, bực bội, (thôi) được
+
+`
+
+ngờ
+
+(rồi), chọi, đạp, đập, vập, đợi, lại (phải),
+
+tại (al)...
+
+171
+
+
+
+<!-- page 173 -->
+
+L. Quan hệ nội dung và hình thức trung ngôn ngữ thông dụng Việt
+
+Nam.
+
+Ngôn ngữ thông dụng Việt Nam cũng như ngôn ngữ các dân tộc khác là
+
+có cái chung nhất, lại cũng có cái riêng theo tập quán vùng.
+
+Cái chung, cái thống nhất là đa số, cái riêng tuy ít nhưng lại là cái phức
+
+tạp. Nếu xét về hình thức từ ngữ, ta thấy:
+Có những từ khác hắn nhau nhưng cùng một nội dung.
+Những từ này khác nhau cả về thanh và âm.
+Ví dụ:
+- chén, bát, đọi : bát đựng cơm ăn.
+- lúa, lọ, thóc : hạt lúa.
+- chưa, bố, tía : chưa đẻ.
+- cúc, nút, khuy: khuy áo.
+
+- Có những từ chỉ cùng một vật, một sự việc nhưng cùng âm mà khác
+
+thanh (nói khác nhau nhưng khi viết lại giống nhau do quy định văn phạm) như:
+anh = ảnh , đã = đả , đồng chí = đông chị
+- Có những từ cùng nguyên âm nhưng khác phụ âm như:
+nòng súng = lòng súng = lòng thúng;
+trong trẻo : chong chẻo
+
+Những ví dụ còn có thể kể ra nhiều nữa và tưởng như không thể quy nạp,
+phân tích sự khác biệt về nội dung và hình thức ấy từ đâu nảy sinh... Nếu chỉ dựa
+vào hình thức mà xem xét, chắc chắn con đường tiếp cận chân lý sẽ còn xưa, bởi
+vì nội dung và hình thức luôn biến động theo mọi mặt quan hệ xã hội, có những
+từ biến thành tử ngữ vì không còn dùng trong đời sống, đồng thời lại nảy sinh
+
+nhiều từ mới để đáp ứng với vạn sự, vạn vật mới.
+
+Chỉ có đi vào bản chất sinh học của ngôn ngữ, chúng ta mới có thể xuyên
+
+suốt các quá trình mà phân tích được nội dung và hình thức ngôn ngữ tiếng Việt.
+
+172
+
+
+
+<!-- page 174 -->
+
+Bản chất đó là tác động cảm quan bản năng, bao gồm giới hạn cao độ và trường
+độ của thanh.
+
+1. Giới hạn cao độ:
+
+Sự sai lệch về cao độ của thanh có mức độ cho phép, nếu quá mức sẽ làm
+cho sai thanh, tức là đồng thời sai nghĩa từ.
+
+1111
+
+Ví dụ: Nguyên âm ”” khi sai ngoa sẽ thành: ừ, ừ, ừ, ứ,..
+Từ "nghĩ" khi sai sẽ thành: nghí, nghĩ, nghỉ, nghì, nghị.
+
+Các mức độ sai lệch độ cao của thanh sẽ ảnh hưởng đến cảm thụ của
+
+người nghe như sau:
+
+Phát sai cao độ của thanh : nhỏ hơn độ chênh lệch một thanh, không ảnh
+
+hưởng đến tốc độ cảm thụ và tình cảm.
+
+- Phát sai cao độ của thanh tương đương + - độ chênh lệch một thanh, tốc
+
+độ cảm thụ giảm, vì còn phải dựa vào nghĩa từ ở trước và sau nó mà suy luận.
+
+- Phát sai cao độ của thanh + - lớn hơn độ chênh lệch của hai thanh,
+không thể chấp nhận được, từ đó trở thành vô nghĩa hoặc khác nghĩa, hoặc phải
+qua khuyển mã mới hiểu được (đó là sự sai lệch ở một số địa phương so với tiếng
+phổ thông) ta sẽ phân tích nguồn gốc và tập quán ở sau. Trường hợp này nếu
+chưa được học, hay chưa từng trải thì không nghe được. Ví dụ từ "có" chuyển
+thành từ "cỏ", sai nhau 4 bậc thanh, đó là tiếng Nghệ Tĩnh, ai chưa từng nghe
+
+qua thì không hiểu nổi.
+2. Giới hạn trường độ
+
+Sai lệch trường độ của thanh là lập tức ảnh hưởng đến tình cảm của người
+
+cảm thụ.
+- Sai lệch dài ra mang tình cảm ẻo lả, hoặc châm biếm.
+- Sai lệch ngắn đi mang tình cảm tỉnh nghịch, láu táu, lém luốc
+Ví dụ: Câu "Ba cho con xin”.
+
+Hình ảnh phát âm chuẩn: Ba cho con xin.
+
+173
+
+
+
+<!-- page 175 -->
+
+Hình ảnh phát âm dài ra: Ba-a-a ch-o-o co-o-n x 1 1 ri.
+Hình ảnh phát âm ngắn đi: B., cho c, xin.
+
+Mực thước để đo dài ngắn, cao thấp là thuộc nội bộ từng con người, từng
+
+khu vực theo tập quán riêng, lấy nội bộ mà so sánh.
+
+Sự sai lệch thanh ngoài giới hạn sẽ làm cho nghĩa từ trang nghiêm biến
+thành không trang nghiêm. Nhiều diễn viên tài năng trên sân khấu áp dụng quy
+luật này trong diễn tấu của mình đã thành công tốt đẹp. Giai thoại về vai Trương
+Phi quên đeo râu là một ví dụ. Câu truyện đại để là: Một hôm kép nọ đóng vai
+Trương Phi, trước giờ ra sân khấu còn mải vui truyện trò. Đến khi người nhắc vở
+gọi, kép vội chạy ra, quên đeo râu. Trong lúc xưng danh có kèm động tác đưa tay
+vuốt râu, kép xwng danh rằng: Như ta đây, tên gọi Trương - a... nhưng vuốt
+không thấy râu, mới sực nhớ là mình quên, kép liền kéo dài tiếng Trương -a bằng
+nhiều tiếng a a a. ... rồi bất chợt buông ra tiếng Phì, liền cương tiếp ... em ruột
+Trương Phi. Để ta vào gọi anh ta ra đây... Khán giả được một mẻ cười khoái trá
+
+và khen tài nhanh trí của kép.
+
+174
+
+
+
+<!-- page 176 -->
+
+M. Tập quán sai lệch thanh.
+Tập quán phát âm sai lệch thanh chia ra hai loại:
+
+- Những trường hợp sai cả âm, sai cả thanh như chén bát = đọi; chưa - bố
+= bọ... là loại quy ước xã hội, theo hệ thống tín hiệu thông tin trong địa bàn hạn
+
+hẹp, chỉ sử dụng trong phạm vi địa phương.
+
+- Những trường hợp cùng nguyên âm, sai phụ âm hay sai thanh mang tính
+chất sinh học nhiều hơn. Những sai lệch kiểu này là do điều kiện địa dư, khí hậu
+hoàn cảnh sống tạo thành thói quen phát âm, những điều kiện ấy cũng chính là
+điều kiện môi trường sinh học. Vì vậy, ta có thể đem quy luật ngũ hành để xem
+
+xét, và chúng ta thấy như sau:
+1. Tiếng nói đồng bằng Bắc Bộ.
+Đồng bằng Bắc Bộ so với cả nước có những đặc điểm khác nhau:
+- Vị trí: ở phía bắc, hành thuỷ, khí hậu lạnh và biến đổi nhiều.
+
+- Kết quả sản xuất: tuỳ thuộc ở khả năng tháo vát, cần cù, tài chăm bón,
+
+theo sát tỉ mỉ thời vụ.
+- Mức sống: tuỳ thuộc khả năng thu vén của từng gia đình.
+
+Bấy nhiêu điều kiện sống đã ảnh hưởng vào tập quán ngôn ngữ như: tốc độ
+nói hơi nhanh, chuẩn về độ cao, ngữ điệu dứt khoát, gãy gọn, thay những phụ âm
+phải uốn lưỡi, hoặc có thời gian hoàn thành dài hơn bằng những phụ âm có thời
+
+gian ngắn hơn.
+Ví dụ: Xái xịt thay cho thái thịt.
+Con tâu tặng thay cho con trâu trắng.
+Tháng thớm thay cho sáng sớm.
+Nàm nụng thay cho làm lụng.
+
+2. Tiếng miền Trung (Thanh, Nghệ, Tĩnh, Bình, Trị, Thiên).
+
+175
+
+
+
+<!-- page 177 -->
+
+Vị trí: Dải đất miền Trung ở giữa, nửa phía đông bề ngang tổ quốc,
+phương đông hành mộc, mưu lự, giận, khí hậu ẩm ấm, gió bão nhiều, đất đai ít
+
+màu mỡ, mức sống bình quân thấp, lao động vất vả.
+
+Những điều kiện đó ảnh hưởng đến ngôn ngữ: tốc độ hơi chậm, ngữ điệu
+giằn giọng, nặng nề, giảm cao độ thanh thượng tới ba, bốn bậc, và trong đó có
+nhân nhượng đưa thanh trường bình lên làm vị trí thanh đoản để cân bằng âm
+dương hơn, như trong câu: "chào đồng chí” nói thành "chao đông chỉ" hoặc
+
+"chao đông chị"... "uống nước" nói "uổng nược"...
+3. Tiếng nói đồng bằng Nam Bộ
+
+VỊ trí so với cả nước thì ở phía nam, hành hoả, thần minh, vui, vô tư. Nhờ
+khí hậu điều hoà, bình quân nhiệt độ cao, ít có bão to, gió lớn, đất đai màu mỡ,
+
+nông nghiệp phát đạt, lao động đỡ vất vả, sản vật đồi dào, mức sống thoải mái.
+
+Những điều kiện ưu ái của thiên nhiên như trên đã ảnh hưởng đến tập quán
+ngôn ngữ là: kéo dài trường độ của thanh bằng cách thêm nguyên âm hoặc phụ
+âm để từ ngữ có thêm thời gian hoàn thành tối đa như "vô ý" thành "giô ý", "ra
+đồng" thành "gia đồng", "anh ơi" thành "eeng ơi", "miền nam” thành "miềng
+
+nam”, "thân yêu" thành "thâng yêu”... Có khi giữ nguyên cả nguyên âm hay phụ
+âm nhưng đổi dấu để thành được kéo dài nh "anh ấy" thành "ảnh ấy".
+
+4. Tiếng nói tại Hà Nội
+
+Hà Nội đã trải qua hàng nghìn năm là nơi buôn bán, sản xuất thủ công.
+Đối tượng phục vụ là các tầng lớp vua chúa, quan lại trung ương và hào phú đứng
+đầu các địa phương về hội họp. Buôn bán vốn là công việc cạnh tranh, vì thế
+không chỉ yêu cầu chất lượng, giá cả mà còn rất cần mời chào khéo léo, cử chỉ
+nhẹ nhàng để chiều lòng khách, giành nhiều lợi nhuận, và tránh những phiền hà
+với đối tượng khách hàng có quyền lực trong tay.
+
+Do những yêu cầu của cuộc sống như trên, nó đã tạo thành tập quán ngôn
+ngữ là phát âm nhẹ nhàng, trơn tru, nhưng vẫn giữ cao độ và tốc độ, vì thế phải
+chuyển đổi một số phụ âm như "tr" thành "ch", "s" thành "x". Ví dụ những từ
+
+trong - trên -trưa - sáng, đổi thành chong - chên - chưa - xáng...
+
+176
+
+
+
+<!-- page 178 -->
+
+5. Tiếng nói vùng ven Hà Nội.
+
+Từ khi thực dân Pháp đô hộ và tạm chiếm, đô thị ngày càng mở rộng,
+buôn bán phát triển, giao lưu mọi mặt được đẩy mạnh hơn. Tập quán sinh hoạt tự
+do thị thành ở Hà Nội như một tấm gương khích lệ những người dân vùng ven
+(trong đó có thói đua đòi cũng được khích lệ mạnh mẽ). Sự đua đòi trong đời
+sống đã ảnh hưởng vào ngôn ngữ.
+
+Điển hình là khi phát âm những tiếng gần nhau, cùng có phụ âm ở đầu mà
+một trong hai âm đó phải uốn giọng thì lập tức phụ âm còn lại cũng uốn giọng
+theo. Ví dụ hai tiếng "nói láo" thành ra "lói láo"”, "nòng súng” thành ra "lòng
+xúng”...
+
+6. Tiếng nói vùng đôi núi Sơn Tây cũ
+
+Đặc điểm địa dư, khí hậu vùng này rất khác thường, ban ngày rất nóng mà
+ban đêm rất lạnh. Mức chênh lệch nhiệt độ trong ngày nhiều, đất đai khô căn,
+sản vật hiếm hoi, mức sống thấp, nghề phụ trông vào núi cao, rừng rậm, nương
+đồi xưa xóm làng.
+
+Tập quán phát âm ở đây là dáng đầu cổ ngửa lên, cho nên hầu hết thanh
+trầm được chuyển lên từ trung bình đến cao nhất, giống như cách phát âm của
+người dân tộc Mường khi nói tiếng phổ thông:
+
+Ví dụ về tiếng hát của người Mường như sau:
+
+Câu hát tiếng phổ thông: Em ơi, em ở lại nhân. Anh đi bộ đội đường xa
+
+chưa về.
+
+Người Mường hát: Eèng ơi, éeng ở lái nha. Ành đì bố đồi đướng xà chừa
+Ví dụ về tiếng người Thạch Thất:
+
+Câu chào hỏi có nội dung là: chào bác, bác vừa về đến đây à.)
+
+Người Thạch Thất nói thành: Cháo bàc, bàc vừa: vế đền đấy a?
+
+177
+
+
+
+<!-- page 179 -->
+
+Hoặc như khi tôi hỏi một ông cụ về tên làng của cụ, cụ trả lời rằng "Đầy lá
+lang xen chi", mãi sau con cụ viết ra tôi mới hiểu rằng tên làng cụ là "làng Sen
+
+Trì".
+
+178 - - -
+
+
+
+<!-- page 180 -->
+
+N. Tính thống nhất của tiếng Việt
+
+Trước đây có một số bồi bút phục vụ cho đế quốc thực dân trong âm mưu
+chia cắt đất nước, họ đã đem sự sai biệt chút ít trong tiếng nói các vùng mà cho
+ràng đất nước ta phải chia cắt là hợp lý sự thật hùng hồn cho thấy rằng tiếng Việt
+là loại có tính thống nhất cao ở chỗ: Dù bất cứ ở địa phương nào, tuyệt đại đa số
+từ cũng là thống nhất nguyên âm (trừ một số rất ít thổ ngữ trong địa phương
+hẹp), cho dù phụ âm có rất nhiều biến đổi phong phú, cũng có khi thay đổi dấu
+
+thanh, nhưng vẫn giữ nguyên âm chung.
+
+179
+
+
+
+<!-- page 181 -->
+
+O. Tính nhạc điệu của tiếng Việt
+
+Do tác động cảm quan của tiếng Việt là ở thanh, cho nên ngôn ngữ tiếng
+
+Việt mang tính âm nhạc rất cao.
+
+Khi chuyển câu văn học thành câu ca dao, hò vè, chỉ cần theo bản sắc địa
+
+phương mà thêm các phần đệm là thành, như:
+
+- Đối với miền Bắc, tính chất cuộc sống là khẩn trương, tỉ mỉ, thì thêm hư
+thanh, hư từ vào những quãng đệm làm cho tiết tấu dồn dập, khẩn trương, tỉ mỉ,
+
+như những điệu trống quân, cò lả đã giới thiệu ở phần trên.
+
+- Đối với miền đồng bằng Nam Bộ, chỉ ngân nøa kéo dài tiếng cuối câu
+tạo cho những quãng đệm thành trầm bổng, du dương là đã thành điệu hò sông
+nước mênh mông.
+
+- Đối với miền trung, câu văn học giữ nguyên, chỉ cần thêm những quãng
+giật cục như hò hụi, có khi thêm hư thanh, hư từ, láy, lặp, như những điệu hò ba
+lý, hò khoan ở khu năm, hò sông Mã ở Thanh Hoá, có khi lại ngân nga kiểu Nam
+Bộ nh những điệu hò sông Hương, hát ví, dặm Nghệ Tĩnh...
+
+180
+
+
+
+<!-- page 182 -->
+
+P. Kết luận về tiếng Việt.
+
+Tổng kết lại, chúng ta thấy tiếng Việt là loại phong phú cả về ba mặt:
+tượng thanh, tượng hình và nhạc tính. Nếu tách riêng mảng thuật ngữ khoa học
+mà các ngành đã dùng tiếng Việt để phiên âm ngoại ngữ ra, chúng ta rất tự hào
+rằng tiếng Việt có đủ khả năng diễn đạt mọi sắc thái tình cảm của con người
+Việt nam, cũng như mọi vật, mọi việc, mọi trạng thái vật chất trên tổ quốc thân
+
+yêu của chúng ta.
+
+Khả năng diễn đạt và cảm thụ của tiếng Việt thông qua hai con đường:
+một là cảm thụ trực tiếp theo tác động cảm quan bản năng của thanh, mà phần
+này là chủ yếu. Còn lại phần thứ hai là cảm thụ gián tiếp, thông qua ý thức để xử
+lý các tín hiệu quy ước xã hội, tức là ý nghĩa của từ. Bản thân những từ có tính
+chất quy ước này lại cũng được hình thành theo cảm quan bản năng của thanh,
+và lại cũng chiếm số nhiều trong cùng loại.
+
+Tiếng nói là phương tiện- giao tiếp của cơ thể sống con người, bị lệ thuộc
+khí chất sinh học và các yếu tố môi trường thiên nhiên Việt Nam tác động, vì thế
+dùng quy luật sinh học của vạn vật là âm dương và ngũ hành để phân tích tỉ mỉ
+
+tiếng nói của con người Việt Nam cũng không phải là điều đáng ngạc nhiên.
+
+181
+
+
+
+<!-- page 183 -->
+
+II. QUY LUẬT ÂM DƯƠNG NGŨ HÀNH TRONG CÁC YẾU TỐ
+NGHỆ THUẬT TẠO HÌNH PHƯƠNG ĐÔNG VÀ TÂM SINH LÝ CON
+NGƯỜI VIỆT NAM
+
+A. Những vấn đề xoay quanh quan hệ giữa nghệ thuật tạo hình và
+
+tâm sinh lý con người
+
+Mối quan hệ giữa tâm sinh lý con người và nghệ thuật tạo hình đã được
+nhiều người bàn đến từ lâu, nhưng vẫn còn ở mức độ cảm tính, chung chung,
+mặc dù đã rất chính xác. Chẳng hạn như A-Ris-Tốt thì cho rằng người nghệ sĩ
+sáng tạo nghệ thuật trong những phút thần hứng, cảm xúc của họ hoà vào với ý
+niệm của thượng đế; Brăng-cu-xi cho rằng người nghệ sĩ là vua của chính mình,
+là nô lệ của công việc mình làm, là ông trời trong sáng tạo nghệ thuật; các hoạ sĩ
+bậc thầy thời Phục Hng thường khuyên học trò mình hãy lấy thiên nhiên làm
+người thầy mà học tập. Còn dân chúng thì coi những nghệ sĩ tài ba là những
+thiên tài.
+
+Phải chăng khi nói về thượng đế, về ông trời, về thiên nhiên, thiên tài cũng
+chính là đã nói một quy luật ứương ứng, hài hoà, cân bằng tuyệt diệu của tự
+nhiên. Ở Phương Đông người ta cho rằng nếu mất sự tương ứng, hài hoà, cân
+bằng của tự nhiên thì không còn sự sống trên thế gian này, vì thế nó là cái đẹp
+
+của tất cả mọi cái đẹp mà con người cảm nhận được.
+
+Đối với các yếu tố nghệ thuật tạo hình, gần đây một số nhà khoa học làm
+thực nghiệm đã chứng minh chúng có sự tác động trực tiếp vào bản năng cảm
+
+quan của con người có tính quy luật.
+
+Như thí nghiệm của Giáo sư P.răng-xoa Pa-ra, phó chủ nhiệm phòng vật lý
+ứng dụng của Viện bảo tàng lịch sử tự nhiên quốc gia Pháp đã nêu ở phần trước
+là một ví dụ.
+
+Nếu bắt đầu từ những nhận xét chung nhất, hay từ những thực nghiệm
+khoa học như trên để đến có được một hệ thống quy luật về mối quan hệ nhiều
+mặt giữa tâm sinh lý con người với các biểu hiệu của tự nhiên được dùng làm
+
+yếu tố trong nghệ thuật tạo hình, thì chặng đường sẽ không thể là ngán.
+
+182
+
+
+
+<!-- page 184 -->
+
+Cách học về nghệ thuật cái đẹp, học và làm nghệ thuật tạo hình ở Việt
+Nam hiện nay là học về ý nghĩa của cái đẹp, học thành tựu nghệ thuật tạo hình
+của loài người, học về các quy tắc và phương pháp làm tác phẩm nghệ thuật tạo
+hình. Đối với người làm nghệ thuật, cách chung nhất là học những thành công
+của các nghệ sĩ lớp trước, đem cộng với sức thể nghiệm của bản thân. Đó cũng là
+cách làm việc đúng nhất. Nhưng đáng tiếc thay, cách học và làm rất mẫu mực đó
+
+lại là phương pháp và kinh nghiệm của người Phương Tây.
+
+Tôi không dám phủ nhận phương pháp và kinh nghiệm đó, nhưng đến nay,
+nhìn lại tôi thấy rằng phương pháp đó chưa đủ để ta làm được điều mong ước của
+
+các nhà hiền triết đã trao cho nghệ sĩ là quyền sáng tạo "ngang với Thượng đế”.
+
+Những nghệ sĩ tài năng có được sự sáng tạo "ngang với Thượng đế” do rất
+nhiều điều kiện mà thành, trong đó nổi bật lên hơn cả là năng khiếu của họ nhạy
+bén và mạnh mẽ, cảm nhận của họ đạt được ngang với sự fương ứng, hài hoà,
+cân bằng của tự nhiên và họ có đủ tài năng biểu hiện cảm xúc đó thành tác phẩm
+nghệ thuật. Làm sao có thể có một quy tắc, phương pháp đào tạo ra hàng loạt
+thiên tài. Trong lịch sử nghệ thuật tạo hình thế giới ở tất cả các giai đoạn như cổ
+Hy lạp, La Mã, Phục Hưng, và sau đó ở tất cả các trường phái lập thể, siêu thực,
+ấn tượng, ánh sáng và hiện nay xu hướng sử dụng phương pháp đồng hiện v.v...
+bất kể là giai đoạn nào, cách biểu hiện nào cũng đều nảy sinh ra một số người tài
+tiêu biểu của trường phái ấy.
+
+Những kinh nghiệm lịch sử làm cho khi nghĩ về nghệ thuật tạo hình,
+chúng ta phải tìm hiểu cả hai mặt, trước hết phải tìm hiểu những quy luật từ bản
+thân các yếu tố tạo hình tác động vào tâm sinh lý người, sau đó mới là những
+phương pháp sử dụng yếu tố đó thế nào cho hiệu quả. Nếu chỉ loay hoay tìm
+cách biểu hiện cảm xúc một cách thể nghiệm, thiết tưởng những kinh nghiệm có
+được về mặt này đã quá đủ, đến nỗi chúng ta khó tránh khỏi sự lặp lại những gì
+người trước đã làm. Trong khi đó con đường nghiên cứu, khai thác nhiều triển
+vọng kia đã rộng mở, đang chờ đón chúng ta, thế nhưng số người tìm về mặt này
+còn quá ít. Chỉ có và phải nạm được quy luật về mối quan hệ giữa tâm sinh lý
+
+người với các yếu tố nghệ thuật tạo hình mới giải quyết thoả đáng các vấn đề về
+
+183
+
+
+
+<!-- page 185 -->
+
+giá trị nghệ thuật của tác phẩm trong mối quan hệ giữa đối tượng miêu tả - nghệ
+
+sĩ - tác phẩm - người xem.
+
+Về phía nên nghệ thuật cổ Phương Đông, nếu nhìn một cách khái quát
+toàn bộ, ta có thể thấy rằng tuy ở mỗi dân tộc, mỗi giai đoạn lịch sử, các đối
+tượng và cách miêu tả khác nhau, ở trên những chất liệu khác nhau, những khác
+nhau đó không hề làm mất đi cái đặc điểm chung là sức truyển cảm rất mạnh mẽ
+được bộc lộ ngay ở trong từng yếu tố tạo hình mà người nghệ sĩ đã chọn dùng
+trong tác phẩm. Những yếu tố đó có khi còn chất phác, mộc mạc, có khi đã được
+gọt dũa khéo léo, hay được quy cách hoá, nhưng tất thấy chúng đều gợi cảm, đều
+ưa nhìn đối với mọi người. Thậm chí, đã có những giai thoại về nhân vật trong
+tranh, tượng chung sống với người, hoặc vạn vật cùng với người và thần linh
+thưởng thức các tác phẩm nghệ thuật. Đã có người cho rằng nghệ thuật tạo hình
+
+Phương Đông là nghệ thuật của muôn loài.
+
+Ta chẳng cần phải bàn cãi về những giai thoại và những nhận định trên,
+bởi vì sức quyến rũ của nền nghệ thuật này tới nay vẫn còn đang làm cho nó trở
+thành đối tượng tìm hiểu, học tập, thưởng thức cho những ai yêu thích nghệ thuật
+
+tạo hình, chẳng kể là người ấy sống ở Phương Đông hay Phương Tây.
+
+Có người chưa quen với lối nghĩ của Phương Đông, họ chỉ nhìn vào cơ sở
+vật chất xã hội ở đây là nên kinh tế nông nghiệp thủ công, sơ khai, cuộc sống
+còn gắn bó quá nhiều vào tự nhiên, bị thiên nhiên chi phối, quyết định mà cho
+rằng nghệ thuật tạo hình ở đây là một hiện tượng bản năng, ngây ngô mà kỳ lạ,
+có nhiều màu sắc mê tín dị đoan, khó mà hiểu nổi.
+
+Phải chăng cuộc sống còn gắn bó với tự nhiên, lối suy nghĩ chất phác, nên
+cảm quan bản năng nhờ đó được tôi luyện thành thục, đã thể hiện ra trong tác
+phẩm cũng như mọi công việc ở cuộc sống bình thường hàng ngày, và đã làm
+thành một bộ phận của cuộc sống con người ở đây.
+
+Đối với nên nghệ thuật này chúng ta không còn có được tiểu sử các tác
+giả, không có những tài liệu do các tác giả tự nói về quan niệm của mình, hoặc
+người đương thời ghi lại những cuộc đàm thoại với các tác giả và hiểu về tác giả.
+
+Con đường duy nhất để chúng ta đi theo tìm hiểu là cách phân tích tác phẩm
+
+184
+
+
+
+<!-- page 186 -->
+
+nghệ thuật tạo hình như phân tích một sản phẩm do hoạt động thật sự của cá
+nhân tạo ra, trong đó có chứa đựng đặc điểm tâm sinh lý được vật chất hoá, đối
+
+tượng hoá.
+
+Tìm ra quy luật về mối quan hệ theo cảm quan bản năng giữa tâm sinh lý
+với các yếu tố nghệ thuật tạo hình cũng không phải là ta đã hạ thấp tiêu chuẩn
+sáng tạo và thưởng thức nghệ thuật mà chính là chúng ta đã có được những tiêu
+chuẩn mực thước để loại trừ những cảm xúc sai lạc trong nhận thức con người,
+rèn giữa cho ý thức con người ngày càng cao đẹp, càng gần với ”" ý niệm của
+
+thượng đế” (theo Aristốt), hoà vào với "Đạo lớn của Vũ trụ” (theo Lão Tử).
+
+Nếu nghệ thuật tạo hình cũng là hình thái ý thức xã hội thì rõ ràng hai
+chiều hướng nhận thức và phản ánh thế giới của hai nền nghệ thuật này ở Đông
+và Tây khác hẳn nhau. Một bên bắt nguồn từ thói quen tư duy phân tích, một bên
+bắt nguồn từ kinh nghiệm cảm quan trực tiếp, muốn nghiên cứu, đánh giá những
+vấn đề khác nhau ấy trước hết phải nhập vào được lối suy nghĩ của các thói quen
+khác nhau đó. Sự hiểu lầm về giới hạn vấn đề suy nghĩ, sẽ dẫn đến những đánh
+
+giá sai lạc hoặc đối nghịch nhau.
+
+Để minh hoạ kinh nghiệm khi bắt đầu tiếp xúc với vấn đề mới, tôi xin ghi
+lại một câu chuyện ngụ ngôn cổ của Tàu, nhằm cùng nhắc nhở chúng ta thận
+
+trọng trước khi bước vào xem xét quy luật cổ Phương Đông.
+
+Trong sách Thế thuyết có câu chuyện về Lưu Linh (khoảng 220-300) là
+một trong Trúc lâm thất hiền (bảy "hiển sĩ" thường họp nhau đàm đạo chung
+quanh cái bàn đặt trong khóm trúc). Câu chuyện ấy kể rằng Lưu Linh thường bị
+chỉ trích vì hay sống trần như nhộng trong nhà. Đáp lại lời chỉ trích, ông nói: "Ta
+lấy Trời đất làm nhà, lấy nhà làm quần áo, vì sao lại vào trong quần ta làm gì?"
+
+(Thiên 23) (Sách đại cương Triết học sử Trung Quốc trang 237 - 238).
+
+185
+
+
+
+<!-- page 187 -->
+
+B. Quy luật chung nhất về nhận thức thế giới của người Phương Đông.
+
+Tìm quy luật là một đặc trng của phương pháp nhận thức ở Phương Đông.
+Vì vậy, trước khi tìm hiểu về mối quan hệ giữa tâm sinh lý con người với các yếu
+tố nghệ thuật tạo hình Phương Đông, chúng ta hãy làm quen với đời sống của
+người Phương Đông xưa cùng với phương pháp tìm quy luật và kết quả tìm được
+quy luật chung nhất về mối quan hệ giữa thiên nhiên, vạn vật và con người. Bởi
+vì các yếu tố nghệ thuật tạo hình như: màu sắc, hình, khối, đường nét, chiều
+hướng, độ cao, độ đài và độ lớn vốn là những mặt biểu hiện của vạn vật ở tự
+nhiên, con người cảm nhận nó ở tự nhiên hay trong nghệ thuật tạo hình cũng đều
+không tách rời khỏi mối quan hệ chung nhất ấy được, đó là quy luật âm dương
+ngũ hành (Hình 4- 12, 4- 13, 4- 14).
+
+Nội dung khí vật tương ứng và ngũ hành không chỉ nói về quan hệ giữa
+vạn vật với sự vận động của vũ trụ và các mặt biểu hiện của từng vật. Trong con
+người thì các tạng phủ, các giác quan cũng tuỳ khí mà có biến đổi các hoạt động
+tương ứng. Sự tương ứng có tính chất đồng thời ở các mặt giống nhau và các loại
+giống nhau. Nó lại còn quan hệ tác động lẫn nhau theo kiểu phản xạ có điều kiện
+và không có điều kiện, ví dụ: Màu đỏ, hành hoả, nóng, mùa hạ, tim hoạt động
+nhiều; mùa đông, màu đen, lạnh, hành thuỷ, thận hoạt động tăng; Nhưng nếu
+mùa đông, trời lạnh, mà ở trong phòng là ánh sáng đỏ, tim vẫn tăng hoạt động
+
+hơn các màu khác.
+
+Sách "Hồng nghĩa giác tư y thư" của Tuệ Tĩnh trong đoạn "Khí hoá âm
+dương" trang 66 viết rằng: "Khí đen tụ ở trên không, nước (thuỷ) bắt đầu sinh,
+khí đỏ rực ở trên không, lửa (hoả) bắt đầu sinh: khí xanh nổi ở trên không, loài
+cây (mộc) bắt đầu sinh; khí trắng ngáng ở trên không, loài kim (kim) bắt đầu
+sinh; khí vàng rộp ở trên không, đất (thổ) bắt đầu sinh".
+
+Hình 4-12 : Khí vật tương úng trong thiên nhiên.
+
+Sách "Hồng nghĩa giác tư y thư" của Tuệ Tĩnh, trong đoạn "Khí hóa âm dương" trang 66 viết rằng :
+"Khí đen tụ ở trên không, nước (thủy) bắt đầu sinh; khí đổ rực ở trên không, lửa (hỏa) bắt đầu sinh; khí
+xanh nổi ở trên không, loài cây (mộc) bắt đầu sinh; khí trắng ngáng ở trên không, loài kim (kim) bắt đầu
+sinh; khí vàng rộp ở trên không, đất (thổ) bắt đầu sinh.
+
+
+
+<!-- page 188 -->
+
+Hình 4-13 : Các loại yếu tế nghệ thuật tạo hình Phương Đông quy nạp theo ngũ hành.
+a) 5 loại đường nét. b) 5 loại hình thể.
+
+c) 5 loại mầu cơ bản. d) 5 loại chiều cơ bản.
+
+e) 5 độ cao, độ dài.
+
+(C)
+
+Hình 4-14 : Quan hệ sinh khắc của ngũ hảnh.
+Bên trái, phía trên, theo hướng mũi tên màu xanh là quan hệ theo thứ tự tương sinh.
+Bên phải, phía dưới, theo hướng mũi tên màu đen là quan hệ theo thứ tự tương khắc.
+
+„^^ °
+N l
+¬
+
+
+
+<!-- page 189 -->
+
+Trong quan hệ nội bộ con người thì sự tương ứng giữa sinh lý và tâm lý có
+quan hệ qua lại. Như mỗi tạng phủ biến đổi sinh ra tâm lý tương ứng. Mỗi một
+
+tác động tâm lý gây ra biến động ở một tạng phủ tương ứng.
+
+Không có một bảng quy loại nào về khí vật tương ứng và ngũ hành chứa
+nổi vạn sự, vạn vật, vì thế mỗi ngành khoa học chọn những vật, những việc có
+liên quan mà quy tập theo ngành mình cho tiện dùng. Vê những mặt của sinh lý,
+tâm lý, bệnh lý người và những ảnh hưởng của vạn vật, tuy bảng quy loại ngũ
+hành của y học đã liệt kê khá đầy đủ cho nghiên cứu y học, nhưng chưa phải là
+đủ cho nghiên cứu nghệ thuật tạo hình, vì thế tôi đã phải sưu tầm nhiều vấn đề ở
+các môn khoa học khác như địa lý học, kiến trúc học và ngôn ngữ học để giới
+thiệu cho đủ.
+
+Trong khi giới thiệu, có mảng thì còn tư liệu xuất xứ, có mảng là khẩu
+truyền, hoặc văn bản chép tay, việc tìm hiểu xuất xứ văn bản trở nên phức tạp và
+ngoài khả năng. Tôi không câu nệ việc đó chỉ so với quy luật chung nhất thấy
+
+dúng là tận dụng để khai thác và trình bày.
+
+188
+
+
+
+<!-- page 190 -->
+
+C. Quy luật tương ứng giữa các yếu tố nghệ thuật tạo hình Phương
+
+Đông với tâm sinh lý người
+
+1. Quan hệ tương ứng giữa màu sắc với ngũ hành và tâm sinh lý.
+
+a. Tương ứng giữa màu sắc với ngũ hành và tâm sinh lý.
+
+Vạn vật trong thiên nhiên có muôn màu, muôn sắc, nhưng theo quy luật
+
+khí vật tương ứng và ngũ hành, người ta chọn ra năm mầu khác biệt nhau nhất
+
+làm đại biểu ứng với ngũ hành và tâm sinh lý con người như sau (Bảng 4-1 I):
+
+Bảng 4-11. Bảng tương ứng tâm lý, màu sắc theo ngũ hành
+
+(Trích ở sách châm cứu Đại thành của Dương Kế Châu đời Minh trong
+
+những trang từ 192 đến 260, rồi tổng hợp lại thành bảng này.)
+
+NÑgò hunh Mứéc Ho Thœ= Kim Thuñ
+Mu s3⁄4c Xanh Sá 'Vụng Tr⁄4ng §en
+
+T'ng phñã Can T©m Tú PhÖ ThÈn
+
+TÝnh c,ch T-íng qu©n Qu©n chñ GI.nnghb T-íng phã T,c c-êng
+T©m lý M+u lù, giÊn ThÉn minh, vui §iÓOu xuẼt, olo Trb tiÕt, buần KỦ x!lo, kinh sĩ
+
+Những tính cách tâm lý ghi trong bảng chỉ là những nét điển hình cho rất
+
+nhiều mức độ trạng thái khác nhau trong năm hành. Ví dụ một số như sau:
+
+Bảng 4-12: Các trạng thái tâm lý tương ứng ngũ hành
+
+NÑgò hụnh Mứéc Ho Thœ Kim Thuô
+T©m lý ®1i M+u lù, giÊn ThÉn minh, vui §iÓOu xuÊt, lo Trb tiÕt, buần KỦ x!lo, kinh sĩ
+biÓu
+T©m lý cỉng Hnghji, tù tin, | V«t-, tÕỐu, s,ng Bxnh th'fn, dù Kh3⁄t khe,vôn | Thanh lam, Ých
+lo1i tin t-ẽng, dòng suẻt, linh ho!t kiÕn, trxu v#t, kh« khan, | kô, nhót nh t, dù
+c#Jm mÕn, dbu dụng gñ gÉm dÉm
+
+Trong các bảng tương ứng giữa các yếu tố tạo hình giới thiệu sau, tôi chỉ
+
+ghi tâm lý đại biểu cho tiện, không nên hiểu theo máy móc, nhất là ở hành mộc,
+
+xin lưu ý để tránh thắc mắc, khi xem xét về các màu đặt cạnh nhau, tôi chọn năm
+
+189
+
+
+
+<!-- page 191 -->
+
+màu đại biểu thường dùng trong tranh dân gian: Xanh (lục), đỏ, vàng, trắng, đen.
+Với năm màu này, trong khuôn hình bằng nhau, ghép nhóm hai màu khác nhau,
+không lặp lại, có tất cả mười lăm nhóm, hiệu ứng cảm giác do mỗi nhóm màu
+
+gây ra rất khác nhau (Hình 4-15).
+
+Tôi lại đem quy tập riêng những nhóm hai màu có quan hệ theo ngũ hành
+tương sinh, tương đồng và tương khắc - kết quả cho thấy bất kể là màu gì, ở các
+nhóm tương sinh hiệu ứng cảm giác rất khác với nhóm tương đồng và càng rất
+khác so với tương khắc (Hình 4- 1ó).
+
+b. Quan hệ tương ứng giữa nhiều màu sắc với ngũ hành với ngũ hành
+
+và tâm lý con người
+
+190
+
+
+
+<!-- page 192 -->
+
+Trong phần trên tôi đã giới thiệu tương ứng giữa màu sắc với ngũ hành và
+tâm sinh lý con người nhưng mới là nét đại biểu, ở đây tôi xin giới thiệu những
+hiệu ứng do các nhóm hai màu cạnh nhau. Những tâm lý tương ứng với các
+nhóm nhiều mầu thì theo đó mà suy ra.
+
+Màu xanh với các màu khác:
+
++ Màu xanh trên nền xanh hoặc đặt cạnh màu xanh như màu xanh ở mùa
+xuân, thì màu xanh trở thành xznh rờn, mộc đồng mộc, ứng với tâm lý hăng hái
+
+thêm hăng hái, tin tưởng có hỗ trợ.
+
++ Màu xanh trên nền đở, hoặc đặt cạnh màu đỏ như màu xanh ở mùa hạ,
+màu xanh trở thành xưnh ngắt, mộc sinh hoả, ứng với tâm lý hy vọng, niềm tin
+
+đã gặp được kết quả mong muốn.
+
++ Màu xanh trên nên vàng hoặc đặt cạnh mầu vàng như màu xanh ở cuối
+mùa hạ, màu xanh trở thành xanh non, mộc khắc thổ, ứng với tâm lý sự lo lắng
+đã xâm nhập vào niềm tin, sức ỳ này sinh trong sự hăng hái.
+
++ Màu xanh trên nền trắng, hoặc đặt cạnh màu trắng như màu xanh ở vào
+mùa thu, mùa xanh trở nên xanh xỉn, kim khắc mộc, ứng với tâm lý nỗi buồn nảy
+sinh trong lòng hăng hái, nỗi giận xâm chiếm lòng dũng cảm.
+
++ Màu xanh trên nên đen, hoặc đặt cạnh màu đen như màu xanh ở mùa
+đông, màu xanh trở thành xanh đậm, thuỷ sinh mộc, ứng với tâm lý là lòng hăng
+
+hái có thêm lý lẽ hoặc kỹ thuật, khéo léo.
+
+Hình 4-16 : Quan hệ sinh khắc giữa mầu và mầu, xếp theo : tương đồng, tương sinh, tương khắc.
+
+- Cột giữa, mầu với mầu tương đồng. - Cột bên trái, mầu với mầu tương sinh, hành của mầu phía
+ong sinh hành của mầu phía ngoài. - Cột bên phải, mầu với mầu tương khắc, hành của mầu phía trong
+hắc hành của mầu phía ngoài.
+
+mm .w.w k
+
+mm &m
+—ẹNM mm
+
+ x
+
+
+
+<!-- page 193 -->
+
+Màu đỏ, với các màu khác:
+
++ Màu đỏ trên nền xanh, hoặc đặt cạnh màu xanh như màu đỏ ở mùa
+xuân, màu đỏ thành đở sẩm, mộc sinh hoả, ứng với tâm lý hăng hái thêm vui
+mừng.
+
++ Màu đỏ trên nên đỏ, hoặc đặt cạnh màu đỏ như màu đỏ ở mùa hạ, màu
+đỏ thành đỏ rực, ứng với tâm lý vui thêm vui màu đỏ trên nền vàng, hoặc đặt
+cạnh màu vàng như màu đỏ ở cuối hạ, hoả sinh thổ, màu đỏ thành đỏ /høi, là
+niềm vui trong bình tĩnh, hoặc niềm vui đến cho người đang lo lắng.
+
++ Màu đỏ trên nền trắng, hay đặt cạnh màu trắng như màu đỏ ở mùa thu,
+hoả khắc kim, màu đỏ thành đỏ xin, ứng với sáng kiến hoặc niềm vui bị hãng, bị
+nỗi buồn xâm chiếm.
+
++ Màu đỏ trên nên đen, hay đặt cạnh mầu đen như màu đỏ ở mùa đông,
+thuỷ khắc hoả, màu đỏ thành đổ đậm, là niềm vui trong sự sợ hãi, niềm vui
+không đúng lúc.
+
+- Màu vàng với các màu khác:
+
++ Màu vàng trên nên xanh, hoặc đặt cạnh mầu xanh như màu vàng ở mùa
+xuân, mộc khắc thổ, màu vàng thành vàng nấu, ứng với tâm lý sự bình thản bị
+
+kích động, nỗi lo lắng bắt đầu biến thành hành động tức giận.
+
+192
+
+
+
+<!-- page 194 -->
+
++ Màu vàng trên nền đỏ, hoặc đặt cạnh mầu đỏ, như màu vàng ở mùa hạ,
+
+hoả sinh thổ, màu vàng thành vàng óng, nỗi lo trong niềm vui.
+
++ Màu vàng trên nên vàng, hoặc đặt cạnh màu vàng như màu vàng ở cuối
+
+hạ, thổ đồng thổ, màu vàng thành vàng ơn, ứng với tâm lý lo thêm lo.
+
++ Màu vàng trên nên trắng, hoặc đặt cạnh màu trắng, như màu vàng ở
+mùa thu, thổ sinh kim, màu vàng thành vàøg xử, ứng với tâm lý sự an ủi cho nỗi"
+buồn hoặc lo thêm buồn.
+
++ Màu vàng trên nền đen, hoặc đặt cạnh màu đen như màu vàng ở mùa
+đông, thổ khắc thuỷ, màu vàng thành vàng nh, ứng với tâm lý lo lo thêm sợ.
+
+- Màu trắng với các màu khác:
+
++ Màu trắng trên nên xanh, hoặc đặt cạnh màu xanh như màu trắng ở mùa
+xuân, kim khắc mộc, màu trắng thành /rắng nốn, ứng với tâm lý nỗi buồn còn có
+niềm tin, hoặc có thêm giận.
+
++ Màu trắng trên nên đỏ, hoặc đặt cạnh màu đỏ như màu trắng ở mùa hạ,
+hoả khắc kim, màu trắng thành ứrắng foát, ứng với tâm lý nỗi buồn pha niềm vui.
+
++ Màu trắng trên nên vàng, hoặc đặt màu vàng như màu trắng cuối mùa
+hạ, thổ sinh kim, màu trắng thành ứrắng frong, ứng với tâm lý buồn thêm lo.
+
++ Màu trắng trên nên trắng, hoặc đặt cạnh màu trắng như màu trắng ở
+mùa thu, kim đồng kim, màu trắng thành rắng xin, ứng với tâm lý buồn lại thêm
+buồn.
+
++ Màu trắng trên nên đen, hoặc đặt cạnh màu đến như màu trắng ở mùa
+đông, kim sinh thuỷ, màu trắng thành trắng mịn írắng mượt, ứng với tâm lý buồn
+pha thêm hoảng sợ.
+
+- Màu đen với các màu khác:
+
++ Màu đen trên nên xanh, hoặc đặt cạnh màu xanh như màu đen ở mùa
+xuân, thuỷ sinh mộc, màu đen thành đen sâm, ứng với tâm lý sự sợ hãi có pha
+
+niềm tin, hy vọng.
+
+193
+
+
+
+<!-- page 195 -->
+
++ Màu đen trên nên đở, hoặc đặt cạnh màu đỏ như màu đen ở mùa hạ,
+thuỷ khắc hoả, màu đen thành đen nhánh, ứng với tâm lý trong nỗi sợ nảy niềm
+VUI.
+
++ Màu đen trên nền vàng, hoặc đặt cạnh màu vàng như màu đen ở cuối
+hạ, thổ khác thuỷ, màu đen thành đen chừm, đen thâm, ứng với tâm lý sợ hãi
+
+thêm lo lắng.
+
++ Màu đen trên nền trắng, hoặc đặt cạnh màu trắng như màu đen ở mùa
+
+thu, kim sinh thuỷ, màu đen thành đen nổi, ứng với tâm lý nỗi sợ thêm buồn rầu.
+
++ Màu đen trên nên đen, hoặc đặt cạnh màu đen, như màu đen ở mùa
+
+đông, thuỷ đồng thuỷ, màu đen thành đen k¡:, ứng với tâm lý sợ hãi thêm sợ hãi.
+c. Hiệu quả của sự phối hợp giữa nhiều màu sắc và các yếu tố tạo hình
+
+Nếu một màu đặt cạnh ba, bốn màu khác cũng theo ngũ hành mà tính như
+trên. Những tỷ lệ diện tích to nhỏ hơn nhau, chính phụ khác nhau thì theo đó mà
+
+có ảnh hưởng nhiều ít khác nhau.
+
+Trong nghệ thuật tạo hình, không lúc nào màu sắc tách rời hình thể, vì vậy
+màu sắc luôn là thành phần hỗn hợp tác động với hình và các yếu tố khác nữa.
+Riêng bản thân màu, hiệu ứng của nó tác động mạnh đến nỗi nhiều khi ta có ấn
+tượng nó là tất cả. Kỳ thực yếu tố hình, đường nét đã giới hạn tác động của màu
+theo tính chất hình và đường nét làm tăng, giảm hiệu ứng của màu, tác động của
+
+màu thêm phong phú.
+
+Tác động của màu sắc tới tâm sinh lý người không chỉ là ở trong nghệ
+thuật tạo hình mà trong tất cả các ngành đều khai thác nó để sử dụng, bởi vì nó
+
+là quy luật phổ biến.
+
+Trong văn học, cảm nhận màu sắc tuy còn phải chuyển đổi qua các hệ
+thống xử lý tín hiệu, nhưng tác động của nó vẫn gần như nguyên vẹn. Xin lấy ví
+dụ: Trong bài thơ của cụ Nguyễn Khuyến hoạ đề do Hoàng Cao Khải xướng là
+Trời cao không nói. Cụ Nguyễn đã vạch trần cái tâm địa hỗn tạp của Khải ra
+
+như sau:
+
+194
+
+
+
+<!-- page 196 -->
+
+1ao ở trên này chót vót cao.
+
+Màu xem tao có nói đâu nào?
+
+Mặt tao xanh, tím, pha đen, trắng.
+
+Chỉ tại dì ÓOa vá váy vào.
+
+(Theo sách Bóng nước hồ Gươm của Chu Thiên).
+
+2. Quan hệ tương ứng giữa hình thể với ngũ hành và tâm sinh lý người
+a. Tương ứng giữa hình với ngũ hành
+
+Vạn vật trong thiên nhiên có nhiều hình dạng, nhưng theo khí vật tương
+ứng và ngũ hành, người ta đã chọn ra năm hình khác biệt nhau nhất để làm đại
+biểu ứng với ngũ hành, mọi vật dù có hình thù khác nhau đến mấy cũng lược gọn
+đại thể gần với hình gì mà quy theo năm hình đó, mỗi hình đại biểu ứng với một
+hành, cũng là ứng với diễn biến sinh lý, bệnh lý và tâm lý con người theo hành
+đó (Bảng 4-13).
+
+Bảng 4-1 3
+Bảng 4-13
+mm ` ^ 2 hẻ ˆ Là
+Ngũ hành Mộc Hoa Thô Kim Thủy
+hình Chữ nhật Tròn Vuông Tam giác Uốn khúc
+
+Bảng ngũ hành của hình thể tương ứng với tâm sinh lý người Việt.
+
+Dựa theo quy luật tương ứng này, tôi lấy năm hình đại biểu, trong khuôn
+khổ diện tích bằng nhau, làm bảng ghép nhóm hai hình khác nhau, đặt cạnh
+nhau. Tất cả có được 15 nhóm không lặp lại. Hiệu quả cảm giác do mỗi nhóm
+
+hình gây ra rất khác nhau (Hình 4 - 17).
+
+Kế đấy tôi quy tập lại những nhóm có các hình cạnh nhau theo ngũ hành
+
+tương sinh, tương đồng và tương khắc. Kết quả cho thấy bất kể loại hình nào.
+
+195
+
+
+
+<!-- page 197 -->
+
+Nếu xếp cạnh nhau theo tương sinh thì hiệu quả cảm giác cũng khác với xếp theo
+tương khắc (Hình 4-18).
+
+b. Tương ứng giữa hình với tâm lý người.
+Sự cảm nhận hình thể của vạn vật ở tự nhiên là đồng thời với sự tác động
+
+tâm sinh lý do các thuộc tính bản chất khác của vạn vật gây ra, chúng đều có
+
+tính trực tiếp cảm quan bản năng như sau (Hình 4- 19):
+
+Hình 4-17 : Quan hệ giữa hình và hình.
+- 5 hảng dọc, bên trái của từng đôi, theo thứ tự từ trái sang : Mộc - Hỏa - Thổ - Kim - Thủy
+- 5 hàng ngang, bên phải của từng đôi, theo thứ tự từ trên xuống : Mộc - Hỏa - Thổ - Kim - Thủy.
+
+KC>
+1
+ri W
+
+Hình 4-18 : Quan hệ hình và hình theo tương đồng, tương sinh, tương khắc.
+
+- Cột giữa, hình với hình xếp theo tương đồng.
+
+- Cột bên trái, hình với hình xếp theo tương sinh, hành của hình phía trong sinh hành của hình phía
+ngoài.
+
+- Cột bên phải, hình với hình xếp theo tương khắc, hành của hình phía trong khắc hành của hình
+phía ngoài.
+
+———=
+
+——_—”
+
+O[| Li— LÌ
+
+© CX) 6a
+
+
+
+<!-- page 198 -->
+
+Hình 4-19 : Quan hệ giữa dáng người và ngũ hành.
+
+Thứ tự tử trái sang phải :
+
+* Cột thứ nhất, hành Mộc - đứng hiên ngang, chống đỡ. 7 Cột thứ hai, hành Hỏa - mừng đón, vui
+sướng. * Cột thứ ba, hành Thổ - lo lắng, bình thần. * Cột thứ tư, hành Kim - Suy tính, buồn rầu. ” Cột thứ
+năm, hành Thủy - chuẩn bị kỹ thuật, bắt bóng, nhảy, múa khéo léo.
+
+MỘC
+
+HỎA
+
+THỔ
+
+KIM THỦY
+
+|
+
+| |
+
+Mọi thân cây, mọi khối hình trụ như khúc cột, mọi thanh dầm nhà, dầm
+
+cầu, có hình khái quát thị giác là một hình chữ nhật đều cho con người một cảm
+
+nhận về sức chống đỡ, sức chịu đựng, tính ngay thẳng, cứng rắn, gây lòng tin
+
+tưởng cho con người. Vì thế hình chữ nhật được quy vào hành mộc.
+
+Mọi quả cầu, mọi viên bi, mọi khối tròn hay mọi vành xe đều cho ta cảm
+
+giác sự di động dễ dàng, linh hoạt của nó. Những cái đầu người cho ta cảm giác
+
+về sự thông minh, thần kỳ chứa đựng trong đó. Những trái cây chín đỏ cho ta
+
+197
+
+
+
+<!-- page 199 -->
+
+một cảm giác mềm vui ngon lành, mặt trời tròn sáng cho ta cảm giác nắng
+ấm, sáng sủa, sức nóng mặt trời là nguồn gốc của lửa, nguồn gốc của sự sống. Vì
+
+thế tất cả vạn vật có hình khái quát thị giác là tròn được quy vào hành hoả.
+
+Mọi vật có hình khối vuông đều cho con người hiểu biết về tính vững trái,
+sức ì và làm nảy sinh sự lo lắng, vào cuối mùa hạ đất bị ma làm ẩm, nhão nhoét,
+tỳ, vị hay mắc bệnh, cũng nảy sinh tâm lý lo lắng vu vơ. Vì thế hình vuông được
+
+quy vào hành thổ.
+
+Mọi vật thể có khối hình tam giác hoặc góc nhọn như giáo, mác, mảnh đá
+xước, mũi tên, mảnh đồ sứ và thuỷ tính vỡ, một con đường xưa xăm mất hút
+trước mặt, đều gây cho con người một nhận biết về khả năng phá nát những gì
+mềm hơn nó, gây ra một cảm giác buồn trong lòng. Vì thế hình thị giác tam giác
+
+được quy loại vào hành kim.
+
+Mọi vật thể có hình uốn khúc, mọi dòng nước chảy quanh co, mọi dáng
+người múa hát đã cho con người nhận biết về sự khéo léo sự luồn lách vượt qua
+trở ngại để đạt mục đích đi tới. Mọi vật thể có hình gấp khúc nhiều đoạn như
+mảnh tre bị gậy, những đợt sóng dâng cao, tia chớp điện trong cơn giông, những
+đoạn đường vòng vèo trước mặt, những nhấp nhô đồi núi, đều gây cho con người
+sự sợ hãi. Do đó hình uốn khúc đã được chọn quy vào hành thuỷ.
+
+Bảng ngũ hành của hình thể núi đất, gióng nước trong sách Địa lý ngũ
+quyết của người Trung Quốc (Hình 4-20):
+
+Nếu đem so sánh hai bảng quy nạp ngũ hành tương ứng như trên, chúng ta
+thấy có 3 hành trùng nhau là Thuỷ, Mộc, Thổ - còn hai hành Hoả và Kim thì lệch
+nhau. Hành Kim của người Việt thì người Trung Quốc gọi là Hoả, Hành Hoả của
+người Việt thì người Trung Quốc gọi là Kim. Ta lại đem hình của hành Kim và
+Hoả của người Việt so với tình cảm do giác quan cảm nhận gây ra sẽ thấy đúng
+hơn. Ở hình của hành Kim và Hoả của người Trung Quốc cảm nhàn chỉ là sự quy
+
+ước mà không gắn với cảm quan bản năng của con người.
+
+c. Mối quan hệ tương ứng giữa nhiều hình với tâm sinh lý con người
+
+198
+
+
+
+<!-- page 200 -->
+
+Trong tự nhiên không có một vật thể nào đứng đơn độc, vì thế các vật đặt
+cạnh nhau, đè lên nhau, chứa đựng nhau, những hình thị giác của chúng hỗn hợp
+mà tác động vào tâm sinh lý người theo cách cộng hưởng. Tôi xin nêu những tác
+động cộng hưởng của hai hình khác nhau đặt cạnh nhau, các cộng hưởng nhiều
+
+hơn theo đó mà suy ra.
+- Hình chữ nhật với các hình khác.
+
+Hình chữ nhật cạnh hình chữ nhật gây ra cảm giác niềm tin và sức mạnh
+
+thêm hùng hậu, có thêm sự cổ vũ, mộc đồng mộc.
+
+Hinh 4-20
+
+Hình chữ nhật cạnh hình tròn gây ra cảm giác niềm tin và sức mạnh pha
+
+niềm vui, mộc sinh hoả.
+
+Hình chữ nhật bên cạnh hình vuông gây ra tâm lý bên cạnh hăng hái, sức
+
+mạnh có thêm sự bình tĩnh, lo toan đắn đo, mộc khác thổ.
+
+Hình chữ nhật cạnh hình tam giác gây ra cảm giác niềm tin và sức mạnh
+
+đợm buồn, kim khắc mộc.
+
+Hình chữ nhật cạnh hình uốn khúc gây ra cảm giác niềm tin, sức mạnh
+thêm khéo léo; hình chữ nhật bên hình gãy khúc, là niềm tin, sức mạnh bị hạn
+
+chế vì có pha chút sợ hãi, thuỷ sinh mộc.
+
+- Hình tròn với các hình khác
+
+199
+
+
+
+<!-- page 201 -->
+
+Hình tròn bên cạnh hình chữ nhật, gây ra cảm giác niềm vui thêm phấn
+
+chấn, hăng hái hành động, mộc sinh hoả
+
+Hình tròn bên hình tròn gây ra cảm giác niềm vui thêm linh hoạt, sinh
+
+động, hoả đồng hoả.
+
+Hình tròn bên hình vuông gây ra cảm giác sự linh hoạt bị giảm, niềm vui
+
+bên nỗi lo, hoả sinh thổ.
+
+Hình tròn bên hình tam giác gây ra cảm giác niềm vui bên nỗi buồn, hoả
+khắc kim.
+
+Hình tròn bên hình uốn khúc gây cảm giác niềm vui bên nỗi sợ, niềm vui
+
+trơ trẽn, thuỷ khắc hoả.
+- Hình vuông với các hình khác
+
+Hình vuông bên hình chữ nhật là sự bình tĩnh bị khuấy động, cổ vũ, nỗi lo
+
+chuyển thành hành động, mộc khác thổ.
+
+Hình vuông bên hình tròn là nỗi lo có được nguồn vui sự trì trệ thêm linh
+
+hoạt, hoả sinh thổ.
+
+Hình vuông bên hình vuông là những sự trì trệ thêm trì trệ, lo thêm lo, thổ
+
+đồng thổ.
+Hình vuông bên hình tam giác là lo thêm buồn, thổ sinh kim.
+Hình vuông bên hình uốn khúc là nỗi lo thêm hoảng sợ, thổ khắc thuỷ.
+- Hình tam giác với các hình khác
+
+Hình tam giác bên hình chữ nhật là nỗi buồn bị kích động thêm bực, kim
+
+khắc mộc.
+
+Hình tam giác bên hình tròn là nỗi buồn giảm, buồn có thêm vui, hoả khắc
+
+kim.
+Hình tam giác bên hình vuông là nỗi buồn thêm lo, thổ sinh kim.
+
+Hình tam giác bên hình tam giác là nỗi buồn gặp nỗi buồn, sự chia ly gặp
+
+sự chia ly, kim dông kim.
+
+200
+
+
+
+<!-- page 202 -->
+
+Hình tam giác bên hình . uốn khúc là sự chính xác gặp sự khéo léo nỗi
+
+buồn gặp thêm sự sợ hãi, kim sinh thuỷ.
+- Hình uốn khúc với các hình khác
+
+Hình uốn khúc bên hình chữ nhật, là sự sợ hãi biến thành chống đối, giận
+dữ, thuỷ sinh mộc.
+
+Hình uốn khúc bên hình tròn, là sự sợ hãi lấn át niềm vui hoặc niềm vui
+lẫn vào nỗi sợ, thuỷ khắc hoả.
+
+Hình uốn khúc bên hình vuông là sự sợ hãi bị giảm bớt, bình tĩnh hơn, thổ
+khắc thuỷ.
+
+Hình uốn khúc với hình tam giác là sự sợ hãi thêm sầu thảm, kim sinh
+thuỷ .
+
+Hình uốn khúc với hình uốn khúc là sự khéo léo thêm khéo léo sự sợ hãi
+bên sự sợ hãi, thuỷ đồng thuỷ.
+
+- Hình đối với hình thì tuỳ diện tích to hay nhỏ, chính hay phụ mà có các
+mức độ cộng hưởng khác nhau về thành phần tâm lý tương ứng. Nhiều hình cạnh
+nhau theo cách trên mà suy ra.
+
+d. Quan hệ tổng hợp giữa hình thể và màu sắc tương ứng với ngũ
+hành và tâm sinh lý người
+
+Khi giới thiệu xong mối quan hệ của màu sắc, của hình thể với ngũ hành
+và tâm lý, tôi tiến hành xem xét mối quan hệ cộng hưởng giữa màu sắc và hình
+thể tương ứng với tâm lý con người.
+
+Trước hết tôi ghép từng màu vào đủ năm hình, trong khuôn khổ màu giống
+nhau và hình bằng nhau, xếp theo hàng dọc là cùng màu khác hình, hàng ngang
+là cùng hình khác mùa. Ở mỗi hình đều chứa quan hệ giữa màu và hình. Kết quả
+có được 25 cái kết hợp đó, mỗi cái cho một hiệu quả cảm giác rất khác nhau
+(Hình 4-21).
+
+Kế đấy tôi quy tập các kết hợp này theo 3 loại quan hệ: Ngũ hành tương
+sinh, tương đồng và tương khắc, kết quá cho thấy: Những kết hợp tương đồng
+
+201
+
+
+
+<!-- page 203 -->
+
+cho một hiệu quả cảm giác ổn định theo bản chất của hành đó. Chung kết hợp
+
+tương sinh cho một cảm giác êm dịu. Ngược lại, những kết hợp tương khắc cho
+
+một cảm giác chói chang gay gắt (Hình 4-22)
+
+Cộng hưởng tương ứng giữa màu với hình và tâm lý
+
+- Màu xanh với các hình
+
+Mầu xanh trong hình chữ nhật là niềm tin trong sức mạnh, mộc chứa mộc.
+
+Màu xanh trong hình tròn là niềm tin trong niềm vui, hoả chứa mộc.
+
+a4
+v
+”
+°
+l
+
++32
+“
+
+©
+
+.VJ.+*
+v
+C
+L,
+ầ
+
+*w# xw
+wVẺ
+¡mm
+® :9
+
+202
+
+'neui 2e u¡u Buno 'BueBu Đuệu UIEN -
+
+'quIu 9u» neui Bun9 “2öp Bượu UIếN -
+'quq EA nẹu! enJB ộu U#nÐ : Lẽ-y 1H
+
+
+
+<!-- page 204 -->
+
+5w
+
+_
+mm
+®.©)
+
+F#4
+
+ba
+wwìvy
+'
+N-
+——
+
+_—REE
+
+lÍe = <|
+
+TT mrme=——=—S— `
+
+'uuIU 809 uệu 2643, nệu1 øn9 quẹu '0eud uọq tạoBu 162) -
+'nEul n9 tuệu 2g tJuIu en2 quẹu “0eud uạq 6uo] 12) -
+
+'uUIU #19 quu (uIs nẹu! en2 quệu “i1 uạq teoBu 12 -
+'TIỆUI E9 uẸU \JuJS uIU #n2 quệu “i1 uọa u04) 1Ó2 -
+'Buop Buon uuIu en2 uueu gA ngui en2 tueu “en|B 1Ò2 -
+
+'2euxy 6uom) '4us Buon) '6uop Buon oau dạx uJu gA neui enIB ôu UEn?) : #z-y u1H
+
+tin trong
+
+, niềm
+
+h nh
+
+Hồ)
+
+`
+
+tin trong sự b
+
+`
+
+à niềm
+
+Màu xanh trong hình vuông Ï
+
+^
+
+sự lo lăng, thổ chứa mộc.
+
+⁄
+
+tin trong nỗi buồn, kim chứa mộc.
+
+`
+
+à niềm
+
+Màu xanh trong hình tam giác Ì
+
+ợ
+
+ỖI s
+
+⁄
+
+éo, frong n
+
+éo |
+
+⁄
+
+tin trong sự kh
+
+`
+
+à niềm
+
+^Z
+
+Màu xanh trong hình uốn khúc ]
+
+hãi, thuỷ chứa mộc.
+
+203
+
+
+
+<!-- page 205 -->
+
+- Màu đỏ với các hình
+Màu đỏ trong hình chữ nhật là niềm vui trong sức mạnh và niềm tin, mộc
+chứa hoäả.
+
+Mầu đỏ trong hình tròn là niềm vui trong sự sáng suất, linh hoạt, hoả chứa
+
+hoả.
+
+Màu đỏ trong hình vuông là niềm vui trong sự bình nh, sự lo lắng, thổ
+
+chứa hoả.
+
+Màu đỏ trong hình tam giác là niềm vui trong sự khắt khe, trong nỗi buồn,
+
+kim chứa hoäả.
+Mầu đỏ trong hình uốn khúc là niềm vui trong sự sợ hãi, thuỷ chứa hoả.
+- Màu vàng với các hình.
+
+Màu vàng trong hình chữ nhật là sự lo lắng trong lòng hăng hái và niềm
+
+tin, mộc chứa thổ.
+Màu vàng trong hình tròn là sự lo lắng trong niềm vui, hoả chứa thổ.
+Màu vàng trong hình vuông là sự lo lắng mà bình nh, thổ chứa thổ.
+Màu vàng trong hình tam giác là sự lo lắng trong nỗi buồn, kim chứa thổ.
+
+Màu vàng trong hình uốn khúc là sự lo lắng cách khéo léo hay trong sự sợ
+
+hãi, thuỷ chứa thổ.
+
+- Màu trắng với các hình.
+
+Màu trắng trong hình chữ nhật là nỗi buồn trong niềm vui và lòng hăng
+hái, mộc chứa kim.
+
+Màu trắng trong hình tròn là nỗi buồn trong niềm vui, hoả chứa kim.
+
+Màu trắng trong hình vuông là nỗi buồn trong im lặng và lo lắng, thổ chứa
+
+kim.
+
+Màu trắng trong hình tam giác là nỗi buồn trong nỗi buồn chồng chất, kim
+
+chứa kim.
+
+204
+
+
+
+<!-- page 206 -->
+
+Màu trắng trong hình uốn khúc là nỗi buồn trong sự sợ hãi, khéo léo, thuỷ
+
+chứa kim.
+- Màu đen và các hình.
+Màu đen trong hình chữ nhật là sự sợ hãi trong niềm tin, mộc chứa thuỷ .
+Màu đen trong hình tròn là sự sợ hãi trong niềm vui, hoả chứa thuỷ.
+
+Màu đen trong hình vuông là sự sợ hãi trong im lặng lo lắng, thổ chứa
+
+thuỷ.
+Màu đen trong hình tam giác là sợ hãi trong nỗi buồn, kim chứa thuỷ.
+Màu đen trong hình uốn khúc là sự sợ hãi trong sợ hát, thuỷ chứa thuỷ.
+3. Tương ứng giữa đường nét với ngũ hành và tâm sinh lý con người.
+
+Đờng nét là một biểu hiện bề ngoài của vật thể có chiêu dài trong không
+gian, là những dấu vết di chuyển của một vật đi trong không gian, là những hình
+thể biến động của con người, những dáng hình cánh tay người hoạt động theo nội
+
+tâm con người .V.V...
+
+Các bộ môn kiến trúc, nghệ thuật múa cổ, và dấu chữ Việt hiện đại dấu đã
+
+khai thác yếu tố này để diễn đạt nội tâm làm cho tác phẩm sinh động và phong
+
+phú.
+Bảng đường nét tương ứng với ngũ hành và tâm sinh lý con người (Bảng 4-
+14):
+Bảng 4-14
+Tên gọi - Đường nét Ngày hành Tâm lý : |
+
+Đường uốn ngửa
+(khứ văn)
+
+Mộc Mưu lự,
+
+Đường cong tròn Hỏa Thần minh,
+
+(nguyệt huyền văn)
+
+Thổ Gián nghị,
+lo
+
+Đường thẳng
+(trực văn)
+
+(hồi Văn) buồn
+
+G^
+\X_⁄
+
+Đường cong câu O Kim Trị tiết,
+^^
+
+Đường uốn khúc Thuỷ Kỹ xảo,
+(thuỷ ba văn) sợ hãi
+
+205
+
+
+
+<!-- page 207 -->
+
+Những đường nét có hình uốn ngửa (khứ văn) như ở con giun bị xéo, ở
+những thân cây bị uốn cong, ở những nắm đấm trên cánh tay đa về phía trước
+gây một cảm giác về sự chống trả, một sức mạnh bị đè nén. Trong dân gian có
+câu "con giun xéo lắm cũng oằn (oằn là uốn mình thành đường cong uốn ngửa).
+
+Do đó đường uốn ngửa là hành mộc.
+
+- Những đường nét cong tròn có hình mặt trăng non (nguyệt huyền văn)
+như dáng đứa trẻ tập lẫy, một em bé đứng vươn người khi mẹ sắp bế, một dáng
+người nhảy cong lên reo mừng, đường cong khoé mép của nụ cười, đều biểu lộ
+
+một tâm trạng vui mừng. Do đó đường cong tròn được quy hành hoả.
+
+- Những đường nét thẳng đờ vào như cây gậy, như một nét vạch, một đoạn
+dờng bằng phẳng, một nếp môi ngay ngắn, một ánh mắt lim dim mơ màng, đều
+biểu thị sự đều đều, yên tĩnh hay tâm trạng lo lắng. Do đó nét thăng ngang như
+
+chữ nhất (trực văn) được quy vào hành thổ.
+
+- Những đường nét uốn cong hình móc câu co lại ở vạn vật như con rắn
+nằm cuộn lại, cái lưỡi câu, như cánh tay cong có bàn tay co dúm hay những khoé
+mép trễ xệ, đều là biểu hiện hoặc gây cảm xúc buồn rầu, vì thế đường cong câu
+
+(hồi văn) được quy vào hành kim.
+
+Những đường cong gấp khúc (thuỷ ba văn) như một giòng sông uốn lượn,
+một đoạn đường vòng vèo, hoặc đường gập ghênh đồi núi, một tia chớp trong
+cơn giông, những đợt sóng biển dâng cao v.v... đều gây cho con người một cảm
+
+giác sợ hãi, vì thế nó thuộc hành thuỷ.
+
+Tính chất của đường nét là mảnh mai, sinh động. Trong thực tế nó thờng
+là những chi tiết của vạn vật hoặc là những biểu hiện hình thể của các vật nhỏ,
+cho nên trong nghệ thuật tạo hình, nó chủ yếu được dùng làm các chi tiết phù
+trợ, do đó hiệu ứng tâm sinh lý của nó là thành phần cộng hưởng với các yếu tố
+hình và màu. Khi sử dụng đường nét bằng các màu khác nhau cũng có được hiệu
+quả khác nhau trong một khuôn hình, nếu ta đặt đường nét với các chiều hướng
+khác nhau, ở độ cao khác nhau cũng làm cho các cảm giác khác nhau. Khi hai
+loại đường nét khác nhau đặt cạnh nhau cũng tạo một cảm giác cộng hưởng
+(Hình 4-23, 4-24, 4-25, 4-26, 4-27, 4-28, 4-29).
+
+206
+
+
+
+<!-- page 208 -->
+
+Hình 4-23 : Quan hệ giữa đường nét và đường nét.
+- Hàng dọc, bên trái của từng đôi, theo thứ tự từ trái sang : Mộc - Hỏa - Thổ - Kim - Thủy.
+- Hàng ngang, bên phải của từng đôi, theo thứ tự từ trên xuống : Mộc - Hỏa - Thổ - Kim - Thủy.
+
+tết 9
+
+207
+
+
+
+<!-- page 209 -->
+
+U
+
+TÁC GIÁ LƯƠNG V LÊ VĂN SỬ
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+` ^<
+
+`^>x⁄ CĐ
+
+6"€e¬
+
+4
+
+Sư _— ƒ—— ——
+Ca SG 48:  NuZ TÊN ——
+— NẺ" œ<5C^Đ CXỞ ZN
+"— — 1 ¬—
+
+'teoBu e¡ud yeu Buọnp eno uuẹu 2eu3 Buoi e1d yạu Buonp en9 tuẹu “Ieud uẹg 1Ò2) -
+'tpoBu øud yeu Buonp en2 quẹu duIs Buoit ø1ud yạu Buonp en2 tu “181 uọq 192 -
+'Buop Buon ạẹu Buonp IoA )eu Buonp “enIB 12 -
+
+'2pu 6uom) “qus 8uon) 'Buop Buom oeu) 1u 6uonp 0A 1eu 6uonp n6 öu uen2 : yẽ-b u\H
+
+208
+
+
+
+<!-- page 210 -->
+
+`*“ G*'. —= “^^ (9
+*^⁄2| @ | = ` ⁄Z¬A Qq@
+`»^i6*`|— “|9
+`» '€* | —= ⁄K^e
+`*“'6`'— ^ e9
+
+|
+
+'ÁnL - uI% - OU1 - EQH - ĐỘNN : Buess I6! mỊ ñ nuI oeuI 'ẹu Buonp ogu nẹuu Buno 'BueBu BuEu s -
+'Ánu L - Ully - oUL - EQH - 9ỎIN : Buonx ueu] mỊ # nụi oeu) 'neui 2gu3 yẹu Buọnp Puno '2ỏp 6uẹt 9 -
+1eu Buonp A nẹu! snJ6 ôu uenÐ : Sz-y uIH
+
+209
+
+
+
+<!-- page 211 -->
+
+TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+`^ˆ⁄
+vài
+
+¿319
+
+w‹óv | ve
+G`: @Ầ
+“* ' ⁄£a¬
+@\ | @&Ô
+
+ƯN"
+«9©
+
+——tzc
+
+|
+
+I@›I9f
+
+yeu Buonp eno tiueu 2euy nu! en2 tquẹu 'teud uẹg teoBu 1ộ2 -
+
+'ỆU1 E9 quu 2Eu3 Jeu Buonp n2 uẹu 'teud uạq Buo41 12) -
+
+'eu Buọnp no uu uuIs nẹui en2 tuẹu “e1 uọq IeoBu 1Ó2 -
+
+'TnEu1 g9 quẹu duIs yeu Buonp en2 tuẹu “e1 uạq Bu011 1Ò2 -
+
+'Buop Buon quIu eno quợu A nẹul eno tueu 'enIB 12 -
+
+'2pux Buom 'uIs Buom) '6uop 6uom oou lạu Buonnp gA nẹu! enIB ỏt Uen : 9z-y 1H
+
+210
+
+
+
+<!-- page 212 -->
+
+TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+#8. %
+®—| #|Ta| tài ©
+3| Ÿ HO <
+aAc  s,
+"Š-| “%.| Ta. t.| SĐ
+
+"Án - UIy - QU 1 - 80H - 9ÓjN : Buonx uạ1 m1 ñỊ nụ oeu) 'dèo Buji en2 ieud uẹa '6ueBu Buẹu 6 -
+'ÁnuL - ulI% - OU1 - EQH - ĐỘN : Buøs I1) mỊ ñị nui oaul 'dệ2 Bum en2 I1) uẹq '2öp Bueu s -
+1eu 6uonp gA \uIu enI6 öu Uuen : ¿#-b tỊUIH
+
+211
+
+
+
+<!-- page 213 -->
+
+lu
+
+TÁC GIÁ LƯƠNG V LÊ VĂN SỬ
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+šölà |3636š
+
+šL£ 3W)
+
+?@21 612
+
+5V%*%.2š%€ 2
+
+B=n |S\L<! IIOII
+
+“5| (ý) Fe (Ø) | =ä
+
+=% |
+
+HNIS
+
+l
+
+'teu Buọnp eno tuệu 2gU3 (JU1t, 8/12 tiệt 'reud uọq tệoBu 1Ó2 -
+'uIu n9 queu 26 yạu Buonp enø tuet| 'Ieud uọq Buo1] 162) -
+
+eu Buonp eno uueu LuIs uu|L Enø uuệu “J1 uọg IBoBu 12
+'úUIU En tut tUIS }ệu Buonp 6rn2 1u '†eiy uạq Buo/] 1O
+
+'Buop Buom 1ẹu Buonp g2 \uu ýA tJuIu E12 tuệt '6n|B 192
+'2gu 6uon) 'us 8uon) 'Buop 6uon) oøt )euLi Buonp |øA 1JUILị snIB êu E7) : 8z-by U!H
+
+212
+
+
+
+<!-- page 214 -->
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
+
+hồ.
+
+8E
+
+ở ”.E°Gö
+
+ — < S) ^O ~
+
+-c—8® 'O © bá = E
+Ï— T = = x =
+E©E.øœœm
+
+Œ
+= ©€CE
+-$ # .Ð
+a9»
+¬"øẰSSø
+Đm7”Söøo
+=1
+S „3G
+; k-#-x# -
+
+à*G Ø4
+— +E —_
+
+Em: cv
+S,.ö-ø®G-
+q>2Ee£=
+
+,,Œ _—
+gẽ<..
+cc neo
+
+C.gø. >
+Đ:Ø ‹G
+9x <
+Pro h= =
+SESZø@
++”? 6C6.. CC . ‹©.
+>^*oO,E E ¬:¡O a
+®„==ếẽc-| 8
+=5 g cO2‹œ G
+Đ¬ăoGE=ece
+S„œ 2⁄9 œ
+c1" cC
+“{.._.. ;„ ©O:Ð
+=ep58eg@s5
+Sa» -'m>Ơ
+@ 286 ¿009
+S Ø-Cqœ.o<=
+qg'O 13—O®” `
+5S =4@ømo£
+SE*c0⁄«s
+Đ.ø jẽE=<©
+
+V= 5
+SESRSE
+
+‹O- (-
+
+O =°
+BES8zs
+> ÚC Ẳo
+= ¬= _ Si
+®œ=55£EE£| 5
+-=C
+
+- c8 vỐ @
+h ..&
+J3'O 5£ >öÐö r4
+Gœ Fe) c^53 3 411
+2c . = m
+&8Eø<c5| z
+:cC Đ£fG| <<
+s4... T
+tt Ðo.C.cC
+-=c ¬ a
+©C‹(đ@ C0 ì*E
+= ~‹tU~T¬ ®)
+Trrcecs 4
+„sàn > O
+co
+!)xo+Ð Đ
+ĐC 5c
+
+Khi ta kết hợp nhiều yếu tố cùng một lúc như chiều hướng, độ cao, màu
+sắc hay nét cạnh nét, hoặc ở trong những hình khác nhau các yếu tố thay đổi
+khác nhau lần lượt cho ta sự vô cùng phong phú về cảm giác. Giá trị tác động
+của những kết hợp đó bằng tổng số hành của các yếu tố, có chiếu cố chính phụ
+của các thành phần kết hợp.
+
+Tính phổ biến của quy luật tơng ứng giữa đường nét với tâm sinh lý người
+
+còn được sử dụng làm dấu trong chữ Việt hiện đại. Có năm dấu thanh và một
+
+213 l - -
+
+
+
+<!-- page 215 -->
+
+thanh không dấu. Dấu thanh để chỉ độ cao của thanh và tơng ứng với tâm sinh lý
+
+theo ngũ hành. Trong đó có 4 dấu giống với bốn loại đường nét có cùng hành và
+
+tâm lý, chỉ có thanh hạ không dùng nét cong uốn khúc, đã dùng dấu nặng cho
+
+tiện mà thôi.
+
+Bảng so sánh nh sau (bảng 4-15).
+
+T?n thanh DEu NÑgò hụunh §-êng nÐt T”?n ®-êng nÐt
+
+Th-?ng 33⁄4c Hof G2 §-êng cong trồn
+(NguyÖt huyÒn vn)
+
+Khø Ng- Méc XS ⁄ §-êng uẻn ngöa
+
+(khø vn)
+§o*In, Tr-êng Kh«ng dÊu huyÒn Thœ ———— §-êng th1⁄4ng
+ngang(trùc hoụun v ”n)
+Hải Hái Kim Xx. §-êng cong c©u (hải
+v”n)
+
+H N#ng Thuô ^^ §-êng uẻn khóc (thuâ
+
+ba vn)
+
+4. Tương ứng giữa độ cao với ngũ hành và tâm sinh lý người.
+
+Độ cao trong tự nhiên quy theo ngũ hành là ứng với vị trí thật của loài vật
+
+tượng trưng trong tự nhiên so với hướng người nhìn như sau:
+
+- Mặt trời là nguồn gốc mọi thứ lửa và sức nóng, là nguồn gốc của sự
+
+sống, luôn ở cao nhất. Hoạt động của mặt trời ứng với hoạt động của tim người
+
+và niềm vui, vì thế đỏ cao nhất thị giác là hành hoả.
+
+- Cây là loài vật ở cao hơn mặt đất cao hơn tầm nhìn trung bình thị giác.
+
+Do đó độ cao trên trung bình là hành mộc.
+
+- Mặt đất có tầm nhìn ngang bằng, mức nhìn trung bình của thị giác là
+
+hành thổ.
+
+- Quặng kim thạch ở dưới mặt đất, do đó độ cao dưới trung bình là hành
+
+kim.
+
+214
+
+
+
+<!-- page 216 -->
+
+Dới lớp đá là mạch nớc ngầm, do đó ở mức dưới cùng của tầm nhìn thị
+
+giác là hành thuỷ.
+
+Bảng ương ứng độ cao với ngũ hành và tâm sinh lý con người
+
+Bảng 4-16
+§é cao VẾt t-ìng tr-ng NÑgò hunh Tôm sinh lý ng-êi
+Cao nhẼÊt MếấFt trê Ho1 Thn minh, vui
+Trn trung bxnh C©y Méc Mu lù, GiÊn
+Trung bxnh Mtt ®Êt Thœ Bxnh th'fn, lo ]⁄4ng
+D-íi trung bxnh Qu/⁄Eng ®, Kim TrP tiÖt, buần
+ThÊp nhÊt N-íc Thuô Kủ xo, sĩ h-i
+
+Tất cả các yếu tố màu, hình, đường nét, độ cao có sự tương ứng với nhau
+
+và với ngũ hành, với tâm sinh lý người theo một quy luật chung. Nếu có sự kết
+
+hợp nhiều yếu tố với độ cao thì các hiệu quả tâm lý là sự cộng hưởng hiệu ứng
+
+của các yếu tố đó. Ví dụ: Nét cong câu trong hình uốn khúc, màu vàng, ở độ cao
+
+trung bình gồm kim + thuỷ + thổ + thổ.
+
+Các yếu tố hỗn hợp nhau cho ta khả năng biến đổi các mức độ khác nhau,
+
+khả năng ấy khá đủ để diễn đạt mọi khía cạnh tâm lý con người (Hình 4-30, 4-3
+1, 4-32, 4-33, 4-34, 4-35, 4-36).
+
+215
+
+
+
+<!-- page 217 -->
+
+ÚU
+
+Ê VĂN S
+
+TÁC GIÁ LƯƠNG YL
+
+ƯƠNG NGŨ HÀNH
+
+HOC THUYLTAMD
+
+'Ánu) : deu) 'uôq 'u1hy : dẹu) Iou 'Bug1L 'ou) : uuịq Bunhi 'BuệA '2ÔUU : o2 Jou
+'uU8X 'EQU = }guUu O69 “0Q : lọnp Buonx uẹ1) mỊ ñỊ nụi oou1 'ueu nồu oeu1 unu9 O82 Óp IọA nẸỊN -
+'OE2 ÓP JOA nẸNJ : 08-y UIH
+
+216
+
+
+
+<!-- page 218 -->
+
+ÚU
+
+Ê VĂN S
+
+TÁC GIẢ LƯƠNG VL
+
+ƯƠNG NGŨ HÀNH
+
+HOC THUYET 1M D
+
+"ÁnU] “u14 'OU1 '2ÔUU “eỌU = (O89 Òp) Bues g1) âm m nuị oeul 'BueBu Bu£H -
+'ÁnU) “u1ị 'Qu1 “eọu '2Ôu1 = (neu!) Buọnx ue1t mm ñ nụ) 0t '9öp BuẸH -
+'O82 Óp JOA nguu znIồ ô UenÐ : LE-y U1H
+
+217
+
+
+
+<!-- page 219 -->
+
+SÚU
+
+Ê VĂN
+
+2
+
+GIÁ LƯƠNG YL
+
+TÁC
+
+ƯƠNG NGŨ HÀNH
+
+HOC THUYET 1M D
+
+— Ð\| m— ¬em—
+
+'nỆUI E12 tuệu 98L O9 Ọp E9 uuệu 'pud uẹgq IegoBu 12 -
+'OE2 Ộp En9 ueú 26L) nuu eo uueu 'pud uạq Buo1I 1Ò2) -
+'neuI Eno LUẸU LJUIS O9 Óp En2 Liuet 'Iẽ1) uọq IeoBU 192) -
+'O82 Óp E12 uueu tuIs nẹu! no tuệ "tê! uọa Bu011 JQ2 -
+'Buop Buon OE2 Ộp En2 LUEUL £A nu n2 tuệu '6nIổ 1©2) -
+'2gu% 6uomn) 'quIs 6uon 'Buop 6uonJ oat] 082 ÖD EA nIệLUI 6nI6 ôu LIE1 : ý£-b UIH
+
+218
+
+
+
+<!-- page 220 -->
+
+lu
+
+TÁC GIÁ LƯƠNG V LÊ VĂN SỬ
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+2% % ] B R 8
+2
+
+X 1 Ï 3
+<
+
+"xà: n7 \ ¬ 1
+3 TÌ “| h - _|
+IR|
+
+s xz o ¬ 3| g xả
+M l o 7 ï L
+— - - SN ~
+O
+
+he 2 2 nh : 1
+l2
+
+'Ẩnu] 'ul 'QU1 '2ÔUU “eọu = 6u8S I8) mị ñỊ nưi 'o0#9 ộp 2eu3 quịu Buno '6ueBu Buẹu e -
+"Ẩnu] “uI3 '0U1 'eọu “9u = Buọnx uọ4I m ñỊ nưi 09U1 “0u 2e 089 ộp Buno '2ỏp Buệt 9 -
+'OE2 Óp EA \UI\ 8nIồ ồu uen2 : £E-y u1H
+
+219
+
+
+
+<!-- page 221 -->
+
+SỦU
+
+TĂ
+
+Y LÊ Y
+
+7
+
+TẢ LƯƠNG
+
+Ƒ
+
+TÁC Ó
+
+7D
+
+NQ
+
+TÔ
+
+HOC THUYẾT ÂM DƯƠNG
+
+LỰLIL1
+L1
+
+LG
+
+(§
+
+{
+
+|
+n
+LLLL
+
+|
+L
+
+|
+
+L_L 1-1
+L1
+
+L1 L
+¡ lỗ! Hãi hếp ‹
+
+J_1
+
+[
+
+L
+
+lR li li |
+|
+
++ —L4
+
+L
+
+“+%
+
+` —
+
+n
+
+lo
+
+¬
+
+m——.
+
+——— ,.”~,
+
+>" _ =“=
+
+'UuJu E09 uuệu 98u3ị o82 Ộp øn2 tuệu 'ieud uẹd ieoÔÖu 1Ò2 -
+'OE9 Óp Eno LueU oeuy Ju¡ en9 uuẹu “ted uọa 6uo1] 12 -
+'quJU Eno quệu (UuIs 089 ộp Eno Luẹu 'ig1) uẹq IệoÖu 1Ó2 -
+'OE2 Ộp E9 tuệ tluJS tuIu| en92 tiuu '0g1 tọa Buo/1 tô -
+'Buop Buon 09 ộp en9 Lueu ệA tuịu eno tuệ “6nIB 1Ó2) -
+
+'2euy 6uom) '\us Buon) '6uop 6uo 0a) 082 Óp I0A tu enIB ðu UenÐ : pE~-y 1H
+
+220
+
+
+
+<!-- page 222 -->
+
+ÚU
+
+Ê VĂN S
+
+TÁC GIẢ LƯƠNG YL
+
+ƯƠNG NGŨ HÀNH
+
+HOC THUYET 1M D
+
+2
+
+L
+hết: BÊM sen ¿
+
+|
+
+L
+
+)
+
+"ÁnU) “up 'OU '2Ôu1 'eọu = Bu 6S [11 ft" ñị nụi “069 Óp 20U3 1QU Buonp Bun2 'BueBu Bueu s -
+'Ánui “uiI 'ou) 'eou “9u = Buonx 01t m ñỊ nụi oeu 1ạu Buọnp oeu 3, o2 ộp Buno “9óp Buệu 6 -
+1eu 6uonp gA 02 ộp e/Jồ ộ uenO : SE-y uIH
+
+221
+
+
+
+<!-- page 223 -->
+
+`q =
+Š W
+Š ) 2|m
+S ( =
+S
+» NT CD ELDKEELELLCELLadTiLi-ke
+E X
+h3
 =
-©›
+( 2
+BS... S5 7| 2 II| 2
+“3,E O-‹o0 QC =
+cà
+*
+Đo.oÐØœĐ LIITI | L1 | L1 | LILL | LI LÍ
+E c
+SE Sbgö
+35.580 œ
+S„_ O œ-ˆ'2
+®œ +0 c.53 CO
+&ScCcog#—re
+'® cẨ«ccoe (
+c.Ð5 »qŒ .C =
+Đcsøs =
+bcẽcso ) Il
+.¬ 0® .CE x~ C ¬ 2
+Šs£%Š ( =
+ca "nh
+ra ¬© ci G -E LÐIÍ | LÌTIj | 11H[1 1rl1(£T]1LL1
+s#5ö58
+“Œ < ¬:©-
+S.g 1 œ6
+‹©.> 8 #S.¬'Ð
+9 o'2_-aøœ°Ð
+œ@O©OÐO_-.- 2
+` ŠcEccec ( =
+=‹o.CCE=.œ0 = 2
+588g... II
+C H
+9®. g m šuày _
+c©, =._-—-œơ ( =
+com Đcec T
+Œ c—=*>Ð E2 im mãïïnẽnnnnnnnnnnnennnnmnne
+Tcœ€cEcCE
+Š-g 6 ‹8 6 s6 bói
+,{ na
+: Ø.œ0 œ-qG
+2559598
+. .= ĐƠOD
+“#“ ?òb= €ểkEĐ£
+ˆ —“:-—»>- 1x —-—>- hộ,
+SGSSSS đị= ¿
+_ =àỐ: á...Ay -+- ) zlIl 3
+LIILTLTLI1L1TĐL11LTLLL ¡[TL Ll
 
-Trái cây chín rữa, rụng, thối,
-khí trời nóng ẩm, mưa nhiều,
+Tính phổ biến của quy luật tơng ứng giữa độ cao và tâm sinh lý người theo
+ngũ hành còn biểu hiện ngay cả trong lĩnh vực trừu tượng là chức vụ công tác xã
+hội, xem lại ví dụ đã nêu ở phần ngôn ngữ tiếng Việt.
 
-đất nhão thành bùn nát.
+5. Tương ứng giữa chiêu hướng với ngũ hành và tâm sinh lý người.
 
-75%
+Chiều hướng phát triển của vạn, sự vạn vật trong không gian là chiều hư-
+ớng của thị giác người theo độ cao tính từ tầm nhìn trung bình hướng về các
 
-25%
+phía. Có năm chiều hướng chính là:
 
-Táo
+222
 
-Kim
 
-Trời hanh khô, lá cây úa rụng,
-vạn vật co cứng lại, đất đá kết
 
-tỉnh lại thành khối cứng rắn
+<!-- page 224 -->
 
-50%
+- Lên cao hẳn.
 
-0%
+- Chéo lên trên trung bình.
 
-91
+- Đi ngang tầm trung bình.
 
+- Chéo xuống dưới trung bình.
+- Xuống thấp hẳn.
 
+Những hớng này lấy vật đích có độ cao thật trong tự nhiên và hành tương
 
-<!-- page 93 -->
+ứng như sau:
+- Hướng nhìn lên cao nhất có vật đích là mặt trời, hành hoả.
+- Hướng nhìn chéo lên trên trung bình có vật đích là cây, hành mộc.
+- Hướng nhìn đi ngang trung bình có vật đích là mặt đất, hành thổ.
 
-Qua các mục vừa giới thiệu ở phần này theo thứ tự khí, gió và hành, ta
-thấy phải có điều kiện có trước để nhận thức ra tính chất của khí và hành, tỷ lệ
-khí theo ngũ hành, tỷ lệ khí tương ứng với biến đổi vật chất, với hành, mới có thể
-nói rằng bản chất của ngũ hành là sự biến đổi tương ứng giữa khí và vật. Đây chỉ
-là một cách trình bày đơn giản quy luật biến đổi lý, hoá trong vạn vật do sự
-tương tác trong quá trình vận động của các thiên thể vũ trụ gây ra. Trong đó, một
-sự biến đổi trở thành tác nhân của một biến đổi tiếp theo trong một hệ thống biến
+- Hướng nhìn chéo xuống dưới trung bình có vật đích là quặng đá, hành
 
-đổi. Có thể dẫn bằng một sơ đồ như sau:
+kim.
+- Hướng nhìn xuống thấp nhất có vật đích là nước, hành thuỷ.
 
-Sự vận động vũ trụ ở quả đất, mặt trăng, mặt trời v.v... đã tác bị động vào
-khí bao bọc quả đất, khí hậu biến đổi đã tác động vào vạn vật gây ra biến đổi
-trạng thái vật chất, còn quy luật ngũ hành chỉ là một hình thức mô tả về mối
-quan hệ sâu xa đó cho phù hợp với khả năng nhận biết của đa số người khi ứng
+Tính phổ biến của quy luật này còn biểu hiện ở hướng sức trong hoạt động
+của toàn thân con người tác động vào tự nhiên, và dáng đầu cổ khi nói như sau
+(Hình 4-37, 4-38):
 
-dụng nó vào đời sống cụ thể hàng ngày.
+223
 
-Có thể nguồn gốc của cách tìm ra quy luật ngũ hành cũng như các quy
-luật cổ Phương Đông nói chung đã bị thất lạc vì lý do nào đó. Cũng có thể, một
-khi những ứng dụng của nó đã quá hiển nhiên trong đời sống thường ngày, thì
-việc tìm hiểu nguồn gốc của nó chẳng còn là sự cần thiết nữa, giống như việc ta
-ăn gạo hàng ngày, ta chỉ cần biết nấu làm sao để cho ăn được ngon lành, chẳng
-còn mấy ai thấy cần phải nghĩ đến việc tìm kiếm xem nguồn gốc cây lúa là từ cái
-gì biến thành. Ngày nay chúng ta lại ở quá xa thời đại sản sinh ra nó, do đó sự
-hiểu biết về nguồn gốc và bản chất của ngũ hành đã là một mớ lý thuyết ước
-đoán, sai lạc cũng là điều đương nhiên, việc tìm trở lại đúng bản chất và xuất xứ
 
-của nó không phải là một công việc đơn giản dễ dàng.
 
-92
+<!-- page 225 -->
 
+-“—“
 
+: 6ueBu ÁeQ
 
-<!-- page 94 -->
+AfHL
 
-E. Những nhận thức sai lạc về ngũ hành hiện đang tồn đọng:
+OHL
 
-1. Nét chung nhất, đa số tài liệu hiện đại từ Phương Đông đến Phương
-Tây đều cho rằng bản chất của ngũ hành là 5 yếu tố cấu thành mọi vật chất
+VỌH
 
-trong vũ trụ. Xin dẫn hai đoạn văn làm ví dụ:
+'“nu) que 'Ôs tu oợ|B Uưe2 o2 nạp 'np 1 nụu Buonx Bueu) 9ns BuonH 'uiệu nu) 162 „ '011 tuẹu
+'uegu9 uọng ¡onBu Bunuu gị BuonL) 'eñp Bunp nuu Buonx oeuo øns Buon 'nị nụ) 12 „ 'ọq uiệu '| uiệu
 
-a. Sách những cây thuốc và vị thuốc Việt Nam của Đỗ Tất Lợi (in lần thứ
-ba, có sửa chữa và bổ sung), nhà xuất bản khoa học và kỹ thuật Hà nội 1977,
+nuu “ồugBu Ip sns Buonu 'ou uuẹu 'eq nu 12 ,
 
-trang 10, viết về học thuyết ngũ hành:
+'uei Bueu 'Áøqu nưu uại 6ueu øns Buonu “eou queu 'Ieu
 
-"Thuyết ngũ hành về căn bản cũng là một cách biểu thị luật mâu thuẫn đã
+JuI 199 „ 'Ápq 'op 'Ágp nụu uẹi oeu2 øns Buonu “2Òui Luệt 'yp\u nu) 1Ò2 , : teud Bues ren mị ñị nụ |
+'uugu nu gA Jonồu 2/ns Buonu en¡B ôu LiênÐ : z£-y 0H
 
-giới thiệu trong thuyết âm dương, nhưng bổ sung và làm cho hoàn bị hơn.
+224
 
-Ngũ hành là kim, mộc, thuỷ, hoả, thổ. Người xưa cho rằng mọi vật trong
 
-vũ trụ đều chỉ do 5 chất đó phối hợp với nhau mà tạo nên,...
 
-b. Trong một tờ báo khoa học trước đây có bài khí, âm dương, ngũ hành,
+<!-- page 226 -->
 
-bát quái" tác giả Quang Đạm đã viết:
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
 
-"Ngũ hành, các triết gia Nho giáo thủa xưa trình bày Khí, nói theo ngôn
-ngữ chúng ta ngày nay, như là nguyên tố duy nhất cấu tạo nên vũ trụ vạn vật.
-Đồng thời cũng trình bày những vật thể do khí cấu thành mà chúng fa ngày nay
-có thể coi là những nguyên liệu cơ bản để tạo ra các vật thể khác. Những vật thể
-nguyên liệu ấy là ngũ hành, (năm hành), cụ thể là: kim (kim loại, bao gồm sắt,
-chì, đồng, kẽm, vàng, bạc ...). - mộc - (gỗ, bao gồm tất cả cái loài cây cối) - thuỷ
-- (nước, bao gồm mọi chất lỏng). - hoả - (lửa, bao gồm mọi chất đang cháy) và -
+ên,
+âu
 
-thổ- (đất, bao gồm đất cát).... "
+t cau nhíu, hành mộc. * Thứ ba, dáng đ
 
-Loại nhận định này trên cơ sở cho rằng ngũ hành là triết học duy vật sơ
-khai của cổ nhân. Theo tôi, hai tác giả Đỗ Tất Lợi và Quang Đạm có thể trong
-quá trình sưu tầm tài liệu để viết những đoạn văn trên đã gặp phải những quan
-điểm duy vật sơ khai trong nhãn quan của con người thời nay để xem xét thành
-tựu khoa học của thời xưa, cho nên khó mà miêu tả nổi những quy luật đó. Trong
-bài của tác giả Quang Đạm vừa trích trên đã mắc vào điều mà cổ nhân đã từng
+húm, là sự sợ
 
-phê phán là: Đạo (quy luật) vốn là tự nó đã như thế, càng giải thích về nó nhiều
+ˆ
 
-93
+, miệng cong
 
+HỎA
+MỘC
+THÔ
+KIM
+HỦ
 
+hơi cúi, nét mặt
+NGŨ HÀNH
 
-<!-- page 95 -->
+ầu
+ăn n
 
-lời (ý nói sự giải thích không đúng bản chất của nó) càng làm cho Đạo trở nên
-khó hiểu.
-2. Vị trí của hành thổ trong ngũ hành không nhất định theo một
+† mặt nh
 
-thuận tự.
+NÉT MẶT
 
-Trong ngũ hành, vị trí và phương hướng của hành thổ tuỳ theo các quy luật
+ớ
 
-chứa nó khác nhau, như sau:
+hành thổ. * Thứ tư, dáng đ
+âu cúi gập, né
 
-- Ngũ hành trong hậu thiên bát quái, hành thổ ở đông bắc (cấn), tây nam
-(khôn).
+ên, mặt tươi cười, các nét mắt
 
-- Ngũ hành ở Hà đồ, Lạc thư, hành thổ ở trung ương (số 5 và 10), lại còn ở
+hành hỏa. ° Thứ hai, dáng đầu hơi ngửa, hơi nghiêng, nét m
+ngay ngắn, nét mặt bình thản, mắt miệng ngay bằng,
 
-cả đông bắc (số 8), và tây nam (số 2).
-- Ngũ hành ở Hông phạm và Trâu Diễn, hành thổ ở trung ương.
-- Ngũ hành ở Nguyệt lệnh, hành thổ ở trung ương và tây nam.
-- Ngũ hành theo Đồng Trọng Thư thì hành thổ ở tây nam.
-- Ngũ hành ở lục khí thì hành thổ ở các năm sửu, mùi.
-- Ngũ hành ở ngũ vận, hành thổ ở các năm giáp, kỷ.
-- Ngũ hành ở thập thiên can, hành thổ ở mậu, kỹ.
-- Ngũ hành ở thập nhị địa chi, hành thổ ở thìn, tuất, sửu mùi.
++
 
-Do chưa một tài liệu nào nói về bản chất của ngũ hành nói chung, cũng
-như nói về bản chất của hành thổ nói riêng, cho nên những vị trí khác nhau của
-hành thổ trong ngũ hành ở các quy luật khác nhau như trên đã là chỗ vướng mắc
+ặ
 
-nhất của các nhà nghiên cứu.
+ˆ
 
-94
+"
 
+, dưới cùng, đi
 
+ầu ngửa
 
-<!-- page 96 -->
+am
 
-G. Những tính chất đặc trưng của hành thổ.
-1. Tính chất hành thổ trong các quy luật chứa nó thuộc về không
-gian, theo phương vị mặt đất.
+t1
 
-Trong các quy luật có chứa nội dung ngũ hành, ta thấy phương vị của hành
-thổ ở ba nơi là đông bắc, tây nam và trung ương.
-Trước hết ta xem xét về thổ quan hệ tới đời sống vạn vật ra sao?
+:* Trên cùng, dáng đ
+DÁNG ĐẦU
 
-Quan sát khí vật tương ứng, người xa đã ghi nhận được rằng thổ khí, gió từ
-hướng tây nam tới, khí trời nóng ẩm, cuối mùa hạ, trái cây chín nẫu, rụng thối,
-ma nhiều, đất nhão thành bùn. Các sách y học thì ghi rằng khi có gió đông bắc,
-trời hay mưa phùn, độ ẩm cao, nhiều bệnh lây lan phát sinh như cảm, cúm, sởi
-đậu mùa v.v... khi có gió tây nam, khí trời oi ả nóng và ẩm, những bệnh đường
-ruột, sốt rét thường phát sinh và lây lan v.v... Những bệnh tê bại thường do thấp
-khí gây ra, v.v... Các lão nông thì kinh nghiệm rằng cây cối, hoa màu khi gặp gió
-đông bắc và tây nam đều bị tàn lụi, nhiều sâu bệnh, và kém năng suất. Khi trời
+là buồn, hành kim. * Thứ n
 
-không có gió, khí đất tại chỗ bốc hơi lên, là trung ương, là thổ khí.
+ên xuống
 
-Tỷ lệ khí của hành thổ: Trong bảng tý lệ nhiệt độ, độ ẩm của các loại khí
+miệng cụp xuống
+hãi, hành thủy.
 
-và phương hướng ở trên ta thấy một nét đáng chú ý như sau:
-- Gió hướng đông bắc : nhiệt 25%, ẩm 75%
-- Gió hướng tây nam : nhiệt 75%, ẩm 25%
-- Gió hướng trung ương: nhiệt 50%, ẩm 50%
+Ñ|@|e=lSà| t
 
-Nếu ta đem cộng chung tỷ lệ của cả nhiệt và ẩm, ta thấy ở các hướng khác
+Hình 4-38 : Quan hệ giữa dáng đầu, nét mặt với ngũ hành.
 
-nhau ấy, hướng nào cũng có một tổng chung là 100%
-- Hướng đông bắc: 25% nhiệt + 75% 100%
-- Hướng tây nam : 75% nhiệt + 25% = 100%
-- Trung ương : 50% nhiệt + ẩm 50% = 100%
+Thứ tự từ tr
 
-Tính chất âm dương ở khí: nhiệt là đương, ẩm là âm.
+- Khi vui sướng thì người ta nhảy lên reo múa, bế bổng nhau lên, kiệu
+nhau lên, ước muốn bay vọt lên. Khi nói những tiếng chỉ sự vui sướng là những
+tiếng có tượng thanh mang dấu sắc như: sướng quá, múa hát, đánh trống, líu tíu
+khoái chí, hú hí v.v... thì đáng đầu cổ cùng với sức bơi phải hất lên cao. Vì thế
 
-95
+hướng lên cao chính là hành hoả chỉ sự vuI.
 
+- Khi dùng sức để đỡ dựng một cây cột lên hay phải dùng sức bẩy một vật
 
+nặng lên; khi hăng hái xông vào trận mạc, khi nói những lời cổ động lòng người
 
-<!-- page 97 -->
+225
 
-Giả như có hiện tượng cả âm và dương đều tối đa trong khí, tổng tỷ lệ của
-âm và dương trong khí sẽ là nhiệt 100% + ẩm 100% : 2000
 
-Lại giả nh có hiện tượng âm và dương trong khí đều tối thiểu,
-tổng tỷ lệ âm và dương trong khí sẽ là nhiệt 0% + ẩm 0% = 0%
 
-Vậy tổng tỷ lệ âm dương nếu bằng 200% chia cho 2 = 100% sẽ là trạng
-thái khí trung bình.
+<!-- page 227 -->
 
-Theo đó mà xét thì thổ khí ở cả ba hướng đông bắc, tây nam, và trung
+đều phải dùng đến tiếng có khứ thanh mang dấu ngã như: hãy, đã, vẫn,
+dũng mãnh, lừng lẫy, vẫy tay .v.v... thì đáng người và đầu cổ đều hất chéo lên về
+phía trớc. Vì thế hớng chéo lên là hành mộc chỉ sự hăng hái, dũng cảm, sức
 
-ương đều là trạng thái khí trung bình.
-Phân tích thêm bước nữa, ta thấy thổ khí có ba mức:
+chống đỡ.
 
-- Trạng thái khí trung bình, thế quân bình là trung ương, với tỷ lệ
-nhiệt 50% + ẩm 50% = 100% (nh thổ).
+- Khi can ngăn một hành động, khi nói một lời êm ái, lời răn đe, phòng
+ngừa, thì hai tay ta phải đưa về phía trước, đẩy sang hai bên, đầu cổ ngang bằng,
+sức hơi đều đều. Cho nên hướng đi ngang bằng là hành thổ, chỉ sự can ngăn lo
 
-- Trạng thái khí trung bình, thế dương thắng là tây nam, với tỷ lệ nhiệt
-75% + ẩm 25% = 100% (âm trong dương thổi).
+lắng.
 
-- Tình trạng khí trung bình, thế âm thắng là đông bắc, với tÿ lệ nhiệt
-25% + ẩm 75% = 100% (dương trong âm thổ).
+- Khi có sự buồn bã thì uể oải, đứng đâu cũng phải dựa thân vào vật đỡ
+như gốc cây, cột, bờ tường. Đứng dựa là chân chống chéo xuống. Khi nói những
+tiếng chỉ sự buồn bã là những tiếng có thanh hồi mang dấu hỏi như khổ sở, phải
+chịu, bẩn thỉiu, đở dang, hỏi han, chỉ bảo, thủ thí, thủng v.v... dáng đầu cổ và
 
-Trong tất cả các quá trình vận động của tự nhiên và xã hội, hết thảy đều do
-hai chiều hướng lực thúc đẩy ngược nhau gây ra, chiều hướng vận động sẽ do
-chiều hướng của lực mạnh hơn quyết định. Nếu hai chiều hướng đó có lực cân
-bằng nhau, hướng vận động sẽ bằng không. Vì vậy trạng thái trung bình là một
-trạng thái tính, sự sống là một quá trình vận động không ngừng, trạng thái trung
-bình âm dương là một biểu hiện điểu kiện bất lợi cho sự sống, bất kể là tình
-trạng trung bình trong nội môi hay ở ngoại môi:
+sức hơi phải chéo xuống. Do đó, hướng chéo xuống là hành kim chỉ sự buồn.
 
-"Trung ương, trung bình, tĩnh lặng, đều là những tính chất của thổ khí gây
-ra cho vạn vật, nó là tính chất đặc trưng của hành thổ trong ngũ hành.
+- Khi bị rơi từ trên xuống, khi đu trên cao thống người xuống thì thấy
+hoảng sợ. Khi nói những tiếng chỉ sự hoảng sợ phải dùng hạ thanh mang dấu
+nặng như sợ sệt, bị đập, lạy lục, cậy cục thì dáng đầu cổ và sức hơi phải gập
 
-Đến đây, tôi có thể thưa rằng phép tính số học mà tôi vừa dùng để dẫn
-chứng một quy luật tổng quát là quy luật âm dương ngũ hành, không những
-không trái quấy mà còn là một sự cần thiết, bởi vì nhờ có các con số cụ thể của
+thẳng xuống. Vì thế hướng thẳng xuống là hành thuỷ chỉ sự sợ sệt.
 
-phép tính, ta mới có thể trình bày và tiếp nhận các tính chất cơ bản của ngũ hành.
+Bảng tương ứng hướng nhìn, hướng sức, dáng đầu (Bảng 4-17)
 
-96
+Bảng 4-17
+H-íng nhxn Ho't ®éng H-íng søc TiÕng nãi D,ng ®Œu NÑgò hụnh T©m lý
+cã thanh cœ
+Ngöa n cao | Nh$y n, gi Vặt ln Th-?ng HẾt cao l^n Hof Thn minh,
+n vui
+ChÐo ln §ì, bEy, lao ChÐo n Khø HẼt chÐo n Méc M-u lù, giEn
+ng-êI vO
+phYa tr-íc
+Ngang b»ng Ngn c1ịn §-a ngang §o'In bxnh Ngang b»ng Thœ Gi,nnghb, lo
+tr-êng bxnh
+ChÐo xuẻng Dùa, tùa Dắn chÐo Hải ChÐo xuẻng Kim TrP tiÕt,
+xuẻng buản
+Cói xuẻng R¬1, ®u R1 xuèng H GÉp xuèng Thuô Kũ x%o, s?h1
+thÊp
 
+226
 
 
-<!-- page 98 -->
 
-Đặc biệt là tính chất của hành thổ, một vấn đề còn bỏ trống trong các nhận định
+<!-- page 228 -->
 
-của nhiều học giả từ đây trở về trước.
-2. Hành thổ theo thời gian
+Phạm vi kết hợp với chiều hướng gồm các yếu tố màu sắc, đường nét, độ
 
-Trước hết, tôi giới thiệu hành thổ trong các quy luật tính theo thời gian
+dài (Hình 4-39, 4-40, 4-41, 4-42).
 
-bằng năm:
+Bảng tương ứng chiều hướng, đường nét, màu sắc, ngũ hành
 
-a. Hành thổ theo lục khí ở những năm sửu, mùi. Sách Trung y khái luận
+(Bảng 4-18):
 
-viết về lục khí như sau:
+ChiÒu h-íng §i n ChÐo xuèng §i ngang ChÐo xuèng §i xuèng
+§-êng nĐt ` ⁄ G2) Xx. ^^,
+Mụu s3⁄c §á Xanh 'Vụng Tr⁄4ng §en
+Ngò hụnh Hof Méc Thœ Kim Thuô
 
-"Khách khí di chuyển là lấy sự nhiều ít của khí âm dương làm thứ tự trước
-sau, như: Quyết âm (nhất âm), thiếu âm (nhị âm), thái âm (tam âm), thiếu dương
-(nhất dương), dương minh (nhị dương), thái dương (tam dương). Mỗi năm có
-một khí làm chủ, thay đổi từng năm, luân chuyển không ngừng, đó là khách khí
-trông coi về từng năm... Cách tính về tư thiên, tại tuyển thì căn cứ phù hiệu địa
-chi của mỗi năm theo quy luật địa chi phối hợp với tam âm, tam dương nói ở trên
-mà quyết định. Sau khi theo nên chi tính ra khí tư thiên rồi thì có thể biết được
-khí tại tuyền, vì khí tư thiên của mỗi năm là cố định ở khí thứ ba của chủ khí mà
-khí tại tuyên thì cùng đối với khí tư thiên ở chỗ chung khí, mỗi năm một lần thay
-đổi, như thế là trong 6 năm sẽ có 6 tư thiên, tại tuyển khác nhau, xem bảng dưới
-đây (bảng 3-5):
+227
 
-Bảng 3-5. Quy luật niên chỉ với (khí) tư thiên, tại tuyền
 
-Niên chỉ Tư thiên Tại tuyên
-Tý, ngọ Thiếu âm quân hoả Dương minh táo kim
-Sửu, mùi Thái âm thấp thổ Thái dương hàn thuỷ
-Dần, thân Thiếu dương tướng hoả | Quyết âm phong mộc
-Mão, dậu Dương minh táo kim Thiếu âm quân hoả
-Thìn, tuất Thái dương hàn thuỷ Thái âm thấp thổ
-Ty, hợi Quyết âm phong mộc Thiếu dương tướng hoả
 
-Đây là nội dung của khách khí, loại khí biến hoá khác thường của khí hậu
+<!-- page 229 -->
 
-hàng năm.
+'ÁnuL : Buonx Bueu) 'ueq 'uIiy : Buọnx oeu2 'Bug1 'ouL : BugBu.
+Ip 'ÔuệA 'ĐỘNN : Luội o9 'uex '6QH : uọi BueU) 'o@ : ueu nồu oeuyuenuo Buonu nẹu2 IoA ngịA -
+'Õ8uonu nẹ¡u2 JoA nE/\ : 6E-y uIH
 
-97
+228
 
 
 
-<!-- page 99 -->
+<!-- page 230 -->
 
-Tính chất thấp thổ đi theo mức độ thái âm để chỉ rằng năm sửu, năm mùi
-sẽ có khí thất thường ảnh hưởng đến con người và vạn vật giống như tính chất
-khí thấp ở mùa và phương hướng đã ảnh hưởng tới con người và vạn vật. ảnh
-hưởng này trên con người có hai mặt: Một là, theo tên khí (tuỳ theo khí cụ thể
-như phong, hàn, thử, thấp, táo), sẽ có những biến đổi tính chất của công năng
-tạng phủ tương ứng hai là, theo mức độ âm dương của tên khách khí, ở đường
-kinh lạc có tên cùng mức độ âm dương sẽ có những biến đổi sinh lý, bệnh lý
-khác thường. Ví dụ, vào những năm sửu, năm mùi, khách khí tư thiên là thái âm
+lu
 
-thấp thổ, đường kinh lạc có diễn biến tương ứng là kinh túc thái âm tỳ.
+TÁC GIÁ LƯƠNG V LÊ VĂN SỬ
 
-Khách khí tư thiên có chu kỳ 6 năm, ảnh hưởng do lục khí gây ra là loại
-ảnh hưởng do sự vận động tương tác giữa những vật thể vũ trụ ngoài hệ mặt trời.
-Theo nội dung, chúng ta một lần nữa được hiểu thêm rằng mọi ảnh hưởng của vũ
-trụ tới vạn vật và con người đã được người xưa nhận thức thông qua sự quan sát,
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
 
-ghi nhận sự biến đổi khí hậu môi trường sống trên mặt đất.
+JIIRI/I0|l
 
-b. Hành thổ theo ngũ vận ở những năm giáp, kỷ. Sách trung y khái luận
-viết về ngũ vận như sau: ”... căn cứ vào thiên Khí giao biến đại luận và thiên Chí
-chân yếu đại luận trong Nội kinh có chép, bất luận ngũ vận biến hoá hay lục khí
-biến hoá đều có thể gây bệnh cho người ta, nhưng đem quan hệ giữa khí hậu biến
-hoá với bệnh tật mà xét thì quy luật cơ bản là nhất trí, chủ yếu là nói những bệnh
-tật vì khí hậu khắc với tạng khí mà gây nên, thứ hai là nói những bệnh vì khí hậu
-ảnh hưởng đến tạng thuộc với khí mà phát ra, thứ ba nữa còn ảnh hưởng kinh
+¬1nỀDDm¬Aa.ằẶ ố >> >^
 
-mạch và quan hệ biểu lý giữa các tạng phủ mà phát bệnh v.v... "
+ZlZ‹ ⁄
 
-Điều trong học thuyết ngũ vận lục khí không nói rõ nhưng chúng ta có thể
-hiểu được rằng tuy cùng tính bằng đơn vị thời gian là năm, nhưng hai loại có hai
-chu kỳ số năm khác nhau, tất phải do hai lực tương tác khác nhau. Tuy là hai lực
-tương tác khác nhau có hai chu kỳ vận động khác nhau nhưng lại cùng ảnh
-hưởng vào khí hậu quả đất. Học thuyết vận khí đã tính được sự song hành lặp lại
-giữa khí với vận và can của năm bằng 30 năm; lặp lại giữa khí, vận, can, chi là
+SN SN
 
-60 năm. (Xem học thuyết lục khí ngũ vận trong sách Trung y khái luận).
+"ÁnUJ “ul 'Ou1 “9u “eọu : Bugs I8!) nị ñỊ nưy oeul 'neui Buno Buọnu nọIu2 2eux 'ồueBu Buẹu s -
+'Ẩnu] “013 'ou '2ÓUI “eọu : Buọnx uọ11 mị ñỊ nuy oeu) 'neul 2eu3 Buọnt nạ Bun2 '2ỏp Buẹu 9 -
+'8uonu neJt2 gA nẹu enI6 ó uenÐ : 0y-y 1H
 
-98
+229
 
 
 
-<!-- page 100 -->
+<!-- page 231 -->
 
-c. Hành thổ trong 10 thiên can ở vào hai năm mậu, kỷ. Theo cách tính này
-thì chu kỳ 10 năm thiên can được chia ra làm 5 cặp: giáp ất, bính định, mậu kỷ,
-canh tân, nhâm quý; mỗi cặp ứng với một hành theo thứ tự tương sinh, bắt đầu từ
-giáp ất mộc; bính đinh - hoả; mậu kỷ : thổ; canh tân = kim; nhâm quý thuỷ.
+JY LÊ VĂN SỬU
 
-Cùng là đơn vị năm can dùng để tính quy luật, nhưng ngũ vận và thập
-thiên can có những đặc điểm khác nhau như sau:
+2
 
-Ngũ hành trong ngũ vận có chu kỳ là 5 năm, cho nên 10 năm thiên can là
-hai vòng ngũ vận, hành thổ ở năm giáp đầu vòng thứ nhất và năm kỷ đầu vòng
-thứ hai.
+TẢ LƯƠNG
 
-Ngũ hành ở thập thiên can có chu kỳ 10 năm, hành thổ ở vào hai năm
-mậu, kỷ, cặp thứ ba trong năm cặp thiên can.
+Ƒ
 
-Bảng so sánh sự khác nhau của ngũ hành ở ngũ vận và thập thiên can nh
-sau (Bảng 3-6):
+TÁC C
 
-Bảng 3-6
-Ngũ hành ở ngũ vận Ngũ hành ở 10 thiên can
-Tên can của năm Hành Tên can của năm Hành
-Giáp, kỷ Thổ Giáp, ất Mộc
-Ất, canh Kim Bính, định Hoả
-Bính, tân Thuỷ Mậu, kỷ Thổ
-Đình, nhâm Mộc Canh, tân Kim
-Mậu, quý Hoả Nhâm, quý Thuỷ
+7D HÀNH
 
-99
+NG
+
+7
+
+HOC THUYẾT ÂM DƯƠNG
+
+=Z¬=:Í
+
+Ỉ
+`
+⁄
+bỤ
+
+`ÑL|ÒỦÍ
+= |\
+l .
+\ộ_
+THIÊN
+
+¬—...«a
+
+vn
+
+>.
+
+. Buonu neIuo eno queu 2eu3 nẹul en2 Luẹt 'ieud uẹq IệoÕu 162 -
+
+'neul Eno uuợu 2E Buonu neIu2 eno tugu ',pud uọq Buon 1Ô2 -
+'Buonu nẹIu9 Enio uệu tuIs nẹu! en2 uuẸt 'te1) uẹq teoBu 1ó2 -
+'neul n2 uueu uuIs Buonu nọIU2 n2 quệu 'tg1 uọg Buon 1Ò2 -
+
+'Buop Buon Buonu neIu9 eno tueu ẸA nẹui en2 tuẹu “enIB 1ö2 -
+
+'2pu uon) “quIs 6uon] 'Ôuop 6uon] oou '6uonu nọI2 ÿA ngu! enIB éu uUen/) : Lty-b uuI!H
+
+230
+
+
+
+<!-- page 232 -->
+
+r-
+
+- 5 hàng ngang, cùng đường nét khác chiều hướng, theo chiều thứ tự từ trái sang : mộc, hỏa, thổ,
+
+›
+
+kim, thủy.
+
+ộc, hỏa, thổ, kim,
+
+ên xuống : m
+
+hiều hướng và đường nét.
+
+- 5 hàng dọc, cùng chiều hướng khác đường nét, theo thứ tự từ tr
+
+ệ giữa c
+
+Hình 4-42 : Quan h
+
+“tài K-.l ve |1:
+
+thủy.
+
+Hiệu quả cảm giác của các kết hợp bằng tổng hiệu ứng của các yếu tố Ví
+dụ: nét thẳng, màu trắng, đi chéo lên là thổ + kim + mộc. Nét cong câu, màu đỏ,
+
+đi ngang là kim + hoả + thổ v. v....
+6. Tương ứng giữa độ dài với ngũ hành và tâm sinh lý người:
+
+Độ dài trong không gian và trong thời gian là các cách ghi nhận sự tồn tại
+
+của vạn vật ở trong tự nhiên.
+
+231
+
+
+
+<!-- page 233 -->
+
+Giới hạn độ dài tương đối trong thiên nhiên dùng làm mức trung bình, qua
+đó mà so sánh các mức độ khác. Mức đó là góc nhìn thị giác còn cảm nhận
+chính xác sự vật, tức là bằng từ 2/5 đến 3/5 giới hạn nhìn của mắt người (ở trong
+tác phẩm nghệ thuật thì lấy giới hạn khung tranh thay cho giới hạn nhìn của mắt
+người. Ở thời gian thì lấy khoảng cách cần thiết để hoàn thành một việc với sức
+lực và tài nghệ trung bình. Ở thanh thì lấy đoản bình và trường bình làm thanh
+trung bình (Hình 4-43).
+
+Các mức độ dài tương ứng với ngũ hành và tâm sinh lý con người như sau
+(Bảng 4- 1 9) :
+
+Bảng 4-19
+§é dui Ng3⁄n H-ï ng3⁄n Trung bxnh H-ïi dụi Dưi
+Gãc thb g1,c 1/5 1/5-2/5 2/5-3/5 3/5-4/5 4/5-5/5
+ém Chuñ Gièc Cung Th-—ng Vò
+Thanh Th-?ng Khø §o*In, Tr-êng Hải H
+Ngò hụnh Hof Méc Thœ Kim Thuô
+T©m lý ThÉn minh, vui Mu lù, giÊn GI,nnghbB, lo Trb tiÕt, buần Kũ x%o, sỉ hi
+
+Hiệu ứng do độ dài gây ra là một quy luật phổ biến. Lấy ví dụ về thời gian
+để minh hoạ tính phổ biến này như đã nêu ở phần ngôn ngữ tiếng Việt.
+Về hiệu ứng độ dài của thanh đối với tâm lý con người tôi đã bàn chuyên
+
+Ở trên.
+
+œ
+
+đ
+
+Phạm vi kết hợp với yếu tố độ dài thì chỉ có màu sắc là rõ nét hơn cả
+
+(Hình 4-44).
+
+232
+
+
+
+<!-- page 234 -->
+
+'ẨnU†.“u1{ 'QU) “9U “EOU : †guu tẹp uọp ugBu jỊ ñỊ nụi dọx uenu2 Iẹp ộp ẹA ngỊA -
+'UeH2 Jgp ÔÐ-EA nẹu! 60/6 ồ U8n) : ey-b UIH
+
+233
+
+
+
+<!-- page 235 -->
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
+
+mộc, hỏa, thổ, kim, thủy
+mộc, hỏa, thổ, kim, thủy
+
+IS)
+'S))
+cóc
+ ø
+Sơ
+*<
+cự
+ke
+-_— —
+¬.‹5
+"1x
+.c O
+°<
+— O
+8 œ
+ng
+ST
+t9. 1
+.ø
+> Ko
+,5 O‹œ
+‹%{W ‹Ú CŒ
+E<£*
+œ — Z
+%5 :Œ Œ
+‹ạ.{Ø  œ
+“1a
+5
+ác,
+tW.¬3 _-
+h-
+©@ Œ@
+`` ©:
+=®+© %G“ˆCÃ
++EP
+*«œ
+&£.=.<
+1 SA
+
+Bảng tương ứng giữa độ dài, màu và ngũ hành (Bảng 4-20):
+
+L
+
+1 §
+
+Bảng 4-20
+§é dụi 1/5 1/5-2/5 2/5-3/5 3/5-4/5 4/5-5/5
+Mụuu §á Xanh Vụng Tr3⁄4ng §en
+Ngò hụnh Ho1 Méc Thœ Kim Thuô
+
+234
+
+
+
+<!-- page 236 -->
+
+Khi có một vật dài, một mảng dài mang màu nào đó thì hiệu ứng của hỗn
+hợp này sẽ bằng tổng số hành của màu + hành của độ dài (Hình 4-45).
+
+Ví dụ: Màu đỏ ở mảng dài 4/5, hiệu ứng tâm lý là Hoả + Kim
+
+Màu đen ở mảng dài 1/5, hiệu ứng tâm lý là Thuỷ + Hoả.
+
+Các yếu tố khác kết hợp thêm với màu và độ dài theo đó mà suy ra.
+
+7. Tương ứng giữa độ lớn với ngũ hành và tâm sinh lý người.
+
+Độ lớn của hình thể là do biểu hiện của vạn vật có độ dài hai chiều trong
+
+không gian thị giác (phạm vi mắt nhìn thấy).
+Độ lớn được xem xét ở hai khía cạnh:
+
+- Những vật thể hay nhóm vật thể cùng tạo thành một mảng, chiếm một
+
+phần diện tích ở không gian thị giác.
+
+Các mảng ấy tuỷ theo tỷ lệ trong diện tích chung mà tác động vào tâm
+
+sinh lý con người tương ứng với ngũ hành.
+
+Ở trong tác phẩm nghệ thuật tạo hình thì tính tỷ lệ theo diện tích tác phẩm
+(hình 4-46).
+
+235
+
+
+
+<!-- page 237 -->
+
+ÚU
+
+Ê VĂN S
+
+TÁC GIẢ LƯƠNG VL
+
+ƯƠNG NGŨ HÀNH
+
+HOC THUYET 1M D
+
+_ ni
+
+LÌ
+
+E ực p6.
+
+—————— —r
+"¬...^
+
+lH
+
+'TnỆUI E9 quUộU 9EU3 ID Óp øn9 tquu “tpud uọg reoBu 1Q2 -
+
+Ép ộp #9 quu gu nẹu! øno guẹu 'ieud uọg 6uolt 1ộ2 -
+
+'TiệUI 19 QUẸU UUỊS JD ỘP 719 UẸU 'JE1 Uọ IBOBU 1Ò2 -
+
+'IẸP Ộp En9 tuệu (JuIs nẹu! n2 quệu 'iê1) uạq 6uo4] )Ò2 -
+
+'Buop Buon) Iệp ộp eno tuệt| ệA nẹui en9 tquu 'enIổ 1ộO -
+
+'2puy Buon) “\uIs 6uon) '6uop Buon) oeu) 'ED öD gA nẹuu enIB t UEn0 : Sp-y u1H
+
+236
+
+
+
+<!-- page 238 -->
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
+
+Mầu và độ lớn chuẩn.
+- Mầu và độ lớn chuẩn xếp thứ tự từ trái sang phải : Mộc, hỏa, thổ, kim, thủy.
+
+Hình 4-46 :
+
+Tỷ lệ tương ứng với ngũ hành và tâm sinh lý người như sau.
+
+(Bảng 4-21):
+
+Bảng 4-21
+Tô lÖ diÖn T-—ng ®-—ng T-—ng ®-—ng T-—ng ®-—ng T-—ng ®-—ng T-—ng ®-—¬ng
+tÝch 1/5 x 1/5 2/5x2/5 3/5x 3/5 Al5 x4/5 5/5x 5/5
+Ngò hụnh Ho1 Méc Thœ Kim Thuô
+
+237
+
+
+
+<!-- page 239 -->
+
+T©m lý ThÉn minh, vui M-u lù, giÊn Gi,nnghb, lo Trb tiÕt, buần Kũ x%o, sỉ hi
+
+- Những vật thể cùng chủng loại đem so sánh nội bộ với nhau, các hiện
+tượng hình thể to nhỏ khác nhau cũng cho các hiệu ứng tâm sinh lý khác nhau
+(Hình 4-47, 4-48).
+
+- Lấy hình thể con người đã trưởng thành làm đối tượng quan sát sẽ thấy
+
+hiệu ứng tâm lý gây ra như sau:
+
+- Vóc người quá nhỏ bé trớc mặt ta sẽ gây cho ta một cảm giác hài hước.
+Các rạp xiếc thường chọn những người này làm các trò vui. Vì hợp giữa hình
+thức và nội dung.
+
+- Người nhỏ bé hơn ta một ít trớc mặt ta gây cho ta một sự phấn chấn, tự
+tin.
+
+- Người to hơn ta một ít ở trước mặt ta, gây cho ta cảm giác hơi buồn.
+
+- Người quá to lớn ở trước mặt ta, tự nhiên ta thấy sợ.
+
+Mọi cảnh vật thiên nhiên cũng theo tính chất phổ biến của quy luật mà tác
+động vào tâm sinh lý con người. Ví dụ: Cảnh núi non bộ là một mô hình thu nhỏ
+của núi, sông, cây, cỏ, nó cho con người một cảm giác vui vẻ khi ngắm nó. Cảnh
+ngôi miếu nhỏ bên gốc cây đại thụ, hay ngôi đền thờ vị anh hùng dưới chân một
+ngọn núi cao sừng sững đã tạo ra một cảm giác linh thiêng, sợ sệt trong lòng
+
+chúng ta.
+
+238
+
+
+
+<!-- page 240 -->
+
+U
+
+TÁC GIÁ LƯƠNG V LÊ VĂN SỬ
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH
+
+TNNF
+4/0/:10|i8
+
+'Ẩnu “I3 'ọu) 'eọu “2Òut = Bu8S I81} mị ñỊ nu oeu 'uọi ộp 2eu3 nẹui Bun 'BueBu Buệu s -
+'Ánut 'uI 'Ou) “eou '2ôui = Buonx uạ1] mị ñ nưi o6) 'nẹu! 2eu uọi ộp Bun2 '9ộp BuẸu 9 -
+'U0I ÖP EA nẹu! 8n¡ ôu uønÐ : /b-y UIH
+
+239
+
+
+
+<!-- page 241 -->
+
+HOC THUYẾT ÂM DƯƠNG NGŨ HÀNH TÁC GIÁ LƯƠNG Y LÊ VĂN SỬU
+
+độ lớn.
+
+hải, hành của độ lớn khắc hànSủa màu.
+
+kì
+
+trái, hành của độ lớn sinh hành của màu.
+của
+
+hành
+
+khắc
+
+độ lớn, theo tương đồng, tương sinh, tương khắc.
+
+- Cột giữa, hành của màu và hành của độ lớn tương đồng.
+- Cột trong bên trái, hành của màu sinh hành của độ lớn.
+
+ệ giữa rhâu vả
+
+Ủủa màu
+
+, hành c
+
+hải
+
+- Cột trong bên p
+- Cột ngoài bên p
++4!
+
+ị
+ì
+W
+
+Hình 4-48 : Quan h
+- Cột ngoài bên
+
+Nghệ thuật tạo hình cổ Phương Đông đã sử dụng quy luật này một cách rất
+nhuần nhuyễn, rất tự nhiên. Ví dụ: Để giảm bớt cảm giác sợ sệt khi đứng dưới
+các kiến trúc đồ sộ, người ta đã đục chạm các con vật, các cảnh sinh hoạt nho
+nhỏ, xinh xinh trên các vì kèo, đầu đao cho vui mắt. Trên mảng mái rộng lớn có
+các chi tiết mũi hài ở đầu viên ngói, dưới mảng mái có những đoạn dụi, mè, đòn
+tay, là những chi tiết nhỏ thuộc hành hoả trong các mảng lớn hành kim, hành
+
+thuỷ của bố cục, làm cho giữa lớn nhỏ đạt độ hài hoà.
+
+240 l - -
+
+
+
+<!-- page 242 -->
+
+Những bố cục thần thoại có các vị tiên, thánh, vua, chúa thì hình người đó
+
+được mô tả lớn hơn để gây hiệu ứng tâm lý kính nể, sợ sệt cho người xem. Trong
+
+từng nhân vật thì cái đầu được mô tả to hơn, tròn hơn để nhấn mạnh sự chú ý đến
+
+cái thần minh của hành hoả, của khối tròn. Đôi bàn tay được mô tả nhỏ đi một ít
+
+để nhấn mạnh lòng tự tin, tính hành động của hành mộc (mộc là hơi nhỏ hơn
+
+thật). Một vài trường hợp cái đầu mô tả quá to đã cho người xem một cảm giác
+
+đó là quái thai.
+
+Độ lớn có khả năng kết hợp với các yếu tố hình và màu là chính, yếu tố
+
+đường nét vẫn chỉ giữ vai trò là thành phần phụ vào đó mà thôi.
+
+Bảng tương ứng độ lớn hình, màu với ngũ hành và tâm sinh lý con người
+
+(Bảng 4-22).
+
+Bảng 4-22
+§é lín Hxnh Muu NÑgò hunh Tôm lý
+Nhá Trồn §á Ho1J Thn minh, vui
+H¬1 nhá Chz nhÊt Xanh Méc M‹u lù, giÊn
+'Võa ph4|i Vu«ng Vung Thœ Gi,nnghb, lo
+Hi lín Tam g1,c Tr⁄4ng Kim TrP tiÕt, buần
+RẼt lín GẼp nhiÒu khóc §en Thuô Kũ xo, sĩ h1
+
+Những biến đổi kết hợp khác nhau thì hiệu ứng tâm lý của kết hợp bằng
+
+tổng số hành của các yếu tố trong kết hợp đó.
+
+Ví dụ:
+
+- Màu đỏ trong hình tam giác có độ hơi lớn là hoả kim + kim.
+- Màu đen trong hình chữ nhật rất nhỏ là thuỷ + mộc + hoả.
+
+Các cách kết hợp khác nhau theo đó mà suy ra (Bảng 4-23).
+
+241
+
+
+
+<!-- page 243 -->
+
+D. Phương pháp sử dụng các quy luật tương ứng với tâm sinh lý người
+
+để đánh giá tác phẩm nghệ thuật tạo hình
+
+Muốn đánh giá một tác phẩm nghệ thuật tạo hình, đương nhiên phải căn
+cứ vào các yếu tố tạo hình và phải tiến hành có thứ tự trước sau, có phân chia
+
+chính phụ.
+
+Trước hết, xem tác phẩm nằm trong khuôn hình giới hạn là gì, hành của
+khuôn hình có phù hợp với hành của nội dung toàn bộ hay không. Ví dụ: Tả tĩnh
+vật trong khuôn hình vuông là hợp. Tả nỗi buồn trong khuôn hình góc nhọn của
+kiến trúc nhà thờ kiểu lôgích là hợp. Tả cảnh sợ hãi của địa ngục trong một dãy
+liên hoàn có khuôn hình uốn khúc hay kéo dài hết tầm (quá dài là hành thuỷ) là
+
+hợp. Tả cảnh chiến đấu trong hình chữ nhật, niềm vui trong hình tròn là hợp.
+
+Tiến tới, ta chia nội dung tác phẩm theo các khu vực là thành phần chính
+phụ khác nhau, lần lượt xét hiệu ứng của các yếu tố trong thành phần đó có phù
+hợp với ý đồ nội dung hay không (theo hình, màu, độ to nhỏ, vị trí cao thấp,
+đường nét các chi tiết v v... ). Nếu bộ phận nào đó có tính chất phát triển chiều
+dài thì đem yếu tố màu sắc cộng với chiều hướng để tìm hiệu ứng tâm lý mà so
+
+với ý đồ nội dung.
+
+242
+
+
+
+<!-- page 244 -->
+
+Quy luật Âm dương Ngũ hành trong các yếu tố nghệ thuật... 263
+
+=œ
+_ E=°j "= C
+> vs: ®+®Ð® ¬ Ø' œ -®
+= E = = > 5 c sec
+E | £ |g£5|z£ |sšlsẽ
+œ® œ ‹q E- E£ £C ‹%-
+@O - ĐẸ Ê
+k3 sẽ
+§ : là = x@ Eez °
+B :> =— E = E x03 ‹đ œ
+" E  ‹6 3 © kc *< .C
+Đ ‹qđ 5 c > Km == >>
+= — = k& ni - x ~
+= E
+©
+S
+` lam Cc
+> œ ‹œĐ :® Đ © 2œ
+‹œ l Đ
+E +® = ° = s 8. ¬=
+5 |5š| 5 |5 = |°SSšS|Lš%
+© ¬ — "¬
+= - = - a “œ a *
+k\i œ m
+re
+> c =œ C œ
+S le = = nh = =
+Ề œ@ c so , = P
+E Š ® 5 5S 5
+‹ 53 c `
+* E = E le)
+*o
+TS
+s 8# .ằ@ |!9alesaltø~[t [t9 ø|a [19 | tÐ ko| to
+._— c c CC len
+" ø 9 |“ø „ | tssSẴẲ x |6 x E86 x [8S x
+§ | ŠSg|ã “* |Š “ |ã “ |§ * |5
+G a” œ @la ` œ œ| o x xị|to L2 to | to
+‹œ.
+C
+nộ œ ø c = E=
+Ni C 5 -Đ " ‹g &
+SU = ö
+t ch = — C ¬
+S. c œ ^›@ L@_ ch
+le Đ vE = c= = "¬
+s š |Š g⁄ | 8 :
+>> 5
+„ ˆ
+`
+~—
+œ
+e >> =¬
+Màv -+C “@G
+m = E
+, TL
+œ
+tụ
+« -C
+= S >
+°g K ‹ö -Ố = = "
+4
+
+Sau khi đã đem kết quả phân tích hiệu ứng tâm lý của các yếu tố tạo hình
+trong tác phẩm so với ý đồ nội dung, ta tiến hành phân loại giá trị tác phẩm như
+sau:
+
+Nếu toàn bộ hiệu ứng tâm lý của các yếu tố phù hợp với ý đồ nội dung, tức
+là cảm xúc và tài năng thể hiện của nghệ sĩ ngang sức tương ứng, hài hoà, cân
+
+bằng của tự nhiên. Tác phẩm đó là một tác phẩm có giá trị thẩm mỹ cao.
+
+243
+
+
+
+<!-- page 245 -->
+
+Nếu có sự sai lệch chút ít khi so sánh nh trên, có thể coi là những nhầm
+
+lẫn có thể xây ra, giá trị tác phẩm vẫn được coi là tốt.
+
+Nếu sự sai lệch khá nhiều, hẳn tác giả chưa có năng khiếu cảm xúc tết và
+
+tất nhiên tài nghệ chưa cao, giá trị tác phẩm là kém.
+
+Nếu toàn bộ hiệu ứng tâm lý sai lệch so với ý đồ nội dung tác phẩm là
+trạng thái cảm xúc bệnh hoạn, điên loạn của người làm ra nó, sản phẩm không
+
+xứng đáng gọi là tác phẩm nghệ thuật tạo hình được.
+
+Tôi rất mong những quy luật của khách quan tự nhiên giới thiệu trong này
+nhanh chóng được nhiều người tìm hiểu, vận dụng để kiểm nghiệm trong đời
+sống và trong sáng tác phê bình, góp phần nâng cao thị hiếu thẩm mỹ chung. Tôi
+nghĩ rằng việc tìm hiểu để nhận thức được quy luật cảm xúc bản năng của con
+người cũng giống như việc tìm hiểu về các hoạt động bản năng sinh học khác
+trong con người là một công việc mới mẻ và rất cần thiết, những kết quả có được
+
+có thể sẽ giúp ích cho con người không nhỏ.
+
+244
+
+
+
+<!-- page 246 -->
+
+LỜI HẬU BẠT
+
+Học thuyết âm Dương - Ngũ Hành ra đời cách đây nhiều nghìn năm, lại đã
+
+đi qua tim óc của nhiều triệu người có học ở mọi thời đại.
+
+Học thuyết âm Dương - Ngũ Hành đến với tôi từ thuở khai tâm, đi theo tôi
+trên khắp nẻo đường đất nước, nhưng mãi sau khi nớc Việt Nam hoàn toàn thống
+nhất, tôi mới có điều kiện tâm huyết và thời gian cùng với sự cổ vũ của bạn bè
+đồng nghiệp để vật lộn với cuộc sống và chữ nghĩa.
+
+Những øì có được trong tập sách này đều đã trải qua hơn 20 năm đèn sách
+miệt mài. Để đáp ứng lòng mong mỏi của mọi người, tôi tiến hành từng bước,
+từng phần, xong phần nào là công bố ở các cuộc hội họp, chuyện trò hoặc đăng
+trên tạp chí, vừa là báo đáp thịnh tình của mọi người, vừa là để lắng nghe lời chỉ
+
+giáo bổ sung.
+
+Cho đến nay, hệ thống lại rồi đem so sánh đối chiếu với các lời bàn của
+các học giả khác, tôi bỗng giật mình chợt nghĩ về công việc mình đã làm, tôi thật
+là người may mắn, ước muốn của tôi có lòng trời xui khiến, bạn bè giúp đỡ và
+mảnh đất Thăng Long nghìn năm văn vật hun đúc tinh thần.
+
+Hai mươi năm trong một đời người kể cũng đã là một quãng thời gian khá
+dài, nhưng hai mơi năm trong lịch sử lại là quá ngắn. Cống hiến của một con
+người dù hết cả cuộc đời nhưng so với công lao của cả dân tộc cũng vẫn là vô
+cùng bé nhỏ.
+
+Tôi nghĩ rằng, trong khuôn khổ một cuốn sách này cũng không phả là tất cả
+những gì tôi đã và sẽ học được, hiểu được. Vì vậy, tôi sẽ còn học nữa, học mãi và
+làm việc không ngừng để đền đáp công ơn trời đất, tổ tiên và tấm lòng bạn bè,
+
+đồng nghiệp.
+
+245
+
+
+
+<!-- page 247 -->
+
+TÀI LIỆU THAM KHẢO
+
+Đại cương triệt học sử Trung Quốc, Phùng Hữu Lan
+Nội kinh Linh khu - Tố Vấn.
+
+Hải Thượng y tông tâm lĩnh, Lê Hữu Trác
+
+Hồng Nghĩa giác tư y thư, Tuệ Tĩnh
+
+Ngư tiểu y thuật vấn đáp, Nguyễn Đình Chiểu
+
+Tung nhai tông sinh thư.
+
+Cây thuốc và vị thuốc Việt Nam, Đỗ Tất Lợi.
+
+Châm cứu đại thành, Dương Kế Châu.
+
+Nội kinh trung cấp giảng nghĩa.
+
+Châm cứu tiệp hiệu diễn ca, Nguyễn Đại năng.
+
+Gia đạo truyền thông bảo, Đặng Chính Tế.
+
+Địa lý ngũ quyết, Triệu Mộng Lân.
+
+Địa lý bí truyền cảo tập, Hòa Chính.
+
+Địa lý dã đàm, Tả Ao.
+
+Thần bí đích phong thuỷ, Vương Ngọc Đức.
+
+Kinh Dịch, Ngô Tất Tố
+
+Thần bí đích bát quái, Vương Ngọc Đức, Diên Vĩ Quân, Tăng Lỗi Quang
+Thần bí đích tinh tượng, Lưu Thiệu Quân.
+
+Hiệu chính bát trạch minh cảnh.
+
+Ngọc hạp
+
+Khải đồng thuyết ước, Kim Giang Phạm Phú Tê, Ngô Thế Vinh nhuận sắc.
+Thái ất số thống tông đại toàn.
+
+Thái ất dị giản lục, Lê Quý Đôn
+
+246
+
+
+
+<!-- page 248 -->
+
+Binh thư yếu lược, Trần Hưng Đạo.
+
+Bạch thoại Tôn Thử binh pháp, Chu Thư Đức, Âu Tông Phương.
+Chu Dịch huyền giải, Nguyễn Duy Cần.
+
+Triết lý chữ “Thời”, Kim Định
+
+Thâm nguyên phong thuỷ, Hà Hiển Hân.
+
+Tử bình thuyết minh, Đỗ Đình Tuân
+
+Bát tự Hà Lạc.
+
+Thiếu lâm khí công nội kình nhất chỉ thiền, Khuyết Xảo Căn,Vương Thuy
+Đình.
+
+Quách Lâm khí công, Nhà xuất bản Mũi Cà Mau 1997,
+
+Đạo giáo khí công dưỡng sinh học, Lý Viễn Quốc. Tứ Xuyên tỉnh, Xã hội
+Khoa học Viện xuất bản Xã 1988.
+
+Đạo đức kinh, Lão Tử.
+
+Hồng lâu mộng, Tào Tuyết Cần.
+
+Tam Quốc chí diễn nghĩa, La Quán Trung.
+Thuỷ Hử, Thi Nại Am.
+
+Tây du ký, Ngô Thừa Ân.
+
+Bóng nước hồ gươm, Chu Thiên.
+
+Tạp chí công trình nghiên cứu y học quân sự, Học viện quân y, các số:4-
+1988; 3-1989; 4-1989; 4-1990; 1-1991; 3-1991.
+
+Tạp chí Mỹ thuật, Hội Mỹ thuật, các số: 2-1986, 4-1986.
+
+247
+
+
+
+<!-- page 249 -->
+
+MỤC LỤC
+
+Lời nói đầu của nhà xuất bản
+
+Chương 1: Lịch sử học thuyết âm dương ngũ hành
+
+Đặc điểm hoàn cảnh sống ở khu vực Phương Đông, quê hương của học
+thuyết Âm Dương Ngũ Hành.
+
+Những nét khởi đầu của học thuyết Âm dương Ngũ hành
+
+Thuật ngữ Âm dương Ngũ hành
+
+Âm dương Ngũ hành ra đời từ bao giờ
+
+Học thuyết Âm dương Ngũ hành trong nền văn minh nhân loại
+
+Chương 2: Âm dương
+
+Các căn cứ để tiến hành bàn luận về Âm dương
+
+Phương hướng tiến hành bàn luận
+
+Bản chất của từng loại ký hiệu và đồ hình âm dương
+
+Bát quái hoành đồ (thứ tự 8 quẻ của Văn Vương)
+
+Thái cực đồ
+
+Tiên thiên bát quái đồ (Phương vị 8 quẻ của Phục Hy)
+
+Hậu thiên bát quái đồ (Phương vị 8 quẻ của Văn Vương)
+
+Hà đồ và Lạc thư
+
+Biến đổi âm dương trong thiên nhiên, trong vạn vật là biến đổi chất trong sự
+sống của vạn vật.
+
+Kết luận âm dương
+
+Chương 3: Ngũ hành
+
+Học thuyết Ngũ hành trong đời sống tự nhiên và xã hội
+
+Những đoạn văn trích về Ngũ hành
+
+Nhận xét về các đoạn văn trích
+
+Bản chất vật chất của quy luật Ngũ hành
+
+Phạm vi ứng dụng quy luật ngũ hành trong đời sống ở phương Đông xưa
+
+Nội dung của Ngũ hành
+
+Tỷ lệ khí theo Ngũ hành
+
+Tỷ lệ khí tương ứng với biến đổi vật chất, với hành
+
+248
+
+
+
+<!-- page 250 -->
+
+Những nhận thức sai lạc về Ngũ hành hiện đang tồn đọng
+
+Những tính chất đặc trưng của hành thổ
+
+Sinh, khắc, chế, hóa của Ngũ hành
+
+Ngũ hành tương ứng trong các quy luật.
+
+Xuất xứ của quy luật Ngũ hành
+
+Mục đích tìm xuất xứ của quy luật Ngũ hành
+
+Những giả thiết đã có về xuất xứ của học thuyết Ngũ hành
+
+Nhận xét mới trên cơ sở môi trường sống của địa lý khu vực và nội dung thư
+tịch
+
+Về phương diện địa lý
+
+Về phương diện thư tịch chữ Hán
+
+Khả năng giải đáp đúng về xuất xứ của quy luật Ngũ hành
+
+Triển vọng về những ứng dụng của học thuyết Ngũ hành trong nền văn
+minh nhân loại tương lai
+
+Học thuyết Ngũ hành với đời sống con người ngoài khu vực Phương Đông
+
+Các loại hiện tượng tương ứng khác nhau của Ngũ hành
+
+Triển vọng về những ứng dụng của ngũ hành trong nền văn minh nhân loại
+tương lai
+
+Chương 4: Khí chất sinh học người Việt Nam và Âm dương Ngũ hành
+
+Cảm giác và ý thức trong quy luật tự nhiên
+
+Quy luật Âm dương Ngũ hành trong ngôn ngữ tiếng Việt và dân ca tộc Việt
+
+Bản chất sinh học của ngôn ngữ tiếng Việt là thanh
+
+Hình thái của thanh trong tiếng Việt
+
+Tính chất tượng hình của thanh trong ngôn ngữ tiếng Việt
+
+Âm dương của thanh trong ngôn ngữ văn học Việt Nam
+
+Đường hình kết cấu thanh trong câu văn học
+
+Quy luật âm dương trong từ ghép, từ lấp láy, hư thanh, hư từ
+
+Tính chất âm dương trong ngôn ngữ giao tiếp xã hội Việt Nam
+
+Tính chất Ngũ hành tương ứng với tâm sinh lý, với độ cao, độ dài ở thanh tự
+
+nhiên trong tiếng Việt
+
+249
+
+
+
+<!-- page 251 -->
+
+Mối quan hệ tương ứng Ngũ hành với tâm sinh lý người Việt mở rộng trong
+quan hệ xã hội
+
+Quan hệ giữa nội dung và hình thức trong ngôn ngữ thông dụng Việt Nam
+
+Tập quán sai lệch thanh
+
+Tính thống nhất của tiếng Việt
+
+Tính nhạc điệu của tiếng Việt.
+
+Kết luận về tiếng Việt
+
+Quy luật âm dương Ngũ hành trong các yếu tố nghệ thuật ạo hình Phương
+Đông và tâm sinh lý con người Việt Nam
+
+Những vấn đề xoay quanh quan hệ giữa nghệ thuật tạo hình và tâm sinh lý
+Con người.
+
+Quy luật chung nhất về nhận thức thế giới của người phương Đông
+
+Quy luật tương ứng giữa các yếu tố nghệ thuật tạo hình Phương Đông với
+tâm sinh lý người.
+
+Phương pháp sử dụng các quy luật tương ứng với tâm sinh lý người để đánh
+giá tác phẩm nghệ thuật tạo hình.
+
+Lời hậu bạt
+
+Tài liệu tham khảo
+
+250
 

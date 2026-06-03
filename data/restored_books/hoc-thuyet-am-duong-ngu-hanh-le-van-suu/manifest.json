@@ -5,9 +5,9 @@
   "source_pdf": "thư viện sách/Học Thuyết Âm Dương Ngũ Hành - Lê Văn Sửu.pdf",
   "extractor": "tesseract-vie-300dpi",
   "pages_total": 251,
-  "pages_ocr": 100,
-  "start_page": 1,
-  "end_page": 100,
-  "chars": 127199,
-  "ts": 1780477955.4134028
+  "pages_ocr": 151,
+  "start_page": 101,
+  "end_page": 251,
+  "chars": 182143,
+  "ts": 1780478823.653724
 }
