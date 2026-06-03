@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from math import floor
+from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from pydantic import BaseModel
@@ -164,8 +163,13 @@ def build_almanac(local_dt: datetime, cycle_idx: int, month_idx: int, hour_idx: 
 
 def calculate_chronos_state(datetime_local: str | None = None, timezone_name: str = "Asia/Ho_Chi_Minh") -> ChronosState:
     local_dt = parse_local_datetime(datetime_local, timezone_name)
-    utc_dt = local_dt.astimezone(timezone.utc)
-    days_since_epoch = floor(utc_dt.timestamp() / 86400)
+    # Use LOCAL date (not UTC) to avoid UTC-boundary bug for 00:00–06:59 in UTC+7.
+    # Apply 早子時 rollover: hour 23 belongs to the CAN-CHI of the NEXT day.
+    local_date = local_dt.date()
+    if local_dt.hour >= 23:
+        local_date += timedelta(days=1)
+    _EPOCH = date(1970, 1, 1)
+    days_since_epoch = (local_date - _EPOCH).days
     cycle_idx = days_since_epoch % 60
     solar_longitude = estimate_solar_longitude(local_dt)
     solar_term_id = int(solar_longitude // 15) + 1
