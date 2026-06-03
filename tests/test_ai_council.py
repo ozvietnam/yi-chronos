@@ -4,16 +4,23 @@ from __future__ import annotations
 
 import pytest
 
+# /api/ai/* provider+prompt endpoints are owner-gated (security audit).
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 # ─── Providers ────────────────────────────────────────────────────────────────
 
 
-def test_registry_lists_4_providers():
+def test_registry_lists_all_providers():
     from engine.ai.registry import get_registry
 
     reg = get_registry()
     names = {p["name"] for p in reg.list_providers()}
-    assert names == {"zai", "deepseek", "anthropic", "mock"}
+    # 8 providers per project stack (CLAUDE.md): local + cloud + free + paid + mock.
+    assert names == {
+        "zai", "deepseek", "anthropic", "minimax",
+        "gemini", "openrouter", "ollama", "mock",
+    }
 
 
 def test_mock_provider_always_configured():
@@ -195,7 +202,7 @@ def test_api_list_providers():
     assert r.status_code == 200
     payload = r.json()
     assert payload["status"] == "ok"
-    assert len(payload["providers"]) == 4
+    assert len(payload["providers"]) == 8  # full provider stack (CLAUDE.md)
 
 
 def test_api_list_agents():

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from datetime import date, datetime, timedelta, timezone
+import os
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from pydantic import BaseModel
@@ -161,22 +162,61 @@ def build_almanac(local_dt: datetime, cycle_idx: int, month_idx: int, hour_idx: 
     )
 
 
+# 早子時 (early Zi-hour) convention: hour ≥ 23:00 begins the NEW day.
+# Sourced from the project's chosen Bát Tự master Thiệu Vĩ Hoa (《Dự đoán theo Tứ
+# trụ》): "Giờ Tí là ranh giới giữa ngày hôm trước và ngày hôm sau, mà 23 giờ đã là
+# giờ Tí rồi". Corroborated by `bat-tu-ha-lac` + `can-chi-thong-luan`. Configurable
+# via env YI_ZI_CONVENTION = "early" (default, 23:00→next day) | "late" (00:00 boundary).
+_EARLY_ZI = os.environ.get("YI_ZI_CONVENTION", "early").lower() != "late"
+
+
+def _cycle_index_from_gz(tg: int, dz: int) -> int:
+    """60-cycle index (0..59) from sxtwl stem(0..9) + branch(0..11) via CRT."""
+    return (6 * tg - 5 * dz) % 60
+
+
+def _ganzhi_via_sxtwl(local_dt: datetime, early_zi: bool = _EARLY_ZI) -> tuple[int, int, int, int, int]:
+    """Compute (year_idx, month_idx, day_idx, hour_idx, day_stem) as 60-cycle indices
+    using sxtwl — astronomically correct can-chi.
+
+    - Year boundary = 立春 (Lập Xuân), month boundary = 節 (12 tiết lệnh) — both via
+      sxtwl getYearGZ()/getMonthGZ(). Fixes the old solar-calendar-month bug (#17).
+    - Day boundary = continuous 60-day cycle via sxtwl getDayGZ() — fixes the old
+      wrong-epoch bug (engine wrongly assumed 1970-01-01 = Giáp Tý).
+    - 早子時: hour ≥ 23 rolls to the next civil day for the day/hour pillar.
+    - Hour stem via 五鼠遁 (five-rat) from the (possibly rolled) day stem.
+    """
+    import sxtwl
+
+    eff_date = local_dt.date()
+    if early_zi and local_dt.hour >= 23:
+        eff_date = eff_date + timedelta(days=1)
+
+    day_obj = sxtwl.fromSolar(eff_date.year, eff_date.month, eff_date.day)
+    ygz = day_obj.getYearGZ()
+    mgz = day_obj.getMonthGZ()
+    dgz = day_obj.getDayGZ()
+
+    year_idx = _cycle_index_from_gz(ygz.tg, ygz.dz)
+    month_idx = _cycle_index_from_gz(mgz.tg, mgz.dz)
+    day_idx = _cycle_index_from_gz(dgz.tg, dgz.dz)
+
+    # Hour branch: 23-1→Tý(0), 1-3→Sửu(1), …, 21-23→Hợi(11).
+    hour_branch = ((local_dt.hour + 1) // 2) % 12
+    # 五鼠遁: hour stem = (day_stem * 2 + hour_branch) mod 10.
+    hour_stem = (dgz.tg * 2 + hour_branch) % 10
+    hour_idx = _cycle_index_from_gz(hour_stem, hour_branch)
+    return year_idx, month_idx, day_idx, hour_idx, dgz.tg
+
+
 def calculate_chronos_state(datetime_local: str | None = None, timezone_name: str = "Asia/Ho_Chi_Minh") -> ChronosState:
     local_dt = parse_local_datetime(datetime_local, timezone_name)
-    # Use LOCAL date (not UTC) to avoid UTC-boundary bug for 00:00–06:59 in UTC+7.
-    # Apply 早子時 rollover: hour 23 belongs to the CAN-CHI of the NEXT day.
-    local_date = local_dt.date()
-    if local_dt.hour >= 23:
-        local_date += timedelta(days=1)
-    _EPOCH = date(1970, 1, 1)
-    days_since_epoch = (local_date - _EPOCH).days
-    cycle_idx = days_since_epoch % 60
+    # Can-chi (year/month/day/hour) computed via sxtwl — astronomically correct
+    # (立春 year boundary, 節 month boundary, continuous day cycle, 早子時 day-roll).
+    year_idx, month_idx, cycle_idx, hour_idx, _day_stem = _ganzhi_via_sxtwl(local_dt)
+    # Solar-term display still uses the linear estimate (cosmetic; does NOT feed can-chi).
     solar_longitude = estimate_solar_longitude(local_dt)
     solar_term_id = int(solar_longitude // 15) + 1
-    year_idx = (local_dt.year - 1984) % 60
-    month_idx = (year_idx * 12 + local_dt.month - 1) % 60
-    hour_branch = ((local_dt.hour + 1) // 2) % 12
-    hour_idx = (cycle_idx * 12 + hour_branch) % 60
 
     return ChronosState(
         timestamp_utc=to_utc_string(local_dt),
@@ -196,4 +236,5 @@ def calculate_chronos_state(datetime_local: str | None = None, timezone_name: st
         moon_phase=estimate_moon_phase(local_dt),
         almanac=build_almanac(local_dt, cycle_idx, month_idx, hour_idx),
         cycle_60_idx=cycle_idx,
+        day_pillar_convention="sxtwl_zao_zi" if _EARLY_ZI else "sxtwl_wan_zi",
     )

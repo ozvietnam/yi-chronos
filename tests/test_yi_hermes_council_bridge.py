@@ -7,6 +7,9 @@ import subprocess
 
 import pytest
 
+# /api/yi-hermes/chat is login-gated; council routing also needs the hermes binary.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 def _archive_session(session) -> None:
     from engine.ai import kanban_council as kc

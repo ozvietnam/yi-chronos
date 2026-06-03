@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import pytest
 
+# Soul/memory + chat endpoints are self-or-owner / login gated (security audit).
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 # ─── Soul ─────────────────────────────────────────────────────────────────────
 

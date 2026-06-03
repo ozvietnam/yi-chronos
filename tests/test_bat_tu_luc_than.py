@@ -44,17 +44,24 @@ def test_founder_nam_has_7_relations(founder_lt):
     assert "Vợ chính" in names
 
 
-def test_founder_father_strong(founder_lt):
-    """Founder có 4 Thiên Tài (Mậu thổ) → Cha strong."""
+def test_founder_father_absent(founder_lt):
+    """Founder không có Thiên Tài → Cha absent."""
     cha = next(r for r in founder_lt["relations"] if r["name"] == "Cha")
-    assert cha["strength"] == "strong"
-    assert len(cha["positions"]) >= 3
+    assert cha["strength"] == "absent"
+    assert len(cha["positions"]) == 0
 
 
-def test_founder_vo_chinh_absent(founder_lt):
-    """Founder không có Chính Tài → Vợ chính absent."""
+def test_founder_son_strong(founder_lt):
+    """Founder có nhiều Thất Sát (Mậu thổ) → Con trai (nam) strong."""
+    con_trai = next(r for r in founder_lt["relations"] if r["name"] == "Con trai")
+    assert con_trai["strength"] == "strong"
+    assert len(con_trai["positions"]) >= 3
+
+
+def test_founder_vo_chinh_moderate(founder_lt):
+    """Founder có 1 Chính Tài (Đinh hỏa tàng Ngọ) → Vợ chính moderate."""
     vo = next(r for r in founder_lt["relations"] if r["name"] == "Vợ chính")
-    assert vo["strength"] == "absent"
+    assert vo["strength"] == "moderate"
 
 
 def test_female_chart_relations():

@@ -90,13 +90,13 @@ def test_spouse_check_none_for_same_gender():
 
 
 def test_cung_phoi_interactions(founder_state, partner_state):
-    """Founder Tuất + Partner Tuất → đồng chi."""
+    """Founder Thìn (day branch) + Partner Mão → lục hại."""
     r = analyze_compatibility(founder_state, partner_state)
     cp = r["cung_phoi"]
-    assert cp["a_chi"] == "Tuất"
-    assert cp["b_chi"] == "Tuất"
+    assert cp["a_chi"] == "Thìn"
+    assert cp["b_chi"] == "Mão"
     types = [i["type"] for i in cp["interactions"]]
-    assert "đồng chi" in types
+    assert "lục hại" in types
 
 
 def test_overall_score_and_label(founder_state, partner_state):
@@ -119,7 +119,7 @@ def test_hop_can_detected():
     # Use fixtures with known DM
     a = cast_bat_tu(birth_datetime_local="1988-06-05T23:30",
                     timezone="Asia/Ho_Chi_Minh", gender="nam")
-    # Founder = Giáp Tuất ngày. Find a Kỷ ngày partner
+    # Founder = Nhâm Thìn ngày. Find a partner with another day master
     # Let's just test the structure
     b = cast_bat_tu(birth_datetime_local="1995-12-20T10:00",
                     timezone="Asia/Ho_Chi_Minh", gender="nữ")

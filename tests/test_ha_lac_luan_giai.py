@@ -42,22 +42,22 @@ def test_paradigm_no_predict(founder_luan):
     assert "KHÔNG dự đoán" in founder_luan["paradigm_guard"]
 
 
-def test_founder_tien_thien_quai_60(founder_luan):
+def test_founder_tien_thien_quai_32(founder_luan):
     t = founder_luan["tien_thien_luan"]
-    assert t["king_wen"] == 60
-    assert t["name_vi"] == "Tiết"
+    assert t["king_wen"] == 32
+    assert t["name_vi"] == "Hằng"
 
 
-def test_founder_hau_thien_quai_29(founder_luan):
+def test_founder_hau_thien_quai_27(founder_luan):
     h = founder_luan["hau_thien_luan"]
-    assert h["king_wen"] == 29
+    assert h["king_wen"] == 27
 
 
-def test_founder_comparison_thuy(founder_luan):
+def test_founder_comparison_tien_khac_hau(founder_luan):
     c = founder_luan["comparison"]
-    assert c["tien_upper_el"] == "thủy"
-    assert c["hau_upper_el"] == "thủy"
-    assert c["pattern"] == "tỷ hòa"
+    assert c["tien_upper_el"] == "mộc"
+    assert c["hau_upper_el"] == "thổ"
+    assert c["pattern"] == "Tiên khắc Hậu"
 
 
 def test_founder_age_38_stage(founder_luan):

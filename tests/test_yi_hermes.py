@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import pytest
 
+# /api/yi-hermes/chat + glossary write endpoints are login/owner gated.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 # ─── Librarian ────────────────────────────────────────────────────────────────
 

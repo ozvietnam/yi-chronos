@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import pytest
 
+# /api/yi-hermes/context/founder is owner-gated (privacy audit).
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 # ─── Founder detection ────────────────────────────────────────────────────────
 

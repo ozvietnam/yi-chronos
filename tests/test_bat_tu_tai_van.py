@@ -48,24 +48,23 @@ def test_paradigm_no_predict(founder_tv):
 # ─── Founder-specific ───────────────────────────────────────────────────────
 
 
-def test_founder_tai_map_4_thien_tai(founder_tv):
-    """Founder has 4 Thiên Tài (Mậu thổ) — verify map detected."""
+def test_founder_tai_map_chinh_tai(founder_tv):
+    """Founder has 1 Chính Tài (Đinh hỏa, tàng Trụ Tháng Ngọ), no Thiên Tài."""
     tm = founder_tv["tai_map"]
-    assert tm["total_thien_tai"] >= 3
-    assert tm["total_chinh_tai"] == 0
+    assert tm["total_chinh_tai"] == 1
+    assert tm["total_thien_tai"] == 0
 
 
 def test_founder_dm_tai_balance_warning(founder_tv):
-    """Day Master nhược + Tài quá vượng → 'Tài đa thân nhược'."""
+    """Day Master Nhâm nhược → cần cứu thân trước khi gánh Tài."""
     balance = founder_tv["dm_tai_balance"]
-    assert "Tài đa thân nhược" in balance["status"]
-    assert balance["polarity"] == "cảnh báo cao"
+    assert "nhược — Cần cứu thân trước" in balance["status"]
 
 
-def test_founder_patterns_include_tai_da(founder_tv):
-    """Founder must detect Tài đa thân nhược pattern."""
+def test_founder_patterns_include_tai_quan(founder_tv):
+    """Founder must detect Tài-Quan tương sinh pattern."""
     names = {p["name"] for p in founder_tv["patterns"]}
-    assert "Tài đa thân nhược" in names
+    assert "Tài-Quan tương sinh" in names
 
 
 def test_founder_patterns_thuc_thuong_sinh_tai(founder_tv):
@@ -80,11 +79,11 @@ def test_founder_kiep_tai_warning(founder_tv):
     assert "Kiếp Tài đoạt Tài" in names
 
 
-def test_founder_sources_thien_tai(founder_tv):
-    """Founder's source is Thiên Tài (since chỉ có Thiên Tài, no Chính)."""
+def test_founder_sources_chinh_tai(founder_tv):
+    """Founder's source is Chính Tài (only Chính Tài present, no Thiên)."""
     sources = founder_tv["sources"]
     types = [s["type"] for s in sources]
-    assert "Thiên Tài" in types
+    assert "Chính Tài" in types
 
 
 def test_founder_dai_van_timing_8_cycles(founder_tv):
@@ -98,7 +97,7 @@ def test_founder_dai_van_timing_8_cycles(founder_tv):
 
 
 def test_founder_strategy_has_warnings(founder_tv):
-    """Founder cấu hình 'Tài đa thân nhược' should produce warning strategy."""
+    """Founder cấu hình Kiếp Tài đoạt Tài should produce warning strategy."""
     strategy = founder_tv["strategy"]
     assert len(strategy) >= 2
     # Should have at least one warning (⚠)

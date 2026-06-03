@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import pytest
 
+# Persons/relationships/dyad endpoints are gated (privacy audit) → auth as owner.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 @pytest.fixture(autouse=True)
 def _isolated_db(monkeypatch, tmp_path):

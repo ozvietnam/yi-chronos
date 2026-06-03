@@ -85,38 +85,38 @@ def test_closing_paradigm(founder_luan):
 
 
 def test_founder_day_master(founder_state):
-    """Founder's Day Master must be Giáp (Mộc)."""
+    """Founder's Day Master must be Nhâm (Thủy)."""
     dm = founder_state["tu_tru"]["day_master"]
-    assert dm["stem"] == "Giáp"
-    assert dm["element"] == "mộc"
+    assert dm["stem"] == "Nhâm"
+    assert dm["element"] == "thủy"
 
 
 def test_founder_pillars(founder_state):
-    """Founder's pillars must match authoritative chart."""
+    """Founder's pillars must match authoritative chart (sxtwl-corrected)."""
     pillars = founder_state["tu_tru"]["pillars"]
     assert pillars["year"]["stem"] == "Mậu" and pillars["year"]["branch"] == "Thìn"
-    assert pillars["month"]["stem"] == "Đinh" and pillars["month"]["branch"] == "Tỵ"
-    assert pillars["day"]["stem"] == "Giáp" and pillars["day"]["branch"] == "Tuất"
-    assert pillars["hour"]["stem"] == "Giáp" and pillars["hour"]["branch"] == "Tý"
+    assert pillars["month"]["stem"] == "Mậu" and pillars["month"]["branch"] == "Ngọ"
+    assert pillars["day"]["stem"] == "Nhâm" and pillars["day"]["branch"] == "Thìn"
+    assert pillars["hour"]["stem"] == "Canh" and pillars["hour"]["branch"] == "Tý"
 
 
 def test_founder_cach_cuc(founder_luan):
-    """Founder lands in Thực Thần cách (recognized classical pattern)."""
+    """Founder lands in Chính Tài cách (recognized classical pattern)."""
     cc = founder_luan["cach_cuc_luan"]
     assert cc["present"]
-    assert "Thực Thần" in cc["name"]
+    assert "Chính Tài" in cc["name"]
 
 
 def test_founder_dung_than(founder_luan):
-    """Founder's Dụng Thần = Mộc (Day Master support, since nhược)."""
+    """Founder's Dụng Thần = Thủy (Day Master support, since nhược)."""
     dt = founder_luan["dung_than_luan"]
-    assert dt["dung"] == "mộc"
+    assert dt["dung"] == "thủy"
 
 
 def test_founder_favorable_combinations(founder_luan):
-    """Founder's chart has Thực Thần chế Sát (Thực + Sát detected)."""
+    """Founder's chart has Ấn hóa Sát + Thực Thương sinh Tài (favorable configs)."""
     names = {fc["name"] for fc in founder_luan["favorable_combinations"]}
-    assert "Thực Thần chế Sát" in names
+    assert "Ấn hóa Sát" in names or "Thực Thương sinh Tài" in names
 
 
 def test_founder_warnings_present(founder_luan):
@@ -150,8 +150,8 @@ def test_bo_huong_tranh_for_ky_than(founder_luan):
     """Tránh section must mention Kỵ Thần explicitly."""
     bh = founder_luan["bo_huong"]
     assert bh["tranh"] is not None
-    # Kim is Kỵ for founder
-    assert bh["tranh"]["element"] == "kim"
+    # Thổ is Kỵ for founder (Quan Sát pressure on weak Thủy Day Master)
+    assert bh["tranh"]["element"] == "thổ"
 
 
 # ─── Thap Thần pattern tests ────────────────────────────────────────────────

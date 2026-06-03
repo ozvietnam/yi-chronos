@@ -12,6 +12,9 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
+# Publishing CMS endpoints are owner-gated (security audit) → auth as owner.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 @pytest.fixture
 def tiny_pdf_bytes() -> bytes:

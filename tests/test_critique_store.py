@@ -9,6 +9,9 @@ from pathlib import Path
 
 import pytest
 
+# /api/ai/council/critiques resolve endpoint is owner-gated.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 @pytest.fixture(autouse=True)
 def _isolated_db(monkeypatch, tmp_path):

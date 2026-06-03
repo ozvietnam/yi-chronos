@@ -24,17 +24,18 @@ def founder_luan(founder_state):
 def test_context_compose_includes_tu_tru(founder_state, founder_luan):
     ctx = _compose_laso_context(founder_state, founder_luan)
     assert "TỨ TRỤ" in ctx
-    # Founder pillars
+    # Founder pillars: Mậu Thìn / Mậu Ngọ / Nhâm Thìn / Canh Tý
     assert "Mậu" in ctx
     assert "Thìn" in ctx
-    assert "Giáp" in ctx
+    assert "Nhâm" in ctx
+    assert "Canh" in ctx
 
 
 def test_context_includes_nhat_chu(founder_state, founder_luan):
     ctx = _compose_laso_context(founder_state, founder_luan)
     assert "NHẬT CHỦ" in ctx
-    assert "Giáp" in ctx
-    assert "mộc" in ctx
+    assert "Nhâm" in ctx
+    assert "thủy" in ctx
 
 
 def test_context_includes_dung_than(founder_state, founder_luan):
@@ -45,7 +46,7 @@ def test_context_includes_dung_than(founder_state, founder_luan):
 def test_context_includes_cach_cuc(founder_state, founder_luan):
     ctx = _compose_laso_context(founder_state, founder_luan)
     assert "CÁCH CỤC" in ctx
-    assert "Thực Thần" in ctx
+    assert "Chính Tài" in ctx
 
 
 def test_chat_with_mock_provider(founder_state, founder_luan):
@@ -76,7 +77,7 @@ def test_chat_with_history(founder_state, founder_luan):
     """Multi-turn chat with history."""
     history = [
         {"role": "user", "content": "Lá số tôi như thế nào?"},
-        {"role": "assistant", "content": "Lá số có Day Master Giáp Mộc nhược..."},
+        {"role": "assistant", "content": "Lá số có Day Master Nhâm Thủy nhược..."},
     ]
     result = chat_about_chart(
         founder_state,

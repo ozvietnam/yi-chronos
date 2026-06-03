@@ -10,6 +10,9 @@ Ground truth verified against vendored kinqimen 0.0.6.6:
 import pytest
 from fastapi.testclient import TestClient
 
+# Founder birth-data endpoint is owner-gated (privacy audit) → auth as owner.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 
 def test_engine_cast_founder_data():
     """Cast với founder data → verify 4 trụ + tiết khí + cục."""

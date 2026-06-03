@@ -40,45 +40,45 @@ def test_all_sections(founder_sk):
 
 
 def test_founder_imbalance_detected(founder_sk):
-    """Founder has Thổ excess + Kim deficient."""
+    """Founder has Thổ excess + Mộc deficient."""
     imb = founder_sk["imbalance"]
     excess_els = {e["element"] for e in imb["excess"]}
     deficient_els = {d["element"] for d in imb["deficient"]}
     assert "thổ" in excess_els
-    assert "kim" in deficient_els
+    assert "mộc" in deficient_els
 
 
 def test_founder_tang_phu_warnings_present(founder_sk):
-    """Must produce warnings for thổ + kim."""
+    """Must produce warnings for thổ excess + mộc deficient."""
     warnings = founder_sk["tang_phu_warnings"]
     assert len(warnings) >= 2
     tangs = {w["tang"] for w in warnings}
     assert "Tỳ" in tangs  # Thổ excess
-    assert "Phế" in tangs  # Kim deficient
+    assert "Can" in tangs  # Mộc deficient
 
 
-def test_founder_constitution_mộc_nhược(founder_sk):
-    """Day Master Mộc, nhược."""
+def test_founder_constitution_thủy_nhược(founder_sk):
+    """Day Master Thủy, nhược → tạng chủ Thận."""
     c = founder_sk["constitution"]
-    assert c["element"] == "mộc"
+    assert c["element"] == "thủy"
     assert c["tag"] == "weak"
-    assert c["primary_tang"] == "Can"
+    assert c["primary_tang"] == "Thận"
 
 
-def test_founder_dai_van_warnings_kim(founder_sk):
-    """Đại Vận Canh Thân + Tân Dậu (Kim = Kỵ) → cảnh báo Phế."""
+def test_founder_dai_van_warnings_tho(founder_sk):
+    """Đại Vận có khí Thổ (= Kỵ Thần) → cảnh báo tạng Tỳ."""
     warnings = founder_sk["dai_van_health_warnings"]
     assert len(warnings) >= 1
     for w in warnings:
-        assert w["ky_element"] == "kim"
-        assert w["tang_at_risk"] == "Phế"
+        assert w["ky_element"] == "thổ"
+        assert w["tang_at_risk"] == "Tỳ"
 
 
-def test_founder_dietary_dung_moc(founder_sk):
-    """Dụng Thần Mộc → diet xanh chua."""
+def test_founder_dietary_dung_thuy(founder_sk):
+    """Dụng Thần Thủy → diet đen mặn."""
     d = founder_sk["dietary"]["by_dung_than"]
-    assert d["element"] == "mộc"
-    assert "chua" in d["vi"]
+    assert d["element"] == "thủy"
+    assert "mặn" in d["vi"]
     assert len(d["thuc_pham"]) >= 3
 
 

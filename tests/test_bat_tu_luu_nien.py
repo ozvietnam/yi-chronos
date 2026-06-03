@@ -58,10 +58,11 @@ def test_founder_2026_is_binh_ngo(founder_luu_2026):
     assert ln["year_solar"] == 2026
 
 
-def test_founder_2026_thap_than_is_thuc_than(founder_luu_2026):
-    """Bính vs Day Master Giáp = Thực Thần (sinh, same polarity)."""
+def test_founder_2026_thap_than_is_thien_tai(founder_luu_2026):
+    """Bính (dương hỏa) vs Day Master Nhâm (dương thủy) = Thiên Tài
+    (thủy khắc hỏa, cùng tính dương → Thiên Tài)."""
     ln = founder_luu_2026["luu_nien"]
-    assert ln["thap_than_vs_dm"] == "Thực Thần"
+    assert ln["thap_than_vs_dm"] == "Thiên Tài"
 
 
 def test_founder_2026_luu_xung_with_tru_gio(founder_luu_2026):
@@ -71,15 +72,15 @@ def test_founder_2026_luu_xung_with_tru_gio(founder_luu_2026):
     assert "lục xung" in types
 
 
-def test_founder_2026_ban_hop_hoa(founder_luu_2026):
-    """2026 Ngọ + founder's Trụ Ngày Tuất = bán hợp Hỏa cục."""
+def test_founder_2026_no_ban_hop_hoa(founder_luu_2026):
+    """Chart sửa: Trụ Ngày = Thìn (không phải Tuất) → 2026 Ngọ KHÔNG tạo bán hợp Hỏa cục."""
     tam_hop = founder_luu_2026["vs_chart"]["tam_hop_detected"]
     found_hoa = [th for th in tam_hop if th["element"] == "hỏa"]
-    assert len(found_hoa) > 0
+    assert len(found_hoa) == 0
 
 
 def test_founder_2026_overall_verdict_trung_tinh(founder_luu_2026):
-    """Bính Ngọ (Hỏa/Hỏa) vs Dụng Mộc / Kỵ Kim → trung tính."""
+    """Bính Ngọ (Hỏa/Hỏa) vs Dụng Thủy / Kỵ Thổ → trung tính."""
     ov = founder_luu_2026["overall_verdict"]
     assert ov["verdict"] == "trung tính"
     assert not ov["matches_dung_than"]
@@ -87,7 +88,7 @@ def test_founder_2026_overall_verdict_trung_tinh(founder_luu_2026):
 
 
 def test_founder_2026_dai_van_detected(founder_luu_2026):
-    """Age 38 should detect Đại Vận Tân Dậu (34-43)."""
+    """Age 38 should detect Đại Vận Tân Dậu (30-39)."""
     dv = founder_luu_2026["vs_dai_van"]["current_dai_van"]
     assert dv is not None
     assert dv["stem"] == "Tân"
@@ -106,7 +107,7 @@ def test_founder_2026_12_months_complete(founder_luu_2026):
 
 
 def test_founder_2026_thuan_months(founder_luu_2026):
-    """Some 'thuận' months must exist (Dụng = Mộc days)."""
+    """Some 'thuận' months must exist (Dụng = Thủy days)."""
     months = founder_luu_2026["luu_nguyet"]
     thuan_months = [m for m in months if m["verdict"] == "thuận"]
     assert len(thuan_months) >= 1

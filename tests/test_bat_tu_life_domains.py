@@ -56,22 +56,23 @@ def test_hn_all_sections(founder_hon_nhan):
         assert k in founder_hon_nhan
 
 
-def test_hn_founder_cung_phoi_is_tuat(founder_hon_nhan):
-    """Founder Trụ Ngày = Giáp Tuất → Cung Phối = Tuất."""
+def test_hn_founder_cung_phoi_is_thin(founder_hon_nhan):
+    """Founder Trụ Ngày = Nhâm Thìn → Cung Phối = Thìn."""
     cp = founder_hon_nhan["cung_phoi"]
-    assert cp["branch"] == "Tuất"
+    assert cp["branch"] == "Thìn"
     assert cp["branch_element"] == "thổ"
 
 
-def test_hn_founder_luc_xung_with_year(founder_hon_nhan):
-    """Tuất ⚔ Thìn (Trụ Năm) = lục xung."""
+def test_hn_founder_cung_phoi_no_luc_xung(founder_hon_nhan):
+    """Cung Phối Thìn (Trụ Ngày) trùng chi Thìn (Trụ Năm) → KHÔNG lục xung
+    (chart đã sửa: Thìn không xung Thìn, khác với Tuất ⚔ Thìn cũ)."""
     interactions = founder_hon_nhan["cung_phoi"]["interactions_with_other_pillars"]
     types = [i["type"] for i in interactions]
-    assert "lục xung" in types
+    assert "lục xung" not in types
 
 
 def test_hn_founder_tai_tinh_count(founder_hon_nhan):
-    """Founder is nam → Tài tinh check. Has multiple Thiên Tài (Mậu)."""
+    """Founder is nam → Tài tinh check. Main star = Chính Tài (Đinh tàng Ngọ)."""
     ps = founder_hon_nhan["partner_star"]
     assert ps["gender"] == "nam"
     assert ps["main_star"] == "Chính Tài"
@@ -138,34 +139,37 @@ def test_sn_all_sections(founder_su_nghiep):
         assert k in founder_su_nghiep
 
 
-def test_sn_founder_cach_cuc_is_thuc_than(founder_su_nghiep):
-    """Founder's cách cục = Thực Thần."""
-    assert "Thực Thần" in founder_su_nghiep["cach_cuc_summary"]["name"]
+def test_sn_founder_cach_cuc_is_chinh_tai(founder_su_nghiep):
+    """Founder's cách cục = Chính Tài."""
+    assert "Chính Tài" in founder_su_nghiep["cach_cuc_summary"]["name"]
     assert founder_su_nghiep["cach_cuc_summary"]["career_style"]
 
 
 def test_sn_founder_has_patterns(founder_su_nghiep):
-    """Founder must detect multiple patterns (Thực Thần chế Sát, Tỷ Kiếp trợ thân, Tài đa thân nhược)."""
+    """Founder must detect multiple patterns (Quan Ấn tương sinh, Thực Thương sinh Tài, Tỷ Kiếp trợ thân)."""
     assert len(founder_su_nghiep["career_patterns"]) >= 2
     names = {p["name"] for p in founder_su_nghiep["career_patterns"]}
     # At least one of these should be detected
-    expected_one_of = {"Thực Thần chế Sát", "Tỷ Kiếp trợ thân", "Tài đa thân nhược"}
+    expected_one_of = {"Quan Ấn tương sinh", "Thực Thương sinh Tài", "Tỷ Kiếp trợ thân"}
     assert names & expected_one_of
 
 
 def test_sn_dung_than_recommendations(founder_su_nghiep):
-    """Dụng = Mộc → industries should be mộc-related."""
+    """Dụng = Thủy → industries should be thủy-related."""
     rec = founder_su_nghiep["recommendations"]["by_dung_than"]
-    assert rec["element"] == "mộc"
+    assert rec["element"] == "thủy"
     assert len(rec["industries"]) >= 3
 
 
-def test_sn_avoid_kim(founder_su_nghiep):
-    """Kỵ = Kim → avoid list should be kim-related."""
+def test_sn_avoid_tho(founder_su_nghiep):
+    """Kỵ = Thổ → avoid list should be thổ-related (đất đai, nông nghiệp, vật liệu)."""
     avoid = founder_su_nghiep["avoid"]
     cats = [i["category"] for i in avoid["from_ky_than"]]
-    # Look for Kim industries
-    assert any("Kim loại" in c or "Quản lý" in c or "Võ thuật" in c for c in cats)
+    # Look for Thổ industries
+    assert any(
+        "Bất động sản" in c or "Nông nghiệp" in c or "Đá" in c or "Vải vóc" in c
+        for c in cats
+    )
 
 
 def test_sn_timing_dai_van(founder_su_nghiep):

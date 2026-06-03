@@ -170,13 +170,17 @@ def test_cast_bat_tu_uses_accurate_starting_age():
     assert dv["starting_age"] == 3
 
 
-def test_cast_bat_tu_dung_than_strong_for_known_chart():
-    """1985-08-15 Kỷ thổ Day Master — chart has lots of thổ (Sửu, Mùi, Tỵ, Tỵ) → strong."""
+def test_cast_bat_tu_dung_than_weak_for_known_chart():
+    """1985-08-15 10:30 → Ất Sửu / Giáp Thân / Bính Tuất / Quý Tỵ.
+
+    Day Master is Bính (Yang Fire), born in tháng Thân (autumn metal) with heavy
+    Thổ output draining it → weak. (The old test assumed a Kỷ-Thổ chart, which came
+    from the pre-sxtwl engine bug; the astronomically-correct chart is Bính Hỏa.)
+    For a weak Fire Day Master: dung = hỏa (比劫 self-support), hỷ = mộc (印 generates
+    fire), kỵ = thủy (官殺 controls fire).
+    """
     r = cast_bat_tu(birth_datetime_local="1985-08-15T10:30:00", gender="nam")
-    assert r["dung_than"]["strength_tag"] == "strong"
-    # Pressure element (controls thổ) = mộc.
-    # Wealth element (thổ controls) = thủy.
-    # Output element (thổ generates) = kim.
-    # Drain candidates by priority: pressure → wealth → output.
-    # In this chart mộc count = 1.3, thủy = 1.3, kim = 0.9 → pressure (mộc) wins by tie-breaking priority.
-    assert r["dung_than"]["dung_than_element"] == "mộc"
+    assert r["tu_tru"]["day_master"]["stem"] == "Bính"
+    assert r["dung_than"]["strength_tag"] == "weak"
+    assert r["dung_than"]["dung_than_element"] == "hỏa"
+    assert r["dung_than"]["ky_than_element"] == "thủy"
