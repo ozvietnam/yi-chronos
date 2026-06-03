@@ -13,11 +13,17 @@
 - 5 quẻ: Di, Đại Quá, Ly, Hàm, Hằng (p213-260)
 - Journal: `docs/design/ha-lac-cum-a-tham-nhuan.md`
 - Paradigm cốt: NUÔI → ẨN SÚC → GIẤU SÁNG → HƯ TÂM → GIỮ TRUNG
-- 5 quẻ đã có đầy đủ data trong `engine/ha_lac/thoi_que.py`
+
+### ✅ Cụm B Mệnh-Thân — DONE 2026-06-03
+- 8 quẻ: Độn, Đại Tráng, Tấn, Minh Di, Gia Nhân, Khuê, Kiển, Giải (p234-280)
+- Journal: `docs/design/ha-lac-cum-b-tham-nhuan.md`
+- Paradigm cốt: ỨNG XỬ với THỜI — Lùi/Tiến/Giải/Chống
+- ⭐ Minh Di Hào 2: "đau đùi BÊN TRÁI nhưng sẽ mau khỏi" — cross founder
 
 ### Trang dừng đọc cuối cùng (cập nhật 2026-06-03):
-- **p260** — Cụm A DONE
-- Tiếp Cụm B (p240-300) — 8 quẻ Mệnh-Thân paradigm
+- **p280** — Cụm A + B DONE
+- Đã đọc: 41/64 quẻ (64%)
+- Tiếp Cụm C Tổn-Ích-Quải-Cấu (p300-340) — 8 quẻ QUYẾT ĐỊNH
 
 ### Trang dừng đọc trước đó:
 - **p180** — vòng 1-9 (đọc tuần tự): Phần I + 22 quẻ đầu (Càn → Bí)
