@@ -79,3 +79,6 @@ deep-research-report.md
 # Built artifacts (keep dist-from-CI, not local builds)
 client/webapp/dist/
 .ocr_*/
+
+# Daily health briefs — chỉ track file đầu tiên, không track tất cả
+data/daily_briefs/

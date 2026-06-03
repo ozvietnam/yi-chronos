@@ -1712,6 +1712,36 @@ def dong_y_synthesis(request: MonthlyHealthRequest) -> dict[str, object]:
     }
 
 
+@app.post("/api/dong-y/today-brief")
+def dong_y_today_brief(request: WeeklyPlanRequest) -> dict[str, object]:
+    """Brief sức khỏe HÔM NAY — chỉ 1 ngày từ weekly_planner.
+
+    UI auto-load khi vào tab Sức khỏe → hiển thị card "Hôm nay" trên đầu.
+    """
+    from engine.dong_y.weekly_planner import build_weekly_plan
+    from datetime import datetime, timezone, timedelta
+
+    # Today VN
+    vn_tz = timezone(timedelta(hours=7))
+    today_str = request.start_date or datetime.now(vn_tz).strftime("%Y-%m-%d")
+
+    weekly = build_weekly_plan(
+        birth_datetime_local=request.birth_datetime_local,
+        timezone=request.timezone,
+        gender=request.gender,
+        start_date=today_str,
+    )
+    today_data = weekly.days[0] if weekly.days else None
+
+    return {
+        "algorithm_version": ALGORITHM_VERSION,
+        "date": today_str,
+        "day_master": weekly.day_master,
+        "day_master_element": weekly.day_master_element,
+        "today": today_data,
+    }
+
+
 @app.post("/api/dong-y/weekly-plan")
 def dong_y_weekly_plan(request: WeeklyPlanRequest) -> dict[str, object]:
     """Lịch dưỡng sinh 7 ngày cá nhân hóa."""
