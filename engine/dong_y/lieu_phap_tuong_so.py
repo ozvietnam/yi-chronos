@@ -316,6 +316,99 @@ CONG_THUC_TUONG_SO: list[dict] = [
         "trich_sach": "Case 60 (dòng 5971): Cô Vương 23t niệm 2 ngày khỏi. ⚠️ Nếu vị nguyên hư hàn không dùng lâu.",
     },
     {
+        "tuong_so": "650.30.820",
+        "y_nghia": "⭐ KHÍ NGŨ TẠNG — bài tổng quát cho người già + nhiều bệnh kèm",
+        "phan_tich": (
+            "Bài CỐT chương II: cân bằng khí của 5 tạng. 650=bổ Can-Thận phấn chấn khí, "
+            "30=ích Tâm dưỡng Mục, 820=kiện Tỳ ích Khí. Đạt 'thăng giáng, xuất nhập, "
+            "nhanh chậm, cân bằng'."
+        ),
+        "chi_dinh": [
+            "Người già bệnh lâu năm + nhiều bệnh kèm (cao HA, xơ vữa, bệnh tim, viêm Can, viêm dạ dày, đau đầu, viêm khớp)",
+            "Âm hư dương cang kinh mạch yếu",
+            "Tổn tiên thiên + mất dinh dưỡng hậu thiên",
+            "Bệnh phức tạp khó định cách chữa cụ thể (dùng làm BÀI NỀN)",
+        ],
+        "trich_sach": "Case 2 (dòng 3877): Bà Chương 62t bệnh từ 1982, nhiều biến chứng. Gần 1 năm → trừ dần bệnh ngoan cố, tăng 10kg, da mềm bóng.",
+    },
+    {
+        "tuong_so": "00100.0700",
+        "y_nghia": "Đau khớp hàn tê — ôn thông đốc mạch + cục bộ",
+        "phan_tich": (
+            "1=Càn (bản chất dương, đốc mạch). 7=Cấn (đầu gối). "
+            "Hai số 0 trước+sau (chẵn=thiên âm) để HOÃN dương, tránh viêm. "
+            "00100=ôn đốc mạch, 0700=ôn thông cục bộ. ⚠️ Người gầy dễ đa hỏa, "
+            "khi bệnh đã khỏi PHẢI thôi ngay (không niệm dài lâu)."
+        ),
+        "chi_dinh": [
+            "Đau khớp gối hàn tê mạn tính",
+            "Sợ rét thích nóng, đầu gối co như gắn chì",
+            "Đau khi trời mưa âm u hoặc lao động mệt",
+            "Mạch trầm + lưỡi viêm đỏ + chân tay nóng",
+        ],
+        "trich_sach": "Case 3 (dòng 3923): Cô Trương 29t đau 2 khớp gối 3 năm, 4 phút thấy toát hơi lạnh, 1 tuần khỏi.",
+    },
+    {
+        "tuong_so": "00100.800",
+        "y_nghia": "Trĩ — ôn mạch đốc + kiện tỳ tả tư âm",
+        "phan_tich": (
+            "00100 ôn dương đốc mạch (1=Càn còn chủ Đại trường). "
+            "800 (8=Khôn/Tỳ + 00 thiên âm) = kiện tỳ + nhuận tràng + tả tư âm + trừ phiền."
+        ),
+        "chi_dinh": [
+            "Trĩ do khí huyết vận hành không thông",
+            "Đại tiện táo + chảy máu nhẹ",
+            "Phát khi lao động mệt hoặc bị lạnh",
+            "Kinh mạch tắc nghẽn đọng máu vùng hậu môn",
+        ],
+        "trich_sach": "Case 4 (dòng 3959): Cô Trương 21t trĩ 2 năm, niệm dù không có cảm giác vẫn khỏi, 2 năm không tái phát.",
+    },
+    {
+        "tuong_so": "38000.40",
+        "y_nghia": "Tiêu hóa kém + Can uất — kiện tỳ ích khí, thư Can giải uất",
+        "phan_tich": (
+            "38000=Ly-Khôn (hỏa sinh thổ) kiện tỳ + 4 số 0 cường hóa. "
+            "40=Chấn sơ Can. Trị 'mộc uất khí trì có trở ngại sinh hóa'."
+        ),
+        "chi_dinh": [
+            "Tiêu hóa kém do căng thẳng",
+            "Đầy bụng + ợ hơi sau stress",
+            "Tỳ vị bị Can mộc khắc (cáu xong đau dạ dày)",
+            "Buồn bực không tả + ăn không ngon",
+        ],
+        "trich_sach": "Dòng 4691: niệm trong ngày, chiều đã thấy chuyển biến.",
+    },
+    {
+        "tuong_so": "650.070",
+        "y_nghia": "Tê chân / máu không lưu thông xuống chân",
+        "phan_tich": (
+            "650=Tốn-Khảm chấn thận dương sơ thông. 070=Cấn (chân) + số 0 thiên âm."
+            " ⚠️ Nếu sửa thành 6500.070 sẽ nóng → quay lại 650.070."
+        ),
+        "chi_dinh": [
+            "Tê chân, cảm giác máu chảy chậm",
+            "Đầu ngón chân xì hơi lạnh",
+            "Sau lao động chân nặng",
+            "Tuần hoàn ngoại vi kém",
+        ],
+        "trich_sach": "Dòng 6801: niệm thấy như máu trong chân chảy, đầu ngón chân xì hơi lạnh, sau đó nhẹ nhàng.",
+    },
+    {
+        "tuong_so": "0002",
+        "y_nghia": "Mẩn ngứa cấp da — sơ phong lợi thấp",
+        "phan_tich": (
+            "2=Đoài/Phế chủ bì mao. 000 trước = thiên âm để đề phòng tổn âm khi sơ phong. "
+            "Cường hóa khả năng sơ giải tà khí trên mặt da."
+        ),
+        "chi_dinh": [
+            "Mẩn ngứa cấp tính toàn thân",
+            "Da đột ngột bị ngứa không rõ nguyên nhân",
+            "Dị ứng cấp + mất ngủ vì ngứa",
+            "Uống thuốc không khỏi (case mạn → dùng 2000.60)",
+        ],
+        "trich_sach": "Case nữ giáo sư Mông (dòng 3208): 0002 → mấy phút hết ngứa, mười mấy phút khỏi hoàn toàn.",
+    },
+    {
         "tuong_so": "20.650.380",
         "y_nghia": "Phong thấp toàn thân + bệnh ngoan cố — vực chính trừ tà",
         "phan_tich": (
@@ -483,6 +576,41 @@ def tim_tuong_so(chan_thuong: str) -> TuongSoResult:
     if "mắt" in ct and any(k in ct for k in ["đỏ", "sưng", "viêm kết mạc"]):
         for i, f in enumerate(matched):
             if f["tuong_so"] == "003":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Trĩ → 00100.800
+    if any(k in ct for k in ["trĩ", "hậu môn"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "00100.800":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Đau khớp gối hàn tê (sợ rét, đau khi trời mưa) → 00100.0700
+    if any(k in ct for k in ["hàn tê", "sợ rét", "trời mưa", "âm u"]) and "khớp" in ct:
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "00100.0700":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Tê chân / máu chảy chậm → 650.070
+    if any(k in ct for k in ["tê chân", "máu chảy chậm", "máu lưu thông kém", "tê tay chân"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "650.070":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Mẩn ngứa cấp → 0002 (nếu không kéo dài)
+    if "ngứa" in ct and not any(k in ct for k in ["kéo dài", "mạn", "nhiều năm", "lâu"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "0002":
+                matched.insert(0, matched.pop(i))
+                break
+
+    # Người già nhiều bệnh kèm → 650.30.820
+    if any(k in ct for k in ["người già", "nhiều bệnh", "đa bệnh", "phức tạp"]):
+        for i, f in enumerate(matched):
+            if f["tuong_so"] == "650.30.820":
                 matched.insert(0, matched.pop(i))
                 break
 

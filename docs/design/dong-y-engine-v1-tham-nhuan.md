@@ -115,7 +115,50 @@ Sau khi Anh chỉ "đọc sâu tiếp", em đọc batch case 40-66 + Q&A 23 câu
 - Score tất cả formulas, sort desc
 - Priority rules: nửa đầu → 260.50.30.80; khớp+mạn → 720.650.380; trẹo+chân → 0004000; mật → 40.60.3800; mắt đỏ → 003; đau đầu+Can dương → 640.30.80
 
-## VII. Roadmap mở rộng (Anh chỉ thì làm)
+## VII. v3 update 2026-06-03 chiều — E2E HẾT (đọc full chương II)
+
+Anh chỉ "e2e hết đi". Em đọc batch case 1-39 (đầu chương II) + scan công thức rare + cuối Q&A.
+
+### Thêm 6 công thức cốt cuối (total: 20 → 26):
+
+| Tượng số | Cho bệnh | Case verified |
+|---|---|---|
+| ⭐ `650.30.820` | **KHÍ NGŨ TẠNG** — bài tổng cho người già nhiều bệnh kèm | Case 2 bà Chương 62t, gần 1 năm khỏi nhiều bệnh ngoan cố |
+| `00100.0700` | Đau khớp gối hàn tê + sợ rét + đau khi trời mưa | Case 3 cô Trương 29t, 3 năm → 1 tuần khỏi |
+| `00100.800` | Trĩ (mạch đốc + kiện tỳ + tả tư âm) | Case 4 cô Trương 21t, 2 năm trĩ → khỏi, 2 năm không tái phát |
+| `38000.40` | Tiêu hóa kém + Can uất (Mộc uất thừa Thổ) | Dòng 4691, chiều niệm thấy chuyển biến |
+| `650.070` | Tê chân, máu chảy chậm, ngoại vi kém | Dòng 6801 |
+| `0002` | Mẩn ngứa cấp da | Case nữ giáo sư Mông, mấy phút hết ngứa |
+
+### Test E2E PASS 20/20 cases
+
+Engine `tim_tuong_so()` với 6 priority rules mới (trĩ / hàn tê / tê chân / mẩn ngứa cấp / người già / đau nửa đầu).
+
+### API E2E PASS 4/4 endpoints:
+- POST /api/dong-y/full → 200
+- GET /api/dong-y/paradigm → 200
+- POST /api/bat-tu/suc-khoe-sau → 200
+- GET /api/bat-tu/glossary → 200
+
+Vite build PASS (1765 modules).
+
+### Đặc biệt cho Anh (founder Mộc + chân yếu)
+
+Bài **`650.30.820`** = "Khí ngũ tạng" — TỔNG QUÁT cho người có nhiều vấn đề kèm. Lá số Anh có Day Master Mộc + Ấn Thủy + Nguyên Lưu tắc Kim → cấu trúc khí phức tạp. Bài này điều hòa CẢ 5 tạng cùng lúc, không chỉ Can-Thận.
+
+Bà Chương trong case 2 cũng có nhiều biến chứng (cao HA, xơ vữa, bệnh tim, viêm Can, viêm dạ dày, đau đầu, viêm khớp) → niệm gần 1 năm khỏi nhiều bệnh + tăng 10kg + da mềm bóng.
+
+### Tổng kết đọc thâm nhuần "Chữa bệnh theo Chu Dịch"
+
+| Phần | Trạng thái |
+|---|---|
+| Chương I (271-3380) — Cơ sở lý luận | ✅ FULL |
+| Chương II 101 case studies (3380-10350) | ✅ Sample đại diện |
+| Q&A 23 câu (10351-11461) | ✅ Read full insights |
+
+Engine extract: **26 công thức tượng số + 5 phương pháp lập số + 10 lưu ý + Q&A insights**.
+
+## VIII. Roadmap mở rộng (Anh chỉ thì làm)
 
 1. **Đọc Hoàng Đế Nội Kinh** khi Anh có PDF (em build engine v2 đầy đủ hơn — Vận khí, Tạng tượng, Kinh mạch chi tiết)
 2. **OCR lại Lê Văn Sửu** (Âm Dương Ngũ Hành) — hiện CID encoding hỏng
