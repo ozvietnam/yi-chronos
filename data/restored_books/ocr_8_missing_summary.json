@@ -1,0 +1,50 @@
+[
+  {
+    "book_id": "kinh-dich-tron-bo-ngo-tat-to",
+    "status": "ok",
+    "chars": 1235952,
+    "needs_ocr": false
+  },
+  {
+    "book_id": "hoc-thuyet-am-duong-ngu-hanh-le-van-suu",
+    "status": "ok",
+    "chars": 2035929,
+    "needs_ocr": false
+  },
+  {
+    "book_id": "trung-chau-tu-vi-dau-so-2",
+    "status": "ok",
+    "chars": 0,
+    "needs_ocr": true
+  },
+  {
+    "book_id": "don-toan-than-dieu",
+    "status": "ok",
+    "chars": 1,
+    "needs_ocr": true
+  },
+  {
+    "book_id": "phong-thuy-tam-quai-trach",
+    "status": "ok",
+    "chars": 0,
+    "needs_ocr": true
+  },
+  {
+    "book_id": "lac-thu-cuu-tinh-phong-thuy-nha-o",
+    "status": "ok",
+    "chars": 0,
+    "needs_ocr": true
+  },
+  {
+    "book_id": "12-con-giap-theo-lich-van-nien",
+    "status": "ok",
+    "chars": 1,
+    "needs_ocr": true
+  },
+  {
+    "book_id": "chon-viec-theo-lich-am",
+    "status": "ok",
+    "chars": 1,
+    "needs_ocr": true
+  }
+]
