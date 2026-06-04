@@ -7,7 +7,6 @@ from zoneinfo import ZoneInfo
 from pydantic import BaseModel
 
 from core.config import ALGORITHM_VERSION
-from core.lunar_calendar import solar_to_lunar
 
 
 STEMS = ("Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý")
@@ -145,14 +144,36 @@ def _fortune_from_index(index: int) -> str:
     return FORTUNE_LABELS[index % len(FORTUNE_LABELS)]
 
 
+# 早子時 (early Zi-hour) convention: hour ≥ 23:00 begins the NEW day.
+# Sourced from the project's chosen Bát Tự master Thiệu Vĩ Hoa (《Dự đoán theo Tứ
+# trụ》): "Giờ Tí là ranh giới giữa ngày hôm trước và ngày hôm sau, mà 23 giờ đã là
+# giờ Tí rồi". Corroborated by `bat-tu-ha-lac` + `can-chi-thong-luan`. Configurable
+# via env YI_ZI_CONVENTION = "early" (default, 23:00→next day) | "late" (00:00 boundary).
+_EARLY_ZI = os.environ.get("YI_ZI_CONVENTION", "early").lower() != "late"
+
+
+def _lunar_via_sxtwl(local_dt: datetime, early_zi: bool = _EARLY_ZI) -> tuple[int, int, int, bool]:
+    """Lunar (day, month, year, is_leap) via sxtwl — single calendar source (#15).
+
+    Unifies the lunar date on sxtwl (same system Tử Vi an-sao + the can-chi pillars
+    use), with the 早子時 day-roll so it matches the day pillar + Tử Vi lunar_day.
+    """
+    import sxtwl
+
+    eff_date = local_dt.date()
+    if early_zi and local_dt.hour >= 23:
+        eff_date = eff_date + timedelta(days=1)
+    d = sxtwl.fromSolar(eff_date.year, eff_date.month, eff_date.day)
+    return d.getLunarDay(), d.getLunarMonth(), d.getLunarYear(), bool(d.isLunarLeap())
+
+
 def build_almanac(local_dt: datetime, cycle_idx: int, month_idx: int, hour_idx: int) -> AlmanacInfo:
-    offset_hours = local_dt.utcoffset().total_seconds() / 3600 if local_dt.utcoffset() else 7.0
-    lunar = solar_to_lunar(local_dt.day, local_dt.month, local_dt.year, offset_hours)
+    l_day, l_month, l_year, l_leap = _lunar_via_sxtwl(local_dt)
     weekday_vi = WEEKDAY_VI[local_dt.weekday()]
     truc = TRUC_SEQUENCE[cycle_idx % len(TRUC_SEQUENCE)]
     return AlmanacInfo(
-        lunar_date=f"{lunar.day:02d}/{lunar.month:02d}/{lunar.year}",
-        lunar_is_leap_month=lunar.is_leap,
+        lunar_date=f"{l_day:02d}/{l_month:02d}/{l_year}",
+        lunar_is_leap_month=l_leap,
         weekday_vi=weekday_vi,
         truc_of_day=truc,
         annual_fortune=_fortune_from_index((local_dt.year - 1984) % 60),
@@ -161,13 +182,6 @@ def build_almanac(local_dt: datetime, cycle_idx: int, month_idx: int, hour_idx: 
         hourly_fortune=_fortune_from_index(hour_idx),
     )
 
-
-# 早子時 (early Zi-hour) convention: hour ≥ 23:00 begins the NEW day.
-# Sourced from the project's chosen Bát Tự master Thiệu Vĩ Hoa (《Dự đoán theo Tứ
-# trụ》): "Giờ Tí là ranh giới giữa ngày hôm trước và ngày hôm sau, mà 23 giờ đã là
-# giờ Tí rồi". Corroborated by `bat-tu-ha-lac` + `can-chi-thong-luan`. Configurable
-# via env YI_ZI_CONVENTION = "early" (default, 23:00→next day) | "late" (00:00 boundary).
-_EARLY_ZI = os.environ.get("YI_ZI_CONVENTION", "early").lower() != "late"
 
 
 def _cycle_index_from_gz(tg: int, dz: int) -> int:

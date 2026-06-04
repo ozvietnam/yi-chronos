@@ -112,56 +112,26 @@ def _get_leap_month_offset(a11: int, time_zone: float) -> int:
     return i - 1
 
 
+# ─── Public API now delegates to sxtwl (project-wide single calendar — #15) ──────
+# The Hồ Ngọc Đức (VN, UTC+7) algorithm above is kept for reference, but to end the
+# VN/CN mixing the founder chose to standardize the whole project on sxtwl (CN
+# astronomical lunar — same system Tử Vi / Mai Hoa / can-chi pillars use). `time_zone`
+# is kept for signature compatibility but ignored.
+
 def solar_to_lunar(day: int, month: int, year: int, time_zone: float = 7.0) -> LunarDate:
-    day_number = _jd_from_date(day, month, year)
-    k = int((day_number - 2415021.076998695) / 29.530588853)
-    month_start = _get_new_moon_day(k + 1, time_zone)
-    if month_start > day_number:
-        month_start = _get_new_moon_day(k, time_zone)
-    a11 = _get_lunar_month11(year, time_zone)
-    b11 = a11
-    if a11 >= month_start:
-        lunar_year = year
-        a11 = _get_lunar_month11(year - 1, time_zone)
-    else:
-        lunar_year = year + 1
-        b11 = _get_lunar_month11(year + 1, time_zone)
-    lunar_day = day_number - month_start + 1
-    diff = int((month_start - a11) / 29)
-    lunar_leap = False
-    lunar_month = diff + 11
-    if b11 - a11 > 365:
-        leap_month_diff = _get_leap_month_offset(a11, time_zone)
-        if diff >= leap_month_diff:
-            lunar_month = diff + 10
-            if diff == leap_month_diff:
-                lunar_leap = True
-    if lunar_month > 12:
-        lunar_month -= 12
-    if lunar_month >= 11 and diff < 4:
-        lunar_year -= 1
-    return LunarDate(day=lunar_day, month=lunar_month, year=lunar_year, is_leap=lunar_leap)
+    import sxtwl
+
+    d = sxtwl.fromSolar(year, month, day)
+    return LunarDate(
+        day=d.getLunarDay(),
+        month=d.getLunarMonth(),
+        year=d.getLunarYear(),
+        is_leap=bool(d.isLunarLeap()),
+    )
 
 
 def lunar_to_solar(day: int, month: int, year: int, is_leap: bool = False, time_zone: float = 7.0) -> tuple[int, int, int]:
-    if month < 11:
-        a11 = _get_lunar_month11(year - 1, time_zone)
-        b11 = _get_lunar_month11(year, time_zone)
-    else:
-        a11 = _get_lunar_month11(year, time_zone)
-        b11 = _get_lunar_month11(year + 1, time_zone)
-    k = int(0.5 + (a11 - 2415021.076998695) / 29.530588853)
-    off = month - 11
-    if off < 0:
-        off += 12
-    if b11 - a11 > 365:
-        leap_off = _get_leap_month_offset(a11, time_zone)
-        leap_month = leap_off - 2
-        if leap_month < 0:
-            leap_month += 12
-        if is_leap and month != leap_month:
-            raise ValueError("Invalid lunar leap month")
-        if is_leap or off >= leap_off:
-            off += 1
-    month_start = _get_new_moon_day(k + off, time_zone)
-    return _jd_to_date(month_start + day - 1)
+    import sxtwl
+
+    d = sxtwl.fromLunar(year, month, day, bool(is_leap))
+    return (d.getSolarDay(), d.getSolarMonth(), d.getSolarYear())
