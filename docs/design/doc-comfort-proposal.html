@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đề xuất giao diện đọc dễ chịu — YI-Chronos</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif", Georgia, serif;
+    background: #0d0f13; color: #cdd3da;
+    -webkit-font-smoothing: antialiased; line-height: 1.6;
+    padding: 0 0 80px;
+  }
+  /* ── Control bar ─────────────────────────────────────────── */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: #14171d; border-bottom: 1px solid #262b34;
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+    padding: 12px 20px; box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  }
+  .bar h1 { font-size: 15px; font-weight: 600; color: #e8c95a; letter-spacing: .3px; margin-right: 8px; }
+  .bar .group { display: flex; gap: 6px; align-items: center; }
+  .bar label { font-size: 12px; color: #8a93a0; font-family: system-ui, sans-serif; }
+  .theme-btn {
+    font-family: system-ui, sans-serif; font-size: 12.5px;
+    padding: 6px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid #2e3540; background: #1b1f27; color: #b8c0cc; transition: .15s;
+  }
+  .theme-btn:hover { border-color: #4a5568; }
+  .theme-btn.active { background: #e8c95a; color: #1a1205; border-color: #e8c95a; font-weight: 600; }
+  .fs-btn {
+    font-family: system-ui, sans-serif; cursor: pointer; width: 30px; height: 30px;
+    border-radius: 8px; border: 1px solid #2e3540; background: #1b1f27; color: #cdd3da; font-size: 15px;
+  }
+  .fs-btn:hover { border-color: #4a5568; }
+  .fs-val { font-family: system-ui, sans-serif; font-size: 12px; color: #8a93a0; min-width: 38px; text-align: center; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 0; }
+  .intro { font-family: system-ui, sans-serif; font-size: 13.5px; color: #8a93a0; margin-bottom: 22px; line-height: 1.7; }
+  .intro b { color: #cdd3da; }
+
+  /* ── Reading card (theme-driven) ─────────────────────────── */
+  .reader {
+    --fs: 1;
+    border-radius: 14px; padding: clamp(24px, 4vw, 40px);
+    transition: background .25s, color .25s;
+    max-width: var(--measure, 680px); margin: 0 auto;
+  }
+  .reader .kicker {
+    font-family: system-ui, sans-serif;
+    font-size: calc(11.5px * var(--fs)); letter-spacing: 1.5px; text-transform: uppercase;
+    opacity: .7; margin-bottom: 8px;
+  }
+  .reader h2 { font-size: calc(26px * var(--fs)); line-height: 1.25; margin-bottom: 4px; font-weight: 600; }
+  .reader .han { font-size: calc(22px * var(--fs)); letter-spacing: 2px; opacity: .85; margin-bottom: 18px; }
+  .reader p { font-size: calc(17px * var(--fs)); line-height: 1.78; margin-bottom: 16px; }
+  .reader .hao {
+    font-size: calc(17px * var(--fs)); line-height: 1.7;
+    border-left: 3px solid var(--rule); padding: 4px 0 4px 16px; margin: 0 0 18px;
+    font-style: italic; opacity: .92;
+  }
+  /* Unified citation block */
+  .cite {
+    font-family: system-ui, sans-serif;
+    font-size: calc(13px * var(--fs)); line-height: 1.6;
+    background: var(--cite-bg); border-left: 3px solid var(--cite-rule);
+    border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 22px 0 12px;
+  }
+  .cite .lbl { font-weight: 700; color: var(--cite-rule); letter-spacing: .3px; }
+  .cite .pg { opacity: .8; }
+  /* Unified note block */
+  .note {
+    font-family: system-ui, sans-serif;
+    font-size: calc(13.5px * var(--fs)); line-height: 1.65;
+    background: var(--note-bg); border-radius: 8px; padding: 11px 14px; margin: 0 0 4px;
+  }
+  .note .lbl { font-weight: 700; color: var(--note-accent); }
+
+  /* ── THEME A: Than dịu (dark, current app family but softer) ── */
+  .t-dark {
+    background: #16181c; color: #e3e6ea;
+    --rule: #5be5d3; --cite-bg: rgba(232,201,90,.07); --cite-rule: #e8c95a;
+    --note-bg: rgba(91,229,211,.07); --note-accent: #7eeada;
+  }
+  .t-dark h2 { color: #f0ead2; }
+  .t-dark .han { color: #e8c95a; }
+
+  /* ── THEME B: Sepia đêm (warm dark — dịu nhất cho đọc lâu) ── */
+  .t-sepia {
+    background: #1d1813; color: #e9dcc6;
+    --rule: #c9a14a; --cite-bg: rgba(201,161,74,.10); --cite-rule: #d9b977;
+    --note-bg: rgba(141,178,148,.10); --note-accent: #a9c8a0;
+  }
+  .t-sepia h2 { color: #f3e6c8; }
+  .t-sepia .han { color: #d9b977; }
+
+  /* ── THEME C: Giấy mềm (improved light — KHÔNG trắng/đen tuyền) ── */
+  .t-paper {
+    background: #f3ead4; color: #3c3326;
+    --rule: #b07d3a; --cite-bg: rgba(176,125,58,.10); --cite-rule: #8a5a22;
+    --note-bg: rgba(90,110,70,.12); --note-accent: #4d6a3a;
+  }
+  .t-paper h2 { color: #5a3d1a; }
+  .t-paper .han { color: #7a4f1c; }
+
+  /* ── THEME D: HIỆN TẠI (để Anh đối chiếu cái đang gây mỏi) ── */
+  .t-current {
+    background: #ffffff; color: #1a1a1a; font-family: Georgia, serif;
+    --rule: #92400e; --cite-bg: #fef3c7; --cite-rule: #92400e;
+    --note-bg: #fef9e7; --note-accent: #b45309;
+  }
+  .t-current { --fs: 0.72; }            /* mô phỏng cỡ chữ nhỏ ~12px đang dùng */
+  .t-current h2 { color: #7c2d12; }
+  .t-current .han { color: #7c2d12; }
+  .t-current .badge {
+    font-family: system-ui, sans-serif; font-size: 11px; color: #b91c1c;
+    border: 1px solid #fca5a5; background: #fef2f2; border-radius: 6px;
+    padding: 3px 8px; display: inline-block; margin-bottom: 14px;
+  }
+  .reader .badge { display: none; }
+  .t-current .badge { display: inline-block; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <h1>📖 Giao diện đọc — đề xuất</h1>
+    <div class="group">
+      <label>Nền:</label>
+      <button class="theme-btn" data-theme="t-sepia">Sepia đêm</button>
+      <button class="theme-btn" data-theme="t-dark">Than dịu</button>
+      <button class="theme-btn" data-theme="t-paper">Giấy mềm</button>
+      <button class="theme-btn" data-theme="t-current">Hiện tại</button>
+    </div>
+    <div class="group">
+      <label>Cỡ chữ:</label>
+      <button class="fs-btn" id="fsDown">A−</button>
+      <span class="fs-val" id="fsVal">100%</span>
+      <button class="fs-btn" id="fsUp">A+</button>
+    </div>
+    <div class="group">
+      <label>Bề rộng:</label>
+      <button class="theme-btn" id="widthToggle">Hẹp (dễ theo dòng)</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="intro">
+      Anh bấm thử <b>4 nền</b> + kéo <b>cỡ chữ A−/A+</b> để cảm nhận bằng mắt. Cùng một đoạn luận giải,
+      em dựng kèm <b>cách trích nguồn</b> và <b>ghi chú</b> thống nhất (📚 nguồn tách khỏi 💡 ghi chú).
+      Nút <b>"Hiện tại"</b> mô phỏng đúng nền sáng + chữ nhỏ ~12px đang gây mỏi để Anh đối chiếu.
+    </p>
+
+    <article class="reader t-sepia" id="reader">
+      <div class="badge">⚠ Đây là kiểu ĐANG DÙNG — nền sáng, chữ ~12px</div>
+      <div class="kicker">Bát Tự · Nhật chủ Nhâm Thủy</div>
+      <h2>Thân nhược — Cần cứu thân trước</h2>
+      <div class="han">壬水 · 戊午月 · 身弱</div>
+      <p>
+        Nhật chủ <b>Nhâm Thủy</b> (壬) sinh tháng <b>Ngọ</b> (Hỏa vượng giữa hè) — nước gặp lửa-đất
+        bức bách, thế thân suy nhược. Trong cục Thổ nhiều (Sát/Quan) khắc chế, Thủy lẻ loi cần được
+        Kim sinh và đồng loại Thủy trợ giúp, mới đứng vững mà gánh nổi Tài-Quan.
+      </p>
+      <div class="hao">
+        “Thủy nhược phùng Thổ trọng, phi Kim bất sinh; đắc Canh Tân thấu xuất, nhược biến vi cường.”
+      </div>
+      <p>
+        Vì vậy <b>Dụng thần là Thủy</b> (đồng loại trợ thân), <b>Hỷ thần là Kim</b> (Ấn sinh thân),
+        <b>Kỵ thần là Thổ</b> (Quan Sát khắc thân). Hướng cải vận: nuôi dưỡng gốc nước, nương người
+        trợ lực, tránh ôm đồm việc đất-tài quá sức.
+      </p>
+      <div class="cite">
+        <span class="lbl">📚 Nguồn:</span>
+        Thiệu Vĩ Hoa — <i>Dự đoán theo Tứ trụ</i>, <span class="pg">Q.1 ch.2, tr. 101–109</span>
+        · đối chiếu Tử Bình Chân Thuyên.
+      </div>
+      <div class="note">
+        <span class="lbl">💡 Ghi chú:</span>
+        Đây là <b>đọc đồng dạng</b> (quan-cục-trace-tính), KHÔNG phải dự đoán cát/hung.
+        Luận theo nguyên lý cân bằng ngũ hành — Anh là người quyết hướng đi.
+      </div>
+    </article>
+  </div>
+
+<script>
+  const reader = document.getElementById('reader');
+  const themes = ['t-sepia','t-dark','t-paper','t-current'];
+  let fs = 1, narrow = false;
+
+  function setActive(theme){
+    themes.forEach(t => reader.classList.remove(t));
+    reader.classList.add(theme);
+    document.querySelectorAll('.theme-btn[data-theme]').forEach(b =>
+      b.classList.toggle('active', b.dataset.theme === theme));
+    // "Hiện tại" forces its own small size; others use the slider value
+    if(theme !== 't-current'){ reader.style.setProperty('--fs', fs.toFixed(2)); }
+    else { reader.style.removeProperty('--fs'); }
+  }
+  document.querySelectorAll('.theme-btn[data-theme]').forEach(b =>
+    b.addEventListener('click', () => setActive(b.dataset.theme)));
+
+  function applyFs(){
+    document.getElementById('fsVal').textContent = Math.round(fs*100)+'%';
+    if(!reader.classList.contains('t-current')) reader.style.setProperty('--fs', fs.toFixed(2));
+  }
+  document.getElementById('fsUp').onclick = () => { fs = Math.min(1.6, fs+0.1); applyFs(); };
+  document.getElementById('fsDown').onclick = () => { fs = Math.max(0.8, fs-0.1); applyFs(); };
+  document.getElementById('widthToggle').onclick = (e) => {
+    narrow = !narrow;
+    reader.style.setProperty('--measure', narrow ? '560px' : '680px');
+    e.target.classList.toggle('active', narrow);
+    e.target.textContent = narrow ? 'Hẹp ✓' : 'Hẹp (dễ theo dòng)';
+  };
+
+  setActive('t-sepia');   // mặc định: sepia đêm (dịu nhất)
+</script>
+</body>
+</html>

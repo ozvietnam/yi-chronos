@@ -27,7 +27,119 @@
   --accent-teal-dim: #99f6e4;
   --accent-red: #ff9080;
   --accent-green: #9adcb0;
+
+  /* ─── Reading comfort: global text scale + reading-surface tokens ───────
+     Controlled by useReadingPrefs (data-reading attr + --reading-scale on <html>).
+     Default below = "Sepia đêm" (warm dark) — low eye strain for long classical
+     reading. The cosmic app SHELL keeps its own --bg/--text tokens above; only
+     READING panes (.reading-surface) consume the --read-* tokens. */
+  --reading-scale: 1;
+  --read-bg: #1d1813;
+  --read-bg-soft: #241d16;
+  --read-surface: #221b14;
+  --read-text: #e9dcc6;
+  --read-text-dim: rgba(233, 220, 198, 0.72);
+  --read-text-faint: rgba(233, 220, 198, 0.5);
+  --read-heading: #f3e6c8;
+  --read-han: #d9b977;
+  --read-rule: #c9a14a;
+  --read-border: rgba(201, 161, 74, 0.22);
+  --read-link: #e8c95a;
+  --read-cite-bg: rgba(201, 161, 74, 0.10);
+  --read-cite-accent: #d9b977;
+  --read-note-bg: rgba(141, 178, 148, 0.10);
+  --read-note-accent: #a9c8a0;
 }
+
+/* Reading theme: Than dịu (dark, matches cosmic shell but softened) */
+[data-reading="dark"] {
+  --read-bg: #16181c;
+  --read-bg-soft: #1b1f27;
+  --read-surface: #1a1d23;
+  --read-text: #e3e6ea;
+  --read-text-dim: rgba(227, 230, 234, 0.72);
+  --read-text-faint: rgba(227, 230, 234, 0.5);
+  --read-heading: #f0ead2;
+  --read-han: #e8c95a;
+  --read-rule: #5be5d3;
+  --read-border: rgba(255, 255, 255, 0.12);
+  --read-link: #5be5d3;
+  --read-cite-bg: rgba(232, 201, 90, 0.08);
+  --read-cite-accent: #e8c95a;
+  --read-note-bg: rgba(91, 229, 211, 0.08);
+  --read-note-accent: #7eeada;
+}
+
+/* Reading theme: Giấy mềm (improved light — NOT pure white/black) */
+[data-reading="paper"] {
+  --read-bg: #f3ead4;
+  --read-bg-soft: #ece0c4;
+  --read-surface: #f6efdc;
+  --read-text: #3c3326;
+  --read-text-dim: rgba(60, 51, 38, 0.74);
+  --read-text-faint: rgba(60, 51, 38, 0.5);
+  --read-heading: #5a3d1a;
+  --read-han: #7a4f1c;
+  --read-rule: #b07d3a;
+  --read-border: rgba(120, 85, 40, 0.28);
+  --read-link: #8a5a22;
+  --read-cite-bg: rgba(176, 125, 58, 0.12);
+  --read-cite-accent: #8a5a22;
+  --read-note-bg: rgba(90, 110, 70, 0.14);
+  --read-note-accent: #4d6a3a;
+}
+
+/* ─── Reading surface: apply to any long-text reading pane ──────────────── */
+.reading-surface {
+  background: var(--read-bg);
+  color: var(--read-text);
+  font-size: calc(16px * var(--reading-scale));
+  line-height: 1.78;
+}
+.reading-surface h1 { font-size: calc(26px * var(--reading-scale)); }
+.reading-surface h2 { font-size: calc(22px * var(--reading-scale)); }
+.reading-surface h3 { font-size: calc(18.5px * var(--reading-scale)); }
+.reading-surface h1,
+.reading-surface h2,
+.reading-surface h3,
+.reading-surface h4 {
+  color: var(--read-heading);
+  line-height: 1.3;
+}
+.reading-surface p,
+.reading-surface li {
+  font-size: calc(16px * var(--reading-scale));
+  line-height: 1.78;
+}
+.reading-surface a { color: var(--read-link); }
+.reading-surface .han,
+.reading-surface .zh { color: var(--read-han); }
+/* Comfortable measure (line length) for prose blocks opting in */
+.reading-prose { max-width: 70ch; }
+
+/* ─── Unified citation (📚 Nguồn) + study note (💡 Ghi chú) ──────────────── */
+.ref-cite,
+.ref-note {
+  font-size: calc(13px * var(--reading-scale));
+  line-height: 1.62;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin: 18px 0 10px;
+}
+.ref-cite {
+  background: var(--read-cite-bg);
+  border-left: 3px solid var(--read-cite-accent);
+  color: var(--read-text-dim);
+}
+.ref-cite .ref-lbl { color: var(--read-cite-accent); font-weight: 700; letter-spacing: 0.3px; }
+.ref-note {
+  background: var(--read-note-bg);
+  border-radius: 8px;
+  border-left: 3px solid var(--read-note-accent);
+  color: var(--read-text-dim);
+  font-size: calc(13.5px * var(--reading-scale));
+}
+.ref-note .ref-lbl { color: var(--read-note-accent); font-weight: 700; }
 
 * {
   box-sizing: border-box;

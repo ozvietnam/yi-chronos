@@ -8,6 +8,8 @@ import AdminPanel from "./components/AdminPanel.vue";
 import MyPublicationsPanel from "./components/MyPublicationsPanel.vue";
 import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
+import ReadingControls from "./components/ReadingControls.vue";
+import { useReadingPrefs } from "./composables/useReadingPrefs.js";
 import UniverseCore from "./components/UniverseCore.vue";
 import MaiHoaClock3D from "./components/MaiHoaClock3D.vue";
 import LucHaoResultPage from "./components/LucHaoResultPage.vue";
@@ -242,7 +244,10 @@ function handleLucHaoCastResult(payload) {
   latestLucHaoMeta.value = payload.meta;
 }
 
+const { startReadingPrefs } = useReadingPrefs();
+
 onMounted(() => {
+  startReadingPrefs(); // apply saved reading theme + text scale to <html>
   clockTimer = window.setInterval(() => {
     now.value = new Date();
   }, 1000);
@@ -875,5 +880,8 @@ onBeforeUnmount(() => {
 
     <!-- First-time profile setup — bắt user mới đăng ký nhập birth_datetime 1 lần -->
     <OnboardingModal />
+
+    <!-- Reading comfort: global text-size + reading-theme control (floating) -->
+    <ReadingControls />
   </main>
 </template>
