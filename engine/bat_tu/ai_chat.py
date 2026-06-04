@@ -138,6 +138,30 @@ def _compose_laso_context(bat_tu_state: dict, luan: dict | None = None,
                 f"({cur['hexagram']} hào {cur['line_position']}, {cur['polarity']})"
             )
 
+    # 10. RAG — trích nguyên văn từ kho sách phục chế (FTS5, #18). Nối "corpus
+    # chết" passages vào luận giải: grounding để LLM cite thư tịch, KHÔNG bịa.
+    try:
+        from engine.yi_wiki.store import get_store
+
+        terms = [t for t in (
+            cc.get("cach_name", ""),
+            dm.get("element", ""),
+            dt.get("dung_than_element", ""),
+        ) if t]
+        query = " ".join(terms)
+        passages = get_store().search_passages(query, limit=2) if query.strip() else []
+        if passages:
+            ctx_parts.append(
+                "TRÍCH NGUYÊN VĂN THƯ TỊCH (tham khảo — cite khi liên quan, KHÔNG bịa thêm):"
+            )
+            for p in passages:
+                excerpt = " ".join((p.get("raw_text") or "").split())[:350]
+                ctx_parts.append(
+                    f"  • [{p.get('corpus_id', '')} tr.{p.get('page_start', '')}] {excerpt}"
+                )
+    except Exception:
+        pass  # corpus là tùy chọn — chat vẫn chạy nếu wiki DB không có
+
     return "\n".join(ctx_parts)
 
 
