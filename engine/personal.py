@@ -34,10 +34,28 @@ def profile_hash(profile: BirthProfile) -> str:
 
 
 def five_element_bias(profile: BirthProfile) -> dict[str, float]:
-    digest = sha256(profile_hash(profile).encode("utf-8")).digest()
-    raw_values = [digest[index] + 1 for index in range(5)]
-    total = sum(raw_values)
-    return {element: round(value / total, 3) for element, value in zip(ELEMENTS, raw_values)}
+    """Real Bát Tự ngũ hành distribution (normalized 0..1), NOT a SHA256 hash (#26).
+
+    Casts the Tứ Trụ and uses the verified weighted element count (tàng can included),
+    so the value displayed under the 'ngũ hành' label is authentic — and so the
+    downstream sync_score (resonance.py reads thủy/hỏa) reflects the real chart.
+    """
+    from engine.bat_tu.cast import cast_bat_tu
+
+    g = (profile.gender_optional or "").strip().lower()
+    gender = "nữ" if g in ("nữ", "nu", "female", "f", "woman", "w") else "nam"
+    try:
+        chart = cast_bat_tu(
+            birth_datetime_local=profile.birth_datetime_local,
+            timezone=profile.timezone,
+            gender=gender,
+        )
+        counts = chart["ngu_hanh"]["counts"]  # {mộc, hỏa, thổ, kim, thủy: float}
+    except Exception:
+        # Degrade gracefully to an even distribution rather than fabricating bias.
+        counts = {el: 1.0 for el in ELEMENTS}
+    total = sum(counts.get(el, 0.0) for el in ELEMENTS) or 1.0
+    return {el: round(counts.get(el, 0.0) / total, 3) for el in ELEMENTS}
 
 
 def build_personal_vector(profile: BirthProfile) -> dict[str, object]:
