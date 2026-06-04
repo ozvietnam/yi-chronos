@@ -11,6 +11,7 @@
  */
 import { ref, computed, onMounted, watch } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
+import { renderMarkdown, renderInline } from "../../lib/markdown.js";
 
 // Solar birth input — default founder (sẽ thay khi auto-load)
 const birthSolar = ref("1988-06-05T23:30");
@@ -138,60 +139,9 @@ function closeDrawer() {
 }
 
 // Lightweight markdown renderer cho narrative
-function renderInline(s) {
-  if (!s) return "";
-  return String(s)
-    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
-    .replace(/_([^_]+)_/g, "<i>$1</i>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>");
-}
-
-function renderMarkdown(md) {
-  if (!md) return "";
-  const lines = md.split("\n");
-  const out = [];
-  let inList = false, inTable = false;
-  for (let i = 0; i < lines.length; i++) {
-    const ln = lines[i];
-    const s = ln.trim();
-    // Tables
-    if (s.startsWith("|") && s.endsWith("|")) {
-      if (!inTable) { out.push("<table>"); inTable = true; }
-      if (s.match(/^\|\s*[-:]+\s*\|/)) continue; // separator
-      const cells = s.slice(1, -1).split("|").map(c => c.trim());
-      const isHeader = (i + 1 < lines.length && lines[i + 1].trim().match(/^\|\s*[-:]+/));
-      const tag = isHeader ? "th" : "td";
-      out.push("<tr>" + cells.map(c => `<${tag}>${renderInline(c)}</${tag}>`).join("") + "</tr>");
-      continue;
-    } else if (inTable) { out.push("</table>"); inTable = false; }
-
-    if (!s) { if (inList) { out.push("</ul>"); inList = false; } continue; }
-    let m;
-    if ((m = s.match(/^(#{1,6})\s+(.*)$/))) {
-      const lvl = m[1].length;
-      if (inList) { out.push("</ul>"); inList = false; }
-      out.push(`<h${lvl}>${renderInline(m[2])}</h${lvl}>`);
-      continue;
-    }
-    if (s === "---") { out.push("<hr>"); continue; }
-    if (s.startsWith("> ")) {
-      if (inList) { out.push("</ul>"); inList = false; }
-      out.push(`<blockquote>${renderInline(s.slice(2))}</blockquote>`);
-      continue;
-    }
-    if (s.startsWith("- ") || s.startsWith("→ ") || s.match(/^[*]\s+/)) {
-      if (!inList) { out.push("<ul>"); inList = true; }
-      out.push(`<li>${renderInline(s.replace(/^[-→*]\s+/, ""))}</li>`);
-      continue;
-    }
-    if (inList) { out.push("</ul>"); inList = false; }
-    out.push(`<p>${renderInline(s)}</p>`);
-  }
-  if (inList) out.push("</ul>");
-  if (inTable) out.push("</table>");
-  return out.join("\n");
-}
+// renderInline + renderMarkdown now imported from ../../lib/markdown.js
+// — escape-first + scheme-safe links (was: local renderInline escaped HTML but
+// renderMarkdown plain lines could carry javascript: links → XSS #22).
 
 onMounted(loadSnapshot);
 </script>

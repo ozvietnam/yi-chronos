@@ -14,6 +14,7 @@
  */
 import { ref, computed, onMounted } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
+import { renderMarkdown } from "../../lib/markdown.js";
 
 const TRIGRAMS = ["Càn", "Đoài", "Ly", "Chấn", "Tốn", "Khảm", "Cấn", "Khôn"];
 const TRIGRAM_UNICODE = {
@@ -97,74 +98,8 @@ function closeDetail() {
 }
 
 // Lightweight markdown → HTML (no deps; supports headers, blockquote, bold, italic, lists, hr, tables)
-function renderMarkdown(md) {
-  if (!md) return "";
-  const lines = md.split("\n");
-  const html = [];
-  let inTable = false;
-  let inList = false;
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i];
-    // Tables: detect | a | b |
-    if (line.startsWith("|") && line.endsWith("|")) {
-      if (!inTable) { html.push('<table class="md-table">'); inTable = true; }
-      // Skip separator row |---|
-      if (line.match(/^\|\s*[-:]+\s*\|/)) continue;
-      const cells = line.slice(1, -1).split("|").map(c => c.trim());
-      const tag = (i + 1 < lines.length && lines[i + 1].match(/^\|\s*[-:]+\s*\|/)) ? "th" : "td";
-      html.push("<tr>" + cells.map(c => `<${tag}>${inlineMd(c)}</${tag}>`).join("") + "</tr>");
-      continue;
-    } else if (inTable) {
-      html.push("</table>");
-      inTable = false;
-    }
-    // Headers
-    let m;
-    if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
-      const lvl = m[1].length;
-      html.push(`<h${lvl}>${inlineMd(m[2])}</h${lvl}>`);
-      continue;
-    }
-    // Horizontal rule
-    if (line.match(/^---+$/)) { html.push("<hr>"); continue; }
-    // Blockquote
-    if (line.startsWith(">")) {
-      html.push(`<blockquote>${inlineMd(line.slice(1).trim())}</blockquote>`);
-      continue;
-    }
-    // List
-    if (line.match(/^[-*]\s+/)) {
-      if (!inList) { html.push("<ul>"); inList = true; }
-      html.push(`<li>${inlineMd(line.replace(/^[-*]\s+/, ""))}</li>`);
-      continue;
-    } else if (inList && line.trim() === "") {
-      html.push("</ul>");
-      inList = false;
-    } else if (inList) {
-      html.push("</ul>");
-      inList = false;
-    }
-    // Paragraph
-    if (line.trim()) {
-      html.push(`<p>${inlineMd(line)}</p>`);
-    } else {
-      html.push("");
-    }
-  }
-  if (inTable) html.push("</table>");
-  if (inList) html.push("</ul>");
-  return html.join("\n");
-}
-
-function inlineMd(s) {
-  // **bold**, _italic_, `code`, [text](url)
-  return s
-    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
-    .replace(/\b_([^_]+)_\b/g, "<i>$1</i>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
-}
+// renderMarkdown now imported from ../../lib/markdown.js — escape-first + scheme-safe
+// links (was: local inlineMd escaped HTML but allowed javascript: links → XSS #22).
 
 onMounted(loadList);
 </script>

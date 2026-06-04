@@ -10,6 +10,7 @@ import {
   RESEARCH_PROVIDERS,
   RESEARCH_RETRIEVERS
 } from "../composables/useYiResearch.js";
+import { renderMarkdown } from "../lib/markdown.js";
 
 const query = ref("");
 const provider = ref("ollama");
@@ -132,21 +133,8 @@ async function applyCatalogNow() {
   }
 }
 
-function renderMarkdown(md) {
-  // Simple markdown render — em không pull marked lib, dùng plain HTML
-  if (!md) return "";
-  let html = md
-    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
-    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
-    .replace(/^\* (.+)$/gm, "<li>$1</li>")
-    .replace(/^- (.+)$/gm, "<li>$1</li>")
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-    .replace(/\n\n/g, "</p><p>");
-  return `<p>${html}</p>`.replace(/<p><h/g, "<h").replace(/<\/h(\d)><\/p>/g, "</h$1>");
-}
+// renderMarkdown now imported from ../lib/markdown.js — escape-first + safe links
+// (was unsafe: rendered web-sourced report HTML + javascript: links via v-html → XSS #22).
 
 const renderedReport = computed(() => renderMarkdown(currentReport.value?.markdown || ""));
 
