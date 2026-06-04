@@ -274,6 +274,21 @@ class WikiStore:
     def _conn(self) -> Iterator[sqlite3.Connection]:
         conn = sqlite3.connect(self.db_path)
         conn.row_factory = sqlite3.Row
+        # Load sqlite-vec if present (#18 vector search). Optional: hosts without it
+        # (e.g. prod) just use FTS5 — the vector path is only taken when both the
+        # extension AND an embedder are available.
+        try:
+            import sqlite_vec
+
+            conn.enable_load_extension(True)
+            sqlite_vec.load(conn)
+        except Exception:
+            pass
+        finally:
+            try:
+                conn.enable_load_extension(False)
+            except Exception:
+                pass
         try:
             yield conn
         finally:
@@ -499,6 +514,108 @@ class WikiStore:
                     (like, like, like, limit),
                 ).fetchall()
         return [dict(r) for r in rows]
+
+    # ─── Vector search (sqlite-vec + LM Studio embeddings — #18 Phase 2) ─────
+    @staticmethod
+    def _vec_available(conn) -> bool:
+        try:
+            conn.execute("SELECT vec_version()").fetchone()
+            return True
+        except sqlite3.Error:
+            return False
+
+    def ensure_vec_table(self, conn) -> bool:
+        """Create the passages_vec vec0 table if sqlite-vec is loaded. Returns
+        True if the vector table is usable."""
+        if not self._vec_available(conn):
+            return False
+        from .embeddings import EMBED_DIM
+        try:
+            conn.execute(
+                f"CREATE VIRTUAL TABLE IF NOT EXISTS passages_vec "
+                f"USING vec0(passage_id INTEGER PRIMARY KEY, embedding FLOAT[{EMBED_DIM}])"
+            )
+            return True
+        except sqlite3.Error:
+            return False
+
+    def backfill_embeddings(self, batch: int = 64, limit: int | None = None) -> dict:
+        """Embed passages that lack a vector (via the configured embedder) and store
+        them in passages_vec. One-time/local op (needs an embedder, e.g. LM Studio).
+        Idempotent: only embeds passages not already in passages_vec."""
+        from .embeddings import embed_texts, is_available
+        if not is_available():
+            return {"status": "no_embedder", "embedded": 0}
+        with self._conn() as conn:
+            if not self.ensure_vec_table(conn):
+                return {"status": "no_sqlite_vec", "embedded": 0}
+            sql = (
+                "SELECT p.passage_id, p.raw_text FROM passages p "
+                "LEFT JOIN passages_vec v ON v.passage_id = p.passage_id "
+                "WHERE v.passage_id IS NULL AND p.raw_text != '' ORDER BY p.passage_id"
+            )
+            if limit:
+                sql += f" LIMIT {int(limit)}"
+            todo = conn.execute(sql).fetchall()
+            done = 0
+            for i in range(0, len(todo), batch):
+                chunk = todo[i:i + batch]
+                vecs = embed_texts([r["raw_text"][:2000] for r in chunk])
+                if not vecs:
+                    break
+                for row, vec in zip(chunk, vecs):
+                    conn.execute(
+                        "INSERT OR REPLACE INTO passages_vec(passage_id, embedding) VALUES (?, ?)",
+                        (row["passage_id"], json.dumps(vec)),
+                    )
+                conn.commit()
+                done += len(chunk)
+        return {"status": "ok", "embedded": done, "remaining": len(todo) - done}
+
+    def search_passages_hybrid(self, query: str, limit: int = 8,
+                               corpus_id: Optional[str] = None, k_rrf: int = 60) -> list[dict]:
+        """Hybrid retrieval: FTS5 (bm25) + vector KNN fused with Reciprocal Rank
+        Fusion. Falls back to FTS5-only when no embedder / no sqlite-vec / no
+        vectors (e.g. on the prod VPS)."""
+        fts_hits = self.search_passages(query, limit=limit * 2, corpus_id=corpus_id)
+        # Vector leg — only if embedder + sqlite-vec + vectors are all present.
+        vec_ids: list[int] = []
+        try:
+            from .embeddings import embed_one
+            qvec = embed_one(query)
+            if qvec is not None:
+                with self._conn() as conn:
+                    if self._vec_available(conn):
+                        rows = conn.execute(
+                            "SELECT passage_id FROM passages_vec "
+                            "WHERE embedding MATCH ? ORDER BY distance LIMIT ?",
+                            (json.dumps(qvec), limit * 2),
+                        ).fetchall()
+                        vec_ids = [r["passage_id"] for r in rows]
+        except sqlite3.Error:
+            vec_ids = []
+        except Exception:
+            vec_ids = []
+        if not vec_ids:
+            return fts_hits[:limit]
+        # RRF fuse: score = Σ 1/(k + rank) across both rankings.
+        scores: dict[int, float] = {}
+        fts_ids = [h["passage_id"] for h in fts_hits]
+        for rank, pid in enumerate(fts_ids):
+            scores[pid] = scores.get(pid, 0.0) + 1.0 / (k_rrf + rank + 1)
+        for rank, pid in enumerate(vec_ids):
+            scores[pid] = scores.get(pid, 0.0) + 1.0 / (k_rrf + rank + 1)
+        top_ids = sorted(scores, key=lambda p: scores[p], reverse=True)[:limit]
+        by_id = {h["passage_id"]: h for h in fts_hits}
+        missing = [pid for pid in top_ids if pid not in by_id]
+        if missing:
+            with self._conn() as conn:
+                qs = ",".join("?" * len(missing))
+                for r in conn.execute(
+                    f"SELECT * FROM passages WHERE passage_id IN ({qs})", tuple(missing)
+                ).fetchall():
+                    by_id[r["passage_id"]] = dict(r)
+        return [by_id[pid] for pid in top_ids if pid in by_id]
 
     # ─── Concept index ─────────────────────────────────────────────────────
     def upsert_concept(self, c: ConceptIndex) -> int:

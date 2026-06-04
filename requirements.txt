@@ -16,3 +16,4 @@ ephem>=4.1
 weasyprint>=68.0
 # File locking for concurrent job queue (engine/yi_publishing/)
 filelock>=3.13
+sqlite-vec>=0.1.9

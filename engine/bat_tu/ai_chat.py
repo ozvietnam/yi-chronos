@@ -149,7 +149,8 @@ def _compose_laso_context(bat_tu_state: dict, luan: dict | None = None,
             dt.get("dung_than_element", ""),
         ) if t]
         query = " ".join(terms)
-        passages = get_store().search_passages(query, limit=2) if query.strip() else []
+        # Hybrid (FTS5 + vector RRF) when an embedder is up; degrades to FTS5.
+        passages = get_store().search_passages_hybrid(query, limit=2) if query.strip() else []
         if passages:
             ctx_parts.append(
                 "TRÍCH NGUYÊN VĂN THƯ TỊCH (tham khảo — cite khi liên quan, KHÔNG bịa thêm):"

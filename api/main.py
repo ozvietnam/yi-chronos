@@ -4353,7 +4353,8 @@ def yi_wiki_search(q: str, limit: int = 20) -> dict:
         from engine.yi_wiki.store import get_store
         store = get_store()
         concepts = store.search_concepts(q, limit=limit)
-        passages = store.search_passages(q, limit=6)
+        # Hybrid (FTS5 + vector RRF) where an embedder is available; FTS5-only otherwise.
+        passages = store.search_passages_hybrid(q, limit=6)
     except Exception as e:  # noqa: BLE001
         return {"status": "error", "message": str(e)}
     results = [
