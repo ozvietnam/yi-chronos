@@ -146,6 +146,9 @@ CREATE TABLE IF NOT EXISTS concept_index (
     short_note TEXT,
     first_seen_corpus TEXT,
     first_seen_page INTEGER,
+    category TEXT,
+    corpora TEXT,
+    school TEXT,
     created_at INTEGER NOT NULL,
     UNIQUE(canonical_zh, canonical_vi)
 );
@@ -185,7 +188,23 @@ class WikiStore:
     def _init_schema(self):
         with self._conn() as conn:
             conn.executescript(_SCHEMA)
+            self._migrate(conn)
             conn.commit()
+
+    def _migrate(self, conn) -> None:
+        """Idempotent migrations — keep store.py the single source of truth for
+        schema and bring older DBs up to date (issue #19: category/corpora/school
+        were used by extractors + queries but missing from the canonical schema)."""
+        try:
+            cols = {r[1] for r in conn.execute("PRAGMA table_info(concept_index)").fetchall()}
+        except sqlite3.Error:
+            return
+        for col, col_def in (("category", "TEXT"), ("corpora", "TEXT"), ("school", "TEXT")):
+            if col not in cols:
+                try:
+                    conn.execute(f"ALTER TABLE concept_index ADD COLUMN {col} {col_def}")
+                except sqlite3.Error:
+                    pass  # already added by a parallel run
 
     @contextmanager
     def _conn(self) -> Iterator[sqlite3.Connection]:
@@ -362,14 +381,35 @@ class WikiStore:
     def upsert_concept(self, c: ConceptIndex) -> int:
         c.created_at = c.created_at or _now()
         with self._conn() as conn:
+            # Dedup by canonical_vi (a concept is identified by its Vietnamese name),
+            # NOT by the (canonical_zh, canonical_vi) pair — otherwise the auto-extractor
+            # stub ("", "Cự Môn") and a later manual ("巨門", "Cự Môn") become 2 rows (#19).
+            existing = conn.execute(
+                "SELECT concept_id, canonical_zh FROM concept_index WHERE canonical_vi=?",
+                (c.canonical_vi,),
+            ).fetchone()
+            if existing:
+                cid = existing["concept_id"]
+                new_zh = c.canonical_zh or existing["canonical_zh"] or ""
+                try:
+                    conn.execute(
+                        """UPDATE concept_index
+                           SET canonical_zh=?, aliases=?,
+                               short_note=COALESCE(?, short_note)
+                           WHERE concept_id=?""",
+                        (new_zh, _enc(c.aliases), c.short_note, cid),
+                    )
+                    conn.commit()
+                except sqlite3.IntegrityError:
+                    # A row with the enriched (zh, vi) pair already exists — keep the
+                    # existing match rather than creating/duplicating.
+                    pass
+                return cid
             cur = conn.execute(
                 """INSERT INTO concept_index
                 (canonical_vi, canonical_zh, aliases, mentioned_in_passages,
                  short_note, first_seen_corpus, first_seen_page, created_at)
                 VALUES (?,?,?,?,?,?,?,?)
-                ON CONFLICT(canonical_zh, canonical_vi) DO UPDATE SET
-                    aliases=excluded.aliases,
-                    short_note=excluded.short_note
                 RETURNING concept_id""",
                 (c.canonical_vi, c.canonical_zh, _enc(c.aliases),
                  _enc(c.mentioned_in_passages), c.short_note,
