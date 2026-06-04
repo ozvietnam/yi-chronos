@@ -10,6 +10,7 @@
  */
 import { ref, onMounted, computed } from "vue";
 import WikiText from "./WikiText.vue";
+import RefBlock from "./RefBlock.vue";
 
 const props = defineProps({
   visible: { type: Boolean, default: false },
@@ -99,8 +100,8 @@ watch(() => props.visible, (v) => { if (v && !passages.value.length) loadPhu(); 
       <div class="ptv-meta">
         <div><b>{{ sourceMeta.book }}</b> · {{ sourceMeta.chapter }}</div>
         <div class="ptv-author">{{ sourceMeta.author }}</div>
-        <div class="ptv-cite">Nguồn: {{ sourceMeta.source_pages }}</div>
       </div>
+      <RefBlock kind="cite">{{ sourceMeta.source_pages }}</RefBlock>
 
       <div class="ptv-intro">
         <p>
@@ -206,7 +207,6 @@ watch(() => props.visible, (v) => { if (v && !passages.value.length) loadPhu(); 
 }
 .ptv-meta b { color: #4a1a1a; }
 .ptv-author { font-style: italic; margin-top: 0.15rem; }
-.ptv-cite { color: #8b6a4a; font-size: 0.75rem; margin-top: 0.15rem; }
 
 .ptv-intro {
   padding: 0.7rem 1.5rem;

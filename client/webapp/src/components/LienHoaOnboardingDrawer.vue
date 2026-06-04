@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import RefBlock from "./RefBlock.vue";
 
 const open = ref(false);
 
@@ -71,10 +72,10 @@ const steps = [
           </li>
         </ol>
 
-        <p class="drawer-footnote">
-          Tham khảo: <em>Liên Hoa Độn Pháp</em> (thư viện sách dự án), Chu Hi <em>Chu Dịch Bản Nghĩa</em>,
+        <RefBlock kind="cite">
+          <em>Liên Hoa Độn Pháp</em> (thư viện sách dự án), Chu Hi <em>Chu Dịch Bản Nghĩa</em>,
           Thiệu Khang Tiết <em>Hoàng Cực Kinh Thế</em>.
-        </p>
+        </RefBlock>
       </div>
     </transition>
   </div>
@@ -186,16 +187,6 @@ const steps = [
   line-height: 1.55;
   color: var(--text-secondary, rgba(230, 238, 245, 0.76));
 }
-
-.drawer-footnote {
-  margin: 14px 0 0 0;
-  font-size: 11px;
-  color: var(--text-muted, rgba(230, 238, 245, 0.42));
-  font-style: italic;
-  border-top: 1px dashed rgba(255, 255, 255, 0.06);
-  padding-top: 10px;
-}
-.drawer-footnote em { color: var(--text-secondary, rgba(230, 238, 245, 0.6)); font-style: normal; }
 
 .drawer-enter-active, .drawer-leave-active {
   transition: max-height 0.3s ease, opacity 0.2s;

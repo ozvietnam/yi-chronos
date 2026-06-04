@@ -4,6 +4,7 @@ import { castLienHoa } from "../lib/api";
 import LienHoaOnboardingDrawer from "./LienHoaOnboardingDrawer.vue";
 import HexagramImage from "./HexagramImage.vue";
 import HexagramDetailModal from "./HexagramDetailModal.vue";
+import RefBlock from "./RefBlock.vue";
 import { useHexagramModal } from "../composables/useHexagramModal";
 
 const { openSlug, openHexagram, closeHexagram } = useHexagramModal();
@@ -206,7 +207,7 @@ const summaryByLucThan = computed(() => {
         </div>
       </div>
 
-      <p class="lh-note-secondary">{{ data.note }}</p>
+      <RefBlock kind="note">{{ data.note }}</RefBlock>
 
       <h5>Phân bố chủ sự</h5>
       <div class="chu-su-bar">
@@ -382,7 +383,7 @@ const summaryByLucThan = computed(() => {
         </li>
       </ul>
 
-      <p class="lh-footer">Nguồn: {{ data.source_ref }}</p>
+      <RefBlock kind="cite">{{ data.source_ref }}</RefBlock>
     </template>
 
     <HexagramDetailModal
@@ -448,13 +449,6 @@ const summaryByLucThan = computed(() => {
 .sum-cell strong { font-size: 16px; color: var(--accent-gold-soft, #f5e6b1); }
 .sum-cell small { font-size: 11px; color: var(--text-muted, rgba(230,238,245,0.5)); }
 .sum-cell strong em { font-style: normal; font-size: 13px; color: var(--text-muted, rgba(230,238,245,0.6)); }
-
-.lh-note-secondary {
-  font-size: 13px; color: var(--text-secondary, rgba(230,238,245,0.72));
-  margin: 0; padding: 8px 12px;
-  background: rgba(255,255,255,0.03); border-radius: 6px;
-  font-style: italic;
-}
 
 h5 {
   margin: 6px 0 0 0; font-size: 12px;
@@ -568,11 +562,6 @@ h5 {
   font-size: 12px; color: var(--text-secondary, rgba(230,238,245,0.7));
 }
 .kt-meta b { color: var(--text-muted, rgba(230,238,245,0.5)); font-weight: 500; }
-
-.lh-footer {
-  font-size: 11px; color: var(--text-muted, rgba(230,238,245,0.4));
-  text-align: right; margin: 0;
-}
 
 .luan-su-summary {
   display: flex; flex-direction: column; gap: 10px;

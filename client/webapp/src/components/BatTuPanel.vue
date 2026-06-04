@@ -6,6 +6,7 @@ import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
 import HexagramImage from "./HexagramImage.vue";
 import HexagramDetailModal from "./HexagramDetailModal.vue";
+import RefBlock from "./RefBlock.vue";
 import AuspiciousDayPanel from "./wiki/AuspiciousDayPanel.vue";
 import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
 import { useHexagramModal } from "../composables/useHexagramModal";
@@ -948,7 +949,7 @@ function formatSolarDateTime(iso) {
         <b>Hướng diễn giải:</b> {{ haLacData.interpretation_hint }}
       </p>
 
-      <p class="footer-ref">Nguồn: {{ haLacData.source_ref }}</p>
+      <RefBlock kind="cite">{{ haLacData.source_ref }}</RefBlock>
     </template>
 
     <!-- ── Luận Giải Tổng Hợp ──────────────────────────────────────────────
@@ -1861,18 +1862,18 @@ function formatSolarDateTime(iso) {
     </div>
 
     <!-- Citation + paradigm footer -->
-    <div v-if="batTuData" class="bt-citation">
-      <p>
-        📚 <b>Nguồn khái niệm</b>: Thiệu Vĩ Hoa &amp; Trần Viên —
+    <template v-if="batTuData">
+      <RefBlock kind="cite">
+        Thiệu Vĩ Hoa &amp; Trần Viên —
         <em>Dự đoán theo Tứ trụ</em> (NXB Văn hóa Thông tin, dịch giả Nguyễn Văn Mậu, tái bản lần 4).
         Engine <code>engine/bat_tu/*</code>. Wiki: 66 concepts đã seed
         (Thập Thần · Cách Cục · Dụng Thần · 12 Trường Sinh · Thần Sát · Đại Vận).
-      </p>
-      <p class="bt-paradigm-footer">
+      </RefBlock>
+      <RefBlock kind="note">
         🪷 <b>Paradigm</b>: <em>"Mệnh cố kết, vận lưu biến. Biết mệnh để cân bằng — Bổ —
         không phải để biết kết quả."</em> (Thiệu Vĩ Hoa Q1 ch.1-2)
-      </p>
-    </div>
+      </RefBlock>
+    </template>
 
     <!-- 📅 Chọn ngày tốt — Bát Tự + Mai Hoa + Hoàng Đạo -->
     <div class="bt-auspicious-section">
@@ -1963,23 +1964,23 @@ function formatSolarDateTime(iso) {
 }
 
 .bt-note {
-  font-size: 13px;
+  font-size: calc(15px * var(--reading-scale));
   color: var(--text-secondary, rgba(230, 238, 245, 0.78));
   border-left: 3px solid var(--accent-gold, #e8c95a);
   padding-left: 12px;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 .bt-note b { color: var(--accent-gold-soft, #f5e6b1); }
 
 .bt-paradigm-note {
-  font-size: 12.5px;
+  font-size: calc(15px * var(--reading-scale));
   color: var(--text-secondary, rgba(230, 238, 245, 0.78));
   background: rgba(94, 234, 212, 0.06);
   border-left: 3px solid rgba(94, 234, 212, 0.55);
   padding: 10px 14px;
   margin: 0;
-  line-height: 1.65;
+  line-height: 1.7;
   border-radius: 0 4px 4px 0;
 }
 .bt-paradigm-note b { color: #5be5d3; }
@@ -1999,30 +2000,7 @@ function formatSolarDateTime(iso) {
   filter: brightness(0.9);
 }
 
-/* Citation block */
-.bt-citation {
-  margin-top: 18px;
-  padding: 10px 14px;
-  background: rgba(245, 230, 177, 0.04);
-  border-left: 3px solid rgba(245, 230, 177, 0.3);
-  border-radius: 0 4px 4px 0;
-  font-size: 11.5px;
-  color: var(--text-muted, rgba(230, 238, 245, 0.6));
-  line-height: 1.55;
-}
-.bt-citation p { margin: 0 0 6px 0; }
-.bt-citation p:last-child { margin-bottom: 0; }
-.bt-citation b { color: var(--accent-gold-soft, #f5e6b1); }
-.bt-citation em { color: #cbd5e1; }
-.bt-citation code {
-  font-family: ui-monospace, monospace;
-  font-size: 11px;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 1px 4px;
-  border-radius: 3px;
-}
-.bt-paradigm-footer { color: #93c5fd !important; font-style: italic; }
-.bt-paradigm-footer b { color: #5be5d3 !important; font-style: normal; }
+/* Citation/paradigm footers now rendered via <RefBlock> (.ref-cite / .ref-note in main.css) */
 
 /* ── Luận Giải Tổng Hợp section ──────────────────────────────────────────── */
 .luan-giai-trigger {
@@ -3727,14 +3705,6 @@ function formatSolarDateTime(iso) {
   margin: 0;
 }
 
-.footer-ref {
-  font-size: 11px;
-  color: var(--text-muted, rgba(230, 238, 245, 0.4));
-  text-align: right;
-  font-style: italic;
-  margin: 0;
-}
-
 /* ── Cách Cục ──────────────────────────────────────────────────────────── */
 .cach-cuc-card {
   background: rgba(232, 201, 90, 0.04);
@@ -4083,16 +4053,17 @@ function formatSolarDateTime(iso) {
 }
 .bt-find-hour {
   padding: 0.5rem 1rem;
-  background: #f0f8ff;
-  border: 1px solid #4a90e2;
-  color: #2a5db0;
+  background: var(--read-cite-bg);
+  border: 1px solid var(--read-border);
+  color: var(--read-link);
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.95em;
   font-weight: 500;
 }
 .bt-find-hour:hover {
-  background: #e6f3ff;
+  background: var(--read-bg-soft);
+  border-color: var(--read-rule);
 }
 .bt-modal-backdrop {
   position: fixed;
@@ -4105,7 +4076,8 @@ function formatSolarDateTime(iso) {
   padding: 1rem;
 }
 .bt-modal {
-  background: #fff;
+  background: var(--read-bg);
+  color: var(--read-text);
   padding: 1.5rem 1.5rem 1rem;
   max-width: 820px;
   width: 100%;
@@ -4113,7 +4085,8 @@ function formatSolarDateTime(iso) {
   overflow-y: auto;
   border-radius: 10px;
   position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--read-border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
 }
 .bt-modal-close {
   position: absolute;
@@ -4123,7 +4096,7 @@ function formatSolarDateTime(iso) {
   border: 0;
   font-size: 1.4em;
   cursor: pointer;
-  color: #888;
+  color: var(--read-text-dim);
 }
-.bt-modal-close:hover { color: #333; }
+.bt-modal-close:hover { color: var(--read-heading); }
 </style>

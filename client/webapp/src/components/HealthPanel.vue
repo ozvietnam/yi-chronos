@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { batTuSucKhoeSau, dongYFull, dongYMonthlyHealth } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import RefBlock from "./RefBlock.vue";
 
 const inputBirth = ref("");
 const inputGender = ref("nam");
@@ -330,7 +331,7 @@ const sk = computed(() => data.value?.suc_khoe_sau);
       </article>
 
       <p class="hp-iron-rule-footer">{{ dongYData.iron_rule_note }}</p>
-      <p class="hp-sources"><b>📚 Nguồn:</b> {{ dongYData.sources.join(" · ") }}</p>
+      <RefBlock kind="cite">{{ dongYData.sources.join(" · ") }}</RefBlock>
     </template>
 
     <template v-if="sk">
@@ -577,7 +578,6 @@ const sk = computed(() => data.value?.suc_khoe_sau);
   background: rgba(232,90,120,0.1); color: #e85a78;
   border-left: 3px solid #e85a78; border-radius: 4px; margin-top: 10px;
 }
-.hp-sources { font-size: 12px; color: rgba(230,238,245,0.6); text-align: center; }
 
 /* ── Lịch 12 Tháng ──────────────────────────────────────────────────── */
 .hp-btn-month { background: linear-gradient(135deg, #d4af37 0%, #5b8ee5 100%); }

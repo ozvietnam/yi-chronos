@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
 import { getYiNarrative } from "../lib/api";
+import RefBlock from "./RefBlock.vue";
 
 const props = defineProps({
   now: { type: Date, default: null },
@@ -122,7 +123,7 @@ watch(() => useCustom.value, () => load());
         <p>{{ data.composed_text }}</p>
       </div>
 
-      <p class="footer-ref">Nguồn: {{ data.source_ref }}</p>
+      <RefBlock kind="cite">{{ data.source_ref }}</RefBlock>
     </template>
   </section>
 </template>
@@ -216,8 +217,4 @@ watch(() => useCustom.value, () => load());
   line-height: 1.6;
 }
 
-.footer-ref {
-  font-size: 0.7rem; color: rgba(255,255,255,0.4);
-  margin: 0; text-align: right;
-}
 </style>
