@@ -87,26 +87,13 @@ const currentMonth = computed(() =>
   months.value.find((m) => m.thang_am === activeMonth.value) || months.value[0],
 );
 
-function monthVerdictColor(v) {
-  return {
-    "cát": "#10b981",
-    "cát hung lẫn": "#fbbf24",
-    "cảnh báo": "#ef4444",
-  }[v?.toLowerCase().trim()] || "#94a3b8";
-}
+// Verdict-color helpers removed — Iron Rule #6 (#21): vận-hạn is read as đồng dạng
+// (quan_sat), not labelled cát/hung. The engine no longer emits cat_hung*.
 
 const years = computed(() => data.value?.years || []);
 const currentYearData = computed(() =>
   years.value.find((y) => y.year === activeYear.value) || years.value[0],
 );
-
-function verdictColor(v) {
-  return {
-    "cát đa số": "#10b981",
-    "cát hung lẫn": "#fbbf24",
-    "cảnh báo": "#ef4444",
-  }[v?.toLowerCase().trim()] || "#94a3b8";
-}
 
 onMounted(load);
 </script>
@@ -237,8 +224,8 @@ onMounted(load);
       <template v-if="currentYearData.analysis">
         <div class="ln-block ln-chu-de">
           <h3>{{ currentYearData.analysis.chu_de }}</h3>
-          <span class="ln-verdict" :style="{ background: verdictColor(currentYearData.analysis.cat_hung_overall) }">
-            {{ currentYearData.analysis.cat_hung_overall }}
+          <span v-if="currentYearData.analysis.quan_sat" class="ln-quan-sat">
+            👁 {{ currentYearData.analysis.quan_sat }}
           </span>
         </div>
 
@@ -291,8 +278,8 @@ onMounted(load);
       <template v-if="currentMonth.analysis">
         <div class="ln-block ln-chu-de">
           <h3>{{ currentMonth.analysis.chu_de }}</h3>
-          <span class="ln-verdict" :style="{ background: monthVerdictColor(currentMonth.analysis.cat_hung) }">
-            {{ currentMonth.analysis.cat_hung }}
+          <span v-if="currentMonth.analysis.quan_sat" class="ln-quan-sat">
+            👁 {{ currentMonth.analysis.quan_sat }}
           </span>
         </div>
 
@@ -489,11 +476,13 @@ onMounted(load);
   border-color: #7c3aed;
 }
 .ln-chu-de h3 { color: #fff; flex: 1; }
-.ln-verdict {
-  padding: 3px 10px; border-radius: 4px;
-  color: #fff; font-size: 0.75rem; font-weight: 700;
-  font-family: ui-sans-serif, sans-serif;
-  white-space: nowrap;
+/* Neutral "đọc đồng dạng" observation (replaces the old cát/hung verdict badge) */
+.ln-quan-sat {
+  padding: 4px 11px; border-radius: 6px;
+  background: rgba(167, 139, 250, 0.14);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  color: #cbb6f5; font-size: 0.82rem; font-style: italic;
+  font-family: ui-sans-serif, sans-serif; line-height: 1.5;
 }
 
 .ln-grid-2 {

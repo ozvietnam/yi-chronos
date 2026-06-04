@@ -17,10 +17,50 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
+
+# ─── Paradigm post-check (Iron Rule #6) ──────────────────────────────────────
+# Defense-in-depth: the prompts forbid fortune-telling, but an LLM may slip. This
+# scans the parsed vận-hạn output for predict-tone phrases and FLAGS them (does not
+# silently delete) so a violation surfaces instead of shipping to the user unseen.
+_FORTUNE_RE = re.compile(
+    r"sẽ\s+(?:giàu|nghèo|thành công|thất bại|phá sản|chết|ly hôn|phát tài|khá lên|đi xuống)"
+    r"|chắc chắn\s+(?:giàu|nghèo|thành công|thất bại|đỗ|trượt)"
+    r"|năm\s+\d{4}\s+(?:rất\s+)?(?:tốt|xấu|đại cát|đại hung|cát|hung)"
+    r"|(?:đại cát|đại hung)\b",
+    re.IGNORECASE,
+)
+
+
+def _paradigm_postcheck(result):
+    """Flag fortune-telling tone in an LLM result dict (Iron Rule #6)."""
+    if not isinstance(result, dict):
+        return result
+    hits: list[str] = []
+
+    def _scan(v):
+        if isinstance(v, str):
+            hits.extend(m.group(0) for m in _FORTUNE_RE.finditer(v))
+        elif isinstance(v, list):
+            for x in v:
+                _scan(x)
+        elif isinstance(v, dict):
+            for x in v.values():
+                _scan(x)
+
+    _scan(result)
+    if hits:
+        uniq = sorted(set(h.strip() for h in hits))[:5]
+        result["_paradigm_warning"] = (
+            "⚠️ Phát hiện giọng dự đoán (Iron Rule #6 — Tử Vi đọc đồng dạng, KHÔNG predict): "
+            + "; ".join(uniq)
+        )
+        logger.warning("Tu Vi paradigm post-check flagged predict tone: %s", uniq)
+    return result
 
 logger = logging.getLogger(__name__)
 
@@ -419,13 +459,23 @@ Output JSON: {
 
     # ── 3. Đại Vận annotations ──────────────────────────────────────────────
 
-    SYSTEM_DV = """Bạn là chuyên gia Tử Vi Đẩu Số viết phân tích Đại Vận (10 năm).
+    # ─── Paradigm guard (Iron Rule #6) — prepended to every vận-hạn prompt ───────
+    # Tử Vi = đọc đồng dạng, KHÔNG predict. The vận sections (Đại Vận / Lưu Niên /
+    # Lưu Nguyệt) are the most prone to fortune-telling, so they carry the guard too.
+    PARADIGM_GUARD = """⚠️ PARADIGM (Iron Rule #6 — BẮT BUỘC): Tử Vi = ĐỌC ĐỒNG DẠNG, KHÔNG phải predict.
+- TUYỆT ĐỐI TRÁNH fortune-telling: "sẽ giàu/nghèo", "sẽ thành công/thất bại", "năm X tốt/xấu", gán nhãn verdict cát/hung.
+- Vận = tấm gương phản chiếu cấu trúc tâm-thiên-thân. Mô tả vận này PHẢN CHIẾU điều gì + MỜI QUAN-SÁT điều gì, KHÔNG phán cát/hung.
+- "Thập bát tinh chuyển, tại nhân biến thông — bất khả chấp nhất": sao vận chuyển tùy người, KHÔNG định mệnh.
+
+"""
+
+    SYSTEM_DV = PARADIGM_GUARD + """Bạn là chuyên gia Tử Vi Đẩu Số viết phân tích Đại Vận (10 năm) theo paradigm đồng dạng (CƠ snapshot + BIẾN chuyển hóa), KHÔNG predict cát/hung.
 
 Output JSON: {
-  "tong_quan": "<60-90 từ>",
-  "co_hoi": [...] (3),
-  "thach_thuc": [...] (3),
-  "loi_khuyen": "<50-80 từ>"
+  "tong_quan": "<60-90 từ — đại vận này phản chiếu điều gì>",
+  "co_hoi": [...] (3 — khí chất/cơ hội để quan-sát, không hứa hẹn),
+  "thach_thuc": [...] (3 — điểm cần lưu tâm, không phán hung),
+  "loi_khuyen": "<50-80 từ — nên quan-sát/nuôi dưỡng điều gì>"
 }"""
 
     def dai_van_annotate(self) -> dict:
@@ -487,6 +537,7 @@ Viết phân tích đại vận V{cycle}."""
                 ann = json.loads(resp.choices[0].message.content)
             except Exception:
                 ann = {}
+            ann = _paradigm_postcheck(ann)
             annotations.append({
                 "cycle_index": cycle,
                 "start_age": start_age, "end_age": end_age,
@@ -514,15 +565,15 @@ Viết phân tích đại vận V{cycle}."""
 
     # ── 4. Lưu Niên (5 years window) ────────────────────────────────────────
 
-    SYSTEM_LN = """Bạn là chuyên gia Tử Vi Đẩu Số viết LƯU NIÊN (vận năm).
+    SYSTEM_LN = PARADIGM_GUARD + """Bạn là chuyên gia Tử Vi Đẩu Số viết LƯU NIÊN (vận năm) theo paradigm đồng dạng, KHÔNG predict.
 
 Output JSON: {
-  "chu_de": "<1 câu>",
+  "chu_de": "<1 câu — năm này phản chiếu chủ đề gì>",
   "tong_quan": "<60-90 từ>",
   "linh_vuc_quan_tam": [...],
   "thoi_diem_can_chu_y": [...],
-  "loi_khuyen": "<60-80 từ>",
-  "cat_hung_overall": "cát đa số / cát hung lẫn / cảnh báo"
+  "loi_khuyen": "<60-80 từ — nên quan-sát/nuôi dưỡng điều gì>",
+  "quan_sat": "<1 câu — năm này MỜI QUAN-SÁT điều gì trong tâm-thiên-thân (KHÔNG verdict cát/hung)>"
 }"""
 
     def luu_nien(self, start_year: int, end_year: int) -> dict:
@@ -590,6 +641,7 @@ Viết lưu niên năm {year}."""
                 ann = json.loads(resp.choices[0].message.content)
             except Exception:
                 ann = {}
+            ann = _paradigm_postcheck(ann)
             years_data.append({
                 "year": year, "age_lunar": age,
                 "tieu_han_branch": th_br, "tieu_han_palace": th_palace, "tieu_han_stars": th_stars,
@@ -610,14 +662,14 @@ Viết lưu niên năm {year}."""
 
     # ── 5. Lưu Nguyệt (12 tháng âm 1 năm) ───────────────────────────────────
 
-    SYSTEM_LNG = """Bạn là chuyên gia Tử Vi viết LƯU NGUYỆT (vận tháng).
+    SYSTEM_LNG = PARADIGM_GUARD + """Bạn là chuyên gia Tử Vi viết LƯU NGUYỆT (vận tháng) theo paradigm đồng dạng, KHÔNG predict.
 
 Output JSON: {
-  "chu_de": "<1 câu>",
+  "chu_de": "<1 câu — tháng này phản chiếu chủ đề gì>",
   "tinh_chat": "<60-80 từ>",
-  "viec_lam": [...] (2-3),
-  "viec_tranh": [...] (2-3),
-  "cat_hung": "cát / cát hung lẫn / cảnh báo"
+  "viec_lam": [...] (2-3 — nên nuôi dưỡng/quan-sát),
+  "viec_tranh": [...] (2-3 — nên lưu tâm),
+  "quan_sat": "<1 câu — tháng này MỜI QUAN-SÁT điều gì (KHÔNG verdict cát/hung)>"
 }"""
 
     def luu_nguyet(self, year: int) -> dict:
@@ -677,6 +729,7 @@ Viết lưu nguyệt T{thang}/{year}."""
                 ann = json.loads(resp.choices[0].message.content)
             except Exception:
                 ann = {}
+            ann = _paradigm_postcheck(ann)
             months.append({
                 "thang_am": thang,
                 "branch": br, "palace": palace, "stars": stars,
