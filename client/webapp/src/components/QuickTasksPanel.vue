@@ -21,9 +21,11 @@ const mForm = ref({
   birth_a_date: "1988-05-02",
   birth_a_hour: 8,
   name_a: "Anh",
+  gender_a: "nam",
   birth_b_date: "1990-06-15",
   birth_b_hour: 14,
   name_b: "Đối phương",
+  gender_b: "nữ",
 });
 const mResult = ref(null);
 const mLoading = ref(false);
@@ -36,20 +38,26 @@ async function submitMarriage() {
   try {
     const a_iso = `${mForm.value.birth_a_date}T${String(mForm.value.birth_a_hour).padStart(2,'0')}:00:00`;
     const b_iso = `${mForm.value.birth_b_date}T${String(mForm.value.birth_b_hour).padStart(2,'0')}:00:00`;
-    const r = await fetch("/api/yi-wiki/marriage-compat", {
+    // Deep engine (bat_tu/compatibility): nạp âm + 5-hợp Can + cung phối + dụng thần
+    // complementarity + spouse-check theo giới tính. Paradigm Iron Rule #4+6 (đọc khí,
+    // không phán cứng) — thay engine "con giáp" nông + verdict cứng (#27).
+    const r = await fetch("/api/bat-tu/compatibility", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        birth_a_iso: a_iso, birth_b_iso: b_iso,
-        name_a: mForm.value.name_a, name_b: mForm.value.name_b,
+        person_a_birth: a_iso,
+        person_b_birth: b_iso,
+        person_a_gender: mForm.value.gender_a,
+        person_b_gender: mForm.value.gender_b,
+        relationship_type: "spouse",
       }),
     });
     const d = await r.json();
-    if (d.status !== "ok") {
-      mError.value = d.message || "Lỗi";
+    if (!r.ok || !d.compatibility) {
+      mError.value = d.detail || d.message || "Lỗi";
       return;
     }
-    mResult.value = d;
+    mResult.value = d.compatibility;
   } catch (e) {
     mError.value = String(e.message || e);
   } finally {
@@ -138,7 +146,8 @@ function closeTask() {
         <button class="qt-close" @click="closeTask">✕</button>
         <h2>💕 Hợp tuổi hôn nhân</h2>
         <p class="qt-modal-hint">
-          Phân tích 4 lớp: Nạp âm · Năm chi (xung/hợp) · Nhật chủ Bát Tự · Ngũ hành tổng thể.
+          Luận sâu Bát Tự: Nạp âm · Hợp Can · Cung phối · Dụng thần bù trợ · Soi Tài/Quan theo
+          giới tính (Thiệu Vĩ Hoa). Đọc cấu hình khí — KHÔNG phán cứng nên/không nên cưới.
         </p>
 
         <div class="m-form">
@@ -151,6 +160,10 @@ function closeTask() {
                 <option v-for="h in 24" :key="h-1" :value="h-1">{{ String(h-1).padStart(2,'0') }}h</option>
               </select>
             </div>
+            <select v-model="mForm.gender_a" class="m-gender">
+              <option value="nam">Nam</option>
+              <option value="nữ">Nữ</option>
+            </select>
           </div>
           <div class="m-person">
             <h4>Người B</h4>
@@ -161,6 +174,10 @@ function closeTask() {
                 <option v-for="h in 24" :key="h-1" :value="h-1">{{ String(h-1).padStart(2,'0') }}h</option>
               </select>
             </div>
+            <select v-model="mForm.gender_b" class="m-gender">
+              <option value="nam">Nam</option>
+              <option value="nữ">Nữ</option>
+            </select>
           </div>
         </div>
         <button class="btn-primary" @click="submitMarriage" :disabled="mLoading">
@@ -168,57 +185,40 @@ function closeTask() {
         </button>
         <p v-if="mError" class="err">❌ {{ mError }}</p>
 
-        <!-- Result -->
+        <!-- Result (deep engine — đọc cấu hình khí, không verdict cứng) -->
         <div v-if="mResult" class="m-result">
-          <div class="m-grade" :class="{'g-best': mResult.total_score >= 18,
-                                        'g-good': mResult.total_score >= 6,
-                                        'g-bad': mResult.total_score < 0}">
-            {{ mResult.grade }}
-            <span class="m-score">Total: {{ mResult.total_score >= 0 ? '+' : '' }}{{ mResult.total_score }}</span>
-          </div>
-          <p class="m-summary">{{ mResult.summary }}</p>
-
-          <div class="m-pillars">
-            <div class="m-p-cell">
-              <b>{{ mResult.person_a.name }}</b>
-              <div>Năm: {{ mResult.person_a.year }}</div>
-              <div>Nạp âm: {{ mResult.person_a.nap_am }} ({{ mResult.person_a.nap_am_hanh }})</div>
-              <div>Nhật chủ: {{ mResult.person_a.day }}</div>
-            </div>
-            <div class="m-vs">⚭</div>
-            <div class="m-p-cell">
-              <b>{{ mResult.person_b.name }}</b>
-              <div>Năm: {{ mResult.person_b.year }}</div>
-              <div>Nạp âm: {{ mResult.person_b.nap_am }} ({{ mResult.person_b.nap_am_hanh }})</div>
-              <div>Nhật chủ: {{ mResult.person_b.day }}</div>
-            </div>
+          <div class="m-overall">
+            <span class="m-overall-label">{{ mResult.overall?.label }}</span>
+            <p class="m-summary">{{ mResult.overall?.narrative }}</p>
           </div>
 
           <div class="m-layers">
-            <div class="m-layer">
-              <h5>📿 Lớp 1: Nạp âm ({{ mResult.nap_am_relation.score >= 0 ? '+' : '' }}{{ mResult.nap_am_relation.score }})</h5>
-              <p>{{ mResult.nap_am_relation.description }}</p>
+            <div v-if="mResult.nap_am" class="m-layer">
+              <h5>📿 Nạp âm</h5>
+              <p>{{ mResult.nap_am.a?.name }} ⚭ {{ mResult.nap_am.b?.name }}
+                — {{ mResult.nap_am.relation?.narrative || mResult.nap_am.relation?.type }}</p>
             </div>
-            <div class="m-layer">
-              <h5>🐉 Lớp 2: Năm chi ({{ mResult.chi_relation.score >= 0 ? '+' : '' }}{{ mResult.chi_relation.score }})</h5>
-              <p>{{ mResult.chi_relation.con_giap_a }} - {{ mResult.chi_relation.con_giap_b }}:
-                <span v-for="n in mResult.chi_relation.notes" :key="n">{{ n }}</span>
-              </p>
+            <div v-if="mResult.day_master_compat" class="m-layer">
+              <h5>🌟 Nhật chủ (Day Master)</h5>
+              <p>{{ mResult.day_master_compat.narrative || mResult.day_master_compat.type }}</p>
             </div>
-            <div class="m-layer">
-              <h5>🌟 Lớp 3: Nhật chủ ({{ mResult.nhat_chu_relation.score >= 0 ? '+' : '' }}{{ mResult.nhat_chu_relation.score }})</h5>
-              <p>{{ mResult.nhat_chu_relation.description }}</p>
+            <div v-if="mResult.cung_phoi" class="m-layer">
+              <h5>🏠 Cung phối (chi ngày)</h5>
+              <p>{{ mResult.cung_phoi.a_chi }} ⚭ {{ mResult.cung_phoi.b_chi }}<span
+                v-for="i in (mResult.cung_phoi.interactions || [])" :key="i.type"> · {{ i.type }}</span></p>
+            </div>
+            <div v-if="mResult.ngu_hanh_dynamics" class="m-layer">
+              <h5>🌊 Ngũ hành bù trợ</h5>
+              <p>{{ mResult.ngu_hanh_dynamics.narrative }}</p>
+            </div>
+            <div v-if="mResult.spouse_check" class="m-layer m-spouse">
+              <h5>💑 Soi Phu/Thê (Tài·Quan theo giới tính)</h5>
+              <p>{{ mResult.spouse_check.narrative }}</p>
             </div>
           </div>
 
-          <div v-if="mResult.blessings.length" class="m-bless">
-            <h5>⭐ Điểm tốt</h5>
-            <ul><li v-for="b in mResult.blessings" :key="b">{{ b }}</li></ul>
-          </div>
-          <div v-if="mResult.warnings.length" class="m-warn">
-            <h5>⚠️ Cần lưu ý</h5>
-            <ul><li v-for="w in mResult.warnings" :key="w">{{ w }}</li></ul>
-          </div>
+          <p v-if="mResult.closing" class="m-closing">{{ mResult.closing }}</p>
+          <p v-if="mResult.paradigm_guard" class="m-paradigm">🪷 {{ mResult.paradigm_guard }}</p>
         </div>
       </div>
     </div>
@@ -380,22 +380,19 @@ function closeTask() {
 
 /* Marriage result */
 .m-result { margin-top: 0.85rem; }
-.m-grade {
+/* Paradigm-neutral overall (no good/bad coloring — đọc khí, không phán cứng) */
+.m-overall {
   padding: 0.6rem 0.85rem;
-  background: rgba(15,23,42,0.6);
-  border-left: 3px solid #94a3b8;
+  background: rgba(167,139,250,0.10);
+  border-left: 3px solid rgba(167,139,250,0.5);
   border-radius: 4px;
   margin-bottom: 0.5rem;
-  color: #e2e8f0;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-.m-grade.g-best { border-left-color: #fbbf24; background: rgba(251,191,36,0.1); color: #fef3c7; }
-.m-grade.g-good { border-left-color: #6ee7b7; background: rgba(52,211,153,0.08); }
-.m-grade.g-bad { border-left-color: #fca5a5; background: rgba(248,113,113,0.08); color: #fca5a5; }
-.m-score { font-size: 0.85rem; color: #c4b5fd; }
+.m-overall-label { font-weight: 700; color: #cbb6f5; font-size: 0.9rem; }
+.m-gender { margin-top: 0.4rem; width: 100%; }
+.m-spouse { border-left-color: #f9a8d4 !important; }
+.m-closing { font-size: 0.83rem; color: #cbd5e1; line-height: 1.6; margin: 0.6rem 0 0.3rem; font-style: italic; }
+.m-paradigm { font-size: 0.75rem; color: #94a3b8; line-height: 1.5; margin: 0.3rem 0 0; }
 .m-summary { font-size: 0.85rem; color: #cbd5e1; padding: 0.3rem 0 0.5rem; line-height: 1.6; }
 
 .m-pillars {

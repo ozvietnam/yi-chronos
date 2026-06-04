@@ -212,19 +212,22 @@ def analyze_compatibility(
     if nc_rel_type == "sinh_thuận":
         blessings.append(f"Nhật chủ: {pb.day_stem} sinh {pa.day_stem} — đối phương nuôi tâm anh")
 
-    # ─── GRADE ──────────────────────────────────────────
+    # ─── GRADE — đọc cấu hình KHÍ, KHÔNG phán "nên/không nên cưới" (Iron Rule #4/#6) ──
+    # NOTE: đây là engine "xem tuổi" dân gian (nông). UI chính dùng engine sâu
+    # bat_tu/compatibility (dụng thần + spouse-check). Giữ endpoint này nhưng diễn
+    # ngôn đồng-dạng, không verdict cứng doạ đôi trẻ.
     if total >= 18:
-        grade = "⭐⭐⭐ THIÊN DUYÊN — Hợp tuyệt vời"
+        grade = "Khí tương hợp mạnh — nhiều dòng nâng đỡ nhau"
     elif total >= 12:
-        grade = "⭐⭐ TỐT — Hợp rõ ràng"
+        grade = "Khí tương hợp rõ — nền tảng thuận"
     elif total >= 6:
-        grade = "⭐ KHÁ — Có duyên, ít trở ngại"
+        grade = "Có dòng tương hợp — ít chỗ nghịch khí"
     elif total >= 0:
-        grade = "TRUNG BÌNH — Cần nỗ lực hai bên"
+        grade = "Khí cân bằng — cần hai bên cùng vun bồi"
     elif total >= -10:
-        grade = "⚠️ KHÓ HỢP — Có trở ngại, cần thiên thời"
+        grade = "Khí có nhiều chỗ nghịch — mời quan-sát để hiểu & dung hòa"
     else:
-        grade = "❌ XUNG KHẮC — Cần suy nghĩ kỹ"
+        grade = "Khí xung nhiều — quan-sát kỹ điểm nghịch mà dung hòa (KHÔNG phải điềm cấm cưới)"
 
     summary = (
         f"Tổng điểm {total:+}. "
