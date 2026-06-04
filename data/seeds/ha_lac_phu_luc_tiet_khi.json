@@ -1,0 +1,191 @@
+{
+  "_meta": {
+    "title": "Hà Lạc Phụ Lục — Tiết khí + Bảng tra + Lưu ý giờ sinh VN (Xuân Cang p580-608)",
+    "source_book": "Bát Tự Hà Lạc và Quỹ Đạo Đời Người — Xuân Cang",
+    "source_pages": "p580-608",
+    "purpose": "Bảng tra reference cho engine Hà Lạc khi cast quẻ + tính nguyên khí + xét mệnh × quẻ",
+    "created": "2026-06-03",
+    "iron_rules": [
+      "Giờ sinh VN 5 thời kỳ múi giờ khác nhau (1945-nay) — engine PHẢI điều chỉnh trước khi cast.",
+      "Hóa Công theo tiết khí, KHÔNG theo tháng âm dương đơn thuần.",
+      "Mệnh × Quẻ là bảng tra paradigm chứ KHÔNG predict cát/hung."
+    ]
+  },
+
+  "tiet_khi_24": [
+    {"ten": "Lập Xuân", "mo_ta": "Đầu Xuân", "duong_lich": "4-5/2", "thang_am": 1, "dia_chi_thang": "Dần"},
+    {"ten": "Vũ Thủy", "mo_ta": "Mưa ấm", "duong_lich": "18-19/2", "thang_am": 1, "dia_chi_thang": "Dần"},
+    {"ten": "Kinh Trập", "mo_ta": "Sâu nở", "duong_lich": "5-6/3", "thang_am": 2, "dia_chi_thang": "Mão"},
+    {"ten": "Xuân Phân", "mo_ta": "Giữa Xuân", "duong_lich": "20-21/3", "thang_am": 2, "dia_chi_thang": "Mão"},
+    {"ten": "Thanh Minh", "mo_ta": "Sáng (tảo mộ)", "duong_lich": "4-5/4", "thang_am": 3, "dia_chi_thang": "Thìn"},
+    {"ten": "Cốc Vũ", "mo_ta": "Mưa rào", "duong_lich": "20-21/4", "thang_am": 3, "dia_chi_thang": "Thìn"},
+    {"ten": "Lập Hạ", "mo_ta": "Vào hè", "duong_lich": "5-6/5", "thang_am": 4, "dia_chi_thang": "Tỵ"},
+    {"ten": "Tiểu Mãn", "mo_ta": "Lúa hạt", "duong_lich": "21-22/5", "thang_am": 4, "dia_chi_thang": "Tỵ"},
+    {"ten": "Mang Chủng", "mo_ta": "Tua lúa", "duong_lich": "5-6/6", "thang_am": 5, "dia_chi_thang": "Ngọ"},
+    {"ten": "Hạ Chí", "mo_ta": "Giữa hè", "duong_lich": "21-22/6", "thang_am": 5, "dia_chi_thang": "Ngọ"},
+    {"ten": "Tiểu Thử", "mo_ta": "Nắng oi", "duong_lich": "6-7/7", "thang_am": 6, "dia_chi_thang": "Mùi"},
+    {"ten": "Đại Thử", "mo_ta": "Nắng to", "duong_lich": "22-23/7", "thang_am": 6, "dia_chi_thang": "Mùi"},
+    {"ten": "Lập Thu", "mo_ta": "Vào thu", "duong_lich": "7-8/8", "thang_am": 7, "dia_chi_thang": "Thân"},
+    {"ten": "Xử Thử", "mo_ta": "Hết nắng to", "duong_lich": "22-23/8", "thang_am": 7, "dia_chi_thang": "Thân"},
+    {"ten": "Bạch Lộ", "mo_ta": "Nắng nhạt", "duong_lich": "7-8/9", "thang_am": 8, "dia_chi_thang": "Dậu"},
+    {"ten": "Thu Phân", "mo_ta": "Giữa thu", "duong_lich": "22-23/9", "thang_am": 8, "dia_chi_thang": "Dậu"},
+    {"ten": "Hàn Lộ", "mo_ta": "Mát mẻ", "duong_lich": "7-8/10", "thang_am": 9, "dia_chi_thang": "Tuất"},
+    {"ten": "Sương Giáng", "mo_ta": "Sương sa", "duong_lich": "23-24/10", "thang_am": 9, "dia_chi_thang": "Tuất"},
+    {"ten": "Lập Đông", "mo_ta": "Vào đông", "duong_lich": "7-8/11", "thang_am": 10, "dia_chi_thang": "Hợi"},
+    {"ten": "Tiểu Tuyết", "mo_ta": "Tuyết nhẹ", "duong_lich": "21-22/11", "thang_am": 10, "dia_chi_thang": "Hợi"},
+    {"ten": "Đại Tuyết", "mo_ta": "Tuyết lớn", "duong_lich": "6-7/12", "thang_am": 11, "dia_chi_thang": "Tý"},
+    {"ten": "Đông Chí", "mo_ta": "Giữa đông", "duong_lich": "21-22/12", "thang_am": 11, "dia_chi_thang": "Tý"},
+    {"ten": "Tiểu Hàn", "mo_ta": "Lạnh nhẹ", "duong_lich": "5-6/1", "thang_am": 12, "dia_chi_thang": "Sửu"},
+    {"ten": "Đại Hàn", "mo_ta": "Giá rét", "duong_lich": "20-21/1", "thang_am": 12, "dia_chi_thang": "Sửu"}
+  ],
+
+  "luu_y_gio_sinh_viet_nam": {
+    "_critical": "Engine PHẢI áp dụng bảng này TRƯỚC khi cast Hà Lạc cho user VN. KHÔNG dùng giờ Trung Quốc trực tiếp.",
+    "thoi_ky": [
+      {
+        "tu_ngay": "01-04-1945",
+        "den_ngay": "31-03-1947",
+        "gio_ty": "01-03h",
+        "ghi_chu": "Dưới chính quyền Nhật — toàn quốc"
+      },
+      {
+        "tu_ngay": "01-04-1947",
+        "den_ngay": "30-06-1955",
+        "gio_ty": "00-02h",
+        "ghi_chu": "Toàn quốc"
+      },
+      {
+        "tu_ngay": "01-07-1955",
+        "den_ngay": "31-12-1959",
+        "gio_ty": "23-01h",
+        "ghi_chu": "Toàn quốc (chuẩn UTC+7 hiện đại)"
+      },
+      {
+        "tu_ngay": "01-01-1960",
+        "den_ngay": "30-04-1975",
+        "gio_ty": "00-02h",
+        "ghi_chu": "CHỈ vùng Sài Gòn (UTC+8) — miền Bắc vẫn 23-01h"
+      },
+      {
+        "tu_ngay": "01-05-1975",
+        "den_ngay": "nay",
+        "gio_ty": "23-01h",
+        "ghi_chu": "Toàn quốc thống nhất UTC+7 — chuẩn hiện đại (Giờ chính Tý = 0h)"
+      }
+    ],
+    "vi_du_xuan_cang": "Tháng Chín năm Mậu Dần, tiết Lập Đông ngày 19 (7-11-1998) lúc 23h11 nếu dùng lịch TQ NXB Thẩm Dương → phải tính sớm 1h thành 22h11 ngày 7-11-1998 = giờ Hợi (không phải Tý)"
+  },
+
+  "hoa_cong_theo_tiet_khi": {
+    "_paradigm": "Hóa Công = ưu tiên năng lượng trời đất theo MÙA SINH (không phải tháng âm dương đơn thuần)",
+    "bang": [
+      {"sinh_sau": "Đông Chí", "sinh_truoc": "Xuân Phân", "que_hoa_cong": "Khảm (Nước)", "y_nghia": "Năng lượng Thủy mạnh nhất"},
+      {"sinh_sau": "Xuân Phân", "sinh_truoc": "Hạ Chí", "que_hoa_cong": "Chấn (Sấm)", "y_nghia": "Năng lượng Mộc + động khí"},
+      {"sinh_sau": "Hạ Chí", "sinh_truoc": "Thu Phân", "que_hoa_cong": "Ly (Lửa)", "y_nghia": "Năng lượng Hỏa mạnh nhất"},
+      {"sinh_sau": "Thu Phân", "sinh_truoc": "Đông Chí", "que_hoa_cong": "Đoài (Đầm)", "y_nghia": "Năng lượng Kim + vui hòa"}
+    ],
+    "tan_da_case": "Tản Đà sinh 19-5-1889 = sau Xuân Phân, trước Hạ Chí → Hóa Công Chấn (Sấm) Hỗ Tiên Thiên — chính là lý do Tản Đà tiết quá cực đoan (tịch cốc)"
+  },
+
+  "menh_x_que_paradigm": {
+    "_paradigm": "Bảng paradigm khi Mệnh Ngũ Hành GẶP Quẻ Tiên Thiên — KHÔNG predict cát/hung mà là DỰ ĐOÁN xu thế ứng xử",
+    "menh_kim": {
+      "can_chi": "Canh/Tân/Thân/Dậu + nạp âm Kim",
+      "que": {
+        "Càn": "Phú quý",
+        "Khảm": "Bồng bềnh chìm nổi",
+        "Cấn": "Nên ẩn cư",
+        "Chấn": "Có điều sở đắc, tốt",
+        "Tốn": "Xuân Hạ mát mẻ; Thu Đông lạnh lùng",
+        "Ly": "Nghịch chiều trong hành động",
+        "Khôn": "Được phúc lành",
+        "Đoài": "Đắc địa, tốt"
+      }
+    },
+    "menh_moc": {
+      "can_chi": "Giáp/Ất/Dần/Mão + nạp âm Mộc",
+      "que": {
+        "Càn": "Nhiều hão huyền, ít thực tế (Tô Hoài + Đoàn Lam Luyến match)",
+        "Khảm": "Hãm, mắc kẹt, không làm lớn được",
+        "Cấn": "Tốt Xuân Hạ, bất lợi Thu Đông",
+        "Chấn": "Vinh hoa",
+        "Tốn": "Tuổi nhỏ dao động, bấp bênh trắc trở, lo âu",
+        "Ly": "Hương thơm, sắc tươi bị tổn thiệt",
+        "Khôn": "Phải đợi thời rồi mới phát đạt",
+        "Đoài": "Giữa mùa Thu mới khởi sắc"
+      }
+    },
+    "menh_thuy": {
+      "can_chi": "Nhâm/Quý/Hợi/Tý + nạp âm Thủy",
+      "que": {
+        "Càn": "Như suối nước chảy, sẽ gặp thời cơ phát đạt",
+        "Khảm": "Hãm, lúc lành lúc dữ không định trước",
+        "Cấn": "Có hiểm trở, khó khăn",
+        "Chấn": "Cuộc đời như nước chảy xuôi, chẳng được nhàn",
+        "Tốn": "Sống bấp bênh, Thu Đông có điều đáng ngại",
+        "Ly": "Tranh đấu khắc khổ, thành bại có cả",
+        "Khôn": "Nhu thuận, nhàn nhã",
+        "Đoài": "Như nguồn nước dồi dào, mọi việc hanh thông"
+      }
+    },
+    "menh_hoa": {
+      "can_chi": "Bính/Đinh/Tỵ/Ngọ + nạp âm Hỏa",
+      "que": {
+        "Càn": "Quang minh sáng láng, nếu hào tốt thì phi thường",
+        "Khảm": "Phản phúc, phá hoại",
+        "Cấn": "Ích kỷ, hại nhân",
+        "Chấn": "Như thiêu đốt, tác động không bền",
+        "Tốn": "Như lửa gặp gió, có dịp may khôi cơ nghiệp",
+        "Ly": "Lửa gặp lửa, mừng giận thất thường",
+        "Khôn": "Lưỡng tình tương đắc, dịp thuận lợi",
+        "Đoài": "Nghĩ ngợi hoang mang, không quyết đoán"
+      }
+    },
+    "menh_tho": {
+      "can_chi": "Mậu/Kỷ/Thìn/Tuất/Sửu/Mùi + nạp âm Thổ",
+      "que": {
+        "Càn": "Có lành có dữ",
+        "Khảm": "Hãm, mắc kẹt, rủi ro nhiều",
+        "Cấn": "Tháng Tứ Quý (3,6,9,12) phát tài, có hậu",
+        "Chấn": "Có thương tổn, vất vả, rơi rụng",
+        "Tốn": "Như gió quét đất nổi bụi, ồn ào vất vả",
+        "Ly": "Nếu mất của, của lại tìm về, phúc không nhỏ",
+        "Khôn": "Phúc lộc trùng trùng, địa vị quan trọng",
+        "Đoài": "Như Càn (có lành có dữ)"
+      }
+    }
+  },
+
+  "8_que_quan_chung_thich": [
+    {"que": "Phục", "hao": 1, "vi": "Dương được niềm vui mở đầu"},
+    {"que": "Sư", "hao": 2, "vi": "Dương như người ở giữa ba quân"},
+    {"que": "Khiêm", "hao": 3, "vi": "Dương rốt về sau, muôn dân đều phục"},
+    {"que": "Dự", "hao": 4, "vi": "Dương người có chí lớn làm nên"},
+    {"que": "Tỷ", "hao": 5, "vi": "Dương được phán phụ công khai"},
+    {"que": "Tiểu Súc", "hao": 4, "vi": "Âm hợp với chí trên (hào 5 Dương)"},
+    {"que": "Đỉnh", "hao": 5, "vi": "Âm lợi về chính bền"},
+    {"que": "Bác", "hao": 6, "vi": "Dương — người lớn đi xe, kẻ nhỏ làm tàn nhà của chính nó"}
+  ],
+
+  "3_que_quan_chung_ghet": [
+    {"que": "Cấu", "hao": 1, "vi": "Âm vị thấp mà ràng buộc cây kim → không ràng buộc được"},
+    {"que": "Đồng Nhân", "hao": 2, "vi": "Âm chỉ thân với người cùng tông phái → đáng thẹn"},
+    {"que": "Quải", "hao": 6, "vi": "Âm chẳng kêu gọi ai được nữa → cuối cùng xấu"}
+  ],
+
+  "hao_dang_vi": {
+    "_giai_thich": "Hào ĐÁNG VỊ = hào dương ở vị dương / hào âm ở vị âm. Hào không đáng vị = ngược lại. Đây là bảng tra reference khi luận giải.",
+    "21_hao_dang_vi_tieu_bieu": [
+      {"que": "Bĩ", "hao": 5}, {"que": "Hoán", "hao": 1}, {"que": "Tấn", "hao": 2}, {"que": "Đồng Nhân", "hao": 1},
+      {"que": "Tiết", "hao": 5}, {"que": "Khôn", "hao": 4}, {"que": "Ký Tế", "hao": 2}, {"que": "Phục", "hao": 1},
+      {"que": "Lý", "hao": 4}, {"que": "Lâm", "hao": 4}, {"que": "Tỉnh", "hao": 5}, {"que": "Tùy", "hao": 5},
+      {"que": "Quải", "hao": 5}, {"que": "Khiêm", "hao": 2}, {"que": "Tốn", "hao": 5}, {"que": "Gia Nhân", "hao": 4}
+    ],
+    "14_hao_khong_dang_vi_tieu_bieu": [
+      {"que": "Bĩ", "hao": 3}, {"que": "Thăng", "hao": 6}, {"que": "Tấn", "hao": 4}, {"que": "Vị Tế", "hao": 3},
+      {"que": "Khuê", "hao": 3}, {"que": "Quải", "hao": 1}, {"que": "Trung Phu", "hao": 3}, {"que": "Nhu", "hao": 6},
+      {"que": "Phong", "hao": 4}, {"que": "Đoài", "hao": 3}, {"que": "Chấn", "hao": 3}, {"que": "Tụy", "hao": 4},
+      {"que": "Dự", "hao": 3}, {"que": "Tiểu Quá", "hao": 4}
+    ]
+  }
+}
