@@ -1986,36 +1986,36 @@ onMounted(async () => {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* Book-style Vietnamese page render */
+/* Book-style Vietnamese page render — follows the global reading theme + scale */
 .pw-compare-book {
   flex: 1;
   overflow: auto;
   padding: 2.2rem 2.4rem;
-  background: #fafaf7;
-  color: #1a1410;
+  background: var(--read-bg);
+  color: var(--read-text);
   font-family: "Charter", "Iowan Old Style", "Georgia", "Noto Serif",
     "Source Han Serif", serif;
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: calc(16.5px * var(--reading-scale));
+  line-height: 1.78;
   letter-spacing: 0.005em;
 }
 
 .pw-cmp-h1 {
-  font-size: 1.7rem;
+  font-size: calc(27px * var(--reading-scale));
   font-weight: 700;
   margin: 0.4em 0 0.7em 0;
   text-align: center;
-  color: #4a1a1a;
-  border-bottom: 2px solid #b8a890;
+  color: var(--read-heading);
+  border-bottom: 2px solid var(--read-border);
   padding-bottom: 0.3em;
   letter-spacing: 0.04em;
 }
 
 .pw-cmp-h2 {
-  font-size: 1.25rem;
+  font-size: calc(20px * var(--reading-scale));
   font-weight: 700;
   margin: 1.2em 0 0.5em 0;
-  color: #6d2727;
+  color: var(--read-heading);
   letter-spacing: 0.03em;
 }
 
@@ -2039,9 +2039,9 @@ onMounted(async () => {
 }
 
 .pw-cmp-line-empty {
-  color: #b15454;
+  color: var(--accent-red, #b15454);
   font-style: italic;
-  background: #fff3cd;
+  background: var(--read-cite-bg);
   padding: 0 0.2em;
   border-radius: 2px;
 }
@@ -2049,7 +2049,7 @@ onMounted(async () => {
 .pw-cmp-line-zh-inline {
   font-family: "Songti SC", "Noto Serif CJK SC", serif;
   font-size: 0.95em;
-  color: #555;
+  color: var(--read-han);
   margin-left: 0.3em;
 }
 
@@ -2082,14 +2082,14 @@ onMounted(async () => {
 
 .pw-cmp-figure figcaption {
   font-size: 0.85em;
-  color: #5a4a3a;
+  color: var(--read-text-dim);
   margin-top: 0.5em;
   font-style: italic;
 }
 
 .pw-cmp-table {
-  background: #f0e9dc;
-  border: 1px solid #c8b896;
+  background: var(--read-bg-soft);
+  border: 1px solid var(--read-border);
   border-radius: 4px;
   padding: 0.7em 0.9em;
   margin: 1em 0;
@@ -2098,27 +2098,27 @@ onMounted(async () => {
 
 .pw-cmp-table-content {
   margin-top: 0.4em;
-  color: #2a2a2a;
+  color: var(--read-text);
 }
 
 .pw-cmp-meta {
   font-size: 0.75em;
-  color: #999;
+  color: var(--read-text-faint);
   text-align: center;
   margin: 0.4em 0;
   font-variant: small-caps;
 }
 
 .pw-cmp-fallback {
-  background: #fff0d6;
+  background: var(--read-cite-bg);
   padding: 0.3em 0.6em;
   margin: 0.5em 0;
-  border-left: 3px solid #d97706;
+  border-left: 3px solid var(--read-cite-accent);
   font-size: 0.9em;
 }
 
 .pw-cmp-fallback em {
-  color: #92400e;
+  color: var(--read-cite-accent);
   font-weight: 600;
   margin-right: 0.4em;
 }
