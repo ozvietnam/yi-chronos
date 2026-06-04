@@ -8,7 +8,14 @@ from .rules.branches import HOUR_RANGES
 def _chi_midpoint_hour(chi: str) -> int:
     """Return a representative hour inside the chi range.
 
-    Tý spans 23-1h → return 0 (midnight). Others → start + 1 (e.g. Mão 5-7 → 6).
+    Tý spans 23-1h → return 0 (chính Tý, 00:00). Others → start + 1 (e.g. Mão 5-7 → 6).
+
+    KNOWN LIMITATION (#25): under the project's 早子時 convention the Tý window is NOT
+    day-pillar-stable — 23:00 rolls to the next day (e.g. Nhâm Thìn) while 00:00–01:00
+    stays on the current day (e.g. Tân Mão). A single midpoint (00:00) represents only
+    the 正子 half. The root morning-hour bug (#12) is fixed (chronos now uses sxtwl, so
+    00:00–06:59 candidates are correct); fully distinguishing Tý-sớm vs Tý-muộn would
+    need a 13th candidate — tracked as a quiz-model follow-up.
     """
     start, end = HOUR_RANGES[chi]
     if start > end:  # Tý wraps midnight
