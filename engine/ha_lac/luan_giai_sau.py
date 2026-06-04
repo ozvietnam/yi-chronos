@@ -223,11 +223,22 @@ def render_full_luan_giai(cast_result: dict) -> dict:
     # Phương pháp 7 bước extract từ Phần Ba Xuân Cang
     phuong_phap_section = _build_phuong_phap_section(cast_result)
 
+    # Danh sĩ kiểm chứng — cross-reference 11 chân dung Phần Ba
+    try:
+        from .danh_si_kiem_chung import build_llm_context as _build_ds_ctx
+        danh_si_ctx = _build_ds_ctx(
+            tt_quai.get("name_vi", ""),
+            ht_quai.get("name_vi", ""),
+        )
+    except Exception:
+        danh_si_ctx = ""
+
     return {
         "tien_thien": tt_luan,
         "hau_thien": ht_luan,
         "tong_synthesis": tong,
         "phuong_phap_7_buoc": phuong_phap_section,
+        "danh_si_kiem_chung": danh_si_ctx,
         "paradigm_guard": (
             "⚠️ Luận giải sâu = đọc đồng dạng cấu trúc khoảnh khắc sinh. "
             "Iron Rule #4+6 — KHÔNG predict tĩnh. "
