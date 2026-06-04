@@ -184,6 +184,9 @@ def evolve_soul(user_id: str, session_signals: dict) -> SoulProfile:
         for tabu in session_signals["explicit_tabu"]:
             if tabu and tabu not in soul.tabu_topics:
                 soul.tabu_topics.append(tabu)
+        # Cap like focus_schools/learned_traits — SOUL injects into every prompt, so an
+        # uncapped tabu list bloats the system prompt over many sessions (#20).
+        soul.tabu_topics = soul.tabu_topics[-15:]
 
     if "tone_signal" in session_signals:
         signal = session_signals["tone_signal"]

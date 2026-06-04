@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import sqlite3
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -131,6 +132,18 @@ def _ensure_db() -> None:
                      VALUES('delete', old.id, old.summary, old.key_topics);
                    END"""
             )
+            # AFTER UPDATE — keep the external-content FTS5 set complete (#20). Summaries
+            # are append-only today, but without this an edit would desync the index
+            # (old terms stay searchable, new terms unindexed).
+            conn.execute(
+                """CREATE TRIGGER IF NOT EXISTS summaries_au AFTER UPDATE ON chat_summaries
+                   BEGIN
+                     INSERT INTO summaries_fts(summaries_fts, rowid, summary, key_topics)
+                     VALUES('delete', old.id, old.summary, old.key_topics);
+                     INSERT INTO summaries_fts(rowid, summary, key_topics)
+                     VALUES (new.id, new.summary, new.key_topics);
+                   END"""
+            )
         except sqlite3.OperationalError:
             pass
 
@@ -177,9 +190,13 @@ def list_facts(
     *,
     category: str | None = None,
     limit: int = 50,
+    query_hint: str = "",
 ) -> list[UserFact]:
-    """Recent facts first."""
+    """Recent facts first; when `query_hint` is given, blend recency with relevance
+    (token overlap) so an older-but-relevant fact isn't dropped by recency alone (#20)."""
     _ensure_db()
+    # When ranking by relevance, pull a larger recent pool to re-rank from.
+    fetch = max(limit * 4, 40) if query_hint.strip() else limit
     with sqlite3.connect(_DB_PATH) as conn:
         if category:
             rows = conn.execute(
@@ -187,7 +204,7 @@ def list_facts(
                           source_session_id, extracted_at, COALESCE(notes, '')
                    FROM user_facts WHERE user_id=? AND category=?
                    ORDER BY extracted_at DESC LIMIT ?""",
-                (user_id, category, limit),
+                (user_id, category, fetch),
             ).fetchall()
         else:
             rows = conn.execute(
@@ -195,9 +212,9 @@ def list_facts(
                           source_session_id, extracted_at, COALESCE(notes, '')
                    FROM user_facts WHERE user_id=?
                    ORDER BY extracted_at DESC LIMIT ?""",
-                (user_id, limit),
+                (user_id, fetch),
             ).fetchall()
-    return [
+    facts = [
         UserFact(
             id=r[0], user_id=r[1], fact=r[2], category=r[3],
             confidence=r[4], source_session_id=r[5],
@@ -205,6 +222,16 @@ def list_facts(
         )
         for r in rows
     ]
+    if query_hint.strip() and facts:
+        hint_tokens = {t for t in re.findall(r"\w+", query_hint.lower()) if len(t) > 1}
+        if hint_tokens:
+            def _relevance(f: UserFact) -> int:
+                fact_tokens = set(re.findall(r"\w+", f"{f.fact} {f.category}".lower()))
+                return len(hint_tokens & fact_tokens)
+            # Stable sort: relevance desc, then recency desc (rows already recency-ordered).
+            facts.sort(key=_relevance, reverse=True)
+        facts = facts[:limit]
+    return facts
 
 
 def delete_fact(fact_id: int) -> bool:
@@ -363,14 +390,14 @@ def build_memory_context(user_id: str, query_hint: str = "") -> str:
     """Build a memory context block for system prompt injection.
 
     Includes:
-    - Top 5 recent facts (any category)
+    - Top 5 facts (relevance-ranked on query_hint if provided, else recent)
     - Top 3 relevant past chat summaries (FTS on query_hint if provided)
     - Top viewed glossary terms (signals interest)
     """
     if not user_id:
         return ""
 
-    facts = list_facts(user_id, limit=5)
+    facts = list_facts(user_id, limit=5, query_hint=query_hint)
     summaries = (
         search_summaries(user_id, query_hint, limit=3)
         if query_hint else list_summaries(user_id, limit=3)
