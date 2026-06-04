@@ -12,6 +12,7 @@ Tables:
 from __future__ import annotations
 
 import json
+import re
 import sqlite3
 import time
 from contextlib import contextmanager
@@ -154,6 +155,49 @@ CREATE TABLE IF NOT EXISTS concept_index (
 );
 CREATE INDEX IF NOT EXISTS idx_concept_vi ON concept_index(canonical_vi);
 CREATE INDEX IF NOT EXISTS idx_concept_zh ON concept_index(canonical_zh);
+
+CREATE TABLE IF NOT EXISTS _meta (key TEXT PRIMARY KEY, value TEXT);
+
+-- FTS5 full-text search (#18 Phase 1): un-deads the `passages` corpus + upgrades
+-- concept search from LIKE → ranked bm25. External-content tables mirror the base
+-- tables; kept in sync by triggers below + backfilled in _migrate for existing DBs.
+CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(
+    raw_text, topic, summary_50w, concepts_mentioned,
+    content='passages', content_rowid='passage_id', tokenize='unicode61'
+);
+CREATE TRIGGER IF NOT EXISTS passages_ai AFTER INSERT ON passages BEGIN
+  INSERT INTO passages_fts(rowid, raw_text, topic, summary_50w, concepts_mentioned)
+    VALUES (new.passage_id, new.raw_text, new.topic, new.summary_50w, new.concepts_mentioned);
+END;
+CREATE TRIGGER IF NOT EXISTS passages_ad AFTER DELETE ON passages BEGIN
+  INSERT INTO passages_fts(passages_fts, rowid, raw_text, topic, summary_50w, concepts_mentioned)
+    VALUES ('delete', old.passage_id, old.raw_text, old.topic, old.summary_50w, old.concepts_mentioned);
+END;
+CREATE TRIGGER IF NOT EXISTS passages_au AFTER UPDATE ON passages BEGIN
+  INSERT INTO passages_fts(passages_fts, rowid, raw_text, topic, summary_50w, concepts_mentioned)
+    VALUES ('delete', old.passage_id, old.raw_text, old.topic, old.summary_50w, old.concepts_mentioned);
+  INSERT INTO passages_fts(rowid, raw_text, topic, summary_50w, concepts_mentioned)
+    VALUES (new.passage_id, new.raw_text, new.topic, new.summary_50w, new.concepts_mentioned);
+END;
+
+CREATE VIRTUAL TABLE IF NOT EXISTS concept_fts USING fts5(
+    canonical_vi, canonical_zh, aliases, short_note,
+    content='concept_index', content_rowid='concept_id', tokenize='unicode61'
+);
+CREATE TRIGGER IF NOT EXISTS concept_ai AFTER INSERT ON concept_index BEGIN
+  INSERT INTO concept_fts(rowid, canonical_vi, canonical_zh, aliases, short_note)
+    VALUES (new.concept_id, new.canonical_vi, new.canonical_zh, new.aliases, new.short_note);
+END;
+CREATE TRIGGER IF NOT EXISTS concept_ad AFTER DELETE ON concept_index BEGIN
+  INSERT INTO concept_fts(concept_fts, rowid, canonical_vi, canonical_zh, aliases, short_note)
+    VALUES ('delete', old.concept_id, old.canonical_vi, old.canonical_zh, old.aliases, old.short_note);
+END;
+CREATE TRIGGER IF NOT EXISTS concept_au AFTER UPDATE ON concept_index BEGIN
+  INSERT INTO concept_fts(concept_fts, rowid, canonical_vi, canonical_zh, aliases, short_note)
+    VALUES ('delete', old.concept_id, old.canonical_vi, old.canonical_zh, old.aliases, old.short_note);
+  INSERT INTO concept_fts(rowid, canonical_vi, canonical_zh, aliases, short_note)
+    VALUES (new.concept_id, new.canonical_vi, new.canonical_zh, new.aliases, new.short_note);
+END;
 """
 
 
@@ -205,6 +249,26 @@ class WikiStore:
                     conn.execute(f"ALTER TABLE concept_index ADD COLUMN {col} {col_def}")
                 except sqlite3.Error:
                     pass  # already added by a parallel run
+
+        # FTS5 backfill (#18) — index rows that existed BEFORE the FTS tables were
+        # added (triggers only catch new writes). External-content FTS5 must be
+        # backfilled with the 'rebuild' command, and `count(*) FROM fts` reflects the
+        # CONTENT table (never 0 when it has rows) — so guard with a one-time _meta flag.
+        try:
+            done = conn.execute(
+                "SELECT value FROM _meta WHERE key='fts_backfilled_v1'"
+            ).fetchone()
+            if not done:
+                for fts in ("passages_fts", "concept_fts"):
+                    try:
+                        conn.execute(f"INSERT INTO {fts}({fts}) VALUES('rebuild')")
+                    except sqlite3.Error:
+                        pass
+                conn.execute(
+                    "INSERT OR REPLACE INTO _meta(key, value) VALUES('fts_backfilled_v1', '1')"
+                )
+        except sqlite3.Error:
+            pass
 
     @contextmanager
     def _conn(self) -> Iterator[sqlite3.Connection]:
@@ -375,6 +439,65 @@ class WikiStore:
         sql += " ORDER BY corpus_id, page_start"
         with self._conn() as conn:
             rows = conn.execute(sql, tuple(params)).fetchall()
+        return [dict(r) for r in rows]
+
+    # ─── Full-text search (FTS5 — #18 Phase 1) ──────────────────────────────
+    @staticmethod
+    def _fts_query(text: str) -> str:
+        """Turn free text into a safe FTS5 OR-query (quote each token, drop FTS
+        operators) so user input never triggers a syntax error."""
+        toks = re.findall(r"\w+", text or "", flags=re.UNICODE)
+        return " OR ".join(f'"{t}"' for t in toks if len(t) > 1)
+
+    def search_passages(self, query: str, limit: int = 8,
+                        corpus_id: Optional[str] = None) -> list[dict]:
+        """Rank passages by FTS5 bm25 (un-deads the restored-book corpus). Returns
+        the matched passage rows (best first). Empty query → []."""
+        match = self._fts_query(query)
+        if not match:
+            return []
+        sql = (
+            "SELECT p.* FROM passages p "
+            "JOIN passages_fts f ON p.passage_id = f.rowid "
+            "WHERE passages_fts MATCH ?"
+        )
+        params: list = [match]
+        if corpus_id:
+            sql += " AND p.corpus_id = ?"
+            params.append(corpus_id)
+        sql += " ORDER BY rank LIMIT ?"
+        params.append(limit)
+        with self._conn() as conn:
+            try:
+                rows = conn.execute(sql, tuple(params)).fetchall()
+            except sqlite3.OperationalError:
+                like = f"%{query}%"
+                rows = conn.execute(
+                    "SELECT * FROM passages WHERE raw_text LIKE ? OR topic LIKE ? "
+                    "LIMIT ?", (like, like, limit),
+                ).fetchall()
+        return [dict(r) for r in rows]
+
+    def search_concepts(self, query: str, limit: int = 20) -> list[dict]:
+        """Rank concepts by FTS5 bm25 (replaces LIKE substring search)."""
+        match = self._fts_query(query)
+        if not match:
+            return []
+        with self._conn() as conn:
+            try:
+                rows = conn.execute(
+                    "SELECT c.* FROM concept_index c "
+                    "JOIN concept_fts f ON c.concept_id = f.rowid "
+                    "WHERE concept_fts MATCH ? ORDER BY rank LIMIT ?",
+                    (match, limit),
+                ).fetchall()
+            except sqlite3.OperationalError:
+                like = f"%{query}%"
+                rows = conn.execute(
+                    "SELECT * FROM concept_index WHERE canonical_vi LIKE ? "
+                    "OR aliases LIKE ? OR short_note LIKE ? LIMIT ?",
+                    (like, like, like, limit),
+                ).fetchall()
         return [dict(r) for r in rows]
 
     # ─── Concept index ─────────────────────────────────────────────────────

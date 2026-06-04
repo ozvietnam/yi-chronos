@@ -4339,49 +4339,46 @@ def yi_wiki_glossary_tuvi() -> dict:
 
 @app.get("/api/yi-wiki/search")
 def yi_wiki_search(q: str, limit: int = 20) -> dict:
-    """Tìm concept trong wiki (LIKE search on canonical_vi, aliases, short_note).
+    """Full-text search wiki concepts + passages (FTS5 bm25 — #18 Phase 1).
 
-    Dùng cho search bar trong UI khi user tra cứu thuật ngữ Hán-Việt.
+    Upgrades the old LIKE substring search to ranked FTS5, and surfaces matching
+    `passages` (intact text excerpts from restored books) which were previously a
+    'dead corpus' — never returned by any retrieval path.
     """
-    import sqlite3
-    from pathlib import Path
     q = (q or "").strip()
     if len(q) < 2:
-        return {"status": "ok", "results": [], "count": 0, "message": "query too short (min 2 chars)"}
-    db_path = Path(__file__).resolve().parent.parent / "data/yi_wiki/wiki.sqlite3"
-    if not db_path.exists():
-        return {"status": "error", "message": "wiki.sqlite3 not found"}
-    db = sqlite3.connect(db_path)
+        return {"status": "ok", "results": [], "passages": [], "count": 0,
+                "message": "query too short (min 2 chars)"}
     try:
-        like = f"%{q}%"
-        rows = db.execute(
-            """SELECT canonical_vi, canonical_zh, short_note, category, school, first_seen_corpus
-               FROM concept_index
-               WHERE canonical_vi LIKE ? OR aliases LIKE ? OR short_note LIKE ?
-               ORDER BY
-                 CASE
-                   WHEN canonical_vi = ? THEN 0
-                   WHEN canonical_vi LIKE ? THEN 1
-                   ELSE 2
-                 END,
-                 LENGTH(canonical_vi)
-               LIMIT ?""",
-            (like, like, like, q, f"{q}%", limit),
-        ).fetchall()
-        results = [
-            {
-                "canonical_vi": r[0],
-                "canonical_zh": r[1] or "",
-                "short_note": (r[2] or "")[:400],
-                "category": r[3] or "khác",
-                "school": r[4] or "",
-                "source": r[5] or "",
-            }
-            for r in rows
-        ]
-        return {"status": "ok", "results": results, "count": len(results), "query": q}
-    finally:
-        db.close()
+        from engine.yi_wiki.store import get_store
+        store = get_store()
+        concepts = store.search_concepts(q, limit=limit)
+        passages = store.search_passages(q, limit=6)
+    except Exception as e:  # noqa: BLE001
+        return {"status": "error", "message": str(e)}
+    results = [
+        {
+            "canonical_vi": c.get("canonical_vi"),
+            "canonical_zh": c.get("canonical_zh") or "",
+            "short_note": (c.get("short_note") or "")[:400],
+            "category": c.get("category") or "khác",
+            "school": c.get("school") or "",
+            "source": c.get("first_seen_corpus") or "",
+        }
+        for c in concepts
+    ]
+    passage_results = [
+        {
+            "corpus_id": p.get("corpus_id"),
+            "topic": p.get("topic") or "",
+            "excerpt": (p.get("raw_text") or "")[:500],
+            "page_start": p.get("page_start"),
+            "page_end": p.get("page_end"),
+        }
+        for p in passages
+    ]
+    return {"status": "ok", "results": results, "passages": passage_results,
+            "count": len(results), "query": q}
 
 
 @app.get("/api/yi-wiki/authors")
