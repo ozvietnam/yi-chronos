@@ -1,0 +1,360 @@
+{
+  "_meta": {
+    "title": "Hà Lạc — Cấu trúc + Paradigm 11 danh sĩ Việt Nam (Xuân Cang)",
+    "source_book": "Bát Tự Hà Lạc và Quỹ Đạo Đời Người — Xuân Cang",
+    "source_pages": "p420-583",
+    "purpose": "Dữ liệu kiểm chứng paradigm Hà Lạc cho engine luận giải. Mỗi danh sĩ có ngày giờ sinh + cấu trúc Hà Lạc + tác phẩm + sự kiện kiểm chứng. LLM dùng cross-reference khi cast Hà Lạc của user mới.",
+    "created": "2026-06-03",
+    "iron_rules": [
+      "KHÔNG dùng làm tool predict. Đây là DỮ LIỆU ĐỒNG DẠNG.",
+      "Khi user có cấu trúc Hà Lạc gần giống danh sĩ X → CITE: 'Anh có cấu trúc gần giống X (sách Xuân Cang), paradigm X là Y.'",
+      "Mỗi danh sĩ là 1 CASE STUDY thật, KHÔNG phải fortune-telling reference."
+    ]
+  },
+  "danh_si": [
+    {
+      "id": "tan_da",
+      "ten_that": "Nguyễn Khắc Hiếu",
+      "but_danh": "Tản Đà",
+      "nam_sinh": 1889,
+      "nam_mat": 1939,
+      "tho": 50,
+      "ngay_sinh_am": "5 tháng 4 Kỷ Sửu (19-5-1889 dương)",
+      "gio_sinh": "Bính Tý",
+      "can_chi": {"nam": "Kỷ Sửu", "thang": "Kỷ Tỵ", "ngay": "Ất Mùi", "gio": "Bính Tý"},
+      "cau_truc_ha_lac": {
+        "tien_thien": "Sơn Thủy Mông",
+        "ho_tien_thien": "Địa Lôi Phục",
+        "hau_thien": "Địa Sơn Khiêm",
+        "ho_hau_thien": "Lôi Thủy Giải",
+        "hoa_cong": "Cấn ở Tiên Thiên, Hậu Thiên (Núi)",
+        "nguyen_dong": "Hào 1 Tiết",
+        "menh_hop_cach": "trung bình"
+      },
+      "paradigm_cot": "MÔNG — giáo hóa dân thời mông muội",
+      "tac_pham_tieu_bieu": ["Thề Non Nước", "Giấc Mộng Lớn", "Hầu Trời", "Lên Sáu", "Lên Tám", "Quốc Sử Huấn Mông", "An Nam Tạp Chí"],
+      "phat_hien_dat": [
+        "Tên SƠN+THỦY khớp Tiên Thiên Sơn Thủy Mông — Hóa Công đưa người tự đặt tên khớp mệnh",
+        "Viết Lên Sáu, Lên Tám, Quốc Sử HUẤN MÔNG — chính chữ MÔNG trong tên sách",
+        "Quẻ TIẾT năm 1912 + Chấn (Sấm) Hỗ Tiên Thiên = TIẾT CỰC ĐOAN (tịch cốc 3 tháng, suýt chết)",
+        "Hậu Thiên KHIÊM hào 5: cần chút uy → văn thơ NGÔNG (Hầu Trời)",
+        "3 quẻ BÍ trong đời = 5 bước sáng tác Cảm Thu Tiễn Thu",
+        "2 quẻ DI = mở môn nghệ thuật ẩm thực VN",
+        "4 quẻ CÁCH = phá thơ niêm luật (tiền thân Thơ Mới)",
+        "5 lần An Nam tạp chí chết-sống = quẻ PHỤC",
+        "Tiểu Súc Hào 3 ngày 20-4-1939: 'Xe rời mất trục' = ngày Tản Đà mất CHÍNH XÁC sau khi tắm đầm nước"
+      ],
+      "loi_canh_bao": "Quẻ Tiết Tiên Thiên kèm Chấn Hỗ → KHÔNG được tịch cốc cực đoan. Khổng Tử: 'Tiết cực khổ thì không ai chịu được lâu'."
+    },
+    {
+      "id": "to_hoai",
+      "ten_that": "Nguyễn Văn Sen",
+      "but_danh": "Tô Hoài",
+      "nam_sinh": 1920,
+      "nam_mat": 2014,
+      "tho": 94,
+      "ngay_sinh_am": "16 tháng 8 Canh Thân (27-9-1920 dương)",
+      "gio_sinh": "Dậu",
+      "can_chi": {"nam": "Canh Thân", "thang": "Ất Dậu", "ngay": "Mậu Tý", "gio": "Tân Dậu"},
+      "menh_ngu_hanh": "Mộc (thạch lựu)",
+      "cau_truc_ha_lac": {
+        "tien_thien": "Trạch Phong Đại Quá",
+        "ho_tien_thien": "Thuần Càn",
+        "hau_thien": "Phong Thiên Tiểu Súc",
+        "ho_hau_thien": "Hỏa Trạch Khuê",
+        "hoa_cong": "Đoài (Đầm) ở CẢ Tiên + Hậu Thiên",
+        "menh_hop_cach": "trung bình cao"
+      },
+      "paradigm_cot": "ĐẠI QUÁ → TIỂU SÚC — phi thường tự nhiên, không gồng",
+      "tac_pham_tieu_bieu": ["Dế Mèn Phiêu Lưu Ký", "Vợ Chồng A Phủ", "Truyện Tây Bắc", "Miền Tây", "Cát Bụi Chân Ai", "Một Người Bạn", "Chuyện Cũ Hà Nội (Sáo Diều)"],
+      "phat_hien_dat": [
+        "Tên SEN (cây trong Đầm) + TÔ (sông thành Đầm) khớp Trạch (Đầm) Tiên Thiên",
+        "Đại Quá = 3 phi thường: NGƯỜI tài + THỜI cách mạng + VIỆC 150+ đầu sách",
+        "Câu đầu Dế Mèn 'Tôi sống độc lập từ thuở bé' = paradigm 'độc lập bất cụ' Đại Quá",
+        "Tiểu Súc sau 49t: trau dồi VĂN ĐỨC (như Khổng Tử Mạnh Tử)",
+        "'Một Người Bạn' = gương MỜ Tiểu Súc (Châu bưng rượu ở An-giê)",
+        "'Cát Bụi Chân Ai' = gương SÁNG Tiểu Súc",
+        "Tả Gió + Đầm = đỉnh cao (Dế Mèn, Sáo Diều 3 loại)",
+        "Mệnh KHÔNG có Núi vẫn đi Tây Bắc — Đại Quá + Hóa Công = giấy phép vượt khung",
+        "KHÔNG biết mệnh mãi 70t (1990) vẫn sống KHỚP HOÀN HẢO cấu trúc Hà Lạc"
+      ],
+      "loi_an_tam": "Người không biết mệnh + sống thuận với khí chất tự nhiên → sống thọ + sự nghiệp lớn hơn người gồng theo mệnh. Hà Lạc để HIỂU, không để GỒNG."
+    },
+    {
+      "id": "nguyen_ngoc",
+      "ten_that": "Nguyễn Văn Báu",
+      "but_danh": "Nguyên Ngọc",
+      "nam_sinh": 1932,
+      "ngay_sinh": "5-9-1932 giờ Mão (tháng 7 âm theo Hà Lạc do trước tiết Bạch Lộ)",
+      "can_chi": {"nam": "Nhâm Thân"},
+      "cau_truc_ha_lac": {
+        "tien_thien": "Địa Phong Thăng",
+        "ho_tien_thien": "Lôi Trạch Quy Muội",
+        "hau_thien": "Thủy Địa Tỷ",
+        "ho_hau_thien": "Sơn Địa Bác",
+        "dia_nguyen_khi": "Khôn (3 quẻ Khôn trong cấu trúc)",
+        "thien_nguyen_khi": "Không",
+        "hoa_cong": "Không",
+        "menh_hop_cach": "có"
+      },
+      "paradigm_cot": "THĂNG — mầm cây len lỏi vượt đá sỏi lên trên + TỶ (gần gũi, sánh vai)",
+      "tac_pham_tieu_bieu": ["Đất Nước Đứng Lên (Núp)", "Rừng Xà Nu", "Đất Quảng", "Mạch Nước Ngầm", "Mùa Hoa Thuốc Phiện Cuối Cùng", "Đường Chúng Ta Đi", "Có Một Đường Mòn Trên Biển Đông"],
+      "phat_hien_dat": [
+        "Tác phẩm toàn tên ĐẤT + NƯỚC — khớp Tiên Thiên Địa Phong + Hậu Thiên Thủy Địa",
+        "1955 quẻ BÍ Hào 2 → gặp Núp ở Tây Nguyên → viết Đất Nước Đứng Lên = paradigm 'trang sức cho người' (giống Tản Đà cùng năm Bí Hào 2 viết Thề Non Nước)",
+        "1960 quẻ MINH DI Hào 2 → bài Mạch Nước Ngầm bị phê phán → giấu sáng đi Cao Bằng + chiến đấu với phỉ (như Cơ Tử giả điên)",
+        "1962 quẻ THUẦN CHẤN Hào 4 → tình nguyện đi Nam (đúng chữ NAM trong lời hào)",
+        "1986 làm Tổng biên tập báo Văn Nghệ = quẻ TẬP KHẢM (2 lần hiểm) — quá đà cải cách do quẻ Hỗ Quy Muội",
+        "Bài thơ Trần Đăng Khoa gửi: 'Bác bay dưới đất / Em đành đi trên trời' — TĐK hiểu cả 2 hành lang"
+      ],
+      "loi_canh_bao": "Quy Muội Hỗ Tiên Thiên = sai lầm 'qua loa, đại khái' khi quyết định lớn (đam mê đặc cố vấp ngã)"
+    },
+    {
+      "id": "tran_dang_khoa",
+      "ten_that": "Trần Đăng Khoa",
+      "nam_sinh": 1958,
+      "ngay_sinh": "26-4-1958 giờ Dậu (8-3 Mậu Tuất âm)",
+      "can_chi": {"nam": "Mậu Tuất"},
+      "menh_ngu_hanh": "Mộc",
+      "cau_truc_ha_lac": {
+        "tien_thien": "Phong Địa Quán",
+        "ho_tien_thien": "Sơn Địa Bác",
+        "hau_thien": "Địa Thiên Thái",
+        "ho_hau_thien": "Lôi Trạch Quy Muội",
+        "thien_nguyen_khi": "Có (về cuối đời)",
+        "dia_nguyen_khi": "Có (Khôn)",
+        "menh_hop_cach": "thấp",
+        "tu_quan": "Có (tín hiệu thần đồng)"
+      },
+      "paradigm_cot": "QUÁN — quan sát + suy ngẫm; thần đồng phụ tá trong thời thịnh",
+      "tac_pham_tieu_bieu": ["Góc Sân và Khoảng Trời", "Hạt Gạo Làng Ta", "Côn Sơn", "Đêm Côn Sơn", "Khi Mùa Thu Sang", "Mưa", "Đánh Thần Hạn", "Đợi Mưa Trên Đảo Sinh Tồn", "Chân Dung và Đối Thoại"],
+      "phat_hien_dat": [
+        "Hào 5 Quán (7-15t) = thần đồng + phụ tá Xuân Diệu (nguyên thủ) → tập thơ Góc Sân và Khoảng Trời in 30+ lần",
+        "Quẻ Hỗ SƠN ĐỊA BÁC (âm thịnh dương suy) báo trước Hào 5 chỉ là 'trái lớn còn lại trên cành' — đáng để chín rụng, ăn rồi là hết",
+        "Hào 6 (16-24t): vào Hải quân = ĐI CHỆCH hành lang (mệnh không có Nước)",
+        "Hào 1 + 2 (25-42t): thấp xuống, hối tiếc, không vượt lên được",
+        "Hậu vận Địa Thiên Thái (43+): mở vận hội lớn, vừa thơ vừa phê bình",
+        "Cấu trúc GIỐNG HỆT Nguyễn Hiến Lê (cùng Quán + Thái) — khác Hóa Công + Thiên Nguyên Khí"
+      ],
+      "loi_canh_bao": "Hái trái cuối cành quá sớm (thần đồng) → trung niên hối tiếc. Sau 43t mới quay lại Thái."
+    },
+    {
+      "id": "tran_nhuan_minh",
+      "ten_that": "Trần Nhuận Minh",
+      "nam_sinh": 1944,
+      "ngay_sinh": "20-8 Giáp Thân âm, giờ Tị",
+      "can_chi": {"nam": "Giáp Thân", "thang": "Quý Dậu"},
+      "que_huong": "Điền Trì, Nam Sách, Hải Dương",
+      "cau_truc_ha_lac": {
+        "tien_thien": "Thủy Sơn Kiển",
+        "ho_tien_thien": "Hỏa Thủy Vị Tế",
+        "hau_thien": "Phong Thủy Hoán",
+        "ho_hau_thien": "Sơn Lôi Di",
+        "khi_chat": "3 quẻ Khảm (Nước) + 2 quẻ Cấn (Núi)"
+      },
+      "paradigm_cot": "KIỂN — gian nan + sống chèo lái mà không cưỡng hành lang",
+      "tac_pham_tieu_bieu": ["Đá Cháy (trường ca)", "Nhà Thơ và Hoa Cỏ", "Bá Kim", "Thím Hai Vui", "Dân Con", "Tình Chát", "Hoành Mô Mây Trắng", "Chơi Thuyền Trên Vịnh Hạ Long"],
+      "phat_hien_dat": [
+        "Bà đỡ nói khi sinh ra: 'Thằng này rồi sẽ khổ' = nhận ra thời Kiển ngay khi sinh",
+        "Sống đúng lời quẻ: 'không đi Đông Bắc, đi Tây Nam' — nhưng số phận đẩy đi Quảng Ninh (Đông Bắc) = đi đúng từng chữ trong lời quẻ",
+        "Anh ruột Trần Đăng Khoa — TĐK gắn Đất+Trời+Gió, TNM gắn Nước+Núi+Lửa+Sấm",
+        "Người sống KHỚP HOÀN TOÀN với hành lang số phận mà không hề biết Hà Lạc",
+        "3 đức cứu Kiển (Phan Bội Châu): NHÂN (Dặn Con) + TRÍ (Tình Chát) + DŨNG (Đá Cháy)",
+        "Thơ tả những kiếp người gian khó: Bá Kim, Thím Hai Vui, Mợ Hữu, Cô Bống"
+      ],
+      "loi_an_tam": "Đối lập TĐK đi chệch hành lang — TNM sống đúng hành lang mà không gồng → trở thành nhà thơ thế sự bậc thầy."
+    },
+    {
+      "id": "nguyen_thi_thu_hue",
+      "ten_that": "Nguyễn Thị Thu Huệ",
+      "nam_sinh": 1966,
+      "ngay_sinh": "12-8-1966 sau 3h sáng (26-6 Bính Ngọ âm, giờ Dần) — Hà Lạc tính tháng 7",
+      "can_chi": {"nam": "Bính Ngọ", "thang": "Bính Thân", "ngay": "Quý Mão", "gio": "Giáp Dần"},
+      "cau_truc_ha_lac": {
+        "tien_thien": "Thiên Địa Bĩ",
+        "ho_tien_thien": "Phong Sơn Tiệm",
+        "hau_thien": "Trạch Địa Tụy (?)",
+        "thien_nguyen_khi": "Càn ở Hỗ Tiên Thiên",
+        "dia_nguyen_khi": "Không",
+        "menh_hop_cach": "trung bình cao",
+        "hao_chu_menh": "Hào 6 dương quẻ Bĩ"
+      },
+      "paradigm_cot": "BĨ — bế tắc + sứ mạng đi vào thân phận Bĩ + an ủi họ",
+      "tac_pham_tieu_bieu": ["Người Đàn Bà Trong Phòng Xử Án", "Mini Xinh Đẹp", "Ám Cảnh", "Cát Đợi", "Phù Thủy", "Hậu Thiên Đường", "Ông Mãi", "Mọi Giấc Đời Nằm Nhớ"],
+      "phat_hien_dat": [
+        "Mệnh Bĩ NHƯNG bản thân không bĩ — Trời đất trao quẻ Bĩ là để GÁNH sứ mạng đi sâu vào thân phận Bĩ của người khác",
+        "Truyện Mini Xinh Đẹp = thân phận thiếu tá nghỉ hưu nuôi chó Nhật + suýt phá sản = ứng nghiệm hào 1 Bĩ",
+        "Hào 6 dương Bĩ = có chí lớn, tài sắp đặt → làm Trưởng xưởng phim truyện Đài Truyền hình",
+        "Người Bĩ ít khi mừng khi gặp may — chỉ tin khi thực sự có may mới tin",
+        "Cấu trúc Bĩ + Càn Hỗ → cái nhìn TỪ TRỜI XUỐNG → đi từ văn học sang điện ảnh"
+      ],
+      "loi_an_tam": "Bĩ cực thái lai — Hậu Thiên sẽ sang quẻ tốt hơn. Tận dụng giai đoạn Bĩ để thấu hiểu thân phận khốn khó."
+    },
+    {
+      "id": "nguyen_hien_le",
+      "ten_that": "Nguyễn Hiến Lê",
+      "nam_sinh": 1912,
+      "nam_mat": 1984,
+      "ngay_sinh": "8-1-1912 giờ Dậu (20-11 Tân Hợi âm) — Hà Lạc tính tháng 12 do trước Tiểu Hàn",
+      "can_chi": {"nam": "Tân Hợi", "thang": "Tân Sửu", "ngay": "Quý Mùi", "gio": "Tân Dậu"},
+      "menh_ngu_hanh": "Kim (trâm thoa)",
+      "cau_truc_ha_lac": {
+        "tien_thien": "Phong Địa Quán",
+        "ho_tien_thien": "Sơn Địa Bác",
+        "hau_thien": "Địa Thiên Thái",
+        "ho_hau_thien": "Lôi Trạch Quy Muội",
+        "thien_nguyen_khi": "Tốn ở Tiên Thiên",
+        "dia_nguyen_khi": "Càn ở Hậu Thiên",
+        "menh_hop_cach": "trung bình cao",
+        "ghi_chu": "Cấu trúc GIỐNG HỆT Trần Đăng Khoa — khác Hóa Công + Mệnh hợp cách"
+      },
+      "paradigm_cot": "QUÁN + THÁI — quan sát rộng lớn + sự nghiệp viết sách giáo hóa",
+      "tac_pham_tieu_bieu": ["Kinh Dịch Đạo của Người Quân Tử", "Đại Cương Văn Học Sử Trung Quốc", "Tô Đông Pha", "Hướng Sắc Trong Vườn Văn", "Đại Cương Triết Học Trung Quốc", "Khảo Luận Về Ngữ Pháp Việt Nam", "Đông Kinh Nghĩa Thục", "100+ đầu sách + dịch Chiến Tranh Hòa Bình"],
+      "phat_hien_dat": [
+        "Hào 4 Quán chủ mệnh: 'Xem vẻ sáng đất nước, lợi dụng địa vị gần nguyên thủ' — nguyên thủ của ông = cha mẹ + bác cả (chữ Hán) + bác hai (Đông Kinh Nghĩa Thục) + bác ba",
+        "Đi học Cao đẳng Công chánh sau làm thủy lợi 10 năm = ĐI CHỆCH hành lang",
+        "6 tháng học chữ Hán thuở nhỏ = đường thanh tu của hào 6 Quán → dùng được SUỐT ĐỜI",
+        "4 quẻ Đại Tráng trong đời = sức tự thân khổng lồ → tự học, tự bỏ nghề công chính, tự lập nhà xuất bản",
+        "Năm 1979 viết Kinh Dịch Đạo của Người Quân Tử = quẻ HÀM (cảm hóa người bằng hư tâm)",
+        "Cấu trúc GIỐNG Trần Đăng Khoa — nhưng NHL có Thiên Nguyên Khí (TĐK không) → NHL thâm hậu + sống ổn định"
+      ],
+      "loi_chi_dao": "Triết lý dạy của ông: 'Khi muốn học vấn đề nào, hãy viết sách về nó. Viết sách = tự ra bài cho mình. Đừng cầu danh — danh sẽ mất.'"
+    },
+    {
+      "id": "doan_thi_lam_luyen",
+      "ten_that": "Đoàn Thị Lam Luyến",
+      "nam_sinh": 1951,
+      "ngay_sinh": "18-7-1951 (15-6 Tân Mão âm)",
+      "can_chi": {"nam": "Tân Mão"},
+      "menh_ngu_hanh": "Mộc (thể tùng bách)",
+      "cau_truc_ha_lac": {
+        "tien_thien": "Lôi Thiên Đại Tráng",
+        "ho_tien_thien": "Trạch Thiên Quải",
+        "hau_thien": "Phong Lôi Ích",
+        "ho_hau_thien": "Sơn Địa Bác",
+        "thien_nguyen_khi": "Tốn ở Hậu Thiên",
+        "dia_nguyen_khi": "Chấn ở Tiên + Hậu Thiên",
+        "menh_hop_cach": "trung bình thấp"
+      },
+      "paradigm_cot": "ĐẠI TRÁNG truân chuyên — sấm sét nữ tính + truân chuyên đường tình",
+      "tac_pham_tieu_bieu": ["Lỡ Một Thì Con Gái", "Cánh Cửa Nhớ Bà", "Chồng Chị Chồng Em (giải thưởng thơ Văn Nghệ 1990)", "Châm Khói"],
+      "phat_hien_dat": [
+        "Mệnh Đại Tráng + sinh tháng 6 (sấm không lành) + Mộc gặp Càn = mơ mộng hão huyền + truân chuyên",
+        "15t (1965) quẻ Lâm = thi thơ Thiếu Nhi cùng Trần Đăng Khoa",
+        "Đời tình: lấy chồng + ly hôn + lỡ làng + cô đơn — phản ánh Đoài hào Trạch + Bác",
+        "1990 quẻ Độn → bài Chồng Chị Chồng Em thắng giải = lời thơ 'thản nhiên nhận bã trầu về têm'",
+        "Tinh thần Đại Tráng → câu thơ sấm vang: 'Anh đã đem đi cả cõi hồn / Em còn lại vác xác chính em'",
+        "Hậu vận Phong Lôi Ích (49+) = vượng lên, sẽ thành danh lớn hơn"
+      ],
+      "loi_an_tam": "Truân chuyên giúp sấm thơ vang xa. Mệnh Mộc gặp Càn = mơ mộng → nhận ra, an phận sẽ tốt."
+    },
+    {
+      "id": "van_tam",
+      "ten_that": "Văn Tâm (Tầm Dương)",
+      "nam_sinh": 1933,
+      "ngay_sinh": "5-9-1933 giờ Tị (16-7 Quý Dậu âm)",
+      "can_chi": {"nam": "Quý Dậu"},
+      "cau_truc_ha_lac": {
+        "tien_thien": "Sơn Trạch Tổn",
+        "ho_tien_thien": "(không rõ OCR)",
+        "hau_thien": "Trạch Địa Tụy",
+        "ho_hau_thien": "Phong Sơn Tiệm",
+        "thien_nguyen_khi": "Khôn (sinh Quý, được 2 quẻ Khôn)",
+        "dia_nguyen_khi": "Đoài (sinh Dậu, được 2 quẻ Đoài)",
+        "hao_chu_menh": "Hào 6 quẻ Tổn = cuối thời Tổn → bắt đầu ích",
+        "ghi_chu": "Hào 6 Tổn = tổn người ích mình → đã chuyển sang ích người tổn mình"
+      },
+      "paradigm_cot": "TỔN HẦM — tổn mình ích người, rũ bụi đường trường văn học",
+      "tac_pham_tieu_bieu": ["Vũ Trọng Phụng — Nhà Văn Hiện Thực (1957)", "Tản Đà — Khối Mâu Thuẫn Lớn", "Góp Lời Thiên Cổ Sự (Giải thưởng Hội Nhà Văn 1992)", "Đoàn Phú Tứ — Con Người và Tác Phẩm"],
+      "phat_hien_dat": [
+        "1957 viết Vũ Trọng Phụng = quẻ Đại Tráng Hào 6 = con dê húc sừng vào dậu thưa → tai họa: 30 năm Vũ Trọng Phụng bị cấm",
+        "Văn Tâm phải rời ĐHSP, dạy phổ thông → 30 năm sau Vũ Trọng Phụng mới được phục hồi",
+        "Hào 6 Tổn dắt ông tiếp tục TỔN MÌNH viết về Tản Đà + Đoàn Phú Tứ = các thân thế thương tổn",
+        "4 quẻ Đại Súc (mỗi 6 năm) trong Hậu Thiên = ĐỐC THỰC HUY QUANG (đầy đặn → tỏa sáng)",
+        "3 quẻ Hàm trong Tiên Thiên = HƯ TÂM cảm hóa người → lối văn nhẹ nhàng sâu sắc cảm động"
+      ],
+      "loi_chi_dao": "Đốc thực + Hư tâm = sự nghiệp văn chương bền vững. Người tổn mình ích người là người hưởng được phúc lâu dài."
+    },
+    {
+      "id": "khuong_huu_dung",
+      "ten_that": "Khương Hữu Dụng",
+      "nam_sinh": 1907,
+      "ngay_sinh": "13-2-1907 giờ Tý (mồng 1 tháng Giêng Đinh Mùi — giờ đầu tiên của năm mới)",
+      "can_chi": {"nam": "Đinh Mùi", "thang": "Nhâm Thân", "ngay": "Quý Tị", "gio": "Nhâm Tý"},
+      "cau_truc_ha_lac": {
+        "tien_thien": "Thủy Lôi Truân",
+        "ho_tien_thien": "Sơn Địa Bác",
+        "hau_thien": "Địa Thủy Sư",
+        "ho_hau_thien": "(không rõ OCR)",
+        "hoa_cong": "Khảm ở Tiên + Hậu Thiên",
+        "thien_nguyen_khi": "Không",
+        "dia_nguyen_khi": "Khôn ở Hỗ Tiên + Hậu + Hỗ Hậu",
+        "menh_hop_cach": "trung bình"
+      },
+      "paradigm_cot": "TRUÂN — đầu thời hiểm nạn + mở đường thời mới, cần quý nhân + bạn hiền",
+      "tac_pham_tieu_bieu": ["Từ Đêm Mười Chín (trường ca anh hùng ca đầu tiên cách mạng VN)", "Kinh Nhật Tụng", "Tiếng Dân", "Thơ dịch Đường (cực phách)"],
+      "phat_hien_dat": [
+        "Sinh giờ Tý mồng 1 tháng Giêng = đầu thời hiểm",
+        "Bị đày ra Quảng Bình + Côn Tum + cách chức vì 'cái loa của Phan Bội Châu'",
+        "Quý nhân = Phan Bội Châu → 2 cuộc gặp: chữa thơ + bình bút luyện (1936)",
+        "Năm 1948 (cuối thời Truân) viết Từ Đêm Mười Chín = quẻ ĐỈNH Hào 6 = cái vạc nấu chín kiệt tác",
+        "Kinh Nhật Tụng đơn giản đến mức bị nhầm tưởng là 'văn học dân gian' → đó là bản chất thời Truân (làm việc nhỏ tích thành lớn)",
+        "Quẻ Truân có 4 đại vận hào âm đều kết thúc bằng quẻ Đỉnh — chỉ người quân tử biết thời thế mới nắm được"
+      ],
+      "loi_chi_dao": "Người thời Truân phải tìm quý nhân + bắt đầu từ việc nhỏ + cuối thời Truân là quẻ Đỉnh (vạc nấu chín)."
+    },
+    {
+      "id": "xuan_cang",
+      "ten_that": "Xuân Cang",
+      "nam_sinh": 1932,
+      "ngay_sinh": "25-12-1932 giờ Thìn (28-11 Nhâm Thân âm)",
+      "can_chi": {"nam": "Nhâm Thân", "thang": "Nhâm Tý", "ngay": "Canh Thân", "gio": "Canh Thìn"},
+      "cau_truc_ha_lac": {
+        "tien_thien": "Sơn Thiên Đại Súc",
+        "ho_tien_thien": "Lôi Trạch Quy Muội",
+        "hau_thien": "Thiên Hỏa Đồng Nhân",
+        "ho_hau_thien": "Thiên Phong Cấu",
+        "thien_nguyen_khi": "Càn ở Tiên + Hậu Thiên + Hỗ HT",
+        "dia_nguyen_khi": "Không",
+        "hao_chu_menh": "Hào 4 quẻ Đại Súc (ngăn cái ác)",
+        "menh_hop_cach": "trung bình cao"
+      },
+      "paradigm_cot": "ĐẠI SÚC — đốc thực huy quang (chứa trữ tài đức + tỏa sáng)",
+      "tac_pham_tieu_bieu": ["Những Ngày Thường Đã Cháy Lên", "Con Bé Như Thư Vàng", "Đến Thân", "Nụ Hoa Cau", "Bát Tự Hà Lạc và Quỹ Đạo Đời Người", "Chặng Đường Nóng Bỏng (hồi ký Hoàng Quốc Việt)", "Tổng biên tập báo Lao Động"],
+      "phat_hien_dat": [
+        "Hào 4 Đại Súc 'ngăn cái ác từ đầu' → cha mẹ đánh đòn từ nhỏ ngăn ác trước khi nó nảy",
+        "Tác giả tự bạch: chính cuốn sách Hà Lạc này là 'hành trình tìm mình'",
+        "ĐỐC THỰC HUY QUANG (PBC) = câu chú đời ông, đóng khung treo trong phòng",
+        "Hỗ Tiên Thiên Quy Muội → có những sai sót đáng yêu kiểu Đế Ất Quy Muội (sơ xuất khi làm Tổng biên tập)",
+        "1992 nghiên cứu Kinh Dịch, 1994 đọc cuốn Bát Tự Hà Lạc Lược Khảo của Học Năng → tìm thấy mình"
+      ],
+      "loi_chi_dao": "Đốc thực (dày dặn) + Huy quang (tỏa sáng) phải đi cùng nhau. Huy quang mà không đốc thực = lòe loẹt bề ngoài."
+    }
+  ],
+  "paradigm_cross_references": [
+    {
+      "paradigm": "Tên người = Tên quẻ Tiên Thiên",
+      "cases": ["tan_da (Tản+Đà = Sơn+Thủy = Mông)", "to_hoai (Sen+Tô = Đầm = Trạch)"]
+    },
+    {
+      "paradigm": "Cùng cấu trúc khác Hóa Công → khác kết quả",
+      "cases": ["tran_dang_khoa vs nguyen_hien_le (cùng Quán+Thái, TĐK thần đồng nhưng hối tiếc, NHL bền vững 100+ sách)"]
+    },
+    {
+      "paradigm": "Anh em ruột — cấu trúc đối ngẫu",
+      "cases": ["tran_dang_khoa (Đất+Trời+Gió) vs tran_nhuan_minh (Nước+Núi+Lửa+Sấm) — cùng làng quê Hải Dương"]
+    },
+    {
+      "paradigm": "Bí Hào 2 = năm sự nghiệp tiêu biểu",
+      "cases": ["tan_da 1920 viết Thề Non Nước", "nguyen_ngoc 1955 gặp Núp viết Đất Nước Đứng Lên"]
+    },
+    {
+      "paradigm": "Người KHÔNG biết Hà Lạc vẫn sống đúng paradigm",
+      "cases": ["to_hoai (94t, 150 đầu sách)", "tran_nhuan_minh (chèo lái không cưỡng hành lang)", "khuong_huu_dung (gặp đúng quý nhân Phan Bội Châu)"]
+    },
+    {
+      "paradigm": "Ngày mất ứng nghiệm Lời Hào",
+      "cases": ["tan_da Tiểu Súc Hào 3 ngày 20-4-1939 'xe rời mất trục' = tắm đầm nước cảm chết"]
+    }
+  ]
+}
