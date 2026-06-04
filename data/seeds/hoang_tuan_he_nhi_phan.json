@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "title": "Hoàng Tuấn — Kinh Dịch và Hệ Nhị Phân (paradigm khoa học hiện đại + Việt cổ)",
+    "source_book": "Kinh Dịch và Hệ Nhị Phân — Hoàng Tuấn (842p)",
+    "author": "Hoàng Tuấn — Đại tá Giáo sư",
+    "purpose": "Paradigm KHOA HỌC HIỆN ĐẠI cho Kinh Dịch. Cross-link với engine binary của YI-Chronos.",
+    "created": "2026-06-03",
+    "iron_rules": [
+      "Paradigm khoa học = công cụ HIỂU, không thay thế triết lý Tổ sư.",
+      "Nguồn gốc Việt cổ = giả thuyết có cơ sở (Bùi Văn Nguyên), engine cite được nhưng KHÔNG khẳng định tuyệt đối.",
+      "Hệ nhị phân = ngôn ngữ chung của vũ trụ thông tin (Dịch âm dương = 0/1)."
+    ]
+  },
+
+  "kinh_dich_he_nhi_phan": {
+    "_paradigm": "Kinh Dịch là HỆ NHỊ PHÂN cổ đại. Âm = 0 (vạch đứt), Dương = 1 (vạch liền).",
+    "tuong_quan": {
+      "vach_dut": "Âm = 0",
+      "vach_lien": "Dương = 1",
+      "1_que_3_vach": "1 quẻ đơn 3 vạch = 3 bit = 8 trạng thái (Bát Quái)",
+      "1_que_kep_6_vach": "1 quẻ kép 6 vạch = 6 bit = 64 trạng thái (64 quẻ Kinh Dịch)"
+    },
+    "mã_hóa_64_quẻ": {
+      "khôn": "000000 = 0",
+      "phục": "000001 = 1",
+      "lâm": "000011 = 3",
+      "thái": "000111 = 7",
+      "đại_tráng": "001111 = 15",
+      "quải": "011111 = 31",
+      "càn": "111111 = 63",
+      "khẩu_quyết": "Đọc TỪ DƯỚI LÊN. Hào sơ ở bit thấp nhất. Quẻ Càn = 63 (đầy đủ dương), Khôn = 0 (đầy đủ âm)."
+    },
+    "lieu_su_lich_su": [
+      "Leibniz (1701) phát triển hệ nhị phân — sau khi nhận thư của nhà truyền giáo Bouvet kèm Tiên Thiên Bát Quái của Phục Hy",
+      "Tiêu Diên Thọ (Tây Hán) + Kinh Phòng — người xây dựng lý thuyết Tượng số nhị phân từ 2000 năm trước",
+      "Khoa học hiện đại: hình học Fractal — vũ trụ cấu tạo theo cùng nguyên lý âm dương"
+    ]
+  },
+
+  "nguon_goc_viet_co": {
+    "_paradigm": "Hà Đồ + Lạc Thư có thể có XUẤT XỨ từ Việt cổ (Bách Việt), sau đó truyền lên Trung Quốc",
+    "luan_diem_chinh": [
+      "Phục Hy ≠ tên 1 ông vua — mà là tên THỜI ĐẠI 'thuần phục súc vật' (Phục = thuần phục, Hy = muông sinh tế lễ)",
+      "Ngữ pháp Việt cổ: 'Phục Hy' theo cấu trúc Việt (động từ + tân ngữ). Nếu là TQ phải gọi 'Hy phục'",
+      "Nước Việt Thường thời Đế Minh (cháu đời 3 Đế Viêm = Thần Nông) trải dài từ Hồ Bắc xuống tận Đèo Ngang",
+      "Kinh Dương Vương là con trai đầu của Đế Minh, quản lý 2 châu Kinh + Dương về phía Nam",
+      "Truyền thống 'rùa đội cuốn sách' khắp đình làng VN = Hà Đồ (con rùa) + Lạc Thư (cuốn sách) = lưu giữ nền văn minh Lạc Việt",
+      "Con số 100 (Bách Việt) lấy từ Hà Đồ + Lạc Thư"
+    ],
+    "iron_rule_an_toan": "Đây là GIẢ THUYẾT có cơ sở. Engine cite được với attribution rõ. KHÔNG khẳng định tuyệt đối — chỉ chia sẻ paradigm thay thế cho 'Kinh Dịch hoàn toàn của Trung Quốc'."
+  },
+
+  "ba_dich_co": {
+    "_paradigm": "3 bản Dịch cổ khác nhau theo triều đại + quẻ gốc",
+    "lien_son_dich": {
+      "trieu_dai": "Nhà Hạ (2205-1776 TCN)",
+      "que_goc": "Cấn (Núi)",
+      "y_nghia_ten": "Mây từ núi bốc ra — nguồn gốc Phục Hy (44 thế kỷ TCN) khi con người sống trong hang động",
+      "trang_thai": "Đã thất truyền"
+    },
+    "khue_tang_dich": {
+      "trieu_dai": "Nhà Thương (1778-1150 TCN)",
+      "que_goc": "Khôn (Đất)",
+      "y_nghia_ten": "Quy về Đất Mẹ — thời nông nghiệp",
+      "trang_thai": "Đã thất truyền"
+    },
+    "chu_dich": {
+      "trieu_dai": "Nhà Chu (550-250 TCN)",
+      "que_goc": "Càn (Trời)",
+      "y_nghia_ten": "Chu Dịch — Văn Vương + Chu Công soạn thoán hào từ, Khổng Tử viết Thập Dực",
+      "trang_thai": "DUY NHẤT còn lại + lưu truyền đến nay"
+    }
+  },
+
+  "ung_dung_khoa_hoc_hien_dai": {
+    "_paradigm": "Bát Quái = ngôn ngữ chung của khoa học thông tin",
+    "ung_dung": [
+      {
+        "linh_vuc": "Tin học",
+        "y_nghia": "Hệ nhị phân là nền tảng máy tính — Leibniz lấy cảm hứng từ Tiên Thiên Bát Quái",
+        "engine_yi_chronos": "Engine có thể encode 64 quẻ thành 6-bit để xử lý hiệu quả (đã có trong constants.py)"
+      },
+      {
+        "linh_vuc": "Di truyền học",
+        "y_nghia": "Mã di truyền DNA = 4 base (A-T-G-C) tương ứng 4 tượng âm dương (Thái âm - Thiếu dương - Thái dương - Thiếu âm)",
+        "lien_he": "Khái niệm 'Tứ Tượng' của Dịch tương đồng với 4 nucleotide"
+      },
+      {
+        "linh_vuc": "Vật lý lượng tử",
+        "y_nghia": "Lưỡng tính sóng-hạt = âm dương. Trạng thái chồng chập = quẻ động (chưa biến).",
+        "lien_he": "Schrödinger cat = quẻ chưa cast — chỉ khi quan sát mới định trạng thái"
+      },
+      {
+        "linh_vuc": "Hình học Fractal (Mandelbrot)",
+        "y_nghia": "Cấu tạo các con số / vật thể đều chia nhỏ thành âm dương của chính nó — y như Dịch.",
+        "lien_he": "Quẻ chứa hào — vũ trụ chứa thiên hà — thiên hà chứa hệ mặt trời..."
+      }
+    ]
+  },
+
+  "cot_cho_anh_yi_chronos": {
+    "ma_hoa_64_que": "Engine có thể dùng 6-bit integer (0-63) để biểu diễn 64 quẻ → tăng tốc xử lý + giảm dung lượng",
+    "nguon_goc_viet": "Engine có thể CITE 'Kinh Dịch có thể có gốc Việt cổ (Hoàng Tuấn, Bùi Văn Nguyên)' khi user VN cast → tăng cảm giác gần gũi",
+    "lien_he_khoa_hoc": "LLM phê mệnh sâu có thể cite paradigm khoa học hiện đại (Leibniz, Fractal) để user trí thức trẻ tin tưởng + không nghĩ là mê tín"
+  }
+}

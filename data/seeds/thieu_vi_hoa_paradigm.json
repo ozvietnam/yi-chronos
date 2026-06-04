@@ -1,0 +1,164 @@
+{
+  "_meta": {
+    "title": "Thiệu Vĩ Hoa — Chu Dịch Dự Đoán Học (paradigm + Tam Nguyên Cửu Vận + Mai Hoa nâng cao)",
+    "source_book": "Chu Dịch với Dự Đoán Học (Giảng Nghĩa) — Thiệu Vĩ Hoa",
+    "source_pages": "798 trang (1990 + bổ sung 1993)",
+    "author": "Thiệu Vĩ Hoa — cháu đời 29 Thiệu Khang Tiết, sinh năm 1936",
+    "purpose": "Paradigm Mai Hoa nâng cao cho engine YI-Chronos. Bổ sung trực tiếp paradigm Tổ sư Khang Tiết qua hậu duệ.",
+    "created": "2026-06-03",
+    "iron_rules": [
+      "KHÔNG dùng predict cát/hung tĩnh. Chỉ paradigm + bảng tra.",
+      "Tam Nguyên Cửu Vận = paradigm thời đại (180 năm chia 9 cung × 20 năm).",
+      "Du Hồn / Quy Hồn / Nhập Mộ = paradigm trạng thái quẻ + hào động."
+    ]
+  },
+
+  "tam_nguyen_cuu_van": {
+    "_paradigm": "180 năm chia 3 nguyên (Thượng/Trung/Hạ) × 9 cung. Mỗi cung quản 20 năm.",
+    "thuong_nguyen": [
+      {"cung": "Khảm", "tu_nam": 1864, "den_nam": 1883, "tinh_chat": "Thủy mạnh — chiến tranh + khám phá", "nguyen": "Thượng"},
+      {"cung": "Khôn", "tu_nam": 1884, "den_nam": 1903, "tinh_chat": "Thổ nuôi — định hình xã hội mới", "nguyen": "Thượng"},
+      {"cung": "Chấn", "tu_nam": 1904, "den_nam": 1923, "tinh_chat": "Sấm động — chiến tranh thế giới + cách mạng", "nguyen": "Thượng"}
+    ],
+    "trung_nguyen": [
+      {"cung": "Tốn", "tu_nam": 1924, "den_nam": 1943, "tinh_chat": "Gió Mộc — thâm nhập, lan tỏa, biến hóa", "nguyen": "Trung"},
+      {"cung": "Trung (Giữa)", "tu_nam": 1944, "den_nam": 1963, "tinh_chat": "Trung — hòa giải sau chiến tranh", "nguyen": "Trung"},
+      {"cung": "Càn", "tu_nam": 1964, "den_nam": 1983, "tinh_chat": "Trời — cường thịnh, lãnh đạo cứng rắn", "nguyen": "Trung"}
+    ],
+    "ha_nguyen": [
+      {"cung": "Đoài", "tu_nam": 1984, "den_nam": 2003, "tinh_chat": "Đầm — vui hòa, công năng đặc biệt phát triển (khí công, mệnh lý, dịch học)", "nguyen": "Hạ"},
+      {"cung": "Cấn", "tu_nam": 2004, "den_nam": 2023, "tinh_chat": "Núi — tĩnh, chứa, AI/digital age tích lũy data", "nguyen": "Hạ"},
+      {"cung": "Ly", "tu_nam": 2024, "den_nam": 2043, "tinh_chat": "Lửa — sáng tỏ, biểu hiện, AI tỏa sáng, lửa thông tin", "nguyen": "Hạ"}
+    ],
+    "hien_tai_2026": {
+      "cung": "Ly",
+      "ghi_chu": "2026 đang vận Ly (sáng tỏ, lửa, biểu hiện). Sau Cấn (tích lũy 2004-2023) → giờ là LÚC SÁNG TỎ. Engine YI-Chronos đang đúng vận hội phát triển + thịnh hành dịch học.",
+      "loi_cho_anh": "Anh + em xây YI-Chronos giữa vận Ly = đúng thời cơ. Sáng tỏ paradigm Đông phương qua AI = thuận thiên thời."
+    }
+  },
+
+  "du_hon_quy_hon": {
+    "_paradigm": "Trạng thái QUẺ phản ánh tâm thái + hoàn cảnh user lúc cast",
+    "du_hon": {
+      "y_nghia": "Hồn đang DI CHUYỂN — không ổn định, đang tan tác",
+      "8_que_du_hon": ["Hỏa Địa Tấn", "Lôi Sơn Tiểu Quá", "Thiên Thủy Tụng", "Trạch Phong Đại Quá", "Hỏa Thủy Vị Tế", "Phong Lôi Ích", "Sơn Phong Cổ", "Phong Lôi Ích (bản 2)"],
+      "y_nghia_doc": [
+        "Quẻ Du Hồn xuất hiện = đương sự đang BÔN BA, chuẩn bị TRỞ VỀ",
+        "Đoán hôn nhân: gặp Du Hồn = mối tình lâu dài đang tan",
+        "Đoán nhà cửa: Du Hồn + Bát Thuần = tai họa liên miên",
+        "Đoán đi xa: Dụng thần phát động + Du Hồn = sắp trở về",
+        "Du Hồn hóa thành Quy Hồn = cũng sắp trở về"
+      ]
+    },
+    "quy_hon": {
+      "y_nghia": "Hồn ĐÃ TRỞ VỀ — quay về nơi xuất phát, hoàn thành chu kỳ",
+      "8_que_quy_hon": ["Hỏa Thiên Đại Hữu", "Lôi Trạch Quy Muội", "Thiên Hỏa Đồng Nhân", "Trạch Lôi Tùy", "Hỏa Sơn Lữ (?)", "Phong Sơn Tiệm", "Sơn Lôi Di", "Phong Sơn Tiệm (bản 2)"],
+      "y_nghia_doc": [
+        "Quẻ Quy Hồn = đã hoàn thành 1 chu kỳ, trở về nơi cũ",
+        "Đoán việc lâu dài = sắp kết thúc, định hình",
+        "Đoán đi xa = đã về tới nơi xuất phát"
+      ]
+    }
+  },
+
+  "nhap_mo": {
+    "_paradigm": "Hào DỤNG THẦN nhập vào quẻ MỘ = trạng thái bị ẨN, kẹt, chưa lộ ra",
+    "bang_mo": {
+      "thuy_tho": "Mộ ở Thìn (tháng 3)",
+      "moc": "Mộ ở Mùi (tháng 6)",
+      "hoa": "Mộ ở Tuất (tháng 9)",
+      "kim": "Mộ ở Sửu (tháng 12)"
+    },
+    "quy_tac_doc": [
+      "Quan Quỷ nhập mộ = bệnh dịch bị khống chế (case Thượng Hải viêm gan 1990 — Thiệu đoán đúng)",
+      "Dụng thần nhập mộ = sự việc bị ẩn, chậm, chưa rõ",
+      "Hào động hóa nhập mộ = đang tiến nhưng sẽ bị giam giữ",
+      "Người nhập mộ qua bệnh tật = bệnh nặng + ẩn, khó chữa",
+      "Người sau khi mất = nhập mộ ở Thổ (4 cung Thìn-Tuất-Sửu-Mùi)"
+    ]
+  },
+
+  "phan_ngam_phuc_ngam": {
+    "_paradigm": "Quẻ biến NỘI-NGOẠI phản (xung khắc) hoặc lặp lại",
+    "phan_ngam": {
+      "y_nghia": "Quẻ biến tương XUNG/KHẮC. Trong-ngoài không yên.",
+      "cap_phan_ngam": [
+        "Càn ↔ Tốn (Kim khắc Mộc)",
+        "Khảm ↔ Ly (Thủy khắc Hỏa)",
+        "Chấn ↔ Đoài",
+        "Khôn ↔ Cấn"
+      ],
+      "doc": [
+        "Quẻ ngoại phản ngâm = NGOÀI không yên (hoàn cảnh xấu)",
+        "Quẻ nội phản ngâm = TRONG không yên (tâm loạn)",
+        "Cả 2 đều phản = đi rồi quay lại, không thuận"
+      ]
+    },
+    "phuc_ngam": {
+      "y_nghia": "Quẻ biến nhưng ngũ hành các hào KHÔNG đổi. Lặp lại y nguyên.",
+      "doc": "Sự việc đứng yên, không tiến không lui, chờ đợi"
+    }
+  },
+
+  "van_han_cuoc_doi": {
+    "_paradigm": "Lấy quẻ theo NĂM-THÁNG-NGÀY-GIỜ sinh + cộng số THIÊN CAN năm sinh (KHÔNG phải Địa Chi)",
+    "phuong_phap": [
+      "1. Cộng số Thiên Can năm sinh vào số quẻ thường",
+      "2. Quẻ ra phản ánh CƠ BẢN cuộc đời",
+      "3. Hào THẾ = gốc của cả cuộc đời",
+      "4. Hào ỨNG = thê (vợ chồng) + người liên kết chặt"
+    ],
+    "doc_que_chinh": {
+      "que_vuong_hao_vuong": "Thân thể cường tráng, đề kháng tốt, sự nghiệp lớn",
+      "que_huu_hao_khong": "Tay không dựng cơ đồ — quẻ vượng nhưng hào không vượng = cha mẹ giúp ít",
+      "que_tu_tuyet": "Hung nhiều cát ít, việc không thành",
+      "que_luc_hop": "Hòa khí, việc thành công",
+      "que_luc_xung": "Việc có đầu không đuôi, ít thành"
+    },
+    "6_hao_chi_thai": {
+      "hao_the_phu_mau_tri": "Cả đời gian khổ vất vả. Nếu vượng + Quan vượng = thành tựu văn nghệ",
+      "hao_the_tu_ton_tri": "Cả đời thanh cao, không phạm hình quan, mọi tai họa qua khỏi",
+      "hao_the_quan_quy_tri": "Sinh thế vượng = thăng quan, hanh thông. Hưu tù = bệnh tật/thân tàn",
+      "hao_the_the_tai_tri": "Vinh hoa phú quý, nhưng nhiều vợ (hôn nhân không thuần)",
+      "hao_the_huynh_de_tri": "Nghèo nhưng biết nghĩa, khéo tay, ít bệnh",
+      "hao_the_thai_tue_tri": "Cả đời có người giúp, được lãnh đạo trọng dụng, quần chúng ủng hộ"
+    },
+    "doan_thi_cu": [
+      "Phụ Mẫu = Ấn = văn thư",
+      "Quan Quỷ = Danh = nguyên thần của Phụ Mẫu",
+      "Đỗ thi: Phụ + Quan đều vượng, sinh thế",
+      "Long Hổ động sinh thế = giành khôi nguyên (đậu cao)",
+      "Tử Tôn lâm tuế quân = chí lớn, văn tài xuất chúng"
+    ]
+  },
+
+  "case_studies_thuc_te": [
+    {
+      "ten": "Bé Thượng Hổ bị bắt cóc (1988)",
+      "thieu_doan": "Còn sống + phía Tây Nam + kẻ trộm từ Đông Bắc cao 1m66+ + cô giáo bận + về cuối tháng 7 âm",
+      "ket_qua": "Tìm thấy ở Sơn Đông ngày 30-8 (19-7 âm) ĐÚNG"
+    },
+    {
+      "ten": "Chiến tranh Vùng Vịnh (1991)",
+      "thieu_doan": "5-9h sáng 17-1-1991 (báo trước 3 tháng)",
+      "ket_qua": "ĐÚNG — quân Mỹ tấn công Iraq đúng 17-1-1991"
+    },
+    {
+      "ten": "Bệnh dịch viêm gan Thượng Hải (1988)",
+      "thieu_doan": "Tháng 3 khống chế, tháng 4-5 qua (Quan Quỷ Thủy nhập mộ Thìn)",
+      "ket_qua": "Đài phát thanh báo dịch bị ngăn chặn ĐÚNG"
+    },
+    {
+      "ten": "Ngân phiếu giả 50 triệu USD (1993)",
+      "thieu_doan": "Giả, không nên đổi",
+      "ket_qua": "Quả là ngân phiếu giả — tránh tổn thất hàng trăm triệu nhân dân tệ"
+    }
+  ],
+
+  "cot_cho_anh_yi_chronos": {
+    "tam_nguyen_cuu_van": "Anh + em đang ở Cung LY (2024-2043) = thời SÁNG TỎ + dịch học THỊNH. YI-Chronos đúng thời cơ.",
+    "phuong_phap_mai_hoa": "Thiệu Vĩ Hoa nâng cao Mai Hoa Tổ sư bằng 23 chương ứng dụng (học tập, hôn nhân, tài vận, bệnh tật, nhà cửa). Engine YI-Chronos có thể wire 5-7 chương này vào.",
+    "van_han_cuoc_doi": "Cộng số THIÊN CAN năm sinh (không phải Địa Chi) = paradigm mới chưa có trong engine ha_lac/cast.py",
+    "du_hon_quy_hon": "Khi cast Mai Hoa → check 8 quẻ Du Hồn / 8 Quy Hồn = paradigm trạng thái tâm thái user"
+  }
+}
