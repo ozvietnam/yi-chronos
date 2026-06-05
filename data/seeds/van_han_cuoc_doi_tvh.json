@@ -1,0 +1,115 @@
+{
+  "_meta": {
+    "title": "Vận Hạn Cuộc Đời theo Thiệu Vĩ Hoa (p245-260)",
+    "discovery": "Cast quẻ theo năm-tháng-ngày-giờ sinh + cộng số THIÊN CAN năm (không phải Địa Chi như Mai Hoa thường)"
+  },
+
+  "phuong_phap_cast": {
+    "input": "Năm sinh, tháng sinh, ngày sinh, giờ sinh",
+    "tang_can_year": "Cộng số Thiên Can năm sinh (Giáp=1, Ất=2, ..., Quý=10) thay vì Địa Chi",
+    "ly_do": "Thiên Can Tứ Trụ là gốc để đoán vận hạn — qua nhiều thử nghiệm",
+    "verify_source": "TVH p245 'qua nhiều lần thử nghiệm, cuối cùng tôi thấy...'"
+  },
+
+  "6_hao_tri_the": {
+    "thai_tue": {
+      "tot": "Cả đời có người giúp đỡ. Thái Tuế lâm hào năm sinh thế → THIÊN TỬ",
+      "xau": "Bị Nhật/Nguyệt xung khắc → bất hòa, phi báng; nặng → tai họa vì quan"
+    },
+    "phu_mau": {
+      "co_ban": "Thần GIAN KHỔ — cả đời vất vả",
+      "tot": "Vượng + Quan vượng sinh → văn thư/nghệ thuật thành tựu LỚN + thọ",
+      "luu_y": "Vượng không sợ Tài khắc, nhưng bất lợi Tử Tôn"
+    },
+    "tu_ton": {
+      "tot": "Không phạm hình quan, tai họa qua khỏi",
+      "xau": "Bất lợi cầu quan — nhưng case Diễn viên Dạ kịch chứng minh: nếu Nhật/Nguyệt + hào năm cùng sinh → vẫn có DANH lớn",
+      "noi_dung_giau": "Cô + không phù trợ → hàn sĩ thanh cao"
+    },
+    "quan_quy": {
+      "tot": "Vượng + Nhật/Nguyệt sinh = ung dung bước lên trời (làm quan hanh thông)",
+      "xau": "Hưu tù tử tuyệt → không yên ổn, bệnh tật liên miên",
+      "luu_y": "Quan vượng tất khắc Huynh Đệ → người đại quan ít anh em hoặc tàn tật"
+    },
+    "the_tai": {
+      "tot": "Vượng + Tử Tôn sinh → vinh hoa phú quý",
+      "xau": "Quá vượng → nhiều vợ, hôn nhân không thuần"
+    },
+    "huynh_de": {
+      "co_ban": "Thần KIẾP TÀI — khắc vợ + tốn của + khó giàu",
+      "tot": "Nghèo nhưng nghĩa khí, khéo tay, ít bệnh",
+      "xau": "Vượng + Bạch Hổ/Phi Xà/Huyền Vũ → gian ác, lừa đảo"
+    }
+  },
+
+  "6_luc_than_tri_the": {
+    "thanh_long": "Từ bi, hòa nhã. Khắc thế → đau khổ tửu sắc, đau lưng mỏi gối",
+    "chu_tuoc": "Vượng sinh thế → tin mừng văn thư. Tính nóng, hay đau đầu",
+    "cau_tran": "Chắc chắn, hành động chậm. Khắc thế → tù đày + buồn",
+    "phi_xa": "Nói suông, mưu kế, nghi ngờ. Bệnh hàn nhiệt mê sảng",
+    "bach_ho": "Cứng cỏi dũng mãnh. Khắc thế → sai trái + bệnh phổi",
+    "huyen_vu": "Trộm cướp mờ ám, gian hùng. Gặp thần cát → lành. Bệnh hàn + phong thấp"
+  },
+
+  "doan_thi_cu": {
+    "do": [
+      "Phụ Mẫu + Quan Quỷ vượng, trì thế hoặc sinh thế",
+      "Thái Tuế nhập Quan tỉnh = bảng vàng",
+      "Lục Xung biến Lục Hợp",
+      "Long + Hổ đều động (khôi nguyên)",
+      "Quan Quỷ vượng có thể trợ Phụ Mẫu suy"
+    ],
+    "rot": [
+      "Thê Tài + Tử Tôn động",
+      "Hào Thế tuần không / phá / mộ tuyệt",
+      "Sáu hào loạn động → phí công giấy mực",
+      "Quan/Phụ/Thế hóa thoái thần",
+      "Bạch Hổ lâm Thê Tài trì thế"
+    ],
+    "van_vo": {
+      "van": "Dùng cả Quan Quỷ + Phụ Mẫu",
+      "vo": "Chỉ xem Quan tinh"
+    }
+  },
+
+  "quan_tinh_chuc_tuoc": {
+    "_paradigm": "Quan tinh lâm Địa Chi nào → quyết chức tước (p258)",
+    "tu_chinh_Ty_Ngo_Mao_Dau": "Chức CHÁNH (Trưởng phòng/ban)",
+    "tu_sinh_Dan_Than_Ty_Hoi": "Chức PHÓ",
+    "tu_mo_Thin_Tuat_Suu_Mui": "TẠP QUAN (nhân viên)",
+    "lam_nhat_nguyet": "Văn thư hành chính, đóng dấu",
+    "bach_ho_kim_quan_tri_the": "Văn → bảng vàng; Võ → lập kỳ công",
+    "phu_mau_vuong": "Cơ quan TO / quốc doanh",
+    "phu_mau_suy": "Cơ quan nhỏ hoặc nơi không vừa ý"
+  },
+
+  "doan_dia_chan": {
+    "_paradigm": "p239-244 — Bát Quái dự đoán động đất",
+    "dieu_kien_co_dong_dat": [
+      "Quẻ gặp cung Khôn",
+      "Long hoặc Xà động ở cung Khôn",
+      "Long Lâm Thái Tuế ở cung Khôn động",
+      "Hoặc quẻ Thể (Khôn Thổ) bị quẻ Dụng (Chấn Mộc) khắc"
+    ],
+    "phuong_huong": "Theo quẻ Dụng khắc Thể → hướng động đất",
+    "cap_do": "Số quẻ chia 2 (vd Khôn=8 → cấp 7.5)",
+    "thoi_gian": "Theo Thái Tuế xung Địa Chi của hào động",
+    "cases": {
+      "1987-09-26 Tay Tang": "Quẻ Đại Tráng → Càn Kim khắc Chấn Mộc → ĐĐ 5.3 độ ĐÚNG",
+      "1988-11-06 Côn Lôn + Vân Nam cấp 7+": "Quẻ Phục → Chấn khắc Khôn → ĐĐ cấp 7+ ĐÚNG"
+    }
+  },
+
+  "case_dien_vien_da_kich": {
+    "_paradigm": "Tử Tôn trì thế VẪN có thể danh tiếng (p257)",
+    "sinh": "1936-05-21 giờ Tuất (Bính Tý / Ất Mùi / Tân Dậu / Mậu Tuất)",
+    "que": "Thái biến Nhu",
+    "doan_dung": [
+      "1965 (Ất Tỵ): tiếp kiến Mao + Chu Ân Lai",
+      "1970-1978: bị bắt giam Cách Mạng Văn Hóa",
+      "1973: vợ ly hôn",
+      "1975: bệnh cấp cứu trong ngục, 2 lần mổ"
+    ],
+    "ly_do_co_danh": "Hào năm động + Nhật/Nguyệt cùng sinh Tử Tôn → ngoại lệ"
+  }
+}
