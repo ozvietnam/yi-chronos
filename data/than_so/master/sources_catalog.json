@@ -40,8 +40,9 @@
       "work": "The Philosophy of Numbers / How to Attain Success Through the Strength of Vibration",
       "era": "~1908",
       "status": "FOUNDATIONAL",
-      "note": "Bà tổ phong trào numerology hiện đại Mỹ. Public domain.",
-      "have": "Chưa",
+      "note": "Bà tổ phong trào numerology hiện đại Mỹ. Public domain (mất 1929).",
+      "have": "ĐÃ RESTORE 2026-06-05 (method+provenance): data/restored_books/balliett-philosophy-of-numbers/. Provenance của bảng Pythagoras + master 11/22 + nguyên âm=linh hồn + lý thuyết rung động (số↔màu↔âm).",
+      "status": "RESTORED (Stage 2-3/6, method)",
       "need_pdf": true
     },
     {
@@ -51,9 +52,10 @@
       "era": "1965",
       "status": "CLASSIC_PYTHAGOREAN",
       "note": "Học trò Balliett, hệ thống hóa California School of Numerology. KINH ĐIỂN bắt buộc.",
-      "have": "Tham chiếu, chưa có toàn văn",
+      "have": "Reference-only — KHÔNG restore nguyên văn.",
+      "copyright": "CÒN BẢN QUYỀN (1965). Phải MUA hợp pháp; tham chiếu phương pháp thôi. (Provenance của bà phần lớn kế thừa Balliett — đã restore Balliett public-domain.)",
       "need_pdf": true,
-      "priority": "CAO"
+      "priority": "CAO (mua bản quyền)"
     },
     {
       "tier": 2,
@@ -61,8 +63,9 @@
       "work": "Your Days Are Numbered (1931)",
       "era": "1931",
       "status": "CLASSIC",
-      "note": "Ứng dụng thực hành lập kế hoạch đời theo số. Public domain.",
-      "have": "Chưa",
+      "note": "Ứng dụng thực hành lập kế hoạch đời theo số. Bản quyền 1931 BORDERLINE — xác minh renewal.",
+      "have": "ĐÃ RESTORE 2026-06-05 (method): data/restored_books/campbell-your-days-are-numbered/. Provenance Inclusion Table + Karmic Lessons (số thiếu trong tên).",
+      "status": "RESTORED (Stage 2-3/6, method) — verify copyright trước publish PDF",
       "need_pdf": true
     },
     {
@@ -72,9 +75,10 @@
       "era": "1981",
       "status": "REFERENCE_SYSTEMATIC",
       "note": "Giáo trình 2 tập đầy đủ nhất về hệ Pythagorean. Rất được giới hành nghề trọng.",
-      "have": "Chưa",
+      "have": "Reference-only — KHÔNG restore nguyên văn.",
+      "copyright": "CÒN BẢN QUYỀN (1981). Phải MUA hợp pháp; chỉ dùng làm tham chiếu phương pháp, không tái tạo text.",
       "need_pdf": true,
-      "priority": "CAO — giáo trình chuẩn"
+      "priority": "CAO — giáo trình chuẩn (mua bản quyền)"
     },
     {
       "tier": 3,

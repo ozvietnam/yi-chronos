@@ -40,6 +40,19 @@ AUTHORS: list[dict] = [
         "bio": "Nhà chiêm số nổi tiếng, đặt nền hệ Chaldean hiện đại qua 'Cheiro's Book of Numbers' (1926).",
     },
     {
+        "name_vi": "L. Dow Balliett", "name_zh": "", "tier": 2, "era": "cận-đại",
+        "birth_year": 1847, "death_year": 1929,
+        "axioms": ["Số = Màu = Âm: ba biểu hiện một lực (rung động).", "11 và 22 là số chủ, không rút gọn."],
+        "bio": "'Tổ mẫu Numerology hiện đại' (Atlantic City, ~1908). Provenance của bảng Pythagoras, "
+               "phân biệt birth/name number, nguyên âm=linh hồn. Public domain.",
+    },
+    {
+        "name_vi": "Florence Campbell", "name_zh": "", "tier": 4, "era": "hiện-đại",
+        "birth_year": None, "death_year": 1964,
+        "axioms": ["Inclusion Table: đếm tần suất số 1-9 trong tên.", "Số thiếu = Karmic Lessons."],
+        "bio": "Tác giả 'Your Days Are Numbered' (1931) — giáo trình numerology hiện đại đầy đủ đầu tiên.",
+    },
+    {
         "name_vi": "Juno Jordan", "name_zh": "", "tier": 4, "era": "hiện-đại",
         "birth_year": 1884, "death_year": 1984,
         "axioms": ["Hệ thống hóa California School of Numerology."],
@@ -108,6 +121,18 @@ CONCEPTS: list[tuple[str, str, list[str], str, str, int | None]] = [
     ("Vương Trượng", "The Sceptre (27)", ["số 27"],
      "Số kép 27 (Cheiro): quyền uy, sức mạnh, phần thưởng từ trí tuệ sáng tạo; nên tự thực thi ý tưởng của mình.",
      "compound_number", None),
+    ("Rung Động", "Vibration", ["vibration", "số-màu-âm"],
+     "Lý thuyết nền của Balliett (~1908): Số - Màu - Âm là ba biểu hiện của CÙNG một lực. "
+     "Mỗi chữ cái có rung động + màu + âm riêng. Phát biểu phương Tây của paradigm đồng dạng (Iron Rule #4/#6).",
+     "paradigm", None),
+    ("Bảng Bao Hàm", "Inclusion Table", ["inclusion chart"],
+     "Đếm mỗi chữ-số 1-9 xuất hiện bao nhiêu lần trong tên đầy đủ (Florence Campbell, 1931). "
+     "Số trội = Hidden Passion; số thiếu = Karmic Lessons.",
+     "method", None),
+    ("Bài Học Nghiệp", "Karmic Lessons", ["số thiếu", "karmic lessons"],
+     "Các số 1-9 KHÔNG xuất hiện trong tên = phẩm chất còn khuyết, cần rèn trong đời này (Campbell). "
+     "Khác Karmic Debt 13/14/16/19. Paradigm: vùng cấu trúc cần quan-sát, KHÔNG dọa nghiệp báo.",
+     "karmic", None),
 ]
 
 
