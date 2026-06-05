@@ -134,13 +134,18 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ `sources_catalog.json` — danh mục uy tín + cái còn thiếu
 - ✅ Journal này
 
-**CHƯA LÀM (chờ Anh bật đèn xanh — KHÔNG tự nhảy phase, Iron Rule #2):**
-- [ ] Engine `engine/than_so/` (cast.py, name_calculator.py...) — code thực thi
-- [ ] API routes `/api/than-so/*`
-- [ ] Sage profile `data/hermes_yi/profiles/than-so-sage/SOUL.md`
-- [ ] Nạp authors vào `wiki.sqlite3` (Pythagoras, Cheiro, Decoz...) + corpus
+**ĐÃ XONG (v2 — E2E, 2026-06-05):**
+- ✅ Engine `engine/than_so/` — `constants/name_calculator/core_numbers/cycles/interpretation/cast`
+- ✅ API routes `/api/than-so/cast` + `/api/than-so/glossary` (smoke test HTTP 200)
+- ✅ Sage profile `data/hermes_yi/profiles/than-so-sage/SOUL.md`
+- ✅ Wiki seed `scripts/wiki_seed_than_so.py` (4 authors + 12 concepts, idempotent)
+- ✅ Tests `tests/test_than_so.py` (14 PASS)
+- ✅ **CHỐT bản địa hóa**: Pythagoras map theo chữ Latin gốc ⇒ "có dấu/không dấu" CÙNG kết quả số.
+  Chuẩn = bỏ dấu (Đ→D, không tách ghép phụ âm). "Cả hai" → hỗ trợ 2 HỆ PHÁI Pythagoras + Chaldean E2E.
+
+**CHƯA LÀM (chờ Anh bật đèn xanh — Iron Rule #2):**
+- [ ] Frontend Vue tab Thần Số Học (mới có API, chưa có UI)
 - [ ] Đi tìm + restore các sách trong danh mục (bookflow v2.0)
-- [ ] Chốt quy tắc bản địa hóa tên Việt (có dấu/không dấu) bằng thực chứng
 - [ ] Thiết kế cross-bind Life Path ↔ Thiên Can/Ngũ Hành (cẩn thận, tránh ép phái)
 
 ---

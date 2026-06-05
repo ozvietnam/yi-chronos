@@ -19,4 +19,7 @@ Paradigm: **đọc đồng dạng, KHÔNG predict** (Iron Rule #4/#6 — "Vạn 
 `docs/design/than-sohoc-pythagoras-tham-nhuan.md` — thâm nhuần đầy đủ + khảo nguồn.
 
 ## Trạng thái
-v1 = data nghiên cứu (CƠ). Engine/API/Sage/Wiki **chưa làm** — chờ Anh quyết (Iron Rule #2).
+- v1 = data nghiên cứu (CƠ) ✅
+- v2 = E2E ✅: engine `engine/than_so/`, API `/api/than-so/*`, sage `than-so-sage/SOUL.md`,
+  wiki seed `scripts/wiki_seed_than_so.py`, tests `tests/test_than_so.py` (14 PASS).
+- Chưa làm: UI Vue + restore sách gốc (chờ Anh).
