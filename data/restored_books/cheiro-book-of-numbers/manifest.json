@@ -10,7 +10,8 @@
   "public_domain": true,
   "source_of_record": "https://archive.org/details/cheirosbookofnumbers",
   "acquisition": "Public-domain text (Archive.org). WebFetch bị chặn trong môi trường ephemeral → nội dung cốt lõi compiled qua khảo nguồn + đối chiếu chéo; bản PDF gốc đính kèm sau (Stage 1 hoàn tất khi attach PDF).",
-  "bookflow_stage": "2-3 (TOC + plan + core content restored EN→VI). Stage 5 dịch cốt lõi xong; Stage 6 PDF publish CHƯA.",
+  "bookflow_stage": "2-6 draft. Core restored EN→VI + Stage 6 PDF DRAFT (reportlab fallback vì env thiếu pandoc/WeasyPrint).",
+  "published_pdf": "data/published/cheiro-book-of-numbers-core-v0.1.pdf (6 trang A5, reportlab + DejaVuSans). DRAFT — chưa qua design pass WeasyPrint của project.",
   "paradigm": "Đọc đồng dạng (Iron Rule #4/#6) — KHÔNG predict. 'May/cảnh báo' của Cheiro = sắc thái cấu trúc cần quan-sát.",
   "ts": 1780617600
 }
