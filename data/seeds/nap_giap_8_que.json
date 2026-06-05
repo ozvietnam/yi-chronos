@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "title": "Nạp Giáp 8 quẻ (Đại cục Hỗn Thiên Giáp Tý) — Kinh Phòng Tây Hán",
+    "source": "Thiệu Vĩ Hoa Chu Dịch Dự Đoán Học p163-167",
+    "iron_rule": "Bảng tra Nạp Can/Chi cốt cho 64 quẻ + Hào Thế/Ứng"
+  },
+
+  "nap_chi_que_noi": {
+    "Càn": {"hao_1": "Tý Thủy", "hao_2": "Dần Mộc", "hao_3": "Thìn Thổ"},
+    "Khảm": {"hao_1": "Dần Mộc", "hao_2": "Thìn Thổ", "hao_3": "Ngọ Hỏa"},
+    "Cấn": {"hao_1": "Thìn Thổ", "hao_2": "Ngọ Hỏa", "hao_3": "Thân Kim"},
+    "Chấn": {"hao_1": "Tý Thủy", "hao_2": "Dần Mộc", "hao_3": "Thìn Thổ"},
+    "Tốn": {"hao_1": "Sửu Thổ", "hao_2": "Hợi Thủy", "hao_3": "Dậu Kim"},
+    "Ly": {"hao_1": "Mão Mộc", "hao_2": "Sửu Thổ", "hao_3": "Hợi Thủy"},
+    "Khôn": {"hao_1": "Mùi Thổ", "hao_2": "Tỵ Hỏa", "hao_3": "Mão Mộc"},
+    "Đoài": {"hao_1": "Tỵ Hỏa", "hao_2": "Mão Mộc", "hao_3": "Sửu Thổ"}
+  },
+
+  "nap_chi_que_ngoai": {
+    "Càn": {"hao_4": "Ngọ Hỏa", "hao_5": "Thân Kim", "hao_6": "Tuất Thổ"},
+    "Khảm": {"hao_4": "Thân Kim", "hao_5": "Tuất Thổ", "hao_6": "Tý Thủy"},
+    "Cấn": {"hao_4": "Tuất Thổ", "hao_5": "Tý Thủy", "hao_6": "Dần Mộc"},
+    "Chấn": {"hao_4": "Ngọ Hỏa", "hao_5": "Thân Kim", "hao_6": "Tuất Thổ"},
+    "Tốn": {"hao_4": "Mùi Thổ", "hao_5": "Tỵ Hỏa", "hao_6": "Mão Mộc"},
+    "Ly": {"hao_4": "Dậu Kim", "hao_5": "Mùi Thổ", "hao_6": "Tỵ Hỏa"},
+    "Khôn": {"hao_4": "Sửu Thổ", "hao_5": "Hợi Thủy", "hao_6": "Dậu Kim"},
+    "Đoài": {"hao_4": "Hợi Thủy", "hao_5": "Dậu Kim", "hao_6": "Mùi Thổ"}
+  },
+
+  "nap_can": {
+    "Càn": ["Giáp (nội)", "Nhâm (ngoại)"],
+    "Khôn": ["Ất (nội)", "Quý (ngoại)"],
+    "Cấn": ["Bính"],
+    "Đoài": ["Đinh"],
+    "Khảm": ["Mậu"],
+    "Ly": ["Kỷ"],
+    "Chấn": ["Canh"],
+    "Tốn": ["Tân"]
+  },
+
+  "quy_luat_sap_xep": {
+    "quẻ_dương": ["Càn", "Khảm", "Cấn", "Chấn"],
+    "quẻ_âm": ["Khôn", "Tốn", "Ly", "Đoài"],
+    "duong_xep_xuoi": "Từ hào 1 lên hào 6, cách ngôi",
+    "am_xep_nguoc": "Từ hào 6 xuống hào 1, cách ngôi"
+  },
+
+  "hao_the_8_que_trong_moi_cung": {
+    "Q1_thuần": "Hào thế ở hào 6",
+    "Q2": "Hào thế ở hào 1",
+    "Q3": "Hào thế ở hào 2",
+    "Q4": "Hào thế ở hào 3",
+    "Q5": "Hào thế ở hào 4",
+    "Q6": "Hào thế ở hào 5",
+    "Q7_Du_Hồn": "Hào thế LÙI về hào 4",
+    "Q8_Quy_Hồn": "Hào thế TRỞ VỀ hào 3",
+    "quy_tac_hao_ung": "Hào ứng cách hào thế 3 ngôi (vd hào thế 6 → hào ứng 3)"
+  },
+
+  "5_hao_tri_the": {
+    "_paradigm": "Khi cast Mai Hoa, hào THẾ rơi vào loại Lục Thân nào → 1 trong 5 ý nghĩa",
+    "phu_mau_tri_the": {
+      "ban_chat": "Thần GIAN KHỔ — bận rộn, bôn ba, hôn nhân khó, con hiếm",
+      "tot": "Nếu Quan Quỷ động sinh → văn khoa thi cử",
+      "xau": "Nếu Thê Tài động khắc thế → không có vợ hiền, đoản thọ"
+    },
+    "tu_ton_tri_the": {
+      "ban_chat": "Thần PHÚC — không lo, tai họa thoảng qua",
+      "tot": "Mọi sự bình an",
+      "xau": "KHÔNG lợi cầu quan/cầu danh (vì Tử Tôn khắc Quan Quỷ)"
+    },
+    "quan_quy_tri_the": {
+      "ban_chat": "Thần HOẠN NẠN — sức khỏe khó yên, mất tiền",
+      "tot": "RẤT LỢI cầu danh + cầu quan",
+      "xau": "Nhập mộ = khó khăn hơn. Có xung = vượt qua được."
+    },
+    "the_tai_tri_the": {
+      "ban_chat": "Thê = nội trợ, Tài = dưỡng mệnh — của cải phồn vinh",
+      "tot": "Tử Tôn động sinh → khỏe + nhiều của; LỢI cầu quan/kiện tụng",
+      "xau": "KHÔNG lợi văn thư + khắc Phụ Mẫu. Thê Tài hóa Huynh → mọi việc xấu"
+    },
+    "huynh_de_tri_the": {
+      "ban_chat": "Thần KIẾP TÀI — mất của + khắc vợ",
+      "tot": "—",
+      "xau": "Hóa Quan Quỷ → đại xấu. Không cầu được tài + phòng khắc vợ"
+    }
+  }
+}
