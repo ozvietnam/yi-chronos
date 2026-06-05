@@ -1,0 +1,98 @@
+{
+  "_meta": {
+    "title": "Foundation: 24 Tiết Khí + Can Chi + Phương vị (Thiệu Vĩ Hoa Volume 2, p362-380)"
+  },
+
+  "24_tiet_khi": {
+    "12_tiet_dung_du_doan": [
+      "Lập Xuân", "Kinh Trập", "Thanh Minh", "Lập Hạ", "Mang Chủng", "Tiểu Thử",
+      "Lập Thu", "Bạch Lộ", "Hàn Lộ", "Lập Đông", "Đại Tuyết", "Tiểu Hàn"
+    ],
+    "12_trung_khi_KHONG_dung_du_doan": [
+      "Vũ Thủy", "Xuân Phân", "Cốc Vũ", "Tiểu Mãn", "Hạ Chí", "Đại Thử",
+      "Xử Thử", "Thu Phân", "Sương Giáng", "Tiểu Tuyết", "Đông Chí", "Đại Hàn"
+    ],
+    "quy_tac_thang_nhuan": "Tháng không có Trung khí = THÁNG NHUẬN, mang tên tháng phía trước",
+    "lap_xuan_bien_gioi_nam": "Lập Xuân = đầu năm dự đoán (KHÔNG phải Tết âm lịch)"
+  },
+
+  "10_thien_can": {
+    "Giap": {"hanh": "Mộc", "am_duong": "Dương", "phuong": "Đông"},
+    "At": {"hanh": "Mộc", "am_duong": "Âm", "phuong": "Đông"},
+    "Binh": {"hanh": "Hỏa", "am_duong": "Dương", "phuong": "Nam"},
+    "Dinh": {"hanh": "Hỏa", "am_duong": "Âm", "phuong": "Nam"},
+    "Mau": {"hanh": "Thổ", "am_duong": "Dương", "phuong": "Giữa"},
+    "Ky": {"hanh": "Thổ", "am_duong": "Âm", "phuong": "Giữa"},
+    "Canh": {"hanh": "Kim", "am_duong": "Dương", "phuong": "Tây"},
+    "Tan": {"hanh": "Kim", "am_duong": "Âm", "phuong": "Tây"},
+    "Nham": {"hanh": "Thủy", "am_duong": "Dương", "phuong": "Bắc"},
+    "Quy": {"hanh": "Thủy", "am_duong": "Âm", "phuong": "Bắc"}
+  },
+
+  "12_dia_chi_phuong_28_sao": {
+    "Dong_Thanh_Long_Moc_khi": ["Dần (thăng phát)", "Mão (đỉnh dương ở giữa)", "Thìn (dư khí Mộc)"],
+    "Nam_Chu_Tuoc_Hoa_khi": ["Tỵ (dương mới đến)", "Ngọ (Hỏa đỉnh thịnh)", "Mùi (dư khí Hỏa)"],
+    "Tay_Bach_Ho_Kim_khi": ["Thân (giáng xuống ban đầu)", "Dậu (Kim âm ở giữa)", "Tuất (dư khí Kim)"],
+    "Bac_Huyen_Vu_Thuy_khi": ["Hợi (âm mới đến)", "Tý (Thủy âm cực)", "Sửu (dư khí Thủy)"]
+  },
+
+  "12_gio_dia_chi": {
+    "Ty": "23-1 (giờ Tý = SAU 23h là ngày HÔM SAU)",
+    "Suu": "1-3",
+    "Dan": "3-5",
+    "Mao": "5-7",
+    "Thin": "7-9",
+    "Ty_2": "9-11",
+    "Ngo": "11-13",
+    "Mui": "13-15",
+    "Than": "15-17",
+    "Dau": "17-19",
+    "Tuat": "19-21",
+    "Hoi": "21-23"
+  },
+
+  "bai_tho_tinh_can_thang": {
+    "_nguyen_van": "Giáp Kỷ lấy Bính làm đầu / Ất Canh lấy Mậu để làm tháng giêng / Bính Tân tìm đến Canh Dần / Đinh Nhâm phải kể Nhâm Dần trở đi / Gặp năm Mậu Quý mỗi khi Giáp Dần ghi nhớ tháng giêng mở đầu",
+    "bang_tra": {
+      "Giap_Ky": "Tháng giêng = BÍNH Dần",
+      "At_Canh": "Tháng giêng = MẬU Dần",
+      "Binh_Tan": "Tháng giêng = CANH Dần",
+      "Dinh_Nham": "Tháng giêng = NHÂM Dần",
+      "Mau_Quy": "Tháng giêng = GIÁP Dần"
+    },
+    "vi_du": "1991 Tân Mùi → 'Bính Tân tìm đến Canh Dần' → tháng giêng = Canh Dần → tháng 3 = Nhâm Thìn"
+  },
+
+  "thai_cuc_luong_nghi_ngu_hanh": {
+    "thai_cuc": "Thái Cực (đơn nhất)",
+    "luong_nghi": "Âm + Dương",
+    "ngu_hanh": "Kim + Mộc + Thủy + Hỏa + Thổ (Âm Dương hóa hợp)",
+    "van_vat": "Cấu thành từ Ngũ Hành",
+    "nguon": "Hà Lạc Nguyên Lý"
+  },
+
+  "ngu_hanh_tuong_sinh": {
+    "Moc_sinh_Hoa": "Mộc ấm áp Hỏa, phục trong đó xuyên qua mà sinh",
+    "Hoa_sinh_Tho": "Hỏa nóng đốt cháy Mộc, Mộc cháy thành tro = đất",
+    "Tho_sinh_Kim": "Kim ẩn tàng trong đá, dựa vào núi",
+    "Kim_sinh_Thuy": "Khí thiếu Âm ôn nhuận chảy ngấm, kim chảy thành nước",
+    "Thuy_sinh_Moc": "Nước nhuận sinh cây"
+  },
+
+  "ngu_hanh_tuong_khac": {
+    "Moc_khac_Tho": "Kết chắc thắng tán rời",
+    "Tho_khac_Thuy": "Thực thắng hư",
+    "Thuy_khac_Hoa": "Thủy thắng Hỏa",
+    "Hoa_khac_Kim": "Hỏa thắng Kim",
+    "Kim_khac_Moc": "Cương thắng Nhu",
+    "nguon": "Bạch Hổ Thông Nghĩa"
+  },
+
+  "4_truong_phai_chiem_phe": [
+    "Dự đoán theo TƯỢNG QUẺ (Volume 2 sách)",
+    "Dự đoán theo 6 HÀO (Volume 1 sách)",
+    "Kỳ Môn Độn Giáp",
+    "Lục Nhâm Thần Toán",
+    "Tứ Trụ Tử Bình (Bát Tự)"
+  ]
+}
