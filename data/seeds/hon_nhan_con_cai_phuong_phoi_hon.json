@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "title": "Hôn nhân + Phương phối hôn + Con cái (Thiệu Vĩ Hoa Ch.17-18, p261-280)"
+  },
+
+  "hon_nhan": {
+    "dung_than": {
+      "nam_doan_nu": "Thê Tài",
+      "nu_doan_nam": "Quan Quỷ"
+    },
+    "am_duong_dac_dia": {
+      "nam_doan": "Hào Thế nên DƯƠNG, hào Ứng nên ÂM",
+      "nu_doan": "Hào Thế nên ÂM, hào Ứng nên DƯƠNG"
+    },
+    "cat_tuong": [
+      "Quẻ Lục Hợp (vd Tý hợp Sửu) = ĐẠI CÁT",
+      "Hào Tài + Quan đều vượng, không tuần không",
+      "Thế-Ứng tương sinh tương hợp = dễ thành + tốt",
+      "Quan vượng sinh Thế = đầu bạc răng long",
+      "Thế lâm tài (nam) → vợ tốt + làm ra tiền",
+      "Quan Quỷ trì Thế + sinh hợp Thế + vượng = hôn nhân đẹp + chung sống mãi"
+    ],
+    "hung_tuong": [
+      "Hai hào Tài (nam) hoặc hai hào Quan (nữ) → có vợ lẽ / chồng sau",
+      "Hào Ứng bị xung khắc + hóa hung → không phải kết hôn lần đầu",
+      "Bạch Hổ + Phi Xà + Câu Trận trì Tài/Quan → người xấu",
+      "Hào Thế tuần không = bản thân không thực; Hào Ứng tuần không = đối phương không thực",
+      "Hóa thoái thần → thoái hôn"
+    ],
+    "doan_giau_ngheo_nguoi": {
+      "moc_dung_than": "Người cao đẹp",
+      "tho_dung_than": "Đôn hậu, béo mà không cao",
+      "hoa_dung_than": "Khỏe mạnh hồng nhuận, tóc ít, mặt vàng/đỏ",
+      "kim_dung_than": "Thông tuệ + khéo léo",
+      "hao_tai_vuong": "Con gái nhà giàu",
+      "hao_quan_vuong_nam": "Nam nhà giàu",
+      "hao_ung_lam_thanh_long": "Có nhiều đồ trang sức (quý hiền)"
+    }
+  },
+
+  "phuong_phoi_hon_tvh": {
+    "_paradigm": "PARADIGM RIÊNG của Thiệu Vĩ Hoa, mày mò từ thực tiễn, KHÔNG có sách cổ nào bàn (p269-274)",
+    "_statistic": "Stat 100 người: 94 phối ĐÚNG phương → bình an; 6 phối SAI → 4 CHẾT + 2 LY HÔN. Hội thảo Kinh Dịch QT 1987: 7/8 chuyên gia đoán đúng",
+
+    "cach_tinh": {
+      "buoc_1": "Lấy nguyên quán (quê cha) của mình làm trung tâm",
+      "buoc_2": "Lấy tháng âm lịch sinh → Địa Chi tháng (vd tháng 1=Dần, tháng 11=Tý)",
+      "buoc_3": "Đếm: ngày mồng 1 = Địa Chi tháng, đếm xuôi đến ngày sinh",
+      "buoc_4": "Địa Chi nơi dừng → trục phối hôn (đối xứng qua trung tâm)"
+    },
+
+    "truc_phoi_hon": {
+      "Ty_Ngo": "Trục NAM-BẮC",
+      "Mao_Dau": "Trục ĐÔNG-TÂY",
+      "Suu_Mui": "Trục ĐÔNG BẮC-TÂY NAM",
+      "Thin_Tuat": "Trục TÂY BẮC-ĐÔNG NAM",
+      "Dan_Than": "Trục ĐÔNG BẮC-TÂY NAM",
+      "Ty_Hoi": "Trục ĐÔNG NAM-TÂY BẮC"
+    },
+
+    "vi_du": {
+      "case_1": "Sinh 23/11/1936: tháng 11=Tý. Tý=mồng 1, Sửu=2, Dần=3... Tuất=23. Tuất=Tây Bắc → trục Tây Bắc-Đông Nam",
+      "case_2": "Sinh 6/6/1920: tháng 6=Mùi. Mùi=mồng 1, Thân=2, Dậu=3, Tuất=4, Hợi=5, Tý=6. Tý=Bắc → trục NAM-BẮC",
+      "case_3": "Sinh 17/1: tháng 1=Dần. Dần=mồng 1... Ngọ=17. Ngọ=Nam → trục NAM-BẮC"
+    },
+
+    "quy_uoc_que_quan": {
+      "uu_tien": "Quê cha (kể cả nếu sinh ở thành phố khác)",
+      "ngoai_le": "Nếu cha sinh + mình sinh cùng 1 tỉnh khác quê → lấy tỉnh sinh làm chuẩn"
+    }
+  },
+
+  "con_cai_sinh_de": {
+    "_paradigm": "Ch.18 — đoán có thai + trai/gái + sinh đẻ + dị tật",
+
+    "dung_than_2_truong_phai": {
+      "tvh_thuong_dung": "Hào Tử Tôn",
+      "boc_phe_chinh_ton_dung": "Hào Thai (cách tính: theo Trường Sinh của ngày Can: Nhâm Quý là Thủy → Thủy trường sinh ở Thân, đếm xuôi đến Ngọ = Hào Thai)"
+    },
+
+    "doan_co_thai": {
+      "co": "Tử Tôn vượng tướng + Nhật/Nguyệt sinh phù + hóa cát",
+      "khong_co": [
+        "Tử Tôn hư tù không phá tán",
+        "Tử Tôn hóa Quan Quỷ → thai chết",
+        "Phụ Mẫu hóa Tử Tôn hoặc Tử Tôn hóa Phụ Mẫu",
+        "Quan Quỷ biến thành Tử Tôn"
+      ],
+      "sat_thai": "Tử Tôn lâm Sát Thần + hóa Quan Quỷ → khó ra đời (case cô Khoan Hồng 1987)"
+    },
+
+    "doan_trai_gai": {
+      "duong_bao_am": "Đầu+sáu dương + Tử Tôn dương → SINH TRAI (các quẻ: Ìy, Trung Phù, Di, Tốn)",
+      "am_bao_duong": "Đầu+sáu âm + Tử Tôn âm → SINH GÁI (các quẻ: Khảm, Đại Quá, Tiểu Quá, Hàm, Hằng)",
+      "1_hao_dong": "Dương động = GÁI; Âm động = TRAI",
+      "2_hao_dong": "Xem hào TRÊN",
+      "3_hao_dong": "Xem hào GIỮA",
+      "nhieu_hao_dong": "Gieo quẻ lại"
+    },
+
+    "sinh_doi": {
+      "2_tu_ton_dong": "2 Tử Tôn cùng vượng động → SINH ĐÔI",
+      "tu_ton_hoa_tu_ton": "Tử Tôn hóa Tử Tôn → sinh đôi hồng",
+      "1_am_1_duong": "1 âm 1 dương → 1 TRAI 1 GÁI",
+      "1_suy_1_vuong": "1 suy 1 vượng → 1 CHẾT 1 SỐNG"
+    },
+
+    "8_que_de_kho_de": {
+      "de_de": {
+        "Can": "Đầu",
+        "Ly": "Mắt",
+        "Kham": "Tai",
+        "Doai": "Miệng"
+      },
+      "kho_de": {
+        "Khon": "Bụng",
+        "Can_2": "Tay (Cấn)",
+        "Chan": "Chân",
+        "Ton": "Đùi"
+      }
+    },
+
+    "dau_hieu_xau_san_phu": [
+      "Bạch Hổ lâm Tử Tôn hoặc Hào Thai động → SẨY THAI / PHÁ THAI",
+      "Hào Phụ Mẫu khắc Tử Tôn → khó cho con",
+      "Hào Huynh Đệ khắc Thê Tài → sản phụ không yên",
+      "Quan Quỷ biến Tử Tôn → mẹ có bệnh trước thai",
+      "Thê Tài hóa Quan Quỷ → sau sinh nhiều nạn"
+    ]
+  },
+
+  "case_khoan_hong_1986": {
+    "_paradigm": "Đoán đúng thai sẽ chết tháng 6/1987 (p278-279)",
+    "ngay_doan": "Bính Thìn, tháng Tân Sửu 1986",
+    "que": "Khôn của Cấu",
+    "dau_hieu_hung": [
+      "5 hào động liên tiếp",
+      "Hào Thế vượng + Ứng Ngọ Hỏa sinh → khắc Tử Tôn",
+      "Tử Tôn bị Phụ Mẫu nguyệt kiến khắc + mộ Nhật Thìn",
+      "Tử Tôn hóa Quan Quỷ + hóa Tuyệt địa",
+      "Phụ Mẫu Sửu Thổ hóa xung"
+    ],
+    "khuyen_cao_tvh": "Năm 1987 KHÔNG nên có con",
+    "ket_qua": "Tháng Giêng có thai, tháng 6 THAI CHẾT YẾU — ĐÚNG"
+  }
+}
