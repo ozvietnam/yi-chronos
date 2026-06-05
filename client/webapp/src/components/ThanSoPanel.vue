@@ -100,6 +100,26 @@ const CORE_ORDER = [
         <em>({{ result.cross_reference.note }})</em>
       </div>
 
+      <div v-if="result.dong_phuong_doi_chieu" class="ts-dongphuong">
+        <h3>Đối chiếu Đông phương <small>(đa phái — không ép)</small></h3>
+        <p class="ts-dp-note">{{ result.dong_phuong_doi_chieu.life_path.paradigm_note }}</p>
+        <table>
+          <thead><tr><th>Số</th><th>Hà Đồ</th><th>Lạc Thư</th><th>Hành tinh (Cheiro)</th><th>Đồng thuận</th></tr></thead>
+          <tbody>
+            <tr v-for="key in ['life_path','expression']" :key="key">
+              <td>{{ key === 'life_path' ? 'Đường Đời' : 'Sứ Mệnh' }} {{ result.dong_phuong_doi_chieu[key].base }}</td>
+              <td>{{ result.dong_phuong_doi_chieu[key].bridges.ha_do.ngu_hanh || '—' }}</td>
+              <td>{{ result.dong_phuong_doi_chieu[key].bridges.lac_thu.ngu_hanh || '—' }}</td>
+              <td>{{ result.dong_phuong_doi_chieu[key].bridges.cheiro_planet.ngu_hanh || result.dong_phuong_doi_chieu[key].bridges.cheiro_planet.planet }}</td>
+              <td>
+                <strong v-if="result.dong_phuong_doi_chieu[key].consensus_ngu_hanh.length">{{ result.dong_phuong_doi_chieu[key].consensus_ngu_hanh.join(', ') }}</strong>
+                <em v-else>phân kỳ</em>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <div v-if="result.reading.karmic_debts.length" class="ts-karmic">
         <h3>Số nợ nghiệp (bài học cần rèn)</h3>
         <ul>
@@ -155,6 +175,11 @@ const CORE_ORDER = [
 .ts-dd { font-size: 0.75rem; color: #777; }
 .ts-xref { margin: 0.8rem 0; padding: 0.5rem; background: #fafafa; border-radius: 6px; font-size: 0.9rem; }
 .ts-xref em { color: #888; font-size: 0.8rem; }
+.ts-dongphuong { margin: 0.8rem 0; }
+.ts-dongphuong small { color: #999; font-weight: 400; }
+.ts-dp-note { font-size: 0.78rem; color: #888; font-style: italic; }
+.ts-dongphuong table { border-collapse: collapse; }
+.ts-dongphuong th, .ts-dongphuong td { border: 1px solid #ddd; padding: 0.3rem 0.6rem; font-size: 0.82rem; }
 .ts-cycles table { border-collapse: collapse; margin-top: 0.5rem; }
 .ts-cycles th, .ts-cycles td { border: 1px solid #ddd; padding: 0.3rem 0.7rem; font-size: 0.85rem; }
 .ts-breakdown { margin-top: 1rem; }

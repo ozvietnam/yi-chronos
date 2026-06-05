@@ -63,9 +63,10 @@
       "work": "Your Days Are Numbered (1931)",
       "era": "1931",
       "status": "CLASSIC",
-      "note": "Ứng dụng thực hành lập kế hoạch đời theo số. Bản quyền 1931 BORDERLINE — xác minh renewal.",
+      "note": "Ứng dụng thực hành lập kế hoạch đời theo số.",
       "have": "ĐÃ RESTORE 2026-06-05 (method): data/restored_books/campbell-your-days-are-numbered/. Provenance Inclusion Table + Karmic Lessons (số thiếu trong tên).",
-      "status": "RESTORED (Stage 2-3/6, method) — verify copyright trước publish PDF",
+      "copyright": "Mỹ, XB 1931 → VÀO PUBLIC DOMAIN 2027-01-01 (quy tắc 95 năm). Hiện (6/2026) CÒN bản quyền: OK restore method/facts, KHÔNG publish PDF nguyên văn cho tới 2027.",
+      "status": "RESTORED (Stage 2-3/6, method). Publish PDF: chờ 2027-01-01.",
       "need_pdf": true
     },
     {

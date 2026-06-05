@@ -1,0 +1,57 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "ĐỐI CHIẾU số Thần Số Học (1-9) ↔ Ngũ Hành / Thiên Can Đông phương. 3 CẦU NỐI ĐỘC LẬP, trình bày song song — KHÔNG ép về một hệ.",
+  "paradigm_note": "IRON RULE #3 (đa phái độc lập): đây là ĐỐI CHIẾU, không phải hợp nhất. Khi 3 cầu nối ĐỒNG THUẬN → tương ứng mạnh; khi PHÂN KỲ → giữ cả hai, present cho Anh duyệt (kept_all hợp lệ). KHÔNG predict.",
+
+  "bridges": {
+    "ha_do": {
+      "name_vi": "Hà Đồ (số Trời Đất 55 — Thiệu Vĩ Hoa p33)",
+      "engine": "engine/yi_wiki/ha_do_lac_thu.py get_ngu_hanh_for_so()",
+      "map": {"1": "Thủy", "2": "Hỏa", "3": "Mộc", "4": "Kim", "5": "Thổ", "6": "Thủy", "7": "Hỏa", "8": "Mộc", "9": "Kim"},
+      "note": "Cặp hợp: 1·6 Thủy(Bắc), 2·7 Hỏa(Nam), 3·8 Mộc(Đông), 4·9 Kim(Tây), 5·10 Thổ(Trung)."
+    },
+    "lac_thu": {
+      "name_vi": "Lạc Thư / Cửu Cung Phi Tinh (Huyền Không)",
+      "map": {"1": "Thủy", "2": "Thổ", "3": "Mộc", "4": "Mộc", "5": "Thổ", "6": "Kim", "7": "Kim", "8": "Thổ", "9": "Hỏa"},
+      "note": "Theo cung Hậu Thiên Bát Quái: 1 Khảm(Thủy/Bắc), 2 Khôn(Thổ/TN), 3 Chấn(Mộc/Đông), 4 Tốn(Mộc/ĐN), 5 Trung(Thổ), 6 Càn(Kim/TB), 7 Đoài(Kim/Tây), 8 Cấn(Thổ/ĐB), 9 Ly(Hỏa/Nam)."
+    },
+    "cheiro_planet": {
+      "name_vi": "Hành tinh Cheiro → Ngũ Hành tinh Đông phương",
+      "note": "Hành tinh cổ điển mang CÙNG tên Ngũ Hành: 木火土金水星 = Jupiter/Mars/Saturn/Venus/Mercury. Nhật/Nguyệt + hành tinh hiện đại không thuộc Ngũ Hành.",
+      "map": {
+        "1": {"planet": "Mặt Trời (Nhật)", "ngu_hanh": null},
+        "2": {"planet": "Mặt Trăng (Nguyệt)", "ngu_hanh": null},
+        "3": {"planet": "Mộc tinh (Jupiter)", "ngu_hanh": "Mộc"},
+        "4": {"planet": "Thiên Vương (Uranus, hiện đại)", "ngu_hanh": null},
+        "5": {"planet": "Thủy tinh (Mercury)", "ngu_hanh": "Thủy"},
+        "6": {"planet": "Kim tinh (Venus)", "ngu_hanh": "Kim"},
+        "7": {"planet": "Hải Vương (Neptune, hiện đại)", "ngu_hanh": null},
+        "8": {"planet": "Thổ tinh (Saturn)", "ngu_hanh": "Thổ"},
+        "9": {"planet": "Hỏa tinh (Mars)", "ngu_hanh": "Hỏa"}
+      }
+    }
+  },
+
+  "element_to_thien_can": {
+    "doc": "Mỗi Ngũ Hành có 2 Thiên Can (dương/âm). Dùng để suy Thiên Can ứng viên từ hành đối chiếu.",
+    "Mộc": ["Giáp (dương)", "Ất (âm)"],
+    "Hỏa": ["Bính (dương)", "Đinh (âm)"],
+    "Thổ": ["Mậu (dương)", "Kỷ (âm)"],
+    "Kim": ["Canh (dương)", "Tân (âm)"],
+    "Thủy": ["Nhâm (dương)", "Quý (âm)"]
+  },
+
+  "agreement_highlights": {
+    "doc": "Quan sát đồng thuận/phân kỳ giữa 3 cầu (minh họa Iron Rule #3).",
+    "strong_consensus": {
+      "3": "Cả 3 cầu = MỘC (Hà Đồ Đông, Lạc Thư Chấn, Cheiro Jupiter). Tương ứng mạnh nhất.",
+      "1": "Hà Đồ + Lạc Thư = THỦY; Cheiro = Nhật (ngoài Ngũ Hành).",
+      "5": "Lạc Thư + Cheiro(Mercury) ~ Thổ/Thủy phân kỳ; Hà Đồ = Thổ."
+    },
+    "divergence": {
+      "9": "Lạc Thư + Cheiro(Mars) = HỎA; Hà Đồ = KIM. → Giữ cả hai, không ép.",
+      "7": "Hà Đồ = Hỏa; Lạc Thư = Kim; Cheiro = Hải Vương(hiện đại). → Đa phái rõ rệt."
+    }
+  }
+}

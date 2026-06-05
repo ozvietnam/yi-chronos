@@ -133,6 +133,12 @@ CONCEPTS: list[tuple[str, str, list[str], str, str, int | None]] = [
      "Các số 1-9 KHÔNG xuất hiện trong tên = phẩm chất còn khuyết, cần rèn trong đời này (Campbell). "
      "Khác Karmic Debt 13/14/16/19. Paradigm: vùng cấu trúc cần quan-sát, KHÔNG dọa nghiệp báo.",
      "karmic", None),
+    ("Đối Chiếu Đông Phương", "Cross-bind", ["than-so x ngu-hanh", "số x ngũ hành"],
+     "Đối chiếu số Thần Số Học (1-9) ↔ Ngũ Hành/Thiên Can qua 3 cầu nối ĐỘC LẬP (Iron Rule #3): "
+     "Hà Đồ (1,6 Thủy...), Lạc Thư/Cửu Cung (9 Hỏa...), hành tinh Cheiro (3 Jupiter→Mộc...). "
+     "ĐỐI CHIẾU không ép: số 3 cả 3 cầu = Mộc; số 9 phân kỳ (Hà Đồ Kim vs Lạc Thư/Cheiro Hỏa). "
+     "Engine: engine/than_so/cross_bind.py. KHÔNG predict.",
+     "cross_bind", None),
 ]
 
 

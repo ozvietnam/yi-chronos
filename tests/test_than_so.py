@@ -6,6 +6,7 @@ import pytest
 from engine.than_so import (
     cast_than_so,
     compute_core,
+    cross_bind_dong_phuong,
     life_path,
     normalize_vietnamese,
     pinnacles_and_challenges,
@@ -129,3 +130,37 @@ def test_cast_rejects_bad_date():
 def test_cast_rejects_empty_name():
     with pytest.raises(ValueError):
         cast_than_so("  ", "1990-11-23")
+
+
+# ─── Cross-bind Đông phương (Iron Rule #3) ────────────────────────────────────
+
+
+def test_cross_bind_number_3_strong_consensus():
+    # Số 3: Hà Đồ Mộc + Lạc Thư Mộc + Cheiro Jupiter→Mộc → đồng thuận MỘC
+    cb = cross_bind_dong_phuong(3)
+    assert cb["bridges"]["ha_do"]["ngu_hanh"] == "Mộc"
+    assert cb["bridges"]["lac_thu"]["ngu_hanh"] == "Mộc"
+    assert cb["bridges"]["cheiro_planet"]["ngu_hanh"] == "Mộc"
+    assert "Mộc" in cb["consensus_ngu_hanh"]
+    assert "Mộc" in cb["thien_can_candidates"]
+
+
+def test_cross_bind_number_9_divergence_not_forced():
+    # Số 9: Lạc Thư + Cheiro = Hỏa nhưng Hà Đồ = Kim → giữ cả hai (không ép)
+    cb = cross_bind_dong_phuong(9)
+    assert cb["bridges"]["ha_do"]["ngu_hanh"] == "Kim"
+    assert cb["bridges"]["lac_thu"]["ngu_hanh"] == "Hỏa"
+    assert cb["divergence"] is True
+    assert "Hỏa" in cb["consensus_ngu_hanh"]  # 2 cầu đồng thuận Hỏa
+
+
+def test_cross_bind_master_number_reduced():
+    cb = cross_bind_dong_phuong(11)
+    assert cb["base"] == 2
+    assert cb["master_note"] is not None
+
+
+def test_cast_includes_dong_phuong():
+    res = cast_than_so("Nguyễn Văn An", "1990-11-23")
+    assert "dong_phuong_doi_chieu" in res
+    assert "life_path" in res["dong_phuong_doi_chieu"]
