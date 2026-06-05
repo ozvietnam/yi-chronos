@@ -1,0 +1,163 @@
+{
+  "_meta": {
+    "title": "Người đi xa + Xuất hành + Kiện tụng (Thiệu Vĩ Hoa Ch.20-21, p301-320)"
+  },
+
+  "nguoi_di_xa": {
+    "_paradigm": "Dụng thần phục dưới hào nào → ý nghĩa hiện tại (p303)",
+
+    "dung_than_phuc_duoi": {
+      "the_tai": "Quên về vì tham SẮC + ăn chơi",
+      "the_tai_am_+_hop_the": "Bị KẾ MỸ NHÂN",
+      "the_tai_duong_+_hop_the": "Bị người khác cầm TIỀN của mình",
+      "kho_tai": "Nắm giữ tiền của người giàu hoặc quan",
+      "hưu_tu_mo_tuyet": "Sống ngoài qua ngày đoạn tháng",
+      "quan_quy_+_truong_sinh": "Được quyền quý GIỮ LẠI",
+      "quan_quy_suy_+_bi_khac": "Không bệnh cũng tai họa VIỆC QUAN",
+      "tri_mo_hoa_mo_nhap_mo": "Đang BỆNH chưa về được",
+      "quan_quy_+_bach_ho": "Đang bị GIAM TRONG NGỤC",
+      "huyen_vu_+_quan_quy_khong_hop_tai": "Đang LÀM GIẶC ngoài",
+      "huyen_vu_+_hop_tai": "Tham hoa mê sắc chưa về"
+    },
+
+    "dau_hieu_xau_phuc_than": {
+      "cau_tran": "Bị thương",
+      "phi_xa": "Gặp điều kinh khủng",
+      "bach_ho": "Bệnh ốm không về",
+      "huyen_vu": "Trộm cướp hoặc sa tửu sắc",
+      "thanh_long_dong": "TỐT"
+    },
+
+    "4_kho_dia_ly": {
+      "Thin_Thuy_Tho": "Mép nước (bờ sông, biển)",
+      "Tuat_Hoa": "ĐỀN MIẾU / CHÙA",
+      "Suu_Kim": "Lò luyện, lò RÈN",
+      "Mui_Moc": "Vườn cây, đồi núi, lâm trường"
+    },
+
+    "vi_tri_dung_than_que": {
+      "que_noi": "Người đang ở vùng quanh đó",
+      "que_ngoai": "Đang ở nơi khác",
+      "que_noi_cung_khac": "Huyện khác hoặc vùng giáp",
+      "que_ngoai_cung_khac": "Đã đi sang huyện khác"
+    },
+
+    "tin_tuc_thu_tu": {
+      "phu_mau_dong": "Có tin thư đến",
+      "phu_mau_vuong_sinh_the": "Có thư về",
+      "phu_mau_huu_tu_mo_tuyet": "Không tin tức",
+      "phu_mau_tuan_khong": "Biệt vô âm tín"
+    }
+  },
+
+  "xuat_hanh": {
+    "_paradigm_cot": "Hào Thế = mình; Hào Ứng = tha hương",
+
+    "co_ban": {
+      "the_vuong_tuong": "Nên xuất hành",
+      "ung_vuong_sinh_the": "Việc dễ thành",
+      "phu_mau_hành_ly": "Vượng = nhiều; Hưu Tù = ít",
+      "the_tai_lo_phi": "Vượng = nhiều; Hưu Tù = ít",
+      "tu_ton_tri_the": "Trên đường mọi tai ương đều vượt"
+    },
+
+    "8_cung_quan_quy_dong_tai_hoa": {
+      "Can_Chan": "XE NGỰA tai nạn",
+      "Kham_Doai": "SÓNG GIÓ (đường thủy)",
+      "Khon_Can": "Đồng không mông quạnh (cướp/lạc)",
+      "Ton": "Chuyện TRAI GÁI",
+      "Ly": "HỎA HOẠN"
+    },
+
+    "6_luc_than_quan_quy_dong_xuat_hanh": {
+      "thanh_long": "Hiếu sắc hoặc cờ bạc",
+      "chu_tuoc": "Cãi vã, kiện tụng",
+      "cau_tran": "Việc bị liên lụy",
+      "phi_xa": "Phong ba hiểm trở",
+      "bach_ho": "Bệnh tật liên miên không dứt",
+      "huyen_vu": "Bị trộm cướp"
+    },
+
+    "thai_tue_xuat_hanh": {
+      "sinh_hop_the": "Phúc lớn mà lành",
+      "hinh_khac_the": "Tai vạ rất lớn",
+      "lam_bach_ho": "Xấu càng thêm xấu"
+    },
+
+    "phan_phuc_ngam": {
+      "phuc_ngam": "Chờ ngày XUNG KHAI mới đi",
+      "phan_ngam": "Dọc đường phải QUAY VỀ",
+      "luc_hop_bien_luc_xung": "Ngồi nhà cũng phải đề phòng việc xấu"
+    }
+  },
+
+  "kien_tung": {
+    "_paradigm_cot": "Hào Thế = mình; Hào Ứng = đối phương (p310-313)",
+
+    "thang_thua": {
+      "the_vuong_ung_suy": "Mạnh thắng yếu",
+      "the_khac_ung": "MÌNH thắng",
+      "ung_khac_the": "MÌNH thua",
+      "ca_hai_vuong": "Xem Nhật Thìn sinh hợp ai → người đó thắng",
+      "quy_nhan_phu_tro": "Hào suy nhưng gặp Nhật/Nguyệt/Hào động sinh → nhất định THẮNG"
+    },
+
+    "phu_mau_van_thu": {
+      "ban_chat": "Văn thư, đơn kiện, cáo trạng",
+      "phu_mau_la_the": "MÌNH tố cáo",
+      "phu_mau_la_ung": "ĐỐI PHƯƠNG tố cáo / mình bị thẩm vấn",
+      "phu_mau_hoa_phu_mau": "Cáo trạng có nhiều chỗ MÂU THUẪN",
+      "phu_mau_hoa_huynh_de": "Có sự PHẢN BÁC",
+      "nguyet_kien_hop_phu_mau": "Tòa CẤP TRÊN gác việc lại",
+      "khong_phu_mau": "Không có đầu mối, không có cáo trạng"
+    },
+
+    "huynh_de_chung_nhan": {
+      "huynh_de_giua_the_ung": "Là người LÀM CHỨNG",
+      "huynh_de_khac_the": "Người chứng uy hiếp đòi MÌNH hối lộ",
+      "huynh_de_khac_ung": "Người chứng đòi ĐỐI PHƯƠNG hối lộ",
+      "khac_the_sinh_ung": "Chứng nhân + đối phương hợp lực hại mình"
+    },
+
+    "thai_tue_kien_tung": {
+      "thai_tue_lam_quan_quy": "Việc kiện đang LẶNG LÊN (lớn dần)",
+      "thai_tue_khac_the": "Hào Thế vào NGỤC",
+      "thai_tue_khac_ung": "Hào Ứng vào NGỤC"
+    },
+
+    "tam_ngung_hoa_giai": {
+      "the_ung_deu_tuan_khong": "Quan tòa NGHỈ",
+      "the_bien_quan_quy": "Mình muốn TẠM NGỪNG",
+      "ung_tuan_khong": "Đối phương không tố cáo nữa",
+      "the_ung_tuong_sinh_tuong_hop": "Cuối cùng HÒA GIẢI",
+      "the_ung_ngang_hoa_+_quan_quy_dong": "Tòa KHÔNG cho xử hòa",
+      "ca_hai_bien_quan_quy": "Cả hai CHẾT vì việc kiện"
+    },
+
+    "tinh_tiet_su_viec": {
+      "than_que_vuong": "Việc TO",
+      "than_que_suy": "Việc nhỏ",
+      "than_que_dong": "Gấp",
+      "than_que_tinh": "Chậm",
+      "than_que_tuan_khong": "Việc BỊA ĐẶT",
+      "phi_phuc_deu_tuan_khong": "Hoàn toàn không có sự thật"
+    }
+  },
+
+  "case_chu_lien_1988": {
+    "_paradigm": "Tìm cháu đi lạc (p301)",
+    "ngay_doan": "12/11/1988 (Tân Mùi / Quý Hợi)",
+    "que": "Lữ của Phệ Hạp",
+    "phan_tich": [
+      "Tử Tôn Tỵ Hỏa hóa Tỵ Hỏa → cháu ở phương ĐÔNG NAM",
+      "Tử Tôn sinh Thế → về MUỘN",
+      "Tử Tôn yên tĩnh + gặp ngày XUNG → tìm được",
+      "Tỵ Dậu Sửu hợp Tử Tôn cục → vượng tướng nhất định về"
+    ],
+    "du_doan_tvh": [
+      "Trước 6/11 (Ất Hợi) tìm thấy ở Đông Nam",
+      "Ngày 18/11 về đến nhà"
+    ],
+    "ket_qua": "15/11 tìm thấy ở Đông Nam, 18/11 về — ĐÚNG"
+  }
+}
