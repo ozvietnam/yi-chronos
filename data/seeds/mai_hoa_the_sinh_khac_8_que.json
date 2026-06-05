@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "title": "Tượng Quẻ Sinh Khắc 8 quẻ (Mai Hoa Dịch Số, Thiệu Vĩ Hoa p141-142)",
+    "iron_rule": "Paradigm tượng quẻ làm chủ sự việc — KHÔNG predict tuyệt đối"
+  },
+
+  "the_sinh": {
+    "_paradigm": "Khi Thể được Dụng sinh → loại tin mừng cụ thể cho từng quẻ",
+    "Càn": "Lợi việc công, thăng quan, thắng kiện, được của quý, gặp người già",
+    "Khôn": "Lợi điền thổ, được lương thực + vải vóc, lợi cho người thân/người chết",
+    "Chấn": "Lợi sơn lâm, được của Đông, vui mừng nhờ người tên Mộc/Thổ",
+    "Tốn": "Lợi sơn lâm + trà hoa quả, tin mừng Đông Nam",
+    "Khảm": "Tin mừng phương Bắc, tiến tài gần nước, lợi văn thư/rượu/cá/muối",
+    "Ly": "Của ở phương Nam, tin mừng văn thư, lợi lò luyện, người Hỏa",
+    "Cấn": "Của Đông Bắc, lợi ruộng vườn núi, người Thổ, việc ổn định",
+    "Đoài": "Của phương Tây, tin mừng thực phẩm, vui chủ-khách, giọng hay"
+  },
+
+  "the_khac": {
+    "_paradigm": "Khi Thể bị Dụng khắc → loại tai họa cụ thể",
+    "Càn": "Lo việc công + gia đình, mất của quý, tổn vàng bạc, bị quý nhân xúc phạm",
+    "Khôn": "Mất điền thổ, ruộng vườn tổn, tiểu nhân hại, mất vải vóc lương thực",
+    "Chấn": "Kinh hoàng chấn động, lo sợ, nhà cửa tai họa, người tên Mộc xâm phạm",
+    "Tốn": "Người tên Thảo Mộc hại, lo sơn lâm, chồng làm hại (nữ), cãi vã",
+    "Khảm": "Ngầm có hại, trộm cướp, người gần nước, gặp họa quán rượu, người Bắc gây họa",
+    "Ly": "Lo văn thư, hỏa hoạn, người phương Nam, bị hại do lửa",
+    "Cấn": "Việc ngược lại trắc trở, mất sơn lâm điền thổ, người Thổ xâm phạm, mồ mả không yên",
+    "Đoài": "Không lợi phương Tây, chia rẽ vì cãi vã, người tên Khẩu lừa, hủy nát, lo ăn uống"
+  },
+
+  "thoi_tiet_8_que": {
+    "_paradigm": "8 quẻ → 8 hiện tượng thời tiết (Thiệu Vĩ Hoa p148-149)",
+    "Ly": "Nắng",
+    "Khảm": "Mưa",
+    "Khôn": "U ám",
+    "Càn": "Trong sáng",
+    "Chấn": "Sấm (xuân hạ)",
+    "Tốn": "Gió mạnh 4 mùa",
+    "Cấn": "Mưa lâu tất tạnh",
+    "Đoài": "Không mưa cũng âm u",
+    "kham_pha": {
+      "ha_co_ly_khong_kham": "Hạ Hỏa vượng không Thủy → HẠN HÁN kéo dài",
+      "dong_co_kham_khong_ly": "Đông Thủy vượng không Hỏa → MƯA TUYẾT LIÊN MIÊN"
+    }
+  },
+
+  "case_studies_1987": {
+    "5_mat_troi_tay_an": {
+      "ngay": "9h30 19-12-1986",
+      "que_cast": "Sư biến Khôn",
+      "6_du_doan": [
+        {"du_doan": "Chiến tranh tranh đất 1987", "ket_qua": "Trung-Việt + Ấn Độ nội chiến — ĐÚNG"},
+        {"du_doan": "Tổn của tháng 4-5", "ket_qua": "Cháy rừng Đông Bắc — ĐÚNG"},
+        {"du_doan": "Nhiều thiên tai", "ket_qua": "ĐÚNG"},
+        {"du_doan": "Tội phạm cướp tăng", "ket_qua": "ĐÚNG"},
+        {"du_doan": "Hạn hán nặng", "ket_qua": "Diện tích lớn — ĐÚNG"},
+        {"du_doan": "Bạo loạn + tai nạn", "ket_qua": "Tây Tạng 2-3/10, máy bay rơi Trùng Khánh, tàu hỏa lật Quý Châu — ĐÚNG"}
+      ]
+    }
+  }
+}
