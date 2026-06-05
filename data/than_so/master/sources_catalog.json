@@ -29,8 +29,9 @@
       "era": "1926",
       "status": "CORE_CHALDEAN",
       "note": "Văn bản nền của hệ Chaldean hiện đại + số kép (compound numbers). Public domain — DỄ TÌM PDF.",
-      "have": "Tóm tắt + bảng chữ cái Chaldean",
+      "have": "ĐÃ RESTORE core 2026-06-05: bảng Chaldean + số đơn 1-9 + số kép 10-32 → data/restored_books/cheiro-book-of-numbers/ + data/than_so/master/chaldean_compound_numbers.json. Còn: attach PDF gốc + dịch chương ứng dụng + Stage 6.",
       "need_pdf": true,
+      "status": "IN_PROGRESS (Stage 2-3/6)",
       "priority": "CAO — public domain, nền Chaldean"
     },
     {

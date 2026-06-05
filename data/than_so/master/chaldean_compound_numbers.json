@@ -1,0 +1,52 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "Số KÉP (compound numbers) của hệ Chaldean theo Cheiro — 'Cheiro's Book of Numbers' (1926, public domain). Cheiro: số đơn 1-9 thuộc mặt VẬT CHẤT; số kép từ 10 trở lên thuộc mặt HUYỀN/TINH THẦN. Engine giữ số kép TRƯỚC khi rút gọn (đặc trưng Chaldean).",
+  "source": {
+    "author": "Cheiro (Count Louis Hamon, 1866-1936)",
+    "work": "Cheiro's Book of Numbers (1926)",
+    "public_domain": true,
+    "source_of_record": "https://archive.org/details/cheirosbookofnumbers (full PDF)",
+    "note": "Nội dung dưới đây compiled từ bản public-domain + đối chiếu chéo nhiều nguồn tái hiện (astroccult, astronumero, livingincycles). 33-52: Cheiro cho biết phần lớn LẶP theo tổng chữ số → map về số kép thấp tương ứng; ưu tiên tra bản PDF gốc cho sắc thái đầy đủ.",
+    "paradigm_note": "ĐỌC ĐỒNG DẠNG: 'cảnh báo/may mắn' của Cheiro = sắc thái cấu trúc cần quan-sát, KHÔNG phán định mệnh cứng (Iron Rule #4/#6)."
+  },
+
+  "single_numbers_planet": {
+    "1": {"planet": "Mặt Trời (Sun)"},
+    "2": {"planet": "Mặt Trăng (Moon)"},
+    "3": {"planet": "Mộc tinh (Jupiter)"},
+    "4": {"planet": "Thiên Vương / nhóm Mặt Trời (Uranus)"},
+    "5": {"planet": "Thủy tinh (Mercury)"},
+    "6": {"planet": "Kim tinh (Venus)"},
+    "7": {"planet": "Hải Vương / nhóm Mặt Trăng (Neptune)"},
+    "8": {"planet": "Thổ tinh (Saturn)"},
+    "9": {"planet": "Hỏa tinh (Mars)"}
+  },
+
+  "compound_numbers": {
+    "10": {"symbol": "Bánh Xe Số Phận (Wheel of Fortune)", "meaning_vi": "Danh dự, niềm tin, tự tin; thăng-trầm; tên tuổi được biết đến (tốt hoặc xấu tùy tâm nguyện). May mắn ở chỗ kế hoạch dễ thành."},
+    "11": {"symbol": "Bàn tay nắm chặt / sư tử bị bịt mõm", "meaning_vi": "Cảnh báo hiểm họa ngầm, thử thách, sự phản trắc từ người khác. Cần phòng bị."},
+    "12": {"symbol": "Hy Sinh / Nạn Nhân (The Sacrifice)", "meaning_vi": "Khổ tâm, lo âu; dễ bị hy sinh cho mưu đồ của người khác. Đề phòng bị lợi dụng."},
+    "13": {"symbol": "Biến động (không phải 'xui')", "meaning_vi": "Đổi kế hoạch, đổi nơi chốn; xáo trộn, đổ vỡ, hiểm họa bất ngờ. Số cảnh báo về cái chưa biết — quyền lực để thay đổi nếu dùng đúng."},
+    "14": {"symbol": "Chuyển động & kết hợp", "meaning_vi": "Vận động, phối hợp người-việc; hiểm từ thiên nhiên (lửa/nước/khí). May về tiền bạc nhưng đừng phó mặc phán đoán cho người khác. Tránh đầu cơ liều."},
+    "15": {"symbol": "Ma thuật / sức hút", "meaning_vi": "Tài ăn nói, hùng biện, âm nhạc-nghệ thuật, từ tính cá nhân mạnh. Huyền học — nếu dùng cho mục đích ích kỷ thì nguy."},
+    "16": {"symbol": "Tháp bị Sét đánh (Tower Struck by Lightning)", "meaning_vi": "Cảnh báo định mệnh lạ lùng, tai nạn, kế hoạch thất bại bất ngờ. 'Thành trì sụp đổ'."},
+    "17": {"symbol": "Ngôi Sao của Pháp Sư (Star of the Magi)", "meaning_vi": "Số TÂM LINH cao — Bình an & Tình yêu (sao 8 cánh của Venus). Vượt lên thử thách; tên tuổi bất tử. May mắn."},
+    "18": {"symbol": "Vật chất lấn tinh thần", "meaning_vi": "Tranh chấp cay đắng, mâu thuẫn gia đình, chiến tranh/biến động xã hội; cảnh báo lừa dối + hiểm từ thiên nhiên. Cần giữ tinh thần trên vật chất."},
+    "19": {"symbol": "Hoàng Tử Thiên Đường (Prince of Heaven)", "meaning_vi": "Thành công, hạnh phúc, được trọng vọng và danh dự. Rất may mắn."},
+    "20": {"symbol": "Thức Tỉnh / Phán Xét (The Awakening)", "meaning_vi": "Lời gọi hành động vì mục đích/kế hoạch mới; thức tỉnh tinh thần hơn là vật chất."},
+    "21": {"symbol": "Vương Miện của Pháp Sư (Crown of the Magi)", "meaning_vi": "Thăng tiến, vinh quang, chiến thắng sau gian nan. Số may mắn — thành công, được tôn vinh."},
+    "22": {"symbol": "Người tốt bị lừa", "meaning_vi": "Cảnh báo ảo tưởng & lầm lạc: người tốt sống trong 'thiên đường của kẻ khờ', mang túi đầy sai lầm, không phòng vệ trước hiểm nguy."},
+    "23": {"symbol": "Vương Tinh của Sư Tử (Royal Star of the Lion)", "meaning_vi": "Hứa hẹn thành công, được cấp trên giúp, được người quyền cao che chở. Rất may cho việc tương lai."},
+    "24": {"symbol": "May mắn — quý nhân", "meaning_vi": "Được người có địa vị trợ giúp; lợi từ tình yêu và người khác giới. Thuận lợi."},
+    "25": {"symbol": "Sức mạnh qua trải nghiệm", "meaning_vi": "Thành công đến qua thử thách, gian nan thời đầu đời; thuận lợi cho tương lai. Không 'may' kiểu dễ dàng."},
+    "26": {"symbol": "Cảnh báo nặng", "meaning_vi": "Thảm họa do hùn hạp/liên kết sai, đầu cơ tồi, lời khuyên xấu. Phải cân nhắc kỹ con đường đang đi."},
+    "27": {"symbol": "Vương Trượng (The Sceptre)", "meaning_vi": "Quyền uy, sức mạnh, mệnh lệnh; phần thưởng từ trí tuệ sáng tạo. Nên tự thực thi ý tưởng của mình. Số tốt."},
+    "28": {"symbol": "Mâu thuẫn", "meaning_vi": "Nhiều hứa hẹn nhưng dễ mất trắng nếu không lo xa: mất vì tin người, cạnh tranh, kiện tụng; có thể phải làm lại từ đầu nhiều lần."},
+    "29": {"symbol": "Bất trắc lòng người", "meaning_vi": "Bất định, dễ bị phản bội/lừa dối; phiền muộn từ người khác giới và bạn bè. Cần cẩn trọng."},
+    "30": {"symbol": "Suy tưởng (retrospection)", "meaning_vi": "Ưu thế trí tuệ, thiên về suy tư; không tốt cũng không xấu cố định — tùy quyết định của trí. Có thể 'được tất cả hoặc không gì'."},
+    "31": {"symbol": "Cô lập", "meaning_vi": "Giống 30 nhưng tự khép kín hơn, cô đơn, tách biệt với đời. Người trầm tư, dễ lẻ loi."},
+    "32": {"symbol": "Sức mạnh huyền (như 14/23)", "meaning_vi": "Thuận lợi nếu giữ vững phán đoán riêng; nếu nghe theo sự cố chấp/bất tài của người khác thì kế hoạch đổ vỡ."},
+    "33_plus": {"rule": "Từ 33 đến 52: Cheiro nói phần lớn LẶP theo tổng chữ số → tra ý nghĩa số kép thấp tương ứng (33≈24, 34≈25, 35≈26, 36≈27, 37 đặc biệt tốt cho hợp tác/tình thân, 40≈31...). Sắc thái đầy đủ: xem bản PDF gốc."}
+  }
+}

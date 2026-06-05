@@ -89,6 +89,25 @@ CONCEPTS: list[tuple[str, str, list[str], str, str, int | None]] = [
     ("Bảng Chaldean", "Chaldean Chart", ["sound vibration"],
      "Gán chữ cái → số 1-8 theo rung động âm thanh; số 9 linh thiêng không gán. Dùng đối chiếu chéo.",
      "method", None),
+    ("Số Kép", "Compound Numbers", ["compound", "số kép Chaldean"],
+     "Cheiro: số đơn 1-9 thuộc mặt VẬT CHẤT, số kép từ 10 trở lên thuộc mặt HUYỀN/TINH THẦN. "
+     "Chaldean giữ số kép TRƯỚC khi rút gọn (mang lớp nghĩa riêng). Data: chaldean_compound_numbers.json.",
+     "compound_number", None),
+    ("Bánh Xe Số Phận", "Wheel of Fortune (10)", ["số 10"],
+     "Số kép 10 (Cheiro): danh dự, niềm tin, tự tin; thăng-trầm; tên tuổi được biết đến; kế hoạch dễ thành.",
+     "compound_number", None),
+    ("Tháp Bị Sét Đánh", "Tower Struck by Lightning (16)", ["số 16", "Shattered Citadel"],
+     "Số kép 16 (Cheiro): cảnh báo định mệnh lạ, tai nạn, kế hoạch sụp. Đọc đồng dạng: sắc thái cấu trúc cần quan-sát, không phán cứng.",
+     "compound_number", None),
+    ("Ngôi Sao Của Pháp Sư", "Star of the Magi (17)", ["số 17"],
+     "Số kép 17 (Cheiro): số tâm linh cao — Bình an & Tình yêu (sao 8 cánh Venus); vượt lên thử thách; tên tuổi bất tử.",
+     "compound_number", None),
+    ("Vương Tinh Của Sư Tử", "Royal Star of the Lion (23)", ["số 23"],
+     "Số kép 23 (Cheiro): thành công, được cấp trên giúp + người quyền cao che chở. Một trong các số may nhất.",
+     "compound_number", None),
+    ("Vương Trượng", "The Sceptre (27)", ["số 27"],
+     "Số kép 27 (Cheiro): quyền uy, sức mạnh, phần thưởng từ trí tuệ sáng tạo; nên tự thực thi ý tưởng của mình.",
+     "compound_number", None),
 ]
 
 
