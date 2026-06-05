@@ -1,0 +1,17 @@
+{
+  "book_id": "cheiro-book-of-numbers",
+  "title_vi": "Sách Về Những Con Số (Cheiro)",
+  "title_orig": "Cheiro's Book of Numbers",
+  "author": "Cheiro (Count Louis Hamon, 1866-1936)",
+  "year": 1926,
+  "school": "than_so_hoc",
+  "system": "chaldean",
+  "language_orig": "en",
+  "public_domain": true,
+  "source_of_record": "https://archive.org/details/cheirosbookofnumbers",
+  "acquisition": "Public-domain text (Archive.org). WebFetch bị chặn trong môi trường ephemeral → nội dung cốt lõi compiled qua khảo nguồn + đối chiếu chéo; bản PDF gốc đính kèm sau (Stage 1 hoàn tất khi attach PDF).",
+  "bookflow_stage": "2-6 draft. Core restored EN→VI + Stage 6 PDF DRAFT (reportlab fallback vì env thiếu pandoc/WeasyPrint).",
+  "published_pdf": "data/published/cheiro-book-of-numbers-core-v0.1.pdf (6 trang A5, reportlab + DejaVuSans). DRAFT — chưa qua design pass WeasyPrint của project.",
+  "paradigm": "Đọc đồng dạng (Iron Rule #4/#6) — KHÔNG predict. 'May/cảnh báo' của Cheiro = sắc thái cấu trúc cần quan-sát.",
+  "ts": 1780617600
+}

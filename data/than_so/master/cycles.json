@@ -1,0 +1,74 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "Các CHU KỲ thời gian trong Thần Số Học — lớp BIẾN (dynamic) bổ cho lớp CƠ (số cốt lõi tĩnh). Tương ứng Đại Vận/Lưu Niên của Tử Vi (Iron Rule #6 CƠ+BIẾN). Nguồn: Hans Decoz / worldnumerology.com, lynsreadings, affinitynumerology.",
+  "paradigm_note": "Chu kỳ KHÔNG predict 'năm nay giàu/nghèo'. Chúng đọc 'khí của giai đoạn' — anh nên quan-sát điều gì, học gì. Đồng dạng với Đại Vận đi qua cung.",
+
+  "abbrev": {
+    "M": "Tháng sinh đã rút gọn (1 chữ số)",
+    "D": "Ngày sinh đã rút gọn (1 chữ số)",
+    "Y": "Năm sinh đã rút gọn (1 chữ số)",
+    "LP": "Life Path đã rút gọn"
+  },
+
+  "pinnacles": {
+    "name_vi": "Bốn Đỉnh Vận (Pinnacle Cycles)",
+    "doc": "4 giai đoạn lớn của đời — 'cơ hội & môi trường bên ngoài' ta gặp. Tính từ ngày sinh.",
+    "formula": {
+      "pinnacle_1": "M + D (rút gọn, giữ master)",
+      "pinnacle_2": "D + Y",
+      "pinnacle_3": "Pinnacle_1 + Pinnacle_2",
+      "pinnacle_4": "M + Y"
+    },
+    "timing": {
+      "doc": "Đỉnh 1 dài nhất ở đầu đời; mỗi đỉnh kế tiếp 9 năm; đỉnh 4 mở đến cuối đời.",
+      "pinnacle_1": "Sinh → tuổi (36 − LP)",
+      "pinnacle_2": "9 năm kế tiếp",
+      "pinnacle_3": "9 năm kế tiếp",
+      "pinnacle_4": "Phần còn lại của đời"
+    }
+  },
+
+  "challenges": {
+    "name_vi": "Bốn Thử Thách (Challenge Numbers)",
+    "doc": "Bài học/chướng ngại nội tâm ứng với từng đỉnh vận. Dùng PHÉP TRỪ (giá trị tuyệt đối).",
+    "formula": {
+      "challenge_1": "|M − D|",
+      "challenge_2": "|D − Y|",
+      "challenge_3": "|Challenge_1 − Challenge_2|",
+      "challenge_4": "|M − Y|"
+    },
+    "note": "Thử thách KHÔNG rút theo master — kết quả 0-8. Số 0 = 'thử thách của sự lựa chọn tự do', đã có sẵn năng lực số đó."
+  },
+
+  "period_cycles": {
+    "name_vi": "Ba Chu Kỳ Đời (Period Cycles)",
+    "doc": "3 chương lớn: 'giai đoạn tăng trưởng nội tại'.",
+    "formula": {
+      "first_cycle": "Tháng sinh (rút gọn) — thời thanh xuân",
+      "second_cycle": "Ngày sinh (rút gọn) — thời trung niên productive",
+      "third_cycle": "Năm sinh (rút gọn) — thời viên mãn"
+    }
+  },
+
+  "personal_year_month_day": {
+    "name_vi": "Năm/Tháng/Ngày Cá Nhân (Personal Year/Month/Day)",
+    "doc": "Nhịp ngắn hạn, chu kỳ 9 năm lặp. Tương ứng Lưu Niên/Lưu Nguyệt.",
+    "formula": {
+      "personal_year": "Tháng sinh + Ngày sinh + Năm DƯƠNG LỊCH hiện tại → rút gọn (1-9).",
+      "personal_month": "Personal Year + tháng hiện tại → rút gọn.",
+      "personal_day": "Personal Month + ngày hiện tại → rút gọn."
+    },
+    "nine_year_arc": {
+      "1": "Khởi đầu, gieo hạt, độc lập",
+      "2": "Vun đắp, kiên nhẫn, quan hệ",
+      "3": "Sáng tạo, giao tiếp, mở rộng xã hội",
+      "4": "Lao động, xây nền, kỷ luật",
+      "5": "Thay đổi, tự do, bước ngoặt",
+      "6": "Trách nhiệm, gia đình, chữa lành",
+      "7": "Nội quán, nghỉ, học sâu",
+      "8": "Gặt hái, quyền lực, thành quả vật chất",
+      "9": "Hoàn tất, buông bỏ, dọn chỗ cho chu kỳ mới"
+    }
+  }
+}

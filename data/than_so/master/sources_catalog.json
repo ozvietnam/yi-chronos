@@ -1,0 +1,145 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "DANH MỤC TÀI LIỆU THẦN SỐ HỌC — đánh giá độ uy tín + đánh dấu cái ĐÃ CÓ (qua web research) và cái CÒN THIẾU cần đi tìm bản gốc (PDF/sách) để feed bookflow v2.0. Tier 1 = nền tảng kinh điển; Tier 5 = hiện đại/bản địa.",
+
+  "tiers_explained": {
+    "1": "Nguồn gốc / tổ sư (Pythagoras, Chaldean cổ)",
+    "2": "Kinh điển thế kỷ 20 — đặt nền hệ hiện đại",
+    "3": "Tác giả hệ thống hóa được giới hành nghề công nhận",
+    "4": "Phổ biến hóa đại chúng (uy tín vừa, kiểm chứng cẩn thận)",
+    "5": "Bản địa Việt Nam (cần đối chiếu, độ tin không đồng đều)"
+  },
+
+  "canonical_sources": [
+    {
+      "tier": 1,
+      "author": "Pythagoras (qua trường phái, không trước tác trực tiếp)",
+      "work": "Học thuyết 'Vạn vật là số' — nền hệ Pythagorean",
+      "era": "~570–495 TCN",
+      "status": "REFERENCE_ONLY",
+      "note": "Không có văn bản gốc của chính Pythagoras. Tư tưởng truyền qua Iamblichus, Nicomachus. Cần tìm: Nicomachus of Gerasa, 'Introduction to Arithmetic'.",
+      "have": "Khái niệm tổng quát qua web",
+      "need_pdf": true
+    },
+    {
+      "tier": 1,
+      "author": "Cheiro (Count Louis Hamon)",
+      "work": "Cheiro's Book of Numbers (1926)",
+      "era": "1926",
+      "status": "CORE_CHALDEAN",
+      "note": "Văn bản nền của hệ Chaldean hiện đại + số kép (compound numbers). Public domain — DỄ TÌM PDF.",
+      "have": "ĐÃ RESTORE core 2026-06-05: bảng Chaldean + số đơn 1-9 + số kép 10-32 → data/restored_books/cheiro-book-of-numbers/ + data/than_so/master/chaldean_compound_numbers.json. Còn: attach PDF gốc + dịch chương ứng dụng + Stage 6.",
+      "need_pdf": true,
+      "status": "IN_PROGRESS (Stage 2-3/6)",
+      "priority": "CAO — public domain, nền Chaldean"
+    },
+    {
+      "tier": 2,
+      "author": "L. Dow Balliett",
+      "work": "The Philosophy of Numbers / How to Attain Success Through the Strength of Vibration",
+      "era": "~1908",
+      "status": "FOUNDATIONAL",
+      "note": "Bà tổ phong trào numerology hiện đại Mỹ. Public domain (mất 1929).",
+      "have": "ĐÃ RESTORE 2026-06-05 (method+provenance): data/restored_books/balliett-philosophy-of-numbers/. Provenance của bảng Pythagoras + master 11/22 + nguyên âm=linh hồn + lý thuyết rung động (số↔màu↔âm).",
+      "status": "RESTORED (Stage 2-3/6, method)",
+      "need_pdf": true
+    },
+    {
+      "tier": 2,
+      "author": "Juno Jordan",
+      "work": "Numerology: The Romance in Your Name (1965); Your Right Action Number",
+      "era": "1965",
+      "status": "CLASSIC_PYTHAGOREAN",
+      "note": "Học trò Balliett, hệ thống hóa California School of Numerology. KINH ĐIỂN bắt buộc.",
+      "have": "Reference-only — KHÔNG restore nguyên văn.",
+      "copyright": "CÒN BẢN QUYỀN (1965). Phải MUA hợp pháp; tham chiếu phương pháp thôi. (Provenance của bà phần lớn kế thừa Balliett — đã restore Balliett public-domain.)",
+      "need_pdf": true,
+      "priority": "CAO (mua bản quyền)"
+    },
+    {
+      "tier": 2,
+      "author": "Florence Campbell",
+      "work": "Your Days Are Numbered (1931)",
+      "era": "1931",
+      "status": "CLASSIC",
+      "note": "Ứng dụng thực hành lập kế hoạch đời theo số. Bản quyền 1931 BORDERLINE — xác minh renewal.",
+      "have": "ĐÃ RESTORE 2026-06-05 (method): data/restored_books/campbell-your-days-are-numbered/. Provenance Inclusion Table + Karmic Lessons (số thiếu trong tên).",
+      "status": "RESTORED (Stage 2-3/6, method) — verify copyright trước publish PDF",
+      "need_pdf": true
+    },
+    {
+      "tier": 3,
+      "author": "Matthew Oliver Goodwin",
+      "work": "Numerology: The Complete Guide (2 vols, 1981)",
+      "era": "1981",
+      "status": "REFERENCE_SYSTEMATIC",
+      "note": "Giáo trình 2 tập đầy đủ nhất về hệ Pythagorean. Rất được giới hành nghề trọng.",
+      "have": "Reference-only — KHÔNG restore nguyên văn.",
+      "copyright": "CÒN BẢN QUYỀN (1981). Phải MUA hợp pháp; chỉ dùng làm tham chiếu phương pháp, không tái tạo text.",
+      "need_pdf": true,
+      "priority": "CAO — giáo trình chuẩn (mua bản quyền)"
+    },
+    {
+      "tier": 3,
+      "author": "Faith Javane & Dusty Bunker",
+      "work": "Numerology and the Divine Triangle (1979)",
+      "era": "1979",
+      "status": "REFERENCE",
+      "note": "Kết nối numerology với Tarot + chiêm tinh. Nổi tiếng phần 'Divine Triangle'.",
+      "have": "Chưa",
+      "need_pdf": true
+    },
+    {
+      "tier": 4,
+      "author": "Hans Decoz & Tom Monte",
+      "work": "Numerology: Key To Your Inner Self (1994) + worldnumerology.com",
+      "era": "1994–nay",
+      "status": "MODERN_STANDARD",
+      "note": "Phương pháp tính được số hóa chuẩn (Decoz Chartmaker). Công thức Life Path/Pinnacle dùng trong data này theo Decoz. Web có nhiều bài chi tiết (đã tham chiếu).",
+      "have": "Công thức cốt lõi + nhiều bài web",
+      "need_pdf": false,
+      "priority": "ĐÃ ĐỦ DÙNG cho v1"
+    },
+    {
+      "tier": 4,
+      "author": "Dan Millman",
+      "work": "The Life You Were Born to Live (1993)",
+      "era": "1993",
+      "status": "ALTERNATIVE_SYSTEM",
+      "note": "Hệ 37 'life purpose numbers' RIÊNG, cách tính KHÁC numerology truyền thống. Giữ TÁCH BIỆT, không trộn — đánh dấu là phái riêng.",
+      "have": "Khái niệm",
+      "need_pdf": true,
+      "warning": "KHÔNG trộn công thức Millman vào Pythagoras chuẩn."
+    }
+  ],
+
+  "vietnamese_sources": {
+    "doc": "Bản địa VN — độ tin KHÔNG đồng đều, chủ yếu blog/website thương mại. Dùng để hiểu CÁCH bản địa hóa (tên có dấu) + thuật ngữ tiếng Việt, KHÔNG dùng làm chuẩn học thuật.",
+    "items": [
+      {"name": "tracuuthansohoc.com (Louis Nguyễn)", "use": "Bản địa hóa tên Việt, thuật ngữ phổ biến", "trust": "Trung bình — thương mại, nhất quán hệ Pythagoras"},
+      {"name": "JobsGO Blog / Arena FPT / BingGo", "use": "Giải thích đại chúng, bảng chữ cái", "trust": "Thấp-trung — nội dung SEO, cần đối chiếu"},
+      {"name": "Sách dịch tiếng Việt", "use": "Cần tìm: bản dịch Decoz/Cheiro nếu có NXB chính thống", "trust": "Cần xác minh NXB"}
+    ],
+    "need_research": "Xác định có bản dịch tiếng Việt CHÍNH THỐNG (NXB) nào của Cheiro/Decoz/Goodwin không."
+  },
+
+  "missing_to_acquire": {
+    "doc": "DANH MỤC CẦN ĐI TÌM (ưu tiên giảm dần) — feed vào bookflow v2.0 stage 1 (THÊM SÁCH GỐC).",
+    "priority_order": [
+      "1. Cheiro — Book of Numbers (1926) [public domain, nền Chaldean]",
+      "2. Matthew Goodwin — Numerology: The Complete Guide (1981) [giáo trình Pythagorean đầy đủ nhất]",
+      "3. Juno Jordan — The Romance in Your Name (1965) [kinh điển California School]",
+      "4. Florence Campbell — Your Days Are Numbered (1931) [public domain]",
+      "5. L. Dow Balliett — corpus (~1908) [gốc phong trào hiện đại, public domain]",
+      "6. Nicomachus — Introduction to Arithmetic [gốc triết số Pythagoras]",
+      "7. Javane & Bunker — Numerology and the Divine Triangle (1979)",
+      "8. Bản dịch tiếng Việt chính thống (nếu tồn tại)"
+    ],
+    "open_questions": [
+      "Quy tắc bản địa hóa tên Việt CHUẨN: dùng tên có dấu phiên âm hay không dấu? Cần thực chứng đối chiếu kết quả.",
+      "Có corpus tiếng Trung về 'số học' (數字學) tương đương để cross-ref văn hóa Đông không, hay numerology thuần Tây?",
+      "Cách bind Life Path 1-9 ↔ Thiên Can / Ngũ Hành: cần thiết kế cẩn thận, tránh ép phái (Iron Rule #3)."
+    ]
+  }
+}

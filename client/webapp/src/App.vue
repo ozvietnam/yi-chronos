@@ -14,6 +14,7 @@ import UniverseCore from "./components/UniverseCore.vue";
 import MaiHoaClock3D from "./components/MaiHoaClock3D.vue";
 import LucHaoResultPage from "./components/LucHaoResultPage.vue";
 import PytagoEnergyPage from "./components/PytagoEnergyPage.vue";
+import ThanSoPanel from "./components/ThanSoPanel.vue";
 import EnergyWeatherPanel from "./components/EnergyWeatherPanel.vue";
 import PersonalResonance from "./components/PersonalResonance.vue";
 import FeedbackPanel from "./components/FeedbackPanel.vue";
@@ -860,6 +861,7 @@ onBeforeUnmount(() => {
       </section>
 
       <section v-else-if="activeMainTab === 'pytago'" class="maihoa-page" aria-label="Trang trường phái Pytago">
+        <ThanSoPanel />
         <PytagoEnergyPage
           :luc-hao-result="latestLucHaoResult"
           :luc-hao-meta="latestLucHaoMeta"

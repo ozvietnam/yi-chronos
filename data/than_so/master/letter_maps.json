@@ -1,0 +1,70 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "Bảng quy đổi chữ cái → số cho 2 hệ Thần Số Học chính. Pythagoras là hệ DẪN ĐẦU dùng ở VN; Chaldean dùng đối chiếu chéo (Iron Rule #3 đa phái). Kèm quy tắc bản địa hóa tiếng Việt — phần dễ sai nhất.",
+  "sources": [
+    "Hans Decoz & Tom Monte, 'Numerology: Key To Your Inner Self' (worldnumerology.com)",
+    "Juno Jordan, 'Numerology: The Romance in Your Name' (1965)",
+    "Cheiro, 'Cheiro's Book of Numbers' (1926) — hệ Chaldean",
+    "MysticMag Pythagorean Numerology Guide (2026)",
+    "tracuuthansohoc.com — bản địa hóa tiếng Việt"
+  ],
+
+  "pythagorean": {
+    "name_vi": "Hệ Pythagoras (Pythagorean / Western)",
+    "range": "1-9 tuần tự theo thứ tự bảng chữ cái Latin",
+    "note_9": "Số 9 ĐƯỢC gán cho chữ cái (I, R) — khác Chaldean.",
+    "rows": {
+      "1": ["A", "J", "S"],
+      "2": ["B", "K", "T"],
+      "3": ["C", "L", "U"],
+      "4": ["D", "M", "V"],
+      "5": ["E", "N", "W"],
+      "6": ["F", "O", "X"],
+      "7": ["G", "P", "Y"],
+      "8": ["H", "Q", "Z"],
+      "9": ["I", "R"]
+    }
+  },
+
+  "chaldean": {
+    "name_vi": "Hệ Chaldean (Babylon cổ — Cheiro)",
+    "range": "1-8. Số 9 LINH THIÊNG, KHÔNG gán cho chữ cái nào.",
+    "note": "Gán theo 'rung động âm thanh' (sound vibration), không tuần tự. Coi trọng SỐ KÉP (compound number) trước khi rút gọn.",
+    "rows": {
+      "1": ["A", "I", "J", "Q", "Y"],
+      "2": ["B", "K", "R"],
+      "3": ["C", "G", "L", "S"],
+      "4": ["D", "M", "T"],
+      "5": ["E", "H", "N", "X"],
+      "6": ["U", "V", "W"],
+      "7": ["O", "Z"],
+      "8": ["F", "P"]
+    }
+  },
+
+  "vowel_consonant_rule": {
+    "doc": "Phân tách nguyên âm / phụ âm để tính Soul Urge (nguyên âm) và Personality (phụ âm).",
+    "pure_vowels": ["A", "E", "I", "O", "U"],
+    "y_rule": {
+      "vowel_when": "Y là NGUYÊN ÂM khi tạo âm nguyên âm duy nhất trong âm tiết (Lynn, Yvonne, Mary, Betty, Bryan) hoặc khi thêm âm nguyên âm riêng (Nya).",
+      "consonant_when": "Y là PHỤ ÂM khi âm tiết đã có nguyên âm khác (Maloney, Murray) hoặc thay cho âm 'J' mềm (Yolanda, Yoda).",
+      "impact": "Y nguyên âm → vào Soul Urge; Y phụ âm → vào Personality."
+    },
+    "w_rule": "W đôi khi đóng vai nguyên âm trong tiếng Anh nhưng theo Decoz KHÔNG gán trạng thái nguyên âm khi tính Soul Urge — luôn coi là phụ âm."
+  },
+
+  "vietnamese_localization": {
+    "doc": "QUY TẮC BẢN ĐỊA HÓA — root cause của hầu hết sai số khi tính tên người Việt.",
+    "rule_1_strip_diacritics": "Bỏ DẤU THANH và DẤU PHỤ trước khi quy đổi: á à ả ã ạ â ấ ầ... ă → A; é è... ê → E; í ì... → I; ó ò... ô ơ → O; ú ù... ư → U; ý ỳ... → Y.",
+    "rule_2_d_stroke": "Đ/đ → D (gập về D, KHÔNG thành 'DD').",
+    "rule_3_no_compound_split": "KHÔNG tách ghép phụ âm (Ng, Nh, Tr, Ch, Ph, Th, Gh, Kh, Ngh) — tính TỪNG chữ cái Latin riêng lẻ. Ví dụ 'Nguyễn' = N+G+U+Y+E+N.",
+    "rule_4_full_name": "Dùng HỌ + TÊN ĐỆM + TÊN theo giấy khai sinh, đúng thứ tự tiếng Việt. Đây là điểm tranh luận giữa các phái VN — xem journal mục 'Tranh luận bản địa hóa'.",
+    "open_question": "Có nên dùng tên không dấu (chứng minh thư/hộ chiếu) hay phiên âm? Hầu hết nguồn VN dùng tên KHÔNG DẤU latin. Cần đối chiếu thực chứng — đánh dấu là giả định cần kiểm.",
+    "example": {
+      "name": "NGUYEN VAN AN (Nguyễn Văn An, bỏ dấu)",
+      "letters": ["N=5","G=7","U=3","Y=7","E=5","N=5","V=4","A=1","N=5","A=1","N=5"],
+      "system": "pythagorean"
+    }
+  }
+}

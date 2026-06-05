@@ -668,6 +668,27 @@ export function castTuViLaSo({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh"
 
 // ─── YI-Hermes API ─────────────────────────────────────────────────────────
 
+/**
+ * Lập lá số Thần Số Học (Numerology) từ TÊN + NGÀY SINH.
+ * @param {{ name: string, birthDate: string, system?: string, includeChaldean?: boolean, targetYear?: number|null }} p
+ */
+export function castThanSo({ name, birthDate, system = "pythagorean", includeChaldean = true, targetYear = null }) {
+  return request("/api/than-so/cast", {
+    method: "POST",
+    body: JSON.stringify({
+      name,
+      birth_date: birthDate,
+      system,
+      include_chaldean: includeChaldean,
+      target_year: targetYear,
+    }),
+  });
+}
+
+export function thanSoGlossary() {
+  return request("/api/than-so/glossary");
+}
+
 export function yiHermesChat({ userMessage, context = {}, history = [] }) {
   return request(`/api/yi-hermes/chat`, {
     method: "POST",

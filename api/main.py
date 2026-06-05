@@ -1143,6 +1143,42 @@ def lien_hoa_cast(request: LienHoaCastRequest) -> dict[str, object]:
     }
 
 
+# ─── Thần Số Học (Numerology) ────────────────────────────────────────────────
+
+
+class ThanSoCastRequest(BaseModel):
+    name: str
+    birth_date: str  # 'YYYY-MM-DD'
+    system: str = "pythagorean"  # 'pythagorean' | 'chaldean'
+    include_chaldean: bool = True
+    target_year: int | None = None
+
+
+@app.post("/api/than-so/cast")
+def than_so_cast(request: ThanSoCastRequest) -> dict[str, object]:
+    """Lập lá số Thần Số Học từ TÊN + NGÀY SINH (Pythagoras + đối chiếu Chaldean).
+
+    Paradigm đọc đồng dạng (Iron Rule #4/#6) — KHÔNG predict.
+    """
+    from engine.than_so import cast_than_so
+
+    return cast_than_so(
+        name=request.name,
+        birth_date=request.birth_date,
+        system=request.system,
+        include_chaldean=request.include_chaldean,
+        target_year=request.target_year,
+    )
+
+
+@app.get("/api/than-so/glossary")
+def than_so_glossary() -> dict[str, object]:
+    """Bảng ý nghĩa số 1-9 + master 11/22/33 (cho UI tra cứu)."""
+    from engine.than_so.constants import METHOD_ID, number_meanings
+
+    return {"method_id": METHOD_ID, "numbers": number_meanings()}
+
+
 @app.post("/api/bat-tu/cast")
 def bat_tu_cast(request: BatTuCastRequest) -> dict[str, object]:
     """Cast a Bát Tự chart (Tứ trụ + Thập thần + Ngũ hành balance)."""
