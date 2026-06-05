@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "title": "7 Thần Sát — Bát Tự + Mai Hoa nâng cao (Thiệu Vĩ Hoa p99-103)",
+    "iron_rule": "Bảng tra paradigm, KHÔNG predict tuyệt đối"
+  },
+  "quy_nhan_thien_at": {
+    "ten": "Thiên Ất Quý Nhân",
+    "y_nghia": "Cát tinh, sao cứu trợ — gặp việc có người giúp, gặp nạn có người cứu",
+    "bang_tra": {
+      "Giáp": ["Sửu", "Mùi"],
+      "Mậu": ["Sửu", "Mùi"],
+      "Ất": ["Tý", "Thân"],
+      "Kỷ": ["Tý", "Thân"],
+      "Bính": ["Hợi", "Dậu"],
+      "Đinh": ["Hợi", "Dậu"],
+      "Nhâm": ["Mão", "Tỵ"],
+      "Quý": ["Mão", "Tỵ"],
+      "Canh": ["Dần", "Ngọ"],
+      "Tân": ["Dần", "Ngọ"]
+    },
+    "luu_y": "Quý Nhân Can Năm to hơn Quý Nhân Can Ngày. Có cả 2 chữ = 2 quý nhân."
+  },
+  "sao_ma_dich_ma": {
+    "ten": "Sao Mã / Dịch Mã",
+    "y_nghia": "Chạy, động, lao khổ. Nhiều = bôn ba, người phụ nữ có nhiều = bất an",
+    "bang_tra_theo_chi_nam_hoac_ngay": {
+      "Thân-Tý-Thìn": "Dần",
+      "Dần-Ngọ-Tuất": "Thân",
+      "Tỵ-Dậu-Sửu": "Hợi",
+      "Hợi-Mão-Mùi": "Tỵ"
+    },
+    "phan_loai": {
+      "hop": "Sao Mã bị hợp = bị trói chặt, không chạy được. Có như không.",
+      "xung": "Sao Mã bị xung = chạy càng nhanh, sợ chạy nhanh hơn"
+    }
+  },
+  "dao_hoa_ham_tri": {
+    "ten": "Đào Hoa / Hàm Trì",
+    "y_nghia": "Đẹp, thông minh, ham học, khẳng khái, hào phóng, phong lưu",
+    "bang_tra": {
+      "Dần-Ngọ-Tuất": "Mão",
+      "Tỵ-Dậu-Sửu": "Ngọ",
+      "Thân-Tý-Thìn": "Dậu",
+      "Hợi-Mão-Mùi": "Tý"
+    },
+    "phan_loai": {
+      "trong_tuong": "Trên giờ = không, các chỗ khác = Hoa trong tường (ít thị phi)",
+      "ngoai_tuong": "Trên giờ = Hoa ngoài tường (dễ thị phi, mang tiếng)"
+    }
+  },
+  "kinh_duong_duong_nhan": {
+    "ten": "Kình Dương / Dương Nhẫn",
+    "y_nghia": "Kiếp sát, hữu hỉ hữu kỵ. Được Ấn sinh = nắm quyền cao",
+    "bang_tra_theo_can_ngay": {
+      "Giáp": "Mão", "Ất": "Dần",
+      "Bính": "Ngọ", "Mậu": "Ngọ",
+      "Đinh": "Tỵ", "Kỷ": "Tỵ",
+      "Canh": "Dậu", "Tân": "Thân",
+      "Nhâm": "Tý", "Quý": "Hợi"
+    }
+  },
+  "loc_thap_can": {
+    "ten": "Lộc của Thập Can",
+    "y_nghia": "Phúc lộc, hưởng lộc",
+    "bang_tra_theo_can_ngay": {
+      "Giáp": "Dần", "Ất": "Mão",
+      "Bính": "Tỵ", "Mậu": "Tỵ",
+      "Đinh": "Ngọ", "Kỷ": "Ngọ",
+      "Canh": "Thân", "Tân": "Dậu",
+      "Nhâm": "Hợi", "Quý": "Tý"
+    }
+  },
+  "hoa_cai": {
+    "ten": "Sao Hoa Cái",
+    "y_nghia": "Thông minh, hiếu học, nhiều tài, kiêu ngạo, cô độc, xuất gia / tin tôn giáo / tướng số",
+    "bang_tra": {
+      "Dần-Ngọ-Tuất": "Tuất",
+      "Tỵ-Dậu-Sửu": "Sửu",
+      "Thân-Tý-Thìn": "Thìn",
+      "Hợi-Mão-Mùi": "Mùi"
+    }
+  },
+  "thien_la_dia_vong": {
+    "ten": "Thiên La / Địa Võng",
+    "y_nghia": "Phạm hình pháp — nên tôn trọng pháp luật, không liều",
+    "thien_la": ["Tuất", "Hợi"],
+    "dia_vong": ["Thìn", "Tỵ"]
+  },
+
+  "luat_nam_9": {
+    "_paradigm": "Quy luật năm có số 9 = chiến tranh / biến động (Thiệu Vĩ Hoa p92, áp lịch TQ)",
+    "case_history": {
+      "1929": "Quân phiệt cát cứ tàn sát",
+      "1939": "Kháng Nhật phát triển toàn diện",
+      "1949": "Chiến tranh giải phóng",
+      "1959": "Chiến tranh Trung-Ấn",
+      "1969": "Biên giới Trung-Xô",
+      "1979": "Chiến tranh Việt-Trung",
+      "1989": "Sự kiện Thiên An Môn",
+      "1999": "NATO ném bom Belgrade (sứ quán TQ)",
+      "2009": "Khủng hoảng tài chính tiếp tục",
+      "2019": "Hồng Kông biểu tình + COVID khởi phát"
+    },
+    "du_doan_2029": "Theo paradigm này, năm 2029 sẽ có biến động lớn",
+    "disclaim": "Đây là pattern lịch sử TQ, áp VN cần verify riêng. KHÔNG khẳng định tuyệt đối."
+  }
+}
