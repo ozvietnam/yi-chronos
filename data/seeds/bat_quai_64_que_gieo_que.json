@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "title": "Bát Quái + 64 Quẻ + Gieo Quẻ theo thời gian (Thiệu Vĩ Hoa, p381-400)"
+  },
+
+  "tien_thien_bat_quai": {
+    "tac_gia": "Phục Hi (truyền thuyết)",
+    "dung_cho": "SỐ",
+    "so": {"Can": 1, "Doai": 2, "Ly": 3, "Chan": 4, "Ton": 5, "Kham": 6, "Can_2": 7, "Khon": 8}
+  },
+
+  "hau_thien_bat_quai": {
+    "tac_gia": "Chu Văn Vương",
+    "dung_cho": "PHƯƠNG VỊ",
+    "phuong_vi": {
+      "Can": "Tây Bắc",
+      "Kham": "Bắc",
+      "Can_2": "Đông Bắc",
+      "Chan": "Đông",
+      "Ton": "Đông Nam",
+      "Ly": "Nam",
+      "Khon": "Tây Nam",
+      "Doai": "Tây"
+    },
+    "4_cung_duong": ["Càn", "Khảm", "Cấn", "Chấn"],
+    "4_cung_am": ["Tốn", "Ly", "Khôn", "Đoài"]
+  },
+
+  "quy_uoc_thieu_khang_tiet": "Số Tiên Thiên + Phương vị Hậu Thiên cho dự đoán (đại sư Tống). Ngày nay theo đây.",
+
+  "cau_ve_hinh_8_que": "Càn ba liền, Khôn sáu đoạn, Chấn cốc ngửa, Cấn úp xuôi, Ly giữa rỗng, Khảm giữa đầy, Đoài khuyết trên, Tốn khuyết dưới.",
+
+  "8_que_mua_phuong_y_nghia_van_vuong": {
+    "Chan": {"mua": "Xuân", "phuong": "Đông", "y_nghia": "Chúa tạo vạn vật bắt đầu"},
+    "Ton": {"mua": "Cuối Xuân-đầu Hạ", "phuong": "ĐN", "y_nghia": "Vạn vật phân biệt rõ ràng"},
+    "Ly": {"mua": "Hạ", "phuong": "Nam", "y_nghia": "Mặt trời chiếu rõ vạn vật"},
+    "Khon": {"mua": "Cuối Hạ-Thu", "phuong": "TN", "y_nghia": "Quả đất nuôi dưỡng"},
+    "Doai": {"mua": "Thu", "phuong": "Tây", "y_nghia": "Vạn vật ra hoa kết quả"},
+    "Can": {"mua": "Cuối Thu-Đông", "phuong": "TB", "y_nghia": "Sáng tối, âm dương đấu tranh"},
+    "Kham": {"mua": "Đông", "phuong": "Bắc", "y_nghia": "Mặt đất u ám, vạn vật nghỉ ngơi"},
+    "Can_2": {"mua": "Cuối Đông-Xuân", "phuong": "ĐB", "y_nghia": "KẾT THÚC + BẮT ĐẦU (vòng mới)"}
+  },
+
+  "tuong_8_que_van_vat": {
+    "Can": "Trời, vua, cha, rồng, ngựa tốt, vàng, đầu, suôn, mạnh, đạo, đức, biển, lớn, đầy, già, xa, thẳng",
+    "Khon": "Đất, sau, vợ, mẹ, dân, thành, ruộng, bò, ngựa con, xe lớn, bụng, vuông vức, dối lận, tang, loạn, 10 năm",
+    "Kham": "Nước, mặt trăng, mưa, mây, trung nam, khách, giặc, lợn, kế cướp, cung đàn, tai, mông, chết, máu, lao khổ, tâm, ham muốn, độc, học tập, rượu chè",
+    "Ly": "Lửa, mặt trời, điện, trung nữ, chủ nhân, người ác, gà, bò, mắt, văn chương, màu vàng, đại cát, đắng, lỗ mũi, sáng",
+    "Can_2": "Núi, đá, miếu thờ, thiếu nam, hổ, báo, chuột, tay, ngón tay, lưng, dày, tin, nhớ, ngừng, đề phòng, ngôi sao nhỏ",
+    "Doai": "Sông hồ, thiếu nữ, em gái, vợ thiếp, miệng, mỹ dung, vàng, vui mừng, cãi vã"
+  },
+
+  "64_que_thuong_kinh_dao_troi": [
+    "Càn", "Khôn", "Thuần", "Mông", "Nhu", "Tụng", "Sư", "Tỷ", "Tiểu Súc", "Lý",
+    "Thái", "Phủ", "Đồng Nhân", "Đại Hữu", "Khiêm", "Dự", "Tùy", "Cổ", "Lâm", "Quan",
+    "Phệ Hạp", "Bí", "Bóc", "Phục", "Vô Vọng", "Đại Súc", "Di", "Đại Quá", "Khảm", "Ly"
+  ],
+
+  "64_que_ha_kinh_dao_nguoi": [
+    "Hàm", "Hằng", "Độn", "Đại Tráng", "Tấn", "Minh Di", "Gia Nhân", "Khuê", "Kiển", "Giải",
+    "Tổn", "Ích", "Phu", "Cấu", "Tụy", "Thăng", "Khốn", "Tỉnh", "Cách", "Đỉnh",
+    "Chấn", "Cấn", "Tiệm", "Quy Muội", "Phong", "Lữ", "Tốn", "Đoài", "Hoán", "Tiết",
+    "Trung Phù", "Tiểu Quá", "Ký Tế", "Vị Tế"
+  ],
+
+  "vi_te_ket_thuc": "Vị Tế = 'chưa xong' → tuần hoàn vô tận. Đạo trời tuần hoàn mãi, việc đời cũng vô cùng vô tận.",
+
+  "thuat_gieo_que_theo_thoi_gian": {
+    "buoc_1_que_thuong": "(Năm + Tháng + Ngày) % 8 → Tiên Thiên Bát Quái",
+    "buoc_2_que_ha": "(Năm + Tháng + Ngày + Giờ) % 8 → Tiên Thiên Bát Quái",
+    "buoc_3_hao_dong": "(Năm + Tháng + Ngày + Giờ) % 6 → hào động (1-6)",
+    "luu_y": "Nếu dư = 0 → lấy 8 cho quẻ (Khôn), 6 cho hào (hào 6)",
+
+    "vi_du_tvh_1993": {
+      "input": "Giờ Sửu (2), ngày 3 tháng 3 nhuận, năm Quý Dậu 1993 (Dậu=10)",
+      "que_thuong": "10+3+3 = 16, %8 = 0 → 8 = KHÔN",
+      "que_ha": "10+3+3+2 = 18, %8 = 2 → ĐOÀI",
+      "hao_dong": "18%6 = 0 → hào 6",
+      "que_goc": "Khôn (trên) + Đoài (dưới) = ĐỊA TRẠCH LÂM, hào 6 động"
+    }
+  },
+
+  "3_cach_gieo_que_khac": {
+    "so_vat_dem_duoc": {
+      "que_thuong": "Số vật đếm được",
+      "que_ha": "Số vật + giờ",
+      "hao_dong": "(Số vật + giờ) % 6"
+    },
+    "so_tieng_nghe": {
+      "que_thuong": "Số tiếng nghe (gõ cửa, động vật kêu) % 8",
+      "que_ha": "(Số tiếng + giờ) % 8",
+      "hao_dong": "(Số quẻ thượng + giờ) % 6"
+    },
+    "so_chu_viet": {
+      "que_thuong": "Số chữ chia 2 (phần đầu) % 8",
+      "que_ha": "Số chữ chia 2 (phần cuối) % 8",
+      "hao_dong": "(Tổng số chữ + giờ) % 6"
+    }
+  }
+}
