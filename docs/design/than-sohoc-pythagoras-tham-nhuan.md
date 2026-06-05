@@ -149,10 +149,20 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
   `data/restored_books/cheiro-book-of-numbers/` + `chaldean_compound_numbers.json` (số kép 10-32).
   Wiki +6 concept số kép → Thần Số Học = 18 concepts. Ledger cập nhật.
 
-**CHƯA LÀM (chờ Anh):**
-- [ ] Attach PDF nguyên tác Cheiro (Stage 1) + dịch chương ứng dụng + Stage 6 PDF publish
-- [ ] Restore tiếp Goodwin / Juno Jordan trong danh mục
-- [ ] Thiết kế cross-bind Life Path ↔ Thiên Can/Ngũ Hành (cẩn thận, tránh ép phái)
+**ĐÃ XONG (v4, 2026-06-05 — "việc phiên sau"):**
+- ✅ **Cross-bind Life Path ↔ Ngũ Hành/Thiên Can** (Iron Rule #3 — đối chiếu, KHÔNG ép):
+  `data/than_so/master/cross_bind_dong_phuong.json` + `engine/than_so/cross_bind.py`
+  (tái dùng `ha_do_lac_thu.py`). **3 cầu nối độc lập**: Hà Đồ + Lạc Thư/Cửu Cung + hành tinh Cheiro.
+  Phát hiện: số 3 cả 3 cầu = MỘC (đồng thuận mạnh); số 9 phân kỳ (Hà Đồ Kim vs Lạc Thư/Cheiro Hỏa).
+  Wired vào `cast_than_so` + UI `ThanSoPanel.vue` (bảng đối chiếu) + wiki concept. Tests 18 PASS.
+- ✅ **Bản quyền làm rõ**: Cheiro 1926 = PD từ 2022 (OK). Balliett 1908 = PD. **Campbell 1931 → PD 2027-01-01**
+  (95 năm) — hiện còn bản quyền: restore method OK, publish PDF chờ 2027. Goodwin/Juno Jordan = reference-only.
+
+**CHƯA LÀM (ngoài tầm em — cần Anh / môi trường):**
+- [ ] ❌ Attach PDF gốc Cheiro — network allowlist chặn archive.org (cần Anh allowlist hoặc upload tay)
+- [ ] ❌ Re-render PDF design chuẩn — env thiếu pandoc + WeasyPrint (apt bị chặn)
+- [ ] Restore Goodwin/Juno Jordan — chờ mua bản quyền hợp pháp
+- [ ] Publish PDF Campbell — chờ 2027-01-01
 
 ---
 

@@ -8,6 +8,7 @@ from datetime import date
 
 from .constants import METHOD_ID, SOURCE_REF
 from .core_numbers import compute_core
+from .cross_bind import cross_bind_dong_phuong
 from .cycles import period_cycles, personal_year, pinnacles_and_challenges
 from .interpretation import compose_reading
 from .name_calculator import normalize_vietnamese
@@ -25,6 +26,7 @@ def cast_than_so(
     birth_date: str,
     system: str = "pythagorean",
     include_chaldean: bool = True,
+    include_dong_phuong: bool = True,
     target_year: int | None = None,
 ) -> dict:
     """name: họ tên đầy đủ (có dấu được — sẽ tự chuẩn hóa).
@@ -67,5 +69,12 @@ def cast_than_so(
             "expression": chaldean_core["expression"]["value"],
             "soul_urge": chaldean_core["soul_urge"]["value"],
             "personality": chaldean_core["personality"]["value"],
+        }
+
+    if include_dong_phuong:
+        # Đối chiếu Đông phương (Iron Rule #3) cho Số Đường Đời + Số Sứ Mệnh.
+        result["dong_phuong_doi_chieu"] = {
+            "life_path": cross_bind_dong_phuong(core["life_path"]["value"]),
+            "expression": cross_bind_dong_phuong(core["expression"]["value"]),
         }
     return result
