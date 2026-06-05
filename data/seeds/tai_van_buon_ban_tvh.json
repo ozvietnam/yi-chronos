@@ -1,0 +1,117 @@
+{
+  "_meta": {
+    "title": "Tài Vận + Buôn Bán + Người đi xa (Thiệu Vĩ Hoa Ch.19-20, p284-300)"
+  },
+
+  "tai_van": {
+    "_paradigm_cot": "Tài là gốc, Phúc (Tử Tôn) là nguồn — cả hai vượng = nước có nguồn",
+
+    "cat_tuong_cau_tai": [
+      "Phúc sinh Tài (Tử Tôn động sinh Thê Tài) = nước có nguồn",
+      "Tử Tôn lâm Nguyệt Kiến + Nhật Thần động sinh Tài",
+      "Tử Tôn + Thanh Long động sinh Tài → tài vận hanh thông",
+      "Hào Quan Quỷ động sinh Thế → cơ quan/doanh nghiệp mãn ý",
+      "Tài + Phúc hợp Thế thành tài cục → cá nhân/tập thể đều nhiều",
+      "Tài khắc Thế = của tìm đến mình",
+      "Quẻ Khôn + Long Đức + Tử Tôn = con thông minh"
+    ],
+
+    "hung_tuong_cau_tai": [
+      "Quẻ không có Tài hoặc Tử Tôn → cầu vô ích",
+      "Hào Huynh Đệ động + KHÔNG Quan Quỷ chế → kiếp tài chắc chắn",
+      "Hào Huynh Đệ lâm Tuế Quân → suốt năm hao (case 1988)",
+      "Phụ Mẫu + Huynh Đệ đều động = 'vớt trăng đáy ao'",
+      "Hào Thế khắc Hào Tài → đừng cầu",
+      "Tài hóa Quan Quỷ khắc Thế = đại hung",
+      "Năm hào gặp Quan Quỷ + Bạch Hổ → phong ba; Huyền Vũ → cướp giật"
+    ]
+  },
+
+  "6_thoi_diem_ung_nghiem_tai": {
+    "dong_gap_tuyet": "Ngày sinh vượng",
+    "gap_xung": "Ngày hợp",
+    "gap_yen_tinh": "Ngày xung",
+    "nhap_mo_hop_chat": "Ngày XUNG KHAI",
+    "dong_gap_nguyet_pha": "Ngày phùng hợp",
+    "phuc_tang": "Ngày XUẤT HIỆN"
+  },
+
+  "buon_ban": {
+    "_paradigm_cot": "Hào Thế = mình; Hào Ứng = khách/đối tác/kế toán",
+
+    "the_ung_quan_he": {
+      "sinh_nhau": "Đồng tâm hiệp lực — càng làm càng mạnh",
+      "khac_nhau_xung_nhau": "Bạn cũ thành thù",
+      "deu_tuan_khong": "Nghi ngờ giả dối → ĐỪNG mở cửa hàng",
+      "the_thai_+_ung_huynh": "Bị trộm/lừa",
+      "the_thai_+_ung_tu_ton": "Bị hà hiếp",
+      "the_thai_+_ung_phu_mau": "Bị người khác lừa"
+    },
+
+    "tien_thoai_gia_ca": {
+      "tai_hoa_tien_than": "Giá LÊN → MUA vào",
+      "tai_hoa_thoai_than": "Giá XUỐNG → BÁN nhanh, đừng mua",
+      "tai_suy_bien_vuong": "Trước rẻ, tương lai lên",
+      "tai_vuong_bien_suy_tuyet": "BÁN mau + NGỪNG mua"
+    },
+
+    "ban_mua_dia_ly": {
+      "tai_vuong": "BÁN mau",
+      "tai_suy": "MUA chậm",
+      "tai_que_noi_vuong": "Bán vùng gần",
+      "tai_que_ngoai_vuong": "Đi nơi khác BÁN",
+      "the_hoa_thoai": "Quay về vùng mình"
+    },
+
+    "que_phan_ngam": {
+      "y_nghia": "Việc lặp đi lặp lại, không trôi chảy",
+      "khuyen_cao": "Cửa hàng cũ phải ĐÓNG cửa"
+    },
+
+    "luc_hop_luc_xung": {
+      "que_luc_hop": "Cửa hàng hưng vượng",
+      "luc_hop_bien_luc_xung": "Hiện tại hưng vượng, tương lai tiêu điều"
+    }
+  },
+
+  "case_ngan_phieu_gia_1993": {
+    "_paradigm": "Đoán đúng + cứu nhà nước 5 TỶ NDT (p295)",
+    "ngay_doan": "9/2/1993 (Tân Tý / Giáp Dần)",
+    "tinh_huong": "Người nước ngoài ở Thẩm Quyến có ngân phiếu 50 triệu USD, muốn đổi 5 tỷ NDT",
+    "que": "Khảm của Lữ",
+    "phan_tich_tvh": [
+      "Thê tài Dậu Kim (= đối phương) ở đất HƯ TÙ",
+      "Tuần KHÔNG",
+      "Hóa THOÁI thần",
+      "Quẻ biến LỤC XUNG"
+    ],
+    "khang_dinh": "Phiếu GIẢ — tuyệt đối không đổi",
+    "ket_qua": "Kiểm tra GIẢ THẬT → nhà nước đỡ mất 5 TỶ NDT"
+  },
+
+  "con_cai_tot_xau": {
+    "_paradigm": "Tử Tôn vượng/suy quyết định chất lượng con (p282-283)",
+    "con_quy_hien": "Tử Tôn + Lộc/Mã/Quý Nhân",
+    "con_nuoi": "Tử Tôn từ cung khác hóa ra",
+    "con_ngo_nguoc": "Hào Thế vượng + Tử Tôn khắc Thế",
+    "con_beo_de_nuoi": "Tử Tôn vượng tướng",
+    "con_gay_yeu": "Tử Tôn hưu tù bị khắc",
+    "sua_nhieu": "Tử Tôn vượng tướng",
+    "sua_it": "Tử Tôn hưu tù không phá",
+    "con_chet_yeu": "Tử Tôn hóa Quan Quỷ / Phụ Mẫu",
+    "con_hiếu_thuan": "Hào Tử Tôn trì Thế",
+    "con_thanh_dat": "Hào Tử Tôn lâm Tuế Quân (tượng quân)"
+  },
+
+  "nguoi_di_xa": {
+    "_paradigm": "Người đi xa = hành động vận động, có cát có hung (Ch.20 p296+)",
+    "dung_than": "Lục thân tương ứng (vd con đi xa = Tử Tôn); nếu không có = Hào Ứng",
+    "khi_nao_ve": {
+      "som": "Đoán theo ngày, giờ",
+      "muon": "Đoán theo năm, tháng",
+      "dung_than_dong_khac_the": "Trở về NHANH",
+      "dung_than_dong_sinh_the": "Về hơi muộn",
+      "dung_than_o_hao_3_4": "Cửa ngõ — chờ ngày sẽ về"
+    }
+  }
+}
