@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "title": "18 vấn đề thường đoán — Mai Hoa Dịch Số (Thiệu Vĩ Hoa p149-155)",
+    "paradigm_cot": "Thể khắc Dụng=CÁT, Dụng khắc Thể=HUNG, Dụng sinh Thể=tin mừng, Thể sinh Dụng=hao tổn, Ngang nhau=thuận lợi"
+  },
+
+  "van_de": {
+    "thoi_tiet": {"the": "(xem toàn quẻ Chủ-Hỗ-Biến)", "dung": "8 quẻ ↔ 8 hiện tượng (Ly=nắng, Khảm=mưa, Khôn=u ám, Càn=sáng, Chấn=sấm, Tốn=gió, Cấn=mưa lâu tạnh, Đoài=âm u)"},
+    "nhan_su": {"the": "Chủ (người đến hỏi)", "dung": "Khách (sự việc)"},
+    "nha_cua": {"the": "Mình", "dung": "Nhà"},
+    "nha_o": {"the": "Mình", "dung": "Việc làm nhà"},
+    "hon_nhan": {
+      "the": "Nhà đến", "dung": "Nhà kia",
+      "8_que_tuong_nguoi": {
+        "Càn": "Đoan chính, con trưởng",
+        "Khảm": "Đa tình, đa nghi, ghen tuông",
+        "Cấn": "Sắc vàng, khéo léo",
+        "Chấn": "Đẹp",
+        "Tốn": "Tóc thưa, xấu, tham lam",
+        "Ly": "Thấp, sắc đỏ, tính bất thường",
+        "Khôn": "Dung nhan xấu, bụng to, sắc vàng",
+        "Đoài": "Cao, da trắng, ăn nói vui tươi"
+      }
+    },
+    "sinh_de": {
+      "the": "Mẹ", "dung": "Việc sinh nở",
+      "doan_trai_gai": "Quẻ Chủ dương + hào dương nhiều = trai; âm nhiều = gái; bằng = xem số người ngồi quanh"
+    },
+    "an_uong": {
+      "the": "Mình", "dung": "Thức ăn",
+      "luu_y": "Khảm = rượu, Đoài = thức ăn. Không có cả 2 = không có ăn uống."
+    },
+    "cau_muu": {"the": "Mình", "dung": "Việc mưu cầu"},
+    "cau_danh": {
+      "the": "Mình", "dung": "Danh",
+      "luu_y": "Quẻ khắc Thể khi đoán nhậm chức = LÀM QUAN BỊ TAI HỌA"
+    },
+    "cau_tai": {"the": "Mình", "dung": "Tài"},
+    "giao_dich": {"the": "Mình", "dung": "Việc giao dịch"},
+    "xuat_hanh": {
+      "the": "Mình", "dung": "Việc sắp đi",
+      "8_que_phuong_thuc": {
+        "Càn": "Chủ động", "Chấn": "Chủ động",
+        "Khôn": "Bị động", "Cấn": "Bị động",
+        "Tốn": "Đi thuyền",
+        "Ly": "Đi đường bộ",
+        "Khảm": "Đề phòng thất thoát",
+        "Đoài": "Có sự chia rẽ"
+      }
+    },
+    "nguoi_di_xa": {
+      "the": "Mình", "dung": "Người ở xa",
+      "luu_y": "Chấn nhiều=không yên, Cấn=trở ngại, Khảm=nguy hiểm, Đoài=va chạm chia rẽ"
+    },
+    "mong_gap": {"the": "Mình", "dung": "Người định gặp"},
+    "mat_do_vat": {
+      "the": "Mình", "dung": "Vật mất",
+      "8_que_bien_cho_tim": {
+        "Càn": "Tây Bắc, lầu gác, kim loại, vật tròn, đất cao",
+        "Khôn": "Tây Nam, đồng ruộng, nhà kho, hang đất",
+        "Chấn": "Đông, rừng núi, gần chuông/trống, chợ búa",
+        "Tốn": "Đông Nam, chùa chiền, vườn rau, đồ gỗ",
+        "Khảm": "Bắc, mép nước, giếng mương, rượu/dấm/muối/cá",
+        "Ly": "Nam, bếp lò, nhà bỏ hoang, khói lửa",
+        "Cấn": "Đông Bắc, rừng núi, tảng đá, chôn dưới đất",
+        "Đoài": "Tây, bờ ao, tường nát, giếng cũ, ao đầm"
+      }
+    },
+    "benh_tat": {
+      "the": "Bệnh nhân", "dung": "Chứng bệnh",
+      "thuoc_theo_que_sinh_the": {
+        "Ly": "Thuốc NHIỆT",
+        "Khảm": "Thuốc HÀN",
+        "Cấn": "Thuốc ÔN BỔ",
+        "Càn": "Thuốc MÁT",
+        "Đoài": "Thuốc MÁT"
+      }
+    },
+    "kien_tung": {"the": "Mình", "dung": "Đối phương"},
+    "mo_ma": {"the": "Mình", "dung": "Mộ mả"}
+  }
+}
