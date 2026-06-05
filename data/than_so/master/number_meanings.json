@@ -1,0 +1,99 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "Ý nghĩa từng số 1-9 + số chủ 11/22/33. Mỗi số có 2 lớp: (a) nghĩa kinh điển Pythagoras; (b) framing ĐỒNG DẠNG của YI-Chronos (số = tấm gương cấu trúc tâm-thiên-thân, KHÔNG predict). Nguồn: Decoz, Juno Jordan, đối chiếu consensus.",
+  "paradigm_note": "Pythagoras: 'Vạn vật là số' (All is number) — vũ trụ vận hành theo số. Đây CHÍNH là paradigm đồng dạng (micro=macro) của Iron Rule #4/#6, chỉ khác phương tiện. Số phản chiếu Tính, không bói tương lai.",
+
+  "numbers": {
+    "1": {
+      "archetype_vi": "Người Tiên Phong / Thủ Lĩnh",
+      "keywords": ["độc lập", "khởi đầu", "ý chí", "lãnh đạo", "sáng tạo nguyên thủy"],
+      "strengths": "Tự chủ, quyết đoán, dám đi đầu, nguyên bản.",
+      "shadow": "Độc đoán, cô lập, ích kỷ, áp đặt.",
+      "dong_dang": "Khí Dương khởi nguyên — như hào sơ động, như Càn khởi. Cái Một sinh vạn vật."
+    },
+    "2": {
+      "archetype_vi": "Người Hòa Giải / Ngoại Giao",
+      "keywords": ["hợp tác", "nhạy cảm", "cân bằng", "kiên nhẫn", "đối ngẫu"],
+      "strengths": "Tinh tế, biết lắng nghe, dung hòa, hỗ trợ.",
+      "shadow": "Phụ thuộc, do dự, dễ tổn thương, né tránh xung đột.",
+      "dong_dang": "Âm-Dương phân lưỡng nghi — cần cái khác để thành. Số của giao thoa (quẻ Thái)."
+    },
+    "3": {
+      "archetype_vi": "Người Sáng Tạo / Biểu Đạt",
+      "keywords": ["giao tiếp", "nghệ thuật", "niềm vui", "tưởng tượng", "lan tỏa"],
+      "strengths": "Truyền cảm, lạc quan, có duyên ngôn ngữ.",
+      "shadow": "Hời hợt, tản mạn, phô trương, thiếu kỷ luật.",
+      "dong_dang": "Tam Tài (Thiên-Địa-Nhân) — số của sự sinh nở biểu hiện ra hình tướng."
+    },
+    "4": {
+      "archetype_vi": "Người Kiến Tạo / Trụ Cột",
+      "keywords": ["ổn định", "kỷ luật", "trật tự", "lao động", "nền móng"],
+      "strengths": "Đáng tin, bền bỉ, thực tế, có hệ thống.",
+      "shadow": "Cứng nhắc, bảo thủ, ngại đổi thay, khô khan.",
+      "dong_dang": "Tứ tượng, bốn phương — số của khung sườn vật chất, đất chịu tải."
+    },
+    "5": {
+      "archetype_vi": "Người Tự Do / Phiêu Lưu",
+      "keywords": ["thay đổi", "tự do", "trải nghiệm", "giác quan", "thích nghi"],
+      "strengths": "Linh hoạt, ham học, cuốn hút, thích nghi nhanh.",
+      "shadow": "Bốc đồng, sa đà, thiếu cam kết, mất gốc.",
+      "dong_dang": "Ngũ Hành, trung tâm Lạc Thư — số của vận động, chuyển hóa giữa các trạng thái."
+    },
+    "6": {
+      "archetype_vi": "Người Chăm Sóc / Trách Nhiệm",
+      "keywords": ["gia đình", "trách nhiệm", "hài hòa", "phụng sự", "yêu thương"],
+      "strengths": "Tận tụy, ấm áp, công bằng, biết chữa lành.",
+      "shadow": "Ôm đồm, kiểm soát, hy sinh quá mức, can thiệp.",
+      "dong_dang": "Lục hợp — số của nuôi dưỡng, như Khôn chở vạn vật, như quẻ Khiêm (6 hào đều cát)."
+    },
+    "7": {
+      "archetype_vi": "Người Tầm Đạo / Phân Tích",
+      "keywords": ["nội quán", "tâm linh", "trí tuệ", "ẩn dật", "chân lý"],
+      "strengths": "Sâu sắc, trực giác, độc lập tư duy, minh triết.",
+      "shadow": "Cô độc, hoài nghi, xa cách, lạnh lùng.",
+      "dong_dang": "Thất tinh, số của quan-vật-trace-tính — đi vào trong để hiểu cái lớn. Gần paradigm Mai Hoa nhất."
+    },
+    "8": {
+      "archetype_vi": "Người Quyền Lực / Chủ Vật Chất",
+      "keywords": ["quyền uy", "sung mãn", "tham vọng", "công bằng nhân quả", "tổ chức"],
+      "strengths": "Bản lĩnh, tầm nhìn lớn, làm chủ vật chất, công minh.",
+      "shadow": "Tham lam, thống trị, đặt nặng tiền-quyền, lạnh lùng.",
+      "dong_dang": "Bát Quái — số của tuần hoàn nhân-quả vật chất (gieo-gặt). Vô cực ∞ dựng đứng."
+    },
+    "9": {
+      "archetype_vi": "Người Nhân Đạo / Hoàn Tất",
+      "keywords": ["từ bi", "lý tưởng", "phụng sự nhân loại", "buông bỏ", "viên mãn"],
+      "strengths": "Rộng lượng, vị tha, nghệ sĩ tâm hồn, bao dung.",
+      "shadow": "Mơ mộng, tử vì đạo, khó buông, xa rời thực tế.",
+      "dong_dang": "Cửu cung, số tận cùng trước khi quay vòng — số 'linh thiêng' của Chaldean. Hoàn tất một chu kỳ (quẻ Ký Tế → Vị Tế)."
+    },
+    "11": {
+      "is_master": true,
+      "reduces_to": 2,
+      "archetype_vi": "Bậc Trực Giác / Khải Thị (Master of 2)",
+      "keywords": ["trực giác siêu việt", "soi sáng", "tâm linh", "nhạy cảm cao độ"],
+      "strengths": "Linh cảm mạnh, truyền cảm hứng, kênh dẫn tinh thần.",
+      "shadow": "Căng thẳng thần kinh, mộng tưởng, dao động cực đoan giữa 11 và 2.",
+      "dong_dang": "Hai cây cột — cổng giữa hai thế giới. Trực giác = dấu hiệu sớm (ngoại ứng Mai Hoa)."
+    },
+    "22": {
+      "is_master": true,
+      "reduces_to": 4,
+      "archetype_vi": "Bậc Kiến Tạo Vĩ Đại (Master of 4)",
+      "keywords": ["hiện thực hóa tầm nhìn lớn", "kiến trúc sư bậc thầy", "thực tiễn + tâm linh"],
+      "strengths": "Biến lý tưởng thành công trình hữu hình ở quy mô lớn.",
+      "shadow": "Áp lực khổng lồ, dễ sụp về 4 tầm thường nếu né trách nhiệm.",
+      "dong_dang": "Trực giác 11 + nền móng 4 = đem Trời xuống Đất. Cao nhất trong các master."
+    },
+    "33": {
+      "is_master": true,
+      "reduces_to": 6,
+      "archetype_vi": "Bậc Thầy Chữa Lành / Đạo Sư (Master of 6)",
+      "keywords": ["phụng sự vô điều kiện", "tình thương phổ quát", "dạy dỗ", "hy sinh"],
+      "strengths": "Nâng đỡ nhân loại bằng từ bi và minh triết.",
+      "shadow": "Gánh quá nặng, tử đạo, kiệt sức. Rất hiếm thực sự đạt 33.",
+      "dong_dang": "Trách nhiệm 6 ở tầng vũ trụ — thầy của những người thầy. Lao Khiêm tột bậc."
+    }
+  }
+}

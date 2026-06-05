@@ -1,0 +1,98 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "Định nghĩa + công thức 6 SỐ CỐT LÕI + các số mở rộng của Thần Số Học Pythagoras. Tính từ TÊN ĐẦY ĐỦ + NGÀY SINH.",
+  "reduction_rule": {
+    "doc": "Quy tắc rút gọn: cộng dồn các chữ số đến khi còn 1 chữ số (1-9), TRỪ KHI gặp số chủ 11, 22, 33 thì GIỮ NGUYÊN không rút.",
+    "master_numbers": [11, 22, 33],
+    "example": "29 → 2+9 = 11 (DỪNG, là master). 28 → 2+8 = 10 → 1+0 = 1."
+  },
+
+  "core_six": [
+    {
+      "id": "life_path",
+      "name_vi": "Số Đường Đời / Số Chủ Đạo",
+      "name_en": "Life Path Number",
+      "importance": "QUAN TRỌNG NHẤT — xương sống của lá số.",
+      "input": "Toàn bộ NGÀY SINH (ngày + tháng + năm dương lịch).",
+      "formula": "Rút gọn riêng Ngày, Tháng, Năm về 1 chữ số (giữ master), rồi cộng 3 kết quả và rút gọn lần cuối (giữ master). Đây là PHƯƠNG PHÁP CHUẨN của Decoz, tránh sai số so với cách cộng tràn tất cả chữ số.",
+      "example": "23/11/1990 → Ngày 23→5; Tháng 11→11 (giữ); Năm 1990→19→10→1. Tổng 5+11+1=17→8. Life Path = 8.",
+      "meaning_key": "con-duong-muc-dich-song",
+      "paradigm_note": "ĐỌC ĐỒNG DẠNG: khoảnh khắc sinh phản chiếu cấu trúc nào của vũ trụ — KHÔNG predict cát/hung."
+    },
+    {
+      "id": "expression",
+      "name_vi": "Số Sứ Mệnh / Số Vận Mệnh",
+      "name_en": "Expression / Destiny Number",
+      "input": "TẤT CẢ chữ cái trong tên đầy đủ khai sinh.",
+      "formula": "Quy đổi mọi chữ cái → số (Pythagoras), cộng dồn, rút gọn (giữ master).",
+      "meaning_key": "tai-nang-thien-bam-muc-tieu",
+      "note": "Tính riêng từng tên (Họ / Đệm / Tên) rồi cộng — kết quả tương đương cộng cả cụm, nhưng tách giúp debug."
+    },
+    {
+      "id": "soul_urge",
+      "name_vi": "Số Linh Hồn / Số Khát Vọng",
+      "name_en": "Soul Urge / Heart's Desire Number",
+      "input": "Chỉ NGUYÊN ÂM trong tên đầy đủ (kèm Y khi Y là nguyên âm).",
+      "formula": "Cộng giá trị các nguyên âm, rút gọn (giữ master).",
+      "meaning_key": "khat-vong-noi-tam-dong-luc"
+    },
+    {
+      "id": "personality",
+      "name_vi": "Số Nhân Cách / Số Thể Hiện",
+      "name_en": "Personality Number",
+      "input": "Chỉ PHỤ ÂM trong tên đầy đủ (kèm Y khi Y là phụ âm).",
+      "formula": "Cộng giá trị các phụ âm, rút gọn (giữ master).",
+      "meaning_key": "an-tuong-ben-ngoai-cach-nguoi-khac-nhin"
+    },
+    {
+      "id": "birthday",
+      "name_vi": "Số Ngày Sinh",
+      "name_en": "Birthday Number",
+      "input": "Chỉ NGÀY trong tháng (1-31).",
+      "formula": "Rút gọn ngày về 1 chữ số (một số phái giữ nguyên 1-31 để đọc tài năng đặc thù).",
+      "meaning_key": "tai-nang-dac-biet-mon-qua"
+    },
+    {
+      "id": "maturity",
+      "name_vi": "Số Trưởng Thành / Số Thực Tại",
+      "name_en": "Maturity / Realization Number",
+      "input": "Life Path + Expression.",
+      "formula": "Cộng Số Đường Đời + Số Sứ Mệnh, rút gọn (giữ master). Thể hiện mục tiêu tổng hòa lộ rõ sau tuổi ~35.",
+      "meaning_key": "muc-tieu-hop-nhat-nua-sau-doi"
+    }
+  ],
+
+  "extended_numbers": [
+    {
+      "id": "balance",
+      "name_vi": "Số Cân Bằng",
+      "name_en": "Balance Number",
+      "formula": "Cộng giá trị các chữ cái ĐẦU của mỗi tên (initials), rút gọn. Cách lấy lại quân bình khi căng thẳng."
+    },
+    {
+      "id": "rational_thought",
+      "name_vi": "Số Tư Duy Lý Trí",
+      "name_en": "Rational Thought Number",
+      "formula": "Số ngày sinh (rút gọn) + Số Sứ Mệnh của TÊN GỌI. Cách tư duy/ra quyết định."
+    },
+    {
+      "id": "subconscious_self",
+      "name_vi": "Số Tự Ngã Tiềm Thức",
+      "name_en": "Subconscious Self Number",
+      "formula": "9 trừ đi số 'Karmic Lessons' (số chữ-số còn thiếu trong tên). Mức độ tự tin xử lý tình huống bất ngờ."
+    },
+    {
+      "id": "karmic_lessons",
+      "name_vi": "Bài Học Nghiệp (số thiếu)",
+      "name_en": "Karmic Lessons",
+      "formula": "Những số 1-9 KHÔNG xuất hiện trong tên đầy đủ = bài học còn thiếu, cần rèn trong đời này."
+    },
+    {
+      "id": "hidden_passion",
+      "name_vi": "Số Đam Mê Tiềm Ẩn",
+      "name_en": "Hidden Passion Number",
+      "formula": "Chữ-số xuất hiện NHIỀU LẦN NHẤT trong tên = tài năng/ám ảnh nổi trội."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-06-05",
+  "doc": "Số Nợ Nghiệp (Karmic Debt) 13/14/16/19 — xuất hiện khi tổng TRƯỚC KHI rút gọn của một số cốt lõi là 13, 14, 16 hoặc 19. Đánh dấu 'bài học còn dang dở' cần hoàn trong đời này. Nguồn: Decoz, consensus numerology.",
+  "paradigm_note": "ĐỌC ĐỒNG DẠNG, KHÔNG dọa nghiệp báo: số nợ nghiệp = vùng cấu trúc mất cân bằng cần quan-sát và rèn, không phải 'án phạt tiền kiếp'. Tránh tone hù dọa.",
+
+  "detection_rule": "Khi rút gọn một số cốt lõi (Life Path, Expression, ...) mà bước trung gian rơi vào 13/14/16/19 thì ghi nhận nợ nghiệp tương ứng. VD: 13→4 là '4 mang nợ 13'.",
+
+  "karmic_debts": {
+    "13": {
+      "reduces_to": 4,
+      "theme_vi": "Nợ về LAO ĐỘNG & KỶ LUẬT",
+      "past_pattern": "Kiếp trước né tránh việc, dựa dẫm, lười nhác.",
+      "this_life": "Phải rèn tập trung, kiên trì, làm việc chăm chỉ và có trật tự. Hay gặp cản trở khiến nản — vượt qua bằng chuyên cần.",
+      "dong_dang": "Như Tiểu Súc/Đại Súc — tích lũy bằng bền bỉ, không đi tắt."
+    },
+    "14": {
+      "reduces_to": 5,
+      "theme_vi": "Nợ về TỰ DO & CHỪNG MỰC",
+      "past_pattern": "Kiếp trước lạm dụng tự do, sa đà dục lạc, vô độ.",
+      "this_life": "Học điều độ, thích nghi với thay đổi mà không buông thả; tránh nghiện ngập, thất thường. Tự do đi cùng cam kết.",
+      "dong_dang": "Ngũ Hành lệch — vận động cần có trục, không tán loạn."
+    },
+    "16": {
+      "reduces_to": 7,
+      "theme_vi": "Nợ về BẢN NGÃ & TÌNH ÁI",
+      "past_pattern": "Kiếp trước kiêu mạn, để cái tôi/ái dục làm tổn thương người.",
+      "this_life": "Trải 'sụp đổ tháp' để tái sinh tinh thần: ego cũ vỡ → khiêm hạ → ngộ. Quan hệ hay biến động để học buông chấp.",
+      "dong_dang": "Quẻ Bác (剝) → tước rụng cái cũ; rồi Phục (復) hồi sinh."
+    },
+    "19": {
+      "reduces_to": 1,
+      "theme_vi": "Nợ về QUYỀN LỰC & ĐỘC LẬP",
+      "past_pattern": "Kiếp trước lạm quyền, ích kỷ, đè nén người khác để tiến thân.",
+      "this_life": "Học tự lập mà KHÔNG ích kỷ; biết nhận trợ giúp và trao đi. 'Đứng một mình nhưng không cô lập'.",
+      "dong_dang": "Càn quá cương tất gãy — hào thượng cửu 'kháng long hữu hối'."
+    }
+  },
+
+  "note_master_vs_karmic": "Đừng nhầm: 11/22/33 = số CHỦ (master, tiềm năng cao + thử thách cao); 13/14/16/19 = số NỢ (karmic debt, bài học chưa xong). Cả hai đều là 'cấu trúc cần quan-sát', không phải nhãn tốt/xấu cố định."
+}
