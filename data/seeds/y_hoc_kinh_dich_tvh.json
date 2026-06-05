@@ -1,0 +1,143 @@
+{
+  "_meta": {
+    "title": "Y học Kinh Dịch — Bệnh tật (Thiệu Vĩ Hoa Ch.22, p325-340)",
+    "iron_rule": "DISCLAIM: paradigm tham chiếu, BẮT BUỘC khám bác sĩ, không thay y khoa"
+  },
+
+  "8_quai_co_the": {
+    "Can": {"ngoai": "Đầu", "noi": "Phổi"},
+    "Doai": {"ngoai": "Miệng", "noi": "Phổi"},
+    "Ly": {"ngoai": "Mắt", "noi": "TIM"},
+    "Chan": {"ngoai": "Chân", "noi": "GAN"},
+    "Ton": {"ngoai": "Đùi", "noi": "Mật"},
+    "Kham": {"ngoai": "Tai", "noi": "THẬN"},
+    "Can_2": {"ngoai": "Tay (Cấn)", "noi": "Lá lách (tỳ)"},
+    "Khon": {"ngoai": "Bụng", "noi": "Dạ dày"}
+  },
+
+  "5_hanh_co_quan": {
+    "Thuy": "Thận",
+    "Moc": "Gan",
+    "Hoa": "Tim",
+    "Tho": "Lá lách / Dạ dày",
+    "Kim": "Phổi"
+  },
+
+  "quan_quy_hanh_benh": {
+    "Thuy": "Thận: ác hàn + mồ hôi trộm + đi tiểu khó",
+    "Moc": "Gan: cảm phong hàn + đau chân + tứ chi khó cử",
+    "Hoa": "Tim: phát nhiệt + miệng khô + lưỡi tưa + nhọt độc",
+    "Tho": "Thần kinh: vàng da + phù thũng + ôn dịch",
+    "Kim": "Phổi: ho + run lạnh + thở suyễn đờm + bệnh răng"
+  },
+
+  "quan_quy_cung_benh": {
+    "Can": "Đau ĐẦU + váng đầu (Mộc hóa Quỷ)",
+    "Doai": "Vết thương dao đâm; nhẹ = đau RĂNG",
+    "Ly": "Tim + cao huyết áp; Hỏa hóa khắc → hôn mê",
+    "Chan": {
+      "_chung": "Bệnh CHÂN + gãy xương",
+      "Moc": "Chân mỏi tê",
+      "Tho_hoa_Moc": "Phát cước (chân sưng)",
+      "Thuy": "Phong thấp",
+      "Hoa": "Mụn nhọt",
+      "Kim": "Gãy xương / dao đâm",
+      "Phi_Xa": "Phù thũng",
+      "Bach_Ho": "Tai nạn gãy chân"
+    },
+    "Ton": "Bệnh đùi; Mộc Quỷ hóa Kim → thương đùi + đau mắt",
+    "Kham": {
+      "_chung": "Thận",
+      "Thuy_hoa_Tho": "Tiểu/đại tiện không thông",
+      "Bach_Ho_duong": "Đái máu",
+      "Bach_Ho_am": "Đi ngoài máu",
+      "Bach_Ho_hinh_khac": "BỆNH TRĨ"
+    },
+    "Can_2": "Mụn nhọt; Thổ Quỷ → phù thũng cổ trướng",
+    "Khon": {
+      "_chung": "Bệnh BỤNG",
+      "Hoa": "Đau bụng",
+      "Thuy": "Tả/lỵ",
+      "Tho": "Đầy chướng do ăn",
+      "Moc": "Ruột đau xoắn",
+      "Kim": "Đau ngực sườn"
+    }
+  },
+
+  "6_hao_6_phan_co_the": {
+    "hao_1": "Sự BỊ THƯƠNG",
+    "hao_2": "Hai CHÂN nặng",
+    "hao_3": "THẮT LƯNG (thường nhẹ)",
+    "hao_4": "BỤNG, dạ dày, ruột",
+    "hao_5": "THẬN yếu, nhiều chướng khí",
+    "hao_6": "ĐẦU"
+  },
+
+  "6_luc_than_dung_than_doan_benh": {
+    "ban_than": {
+      "dung_than": "Hào THẾ",
+      "cat": "Vượng + Tử Tôn trì Thế / động sinh",
+      "hung": "Quan Quỷ trì Thế + nhập Mộ"
+    },
+    "cha_me": {
+      "dung_than": "Phụ Mẫu",
+      "cat": "Nhật/Nguyệt sinh phù",
+      "hung": "Huynh Đệ động → bệnh khó chữa; Tử Tôn vượng + Tài động → có thể CHẾT"
+    },
+    "con_cai": {
+      "dung_than": "Tử Tôn",
+      "cat": "Vượng + Nhật/Nguyệt sinh / hóa sinh trở lại",
+      "hung": "Thê Tài động xẹp hơi → bệnh khó dứt; Quan Quỷ động → khó thoát"
+    },
+    "anh_em": {
+      "dung_than": "Huynh Đệ",
+      "cat": "Vượng + Phụ Mẫu sinh",
+      "hung": "Thê Tài + Quan Quỷ động → CHẾT"
+    },
+    "vo": {
+      "dung_than": "Thê Tài",
+      "cat": "Hóa Tử Tôn + Đế Vượng",
+      "hung": "Phụ Mẫu động → khó khỏi; hóa Huynh Đệ → CHẾT"
+    },
+    "chong": {
+      "dung_than": "Quan Quỷ",
+      "cat": "Vượng + Nhật/Nguyệt sinh + Tử Tôn tĩnh + Tài động",
+      "hung": "Phụ Mẫu động tổn khí; nhập Mộ → XẤU"
+    }
+  },
+
+  "quan_quy_phuc_duoi_nguyen_nhan_benh": {
+    "the_tai": "Ăn uống / tiền của / 'quan hệ vợ chồng'",
+    "huynh_de": "Cãi vã vì nhan sắc / tiền, nhịn ăn",
+    "phu_mau": "LAO TÂM KHỔ TỨ, kiệt tinh thần",
+    "tu_ton": "Say rượu / quan hệ vợ chồng quá / thuốc bổ quá"
+  },
+
+  "tien_thoai_benh_tinh": {
+    "quan_quy_hoa_tien": "Bệnh NẶNG THÊM",
+    "quan_quy_hoa_thoai": "Bệnh GIẢM DẦN",
+    "quan_quy_bien_quan_quy": "Vừa cũ vừa mới",
+    "2_quan_quy_kep_dung_than": "Không CHẾT cũng HÔN MÊ",
+    "luc_hop_bien_luc_xung": "Bệnh nguy kịch",
+    "tu_ton_dong_che_quan_quy": "Bệnh sẽ KHỎI",
+    "benh_lau_gap_xung": "CHẾT",
+    "benh_moi_gap_xung": "Khỏi",
+    "the_lam_quan_quy_+_truong_sinh": "Tàn tật lâu dài",
+    "moc_lam_phi_xa_khac_the": "CHẾT (Mộc Quỷ Xà là tượng tử)"
+  },
+
+  "6_luc_than_lam_quan_quy_benh": {
+    "thanh_long": "Tửu sắc, vợ chồng quá độ → hư nhược",
+    "chu_tuoc": "Thân nhiệt, mặt đỏ, nói năng huyên thuyên",
+    "cau_tran": "Ngực đầy chướng khí, tỳ vị không điều hòa",
+    "phi_xa": "Tim hốt hoảng, nằm ngồi không yên",
+    "bach_ho": "Bị đánh/ngã gãy xương; PHỤ NỮ: băng huyết, sản hậu hư nhược",
+    "huyen_vu": "Sắc dục quá độ, tim rối loạn, âm hư"
+  },
+
+  "muc_do_nang_nhe": {
+    "noi_dem": "Quan Quỷ ở quẻ NỘI → nặng về ban ĐÊM",
+    "ngoai_ngay": "Quan Quỷ ở quẻ NGOẠI → nặng về ban NGÀY",
+    "2_quan_quy_1_vuong_1_khong": "Ngày nhẹ đêm nặng"
+  }
+}
