@@ -143,9 +143,15 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ **CHỐT bản địa hóa**: Pythagoras map theo chữ Latin gốc ⇒ "có dấu/không dấu" CÙNG kết quả số.
   Chuẩn = bỏ dấu (Đ→D, không tách ghép phụ âm). "Cả hai" → hỗ trợ 2 HỆ PHÁI Pythagoras + Chaldean E2E.
 
-**CHƯA LÀM (chờ Anh bật đèn xanh — Iron Rule #2):**
-- [ ] Frontend Vue tab Thần Số Học (mới có API, chưa có UI)
-- [ ] Đi tìm + restore các sách trong danh mục (bookflow v2.0)
+**ĐÃ XONG (v3, 2026-06-05):**
+- ✅ **UI Vue** `ThanSoPanel.vue` (tab `pytago`) gọi `/api/than-so/cast` — build vite OK.
+- ✅ **Restore sách nền** Cheiro's Book of Numbers (core, Stage 2-3/6):
+  `data/restored_books/cheiro-book-of-numbers/` + `chaldean_compound_numbers.json` (số kép 10-32).
+  Wiki +6 concept số kép → Thần Số Học = 18 concepts. Ledger cập nhật.
+
+**CHƯA LÀM (chờ Anh):**
+- [ ] Attach PDF nguyên tác Cheiro (Stage 1) + dịch chương ứng dụng + Stage 6 PDF publish
+- [ ] Restore tiếp Goodwin / Juno Jordan trong danh mục
 - [ ] Thiết kế cross-bind Life Path ↔ Thiên Can/Ngũ Hành (cẩn thận, tránh ép phái)
 
 ---
