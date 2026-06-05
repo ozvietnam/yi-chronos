@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "title": "5 Lục Thân + 6 Lục Thần (Thiệu Vĩ Hoa p114-115 + Kinh Phòng phát minh)",
+    "iron_rule": "Bảng tra Nạp Giáp + Sáu Thần. KHÔNG predict tuyệt đối."
+  },
+
+  "luc_than": {
+    "_paradigm": "5 quan hệ theo Ngũ Hành lấy ngày sinh làm 'tôi'",
+    "phu_mau": {"ten": "Phụ Mẫu", "y_nghia": "Cha mẹ, Ấn, văn thư — cái SINH tôi"},
+    "huynh_de": {"ten": "Huynh Đệ", "y_nghia": "Anh em, kiếp tài — ngang vai"},
+    "the_tai": {"ten": "Thê Tài", "y_nghia": "Vợ (nam), tiền tài — cái TÔI KHẮC"},
+    "quan_quy": {"ten": "Quan Quỷ", "y_nghia": "Chồng (nữ), danh, công danh — cái KHẮC tôi"},
+    "tu_ton": {"ten": "Tử Tôn", "y_nghia": "Con cháu, phúc, đầu mối — cái TÔI SINH"}
+  },
+
+  "luc_than_6_than": {
+    "_paradigm": "6 Lục Thần tra theo Can NGÀY (Thiên Can phối Lục Thần) — Kinh Phòng Tây Hán phát minh",
+    "thanh_long": {
+      "ten": "Thanh Long",
+      "y_nghia": "Tốt, hỷ sự, hỉ lâm môn — từ bi, hòa nhã, văn chương đẹp",
+      "khac_the": "Đau khổ vì tửu sắc, đau lưng đầu gối"
+    },
+    "chu_tuoc": {
+      "ten": "Chu Tước",
+      "y_nghia": "Văn thư có tin mừng, học hành — nhưng tính nóng",
+      "khac_the": "Hay lo nghĩ, đau đầu, bệnh tật"
+    },
+    "cau_tran": {
+      "ten": "Câu Trận",
+      "y_nghia": "Người chắc chắn, hành động chậm",
+      "khac_the": "Nạn tù đày, lòng phát buồn"
+    },
+    "phi_xa": {
+      "ten": "Phi Xà",
+      "y_nghia": "Nói suông, nhiều mưu kế, hay nghi ngờ",
+      "khac_the": "Bệnh hàn nhiệt, mê sảng"
+    },
+    "bach_ho": {
+      "ten": "Bạch Hổ",
+      "y_nghia": "Cứng cỏi, dũng mãnh",
+      "khac_the": "Làm sai trái, bệnh phổi"
+    },
+    "huyen_vu": {
+      "ten": "Huyền Vũ",
+      "y_nghia": "Trộm cướp mờ ám, gian hùng — gặp thần cát thì lành",
+      "khac_the": "Bệnh hàn, phong thấp"
+    }
+  },
+
+  "bang_tra_luc_than_theo_can_ngay": {
+    "Giáp_Ất": ["Thanh Long", "Chu Tước", "Câu Trận", "Phi Xà", "Bạch Hổ", "Huyền Vũ"],
+    "Bính_Đinh": ["Chu Tước", "Câu Trận", "Phi Xà", "Bạch Hổ", "Huyền Vũ", "Thanh Long"],
+    "Mậu": ["Câu Trận", "Phi Xà", "Bạch Hổ", "Huyền Vũ", "Thanh Long", "Chu Tước"],
+    "Kỷ": ["Phi Xà", "Bạch Hổ", "Huyền Vũ", "Thanh Long", "Chu Tước", "Câu Trận"],
+    "Canh_Tân": ["Bạch Hổ", "Huyền Vũ", "Thanh Long", "Chu Tước", "Câu Trận", "Phi Xà"],
+    "Nhâm_Quý": ["Huyền Vũ", "Thanh Long", "Chu Tước", "Câu Trận", "Phi Xà", "Bạch Hổ"]
+  },
+
+  "luu_y_ai_cung_gio_sinh_khac_menh": {
+    "_paradigm": "11 lý do người cùng giờ sinh có mệnh KHÁC nhau (p110)",
+    "ly_do": [
+      "Phương vị sinh (Nam=Hỏa, Bắc=Thủy → mệnh khác phương sinh khác)",
+      "Năm mệnh phụ mẫu khác",
+      "Năm mệnh anh chị em khác",
+      "Năm mệnh hôn nhân khác",
+      "Năm mệnh + số con cái khác",
+      "Nam/Nữ khác (vận chuyển thuận/nghịch)",
+      "Tướng mặt, vân tay khác",
+      "Cốt tướng khác",
+      "Mộ tổ + nhà ở khác phương vị",
+      "Gen di truyền khác",
+      "Hoàn cảnh + điều kiện gia đình khác"
+    ],
+    "uu_tien_xua": "'Nhất mộ, nhì phòng (nhà), tam bát tự' — phong thủy mộ + nhà QUAN TRỌNG HƠN ngày giờ sinh"
+  }
+}
