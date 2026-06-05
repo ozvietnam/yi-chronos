@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "title": "Phong Thủy Nhà Ở (Thiệu Vĩ Hoa Ch.23, p341-360)"
+  },
+
+  "6_hao_6_phan_nha": {
+    "hao_1": "NỀN nhà, GIẾNG nước, người làm thuê, CON cái",
+    "hao_2": "KHÔNG GIAN nhà, BẾP, vợ",
+    "hao_3": "CỬA CHÍNH + giường (hào Mộc)",
+    "hao_4": "CỬA GIỮA + mẹ",
+    "hao_5": "NGƯỜI (chủ) + cha + con trai cả",
+    "hao_6": "TƯỜNG VÁCH + rường cột + tổ tiên"
+  },
+
+  "nguyen_tac_cat_hung_6_hao": [
+    "Hào 5 KHẮC Hào 2 → chủ kiểm soát nhà, người YÊN ỔN",
+    "Hào 5 ĐỘNG khắc 2 → KHÔNG yên, chủ xa vắng",
+    "Hào 3 + Hào 4 đều Huynh Đệ → nhà bé NHIỀU CỬA, HAO của",
+    "Hào 4 khắc Hào 3 → cửa đối diện = XUYÊN TÂM bất lợi",
+    "Hào 6 + Mộc + Bạch Hổ + nhật nguyệt sinh → nhà MỚI",
+    "Hào 6 hưu tù tử tuyệt + Bạch Hổ → nhà BẠI NÁT"
+  ],
+
+  "5_hanh_hao_dau_gieng_nen": {
+    "Thuy": "Nước TRONG đầy",
+    "Tho": "Nước ĐỤC",
+    "Moc": "Giếng có CÂY",
+    "Hoa": "Nước KHÔ",
+    "Kim": "Nước TRONG sạch",
+    "Quy_tuan_khong": "Giếng đã BỎ"
+  },
+
+  "5_hanh_que_dac_trung_nha": {
+    "hoa_nhieu": "Nhiều PHIỀN NÃO",
+    "moc_nhieu": "Người THANH TÚ",
+    "thuy_nhieu": "PHỤ NỮ vượng",
+    "kim_nhieu": "Phụ nữ ĐÔNG",
+    "tho_nhieu": "TIỀN của vải vóc nhiều"
+  },
+
+  "thieu_hanh": {
+    "thieu_thuy": "Rãnh không thông",
+    "thieu_tho": "Xây cao giữa đất bằng",
+    "thieu_hoa": "Thờ cúng đơn sơ",
+    "thieu_kim": "Gia tư ít",
+    "thieu_moc": "Giường chiếu bàn ghế cũ"
+  },
+
+  "luc_than_nha_o": {
+    "phu_mau": {
+      "ban_chat": "Xà, dầm, đường đi, phần mộ",
+      "nen_tinh": "Động = nhà nhiều phiền não",
+      "tri_the": "Thừa kế chỗ ở của tổ tiên",
+      "hoa_tai": "Của cải nhiều",
+      "tuan_khong": "Khó kế nghiệp tổ"
+    },
+    "the_tai": {
+      "tot": "Tài + Phúc đều vượng + Thiên Hỷ + Thanh Long = NHÀ PHÚ QUÝ",
+      "cung_quan_quy": "Vợ chồng quê GẦN nhau",
+      "khac_phu_mau": "Nhà KHÔNG yên",
+      "dong": "Hao tổn, vợ bệnh tật"
+    },
+    "tu_ton": {
+      "khong_co": "Của không nguồn, hao tán",
+      "tuan_khong": "Không có đời sau, hoặc muộn con",
+      "hao_5_hop_phu_mau": "Con NỐI NGHIỆP cha",
+      "hinh_khac_phu_mau": "Con ngỗ ngược, bất hiếu"
+    },
+    "quan_quy": {
+      "khong_co_the_tai": "Tai họa liên miên",
+      "lam_bach_ho_dong": "Nhà hay tai ương",
+      "khong_co_tu_ton_che": "Rắc rối nhiều",
+      "tri_the_+_thai_tue": "Tai nạn cả năm",
+      "trong_khon_can_cung": "Mộ mả tổ tiên không yên"
+    },
+    "huynh_de": {
+      "nhieu": "Con ngỗ ngược",
+      "khac_the": "Quẻ rất xấu",
+      "dong": "Vợ chồng không đoàn tụ"
+    }
+  },
+
+  "luc_than_nha_o": {
+    "thanh_long": {
+      "+_quan_quy_+_trach": "ĐẠI CÁT (có quan chức)",
+      "+_the_tai": "Vợ tốt, của nhiều",
+      "+_nguyet_kien": "Tin mừng hôn nhân/thai nghén",
+      "phat_dong": "Nên dời chuyển"
+    },
+    "chu_tuoc": {
+      "+_quan_quy_dong": "Trong tuần sẽ CÃI VÃ KIỆN TỤNG",
+      "+_nguyet_+_nhat_+_hao_dong": "Phải đề phòng HỎA HOẠN",
+      "noi_dong": "Có thị phi",
+      "ngoai_dong_+_quy_nhan": "Tin mừng văn thư"
+    },
+    "cau_tran": {
+      "+_the_tai_+_nhat_+_thanh_long": "Nhà vườn rộng, ruộng nhiều, ĐẠI PHÁT",
+      "+_nguyet_+_quan_quy_noi_dong": "Thổ thần KHÔNG YÊN",
+      "ngoai_dong": "Mưu làm việc gì cũng TRÌ TRỆ"
+    },
+    "phi_xa": {
+      "hao_4_dong": "Trong nhà thấy VIỆC QUÁI DỊ",
+      "noi_dong": "Người làm thuê / trẻ con đi mất",
+      "ngoai_dong_+_quan_quy": "Trộm khoét tường đột nhập",
+      "khac_the": "Chủ nhà ĐÊM MỘNG MỊ không yên"
+    },
+    "bach_ho": {
+      "lam_tu_ton": "Chủ nhà khó an toàn",
+      "lam_hao_3": "Có người xuất gia làm tăng đạo / y sư",
+      "+_nam_thang_ngay_lam_que": "BI TANG",
+      "lam_thanh_long": "CHỒNG MẤT",
+      "+_quan_quy_dong": "Tai họa cho người nhà"
+    },
+    "huyen_vu": {
+      "+_huynh_de": "Nước ao đầm NGẤM vào nền",
+      "+_phu_mau": "Chủ nhà xuất thân nghèo khó",
+      "chu_ve": "Thất thoát"
+    }
+  },
+
+  "4_phuong_4_than": {
+    "dong": "Thanh Long",
+    "tay": "Bạch Hổ",
+    "nam": "Chu Tước",
+    "bac": "Huyền Vũ",
+    "giua": "Câu Trần + Phi Xà"
+  },
+
+  "3_case_phong_thuy_lich_su": {
+    "cung_the_thao_tay_an_1986": {
+      "phat_hien_tvh_1986": "Cửa chính giống 'con hổ nằm há mồm' hướng TÂY (Bạch Hổ) + năm Bính Dần (Hổ lâm Thái Tuế)",
+      "du_doan_tvh": "Năm nay nhất định gặp TAI NẠN",
+      "ket_qua": "Mùa hè 1986 HỎA HOẠN TO + sau đó cổ động viên rối loạn → chết và bị thương nhiều"
+    },
+    "can_ho_ma_tay_an_1988": {
+      "tinh_huong": "Nhà mới xây 6-7 năm, 7 nhân khẩu ban đầu → CHẾT 5 trong 5 năm, thanh niên dọn tới 1 tuần chạy, cô thanh nữ chồng chết trong 3 tháng",
+      "khi_cong_dai_su_phat_hien": "Đơn nguyên phía trước có MỘ CỔ, lấy xương cốt ra không an táng, vung vãi → âm khí lưu lại, tầng 1 nguy hại nhất"
+    },
+    "kho_chat_no_tham_quyen_5_8_1993": {
+      "su_kien": "Kho hóa chất Thẩm Quyến CHÁY chấn động toàn quốc",
+      "phan_tich_phong_thuy_tvh": "Kho hóa chất (HỎA) xây trên đất Thủy địa (gần sông) → Thủy-Hỏa KHÔNG dung hòa = SAI LẦM phong thủy không thể cho phép"
+    }
+  }
+}
