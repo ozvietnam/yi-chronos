@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "title": "5 Lục Thân × Thời tiết + 6 cách Thời gian Ứng nghiệm (Thiệu Vĩ Hoa p221-233)"
+  },
+
+  "luc_than_thoi_tiet": {
+    "phu_mau": {
+      "y_nghia_chinh": "MƯA",
+      "vuong_dong": "Mưa to (đặc biệt + Nhật/Nguyệt sinh)",
+      "tinh": "Nắng",
+      "hoa_huynh_de": "Mưa phi thường",
+      "hoa_tu_ton": "Sau mưa trời sáng",
+      "khac_boi_the_tai": "Không mưa",
+      "khac_dong": "Trời xanh ngắt sau khi hết động"
+    },
+    "tu_ton": {
+      "y_nghia_chinh": "NẮNG",
+      "tri_the_dong": "Trời nắng không một gợn mây",
+      "hoa_tien_than": "Trời xanh ngắt",
+      "tam_hop_cuc": "Nắng",
+      "huu_tu_tuan_khong": "Trời râm, mây mỏng",
+      "an_dong_voi_huynh_de": "Sấm rền + ráng đỏ"
+    },
+    "the_tai": {
+      "y_nghia_chinh": "NẮNG/SÁNG",
+      "phat_dong": "Tám phương trong sáng",
+      "tam_hop_cuc": "Có ráng mây không mưa",
+      "vao_cung_can": "Đại hạn",
+      "hoa_quy": "Nắng không lâu, trời râm"
+    },
+    "huynh_de": {
+      "y_nghia_chinh": "GIÓ MÂY",
+      "phat_dong_vuong": "Gió to",
+      "phat_dong_suy": "Gió yếu, mây mỏng",
+      "voi_phu_mau_dong": "Mưa gió xen lẫn",
+      "tam_hop_cuc": "Gió mạnh"
+    },
+    "quan_quy": {
+      "y_nghia_chinh": "SẤM CHỚP, SƯƠNG MÙ",
+      "vuong_dong_voi_phu_mau": "Sấm sét + mưa to",
+      "dong_xung_phu_mau": "Vừa hửng vừa mưa"
+    }
+  },
+
+  "6_cach_thoi_gian_ung_nghiem": {
+    "sinh_khac": "Nguyên thần sinh thế/dụng → cát ứng ngày sinh; Kỵ thần khắc thế → hung ứng ngày khắc",
+    "tuan_khong": "Hào thế/dụng tuần không → chờ XUẤT KHÔNG mới ứng",
+    "gap_hop": "Tam/Lục hợp → ứng vào lúc XUNG KHAI",
+    "gap_xung": "Việc vui không nên xung; lo buồn nên xung (ly tán). Bệnh mới gặp xung khỏi, bệnh lâu gặp xung CHẾT",
+    "tam_hinh": "Việc hung ứng vào ngày trực nhật + 1 hào tuần không thì xuất không",
+    "nhap_mo": "Dụng thần nhập mộ → chờ XUNG MỘ; Kỵ thần nhập mộ → tốt"
+  },
+
+  "muon_biet_tinh_hieu": {
+    "_paradigm": "50+ tín hiệu đoán ý người đến — Bốc Phệ Chính Tôn (p221-223)",
+    "bo_me_benh": "Bạch Hổ gặp hào hình khắc",
+    "bo_me_hoa": "Thê Tài động + thần sát tổn thương",
+    "co_con": "Quẻ có Thanh Long + Phúc Đức",
+    "khong_con": "6 hào không có thần phục",
+    "con_om": "Phụ Mẫu động tương khắc",
+    "con_chet": "Tử Tôn tuần không + Bạch Hổ",
+    "vo_tai_hoa": "Huynh Đệ động + Bạch Hổ làm tổn Thê Tài",
+    "vo_co_thai": "Thê Tài + Thanh Long + hỉ thần",
+    "co_vo_le": "2 Thê Tài nội ngoại vượng",
+    "thua_kien": "Quan Quỷ tuần không vong + hưu tù",
+    "dang_kien": "Quan Quỷ trì thế + Chu Tước, Bạch Hổ",
+    "nhieu_con_trai": "Lục thân có khí + thần cát",
+    "giau": "Thê Tài vượng đóng ở kho",
+    "co_tin_mung": "Thanh Long + Phúc Đức tại môn đình",
+    "ngheo_doi": "Phụ Mẫu vượng tướng + Thanh Long",
+    "nha_rach_nat": "Phụ Mẫu hưu tù + Bạch Hổ",
+    "moi_khong_ket": "Bạch Hổ tuần không + Hợi Tý",
+    "co_2_bep": "2 hỏa trong 1 chủ",
+    "khong_tho_cung": "Kim Quỷ tuần không",
+    "cai_va": "Quan Quỷ trì thế + Chu Tước",
+    "con_hu": "Quan Quỷ động + Huyền Vũ",
+    "tai_hoa_sap_den": "Quan Quỷ trì thế + khắc thế",
+    "om_sap_chet": "Dụng thần vô cứu + nhập Mộ",
+    "tram_minh_tu_tu": "Quan Quỷ + Thủy Sát + Huyền Vũ",
+    "that_co_tu_tu": "Hào Thế Quỷ Mộc + Kim Xà",
+    "co_tang": "Quan Quỷ + Bạch Hổ",
+    "that_thoat": "Hào Ứng Quan Quỷ phát động + Huyền Vũ",
+    "noi_o_khong_yen": "6 hào đều động"
+  }
+}
