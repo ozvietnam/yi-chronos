@@ -1,0 +1,47 @@
+Theo bảng trên có hai loại năm: năm Dương biểu thị dấu (+),
+năm Âm biểu thị đấu (-)
+
+Đối với năm Dương, tính tuổi chẫn chục theo chiều thuận
+kim đồng hồ bát đầu khổi từ năm đang chịu tuổi là 1, sau đó là:
+11, 21, 31, 41, ð1, 61, 71, 81,...Khi đến tuổi chẵãn chục hiện tại
+dừng lại, đếm tiếp các tuổi lẻ (số chục+2), nhưng đếm theo chieu
+ngược lại đến số tuổi hiện có thì dừng lại. „
+
+"Ví dụ1: năm Bính Tý (1996) năm Dương như bảng trên, năm
+nay 38 tuổi, hỏi xem họ sinh năm Cơn Chỉ nào.
+
+Cách tính: khởi thuận từ cung Tý: Bính Tý (năm đang chịu
+tuổi) là 1, sau đó lại đến năm dương tiếp theo là Dần (Mậu) là 11,
+tiếp đến Thìn (Canh) là 21, tiếp nữa là Ngọ dương 31, đến đây
+dừng lại (vì người đó 38 tuổi). Ta lấy can Bính của năm 1996 áp ˆ
+vào Ngọ ta có Bính Ngọ. Từ Bính Ngọ ta đếm ngược lại: Ty 32 tuổi
+là Ất Ty, Thìn 33 tuổi là Giáp Thìn, Mão 34 tuổi là Quý Mão, Dân
+35 tuổi là Nhâm Dần, Sửu 36 tuổi là Tân Sửu, Tý 37 tuổi là Canh
+Tý, Hợi 38 tuổi là Kỷ Hợi. Vậy người đó sinh năm Kỷ Hợi (1959).
+
+Ví dụ 2: năm Định Hợi (2007), người đang có tuổi là 38 sinh
+năm Can Chỉ nào?
+
+Cách tính: năm Định Hợi này là năm Âm, ta cũng làm như
+trên, bắt đầu từ cung Hợi (Đinh) là 1 tuổi theo chiều thuận, vậy
+các năm tiếp theo là: Sửu 11 tuổi, Mão là 21 tuổi, Ty là 31 tuổï-đến
+đây đừng lại, lấy Can Đỉnh (năm 2007- Định Hợi) ghép vào Ty
+thành năm Định Ty 31 tuổi. Từ đây ta đếm theo chiểu nghịch:
+Bính Thìn 32 tuối, Ất Mão 33 tuổi, Giáp Dần 34 tuổi, Quý Sửu 35
+tuổi, Nhâm Tý 36 tuổi, Tân Hợi 37 tuổi, Canh Tuất 38 tuổi. Vậy
+người này sinh năm Canh Tuất (1970).
+
+a. Cách tính Can tháng
+
+Người xưa quy ước tháng Giêng là tháng Dần, Hai là Mão, Ba
+là Thìn...,khi biết được Can tháng Giêng Dần là gì, sẽ suy ra can
+của các tháng còn lại trong năm. Nguyên tắc này được cổ nhân gọi
+là luật Ngũ Dần. Theo luật này. nếu can năm là Giáp, Kỷ (như
+năm Giáp Tý, Kỷ Sửu), thì can tháng Giêng là Bính Dần, từ đó
+can tháng Hai là Định Mão, tháng Ba là Mậu Thìn...Tương tự như
+vậy, nếu can năm là Ất Canh, thì can tháng Giêng là Mậu Đần; là
+Bính Tân thì can tháng Giêng là Canh Dần; là Đình Nhâm thì can
+tháng Giêng là Nhâm Dân; là Mậu Quý thì can tháng Giêng là
+Giáp Dần.
+
+12

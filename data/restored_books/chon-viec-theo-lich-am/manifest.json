@@ -1,10 +1,1599 @@
 {
   "book_id": "chon-viec-theo-lich-am",
   "source_pdf": "thư viện sách/chon viec theo lich am.pdf",
-  "note": "Chọn việc lịch âm",
-  "extractor": "markitdown",
-  "elapsed_seconds": 0.1,
-  "chars": 1,
-  "needs_ocr_image": true,
-  "ts": 1780412296.177276
+  "page_range": [
+    1,
+    198
+  ],
+  "total_pages": 198,
+  "total_seconds": 3849.2,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 2,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 10.98,
+      "raw_chars": 198,
+      "cleaned_chars": 20,
+      "md_path": "chon-viec-theo-lich-am/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 11.79,
+      "raw_chars": 125,
+      "cleaned_chars": 138,
+      "md_path": "chon-viec-theo-lich-am/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 13.81,
+      "raw_chars": 204,
+      "cleaned_chars": 204,
+      "md_path": "chon-viec-theo-lich-am/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 37.18,
+      "raw_chars": 1771,
+      "cleaned_chars": 1715,
+      "md_path": "chon-viec-theo-lich-am/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 38.06,
+      "raw_chars": 2163,
+      "cleaned_chars": 2178,
+      "md_path": "chon-viec-theo-lich-am/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 0.48,
+      "cleanup_seconds": 29.43,
+      "raw_chars": 1036,
+      "cleaned_chars": 1004,
+      "md_path": "chon-viec-theo-lich-am/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 39.64,
+      "raw_chars": 1827,
+      "cleaned_chars": 1818,
+      "md_path": "chon-viec-theo-lich-am/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 42.26,
+      "raw_chars": 2215,
+      "cleaned_chars": 2245,
+      "md_path": "chon-viec-theo-lich-am/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 31.05,
+      "raw_chars": 2133,
+      "cleaned_chars": 2382,
+      "md_path": "chon-viec-theo-lich-am/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 44.14,
+      "raw_chars": 2176,
+      "cleaned_chars": 2252,
+      "md_path": "chon-viec-theo-lich-am/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 42.29,
+      "raw_chars": 2311,
+      "cleaned_chars": 2411,
+      "md_path": "chon-viec-theo-lich-am/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 31.28,
+      "raw_chars": 1532,
+      "cleaned_chars": 1598,
+      "md_path": "chon-viec-theo-lich-am/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 32.17,
+      "raw_chars": 2150,
+      "cleaned_chars": 2237,
+      "md_path": "chon-viec-theo-lich-am/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 39.89,
+      "raw_chars": 1466,
+      "cleaned_chars": 1580,
+      "md_path": "chon-viec-theo-lich-am/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 29.03,
+      "raw_chars": 1834,
+      "cleaned_chars": 1602,
+      "md_path": "chon-viec-theo-lich-am/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 38.77,
+      "raw_chars": 1849,
+      "cleaned_chars": 1835,
+      "md_path": "chon-viec-theo-lich-am/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 28.89,
+      "raw_chars": 1510,
+      "cleaned_chars": 1270,
+      "md_path": "chon-viec-theo-lich-am/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 31.07,
+      "raw_chars": 1695,
+      "cleaned_chars": 2076,
+      "md_path": "chon-viec-theo-lich-am/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 35.79,
+      "raw_chars": 1457,
+      "cleaned_chars": 1687,
+      "md_path": "chon-viec-theo-lich-am/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 30.15,
+      "raw_chars": 1934,
+      "cleaned_chars": 1960,
+      "md_path": "chon-viec-theo-lich-am/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 31.73,
+      "raw_chars": 2064,
+      "cleaned_chars": 2127,
+      "md_path": "chon-viec-theo-lich-am/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 26.72,
+      "raw_chars": 2008,
+      "cleaned_chars": 1172,
+      "md_path": "chon-viec-theo-lich-am/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 44.57,
+      "raw_chars": 1986,
+      "cleaned_chars": 2243,
+      "md_path": "chon-viec-theo-lich-am/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 39.03,
+      "raw_chars": 2039,
+      "cleaned_chars": 2505,
+      "md_path": "chon-viec-theo-lich-am/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.51,
+      "cleanup_seconds": 20.59,
+      "raw_chars": 723,
+      "cleaned_chars": 707,
+      "md_path": "chon-viec-theo-lich-am/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.25,
+      "cleanup_seconds": 19.64,
+      "raw_chars": 225,
+      "cleaned_chars": 493,
+      "md_path": "chon-viec-theo-lich-am/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 25.45,
+      "raw_chars": 1300,
+      "cleaned_chars": 1404,
+      "md_path": "chon-viec-theo-lich-am/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 29.63,
+      "raw_chars": 2017,
+      "cleaned_chars": 2060,
+      "md_path": "chon-viec-theo-lich-am/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.55,
+      "cleanup_seconds": 25.5,
+      "raw_chars": 1225,
+      "cleaned_chars": 1244,
+      "md_path": "chon-viec-theo-lich-am/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 37.78,
+      "raw_chars": 1988,
+      "cleaned_chars": 2081,
+      "md_path": "chon-viec-theo-lich-am/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 33.59,
+      "raw_chars": 2079,
+      "cleaned_chars": 2236,
+      "md_path": "chon-viec-theo-lich-am/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 43.37,
+      "raw_chars": 1942,
+      "cleaned_chars": 1989,
+      "md_path": "chon-viec-theo-lich-am/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 31.9,
+      "raw_chars": 1962,
+      "cleaned_chars": 2008,
+      "md_path": "chon-viec-theo-lich-am/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 30.59,
+      "raw_chars": 1884,
+      "cleaned_chars": 1917,
+      "md_path": "chon-viec-theo-lich-am/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 43.39,
+      "raw_chars": 1931,
+      "cleaned_chars": 1976,
+      "md_path": "chon-viec-theo-lich-am/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 40.14,
+      "raw_chars": 1646,
+      "cleaned_chars": 1800,
+      "md_path": "chon-viec-theo-lich-am/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 32.0,
+      "raw_chars": 2154,
+      "cleaned_chars": 2194,
+      "md_path": "chon-viec-theo-lich-am/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 46.21,
+      "raw_chars": 2081,
+      "cleaned_chars": 2220,
+      "md_path": "chon-viec-theo-lich-am/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 32.23,
+      "raw_chars": 1396,
+      "cleaned_chars": 1405,
+      "md_path": "chon-viec-theo-lich-am/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 33.65,
+      "raw_chars": 1798,
+      "cleaned_chars": 1965,
+      "md_path": "chon-viec-theo-lich-am/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 28.98,
+      "raw_chars": 1430,
+      "cleaned_chars": 1504,
+      "md_path": "chon-viec-theo-lich-am/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 38.49,
+      "raw_chars": 1615,
+      "cleaned_chars": 1896,
+      "md_path": "chon-viec-theo-lich-am/pages/p0042.md"
+    },
+    {
+      "page": 43,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 31.53,
+      "raw_chars": 1494,
+      "cleaned_chars": 1662,
+      "md_path": "chon-viec-theo-lich-am/pages/p0043.md"
+    },
+    {
+      "page": 44,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 30.4,
+      "raw_chars": 2010,
+      "cleaned_chars": 1062,
+      "md_path": "chon-viec-theo-lich-am/pages/p0044.md"
+    },
+    {
+      "page": 45,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 32.94,
+      "raw_chars": 1461,
+      "cleaned_chars": 1355,
+      "md_path": "chon-viec-theo-lich-am/pages/p0045.md"
+    },
+    {
+      "page": 46,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 30.19,
+      "raw_chars": 1935,
+      "cleaned_chars": 1994,
+      "md_path": "chon-viec-theo-lich-am/pages/p0046.md"
+    },
+    {
+      "page": 47,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 35.66,
+      "raw_chars": 1603,
+      "cleaned_chars": 1697,
+      "md_path": "chon-viec-theo-lich-am/pages/p0047.md"
+    },
+    {
+      "page": 48,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 38.26,
+      "raw_chars": 1628,
+      "cleaned_chars": 1720,
+      "md_path": "chon-viec-theo-lich-am/pages/p0048.md"
+    },
+    {
+      "page": 49,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 33.79,
+      "raw_chars": 2136,
+      "cleaned_chars": 2225,
+      "md_path": "chon-viec-theo-lich-am/pages/p0049.md"
+    },
+    {
+      "page": 50,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 54.29,
+      "raw_chars": 2045,
+      "cleaned_chars": 2027,
+      "md_path": "chon-viec-theo-lich-am/pages/p0050.md"
+    },
+    {
+      "page": 51,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 43.09,
+      "raw_chars": 2162,
+      "cleaned_chars": 2171,
+      "md_path": "chon-viec-theo-lich-am/pages/p0051.md"
+    },
+    {
+      "page": 52,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 34.88,
+      "raw_chars": 2303,
+      "cleaned_chars": 2299,
+      "md_path": "chon-viec-theo-lich-am/pages/p0052.md"
+    },
+    {
+      "page": 53,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 28.5,
+      "raw_chars": 1325,
+      "cleaned_chars": 1312,
+      "md_path": "chon-viec-theo-lich-am/pages/p0053.md"
+    },
+    {
+      "page": 54,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 36.08,
+      "raw_chars": 1954,
+      "cleaned_chars": 1978,
+      "md_path": "chon-viec-theo-lich-am/pages/p0054.md"
+    },
+    {
+      "page": 55,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 37.96,
+      "raw_chars": 1763,
+      "cleaned_chars": 1977,
+      "md_path": "chon-viec-theo-lich-am/pages/p0055.md"
+    },
+    {
+      "page": 56,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 40.5,
+      "raw_chars": 1684,
+      "cleaned_chars": 1915,
+      "md_path": "chon-viec-theo-lich-am/pages/p0056.md"
+    },
+    {
+      "page": 57,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 33.41,
+      "raw_chars": 1528,
+      "cleaned_chars": 1320,
+      "md_path": "chon-viec-theo-lich-am/pages/p0057.md"
+    },
+    {
+      "page": 58,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 29.55,
+      "raw_chars": 1662,
+      "cleaned_chars": 1458,
+      "md_path": "chon-viec-theo-lich-am/pages/p0058.md"
+    },
+    {
+      "page": 59,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 30.85,
+      "raw_chars": 1827,
+      "cleaned_chars": 1910,
+      "md_path": "chon-viec-theo-lich-am/pages/p0059.md"
+    },
+    {
+      "page": 60,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 40.32,
+      "raw_chars": 1916,
+      "cleaned_chars": 2007,
+      "md_path": "chon-viec-theo-lich-am/pages/p0060.md"
+    },
+    {
+      "page": 61,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 33.06,
+      "raw_chars": 1771,
+      "cleaned_chars": 1834,
+      "md_path": "chon-viec-theo-lich-am/pages/p0061.md"
+    },
+    {
+      "page": 62,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 27.52,
+      "raw_chars": 1354,
+      "cleaned_chars": 1277,
+      "md_path": "chon-viec-theo-lich-am/pages/p0062.md"
+    },
+    {
+      "page": 63,
+      "ocr_seconds": 0.58,
+      "cleanup_seconds": 42.3,
+      "raw_chars": 1249,
+      "cleaned_chars": 1372,
+      "md_path": "chon-viec-theo-lich-am/pages/p0063.md"
+    },
+    {
+      "page": 64,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 39.11,
+      "raw_chars": 1470,
+      "cleaned_chars": 1757,
+      "md_path": "chon-viec-theo-lich-am/pages/p0064.md"
+    },
+    {
+      "page": 65,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 30.87,
+      "raw_chars": 1422,
+      "cleaned_chars": 1479,
+      "md_path": "chon-viec-theo-lich-am/pages/p0065.md"
+    },
+    {
+      "page": 66,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 35.64,
+      "raw_chars": 2082,
+      "cleaned_chars": 2281,
+      "md_path": "chon-viec-theo-lich-am/pages/p0066.md"
+    },
+    {
+      "page": 67,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 34.87,
+      "raw_chars": 2334,
+      "cleaned_chars": 2333,
+      "md_path": "chon-viec-theo-lich-am/pages/p0067.md"
+    },
+    {
+      "page": 68,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 41.07,
+      "raw_chars": 2153,
+      "cleaned_chars": 2195,
+      "md_path": "chon-viec-theo-lich-am/pages/p0068.md"
+    },
+    {
+      "page": 69,
+      "ocr_seconds": 0.68,
+      "cleanup_seconds": 21.98,
+      "raw_chars": 1594,
+      "cleaned_chars": 840,
+      "md_path": "chon-viec-theo-lich-am/pages/p0069.md"
+    },
+    {
+      "page": 70,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 36.81,
+      "raw_chars": 1689,
+      "cleaned_chars": 1747,
+      "md_path": "chon-viec-theo-lich-am/pages/p0070.md"
+    },
+    {
+      "page": 71,
+      "ocr_seconds": 0.61,
+      "cleanup_seconds": 39.52,
+      "raw_chars": 1486,
+      "cleaned_chars": 1549,
+      "md_path": "chon-viec-theo-lich-am/pages/p0071.md"
+    },
+    {
+      "page": 72,
+      "ocr_seconds": 0.62,
+      "cleanup_seconds": 30.2,
+      "raw_chars": 1467,
+      "cleaned_chars": 1646,
+      "md_path": "chon-viec-theo-lich-am/pages/p0072.md"
+    },
+    {
+      "page": 73,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 30.67,
+      "raw_chars": 1477,
+      "cleaned_chars": 1534,
+      "md_path": "chon-viec-theo-lich-am/pages/p0073.md"
+    },
+    {
+      "page": 74,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 24.48,
+      "raw_chars": 1332,
+      "cleaned_chars": 1254,
+      "md_path": "chon-viec-theo-lich-am/pages/p0074.md"
+    },
+    {
+      "page": 75,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 30.45,
+      "raw_chars": 1965,
+      "cleaned_chars": 1712,
+      "md_path": "chon-viec-theo-lich-am/pages/p0075.md"
+    },
+    {
+      "page": 76,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 39.37,
+      "raw_chars": 1809,
+      "cleaned_chars": 1920,
+      "md_path": "chon-viec-theo-lich-am/pages/p0076.md"
+    },
+    {
+      "page": 77,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 33.53,
+      "raw_chars": 1977,
+      "cleaned_chars": 2003,
+      "md_path": "chon-viec-theo-lich-am/pages/p0077.md"
+    },
+    {
+      "page": 78,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 23.79,
+      "raw_chars": 1334,
+      "cleaned_chars": 1344,
+      "md_path": "chon-viec-theo-lich-am/pages/p0078.md"
+    },
+    {
+      "page": 79,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 32.7,
+      "raw_chars": 1727,
+      "cleaned_chars": 1914,
+      "md_path": "chon-viec-theo-lich-am/pages/p0079.md"
+    },
+    {
+      "page": 80,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 40.1,
+      "raw_chars": 1814,
+      "cleaned_chars": 1864,
+      "md_path": "chon-viec-theo-lich-am/pages/p0080.md"
+    },
+    {
+      "page": 81,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 43.02,
+      "raw_chars": 2157,
+      "cleaned_chars": 2225,
+      "md_path": "chon-viec-theo-lich-am/pages/p0081.md"
+    },
+    {
+      "page": 82,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 34.1,
+      "raw_chars": 2101,
+      "cleaned_chars": 2413,
+      "md_path": "chon-viec-theo-lich-am/pages/p0082.md"
+    },
+    {
+      "page": 83,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 23.36,
+      "raw_chars": 1021,
+      "cleaned_chars": 725,
+      "md_path": "chon-viec-theo-lich-am/pages/p0083.md"
+    },
+    {
+      "page": 84,
+      "ocr_seconds": 0.17,
+      "cleanup_seconds": 19.46,
+      "raw_chars": 196,
+      "cleaned_chars": 212,
+      "md_path": "chon-viec-theo-lich-am/pages/p0084.md"
+    },
+    {
+      "page": 85,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 39.51,
+      "raw_chars": 1911,
+      "cleaned_chars": 2423,
+      "md_path": "chon-viec-theo-lich-am/pages/p0085.md"
+    },
+    {
+      "page": 86,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 52.21,
+      "raw_chars": 2145,
+      "cleaned_chars": 1997,
+      "md_path": "chon-viec-theo-lich-am/pages/p0086.md"
+    },
+    {
+      "page": 87,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 34.85,
+      "raw_chars": 2296,
+      "cleaned_chars": 1883,
+      "md_path": "chon-viec-theo-lich-am/pages/p0087.md"
+    },
+    {
+      "page": 88,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 38.5,
+      "raw_chars": 1908,
+      "cleaned_chars": 2592,
+      "md_path": "chon-viec-theo-lich-am/pages/p0088.md"
+    },
+    {
+      "page": 89,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 53.53,
+      "raw_chars": 2153,
+      "cleaned_chars": 2029,
+      "md_path": "chon-viec-theo-lich-am/pages/p0089.md"
+    },
+    {
+      "page": 90,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 43.16,
+      "raw_chars": 1856,
+      "cleaned_chars": 1677,
+      "md_path": "chon-viec-theo-lich-am/pages/p0090.md"
+    },
+    {
+      "page": 91,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 38.73,
+      "raw_chars": 1986,
+      "cleaned_chars": 2148,
+      "md_path": "chon-viec-theo-lich-am/pages/p0091.md"
+    },
+    {
+      "page": 92,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 31.35,
+      "raw_chars": 1933,
+      "cleaned_chars": 1483,
+      "md_path": "chon-viec-theo-lich-am/pages/p0092.md"
+    },
+    {
+      "page": 93,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 56.82,
+      "raw_chars": 2337,
+      "cleaned_chars": 1948,
+      "md_path": "chon-viec-theo-lich-am/pages/p0093.md"
+    },
+    {
+      "page": 94,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 41.78,
+      "raw_chars": 1965,
+      "cleaned_chars": 1586,
+      "md_path": "chon-viec-theo-lich-am/pages/p0094.md"
+    },
+    {
+      "page": 95,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 35.42,
+      "raw_chars": 2046,
+      "cleaned_chars": 1967,
+      "md_path": "chon-viec-theo-lich-am/pages/p0095.md"
+    },
+    {
+      "page": 96,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 35.9,
+      "raw_chars": 1954,
+      "cleaned_chars": 1889,
+      "md_path": "chon-viec-theo-lich-am/pages/p0096.md"
+    },
+    {
+      "page": 97,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 54.17,
+      "raw_chars": 1988,
+      "cleaned_chars": 1426,
+      "md_path": "chon-viec-theo-lich-am/pages/p0097.md"
+    },
+    {
+      "page": 98,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 45.69,
+      "raw_chars": 2084,
+      "cleaned_chars": 1541,
+      "md_path": "chon-viec-theo-lich-am/pages/p0098.md"
+    },
+    {
+      "page": 99,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 60.24,
+      "raw_chars": 2281,
+      "cleaned_chars": 2742,
+      "md_path": "chon-viec-theo-lich-am/pages/p0099.md"
+    },
+    {
+      "page": 100,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 41.58,
+      "raw_chars": 1986,
+      "cleaned_chars": 2467,
+      "md_path": "chon-viec-theo-lich-am/pages/p0100.md"
+    },
+    {
+      "page": 101,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 34.52,
+      "raw_chars": 2107,
+      "cleaned_chars": 1288,
+      "md_path": "chon-viec-theo-lich-am/pages/p0101.md"
+    },
+    {
+      "page": 102,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 33.23,
+      "raw_chars": 1914,
+      "cleaned_chars": 1755,
+      "md_path": "chon-viec-theo-lich-am/pages/p0102.md"
+    },
+    {
+      "page": 103,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 36.83,
+      "raw_chars": 2024,
+      "cleaned_chars": 2230,
+      "md_path": "chon-viec-theo-lich-am/pages/p0103.md"
+    },
+    {
+      "page": 104,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 32.2,
+      "raw_chars": 2131,
+      "cleaned_chars": 1865,
+      "md_path": "chon-viec-theo-lich-am/pages/p0104.md"
+    },
+    {
+      "page": 105,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 41.44,
+      "raw_chars": 2205,
+      "cleaned_chars": 2502,
+      "md_path": "chon-viec-theo-lich-am/pages/p0105.md"
+    },
+    {
+      "page": 106,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 45.71,
+      "raw_chars": 2082,
+      "cleaned_chars": 1721,
+      "md_path": "chon-viec-theo-lich-am/pages/p0106.md"
+    },
+    {
+      "page": 107,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 32.11,
+      "raw_chars": 1946,
+      "cleaned_chars": 1807,
+      "md_path": "chon-viec-theo-lich-am/pages/p0107.md"
+    },
+    {
+      "page": 108,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 37.55,
+      "raw_chars": 2061,
+      "cleaned_chars": 2159,
+      "md_path": "chon-viec-theo-lich-am/pages/p0108.md"
+    },
+    {
+      "page": 109,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 35.54,
+      "raw_chars": 1927,
+      "cleaned_chars": 1858,
+      "md_path": "chon-viec-theo-lich-am/pages/p0109.md"
+    },
+    {
+      "page": 110,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 38.62,
+      "raw_chars": 2127,
+      "cleaned_chars": 2111,
+      "md_path": "chon-viec-theo-lich-am/pages/p0110.md"
+    },
+    {
+      "page": 111,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 45.94,
+      "raw_chars": 1888,
+      "cleaned_chars": 1786,
+      "md_path": "chon-viec-theo-lich-am/pages/p0111.md"
+    },
+    {
+      "page": 112,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 48.37,
+      "raw_chars": 1920,
+      "cleaned_chars": 1796,
+      "md_path": "chon-viec-theo-lich-am/pages/p0112.md"
+    },
+    {
+      "page": 113,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 33.32,
+      "raw_chars": 1947,
+      "cleaned_chars": 1676,
+      "md_path": "chon-viec-theo-lich-am/pages/p0113.md"
+    },
+    {
+      "page": 114,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 59.86,
+      "raw_chars": 2009,
+      "cleaned_chars": 2027,
+      "md_path": "chon-viec-theo-lich-am/pages/p0114.md"
+    },
+    {
+      "page": 115,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 39.72,
+      "raw_chars": 1912,
+      "cleaned_chars": 2362,
+      "md_path": "chon-viec-theo-lich-am/pages/p0115.md"
+    },
+    {
+      "page": 116,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 32.35,
+      "raw_chars": 1986,
+      "cleaned_chars": 1742,
+      "md_path": "chon-viec-theo-lich-am/pages/p0116.md"
+    },
+    {
+      "page": 117,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 47.36,
+      "raw_chars": 1897,
+      "cleaned_chars": 2084,
+      "md_path": "chon-viec-theo-lich-am/pages/p0117.md"
+    },
+    {
+      "page": 118,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 34.07,
+      "raw_chars": 1858,
+      "cleaned_chars": 1747,
+      "md_path": "chon-viec-theo-lich-am/pages/p0118.md"
+    },
+    {
+      "page": 119,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 33.78,
+      "raw_chars": 1995,
+      "cleaned_chars": 1453,
+      "md_path": "chon-viec-theo-lich-am/pages/p0119.md"
+    },
+    {
+      "page": 120,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 41.06,
+      "raw_chars": 1854,
+      "cleaned_chars": 2823,
+      "md_path": "chon-viec-theo-lich-am/pages/p0120.md"
+    },
+    {
+      "page": 121,
+      "ocr_seconds": 0.19,
+      "cleanup_seconds": 19.98,
+      "raw_chars": 199,
+      "cleaned_chars": 453,
+      "md_path": "chon-viec-theo-lich-am/pages/p0121.md"
+    },
+    {
+      "page": 122,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 44.75,
+      "raw_chars": 1769,
+      "cleaned_chars": 1712,
+      "md_path": "chon-viec-theo-lich-am/pages/p0122.md"
+    },
+    {
+      "page": 123,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 44.92,
+      "raw_chars": 2051,
+      "cleaned_chars": 2010,
+      "md_path": "chon-viec-theo-lich-am/pages/p0123.md"
+    },
+    {
+      "page": 124,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 34.15,
+      "raw_chars": 1970,
+      "cleaned_chars": 1671,
+      "md_path": "chon-viec-theo-lich-am/pages/p0124.md"
+    },
+    {
+      "page": 125,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 33.58,
+      "raw_chars": 1994,
+      "cleaned_chars": 1906,
+      "md_path": "chon-viec-theo-lich-am/pages/p0125.md"
+    },
+    {
+      "page": 126,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 37.08,
+      "raw_chars": 1971,
+      "cleaned_chars": 1863,
+      "md_path": "chon-viec-theo-lich-am/pages/p0126.md"
+    },
+    {
+      "page": 127,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 39.57,
+      "raw_chars": 1400,
+      "cleaned_chars": 1266,
+      "md_path": "chon-viec-theo-lich-am/pages/p0127.md"
+    },
+    {
+      "page": 128,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 35.03,
+      "raw_chars": 2009,
+      "cleaned_chars": 2008,
+      "md_path": "chon-viec-theo-lich-am/pages/p0128.md"
+    },
+    {
+      "page": 129,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 52.15,
+      "raw_chars": 2057,
+      "cleaned_chars": 1997,
+      "md_path": "chon-viec-theo-lich-am/pages/p0129.md"
+    },
+    {
+      "page": 130,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 35.94,
+      "raw_chars": 1863,
+      "cleaned_chars": 2006,
+      "md_path": "chon-viec-theo-lich-am/pages/p0130.md"
+    },
+    {
+      "page": 131,
+      "ocr_seconds": 0.91,
+      "cleanup_seconds": 57.03,
+      "raw_chars": 1944,
+      "cleaned_chars": 1448,
+      "md_path": "chon-viec-theo-lich-am/pages/p0131.md"
+    },
+    {
+      "page": 132,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 37.56,
+      "raw_chars": 2056,
+      "cleaned_chars": 1754,
+      "md_path": "chon-viec-theo-lich-am/pages/p0132.md"
+    },
+    {
+      "page": 133,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 29.31,
+      "raw_chars": 1749,
+      "cleaned_chars": 1271,
+      "md_path": "chon-viec-theo-lich-am/pages/p0133.md"
+    },
+    {
+      "page": 134,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 42.86,
+      "raw_chars": 1941,
+      "cleaned_chars": 1804,
+      "md_path": "chon-viec-theo-lich-am/pages/p0134.md"
+    },
+    {
+      "page": 135,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 43.89,
+      "raw_chars": 2025,
+      "cleaned_chars": 1960,
+      "md_path": "chon-viec-theo-lich-am/pages/p0135.md"
+    },
+    {
+      "page": 136,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 57.9,
+      "raw_chars": 2013,
+      "cleaned_chars": 2366,
+      "md_path": "chon-viec-theo-lich-am/pages/p0136.md"
+    },
+    {
+      "page": 137,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 36.19,
+      "raw_chars": 1981,
+      "cleaned_chars": 2155,
+      "md_path": "chon-viec-theo-lich-am/pages/p0137.md"
+    },
+    {
+      "page": 138,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 34.58,
+      "raw_chars": 1881,
+      "cleaned_chars": 1801,
+      "md_path": "chon-viec-theo-lich-am/pages/p0138.md"
+    },
+    {
+      "page": 139,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 53.87,
+      "raw_chars": 1916,
+      "cleaned_chars": 1780,
+      "md_path": "chon-viec-theo-lich-am/pages/p0139.md"
+    },
+    {
+      "page": 140,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 31.53,
+      "raw_chars": 1868,
+      "cleaned_chars": 1479,
+      "md_path": "chon-viec-theo-lich-am/pages/p0140.md"
+    },
+    {
+      "page": 141,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 35.51,
+      "raw_chars": 1949,
+      "cleaned_chars": 1538,
+      "md_path": "chon-viec-theo-lich-am/pages/p0141.md"
+    },
+    {
+      "page": 142,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 38.49,
+      "raw_chars": 2051,
+      "cleaned_chars": 2321,
+      "md_path": "chon-viec-theo-lich-am/pages/p0142.md"
+    },
+    {
+      "page": 143,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 43.36,
+      "raw_chars": 2052,
+      "cleaned_chars": 1594,
+      "md_path": "chon-viec-theo-lich-am/pages/p0143.md"
+    },
+    {
+      "page": 144,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 30.98,
+      "raw_chars": 1858,
+      "cleaned_chars": 1574,
+      "md_path": "chon-viec-theo-lich-am/pages/p0144.md"
+    },
+    {
+      "page": 145,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 34.21,
+      "raw_chars": 2114,
+      "cleaned_chars": 2123,
+      "md_path": "chon-viec-theo-lich-am/pages/p0145.md"
+    },
+    {
+      "page": 146,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 46.5,
+      "raw_chars": 1889,
+      "cleaned_chars": 1886,
+      "md_path": "chon-viec-theo-lich-am/pages/p0146.md"
+    },
+    {
+      "page": 147,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 59.91,
+      "raw_chars": 1779,
+      "cleaned_chars": 1499,
+      "md_path": "chon-viec-theo-lich-am/pages/p0147.md"
+    },
+    {
+      "page": 148,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 36.37,
+      "raw_chars": 2008,
+      "cleaned_chars": 2032,
+      "md_path": "chon-viec-theo-lich-am/pages/p0148.md"
+    },
+    {
+      "page": 149,
+      "ocr_seconds": 0.94,
+      "cleanup_seconds": 56.52,
+      "raw_chars": 2075,
+      "cleaned_chars": 2255,
+      "md_path": "chon-viec-theo-lich-am/pages/p0149.md"
+    },
+    {
+      "page": 150,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 40.75,
+      "raw_chars": 1819,
+      "cleaned_chars": 2529,
+      "md_path": "chon-viec-theo-lich-am/pages/p0150.md"
+    },
+    {
+      "page": 151,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 57.67,
+      "raw_chars": 2163,
+      "cleaned_chars": 2274,
+      "md_path": "chon-viec-theo-lich-am/pages/p0151.md"
+    },
+    {
+      "page": 152,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 35.33,
+      "raw_chars": 1937,
+      "cleaned_chars": 1910,
+      "md_path": "chon-viec-theo-lich-am/pages/p0152.md"
+    },
+    {
+      "page": 153,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 35.79,
+      "raw_chars": 1798,
+      "cleaned_chars": 1952,
+      "md_path": "chon-viec-theo-lich-am/pages/p0153.md"
+    },
+    {
+      "page": 154,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 49.01,
+      "raw_chars": 2072,
+      "cleaned_chars": 1734,
+      "md_path": "chon-viec-theo-lich-am/pages/p0154.md"
+    },
+    {
+      "page": 155,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 37.43,
+      "raw_chars": 1931,
+      "cleaned_chars": 2220,
+      "md_path": "chon-viec-theo-lich-am/pages/p0155.md"
+    },
+    {
+      "page": 156,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 46.33,
+      "raw_chars": 1796,
+      "cleaned_chars": 1661,
+      "md_path": "chon-viec-theo-lich-am/pages/p0156.md"
+    },
+    {
+      "page": 157,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 58.7,
+      "raw_chars": 2065,
+      "cleaned_chars": 2656,
+      "md_path": "chon-viec-theo-lich-am/pages/p0157.md"
+    },
+    {
+      "page": 158,
+      "ocr_seconds": 0.18,
+      "cleanup_seconds": 20.17,
+      "raw_chars": 193,
+      "cleaned_chars": 210,
+      "md_path": "chon-viec-theo-lich-am/pages/p0158.md"
+    },
+    {
+      "page": 159,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 51.82,
+      "raw_chars": 1813,
+      "cleaned_chars": 1650,
+      "md_path": "chon-viec-theo-lich-am/pages/p0159.md"
+    },
+    {
+      "page": 160,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 34.13,
+      "raw_chars": 1851,
+      "cleaned_chars": 2020,
+      "md_path": "chon-viec-theo-lich-am/pages/p0160.md"
+    },
+    {
+      "page": 161,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 45.14,
+      "raw_chars": 2042,
+      "cleaned_chars": 1614,
+      "md_path": "chon-viec-theo-lich-am/pages/p0161.md"
+    },
+    {
+      "page": 162,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 33.62,
+      "raw_chars": 1806,
+      "cleaned_chars": 1944,
+      "md_path": "chon-viec-theo-lich-am/pages/p0162.md"
+    },
+    {
+      "page": 163,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 49.22,
+      "raw_chars": 1769,
+      "cleaned_chars": 1960,
+      "md_path": "chon-viec-theo-lich-am/pages/p0163.md"
+    },
+    {
+      "page": 164,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 35.18,
+      "raw_chars": 1485,
+      "cleaned_chars": 1308,
+      "md_path": "chon-viec-theo-lich-am/pages/p0164.md"
+    },
+    {
+      "page": 165,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 31.81,
+      "raw_chars": 1836,
+      "cleaned_chars": 1905,
+      "md_path": "chon-viec-theo-lich-am/pages/p0165.md"
+    },
+    {
+      "page": 166,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 39.88,
+      "raw_chars": 1851,
+      "cleaned_chars": 1907,
+      "md_path": "chon-viec-theo-lich-am/pages/p0166.md"
+    },
+    {
+      "page": 167,
+      "ocr_seconds": 0.79,
+      "cleanup_seconds": 54.25,
+      "raw_chars": 2118,
+      "cleaned_chars": 2278,
+      "md_path": "chon-viec-theo-lich-am/pages/p0167.md"
+    },
+    {
+      "page": 168,
+      "ocr_seconds": 0.93,
+      "cleanup_seconds": 35.21,
+      "raw_chars": 1999,
+      "cleaned_chars": 1821,
+      "md_path": "chon-viec-theo-lich-am/pages/p0168.md"
+    },
+    {
+      "page": 169,
+      "ocr_seconds": 0.82,
+      "cleanup_seconds": 38.03,
+      "raw_chars": 1774,
+      "cleaned_chars": 2320,
+      "md_path": "chon-viec-theo-lich-am/pages/p0169.md"
+    },
+    {
+      "page": 170,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 33.0,
+      "raw_chars": 1820,
+      "cleaned_chars": 1680,
+      "md_path": "chon-viec-theo-lich-am/pages/p0170.md"
+    },
+    {
+      "page": 171,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 50.09,
+      "raw_chars": 1883,
+      "cleaned_chars": 1579,
+      "md_path": "chon-viec-theo-lich-am/pages/p0171.md"
+    },
+    {
+      "page": 172,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 48.28,
+      "raw_chars": 1837,
+      "cleaned_chars": 1997,
+      "md_path": "chon-viec-theo-lich-am/pages/p0172.md"
+    },
+    {
+      "page": 173,
+      "ocr_seconds": 1.09,
+      "cleanup_seconds": 41.82,
+      "raw_chars": 2129,
+      "cleaned_chars": 2326,
+      "md_path": "chon-viec-theo-lich-am/pages/p0173.md"
+    },
+    {
+      "page": 174,
+      "ocr_seconds": 1.05,
+      "cleanup_seconds": 50.03,
+      "raw_chars": 1806,
+      "cleaned_chars": 1577,
+      "md_path": "chon-viec-theo-lich-am/pages/p0174.md"
+    },
+    {
+      "page": 175,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 60.49,
+      "raw_chars": 1770,
+      "cleaned_chars": 2590,
+      "md_path": "chon-viec-theo-lich-am/pages/p0175.md"
+    },
+    {
+      "page": 176,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 52.81,
+      "raw_chars": 1831,
+      "cleaned_chars": 2309,
+      "md_path": "chon-viec-theo-lich-am/pages/p0176.md"
+    },
+    {
+      "page": 177,
+      "ocr_seconds": 0.99,
+      "cleanup_seconds": 43.15,
+      "raw_chars": 1999,
+      "cleaned_chars": 2209,
+      "md_path": "chon-viec-theo-lich-am/pages/p0177.md"
+    },
+    {
+      "page": 178,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 38.33,
+      "raw_chars": 1916,
+      "cleaned_chars": 1598,
+      "md_path": "chon-viec-theo-lich-am/pages/p0178.md"
+    },
+    {
+      "page": 179,
+      "ocr_seconds": 0.81,
+      "cleanup_seconds": 38.88,
+      "raw_chars": 2106,
+      "cleaned_chars": 2192,
+      "md_path": "chon-viec-theo-lich-am/pages/p0179.md"
+    },
+    {
+      "page": 180,
+      "ocr_seconds": 0.8,
+      "cleanup_seconds": 47.23,
+      "raw_chars": 1753,
+      "cleaned_chars": 1961,
+      "md_path": "chon-viec-theo-lich-am/pages/p0180.md"
+    },
+    {
+      "page": 181,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 50.19,
+      "raw_chars": 1834,
+      "cleaned_chars": 2167,
+      "md_path": "chon-viec-theo-lich-am/pages/p0181.md"
+    },
+    {
+      "page": 182,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 48.36,
+      "raw_chars": 2048,
+      "cleaned_chars": 2059,
+      "md_path": "chon-viec-theo-lich-am/pages/p0182.md"
+    },
+    {
+      "page": 183,
+      "ocr_seconds": 0.88,
+      "cleanup_seconds": 35.69,
+      "raw_chars": 1870,
+      "cleaned_chars": 1846,
+      "md_path": "chon-viec-theo-lich-am/pages/p0183.md"
+    },
+    {
+      "page": 184,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 48.93,
+      "raw_chars": 1902,
+      "cleaned_chars": 1856,
+      "md_path": "chon-viec-theo-lich-am/pages/p0184.md"
+    },
+    {
+      "page": 185,
+      "ocr_seconds": 0.77,
+      "cleanup_seconds": 51.53,
+      "raw_chars": 1981,
+      "cleaned_chars": 1722,
+      "md_path": "chon-viec-theo-lich-am/pages/p0185.md"
+    },
+    {
+      "page": 186,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 37.53,
+      "raw_chars": 1785,
+      "cleaned_chars": 990,
+      "md_path": "chon-viec-theo-lich-am/pages/p0186.md"
+    },
+    {
+      "page": 187,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 34.99,
+      "raw_chars": 1806,
+      "cleaned_chars": 1838,
+      "md_path": "chon-viec-theo-lich-am/pages/p0187.md"
+    },
+    {
+      "page": 188,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 56.55,
+      "raw_chars": 1900,
+      "cleaned_chars": 2066,
+      "md_path": "chon-viec-theo-lich-am/pages/p0188.md"
+    },
+    {
+      "page": 189,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 57.49,
+      "raw_chars": 1878,
+      "cleaned_chars": 2510,
+      "md_path": "chon-viec-theo-lich-am/pages/p0189.md"
+    },
+    {
+      "page": 190,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 44.85,
+      "raw_chars": 1907,
+      "cleaned_chars": 1653,
+      "md_path": "chon-viec-theo-lich-am/pages/p0190.md"
+    },
+    {
+      "page": 191,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 36.88,
+      "raw_chars": 2023,
+      "cleaned_chars": 2063,
+      "md_path": "chon-viec-theo-lich-am/pages/p0191.md"
+    },
+    {
+      "page": 192,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 34.15,
+      "raw_chars": 1871,
+      "cleaned_chars": 1602,
+      "md_path": "chon-viec-theo-lich-am/pages/p0192.md"
+    },
+    {
+      "page": 193,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 51.0,
+      "raw_chars": 1686,
+      "cleaned_chars": 2013,
+      "md_path": "chon-viec-theo-lich-am/pages/p0193.md"
+    },
+    {
+      "page": 194,
+      "ocr_seconds": 0.78,
+      "cleanup_seconds": 39.16,
+      "raw_chars": 2066,
+      "cleaned_chars": 2288,
+      "md_path": "chon-viec-theo-lich-am/pages/p0194.md"
+    },
+    {
+      "page": 195,
+      "ocr_seconds": 0.56,
+      "cleanup_seconds": 31.53,
+      "raw_chars": 1457,
+      "cleaned_chars": 1009,
+      "md_path": "chon-viec-theo-lich-am/pages/p0195.md"
+    },
+    {
+      "page": 196,
+      "ocr_seconds": 0.66,
+      "cleanup_seconds": 34.32,
+      "raw_chars": 1650,
+      "cleaned_chars": 1096,
+      "md_path": "chon-viec-theo-lich-am/pages/p0196.md"
+    },
+    {
+      "page": 197,
+      "ocr_seconds": 0.3,
+      "cleanup_seconds": 23.37,
+      "raw_chars": 487,
+      "cleaned_chars": 513,
+      "md_path": "chon-viec-theo-lich-am/pages/p0197.md"
+    },
+    {
+      "page": 198,
+      "ocr_seconds": 0.5,
+      "cleanup_seconds": 17.24,
+      "raw_chars": 391,
+      "cleaned_chars": 379,
+      "md_path": "chon-viec-theo-lich-am/pages/p0198.md"
+    }
+  ]
 }
