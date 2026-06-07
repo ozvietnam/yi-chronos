@@ -1,0 +1,44 @@
+Ngũ vận: Sao số 8 đến sơn, sao 2 đến hướng. Sao 8 nhập trung, thuận
+phi; sao 2 nhập trung, thuận phi. Phạm thượng sơn hạ thủy. Quẻ sơn tỷ hòa
+thì cát, quẻ hướng tỷ hòa cũng cát.
+
+Hướng,
+f5 Xi S2
+4.9
+4 7
+1
+Sơn
+
+Lục vận: Sao số 9 đến sơn, sao 3 đến hướng. Sao 9 nhập trung, nghịch
+phi; sao 3 nhập trung, nghịch phi. Vượng sơn vượng hướng. Quẻ sơn nhập
+thì cát, quê hướng xuất thì hung.
+
+Hướng
+1 4
+?
+
+9á: 71
+ö 8
+
+47
+2
+
+Sơn
+
+Thất vận: Sao số 1 đến sơn, sao số 4 đến hướng. Sao 1 nhập trung,
+nghịch phi; sao 5 nhập trung, thuận phi. Phạm thượng sơn. Quể sơn ty hòa
+thì cát, quê hướng xuất thì hung.
+
+Hướng
+
+ĐẠI TK)
+6
+
+Si n2 8 6
+ả 9
+
+ý
+1
+
+Sơn
+`

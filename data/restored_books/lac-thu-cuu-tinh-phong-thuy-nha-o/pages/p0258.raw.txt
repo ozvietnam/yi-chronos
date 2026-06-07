@@ -1,0 +1,36 @@
+Bát vận: Sao số 3 đến sơn, sao 4 đến hướng. Sao 3 nhập trung, thuận
+phi; sao 4 nhập trung, nghịch phi. Phạm hạ thủy. Quẻ sơn khắc nhập thì
+cắt, quê hướng tỷ hòa cũng cát.
+
+Sơn
+719 19-7
+517
+ST)
+8 |1
+88
+4
+Hướng
+
+Cửu vận: Sao số 4 đến sơn, sao 5 đến hướng, Sao 4 nhập trung, nghịch
+phi; sao 5 nhập trung, thuận phi. Phạm thượng sơn. Quê sơn tỷ hòa thì cát,
+quẻ hướng khắc nhập cũng cát.
+
+Sơn
+5 4 T2
+8 õ
+6 3 Ê 1A
+7 2
+Hướng
+
+V. THẾ QUÁI THED SA0
+
+Do sự phức tạp của địa hình, mạch nước thế núi luôn luôn không thể
+chạy theo đúng tám phương chính hướng. Trong tình huống đó, phải áp
+dụng thế quái kiêm hướng, để tìm kiếm một phương cách hợp lý. Thế quái
+chính là việc dùng các sao khác để thay cho 9 sao sơn, hướng, nhập vào
+giữa, hình thành và những tượng quái khác nhau. Ví dụ, nếu thế đến của
+long mạch trong núi là Tý sơn Ngọ hướng, nhưng lại lệch về bên phải
+phương Quý, lệch đến một mức độ nhất định (ví dụ 83” trở lên) thì được gọi là
+Tý sơn Ngọ hướng kiêm Quý Đỉnh. Nếu lệch về bên phải phương Nhâm, đạt
+đến một góc độ nhất định, thì gọi là Tý sơn Ngọ hướng kiêm Nhâm Bính.
+Các sơn hướng khác cũng suy ra tương tự.

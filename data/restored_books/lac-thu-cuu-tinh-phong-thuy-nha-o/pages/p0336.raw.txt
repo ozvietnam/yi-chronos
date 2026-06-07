@@ -1,0 +1,54 @@
+Lập Khôn hướng, chính thành môn tại Dậu. phó thành môn tại Ngọ.
+
+Lập Thân hướng, chính thành môn tại Tân, phó thành môn tại Đình.
+
+Lập Mùi hướng, chính thành môn tại Canh, phó thành môn tại Bính.
+
+Lập Ngọ hướng, chính thành môn tại Tốn, phó thành môn tại Khôn.
+
+Lập Đình hướng, chính thành môn tại Ty, phó thành môn tại Thân.
+
+Lập Bính hướng, chính thành môn tại Thìn, phó thành môn tại Mùi.
+
+Lập Tốn hướng. chính thành môn tại Ngọ, phó thành môn tại Mão.
+
+Lập Ty hướng, chính thành môn tại Định, phó thành môn tại Ất.
+
+Lập Thìn hướng, chính thành môn tại Bính, phó thành môn tại Giáp.
+
+Lập Mão hướng, chính thành môn tại Sửu, phó thành môn Tấn.
+
+Lập Ất hướng, chính thành môn tại Dần, phó thành môn tại Ty.
+
+Lập Giáp hướng, chính thành môn tại Sửu, phó thành môn tại Thìn.
+
+Lập Căn hướng, chính thành môn tại Mão, phó thành môn tại Tý.
+
+Lập Dần hướng, chính thành môn tại Ất, phó thành môn tại Quý .
+
+Lập Sửu hướng, chính thành môn tại Giáp, phó thành môn tại Nhâm,
+
+3. Không phải trai bên của một lận hướng bất tỳ đều eú thế chụn được trành mônt
+
+Về nguyên tắc hai bên của mỗi lập hướng đều có chính thành môn và
+phó thành môn. Nhưng âm dương của tọa hướng không giống và bay tới âm
+đương hướng tỉnh thiên bàn của hai bên không giống nhau thì tạo thành 3
+trường hợp: Thứ nhất, hai bên tọa hướng cùng lúc tên tại chính thành môn
+và phó thành môn. Thứ hai, tọa hướng chỉ có một bên có chính thành môn
+hoặc phó thành môn, còn một bên thì không có. Thứ ba, cả hai bên đều
+không có thành môn để chọn. Vậy tại sao lại có thể xuất hiện 3 trường hợp
+này? Đó là do sự kết hợp của hai nguyên nhân đi liền nhau:
+
+- Thứ nhất: Do tam nguyên của lập tọa hướng tạo thành. Tọa hướng lập
+ra có ba nguyên: Thiên nguyên long, Nhân nguyên long, Địa nguyên long.
+Nếu lập Thiên nguyên long tọa hướng thì yêu cầu thành môn hai bên là
+Thiên nguyên long. Nếu lập Nhân nguyên long thì yêu cầu thành môn hai
+bên cũng là Nhân nguyên long. Nếu lập Địa nguyên long thì yêu cầu thành
+môn hai bên cũng phải là Địa nguyên long. chỉ có thỏa mãn yêu cầu như vậy
+thì mới đảm bảo được đồng nguyên nhất khí.
+
+- Thứ hai: Do tính chất của Hậu thiên Bát quái nguyên cung của phi
+tinh thiên bàn hai bên quyết định. Ví dụ, lập Tuất sớc Thìn hướng, thành
+mễn hai bên của Thìn hướng là Giáp và Bính, đều là Địa nguyên long, đảm
+bảo được sự đồng nguyên nhất khí. Giả dụ lận hướng ở nhất vận. Tuất sơn
+và j

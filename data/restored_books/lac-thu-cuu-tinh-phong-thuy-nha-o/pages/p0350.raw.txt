@@ -1,0 +1,65 @@
+Hợp thành 10 là gì?
+
+Có 3 trường hợp:
+
+- Trường hợp thứ nhất là toàn cục hợp thành 10, tức là trong 3 số của
+mỗi cùng vị thì có 2 số hợp thành 10. Hoặc 2 số của phi tỉnh hợp thành 10,
+hoặc số của vận bàn và hai số của phì tỉnh, sơn tình hợp thành 10, hoặc số
+của vận bàn và hai số của phi tính hướng tình hợp thành 10. Tính ra được
+24 bố cục, chia ra như sau:
+
+&® Cân sơn Tôn hướng
+
+Nhất vận, vận tỉnh và hướng tính hợp thành 10,
+
+Cửu vận vận tỉnh và sơn tỉnh hợp thành 10.
+
+& Hợi sơn Ty hướng
+
+Nhất vận, vận tỉnh và hướng tỉnh hợp thành 10.
+
+Cửu vận, vận tỉnh và sơn tỉnh hợp thành 10.
+
+& Tốn sơn Còn hướng
+
+Nhất vận, vận tỉnh và sơn tỉnh hợp thành 10.
+
+Cứu vận, vận tỉnh và hướng tình hợp thành 10.
+
+® 7y sơn Hợi hướng
+
+Nhất vận, vận tình và sơn tỉnh hợp thành 10.
+
+Cửu vận, vận tỉnh và sơn tỉnh hợp thành 10.
+
+® Sửu sơn Mùi hướng
+
+Nhị vận, vận tỉnh và hướng tình hợp thành 19.
+
+Bát vận, vận tỉnh và sơn tính hợp thành 10.
+
+& Afni sơn Sửu hướng
+
+Nhị vận, vận tỉnh và sơn tỉnh hợp thành 10.
+
+Bát vận, vận tĩnh và hướng tình hợp thành 10.
+
+® Tý sơn Ngọ hướng
+
+Tam vận, vận tỉnh và hướng tình hợp thành 10,
+
+Thât vận, vận tỉnh và sơn tình hợp thành 10.
+
+& Quý son Đính hướng
+
+Tam vận, vận tỉnh và hướng tình hợp thành 10.
+
+Thất vận, vận tỉnh và sơn tỉnh hợp thành 10.
+
+®` Vgọ sơn Tý hướng
+
+Tam vận, vận tỉnh và sơn tình hợp thành 10.
+
+Thất vận, vận tỉnh và hướng tỉnh hợp thành 10.
+
+Š ®

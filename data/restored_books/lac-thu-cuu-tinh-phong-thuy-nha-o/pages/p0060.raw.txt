@@ -1,0 +1,33 @@
+Thượng nguyên tam vận (Tam bích Mộc tỉnh nhập trung cung)
+Tam bích Mộc (vượng) dại cát, tốt nhất.
+Tử lục Mộc (sinh) thứ cát, hết sức lợi dụng.
+Ngĩ hoàng Thổ (sinh) tiểu cát, ít dùng.
+Lục bạch Kim, Thất xích Kim (tử) dại hung, phải tránh.
+Bát bạch Kim, Cứu tứ Hỏa (sát) hung, tránh dùng.
+Nhất bạch Thủy (sát) tiểu lung, ít dùng.
+Nhị hắc Thổ (thoái) không lành, không dữ, bình thường.
+Nhị | Thất | Cửu
+Thoái Tử Sát
+F E Nhãi T1: N
+ẩ ẻ hắt am gữ
+z EỊ
+L2 œ®
+Lục Bát Tứ
+Tử Sát Sinh
+Trung nguyên tứ vận (Tứ lục Mộc tỉnh nhập trung cung)
+Tứ lục Mộc (vượng) đại cát, tốt nhất.
+Ngũ hoàng Thổ (sinh) thứ cát, hết sức lợi dụng,
+Lục bạch Kim (sinh) tiểu cắt, có thể lợi dụng.
+Thất xích Kim, Bát bạch Thổ (tử) đại hung, phải tránh.
+Cứu tứ Hóa, Nhất bạch Thủy (sát) hung, tránh dùng.
+Nhị hắc Thở (sát) tiểu hung, ít dùng.
+Tam bích Mộc (thoái) không lành, không dữ, bình thường.
+S.
+hào
+'4 Tàm | Bác | Nhất
+*% Thoái | Từ | Sứ
+3 Nhị | Tứ | Lục
+R Sác | Vượng | Sinh
+Rv Thất | Cứu | Ngũ
+q=c .* Từ | Sát | Sinh
+©

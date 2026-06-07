@@ -1,0 +1,47 @@
+Tọa hướng 3 3 và trung cung 3 hợp thành 10; trung cung 8 3 hợp nhau;
+trung cung và sơn phương 3 8 hợp nhau; tọa hướng phi tình và tọa sơn hợp ä
+8; trung cung 7 và tọa sơn 2 hợp nhau. Trung cùng 7 và hương phương 3
+hợp thành 10.
+
++ Ví dụ: Nhâm sơn Bính hướng, tứ vận
+
+Hướng
+L5
+TC
+
+toi
+rì | 3
+
+9
+
+Sơn
+
+Tọa hướng 4 4 và trung cung 9 hợp nhau: trung cùng 9 4 hợp nhau:
+trung cưng 4 và sơn phương 9 hợp nhau; tọa hướng phì tình và tọa sơn hợp 4
+9; trung cung 8 và tọa sơn 3 hợp nhau.
+
+Từ 4 ví đụ trên có thể thấy: Tý sơn Ngọ hướng của nhất vận và tam vận;
+Nhâm sơn Bính hướng của nhị vận và tứ vận và sơn phương, tọa hướng và
+trung cung đâu cũng là số sinh thành. Điều đó cho thấy tam phương quái
+khí nhất quán, trước sau thông đạt.
+
+- Thứ ba, quái khí trước giữa và sau tương thông thì xuất hiện khí
+thương, trung, hạ, tam nguyên, đều có thể thông và dùng chúng.
+
+Đối với tọa hướng là 1 1, có thể thông dùng khí của tứ vận, thất vận, tức
+là hợp thành tam ban quái 1 4 ?.
+
+Đối với tọa hướng là 2 9, có thể thông dùng khí của ngũ vận và bát vận,
+tức là hợp thành tam ban quái 2 5 8.
+
+Đối với tọa hướng 3 3, có thể thông dòng khí của lục vận và cửu vận, tức
+là hợp thành tam ban quái 3 6 9.
+
+Đối với tọa hướng là 4 4, có thể thông dùng khí của nhất vận và thất
+vận, tức Ìà hợp thành tam ban quái 4 1 7.
+
+Đối với tọa hướng là 6 6, có thể thông dùng khí của tam vận và cửu vận,
+tức là hợp thành tam ban quái 6 3 9.
+
+Đối với tọa hướng là 7 7, có thể thông dùng khí của nhất vận và tứ vận.
+tức là hợp thành tam bạn quái 7 1 4.

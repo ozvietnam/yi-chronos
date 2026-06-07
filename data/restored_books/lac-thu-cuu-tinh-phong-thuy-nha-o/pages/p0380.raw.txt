@@ -1,0 +1,19 @@
+- Ví dụ 9: Thất vận, Đinh sơn Quý hướng
+Sơ đồ tọa sơn:
+Sơn
+Hướng
+Sơ đồ tọa sơn:
+Sơn (cát)
+Thủy (hung)
+Sơn (cát) Sơn (cát)
+Thủy (hung) Thủy (hung)
+Thủy (cát)
+Sơn (hung)
+Sơ đồ hướng thủy: Thủy (cát)
+Sơn (hung)
+Thủy (hung)
+Sơn (cát)
+Thủy (cát) - l
+Sơn (hung)
+Sơn (cát)
+Thủy (hung)

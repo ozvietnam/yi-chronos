@@ -1,0 +1,60 @@
+I. LUẬN ĐỊA VẬN VÀ NHẬP TỪ
+
+216 bảng sắp xếp sao để lập quế trên đây, mỗi bảng đều ghi thời gian
+ngắn của địa vận, trong các hình có ghi chú độ. Vậy địa vận được tính như
+thế nào? Độ đài ngắn của địa vận do mối quan hệ giữa sao giữa và sao
+hướng quyết định. Trong 24 sơn hướng thì mỗi sơn hướng đều có mối quan
+hệ giữa sao giữa và hướng Tình riêng. Ví dụ Tý sơn Ngọ hướng, Nhất vận,
+Nhất bạch Thúy tỉnh nhập trung, hướng tỉnh là 5, ở giữa cách nhất vận, nhị
+vận, tam vận, tứ vận, mỗi nhị vận, 20 nắm, tổng là 80 năm. Sau này bất
+luận là nhập vào trong sao nào thì địa vận đều là 80 năm. Dưới đây xin đưa
+ra độ đài ngắn địa vận của 24 sơn hướng:
+
+Tý sơn Ngọ hướng, địa vận 80 năm.
+
+Quý sơn Đính hướng, địa vận 80 năm.
+
+Nhâm sơn Bính hướng, địa vận 80 năm.
+
+Ngọ sơn Tý hướng, địa vận 100 năm.
+
+Đỉnh sơn Quý hướng, địa vận 100 năm.
+
+Bính sơn Nhâm hướng, địa vận 100 năm.
+
+Càn sơn Tốn hưởng, địa vận 160 năm.
+
+Hợi sơn Ty hướng, địa vận 160 năm.
+
+Tuất sơn Thìn hướng, địa vận 160 năm.
+
+Tốn sơn Càn hướng, địa vận 20 năm.
+
+Ty sơn Hợi hướng, địa vận 20 năm.
+
+Thìn sơn Tuất hướng, địa vận 20 năm.
+
+Dậu sơn Mão hướng, địa vận 140 năm.
+
+Tân sơn Ất hướng, địa vận 140 năm.
+
+Canh sơn Giáp hướng, địa vận 140 năm.
+
+Mão sơn Dậu hướng, địa vận 140 năm.
+
+Ất sơn Tân hướng, địa vận 140 năm.
+
+Giáp sơn Canh hướng, địa vận 140 năm.
+
+Khôn sơn Cấn hướng, địa vận 60 năm.
+
+Thân sơn Dần hướng, địa vận 60 năm.
+
+Mùi sơn Sửu hướng, địa vận 60 năm.
+
+Căn sơn Khôn hướng, địa vận 120 năm.
+
+Dần sơn Thân hướng, địa vận 120 năm.
+
+Sửu sơn Mùi hướng, địa vận 120 năm,
+Sàx

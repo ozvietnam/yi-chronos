@@ -1,0 +1,39 @@
+lập tuyến và lấy hướng. Sau khi làm như vậy thì có thể xác định vị trí tuyến
+của tọa sơn lập hướng trên la bàn. Nếu gặp phải tuyến không lập được, ví
+dụ gặp phải đại không vong hoặc tiểu không vong thì phải bỏ qua địa hình
+này. Nếu gặp phải chính hướng hoặc kiêm hướng thì có thể dựa vào chính
+hướng khởi quái hoặc kiêm hướng khởi quái.
+
+& Bước 3
+
+Khởi quái, tức là khởi hạ quái hoặc khởi thế quái. Khởi hạ quái tức là
+căn cứ theo chính hướng để khởi quái, xem xem quái khởi được thuộc hình
+nào trong 216 hình của quái, sau đó dựa theo chú thích tham khảo của
+hình vẽ để đưa ra phán đoán về sự cắt hung. Cho dù là khởi được loại quái
+nào đi chăng nữa thì đều xuất hiện 3 kết quả sau: Thứ nhất, đáo sơn đáo
+hướng, tức là vượng sơn vượng hướng. Đương nguyên vượng tình bay đến
+vị trí phi tính sơn của tọa phương, rỗi lại bay đến vị trí của phi tính hướng
+của tọa hướng. Ở đây cần lưu ý rằng: Nếu đùng thế quái thì có thể xuất
+hiện thế, bề ngoài thấy là đáo sơn đáo hướng nhưng thực tế lại không phải
+là hiện tượng vượng sơn vượng hướng. Ví dụ: Giáp sơn Canh hướng của tứ
+vận (kiêm Mão Dậu, Dân Thân) và Canh sơn Giáp hướng của tứ vận (kiêm
+Dậu Mão, Thân Dần), nhìn từ bề ngoài thì đáo sơn đáo hướng, nhưng trên
+thực tế lại phạm phải sai lầm là xuất quái hướng. Do Giáp Canh, Canh
+Giáp thuộc hai quê Chấn Đoài, còn Dần Thân, Thân Dần lại thuộc hai quê
+Cấn Khôn. Quái khác nhau khiến cho khí cũng không giống nhau. Đẳng
+thời lại phạm phải sai lầm là âm đương sai lệch. Do Giáp Canh, Canh Giáp
+dù là đồng quái với Mão Dậu, Dậu Mão nhưng âm dương khác nhau, cái
+trước thuộc đương, cái sau thuộc âm, âm đương tương kiêm khiến cho quái
+khí hỗn tạp. Tại sao lại có thể sinh ra sai sót này? Nguyên nhân chính là
+việc lựa chọn dùng phương pháp quái không thay thế tạo thành. Ban đầu,
+có kiêm thì không cần thế, nhưng 9 sao của sơn hướng vừa hay dùng phép
+của không thay thế, sao thay thế và sao sơn hướng ban đầu tương đồng, vì
+vậy không cần thay thế mà vẫn dựa vào sao ban đầu nhập trung. Do đó sẽ
+xuất hiện là quẻ tương và chính hướng hoàn toàn tương đồng, dẫn đến sai
+sót chính hướng phạm xuất quái hướng và âm dương sai lệch. Thứ 2,
+thượng sơn hạ thủy tức tổn đỉnh phá tài. Đương nguyên vượng tính bay
+đến vị trí của phì tình hướng của tọa phương rồi lại bay đến vị trí của phi
+tỉnh sơn của tọa hướng. Vị trí đảo lộn khiến cho long thần trong nước lén
+núi, long thần trên núi xuống nước. Sơn vốn quản nhân đỉnh, thủy quản
+tài, trong tình huống này thì sơn thần lại xuống nước, thủy thần lại lên
+núi gây ra cục diện là tốn đỉnh phá tài. Phàm là nếu gặp trường hợp này

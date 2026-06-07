@@ -1,0 +1,44 @@
+® Suy đoán nguyệt vận
+
+Suy đoán nguyệt vận lấy tiết, khí cấu thành nên tháng làm chuẩn.
+
+Tháng giêng: Từ ngày Lập xuân cho đến ngày cuối cùng của tiết Vũ thủy.
+
+Tháng hai: Từ ngày Kinh trập cho đến ngày cuối cùng của tiết Xuân phân.
+
+Tháng ba: Từ ngày Thanh minh cho đến ngày cuối cùng của tiết Cốc vũ.
+
+Tháng tư: Từ ngày Lập hạ cho đến ngày cuối cùng của tiết Tiểu mãn.
+
+Tháng năm: Từ ngày Mang chúng cho đến ngày cuối cùng của tiết Hạ chí.
+
+Tháng sáu: Từ ngày Tiểu thử cho đến ngày cuối cùng của tiết Đại thử.
+
+Tháng bảy: Từ ngày Lập thu cho đến ngày cuối cùng của tiết Xử thử.
+
+Tháng tâm: Từ ngày Bạch lộ cho đến ngày cuối cùng của tiết Thu phân.
+
+Tháng chín: Từ ngày Hàn lộ cho đến ngày cuối cùng của tiết Sương giáng.
+
+Tháng mười: Từ ngày Lập đông cho đến ngày cuối cùng của tiết Tiểu tuyết.
+
+Tháng mười một: Từ ngày Đại tuyết cho đến ngày cuối cùng của tiết
+Đông chí.
+
+Tháng mười hai: Từ ngày Tiểu hàn cho đến ngày cuối cùng của tiết Đại hàn
+
+Sau khi xác định tháng của từng năm thì cần phải tìm tình bàn cần thiết.
+Phương pháp tìm là sau khi căn cứ vào số mệnh và niên vận, tiểu tiết của
+nguyệt vận được liệt ra trong bảng nguyệt vận nhập trung nói ở phần trước
+ta tra được ngôi sao nào nhập trung thì có thể xác định được tình bàn của
+tháng đó.
+
+Ví như, tháng giêng năm 1995, năm 1995 âm lịch là năm Ất Hợi, xem
+bảng năm Dần, Thân, Hợi, Ty thì có thể biết: Tháng một với nam thì bàn
+nhập trung là 2 tức là sao Nhị hắc Thổ, với nữ là bàn nhập trung là 4, tức là
+sao Tứ lục Mộc. Sau khi biết được ngôi sao nào nhập trung thì có thể tìm ra
+được tỉnh bàn. Nhị là dương, cần sắp xếp thuận, Tứ là âm, cần sắp xếp ngược.
+
+S2) KG,
+/=
+am, 1955 6ay thuận Hnh 6ản tháng giêng  ÑNữ, 1955 bay ngược tinh bàn tháng giêng

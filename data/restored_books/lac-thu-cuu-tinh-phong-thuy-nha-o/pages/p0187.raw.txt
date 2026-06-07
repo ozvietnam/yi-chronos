@@ -1,0 +1,30 @@
+hình nghịch phí trong Thìn hướng 6 nhập trung. Độc giả có thể nhớ là “Trái
+sơn phải hướng”.
+- Ví dụ 2: Càn sơn Tốn hướng, quẻ Thiên nguyên, 8 là sơn 6 là hướng.
+Thiên nguyên của 8 là đương, thuận phi.
+Thiên nguyên của 6 là dương, thuận phi.
+Hướng Hướng
+k "
+1...3. .8 | 9.2 47 L
+⁄
+Sơn ⁄ Sưữn
+2n thất uận phối quể Øfimñ thuận pli trong Cục nhập
+Hướng Hướng
+_` `. Hư nh —
+1 ma 1c ð 3
+62.4
+18
+9
+0510 I2. 2119 7
+2 839 1|7|8],
+Sơn
+⁄ Sơn
+9fầnñ thuận pÍt trong ®át nhập 2f8nft tống lợp Cần sơn Tốn Ítưóng
+Trong mỗi hình tổng hợp, số của hàng dưới mỗi ô là số của “hình phối
+quẻ” thất vận. Số của hàng trên bên trái mỗi ô là số của hình nghịch phi
+trong Càn sơn Bát nhập. Số của bên phải là số của hình nghịch phi trong
+Tốn hướng Lục nhập. Có thể nhớ là “Tả sơn hữu hướng”.
+- Ví dụ 3: Hợi sơn Ty hướng, quẻ Nhân nguyên, 8 là sơn 6 là hướng.
+Nhân nguyên của 8 là dương, thuận phi.
+Nhân nguyên của 6 là đương. thuận phi.
+®—————————_—**+»s

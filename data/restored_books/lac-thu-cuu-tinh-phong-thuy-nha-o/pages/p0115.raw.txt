@@ -1,0 +1,46 @@
+Đã có được tỉnh bàn thì cần tiến hành tra bằng: Phối số âm dương
+Bảng phối số âm dươnc
+Thất | Bát | Cửu | Nhất | Nhị | Tam | Tứ | Ngũ |
+
+Trong bảng chỉ có số của ngôi sao nhập trung, không có số của tỉnh bàn,
+không cần phải lo lắng, chỉ cần tra cửu tỉnh bàn là biết. Đối cbiếu hình trên
+và bảng dưới đây, thì có tìm ra được kết quả như sau:
+
+Đối với nam: Tháng một, năm 1995, dương là Nhị, âm là Tứ, hợp thành
+Nhị Tứ (dương Nhị âm Tứ).
+
+Đối với nữ: Tháng một, năm 1995 âm là Tứ, dương là Nhị, hợp thành Tứ
+Nhị (âm Tứ dương Nh)).
+
+Sau khi xác định được nam dùng Nhị, Tứ và nữ dùng Tứ, Nhị thì có thấy
+mệnh tỉnh của mỗi người (chú ý phân biệt nam nữ) đối ứng Nhị, Tứ hoặc
+Tứ, Nhị, luận ngũ hành tương khắc, thì biết hung cát của mỗi người ở tháng
+một năm 1995 là như thế nào.
+
+Xét các ví dụ dưới đây để hiểu thêm:
+
+- Ví dụ 1: Nữ giới sinh năm 1919, xem vận số của tháng một năm 199ã.
+Nữ sinh năm 1919 thuộc mệnh Lục bạch Kim, tháng một năm 1995 là Tứ
+nhị. Âm Kim khắc âm Mộc mà khắc ngược Thổ, đồng âm tương khắc là hung,
+vì lao lực bôn ba mà mắc bệnh, vì mắc phong hàn mà bị đau đầu, bị cảm,
+viêm ruột, đau cánh tay.
+
+- Ví dụ 9: Nam giới sinh năm 1938, xem vận số tháng một năm 1995,
+
+Nam sinh năm 1938 thuộc mệnh Bát bạch Thổ, tháng một năm 1995 là
+Nhị tứ, Bát Thổ và Nhị Thổ ngang hòa, Bát bạch thực sự rất thiếu dương,
+mặc dù bị tứ Mộc tương khắc nhưng Thổ mạnh Mộc yếu. Thỉnh thoảng có
+chuyện chẳng lành xảy ra, chịu vất vả sương gió, mẹ già có bệnh, nàng dâu
+và mẹ chồng không hòa hợp, cuộc sống khá giả.
+
+®© Suy đoán niên vận
+
+Suy đoán niên vận có cùng một phương pháp tương tự như suy đoán
+nguyệt vận. Đầu tiên cần tra bảng Cửu khí nam nữ ở phần trước để xem
+tỉnh mệnh của người cần suy đoán và sao của năm đó, tách bạch nam nữ,
+sau đó vẽ ra hình niên tỉnh của nam hoặc nữ. Hình niên tỉnh của nam dựa
+vào tỉnh bàn thuận phi của cửu cung Phi tỉnh mà vẽ, hình niên tỉnh của nữ
+dựa vào tỉnh bàn nghịch phi của cửu cung Phi tỉnh mà vẽ (tham khảo hình
+tỉnh bàn thiên tâm). Độc giả cần lưu ý, tỉnh bàn đồ của nam là thuận phi,
+tỉnh bàn đồ của nữ là nghịch phi, không được lấy của nam dùng cho nữ. Một
+khi vẽ sai thì suy đoán sẽ không còn chuẩn xác. Sau khi vẽ xong thì cần tìm

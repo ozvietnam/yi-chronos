@@ -1,0 +1,33 @@
+Lục vận: Sao số 7 đến sơn, sao 5 đến hướng. Sao 7 nhập trung, thuận
+phi; sao 5 nhập trung, nghịch phi. Phạm hạ thủy. Quẻ sơn khắc nhập thì
+cát, quẻ hướng tỷ hòa cũng cát.
+
+Hướng
+5.7175 )9. 3
+4.6.8
+Sơn
+
+Thất vận: Sao số 8 đến sơn, sao 6 đến hướng. Sao 8 nhập trung, nghịch
+phi; sao 6 nhập trung, nghịch phi. Vượng sơn vượng hướng. Quẻ hướng khắc
+nhập thì cát, quẻ sơn sinh nhập cũng cát.
+
+Hướng
+Đi 7 2-9
+õ 4
+đi 5
+Z 98
+Sơn
+
+Bát vận: Sao số 9 đến sơn, sao 7 đến hướng. Sao 9 nhập trung, thuận
+phi; sao 7 nhập trung, thuận phi. Phạm thượng sơn hạ thủy. Quẻ sơn kbắc
+nhập thì cát, que hướng sinh nhập cũng cát.
+
+Hướng
+4 2
+E/
+T0 1:05:
+6 8
+3.159
+214
+Sơn
+®@—————_—_—

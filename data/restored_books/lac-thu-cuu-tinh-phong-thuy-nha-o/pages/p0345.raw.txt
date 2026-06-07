@@ -1,0 +1,54 @@
+Phàm là sắp xếp sao lập nên bố cục là 1 - 2 - 38 - 4,6 - 7-8 - 9, mỗi vận
+tỉnh nhập trung, Ngũ hoàng tất tới cùng nào đó. Nhất bạch nhập trung,
+Ngũ hoàng đến Ly; Nhị hắc nhập trung, Ngữ hoàng đến Cấn; Tam bích
+nhập trung, ngũ hàng đến Đoài; Tứ lục nhập trung, Ngũ hoàng đến Cần;
+Lục bạch nhập trung, Ngũ hoàng đến Tốn; Thất xích nhập trung, Ngũ
+hoàng đến Chấn; Bát bạch nhập trung, Ngũ hoàng đến Khôn; Cửu tử nhập
+trung, Ngũ hoàng đến Khẩm. Vị trí gốc của Ngũ hoàng là ở trưng cung, đo
+sự lưu chuyển của thời vận nên các vận tỉnh lần lượt đi vào trung cùng và vị
+trí ám phương được Ngũ boàng thay thế. Ví dụ: Số 1 nhập trung, làm trống
+vị trí Ly, Ngũ hoàng bù vào; số 2 nhập trung, làm trống vị trí Cấn, Ngũ
+hoàng bù vào; những số còn lại tương tự. Bản thân Ngũ hoàng là Mậu Kỷ
+Thổ khí, đồng thời khí của sao nhập trung. Số 1 nhập trung, Ngũ hoàng
+mang khí của Nhất bạch. Số 3 nhập trung, Ngũ hoàng mang khí của Nhị
+Thể. Số 3 nhập trung, Ngũ hoàng mang khí của Tam Mộc. Những số còn lại
+tương tự. Khí mà Ngũ hoàng mang vừa hay ngược với địa bàn mà nó nhập
+vào, do đó Ngũ hoàng nhập vào bất kỳ cung nào thì đầu thuộc phản ngâm.
+
+Toàn bộ 24 sơn hướng, 216 cách cục sắp xếp các sao, trong đó có 12 sơn
+hướng, 28 cục là bố cục của phục ngâm hoặc phản ngâm. Cụ thể là;
+
+&' Nhâm sơn Bính hướng
+
+Nhất vận, hướng tinh toàn bộ phản ngâm, phục ngâm.
+
+Củu vận, sơn tỉnh toàn bộ phần ngâm, phục ngâm.
+
+® Bính sơn Nhâm hướng
+
+Nhất vận, sơn tỉnh toàn bộ phản ngâm, phục ngâm.
+
+Cửu vận, hướng tĩnh toàn bộ phần ngâm, phục ngắm.
+
+& Cân sơn Khôn hướng
+
+Nhị vận, hướng tình toàn bộ phản ngâm, phục ngâm.
+
+Ngũ vận, sơn tỉnh của sơn và hướng tình của hướng phản ngâm.
+
+Bát vận, sơn tỉnh toàn bộ phản ngâm, phục ngâm.
+
+& Khán sơn Cấn hướng
+
+Nhị vận, hướng tình toàn bộ phần ngâm, phục ngâm,
+
+Ngũ vận, hướng tỉnh của sơn và sơn tỉnh của hướng phản ngâm.
+
+Bát vận, sơn tinh toàn bộ phản ngâm, phục ngâm.
+
+® Dân sơn Thân hướng
+
+Nhị vận, sơn tình toàn bộ phản ngâm, phục ngâm.
+
+: r
+®—_-—-_--_-————_*

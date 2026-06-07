@@ -1,0 +1,39 @@
+Tứ vận: Sao số 9 đến sơn, sao 8 đến hướng. Sao 9 nhập trung, nghịch
+phi; sao 8 nhập trung, thuận phi. Phạm thượng sơn, quê hướng xuất thì
+hung, quẻ sơn tỷ hòa thì cát.
+
+Hướng
+q1 q5
+5 1—
+9871
+417
+6 2 8 9
+z7 2
+Sơn
+
+Ngũ vận: Sao số 1 đến sơn, sao 9 đến hướng. Sao 1 nhập trung, nghịch
+phi; sao 9 nhập trung, nghịch phi. Đáo sơn đáo hướng. Quẻ hướng xuất thì
+hung, quê sơn nhập thì cát.
+
+Hướng
+4 3
+2
+in S1
+7 7
+2O 9 §
+8 6
+Sơn
+
+Lục vận: Sao số 2 đến sơn, sao số 1 đến hướng. Sao 2 nhập trung thuận
+phi; sao 1 nhập trung, nghịch phi. Phạm hạ thủy. Quê hướng tỷ hòa thì cát,
+quẻ sơn nhập thì hung.
+
+Hướng
+8 4
+2
+9 32 1148
+4.6.8
+ST 0003| 55.10
+9.2.7
+Sơn
++. _©
