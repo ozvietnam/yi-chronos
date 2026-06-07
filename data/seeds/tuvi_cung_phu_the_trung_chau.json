@@ -1,0 +1,617 @@
+{
+  "_meta": {
+    "title": "Cung Phu Thê — Tử Vi Đẩu Số Bắc phái Trung Châu (Vương Đình Chỉ)",
+    "source": "data/restored_books/trung-chau-tu-vi-dau-so-2/content.md, section 5.3",
+    "school": "bac_phai_trung_chau",
+    "thay_to_su": ["Trương Khai Quyển", "Lục Bân Triệu", "Vương Đình Chỉ"],
+    "iron_rule": "Đọc đồng dạng paradigm, KHÔNG predict tuyệt đối. Đoán cung Phu Thê cần xem KÈM: Thái Dương/Thái Âm miếu hãm + tam phương tứ chính + đại vận lưu niên."
+  },
+
+  "paradigm_chung": {
+    "nguyen_tac_cot": [
+      "Cung Phu Thê = lăng kính nhìn KHUYNH HƯỚNG hôn nhân, KHÔNG phải số phận cố định",
+      "Phải xem KÈM Thái Dương + Thái Âm miếu hãm (vợ chồng cần khí Dương-Âm hài hòa)",
+      "Sao đôi (Tả-Hữu, Xương-Khúc, Khôi-Việt) trong cung = vợ chồng đoàn tụ; sao LẺ = tái hôn/người thứ ba",
+      "Hóa Kỵ thường ứng năm có biến cố; Hóa Lộc/Quyền/Khoa thường ứng tốt đẹp",
+      "Tuổi tác chênh lệch là 'xu cát tị hung' cho nhiều combo",
+      "Đại vận hoặc lưu niên Phu Thê = thời điểm ứng nghiệm cát/hung của cung gốc"
+    ],
+    "khi_nao_can_xem_kem": [
+      "Mệnh (mình)",
+      "Phúc Đức (đạo lý hôn nhân)",
+      "Tử Nữ (con cái nối tiếp)",
+      "Đối cung Phu Thê (= Quan Lộc — quan hệ vợ chồng + sự nghiệp luôn cross)"
+    ],
+    "luc_cat_luc_hung_phu_the": {
+      "luc_cat": ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Lộc Tồn", "Thiên Khôi-Thiên Việt", "Tả Phụ-Hữu Bật đôi"],
+      "luc_hung": ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Đà La", "Địa Không", "Địa Kiếp", "Hóa Kỵ"]
+    }
+  },
+
+  "14_chinh_tinh_phu_the": {
+
+    "tu_vi": {
+      "ten": "Tử Vi",
+      "ban_chat": "Vua, thiên về chỉ phối — vợ/chồng có khuynh hướng kiểm soát mình",
+      "vi_tri": {
+        "ty_ngo": {
+          "doc_toa": true,
+          "cat": "Bách quan triều củng → người bạn đời đắc lực, địa vị cao, tính độc đoán mạnh",
+          "hung": "Tại dã cô quân / vô đạo → bạn đời tính cách bạo ngược",
+          "luu_y": "Tử Vi thiên tinh thần → bạn đời chi phối tinh thần mình; thiên vật chất → chi phối tiền bạc",
+          "cung_han_ung_nghiem": ["Thiên Đồng-Cự Môn", "Thái Dương-Thiên Lương", "Phá Quân", "Vũ Khúc-Thiên Tướng"]
+        },
+        "suu_mui": {
+          "to_hop": "Tử Vi + Phá Quân",
+          "co_ban": "Bất lợi cho Phu Thê",
+          "cat_canh_bao": "Dù ổn định, trước hôn nhân có sóng gió; nếu không ổn định → dễ ly dị",
+          "ki": "Gặp sao LẺ phụ-tá → có người thứ ba xen vào",
+          "hung_nang": "Sát/kị/hình/hao/không/kiếp trùng trùng → bạn đời gặp tai nạn, bệnh tật, hoặc sự nghiệp thất bại",
+          "luu_y": "Cùng nhau sáng lập sự nghiệp tay trắng (khi bách quan triều củng)"
+        },
+        "dan_than": {
+          "to_hop": "Tử Vi + Thiên Phủ",
+          "can_co": "Sao đôi phụ-tá → sống đến bạc đầu",
+          "ki": "Lộc Tồn đồng độ → bạn đời ích kỷ; Thiên Thọ → nam lấy vợ nhỏ tuổi, nữ lấy chồng lớn",
+          "canh_bao": "Tham Lang/Phá Quân/Cự Môn đại vận → hôn nhân dễ thay đổi"
+        },
+        "mao_dau": {
+          "to_hop": "Tử Vi + Tham Lang",
+          "phan_loai": "Phải phân biệt: 'ham muốn vật chất' VS 'dục tình'",
+          "ham_muon_vat_chat": "Bạn đời có chí tiến thủ",
+          "duc_tinh": "Trước hôn nhân sóng gió + sau kết hôn dễ ngoại tình",
+          "voi_xuong_khuc": "Phần nhiều thành hôn không có lễ chính thức, nhưng tránh sinh ly tử biệt",
+          "voi_liem_trinh_hoa_loc": "Bạn đời không lo cho gia đình",
+          "voi_liem_trinh_hoa_ki": "Bạn đời thông minh nhưng dễ thất chí, ưa tìm cảm giác kích thích",
+          "cat_voi_cat_tinh": "Không coi là 'đào hoa phạm chủ' → vợ chồng cùng sáng lập sự nghiệp",
+          "case_founder": "ÁP DỤNG: Founder Mệnh Thiên Tướng tại Tỵ + Phu Thê = Tử Vi-Tham Lang tại Mão"
+        },
+        "thin_tuat": {
+          "to_hop": "Tử Vi + Thiên Tướng",
+          "tuoi_tac": "Nam nên lấy vợ nhỏ tuổi (chênh tối đa 12); Nữ nên lấy chồng lớn tuổi (8-12 tuổi)",
+          "vo_tinh": "Nếu thuộc 'vô tình' → vợ chồng phải chênh lệch tuổi mới bù đắp, không thì sinh ly",
+          "huu_tinh": "Tả-Hữu + cát tinh → phu xướng phụ tùy, sáng lập sự nghiệp"
+        },
+        "ty_hoi": {
+          "to_hop": "Tử Vi + Thất Sát",
+          "co_ban": "Bạn đời lộng quyền, sự nghiệp lớn nhưng vợ chồng gặp ít, xa nhiều",
+          "khuyen": "Nên kết hôn MUỘN",
+          "voi_hoa_tham_linh_tham": "Bạn đời đột phát đạt (không đào hoa); có đào hoa → đột thay lòng đổi dạ"
+        }
+      },
+      "gioi_y": [
+        "Nam mệnh cung Phu Thê gặp Tử Vi → vợ NÊN có sự nghiệp; nếu ở nhà sẽ phát huy tài lãnh đạo gia đình → 'không chế chổng'",
+        "Nữ mệnh tại dã cô quân/vô đạo → kết hôn muộn sau 30 mới phát triển tình cảm"
+      ]
+    },
+
+    "thien_co": {
+      "ten": "Thiên Cơ",
+      "ban_chat": "Cơ tâm — vợ chồng dễ 'bằng mặt không bằng lòng'",
+      "co_ban": "Bất lợi cho Phu Thê",
+      "ngoai_le_song_voi_nhau": "Đối/đồng độ với Thái Âm + cát tinh → mới sống đến bạc đầu",
+      "vi_tri": {
+        "ty_ngo": {
+          "doc_toa": true,
+          "doi_cung": "Cự Môn",
+          "co_sat": "Đã chủ về vợ chồng bằng mặt không bằng lòng",
+          "hoa_ki": "Tính cách không hợp / bất mãn hoàn cảnh → thay lòng đổi dạ",
+          "tai_hon": "Phần nhiều tốt đẹp hơn",
+          "khong_nen_tai_hon": "Có Hỏa/Linh/Không/Kiếp đồng độ"
+        },
+        "suu_mui": {
+          "doi_cung": "Thiên Lương",
+          "co_ban": "Kết hôn sớm rồi ly dị, hoặc kết hôn muộn trước có nhiều trắc trở tình yêu",
+          "ki_da_la": "Kết hôn muộn + chọn lầm người không hợp",
+          "luu_y": "Trước hôn nhân TRẮC TRỞ là tốt; nếu thuận lợi → sau kết hôn xa nhau / bất hòa"
+        },
+        "dan_than": {
+          "to_hop": "Thiên Cơ + Thái Âm",
+          "nam_uu_nu": "Nam: vợ xinh, giỏi nội trợ. Nữ: dễ bị người khác giới để ý",
+          "tam_trang_hoa_nang": "Hôn nhân dễ sóng gió, bạn đời thay lòng"
+        },
+        "mao_dau": {
+          "to_hop": "Thiên Cơ + Cự Môn",
+          "can_sao_loc": "Mới sống đến bạc đầu",
+          "voi_hoa_linh": "Đầu hòa hợp, sau nguội lạnh",
+          "thien_co_hoa_ki": "Dễ YÊU người đã có gia đình",
+          "cu_mon_hoa_ki": "Khổ đau thầm kín về tình cảm",
+          "nu_menh_cam": "Cung Phu Thê không nên là Thiên Cơ-Cự Môn"
+        },
+        "thin_tuat": {
+          "to_hop": "Thiên Cơ + Thiên Lương",
+          "co_ban": "Kết hôn muộn / trước có sóng gió, nếu không sinh ly",
+          "voi_cat_tinh": "Vợ chồng nên chênh tuổi mới đến bạc đầu"
+        },
+        "ty_hoi": {
+          "doc_toa": true,
+          "tai_ty_vo_dep": "Thái Âm miếu",
+          "tai_hoi_vo_xau": "Thái Âm hãm",
+          "voi_xuong_khuc_dao_hoa": "Bạn đời đã bị người khác theo đuổi"
+        }
+      }
+    },
+
+    "thai_duong": {
+      "ten": "Thái Dương",
+      "co_ban": "Phải xem MIẾU HÃM + ngày/đêm sinh",
+      "ki_hoa_ki": "Cực kỳ ngại — chủ về sinh ly tử biệt với nguyên phối (cả nam và nữ)",
+      "vi_tri": {
+        "ty": {
+          "co_ban": "Bạn đời tính soi bói, bới móc; thêm Hỏa/Linh càng nặng",
+          "voi_khong_kiep": "Kết hôn muộn / hôn ước khó kết hợp",
+          "thai_duong_hoa_ki": "Nữ làm quả phụ sớm (sinh ban đêm càng nặng)",
+          "ban_dem_sinh_nu_menh_hoa_ki": "Hôn nhân bất lợi, sinh ly hoặc rắc rối tình cảm",
+          "nam_30+": "Dễ thay lòng đổi dạ (sinh ban đêm càng nặng)"
+        },
+        "ngo": {
+          "co_ban": "Bạn đời giỏi giang, có trách nhiệm",
+          "co_sat": "Ngày đêm bôn ba, ít hưởng niềm vui gia đình",
+          "cat_hoa_phu_ta": "Nữ → chồng quý hiển; Nam (hiện đại) → vợ có sự nghiệp tốt",
+          "khong_nen_thien_dong_lien_trinh_that_sat_dai_van": "Hôn nhân dễ sóng gió"
+        },
+        "suu": {
+          "to_hop": "Thái Dương + Thái Âm",
+          "nam_menh_cat": "Vợ HIẾP đáp chồng (sinh ban đêm càng nặng)",
+          "nam_menh_sat_ki": "Vì vợ mà phá gia",
+          "nu_menh_cat": "Vợ chồng tình thâm (sinh ban đêm càng tốt)",
+          "nu_menh_sat_ki": "Vợ chồng ý kiến trái nghịch"
+        },
+        "mui": {
+          "to_hop": "Thái Dương + Thái Âm",
+          "y_nghia": "Giống Sửu, nhưng ở Mùi NỮ mệnh lợi hơn"
+        },
+        "dan_than": {
+          "to_hop": "Thái Dương + Cự Môn",
+          "voi_hoa_loc_quyen_ki": "Kết hôn với người NGOẠI QUỐC / xứ xa (trừ Hóa Kỵ ở Thân)",
+          "cat_hoa_phu_duc_khong_cat": "Nữ → xa quê theo chồng; Nam → ở rể"
+        },
+        "mao_dau": {
+          "to_hop": "Thái Dương + Thiên Lương",
+          "mao_uu_dau": "Mão tốt hơn Dậu",
+          "voi_cat": "Vợ chồng tuổi chênh lệch (vợ lớn hơn chồng)",
+          "voi_sat_ki": "Sinh ly tử biệt, bạn đời vì sự nghiệp đi xa",
+          "khuyen": "Kết hôn muộn",
+          "voi_xuong_khuc": "Hai lần kết hôn"
+        },
+        "thin_tuat": {
+          "doi_cung": "Thái Âm",
+          "co_ban": "Trước hôn nhân sóng gió, bạn cũ gặp lại rồi lấy nhau",
+          "thin_voi_cu_mon_hoa_ki": "Sinh ly tử biệt",
+          "tuat_voi_cu_mon_hoa_ki": "Bất lợi nghiêm trọng",
+          "voi_hoa_loc_thin": "Có thể kết hôn người nước ngoài"
+        },
+        "ty_hoi": {
+          "ty_uu_hoi": "Tỵ tốt hơn Hợi (nam-nữ đều vậy)",
+          "ty_voi_sat_hoa_ki_nu_menh_dai_han_tu_vi_thien_phu": "Bất lợi",
+          "hoi_voi_sat_hoa_ki_nam": "Không nên kết hôn sớm",
+          "voi_cu_mon_hoa_ki": "Vợ chồng không tương xứng + điều tiếng",
+          "nghe_nghiep_giai_quyet": "Bạn đời 'dùng tài ăn nói kiếm tiền' (giáo viên, sales) hoặc 'từ thị phi kiếm tiền' (luật sư, công an) → tốt hơn"
+        }
+      },
+      "tong_quat": "Hễ Thái Dương ở Phu Thê + Hóa Kỵ → bất kể nam nữ đều sinh ly tử biệt với NGUYÊN PHỐI. Hỏa/Linh → lúc đầu sâu đậm, lâu thành nước với lửa."
+    },
+
+    "vu_khuc": {
+      "ten": "Vũ Khúc",
+      "ban_chat": "Tài tinh nhưng cô độc + hình khắc — cực kỳ kỵ ở Phu Thê",
+      "vi_tri": {
+        "ty_ngo": {
+          "to_hop": "Vũ Khúc + Thiên Phủ",
+          "can_co_loc": "Mới chủ về hôn nhân hạnh phúc; hội Liêm Trinh Hóa Lộc mới tốt",
+          "vu_khuc_hoa_loc_nam": "Vợ có năng lực giỏi hơn chồng → 'vợ đoạt quyền'",
+          "vu_khuc_hoa_ki_nu": "Hôn nhân đứt đoạn (chồng bệnh / thay lòng)",
+          "vu_khuc_hoa_ki_nam": "Vợ chồng sinh ly",
+          "voi_phu_ta": "Bị người đã có gia đình theo đuổi"
+        },
+        "suu_mui": {
+          "to_hop": "Vũ Khúc + Tham Lang",
+          "co_ban": "Bạn đời KEO KIỆT, xem nặng tiền bạc, kiểm soát tài chính",
+          "voi_loc_ton_hoa_loc": "Chồng giàu / vợ tự kinh doanh",
+          "voi_hoa_linh": "Trước nồng ấm sau nguội lạnh",
+          "voi_hoa_ki": "Vì bạn đời mà PHÁ TÀI",
+          "voi_dao_hoa": "Tình huống rối rắm tình cảm (trước + sau)"
+        },
+        "dan_than": {
+          "to_hop": "Vũ Khúc + Thiên Tướng",
+          "can_cuong_nhu_tuong_te": "Mới chủ về hôn nhân tốt đẹp",
+          "qua_cuong": "Nhân duyên không lâu dài (nam bị vợ chi phối)",
+          "qua_nhu": "Bị bạn đời gây lụy",
+          "voi_dao_hoa_+_sao_le": "Sau kết hôn dễ yêu người đã có gia đình"
+        },
+        "mao_dau": {
+          "to_hop": "Vũ Khúc + Thất Sát",
+          "khuyen": "Kết hôn MUỘN, nếu không hối tiếc",
+          "dau_xau_mao": "Vũ Sát ở Dậu xấu hơn ở Mão (Thái Âm-Thái Dương ở Dậu cùng lạc hãm)",
+          "voi_vu_khuc_hoa_ki_+_lien_trinh_hoa_ki": "Bạn đời TAI NẠN bất ngờ / bị phá tán",
+          "voi_hoa_da": "TÁI HÔN"
+        },
+        "thin_tuat": {
+          "doc_toa": true,
+          "khuyen": "Kết hôn MUỘN; có Hỏa/Linh → thành hôn vội vàng",
+          "voi_cat_hoa": "Bạn đời tinh tế, sắc xảo, có năng lực",
+          "voi_sat_ki_hinh": "Vợ chồng sinh ly tử biệt"
+        },
+        "ty_hoi": {
+          "to_hop": "Vũ Khúc + Phá Quân",
+          "voi_sat_ki_hinh": "Hôn nhân bất lợi, NÊN kết hôn muộn / tái hôn / nhị phòng",
+          "ki_nhat": "Hỏa/Linh/Không/Kiếp đồng độ → oán hận bạn đời",
+          "cat": "Cát hóa + sao cát → bạn đời tinh tế, sắc xảo nhưng mình bị khống chế"
+        }
+      },
+      "doc_bo_co_ban": "Vũ Khúc có Văn Khúc Hóa Kỵ đồng độ → không có hôn lễ chính thức. Linh-Xương-Đà-Vũ → hôn nhân đổ vỡ, hình khắc bạn đời."
+    },
+
+    "thien_dong": {
+      "ten": "Thiên Đồng",
+      "ban_chat": "Tay trắng làm nên — bay vào Phu Thê = HAI LẦN nhân duyên",
+      "co_ban_hien_dai": "Trước hôn nhân đã ở chung / yêu nồng cháy → xa nhau → tái hợp",
+      "khuyen_tuoi": "Nam lấy vợ nhỏ tuổi, nữ lấy chồng lớn tuổi → tuổi chênh nhiều mới thành",
+      "vi_tri": {
+        "ty_ngo": {
+          "to_hop": "Thiên Đồng + Thái Âm",
+          "nam_lay_vo_dep": "Nam: vợ xinh; Nữ: chồng có phong độ",
+          "voi_xuong_khuc_dao_hoa": "Bạn đời được người khác giới ưu ái",
+          "thai_am_hoa_ki": "TÁI HÔN tốt, sống đến bạc đầu",
+          "thien_dong_hoa_ki": "Tái hôn cũng không tốt",
+          "voi_cu_mon_hoa_ki": "Nhiều điều tiếng, dễ ly dị"
+        },
+        "suu_mui": {
+          "to_hop": "Thiên Đồng + Cự Môn",
+          "voi_hoa_ki_hoa_loc_deu": "Dễ ĐAU KHỔ vì tình, yêu đơn phương",
+          "khuyen": "Kết hôn muộn; nữ chủ về làm nhị phòng hay kế thất",
+          "cung_menh": "Là cách 'Dương Lương Xương Lộc'"
+        },
+        "dan_than": {
+          "to_hop": "Thiên Đồng + Thiên Lương",
+          "nam_uu": "Sau ly hôn lấy vợ khác xinh đẹp",
+          "nu_uu": "Sau tái giá lấy chồng có sự nghiệp tốt hơn",
+          "khuyen": "Nam nhỏ tuổi vợ, nữ lớn tuổi chồng; không tái hôn → ly tán rồi tái hợp"
+        },
+        "mao_dau": {
+          "doi_cung": "Thái Âm",
+          "voi_cat_hoa": "Bạn đời xinh đẹp / tuấn tú; ở chung trước rồi kết hôn càng đúng",
+          "voi_sat_ki_hinh": "2-3 lần hôn nhân",
+          "luu_y_nam": "Không nên gặp Thiên Diêu, Âm Sát, Kiếp Sát → vợ có thủ đoạn"
+        },
+        "thin_tuat": {
+          "doi_cung": "Cự Môn",
+          "tinh_chat": "Giống Thiên Đồng-Cự Môn"
+        },
+        "ty_hoi": {
+          "doi_cung": "Thiên Lương",
+          "tinh_chat": "Giống Thiên Đồng-Thiên Lương",
+          "voi_loc_ton_thien_ma": "Vợ chồng gặp ít xa nhiều"
+        }
+      }
+    },
+
+    "liem_trinh": {
+      "ten": "Liêm Trinh",
+      "co_ban": "Không phải sao lành, nhưng sinh ly nhiều hơn tử biệt; vợ chồng bất hòa nhưng có thể sống đến bạc đầu",
+      "ki_nhat": "Liêm Trinh Hóa Kỵ + trùng điệp với Hóa Kỵ khác → sinh ly tử biệt",
+      "khuyen_tuoi": "Nam lấy vợ nhỏ tuổi, nữ lấy chồng lớn tuổi (chênh trên 12 tuổi cũng được)",
+      "vi_tri": {
+        "ty_ngo": {
+          "to_hop": "Liêm Trinh + Thiên Tướng",
+          "doi_cung": "Phá Quân",
+          "co_ban": "Vợ chồng bảo thủ ý kiến riêng → bất hòa",
+          "voi_kinh_duong_hoa_linh_khong_kiep": "Bạn đời tai nạn, bệnh tật",
+          "voi_xuong_khuc": "Hòa hợp, sống đến bạc đầu (chênh tuổi trên 12)"
+        },
+        "suu_mui": {
+          "to_hop": "Liêm Trinh + Thất Sát",
+          "can_loc_quyen_khoa_du": "Mới sống đến bạc đầu (nhưng có thời gian xa)",
+          "voi_sao_le": "Tái hôn",
+          "voi_kinh_da": "Hình khắc"
+        },
+        "dan_than": {
+          "doc_toa": true,
+          "voi_hoa_linh": "Thành hôn HẤP TẤP",
+          "voi_thien_dieu": "Ở chung trước rồi mới kết hôn",
+          "voi_sat_ki_trung_trung": "TÁI HÔN hoặc 3 lần hôn nhân",
+          "co_ban": "Thường có TÌNH YÊU với người đã có gia đình"
+        },
+        "mao_dau": {
+          "to_hop": "Liêm Trinh + Phá Quân",
+          "co_ban": "Đổ vỡ NGHIÊM TRỌNG, dù cát hóa cũng bất hòa",
+          "voi_hoa_linh": "HỌA LỚN — bạn đời bất trắc / mình thất bại",
+          "voi_sao_le_+_dao_hoa": "Thay lòng đổi dạ; tái hôn vẫn không tốt"
+        },
+        "thin_tuat": {
+          "to_hop": "Liêm Trinh + Thiên Phủ",
+          "co_ban": "Khá ổn định — chỉ bất hòa, không hình khắc/chia ly",
+          "luu_y": "Dễ bị người đã có gia đình theo đuổi",
+          "voi_lien_trinh_hoa_ki": "Vẫn có thể ly dị; sau lấy vợ đẹp nhưng 'ngó đứt tơ chưa lìa'"
+        },
+        "ty_hoi": {
+          "to_hop": "Liêm Trinh + Tham Lang",
+          "co_ban": "Không lành; gặp sát-hình-không-kiếp → ly dị hoặc kiện tụng sắc tình",
+          "voi_hoa_linh": "Hữu danh vô thực / nỗi khổ thầm kín",
+          "voi_sao_le": "Hai lần nhân duyên, lần thứ hai tốt hơn",
+          "voi_dao_hoa": "Bạn đời có tài năng nghệ thuật nhưng dễ đổ vỡ"
+        }
+      }
+    },
+
+    "thien_phu": {
+      "ten": "Thiên Phủ",
+      "co_ban": "Sao thiện — gặp sao ác cũng chủ về sinh ly nhiều hơn tử biệt; thường 'ngó đứt tơ chưa lìa'",
+      "kho_lo_kho_trong": "BẤT LỢI — nam sủng ái thiếp bỏ chính thất; nữ làm nhị phòng/kế thất",
+      "khuyen": "Nam lấy vợ nhỏ tuổi, nữ lấy chồng lớn tuổi (xu cát tị hung)",
+      "vi_tri": {
+        "suu_mui": {
+          "doc_toa": true,
+          "voi_sao_le": "Có tình nhân bên ngoài",
+          "voi_sat": "Gặp ít xa nhiều",
+          "voi_lien_trinh_hoa_ki_doi_cung": "Bỏ vợ lấy vợ khác",
+          "voi_dao_hoa_+_kho_lo": "Vì ham sắc mà phá tán"
+        },
+        "mao_dau": {
+          "doc_toa": true,
+          "khong_kho_lo_kho_trong": "Hôn nhân hoàn mỹ",
+          "dau_xau_mao": "Cung Dậu kém hơn Mão (vì Vũ-Sát đối lạc hãm)",
+          "voi_dao_hoa": "Tình yêu với người đã có gia đình",
+          "voi_cat_hoa": "Hôn nhân tốt đẹp, ân ái, phù trợ"
+        },
+        "ty_hoi": {
+          "doc_toa": true,
+          "doi_cung": "Tử Vi + Thất Sát",
+          "ưu_tinh": "Tốt hơn Mão-Dậu — bạn đời tinh tế, có đức tài",
+          "voi_thien_tuong_tai_an_giap_an": "Vợ chồng trợ lực",
+          "voi_hinh_ki_giap_an": "Bạn đời cơ thể yếu, phá tài vì bệnh",
+          "voi_da_la_+_kho_lo": "Tự tìm phiền + bạn đời bệnh"
+        }
+      }
+    },
+
+    "thai_am": {
+      "ten": "Thái Âm",
+      "co_ban": "Sao Mẹ — quan trọng cho nam (vợ); xem MIẾU HÃM + ngày/đêm sinh",
+      "voi_xuong_khuc_dong": "Chồng nhờ vợ quý hiển; vợ xinh đẹp hiền tuệ",
+      "voi_sat_ki_+_ban_ngay_sinh_nu_hoa_ki": "Chồng bệnh tật",
+      "vi_tri": {
+        "mao_dau": {
+          "mao_doi_thien_dong": "Cung Dậu tốt hơn — bạn đời có sự nghiệp riêng",
+          "mao_de_sinh_ly": "Cung Mão dễ sinh ly hoặc gặp ít xa nhiều",
+          "dau_+_thien_dong_hoa_ki_+_dao_hoa_+_sao_le": "Nữ có khuynh hướng đồng tính"
+        },
+        "thin_tuat": {
+          "doc_toa": true,
+          "doi_cung": "Thái Dương",
+          "thuong_thuong": "Sống đến bạc đầu",
+          "tuat_uu_thin": "Tuất tốt hơn Thìn",
+          "thin_voi_hoa_loc_quyen_khoa": "Nữ trung niên hưng phát; nam được vợ trợ lực",
+          "tuat_cat_+_khong_sat": "Nữ đang hàn vi bỗng được nâng đỡ"
+        },
+        "ty_hoi": {
+          "doc_toa": true,
+          "tai_ty_hoa_ki_+_sat_+_dao_hoa": "Bạn đời giúp người mà gặp họa",
+          "tai_hoi": "Bạn đời GIÀU CÓ; với nữ menh, chồng phát đạt thường gây rắc rối tình cảm",
+          "hoi_+_thai_am_hoa_ki": "Trợ giúp sự nghiệp nhau",
+          "khuyen_tuoi": "Nam vợ nhỏ tuổi, nữ chồng lớn (chênh ≥6 tuổi)"
+        }
+      }
+    },
+
+    "tham_lang": {
+      "ten": "Tham Lang",
+      "co_ban": "Đào hoa + dục tình — gặp sát → hình khắc, ly hôn, hoặc tử vong bạn đời",
+      "khuyen": "Kết hôn MUỘN hoặc trước hôn nhân đã có sóng gió → mới tránh đổ vỡ",
+      "hoa_tham_linh_tham": "Tình đầu nồng cháy, sau kết hôn nguội lạnh nhanh",
+      "vi_tri": {
+        "ty_ngo": {
+          "doi_cung": "Tử Vi",
+          "voi_thien_hinh_sao_khong": "Rất ưa — nếu không, hôn nhân sóng",
+          "voi_sao_le_phu_ta": "Người thứ ba xen vào",
+          "phiem_thuy_dao_hoa": "Tình yêu nhiều sắc thái, sau rối ren",
+          "khuyen": "Nam lấy vợ lớn tuổi, nữ lấy chồng XỨNG ĐÔI"
+        },
+        "dan_than": {
+          "co_ban": "Rất dễ bị người đã có gia đình theo đuổi (đặc biệt khi Thất Sát ở Phúc Đức có đào hoa)",
+          "voi_lien_trinh_hoa_ki_doi": "Ly hôn rồi tái hôn, lần sau không mãn nguyện",
+          "voi_hoa_linh_+_lien_trinh_hoa_ki_+_khong_kiep_+_hinh_+_dai_hao": "Bạn đời tai nạn, bệnh tật bất ngờ"
+        },
+        "thin_tuat": {
+          "thien_la_dia_vong": "Ý vị đào hoa GIẢM — tính chất khá tốt",
+          "voi_cat_hoa": "Vợ chồng hạnh phúc",
+          "voi_sao_le_phu_ta_+_dao_hoa_nam": "Sau kết hôn có tình nhân bên ngoài (nhưng không ly hôn)",
+          "khuyen": "Kết hôn muộn",
+          "sat_nang_+_hinh_ki": "Suốt đời không hôn ước"
+        }
+      },
+      "tham_lang_hoa_ki": "Bị người ta đoạt người yêu → trước hôn nhân sóng gió là tốt; nếu thuận lợi sau kết hôn dễ biến cố",
+      "nu_menh_canh_bao": "Ngoại trừ Tử-Tham ở Mão-Dậu và độc tọa Thìn-Tuất → dễ bị người đã có vợ theo đuổi, hôn nhân sóng gió"
+    },
+
+    "cu_mon": {
+      "ten": "Cự Môn",
+      "co_ban": "Cổ nhân không ưa Cự Môn ở Phu Thê — chủ về ngăn cách, sinh ly tử biệt, ô danh thất tiết",
+      "kem_voi_thien_luong_menh": "Phải xem Thiên Lương ở Mệnh phúc đức đầy không",
+      "trong_diem": "Thái Dương phải MIẾU VƯỢNG để hóa giải 'cô độc hình khắc' của Thiên Lương + 'hình kỵ' của Cự Môn",
+      "ki_nhat": "Đà La / Linh Tinh đồng cung → tự tìm phiền, chuyện bé xé to",
+      "voi_kinh_+_thien_hinh_HOAC_hoa_kinh": "SINH LY; lại Hóa Kỵ + đại hạn → TỬ BIỆT",
+      "vi_tri": {
+        "ty_ngo": {
+          "ta_huu_xuong_khuc_chia_ra_2_cung": "SINH LY (mỗi sao một cung Mệnh/Phu Thê)",
+          "voi_cat_hoa_+_cat_tinh": "Nam: vợ thông tuệ xinh đẹp; Nữ: chồng sự nghiệp vững"
+        },
+        "thin_tuat": {
+          "hach_dia": "Hãm địa — sát/kị → vợ chồng chia lì, điều tiếng, bất hòa thân gia",
+          "voi_phu_ta": "Đều không tốt"
+        },
+        "ty_hoi": {
+          "nu_bat_hoa_gia_dinh_chong": "Đặc biệt cung Tỵ nặng",
+          "hoi_+_sat_ki": "Nhiều sự cố nghiêm trọng"
+        }
+      },
+      "khuyen_tuoi": "Nữ nên lấy chồng lớn tuổi; nam lớn hơn vợ 1-2 tuổi (xu cát tị hung)",
+      "voi_xuong_khuc_hoa_ki": "Hôn lễ không hoàn chỉnh + tính cách không hợp",
+      "thien_dong_cu_mon": "Gia thế, học thức, tướng mạo của hai người KHÔNG tương xứng"
+    },
+
+    "thien_tuong": {
+      "ten": "Thiên Tướng",
+      "co_ban": "'Thân càng thêm thân' — vợ chồng từ bạn học/đồng sự/đồng hương biến thành; hoặc người quen cũ tái ngộ",
+      "phu_xuong_phu_tuy": "Vợ chồng nên hợp tác làm ăn",
+      "tai_an_giap_an": "Nam: nhờ gia đình vợ trợ lực; Nữ: chồng có hậu thuẫn",
+      "hinh_ki_giap_an": "Vì bạn đời mà phá tán, thất bại",
+      "xem_kem": "Nam xem Thái Âm; Nữ xem Thái Dương — phải miếu vượng + cát tinh",
+      "doc_bo": "Khác các sao khác — gặp 'sao đôi' phụ tá hoặc 'sao đôi' giáp cung → vẫn có 2 lần hôn nhân",
+      "vi_tri": {
+        "suu_mui": {
+          "ki_voi_hoa_linh_kinh_da": "Trắc trở tình yêu; với Hỏa-Linh càng tệ",
+          "doi_voi_tu_vi_pha_quan_+_ta_huu_giap": "Hủy hôn ước trước / chia tay → tránh 2 lần nhân duyên"
+        },
+        "mao_dau": {
+          "doc_toa": true,
+          "ki_lien_tham_hoa_ki_+_vu_khuc_hoa_ki": "Bạn đời khốn cùng / tai nạn / bệnh",
+          "voi_sat_ki": "Vợ chồng giữa chừng chia lìa"
+        },
+        "ty_hoi": {
+          "diem_chot": "Xem đối cung Vũ Khúc cát hóa hay không",
+          "vu_khuc_hoa_ki": "Bạn đời bất trắc / bệnh; nhẹ → ý kiến không hợp",
+          "vu_khuc_hoa_quyen_loc": "Phu xướng phụ tùy",
+          "voi_tu_tham_+_dao_hoa": "Nữ làm nhị phòng, nam có yêu đương trước"
+        }
+      },
+      "hoa_linh_dong_do": "Cô độc, không tình duyên hoặc ly dị",
+      "lien_trinh_hoa_loc_dong_do_nam": "Nhờ vợ có tiền của (hiện đại: vợ phụ giúp sự nghiệp)"
+    },
+
+    "thien_luong": {
+      "ten": "Thiên Lương",
+      "co_ban": "Hôn nhân thường mang tính 'NẠN TAI' — phải xem mức độ qua các sao hội hợp",
+      "moi_tinh_dau_that_bai": "Phần nhiều — gặp sát → suốt đời không quên",
+      "voi_thien_ma": "Hoàn cảnh ép buộc phải xa nhau (sau có thể đoàn viên)",
+      "voi_xuong_khuc_+_dao_hoa_nu": "Phong lưu, hay ra ngoài → vợ chồng gặp ít xa nhiều",
+      "voi_hoa_linh": "Đoạn sàng dị mộng",
+      "voi_kinh_da": "Nói xấu, thị phi → vợ chồng áp lực",
+      "khuyen_tuoi": "Chênh tuổi nhiều; Thiên Thọ → chênh trên 16 tuổi",
+      "vi_tri": {
+        "ty_ngo": {
+          "ty_tot_ngo": "Tý tốt hơn Ngọ",
+          "ngo": "Bạn đời tính soi bói, bới móc",
+          "voi_thai_am_hoa_ki": "Bạn đời nghèo khó / xuất thân nghèo",
+          "voi_thai_am_hoa_loc": "Bạn đời giàu / sự nghiệp hưng thịnh"
+        },
+        "suu_mui": {
+          "suu_tot": "Cung Sửu tốt",
+          "mui_xau": "Cung Mùi: Thái Âm-Thái Dương đều lạc hãm → hôn nhân trắc trở; Hóa Kỵ → nạn tai, ly dị"
+        },
+        "ty_hoi": {
+          "co_ban": "Nam lấy được vợ đẹp",
+          "voi_thien_dong_hoa_ki_doi_+_sat": "Chia ly rồi hình khắc",
+          "voi_thien_dong_hoa_loc_doi_+_cat": "Vợ chồng tay trắng làm nên",
+          "ty_kem_hoi": "Tỵ kém Hợi"
+        }
+      }
+    },
+
+    "that_sat": {
+      "ten": "Thất Sát",
+      "co_ban": "Cát hóa + phụ tá → bạn đời có SỰ NGHIỆP RIÊNG (cùng làm chung → vợ đoạt quyền chồng)",
+      "khuyen": "Kết hôn MUỘN",
+      "voi_hoa_linh_HOAC_kinh_da": "Kết hôn sớm bất lợi, yêu đương sóng gió, thành hôn 'đại cho xong'",
+      "voi_loc_ton_thien_ma_+_cat": "Bạn đời phát tài ở xa",
+      "voi_tham_lang_hoa_ki_+_hoa_linh_khong_kiep": "Bị người ta đoạt người yêu",
+      "voi_am_sat_+_sat": "Bạn đời bệnh thần kinh",
+      "voi_kinh_+_thien_hinh_thien_nguyet_benh_phu_thien_hu_+_lien_trinh_hoa_ki": "Bạn đời tai nạn, bệnh tật",
+      "voi_pha_quan_hoa_loc_+_sao_le": "2 lần hôn nhân",
+      "doi_cung_thien_phu_kho_lo_kho_trong": "Sau kết hôn nghèo khó",
+      "lien_that_HOAC_vu_that": "Cực kỳ kỵ — với Hóa Kỵ + sát hình → bạn đời bất trắc, nguy cơ tử vong",
+      "vi_tri": {
+        "ty_ngo": {
+          "phu_ta_dong_do_+_vu_phu_doi_cung_co_phu_ta": "Có tình yêu với người đã kết hôn",
+          "voi_vu_khuc_hoa_ki_+_sat": "Bạn đời nạn tai bệnh tật / nghèo khổ",
+          "cat_hoa": "Bạn đời giỏi quản lý → vợ đoạt quyền chồng (nam mệnh)"
+        },
+        "dan_than": {
+          "co_ban": "Vợ đoạt quyền chồng",
+          "voi_pha_quan_hoa_loc_+_hoa_linh_HOAC_sao_le": "2 lần hôn nhân",
+          "voi_loc_ton_+_hoa_linh_giap": "Bạn đời ích kỷ / tai nạn"
+        },
+        "thin_tuat": {
+          "voi_sat_HOAC_sao_le": "Có tình mà không duyên hoặc duyên mà không tình",
+          "lien_trinh_hoa_loc_doi": "Vợ chồng hạnh phúc",
+          "lien_trinh_hoa_ki_doi": "Sinh ly tử biệt",
+          "voi_xuong_khuc_+_dao_hoa_+_lien_trinh_hoa_ki": "Đau khổ vì tình, nữ thị phi"
+        }
+      }
+    },
+
+    "pha_quan": {
+      "ten": "Phá Quân",
+      "co_ban": "Không phải sao thiện — dù Phá Quân Hóa Lộc cũng sóng gió trước hôn nhân",
+      "ki_hoa_linh_HOAC_giap_cung": "Hôn nhân bị phá / áp lực; nên kết hôn MUỘN",
+      "ki_kinh_da_hoi": "Trước hoặc sau hôn nhân, hai bên có chia li 1 lần",
+      "ki_khong_kiep_HOAC_giap": "Có duyên không có tình",
+      "voi_sao_le_phu_ta": "2 lần hôn nhân hoặc người thứ ba",
+      "voi_loc_ton": "Bạn đời ích kỷ; thêm sát → gia đình cản trở",
+      "khong_che_doi_phuong": "Phá Quân ở Phu Thê — nam nữ đều khuynh hướng KHỐNG CHẾ bạn đời → gặp sát rất dễ chia lìa",
+      "to_hop": {
+        "tu_pha": "Tử-Phá: tuổi chênh nhiều mới tốt; vợ đoạt quyền chồng",
+        "lien_pha_+_sao_le_HOAC_sat": "Bất hòa; thêm đào hoa → ngoại tình",
+        "vu_pha_+_sat": "Hình khắc hoặc vợ chồng ở 2 nơi"
+      },
+      "vi_tri": {
+        "ty_ngo": {
+          "doi_cung": "Liêm Trinh + Thiên Tướng",
+          "voi_tham_lang_hoa_loc_+_xuong_khuc_HOAC_dao_hoa": "Mình có tình nhân bên ngoài",
+          "voi_tham_lang_hoa_ki": "Bạn đời có tình nhân bên ngoài",
+          "voi_hinh_ki_giap_an": "Cần xem Phá Quân có sát hay không"
+        },
+        "dan_than": {
+          "doi_cung": "Vũ Khúc + Thiên Tướng",
+          "voi_tai_an_giap_an_+_xuong_hoa_ki": "Trải sóng gió mới thành vợ chồng; không hôn lễ chính thức",
+          "voi_hinh_ki_giap_an": "Như Tý-Ngọ"
+        },
+        "thin_tuat": {
+          "doi_cung": "Tử Vi + Thiên Tướng",
+          "voi_bach_quan_trieu_cung": "Bạn đời sự nghiệp tốt nhưng có sự ngăn cách",
+          "voi_tai_an_giap_an": "Chênh tuổi nhiều; nữ chồng lớn ≥12 tuổi",
+          "hoa_quyen_+_khong_xuong_khuc_dao_hoa": "Cát; có → mình có tình nhân bên ngoài",
+          "voi_da_la": "Dễ yêu người đã có gia đình → rối rắm"
+        }
+      }
+    }
+  },
+
+  "to_hop_doi_thuong_gap": {
+    "_note": "8 tổ hợp đôi xuất hiện ở cung Phu Thê — bảng nhanh",
+    "tu_vi_pha_quan": "Sửu/Mùi — bất lợi, dễ ly dị; rất kỵ sao lẻ phụ tá",
+    "tu_vi_thien_phu": "Dần/Thân — cần sao đôi phụ tá mới đến bạc đầu",
+    "tu_vi_tham_lang": "Mão/Dậu — phân biệt ham muốn vật chất vs dục tình",
+    "tu_vi_thien_tuong": "Thìn/Tuất — chênh tuổi nhiều; hữu tình thì 'phu xướng phụ tùy'",
+    "tu_vi_that_sat": "Tỵ/Hợi — bạn đời lộng quyền, kết hôn muộn",
+    "vu_khuc_thien_phu": "Tý/Ngọ — cần Lộc; nam mệnh vợ giỏi hơn",
+    "vu_khuc_tham_lang": "Sửu/Mùi — bạn đời keo kiệt, kiểm soát tài",
+    "vu_khuc_thien_tuong": "Dần/Thân — cương nhu tương tế",
+    "vu_khuc_that_sat": "Mão/Dậu — Dậu xấu hơn Mão, kết hôn muộn",
+    "vu_khuc_pha_quan": "Tỵ/Hợi — hôn nhân bất lợi, dễ tái hôn",
+    "lien_trinh_thien_tuong": "Tý/Ngọ — vợ chồng bảo thủ, bất hòa",
+    "lien_trinh_that_sat": "Sửu/Mùi — cần Lộc Quyền Khoa đủ",
+    "lien_trinh_pha_quan": "Mão/Dậu — đổ vỡ nghiêm trọng",
+    "lien_trinh_thien_phu": "Thìn/Tuất — khá ổn định, bất hòa nhỏ",
+    "lien_trinh_tham_lang": "Tỵ/Hợi — không lành, dễ kiện tụng sắc tình",
+    "thai_duong_thai_am": "Sửu/Mùi — nam Sửu lợi, nữ Mùi lợi",
+    "thai_duong_cu_mon": "Dần/Thân — Hóa Lộc/Quyền/Kỵ → kết hôn người ngoại quốc",
+    "thai_duong_thien_luong": "Mão/Dậu — Mão tốt hơn Dậu; chênh tuổi",
+    "thien_co_thai_am": "Dần/Thân — nam vợ xinh, nữ dễ bị để ý",
+    "thien_co_cu_mon": "Mão/Dậu — cần sao Lộc, nữ không nên",
+    "thien_co_thien_luong": "Thìn/Tuất — kết hôn muộn; chênh tuổi",
+    "thien_dong_thai_am": "Tý/Ngọ — vợ xinh chồng có phong độ",
+    "thien_dong_cu_mon": "Sửu/Mùi — Hóa Kỵ/Lộc đều dễ đau khổ vì tình",
+    "thien_dong_thien_luong": "Dần/Thân — tái hôn tốt hơn lần đầu"
+  },
+
+  "quy_tac_doan_chung": [
+    "Cát hóa (Lộc Quyền Khoa) hoặc sao Lộc → hôn nhân ngon hơn",
+    "Hóa Kỵ (đặc biệt Vũ Khúc, Thái Dương, Liêm Trinh) → CỰC KỲ BẤT LỢI",
+    "Sao đôi phụ tá (Tả-Hữu, Xương-Khúc, Khôi-Việt đôi) đầy → cát; sao LẺ → tái hôn / người thứ ba",
+    "Tứ sát (Hỏa-Linh-Kình-Đà) đồng độ → hình khắc; giáp cung → áp lực",
+    "Hôn nhân ứng nghiệm tại đại vận/lưu niên cung Phu Thê có chính tinh tương ứng",
+    "Phải xem THÁI DƯƠNG (cho nữ) + THÁI ÂM (cho nam) miếu hãm KÈM cung Phu Thê",
+    "Thiên Mã + Lộc Tồn cùng bay đến → vợ chồng GẶP ÍT XA NHIỀU"
+  ]
+}
