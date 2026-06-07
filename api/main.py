@@ -7899,6 +7899,41 @@ def yi_tuvi_chieu_dom_cast(req: _AnalyzeRequest, request: Request) -> dict:
     return {"status": "ok", **result}
 
 
+# ─── Cung Phu Thê — Bắc phái Trung Châu (Vương Đình Chỉ) ────────────────────
+
+
+@app.post("/api/tu-vi/cung-phu-the/bac-phai")
+def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận cung Phu Thê theo BẮC PHÁI Trung Châu.
+
+    Paradigm: Trung Châu Tử Vi Đẩu Số 2 (Vương Đình Chỉ, section 5.3).
+    14 chính tinh × 12 cung Địa Chi + 24 tổ hợp đôi.
+
+    Output: structured paradigm + markdown summary.
+    Public access — không gate VIP (paradigm = lookup từ seed JSON).
+    """
+    from engine.tu_vi.chiem_phu_the import chiem_phu_the, chiem_phu_the_summary_text
+    from engine.tu_vi.analyzer import TuViAnalyzer
+
+    person = _resolve_person_from_request(req, request)
+    analyzer = TuViAnalyzer(person)
+    la_so = analyzer.la_so
+
+    result = chiem_phu_the(la_so)
+    if "error" in result:
+        return {"status": "error", "message": result["error"]}
+
+    summary_md = chiem_phu_the_summary_text(la_so)
+    return {
+        "status": "ok",
+        "person_key": person.person_key,
+        "school": result["school"],
+        "thay_to_su": result["thay_to_su"],
+        "data": result,
+        "summary_markdown": summary_md,
+    }
+
+
 class _LuanCungRequest(_AnalyzeRequest):
     branch: str = ""
 
