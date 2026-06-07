@@ -8,8 +8,8 @@
 |---|---:|
 | **PDF gốc trong thư viện** | 43 |
 | **Thư mục restored** | 42 |
-| **Đã OCR/restore THÀNH CÔNG** (chars > 100) | **37** |
-| **CHƯA OCR (chars < 100, image scan)** | **5** |
+| **Đã OCR/restore THÀNH CÔNG** (chars > 100) | **42** ✅ |
+| **CHƯA OCR (chars < 100, image scan)** | **0** ✅ |
 | **PDF chưa có folder restored** (chỉ pipeline đặc thù) | 1 (`图解梅花易数.pdf` → đã có `yi_publishing/mai_hoa_thamnhuan`) |
 
 ## ✅ 37 sách đã OCR/restore xong (sorted theo dung lượng nội dung)
@@ -54,17 +54,18 @@
 | 2,382 | — | balliett-philosophy-of-numbers (numerology — bản thô) |
 | 2,130 | — | campbell-your-days-are-numbered (numerology — bản thô) |
 
-## ⚠️ 5 sách CHƯA OCR — tất cả là IMAGE_SCAN (cần pipeline OCR thật)
+## ✅ 5 sách image-scan ĐÃ OCR XONG (2026-06-08)
 
-| Pages | Size | PDF gốc | Folder restored |
-|---:|---:|---|---|
-| **336** | 4.6 MB | `12 con giap theo lich van nien.pdf` | `12-con-giap-theo-lich-van-nien/` (empty) |
-| **198** | 14 MB | `chon viec theo lich am.pdf` | `chon-viec-theo-lich-am/` (empty) |
-| **121** | 3.3 MB | `DON TOAN THAN DIEU.pdf` | `don-toan-than-dieu/` (empty) |
-| **490** | 34 MB | `Lac thu cuu tinh phong thuy nha o.pdf` | `lac-thu-cuu-tinh-phong-thuy-nha-o/` (empty) |
-| **42** | 20 MB | `phong-thuy-tam-quai-trach.pdf` | `phong-thuy-tam-quai-trach/` (empty) |
+| Pages | content.md | Sách |
+|---:|---:|---|
+| 42 | 71 KB | phong-thuy-tam-quai-trach (pilot, 22 phút) |
+| 121 | 151 KB | don-toan-than-dieu (26 phút) |
+| 198 | 436 KB | chon-viec-theo-lich-am |
+| 336 | 668 KB | 12-con-giap-theo-lich-van-nien |
+| 490 | 858 KB | lac-thu-cuu-tinh-phong-thuy-nha-o (123 phút) |
 
-**Tổng**: 1,187 trang IMAGE_SCAN cần OCR.
+**Tổng**: 1,187 trang OCR + Gemma cleanup hoàn tất trong 314 phút (5h14m).
+Pipeline: `scripts/batch_restore_5_missing.sh` (pdf2image → Tesseract VN → Gemma 4-e4b LM Studio).
 
 ## 🎯 Đặc thù: 1 PDF có pipeline xuất bản riêng
 
