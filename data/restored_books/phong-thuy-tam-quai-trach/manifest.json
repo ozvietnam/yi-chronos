@@ -1,10 +1,351 @@
 {
   "book_id": "phong-thuy-tam-quai-trach",
   "source_pdf": "thư viện sách/phong-thuy-tam-quai-trach.pdf",
-  "note": "Phong thủy 8 quái",
-  "extractor": "markitdown",
-  "elapsed_seconds": 0.0,
-  "chars": 0,
-  "needs_ocr_image": true,
-  "ts": 1780412295.887172
+  "page_range": [
+    1,
+    42
+  ],
+  "total_pages": 42,
+  "total_seconds": 686.4,
+  "model": "google/gemma-4-e4b",
+  "dpi": 200,
+  "concurrency": 2,
+  "pages": [
+    {
+      "page": 1,
+      "ocr_seconds": 0.41,
+      "cleanup_seconds": 12.24,
+      "raw_chars": 269,
+      "cleaned_chars": 20,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0001.md"
+    },
+    {
+      "page": 2,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 30.68,
+      "raw_chars": 1336,
+      "cleaned_chars": 1055,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0002.md"
+    },
+    {
+      "page": 3,
+      "ocr_seconds": 0.63,
+      "cleanup_seconds": 25.21,
+      "raw_chars": 1173,
+      "cleaned_chars": 994,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0003.md"
+    },
+    {
+      "page": 4,
+      "ocr_seconds": 0.85,
+      "cleanup_seconds": 33.76,
+      "raw_chars": 1669,
+      "cleaned_chars": 1669,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0004.md"
+    },
+    {
+      "page": 5,
+      "ocr_seconds": 1.06,
+      "cleanup_seconds": 39.51,
+      "raw_chars": 2336,
+      "cleaned_chars": 2287,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0005.md"
+    },
+    {
+      "page": 6,
+      "ocr_seconds": 1.0,
+      "cleanup_seconds": 35.87,
+      "raw_chars": 2090,
+      "cleaned_chars": 2053,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0006.md"
+    },
+    {
+      "page": 7,
+      "ocr_seconds": 0.64,
+      "cleanup_seconds": 30.6,
+      "raw_chars": 1115,
+      "cleaned_chars": 848,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0007.md"
+    },
+    {
+      "page": 8,
+      "ocr_seconds": 0.84,
+      "cleanup_seconds": 28.75,
+      "raw_chars": 1622,
+      "cleaned_chars": 1451,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0008.md"
+    },
+    {
+      "page": 9,
+      "ocr_seconds": 0.89,
+      "cleanup_seconds": 34.32,
+      "raw_chars": 1844,
+      "cleaned_chars": 1814,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0009.md"
+    },
+    {
+      "page": 10,
+      "ocr_seconds": 0.67,
+      "cleanup_seconds": 29.37,
+      "raw_chars": 1271,
+      "cleaned_chars": 1243,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0010.md"
+    },
+    {
+      "page": 11,
+      "ocr_seconds": 0.47,
+      "cleanup_seconds": 28.3,
+      "raw_chars": 628,
+      "cleaned_chars": 497,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0011.md"
+    },
+    {
+      "page": 12,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 34.61,
+      "raw_chars": 1930,
+      "cleaned_chars": 1952,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0012.md"
+    },
+    {
+      "page": 13,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 27.69,
+      "raw_chars": 1367,
+      "cleaned_chars": 1292,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0013.md"
+    },
+    {
+      "page": 14,
+      "ocr_seconds": 0.75,
+      "cleanup_seconds": 24.6,
+      "raw_chars": 1296,
+      "cleaned_chars": 1022,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0014.md"
+    },
+    {
+      "page": 15,
+      "ocr_seconds": 0.87,
+      "cleanup_seconds": 37.33,
+      "raw_chars": 1813,
+      "cleaned_chars": 1975,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0015.md"
+    },
+    {
+      "page": 16,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 28.77,
+      "raw_chars": 1428,
+      "cleaned_chars": 1181,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0016.md"
+    },
+    {
+      "page": 17,
+      "ocr_seconds": 0.95,
+      "cleanup_seconds": 36.85,
+      "raw_chars": 1525,
+      "cleaned_chars": 1311,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0017.md"
+    },
+    {
+      "page": 18,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 44.65,
+      "raw_chars": 1735,
+      "cleaned_chars": 1669,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0018.md"
+    },
+    {
+      "page": 19,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 27.19,
+      "raw_chars": 1690,
+      "cleaned_chars": 1372,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0019.md"
+    },
+    {
+      "page": 20,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 39.48,
+      "raw_chars": 1643,
+      "cleaned_chars": 1612,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0020.md"
+    },
+    {
+      "page": 21,
+      "ocr_seconds": 0.72,
+      "cleanup_seconds": 39.1,
+      "raw_chars": 1401,
+      "cleaned_chars": 1397,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0021.md"
+    },
+    {
+      "page": 22,
+      "ocr_seconds": 0.59,
+      "cleanup_seconds": 25.1,
+      "raw_chars": 1053,
+      "cleaned_chars": 996,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0022.md"
+    },
+    {
+      "page": 23,
+      "ocr_seconds": 0.98,
+      "cleanup_seconds": 30.25,
+      "raw_chars": 2078,
+      "cleaned_chars": 2002,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0023.md"
+    },
+    {
+      "page": 24,
+      "ocr_seconds": 1.02,
+      "cleanup_seconds": 30.71,
+      "raw_chars": 1933,
+      "cleaned_chars": 1849,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0024.md"
+    },
+    {
+      "page": 25,
+      "ocr_seconds": 0.86,
+      "cleanup_seconds": 37.03,
+      "raw_chars": 1679,
+      "cleaned_chars": 1769,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0025.md"
+    },
+    {
+      "page": 26,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 32.9,
+      "raw_chars": 1776,
+      "cleaned_chars": 1463,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0026.md"
+    },
+    {
+      "page": 27,
+      "ocr_seconds": 0.74,
+      "cleanup_seconds": 26.07,
+      "raw_chars": 1195,
+      "cleaned_chars": 1226,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0027.md"
+    },
+    {
+      "page": 28,
+      "ocr_seconds": 0.9,
+      "cleanup_seconds": 26.93,
+      "raw_chars": 1773,
+      "cleaned_chars": 1607,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0028.md"
+    },
+    {
+      "page": 29,
+      "ocr_seconds": 0.73,
+      "cleanup_seconds": 29.19,
+      "raw_chars": 1208,
+      "cleaned_chars": 1120,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0029.md"
+    },
+    {
+      "page": 30,
+      "ocr_seconds": 0.69,
+      "cleanup_seconds": 34.6,
+      "raw_chars": 1287,
+      "cleaned_chars": 1251,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0030.md"
+    },
+    {
+      "page": 31,
+      "ocr_seconds": 0.57,
+      "cleanup_seconds": 34.77,
+      "raw_chars": 896,
+      "cleaned_chars": 684,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0031.md"
+    },
+    {
+      "page": 32,
+      "ocr_seconds": 0.83,
+      "cleanup_seconds": 32.58,
+      "raw_chars": 1449,
+      "cleaned_chars": 1192,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0032.md"
+    },
+    {
+      "page": 33,
+      "ocr_seconds": 0.6,
+      "cleanup_seconds": 33.34,
+      "raw_chars": 888,
+      "cleaned_chars": 1055,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0033.md"
+    },
+    {
+      "page": 34,
+      "ocr_seconds": 0.92,
+      "cleanup_seconds": 33.87,
+      "raw_chars": 1661,
+      "cleaned_chars": 1628,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0034.md"
+    },
+    {
+      "page": 35,
+      "ocr_seconds": 0.53,
+      "cleanup_seconds": 26.65,
+      "raw_chars": 949,
+      "cleaned_chars": 976,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0035.md"
+    },
+    {
+      "page": 36,
+      "ocr_seconds": 0.54,
+      "cleanup_seconds": 30.0,
+      "raw_chars": 801,
+      "cleaned_chars": 761,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0036.md"
+    },
+    {
+      "page": 37,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 48.21,
+      "raw_chars": 1280,
+      "cleaned_chars": 1323,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0037.md"
+    },
+    {
+      "page": 38,
+      "ocr_seconds": 0.7,
+      "cleanup_seconds": 24.92,
+      "raw_chars": 1290,
+      "cleaned_chars": 1105,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0038.md"
+    },
+    {
+      "page": 39,
+      "ocr_seconds": 0.76,
+      "cleanup_seconds": 24.49,
+      "raw_chars": 1356,
+      "cleaned_chars": 1127,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0039.md"
+    },
+    {
+      "page": 40,
+      "ocr_seconds": 0.71,
+      "cleanup_seconds": 30.06,
+      "raw_chars": 1272,
+      "cleaned_chars": 736,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0040.md"
+    },
+    {
+      "page": 41,
+      "ocr_seconds": 0.46,
+      "cleanup_seconds": 24.14,
+      "raw_chars": 672,
+      "cleaned_chars": 685,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0041.md"
+    },
+    {
+      "page": 42,
+      "ocr_seconds": 1.01,
+      "cleanup_seconds": 36.76,
+      "raw_chars": 2308,
+      "cleaned_chars": 2376,
+      "md_path": "phong-thuy-tam-quai-trach/pages/p0042.md"
+    }
+  ]
 }
