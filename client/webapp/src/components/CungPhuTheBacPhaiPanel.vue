@@ -191,8 +191,49 @@ function fmtFieldName(k) {
               <strong>6. Mệnh chủ ({{ v2Rules['6_menh_chu_anh_huong'].menh_chu }}):</strong>
               <span>{{ v2Rules['6_menh_chu_anh_huong'].paradigm }}</span>
             </div>
+            <div v-if="v2Rules['7_thai_duong_thai_am_mieu_ham']" class="rule">
+              <strong>7. {{ v2Rules['7_thai_duong_thai_am_mieu_ham'].key_star }} (xem kèm):</strong>
+              <span :class="v2Rules['7_thai_duong_thai_am_mieu_ham'].verdict === 'cát' ? 'success' : (v2Rules['7_thai_duong_thai_am_mieu_ham'].verdict === 'hung' ? 'warning' : '')">
+                {{ v2Rules['7_thai_duong_thai_am_mieu_ham'].paradigm }}
+              </span>
+            </div>
           </div>
         </details>
+      </div>
+
+      <!-- Đại Vận Phu Thê chain -->
+      <div v-if="v2Rules?.['8_dai_van_phu_the_chain']?.length" class="card dai-van-card">
+        <h3>📅 8 Đại Vận — Cung Phu Thê</h3>
+        <table class="dai-van-table">
+          <thead>
+            <tr><th>Tuổi</th><th>Mệnh ĐV</th><th>Phu Thê ĐV</th><th>Chính tinh</th><th>Cảnh báo</th></tr>
+          </thead>
+          <tbody>
+            <tr v-for="dv in v2Rules['8_dai_van_phu_the_chain'].slice(0, 8)" :key="dv.start_age">
+              <td>{{ dv.start_age }}–{{ dv.end_age }}</td>
+              <td>{{ dv.menh_branch }}</td>
+              <td><strong>{{ dv.phu_the_branch }}</strong></td>
+              <td>{{ dv.phu_the_chinh_tinh.join(", ") || "—" }}</td>
+              <td>
+                <span v-if="dv.canh_bao?.length" class="warning">{{ dv.canh_bao[0] }}</span>
+                <span v-else class="muted">—</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Lưu Niên Markers -->
+      <div v-if="v2Rules?.['9_luu_nien_markers']?.length" class="card luu-nien-card">
+        <h3>🌸 Năm Hồng Loan / Thiên Hỉ đến Mệnh-Phu Thê (10 năm)</h3>
+        <p class="hint-note">
+          <em>Sách Trung Châu: "Lưu niên có Hồng Loan/Thiên Hỉ bay đến cung Mệnh hoặc Phu Thê có thể là ứng kỳ kết hôn / thai sản — NHƯNG cần tinh hệ chính diệu cát lợi ổn định."</em>
+        </p>
+        <ul class="luu-nien-list">
+          <li v-for="m in v2Rules['9_luu_nien_markers']" :key="m.year">
+            <strong>{{ m.year }}</strong> ({{ m.year_branch }}): {{ m.triggers.join("; ") }}
+          </li>
+        </ul>
       </div>
 
       <!-- Cảnh báo -->
@@ -362,6 +403,13 @@ function fmtFieldName(k) {
 .rule .muted { color: var(--read-muted, #8a7a6a); font-style: italic; }
 .rule .success { color: #2d7a3e; }
 .rule .warning { color: #c33; font-weight: 600; }
+.dai-van-card { background: #f5f0e8; border-color: #d4a574; }
+.dai-van-table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+.dai-van-table th, .dai-van-table td { padding: 6px 8px; border-bottom: 1px solid #e8d8c0; text-align: left; }
+.dai-van-table th { background: #faf2e8; font-weight: 600; }
+.luu-nien-card { background: #fff5e6; border-color: #d4a574; }
+.luu-nien-list { margin: 8px 0 0 20px; padding: 0; font-size: 0.95em; }
+.luu-nien-list li { margin: 4px 0; }
 .hoa-chip {
   display: inline-block;
   background: #ffd966;

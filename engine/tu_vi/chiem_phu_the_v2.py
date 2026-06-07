@@ -23,6 +23,8 @@ from .chiem_phu_the import (
     _load_seed,
 )
 
+BRANCHES = ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi']
+
 # Sao đào hoa hệ chính (rule paradigm Bắc phái)
 _DAO_HOA_STARS = {"Hồng Loan", "Thiên Hỉ", "Hàm Trì", "Đại Hao", "Thiên Diêu", "Mộc Dục"}
 
@@ -261,6 +263,73 @@ def _detect_doi_cung_vo_chinh_dieu(la_so: dict, phu_the_idx: int) -> dict[str, A
     }
 
 
+def _detect_thai_duong_thai_am_for_phu_the(la_so: dict, gender: str) -> dict[str, Any]:
+    """Quy luật 7 (Trung Châu): xem KÈM Thái Dương + Thái Âm miếu hãm cho Phu Thê.
+
+    Sách (section 5.3 + 3.x):
+    - NAM mệnh: xem THÁI ÂM (sao chủ về VỢ) — phải miếu vượng + cát tinh
+    - NỮ mệnh: xem THÁI DƯƠNG (sao chủ về CHỒNG) — phải miếu vượng + cát tinh
+    - Lạc hãm + Hóa Kỵ + sát → hôn nhân bất lợi, vợ/chồng nhiều bệnh
+
+    Returns: {
+        "key_star": "Thái Âm" hoặc "Thái Dương",
+        "branch": branch name,
+        "level": "miếu" | "vượng" | "đắc" | "bình" | "lạc" | "hãm",
+        "hoa": "Lộc/Quyền/Khoa/Kỵ" hoặc None,
+        "verdict": "cát" | "hung" | "trung",
+        "paradigm": "...",
+    }
+    """
+    from .mieu_vuong_ham import level_at
+
+    key_star = "Thái Âm" if gender.startswith("nam") else "Thái Dương"
+    chinh_tinh = la_so.get("chinh_tinh", {})
+    tu_hoa = la_so.get("tu_hoa", {})
+
+    star_idx = chinh_tinh.get(key_star)
+    if star_idx is None:
+        return {"error": f"Không tìm thấy {key_star}"}
+
+    branch = BRANCHES[star_idx]
+    level = level_at(key_star, branch) or "?"
+
+    # Tìm Hóa nào
+    hoa = None
+    for h_key in ("Lộc", "Quyền", "Khoa", "Kỵ"):
+        star = tu_hoa.get(h_key) or tu_hoa.get(f"Hóa {h_key}")
+        if star == key_star:
+            hoa = h_key
+            break
+
+    # Verdict
+    if level in ("miếu", "vượng", "đắc"):
+        verdict = "cát"
+        paradigm = (
+            f"{key_star} tại {branch} = {level} (sáng) → "
+            f"{'vợ' if gender.startswith('nam') else 'chồng'} cát lợi, hôn nhân thuận"
+        )
+    elif level in ("lạc", "hãm"):
+        verdict = "hung" if hoa == "Kỵ" else "trung"
+        warn = " ⚠ Hóa Kỵ + lạc hãm = đại hung" if hoa == "Kỵ" else ""
+        paradigm = (
+            f"{key_star} tại {branch} = {level} (tối) → "
+            f"{'vợ' if gender.startswith('nam') else 'chồng'} có khuynh hướng "
+            f"khó khăn, sách Trung Châu khuyến cáo cẩn trọng.{warn}"
+        )
+    else:
+        verdict = "trung"
+        paradigm = f"{key_star} tại {branch} = {level} (trung bình)"
+
+    return {
+        "key_star": key_star,
+        "branch": branch,
+        "level": level,
+        "hoa": hoa,
+        "verdict": verdict,
+        "paradigm": paradigm,
+    }
+
+
 def chiem_phu_the_v2(la_so: dict) -> dict[str, Any]:
     """Engine v2 — paradigm Bắc Phái Trung Châu, 6 quy luật mới."""
     seed = _load_seed()
@@ -293,6 +362,18 @@ def chiem_phu_the_v2(la_so: dict) -> dict[str, Any]:
     # Quy luật 6: Mệnh chủ effect
     menh_chu = la_so.get("menh_chu", "")
     menh_chu_paradigm = _MENH_CHU_PARADIGM.get(menh_chu, "")
+
+    # Quy luật 7: Thái Dương / Thái Âm miếu hãm (xem kèm theo giới)
+    gender = la_so.get("gender", "nam")
+    thai_duong_am = _detect_thai_duong_thai_am_for_phu_the(la_so, gender)
+
+    # Quy luật 8: Đại Vận + Lưu Niên Phu Thê
+    from .dai_van_luu_nien_phu_the import cung_phu_the_dai_van, luu_nien_phu_the_markers
+    dai_van_chain = cung_phu_the_dai_van(la_so)
+    # Lưu niên markers cho 10 năm tới
+    import datetime
+    cur_year = 2026  # fixed reference; UI có thể truyền year_range qua API
+    markers = luu_nien_phu_the_markers(la_so, (cur_year - 2, cur_year + 10))
 
     # Phân loại Tử-Tham bias (nếu là Tử-Tham)
     bias_result = None
@@ -336,6 +417,9 @@ def chiem_phu_the_v2(la_so: dict) -> dict[str, Any]:
                 "menh_chu": menh_chu,
                 "paradigm": menh_chu_paradigm or "(không có rule cụ thể trong sách)",
             },
+            "7_thai_duong_thai_am_mieu_ham": thai_duong_am,
+            "8_dai_van_phu_the_chain": dai_van_chain,
+            "9_luu_nien_markers": markers,
         },
         "tu_tham_bias": bias_result,
         "iron_rule": (
