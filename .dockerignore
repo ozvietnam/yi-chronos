@@ -25,6 +25,11 @@ data/
 !data/restored_books/**/manifest.json
 !data/restored_books/markitdown_batch_summary.json
 
+# Seed JSON — paradigm engines load runtime (cung Phu Thê, Mai Hoa, Bát Tự...)
+# Version-controlled qua git add -f (gitignored nhưng commit explicit)
+!data/seeds/
+!data/seeds/**/*.json
+
 # Docs (not needed in runtime image) — except citation markdown:
 # .md files trong skills/kinh-dich/ phải vào image cho RAG luận sâu
 

@@ -17,7 +17,12 @@ from pathlib import Path
 from typing import Any
 
 _ROOT = Path(__file__).resolve().parent.parent.parent
-_SEED_PATH = _ROOT / "data" / "seeds" / "tuvi_cung_phu_the_trung_chau.json"
+# Volume mount /opt/yi-chronos/data shadows data/ in Docker — check embedded first
+_SEED_CANDIDATES = [
+    _ROOT / "embedded_data" / "seeds" / "tuvi_cung_phu_the_trung_chau.json",
+    _ROOT / "data" / "seeds" / "tuvi_cung_phu_the_trung_chau.json",
+]
+_SEED_PATH = next((p for p in _SEED_CANDIDATES if p.exists()), _SEED_CANDIDATES[-1])
 
 # Map chính tinh tiếng Việt → key trong seed
 _STAR_KEY_MAP = {

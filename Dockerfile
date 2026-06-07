@@ -77,6 +77,11 @@ COPY data/hermes_yi/skills/kinh-dich/ ./embedded_data/hermes_yi/skills/kinh-dich
 RUN mkdir -p ./embedded_data/restored_books
 COPY data/restored_books/ ./embedded_data/restored_books/
 
+# Seed JSON paradigm files (cung Phu Thê Trung Châu, Mai Hoa thời tiết, Bát Tự ...)
+# Volume mount /opt/yi-chronos/data shadows data/, so seeds must be in embedded_data/
+RUN mkdir -p ./embedded_data/seeds
+COPY data/seeds/ ./embedded_data/seeds/
+
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 
