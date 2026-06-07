@@ -1,0 +1,39 @@
+Về thời gian: nếu sự kiện cần dự báo khởi
+._ lên ở tháng nào, thì tháng đó là tháng Giêng để
+
+tính. Ví dụ: có người muốn biết việc sẽ ra sao,
+vào tháng Tư: theo cách này, tháng 4 cung
+Tuất là khởi tháng Giêng (vì Tuất là cung của
+tháng 4 và 6). dếm thuận theo chiều kim đồng
+hề, tháng 2 cung Hợi, tháng 3 cung Tý, vậy
+tháng 4 dùng để doán định là ở cung Sửu.
+
+Tương tự như vậy, đối với các tháng khác
+như sau:
+
++ Tháng Giêng và tháng 9: khởi tháng
+Giêng từ cung (ô) Sửu.
+
++ Tháng 2 và tháng 8: khởi tháng Giêng từ
+cung Tý.
+
++ Tháng 3 và tháng 7 khởi tháng Giêng từ
+cung Hợi.
+
++ Tháng 4 và tháng 6 khởi tháng Giêng từ
+cung Tuất.
+
++ Tháng ð khởi tháng Giêng từ cung Dậu.
+
++ Tháng 10 và tháng Chạp khởi tháng
+Giêng từ cung Dần.
+
++ Tháng Một khởi tháng Giêng từ cùng Mão.
+
+Khi xác định được tháng Giêng, ta đếm
+thuận theo chiều kim đồng hỗ đến tháng đang
+dự báo: dừng ở cung nào thì đó là ngày mồng 1,
+đếm tiếp đến ngày dự báo: dừng ở cung nào ta
+lấy đó là giờ Tý. Từ giờ Tý đếm đi đến giờ đang
+dự báo: dừng ở cung nào là cung để tính vậ trí
+60
