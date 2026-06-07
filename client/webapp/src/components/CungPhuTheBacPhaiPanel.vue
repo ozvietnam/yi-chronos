@@ -11,12 +11,20 @@
  */
 import { ref, computed } from "vue";
 
+// PER-USER props — App.vue truyền activePerson từ store
+// (guest dùng local store, authenticated dùng API user_persons).
+// KHÔNG có hardcode founder fallback.
 const props = defineProps({
-  personKey: { type: String, default: "founder" },
+  personKey: { type: String, default: "" },
   birthDatetimeLocal: { type: String, default: "" },
-  gender: { type: String, default: "nam" },
+  gender: { type: String, default: "" },
   name: { type: String, default: "" },
 });
+
+// Phải có ít nhất birth_datetime_local + gender để cast lá số
+const canFetch = computed(
+  () => Boolean(props.birthDatetimeLocal && props.gender)
+);
 
 const loading = ref(false);
 const error = ref("");
@@ -75,12 +83,23 @@ function fmtFieldName(k) {
       <div class="school-tag">Trung Châu · Vương Đình Chỉ</div>
     </header>
 
+    <div v-if="!canFetch" class="no-chart-hint">
+      <p>🪐 Chưa có lá số. Vui lòng:</p>
+      <ul>
+        <li>👉 Mở tab <strong>"Hồ sơ"</strong> để nhập ngày-giờ sinh của Anh/Chị,</li>
+        <li>Hoặc dùng URL share: <code>?birth=YYYY-MM-DD-HH-{nam|nu}</code></li>
+      </ul>
+      <p class="hint-note">
+        <em>Tính năng dùng lá số CỦA RIÊNG bạn — KHÔNG dùng lá số của người khác.</em>
+      </p>
+    </div>
+
     <button
-      v-if="!result && !loading"
+      v-else-if="!result && !loading"
       class="btn-primary"
       @click="fetchLuanGiai"
     >
-      🔮 Luận cung Phu Thê
+      🔮 Luận cung Phu Thê của <strong>{{ name || "bạn" }}</strong>
     </button>
 
     <div v-if="loading" class="loading">
@@ -216,6 +235,21 @@ function fmtFieldName(k) {
   margin-top: 12px;
 }
 .loading { padding: 24px; text-align: center; font-style: italic; }
+.no-chart-hint {
+  padding: 14px;
+  background: #fff8e6;
+  border: 1px dashed #d4a574;
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+.no-chart-hint ul { margin: 8px 0 8px 20px; }
+.no-chart-hint code {
+  background: #fde9c8;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+.hint-note { color: var(--read-muted, #8a7a6a); font-size: 0.88em; margin-top: 8px; }
 .error { padding: 12px; color: #c33; background: #fee; border-radius: 6px; }
 .result { display: flex; flex-direction: column; gap: 12px; }
 .card {
