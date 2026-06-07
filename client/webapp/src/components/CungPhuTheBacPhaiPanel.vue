@@ -43,6 +43,11 @@ const viTriParadigm = computed(() => result.value?.data?.luan_giai?.vi_tri_parad
 const toHopSummary = computed(() => result.value?.data?.luan_giai?.to_hop_summary || null);
 const thayToSu = computed(() => result.value?.thay_to_su || []);
 
+// Engine v2 — 6 quy luật mới (Tứ Hóa, đào hoa phạm chủ, Tả-Hữu hội, đối cung, Mệnh chủ)
+const v2 = computed(() => result.value?.v2 || null);
+const v2Bias = computed(() => v2.value?.tu_tham_bias || null);
+const v2Rules = computed(() => v2.value?.quy_luat_v2 || null);
+
 async function fetchLuanGiai() {
   loading.value = true;
   error.value = "";
@@ -137,6 +142,57 @@ function fmtFieldName(k) {
       <div v-if="toHopSummary" class="card to-hop-card">
         <h3>🔗 Tổ hợp đôi</h3>
         <p class="to-hop-note">{{ toHopSummary.noi_dung }}</p>
+      </div>
+
+      <!-- Engine v2: 6 quy luật mới -->
+      <div v-if="v2Rules" class="card v2-card">
+        <h3>🔬 Phân tích 6 quy luật (Engine v2)</h3>
+
+        <div v-if="v2Bias" class="bias-conclusion">
+          <div class="bias-headline">{{ v2Bias.ket_luan }}</div>
+          <ul class="bias-reasons">
+            <li v-for="(ly, i) in v2Bias.ly_do" :key="i">{{ ly }}</li>
+          </ul>
+        </div>
+
+        <details class="v2-details">
+          <summary>Xem chi tiết 6 quy luật</summary>
+          <div class="rule-grid">
+            <div class="rule">
+              <strong>1. Tứ Hóa tại chính tinh:</strong>
+              <span v-if="Object.keys(v2Rules['1_tu_hoa_at_chinh_tinh'] || {}).length">
+                <span v-for="(star, key) in v2Rules['1_tu_hoa_at_chinh_tinh']" :key="key" class="hoa-chip">
+                  {{ star }} Hóa {{ key }}
+                </span>
+              </span>
+              <span v-else class="muted">không</span>
+            </div>
+            <div class="rule">
+              <strong>2. Đào hoa phạm chủ:</strong>
+              <span :class="v2Rules['2_dao_hoa_pham_chu'].detected ? 'warning' : 'success'">
+                {{ v2Rules['2_dao_hoa_pham_chu'].paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>3. Xương-Khúc:</strong>
+              <span>{{ v2Rules['3_xuong_khuc_anh_huong'].note }}</span>
+            </div>
+            <div class="rule">
+              <strong>4. Tả-Hữu hội chiếu tam phương:</strong>
+              <span :class="v2Rules['4_ta_huu_doi_hoi_chieu'].detected ? 'success' : 'muted'">
+                {{ v2Rules['4_ta_huu_doi_hoi_chieu'].note }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>5. Đối cung (Quan Lộc):</strong>
+              <span>{{ v2Rules['5_doi_cung_vo_chinh_dieu'].paradigm }}</span>
+            </div>
+            <div class="rule">
+              <strong>6. Mệnh chủ ({{ v2Rules['6_menh_chu_anh_huong'].menh_chu }}):</strong>
+              <span>{{ v2Rules['6_menh_chu_anh_huong'].paradigm }}</span>
+            </div>
+          </div>
+        </details>
       </div>
 
       <!-- Cảnh báo -->
@@ -289,6 +345,32 @@ function fmtFieldName(k) {
 }
 .vo-chinh { font-style: italic; color: var(--read-muted, #8a7a6a); }
 .to-hop-card { background: #e8f2fa; border-color: #b5d9e8; }
+.v2-card { background: linear-gradient(135deg, #f5e8f5 0%, #e8e5f5 100%); border-color: #b5a8d4; }
+.bias-headline {
+  font-size: 1.15em;
+  font-weight: bold;
+  padding: 8px 0;
+  color: var(--read-heading, #4a2c1a);
+}
+.bias-reasons { margin: 4px 0 0 20px; padding: 0; font-size: 0.95em; }
+.bias-reasons li { margin: 4px 0; }
+.v2-details { margin-top: 12px; }
+.v2-details summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.rule-grid { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.rule { font-size: 0.92em; }
+.rule strong { display: block; margin-bottom: 2px; }
+.rule .muted { color: var(--read-muted, #8a7a6a); font-style: italic; }
+.rule .success { color: #2d7a3e; }
+.rule .warning { color: #c33; font-weight: 600; }
+.hoa-chip {
+  display: inline-block;
+  background: #ffd966;
+  border: 1px solid #c08000;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin: 2px 4px 2px 0;
+  font-size: 0.88em;
+}
 .to-hop-card h3 { margin: 0 0 6px; }
 .to-hop-note { margin: 0; font-style: italic; }
 .warning-card { background: #fef5f5; border-color: #f0c0c0; }

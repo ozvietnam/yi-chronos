@@ -7924,6 +7924,12 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         return {"status": "error", "message": result["error"]}
 
     summary_md = chiem_phu_the_summary_text(la_so)
+
+    # Engine v2: 6 quy luật mới (Tứ Hóa, đào hoa phạm chủ, Tả-Hữu hội chiếu,
+    # đối cung vô chính diệu, Mệnh chủ paradigm) — gắn vào payload bên dưới `v2`
+    from engine.tu_vi.chiem_phu_the_v2 import chiem_phu_the_v2
+    v2_result = chiem_phu_the_v2(la_so)
+
     return {
         "status": "ok",
         "person_key": person.person_key,
@@ -7931,6 +7937,7 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "thay_to_su": result["thay_to_su"],
         "data": result,
         "summary_markdown": summary_md,
+        "v2": v2_result,  # 6 quy luật nâng cao
     }
 
 
