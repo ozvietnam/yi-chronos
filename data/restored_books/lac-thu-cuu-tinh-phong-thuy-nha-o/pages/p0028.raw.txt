@@ -1,0 +1,39 @@
+Hai số 1, 3 cũng là số sinh, lấy vị trí hai số này để quy định phương vị
+khác của khu vực:
+
+1 ỏ chính Bắc, thì 9 ở chính Nam, hai số hợp với nhau được 10.
+
+3 ỏchính Đông, thì 7 chính Tây, hai số hợp với nhau được 10.
+
+Khi vị trí của 4 số lẻ được định ở Đông, Nam, Tây, Bắc thì vị trí của bốn
+số chăn 2, 4, 6, 8 được đặt như thế nào? Các số 9, 4, 6, 8 đều là các số chẵn,
+là số âm, là đất. Còn 1, 3, 9, 7 đều là số lẻ, là dương, là trời. Sự vận hành
+của trời đất và các phương vị của nó trái ngược với nhau, thiên quay về bên
+trái thì địa ắt phải quay về bên phải. Các số thiên liên tiếp quay theo bên
+trái thì số địa phải quay theo bên phải. Cho nên:
+
+l - 8ố 6 ở bên phải của chính Bắc, thì số 4 ở bên phải của chính Nam, hai
+số hợp với nhau thành 10.
+
+- Bố 8 ở bên phải của chính Đông, thì số 2 ở bên phải của chính Tây, hai
+số hợp với nhau thành 10.
+
+Như thế, phương vị của 8 số sẽ được xác định rõ toàn bộ. Số 1 ở chính
+Bắc, số 2 ở Tây Nam, số 3 ở chính Đông, số 4 ở Đông Nam, số 6 ở Tây Bắc, số
+7 ở chính Tây, số 8 ở Đông Bắc, số 9 ở chính Bắc. Bản đồ như sau:
+
+(ẩn đồ 5
+
+Bạn đọc nhìn bản đồ này sẽ thấy nó và bản đồ Lạc thư hoàn toàn không
+khớp nhau. Điều này giải thích rõ Lạc thư do Hà đề biến đổi thành. Nếu
+nói Hà đồ do Phục Hy thị vẽ, Lạc thư do Đại Vũ họa; trong thời gian đó từ
+Hà đồ biến đổi thành Lạc thư, ít nhất cũng phải trải qua 2.000 năm. Nếu
+nói Hà đồ là ảnh thu nhỏ của kết cấu vũ trụ thì Lạc thư là ảnh thu nhỏ
+của trái đất.
+
+Nếu phối hợp Hậu thiên Bát quái của Văn Vương với các số của 8
+phương trong Lạc thư thành một bản đồ thống nhất, được gọi là “Lạc thư
+Bát quái để” hoặc gọi là “Lạc thư cửu cung để”, đem phối hợp cùng khái
+niệm sao gọi là “Lạc thư cửu tỉnh phương vị đồ”.
+
+> T\
