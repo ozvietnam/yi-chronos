@@ -100,8 +100,15 @@ def _find_palace(la_so: dict, palace_name: str = "Phu Thê") -> dict | None:
 
 
 def _stars_at_branch_idx(la_so: dict, branch_idx: int) -> dict[str, list[str]]:
-    """Lấy chính tinh / phụ tinh / sát tinh tại branch index."""
-    result: dict[str, list[str]] = {"chinh_tinh": [], "phu_tinh": [], "sat_tinh": []}
+    """Lấy chính tinh / phụ tinh / sát tinh / sao_q2 tại branch index.
+
+    sao_q2 (Trung Châu Q2): Hồng Loan, Thiên Hỉ, Hàm Trì, Đại Hao, Thiên Diêu,
+    Cô Thần, Quả Tú, Tam Thai, Bát Tọa, Thiên Khốc, Thiên Hư, Long Trì, Phượng Các
+    — phục vụ detect 'Đào hoa phạm chủ' + các paradigm bổ sung.
+    """
+    result: dict[str, list[str]] = {
+        "chinh_tinh": [], "phu_tinh": [], "sat_tinh": [], "sao_q2": [],
+    }
 
     ct = la_so.get("chinh_tinh", {})
     for star, idx in ct.items():
@@ -119,6 +126,13 @@ def _stars_at_branch_idx(la_so: dict, branch_idx: int) -> dict[str, list[str]]:
         for star, idx in st.items():
             if idx == branch_idx:
                 result["sat_tinh"].append(star)
+
+    # Q2 stars (đào hoa, cô đơn, khốc hư, long phượng...)
+    q2 = la_so.get("sao_q2", {})
+    if isinstance(q2, dict):
+        for star, idx in q2.items():
+            if idx == branch_idx:
+                result["sao_q2"].append(star)
 
     return result
 

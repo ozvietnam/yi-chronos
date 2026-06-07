@@ -588,6 +588,52 @@ def thien_hi(year_branch: str) -> int:
     return _fix(hong_loan(year_branch) + 6)
 
 
+def ham_tri(year_branch: str) -> int:
+    """Hàm Trì — sao đào hoa chính, an theo tam hợp địa chi năm.
+
+    Quyết chuẩn (TVĐS Toàn Thư + Trung Châu Bắc phái):
+      - Năm Dần/Ngọ/Tuất (tam hợp Hỏa) → Hàm Trì ở MÃO
+      - Năm Tỵ/Dậu/Sửu  (tam hợp Kim) → Hàm Trì ở NGỌ
+      - Năm Thân/Tý/Thìn (tam hợp Thủy) → Hàm Trì ở DẬU
+      - Năm Hợi/Mão/Mùi  (tam hợp Mộc) → Hàm Trì ở TÝ
+
+    Ý nghĩa Trung Châu: cặp Hàm Trì-Đại Hao là cặp đào hoa cốt — khi đồng cung
+    với Tử-Tham hoặc Liêm-Tham → "Đào hoa phạm chủ" (sách 5.3 + 3.x).
+    """
+    yb = B[year_branch]
+    if yb in (B["Dần"], B["Ngọ"], B["Tuất"]):
+        return B["Mão"]
+    if yb in (B["Tỵ"], B["Dậu"], B["Sửu"]):
+        return B["Ngọ"]
+    if yb in (B["Thân"], B["Tý"], B["Thìn"]):
+        return B["Dậu"]
+    return B["Tý"]  # Hợi/Mão/Mùi
+
+
+def dai_hao_dao_hoa(year_branch: str) -> int:
+    """Đại Hao (cặp đào hoa) — đối xung Hàm Trì (+6 cung).
+
+    LƯU Ý: Đây là Đại Hao trong cặp đào hoa Hàm Trì-Đại Hao (sách Trung Châu).
+    Khác với "Đại Hao" trong vòng Bác Sĩ/Lộc Tồn (an theo Lộc Tồn).
+    Cả 2 hệ đều có trong Trung Châu, nhưng cặp đào hoa dùng cho luận Phu Thê.
+    """
+    return _fix(ham_tri(year_branch) + 6)
+
+
+def thien_dieu(lunar_month: int) -> int:
+    """Thiên Diêu — sao đào hoa phụ, an theo tháng âm lịch.
+
+    Quyết chuẩn: tháng 1 tại SỬU, sau đó thuận theo tháng:
+      - Tháng 1 → Sửu (index 1)
+      - Tháng 2 → Dần
+      - Tháng 12 → Tý (index 0)
+
+    Ý nghĩa: làm mạnh thêm bệnh hiếu sắc, trùng hôn, tính dục.
+    Gặp Hồng Loan/Thiên Hỉ thì có thể giảm nhẹ.
+    """
+    return _fix(lunar_month)
+
+
 def co_than(year_branch: str) -> int:
     """Cô Thần — sao cô đơn (đặc biệt cho nam mệnh).
 
@@ -839,5 +885,9 @@ def cast_la_so(
         "Thiên Hư":   thien_hu(year_branch),
         "Long Trì":  long_tri(year_branch),
         "Phượng Các": phuong_cac(year_branch),
+        # Cặp đào hoa cốt (Trung Châu Bắc phái) — wire 2026-06-07
+        "Hàm Trì":   ham_tri(year_branch),
+        "Đại Hao":   dai_hao_dao_hoa(year_branch),
+        "Thiên Diêu": thien_dieu(lunar_month),
     }
     return out

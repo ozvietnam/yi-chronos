@@ -77,20 +77,32 @@ def _flatten_stars(stars_by_idx: dict[int, dict[str, list[str]]]) -> set[str]:
 
 
 def _detect_dao_hoa_pham_chu(stars_in_palace: dict[str, list[str]]) -> dict[str, Any]:
-    """Detect 'Đào hoa phạm chủ' = Tử-Tham + sao đào hoa khác đồng cung."""
+    """Detect 'Đào hoa phạm chủ' = Tử-Tham + sao đào hoa khác đồng cung.
+
+    Sách Trung Châu (section 3.x): điều kiện tiên quyết là có Hồng Loan / Thiên Hỉ /
+    Hàm Trì / Đại Hao / Thiên Diêu đồng cung với Tử-Tham.
+
+    Phải đọc cả sao_q2 (Hồng Loan, Hàm Trì, Đại Hao, Thiên Diêu, Thiên Hỉ) — chứ
+    không chỉ phu_tinh/sat_tinh.
+    """
     chinh = set(stars_in_palace["chinh_tinh"])
     is_tu_tham = {"Tử Vi", "Tham Lang"}.issubset(chinh)
     if not is_tu_tham:
         return {"detected": False}
 
-    all_stars = set(stars_in_palace["phu_tinh"] + stars_in_palace["sat_tinh"])
+    all_stars = set(
+        stars_in_palace["phu_tinh"]
+        + stars_in_palace["sat_tinh"]
+        + stars_in_palace.get("sao_q2", [])
+    )
     dao_hoa_in = all_stars & _DAO_HOA_STARS
     return {
         "detected": bool(dao_hoa_in),
         "is_tu_tham": True,
         "sao_dao_hoa_kem": sorted(dao_hoa_in),
         "paradigm": (
-            "ĐÀO HOA PHẠM CHỦ — phóng đãng, tửu sắc"
+            f"⚠ ĐÀO HOA PHẠM CHỦ — phóng đãng, tửu sắc "
+            f"(có {', '.join(sorted(dao_hoa_in))} đồng cung)"
             if dao_hoa_in
             else "KHÔNG đào hoa phạm chủ → cách cục đặc thù: đa tài đa nghệ, giỏi giao tế, có chủ kiến"
         ),
