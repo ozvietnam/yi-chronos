@@ -8,6 +8,7 @@ import AdminPanel from "./components/AdminPanel.vue";
 import MyPublicationsPanel from "./components/MyPublicationsPanel.vue";
 import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
+import { activePerson, activeBirthDatetime } from "./stores/userDataStore.js";
 import ReadingControls from "./components/ReadingControls.vue";
 import { useReadingPrefs } from "./composables/useReadingPrefs.js";
 import UniverseCore from "./components/UniverseCore.vue";
@@ -40,6 +41,7 @@ import HealthPanel from "./components/HealthPanel.vue";
 import KyMonPanel from "./components/KyMonPanel.vue";
 import ChinhTinhGallery from "./components/ChinhTinhGallery.vue";
 import TuViLaSoPanel from "./components/TuViLaSoPanel.vue";
+import CungPhuTheBacPhaiPanel from "./components/CungPhuTheBacPhaiPanel.vue";
 import ChieuDomKinhPanel from "./components/ChieuDomKinhPanel.vue";
 import YiHermesChat from "./components/YiHermesChat.vue";
 import LexiconPanel from "./components/LexiconPanel.vue";
@@ -713,6 +715,16 @@ onBeforeUnmount(() => {
             ]"
           />
           <TuViLaSoPanel />
+
+          <!-- Feature flagship cho bạn trẻ: Cung Phu Thê Bắc phái Trung Châu -->
+          <h3 class="schema-divider">💑 Luận Cung Phu Thê — Bắc Phái Trung Châu</h3>
+          <CungPhuTheBacPhaiPanel
+            :birth-datetime-local="activeBirthDatetime"
+            :gender="activePerson?.gender || 'nam'"
+            :name="activePerson?.name || ''"
+            :person-key="activePerson?.person_key || ''"
+          />
+
           <h3 class="schema-divider">📚 Bắc Phái — thư viện 14 chính tinh</h3>
           <ChinhTinhGallery />
         </template>
