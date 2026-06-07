@@ -19,7 +19,12 @@ from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_PATH = ROOT / "data/tu_vi/mieu_vuong_ham.json"
+# Volume mount /opt/yi-chronos/data shadows data/ in Docker — embedded first
+_CANDIDATES = [
+    ROOT / "embedded_data/tu_vi/mieu_vuong_ham.json",
+    ROOT / "data/tu_vi/mieu_vuong_ham.json",
+]
+DATA_PATH = next((p for p in _CANDIDATES if p.exists()), _CANDIDATES[-1])
 
 
 @lru_cache(maxsize=1)

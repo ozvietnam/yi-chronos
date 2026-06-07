@@ -30,6 +30,11 @@ data/
 !data/seeds/
 !data/seeds/**/*.json
 
+# Tử Vi paradigm tables (miếu/vượng/hãm, chính tinh, cách cục, CDK 18 phi tinh)
+# Engine mieu_vuong_ham, chinh_tinh, cach_cuc... đều load runtime
+!data/tu_vi/
+!data/tu_vi/**/*.json
+
 # Docs (not needed in runtime image) — except citation markdown:
 # .md files trong skills/kinh-dich/ phải vào image cho RAG luận sâu
 

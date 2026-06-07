@@ -82,6 +82,10 @@ COPY data/restored_books/ ./embedded_data/restored_books/
 RUN mkdir -p ./embedded_data/seeds
 COPY data/seeds/ ./embedded_data/seeds/
 
+# Tử Vi paradigm tables — engine mieu_vuong_ham, chinh_tinh, cach_cuc... load runtime
+RUN mkdir -p ./embedded_data/tu_vi
+COPY data/tu_vi/ ./embedded_data/tu_vi/
+
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 
