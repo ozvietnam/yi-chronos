@@ -1026,8 +1026,125 @@ def _Q40_phung_phu_khan_tuong(la_so: dict) -> dict[str, Any]:
     }
 
 
+# ─── Q54 + Q57: từ thâm nhuần vòng 6-8 Trung Châu Q2 (2026-06-08) ──
+
+def _Q54_khong_kiep_doi_xung_menh(la_so: dict) -> dict[str, Any]:
+    """Q54: Địa Không + Địa Kiếp đối xung Mệnh (Thiên Di) HOẶC đồng cung Mệnh
+    → lúc nhỏ tuổi bất lợi, không được cha mẹ che chở, đau yếu/nghèo khó.
+
+    Sách Trung Châu Q2 p133 — Vương Đình Chỉ:
+    'Địa Không, Địa Kiếp đồng độ thủ Mệnh, hoặc ĐỐI XUNG, phần nhiều chủ về
+    lúc còn nhỏ tuổi bất lợi, không được cha mẹ che chở, hay đau yếu, nghèo
+    khó, hoặc nhiều tai ách.'
+
+    Anh confirm 2026-06-08: 'lúc nhỏ nhà nghèo, xa cha mẹ từ 10 tuổi,
+    không có khó khăn lớn' → ỨNG phần nghèo + xa cha mẹ.
+    """
+    menh_idx = _palace_index(la_so, "Mệnh")
+    if menh_idx is None:
+        return {"detected": False, "paradigm": "Không tìm thấy cung Mệnh"}
+
+    sat_tinh = la_so.get("sat_tinh", {}) or {}
+    khong_idx = sat_tinh.get("Địa Không")
+    kiep_idx = sat_tinh.get("Địa Kiếp")
+    if khong_idx is None or kiep_idx is None:
+        return {"detected": False, "paradigm": "Lá số không có Địa Không/Địa Kiếp"}
+
+    # Trường hợp 1: đồng cung Mệnh
+    if khong_idx == menh_idx and kiep_idx == menh_idx:
+        return {
+            "detected": True,
+            "is_cat": False,
+            "configuration": "đồng cung Mệnh",
+            "paradigm": (
+                "⚠ Địa Không + Địa Kiếp ĐỒNG CUNG MỆNH — sách Trung Châu Q2 p133: "
+                "lúc nhỏ tuổi bất lợi nặng — không cha mẹ che chở + đau yếu + "
+                "nghèo khó. Hậu thiên cần phấn đấu để vượt qua."
+            ),
+        }
+
+    # Trường hợp 2: đối xung Mệnh (cùng cung Thiên Di)
+    doi_idx = _fix(menh_idx + 6)
+    if khong_idx == doi_idx and kiep_idx == doi_idx:
+        return {
+            "detected": True,
+            "is_cat": False,
+            "configuration": "đối xung Mệnh (Thiên Di)",
+            "paradigm": (
+                "⚠ Địa Không + Địa Kiếp đồng cung Thiên Di ĐỐI XUNG Mệnh — "
+                "sách Trung Châu Q2 p133: lúc nhỏ tuổi bất lợi — phần nhiều "
+                "nhà nghèo / xa cha mẹ sớm / hay đau yếu. Paradigm ứng đặc "
+                "biệt với chuyển cung lúc bé (làm con nuôi, học nội trú, "
+                "xa nhà). Hậu thiên có thể vượt qua nhờ nỗ lực."
+            ),
+        }
+
+    return {
+        "detected": False,
+        "paradigm": "Địa Không + Địa Kiếp không đồng cung Mệnh và không đối xung"
+    }
+
+
+def _Q57_da_la_cung_luc_than(la_so: dict) -> dict[str, Any]:
+    """Q57: Đà La tại cung lục thân → tính chất ÂM Ỉ KÉO DÀI của Đà La.
+
+    Sách Trung Châu Q2 p126-p127 — Vương Đình Chỉ:
+    - Đà La thủ cung Phu Thê → kết hôn MUỘN
+    - Đà La thủ cung Tử Tức → CHẬM CÓ CON
+    - Đà La (mở rộng) thủ Huynh Đệ → bất hòa hoặc xa cách anh chị em
+      (Đà La âm ỉ kéo dài → quan hệ dây dưa, không công khai xung đột)
+
+    Anh confirm 2026-06-08: 'chị em ở xa, ít qua lại' — ỨNG Đà La Huynh Đệ.
+    """
+    sat_tinh = la_so.get("sat_tinh", {}) or {}
+    da_la_idx = sat_tinh.get("Đà La")
+    if da_la_idx is None:
+        return {"detected": False, "paradigm": "Lá số không có Đà La"}
+
+    # Tìm cung Đà La đang ở
+    da_la_palace = None
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == da_la_idx:
+            da_la_palace = p.get("name", "")
+            break
+
+    paradigms_by_palace = {
+        "Phu Thê": "⚠ Đà La tại Phu Thê → kết hôn MUỘN (Trung Châu Q2 p127)",
+        "Tử Tức": "⚠ Đà La tại Tử Tức → CHẬM CÓ CON (Trung Châu Q2 p127)",
+        "Huynh Đệ": (
+            "⚠ Đà La tại Huynh Đệ → anh chị em xa cách / ít qua lại / âm ỉ "
+            "không công khai bất hòa (mở rộng paradigm Trung Châu Q2 p127: "
+            "Đà La 'dây dưa kéo dài' áp dụng cho cung lục thân)"
+        ),
+        "Phụ Mẫu": (
+            "⚠ Đà La tại Phụ Mẫu → quan hệ với cha mẹ dây dưa, có khoảng "
+            "cách tâm lý kéo dài"
+        ),
+        "Nô Bộc": (
+            "⚠ Đà La tại Nô Bộc → người dưới quyền hoặc bạn bè dây dưa, "
+            "khó dứt khoát"
+        ),
+        "Giao Hữu": (
+            "⚠ Đà La tại Giao Hữu → bạn bè dây dưa, khó dứt khoát"
+        ),
+    }
+
+    if da_la_palace in paradigms_by_palace:
+        return {
+            "detected": True,
+            "is_cat": False,
+            "palace": da_la_palace,
+            "paradigm": paradigms_by_palace[da_la_palace],
+        }
+    return {
+        "detected": False,
+        "palace": da_la_palace,
+        "paradigm": f"Đà La tại {da_la_palace} (không phải cung lục thân)",
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
-    """Engine v3 — v2 (9 quy luật) + Q10-Q40 (15→18 quy luật).
+    """Engine v3 — v2 (9 quy luật) + Q10-Q57 (15→20 quy luật).
 
     Q10-Q13: detect Xương-Khúc + Văn Khúc Hóa Kỵ + Địa Không (cấu trúc giáp)
     Q14-Q18: detect combo Phúc Đức + sao đôi + Hóa cát + Mệnh Tướng cô độc
@@ -1060,6 +1177,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         "29_tham_lang_chi_nam_tam_hop": _Q29_tham_lang_vuong_chi_nam_tam_hop(la_so),
         "35_thien_tuong_menh_giap_cuc": _Q35_thien_tuong_menh_giap_cuc(la_so),
         "40_phung_phu_khan_tuong": _Q40_phung_phu_khan_tuong(la_so),
+        # Từ vòng 6+7+8 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm 2/3)
+        "54_khong_kiep_doi_xung_menh": _Q54_khong_kiep_doi_xung_menh(la_so),
+        "57_da_la_cung_luc_than": _Q57_da_la_cung_luc_than(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -1076,7 +1196,7 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     if cross["12_xuong_khuc_chia_re_cat"].get("detected"):
         diem_cat.append(cross["12_xuong_khuc_chia_re_cat"]["paradigm"])
 
-    # Q14-40 (mới): có is_cat flag → phân loại rõ
+    # Q14-57 (mới): có is_cat flag → phân loại rõ
     for key in ("14_phuc_duc_combo_canh_bao", "15_ta_huu_phuc_duc",
                 "16_khoi_viet_phuc_duc", "17_cat_hoa_phuc_duc",
                 "18_menh_thien_tuong_co_doc",
@@ -1088,7 +1208,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "24_vu_pha_sat_thien_di",
                 "29_tham_lang_chi_nam_tam_hop",
                 "35_thien_tuong_menh_giap_cuc",
-                "40_phung_phu_khan_tuong"):
+                "40_phung_phu_khan_tuong",
+                "54_khong_kiep_doi_xung_menh",
+                "57_da_la_cung_luc_than"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
