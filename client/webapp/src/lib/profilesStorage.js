@@ -3,24 +3,21 @@
  */
 const STORAGE_KEY = "yi-chronos-demo-profiles";
 
-/** Mặc định mở app: Lại Minh Thắng, sinh DL 05/06/1988 Hà Nội (giờ 12:00 mẫu; đổi trong form khi có giờ thật). */
+/**
+ * Demo founder profile — DEPRECATED.
+ * KHÔNG dùng trong production. Privacy 2026-05-27: founder data chỉ phục
+ * vụ qua API auth-gated, không expose qua frontend hardcoded.
+ * Giữ stub này tránh break import nhưng trả empty profile.
+ */
 export function createDemoLaMinhThangProfile() {
-  return {
-    id: "demo-la-minh-thang",
-    label: "Lại Minh Thắng",
-    birth_datetime_local: "1988-06-05T12:00:00",
-    timezone: "Asia/Ho_Chi_Minh",
-    location_ref: "Hà Nội",
-    birth_precision: "exact",
-    gender_optional: null
-  };
+  return createEmptyProfile("Hồ sơ demo (cần điền)");
 }
 
 export function createEmptyProfile(label = "Hồ sơ mới") {
   return {
     id: typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : `p_${Date.now()}`,
     label,
-    birth_datetime_local: "1990-01-01T12:00:00",
+    birth_datetime_local: "",
     timezone: "Asia/Ho_Chi_Minh",
     location_ref: "",
     birth_precision: "exact",

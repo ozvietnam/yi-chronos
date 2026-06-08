@@ -54,13 +54,10 @@ export async function fetchAvailablePersons() {
       credentials: "include",
     });
     if (!r.ok) {
-      // Guest fallback — only founder
-      availablePersons.value = [{
-        person_id: "_founder",
-        name: "anh (Founder)",
-        gender: "nam",
-        birth_datetime_local: "1988-06-05T23:30:00",
-      }];
+      // Guest fallback — empty (no leak of founder profile).
+      // After 2026-05-27 privacy audit + Iron Rule #7: do NOT expose founder
+      // birth to logged-out users. UI should prompt login instead.
+      availablePersons.value = [];
       return;
     }
     const d = await r.json();

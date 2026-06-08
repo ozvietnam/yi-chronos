@@ -20,17 +20,18 @@ const props = defineProps({
 
 const emit = defineEmits(["submit-profile", "profile-select", "profile-create"]);
 
+// Form defaults — empty, không hardcode founder birth (privacy 2026-05-27).
 const form = reactive({
   profile_label: "",
-  birth_datetime_local: "1988-06-05T12:00:00",
+  birth_datetime_local: "",
   timezone: "Asia/Ho_Chi_Minh",
-  location_ref: "Hà Nội",
+  location_ref: "",
   birth_precision: "exact",
   gender_optional: null
 });
 
 const calendarForm = reactive({
-  datetime_local: "1988-06-05T12:00:00",
+  datetime_local: "",
   timezone: "Asia/Ho_Chi_Minh",
   source_calendar: "solar",
   is_leap_month: false

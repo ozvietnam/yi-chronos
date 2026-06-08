@@ -13,8 +13,9 @@ import { ref, computed, onMounted, watch } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
 import { renderMarkdown, renderInline } from "../../lib/markdown.js";
 
-// Solar birth input — default founder (sẽ thay khi auto-load)
-const birthSolar = ref("1988-06-05T23:30");
+// Solar birth input — empty default (sẽ thay khi auto-load từ user profile).
+// Privacy 2026-05-27: KHÔNG hardcode founder.
+const birthSolar = ref("");
 const useNow = ref(true);
 const nowSolar = ref("");
 

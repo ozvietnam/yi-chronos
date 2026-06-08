@@ -10,7 +10,8 @@
 import { ref, computed, onMounted } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
 
-const birthSolar = ref("1988-06-05T23:30");
+// Birth datetime — user nhập, không hardcode founder (privacy 2026-05-27).
+const birthSolar = ref("");
 const yearChiList = ref(["Giáp Thìn", "Ất Tỵ", "Bính Ngọ"]);  // 3 năm: 2024, 2025, 2026
 const data = ref(null);
 const loading = ref(false);

@@ -43,12 +43,12 @@ const CLASH_LABEL = {
 // Use shared store so other panels (PersonalQuai, GPS) pick up the same family.
 const members = sharedFamilyMembers;
 const weddingDatetime = sharedWedding;
-// Initialize with defaults if store is empty.
+// Initialize with EMPTY skeleton (no hardcoded founder — privacy after 2026-05-27 audit).
+// User fills birth info per-session; data flows from auth-gated /api/auth/persons.
 if (members.value.length === 0) {
-  // Default = founder profile (anh — 1988-06-05). See data/yi_hermes/founder_profile.md
   members.value = [
-    { role: "self", name: "Anh", birth_year: 1988, birth_datetime_local: "1988-06-05T23:30:00" },
-    { role: "spouse", name: "", birth_year: 1992, birth_datetime_local: "" },
+    { role: "self", name: "", birth_year: null, birth_datetime_local: "" },
+    { role: "spouse", name: "", birth_year: null, birth_datetime_local: "" },
   ];
 }
 const data = ref(null);
