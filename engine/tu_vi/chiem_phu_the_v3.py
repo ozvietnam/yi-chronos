@@ -1143,8 +1143,153 @@ def _Q57_da_la_cung_luc_than(la_so: dict) -> dict[str, Any]:
     }
 
 
+# ─── Q71 + Q72: từ vòng 10 Trung Châu Q2 (2026-06-08, Anh confirm 2/2) ──
+
+def _Q71_pha_toai_tai_tinh(la_so: dict) -> dict[str, Any]:
+    """Q71: Phá Toái đồng cung với tài tinh (Vũ Khúc / Thiên Phủ / Thái Âm
+    / Lộc Tồn / chính tinh Hóa Lộc) → làm yếu tài khí.
+
+    Sách Trung Châu Q2 p150: 'Phá Toái đồng độ với các sao tiền tài chủ về
+    làm yếu tài khí, có chút tiền ắt cũng phải hao tốn một phần.'
+
+    Anh confirm 2026-06-08: 'đúng' — Phá Toái + Thiên Phủ Tài Bạch Sửu.
+    """
+    sao_le = la_so.get("sao_le", {}) or {}
+    pha_toai_idx = sao_le.get("Phá Toái")
+    if pha_toai_idx is None:
+        return {"detected": False, "paradigm": "Lá số không có Phá Toái"}
+
+    # Stars at Phá Toái cung
+    stars = _stars_at_branch_idx(la_so, pha_toai_idx)
+    chinh = set(stars["chinh_tinh"])
+    sat = set(stars["sat_tinh"])
+
+    # Tài tinh: Vũ Khúc, Thiên Phủ, Thái Âm (chính tinh) + Lộc Tồn (sat_tinh)
+    TAI_CHINH = {"Vũ Khúc", "Thiên Phủ", "Thái Âm"}
+    has_tai_chinh = TAI_CHINH & chinh
+    has_loc_ton = "Lộc Tồn" in sat
+
+    # Chính tinh Hóa Lộc
+    tu_hoa = la_so.get("tu_hoa", {}) or {}
+    loc_star = tu_hoa.get("Lộc") or tu_hoa.get("Hóa Lộc")
+    has_hoa_loc_chinh = bool(loc_star) and loc_star in chinh
+
+    detected = bool(has_tai_chinh or has_loc_ton or has_hoa_loc_chinh)
+    if not detected:
+        return {
+            "detected": False,
+            "paradigm": "Phá Toái không đồng cung tài tinh"
+        }
+
+    # Tìm cung của Phá Toái
+    pha_palace = None
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == pha_toai_idx:
+            pha_palace = p.get("name", "")
+            break
+
+    parts = []
+    if has_tai_chinh: parts.append(f"tài tinh {', '.join(sorted(has_tai_chinh))}")
+    if has_loc_ton: parts.append("Lộc Tồn")
+    if has_hoa_loc_chinh: parts.append(f"{loc_star} Hóa Lộc")
+
+    return {
+        "detected": True,
+        "is_cat": False,
+        "palace": pha_palace,
+        "paradigm": (
+            f"⚠ Phá Toái đồng cung tại {pha_palace} với {', '.join(parts)} — "
+            f"sách Trung Châu Q2 p150: 'làm yếu tài khí, có chút tiền ắt "
+            f"cũng phải hao tốn một phần'. Cần kỷ luật tài chính + đầu tư "
+            f"dài hạn để giữ tài lộc, tránh tiêu vặt + đầu cơ rủi ro."
+        ),
+    }
+
+
+def _Q72_phuong_cac_menh(la_so: dict) -> dict[str, Any]:
+    """Q72: Long Trì + Phượng Các tại các CUNG TRỌNG YẾU (Mệnh / Phụ Mẫu /
+    Phúc Đức / Sự Nghiệp / Tài Bạch) → phong thái + tài nghệ.
+
+    Sách Trung Châu Q2 p147: 'Long Trì-Phượng Các chủ về thanh quý (sang
+    quý thanh cao) mà KHÔNG phải phú quý, cũng chủ về nghệ thuật, kiến
+    trúc, xây dựng.' Đôi mạnh nhất; lẻ vẫn có ý nghĩa.
+
+    Mỗi cung có paradigm khác nhau:
+    - Mệnh: phong thái cá nhân
+    - Phụ Mẫu: cha mẹ có phong thái nghệ thuật
+    - Phúc Đức: thiên hướng nghệ thuật
+    - Sự Nghiệp / Tài Bạch: thu hoạch nhờ tài nghệ
+
+    Anh: Phượng Các Phụ Mẫu Ngọ (LẺ, Long Trì Huynh Đệ Thìn).
+    """
+    sao_q2 = la_so.get("sao_q2", {}) or {}
+    pc_idx = sao_q2.get("Phượng Các")
+    lt_idx = sao_q2.get("Long Trì")
+    if pc_idx is None and lt_idx is None:
+        return {"detected": False, "paradigm": "Lá số không có Long Trì/Phượng Các"}
+
+    # Map cung index → tên
+    palace_by_idx = {p.get("branch_index"): p.get("name", "") for p in la_so.get("palaces", [])}
+
+    TRONG_YEU = {"Mệnh", "Phụ Mẫu", "Phúc Đức", "Sự Nghiệp", "Quan Lộc", "Tài Bạch"}
+
+    pc_palace = palace_by_idx.get(pc_idx, "") if pc_idx is not None else ""
+    lt_palace = palace_by_idx.get(lt_idx, "") if lt_idx is not None else ""
+
+    notes = []
+    is_doi = False
+    if pc_idx == lt_idx and pc_palace in TRONG_YEU:
+        is_doi = True
+        notes.append(
+            f"✅ Long Trì + Phượng Các ĐÔI tại {pc_palace} — thanh quý + "
+            "tài nghệ MẠNH (Trung Châu Q2 p147)"
+        )
+    else:
+        if pc_palace in TRONG_YEU:
+            paradigm_map = {
+                "Mệnh": "phong thái văn nhã + thiên hướng nghệ thuật / khéo léo (cá nhân)",
+                "Phụ Mẫu": "cha mẹ có phong thái nghệ thuật + thẩm mỹ",
+                "Phúc Đức": "tâm hồn thiên về nghệ thuật + nét tinh tế",
+                "Sự Nghiệp": "sự nghiệp liên quan nghệ thuật / kiến trúc / thẩm mỹ",
+                "Quan Lộc": "sự nghiệp liên quan nghệ thuật / kiến trúc / thẩm mỹ",
+                "Tài Bạch": "tài lộc nhờ tài nghệ / nghệ thuật",
+            }
+            notes.append(f"✅ Phượng Các LẺ tại {pc_palace} → {paradigm_map[pc_palace]}")
+        if lt_palace in TRONG_YEU and lt_palace != pc_palace:
+            paradigm_map_lt = {
+                "Mệnh": "phong thái long trọng + thanh quý",
+                "Phụ Mẫu": "cha mẹ phong thái long trọng",
+                "Phúc Đức": "tâm hồn long trọng, thanh quý",
+                "Sự Nghiệp": "sự nghiệp được quý nhân biểu dương",
+                "Quan Lộc": "sự nghiệp được quý nhân biểu dương",
+                "Tài Bạch": "tài lộc nhờ vinh dự",
+            }
+            notes.append(f"✅ Long Trì LẺ tại {lt_palace} → {paradigm_map_lt[lt_palace]}")
+
+    if not notes:
+        return {
+            "detected": False,
+            "paradigm": (
+                f"Long Trì ({lt_palace}) + Phượng Các ({pc_palace}) "
+                "không ở cung trọng yếu (Mệnh / Phụ Mẫu / Phúc Đức / "
+                "Sự Nghiệp / Tài Bạch)"
+            ),
+        }
+    return {
+        "detected": True,
+        "is_cat": True,
+        "doi_cap": is_doi,
+        "pc_palace": pc_palace,
+        "lt_palace": lt_palace,
+        "paradigm": " · ".join(notes) + (
+            ". Sách Trung Châu Q2 p147: 'thanh quý chứ KHÔNG phú quý' — "
+            "thiên về nghệ thuật, kiến trúc, xây dựng."
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
-    """Engine v3 — v2 (9 quy luật) + Q10-Q57 (15→20 quy luật).
+    """Engine v3 — v2 (9 quy luật) + Q10-Q72 (15→22 quy luật).
 
     Q10-Q13: detect Xương-Khúc + Văn Khúc Hóa Kỵ + Địa Không (cấu trúc giáp)
     Q14-Q18: detect combo Phúc Đức + sao đôi + Hóa cát + Mệnh Tướng cô độc
@@ -1180,6 +1325,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         # Từ vòng 6+7+8 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm 2/3)
         "54_khong_kiep_doi_xung_menh": _Q54_khong_kiep_doi_xung_menh(la_so),
         "57_da_la_cung_luc_than": _Q57_da_la_cung_luc_than(la_so),
+        # Từ vòng 9+10+11 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm 2/2)
+        "71_pha_toai_tai_tinh": _Q71_pha_toai_tai_tinh(la_so),
+        "72_phuong_cac_menh": _Q72_phuong_cac_menh(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -1210,7 +1358,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "35_thien_tuong_menh_giap_cuc",
                 "40_phung_phu_khan_tuong",
                 "54_khong_kiep_doi_xung_menh",
-                "57_da_la_cung_luc_than"):
+                "57_da_la_cung_luc_than",
+                "71_pha_toai_tai_tinh",
+                "72_phuong_cac_menh"):
         rule = cross[key]
         if not rule.get("detected"):
             continue

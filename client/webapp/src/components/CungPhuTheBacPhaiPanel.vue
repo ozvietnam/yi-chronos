@@ -389,7 +389,7 @@ function ruleColor(rule) {
         </div>
 
         <details v-if="v3Rules" class="v3-details">
-          <summary>Xem chi tiết 20 quy luật cross-bind (Q10-Q57)</summary>
+          <summary>Xem chi tiết 22 quy luật cross-bind (Q10-Q72)</summary>
           <div class="rule-grid">
             <!-- Q10-Q13: Xương-Khúc + Văn Khúc Kỵ + Địa Không -->
             <div class="rule">
@@ -515,6 +515,19 @@ function ruleColor(rule) {
               <strong>Q57 · Đà La cung lục thân → âm ỉ kéo dài:</strong>
               <span :class="ruleColor(v3Rules['57_da_la_cung_luc_than'])">
                 {{ v3Rules['57_da_la_cung_luc_than']?.paradigm }}
+              </span>
+            </div>
+            <!-- Q71 + Q72: từ thâm nhuần vòng 9-11 (2026-06-08) -->
+            <div class="rule">
+              <strong>Q71 · Phá Toái + tài tinh → làm yếu tài khí:</strong>
+              <span :class="ruleColor(v3Rules['71_pha_toai_tai_tinh'])">
+                {{ v3Rules['71_pha_toai_tai_tinh']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q72 · Long Trì-Phượng Các cung trọng yếu → tài nghệ:</strong>
+              <span :class="ruleColor(v3Rules['72_phuong_cac_menh'])">
+                {{ v3Rules['72_phuong_cac_menh']?.paradigm }}
               </span>
             </div>
           </div>
