@@ -334,7 +334,7 @@ function ruleColor(rule) {
         </div>
 
         <details v-if="v3Rules" class="v3-details">
-          <summary>Xem chi tiết 9 quy luật cross-bind (Q10-Q18)</summary>
+          <summary>Xem chi tiết 12 quy luật cross-bind (Q10-Q21)</summary>
           <div class="rule-grid">
             <!-- Q10-Q13: Xương-Khúc + Văn Khúc Kỵ + Địa Không -->
             <div class="rule">
@@ -390,6 +390,25 @@ function ruleColor(rule) {
               <strong>Q18 · Mệnh Thiên Tướng kỵ cô độc:</strong>
               <span :class="ruleColor(v3Rules['18_menh_thien_tuong_co_doc'])">
                 {{ v3Rules['18_menh_thien_tuong_co_doc']?.paradigm }}
+              </span>
+            </div>
+            <!-- Q19-Q21: từ thâm nhuần vòng 1 Trung Châu Q2 (2026-06-08) -->
+            <div class="rule">
+              <strong>Q19 · Tử Vi Phu Thê "Tại Dã Cô Quân":</strong>
+              <span :class="ruleColor(v3Rules['19_tu_vi_phu_the_tai_da_co_quan'])">
+                {{ v3Rules['19_tu_vi_phu_the_tai_da_co_quan']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q20 · Thái Dương HÃM + sinh ban đêm:</strong>
+              <span :class="ruleColor(v3Rules['20_thai_duong_ham_sinh_dem'])">
+                {{ v3Rules['20_thai_duong_ham_sinh_dem']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q21 · Thiên Cơ + Thái Âm Tử Tức (con cái):</strong>
+              <span :class="ruleColor(v3Rules['21_thien_co_thai_am_tu_tuc'])">
+                {{ v3Rules['21_thien_co_thai_am_tu_tuc']?.paradigm }}
               </span>
             </div>
           </div>

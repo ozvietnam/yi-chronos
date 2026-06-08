@@ -342,17 +342,204 @@ def _Q18_menh_thien_tuong_co_doc(la_so: dict) -> dict[str, Any]:
     }
 
 
+# ─── Q19-Q21: từ thâm nhuần vòng 1 Trung Châu Q2 (Anh confirm ứng nghiệm 2026-06-08) ──
+
+def _Q19_tu_vi_phu_the_tai_da_co_quan(la_so: dict) -> dict[str, Any]:
+    """Q19: Tử Vi tọa Phu Thê + KHÔNG có Phủ-Tướng / Tả-Hữu / Khôi-Việt / Xương-Khúc
+    → "Tại dã cô quân Phu Thê" — bạn đời độc đoán, thiếu trợ lực.
+
+    Sách Trung Châu Q2 p10 — Vương Đình Chỉ:
+    'Tử Vi nhập miếu không có Bách Quan Triều Củng thì còn khá, nếu lạc hãm mà
+    còn không có Bách Quan Triều Củng, là Tại Dã Cô Quân'.
+
+    Anh confirm 2026-06-08: Phu Thê Mão = Tử Vi + Tham Lang, không phụ tinh
+    nào → ứng paradigm này.
+    """
+    pal = _stars_at_named_palace(la_so, "Phu Thê")
+    chinh = set(pal["chinh_tinh"])
+    if "Tử Vi" not in chinh:
+        return {"detected": False, "paradigm": "Phu Thê không có Tử Vi"}
+
+    # Check Bách Quan Triều Củng tại Phu Thê
+    phu = set(pal["phu_tinh"])
+    q2 = set(pal["sao_q2"])
+    pool = phu | q2
+
+    LUC_CAT = {"Tả Phù", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"}
+    luc_cat_present = LUC_CAT & pool
+    phu_tuong = {"Thiên Phủ", "Thiên Tướng"} & chinh
+
+    if not luc_cat_present and not phu_tuong:
+        return {
+            "detected": True,
+            "is_cat": False,
+            "paradigm": (
+                "⚠ Tử Vi tọa Phu Thê KHÔNG có Bách Quan Triều Củng (thiếu cả "
+                "Phủ-Tướng + lục cát) → 'TẠI DÃ CÔ QUÂN Phu Thê' (sách Trung "
+                "Châu Q2 p10): bạn đời tính độc đoán, thiếu trợ lực, dễ cô độc "
+                "trong quan hệ. Cần phát triển con đường chính + lấy 'lòng "
+                "chung thuỷ' bù 'sao đôi tâm linh'."
+            ),
+        }
+    if luc_cat_present:
+        return {
+            "detected": True,
+            "is_cat": True,
+            "paradigm": (
+                f"✅ Tử Vi tọa Phu Thê có lục cát ({', '.join(luc_cat_present)}) "
+                "→ KHÔNG rơi vào 'Tại dã cô quân' — có trợ lực hôn nhân"
+            ),
+        }
+    return {"detected": False, "paradigm": "Tử Vi Phu Thê có Phủ-Tướng (Bách Quan)"}
+
+
+def _Q20_thai_duong_ham_sinh_dem(la_so: dict) -> dict[str, Any]:
+    """Q20: Thái Dương HÃM + sinh ban đêm → cảnh báo bệnh mắt + tim mạch + thần kinh.
+
+    Sách Trung Châu Q2 p26:
+    'Người sinh ban đêm (giờ Thân-Dậu-Tuất-Hợi-Tý-Sửu) không nên có Thái Dương
+    tọa Mệnh, Thái Dương lạc hãm càng không nên... bản thân dễ bị nạn tai,
+    bệnh tật, nhất là chủ về bệnh hệ tuần hoàn, hệ thần kinh. Nếu ánh sáng
+    của Thái Dương quá thịnh hoặc quá yếu, thì dễ mắc bệnh tật ở mắt'.
+
+    Anh confirm 2026-06-08: anh sinh giờ Tý + Thái Dương ở Tật Ách Tý HÃM →
+    paradigm ứng nghiệm bệnh mắt/tim mạch (anh xác nhận thực tế).
+
+    Mở rộng paradigm sách: KHÔNG chỉ Thái Dương tọa Mệnh, mà Thái Dương HÃM ở
+    bất kỳ cung nào + sinh đêm cũng có khả năng ứng.
+    """
+    NIGHT_HOURS = {"Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu"}
+    hour_branch = la_so.get("hour_branch", "")
+    if hour_branch not in NIGHT_HOURS:
+        return {"detected": False, "paradigm": "Sinh ban ngày — paradigm không ứng"}
+
+    # Thái Dương position + miếu hãm
+    chinh = la_so.get("chinh_tinh", {}) or {}
+    td_idx = chinh.get("Thái Dương")
+    if td_idx is None:
+        return {"detected": False, "paradigm": "Lá số không có vị trí Thái Dương rõ"}
+
+    BR = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    td_branch = BR[td_idx]
+    # Check miếu hãm
+    try:
+        from .mieu_vuong_ham import level_at
+        level = (level_at("Thái Dương", td_branch) or "").lower()
+    except Exception:
+        level = ""
+
+    if level not in ("hãm", "lạc", "lạc hãm"):
+        return {
+            "detected": False,
+            "paradigm": f"Thái Dương tại {td_branch} không hãm (mức: {level}) — paradigm chưa ứng"
+        }
+
+    # Check Thái Dương tại cung nào (theo palaces)
+    td_palace = None
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == td_idx:
+            td_palace = p.get("name")
+            break
+
+    # Mức độ cảnh báo: tại Mệnh = mạnh nhất; Tật Ách = cảnh báo sức khoẻ; cung khác = nhẹ
+    if td_palace == "Mệnh":
+        msg = (
+            "⚠ NẶNG — Thái Dương HÃM tọa MỆNH + sinh ban đêm (sách Trung Châu Q2 p26): "
+            "bất lợi lục thân phái nam (cha/trưởng tử) + bệnh hệ tuần hoàn + thần "
+            "kinh + bệnh mắt (loạn thị, lòa)"
+        )
+    elif td_palace == "Tật Ách":
+        msg = (
+            f"⚠ Thái Dương HÃM tại {td_palace} + sinh giờ {hour_branch} (ban đêm) "
+            "→ cảnh báo SỨC KHOẺ: bệnh mắt, hệ tuần hoàn (tim mạch), hệ thần kinh. "
+            "Sách Trung Châu Q2 p26: 'ánh sáng Thái Dương quá yếu dễ mắc bệnh mắt'"
+        )
+    else:
+        msg = (
+            f"⚠ Thái Dương HÃM tại {td_palace} + sinh ban đêm — cảnh báo nhẹ về "
+            f"bệnh mắt / tim mạch (Trung Châu Q2 p26)"
+        )
+
+    return {
+        "detected": True,
+        "is_cat": False,
+        "thai_duong_branch": td_branch,
+        "thai_duong_palace": td_palace,
+        "hour_branch": hour_branch,
+        "level": level,
+        "paradigm": msg,
+    }
+
+
+def _Q21_thien_co_thai_am_tu_tuc(la_so: dict) -> dict[str, Any]:
+    """Q21: Thiên Cơ + Thái Âm cùng tại Tử Tức → paradigm con cái.
+
+    Sách Trung Châu Q2 p18-21 — Thiên Cơ + Thái Âm là sao linh động + nhạy cảm.
+    Tử Tức = con cái. Cặp đôi này tại Tử Tức:
+    - Con linh động, đầu óc nhanh
+    - Nhạy cảm tâm lý (Thái Âm)
+    - Thiên về nghiên cứu / phân tích (Thiên Cơ nhập miếu)
+    - Tâm trạng dễ buồn man mác (Thái Âm + Thiên Cơ hao phí trong tình ái nếu ở Dần/Thân)
+    - Tị/Hợi: Thiên Cơ bình + Thái Âm đối — hao phí trong chuyện theo đuổi
+      người khác giới (sách p21)
+
+    Anh confirm 2026-06-08: con anh đúng paradigm.
+    """
+    pal = _stars_at_named_palace(la_so, "Tử Tức") or _stars_at_named_palace(la_so, "Tử Nữ")
+    if not pal:
+        return {"detected": False, "paradigm": "Không tìm thấy cung Tử Tức"}
+    chinh = set(pal["chinh_tinh"])
+    if not ({"Thiên Cơ", "Thái Âm"}.issubset(chinh)):
+        return {
+            "detected": False,
+            "paradigm": "Tử Tức không có Thiên Cơ + Thái Âm đồng cung"
+        }
+
+    # Check vị trí (Dần-Thân vs Tị-Hợi)
+    BR = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    branch_idx = la_so.get("chinh_tinh", {}).get("Thiên Cơ")
+    branch = BR[branch_idx] if branch_idx is not None else ""
+
+    if branch in ("Dần", "Thân"):
+        loc_note = (
+            "đồng cung tại " + branch + " — con linh động + nhạy cảm, đầu óc "
+            "nhanh, thiên về nghiên cứu/phân tích. Tâm lý dễ buồn man mác"
+        )
+    elif branch in ("Tị", "Hợi"):
+        loc_note = (
+            "đối cung tại " + branch + " — sách Trung Châu Q2 p21: 'hao phí "
+            "tính linh động trong chuyện theo đuổi người khác giới', năng lực "
+            "phân tích dùng để phân tích tâm lý đối tượng"
+        )
+    else:
+        loc_note = "tại " + branch + " — linh động + nhạy cảm + nghiên cứu"
+
+    return {
+        "detected": True,
+        "is_cat": True,
+        "branch": branch,
+        "paradigm": (
+            f"✅ Tử Tức có Thiên Cơ + Thái Âm {loc_note}. Sách Trung Châu Q2: "
+            "Thiên Cơ = mưu sĩ (đầu óc linh động) + Thái Âm = tâm hồn nhạy cảm "
+            "→ con cái thông minh nhạy bén, có thiên hướng nghiên cứu / nghệ "
+            "thuật, nhưng dễ thiên cảm xúc — cần định hướng kỷ luật để phát "
+            "triển con đường chính"
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
-    """Engine v3 — v2 (9 quy luật) + Q10-Q18 cross-bind Phúc Đức + Mệnh.
+    """Engine v3 — v2 (9 quy luật) + Q10-Q21 cross-bind Phúc Đức + Mệnh + Phu Thê + Tử Tức.
 
     Q10-Q13: detect Xương-Khúc + Văn Khúc Hóa Kỵ + Địa Không (cấu trúc giáp)
     Q14-Q18: detect combo Phúc Đức + sao đôi + Hóa cát + Mệnh Tướng cô độc
+    Q19-Q21: từ thâm nhuần vòng 1 Trung Châu Q2 (2026-06-08, Anh confirm ứng nghiệm)
 
     Output structure: backward-compat với v2, thêm field `quy_luat_v3`.
     """
     result = chiem_phu_the_v2(la_so)
 
-    # Cross-bind Phúc Đức + Mệnh — 9 quy luật
+    # Cross-bind Phúc Đức + Mệnh + Phu Thê + Tử Tức — 12 quy luật
     cross = {
         "10_van_khuc_hoa_ki_cross": _Q10_van_khuc_hoa_ki_at_phuc_or_phuthe(la_so),
         "11_xuong_khuc_giap_phu_the": _Q11_xuong_khuc_giap_phu_the(la_so),
@@ -363,6 +550,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         "16_khoi_viet_phuc_duc": _Q16_khoi_viet_at_phuc_duc(la_so),
         "17_cat_hoa_phuc_duc": _Q17_cat_hoa_at_phuc_duc(la_so),
         "18_menh_thien_tuong_co_doc": _Q18_menh_thien_tuong_co_doc(la_so),
+        # Từ vòng 1 thâm nhuần Trung Châu Q2 (2026-06-08)
+        "19_tu_vi_phu_the_tai_da_co_quan": _Q19_tu_vi_phu_the_tai_da_co_quan(la_so),
+        "20_thai_duong_ham_sinh_dem": _Q20_thai_duong_ham_sinh_dem(la_so),
+        "21_thien_co_thai_am_tu_tuc": _Q21_thien_co_thai_am_tu_tuc(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -379,10 +570,13 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     if cross["12_xuong_khuc_chia_re_cat"].get("detected"):
         diem_cat.append(cross["12_xuong_khuc_chia_re_cat"]["paradigm"])
 
-    # Q14-18 (mới): có is_cat flag → phân loại rõ
+    # Q14-21 (mới): có is_cat flag → phân loại rõ
     for key in ("14_phuc_duc_combo_canh_bao", "15_ta_huu_phuc_duc",
                 "16_khoi_viet_phuc_duc", "17_cat_hoa_phuc_duc",
-                "18_menh_thien_tuong_co_doc"):
+                "18_menh_thien_tuong_co_doc",
+                "19_tu_vi_phu_the_tai_da_co_quan",
+                "20_thai_duong_ham_sinh_dem",
+                "21_thien_co_thai_am_tu_tuc"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
