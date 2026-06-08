@@ -43,13 +43,23 @@ _MENH_X_PHU_THE = {
 
 
 # ─── Phúc Đức × Phu Thê paradigm ──────────────────────────────
+# Một số paradigm gender-conditional (xem mặc định kế bên).
 _PHUC_X_PHU_THE = {
-    # Liêm-Thất ở Phúc Đức là CỰC kỳ critical (sách 5.3.6 nói rõ)
-    ("Liêm Trinh", "Thất Sát"): (
-        "⚠ Phúc Đức = Liêm-Thất → sách Trung Châu 5.3.6: 'Liêm-Thất ở Phúc Đức + "
-        "Tử-Tham ở Phu Thê → mệnh xướng kĩ' (cổ, cảnh báo). HIỆN ĐẠI: "
-        "tâm lý dễ thiên ham muốn vật chất + tình dục lẫn lộn, cần kỷ luật bản thân"
-    ),
+    # Liêm-Thất Phúc Đức + Tử-Tham Phu Thê — phân biệt nam/nữ theo Trung Châu Q2 §5.3.6 + V17
+    ("Liêm Trinh", "Thất Sát"): {
+        "nữ": (
+            "⚠ Phúc Đức = Liêm-Thất → sách Trung Châu Q2 §5.3.6 (NỮ MỆNH cổ): "
+            "'Liêm-Thất ở Phúc Đức + Tử-Tham ở Phu Thê → mệnh xướng kĩ'. "
+            "HIỆN ĐẠI cho nữ: tâm lý dễ thiên ham muốn vật chất + tình dục lẫn lộn, "
+            "cần kỷ luật bản thân + chọn chồng có nguyên tắc"
+        ),
+        "nam": (
+            "⚖ Phúc Đức = Liêm-Thất + Tử-Tham Phu Thê (NAM MỆNH, Trung Châu Q2 V17 p358): "
+            "phấn biệt 'PHẤN CHẤN' (Xương-Khúc + Lộc, không sát) vs 'CƯƠNG BẠO'. "
+            "Tinh thần đa chiều — lý tưởng tinh thần + thực tế kiếm tiền song song. "
+            "KHÔNG phải 'xướng kĩ' (paradigm đó chỉ nữ cổ)"
+        ),
+    },
     ("Tử Vi", "Phá Quân"): "Phúc Đức Tử-Phá → tâm bất an, dễ thay đổi quyết định hôn nhân",
     ("Thiên Cơ", "Cự Môn"): "Phúc Đức Cơ-Cự → suy nghĩ nhiều + tiếng thị phi → ảnh hưởng hoà thuận vợ chồng",
     ("Tham Lang",): "Phúc Đức có Tham Lang → đào hoa nội tâm → Phu Thê dễ có người thứ ba xen",
@@ -168,15 +178,24 @@ def build_cross_reference(
         paradigms = []
         # Match cặp đôi trước
         chinh_set = frozenset(chinh)
+        gender_norm = "nữ" if gender in ("nu", "nữ") else "nam"
         for key_tuple, txt in _PHUC_X_PHU_THE.items():
             if set(key_tuple).issubset(chinh_set):
-                paradigms.append(txt)
+                # Gender-conditional: txt có thể là dict {"nam":..., "nữ":...} hoặc str
+                if isinstance(txt, dict):
+                    txt = txt.get(gender_norm) or txt.get("nam") or ""
+                if txt:
+                    paradigms.append(txt)
                 break
         # Nếu không match cặp → match đơn
         if not paradigms:
             for s in chinh:
                 if (s,) in _PHUC_X_PHU_THE:
-                    paradigms.append(_PHUC_X_PHU_THE[(s,)])
+                    val = _PHUC_X_PHU_THE[(s,)]
+                    if isinstance(val, dict):
+                        val = val.get(gender_norm) or val.get("nam") or ""
+                    if val:
+                        paradigms.append(val)
 
         # Sao đôi vs lẻ ở Phúc Đức → quan trọng cho Phu Thê (sách)
         TA_HUU = {"Tả Phù", "Hữu Bật"} & set(ps["phu_tinh"])
