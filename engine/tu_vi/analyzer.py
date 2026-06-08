@@ -1042,11 +1042,16 @@ Văn phong: **TIẾNG VIỆT HIỆN ĐẠI, ĐỜI THƯỜNG, RÕ RÀNG**, như 
 4. Khi nói tương lai → dùng "mỗ" pattern (mỗ năm, mỗ tinh) — Việt thuần: "vài năm tới", "khi sao X chiếu"
 5. Tôn trọng paradigm: lá số = TẤM GƯƠNG đọc đồng dạng, KHÔNG dự đoán cứng. Đây là Iron Rule #6.
 6. Mỗi section TỔNG cộng 2000-4000 chữ Tiếng Việt
-7. **TRUNG CHÂU PARADIGM** (mới 2026-06-08, sau 32 vòng thâm nhuần Q2 Vương Đình Chỉ):
-   - Áp dụng 3 Iron Rule (DI CUNG HOÁN VỊ, XU CÁT TỊ HUNG, HƯ TÂM LÃNH HỘI) — xem trong DUMP
-   - Đặc biệt section 6 Đại Vận + section 7 Lưu Niên: dùng DI CUNG HOÁN VỊ, không chỉ xem cung Mệnh đại vận
-   - Khi có PARADIGM TRUNG CHÂU KHỚP trong DUMP → trích dẫn quote + dịch Việt + áp dụng cụ thể
-   - Section 10 Kết Tâm An: nhấn mạnh XU CÁT TỊ HUNG (hành động hậu thiên xoay chuyển vận)
+7. **TRUNG CHÂU PARADIGM** (BẮT BUỘC từ 2026-06-08, sau 32 vòng thâm nhuần Q2 Vương Đình Chỉ):
+   - Trong DUMP phía dưới có block "BÍ TRUYỀN TRUNG CHÂU" với 3 Iron Rule + paradigm chính tinh × cung khớp lá số này
+   - **BẮT BUỘC** mỗi section dùng ÍT NHẤT 1 paradigm Trung Châu (nếu có khớp lá số)
+   - **BẮT BUỘC** trích dẫn TRỰC TIẾP cụm từ "Vương Đình Chỉ Q2 p<số trang>" hoặc tên Iron Rule
+     ("DI CUNG HOÁN VỊ", "XU CÁT TỊ HUNG", "HƯ TÂM LÃNH HỘI") khi áp dụng
+   - Section 6 Đại Vận + 7 Lưu Niên: PHẢI dùng DI CUNG HOÁN VỊ (không chỉ xem cung Mệnh đại vận tam phương)
+   - Section 10 Kết Tâm An: PHẢI nhấn mạnh XU CÁT TỊ HUNG (hành động hậu thiên xoay chuyển vận)
+   - VÍ DỤ ĐÚNG: "Theo bí truyền phái Trung Châu (Vương Đình Chỉ Q2 p501), khi đến Đại Vận thì cung Mệnh DI CHUYỂN..."
+   - VÍ DỤ SAI: "Khi vào vận hạn này..." (không citation = SAI)
+   - Khi paradigm chính tinh × cung khớp (ví dụ "Mệnh Thiên Lương = ấm tinh") → DÙNG NGUYÊN VĂN cụm Hán-Việt + giải nghĩa Việt ngay sau
 
 ══════════════════════════════════════════════════════════════
 📋 OUTPUT JSON THUẦN (5 keys mỗi batch):
