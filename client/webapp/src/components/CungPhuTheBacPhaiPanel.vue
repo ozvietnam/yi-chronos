@@ -12,6 +12,26 @@
 import { ref, computed } from "vue";
 import LaSoFullChart from "./LaSoFullChart.vue";
 
+const PHU_THE_ART_BASE = "/oracle-cards/tu-vi-bac-phai/phu-the-trung-chau";
+const PHU_THE_ART = {
+  tuThamHoaLoc: {
+    src: `${PHU_THE_ART_BASE}/82-phu-the-tu-tham-hoa-loc-trung-chau.webp`,
+    alt: "Tử Vi Tham Lang Hóa Lộc tại cung Phu Thê theo Trung Châu",
+  },
+  taHuuPhucDuc: {
+    src: `${PHU_THE_ART_BASE}/83-phu-the-ta-huu-phuc-duc-hoi-chieu.webp`,
+    alt: "Tả Hữu Phúc Đức hội chiếu cung Phu Thê",
+  },
+  quanLocDoiCung: {
+    src: `${PHU_THE_ART_BASE}/84-phu-the-quan-loc-doi-cung.webp`,
+    alt: "Trục đối cung Phu Thê và Quan Lộc",
+  },
+  vuKhucMenhChu: {
+    src: `${PHU_THE_ART_BASE}/85-phu-the-vu-khuc-menh-chu-can-bang.webp`,
+    alt: "Mệnh chủ Vũ Khúc cân bằng trong quan hệ Phu Thê",
+  },
+};
+
 // PER-USER props — App.vue truyền activePerson từ store
 // (guest dùng local store, authenticated dùng API user_persons).
 // KHÔNG có hardcode founder fallback.
@@ -68,6 +88,18 @@ const v4DetectedRules = computed(() => {
     .filter(([_, r]) => r?.detected)
     .map(([key, r]) => ({ key, paradigm: r.paradigm }));
 });
+
+const isTuThamPhuThe = computed(() => {
+  const stars = new Set(chinhTinh.value || []);
+  return stars.has("Tử Vi") && stars.has("Tham Lang");
+});
+const showTuThamHero = computed(() => Boolean(isTuThamPhuThe.value || v2Bias.value?.is_tu_tham));
+const showTaHuuArt = computed(() => Boolean(
+  v2Rules.value?.["4_ta_huu_doi_hoi_chieu"]?.detected ||
+  v3Rules.value?.["15_ta_huu_phuc_duc"]?.detected
+));
+const showQuanLocArt = computed(() => Boolean(v2Rules.value?.["5_doi_cung_vo_chinh_dieu"]?.paradigm));
+const showVuKhucArt = computed(() => v2Rules.value?.["6_menh_chu_anh_huong"]?.menh_chu === "Vũ Khúc");
 
 async function fetchLuanGiai() {
   loading.value = true;
@@ -157,6 +189,14 @@ function ruleColor(rule) {
         <LaSoFullChart :la-so="laSoFull" highlight-palace="Phu Thê" />
       </details>
 
+      <figure v-if="showTuThamHero" class="phu-the-art phu-the-hero-art">
+        <img :src="PHU_THE_ART.tuThamHoaLoc.src" :alt="PHU_THE_ART.tuThamHoaLoc.alt" loading="lazy" decoding="async" />
+        <figcaption>
+          <strong>Tử-Tham Hóa Lộc tại Phu Thê</strong>
+          <span>Quan hệ có sức hút, tài nguyên và chí tiến thủ; Trung Châu không đọc đơn giản thành đào hoa xấu.</span>
+        </figcaption>
+      </figure>
+
       <!-- Cung position + stars -->
       <div class="card cung-card">
         <div class="cung-pos">
@@ -227,10 +267,18 @@ function ruleColor(rule) {
             </div>
             <div class="rule">
               <strong>5. Đối cung (Quan Lộc):</strong>
+              <figure v-if="showQuanLocArt" class="phu-the-art phu-the-rule-art">
+                <img :src="PHU_THE_ART.quanLocDoiCung.src" :alt="PHU_THE_ART.quanLocDoiCung.alt" loading="lazy" decoding="async" />
+                <figcaption>Phu Thê và Quan Lộc chia sẻ trục ảnh hưởng; hôn nhân không tách khỏi đường sự nghiệp.</figcaption>
+              </figure>
               <span>{{ v2Rules['5_doi_cung_vo_chinh_dieu'].paradigm }}</span>
             </div>
             <div class="rule">
               <strong>6. Mệnh chủ ({{ v2Rules['6_menh_chu_anh_huong'].menh_chu }}):</strong>
+              <figure v-if="showVuKhucArt" class="phu-the-art phu-the-rule-art">
+                <img :src="PHU_THE_ART.vuKhucMenhChu.src" :alt="PHU_THE_ART.vuKhucMenhChu.alt" loading="lazy" decoding="async" />
+                <figcaption>Mệnh chủ Vũ Khúc cần cân bằng kỷ luật, tài chính và quyền quyết định bằng lắng nghe.</figcaption>
+              </figure>
               <span>{{ v2Rules['6_menh_chu_anh_huong'].paradigm }}</span>
             </div>
             <div v-if="v2Rules['7_thai_duong_thai_am_mieu_ham']" class="rule">
@@ -297,6 +345,13 @@ function ruleColor(rule) {
       <!-- Engine v3: Cross-bind Phúc Đức + Mệnh -->
       <div v-if="v3CrossBind" class="card cross-bind-card">
         <h3>🔗 Cross-bind Phúc Đức × Mệnh × Phu Thê</h3>
+        <figure v-if="showTaHuuArt" class="phu-the-art phu-the-inline-art">
+          <img :src="PHU_THE_ART.taHuuPhucDuc.src" :alt="PHU_THE_ART.taHuuPhucDuc.alt" loading="lazy" decoding="async" />
+          <figcaption>
+            <strong>Tả-Hữu / Phúc Đức hội chiếu</strong>
+            <span>Nền phúc và sao trợ lực làm quan hệ bớt đơn độc, tăng khả năng nâng đỡ lẫn nhau.</span>
+          </figcaption>
+        </figure>
         <p class="hint-note">
           <em>Sách Trung Châu: "Phải xem KÈM cung Phúc Đức + Mệnh — đạo lý hôn nhân + cảnh báo tinh thần cross-bind."</em>
         </p>
@@ -786,6 +841,68 @@ function ruleColor(rule) {
   color: var(--read-han, #d9b977);
   margin: 12px 0 6px;
   font-size: 0.98em;
+}
+
+/* ─── Bắc Phái Phu Thê art — dot09 Trung Châu ─────────────── */
+.phu-the-art {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(10, 8, 6, 0.42);
+  border: 1px solid rgba(217, 185, 119, 0.24);
+  border-radius: 8px;
+}
+.phu-the-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.phu-the-art figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  font-size: 0.88em;
+  line-height: 1.45;
+}
+.phu-the-art figcaption strong {
+  color: var(--read-han, #d9b977);
+  font-size: 1.02em;
+}
+.phu-the-hero-art {
+  border-color: rgba(217, 185, 119, 0.38);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+.phu-the-hero-art img {
+  aspect-ratio: 16 / 9;
+  max-height: 420px;
+}
+.phu-the-inline-art {
+  display: grid;
+  grid-template-columns: minmax(220px, 38%) 1fr;
+  align-items: stretch;
+  margin: 4px 0 12px;
+}
+.phu-the-inline-art img {
+  height: 100%;
+  min-height: 170px;
+}
+.phu-the-inline-art figcaption {
+  justify-content: center;
+}
+.phu-the-rule-art {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  align-items: center;
+  gap: 0;
+  margin: 6px 0 8px;
+}
+.phu-the-rule-art img {
+  height: 96px;
+}
+.phu-the-rule-art figcaption {
+  font-size: 0.84em;
 }
 
 /* ─── Cung position card ──────────────────────────────────── */
@@ -1379,4 +1496,18 @@ td .muted {
   font-size: 0.85em;
 }
 .thay-credit strong, .source strong { color: var(--read-han, #d9b977); }
+
+@media (max-width: 680px) {
+  .phu-the-hero-art img { max-height: none; }
+  .phu-the-inline-art,
+  .phu-the-rule-art {
+    grid-template-columns: 1fr;
+  }
+  .phu-the-inline-art img,
+  .phu-the-rule-art img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+}
 </style>
