@@ -7925,10 +7925,10 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
 
     summary_md = chiem_phu_the_summary_text(la_so)
 
-    # Engine v2: 6 quy luật mới (Tứ Hóa, đào hoa phạm chủ, Tả-Hữu hội chiếu,
-    # đối cung vô chính diệu, Mệnh chủ paradigm) — gắn vào payload bên dưới `v2`
-    from engine.tu_vi.chiem_phu_the_v2 import chiem_phu_the_v2
-    v2_result = chiem_phu_the_v2(la_so)
+    # Engine v3: 9 quy luật v2 + Q10-Q13 cross-bind Phúc Đức/Mệnh
+    # Backward-compat: v3 trả về cả v2 result + thêm field cross_bind_phuc_duc
+    from engine.tu_vi.chiem_phu_the_v3 import chiem_phu_the_v3
+    v3_result = chiem_phu_the_v3(la_so)
 
     return {
         "status": "ok",
@@ -7937,7 +7937,8 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "thay_to_su": result["thay_to_su"],
         "data": result,
         "summary_markdown": summary_md,
-        "v2": v2_result,  # 6 quy luật nâng cao
+        "v2": v3_result,  # backward field name — chứa cả 9 + 4 quy luật v3
+        "v3": v3_result,  # alias mới rõ nghĩa
     }
 
 

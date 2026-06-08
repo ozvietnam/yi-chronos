@@ -48,6 +48,10 @@ const v2 = computed(() => result.value?.v2 || null);
 const v2Bias = computed(() => v2.value?.tu_tham_bias || null);
 const v2Rules = computed(() => v2.value?.quy_luat_v2 || null);
 
+// Engine v3 — cross-bind Phúc Đức + Mệnh
+const v3Rules = computed(() => result.value?.v3?.quy_luat_v3 || null);
+const v3CrossBind = computed(() => result.value?.v3?.cross_bind_phuc_duc || null);
+
 async function fetchLuanGiai() {
   loading.value = true;
   error.value = "";
@@ -221,6 +225,59 @@ function fmtFieldName(k) {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Engine v3: Cross-bind Phúc Đức + Mệnh -->
+      <div v-if="v3CrossBind" class="card cross-bind-card">
+        <h3>🔗 Cross-bind Phúc Đức × Mệnh × Phu Thê</h3>
+        <p class="hint-note">
+          <em>Sách Trung Châu: "Phải xem KÈM cung Phúc Đức + Mệnh — đạo lý hôn nhân + cảnh báo tinh thần cross-bind."</em>
+        </p>
+        <div v-if="v3CrossBind.phuc_duc_chinh_tinh?.length">
+          <strong>Phúc Đức chính tinh:</strong>
+          <span v-for="s in v3CrossBind.phuc_duc_chinh_tinh" :key="s" class="star-chip">{{ s }}</span>
+        </div>
+        <div v-if="v3CrossBind.canh_bao_cross?.length" class="alert warning">
+          <strong>⚠ Cảnh báo cross-bind:</strong>
+          <ul>
+            <li v-for="(c, i) in v3CrossBind.canh_bao_cross" :key="i">{{ c }}</li>
+          </ul>
+        </div>
+        <div v-if="v3CrossBind.diem_cat_cross?.length" class="alert success">
+          <strong>✅ Điểm cát cross-bind:</strong>
+          <ul>
+            <li v-for="(c, i) in v3CrossBind.diem_cat_cross" :key="i">{{ c }}</li>
+          </ul>
+        </div>
+        <details v-if="v3Rules" class="v3-details">
+          <summary>Xem chi tiết 4 quy luật cross-bind (Q10-Q13)</summary>
+          <div class="rule-grid">
+            <div class="rule">
+              <strong>Q10: Văn Khúc Hóa Kỵ ở Phúc Đức/Phu Thê/Mệnh:</strong>
+              <span :class="v3Rules['10_van_khuc_hoa_ki_cross'].detected ? 'warning' : 'muted'">
+                {{ v3Rules['10_van_khuc_hoa_ki_cross'].paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q11: Xương-Khúc giáp Phu Thê:</strong>
+              <span :class="v3Rules['11_xuong_khuc_giap_phu_the'].detected ? 'warning' : 'muted'">
+                {{ v3Rules['11_xuong_khuc_giap_phu_the'].paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q12: Xương-Khúc chia rẽ cát:</strong>
+              <span :class="v3Rules['12_xuong_khuc_chia_re_cat'].detected ? 'success' : 'muted'">
+                {{ v3Rules['12_xuong_khuc_chia_re_cat'].paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q13: Địa Không cross tinh thần:</strong>
+              <span :class="v3Rules['13_dia_khong_cross_tam_phuc'].detected ? 'warning' : 'muted'">
+                {{ v3Rules['13_dia_khong_cross_tam_phuc'].paradigm }}
+              </span>
+            </div>
+          </div>
+        </details>
       </div>
 
       <!-- Lưu Niên Markers -->
@@ -408,6 +465,12 @@ function fmtFieldName(k) {
 .dai-van-table th, .dai-van-table td { padding: 6px 8px; border-bottom: 1px solid #e8d8c0; text-align: left; }
 .dai-van-table th { background: #faf2e8; font-weight: 600; }
 .luu-nien-card { background: #fff5e6; border-color: #d4a574; }
+.cross-bind-card { background: #f0e8f5; border-color: #b5a8d4; }
+.alert.warning { background: #fef5f5; border: 1px solid #f0c0c0; padding: 8px; border-radius: 4px; margin-top: 8px; }
+.alert.success { background: #f0f9f1; border: 1px solid #b5d4b8; padding: 8px; border-radius: 4px; margin-top: 8px; }
+.alert ul { margin: 4px 0 0 20px; }
+.v3-details { margin-top: 12px; }
+.v3-details summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .luu-nien-list { margin: 8px 0 0 20px; padding: 0; font-size: 0.95em; }
 .luu-nien-list li { margin: 4px 0; }
 .hoa-chip {
