@@ -389,7 +389,7 @@ function ruleColor(rule) {
         </div>
 
         <details v-if="v3Rules" class="v3-details">
-          <summary>Xem chi tiết 15 quy luật cross-bind (Q10-Q24)</summary>
+          <summary>Xem chi tiết 18 quy luật cross-bind (Q10-Q40)</summary>
           <div class="rule-grid">
             <!-- Q10-Q13: Xương-Khúc + Văn Khúc Kỵ + Địa Không -->
             <div class="rule">
@@ -483,6 +483,25 @@ function ruleColor(rule) {
               <strong>Q24 · Vũ-Phá + sát Thiên Di → tai nạn xa nhà:</strong>
               <span :class="ruleColor(v3Rules['24_vu_pha_sat_thien_di'])">
                 {{ v3Rules['24_vu_pha_sat_thien_di']?.paradigm }}
+              </span>
+            </div>
+            <!-- Q29 + Q35 + Q40: từ thâm nhuần vòng 3-5 Trung Châu (2026-06-08) -->
+            <div class="rule">
+              <strong>Q29 · Tham Lang vượng — vật chất hay đào hoa phạm chủ:</strong>
+              <span :class="ruleColor(v3Rules['29_tham_lang_chi_nam_tam_hop'])">
+                {{ v3Rules['29_tham_lang_chi_nam_tam_hop']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q35 · Thiên Tướng Mệnh — Tài Ấm vs Hình Kỵ giáp:</strong>
+              <span :class="ruleColor(v3Rules['35_thien_tuong_menh_giap_cuc'])">
+                {{ v3Rules['35_thien_tuong_menh_giap_cuc']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q40 · "Phùng Phủ khán Tướng" cross-bind:</strong>
+              <span :class="ruleColor(v3Rules['40_phung_phu_khan_tuong'])">
+                {{ v3Rules['40_phung_phu_khan_tuong']?.paradigm }}
               </span>
             </div>
           </div>

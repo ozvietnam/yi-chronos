@@ -722,8 +722,312 @@ def _Q24_vu_pha_sat_thien_di_tai_nan(la_so: dict) -> dict[str, Any]:
     }
 
 
+# ─── Q29 + Q35 + Q40: từ thâm nhuần vòng 3-5 Trung Châu Q2 (2026-06-08) ──
+
+# Bảng tam hợp chi năm → cung Mệnh (Vương Đình Chỉ p64)
+_TAM_HOP_CUNG_MENH = {
+    "Mão": {"Hợi", "Mão", "Mùi"},   # tam hợp Mộc
+    "Ngọ": {"Dần", "Ngọ", "Tuất"},  # tam hợp Hỏa
+    "Dậu": {"Tỵ", "Dậu", "Sửu"},    # tam hợp Kim
+    "Tý":  {"Thân", "Tý", "Thìn"},  # tam hợp Thủy
+}
+
+
+def _Q29_tham_lang_vuong_chi_nam_tam_hop(la_so: dict) -> dict[str, Any]:
+    """Q29: Tham Lang ở 4 cung VƯỢNG (Tý/Ngọ/Mão/Dậu) — phân biệt 'ham muốn
+    vật chất' vs 'đào hoa phạm chủ dục tình' theo CHI NĂM tam hợp.
+
+    Sách Trung Châu Q2 p64 — Vương Đình Chỉ:
+    'Tham Lang ở 4 cung vượng... PHẢI là người sinh năm tam hợp với cung
+    Mệnh, mới chủ về ham muốn vật chất. NẾU KHÔNG, là Đào hoa phạm chủ —
+    chủ về DỤC TÌNH.'
+
+    Mở rộng: paradigm gốc nói về Tham Lang tại Mệnh. Engine em mở rộng cho
+    Phu Thê: nếu bạn đời có Tham Lang vượng + sinh chi năm KHÔNG tam hợp
+    với cung Phu Thê → bạn đời chủ dục tình.
+
+    Anh confirm 2026-06-08: 'có phần đúng' — Tham Lang Phu Thê Mão + Mậu
+    Thìn (tam hợp Thủy = Tý) → KHÔNG tam hợp với Mão (tam hợp Mộc).
+    """
+    chinh = la_so.get("chinh_tinh", {}) or {}
+    tham_idx = chinh.get("Tham Lang")
+    if tham_idx is None:
+        return {"detected": False, "paradigm": "Lá số không có Tham Lang"}
+
+    BR = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    tham_branch = BR[tham_idx]
+    if tham_branch not in ("Tý", "Ngọ", "Mão", "Dậu"):
+        return {
+            "detected": False,
+            "paradigm": f"Tham Lang tại {tham_branch} (không phải 4 cung vượng Tý/Ngọ/Mão/Dậu)"
+        }
+
+    # Tìm cung Tham Lang đang ở
+    tham_palace = None
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == tham_idx:
+            tham_palace = p.get("name", "")
+            break
+
+    # Check chi năm sinh có tam hợp với cung này không
+    year_branch = la_so.get("year_branch", "")
+    tam_hop_set = _TAM_HOP_CUNG_MENH.get(tham_branch, set())
+    in_tam_hop = year_branch in tam_hop_set
+
+    if in_tam_hop:
+        return {
+            "detected": True,
+            "is_cat": True,
+            "tham_branch": tham_branch,
+            "tham_palace": tham_palace,
+            "year_branch": year_branch,
+            "tam_hop_set": sorted(tam_hop_set),
+            "paradigm": (
+                f"✅ Tham Lang vượng tại {tham_branch} ({tham_palace}) + chi năm "
+                f"sinh {year_branch} ∈ tam hợp ({', '.join(sorted(tam_hop_set))}) "
+                f"→ chủ về 'HAM MUỐN VẬT CHẤT' (chí tiến thủ, theo đuổi tài lộc) "
+                f"— sách Trung Châu Q2 p64"
+            ),
+        }
+    return {
+        "detected": True,
+        "is_cat": False,
+        "tham_branch": tham_branch,
+        "tham_palace": tham_palace,
+        "year_branch": year_branch,
+        "tam_hop_set": sorted(tam_hop_set),
+        "paradigm": (
+            f"⚠ Tham Lang vượng tại {tham_branch} ({tham_palace}) + chi năm "
+            f"sinh {year_branch} ∉ tam hợp ({', '.join(sorted(tam_hop_set))}) "
+            f"→ 'ĐÀO HOA PHẠM CHỦ' dục tình (sách Trung Châu Q2 p64). "
+            f"Lời khuyên: phát triển 'con đường chính' (Văn Xương Khúc / "
+            f"Thiên Hình / Hóa Kỵ kỷ luật) → biến thành 'phong lưu mà không "
+            f"hạ lưu' (văn học gia, nghệ thuật gia)."
+        ),
+    }
+
+
+def _Q35_thien_tuong_menh_giap_cuc(la_so: dict) -> dict[str, Any]:
+    """Q35: Thiên Tướng tọa Mệnh + giáp cục — Tài Ấm Giáp Ấn vs Hình Kỵ Giáp Ấn.
+
+    Sách Trung Châu Q2 p77-p78 — Vương Đình Chỉ:
+    'Thiên Tướng = ấn tinh, không có tính chất riêng, HOÀN TOÀN bị hoàn cảnh
+    chi phối. Phải xem HAI CUNG GIÁP TRƯỚC, rồi mới xem tam phương tứ chính.'
+
+    2 cách giáp:
+    - Tài Ấm Giáp Ấn (CÁT): Cự Hóa Lộc + Thiên Lương giáp → tài+ấm phủ ấn
+    - Hình Kỵ Giáp Ấn (HUNG): 1 cung Kình Dương + 1 cung Hóa Kỵ giáp
+
+    Anh confirm 2026-06-08: 'gia đình luôn che chở anh' — đúng Tài Ấm.
+    """
+    pal_menh = _stars_at_named_palace(la_so, "Mệnh")
+    if "Thiên Tướng" not in pal_menh["chinh_tinh"]:
+        return {"detected": False, "paradigm": "Mệnh không có Thiên Tướng"}
+
+    menh_idx = _palace_index(la_so, "Mệnh")
+    if menh_idx is None:
+        return {"detected": False, "paradigm": "Không tìm thấy cung Mệnh"}
+
+    # 2 cung giáp Mệnh (idx-1 và idx+1)
+    giap_pre_idx = _fix(menh_idx - 1)
+    giap_post_idx = _fix(menh_idx + 1)
+
+    # Tìm tên 2 cung giáp
+    palace_by_idx = {p.get("branch_index"): p.get("name", "") for p in la_so.get("palaces", [])}
+    pre_palace = palace_by_idx.get(giap_pre_idx, "")
+    post_palace = palace_by_idx.get(giap_post_idx, "")
+
+    pre_stars = _stars_at_branch_idx(la_so, giap_pre_idx)
+    post_stars = _stars_at_branch_idx(la_so, giap_post_idx)
+
+    # Check Cự Môn + Thiên Lương giáp (cấu trúc Tài Ấm)
+    has_cu_giap = "Cự Môn" in (pre_stars["chinh_tinh"] + post_stars["chinh_tinh"])
+    has_luong_giap = "Thiên Lương" in (pre_stars["chinh_tinh"] + post_stars["chinh_tinh"])
+
+    if not (has_cu_giap and has_luong_giap):
+        return {
+            "detected": False,
+            "paradigm": "Mệnh Thiên Tướng không có Cự Môn + Thiên Lương giáp"
+        }
+
+    # Check Hóa Lộc trong cung Cự Môn (hoặc sao đồng độ)
+    tu_hoa = la_so.get("tu_hoa", {}) or {}
+    has_hoa_loc_giap = False
+    hoa_loc_star = tu_hoa.get("Lộc") or tu_hoa.get("Hóa Lộc")
+    pre_all = set(pre_stars["chinh_tinh"]) | set(pre_stars["phu_tinh"]) | set(pre_stars["sao_q2"])
+    post_all = set(post_stars["chinh_tinh"]) | set(post_stars["phu_tinh"]) | set(post_stars["sao_q2"])
+    if hoa_loc_star and (hoa_loc_star in pre_all or hoa_loc_star in post_all):
+        has_hoa_loc_giap = True
+
+    # Check Kình Dương + Hóa Kỵ giáp (Hình Kỵ)
+    has_kinh_duong_giap = (
+        "Kình Dương" in pre_stars["sat_tinh"] or
+        "Kình Dương" in post_stars["sat_tinh"]
+    )
+    hoa_ki_star = tu_hoa.get("Kỵ") or tu_hoa.get("Hóa Kỵ")
+    has_hoa_ki_giap = bool(hoa_ki_star) and (hoa_ki_star in pre_all or hoa_ki_star in post_all)
+
+    # Verdict
+    if has_hoa_loc_giap and not (has_kinh_duong_giap and has_hoa_ki_giap):
+        return {
+            "detected": True,
+            "is_cat": True,
+            "is_tai_am": True,
+            "paradigm": (
+                f"✅ Thiên Tướng Mệnh + 'TÀI ẤM GIÁP ẤN' đầy đủ — Cự Môn "
+                f"({pre_palace if 'Cự Môn' in pre_stars['chinh_tinh'] else post_palace}) "
+                f"có Hóa Lộc + Thiên Lương "
+                f"({pre_palace if 'Thiên Lương' in pre_stars['chinh_tinh'] else post_palace}) "
+                f"giáp Mệnh → sách Trung Châu Q2 p78: gia đình + anh chị em "
+                f"che chở mạnh, tài lộc + ấm tinh đầy đủ."
+            ),
+        }
+    if has_kinh_duong_giap and has_hoa_ki_giap:
+        return {
+            "detected": True,
+            "is_cat": False,
+            "is_hinh_ki": True,
+            "paradigm": (
+                "⚠ Thiên Tướng Mệnh + 'HÌNH KỴ GIÁP ẤN' đầy đủ — Kình Dương "
+                "+ Hóa Kỵ giáp Mệnh → sách Trung Châu Q2 p78: Tướng bị hoàn "
+                "cảnh kéo xấu, dễ tai họa kéo dài."
+            ),
+        }
+
+    # Tổ hợp lai (anh ứng — Tài Ấm thiếu Hóa Lộc + Kình Dương 1 cung)
+    parts = []
+    if has_cu_giap and has_luong_giap:
+        parts.append("Cự Môn + Thiên Lương giáp Mệnh (cấu trúc TÀI ẤM)")
+    if not has_hoa_loc_giap:
+        parts.append("THIẾU Hóa Lộc Cự Môn (Tài Ấm chưa đầy đủ)")
+    if has_kinh_duong_giap:
+        parts.append("CÓ Kình Dương 1 cung giáp (1/2 yếu tố Hình)")
+    if not has_hoa_ki_giap:
+        parts.append("KHÔNG Hóa Kỵ giáp (Hình Kỵ KHÔNG đầy đủ)")
+
+    return {
+        "detected": True,
+        "is_cat": True,  # gia đình che chở là cát
+        "is_lai": True,
+        "paradigm": (
+            "🌓 Thiên Tướng Mệnh + GIÁP CỤC LAI: " + " · ".join(parts) +
+            ". Sách Trung Châu Q2 p78: có lực 'ấm' che chở từ Phụ Mẫu "
+            "(Thiên Lương) + Huynh Đệ (Cự Môn) — gia đình hỗ trợ. Tuy "
+            "thiếu Hóa Lộc Cự Môn nên tài lộc KHÔNG tự nhiên đầy đủ, cần "
+            "phấn đấu hậu thiên. Kình Dương 1 cung giáp = ý chí cương "
+            "quyết của Phụ Mẫu, không phải 'Hình Kỵ' đầy đủ."
+        ),
+    }
+
+
+def _Q40_phung_phu_khan_tuong(la_so: dict) -> dict[str, Any]:
+    """Q40: 'Phùng Phủ khán Tướng' / 'Phùng Tướng khán Phủ' — bí mật Trung Châu.
+
+    Sách Trung Châu Q2 p81 — Vương Đình Chỉ:
+    'Thiên Phủ-Thiên Tướng luôn tương hội tam phương. Khi Phủ XẤU (gặp tứ
+    sát, hình kỵ, ác tinh), DÙ Tướng bản thân không gặp sát, Tướng vẫn bị
+    KÉO XẤU → tham lam ti tiện, không chủ kiến, phản ứng sai lầm.'
+
+    Logic ngược lại: Tướng tốt + Phủ tốt → cả hai cộng hưởng cát.
+
+    Anh confirm 2026-06-08: 'có ý đúng' — Tướng Mệnh Tỵ + Phủ Tài Bạch Sửu
+    cả 2 đều KHÔNG xấu.
+    """
+    pal_menh = _stars_at_named_palace(la_so, "Mệnh")
+    chinh_menh = set(pal_menh["chinh_tinh"])
+
+    has_tuong = "Thiên Tướng" in chinh_menh
+    has_phu = "Thiên Phủ" in chinh_menh
+
+    if not (has_tuong or has_phu):
+        return {"detected": False, "paradigm": "Mệnh không có Thiên Tướng và Thiên Phủ"}
+
+    # Tìm sao kia (Phủ nếu Tướng ở Mệnh, ngược lại)
+    target_star = "Thiên Phủ" if has_tuong else "Thiên Tướng"
+    target_idx = la_so.get("chinh_tinh", {}).get(target_star)
+    if target_idx is None:
+        return {"detected": False, "paradigm": f"Lá số không có {target_star}"}
+
+    target_stars = _stars_at_branch_idx(la_so, target_idx)
+
+    # Tìm cung chứa sao kia
+    target_palace = None
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == target_idx:
+            target_palace = p.get("name", "")
+            break
+
+    # Đánh giá xấu/tốt của target
+    LUC_SAT = {"Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "Địa Kiếp"}
+    sat_in_target = LUC_SAT & (set(target_stars["sat_tinh"]) | set(target_stars["phu_tinh"]))
+
+    tu_hoa = la_so.get("tu_hoa", {}) or {}
+    ki_star = tu_hoa.get("Kỵ") or tu_hoa.get("Hóa Kỵ")
+    target_pool = (set(target_stars["chinh_tinh"]) | set(target_stars["phu_tinh"]) |
+                   set(target_stars["sao_q2"]))
+    has_ki_in_target = bool(ki_star) and ki_star in target_pool
+
+    # Sao quý nhân CÁT
+    LUC_CAT = {"Tả Phù", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"}
+    cat_in_target = LUC_CAT & target_pool
+
+    # Verdict
+    is_target_xau = bool(sat_in_target) or has_ki_in_target
+    is_target_tot = bool(cat_in_target) and not is_target_xau
+
+    menh_star = "Thiên Tướng" if has_tuong else "Thiên Phủ"
+    quy_tac = "Phùng Tướng khán Phủ" if has_tuong else "Phùng Phủ khán Tướng"
+
+    if is_target_xau:
+        return {
+            "detected": True,
+            "is_cat": False,
+            "menh_star": menh_star,
+            "target_star": target_star,
+            "target_palace": target_palace,
+            "sat_in_target": sorted(sat_in_target),
+            "has_ki": has_ki_in_target,
+            "paradigm": (
+                f"⚠ '{quy_tac}' — {menh_star} tọa Mệnh + {target_star} "
+                f"({target_palace}) XẤU (có {', '.join(sat_in_target) or 'Hóa Kỵ'}). "
+                f"Sách Trung Châu Q2 p81: dù {menh_star} bản thân không gặp "
+                f"sát, vẫn bị {target_star} kéo xấu → tham lam ti tiện, "
+                f"không chủ kiến, phản ứng sai lầm."
+            ),
+        }
+    if is_target_tot:
+        return {
+            "detected": True,
+            "is_cat": True,
+            "menh_star": menh_star,
+            "target_star": target_star,
+            "target_palace": target_palace,
+            "cat_in_target": sorted(cat_in_target),
+            "paradigm": (
+                f"✅ '{quy_tac}' — {menh_star} tọa Mệnh + {target_star} "
+                f"({target_palace}) TỐT (có cát: {', '.join(cat_in_target)}). "
+                f"Sách Trung Châu Q2 p81: hai sao cộng hưởng → quản lý tài "
+                f"chính tốt + công minh trợ giúp tha nhân + uy lực phát huy."
+            ),
+        }
+
+    return {
+        "detected": True,
+        "is_cat": True,
+        "is_neutral": True,
+        "menh_star": menh_star,
+        "target_star": target_star,
+        "target_palace": target_palace,
+        "paradigm": (
+            f"🌓 '{quy_tac}' — {menh_star} Mệnh + {target_star} "
+            f"({target_palace}) KHÔNG xấu cũng KHÔNG đặc biệt cát. Không "
+            f"kéo {menh_star} vào trạng thái xấu."
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
-    """Engine v3 — v2 (9 quy luật) + Q10-Q24 cross-bind 3 cung + Vũ-Phá rules.
+    """Engine v3 — v2 (9 quy luật) + Q10-Q40 (15→18 quy luật).
 
     Q10-Q13: detect Xương-Khúc + Văn Khúc Hóa Kỵ + Địa Không (cấu trúc giáp)
     Q14-Q18: detect combo Phúc Đức + sao đôi + Hóa cát + Mệnh Tướng cô độc
@@ -752,6 +1056,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         "22_sao_doi_cap_3_cung": _Q22_sao_doi_cap_3_cung(la_so),
         "23_vu_pha_ty_hoi_nong_nay": _Q23_vu_pha_ty_hoi_nong_nay(la_so),
         "24_vu_pha_sat_thien_di": _Q24_vu_pha_sat_thien_di_tai_nan(la_so),
+        # Từ vòng 3+4+5 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm 3/3)
+        "29_tham_lang_chi_nam_tam_hop": _Q29_tham_lang_vuong_chi_nam_tam_hop(la_so),
+        "35_thien_tuong_menh_giap_cuc": _Q35_thien_tuong_menh_giap_cuc(la_so),
+        "40_phung_phu_khan_tuong": _Q40_phung_phu_khan_tuong(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -768,7 +1076,7 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     if cross["12_xuong_khuc_chia_re_cat"].get("detected"):
         diem_cat.append(cross["12_xuong_khuc_chia_re_cat"]["paradigm"])
 
-    # Q14-24 (mới): có is_cat flag → phân loại rõ
+    # Q14-40 (mới): có is_cat flag → phân loại rõ
     for key in ("14_phuc_duc_combo_canh_bao", "15_ta_huu_phuc_duc",
                 "16_khoi_viet_phuc_duc", "17_cat_hoa_phuc_duc",
                 "18_menh_thien_tuong_co_doc",
@@ -777,7 +1085,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "21_thien_co_thai_am_tu_tuc",
                 "22_sao_doi_cap_3_cung",
                 "23_vu_pha_ty_hoi_nong_nay",
-                "24_vu_pha_sat_thien_di"):
+                "24_vu_pha_sat_thien_di",
+                "29_tham_lang_chi_nam_tam_hop",
+                "35_thien_tuong_menh_giap_cuc",
+                "40_phung_phu_khan_tuong"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
