@@ -139,7 +139,16 @@ Vương Đình Chỉ ngã vực Úc Châu, bệnh viện 3 tháng + phá tướn
 - Mã đầu đới kiếm (Thiên Đồng+Thái Âm+Kình Dương Ngọ + Bính/Mậu) — anh có Mậu nhưng Thiên Đồng anh ở Tuất, không Ngọ
 - Liêm Trinh dương cương vs âm nhu — cần đọc tiếp §1.6 vòng sau
 
-**Đã làm vòng này:** ghi nhận 3 rule mới Q22-Q24 — chờ Anh confirm có wire NGAY hay defer.
+**Đã làm vòng này:**
+- ✅ Anh confirm 2026-06-08: Q22 (sau khi em giải thích), Q23 (anh hay nóng nảy quyết định lớn), Q24 (anh có tai nạn cách xa nhà)
+- ✅ **WIRE NGAY** Q22-Q24 vào engine v3 (commit `4c6b8f30`):
+  - Q22: scan 6 cặp sao đôi cát cho 3 cung Mệnh + Phúc Đức + Phu Thê
+  - Q23: detect Vũ Khúc + Phá Quân Tỵ/Hợi → cảnh báo quyết định xung động + lời khuyên dừng 24h
+  - Q24: detect Thiên Di có Vũ-Phá + lục sát → cảnh báo tai nạn xa nhà
+- Anh ứng nghiệm thực tế 3/3:
+  - Phúc Đức Mùi: 1 cặp Tả-Hữu ĐÔI ✓ + 1 lẻ Thiên Việt ⚠
+  - Thiên Di Hợi: Vũ-Phá đồng cung + xung Mệnh Tỵ → Q23 ứng
+  - Thiên Di Hợi có Địa Không + Địa Kiếp → Q24 ứng
 
 ---
 
