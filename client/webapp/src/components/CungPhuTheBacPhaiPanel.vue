@@ -43,6 +43,9 @@ const viTriParadigm = computed(() => result.value?.data?.luan_giai?.vi_tri_parad
 const toHopSummary = computed(() => result.value?.data?.luan_giai?.to_hop_summary || null);
 const thayToSu = computed(() => result.value?.thay_to_su || []);
 
+// Cross-reference panel: Mệnh + Phúc Đức + Đại Vận hiện tại + Thái Dương/Thái Âm
+const crossRef = computed(() => result.value?.cross_reference || null);
+
 // Engine v2 — 6 quy luật mới (Tứ Hóa, đào hoa phạm chủ, Tả-Hữu hội, đối cung, Mệnh chủ)
 const v2 = computed(() => result.value?.v2 || null);
 const v2Bias = computed(() => v2.value?.tu_tham_bias || null);
@@ -92,6 +95,11 @@ async function fetchLuanGiai() {
 
 function fmtFieldName(k) {
   return k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function isCurrentDv(dv) {
+  const cur = crossRef.value?.dai_van_hien_tai?.current_dai_van;
+  return cur && cur.start_age === dv.start_age && cur.end_age === dv.end_age;
 }
 </script>
 
@@ -400,10 +408,145 @@ function fmtFieldName(k) {
         </div>
       </div>
 
-      <!-- Disclaimer -->
+      <!-- ─── Cross-Reference Panel — Mệnh + Phúc Đức + Đại Vận + Thái Dương/Thái Âm -->
+      <div v-if="crossRef" class="card cross-ref-card">
+        <h3>🔗 Cần xem kèm — Render thật cho lá số của bạn</h3>
+        <p class="cross-ref-intro">
+          Sách Trung Châu §5.3: <em>cung Phu Thê KHÔNG đứng một mình</em> —
+          phải đối chiếu 4 yếu tố sau để hiểu chính xác.
+        </p>
+
+        <!-- 1. Cung Mệnh -->
+        <details v-if="crossRef.cung_menh" class="xr-block" open>
+          <summary>
+            <span class="xr-badge xr-menh">① Cung Mệnh</span>
+            <span class="xr-pos">tại <strong>{{ crossRef.cung_menh.branch }}</strong></span>
+          </summary>
+          <div class="xr-body">
+            <div class="xr-stars">
+              <span v-for="s in crossRef.cung_menh.chinh_tinh" :key="'mc-'+s" class="star-chip primary">{{ s }}</span>
+              <span v-for="s in crossRef.cung_menh.phu_tinh" :key="'mp-'+s" class="star-chip">{{ s }}</span>
+              <span v-for="s in crossRef.cung_menh.sat_tinh" :key="'ms-'+s" class="star-chip warning">{{ s }}</span>
+              <span v-for="s in crossRef.cung_menh.sao_q2" :key="'mq-'+s" class="star-chip">{{ s }}</span>
+            </div>
+            <div v-if="crossRef.cung_menh.hoa_in_palace?.length" class="xr-hoa">
+              <span v-for="h in crossRef.cung_menh.hoa_in_palace" :key="h" class="hoa-chip">{{ h }}</span>
+            </div>
+            <ul class="xr-paradigm">
+              <li v-for="(p, i) in crossRef.cung_menh.paradigms" :key="i">{{ p }}</li>
+            </ul>
+            <p class="xr-note"><em>{{ crossRef.cung_menh.note }}</em></p>
+          </div>
+        </details>
+
+        <!-- 2. Cung Phúc Đức -->
+        <details v-if="crossRef.cung_phuc_duc" class="xr-block" open>
+          <summary>
+            <span class="xr-badge xr-phuc">② Cung Phúc Đức</span>
+            <span class="xr-pos">tại <strong>{{ crossRef.cung_phuc_duc.branch }}</strong></span>
+            <span class="xr-tag">cross-bind QUAN TRỌNG NHẤT</span>
+          </summary>
+          <div class="xr-body">
+            <div class="xr-stars">
+              <span v-for="s in crossRef.cung_phuc_duc.chinh_tinh" :key="'pc-'+s" class="star-chip primary">{{ s }}</span>
+              <span v-for="s in crossRef.cung_phuc_duc.phu_tinh" :key="'pp-'+s" class="star-chip">{{ s }}</span>
+              <span v-for="s in crossRef.cung_phuc_duc.sat_tinh" :key="'ps-'+s" class="star-chip warning">{{ s }}</span>
+              <span v-for="s in crossRef.cung_phuc_duc.sao_q2" :key="'pq-'+s" class="star-chip">{{ s }}</span>
+            </div>
+            <div v-if="crossRef.cung_phuc_duc.hoa_in_palace?.length" class="xr-hoa">
+              <span v-for="h in crossRef.cung_phuc_duc.hoa_in_palace" :key="h" class="hoa-chip">{{ h }}</span>
+            </div>
+            <ul v-if="crossRef.cung_phuc_duc.paradigms?.length" class="xr-paradigm">
+              <li v-for="(p, i) in crossRef.cung_phuc_duc.paradigms" :key="i">{{ p }}</li>
+            </ul>
+            <ul v-if="crossRef.cung_phuc_duc.sao_doi_notes?.length" class="xr-sao-doi">
+              <li v-for="(n, i) in crossRef.cung_phuc_duc.sao_doi_notes" :key="i"
+                  :class="{ ok: n.startsWith('✓'), warn: n.startsWith('⚠') }">
+                {{ n }}
+              </li>
+            </ul>
+            <ul v-if="crossRef.cung_phuc_duc.canh_bao_cross?.length" class="xr-canh-bao">
+              <li v-for="(c, i) in crossRef.cung_phuc_duc.canh_bao_cross" :key="i">{{ c }}</li>
+            </ul>
+            <p class="xr-note"><em>{{ crossRef.cung_phuc_duc.note }}</em></p>
+          </div>
+        </details>
+
+        <!-- 3. Đại Vận hiện tại -->
+        <details v-if="crossRef.dai_van_hien_tai" class="xr-block" open>
+          <summary>
+            <span class="xr-badge xr-dv">③ Đại Vận hiện tại</span>
+            <span v-if="crossRef.dai_van_hien_tai.current_age" class="xr-pos">
+              tuổi <strong>{{ crossRef.dai_van_hien_tai.current_age }}</strong>
+            </span>
+          </summary>
+          <div class="xr-body">
+            <div v-if="crossRef.dai_van_hien_tai.current_dai_van" class="xr-dv-current">
+              <strong>Đang trong đại vận {{ crossRef.dai_van_hien_tai.current_dai_van.start_age }}–{{ crossRef.dai_van_hien_tai.current_dai_van.end_age }} tuổi</strong> ·
+              Mệnh đại vận tại <strong>{{ crossRef.dai_van_hien_tai.current_dai_van.menh_branch }}</strong> ·
+              Phu Thê đại vận tại <strong>{{ crossRef.dai_van_hien_tai.current_dai_van.phu_the_branch }}</strong>
+              <span v-if="crossRef.dai_van_hien_tai.current_dai_van.phu_the_chinh_tinh?.length">
+                ({{ crossRef.dai_van_hien_tai.current_dai_van.phu_the_chinh_tinh.join(", ") }})
+              </span>
+            </div>
+            <table v-if="crossRef.dai_van_hien_tai.all_dai_van?.length" class="dai-van-table">
+              <thead>
+                <tr>
+                  <th>Tuổi</th>
+                  <th>Mệnh đại vận</th>
+                  <th>Phu Thê đại vận</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(dv, i) in crossRef.dai_van_hien_tai.all_dai_van" :key="i"
+                    :class="{ 'dv-current': isCurrentDv(dv) }">
+                  <td>{{ dv.start_age }}–{{ dv.end_age }}</td>
+                  <td>{{ dv.menh_branch }}</td>
+                  <td>
+                    <strong>{{ dv.phu_the_branch }}</strong>
+                    <span v-if="dv.phu_the_chinh_tinh?.length" class="muted">
+                      ({{ dv.phu_the_chinh_tinh.join(", ") }})
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="xr-note"><em>{{ crossRef.dai_van_hien_tai.note }}</em></p>
+          </div>
+        </details>
+
+        <!-- 4. Thái Dương / Thái Âm miếu hãm -->
+        <details v-if="crossRef.thai_duong_thai_am" class="xr-block" open>
+          <summary>
+            <span class="xr-badge xr-tdta">④ Thái Dương / Thái Âm — miếu hãm</span>
+          </summary>
+          <div class="xr-body">
+            <div v-if="crossRef.thai_duong_thai_am.thai_duong" class="xr-tdta-row">
+              <strong>☀ Thái Dương</strong>
+              tại <strong>{{ crossRef.thai_duong_thai_am.thai_duong.branch }}</strong> ·
+              <span class="xr-level" :class="'lvl-' + (crossRef.thai_duong_thai_am.thai_duong.level || '').toLowerCase()">
+                {{ crossRef.thai_duong_thai_am.thai_duong.level_label || crossRef.thai_duong_thai_am.thai_duong.level }}
+              </span>
+              <div class="xr-paradigm-single">→ {{ crossRef.thai_duong_thai_am.thai_duong.paradigm }}</div>
+            </div>
+            <div v-if="crossRef.thai_duong_thai_am.thai_am" class="xr-tdta-row">
+              <strong>☾ Thái Âm</strong>
+              tại <strong>{{ crossRef.thai_duong_thai_am.thai_am.branch }}</strong> ·
+              <span class="xr-level" :class="'lvl-' + (crossRef.thai_duong_thai_am.thai_am.level || '').toLowerCase()">
+                {{ crossRef.thai_duong_thai_am.thai_am.level_label || crossRef.thai_duong_thai_am.thai_am.level }}
+              </span>
+              <div class="xr-paradigm-single">→ {{ crossRef.thai_duong_thai_am.thai_am.paradigm }}</div>
+            </div>
+            <p class="xr-note"><em>{{ crossRef.thai_duong_thai_am.note }}</em></p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Disclaimer (trí tuệ Iron Rule) -->
       <div class="card disclaimer-card">
         <p class="disclaimer">
-          📜 <em>{{ result?.data?.iron_rule_disclaimer }}</em>
+          📜 <em>Paradigm Bắc phái Trung Châu = đọc ĐỒNG DẠNG, KHÔNG predict tuyệt đối.
+          Cung Phu Thê chỉ phản chiếu KHUYNH HƯỚNG hôn nhân, không phải số phận cố định.</em>
         </p>
         <div class="thay-credit">
           <strong>Thầy tổ sư:</strong> {{ thayToSu.join(", ") }}
@@ -872,6 +1015,189 @@ function fmtFieldName(k) {
   border-radius: 3px;
 }
 .citation strong { color: var(--read-han, #d9b977); }
+
+/* ─── Cross-Reference Panel ──────────────────────────────────────── */
+.cross-ref-card {
+  background: linear-gradient(135deg, rgba(126, 234, 218, 0.06) 0%, rgba(217, 185, 119, 0.06) 100%);
+  border-color: rgba(126, 234, 218, 0.32);
+  border-left: 4px solid #7eeada;
+}
+.cross-ref-card h3 {
+  color: #7eeada;
+  margin: 0 0 8px;
+}
+.cross-ref-intro {
+  margin: 0 0 12px;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.78));
+  font-size: 0.92em;
+}
+
+.xr-block {
+  margin: 10px 0;
+  border: 1px solid var(--read-border, rgba(201, 161, 74, 0.22));
+  border-radius: 6px;
+  background: var(--read-bg-soft, rgba(36, 29, 22, 0.6));
+  padding: 4px 0;
+}
+.xr-block summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  flex-wrap: wrap;
+  user-select: none;
+}
+.xr-block summary:hover { background: rgba(217, 185, 119, 0.06); }
+
+.xr-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.86em;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.xr-menh    { background: rgba(217, 185, 119, 0.18); color: var(--read-han, #d9b977); border: 1px solid var(--read-rule, #c9a14a); }
+.xr-phuc    { background: rgba(255, 138, 138, 0.16); color: #ffb88a; border: 1px solid rgba(255, 138, 138, 0.45); }
+.xr-dv      { background: rgba(126, 234, 218, 0.16); color: #7eeada; border: 1px solid rgba(126, 234, 218, 0.45); }
+.xr-tdta    { background: rgba(255, 217, 102, 0.16); color: #ffd966; border: 1px solid rgba(255, 217, 102, 0.45); }
+
+.xr-pos {
+  color: var(--read-text, #e9dcc6);
+  font-size: 0.92em;
+}
+.xr-pos strong { color: var(--read-han, #d9b977); font-size: 1.1em; }
+
+.xr-tag {
+  font-size: 0.78em;
+  padding: 2px 8px;
+  background: rgba(255, 138, 138, 0.10);
+  color: #ffb88a;
+  border-radius: 3px;
+  font-style: italic;
+}
+
+.xr-body {
+  padding: 4px 14px 12px;
+}
+.xr-stars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+.xr-hoa {
+  margin: 6px 0;
+}
+.xr-paradigm {
+  margin: 8px 0 8px 20px;
+  padding: 0;
+  font-size: 0.93em;
+}
+.xr-paradigm li {
+  margin: 6px 0;
+  color: var(--read-text, #e9dcc6);
+  line-height: 1.55;
+}
+
+.xr-paradigm-single {
+  margin: 6px 0 0 18px;
+  color: var(--read-text, #e9dcc6);
+  font-size: 0.93em;
+  line-height: 1.5;
+}
+
+.xr-sao-doi {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+}
+.xr-sao-doi li {
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin: 3px 0;
+  font-size: 0.92em;
+}
+.xr-sao-doi li.ok {
+  background: rgba(126, 234, 218, 0.10);
+  color: #7eeada;
+  border-left: 3px solid #7eeada;
+}
+.xr-sao-doi li.warn {
+  background: rgba(255, 184, 138, 0.10);
+  color: #ffb88a;
+  border-left: 3px solid #ffb88a;
+}
+
+.xr-canh-bao {
+  margin: 8px 0 8px 20px;
+  padding: 0;
+}
+.xr-canh-bao li {
+  margin: 6px 0;
+  color: #ff8a8a;
+  font-size: 0.93em;
+  line-height: 1.5;
+}
+
+.xr-note {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  background: rgba(217, 185, 119, 0.06);
+  border-left: 2px solid var(--read-rule, #c9a14a);
+  border-radius: 3px;
+  font-size: 0.86em;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.78));
+  line-height: 1.5;
+}
+
+.xr-dv-current {
+  padding: 10px 12px;
+  background: rgba(126, 234, 218, 0.12);
+  border: 1px solid rgba(126, 234, 218, 0.42);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: var(--read-text, #e9dcc6);
+  line-height: 1.5;
+}
+.xr-dv-current strong { color: #7eeada; }
+
+tr.dv-current {
+  background: rgba(126, 234, 218, 0.12);
+}
+tr.dv-current td { font-weight: 600; }
+tr.dv-current strong { color: #7eeada; }
+td .muted {
+  margin-left: 4px;
+  font-size: 0.88em;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+}
+
+.xr-tdta-row {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: rgba(255, 217, 102, 0.06);
+  border-left: 3px solid rgba(255, 217, 102, 0.55);
+  border-radius: 4px;
+  color: var(--read-text, #e9dcc6);
+  line-height: 1.55;
+}
+.xr-tdta-row strong { color: var(--read-han, #d9b977); }
+.xr-level {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.86em;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.xr-level.lvl-miếu  { background: rgba(126, 234, 218, 0.22); color: #7eeada; }
+.xr-level.lvl-vượng { background: rgba(126, 234, 218, 0.18); color: #7eeada; }
+.xr-level.lvl-đắc   { background: rgba(217, 185, 119, 0.20); color: var(--read-han, #d9b977); }
+.xr-level.lvl-bình  { background: rgba(233, 220, 198, 0.12); color: var(--read-text-dim, rgba(233, 220, 198, 0.85)); }
+.xr-level.lvl-lạc   { background: rgba(255, 184, 138, 0.16); color: #ffb88a; }
+.xr-level.lvl-hãm   { background: rgba(255, 138, 138, 0.18); color: #ff8a8a; }
 
 /* ─── Disclaimer card ─────────────────────────────────────── */
 .disclaimer-card {

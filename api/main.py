@@ -7934,6 +7934,17 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
     from engine.tu_vi.chiem_phu_the_v4 import chiem_phu_the_v4
     v4_result = chiem_phu_the_v4(la_so)
 
+    # Cross-reference panel (replace placeholder "Cần xem kèm: ..."):
+    # render thật Mệnh + Phúc Đức + Đại vận hiện tại + Thái Dương/Thái Âm miếu hãm
+    from engine.tu_vi.chiem_phu_the_cross_reference import build_cross_reference
+    birth_year = None
+    try:
+        # person.birth_datetime_local thường dạng "1988-06-05 23:30"
+        birth_year = int(str(person.birth_datetime_local)[:4])
+    except Exception:
+        pass
+    cross_ref = build_cross_reference(la_so, gender=gender, birth_year=birth_year)
+
     return {
         "status": "ok",
         "person_key": person.person_key,
@@ -7944,6 +7955,7 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "v2": v4_result,  # backward field name
         "v3": v4_result,
         "v4": v4_result,
+        "cross_reference": cross_ref,
     }
 
 
