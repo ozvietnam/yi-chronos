@@ -52,6 +52,16 @@ const v2Rules = computed(() => v2.value?.quy_luat_v2 || null);
 const v3Rules = computed(() => result.value?.v3?.quy_luat_v3 || null);
 const v3CrossBind = computed(() => result.value?.v3?.cross_bind_phuc_duc || null);
 
+// Engine v4 — Phase 2-5 (13 quy luật cross-bind 12 cung) + meta panorama
+const v4Rules = computed(() => result.value?.v4?.quy_luat_v4 || null);
+const v4Panorama = computed(() => result.value?.v4?.panorama_hon_nhan || null);
+const v4DetectedRules = computed(() => {
+  const rules = v4Rules.value || {};
+  return Object.entries(rules)
+    .filter(([_, r]) => r?.detected)
+    .map(([key, r]) => ({ key, paradigm: r.paradigm }));
+});
+
 async function fetchLuanGiai() {
   loading.value = true;
   error.value = "";
@@ -225,6 +235,35 @@ function fmtFieldName(k) {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Engine v4: Panorama Toàn cảnh Hôn nhân (meta 26 quy luật) -->
+      <div v-if="v4Panorama" class="card panorama-card">
+        <h3>🌍 Toàn Cảnh Hôn Nhân (26 quy luật Bắc Phái)</h3>
+        <div class="panorama-score">
+          <div class="score-item cat">
+            <span class="num">{{ v4Panorama.score_cat }}</span>
+            <span class="lbl">Điểm cát ✅</span>
+          </div>
+          <div class="score-item hung">
+            <span class="num">{{ v4Panorama.score_hung }}</span>
+            <span class="lbl">Cảnh báo ⚠</span>
+          </div>
+          <div class="score-item overall" :class="v4Panorama.overall.replace(/\s+/g, '-').toLowerCase()">
+            <span class="num-text">{{ v4Panorama.overall }}</span>
+            <span class="lbl">Kết luận</span>
+          </div>
+        </div>
+        <p class="hint-note">{{ v4Panorama.summary }}</p>
+
+        <details v-if="v4DetectedRules.length" class="v4-details">
+          <summary>🔍 Xem {{ v4DetectedRules.length }} quy luật Phase 2-5 đã kích hoạt</summary>
+          <ul class="v4-rules-list">
+            <li v-for="r in v4DetectedRules" :key="r.key">
+              <strong>{{ r.key }}:</strong> {{ r.paradigm }}
+            </li>
+          </ul>
+        </details>
       </div>
 
       <!-- Engine v3: Cross-bind Phúc Đức + Mệnh -->
@@ -466,6 +505,20 @@ function fmtFieldName(k) {
 .dai-van-table th { background: #faf2e8; font-weight: 600; }
 .luu-nien-card { background: #fff5e6; border-color: #d4a574; }
 .cross-bind-card { background: #f0e8f5; border-color: #b5a8d4; }
+.panorama-card { background: linear-gradient(135deg, #fae8c8 0%, #f0d8a0 100%); border-color: #c08840; }
+.panorama-score { display: flex; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
+.score-item { flex: 1; min-width: 100px; text-align: center; padding: 12px 8px; background: #fff; border-radius: 6px; }
+.score-item .num { display: block; font-size: 2em; font-weight: bold; }
+.score-item .num-text { display: block; font-size: 1.2em; font-weight: bold; }
+.score-item .lbl { display: block; font-size: 0.85em; color: var(--read-muted, #8a7a6a); margin-top: 4px; }
+.score-item.cat .num { color: #2d7a3e; }
+.score-item.hung .num { color: #c33; }
+.score-item.overall.cát-thắng .num-text { color: #2d7a3e; }
+.score-item.overall.hung-thắng .num-text { color: #c33; }
+.score-item.overall.trung-hòa .num-text { color: var(--read-accent, #8b5a3c); }
+.v4-details { margin-top: 12px; }
+.v4-rules-list { margin: 8px 0 0 20px; font-size: 0.92em; }
+.v4-rules-list li { margin: 6px 0; }
 .alert.warning { background: #fef5f5; border: 1px solid #f0c0c0; padding: 8px; border-radius: 4px; margin-top: 8px; }
 .alert.success { background: #f0f9f1; border: 1px solid #b5d4b8; padding: 8px; border-radius: 4px; margin-top: 8px; }
 .alert ul { margin: 4px 0 0 20px; }

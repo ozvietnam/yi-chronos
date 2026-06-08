@@ -7925,10 +7925,10 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
 
     summary_md = chiem_phu_the_summary_text(la_so)
 
-    # Engine v3: 9 quy luật v2 + Q10-Q13 cross-bind Phúc Đức/Mệnh
-    # Backward-compat: v3 trả về cả v2 result + thêm field cross_bind_phuc_duc
-    from engine.tu_vi.chiem_phu_the_v3 import chiem_phu_the_v3
-    v3_result = chiem_phu_the_v3(la_so)
+    # Engine v4 — Full 26 quy luật + meta panorama:
+    #   v2 (Q1-9) + v3 cross-bind (Q10-13) + v4 phase 2-5 (Q14-26) + Q27 meta
+    from engine.tu_vi.chiem_phu_the_v4 import chiem_phu_the_v4
+    v4_result = chiem_phu_the_v4(la_so)
 
     return {
         "status": "ok",
@@ -7937,8 +7937,9 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "thay_to_su": result["thay_to_su"],
         "data": result,
         "summary_markdown": summary_md,
-        "v2": v3_result,  # backward field name — chứa cả 9 + 4 quy luật v3
-        "v3": v3_result,  # alias mới rõ nghĩa
+        "v2": v4_result,  # backward field name
+        "v3": v4_result,
+        "v4": v4_result,
     }
 
 
