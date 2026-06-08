@@ -1327,3 +1327,55 @@ Contact sheet QA: `data/tu_vi/oracle_cards/tu_vi_bac_phai/references/tuvi_bac_ph
 - Dien giai chuan: "Kim kho truyen hau, ky luat nuoi con."
 - Ghi chu tranh lan: khong ve thanh Tai Bach; can thay truyen thua cho Tu Tuc.
 - Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/81-vu-khuc-tu-tuc.png`
+
+---
+
+## Dot 09 - Cung Phu The Bac Phai Trung Chau
+
+Nguon brief: `data/tu_vi/oracle_cards/tu_vi_bac_phai/REQUEST_DOT_09_PHU_THE_TRUNG_CHAU_ART_BRIEF.md`
+
+Manifest: `data/tu_vi/oracle_cards/tu_vi_bac_phai/dot09_phu_the_trung_chau_manifest.json`
+
+Contact sheet QA: `data/tu_vi/oracle_cards/tu_vi_bac_phai/references/tuvi_bac_phai_dot09_phu_the_trung_chau_contact_sheet.jpg`
+
+Ghi chu su dung: day la asset UI ngang cho `CungPhuTheBacPhaiPanel.vue`, khong phai the oracle doc 2:3 va khong dua vao gallery dai tra.
+
+### 82. PHU THE TU-THAM HOA LOC TRUNG CHAU
+
+- Loai anh: hero/banner ngang 16:9
+- Vi tri UI: dau ket qua Cung Phu The Bac Phai Trung Chau.
+- Chu de: Tu Vi + Tham Lang Hoa Loc tai Phu The, nghieng ve chi tien thu, tai nguyen, suc hut xa hoi va cung xay su nghiep.
+- Bieu tuong chinh: khe uoc hon nhan/su nghiep, thien ban 12 cung, hai luong khi tim-vang va luc-do ruou gap tai Phu The, an trien, chen ngoc, day do manh, hoa dao tiet che.
+- Tranh lan: khong romance sen, khong cuoi hoi hien dai, khong Tham Lang dung tuc, khong Tu Vi thanh de tinh mot minh.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/82-phu-the-tu-tham-hoa-loc-trung-chau.png`
+- Web ready: `data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/82-phu-the-tu-tham-hoa-loc-trung-chau.webp`
+
+### 83. PHU THE TA-HUU PHUC DUC HOI CHIEU
+
+- Loai anh: card ngang 4:3
+- Vi tri UI: khoi Cross-bind Phuc Duc x Menh x Phu The hoac khu Ta-Huu hoi chieu.
+- Chu de: Ta Phu + Huu Bat tu nen Phuc Duc nang do vao Phu The; hon nhan co phuc, co hoc va co tro luc.
+- Bieu tuong chinh: gia pha, den to, hai dai sang nang do, duong tam-hop/hoi chieu vao Phu The, an Khoa mo, khe uoc/doi ghe.
+- Tranh lan: khong ve to tien qua cu the, khong bien thanh anh Phuc Duc chung chung.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/83-phu-the-ta-huu-phuc-duc-hoi-chieu.png`
+- Web ready: `data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/83-phu-the-ta-huu-phuc-duc-hoi-chieu.webp`
+
+### 84. PHU THE QUAN LOC DOI CUNG
+
+- Loai anh: card ngang 4:3
+- Vi tri UI: khoi Doi cung Quan Loc hoac Toan canh Hon Nhan.
+- Chu de: Phu The va Quan Loc chia se cung tinh he; Quan Loc vo chinh dieu muon anh Tu-Tham tu Phu The.
+- Bieu tuong chinh: truc doi xung tren thien ban, ben Phu The co khe uoc va anh Tu-Tham, ben Quan Loc co ban viec/an su nghiep trong, cau noi hon nhan-su nghiep.
+- Tranh lan: khong cong so hien dai, khong chien tran, khong romance truc dien.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/84-phu-the-quan-loc-doi-cung.png`
+- Web ready: `data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/84-phu-the-quan-loc-doi-cung.webp`
+
+### 85. PHU THE VU KHUC MENH CHU CAN BANG
+
+- Loai anh: card ngang 4:3
+- Vi tri UI: khoi Menh chu Vu Khuc anh huong quan he.
+- Chu de: Menh chu Vu Khuc thien hanh dong, tai chinh va ky luat; quan he can mem hoa bang lang nghe va chia se quyet dinh.
+- Bieu tuong chinh: an kim loai Vu Khuc phia Menh, so/ky luat, lua am, den mem, day khe uoc, truc can bang Menh-Phu The.
+- Tranh lan: khong bien thanh Tai Bach, khong ve xung dot vo chong.
+- Anh da tao: `data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/85-phu-the-vu-khuc-menh-chu-can-bang.png`
+- Web ready: `data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/85-phu-the-vu-khuc-menh-chu-can-bang.webp`

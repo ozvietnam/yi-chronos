@@ -1,0 +1,84 @@
+{
+  "brief": "data/tu_vi/oracle_cards/tu_vi_bac_phai/REQUEST_DOT_09_PHU_THE_TRUNG_CHAU_ART_BRIEF.md",
+  "generated_at": "2026-06-08T00:00:00+07:00",
+  "batch": "dot09_phu_the_trung_chau",
+  "gallery_policy": "UI assets for CungPhuTheBacPhaiPanel, not vertical oracle cards and not intended for public gallery listing.",
+  "assets": [
+    {
+      "id": 82,
+      "slug": "phu-the-tu-tham-hoa-loc-trung-chau",
+      "title": "Phu The Tu-Tham Hoa Loc Trung Chau",
+      "kind": "hero_16_9",
+      "source_png": "data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/82-phu-the-tu-tham-hoa-loc-trung-chau.png",
+      "webp": "data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/82-phu-the-tu-tham-hoa-loc-trung-chau.webp",
+      "prompt": "data/tu_vi/oracle_cards/tu_vi_bac_phai/prompts/82-phu-the-tu-tham-hoa-loc-trung-chau.prompt.md",
+      "source_size": [
+        2200,
+        1238
+      ],
+      "web_size": [
+        1600,
+        900
+      ],
+      "web_bytes": 214934,
+      "meaning": "Tu-Tham Hoa Loc o Phu The: quan he co suc hut, chi tien thu, tai nguyen va dong hanh xay su nghiep."
+    },
+    {
+      "id": 83,
+      "slug": "phu-the-ta-huu-phuc-duc-hoi-chieu",
+      "title": "Phu The Ta Huu Phuc Duc Hoi Chieu",
+      "kind": "card_4_3",
+      "source_png": "data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/83-phu-the-ta-huu-phuc-duc-hoi-chieu.png",
+      "webp": "data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/83-phu-the-ta-huu-phuc-duc-hoi-chieu.webp",
+      "prompt": "data/tu_vi/oracle_cards/tu_vi_bac_phai/prompts/83-phu-the-ta-huu-phuc-duc-hoi-chieu.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 223082,
+      "meaning": "Phu The duoc Ta Phu Huu Bat va nen Phuc Duc nang do; hon nhan co hoc, co tro luc, khong dung mot minh."
+    },
+    {
+      "id": 84,
+      "slug": "phu-the-quan-loc-doi-cung",
+      "title": "Phu The Quan Loc Doi Cung",
+      "kind": "card_4_3",
+      "source_png": "data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/84-phu-the-quan-loc-doi-cung.png",
+      "webp": "data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/84-phu-the-quan-loc-doi-cung.webp",
+      "prompt": "data/tu_vi/oracle_cards/tu_vi_bac_phai/prompts/84-phu-the-quan-loc-doi-cung.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 234510,
+      "meaning": "Phu The va Quan Loc chia se tinh he; hon nhan la luc anh huong duong su nghiep."
+    },
+    {
+      "id": 85,
+      "slug": "phu-the-vu-khuc-menh-chu-can-bang",
+      "title": "Phu The Vu Khuc Menh Chu Can Bang",
+      "kind": "card_4_3",
+      "source_png": "data/tu_vi/oracle_cards/tu_vi_bac_phai/generated_cards/85-phu-the-vu-khuc-menh-chu-can-bang.png",
+      "webp": "data/tu_vi/oracle_cards/tu_vi_bac_phai/web_ready/85-phu-the-vu-khuc-menh-chu-can-bang.webp",
+      "prompt": "data/tu_vi/oracle_cards/tu_vi_bac_phai/prompts/85-phu-the-vu-khuc-menh-chu-can-bang.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 298738,
+      "meaning": "Menh chu Vu Khuc can can bang ky luat/tai chinh bang lang nghe va chia se quyet dinh trong quan he."
+    }
+  ]
+}
