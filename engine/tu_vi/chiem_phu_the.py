@@ -156,7 +156,11 @@ def _detect_hoa_ki(la_so: dict, branch_idx: int) -> list[str]:
     return []
 
 
-def chiem_phu_the(la_so: dict, paradigm_school: str = "bac_phai_trung_chau") -> dict[str, Any]:
+def chiem_phu_the(
+    la_so: dict,
+    paradigm_school: str = "bac_phai_trung_chau",
+    gender: str = "nam",
+) -> dict[str, Any]:
     """Luận cung Phu Thê theo Bắc phái Trung Châu.
 
     Args:
@@ -229,12 +233,28 @@ def chiem_phu_the(la_so: dict, paradigm_school: str = "bac_phai_trung_chau") -> 
         }
         luan_giai["ban_chat_sao"].append(sao_entry)
 
-        # Vị trí cụ thể
+        # Vị trí cụ thể — personalize: filter conditional keys
         vi_tri = star_data.get("vi_tri", {})
         if pair_key and pair_key in vi_tri:
+            vi_tri_data = vi_tri[pair_key]
+            try:
+                from .chiem_phu_the_personalize import personalize_vi_tri_paradigm
+                personalized = personalize_vi_tri_paradigm(
+                    vi_tri_data, la_so, gender=gender, palace_name="Phu Thê"
+                )
+            except Exception as e:
+                personalized = {"matched": [], "unmatched": [], "_error": str(e)}
+
             luan_giai["vi_tri_paradigm"][star] = {
                 "branch_pair": branch,
-                "data": vi_tri[pair_key],
+                "data": vi_tri_data,  # backward compat
+                "matched": personalized.get("matched", []),
+                "unmatched": personalized.get("unmatched", []),
+                "citation": {
+                    "book": "Trung Châu Tử Vi Đẩu Số 2 — Vương Đình Chỉ",
+                    "section": f"§5.3 · Chính tinh {star} tại {branch}",
+                    "source_file": "data/restored_books/trung-chau-tu-vi-dau-so-2/content.md",
+                },
             }
 
     # 5. Tổ hợp đôi (if any)

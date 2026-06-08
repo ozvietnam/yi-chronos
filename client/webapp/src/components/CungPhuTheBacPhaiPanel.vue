@@ -352,14 +352,51 @@ function fmtFieldName(k) {
 
         <div v-if="viTriParadigm[sao.ten]" class="vi-tri">
           <h4>Tại cung {{ viTriParadigm[sao.ten].branch_pair }}:</h4>
-          <ul class="paradigm-list">
-            <li v-for="(value, key) in viTriParadigm[sao.ten].data" :key="key">
-              <strong>{{ fmtFieldName(key) }}:</strong>
-              <span v-if="typeof value === 'string'">{{ value }}</span>
-              <span v-else-if="Array.isArray(value)">{{ value.join(', ') }}</span>
-              <span v-else>{{ value }}</span>
-            </li>
-          </ul>
+
+          <!-- ✅ MATCHED — ứng với lá số riêng -->
+          <div v-if="(viTriParadigm[sao.ten].matched || []).length" class="match-block">
+            <div class="match-block-header">
+              <span class="badge badge-match">✓ ỨNG VỚI LÁ SỐ NÀY</span>
+              <span class="match-count">{{ viTriParadigm[sao.ten].matched.length }} dòng</span>
+            </div>
+            <ul class="paradigm-list matched">
+              <li v-for="m in viTriParadigm[sao.ten].matched" :key="'m-'+m.key">
+                <div class="row-head">
+                  <strong>{{ m.label }}:</strong>
+                  <span class="text">{{ m.text }}</span>
+                </div>
+                <div class="row-reason" v-if="m.reason">
+                  <em>↪ lý do áp dụng:</em> {{ m.reason }}
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ❌ UNMATCHED — paradigm chung, KHÔNG áp dụng -->
+          <details v-if="(viTriParadigm[sao.ten].unmatched || []).length" class="unmatch-block">
+            <summary>
+              <span class="badge badge-unmatch">○ Paradigm CHUNG — KHÔNG ứng với lá số</span>
+              <span class="match-count">{{ viTriParadigm[sao.ten].unmatched.length }} dòng (xem để hiểu sách nói gì)</span>
+            </summary>
+            <ul class="paradigm-list unmatched">
+              <li v-for="u in viTriParadigm[sao.ten].unmatched" :key="'u-'+u.key">
+                <div class="row-head">
+                  <strong>{{ u.label }}:</strong>
+                  <span class="text muted">{{ u.text }}</span>
+                </div>
+                <div class="row-reason" v-if="u.reason">
+                  <em>↪ vì sao KHÔNG áp dụng:</em> {{ u.reason }}
+                </div>
+              </li>
+            </ul>
+          </details>
+
+          <!-- 📚 Citation -->
+          <div v-if="viTriParadigm[sao.ten].citation" class="citation">
+            📖 <strong>Nguồn:</strong>
+            {{ viTriParadigm[sao.ten].citation.book }} —
+            <em>{{ viTriParadigm[sao.ten].citation.section }}</em>
+          </div>
         </div>
       </div>
 
@@ -735,8 +772,106 @@ function fmtFieldName(k) {
   padding-bottom: 4px;
 }
 .paradigm-list { margin: 0; padding-left: 20px; font-size: 0.92em; }
-.paradigm-list li { margin: 5px 0; }
+.paradigm-list li { margin: 8px 0; }
 .paradigm-list strong { color: var(--read-han, #d9b977); }
+
+/* ─── Match vs Unmatch blocks ────────────────────────────────────── */
+.match-block {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(91, 229, 211, 0.06);
+  border: 1px solid rgba(91, 229, 211, 0.32);
+  border-left: 4px solid #5be5d3;
+  border-radius: 6px;
+}
+.match-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.badge-match {
+  background: rgba(91, 229, 211, 0.22);
+  color: #7eeada;
+  border: 1px solid rgba(91, 229, 211, 0.45);
+}
+.badge-unmatch {
+  background: rgba(233, 220, 198, 0.10);
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  border: 1px solid var(--read-border, rgba(201, 161, 74, 0.22));
+}
+.match-count {
+  font-size: 0.84em;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  font-style: italic;
+}
+.paradigm-list.matched li {
+  border-bottom: 1px dashed rgba(91, 229, 211, 0.18);
+  padding-bottom: 8px;
+}
+.paradigm-list.matched li:last-child { border-bottom: none; }
+.row-head {
+  line-height: 1.55;
+}
+.row-head .text {
+  margin-left: 6px;
+  color: var(--read-text, #e9dcc6);
+}
+.row-head .text.muted {
+  color: var(--read-text-faint, rgba(233, 220, 198, 0.55));
+  text-decoration: line-through;
+  text-decoration-color: rgba(233, 220, 198, 0.25);
+  text-decoration-style: dotted;
+}
+.row-reason {
+  margin-top: 4px;
+  padding: 4px 8px;
+  font-size: 0.86em;
+  color: var(--read-han, #d9b977);
+  background: rgba(217, 185, 119, 0.06);
+  border-radius: 3px;
+  font-style: italic;
+}
+.unmatch-block {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--read-bg-soft, rgba(36, 29, 22, 0.5));
+  border: 1px dashed var(--read-border, rgba(201, 161, 74, 0.22));
+  border-radius: 6px;
+  font-size: 0.92em;
+}
+.unmatch-block summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  user-select: none;
+}
+.unmatch-block summary:hover { color: var(--read-han, #d9b977); }
+.unmatch-block .paradigm-list { margin-top: 8px; }
+.unmatch-block .row-reason {
+  color: var(--read-text-faint, rgba(233, 220, 198, 0.55));
+  background: rgba(204, 51, 51, 0.06);
+}
+.citation {
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 0.84em;
+  background: rgba(217, 185, 119, 0.06);
+  border-left: 2px solid var(--read-rule, #c9a14a);
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  border-radius: 3px;
+}
+.citation strong { color: var(--read-han, #d9b977); }
 
 /* ─── Disclaimer card ─────────────────────────────────────── */
 .disclaimer-card {

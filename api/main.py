@@ -7919,7 +7919,11 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
     analyzer = TuViAnalyzer(person)
     la_so = analyzer.la_so
 
-    result = chiem_phu_the(la_so)
+    # Pass gender để personalize filter gender-conditional paradigm
+    gender = (person.gender or "nam").lower().strip()
+    if gender not in ("nam", "nu", "nữ"):
+        gender = "nam"
+    result = chiem_phu_the(la_so, gender=gender)
     if "error" in result:
         return {"status": "error", "message": result["error"]}
 
