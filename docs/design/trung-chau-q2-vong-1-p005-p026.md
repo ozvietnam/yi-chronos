@@ -118,12 +118,15 @@ Thái Dương đặc tính:
 
 **Đã làm vòng này:**
 - ✅ Đối chiếu engine hiện tại với 8 paradigm — confirm engine ĐÚNG hướng phái Trung Châu Iron Rule #6
-- ✅ Ghi nhận 3 rule MỚI để wire ở các vòng sau khi đủ context 14 chính tinh
+- ✅ **WIRE NGAY** 3 rule sau khi Anh confirm 4/4 ứng nghiệm (commit `d799fad2`):
+  - ✅ Q19: Tử Vi tọa Phu Thê + thiếu Bách Quan = "Tại dã cô quân Phu Thê" → bạn đời độc đoán
+  - ✅ Q20: Thái Dương HÃM + sinh ban đêm → cảnh báo bệnh mắt/tim mạch (mức theo cung: Mệnh nặng nhất, Tật Ách sức khoẻ, khác nhẹ)
+  - ✅ Q21: Thiên Cơ + Thái Âm Tử Tức → paradigm con cái (linh động + nhạy cảm + nghiên cứu)
+- Anh ứng nghiệm thực tế: lá số anh cho ra 3/3 detected — Tử Vi Phu Thê Mão thiếu phụ tinh, Thái Dương HÃM Tật Ách Tý + sinh giờ Tý, Tử Tức Dần = Thiên Cơ + Thái Âm.
 
 **Defer cho vòng sau** (sau khi đọc hết Chương 1 — 14 chính tinh):
 - Wire `chiem_menh_bac_phai.py` với 14 paradigm × 12 cung — pattern y như `chiem_phu_the.py` hiện tại
-- Wire rule "sinh ban đêm Thái Dương Mệnh" trong `cross_reference` panel
-- Wire rule "Tại Dã Cô Quân" cho Tử Vi tọa Mệnh
+- Reframe "Đào hoa phạm chủ" paradigm trong seed `tuvi_cung_phu_the_trung_chau.json`
 
 ---
 
