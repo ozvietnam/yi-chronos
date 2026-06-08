@@ -108,6 +108,7 @@ def _stars_at_branch_idx(la_so: dict, branch_idx: int) -> dict[str, list[str]]:
     """
     result: dict[str, list[str]] = {
         "chinh_tinh": [], "phu_tinh": [], "sat_tinh": [], "sao_q2": [],
+        "bac_si": [], "tuong_tinh": [], "thai_tue_belt": [], "sao_le": [],
     }
 
     ct = la_so.get("chinh_tinh", {})
@@ -133,6 +134,34 @@ def _stars_at_branch_idx(la_so: dict, branch_idx: int) -> dict[str, list[str]]:
         for star, idx in q2.items():
             if idx == branch_idx:
                 result["sao_q2"].append(star)
+
+    # Q3 vòng Bác Sĩ
+    bs = la_so.get("bac_si_belt", {})
+    if isinstance(bs, dict):
+        for star, idx in bs.items():
+            if idx == branch_idx:
+                result["bac_si"].append(star)
+
+    # Q3 vòng Tướng Tinh
+    tt = la_so.get("tuong_tinh_belt", {})
+    if isinstance(tt, dict):
+        for star, idx in tt.items():
+            if idx == branch_idx:
+                result["tuong_tinh"].append(star)
+
+    # Q2 vòng Thái Tuế (12 sao)
+    tueb = la_so.get("thai_tue_belt", {})
+    if isinstance(tueb, dict):
+        for star, idx in tueb.items():
+            if idx == branch_idx:
+                result["thai_tue_belt"].append(star)
+
+    # Q3 sao lẻ thần sát
+    sl = la_so.get("sao_le", {})
+    if isinstance(sl, dict):
+        for star, idx in sl.items():
+            if idx == branch_idx:
+                result["sao_le"].append(star)
 
     return result
 

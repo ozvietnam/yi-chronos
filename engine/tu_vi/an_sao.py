@@ -553,8 +553,9 @@ THAI_TUE_BELT = (
     "Bạch Hổ",      # +8
     "Phúc Đức",     # +9
     "Điếu Khách",   # +10
-    "Bệnh Phù",     # +11
+    "Trực Phù",     # +11 — chuẩn TQ + anlasotuvi (engine cũ ghi sai "Bệnh Phù")
 )
+# LƯU Ý: "Bệnh Phù" thuộc vòng Bác Sĩ (sao_q3.BAC_SI_BELT), không phải Tuế Tiền.
 
 
 def thai_tue_belt(year_branch: str) -> dict[str, int]:
@@ -887,7 +888,31 @@ def cast_la_so(
         "Phượng Các": phuong_cac(year_branch),
         # Cặp đào hoa cốt (Trung Châu Bắc phái) — wire 2026-06-07
         "Hàm Trì":   ham_tri(year_branch),
-        "Đại Hao":   dai_hao_dao_hoa(year_branch),
+        # LƯU Ý: "Đại Hao" engine wire vòng Bác Sĩ (chuẩn anlasotuvi); cặp đào hoa
+        # giữ tên "Đại Hao đào hoa" để phân biệt
+        "Đại Hao đào hoa": dai_hao_dao_hoa(year_branch),
         "Thiên Diêu": thien_dieu(lunar_month),
     }
+
+    # Q3 sao bộ — thâm nhuần 2026-06-08 (đối chiếu anlasotuvi.com)
+    # Thiên Mã + vòng Bác Sĩ + vòng Tướng Tinh + Triệt-Tuần + sao thần sát
+    from .sao_q3 import build_sao_q3
+    q3 = build_sao_q3(
+        year_stem=year_stem,
+        year_branch=year_branch,
+        gender=gender,
+        lunar_month=lunar_month,
+        lunar_day=lunar_day,
+        loc_ton_idx=sat_tinh["Lộc Tồn"],
+        van_xuong_idx=phu_tinh["Văn Xương"],
+        van_khuc_idx=phu_tinh["Văn Khúc"],
+        menh_idx=menh_idx,
+    )
+    out["sao_q2"]["Thiên Mã"] = q3["thien_ma"]
+    out["bac_si_belt"] = q3["bac_si_belt"]
+    out["tuong_tinh_belt"] = q3["tuong_tinh_belt"]
+    out["triet"] = list(q3["triet"])      # tuple → list cho JSON
+    out["tuan"] = list(q3["tuan"])
+    out["sao_le"] = q3["sao_le"]
+
     return out
