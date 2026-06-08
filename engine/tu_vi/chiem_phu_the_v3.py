@@ -1288,8 +1288,194 @@ def _Q72_phuong_cac_menh(la_so: dict) -> dict[str, Any]:
     }
 
 
+# ─── Q101-Q103: CHƯƠNG CỐT cho lá số anh — §4.4 Tử Vi Mão/Dậu ──
+
+def _Q101_thien_tuong_ty_hoi_menh(la_so: dict) -> dict[str, Any]:
+    """Q101 ⭐⭐⭐: Thiên Tướng độc tọa Mệnh Tỵ HOẶC Hợi = "ỔN NHẤT trong 12 cung".
+
+    Sách Trung Châu Q2 p347 — Vương Đình Chỉ:
+    'Thiên Tướng độc tọa ở hai cung Tỵ hoặc Hợi, là ỔN NHẤT trong 12 cung.
+    Có tính rất kiên nhẫn, lại giàu sức khai sáng; chỉ cần Thiên Tướng
+    KHÔNG thuộc Hình Kỵ Giáp Ấn, thông thường đều có tính chất tốt lành.'
+
+    Đặc tính khác: thiếu tính độc lập, khó tự làm chủ.
+    Phân biệt 2 loại:
+    - "Có sức khai sáng": có sao Lộc đồng cung HOẶC Liêm Hóa Lộc Sửu/Mùi
+    - "Nhờ người khác thành việc": không có sao Lộc khai sáng
+    """
+    pal_menh = _stars_at_named_palace(la_so, "Mệnh")
+    chinh_menh = set(pal_menh["chinh_tinh"])
+    if "Thiên Tướng" not in chinh_menh or len(chinh_menh) != 1:
+        return {"detected": False, "paradigm": "Mệnh không phải Thiên Tướng độc tọa"}
+
+    menh_idx = _palace_index(la_so, "Mệnh")
+    if menh_idx is None:
+        return {"detected": False, "paradigm": "Không tìm thấy cung Mệnh"}
+
+    BR = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    menh_branch = BR[menh_idx]
+    if menh_branch not in ("Tỵ", "Hợi"):
+        return {
+            "detected": False,
+            "paradigm": f"Thiên Tướng Mệnh ở {menh_branch} (không phải Tỵ/Hợi)"
+        }
+
+    # Check sao Lộc đồng cung Thiên Tướng (Lộc Tồn hoặc Hóa Lộc của chính tinh khác)
+    sat = set(pal_menh["sat_tinh"])
+    phu = set(pal_menh["phu_tinh"])
+    has_loc_ton = "Lộc Tồn" in sat
+    tu_hoa = la_so.get("tu_hoa", {}) or {}
+    loc_star = tu_hoa.get("Lộc") or tu_hoa.get("Hóa Lộc")
+    has_chinh_hoa_loc = bool(loc_star) and loc_star in chinh_menh
+
+    has_khai_sang = has_loc_ton or has_chinh_hoa_loc
+
+    # Check Liêm Hóa Lộc tại Sửu/Mùi (Phúc Đức) — paradigm cao nhất
+    pal_phuc = _stars_at_named_palace(la_so, "Phúc Đức")
+    liem_hoa_loc_phuc = (
+        "Liêm Trinh" in pal_phuc["chinh_tinh"] and
+        loc_star == "Liêm Trinh"
+    )
+
+    parts = [
+        f"✅ **Thiên Tướng độc tọa Mệnh {menh_branch}** — sách Trung Châu Q2 "
+        f"p347: 'ỔN NHẤT trong 12 cung', có TÍNH KIÊN NHẪN + GIÀU SỨC KHAI "
+        f"SÁNG."
+    ]
+    if has_loc_ton:
+        parts.append("✅ Có Lộc Tồn đồng cung → CÓ SỨC KHAI SÁNG (sao Lộc hỗ trợ Tướng).")
+    if has_chinh_hoa_loc:
+        parts.append(f"✅ {loc_star} Hóa Lộc đồng cung Mệnh → CÓ SỨC KHAI SÁNG.")
+    if liem_hoa_loc_phuc:
+        parts.append("✅ Liêm Trinh Hóa Lộc tại Phúc Đức (Sửu/Mùi) → cách KHAI SÁNG TỐI ĐA.")
+    if not (has_khai_sang or liem_hoa_loc_phuc):
+        parts.append(
+            "⚠ KHÔNG có sao Lộc khai sáng (Lộc Tồn đồng cung HOẶC Liêm "
+            "Hóa Lộc Sửu/Mùi) → thuộc loại 'NHỜ NGƯỜI KHÁC thành việc'. "
+            "Cần dựa vào trợ lực để thành công."
+        )
+
+    parts.append(
+        "Lưu ý: Thiên Tướng = 'ấn tinh' → thiếu tính độc lập, dễ phải nhờ "
+        "trợ lực để tự chủ. Q40 'Phùng Tướng khán Phủ' đã xét Phủ tốt → "
+        "không kéo Tướng vào xấu."
+    )
+
+    return {
+        "detected": True,
+        "is_cat": True,
+        "menh_branch": menh_branch,
+        "has_loc_ton": has_loc_ton,
+        "has_chinh_hoa_loc": has_chinh_hoa_loc,
+        "has_khai_sang": has_khai_sang or liem_hoa_loc_phuc,
+        "paradigm": " · ".join(parts),
+    }
+
+
+def _Q103_tu_tham_mao_dau_phu_the(la_so: dict) -> dict[str, Any]:
+    """Q103 ⭐⭐⭐: Tử-Tham Phu Thê Mão/Dậu = TINH HỆ THUẦN DỤC VỌNG.
+
+    Sách Trung Châu Q2 p336 — Vương Đình Chỉ:
+    'Tử-Tham đồng độ Mão/Dậu thuộc loại THUẦN DỤC VỌNG. Bản thân Tử-Tham
+    có dục vọng + Vũ-Phá hội (Thiên Di) cũng ham muốn vật chất mạnh, chỉ
+    có Liêm-Thất hội (Phúc Đức) đôi khi thiên về tình cảm.'
+
+    Phân biệt VẬT CHẤT vs DỤC TÌNH:
+    - Tham Hóa Lộc + Vũ/Phá Hóa Lộc + phụ tinh = VẬT CHẤT
+    - Thiên Diêu đồng cung + đào hoa hội = DỤC TÌNH
+    - Xương-Khúc đồng cung = tăng DỤC TÌNH
+
+    Anh: Tử-Tham Phu Thê Mão + Tham Hóa Lộc → VẬT CHẤT
+    + Hàm Trì Dậu đối Mão (hội Tam Phương Tứ Chính) → có yếu tố DỤC TÌNH NHẸ
+    """
+    pal_phu = _stars_at_named_palace(la_so, "Phu Thê")
+    chinh_phu = set(pal_phu["chinh_tinh"])
+
+    if not ({"Tử Vi", "Tham Lang"}.issubset(chinh_phu)):
+        return {"detected": False, "paradigm": "Phu Thê không có Tử-Tham đồng cung"}
+
+    # Check vị trí Mão/Dậu
+    phu_idx = _palace_index(la_so, "Phu Thê")
+    if phu_idx is None:
+        return {"detected": False, "paradigm": "Không tìm thấy cung Phu Thê"}
+    BR = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    phu_branch = BR[phu_idx]
+    if phu_branch not in ("Mão", "Dậu"):
+        return {"detected": False, "paradigm": f"Tử-Tham tại {phu_branch} (không phải Mão/Dậu)"}
+
+    # Phân biệt vật chất vs dục tình
+    tu_hoa = la_so.get("tu_hoa", {}) or {}
+    has_tham_hoa_loc = (tu_hoa.get("Lộc") or tu_hoa.get("Hóa Lộc")) == "Tham Lang"
+
+    # Đào hoa đồng cung Phu Thê
+    q2 = set(pal_phu["sao_q2"])
+    DAO_HOA = {"Hồng Loan", "Thiên Hỉ", "Hàm Trì", "Đại Hao đào hoa", "Thiên Diêu", "Mộc Dục"}
+    dao_hoa_dong = DAO_HOA & q2
+
+    # Đào hoa TAM PHƯƠNG TỨ CHÍNH (đối cung)
+    doi_idx = _fix(phu_idx + 6)
+    doi_stars = _stars_at_branch_idx(la_so, doi_idx)
+    doi_q2 = set(doi_stars["sao_q2"])
+    dao_hoa_doi = DAO_HOA & doi_q2
+
+    # Xương-Khúc đồng cung Phu Thê
+    phu_tinh = set(pal_phu["phu_tinh"])
+    xuong_khuc_dong = {"Văn Xương", "Văn Khúc"} & phu_tinh
+
+    # Verdict
+    vat_chat_factors = []
+    duc_tinh_factors = []
+    if has_tham_hoa_loc:
+        vat_chat_factors.append("Tham Lang Hóa Lộc")
+    if dao_hoa_dong:
+        duc_tinh_factors.append(f"đào hoa đồng cung ({', '.join(dao_hoa_dong)})")
+    if dao_hoa_doi:
+        duc_tinh_factors.append(f"đào hoa đối cung Tam Phương hội ({', '.join(dao_hoa_doi)})")
+    if xuong_khuc_dong:
+        duc_tinh_factors.append(f"Xương-Khúc đồng cung ({', '.join(xuong_khuc_dong)})")
+
+    # Mức độ
+    score_vat_chat = len(vat_chat_factors)
+    score_duc_tinh = len(duc_tinh_factors)
+
+    if score_vat_chat > score_duc_tinh:
+        nature = "nghiêng VẬT CHẤT"
+        is_cat = True
+    elif score_duc_tinh > score_vat_chat:
+        nature = "nghiêng DỤC TÌNH"
+        is_cat = False
+    else:
+        nature = "QUÂN BÌNH vật chất + dục tình"
+        is_cat = None
+
+    parts = [
+        f"🌐 **Phu Thê {phu_branch} = Tử Vi + Tham Lang** — sách Trung Châu "
+        f"Q2 p336: TINH HỆ THUẦN DỤC VỌNG (Tử-Tham + Vũ-Phá Thiên Di + "
+        f"Liêm-Thất Phúc Đức đều có sắc thái dục)."
+    ]
+    if vat_chat_factors:
+        parts.append(f"📊 Vật chất: {', '.join(vat_chat_factors)}")
+    if duc_tinh_factors:
+        parts.append(f"💃 Dục tình: {', '.join(duc_tinh_factors)}")
+    parts.append(f"→ Bản chất: **{nature}**")
+    parts.append(
+        "Đặc tính bạn đời (Tử-Tham): CHỦ ĐỘNG, tích cực, có thể quyết liệt "
+        "để đạt mục đích (sách: 'thậm chí vì mục đích mà không từ thủ đoạn')."
+    )
+
+    return {
+        "detected": True,
+        "is_cat": is_cat,
+        "phu_branch": phu_branch,
+        "nature": nature,
+        "vat_chat_factors": vat_chat_factors,
+        "duc_tinh_factors": duc_tinh_factors,
+        "paradigm": " · ".join(parts),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
-    """Engine v3 — v2 (9 quy luật) + Q10-Q72 (15→22 quy luật).
+    """Engine v3 — v2 (9 quy luật) + Q10-Q103 (15→24 quy luật).
 
     Q10-Q13: detect Xương-Khúc + Văn Khúc Hóa Kỵ + Địa Không (cấu trúc giáp)
     Q14-Q18: detect combo Phúc Đức + sao đôi + Hóa cát + Mệnh Tướng cô độc
@@ -1328,6 +1514,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         # Từ vòng 9+10+11 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm 2/2)
         "71_pha_toai_tai_tinh": _Q71_pha_toai_tai_tinh(la_so),
         "72_phuong_cac_menh": _Q72_phuong_cac_menh(la_so),
+        # Từ vòng 16 CHƯƠNG CỐT lá số anh — §4.4 Tử Vi Mão/Dậu (2026-06-08)
+        "101_thien_tuong_ty_hoi_menh": _Q101_thien_tuong_ty_hoi_menh(la_so),
+        "103_tu_tham_mao_dau_phu_the": _Q103_tu_tham_mao_dau_phu_the(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -1360,7 +1549,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "54_khong_kiep_doi_xung_menh",
                 "57_da_la_cung_luc_than",
                 "71_pha_toai_tai_tinh",
-                "72_phuong_cac_menh"):
+                "72_phuong_cac_menh",
+                "101_thien_tuong_ty_hoi_menh",
+                "103_tu_tham_mao_dau_phu_the"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
