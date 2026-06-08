@@ -1622,10 +1622,11 @@ def _Q106_thien_luong_ngo_phu_mau(la_so: dict) -> dict[str, Any]:
             f"⚠ Thiên Lương Phụ Mẫu Ngọ"
             + (" + Kình Dương" if has_kinh else "")
             + " — sách Trung Châu Q2 p352: 'cô độc và hình khắc' vì Thái "
-            "Dương đối cung Tý lạc hãm. **Refined cho anh** (confirm 2026-"
-            "06-08): KHÔNG đoạn tuyệt — có thể có người quan tâm (chị cả "
-            "của anh), nhưng quan hệ thường ngày KHÔNG gắn bó sâu sắc, "
-            "'ai cũng bận'. Bổ sung Q54 'xa cha mẹ từ 10 tuổi'."
+            "Dương đối cung Tý lạc hãm. **Refined paradigm** (founder "
+            "confirm 2026-06-08): KHÔNG đoạn tuyệt — có thể có người "
+            "thân quan tâm (như chị/em lớn), nhưng quan hệ thường ngày "
+            "KHÔNG gắn bó sâu sắc, 'ai cũng bận'. Bổ sung Q54 'xa cha "
+            "mẹ từ 10 tuổi'."
         ),
     }
 
@@ -1637,7 +1638,7 @@ def _Q107_liem_that_doat_kiem_tien_an_tu(la_so: dict) -> dict[str, Any]:
     là "ĐOẠT SỨC KIẾM TIỀN, thu vào cho thật nhiều, mà KHÔNG THIẾT MỘT THỨ
     GÌ KHÁC, đời người ít hưởng thụ."
 
-    REFINED cho anh (confirm 2026-06-08): "thỉnh thoảng anh cũng thích ẩn tu,
+    REFINED (founder confirm 2026-06-08): "thỉnh thoảng cũng thích ẩn tu,
     không màng danh lợi. ĐÚNG". → Layer hai: paradigm KHÔNG thuần vật chất,
     có chiều sâu tâm linh / ẩn dật xen kẽ.
     """
@@ -1659,11 +1660,12 @@ def _Q107_liem_that_doat_kiem_tien_an_tu(la_so: dict) -> dict[str, Any]:
         "paradigm": (
             "⚖ Liêm-Thất Phúc Đức Mùi → biểu hiện cốt: NGHIÊNG ĐOẠT KIẾM "
             "TIỀN ('đoạt sức, thu vào, không thiết một thứ gì khác'). "
-            "**Refined cho anh** (confirm 2026-06-08): KHÔNG cực đoan — anh "
-            "THỈNH THOẢNG thích ẨN TU, không màng danh lợi (layer tâm linh "
-            "xen kẽ). Đây là Phúc Đức 'phấn chấn không đầy đủ' KHÔNG thuần "
-            "vật chất. Cảnh báo: cân bằng làm-nghỉ, đừng cuốn vào vòng "
-            "'đoạt kiếm' khiến đời ít hưởng thụ. Sách Trung Châu Q2 p363."
+            "**Refined paradigm** (founder confirm 2026-06-08): KHÔNG cực "
+            "đoan — mệnh tạo THỈNH THOẢNG thích ẨN TU, không màng danh "
+            "lợi (layer tâm linh xen kẽ). Đây là Phúc Đức 'phấn chấn "
+            "không đầy đủ' KHÔNG thuần vật chất. Cảnh báo: cân bằng "
+            "làm-nghỉ, đừng cuốn vào vòng 'đoạt kiếm' khiến đời ít "
+            "hưởng thụ. Sách Trung Châu Q2 p363."
         ),
     }
 
@@ -1674,7 +1676,7 @@ def _Q112_thien_tuong_loc_ton_an_tam_o_nha(la_so: dict) -> dict[str, Any]:
     Sách Trung Châu Q2 §4.4.3 p347: Thiên Tướng Tỵ/Hợi = "ổn nhất 12 cung".
     Đối cung Vũ-Phá + Không-Kiếp → asymmetric paradigm Mệnh-Thiên Di.
 
-    REFINED cho anh (confirm 2026-06-08): "cảm giác AN TÂM KHI Ở NHÀ" —
+    REFINED (founder confirm 2026-06-08): "cảm giác AN TÂM KHI Ở NHÀ" —
     paradigm tích cực (không cảnh báo nặng), chỉ đặc tả tính chất.
     """
     menh_stars = _stars_at_named_palace(la_so, "Mệnh")
@@ -1713,11 +1715,11 @@ def _Q112_thien_tuong_loc_ton_an_tam_o_nha(la_so: dict) -> dict[str, Any]:
         "is_cat": True,
         "paradigm": (
             "✓ Mệnh Thiên Tướng có Lộc Tồn đồng cung → 'AN TÂM KHI Ở NHÀ' "
-            "(confirm 2026-06-08). Paradigm: Mệnh ổn / có sao Lộc trợ → "
-            "'ổn nhất 12 cung' (sách Trung Châu Q2 p347 §4.4.3)."
+            "(founder confirm 2026-06-08). Paradigm: Mệnh ổn / có sao Lộc "
+            "trợ → 'ổn nhất 12 cung' (sách Trung Châu Q2 p347 §4.4.3)."
             + (
                 " Thiên Di Vũ-Phá + Không-Kiếp → asymmetric Mệnh-Thiên Di: "
-                "ở nhà thấy bình yên, ra ngoài cảm giác khác hẳn. KHÔNG phải "
+                "ở nhà bình yên, ra ngoài cảm giác khác hẳn. KHÔNG phải "
                 "cảnh báo — chỉ đặc tả cấu trúc."
                 if (has_vu_pha and has_khong_kiep)
                 else ""
@@ -1744,12 +1746,12 @@ def _Q127_thien_tuong_tham_moi_truong(la_so: dict) -> dict[str, Any]:
         "is_cat": True,  # tích cực vì paradigm trung tính, không cảnh báo nặng
         "paradigm": (
             "🌓 Mệnh Thiên Tướng → 'GẶP THIỆN THÌ THIỆN, GẶP ÁC THÌ ÁC' "
-            "(sách Trung Châu Q2 p536 §5.1.11, anh confirm 2026-06-08: 'có'). "
+            "(sách Trung Châu Q2 p536 §5.1.11, founder confirm 2026-06-08). "
             "Trong 14 chính diệu, CHỈ Thiên Tướng xem trọng việc GIÁP CUNG. "
-            "Tính cách + khuynh hướng anh THẤM theo môi trường + người xung "
-            "quanh — không có bản chất cố định. Giải thích vì sao anh có "
-            "nhiều mặt: ẩn tu khi vào môi trường tĩnh, đoạt kiếm tiền khi "
-            "vào môi trường kinh doanh."
+            "Tính cách + khuynh hướng của mệnh tạo THẤM theo môi trường + "
+            "người xung quanh — không có bản chất cố định. Giải thích vì "
+            "sao mệnh tạo có nhiều mặt: ẩn tu khi vào môi trường tĩnh, "
+            "đoạt kiếm tiền khi vào môi trường kinh doanh."
         ),
     }
 
@@ -1772,12 +1774,13 @@ def _Q128_thien_luong_phu_mau_am_tinh(la_so: dict) -> dict[str, Any]:
         "is_cat": False,  # bán cảnh báo - paradigm nói trải qua nạn trước
         "paradigm": (
             "💫 Thiên Lương Phụ Mẫu = 'ẤM TINH' (sách Trung Châu Q2 p539 "
-            "§5.1.12, anh confirm 2026-06-08: 'đúng'). Cha mẹ che chở thuộc "
-            "TINH THẦN, KHÔNG VẬT CHẤT. Anh phải GẶP NẠN TAI TRƯỚC rồi mới "
-            "được hóa giải — tiêu tai giải ách, kéo dài tuổi thọ, trợ lực "
-            "tinh thần. Refine Q54 ('xa cha mẹ từ 10 tuổi') + Q106 ('ai "
-            "cũng bận'): cha mẹ KHÔNG ở bên hàng ngày, nhưng vẫn là 'ấm "
-            "tinh' tinh thần — anh tự lập vật chất, được trợ lực tinh thần."
+            "§5.1.12, founder confirm 2026-06-08). Cha mẹ che chở thuộc "
+            "TINH THẦN, KHÔNG VẬT CHẤT. Mệnh tạo phải GẶP NẠN TAI TRƯỚC "
+            "rồi mới được hóa giải — tiêu tai giải ách, kéo dài tuổi "
+            "thọ, trợ lực tinh thần. Refine Q54 ('xa cha mẹ từ 10 tuổi') "
+            "+ Q106 ('ai cũng bận'): cha mẹ KHÔNG ở bên hàng ngày, nhưng "
+            "vẫn là 'ấm tinh' tinh thần — mệnh tạo tự lập vật chất, được "
+            "trợ lực tinh thần."
         ),
     }
 
@@ -1818,14 +1821,14 @@ def _Q131_an_tu_tham_luyen_tran(la_so: dict) -> dict[str, Any]:
         "is_cat": True,  # paradigm trung tính-tích cực, chân dung anh
         "paradigm": (
             "🕉 CHÂN DUNG TÂM LINH cốt: ẨN TU / TÔN GIÁO NHƯNG VẪN THAM "
-            "LUYẾN DUYÊN TRẦN (sách Trung Châu Q2 p544 §5.1.13, anh confirm "
-            "2026-06-08: 'đúng'). Cấu hình: Thất Sát Phúc Đức + Không-Kiếp "
-            "Thiên Di → cảm thấy đời người HƯ ẢO, có khuynh hướng bước vào "
-            "cửa PHẬT, ĐẠO. NHƯNG Lộc Tồn ĐỒNG cung Mệnh (Thiên Tướng) → "
-            "trước sau vẫn THAM LUYẾN DUYÊN TRẦN. Giải thích sâu nhất cấu "
-            "trúc anh: thỉnh thoảng ẩn tu / không màng danh lợi (Q107) + "
-            "thỉnh thoảng đoạt kiếm tiền — KHÔNG mâu thuẫn, là 2 mặt cùng "
-            "1 cấu trúc tâm linh."
+            "LUYẾN DUYÊN TRẦN (sách Trung Châu Q2 p544 §5.1.13, founder "
+            "confirm 2026-06-08). Cấu hình: Thất Sát Phúc Đức + Không-"
+            "Kiếp Thiên Di → cảm thấy đời người HƯ ẢO, có khuynh hướng "
+            "bước vào cửa PHẬT, ĐẠO. NHƯNG Lộc Tồn ĐỒNG cung Mệnh "
+            "(Thiên Tướng) → trước sau vẫn THAM LUYẾN DUYÊN TRẦN. Giải "
+            "thích sâu nhất cấu trúc tâm linh: thỉnh thoảng ẩn tu / "
+            "không màng danh lợi (Q107) + thỉnh thoảng đoạt kiếm tiền "
+            "— KHÔNG mâu thuẫn, là 2 mặt cùng 1 cấu trúc tâm linh."
         ),
     }
 
@@ -1838,9 +1841,14 @@ def _Q134_tu_tham_phu_the_vo_nhan_vat_chinh(la_so: dict) -> dict[str, Any]:
     là 'đào hoa phạm chủ'; mà chủ về VỢ CHỒNG CÓ THỂ CÙNG NHAU SÁNG LẬP
     SỰ NGHIỆP, NHƯNG NGƯỜI BẠN ĐỜI PHẢI LÀ NHÂN VẬT CHÍNH CỦA SỰ NGHIỆP."
 
-    Anh confirm 2026-06-08: "gần đúng — chủ thuê nhà chung của 2 công ty"
-    → REFINED: vợ là chủ sở hữu / đứng tên pháp lý (không nhất thiết là
-    người dẫn dắt vận hành — anh vẫn quản, nhưng tài sản trên giấy ở vợ).
+    Founder confirm 2026-06-08: "gần đúng — chủ thuê nhà chung của 2
+    công ty" → REFINED: bạn đời là chủ sở hữu / đứng tên pháp lý (không
+    nhất thiết là người dẫn dắt vận hành — mệnh tạo vẫn quản, nhưng tài
+    sản trên giấy ở bạn đời).
+
+    NOTE: Paradigm chính ứng nghiệm cho nam (vợ đứng tên). Nữ mệnh cùng
+    cấu hình → chồng có thể là chủ sở hữu pháp lý — tinh hệ thuần dục
+    vọng + Tử Vi = bạn đời nhân vật chính (Trung Châu Q2 p569 §5.3.1).
     """
     pt_stars = _stars_at_named_palace(la_so, "Phu Thê")
     pt_chinh = pt_stars["chinh_tinh"]
@@ -1854,12 +1862,12 @@ def _Q134_tu_tham_phu_the_vo_nhan_vat_chinh(la_so: dict) -> dict[str, Any]:
         "is_cat": True,
         "paradigm": (
             "👫 Tử-Tham Phu Thê + cát tinh → vợ chồng CÙNG SÁNG LẬP SỰ "
-            "NGHIỆP (sách Trung Châu Q2 p569 §5.3.1, anh confirm 2026-"
-            "06-08: 'gần đúng'). KHÔNG phải 'đào hoa phạm chủ' (paradigm "
-            "cổ sai). REFINED cho anh: vợ là CHỦ SỞ HỮU / ĐỨNG TÊN PHÁP "
-            "LÝ ('chủ thuê nhà chung của 2 công ty' — anh confirm). Anh "
-            "vẫn quản vận hành, nhưng tài sản trên giấy ở vợ — phối hợp "
-            "âm dương hợp paradigm."
+            "NGHIỆP (sách Trung Châu Q2 p569 §5.3.1, founder confirm "
+            "2026-06-08: 'gần đúng'). KHÔNG phải 'đào hoa phạm chủ' "
+            "(paradigm cổ sai). REFINED: BẠN ĐỜI là CHỦ SỞ HỮU / ĐỨNG "
+            "TÊN PHÁP LÝ ('chủ thuê nhà chung của 2 công ty' — founder "
+            "case). Mệnh tạo vẫn quản vận hành, nhưng tài sản trên giấy "
+            "ở bạn đời — phối hợp âm dương hợp paradigm."
         ),
     }
 
@@ -1887,8 +1895,8 @@ def _Q135_nam_tu_vi_phu_the_vo_nen_co_su_nghiep(la_so: dict) -> dict[str, Any]:
         "is_cat": True,
         "paradigm": (
             "💼 Nam mệnh Tử Vi đồng cung Phu Thê → VỢ NÊN CÓ SỰ NGHIỆP "
-            "RIÊNG (sách Trung Châu Q2 p571 §5.3.1, anh confirm 2026-"
-            "06-08: 'đúng'). Nếu vợ ở nhà coi sóc gia đình nhiều → phát "
+            "RIÊNG (sách Trung Châu Q2 p571 §5.3.1, founder confirm "
+            "2026-06-08). Nếu vợ ở nhà coi sóc gia đình nhiều → phát "
             "huy tài lãnh đạo vào quan hệ vợ chồng → 'KHÔNG CHẾ CHỒNG'. "
             "Lời khuyên cụ thể: khuyến khích vợ phát triển sự nghiệp "
             "riêng song song với việc gia đình — paradigm tự nhiên cân "
@@ -1926,13 +1934,13 @@ def _Q139_thien_di_di_xa_khong_dinh_cu(la_so: dict) -> dict[str, Any]:
         "is_cat": False,  # cảnh báo
         "paradigm": (
             "🚶 Thiên Di Vũ-Phá + Không-Kiếp → 'ĐI XA THÔI, KHÔNG ĐỊNH "
-            "CƯ LÂU DÀI' (sách Trung Châu Q2 p738 §5.7.4, anh confirm "
+            "CƯ LÂU DÀI' (sách Trung Châu Q2 p738 §5.7.4, founder confirm "
             "2026-06-08: 'đi xa thôi, không chắc là nước ngoài'). REFINED: "
-            "anh có thể đi công tác / du lịch / gặp gỡ ở xa OK; NHƯNG "
-            "tránh ĐỊNH CƯ LÂU DÀI ở nơi xa hoàn toàn lạ (trong / ngoài "
-            "nước đều áp dụng) — paradigm 'kẹt ở tha hương, nhiều thị "
-            "phi phức tạp' sẽ trigger. Anh có Lộc Tồn ở Mệnh = neo về "
-            "nhà; rời nhà lâu dài làm mất gốc."
+            "mệnh tạo có thể đi công tác / du lịch / gặp gỡ ở xa OK; "
+            "NHƯNG tránh ĐỊNH CƯ LÂU DÀI ở nơi xa hoàn toàn lạ (trong / "
+            "ngoài nước đều áp dụng) — paradigm 'kẹt ở tha hương, nhiều "
+            "thị phi phức tạp' sẽ trigger. Lộc Tồn ở Mệnh = neo về nhà; "
+            "rời nhà lâu dài làm mất gốc."
         ),
     }
 
