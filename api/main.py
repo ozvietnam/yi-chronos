@@ -7956,6 +7956,7 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "v3": v4_result,
         "v4": v4_result,
         "cross_reference": cross_ref,
+        "la_so": la_so,  # Full chart cho UI render 12 ô đối chiếu
     }
 
 

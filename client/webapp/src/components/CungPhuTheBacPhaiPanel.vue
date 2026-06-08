@@ -10,6 +10,7 @@
  * Public access — không cần VIP (paradigm lookup từ seed JSON).
  */
 import { ref, computed } from "vue";
+import LaSoFullChart from "./LaSoFullChart.vue";
 
 // PER-USER props — App.vue truyền activePerson từ store
 // (guest dùng local store, authenticated dùng API user_persons).
@@ -45,6 +46,9 @@ const thayToSu = computed(() => result.value?.thay_to_su || []);
 
 // Cross-reference panel: Mệnh + Phúc Đức + Đại Vận hiện tại + Thái Dương/Thái Âm
 const crossRef = computed(() => result.value?.cross_reference || null);
+
+// Full lá số 12 ô — đối chiếu với anlasotuvi.com
+const laSoFull = computed(() => result.value?.la_so || null);
 
 // Engine v2 — 6 quy luật mới (Tứ Hóa, đào hoa phạm chủ, Tả-Hữu hội, đối cung, Mệnh chủ)
 const v2 = computed(() => result.value?.v2 || null);
@@ -144,6 +148,15 @@ function ruleColor(rule) {
     </div>
 
     <div v-if="result" class="result">
+      <!-- ─── FULL LÁ SỐ 12 Ô (đối chiếu với sách / website Tử Vi khác) -->
+      <details v-if="laSoFull" class="card la-so-full-card">
+        <summary>
+          <span class="badge badge-chart">🗺 LÁ SỐ ĐẦY ĐỦ — 12 ô</span>
+          <span class="match-count">Xem để đối chiếu với sách / website khác</span>
+        </summary>
+        <LaSoFullChart :la-so="laSoFull" highlight-palace="Phu Thê" />
+      </details>
+
       <!-- Cung position + stars -->
       <div class="card cung-card">
         <div class="cung-pos">
@@ -1039,6 +1052,29 @@ function ruleColor(rule) {
   background: rgba(233, 220, 198, 0.10);
   color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
   border: 1px solid var(--read-border, rgba(201, 161, 74, 0.22));
+}
+.badge-chart {
+  background: rgba(126, 234, 218, 0.16);
+  color: #7eeada;
+  border: 1px solid rgba(126, 234, 218, 0.45);
+}
+.la-so-full-card {
+  background: var(--read-surface, #221b14);
+  border: 1px solid rgba(126, 234, 218, 0.30);
+  border-left: 4px solid #7eeada;
+}
+.la-so-full-card summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  padding: 4px 0;
+}
+.la-so-full-card[open] summary {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--read-border, rgba(201, 161, 74, 0.22));
 }
 .match-count {
   font-size: 0.84em;
