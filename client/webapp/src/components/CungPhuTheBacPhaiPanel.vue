@@ -101,6 +101,13 @@ function isCurrentDv(dv) {
   const cur = crossRef.value?.dai_van_hien_tai?.current_dai_van;
   return cur && cur.start_age === dv.start_age && cur.end_age === dv.end_age;
 }
+
+function ruleColor(rule) {
+  if (!rule || !rule.detected) return "muted";
+  if (rule.is_cat === true) return "success";
+  if (rule.is_cat === false) return "warning";
+  return "warning";
+}
 </script>
 
 <template>
@@ -280,10 +287,26 @@ function isCurrentDv(dv) {
         <p class="hint-note">
           <em>Sách Trung Châu: "Phải xem KÈM cung Phúc Đức + Mệnh — đạo lý hôn nhân + cảnh báo tinh thần cross-bind."</em>
         </p>
-        <div v-if="v3CrossBind.phuc_duc_chinh_tinh?.length">
-          <strong>Phúc Đức chính tinh:</strong>
-          <span v-for="s in v3CrossBind.phuc_duc_chinh_tinh" :key="s" class="star-chip">{{ s }}</span>
+        <!-- Sao trong Phúc Đức + Mệnh -->
+        <div class="v3-stars-row">
+          <div v-if="v3CrossBind.phuc_duc_chinh_tinh?.length" class="v3-palace-stars">
+            <strong>Phúc Đức:</strong>
+            <span v-for="s in v3CrossBind.phuc_duc_chinh_tinh" :key="'pdc-'+s" class="star-chip primary">{{ s }}</span>
+            <span v-for="s in (v3CrossBind.phuc_duc_phu_tinh || [])" :key="'pdp-'+s" class="star-chip">{{ s }}</span>
+            <span v-for="s in (v3CrossBind.phuc_duc_sat_tinh || [])" :key="'pds-'+s" class="star-chip warning">{{ s }}</span>
+          </div>
+          <div v-if="v3CrossBind.menh_chinh_tinh?.length" class="v3-palace-stars">
+            <strong>Mệnh:</strong>
+            <span v-for="s in v3CrossBind.menh_chinh_tinh" :key="'mc-'+s" class="star-chip primary">{{ s }}</span>
+            <span v-for="s in (v3CrossBind.menh_phu_tinh || [])" :key="'mp-'+s" class="star-chip">{{ s }}</span>
+            <span v-for="s in (v3CrossBind.menh_sat_tinh || [])" :key="'ms-'+s" class="star-chip warning">{{ s }}</span>
+          </div>
         </div>
+
+        <div v-if="v3CrossBind.summary" class="v3-summary">
+          📊 {{ v3CrossBind.summary }}
+        </div>
+
         <div v-if="v3CrossBind.canh_bao_cross?.length" class="alert warning">
           <strong>⚠ Cảnh báo cross-bind:</strong>
           <ul>
@@ -296,31 +319,64 @@ function isCurrentDv(dv) {
             <li v-for="(c, i) in v3CrossBind.diem_cat_cross" :key="i">{{ c }}</li>
           </ul>
         </div>
+
         <details v-if="v3Rules" class="v3-details">
-          <summary>Xem chi tiết 4 quy luật cross-bind (Q10-Q13)</summary>
+          <summary>Xem chi tiết 9 quy luật cross-bind (Q10-Q18)</summary>
           <div class="rule-grid">
+            <!-- Q10-Q13: Xương-Khúc + Văn Khúc Kỵ + Địa Không -->
             <div class="rule">
-              <strong>Q10: Văn Khúc Hóa Kỵ ở Phúc Đức/Phu Thê/Mệnh:</strong>
-              <span :class="v3Rules['10_van_khuc_hoa_ki_cross'].detected ? 'warning' : 'muted'">
-                {{ v3Rules['10_van_khuc_hoa_ki_cross'].paradigm }}
+              <strong>Q10 · Văn Khúc Hóa Kỵ ở Phúc Đức / Phu Thê / Mệnh:</strong>
+              <span :class="v3Rules['10_van_khuc_hoa_ki_cross']?.detected ? 'warning' : 'muted'">
+                {{ v3Rules['10_van_khuc_hoa_ki_cross']?.paradigm }}
               </span>
             </div>
             <div class="rule">
-              <strong>Q11: Xương-Khúc giáp Phu Thê:</strong>
-              <span :class="v3Rules['11_xuong_khuc_giap_phu_the'].detected ? 'warning' : 'muted'">
-                {{ v3Rules['11_xuong_khuc_giap_phu_the'].paradigm }}
+              <strong>Q11 · Xương-Khúc giáp Phu Thê:</strong>
+              <span :class="v3Rules['11_xuong_khuc_giap_phu_the']?.detected ? 'warning' : 'muted'">
+                {{ v3Rules['11_xuong_khuc_giap_phu_the']?.paradigm }}
               </span>
             </div>
             <div class="rule">
-              <strong>Q12: Xương-Khúc chia rẽ cát:</strong>
-              <span :class="v3Rules['12_xuong_khuc_chia_re_cat'].detected ? 'success' : 'muted'">
-                {{ v3Rules['12_xuong_khuc_chia_re_cat'].paradigm }}
+              <strong>Q12 · Xương-Khúc chia rẽ cát:</strong>
+              <span :class="v3Rules['12_xuong_khuc_chia_re_cat']?.detected ? 'success' : 'muted'">
+                {{ v3Rules['12_xuong_khuc_chia_re_cat']?.paradigm }}
               </span>
             </div>
             <div class="rule">
-              <strong>Q13: Địa Không cross tinh thần:</strong>
-              <span :class="v3Rules['13_dia_khong_cross_tam_phuc'].detected ? 'warning' : 'muted'">
-                {{ v3Rules['13_dia_khong_cross_tam_phuc'].paradigm }}
+              <strong>Q13 · Địa Không cross Phúc/Phu/Tử:</strong>
+              <span :class="v3Rules['13_dia_khong_cross_tam_phuc']?.detected ? 'warning' : 'muted'">
+                {{ v3Rules['13_dia_khong_cross_tam_phuc']?.paradigm }}
+              </span>
+            </div>
+            <!-- Q14-Q18: combo Phúc Đức + sao đôi + Hóa + Mệnh Tướng cô độc -->
+            <div class="rule">
+              <strong>Q14 · Combo Phúc Đức cảnh báo (Liêm-Thất / Tử-Phá / Cơ-Cự / Vũ-Phá):</strong>
+              <span :class="v3Rules['14_phuc_duc_combo_canh_bao']?.detected ? 'warning' : 'muted'">
+                {{ v3Rules['14_phuc_duc_combo_canh_bao']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q15 · Tả-Hữu tại Phúc Đức (đôi/lẻ):</strong>
+              <span :class="ruleColor(v3Rules['15_ta_huu_phuc_duc'])">
+                {{ v3Rules['15_ta_huu_phuc_duc']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q16 · Khôi-Việt tại Phúc Đức (đôi/lẻ):</strong>
+              <span :class="ruleColor(v3Rules['16_khoi_viet_phuc_duc'])">
+                {{ v3Rules['16_khoi_viet_phuc_duc']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q17 · Hóa Lộc/Quyền/Khoa tại Phúc Đức:</strong>
+              <span :class="v3Rules['17_cat_hoa_phuc_duc']?.detected ? 'success' : 'muted'">
+                {{ v3Rules['17_cat_hoa_phuc_duc']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q18 · Mệnh Thiên Tướng kỵ cô độc:</strong>
+              <span :class="ruleColor(v3Rules['18_menh_thien_tuong_co_doc'])">
+                {{ v3Rules['18_menh_thien_tuong_co_doc']?.paradigm }}
               </span>
             </div>
           </div>
@@ -806,6 +862,39 @@ function isCurrentDv(dv) {
 .cross-bind-card {
   background: rgba(169, 200, 160, 0.08);
   border-color: rgba(169, 200, 160, 0.30);
+}
+.v3-stars-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 10px 0 8px;
+}
+.v3-palace-stars {
+  flex: 1;
+  min-width: 240px;
+  padding: 8px 12px;
+  background: var(--read-bg-soft, rgba(36, 29, 22, 0.6));
+  border: 1px solid var(--read-border, rgba(201, 161, 74, 0.22));
+  border-radius: 5px;
+  font-size: 0.92em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.v3-palace-stars strong {
+  color: var(--read-han, #d9b977);
+  margin-right: 6px;
+}
+.v3-summary {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: rgba(217, 185, 119, 0.10);
+  border-left: 3px solid var(--read-rule, #c9a14a);
+  border-radius: 3px;
+  color: var(--read-han, #d9b977);
+  font-weight: 600;
+  font-size: 0.95em;
 }
 
 /* ─── Panorama v4 (meta 26 quy luật) — nổi bật ────────────── */
