@@ -352,11 +352,336 @@ VU_KHUC_TRAITS = {
 # BUILDER
 # ════════════════════════════════════════════════════════════════
 
+# ─── THIÊN ĐỒNG tại Phu Thê (Q2 §5.3.5) ────────────────────────
+THIEN_DONG_TRAITS = {
+    "Thiên Đồng_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời TÌNH CẢM, dễ thân mật. Tính ôn hòa, có khuynh hướng ỦY MỊ nếu Phu Thê có sát tinh",
+            "source": "Trung Châu Q2 §5.3.5",
+        },
+        {
+            "category": "quan_hệ",
+            "trait": "Đồng Hóa Lộc + Văn Xương/Khúc → bạn đời 'khoát đạt' (thông minh, có tài)",
+            "warning": "Đồng Hóa Kỵ + Hỏa-Linh → 'đoản chí' (việc sắp thành lại hỏng, tâm trạng mất ổn định)",
+            "source": "Trung Châu Q2 §5.1.5",
+        },
+    ],
+    "Thiên Đồng+Thái Âm_0_6": [
+        {
+            "category": "ngoại_hình",
+            "trait": "Nam: VỢ XINH ĐẸP, dịu dàng, tình cảm sâu",
+            "gender": "nam",
+            "source": "Trung Châu Q2 §5.3.5",
+        },
+        {
+            "category": "lịch_sử",
+            "warning": "Đào hoa hội → trước+sau hôn nhân đều có tình huống rắc rối tình cảm",
+            "source": "Trung Châu Q2",
+        },
+    ],
+    "Thiên Đồng+Cự Môn_1_7": [
+        {
+            "category": "tâm_lý",
+            "warning": "Đồng-Cự hội Cự Hóa Kỵ → bạn đời có NỖI ĐAU KHỔ THẦM KÍN nội tâm không thể chia sẻ",
+            "source": "Trung Châu Q2 §5.1.10 p534",
+        },
+    ],
+    "Thiên Đồng+Thiên Lương_4_10": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời ÔN HÒA, có khí nho nhã. Đồng = phúc + Lương = ấm = phối hợp dịu dàng",
+            "source": "Trung Châu Q2 §5.3.5",
+        },
+    ],
+}
+
+# ─── LIÊM TRINH tại Phu Thê ────────────────────────────────────
+LIEM_TRINH_TRAITS = {
+    "Liêm Trinh_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời ĐÀO HOA + LÝ TRÍ. Đặc biệt nặng về tình cảm tinh thần (ghi lòng tạc dạ)",
+            "source": "Trung Châu Q2 §5.1.6 p521",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Liêm Trinh Hóa Kỵ tại Phu Thê → CỰC KỲ BẤT LỢI (tình cảm tổn thương, có thể liên quan máu)",
+            "source": "Trung Châu Q2 §5.1.6 p521",
+        },
+    ],
+    "Liêm Trinh+Thiên Tướng_0_6": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời khí HÒA HOÃN, thông minh mẫn tiệp, có tính phục vụ",
+            "source": "Trung Châu Q2 p522",
+        },
+        {
+            "category": "sự_nghiệp",
+            "trait": "Liêm Hóa Lộc / Phá Hóa Lộc đối → bạn đời phú quý nhưng VỊ TRÍ PHỤ TÁ / phó",
+            "source": "Trung Châu Q2 p522",
+        },
+        {
+            "category": "tâm_lý",
+            "warning": "Hỏa-Linh đồng → bạn đời gặp TRẮC TRỞ NGHIÊM TRỌNG, có khuynh hướng tự sát",
+            "source": "Trung Châu Q2 p522",
+        },
+    ],
+    "Liêm Trinh+Phá Quân_3_9": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời mạnh mẽ, khí khái — nhưng cuộc đời nhiều biến động",
+            "source": "Trung Châu Q2 §5.1.6 p524",
+        },
+        {
+            "category": "lịch_sử",
+            "warning": "Hỏa-Linh đồng → bạn đời SUY SỤP NHANH; sát nặng + Thiên Hình → có thể phẫu thuật",
+            "source": "Trung Châu Q2 p524",
+        },
+    ],
+    "Liêm Trinh+Thiên Phủ_4_10": [
+        {
+            "category": "tính_cách",
+            "trait": "Khí HÒA HOÃN, ổn định",
+            "source": "Trung Châu Q2 p524",
+        },
+        {
+            "category": "lịch_sử",
+            "warning": "Kết hôn sớm bất lợi — dễ 'ngó đứt mà tơ chưa lìa' (cảm xúc kéo dài) / hữu danh vô thực",
+            "source": "Trung Châu Q2 p524",
+        },
+    ],
+    "Liêm Trinh+Thất Sát_1_7": [
+        {
+            "category": "tính_cách",
+            "trait": "Cấu hình MÙI (chỉ Mùi mới thành cách 'Hùng Tú Kiển Nguyên') → bạn đời trải qua gian khổ thành đại nghiệp",
+            "source": "Trung Châu Q2 p358",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Liêm Hóa Kỵ + sát-hình → chủ về 'chết ở xứ người'; có khuynh hướng tự sát nếu Hỏa-Linh + Vũ/Văn Hóa Kỵ",
+            "source": "Trung Châu Q2 §5.1.6 p523",
+        },
+    ],
+    "Liêm Trinh+Tham Lang_5_11": [
+        {
+            "category": "tính_cách",
+            "trait": "Khí chất cao thượng, phong lưu nho nhã — nếu phụ-tá đầy đủ → làm chính giới/quân đội",
+            "source": "Trung Châu Q2 §5.1.6 p525",
+        },
+        {
+            "category": "lịch_sử",
+            "warning": "Hỏa-Linh đồng → BẠO PHÁT BẠO BẠI cực kỳ nghiêm trọng. Đào hoa → 'ngó đứt mà tơ chưa lìa'",
+            "source": "Trung Châu Q2 p525",
+        },
+    ],
+}
+
+# ─── THIÊN PHỦ tại Phu Thê ─────────────────────────────────────
+THIEN_PHU_TRAITS = {
+    "Thiên Phủ_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời CẨN THẬN, có nguyên tắc. Phân biệt 'TƯỜNG HÒA' (thông minh + có thành tích vô tình) vs 'QUYỀN BIẾN' (nhiều thay đổi, không được gì)",
+            "source": "Trung Châu Q2 §4.6.3 p465",
+        },
+        {
+            "category": "tài_chính",
+            "trait": "Thiên Phủ = kho tiền — bạn đời GIỎI GIỮ TIỀN, chưa chắc giỏi kiếm. Cần xem Phủ là 'kho đầy ắp' / 'kho lộ' / 'kho trống'",
+            "source": "Trung Châu Q2 §5.1.7 p525",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "'Kho lộ' / 'kho trống' → bạn đời TÂM CHÍ BẠC NHƯỢC, ích kỷ, lo nghĩ vô vị",
+            "source": "Trung Châu Q2 p526",
+        },
+    ],
+}
+
+# ─── THÁI ÂM tại Phu Thê ────────────────────────────────────────
+THAI_AM_TRAITS = {
+    "Thái Âm_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời HƯỚNG NỘI, tình cảm phong phú. Miếu vượng = đẹp; lạc hãm = ẩn ức",
+            "source": "Trung Châu Q2 §5.1.8 p528",
+        },
+        {
+            "category": "tài_chính",
+            "trait": "Thái Âm = sao tiền tài (kế hoạch). Bạn đời giỏi quản lý tài chính",
+            "source": "Trung Châu Q2 §5.1.8",
+        },
+        {
+            "category": "tâm_lý",
+            "warning": "Đà-Linh-Kỵ-Âm Sát-Không-Kiếp-Hình tụ → có thể TỰ KỶ, mặc cảm",
+            "source": "Trung Châu Q2 p529",
+        },
+        {
+            "category": "ngoại_hình",
+            "trait": "Nữ mệnh: chồng tinh tế, có nét nữ tính (Âm chỉ chồng khi nữ)",
+            "gender": "nữ",
+            "source": "Trung Châu Q2 §5.1.8",
+        },
+    ],
+}
+
+# ─── THAM LANG tại Phu Thê ─────────────────────────────────────
+THAM_LANG_TRAITS = {
+    "Tham Lang_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời VẬT DỤC + SẮC DỤC. Phân biệt qua Hóa Lộc (vật chất) vs đào hoa (sắc tình)",
+            "source": "Trung Châu Q2 §5.1.9 p531",
+        },
+        {
+            "category": "tinh_thần",
+            "trait": "Thích sự vật THẦN BÍ TÔN GIÁO, có thể tu luyện / sắc thái tâm linh",
+            "source": "Trung Châu Q2 p531",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Cách 'Phiếm Thủy Đào Hoa' (Tý + Kình) / 'Phong Lưu Thái Trượng' (Dần + Đà) → bạn đời VÌ SẮC THẤT BẠI",
+            "source": "Trung Châu Q2 p532",
+        },
+        {
+            "category": "tài_chính",
+            "trait": "Hỏa-Linh đồng → cách 'Hỏa Tham/Linh Tham' = bạn đời PHÁT ĐỘT NGỘT (kiếm được tiền bất ngờ)",
+            "source": "Trung Châu Q2 p531",
+        },
+    ],
+}
+
+# ─── CỰ MÔN tại Phu Thê ────────────────────────────────────────
+CU_MON_TRAITS = {
+    "Cự Môn_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời CHỦ VỀ MIỆNG LƯỠI — giỏi nói, ăn nói có tài. Cự Môn = 'ám tinh' che ánh sáng → có thể có nét u tối, kín đáo",
+            "source": "Trung Châu Q2 §5.1.10 p533",
+        },
+        {
+            "category": "sự_nghiệp",
+            "trait": "Hợp với nghề DÙNG TÀI ĂN NÓI: giáo viên, luật sư, kinh doanh, ngoại giao, MC",
+            "source": "Trung Châu Q2 p813",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Cự Hóa Kỵ → bạn đời mang nhiều THỊ PHI, oán trách. Có thể tính cách KÍN, GIẤU CHUYỆN",
+            "source": "Trung Châu Q2 §5.1.10",
+        },
+        {
+            "category": "lịch_sử",
+            "trait": "Hóa Lộc + người ngoại quốc → KẾT HÔN với người ở phương xa / nước ngoài",
+            "source": "Trung Châu Q2 p812",
+        },
+    ],
+}
+
+# ─── THIÊN TƯỚNG tại Phu Thê ───────────────────────────────────
+THIEN_TUONG_TRAITS = {
+    "Thiên Tướng_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời CÔNG MINH, trợ giúp tha nhân. 'Gặp thiện thì thiện, gặp ác thì ác' — thấm theo môi trường, không có bản chất cố định",
+            "source": "Trung Châu Q2 §5.1.11 p536",
+        },
+        {
+            "category": "quan_hệ",
+            "trait": "Cần CÁT TINH HỖ TRỢ vì Tướng kỵ cô độc. 'Tài ấm giáp ấn' → bạn đời được phúc; 'Hình kỵ giáp ấn' → bị áp lực",
+            "source": "Trung Châu Q2 p536",
+        },
+        {
+            "category": "sự_nghiệp",
+            "trait": "Bạn đời thường ở VỊ TRÍ PHÓ / cố vấn / thư ký — danh nghĩa không bằng thực tế",
+            "source": "Trung Châu Q2 §5.9.11",
+        },
+    ],
+}
+
+# ─── THIÊN LƯƠNG tại Phu Thê ───────────────────────────────────
+THIEN_LUONG_TRAITS = {
+    "Thiên Lương_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời TRƯỞNG THƯỢNG, có khí nguyên tắc kỷ luật. 'Ấm tinh' che chở TINH THẦN, không vật chất",
+            "source": "Trung Châu Q2 §5.1.12 p539",
+        },
+        {
+            "category": "tuổi_tác",
+            "trait": "Bạn đời nên NHỎ HƠN mệnh tạo 5-10 tuổi để cân bằng",
+            "source": "Trung Châu Q2 §5.1.12",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Lương Hóa Lộc → mang thị phi; Lương Hóa Quyền → khuynh hướng LỘNG QUYỀN",
+            "source": "Trung Châu Q2 p540",
+        },
+        {
+            "category": "lịch_sử",
+            "trait": "Phải gặp NẠN TRƯỚC rồi mới hóa giải (tiêu tai giải ách) — bạn đời trải qua khó khăn",
+            "source": "Trung Châu Q2 p539",
+        },
+    ],
+}
+
+# ─── THẤT SÁT tại Phu Thê ──────────────────────────────────────
+THAT_SAT_TRAITS = {
+    "Thất Sát_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời BẠO LIỆT, mạnh mẽ — có thời kỳ gian khổ trong đời. Khí cương cường",
+            "source": "Trung Châu Q2 §5.1.13 p543",
+        },
+        {
+            "category": "tuổi_tác",
+            "trait": "Vợ chồng thường gặp SÓNG GIÓ — KẾT HÔN MUỘN tốt hơn",
+            "source": "Trung Châu Q2 §5.1.13",
+        },
+        {
+            "category": "sức_khỏe",
+            "warning": "Kình-Linh + Thiên Hình + Âm Sát-Hư-Đại Hao → có thể PHẠM PHÁP HÌNH SỰ",
+            "source": "Trung Châu Q2 p544",
+        },
+    ],
+}
+
+# ─── PHÁ QUÂN tại Phu Thê ──────────────────────────────────────
+PHA_QUAN_TRAITS = {
+    "Phá Quân_X_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Bạn đời ƯA THAY ĐỔI, năng động — cuộc đời nhiều biến động",
+            "source": "Trung Châu Q2 §5.1.14",
+        },
+        {
+            "category": "lịch_sử",
+            "warning": "Phu Thê dễ TÁI HÔN — cần Hóa Lộc/Quyền hỗ trợ. Phá Quân ở Hợi/Tý/Sửu + Văn Khúc → 'tàn tật rời xa quê hương' (cách cổ)",
+            "source": "Trung Châu Q2 §5.1.14 p547",
+        },
+        {
+            "category": "sự_nghiệp",
+            "trait": "Có sao Lộc → tiêu trừ khuyết điểm hao tổn, tăng sáng tạo",
+            "source": "Trung Châu Q2 p547",
+        },
+    ],
+}
+
+
 ALL_REGISTRIES = [
     TU_VI_TRAITS,
     THIEN_CO_TRAITS,
     THAI_DUONG_TRAITS,
     VU_KHUC_TRAITS,
+    THIEN_DONG_TRAITS,
+    LIEM_TRINH_TRAITS,
+    THIEN_PHU_TRAITS,
+    THAI_AM_TRAITS,
+    THAM_LANG_TRAITS,
+    CU_MON_TRAITS,
+    THIEN_TUONG_TRAITS,
+    THIEN_LUONG_TRAITS,
+    THAT_SAT_TRAITS,
+    PHA_QUAN_TRAITS,
 ]
 
 
