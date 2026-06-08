@@ -528,8 +528,195 @@ def _Q21_thien_co_thai_am_tu_tuc(la_so: dict) -> dict[str, Any]:
     }
 
 
+# ─── Q22-Q24: từ thâm nhuần vòng 2 Trung Châu Q2 (Anh confirm 2026-06-08) ──
+
+# 6 cặp sao đôi cát (Trung Châu Q2 p30 — Vương Đình Chỉ)
+_PAIRS_CAT = [
+    ("Tả Phù", "Hữu Bật"),
+    ("Văn Xương", "Văn Khúc"),
+    ("Thiên Khôi", "Thiên Việt"),
+    ("Tam Thai", "Bát Tọa"),
+    ("Ân Quang", "Thiên Quý"),
+    ("Long Trì", "Phượng Các"),
+]
+
+
+def _scan_pairs_in_palace(la_so: dict, palace_name: str) -> dict[str, Any]:
+    """Scan 6 cặp sao đôi cát trong 1 cung. Trả về danh sách cặp đôi + sao lẻ."""
+    pal = _stars_at_named_palace(la_so, palace_name)
+    pool = set(pal["phu_tinh"]) | set(pal["sao_q2"])
+    # Cũng include sao_le (Ân Quang, Thiên Quý nếu có)
+    sao_le = la_so.get("sao_le", {}) or {}
+    pal_idx = _palace_index(la_so, palace_name)
+    for star, idx in sao_le.items():
+        if idx == pal_idx:
+            pool.add(star)
+
+    pairs_full = []   # cặp ĐÔI đủ
+    stars_le = []     # sao lẻ
+    for a, b in _PAIRS_CAT:
+        a_in = a in pool
+        b_in = b in pool
+        if a_in and b_in:
+            pairs_full.append(f"{a}-{b}")
+        elif a_in:
+            stars_le.append(a)
+        elif b_in:
+            stars_le.append(b)
+    return {
+        "pairs_full": pairs_full,
+        "stars_le": stars_le,
+        "n_pairs": len(pairs_full),
+        "n_le": len(stars_le),
+    }
+
+
+def _Q22_sao_doi_cap_3_cung(la_so: dict) -> dict[str, Any]:
+    """Q22: Quy tắc "Sao đôi đủ cặp > sao lẻ" — scan Mệnh + Phúc Đức + Phu Thê.
+
+    Sách Trung Châu Q2 p30: 'Sao đôi đủ cặp đồng cung, sức mạnh lớn hơn 3-4
+    sao lẻ trong lục cát phân tán.'
+
+    Anh: Phúc Đức Mùi có Tả-Hữu ĐÔI ✓ + Thiên Việt LẺ ⚠ — đã verify.
+    """
+    results = {}
+    for palace in ("Mệnh", "Phúc Đức", "Phu Thê"):
+        results[palace] = _scan_pairs_in_palace(la_so, palace)
+
+    total_pairs = sum(r["n_pairs"] for r in results.values())
+    total_le = sum(r["n_le"] for r in results.values())
+
+    notes = []
+    for palace, r in results.items():
+        if r["n_pairs"] > 0:
+            notes.append(f"✅ {palace}: {r['n_pairs']} cặp ĐÔI ({', '.join(r['pairs_full'])})")
+        if r["n_le"] > 0:
+            notes.append(f"⚠ {palace}: {r['n_le']} sao LẺ ({', '.join(r['stars_le'])})")
+
+    if not notes:
+        return {
+            "detected": False,
+            "paradigm": "Mệnh / Phúc Đức / Phu Thê không có sao đôi cát nào",
+        }
+
+    summary_short = f"{total_pairs} cặp ĐÔI + {total_le} sao LẺ (3 cung Mệnh + Phúc Đức + Phu Thê)"
+    return {
+        "detected": True,
+        "is_cat": total_pairs > total_le,
+        "total_pairs": total_pairs,
+        "total_le": total_le,
+        "by_palace": results,
+        "paradigm": (
+            f"📊 Sao đôi (sách Trung Châu p30): {summary_short}. "
+            + " · ".join(notes)
+            + f" → Quy tắc: 1 cặp ĐÔI > 3-4 sao LẺ. "
+            + ("Cát thắng — vợ chồng đoàn tụ + trợ lực." if total_pairs > total_le
+               else "Cảnh báo: sao LẺ nhiều → có cảnh báo tái hôn / người thứ ba xen / cô độc.")
+        ),
+    }
+
+
+def _Q23_vu_pha_ty_hoi_nong_nay(la_so: dict) -> dict[str, Any]:
+    """Q23: Vũ Khúc + Phá Quân đồng cung tại Tỵ/Hợi → 'biến cương thành nóng
+    nảy, quyết định xung động nhất thời → thất bại'.
+
+    Sách Trung Châu Q2 p34: 'Vũ Khúc gặp Phá Quân càng biến tính cứng rắn của
+    Vũ Khúc thành nóng nảy, quyết đoán, thường dễ vì thiếu suy nghĩ hoặc
+    không có kế hoạch dài lâu, hay vì xung động nhất thời mà dẫn đến thất
+    bại. Cổ nhân nói: Vũ-Phá khó quý hiển.'
+
+    Anh confirm 2026-06-08: 'hay nóng nảy ra quyết định lớn'.
+    """
+    # Tìm Vũ Khúc + Phá Quân đồng cung
+    chinh = la_so.get("chinh_tinh", {}) or {}
+    vu_idx = chinh.get("Vũ Khúc")
+    pq_idx = chinh.get("Phá Quân")
+    if vu_idx is None or pq_idx is None or vu_idx != pq_idx:
+        return {"detected": False, "paradigm": "Lá số không có Vũ-Phá đồng cung"}
+
+    BR = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"]
+    branch = BR[vu_idx]
+    if branch not in ("Tỵ", "Hợi"):
+        return {
+            "detected": False,
+            "paradigm": f"Vũ-Phá đồng cung tại {branch} (không phải Tỵ/Hợi)"
+        }
+
+    # Tìm cung của Vũ-Phá
+    palace_name = ""
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == vu_idx:
+            palace_name = p.get("name", "")
+            break
+
+    return {
+        "detected": True,
+        "is_cat": False,
+        "branch": branch,
+        "palace": palace_name,
+        "paradigm": (
+            f"⚠ Vũ Khúc + Phá Quân đồng cung tại {branch} ({palace_name}) — "
+            f"sách Trung Châu Q2 p34: 'biến tính cương thành nóng nảy, quyết "
+            f"định xung động nhất thời → thất bại'. Lời khuyên: trước quyết "
+            f"định lớn (mua bán, đổi nghề, lời nói) → dừng 24h, hỏi 1 người "
+            f"tin cẩn. Anh có Hữu Bật Hóa Khoa Phúc Đức = trợ lực tâm — dùng "
+            f"để cân bằng tính nóng."
+        ),
+    }
+
+
+def _Q24_vu_pha_sat_thien_di_tai_nan(la_so: dict) -> dict[str, Any]:
+    """Q24: Vũ Khúc + Phá Quân + sát (Đà La/Hỏa-Linh/Không-Kiếp) tại Thiên Di
+    → cảnh báo tai nạn xa nhà.
+
+    Sách Trung Châu Q2 p36 case Vương Đình Chỉ: ngã vực Úc Châu 3 tháng bệnh
+    viện + phá tướng, do Thiên Di lưu niên Vũ Khúc + Đà La. May có Thiên
+    Tướng đồng cung + đại vận tốt → không chết.
+
+    Mở rộng paradigm: KHÔNG chỉ lưu niên, mà Thiên Di gốc có Vũ-Phá + sát
+    cũng có cảnh báo.
+
+    Anh confirm 2026-06-08: 'tai nạn thì có, cũng gọi là cách xa nhà'.
+    """
+    # Tìm cung Thiên Di
+    thien_di_pal = _stars_at_named_palace(la_so, "Thiên Di")
+    if not thien_di_pal:
+        return {"detected": False, "paradigm": "Không tìm thấy cung Thiên Di"}
+
+    chinh = set(thien_di_pal["chinh_tinh"])
+    sat = set(thien_di_pal["sat_tinh"])
+    phu = set(thien_di_pal["phu_tinh"])
+
+    has_vu_pha = {"Vũ Khúc", "Phá Quân"}.issubset(chinh)
+    if not has_vu_pha:
+        return {"detected": False, "paradigm": "Thiên Di không có Vũ-Phá đồng cung"}
+
+    LUC_SAT = {"Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "Địa Kiếp"}
+    sat_in_pal = LUC_SAT & (sat | phu)
+    if not sat_in_pal:
+        return {
+            "detected": False,
+            "paradigm": "Thiên Di có Vũ-Phá nhưng không có lục sát đi kèm"
+        }
+
+    return {
+        "detected": True,
+        "is_cat": False,
+        "sat_stars": sorted(sat_in_pal),
+        "paradigm": (
+            f"⚠ Thiên Di có Vũ Khúc + Phá Quân + sát ({', '.join(sorted(sat_in_pal))}) "
+            f"— sách Trung Châu Q2 p36 case Vương Đình Chỉ ngã vực Úc Châu vì "
+            f"Vũ-Đà Thiên Di lưu niên. Cảnh báo TAI NẠN khi đi xa nhà (công "
+            f"tác, du lịch, di chuyển dài). Lời khuyên: khi đại vận / lưu "
+            f"niên đi qua cung này, đặc biệt cẩn trọng giao thông + sức khoẻ; "
+            f"chọn bạn đồng hành đáng tin; tránh quyết định mạo hiểm tại "
+            f"nước ngoài / xa nhà."
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
-    """Engine v3 — v2 (9 quy luật) + Q10-Q21 cross-bind Phúc Đức + Mệnh + Phu Thê + Tử Tức.
+    """Engine v3 — v2 (9 quy luật) + Q10-Q24 cross-bind 3 cung + Vũ-Phá rules.
 
     Q10-Q13: detect Xương-Khúc + Văn Khúc Hóa Kỵ + Địa Không (cấu trúc giáp)
     Q14-Q18: detect combo Phúc Đức + sao đôi + Hóa cát + Mệnh Tướng cô độc
@@ -554,6 +741,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         "19_tu_vi_phu_the_tai_da_co_quan": _Q19_tu_vi_phu_the_tai_da_co_quan(la_so),
         "20_thai_duong_ham_sinh_dem": _Q20_thai_duong_ham_sinh_dem(la_so),
         "21_thien_co_thai_am_tu_tuc": _Q21_thien_co_thai_am_tu_tuc(la_so),
+        # Từ vòng 2 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm)
+        "22_sao_doi_cap_3_cung": _Q22_sao_doi_cap_3_cung(la_so),
+        "23_vu_pha_ty_hoi_nong_nay": _Q23_vu_pha_ty_hoi_nong_nay(la_so),
+        "24_vu_pha_sat_thien_di": _Q24_vu_pha_sat_thien_di_tai_nan(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -570,13 +761,16 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     if cross["12_xuong_khuc_chia_re_cat"].get("detected"):
         diem_cat.append(cross["12_xuong_khuc_chia_re_cat"]["paradigm"])
 
-    # Q14-21 (mới): có is_cat flag → phân loại rõ
+    # Q14-24 (mới): có is_cat flag → phân loại rõ
     for key in ("14_phuc_duc_combo_canh_bao", "15_ta_huu_phuc_duc",
                 "16_khoi_viet_phuc_duc", "17_cat_hoa_phuc_duc",
                 "18_menh_thien_tuong_co_doc",
                 "19_tu_vi_phu_the_tai_da_co_quan",
                 "20_thai_duong_ham_sinh_dem",
-                "21_thien_co_thai_am_tu_tuc"):
+                "21_thien_co_thai_am_tu_tuc",
+                "22_sao_doi_cap_3_cung",
+                "23_vu_pha_ty_hoi_nong_nay",
+                "24_vu_pha_sat_thien_di"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
