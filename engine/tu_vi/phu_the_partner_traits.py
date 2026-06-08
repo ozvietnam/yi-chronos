@@ -298,6 +298,57 @@ THAI_DUONG_TRAITS = {
             "source": "Trung Châu Q2 p578",
         },
     ],
+    # Thái Dương Thìn — "Nhật Nguyệt toàn bích" (nếu Âm tại Tuất)
+    "Thái Dương_4_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Thái Dương Thìn = mặt trời SẮP MỌC — bạn đời CÓ Ý CHÍ vươn lên, hướng ngoại, dương khí đầy. Cách 'Nhật Nguyệt toàn bích' (Âm Tuất đối) = thượng cách, phú quý nếu có cát hóa",
+            "source": "Trung Châu Q2 §5.1.3 p512-513",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Rất kỵ Đà La / Hỏa Tinh đồng / Kình + Linh đồng → vợ chồng KHÔNG sống đến bạc đầu",
+            "source": "Trung Châu Q2 p513",
+        },
+        {
+            "category": "lịch_sử",
+            "trait": "Hóa Lộc + đại hạn 'Tử Vi-Phá Quân' → thường thành thân KHÔNG có nghi lễ chính thức",
+            "source": "Trung Châu Q2 p578",
+        },
+    ],
+    # ⭐ Thái Dương Tuất — "Nhật Nguyệt thất huy" (LẠC HÃM) — paradigm cốt
+    "Thái Dương_10_single": [
+        {
+            "category": "tính_cách",
+            "trait": "Thái Dương Tuất = mặt trời ĐÃ LẶN — bạn đời 'Nhật Nguyệt thất huy' (mất sáng) khi Âm tại Thìn. Cuộc đời BIẾN THIÊN BẤT ĐỊNH (sách Trung Châu Q2 §5.1.3 p512)",
+            "source": "Trung Châu Q2 §5.1.3 p512-513",
+        },
+        {
+            "category": "lịch_sử",
+            "trait": "Bạn đời cuộc đời nhiều THĂNG TRẦM, biến động — phải tự lập, có thể trải qua nhiều thay đổi nghề nghiệp / địa lý",
+            "source": "Trung Châu Q2 p512",
+        },
+        {
+            "category": "quan_hệ",
+            "warning": "Thái Dương Tuất + Cự Hóa Kỵ → bất lợi nặng. Hóa Lộc KHÔNG chủ kết hôn người ngoại quốc; nhưng nữ mệnh → được người ngoại quốc theo đuổi",
+            "source": "Trung Châu Q2 p578",
+        },
+        {
+            "category": "tinh_thần",
+            "trait": "Mặc dù lạc hãm, bạn đời vẫn giữ KHÍ DƯƠNG (tự tin, hướng tới mục tiêu) — chỉ ánh sáng không rực rỡ ra ngoài",
+            "source": "Trung Châu Q2 §5.1.3",
+        },
+        {
+            "category": "sự_nghiệp",
+            "warning": "Nhật Nguyệt thất huy → sự nghiệp bạn đời gặp NHIỀU GIAI ĐOẠN; có lúc sáng có lúc tối. Cần Văn Xương/Khúc + Lộc để bù",
+            "source": "Trung Châu Q2 p513",
+        },
+        {
+            "category": "tuổi_tác",
+            "trait": "Vợ chồng nên CHÊNH LỆCH TUỔI để bù paradigm lạc hãm",
+            "source": "Trung Châu Q2",
+        },
+    ],
 }
 
 # ─── VŨ KHÚC tại Phu Thê ─────────────────────────────────────
