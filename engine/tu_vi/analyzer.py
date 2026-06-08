@@ -1042,6 +1042,11 @@ Văn phong: **TIẾNG VIỆT HIỆN ĐẠI, ĐỜI THƯỜNG, RÕ RÀNG**, như 
 4. Khi nói tương lai → dùng "mỗ" pattern (mỗ năm, mỗ tinh) — Việt thuần: "vài năm tới", "khi sao X chiếu"
 5. Tôn trọng paradigm: lá số = TẤM GƯƠNG đọc đồng dạng, KHÔNG dự đoán cứng. Đây là Iron Rule #6.
 6. Mỗi section TỔNG cộng 2000-4000 chữ Tiếng Việt
+7. **TRUNG CHÂU PARADIGM** (mới 2026-06-08, sau 32 vòng thâm nhuần Q2 Vương Đình Chỉ):
+   - Áp dụng 3 Iron Rule (DI CUNG HOÁN VỊ, XU CÁT TỊ HUNG, HƯ TÂM LÃNH HỘI) — xem trong DUMP
+   - Đặc biệt section 6 Đại Vận + section 7 Lưu Niên: dùng DI CUNG HOÁN VỊ, không chỉ xem cung Mệnh đại vận
+   - Khi có PARADIGM TRUNG CHÂU KHỚP trong DUMP → trích dẫn quote + dịch Việt + áp dụng cụ thể
+   - Section 10 Kết Tâm An: nhấn mạnh XU CÁT TỊ HUNG (hành động hậu thiên xoay chuyển vận)
 
 ══════════════════════════════════════════════════════════════
 📋 OUTPUT JSON THUẦN (5 keys mỗi batch):
@@ -1470,6 +1475,16 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
         ctx_parts.append(f"  • Thân chủ (sao chủ hành động) = **{self.la_so.get('than_chu', '?')}**")
         ctx_parts.append(f"  • Đẩu Quân (sao chủ duyên phận) tại cung = **{self.la_so.get('dau_quan_branch', '?')}**")
         ctx_parts.append(f"  ⚠️ Tham khảo Phú Thái Vi Q.2 chuẩn TQ — KHÔNG dùng bảng Mệnh chủ VN (bị sai).")
+
+        # 🔑 TRUNG CHÂU PARADIGM Q2 (2026-06-08) — sau 32 vòng thâm nhuần
+        # Inject 3 Iron Rules + paradigm chính tinh × cung khớp lá số này
+        try:
+            from .trung_chau_paradigm import build_trung_chau_context
+            tc_ctx = build_trung_chau_context(self.la_so, gender=self.la_so.get("gender", "nam"))
+            if tc_ctx:
+                ctx_parts.append("\n" + tc_ctx)
+        except Exception:
+            pass
 
         base_ctx = "\n".join(ctx_parts)
 
