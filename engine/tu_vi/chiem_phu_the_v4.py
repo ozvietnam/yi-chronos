@@ -518,16 +518,14 @@ def _Q26_sat_tat_ach_phu_the(la_so: dict) -> dict[str, Any]:
 
 
 def _Q27_meta_aggregate(v3_result: dict, v4_rules: dict) -> dict[str, Any]:
-    """Q27 (Meta): tổng hợp 27 quy luật → đếm cảnh báo + điểm cát + tổng quan.
+    """Q27 (Meta): tổng hợp QUY LUẬT KÍCH HOẠT → đếm cảnh báo + điểm cát + tổng quan.
 
-    Tổng số quy luật:
-    - v2: Q1-Q9 (9)
-    - v3: Q10-Q13 (4)
-    - v4 phase 2: Q14-Q15 (2)
-    - v4 phase 3: Q16-Q18 (3)
-    - v4 phase 4: Q19-Q22 (4)
-    - v4 phase 5: Q23-Q26 (4)
-    Total: 26 (+1 meta)
+    Tổng quy luật đã build (đếm động, không hardcode):
+    - v2: Q1-Q9 (9 quy luật cơ bản)
+    - v3 cross-bind: Q10-Q142 (~28 quy luật, mở rộng theo thâm nhuần Trung Châu Q2)
+    - v4 phase 2-5: Q14-Q26 (13 quy luật cross-bind 12 cung)
+
+    Đếm động dựa vào số rules thực sự được wire trong v3.quy_luat_v3 + v4_rules.
     """
     canh_bao = []
     diem_cat = []
@@ -578,8 +576,14 @@ def _Q27_meta_aggregate(v3_result: dict, v4_rules: dict) -> dict[str, Any]:
     else:
         overall = "TRUNG HÒA"
 
+    # Đếm động: 9 (v2) + số rules v3 + số rules v4
+    v3_rules_count = len(v3_result.get("quy_luat_v3", {}))
+    v4_rules_count = len(v4_rules)
+    total_rules_built = 9 + v3_rules_count + v4_rules_count
+
     return {
-        "total_rules_evaluated": 26,
+        "total_rules_evaluated": total_rules_built,  # đếm động — không hardcode
+        "total_rules_detected": score_cat + score_hung,
         "score_cat": score_cat,
         "score_hung": score_hung,
         "net": net,
@@ -587,7 +591,8 @@ def _Q27_meta_aggregate(v3_result: dict, v4_rules: dict) -> dict[str, Any]:
         "all_canh_bao": canh_bao,
         "all_diem_cat": diem_cat,
         "summary": (
-            f"Tổng quan cung Phu Thê × Cross-bind 26 quy luật Bắc phái Trung Châu: "
+            f"Tổng quan cung Phu Thê × {total_rules_built} quy luật Bắc phái Trung Châu "
+            f"(kích hoạt {score_cat + score_hung}): "
             f"{score_cat} điểm cát × {score_hung} cảnh báo → {overall}"
         ),
     }

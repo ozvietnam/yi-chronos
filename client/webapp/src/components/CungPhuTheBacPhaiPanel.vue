@@ -313,9 +313,9 @@ function ruleColor(rule) {
         </table>
       </div>
 
-      <!-- Engine v4: Panorama Toàn cảnh Hôn nhân (meta 26 quy luật) -->
+      <!-- Engine v4: Panorama Toàn cảnh Hôn nhân (meta — đếm động) -->
       <div v-if="v4Panorama" class="card panorama-card">
-        <h3>🌍 Toàn Cảnh Hôn Nhân (26 quy luật Bắc Phái)</h3>
+        <h3>🌍 Toàn Cảnh Hôn Nhân ({{ v4Panorama.total_rules_evaluated || 47 }} quy luật Bắc Phái)</h3>
         <div class="panorama-score">
           <div class="score-item cat">
             <span class="num">{{ v4Panorama.score_cat }}</span>
