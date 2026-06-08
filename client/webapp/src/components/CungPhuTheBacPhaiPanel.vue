@@ -569,6 +569,25 @@ function ruleColor(rule) {
                 {{ v3Rules['112_thien_tuong_loc_ton_an_tam_o_nha']?.paradigm }}
               </span>
             </div>
+            <!-- Q127 + Q128 + Q131: từ thâm nhuần §5.1 Cung Viên Luận (2026-06-08, Anh confirm 3/3) -->
+            <div v-if="v3Rules['127_thien_tuong_tham_moi_truong']" class="rule">
+              <strong>Q127 · Thiên Tướng gặp thiện thì thiện, gặp ác thì ác:</strong>
+              <span :class="ruleColor(v3Rules['127_thien_tuong_tham_moi_truong'])">
+                {{ v3Rules['127_thien_tuong_tham_moi_truong']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['128_thien_luong_phu_mau_am_tinh']" class="rule">
+              <strong>Q128 · Thiên Lương Phụ Mẫu = "ấm tinh" tinh thần:</strong>
+              <span :class="ruleColor(v3Rules['128_thien_luong_phu_mau_am_tinh'])">
+                {{ v3Rules['128_thien_luong_phu_mau_am_tinh']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['131_an_tu_tham_luyen_tran']" class="rule">
+              <strong>Q131 · Chân dung tâm linh — ẩn tu nhưng tham luyến trần:</strong>
+              <span :class="ruleColor(v3Rules['131_an_tu_tham_luyen_tran'])">
+                {{ v3Rules['131_an_tu_tham_luyen_tran']?.paradigm }}
+              </span>
+            </div>
           </div>
         </details>
       </div>

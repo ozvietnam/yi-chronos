@@ -1726,6 +1726,110 @@ def _Q112_thien_tuong_loc_ton_an_tam_o_nha(la_so: dict) -> dict[str, Any]:
     }
 
 
+def _Q127_thien_tuong_tham_moi_truong(la_so: dict) -> dict[str, Any]:
+    """Mệnh Thiên Tướng → "gặp thiện thì thiện, gặp ác thì ác".
+
+    Sách Trung Châu Q2 p536 §5.1.11: "Trong 14 chính diệu, CHỈ THIÊN TƯỚNG
+    xem trọng việc GIÁP CUNG. Thiên Tướng KHÔNG có bản chất cố định, mà
+    THẤM theo môi trường + người xung quanh."
+
+    Anh confirm 2026-06-08: "1 có" → ứng nghiệm.
+    """
+    menh_stars = _stars_at_named_palace(la_so, "Mệnh")
+    if not any("Thiên Tướng" in s for s in menh_stars["chinh_tinh"]):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": True,  # tích cực vì paradigm trung tính, không cảnh báo nặng
+        "paradigm": (
+            "🌓 Mệnh Thiên Tướng → 'GẶP THIỆN THÌ THIỆN, GẶP ÁC THÌ ÁC' "
+            "(sách Trung Châu Q2 p536 §5.1.11, anh confirm 2026-06-08: 'có'). "
+            "Trong 14 chính diệu, CHỈ Thiên Tướng xem trọng việc GIÁP CUNG. "
+            "Tính cách + khuynh hướng anh THẤM theo môi trường + người xung "
+            "quanh — không có bản chất cố định. Giải thích vì sao anh có "
+            "nhiều mặt: ẩn tu khi vào môi trường tĩnh, đoạt kiếm tiền khi "
+            "vào môi trường kinh doanh."
+        ),
+    }
+
+
+def _Q128_thien_luong_phu_mau_am_tinh(la_so: dict) -> dict[str, Any]:
+    """Thiên Lương Phụ Mẫu → "ấm tinh" tinh thần, KHÔNG vật chất.
+
+    Sách Trung Châu Q2 p539 §5.1.12: "Thiên Lương = 'ấm tinh' — che chở
+    thuộc TINH THẦN, KHÔNG VẬT CHẤT. Phải gặp NẠN TAI TRƯỚC rồi mới hóa giải."
+
+    Anh confirm 2026-06-08: "2 đúng" → ứng nghiệm. Refine/cross-bind Q54
+    "xa cha mẹ từ 10 tuổi" + Q106 "ai cũng bận".
+    """
+    pm_stars = _stars_at_named_palace(la_so, "Phụ Mẫu")
+    if not any("Thiên Lương" in s for s in pm_stars["chinh_tinh"]):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": False,  # bán cảnh báo - paradigm nói trải qua nạn trước
+        "paradigm": (
+            "💫 Thiên Lương Phụ Mẫu = 'ẤM TINH' (sách Trung Châu Q2 p539 "
+            "§5.1.12, anh confirm 2026-06-08: 'đúng'). Cha mẹ che chở thuộc "
+            "TINH THẦN, KHÔNG VẬT CHẤT. Anh phải GẶP NẠN TAI TRƯỚC rồi mới "
+            "được hóa giải — tiêu tai giải ách, kéo dài tuổi thọ, trợ lực "
+            "tinh thần. Refine Q54 ('xa cha mẹ từ 10 tuổi') + Q106 ('ai "
+            "cũng bận'): cha mẹ KHÔNG ở bên hàng ngày, nhưng vẫn là 'ấm "
+            "tinh' tinh thần — anh tự lập vật chất, được trợ lực tinh thần."
+        ),
+    }
+
+
+def _Q131_an_tu_tham_luyen_tran(la_so: dict) -> dict[str, Any]:
+    """Thất Sát Phúc Đức + Không-Kiếp Thiên Di + Lộc Tồn Mệnh = CHÂN DUNG
+    TÂM LINH cốt nhất: "ẩn tu / tôn giáo NHƯNG vẫn tham luyến duyên trần".
+
+    Sách Trung Châu Q2 p544 §5.1.13: "Thất Sát có sao SÁT-HÌNH-KHÔNG-HAO →
+    cảm thấy đời người HƯ ẢO, bước vào cửa PHẬT, ĐẠO. Có điều, nếu Thiên
+    Phủ gặp SAO LỘC, thì trước sau vẫn THAM LUYẾN DUYÊN TRẦN."
+
+    Anh confirm 2026-06-08: "3 đúng" → ứng nghiệm chính xác chân dung anh.
+    """
+    pd_stars = _stars_at_named_palace(la_so, "Phúc Đức")
+    td_stars = _stars_at_named_palace(la_so, "Thiên Di")
+    menh_stars = _stars_at_named_palace(la_so, "Mệnh")
+
+    has_that_sat_pd = any("Thất Sát" in s for s in pd_stars["chinh_tinh"])
+    td_sat = td_stars.get("sat_tinh", [])
+    has_khong_kiep_td = (
+        any("Địa Không" in s for s in td_sat)
+        or any("Địa Kiếp" in s for s in td_sat)
+    )
+    all_menh = (
+        menh_stars.get("chinh_tinh", [])
+        + menh_stars.get("phu_tinh", [])
+        + menh_stars.get("sat_tinh", [])
+        + menh_stars.get("sao_q2", [])
+    )
+    has_loc_ton_menh = any("Lộc Tồn" in s for s in all_menh)
+
+    if not (has_that_sat_pd and has_khong_kiep_td and has_loc_ton_menh):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": True,  # paradigm trung tính-tích cực, chân dung anh
+        "paradigm": (
+            "🕉 CHÂN DUNG TÂM LINH cốt: ẨN TU / TÔN GIÁO NHƯNG VẪN THAM "
+            "LUYẾN DUYÊN TRẦN (sách Trung Châu Q2 p544 §5.1.13, anh confirm "
+            "2026-06-08: 'đúng'). Cấu hình: Thất Sát Phúc Đức + Không-Kiếp "
+            "Thiên Di → cảm thấy đời người HƯ ẢO, có khuynh hướng bước vào "
+            "cửa PHẬT, ĐẠO. NHƯNG Lộc Tồn ĐỒNG cung Mệnh (Thiên Tướng) → "
+            "trước sau vẫn THAM LUYẾN DUYÊN TRẦN. Giải thích sâu nhất cấu "
+            "trúc anh: thỉnh thoảng ẩn tu / không màng danh lợi (Q107) + "
+            "thỉnh thoảng đoạt kiếm tiền — KHÔNG mâu thuẫn, là 2 mặt cùng "
+            "1 cấu trúc tâm linh."
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     """Engine v3 — v2 (9 quy luật) + Q10-Q106 (15→26 quy luật).
 
@@ -1775,6 +1879,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         # Từ vòng 18+19 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm)
         "107_liem_that_doat_kiem_tien_an_tu": _Q107_liem_that_doat_kiem_tien_an_tu(la_so),
         "112_thien_tuong_loc_ton_an_tam_o_nha": _Q112_thien_tuong_loc_ton_an_tam_o_nha(la_so),
+        # Từ vòng 24+26 thâm nhuần §5.1 Cung Viên Luận (2026-06-08, Anh confirm 3/3)
+        "127_thien_tuong_tham_moi_truong": _Q127_thien_tuong_tham_moi_truong(la_so),
+        "128_thien_luong_phu_mau_am_tinh": _Q128_thien_luong_phu_mau_am_tinh(la_so),
+        "131_an_tu_tham_luyen_tran": _Q131_an_tu_tham_luyen_tran(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -1813,7 +1921,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "105_liem_that_hung_tu_kien_nguyen",
                 "106_thien_luong_ngo_phu_mau",
                 "107_liem_that_doat_kiem_tien_an_tu",
-                "112_thien_tuong_loc_ton_an_tam_o_nha"):
+                "112_thien_tuong_loc_ton_an_tam_o_nha",
+                "127_thien_tuong_tham_moi_truong",
+                "128_thien_luong_phu_mau_am_tinh",
+                "131_an_tu_tham_luyen_tran"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
