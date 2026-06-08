@@ -599,19 +599,26 @@ def _Q22_sao_doi_cap_3_cung(la_so: dict) -> dict[str, Any]:
             "paradigm": "Mệnh / Phúc Đức / Phu Thê không có sao đôi cát nào",
         }
 
-    summary_short = f"{total_pairs} cặp ĐÔI + {total_le} sao LẺ (3 cung Mệnh + Phúc Đức + Phu Thê)"
+    summary_short = f"{total_pairs} cặp ĐÔI + {total_le} sao LẺ (Mệnh + Phúc Đức + Phu Thê)"
+    # Sách Trung Châu p30: '1 cặp ĐÔI > 3-4 sao LẺ' → CÓ cặp là CÁT;
+    # NHƯNG le cũng có cảnh báo riêng (tái hôn / người thứ ba). Em verdict:
+    #  - is_cat = True nếu có ít nhất 1 pair (giữ trọng tâm vào cát của cặp đôi)
+    #  - Trong paradigm message vẫn liệt kê warning của sao LẺ để user thấy
+    is_cat_overall = total_pairs > 0
     return {
         "detected": True,
-        "is_cat": total_pairs > total_le,
+        "is_cat": is_cat_overall,
         "total_pairs": total_pairs,
         "total_le": total_le,
         "by_palace": results,
         "paradigm": (
             f"📊 Sao đôi (sách Trung Châu p30): {summary_short}. "
             + " · ".join(notes)
-            + f" → Quy tắc: 1 cặp ĐÔI > 3-4 sao LẺ. "
-            + ("Cát thắng — vợ chồng đoàn tụ + trợ lực." if total_pairs > total_le
-               else "Cảnh báo: sao LẺ nhiều → có cảnh báo tái hôn / người thứ ba xen / cô độc.")
+            + f" → Quy tắc: 1 cặp ĐÔI mạnh hơn 3-4 sao LẺ. "
+            + (f"Có {total_pairs} cặp ĐÔI = trợ lực + đoàn tụ. "
+               if total_pairs > 0 else "")
+            + (f"Có {total_le} sao LẺ = cảnh báo nhẹ tái hôn / người thứ ba / cô độc."
+               if total_le > 0 else "")
         ),
     }
 

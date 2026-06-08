@@ -334,7 +334,7 @@ function ruleColor(rule) {
         </div>
 
         <details v-if="v3Rules" class="v3-details">
-          <summary>Xem chi tiết 12 quy luật cross-bind (Q10-Q21)</summary>
+          <summary>Xem chi tiết 15 quy luật cross-bind (Q10-Q24)</summary>
           <div class="rule-grid">
             <!-- Q10-Q13: Xương-Khúc + Văn Khúc Kỵ + Địa Không -->
             <div class="rule">
@@ -409,6 +409,25 @@ function ruleColor(rule) {
               <strong>Q21 · Thiên Cơ + Thái Âm Tử Tức (con cái):</strong>
               <span :class="ruleColor(v3Rules['21_thien_co_thai_am_tu_tuc'])">
                 {{ v3Rules['21_thien_co_thai_am_tu_tuc']?.paradigm }}
+              </span>
+            </div>
+            <!-- Q22-Q24: từ thâm nhuần vòng 2 Trung Châu Q2 (2026-06-08) -->
+            <div class="rule">
+              <strong>Q22 · Sao đôi cặp (Mệnh + Phúc Đức + Phu Thê):</strong>
+              <span :class="ruleColor(v3Rules['22_sao_doi_cap_3_cung'])">
+                {{ v3Rules['22_sao_doi_cap_3_cung']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q23 · Vũ-Phá Tỵ-Hợi → quyết định xung động:</strong>
+              <span :class="ruleColor(v3Rules['23_vu_pha_ty_hoi_nong_nay'])">
+                {{ v3Rules['23_vu_pha_ty_hoi_nong_nay']?.paradigm }}
+              </span>
+            </div>
+            <div class="rule">
+              <strong>Q24 · Vũ-Phá + sát Thiên Di → tai nạn xa nhà:</strong>
+              <span :class="ruleColor(v3Rules['24_vu_pha_sat_thien_di'])">
+                {{ v3Rules['24_vu_pha_sat_thien_di']?.paradigm }}
               </span>
             </div>
           </div>
