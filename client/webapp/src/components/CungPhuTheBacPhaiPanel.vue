@@ -530,6 +530,32 @@ function ruleColor(rule) {
                 {{ v3Rules['72_phuong_cac_menh']?.paradigm }}
               </span>
             </div>
+            <!-- Q101 + Q103: từ thâm nhuần vòng 16 CHƯƠNG CỐT (2026-06-08) -->
+            <div v-if="v3Rules['101_thien_tuong_ty_hoi_menh']" class="rule">
+              <strong>Q101 · Thiên Tướng Tỵ/Hợi Mệnh = ổn nhất 12 cung:</strong>
+              <span :class="ruleColor(v3Rules['101_thien_tuong_ty_hoi_menh'])">
+                {{ v3Rules['101_thien_tuong_ty_hoi_menh']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['103_tu_tham_mao_dau_phu_the']" class="rule">
+              <strong>Q103 · Tử-Tham Mão/Dậu Phu Thê = thuần dục vọng:</strong>
+              <span :class="ruleColor(v3Rules['103_tu_tham_mao_dau_phu_the'])">
+                {{ v3Rules['103_tu_tham_mao_dau_phu_the']?.paradigm }}
+              </span>
+            </div>
+            <!-- Q105 + Q106: từ thâm nhuần vòng 17 CHƯƠNG CỐT (2026-06-08) -->
+            <div v-if="v3Rules['105_liem_that_hung_tu_kien_nguyen']" class="rule">
+              <strong>Q105 · Liêm-Thất Phúc Đức Mùi → Hùng Tú Kiển Nguyên:</strong>
+              <span :class="ruleColor(v3Rules['105_liem_that_hung_tu_kien_nguyen'])">
+                {{ v3Rules['105_liem_that_hung_tu_kien_nguyen']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['106_thien_luong_ngo_phu_mau']" class="rule">
+              <strong>Q106 · Thiên Lương Ngọ Phụ Mẫu → lục thân khắc nhẹ:</strong>
+              <span :class="ruleColor(v3Rules['106_thien_luong_ngo_phu_mau'])">
+                {{ v3Rules['106_thien_luong_ngo_phu_mau']?.paradigm }}
+              </span>
+            </div>
           </div>
         </details>
       </div>
