@@ -556,6 +556,19 @@ function ruleColor(rule) {
                 {{ v3Rules['106_thien_luong_ngo_phu_mau']?.paradigm }}
               </span>
             </div>
+            <!-- Q107 + Q112: từ thâm nhuần vòng 18-19 (2026-06-08, Anh confirm) -->
+            <div v-if="v3Rules['107_liem_that_doat_kiem_tien_an_tu']" class="rule">
+              <strong>Q107 · Liêm-Thất Phúc Đức → đoạt kiếm tiền xen ẩn tu:</strong>
+              <span :class="ruleColor(v3Rules['107_liem_that_doat_kiem_tien_an_tu'])">
+                {{ v3Rules['107_liem_that_doat_kiem_tien_an_tu']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['112_thien_tuong_loc_ton_an_tam_o_nha']" class="rule">
+              <strong>Q112 · Mệnh Tướng có Lộc Tồn → an tâm khi ở nhà:</strong>
+              <span :class="ruleColor(v3Rules['112_thien_tuong_loc_ton_an_tam_o_nha'])">
+                {{ v3Rules['112_thien_tuong_loc_ton_an_tam_o_nha']?.paradigm }}
+              </span>
+            </div>
           </div>
         </details>
       </div>

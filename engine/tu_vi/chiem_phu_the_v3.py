@@ -1630,6 +1630,102 @@ def _Q106_thien_luong_ngo_phu_mau(la_so: dict) -> dict[str, Any]:
     }
 
 
+def _Q107_liem_that_doat_kiem_tien_an_tu(la_so: dict) -> dict[str, Any]:
+    """Liêm-Thất Phúc Đức Mùi → nghiêng đoạt kiếm tiền NHƯNG có layer ẩn tu.
+
+    Sách Trung Châu Q2 p363 (case nữ Bính Liêm Hóa Kỵ): biểu hiện cương bạo
+    là "ĐOẠT SỨC KIẾM TIỀN, thu vào cho thật nhiều, mà KHÔNG THIẾT MỘT THỨ
+    GÌ KHÁC, đời người ít hưởng thụ."
+
+    REFINED cho anh (confirm 2026-06-08): "thỉnh thoảng anh cũng thích ẩn tu,
+    không màng danh lợi. ĐÚNG". → Layer hai: paradigm KHÔNG thuần vật chất,
+    có chiều sâu tâm linh / ẩn dật xen kẽ.
+    """
+    pd_stars = _stars_at_named_palace(la_so, "Phúc Đức")
+    pd_chinh = pd_stars["chinh_tinh"]
+    has_liem = any("Liêm Trinh" in s for s in pd_chinh)
+    has_that = any("Thất Sát" in s for s in pd_chinh)
+    if not (has_liem and has_that):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    pd_idx = _palace_index(la_so, "Phúc Đức")
+    is_mui = pd_idx == 7  # Mùi
+    if not is_mui:
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": False,  # cảnh báo nhẹ - paradigm "đoạt kiếm tiền" có sắc hung
+        "paradigm": (
+            "⚖ Liêm-Thất Phúc Đức Mùi → biểu hiện cốt: NGHIÊNG ĐOẠT KIẾM "
+            "TIỀN ('đoạt sức, thu vào, không thiết một thứ gì khác'). "
+            "**Refined cho anh** (confirm 2026-06-08): KHÔNG cực đoan — anh "
+            "THỈNH THOẢNG thích ẨN TU, không màng danh lợi (layer tâm linh "
+            "xen kẽ). Đây là Phúc Đức 'phấn chấn không đầy đủ' KHÔNG thuần "
+            "vật chất. Cảnh báo: cân bằng làm-nghỉ, đừng cuốn vào vòng "
+            "'đoạt kiếm' khiến đời ít hưởng thụ. Sách Trung Châu Q2 p363."
+        ),
+    }
+
+
+def _Q112_thien_tuong_loc_ton_an_tam_o_nha(la_so: dict) -> dict[str, Any]:
+    """Mệnh Thiên Tướng Tỵ + Lộc Tồn đồng cung → "an tâm khi ở nhà".
+
+    Sách Trung Châu Q2 §4.4.3 p347: Thiên Tướng Tỵ/Hợi = "ổn nhất 12 cung".
+    Đối cung Vũ-Phá + Không-Kiếp → asymmetric paradigm Mệnh-Thiên Di.
+
+    REFINED cho anh (confirm 2026-06-08): "cảm giác AN TÂM KHI Ở NHÀ" —
+    paradigm tích cực (không cảnh báo nặng), chỉ đặc tả tính chất.
+    """
+    menh_stars = _stars_at_named_palace(la_so, "Mệnh")
+    menh_chinh = menh_stars["chinh_tinh"]
+    has_tuong = any("Thiên Tướng" in s for s in menh_chinh)
+    # Lộc Tồn nằm trong sat_tinh (la_so structure quirk)
+    all_menh = (
+        menh_stars.get("chinh_tinh", [])
+        + menh_stars.get("phu_tinh", [])
+        + menh_stars.get("sat_tinh", [])
+        + menh_stars.get("sao_q2", [])
+    )
+    has_loc_ton = any("Lộc Tồn" in s for s in all_menh)
+    if not (has_tuong and has_loc_ton):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    menh_idx = _palace_index(la_so, "Mệnh")
+    if menh_idx not in (5, 11):  # Tỵ hoặc Hợi
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    # Check Thiên Di có Vũ-Phá + Không/Kiếp
+    td_stars = _stars_at_named_palace(la_so, "Thiên Di")
+    td_chinh = td_stars["chinh_tinh"]
+    td_sat = td_stars["sat_tinh"]
+    has_vu_pha = (
+        any("Vũ Khúc" in s for s in td_chinh)
+        and any("Phá Quân" in s for s in td_chinh)
+    )
+    has_khong_kiep = (
+        any("Địa Không" in s for s in td_sat)
+        or any("Địa Kiếp" in s for s in td_sat)
+    )
+
+    return {
+        "detected": True,
+        "is_cat": True,
+        "paradigm": (
+            "✓ Mệnh Thiên Tướng có Lộc Tồn đồng cung → 'AN TÂM KHI Ở NHÀ' "
+            "(confirm 2026-06-08). Paradigm: Mệnh ổn / có sao Lộc trợ → "
+            "'ổn nhất 12 cung' (sách Trung Châu Q2 p347 §4.4.3)."
+            + (
+                " Thiên Di Vũ-Phá + Không-Kiếp → asymmetric Mệnh-Thiên Di: "
+                "ở nhà thấy bình yên, ra ngoài cảm giác khác hẳn. KHÔNG phải "
+                "cảnh báo — chỉ đặc tả cấu trúc."
+                if (has_vu_pha and has_khong_kiep)
+                else ""
+            )
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     """Engine v3 — v2 (9 quy luật) + Q10-Q106 (15→26 quy luật).
 
@@ -1676,6 +1772,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         # Từ vòng 17 CHƯƠNG CỐT (Anh confirm 2/2, Q106 refined)
         "105_liem_that_hung_tu_kien_nguyen": _Q105_liem_that_phuc_duc_hung_tu(la_so),
         "106_thien_luong_ngo_phu_mau": _Q106_thien_luong_ngo_phu_mau(la_so),
+        # Từ vòng 18+19 thâm nhuần Trung Châu Q2 (2026-06-08, Anh confirm)
+        "107_liem_that_doat_kiem_tien_an_tu": _Q107_liem_that_doat_kiem_tien_an_tu(la_so),
+        "112_thien_tuong_loc_ton_an_tam_o_nha": _Q112_thien_tuong_loc_ton_an_tam_o_nha(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -1712,7 +1811,9 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "101_thien_tuong_ty_hoi_menh",
                 "103_tu_tham_mao_dau_phu_the",
                 "105_liem_that_hung_tu_kien_nguyen",
-                "106_thien_luong_ngo_phu_mau"):
+                "106_thien_luong_ngo_phu_mau",
+                "107_liem_that_doat_kiem_tien_an_tu",
+                "112_thien_tuong_loc_ton_an_tam_o_nha"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
