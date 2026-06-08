@@ -107,6 +107,51 @@ function closeCungParadigm() {
 //   8 艮 Cấn  | 1 坎 Khảm | 6 乾 Càn
 const LO_THU_ORDER = ["Tốn", "Ly", "Khôn", "Chấn", "Trung", "Đoài", "Cấn", "Khảm", "Càn"];
 const LO_THU_NUMBERS = { "Tốn": 4, "Ly": 9, "Khôn": 2, "Chấn": 3, "Trung": 5, "Đoài": 7, "Cấn": 8, "Khảm": 1, "Càn": 6 };
+const KY_MON_ART_BASE = "/oracle-cards/ky-mon/dot01";
+const KY_MON_BOARD_IMAGE = `${KY_MON_ART_BASE}/web_ready/ky-mon-01-nine-palace-command-board.webp`;
+const MON_ICON = {
+  "Khai": "01-khai",
+  "Hưu": "02-huu",
+  "Sinh": "03-sinh",
+  "Thương": "04-thuong",
+  "Đỗ": "05-do",
+  "Cảnh": "06-canh",
+  "Tử": "07-tu",
+  "Kinh": "08-kinh",
+};
+const TINH_ICON = {
+  "Thiên Bồng": "01-thien-bong",
+  "Thiên Nhậm": "02-thien-nham",
+  "Thiên Xung": "03-thien-xung",
+  "Thiên Phụ": "04-thien-phu",
+  "Thiên Cầm": "05-thien-cam",
+  "Thiên Tâm": "06-thien-tam",
+  "Thiên Trụ": "07-thien-tru",
+  "Thiên Anh": "08-thien-anh",
+  "Thiên Nhuế": "09-thien-nhue",
+};
+const THAN_ICON = {
+  "Trị Phù": "01-tri-phu",
+  "Đằng Xà": "02-dang-xa",
+  "Thái Âm": "03-thai-am",
+  "Lục Hợp": "04-luc-hop",
+  "Câu Trần": "05-cau-tran",
+  "Chu Tước": "06-chu-tuoc",
+  "Cửu Địa": "07-cuu-dia",
+  "Cửu Thiên": "08-cuu-thien",
+};
+
+function kmIcon(kind, name) {
+  if (!name) return "";
+  const groups = {
+    mon: ["ky-mon-02-eight-gates-icon-set", MON_ICON],
+    tinh: ["ky-mon-03-nine-stars-glyph-set", TINH_ICON],
+    than: ["ky-mon-04-eight-deities-banner-set", THAN_ICON],
+  };
+  const group = groups[kind];
+  const file = group?.[1]?.[name];
+  return file ? `${KY_MON_ART_BASE}/icons/${group[0]}/${file}.webp` : "";
+}
 
 const cungGrid = computed(() => {
   if (!state.value) return [];
@@ -196,6 +241,15 @@ const catHungClass = (label) => {
         <strong>ĐỌC ĐỒNG DẠNG, không predict</strong> (Iron Rule #4 + #6).</em>
       </p>
     </header>
+
+    <section class="km-art-hero" aria-label="Mỹ thuật Kỳ Môn Độn Giáp">
+      <img :src="KY_MON_BOARD_IMAGE" alt="Bàn lệnh cửu cung Kỳ Môn Độn Giáp" loading="lazy" decoding="async" />
+      <div class="km-art-copy">
+        <span class="km-art-kicker">Đàm Liên · cửu cung · thời-không</span>
+        <h3>Bàn lệnh Kỳ Môn</h3>
+        <p>Cửu cung mở trận, Môn dẫn hành động, Tinh định khí, Thần giữ thế. Một khoảnh khắc được đặt vào bàn để quan sát hướng vận động của thời-không.</p>
+      </div>
+    </section>
 
     <!-- 📜 Paradigm banner — LUÔN hiển thị (Iron Rule #4 + #6 enforcement) -->
     <div class="km-paradigm-banner">
@@ -432,16 +486,19 @@ const catHungClass = (label) => {
           </div>
           <div class="km-cell-body">
             <div v-if="cell.than" class="km-row" :class="catHungClass(cell.than.cat_hung)">
+              <img v-if="kmIcon('than', cell.than.than_vn)" class="km-row-icon" :src="kmIcon('than', cell.than.than_vn)" :alt="cell.than.than_vn" loading="lazy" decoding="async" />
               <span class="km-row-lbl">Thần</span>
               <span class="km-row-val">{{ cell.than.than_vn }}</span>
               <span class="km-row-cat">{{ cell.than.cat_hung }}</span>
             </div>
             <div v-if="cell.tinh" class="km-row" :class="catHungClass(cell.tinh.cat_hung)">
+              <img v-if="kmIcon('tinh', cell.tinh.tinh_vn)" class="km-row-icon" :src="kmIcon('tinh', cell.tinh.tinh_vn)" :alt="cell.tinh.tinh_vn" loading="lazy" decoding="async" />
               <span class="km-row-lbl">Tinh</span>
               <span class="km-row-val">{{ cell.tinh.tinh_vn }}</span>
               <span class="km-row-cat">{{ cell.tinh.cat_hung }}</span>
             </div>
             <div v-if="cell.mon" class="km-row" :class="catHungClass(cell.mon.cat_hung)">
+              <img v-if="kmIcon('mon', cell.mon.mon_vn)" class="km-row-icon" :src="kmIcon('mon', cell.mon.mon_vn)" :alt="cell.mon.mon_vn" loading="lazy" decoding="async" />
               <span class="km-row-lbl">Môn</span>
               <span class="km-row-val">{{ cell.mon.mon_vn }}</span>
               <span class="km-row-cat">{{ cell.mon.cat_hung }}</span>
@@ -603,6 +660,39 @@ const catHungClass = (label) => {
 .km-attrib { display: block; margin-top: 4px; font-size: 0.8rem; color: #94a3b8; font-style: normal; }
 .km-paradigm { margin: 4px 0 16px; font-size: 0.9rem; color: #94a3b8; line-height: 1.5; }
 
+.km-art-hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  gap: 18px;
+  align-items: center;
+  margin: 14px 0 16px;
+  padding: 14px;
+  background:
+    radial-gradient(circle at 18% 45%, rgba(212, 165, 116, 0.2), transparent 36%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.92));
+  border: 1px solid rgba(212, 165, 116, 0.28);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.km-art-hero img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+}
+.km-art-copy { max-width: 680px; }
+.km-art-kicker {
+  display: block;
+  margin-bottom: 6px;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.km-art-copy h3 { margin: 0 0 6px; color: #fbbf24; font-size: 1.25rem; }
+.km-art-copy p { margin: 0; color: #cbd5e1; line-height: 1.55; font-size: 0.92rem; }
+
 /* Source book + he KMDG cards in intro */
 .km-source-card, .km-he-card {
   margin-top: 18px; padding: 14px 16px;
@@ -661,6 +751,9 @@ const catHungClass = (label) => {
 .km-overview { font-size: 0.85rem; color: #94a3b8; margin: 6px 0; }
 
 @media (max-width: 768px) {
+  .km-art-hero { grid-template-columns: 96px 1fr; gap: 12px; padding: 12px; }
+  .km-art-copy h3 { font-size: 1.05rem; }
+  .km-art-copy p { font-size: 0.82rem; }
   .km-he-grid, .km-tklm-grid { grid-template-columns: 1fr; }
 }
 
@@ -858,7 +951,16 @@ const catHungClass = (label) => {
 .km-cell-cung { font-weight: 600; color: #e2e8f0; }
 .km-cell-dir { color: #64748b; font-size: 0.7rem; }
 .km-cell-body { display: flex; flex-direction: column; gap: 3px; font-size: 0.8rem; flex: 1; }
-.km-row { display: grid; grid-template-columns: 40px 1fr auto; gap: 4px; align-items: center; padding: 2px 4px; border-radius: 3px; }
+.km-row { display: grid; grid-template-columns: 28px 38px 1fr auto; gap: 5px; align-items: center; padding: 3px 5px; border-radius: 4px; min-height: 34px; }
+.km-row-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 165, 116, 0.22);
+  background: #020617;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.6);
+}
 .km-row-lbl { color: #64748b; font-size: 0.7rem; }
 .km-row-val { color: #e2e8f0; }
 .km-row-cat { font-size: 0.65rem; opacity: 0.7; }
