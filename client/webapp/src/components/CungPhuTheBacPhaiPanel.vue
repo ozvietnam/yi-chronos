@@ -588,6 +588,25 @@ function ruleColor(rule) {
                 {{ v3Rules['131_an_tu_tham_luyen_tran']?.paradigm }}
               </span>
             </div>
+            <!-- Q134 + Q135 + Q139: từ §5.3 Phu Thê + §5.7 Thiên Di (2026-06-08, Anh confirm 3/4) -->
+            <div v-if="v3Rules['134_tu_tham_phu_the_vo_chu_so_huu']" class="rule">
+              <strong>Q134 · Tử-Tham Phu Thê → vợ là chủ sở hữu / đứng tên pháp lý:</strong>
+              <span :class="ruleColor(v3Rules['134_tu_tham_phu_the_vo_chu_so_huu'])">
+                {{ v3Rules['134_tu_tham_phu_the_vo_chu_so_huu']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['135_nam_tu_vi_phu_the_vo_su_nghiep']" class="rule">
+              <strong>Q135 · Vợ NÊN có sự nghiệp riêng:</strong>
+              <span :class="ruleColor(v3Rules['135_nam_tu_vi_phu_the_vo_su_nghiep'])">
+                {{ v3Rules['135_nam_tu_vi_phu_the_vo_su_nghiep']?.paradigm }}
+              </span>
+            </div>
+            <div v-if="v3Rules['139_thien_di_di_xa_khong_dinh_cu']" class="rule">
+              <strong>Q139 · Thiên Di → đi xa OK, không định cư lâu dài:</strong>
+              <span :class="ruleColor(v3Rules['139_thien_di_di_xa_khong_dinh_cu'])">
+                {{ v3Rules['139_thien_di_di_xa_khong_dinh_cu']?.paradigm }}
+              </span>
+            </div>
           </div>
         </details>
       </div>

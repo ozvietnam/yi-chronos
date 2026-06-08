@@ -1830,6 +1830,113 @@ def _Q131_an_tu_tham_luyen_tran(la_so: dict) -> dict[str, Any]:
     }
 
 
+def _Q134_tu_tham_phu_the_vo_nhan_vat_chinh(la_so: dict) -> dict[str, Any]:
+    """Tử-Tham Phu Thê + cát tinh → vợ chồng cùng sáng lập sự nghiệp,
+    NHƯNG VỢ là NHÂN VẬT CHÍNH / chủ sở hữu pháp lý.
+
+    Sách Trung Châu Q2 p569 §5.3.1: "Tử-Tham gặp cát tinh — KHÔNG được coi
+    là 'đào hoa phạm chủ'; mà chủ về VỢ CHỒNG CÓ THỂ CÙNG NHAU SÁNG LẬP
+    SỰ NGHIỆP, NHƯNG NGƯỜI BẠN ĐỜI PHẢI LÀ NHÂN VẬT CHÍNH CỦA SỰ NGHIỆP."
+
+    Anh confirm 2026-06-08: "gần đúng — chủ thuê nhà chung của 2 công ty"
+    → REFINED: vợ là chủ sở hữu / đứng tên pháp lý (không nhất thiết là
+    người dẫn dắt vận hành — anh vẫn quản, nhưng tài sản trên giấy ở vợ).
+    """
+    pt_stars = _stars_at_named_palace(la_so, "Phu Thê")
+    pt_chinh = pt_stars["chinh_tinh"]
+    has_tu_vi = any("Tử Vi" in s for s in pt_chinh)
+    has_tham_lang = any("Tham Lang" in s for s in pt_chinh)
+    if not (has_tu_vi and has_tham_lang):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": True,
+        "paradigm": (
+            "👫 Tử-Tham Phu Thê + cát tinh → vợ chồng CÙNG SÁNG LẬP SỰ "
+            "NGHIỆP (sách Trung Châu Q2 p569 §5.3.1, anh confirm 2026-"
+            "06-08: 'gần đúng'). KHÔNG phải 'đào hoa phạm chủ' (paradigm "
+            "cổ sai). REFINED cho anh: vợ là CHỦ SỞ HỮU / ĐỨNG TÊN PHÁP "
+            "LÝ ('chủ thuê nhà chung của 2 công ty' — anh confirm). Anh "
+            "vẫn quản vận hành, nhưng tài sản trên giấy ở vợ — phối hợp "
+            "âm dương hợp paradigm."
+        ),
+    }
+
+
+def _Q135_nam_tu_vi_phu_the_vo_nen_co_su_nghiep(la_so: dict) -> dict[str, Any]:
+    """Nam mệnh Tử Vi đồng cung Phu Thê → vợ NÊN có sự nghiệp riêng.
+
+    Sách Trung Châu Q2 p571 §5.3.1: "Nam mệnh Phu Thê có TỬ VI — bất luận
+    cung độ nào — VỢ ĐỀU NÊN CÓ SỰ NGHIỆP. Nếu ở nhà coi sóc gia đình
+    nhiều sẽ PHÁT HUY TÀI LÃNH ĐẠO Ở GIA ĐÌNH, thậm chí biến thành KHÔNG
+    CHẾ CHỒNG."
+
+    Anh confirm 2026-06-08: "2 đúng" → ứng nghiệm.
+    """
+    gender = la_so.get("gender", "")
+    if "nam" not in str(gender).lower():
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    pt_stars = _stars_at_named_palace(la_so, "Phu Thê")
+    if not any("Tử Vi" in s for s in pt_stars["chinh_tinh"]):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": True,
+        "paradigm": (
+            "💼 Nam mệnh Tử Vi đồng cung Phu Thê → VỢ NÊN CÓ SỰ NGHIỆP "
+            "RIÊNG (sách Trung Châu Q2 p571 §5.3.1, anh confirm 2026-"
+            "06-08: 'đúng'). Nếu vợ ở nhà coi sóc gia đình nhiều → phát "
+            "huy tài lãnh đạo vào quan hệ vợ chồng → 'KHÔNG CHẾ CHỒNG'. "
+            "Lời khuyên cụ thể: khuyến khích vợ phát triển sự nghiệp "
+            "riêng song song với việc gia đình — paradigm tự nhiên cân "
+            "bằng quyền lực hôn nhân."
+        ),
+    }
+
+
+def _Q139_thien_di_di_xa_khong_dinh_cu(la_so: dict) -> dict[str, Any]:
+    """Vũ-Phá Thiên Di + Không-Kiếp → đi xa OK, KHÔNG định cư xa lâu dài.
+
+    Sách Trung Châu Q2 p738 §5.7.4: "Vũ-Phá có sát tinh hội — ở nơi xa
+    NHIỀU THỊ PHI PHỨC TẠP, PHÁ TÁN... bị kẹt luôn ở tha hương."
+
+    Anh confirm 2026-06-08: "đi xa thôi, không chắc là nước ngoài"
+    → REFINED: đi xa (trong / ngoài nước) → tránh định cư lâu dài, nhất
+    là môi trường mới hoàn toàn.
+    """
+    td_stars = _stars_at_named_palace(la_so, "Thiên Di")
+    td_chinh = td_stars["chinh_tinh"]
+    td_sat = td_stars.get("sat_tinh", [])
+    has_vu_pha = (
+        any("Vũ Khúc" in s for s in td_chinh)
+        and any("Phá Quân" in s for s in td_chinh)
+    )
+    has_khong_kiep = (
+        any("Địa Không" in s for s in td_sat)
+        or any("Địa Kiếp" in s for s in td_sat)
+    )
+    if not (has_vu_pha and has_khong_kiep):
+        return {"detected": False, "is_cat": False, "paradigm": ""}
+
+    return {
+        "detected": True,
+        "is_cat": False,  # cảnh báo
+        "paradigm": (
+            "🚶 Thiên Di Vũ-Phá + Không-Kiếp → 'ĐI XA THÔI, KHÔNG ĐỊNH "
+            "CƯ LÂU DÀI' (sách Trung Châu Q2 p738 §5.7.4, anh confirm "
+            "2026-06-08: 'đi xa thôi, không chắc là nước ngoài'). REFINED: "
+            "anh có thể đi công tác / du lịch / gặp gỡ ở xa OK; NHƯNG "
+            "tránh ĐỊNH CƯ LÂU DÀI ở nơi xa hoàn toàn lạ (trong / ngoài "
+            "nước đều áp dụng) — paradigm 'kẹt ở tha hương, nhiều thị "
+            "phi phức tạp' sẽ trigger. Anh có Lộc Tồn ở Mệnh = neo về "
+            "nhà; rời nhà lâu dài làm mất gốc."
+        ),
+    }
+
+
 def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
     """Engine v3 — v2 (9 quy luật) + Q10-Q106 (15→26 quy luật).
 
@@ -1883,6 +1990,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
         "127_thien_tuong_tham_moi_truong": _Q127_thien_tuong_tham_moi_truong(la_so),
         "128_thien_luong_phu_mau_am_tinh": _Q128_thien_luong_phu_mau_am_tinh(la_so),
         "131_an_tu_tham_luyen_tran": _Q131_an_tu_tham_luyen_tran(la_so),
+        # Từ vòng 27+29 thâm nhuần §5.3 Phu Thê + §5.7 Thiên Di (2026-06-08, Anh confirm 3/4)
+        "134_tu_tham_phu_the_vo_chu_so_huu": _Q134_tu_tham_phu_the_vo_nhan_vat_chinh(la_so),
+        "135_nam_tu_vi_phu_the_vo_su_nghiep": _Q135_nam_tu_vi_phu_the_vo_nen_co_su_nghiep(la_so),
+        "139_thien_di_di_xa_khong_dinh_cu": _Q139_thien_di_di_xa_khong_dinh_cu(la_so),
     }
 
     # Aggregate cảnh báo + điểm cát theo is_cat flag (cho rules có flag) hoặc semantic key
@@ -1924,7 +2035,10 @@ def chiem_phu_the_v3(la_so: dict) -> dict[str, Any]:
                 "112_thien_tuong_loc_ton_an_tam_o_nha",
                 "127_thien_tuong_tham_moi_truong",
                 "128_thien_luong_phu_mau_am_tinh",
-                "131_an_tu_tham_luyen_tran"):
+                "131_an_tu_tham_luyen_tran",
+                "134_tu_tham_phu_the_vo_chu_so_huu",
+                "135_nam_tu_vi_phu_the_vo_su_nghiep",
+                "139_thien_di_di_xa_khong_dinh_cu"):
         rule = cross[key]
         if not rule.get("detected"):
             continue
