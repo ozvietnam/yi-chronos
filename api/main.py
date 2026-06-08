@@ -7945,6 +7945,13 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         pass
     cross_ref = build_cross_reference(la_so, gender=gender, birth_year=birth_year)
 
+    # Đặc điểm BẠN ĐỜI qua sao chính diệu Phu Thê (mới 2026-06-08)
+    try:
+        from engine.tu_vi.phu_the_partner_traits import build_partner_traits
+        partner_traits = build_partner_traits(la_so, gender=gender)
+    except Exception:
+        partner_traits = None
+
     return {
         "status": "ok",
         "person_key": person.person_key,
@@ -7956,6 +7963,7 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "v3": v4_result,
         "v4": v4_result,
         "cross_reference": cross_ref,
+        "partner_traits": partner_traits,
         "la_so": la_so,  # Full chart cho UI render 12 ô đối chiếu
     }
 

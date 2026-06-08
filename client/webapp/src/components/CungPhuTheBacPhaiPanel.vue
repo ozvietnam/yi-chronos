@@ -66,6 +66,8 @@ const thayToSu = computed(() => result.value?.thay_to_su || []);
 
 // Cross-reference panel: Mệnh + Phúc Đức + Đại Vận hiện tại + Thái Dương/Thái Âm
 const crossRef = computed(() => result.value?.cross_reference || null);
+// Đặc điểm BẠN ĐỜI (vợ/chồng) — mới 2026-06-08
+const partnerTraits = computed(() => result.value?.partner_traits || null);
 
 // Full lá số 12 ô — đối chiếu với anlasotuvi.com
 const laSoFull = computed(() => result.value?.la_so || null);
@@ -311,6 +313,23 @@ function ruleColor(rule) {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Đặc điểm BẠN ĐỜI (vợ/chồng) qua sao chính diệu Phu Thê -->
+      <div v-if="partnerTraits && partnerTraits.traits?.length" class="card partner-traits-card">
+        <h3>💑 Đặc điểm {{ partnerTraits.role === 'vợ' ? 'Vợ' : 'Chồng' }} của bạn ({{ partnerTraits.tinh_he }} tại cung {{ partnerTraits.phu_the_branch }})</h3>
+        <p class="hint-note">
+          <em>{{ partnerTraits.note }}</em>
+        </p>
+        <ul class="partner-traits-list">
+          <li v-for="(t, i) in partnerTraits.traits" :key="'pt-'+i" :class="'trait-cat-' + t.category">
+            <span class="trait-cat-badge">{{ t.category.replace('_', ' ') }}</span>
+            <span class="trait-text">{{ t.trait }}</span>
+            <span v-if="t.warning" class="trait-warning">⚠ {{ t.warning }}</span>
+            <span class="trait-source">📚 {{ t.source }}</span>
+          </li>
+        </ul>
+        <p class="hint-note partner-summary">{{ partnerTraits.summary }}</p>
       </div>
 
       <!-- Engine v4: Panorama Toàn cảnh Hôn nhân (meta — đếm động) -->
@@ -1194,6 +1213,64 @@ function ruleColor(rule) {
   border-width: 2px;
 }
 .panorama-card h3 { color: var(--read-han, #d9b977); }
+
+/* Partner Traits card — đặc điểm vợ/chồng */
+.partner-traits-card {
+  background: linear-gradient(135deg, rgba(195, 100, 165, 0.10) 0%, rgba(170, 90, 145, 0.05) 100%);
+  border-color: rgba(195, 130, 175, 0.55);
+  border-width: 2px;
+}
+.partner-traits-card h3 { color: rgba(220, 165, 200, 0.95); }
+.partner-traits-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.partner-traits-list li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--read-border, rgba(201, 161, 74, 0.22));
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.trait-cat-badge {
+  display: inline-block;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(217, 185, 119, 0.18);
+  color: var(--read-han, #d9b977);
+  align-self: flex-start;
+}
+.trait-text {
+  font-size: 0.96em;
+  color: var(--read-fg, #e6dfca);
+  line-height: 1.6;
+}
+.trait-warning {
+  font-size: 0.92em;
+  color: #e8a468;
+  font-style: italic;
+  padding-left: 8px;
+  border-left: 3px solid rgba(232, 164, 104, 0.6);
+}
+.trait-source {
+  font-size: 0.78em;
+  color: var(--read-meta, rgba(230, 223, 202, 0.55));
+  font-style: italic;
+}
+.partner-summary {
+  margin-top: 14px;
+  font-weight: 600;
+}
 .panorama-score {
   display: flex;
   gap: 12px;
