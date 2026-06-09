@@ -1,0 +1,150 @@
+{
+  "brief": "data/school_art_direction/REQUEST_DOT_10_BAT_TU_FOUNDATION_ART_BRIEF.md",
+  "batch": "dot10_bat_tu_foundation",
+  "generated_at": "2026-06-09T00:00:00+07:00",
+  "status": "web_ready",
+  "qa_status": "pass",
+  "qa_note": "7/7 assets received. Visual direction matches Ba Tu: pillars, Day Master, Five Elements material language, Ten Gods relationship map, Useful God balance, Da Van flow, and Ha Lac two-hexagram layer. No asset should be displayed as a generic gallery; wire conditionally into the corresponding BatTuPanel sections.",
+  "assets": [
+    {
+      "id": "bat-tu-01-four-pillars-command-table",
+      "kind": "hero",
+      "target_ratio": "16:9",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-01-four-pillars-command-table.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-01-four-pillars-command-table.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-01-four-pillars-command-table.prompt.md",
+      "source_size": [
+        2200,
+        1238
+      ],
+      "web_size": [
+        1600,
+        900
+      ],
+      "web_bytes": 178858,
+      "web_quality": 82,
+      "target_bytes": 450000
+    },
+    {
+      "id": "bat-tu-02-day-master-forge",
+      "kind": "card",
+      "target_ratio": "4:3",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-02-day-master-forge.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-02-day-master-forge.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-02-day-master-forge.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 249712,
+      "web_quality": 82,
+      "target_bytes": 300000
+    },
+    {
+      "id": "bat-tu-03-five-elements-balance",
+      "kind": "diagram_background",
+      "target_ratio": "1:1",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-03-five-elements-balance.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-03-five-elements-balance.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-03-five-elements-balance.prompt.md",
+      "source_size": [
+        2200,
+        2200
+      ],
+      "web_size": [
+        1400,
+        1400
+      ],
+      "web_bytes": 252176,
+      "web_quality": 82,
+      "target_bytes": 300000
+    },
+    {
+      "id": "bat-tu-04-ten-gods-court",
+      "kind": "card",
+      "target_ratio": "4:3",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-04-ten-gods-court.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-04-ten-gods-court.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-04-ten-gods-court.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 259502,
+      "web_quality": 82,
+      "target_bytes": 300000
+    },
+    {
+      "id": "bat-tu-05-useful-god-remedy",
+      "kind": "card",
+      "target_ratio": "4:3",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-05-useful-god-remedy.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-05-useful-god-remedy.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-05-useful-god-remedy.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 175142,
+      "web_quality": 82,
+      "target_bytes": 300000
+    },
+    {
+      "id": "bat-tu-06-da-van-river",
+      "kind": "panoramic",
+      "target_ratio": "21:9",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-06-da-van-river.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-06-da-van-river.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-06-da-van-river.prompt.md",
+      "source_size": [
+        2200,
+        943
+      ],
+      "web_size": [
+        1600,
+        686
+      ],
+      "web_bytes": 204272,
+      "web_quality": 82,
+      "target_bytes": 450000
+    },
+    {
+      "id": "bat-tu-07-ha-lac-two-hexagrams",
+      "kind": "optional_banner",
+      "target_ratio": "16:9",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/bat_tu_dot10_foundation/source/bat-tu-07-ha-lac-two-hexagrams.png",
+      "webp": "data/school_art_direction/bat_tu_dot10_foundation/web_ready/bat-tu-07-ha-lac-two-hexagrams.webp",
+      "prompt": "data/school_art_direction/bat_tu_dot10_foundation/prompts/bat-tu-07-ha-lac-two-hexagrams.prompt.md",
+      "source_size": [
+        2200,
+        1238
+      ],
+      "web_size": [
+        1600,
+        900
+      ],
+      "web_bytes": 241848,
+      "web_quality": 82,
+      "target_bytes": 450000
+    }
+  ]
+}
