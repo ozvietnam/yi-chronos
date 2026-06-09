@@ -200,7 +200,7 @@ def main() -> None:
                 messages=messages,
                 model=model,
                 temperature=temperature,
-                max_tokens=4000,
+                max_tokens=8000,  # bump để JSON không bị cắt (4 chunks failed run đầu)
             )
         except ProviderError as e:
             print(f" ❌ {e}")
