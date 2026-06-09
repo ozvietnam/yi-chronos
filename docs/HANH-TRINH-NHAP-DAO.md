@@ -1615,8 +1615,60 @@ Em đốt token Max theo Iron Rule #2 — 5 vòng research + design + PoC — KH
 
 **Anh dừng để review trước khi sang phase scale.** Em chờ.
 
+### 2026-06-09 — MVP Phase 1 BUILD + ingest 4 worker parallel
+
+Anh quyết: "test mấy vòng rồi. giờ tới lúc vào việc xây dự án. sao lại nghỉ nhỉ?"
+
+→ Em xây 5 task MVP trong 1 phiên:
+- **A** Schema migration: 6 tables + 2 vec indexes + FTS5 triggers (`engine/atomization/schema.sql` + `migrate.py`)
+- **B** Production atomizer TWO-PASS với retry 3x, persist DB, extraction_runs log (`engine/atomization/atomizer.py`)
+- **C** Chunker (page-as-chunk mode cho MVP — 894 chunks Trung Châu Q2 chunked sạch) (`engine/atomization/chunker.py`)
+- **D** Batch ingest pipeline — 20 chunks verified scale + 4 worker parallel ingest đang chạy (~3-4h ETA)
+- **E** 5 API endpoints registered (`api/atomization.py`):
+  - POST /api/atomization/decompose — Algorithm 1
+  - GET /api/atomization/atom/search — FTS5
+  - GET /api/atomization/atom/{id} — detail
+  - GET /api/atomization/stats — DB stats
+  - POST /api/atomization/verify/{id} — founder verify
+
+**End-to-end pipeline VERIFIED working:**
+```
+Sách → chunker → chunks_v2 (894)
+     → batch_atomize → 4 parallel workers MiniMax M2
+     → chunk_classifications + atomic_questions
+     → ChunkAtomRetriever FTS5 + (vec future)
+     → KnowledgeAwareDecomposer Algo 1 wrap engine v3/v4
+     → API decompose endpoint
+```
+
+**Anh chỉ ra 2 lần em hardcode sai paradigm bottom-up:**
+1. Schema fields cứng — em sửa thành FREEFORM JSON subject_identifiers
+2. Câu hỏi mặc định cứng (6 universal Q) — em sửa thành TWO-PASS LLM (Pass 1 propose meta-question per chunk + Pass 2 atomic extract)
+
+→ Quy luật chung: ⛔ KHÔNG hardcode universal template. Mọi schema/Q EMERGE từ data, LLM hiểu rồi propose.
+
+**Số liệu cuối phiên:**
+- 894 chunks chunked
+- 20 chunks atomized = 289 atomic Q (test scale)
+- 4 workers background ingest 874 chunks còn lại, ETA 3-4h
+- 218k tokens spent (test). Full: ~9.7M tokens (MiniMax Plan đã chi)
+
+**Files MVP code mới:**
+- `engine/atomization/schema.sql` + `migrate.py` (schema)
+- `engine/atomization/atomizer.py` (TWO-PASS Atomizer class)
+- `engine/atomization/chunker.py` (LLM chunker, mode page-as-chunk)
+- `engine/atomization/batch_atomize.py` (batch runner)
+- `engine/atomization/retriever.py` (ChunkAtomRetriever 4 methods)
+- `engine/atomization/decomposer.py` (Algorithm 1 wrap engine v3/v4)
+- `api/atomization.py` (5 FastAPI endpoints)
+
+**Known issues:**
+- MiniMax intermittent empty responses (~10% rate) — decomposer retry 3x giúp
+- DeepSeek/Gemini/Anthropic keys invalid sau incident 2026-05-27 — anh rotate khi rảnh qua UI
+- Vec embedding chưa wire — FTS5 đủ MVP, add sau
+
 ### Lần update tiếp theo
-*(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
+*(Khi 4 worker ingest xong + anh verify chất lượng → Phase 2 design.)*
 
 ---
 
