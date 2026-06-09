@@ -141,14 +141,228 @@ SFT + DPO + UCB context sampling. → Decision 4 chọn làm.
 
 ---
 
-## 📚 Vòng 2 — p21-38 (PENDING)
+## 📚 Vòng 2 — p21-38 ĐÚC KẾT
 
-Sẽ đọc tiếp:
-- L3 Predictive RAG (§5.4)
-- L4 Creative RAG + multi-agent planning (§5.5)
-- Experiments + benchmarks (§6)
-- Discussion + limitations (§7)
-- Conclusion
+### Insight 8: L3 Predictive RAG (§5.4)
+3 submodule: Knowledge Structuring + Knowledge Induction + Forecasting.
+→ **Rename cho Tử Vi**: `Forecasting` → `Tendency Reading` (Iron Rule #6).
+
+### Insight 9: L4 Multi-Agent Planning (§5.5)
+Multi-agent parallel với unique reasoning strategies.
+→ Match đa trường phái yi-chronos.
+
+### Insight 10: Benchmark KẾT QUẢ (§6.2-6.3)
+
+| Dataset | PIKE-RAG (Ours) | Best Baseline | Gain |
+|---|---|---|---|
+| HotpotQA | EM 61.20 / F1 76.26 / Acc 87.60 | GraphRAG 89.00 Acc (EM=0) | EM lead +6.4 |
+| 2WikiMultiHopQA | EM 66.80 / Acc 82.00 | Self-Ask H-R 80.00 | Top mọi metric |
+| MuSiQue (hardest) | EM 46.40 / Acc 59.60 | Self-Ask R 49.80 | +9.8 Acc |
+| LawBench 1-1 | 78.58 F1 | GraphRAG 23.27 | **+55pt** |
+| Open Australian Legal QA | 98.59 Acc | GraphRAG 88.27 | +10pt |
+
+→ Legal benchmark relevant nhất với Tử Vi (domain-specific). Win mạnh = paradigm hợp.
+
+### Insight 11: Train Decomposer cải thiện 5-14pt (§6.4)
+
+| Atomic Proposer | Pre-FT | Post-FT |
+|---|---|---|
+| Llama-3.1-8B | 47.83 | 62.14 (+14.31) |
+| Qwen2.5-14B | 56.52 | 63.95 (+7.43) |
+| phi-4-14B | 60.33 | 65.76 (+5.43) |
+
+→ Xác nhận Decision 4 anh chốt — train decomposer riêng Tử Vi đáng đốt token.
+
+### Insight 12: 3 lý do PIKE-RAG win (Real Cases §6.5)
+
+1. **Multi atomic queries** thay vì single follow-up (Self-Ask fail mode)
+2. **Diverse phrasings** bridge schema gap (corpus formal vs query colloquial)
+3. **Retain entire chunk** không nén intermediate answer (giữ context)
+
+→ Áp Tử Vi:
+- User "anh giàu không" → multi atomic ("Vũ Khúc Hoá Lộc?" + "Tham Lang Hoá Lộc tài?" + "Lưu niên Lộc Tồn nhập?")
+- Corpus "Phú quý song toàn" vs query "giàu có" → atomic Q multiple Hán-Việt + Việt thuần
+- Giữ nguyên paragraph Trung Châu Q2 §X, không nén "Liêm-Thất hùng tú"
+
+### Insight 13: SFT data transformation (Algorithm 3, prompt template)
+
+```
+prompt_x:
+"...Output:
+<decompose>True/False</decompose>
+<sub-question>...</sub-question>"
+
+LoRA r=16, alpha=64, lr=1.5e-5. Single A100-80G GPU.
+```
+
+### Insight 14: Hyperparameters production
+
+- Atomizing: temperature **0.7** (diversity)
+- QA generation: temperature **0** (determinism)
+- Hierarchical KB: top-8 atomic Q (threshold 0.5) + extra 4 chunks per atomic Q
+
+---
+
+## 📚 Vòng 3 — Codebase Deep-Dive ĐÚC KẾT (5 files / 814 lines)
+
+### Insight 15: Architecture 2-Store (chunk_atom_retriever.py)
+
+**ChunkAtomRetriever** = 2 Chroma vector stores SONG SONG:
+- `_chunk_store`: lưu chunk text + metadata `atom_questions_str` (newline-separated backup)
+- `_atom_store`: lưu mỗi atomic question riêng, metadata `source_chunk_id` link về chunk
+
+**AtomRetrievalInfo dataclass** (output):
+```python
+{
+  atom_query: str,             # query của user
+  atom: str,                    # atomic Q matched
+  source_chunk_title: str,
+  source_chunk: str,            # ENTIRE chunk text, không nén
+  source_chunk_id: str,
+  retrieval_score: float,
+  atom_embedding: List[float]
+}
+```
+
+→ Match Insight 12c: retain entire chunk, không nén intermediate answer.
+
+### Insight 16: 4 Retrieval methods
+
+1. `retrieve_atom_info_through_atom(queries)` — query → atom_store → source_chunk
+2. `retrieve_atom_info_through_chunk(query)` — query → chunk_store → best-hit atom in metadata
+3. `retrieve_contents_by_query(query)` — COMBINE cả 2 paths
+4. `retrieve_contents(qa)` — wrapper
+
+→ Hybrid retrieval thông minh, không phụ thuộc 1 path.
+
+### Insight 17: Algorithm 1 impl (qa_decompose.py)
+
+**4 protocols inject**:
+- `decompose_proposal_protocol` — LLM propose atomic Q
+- `selection_protocol` — LLM select Q tốt nhất
+- `backup_selection_protocol` — fallback nếu select fail
+- `original_question_answering_protocol` — final synthesize
+
+**Loop logic** (method `answer`):
+```python
+chosen_atom_infos = []
+while len(chosen_atom_infos) < max_num_question (5):
+    # Step 1: Proposal
+    decompose, thinking, proposals = propose(question, chosen)
+    if not decompose: break
+
+    # Step 2: Retrieval (3-level fallback)
+    candidates = retrieve_atom_info_candidates(proposals, query, chosen)
+    #   a) atom_queries → atom_store
+    #   b) original query → atom_store
+    #   c) original query → chunk_store
+    if not candidates: break
+
+    # Step 3: Selection
+    selected, _, chosen_info = select_atom_question(question, candidates, chosen)
+    if selected: chosen.append(chosen_info)
+    else: break
+
+# Final
+output = answer_original_question(question, chosen)
+```
+
+**Filter dup**: drop candidates có `source_chunk_id` trùng với chunks đã chọn.
+
+### Insight 18: CommunicationProtocol pattern (protocol.py)
+
+```python
+@dataclass
+class CommunicationProtocol:
+    template: MessageTemplate       # prompt template
+    parser: BaseContentParser       # output parser
+    template_partial(**kwargs)      # partially fill placeholders
+    process_input(content, **kwargs) -> List[Dict[str, str]]   # format messages
+    parse_output(content, **kwargs) -> Any                      # decode response
+```
+
+→ Mỗi LLM step (propose/select/answer) có 1 protocol riêng. Tách rõ prompt + parser.
+
+### Insight 19: Hyperparameters default (qa_decompose.py)
+
+- `max_num_question = 5` (max sub-questions trong loop)
+- `question_similarity_threshold = 0.9` (chưa dùng)
+
+### Insight 20: Ingestion = LangChain-style (chunking.py + tagging.py)
+
+```
+Books → DocumentLoader → LLMPoweredRecursiveSplitter
+     → chunks (with summary) → pickle dump
+     → LLMPoweredTagger → atom_questions per chunk
+     → 2 Chroma stores
+```
+
+Workflow class wraps YAML config → init LLM client (with sqlite cache) → init splitter/tagger with 3-4 protocols → run.
+
+---
+
+## 🏗 ARCHITECTURE TỔNG (sau khi đọc cả paper + code)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  INGESTION (offline, run 1 lần cho mỗi sách)                 │
+│                                                              │
+│  Books → DocumentLoader → LLMPoweredRecursiveSplitter        │
+│       → chunks {text, summary, atom_questions_str}           │
+│       → LLMPoweredTagger → tags                              │
+│       → chunk_store (Chroma) + atom_store (Chroma)           │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│  REASONING (online, mỗi user query)                          │
+│                                                              │
+│  User query                                                  │
+│      ↓                                                       │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │ QaDecompositionWorkflow (Algorithm 1)               │    │
+│  │                                                      │    │
+│  │  while len(chosen) < 5:                              │    │
+│  │    1. Proposal protocol → atomic Qs                  │    │
+│  │    2. ChunkAtomRetriever 3-level                     │    │
+│  │       a) atomic Q → atom_store                       │    │
+│  │       b) original Q → atom_store (fallback)          │    │
+│  │       c) original Q → chunk_store (fallback)         │    │
+│  │    3. Selection protocol → pick 1 useful             │    │
+│  │       drop dup source_chunk_id                       │    │
+│  │                                                      │    │
+│  │  Answer protocol → final synthesis                   │    │
+│  └─────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🗺 GAP ANALYSIS yi-chronos vs PIKE-RAG
+
+| PIKE-RAG component | yi-chronos đã có | Cần build mới |
+|---|---|---|
+| Chroma `_chunk_store` | SQLite `passages` + sqlite-vec | ✅ có |
+| Chroma `_atom_store` | ❌ | **Build bảng `atomic_questions`** |
+| `source_chunk_id` link | ❌ | FK trong atomic_questions |
+| LLMPoweredRecursiveSplitter (chunking + forward-summary) | MarkItDown chia trang | **Build LLM chunker mới** |
+| LLMPoweredTagger (atomic Q gen) | ❌ | **Build atomic Q generator** |
+| QaDecompositionWorkflow (Algorithm 1) | engine v3/v4 47 rules thủ công | **Build orchestrator wrap engine cũ** |
+| CommunicationProtocol pattern | api/main.py prompts ad-hoc | **Refactor thành protocol classes** |
+| LLM client + cache | ai_keys.json + 8 providers | ✅ có |
+| Cosine similarity | sqlite-vec | ✅ có |
+
+**5 gap chính**: atomic Q store + chunker + tagger + Algo 1 wrapper + protocol classes.
+
+---
+
+## 📝 DECISIONS UPDATED sau vòng 3
+
+(Chưa đổi gì so với vòng 1+2, chỉ confirm thêm chi tiết)
+
+- **Decision 1 paradigm**: confirm Question-as-Index khớp `_atom_store` model
+- **Decision 2 chunking**: confirm cần LLMPoweredRecursiveSplitter equivalent
+- **Decision 3 wrap v3/v4**: rõ cách wrap — QaDecompositionWorkflow là class wrapper, gọi `_retriever` (engine v3/v4) làm 1 trong các path retrieval
+- **Decision 4 train decomposer**: rõ data structure cần collect — `(question, [sub-Q + answer per step], final_answer, score)`
 
 ---
 
