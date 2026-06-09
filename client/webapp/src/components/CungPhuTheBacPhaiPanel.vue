@@ -140,6 +140,44 @@ function isCurrentDv(dv) {
   return cur && cur.start_age === dv.start_age && cur.end_age === dv.end_age;
 }
 
+// Parse paradigm string thành { headline, body, citations }
+// Headline = ngắn gọn (~120 chars), Body = giải thích chi tiết, Citations = trích nguồn sách
+function parseParadigm(text) {
+  if (!text || typeof text !== "string") return { headline: "", body: "", citations: [] };
+  const raw = text.trim();
+  // Extract citations dạng (sách Trung Châu Q2 p<số> §<số>...) hoặc (Q2 §...)
+  const citationRegex = /\((?:sách\s+)?(?:Trung Châu\s+)?Q\d[^)]*?p\d+[^)]*?\)|\((?:sách\s+)?Trung Châu[^)]*?§[\d.]+[^)]*?\)|\(p\d+[^)]*?\)|\(founder confirm[^)]*?\)/gi;
+  const citations = [];
+  let cleaned = raw.replace(citationRegex, (m) => {
+    citations.push(m.replace(/^\(|\)$/g, "").trim());
+    return "⟦CITE⟧";
+  });
+  // Tách phần "Refined" / "Paradigm:" / "Bổ sung Q" thành body
+  // Mọi thứ trước "⟦CITE⟧" đầu tiên hoặc trước câu thứ 2 = headline
+  cleaned = cleaned.replace(/⟦CITE⟧/g, "").trim();
+  // Split câu đầu tiên (chấm hoặc → hoặc ; phân cách)
+  const firstSep = cleaned.search(/(?<=[\w'"])(?:\.\s+(?:[A-ZĐÊÂÔƠÚÝÍ]|\*\*)|;\s+)/);
+  let headline = cleaned;
+  let body = "";
+  if (firstSep > 0 && firstSep < 200) {
+    headline = cleaned.slice(0, firstSep + 1).trim();
+    body = cleaned.slice(firstSep + 1).trim();
+  } else if (cleaned.length > 180) {
+    // Fallback: cắt tại 160 chars + giữ ranh giới từ
+    const cutAt = cleaned.lastIndexOf(" ", 180);
+    headline = cleaned.slice(0, cutAt > 80 ? cutAt : 180).trim() + "…";
+    body = cleaned.slice(cutAt > 80 ? cutAt : 180).trim();
+  }
+  return { headline, body, citations, raw };
+}
+
+// Lấy icon đầu paradigm (emoji)
+function paradigmIcon(text, kind) {
+  if (!text) return kind === "cat" ? "✓" : "⚠";
+  const match = text.match(/^([\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}✅⚠✓⭐🌓🕉💫⚖🚶👫💼🌸🎭🏥🌏🧠📜💬💰🕯👤🎂])/u);
+  return match ? match[1] : (kind === "cat" ? "✓" : "⚠");
+}
+
 function ruleColor(rule) {
   if (!rule || !rule.detected) return "muted";
   if (rule.is_cat === true) return "success";
@@ -394,17 +432,51 @@ function ruleColor(rule) {
           📊 {{ v3CrossBind.summary }}
         </div>
 
-        <div v-if="v3CrossBind.canh_bao_cross?.length" class="alert warning">
-          <strong>⚠ Cảnh báo cross-bind:</strong>
-          <ul>
-            <li v-for="(c, i) in v3CrossBind.canh_bao_cross" :key="i">{{ c }}</li>
-          </ul>
-        </div>
-        <div v-if="v3CrossBind.diem_cat_cross?.length" class="alert success">
-          <strong>✅ Điểm cát cross-bind:</strong>
-          <ul>
-            <li v-for="(c, i) in v3CrossBind.diem_cat_cross" :key="i">{{ c }}</li>
-          </ul>
+        <!-- Cảnh báo + Điểm cát — giao diện mới: card đẹp, headline rõ, citation collapse -->
+        <div v-if="v3CrossBind.diem_cat_cross?.length || v3CrossBind.canh_bao_cross?.length" class="paradigm-results">
+          <div v-if="v3CrossBind.diem_cat_cross?.length" class="paradigm-section section-cat">
+            <h4 class="paradigm-heading">
+              <span class="paradigm-count">{{ v3CrossBind.diem_cat_cross.length }}</span>
+              <span class="paradigm-label">✨ Điểm cát — thuận lợi</span>
+            </h4>
+            <ul class="paradigm-cards">
+              <li v-for="(c, i) in v3CrossBind.diem_cat_cross" :key="'cat-'+i" class="paradigm-card cat">
+                <div class="card-head">
+                  <span class="card-icon">{{ paradigmIcon(c, 'cat') }}</span>
+                  <span class="card-headline">{{ parseParadigm(c).headline }}</span>
+                </div>
+                <details v-if="parseParadigm(c).body || parseParadigm(c).citations.length" class="card-detail">
+                  <summary>Xem giải thích & trích dẫn</summary>
+                  <p v-if="parseParadigm(c).body" class="detail-body">{{ parseParadigm(c).body }}</p>
+                  <div v-if="parseParadigm(c).citations.length" class="detail-cites">
+                    <span v-for="(cit, j) in parseParadigm(c).citations" :key="j" class="citation-chip">📚 {{ cit }}</span>
+                  </div>
+                </details>
+              </li>
+            </ul>
+          </div>
+
+          <div v-if="v3CrossBind.canh_bao_cross?.length" class="paradigm-section section-hung">
+            <h4 class="paradigm-heading">
+              <span class="paradigm-count">{{ v3CrossBind.canh_bao_cross.length }}</span>
+              <span class="paradigm-label">⚠ Cảnh báo — cần chú ý</span>
+            </h4>
+            <ul class="paradigm-cards">
+              <li v-for="(c, i) in v3CrossBind.canh_bao_cross" :key="'hung-'+i" class="paradigm-card hung">
+                <div class="card-head">
+                  <span class="card-icon">{{ paradigmIcon(c, 'hung') }}</span>
+                  <span class="card-headline">{{ parseParadigm(c).headline }}</span>
+                </div>
+                <details v-if="parseParadigm(c).body || parseParadigm(c).citations.length" class="card-detail">
+                  <summary>Xem giải thích & trích dẫn</summary>
+                  <p v-if="parseParadigm(c).body" class="detail-body">{{ parseParadigm(c).body }}</p>
+                  <div v-if="parseParadigm(c).citations.length" class="detail-cites">
+                    <span v-for="(cit, j) in parseParadigm(c).citations" :key="j" class="citation-chip">📚 {{ cit }}</span>
+                  </div>
+                </details>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <details v-if="v3Rules" class="v3-details">
@@ -1213,6 +1285,143 @@ function ruleColor(rule) {
   border-width: 2px;
 }
 .panorama-card h3 { color: var(--read-han, #d9b977); }
+
+/* ═══════════════════════════════════════════════════
+ * Paradigm Results — Cảnh báo + Điểm cát giao diện mới
+ * ═══════════════════════════════════════════════════ */
+.paradigm-results {
+  margin: 18px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.paradigm-section {
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--read-border, rgba(201, 161, 74, 0.18));
+}
+.section-cat {
+  background: linear-gradient(180deg, rgba(96, 195, 130, 0.08) 0%, rgba(96, 195, 130, 0.02) 100%);
+  border-color: rgba(96, 195, 130, 0.32);
+}
+.section-hung {
+  background: linear-gradient(180deg, rgba(232, 164, 104, 0.08) 0%, rgba(232, 164, 104, 0.02) 100%);
+  border-color: rgba(232, 164, 104, 0.32);
+}
+.paradigm-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-size: 1.02em;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.section-cat .paradigm-heading { color: rgba(150, 220, 175, 0.95); }
+.section-hung .paradigm-heading { color: rgba(232, 180, 130, 0.95); }
+.paradigm-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 14px;
+  font-size: 0.92em;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--read-fg, #e6dfca);
+}
+.section-cat .paradigm-count { background: rgba(96, 195, 130, 0.22); color: #d6f3e1; }
+.section-hung .paradigm-count { background: rgba(232, 164, 104, 0.22); color: #fadcc0; }
+.paradigm-label { flex: 1; }
+
+.paradigm-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.paradigm-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--read-border, rgba(201, 161, 74, 0.16));
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.paradigm-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201, 161, 74, 0.32);
+}
+.paradigm-card.cat { border-left: 3px solid rgba(96, 195, 130, 0.55); }
+.paradigm-card.hung { border-left: 3px solid rgba(232, 164, 104, 0.55); }
+
+.card-head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.card-icon {
+  font-size: 1.18em;
+  line-height: 1.3;
+  min-width: 22px;
+}
+.card-headline {
+  flex: 1;
+  font-size: 0.99em;
+  line-height: 1.55;
+  color: var(--read-fg, #e6dfca);
+}
+
+.card-detail {
+  margin-top: 10px;
+  border-top: 1px dashed var(--read-border, rgba(201, 161, 74, 0.14));
+  padding-top: 8px;
+}
+.card-detail summary {
+  cursor: pointer;
+  color: var(--read-meta, rgba(230, 223, 202, 0.7));
+  font-size: 0.86em;
+  font-style: italic;
+  user-select: none;
+  outline: none;
+  padding: 2px 0;
+}
+.card-detail summary:hover {
+  color: var(--read-han, #d9b977);
+}
+.card-detail[open] summary {
+  margin-bottom: 8px;
+  color: var(--read-han, #d9b977);
+}
+.detail-body {
+  margin: 8px 0 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 6px;
+  font-size: 0.92em;
+  line-height: 1.6;
+  color: rgba(230, 223, 202, 0.88);
+}
+.detail-cites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.citation-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(217, 185, 119, 0.14);
+  border: 1px solid rgba(217, 185, 119, 0.32);
+  border-radius: 12px;
+  font-size: 0.82em;
+  color: var(--read-han, #d9b977);
+  font-style: italic;
+}
 
 /* Partner Traits card — đặc điểm vợ/chồng */
 .partner-traits-card {
