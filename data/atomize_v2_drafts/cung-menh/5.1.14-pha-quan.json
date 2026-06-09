@@ -1,0 +1,475 @@
+{
+  "section_id": "5.1.14",
+  "section_title": "Phá Quân ở cung Mệnh (Thân)",
+  "pages": [547, 548, 549],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.14-Q01",
+      "question": "Phá Quân thủ Mệnh gặp sao Lộc có tác dụng gì?",
+      "answer_atom": "Phá Quân rất ưa gặp sao Lộc — coi như có gốc rễ. Sao Lộc tiêu trừ được khuyết điểm hao tổn, phá tán của Phá Quân, đồng thời làm tăng năng lực sáng tạo.",
+      "source_quote": "Phá Quân có sao Lộc rất tốt, là có gốc rễ. Có thể tiêu trừ khuyết điểm hao tổn, phá tán của Phá Quân, làm tăng năng lực sáng tạo.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:menh", "lộc_tồn", "hóa_lộc", "phá_tán", "sáng_tạo"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân vốn chủ phá hoại, hao tán — gặp Lộc thì có gốc, biến phá thành xây.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q02",
+      "question": "Phá Quân Hóa Quyền ở Dần (hoặc Thân) có Lộc Tồn đồng độ/vây chiếu thì sao?",
+      "answer_atom": "Phá Quân Hóa Quyền ở cung Dần có Lộc Tồn đồng độ cũng cát, có điều tuy phú quý nhưng đời người ắt có khiếm khuyết — ví dụ bản thân sức khỏe không tốt. Phá Quân Hóa Quyền ở cung Thân có Lộc Tồn vây chiếu cũng cùng tình huống.",
+      "source_quote": "Phá Quân Hóa Quyền ở cung Dần, có Lộc Tồn đồng độ cũng cát, có điểu, tuy phú quý nhưng đời người ắt sẽ có khiếm khuyết. Ví dụ như bản thân sức khỏe không tốt... Phá Quân Hóa Quyền ở cung Thân, có Lộc Tồn vây chiếu, cũng có cùng tình huống.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "hóa_quyền", "lộc_tồn", "palace:dần", "palace:thân", "khiếm_khuyết", "sức_khỏe"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hóa Quyền + Lộc Tồn → phú quý nhưng đổi lại có khiếm khuyết (thường về sức khỏe).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q03",
+      "question": "Phá Quân gặp Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt thì nghiệp gì, phú hay quý?",
+      "answer_atom": "Phá Quân gặp Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt thì chủ về phú quý, nhưng quý lớn hơn phú — tức tiền bạc nhờ địa vị mà có.",
+      "source_quote": "Phá Quân gặp Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt, chủ về phú quý, nhưng quý lớn hơn phú, tức tiền bạc nhờ địa vị mà có.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "tả_phụ", "hữu_bật", "thiên_khôi", "thiên_việt", "phú_quý", "địa_vị"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cát phụ tinh hội thì quý trước — có địa vị rồi tiền theo sau.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q04",
+      "question": "Phá Quân hội cát phụ tinh nhưng có Tứ Sát lẫn vào thì hợp ngành gì?",
+      "answer_atom": "Nếu có Tứ Sát tinh lẫn lộn trong tổ hợp Phá Quân với Tả Hữu Khôi Việt, thì thích hợp làm việc trong ngành công thương nghiệp.",
+      "source_quote": "Nhưng nếu có Tứ Sát tinh lẫn lộn trong đó, thì thích hợp làm việc trong ngành công thương nghiệp;",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "tứ_sát", "công_thương_nghiệp", "nghề_nghiệp"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Có sát thì hướng nghề thương — không thuần chính trị/quan trường.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q05",
+      "question": "Phá Quân gặp Văn Xương, Văn Khúc có sát tinh thì là người thế nào?",
+      "answer_atom": "Phá Quân gặp Văn Xương, Văn Khúc mà có sát tinh — người này là hàn sĩ mang tâm trạng có tài mà không gặp thời.",
+      "source_quote": "nếu gặp Văn Xương, Văn Khúc mà có sát tinh, người này là hàn sĩ mang tâm trạng có tài mà không gặp thời.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "văn_xương", "văn_khúc", "sát_tinh", "hàn_sĩ", "có_tài_không_gặp_thời"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Văn tinh + sát + Phá Quân → trí thức nghèo, uất ức không thi triển.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q06",
+      "question": "Phá Quân khi sát tinh nặng, cát tinh nhẹ thì nên theo nghề gì?",
+      "answer_atom": "Nếu Phá Quân gặp sát tinh nặng mà cát tinh nhẹ, thì nên theo ngành công nghệ, hoặc làm công nhân chuyên nghiệp.",
+      "source_quote": "Nếu gặp sát tinh nặng mà cát tinh nhẹ, thì nên theo ngành công nghệ, hoặc làm công nhân chuyên nghiệp.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "sát_nặng_cát_nhẹ", "công_nghệ", "công_nhân_chuyên_nghiệp", "nghề_nghiệp"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khi cán cân nghiêng về sát thì làm nghề kỹ thuật, lao động chuyên môn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q07",
+      "question": "Phá Quân ở Hợi, Tý, Sửu kỵ gặp sao nào, đặc biệt là biến hóa nào?",
+      "answer_atom": "Phá Quân ở ba cung Hợi, Tý, Sửu đều không nên có Văn Khúc đồng độ, ngại nhất là Văn Khúc Hóa Kỵ — chủ về tuổi trẻ rời xa quê hương, hoặc bị tàn tật, hoặc gặp trắc trở nghiêm trọng. Cổ nhân nói: 'Cùng với Văn Khúc vào thủy vực, thì tàn tật rời xa quê hương.' (Dữ Văn Khúc nhập thủy vực, tàn tật lí hương.) 'Thủy vực' là chỉ ba cung Hợi, Tý, Sửu thuộc hành Thủy.",
+      "source_quote": "Phá Quân ở ba cung Hợi, Tí, Sửu, đều không nên có Văn Khúc đồng độ, ngại nhất là Văn Khúc Hóa Kỵ, chủ về tuổi trẻ rời xa quê hương, hoặc bị tàn tật, hoặc gặp trắc trở nghiêm trọng. Cổ nhân nói: \"Cùng với Văn Khúc vào thủy vực, thì tàn tật rời xa, quê hương.\" (Dữ Văn Khúc nhập thủy vực, tàn tật lí hương.), là nói lý luận này. \"Thủy vực\" là nói ba cung, Hợi, Tí, Sửu, thuộc hành Thủy.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "văn_khúc", "hóa_kỵ", "palace:hợi", "palace:tý", "palace:sửu", "thủy_vực", "tàn_tật", "ly_hương", "cổ_quyết"],
+      "commentary": {
+        "han_viet_explain": "Dữ Văn Khúc nhập thủy vực, tàn tật lí hương = Cùng Văn Khúc nhập vào miền thủy (Hợi-Tý-Sửu), thì tàn tật và xa quê.",
+        "viet_thuan": "Phá Quân + Văn Khúc (đặc biệt Hóa Kỵ) ở 3 cung Thủy → ly hương sớm, tàn tật, trắc trở nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q08",
+      "question": "Phá Quân sợ Kình-Đà hay sợ Hỏa-Linh hơn, hậu quả khác nhau thế nào?",
+      "answer_atom": "Phá Quân sợ Kình Dương, Đà La hơn là sợ Hỏa Tinh, Linh Tinh. Gặp Hỏa Tinh, Linh Tinh chỉ chủ về vất vả, bôn ba mà thôi; gặp Kình Dương, Đà La thì có họa tai, cũng chủ về cuối mang tật, hoặc nhiễm thú vui không lành mạnh.",
+      "source_quote": "Phá Quân sợ Kình Dương, Đà La hơn là sợ Hỏa Tinh, Linh Tinh. Gặp Hỏa Tinh, Linh Tinh chỉ chủ về vất vả, bôn ba mà thôi; gặp Kình Dương, Đà La thì có họa tai, cũng chủ về cuối mang tật, hoặc nhiễm thú vui không lành mạnh.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "kình_dương", "đà_la", "hỏa_tinh", "linh_tinh", "họa_tai", "mang_tật", "thú_vui_xấu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hỏa-Linh → bôn ba khổ sức; Kình-Đà → tai họa, bệnh tật cuối đời, dễ nhiễm xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q09",
+      "question": "Tính chất 'thừa kế cái cũ mà đổi mới' của Phá Quân biểu hiện thế nào về nghề nghiệp, và Hóa Lộc thêm gì?",
+      "answer_atom": "Phá Quân có đặc tính thừa kế cái cũ mà đổi mới, cho nên phần nhiều đều làm kiêm nhiều nghề, hay kiêm nhiều chức vụ khác nhau. Hóa Lộc sẽ chủ về nhờ sự nghiệp cũ mà có sự nghiệp mới, mà còn đồng thời kinh doanh cả hai, mới lẫn cũ.",
+      "source_quote": "Phá Quân có đặc tính thừa kế cái cũ mà đổi mới. Cho nên phần nhiều đều làm kiêm nhiều nghề, hay kiêm nhiều chức vụ khác nhau. Hóa Lộc sẽ chủ về nhờ sự nghiệp cũ mà có sự nghiệp mới, mà còn đồng thời kinh doanh cả hai, mới lẫn cũ.",
+      "source_page": 547,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "hóa_lộc", "kiêm_nghề", "thừa_kế_đổi_mới", "sự_nghiệp"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân = phá cũ dựng mới — thường kiêm nhiệm; Hóa Lộc giúp duy trì cả mới và cũ song song.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q10",
+      "question": "Lực phá hoại của Phá Quân khác với Thất Sát thế nào?",
+      "answer_atom": "Lực phá hoại của Phá Quân tuy lớn nhưng khác Thất Sát. Phá Quân chủ về xảy ra thay đổi lập tức, biểu hiện chủ yếu là 'thà là ngọc nát, chứ không chịu là gạch ngói nguyên vẹn', cho nên có tính chất hao tán. Nếu đồng độ với Kình Dương — tức là 'hình hao' — thường thường làm mạnh thêm ý vị 'thà là ngọc nát'.",
+      "source_quote": "Lực phá hoại của Phá Quân tuy lớn, nhưng lại khác với Thất Sát. Lực phá hoại của Phá Quân chủ về xảy ra thay đổi lập tức, biểu hiện chủ yếu là \"thà là ngọc nát, chứ không chịu là gạch ngói nguyên vẹn\", cho nên có tính chất hao tán. Nếu đồng độ với Kình Dương, tức là \"hình hao\", thường thường làm mạnh thêm ý vị \"thà là ngọc nát\".",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "star:thất_sát", "kình_dương", "hình_hao", "ngọc_nát_gạch_ngói", "hao_tán", "đặc_tính"],
+      "commentary": {
+        "han_viet_explain": "Thà ngọc nát chứ không làm ngói lành = thà gãy chứ không cong, thà chết vinh hơn sống nhục.",
+        "viet_thuan": "Phá Quân = thay đổi chớp nhoáng + hao tán; gặp Kình Dương ('hình hao') càng quyết liệt 'thà nát'.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q11",
+      "question": "Phá Quân đồng độ/vây chiếu Tử Vi có quyền gì? Khác quyền 'Tử Vi - Thất Sát' ra sao?",
+      "answer_atom": "Phá Quân ưa đồng độ với Tử Vi, hoặc có Tử Vi vây chiếu, chủ về có quyền. Nhưng khác quyền 'Tử Vi - Thất Sát': quyền của 'Tử Vi - Phá Quân' là ở phương diện lớn, mở rộng; còn quyền 'Tử Vi - Thất Sát' chỉ thuộc phạm vi nhỏ, nội bộ, như quản đốc công xưởng. Một công, một tư, một lớn, một nhỏ — cần phân biệt tỉ mỉ.",
+      "source_quote": "Phá Quân cũng ưa đồng độ với Tử Vi, hoặc có Tử Vi vây chiếu, chủ về có quyển. Nhưng khác quyển của \"Tử Vi, Thất Sát\". Quyển của \"Tử Vi, Phá Quân\" là ở phương diện lớn, mở rộng; còn quyển của \"Tử Vi, Thất Sát\" chỉ thuộc phạm vi nhỏ, nội bộ, như quản đốc công xưởng. Một công, một tư, một lớn, một nhỏ; cần phân biệt tỉ mỉ.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "tử_vi", "thất_sát", "quyền", "tử_phá", "tử_sát", "phân_biệt"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử-Phá = quyền lớn-công-mở rộng; Tử-Sát = quyền nhỏ-tư-nội bộ (giống quản đốc).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q12",
+      "question": "Phá Quân ở Mệnh/Thân dù gặp cát tinh thì vẫn không toàn mỹ — biểu hiện ra sao?",
+      "answer_atom": "Hễ Phá Quân ở cung Mệnh hay cung Thân, bất kể cát tinh hội hợp như thế nào, ắt cũng không toàn mỹ. Phú thì không quý, hoặc quý thì không phú; hoặc vợ (chồng) bất toàn; hoặc mắc bệnh mãn tính, phá tướng.",
+      "source_quote": "Hễ Phá Quân ở cung Mệnh hay cung Thân, bất kể cát tinh hội hợp như thế nào, ắt cũng không toàn mỹ. Phú thì không quý, hoặc quý thì phú; hoặc vợ (chồng) bất toàn; hoặc mắc bệnh mãn tính, phá tướng.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:menh", "palace:than", "không_toàn_mỹ", "phú_quý_lệch", "phối_ngẫu_bất_toàn", "bệnh_mãn_tính", "phá_tướng"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân ở Mệnh-Thân luôn có 1 mảng khuyết: hoặc phú-quý lệch, hoặc hôn nhân khuyết, hoặc bệnh kinh niên, hoặc phá tướng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q13",
+      "question": "Phá Quân Hóa Lộc gặp sát-hình thì biểu hiện gì với nam và nữ?",
+      "answer_atom": "Phá Quân Hóa Lộc mà gặp các sao sát, hình: nữ mệnh chủ về giải phẫu thẩm mỹ; nam mệnh chủ về bị tổn thương làm phá tướng phải giải phẫu thẩm mỹ.",
+      "source_quote": "Phá Quân Hóa Lộc mà gặp các sao sát, hình; nữ mệnh chủ về giải phẫu thẩm mĩ, nam mệnh chủ về bị tổn thương làm phá tướng phải giải phẫu thẩm mĩ.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "hóa_lộc", "sát_hình", "giải_phẫu_thẩm_mỹ", "phá_tướng", "nam_nữ"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hóa Lộc + sát-hình → nữ chủ động đi thẩm mỹ; nam bị thương phá tướng rồi mới thẩm mỹ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q14",
+      "question": "Phá Quân thủ Mệnh khởi nghiệp thế nào? Khác Thiên Đồng ở điểm nào?",
+      "answer_atom": "Phá Quân thủ Mệnh chủ về tay trắng lập nên sự nghiệp. Nhưng khác với Thiên Đồng là phá sạch tổ nghiệp rồi mới lập nên sự nghiệp — Phá Quân có thể nhờ sự che chở, giúp đỡ của cha mẹ, rồi tự khai sáng, cải cách mà tạo sự nghiệp.",
+      "source_quote": "Phá Quân thủ Mệnh, chủ về tay trắng lập nên sự nghiệp. Nhưng khác với Thiên Đồng là phá sạch tổ nghiệp rồi mới lập nên sự nghiệp. Phá Quân có thể nhờ sự che chở, giúp đỡ của cha mẹ, rồi tự khai sáng, cải cách mà tạo sự nghiệp.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "star:thiên_đồng", "tay_trắng_lập_nghiệp", "tổ_nghiệp", "cha_mẹ", "khai_sáng_cải_cách"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Đồng = phá sạch tổ nghiệp xong mới làm lại; Phá Quân = vẫn nhận đỡ từ cha mẹ rồi cải cách dựng nghiệp riêng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q15",
+      "question": "Vì sao khi xét Phá Quân thủ Mệnh phải coi trọng cung Thiên Di?",
+      "answer_atom": "Phá Quân ắt sẽ đối nhau với Thiên Tướng. Thiên Tướng ngoài bị ảnh hưởng Tả Phụ-Hữu Bật giáp cung, còn bị Phá Quân ảnh hưởng khá lớn. Do người Phá Quân thủ Mệnh phần nhiều rời xa quê hương, vì vậy cát hung của Phá Quân có thể ảnh hưởng đến cát hung của Thiên Tướng ở cung Thiên Di. Mức độ chịu ảnh hưởng của Thiên Tướng quan hệ rất lớn đến đời người, cho nên không thể xem thường cung Thiên Di.",
+      "source_quote": "Phá Quân ắt sẽ đối nhau với Thiên Tướng. Thiên Tướng ngoại trừ bị ảnh hưởng của các sao Tả Phụ, Hữu Bật giáp cung ra, còn bị ảnh hưởng của Phá Quân cũng khá lớn. Do người Phá Quân thủ Mệnh phần nhiều đều rời xa quê hương, vì vậy cát hung của Phá Quân có thể ảnh hưởng đến cát hung của Thiên Tướng ở cung Thiên Di. Mức độ chịu ảnh hưởng của Thiên Tướng cũng quan hệ rất lớn đến đời người, cho nên không thể xem thường cung Thiên Di.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "star:thiên_tướng", "đối_cung", "palace:thiên_di", "ly_hương", "tả_phụ_hữu_bật_giáp"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân-Mệnh luôn ly hương → Thiên Tướng ở Thiên Di gánh nặng — phải coi trọng Thiên Di ngang Mệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q16",
+      "question": "Phá Quân ở Tý/Ngọ, đối cung là gì, và khi nào thành cách bại?",
+      "answer_atom": "Phá Quân ở hai cung Tý hoặc Ngọ thì đối cung là 'Liêm Trinh, Thiên Tướng'. Liêm Trinh có thể hòa với khí của Phá Quân, vì vậy nếu được cát hóa và có sao cát thì có thể phú quý. Nhưng nếu Liêm Trinh Hóa Kỵ, hoặc Thiên Tướng bị 'Hình kỵ giáp ấn', thì thành bại cục. Phá Quân có Kình Dương đồng cung, hội Thiên Mã mà không có lộc, cũng là bại cục.",
+      "source_quote": "Phá Quân ở hai cung Tý hoặc Ngọ, đối cung là \"Liêm Trinh, Thiên Tướng\", Liêm Trinh có thể hòa với khí của Phá Quân, vì vậy nếu được cát hóa và có sao cát thì có thể phú quý. Có điều, nếu Liêm Trinh Hóa Kỵ, hoặc Thiên Tướng bị \"Hình kị giáp ấn\", thì thành bại cục. Phá Quân có Kình Dương đồng cung, hội Thiên Mã mà không có lộc, cũng là bại cục.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:tý", "palace:ngọ", "liêm_trinh", "thiên_tướng", "hóa_kỵ", "hình_kỵ_giáp_ấn", "kình_dương", "thiên_mã", "bại_cục"],
+      "commentary": {
+        "han_viet_explain": "Hình kỵ giáp ấn = Thiên Hình + Hóa Kỵ kẹp hai bên Thiên Tướng (ấn tinh) → cách hung.",
+        "viet_thuan": "Phá Quân Tý-Ngọ đối Liêm-Tướng: cát hóa thì phú quý; nhưng Liêm Hóa Kỵ / Thiên Tướng bị Hình-Kỵ giáp / Kình + Mã thiếu Lộc → bại cục.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q17",
+      "question": "Cách 'Anh tinh nhập miếu' là gì? Nó nói lên điều gì xưa và nay?",
+      "answer_atom": "Phá Quân ở hai cung Tý hoặc Ngọ, được cát hóa, gọi là cách 'Anh tinh nhập miếu'. Tốt nhất là đối cung Thiên Tướng gặp sao Lộc — thời cổ đại chủ về lập công ở biên cương, hoặc là trọng thần quân (chính). Ở thời hiện đại thì chủ về đột nhiên hưng phát sự nghiệp, cho nên cũng có thể thành nhân tài lãnh đạo công ty.",
+      "source_quote": "Phá Quân ở hai cung Tý hoặc Ngọ, được cát hóa, gọi là cách \"Anh tinh nhập miếu\". Rất ra đối cung là Thiên Tướng gặp sao lộc, ở thời cổ đại chủ về lập công ở biên cương, hoặc là trọng thần quân. [p549] Ở thời hiện đại thì chủ về đột nhiên hưng phát sự nghiệp, cho nên cũng có thể thành nhân tài lãnh đạo công ty.",
+      "source_page": 548,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "anh_tinh_nhập_miếu", "palace:tý", "palace:ngọ", "cát_hóa", "thiên_tướng_lộc", "biên_cương", "lãnh_đạo_công_ty", "cách_cục"],
+      "commentary": {
+        "han_viet_explain": "Anh tinh nhập miếu = sao kiệt xuất vào miếu vượng — Phá Quân Tý/Ngọ được cát hóa.",
+        "viet_thuan": "Phá Quân Tý-Ngọ + cát hóa + Thiên Tướng đối có Lộc = Anh tinh nhập miếu; xưa lập công biên cương, nay làm thủ lĩnh doanh nghiệp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q18",
+      "question": "Cách 'Anh tinh nhập miếu' phát ở vận nào, kỵ vận nào?",
+      "answer_atom": "Cách cục 'Anh tinh nhập miếu' bắt đầu phát đạt ở vận Thái Âm hoặc vận Thiên Đồng; nhưng không nên đến lưu niên Phá Quân, cũng không ưa đến cung hạn Vũ Khúc Hóa Kỵ, hoặc Liêm Trinh Hóa Kỵ. Cung hạn chỉ hơi có chút sát tinh thì không toàn mỹ — vì vậy nên xem xét kỹ những khiếm khuyết ở 12 cung.",
+      "source_quote": "Cách cục \"Anh Tỉnh nhập miếu\" bắt đầu phát đạt ở vận Thái Âm hoặc vận Thiên Đồng; nhưng không nên đến lưu niên Phá Quân, cũng không ưa đến cung hạn Vũ Khúc Hóa Kỵ, hoặc Liêm Trinh Hóa Kỵ. Cung hạn chỉ hơi có chút sát tinh, thì không toàn mỹ. Vì vậy nên xem xét kỹ những khiếm khuyết ở 12 cung.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["anh_tinh_nhập_miếu", "đại_vận", "lưu_niên", "thái_âm", "thiên_đồng", "vũ_khúc_hóa_kỵ", "liêm_trinh_hóa_kỵ", "12_cung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Anh tinh nhập miếu phát ở vận Thái Âm/Thiên Đồng; kỵ lưu niên Phá Quân và cung hạn Vũ-Kỵ/Liêm-Kỵ; cát mấy cũng phải quét 12 cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q19",
+      "question": "Phá Quân ở Tý/Ngọ KHÔNG thành cách 'Anh tinh nhập miếu' thì sao?",
+      "answer_atom": "Phá Quân ở hai cung Tý hoặc Ngọ mà không thành cách 'Anh tinh nhập miếu' thì không có duyên với lục thân, việc gì cũng phải đích thân làm, mà còn dễ mắc bệnh.",
+      "source_quote": "Phá Quân ở hai cung Tý hoặc Ngọ mà không thành cách \"Anh Tỉnh nhập miếu\" thì không có duyên với lục thân, việc gì cũng phải đích thân làm, mà còn dễ mắc bệnh.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:tý", "palace:ngọ", "không_anh_tinh_nhập_miếu", "lục_thân", "tự_thân", "mắc_bệnh"],
+      "commentary": {
+        "han_viet_explain": "Lục thân = sáu loại thân quyến (cha-mẹ-anh-em-vợ-con).",
+        "viet_thuan": "Phá Quân Tý/Ngọ không đủ cát hóa thì mất duyên ruột thịt, việc gì cũng phải tự làm, dễ bệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q20",
+      "question": "Phá Quân ở Tý/Ngọ — đại vận và lưu niên nào là then chốt?",
+      "answer_atom": "Đối với Phá Quân ở hai cung Tý hoặc Ngọ: các cung hạn 'Tử Vi, Thiên Phủ', Cự Môn, Vũ Khúc, Thiên Lương tọa thủ là những lưu niên có tính then chốt. Đại vận thì xem các cung hạn Vũ Khúc, hoặc 'Tử Vi, Thiên Phủ' là có tính then chốt.",
+      "source_quote": "Đối với Phá Quân ở hai cung Tý hoặc Ngọ, các cung hạn \"Tử Vi, Thiên Phủ\", Cự Môn, Vũ Khúc, Thiên Lương tọa thủ, là những lưu niên có tính then chốt. Đại vận thì xem các cung hạn Vũ Khúc, hoặc \"Tử Vi, Thiên Phủ\" là có tính then chốt.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:tý", "palace:ngọ", "đại_vận", "lưu_niên", "tử_phủ", "cự_môn", "vũ_khúc", "thiên_lương", "then_chốt"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân Tý/Ngọ: lưu niên then chốt = Tử-Phủ / Cự / Vũ / Lương; đại vận then chốt = Vũ Khúc / Tử-Phủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q21",
+      "question": "Khi Phá Quân nguyên cục không có Lộc gặp sát, đến vận tài tinh có cứu được không?",
+      "answer_atom": "Vũ Khúc và Thiên Phủ là hai sao tiền tài. Nếu Phá Quân của nguyên cục không có sao lộc mà gặp sát tinh, đến cung hạn sao tiền tài tọa thủ, gặp sao lộc và gặp cát tinh, thì cũng có thể bổ cứu; nếu không gặp sao lộc mà gặp sát tinh, thì vận trình cuộc đời nhiều trắc trở.",
+      "source_quote": "Vũ Khúc và Thiên Phủ là hai sao tiền tài, nếu Phá Quân của nguyên cục không có sao lộc, mà gặp sát tinh, đến cung hạn sao tiền tài tọa thủ, gặp sao lộc và gặp cát tinh, thì cũng có thể bổ cứu; nếu không gặp sao lộc mà gặp sát tinh, thì vận trình cuộc đời nhiều trắc trở.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "vũ_khúc", "thiên_phủ", "tài_tinh", "không_lộc", "sát_tinh", "bổ_cứu", "trắc_trở"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân nguyên cục thiếu Lộc + có Sát → vận tài tinh có Lộc + Cát = cứu được; vận tài tinh vẫn không Lộc + Sát = trắc trở suốt đời.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q22",
+      "question": "Phá Quân ở Dần/Thân — không cần gặp Hỏa-Linh đã có biểu hiện gì? Gặp Lộc-Mã ở Thiên Di thì sao?",
+      "answer_atom": "Phá Quân ở hai cung Dần hoặc Thân không cần gặp Hỏa Tinh, Linh Tinh cũng đã chủ về lúc nhỏ đã chia lìa với gia đình. Gặp Lộc Tồn, Thiên Mã ở cung Thiên Di thì chủ về phát đạt ở nơi xa, tha hương.",
+      "source_quote": "Phá Quân ở hai cung Dần hoặc Thân, không cần gặp Hỏa Tinh, Linh Tinh, cũng đã chủ về lúc nhỏ đã chia lìa với gia đình. Gặp Lộc Tồn, Thiên Mã ở cung thiên di thì chủ về phát đạt ở nơi xa, tha hương.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:dần", "palace:thân", "hỏa_linh", "lộc_tồn", "thiên_mã", "palace:thiên_di", "chia_lìa_gia_đình", "tha_hương_phát_đạt"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân Dần/Thân: tự thân đã ly gia từ nhỏ; Lộc-Mã ở Thiên Di → phát ở phương xa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q23",
+      "question": "Phá Quân Dần/Thân gặp Hỏa-Linh ở Mệnh hoặc Phụ Mẫu thì sao?",
+      "answer_atom": "Nếu gặp Hỏa Tinh, Linh Tinh ở cung Mệnh hoặc cung Phụ Mẫu, thì chủ về làm con nuôi của người khác, cũng chủ về cuộc đời hay bị đổi cấp trên.",
+      "source_quote": "Nếu gặp Hỏa Tinh, Linh Tinh ở cung mệnh hoặc cung phụ mẫu, thì chủ về làm con nuôi của người khác, cũng chủ về cuộc đời hay bị đổi cấp trên.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:dần", "palace:thân", "hỏa_tinh", "linh_tinh", "palace:menh", "palace:phụ_mẫu", "con_nuôi", "đổi_cấp_trên"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân Dần/Thân + Hỏa-Linh ở Mệnh / Phụ Mẫu → làm con nuôi; hoặc cả đời thay đổi sếp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q24",
+      "question": "Phá Quân Dần/Thân hội Hỏa-Linh dẫn đến đặc trưng vận mệnh và nguyên do thất bại nào?",
+      "answer_atom": "Phá Quân ở hai cung Dần hoặc Thân hội 'Hỏa Tinh', 'Linh Tinh' chủ về cuộc đời gặp nhiều sóng gió, trắc trở rất lớn, bạo phát bạo bại, hoành phát hoành phá. Nguyên do gây ra thất bại thường là vì quá chủ quan, lại cố xuất đầu lộ diện, hoặc không tự lượng sức đi cạnh tranh với người khác.",
+      "source_quote": "Phá Quân ở hai cung Dần hoặc Thân, hội \"Hỏa Tinh\", \"Linh Tinh\", chủ về cuộc đời gặp nhiều sóng gió, trắc trở rất lớn, bạo phát bạo bại, hoành phát hoành phá. Nguyên do gây ra thất bại thường là vì quá chủ quan, lại cố xuất đầu lộ diện, hoặc không tự lượng sức đi cạnh tranh với người khác.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:dần", "palace:thân", "hỏa_linh", "bạo_phát_bạo_bại", "hoành_phát_hoành_phá", "chủ_quan", "không_tự_lượng_sức"],
+      "commentary": {
+        "han_viet_explain": "Bạo phát bạo bại / hoành phát hoành phá = phát nhanh sụp nhanh, lên ngang xuống ngang.",
+        "viet_thuan": "Phá Quân Dần/Thân + Hỏa-Linh → cuộc đời sóng gió, lên xuống chớp nhoáng; thất bại do chủ quan + hiếu thắng + không lượng sức.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q25",
+      "question": "Phá Quân Dần/Thân — cung hạn nào then chốt, và bại cục xảy ra khi nào?",
+      "answer_atom": "Đối với Phá Quân ở hai cung Dần hoặc Thân, hai cung hạn Thiên Cơ, 'Liêm Trinh, Thiên Phủ' là có tính then chốt. Nếu cung hạn cát thì hậu vận cũng khá thuận lợi toại ý. Nếu không, năm cung hạn hội hợp Vũ Khúc Hóa Kỵ, hoặc Thiên Tướng bị 'Hình kỵ giáp ấn' thì sẽ suy sụp nhanh chóng, mà có thể từ đó không còn đứng lên được.",
+      "source_quote": "Đối với Phá Quân ở hai cung Dần hoặc Thân, hai cung hạn Thiên Cơ, \"Liêm Trinh, Thiên Phủ\" là có tính then chốt. Nếu cung hạn cát thì hậu vận cũng khá thuận lợi toại ý. Nếu không, năm cung hạn hội hợp Vũ Khúc Hóa Kỵ, hoặc Thiên Tướng bị \"Hình kị giáp ân\" thì sẽ suy sụp nhanh chóng, mà có thể từ đó không còn đứng lên được.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "palace:dần", "palace:thân", "thiên_cơ", "liêm_phủ", "vũ_khúc_hóa_kỵ", "hình_kỵ_giáp_ấn", "suy_sụp", "không_gượng_dậy"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân Dần/Thân then chốt ở cung hạn Thiên Cơ + Liêm-Phủ; gặp Vũ Khúc Hóa Kỵ hoặc Thiên Tướng Hình-Kỵ giáp ấn → sụp đổ không gượng dậy nổi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.14-Q26",
+      "question": "Phá Quân và Tham Lang gặp Lộc Tồn, Thiên Mã — cổ nhân nói gì?",
+      "answer_atom": "Phá Quân và Tham Lang mà gặp Lộc Tồn, Thiên Mã, cổ nhân cho rằng: nam nhân nhiều phóng đãng, nữ nhân nhiều đa dâm.",
+      "source_quote": "Phá Quân và Tham Lang mà gặp Lộc Tồn, Thiên Mã, cổ nhân cho rằng, nam nhân nhiều phóng đãng nữ nhân nhiều đa dâm.",
+      "source_page": 549,
+      "section_id": "5.1.14",
+      "tags": ["star:pha_quan", "star:tham_lang", "lộc_tồn", "thiên_mã", "phóng_đãng", "đa_dâm", "cổ_quyết", "nam_nữ"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sát-Phá-Tham hệ + Lộc-Mã → cổ nhân cảnh báo về dục vọng: nam phóng đãng, nữ đa dâm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "section_id": "5.1.11",
+  "section_title": "Thiên Tướng ở cung Mệnh (Thân)",
+  "pages": [536, 537, 538],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.11-Q01",
+      "question": "Người xưa luận Thiên Tướng thường nhấn mạnh điều gì, và Vương Đình Chi đính chính ra sao?",
+      "answer_atom": "Người xưa luận Thiên Tướng thường nhấn mạnh quá đáng phương diện 'tường hòa' (hiền hòa, may mắn). Thực ra Thiên Tướng gặp thiện thì thành thiện, gặp ác thì thành ác — tính chất tùy hoàn cảnh tinh hệ chung quanh.",
+      "source_quote": "Người xưa luận **Thiên Tướng**, thường nhấn mạnh quá đáng phương diện \"tường hòa\". **Thiên Tướng** gặp thiện thì thành thiện, gặp ác thì thành ác.",
+      "source_page": 536,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:menh", "paradigm:tuong_hoa", "principle:gap_thien_thanh_thien_gap_ac_thanh_ac"],
+      "commentary": {
+        "han_viet_explain": "tường hòa = điềm lành, hiền hòa, an thuận",
+        "viet_thuan": "Thiên Tướng không phải sao thuần cát; nó là 'tấm gương' phản chiếu môi trường — tốt thì thêm tốt, xấu thì hùa theo xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "KHÔNG mặc định Thiên Tướng = tốt. Phải xem các sao chung quanh."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q02",
+      "question": "Khi Tử Vi và Thiên Tướng đồng độ, vai trò của Thiên Tướng thay đổi thế nào?",
+      "answer_atom": "Nếu Tử Vi - Thiên Tướng đồng độ có cách 'bách quan triều củng' (trăm quan chầu về), Thiên Tướng phát huy lực tương trợ; nhưng nếu Tử Vi rơi vào 'tại dã cô quân' (vua đơn độc nơi đồng nội, không có phụ tá), thì Thiên Tướng cũng có thể giúp Trụ phò ác.",
+      "source_quote": "Ví dụ như \"Tử Vi, Thiên Tướng\" đồng độ, nếu có \"bách quan triểu củng\", thì **Thiên Tướng** sẽ phát huy lực tương trợ; nhưng nếu Tử Vi là \"tại dã cô quân\", thì **Thiên Tướng** cũng có thể giúp Trụ phò ác.",
+      "source_page": 536,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "star:tu_vi", "combo:tu_vi_thien_tuong", "cach_cuc:bach_quan_trieu_cung", "cach_cuc:tai_da_co_quan", "principle:giup_tru_pho_ac"],
+      "commentary": {
+        "han_viet_explain": "bách quan triều củng = trăm quan chầu về vua; tại dã cô quân = vua đơn độc ngoài đồng nội; giúp Trụ phò ác = ám chỉ tích Trụ Vương — phụ tá theo bạo chúa làm điều ác",
+        "viet_thuan": "Cùng một sao Thiên Tướng cạnh Tử Vi, nếu có quân thần đầy đủ thì thành tướng giỏi; nếu vua trơ trọi thì thành kẻ tiếp tay bạo chúa.",
+        "nguyen_ly": "Tính chất Thiên Tướng = tùy chủ; chủ minh thì phò minh, chủ ác thì phò ác.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q03",
+      "question": "Trong 14 chính diệu, vì sao Thiên Tướng đặc biệt xem trọng việc giáp cung?",
+      "answer_atom": "Trong 14 chính diệu của Đẩu Số, chỉ có Thiên Tướng là rất xem trọng việc giáp cung. Bị Kình Dương - Đà La giáp cung, Hỏa Tinh - Linh Tinh giáp cung, Địa Không - Địa Kiếp giáp cung đều không cát tường; phần nhiều chủ về thị phi, rối rắm, vất vả, bôn ba, đột nhiên xảy ra trắc trở.",
+      "source_quote": "Trong 14 chính diệu của Đẩu Số, chỉ có **Thiên Tướng** là rất xem trọng việc giáp cung. Bị các sao như Kình Dương, Đà La giáp cung; **Hỏa Tinh**, **Linh Tinh** giáp cung; Địa Không, Địa Kiếp giáp cung; đều không cát tường. Phần nhiều chủ về thị phi, rối rắm, vất vả, bôn ba, đột nhiên xảy ra trắc trở.",
+      "source_page": 536,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "principle:giap_cung", "sat_tinh:kinh_da", "sat_tinh:hoa_linh", "sat_tinh:khong_kiep"],
+      "commentary": {
+        "han_viet_explain": "giáp cung = hai cung kề bên (trước và sau)",
+        "viet_thuan": "Thiên Tướng nhạy với 'hàng xóm hai bên' — sao gì kẹp hai bên ảnh hưởng cực mạnh, hơn các chính tinh khác.",
+        "nguyen_ly": "Thiên Tướng tượng tể tướng cần người phù trợ; hai cung giáp = phụ tá tả hữu.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q04",
+      "question": "Cách 'Hình kỵ giáp ấn' của Thiên Tướng được Vương Đình Chi định nghĩa lại thế nào?",
+      "answer_atom": "Xấu nhất với Thiên Tướng là cách 'Hình kỵ giáp ấn', tức Cự Môn Hóa Kỵ và Thiên Lương giáp cung, chủ về phạm pháp, hình phạt. Theo Vương Đình Chi, người xưa lầm gọi là 'Hình tù giáp ấn' và cho là Kình Dương và Liêm Trinh giáp cung — định nghĩa cũ này sai.",
+      "source_quote": "Xấu nhất là \"Hình kỵ giáp ấn\". ...tức **Cự Môn Hóa Kỵ** và **Thiên Lương** giáp cung, chủ về phạm pháp, hình phạt (theo Vương Đình Chi, người xưa lầm là \"Hình tù giáp ấn\", nên cho là **Kình Dương** và **Liêm Trinh** giáp cung).",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "cach_cuc:hinh_ky_giap_an", "cach_cuc:hinh_tu_giap_an", "hoa_ky:cu_mon", "star:thien_luong", "author:vuong_dinh_chi", "principle:hieu_chinh_co_quyet"],
+      "commentary": {
+        "han_viet_explain": "ấn = ấn tín = Thiên Tướng (sao tượng tể tướng cầm ấn); Hình kỵ giáp ấn = Hình (Thiên Lương có tính 'hình') và Kỵ (Cự Môn Hóa Kỵ) kẹp Thiên Tướng",
+        "viet_thuan": "Đây là điểm hiệu chỉnh quan trọng của Trung Châu phái: cách hung của Thiên Tướng là Cự Môn Hóa Kỵ + Thiên Lương giáp, KHÔNG phải Kình Dương + Liêm Trinh giáp như sách xưa nhầm lẫn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Khi tra cứu 'Hình kỵ giáp ấn' từ sách cũ, phải đối chiếu định nghĩa Vương Đình Chi."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q05",
+      "question": "Những sao nào giáp cung Thiên Tướng được coi là cát?",
+      "answer_atom": "Nếu Văn Xương - Văn Khúc giáp cung, Tả Phụ - Hữu Bật giáp cung, Thiên Khôi - Thiên Việt giáp cung, đều là điểm cát. Rất ưa 'Tài ấm giáp ấn', tức Cự Môn Hóa Lộc đến giáp cung.",
+      "source_quote": "Nếu **Văn Xương**, **Văn Khúc** giáp cung; **Tả Phụ**, **Hữu Bật** giáp cung; **Thiên Khôi**, **Thiên Việt** giáp cung; đều là điểm cát. Rất ưa \"Tài ấm giáp ấn\", tức là **Cự Môn Hóa Lộc** đến giáp cung.",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "principle:giap_cung", "cach_cuc:tai_am_giap_an", "luc_cat:xuong_khuc", "luc_cat:phu_bat", "luc_cat:khoi_viet", "hoa_loc:cu_mon"],
+      "commentary": {
+        "han_viet_explain": "Tài ấm giáp ấn = Tài (Cự Môn Hóa Lộc) và ấm (Thiên Lương có tính ấm độ) kẹp Thiên Tướng (ấn)",
+        "viet_thuan": "Ngược lại với 'Hình kỵ giáp ấn', cách 'Tài ấm giáp ấn' (Cự Môn Hóa Lộc + Thiên Lương kẹp) là cát thượng đẳng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q06",
+      "question": "Câu cổ 'Thiên Tướng có thể hóa giải cái ác của Liêm Trinh' nên hiểu thế nào cho đúng?",
+      "answer_atom": "Câu này KHÔNG phải nói tổ hợp tinh hệ Liêm Trinh - Thiên Tướng đồng độ. Đúng nghĩa là: Thiên Tướng tọa Mệnh, khi đến cung hạn có Liêm Trinh tọa thủ, gặp sao cát thì cát, gặp sao hung thì giảm hung — đó mới là điểm hóa giải cái ác.",
+      "source_quote": "Người xưa nhấn mạnh \"**Thiên Tướng** có thể hóa giải cái ác của **Liêm Trinh**\". Ở đây không phải nói tổ hợp tính hệ \"**Liêm Trinh**, **Thiên Tướng**\". **Thiên Tướng** tọa mệnh, đến cung hạn **Liêm Trinh** tọa thủ, gặp sao cát thì cát, gặp sao hung thì giảm hung, cũng là điểm hóa giải cái ác.",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "star:liem_trinh", "principle:hoa_giai_ac", "principle:hieu_chinh_co_quyet", "context:dai_van"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cổ quyết bị hiểu sai. Không phải Liêm-Tướng đồng cung là tốt; mà là người Mệnh Thiên Tướng khi đi vào đại vận/lưu niên cung có Liêm Trinh thì giảm hung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Phân biệt 'đồng độ' (cùng cung) vs 'đến cung hạn' (đi qua khi luận vận)."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q07",
+      "question": "Trường hợp Hình kỵ giáp ấn nào được coi là hung nhất?",
+      "answer_atom": "Rất ngại Thiên Lương đồng độ với Kình Dương — đây là cách 'Hình kỵ giáp ấn' khá hung, vì đồng thời Thiên Tướng sẽ bị Kình Dương và Đà La giáp cung. Lúc này Thiên Tướng tuy đồng độ với Lộc Tồn, nhưng chủ về tiền bạc phá tán, khó tụ, lại dễ vì tiền mà sinh điều tiếng thị phi, kiện tụng.",
+      "source_quote": "Cục \"Hình kỵ giáp ấn\", rất ngại **Thiên Lương** đổng độ với **Kình Dương**, là cách \"Hình kỵ giáp ấn\" khá hung. Vì đổng thời sẽ bị **Kình Dương** và **Đà La** giáp cung. Lúc này **Thiên Tướng** tuy đổng độ với **Lộc Tồn**, nhưng chủ về tiền bạc phá tán, khó tụ, mà còn dễ vì tiền bạc mà sinh điểu tiếng thị phi, kiện tụng.",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "cach_cuc:hinh_ky_giap_an", "star:thien_luong", "sat_tinh:kinh_da", "loc_ton", "principle:tien_bac_pha_tan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khi Thiên Lương + Kình Dương đồng cung, đối cung Thiên Tướng tự động bị Kình + Đà kẹp. Có Lộc Tồn cũng vô ích — tiền vào lại ra, lại gây kiện tụng.",
+        "nguyen_ly": "Lộc Tồn luôn được Kình - Đà kẹp; khi rơi vào cấu hình này thì Lộc Tồn không cứu được Thiên Tướng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Thấy Lộc Tồn đừng mừng vội — phải xem Kình Đà có đang kẹp gây hại không."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q08",
+      "question": "Thiên Tướng đồng độ Hỏa Linh kết hợp Kình Đà giáp hoặc Hình kỵ giáp ấn dẫn đến điều gì?",
+      "answer_atom": "Thiên Tướng đồng độ với Hỏa Tinh - Linh Tinh, lại gặp Kình Dương - Đà La giáp cung, hoặc Hình kỵ giáp ấn, chủ về lúc nhỏ bất lợi cho cha mẹ, hoặc làm con nuôi của người khác. Nếu cung phúc đức là Thất Sát lại hội các sao sát, hình, kị, hao, thì chủ về tàn tật.",
+      "source_quote": "**Thiên Tướng** đổng độ với **Hỏa Tinh**, **Linh Tinh**, lại gặp **Kình Dương**, **Đà La** giáp cung, hoặc \"Hình kỵ giáp ấn\", chủ về lúc nhỏ bất lợi chủ về cha mẹ, hoặc làm con nuôi của người khác. Nếu cung phúc đức là **Thất Sát** lại hội các sao sát, hình, kị, hao, thì chủ về tàn tật.",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "sat_tinh:hoa_linh", "sat_tinh:kinh_da", "cach_cuc:hinh_ky_giap_an", "palace:phuc_duc", "star:that_sat", "consequence:con_nuoi", "consequence:tan_tat"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Tướng + Hỏa Linh cùng cung + 2 nhóm sát kẹp → dấu hiệu hung khi nhỏ với cha mẹ. Phải xem thêm cung Phúc Đức để xác định mức độ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Cần kiểm tra cung phúc đức trước khi kết luận tàn tật."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q09",
+      "question": "Vì sao phải xem kèm cung Phụ Mẫu khi Thiên Tướng tọa Mệnh?",
+      "answer_atom": "Hễ Thiên Tướng tọa mệnh, nên xem kèm cát hung của cung phụ mẫu — vì Thiên Tướng cần được người phù trợ, cung phụ mẫu là cấp trên phù trợ. Lúc này cung phụ mẫu ắt là Thiên Lương, tối kỵ Thiên Lương đồng độ với Lộc Tồn và có Hỏa Tinh - Linh Tinh đồng cung, chủ về suốt đời không có hậu trường nương dựa, mà bản thân lại khó tự sáng lập sự nghiệp — có tài mà không gặp thời.",
+      "source_quote": "Hễ **Thiên Tướng** tọa mệnh, nên xem kèm cát hung của cung phụ mẫu. Vì **Thiên Tướng** cần được người phù trợ, cung phụ mẫu là cấp trên phù trợ. Lúc này cung phụ mẫu ắt là **Thiên Lương**, tối kỵ **Thiên Lương** đổng độ với **Lộc Tồn**, lại có **Hỏa Tinh**, **Linh Tinh** đổng cung, chủ về suốt đời không có hậu trường để nương dựa, mà bản thân lại khó tự sáng lập sự nghiệp. Có tài mà không gặp thời, thường thường là cách cục này.",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:phu_mau", "star:thien_luong", "loc_ton", "sat_tinh:hoa_linh", "consequence:co_tai_khong_gap_thoi", "principle:hau_truong"],
+      "commentary": {
+        "han_viet_explain": "hậu trường = chỗ dựa phía sau (cha mẹ, cấp trên, người đỡ đầu)",
+        "viet_thuan": "Mệnh Thiên Tướng thì cung Phụ Mẫu luôn là Thiên Lương (cố định trong vòng sao). Nếu cung Phụ Mẫu xấu (Thiên Lương + Lộc Tồn + Hỏa/Linh) thì cả đời không có người đỡ đầu.",
+        "nguyen_ly": "Thiên Tướng = tể tướng, phải có vua + cấp trên dùng mới phát huy. Mất cấp trên = mất đất dụng võ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Luận Mệnh Thiên Tướng BẮT BUỘC xem cung Phụ Mẫu (Thiên Lương)."
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q10",
+      "question": "Thiên Tướng gặp Văn Xương - Văn Khúc cần điều kiện gì để cát?",
+      "answer_atom": "Thiên Tướng gặp Văn Xương - Văn Khúc thì không được gặp Hóa Kỵ và Kình Dương - Đà La mới cát. Nếu không, thì thông minh nhưng mệnh bạc, cũng là điểm có tài mà không gặp thời. Cổ nhân cho rằng nếu là nữ mệnh thì là mạng thị thiếp, cũng có ý vị thông minh mà mệnh bạc.",
+      "source_quote": "**Thiên Tướng** gặp **Văn Xương**, **Văn Khúc**, thì không được gặp **Hóa Kỵ** và **Kình Dương**, **Đà La** mới cát. Nếu không, thì thông minh nhưng mệnh bạc, cũng là điểm có tài mà không gặp thời. Cổ nhân cho rằng, nếu là nữ mệnh là mạng thị thiếp, cũng có ý vị thông minh mà mệnh bạc.",
+      "source_page": 537,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "luc_cat:xuong_khuc", "hoa_ky", "sat_tinh:kinh_da", "gender:nu_menh", "consequence:thong_minh_menh_bac", "consequence:thi_thiep"],
+      "commentary": {
+        "han_viet_explain": "thị thiếp = vợ lẽ, người hầu hạ",
+        "viet_thuan": "Văn Xương Khúc tăng tài hoa cho Thiên Tướng, nhưng chỉ tốt khi không bị Hóa Kỵ và Kình Đà phá. Bị phá thì thông minh mà bạc mệnh; nữ mệnh dễ làm thị thiếp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Đọc nguyên tắc 'thị thiếp' theo paradigm đồng dạng — phản ánh cấu trúc bị dùng làm phụ tá, không tự chủ."
+      },
+      "confidence": 0.91,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q11",
+      "question": "Cổ quyết về Thiên Tướng gặp Tham-Liêm-Vũ-Phá và Kình-Đà có ý nghĩa gì?",
+      "answer_atom": "Cổ nhân cho rằng Thiên Tướng gặp Tham Lang, Liêm Trinh, Vũ Khúc, Phá Quân và Kình Dương, Đà La thì chủ về nhờ tay nghề khéo mà yên thân. Trọng điểm cổ quyết này nằm ở Liêm Trinh — Liêm Trinh gặp Thiên Tướng chủ về thông minh mẫn tiệp, có ý vị phục vụ. Cho nên gặp sao cát thì thích hợp làm việc trong chính giới; nếu gặp Kình Dương - Đà La thì không nên làm việc trong chính giới, mà thích hợp làm việc hưởng lương, theo ngành công nghệ, khoa học kỹ thuật. Chỉ trường hợp Thiên Tướng ở hai cung Mão hoặc Dậu mới có cách cục này.",
+      "source_quote": "Cổ nhân cho rằng, (**Thiên Tướng**) **Tham Lang**, **Liêm Trinh**, **Vũ Khúc**, **Phá Quân** **Kình Dương**, **Đà La** mà gặp nhau thì chủ về nhờ tay nghề khéo mà yên thân. Cổ quyết này trọng điểm là ở **Liêm Trinh**. **Liêm Trinh** gặp **Thiên Tướng** chủ về thông minh mẫn tiệp, lại có ý vị... Phục vụ. Cho nên gặp các sao cát thì thích hợp làm việc trong chính giới; nếu gặp **Kình Dương**, **Đà La** thì không nên làm việc trong chính giới, mà thích hợp làm việc hưởng lương, có thể theo ngành nghề công nghệ, khoa học kỹ thuật. Chỉ trường hợp **Thiên Tướng** ở hai cung **Mão** hoặc **Dậu** mới có cách cục này.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "star:liem_trinh", "star:tham_lang", "star:vu_khuc", "star:pha_quan", "sat_tinh:kinh_da", "palace:mao_dau", "career:cong_nghe_ky_thuat", "career:chinh_gioi"],
+      "commentary": {
+        "han_viet_explain": "tay nghề khéo = thủ nghệ; chính giới = chính trị, công chức nhà nước",
+        "viet_thuan": "Cổ quyết chỉ áp dụng được khi Thiên Tướng ở Mão hoặc Dậu (do vòng sao Liêm Trinh - Thiên Tướng hội tụ tại Mão/Dậu). Có sát kẹp thì làm kỹ thuật hưởng lương thay vì làm quan.",
+        "nguyen_ly": "Liêm Trinh + Thiên Tướng = bản chất phục vụ, mẫn tiệp; sát chế khắc thì rẽ hướng kỹ thuật.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.90,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q12",
+      "question": "Thiên Tướng ở cung Mệnh của lưu niên ưa và kỵ những lưu diệu nào?",
+      "answer_atom": "Thiên Tướng ở cung Mệnh của lưu niên cũng mẫn cảm đối với các sao cát hung. Không nên gặp các lưu diệu như Tang Môn, Điếu Khách, Bạch Hổ, Đại Hao, Quán Sách, Quan Phù; ưa gặp các sao cát như Thanh Long, Tấu Thư, Long Đức, Thiên Đức.",
+      "source_quote": "**Thiên Tướng** ở cung Mệnh của lưu niên, cũng mẫn cảm đối với các sao cát, hung. Vì vậy không nên gặp các lưu diệu như **Tang Môn**, **Điếu Khách**, **Bạch Hổ**, **Đại Hao**, **Quán Sách**, **Quan Phù**; ưa gặp các sao cát như **Thanh Long**, **Tấu Thư**, **Long Đức**, **Thiên Đức**.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "context:luu_nien", "luu_dieu:tang_mon", "luu_dieu:dieu_khach", "luu_dieu:bach_ho", "luu_dieu:dai_hao", "luu_dieu:quan_sach", "luu_dieu:quan_phu", "luu_dieu:thanh_long", "luu_dieu:tau_thu", "luu_dieu:long_duc", "luu_dieu:thien_duc"],
+      "commentary": {
+        "han_viet_explain": "lưu diệu = các sao lưu (chuyển động theo năm)",
+        "viet_thuan": "Khi luận lưu niên (vận năm), nếu Thiên Tướng đang tọa cung Mệnh năm đó, đặc biệt nhạy với 'bộ tứ hung lưu' (Tang Điếu Bạch Hổ Đại Hao) và Quán Sách - Quan Phù.",
+        "nguyen_ly": "Tính 'tùy môi trường' của Thiên Tướng lặp lại cả ở vận năm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q13",
+      "question": "Thiên Tướng đồng độ Vũ Khúc ở Dần/Thân tra cứu ở đâu?",
+      "answer_atom": "Trường hợp Thiên Tướng - Vũ Khúc đồng độ ở hai cung Dần hoặc Thân, tham khảo đoạn 'Vũ Khúc, Thiên Tướng' đã thuật ở phần trước (mục Vũ Khúc).",
+      "source_quote": "\"**Thiên Tướng, Vũ Khúc**\" đồng độ ở hai cung **Dần** hoặc **Thân**, xin tham khảo đoạn \"Vũ Khúc, Thiên Tướng\" thuật ở trước.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "star:vu_khuc", "combo:vu_khuc_thien_tuong", "palace:dan_than", "ref:cross_section"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sách tự chỉ về mục Vũ Khúc khi cần luận tổ hợp Vũ-Tướng tại Dần/Thân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q14",
+      "question": "Thiên Tướng độc tọa Sửu hoặc Mùi với Tả Hữu thì sao?",
+      "answer_atom": "Thiên Tướng độc tọa ở Sửu hoặc Mùi rất ưa có Tả Phụ - Hữu Bật đồng độ. Nếu cung kế cận là Thiên Đồng Hóa Kỵ, tuy không thành cách 'Hình Kị Giáp Ấn' nhưng cũng không tốt — chủ về tuy có hậu trường để dựa dẫm nhưng thường vào lúc quan trọng lại không được trợ lực, cũng là tượng 'có tài mà không gặp thời'. Lúc này có Tả Phụ - Hữu Bật đồng độ sẽ chủ về tuy không được bậc trên nâng đỡ trợ lực, nhưng lại được bạn bè giúp đỡ.",
+      "source_quote": "**Thiên Tướng** độc tọa ở hai cung **Sửu** hoặc **Mùi**, rất ưa có **Tả Phụ**, **Hữu Bật** đồng độ; nếu cung kế cận là **Thiên Đồng Hóa Kỵ**, tuy không thành cách \"Hình Kị Giáp Ấn\", nhưng cũng không tốt, chủ về tuy có hậu trường để dựa dẫm, nhưng thường thường vào lúc quan trọng thì lại không được trợ lực, cũng là điểm tượng có tài mà không gặp thời. Lúc này nếu có **Tả Phụ**, **Hữu Bật** đồng độ, sẽ chủ về tuy không được bậc trên trước nâng đỡ, trợ lực, nhưng lại được bạn bè chỉ viện.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:suu_mui", "luc_cat:phu_bat", "hoa_ky:thien_dong", "consequence:co_tai_khong_gap_thoi", "principle:ban_be_thay_cap_tren"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Ở Sửu/Mùi mà cạnh Thiên Đồng Hóa Kỵ thì cấp trên hứa nhiều mà giúp ít. May có Tả-Hữu thì bạn bè đỡ thay.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q15",
+      "question": "Thiên Tướng ưa 'bách quan triều củng' với ý nghĩa gì?",
+      "answer_atom": "Thiên Tướng cũng ưa 'bách quan triều củng' — đây là ý tể tướng chỉ dưới một người mà trên vạn người. Nhưng rốt cuộc thì vẫn bị cấp trên gây trắc trở.",
+      "source_quote": "**Thiên Tướng** cũng ưa \"bách quan triều củng\", đây là ý tể tướng chỉ dưới một người mà trên vạn người. Nhưng rốt cuộc thì bị cấp trên gây trắc trở.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "cach_cuc:bach_quan_trieu_cung", "paradigm:te_tuong", "principle:cap_tren_can_tro"],
+      "commentary": {
+        "han_viet_explain": "bách quan triều củng = trăm quan chầu về (Tả Phụ Hữu Bật, Văn Xương Văn Khúc, Thiên Khôi Thiên Việt cùng hội chiếu)",
+        "viet_thuan": "Có đủ phụ tá thì Thiên Tướng phát huy thân tể tướng. Nhưng vì luôn ở dưới 'vua' (Tử Vi/Phá Quân vây chiếu) — cuối cùng vẫn bị cấp trên cản.",
+        "nguyen_ly": "Tể tướng = thân phận thứ hai; số phận luôn lệ thuộc vua chủ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q16",
+      "question": "Thiên Tướng ở Sửu/Mùi vì sao chủ về nặng thành kiến?",
+      "answer_atom": "Thiên Tướng ở Sửu hoặc Mùi có 'Tử Vi, Phá Quân' vây chiếu, cho nên cũng chủ về nặng thành kiến, chủ quan. Nếu có Hỏa Tinh - Linh Tinh đồng độ, thường vì thành kiến chủ quan mà chuốc thất bại.",
+      "source_quote": "**Thiên Tướng** ở hai cung **Sửu** hoặc **Mùi**, có \"**Tử Vi, Phá Quân**\" vây chiếu, cho nên cũng chủ về nặng thành kiến, chủ quan. Nếu có **Hỏa Tình**, **Linh Tinh** đồng độ, thường vì thành kiến chủ quan mà chuốc thất bại.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:suu_mui", "combo:tu_vi_pha_quan_vay_chieu", "sat_tinh:hoa_linh", "personality:thanh_kien_chu_quan", "consequence:that_bai"],
+      "commentary": {
+        "han_viet_explain": "vây chiếu = đối cung hoặc tam phương chiếu vào",
+        "viet_thuan": "Tử Vi (vua) + Phá Quân (xung phá) ở đối cung làm Thiên Tướng nhiễm tính bảo thủ + phá cách. Có Hỏa Linh đốt thêm → cố chấp đến mức tự thua.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q17",
+      "question": "Thiên Tướng độc tọa Mão hoặc Dậu nên hướng nghề thế nào?",
+      "answer_atom": "Thiên Tướng độc tọa Mão hoặc Dậu, gặp các sao sát, kỵ thì chỉ nên theo ngành công nghệ hay kỹ thuật để mưu sinh. Được cát hóa và có sao cát, chủ về dùng kỹ năng chuyên môn để khởi nghiệp.",
+      "source_quote": "**Thiên Tướng** độc tọa hai cung **Mão** hoặc **Dậu**, gặp các sao sát, kỵ thì chỉ nên theo ngành công nghệ hay kỹ thuật để mưu sinh. Được cát hóa và có sao cát, chủ về dùng kỹ năng chuyên môn để khởi nghiệp.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:mao_dau", "career:cong_nghe_ky_thuat", "career:khoi_nghiep_chuyen_mon", "sat_tinh", "hoa_ky"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mão/Dậu là vị trí đặc trưng cho hướng kỹ thuật. Sát kỵ nhiều = thợ lành nghề; cát hóa + cát tinh = chuyên gia khởi nghiệp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q18",
+      "question": "Thiên Tướng độc tọa Mão/Dậu gặp các sao tài nghệ thì sao? Trường hợp xấu là gì?",
+      "answer_atom": "Thiên Tướng độc tọa Mão hoặc Dậu ưa gặp các sao tài nghệ như Thiên Tài, Long Trì, Phượng Các; gặp Tấu Thư cũng cát. Nếu đồng thời lại gặp sát tinh và Văn Xương - Văn Khúc Hóa Kỵ, thì đây là 'thanh khách của nhà giàu' thời cổ đại (môn khách văn nghệ phục vụ).",
+      "source_quote": "**Thiên Tướng** độc tọa hai cung **Mão** hoặc **Dậu**, ưa gặp các sao tài nghệ, như **Thiên Tài**, **Long Trì**, **Phượng Các**; gặp **Tấu Thư** cũng cát. Nếu đồng thời lại gặp sát tinh và **Văn Xương**, **Văn Khúc Hóa Kỵ**, thì đây là thanh khách của nhà giàu thời cổ đại.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:mao_dau", "sao_tai_nghe:thien_tai", "sao_tai_nghe:long_tri", "sao_tai_nghe:phuong_cac", "luu_dieu:tau_thu", "hoa_ky:xuong_khuc", "consequence:thanh_khach_nha_giau"],
+      "commentary": {
+        "han_viet_explain": "thanh khách = môn khách thanh nhã (văn sĩ, nghệ sĩ sống nhờ nhà giàu nuôi)",
+        "viet_thuan": "Có Thiên Tài/Long Trì/Phượng Các/Tấu Thư = đa tài đa nghệ. Nhưng nếu thêm sát + Xương Khúc Hóa Kỵ thì biến thành kẻ tài hoa sống nhờ ô dù nhà giàu, không tự lập.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Đọc 'thanh khách nhà giàu' theo paradigm đồng dạng — không phải predict 'anh sẽ làm môn khách'."
+      },
+      "confidence": 0.91,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.11-Q19",
+      "question": "Thông thường Thiên Tướng độc tọa Mão/Dậu khi gặp sao lộc kết quả ra sao?",
+      "answer_atom": "Trong các tình huống thông thường, Thiên Tướng độc tọa Mão hoặc Dậu thì nên gặp sao lộc — sẽ tài cao nghề giỏi, có thể lập thân, trở nên giàu có. Nhưng cuối cùng dễ bị người ta gây trắc trở hoặc điều khiển.",
+      "source_quote": "Trong các tình huống thông thường, **Thiên Tướng** độc tọa hai cung **Mão** hoặc **Dậu** thì nên gặp sao lộc, thì tài cao nghề giỏi, có thể lập thân, trở nên giàu có. Nhưng cuối cùng dễ bị người ta gây trắc trở hoặc điều khiển.",
+      "source_page": 538,
+      "section_id": "5.1.11",
+      "tags": ["star:thien_tuong", "palace:mao_dau", "sao_loc", "consequence:tai_cao_nghe_gioi", "consequence:bi_dieu_khien", "principle:phu_thuoc_cap_tren"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Lộc cứu Mão/Dậu: thành thợ giỏi → giàu có. Nhưng bản chất Thiên Tướng = phụ tá → luôn bị người khác chen ngang hoặc điều khiển ở chặng cuối.",
+        "nguyen_ly": "Đây là chủ đề lặp suốt mục Thiên Tướng: dù tốt đến đâu vẫn bị cấp trên/đối tác cản.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

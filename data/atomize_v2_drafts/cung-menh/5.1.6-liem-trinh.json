@@ -1,0 +1,601 @@
+{
+  "section_id": "5.1.6",
+  "section_title": "Liêm Trinh ở cung Mệnh (thân)",
+  "pages": [521, 522, 523, 524],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.6-Q01",
+      "question": "Liêm Trinh chủ về điều gì, và Liêm Trinh Hóa Kỵ chủ về điều gì?",
+      "answer_atom": "Liêm Trinh chủ về tình cảm, và cũng chủ về máu. Khi Liêm Trinh Hóa Kỵ, ở mặt quan hệ giao tế là tình cảm bị tổn thương, có họa hại; ở mặt cơ thể là bệnh tật liên quan đến máu.",
+      "source_quote": "**Liêm Trinh** chủ về tình cảm, cũng chủ về máu. **Liêm Trinh Hóa Kỵ**, về phương diện quan hệ nhân tế là tình cảm bị tổn thương, họa hại; về phương diện cơ thể là bệnh tật liên quan đến máu.",
+      "source_page": 521,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "palace:menh", "hoa:hoa_ky", "domain:tinh_cam", "domain:than_the_mau"],
+      "commentary": {
+        "han_viet_explain": "Hóa Kỵ = sao biến hóa thành Kỵ, mang nghĩa trục trặc, tổn hại; nhân tế = quan hệ giữa người với người.",
+        "viet_thuan": "Liêm Trinh chủ tình cảm và máu. Khi hóa thành Kỵ, tình cảm bị tổn thương và cơ thể dễ mắc bệnh về máu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q02",
+      "question": "Vì sao Liêm Trinh được gọi là sao 'đào hoa thứ', và khác đào hoa của Tham Lang ở chỗ nào?",
+      "answer_atom": "Liêm Trinh chủ về tình cảm, nên khi gặp các sao đào hoa hội hợp thì chuyển thành tình cảm nam nữ, gọi là 'đào hoa thứ' — đối với 'đào hoa chính' của Tham Lang. Tham Lang chủ về hành động nên là 'chính'; Liêm Trinh chủ về tư tưởng nên là 'thứ'. Đào hoa Tham Lang chủ về theo đuổi sắc tình; đào hoa Liêm Trinh chủ về ghi lòng tạc dạ.",
+      "source_quote": "Vì **Liêm Trinh** chủ về tình cảm, nên khi có các sao đào hoa hội hợp, bèn chuyển biến thành tình cảm nam nữ, vì vậy gọi nó là sao “đào hoa thứ”. “Đào hoa thứ” là đối nhau với “đào hoa chính” của **Tham Lang**. **Tham Lang** chủ về hành động, **Liêm Trinh** chủ về tư tưởng, nên gọi là “thứ”. Nói cách khác, đào hoa của **Tham Lang** chủ về theo đuổi sắc tình; còn đào hoa của **Liêm Trinh** là chủ về ghi lòng tạc dạ.",
+      "source_page": 521,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:tham_lang", "domain:dao_hoa", "concept:dao_hoa_thu"],
+      "commentary": {
+        "han_viet_explain": "Đào hoa thứ = đào hoa hạng phụ/thứ yếu (so với 'chính'); ghi lòng tạc dạ = khắc sâu trong lòng, tình cảm thuộc về nội tâm tư tưởng.",
+        "viet_thuan": "Liêm Trinh là 'đào hoa thứ' vì thiên về tư tưởng, còn Tham Lang là 'đào hoa chính' vì thiên về hành động. Tham Lang đuổi theo sắc; Liêm Trinh khắc ghi tình.",
+        "nguyen_ly": "Tham Lang = hành động → đào hoa chính; Liêm Trinh = tư tưởng → đào hoa thứ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q03",
+      "question": "Liêm Trinh liên quan thế nào đến chính trị, và tinh hệ nào đặc biệt có tính chất này?",
+      "answer_atom": "Liêm Trinh còn là chính trị, hoặc rất cuồng nhiệt và có lí tưởng với chính trị. Tinh hệ 'Liêm Trinh, Thiên Tướng' đặc biệt có tính chất này. Khi nhuyễn hóa thì biến thành quyền biến hoặc thủ đoạn — khác với khuynh hướng giao tế thiên về tửu sắc của Tham Lang.",
+      "source_quote": "**Liêm Trinh** còn là chính trị, hoặc đối với chính trị rất cuồng nhiệt và có lí tưởng. Tinh hệ “**Liêm Trinh**, **Thiên Tướng**” đặc biệt có tính chất này. Tính chất này khi nhuyễn hóa sẽ thành quyền biến hay thủ đoạn; khác với khuynh hướng quan hệ giao tế thiên về tửu sắc của **Tham Lang**.",
+      "source_page": 521,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "domain:chinh_tri", "concept:quyen_bien"],
+      "commentary": {
+        "han_viet_explain": "Nhuyễn hóa = mềm hóa, biến chuyển nhẹ; quyền biến = linh hoạt mưu lược; thủ đoạn = cách thức hành động (có thể trung tính hoặc xấu).",
+        "viet_thuan": "Liêm Trinh có tính cuồng nhiệt với chính trị, nhất là khi đi với Thiên Tướng. Nhẹ thì thành quyền biến, nặng thì thành thủ đoạn — khác với kiểu giao tế tửu sắc của Tham Lang.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q04",
+      "question": "Vì sao Liêm Trinh ưa Thiên Tướng còn Tham Lang ưa Vũ Khúc?",
+      "answer_atom": "Liêm Trinh trôi nổi, nóng nảy, thuộc về tinh thần; Tham Lang lẳng lơ, thuộc về hành vi cử chỉ. Do đó Liêm Trinh ưa Thiên Tướng, nhuyễn hóa thành thủ đoạn chính trị linh hoạt và tính phục vụ; còn Tham Lang ưa Vũ Khúc, nhuyễn hóa thành thủ đoạn kiếm tiền linh động, khéo ăn khéo ở.",
+      "source_quote": "**Liêm Trinh** trôi nổi, nóng nảy, thuộc về phương diện tinh thần; **Tham Lang** lẳng lơ, thuộc về hành vi, cử chỉ. Cho nên **Liêm Trinh** ưa **Thiên Tướng**, nhuyễn hóa thành thủ đoạn chính trị linh hoạt và tính chất phục vụ; còn **Tham Lang** thì ưa **Vũ Khúc**, nhuyễn hóa thành thủ đoạn kiếm tiền linh động, khéo ăn khéo ở.",
+      "source_page": 521,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "star:tham_lang", "star:vu_khuc", "concept:nhuyen_hoa"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm Trinh thuộc tinh thần nên hợp Thiên Tướng (chính trị, phục vụ); Tham Lang thuộc hành vi nên hợp Vũ Khúc (kiếm tiền, khéo ăn ở).",
+        "nguyen_ly": "Liêm Trinh = tinh thần ↔ Thiên Tướng; Tham Lang = hành vi ↔ Vũ Khúc. Cặp đôi này quy định 'nhuyễn hóa' của mỗi sao.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q05",
+      "question": "Liêm Trinh có tính văn-võ thế nào, và cổ nhân nói gì khi Liêm Trinh gặp Văn Xương hoặc sát tinh?",
+      "answer_atom": "Liêm Trinh có thể văn mà cũng có thể võ. Cổ nhân nói: 'Liêm Trinh gặp Văn Xương thì giỏi lễ nhạc, gặp sát tinh thì võ nghiệp hiển hách.' Khi có Văn Xương, Văn Khúc cùng các sao Đào Hoa bay đến là thi tửu phong lưu. Khi đồng độ với Phá Quân và gặp sát tinh thì chủ về võ nghiệp, hoặc những nghề có tính hung hiểm hoặc dùng công cụ bén nhọn.",
+      "source_quote": "**Liêm Trinh** có thể văn mà cũng có thể võ. Cho nên cổ nhân nói: “**Liêm Trinh** gặp **Văn Xương** thì giỏi lễ nhạc, gặp sát tinh võ”.\n\n“nghiệp hiển hách.” Vì vậy lúc có **Văn Xương**, **Văn Khúc**, các sao Đào Hoa cùng bay đến, đây là thi tửu phong lưu; đồng độ với **Phá Quân**, gặp sát tinh, sẽ chủ về võ nghiệp, hoặc làm những nghề nghiệp có tính hung hiểm, hay có công cụ bén nhọn.",
+      "source_page": 521,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:van_xuong", "star:van_khuc", "star:pha_quan", "star:sat_tinh", "domain:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": "Đồng độ = ở cùng một cung; sát tinh = các sao có tính sát phạt (Kình Dương, Đà La, Hỏa Tinh, Linh Tinh).",
+        "viet_thuan": "Liêm Trinh vừa văn vừa võ. Gặp Văn Xương thì giỏi lễ nhạc; gặp sát tinh thì võ nghiệp lừng lẫy. Có Văn Xương Văn Khúc + đào hoa = thi tửu phong lưu; đồng cung Phá Quân + sát tinh = võ nghiệp hoặc nghề hiểm/sắc bén.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q06",
+      "question": "Liêm Trinh tạo kết cấu tốt nào khi đồng độ với Thiên Phủ, hội Tử Vi và Vũ Khúc Thiên Tướng?",
+      "answer_atom": "Liêm Trinh rất ưa đồng độ với Thiên Phủ, hội Tử Vi của cung Ngọ và 'Vũ Khúc, Thiên Tướng' của cung Dần — đây là kết cấu tốt. Gặp cát tinh có thể trở thành người hữu dụng. Đây đều là đặc tính văn võ bắt nguồn từ Liêm Trinh.",
+      "source_quote": "Rất ưa đồng độ với **Thiên Phủ**, hội **Tử Vi** của cung Ngọ và “**Vũ Khúc**, **Thiên Tướng**” của cung Dần, đây là kết cấu tốt. Gặp cát tinh có thể trở thành người hữu dụng. Đây đều là đặc tính văn võ bắt nguồn từ **Liêm Trinh**.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_phu", "star:tu_vi", "star:vu_khuc", "star:thien_tuong", "concept:ket_cau_tot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm Trinh + Thiên Phủ, có Tử Vi (cung Ngọ) và Vũ Khúc Thiên Tướng (cung Dần) hội về là kết cấu tốt; thêm cát tinh thì thành người hữu dụng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q07",
+      "question": "'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ và 'Liêm Trinh, Phá Quân' ở Mão/Dậu khác nhau về khí thế nào?",
+      "answer_atom": "'Liêm Trinh, Thiên Tướng' đồng độ ở hai cung Tí hoặc Ngọ có khí hòa hoãn hơn; khác với 'Liêm Trinh, Phá Quân' ở hai cung Mão hoặc Dậu có khí hấp tấp, quyết liệt. Trường hợp sau là trái ngược điển hình.",
+      "source_quote": "“**Liêm Trinh**, **Thiên Tướng**” đồng độ ở hai cung Tí hoặc Ngọ, khí hòa hoãn hơn, khác với “**Liêm Trinh**, **Phá Quân**” ở hai cung Mão hoặc Dậu có khí hấp tấp, quyết liệt. Trường hợp sau là trái ngược điển hình.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "star:pha_quan", "palace:ti", "palace:ngo", "palace:mao", "palace:dau", "concept:khi_hoa_hoan"],
+      "commentary": {
+        "han_viet_explain": "Khí hòa hoãn = khí thế dịu, ôn hòa; khí hấp tấp quyết liệt = khí thế gấp gáp, mạnh, dứt khoát.",
+        "viet_thuan": "Liêm Trinh + Thiên Tướng ở Tí/Ngọ thì khí dịu hơn; Liêm Trinh + Phá Quân ở Mão/Dậu thì khí gấp và quyết liệt — đây là hai cực đối lập điển hình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q08",
+      "question": "'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ kỵ Hỏa Tinh Linh Tinh thế nào, và trường hợp nào khuynh hướng tự sát rõ nhất?",
+      "answer_atom": "'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ rất ngại có Hỏa Tinh, Linh Tinh đồng độ — chủ về gặp trắc trở nghiêm trọng, hoặc có khuynh hướng tự sát. Khuynh hướng này càng đúng khi Liêm Trinh Hóa Kỵ bị Vũ Khúc Hóa Kỵ xung hội, lại có thêm Kình Dương, Đà La, Thiên Hình xung hội.",
+      "source_quote": "“**Liêm Trinh**, **Thiên Tướng**” ở hai cung Tí hoặc Ngọ rất ngại có **Hỏa Tinh**, **Linh Tinh** đồng độ, chủ về gặp trắc trở nghiêm trọng, hoặc có khuynh hướng tự sát. Nhất là lúc **Liêm Trinh Hóa Kỵ** bị **Vũ Khúc Hóa Kỵ** xung hội, lại gặp thêm **Kình Dương**, **Đà La**, **Thiên Hình** xung hội, khuynh hướng này càng đúng.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "palace:ti", "palace:ngo", "star:hoa_tinh", "star:linh_tinh", "hoa:hoa_ky", "star:kinh_duong", "star:da_la", "star:thien_hinh", "warning:tu_sat"],
+      "commentary": {
+        "han_viet_explain": "Đồng độ = ở cùng cung; xung hội = chiếu xung và hội chiếu, tức từ cung đối diện hoặc tam hợp tác động vào.",
+        "viet_thuan": "Bộ Liêm-Tướng ở Tí/Ngọ rất sợ Hỏa-Linh đồng cung — dễ trắc trở nặng, có ý tự sát. Nặng nhất là khi Liêm Trinh Hóa Kỵ bị Vũ Khúc Hóa Kỵ xung kèm Kình-Đà-Thiên Hình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q09",
+      "question": "Với 'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ, người sinh năm Bính có vận trình hoạnh phát/hoạnh phá ở đâu?",
+      "answer_atom": "'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ, người sinh năm Bính có Liêm Trinh Hóa Kỵ, đến cung hạn Thiên Đồng thì hoạnh phát, đến cung hạn Vũ Khúc thì phải đề phòng hoạnh phá.",
+      "source_quote": "“**Liêm Trinh**, **Thiên Tướng**” ở hai cung Tí hoặc Ngọ, người sinh năm Bính **Liêm Trinh Hóa Kỵ**, đến cung hạn Thiên Đồng thì hoạnh phát, đến cung hạn Vũ Khúc thì phải để phòng hoạnh phá.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "palace:ti", "palace:ngo", "year:binh", "hoa:hoa_ky", "concept:hoanh_phat", "concept:hoanh_pha", "limit:thien_dong", "limit:vu_khuc"],
+      "commentary": {
+        "han_viet_explain": "Hoạnh phát = phát giàu/đắc lợi bất ngờ; hoạnh phá = bị phá sản, mất bất ngờ.",
+        "viet_thuan": "Bộ Liêm-Tướng Tí/Ngọ, tuổi Bính (Liêm Hóa Kỵ): vận Thiên Đồng phát bất ngờ; vận Vũ Khúc thì phòng phá bất ngờ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q10",
+      "question": "'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ ưa cách 'Tài ấm giáp ấn' và Hóa Lộc ra sao, và nên làm nghề gì?",
+      "answer_atom": "'Liêm Trinh, Thiên Tướng' ở Tí/Ngọ rất ưa cách 'Tài ấm giáp ấn'; có Liêm Trinh Hóa Lộc, hoặc Phá Quân Hóa Lộc ở đối cung, sẽ chủ về phú quý. Nhưng vẫn chỉ nên ở vị trí phụ tá, hay phó, hoặc nghề nghiệp có tính chất làm việc hưởng lương.",
+      "source_quote": "“**Liêm Trinh**, **Thiên Tướng**” ở hai cung Tí hoặc Ngọ rất ưa “Tài ấm giáp ấn”, **Liêm Trinh Hóa Lộc**, hoặc **Phá Quân Hóa Lộc** ở đối cung, sẽ chủ về phú quý, nhưng vẫn chỉ nên ở vị trí phụ tá, hay phó, nghề nghiệp có tính chất làm việc hưởng lương.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "palace:ti", "palace:ngo", "format:tai_am_giap_an", "hoa:hoa_loc", "star:pha_quan", "domain:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": "Tài ấm giáp ấn = cách Tài (Vũ Khúc) và Ấm (Thiên Lương) giáp cung có Thiên Tướng (Ấn), một kết cấu cát; đối cung = cung xung chiếu.",
+        "viet_thuan": "Liêm-Tướng Tí/Ngọ ưa cách 'Tài ấm giáp ấn'; có Liêm Hóa Lộc hoặc Phá Quân Hóa Lộc ở đối cung thì phú quý — nhưng chỉ nên làm phụ tá/phó, hoặc nghề ăn lương.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q11",
+      "question": "Vận trình then chốt của 'Liêm Trinh, Thiên Tướng' (Tí/Ngọ) là gì?",
+      "answer_atom": "'Liêm Trinh, Thiên Tướng' ngoài người sinh năm Bính lấy hai cung hạn Thiên Đồng, Vũ Khúc làm vận trình then chốt, còn lại đều lấy các cung hạn 'Tử Vi, Thiên Phủ', Vũ Khúc, Cự Môn, Phá Quân làm đại vận hoặc lưu niên có tính then chốt.",
+      "source_quote": "“**Liêm Trinh**, **Thiên Tướng**” ngoại trừ người sinh năm Bính lấy hai cung hạn Thiên Đồng, Vũ Khúc làm vận trình có tính then chốt ra, còn lại là đều lấy các cung hạn “**Tử Vi**, **Thiên Phủ**”, **Vũ Khúc**, **Cự Môn**, **Phá Quân** làm đại vận hoặc lưu niên có tính then chốt.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_tuong", "limit:then_chot", "year:binh"],
+      "commentary": {
+        "han_viet_explain": "Đại vận = vận 10 năm; lưu niên = vận từng năm.",
+        "viet_thuan": "Liêm-Tướng: tuổi Bính then chốt ở vận Thiên Đồng và Vũ Khúc; tuổi khác then chốt ở vận Tử Vi-Thiên Phủ, Vũ Khúc, Cự Môn, Phá Quân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q12",
+      "question": "'Liêm Trinh, Thất Sát' ở Sửu hoặc Mùi cấu thành cách 'Hùng tú kiển nguyên' ở cung nào, và điều kiện ra sao?",
+      "answer_atom": "'Liêm Trinh, Thất Sát' ở Sửu hoặc Mùi, chỉ có cung Mùi mới có thể cấu tạo thành cách 'Hùng tú kiển nguyên'. Điều kiện là gặp các sao phụ tá cát, không có tứ sát tinh và các sao hình, kỵ, Địa Không, Địa Kiếp xung hội — chủ về trải qua gian khổ mà thành giàu có. Ở cung Sửu chỉ có mức sống trung bình.",
+      "source_quote": "“**Liêm Trinh**, **Thất Sát**” ở hai cung Sửu hoặc Mùi, chỉ có cung Mùi mới có thể cấu tạo thành cách cục “Hùng tú kiển nguyên”. Điều kiện là gặp các sao phụ tá cát, không có tứ sát tinh và các sao hình, kị, Địa Không, Địa Kiếp xung hội, chủ về trải qua gian khổ mà thành giàu có. Ở cung Sửu chỉ có mức sống trung bình.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:that_sat", "palace:suu", "palace:mui", "format:hung_tu_kien_nguyen", "condition:phu_ta_cat"],
+      "commentary": {
+        "han_viet_explain": "Hùng tú kiển nguyên = cách cục mạnh, hào kiệt đứng đầu; tứ sát tinh = Kình Dương, Đà La, Hỏa Tinh, Linh Tinh; xung hội = chiếu xung và hội chiếu.",
+        "viet_thuan": "Liêm-Sát chỉ thành 'Hùng tú kiển nguyên' ở cung Mùi, với điều kiện có phụ tá cát + không bị tứ sát/hình/kỵ/Không Kiếp xung hội — qua gian khổ mới giàu. Ở Sửu chỉ trung bình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q13",
+      "question": "Khi 'Liêm Trinh, Thất Sát' ở cung Mùi có Liêm Trinh Hóa Lộc thì sao?",
+      "answer_atom": "Ở cung Mùi, 'Liêm Trinh, Thất Sát' có Liêm Trinh Hóa Lộc là cách 'thanh bạch', cũng chủ về dư giả; nếu không có Hỏa Tinh, Linh Tinh hội chiếu sẽ chủ về phú quý. Ở cung Sửu cũng chỉ thành cục trung bình.",
+      "source_quote": "Ở cung Mùi, **Liêm Trinh Hóa Lộc**, là cách “thanh bạch”, cũng chủ về dư giả, nếu không có **Hỏa Tinh**, **Linh Tinh** hội chiếu sẽ chủ về phú quý; ở cung Sửu cũng chỉ thành cục trung bình.",
+      "source_page": 522,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:that_sat", "palace:mui", "palace:suu", "hoa:hoa_loc", "format:thanh_bach", "star:hoa_tinh", "star:linh_tinh"],
+      "commentary": {
+        "han_viet_explain": "Cách thanh bạch = kết cấu trong sạch, giàu mà không nhơ nhuốc.",
+        "viet_thuan": "Liêm-Sát ở Mùi mà Liêm Hóa Lộc = cách 'thanh bạch', dư giả; không có Hỏa-Linh hội chiếu thì phú quý. Ở Sửu cũng chỉ trung bình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q14",
+      "question": "'Liêm Trinh, Thất Sát' ở Sửu/Mùi không ưa các sao nào, và mỗi sao mang theo hậu quả gì?",
+      "answer_atom": "'Liêm Trinh, Thất Sát' ở Sửu/Mùi không ưa Kình Dương đồng độ — chủ gặp nhiều thị phi; cũng không ưa Đà La đồng độ — chủ gặp nhiều rối ren vô vị; còn không ưa gặp Hỏa Tinh, Linh Tinh — chủ bị trắc trở nghiêm trọng.",
+      "source_quote": "“**Liêm Trinh**, **Thất Sát**” ở hai cung Sửu hoặc Mùi không ưa có...\n\nKinh Dương đông độ, chủ về gặp nhiều thị phi; cũng không ưa có Đà La đông độ, chủ về gặp nhiều rối ren vô vị; còn không ưa gặp Hỏa Tinh, Linh Tinh, chủ về bị trắc trở nghiêm trọng.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:that_sat", "palace:suu", "palace:mui", "star:kinh_duong", "star:da_la", "star:hoa_tinh", "star:linh_tinh"],
+      "commentary": {
+        "han_viet_explain": "Đồng độ (text in 'đông độ' = OCR lỗi của 'đồng độ') = ở cùng cung.",
+        "viet_thuan": "Liêm-Sát ở Sửu/Mùi sợ: Kình Dương → nhiều thị phi; Đà La → nhiều rối ren vô nghĩa; Hỏa Linh → trắc trở nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.88,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q15",
+      "question": "Khi 'Liêm Trinh, Thất Sát' đồng độ mà Liêm Trinh Hóa Kỵ + sao hình hao sát thì sao? Còn khi Vũ Khúc/Văn Khúc/Văn Xương Hóa Kỵ xung khởi + Hỏa Linh?",
+      "answer_atom": "'Liêm Trinh, Thất Sát' đồng độ mà Liêm Trinh Hóa Kỵ, lại gặp các sao hình, hao, sát, chủ về chết ở xứ người. Nếu Vũ Khúc Hóa Kỵ, hoặc Văn Khúc hay Văn Xương Hóa Kỵ xung khởi, lại có Hỏa Tinh, Linh Tinh hội hợp, chủ về sự cố bất trắc, nghiêm trọng thì ngầm có ý định tự sát.",
+      "source_quote": "“Liêm Trinh, Thất Sát” đông độ, mà Liêm Trinh Hóa Kỵ, lại gặp các sao hình, hao, sát, chủ về chết ở xứ người. Nếu Vũ Khúc Hóa Kỵ, hoặc Văn Khúc hay Văn Xương Hóa Kỵ xung khởi, lại có Hỏa Tinh, Linh Tinh hội hợp, chủ về sự cố bất trắc, nghiêm trọng thì ngầm có ý định tự sát.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:that_sat", "hoa:hoa_ky", "star:vu_khuc", "star:van_khuc", "star:van_xuong", "star:hoa_tinh", "star:linh_tinh", "warning:chet_xu_nguoi", "warning:tu_sat"],
+      "commentary": {
+        "han_viet_explain": "Sao hình, hao, sát = nhóm sao Thiên Hình, Đại Hao/Tiểu Hao, và các sát tinh; xung khởi = từ cung khác xung lên kích hoạt.",
+        "viet_thuan": "Liêm-Sát đồng cung + Liêm Hóa Kỵ + hình-hao-sát → chết xứ người. Nếu Vũ/Văn Khúc/Văn Xương Hóa Kỵ xung kèm Hỏa-Linh → sự cố bất trắc nặng, có thể ngầm tính tự sát.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q16",
+      "question": "Vận trình then chốt của 'Liêm Trinh, Thất Sát' ở Sửu/Mùi là gì?",
+      "answer_atom": "Đối với 'Liêm Trinh, Thất Sát' ở Sửu/Mùi, các cung hạn Thiên Lương, 'Vũ Khúc, Phá Quân', Thiên Đồng là những lưu niên hay đại hạn có tính then chốt.",
+      "source_quote": "Đối với “Liêm Trinh, Thất Sát” ở hai cung Sửu hoặc Mùi, các cung hạn Thiên Lương, “Vũ Khúc, Phá Quân”, Thiên Đông là những lưu niên hay đại hạn có tính then chốt.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:that_sat", "palace:suu", "palace:mui", "limit:then_chot", "limit:thien_luong", "limit:vu_khuc_pha_quan", "limit:thien_dong"],
+      "commentary": {
+        "han_viet_explain": "'Thiên Đông' trong text là OCR lỗi của 'Thiên Đồng'.",
+        "viet_thuan": "Liêm-Sát Sửu/Mùi: vận then chốt là Thiên Lương, Vũ Khúc-Phá Quân, Thiên Đồng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q17",
+      "question": "Liêm Trinh độc tọa ở Dần hoặc Thân khác nhau thế nào về cách cục?",
+      "answer_atom": "Liêm Trinh độc tọa ở hai cung Dần hoặc Thân: trường hợp ở cung Thân cũng thành cách 'Hùng tú kiển nguyên' (có thể tham khảo đoạn ở trên); trường hợp ở cung Dần thì không thành cách như vậy.",
+      "source_quote": "**Liêm Trinh độc tọa** ở hai cung Dần hoặc Thân, trường hợp ở cung Thân cũng thành cách cục “Hùng tú kiển nguyên”, có thể tham khảo đoạn ở trên. Trường hợp ở cung Dần, không thành cách cũng như trên.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "palace:than", "palace:dan", "format:hung_tu_kien_nguyen", "condition:doc_toa"],
+      "commentary": {
+        "han_viet_explain": "Độc tọa = một mình ngồi cung (không đồng cung với chính tinh khác).",
+        "viet_thuan": "Liêm Trinh độc tọa: ở Thân thành 'Hùng tú kiển nguyên'; ở Dần không thành cách này.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q18",
+      "question": "Liêm Trinh ở Dần/Thân kỵ tổ hợp nào dẫn đến trộm cắp và trụy lạc?",
+      "answer_atom": "Liêm Trinh ở Dần/Thân rất kỵ Văn Khúc bay đến cung Thiên Di, cung Mệnh lại hội Văn Xương, lại hội các tạp diệu Âm Sát, Đại Hao, Thiên Hư, Thiên Hình, và Vũ Khúc Hóa Kỵ đến hội; nếu các sao ác sát nặng — chủ về có khuynh hướng trộm cắp, mà còn chủ về quyến luyến tửu sắc, trụy lạc, dẫn đến thất bại.",
+      "source_quote": "Liêm Trinh ở hai cung Dần hoặc Thân, rất kỵ Văn Khúc bay đến cung Thiên Di, cung Mệnh lại hội Văn Xương, còn hội các tạp điệu Âm Sát, Đại Hao, Thiên Hư, Thiên Hình, và Vũ Khúc Hóa Kỵ đến hội; các sao ác sát nặng, chủ về có khuynh hướng trộm cắp, mà còn chủ về quyến luyến tửu sắc, trụy lạc, mà dẫn đến thất bại.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "palace:dan", "palace:than", "star:van_khuc", "palace:thien_di", "star:van_xuong", "star:am_sat", "star:dai_hao", "star:thien_hu", "star:thien_hinh", "star:vu_khuc", "hoa:hoa_ky", "warning:trom_cap", "warning:truy_lac"],
+      "commentary": {
+        "han_viet_explain": "Tạp diệu (text 'tạp điệu' = OCR lỗi) = các sao phụ nhỏ; Thiên Di = cung di chuyển, đối cung Mệnh; ác sát = sao xấu sát phạt.",
+        "viet_thuan": "Liêm Trinh Dần/Thân sợ tổ hợp: Văn Khúc ở Thiên Di + Văn Xương hội Mệnh + Âm Sát, Đại Hao, Thiên Hư, Thiên Hình + Vũ Khúc Hóa Kỵ + ác sát nặng → khuynh hướng trộm cắp, đắm tửu sắc, trụy lạc, thất bại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q19",
+      "question": "Cổ quyết 'Liêm Tham Sát Phá phùng, Văn Khúc Thiên Di tác bối nhung' nghĩa là gì, và có tranh luận chú giải nào?",
+      "answer_atom": "Cổ quyết nói: 'Liêm Trinh, Tham Lang, Thất Sát, Phá Quân gặp nhau, Văn Khúc ở Thiên Di là làm giặc.' Theo Vương Đình Chỉ, hai chữ 'bối nhung' ghép lại là chữ 'tặc' (giặc). Đời nay, có người cho rằng đây là do chép lầm của hai chữ 'binh nhung', giải thích là 'võ nghiệp hiển quý' — hoàn toàn trái ngược với kiến giải của Vương Đình Chỉ.",
+      "source_quote": "Cổ quyết nói: “Liêm Trinh, Tham Lang, Thất Sát, Phá Quân gặp nhau, Văn Khúc ở Thiên Di là làm giặc.” (Trích: Liêm Trinh Tham Sát Phá Quân phùng, Văn Khúc Thiên Di tác bối nhung).\n\nTheo Vương Đình Chỉ, hai chữ “bối nhung” ghép lại là chữ tặc “8X”. Đời nay, có người cho rằng đây là do chép lầm của hai chữ “binh nhung”, giải thích là “võ nghiệp hiển quý”, hoàn toàn trái ngược với kiến giải của Vương Đình Chỉ.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["co_quyet", "star:liem_trinh", "star:tham_lang", "star:that_sat", "star:pha_quan", "star:van_khuc", "palace:thien_di", "author:vuong_dinh_chi", "controversy:boi_nhung_binh_nhung"],
+      "commentary": {
+        "han_viet_explain": "Bối nhung 背戎 ghép = chữ 'tặc' (giặc); binh nhung 兵戎 = võ nghiệp/binh đao; phùng = gặp nhau.",
+        "viet_thuan": "Cổ quyết: Liêm-Tham-Sát-Phá phùng + Văn Khúc ở Thiên Di → làm giặc. Vương Đình Chỉ giữ nguyên 'bối nhung' = ghép thành chữ tặc. Có người sửa thành 'binh nhung' = võ nghiệp hiển quý — trái ngược hoàn toàn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Có dị bản: 'bối nhung' (giặc) ↔ 'binh nhung' (võ nghiệp). Sách giữ lập trường Vương Đình Chỉ — em phải flag khi đối chiếu sách khác."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q20",
+      "question": "Liêm Trinh ở Dần/Thân có Tham Lang đối cung gặp Hỏa/Linh thì sao?",
+      "answer_atom": "Liêm Trinh ở Dần/Thân cũng ưa Tham Lang ở đối cung thành cách 'Hỏa Tham' hay cách 'Linh Tham' — chủ về phát lên một cách đột ngột, cũng chủ về được tiền của nhờ vợ, hoặc nhờ vợ trợ giúp mà trở nên giàu có.",
+      "source_quote": "Liêm Trinh ở hai cung Dần hoặc Thân, cũng ưa Tham Lang ở đối cung thành cách “Hỏa Tham” hay cách “Linh Tham”, chủ về phát lên một cách đột ngột, cũng chủ về được tiền của nhờ vợ, hoặc nhờ vợ trợ giúp mà trở nên giàu có.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "palace:dan", "palace:than", "star:tham_lang", "format:hoa_tham", "format:linh_tham", "concept:phat_dot_ngot", "concept:nho_vo"],
+      "commentary": {
+        "han_viet_explain": "Hỏa Tham = Tham Lang gặp Hỏa Tinh; Linh Tham = Tham Lang gặp Linh Tinh — đều là cách phát đột ngột.",
+        "viet_thuan": "Liêm Trinh Dần/Thân thích Tham Lang đối cung kết Hỏa Tham/Linh Tham — phát đột ngột, hoặc được tiền nhờ vợ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q21",
+      "question": "Vận trình then chốt của Liêm Trinh ở Dần/Thân là gì?",
+      "answer_atom": "Đối với Liêm Trinh ở Dần/Thân: các cung hạn Thất Sát, Phá Quân, Tham Lang, Thiên Lương và bản thân Liêm Trinh là những lưu niên có tính then chốt; còn các cung hạn Thất Sát, Thiên Lương, 'Thiên Cơ, Cự Môn', 'Vũ Khúc, Thiên Phủ' là những đại vận có tính then chốt.",
+      "source_quote": "Đối với Liêm Trinh ở hai cung Dần hoặc Thân, các cung hạn **Thất Sát**, **Phá Quân**, **Tham Lang**, **Thiên Lương** và bản thân **Liêm Trinh**, là những lưu niên có tính then chốt; và các cung hạn **Thất Sát**, **Thiên Lương**, “Thiên Cơ, Cự Môn”, “Vũ Khúc, Thiên Phú” là những đại vận có tính then chốt.",
+      "source_page": 523,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "palace:dan", "palace:than", "limit:then_chot", "limit:luu_nien", "limit:dai_van"],
+      "commentary": {
+        "han_viet_explain": "'Thiên Phú' trong text là OCR lỗi của 'Thiên Phủ'.",
+        "viet_thuan": "Liêm Trinh Dần/Thân: lưu niên then chốt = Thất Sát, Phá Quân, Tham Lang, Thiên Lương, chính Liêm Trinh. Đại vận then chốt = Thất Sát, Thiên Lương, Thiên Cơ-Cự Môn, Vũ Khúc-Thiên Phủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q22",
+      "question": "'Liêm Trinh, Phá Quân' ở Mão/Dậu kỵ Hỏa Linh đồng độ, và gặp sát tinh nặng + Thiên Hình thì sao?",
+      "answer_atom": "'Liêm Trinh, Phá Quân' ở Mão/Dậu rất ngại có Hỏa Tinh, Linh Tinh đồng độ — chủ về suy sụp nhanh chóng; gặp sát tinh nặng, còn gặp thêm Thiên Hình, sẽ chủ về bị phẫu thuật, hoặc xảy ra sự cố bất trắc.",
+      "source_quote": "Rất ngại có **Hỏa Tinh**, **Linh Tinh đồng độ**, chủ về suy sụp nhanh chóng; gặp **sát tinh** nặng, còn gặp thêm **Thiên Hình**, sẽ chủ về bị phẫu thuật, hoặc xảy ra sự cố bất trắc.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:pha_quan", "palace:mao", "palace:dau", "star:hoa_tinh", "star:linh_tinh", "star:thien_hinh", "warning:phau_thuat", "warning:bat_trac"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm-Phá Mão/Dậu sợ Hỏa-Linh đồng cung → suy sụp nhanh; nặng + Thiên Hình → mổ xẻ, sự cố bất trắc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q23",
+      "question": "Khi nào là 'năm ứng nghiệm' của 'Liêm Trinh, Phá Quân' Mão/Dậu?",
+      "answer_atom": "Liêm Trinh Hóa Kỵ ở lưu niên xung khởi là năm ứng nghiệm: cung Mệnh của nguyên cục là 'Liêm Trinh, Phá Quân', lúc cung Tật Ách của lưu niên cũng là 'Liêm Trinh, Phá Quân', có sao Kỵ xung phá cũng vậy.",
+      "source_quote": "**Liêm Trinh Hóa Kỵ** ở lưu niên xung khởi là năm ứng nghiệm (cung Mệnh của nguyên cục là “Liêm Trinh, Phá Quân”, lúc cung Tật Ách của lưu niên cũng là “Liêm Trinh, Phá Quân”, có sao kỵ xung phá cũng vậy).",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:pha_quan", "palace:mao", "palace:dau", "hoa:hoa_ky", "limit:luu_nien", "palace:tat_ach", "concept:nam_ung_nghiem"],
+      "commentary": {
+        "han_viet_explain": "Lưu niên = năm vận hành hiện thời; xung khởi = từ cung khác xung lên kích hoạt; nguyên cục = lá số gốc; cung Tật Ách = cung bệnh tật.",
+        "viet_thuan": "Năm ứng nghiệm của Liêm-Phá Mão/Dậu: khi lưu niên có Liêm Hóa Kỵ xung khởi, hoặc cung Tật Ách lưu niên cũng là Liêm-Phá có Kỵ xung phá.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q24",
+      "question": "Nếu 'Liêm Trinh, Phá Quân' Mão/Dậu gặp Liêm Trinh Hóa Lộc, thì bệnh tật rơi vào đâu?",
+      "answer_atom": "Nếu 'Liêm Trinh, Phá Quân' ở Mão/Dậu và gặp Liêm Trinh Hóa Lộc, thì cung Tật Ách ắt sẽ là Thái Dương Hóa Kỵ, vì vậy chủ về bệnh tật ở mắt.",
+      "source_quote": "Nếu **Liêm Trinh, Phá Quân** ở hai cung Mão hoặc Dậu, và gặp **Liêm Trinh Hóa Lộc**, thì cung Tật Ách ắt sẽ là **Thái Dương Hóa Kỵ**, vì vậy chủ về bệnh tật ở mắt.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:pha_quan", "palace:mao", "palace:dau", "hoa:hoa_loc", "star:thai_duong", "hoa:hoa_ky", "palace:tat_ach", "warning:benh_mat"],
+      "commentary": {
+        "han_viet_explain": "Tật Ách = cung bệnh tật/tai ách.",
+        "viet_thuan": "Liêm-Phá Mão/Dậu + Liêm Hóa Lộc → Tật Ách ắt có Thái Dương Hóa Kỵ → chủ bệnh ở mắt.",
+        "nguyen_ly": "Liêm Hóa Lộc kéo theo Thái Dương Hóa Kỵ (tứ hóa năm Giáp) → bệnh ở mắt vì Thái Dương chủ mắt.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q25",
+      "question": "'Liêm Trinh, Phá Quân' Mão/Dậu gặp Kình Dương đồng độ (không có hình/hao) thì có đặc tính gì?",
+      "answer_atom": "'Liêm Trinh, Phá Quân' ở Mão/Dậu có năng lực sáng tạo; gặp Kình Dương đồng độ, không có các sao hình, hao, là chủ về suy nghĩ khéo, có tay nghề khéo.",
+      "source_quote": "“**Liêm Trinh, Phá Quân**” ở hai cung Mão hoặc Dậu, có năng lực sáng tạo, gặp **Kình Dương đồng độ**, không có các sao hình, hao, là chủ về suy nghĩ khéo, có tay nghề khéo.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:pha_quan", "palace:mao", "palace:dau", "star:kinh_duong", "concept:sang_tao", "concept:tay_nghe_kheo"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm-Phá Mão/Dậu vốn có khả năng sáng tạo; thêm Kình Dương đồng cung mà không có hình/hao → suy nghĩ khéo, tay nghề khéo.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q26",
+      "question": "Người sinh năm Bính có 'Liêm Trinh, Phá Quân' Mão/Dậu thì hoạnh phát/hoạnh phá ở đâu?",
+      "answer_atom": "Đối với người sinh năm Bính, 'Liêm Trinh, Phá Quân' ở Mão/Dậu cũng chủ về hoạnh phát, hoạnh phá. Đến đại hạn Thiên Phủ thì hoạnh phát; phải đề phòng đến cung hạn 'Thiên Đồng, Thái Âm' thì hoạnh phá.",
+      "source_quote": "Đối với người sinh năm Bính, **“Liêm Trinh, Phá Quân”** ở hai cung Mão hoặc Dậu cũng chủ về hoạnh phát, hoạnh phá. Đến đại hạn **Thiên Phủ** thì hoạnh phát, để phòng đến cung hạn “**Thiên Đồng, Thái Âm**” thì hoạnh phá.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:pha_quan", "palace:mao", "palace:dau", "year:binh", "concept:hoanh_phat", "concept:hoanh_pha", "limit:thien_phu", "limit:thien_dong_thai_am"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tuổi Bính + Liêm-Phá Mão/Dậu: vận Thiên Phủ phát bất ngờ; phòng vận Thiên Đồng-Thái Âm phá bất ngờ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q27",
+      "question": "Vận trình then chốt của 'Liêm Trinh, Phá Quân' Mão/Dậu là gì?",
+      "answer_atom": "Ngoài những điều thuật ở trên, đối với 'Liêm Trinh, Phá Quân', các cung hạn 'Vũ Khúc, Tham Lang', 'Thiên Đồng, Thái Âm', 'Thái Dương, Cự Môn' là những niên hạn có tính then chốt.",
+      "source_quote": "Ngoài những điều thuật ở trên, đối với **“Liêm Trinh, Phá Quân”**, các cung hạn “**Vũ Khúc, Tham Lang**”, “**Thiên Đồng, Thái Âm**”, “**Thái Dương, Cự Môn**” là những niên hạn có tính then chốt.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:pha_quan", "limit:then_chot", "limit:vu_khuc_tham_lang", "limit:thien_dong_thai_am", "limit:thai_duong_cu_mon"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm-Phá: vận then chốt = Vũ Khúc-Tham Lang, Thiên Đồng-Thái Âm, Thái Dương-Cự Môn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q28",
+      "question": "'Liêm Trinh, Thiên Phủ' ở Thìn/Tuất có khí thế nào, và Thiên Phủ là 'kho trống' hay 'kho lộ' thì sao?",
+      "answer_atom": "'Liêm Trinh, Thiên Phủ' ở Thìn/Tuất có khí rất hòa hoãn; gặp sao Lộc thì cát. Thiên Phủ là 'kho trống', 'kho lộ' thì hung — nhưng nhẹ hơn các tổ hợp sao khác.",
+      "source_quote": "Khí rất hòa hoãn, gặp sao Lộc thì cát; **Thiên Phủ** là “kho trống”, “kho lộ” thì hung, nhưng nhẹ hơn các tổ hợp sao khác.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_phu", "palace:thin", "palace:tuat", "concept:kho_trong", "concept:kho_lo", "concept:sao_loc"],
+      "commentary": {
+        "han_viet_explain": "Kho trống / kho lộ = thuật ngữ Tử Vi chỉ trạng thái Thiên Phủ (kho) khi không có Lộc giữ kho, hoặc bị Không Kiếp lộ kho.",
+        "viet_thuan": "Liêm-Phủ Thìn/Tuất: khí dịu, gặp Lộc thì tốt. Thiên Phủ thành 'kho trống' hoặc 'kho lộ' thì hung — nhưng nhẹ hơn các tổ hợp khác.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.88,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q29",
+      "question": "'Liêm Trinh, Thiên Phủ' Thìn/Tuất có bất lợi gì trong hôn nhân?",
+      "answer_atom": "'Liêm Trinh, Thiên Phủ' Thìn/Tuất: kết hôn sớm thì bất lợi, thường dễ bị tình trạng 'ngó đứt mà tơ chưa lìa', hoặc có một thời kỳ hữu danh vô thực.",
+      "source_quote": "Có điều, kết hôn sớm thì bất lợi, thường dễ bị tình trạng “ngó đứt mà tơ chưa lìa”, hoặc có một thời kì hữu danh vô thực.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_phu", "palace:thin", "palace:tuat", "domain:hon_nhan", "warning:ket_hon_som"],
+      "commentary": {
+        "han_viet_explain": "Ngó đứt mà tơ chưa lìa = chia tay rồi mà tình cảm vẫn chưa dứt; hữu danh vô thực = có danh mà không thực chất.",
+        "viet_thuan": "Liêm-Phủ Thìn/Tuất bất lợi nếu cưới sớm: chia tay vẫn vương vấn, hoặc có lúc danh nghĩa vợ chồng mà không thực.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q30",
+      "question": "'Liêm Trinh, Thiên Phủ' gặp sao Lộc + Phụ tá cát hợp với nghề gì?",
+      "answer_atom": "'Liêm Trinh, Thiên Phủ' gặp sao Lộc, lại có sao Phụ, tá cát, có thể làm việc trong giới kinh tế tài chính, hoặc làm quan thuế. Gặp thêm Tả Phụ, Hữu Bật thì rất tốt.",
+      "source_quote": "**“Liêm Trinh, Thiên Phủ”** gặp sao Lộc, lại có sao Phụ, tá cát, có thể làm việc trong giới kinh tế tài chính, hoặc là quan thuế. Gặp thêm **Tả Phụ, Hữu Bật** thì rất tốt.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_phu", "concept:sao_loc", "concept:phu_ta_cat", "star:ta_phu", "star:huu_bat", "domain:nghe_nghiep", "domain:tai_chinh"],
+      "commentary": {
+        "han_viet_explain": "Phụ, tá = nhóm sao phụ trợ (Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, v.v.); quan thuế = công chức ngành thuế.",
+        "viet_thuan": "Liêm-Phủ + sao Lộc + Phụ Tá cát: hợp ngành kinh tế tài chính hoặc quan thuế. Thêm Tả Phụ-Hữu Bật càng tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q31",
+      "question": "'Liêm Trinh, Thiên Phủ' được Thái Dương Thái Âm giáp cung thì cung nào ưu hơn?",
+      "answer_atom": "Nếu 'Liêm Trinh, Thiên Phủ' được Thái Dương và Thái Âm giáp cung, thì ở cung Tuất ưu hơn ở cung Thìn. Nếu hội các sao cát là đại phú đại quý.",
+      "source_quote": "Nếu **“Liêm Trinh, Thiên Phủ”** được **Thái Dương** và **Thái Âm** giáp cung, thì ở cung Tuất ưu hơn ở cung Thìn. Nếu hội các sao cát là đại phú đại quý.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_phu", "palace:thin", "palace:tuat", "star:thai_duong", "star:thai_am", "format:giap_cung", "concept:dai_phu_dai_quy"],
+      "commentary": {
+        "han_viet_explain": "Giáp cung = hai sao ở hai cung kề bên (trái-phải) kẹp lấy cung chính.",
+        "viet_thuan": "Liêm-Phủ được Thái Dương-Thái Âm giáp: cung Tuất tốt hơn cung Thìn; hội cát tinh thì đại phú đại quý.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q32",
+      "question": "Vận trình then chốt của 'Liêm Trinh, Thiên Phủ' Thìn/Tuất là gì?",
+      "answer_atom": "Đối với 'Liêm Trinh, Thiên Phủ', các cung hạn Phá Quân, Tham Lang, 'Thái Dương, Thiên Lương', có Văn Xương, Văn Khúc là những đại vận hoặc lưu niên có tính then chốt.",
+      "source_quote": "Đối với **“Liêm Trinh, Thiên Phủ”**, các cung hạn **Phá Quân, Tham Lang**, “**Thái Dương, Thiên Lương**”, có **Văn Xương, Văn Khúc** là những đại vận hoặc lưu niên có tính then chốt.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:thien_phu", "limit:then_chot", "limit:pha_quan", "limit:tham_lang", "limit:thai_duong_thien_luong", "star:van_xuong", "star:van_khuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm-Phủ: vận then chốt = Phá Quân, Tham Lang, Thái Dương-Thiên Lương, có Văn Xương-Văn Khúc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.6-Q33",
+      "question": "'Liêm Trinh, Tham Lang' đồng độ ở Tị/Hợi gặp sát kỵ thì sao?",
+      "answer_atom": "'Liêm Trinh, Tham Lang' đồng độ ở hai cung Tị hoặc Hợi, gặp các sao sát, kỵ, chủ về phiêu lưu tứ hải, rời xa quê hương.",
+      "source_quote": "**“Liêm Trinh, Tham Lang” đồng độ ở hai cung Tị hoặc Hợi:**\nGặp các sao sát, kỵ, chủ về phiêu lưu tứ hải, rời xa quê hương.",
+      "source_page": 524,
+      "section_id": "5.1.6",
+      "tags": ["star:liem_trinh", "star:tham_lang", "palace:ti", "palace:hoi", "star:sat_tinh", "hoa:hoa_ky", "concept:phieu_luu", "concept:roi_xa_que_huong"],
+      "commentary": {
+        "han_viet_explain": "Phiêu lưu tứ hải = lang bạt khắp bốn biển, sống không cố định.",
+        "viet_thuan": "Liêm-Tham đồng cung Tị/Hợi + sát kỵ → lang bạt tứ phương, xa quê.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

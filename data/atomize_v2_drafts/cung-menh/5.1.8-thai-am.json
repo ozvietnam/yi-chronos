@@ -1,0 +1,583 @@
+{
+  "section_id": "5.1.8",
+  "section_title": "Thái Âm ở cung Mệnh (thân)",
+  "pages": [528, 529, 530, 531, 532],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.8-Q01",
+      "question": "Thái Âm ở cung Mệnh nên ở trạng thái nào, và hợp với người sinh giờ nào?",
+      "answer_atom": "Thái Âm nên nhập miếu, không nên lạc hãm; nên là người sinh ban đêm, không nên là người sinh ban ngày.",
+      "source_quote": "Thái Âm nên nhập miếu, không nên lạc hãm, nên là người sinh vào ban đêm, không nên là người sinh vào ban ngày.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:menh", "concept:mieu_ham", "concept:sinh_ngay_dem"],
+      "commentary": {
+        "han_viet_explain": "Nhập miếu = sao vào cung sáng tỏ nhất; lạc hãm = sao rơi vào cung yếu/tối.",
+        "viet_thuan": "Thái Âm là mặt trăng, sáng nhất khi vào miếu địa và hợp với người sinh ban đêm. Lạc hãm hoặc sinh ban ngày đều không tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q02",
+      "question": "Người sinh ban đêm gặp Thái Âm nhập miếu thì sao?",
+      "answer_atom": "Rất tốt.",
+      "source_quote": "Nếu người sinh vào ban đêm gặp Thái Âm nhập miếu thì rất tốt; người sinh vào ban ngày thì giảm phúc.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:menh", "concept:mieu_vuong", "concept:sinh_dem"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Người sinh ban đêm hợp Thái Âm miếu là rất tốt; sinh ban ngày thì phúc khí giảm đi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q03",
+      "question": "Người sinh ban đêm gặp Thái Âm lạc hãm có chắc chắn hung không?",
+      "answer_atom": "Chưa chắc hung, vẫn phải xem xét các sao phụ, tá, sát, hóa mà định.",
+      "source_quote": "Nếu người sinh vào ban đêm gặp Thái Âm lạc hãm, chưa chắc đã hung, vẫn cần phải xem xét các sao phụ, tá, sát, hóa mà định",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:lac_ham", "concept:phu_ta_sat_hoa"],
+      "commentary": {
+        "han_viet_explain": "Phụ tá = sao trợ lực; sát = sao xấu; hóa = Tứ Hóa (Lộc/Quyền/Khoa/Kỵ).",
+        "viet_thuan": "Sinh ban đêm gặp Thái Âm lạc hãm không nhất định xấu — phải xét thêm các sao bổ trợ, sát, hóa quanh đó.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q04",
+      "question": "Người sinh ban ngày gặp Thái Âm lạc hãm thì ứng nghiệm gì?",
+      "answer_atom": "Bất lợi đối với người thân phái nữ; nữ mệnh cũng bất lợi cho bản thân, hoặc sớm mổ côi.",
+      "source_quote": "nếu người sinh vào ban ngày gặp Thái Âm lạc hãm, ắt sẽ bất lợi đối với người thân phái nữ. Nữ mệnh cũng bất lợi đối với bản thân, hoặc sớm mổ cồi.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:lac_ham", "concept:sinh_ngay", "gender:female", "concept:co_doc"],
+      "commentary": {
+        "han_viet_explain": "Mổ côi = mồ côi (mất mẹ sớm).",
+        "viet_thuan": "Sinh ban ngày gặp Thái Âm lạc hãm sẽ bất lợi cho người nữ thân thuộc (mẹ, chị, em gái); nữ mệnh thì hại chính mình hoặc mồ côi mẹ sớm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q05",
+      "question": "Mệnh vô chính diệu, Thân ở Thiên Di là Thái Âm lạc hãm gặp sát tinh ứng nghiệm gì?",
+      "answer_atom": "Người sinh ban ngày chủ về theo mẹ cải giá, hoặc làm con thừa tự của bác hay chú.",
+      "source_quote": "Cung Mệnh vô chính diệu, cung Thân ở cung Thiên Di là Thái Âm lạc hãm, gặp sát tinh (sợ nhất là Hỏa Tình, Linh Tinh), người sinh vào ban ngày chủ về theo mẹ cải giá, hoặc làm con thừa tự của bác hay chú.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:menh_vcd", "palace:thien_di", "star:hoa_tinh", "star:linh_tinh", "concept:cai_gia", "concept:thua_tu"],
+      "commentary": {
+        "han_viet_explain": "Vô chính diệu = không có chính tinh; cải giá = mẹ tái hôn; thừa tự = nối dõi cho người khác.",
+        "viet_thuan": "Mệnh không chính tinh, Thân ở Thiên Di gặp Thái Âm hãm + sát tinh (sợ nhất Hỏa Linh) + sinh ban ngày → theo mẹ cải giá hoặc làm con nối dõi cho chú/bác.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q06",
+      "question": "Thái Âm thủ Mệnh chia thành hai nhóm theo ngày sinh thượng huyển/hạ huyển thế nào?",
+      "answer_atom": "Sinh thượng huyển (ngày 1–15) là cát, thời kỳ trăng tròn dần; sinh hạ huyển (ngày 16–30) không cát tường, thời kỳ trăng khuyết dần.",
+      "source_quote": "Thái Âm thủ Mệnh, lại còn chia ra hai nhóm, nhóm người sinh vào thượng huyển (ngày 1 đến 15) và người sinh vào hạ huyển (ngày 16 đến 30). Sinh vào thượng huyển thì cát, đây là thời kỳ trăng tròn dần; sinh vào hạ huyển thì không cát tường, đây là thời kỳ trăng khuyết dần.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:thuong_huyen", "concept:ha_huyen", "concept:trang_tron_khuyet"],
+      "commentary": {
+        "han_viet_explain": "Thượng huyển = nửa đầu tháng âm (trăng đang tròn dần); hạ huyển = nửa sau tháng (trăng đang khuyết dần).",
+        "viet_thuan": "Thái Âm thủ Mệnh chia hai: sinh 1–15 là tốt (trăng lên), sinh 16–30 không tốt (trăng xuống).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q07",
+      "question": "Người sinh vào hạ huyển ứng với câu nào ở trên?",
+      "answer_atom": "Càng đúng với ứng nghiệm 'theo mẹ cải giá' nói ở trên.",
+      "source_quote": "Người sinh vào hạ huyển càng đúng với ứng nghiệm \"theo mẹ cải giá\" thuật ở trên.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:ha_huyen", "concept:cai_gia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Người sinh nửa cuối tháng âm càng dễ ứng vào cảnh theo mẹ tái hôn đã nói trước.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q08",
+      "question": "Thái Âm nhập miếu gặp sao cát tam phương hội chiếu chủ về điều gì?",
+      "answer_atom": "Chủ về hưởng thụ, nhất là hưởng thụ tinh thần; không dồn toàn bộ tinh thần vào kiếm tiền và sinh hoạt vật chất.",
+      "source_quote": "Thái Âm nhập miếu, gặp sao cát ở tam phương đến hội, chủ về hưởng thụ, nhất là hưởng thụ tinh thần. Tức không mang toàn bộ tình thần tập trung vào việc kiếm tiền và theo đuổi sinh hoạt vật chất.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:mieu_vuong", "concept:tam_phuong", "concept:huong_thu_tinh_than"],
+      "commentary": {
+        "han_viet_explain": "Tam phương = ba phương hội chiếu (tài, quan, đối).",
+        "viet_thuan": "Thái Âm miếu được sao tốt từ tam phương chiếu vào thì hưởng thụ, đặc biệt là hưởng thụ tinh thần — không chỉ chạy theo tiền bạc và vật chất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q09",
+      "question": "Thái Âm nhập miếu kết hợp với các sao Văn Xương/Văn Khúc, Thiên Đồng, Thiên Cơ, Thái Dương ra sao?",
+      "answer_atom": "Gặp Văn Xương, Văn Khúc thiên về văn chương; gặp Thiên Đồng ưa âm nhạc; gặp Thiên Cơ có hứng thú nhiều lĩnh vực để tiêu khiển; chỉ đồng độ với Thái Dương là thiếu sinh hoạt tinh thần.",
+      "source_quote": "Còn gặp Văn Xương, Văn Khúc thì thiên về văn chương; gặp Thiên Đồng thì ưa thích âm nhạc, dù gặp Thiên Cơ cũng chủ về có hứng thú nhiều lĩnh vực, lấy đó để tiêu khiển. Chỉ đồng độ với Thái Dương là thiểu sinh hoạt tinh thần.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "star:van_xuong", "star:van_khuc", "star:thien_dong", "star:thien_co", "star:thai_duong", "concept:sinh_hoat_tinh_than"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm cộng Xương Khúc → văn chương; cộng Thiên Đồng → âm nhạc; cộng Thiên Cơ → đa sở thích tiêu khiển; nhưng đồng cung Thái Dương lại thiếu đời sống tinh thần.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q10",
+      "question": "Luận đoán Thái Âm thủ Mệnh phải xem kèm cung nào và sao gì?",
+      "answer_atom": "Phải xem kèm cung Phúc Đức, mà cung Phúc Đức ắt là Cự Môn tọa thủ; cát hung của nó ảnh hưởng đến Thái Âm Mệnh, nhất là phương diện hưởng thụ tinh thần.",
+      "source_quote": "Hễ Thái Âm ở cung Mệnh, lúc luận đoán cần phải xem kèm cung Phúc Đức, mà cung Phúc Đức ắt sẽ là Cự Môn tọa thủ, cát hung, của nó có thể ảnh hưởng đến Thái Âm của cung Mệnh, nhất là về phương diện hưởng thụ tinh thần.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:menh", "palace:phuc_duc", "star:cu_mon", "concept:huong_thu_tinh_than"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khi Thái Âm thủ Mệnh, luôn phải nhìn cung Phúc Đức — nơi đó có Cự Môn. Cự Môn tốt xấu ảnh hưởng trực tiếp đến hưởng thụ tinh thần của Mệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q11",
+      "question": "Thái Âm chủ về gì và ưa gặp sao nào?",
+      "answer_atom": "Thái Âm chủ về phú, nên ưa có Lộc Tồn hoặc Hóa Lộc đồng độ hoặc vây chiếu; Hóa Lộc ở cung tam hợp là kế đó.",
+      "source_quote": "Thái Âm chủ về phú, nên ưa có Lộc Tồn hoặc Hóa Lộc đồng độ hoặc vây chiếu; trường hợp... hoặc Hóa Lộc ở cung tam hợp là kế đó.",
+      "source_page": 528,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:phu", "star:loc_ton", "concept:hoa_loc", "concept:dong_do", "concept:vay_chieu", "concept:tam_hop"],
+      "commentary": {
+        "han_viet_explain": "Đồng độ = ở cùng cung; vây chiếu = giáp hai bên; tam hợp = ba cung cùng tam hợp chiếu lên.",
+        "viet_thuan": "Thái Âm chủ giàu, nên rất thích Lộc Tồn hay Hóa Lộc cùng cung hoặc kẹp hai bên; nếu Hóa Lộc nằm ở cung tam hợp thì là phương án tốt thứ hai.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q12",
+      "question": "Thái Âm gặp Hóa Quyền, Hóa Khoa mà không gặp sao lộc chủ về điều gì?",
+      "answer_atom": "Tài lộc do địa vị xã hội và học lực quyết định; phải cực lực tranh thủ tiến bộ. Gặp Văn Xương Văn Khúc chủ thông minh; gặp Tả Phụ Hữu Bật mới có thể làm tăng địa vị.",
+      "source_quote": "Gặp Hóa Quyền, Hóa Khoa mà không gặp sao lộc, sẽ chủ về tài lộc do địa vị xã hội và học lực quyết định. Cho nên cẩn phải cực lực tranh thủ tiến bộ; gặp Văn Xương, Văn Khúc là chủ về thông minh; gặp Tả Phụ, Hữu Bật mới có thể làm tăng địa vị.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:hoa_quyen", "concept:hoa_khoa", "concept:tai_loc", "star:van_xuong", "star:van_khuc", "star:ta_phu", "star:huu_bat"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm có Quyền/Khoa mà thiếu Lộc thì tiền tài đến từ địa vị và học vấn — phải nỗ lực phấn đấu. Xương Khúc cho thông minh; Tả Hữu mới nâng được địa vị.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q13",
+      "question": "Bản tính Thái Âm là gì, và khi hướng nội thái quá thì hậu quả ra sao?",
+      "answer_atom": "Thái Âm có bản tính hướng nội; hướng nội thái quá chủ về tiêu trầm.",
+      "source_quote": "Thái Âm có bản tính hướng nội, nhưng nếu hướng nội thái quá sẽ chủ về tiêu trầm.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:huong_noi", "concept:tieu_tram"],
+      "commentary": {
+        "han_viet_explain": "Tiêu trầm = chán nản, trầm uất.",
+        "viet_thuan": "Thái Âm vốn hướng nội; nếu hướng nội quá mức sẽ thành trầm uất, suy sụp tinh thần.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q14",
+      "question": "Thái Âm không ưa gặp những sao nào, và hậu quả khi tụ tập sao hình hao là gì?",
+      "answer_atom": "Không ưa Đà La, Linh Tinh, Hóa Kỵ, Âm Sát, Địa Không, Địa Kiếp, Thiên Hình. Có sao hình hao tụ tập chủ về tự kỷ, thiểu năng trí tuệ, hoặc có tâm lý mặc cảm; nhất là ở bốn cung Dần Thân Mão Dậu.",
+      "source_quote": "Nó không ưa các sao Đà La, Linh Tỉnh, Hóa Kỵ, Âm Sát, Địa Không, Địa Kiếp, Thiên Hình. Nếu có các sao hình, hao tụ tập, sẽ chủ về chứng tự kỷ, thiểu năng trí tuệ, hoặc có tâm lý mặc cảm; nhất là ở bốn cung Dần, Thân, Mão, Dậu thì càng đúng.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "star:da_la", "star:linh_tinh", "concept:hoa_ky", "star:am_sat", "star:dia_khong", "star:dia_kiep", "star:thien_hinh", "concept:tu_ky", "palace:dan_than_mao_dau"],
+      "commentary": {
+        "han_viet_explain": "Hình hao = sao gây thương tổn, mất mát.",
+        "viet_thuan": "Thái Âm ngại Đà La, Linh Tinh, Hóa Kỵ, Âm Sát, Không Kiếp, Thiên Hình. Khi nhiều sao hình hao tụ → tự kỷ, kém trí, mặc cảm — đặc biệt ở Dần Thân Mão Dậu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q15",
+      "question": "Cách cục 'Nhật Tị Nguyệt Dậu, an mệnh Sửu' chủ về gì?",
+      "answer_atom": "Chủ về phú, bước lên cung Hằng (cung quan).",
+      "source_quote": "\"Thái Dương ở cung Tị, Thái Âm ở cung Dậu, an mệnh ở cung Sửu là chủ về phú, bước lên cung Hằng\" (Nhật Tị Nguyệt Dậu, an mệnh Sửu phú, bộ thiêm cung).",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["cach_cuc:nhat_ti_nguyet_dau", "star:thai_duong", "star:thai_am", "palace:menh_suu", "co_quyet"],
+      "commentary": {
+        "han_viet_explain": "Bộ thiềm cung = bước lên cung trăng (đậu đạt cao).",
+        "viet_thuan": "Cổ quyết: Thái Dương ở Tị, Thái Âm ở Dậu, an Mệnh ở Sửu → giàu, lên chức cao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q16",
+      "question": "Cách cục 'Nhật Mão Nguyệt Hợi, an mệnh Mùi' chủ về gì?",
+      "answer_atom": "Phần nhiều đỗ đạt.",
+      "source_quote": "\"Thái Dương ở cung Mão, Thái Âm ở cung Hợi, an mệnh ở cung Mùi, phần nhiều đỗ đạt\" (Nhật Mão Nguyệt Hợi, an mệnh Mùi cung, đa chiết quê).",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["cach_cuc:nhat_mao_nguyet_hoi", "star:thai_duong", "star:thai_am", "palace:menh_mui", "co_quyet"],
+      "commentary": {
+        "han_viet_explain": "Đa chiết quế = nhiều lần bẻ cành quế (thi đỗ).",
+        "viet_thuan": "Cổ quyết: Thái Dương Mão + Thái Âm Hợi + an Mệnh Mùi → đa số đỗ đạt khoa cử.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q17",
+      "question": "Hai cổ quyết trên thuộc trường hợp Nhật Nguyệt thế nào và còn cách 'Nhật Nguyệt đồng Mùi an mệnh Sửu' chủ gì?",
+      "answer_atom": "Là trường hợp Thái Dương Thái Âm miếu vượng hội chiếu cùng Mệnh. 'Nhật Nguyệt đồng Mùi, an mệnh Sửu' là tài đến bậc hầu bá.",
+      "source_quote": "Đây là trường hợp Thái Dương, Thái Âm miếu vượng, hội chiếu cùng mệnh. Còn nói: \"Thái Dương, Thái Âm cùng ở cung Mùi, an mệnh ở cung Sửu, là tài đến bậc hẩu bá\" (Nhật Nguyệt đồng Mùi, an mệnh Sửu, hấu bá chỉ tài).",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["cach_cuc:nhat_nguyet_dong_mui", "star:thai_duong", "star:thai_am", "palace:menh_suu", "concept:mieu_vuong", "co_quyet"],
+      "commentary": {
+        "han_viet_explain": "Hầu bá = tước vương hầu cao quý.",
+        "viet_thuan": "Hai cổ quyết trên đều là Nhật–Nguyệt miếu vượng chiếu Mệnh. Thêm: Nhật Nguyệt đồng cung Mùi + Mệnh tại Sửu → tài năng tới mức hầu bá.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q18",
+      "question": "So sánh Nhật Nguyệt hội chiếu và Nhật Nguyệt đồng cung thì ai tốt hơn?",
+      "answer_atom": "Trong tình hình thông thường, Thái Dương Thái Âm hội chiếu tốt hơn đồng cung, vì tính chất đồng cung không hợp nhau, dễ sinh khuyết điểm.",
+      "source_quote": "Hễ Thái Dương, Thái Âm hội chiếu, trong các tình hình thông thường thì tốt hơn Thái Dương, Thái Âm đồng cung. Vì tính chất của Thái Dương, Thái Âm đồng cung không hợp nhau, dễ sinh khuyết điểm.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_duong", "star:thai_am", "concept:hoi_chieu", "concept:dong_cung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thông thường Nhật Nguyệt hội chiếu tốt hơn đồng cung — vì hai sao đồng cung tính chất xung khắc nhau, dễ phát sinh thiếu sót.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q19",
+      "question": "Cung Mệnh được Thái Dương Thái Âm giáp cung ứng nghiệm gì?",
+      "answer_atom": "Nếu Thái Dương và Thái Âm miếu vượng thì chủ về phú quý. Giáp Thiên Phủ Hóa Khoa, hoặc Thiên Phủ đối với Liêm Trinh Hóa Lộc là cát lợi; giáp Vũ Khúc, Tham Lang Hóa Lộc là kế đó.",
+      "source_quote": "Cung mệnh được Thái Dương, Thái Âm giáp, nếu Thái Dương và Thái Âm miếu vượng thì cũng chủ về phú quý. Giáp Thiên Phủ Hóa Khoa, hoặc Thiên Phủ đối nhau với Liêm Trinh Hóa Lộc là cát lợi; giáp Vũ Khúc, Tham Lang Hóa Lộc là kế đó.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["concept:giap_cung", "star:thai_duong", "star:thai_am", "star:thien_phu", "concept:hoa_khoa", "star:liem_trinh", "concept:hoa_loc", "star:vu_khuc", "star:tham_lang"],
+      "commentary": {
+        "han_viet_explain": "Giáp = hai sao kẹp hai bên cung Mệnh.",
+        "viet_thuan": "Mệnh bị Nhật Nguyệt kẹp + cả hai miếu vượng → phú quý. Bên trong là Thiên Phủ Hóa Khoa hoặc Thiên Phủ đối Liêm Trinh Hóa Lộc thì rất tốt; nếu là Vũ Khúc, Tham Lang Hóa Lộc thì tốt thứ hai.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q20",
+      "question": "Trường hợp Thái Dương ở Hợi, Thái Âm ở Mão có phải cách 'phản bối' không? Cách 'phản bối' thật là gì?",
+      "answer_atom": "Không phải; các sách thường lầm. 'Phản bối' là Thái Dương ở Tuất, Thái Âm ở Thìn.",
+      "source_quote": "Thái Dương ở cung Hợi, Thái Âm ở cung Mão, không phải là cách cục \"phản bồi\", các sách thường lầm. \"Phản bối\" là Thái Dương ở Tuất, Thái Âm ở cung Thìn.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["cach_cuc:phan_boi", "star:thai_duong", "star:thai_am", "concept:correction"],
+      "commentary": {
+        "han_viet_explain": "Phản bối = quay lưng (cách cục tên gọi).",
+        "viet_thuan": "Nhật Hợi Nguyệt Mão KHÔNG phải cách Phản Bối — đây là chỗ nhiều sách nhầm. Phản Bối đúng là Nhật Tuất Nguyệt Thìn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Sách khác thường chép sai — phải nhớ chuẩn: Phản Bối = Nhật Tuất, Nguyệt Thìn."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q21",
+      "question": "Cách cục 'Phản Bối' chủ về điều gì?",
+      "answer_atom": "Chủ về rời xa quê hương, hay làm con nuôi người khác; có Hỏa Linh đồng cung thì còn bé đã rời xa cha mẹ; sát tinh nặng chủ về bị bỏ rơi; gặp phụ tá cát thì rời xa quê hương mà phát phúc.",
+      "source_quote": "Cách cục \"phản bối\" chủ về rời xa quê hương, hay làm con nuôi người khác, nếu có Hỏa Tinh, Linh Tinh đồng cung, thì còn bé đã rời xa cha mẹ, sát tinh nặng chủ về bị bỏ rơi. Nếu lại gặp các sao phụ tá cát, thì rời xa quê hương mà phát phúc.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["cach_cuc:phan_boi", "concept:roi_que_huong", "concept:con_nuoi", "star:hoa_tinh", "star:linh_tinh", "concept:sat_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách Phản Bối: rời quê / con nuôi. Cộng Hỏa Linh → bé đã xa cha mẹ; sát nặng → bị bỏ rơi; có phụ tá cát → đi xa lập nghiệp phát phúc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q22",
+      "question": "Thái Âm gặp Kình Đà ở Mệnh ứng nghiệm gì?",
+      "answer_atom": "Thái Âm không ưa có Kình Dương, Đà La cùng cung Mệnh, chủ về gian khổ.",
+      "source_quote": "Thái Âm không ưa có Kình Dương, Đà La cùng ở cung mệnh, chủ về gian khổ.",
+      "source_page": 529,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "star:kinh_duong", "star:da_la", "palace:menh", "concept:gian_kho"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm rất kỵ Kình Đà đồng cung Mệnh — chủ cuộc đời gian khổ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q23",
+      "question": "Thái Âm Hóa Kỵ bị Kình Đà giáp cung ứng nghiệm gì?",
+      "answer_atom": "Đều chủ về không có duyên với lục thân, cô quả linh đinh, còn chủ về dễ đầu tư sai lầm.",
+      "source_quote": "Âm Hóa Kỵ bị Kình Dương, Đà La giáp cung, đều chủ về không có duyên với lục thân, cô quả linh đinh, còn chủ về dễ đầu tư sai lầm.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:hoa_ky", "star:kinh_duong", "star:da_la", "concept:giap_cung", "concept:co_qua", "concept:luc_than", "concept:dau_tu_sai_lam"],
+      "commentary": {
+        "han_viet_explain": "Lục thân = sáu người thân (cha, mẹ, vợ/chồng, anh em, con, bằng hữu); cô quả linh đinh = cô đơn lẻ loi.",
+        "viet_thuan": "Thái Âm Hóa Kỵ + bị Kình Đà giáp hai bên → không có duyên với người thân, cô đơn lẻ loi, dễ đầu tư sai lầm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q24",
+      "question": "Thái Âm chủ về ẩn tàng, không nên đồng độ với sao nào, và mức không cát ra sao so với Thái Dương?",
+      "answer_atom": "Không nên có Địa Không, Địa Kiếp, Thiên Không đồng độ; mức độ không cát tường lớn hơn so với Thái Dương.",
+      "source_quote": "Thái Âm chủ về ẩn tàng, vì vậy cũng không nên có Địa Không, Địa Kiếp, Thiên Không đồng độ. Mức độ không cát tường lớn hơn so với Thái Dương.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:an_tang", "star:dia_khong", "star:dia_kiep", "star:thien_khong"],
+      "commentary": {
+        "han_viet_explain": "Ẩn tàng = giấu ẩn, kín đáo.",
+        "viet_thuan": "Thái Âm chủ ẩn tàng nên kỵ Không Kiếp Thiên Không đồng cung — mức xấu nặng hơn so với Thái Dương gặp các sao này.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q25",
+      "question": "Thái Âm chủ về phú nên ưa gặp sao gì, và Thái Âm Hóa Quyền chủ điều gì?",
+      "answer_atom": "Rất ưa gặp sao lộc — Hóa Lộc rất tốt, Lộc Tồn kế đó. Thái Âm Hóa Quyền chỉ chủ về quản lý tài chính hoặc nắm quyền tài chính; dù có phú cũng nhờ đó mà ra.",
+      "source_quote": "Thái Âm chủ về phú, cho nên rất ưa gặp sao lộc. Hóa Lộc là rất tốt, Lộc Tồn là kế đó. Thái Âm Hóa Quyền chỉ chủ về quản lý tài chính, hoặc nắm quyền tài chính, dù có thể phú cũng nhờ đó mà ra.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "concept:phu", "concept:hoa_loc", "star:loc_ton", "concept:hoa_quyen", "concept:quan_ly_tai_chinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm chủ giàu → ưa sao lộc nhất; Hóa Lộc số 1, Lộc Tồn số 2. Thái Âm Hóa Quyền chỉ là quản lý hoặc nắm quyền tài chính — giàu có là nhờ vai trò này.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q26",
+      "question": "Thái Âm độc tọa ở Mão và Dậu so sánh thế nào, và trường hợp 'phản bối' Mão ra sao?",
+      "answer_atom": "Ở cung Dậu ưu (hơn) ở cung Mão rất nhiều. Nếu ở Mão gặp các sao phụ tá cát mà không gặp sát tinh, lại được cát hóa, đây là cách 'phản bối', chủ về đại phú.",
+      "source_quote": "Thái Âm độc tọa ở hai cung Mão hoặc Dậu, ở cung Dậu ưu ở cung Mão rất nhiều. Có điều, nếu ở cung Mão gặp các sao phụ, tá cát mà không gặp sát tinh, lại được cát hóa, đây là cách cục \"phản bối\", chủ về đại phú.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:mao", "palace:dau", "cach_cuc:phan_boi", "concept:dai_phu", "concept:cat_hoa"],
+      "commentary": {
+        "han_viet_explain": "Cát hóa = được Tứ Hóa tốt (Lộc/Quyền/Khoa).",
+        "viet_thuan": "Thái Âm ở Dậu hơn ở Mão rất nhiều. Nhưng Mão nếu có phụ tá cát + không sát + được cát hóa → thành cách Phản Bối, đại phú.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q27",
+      "question": "Đại vận / lưu niên then chốt của Thái Âm độc tọa ở Mão hoặc Dậu là gì?",
+      "answer_atom": "Các cung hạn Cự Môn, 'Liêm Trinh, Thiên Tướng', Thất Sát, Thiên Cơ. Cách 'phản bối' thì không luận Thiên Cơ.",
+      "source_quote": "Đối với Thái Âm độc tọa ở hai cung Mão hoặc Dậu, các cung hạn Cự Môn, \"Liêm Trinh, Thiên Tướng\", Thất Sát, Thiên Cơ là những đại vận hoặc lưu niên có tính then chốt. Cách cục \"phản bối\" thì không luận Thiên Cơ.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:mao", "palace:dau", "concept:dai_van", "concept:luu_nien", "star:cu_mon", "star:liem_trinh", "star:thien_tuong", "star:that_sat", "star:thien_co", "cach_cuc:phan_boi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Với Thái Âm Mão/Dậu, đại vận hoặc lưu niên then chốt rơi vào: Cự Môn, Liêm-Tướng, Thất Sát, Thiên Cơ. Riêng cách Phản Bối thì không xét Thiên Cơ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q28",
+      "question": "Thái Âm độc tọa ở Thìn/Tuất ra sao và điều kiện thành phú quý?",
+      "answer_atom": "Thái Dương và Thái Âm đều sáng, là thượng cách. Cần được cát hóa mới chủ về phú quý. Nếu không có sao cát mà gặp sát tinh sẽ chủ về danh lợi đều trống rỗng, hôn nhân cũng bất lợi.",
+      "source_quote": "Thái Âm độc tọa ở hai cung Thìn hoặc Tuất, Thái Dương và Thái Âm đều sáng, là thượng cách. Có điều, cần phải được cát hóa mới chủ về phú quý. Nếu không có sao cát, mà gặp sát tinh, sẽ chủ về danh lợi đều trống rỗng, hôn nhân cũng bất lợi.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:thin", "palace:tuat", "concept:thuong_cach", "concept:cat_hoa", "concept:hon_nhan_bat_loi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm Thìn/Tuất → cả Nhật và Nguyệt đều sáng, thượng cách. Phải có cát hóa mới phú quý. Nếu không cát mà gặp sát → danh lợi đều rỗng, hôn nhân không tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q29",
+      "question": "Đại vận / lưu niên then chốt của Thái Âm độc tọa Thìn/Tuất là gì?",
+      "answer_atom": "Các cung hạn 'Liêm Trinh, Tham Lang', Cự Môn, 'Vũ Khúc, Thất Sát', Thiên Cơ.",
+      "source_quote": "Đối với Thái Âm độc tọa ở hai cung Thìn hoặc Tuất, các cung hạn \"Liêm Trinh, Tham Lang\", Cự Môn, \"Vũ Khúc, Thất Sát\", Thiên Cơ là đại vận hoặc lưu niên có tính then chốt.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:thin", "palace:tuat", "concept:dai_van", "concept:luu_nien", "star:liem_trinh", "star:tham_lang", "star:cu_mon", "star:vu_khuc", "star:that_sat", "star:thien_co"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm Thìn/Tuất, đại vận–lưu niên then chốt: Liêm-Tham, Cự Môn, Vũ-Sát, Thiên Cơ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q30",
+      "question": "Thái Âm độc tọa ở Tị hoặc Hợi khác nhau thế nào?",
+      "answer_atom": "Ở Tị phần nhiều dễ có khiếm khuyết đáng tiếc: nữ mệnh chủ về chồng là người tính toán cho người khác nhiều hơn tính cho mình; nam mệnh phần nhiều trôi dạt — do Thái Âm lạc hãm, phát tán thái quá. Ở Hợi gọi là 'Nguyệt lãng thiên môn', gặp sao lộc thì kiếm tiền bất ngờ thành đại phú.",
+      "source_quote": "Thái Âm độc tọa ở hai cung Tị hoặc Hợi, ở cung Tị phần nhiều dễ có những khiếm khuyết đáng tiếc; nữ mệnh chủ về chổng là người tính toán cho người khác nhiều hơn là tính toán cho mình; nam mệnh phần nhiều trôi dạt. Đây là do Thái Âm lạc hãm, phát tán thái quá. Ở cung Hợi, gọi là \"Nguyệt lãng thiên môn\", gặp sao lộc thì chủ về kiếm được tiền một cách bất ngờ mà thành đại phú.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:ti", "palace:hoi", "cach_cuc:nguyet_lang_thien_mon", "concept:lac_ham", "concept:dai_phu", "concept:troi_dat"],
+      "commentary": {
+        "han_viet_explain": "Nguyệt lãng thiên môn = trăng sáng cửa trời.",
+        "viet_thuan": "Thái Âm Tị: hãm, dễ khiếm khuyết — nữ mệnh chồng lo cho người khác, nam mệnh trôi dạt. Thái Âm Hợi: 'Nguyệt lãng thiên môn', gặp lộc thì giàu lớn bất ngờ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q31",
+      "question": "Thái Âm độc tọa ở Tị hoặc Hợi gặp sao Đào Hoa và sát hình kỵ hao ra sao?",
+      "answer_atom": "Chủ về nhiều âm mưu mà còn ham tửu sắc.",
+      "source_quote": "Thái Âm độc tọa ở hai cung Tị hoặc Hợi, gặp các sao Đào Hoa và các sao sát, hình, kỵ, hao, chủ về nhiều âm mưu mà còn ham tửu sắc.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:ti", "palace:hoi", "star:dao_hoa", "concept:sat_hinh_ky_hao", "concept:am_muu", "concept:tuu_sac"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm Tị/Hợi gặp Đào Hoa + sát hình kỵ hao → nhiều mưu mô và ham tửu sắc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.8-Q32",
+      "question": "Đại vận / lưu niên then chốt của Thái Âm độc tọa Tị/Hợi là gì?",
+      "answer_atom": "Các cung hạn 'Thiên Đồng, Cự Môn', Thất Sát, 'Liêm Trinh, Thiên Phủ', 'Thái Dương, Thiên Lương'.",
+      "source_quote": "Đối với Thái Âm độc tọa ở hai cung Tị hoặc Hợi, các cung hạn \"Thiên Đồng, Cự Môn\", Thất Sát, \"Liêm Trinh, Thiên Phủ\", \"Thái Dương, Thiên Lương\" là những đại vận hoặc lưu niên có tính then chốt.",
+      "source_page": 530,
+      "section_id": "5.1.8",
+      "tags": ["star:thai_am", "palace:ti", "palace:hoi", "concept:dai_van", "concept:luu_nien", "star:thien_dong", "star:cu_mon", "star:that_sat", "star:liem_trinh", "star:thien_phu", "star:thai_duong", "star:thien_luong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm Tị/Hợi, đại vận–lưu niên then chốt rơi vào: Đồng-Cự, Thất Sát, Liêm-Phủ, Dương-Lương.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
