@@ -119,7 +119,8 @@ def fetch_pending_atoms(limit: int | None = None) -> list[dict]:
     return rows
 
 
-def gen_commentary(provider: MiniMaxProvider, atom: dict, model: str = "MiniMax-M2") -> tuple[dict | None, int]:
+def gen_commentary(provider: MiniMaxProvider, atom: dict, model: str = "MiniMax-M2",
+                    max_retries: int = 3) -> tuple[dict | None, int]:
     prompt = (
         COMMENTARY_PROMPT
         .replace("{question}", atom["question_text"])
@@ -129,15 +130,24 @@ def gen_commentary(provider: MiniMaxProvider, atom: dict, model: str = "MiniMax-
         .replace("{from_category}", atom["from_category"] or "(no cat)")
         .replace("{format_style}", atom["format_style"] or "(unknown)")
     )
-    try:
-        r = provider.chat(messages=[{"role": "user", "content": prompt}], model=model,
-                          temperature=0.5, max_tokens=2500)
-    except ProviderError as e:
-        return None, 0
-    parsed, err = _parse_json(r.content)
-    if err:
-        print(f"     ⚠ parse: {err}")
-    return parsed, r.prompt_tokens + r.completion_tokens
+    total_tok = 0
+    for attempt in range(max_retries):
+        try:
+            r = provider.chat(messages=[{"role": "user", "content": prompt}], model=model,
+                              temperature=0.5, max_tokens=2500)
+        except ProviderError:
+            time.sleep(2)
+            continue
+        total_tok += r.prompt_tokens + r.completion_tokens
+        # Retry on empty content (MiniMax flaky)
+        if not r.content.strip():
+            time.sleep(1 + attempt)
+            continue
+        parsed, err = _parse_json(r.content)
+        if parsed is not None:
+            return parsed, total_tok
+        time.sleep(1)
+    return None, total_tok
 
 
 def persist_commentary(atom_id: int, c: dict, extracted_by: str) -> None:
