@@ -366,6 +366,194 @@ Workflow class wraps YAML config → init LLM client (with sqlite cache) → ini
 
 ---
 
+## 📚 Vòng 4 — ICML 2025 paper p1-20 ĐÚC KẾT
+
+### Insight 21: KAR³-RAG = Knowledge-Aware dual Rewriting and Reasoning (§3.2)
+4 components rõ ràng:
+1. **Knowledge Atomizer** $f_a$: chunk → atomic tags (offline preprocessing)
+2. **Query Proposer** $f_p$: (q, context) → atomic query proposals (online)
+3. **Atomic Retriever** $\mathcal{R}_{atom}$: atomic queries → atomic pairs
+4. **Atomic Selector** $\mathcal{S}_{atom}$: select most useful atomic pair
+
+### Insight 22: Dual Rewriting paradigm (Figure 3) — INNOVATION CỐT
+- **Query side**: user question → atomic queries (LLM Query Proposer)
+- **Chunk side**: chunk → atomic tags = atomic questions chunk answer được (LLM Atomizer)
+- **Bridge**: atomic queries semantically match atomic tags qua embedding
+→ Giải quyết schema gap "the mother of" vs "the son of" trong corpus
+
+### Insight 23: Dynamic Path Generation (Figure 1) — paradigm shift
+- Chain-shaped (Self-Ask): 1 sub-Q tại 1 step
+- Tree-shaped (ProbTree): multiple sub-Q tại 1 step
+- **Dynamic (KAR³)**: SELECT sub-Q from PROPOSAL SET based on RELEVANCE OF ATOMIC RETRIEVAL
+→ Adaptive, không cứng chain/tree
+
+### Insight 24: Composable functional notation (§3.4 Eq 1-7)
+```
+KB = {f_a(d_k), d_k}                                   # knowledge base
+q̂_t = f_p(q, C_{t-1})                                  # propose atomic queries
+P^q̂_t = R_atom(q̂_t, f_a(D))                            # retrieve atomic pairs
+c_t = S_atom(R_atom(f_p(q, C_{t-1}), f_a(D)))          # select chunk
+```
+→ Clean math, dễ implement.
+
+### Insight 25: N=5 sweet spot (§4.3 Figure 5, Table 8)
+N=4 đạt ~92% recall (HotpotQA, 2Wiki). N=5 chỉ tăng marginal. N=6+ overfit.
+→ Confirm Insight 19 codebase (max_num_question=5).
+
+### Insight 26: Ablation — mỗi component đóng góp 15-17% (Table 3)
+| Variant | F1 drop |
+|---|---|
+| Atomizer → plain text | -15.1% |
+| Query Proposer → single Q | -16.6% |
+| Atomic Retriever → chunks only | -15.3% |
+| Atomic Selector → chunks direct | -16.2% |
+
+→ **KHÔNG SKIP component nào**. Mỗi cái critical.
+
+### Insight 27: Token economics (Table 10-12)
+- KAR³: 8,820 tokens/QA (efficient)
+- ProbTree: 25,875 tokens (3x đắt)
+- Atomization preprocessing one-time: 320-340 tokens/chunk × ~5000-7000 calls/dataset
+
+→ **Áp Tử Vi**: 42 sách × ~500 chunks × 350 tokens = ~7.3M tokens ingestion. Đốt được.
+
+### Insight 28: Atomic Q > Plain text (Table 13)
+| Atomic Tags | F1 (MuSiQue) | Acc |
+|---|---|---|
+| Plain text sentence | 45.88 | 54.20 |
+| **Atomic questions** | **57.86** | **62.60** |
+
+→ Question-as-Index lúc nào cũng tốt hơn plain. Paradigm confirmed.
+
+### Insight 29: Method comparison (Table 5) — KAR³ KHÁC 3 chỗ
+| | Decomposition | Retrieval | Context |
+|---|---|---|---|
+| Self-Ask | chain | sub-Q → chunk | QA pairs (nén) |
+| ProbTree | tree | sub-Q → chunk | QA pairs |
+| **KAR³** | **dynamic** | **sub-Q → atomic Q → chunk** | **selected chunks (entire)** |
+
+### Insight 30: Limitation (§4.3)
+- Cần LLM mạnh (GPT-4 > GPT-3.5)
+- Future work: train query proposer riêng → match Decision 4 yi-chronos
+
+---
+
+## 📚 Vòng 5 — ICML p21-26 ĐÚC KẾT (KEY: 4 PROMPTS FULL)
+
+### Insight 31: 4 Prompt Templates production (§A.7)
+
+**(1) Atomic Question Tagging Prompt** (offline, atomize chunks):
+```
+# Task
+Your task is to extract as many questions as possible that are relevant
+and can be answered by the given content. Please try to be diverse and
+avoid extracting duplicated or similar questions. Make sure your question
+contain necessary entity names and avoid to use pronouns like it, he, she,
+they, the company, the person etc.
+
+# Output Format
+Output your answers line by line, with each question on a new line,
+without itemized symbols or numbers.
+
+# Content
+{content}
+
+# Output
+```
+
+**Áp Tử Vi** — chỉnh template:
+- "necessary entity names" → "tên sao + tên cung + chi rõ ràng (vd. 'Tử Vi tại Mệnh cung Tý')"
+- "avoid pronouns" → "tránh đại từ 'nó, người này, mệnh tạo'"
+
+**(2) Atomic Query Proposer Prompt** (runtime, decompose):
+```
+# Task
+Your task is to analyse the providing context then raise atomic
+sub-questions for the knowledge that can help you answer the question
+better. Think in different ways and raise as many diverse questions
+as possible.
+
+# Output Format JSON:
+{"thinking": <analysis>, "sub_questions": <list>}
+
+# Context: {chosen_content}
+# Question: {content}
+```
+
+**(3) Atomic Tag Selection Prompt** (runtime, select 1 best):
+```
+# Task
+... Select a most relevant sub-question from the given question list,
+avoid selecting sub-question that can already be answered with the given
+context or with your own knowledge.
+
+# Output Format JSON:
+{"thinking": <thinking>, "question_idx": <integer 1 to {num_atom_questions}>}
+
+# Context: {chosen_content}
+# Sub-Questions: {atom_question_list_str}
+# Question: {content}
+```
+
+**(4) Question Answering Prompt** (final synthesis):
+```
+# Task
+Your task is to answer a question referring to a given context...
+
+# Output format JSON:
+{"answer": <string>, "rationale": <rationale behind your choice>}
+
+# Context, if any: {context_if_any}
+# Question: {content}{yes_or_no_limit}
+
+Let's think step by step.
+```
+
+→ Notes:
+- "Let's think step by step" (CoT prompt)
+- `rationale` field = CITATION yêu cầu
+- JSON format strict
+- Zero-shot (không few-shot)
+
+### Insight 32: Legal benchmark detail (§A.8) — DOMAIN GẦN TỬ VI
+
+LawBench 6 tasks (Trung văn pháp luật, mỗi task 500 Q):
+- 1-1 Statute Recitation (Generation/F1) → ~ "Trích nguyên văn sách Trung Châu"
+- 1-2 Legal Knowledge Q&A (Single Choice/EM) → ~ "Sao này thuộc loại gì"
+- 3-1 Statute Prediction Fact-based → ~ "Lá số có cách cục nào"
+- 3-2 Statute Prediction Scenario-based (Generation/F1) → ~ "Tình huống X thì sao"
+- 3-6 Case Analysis (Single Choice/EM) → ~ "Phân tích case"
+- 3-8 Consultation (Generation/F1) → ~ "Tư vấn lá số user"
+
+**KAR³ trên Open Australian Legal QA: 98.59% Acc** — domain formal terminology + structured rationale (giống Tử Vi 100%) — win cực mạnh.
+
+---
+
+## 📊 TỔNG KẾT 5 VÒNG RESEARCH — 32 insights
+
+| Vòng | Source | Insights |
+|---|---|---|
+| 1 | arxiv p1-20 (paradigm + algorithm) | 1-7 |
+| 2 | arxiv p21-38 (benchmarks + cases) | 8-14 |
+| 3 | codebase 5 files (architecture) | 15-20 |
+| 4 | ICML p1-20 (KAR³ deep) | 21-30 |
+| 5 | ICML p21-26 (4 prompts + legal) | 31-32 |
+
+**4 Decision anh đã chốt** (vẫn giữ nguyên, được confirm thêm qua vòng 3-5):
+1. Paradigm tuple identity + N-layered meaning + KHÔNG suy đoán
+2. Rebuild full PIKE-RAG chunking + atomic Q (Decision C)
+3. Wrap engine v3/v4 hiện có (atomic answerers)
+4. Train decomposer riêng Tử Vi (đốt token Max)
+
+**5 GAP yi-chronos cần build**:
+1. Atomic Q store + link `source_chunk_id`
+2. LLM Recursive Splitter (chunking + forward-summary)
+3. LLM Atomic Q Generator (4 prompt templates)
+4. Algo 1 orchestrator wrap engine cũ
+5. CommunicationProtocol classes (4 protocols per case)
+
+---
+
 ## 📚 Vòng 3 — Codebase deep-dive (PENDING)
 
 - `pikerag/knowledge_retrievers/chunk_atom_retriever.py` (CỐT)
