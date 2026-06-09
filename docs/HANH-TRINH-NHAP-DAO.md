@@ -1559,6 +1559,62 @@ Bài cho Anh:
 
 Em hiểu: hỗ trợ Anh dưỡng tâm + tạo môi trường + dùng engine cấu trúc khí. Cuối cùng là Anh hành động.
 
+### 2026-06-09 — PIKE-RAG thâm nhuần + PoC atomize Trung Châu Q2
+
+**Bối cảnh:** Anh chỉ ra em đang giải quyết bài toán SAI cách — wire 47 rules thủ công 32 vòng đọc Trung Châu Q2, nhưng còn 41 cuốn sách. Tốc độ này 10 năm không xong. Anh dạy:
+
+> "Tạo chức năng giả định hoàn hảo đã có người giải quyết bài toán công nghệ đang gặp."
+
+**Em làm:** Research existing solutions (Iron Rule #1). Tìm thấy **Microsoft PIKE-RAG** = EXACT match paradigm.
+
+**5 vòng thâm nhuần** theo skill `doc-sau-20-trang`:
+- Vòng 1-2: paper arxiv 2501.11551 (38 trang) → 14 insights
+- Vòng 3: codebase microsoft/PIKE-RAG 5 files 814 lines → 6 insights
+- Vòng 4-5: paper ICML 2025 "From Complex to Atomic" (26 trang) → 12 insights
+
+Tổng **32 insights** ghi trong `docs/design/pike-rag-tham-nhuan-2026.md`.
+
+**4 Decisions Anh chốt:**
+1. Paradigm tuple ID + N-layered meaning + KHÔNG suy đoán
+2. Rebuild full PIKE-RAG chunking + atomic Q (Option C)
+3. Algorithm 1 wrap engine v3/v4 hiện có
+4. Train decomposer riêng Tử Vi (đốt token Max OK)
+
+**Anh dạy paradigm BOTTOM-UP — em chưa nghĩ tới:**
+> "Không có chuyện khóa cứng đâu em. Khi đọc mỗi chương, mỗi phần, mỗi trang cần hiểu rõ đâu là chủ thể, đâu là công thức, đâu là luận giải nghĩa, đâu là tổ hợp, đâu là kinh nghiệm khi áp dụng vào luận giải. Em nên đọc từng trang rồi tự thấu hiểu và viết key hoặc quy luận mới chuẩn được."
+
+→ Em ngộ: schema KHÔNG khóa cứng. 5 archetype + 3 format style + FREEFORM identifiers. Schema EMERGE từ data thực sau khi đọc đủ N sách.
+
+**PoC verify paradigm:** atomize 10 trang đa dạng Trung Châu Q2 (MiniMax M2 paid plan).
+- 9/10 thành công, 96 atomic questions
+- Trung Châu Q2 100% format `nguyen_ly` (KHÔNG kết quả cứng, KHÔNG thơ phú) — **khớp Iron Rule #6** Vương Đình Chỉ
+- Schema EMERGE: `sao` 68% + `cung` 49% canonical; 85 fields rare paradigm-specific (`dai_van`, `luu_nien`, `nam_sinh`, `gioi_tinh`...)
+- Output: `docs/design/poc-atomize-trung-chau-q2-review.md` (46 KB human-readable cho anh review)
+
+**Em ngộ ra paradigm THỰC SỰ scale:**
+
+Trước: wire 47 rules thủ công 32 vòng đọc 1 cuốn = 10 năm cho 42 cuốn.
+
+Sau: atomize 1 cuốn ~5 phút × 42 cuốn = 3.5 tiếng. Bottom-up emergence schema = không cần predefine. Engine v3/v4 cũ wrap được = không phá production. Multi-school agents = đa trường phái độc lập (đúng Iron Rule #3).
+
+**Tài liệu tạo trong phiên:**
+- `docs/design/pike-rag-tham-nhuan-2026.md` (5 vòng research journal)
+- `docs/design/pike-rag-yi-chronos-schema-2026.md` (design doc 13 parts)
+- `docs/design/poc-atomize-trung-chau-q2-review.md` (96 atoms human-readable)
+- `engine/atomization/poc_atomize.py` (script reusable)
+- `data/poc_atomize_results.json` (raw output 10 chunks)
+- `data/research_external/PIKE-RAG/` (codebase Microsoft cloned)
+- `data/research_external/pike-rag-paper-2501.11551.pdf` (paper arxiv)
+- `data/research_external/pike-icml-2025-complex-to-atomic.pdf` (paper ICML)
+
+**Phương châm anh nói hôm nay:**
+> "Đây là bài toán backend, nền tảng, cần nghiên cứu sâu. Làm sai là rất mệt."
+> "Em tự quyết, anh tin."
+
+Em đốt token Max theo Iron Rule #2 — 5 vòng research + design + PoC — KHÔNG jump code, KHÔNG bịa. Mọi quyết định có source.
+
+**Anh dừng để review trước khi sang phase scale.** Em chờ.
+
 ### Lần update tiếp theo
 *(Khi nào có event mới, phiên Claude sau add entry vào đây.)*
 
