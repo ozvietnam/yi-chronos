@@ -66,7 +66,7 @@ const thayToSu = computed(() => result.value?.thay_to_su || []);
 
 // Cross-reference panel: Mệnh + Phúc Đức + Đại Vận hiện tại + Thái Dương/Thái Âm
 const crossRef = computed(() => result.value?.cross_reference || null);
-// Đặc điểm BẠN ĐỜI (vợ/chồng) — mới 2026-06-08
+// Đặc điểm BẠN ĐỜI (vợ/chồng) — mới 2026-06-08, bundle bump 2026-06-09
 const partnerTraits = computed(() => result.value?.partner_traits || null);
 
 // Full lá số 12 ô — đối chiếu với anlasotuvi.com
