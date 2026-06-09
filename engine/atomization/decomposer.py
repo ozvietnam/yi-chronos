@@ -108,18 +108,40 @@ def _parse_json(content: str) -> tuple[dict | None, str | None]:
         if lines and lines[-1].strip().startswith("```"):
             lines = lines[:-1]
         raw = "\n".join(lines)
+    # Try direct
     try:
         return json.loads(raw), None
     except json.JSONDecodeError as e:
-        # Repair: find first { and last }
-        start = raw.find("{")
-        end = raw.rfind("}")
-        if start >= 0 and end > start:
+        pass
+    # Repair 1: find first { and last }
+    start = raw.find("{")
+    end = raw.rfind("}")
+    if start >= 0 and end > start:
+        try:
+            return json.loads(raw[start:end + 1]), None
+        except json.JSONDecodeError:
+            pass
+    # Repair 2: truncated string at end — try close JSON by removing last incomplete value
+    # Find last completed key:value pair then close braces
+    if start >= 0:
+        candidate = raw[start:]
+        # Try progressively trimming from end until valid
+        for trim in range(len(candidate) - 1, max(0, len(candidate) - 1000), -10):
+            attempt = candidate[:trim]
+            # Try close: count open vs close braces
+            open_b = attempt.count("{") - attempt.count("}")
+            open_sq = attempt.count("[") - attempt.count("]")
+            if open_b <= 0 and open_sq <= 0:
+                continue
+            # Close last incomplete string if any
+            if attempt.count('"') % 2 == 1:
+                attempt += '"'
+            attempt += "]" * open_sq + "}" * open_b
             try:
-                return json.loads(raw[start:end + 1]), None
-            except json.JSONDecodeError as e2:
-                return None, str(e2)
-        return None, str(e)
+                return json.loads(attempt), None
+            except json.JSONDecodeError:
+                continue
+    return None, f"JSONDecodeError after repairs: raw len={len(raw)}"
 
 
 @dataclass
@@ -229,7 +251,7 @@ class KnowledgeAwareDecomposer:
                 .replace("{user_query}", user_query)
                 .replace("{chosen_context}", chosen_ctx)
             )
-            p = self._llm_call(propose_prompt, temperature=0.5, max_tokens=2000)
+            p = self._llm_call(propose_prompt, temperature=0.5, max_tokens=4000)
             if not p:
                 break
             total_tokens += p.pop("__usage", {}).get("prompt", 0) + p.get("__usage", {}).get("completion", 0)
@@ -274,7 +296,7 @@ class KnowledgeAwareDecomposer:
                 .replace("{chosen_context}", chosen_ctx)
                 .replace("{candidates_str}", candidates_str)
             )
-            s = self._llm_call(select_prompt, temperature=0.3, max_tokens=1500)
+            s = self._llm_call(select_prompt, temperature=0.3, max_tokens=2500)
             if not s:
                 break
             total_tokens += s.pop("__usage", {}).get("prompt", 0) + s.get("__usage", {}).get("completion", 0)
@@ -314,7 +336,7 @@ class KnowledgeAwareDecomposer:
             .replace("{user_query}", user_query)
             .replace("{context}", context)
         )
-        ans = self._llm_call(answer_prompt, temperature=0.4, max_tokens=4000)
+        ans = self._llm_call(answer_prompt, temperature=0.4, max_tokens=6000)
         if not ans:
             return DecomposeResult(
                 user_query=user_query, answer=None, rationale=None,
