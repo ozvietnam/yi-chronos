@@ -30,6 +30,27 @@ from engine.atomization.retriever import ChunkAtomRetriever  # noqa: E402
 DB = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
 
 
+# Map (cung, sao) → preferred section_id từ Trung Châu Q2 Chương 5
+# Chapter 5.X — Cung Viên Luận; X.Y — sao thứ tự trong cung X
+CUNG_SAO_TO_SECTION = {
+    ("Mệnh", "Tử Vi"): "5.1.1",
+    ("Mệnh", "Thiên Cơ"): "5.1.2",
+    ("Mệnh", "Thái Dương"): "5.1.3",
+    ("Mệnh", "Vũ Khúc"): "5.1.4",
+    ("Mệnh", "Thiên Đồng"): "5.1.5",
+    ("Mệnh", "Liêm Trinh"): "5.1.6",
+    ("Mệnh", "Thiên Phủ"): "5.1.7",
+    ("Mệnh", "Thái Âm"): "5.1.8",
+    ("Mệnh", "Tham Lang"): "5.1.9",
+    ("Mệnh", "Cự Môn"): "5.1.10",
+    ("Mệnh", "Thiên Tướng"): "5.1.11",
+    ("Mệnh", "Thiên Lương"): "5.1.12",
+    ("Mệnh", "Thất Sát"): "5.1.13",
+    ("Mệnh", "Phá Quân"): "5.1.14",
+    # ... 12 cung × 14 sao = 168 mappings (sẽ extend khi atomize section)
+}
+
+
 class OutputFiller:
     """Fill 3-layer output cho 1 field từ atoms KB."""
 
@@ -40,25 +61,60 @@ class OutputFiller:
     def fill_field(self, field: OutputField, la_so_context: dict | None = None) -> ThreeLayerOutput:
         """Retrieve atoms + assemble 3-layer output.
 
+        Priority: atoms tagged với section_id matching (cung, sao) > phase_pre_stepwise scattered.
+
         Args:
             field: OutputField definition
             la_so_context: Optional lá số context để filter atoms relevant
                 (vd. atoms về "Tử Vi Mệnh" — chỉ relevant nếu user có Tử Vi Mệnh)
         """
-        # Step 1: Multi-keyword retrieval
+        # Step 1: Retrieve broadly via keywords
         all_hits = []
         for kw in field.atomic_q_keywords[:5]:  # top-5 keywords
-            hits = self.retriever.search_atom_fts(kw, limit=self.top_k)
+            hits = self.retriever.search_atom_fts(kw, limit=self.top_k * 3)  # 3x to allow filtering
             all_hits.extend(hits)
 
-        # Dedup by atom_id + rank by retrieval_score
+        # Step 2: Determine preferred section for this (cung, sao)
+        preferred_section = CUNG_SAO_TO_SECTION.get((field.cung, field.sao_chinh))
+
+        # Step 3: Fetch section_id for each atom to enable priority
+        atom_ids = list(set(h.atom_id for h in all_hits))
+        section_map = {}
+        if atom_ids:
+            import sqlite3
+            conn = sqlite3.connect(DB)
+            placeholders = ",".join("?" * len(atom_ids))
+            rows = conn.execute(
+                f"SELECT atom_id, section_id FROM atomic_questions WHERE atom_id IN ({placeholders})",
+                atom_ids,
+            ).fetchall()
+            for aid, sid in rows:
+                section_map[aid] = sid or ""
+            conn.close()
+
+        # Step 4: Dedup + sort with section priority
         seen = set()
         unique = []
-        for h in sorted(all_hits, key=lambda x: -x.retrieval_score):
+        for h in all_hits:
             if h.atom_id in seen:
                 continue
             seen.add(h.atom_id)
             unique.append(h)
+
+        def priority_key(atom):
+            sid = section_map.get(atom.atom_id, "")
+            # Lower number = higher priority
+            if preferred_section and sid == preferred_section:
+                return (0, -atom.retrieval_score)  # exact section match — top
+            if preferred_section and sid.startswith(preferred_section.rsplit(".", 1)[0]):
+                return (1, -atom.retrieval_score)  # same chapter (5.1.x)
+            if sid == "phase_pre_stepwise":
+                return (3, -atom.retrieval_score)  # scattered atoms — fallback
+            if sid:
+                return (2, -atom.retrieval_score)  # other sections — mid
+            return (4, -atom.retrieval_score)  # no section — last
+
+        unique.sort(key=priority_key)
         top_atoms = unique[: self.top_k]
 
         # Step 2: Fetch commentaries for these atoms
