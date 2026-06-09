@@ -1667,8 +1667,51 @@ Sách → chunker → chunks_v2 (894)
 - DeepSeek/Gemini/Anthropic keys invalid sau incident 2026-05-27 — anh rotate khi rảnh qua UI
 - Vec embedding chưa wire — FTS5 đủ MVP, add sau
 
+### 2026-06-09 (phiên 2 sau khi resume) — Khám phá 4 BƯỚC luận đoán chân truyền
+
+**Anh hỏi câu sâu**: _"Atomic sinh ra phục vụ điều gì? Tìm trong sách Tử Vi có đoạn hướng dẫn luận giải. Đọc và so sánh."_
+
+Em khảo sát:
+- Search FTS trên 894 chunks Trung Châu Q2 + raw markdown files
+- **TÌM THẤY p163-165: "Pháp luận đoán Đẩu Số trong phái Trung Châu"**
+
+**4 BƯỚC chân truyền Vương Đình Chỉ:**
+1. **Nguyên cục** — tính chất sao Mệnh nguyên cục
+2. **Tinh hệ Đại vận** — cùng nguyên cục, khác đại vận → khác kết quả
+3. **Giao nhau tinh hệ** — "Tử Vi tinh quyết" (khẩu truyền 1 đời 1 đệ tử, chỉ Vương Đình Chỉ giữ)
+4. **Quân bình Tinh thần/Vật chất** — Liêm Trinh + Thiên Tướng (tinh thần) vs Tham Lang + Vũ Khúc + Thiên Phủ (vật chất). Hóa Lộc/Quyền tăng vật chất, Hóa Kỵ giảm vật chất
+
+**Vũ Tài Lục p122 — bonus method Ngũ Hành lens 5 lớp** (đang mai một):
+1. Nạp âm
+2. Cục
+3. Hành sao
+4. Hành cung
+5. Vòng Tràng Sinh
+
+**Đối chiếu Atomic paradigm vs Method tổ sư:**
+
+| | Atomic em | Method Vương Đình Chỉ |
+|---|---|---|
+| Đơn vị | Factoid Q | Bước sequential |
+| Trình tự | Flat | 4 bước có DEPENDENCY |
+| Tử Vi tinh quyết | Không capture | Bước 3 trung tâm |
+| Tinh thần/Vật chất tag | Không | Bước 4 phân loại |
+
+→ **Insight đắt**: Atomic là FACTOID LAYER, KHÔNG phải METHOD. Decomposer prompt em viết quá generic — chưa learning từ phương pháp gốc.
+
+**Phase 2B đề xuất (chờ anh duyệt sau khi ingest xong):**
+- Add 3 fields atomic_questions: `method_step`, `tinh_chat_axis`, `ngu_hanh`
+- Build `MethodAwareDecomposer` v2 — 4 bước Vương Đình Chỉ thay generic propose
+- Ngũ Hành parallel channel (Vũ Tài Lục bridge)
+
+**Design doc**: `docs/design/method-aware-decomposer-2026-06-09.md`
+
+Anh chốt: chờ ingest Trung Châu Q2 xong (~10-12h) → review chất lượng → quyết Method-Aware.
+
+**Ingest state khi đóng phiên này**: 218/894 chunks (24%), 3263 atoms, 94 commentaries. 4 atomize workers + 1 commentary worker đang chạy background.
+
 ### Lần update tiếp theo
-*(Khi 4 worker ingest xong + anh verify chất lượng → Phase 2 design.)*
+*(Khi ingest Trung Châu Q2 xong + anh quyết Phase 2B Method-Aware.)*
 
 ---
 
