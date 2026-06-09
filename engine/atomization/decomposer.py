@@ -162,25 +162,30 @@ class KnowledgeAwareDecomposer:
         return MiniMaxProvider(api_key=keys["minimax"])
 
     def _llm_call(self, prompt: str, temperature: float = 0.3, max_tokens: int = 3000) -> dict | None:
-        try:
-            r = self.provider.chat(
-                messages=[{"role": "user", "content": prompt}],
-                model=self.model,
-                temperature=temperature,
-                max_tokens=max_tokens,
-            )
-        except ProviderError as e:
-            print(f"  ⚠ LLM error: {e}")
-            return None
-        parsed, err = _parse_json(r.content)
-        if err:
-            print(f"  ⚠ JSON parse: {err}")
-        # Attach token usage for caller
-        if parsed is not None:
-            parsed["__usage"] = {
-                "prompt": r.prompt_tokens, "completion": r.completion_tokens,
-            }
-        return parsed
+        retry_hint = (
+            "\n\n⚠ LƯU Ý: Output PHẢI là JSON thuần — KHÔNG markdown, KHÔNG text trước/sau. "
+            "Bắt đầu bằng '{', kết thúc bằng '}'."
+        )
+        for attempt in range(3):
+            full_prompt = prompt if attempt == 0 else prompt + retry_hint
+            try:
+                r = self.provider.chat(
+                    messages=[{"role": "user", "content": full_prompt}],
+                    model=self.model,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                )
+            except ProviderError as e:
+                print(f"  ⚠ LLM error attempt {attempt+1}: {e}")
+                continue
+            parsed, err = _parse_json(r.content)
+            if parsed is not None:
+                parsed["__usage"] = {
+                    "prompt": r.prompt_tokens, "completion": r.completion_tokens,
+                }
+                return parsed
+            print(f"  ⚠ JSON parse attempt {attempt+1}: {err} | raw[:200]: {r.content[:200]!r}")
+        return None
 
     def _format_chosen_context(self, chosen: list[AtomRetrievalInfo]) -> str:
         if not chosen:
