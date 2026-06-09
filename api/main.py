@@ -164,8 +164,10 @@ app.add_middleware(
 # - Owner thấy mọi tab, user thường ẩn dev tabs (Cài đặt, Lexicon, ...)
 from api.auth import router as auth_router  # noqa: E402
 from api.admin import router as admin_router  # noqa: E402
+from api.atomization import router as atomization_router  # noqa: E402
 app.include_router(auth_router)
 app.include_router(admin_router)
+app.include_router(atomization_router)
 
 # ⭐ Serve figures from restored books — cho UI hiển thị ảnh minh hoạ
 from fastapi.staticfiles import StaticFiles
