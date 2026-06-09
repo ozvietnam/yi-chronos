@@ -1,0 +1,367 @@
+{
+  "section_id": "5.1.10",
+  "section_title": "Cự Môn ở cung Mệnh",
+  "pages": [533, 534, 535],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.10-Q01",
+      "question": "Vì sao Cự Môn được gọi là 'ám tinh'?",
+      "answer_atom": "Cự Môn được gọi là 'ám tinh' không phải vì bản thân nó không có ánh sáng, mà vì nó có khả năng che ánh sáng của các sao khác. Tên 'Cự Môn' (cửa lớn) mang ý nghĩa 'che ám'.",
+      "source_quote": "Cự Môn là \"ám tinh\", không phải là bản thân sao này không có ánh sáng, mà chỉ là nó có thể che ánh sáng của các sao khác mà thôi. Cho nên gọi là \"Cự Môn\" (cửa lớn) là có ý nghĩa \"che ám\".",
+      "source_page": 533,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:menh", "concept:am_tinh", "concept:che_am"],
+      "commentary": {
+        "han_viet_explain": "Cự Môn (巨門) = cửa lớn; ám tinh (暗星) = sao tối/che",
+        "viet_thuan": "Cự Môn là sao 'che', nó che ánh sáng của các sao khác chứ không phải tự nó tối.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q02",
+      "question": "Cự Môn có thể che được ánh sáng của Thái Dương không?",
+      "answer_atom": "Chỉ Thái Dương là sao mà không chỗ nào không chiếu đến, vì vậy Cự Môn không thể che ánh sáng của Thái Dương. Chỉ khi Thái Dương lạc hãm, lúc có ánh sáng yếu nhất, thì Cự Môn mới che được, do đó Thái Dương lạc hãm cũng không nên hội Cự Môn.",
+      "source_quote": "Nói về ánh sáng của các sao, chỉ Thái Dương là không có chỗ nào không chiếu đến, vì vậy Cự Môn không thể che ánh sáng của Thái Dương. Chỉ khi Thái Dương lạc hãm, lúc có ánh sáng yếu nhất, **Cự Môn** mới che được, do đó **Thái Dương** lạc hãm cũng không nên hội **Cự Môn**.",
+      "source_page": 533,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thai_duong", "concept:lac_ham", "interaction:cu_mon_thai_duong"],
+      "commentary": {
+        "han_viet_explain": "Lạc hãm (落陷) = sao rơi vào cung yếu, mất ánh sáng",
+        "viet_thuan": "Thái Dương sáng thì Cự Môn không che được. Thái Dương yếu/lạc hãm thì Cự Môn mới che được — nên Thái Dương lạc hãm không nên gặp Cự Môn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q03",
+      "question": "Khi Thiên Đồng gặp Cự Môn đồng độ hoặc vây chiếu thì biến hóa thế nào?",
+      "answer_atom": "Vì Thiên Đồng chủ về tình cảm và tâm trạng, khi gặp Cự Môn đồng độ hoặc vây chiếu sẽ biến thành tình cảm và tâm trạng u ám. Người này có nỗi đau khổ thầm kín trong nội tâm mà không thể cho ai biết.",
+      "source_quote": "Nếu **Thiên Đồng** gặp **Cự Môn đồng độ** hoặc vây chiếu, vì Thiên Đồng chủ về tình cảm và tâm trạng, nên nó sẽ biến thành tình cảm và tâm trạng u ám. Người này có nỗi đau khổ thẩm kín trong nội tâm mà không thể cho ai biết.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_dong", "interaction:thien_dong_cu_mon", "concept:tinh_cam_u_am"],
+      "commentary": {
+        "han_viet_explain": "Đồng độ (同度) = cùng cung; vây chiếu = các cung tam phương chiếu vào",
+        "viet_thuan": "Thiên Đồng + Cự Môn → người có nỗi đau giấu kín, không nói được với ai.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q04",
+      "question": "Khi Thiên Cơ gặp Cự Môn đồng độ hoặc vây chiếu thì biến hóa thế nào?",
+      "answer_atom": "Vì Thiên Cơ chủ về cơ mưu, kế hoạch, khi gặp Cự Môn đồng độ hoặc vây chiếu sẽ biến thành cơ mưu và kế hoạch bị tính toán sai, dẫn đến phản ứng sai lầm, tiến thoái không hợp thời cơ, gây ra sự do dự và thiếu quyết đoán.",
+      "source_quote": "Tương tự, nếu **Thiên Cơ** gặp **Cự Môn đồng độ** hoặc vây chiếu, vì Thiên Cơ chủ về cơ mưu, kế hoạch, nên nó sẽ biến thành cơ mưu và kế hoạch bị tính toán sai, dẫn đến phản ứng sai lầm, tiến thoái không hợp thời cơ, gây ra sự do dự và thiếu quyết đoán.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_co", "interaction:thien_co_cu_mon", "concept:co_muu_sai_lam"],
+      "commentary": {
+        "han_viet_explain": "Cơ mưu (機謀) = mưu kế, tính toán",
+        "viet_thuan": "Thiên Cơ + Cự Môn → mưu tính sai, tiến/lùi không đúng lúc, do dự.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q05",
+      "question": "Khi Thái Dương gặp Cự Môn đồng độ hoặc vây chiếu (miếu vượng vs lạc hãm) khác nhau ra sao?",
+      "answer_atom": "Nếu Thái Dương nhập miếu thì sẽ không bị Cự Môn 'ám', ánh sáng vẫn được chiếu xa, chủ về việc được người ngoại quốc hoặc người ở nơi xa xem trọng. Ngược lại, nếu lạc hãm thì ánh sáng lu mờ, khiến công việc đầu voi đuôi chuột.",
+      "source_quote": "Có điều, nếu **Thái Dương** gặp **Cự Môn đồng độ** hoặc vây chiếu: Nếu **Thái Dương** nhập miếu thì sẽ không bị **Cự Môn** \"ám\", ánh sáng vẫn được chiếu xa, chủ về việc được người ngoại quốc hoặc người ở nơi xa xem trọng. Ngược lại, nếu lạc hãm thì ánh sáng lu mờ, khiến công việc đầu voi đuôi chuột.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thai_duong", "interaction:thai_duong_cu_mon", "concept:nhap_mieu", "concept:lac_ham", "concept:nguoi_ngoai_quoc"],
+      "commentary": {
+        "han_viet_explain": "Nhập miếu (入廟) = sao ở vị trí tốt nhất; đầu voi đuôi chuột = bắt đầu lớn, kết thúc nhỏ",
+        "viet_thuan": "Thái Dương + Cự Môn: Thái Dương miếu → được người xa/ngoại quốc trọng vọng. Thái Dương hãm → công việc dở dang.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q06",
+      "question": "Khi Thiên Cơ Hóa Quyền cùng Cự Môn thì 'che ám' biến thành cái gì?",
+      "answer_atom": "'Thiên Cơ, Cự Môn' vốn chủ về phản ứng sai lầm, tiến thoái không hợp thời cơ, người mang ý chí không kiên định. Nhưng nếu Thiên Cơ Hóa Quyền làm tăng tính ổn định, thì lực 'che ám' của Cự Môn lại biến thành sự chủ quan quyết định mà phạm sai lầm, vì vậy mà đánh mất cơ hội tốt.",
+      "source_quote": "\"**Thiên Cơ, Cự Môn**\" vốn chủ về phản ứng sai lầm, tiến thoái không hợp thời cơ, cho nên người này thường mang ý chí không kiên định. Tuy nhiên, nếu **Thiên Cơ Hóa Quyền**, làm tăng tính ổn định, thì lực \"che ám\" của **Cự Môn** lại biến thành sự chủ quan quyết định mà phạm sai lầm, vì vậy mà đánh mất cơ hội tốt.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_co", "transform:hoa_quyen", "concept:chu_quan_sai_lam"],
+      "commentary": {
+        "han_viet_explain": "Hóa Quyền (化權) = một trong Tứ Hóa, làm tăng quyền lực/ổn định",
+        "viet_thuan": "Thiên Cơ Hóa Quyền + Cự Môn → ổn định hơn nhưng quá chủ quan, quyết định sai, mất cơ hội.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q07",
+      "question": "Khi Thiên Đồng Hóa Lộc cùng Cự Môn thì 'ẩn tình' biến thành cái gì?",
+      "answer_atom": "'Thiên Đồng, Cự Môn' vốn chủ về có ẩn tình che giấu triền miên, nhưng nếu Thiên Đồng Hóa Lộc thì lại có thể biến thành sự chấp trước một môn học nào đó hoặc chấp trước một thú vui, sở thích nào đó. Như vậy chưa chắc là không tốt.",
+      "source_quote": "Lại ví dụ như \"**Thiên Đồng, Cự Môn**\" vốn chủ về có ẩn tình che giấu triển miên, nhưng nếu **Thiên Đồng Hóa Lộc**, thì lại có thể biến thành sự chấp trước một môn học nào đó hoặc chấp trước một thú vui, sở thích nào đó. Như vậy chưa chắc là không tốt.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_dong", "transform:hoa_loc", "concept:chap_truoc"],
+      "commentary": {
+        "han_viet_explain": "Hóa Lộc (化祿) = một trong Tứ Hóa, mang tài lộc/hứng thú; chấp trước = bám chặt, đam mê",
+        "viet_thuan": "Thiên Đồng Hóa Lộc + Cự Môn → biến từ 'ẩn tình' thành đam mê một môn học / thú vui — chưa chắc xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q08",
+      "question": "Thái Dương Cự Môn ở cung Dần được cát hóa và có sao cát thì chủ về điều gì?",
+      "answer_atom": "Cự Môn rất ưa Thái Dương miếu vượng; 'Thái Dương, Cự Môn' ở cung Dần được cát hóa và có sao cát, chủ về nhờ phú mà được quý, còn dương danh ở nơi xa.",
+      "source_quote": "**Cự Môn** rất ưa **Thái Dương** miếu vượng; nên \"**Thái Dương, Cự Môn**\" ở cung Dần được cát hóa và có sao cát, chủ về nhờ phú mà được quý, còn dương danh ở nơi xa.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thai_duong", "palace:dan", "concept:nho_phu_duoc_quy", "concept:duong_danh_noi_xa"],
+      "commentary": {
+        "han_viet_explain": "Dương danh (揚名) = nổi danh, làm rạng danh",
+        "viet_thuan": "Thái Dương + Cự Môn ở Dần + cát hóa + cát tinh → nhờ giàu mà sang, nổi danh ở nơi xa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q09",
+      "question": "Thái Dương Cự Môn ở cung Thân được cát hóa và có sao cát thì chủ về điều gì?",
+      "answer_atom": "'Thái Dương, Cự Môn' ở cung Thân, được cát hóa và có sao cát, chủ về nhờ quý mà được phú, vì vậy rất thích hợp làm công việc ngoại giao hoặc luật sư.",
+      "source_quote": "Trong khi đó, \"**Thái Dương, Cự Môn**\" ở cung Thân, được cát hóa và có sao cát, lại chủ về nhờ quý mà được phú, vì vậy rất thích hợp làm công việc ngoại giao hoặc luật sư.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thai_duong", "palace:than", "concept:nho_quy_duoc_phu", "career:ngoai_giao", "career:luat_su"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Dương + Cự Môn ở Thân + cát hóa + cát tinh → nhờ sang mà giàu, hợp làm ngoại giao / luật sư.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q10",
+      "question": "Cự Môn đồng độ với Thiên Đồng ở cung Sửu/Mùi có yêu cầu gì? Cổ nhân nhận định ra sao?",
+      "answer_atom": "Cự Môn và Thiên Đồng đồng độ phải có sao Lộc; nếu không có Lộc thì dù gặp cát tinh cũng không cát tường. Cổ nhân nói: 'Cự Môn ở Sửu, Mùi là hạ cách, dù phú quý cũng không được lâu.' (Sửu Mùi Cự Môn ở hạ cách, túng nhiên phú quý việc bất trường).",
+      "source_quote": "**Cự Môn** và **Thiên Đồng đồng độ**, phải có sao Lộc; nếu không có Lộc thì dù gặp cát tinh cũng không cát tường. Cổ nhân nói: \"*Cự Môn ở Sửu, Mùi là hạ cách, dù phú quý cũng không được lâu.*\" (Tức là: Sửu Mùi **Cự Môn** ở hạ cách, túng nhiên phú quý việc bất trường).",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_dong", "palace:suu", "palace:mui", "concept:ha_cach", "concept:sao_loc", "co_nhan_quote"],
+      "commentary": {
+        "han_viet_explain": "Túng nhiên (縱然) = dù cho; bất trường (不長) = không lâu",
+        "viet_thuan": "Cự Môn + Thiên Đồng đồng độ → bắt buộc phải có sao Lộc. Ở Sửu/Mùi là hạ cách — giàu sang cũng không bền.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q11",
+      "question": "Khuyết điểm của kết cấu Cự Môn + Thiên Đồng (Sửu/Mùi) là gì?",
+      "answer_atom": "Khuyết điểm của kết cấu tinh hệ này là dễ nghe lời đèm xiểm, nói xấu, xử sự nặng tình cảm mà dẫn đến thất bại.",
+      "source_quote": "Khuyết điểm của kết cấu tinh hệ này là ở chỗ dễ nghe lời. / Đèm xiểm, nói xấu, xử sự nặng tình cảm mà dẫn đến thất bại.",
+      "source_page": 534,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_dong", "concept:khuyet_diem", "concept:nghe_xiem"],
+      "commentary": {
+        "han_viet_explain": "Đèm xiểm = lời xu nịnh, gièm pha",
+        "viet_thuan": "Cự Môn + Thiên Đồng → dễ nghe lời nịnh, lời gièm; xử sự nặng tình cảm → thất bại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q12",
+      "question": "Cự Môn đồng độ với Thiên Cơ có yêu cầu gì, ở cung nào tốt hơn, và sợ gặp gì?",
+      "answer_atom": "Cự Môn đồng độ với Thiên Cơ cần phải được cát hóa và có sao cát mới phú quý (ở cung Mão ưu hơn ở cung Dậu); nhưng gặp Hỏa Tinh, Linh Tinh cùng bay đến là phá cách, chủ về cuộc đời nhiều chìm nổi. Không gặp cát tinh hoặc không được cát hóa, mà gặp sát tinh thì phá tán, thất bại.",
+      "source_quote": "**Cự Môn** đồng độ với **Thiên Cơ** cần phải được cát hóa và có sao cát, mới phú quý (ở cung Mão ưu hơn ở cung Dậu); nhưng gặp **Hỏa Tinh**, **Linh Tinh** cùng bay đến là phá cách, chủ về cuộc đời nhiều chìm nổi. Không gặp cát tinh hoặc không được cát hóa, mà gặp sát tinh thì phá tán, thất bại.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:thien_co", "palace:mao", "palace:dau", "star:hoa_tinh", "star:linh_tinh", "concept:pha_cach"],
+      "commentary": {
+        "han_viet_explain": "Phá cách (破格) = cách cục bị phá hỏng",
+        "viet_thuan": "Cự Môn + Thiên Cơ → cần cát hóa + cát tinh (Mão tốt hơn Dậu). Gặp Hỏa/Linh là phá cách, đời nhiều chìm nổi. Gặp sát tinh không cát → phá tán.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q13",
+      "question": "Cự Môn ở cung Tý/Ngọ là cách gì? Hóa Lộc và Hóa Quyền chủ về điều gì?",
+      "answer_atom": "Cự Môn ở hai cung Tý hoặc Ngọ là cách 'Thạch trung ẩn ngọc', được cát hóa là tốt. Hóa Lộc thì chủ về phú; Hóa Quyền thì chủ về quý. Tuy nhiên cuộc đời không nên ở vị trí tối cao.",
+      "source_quote": "**Cự Môn** ở hai cung Tý hoặc Ngọ là cách \"Thạch trung ẩn ngọc\", được cát hóa là tốt. **Hóa Lộc** thì chủ về phú; **Hóa Quyền** thì chủ về quý. Có điều, cuộc đời không nên ở vị trí tối cao.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:ty", "palace:ngo", "cach_cuc:thach_trung_an_ngoc", "transform:hoa_loc", "transform:hoa_quyen"],
+      "commentary": {
+        "han_viet_explain": "Thạch trung ẩn ngọc (石中隱玉) = ngọc giấu trong đá",
+        "viet_thuan": "Cự Môn ở Tý/Ngọ = cách 'Thạch trung ẩn ngọc'. Hóa Lộc → giàu. Hóa Quyền → sang. Nhưng không nên ở vị trí cao nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q14",
+      "question": "Cự Môn Hóa Lộc / Hóa Quyền ở Tý/Ngọ thường thất bại ở đại vận nào? Vì sao? Thành công ở đâu?",
+      "answer_atom": "Trường hợp Cự Môn Hóa Lộc hay Hóa Quyền thường thất bại ở đại vận cung Tị; Hóa Quyền thì thất bại vì tranh quyền, Hóa Lộc thì thất bại vì quá muốn làm giàu. Nó thường thành công ở các đại vận 'Vũ Khúc, Thất Sát', Thiên Phủ.",
+      "source_quote": "Trường hợp **Cự Môn Hóa Lộc** hay **Hóa Quyền**, thường thất bại ở đại vận cung Tị; **Hóa Quyền** thì thất bại vì tranh quyền; **Hóa Lộc** thì thất bại vì quá muốn làm giàu. Nó thường thành công ở các đại vận \"**Vũ Khúc**, **Thất Sát**\", **Thiên Phủ**.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:ty", "palace:ngo", "palace:ti", "transform:hoa_loc", "transform:hoa_quyen", "dai_van", "star:vu_khuc", "star:that_sat", "star:thien_phu"],
+      "commentary": {
+        "han_viet_explain": "Đại vận (大運) = vận lớn 10 năm",
+        "viet_thuan": "Cự Môn Hóa Lộc/Quyền (Tý/Ngọ) → thất bại ở đại vận Tị (Quyền: tranh quyền; Lộc: quá tham giàu). Thành công ở đại vận Vũ Khúc–Thất Sát, Thiên Phủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q15",
+      "question": "Cự Môn ở Tý/Ngọ đồng độ với Lộc Tồn yêu cầu gì, kỵ gì?",
+      "answer_atom": "Cự Môn ở hai cung Tý hoặc Ngọ đồng độ với Lộc Tồn cần phải gặp cát tinh mới phú quý. Rất kỵ cung hạn Thiên Cơ; cũng không ưa cung tam phương có Địa Không, Địa Kiếp bay đến. Nó thường thành công ở đại vận gặp sao lộc trùng điệp.",
+      "source_quote": "**Cự Môn** ở hai cung Tý hoặc Ngọ, đồng độ với **Lộc Tồn**, cần phải gặp cát tinh mới phú quý. Rất kỵ cung hạn **Thiên Cơ**; cũng không ưa cung tam phương có **Địa Không**, **Địa Kiếp** bay đến. Nó thường thành công ở đại vận gặp sao lộc trùng điệp.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "star:loc_ton", "palace:ty", "palace:ngo", "star:thien_co", "star:dia_khong", "star:dia_kiep", "concept:sao_loc_trung_diep"],
+      "commentary": {
+        "han_viet_explain": "Lộc Tồn (祿存) = sao tài lộc; tam phương = 3 cung chiếu vào",
+        "viet_thuan": "Cự Môn + Lộc Tồn (Tý/Ngọ) → cần cát tinh mới giàu sang. Kỵ vận Thiên Cơ, kỵ tam phương có Không/Kiếp. Thành công khi đại vận có nhiều sao lộc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q16",
+      "question": "Cự Môn ở Tý/Ngọ không có sao lộc thì luận thế nào?",
+      "answer_atom": "Cự Môn ở hai cung Tý hoặc Ngọ không có sao lộc thì cần phải đến đại vận hoặc lưu niên gặp sao lộc mới chủ về phát vượt lên; gặp niên hạn có Địa Không, Địa Kiếp và Hóa Kỵ (nhất là Thiên Cơ Hóa Kỵ) sẽ chủ về phá tán, thất bại.",
+      "source_quote": "**Cự Môn** ở hai cung Tý hoặc Ngọ, không có sao lộc, cần phải đến đại vận hoặc lưu niên gặp sao lộc mới chủ về phát vượt lên; gặp niên hạn có **Địa Không**, **Địa Kiếp** và **Hóa Kỵ** (nhất là **Thiên Cơ Hóa Kỵ**) sẽ chủ về phá tán, thất bại.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:ty", "palace:ngo", "concept:khong_sao_loc", "luu_nien", "star:dia_khong", "star:dia_kiep", "transform:hoa_ky", "star:thien_co"],
+      "commentary": {
+        "han_viet_explain": "Lưu niên (流年) = năm hành niên, vận từng năm",
+        "viet_thuan": "Cự Môn Tý/Ngọ thiếu sao lộc → phải chờ đại vận/lưu niên có sao lộc mới phát. Gặp Không/Kiếp + Hóa Kỵ (nhất là Thiên Cơ Hóa Kỵ) → phá tán.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q17",
+      "question": "Cự Môn ở Tý/Ngọ ảnh hưởng đến Huynh Đệ và hôn nhân thế nào?",
+      "answer_atom": "Cự Môn ở hai cung Tý hoặc Ngọ thông thường bất lợi cung Huynh Đệ. Vì vậy không nên hợp tác với người khác, cũng thường chủ về kết hôn muộn; Cự Môn ở cung Tý thì càng đúng.",
+      "source_quote": "**Cự Môn** ở hai cung Tý hoặc Ngọ, thông thường bất lợi cung Huynh Đệ. Vì vậy không nên hợp tác với người khác, cũng thường chủ về kết hôn muộn, **Cự Môn** ở cung Tý thì càng đúng.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:ty", "palace:ngo", "palace:huynh_de", "concept:hop_tac", "concept:ket_hon_muon"],
+      "commentary": {
+        "han_viet_explain": "Huynh Đệ = cung anh chị em / bạn bè / partner",
+        "viet_thuan": "Cự Môn Tý/Ngọ → bất lợi anh em / partner → không nên hợp tác. Kết hôn muộn — đặc biệt rõ ở cung Tý.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q18",
+      "question": "Cự Môn ở hai cung Thìn/Tuất thường có tính chất gì? Cổ nhân nhận định?",
+      "answer_atom": "Cự Môn ở hai cung Thìn hoặc Tuất thông thường là bất lợi. Cổ nhân nói: 'Cự Môn ngại bị hãm ở hai cung Thìn Tuất.' Chủ về vất vả, tranh chấp thị phi. Cự Môn Hóa Kỵ, có sát tinh bay đến là hạ cách.",
+      "source_quote": "**Cự Môn** ở hai cung Thìn hoặc Tuất, thông thường là bất lợi. Cổ nhân nói: \"**Cự Môn** ngại bị hãm ở hai cung Thìn Tuất.\" Chủ về vất vả, tranh chấp thị phi. **Cự Môn Hóa Kỵ**, có sát tinh bay đến là hạ cách.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:thin", "palace:tuat", "concept:bat_loi", "concept:thi_phi", "transform:hoa_ky", "co_nhan_quote"],
+      "commentary": {
+        "han_viet_explain": "Thị phi (是非) = đúng sai, tranh cãi",
+        "viet_thuan": "Cự Môn Thìn/Tuất → bất lợi, vất vả, tranh chấp thị phi. Hóa Kỵ + sát tinh → hạ cách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q19",
+      "question": "Cự Môn ở Thìn/Tuất, cung hạn nào nên đến, cung hạn nào không nên đến?",
+      "answer_atom": "Cự Môn ở hai cung Thìn hoặc Tuất không nên đến các cung hạn Thiên Tướng, Thiên Lương, Thiên Đồng, Thiên Phủ — thường xảy ra sự cố. Nên đến các cung hạn Thái Âm, Thái Dương nhập miếu. Rất nên đến các vận hạn gặp Lộc Tồn, Hóa Lộc — điều này có thể hóa giải tai ách của Cự Môn.",
+      "source_quote": "**Cự Môn** ở hai cung Thìn hoặc Tuất không nên đến các cung hạn **Thiên Tướng**, **Thiên Lương**, **Thiên Đồng**, **Thiên Phủ**, thường xảy ra sự cỗ; mà nên đến các cung hạn **Thái Âm**, **Thái Dương** nhập miếu. Rất nên đến các vận hạn gặp **Lộc Tồn**, **Hóa Lộc**. Điều này có thể hóa giải tai ách của **Cự Môn**.",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "palace:thin", "palace:tuat", "dai_van", "star:thien_tuong", "star:thien_luong", "star:thien_dong", "star:thien_phu", "star:thai_am", "star:thai_duong", "star:loc_ton", "transform:hoa_loc", "concept:hoa_giai_tai_ach"],
+      "commentary": {
+        "han_viet_explain": "Tai ách (災厄) = tai họa, ách nạn",
+        "viet_thuan": "Cự Môn Thìn/Tuất: KHÔNG nên gặp vận Thiên Tướng/Lương/Đồng/Phủ. NÊN gặp vận Thái Âm/Thái Dương miếu, đặc biệt Lộc Tồn / Hóa Lộc → hóa giải tai ách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.10-Q20",
+      "question": "Cự Môn Hóa Lộc ở cung Thìn cùng Văn Xương Hóa Kỵ thì luận thế nào?",
+      "answer_atom": "Cự Môn Hóa Lộc ở cung Thìn, có Văn Xương Hóa Kỵ đồng cung hoặc vây chiếu, là cách cục đặc biệt, rất phú quý. Đến cung hạn Thiên Phủ là đại vận phát đạt. Cự Môn ưa sao tiền tài.",
+      "source_quote": "**Cự Môn Hóa Lộc** ở cung Thìn, có **Văn Xương Hóa Kỵ** đồng cung hoặc vây chiếu, là cách cục đặc biệt, rất phú quý. Đến cung hạn **Thiên Phủ**, là đại vận phát đạt. **Cự Môn** ưa sao tiền tài, cho nên ưa...",
+      "source_page": 535,
+      "section_id": "5.1.10",
+      "tags": ["star:cu_mon", "transform:hoa_loc", "palace:thin", "star:van_xuong", "transform:hoa_ky", "cach_cuc:dac_biet", "star:thien_phu", "concept:sao_tien_tai"],
+      "commentary": {
+        "han_viet_explain": "Cách cục đặc biệt (特殊格局) = cách cục đặc thù, khác thông thường",
+        "viet_thuan": "Cự Môn Hóa Lộc (Thìn) + Văn Xương Hóa Kỵ đồng cung/vây chiếu → cách cục đặc biệt, rất giàu sang. Đại vận Thiên Phủ phát đạt. Cự Môn ưa sao tiền tài.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Đoạn này bị cắt ở cuối trang 535 ('cho nên ưa...') — atom chỉ ghi đến chỗ text dừng. Phần tiếp theo cần xem trang 536."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

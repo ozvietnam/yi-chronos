@@ -1,0 +1,385 @@
+{
+  "section_id": "5.1.7",
+  "section_title": "Thiên Phủ ở cung Mệnh (Thân)",
+  "pages": [525, 526, 527],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.7-Q01",
+      "question": "Quan hệ giữa Thiên Phủ và Tử Vi trong cấu trúc tinh bàn như thế nào?",
+      "answer_atom": "Thiên Phủ thích tương hội Tử Vi ở tam phương, nhưng không thích đồng độ; nếu đồng độ ắt có khuyết điểm. Khi luận phải xem các sao ở cung Phúc Đức, Sự Nghiệp và Phu Thê để định tính chất.",
+      "source_quote": "Thiên Phủ ưa tương hội Tử Vi ở tam phương, mà lại không ưa đồng độ, hễ đồng độ ắt sẽ có khuyết điểm. Cần xem xét các sao ở cung Phúc Đức, cung Sự Nghiệp và cung Phu Thê mà định tính chất.",
+      "source_page": 525,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:tu_vi", "palace:menh", "rule:tam_phuong", "palace:phuc_duc", "palace:su_nghiep", "palace:phu_the"],
+      "commentary": {
+        "han_viet_explain": "Tam phương = ba phương chiếu nhau (Tài-Quan-Thiên Di chiếu Mệnh); đồng độ = ở cùng một cung.",
+        "viet_thuan": "Thiên Phủ ưa Tử Vi chiếu từ xa (tam phương) chứ không thích ở cùng cung; ở cùng cung thì có khuyết điểm. Khi luận phải xem thêm cung Phúc Đức, Sự Nghiệp và Phu Thê.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q02",
+      "question": "Thiên Phủ ở cung Mệnh gặp sao Lộc thì ý nghĩa gì?",
+      "answer_atom": "Thiên Phủ gặp sao Lộc là điều kiện cơ bản để thu hoạch lợi ích; sau đó còn phải xem tính chất Thiên Tướng để định cao thấp của cách cục.",
+      "source_quote": "**Thiên Phủ ở cung Mệnh, gặp sao Lộc:** Là điều kiện cơ bản để thu hoạch lợi ích; sau đó mới xem tính chất của Thiên Tướng để định cách cục cao thấp.",
+      "source_page": 525,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:loc", "star:thien_tuong", "palace:menh", "concept:cach_cuc"],
+      "commentary": {
+        "han_viet_explain": "Sao Lộc = chỉ Lộc Tồn hoặc Hóa Lộc; cách cục = mô hình bố trí sao.",
+        "viet_thuan": "Có sao Lộc với Thiên Phủ chỉ là nền tảng có lợi; muốn biết cao thấp thì phải xem thêm Thiên Tướng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q03",
+      "question": "Thiên Phủ đến cung hạn nào là tốt?",
+      "answer_atom": "Thiên Phủ ưa đến các cung hạn có Thiên Lương, Thái Dương: nếu hội sao cát thì chủ về địa vị thăng tiến; ưa đến cung hạn có Lộc Tồn, Hóa Lộc và hội sao cát thì chủ về tài phú tăng nhiều.",
+      "source_quote": "**Thiên Phủ ưa đến các cung hạn Thiên Lương, Thái Dương:** Nếu có các sao cát, sẽ chủ về địa vị thăng tiến. Ưa đến cung hạn có Lộc Tồn, Hóa Lộc, hội hợp sao cát, chủ về tài phú tăng nhiều.",
+      "source_page": 525,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:thien_luong", "star:thai_duong", "star:loc_ton", "star:hoa_loc", "concept:cung_han", "concept:dai_van"],
+      "commentary": {
+        "han_viet_explain": "Cung hạn = cung mà Đại Vận hoặc Lưu Niên đi tới.",
+        "viet_thuan": "Khi vận đi qua cung có Thiên Lương hoặc Thái Dương kèm sao cát thì Thiên Phủ chủ thăng tiến địa vị; nếu đi qua cung có Lộc Tồn hoặc Hóa Lộc kèm sao cát thì chủ tài phú tăng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q04",
+      "question": "Cách Tài ấm giáp ấn của Thiên Phủ - Thiên Tướng nghĩa là gì?",
+      "answer_atom": "Khi Thiên Phủ hội Thiên Tướng thành cách Tài ấm giáp ấn thì Thiên Phủ chủ phú quý, sự nghiệp không từ tay trắng làm nên.",
+      "source_quote": "**Thiên Phủ hội Thiên Tướng là “Tài ấm giáp ấn”**: Thì Thiên Phủ cũng chủ về phú quý, sự nghiệp không từ tay trắng làm nên.",
+      "source_page": 525,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:thien_tuong", "cach:tai_am_giap_an", "palace:menh"],
+      "commentary": {
+        "han_viet_explain": "Tài ấm giáp ấn = sao Tài và sao Ấm giáp hai bên sao Ấn (Thiên Tướng).",
+        "viet_thuan": "Khi Thiên Tướng được cách Tài ấm giáp ấn và hội với Thiên Phủ thì Thiên Phủ chủ phú quý, có sẵn nền tảng (không phải tay trắng dựng nghiệp).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q05",
+      "question": "Cách Hình kị giáp ấn của Thiên Phủ - Thiên Tướng thì sao?",
+      "answer_atom": "Nếu thành Hình kị giáp ấn thì chủ về bị cô lập, không có cứu viện, tinh thần bị áp lực, vật chất thì bị tranh đoạt.",
+      "source_quote": "Nếu là **“Hình kị giáp ấn”**: Sẽ chủ về bị cô lập, không có cứu viện, tinh thần bị áp lực, vật chất thì bị tranh đoạt.",
+      "source_page": 525,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:thien_tuong", "cach:hinh_ki_giap_an", "palace:menh"],
+      "commentary": {
+        "han_viet_explain": "Hình kị giáp ấn = sao Hình và sao Kị giáp hai bên sao Ấn (Thiên Tướng).",
+        "viet_thuan": "Nếu Thiên Tướng bị Hình kị giáp ấn thì Thiên Phủ chủ bị cô lập, không người trợ giúp, áp lực tinh thần, của cải bị giành giật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q06",
+      "question": "Tại sao luận Thiên Phủ phải xem Thiên Tướng (phùng Phủ khán Tướng)?",
+      "answer_atom": "Đối cung của Thiên Phủ ắt là Thất Sát. Thiên Phủ chỉ sở trường phòng thủ, không giỏi khai sáng cũng không giỏi chỉ huy; năng lực khai sáng và quyền lực có vận dụng được hay không cần xem các sao hội hợp cung Thất Sát mà định. Vì vậy gọi là phùng Phủ khán Tướng, thực ra cũng là phùng Tướng khán Phủ.",
+      "source_quote": "Đối cung của Thiên Phủ ắt là Thất Sát, đây là một cách bố trí các sao rất xảo diệu. Thiên Phủ chỉ sở trường phòng thủ, không giỏi... Khai sảng, cũng không giỏi chỉ huy. Năng lực khai sáng và quyền lực có vận dụng được tự nhiên hay không, cần phải xem các sao hội hợp cung **Thất Sát** mà định. Cho nên gọi là “phùng Phủ khán Tướng” (gặp Thiên Phủ thì phải xem Thiên Tướng), thực ra cũng là “phùng Tướng khán Phủ” (gặp Thiên Tướng thì phải xem Thiên Phủ).",
+      "source_page": 525,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:that_sat", "star:thien_tuong", "rule:doi_cung", "concept:phung_phu_khan_tuong"],
+      "commentary": {
+        "han_viet_explain": "Đối cung = cung đối diện (xung chiếu); phùng Phủ khán Tướng = gặp Phủ phải xem Tướng; sở trường = thế mạnh.",
+        "viet_thuan": "Cung đối diện Thiên Phủ luôn là Thất Sát. Thiên Phủ chỉ giỏi giữ, không giỏi mở mang cũng không giỏi chỉ huy. Muốn biết Thiên Phủ phát huy được không phải xem các sao hội ở cung Thất Sát. Vì vậy có câu phùng Phủ khán Tướng, và ngược lại.",
+        "nguyen_ly": "Thiên Phủ thiên về phòng thủ — cần kiểm tra cung Thất Sát (đối cung) và Thiên Tướng (hợp xung) để biết khả năng khai sáng và quyền lực.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q07",
+      "question": "Thiên Phủ bị coi là kho trống khi nào?",
+      "answer_atom": "Thiên Phủ không có sao Lộc là kho trống; hội Địa Không, Địa Kiếp cũng là kho trống. Khi kho trống mà Thất Sát ở đối cung hội hợp sao cát thì chủ về tạo dựng sự nghiệp từ hư không.",
+      "source_quote": "**Thiên Phủ** không có sao Lộc, là “kho trống”, hội **Địa Không**, **Địa Kiếp**, cũng là “kho trống”. Hề kho trống mà **Thất Sát** ở đối cung, hội hợp các sao cát, mới chủ về tạo dựng sự nghiệp từ “hư không”.",
+      "source_page": 526,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "concept:kho_trong", "star:dia_khong", "star:dia_kiep", "star:that_sat"],
+      "commentary": {
+        "han_viet_explain": "Kho trống = kho không có của; hội = gặp ở tam phương tứ chính.",
+        "viet_thuan": "Thiên Phủ không sao Lộc, hoặc bị Địa Không Địa Kiếp hội, gọi là kho trống. Kho trống mà Thất Sát đối cung có sao cát thì chủ tạo dựng sự nghiệp từ tay trắng (từ hư không).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q08",
+      "question": "Thiên Phủ là kho lộ khi nào và cần điều kiện gì để giàu?",
+      "answer_atom": "Thiên Phủ có Tứ Sát Tinh hội hợp là kho lộ. Kho lộ thì Thiên Tướng cần có sao Lộc, hoặc thành cách Tài ấm giáp ấn, mới chủ về giỏi cạnh tranh và nhờ đó giàu có.",
+      "source_quote": "**Thiên Phủ** có Tứ Sát Tinh hội hợp, đây là “kho lộ”. Hễ kho lộ thì **Thiên Tướng** cần phải có sao Lộc, hoặc thành cách “Tài ấm giáp ấn”, mới chủ về giỏi cạnh tranh, và nhờ đó mà giàu có.",
+      "source_page": 526,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "concept:kho_lo", "star:tu_sat", "star:thien_tuong", "cach:tai_am_giap_an"],
+      "commentary": {
+        "han_viet_explain": "Tứ Sát Tinh = bốn sát tinh (Kình Dương, Đà La, Hỏa Tinh, Linh Tinh); kho lộ = kho bị lộ ra.",
+        "viet_thuan": "Khi Thiên Phủ bị Tứ Sát hội thì như kho bị lộ. Lúc này phải có Thiên Tướng kèm sao Lộc hoặc thành Tài ấm giáp ấn thì mới giỏi cạnh tranh và giàu được.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q09",
+      "question": "Liêm Trinh - Thiên Phủ ở cung Tuất luận thế nào?",
+      "answer_atom": "Liêm Trinh - Thiên Phủ đồng độ ở cung Tuất là tốt nhất. Cổ nhân nói Thiên Phủ đến cung Tuất có sao phù trợ là đai vàng áo tía. Liêm Trinh Hóa Lộc hoặc hội Vũ Khúc Hóa Lộc là thượng cách; hội Tử Vi Hóa Khoa là quý mà không phú; còn ưa Tả Phụ, Hữu Bật đến hội; Thiên Khôi, Thiên Việt giáp cung thì chủ địa vị rất cao.",
+      "source_quote": "**Thiên Phủ** có các sao khác đồng độ: trường hợp “**Liêm Trinh**, **Thiên Phủ**” đồng độ ở cung Tuất là tốt nhất. Cổ nhân nói “Thiên Phủ đến cung Tuất có sao phù trợ, là đai vàng áo tía”. Trường hợp **Liêm Trinh Hóa Lộc**, hoặc hội **Vũ Khúc Hóa Lộc** là thượng cách; hội **Tử Vi Hóa Khoa** là quý mà không phú; còn ưa **Tả Phụ**, **Hữu Bật** đến hội; **Thiên Khôi**, **Thiên Việt** giáp cung, sẽ chủ về địa vị rất cao.",
+      "source_page": 526,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "star:liem_trinh", "palace:tuat", "star:hoa_loc", "star:vu_khuc", "star:tu_vi", "star:hoa_khoa", "star:ta_phu", "star:huu_bat", "star:thien_khoi", "star:thien_viet"],
+      "commentary": {
+        "han_viet_explain": "Đai vàng áo tía = biểu tượng đại quan; thượng cách = cách cao nhất; giáp cung = kẹp hai bên cung.",
+        "viet_thuan": "Liêm Trinh + Thiên Phủ đứng cung Tuất là tốt nhất. Cổ nhân ví là làm quan to. Nếu Liêm Trinh Hóa Lộc hoặc hội Vũ Khúc Hóa Lộc là cách cao nhất; nếu hội Tử Vi Hóa Khoa thì có địa vị nhưng không giàu; thêm Tả Phụ Hữu Bật thì quý; Thiên Khôi Thiên Việt giáp cung thì địa vị rất cao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q10",
+      "question": "Tử Vi - Thiên Phủ đồng độ thì luận chủ phụ thế nào?",
+      "answer_atom": "Khi Tử Vi - Thiên Phủ đồng độ thì Tử Vi là chủ, Thiên Phủ là phụ. Cũng ưa Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt hội hợp. Không có sao phụ tá thì tinh hệ có khiếm khuyết đáng tiếc, chủ về tiến thoái thiếu quyết đoán. Nếu có Lộc Tồn đồng độ thì Thiên Phủ thành vai chủ, luận đoán cát hung cũng nặng về tính chất của Thiên Phủ.",
+      "source_quote": "Nếu “**Tử Vi**, **Thiên Phủ**” đồng độ, thì **Tử Vi** là chủ, **Thiên Phủ** là phụ. Cho nên cũng ưa **Tả Phụ**, **Hữu Bật**, **Thiên Khôi**, **Thiên Việt** hội hợp. Không có sao phụ, tá, thì tính hệ này có những khiếm khuyết đáng tiếc, chủ về tiến thoái thiếu quyết đoán; nếu có Lộc Tồn đồng độ, thì **Thiên Phủ** sẽ thành vai chủ, luận đoán cát hung cũng nặng về tính chất của **Thiên Phủ**.",
+      "source_page": 526,
+      "section_id": "5.1.7",
+      "tags": ["star:tu_vi", "star:thien_phu", "star:loc_ton", "star:ta_phu", "star:huu_bat", "star:thien_khoi", "star:thien_viet", "concept:chu_phu"],
+      "commentary": {
+        "han_viet_explain": "Sao phụ, tá = các sao phụ trợ (Tả Phụ Hữu Bật là phụ; Thiên Khôi Thiên Việt là tá).",
+        "viet_thuan": "Tử Vi + Thiên Phủ đồng cung thì Tử Vi đóng vai chính, Thiên Phủ phụ. Cần Tả Phụ Hữu Bật Thiên Khôi Thiên Việt hội. Thiếu sao phụ tá thì tinh hệ này hay do dự. Có Lộc Tồn đồng độ thì Thiên Phủ thành vai chính, luận cát hung phải nặng theo Thiên Phủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q11",
+      "question": "Vũ Khúc - Thiên Phủ ở Tý hoặc Ngọ luận về tài chính thế nào?",
+      "answer_atom": "Vũ Khúc - Thiên Phủ đồng độ ở Tý hoặc Ngọ: gặp Lộc Tồn ở cung Tài Bạch tốt hơn ở cung Mệnh; nhưng gặp Vũ Khúc Hóa Lộc thì gặp ở cung Mệnh tốt hơn. Trường hợp Lộc Tồn ở Mệnh chủ về bủn xỉn keo kiệt tham lam; ở Tài Bạch chủ về giỏi quản lí tài chính, giỏi kiếm tiền. Trường hợp Vũ Khúc Hóa Lộc ở Mệnh chủ về độ lượng, có năng lực quyết đoán và quản lí tài chính.",
+      "source_quote": "“**Vũ Khúc**, **Thiên Phủ**” đồng độ hai cung Tý hoặc Ngọ, gặp Lộc Tồn ở cung Tài Bạch tốt hơn ở cung Mệnh; gặp **Vũ Khúc Hóa Lộc**, thì gặp ở cung Mệnh tốt hơn. Trường hợp trước, gặp ở cung Mệnh thì chủ về bủn xỉn, keo kiệt, tham lam; gặp ở cung Tài Bạch thì chủ về giỏi quản lí tài chính, giỏi kiếm tiền. Trường hợp sau, gặp ở cung Mệnh thì chủ về độ lượng, còn có năng lực quyết đoán và quản lí tài chính.",
+      "source_page": 526,
+      "section_id": "5.1.7",
+      "tags": ["star:vu_khuc", "star:thien_phu", "palace:ty", "palace:ngo", "star:loc_ton", "star:hoa_loc", "palace:tai_bach", "palace:menh"],
+      "commentary": {
+        "han_viet_explain": "Lộc Tồn = sao Lộc cố định theo can năm; Hóa Lộc = một trong Tứ Hóa.",
+        "viet_thuan": "Vũ Khúc + Thiên Phủ ở Tý hay Ngọ: Lộc Tồn nên ở cung Tài Bạch hơn ở Mệnh (Lộc Tồn ở Mệnh khiến keo kiệt). Còn Vũ Khúc Hóa Lộc thì lại nên ở Mệnh (chủ độ lượng, biết quyết đoán quản tiền).",
+        "nguyen_ly": "Cùng là Lộc nhưng tính chất khác nhau: Lộc Tồn cố hữu mang tính giữ — đặt ở Mệnh thì sinh keo kiệt; Hóa Lộc động — đặt ở Mệnh thì sinh độ lượng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q12",
+      "question": "Thiên Phủ độc tọa ở Sửu hoặc Mùi được giáp cung bởi Văn Xương Văn Khúc hoặc Tả Phụ Hữu Bật thì khác nhau thế nào?",
+      "answer_atom": "Thiên Phủ độc tọa ở Sửu hoặc Mùi: được Văn Xương Văn Khúc giáp cung thì lợi về cầu danh, tiền của thì xem địa vị xã hội mà định; được Tả Phụ Hữu Bật giáp cung thì lợi về tiền của, địa vị xã hội xem tiền của nhiều ít mà định. Qua đó định mục tiêu nỗ lực của Thiên Phủ.",
+      "source_quote": "**Thiên Phủ** độc tọa ở hai cung Sửu hoặc Mùi, có **Văn Xương**, **Văn Khúc** giáp cung thì lợi về cẩu danh, tiền của thì xem địa vị xã hội mà định; được **Tả Phụ**, **Hữu Bật** giáp cung thì lợi về tiền của, địa vị xã hội thì xem tiền của nhiều ít mà định. Do đó có thể định mục tiêu nỗ lực của **Thiên Phủ**.",
+      "source_page": 526,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:suu", "palace:mui", "star:van_xuong", "star:van_khuc", "star:ta_phu", "star:huu_bat", "concept:giap_cung"],
+      "commentary": {
+        "han_viet_explain": "Giáp cung = sao ở hai cung bên cạnh kẹp Thiên Phủ; cầu danh = theo đường danh tiếng.",
+        "viet_thuan": "Thiên Phủ đứng một mình ở Sửu hay Mùi: nếu Văn Xương Văn Khúc kẹp hai bên thì hợp đi đường danh, tiền bạc tùy địa vị; nếu Tả Phụ Hữu Bật kẹp hai bên thì hợp đi đường tiền, địa vị tùy tiền nhiều ít. Từ đó xác định mục tiêu phấn đấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q13",
+      "question": "Vì sao Thiên Phủ độc tọa ở cung Mùi tốt hơn ở cung Sửu?",
+      "answer_atom": "Thiên Phủ độc tọa ở Sửu hoặc Mùi, ở cung Mùi tốt hơn. Vì ở cung Sửu sẽ hội Thiên Tướng ở cung Tỵ, mà Thiên Lương ở cung Ngọ giáp Thiên Tướng, khí Hình Sát khá nặng, gián tiếp gây áp lực khá nặng lên Thiên Phủ.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Sửu hoặc Mùi, trường hợp ở cung Mùi tốt hơn; vì ở cung Sửu sẽ hội **Thiên Tướng** ở cung Tỵ, mà **Thiên Lương** ở cung Ngọ giáp **Thiên Tướng**, khí “Hình Sát” khá nặng, gián tiếp gây ảnh hưởng khiến Thiên Phủ bị áp lực khá nặng.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:suu", "palace:mui", "star:thien_tuong", "star:thien_luong", "concept:hinh_sat", "concept:giap_cung"],
+      "commentary": {
+        "han_viet_explain": "Hình Sát = khí của Hình tinh và Sát tinh; giáp = kẹp hai bên.",
+        "viet_thuan": "Thiên Phủ ở Sửu hoặc Mùi: Mùi tốt hơn. Vì khi ở Sửu, Thiên Tướng (cung Tỵ) bị Thiên Lương (cung Ngọ) giáp, khí Hình Sát nặng, gián tiếp đè áp lực lên Thiên Phủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q14",
+      "question": "Các cung hạn then chốt của Thiên Phủ độc tọa ở Sửu hoặc Mùi là gì?",
+      "answer_atom": "Đối với Thiên Phủ độc tọa ở Sửu hoặc Mùi, các cung hạn Tử Vi - Tham Lang, Thiên Lương, Liêm Trinh - Thất Sát, Vũ Khúc - Phá Quân, có Lộc Tồn và Hóa Lộc là những lưu niên, đại vận có tính then chốt.",
+      "source_quote": "Đối với Thiên Phủ độc tọa ở hai cung Sửu hoặc Mùi, các cung hạn “Tử Vi, Tham Lang”, **Thiên Lương**, “Liêm Trinh, Thất Sát”, “Vũ Khúc, Phá Quân”, có Lộc Tồn và Hóa Lộc là những lưu niên, đại vận có tính then chốt.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:suu", "palace:mui", "concept:dai_van", "concept:luu_nien", "star:tu_vi", "star:tham_lang", "star:thien_luong", "star:liem_trinh", "star:that_sat", "star:vu_khuc", "star:pha_quan", "star:loc_ton", "star:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": "Lưu niên = năm trôi qua (Lưu Niên); đại vận = vận lớn 10 năm.",
+        "viet_thuan": "Với Thiên Phủ độc tọa Sửu Mùi, các vận đi qua cung có Tử Vi Tham Lang, Thiên Lương, Liêm Trinh Thất Sát, Vũ Khúc Phá Quân, có Lộc Tồn hoặc Hóa Lộc là những vận then chốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q15",
+      "question": "Thiên Phủ độc tọa ở Mão hoặc Dậu có đặc trưng gì?",
+      "answer_atom": "Thiên Phủ độc tọa ở Mão hoặc Dậu là ở nhược địa. Nếu hai sao Địa Không Địa Kiếp một sao bay đến cung Mệnh và một sao bay đến cung Sự Nghiệp, thì Thiên Phủ là Kho Lộ, Kho Trống, lại gặp thêm sát tinh, chủ về cơ mưu cỡ nào cũng chẳng được gì.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Mão hoặc Dậu, là ở nhược địa, nếu có hai sao **Địa Không**, **Địa Kiếp**, một sao bay đến cung Mệnh, một sao bay đến cung Sự Nghiệp, thì Thiên Phủ là “Kho Lộ”, “Kho Trống”, lại gặp thêm sát tinh, chủ về cơ mưu cỡ nào thì cũng chẳng được gì.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:mao", "palace:dau", "concept:nhuoc_dia", "star:dia_khong", "star:dia_kiep", "concept:kho_lo", "concept:kho_trong", "palace:su_nghiep"],
+      "commentary": {
+        "han_viet_explain": "Nhược địa = vị trí yếu; Kho Lộ + Kho Trống = vừa bị lộ vừa rỗng.",
+        "viet_thuan": "Thiên Phủ một mình ở Mão hoặc Dậu là vị trí yếu. Nếu Địa Không Địa Kiếp chia nhau vào cung Mệnh và cung Sự Nghiệp thì Thiên Phủ vừa lộ vừa rỗng, lại có sát tinh thì mưu mẹo gì cũng vô ích.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q16",
+      "question": "Thiên Phủ độc tọa ở Mão hoặc Dậu sợ điều gì khi đi đại vận?",
+      "answer_atom": "Thiên Phủ độc tọa ở Mão hoặc Dậu ưa Tả Phụ đồng cung và hội Hữu Bật, chủ về có địa vị rất cao hoặc sự nghiệp đang phát triển. Tuy nhiên rất sợ đến niên hạn Thái Dương Hóa Kỵ, bị Hình Kị Giáp Ấn, là điểm tượng đổ vỡ, gặp trắc trở nghiêm trọng.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Mão hoặc Dậu, ưa **Tả Phụ** đồng cung, hội **Hữu Bật**, sẽ chủ về có địa vị rất cao, hoặc có sự nghiệp hiện có đang phát triển. Có điều rất sợ đến niên hạn **Thái Dương Hóa Kỵ**, bị “Hình Kị Giáp Ấn” là điểm tượng đổ vỡ, gặp trắc trở nghiêm trọng.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:mao", "palace:dau", "star:ta_phu", "star:huu_bat", "star:thai_duong", "star:hoa_ki", "cach:hinh_ki_giap_an", "concept:niem_han"],
+      "commentary": {
+        "han_viet_explain": "Niên hạn = năm hạn (lưu niên); Hóa Kỵ = một trong Tứ Hóa, chủ trở ngại.",
+        "viet_thuan": "Thiên Phủ ở Mão Dậu thích Tả Phụ ngồi cùng và Hữu Bật chiếu, chủ địa vị cao hoặc sự nghiệp tăng tiến. Nhưng rất sợ vận năm có Thái Dương Hóa Kỵ tạo Hình Kị Giáp Ấn — là dấu hiệu đổ vỡ, gặp trở ngại nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q17",
+      "question": "Các cung hạn then chốt của Thiên Phủ độc tọa ở Mão hoặc Dậu?",
+      "answer_atom": "Ngoài những điều nói ở trên, các cung hạn Tử Vi - Phá Quân, Liêm Trinh - Tham Lang là những đại vận hoặc lưu niên có tính then chốt đối với Thiên Phủ độc tọa ở Mão hoặc Dậu.",
+      "source_quote": "Đối với Thiên Phủ độc tọa ở hai cung Mão hoặc Dậu, ngoài trừ những điều thuật ở trên ra, các cung hạn “Tử Vi, Phá Quân”, “Liêm Trinh, Tham Lang” là những đại vận hoặc lưu niên có tính then chốt.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:mao", "palace:dau", "star:tu_vi", "star:pha_quan", "star:liem_trinh", "star:tham_lang", "concept:dai_van", "concept:luu_nien"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Với Thiên Phủ một mình ở Mão hoặc Dậu, ngoài các điểm trên, các vận đi qua cung Tử Vi - Phá Quân hoặc Liêm Trinh - Tham Lang là then chốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q18",
+      "question": "Thiên Phủ độc tọa ở Tị hoặc Hợi có đặc trưng gì đối với nữ mệnh?",
+      "answer_atom": "Thiên Phủ độc tọa ở Tị hoặc Hợi, đối cung là Tử Vi - Thất Sát, là tinh hệ quyền lực. Cho nên với nữ mệnh chủ về thao túng chồng; ở thời hiện đại còn chủ về phụ nữ có sự nghiệp riêng.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi, đối cung là “Tử Vi, Thất Sát”, là tinh hệ quyển lực. Cho nên chủ về nữ mệnh thao túng chồng, ở thời hiện đại, còn chủ về phụ nữ có sự nghiệp riêng.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:ty", "palace:hoi", "star:tu_vi", "star:that_sat", "concept:nu_menh", "concept:quyen_luc"],
+      "commentary": {
+        "han_viet_explain": "Tinh hệ quyền lực = nhóm sao mang khí quyền lực.",
+        "viet_thuan": "Thiên Phủ một mình ở Tị hoặc Hợi: đối cung là Tử Vi - Thất Sát, mang khí quyền lực. Với nữ mệnh chủ thao túng chồng; thời nay còn chỉ phụ nữ có sự nghiệp riêng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q19",
+      "question": "Vì sao Thiên Phủ ở Tị hoặc Hợi không cần các sao phụ tá, mà ưa Lộc Tồn và Tài Ấm Giáp Ấn?",
+      "answer_atom": "Thiên Phủ độc tọa ở Tị hoặc Hợi gặp các sao phụ tá thì chỉ làm tăng trợ lực, nhưng vì đối nhau với Tử Vi - Thất Sát nên chẳng cần thiết. Không bằng gặp Lộc Tồn và Thiên Tướng thuộc loại Tài Ấm Giáp Ấn, hoặc hội Vũ Khúc Hóa Lộc (mượn sao an cung) và Tham Lang Hóa Lộc là tốt, có thể phú quý song toàn.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi gặp các sao phụ, tá, bất quá chỉ làm tăng trợ lực, nhưng vì đối nhau với “Tử Vi, Thất Sát”, nên chẳng cần thiết. Không bằng gặp Lộc Tồn và **Thiên Tướng** thuộc loại “Tài Ấm Giáp Ấn”, hoặc hội **Vũ Khúc Hóa Lộc** (mượn sao an cung) và **Tham Lang Hóa Lộc** là tốt, có thể phú quý song toàn.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:ty", "palace:hoi", "star:loc_ton", "star:thien_tuong", "cach:tai_am_giap_an", "star:vu_khuc", "star:tham_lang", "star:hoa_loc", "concept:muon_sao_an_cung"],
+      "commentary": {
+        "han_viet_explain": "Mượn sao an cung = khi cung không có sao chính, mượn từ cung đối; phú quý song toàn = vừa giàu vừa sang.",
+        "viet_thuan": "Thiên Phủ một mình ở Tị Hợi: thêm sao phụ tá chỉ thêm trợ lực mà thôi (vì đã đối Tử Vi - Thất Sát rồi nên không cần). Quan trọng hơn là có Lộc Tồn cùng Thiên Tướng thuộc Tài Ấm Giáp Ấn, hoặc hội Vũ Khúc Hóa Lộc (mượn từ cung khác) và Tham Lang Hóa Lộc — vừa giàu vừa sang.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q20",
+      "question": "Thiên Phủ Tị hoặc Hợi thành Tài Ấm Giáp Ấn thì thời hiện đại biểu thị điều gì?",
+      "answer_atom": "Thiên Phủ độc tọa ở Tị hoặc Hợi, nếu Thiên Tướng được Tài Ấm Giáp Ấn, ở thời hiện đại phần nhiều chủ về được người ngoại quốc (hay người ở phương xa) giúp đỡ. Nếu không thì cần phải gặp Thiên Khôi, Thiên Việt mới chủ về được quý nhân giúp đỡ.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi, nếu **Thiên Tướng** được “Tài Ấm Giáp Ấn”, ở thời hiện đại phần nhiều chủ về được người ngoại quốc (hay người ở phương xa) giúp đỡ. Nếu không, cần phải gặp **Thiên Khôi**, **Thiên Việt** mới chủ về được quý nhân để giúp đỡ.",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:ty", "palace:hoi", "star:thien_tuong", "cach:tai_am_giap_an", "star:thien_khoi", "star:thien_viet", "concept:quy_nhan"],
+      "commentary": {
+        "han_viet_explain": "Quý nhân = người giúp đỡ; người phương xa / ngoại quốc = bối cảnh hiện đại.",
+        "viet_thuan": "Thiên Phủ một mình ở Tị Hợi, nếu Thiên Tướng được Tài Ấm Giáp Ấn thì thời nay thường được người nước ngoài hoặc người ở xa giúp đỡ. Không được vậy thì phải có Thiên Khôi Thiên Việt mới chủ có quý nhân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.7-Q21",
+      "question": "Thiên Phủ Tị hoặc Hợi rất ưa cung hạn nào và biểu nghĩa gì?",
+      "answer_atom": "Thiên Phủ độc tọa ở Tị hoặc Hợi rất ưa đến cung hạn Thiên Khôi - Thiên Việt trùng điệp, tức Lưu Khôi và Lưu Việt trùng điệp với Thiên Khôi Thiên Việt của nguyên cục, xung khởi nhau, chủ về phát đột ngột.",
+      "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi rất ưa đến cung hạn “Thiên Khôi, Thiên Việt trùng điệp” (tức Lưu Khôi và Lưu Việt trùng điệp với Thiên Khôi, Thiên Việt của nguyên cục, xung khởi nhau, chủ về phát đột ngột.)",
+      "source_page": 527,
+      "section_id": "5.1.7",
+      "tags": ["star:thien_phu", "palace:ty", "palace:hoi", "star:thien_khoi", "star:thien_viet", "concept:luu_khoi_luu_viet", "concept:trung_diep", "concept:phat_dot_ngot"],
+      "commentary": {
+        "han_viet_explain": "Trùng điệp = chồng lên nhau; Lưu Khôi/Lưu Việt = Thiên Khôi/Thiên Việt theo lưu niên; nguyên cục = lá số gốc.",
+        "viet_thuan": "Thiên Phủ một mình ở Tị Hợi rất hợp khi vận đi qua cung mà Lưu Khôi Lưu Việt chồng lên Thiên Khôi Thiên Việt gốc, xung khởi nhau, chủ phát đột ngột.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
