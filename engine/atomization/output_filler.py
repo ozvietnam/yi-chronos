@@ -68,14 +68,66 @@ class OutputFiller:
             la_so_context: Optional lá số context để filter atoms relevant
                 (vd. atoms về "Tử Vi Mệnh" — chỉ relevant nếu user có Tử Vi Mệnh)
         """
-        # Step 1: Retrieve broadly via keywords
-        all_hits = []
-        for kw in field.atomic_q_keywords[:5]:  # top-5 keywords
-            hits = self.retriever.search_atom_fts(kw, limit=self.top_k * 3)  # 3x to allow filtering
-            all_hits.extend(hits)
-
-        # Step 2: Determine preferred section for this (cung, sao)
+        # Step 0: Determine preferred section for this (cung, sao)
         preferred_section = CUNG_SAO_TO_SECTION.get((field.cung, field.sao_chinh))
+
+        # Step 1a: DIRECT retrieve atoms WHERE section_id == preferred_section (highest priority)
+        all_hits = []
+        if preferred_section:
+            import sqlite3
+            conn = sqlite3.connect(DB)
+            conn.row_factory = sqlite3.Row
+            sec_rows = conn.execute("""
+                SELECT
+                    aq.atom_id, aq.question_text, aq.chunk_id,
+                    aq.subject_identifiers, aq.from_category, aq.source_quote,
+                    aq.confidence, aq.founder_verified,
+                    c.text AS chunk_text, c.book_corpus_id, c.page_start, c.page_end,
+                    cc.is_chu_the, cc.is_cong_thuc, cc.is_luan_giai,
+                    cc.is_to_hop, cc.is_kinh_nghiem, cc.format_style
+                FROM atomic_questions aq
+                JOIN chunks_v2 c ON c.chunk_id = aq.chunk_id
+                LEFT JOIN chunk_classifications cc ON cc.cc_id = aq.cc_id
+                WHERE aq.section_id = ?
+                ORDER BY aq.atom_id
+                LIMIT ?
+            """, (preferred_section, self.top_k * 2)).fetchall()
+            conn.close()
+            from engine.atomization.retriever import AtomRetrievalInfo
+            for r in sec_rows:
+                try:
+                    ids = json.loads(r["subject_identifiers"] or "{}")
+                except (json.JSONDecodeError, TypeError):
+                    ids = {}
+                all_hits.append(AtomRetrievalInfo(
+                    atom_id=r["atom_id"],
+                    atom_query="(section-direct)",
+                    atom_question=r["question_text"],
+                    chunk_id=r["chunk_id"],
+                    chunk_text=r["chunk_text"] or "",
+                    source_book=r["book_corpus_id"],
+                    page_start=r["page_start"],
+                    page_end=r["page_end"],
+                    retrieval_score=1.0,  # max — direct hit
+                    subject_identifiers=ids,
+                    from_category=r["from_category"],
+                    source_quote=r["source_quote"],
+                    confidence=r["confidence"] or 0.85,
+                    founder_verified=r["founder_verified"] or 0,
+                    archetype={
+                        "is_chu_the": r["is_chu_the"] or 0,
+                        "is_cong_thuc": r["is_cong_thuc"] or 0,
+                        "is_luan_giai": r["is_luan_giai"] or 0,
+                        "is_to_hop": r["is_to_hop"] or 0,
+                        "is_kinh_nghiem": r["is_kinh_nghiem"] or 0,
+                    },
+                    format_style=r["format_style"],
+                ))
+
+        # Step 1b: Augment via FTS keyword search (lower priority)
+        for kw in field.atomic_q_keywords[:5]:
+            hits = self.retriever.search_atom_fts(kw, limit=self.top_k * 3)
+            all_hits.extend(hits)
 
         # Step 3: Fetch section_id for each atom to enable priority
         atom_ids = list(set(h.atom_id for h in all_hits))
