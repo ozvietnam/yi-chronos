@@ -102,10 +102,12 @@
       <span class="stat"><span>quota:</span><span class="stat-val" id="quota-stat">—</span></span>
       <span class="stat"><span>atoms:</span><span class="stat-val" id="atoms-stat">—</span></span>
       <span class="stat"><span>verified:</span><span class="stat-val" id="verified-stat">—</span></span>
+      <button class="btn" onclick="switchView('ingest')" id="tab-ingest" style="margin-left:16px">📥 Ingest</button>
+      <button class="btn" onclick="switchView('output')" id="tab-output">🎯 Output Preview</button>
     </div>
   </header>
 
-  <div class="layout">
+  <div class="layout" id="view-ingest">
     <aside class="sidebar">
       <h2>📚 Sách</h2>
       <div id="books-list"></div>
@@ -129,8 +131,138 @@
     </main>
   </div>
 
+  <!-- ═══ View 2: Output Preview ═══ -->
+  <div id="view-output" style="display:none;padding:20px;overflow-y:auto;height:calc(100vh - 50px)">
+    <h2>🎯 Output Preview — 3-Layer cho 1 lá số (paradigm Anh chốt 2026-06-09)</h2>
+    <div style="background:var(--bg-2);padding:12px;border-radius:6px;margin-bottom:16px;font-size:13px;color:var(--text-dim)">
+      <strong>3 LỚP user experience:</strong>
+      ① Chuyện về anh (viet_thuan + ví dụ) ·
+      ② Vì sao lại thế (nguyên lý) ·
+      ③ Sách cổ đã nói (citation grounded)
+    </div>
+
+    <div style="background:var(--bg-2);padding:16px;border-radius:6px;margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:end">
+      <div>
+        <label style="font-size:11px;color:var(--text-dim)">Cung</label><br/>
+        <select id="op-cung" style="background:var(--bg-3);color:var(--text);border:1px solid var(--border);padding:6px;border-radius:4px;min-width:140px">
+          <option>Mệnh</option><option>Phu Thê</option><option>Tài Bạch</option>
+          <option>Tử Tức</option><option>Sự Nghiệp</option><option>Tật Ách</option>
+          <option>Thiên Di</option><option>Phúc Đức</option><option>Huynh Đệ</option>
+          <option>Phụ Mẫu</option><option>Điền Trạch</option><option>Giao Hữu</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--text-dim)">Sao chính</label><br/>
+        <select id="op-sao" style="background:var(--bg-3);color:var(--text);border:1px solid var(--border);padding:6px;border-radius:4px;min-width:140px">
+          <option>Tử Vi</option><option>Thiên Cơ</option><option>Thái Dương</option>
+          <option>Vũ Khúc</option><option>Thiên Đồng</option><option>Liêm Trinh</option>
+          <option>Thiên Phủ</option><option>Thái Âm</option><option>Tham Lang</option>
+          <option>Cự Môn</option><option>Thiên Tướng</option><option>Thiên Lương</option>
+          <option>Thất Sát</option><option>Phá Quân</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--text-dim)">Aspect</label><br/>
+        <select id="op-aspect" style="background:var(--bg-3);color:var(--text);border:1px solid var(--border);padding:6px;border-radius:4px;min-width:180px">
+          <option value="tong_quan">tong_quan — tổng quan</option>
+          <option value="uu_diem">uu_diem — ưu điểm</option>
+          <option value="nhuoc_diem">nhuoc_diem — nhược điểm</option>
+          <option value="dinh_huong">dinh_huong — định hướng nghề</option>
+          <option value="modifiers">modifiers — cát hung</option>
+          <option value="timing_dai_van">timing_dai_van — đại vận</option>
+          <option value="canh_bao_iron_rule">canh_bao_iron_rule</option>
+        </select>
+      </div>
+      <button class="btn" onclick="loadOutputPreview()" style="background:var(--accent);color:#000;font-weight:600">🔍 Preview</button>
+    </div>
+
+    <div id="output-result"></div>
+  </div>
+
 <script>
 const API = '/api/atomization';
+
+function switchView(view) {
+  document.getElementById('view-ingest').style.display = view === 'ingest' ? 'grid' : 'none';
+  document.getElementById('view-output').style.display = view === 'output' ? 'block' : 'none';
+  document.getElementById('tab-ingest').style.background = view === 'ingest' ? 'var(--accent)' : 'var(--bg-3)';
+  document.getElementById('tab-ingest').style.color = view === 'ingest' ? '#000' : 'var(--text)';
+  document.getElementById('tab-output').style.background = view === 'output' ? 'var(--accent)' : 'var(--bg-3)';
+  document.getElementById('tab-output').style.color = view === 'output' ? '#000' : 'var(--text)';
+}
+
+async function loadOutputPreview() {
+  const cung = document.getElementById('op-cung').value;
+  const sao = document.getElementById('op-sao').value;
+  const aspect = document.getElementById('op-aspect').value;
+  const out = document.getElementById('output-result');
+  out.innerHTML = '<div class="loading">Loading...</div>';
+  try {
+    const data = await api(`/output/preview?cung=${encodeURIComponent(cung)}&sao=${encodeURIComponent(sao)}&aspect=${encodeURIComponent(aspect)}&top_k=5`);
+    let html = `
+      <div style="background:var(--bg-2);padding:16px;border-radius:6px;margin-bottom:16px">
+        <div style="font-size:18px;font-weight:600">${escapeHTML(data.field_id)}</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-top:6px">
+          ${data.sources_atoms.length} atoms · books: ${(data.sources_books||[]).join(', ')} · confidence ${data.confidence.toFixed(2)}
+        </div>
+      </div>
+    `;
+
+    // Layer 1
+    html += `
+      <div style="background:var(--bg-2);border-left:4px solid var(--green);padding:16px;border-radius:6px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--green);font-weight:600;margin-bottom:8px">🌟 LỚP 1 — CHUYỆN VỀ ANH (Việt thuần, dễ đọc)</div>
+        ${data.layer_1_narrative ? `<div style="white-space:pre-wrap;line-height:1.6">${escapeHTML(data.layer_1_narrative)}</div>` : '<div style="color:var(--text-dim);font-style:italic">(Chưa có commentaries — chạy commentary_gen sau khi MiniMax reset)</div>'}
+        ${data.layer_1_examples && data.layer_1_examples.length ? `
+          <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+            <div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">VÍ DỤ ĐỜI THƯỜNG:</div>
+            ${data.layer_1_examples.map(e => `<div style="margin-bottom:6px">• ${escapeHTML(e)}</div>`).join('')}
+          </div>` : ''}
+      </div>
+    `;
+
+    // Layer 2
+    html += `
+      <div style="background:var(--bg-2);border-left:4px solid var(--blue);padding:16px;border-radius:6px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--blue);font-weight:600;margin-bottom:8px">🔬 LỚP 2 — VÌ SAO LẠI THẾ (Nguyên lý vận hành)</div>
+        ${data.layer_2_nguyen_ly ? `<div style="white-space:pre-wrap;line-height:1.6">${escapeHTML(data.layer_2_nguyen_ly)}</div>` : '<div style="color:var(--text-dim);font-style:italic">(Cần commentaries.nguyen_ly — sẽ có sau khi run commentary_gen)</div>'}
+        ${data.layer_2_co_che ? `<div style="margin-top:8px;font-family:monospace;color:var(--text-dim);font-size:12px">⚙ Cơ chế: ${escapeHTML(data.layer_2_co_che)}</div>` : ''}
+      </div>
+    `;
+
+    // Layer 3
+    html += `
+      <div style="background:var(--bg-2);border-left:4px solid var(--accent);padding:16px;border-radius:6px;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:8px">📚 LỚP 3 — SÁCH CỔ ĐÃ NÓI (${data.layer_3_citations.length} citations grounded)</div>
+        ${data.layer_3_citations.map((c, i) => `
+          <div style="background:var(--bg-3);padding:10px;border-radius:4px;margin-bottom:8px">
+            <div style="font-size:11px;color:var(--text-dim)">
+              [${i+1}] <strong style="color:var(--accent)">${escapeHTML(c.book)}</strong> · trang ${c.page_start}${c.page_end !== c.page_start ? '-'+c.page_end : ''}
+              · atom #${c.atom_id} · confidence ${c.confidence.toFixed(2)}
+              ${c.founder_verified === 1 ? '<span style="color:var(--green)">· ✓ verified</span>' : ''}
+              ${c.founder_verified === -1 ? '<span style="color:var(--red)">· ✗ rejected</span>' : ''}
+            </div>
+            <div style="margin-top:6px;font-weight:600">${escapeHTML(c.atom_question)}</div>
+            ${c.source_quote ? `<div style="margin-top:6px;padding:8px;background:var(--bg-2);border-left:2px solid var(--text-dim);font-style:italic;line-height:1.5">${escapeHTML(c.source_quote)}</div>` : ''}
+            ${c.han_viet_explain ? `<div style="margin-top:6px;font-size:12px;color:var(--text-dim)">Hán-Việt: ${escapeHTML(c.han_viet_explain)}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    if (data.iron_rule_warning) {
+      html += `
+        <div style="background:rgba(255,213,79,0.08);border-left:4px solid var(--yellow);padding:12px 16px;border-radius:6px">
+          <div style="font-size:13px;color:var(--yellow);font-weight:600;margin-bottom:6px">⚠ IRON RULE #6 — Đọc đồng dạng, KHÔNG predict</div>
+          <div>${escapeHTML(data.iron_rule_warning)}</div>
+        </div>
+      `;
+    }
+    out.innerHTML = html;
+  } catch (e) {
+    out.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+}
 let activeBook = null;
 let activeSection = null;
 let allSections = [];

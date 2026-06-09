@@ -441,6 +441,59 @@ def verify_bulk(atom_ids: list[int], verdict: int = Query(..., ge=-1, le=1)) -> 
         conn.close()
 
 
+@router.get("/output/template-stats")
+def output_template_stats() -> dict:
+    """Stats về output template — anh xem 824 fields breakdown."""
+    from engine.atomization.output_template import build_full_template, CUNG_12, CHINH_TINH_14
+    fields = build_full_template()
+    by_cung = {}
+    by_sao = {}
+    by_aspect = {}
+    for f in fields:
+        by_cung[f.cung] = by_cung.get(f.cung, 0) + 1
+        sao_key = f.sao_chinh or "(vô chính diệu)"
+        by_sao[sao_key] = by_sao.get(sao_key, 0) + 1
+        by_aspect[f.aspect] = by_aspect.get(f.aspect, 0) + 1
+    return {
+        "total_fields": len(fields),
+        "by_cung": by_cung,
+        "by_sao": by_sao,
+        "by_aspect": by_aspect,
+        "n_cung": len(CUNG_12),
+        "n_sao": len(CHINH_TINH_14),
+    }
+
+
+@router.get("/output/preview")
+def output_preview(
+    cung: str = Query(..., description="vd Mệnh"),
+    sao: str = Query(..., description="vd Tử Vi"),
+    aspect: str = Query("tong_quan"),
+    top_k: int = Query(5, ge=1, le=20),
+) -> dict:
+    """Preview 3-layer output cho 1 field cụ thể.
+
+    Use case: anh test 1 cấu hình (cung + sao + aspect) xem output 3-layer ra sao.
+    """
+    from dataclasses import asdict
+    from engine.atomization.output_template import OutputField, build_atomic_keywords
+    from engine.atomization.output_filler import OutputFiller
+
+    field = OutputField(
+        field_id=f"{cung}.{sao}.{aspect}",
+        cung=cung,
+        sao_chinh=sao,
+        variant=f"{sao} tại {cung}",
+        aspect=aspect,
+        description_vi=f"{aspect} cho mệnh tạo {sao} tại {cung}",
+        atomic_q_keywords=build_atomic_keywords(sao, cung, aspect),
+        section_priority={},
+    )
+    filler = OutputFiller(top_k_atoms=top_k)
+    result = filler.fill_field(field)
+    return asdict(result)
+
+
 @router.get("/quota")
 def quota_status() -> dict:
     """Check LLM provider quota status (from recent extraction_runs)."""
