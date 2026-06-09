@@ -177,6 +177,11 @@ _FIGURES_ROOT = _YI_ROOT / "data" / "yi_restored"
 if _FIGURES_ROOT.exists():
     app.mount("/figures", StaticFiles(directory=str(_FIGURES_ROOT)), name="figures")
 
+# Workbench static — section-aware research project (đúng nguyên tắc 2026-06-09)
+_WORKBENCH_ROOT = _YI_ROOT / "client" / "workbench"
+if _WORKBENCH_ROOT.exists():
+    app.mount("/workbench", StaticFiles(directory=str(_WORKBENCH_ROOT), html=True), name="workbench")
+
 
 def _derive_hexagram_state(state) -> dict[str, object]:
     """Derive primary + 5 derived hexagrams via Mai Hoa Niên-Nguyệt-Nhật-Thời.

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YI-Chronos — Atomization Workbench</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --bg-2: #1a1f26;
+      --bg-3: #232a33;
+      --text: #d4d4d4;
+      --text-dim: #8a93a3;
+      --accent: #f5a623;
+      --green: #4caf50;
+      --red: #f44336;
+      --yellow: #ffd54f;
+      --blue: #4fc3f7;
+      --border: #2a2f38;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, "SF Pro", sans-serif; margin: 0;
+           background: var(--bg); color: var(--text); font-size: 14px; }
+    header { background: var(--bg-2); padding: 12px 20px; border-bottom: 1px solid var(--border);
+             display: flex; justify-content: space-between; align-items: center; }
+    h1 { margin: 0; font-size: 18px; font-weight: 600; }
+    .stats-bar { display: flex; gap: 16px; font-size: 12px; color: var(--text-dim); }
+    .stat { display: flex; gap: 4px; }
+    .stat-val { color: var(--accent); font-weight: 600; }
+
+    .layout { display: grid; grid-template-columns: 280px 1fr; height: calc(100vh - 50px); }
+    .sidebar { background: var(--bg-2); border-right: 1px solid var(--border); overflow-y: auto; }
+    .sidebar h2 { padding: 12px 16px; margin: 0; font-size: 13px; font-weight: 600;
+                  text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.5px; }
+    .book-item { padding: 10px 16px; cursor: pointer; border-bottom: 1px solid var(--border); }
+    .book-item:hover { background: var(--bg-3); }
+    .book-item.active { background: var(--bg-3); border-left: 3px solid var(--accent); }
+    .book-name { font-weight: 600; }
+    .book-meta { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+    .section-tree { padding: 8px 0; }
+    .filter-bar { padding: 8px 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .filter-btn { background: var(--bg-3); border: 1px solid var(--border); color: var(--text);
+                  padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+    .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+    .section-item { padding: 8px 16px; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 12px; }
+    .section-item:hover { background: var(--bg-3); }
+    .section-item.active { background: var(--bg-3); border-left: 3px solid var(--blue); }
+    .section-id { color: var(--accent); font-weight: 600; font-family: monospace; }
+    .section-title { color: var(--text); margin-top: 2px; }
+    .section-meta { font-size: 10px; color: var(--text-dim); margin-top: 4px; display: flex; gap: 8px; }
+    .status-todo { color: var(--text-dim); }
+    .status-in_progress { color: var(--yellow); }
+    .status-done { color: var(--blue); }
+    .status-verified { color: var(--green); }
+    .star-chip { background: rgba(245,166,35,0.15); color: var(--accent); padding: 1px 4px; border-radius: 3px; }
+
+    .main { padding: 20px; overflow-y: auto; }
+    .main h2 { margin: 0 0 8px 0; font-size: 22px; }
+    .main-meta { color: var(--text-dim); margin-bottom: 16px; font-size: 13px; }
+    .progress-bar { background: var(--bg-3); height: 8px; border-radius: 4px; overflow: hidden; margin: 8px 0; }
+    .progress-fill { background: linear-gradient(90deg, var(--blue), var(--green)); height: 100%; transition: width 0.3s; }
+
+    .atom-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px;
+                  padding: 16px; margin-bottom: 12px; }
+    .atom-card.verified { border-left: 3px solid var(--green); }
+    .atom-card.rejected { border-left: 3px solid var(--red); opacity: 0.6; }
+    .atom-q { font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+    .atom-meta { display: flex; gap: 12px; font-size: 11px; color: var(--text-dim); margin-bottom: 8px; flex-wrap: wrap; }
+    .atom-category { background: rgba(79,195,247,0.1); color: var(--blue); padding: 2px 6px; border-radius: 3px; }
+    .atom-ids { font-family: monospace; font-size: 11px; background: var(--bg-3); padding: 6px 10px;
+                 border-radius: 4px; margin: 6px 0; color: var(--text-dim); }
+    .atom-ids strong { color: var(--accent); }
+    .atom-quote { background: var(--bg-3); border-left: 3px solid var(--text-dim);
+                   padding: 8px 12px; margin: 8px 0; font-style: italic; font-size: 13px; }
+    .atom-actions { display: flex; gap: 8px; margin-top: 10px; }
+    .btn { padding: 6px 12px; border-radius: 4px; border: 1px solid var(--border);
+            background: var(--bg-3); color: var(--text); cursor: pointer; font-size: 12px; }
+    .btn:hover { background: var(--bg); }
+    .btn-good { color: var(--green); border-color: var(--green); }
+    .btn-bad { color: var(--red); border-color: var(--red); }
+    .btn-good:hover { background: rgba(76,175,80,0.1); }
+    .btn-bad:hover { background: rgba(244,67,54,0.1); }
+    .btn.active-good { background: var(--green); color: #000; }
+    .btn.active-bad { background: var(--red); color: #fff; }
+
+    .commentary { background: rgba(79,195,247,0.05); border-left: 3px solid var(--blue);
+                   padding: 8px 12px; margin-top: 8px; font-size: 13px; line-height: 1.5; }
+    .iron-warn { background: rgba(255,213,79,0.08); border-left: 3px solid var(--yellow);
+                  padding: 8px 12px; margin-top: 8px; font-size: 12px; }
+
+    .empty { color: var(--text-dim); text-align: center; padding: 60px 20px; }
+    .loading { color: var(--accent); }
+    .error { color: var(--red); padding: 12px; background: rgba(244,67,54,0.1); border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔬 YI-Chronos — Atomization Workbench v1</h1>
+    <div class="stats-bar" id="stats-bar">
+      <span class="stat"><span>quota:</span><span class="stat-val" id="quota-stat">—</span></span>
+      <span class="stat"><span>atoms:</span><span class="stat-val" id="atoms-stat">—</span></span>
+      <span class="stat"><span>verified:</span><span class="stat-val" id="verified-stat">—</span></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>📚 Sách</h2>
+      <div id="books-list"></div>
+
+      <h2 id="sections-header" style="display:none">🔖 Sections</h2>
+      <div class="filter-bar" id="filter-bar" style="display:none">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="todo">Todo</button>
+        <button class="filter-btn" data-filter="in_progress">In Progress</button>
+        <button class="filter-btn" data-filter="done">Done</button>
+        <button class="filter-btn" data-filter="verified">Verified</button>
+      </div>
+      <div class="section-tree" id="sections-list"></div>
+    </aside>
+
+    <main class="main" id="main-content">
+      <div class="empty">
+        <p>Chọn 1 sách + 1 section để bắt đầu review.</p>
+        <p style="font-size:12px;margin-top:20px">Nguyên tắc Anh đặt: test từng section, KHÔNG nhảy hệ phái.</p>
+      </div>
+    </main>
+  </div>
+
+<script>
+const API = '/api/atomization';
+let activeBook = null;
+let activeSection = null;
+let allSections = [];
+let activeFilter = 'all';
+
+async function api(path, opts={}) {
+  const r = await fetch(API + path, opts);
+  if (!r.ok) throw new Error(`${r.status} ${path}`);
+  return r.json();
+}
+
+async function loadBooks() {
+  const books = await api('/books');
+  const el = document.getElementById('books-list');
+  el.innerHTML = books.map(b => `
+    <div class="book-item" data-book="${b.book}" onclick="selectBook('${b.book}')">
+      <div class="book-name">${b.book}</div>
+      <div class="book-meta">${b.n_sections} sections · ${b.n_atoms} atoms · ${b.n_chunks} chunks</div>
+    </div>
+  `).join('');
+}
+
+async function loadStats() {
+  try {
+    const s = await api('/stats');
+    document.getElementById('atoms-stat').textContent = s.n_atomic_questions;
+    document.getElementById('verified-stat').textContent = s.founder_verified_count;
+    const q = await api('/quota');
+    const minimax = q.providers_5h_window.find(p => p.llm_provider === 'minimax');
+    if (minimax) {
+      const used = (minimax.prompt_tok + minimax.completion_tok);
+      document.getElementById('quota-stat').textContent = `${(used/1e6).toFixed(2)}M / 3M (5h)`;
+    }
+  } catch (e) { console.error(e); }
+}
+
+async function selectBook(book) {
+  activeBook = book;
+  document.querySelectorAll('.book-item').forEach(el => el.classList.toggle('active', el.dataset.book === book));
+  document.getElementById('sections-header').style.display = 'block';
+  document.getElementById('filter-bar').style.display = 'flex';
+  allSections = await api(`/books/${book}/sections`);
+  renderSections();
+}
+
+function renderSections() {
+  const list = activeFilter === 'all' ? allSections : allSections.filter(s => s.status === activeFilter);
+  const el = document.getElementById('sections-list');
+  if (list.length === 0) {
+    el.innerHTML = '<div class="empty" style="padding:20px;font-size:12px">No sections matching filter.</div>';
+    return;
+  }
+  el.innerHTML = list.map(s => `
+    <div class="section-item ${activeSection === s.id ? 'active' : ''}" onclick="selectSection('${s.id}')">
+      <div><span class="section-id">${s.id}</span> <span class="status-${s.status}">●</span></div>
+      <div class="section-title">${escapeHTML(s.title)}</div>
+      <div class="section-meta">
+        <span>p${s.page_start}-p${s.page_end}</span>
+        <span>${s.n_atoms} atoms</span>
+        ${s.n_verified > 0 ? `<span style="color:var(--green)">✓${s.n_verified}</span>` : ''}
+        ${s.n_rejected > 0 ? `<span style="color:var(--red)">✗${s.n_rejected}</span>` : ''}
+        ${s.stars.map(st => `<span class="star-chip">${st}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+document.getElementById('filter-bar').addEventListener('click', (e) => {
+  if (!e.target.dataset.filter) return;
+  activeFilter = e.target.dataset.filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === activeFilter));
+  renderSections();
+});
+
+async function selectSection(sid) {
+  activeSection = sid;
+  document.querySelectorAll('.section-item').forEach(el => {
+    el.classList.toggle('active', el.querySelector('.section-id').textContent === sid);
+  });
+  const sec = allSections.find(s => s.id === sid);
+  const atoms = await api(`/books/${activeBook}/sections/${sid}/atoms?include_chunk=true`);
+  renderMain(sec, atoms);
+}
+
+function renderMain(sec, atoms) {
+  const main = document.getElementById('main-content');
+  const total = sec.n_atoms;
+  const verifiedPct = total ? (sec.n_verified / total * 100).toFixed(0) : 0;
+  let html = `
+    <h2>Section ${sec.id} — ${escapeHTML(sec.title)}</h2>
+    <div class="main-meta">
+      p${sec.page_start}-p${sec.page_end} · ${sec.n_pages} pages ·
+      ${sec.stars.map(s => `<span class="star-chip">${s}</span>`).join(' ')} ·
+      Status: <span class="status-${sec.status}">${sec.status}</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${verifiedPct}%"></div></div>
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:20px">
+      ${sec.n_classifications}/${sec.n_chunks} chunks classified ·
+      ${sec.n_atoms} atoms ·
+      ${sec.n_commentaries} commentaries ·
+      <span style="color:var(--green)">✓ ${sec.n_verified} verified</span> ·
+      <span style="color:var(--red)">✗ ${sec.n_rejected} rejected</span>
+    </div>
+  `;
+  if (atoms.length === 0) {
+    html += '<div class="empty">No atoms in this section yet. Run atomize section CLI: <code style="background:var(--bg-3);padding:2px 6px;border-radius:3px">python3 -m engine.atomization.section_runner --book ' + activeBook + ' --section ' + sec.id + '</code></div>';
+  } else {
+    atoms.forEach((a, idx) => {
+      const verifiedClass = a.founder_verified === 1 ? 'verified' : (a.founder_verified === -1 ? 'rejected' : '');
+      const ids = a.subject_identifiers || {};
+      const idsHtml = Object.entries(ids).map(([k,v]) => `<strong>${k}:</strong> ${escapeHTML(String(v))}`).join(' · ');
+      html += `
+        <div class="atom-card ${verifiedClass}" id="atom-${a.atom_id}">
+          <div class="atom-q">${idx+1}. ${escapeHTML(a.question_text)}</div>
+          <div class="atom-meta">
+            <span>atom #${a.atom_id}</span>
+            <span>p${a.page_start}</span>
+            ${a.from_category ? `<span class="atom-category">${escapeHTML(a.from_category)}</span>` : ''}
+            ${a.format_style ? `<span>fmt: ${a.format_style}</span>` : ''}
+          </div>
+          <div class="atom-ids">${idsHtml || '(no identifiers)'}</div>
+          ${a.source_quote ? `<div class="atom-quote">${escapeHTML(a.source_quote)}</div>` : ''}
+          ${a.viet_thuan ? `<div class="commentary"><strong>💬 Việt thuần:</strong> ${escapeHTML(a.viet_thuan)}</div>` : ''}
+          ${a.vi_du_doi_song ? `<div class="commentary"><strong>📌 Ví dụ:</strong> ${escapeHTML(a.vi_du_doi_song)}</div>` : ''}
+          ${a.iron_rule_warning ? `<div class="iron-warn">⚠ ${escapeHTML(a.iron_rule_warning)}</div>` : ''}
+          <div class="atom-actions">
+            <button class="btn btn-good ${a.founder_verified === 1 ? 'active-good' : ''}" onclick="verify(${a.atom_id}, 1)">✅ Đúng</button>
+            <button class="btn ${a.founder_verified === 0 ? 'active' : ''}" onclick="verify(${a.atom_id}, 0)">⚠ Mơ hồ</button>
+            <button class="btn btn-bad ${a.founder_verified === -1 ? 'active-bad' : ''}" onclick="verify(${a.atom_id}, -1)">❌ Sai</button>
+            <a class="btn" target="_blank" href="${API}/atom/${a.atom_id}">JSON</a>
+          </div>
+        </div>
+      `;
+    });
+  }
+  main.innerHTML = html;
+}
+
+async function verify(atomId, verdict) {
+  try {
+    await api(`/verify/${atomId}?verdict=${verdict}`, { method: 'POST' });
+    // Refresh section
+    await selectBook(activeBook);
+    await selectSection(activeSection);
+    loadStats();
+  } catch (e) {
+    alert('Verify fail: ' + e.message);
+  }
+}
+
+function escapeHTML(s) {
+  return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Init
+loadBooks();
+loadStats();
+setInterval(loadStats, 30000);
+</script>
+</body>
+</html>
