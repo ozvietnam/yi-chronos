@@ -4,3 +4,4 @@ INFO:     Started server process [21090]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52007 - "GET /api/hoang-cuc/the-cuc?year=2026&atoms=false HTTP/1.1" 200 OK
