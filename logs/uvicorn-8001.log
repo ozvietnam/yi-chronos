@@ -1472,3 +1472,19 @@ INFO:     127.0.0.1:59441 - "GET /api/atomization/stats HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59441 - "GET /api/atomization/quota HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59701 - "GET /api/atomization/stats HTTP/1.1" 200 OK
 INFO:     127.0.0.1:59701 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59852 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59852 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60122 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60122 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60285 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60285 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60745 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60745 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60898 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60898 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61258 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61258 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [16169]

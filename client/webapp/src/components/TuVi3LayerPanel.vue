@@ -65,7 +65,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+
+const props = defineProps({
+  // "1988-06-05T23:30" — nếu có thì gọi from-birth, không thì founder-demo
+  birthDatetimeLocal: { type: String, default: null },
+  timezone: { type: String, default: 'Asia/Ho_Chi_Minh' },
+  gender: { type: String, default: 'nam' },
+})
 
 const loading = ref(true)
 const error = ref(null)
@@ -101,11 +108,27 @@ function renderMarkdown(text) {
     .replace(/^- (.+)$/gm, '<li>$1</li>')
 }
 
-async function loadFounderDemo() {
+async function load() {
   loading.value = true
+  error.value = null
   try {
-    const res = await fetch('/api/tu-vi/3-layer/founder-demo')
-    result.value = await res.json()
+    let res
+    if (props.birthDatetimeLocal) {
+      res = await fetch('/api/tu-vi/3-layer/from-birth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          birth_datetime_local: props.birthDatetimeLocal,
+          timezone: props.timezone,
+          gender: props.gender,
+        }),
+      })
+    } else {
+      res = await fetch('/api/tu-vi/3-layer/founder-demo')
+    }
+    const data = await res.json()
+    if (data.detail) throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail))
+    result.value = data
   } catch (e) {
     error.value = `Lỗi: ${e.message}`
   } finally {
@@ -113,7 +136,8 @@ async function loadFounderDemo() {
   }
 }
 
-onMounted(loadFounderDemo)
+onMounted(load)
+watch(() => props.birthDatetimeLocal, load)
 </script>
 
 <style scoped>

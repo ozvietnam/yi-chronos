@@ -22,6 +22,7 @@ import DaiVanPanel from "./DaiVanPanel.vue";
 import LuuNienPanel from "./LuuNienPanel.vue";
 import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
 import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
+import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
 
 const inputBirth = ref("");
 const inputGender = ref("nam");
@@ -51,6 +52,7 @@ const showCachCuc = ref(false);    // Cách cục đọc sâu modal
 const showDaiVan = ref(false);     // 12 Đại Vận modal
 const showCompare = ref(false);    // So sánh TVĐS vs CDK modal
 const showLuuNien = ref(false);    // Lưu Niên 2026-2030 modal
+const show3Layer = ref(false);     // ⭐ Luận giải 3-Layer × 4 hệ phái (6290 atoms)
 const oracleCards = ref([]);
 const selectedOracleCard = ref(null);
 
@@ -1444,6 +1446,23 @@ const grid = computed(() => {
           </li>
         </ul>
       </template>
+    </template>
+
+    <!-- ── ⭐ Luận giải 3-Layer × 4 hệ phái (atoms bám sách) ──────── -->
+    <template v-if="data">
+      <section class="three-layer-block">
+        <h4 class="section-h" style="cursor:pointer" @click="show3Layer = !show3Layer">
+          📚 Luận giải 4 hệ phái — 3 Layer
+          <small style="opacity:.7">(Trung Châu · Trần Đoàn · Thiên Lương · Hàm Số — 6.290 atoms bám sách)</small>
+          <span style="float:right">{{ show3Layer ? '▾' : '▸' }}</span>
+        </h4>
+        <TuVi3LayerPanel
+          v-if="show3Layer"
+          :birth-datetime-local="inputBirth"
+          :gender="inputGender"
+          :timezone="inputTimezone"
+        />
+      </section>
     </template>
 
     <!-- Phú Thái Vi modal — kinh điển từ TVDSTT Q.1 -->

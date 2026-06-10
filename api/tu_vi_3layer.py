@@ -47,6 +47,78 @@ async def render_3_layer_api(la_so: LaSoInput) -> dict:
     return render_3_layer(la_so.dict())
 
 
+class BirthInput(BaseModel):
+    birth_datetime_local: str = Field(..., description="vd 1988-06-05T23:30")
+    timezone: str = Field("Asia/Ho_Chi_Minh")
+    gender: str = Field("nam", description="nam | nu")
+
+
+# Index 0-11 → chi canonical
+IDX_TO_CHI = ["ty", "suu", "dan", "mao", "thin", "ti", "ngo", "mui", "than", "dau", "tuat", "hoi"]
+
+# Tên sao tiếng Việt → canonical
+STAR_VI_TO_CANON = {
+    "Tử Vi": "tu_vi", "Thiên Cơ": "thien_co", "Thái Dương": "thai_duong",
+    "Vũ Khúc": "vu_khuc", "Thiên Đồng": "thien_dong", "Liêm Trinh": "liem_trinh",
+    "Thiên Phủ": "thien_phu", "Thái Âm": "thai_am", "Tham Lang": "tham_lang",
+    "Cự Môn": "cu_mon", "Thiên Tướng": "thien_tuong", "Thiên Lương": "thien_luong",
+    "Thất Sát": "that_sat", "Phá Quân": "pha_quan",
+}
+
+CAN_VI_TO_CANON = {
+    "Giáp": "giap", "Ất": "at", "Bính": "binh", "Đinh": "dinh", "Mậu": "mau",
+    "Kỷ": "ky", "Canh": "canh", "Tân": "tan", "Nhâm": "nham", "Quý": "quy",
+}
+
+CHI_VI_TO_CANON = {
+    "Tý": "ty", "Sửu": "suu", "Dần": "dan", "Mão": "mao", "Thìn": "thin",
+    "Tỵ": "ti", "Ngọ": "ngo", "Mùi": "mui", "Thân": "than", "Dậu": "dau",
+    "Tuất": "tuat", "Hợi": "hoi",
+}
+
+CUC_NAME_TO_CANON = {
+    "Thủy Nhị Cục": "thuy_nhi_cuc", "Mộc Tam Cục": "moc_tam_cuc",
+    "Kim Tứ Cục": "kim_tu_cuc", "Thổ Ngũ Cục": "tho_ngu_cuc",
+    "Hỏa Lục Cục": "hoa_luc_cuc",
+}
+
+
+@router.post("/3-layer/from-birth")
+async def render_from_birth(birth: BirthInput) -> dict:
+    """Nhập ngày sinh → tự an sao (re-use /api/tu-vi/cast logic) → render 3-Layer."""
+    # Re-use route handler có sẵn solar→lunar conversion (engine an_sao = source of truth)
+    from api.main import tu_vi_cast
+    from api.schemas import TuViCastRequest
+
+    cast = tu_vi_cast(TuViCastRequest(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone,
+        gender=birth.gender,
+    ))
+    ls = cast["la_so"]
+
+    # Map chinh_tinh {tên_vi: idx} → {chi_canonical: [star_canonical]}
+    chinh_tinh_per_palace: dict[str, list[str]] = {}
+    for star_vi, idx in (ls.get("chinh_tinh") or {}).items():
+        star = STAR_VI_TO_CANON.get(star_vi)
+        chi = IDX_TO_CHI[idx % 12]
+        if star:
+            chinh_tinh_per_palace.setdefault(chi, []).append(star)
+
+    la_so_input = {
+        "can": CAN_VI_TO_CANON.get(ls["year_stem"], ls["year_stem"].lower()),
+        "chi": CHI_VI_TO_CANON.get(ls["year_branch"], ls["year_branch"].lower()),
+        "menh_palace": CHI_VI_TO_CANON.get(ls["menh_branch"], ls["menh_branch"].lower()),
+        "than_palace": CHI_VI_TO_CANON.get(ls["than_branch"], ls["than_branch"].lower()),
+        "cuc": CUC_NAME_TO_CANON.get(ls.get("cuc_name", ""), "thuy_nhi_cuc"),
+        "gender": "M" if birth.gender == "nam" else "F",
+        "chinh_tinh_per_palace": chinh_tinh_per_palace,
+    }
+    result = render_3_layer(la_so_input)
+    result["la_so_input"] = la_so_input
+    return result
+
+
 @router.get("/3-layer/founder-demo")
 async def founder_demo() -> dict:
     """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""
