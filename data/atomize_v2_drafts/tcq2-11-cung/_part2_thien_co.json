@@ -1,0 +1,580 @@
+{
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.2-Q01",
+      "question": "Thiên Cơ độc tọa Tý/Ngọ ưa hóa nào nhất, vì sao?",
+      "answer_atom": "Thiên Cơ độc tọa Tý hoặc Ngọ rất ưa Hóa Quyền; Thiên Cơ Hóa Quyền lại ưu hơn Cự Môn Hóa Quyền. Hóa Quyền thì vững vàng nên tốt hơn Hóa Lộc — Hóa Lộc phấn nhiễu nóng nảy, trôi nổi bất định.",
+      "source_quote": "Thiên Cơ độc tọa ở hai cung Tý hoặc Ngọ, rất ưa Hóa Quyền. Thiên Cơ Hóa Quyền lại ưu hơn Cự Môn Hóa Quyền. Hóa Quyền thì vững vàng, cho nên tốt hơn Hóa Lộc, Hóa Lộc phấn nhiễu nóng nảy, trôi nổi bất định.",
+      "source_page": 506,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "palace:menh", "hoa:hoa_quyen", "hoa:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Tý/Ngọ quý nhất Hóa Quyền vì Quyền cho sự vững chãi; Hóa Lộc lại làm tính Cơ thêm nóng nảy trôi nổi.",
+        "nguyen_ly": "Thiên Cơ vốn động, cần Quyền để trấn định, không cần Lộc làm động thêm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q02",
+      "question": "Thiên Cơ Hóa Quyền khác Cự Môn Hóa Quyền thế nào trong nghề nghiệp hiện đại?",
+      "answer_atom": "Thiên Cơ độc tọa Tý/Ngọ: nếu đối cung là Cự Môn Hóa Quyền, thời hiện đại có thể chỉ là người phân phối, nhà phát hành trong giới kinh doanh, không chủ về người vạch kế sách hay quản lý. Thiên Cơ Hóa Quyền thì có thể là người vạch kế sách ở phía sau. Một trong một ngoài, tính chất khác nhau.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Tý hoặc Ngọ, nếu đổi cung là Cự Môn Hóa Quyền, ở thời hiện đại có thể chỉ là người phân phối, nhà phát hành trong giới làm ăn kinh doanh, không chủ về là người vạch kế sách hay quản lý. Thiên Cơ Hóa Quyền, thì có thể là người vạch kế sách ở phía sau. Một trong một ngoài, tính chất khác nhau.",
+      "source_page": 506,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "palace:menh", "hoa:hoa_quyen", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cự Quyền là người chạy bên ngoài (phân phối, phát hành); Cơ Quyền là người hoạch định đứng sau.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q03",
+      "question": "Thiên Cơ Tý/Ngọ người sinh năm Đinh thì sao, bệnh tật gì cần chú ý?",
+      "answer_atom": "Thiên Cơ độc tọa Tý/Ngọ, người sinh năm Đinh phần nhiều vất vả khổ lụy; nếu cung Tật Ách là Thiên Tướng lại thuộc loại bị 'Hình kị giáp ấn' thì dễ mắc bệnh sỏi mật, sỏi thận.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Tý hoặc Ngọ, người sinh năm Định phần nhiều vất vả khổ lụy, nếu cung Tật Ách là Thiên Tướng lại thuộc loại bị \"Hình kị giáp ấn\", thì dễ mắc bệnh sỏi mật, sỏi thận.",
+      "source_page": 506,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_tuong", "palace:menh", "palace:tat_ach", "pattern:hinh_ky_giap_an", "topic:benh_tat"],
+      "commentary": {
+        "han_viet_explain": "Hình kị giáp ấn = Thiên Tướng (ấn) bị sao Hình và sao Kỵ kẹp hai bên.",
+        "viet_thuan": "Cơ Tý/Ngọ tuổi Đinh đời nhọc nhằn; Tật Ách Thiên Tướng bị Hình-Kỵ kẹp thì dễ sỏi mật, sỏi thận.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q04",
+      "question": "Thiên Cơ Tý/Ngọ kỵ đồng độ với sao nào, ứng về điều gì?",
+      "answer_atom": "Thiên Cơ độc tọa Tý/Ngọ rất kỵ đồng độ với Hỏa Tinh, Linh Tinh: chủ về lúc bé đã rời xa cha mẹ, hoặc cảnh ngộ của cha mẹ bị biến động thay đổi, ảnh hưởng đến phúc ấm của mệnh tạo lúc còn bé.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Tý hoặc Ngọ rất kỵ đồng độ với Hóa Tinh, Linh Tinh; chủ về lúc bé đã rời xa cha mẹ, hoặc cảnh ngộ của cha mẹ bị biến động thay đổi, ảnh hưởng đến phúc ấm của mệnh tạo lúc còn bé.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:hoa_tinh", "star:linh_tinh", "palace:menh", "topic:cha_me"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Tý/Ngọ gặp Hỏa/Linh cùng cung: tuổi thơ xa cha mẹ hoặc gia cảnh cha mẹ biến động.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Bản phục dựng in 'Hóa Tinh' — theo ngữ cảnh là Hỏa Tinh (OCR)."
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q05",
+      "question": "Thiên Cơ Tý/Ngọ đến cung hạn Vũ Khúc Thất Sát thì sao?",
+      "answer_atom": "Thiên Cơ độc tọa Tý/Ngọ đến cung hạn Vũ Khúc Thất Sát đồng độ: gặp Hóa Lộc, Hóa Quyền, Hóa Khoa thì cát, gặp Hóa Kỵ thì hung. Đây là vận hạn có tính then chốt của mệnh vận cả đời.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Tý hoặc Ngọ đến cung hạn \"Vũ Khúc, Thất Sát\" đồng độ, gặp Hóa Lộc, Hóa Quyền, Hóa Khoa thì cát, gặp Hóa Kỵ thì hung. Đây là có tính then chốt của mệnh vận cả đời.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:vu_khuc", "star:that_sat", "palace:menh", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn Vũ-Sát là khúc quanh của Cơ Tý/Ngọ: ba hóa cát thì lành, Hóa Kỵ thì dữ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q06",
+      "question": "Thiên Cơ Tý/Ngọ đến cung hạn Thiên Phủ thì luận thế nào?",
+      "answer_atom": "Thiên Cơ độc tọa Tý/Ngọ đến cung hạn Thiên Phủ tọa thủ: gặp 'khố phủ đầy ắp' thì cát, gặp 'khố lộ', 'khố trống' ắt sẽ hung nguy.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Tý hoặc Ngọ đến cung hạn Thiên Phủ tọa thủ, gặp “khố phủ đầy ắp” thì cát, gặp “khố lộ”, “khố trống” ắt sẽ hung nguy.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_phu", "palace:menh", "han:cung_han"],
+      "commentary": {
+        "han_viet_explain": "Khố = kho; khố lộ/khố trống = Thiên Phủ không có Lộc che giữ hoặc kho rỗng.",
+        "viet_thuan": "Hạn Thiên Phủ với Cơ Tý/Ngọ: kho đầy thì tốt, kho rỗng kho lộ thì nguy.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q07",
+      "question": "Thiên Cơ thủ mệnh Tý/Ngọ mà Thái Âm thủ cung thân thì sao?",
+      "answer_atom": "Thiên Cơ độc tọa thủ mệnh ở Tý/Ngọ, Thái Âm chủ cung thân: mệnh tạo ngày đêm bôn ba bận rộn, thường làm việc ban đêm hoặc đến tối vẫn phải suy nghĩ kế hoạch. Không gặp sát tinh thì kinh doanh làm ăn có thể trở thành giàu có.",
+      "source_quote": "Thiên Cơ độc tọa thủ mệnh ở hai cung Tý hoặc Ngọ, Thái Âm chủ cung thân, chủ về mệnh tạo ngày đêm bôn ba bận rộn, thường làm việc ban đêm, hoặc đến tối vẫn cần phải suy nghĩ kế hoạch. Không gặp sát tinh, thì kinh doanh làm ăn có thể trở thành giàu có.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_am", "palace:menh", "palace:than", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mệnh Cơ thân Âm: người bận rộn ngày đêm, hay làm việc về khuya; không sát tinh thì buôn bán nên giàu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q08",
+      "question": "Thiên Cơ Tý/Ngọ có Kình Đà và Cự Môn Hóa Kỵ hội thì tài ăn nói ứng thế nào?",
+      "answer_atom": "Thiên Cơ độc tọa Tý/Ngọ chủ về giỏi nói năng; nếu có Kình Dương, Đà La đồng độ, lại gặp Cự Môn Hóa Kỵ đến hội, thì tài ăn nói hóa thành miệng lưỡi, thích hợp làm những nghề nghiệp dùng lời nói để kiếm tiền.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Tý hoặc Ngọ chủ về giỏi nói năng; nếu có Kình Dương, Đà La đồng độ, lại gặp Cự Môn Hóa Kỵ đến hội, thì tài ăn nói hóa thành miệng lưỡi, thích hợp làm những nghề nghiệp dùng lời nói để kiếm tiền.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:kinh_duong", "star:da_la", "star:cu_mon", "palace:menh", "hoa:hoa_ky", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Tý/Ngọ vốn khéo nói; thêm Kình Đà và Cự Kỵ thì nên sống bằng nghề ăn nói.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q09",
+      "question": "Thiên Cơ ở cung Mùi với cung Phu Thê Thái Dương ở Tị hóa Quyền Lộc thì sao?",
+      "answer_atom": "Thiên Cơ ở cung Mùi, cung Phu Thê là Thái Dương ở cung Tị: nếu hóa làm Quyền Lộc, chủ về kết hôn với người ngoại quốc (hay người ở phương xa). Trường hợp Thái Dương ở cung Sửu thì không phải.",
+      "source_quote": "Thiên Cơ ở cung Mùi, cung Phu Thê là Thái Dương ở cung Tị, nếu hóa làm Quyền Lộc, chủ về kết hôn với người ngoại quốc (hay người ở phương xa). Trường hợp Thái Dương ở cung Sửu thì không phải.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_duong", "palace:menh", "palace:phu_the", "topic:hon_nhan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Mùi mà Phu Thê là Dương Tị hóa Quyền/Lộc: dễ lấy người nước ngoài hoặc phương xa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q10",
+      "question": "Thiên Cơ độc tọa Sửu/Mùi ưa hóa gì, ứng nghề nghiệp nào?",
+      "answer_atom": "Thiên Cơ độc tọa Sửu/Mùi rất ưa Hóa Lộc — khi đó Thiên Lương của đối cung cũng sẽ Hóa Quyền, là nhân tài về kế hoạch, nghiên cứu, nhưng là mạng không thích hợp tự kinh doanh làm ăn. Nếu cung Phúc Đức là Thái Âm đồng thời Hóa Kỵ, đây là ứng nghiệm lao tâm tổn thần, chẳng phải là điểm hung.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Sửu hoặc Mùi, rất ưa Hóa Lộc, thì Thiên Lương của đối cung cũng sẽ Hóa Quyền, là nhân tài về kế hoạch, nghiên cứu, lại là mạng không thích hợp tự kinh doanh làm ăn.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_luong", "star:thai_am", "palace:menh", "palace:phuc_duc", "hoa:hoa_loc", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Sửu/Mùi Hóa Lộc kéo theo Lương Quyền đối cung: người giỏi hoạch định nghiên cứu, nên làm thuê chứ đừng tự kinh doanh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q11",
+      "question": "Thiên Cơ Sửu/Mùi có Địa Không Địa Kiếp hoặc Thiên Tài đồng độ thì sao?",
+      "answer_atom": "Thiên Cơ độc tọa Sửu/Mùi có Địa Không, Địa Kiếp đồng độ: chủ về mệnh tạo có tư tưởng đặc biệt; có Thiên Tài đồng độ là trí tuệ cực cao. Nhưng cả hai tình hình đều chủ về người ta khó hiểu được mệnh tạo, nên cung Huynh Đệ và cung Phụ Mẫu cần gặp cát tinh mới đứng vững, nếu không cuộc đời dễ bị chìm nổi.",
+      "source_quote": "Thiên Cơ độc tọa hai cung Sửu hoặc Mùi, có Địa Không, Địa Kiếp đồng độ, chủ về mệnh tạo có tư tưởng đặc biệt; có Thiên Tài đồng độ là trí tuệ cực cao. Nhưng hai tình hình này đều chủ về người ta khó mà hiểu được mệnh tạo; cho nên cung Huynh Đệ và cung Phụ Mẫu cần phải gặp cát tinh, mới có thể đứng vững, nếu không cuộc đời dễ bị chìm nổi.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:dia_khong", "star:dia_kiep", "star:thien_tai", "palace:menh", "palace:huynh_de", "palace:phu_mau"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Sửu/Mùi gặp Không Kiếp thì tư tưởng khác người, gặp Thiên Tài thì cực thông minh — nhưng đều khó ai hiểu, cần người thân nâng đỡ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q12",
+      "question": "Với Thiên Cơ Sửu/Mùi, vận hạn nào then chốt?",
+      "answer_atom": "Thiên Cơ độc tọa Sửu/Mùi: cung hạn 'Thái Dương, Thái Âm' đồng độ là đại hạn có tính then chốt của mệnh vận cả đời, và cung hạn 'Thiên Đồng, Cự Môn' đồng độ là lưu niên có tính then chốt.",
+      "source_quote": "Đối với Thiên Cơ độc tọa hai cung Sửu hoặc Mùi, cung hạn “Thái Dương, Thái Âm” đồng độ là đại hạn có tính then chốt của mệnh vận cả đời, và cung hạn “Thiên Đồng, Cự Môn” đồng độ là lưu niên có tính then chốt.",
+      "source_page": 507,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_duong", "star:thai_am", "star:thien_dong", "star:cu_mon", "palace:menh", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Sửu/Mùi: đại hạn Nhật-Nguyệt và lưu niên Đồng-Cự là khúc quanh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q13",
+      "question": "Thiên Cơ Thái Âm đồng độ Dần/Thân thuộc cách gì, vị trí nào tốt hơn?",
+      "answer_atom": "Thiên Cơ Thái Âm đồng độ ở Dần hoặc Thân là chính cách 'Cơ Nguyệt Đồng Lương'. Ở cung Thân, Thiên Lương ở cung Tý ưu hơn Thiên Lương ở cung Ngọ, cho nên oán trách, thị phi ít hơn.",
+      "source_quote": "Thiên Cơ, Thái Âm đồng độ ở hai cung Dần hoặc Thân là chính cách “Cơ Nguyệt Đồng Lương”. Ở cung Thân, Thiên Lương ở cung Tý ưu hơn Thiên Lương ở cung Ngọ, cho nên oán trách, thị phi ít hơn.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_am", "star:thien_luong", "palace:menh", "pattern:co_nguyet_dong_luong"],
+      "commentary": {
+        "han_viet_explain": "Cơ Nguyệt Đồng Lương = cách cục bốn sao Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương hội nhau.",
+        "viet_thuan": "Cơ-Âm ở Dần/Thân là cách Cơ Nguyệt Đồng Lương chính tông; ở Thân thì ít thị phi hơn vì Lương cư Tý.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q14",
+      "question": "Thiên Cơ Thái Âm Dần/Thân ngại hóa gì?",
+      "answer_atom": "Thiên Cơ Thái Âm đồng độ Dần/Thân rất ngại Hóa Kỵ: chủ về biến động, nhiều thủ đoạn. Đặc biệt tại cung Dần còn chủ về hí lộng quyền bính.",
+      "source_quote": "Thiên Cơ, Thái Âm đồng độ ở hai cung Dần hoặc Thân rất ngại Hóa Kỵ, chủ về biến động, nhiều thủ đoạn. Đặc biệt tại cung Dần, còn chủ về hí lộng quyền bính.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_am", "palace:menh", "hoa:hoa_ky"],
+      "commentary": {
+        "han_viet_explain": "Hí lộng quyền bính = đùa giỡn thao túng quyền hành.",
+        "viet_thuan": "Cơ-Âm Dần/Thân sợ Hóa Kỵ: người nhiều biến động mưu mẹo, ở Dần còn ưa thao túng quyền hành.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q15",
+      "question": "Thiên Cơ Thái Âm gặp Thiên Lương Hóa Lộc thì hạn nào cần khiêm tốn?",
+      "answer_atom": "Thiên Cơ Thái Âm đồng độ Dần/Thân, gặp Thiên Lương Hóa Lộc, đến đại hạn Cự Môn hoặc Thiên Đồng thường dễ chuốc họa tai, thị phi; cần phải khiêm tốn, ôn hòa mới có thể bình an vượt qua.",
+      "source_quote": "Thiên Cơ, Thái Âm đồng độ ở hai cung Dần hoặc Thân, gặp Thiên Lương Hóa Lộc, đến đại hạn Cự Môn hoặc Thiên Đồng, thường dễ chuốc họa tai, thị phi, cẩn phải khiêm tốn, ôn hòa mới có thể bình an vượt qua.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_am", "star:thien_luong", "star:cu_mon", "star:thien_dong", "palace:menh", "hoa:hoa_loc", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Âm có Lương Lộc: vào hạn Cự hoặc Đồng dễ rước thị phi, giữ khiêm tốn ôn hòa thì qua.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q16",
+      "question": "Thiên Cơ Thái Âm với cung Phúc Đức Cự Môn thì cần gì?",
+      "answer_atom": "Thiên Cơ Thái Âm đồng độ Dần/Thân mà cung Phúc Đức là Cự Môn: cần phải gặp cát tinh mới tốt. Nếu Cự Môn có các sao sát, kỵ đồng độ, đến lưu niên 'Liêm Trinh, Thất Sát' đồng độ thường dễ gây ra phá tán, thất bại.",
+      "source_quote": "Nếu Thiên Cơ, Thái Âm đồng độ ở hai cung Dần hoặc Thân, và cung Phúc Đức là Cự Môn, cần phải gặp cát tinh mới tốt; nếu Cự Môn có các sao sát, kỵ đồng độ, đến lưu niên “Liêm Trinh, Thất Sát” đồng độ, thường dễ gây ra phá tán, thất bại.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_am", "star:cu_mon", "star:liem_trinh", "star:that_sat", "palace:menh", "palace:phuc_duc", "han:luu_nien"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phúc Đức Cự Môn của Cơ-Âm mà có sát kỵ: năm Liêm-Sát là năm dễ đổ bể.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q17",
+      "question": "Thiên Cơ Cự Môn đồng độ Mão/Dậu cần gì và kỵ gì?",
+      "answer_atom": "Thiên Cơ Cự Môn đồng độ Mão/Dậu cần phải gặp sao lộc mới cát; rất kỵ có Hỏa Tinh, Linh Tinh cùng bay đến — chủ về khinh bạc, phóng đãng, thiếu trang trọng, phá phách.",
+      "source_quote": "Thiên Cơ, Cự Môn đồng độ hai cung Mão hoặc Dậu, cần phải gặp sao lộc mới cát; rất kỵ có Hỏa Tinh, Linh Tinh cùng bay đến, chủ về khinh bạc, phóng đãng, thiếu trang trọng, phá phách.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "star:hoa_tinh", "star:linh_tinh", "palace:menh", "hoa:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Cự Mão/Dậu phải có sao lộc mới nên; gặp Hỏa/Linh thì người trở nên khinh bạc phóng túng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q18",
+      "question": "Thiên Cơ Cự Môn Mão/Dậu kỵ lưu niên nào nhất?",
+      "answer_atom": "Với Thiên Cơ Cự Môn đồng độ Mão/Dậu, cung hạn 'Thái Dương, Thái Âm' đồng độ là lưu niên có tính then chốt; rất kỵ Thái Dương Hóa Kỵ có các sao sát, hình trùng trùng; nếu sao kỵ của lưu niên lại xung khởi Thái Dương Hóa Kỵ, chủ về vì gây oán thù mà gặp sóng gió nghiêm trọng.",
+      "source_quote": "Đối với Thiên Cơ, Cự Môn đồng độ hai cung Mão hoặc Dậu, cung hạn “Thái Dương, Thái Âm” đồng độ là lưu niên có tính then chốt; rất kỵ Thái Dương Hóa Kỵ",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "star:thai_duong", "star:thai_am", "palace:menh", "hoa:hoa_ky", "han:luu_nien", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Cự Mão/Dậu: năm Nhật-Nguyệt đồng độ là năm bản lề, sợ nhất Thái Dương Hóa Kỵ bị kỵ lưu niên xung — oán thù sinh sóng gió.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q19",
+      "question": "Thiên Cơ Cự Môn Mão/Dậu đến đại hạn Thái Âm Hóa Kỵ thì sao?",
+      "answer_atom": "Thiên Cơ Cự Môn đồng độ Mão/Dậu đến đại hạn Thái Âm Hóa Kỵ thường dễ sinh phá tán, thất bại, mà thường vì tự cho thông minh mà gây ra.",
+      "source_quote": "Thiên Cơ, Cự Môn đồng độ hai cung Mão hoặc Dậu đến đại hạn Thái Âm Hóa Kỵ, thường dễ sinh phá tán, thất bại, mà thường vì tự cho thông minh mà gây ra.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "star:thai_am", "palace:menh", "hoa:hoa_ky", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn Thái Âm Kỵ với Cơ-Cự: thất bại thường do tự cho mình khôn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q20",
+      "question": "Hôn nhân của Thiên Cơ Cự Môn Mão/Dậu theo Cự Môn Hóa Lộc và Thiên Cơ Hóa Lộc khác nhau thế nào?",
+      "answer_atom": "Nam mệnh: Cự Môn Hóa Lộc chủ về chồng già lấy vợ trẻ; Thiên Cơ Hóa Lộc thì phần nhiều là tái hôn. Nữ mệnh: Cự Môn Hóa Lộc cũng nên lấy người lớn tuổi; Thiên Cơ Hóa Lộc phần nhiều đều có khiếm khuyết đáng tiếc trong hôn nhân.",
+      "source_quote": "Nam mệnh Cự Môn Hóa Lộc: Chủ về chồng già lấy vợ trẻ; Thiên Cơ Hóa Lộc: Thì phần nhiều là tái hôn. Nữ mệnh Cự Môn Hóa Lộc: Cũng nên lấy người lớn tuổi; Thiên Cơ Hóa Lộc: Phần nhiều đều có khiếm khuyết đáng tiếc trong hôn nhân.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "palace:menh", "hoa:hoa_loc", "topic:hon_nhan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cự Lộc: hôn nhân lệch tuổi (lấy người lớn tuổi/vợ trẻ); Cơ Lộc: tái hôn hoặc hôn nhân có tiếc nuối.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q21",
+      "question": "Nữ mệnh Thiên Cơ Cự Môn gặp Thiên Đồng đồng độ Lộc Tồn, đến vận Tham Lang thì sao?",
+      "answer_atom": "Thiên Cơ Cự Môn đồng độ Mão/Dậu, nữ mệnh gặp Thiên Đồng đồng độ với Lộc Tồn, đến vận Tham Lang thường chủ về bị người ta bỏ rơi, hôn nhân gặp sóng gió trắc trở, vì vậy không nên kết hôn sớm. Ở cung Dậu tuy tốt hơn nhưng cũng ngại đào hoa quá nặng. Thiên Đồng chủ về tình cảm nên có ứng nghiệm như trên.",
+      "source_quote": "nữ mệnh gặp Thiên Đồng đồng độ với Lộc Tồn, đến vận Tham Lang, thường chủ về bị người ta bỏ rơi, hôn nhân gặp sóng gió, trắc trở, vì vậy không nên kết hôn sớm. Ở cung Dậu tuy tốt hơn, nhưng cũng ngại đào hoa quá nặng.",
+      "source_page": 508,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "star:thien_dong", "star:loc_ton", "star:tham_lang", "palace:menh", "gioi:nu_menh", "topic:hon_nhan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ Cơ-Cự dạng này vào vận Tham Lang dễ bị phụ bạc — chớ cưới sớm.",
+        "nguyen_ly": "Thiên Đồng chủ tình cảm nên vận động đến tình duyên.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q22",
+      "question": "Với Thiên Cơ Cự Môn Mão/Dậu, các vận hạn nào then chốt?",
+      "answer_atom": "Thiên Cơ Cự Môn đồng độ Mão/Dậu: cung hạn 'Thái Âm, Thái Dương' đồng độ và cung hạn Thất Sát tọa thủ là hai đại hạn có tính then chốt — cát hung của chúng ảnh hưởng rất lớn đến cuộc đời. Cung hạn 'Sát Phá Lang' là lưu niên có tính then chốt.",
+      "source_quote": "Đối với Thiên Cơ, Cự Môn đồng độ hai cung Mão hoặc Dậu, cung hạn Thái Âm, Thái Dương đồng độ, và cung hạn Thất Sát tọa thủ là hai đại hạn có tính then chốt. Cát hung của hai đại hạn này gây ảnh hưởng rất lớn đến cuộc đời. Cung hạn Sát Phá Lang là lưu niên có tính then chốt.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:cu_mon", "star:that_sat", "palace:menh", "pattern:sat_pha_lang", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Cự Mão/Dậu: đại hạn Nhật-Nguyệt và Thất Sát là bản lề; năm Sát-Phá-Lang là năm bản lề.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q23",
+      "question": "Thiên Cơ Thiên Lương đồng độ Thìn/Tuất thích hợp nghề gì, không thích hợp gì?",
+      "answer_atom": "Thiên Cơ Thiên Lương đồng độ Thìn/Tuất chủ về có tay nghề, thời hiện đại có thể định là nhân tài chuyên nghiệp; không thích hợp làm việc trong chính giới hay kinh doanh buôn bán — nếu không, phúc không được lâu dài, vận tốt thường chỉ trong chớp mắt.",
+      "source_quote": "Thiên Cơ, Thiên Lương đồng độ hai cung Thìn hoặc Tuất, chủ về có tay nghề, ở thời hiện đại cũng có thể định là nhân tài chuyên nghiệp; không thích hợp làm việc trong chính giới hay kinh doanh buôn bán, nếu không, phúc không được lâu dài, vận tốt thường chỉ trong chớp mắt.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_luong", "palace:menh", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Lương Thìn/Tuất hợp nghề chuyên môn có tay nghề; vào chính trị hay buôn bán thì lộc phúc chóng tàn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q24",
+      "question": "Thiên Cơ Thiên Lương Thìn/Tuất thuộc cách gì, phát triển theo hướng nào?",
+      "answer_atom": "Thiên Cơ Thiên Lương đồng độ Thìn/Tuất là thiên cách 'Cơ Nguyệt Đồng Lương', cần phải dùng miệng lưỡi, dùng lời nói để kiếm tiền mới có thể phát triển. Thời hiện đại thường là chuyên viên bán hàng, chào hàng, tiếp thị.",
+      "source_quote": "Thiên Cơ, Thiên Lương đồng độ hai cung Thìn hoặc Tuất, là thiên cách “Cơ Nguyệt Đồng Lương”, cẩn phải dùng miệng lưỡi để dùng lời nói để kiếm tiền, mới có thể phát triển. Ở thời hiện đại, thường thường là chuyên viên bán hàng, chào hàng, tiếp thị.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_luong", "palace:menh", "pattern:co_nguyet_dong_luong", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": "Thiên cách = cách cục lệch, không phải chính cách.",
+        "viet_thuan": "Cơ-Lương Thìn/Tuất là Cơ Nguyệt Đồng Lương dạng lệch: phải sống bằng lời nói — bán hàng, tiếp thị.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q25",
+      "question": "Thiên Cơ Thiên Lương Thìn/Tuất gặp sao không và sát tinh thì cổ nhân định mạng gì?",
+      "answer_atom": "Thiên Cơ Thiên Lương đồng độ Thìn/Tuất nếu có sao không và sát tinh cùng bay đến, cổ nhân định là mạng tăng nhân, đạo sĩ; thời hiện đại cũng là người truyền giáo. Nữ mệnh phần nhiều linh đỉnh.",
+      "source_quote": "Thiên Cơ, Thiên Lương đồng độ hai cung Thìn hoặc Tuất, nếu có sao không và sát tinh cùng bay đến, cổ nhân định là mạng tăng nhân, đạo sĩ; ở thời hiện đại cũng là người truyền giáo. Nữ mệnh phần nhiều linh đỉnh.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_luong", "palace:menh", "gioi:nu_menh", "topic:tu_hanh"],
+      "commentary": {
+        "han_viet_explain": "Linh đỉnh = lẻ loi, cô đơn lận đận (cô linh đỉnh kình).",
+        "viet_thuan": "Cơ-Lương gặp sao không và sát: mạng người tu, người truyền giáo; nữ mệnh thường cô quạnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q26",
+      "question": "Thiên Cơ Thiên Lương ở cung Thìn có Thiên Cơ Hóa Kỵ hay không thì khác gì nhau?",
+      "answer_atom": "Thiên Cơ Thiên Lương ở cung Thìn mà Thiên Cơ Hóa Kỵ: cần phải dùng lời nói để kiếm tiền. Nếu không có Hóa Kỵ, chủ về kết hôn với người ngoại quốc (hay người ở phương xa).",
+      "source_quote": "Thiên Cơ, Thiên Lương ở cung Thìn, mà Thiên Cơ Hóa Kỵ, cẩn phải dùng lời nói để kiếm tiền. Nếu không có Hóa Kỵ, chủ về kết hôn với người ngoại quốc (hay người ở phương xa).",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_luong", "palace:menh", "hoa:hoa_ky", "topic:hon_nhan", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Lương Thìn: có Cơ Kỵ thì sống bằng nghề nói; không Kỵ thì duyên với người phương xa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q27",
+      "question": "Với Thiên Cơ Thiên Lương Thìn/Tuất, vận hạn nào then chốt?",
+      "answer_atom": "Thiên Cơ Thiên Lương đồng độ Thìn/Tuất: cung hạn 'Vũ Khúc, Tham Lang' đồng độ là đại hạn có tính then chốt; ba cung hạn 'Tử Vi, Thất Sát', 'Liêm Trinh, Phá Quân' và 'Vũ Khúc, Tham Lang' là các lưu niên có tính then chốt.",
+      "source_quote": "Đối với Thiên Cơ, Thiên Lương đồng độ hai cung Thìn hoặc Tuất, cung hạn Vũ Khúc, Tham Lang đồng độ là đại hạn có tính then chốt; ba cung hạn Tử Vi, Thất Sát, Liêm Trinh, Phá Quân, và Vũ Khúc, Tham Lang là các lưu niên có tính then chốt.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_luong", "star:vu_khuc", "star:tham_lang", "palace:menh", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ-Lương Thìn/Tuất: đại hạn Vũ-Tham là bản lề; các năm Tử-Sát, Liêm-Phá, Vũ-Tham là năm bản lề.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q28",
+      "question": "Thiên Cơ Tị/Hợi về tình cảm thế nào?",
+      "answer_atom": "Thiên Cơ ở Tị hoặc Hợi: cuộc đời gặp nhiều rắc rối khó xử về tình cảm. Nếu cung phu thê là Thái Dương Hóa Lộc, hoặc cung thiên di là Thái Âm Hóa Lộc, thì dục tình rất nặng; gặp thêm sát tinh và các sao đào hoa thì dễ lạm dâm.",
+      "source_quote": "Thiên Cơ ở hai cung Tị hoặc Hợi, cuộc đời gặp nhiều rắc rối khó xử về tình cảm. Nếu cung phu thê là Thái Dương Hóa Lộc, hoặc cung thiên di là Thái Âm Hóa Lộc, thì dục tình rất nặng, gặp thêm sát tinh và các sao đào hoa, thì dễ lạm dâm.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thai_duong", "star:thai_am", "palace:menh", "palace:phu_the", "palace:thien_di", "hoa:hoa_loc", "topic:tinh_cam"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Tị/Hợi đời nhiều vướng mắc tình cảm; Dương Lộc ở Phu Thê hoặc Âm Lộc ở Thiên Di thì dục vọng nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q29",
+      "question": "Thiên Cơ đồng độ Hỏa Tinh Linh Tinh thì mạng thế nào?",
+      "answer_atom": "Thiên Cơ đồng độ với Hỏa Tinh, Linh Tinh là mạng rời xa quê hương, hoặc chủ về làm con nuôi người khác; tuổi trẻ bất lợi về cha. Đến đại hạn Thất Sát tọa thủ, nếu có các sao sát, kỵ, hình cùng chiếu, chủ về có bệnh tật nghiêm trọng ở mắt.",
+      "source_quote": "Thiên Cơ đồng độ với Hỏa Tinh, Linh Tinh, là mạng rời xa quê hương; hoặc chủ về làm con nuôi người khác; tuổi trẻ bất lợi về cha. Đến đại hạn Thất Sát tọa thủ, nếu có các sao sát, kỵ, hình cùng chiếu, chủ về có bệnh tật nghiêm trọng ở mắt.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:hoa_tinh", "star:linh_tinh", "star:that_sat", "palace:menh", "topic:benh_tat", "topic:cha_me"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ gặp Hỏa/Linh: xa quê hoặc làm con nuôi, trẻ bất lợi với cha; hạn Thất Sát nhiều sát kỵ hình thì lo bệnh mắt nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q30",
+      "question": "Nữ mệnh Thiên Cơ Tị/Hợi kỵ gì?",
+      "answer_atom": "Thiên Cơ ở Tị hoặc Hợi, nữ mệnh không nên Hóa Kỵ hoặc có sao kỵ hội chiếu; gặp thêm sát tinh, chủ về hình khắc, sinh li, hoặc làm nhị phòng, tì thiếp.",
+      "source_quote": "Thiên Cơ ở hai cung Tị hoặc Hợi, nữ mệnh không nên Hóa Kỵ hoặc có sao kỵ hội chiếu; gặp thêm sát tinh, chủ về hình khắc, sinh li, hoặc làm nhị phòng, tì thiếp.",
+      "source_page": 509,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "palace:menh", "hoa:hoa_ky", "gioi:nu_menh", "topic:hon_nhan"],
+      "commentary": {
+        "han_viet_explain": "Nhị phòng, tì thiếp = vợ lẽ, người hầu thiếp thời xưa.",
+        "viet_thuan": "Nữ Cơ Tị/Hợi sợ Hóa Kỵ cộng sát tinh: duyên phận khắc khổ, chia lìa hoặc phận lẽ mọn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q31",
+      "question": "Thiên Cơ Tị/Hợi gặp sao phụ tá cát thì hợp nghề gì?",
+      "answer_atom": "Thiên Cơ ở Tị hoặc Hợi gặp các sao phụ, tá cát thì có thể phú quý, thích hợp làm những công việc mang tính phục vụ công chúng, đặc biệt về truyền thông hay thông tấn, báo chí.",
+      "source_quote": "Thiên Cơ ở hai cung Tị hoặc Hợi, gặp các sao phụ, tá cát, thì có thể phú quý, thích hợp làm những công việc mang tính phục vụ công chúng, đặc biệt về truyền thông hay thông tấn, báo chí.",
+      "source_page": 510,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "palace:menh", "topic:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Tị/Hợi nhiều cát tinh: nên làm nghề phục vụ công chúng — truyền thông, báo chí.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.2-Q32",
+      "question": "Với Thiên Cơ Tị/Hợi, vận hạn nào then chốt?",
+      "answer_atom": "Thiên Cơ ở Tị hoặc Hợi: hai cung hạn 'Thiên Đồng, Cự Môn' và 'Liêm Trinh, Thiên Phủ' là hai lưu niên có tính then chốt; 'Sát, Phá, Lang' là đại hạn có tính then chốt.",
+      "source_quote": "Đối với Thiên Cơ ở hai cung Tị hoặc Hợi, hai cung hạn “Thiên Đồng, Cự Môn” và “Liêm Trinh, Thiên Phủ” là hai lưu niên có tính then chốt. “Sát, Phá, Lang” là đại hạn có tính then chốt.",
+      "source_page": 510,
+      "section_id": "5.1.2",
+      "tags": ["star:thien_co", "star:thien_dong", "star:cu_mon", "star:liem_trinh", "star:thien_phu", "palace:menh", "pattern:sat_pha_lang", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ Tị/Hợi: năm Đồng-Cự và Liêm-Phủ là năm bản lề; đại hạn Sát-Phá-Lang là hạn bản lề.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

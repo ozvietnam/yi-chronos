@@ -1,0 +1,2548 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.8",
+ "section_title": "Cung Giao Hữu (Nô Bộc)",
+ "pages": [
+  755,
+  756,
+  757,
+  758,
+  759,
+  760,
+  761,
+  762,
+  763,
+  764,
+  765,
+  766,
+  767,
+  768,
+  769,
+  770,
+  771,
+  772,
+  773,
+  774
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.8-Q001",
+   "question": "Vì sao Trung Châu phái đổi tên cung Nô Bộc thành cung Giao Hữu, và phạm vi luận đoán thay đổi thế nào?",
+   "answer_atom": "Cung giao hữu xưa gọi là 'cung nô bộc', dùng luận đoán quan hệ nhân tế với nô bộc dưới quyền. Ngày nay đổi gọi là 'cung giao hữu', mở rộng phạm vi để xem xét quan hệ bạn bè. Nhưng Vương Đình Chi lưu ý điều này chưa hoàn toàn chính xác: bạn bè mà cung này hiển thị vẫn mang tính chất hậu bối, người có vai thấp hơn.",
+   "source_quote": "Cung giao hữu xưa gọi là “cung nô bộc”, dùng để luận đoán về mối quan hệ nhân tế với nô bộc dưới quyền. Ngày nay đổi lại gọi là “cung giao hữu”, và mở rộng phạm vi luận đoán để xem xét mối quan hệ bạn bè. Điểu này thực ra chưa hoàn toàn chính xác. Bạn bè mà cung này hiển thị vẫn mang tính chất hậu bối, hay người có vai thấp hơn.",
+   "source_page": 755,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "đổi_tên_cung",
+    "nô_bộc",
+    "giao_hữu",
+    "hậu_bối"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đổi tên Nô Bộc → Giao Hữu là cách tân của Trung Châu, nhưng bản chất cung vẫn thiên về người vai thấp hơn, không phải bạn ngang vai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": "Vương Đình Chi tự cảnh báo việc đổi tên 'chưa hoàn toàn chính xác' — KHÔNG dùng cung Giao Hữu để luận bạn ngang vai (xem Huynh Đệ) hay môn sinh đệ tử (xem Tử Nữ)."
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q002",
+   "question": "Bạn ngang vai và môn sinh đệ tử xem ở cung nào, không phải cung Giao Hữu?",
+   "answer_atom": "Người do mệnh tạo dìu dắt giúp đỡ như môn sinh đệ tử thì xem cung Tử Nữ. Luận đoán bạn bè ngang vai vẫn cần xem cung Huynh Đệ. Cung Giao Hữu đối nhau với cung Huynh Đệ nên cũng có ảnh hưởng quan trọng; bạn tương giao ngang vai nhiều hay ít, ngoại trừ cung Huynh Đệ, vẫn xem tinh hệ chính diệu ở cung Giao Hữu mà định.",
+   "source_quote": "như môn sinh đệ tử, thì xem cung Tử Nữ. Nếu luận đoán bạn bè ngang vai, vẫn cần phải xem cung Huynh Đệ. Cung giao hữu đối nhau với cung Huynh Đệ, cũng có ảnh hưởng quan trọng.",
+   "source_page": 755,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "palace:huynh_de",
+    "palace:tu_nu",
+    "đối_cung",
+    "phân_công_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phân công rõ: ngang vai → Huynh Đệ; đệ tử → Tử Nữ; hậu bối/thuộc cấp → Giao Hữu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q003",
+   "question": "Cung Giao Hữu quá mạnh hoặc quá yếu so với cung Mệnh thì luận thế nào?",
+   "answer_atom": "Nếu tổ hợp sao cung Giao Hữu quá mạnh mà sao cung Mệnh yếu, chủ về bị người vai thấp hơn lấn át. Nếu sao cung Mệnh quá mạnh, sao cung Giao Hữu quá yếu, chủ về người vai thấp không trợ lực, việc gì mệnh tạo cũng phải đích thân làm. Cho nên luận quan hệ với hậu bối thân tín lấy trung hòa làm tiêu chuẩn.",
+   "source_quote": "nếu tổ hợp sao quá mạnh, mà các sao ở cung Mệnh thì yếu, lại chủ về bị người có vai thấp hơn lấn át. Nếu các sao ở cung Mệnh quá mạnh, các sao ở cung Giao Hữu quá yếu, lại chủ về người có vai thấp hơn không trợ lực... vẫn lấy trung hòa làm tiêu chuẩn.",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "palace:menh",
+    "trung_hòa",
+    "lấn_át",
+    "trợ_lực"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nguyên tắc trung hòa: Giao Hữu mạnh quá → bị lấn; yếu quá → cô độc tự làm hết.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q004",
+   "question": "Cổ quyết 'Lộc cư Nô Bộc, túng hữu quan dã bôn trì' nghĩa là gì?",
+   "answer_atom": "Cổ nhân nói: 'Sao Lộc ở cung Nô Bộc, dù có làm quan cũng bôn ba.' Lý do: hễ cung Giao Hữu có Lộc Tồn, thì Kình Dương và Đà La ắt sẽ chiếu xạ cung Mệnh, cho nên thông thường đều chủ về bôn ba.",
+   "source_quote": "Cổ nhân nói, “Sao Lộc ở cung Nô Bộc, dù có làm quan cũng bôn ba.” (Lộc cư Nô Bộc, túng hữu quan đã bôn trì; hễ cung Giao Hữu có Lộc Tồn, thì Kình Dương và Đà La ắt sẽ chiếu xạ cung Mệnh, cho nên thông thường đều chủ về bôn ba.)",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "lộc_tồn",
+    "kình_dương",
+    "đà_la",
+    "cổ_quyết",
+    "bôn_ba"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc Tồn đóng Giao Hữu thì Kình-Đà tất kẹp chiếu Mệnh → đời bôn ba dù làm quan.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q005",
+   "question": "Đại cương Tử Vi thủ cung Giao Hữu?",
+   "answer_atom": "Tử Vi thủ cung Giao Hữu không ưa gặp các sao Sát, Kị, Hình, Hao, vì chủ về người dưới quyền ương ngạnh mà không đắc lực, thậm chí lấy oán báo ân. Nhưng nếu gặp 'Bách Quan Triều Củng' quá hoàn mỹ thì lại chủ về người dưới quyền có quá nhiều quyền uy, phần nhiều chẳng coi mệnh tạo ra gì.",
+   "source_quote": "Tử Vi thủ cung Giao Hữu, không ưa gặp các sao Sát, Kị, Hình, Hao, vì sẽ chủ về người dưới quyền ương ngạnh mà còn không đắc lực, thậm chí lấy oán báo ân. Nhưng nếu gặp “Bách Quan Triều Củng” quá hoàn mỹ thì lại chủ về người dưới quyền có quả nhiều quyền uy, phần nhiều chẳng coi mệnh tạo không ta gì.",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "bách_quan_triều_củng",
+    "oán_báo_ân"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Vi ở Giao Hữu hai cực đều xấu: gặp hung → tớ ương ngạnh; quá đẹp → tớ quyền to lấn chủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q006",
+   "question": "Tử Vi độc tọa Tý/Ngọ ở Giao Hữu là 'tại dã cô quân' thì sao?",
+   "answer_atom": "Tử Vi độc tọa ở hai cung Tý hoặc Ngọ, nếu là 'tại dã cô quân', thì người dưới quyền ương ngạnh mà còn bất nghĩa; nhất là gặp Địa Không, Địa Kiếp thì càng đúng.",
+   "source_quote": "Tử Vi độc tọa ở hai cung Tý hoặc Ngọ: Nếu là “tại dã cô quân”, thì người dưới quyền ương ngạnh mà còn bất nghĩa. Nhất là gặp Địa Không, Địa Kiếp thì càng đúng.",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "tại_dã_cô_quân",
+    "địa_không",
+    "địa_kiếp",
+    "cung_tý",
+    "cung_ngọ"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vua không triều thần ở Giao Hữu → thuộc hạ ngang bướng bất nghĩa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q007",
+   "question": "Tử Vi độc tọa hội Tham Lang Hóa Kỵ ở đối cung thì luận thế nào?",
+   "answer_atom": "Tử Vi độc tọa hội Tham Lang Hóa Kỵ ở đối cung, nếu lại gặp các sao Hình, Kị, Sát, sẽ chủ về bị thuộc hạ đoạt quyền. Nếu gặp các sao Đào Hoa, chủ về không được xảy ra tình cảm với thuộc cấp khác giới.",
+   "source_quote": "hội Tham Lang Hóa Kỵ ở đối cung: Nếu lại gặp các sao Hình, Kị, Sát, sẽ chủ về bị thuộc hạ đoạt quyền. Nếu gặp các sao Đào Hoa, chủ về không được xảy ra tình cảm với thuộc cấp khác giới.",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:tham_lang",
+    "hóa_kỵ",
+    "đoạt_quyền",
+    "đào_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Vi gặp Tham Kỵ chiếu: đề phòng tớ đoạt quyền, kỵ tình cảm với thuộc cấp khác giới.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q008",
+   "question": "Tử Vi độc tọa Tý/Ngọ có sao phụ tá cát hội hợp thì sao?",
+   "answer_atom": "Tử Vi độc tọa ở hai cung Tý hoặc Ngọ có sao phụ, tá cát hội hợp: người dưới quyền tuy trung thành, có thể nhờ cậy, nhưng cũng nên đề phòng quyền lực bị chuyển dời.",
+   "source_quote": "có sao Phụ, tá cát hội hợp: Người dưới quyền tuy trung thành, có thể nhờ cậy, nhưng cũng nên đề phòng quyền lực bị chuyển dời.",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "phụ_tá_cát",
+    "trung_thành",
+    "chuyển_quyền"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Có cát vẫn phải giữ quyền — tốt mấy cũng đừng buông hết quyền cho thuộc hạ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q009",
+   "question": "Cung Mệnh có Tả Phụ Hữu Bật, Tử Vi thủ Giao Hữu hội Văn Xương Văn Khúc thì sao?",
+   "answer_atom": "Cung Mệnh có Tả Phụ, Hữu Bật, Tử Vi thủ cung Giao Hữu hội Văn Xương, Văn Khúc: hai bên quan hệ tốt lành; nếu nói kết giao, có thể được người bạn trung hậu.",
+   "source_quote": "Cung Mệnh có Tả Phụ, Hữu Bật, Tử Vi thủ cung Giao Hữu, hội Văn Xương, Văn Khúc: Thì hai bên quan hệ tốt lành, nếu nói kết giao, thì có thể được người bạn trung hậu.",
+   "source_page": 756,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "tả_phụ",
+    "hữu_bật",
+    "văn_xương",
+    "văn_khúc",
+    "bạn_trung_hậu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Mệnh có Tả Hữu + Giao Hữu Tử Vi Xương Khúc = cách được bạn trung hậu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q010",
+   "question": "'Tử Vi, Phá Quân' ở cung Giao Hữu gặp phụ tá cát hoặc sát tinh thì sao?",
+   "answer_atom": "'Tử Vi, Phá Quân' gặp các sao phụ, tá cát, chủ về người dưới quyền đắc lực nhưng dễ toan tính phát triển riêng, nên mệnh tạo thường cảm thấy thiếu trợ lực. Gặp sát tinh, chủ về bị bạn bè hoặc người dưới quyền gây lụy. Nếu lại gặp Địa Không, Địa Kiếp, chủ về vì người dưới quyền thân tín mà sự nghiệp bị tổn thất.",
+   "source_quote": "“Tử Vi, Phá Quân” gặp các sao phụ, tá cát, chủ về người dưới quyền đắc lực, dễ toan tính phát triển riêng... Gặp sát tinh, chủ về bị bạn bè hoặc người dưới quyền gây lụy. Nếu lại gặp Địa Không, Địa Kiếp, chủ về vì người dưới quyền thân tín mà sự nghiệp bị tổn thất.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:pha_quan",
+    "phát_triển_riêng",
+    "địa_không",
+    "địa_kiếp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Phá: tớ giỏi nhưng tính đường riêng; sát tinh thì bị chính người thân tín làm hại sự nghiệp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q011",
+   "question": "'Tử Vi, Phá Quân' ở Giao Hữu hội Vũ Khúc Hóa Kỵ hoặc Liêm Trinh Hóa Kỵ thì sao?",
+   "answer_atom": "Tử Vi, Phá Quân hội Vũ Khúc Hóa Kỵ, gặp sát tinh, cần đề phòng người dưới quyền phát triển riêng làm tổn thất lợi ích của mệnh tạo. Nếu Liêm Trinh Hóa Kỵ, thì đề phòng bị người dưới quyền uy hiếp.",
+   "source_quote": "Tử Vi, Phá Quân hội Vũ Khúc Hóa Kỵ, gặp sát tinh, cần phải đề phòng người dưới quyền phát triển riêng, làm tổn thất lợi ích của bản thân mệnh tạo. Nếu Liêm Trinh Hóa Kỵ, thì để phòng bị người dưới quyền uy hiếp.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:pha_quan",
+    "vũ_khúc_hóa_kỵ",
+    "liêm_trinh_hóa_kỵ",
+    "uy_hiếp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ → tớ tách riêng cuỗm lợi; Liêm Kỵ → tớ quay lại uy hiếp chủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q012",
+   "question": "'Tử Vi, Thiên Phủ' ở cung Giao Hữu có tính chất gì?",
+   "answer_atom": "Tử Vi, Thiên Phủ ở cung Giao Hữu được bạn chất phác dám nói lời thẳng khuyên can. Nhưng nếu gặp các sao phụ, tá cát, trừ phi toàn tâm mang sự nghiệp giao hết cho người thân tín, nếu không rốt cuộc khó nghĩ tới quan hệ song phương. Nếu Thiên Phủ là 'kho lộ', 'kho trống', hoặc có sao sát, kỵ, hình hội hợp, cần đề phòng người dưới quyền xâm phạm lợi ích.",
+   "source_quote": "Tử Vi, Thiên Phủ ở cung giao hữu, được bạn chất phác dám nói lời thẳng khuyên can... Nếu Thiên Phủ là “kho lộ”, “kho trống”, hoặc có các sao sát, kỵ, hình hội hợp, thì cũng cần phải đề phòng người dưới quyền xâm phạm lợi ích.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:thien_phu",
+    "kho_lộ",
+    "kho_trống",
+    "bạn_thẳng_thắn"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Phủ cho bạn trung trực; nhưng kho lộ/kho trống thì tớ rút ruột chủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q013",
+   "question": "'Tử Vi, Thiên Phủ' ở Giao Hữu gặp Vũ Khúc Hóa Kỵ hay Liêm Trinh Hóa Kỵ thì khác nhau thế nào?",
+   "answer_atom": "Tử Vi, Thiên Phủ gặp Vũ Khúc Hóa Kỵ, hoặc đồng cung với Đà La, Linh Tinh, chủ về bị thuộc hạ gây lụy. Gặp Liêm Trinh Hóa Kỵ, hoặc đồng cung với Kình Dương và Hỏa Tinh, chủ về bị người dưới quyền phản bội.",
+   "source_quote": "Gặp Vũ Khúc Hóa Kỵ; hoặc đồng cung với Đà La, Linh Tinh; sẽ chủ về bị thuộc hạ gây lụy. Gặp Liêm Trinh Hóa Kỵ, hoặc đồng cung với Kình Dương và Hỏa Tinh, sẽ chủ về bị người dưới quyền phản bội.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:thien_phu",
+    "vũ_khúc_hóa_kỵ",
+    "liêm_trinh_hóa_kỵ",
+    "phản_bội"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cặp phân biệt: Vũ Kỵ/Đà-Linh = gây lụy; Liêm Kỵ/Kình-Hỏa = phản bội.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q014",
+   "question": "'Tử Vi, Tham Lang' ở cung Giao Hữu cần lưu ý gì?",
+   "answer_atom": "Tử Vi, Tham Lang đồng cung với các sao đào hoa, Văn Xương, Văn Khúc, chủ về không nên xảy ra tình cảm với người khác giới dưới quyền; Tham Lang Hóa Kỵ thì càng đúng, nếu không chủ về bị đoạt quyền. Đồng cung với Hỏa Tinh, Linh Tinh, chủ về quan hệ chủ-tớ hay quan hệ hợp tác không thể kéo dài. Rất ưa Thiên Đồng ở cung mệnh Hóa Lộc, chủ về được người dưới quyền phù trợ, bản thân tuy vất vả nhưng quan hệ tốt đẹp.",
+   "source_quote": "Tử Vi, Tham Lang đồng cung với các sao đào hoa, Văn Xương, Văn Khúc, cũng chủ về không nên xảy ra tình cảm với người khác giới dưới quyền... Rất ưa Thiên Đồng ở cung mệnh Hóa Lộc, chủ về được người dưới quyền phù trợ.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:tham_lang",
+    "đào_hoa",
+    "hỏa_tinh",
+    "linh_tinh",
+    "thiên_đồng_hóa_lộc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Tham kỵ đào hoa nơi thuộc cấp; ưa Mệnh Thiên Đồng Hóa Lộc thì tớ phù trợ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q015",
+   "question": "'Tử Vi, Thiên Tướng' ở cung Giao Hữu vì sao là kết cấu không cát tường?",
+   "answer_atom": "Tử Vi, Thiên Tướng ở cung Giao Hữu là kết cấu không cát tường; trừ phi vợ chồng cùng nhau phát triển sự nghiệp, nếu không khó nhờ cậy người dưới quyền. Trường hợp này cung Phu Thê vô chính diệu, mượn 'Thiên Tướng, Cự Môn' để an sao, nên cần kết hôn muộn mới được người bạn đời giúp đỡ sự nghiệp. Nếu Thiên Phủ là 'kho lộ', 'kho trống', lại gặp sát tinh, chủ về vì bạn mà phá tài, hoặc bị người dưới quyền gây lụy mà tổn thất.",
+   "source_quote": "Tử Vi, Thiên Tướng ở cung giao hữu là kết cấu không cát tường, trừ phi vợ chồng cùng nhau phát triển sự nghiệp, nếu không, khó mà nhờ cậy được người dưới quyền... cần phải kết hôn muộn mới được người bạn đời giúp đỡ về sự nghiệp.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:thien_tuong",
+    "palace:phu_the",
+    "kết_hôn_muộn",
+    "kho_lộ"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Tướng ở Giao Hữu xấu — lối thoát là vợ chồng chung sự nghiệp, kết hôn muộn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q016",
+   "question": "'Tử Vi, Thất Sát' ở cung Giao Hữu luận thế nào?",
+   "answer_atom": "Tử Vi, Thất Sát ở cung Giao Hữu quyền lực quá nặng; gặp cát tinh chủ về kết giao được bạn tốt, nhưng cần đề phòng thuộc cấp quá nặng quyền lực gây bất lợi cho mệnh tạo. Rất ngại Tử Vi Hóa Quyền hội Vũ Khúc Hóa Kỵ, chủ về thuộc cấp lộng quyền khiến sự nghiệp của mệnh tạo thất bại; nếu lại đồng độ với Đà La thì không nên vì bạn bè hay người dưới quyền mà ra mặt, nếu không tự chuốc trắc trở, thất bại.",
+   "source_quote": "Tử Vi, Thất Sát ở cung giao hữu, quyền lực quá nặng; gặp cát tinh, chủ về có thể kết giao bạn bè tốt. Nhưng cần đề phòng thuộc cấp quá nặng quyền lực mà gây nên bất lợi... Rất ngại gặp Tử Vi Hóa Quyền, hội Vũ Khúc Hóa Kỵ... nếu lại đồng độ với Đà La thì không nên vì bạn bè hay người dưới quyền mà ra mặt.",
+   "source_page": 757,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tu_vi",
+    "star:that_sat",
+    "tử_vi_hóa_quyền",
+    "vũ_khúc_hóa_kỵ",
+    "đà_la",
+    "lộng_quyền"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Sát: tớ quyền nặng; Hóa Quyền + Vũ Kỵ là cách tớ lộng quyền hại chủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q017",
+   "question": "Thiên Cơ ở cung Giao Hữu có tính chất tổng quát gì?",
+   "answer_atom": "Thiên Cơ ở cung Giao Hữu thường thay đổi người dưới quyền; về phương diện bạn bè quen biết cũng hay thay đổi. Gặp các sao phụ, tá cát đồng thời cũng gặp sát tinh, thì tình hình trên càng rõ rệt.",
+   "source_quote": "Thiên Cơ ở cung Giao Hữu, thường thay đổi người dưới quyền; về phương diện bạn bè quen biết cũng hay thay đổi.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "thay_đổi",
+    "bất_ổn_định"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bản chất Thiên Cơ = động → bạn bè, thuộc hạ đều hay đổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q018",
+   "question": "Thiên Cơ nhập miếu ở cung Giao Hữu thì sao, vị trí nào tốt?",
+   "answer_atom": "Thiên Cơ nhập miếu thì bạn bè hoặc người dưới quyền đều có trợ lực; gặp các sao phụ, tá cát càng tốt. Các trường hợp Thiên Cơ độc tọa ở hai cung Tý hoặc Ngọ, hoặc 'Thiên Cơ, Thiên Lương' đồng độ ở hai cung Thìn hoặc Tuất là rất được.",
+   "source_quote": "Thiên Cơ nhập miếu, thì bạn bè hoặc người dưới quyền đều có trợ lực; gặp các sao phụ, tá cát thì càng tốt. Cho nên các trường hợp như, Thiên Cơ độc tọa ở hai cung Tý hoặc Ngọ, hoặc ở “Thiên Cơ, Thiên Lương” đồng độ ở hai cung Thìn hoặc Tuất là rất được.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "nhập_miếu",
+    "cung_tý",
+    "cung_ngọ",
+    "cung_thìn",
+    "cung_tuất"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ miếu (Tý/Ngọ, Cơ Lương Thìn/Tuất) là vị trí đẹp của Thiên Cơ tại Giao Hữu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q019",
+   "question": "Thiên Cơ ở Giao Hữu gặp Hỏa Tinh, Linh Tinh hoặc Kình Dương, Đà La thì sao?",
+   "answer_atom": "Thiên Cơ gặp Hỏa Tinh, Linh Tinh thì quan hệ thay đổi càng nhanh; dù gặp các sao phụ, tá cát cũng chỉ chủ về trợ lực nhất thời. Thiên Cơ đồng độ với Kình Dương, Đà La, chủ về giữa bạn bè và người dưới quyền có nhiều bất hòa, tranh chấp, hoặc bị gây lụy; nếu gặp thêm Địa Không, Địa Kiếp thì tổn thất càng lớn.",
+   "source_quote": "Thiên Cơ gặp Hỏa Tinh, Linh Tinh, thì quan hệ thay đổi càng nhanh... Thiên Cơ đồng độ với Kình Dương, Đà La, chủ về giữa bạn bè và người dưới quyền có nhiều bất hòa, tranh chấp, hoặc chủ về bị gây lụy. Nếu gặp thêm Địa Không, Địa Kiếp, thì tổn thất càng lớn.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "hỏa_tinh",
+    "linh_tinh",
+    "kình_dương",
+    "đà_la",
+    "địa_không",
+    "địa_kiếp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa/Linh đẩy nhanh sự đổi thay; Kình/Đà sinh bất hòa; thêm Không Kiếp thì tổn thất nặng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q020",
+   "question": "Thiên Cơ Hóa Kỵ ở cung Giao Hữu chủ về gì?",
+   "answer_atom": "Thiên Cơ Hóa Kỵ chủ về hai bên đều có tư tâm; nếu lại gặp sát tinh, thì chủ về bị bạn bè hay người dưới quyền nói xấu, bêu rếu sau lưng.",
+   "source_quote": "Thiên Cơ Hóa Kỵ, chủ về hai bên đểu có tư tâm; nếu lại gặp sát tinh, thì chủ về bị bạn bè hay người dưới quyền nói xấu, bêu rếu sau lưng.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "hóa_kỵ",
+    "tư_tâm",
+    "nói_xấu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Kỵ = đôi bên đều tính toán riêng; sát tinh thì bị đâm sau lưng bằng miệng lưỡi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q021",
+   "question": "Thiên Cơ Hóa Lộc ở cung Hợi hội Thái Âm Hóa Kỵ ở cung Tị thì sao?",
+   "answer_atom": "Thiên Cơ Hóa Lộc ở cung Hợi, hội Thái Âm Hóa Kỵ ở cung Tị, chủ về tin lầm tiểu nhân, giao du với người xấu. Gặp sát tinh thì bị gây lụy không ít; nếu gặp thêm các sao đào hoa hội hợp, phải đề phòng vì sắc mà chuốc họa. Nếu có sao phụ, tá cát hội hợp, mức độ bị gây lụy giảm bớt.",
+   "source_quote": "Thiên Cơ Hóa Lộc ở cung Hợi, hội Thái Âm Hóa Kỵ ở cung Tị, chủ về tin lầm tiểu nhân, giao du với người xấu... nếu gặp thêm các sao đào hoa hội hợp, thì phải đề phòng vì sắc mà chuốc họa.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "hóa_lộc",
+    "thái_âm_hóa_kỵ",
+    "cung_hợi",
+    "tiểu_nhân",
+    "đào_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lộc tại Hợi vẫn xấu vì kéo theo Âm Kỵ tại Tị — tin lầm tiểu nhân.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q022",
+   "question": "Thiên Cơ Hóa Lộc (không gặp Hóa Kỵ) và Thiên Cơ Hóa Quyền ở Giao Hữu khác nhau thế nào?",
+   "answer_atom": "Thiên Cơ Hóa Lộc không gặp Hóa Kỵ, tuy chủ về giao du không thường, nhưng lại có thể được trợ lực. Thiên Cơ Hóa Quyền thì quan hệ với bạn bè khá ổn định, quan hệ với người dưới quyền cũng vậy.",
+   "source_quote": "Thiên Cơ Hóa Lộc, không gặp Hóa Kỵ, tuy chủ về giao du không thường, nhưng lại có thể được trợ lực. Thiên Cơ Hóa Quyền thì quan hệ với bạn bè khá ổn định, quan hệ với người dưới quyền cũng vậy.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "hóa_lộc",
+    "hóa_quyền",
+    "ổn_định"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lộc = bất thường nhưng có trợ lực; Cơ Quyền = hiếm hoi giúp Thiên Cơ ổn định.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q023",
+   "question": "'Thiên Cơ, Thiên Lương' ở Giao Hữu tại Thìn/Tuất so với Sửu/Mùi thế nào?",
+   "answer_atom": "Thiên Cơ gặp Thiên Lương đồng độ hoặc vây chiếu: ở cung Thìn hay Tuất ưu hơn ở cung Sửu hay Mùi. Ở hai cung Sửu hoặc Mùi, không gặp sát tinh, chỉ chủ về quan hệ dễ xa cách. 'Thiên Cơ, Thiên Lương' gặp cát tinh, chủ về có bạn hữu lớn tuổi có thể nhờ cậy, hoặc có thuộc hạ thân tín lớn tuổi mà đắc lực.",
+   "source_quote": "ở cung Thìn hay cung Tuất ưu hơn ở cung Sửu hay cung Mùi... “Thiên Cơ, Thiên Lương” gặp cát tinh, chủ về có bạn hữu lớn tuổi có thể nhờ cậy, hoặc có thuộc hạ thân tín lớn tuổi mà đắc lực.",
+   "source_page": 758,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "star:thien_luong",
+    "bạn_lớn_tuổi",
+    "cung_thìn",
+    "cung_tuất"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lương cát thì quý nhân là người lớn tuổi hơn mình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q024",
+   "question": "Thiên Cơ độc tọa Sửu/Mùi lạc hãm ở Giao Hữu thì sao?",
+   "answer_atom": "Thiên Cơ độc tọa ở hai cung Sửu hoặc Mùi bị lạc hãm, vì vậy gặp sát tinh thì dễ tự chuốc thị phi, oán trách, hay bị người dưới quyền phản bội; gặp thêm Địa Không, Địa Kiếp thì tổn thất càng lớn.",
+   "source_quote": "Thiên Cơ độc tọa ở hai cung Sửu hoặc Mùi, bị lạc hãm, vị vậy, gặp sát tinh thì dễ tự chuốc thị phi, oán trách, hay bị người dưới quyền phản bội; gặp thêm Địa Không, Địa Kiếp thì tổn thất càng lớn.",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "lạc_hãm",
+    "cung_sửu",
+    "cung_mùi",
+    "phản_bội"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ hãm Sửu/Mùi + sát = tự rước thị phi, tớ phản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q025",
+   "question": "Tổ hợp 'Thiên Cơ, Thái Âm' ở cung Giao Hữu luận thế nào?",
+   "answer_atom": "'Thiên Cơ, Thái Âm' đồng độ ở Dần/Thân, và Thiên Cơ ở Tị/Hợi đối nhau với Thái Âm, đều chủ về quan hệ không ổn định; gặp Hỏa Tinh, Linh Tinh càng nặng. Thiên Cơ Hóa Kỵ hoặc Thái Âm Hóa Kỵ, lại gặp sát tinh, Thiên Hình, Đại Hao, Âm Sát, Thiên Diêu, đều chủ về bị âm mưu hãm hại. Nếu Thái Âm nhập miếu, Hóa Lộc, lại gặp cát tinh, chủ về nhờ bạn hay người dưới quyền mà kiếm được tiền.",
+   "source_quote": "“Thiên Cơ, Thái Âm” đồng độ ở hai cung Dần hoặc Thân... đều chủ về quan hệ không ổn định... đều chủ về bị âm mưu hãm hại. Nếu Thái Âm nhập miếu, Hóa Lộc, lại gặp cát tinh, chủ về nhờ bạn hay người dưới quyền mà kiếm được tiền.",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "star:thai_am",
+    "âm_mưu",
+    "thiên_diêu",
+    "âm_sát",
+    "hóa_lộc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Âm bất ổn; Kỵ + Hình Hao Diêu = bị mưu hại; Âm miếu Hóa Lộc = nhờ bạn kiếm tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q026",
+   "question": "'Thiên Cơ, Thái Âm' đồng cung với sao Đào Hoa, Văn Xương, Văn Khúc thì sao?",
+   "answer_atom": "'Thiên Cơ, Thái Âm' đồng cung với các sao Đào Hoa, Văn Xương, Văn Khúc, chủ về phần nhiều giao du với bạn tửu sắc, người dưới quyền thân tín phần nhiều cũng thuộc loại a dua, nịnh hót.",
+   "source_quote": "“Thiên Cơ, Thái Âm” đồng cung với các sao Đào Hoa, Văn Xương, Văn Khúc, chủ về phận nhiều giao du với bạn tửu sắc, người dưới quyền thân tín phần nhiều cũng thuộc loại a dua, nịnh hót.",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "star:thai_am",
+    "đào_hoa",
+    "văn_xương",
+    "văn_khúc",
+    "a_dua"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Âm + đào hoa văn tinh = bạn rượu chè, tớ nịnh bợ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q027",
+   "question": "Tổ hợp Thiên Cơ và Cự Môn ở cung Giao Hữu vì sao cần giữ khoảng cách với bạn bè?",
+   "answer_atom": "Tổ hợp Thiên Cơ và Cự Môn, dù không gặp các sao sát, kỵ, cũng chủ về dễ xảy ra hiểu lầm với người dưới quyền hoặc bạn bè. Người xưa nói, người mà 'Thiên Cơ, Cự Môn' giao du thường lúc đầu tốt mà về sau xấu. Nếu lại Hóa Kỵ thì bất hòa, tranh chấp càng lớn. Cho nên hễ Thiên Cơ gặp Cự Môn đồng cung hay vây chiếu, với bạn bè đều cần giữ khoảng cách, cũng không nên quá thân thiết với người dưới quyền, để tránh bị trở mặt.",
+   "source_quote": "người mà “Thiên Cơ, Cự Môn” giao du thường lúc đầu tốt mà về sau xấu... với bạn bè đều cần phải giữ khoảng cách, cũng không nên quá thân thiết với người dưới quyền, để tránh bị trở mặt.",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "star:cu_mon",
+    "hiểu_lầm",
+    "đầu_tốt_sau_xấu",
+    "giữ_khoảng_cách"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Cự = giao tình đầu nồng sau nhạt; giải pháp là chủ động giữ khoảng cách.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q028",
+   "question": "'Thiên Cơ, Cự Môn' gặp Văn Xương Văn Khúc và sao Đào Hoa thì đề phòng gì?",
+   "answer_atom": "'Thiên Cơ, Cự Môn' gặp Văn Xương, Văn Khúc, và các sao Đào Hoa, nên đề phòng bọn người miệng lưỡi trơn tuột, nói năng ngọt ngào; gặp sát tinh thì bị tổn thất.",
+   "source_quote": "“Thiên Cơ, Cự Môn” gặp Văn Xương, Văn Khúc, và các sao Đào Hoa, nên đề phòng bọn người miệng lưỡi trơn tuột, nói năng ngọt ngào; gặp sát tinh thì bị tổn thất.",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "star:cu_mon",
+    "văn_xương",
+    "văn_khúc",
+    "đào_hoa",
+    "ngọt_ngào"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Cự + văn tinh đào hoa = cảnh giác kẻ dẻo miệng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q029",
+   "question": "Thiên Cơ hội sao Đào Hoa, Hóa Khoa, hay gặp Tả Phụ Hữu Bật ở Giao Hữu có gì đặc biệt?",
+   "answer_atom": "Thiên Cơ hội hợp các sao Đào Hoa, không chủ về nữ sắc, mà chủ về thân cận tiểu nhân. Thiên Cơ Hóa Khoa, chủ về có bạn bè và người dưới quyền thành tín, nhưng không làm tăng sự ổn định, vẫn hay thay đổi người. Thiên Cơ gặp Tả Phụ, Hữu Bật, chủ về có nhiều bạn bè và người dưới quyền, nhưng cũng không làm tăng sự ổn định, vẫn hay thay đổi người.",
+   "source_quote": "Thiên Cơ hội hợp các sao Đào Hoa, không chủ về nữ sắc, mà chủ về thân cận tiểu nhân. Thiên Cơ Hóa Khoa, chủ về có bạn bè và người dưới quyền thành tín, nhưng không làm tăng sự ổn định, vẫn hay thay đổi người.",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_co",
+    "đào_hoa",
+    "hóa_khoa",
+    "tả_phụ",
+    "hữu_bật",
+    "tiểu_nhân"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đặc lệ: đào hoa với Thiên Cơ = tiểu nhân chứ không phải nữ sắc; cát tinh cũng không chữa được tính hay đổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q030",
+   "question": "Thái Dương ở cung Giao Hữu nhập miếu và lạc hãm khác nhau thế nào?",
+   "answer_atom": "Thái Dương tuy chủ về 'động', nhưng chỉ khi nhập miếu mới giao du rộng; nếu lạc hãm thì người quen biết không nhiều, cũng không nói tới giao tình. Chỉ trường hợp 'Thái Dương, Thái Âm' đồng độ ở cung Sửu là vẫn chủ về giao du rộng — đây là do ảnh hưởng của Thái Âm.",
+   "source_quote": "Thái Dương tuy chủ về “động”, nhưng chỉ khi nhập miếu mới giao du rộng; nếu lạc hãm, thì người quen biết không nhiều, cũng không nói tới giao tình (chỉ trường hợp “Thái Dương, Thái Âm” đồng độ ở cung Sửu, là vẫn chủ về giao du rộng; đây là do ảnh hưởng của Thái Âm).",
+   "source_page": 759,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "nhập_miếu",
+    "lạc_hãm",
+    "cung_sửu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương miếu = quảng giao; Dương hãm = ít bạn; ngoại lệ Nhật Nguyệt Sửu nhờ Thái Âm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q031",
+   "question": "Thái Dương lạc hãm ở cung Giao Hữu chủ về gì?",
+   "answer_atom": "Thái Dương ở cung Giao Hữu lạc hãm, dù không gặp các sao sát, kị, cũng chủ về thi ân mà chẳng được gì. Nếu gặp các sao sát, kị, càng chủ về ân biến thành thù.",
+   "source_quote": "Thái Dương ở cung giao hữu, Lạc Hãm, dù không gặp các sao sát, kị, cũng chủ về thi ân mà chẳng được gì. Nếu gặp các sao sát, kị, càng chủ về ân biến thành thù.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "lạc_hãm",
+    "thi_ân",
+    "ân_biến_thành_thù"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương hãm: cho đi không nhận lại; thêm sát kỵ thì ơn hóa oán.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q032",
+   "question": "Vì sao Thái Dương ở Giao Hữu thì cung Mệnh ắt có Liêm Trinh, và hệ quả là gì?",
+   "answer_atom": "Hễ Thái Dương ở cung Giao Hữu, cung Mệnh ắt có Liêm Trinh tọa thủ. Người Liêm Trinh tọa mệnh phần nhiều ưa làm việc trong chính giới, hoạn lộ cũng thường có nhiều bạn tri giao. Cho nên Thái Dương lạc hãm gặp sát tinh thì không nên theo con đường sĩ hoạn, nếu không hậu quả ân biến thành thù càng ác liệt. Trường hợp gặp sao phụ, tá và được 'bách quan triều củng', cung Mệnh có các sao hữu lực, chủ về có bạn quý.",
+   "source_quote": "Hễ Thái Dương ở cung giao hữu, cung mệnh ắt sẽ có Liêm Trinh tọa thủ... Cho nên Thái Dương Lạc Hãm, gặp sát tinh, thì không nên theo con đường sĩ hoạn, nếu không, hậu quả ân biến thành thù càng ác liệt hơn.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:liem_trinh",
+    "palace:menh",
+    "sĩ_hoạn",
+    "bách_quan_triều_củng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cấu trúc bàn cờ: Dương ở Giao Hữu ↔ Mệnh Liêm Trinh; Dương hãm sát thì tránh quan trường.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q033",
+   "question": "Tổ hợp 'Thái Dương, Thiên Lương' ở cung Giao Hữu khi cát thì sao?",
+   "answer_atom": "Tổ hợp 'Thái Dương, Thiên Lương', nếu Thái Dương nhập miếu, hoặc Thiên Lương Hóa Quyền hay Hóa Khoa, không gặp sát tinh, sẽ chủ về có bạn bè tốt, dám nói thẳng, can ngăn, hoặc người dưới quyền chính trực. Nhưng 'Thái Dương, Thiên Lương' khá cô lập, vì vậy nên chú ý các mối quan hệ nhân tế để bổ cứu mệnh vận.",
+   "source_quote": "nếu Thái Dương nhập miếu, hoặc Thiên Lương Hóa Quyền hay Hóa Khoa, không gặp sát tính, sẽ chủ về có bạn bè tốt, dám nói thẳng, can ngăn, hoặc người dưới quyền chính trực. Nhưng “Thái Dương, Thiên Lương” khá cô lập.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:thien_luong",
+    "hóa_quyền",
+    "hóa_khoa",
+    "chính_trực",
+    "cô_lập"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Lương cát = bạn ngay thẳng; nhưng cách này vốn cô lập, phải chủ động vun quan hệ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q034",
+   "question": "'Thái Dương, Thiên Lương' ở Giao Hữu gặp Hỏa Linh, Thiên Hình, Đại Hao thì sao?",
+   "answer_atom": "Gặp Hỏa Tinh, Linh Tinh đồng độ, chủ về dễ xa cách bạn tri giao. Nếu lại gặp Thiên Hình, Đại Hao, chủ về bị bạn bè hay người dưới quyền soi bói, đả kích, dẫn đến tổn thất. Thái Dương, Thiên Lương, Thiên Hình, Đại Hao gặp tứ sát và Địa Không, Địa Kiếp, chủ về bạn bè hay người dưới quyền lấy oán báo ân, không những gây điều tiếng mà còn nói xấu, gièm pha; do đó hao tài, sự nghiệp tổn thất.",
+   "source_quote": "Thái Dương, Thiên Lương, Thiên Hình, Đại Hao, gặp tứ sát và Địa Không, Địa Kiếp, chủ về bạn bè hay người dưới quyền lấy oán báo ân, không những gây điều tiếng, mà còn có nói xấu, gièm pha; do đó mà hao tài, sự nghiệp tổn thất.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:thien_luong",
+    "thiên_hình",
+    "đại_hao",
+    "tứ_sát",
+    "oán_báo_ân"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Lương hung: từ xa cách → soi bói → lấy oán báo ân, gièm pha hao tài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q035",
+   "question": "Tổ hợp Thái Dương và Cự Môn ở cung Giao Hữu chủ về gì?",
+   "answer_atom": "Tổ hợp Thái Dương và Cự Môn, không gặp các sao sát, kị, đã chủ về điều tiếng; nếu gặp các sao sát, kị, thì chủ về phạm pháp, kiện tụng. Thái Dương Hóa Kỵ, chủ về nhận lỗi thay cho người khác.",
+   "source_quote": "Tổ hợp Thái Dương và Cự Môn, không gặp các sao sát, kị, đã chủ về điều tiếng; nếu gặp các sao sát, kị, thì chủ về phạm pháp, kiện tụng. Thái Dương Hóa Kỵ, chủ về nhận lỗi thay cho người khác.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:cu_mon",
+    "điều_tiếng",
+    "kiện_tụng",
+    "hóa_kỵ"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Cự = thị phi cố hữu; sát kỵ thành kiện tụng; Dương Kỵ thì gánh lỗi hộ người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q036",
+   "question": "Thái Dương và Cự Môn một sao Hóa Quyền một sao Hóa Lộc ở Giao Hữu thì sao?",
+   "answer_atom": "Nếu Thái Dương và Cự Môn một sao Hóa Quyền, một sao Hóa Lộc, sẽ chủ về có bạn bè nước ngoài, còn được lợi ích. Nếu lại gặp cát tinh vây chiếu hay hội hợp, thì chủ về được nâng đỡ.",
+   "source_quote": "Nếu Thái Dương và Cự Môn một sao Hóa Quyền, một sao Hóa Lộc, sẽ chủ về có bạn bè nước ngoài, còn được lợi ích. Nếu lại gặp cát tinh vây chiếu hay hội hợp, thì chủ về được nâng đỡ.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:cu_mon",
+    "hóa_quyền",
+    "hóa_lộc",
+    "bạn_nước_ngoài"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Cự Quyền-Lộc = quý nhân dị tộc, bạn phương xa nâng đỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q037",
+   "question": "Vì sao tổ hợp Thái Dương-Cự Môn ở Giao Hữu mà Thái Dương ở cung Hợi là xấu nhất?",
+   "answer_atom": "Tổ hợp Thái Dương và Cự Môn thủ cung Giao Hữu, trường hợp Thái Dương ở cung Hợi là xấu nhất; lúc này cung Mệnh là 'Liêm Trinh, Thiên Tướng', có đặc tính hợp tác với người khác, ỷ lại người khác; nhưng nếu cung Huynh Đệ và cung Giao Hữu đều xấu thì vợ chồng nên đồng lòng.",
+   "source_quote": "trường hợp Thái Dương ở cung Hợi là xấu nhất; lúc này cung mệnh là “Liêm Trinh, Thiên Tướng”, có đặc tính hợp tác với người khác, ý lại người khác, nhưng nếu cung huynh đệ và cung giao hữu đểu xấu thì vợ chồng nên đồng lòng.",
+   "source_page": 760,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:cu_mon",
+    "cung_hợi",
+    "liêm_trinh_thiên_tướng",
+    "vợ_chồng_đồng_lòng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương hãm Hợi + Mệnh Liêm Tướng ỷ người: ngoài không nhờ được ai thì trong nhờ người bạn đời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q038",
+   "question": "Tổ hợp 'Thái Dương, Thái Âm' ở cung Giao Hữu cần điều kiện gì mới có trợ lực?",
+   "answer_atom": "Tổ hợp 'Thái Dương, Thái Âm' cần phải gặp các sao phụ, tá mới chủ về có bạn bè và người dưới quyền trợ lực; nếu không, giao du rộng chỉ mất công vô ích. Gặp Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc đồng độ hoặc giáp cung, không những giao du rộng mà còn nhiều người dưới quyền; nhưng đồng thời gặp thêm sát tinh thì không được ích lợi gì.",
+   "source_quote": "Tổ hợp “Thái Dương, Thái Âm” cần phải gặp các sao phụ, tá mới chủ về có bạn bè và người dưới quyền trợ lực. Nếu không, giao du rộng chỉ mất công vô ích.",
+   "source_page": 761,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:thai_am",
+    "tả_phụ",
+    "hữu_bật",
+    "giáp_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Nguyệt thủ Giao Hữu: rộng mà rỗng, phải có phụ tá mới thành thực chất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q039",
+   "question": "So sánh tứ hóa của Thái Dương và Thái Âm ở cung Giao Hữu?",
+   "answer_atom": "Thái Dương Hóa Lộc giao du rất rộng, nhưng không bằng Thái Âm Hóa Lộc, Hóa Quyền hay Hóa Khoa — còn được giúp ích thực tế. Thái Dương Hóa Kỵ chủ về tự chuốc thị phi, oán trách; Thái Âm Hóa Kỵ thì đề phòng bị bạn bè dụ dỗ đầu tư gây tổn thất. Ngoài ra: Thái Dương Hóa Lộc chủ giao du rộng; Hóa Quyền chủ quan hệ dễ ổn định; Hóa Khoa chủ phần nhiều chỉ qua lại sơ sơ; được 'bách quan triều củng' mà gặp sát tinh cũng chỉ qua lại sơ sơ.",
+   "source_quote": "Thái Dương Hóa Lộc, giao du rất rộng; nhưng không bằng Thái Âm Hóa Lộc, Hóa Quyền, hay Hóa Khoa, còn được giúp ích thực tế... Thái Âm Hóa Kỵ, thì để phòng bị bạn bè dụ dỗ đầu tư gây ra tổn thất.",
+   "source_page": 761,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "star:thai_am",
+    "hóa_lộc",
+    "hóa_quyền",
+    "hóa_khoa",
+    "hóa_kỵ",
+    "đầu_tư"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương hóa = bề rộng, Âm hóa = thực chất; Âm Kỵ cảnh báo riêng việc bị dụ đầu tư.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q040",
+   "question": "Thái Dương ở Giao Hữu đồng độ với cát tinh, Văn Xương Văn Khúc, hoặc các sát tinh thì sao?",
+   "answer_atom": "Thái Dương gặp cát tinh: phần nhiều chỉ giao du qua loa, nhưng cũng có hai ba tri kỷ. Nếu gặp thêm Văn Xương, Văn Khúc: hai bên không những trái ngược nhau mà còn đều có thế đứng riêng; người làm chính giới hay kinh doanh gặp cách này không hợp, chỉ hợp với người theo đuổi nghệ thuật. Đồng độ với Kình Dương làm tăng thị phi; với Đà La chủ về bị gây lụy; với Hỏa Tinh, Linh Tinh chủ về nhiều tranh chấp.",
+   "source_quote": "Gặp cát tinh: Phần nhiều chỉ giao du qua loa, nhưng cũng có hai ba tri kỷ... Đồng độ với Kình Dương, làm tăng thị phi; đồng độ với Đà La, chủ về bị gây lụy; đồng độ với Hỏa Tinh, Linh Tinh, chủ về nhiều tranh chấp.",
+   "source_page": 761,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_duong",
+    "văn_xương",
+    "văn_khúc",
+    "kình_dương",
+    "đà_la",
+    "tri_kỷ",
+    "nghệ_thuật"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương + Xương Khúc = mỗi người một cõi, chỉ hợp giới nghệ thuật; sát tinh mỗi sao một kiểu hại.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q041",
+   "question": "Vũ Khúc ở những cung nào tại Giao Hữu thì giao du rộng, và tổ hợp nào thực sự hữu ích?",
+   "answer_atom": "Vũ Khúc ở sáu cung Tý, Ngọ, Thìn, Tuất, Sửu, Mùi thủ cung Giao Hữu, chủ về giao du rộng — tức ba tinh hệ 'Vũ Khúc, Thiên Phủ', 'Vũ Khúc, Tham Lang', và Vũ Khúc đối nhau với Tham Lang. Nhưng tổ hợp Vũ Khúc và Tham Lang phần nhiều là bạn tửu sắc, cho nên chỉ còn 'Vũ Khúc, Thiên Phủ' ở hai cung Tý hoặc Ngọ mới chủ về có nhiều bạn bè hữu ích.",
+   "source_quote": "Vũ Khúc ở sáu cung Tý, Ngọ, Thìn, Tuất, Sửu, Mùi, thủ cung Giao Hữu, chủ về giao du rộng... chỉ còn “Vũ Khúc, Thiên Phủ” ở hai cung Tý hoặc Ngọ, mới chủ về có nhiều bạn bè hữu ích.",
+   "source_page": 761,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "star:tham_lang",
+    "giao_du_rộng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Khúc rộng giao ở 6 cung, nhưng lọc lại chỉ Vũ Phủ Tý/Ngọ là bạn có ích thật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q042",
+   "question": "Vũ Khúc Hóa Lộc ở cung Giao Hữu cần điều kiện gì?",
+   "answer_atom": "Vũ Khúc Hóa Lộc ở cung Giao Hữu cần phải gặp Tả Phụ, Hữu Bật mới chủ về người dưới quyền đắc lực; nếu không có Tả Phụ, Hữu Bật, sẽ chủ về vì bạn bè hay người dưới quyền mà phải bôn ba, lao tâm tổn thần.",
+   "source_quote": "Vũ Khúc Hóa Lộc ở cung Giao Hữu, cần phải gặp Tả Phụ, Hữu Bật, mới chủ về người dưới quyền đắc lực; nếu không có Tả Phụ, Hữu Bật, sẽ chủ về vì bạn bè hay người dưới quyền mà phải... Bôn ba, lao tâm tổn thần.",
+   "source_page": 761,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "hóa_lộc",
+    "tả_phụ",
+    "hữu_bật",
+    "bôn_ba"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Lộc một mình chưa đủ — thiếu Tả Hữu thì Lộc đổi thành nhọc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q043",
+   "question": "Vũ Khúc Hóa Kỵ ở cung Giao Hữu và khi đồng độ các sát tinh thì sao?",
+   "answer_atom": "Vũ Khúc Hóa Kỵ chủ về bị người dưới quyền xâm phạm, bị bạn bè lợi dụng, hoặc vì bạn bè người dưới quyền gây lụy mà tổn thất. Đồng độ với Hỏa Tinh, Linh Tinh, chủ về bị bạn bè hay người dưới quyền bán đứng. Đồng độ với Kình Dương, Đà La, chủ về gặp nhiều trắc trở, tranh chấp, phản bội; gặp thêm Địa Không, Địa Kiếp thì hao tổn rất nặng.",
+   "source_quote": "Vũ Khúc Hóa Kị đồng độ với Hỏa Tinh, Linh Tinh, chủ về bị bạn bè hay người dưới quyển bán đứng. Đồng độ với Kình Dương, Đà La, chủ về gặp nhiều trắc trở, tranh chấp, phản bội; gặp thêm Địa Không, Địa Kiếp thì hao tổn rất nặng.",
+   "source_page": 762,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "hóa_kỵ",
+    "bán_đứng",
+    "hỏa_tinh",
+    "linh_tinh",
+    "kình_dương",
+    "đà_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ thang độ: lợi dụng → bán đứng (Hỏa/Linh) → phản bội tranh chấp (Kình/Đà) → hao nặng (Không Kiếp).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q044",
+   "question": "'Vũ Khúc, Thiên Phủ' ở cung Giao Hữu khi nào tốt, khi nào xấu?",
+   "answer_atom": "'Vũ Khúc, Thiên Phủ' đồng độ, gặp sao Lộc (cũng không nên có Lộc Tồn đồng độ), lại gặp thêm cát tinh, mới chủ về giao du rộng, còn có nhiều trợ lực. Nếu Thiên Phủ là 'kho lộ', 'kho trống', chủ về vì bạn bè hay người dưới quyền phá tài.",
+   "source_quote": "Trong tình hình “Vũ Khúc, Thiên Phủ” đồng độ, gặp sao Lộc (cũng không nên có Lộc Tồn đồng độ), lại gặp thêm cát tinh, mới chủ về giao du rộng, còn có nhiều trợ lực... mà Thiên Phủ là “kho lộ”, “kho trống”, chủ về vì bạn bè hay người dưới quyển phá tài.",
+   "source_page": 762,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "sao_lộc",
+    "kho_lộ",
+    "kho_trống",
+    "phá_tài"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Phủ cần Lộc + cát; kho hở thì bạn bè móc két.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q045",
+   "question": "'Vũ Khúc, Tham Lang' thủ cung Giao Hữu chủ về loại bạn bè gì?",
+   "answer_atom": "'Vũ Khúc, Tham Lang' thủ cung Giao Hữu thì có nhiều bạn bè ăn uống, tiệc tùng; đồng độ với các sao Đào Hoa thì càng nặng; nếu gặp thêm các sao Sát, Kị, Hình, Hao, Không, Kiếp, thì vì vậy mà chuốc họa, hoặc bị kiện tụng, phạm pháp.",
+   "source_quote": "“Vũ Khúc, Tham Lang” thủ cung Giao Hữu thì có nhiều bạn bè ăn uống, tiệc tùng; đồng độ với các sao Đào Hoa thì càng nặng; nếu gặp thêm các sao Sát, Kị, Hình, Hao, Không, Kiếp, thì vì vậy mà chuốc họa, hoặc bị kiện tụng, phạm pháp.",
+   "source_page": 762,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "tiệc_tùng",
+    "đào_hoa",
+    "kiện_tụng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tham = hội nhậu; hung tinh chồng lên thì cuộc vui thành họa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q046",
+   "question": "'Vũ Khúc, Tham Lang' đồng độ với Hỏa Tinh, Linh Tinh ở Giao Hữu thì sao?",
+   "answer_atom": "'Vũ Khúc, Tham Lang' đồng độ với Hỏa Tinh, Linh Tinh, thì giao du với bạn bè trước nồng ấm sau nguội lạnh, thậm chí còn có kết cục rất xấu; gặp sát tinh thì càng nặng.",
+   "source_quote": "“Vũ Khúc, Tham Lang” đồng độ với Hỏa Tinh, Linh Tinh, thì giao du với bạn bè trước nồng ấm sau nguội lạnh, thậm chí còn có kết cục rất xấu; gặp Sát tinh thì càng nặng.",
+   "source_page": 762,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "hỏa_tinh",
+    "linh_tinh",
+    "trước_nồng_sau_lạnh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa Tham/Linh Tham tại Giao Hữu: tình bạn bùng nhanh tàn nhanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q047",
+   "question": "Tham Lang Hóa Kỵ và Tham Lang Hóa Lộc trong tổ hợp Vũ Tham ở Giao Hữu khác nhau gì?",
+   "answer_atom": "Tham Lang Hóa Kỵ thủ cung Giao Hữu cũng chủ về bị chiếm đoạt. Nếu Tham Lang Hóa Lộc, thì không nên gặp các sao Đào Hoa và Văn Xương, Văn Khúc, nếu không sẽ có nhiều bạn tửu sắc. Nếu gặp cát tinh, thì chủ về được trợ lực và gặp cơ hội là nhờ ăn uống, tiệc tùng.",
+   "source_quote": "Tham Lang Hóa Kị thủ cung Giao Hữu cũng chủ về bị chiếm đoạt. Nếu Tham Lang Hóa Lộc, thì không nên gặp các sao Đào Hoa và Văn Xương, Văn Khúc, nếu không, sẽ có nhiều bạn tửu sắc. Nếu gặp cát tinh, thì chủ về được trợ lực và gặp cơ hội là nhờ ăn uống, tiệc tùng.",
+   "source_page": 762,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tham_lang",
+    "hóa_kỵ",
+    "hóa_lộc",
+    "tửu_sắc",
+    "cơ_hội_tiệc_tùng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Kỵ = bị đoạt; Tham Lộc sạch đào hoa = cơ hội đến từ bàn tiệc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q048",
+   "question": "'Vũ Khúc, Thiên Tướng' ở Giao Hữu với 'Hình Kỵ Giáp Ấn' và 'Tài Ấm Giáp Ấn' khác nhau thế nào?",
+   "answer_atom": "'Vũ Khúc, Thiên Tướng' thủ cung Giao Hữu gặp 'Hình Kỵ Giáp Ấn', sẽ chủ về bị bạn bè hay người dưới quyền bán đứng, còn bị uy hiếp. Nếu được 'Tài Ấm Giáp Ấn', chủ về bạn bè có thể giúp cho cơ hội, trong số thuộc cấp dưới quyền có người thành thực, có thể phụ giúp trong sự nghiệp.",
+   "source_quote": "gặp “Hình Kị Giáp Ấn”, sẽ chủ về bị bạn bè hay người dưới quyển bán đứng, còn bị uy hiếp... mà “Tài Ấm Giáp Ấn”, chủ về bạn bè có thể giúp cho cơ hội, trong số thuộc cấp dưới quyển có người thành thực, có thể phụ giúp trong sự nghiệp.",
+   "source_page": 762,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "hình_kỵ_giáp_ấn",
+    "tài_ấm_giáp_ấn",
+    "bán_đứng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Tướng nhạy với cách giáp: Hình Kỵ giáp = bị phản; Tài Ấm giáp = được nâng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q049",
+   "question": "'Vũ Khúc, Thiên Tướng' ở Giao Hữu kỵ những Hóa Kỵ nào và hội Thiên Phủ thế nào?",
+   "answer_atom": "Vũ Khúc Thiên Tướng không ưa Vũ Khúc Hóa Kỵ, chủ về bị gây lụy; cũng không ưa hội Liêm Trinh Hóa Kỵ, chủ về tranh chấp tiền bạc, hay bị người dưới quyền xâm phạm. Hội Thiên Phủ là 'kho lộ', 'kho trống', chủ về vì bạn mà phá tài, hoặc vì bạn bè và người dưới quyền mà ra mặt, dẫn đến tự chuốc thị phi. Nếu Thiên Phủ là 'kho phủ đầy' (kho phủ đồng độ), không những giao du rộng mà còn được trợ lực.",
+   "source_quote": "Vũ Khúc Thiên Tướng không ưa Vũ Khúc Hóa Kị, chủ về bị gây lụy; cũng không ưa hội Liêm Trinh Hóa Kị, chủ về tranh chấp tiền bạc, hay bị người dưới quyển xâm phạm... Nếu Thiên Phủ là “kho phủ đồng độ”, không những giao du rộng, mà còn được trợ lực.",
+   "source_page": 763,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "vũ_khúc_hóa_kỵ",
+    "liêm_trinh_hóa_kỵ",
+    "kho_lộ",
+    "kho_trống"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tướng sợ cả hai Kỵ (Vũ, Liêm); chất lượng kho Thiên Phủ quyết định bạn giúp hay bạn phá.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q050",
+   "question": "'Vũ Khúc, Thất Sát' ở cung Giao Hữu luận thế nào?",
+   "answer_atom": "'Vũ Khúc, Thất Sát' không nên có sát tinh đồng độ, chủ về bị bạn bè hay người dưới quyền bán đứng. Gặp Liêm Trinh Hóa Lộc, chủ về được trợ lực nhưng không lâu dài; Tham Lang Hóa Lộc, chủ về tình cảm trước nóng ấm sau nguội lạnh; gặp Phá Quân Hóa Lộc, trợ lực lúc có lúc không; nếu Phá Quân Hóa Kỵ, thì có kết cục rất xấu. Trường hợp Vũ Khúc Hóa Kỵ bị Hỏa Tinh và Linh Tinh giáp cung, chủ về vì bạn bè hay người dưới quyền mà sự nghiệp thất bại.",
+   "source_quote": "“Vũ Khúc, Thất Sát” không nên có sát Tinh đồng độ, chủ về bị bạn bè hay người dưới quyển bán đứng... mà Vũ Khúc Hóa Kỵ, bị Hỏa Tinh và Linh Tinh giáp cung, chủ về vì bạn bè hay người dưới quyển mà sự nghiệp thất bại.",
+   "source_page": 763,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:that_sat",
+    "bán_đứng",
+    "liêm_trinh_hóa_lộc",
+    "phá_quân_hóa_kỵ",
+    "hỏa_linh_giáp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Sát: Lộc nào đến cũng chập chờn; Vũ Kỵ bị Hỏa-Linh giáp là cách bại sự nghiệp vì người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q051",
+   "question": "'Vũ Khúc, Phá Quân' ở cung Giao Hữu không Hóa Lộc thì sao?",
+   "answer_atom": "'Vũ Khúc, Phá Quân' nếu không Hóa Lộc, chủ về có bạn bè hay người dưới quyền khẩu thị tâm phi. Gặp các sao sát, kỵ, hình, hao, không, kiếp thì bị gây lụy mà hao tài; nặng thì dẫn đến thất bại.",
+   "source_quote": "“Vũ Khúc, Phá Quân” nếu không Hóa Lộc, chủ về có bạn bè hay người dưới quyển khẩu thị tâm phi. Gặp các sao sát, kỵ, hình, hao, không, kiếp thì bị gây lụy mà hao tài; nặng thì dẫn đến thất bại.",
+   "source_page": 763,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "star:pha_quan",
+    "khẩu_thị_tâm_phi",
+    "hao_tài"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Phá thiếu Lộc = bạn miệng nói phải lòng nghĩ trái.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q052",
+   "question": "Vũ Khúc độc tọa cung Giao Hữu có tính chất cơ bản gì?",
+   "answer_atom": "Vũ Khúc tọa cung Giao Hữu, tính chất cơ bản là bất lợi: giao du không rộng, người dưới quyền vô lực. Nhưng nếu gặp Thiên Phủ đồng độ hoặc vây chiếu thì giao du nhiều, nhưng vẫn không đắc lực. Gặp cát tinh thì có thể có hai ba người bạn tri giao hoặc có trợ lực. Nếu gặp các sao sát, kỵ, thì chủ về bị gây lụy, hoặc bị xâm phạm.",
+   "source_quote": "Hợp Vũ Khúc tọa cung giao hội, tính chất cơ bản là bất lợi; Giao du không rộng, người dưới quyển vô lực... Gặp cát tinh, thì có thể có hai ba người bạn tri giao hoặc có trợ lực. Nếu gặp các sao sát, kỵ, thì chủ về bị gây lụy, hoặc bị xâm phạm.",
+   "source_page": 763,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:vu_khuc",
+    "bất_lợi_cơ_bản",
+    "tri_giao",
+    "cô_độc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Khúc cô kim ở Giao Hữu: ít bạn, tớ yếu; tốt nhất chỉ được vài tri giao.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q053",
+   "question": "Thiên Đồng ở cung Giao Hữu có tính chất tổng quát gì?",
+   "answer_atom": "Thiên Đồng ở cung Giao Hữu chủ về giao du rộng. Vì Thiên Đồng có tính chất tình cảm mà còn ôn hòa, cho nên dễ kết giao bạn bè; quan hệ với người dưới quyền cũng tốt. Gặp cát tinh, trợ lực tăng lên. Thiên Đồng Hóa Lộc, giao du được bạn bè hữu ích; nếu Thiên Đồng Hóa Kỵ, sẽ chủ về thiếu trợ lực; Hóa Kỵ còn gặp sát tinh, chủ về có kết cục rất xấu.",
+   "source_quote": "Thiên Đồng ở cung giao hội, chủ về giao du rộng. Vì Thiên Đồng có tính chất tình cảm mà còn ôn hòa, cho nên dễ kết giao bạn bè; quan hệ với người dưới quyển cũng tốt... Thiên Đồng Hóa Lộc, giao du được bạn bè hữu ích; nếu Thiên Đồng Hóa Kỵ, sẽ chủ về thiếu trợ lực.",
+   "source_page": 763,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "ôn_hòa",
+    "hóa_lộc",
+    "hóa_kỵ"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng = sao tình cảm ôn hòa, dễ có bạn; Lộc thêm ích, Kỵ thêm hụt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q054",
+   "question": "Thiên Đồng ở Giao Hữu đồng độ với Kình Đà hoặc Hỏa Linh thì sao?",
+   "answer_atom": "Thiên Đồng đồng độ với Kình Dương, Đà La, sau trung niên mới có bạn bè hữu ích, trợ lực không thiếu. Có Hỏa Tinh, Linh Tinh đồng độ thì trợ lực không lâu dài. Nói chung hễ Thiên Đồng tọa cung bạn bè: gặp Kình Dương, Đà La chủ về tự chuốc thị phi; gặp Hỏa Tinh, Linh Tinh chủ về tự chuốc oán, hoặc quan hệ xa cách; gặp Địa Không, Địa Kiếp chủ về vì bạn bè hay người dưới quyền mà bị tổn thất, cũng chủ về bị phản bội.",
+   "source_quote": "Thiên Đồng đồng độ với Kình Dương, Đà La, sau trung niên mới có bạn bè hữu ích... gặp Hỏa Tinh, Linh Tinh, chủ về tự chuốc oán, hoặc quan hệ xa cách; gặp Địa Không, Địa Kiếp, chủ về vì bạn bè hay người dưới quyền mà bị tổn thất, cũng chủ về bị phản bội.",
+   "source_page": 763,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "kình_dương",
+    "đà_la",
+    "hỏa_tinh",
+    "linh_tinh",
+    "địa_không",
+    "địa_kiếp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng + Kình/Đà: bạn tốt đến muộn sau trung niên; Hỏa/Linh: ngắn ngủi; Không/Kiếp: phản bội.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q055",
+   "question": "Tổ hợp 'Thiên Đồng, Thái Âm' ở cung Giao Hữu luận thế nào?",
+   "answer_atom": "Tổ hợp Thiên Đồng và Thái Âm thông thường chủ về có bạn bè hữu ích. Hóa Lộc thì giao du bạn bè ở nhiều phương diện; nếu không gặp cát tinh thì không thể kéo dài. Gặp sát tinh, chủ về bị bạn bè hay người dưới quyền gây lụy. Thái Âm Hóa Kỵ sẽ chủ về phá tài — rất không nên hợp tác đầu tư với bạn bè. Đồng độ với Hỏa Tinh, Linh Tinh, chủ về không được bạn bè hay người dưới quyền tôn trọng.",
+   "source_quote": "Tổ hợp Thiên Đồng và Thái Âm, thông thường chủ về có bạn bè hữu ích... rất không nên hợp tác đầu tư với bạn bè. “Thiên Đồng, Thái Âm” đồng độ với Hỏa Tinh, Linh Tinh, chủ về không được bạn bè hay người dưới quyền tôn trọng.",
+   "source_page": 764,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "star:thai_am",
+    "thái_âm_hóa_kỵ",
+    "đầu_tư",
+    "tôn_trọng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Âm: bạn hữu ích; Âm Kỵ thì cấm kỵ chung vốn với bạn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q056",
+   "question": "Tổ hợp 'Thiên Đồng, Cự Môn' ở cung Giao Hữu vì sao dễ sinh hiểu lầm?",
+   "answer_atom": "Tổ hợp Thiên Đồng và Cự Môn, dù không gặp sát tinh cũng chủ về dễ sinh hiểu lầm; nếu gặp sát tinh, chủ về đổ vỡ tình cảm, tự chuốc thị phi, oán trách. 'Thiên Đồng, Cự Môn' ở cung bạn bè thì cung Mệnh ắt là Phá Quân, thường có khuynh hướng hợp tác với người khác làm việc, nhưng thường chia tay giữa đường, còn xảy ra hiểu lầm sâu nặng. Thiên Đồng chủ tình cảm, gặp Cự Môn thì tình cảm xảy ra 'u ám' nên dễ sinh hiểu lầm; nếu Địa Không, Địa Kiếp hội hợp lại gặp Âm Sát, chủ về giao du với người xấu mà bị gây lụy.",
+   "source_quote": "Nếu “Thiên Đồng, Cự Môn” ở cung bạn bè, thì cung mệnh ắt sẽ là Phá Quân, thường có khuynh hướng hợp tác với người khác làm việc, nhưng thường thường chia tay giữa đường... tình cảm bị ảnh hưởng của Cự Môn mà xảy ra “u ám”, cho nên dễ sinh hiểu lầm.",
+   "source_page": 764,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "star:cu_mon",
+    "palace:menh",
+    "hiểu_lầm",
+    "u_ám",
+    "âm_sát"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Cự: Cự Môn ám hóa tình cảm → hiểu lầm; Mệnh Phá Quân hợp tác nửa đường đứt gánh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q057",
+   "question": "Tổ hợp 'Thiên Đồng, Thiên Lương' ở cung Giao Hữu chủ về gì, vì sao không nên Hóa Lộc?",
+   "answer_atom": "Tổ hợp Thiên Đồng và Thiên Lương chủ về có bạn thân; Thiên Lương Hóa Khoa càng tốt. Thông thường đều chủ về người lớn tuổi, cũng có người dưới quyền nhờ cậy được; có Thiên Thọ đồng độ thì tuổi tác chênh lệch rất lớn. Nhưng 'Thiên Đồng, Thiên Lương' ở cung bạn bè không nên Hóa Lộc, dù Thiên Đồng Hóa Lộc cũng không nên — nếu không sẽ chủ về vì tiền mà gây hiểu lầm; gặp các sao sát, kị, hình sẽ chủ về bị tổn thất.",
+   "source_quote": "“Thiên Đồng, Thiên Lương” ở cung bạn bè, không nên Hóa Lộc, dù Thiên Đồng Hóa Lộc cũng không nên. Nếu không, sẽ chủ về vì tiền mà gây hiểu lầm.",
+   "source_page": 764,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "star:thien_luong",
+    "thiên_thọ",
+    "hóa_lộc",
+    "bạn_lớn_tuổi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương cho bạn thân vong niên; nhưng dính Lộc là dính tiền — tiền làm rạn tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q058",
+   "question": "'Thiên Đồng, Thiên Lương' ở Giao Hữu gặp Hỏa Linh hoặc Lộc Tồn Thiên Mã thì sao? Thiên Đồng đồng độ Lộc Tồn thì sao?",
+   "answer_atom": "'Thiên Đồng, Thiên Lương' chủ về dễ chia lìa với bạn tri giao hoặc người dưới quyền đắc lực; gặp Hỏa Tinh, Linh Tinh đồng độ, thường do hoàn cảnh ép buộc mà chia lìa. Gặp Lộc Tồn, Thiên Mã, chủ về mệnh tạo thường vì bạn bè hay người dưới quyền mà bôn ba bận rộn. Thiên Đồng đồng độ với Lộc Tồn, chủ về rất nhiệt tình với bạn, thường vì bạn mà bôn tẩu; nếu gặp Lộc Tồn và Thiên Mã, thì quý nhân không ở yên một nơi, may mà bản thân thường rời xa quê hương, tứ hải là nhà; cung Mệnh có sao cát sẽ chủ về sự nghiệp to tát.",
+   "source_quote": "gặp Hỏa Tinh, Linh Tinh đồng độ, thường thường do bị hoàn cảnh ép buộc mà chia lìa với bạn tri giao hoặc người dưới quyền đắc lực... Nếu gặp Lộc Tồn và Thiên Mã, thì bạn bè hay người dưới... Quý nhân không ở yên một nơi, may mà bản thân thường rời xa quê hương, tứ hải là nhà.",
+   "source_page": 764,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "star:thien_luong",
+    "lộc_tồn",
+    "thiên_mã",
+    "bôn_ba",
+    "tứ_hải_là_nhà"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương + Mã: quý nhân di động — mình cũng phải di động mới gặp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q059",
+   "question": "Những vị trí hãm địa nào của Thiên Đồng tại Giao Hữu cần lưu ý?",
+   "answer_atom": "Thiên Đồng và Cự Môn ở hai cung Sửu hoặc Mùi, và Thiên Đồng và Thái Âm ở cung Ngọ, đều rơi vào hãm địa. Thiên Đồng ở cung Thìn đối Cự Môn ở Tuất, Thiên Đồng ở Tuất đối Cự Môn ở Thìn; Cự Môn ở hai cung Thìn, Tuất đều lạc hãm, nên chủ về thị phi rất lớn. Vì vậy hễ Thiên Đồng thủ cung Giao Hữu, tuy giao du rộng nhưng vẫn nên đề phòng không có hiệu quả tốt; nhất là ứng nghiệm của Cự Môn, thường chủ về đột nhiên xảy ra hiểu lầm.",
+   "source_quote": "Thiên Đồng và Cự Môn ở hai cung Sửu hoặc Mùi, và Thiên Đồng và Thái Âm ở cung Ngọ, đều rơi vào hãm địa... Nhất là ứng nghiệm của Cự Môn, thường chủ về đột nhiên xảy ra hiểu lầm.",
+   "source_page": 765,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_dong",
+    "star:cu_mon",
+    "star:thai_am",
+    "hãm_địa",
+    "thị_phi",
+    "đột_nhiên_hiểu_lầm"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bản đồ hãm của Thiên Đồng: Đồng Cự Sửu/Mùi, Đồng Âm Ngọ, Cự đối chiếu Thìn/Tuất — thị phi lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q060",
+   "question": "Liêm Trinh ở cung Giao Hữu khác Thiên Đồng, Thiên Cơ, Tham Lang thế nào?",
+   "answer_atom": "Liêm Trinh thủ cung Giao Hữu cũng chủ về giao du rộng, nhưng khác các sao kia: Thiên Đồng kết giao rộng mà trọng giao tình, không có khuynh hướng bạn tửu sắc; Thiên Cơ phần nhiều chỉ qua lại sơ sơ, chưa chắc thường thù tạc; Tham Lang thì nặng ý vị tửu sắc; còn Liêm Trinh có thành phần tình cảm trong đó. Điểm cần chú ý nhất: Liêm Trinh có tình cảm nhưng thường là bề ngoài, cho nên không có nhiều bạn thân giao.",
+   "source_quote": "phân biệt với Tham Lang, Tham Lang thì nặng ý vị tửu sắc, còn Liêm Trinh thì có thành phần tình cảm trong đó. Điểm cần chú ý nhất là, Liêm Trinh có tình cảm, nhưng thường là bề ngoài, cho nên không có nhiều bạn thân giao.",
+   "source_page": 765,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "star:thien_dong",
+    "star:thien_co",
+    "star:tham_lang",
+    "tình_cảm_bề_ngoài"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Trinh = đào hoa thứ — quảng giao có tình nhưng tình nông, ít bạn thâm giao.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q061",
+   "question": "Liêm Trinh ở Giao Hữu đồng độ với các sát tinh thì mỗi loại chủ về gì?",
+   "answer_atom": "Liêm Trinh đồng độ với Hỏa Tinh, Linh Tinh: chủ về tình cảm xung động — nên bình tĩnh kiềm chế, không nên vì xung động mà nhiệt tình quá đáng, cũng không nên vì xung động mà làm đổ vỡ tình cảm. Đồng độ với Kình Dương, Đà La: chủ về vì tình cảm mà khởi thị phi; gặp thêm Thiên Hình, Đại Hao sẽ chủ về hao tài, phá tán, tổn thất. Có Địa Không, Địa Kiếp đồng cung: chủ về tình cảm dễ đổ vỡ, cũng chủ về người dưới quyền phản bội, bỏ đi.",
+   "source_quote": "Liêm Trinh đồng độ với Hỏa Tinh, Linh Tỉnh: Chủ về tình cảm xung động... Liêm Trinh có Địa Không, Địa Kiếp đồng cung: Chủ về tình cảm dễ đổ vỡ, cũng chủ về người dưới quyền phản bội, bỏ đi.",
+   "source_page": 765,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "hỏa_tinh",
+    "linh_tinh",
+    "kình_dương",
+    "đà_la",
+    "địa_không",
+    "địa_kiếp",
+    "xung_động"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm + sát: Hỏa/Linh = bốc đồng; Kình/Đà = thị phi tình cảm; Không/Kiếp = đổ vỡ phản bội.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q062",
+   "question": "Liêm Trinh ở Giao Hữu khi gặp cát tinh, Hóa Lộc, hoặc Văn Xương Văn Khúc thì sao?",
+   "answer_atom": "Nếu Liêm Trinh có sao cát hội hợp, thì giao du rộng, có nhiều người dưới quyền, mà còn có trợ lực. Nếu Liêm Trinh Hóa Lộc, càng chủ về có ích lợi. Liêm Trinh có Văn Xương, Văn Khúc đồng độ, phần nhiều là bạn thi tửu phong lưu; quan hệ với người dưới quyền cũng hòa hợp.",
+   "source_quote": "Nếu Liêm Trinh có sao cát hội hợp, thì giao du rộng, có nhiều người dưới quyền, mà còn có trợ lực. Nếu Liêm Trinh Hóa Lộc, càng chủ về có ích lợi. Liêm Trinh có Văn Xương, Văn Khúc đồng độ, phần nhiều là bạn thi tửu phong lưu.",
+   "source_page": 765,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "hóa_lộc",
+    "văn_xương",
+    "văn_khúc",
+    "thi_tửu_phong_lưu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm cát hóa = bạn đông có ích; thêm Xương Khúc = hội bạn văn nghệ phong lưu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q063",
+   "question": "'Liêm Trinh, Thiên Tướng' ở cung Giao Hữu kỵ gì?",
+   "answer_atom": "'Liêm Trinh, Thiên Tướng' không nên gặp các sao sát, kị, hình, hao — chủ về vì bạn phá tài, hoặc bị người dưới quyền phản bội dẫn đến hao tài, phá tán. Bị 'Hình Kỵ Giáp Ấn' lại gặp sát tinh, cũng chủ về bị bạn bè gây lụy, người dưới quyền oán trách.",
+   "source_quote": "“Liêm Trinh, Thiên Tướng” không nên gặp các sao sát, kị... chủ về bạn phá tài, hoặc bị người dưới quyền phản bội dẫn đến hao tài, phá tán. Bị “Hình Kỵ Giáp Ấn”, lại gặp sát tinh, cũng chủ về bị bạn bè gây lụy, người dưới quyền oán trách.",
+   "source_page": 765,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "hình_kỵ_giáp_ấn",
+    "phá_tài",
+    "phản_bội"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Tướng hung = bạn phá của, tớ phản chủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q064",
+   "question": "'Liêm Trinh, Tham Lang' ở cung Giao Hữu luận thế nào?",
+   "answer_atom": "'Liêm Trinh, Tham Lang' gặp Văn Xương, Văn Khúc và các sao đào hoa, chủ về phần nhiều là bạn bè tửu sắc; Liêm Trinh Hóa Kỵ thì vì vậy mà hao tài, phá tán; nếu Tham Lang Hóa Kỵ, thì giao du nhiều nhưng toàn là bạn bè xấu. Nếu Liêm Trinh Hóa Lộc, lại hội sao cát, chủ về nhờ giao tế thù tạc mà kiếm được tiền, cũng được người dưới quyền trợ lực; nhưng Tham Lang Hóa Lộc thì trợ lực không lâu dài. Nếu giao hội với các sao sát, kỵ, hình, hao, không, thì vì bạn bè hay người dưới quyền mà tự chuốc tai họa, hoặc bị bán đứng, hãm hại, dẫn đến phạm pháp, kiện tụng, phá tài, tổn thất.",
+   "source_quote": "Liêm Trinh, Tham Lang gặp Văn Xương, Văn Khúc, và các sao đào hoa, chủ về phần nhiều là bạn bè tửu sắc... nếu Tham Lang Hóa Kỵ, thì giao du nhiều nhưng toàn là bạn bè xấu... hoặc bị người dưới quyền bán đứng, hãm hại, dẫn đến phạm pháp, kiện tụng, phá tài, tổn thất.",
+   "source_page": 766,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "tửu_sắc",
+    "hóa_kỵ",
+    "hóa_lộc",
+    "kiện_tụng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Tham = song đào hoa thủ Giao Hữu: Lộc thì nhờ tiệc kiếm tiền, Kỵ thì bạn xấu họa lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q065",
+   "question": "'Liêm Trinh, Thiên Phủ', 'Liêm Trinh, Phá Quân', 'Liêm Trinh, Thất Sát' ở Giao Hữu luận thế nào?",
+   "answer_atom": "'Liêm Trinh, Thiên Phủ' chủ về có bạn bè hữu ích, người dưới quyền có trợ lực; nhưng Thiên Phủ là 'kho lộ', 'kho trống' sẽ chủ về tổn hao; chỉ có Thiên Phủ Hóa Khoa, Liêm Trinh Hóa Lộc mới chủ về có trợ lực còn kiếm được tiền. 'Liêm Trinh, Phá Quân' gặp sát, kỵ, hình, hao chủ về tình cảm rạn nứt, người dưới quyền phản bội bỏ đi; Phá Quân Hóa Lộc thì nhờ bạn quen được người trợ lực, người dưới quyền giải quyết được khó khăn nghiêm trọng; Liêm Trinh Hóa Kỵ hoặc đồng độ Kình Dương đều dễ kết giao lầm tiểu nhân. 'Liêm Trinh, Thất Sát' gặp sát, kỵ, hình chủ về bị gây lụy; gặp Lộc Tồn, Hóa Lộc thêm cát tinh thì có thể kiếm được tiền.",
+   "source_quote": "Liêm Trinh, Thiên Phủ chủ về có bạn bè hữu ích... chỉ có trường hợp Thiên Phủ Hóa Khoa, Liêm Trinh Hóa Lộc, mới chủ về có trợ lực, còn có thể kiếm được tiền... Nếu Phá Quân Hóa Lộc, sẽ chủ về nhờ bạn bè mà được quen biết với người có trợ lực.",
+   "source_page": 766,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "star:pha_quan",
+    "star:that_sat",
+    "kho_lộ",
+    "tiểu_nhân"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Phủ cần đúng đôi hóa (Phủ Khoa + Liêm Lộc); Liêm Phá nhờ Phá Lộc; Liêm Sát nhờ Lộc Tồn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q066",
+   "question": "Liêm Trinh có Văn Khúc Hóa Kỵ đồng độ ở Giao Hữu thì sao?",
+   "answer_atom": "Hễ Liêm Trinh có Văn Khúc Hóa Kỵ đồng độ, chủ về kết giao lầm tiểu nhân nên bị gây lụy; không nên nghe lời xu nịnh, mà bị lừa.",
+   "source_quote": "Lưu ý: Hễ Liêm Trinh có Văn Khúc Hóa Kỵ đồng độ, chủ về kết giao lầm tiểu nhân nên bị gây lụy; không nên nghe lời xu nịnh, mà bị lừa.",
+   "source_page": 766,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:liem_trinh",
+    "văn_khúc_hóa_kỵ",
+    "tiểu_nhân",
+    "xu_nịnh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Văn Khúc Kỵ cạnh Liêm Trinh = lời ngọt là bẫy.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q067",
+   "question": "Thiên Phủ thủ cung Giao Hữu có tính chất tổng quát gì?",
+   "answer_atom": "Thiên Phủ thủ cung Giao Hữu, chủ về giao du cẩn thận, nên có nhiều bạn bè hữu ích. Tuy nhiên cần phải gặp Thiên Khôi, Thiên Việt, Tả Phụ, Hữu Bật, mới chủ về có bạn tri giao và còn có người dưới quyền đắc lực. Thiên Phủ Hóa Khoa: bạn bè và người dưới quyền đều trung hậu, thành tín.",
+   "source_quote": "Thiên Phủ thủ cung Giao Hữu, chủ về giao du cẩn thận, nên có nhiều bạn bè hữu ích. Tuy nhiên, cần phải gặp Thiên Khôi, Thiên Việt, Tả Phụ, Hữu Bật, mới chủ về có bạn tri giao và còn có người dưới quyền đắc lực.",
+   "source_page": 767,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_phu",
+    "thiên_khôi",
+    "thiên_việt",
+    "tả_phụ",
+    "hữu_bật",
+    "hóa_khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Phủ chọn bạn kỹ; có Khôi Việt Tả Hữu mới thành tri giao đắc lực.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q068",
+   "question": "Thiên Phủ ở Giao Hữu gặp sát kỵ hình hao hoặc Không Kiếp thì sao?",
+   "answer_atom": "Nếu Thiên Phủ gặp các sao sát, kị, hình, hao hội hợp, hoặc hội Thiên Tướng thuộc loại 'Hình Kị Giáp Ấn', sẽ chủ về bạn bè hay người dưới quyền lấy oán báo ân; gặp thêm Thiên Diêu, Âm Sát, chủ về thuộc cấp âm mưu. Ngược lại, Thiên Tướng được 'Tài Ấm Giáp Ấn' thì chủ về được trợ lực. Nếu Thiên Phủ có Địa Không, Địa Kiếp, Thiên Hình, Đại Hao hội hợp, sẽ chủ về giao du với bạn bè xấu dẫn đến hao tài, phá tán; còn chủ về bị thuộc cấp trộm cắp, xâm phạm lợi ích.",
+   "source_quote": "hoặc hội Thiên Tướng lại thuộc loại “Hình kị giáp ấn”, sẽ chủ về bạn bè hay người dưới quyền lấy oán báo ân; nếu gặp thêm Thiên Diêu, Âm Sát, sẽ chủ về thuộc cấp âm mưu... còn chủ về bị thuộc cấp trộm cắp, xâm phạm lợi ích.",
+   "source_page": 767,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_phu",
+    "star:thien_tuong",
+    "hình_kỵ_giáp_ấn",
+    "tài_ấm_giáp_ấn",
+    "âm_mưu",
+    "trộm_cắp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phủ hung theo bậc: oán báo ân → âm mưu (Diêu, Âm Sát) → trộm cắp xâm phạm (Không Kiếp Hình Hao).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q069",
+   "question": "Thiên Phủ ở cung Dậu tại Giao Hữu vì sao tính chất rất xấu?",
+   "answer_atom": "Thiên Phủ ở cung Dậu lạc hãm, gặp 'Vũ Khúc, Thất Sát' cũng lạc hãm, tính chất rất xấu; trừ phi được hội sao cát hóa hoặc Thiên Phủ Hóa Khoa, nếu không sẽ chủ về không được trợ lực và ít giao du. Nếu hội Vũ Khúc Hóa Kị lại gặp các sao sát, hình, cần đề phòng bạn bè bất nghĩa và người dưới quyền hãm hại. Gặp Văn Khúc đồng độ với Vũ Khúc (bất kể Văn Khúc Hóa Kị hay Vũ Khúc Hóa Kị), đều chủ về người dưới quyền trộm cắp, xâm phạm lợi ích; cũng chủ về vì bạn bè mà hao tài, phá tán.",
+   "source_quote": "Thiên Phủ ở cung Dậu: Nếu Thiên Phủ lạc hãm, gặp “Vũ Khúc, Thất Sát” cũng lạc hãm, tính chất rất xấu... Gặp Văn Khúc đồng độ với Vũ Khúc (bất kể là Văn Khúc Hóa Kị hay Vũ Khúc Hóa Kị), đều chủ về người dưới quyền trộm cắp, xâm phạm lợi ích.",
+   "source_page": 767,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_phu",
+    "cung_dậu",
+    "lạc_hãm",
+    "vũ_khúc_hóa_kỵ",
+    "văn_khúc_hóa_kỵ",
+    "trộm_cắp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phủ Dậu là điểm yếu nhất của Thiên Phủ tại Giao Hữu — hai Kỵ (Vũ/Văn Khúc) đều ra trộm cắp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q070",
+   "question": "Thiên Phủ ở Giao Hữu đồng độ Lộc Tồn thì cấu trúc kéo theo gì, và vì sao phải xem kèm Thiên Tướng?",
+   "answer_atom": "Thiên Phủ ở cung Giao Hữu đồng độ với Lộc Tồn: cung Thiên Di ắt là Thái Âm đồng độ với Kình Dương; nếu Thái Âm lạc hãm, sẽ chủ về bôn ba mà còn tự chuốc thị phi; lợi ích phần lớn lọt vào tay bạn bè và người dưới quyền, mệnh tạo phải vất vả ngậm đắng nuốt cay mới duy trì được tình người. Ngoài ra cần xem xét kỹ Thiên Tướng: cát hung của Thiên Tướng ảnh hưởng rất lớn đến tính chất của Thiên Phủ; nếu Thiên Tướng lạc hãm còn gặp các sao sát, kị, cũng chủ về bị bạn bè hay người dưới quyền hãm hại, gây nên tổn thất.",
+   "source_quote": "đồng độ với Lộc Tồn: Cung Thiên Di ắt là Thái Âm đồng độ với Kình Dương... Về lợi ích phần lớn đều lọt vào tay bạn bè và người dưới quyền... cát hung của Thiên Tướng sẽ ảnh hưởng rất lớn đến tính chất của Thiên Phủ.",
+   "source_page": 767,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_phu",
+    "star:thien_tuong",
+    "lộc_tồn",
+    "palace:thien_di",
+    "thái_âm",
+    "kình_dương"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Quy tắc Phủ-Tướng vĩnh viễn khám xét cặp: tốt xấu của Tướng đổ thẳng vào Phủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q071",
+   "question": "Thái Âm ở cung Giao Hữu: nhập miếu/lạc hãm, sinh ban đêm/ban ngày khác nhau thế nào?",
+   "answer_atom": "Thái Âm nhập miếu, người sinh vào ban đêm, chủ về giao du rộng, còn có bạn bè hữu ích. Nếu lạc hãm, người sinh vào ban ngày, phần nhiều chỉ qua lại sơ sơ, mà phần nhiều là người xấu.",
+   "source_quote": "Thái Âm nhập miếu, người sinh vào ban đêm, chủ về giao du rộng, còn có bạn bè hữu ích. Nếu lạc hãm, người sinh vào ban ngày, phần nhiều chỉ qua lại sơ sơ, mà phần nhiều là người xấu.",
+   "source_page": 768,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_am",
+    "nhập_miếu",
+    "lạc_hãm",
+    "sinh_đêm",
+    "sinh_ngày"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Âm xét kép: miếu hãm + sinh đêm/ngày — miếu sinh đêm tốt nhất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q072",
+   "question": "Tứ hóa của Thái Âm ở cung Giao Hữu chủ về gì?",
+   "answer_atom": "Thái Âm Hóa Lộc: nhờ bạn bè trợ lực hoặc người dưới quyền phò tá mà kiếm được tiền. Hóa Quyền: được lợi ích về phương diện quyền tài chính. Hóa Khoa: có bạn bè và người dưới quyền trung thành có thể nhờ cậy. Hóa Kỵ: bị gây lụy mà phá tài, bị ảnh hưởng của bạn bè mà đầu tư thất bại, hoặc vì người dưới quyền mà hao tài, phá tán.",
+   "source_quote": "Thái Âm Hóa Lộc, chủ về nhờ bạn bè trợ lực, hoặc người dưới quyền phò tá mà kiếm được tiền... Nếu Thái Âm Hóa Kỵ, sẽ chủ về bị gây lụy mà phá tài, cũng chủ về bị ảnh hưởng của bạn bè mà đầu tư thất bại.",
+   "source_page": 768,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_am",
+    "hóa_lộc",
+    "hóa_quyền",
+    "hóa_khoa",
+    "hóa_kỵ",
+    "đầu_tư",
+    "tài_chính"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tứ hóa Thái Âm đều xoay quanh trục tiền bạc: Lộc kiếm, Quyền nắm, Khoa tin, Kỵ mất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q073",
+   "question": "Thái Âm ở Giao Hữu gặp các tổ hợp hung tinh thì sao?",
+   "answer_atom": "Thái Âm hội Thiên Cơ Hóa Kỵ, chủ về bị nói xấu; gặp Thiên Diêu, Âm Sát, Chỉ Bối, Kiếp Sát, chủ về bị giở thủ đoạn, âm mưu. Thái Âm lạc hãm có Thiên Hình, Âm Sát đồng độ, lại hội Kình Dương, Đà La, chủ về bị uy hiếp; gặp thêm sát, kị thì chuốc họa tai. Đồng độ với Hỏa Tinh, Linh Tinh, hoặc với Lộc Tồn, đều chủ về vì chuyện của bạn bè hay người dưới quyền mà bôn ba bận rộn. Đồng cung Địa Không, Địa Kiếp, Thiên Hình lại lạc hãm, chủ về vì bạn và người dưới quyền mà phá tài; có Văn Khúc Hóa Kỵ cùng bay đến, thì bị xâm phạm lợi ích, trộm cắp.",
+   "source_quote": "Thái Âm hội Thiên Cơ Hóa Kỵ, chủ về bị nói xấu; gặp Thiên Diêu, Âm Sát, Chỉ Bối, Kiếp Sát, sẽ chủ về bị giở thủ đoạn, âm mưu... Có Văn Khúc Hóa Kỵ cùng bay đến, thì bị xâm phạm lợi ích, trộm cắp.",
+   "source_page": 768,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_am",
+    "thiên_cơ_hóa_kỵ",
+    "âm_sát",
+    "thiên_diêu",
+    "kiếp_sát",
+    "văn_khúc_hóa_kỵ",
+    "uy_hiếp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm tính sao Thái Âm gặp ám tinh (Diêu, Âm Sát, Chỉ Bối) = đòn ngầm sau lưng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q074",
+   "question": "Thái Âm nhập miếu được cát hóa nhưng gặp thêm sát tinh ở Giao Hữu thì sao?",
+   "answer_atom": "Thái Âm nhập miếu, gặp các sao phụ, tá hội hợp, người sinh ban đêm, chủ về có nhiều người dưới quyền đắc lực, nhưng bản thân vẫn khó tránh bôn ba, bận rộn. Thái Âm được cát hóa, có sao cát, nhưng đồng thời gặp thêm sát tinh, sẽ chủ về thường thay đổi người dưới quyền đắc lực, bạn bè hữu nghị cũng khó lâu dài. Có Thái Dương đồng độ hoặc vây chiếu thì chủ về quan hệ lúc lạnh lúc nóng.",
+   "source_quote": "Thái Âm được cát hóa, có sao cát, nhưng đồng thời lại gặp thêm sát tinh, sẽ chủ về thường thay đổi người dưới quyền đắc lực, bạn bè hữu nghị cũng khó lâu dài. Có Thái Dương đồng độ hoặc vây chiếu thì chủ về lúc lạnh lúc nóng.",
+   "source_page": 768,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thai_am",
+    "star:thai_duong",
+    "cát_hóa",
+    "thay_đổi",
+    "lúc_lạnh_lúc_nóng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cát + sát lẫn lộn = có người tốt nhưng giữ không bền; Dương chiếu thì tình bạn thất thường.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q075",
+   "question": "Tham Lang ở cung Giao Hữu có tính chất cơ bản gì?",
+   "answer_atom": "Tham Lang chủ về thù tạc. Ở cung Giao Hữu, tính chất cơ bản là đã có nhiều bạn bè, cần phải được cát hóa và có sao cát mới chủ về hữu ích và có nhiều người dưới quyền. Nếu không, chỉ là giao du sơ sơ.",
+   "source_quote": "Tham Lang chủ về thù tạc. Ở cung Giao Hữu, tính chất cơ bản là đã có nhiều bạn bè, cần phải được cát hóa và có sao cát mới chủ về hữu ích và có nhiều người dưới quyền. Nếu không, chỉ là giao du sơ sở.",
+   "source_page": 769,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tham_lang",
+    "thù_tạc",
+    "cát_hóa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Lang = sao tiệc tùng: bạn đông sẵn, nhưng chất phải nhờ cát hóa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q076",
+   "question": "Tham Lang ở Giao Hữu khi nào là bạn tửu sắc, khi nào là bạn đắc lực?",
+   "answer_atom": "Nếu Tham Lang có các sao Đào Hoa đồng độ, lại gặp Thiên Hư, Đại Hao, Thiên Diêu, Âm Sát, sẽ chủ về giao du với bạn bè tửu sắc, nhưng lúc gặp chuyện thì không trợ lực. Tham Lang hội sao phụ, tá cát, lại gặp Thiên Vu, Ân Quang, Thiên Phúc, mới chủ về có bạn bè và người dưới quyền đắc lực. Gặp các sao phụ, tá đều là sao đôi, chủ về có nhiều bạn bè và người dưới quyền.",
+   "source_quote": "Nếu Tham Lang có các sao Đào Hoa đồng độ, lại gặp Thiên Hư, Đại Hao, Thiên Diêu, Âm Sát, sẽ chủ về giao du với bạn bè tửu sắc, nhưng lúc gặp chuyện thì không trợ lực. Tham Lang hội sao Phụ, Tá Cát, lại gặp Thiên Vu, Ân Quang, Thiên Phúc, mới chủ về có bạn bè và người dưới quyền đắc lực.",
+   "source_page": 769,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tham_lang",
+    "đào_hoa",
+    "thiên_vu",
+    "ân_quang",
+    "thiên_phúc",
+    "sao_đôi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phân thật giả bạn của Tham Lang: đào hoa + hư hao = bạn nhậu; phụ tá + quý tinh = bạn thật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q077",
+   "question": "Tham Lang Hóa Lộc và Tham Lang Hóa Kỵ ở cung Giao Hữu khác nhau thế nào?",
+   "answer_atom": "Tham Lang có cát hóa hội hợp, nhất là Tham Lang Hóa Lộc, chủ về được bạn bè hoan nghênh, người dưới quyền ủng hộ và yêu mến — nhưng chỉ giới hạn trong giao tình, không chủ về có quyền uy. Tham Lang Hóa Kỵ ở cung Giao Hữu, chủ về bị bạn bè và người dưới quyền chiếm đoạt lợi ích; gặp thêm các sao Đào Hoa, Văn Xương, Văn Khúc, sẽ chủ về vì tửu sắc mà gây ra họa. Trường hợp có sát tinh đồng độ gặp các sao Đào Hoa, chủ về vì tửu sắc mà chuốc họa tai, thị phi; hội Hóa Kỵ chủ về bị hãm hại, gây lụy; gặp thêm Địa Không, Địa Kiếp thì vì vậy mà phá tài.",
+   "source_quote": "nhất là Tham Lang Hóa Lộc, sẽ chủ về được bạn bè hoan nghênh, người dưới quyền ủng hộ và yêu mến, nhưng chỉ giới hạn trong giao tình, mà không chủ về có quyền uy... Tham Lang Hóa Kỵ ở cung Giao Hữu, chủ về bị bạn bè và người dưới quyền chiếm đoạt lợi ích.",
+   "source_page": 769,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tham_lang",
+    "hóa_lộc",
+    "hóa_kỵ",
+    "hoan_nghênh",
+    "chiếm_đoạt",
+    "tửu_sắc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Lộc cho sự mến mộ chứ không cho quyền; Tham Kỵ thì bị bòn rút lợi ích.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q078",
+   "question": "Tham Lang ở các cặp cung Tý/Ngọ, Dần/Thân, Thìn/Tuất tại Giao Hữu khác nhau thế nào?",
+   "answer_atom": "Tham Lang ở hai cung Tý hoặc Ngọ: có thể giao du với bạn bè hữu ích mà lớn tuổi; nếu thành 'Phiếm Thủy Đào Hoa' hoặc hội các sao Đào Hoa, chủ về có tình cảm với người dưới quyền. Ở hai cung Dần hoặc Thân: dễ giao du với bạn xấu, cần gặp các sao phụ, tá cát mới tránh được; gặp sát tinh và Hóa Kỵ, chủ về bị người dưới quyền đoạt quyền. Ở hai cung Thìn hoặc Tuất: không có sao cát thì người dưới quyền không nhờ cậy được, dễ có lòng xâm phạm lợi ích của mệnh tạo; gặp cát tinh thì người dưới quyền đắc lực.",
+   "source_quote": "Tham Lang ở hai cung Tý hoặc Ngọ, có thể giao du với bạn bè hữu ích mà lớn tuổi... Tham Lang ở hai cung Dần hoặc Thân, dễ giao du với bạn xấu... Tham Lang ở hai cung Thìn hoặc Tuất, không có sao cát, chủ về người dưới quyền không nhờ cậy được.",
+   "source_page": 769,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tham_lang",
+    "cung_tý",
+    "cung_ngọ",
+    "cung_dần",
+    "cung_thân",
+    "cung_thìn",
+    "cung_tuất",
+    "phiếm_thủy_đào_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bản đồ Tham Lang: Tý/Ngọ bạn lớn tuổi; Dần/Thân bạn xấu; Thìn/Tuất tớ khó nhờ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q079",
+   "question": "'Hỏa Tham', 'Linh Tham' ở Giao Hữu và lưu niên Tham Lang Hóa Kỵ thì sao?",
+   "answer_atom": "'Hỏa Tham', 'Linh Tham' chủ về người dưới quyền đột nhiên tăng lên nhiều. Đến lưu niên Tham Lang ở cung Giao Hữu Hóa Kỵ, gặp các sao Sát, Hao, thì nên đề phòng bị bạn bè hay người dưới quyền gây lụy; gặp Bạch Hổ, Quan Phù, Quán Sách, thì vì vậy mà bị kiện tụng.",
+   "source_quote": "“Hỏa Tham”, “Linh Tham”, chủ về người dưới quyền đột nhiên tăng lên nhiều. Đến lưu niên Tham Lang ở cung Giao Hữu, Hóa Kỵ, gặp các... Sao Sát, Hao... gặp Bạch Hổ, Quan Phù, Quản Sách, thì vì vậy mà bị kiện tụng.",
+   "source_page": 770,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:tham_lang",
+    "hỏa_tham",
+    "linh_tham",
+    "lưu_niên",
+    "bạch_hổ",
+    "quan_phù",
+    "kiện_tụng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa/Linh Tham = quân số phình đột ngột; lưu niên Tham Kỵ + Hổ Phù = họa kiện tụng từ người quen.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q080",
+   "question": "Cự Môn thủ cung Giao Hữu khi cát và khi hung chủ về gì?",
+   "answer_atom": "Hễ Cự Môn thủ cung Giao Hữu, tình hình cát sẽ chủ về có tài ăn nói; tình hình hung sẽ chủ về điều tiếng, tranh cãi ồn ào. Nếu Cự Môn hội Hóa Lộc hay Hóa Quyền, hoặc có Lộc Tồn đồng độ, lại gặp các sao phụ tá cát, sẽ chủ về có bạn giỏi ăn nói và biện luận, có thể giúp bản thân sáng lập sự nghiệp; người dưới quyền cũng vậy; hoặc nhờ bạn bè và người dưới quyền bàn bạc mà làm nên sự nghiệp.",
+   "source_quote": "tình hình cát sẽ chủ về có tài ăn nói; tình hình hung sẽ chủ về điều tiếng, tranh cãi ồn ào... sẽ chủ về có bạn giỏi ăn nói và biện luận, có thể giúp bản thân sáng lập sự nghiệp.",
+   "source_page": 770,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:cu_mon",
+    "tài_ăn_nói",
+    "hóa_lộc",
+    "hóa_quyền",
+    "lộc_tồn",
+    "biện_luận"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Môn = cái miệng: cát thành mưu sĩ biện tài, hung thành cãi vã ồn ào.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q081",
+   "question": "Cự Môn không có cát hóa, gặp sát tinh ở Giao Hữu thì sao, nghề nào hóa giải được?",
+   "answer_atom": "Nếu Cự Môn không có cát hóa, gặp sát tinh, sẽ chủ về bạn bè hay người dưới quyền đều không đắc lực, giữa hai bên xảy ra nhiều điều tiếng, tranh cãi ồn ào. Nếu mệnh tạo là người hoạt động trong những ngành nghề 'dùng tài ăn nói để kiếm tiền' — như công tác pháp luật, quan hệ công chúng, dạy học — thì có thể cải thiện được tình trạng này.",
+   "source_quote": "Nếu mệnh tạo là người hoạt động trong những ngành nghề “dùng tài ăn nói để kiếm tiền”, thì có thể cải thiện được tình trạng này, như công tác pháp luật, quan hệ công chúng, dạy học, v.v...",
+   "source_page": 770,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:cu_mon",
+    "sát_tinh",
+    "nghề_ăn_nói",
+    "pháp_luật",
+    "hóa_giải_bằng_nghề"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Mẹo hóa giải Trung Châu: tính thị phi của Cự Môn được 'xài hết' vào nghề nói — luật, PR, dạy học.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q082",
+   "question": "Cự Môn Hóa Kỵ hoặc gặp Văn Khúc Hóa Kỵ ở cung Giao Hữu thì sao?",
+   "answer_atom": "Cự Môn Hóa Kỵ chủ về bạn bè và người dưới quyền đều ít. Gặp sát tinh, chủ về bị gây lụy dẫn đến điều tiếng thị phi, hoặc bị người dưới quyền phản bội; gặp thêm Địa Không, Địa Kiếp, Đại Hao, Âm Sát, Kiếp Sát, thì vì bạn bè gây lụy mà hao tài, vì người dưới quyền phản bội mà tổn thất, thậm chí bị xâm phạm lợi ích, trộm cắp. Nếu Cự Môn có Văn Khúc Hóa Kỵ đồng cung hoặc vây chiếu, chủ về bạn bè hay người dưới quyền thất hứa dẫn đến bị gây lụy; gặp tứ sát và Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, Âm Sát, Kiếp Sát thì bị xâm phạm lợi ích, trộm cắp.",
+   "source_quote": "Nếu Cự Môn Hóa Kỵ, sẽ chủ về bạn bè và người dưới quyền đều ít... Nếu Cự Môn có Văn Khúc Hóa Kỵ đồng cung hoặc vây chiếu, sẽ chủ về bạn bè hay người dưới quyền thất hứa dẫn đến bị gây lụy.",
+   "source_page": 770,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:cu_mon",
+    "hóa_kỵ",
+    "văn_khúc_hóa_kỵ",
+    "thất_hứa",
+    "phản_bội",
+    "trộm_cắp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Kỵ = ít bạn lại lắm chuyện; Văn Khúc Kỵ kèm theo = bạn hứa rồi nuốt lời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q083",
+   "question": "Tổ hợp Thái Dương-Cự Môn và Thiên Cơ-Cự Môn ở cung Giao Hữu (theo mục Cự Môn) khác nhau thế nào?",
+   "answer_atom": "Tổ hợp Thái Dương và Cự Môn: nếu Thái Dương nhập miếu, chủ về có bạn tốt, dám nói thẳng, can ngăn; Thái Dương Hóa Kỵ thì thị phi, chuốc oán; nếu hội Hóa Quyền và Hóa Lộc, chủ về kết giao với người ngoại quốc (hay người phương xa) và được nâng đỡ. Tổ hợp Thiên Cơ và Cự Môn: chủ về bạn bè hay người dưới quyền khẩu Phật tâm xà, phần nhiều không thực lòng, bề ngoài tỏ vẻ bôn ba bận rộn nhưng thực ra không có trợ lực; Cự Môn Hóa Kỵ thì kết cục càng xấu, gặp thêm các sao sát, hao sẽ chủ về hao tài, phá tán.",
+   "source_quote": "Tổ hợp Thiên Cơ và Cự Môn: Chủ về bạn bè hay người dưới quyền khẩu Phật tâm Xà; bạn bè và người dưới quyền phần nhiều đều không thực lòng, bề ngoài tỏ vẻ bôn ba bận rộn, nhưng thực ra... không có trợ lực.",
+   "source_page": 770,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:cu_mon",
+    "star:thai_duong",
+    "star:thien_co",
+    "khẩu_phật_tâm_xà",
+    "người_ngoại_quốc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Cự cát = bạn ngoại quốc nói thẳng; Cơ Cự = miệng Phật lòng rắn, diễn bận rộn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q084",
+   "question": "Thiên Tướng thủ cung Giao Hữu có tính chất tổng quát gì?",
+   "answer_atom": "Thiên Tướng thủ cung Giao Hữu, trong các tình hình thông thường chủ về có người dưới quyền và bạn bè trung thành; nhưng cần phải gặp Tả Phụ, Hữu Bật mới chủ về đắc lực; Tả Phụ và Hữu Bật giáp cung Thiên Tướng cũng vậy. Gặp Hóa Lộc, Hóa Quyền, Hóa Khoa, hoặc có Lộc Tồn hội hợp, chủ về phần nhiều giao du với bạn bè trợ lực, có thể giúp tạo dựng sự nghiệp; người dưới quyền cũng trung thành phò tá.",
+   "source_quote": "Thiên Tướng thủ cung Giao Hữu, trong các tình hình thông thường để chủ về có người dưới quyền và bạn bè trung thành; nhưng cần phải gặp Tả Phụ, Hữu Bật, mới chủ về đắc lực; Tả Phụ và Hữu Bật giáp cung Thiên Tướng cũng vậy.",
+   "source_page": 771,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_tuong",
+    "tả_phụ",
+    "hữu_bật",
+    "trung_thành",
+    "giáp_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Tướng cho bạn trung thành; Tả Hữu (đồng cung hay giáp) mới biến trung thành thành đắc lực.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q085",
+   "question": "Thiên Tướng ở Giao Hữu gặp tứ sát, Hóa Kỵ, Hình Hao hoặc Không Kiếp thì sao?",
+   "answer_atom": "Thiên Tướng gặp tứ sát tinh, Hóa Kỵ, Thiên Hình, Đại Hao, chủ về kết giao nhiều nhưng không phải người tốt, có thể trợ ác mà không giúp thiện, người dưới quyền cũng vậy. Nếu gặp Địa Không, Địa Kiếp, Âm Sát, Thiên Vu, Kiếp Sát, sẽ chủ về nhận lỗi thay cho người khác, vì vậy mà phá tán, tổn hao.",
+   "source_quote": "Thiên Tướng gặp Tứ Sát Tinh, Hóa Kỵ, Thiên Hình, Đại Hao, chủ về kết giao nhiễu nhưng không phải là người tốt, có thể trợ ác mà không giúp thiện... sẽ chủ về nhận lỗi thay cho người khác, vì vậy mà phá tán, tổn hao.",
+   "source_page": 771,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_tuong",
+    "tứ_sát",
+    "trợ_ác",
+    "nhận_lỗi_thay",
+    "kiếp_sát"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng hung = kết bạn phù ác; nặng hơn thì đứng mũi chịu sào thay kẻ khác.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q086",
+   "question": "Ba tổ hợp Tử Tướng, Vũ Tướng, Liêm Tướng ở cung Giao Hữu cát hung thế nào?",
+   "answer_atom": "'Tử Vi, Thiên Tướng' — cát: được bạn và người dưới quyền có lòng chính nghĩa; hung: tớ hiếp đáp chủ. 'Vũ Khúc, Thiên Tướng' — cát: có thể trợ giúp kiếm tiền; hung: bị lấy oán báo ân, sát tinh nặng thì bị uy hiếp. 'Liêm Trinh, Thiên Tướng' — cát: tình cảm sâu đậm; hung: trong tình cảm có sự u ám, gặp sát tinh nặng thì sinh tai họa.",
+   "source_quote": "Tổ hợp “Tử Vi, Thiên Tướng”: Tình hình cát: Được bạn và người dưới quyền có lòng chính nghĩa. Tình hình hung: Tổ hiếp đáp chủ... Tổ hợp “Liêm Trinh, Thiên Tướng”: Tình hình cát: Tình cảm sâu đậm. Tình hình hung: Trong tình cảm có sự u ám.",
+   "source_page": 771,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_tuong",
+    "star:tu_vi",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "chính_nghĩa",
+    "uy_hiếp",
+    "u_ám"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bảng tam tổ hợp Thiên Tướng: Tử = nghĩa/hiếp chủ; Vũ = tiền/oán ân; Liêm = tình/u ám.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q087",
+   "question": "Vì sao Thiên Tướng thủ Giao Hữu có tính bất thường, và hạn chế của người dưới quyền là gì?",
+   "answer_atom": "Hễ Thiên Tướng thủ cung Giao Hữu, ắt sẽ đối nhau với Phá Quân, cho nên về tính chất đã có tính bất thường; cần gặp Tả Phụ, Hữu Bật, hoặc gặp sao lộc, mới có thể điều hòa; gặp sát, kỵ ắt sinh bất lợi. Trừ phi 'Tử Vi, Thiên Tướng' thủ cung Giao Hữu, các trường hợp còn lại, bất kể người dưới quyền trung thành đắc lực thế nào cũng chẳng phải người có tài của bậc đại tướng, nên mệnh tạo phải vất vả lo toàn, chủ trì đại cục; nhất là khi đến cung hạn có Cự Môn đồng độ thủ cung Mệnh của Đại Vận hoặc Lưu Niên, là điềm tượng bản thân cần phải lao tâm tổn thần. Ngoài ra Thiên Tướng hội Thiên Phủ 'kho lộ', 'kho trống' cũng chủ về vì bạn và người dưới quyền mà hao tài; hội 'kho phủ đầy ắp' mới trung thành, nhờ cậy được.",
+   "source_quote": "Hễ Thiên Tướng thủ cung Giao Hữu, ắt sẽ đối nhau với Phá Quân, cho nên về phương diện tính chất đã có tính chất bất thường... bất kể người dưới quyền trung thành và đắc lực thế nào thì cũng chẳng phải là người có tài của bậc đại tướng, cho nên bản thân mệnh tạo phải vất vả lo... toàn, chủ trì đại cục.",
+   "source_page": 772,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_tuong",
+    "star:pha_quan",
+    "đối_cung",
+    "đại_vận",
+    "lưu_niên",
+    "cự_môn",
+    "kho_lộ"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng luôn bị Phá Quân chiếu → nền bất ổn; tớ trung mấy cũng không thay chủ gánh đại cục được.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q088",
+   "question": "Thiên Lương ở cung Giao Hữu có tính chất tổng quát gì?",
+   "answer_atom": "Thiên Lương là sao 'cô độc và hình khắc', trừ phi gặp các sao phụ, tá cát, nếu không sẽ không chủ về giao du rộng và có nhiều người dưới quyền. Thiên Lương Hóa Quyền hay Hóa Khoa, hoặc có cát hóa hội hợp, mới chủ về được bạn bè và người dưới quyền trợ lực, và họ cũng là người chính trực, có nghĩa khí.",
+   "source_quote": "Thiên Lương là sao “cô độc và hình khắc”, trừ phi gặp các sao phụ, tá cát, nếu không sẽ không chủ về giao du rộng và có nhiều người dưới quyền. Thiên Lương Hóa Quyền hay Hóa Khoa... họ cũng là người chính trực, có nghĩa khí.",
+   "source_page": 772,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_luong",
+    "cô_độc",
+    "hình_khắc",
+    "hóa_quyền",
+    "hóa_khoa",
+    "nghĩa_khí"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương vốn cô khắc — ít bạn; nhưng khi cát thì bạn là người chính trực nghĩa khí.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q089",
+   "question": "Thiên Lương ở Giao Hữu gặp Thiên Mã, Lộc Tồn, Hóa Lộc thì vì sao bất lợi?",
+   "answer_atom": "Thiên Lương có Thiên Mã đồng độ, bạn giao dễ ly tán, cũng chủ về thường thay đổi người dưới quyền, nên bản thân rất bôn ba bận rộn; có Lộc Tồn và Thiên Mã đồng độ thì càng nặng, còn chủ về bạn bè hay người dưới quyền có tư tâm, mưu lợi riêng. Thiên Lương Hóa Lộc, hoặc có Lộc Tồn đồng độ, sẽ chủ về bạn bè và người dưới quyền có lòng vì tư lợi; gặp thêm sát tinh và Địa Không, Địa Kiếp thì bị gây lụy mà tổn thất; gặp Âm Sát, Thiên Diêu, thì bị bán đứng.",
+   "source_quote": "Thiên Lương Hóa Lộc, hoặc có Lộc Tồn đồng độ, sẽ chủ về bạn bè và người dưới quyền có lòng vì tư lợi; gặp thêm Sát Tinh và Địa Không, Địa Kiếp thì bị gây lụy mà tổn thất; gặp Âm Sát, Thiên Diêu, thì bị bán đứng.",
+   "source_page": 772,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_luong",
+    "thiên_mã",
+    "lộc_tồn",
+    "hóa_lộc",
+    "tư_lợi",
+    "bán_đứng"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Lương kỵ dính Lộc/Mã tại Giao Hữu: Mã làm tan, Lộc làm bạn sinh lòng tư lợi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q090",
+   "question": "Thiên Lương ở Giao Hữu có tứ sát hội chiếu hoặc Văn Xương/Văn Khúc Hóa Kỵ thì sao?",
+   "answer_atom": "Thiên Lương có tứ sát tinh hội chiếu, vì bạn bè hay người dưới quyền mà xảy ra thị phi, bất hòa, tranh chấp; gặp thêm Địa Không, Địa Kiếp sẽ chủ về hao tài, tổn thất; gặp Văn Xương hay Văn Khúc Hóa Kỵ, thì nhiều thị phi còn biến thành chuyện lớn, cũng chủ về bạn bè hay người dưới quyền bội tín.",
+   "source_quote": "Thiên Lương có Tứ Sát Tinh hội chiếu, vì bạn bè hay người dưới quyền mà xảy ra thị phi, bất hòa, tranh chấp; gặp thêm Địa Không, Địa Kiếp sẽ chủ về hao tài, tổn thất; gặp Văn Xương hay Văn Khúc Hóa Kỵ, thì nhiều thị phi, còn biến thành chuyện lớn, cũng chủ về bạn bè hay người dưới quyền bội tín.",
+   "source_page": 772,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_luong",
+    "tứ_sát",
+    "văn_xương_hóa_kỵ",
+    "văn_khúc_hóa_kỵ",
+    "bội_tín"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương + Xương/Khúc Kỵ = chuyện nhỏ xé to, bạn nuốt lời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q091",
+   "question": "Các tổ hợp Dương Lương, Đồng Lương, Cơ Lương ở cung Giao Hữu (mục Thiên Lương) luận thế nào?",
+   "answer_atom": "'Thái Dương, Thiên Lương' mà Thái Dương được cát hóa, chủ về kết giao với người không phú cũng quý; nhưng cần gặp Tả Phụ, Hữu Bật mới có trợ lực, nếu không bất quá giao du sơ sơ; Thái Dương Hóa Kỵ thì nhận lỗi thay người, tự chuốc oán, thị phi. 'Thiên Đồng, Thiên Lương' ở cung Dần là tốt nhất — có bạn hữu ích, người dưới quyền lo được đại cục; gặp sát tinh thì dễ ly tán. 'Thiên Cơ, Thiên Lương' có nhiều bạn và người dưới quyền nhưng dễ chia lìa; gặp sát, kị, hình, hao, không, kiếp chủ về bị phản bội gây tổn thất; sao hung nặng thì bị âm mưu hãm hại; gặp Âm Sát, Văn Khúc Hóa Kỵ thì bị xâm phạm lợi ích. Thiên Lương gặp cát tinh thành cách 'Cơ Nguyệt Đồng Lương', chủ về có nhiều người dưới quyền đắc lực nhưng thiếu năng lực sáng tạo, chỉ làm được trong cục diện đã thành nếp.",
+   "source_quote": "Tổ hợp “Thiên Đổng, Thiên Lương” ở cung Dần là tốt nhất... thành cách “Cơ Nguyệt Đồng Lương”, chủ về có nhiều người dưới quyền đắc lực, nhưng thiếu năng lực sáng tạo, chỉ có thể làm việc trong cục diện đã thành nếp.",
+   "source_page": 773,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:thien_luong",
+    "star:thai_duong",
+    "star:thien_dong",
+    "star:thien_co",
+    "cung_dần",
+    "cơ_nguyệt_đồng_lương"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương Dần là đỉnh; Cơ Nguyệt Đồng Lương cho đội ngũ chăm chỉ nhưng không sáng tạo.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q092",
+   "question": "Thất Sát thủ cung Giao Hữu có tính chất tổng quát gì, cần gì để điều hòa?",
+   "answer_atom": "Thất Sát thủ cung Giao Hữu, chủ về giao du không rộng, người dưới quyền ít. Có các sao phụ, tá cát hội hợp mới có thể tăng nhiều, nhưng vẫn không tăng trợ lực. Thất Sát cần phải gặp Hóa Lộc, hoặc hội Lộc Tồn, mới có thể điều hòa, chủ về được trợ lực để kiếm tiền.",
+   "source_quote": "Thất Sát thủ cung giao hội, chủ về giao du không rộng, người dưới quyền ít. Nếu có các sao phụ, tá cát hội hợp, mới có thể tăng nhiễu, nhưng vẫn không tăng trợ lực. Thất Sát cần phải gặp Hóa Lộc, hoặc hội Lộc Tồn, mới có thể điều hòa.",
+   "source_page": 773,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:that_sat",
+    "giao_du_hẹp",
+    "hóa_lộc",
+    "lộc_tồn",
+    "điều_hòa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thất Sát cô tinh: bạn ít; chỉ sao lộc mới hóa giải được sát khí thành trợ lực kiếm tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q093",
+   "question": "Thất Sát đồng độ Lộc Tồn ở Giao Hữu vì sao lại xấu?",
+   "answer_atom": "Thất Sát đồng độ với Lộc Tồn, thì bị Kình Dương và Đà La giáp cung, lại chủ về dễ giao du với tiểu nhân, mệnh tạo sẽ bị bạn bè chèn ép, hoặc bị người dưới quyền uy hiếp; nếu có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao hội hợp, thì vì vậy mà bị tổn thất, hao tài, phá tán.",
+   "source_quote": "Thất Sát đồng độ với Lộc Tồn, thì bị Kình Dương và Đà La giáp cung, lại chủ về dễ giao du với tiểu nhân, bản thân mệnh tạo sẽ bị bạn bè chèn ép, hoặc bị người dưới quyền uy hiếp.",
+   "source_page": 773,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:that_sat",
+    "lộc_tồn",
+    "kình_đà_giáp",
+    "tiểu_nhân",
+    "chèn_ép",
+    "uy_hiếp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc Tồn đồng độ ≠ hội chiếu: đồng độ kéo Kình-Đà giáp cung → tiểu nhân vây quanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q094",
+   "question": "Thất Sát ở Giao Hữu gặp Hóa Quyền, Hỏa Tinh, hay 'Hỏa Tham/Linh Tham' thì sao?",
+   "answer_atom": "Thất Sát có sát tinh cùng bay đến thì không nên hội hợp với Hóa Quyền, nếu không sẽ chủ về tớ hiếp đáp chủ; gặp Địa Không, Địa Kiếp, Đại Hao, Thiên Hư, Âm Sát, Kiếp Sát thì bị họ nắm được nhược điểm và xâm phạm lợi ích. Thất Sát có Hỏa Tinh đồng độ, gặp cát tinh, chủ về bạn bè hay người dưới quyền có trợ lực cực lớn nhưng được hơi chậm. Thất Sát hội 'Hỏa Tham', 'Linh Tham', chủ về bạn bè hay người dưới quyền đột ngột tăng nhiều, nhưng cũng dễ đột nhiên ly tán.",
+   "source_quote": "Thất Sát có sát tinh cùng bay đến, thì không nên hội hợp với Hóa Quyền, nếu không sẽ chủ về tớ hiếp đáp chủ... Thất Sát có Hỏa Tinh đồng độ, gặp cát tinh, chủ về bạn bè hay người dưới quyền có trợ lực cực lớn nhưng được hơi chậm.",
+   "source_page": 773,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:that_sat",
+    "hóa_quyền",
+    "tớ_hiếp_chủ",
+    "hỏa_tinh",
+    "hỏa_tham",
+    "linh_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát + sát tinh + Hóa Quyền = trao quyền cho kẻ dữ; Hỏa Tinh cát = quý nhân đến chậm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q095",
+   "question": "Thất Sát ở Mão/Dậu với Vũ Khúc, Thất Sát hãm, và hội Liêm Trinh Hóa Kỵ ở Giao Hữu thì sao?",
+   "answer_atom": "Thất Sát ở hai cung Mão hoặc Dậu có Vũ Khúc đồng độ, nếu Vũ Khúc Hóa Kỵ lại gặp sát tinh, thì vì bạn bè mà phá sản, hoặc vì người dưới quyền mà thất bại, cũng chủ về bị họ uy hiếp. Thất Sát hãm ở cung Giao Hữu phần nhiều không hòa hợp — không nên hợp tác với người khác trong vấn đề sự nghiệp, cũng không nên nhẹ dạ dễ tin. Thất Sát có Liêm Trinh Hóa Kỵ hội hợp, tình hình xấu thì chủ về đổ vỡ tình cảm nghiêm trọng, có thể dẫn đến thị phi cực lớn; gặp thêm các sao Đào Hoa và Văn Xương, Văn Khúc, thì dính dáng đến tư tình nam nữ.",
+   "source_quote": "Hãm Thất Sát ở cung giao hội, phần nhiều không hòa hợp. Vì vậy không nên hợp tác với người khác trong vấn đề sự nghiệp, cũng không nên nhẹ dạ dễ tin... Thất Sát có Liêm Trinh Hóa Kỵ hội hợp, tình hình xấu thì chủ về đổ vỡ tình cảm một cách nghiêm trọng.",
+   "source_page": 774,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:that_sat",
+    "star:vu_khuc",
+    "cung_mão",
+    "cung_dậu",
+    "liêm_trinh_hóa_kỵ",
+    "tư_tình",
+    "phá_sản"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Sát Mão/Dậu + Vũ Kỵ = phá sản vì người; Liêm Kỵ + đào hoa văn tinh = vỡ chuyện tư tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q096",
+   "question": "Phá Quân nhập cung Giao Hữu có tính chất cơ bản gì?",
+   "answer_atom": "Phá Quân nhập cung Giao Hữu, do nó hóa khí làm 'hao', nên tính chất cơ bản là bất lợi, chủ về hao tổn. Chỉ trường hợp Phá Quân nhập miếu, mà còn Hóa Lộc hoặc đồng độ với Lộc Tồn, mới chủ về đắc lực.",
+   "source_quote": "Phá Quân nhập cung Giao Hữu, do nó hóa khí làm “hao”, nên tính chất cơ bản là bất lợi, chủ về hao tổn. Chỉ trường hợp Phá Quân nhập miếu, mà còn Hóa Lộc hoặc đồng độ với Lộc Tồn, mới chủ về đắc lực.",
+   "source_page": 774,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:pha_quan",
+    "hóa_khí_hao",
+    "nhập_miếu",
+    "hóa_lộc",
+    "lộc_tồn"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Quân = hao tinh: mặc định tốn vì bạn; phải miếu + lộc mới đổi chiều.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q097",
+   "question": "Phá Quân độc tọa cung Giao Hữu, hoặc bị Hỏa Linh giáp/đồng cung thì sao?",
+   "answer_atom": "Phá Quân độc tọa ở cung Giao Hữu chủ về sống cô lập; có các sao phụ, tá cát đồng cung mới được bạn bè hay người dưới quyền trợ lực. Nếu gặp Tả Phụ, Hữu Bật nhưng lại gặp thêm sát tinh, thì sinh điều tiếng thị phi, còn vì vậy mà hao tài, phá tán; gặp thêm các sao Không, Kiếp, Hư, Hao thì hao tài phá tán càng lớn. Phá Quân bị Hỏa Tinh và Linh Tinh giáp cung hay đồng cung, lại gặp thêm Địa Không, Địa Kiếp, Thiên Hình, Thiên Hư, Đại Hao, Âm Sát, Thiên Nguyệt, Kiếp Sát, thì chủ về vì bạn bè mà phạm pháp, hoặc bị người dưới quyền trộm cắp, xâm phạm lợi ích, vì vậy mà chuốc họa, dẫn đến thất bại.",
+   "source_quote": "Phá Quân độc tọa ở cung Giao Hữu: Chủ về sống cô lập... Phá Quân bị Hỏa Tinh và Linh Tinh giáp cung hay đồng cung... thì chủ về vì bạn bè mà phạm pháp, hoặc bị người dưới quyền trộm cắp, xâm phạm lợi ích, vì vậy mà chuốc họa, dẫn đến thất bại.",
+   "source_page": 774,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:pha_quan",
+    "cô_lập",
+    "hỏa_linh_giáp",
+    "phạm_pháp",
+    "trộm_cắp"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá độc tọa = ít bạn; Hỏa-Linh giáp + ác sát = họa pháp lý từ người quen.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q098",
+   "question": "Phá Quân ở các cặp cung Tý/Ngọ, Dần/Thân, Thìn/Tuất tại Giao Hữu khác nhau thế nào?",
+   "answer_atom": "Phá Quân ở Tý hoặc Ngọ: nhập miếu, được đối cung 'Liêm Trinh, Thiên Tướng' điều hòa, có bạn bè hữu ích khá dễ dàng; nếu Liêm Trinh Hóa Kỵ thì không nên hợp tác với bạn bè, nếu không bị tổn thất, gặp thêm sát, hình thì tổn hao rất lớn. Ở Dần hoặc Thân: đối nhau với 'Vũ Khúc, Thiên Tướng', nếu có Kình Dương, Đà La hội hợp là có bạn bè xấu còn bị gây lụy; Vũ Khúc Hóa Lộc hoặc Phá Quân Hóa Lộc mới chủ về có trợ lực để kiếm tiền. Ở Thìn hoặc Tuất: đối nhau với 'Tử Vi, Thiên Tướng', chủ về giao du với bạn tốt và hữu ích, cũng có được người dưới quyền già dặn vững vàng; gặp sát tinh cũng chủ về có bạn tri giao trợ lực nhưng dễ ly tán.",
+   "source_quote": "Phá Quân ở hai cung Tý hoặc Ngọ: Là nhập miếu, lại được đối cung là “Liêm Trinh, Thiên Tướng” điều hòa, có bạn bè hữu ích khá dễ dàng... Phá Quân ở hai cung Thìn hoặc Tuất: Đối nhau với “Tử Vi, Thiên Tướng”, chủ về giao du với bạn bè tốt và hữu ích, cũng chủ về có được người dưới quyền già dặn vững vàng.",
+   "source_page": 774,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:pha_quan",
+    "cung_tý",
+    "cung_ngọ",
+    "cung_dần",
+    "cung_thân",
+    "cung_thìn",
+    "cung_tuất",
+    "đối_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Quân xét theo Thiên Tướng đối cung: Liêm Tướng (Tý/Ngọ) khá, Vũ Tướng (Dần/Thân) cần lộc, Tử Tướng (Thìn/Tuất) tốt nhất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.8-Q099",
+   "question": "Phá Quân tọa cung Giao Hữu rất ngại gặp gì?",
+   "answer_atom": "Hễ Phá Quân tọa cung Giao Hữu, rất ngại gặp Vũ Khúc Hóa Kỵ đồng độ hoặc vây chiếu, chủ về bị gây lụy dẫn đến tổn thất.",
+   "source_quote": "Hễ Phá Quân tọa cung Giao Hữu, rất ngại gặp Vũ Khúc Hóa Kỵ đồng độ hoặc vây chiếu, chủ về bị gây lụy dẫn đến tổn thất.",
+   "source_page": 774,
+   "section_id": "5.8",
+   "tags": [
+    "palace:no_boc",
+    "star:pha_quan",
+    "vũ_khúc_hóa_kỵ",
+    "gây_lụy",
+    "tổn_thất"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đại kỵ chốt sổ của Phá Quân tại Giao Hữu: Vũ Khúc Hóa Kỵ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}
