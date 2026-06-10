@@ -2,6 +2,4217 @@
   "book_corpus_id": "tu-vi-dau-so-toan-thu-vu-tai-luc",
   "section_id": "tdts.S2",
   "section_title": "Chư tinh vấn đáp luận — 14 Chính tinh",
-  "pages": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41],
-  "atoms": []
+  "pages": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41
+  ],
+  "atoms": [
+    {
+      "question_id": "tdts.S2.tu_vi.Q01",
+      "question": "Sao Tử Vi thuộc hành gì và giữ vị trí gì trong các sao?",
+      "answer_atom": "Tử Vi thuộc hành Thổ, là vị sao ở ngôi tôn (đế tọa) trong các vị sao; lập số mệnh phải căn cứ vào Tử Vi trước",
+      "source_quote": "Tử Vi thuộc hành Thổ là vị sao ở ngôi tôn trong các vị sao. Mệnh con người ta trước phải căn cứ vào Tử Vi để từ đấy mà lập ra thành số.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "element:tho",
+        "concept:de_toa",
+        "concept:lap_so"
+      ],
+      "commentary": {
+        "han_viet_explain": "ngôi tôn = vị trí cao quý nhất; đế tọa = ngai vàng",
+        "viet_thuan": "Tử Vi là sao chủ đạo, lá số phải bắt đầu xét từ vị trí Tử Vi",
+        "nguyen_ly": "Tử Vi = Đế tọa của Đẩu số",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q02",
+      "question": "Tử Vi ở miếu vượng và hãm địa có gì khác?",
+      "answer_atom": "Tử Vi ở miếu vượng là cực tốt, rơi vào hãm địa là cực hung",
+      "source_quote": "Tử Vi ở nơi miếu vượng là cực tốt, rơi vào hãm địa là cực hung.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "concept:mieu_vuong",
+        "concept:ham_dia"
+      ],
+      "commentary": {
+        "han_viet_explain": "miếu = đắc địa nhất; hãm = sa sút nhất",
+        "viet_thuan": "Tử Vi ở vị trí mạnh thì cực kỳ tốt, ở vị trí yếu thì cực kỳ xấu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q03",
+      "question": "Tử Vi cần đi cặp với những sao nào?",
+      "answer_atom": "Tử Vi cần đi cặp với Phụ, Bật, Thiên Tướng, Xương Khúc, Khôi Việt, Nhật Nguyệt và Lộc Tồn",
+      "source_quote": "Tử Vi cần đi cặp với Phu, Bật, Thiên Tướng, Xương Khúc, Khôi Việt, Nhật Nguyệt và Lộc Tồn.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "combo:phu_bat",
+        "combo:thien_tuong",
+        "combo:xuong_khuc",
+        "combo:khoi_viet",
+        "combo:nhat_nguyet",
+        "combo:loc_ton"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phụ-Bật = Tả Phụ Hữu Bật; Nhật Nguyệt = Thái Dương Thái Âm",
+        "viet_thuan": "Vua cần triều thần phò tá thì mới có quyền",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Sách viết 'Phu, Bật' — đúng phải là 'Phụ, Bật' (Tả Phụ, Hữu Bật)"
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q04",
+      "question": "Tử Vi miếu địa có khả năng chế phục sao hung nào?",
+      "answer_atom": "Tử Vi ở đúng miếu địa có thể tiêu bách ác, chế các sao hung hãn như Thất Sát, Hỏa Tinh, Linh Tinh",
+      "source_quote": "Ở vị trí đúng miếu địa, Tử Vi có thể làm tiêu bách ác chế như các sao hung hãn như Thất Sát, Hỏa Tinh, Linh Tinh.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "concept:chế_phục",
+        "combo:that_sat",
+        "combo:hoa_tinh",
+        "combo:linh_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "bách ác = trăm điều ác",
+        "viet_thuan": "Tử Vi đắc địa làm giảm tác hại của Thất Sát, Hỏa Linh",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q05",
+      "question": "Khi nào Tử Vi đạt cách quý bất khả ngôn?",
+      "answer_atom": "Tử Vi có Lộc Tồn lại thêm Nhật Nguyệt tam hợp chiếu thì quý bất khả ngôn",
+      "source_quote": "Tử Vi có Lộc Tồn lại thêm Nhật Nguyệt tam hợp chiếu thì quý bất khả ngôn.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "combo:loc_ton",
+        "combo:nhat_nguyet",
+        "concept:tam_hop",
+        "cach_cuc:quy_bat_kha_ngon"
+      ],
+      "commentary": {
+        "han_viet_explain": "quý bất khả ngôn = quý không nói hết được",
+        "viet_thuan": "Tử Vi + Lộc Tồn + Nhật Nguyệt tam hợp chiếu = sang quý vô cùng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q06",
+      "question": "Tử Vi thiếu Phụ Bật thì thế nào?",
+      "answer_atom": "Tử Vi thiếu Phụ, Bật đồng hành ví như ông vua mất triều thần, gọi là cô quân, tốt đẹp giảm nhiều",
+      "source_quote": "Tử Vi thiếu Phu, Bật đồng hành ví như ông vua mất triều thần gọi bằng cô quân, tốt đẹp giảm nhiễu lắm.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "concept:co_quan",
+        "combo:phu_bat"
+      ],
+      "commentary": {
+        "han_viet_explain": "cô quân = vua cô đơn không có quần thần",
+        "viet_thuan": "Tử Vi không có Tả Phụ Hữu Bật = vua đơn độc, kém uy",
+        "nguyen_ly": "Đế cần phụ tá",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q07",
+      "question": "Tử Vi gặp toàn sao hung trở thành người thế nào?",
+      "answer_atom": "Tử Vi gặp toàn sao hung ví như tiểu nhân lấn quyền đuổi quân tử ra đứng đường, sẽ trở nên người gian trá bất thiện",
+      "source_quote": "Tử Vi gặp toàn sao hung ví như tiểu nhân lấn quyền đuổi quân tử ra đứng đường sẽ trở nên người gian trá bất thiện.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "concept:gian_tra",
+        "concept:sao_hung"
+      ],
+      "commentary": {
+        "han_viet_explain": "tiểu nhân lấn quyền = kẻ xấu chiếm chỗ quân tử",
+        "viet_thuan": "Tử Vi bị bao vây bởi sao xấu = vua bị lũ gian thần kề bên, hóa gian",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q08",
+      "question": "Tử Vi nên vào những cung nào và kỵ cung nào?",
+      "answer_atom": "Tử Vi nên vào cung Mệnh, Thân, Quan, Phúc Đức; nếu ngồi tại Tật Ách, Nô Bộc là sai, giảm mất uy quyền",
+      "source_quote": "Tử Vi nên vào cung Mệnh, Thân, cung Quan, cung Phúc Đức. Nếu Tử Vi ngồi tại cung Tật Ách, Nô Bộc là sai, giảm mất uy quyền dù có sự trợ giúp cũng không thành phúc lớn.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "cung:menh",
+        "cung:than",
+        "cung:quan",
+        "cung:phuc_duc",
+        "cung:tat_ach",
+        "cung:no_boc"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đế tinh phải ngồi cung trọng yếu (Mệnh/Thân/Quan/Phúc), không nên ở cung phụ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q09",
+      "question": "Tử Vi đạt cách Võ và cách Văn khi nào?",
+      "answer_atom": "Tử Vi khuất phục được Thất Sát để dùng Thất Sát làm quyền uy = cách Võ; Tử Vi nhờ lực Văn Khúc = cách Văn",
+      "source_quote": "Tử Vi mà khuất phục được Thất Sát để dùng Thất Sát làm quyền uy là cách về Võ. Tử Vi nhờ lực Văn Khúc là cách về Văn.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "cach_cuc:vo",
+        "cach_cuc:van",
+        "combo:that_sat",
+        "combo:van_khuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "khuất phục Thất Sát = chế ngự được Thất Sát",
+        "viet_thuan": "Tử Vi + Thất Sát chế phục = võ tướng; Tử Vi + Văn Khúc = quan văn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q10",
+      "question": "Tử Vi ở Tài Bạch / Điền Trạch cùng Thiên Tướng Thiên Phủ thì thế nào?",
+      "answer_atom": "Tử Vi ở Tài Bạch hay Điền Trạch đồng cư cùng Thiên Tướng, Thiên Phủ lại thêm Lộc và Tả Hữu hộ vệ tất làm tài phú chi quan",
+      "source_quote": "Tử Vi ở cung Tài Bạch hay Điền Trạch đồng cư cùng Thiên Tướng, Thiên Phủ lại thêm lộc cung và tả hữu hộ vệ tất làm tài phú chỉ quan.",
+      "source_page": 21,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "cung:tai_bach",
+        "cung:dien_trach",
+        "combo:thien_tuong",
+        "combo:thien_phu",
+        "cach_cuc:tai_phu_chi_quan"
+      ],
+      "commentary": {
+        "han_viet_explain": "tài phú chi quan = quan coi việc tiền của",
+        "viet_thuan": "Tử Vi + Phủ Tướng + Lộc + Tả Hữu ở cung tiền = quan to giữ tài",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q11",
+      "question": "Câu phú 'Tử Vi cư Tí Ngọ' nói gì?",
+      "answer_atom": "Tử Vi ngồi ở cung Tí, cung Ngọ được Khoa, Quyền, Lộc tam phương chiếu tới gọi là cách 'ngưỡng diện triều đẩu', số rất kỳ lạ",
+      "source_quote": "Tử Vi cư Tí Ngọ, Khoa, Quyền Lộc chiếu tối vi kỳ: (Tử Vi ngồi ở cung Tí, cung Ngọ được Khoa, Quyền, Lộc tam phương chiếu tới gọi là cách ngưỡng diện triều đẩu, số rất kỳ lạ).",
+      "source_page": 22,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "cung:ti",
+        "cung:ngo",
+        "cach_cuc:nguong_dien_trieu_dau",
+        "combo:khoa_quyen_loc"
+      ],
+      "commentary": {
+        "han_viet_explain": "ngưỡng diện triều đẩu = ngẩng mặt chầu sao Bắc Đẩu",
+        "viet_thuan": "Tử Vi ở Tí/Ngọ + tam hóa chiếu = cách hiếm có cực quý",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q12",
+      "question": "Câu phú 'Tử Vi nam Hợi nữ Dần cung' nói gì?",
+      "answer_atom": "Sao Tử Vi số con trai đóng tại cung Hợi, số con gái đóng tại cung Dần, những người tuổi Giáp, Nhâm đều phú quý",
+      "source_quote": "Tử Vi nam Hợi nữ Dần cung, Nhâm Giáp sinh nhân phú quý đông: (Sao Tử Vi số con trai đóng tại cung Hợi, số con gái đóng tại cung Dần, những người tuổi Giáp, tuổi Nhâm đều phú quý).",
+      "source_page": 22,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "cung:hoi",
+        "cung:dan",
+        "tuoi:giap",
+        "tuoi:nham",
+        "gender:nam_nu"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi ở Hợi (nam) / ở Dần (nữ), tuổi Giáp/Nhâm = phú quý",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q13",
+      "question": "Trần Đoàn tiên sinh nói gì về Tử Vi gặp Phá Quân ở Thìn Tuất Sửu Mùi?",
+      "answer_atom": "Tử Vi gặp Phá Quân tại Thìn, Tuất, Sửu, Mùi thì làm tôi bất trung, làm con bất hiếu",
+      "source_quote": "Tử Vi nhược ngộ Phá Quân tại Thìn, Tuất, Sửu, Mùi chủ vi thân bất trung vi tử bất hiếu.",
+      "source_page": 22,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "combo:pha_quan",
+        "cung:tu_mo",
+        "concept:bat_trung_bat_hieu",
+        "school:tran_doan"
+      ],
+      "commentary": {
+        "han_viet_explain": "thân bất trung = làm tôi không trung; tử bất hiếu = làm con không hiếu",
+        "viet_thuan": "Tử Vi + Phá Quân ở 4 cung mộ → bất trung bất hiếu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Phú nôm VN chỉ nói 'Giai bất nhân Phá Quân Thìn Tuất', không có Sửu Mùi; và cho rằng Phá Quân gặp Tử Vi ở Sửu Mùi bị Tử Vi khuất phục — KHÁC cổ văn Trần Đoàn. Vũ Tài Lục flag điểm này."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q14",
+      "question": "Bài ca Ngọc Thiểm tiên sinh tổng kết Tử Vi như thế nào?",
+      "answer_atom": "Tử Vi thuộc Thổ, chủ tinh về quan tước, phải có tướng tá (Tả Phụ Hữu Bật) mới hữu dụng, không tướng tá là ông vua bị vây; gặp Văn Xương thi đỗ, gặp Văn Khúc dễ có tước vua ban",
+      "source_quote": "Tử Vi nguyên thuộc thổ / Quan lộc quan chủ tính / Hữu tướng vi hữu dụng / Vô tướng vi vô quân ... Văn Xương phát khoa giáp / Vũ Khúc thu hoàng ân",
+      "source_page": 22,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "school:ngoc_thiem",
+        "combo:van_xuong",
+        "combo:van_khuc",
+        "concept:quan_loc"
+      ],
+      "commentary": {
+        "han_viet_explain": "vô tướng vi vô quân = không tướng tá thì không có vua; phát khoa giáp = thi đỗ; thu hoàng ân = nhận ơn vua",
+        "viet_thuan": "Tử Vi cần tướng tá; Văn Xương cho thi đỗ; Văn Khúc cho tước vua ban",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q15",
+      "question": "Nữ mệnh Tử Vi gặp Đào Hoa hoặc Kình Dương Hỏa Linh thì sao?",
+      "answer_atom": "Nữ mệnh Tử Vi gặp Đào Hoa phiêu lãng phong trần; Tử Vi tụ tập với Kình Dương, Hỏa, Linh là chơi với phường ăn cắp du thủ du thực",
+      "source_quote": "Nhược dữ đào hoa hội / Phiêu lãng lạc phong trần / Kinh Dương toả linh tu / Thử thiết cẩu thâu quân ... Nếu Tử Vi gặp cùng Đào Hoa, nữ mệnh phiêu lãng phong trần. Tử Vi tụ tập với Kinh Dương, Hỏa, Linh là chơi với phường ăn cắp chỉ đi du thủ du thực.",
+      "source_page": 22,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "school:ngoc_thiem",
+        "combo:dao_hoa",
+        "combo:kinh_duong",
+        "combo:hoa_linh",
+        "gender:nu"
+      ],
+      "commentary": {
+        "han_viet_explain": "thử thiết cẩu thâu = phường trộm cắp",
+        "viet_thuan": "Nữ Tử Vi + Đào Hoa = phong trần; + Kình Hỏa Linh = phường ăn cắp",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q16",
+      "question": "Tử Vi đóng ở các vị trí nào là miếu, vượng, bình thường?",
+      "answer_atom": "Tử Vi miếu ở Dần, Ngọ; vượng địa ở Thân, Hợi, Thìn, Tỵ, Tí, Sửu, Mùi; bình thường Mão, Dậu; sao này không có hãm địa vì tự giải cứu được",
+      "source_quote": "Vị trí: Tử Vi miếu ở cung Dần, Ngọ; vượng địa ở cung Thân, Hợi, Thìn, Tỵ, Tí, Sửu, Mùi; bình thường Mão, Dậu. Sao này không có hãm địa vì nó tự giải cứu được.",
+      "source_page": 22,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "concept:mieu_vuong_ham",
+        "concept:tu_giai"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi không bao giờ hãm vì là đế tinh tự giải",
+        "nguyen_ly": "Đế tinh tự cứu",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q17",
+      "question": "Câu phú 'Tử Vi cư Ngọ vô Hình Kị' nói gì?",
+      "answer_atom": "Tử Vi đóng tại cung Ngọ, không gặp Thiên Hình Hóa Kỵ, người tuổi Giáp, Đinh, Kỷ làm tới công khanh",
+      "source_quote": "Tử Vi cư Ngọ vô Hình Kị, Giáp, Đinh, Kỷ mệnh chí công khanh. (Sao Tử Vi đóng tại cung Ngọ, không gặp sao Thiên Hình Hóa Kỵ người tuổi Giáp, tuổi Đinh, tuổi Kỷ làm tới công khanh).",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "cung:ngo",
+        "tuoi:giap_dinh_ky",
+        "cach_cuc:cong_khanh"
+      ],
+      "commentary": {
+        "han_viet_explain": "vô Hình Kị = không có Thiên Hình, Hóa Kỵ",
+        "viet_thuan": "Tử Vi Ngọ không kỵ Hình/Kỵ + tuổi Giáp Đinh Kỷ = chức công khanh",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tu_vi.Q18",
+      "question": "Nữ mệnh Tử Vi ở các cung nào tốt và xấu?",
+      "answer_atom": "Nữ mệnh Tử Vi ở Dần, Ngọ, Thân gặp sao tốt = vượng phu ích tử; hãm địa bình thường; ở Tý, Dậu, Tỵ, Hợi gặp Tứ Sát không toàn phúc lộc cả đời",
+      "source_quote": "Nữ mệnh Tử Vi tại Dần, Ngọ, Thân cung cát quí mỹ vượng phu ích tử, hãm địa bình thường. (Số con gái Tử Vi thủ mệnh đóng cung Dần, Ngọ, Thân gặp các sao tốt trợ giúp thì vượng phu ích tử, nếu rơi vào hãm địa bình thường. Nếu Tử Vi đóng ở các cung Tý, Dậu, Tỵ, Hợi mà gặp Tứ Sát thì không toàn vẹn phúc lộc cả đời).",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tu_vi",
+        "gender:nu",
+        "cung:dan_ngo_than",
+        "cung:ty_dau_ty_hoi",
+        "combo:tu_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": "vượng phu ích tử = giúp chồng, ích con",
+        "viet_thuan": "Nữ Tử Vi ở Dần Ngọ Thân tốt; Tý Dậu Tỵ Hợi + Tứ Sát = kém phúc",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q01",
+      "question": "Sao Thiên Cơ thuộc hành gì và có hóa khí là gì?",
+      "answer_atom": "Thiên Cơ thuộc hành Mộc, là nam đẩu tinh, hóa khí là thiện tinh",
+      "source_quote": "Sao Thiên Cơ thuộc hành Mộc, là nam đẩu tinh, hóa khi sao này là thiện tinh.",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "element:moc",
+        "chom:nam_dau",
+        "hoa_khi:thien"
+      ],
+      "commentary": {
+        "han_viet_explain": "thiện tinh = sao điều thiện",
+        "viet_thuan": "Thiên Cơ thuộc Mộc, Nam đẩu, hóa khí thiện",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q02",
+      "question": "Thiên Cơ đắc địa có chức năng gì?",
+      "answer_atom": "Thiên Cơ đắc địa có thể điều chỉnh lẽ thuận nghịch cho số mệnh; thủ mệnh thêm sao tốt thì dễ thành công, đa mưu túc trí",
+      "source_quote": "Nếu đắc địa nó có thể điều chỉnh lẽ thuận nghịch cho số mệnh. Thiên Cơ thủ mệnh lại thêm các sao tốt hợp lại dễ thành công, đa mưu túc trí.",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "concept:dac_dia",
+        "concept:da_muu_tuc_tri"
+      ],
+      "commentary": {
+        "han_viet_explain": "đa mưu túc trí = nhiều mưu, đủ khôn",
+        "viet_thuan": "Thiên Cơ đắc địa = người mưu trí, dễ thành công",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q03",
+      "question": "Bản chất Thiên Cơ là gì khi bất đắc chí?",
+      "answer_atom": "Bản chất Thiên Cơ là thiện tâm, không ưa bất nhân bất nghĩa; gặp lúc bất đắc chí thường ưa ở ẩn chốn lâm tuyền và dễ say mùi đạo",
+      "source_quote": "Bản chất sao này là thiện tâm không ưu điều bất nhân, bất nghĩa nên gặp lúc bất đắc chí thường ưa ở ẩn chốn lâm tuyển và dễ say mùi đạo.",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "concept:thien_tam",
+        "concept:tu_an",
+        "concept:dao"
+      ],
+      "commentary": {
+        "han_viet_explain": "lâm tuyền = rừng suối; mùi đạo = đường tu hành",
+        "viet_thuan": "Thiên Cơ thất chí thì đi tu hoặc ở ẩn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q04",
+      "question": "Nữ mệnh Thiên Cơ có đặc điểm gì?",
+      "answer_atom": "Nữ mệnh Thiên Cơ gặp hung càng hung, gặp sát càng sát; nếu đi cặp Thiên Lương là người đàn bà tháo vát, khéo léo, nội trợ giỏi",
+      "source_quote": "Nữ mệnh có sao Thiên Cơ gặp hung càng hung, gặp sát càng sát, nếu đi cặp cùng Thiên Lương là người đàn bà tháo vát khéo léo, nội trợ giỏi.",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "gender:nu",
+        "combo:thien_luong",
+        "concept:noi_tro"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ Thiên Cơ + sao hung sát = càng tệ; + Thiên Lương = đàn bà giỏi nội trợ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q05",
+      "question": "Trần Đoàn nói gì về Thiên Cơ?",
+      "answer_atom": "Thiên Cơ ích thọ chi tinh, thủ Thân mệnh là người dị thường, giao hội Thiên Lương Tả Hữu Xương Khúc làm quan văn thanh hiển, vũ chức trung lương; hãm địa Tứ Sát xung phá là hạ cách",
+      "source_quote": "Thiên Cơ ích thọ chỉ tinh, thủ Thân mệnh cung là người dị thường giao hội cùng các sao Thiên Lương, Tả Hữu, Xương Khúc làm quan văn thì thanh hiển, làm vũ chức thì trung lương. Nếu ở hãm địa gặp Tứ Sát xung phá là hạ cách.",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "school:tran_doan",
+        "concept:ich_tho",
+        "combo:thien_luong",
+        "combo:ta_huu",
+        "combo:xuong_khuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "ích thọ = thêm tuổi; dị thường = khác thường",
+        "viet_thuan": "Thiên Cơ là sao giúp thọ; tổ hợp tốt thì làm quan",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q06",
+      "question": "Thiên Cơ gặp Thiên Lương Thất Sát thì nên làm gì?",
+      "answer_atom": "Thiên Cơ ngộ Thiên Lương, Thất Sát nên tìm đến cảnh thanh nhàn của tăng đạo; đại tiểu hạn gặp Thiên Cơ sẽ thay đổi công việc, lập cơ sáng nghiệp",
+      "source_quote": "Thiên Cơ ngộ Thiên Lương, Thất Sát nên tìm đến cảnh thanh nhàn của tăng đạo. Đại tiểu hạn gặp Thiên Cơ sẽ thay đổi công việc, lập cơ sáng nghiệp.",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "school:tran_doan",
+        "combo:thien_luong",
+        "combo:that_sat",
+        "concept:tang_dao",
+        "concept:dai_tieu_han"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Cơ + Lương/Sát → đi tu; gặp đại tiểu hạn = đổi việc, lập nghiệp mới",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q07",
+      "question": "Bài ca Ngọc Thiểm về Thiên Cơ nói chủ điều gì?",
+      "answer_atom": "Thiên Cơ là sao chủ huynh đệ, chính diệu Nam đẩu, làm việc có thao lược, bẩm tính cao minh, có thể đứng đầu quần anh",
+      "source_quote": "Thiên Cơ huynh đệ chủ / Nam đẩu chính diệu tinh / Tác sự hữu thao lược / Bẩm tính tối cao minh / Sở vi tối hảo thượng / Diệc khả tác quần anh",
+      "source_page": 24,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "school:ngoc_thiem",
+        "cung:huynh_de",
+        "concept:thao_luoc"
+      ],
+      "commentary": {
+        "han_viet_explain": "thao lược = mưu lược binh pháp; quần anh = nhóm anh tài",
+        "viet_thuan": "Thiên Cơ chủ anh em, có tài binh lược",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q08",
+      "question": "Thiên Cơ miếu, vượng, hãm địa ở đâu?",
+      "answer_atom": "Thiên Cơ miếu ở Thìn Tuất Tý Ngọ; bình thường Tỵ Hợi Thìn Tuất; hãm địa Sửu Mùi (theo bài ca)",
+      "source_quote": "Thìn, Tuất, Tý, Ngọ địa nhập miếu hữu công danh. ... Các cung Tý, Ngọ là miếu địa của Thiên Cơ. Bình thường Tị, Hợi, Thìn, Tuất, hãm địa là Sửu, Mùi ngộ Phá Quân, Tứ Sát, Hỏa Linh, Dương Đà dễ xảy ra tai hoạ.",
+      "source_page": 25,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu: Thìn Tuất Tý Ngọ; bình thường Tỵ Hợi Thìn Tuất; hãm Sửu Mùi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Sách trộn hai mô tả không trùng: 'Thìn Tuất Tý Ngọ nhập miếu' nhưng phía dưới ghi 'Tý Ngọ là miếu' — Vũ Tài Lục cần đối chiếu thêm."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q09",
+      "question": "Câu phú 'Cơ Lương Đồng Chiêu Mệnh Thân' nói gì?",
+      "answer_atom": "Thân hoặc Mệnh gặp Không Vong, Thiên Cơ đơn thủ Thiên Lương chiếu nên đi tu",
+      "source_quote": "Cơ Lương Đông Chiêu Mệnh Thân: Không thiên nghỉ tăng đạo. (Thân hoặc mệnh gặp Không Vong, Thiên Cơ đơn thủ Thiên Lương chiếu nên đi tu).",
+      "source_page": 25,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "combo:thien_luong",
+        "combo:khong_vong",
+        "concept:di_tu"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mệnh/Thân + Không Vong + Cơ-Lương → nên đi tu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q10",
+      "question": "Câu phú 'Cơ Nguyệt Đồng Lương tác lại nhân' nói gì?",
+      "answer_atom": "Mệnh Thân và tam hợp xung chiếu có đủ Cơ Nguyệt Đồng Lương, nếu không có cát tinh khác chỉ làm công chức quèn; gặp Kiếp Không Hóa Kỵ xuống hạ cách",
+      "source_quote": "Cơ Nguyệt Đông Lương Tác Lại Nhân: (Mệnh thân và các cung tam hợp xung chiếu có đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn. Gặp Kiếp Không Hóa Kỵ xuống hạ cách).",
+      "source_page": 25,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "cach_cuc:co_nguyet_dong_luong",
+        "combo:thai_am",
+        "combo:thien_dong",
+        "combo:thien_luong"
+      ],
+      "commentary": {
+        "han_viet_explain": "tác lại nhân = làm thư lại, công chức",
+        "viet_thuan": "Bốn sao Cơ Nguyệt Đồng Lương = công chức nhỏ, không có cát tinh thì kém",
+        "nguyen_ly": "Cách 'lại nhân' = số làm thư lại",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_co.Q11",
+      "question": "Câu phú 'Cự Môn hãm Thiên Cơ vi Phá Cách' nói gì?",
+      "answer_atom": "Cự Môn ở hãm địa gặp Thiên Cơ là Phá Cách; đàn bà mệnh đóng Dần Thân Mão Dậu gặp Thiên Cơ Cự Môn tuy phú quý nhưng dâm dục, hạ tiện",
+      "source_quote": "Cự Môn hãm Thiên Cơ vi Phá Cách. (Cự Môn ở hãm địa gặp Thiên Cơ là Phá Cách; đàn bà mệnh đóng tại Dần, Thân, Mão, Dậu gặp Thiên Cơ, Cự Môn tuy phú quý nhưng dâm dục, hạ tiện).",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_co",
+        "combo:cu_mon",
+        "cach_cuc:pha_cach",
+        "gender:nu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phá Cách = cách hỏng",
+        "viet_thuan": "Cự Môn hãm + Thiên Cơ = phá cách; nữ Dần Thân Mão Dậu = dâm dục",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q01",
+      "question": "Sao Thái Dương thuộc hành gì và biểu thị gì?",
+      "answer_atom": "Thái Dương tinh thuộc hỏa, là tinh hoa ban ngày, biểu thị của tạo hóa; ở số mệnh là khí khiến con người năng văn năng vũ",
+      "source_quote": "Thái Dương tinh thuộc hỏa, tính hoa của ban ngày, biểu thị của tạo hóa. Ở số mệnh là khí của con người năng văn năng vũ.",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "element:hoa",
+        "concept:tao_hoa",
+        "concept:nang_van_nang_vu"
+      ],
+      "commentary": {
+        "han_viet_explain": "tinh hoa ban ngày = ánh sáng mặt trời",
+        "viet_thuan": "Thái Dương = mặt trời, hỏa, văn võ song toàn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q02",
+      "question": "Thái Dương hội cát tinh và ác tinh thì khác nhau ra sao?",
+      "answer_atom": "Hội với cát tinh thì giáng phúc trinh tường; hội với ác tinh thì uổng công phí lực, như mây bị che lấp",
+      "source_quote": "Hội tụ với các sao cát thì giáng phúc trinh tường, hội với các ác tinh thì uổng công phí lực như mây bị che lấp.",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "concept:cat_tinh",
+        "concept:ac_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "trinh tường = điềm lành",
+        "viet_thuan": "Thái Dương + sao tốt = phúc; + sao ác = mây che mặt trời, vô ích",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q03",
+      "question": "Thái Dương cư Thân Mệnh miếu địa có gì?",
+      "answer_atom": "Thái Dương cư Thân mệnh tại miếu địa sẽ sáng rực rỡ cho công danh; hóa khí của Thái Dương vừa Quý vừa Lộc nên cung Quan Lộc có Thái Dương cực tốt",
+      "source_quote": "Thái Dương cư thân mệnh cung tại miếu địa sẽ sáng rực rỡ cho công danh con người. Hóa khí của sao Thái Dương là vừa Quý vừa Lộc nên cung Quan Lộc mà có Thái Dương cực tốt.",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "cung:than_menh",
+        "cung:quan_loc",
+        "hoa_khi:quy_loc"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Dương miếu + Thân Mệnh/Quan = công danh sáng chói",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q04",
+      "question": "Thái Dương trong nữ mệnh nghĩa là gì?",
+      "answer_atom": "Nữ mệnh lấy Thái Dương làm phu chủ; thêm Thái Âm chiếu thì phú quý toàn mỹ",
+      "source_quote": "Nữ mệnh lấy Thái Dương làm phu chủ, thêm Thái Âm chiếu nữa thì phú quý toàn mỹ.",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "gender:nu",
+        "concept:phu_chu",
+        "combo:thai_am"
+      ],
+      "commentary": {
+        "han_viet_explain": "phu chủ = sao tượng trưng chồng",
+        "viet_thuan": "Nữ: Thái Dương = chồng; có Thái Âm chiếu = phú quý trọn vẹn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q05",
+      "question": "Thái Dương bị Hình Kỵ và đa sát tụ có hại gì?",
+      "answer_atom": "Thái Dương bị Hình Kỵ dễ hư mắt hoặc khắc phụ mẫu; đại tiểu hạn Thái Dương đa sát tụ tất lo về quan tụng; ở Thiên Di thường ly tổ nghiệp đi xa làm ăn",
+      "source_quote": "Thái Dương bị Hình Kị dễ hư mắt hoặc khắc phụ mẫu. Đại tiểu hạn Thái Dương đa sát tụ tất có mọi lo về quan tụng. Thái Dương ở cung Thiên Di thường ly tổ nghiệp đi xa làm ăn.",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "combo:hinh_ky",
+        "concept:hu_mat",
+        "cung:thien_di",
+        "concept:ly_to"
+      ],
+      "commentary": {
+        "han_viet_explain": "hư mắt = hỏng mắt; ly tổ nghiệp = bỏ nghề cha ông",
+        "viet_thuan": "Thái Dương + Hình Kỵ = hại mắt/khắc cha mẹ; ở Thiên Di = đi xa lập nghiệp",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q06",
+      "question": "Trần Đoàn nói gì về Thái Dương?",
+      "answer_atom": "Thái Dương trên vòm trời chu chuyển vô cùng, ưa Tả Phụ Hữu Bật cần Lộc Tồn; đi cặp Thái Âm càng đẹp; ghét Cự Môn hãm địa che ánh sáng; miếu vượng + Hóa Lộc Hóa Quyền = quý cách",
+      "source_quote": "Sao Thái Dương trên vòm trời chu chuyển vô cùng ưa Tả Phụ, Hữu Bật cần Lộc Tồn, nếu đi cặp với Thái Âm càng đẹp, ghét Cự Môn hãm địa che ánh sáng. Tại miếu vượng địa hội Hóa Lộc, Hóa Quyền gọi quý cách.",
+      "source_page": 26,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "school:tran_doan",
+        "combo:ta_phu_huu_bat",
+        "combo:loc_ton",
+        "combo:thai_am",
+        "combo:cu_mon",
+        "combo:hoa_loc_hoa_quyen"
+      ],
+      "commentary": {
+        "han_viet_explain": "chu chuyển = quay vòng",
+        "viet_thuan": "Thái Dương ưa Phụ Bật Lộc Tồn; ghét Cự Môn hãm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q07",
+      "question": "Câu phú 'Nhật chiếu lôi môn' nói gì?",
+      "answer_atom": "Thái Dương đứng cung Tí, Thìn, Mão, Dậu là mặt trời chiếu cửa sấm, người sinh ban ngày phú quý nổi danh",
+      "source_quote": "Nhật chiếu lôi môn, Tí Thìn, Mão địa, trú sinh nhân, phú quí thanh dương. (Thái Dương đứng trong cung Tí, Thìn, Mão, Dậu là mặt trời chiếu cửa sấm, người sinh ban ngày phú quí nổi danh).",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "cach_cuc:nhat_chieu_loi_mon",
+        "cung:ti_thin_mao_dau",
+        "concept:tru_sinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "lôi môn = cửa sấm (cung Mão thuộc Chấn); trú sinh = sinh ban ngày",
+        "viet_thuan": "Thái Dương ở Tí/Thìn/Mão/Dậu + sinh ban ngày = phú quý",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q08",
+      "question": "Câu phú 'Thái Dương cư Ngọ' nói gì?",
+      "answer_atom": "Thái Dương ở cung Ngọ, người tuổi Canh Tân Đinh Kỷ phú quý song toàn",
+      "source_quote": "Thái Dương cư Ngọ, Canh Tân Đỉnh Kỷ nhân phú quí song toàn.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "cung:ngo",
+        "tuoi:canh_tan_dinh_ky"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Dương ở Ngọ + tuổi Canh Tân Đinh Kỷ = phú quý vẹn toàn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q09",
+      "question": "Câu phú 'Thái Dương Văn Xương tại Quan Lộc' nói gì?",
+      "answer_atom": "Thái Dương gặp Văn Xương tại Quan Lộc làm quan trong triều đình (hoàng điện triều ban); Văn Khúc cũng vậy",
+      "source_quote": "Thái Dương, Văn Xương tại Quan Lộc, hoàng điện triều ban. (Sao Thái Dương gặp Văn Xương tại cung Quan Lộc làm quan trong triều đình, Văn Khúc cũng vậy).",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "combo:van_xuong",
+        "combo:van_khuc",
+        "cung:quan_loc",
+        "cach_cuc:hoang_dien_trieu_ban"
+      ],
+      "commentary": {
+        "han_viet_explain": "hoàng điện triều ban = đứng ban quan trong điện vua",
+        "viet_thuan": "Thái Dương + Văn Xương/Khúc ở Quan = làm quan triều đình",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_duong.Q10",
+      "question": "Câu phú 'Nữ mệnh đoan chính Thái Dương' nói gì?",
+      "answer_atom": "Số đàn bà Thái Dương thủ mệnh đắc địa là người đoan chính, sớm lấy chồng hiển",
+      "source_quote": "Nữ mệnh đoan chính Thái Dương tỉnh, tảo phối hiền phu tín khả bằng. (Số đàn bà, Thái Dương thủ mệnh đắc định là người đoan chính, sớm lấy chồng hiển).",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_duong",
+        "gender:nu",
+        "concept:doan_chinh",
+        "concept:hien_phu"
+      ],
+      "commentary": {
+        "han_viet_explain": "tảo phối = lấy chồng sớm; hiền phu = chồng hiển đạt",
+        "viet_thuan": "Nữ Thái Dương đắc địa = đoan chính, sớm lấy chồng giỏi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q01",
+      "question": "Sao Vũ Khúc thuộc hành gì và là sao thứ mấy trong Bắc Đẩu?",
+      "answer_atom": "Vũ Khúc là sao thứ sáu trong vòm Bắc Đẩu, thuộc Kim, là chủ về tiền bạc ở cung Tài Bạch; đồng cung Thiên Phủ là thọ",
+      "source_quote": "Vũ Khúc là sao thứ sáu trong vòm Bắc Đẩu, thuộc Kim, là chủ về tiền bạc ở cung Tài Bạch, đồng cung với Thiên Phú là thọ.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "element:kim",
+        "chom:bac_dau",
+        "cung:tai_bach",
+        "combo:thien_phu"
+      ],
+      "commentary": {
+        "han_viet_explain": "đệ lục tinh = sao thứ sáu",
+        "viet_thuan": "Vũ Khúc Bắc Đẩu thứ 6, hành Kim, chủ tiền; + Thiên Phủ = thọ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q02",
+      "question": "Tính khí Vũ Khúc thế nào?",
+      "answer_atom": "Vũ Khúc tính khí quả quyết, cương nghị, hỉ nộ có, phúc lộc dễ mà tai ương cũng dễ; được Lộc Mã hội tụ thì tiền bạc nhiều",
+      "source_quote": "Tính khí quả quyết, cương nghị, hỉ nộ có, phúc lộc dễ mà tai ương cũng dễ. Được Lộc Mã hội tụ thì tiền bạc nhiều.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "concept:cuong_nghi",
+        "combo:loc_ma"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lộc Mã = Lộc Tồn + Thiên Mã",
+        "viet_thuan": "Vũ Khúc tính cứng cỏi quả quyết; + Lộc Mã = giàu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q03",
+      "question": "Vũ Khúc hãm địa gặp Tham Lang và Phá Quân thì sao?",
+      "answer_atom": "Vũ Khúc hãm địa gặp Tham Lang đi cặp = người khó chơi, tham lam, bủn xỉn; hội cùng Phá Quân tiền đến tay là hết",
+      "source_quote": "Hãm địa gặp sao Tham Lang đi cặp trở nên người khó chơi, tham lam, bủn xỉn. Hội cùng Phá Quân, tiền đến tay là hết.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "concept:ham_dia",
+        "combo:tham_lang",
+        "combo:pha_quan",
+        "concept:bun_xin"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ Khúc hãm + Tham Lang = bủn xỉn; + Phá Quân = tiền tiêu hết",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q04",
+      "question": "Trần Đoàn nói gì về Vũ Khúc?",
+      "answer_atom": "Vũ Khúc thuộc Kim, trên trời coi tuổi thọ, vào số người chủ quản tài bạch; rất sợ kiểm chế lạc hãm; cần Lộc Tồn ưa Thái Âm; Thiên Phủ Thiên Lương làm trợ lực; gặp Lộc Mã phát tài; gặp Tham Lang thiếu niên bất lợi",
+      "source_quote": "Vũ Khúc thuộc hành Kim, trên trời coi về tuổi thọ, vào số người chủ quản tài bạch, rất sợ bị kiểm chế lạc hãm. Rất cần Lộc Tồn và ưa Thái Âm, lấy hai sao Thiên Phủ, Thiên Lương làm trợ lực. Gặp Lộc Mã thì phát tài, hội cùng Tham Lang thiếu niên bất lợi.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "school:tran_doan",
+        "concept:tho",
+        "concept:tai_bach",
+        "combo:loc_ton",
+        "combo:thai_am",
+        "combo:thien_phu",
+        "combo:thien_luong"
+      ],
+      "commentary": {
+        "han_viet_explain": "lạc hãm = rơi vào hãm địa",
+        "viet_thuan": "Vũ Khúc cần Lộc Tồn, Thái Âm; sợ hãm địa; gặp Tham Lang thì thuở trẻ kém",
+        "nguyen_ly": "Câu phú nổi tiếng: 'Tham Vũ bất phát thiếu niên nhân' = Tham-Vũ đi đôi không phát thời thiếu niên",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q05",
+      "question": "Vũ Khúc đồng cung Thất Sát Hỏa Tinh và ngộ Dương Đà có gì xấu?",
+      "answer_atom": "Vũ Khúc đồng cung Thất Sát Hỏa Tinh vì tiền bạc mà bị hại; ngộ Dương Đà thì cô khắc; gặp Phá Quân khó hiển đạt",
+      "source_quote": "Nếu đồng cung Thất Sát, Hỏa Tinh vì tiền bạc mà bị hại. Ngộ Dương Đà thì cô khắc. Gặp Phá Quân khó bề hiển đạt.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "school:tran_doan",
+        "combo:that_sat",
+        "combo:hoa_tinh",
+        "combo:duong_da",
+        "combo:pha_quan",
+        "concept:co_khac"
+      ],
+      "commentary": {
+        "han_viet_explain": "cô khắc = cô đơn, hại người thân",
+        "viet_thuan": "Vũ Khúc + Sát Hỏa = chết vì tiền; + Dương Đà = cô khắc; + Phá Quân = khó phát",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q06",
+      "question": "Vũ Khúc thủ mệnh có tính gì? Tuổi nào hợp?",
+      "answer_atom": "Vũ Khúc thủ mệnh là người cương cường quả đoán; tuổi Giáp, Kỷ phúc hậu, xuất tướng nhập tướng; nữ mệnh có cát tinh là mệnh phụ, bị xung phá tất cô khắc",
+      "source_quote": "Vũ Khúc thủ mệnh là người cương cường quả đoán, tuổi Giáp, tuổi Kỷ phúc hậu, xuất tướng nhập tướng. Nữ mệnh có nhiễu cát tỉnh là mệnh phụ, bị xung phá tất cô khắc.",
+      "source_page": 27,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "school:tran_doan",
+        "tuoi:giap_ky",
+        "concept:xuat_tuong_nhap_tuong",
+        "gender:nu",
+        "concept:menh_phu"
+      ],
+      "commentary": {
+        "han_viet_explain": "xuất tướng nhập tướng = vào ra đều làm tướng; mệnh phụ = vợ quan",
+        "viet_thuan": "Vũ Khúc thủ mệnh tuổi Giáp/Kỷ = tướng văn võ; nữ tốt = mệnh phụ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q07",
+      "question": "Phú nôm tiền nhân ta (Việt Viêm Tử) nói Vũ Khúc thế nào?",
+      "answer_atom": "Vũ Khúc là sao Kim hành, vóc người nho nhỏ, tính tình thanh cao, chí cương chí nghị anh hào, khoan dung đại lượng lược thao gồm tài",
+      "source_quote": "Vũ Khúc là sao Kim hành, vóc người nho nhỏ tính tình thanh cao, chí cương chí nghị anh hào, khoan dung đại lượng lược thao gồm tài.",
+      "source_page": 28,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "school:vn",
+        "school:viet_viem_tu",
+        "concept:nho_nho",
+        "concept:cuong_nghi",
+        "concept:luoc_thao"
+      ],
+      "commentary": {
+        "han_viet_explain": "lược thao = mưu lược binh pháp",
+        "viet_thuan": "Phú nôm VN: Vũ Khúc người nhỏ, thanh cao, cương nghị, có tài binh lược",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Phú nôm VN bổ sung mô tả ngoại hình ('vóc người nho nhỏ') mà phú chữ Trần Đoàn không có"
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q08",
+      "question": "Câu phú 'Vũ Khúc đi với Tham Lang ở Tài Bạch/Điền Trạch' nói gì?",
+      "answer_atom": "Vũ Khúc đi đôi với Tham Lang ở Tài Bạch hay Điền Trạch thường hoạch phát về tiền bạc",
+      "source_quote": "Vũ Khúc, đi đôi với sao Tham Lang ở các cung Tài Bạch hay Điền Trạch thường hoạch phát về tiền bạc.",
+      "source_page": 28,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "combo:tham_lang",
+        "cung:tai_bach",
+        "cung:dien_trach",
+        "concept:hoach_phat"
+      ],
+      "commentary": {
+        "han_viet_explain": "hoạch phát = phát tài bất ngờ",
+        "viet_thuan": "Vũ Khúc + Tham Lang ở Tài/Điền = phát tài bất ngờ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q09",
+      "question": "Câu phú 'Vũ Khúc cùng Liêm Trinh Tham Lang Thất Sát' nói gì?",
+      "answer_atom": "Vũ Khúc cùng Liêm Trinh, Tham Lang, Thất Sát là dân kinh doanh; đi với Tham Lang thêm Sát Kỵ là người giỏi kỹ nghệ",
+      "source_quote": "Vũ Khúc, cùng Liêm Trinh, Tham Lang, Thất Sát là dân kinh doanh. Vũ Khúc, đi với Tham Lang thêm Sát, Kỵ là người giỏi kỷ nghệ.",
+      "source_page": 28,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "combo:liem_trinh",
+        "combo:tham_lang",
+        "combo:that_sat",
+        "concept:kinh_doanh",
+        "concept:ky_nghe"
+      ],
+      "commentary": {
+        "han_viet_explain": "kỹ nghệ = nghề thủ công, kỹ thuật",
+        "viet_thuan": "Vũ Khúc + Liêm Tham Sát = kinh doanh; + Sát Kỵ = thợ giỏi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q10",
+      "question": "Câu phú 'Vũ Khúc gặp Phá Quân' nói gì?",
+      "answer_atom": "Vũ Khúc gặp Phá Quân phá hoại tổ nghiệp gia đình, vất vả lao đao",
+      "source_quote": "Vũ Khúc, gặp Phá Quân phá hoại tổ nghiệp gia đình, vất vả lao đao.",
+      "source_page": 28,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "combo:pha_quan",
+        "concept:pha_to_nghiep"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ Khúc + Phá Quân = phá tổ nghiệp, vất vả",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.vu_khuc.Q11",
+      "question": "Vũ Khúc miếu vượng ở đâu?",
+      "answer_atom": "Vũ Khúc miếu địa ở Sửu, Mùi, Tuất; vượng ở Tý, Ngọ; bình thường ở Tỵ, Hợi",
+      "source_quote": "Vũ Khúc miếu địa ở Sửu, Mùi, Tuất; vượng ở Tý, Ngọ; bình thường ở Tị, Hợi.",
+      "source_page": 28,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:vu_khuc",
+        "concept:mieu_vuong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Sửu Mùi Tuất; vượng Tí Ngọ; bình thường Tỵ Hợi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q01",
+      "question": "Sao Thiên Đồng thuộc hành gì và chủ cung nào?",
+      "answer_atom": "Thiên Đồng thuộc thủy, đứng hàng thứ 4 ở phương Nam, là chủ tể của cung Phúc Đức; khí chất là phúc",
+      "source_quote": "Thiên Đồng tính thuộc thủy, sao đứng hàng thứ 4 ở phương Nam là chủ tể của cung Phúc Đức. Cho nên khí chất của sao này là phúc; cần gặp các sao tốt trợ lực thì phúc mới thêm đẹp.",
+      "source_page": 28,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "element:thuy",
+        "chom:nam_dau",
+        "cung:phuc_duc",
+        "concept:phuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "chủ tể = sao chủ",
+        "viet_thuan": "Thiên Đồng Nam đẩu thứ 4, hành Thủy, chủ Phúc Đức",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q02",
+      "question": "Tính tình Thiên Đồng thế nào?",
+      "answer_atom": "Thiên Đồng tính tình liêm khiết, mặt mũi thanh sáng, bình thản thâm trầm nên không sợ Tứ Sát phá phách; ở cung nào giáng phúc cho cung ấy",
+      "source_quote": "Tính tình liêm khiết, mặt mũi thanh sáng, bình thản thâm trầm nên không sợ Tứ Sát phá phách. Ở cung nào giáng phúc cho cung ấy.",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "concept:liem_khiet",
+        "concept:giang_phuc",
+        "combo:tu_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": "liêm khiết = trong sạch",
+        "viet_thuan": "Thiên Đồng trong sạch, thâm trầm, ở cung nào cho phúc cung ấy",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q03",
+      "question": "Trần Đoàn nói gì về Thiên Đồng?",
+      "answer_atom": "Thiên Đồng là nam đẩu tinh, hóa Tài Lộc thành Thiên Lương; thủ Thân Mệnh là người khiêm tốn, ôn hòa, văn mặc tinh thông, không hung bạo; bất chấp Thất Sát quấy nhiễu",
+      "source_quote": "Thiên Đồng là nam đẩu tỉnh, hóa Tài Lộc thành Thiên Lương. Thân mệnh có Thiên Đồng là người nhiều khiêm tốn, bẩm tính ôn hòa, văn mặc tinh thông nhiều ý chí nhưng không hung bạo, bất chấp sao Thất Sát quấy nhiễu.",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "school:tran_doan",
+        "hoa_khi:tai_loc",
+        "combo:thien_luong",
+        "combo:that_sat",
+        "concept:khiem_ton",
+        "concept:on_hoa"
+      ],
+      "commentary": {
+        "han_viet_explain": "văn mặc = văn chương bút mực",
+        "viet_thuan": "Thiên Đồng hóa Tài Lộc thành Thiên Lương; người khiêm tốn ôn hòa",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q04",
+      "question": "Thiên Đồng gặp Tả Hữu Văn Xương Thiên Lương thì sao? Tuổi nào hợp?",
+      "answer_atom": "Gặp Tả Hữu, Văn Xương, Thiên Lương quý hiển; rất tốt cho người tuổi Nhâm, Ất; hãm địa Tứ Sát xung phá nữ mệnh hình phu khắc tử",
+      "source_quote": "Gặp Tả Hữu, Văn Xương, Thiên Lương quý hiển rất tốt cho người tuổi Nhâm, Ất. Hãm địa có Tứ Sát xung phá, nữ mệnh hình phu khắc tử.",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "school:tran_doan",
+        "combo:ta_huu",
+        "combo:van_xuong",
+        "combo:thien_luong",
+        "tuoi:nham_at",
+        "gender:nu",
+        "concept:hinh_phu_khac_tu"
+      ],
+      "commentary": {
+        "han_viet_explain": "hình phu khắc tử = hại chồng, hại con",
+        "viet_thuan": "Thiên Đồng + Tả Hữu/Xương/Lương + tuổi Nhâm Ất = quý; nữ hãm = hại chồng con",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q05",
+      "question": "Phú nôm tiền nhân ta tả tướng mạo Thiên Đồng thế nào?",
+      "answer_atom": "Thiên Đồng mắt lớn lưng dày, vóc người mập mạp, mặt đầy phương viên; tâm cao chí đại, dù bút nghiên thực tài; mắt lươn ti hí lại hay ngồi đồng",
+      "source_quote": "Thiên Đồng mắt lớn lưng dày / Vóc người mập mạp, diện đây phương viên / Tâm cao chí đại nhưng hiển / Không cao ngạo, dẫu bút nghiên thực tài / Đàn hiểm đà kị làm lai / Mắt lươn tỉ hí lại hay ngồi đồng",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "school:vn",
+        "school:viet_viem_tu",
+        "concept:tuong_mao",
+        "concept:ngoi_dong"
+      ],
+      "commentary": {
+        "han_viet_explain": "phương viên = vuông tròn (mặt đầy đặn); ngồi đồng = lên đồng (hầu bóng)",
+        "viet_thuan": "Phú nôm: Thiên Đồng mắt lớn, lưng dày, mập mạp, có khả năng ngồi đồng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Phú nôm VN có thêm chi tiết 'ngồi đồng' (hầu bóng) mà phú chữ Trần Đoàn không có — đặc sản Việt"
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q06",
+      "question": "Câu phú 'Thiên Đồng hội Cát Thọ Nguyên Thần' nói gì?",
+      "answer_atom": "Sao Thiên Đồng hội với cát tinh, trời cho tuổi thọ",
+      "source_quote": "Thiên Đồng hội Cát Thọ Nguyên Thần. (Sao Thiên Đồng hội với cát tinh, trời cho tuổi thọ).",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "concept:tho",
+        "concept:cat_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thọ Nguyên Thần = sao tăng tuổi thọ",
+        "viet_thuan": "Thiên Đồng + cát tinh = thọ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q07",
+      "question": "Câu phú 'Thiên Đồng Tham Dương Đà cư Ngọ' nói gì?",
+      "answer_atom": "Thiên Đồng cùng Tham Lang, Dương Đà ở cung Ngọ, người tuổi Bính Mậu anh hùng nhất khoảnh, trấn ngự biên cương",
+      "source_quote": "Thiên Đồng, Tham Dương Đà cư Ngọ vi Bích Mậu chấn ngự biên cương. (Sao Thiên Đồng cùng Tham Lang, Dương Đà ở cung Ngọ người tuổi Bính Mậu anh hùng nhất khoanh).",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "combo:tham_lang",
+        "combo:duong_da",
+        "cung:ngo",
+        "tuoi:binh_mau",
+        "cach_cuc:chan_ngu_bien_cuong"
+      ],
+      "commentary": {
+        "han_viet_explain": "chấn ngự biên cương = trấn giữ biên giới",
+        "viet_thuan": "Thiên Đồng + Tham + Dương Đà ở Ngọ + Bính Mậu = tướng biên cương",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q08",
+      "question": "Câu phú 'Thiên Đồng Tuất cung Hóa Kỵ Đinh nhân' nói gì?",
+      "answer_atom": "Thiên Đồng đóng ở Tuất, gặp Hóa Kỵ, người tuổi Đinh lại rất tốt",
+      "source_quote": "Thiên Đồng, Tuất cung, Hóa Kỵ đỉnh nhân mệnh ngộ phân vì giai. (Thiên Đồng đóng ở Tuất, gặp Hóa Kỵ người tuổi Đinh lại rất tốt).",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "cung:tuat",
+        "combo:hoa_ky",
+        "tuoi:dinh"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Đồng Tuất + Hóa Kỵ + tuổi Đinh = tốt (Kỵ biến thành quý)",
+        "nguyen_ly": "Trường hợp Hóa Kỵ thành cát: cần tuổi đúng + cung đúng",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q09",
+      "question": "Nữ mệnh Thiên Đồng thế nào?",
+      "answer_atom": "Số con gái Thiên Đồng thủ mệnh thì hiền thục",
+      "source_quote": "Nữ mệnh Thiên Đồng thị hiền. (Số con gái Thiên Đồng thủ mệnh thì hiển thục).",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "gender:nu",
+        "concept:hien_thuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "hiền thục = nhân hiền, dịu hiền",
+        "viet_thuan": "Nữ Thiên Đồng = hiền thục",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_dong.Q10",
+      "question": "Thiên Đồng miếu, vượng, hãm địa ở đâu?",
+      "answer_atom": "Thiên Đồng miếu địa Tỵ, Hợi; vượng Tí, Thân; hãm địa Ngọ, Sửu, Mùi, Dậu",
+      "source_quote": "Thiên Đồng miếu địa: Tị, Hợi. Vượng: Tí, Thân. Hãm địa: Ngọ, Sửu, Mùi, Dậu.",
+      "source_page": 29,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_dong",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Tỵ Hợi; vượng Tí Thân; hãm Ngọ Sửu Mùi Dậu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q01",
+      "question": "Sao Liêm Trinh thuộc hành gì và là sao thứ mấy của Bắc Đẩu?",
+      "answer_atom": "Liêm Trinh thuộc Mộc, là Bắc Đẩu Đệ Ngũ Tinh (sao thứ 5); ở số coi về quyền lệnh; nếu không miếu vượng lại phạm Quan Phù thì hóa khí thành tù",
+      "source_quote": "Liêm Trinh thuộc Mộc, là Bắc Đẩu Đệ Ngũ Tinh. Ở số coi về quyển lệnh nếu không được miếu vượng địa lại phạm Quan Phù (trong chòm sao Thái Tuế) cho nên hóa khí thành tù, chủ tính lang độc, không học lễ nghĩa.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "element:moc",
+        "chom:bac_dau",
+        "hoa_khi:tu",
+        "combo:quan_phu",
+        "concept:quyen_lenh"
+      ],
+      "commentary": {
+        "han_viet_explain": "hóa khí thành tù = biến thành sao chủ tù tội; lang độc = tham độc",
+        "viet_thuan": "Liêm Trinh Bắc Đẩu 5, hành Mộc; nếu hãm + Quan Phù = sao tù tội",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q02",
+      "question": "Liêm Trinh đắc địa gặp Lộc Tồn Văn Xương Thất Sát thì sao?",
+      "answer_atom": "Đắc địa gặp Lộc Tồn = phú quý; gặp Văn Xương = bặt thiệp; gặp Thất Sát hiển đạt về võ chức; tại Quan Lộc có uy quyền",
+      "source_quote": "Đắc địa gặp Lộc Tồn, phú quí gặp Văn Xương, bặt thiệp; Gặp Thất Sát hiển đạt về võ chức, tại cung Quan Lộc có uy quyền;",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:loc_ton",
+        "combo:van_xuong",
+        "combo:that_sat",
+        "cung:quan_loc"
+      ],
+      "commentary": {
+        "han_viet_explain": "bặt thiệp = nói năng hoạt bát, đi nhiều biết rộng",
+        "viet_thuan": "Liêm Trinh đắc + Lộc Tồn = giàu; + Văn Xương = hoạt bát; + Thất Sát = võ quan",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q03",
+      "question": "Liêm Trinh tại Thân Mệnh có tính gì?",
+      "answer_atom": "Tại Thân Mệnh cung Liêm Trinh là sao Đào Hoa thứ hai, ham đánh bạc, mê gái mà bị tai tiếng",
+      "source_quote": "Tại Thân Mệnh cung là sao Đào Hoa thú hai ham đánh bạc, mê gái mà bị tai tiếng.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "cung:than_menh",
+        "concept:dao_hoa_thu_hai",
+        "concept:co_bac",
+        "concept:me_gai"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đào Hoa thứ hai = sao đào hoa phụ (sau Tham Lang)",
+        "viet_thuan": "Liêm Trinh ở Thân/Mệnh = đào hoa thứ hai, ham cờ bạc, mê gái",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q04",
+      "question": "Liêm Trinh gặp Hỏa Tinh hãm Không Vong và Bạch Hổ thì sao?",
+      "answer_atom": "Gặp Hỏa Tinh hãm vào Không Vong thì đầu hạn tự ải (treo cổ tự tử); gặp Bạch Hổ thường tù tội; gặp Hình Kỵ hay bị xung huyết; gặp Tài Tinh hãm địa phá hao tổ nghiệp",
+      "source_quote": "Ngộ Tài Tinh hãm địa phá hao tổ nghiệp; Gặp Thiên Hình, Hóa Kỵ hay bị chứng xung huyết; Gặp sao Bạch Hổ thường tù tội; Gặp Hỏa Tinh hãm vào đất Không Vong thì đầu hạn tự ải.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:hoa_tinh",
+        "combo:khong_vong",
+        "combo:bach_ho",
+        "combo:hinh_ky",
+        "concept:tu_ai",
+        "concept:xung_huyet"
+      ],
+      "commentary": {
+        "han_viet_explain": "tự ải = treo cổ; xung huyết = chảy máu cấp",
+        "viet_thuan": "Liêm Trinh + Hỏa + Không Vong = treo cổ; + Bạch Hổ = tù; + Hình Kỵ = xung huyết",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q05",
+      "question": "Câu ca 'Liêm Tham Tỵ Hợi cung' nói gì?",
+      "answer_atom": "Liêm Trinh đồng cung Tham Lang tại cung Tỵ hay Hợi thì dù có phát đạt bao nhiêu cũng đổ vỡ mà ngồi tù",
+      "source_quote": "Liêm Tham Tị Hợi cung / Ngộ cát phúc doanh phong / Ưng quá tam tuân hậu / Tu phòng bất thiện chung. Nghĩa là: Sao Liêm Trinh đồng cung với sao Tham Lang tại cung Tỵ hay cung Hợi thì dù có phát đạt đến bao chăng nữa rồi cũng đổ vỡ mà ngồi tù.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:tham_lang",
+        "cung:ty_hoi",
+        "cach_cuc:liem_tham_ty_hoi",
+        "concept:bat_thien_chung"
+      ],
+      "commentary": {
+        "han_viet_explain": "ưng quá tam tuần hậu = quá 30 tuổi; tu phòng bất thiện chung = phải đề phòng kết cục không tốt",
+        "viet_thuan": "Liêm-Tham ở Tỵ/Hợi = sau 30 tuổi phải đề phòng tù tội, kết cục xấu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q06",
+      "question": "Liêm Trinh miếu, bình thường, hãm địa ở đâu?",
+      "answer_atom": "Liêm Trinh miếu địa Dần, Thân; bình thường Thìn, Tuất, Sửu, Mùi (và Tỵ Ngọ); hãm địa Tỵ, Hợi, Dậu, Mão",
+      "source_quote": "Liêm Trinh miếu địa Dần, Thân; Tỵ, Ngọ bình thường Thìn, Tuất, Sửu, Mùi hãm địa Tị, Hợi, Dậu, Mão.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Dần Thân; bình thường Tỵ Ngọ Thìn Tuất Sửu Mùi; hãm Tỵ Hợi Dậu Mão",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Sách ghi cả Tỵ ở 'bình thường' và 'hãm địa' — Vũ Tài Lục cần đối chiếu"
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q07",
+      "question": "Câu phú 'Liêm Trinh ám Cự Tào' nói gì?",
+      "answer_atom": "Liêm Trinh gặp Cự Môn hãm địa làm lại gian tham",
+      "source_quote": "Liêm Trinh ám Cự Tào lại tham lam (Gặp Cự Môn hãm địa làm lại gian tham).",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:cu_mon",
+        "concept:lai_gian_tham"
+      ],
+      "commentary": {
+        "han_viet_explain": "lại = thư lại, viên chức nhỏ",
+        "viet_thuan": "Liêm Trinh + Cự Môn hãm = công chức tham nhũng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q08",
+      "question": "Câu phú 'Liêm Trinh đi cùng Thất Sát ở miếu vượng' nói gì?",
+      "answer_atom": "Liêm Trinh đi cùng Thất Sát ở miếu vượng địa là người giàu có, nếu Thất Sát đứng cung Ngọ thì tốt nhất; gặp Hóa Kỵ ở hãm địa là người bần tiện có thể tàn tật",
+      "source_quote": "Liêm Trinh đi cùng Thất Sát ở miếu vượng địa là người giàu có; nếu Thất Sát đứng cung Ngọ thì tốt nhất. Gặp Hóa Kỵ ở hãm địa là người bần tiền có thể bị tàn tật.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:that_sat",
+        "concept:mieu_vuong",
+        "combo:hoa_ky"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liêm Trinh + Thất Sát miếu vượng = giàu; tốt nhất Sát ở Ngọ; + Kỵ hãm = bần tiện",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q09",
+      "question": "Câu phú 'Liêm Trinh Phá Quân Hỏa Tinh hãm địa' nói gì?",
+      "answer_atom": "Liêm Trinh, Phá Quân, Hỏa Tinh nơi hãm địa sẽ bất thiện chung, đâm đầu xuống sông hoặc treo cổ",
+      "source_quote": "Liêm Trinh, Phá Quân, Hỏa Tinh nơi hãm địa sẽ bất thiện chung đâm đầu xuống sông hoặc treo cổ.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:pha_quan",
+        "combo:hoa_tinh",
+        "concept:bat_thien_chung",
+        "concept:tu_van"
+      ],
+      "commentary": {
+        "han_viet_explain": "bất thiện chung = không chết lành",
+        "viet_thuan": "Liêm + Phá + Hỏa hãm = chết bất đắc kỳ tử",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q10",
+      "question": "Câu phú 'Trọng Do uy mãnh Liêm Trinh nhập miếu hội Thiên Tướng' nói gì?",
+      "answer_atom": "Thầy Tử Lộ (Trọng Do) oai dũng hơn người, nhờ sao Liêm Trinh nơi miếu địa hội cùng sao Thiên Tướng",
+      "source_quote": "Trọng Do uy mãnh, Liêm Trinh nhập miếu hội cùng Thiên Tướng (Thầy Tử Lộ oai dũng hơn người, nhờ sao Liêm Trinh nơi miếu địa hội cùng sao Thiên Tướng).",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:thien_tuong",
+        "concept:nhap_mieu",
+        "example:tro_du"
+      ],
+      "commentary": {
+        "han_viet_explain": "Trọng Do = Tử Lộ, học trò Khổng Tử nổi tiếng vũ dũng",
+        "viet_thuan": "Liêm Trinh miếu + Thiên Tướng = oai mãnh như Tử Lộ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": "Ví dụ điển cố: Tử Lộ (Trọng Do) - học trò Khổng Tử có Liêm Trinh miếu + Thiên Tướng = oai dũng",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q11",
+      "question": "Câu phú 'Liêm Trinh hội Tham Phá Sát + Vũ Khúc ở Thiên Di' nói gì?",
+      "answer_atom": "Liêm Trinh hội Tham Lang, Phá Quân, Thất Sát mà gặp Vũ Khúc ở Thiên Di làm đến bậc nguyên nhung (chủ tướng)",
+      "source_quote": "Liêm Trinh hội Tham Lang, Phá Quân, Thất Sát mà gặp Vũ Khúc ở Thiên Di làm đến bậc nguyên nhung (có lẽ là Văn Khúc thì đúng hơn, có thể sách chép lầm).",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:tham_lang",
+        "combo:pha_quan",
+        "combo:that_sat",
+        "combo:vu_khuc",
+        "cung:thien_di",
+        "cach_cuc:nguyen_nhung"
+      ],
+      "commentary": {
+        "han_viet_explain": "nguyên nhung = chủ tướng cầm quân",
+        "viet_thuan": "Liêm + Tham Phá Sát + Vũ Khúc ở Thiên Di = chủ tướng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục nghi sách chép lầm: 'có lẽ là Văn Khúc thì đúng hơn, có thể sách chép lầm' — cảnh báo tam sao thất bản"
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.liem_trinh.Q12",
+      "question": "Liêm Trinh + Bạch Hổ + thanh bạch năng tự thủ nói gì?",
+      "answer_atom": "Liêm Trinh gặp Bạch Hổ khó thoát ngục hình; câu 'Liêm Trinh thanh bạch năng tự thủ': số đàn bà tuổi Canh Giáp Kỷ Quý an mệnh có Liêm Trinh thủ mệnh là hay",
+      "source_quote": "Liêm Trinh gặp sao Bạch Hổ khó thoát ngục hình. ... Liêm Trinh thanh bạch năng tự thủ: Số đàn bà tuổi Canh, Giáp, Kỷ, Quý an mệnh có Liêm Trinh thủ mệnh là hay.",
+      "source_page": 30,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:liem_trinh",
+        "combo:bach_ho",
+        "gender:nu",
+        "tuoi:canh_giap_ky_quy",
+        "concept:thanh_bach"
+      ],
+      "commentary": {
+        "han_viet_explain": "thanh bạch năng tự thủ = trong sạch giữ thân được",
+        "viet_thuan": "Liêm Trinh + Bạch Hổ = tù ngục; nữ tuổi Canh Giáp Kỷ Quý = thanh bạch",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q01",
+      "question": "Sao Thiên Phủ thuộc hành gì và là sao thứ mấy của Nam Đẩu?",
+      "answer_atom": "Thiên Phủ thuộc hành Thổ, Nam Đẩu Đệ Nhất Tinh (sao thứ 1), là chủ về cung Tài Bạch, coi về quyền và phúc",
+      "source_quote": "Thiên Phủ thuộc hành Thổ, nam đẩu đệ nhất tinh, là chủ về cung Tài Bạch, coi về quyền và phúc.",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "element:tho",
+        "chom:nam_dau",
+        "cung:tai_bach",
+        "concept:quyen_phuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "đệ nhất tinh = sao thứ nhất",
+        "viet_thuan": "Thiên Phủ Nam đẩu thứ 1, hành Thổ, chủ Tài Bạch",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q02",
+      "question": "Trần Đoàn nói gì về Thiên Phủ?",
+      "answer_atom": "Thiên Phủ là giải tai ách chi tinh, làm thần của y lộc tài bạch điền trạch; thường phụ tá Tử Vi; chế phục được Kình Dương Đà La, cải hóa Hỏa Linh; tướng mạo thanh kỳ, bẩm tính ôn lượng đoan nhã",
+      "source_quote": "Thiên Phủ là giải tai ách chỉ tính, trên số mệnh làm thần của y lộc, tài bạch, điền trạch thường đứng phụ tá cho Tử Vi, có khả năng chế phục Kình Dương, Đà La cải hóa Hỏa Tinh, Linh Tinh. Tướng mạo thanh kỳ, bẩm tính ôn lượng đoan nhã.",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "school:tran_doan",
+        "concept:giai_tai_ach",
+        "concept:y_loc",
+        "combo:tu_vi",
+        "combo:kinh_duong",
+        "combo:da_la",
+        "combo:hoa_linh"
+      ],
+      "commentary": {
+        "han_viet_explain": "giải tai ách = giải trừ tai nạn; ôn lượng đoan nhã = ôn hòa khoan dung trang nhã",
+        "viet_thuan": "Thiên Phủ giải tai, phụ tá Tử Vi, chế Kình Đà Hỏa Linh, người ôn nhã",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q03",
+      "question": "Thiên Phủ hội Thái Dương Xương Khúc Vũ Khúc Lộc Tồn thì sao?",
+      "answer_atom": "Hội cùng Thái Dương Xương Khúc dễ công danh khoa bảng; gặp Lộc Tồn Vũ Khúc giàu to; rơi vào Không Vong Tứ Sát = kẻ cô lập",
+      "source_quote": "Hội cùng Thái Dương, Xương Khúc dễ công danh khoa bảng. Gặp Lộc Tồn, Vũ Khúc giàu to. Rơi vào Không Vong, Tứ Sát trở thành kẻ bị cô lập.",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "school:tran_doan",
+        "combo:thai_duong",
+        "combo:xuong_khuc",
+        "combo:loc_ton",
+        "combo:vu_khuc",
+        "combo:khong_vong",
+        "combo:tu_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Phủ + Thái Dương/Xương Khúc = khoa bảng; + Lộc Tồn/Vũ Khúc = giàu; + Không Vong/Sát = cô lập",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q04",
+      "question": "Nữ mệnh Thiên Phủ thế nào?",
+      "answer_atom": "Nữ mệnh Thiên Phủ thủ mệnh, vẻ người thanh thoát, vượng phu ích tử, tháo vát thông minh, dù gặp Xung Phá cũng không đến nỗi trôi giạt",
+      "source_quote": "Nữ mệnh được Thiên Phủ thủ mệnh, vẻ người thanh thoát vượng phu ích tử, tháo vát, thông minh, dù gặp Xung Phá cũng không đến nỗi trôi giạt.",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "school:tran_doan",
+        "gender:nu",
+        "concept:vuong_phu_ich_tu",
+        "concept:thanh_thoat"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ Thiên Phủ = thanh thoát, vượng phu ích tử, ít khi sa sút",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q05",
+      "question": "Bài ca Ngọc Thiểm về Thiên Phủ nói gì?",
+      "answer_atom": "Thiên Phủ chuyên coi về lộc, kho; vào mệnh thế nào cũng giàu, ruộng đất rất nhiều, tiền bạc vô số; nữ ngồi khuê phòng thơm ngát; nam hưởng thiên lộc; là phúc cát tinh",
+      "source_quote": "Thiên Phủ vi lộc khố / Nhập mệnh chung thị phú / Vạn khoảnh trí điển trang / Gia tư vô luận số / Nữ mệnh tọa hương khuê / Nam nhân thực thiên lộc / Thử thị phúc cát tinh.",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "school:ngoc_thiem",
+        "concept:loc_kho",
+        "concept:phu",
+        "concept:phuc_cat_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "lộc khố = kho lộc; vạn khoảnh trí điển trang = vạn mẫu ruộng đất",
+        "viet_thuan": "Thiên Phủ = kho lộc, vào mệnh = giàu; nam hưởng lộc trời, nữ ở khuê thơm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q06",
+      "question": "Thiên Phủ miếu, vượng, bình thường ở đâu?",
+      "answer_atom": "Thiên Phủ miếu địa Tý, Sửu, Dần, Mùi; vượng địa Ngọ, Mão, Thìn, Tuất; bình thường Dậu, Tỵ, Thân, Hợi",
+      "source_quote": "Miếu địa: Tý, Sửu, Dần, Mùi; Vượng địa: Ngọ, Mão, Thìn, Tuất; Bình thường: Dậu, Tị, Thân, Hợi",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "concept:mieu_vuong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Tý Sửu Dần Mùi; vượng Ngọ Mão Thìn Tuất; bình thường Dậu Tỵ Thân Hợi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q07",
+      "question": "Cách 'vua tôi yến hội' của Thiên Phủ là gì?",
+      "answer_atom": "Thiên Phủ tụ hội cùng Thiên Tướng, Thiên Lương, Thiên Đồng là cách 'vua tôi yến hội'",
+      "source_quote": "(Thiên Phủ tụ hội cùng Thiên Tướng, Thiên Lương, Thiên Đồng là cách vua tôi yến hội).",
+      "source_page": 31,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "cach_cuc:vua_toi_yen_hoi",
+        "combo:thien_tuong",
+        "combo:thien_luong",
+        "combo:thien_dong"
+      ],
+      "commentary": {
+        "han_viet_explain": "yến hội = tiệc vui",
+        "viet_thuan": "Thiên Phủ + Tướng + Lương + Đồng = vua tôi cùng tiệc tùng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q08",
+      "question": "Câu phú 'Thiên Phủ cư Ngọ Tuất Thiên Tướng lai triều' nói gì?",
+      "answer_atom": "Thiên Phủ đóng ở cung Ngọ hay Tuất có Thiên Tướng chầu, tuổi Giáp Quý đến bậc nhất phẩm",
+      "source_quote": "Thiên Phủ cư Ngọ, Tuất, Thiên Tướng lai triều giáp nhân nhất phẩm chỉ qui. (Sao Thiên Phủ đóng ở cung Ngọ hay Tuất có sao Thiên Tướng chầu tuổi Giáp Quý đến bậc nhất phẩm).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "cung:ngo_tuat",
+        "combo:thien_tuong",
+        "tuoi:giap_quy",
+        "cach_cuc:nhat_pham_chi_quy"
+      ],
+      "commentary": {
+        "han_viet_explain": "lai triều = đến chầu; nhất phẩm = phẩm trật cao nhất",
+        "viet_thuan": "Thiên Phủ Ngọ/Tuất + Thiên Tướng chầu + tuổi Giáp Quý = quan nhất phẩm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q09",
+      "question": "Cách 'Phủ Tướng triều viên' nói gì?",
+      "answer_atom": "Mệnh an Dần hay Thân, Thiên Phủ Thiên Tướng ở Tài Bạch và Quan Lộc chầu vào là thượng cách, lương cao bổng hậu (thiên chung thực lộc)",
+      "source_quote": "Phủ Tướng triều viên, thiên chung thực lộc. (Mệnh an Dần hay Thân, sao Thiên Phủ, Thiên Tướng ở cung Tài Bạch và Quan Lộc chầu vào là thượng cách, lương cao bổng hậu).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "combo:thien_tuong",
+        "cach_cuc:phu_tuong_trieu_vien",
+        "cung:dan_than",
+        "cung:tai_bach",
+        "cung:quan_loc",
+        "concept:thien_chung_thuc_loc"
+      ],
+      "commentary": {
+        "han_viet_explain": "triều viên = chầu về cung mệnh; thiên chung thực lộc = lộc ăn nghìn thưng",
+        "viet_thuan": "Mệnh Dần/Thân + Phủ Tướng ở Tài/Quan chầu = cách quý",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q10",
+      "question": "Câu phú 'Thiên Phủ Lộc Tồn Xương Khúc cự vạn' nói gì?",
+      "answer_atom": "Thiên Phủ gặp Lộc Tồn, Xương Khúc tiền của dư dả",
+      "source_quote": "Thiên Phủ, Lộc Tồn, Xương Khúc cự vạn chỉ tư. (Thiên Phủ gặp Lộc Tồn, Xương Khúc tiên của dư đả).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "combo:loc_ton",
+        "combo:xuong_khuc",
+        "concept:cu_van"
+      ],
+      "commentary": {
+        "han_viet_explain": "cự vạn = vạn vạn",
+        "viet_thuan": "Thiên Phủ + Lộc Tồn + Xương Khúc = giàu cự vạn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_phu.Q11",
+      "question": "Câu phú 'Thiên Phủ Vũ Khúc cư Tài Trạch' nói gì?",
+      "answer_atom": "Thiên Phủ đóng cung Tài Bạch, Điền Trạch được quyền lộc tụ vào thì giàu có (kèm Lộc Tồn Tả Hữu cũng vậy)",
+      "source_quote": "Thiên Phủ, Vũ Khúc cư Tài Trạch cánh kiêm quyền lộc phú xa ông. (Thiên Phủ đóng cung Tài Bạch, Điền Trạch được quyển lộc tụ vào thì giàu có - Hoặc Lộc Tồn, Tả Hữu cũng thế).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_phu",
+        "combo:vu_khuc",
+        "cung:tai_bach",
+        "cung:dien_trach",
+        "combo:quyen_loc"
+      ],
+      "commentary": {
+        "han_viet_explain": "phú xa ông = ông nhà giàu",
+        "viet_thuan": "Thiên Phủ + Vũ Khúc + Quyền Lộc ở Tài/Điền = giàu sang",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q01",
+      "question": "Sao Thái Âm chủ những điều gì? Hóa khí là gì?",
+      "answer_atom": "Thái Âm là tinh hoa của Thủy; làm chủ cung Điền Trạch (nhà cửa, ruộng nương), hóa khí thành phú; cùng Thái Dương là nghĩa biểu của trời",
+      "source_quote": "Thái Âm là tinh hoa của Thủy, nếu làm chủ cung Điền Trạch (nhà cửa, ruộng nương), thì hóa khi thành phú, cùng với Thái Dương tượng trưng cho nghĩa biểu của trời.",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "element:thuy",
+        "cung:dien_trach",
+        "hoa_khi:phu",
+        "combo:thai_duong",
+        "concept:nghia_bieu"
+      ],
+      "commentary": {
+        "han_viet_explain": "tinh hoa của Thủy = mặt trăng; phú = giàu có",
+        "viet_thuan": "Thái Âm = mặt trăng, hành Thủy, chủ Điền Trạch, hóa khí thành giàu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q02",
+      "question": "Thái Âm đắc địa và hãm địa khác nhau ra sao?",
+      "answer_atom": "Đắc địa là người thông minh tuấn tú, đoan nhã thuần lương; ví dụ ở cung Dậu lại gặp nhiều sao tốt thêm Thái Dương ở Mão chiếu sang thì hưởng đại phúc; hãm địa gặp Ác Sát xung phá nghèo khổ, tàn tật",
+      "source_quote": "Đắc địa là người thông minh, tuấn tú, bẩm tính đoan nhã, thuần lương, ví dụ ở cung Dậu lại gặp nhiều sao tốt thêm Thái Dương ở cung Mão chiếu sang thì hưởng đại phúc. Hãm địa gặp Ác Sát xung phá nghèo khổ, tàn tật.",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "concept:dac_dia",
+        "concept:ham_dia",
+        "cung:dau",
+        "cung:mao",
+        "combo:thai_duong",
+        "concept:dai_phuc"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Âm đắc + Thái Dương Mão chiếu Dậu = đại phúc; hãm + Sát = nghèo tàn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q03",
+      "question": "Trần Đoàn nói gì về Thái Âm? Cung nào miếu, hãm?",
+      "answer_atom": "Thái Âm là phối tinh của Thái Dương; Mão Thìn Tỵ Ngọ là hãm địa; Dậu Tuất Hợi Tý Sửu là đắc địa; miếu tại Dậu; sợ Dương Đà đồng cung; sợ Liêm Trinh phạm Thất Sát xung phá dễ tàn tật",
+      "source_quote": "Thái Âm phối tinh của Thái Dương, Mão Thìn Tị Ngọ là hãm địa, Dậu Tuất Hợi Tí Sửu là đắc địa, miếu tại cung Dậu. Rất sợ Dương Đà đồng cung, sợ Liêm Trinh phạm Thiất Sát xung phá dễ bị tàn tật.",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "school:tran_doan",
+        "concept:phoi_tinh",
+        "concept:mieu_vuong_ham",
+        "combo:duong_da",
+        "combo:liem_trinh",
+        "combo:that_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": "phối tinh = sao bạn đời (cặp với Thái Dương)",
+        "viet_thuan": "Thái Âm cặp với Thái Dương; miếu Dậu; sợ Dương Đà, Liêm-Sát",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q04",
+      "question": "Thái Âm ở Tật Ách hãm gặp Kình Đà Hỏa Linh Tham Sát Bạch Hổ thì sao?",
+      "answer_atom": "Ở cung Tật Ách hãm địa gặp Kình Đà có mục tật, gặp Hỏa Linh hay tai nạn, gặp Tham Sát hại mắt; vận hạn lưu niên gặp Bạch Hổ thường chịu tang mẹ; ở Thê cung hãm hội Tang Môn Bạch Hổ phải thận trọng với vợ",
+      "source_quote": "Ở mệnh cung miếu vượng phú quí, ở cung Tật Ách hãm địa gặp Kình Đà có mục tật, gặp Hỏa Linh hay tai nạn, gặp Tham Sát hại mắt, vận hạn lưu niên, gặp Bạch Hổ thường chịu tang mẹ. Hãm địa Thê cung hội Tang Môn, Bạch Hổ hãy thận trọng đối với vợ.",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "school:tran_doan",
+        "cung:tat_ach",
+        "cung:the",
+        "combo:kinh_da",
+        "combo:hoa_linh",
+        "combo:tham_sat",
+        "combo:bach_ho",
+        "combo:tang_mon",
+        "concept:muc_tat"
+      ],
+      "commentary": {
+        "han_viet_explain": "mục tật = bệnh mắt; tang mẹ = chịu tang mẹ",
+        "viet_thuan": "Thái Âm hãm Tật Ách + Kình Đà = đau mắt; + Hỏa Linh = tai nạn; + Bạch Hổ = mẹ chết",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q05",
+      "question": "Thái Âm miếu vượng hãm địa theo phú có ở đâu?",
+      "answer_atom": "Thái Âm miếu địa Dậu, Hợi, Tuất; vượng địa Tý, Sửu; hãm địa Ngọ, Dần, Thìn, Tỵ, Mão",
+      "source_quote": "Thái Âm miếu địa Dậu, Hợi, Tuất vượng địa Tí, Sửu; hãm địa Ngọ, Dần, Thìn, Tỵ, Mão.",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Dậu Hợi Tuất; vượng Tí Sửu; hãm Ngọ Dần Thìn Tỵ Mão",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q06",
+      "question": "Câu phú 'Thái Âm đồng Văn Khúc ư Thê cung' nói gì?",
+      "answer_atom": "Thái Âm đồng cung với Văn Khúc ở cung Thê ví như lên trăng hái cành quế (thiềm cung triết quế); Văn Xương cũng vậy",
+      "source_quote": "Thái Âm đồng Văn Khúc ư Thê cung thiềm cung triết quế. (Thái Âm đồng cung với Văn Khúc ở cung Thê ví như lên trăng hái cành quế. Văn Xương cũng vậy).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "combo:van_khuc",
+        "combo:van_xuong",
+        "cung:the",
+        "cach_cuc:thiem_cung_triet_que"
+      ],
+      "commentary": {
+        "han_viet_explain": "thiềm cung = cung trăng; triết quế = bẻ cành quế (đỗ đạt cao)",
+        "viet_thuan": "Thái Âm + Văn Khúc/Xương ở Thê = đỗ đạt, vợ quý",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q07",
+      "question": "Câu phú 'Thái Âm Vũ Khúc Lộc Tồn Tả Hữu' nói gì?",
+      "answer_atom": "Thái Âm gặp Vũ Khúc, Lộc Tồn, Tả Hữu là người giàu sang",
+      "source_quote": "Thái Âm, Vũ Khúc, Lộc Tồn đồng Tả Hữu tương phùng, phú quí ông. (Gặp Vũ Khúc, Lộc Tồn, Tả Hữu là người giàu sang).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "combo:vu_khuc",
+        "combo:loc_ton",
+        "combo:ta_huu",
+        "concept:phu_quy"
+      ],
+      "commentary": {
+        "han_viet_explain": "phú quí ông = ông giàu sang",
+        "viet_thuan": "Thái Âm + Vũ Khúc + Lộc Tồn + Tả Hữu = giàu sang",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q08",
+      "question": "Câu phú 'Thái Âm cư Tí Bính Đinh' nói gì?",
+      "answer_atom": "Thái Âm đóng cung Tí, người tuổi Bính Đinh giàu sang, trung lương (hợp người sinh ban đêm hơn)",
+      "source_quote": "Thái Âm cư Tí, Bính Đinh nhân phú quí trung lương. (Sao Thái Âm đóng cung Tí, người tuổi Bính Đinh giàu sang, trung tín - hợp với người sinh ban đêm hơn).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "cung:ti",
+        "tuoi:binh_dinh",
+        "concept:trung_luong",
+        "concept:da_sinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "trung lương = trung tín lương thiện; dạ sinh = sinh ban đêm",
+        "viet_thuan": "Thái Âm Tí + tuổi Bính Đinh + sinh ban đêm = giàu trung tín",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q09",
+      "question": "Câu phú 'Thái Âm Dương Đà chủ ly tài sản' nói gì?",
+      "answer_atom": "Thái Âm ngộ Dương Đà thì người xa của mất (ly tài sản)",
+      "source_quote": "Thái Âm, Dương Đà tất chủ nhân ly tài sản. (Sao Thái Âm ngộ Dương Đà thì người xa của mất).",
+      "source_page": 32,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "combo:duong_da",
+        "concept:ly_tai_san"
+      ],
+      "commentary": {
+        "han_viet_explain": "ly tài sản = xa của cải",
+        "viet_thuan": "Thái Âm + Dương Đà = người và tiền chia lìa",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q10",
+      "question": "Câu phú 'Nguyệt lăng Thiên Môn ở Hợi' nói gì?",
+      "answer_atom": "Thái Âm ở cung Hợi là cách 'trăng sáng cửa trời' (Nguyệt lăng Thiên Môn) sẽ nắm quyền lớn chức vị cao - hợp người tuổi Tí sinh ban đêm",
+      "source_quote": "Nguyệt lăng Thiên Môn ở Hợi địa đăng vân chức trưởng đại quyền. (Thái Âm ở cung Hợi là cách trăng sáng cửa trời sẽ nắm quyển lớn chức vị cao - hợp với người tuổi Tí sinh ban đêm).",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "cung:hoi",
+        "cach_cuc:nguyet_lang_thien_mon",
+        "tuoi:ti",
+        "concept:da_sinh",
+        "concept:dai_quyen"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nguyệt lăng Thiên Môn = trăng sáng cửa trời (Hợi là cửa trời); đăng vân = lên mây",
+        "viet_thuan": "Thái Âm ở Hợi + tuổi Tí + đêm = quan lớn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thai_am.Q11",
+      "question": "Câu phú 'Nguyệt diệu Thiên Lương nữ dâm bần' nói gì?",
+      "answer_atom": "Thái Âm ở Dần Thân Tỵ cung gặp Thiên Lương số đàn bà thường đa dâm nghèo khổ, dễ rơi vào kiếp lẽ mọn nàng hầu; nếu ở cung Phu lại gặp Tham Lang Xương Khúc lấy chồng hiển hậu thông minh",
+      "source_quote": "Nguyệt diệu Thiên Lương nữ dâm bẩn. (Sao Thái Âm ở Dần Thân Tỵ cung, gặp Thiên Lương số đàn bà thường đa dâm, nghèo khổ, dễ rơi vào kiếp lẽ mọn, nàng hầu nhưng nếu ở cung Phu lại gặp các sao Tham Lang, Xương, Khúc lấy chồng hiển hậu, thông minh).",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thai_am",
+        "combo:thien_luong",
+        "gender:nu",
+        "cung:dan_than_ty",
+        "concept:da_dam",
+        "cung:phu",
+        "combo:tham_lang",
+        "combo:xuong_khuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "dâm bần = đa dâm nghèo; lẽ mọn = vợ lẽ; nàng hầu = hầu thiếp",
+        "viet_thuan": "Nữ Thái Âm + Thiên Lương ở Dần/Thân/Tỵ = đa dâm nghèo; nhưng Phu cung + Tham/Xương/Khúc = chồng hiển",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q01",
+      "question": "Sao Tham Lang thuộc hành gì và là sao nào của Bắc Đẩu?",
+      "answer_atom": "Tham Lang thuộc hành Thủy, là Bắc Đẩu tinh, giải ách chi thần; hóa khí là Đào Hoa; ưa cao ngâm phiêu lãng; khôn khéo thật khôn khéo mà vụng dại cũng thật vụng dại",
+      "source_quote": "Tham Lang thuộc hành Thủy, Bắc Đẩu tinh giải ách chi thần. Hóa khí sao này là Đào Hoa, ưa cao ngâm phiêu lãng, khôn khéo thật khôn khéo mà vụng dại cũng thật vụng dại.",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "element:thuy",
+        "chom:bac_dau",
+        "concept:giai_ach",
+        "hoa_khi:dao_hoa",
+        "concept:phieu_lang"
+      ],
+      "commentary": {
+        "han_viet_explain": "giải ách chi thần = thần giải tai ách; cao ngâm = ngâm thơ",
+        "viet_thuan": "Tham Lang Bắc đẩu, hành Thủy, hóa Đào Hoa, ưa thơ phú phiêu lãng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q02",
+      "question": "Tham Lang ở miếu địa và hội các sao xấu thì sao?",
+      "answer_atom": "Ở miếu địa có thể vừa tạo phúc vừa gây họa; hội Phá Quân thành mê hoa mến rượu mà táng mạng; cùng Lộc Tồn tốt; Song Hao mọi việc thành hư hoa; Liêm Trinh hãm = tù tội; Thất Sát = tai nạn quan tụng; Dương Đà = bệnh trĩ; Hình Kỵ = vết thương sẹo",
+      "source_quote": "Ở miếu địa có thể vừa tạo phúc vừa gây họa. Hội cùng Phá Quân thành ra mê hoa mến rượu mà táng mạng, cùng Lộc Tồn tốt lành, hội Song Hào mọi việc thành hư hoa bố láo, gặp Liêm Trinh hãm địa tù tội, thấy Thất Sát dễ bị tai nạn quan tụng. Dương Đà xung phá có bệnh trĩ, Hình Kị xung phá nhiều vết thương, vết sẹo.",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:pha_quan",
+        "combo:loc_ton",
+        "combo:song_hao",
+        "combo:liem_trinh",
+        "combo:that_sat",
+        "combo:duong_da",
+        "combo:hinh_ky"
+      ],
+      "commentary": {
+        "han_viet_explain": "song hao = Đại Hao + Tiểu Hao",
+        "viet_thuan": "Tham Lang ở miếu vẫn có thể gây họa; nhiều tổ hợp xấu kéo theo nhiều bệnh tật",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q03",
+      "question": "Tham Lang thủ Thân Mệnh đàn ông đàn bà thế nào?",
+      "answer_atom": "Tham Lang thủ Thân Mệnh con trai đa tình, con gái lẳng lơ; có tính ngôn quá kỳ thực; chơi với ai cần trung hậu thì bạc bẽo, kẻ đáng bạc bẽo lại trung hậu",
+      "source_quote": "Tham Lang thủ Thân Mệnh cung con trai đa tình, con gái lẳng lơ. Đa số có tính ngôn quá kỳ thực, chơi với ai cần trung hậu thì dở thói bạc bẽo, với kẻ đáng lý bạc bẽo được thì lại trung hậu.",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "cung:than_menh",
+        "concept:da_tinh",
+        "concept:lang_lo",
+        "concept:ngon_qua_ky_thuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "ngôn quá kỳ thực = nói quá sự thật; trung hậu = chân thật tốt",
+        "viet_thuan": "Tham Lang Thân/Mệnh: nam đa tình, nữ lẳng lơ; cư xử ngược đời",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q04",
+      "question": "Câu 'Thất Sát thủ Thân chung thị yểu, Tham Lang nhập miếu tất vi sương' nói gì?",
+      "answer_atom": "Thất Sát thủ Thân thường chết yểu; Tham Lang nhập miếu, con gái dễ bị giang hồ",
+      "source_quote": "Sách có câu: Thất Sát thủ Thân chung thị yểu, Tham Lang nhập miếu tất vi sương (nghĩa là Thất Sát thủ Thân thường chết yểu, Tham Lang nhập miếu, con gái dễ bị giang hồ).",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:that_sat",
+        "cung:than",
+        "concept:yeu_chiet",
+        "concept:giang_ho",
+        "gender:nu"
+      ],
+      "commentary": {
+        "han_viet_explain": "thị yểu = chết non; vi sương = thành nàng giang hồ",
+        "viet_thuan": "Thất Sát thủ Thân = chết yểu; Tham Lang miếu (nữ) = giang hồ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q05",
+      "question": "Tham Lang đồng cư Vũ Khúc và đi Hỏa Linh thì sao?",
+      "answer_atom": "Tham Lang đồng cư Vũ Khúc = ích kỷ tham lam, không giúp người; đi với Thất Sát là đồ tể; với Dương Đà thành quỷ phong lưu; cùng Xương Khúc đa hư thiểu thực; chỉ có đi với Hỏa Linh là phú quý",
+      "source_quote": "Tham Lang đồng cư với Vũ Khúc, ích kỷ tham lam, không có bụng giúp người khác. Đi cặp cùng Thất Sát là đổ tế. Hội Dương Đà thành con quỉ phong lưu. Tụ cùng Xương Khúc đa hư thiểu thực. Ở hãm địa phùng sinh có thể quật khởi một thời kỳ. Duy có đi với Hỏa Linh là phú quý, ở Mệnh hay Tài Bạch rất hay.",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:vu_khuc",
+        "combo:that_sat",
+        "combo:duong_da",
+        "combo:xuong_khuc",
+        "combo:hoa_linh",
+        "cach_cuc:tham_hoa_phu_quy"
+      ],
+      "commentary": {
+        "han_viet_explain": "đa hư thiểu thực = nhiều giả ít thật; phùng sinh = gặp sinh địa",
+        "viet_thuan": "Tham Lang chỉ thực sự quý khi gặp Hỏa Linh ở Mệnh/Tài",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q06",
+      "question": "Trần Đoàn nói gì về Tham Lang? Cảnh báo gì cho phú nôm VN?",
+      "answer_atom": "Tham Lang khí thuộc Mộc, thể thuộc Thủy nên hóa khí là Đào Hoa; chủ họa phúc; số mệnh ưa phóng đãng; cương mãnh có mưu cơ; cư miếu địa ngộ Hỏa Linh = võ chức quyền quý; người tuổi Mậu Kỷ hợp cục",
+      "source_quote": "Tham Lang tinh, khí thuộc Mộc, thể thuộc Thủy cho nên hóa khí là Đào Hoa, chủ họa phúc chỉ thần. Ở số mệnh ưa phóng đãng, gặp sao tốt chủ phú quý, sao hung chủ hư hoa. Tính tình cương mãnh, có mưu cơ, bổng bểnh chìm nổi, yêu ghét khó lường, thân hình thấp. Cư miếu địa ngộ Hỏa Linh tinh vũ chức quyền quý. Người tuổi Mậu Kỷ hợp cục gặp Quân Tướng thêm trường thọ.",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "school:tran_doan",
+        "element:moc",
+        "element:thuy",
+        "hoa_khi:dao_hoa",
+        "combo:hoa_linh",
+        "tuoi:mau_ky",
+        "concept:vo_chuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "khí Mộc thể Thủy = năng lượng là Mộc, thể chất là Thủy",
+        "viet_thuan": "Tham Lang: khí Mộc thể Thủy → Đào Hoa; tuổi Mậu Kỷ + Hỏa Linh ở miếu = võ quan",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục flag: 'Tử Vi Đẩu Số Toàn Thư KHÔNG ca tụng Tham-Vũ đi cặp, trái với lệ đoán của tổ tiên ta ưa số Tham Vũ đồng hành' — phú nôm VN khác cổ văn"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q07",
+      "question": "Câu phú 'Tham Lang nhập miếu thọ nguyên thân' nói gì?",
+      "answer_atom": "Tham Lang vào miếu địa sống lâu",
+      "source_quote": "Tham Lang nhập miếu thọ nguyên thân. (Vào miếu địa sống lâu).",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "concept:mieu_dia",
+        "concept:tho"
+      ],
+      "commentary": {
+        "han_viet_explain": "thọ nguyên thân = thọ tăng thêm tuổi",
+        "viet_thuan": "Tham Lang miếu = sống lâu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q08",
+      "question": "Câu phú 'Tham Lang hội Sát vô Cát diệu đồ tể' nói gì?",
+      "answer_atom": "Tham Lang hội với Thất Sát mà không có sao Cát trợ lực làm nghề đồ tể",
+      "source_quote": "Tham Lang hội Sát vô Cát diệu đồ tể chỉ nhân. (Hội với Thất Sát mà không có sao Cát trợ lực làm nghề đồ tể).",
+      "source_page": 33,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:that_sat",
+        "concept:do_te"
+      ],
+      "commentary": {
+        "han_viet_explain": "đồ tể = giết mổ",
+        "viet_thuan": "Tham Lang + Thất Sát không có cát tinh = đồ tể",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q09",
+      "question": "Câu phú 'Tham Lang Linh Hỏa tứ mộ' nói gì?",
+      "answer_atom": "Tham Lang đóng Thìn Tuất Sửu Mùi (tứ mộ) gặp Hỏa Linh, chức vị đến cỡ hầu bá, giàu phú hào",
+      "source_quote": "Tham Lang gặp Linh Hỏa, ở tứ mộ cung, là người phú hào có quyền quý và địa vị cao. (Sao Tham Lang đóng ở Thìn, Tuất, Sửu, Mùi gặp hai sao Hỏa, Linh, chức vị đến cỡ hầu bá, giàu có vào loại phú hào).",
+      "source_page": 34,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:hoa_linh",
+        "cung:tu_mo",
+        "cach_cuc:tham_hoa_tu_mo",
+        "concept:hau_ba",
+        "concept:phu_hao"
+      ],
+      "commentary": {
+        "han_viet_explain": "tứ mộ = 4 cung mộ (Thìn Tuất Sửu Mùi); hầu bá = chức quý tộc",
+        "viet_thuan": "Tham Lang + Hỏa Linh ở tứ mộ = hầu bá phú hào",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q10",
+      "question": "Câu phú 'Tham Lang Tí Ngọ Mão Dậu' nói gì?",
+      "answer_atom": "Tham Lang thủ mệnh tại Tí Ngọ Mão Dậu là loại người quỷ quyệt, thích dùng thủ đoạn, suốt đời khó làm việc lớn",
+      "source_quote": "Tham Lang thủ mệnh tại Tí, Ngọ, Mão, Dậu là loại người quỷ quyệt. Họ thích dùng thủ đoạn và suốt đời khó làm nên việc lớn.",
+      "source_page": 34,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "cung:tu_chinh",
+        "concept:quy_quyet",
+        "concept:thu_doan"
+      ],
+      "commentary": {
+        "han_viet_explain": "tứ chính = Tí Ngọ Mão Dậu; quỷ quyệt = xảo quyệt",
+        "viet_thuan": "Tham Lang Tí Ngọ Mão Dậu = xảo quyệt thủ đoạn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q11",
+      "question": "Câu phú 'Tham Vũ' đi đôi nói gì về thời điểm phát?",
+      "answer_atom": "Hai sao Tham Lang và Vũ Khúc đi với nhau, tuổi ngoài bốn mươi mới khá giả; là loại người lợi kỷ, tổn nhân; ở Thân là hạ cách",
+      "source_quote": "Hai sao Tham Lang và Vũ Khúc đi với nhau, tuổi ngoài bốn mươi mới khá giả. Tham Vũ là loại người lợi kỷ, tổn nhàn (Cùng nghĩa câu trên). Hai sao Tham Lang và Vũ Khúc đi cặp ở cung Thân là hạ cách.",
+      "source_page": 34,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:vu_khuc",
+        "cach_cuc:tham_vu",
+        "concept:loi_ky_ton_nhan",
+        "concept:phat_muon"
+      ],
+      "commentary": {
+        "han_viet_explain": "lợi kỷ tổn nhân = lợi mình hại người",
+        "viet_thuan": "Tham-Vũ đồng cung: ngoài 40 mới khá, lợi mình hại người, ở Thân = hạ cách",
+        "nguyen_ly": "Câu phú gốc: 'Tham Vũ bất phát thiếu niên nhân' = Tham-Vũ không phát thời thiếu niên",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q12",
+      "question": "Câu phú Tham Lang gặp Đào Hoa trôi dạt ở Tí Hợi nói gì?",
+      "answer_atom": "Gặp Kình Dương, Đà La ở cung Tí Hợi gọi là 'đào hoa trôi dạt', cả nam lẫn nữ đều mê hoa luyến tửu; nếu có cát tinh trợ lực thì là người phong nhã hào hoa",
+      "source_quote": "Gặp Kình Dương, Đà La ở cung Tí Hợi gọi là đào hoa trôi dạt, cả nam lẫn nữ đều mê hoa luyến tửu. Nếu có cát tinh trợ lực thì là người phong nhã hào hoa.",
+      "source_page": 34,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:kinh_duong",
+        "combo:da_la",
+        "cung:ti_hoi",
+        "cach_cuc:dao_hoa_troi_dat"
+      ],
+      "commentary": {
+        "han_viet_explain": "trôi dạt = phiêu bạt; phong nhã hào hoa = nhã nhặn lịch lãm",
+        "viet_thuan": "Tham Lang + Kình Đà ở Tí/Hợi = đào hoa phiêu bạt; có cát tinh = phong lưu nhã",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.tham_lang.Q13",
+      "question": "Tham Lang đồng Liêm Trinh, đi với Thất Sát Cơ Lương thì sao?",
+      "answer_atom": "Cùng Thất Sát + Thiên Cơ Thiên Lương: tham tiền không biết chán, suốt đời bôn tẩu bán buôn; đi với Liêm Trinh: nam nữ dâm dật",
+      "source_quote": "Cùng với Thất Sát gặp Thiên Cơ, Thiên Lương, tham tiền và không biết chán suốt đời bôn tẩu bán buôn. Đi với Liêm Trinh, số con trai, con gái dâm dật.",
+      "source_page": 34,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:tham_lang",
+        "combo:that_sat",
+        "combo:thien_co",
+        "combo:thien_luong",
+        "combo:liem_trinh",
+        "concept:bon_tau",
+        "concept:dam_dat"
+      ],
+      "commentary": {
+        "han_viet_explain": "bôn tẩu = chạy ngược chạy xuôi; dâm dật = dâm dục buông thả",
+        "viet_thuan": "Tham + Sát + Cơ/Lương = bán buôn ham tiền; + Liêm Trinh = dâm dật",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q01",
+      "question": "Sao Cự Môn thuộc hành gì và đứng thứ mấy của Bắc Đẩu?",
+      "answer_atom": "Cự Môn thuộc hành Thủy, là đệ nhị tinh của Bắc Đẩu, có tính chất hóa khí thành ám (che tối)",
+      "source_quote": "Cự Môn thuộc hành Thủy, là đệ nhị tinh của Bắc Đẩu, có tính chất háo khí thành ám (che tối).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "element:thuy",
+        "chom:bac_dau",
+        "hoa_khi:am"
+      ],
+      "commentary": {
+        "han_viet_explain": "đệ nhị tinh = sao thứ hai; ám = che tối",
+        "viet_thuan": "Cự Môn Bắc Đẩu thứ 2, hành Thủy, hóa khí là Ám (tối)",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q02",
+      "question": "Cự Môn ở 12 cung gây tác hại gì?",
+      "answer_atom": "Ở Thân Mệnh chiêu miệng tiếng dèm chê; Huynh Đệ cốt nhục bất hòa; Phu Thê chia cách; Tử Tức hiếm muộn; Tài Bạch cạnh tranh; Tật Ách Hình Kỵ đau mắt; Thiên Di bị bôi xấu; Nô Bộc đa oán phản bội; Quan Lộc quan tụng; Điền Trạch phá tổ; Phụ Mẫu không hợp",
+      "source_quote": "Ở Thân mệnh: Thường chiêu miệng tiếng, dèm chê. Ở Huynh Đệ: Cốt nhục bất hòa. Ở Phu Thê: Vợ chồng chia cách; nếu có sống chung thì cũng ô danh thất tiết. Ở Tử Tức: Con cái hoặc hiếm muộn hoặc ít thành đạt. Ở Tài Bạch: Hay bị cạnh tranh. Ở Tật Ách: Gặp Hình Kị đau mắt; nếu Sát tinh xung phá nặng sẽ tàn tật. Ở Thiên Di: Ra ngoài bị bôi xấu. Ở Nô Bộc: Đa oán, phản bội. Ở Quan Lộc: Dễ dính líu vào những việc quan tụng. Ở Điền Trạch: Phá tổ nghiệp. Ở Phụ Mẫu: Không hợp với cha mẹ.",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "concept:thi_phi",
+        "concept:12_cung"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cự Môn ở mỗi cung đều mang vận thị phi xấu cho cung đó",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q03",
+      "question": "Trần Đoàn nói gì về Cự Môn?",
+      "answer_atom": "Cự Môn trên trời coi phẩm chất vạn vật; vào số mệnh chủ thị phi, ám muội, đa nghi, dối trá, tiến thoái lưỡng nan; tính ngoài mặt thế này trong thế khác; giao du trước tốt sau xấu; nếu không miếu địa thường bôn ba lao lực",
+      "source_quote": "Cự Môn ở trên trời coi phẩm chất vạn vật vào số mệnh chủ về thị phi, ám muội, đa nghi, dối trá, tiến thoái lưỡng nan, tính tình ngoài mặt thế này trong thế khác, ít hợp với người thân, giao du trước tốt sau xấu. Đóng tại 12 cung nếu không vào miếu địa thường bôn ba lao lực.",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "school:tran_doan",
+        "concept:thi_phi",
+        "concept:am_muoi",
+        "concept:da_nghi"
+      ],
+      "commentary": {
+        "han_viet_explain": "ám muội = mờ ám; tiến thoái lưỡng nan = không tiến không lùi được",
+        "viet_thuan": "Cự Môn = sao thị phi, ám muội, hai mặt, lao lực nếu không miếu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q04",
+      "question": "Cự Môn gặp Thái Dương, Dương Đà, Hỏa Linh Bạch Hổ thì sao?",
+      "answer_atom": "Gặp Thái Dương thì hung cát tương bán; đi với Dương Đà trai ăn trộm gái ăn sương; có Hỏa Linh xung chiếu thêm Bạch Hổ hay tam hợp Sát tinh = bị hỏa ách cháy nhà bị bỏng; đại tiểu hạn ngộ Cự Môn hãm địa tai nạn không nhỏ",
+      "source_quote": "Gặp Thái Dương thì hung cát tương bán (?). Đi với Dương Đà trai ăn trộm, gái ăn sương. Có Hỏa Linh xung chiếu thêm Bạch Hổ hay tam hợp Sát tinh tụ tất bị hỏa ách cháy nhà bị bỏng. Đại tiểu hạn ngộ Cự Môn hãm địa tai nạn không nhỏ.",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "school:tran_doan",
+        "combo:thai_duong",
+        "combo:duong_da",
+        "combo:hoa_linh",
+        "combo:bach_ho",
+        "concept:hoa_ach"
+      ],
+      "commentary": {
+        "han_viet_explain": "hung cát tương bán = nửa hung nửa cát; ăn sương = đĩ điếm; hỏa ách = tai nạn lửa",
+        "viet_thuan": "Cự + Thái Dương = nửa tốt nửa xấu; + Dương Đà = ăn trộm/đĩ; + Hỏa Linh + Bạch Hổ = cháy nhà",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q05",
+      "question": "Cự Môn miếu vượng hãm địa ở đâu?",
+      "answer_atom": "Cự Môn miếu địa ở Mão, Dậu; vượng địa ở Tí, Ngọ; hãm địa ở Tỵ, Thìn, Tuất, Sửu, Mùi",
+      "source_quote": "Cự Môn miếu địa ở Mão, Dậu, vượng địa ở Tí, Ngọ, hãm địa ở Tỵ, Thìn, Tuất, Sửu, Mùi.",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Mão Dậu; vượng Tí Ngọ; hãm Tỵ Thìn Tuất Sửu Mùi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q06",
+      "question": "Cách 'Cự Nhật mệnh cung Dần' nói gì?",
+      "answer_atom": "Cự Môn + Thái Dương thủ mệnh ở cung Dần, chủ về danh tiếng và nhiều tiền (thực lộc trì danh)",
+      "source_quote": "Cự Nhật mệnh cung Dần: Vị thực lộc trì danh. (Hai sao Cự Môn, Thái Dương thủ mệnh ở cung Dần, chủ về danh tiếng và nhiễu tiền).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thai_duong",
+        "cung:dan",
+        "cach_cuc:cu_nhat_dan",
+        "concept:thuc_loc_tri_danh"
+      ],
+      "commentary": {
+        "han_viet_explain": "thực lộc trì danh = ăn lộc giữ danh",
+        "viet_thuan": "Cự + Nhật thủ mệnh Dần = danh tiếng và tiền",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q07",
+      "question": "Cách 'Cự Môn tại Tí Ngọ hội Khoa Quyền Lộc' nói gì?",
+      "answer_atom": "Cự Môn tại Tí Ngọ hội với Khoa Quyền Lộc là cách 'ngọc ẩn trong đá', hưởng phúc lớn",
+      "source_quote": "Cự Môn tại Tí, Ngọ hội với Khoa, Quyền lộc là cách ngọc ẩn trong đá, hưởng phúc lớn.",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "cung:ti_ngo",
+        "combo:khoa_quyen_loc",
+        "cach_cuc:ngoc_an_trong_da"
+      ],
+      "commentary": {
+        "han_viet_explain": "ngọc ẩn trong đá = ngọc trong đá thô",
+        "viet_thuan": "Cự Môn Tí/Ngọ + Tam Hóa = ngọc ẩn trong đá, phúc lớn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q08",
+      "question": "Cách 'Cự tại Hợi Nhật mệnh Tỵ' nói gì?",
+      "answer_atom": "Cự Môn ở Hợi, Thái Dương thủ mệnh ở Tỵ, chủ về danh tiếng và bổng lộc (thực lộc trì danh)",
+      "source_quote": "Cự tại Hợi, Nhật mệnh Tỵ thực lộc trì danh. (Cự Môn ở Hợi, Thái Dương thủ mệnh ở Tị, chủ về danh tiếng và bổng lộc).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thai_duong",
+        "cung:hoi",
+        "cung:ty"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cự ở Hợi + Nhật thủ mệnh Tỵ = danh tiếng và bổng lộc",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q09",
+      "question": "Cách 'Cự tại Tỵ Nhật mệnh Hợi phản vi bất giai' nói gì?",
+      "answer_atom": "Nếu Cự Môn đóng Tỵ, Thái Dương thủ mệnh tại Hợi thì lại hỏng vì Thái Dương lạc hãm",
+      "source_quote": "Cự tại Tỵ cung Nhật mệnh Hợi: Phản vi bất giai. (Nếu Cự Môn đóng Tỵ, Thái Dương thủ mệnh tại cung Hợi thì lại hỏng vì Thái Dương lạc hãm).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thai_duong",
+        "cung:ty",
+        "cung:hoi",
+        "cach_cuc:phan_vi_bat_giai"
+      ],
+      "commentary": {
+        "han_viet_explain": "phản vi bất giai = trái lại không tốt",
+        "viet_thuan": "Cự ở Tỵ + Nhật ở Hợi = hỏng vì Nhật hãm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q10",
+      "question": "Cách 'Cự Cơ cứ Mão' nói gì?",
+      "answer_atom": "Cự Môn + Thiên Cơ đi cặp đóng cung Mão, người tuổi Ất Tân Kỷ Bính có thể làm tới công khanh",
+      "source_quote": "Cự Cơ cứ Mão, Ất, Tân, Kỷ, Bính: Chí công khanh. (Hai sao Cự Môn, Thiên Cơ đi cặp đóng cung Mão người tuổi Ất, Tân, Kỷ, Bính có thể làm tới công khanh).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thien_co",
+        "cung:mao",
+        "tuoi:at_tan_ky_binh",
+        "cach_cuc:cu_co_mao",
+        "concept:cong_khanh"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cự + Cơ ở Mão + tuổi Ất Tân Kỷ Bính = công khanh",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q11",
+      "question": "Cách 'Cự Cơ Dậu' nói gì?",
+      "answer_atom": "Cự Môn, Thiên Cơ ở Dậu là tốt, nhưng dù có tiền tài chức vị nhưng cũng không lâu bền, sẽ yểu thọ hoặc phá sản",
+      "source_quote": "Cự, Cơ Dậu thượng hoá cát giả túng hữu tài quan dã bất chung. (Cự Môn, Thiên Cơ ở Dậu là tốt, nhưng dù có tiền tài, chức vị nhưng cũng không lâu bền, sẽ yếu thọ hoặc phá sản).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thien_co",
+        "cung:dau",
+        "concept:bat_chung",
+        "concept:pha_san"
+      ],
+      "commentary": {
+        "han_viet_explain": "bất chung = không trọn vẹn",
+        "viet_thuan": "Cự Cơ Dậu tốt nhưng không bền, yểu thọ hoặc phá sản",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q12",
+      "question": "Cách 'Cự Môn Thìn Hóa Kỵ Tân' nói gì?",
+      "answer_atom": "Cự Môn ở Thìn (hãm địa) gặp Hóa Kỵ, người tuổi Tân lại biến thành cách kỳ lạ (tốt)",
+      "source_quote": "Cự Môn tại Thìn cung, Hoá Kỵ tân nhân mệnh ngộ phản vi kỳ. (Rơi vào hãm địa là cung Thìn mà gặp Hoá Kỵ, người tuổi Tân lại biến thành cách kì lạ).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "cung:thin",
+        "combo:hoa_ky",
+        "tuoi:tan",
+        "cach_cuc:phan_vi_ky"
+      ],
+      "commentary": {
+        "han_viet_explain": "phản vi kỳ = trái lại thành kỳ lạ",
+        "viet_thuan": "Cự Môn Thìn + Hóa Kỵ + tuổi Tân = Kỵ biến thành cát (kỳ cách)",
+        "nguyen_ly": "Hóa Kỵ có thể là quý khi gặp tuổi và cung đúng",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q13",
+      "question": "Cách 'Cự Cơ ở Sửu Mùi' nói gì?",
+      "answer_atom": "Cự Cơ đi cặp ở Sửu, Mùi là hạ cách",
+      "source_quote": "Cự Cơ ở Sửu, Mùi: Vi hạ cách. (Cự Cơ đi cặp ở Sửu, Mùi là hạ cách).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thien_co",
+        "cung:suu_mui",
+        "cach_cuc:ha_cach"
+      ],
+      "commentary": {
+        "han_viet_explain": "hạ cách = cách thấp kém",
+        "viet_thuan": "Cự + Cơ ở Sửu Mùi = hạ cách",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q14",
+      "question": "Cảnh báo 'Cự Môn Dương Đà ở mệnh Thân' nói gì?",
+      "answer_atom": "Gặp Dương Đà ở mệnh Thân, ốm đau suốt đời; nếu không thì trộm cắp đĩ điếm (tật ách doanh hoàng, khốn nhược đạo nhi sương)",
+      "source_quote": "Cự Môn, Dương Đà ở mệnh Thân: Tật ách doanh hoàng, khốn nhược đạo nhỉ sương. (Gặp Dương Đà ở mệnh Thân, ốm đau suốt đời; nếu không thì trộm cắp, đĩ điếm).",
+      "source_page": 35,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:duong_da",
+        "cung:than",
+        "concept:tat_ach",
+        "concept:trom_cap_di_diem"
+      ],
+      "commentary": {
+        "han_viet_explain": "khốn nhược đạo nhi sương = nghèo khốn ăn trộm và đĩ điếm",
+        "viet_thuan": "Cự + Dương Đà ở Thân = bệnh suốt đời, hoặc trộm/đĩ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q15",
+      "question": "Cảnh báo 'Cự Môn Kình Dương Đà phùng ác diệu' nói gì?",
+      "answer_atom": "Cự Môn đi cùng Hỏa Tinh và Dương Đà gặp thêm sát tinh khác phải phòng tử ải đầu hà (treo cổ nhảy sông); Cự Môn Hỏa Linh đi cặp gặp ác hạn chết đường",
+      "source_quote": "Cự Môn, Kình Dương Đà phùng ác diệu phòng ải tử đầu hà. (Đi cùng với Hỏa Tinh và Dương Đà gặp thêm các sát tinh khác để phòng tử ải đầu hà). Cự Môn Hỏa Linh Tinh phùng ác hạn tử ứ ngoại đạo. (Cự Môn Hỏa Linh đi cặp, gặp ác hạn chết đường).",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:kinh_duong",
+        "combo:da_la",
+        "combo:hoa_tinh",
+        "combo:linh_tinh",
+        "concept:tu_ai_dau_ha",
+        "concept:chet_duong"
+      ],
+      "commentary": {
+        "han_viet_explain": "tử ải đầu hà = treo cổ nhảy sông; chết ứ ngoại đạo = chết xác đường",
+        "viet_thuan": "Cự + Kình Đà + Hỏa Linh = treo cổ nhảy sông, chết đường",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.cu_mon.Q16",
+      "question": "Cự Tú Thiên Cơ vi phá đãng nói gì?",
+      "answer_atom": "Cự Môn đồng cung Thiên Cơ, số đàn bà thường phá đãng, dù ở Mão Dậu đắc địa tuy phú quý nhưng không tránh khỏi dâm bòn",
+      "source_quote": "Cự Tú Thiên Cơ vi phá đãng (Cự Môn đồng cung Thiên Cơ, số đàn bà thường phá đãng, dù ở Mão Dậu đắc địa tuy phú quý nhưng chẳng tránh khỏi dâm bòn).",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:cu_mon",
+        "combo:thien_co",
+        "gender:nu",
+        "concept:pha_dang",
+        "concept:dam_bon",
+        "cung:mao_dau"
+      ],
+      "commentary": {
+        "han_viet_explain": "phá đãng = buông tuồng phá phách",
+        "viet_thuan": "Nữ Cự + Cơ = phá đãng dâm bòn, kể cả Mão Dậu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q01",
+      "question": "Sao Thiên Tướng thuộc hành gì và chủ về điều gì?",
+      "answer_atom": "Thiên Tướng thuộc hành Thủy, Nam Đẩu tinh, chủ về quyền tước, rất phúc thiện; hóa khí là Ấm; chuyên trợ giúp Tử Vi",
+      "source_quote": "Thiên Tướng thuộc hành Thủy Nam Đẩu tinh, chủ về các việc quyền tước rất phúc thiện, háo khí của sao này là ấm, chuyên trợ giúp cho Tử Vi.",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "element:thuy",
+        "chom:nam_dau",
+        "hoa_khi:am",
+        "combo:tu_vi",
+        "concept:quyen_tuoc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Ấm = che chở; quyền tước = chức tước quyền lực",
+        "viet_thuan": "Thiên Tướng Nam đẩu, hành Thủy, hóa Ấm, phù tá Tử Vi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q02",
+      "question": "Tính cách Thiên Tướng thủ mệnh thế nào?",
+      "answer_atom": "Thiên Tướng thủ mệnh là người ăn nói thành thực, chắc chắn; thấy hoạn nạn dễ động lòng trắc ẩn; thấy việc ác dễ nổi khí bất bình; ở Quan Lộc thì hiển vinh; đóng đâu phúc lộc đấy; được Tả Hữu hộ vệ nắm chức quyền lớn",
+      "source_quote": "Thiên Tướng thủ mệnh là người ăn nói thành thực, chắc chắn, thấy ai hoạn nạn dễ động lòng trắc ẩn, thấy việc ác dễ nổi khí bất bình. Ở cung Quan Lộc thì hiển vinh. Đóng đâu phúc lộc đấy, không bị sao ác làm biến đổi, chí không vì hung sát mà thay. Được Tả Hữu hộ vệ nắm chức quyền lớn rủi tới vào cung nhà nhược thì vẫn tốt như thường.",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "concept:thanh_thuc",
+        "concept:trac_an",
+        "concept:bat_binh",
+        "cung:quan_loc",
+        "combo:ta_huu"
+      ],
+      "commentary": {
+        "han_viet_explain": "trắc ẩn = thương xót; bất bình = không chịu được bất công",
+        "viet_thuan": "Thiên Tướng = người trung hậu nghĩa khí, ở đâu phúc đó",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q03",
+      "question": "Trần Đoàn nói gì về Thiên Tướng?",
+      "answer_atom": "Thiên Tướng tinh chủ về y thực phong túc, hội với Tả Hữu Xương Khúc vị chí công khanh; hãm địa gặp Liêm Tham Vũ Phá Dương Đà xung phá thì dùng tài tháo vát để an thân; có Hỏa Linh xung phá e tàn tật",
+      "source_quote": "Thiên Tướng tinh chủ về y thực phong túc hội với Tả Hữu Xương Khúc vị chí công khanh. Ở hãm địa gặp Liêm Tham Vũ Phá Dương Đà xung phá thì dùng tài tháo vát để an thân. Có Hỏa Linh xung phá e tàn tật.",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "school:tran_doan",
+        "concept:y_thuc_phong_tuc",
+        "combo:ta_huu",
+        "combo:xuong_khuc",
+        "combo:hoa_linh"
+      ],
+      "commentary": {
+        "han_viet_explain": "y thực phong túc = ăn mặc đầy đủ; vị chí công khanh = chức công khanh",
+        "viet_thuan": "Thiên Tướng + Tả Hữu Xương Khúc = công khanh; + Hỏa Linh hãm = tàn tật",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q04",
+      "question": "Nữ mệnh Thiên Tướng thế nào?",
+      "answer_atom": "Nữ mệnh Thiên Tướng thủ mệnh thông minh, đoan trang, chí cao như kẻ trượng phu; nếu gặp xung phá thành thân phận tì thiếp",
+      "source_quote": "Số đàn bà Thiên Tướng thủ mệnh thông minh, đoan trang, chí cao như kẻ trượng phu, nếu gặp xung phá thành thân phận tì thiếp.",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "school:tran_doan",
+        "gender:nu",
+        "concept:trang_phu",
+        "concept:ti_thiep"
+      ],
+      "commentary": {
+        "han_viet_explain": "trượng phu = đại trượng phu; tì thiếp = nàng hầu",
+        "viet_thuan": "Nữ Thiên Tướng = thông minh đoan trang chí lớn; xung phá = vợ lẽ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q05",
+      "question": "Bài ca về Thiên Tướng (không rõ tác giả) nói gì?",
+      "answer_atom": "Thiên Tướng nguyên thủy, hóa Ấn chủ Quan Lộc; Thân Mệnh có Thiên Tướng = nhiều tài phúc; hình thể phì mãn; ngữ ngôn không khinh độc; làm quan dễ thăng tiến; ở nhà chủ tài cốc; nhị hạn gặp = bách sự sung túc",
+      "source_quote": "Thiên Tướng nguyên lộc thủy / Hoá ấn chủ quan lộc / Thân mệnh nhi cung phùng / Định chủ đa tài phúc / Hình thể hựu phì mãn / Ngữ ngôn bất khinh độc / Xuất sĩ chủ phi đằng / Cư gia chủ tài cốc / Nhị hạn nhược phùng chi / Bách sự khán sung túc",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "school:ngoc_thiem",
+        "hoa_khi:an",
+        "concept:tai_phuc",
+        "concept:phi_man",
+        "concept:tai_coc"
+      ],
+      "commentary": {
+        "han_viet_explain": "hóa Ấn = biến thành Ấn (con dấu quan chức); phì mãn = mập đầy; tài cốc = tiền và thóc",
+        "viet_thuan": "Thiên Tướng hóa Ấn chủ quan lộc; thân phì, lời nói chững chạc; làm quan/buôn đều tốt",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q06",
+      "question": "Thiên Tướng miếu, đắc, hãm địa theo phú chữ ở đâu?",
+      "answer_atom": "Thiên Tướng miếu địa Tý, Ngọ, Dần, Thân (đắc địa); Tỵ, Hợi, Sửu, Mùi (hãm địa); Mão, Dậu",
+      "source_quote": "Thiên Tướng miếu địa: Tý, Ngọ, Dần, Thân (đắc địa); Tị, Hợi, Sửu Mùi (hãm địa): Mão, Dậu.",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Tý Ngọ Dần Thân; hãm Tỵ Hợi Sửu Mùi; Mão Dậu trung bình",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Phú nôm VN nói Thìn Tuất là miếu — KHÁC phú chữ. Vũ Tài Lục bình: 'phú nôm cho Thìn, Tuất là miếu còn phú chữ là Tý Sửu Dần Thân'"
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q07",
+      "question": "Cảnh báo 'Thiên Tướng Liêm Trinh Kình Dương hiệp' nói gì?",
+      "answer_atom": "Mệnh Thiên Tướng giáp có Liêm Trinh và Kình Dương phần đông gặp tai ách tù ngục (đa chiêu hình trượng nan đào)",
+      "source_quote": "Thiên Tướng, Liêm Trinh, Kình Dương hiệp đa chiêu hình Trượng nan đào. (Mệnh Thiên Tướng giáp có Liêm Trinh, Kình Dương phần đông gặp tai ách tù ngục).",
+      "source_page": 36,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "combo:liem_trinh",
+        "combo:kinh_duong",
+        "concept:giap_cung",
+        "concept:hinh_truong"
+      ],
+      "commentary": {
+        "han_viet_explain": "giáp = hai cung bên cạnh kẹp lại; hình trượng = roi vọt tù ngục",
+        "viet_thuan": "Thiên Tướng bị Liêm-Kình giáp = tù ngục khó thoát",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q08",
+      "question": "Câu phú 'Thiên Tướng nữ mệnh triền tất' nói gì?",
+      "answer_atom": "Số đàn bà Thiên Tướng thủ mệnh tất nhiên đẻ con quý tử, có chồng hiển",
+      "source_quote": "Thiên Tướng chỉ tỉnh nữ mệnh: Triền tất đương tử quí cập phu hiền. (Số đàn bà Thiên Tướng thủ mệnh tất nhiên đẻ con quý tử, có chồng hiển).",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "gender:nu",
+        "concept:quy_tu",
+        "concept:phu_hien"
+      ],
+      "commentary": {
+        "han_viet_explain": "triền tất = nhất định; phu hiền = chồng hiển đạt",
+        "viet_thuan": "Nữ Thiên Tướng = sinh quý tử, chồng hiển",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q09",
+      "question": "Câu phú 'Hữu Bật Thiên Tướng phúc lai lâm' nói gì?",
+      "answer_atom": "Thiên Tướng đi cặp Hữu Bật dễ gặp điều tốt lành",
+      "source_quote": "Hữu Bật Thiên Tướng phúc lai lâm: (Có đi cặp Hữu Bật dễ gặp điều tốt lành).",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "combo:huu_bat",
+        "concept:phuc_lai_lam"
+      ],
+      "commentary": {
+        "han_viet_explain": "phúc lai lâm = phúc đến",
+        "viet_thuan": "Thiên Tướng + Hữu Bật = phúc đến",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_tuong.Q10",
+      "question": "Phú nôm tiền nhân ta về Thiên Tướng có gì khác phú chữ?",
+      "answer_atom": "Phú nôm tả tướng mạo: 'Thiên Tướng là mặt con người / Hương trời sắc nước mệnh ai Tướng hồng'; cảnh báo Thiên Tướng và Văn Khúc hội Đào Mộc Cái = sắc khuynh thành chết nỗi dâm bòn; cho Thìn Tuất là miếu; đưa ra số 'bóng đồng' (đồng bóng) mà phú chữ không có",
+      "source_quote": "Tướng ấn chính ví công hầu / Binh hình Lôc Mã hội châu mệnh viên / Cung Thìn Tuất, mệnh an tướng thủ / Quan Lộc cung vượng khí công danh / Thiên Tướng chẳng kỵ sát tinh / Chỉ hiểm triệt lộ đầu mình phàn hai / Thiên Tướng là mặt con người / Hương trời sắc nước mệnh ai Tướng hồng / Đãn, hiểm lấn át quyển chồng / Tướng phúc hình Kị bóng đồng tổn hao / Tướng và Khúc hội đào, mộc, cái / Sác khuynh thành chết nỗi dâm bòn.",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_tuong",
+        "school:vn",
+        "cung:thin_tuat",
+        "combo:triet_lo",
+        "combo:dao_moc_cai",
+        "concept:dong_bong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Triệt Lộ = sao Triệt; đào mộc cái = Đào Hoa, Mộc Dục, Hoa Cái; bóng đồng = đồng bóng",
+        "viet_thuan": "Phú nôm tả mặt mũi, cho Thìn Tuất miếu, kỵ Triệt, có số 'đồng bóng' — KHÁC phú chữ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục bình: 'So phú nôm với phú chữ thấy miếu địa Thiên Tướng khác hẳn... Phú nôm đưa ra số đồng bóng trong khi phú chữ chẳng nói gì... Đó chính là cái tài của tiền nhân ta học của người mà vẫn tìm cách hơn người' — phú nôm sáng tạo riêng"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q01",
+      "question": "Sao Thiên Lương thuộc hành gì và chủ về điều gì?",
+      "answer_atom": "Thiên Lương thuộc hành Thổ, Nam Đẩu tính cai quản việc thọ yểu; hóa khí là Ấm là Phúc; chủ về phụ mẫu",
+      "source_quote": "Thiên Lương thuộc hành Thổ, Nam Đẩu tính cai quản việc thọ yểu, hóa khí là Ấm là Phúc, chủ về phụ mẫu.",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "element:tho",
+        "chom:nam_dau",
+        "hoa_khi:am_phuc",
+        "cung:phu_mau",
+        "concept:tho_yeu"
+      ],
+      "commentary": {
+        "han_viet_explain": "thọ yểu = sống lâu hay chết non; Ấm = che chở; Phúc = phúc đức",
+        "viet_thuan": "Thiên Lương Nam đẩu, hành Thổ, hóa Ấm Phúc, chủ Phụ Mẫu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q02",
+      "question": "Thiên Lương vào số mệnh có tính gì?",
+      "answer_atom": "Tính tình lỗi lạc, vẻ người đầy đặn, lòng chính trực vô tư; quả quyết; gặp Xương Khúc ở Tài Bạch, gặp Thái Dương ở Phúc Đức tam hợp + cát tinh = thanh danh vẹn toàn, vua yêu bạn nể",
+      "source_quote": "Vào số mệnh thì tính tình lỗi lạc, vẻ người đầy đặn có lòng chính trực vô tư; vào việc quả quyết, gặp Xương Khúc ở cung Tài Bạch, gặp Thái Dương ở cung Phúc Đức tam hợp xung chiếu hội nhiều sao tốt, thanh danh vạn toàn, vua yêu bạn nể.",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "concept:loi_lac",
+        "concept:chinh_truc",
+        "combo:xuong_khuc",
+        "combo:thai_duong",
+        "cung:tai_bach",
+        "cung:phuc_duc"
+      ],
+      "commentary": {
+        "han_viet_explain": "lỗi lạc = nổi bật xuất sắc; vô tư = không thiên vị",
+        "viet_thuan": "Thiên Lương = người chính trực; + Xương Khúc Tài Bạch / Thái Dương Phúc = thanh danh vẹn toàn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q03",
+      "question": "Thiên Lương khi nào nên đi tu? Có sợ gì không?",
+      "answer_atom": "Gặp Hỏa Lâu, ngộ Thiên Cơ và Sát Tinh nên đi tu là hơn; Thiên Lương không sợ Thái Tuế xung và Bạch Hổ phá",
+      "source_quote": "Gặp sao Hỏa Lâu ngộ Thiên Cơ và Sát Tinh nên đi tu là hơn. Thiên Lương không sợ Thái Tuế xung và Bạch Hổ phá.",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "combo:hoa_lau",
+        "combo:thien_co",
+        "combo:thai_tue",
+        "combo:bach_ho",
+        "concept:di_tu"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Lương + Cơ + Sát = đi tu; không sợ Thái Tuế hay Bạch Hổ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q04",
+      "question": "Trần Đoàn nói gì về Thiên Lương?",
+      "answer_atom": "Thiên Lương Nam đẩu, sao coi việc thọ; hóa khí thành Ấm; sinh nhàn thanh tú, ôn hòa, hình thần ẩn trọng; giỏi nói binh pháp; hội Xương Khúc Tả Hữu quyền vị lớn; ở Phúc Đức hội Thái Dương cực phẩm chỉ quý đối với người tuổi Mậu Kỷ",
+      "source_quote": "Thiên Lương nam đẩu, sao coi việc thọ hóa khí thành Ấm, sinh nhàn thanh tú ôn hòa hình thần ẩn trọng, giỏi nói binh pháp, hội với Xương Khúc, Tả Hữu quyển vị lớn. Ở cung Phúc Đức hội cùng Thái Dương cực phẩm chỉ quý đối với người tuổi Mậu, Kỷ.",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "school:tran_doan",
+        "concept:tho",
+        "hoa_khi:am",
+        "combo:xuong_khuc",
+        "combo:ta_huu",
+        "combo:thai_duong",
+        "tuoi:mau_ky",
+        "concept:binh_phap"
+      ],
+      "commentary": {
+        "han_viet_explain": "sinh nhàn = sinh ra nhàn nhã; hình thần ẩn trọng = dáng vẻ trầm tĩnh trang nghiêm",
+        "viet_thuan": "Thiên Lương người trầm tĩnh giỏi binh pháp; ở Phúc Đức + Thái Dương + Mậu Kỷ = cực phẩm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q05",
+      "question": "Thiên Lương không sợ và sợ những sao gì? (Trần Đoàn)",
+      "answer_atom": "Thiên Lương không bị Liêm Trinh Hình Kỵ khắc hại, không sợ Hỏa Linh gây can qua; gặp Tấu Thư nổi danh kỳ lạ; gặp Đại Tiểu Hao mưu việc khó thành; ngộ Thanh Long có hỉ tín; rất kỵ Dương Đà xung phá gây tiếng xấu",
+      "source_quote": "Thiên Lương không bị Liêm Trinh Hình Kỵ khắc hại cũng không sợ Hỏa Linh gây can qua. Thiên Lương gặp Tấu Thư nổi danh kỳ lạ, gặp Đại Tiểu hao mưu việc khó thành, ngộ Thanh Long có hỉ tín. Nữ mệnh Thiên Lương miếu địa vượng phu ích tử, hội Xương Khúc Tả Hữu là mệnh phụ. Rất kỵ Dương Đà xung phá gây tiếng xấu.",
+      "source_page": 37,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "school:tran_doan",
+        "combo:tau_thu",
+        "combo:dai_tieu_hao",
+        "combo:thanh_long",
+        "combo:duong_da",
+        "gender:nu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tấu Thư = sao Tấu Thư; Thanh Long = sao Thanh Long; hỉ tín = tin vui",
+        "viet_thuan": "Thiên Lương + Tấu Thư = nổi danh; + Hao = khó thành; + Thanh Long = tin vui; kỵ Dương Đà",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q06",
+      "question": "Vũ Tài Lục phản biện câu 'Thiên Lương đồng độ Tham Lang' của Trần Đoàn thế nào?",
+      "answer_atom": "Câu 'Dữ Tham Lang đồng độ tắc thương luân bại tục loạn lễ loạn gia' (cùng Tham Lang sẽ thương luân bại lý) là vô lý vì Thiên Lương và Tham Lang trong chòm Thiên Phủ không bao giờ đồng độ, tam hợp xung chiếu cũng không gặp nhau",
+      "source_quote": "Bài Hi Di tiên sinh viết trên đây còn có một câu vô lý nên xin đặt ra ngoài để bàn luận, đó là: Dữ Tham Lang đồng độ tắc thương luân bại tục loạn lễ loạn gia (Cùng với sao Tham Lang thường rơi vào điều thương luân bại lý lộn ẩu như họ nhà tôm). Thiên Lương vốn cùng Lang ở trong chòm sao Thiên Phú thì làm sao nó có thể đồng độ với Tham Lang? Tính tam hợp xung chiếu thì Thiên Lương với Tham Lang cũng chẳng bao giờ gặp nhau, nói chi đến đồng độ.",
+      "source_page": 38,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "combo:tham_lang",
+        "school:vu_tai_luc",
+        "concept:phan_bien",
+        "concept:chom_thien_phu"
+      ],
+      "commentary": {
+        "han_viet_explain": "thương luân bại tục = phá vỡ đạo đức; đồng độ = ở chung cung",
+        "viet_thuan": "Vũ Tài Lục bác bỏ: Thiên Lương và Tham Lang KHÔNG bao giờ gặp nhau trong lá số → câu Trần Đoàn vô lý",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PHẢN BIỆN MẠNH: Vũ Tài Lục bác câu của Trần Đoàn vì sai cấu trúc lá số — Thiên Lương và Tham Lang ở chòm Thiên Phủ không gặp nhau bao giờ"
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q07",
+      "question": "Bài ca về Thiên Lương nói gì?",
+      "answer_atom": "Thiên Lương thuộc Thổ, Nam đẩu cát tinh, hóa Ấm danh diên thọ, chủ Phụ Mẫu; vào Điền Trạch huynh đệ tốt; tính trì trọng hòa bình, ít gặp tai họa; văn chương có thanh danh; gặp Cự Môn lao bộc; gặp Thiên Cơ ưa tu ẩn sơn lâm",
+      "source_quote": "Thiên Lương nguyên thuộc thổ / Nam đẩu tới cát tỉnh / Hoá ấm danh điện thọ / Phụ mẫu cung chủ tỉnh / Điển trạch huynh đệ nội / Đắc chí phúc tự sinh / Hình thần tự trì trọng / Tâm tính cánh hoà bình / Sinh lai vô tai hoạn / Văn chương hữu thanh danh ... Cự môn nhược tương hội / Lao bác lịch lịnh tân / Nhược phùng thê¡n cơ chiếu / Tăng đạo hưởng sơn lâm",
+      "source_page": 38,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "school:ngoc_thiem",
+        "hoa_khi:am",
+        "concept:diên_tho",
+        "cung:phu_mau",
+        "cung:dien_trach",
+        "concept:van_chuong",
+        "combo:cu_mon",
+        "combo:thien_co",
+        "concept:di_tu"
+      ],
+      "commentary": {
+        "han_viet_explain": "diên thọ = kéo dài tuổi thọ; lao bộc = lao đao vất vả; sơn lâm = núi rừng",
+        "viet_thuan": "Thiên Lương Thổ, Ấm thêm thọ, văn chương có danh; + Cự = lao bác; + Cơ = tu ẩn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q08",
+      "question": "Thiên Lương miếu vượng hãm địa ở đâu?",
+      "answer_atom": "Thiên Lương miếu địa Tuất, Thìn, Ngọ; vượng địa Sửu, Mùi, Tý, Mão, Dần, Thân; hãm Tỵ, Hợi, Dậu",
+      "source_quote": "Thiên Lương miếu địa Tuất, Thìn, Ngọ; vượng địa Sửu, Mùi, Tí, Mão, Dần, Thân; hãm Tỵ, Hợi, Dậu.",
+      "source_page": 38,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Tuất Thìn Ngọ; vượng Sửu Mùi Tý Mão Dần Thân; hãm Tỵ Hợi Dậu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q09",
+      "question": "Câu phú 'Thiên Lương Nguyệt diệu nữ dâm bần' nói gì?",
+      "answer_atom": "Số đàn bà Lương + Nguyệt thủ mệnh và chiếu là dâm; nếu Thái Âm ở Tỵ, Thiên Lương ở Hợi hạ cách, dâm bần vì Nguyệt vào hãm địa",
+      "source_quote": "Thiên Lương Nguyệt Diệu nữ dâm bẩn: (Số đàn bà Lương Nguyệt thủ mệnh và chiếu là dâm, nếu Thái Âm ở Tị, Thiên Lương ở Hợi hạ cách, dâm bần vì Nguyệt vào hãm địa).",
+      "source_page": 38,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "combo:thai_am",
+        "gender:nu",
+        "concept:dam_ban",
+        "cung:ty",
+        "cung:hoi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nguyệt = Thái Âm; dâm bần = dâm và nghèo",
+        "viet_thuan": "Nữ Lương + Nguyệt = dâm; Lương Hợi + Nguyệt Tỵ = hạ cách dâm bần",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q10",
+      "question": "Câu phú 'Thiên Lương cư Ngọ' và 'Lương đồng Cơ Nguyệt Dần Thân' nói gì?",
+      "answer_atom": "Thiên Lương cư Ngọ vị quan tư thanh hiển triều đường; Lương đồng Cơ Nguyệt Đồng ở Dần/Thân = suốt đời làm ăn suôi lọt, sáng suốt",
+      "source_quote": "Thiên Lương cư Ngọ vì quan tư thanh hiển triều đường: (Đóng cung Ngọ, có chức vị lớn trong triều). Lương đồng Cơ Nguyệt Dần Thân vị nhất sinh lợi nghiệp thông mình: (Hội tụ các sao Cơ Nguyệt đồng Lương thủ mệnh ở Dần Thân thì suốt đời làm ăn suôi lọt, sáng suốt).",
+      "source_page": 38,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "cung:ngo",
+        "cach_cuc:luong_ngo_trieu_duong",
+        "cung:dan_than",
+        "cach_cuc:co_nguyet_dong_luong",
+        "combo:thien_co",
+        "combo:thai_am",
+        "combo:thien_dong"
+      ],
+      "commentary": {
+        "han_viet_explain": "thanh hiển triều đường = quan sang trong triều",
+        "viet_thuan": "Thiên Lương Ngọ = quan lớn; bộ Cơ Nguyệt Đồng Lương ở Dần/Thân = làm ăn suôi sẻ",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q11",
+      "question": "Câu phú 'Thiên Lương Thái Dương Xương Lộc' nói gì?",
+      "answer_atom": "Thiên Lương + Thái Dương + Xương Lộc hội cách lô truyền đệ nhất danh; tiền nhân ta dịch: 'Tuổi hoa nở đăng cao bảng chiếu / Bởi Thiên Lương thủ mệnh Tí cung / Xương Lộc hội Nhật chiếu xung'",
+      "source_quote": "Thiên Lương, Thái Dương, Xương Lộc hội lô truyền đệ nhất danh. Tiền nhân ta dịch câu phú trên bằng 4 câu nôm: Tuổi hoa nở đăng cao bảng chiếu / Bởi Thiên Lương thủ mệnh Tí cung / Xương Lộc hội Nhật chiếu xung",
+      "source_page": 38,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "combo:thai_duong",
+        "combo:van_xuong",
+        "combo:loc_ton",
+        "cach_cuc:lo_truyen_de_nhat_danh",
+        "school:vn"
+      ],
+      "commentary": {
+        "han_viet_explain": "lô truyền đệ nhất danh = bảng vàng đỗ trạng nguyên",
+        "viet_thuan": "Thiên Lương + Thái Dương + Xương Lộc = đỗ trạng nguyên",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.thien_luong.Q12",
+      "question": "Câu phú 'Thiên Lương Thái Âm ở Hợi' và 'Thiên Lương Văn Xương' nói gì?",
+      "answer_atom": "Lương + Thái Âm ở Hợi: nam đa lãng đãng, nữ đa dâm; Lương + Văn Xương cư miếu vượng = vị chí đài cương; Lương + Thiên Mã làm người phong lưu phiêu lãng",
+      "source_quote": "Thiên Lương, Thái Âm: Ở Hợi nam đa lãng đãng, nữ đa dâm. (Thái Âm, Thiên Lương thủ mệnh số con trai phiêu bạt, số con gái đa dâm). Thiên Lương, Văn Xương: Cư miếu vượng vì chí đài cương. ... Thiên Lương, Thiên Mã: Làm người phong lưu phiêu lãng. (Hội cùng Thiên Mã làm người phong lưu phiêu lãng).",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:thien_luong",
+        "combo:thai_am",
+        "combo:van_xuong",
+        "combo:thien_ma",
+        "cung:hoi",
+        "concept:lang_dang",
+        "concept:phong_luu"
+      ],
+      "commentary": {
+        "han_viet_explain": "đài cương = chức quan lớn",
+        "viet_thuan": "Lương + Nguyệt ở Hợi: nam lãng đãng, nữ đa dâm; + Xương miếu = quan to; + Mã = phong lưu phiêu lãng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q01",
+      "question": "Sao Thất Sát thuộc hành gì và chủ những gì?",
+      "answer_atom": "Thất Sát là Nam Đẩu tinh, thuộc Hỏa Kim, thượng tướng của tinh đẩu, làm cô thân cho sự thành bại; uy như thép của lưỡi kiếm, tính tình thanh lương; vào số mệnh thường kinh lịch gian nan tân khổ",
+      "source_quote": "Thất Sát là Nam Đẩu tinh, thuộc Hỏa Kim, thượng tướng của tinh đẩu, làm cô thân cho sự thành bại. Uy như thép của lưỡi kiếm, tính tình thanh lương. Vào số mệnh, Thất Sát thường kinh lịch, gian nan tân khổ.",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "element:hoa_kim",
+        "chom:nam_dau",
+        "concept:thuong_tuong",
+        "concept:co_than",
+        "concept:gian_nan_tan_kho"
+      ],
+      "commentary": {
+        "han_viet_explain": "thượng tướng = đại tướng; cô thân = đơn thân; kinh lịch = trải qua",
+        "viet_thuan": "Thất Sát Nam đẩu, Hỏa Kim, đại tướng, người trải gian nan",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q02",
+      "question": "Thất Sát ở các cung Mệnh, Quan Lộc, Tử Tức, Phu Thê có gì?",
+      "answer_atom": "Mệnh + vận hạn xấu = chết yểu; Quan Lộc cực tốt, biến họa ra phúc; Tử Tức con cô đơn; Phu Thê chăn đơn gối chiếc",
+      "source_quote": "Ở Mệnh cung nếu vân hạn xấu thành yếu chiết. Đóng cung Quan Lộc cực tốt, biến hoạ ra phúc. Tọa Tử Tức con cái cô đơn, cư Phu Thê chăn đơn giá chiếc.",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "cung:menh",
+        "cung:quan_loc",
+        "cung:tu_tuc",
+        "cung:phu_the",
+        "concept:yeu_chiet",
+        "concept:co_don"
+      ],
+      "commentary": {
+        "han_viet_explain": "yểu chiết = chết non; chăn đơn gối chiếc = cô đơn",
+        "viet_thuan": "Thất Sát: ở Mệnh hạn xấu = chết non; ở Quan = tốt; ở Tử/Phu = cô đơn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q03",
+      "question": "Thất Sát gặp Hình Tinh, Liêm Trinh, Hao thì sao?",
+      "answer_atom": "Gặp Hình Tinh ở Điền Trạch + Phụ Mẫu = đổ nghiệp khắc cha mẹ; hội Liêm Trinh hãm địa tại Thân Mệnh = mắc bệnh lao; gặp Liêm Trinh + sao Hao ở Thiên Di = chết đường",
+      "source_quote": "Gặp Hình Tinh tại Điền Trạch và Phụ Mẫu, gia nghiệp đổ vỡ khắc cha khắc mẹ. Hội Thiên Hình, Hóa Kỵ ở Thiên Di hay Tật Ách thì tai ương tàn tật hoặc nhất thân cô độc tuổi thọ không bền. Hội Liêm Trinh hãm địa tại Thân Mệnh cung mắc bệnh lao. Gặp Liêm Trinh và sao Hao ở Thiên Di chết đường",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "combo:hinh_tinh",
+        "combo:liem_trinh",
+        "combo:hoa_ky",
+        "combo:hao",
+        "cung:than_menh",
+        "cung:dien_trach",
+        "concept:lao_phoi",
+        "concept:chet_duong"
+      ],
+      "commentary": {
+        "han_viet_explain": "đổ nghiệp = phá sản",
+        "viet_thuan": "Thất Sát + Hình Tinh ở Điền/Phụ = phá nghiệp khắc cha mẹ; + Liêm hãm = lao; + Liêm + Hao Thiên Di = chết đường",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q04",
+      "question": "Câu 'Cái thế anh hùng vị Sát chế' nói gì?",
+      "answer_atom": "Dù là cái thế anh hùng bị sao Sát hung phạm thì sự nghiệp cũng thành giấc mộng Nam Kha; Thất Sát cần xét cho tỏ tường vì không phải thiện tinh",
+      "source_quote": "Sách có câu: Cái thế anh hùng vi sát chế. Thử thời nhất mộng thị nam kha (Dù là cái thế anh hùng bị sao Sát hung phạm sự nghiệp cũng thành giấc mộng nam kha). Thất Sát cần phải xét cho tỏ tường vì nó không phải là thiện tinh.",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "concept:nam_kha",
+        "concept:thien_tinh",
+        "concept:cai_the_anh_hung"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nam Kha = giấc mộng Nam Kha (giấc mơ giả tạo); thiện tinh = sao tốt",
+        "viet_thuan": "Thất Sát có thể hủy sự nghiệp anh hùng thành giấc mộng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q05",
+      "question": "Trần Đoàn nói gì về Thất Sát?",
+      "answer_atom": "Thất Sát là thượng tướng của tinh đẩu; gặp Tử Vi sẽ biến thành quyền mà giáng phúc; gặp Hỏa Tinh biến thành Sát Tinh làm lớn uy thế; gặp sao hung ở Sinh hương = đồ tể; hội Xương Khúc ở yếu địa tính ngang ngạnh",
+      "source_quote": "Thiên Lương là thượng tướng của các tinh đẩu, gặp Tử Vi sẽ biến thành quyền mà giáng phúc, gặp Hỏa Tinh sẽ biến thành Sát Tinh để làm lớn uy thế của nó, gặp sao hung ở Sinh hương thì hành nghề đồ tể, hội cùng Xương Khúc ở yếu địa tính tình ngang ngạnh.",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "school:tran_doan",
+        "combo:tu_vi",
+        "combo:hoa_tinh",
+        "combo:xuong_khuc",
+        "concept:do_te",
+        "concept:sinh_huong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Sinh hương = cung Trường Sinh",
+        "viet_thuan": "Thất Sát + Tử Vi = quyền cát; + Hỏa = uy lớn; + sao hung ở Sinh = đồ tể",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Sách viết nhầm tên 'Thiên Lương' đầu đoạn — Vũ Tài Lục giữ nguyên text nhưng ngữ cảnh là Thất Sát. Tam sao thất bản."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q06",
+      "question": "Câu 'Thất Sát cư hãm địa trầm ngâm phúc bất sinh' nói gì? Khi nào tốt?",
+      "answer_atom": "Sách Bí Kinh: Thất Sát cư hãm địa trầm ngâm phúc bất sinh; Thân Mệnh có Thất Sát thường bị tai ương phá bại, chỉ nhờ Tử Vi, Lộc Tồn mới giải cứu được; Xương Khúc miếu địa củng chiếu = nắm quyền sinh sát phú quý",
+      "source_quote": "Sách Bí Kinh có câu: Thất Sát cư hãm địa trầm ngâm phút bất sinh là vậy. Cung Thân Mệnh có Thất Sát thường bị tai ương phá bại chỉ nhờ Tử Vi, Lộc Tồn mới giải cứu được thôi. ... Được Xương Khúc miếu địa củng chiếu, trong tay sẽ nắm quyền sinh, quyển sát phú quí hơn người.",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "school:bi_kinh",
+        "combo:tu_vi",
+        "combo:loc_ton",
+        "combo:xuong_khuc",
+        "concept:tram_ngam_phuc_bat_sinh",
+        "concept:quyen_sinh_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": "trầm ngâm phúc bất sinh = chìm đắm phúc không sinh được",
+        "viet_thuan": "Thất Sát hãm = phúc không sinh; cần Tử Vi/Lộc Tồn giải; Xương Khúc miếu = quyền sinh sát",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q07",
+      "question": "Nữ mệnh Thất Sát thế nào?",
+      "answer_atom": "Nữ mệnh Thất Sát thủ mệnh nơi vượng địa, tiền bạc vô kể, có oai quyền chí cao hơn con trai; bị tứ hung xung phá = phiêu đãng",
+      "source_quote": "Nữ mệnh Thất Sát thủ mệnh nơi vương địa, tiền bạc vô kể, có oai quyển chí cao hơn con trai. Bị tứ hung xung phá phiêu đãng.",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "school:tran_doan",
+        "gender:nu",
+        "concept:oai_quyen",
+        "concept:phieu_dang"
+      ],
+      "commentary": {
+        "han_viet_explain": "vượng địa = miếu vượng; phiêu đãng = lang bạt",
+        "viet_thuan": "Nữ Thất Sát vượng = giàu, oai quyền hơn nam; tứ hung phá = phiêu đãng",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q08",
+      "question": "Bài ca Thất Sát ở Dần Thân Tỵ Ngọ nói gì?",
+      "answer_atom": "Thất Sát ở Dần Thân Tỵ (Tý) Ngọ Mệnh/Thân, tứ di củng thủ phục anh hùng; + Khôi Việt Tả Hữu Văn Xương hội = quyền lộc danh cao; hãm địa bất kham ngôn, như hổ đang ngủ; không có sao chế phục = chết yểu hoặc chết thảm",
+      "source_quote": "Thất Sát Dần, Thân, Tỵ, Ngọ cung / Tứ di củng thủ phục anh hùng / Khôi Việt Tả Hữu Văn Xương hội / Quyển Lộc danh cao thực văn chung / Thất Sát cư hãm địa bất kham ngôn / Hung hoạ do như bão hổ miên / Nhược thị Thất Sát cường vô chế phục / Thiếu niên ác tử đáo hoàng tuyển",
+      "source_page": 39,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "cung:dan_than_ty_ngo",
+        "concept:tu_di",
+        "combo:khoi_viet",
+        "combo:ta_huu",
+        "combo:van_xuong",
+        "concept:ho_ngu",
+        "concept:ac_tu"
+      ],
+      "commentary": {
+        "han_viet_explain": "tứ di củng thủ = bốn phương đến chầu; bão hổ miên = ôm hổ ngủ; ác tử = chết thảm",
+        "viet_thuan": "Thất Sát Dần Thân Tỵ Ngọ + sao tốt = anh hùng; hãm + không chế = chết yểu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q09",
+      "question": "Thất Sát miếu vượng hãm địa theo phú ra sao?",
+      "answer_atom": "Thất Sát miếu địa Dần, Thân, Tý, Ngọ; bình thường Mão, Dậu, Sửu, Mùi, Tỵ, Hợi; vô hãm địa (theo phú)",
+      "source_quote": "Thất Sát miếu địa Dần, Thân, Tý, Ngọ; bình thường Mão, Dậu, Sửu, Mùi, Tỵ, Hợi vô hãm địa. (Câu này chứng tỏ Tam Sao Thất Bản. Hi Di Trần Đoàn nói có hãm địa, lúc ghi vào phú thì lại bảo vô hãm).",
+      "source_page": 40,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "concept:mieu_vuong_ham",
+        "concept:tam_sao_that_ban"
+      ],
+      "commentary": {
+        "han_viet_explain": "vô hãm địa = không có hãm địa",
+        "viet_thuan": "Theo phú: Thất Sát miếu Dần Thân Tý Ngọ, vô hãm; nhưng Trần Đoàn nói CÓ hãm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục bình: 'Câu này chứng tỏ Tam Sao Thất Bản. Hi Di Trần Đoàn nói có hãm địa, lúc ghi vào phú thì lại bảo vô hãm' — sách tự mâu thuẫn"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q10",
+      "question": "Câu phú 'Thất Sát Dần Thân Tý Ngọ nhất sinh tước lộc' nói gì?",
+      "answer_atom": "Thất Sát đóng cung Dần Thân Tý Ngọ thủ Mệnh, suốt đời tước lộc vinh xương",
+      "source_quote": "Thất Sát Dần, Thân, Tý, Ngọ nhất sinh tước lộc vinh xương. (Đóng ở cung Dần, Thân, Tý, Ngọ thủ Mệnh, suốt đời tước lộc).",
+      "source_page": 40,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "cung:dan_than_ty_ngo",
+        "concept:tuoc_loc_vinh_xuong"
+      ],
+      "commentary": {
+        "han_viet_explain": "tước lộc vinh xương = tước phẩm bổng lộc thịnh vượng",
+        "viet_thuan": "Thất Sát Dần Thân Tý Ngọ thủ Mệnh = suốt đời tước lộc",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q11",
+      "question": "Câu phú 'Thất Sát Liêm Trinh đồng vị lộ thượng mai thi' nói gì?",
+      "answer_atom": "Thất Sát đồng cùng Liêm Trinh sẽ chết đường (mai thi = chôn xác); tiền nhân ta có câu phú: 'Ai người lộ thượng mai thi / Vì sao Liêm Sát đồng qui Sửu Mùi'",
+      "source_quote": "Thất Sát, Liêm Trinh đông vị lộ thượng mai thị. Cùng ở với Liêm Trinh sẽ chết đường. Tiền nhân ta có câu phú: Ai người lộ thượng mai thi / Vì sao Liêm Sát đồng qui Sửu Mùi",
+      "source_page": 40,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "combo:liem_trinh",
+        "school:vn",
+        "cung:suu_mui",
+        "concept:lo_thuong_mai_thi"
+      ],
+      "commentary": {
+        "han_viet_explain": "lộ thượng mai thi = chôn xác bên đường",
+        "viet_thuan": "Thất Sát + Liêm Trinh đồng cung (Sửu Mùi theo VN) = chết đường",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q12",
+      "question": "Câu phú 'Thất Sát lâm Thân Mệnh lưu niên Hình Kỵ' nói gì?",
+      "answer_atom": "Thủ Mệnh/Thân gặp Thiên Hình Hóa Kỵ hạn lưu niên có thể bị thương; nếu Tử Vi, Lộc Tồn hay Thiên Tướng vận hạn sẽ giải được",
+      "source_quote": "Thất Sát lâm Thân Mệnh lưu niên Hình Kỵ tai thương. (Thủ Mệnh/Thân gặp Thiên Hình, Hóa Kỵ hạn lưu niên có thể bị thương. Nếu Tử Vi, Lộc Tồn hay Thiên Tướng vận hạn sẽ giải được).",
+      "source_page": 40,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "cung:than_menh",
+        "combo:hinh_ky",
+        "combo:tu_vi",
+        "combo:loc_ton",
+        "combo:thien_tuong",
+        "concept:luu_nien"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thất Sát + Hình Kỵ ở Thân/Mệnh + lưu niên = bị thương; Tử Vi/Lộc Tồn/Tướng giải",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q13",
+      "question": "Câu phú 'Thất Sát lâm tuyệt địa Dương Đà Nhan Hồi' nói gì?",
+      "answer_atom": "Thất Sát rơi vào tuyệt địa gặp Dương Đà, dùng điển cố thầy Nhan Hồi (học trò Khổng Tử) chết non yểu",
+      "source_quote": "Thất Sát lâm tuyệt địa Dương Đà Nhan Hồi yếu triết. (Thất Sát rơi vào tuyệt địa gặp Dương Đà, thầy Nhan Hồi (học trò của ông Khổng Tử) chết non yểu).",
+      "source_page": 40,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "concept:tuyet_dia",
+        "combo:duong_da",
+        "example:nhan_hoi",
+        "concept:yeu_chiet"
+      ],
+      "commentary": {
+        "han_viet_explain": "tuyệt địa = cung Tuyệt; yểu chiết = chết non",
+        "viet_thuan": "Thất Sát tuyệt địa + Dương Đà = chết non như Nhan Hồi",
+        "nguyen_ly": null,
+        "vi_du_doi_song": "Điển cố: Nhan Hồi học trò giỏi nhất của Khổng Tử nhưng chết non",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q14",
+      "question": "Câu phú 'Thất Sát Hỏa Dương' và 'Thất Sát Dương Linh Bạch Hổ' nói gì?",
+      "answer_atom": "Thất Sát + Hỏa Tinh Kình Dương loại hạ tiện làm nghề đồ tể hoặc sai nha hung hãn; Thất Sát + Dương Linh lưu niên gặp Bạch Hổ tù tội; Thất Sát + lưu niên Kình Dương rời bỏ quê hương lấy vợ nơi xa",
+      "source_quote": "Thất Sát Hỏa Dương bắn thả tiện đô tế chỉ nhân. (Gặp Hỏa Tinh, Kình Dương loại hạ tiện thường làm nghề đô tể, hoặc sai nha hung hãn). Thất Sát Dương Linh lưu niên Bạch Hổ Hình Kỵ tại chuân. (Sao Thất Sát đi cặp với Dương, Linh lưu niên gặp Bạch Hổ bị tù tội). Thất Sát lưu Dương, nhị cung phù ly hương tao phối. (Sao Thất Sát gặp lưu niên Kình Dương rời bổ quê hương lấy vợ nơi xa).",
+      "source_page": 40,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "combo:hoa_tinh",
+        "combo:kinh_duong",
+        "combo:linh_tinh",
+        "combo:bach_ho",
+        "concept:ly_huong",
+        "concept:tao_phoi"
+      ],
+      "commentary": {
+        "han_viet_explain": "sai nha = lính hầu; tao phối = cưới vợ",
+        "viet_thuan": "Thất Sát + Hỏa Kình = đồ tể; + Dương Linh + Bạch Hổ = tù; + lưu Dương = ly hương",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q15",
+      "question": "Câu 'Thất Sát thủ Mệnh' và 'Thất Sát đồng Phá Quân' theo p41 nói gì?",
+      "answer_atom": "Thất Sát thủ Mệnh thường có uy quyền nhưng con gái không tốt; Thất Sát lâm Thân thế nào cũng dễ chết non; Thất Sát đơn cư ở Phúc Đức số đàn bà tối kỵ vì là cách hạ tiện vô nghĩa; Thất Sát đồng Phá Quân nên xuất ngoại",
+      "source_quote": "Thất Sát thủ Mệnh: Thường làm người có uy quyền, nhưng con gái không tốt. Thất Sát lâm Thân: Thế nào cũng dễ chết non. Thất Sát đơn cư ở cung Phúc Đức: Số đàn bà tối kỵ vì là cách hạ tiện vô nghị. Thất Sát đồng Phá Quân: Nên xuất ngoại.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "cung:menh",
+        "cung:than",
+        "cung:phuc_duc",
+        "gender:nu",
+        "combo:pha_quan",
+        "concept:xuat_ngoai"
+      ],
+      "commentary": {
+        "han_viet_explain": "đơn cư = đứng một mình; vô nghĩa = không có nghĩa khí",
+        "viet_thuan": "Thất Sát thủ Mệnh = uy quyền nhưng nữ kỵ; Thân = chết non; Phúc đơn cư nữ = hạ tiện; + Phá Quân = xuất ngoại",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.that_sat.Q16",
+      "question": "Phú nôm về Thất Sát trong nữ mệnh nói gì?",
+      "answer_atom": "'Nữ mệnh Sát, Ngọ Tí ngồi / Ngộ Riêu, Kiếp phải lệ rơi vì tình'",
+      "source_quote": "Tiển nhân ta có câu phú về sao Thất Sát trong số đàn bà: Nữ mệnh Sát, Ngọ Tí ngồi / Ngộ Riêu, Kiếp phải lệ rơi vì tình.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:that_sat",
+        "school:vn",
+        "gender:nu",
+        "cung:ti_ngo",
+        "combo:thien_rieu",
+        "combo:dia_kiep",
+        "concept:le_roi_vi_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Riêu = Thiên Riêu; Kiếp = Địa Kiếp; lệ rơi vì tình = khóc vì tình",
+        "viet_thuan": "Phú nôm: Nữ Thất Sát Tí Ngọ + Riêu Kiếp = đau khổ vì tình",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Phú nôm VN đưa sao Thiên Riêu (đặc sản VN) — không có trong phú chữ Trần Đoàn"
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q01",
+      "question": "Sao Phá Quân thuộc hành gì và chủ về cung gì?",
+      "answer_atom": "Phá Quân thuộc hành Thủy, Bắc Đẩu tinh, làm thần coi các việc Nô Bộc, Phu Thê và Tử Tức; Tí Ngọ là miếu địa; trên trời là sát khí, vào số là hao",
+      "source_quote": "Sao Phá Quân thuộc hành Thủy, Bắc Đẩu tinh, làm thần coi các việc Nô Bộc, Phu Thê và Tử Tức. Tí Ngọ miếu địa. Ở trên trời là sát khí, vào số là hao.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "element:thuy",
+        "chom:bac_dau",
+        "cung:no_boc",
+        "cung:phu_the",
+        "cung:tu_tuc",
+        "cung:ti_ngo",
+        "concept:sat_khi",
+        "concept:hao"
+      ],
+      "commentary": {
+        "han_viet_explain": "sát khí = khí sát; hao = hao tổn",
+        "viet_thuan": "Phá Quân Bắc đẩu, hành Thủy, chủ Nô-Phu-Tử; Tí Ngọ miếu; là sao Hao",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q02",
+      "question": "Tính cách Phá Quân thế nào?",
+      "answer_atom": "Phá Quân chủ về sự hung bạo, xảo trá, gian hoạt khó hợp với ai; hành động gây hại cho người hơn lợi; thích giúp kẻ ác ngược; coi lục thân như kẻ thù; với cốt nhục vô nhân nghĩa",
+      "source_quote": "Chủ về sự hung bạo, sảo trá, tính tình gian hoạt khó hợp với ai. Hành động thường gây hại cho người hơn làm lợi, thích giúp những kẻ ác ngược, coi lục thân như kẻ thù, đối với cốt nhục vô nhân nghĩa.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "concept:hung_bao",
+        "concept:xao_tra",
+        "concept:luc_than",
+        "concept:vo_nhan_nghia"
+      ],
+      "commentary": {
+        "han_viet_explain": "lục thân = sáu thân (cha mẹ vợ chồng anh em con); cốt nhục = ruột thịt",
+        "viet_thuan": "Phá Quân = người hung bạo gian hoạt, bất nghĩa với ruột thịt",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q03",
+      "question": "Phá Quân tuổi nào hợp cách, tuổi nào xấu?",
+      "answer_atom": "Người tuổi Giáp, Quý hợp cách thì phú quý; hãm địa gặp Tứ Sát xung phá sẽ phá nghiệp ly hương tàn tật",
+      "source_quote": "Những người tuổi Giáp, tuổi Quý mà hợp cách thì phú quý. Hãm địa gặp Tứ Sát xung phá, sẽ phá nghiệp ly hương, tàn tật.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "tuoi:giap_quy",
+        "concept:hop_cach",
+        "concept:ham_dia",
+        "combo:tu_sat",
+        "concept:pha_nghiep_ly_huong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân + tuổi Giáp Quý hợp = giàu sang; hãm + Tứ Sát = phá nghiệp ly hương tàn tật",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q04",
+      "question": "Nữ mệnh Phá Quân thế nào? Phá Quân bên Tử Vi sao?",
+      "answer_atom": "Nữ mệnh Phá Quân bị xung phá = dâm đãng vô sỉ; đứng bên cạnh Tử Vi sẽ làm Tử Vi mất uy quyền",
+      "source_quote": "Số đàn bà: Phá Quân bị xung phá dâm đãng, vô sĩ. Nó đứng bên cạnh Tử Vi sẽ làm cho Tử Vi mất uy quyền.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "gender:nu",
+        "combo:tu_vi",
+        "concept:dam_dang_vo_si"
+      ],
+      "commentary": {
+        "han_viet_explain": "vô sỉ = không biết xấu hổ",
+        "viet_thuan": "Nữ Phá Quân xung phá = dâm vô sỉ; Phá Quân bên Tử Vi = vua mất uy",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q05",
+      "question": "Phá Quân cùng Liêm Trinh Hỏa Linh, Hình Kỵ, Vũ Khúc, Văn Tinh thì sao?",
+      "answer_atom": "Cùng Liêm Trinh và Hỏa Linh đồng độ: vất vả bôn ba; cùng Hình Kỵ đồng độ: suốt đời tai nạn; đi cặp Vũ Khúc ở Tài Bạch: Đông thành Tây bại; đi cặp Văn Tinh thủ Mệnh: kẻ bần sĩ",
+      "source_quote": "Cùng Liêm Trinh và Hỏa Linh đồng độ: Sẽ vất vả, bôn ba. Cùng Hình Kị đồng độ: Suốt đời tai nạn. Đi cặp với Vũ Khúc ở cung Tài Bạch: Thì Đông thành Tây bại. Đi cặp với Văn Tinh thủ Mệnh: Làm kẻ bần sĩ.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "combo:liem_trinh",
+        "combo:hoa_linh",
+        "combo:hinh_ky",
+        "combo:vu_khuc",
+        "combo:van_tinh",
+        "concept:dong_thanh_tay_bai",
+        "concept:ban_si"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đông thành Tây bại = thành chỗ này hỏng chỗ khác; bần sĩ = nho sĩ nghèo",
+        "viet_thuan": "Phá Quân + nhiều combo xấu kéo theo nhiều tai họa và nghèo khó",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q06",
+      "question": "Sao nào chế được tính ác và tính điên của Phá Quân?",
+      "answer_atom": "Chỉ có sao Thiên Lương chế tính ác của Phá Quân; sao Lộc Tồn giải cứu tính điên của Phá Quân",
+      "source_quote": "Chỉ có sao Thiên Lương chế tính ác của Phá Quân, sao Lộc Tồn giải cứu tính điên của Phá Quân.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "combo:thien_luong",
+        "combo:loc_ton",
+        "concept:che_phuc",
+        "concept:tinh_ac",
+        "concept:tinh_dien"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Lương chế ác; Lộc Tồn giải điên cho Phá Quân",
+        "nguyen_ly": "Chế phục = chỉ có Lương cho ác, Lộc Tồn cho điên",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q07",
+      "question": "Nam mệnh Phá Quân thủ Mệnh Thân ở Tí Ngọ có gì tốt?",
+      "answer_atom": "Nam mệnh Phá Quân thủ Mệnh Thân ở cung Tí Ngọ có Tham Lang, Thất Sát củng chiếu cũng làm nên chức lớn; nhưng chỉ thực tốt với người tuổi Canh, tuổi Quý",
+      "source_quote": "Nam mệnh Phá Quân thủ Mệnh Thân ở cung Tí Ngọ có Tham Lang, Thất Sát củng chiếu cũng làm nên chức lớn. Nhưng chỉ thực tốt với người tuổi Canh, tuổi Quý thôi.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "gender:nam",
+        "cung:ti_ngo",
+        "combo:tham_lang",
+        "combo:that_sat",
+        "tuoi:canh_quy"
+      ],
+      "commentary": {
+        "han_viet_explain": "củng chiếu = tam hợp chiếu vào",
+        "viet_thuan": "Nam Phá Quân Tí/Ngọ + Tham + Sát chiếu + tuổi Canh Quý = chức lớn",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q08",
+      "question": "Phá Quân hãm địa ở 12 cung gây hại gì?",
+      "answer_atom": "Phá Quân Mệnh Thân hãm: giang hồ phiêu bạt; Huynh Đệ: cốt nhục bất hòa; Phu Thê: vợ chồng xa cách; Tử Tức: hiếm hoi; Tài Bạch: tiền vừa đến tay đã hết; Thiên Di: bôn tẩu; Nô Bộc: chiêu oán hận; Quan Lộc: thanh bần; Điền Trạch: phá tổ nghiệp; Phúc Đức: đa tai đa nạn; Phụ Mẫu: khắc cha mẹ",
+      "source_quote": "Nếu Phá Quân đóng ở Mệnh Thân nơi hãm địa giang hỗ phiêu bạt: Vào Huynh Đệ: Cốt nhục bất hòa. Ở Phu Thê: Vợ chồng xa cách. Vào Tử Tức: Hiếm hoi. Ở Tài Bạch: Tiền vừa đến tay đã hết. Vào Thiên Di: Bôn tẩu. Ở Nô Bộc: Chiêu oán hận. Vào Quan Lộc: Chủ thanh bần. Ở Điền Trạch: Phá hoại tổ nghiệp. Vào Phúc Đức: Đa tai đa nạn. Ở Phụ Mẫu: Khắc cha mẹ.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "concept:ham_dia",
+        "concept:12_cung",
+        "concept:pha_to_nghiep",
+        "concept:khac_phu_mau"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân hãm ở mỗi cung đều phá cung đó",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q09",
+      "question": "Phá Quân miếu vượng hãm địa ở đâu?",
+      "answer_atom": "Phá Quân miếu Tí Ngọ; vượng Thìn Tuất Sửu Mùi; hãm Tỵ Hợi Dần Thân Mão Dậu",
+      "source_quote": "Phá Quân miếu Tí Ngọ, vượng Thìn, Tuất, Sửu, Mùi, hãm Tị Hợi Dần Thân Mão Dậu.",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "concept:mieu_vuong_ham"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Miếu Tí Ngọ; vượng Thìn Tuất Sửu Mùi; hãm Tỵ Hợi Dần Thân Mão Dậu",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q10",
+      "question": "Câu phú 'Phá Quân Tí Ngọ vô sát quan tư thanh hiển' nói gì?",
+      "answer_atom": "Phá Quân đóng Tí Ngọ miếu địa không gặp hung sát, số đàn ông Phá Quân thủ Mệnh làm tới vị tam công; rất hợp người tuổi Giáp và Quý",
+      "source_quote": "Phá Quân Tí Ngọ cung, vô sát quan tư thanh hiền chí tam công. (Đóng ở cung Tí Ngọ miếu địa không gặp hung sát, số đàn ông Phá Quân thủ Mệnh làm tới vị tam công. Rất hợp với người tuổi Giáp và Quý).",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "cung:ti_ngo",
+        "concept:vo_sat",
+        "tuoi:giap_quy",
+        "concept:tam_cong",
+        "cach_cuc:pha_quan_ti_ngo"
+      ],
+      "commentary": {
+        "han_viet_explain": "tam công = ba chức quan cao nhất (Thái sư, Thái phó, Thái bảo)",
+        "viet_thuan": "Phá Quân Tí/Ngọ không sát + nam + tuổi Giáp Quý = tam công",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q11",
+      "question": "Câu phú 'Phá Quân Tham Lang phùng Lộc Mã' nói gì?",
+      "answer_atom": "Phá Quân + Tham Lang gặp Lộc Tồn, Thiên Mã: đàn ông lãng đãng, đàn bà đa dâm",
+      "source_quote": "Phá Quân, Tham Lang phùng Lộc Mã: Nam đa lãng đãng, nữ đa dâm. (Cùng với Tham Lang gặp Lộc Tồn, Thiên Mã: đàn ông lãng đãng, đàn bà đa dâm).",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "combo:tham_lang",
+        "combo:loc_ton",
+        "combo:thien_ma",
+        "concept:lang_dang",
+        "concept:da_dam"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá + Tham + Lộc Mã: nam lãng đãng, nữ đa dâm",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S2.pha_quan.Q12",
+      "question": "Câu phú 'Phá Quân Hỏa Linh bôn ba lao đao' nói gì?",
+      "answer_atom": "Phá Quân đi với Hỏa Linh vất vả lao đao",
+      "source_quote": "Phá Quân, Hỏa Linh bôn ba lao đao. (Đi với Hỏa Linh vất vả lao đao).",
+      "source_page": 41,
+      "section_id": "tdts.S2",
+      "tags": [
+        "star:pha_quan",
+        "combo:hoa_linh",
+        "concept:bon_ba_lao_dao"
+      ],
+      "commentary": {
+        "han_viet_explain": "bôn ba lao đao = vất vả lao lực",
+        "viet_thuan": "Phá Quân + Hỏa Linh = bôn ba lao đao",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
 }
