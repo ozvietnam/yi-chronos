@@ -133,10 +133,16 @@ def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0.7,
-            max_tokens=1200,
+            # Reasoning models (MiniMax-M2) tiêu tokens cho <think> trước khi trả lời
+            # → phải cho trần cao, nếu không đáp án bị cắt rỗng.
+            max_tokens=4000,
         )
         narrative = (resp.content or "").strip()
         model = f"{resp.provider}:{resp.model}"
+        if not narrative:
+            raise RuntimeError(
+                f"LLM {model} trả về rỗng (reasoning tokens cạn?) — không cache"
+            )
 
         conn.execute(
             "INSERT OR REPLACE INTO narrative_cache (cache_key, narrative, model, created_at) VALUES (?, ?, ?, ?)",
