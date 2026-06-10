@@ -166,10 +166,12 @@ from api.auth import router as auth_router  # noqa: E402
 from api.admin import router as admin_router  # noqa: E402
 from api.atomization import router as atomization_router  # noqa: E402
 from api.tu_vi_3layer import router as tu_vi_3layer_router  # noqa: E402
+from api.atoms_verify import router as atoms_verify_router  # noqa: E402
 app.include_router(auth_router)
 app.include_router(admin_router)
 app.include_router(atomization_router)
 app.include_router(tu_vi_3layer_router)
+app.include_router(atoms_verify_router)
 
 # ⭐ Serve figures from restored books — cho UI hiển thị ảnh minh hoạ
 from fastapi.staticfiles import StaticFiles

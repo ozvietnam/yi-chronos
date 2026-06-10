@@ -62,16 +62,19 @@ def tam_hop_loc_ton(can: str, chi: str) -> tuple[bool, str, str]:
     if not tam_hop:
         return False, f"không xác định can: {can}", CITATION
 
+    from ..viet_names import vi_can, vi_chi
+
     loc_ton_chi = LOC_TON_VI_TRI[can_norm]
+    tam_hop_vi = "-".join(vi_chi(c) for c in tam_hop)
     if chi_norm in tam_hop:
         return True, (
-            f"✓ Tuổi {can} {chi} thuộc tam hợp {'-'.join(tam_hop)} "
-            f"→ HƯỞNG Lộc Tồn (an Lộc Tồn tại {loc_ton_chi}). "
+            f"✓ Tuổi {vi_can(can)} {vi_chi(chi)} thuộc tam hợp {tam_hop_vi} "
+            f"→ HƯỞNG Lộc Tồn (an Lộc Tồn tại {vi_chi(loc_ton_chi)}). "
             f"Hạnh phúc do định mệnh phác hoạ."
         ), CITATION
 
     return False, (
-        f"Tuổi {can} {chi} KHÔNG thuộc tam hợp {'-'.join(tam_hop)} "
+        f"Tuổi {vi_can(can)} {vi_chi(chi)} KHÔNG thuộc tam hợp {tam_hop_vi} "
         f"→ không hưởng Lộc Tồn tự nhiên. "
         f"Cần luận thêm vòng Thái Tuế + Tràng Sinh."
     ), CITATION

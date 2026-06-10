@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from engine.tu_vi.cross_school import (
     luan_sao_cung, detect_paradigm_warnings, SCHOOL_NAMES
 )
+from engine.tu_vi.viet_names import vi_star, vi_chi, vi_can, vi_palace
 
 
 def render_per_palace(palace: str, stars: list[str]) -> dict:
@@ -67,7 +68,7 @@ def render_3_layer(la_so: dict) -> dict:
 
     lop_1 = f"""## Chuyện về anh
 
-Anh sinh năm {la_so['can'].title()} {la_so['chi'].title()} — {bac_tuoi_w['msg'] if bac_tuoi_w else ''}.
+Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg'] if bac_tuoi_w else ''}.
 
 {tam_hop_w['msg'] if tam_hop_w else ''}
 
@@ -81,7 +82,7 @@ Anh sinh năm {la_so['can'].title()} {la_so['chi'].title()} — {bac_tuoi_w['msg
             f"⚠ **Cảnh báo Nhân Cung** — Trần Đoàn dạy có {len(nhan_cung_warnings)} chính tinh trong lá số anh rơi vào 'đất thất vị':\n"
         )
         for w in nhan_cung_warnings:
-            lop_2_parts.append(f"- **{w['star'].title()}** ở **{w['palace'].title()}** — khả năng tốt giảm 80%")
+            lop_2_parts.append(f"- **{vi_star(w['star'])}** ở **{vi_chi(w['palace'])}** — khả năng tốt giảm 80%")
     else:
         lop_2_parts.append("✓ Không có chính tinh nào rơi vào Nhân Cung.")
     lop_2 = "\n".join(lop_2_parts)

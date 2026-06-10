@@ -157,13 +157,14 @@ def detect_paradigm_warnings(la_so: dict) -> list[dict]:
                 })
 
     # 4. 3 vòng lớn overview
+    from .viet_names import vi_chi
     cuc = la_so.get("cuc", "thuy_nhi_cuc")
     vong = ba_vong_lon(la_so["can"], la_so["chi"], cuc, la_so.get("gender", "M"))
     warnings.append({
         "type": "ba_vong",
         "severity": "info",
-        "msg": f"3 vòng lớn — Lộc Tồn tại {vong['loc_ton']['vi_tri']}, "
-               f"Thái Tuế tại {vong['thai_tue']['vi_tri']}",
+        "msg": f"3 vòng lớn — Lộc Tồn tại {vi_chi(vong['loc_ton']['vi_tri'])}, "
+               f"Thái Tuế tại {vi_chi(vong['thai_tue']['vi_tri'])}",
         "citation": vong["citation"],
         "detail": vong,
     })

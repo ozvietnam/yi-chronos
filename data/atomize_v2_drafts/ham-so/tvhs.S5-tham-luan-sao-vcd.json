@@ -3,7 +3,38 @@
   "section_id": "tvhs.S5",
   "section_title": "Tham luận chi tiết các sao p141-170: Vũ Khúc → Quang Quý → Bác Sĩ → Tang Hổ → Tam Thai Bát Tọa → Bệnh Phù → Đế Vượng → Tam Giải → Kiếp Không → Địa Võng → Điếu Khách → Đường Phù → Hoa Cái → Hóa Khoa → Hóa Kỵ",
   "school": "nguyen_phat_loc_ham_so",
-  "pages": [141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170],
+  "pages": [
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170
+  ],
   "note": "Pages 141-170 trong cuốn này thực chất là tham luận chi tiết các sao (Vũ Khúc, Quang Quý, Bác Sĩ, Tang Hổ, Tam Thai Bát Tọa, Bệnh Phù, Đế Vượng, Tam Giải, Kiếp Không, Địa Võng, Điếu Khách, Đường Phù, Hoa Cái, Hóa Khoa, Hóa Kỵ) + Phân loại phụ tinh + Đặc lệ Vô Chính Diệu Kiếp Không. Paradigm 'hội tụ / thất tán' và cách cục Phi Thường rải rác trong các mục, không có chương riêng. Atomize STRICT bám text 100% theo nội dung thực có.",
   "atoms": [
     {
@@ -11,11 +42,20 @@
       "page": 141,
       "concept": "Vũ Khúc — vị trí miếu/vượng/đắc/hãm địa",
       "source_quote": "Vượng địa: Dần, Thân, Tý, Ngọ. Đắc địa: Mão, Dần. Hãm địa: Tỵ, Hợi.",
-      "commentary": "Bản đồ địa thế Vũ Khúc dùng để cân nhắc mọi luận đoán phía sau.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bản đồ địa thế Vũ Khúc dùng để cân nhắc mọi luận đoán phía sau.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.001",
       "source_page": 141,
       "question": "Vũ Khúc — vị trí miếu/vượng/đắc/hãm địa",
-      "tags": ["vu-khuc", "vi-tri"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:vi-tri"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -24,11 +64,20 @@
       "page": 141,
       "concept": "Vũ Khúc — ý nghĩa cơ thể: hai bộ phận vú và nốt ruồi",
       "source_quote": "Vũ Khúc chỉ có hai bộ phận: vú và nốt ruồi.",
-      "commentary": "Hàm Số rút gọn ý nghĩa cơ thể Vũ Khúc chỉ còn 2 phần.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hàm Số rút gọn ý nghĩa cơ thể Vũ Khúc chỉ còn 2 phần.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.002",
       "source_page": 141,
       "question": "Vũ Khúc — ý nghĩa cơ thể: hai bộ phận vú và nốt ruồi",
-      "tags": ["vu-khuc", "co-the"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:co-the"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -37,11 +86,21 @@
       "page": 141,
       "concept": "Vũ Khúc — bộ ngực phụ nữ: sách xưa không đề cập chi tiết",
       "source_quote": "Không thấy sách vở nào để cập chỉ tiết những đặc điểm của bộ ngực qua sao Văn Khúc. Có lẽ vì quan niệm xưa không chú trọng đến bộ ngực phụ nữ... Không thể suy diễn từ vị trí đắc địa hay hãm địa của Vũ Khúc để kết luận về bộ ngực phụ nữ.",
-      "commentary": "Tác giả thận trọng — KHÔNG suy diễn vị trí Vũ Khúc → bộ ngực. Sát/hao/bại tinh xâm phạm Vũ Khúc có thể ảnh hưởng.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tác giả thận trọng — KHÔNG suy diễn vị trí Vũ Khúc → bộ ngực. Sát/hao/bại tinh xâm phạm Vũ Khúc có thể ảnh hưởng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.003",
       "source_page": 141,
       "question": "Vũ Khúc — bộ ngực phụ nữ: sách xưa không đề cập chi tiết",
-      "tags": ["vu-khuc", "co-the", "phu-nu"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:co-the",
+        "concept:phu-nu"
+      ],
       "confidence": 0.85,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -50,11 +109,22 @@
       "page": 141,
       "concept": "Vũ Khúc đi với Đào hoặc Hồng — nốt ruồi son",
       "source_quote": "Nếu Vũ Khúc đi với Đào hay Hồng thì nốt ruồi son.",
-      "commentary": "Quy tắc nốt ruồi son: Vũ Khúc + Đào Hoa hoặc Hồng Loan.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quy tắc nốt ruồi son: Vũ Khúc + Đào Hoa hoặc Hồng Loan.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.004",
       "source_page": 141,
       "question": "Vũ Khúc đi với Đào hoặc Hồng — nốt ruồi son",
-      "tags": ["vu-khuc", "dao-hoa", "hong-loan", "not-ruoi"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:dao-hoa",
+        "concept:hong-loan",
+        "concept:not-ruoi"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -63,11 +133,21 @@
       "page": 141,
       "concept": "Vũ Khúc đắc địa — tướng mạo",
       "source_quote": "Người đó có thân hình nở nang cao vừa tầm, nặng cân, đâu và mặt dày (có sách cho là mặt vuông), vẻ mặt uy nghị, tiếng nói to, có nốt ruồi ở chỗ kín.",
-      "commentary": "Tướng mạo Vũ Khúc đắc địa: uy nghị, nở nang, có nốt ruồi kín.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tướng mạo Vũ Khúc đắc địa: uy nghị, nở nang, có nốt ruồi kín.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.005",
       "source_page": 141,
       "question": "Vũ Khúc đắc địa — tướng mạo",
-      "tags": ["vu-khuc", "dac-dia", "tuong-mao"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:dac-dia",
+        "concept:tuong-mao"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -76,11 +156,21 @@
       "page": 141,
       "concept": "Vũ Khúc hãm địa — tướng mạo",
       "source_quote": "Người bé nhỏ, thấp, hơi đen, có nhiễu ngấn vết, tóc rậm và xấu.",
-      "commentary": "Tướng mạo Vũ Khúc hãm địa: bé nhỏ, đen, ngấn vết, tóc xấu.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tướng mạo Vũ Khúc hãm địa: bé nhỏ, đen, ngấn vết, tóc xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.006",
       "source_page": 141,
       "question": "Vũ Khúc hãm địa — tướng mạo",
-      "tags": ["vu-khuc", "ham-dia", "tuong-mao"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:ham-dia",
+        "concept:tuong-mao"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -89,11 +179,20 @@
       "page": 141,
       "concept": "Vũ Khúc — ý nghĩa bệnh lý theo vị trí và bộ sao đồng cung",
       "source_quote": "Vũ Khúc ở Mão, dù là đắc địa, thường bị bệnh thần kinh hay khí huyết. Vũ Khúc ở Dậu, thì bị nội thương khó chữa. Vũ Khúc tọa đông cung ở Tật: có ám tật. Vũ Khúc - Tham Lang - Văn Xương - Văn Khúc đồng cung: nhiều nốt ruồi, hay mắc bệnh có liên quan đến lông tóc. Vũ Khúc - Sát Phá Quân đồng cung: bệnh ở bộ máy tiêu hóa. Vũ Khúc - Long Trì đồng cung: có nốt ruồi nhỏ. Vũ Khúc - Riêu Mã đồng cung: bệnh tê thấp hay phù chân tay. Vũ Khúc - Riêu Mã - Việt Diệu: câm",
-      "commentary": "Bảng tra bệnh lý Vũ Khúc theo vị trí và bộ sao đồng cung.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bảng tra bệnh lý Vũ Khúc theo vị trí và bộ sao đồng cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.007",
       "source_page": 141,
       "question": "Vũ Khúc — ý nghĩa bệnh lý theo vị trí và bộ sao đồng cung",
-      "tags": ["vu-khuc", "benh-ly"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:benh-ly"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -102,11 +201,21 @@
       "page": 141,
       "concept": "Vũ Khúc đắc địa — tính tình",
       "source_quote": "Thông minh. Có chí lớn, hay mưu đồ đại sự. Có óc kinh doanh, có tài buôn bán. Tính mạnh bạo, quả quyết, cương nghị, thẳng thắn. Hiếu thắng.",
-      "commentary": "Tính tình Vũ Khúc đắc địa: thông minh, chí lớn, kinh doanh, cương nghị.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tính tình Vũ Khúc đắc địa: thông minh, chí lớn, kinh doanh, cương nghị.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.008",
       "source_page": 141,
       "question": "Vũ Khúc đắc địa — tính tình",
-      "tags": ["vu-khuc", "dac-dia", "tinh-tinh"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:dac-dia",
+        "concept:tinh-tinh"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -115,11 +224,21 @@
       "page": 142,
       "concept": "Vũ Khúc đắc địa — tính tình phụ nữ",
       "source_quote": "Đối với phụ nữ, các ý nghĩa kể trên không thay đổi: đó là người tài giỏi, gan dạ, can trường.",
-      "commentary": "Phụ nữ có Vũ Khúc đắc địa giữ nguyên đặc tính cương nghị.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phụ nữ có Vũ Khúc đắc địa giữ nguyên đặc tính cương nghị.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.009",
       "source_page": 142,
       "question": "Vũ Khúc đắc địa — tính tình phụ nữ",
-      "tags": ["vu-khuc", "dac-dia", "phu-nu"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:dac-dia",
+        "concept:phu-nu"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -128,11 +247,21 @@
       "page": 142,
       "concept": "Vũ Khúc hãm địa — tính tình + thêm sát tinh",
       "source_quote": "Kém thông minh. Tham lận, thiếu lương thiện. Hà tiện, bủn xỉn. Ương ngạnh. Ý nghĩa này càng sâu sắc nên Vũ Khúc gặp thêm sát tinh. Riêng đối với phụ nữ thì: Tham lận, bạo tợn. Hay lấn át chồng. Bạo ngược lăng loàn (nếu gặp sát tinh).",
-      "commentary": "Hãm địa + sát tinh → tham lận, bạo tợn; nữ lấn chồng, lăng loàn.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hãm địa + sát tinh → tham lận, bạo tợn; nữ lấn chồng, lăng loàn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.010",
       "source_page": 142,
       "question": "Vũ Khúc hãm địa — tính tình + thêm sát tinh",
-      "tags": ["vu-khuc", "ham-dia", "sat-tinh"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:ham-dia",
+        "concept:sat-tinh"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -141,11 +270,20 @@
       "page": 142,
       "concept": "Vũ Khúc là sao tài — đắc địa → giàu sang, hãm địa → trắc trở",
       "source_quote": "Vũ Khúc vốn là sao tài, nếu ý nghĩa tài lộc rất mạnh. NẾU VŨ KHÚC ĐẮC ĐỊA: Suốt đời giàu sang, tiền bạc dư dả, được nắm giữ tiền bạc. Có uy danh lừng lẫy, sự nghiệp lớn lao. NẾU VŨ KHÚC HÃM ĐỊA: Bất đắc chí, công danh trắc trở. Tiền bạc khó kiếm. Thường phá tán tổ nghiệp. Thường phải ly hương tự lập, không nhờ được người thân.",
-      "commentary": "Bản chất tài tinh — đắc/hãm tạo hai cực giàu/nghèo.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bản chất tài tinh — đắc/hãm tạo hai cực giàu/nghèo.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.011",
       "source_page": 142,
       "question": "Vũ Khúc là sao tài — đắc địa → giàu sang, hãm địa → trắc trở",
-      "tags": ["vu-khuc", "tai-loc"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:tai-loc"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -154,11 +292,21 @@
       "page": 142,
       "concept": "Vũ Khúc ở Sửu Mùi — phát đạt sau 30 tuổi",
       "source_quote": "Lúc thiếu thời thì no ấm, nhưng còn bất đắc chí về công danh và tiền bạc. Sau 30 tuổi và càng về già càng tốt.",
-      "commentary": "Vũ Khúc Sửu Mùi muộn phát — thiếu thời chưa toại, già càng tốt.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ Khúc Sửu Mùi muộn phát — thiếu thời chưa toại, già càng tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.012",
       "source_page": 142,
       "question": "Vũ Khúc ở Sửu Mùi — phát đạt sau 30 tuổi",
-      "tags": ["vu-khuc", "suu-mui", "muon-phat"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:suu-mui",
+        "concept:muon-phat"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -167,11 +315,22 @@
       "page": 142,
       "concept": "Vũ Khúc là sao cô độc — ví như Cô Thần Quả Tú",
       "source_quote": "Tiên quyết đối với cả hai phái, dù là đắc hay hãm địa, Vũ Khúc là sao cô độc, thường cách biệt với người thân... Sao này ví như sao Cô Thần, Quả Tú, cho dù có đủ vợ đủ chồng, đủ con, người đó vẫn cảm thấy lẻ loi, cô độc... 'một mảnh tình riêng ta với ta' — chưa kể trường hợp không chồng nếu Vũ Khúc hãm đi liền với Phúc, Mệnh Thân xấu.",
-      "commentary": "Đặc tính cô độc nội tại của Vũ Khúc — không phụ thuộc đắc/hãm. Đi với Cô Quả Đẩu Quân Thái Tuế càng cô độc.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đặc tính cô độc nội tại của Vũ Khúc — không phụ thuộc đắc/hãm. Đi với Cô Quả Đẩu Quân Thái Tuế càng cô độc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.013",
       "source_page": 142,
       "question": "Vũ Khúc là sao cô độc — ví như Cô Thần Quả Tú",
-      "tags": ["vu-khuc", "co-doc", "co-than", "qua-tu"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:co-doc",
+        "concept:co-than",
+        "concept:qua-tu"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -180,11 +339,21 @@
       "page": 142,
       "concept": "Vũ Khúc đắc địa — phúc thọ: hưởng phúc, sống lâu",
       "source_quote": "NẾU VŨ KHÚC ĐẮC ĐỊA: Hưởng phúc. Sống lâu.",
-      "commentary": "Phúc thọ Vũ Khúc đắc địa.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phúc thọ Vũ Khúc đắc địa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.014",
       "source_page": 142,
       "question": "Vũ Khúc đắc địa — phúc thọ: hưởng phúc, sống lâu",
-      "tags": ["vu-khuc", "dac-dia", "phuc-tho"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:dac-dia",
+        "concept:phuc-tho"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -193,11 +362,22 @@
       "page": 143,
       "concept": "Vũ Khúc hãm địa — phúc thọ: lao tâm khổ trí, yểu tử",
       "source_quote": "NẾU VŨ KHÚC HÃM ĐỊA: Lao tâm khổ trí. Nữ thì ưu phiền vì gia đạo, khắc chồng hại con. Bị bệnh tật, tai họa. Yếu tử. Nếu thân sát tinh, các nghĩa này càng chắc chắn và mạnh mẽ hơn. Riêng ở Mão thì khó tránh tai nạn xe.",
-      "commentary": "Phúc thọ Vũ Khúc hãm địa: lao khổ + yểu. Riêng ở Mão: tai nạn xe.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phúc thọ Vũ Khúc hãm địa: lao khổ + yểu. Riêng ở Mão: tai nạn xe.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.015",
       "source_page": 143,
       "question": "Vũ Khúc hãm địa — phúc thọ: lao tâm khổ trí, yểu tử",
-      "tags": ["vu-khuc", "ham-dia", "phuc-tho", "tai-nan-xe"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:ham-dia",
+        "concept:phuc-tho",
+        "concept:tai-nan-xe"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -206,11 +386,21 @@
       "page": 143,
       "concept": "Cách tốt Vũ Khúc — Vũ Văn Khúc đắc địa",
       "source_quote": "Vũ Khúc, Văn Khúc đắc địa: Thông minh, học rộng, có tài năng, biết cả văn lẫn võ, làm việc bán văn bán võ. Nếu là võ nghiệp thì làm ở văn phòng, làm tham mưu, thiết kế.",
-      "commentary": "Bộ Vũ-Văn Khúc đắc địa → văn võ kiêm toàn, làm tham mưu/thiết kế.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Vũ-Văn Khúc đắc địa → văn võ kiêm toàn, làm tham mưu/thiết kế.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.016",
       "source_page": 143,
       "question": "Cách tốt Vũ Khúc — Vũ Văn Khúc đắc địa",
-      "tags": ["vu-khuc", "van-khuc", "cach-tot"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:van-khuc",
+        "concept:cach-tot"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -219,11 +409,21 @@
       "page": 143,
       "concept": "Cách tốt — Vũ Khôi Việt: giám quan tài chính",
       "source_quote": "Vũ, Khôi, Việt: Làm giám quan tài chính, coi việc xuất, nhập kho tàng, kiểu như Tổng Giám Đốc Ngân Khố hay Tổng Đốc Ngân Hàng.",
-      "commentary": "Bộ Vũ-Khôi-Việt → vai trò Tổng Giám Đốc Ngân Khố / Ngân Hàng.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Vũ-Khôi-Việt → vai trò Tổng Giám Đốc Ngân Khố / Ngân Hàng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.017",
       "source_page": 143,
       "question": "Cách tốt — Vũ Khôi Việt: giám quan tài chính",
-      "tags": ["vu-khuc", "khoi-viet", "cach-tot"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:khoi-viet",
+        "concept:cach-tot"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -232,11 +432,22 @@
       "page": 143,
       "concept": "Cách tốt — Vũ Lộc Mã: lập nghiệp tha hương thịnh vượng",
       "source_quote": "Vũ Lộc Mã: Lập nghiệp ở xa quê hương nhưng rất thịnh vượng. Nếu ở Dần có cách này thì sự nghiệp rất lớn ở tha hương.",
-      "commentary": "Vũ + Hóa Lộc + Thiên Mã → giàu lớn ở xa, đặc biệt ở Dần.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ + Hóa Lộc + Thiên Mã → giàu lớn ở xa, đặc biệt ở Dần.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.018",
       "source_page": 143,
       "question": "Cách tốt — Vũ Lộc Mã: lập nghiệp tha hương thịnh vượng",
-      "tags": ["vu-khuc", "loc-ton", "thien-ma", "tha-huong"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:loc-ton",
+        "concept:thien-ma",
+        "concept:tha-huong"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -245,11 +456,23 @@
       "page": 143,
       "concept": "Cách tốt — Vũ Lộc Quyền ở Dần Thân: giàu như Vương Khải",
       "source_quote": "Vũ Lộc Quyển ở Dần Thân: Hết sức giàu có như Vương Khải (như Vũ Tướng ở Dần Thân).",
-      "commentary": "Vũ + Hóa Lộc + Hóa Quyền ở Dần Thân → đệ nhất phú.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ + Hóa Lộc + Hóa Quyền ở Dần Thân → đệ nhất phú.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.019",
       "source_page": 143,
       "question": "Cách tốt — Vũ Lộc Quyền ở Dần Thân: giàu như Vương Khải",
-      "tags": ["vu-khuc", "hoa-loc", "hoa-quyen", "dan-than", "vuong-khai"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:hoa-loc",
+        "concept:hoa-quyen",
+        "concept:dan-than",
+        "concept:vuong-khai"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -258,11 +481,21 @@
       "page": 143,
       "concept": "Cách tốt — Vũ Quyền nữ mệnh: tần tảo gây dựng cho chồng",
       "source_quote": "Vũ Quyển Nữ Mệnh: Đàn bà khôn ngoan tần tảo, gầy dựng tất cả sự nghiệp cho chồng, chẳng phải nể vợ.",
-      "commentary": "Nữ mệnh Vũ + Hóa Quyền → vợ tài tự gầy dựng cho chồng.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ mệnh Vũ + Hóa Quyền → vợ tài tự gầy dựng cho chồng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.020",
       "source_page": 143,
       "question": "Cách tốt — Vũ Quyền nữ mệnh: tần tảo gây dựng cho chồng",
-      "tags": ["vu-khuc", "hoa-quyen", "nu-menh"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:hoa-quyen",
+        "concept:nu-menh"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -271,11 +504,21 @@
       "page": 143,
       "concept": "Cách tốt — Vũ Tấu Đào Hồng Hỷ: ca sĩ kịch sĩ thợ may",
       "source_quote": "Vũ Tấu Đào Hồng Hỷ: Ca sĩ, kịch sĩ giỏi, thợ may khéo.",
-      "commentary": "Bộ Vũ-Tấu-Đào-Hồng-Hỷ → nghề trình diễn / thợ may.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Vũ-Tấu-Đào-Hồng-Hỷ → nghề trình diễn / thợ may.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.021",
       "source_page": 143,
       "question": "Cách tốt — Vũ Tấu Đào Hồng Hỷ: ca sĩ kịch sĩ thợ may",
-      "tags": ["vu-khuc", "tau-thu", "dao-hong"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:tau-thu",
+        "concept:dao-hong"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -284,11 +527,22 @@
       "page": 143,
       "concept": "Cách tốt — Vũ Hình Riêu Tấu: thợ mộc giỏi",
       "source_quote": "Vũ Hình Riêu Tấu: Thợ mộc giỏi.",
-      "commentary": "Bộ Vũ-Hình-Riêu-Tấu → thợ mộc.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Vũ-Hình-Riêu-Tấu → thợ mộc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.022",
       "source_page": 143,
       "question": "Cách tốt — Vũ Hình Riêu Tấu: thợ mộc giỏi",
-      "tags": ["vu-khuc", "thien-hinh", "thien-rieu", "tau-thu"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:thien-hinh",
+        "concept:thien-rieu",
+        "concept:tau-thu"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -297,11 +551,22 @@
       "page": 143,
       "concept": "Cách xấu — Vũ Phá ở Tỵ Hợi: tham lận, lao khổ",
       "source_quote": "Vũ Phá Tỷ Hợi: Tham lận, bất lương, lập nghiệp ở xa, suốt đời vất vả, lao khổ, không giữ được nghiệp tổ mà phải phá tán cho đến hết.",
-      "commentary": "Vũ-Phá Tỵ Hợi = bất lương + phá tán tổ nghiệp.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ-Phá Tỵ Hợi = bất lương + phá tán tổ nghiệp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.023",
       "source_page": 143,
       "question": "Cách xấu — Vũ Phá ở Tỵ Hợi: tham lận, lao khổ",
-      "tags": ["vu-khuc", "pha-quan", "ty-hoi", "cach-xau"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:pha-quan",
+        "concept:ty-hoi",
+        "concept:cach-xau"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -310,11 +575,23 @@
       "page": 143,
       "concept": "Cách xấu — Vũ Sát Phá Liêm ở Mão: tai nạn điện lửa, thần kinh, cô đơn",
       "source_quote": "Vũ, Sát, Phá Liêm ở Mão: Bị tai nạn về điện lửa, sấm sét và bệnh thần kinh, cô đơn, bần hàn.",
-      "commentary": "Cách Vũ-Sát-Phá-Liêm tại Mão → điện lửa, thần kinh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách Vũ-Sát-Phá-Liêm tại Mão → điện lửa, thần kinh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.024",
       "source_page": 143,
       "question": "Cách xấu — Vũ Sát Phá Liêm ở Mão: tai nạn điện lửa, thần kinh, cô đơn",
-      "tags": ["vu-khuc", "that-sat", "pha-quan", "liem-trinh", "mao"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:that-sat",
+        "concept:pha-quan",
+        "concept:liem-trinh",
+        "concept:mao"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -323,11 +600,22 @@
       "page": 143,
       "concept": "Cách xấu — Vũ Kình Đà Phá: bị khốn vì tiền",
       "source_quote": "Vũ, Kình Đà, Phá: Bị khốn hại vì tiền.",
-      "commentary": "Vũ-Kình-Đà-Phá → khốn hại vì tiền bạc.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ-Kình-Đà-Phá → khốn hại vì tiền bạc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.025",
       "source_page": 143,
       "question": "Cách xấu — Vũ Kình Đà Phá: bị khốn vì tiền",
-      "tags": ["vu-khuc", "kinh-da", "pha-quan", "cach-xau"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:kinh-da",
+        "concept:pha-quan",
+        "concept:cach-xau"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -336,11 +624,22 @@
       "page": 143,
       "concept": "Cách xấu — Vũ hãm Kiếp Sát Kình chiếu: giết người khát máu",
       "source_quote": "Vũ hãm, Kiếp Sát đồng cung, Kình chiếu: Rất gian ác, bất lương, giết người không gớm tay, khát máu.",
-      "commentary": "Đỉnh điểm gian ác: Vũ hãm + Kiếp Sát đồng cung + Kình chiếu.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đỉnh điểm gian ác: Vũ hãm + Kiếp Sát đồng cung + Kình chiếu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.026",
       "source_page": 143,
       "question": "Cách xấu — Vũ hãm Kiếp Sát Kình chiếu: giết người khát máu",
-      "tags": ["vu-khuc", "ham-dia", "kiep-sat", "kinh-duong"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:ham-dia",
+        "concept:kiep-sat",
+        "concept:kinh-duong"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -349,11 +648,22 @@
       "page": 143,
       "concept": "Vũ Tham ở Sửu Mùi — trước nghèo sau giàu, càng già càng phú quý",
       "source_quote": "Nếu Mệnh Thân an ở Sửu Mùi có Vũ Tham đồng cung thì trước nghèo sau giàu, càng già càng phú quý. Nếu gặp kiếp đồng cung thì luận đoán đảo ngược.",
-      "commentary": "Vũ-Tham Sửu Mùi = muộn phát; nhưng có Kiếp Không đồng cung → đảo ngược.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ-Tham Sửu Mùi = muộn phát; nhưng có Kiếp Không đồng cung → đảo ngược.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.027",
       "source_page": 143,
       "question": "Vũ Tham ở Sửu Mùi — trước nghèo sau giàu, càng già càng phú quý",
-      "tags": ["vu-khuc", "tham-lang", "suu-mui", "muon-phat"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:tham-lang",
+        "concept:suu-mui",
+        "concept:muon-phat"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -362,11 +672,21 @@
       "page": 144,
       "concept": "Các sao hợp với Vũ Khúc về tài lộc",
       "source_quote": "Các sao hợp với Vũ Khúc về tài lộc gồm có: Chính tinh: Thiên Phủ, Âm Dương sáng sủa, Tử Vi, Thiên Tướng. Trợ tinh: Hóa Lộc, Lộc Tồn, Sinh, Vượng, Thai Tọa, Quang Quý, Tả Hữu, Long Phượng, Đẩu Quân, Cô Thần, Quả Tú, Thiên Mã, Hóa Quyền.",
-      "commentary": "Danh mục sao trợ tài lộc cho Vũ Khúc — dùng tra khi luận cung Tài/Điền.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Danh mục sao trợ tài lộc cho Vũ Khúc — dùng tra khi luận cung Tài/Điền.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.028",
       "source_page": 144,
       "question": "Các sao hợp với Vũ Khúc về tài lộc",
-      "tags": ["vu-khuc", "tai-loc", "hop-sao"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:tai-loc",
+        "concept:hop-sao"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -375,11 +695,21 @@
       "page": 144,
       "concept": "Các sao khắc với Vũ Khúc về tài lộc",
       "source_quote": "Các sao khắc với Vũ Khúc về tài lộc: Chính tinh: Phá Quân đồng cung. Trợ tinh: Đại Hao, Tiểu Hao, Tuân, Triệt, Không Kiếp, Kình Đà, Phục Binh, Hóa Kỵ.",
-      "commentary": "Danh mục sao khắc tài lộc Vũ Khúc — checklist khi xuất hiện ở Tài/Điền.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Danh mục sao khắc tài lộc Vũ Khúc — checklist khi xuất hiện ở Tài/Điền.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.029",
       "source_page": 144,
       "question": "Các sao khắc với Vũ Khúc về tài lộc",
-      "tags": ["vu-khuc", "tai-loc", "khac-sao"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:tai-loc",
+        "concept:khac-sao"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -388,11 +718,21 @@
       "page": 144,
       "concept": "Vũ Khúc ở Tật Ách: hợp mệnh tốt; mệnh Kim/Thủy ít bệnh; Mộc/Hỏa bệnh nhiều",
       "source_quote": "Ở Tật Ách: Xem mục bệnh lý của Vũ Khúc. Nếu hợp mệnh lại đắc địa thì khí quyết tốt, mạnh khỏe luôn. Nếu hãm địa và khắc Mệnh thì hay có bệnh phong hoặc trĩ. Ngoài ra, người mệnh Kim và Thủy (tức là hai hành tương sinh với Vũ Khúc) cũng ít bệnh. Trái lại, nếu mệnh Mộc và Hỏa thì bệnh nhiều hơn.",
-      "commentary": "Vũ Khúc hành Kim sinh Thủy, được sinh từ Thổ. Mệnh Kim/Thủy hợp → ít bệnh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ Khúc hành Kim sinh Thủy, được sinh từ Thổ. Mệnh Kim/Thủy hợp → ít bệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.030",
       "source_page": 144,
       "question": "Vũ Khúc ở Tật Ách: hợp mệnh tốt; mệnh Kim/Thủy ít bệnh; Mộc/Hỏa bệnh nhiều",
-      "tags": ["vu-khuc", "tat-ach", "ngu-hanh"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:tat-ach",
+        "concept:ngu-hanh"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -401,11 +741,21 @@
       "page": 144,
       "concept": "Vũ Khúc ở Thiên Di — buôn bán làm giàu khi mệnh Thủy/Thổ/Kim hợp",
       "source_quote": "Ở Thiên Di: Mệnh Thủy, Thổ và Kim gặp Vũ Khúc đắc địa lại thêm cát tinh tốt hội chiếu thì ra ngoài buôn bán làm giàu rất dễ dàng. Nếu hãm địa và mệnh khắc Vũ Khúc thì là tiểu thương hoặc khó kiếm tiền. Dù sao Vũ ở Di tất phải đi xa làm ăn.",
-      "commentary": "Vũ ở Di → bắt buộc đi xa làm ăn; hợp mệnh + đắc địa → giàu lớn.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ ở Di → bắt buộc đi xa làm ăn; hợp mệnh + đắc địa → giàu lớn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.031",
       "source_page": 144,
       "question": "Vũ Khúc ở Thiên Di — buôn bán làm giàu khi mệnh Thủy/Thổ/Kim hợp",
-      "tags": ["vu-khuc", "thien-di", "ngu-hanh"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:thien-di",
+        "concept:ngu-hanh"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -414,11 +764,21 @@
       "page": 144,
       "concept": "Vũ Khúc ở Quan Lộc — các cách Phủ/Tướng/Sát/Phá/Tham đồng cung",
       "source_quote": "Ở Quan Lộc: Ba loại mệnh Thổ, Thủy, Kim gặp Vũ Khúc đắc địa ở Quan Lộc và thêm cát tinh hội chiếu thì sự nghiệp công danh vô cùng hiển đạt. Vũ Phủ đồng cung: Công danh hoạt đạt, có tài kiêm văn võ, có chức vụ liên quan đến kinh tế, chính trị. Vũ Tướng đồng cung: Quan trường hay thương nghiệp đều đắc lợi. Vũ Sát đồng cung: Võ hiển, thường lập chiến tích ở xa nhưng thăng giáng thất thường. Vũ Phá đồng cung: Võ nghiệp nhưng vất vả, không bền, xoay nghề buôn thì phát. Vũ Tham đồng cung: Buôn bán làm giàu, nhưng phải sau 30 tuổi.",
-      "commentary": "Vũ ở Quan: 5 bộ chính tinh đồng cung → 5 nghề nghiệp khác nhau.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ ở Quan: 5 bộ chính tinh đồng cung → 5 nghề nghiệp khác nhau.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.032",
       "source_page": 144,
       "question": "Vũ Khúc ở Quan Lộc — các cách Phủ/Tướng/Sát/Phá/Tham đồng cung",
-      "tags": ["vu-khuc", "quan-loc", "dong-cung"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:quan-loc",
+        "concept:dong-cung"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -427,11 +787,20 @@
       "page": 145,
       "concept": "Vũ Khúc ở Đại Hạn — Lộc Mã Cơ Hỷ Loan thành gia thất; Cự Quyền trấn nhậm biên cương",
       "source_quote": "ĐỞ HẠN: Vũ Lộc Mã Cơ Hỷ, Loan: thành gia thất. Vũ Cự Quyển: được lệnh trấn nhậm biên cương. (Tư lệnh Vùng hay Đại sứ).",
-      "commentary": "Cách Vũ-Lộc-Mã-Cơ-Hỷ-Loan ở hạn → cưới hỏi; Vũ-Cự-Quyền → trấn biên.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách Vũ-Lộc-Mã-Cơ-Hỷ-Loan ở hạn → cưới hỏi; Vũ-Cự-Quyền → trấn biên.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.033",
       "source_page": 145,
       "question": "Vũ Khúc ở Đại Hạn — Lộc Mã Cơ Hỷ Loan thành gia thất; Cự Quyền trấn nhậm biên cương",
-      "tags": ["vu-khuc", "dai-han"],
+      "tags": [
+        "concept:vu-khuc",
+        "concept:dai-han"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -440,11 +809,21 @@
       "page": 145,
       "concept": "Phân loại phụ tinh — Quý Tinh",
       "source_quote": "QUÍ TINH: Lộc tổn - Ân quang - Thiên khôi. Hóa lộc - Thiên quý - Thiên việt. Long trì - Tấu thư. Phượng các - Thiên mã",
-      "commentary": "Danh sách Quý Tinh trong Hàm Số: Lộc Tồn, Ân Quang, Thiên Khôi, Hóa Lộc, Thiên Quý, Thiên Việt, Long Trì, Tấu Thư, Phượng Các, Thiên Mã.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Danh sách Quý Tinh trong Hàm Số: Lộc Tồn, Ân Quang, Thiên Khôi, Hóa Lộc, Thiên Quý, Thiên Việt, Long Trì, Tấu Thư, Phượng Các, Thiên Mã.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.034",
       "source_page": 145,
       "question": "Phân loại phụ tinh — Quý Tinh",
-      "tags": ["phu-tinh", "quy-tinh", "phan-loai"],
+      "tags": [
+        "concept:phu-tinh",
+        "concept:quy-tinh",
+        "concept:phan-loai"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -453,11 +832,21 @@
       "page": 145,
       "concept": "Phân loại phụ tinh — Quyền Tinh",
       "source_quote": "QUYỀN TINH: Hóa quyển - Quốc ấn - Quan đới. Tướng quân - Phong cáo - Đường phù",
-      "commentary": "Quyền Tinh: Hóa Quyền, Quốc Ấn, Quan Đới, Tướng Quân, Phong Cáo, Đường Phù.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quyền Tinh: Hóa Quyền, Quốc Ấn, Quan Đới, Tướng Quân, Phong Cáo, Đường Phù.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.035",
       "source_page": 145,
       "question": "Phân loại phụ tinh — Quyền Tinh",
-      "tags": ["phu-tinh", "quyen-tinh", "phan-loai"],
+      "tags": [
+        "concept:phu-tinh",
+        "concept:quyen-tinh",
+        "concept:phan-loai"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -466,11 +855,21 @@
       "page": 145,
       "concept": "Phân loại phụ tinh — Phúc Tinh (đầy đủ)",
       "source_quote": "PHÚC TINH: Ân quang - Hóa khoa - Thiên hỷ. Thiên quý - Thiên giải - Thiếu dương. Thiên quan - Địa giải - Thiếu âm. Thiên phúc - Giải thần - Hỷ thần. Thiên Thọ - Thiên đức - Bác sỹ. Tràng sinh - Nguyệt đức - Đẩu quan. Đế vương - Long đức - Thiên y. Thanh long - Phúc đức - Thiên trù",
-      "commentary": "Danh sách dài Phúc Tinh — quan trọng cho luận giải tai họa.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Danh sách dài Phúc Tinh — quan trọng cho luận giải tai họa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.036",
       "source_page": 145,
       "question": "Phân loại phụ tinh — Phúc Tinh (đầy đủ)",
-      "tags": ["phu-tinh", "phuc-tinh", "phan-loai"],
+      "tags": [
+        "concept:phu-tinh",
+        "concept:phuc-tinh",
+        "concept:phan-loai"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -479,11 +878,21 @@
       "page": 146,
       "concept": "Phân loại phụ tinh — Văn Tinh + Đài Các Tinh",
       "source_quote": "Thiên khôi - Văn xương - Phong cáo. Thiên việt - Văn khúc - Quốc ấn. Hóa khoa - Lưu niên văn tinh - Thai phụ. Đài các Tinh: Tam thai - Bát tọa - Lâm quan. Hoa cái - Đường phù",
-      "commentary": "Văn Tinh (Thiên Khôi, Thiên Việt, Văn Xương, Văn Khúc, Hóa Khoa, Lưu Niên Văn Tinh, Phong Cáo, Quốc Ấn, Thai Phụ) + Đài Các Tinh (Tam Thai, Bát Tọa, Lâm Quan, Hoa Cái, Đường Phù).",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Văn Tinh (Thiên Khôi, Thiên Việt, Văn Xương, Văn Khúc, Hóa Khoa, Lưu Niên Văn Tinh, Phong Cáo, Quốc Ấn, Thai Phụ) + Đài Các Tinh (Tam Thai, Bát Tọa, Lâm Quan, Hoa Cái, Đường Phù).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.037",
       "source_page": 146,
       "question": "Phân loại phụ tinh — Văn Tinh + Đài Các Tinh",
-      "tags": ["phu-tinh", "van-tinh", "dai-cac-tinh"],
+      "tags": [
+        "concept:phu-tinh",
+        "concept:van-tinh",
+        "concept:dai-cac-tinh"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -492,11 +901,22 @@
       "page": 146,
       "concept": "Phân loại phụ tinh — Sát Tinh + Bại Tinh + Ám Tinh",
       "source_quote": "Sát Tinh: Địa kiếp - Thiên không - Hóa tinh. Địa không - Kiết sát - Linh tinh. Kình dương - Đà la. Bại Tinh: Đại hao - Thiên khốc - Suy. Tiểu hao - Thiên hư - Bệnh. Tang môn - Lưu hà - Tử. Bạch hổ - Phá toái - Mộ. Thiên la - Tử phù - Tuyệt. Địa võng - Bệnh phù - Thiên thương. Thiên sứ - Quan phù - Tuế phá. Ân Tinh: Hóa ky - Thiên riêu - Thiên thượng. Phục binh - Thiên sứ - Quan phù",
-      "commentary": "Bảng đầy đủ sao xấu — sát tinh, bại tinh, ám tinh — chia 3 cấp tác hại.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bảng đầy đủ sao xấu — sát tinh, bại tinh, ám tinh — chia 3 cấp tác hại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.038",
       "source_page": 146,
       "question": "Phân loại phụ tinh — Sát Tinh + Bại Tinh + Ám Tinh",
-      "tags": ["phu-tinh", "sat-tinh", "bai-tinh", "am-tinh"],
+      "tags": [
+        "concept:phu-tinh",
+        "concept:sat-tinh",
+        "concept:bai-tinh",
+        "concept:am-tinh"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -505,11 +925,20 @@
       "page": 147,
       "concept": "Phân loại phụ tinh — Dâm Tinh + sao trung tính",
       "source_quote": "Dâm Tinh: Thiên Riêu - Hoa Cái - Mộ. Mộc Dục - Thai. Hình Tinh: Các sao không tốt, không xấu: Tả Phù - Dưỡng - Triệt. Hữu Bật - Tuân",
-      "commentary": "Dâm Tinh (Thiên Riêu, Hoa Cái, Mộ, Mộc Dục, Thai). Sao trung tính: Tả Phù, Hữu Bật, Dưỡng, Tuần, Triệt.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Dâm Tinh (Thiên Riêu, Hoa Cái, Mộ, Mộc Dục, Thai). Sao trung tính: Tả Phù, Hữu Bật, Dưỡng, Tuần, Triệt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.039",
       "source_page": 147,
       "question": "Phân loại phụ tinh — Dâm Tinh + sao trung tính",
-      "tags": ["phu-tinh", "dam-tinh"],
+      "tags": [
+        "concept:phu-tinh",
+        "concept:dam-tinh"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -518,11 +947,21 @@
       "page": 147,
       "concept": "Quang Quý — phúc tinh, Grâce de Dieu, biểu hiện che chở của Trời Phật",
       "source_quote": "Quang và Quý là hai phúc tinh, có nhiều ý nghĩa về phúc đức và trường thọ hơn hết. Quang, Quý tượng trưng cho phúc đức của trời ban (Grâce de Dieu), sự che chở của Trời Phật hay Linh Thiên cho con người. Quang, Quý biểu hiện cho sự giúp đỡ của Trời, còn Tả Phù và Hữu Bật biểu hiện cho sự giúp đỡ của người đời.",
-      "commentary": "Phân tách: Quang Quý = Trời giúp; Tả Hữu = người giúp. Khái niệm Grâce de Dieu mượn từ Pháp văn.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phân tách: Quang Quý = Trời giúp; Tả Hữu = người giúp. Khái niệm Grâce de Dieu mượn từ Pháp văn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.040",
       "source_page": 147,
       "question": "Quang Quý — phúc tinh, Grâce de Dieu, biểu hiện che chở của Trời Phật",
-      "tags": ["quang-quy", "phuc-tinh", "ta-huu"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:phuc-tinh",
+        "concept:ta-huu"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -531,11 +970,20 @@
       "page": 147,
       "concept": "Quang Quý — ý nghĩa phúc thọ",
       "source_quote": "Về phúc thọ, Quang Quý có nghĩa: Giảm bớt nhiều bệnh tật, tai họa. Đem lại nhiều may mắn, thọ.",
-      "commentary": "Hai chức năng phúc thọ Quang Quý: giải tai + tăng thọ.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hai chức năng phúc thọ Quang Quý: giải tai + tăng thọ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.041",
       "source_page": 147,
       "question": "Quang Quý — ý nghĩa phúc thọ",
-      "tags": ["quang-quy", "phuc-tho"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:phuc-tho"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -544,11 +992,20 @@
       "page": 147,
       "concept": "Quang Quý — ý nghĩa tính cách",
       "source_quote": "Quang Quý thủ hoặc chiếu mệnh có nghĩa: Tính nhân hậu, lòng từ thiện, sự hên may mắn. Sự thành tín với bạn bè. Sự hiếu thảo đối với cha mẹ. Sự chung thủy với vợ, chồng. Sự tín ngưỡng nơi đấng linh thiêng, khiếu tu.",
-      "commentary": "Tính cách Quang Quý: nhân hậu + thành tín + hiếu thảo + chung thủy + khiếu tu.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tính cách Quang Quý: nhân hậu + thành tín + hiếu thảo + chung thủy + khiếu tu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.042",
       "source_page": 147,
       "question": "Quang Quý — ý nghĩa tính cách",
-      "tags": ["quang-quy", "tinh-tinh"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:tinh-tinh"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -557,11 +1014,20 @@
       "page": 148,
       "concept": "Quang Quý — Phật tử / cư sĩ / quân tử, được hậu thuẫn rộng",
       "source_quote": "Đây là bộ sao của hiểu đệ tử nhà nho, nhà Phật. Người có Quang Quý thủ Mệnh có yếu tố nội tâm để trở thành Phật tử hay ít ra là cư sĩ. Ở ngoài đời là bật quân tử, được thiên hạ quá chuộng nhờ đức hạnh xử thế và thiện tâm sẵn có.",
-      "commentary": "Quang Quý → khuynh hướng tu / quân tử / được hậu thuẫn rộng rãi.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quang Quý → khuynh hướng tu / quân tử / được hậu thuẫn rộng rãi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.043",
       "source_page": 148,
       "question": "Quang Quý — Phật tử / cư sĩ / quân tử, được hậu thuẫn rộng",
-      "tags": ["quang-quy", "tu-hanh"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:tu-hanh"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -570,11 +1036,20 @@
       "page": 148,
       "concept": "Quang Quý KHÔNG có vị trí hãm địa",
       "source_quote": "Vốn là phúc tinh, Quang Quý ở cung nào cũng đẹp, đem phúc lại cho cung đó. Vì vậy, Quang Quý không có vị trí Hãm Địa.",
-      "commentary": "Nguyên tắc đặc biệt: Quang Quý KHÔNG bao giờ hãm, đẹp khắp 12 cung.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nguyên tắc đặc biệt: Quang Quý KHÔNG bao giờ hãm, đẹp khắp 12 cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.044",
       "source_page": 148,
       "question": "Quang Quý KHÔNG có vị trí hãm địa",
-      "tags": ["quang-quy", "khong-ham-dia"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:khong-ham-dia"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -583,11 +1058,21 @@
       "page": 148,
       "concept": "Quang Quý ở Phu Thê — hôn nhân vì tình, thủ tiết kiểu Pénélope",
       "source_quote": "Ở Phu Thê: Hôn nhân vì tình (mariage d'amour). Vợ chồng hòa thuận và thương yêu nhau, chịu đựng được nghịch cảnh và lòng dạ sắt son: đó là trường hợp những người biết thủ tiết như Pénélope. Ở vậy nuôi con, không tục huyễn, không tái giá.",
-      "commentary": "So sánh độc đáo với Pénélope thần thoại Hy Lạp — biểu tượng trung trinh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "So sánh độc đáo với Pénélope thần thoại Hy Lạp — biểu tượng trung trinh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.045",
       "source_page": 148,
       "question": "Quang Quý ở Phu Thê — hôn nhân vì tình, thủ tiết kiểu Pénélope",
-      "tags": ["quang-quy", "phu-the", "penelope"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:phu-the",
+        "concept:penelope"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -596,11 +1081,21 @@
       "page": 148,
       "concept": "Quang Quý ở Nô Bộc — anh em hòa thuận, kết nghĩa kiểu Lưu-Quan-Trương",
       "source_quote": "Ở Nô Bộc: Anh chị em hòa thuận và giúp đỡ lẫn nhau. Có anh nuôi chị em nuôi. Có thể anh chị em kết nghĩa, kiểu như Lưu Bị, Quan Công và Trương Phi thời Tam Quốc.",
-      "commentary": "So sánh Tam Quốc kết nghĩa vườn đào.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "So sánh Tam Quốc kết nghĩa vườn đào.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.046",
       "source_page": 148,
       "question": "Quang Quý ở Nô Bộc — anh em hòa thuận, kết nghĩa kiểu Lưu-Quan-Trương",
-      "tags": ["quang-quy", "no-boc", "tam-quoc"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:no-boc",
+        "concept:tam-quoc"
+      ],
       "confidence": 0.9,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -609,11 +1104,20 @@
       "page": 149,
       "concept": "Quang Quý ở Thiên Di — sinh phùng thời, được xã hội giúp đỡ",
       "source_quote": "Ở Đi: Sinh phùng thời, được may mắn, hên ở xã hội. Được xã hội giúp đỡ, quí nhân phù trợ làm nên.",
-      "commentary": "Quang Quý ở Di → quý nhân phù trợ ngoài xã hội.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quang Quý ở Di → quý nhân phù trợ ngoài xã hội.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.047",
       "source_page": 149,
       "question": "Quang Quý ở Thiên Di — sinh phùng thời, được xã hội giúp đỡ",
-      "tags": ["quang-quy", "thien-di"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:thien-di"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -622,11 +1126,20 @@
       "page": 149,
       "concept": "Quang Quý ở Phúc — thần linh che chở, ước gì được nấy, được hiến đất chôn",
       "source_quote": "Ở Phúc: Quang Quý là phú tính, tọa thủ ở phúc đức rất thích hợp. Được thân linh che chở, ước gì được nấy. Thọ, dòng họ kết đoàn, đùm bọc nhau. Khi chết, được người hiến đất chôn cất.",
-      "commentary": "Quang Quý ở Phúc → cảnh giới cao nhất: thần linh đáp ứng, sau chết được hiến đất.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quang Quý ở Phúc → cảnh giới cao nhất: thần linh đáp ứng, sau chết được hiến đất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.048",
       "source_page": 149,
       "question": "Quang Quý ở Phúc — thần linh che chở, ước gì được nấy, được hiến đất chôn",
-      "tags": ["quang-quy", "phuc-duc"],
+      "tags": [
+        "concept:quang-quy",
+        "concept:phuc-duc"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -635,11 +1148,20 @@
       "page": 150,
       "concept": "Bác Sĩ (Thủy) — cát tinh, đặc tính tương tự Hóa Khoa nhưng yếu hơn",
       "source_quote": "Là cát tinh, Bác Sĩ có nghĩa: Thông minh, hay suy xét kín đáo, chủ sự thông đạt thâm thúy (Bác sĩ có đặc tính như sao Tử). Ngôn ngữ hoạt bát. Khoan hòa, nhân hậu. Lợi ích cho việc thi cử học hành. Giải trừ bệnh tật. Về các điểm này, Bác Sĩ có đặc tính tương tự như Hóa Khoa, chủ về học và hành đồng thời cứu giải bệnh tật. Tuy nhiên, Bác Sĩ không mạnh bằng sao Khoa.",
-      "commentary": "Bác Sĩ ≈ Hóa Khoa rút gọn — học, ngôn, giải bệnh, nhưng cường độ thấp hơn.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bác Sĩ ≈ Hóa Khoa rút gọn — học, ngôn, giải bệnh, nhưng cường độ thấp hơn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.049",
       "source_page": 150,
       "question": "Bác Sĩ (Thủy) — cát tinh, đặc tính tương tự Hóa Khoa nhưng yếu hơn",
-      "tags": ["bac-si", "hoa-khoa"],
+      "tags": [
+        "concept:bac-si",
+        "concept:hoa-khoa"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -648,11 +1170,21 @@
       "page": 150,
       "concept": "Bác Sĩ với Hóa Khoa hoặc Âm Dương Xương Khúc",
       "source_quote": "Bác Sĩ - Hóa Khoa: Có học có hành. Bác Sĩ - Am Dương Xương Khúc: Có khoa danh làm nên.",
-      "commentary": "Bộ Bác Sĩ + Hóa Khoa hoặc + Âm Dương Xương Khúc → khoa danh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Bác Sĩ + Hóa Khoa hoặc + Âm Dương Xương Khúc → khoa danh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.050",
       "source_page": 150,
       "question": "Bác Sĩ với Hóa Khoa hoặc Âm Dương Xương Khúc",
-      "tags": ["bac-si", "hoa-khoa", "xuong-khuc"],
+      "tags": [
+        "concept:bac-si",
+        "concept:hoa-khoa",
+        "concept:xuong-khuc"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -661,11 +1193,21 @@
       "page": 150,
       "concept": "Bạch Hổ chỉ máu xương, Tang Môn không có bộ phận cơ thể",
       "source_quote": "Chỉ có Bạch Hổ chỉ máu xương, còn Tang Môn không có chỉ bộ phận cơ thể nào.",
-      "commentary": "Phân biệt cơ thể Tang Hổ — Bạch Hổ chỉ máu xương, Tang Môn không có.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phân biệt cơ thể Tang Hổ — Bạch Hổ chỉ máu xương, Tang Môn không có.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.051",
       "source_page": 150,
       "question": "Bạch Hổ chỉ máu xương, Tang Môn không có bộ phận cơ thể",
-      "tags": ["tang-mon", "bach-ho", "co-the"],
+      "tags": [
+        "concept:tang-mon",
+        "concept:bach-ho",
+        "concept:co-the"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -674,11 +1216,20 @@
       "page": 151,
       "concept": "Tang Hổ — bệnh tinh thần + bệnh vật chất (máu huyết gân cốt)",
       "source_quote": "Tang Hổ là bại tinh nên báo hiệu hai loại bệnh tật: Bệnh về tinh thần: Biểu hiện bằng sự ưu sầu, u buồn, ủy mị, bi quan. Bệnh về vật chất: Cụ thể là máu huyết, gân cốt như hoại huyết, áp huyết cao, đau gân, đau tim, nhức xương, tê thấp. Vì vậy, đối với phụ nữ, tình trạng khí huyết kém hay dẫn đến sự đau yếu về kinh nguyệt, về tử cung, có ảnh hưởng đến sự sinh nở.",
-      "commentary": "Tang Hổ → 2 cấp bệnh: tâm và thể. Phụ nữ: kinh nguyệt + tử cung.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tang Hổ → 2 cấp bệnh: tâm và thể. Phụ nữ: kinh nguyệt + tử cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.052",
       "source_page": 151,
       "question": "Tang Hổ — bệnh tinh thần + bệnh vật chất (máu huyết gân cốt)",
-      "tags": ["tang-ho", "benh-ly"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:benh-ly"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -687,11 +1238,21 @@
       "page": 151,
       "concept": "Tang Hổ đắc địa ở 4 cung Dần Thân Mão Dậu",
       "source_quote": "Những bệnh hoại này càng rõ rệt nếu Tang Hổ đồng ở cung Mệnh hay cung Tật, dù có tại đó, Tang Hổ đắc địa (ở bốn cung Dần, Thân, Mão, Dậu).",
-      "commentary": "Vị trí đắc địa Tang Hổ: 4 cung Dần-Thân-Mão-Dậu.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vị trí đắc địa Tang Hổ: 4 cung Dần-Thân-Mão-Dậu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.053",
       "source_page": 151,
       "question": "Tang Hổ đắc địa ở 4 cung Dần Thân Mão Dậu",
-      "tags": ["tang-ho", "dac-dia", "vi-tri"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:dac-dia",
+        "concept:vi-tri"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -700,11 +1261,21 @@
       "page": 151,
       "concept": "Tang Hổ đắc địa — ý nghĩa tốt: can đảm, tài giỏi, hùng biện, quan tòa luật sư",
       "source_quote": "Sự can đảm, quả cảm, có nghị lực. Sự tài giỏi, quyền biến, thao lược, ứng phó được với nghịch cảnh. Khả năng xét đoán, lý luận giỏi, có tài hùng biện. Đi chung với Tấu Thư, Lưu Hà, Xương Khúc thì khả năng hùng biện rất sắc sảo. Đây là bộ sao quan tòa, luật sư, chính trị giỏi, thương thuyết gia, giáo sư, giáo sĩ.",
-      "commentary": "Tang Hổ đắc địa → quan tòa, luật sư, chính trị; với Tấu Thư-Lưu Hà-Xương Khúc → hùng biện đỉnh cao.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tang Hổ đắc địa → quan tòa, luật sư, chính trị; với Tấu Thư-Lưu Hà-Xương Khúc → hùng biện đỉnh cao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.054",
       "source_page": 151,
       "question": "Tang Hổ đắc địa — ý nghĩa tốt: can đảm, tài giỏi, hùng biện, quan tòa luật sư",
-      "tags": ["tang-ho", "dac-dia", "hung-bien"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:dac-dia",
+        "concept:hung-bien"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -713,11 +1284,21 @@
       "page": 151,
       "concept": "Tang Hổ đắc địa nữ mệnh — khí phách như đàn ông, văn võ kiêm toàn",
       "source_quote": "Riêng với phụ nữ thì có khí phách, có ý chí mạnh như đàn ông, có tâm tính của nam giới. Đó là những người rất đặc biệt, tự tay lập nghiệp, quán xuyến cả nội trợ và ngoại giao, vừa đắc dụng trong gia đình, vừa đắc dụng ngoài xã hội.",
-      "commentary": "Tang Hổ đắc địa nữ → phụ nữ mạnh mẽ tự lập, vừa nội trợ vừa ngoại giao.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tang Hổ đắc địa nữ → phụ nữ mạnh mẽ tự lập, vừa nội trợ vừa ngoại giao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.055",
       "source_page": 151,
       "question": "Tang Hổ đắc địa nữ mệnh — khí phách như đàn ông, văn võ kiêm toàn",
-      "tags": ["tang-ho", "dac-dia", "nu-menh"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:dac-dia",
+        "concept:nu-menh"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -726,11 +1307,21 @@
       "page": 151,
       "concept": "Tang Hổ hãm địa — ương ngạnh, ưu tư, ham nhậu nhẹt",
       "source_quote": "Sự ương ngạnh, ngoan cố, cứng đầu, bướng bỉnh. Tính ưu tư, hay lo lắng, phiền muộn, cô độc. Thích chơi bời, ăn ngon, mặc đẹp, hay say sưa nhậu nhẹt (nam giới).",
-      "commentary": "Hãm địa: ương ngạnh, cô độc, nam giới nhậu nhẹt.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hãm địa: ương ngạnh, cô độc, nam giới nhậu nhẹt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.056",
       "source_page": 151,
       "question": "Tang Hổ hãm địa — ương ngạnh, ưu tư, ham nhậu nhẹt",
-      "tags": ["tang-ho", "ham-dia", "tinh-tinh"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:ham-dia",
+        "concept:tinh-tinh"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -739,11 +1330,21 @@
       "page": 151,
       "concept": "Tang Hổ thủ Mệnh — mồ côi sớm, nữ gia đạo trắc trở",
       "source_quote": "Nhưng về phúc thọ, Tang Hổ thủ Mệnh, dù đắc địa, cũng bị mồ côi sớm, có khi mất lọt lòng mẹ. Riêng phái nữ thì gia đạo, hôn nhân thường bị trắc trở, phải muôn chồng, góa bụa hoặc đau khổ tru phiền vì chồng con.",
-      "commentary": "Đặc tính bất di bất dịch: Tang Hổ thủ Mệnh → mồ côi sớm; nữ → gia đạo trục trặc.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đặc tính bất di bất dịch: Tang Hổ thủ Mệnh → mồ côi sớm; nữ → gia đạo trục trặc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.057",
       "source_page": 151,
       "question": "Tang Hổ thủ Mệnh — mồ côi sớm, nữ gia đạo trắc trở",
-      "tags": ["tang-ho", "menh", "mo-coi"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:menh",
+        "concept:mo-coi"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -752,11 +1353,21 @@
       "page": 151,
       "concept": "Tang Hổ — nguy hiểm sinh nở cho phụ nữ",
       "source_quote": "Mặt khác, vì Tang Hổ cũng bất lợi cho sự sinh nở nên nữ Mệnh có thể bị nguy hiểm tánh mạng vì sinh đẻ — hoặc mình chết, hoặc con chết — hoặc phải đau yếu tử cung, hư thai, dù có sinh con cũng hết sức khó nuôi.",
-      "commentary": "Tang Hổ ảnh hưởng sản khoa nghiêm trọng.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tang Hổ ảnh hưởng sản khoa nghiêm trọng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.058",
       "source_page": 151,
       "question": "Tang Hổ — nguy hiểm sinh nở cho phụ nữ",
-      "tags": ["tang-ho", "phu-nu", "sinh-no"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:phu-nu",
+        "concept:sinh-no"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -765,11 +1376,21 @@
       "page": 152,
       "concept": "Bộ Hổ Tấu — hùng biện diễn thuyết, chính khách giáo sư luật sư",
       "source_quote": "Hổ, Tấu: Hai sao này hợp nghĩa về khoa ngôn ngữ và tài hùng biện. Đây là người có khả năng diễn thuyết hùng hồn, lời lẽ lưu loát và khích động, có sức quyến rũ bằng ngôn ngữ rất sâu sắc. Các chính khách, ứng viên tranh cử, giáo sư, quan tòa, luật sư rất cần đến bộ sao này. Nếu đi chung với các sao hùng biện khác như Lưu Hà, Khốc, Hư, Văn Xương, Văn Khúc thì tài hùng biện đạt mức quốc tế.",
-      "commentary": "Bộ hùng biện đỉnh cao: Hổ + Tấu (+ Lưu Hà, Khốc, Hư, Xương Khúc).",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ hùng biện đỉnh cao: Hổ + Tấu (+ Lưu Hà, Khốc, Hư, Xương Khúc).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.059",
       "source_page": 152,
       "question": "Bộ Hổ Tấu — hùng biện diễn thuyết, chính khách giáo sư luật sư",
-      "tags": ["bach-ho", "tau-thu", "hung-bien"],
+      "tags": [
+        "concept:bach-ho",
+        "concept:tau-thu",
+        "concept:hung-bien"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -778,11 +1399,21 @@
       "page": 152,
       "concept": "Hổ Phi đồng cung — hổ mọc cánh, lợi cho thi cử cầu danh",
       "source_quote": "Hổ Phi đồng cung (gọi là hổ mọc cánh): Chủ sự vui vẻ, nhanh nhẹn, tháo vát, cũng lợi ích cho việc thi cử, cầu danh, đạt quyền chức, may mắn nói chung.",
-      "commentary": "Hình tượng 'hổ mọc cánh' = Hổ + Phi Liêm.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hình tượng 'hổ mọc cánh' = Hổ + Phi Liêm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.060",
       "source_page": 152,
       "question": "Hổ Phi đồng cung — hổ mọc cánh, lợi cho thi cử cầu danh",
-      "tags": ["bach-ho", "phi-liem", "ho-moc-canh"],
+      "tags": [
+        "concept:bach-ho",
+        "concept:phi-liem",
+        "concept:ho-moc-canh"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -791,11 +1422,23 @@
       "page": 152,
       "concept": "Bộ Tứ Linh — Hổ Cái Long Phượng: hiển đạt uy danh khoa giáp",
       "source_quote": "Hổ, Cát, Long, Phượng (gọi là Tứ Linh): Cũng rất hiển đạt về uy danh, sự nghiệp, uy tín, khoa giáp.",
-      "commentary": "Tứ Linh = Bạch Hổ + Hoa Cái + Long Trì + Phượng Các. Bộ thượng cách.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tứ Linh = Bạch Hổ + Hoa Cái + Long Trì + Phượng Các. Bộ thượng cách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.061",
       "source_page": 152,
       "question": "Bộ Tứ Linh — Hổ Cái Long Phượng: hiển đạt uy danh khoa giáp",
-      "tags": ["tu-linh", "bach-ho", "hoa-cai", "long-tri", "phuong-cac"],
+      "tags": [
+        "concept:tu-linh",
+        "concept:bach-ho",
+        "concept:hoa-cai",
+        "concept:long-tri",
+        "concept:phuong-cac"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -804,11 +1447,21 @@
       "page": 152,
       "concept": "Hổ cư hổ vị — Hổ ở Dần: cọp về rừng, đắc thời",
       "source_quote": "Hổ ở Dần (gọi là hổ cư hổ vị): Ví như cọp ở rừng núi, có thể vùng vẫy tung hoành như ý muốn. Có nghĩa như gặp được thời, gặp vận hội may mắn, có thể phát huy tài năng, đạt chức quyền cao. Vị trí này rất hợp với tuổi Giáp và Kỷ, thường lỗi lạc về võ nghiệp, lưu danh hậu thế. Rất tốt với tuổi Bính, Mậu.",
-      "commentary": "Bạch Hổ ở Dần (Hổ cư hổ vị) hợp tuổi Giáp/Kỷ/Bính/Mậu, võ nghiệp.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bạch Hổ ở Dần (Hổ cư hổ vị) hợp tuổi Giáp/Kỷ/Bính/Mậu, võ nghiệp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.062",
       "source_page": 152,
       "question": "Hổ cư hổ vị — Hổ ở Dần: cọp về rừng, đắc thời",
-      "tags": ["bach-ho", "dan", "ho-cu-ho-vi"],
+      "tags": [
+        "concept:bach-ho",
+        "concept:dan",
+        "concept:ho-cu-ho-vi"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -817,11 +1470,23 @@
       "page": 152,
       "concept": "Bộ xấu — Tang Hổ Điếu Bệnh (Tứ Hung), Thiên Đồng hóa giải",
       "source_quote": "Hổ Tham: Bị thú dữ cắn chết. Tang, Hổ, Điếu, Bình (gọi là tứ Hung): Rất độc, báo hiệu cho tang tóc, tai nạn chết người, họa lớn. Nếu có Thiên Đồng thì hóa giải được. Tang Hổ gặp Lưu Tang, Lưu Hổ: Tang tốc liên tiếp, ưu phiền rất nặng, tai họa khủng khiếp.",
-      "commentary": "Tứ Hung = Tang Môn + Bạch Hổ + Điếu Khách + Bệnh Phù. Thiên Đồng giải.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tứ Hung = Tang Môn + Bạch Hổ + Điếu Khách + Bệnh Phù. Thiên Đồng giải.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.063",
       "source_page": 152,
       "question": "Bộ xấu — Tang Hổ Điếu Bệnh (Tứ Hung), Thiên Đồng hóa giải",
-      "tags": ["tu-hung", "tang-ho", "dieu-khach", "benh-phu", "thien-dong"],
+      "tags": [
+        "concept:tu-hung",
+        "concept:tang-ho",
+        "concept:dieu-khach",
+        "concept:benh-phu",
+        "concept:thien-dong"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -830,11 +1495,20 @@
       "page": 153,
       "concept": "Tang Hổ ở Tử — khó sanh, sát con, mổ xẻ césariene",
       "source_quote": "Ở TỬ: Khó sanh, sanh non ngày tháng. Sanh con khó nuôi. Sanh con nhưng không nuôi được. Gặp Kình, Sát: Có thể không con. Gặp Không, Kiếp: Sát con. Gặp Thai: Sẩy thai, con chết non. Gặp Không, Kiếp, Thai: Có thể phá thai. Nếu thêm Hình: Có mổ xẻ lúc sanh nở (césariene), con chết trong bụng mẹ, khó đẻ, phá thai.",
-      "commentary": "Bảng tra Tang Hổ ở Tử với 5 cấp độ hung.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bảng tra Tang Hổ ở Tử với 5 cấp độ hung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.064",
       "source_page": 153,
       "question": "Tang Hổ ở Tử — khó sanh, sát con, mổ xẻ césariene",
-      "tags": ["tang-ho", "tu-tuc"],
+      "tags": [
+        "concept:tang-ho",
+        "concept:tu-tuc"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -843,11 +1517,21 @@
       "page": 154,
       "concept": "Tam Thai = trán (thiên đình); Bát Tọa = cằm (hạ đình)",
       "source_quote": "Tam Thai là trán, phần thiên đình trên tướng mặt. Bát tọa là cằm, phần hạ đình trên tướng mặt.",
-      "commentary": "Cơ thể Tam Thai - Bát Tọa: trán + cằm trên tướng mặt.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cơ thể Tam Thai - Bát Tọa: trán + cằm trên tướng mặt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.065",
       "source_page": 154,
       "question": "Tam Thai = trán (thiên đình); Bát Tọa = cằm (hạ đình)",
-      "tags": ["tam-thai", "bat-toa", "tuong-mao"],
+      "tags": [
+        "concept:tam-thai",
+        "concept:bat-toa",
+        "concept:tuong-mao"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -856,11 +1540,22 @@
       "page": 154,
       "concept": "Thai Tọa — đài cát tinh, thanh nhàn an phận, biểu hiện học thuyết Lão Trang",
       "source_quote": "Thai, Tọa là hai đài cát tinh, có nghĩa: Ưa sự thanh nhàn, hưởng thụ, an phận, ung dung. Từ đó có nghĩa lười biếng, không hiếu động. Thai Tọa tượng trưng cho người an phận thủ thường... Vì vậy, người có hai sao này ít có hướng cách mạng, canh cải, không thích đấu tranh mà lại xu thời, bảo thủ... Về mặt tính tình, Thai Tọa là hai sao biểu hiện rõ rệt nhất học thuyết Lão Trang, chủ sự về thanh tịnh tâm hồn, bất chấp những thăng trầm ngoại cảnh.",
-      "commentary": "Liên hệ độc đáo: Thai Tọa = Lão Trang. Thanh nhàn nhưng cũng lười.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liên hệ độc đáo: Thai Tọa = Lão Trang. Thanh nhàn nhưng cũng lười.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.066",
       "source_page": 154,
       "question": "Thai Tọa — đài cát tinh, thanh nhàn an phận, biểu hiện học thuyết Lão Trang",
-      "tags": ["tam-thai", "bat-toa", "lao-trang", "tinh-tinh"],
+      "tags": [
+        "concept:tam-thai",
+        "concept:bat-toa",
+        "concept:lao-trang",
+        "concept:tinh-tinh"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -869,11 +1564,23 @@
       "page": 155,
       "concept": "Cách Mộ Trung Thai Tọa — Thai Tọa Mộ ở Tứ Mộ (Thìn Tuất Sửu Mùi)",
       "source_quote": "Thai, Tạo Mộ: Đây là cách gọi là Mộ Trung Thai Tọa, chủ sự quí hiển làm nên, nhất là khi cả 3 sao được tọa thủ ở 4 cung Tử Mộ là Thìn, Tuất, Sửu, Mùi. Cách này ở cung Mệnh hay cung Quan là thích hợp.",
-      "commentary": "Cách thượng — Mộ Trung Thai Tọa ở Tứ Mộ. Tốt ở Mệnh hoặc Quan.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách thượng — Mộ Trung Thai Tọa ở Tứ Mộ. Tốt ở Mệnh hoặc Quan.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.067",
       "source_page": 155,
       "question": "Cách Mộ Trung Thai Tọa — Thai Tọa Mộ ở Tứ Mộ (Thìn Tuất Sửu Mùi)",
-      "tags": ["mo-trung-thai-toa", "tam-thai", "bat-toa", "mo", "tu-mo"],
+      "tags": [
+        "concept:mo-trung-thai-toa",
+        "concept:tam-thai",
+        "concept:bat-toa",
+        "concept:mo",
+        "concept:tu-mo"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -882,11 +1589,21 @@
       "page": 155,
       "concept": "Bệnh + Bệnh Phù — sao nhỏ, bệnh suy nhược không nặng nhưng kéo dài",
       "source_quote": "Hai sao này đồng nghĩa, cũng chỉ sự đau yếu, bệnh tật, buồn rầu vì bệnh tật. Sách vở không thầy định bệnh cho hai sao này, cũng không thấy cường độ của bệnh nặng và nhẹ. Chỉ có thể suy đoán rằng đây là bệnh của người suy nhược toàn diện, kém ăn, kém ngủ, kém nghỉ ngơi, thiếu bồi dưỡng... Mặt khác, vì là sao nhỏ, cho nên có thể bệnh hoạn không nặng lắm, tuy có thể kéo dài. Có sách cho rằng Thiên Lương giải được bất lợi của 2 sao này. Có 2 sao này gặp sát Phá Tham Vũ thì lại ít bệnh.",
-      "commentary": "Bệnh + Bệnh Phù = sao nhỏ, bệnh suy nhược dai dẳng. Thiên Lương giải; gặp Sát-Phá-Tham-Vũ lại ít bệnh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bệnh + Bệnh Phù = sao nhỏ, bệnh suy nhược dai dẳng. Thiên Lương giải; gặp Sát-Phá-Tham-Vũ lại ít bệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.068",
       "source_page": 155,
       "question": "Bệnh + Bệnh Phù — sao nhỏ, bệnh suy nhược không nặng nhưng kéo dài",
-      "tags": ["benh", "benh-phu", "thien-luong"],
+      "tags": [
+        "concept:benh",
+        "concept:benh-phu",
+        "concept:thien-luong"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -895,11 +1612,21 @@
       "page": 156,
       "concept": "Đế Vượng (Kim) — phong phú thừa thãi; uy nghi quảng đại từ thiện",
       "source_quote": "Đế vượng chủ về sự phong phú, mập mạp, thừa thãi. Đế vượng Khốc Hư: Chỉ ra vấn đề đau lưng, thận suy. Uy nghi, đường bệ. Quảng đại, từ thiện, bác ái. Đế Vượng gần như đồng nghĩa với Tràng Sinh và hội chiếu với Tràng Sinh. Cả hai sao được xem là hệ số làm tăng ý nghĩa của những sao đồng cung.",
-      "commentary": "Đế Vượng ≈ Tràng Sinh; vai trò hệ số nhân lên đặc tính sao đồng cung.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đế Vượng ≈ Tràng Sinh; vai trò hệ số nhân lên đặc tính sao đồng cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.069",
       "source_page": 156,
       "question": "Đế Vượng (Kim) — phong phú thừa thãi; uy nghi quảng đại từ thiện",
-      "tags": ["de-vuong", "trang-sinh", "he-so-nhan"],
+      "tags": [
+        "concept:de-vuong",
+        "concept:trang-sinh",
+        "concept:he-so-nhan"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -908,11 +1635,21 @@
       "page": 156,
       "concept": "Đế Vượng + Sinh — phúc, thọ, sinh nở thuận lợi; gia tăng phúc thọ quan tài",
       "source_quote": "Gia tăng phục thọ, chủ sự thịnh đạt, phong phú. Giải trừ bệnh tật, tai họa. Tăng công danh, quyền thế, tiền bạc. Lợi ích cho sự sinh nở, nhiều con, sinh mau. Do đó, Vượng và Sinh cùng với Phúc Tinh, Quý Tinh, Tài Tinh, Quyền Tinh, Văn Tinh sẽ làm tăng thêm phúc thọ, phú quý, quyền lực, khoa danh của lá số rất nhiều. Vượng, Sinh có khả năng chế giải một số hung tinh hạng nhẹ.",
-      "commentary": "Vượng + Sinh + cát tinh → nhân lên toàn diện; giải hung tinh nhẹ.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vượng + Sinh + cát tinh → nhân lên toàn diện; giải hung tinh nhẹ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.070",
       "source_page": 156,
       "question": "Đế Vượng + Sinh — phúc, thọ, sinh nở thuận lợi; gia tăng phúc thọ quan tài",
-      "tags": ["de-vuong", "trang-sinh", "phuc-tho"],
+      "tags": [
+        "concept:de-vuong",
+        "concept:trang-sinh",
+        "concept:phuc-tho"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -921,11 +1658,23 @@
       "page": 156,
       "concept": "Vượng Khoa + Khôi Việt Xương Khúc Quốc Ấn Nhật Nguyệt — thiên tài quốc tế kiểu Victor Hugo, Tagore, Kant, Marx",
       "source_quote": "Vượng Khoa: Lập nên sự nghiệp văn chương lớn, sản xuất nhiều tác phẩm văn học giá trị. Nếu thêm Khôi Việt, Xương Khúc, Quốc Ấn, Âm Dương sáng đẹp thì nhất định là bậc thiên tài về văn học ở hệ cấp quốc tế (kiểu như Victor Hugo, Tagore, Kant, Marx...). Được giải thưởng thế giới Nobel, được vào Văn Miếu công thần sau khi chết.",
-      "commentary": "Cách thượng văn học: Vượng + Khoa + bộ văn tinh → đoạt Nobel, vào Văn Miếu.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách thượng văn học: Vượng + Khoa + bộ văn tinh → đoạt Nobel, vào Văn Miếu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.071",
       "source_page": 156,
       "question": "Vượng Khoa + Khôi Việt Xương Khúc Quốc Ấn Nhật Nguyệt — thiên tài quốc tế kiểu Victor Hugo, Tagore, Kant, Marx",
-      "tags": ["de-vuong", "hoa-khoa", "khoi-viet", "xuong-khuc", "nobel"],
+      "tags": [
+        "concept:de-vuong",
+        "concept:hoa-khoa",
+        "concept:khoi-viet",
+        "concept:xuong-khuc",
+        "concept:nobel"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -934,11 +1683,22 @@
       "page": 157,
       "concept": "Tam Giải (Thiên Giải Hỏa, Địa Giải Thổ, Giải Thần Mộc) — Thiện Tinh, đức độ + giải ách",
       "source_quote": "Ba sao này đều là Thiện Tinh và có ý nghĩa: Sự đức độ, khoan hòa, thuần hậu. Sự từ thiện, lòng nhân hay giúp đỡ người khác... Chủ sự giải ách, trừ hung. Giảm bệnh tật, tránh hay giảm tai hoạ. Làm tăng phúc thọ, may mắn đặc biệt.",
-      "commentary": "Tam Giải = Thiên Giải + Địa Giải + Giải Thần. Giải ách + đức hạnh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tam Giải = Thiên Giải + Địa Giải + Giải Thần. Giải ách + đức hạnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.072",
       "source_page": 157,
       "question": "Tam Giải (Thiên Giải Hỏa, Địa Giải Thổ, Giải Thần Mộc) — Thiện Tinh, đức độ + giải ách",
-      "tags": ["tam-giai", "thien-giai", "dia-giai", "giai-than"],
+      "tags": [
+        "concept:tam-giai",
+        "concept:thien-giai",
+        "concept:dia-giai",
+        "concept:giai-than"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -947,11 +1707,22 @@
       "page": 158,
       "concept": "Phân hạng sao giải — mạnh: Tử Vi, Thiên Phủ, Thiên Lương, Thiên Đồng, Triệt, Tuần",
       "source_quote": "Sao giải mạnh: Tử Vi, Thiên Phủ, Thiên Lương, Thiên Đồng, Triệt, Tuần. Sao giải nhỏ: Địa Giải, Giải Thần, Thiên Đức, Nguyệt Đức, Phúc Đức, Long Đức, Thanh Long, Thiếu Dương, Thiếu Âm, Thiên Quan Quí Nhân, Thiên Phúc Quí Nhân, Hóa Lộc, Lộc Tồn, Bác Sĩ, Tràng Sinh, Đế Vượng.",
-      "commentary": "Hai cấp giải họa: mạnh (6 sao) vs nhỏ (16 sao).",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hai cấp giải họa: mạnh (6 sao) vs nhỏ (16 sao).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.073",
       "source_page": 158,
       "question": "Phân hạng sao giải — mạnh: Tử Vi, Thiên Phủ, Thiên Lương, Thiên Đồng, Triệt, Tuần",
-      "tags": ["sao-giai", "tu-vi", "thien-phu", "tuan-triet"],
+      "tags": [
+        "concept:sao-giai",
+        "concept:tu-vi",
+        "concept:thien-phu",
+        "concept:tuan-triet"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -960,11 +1731,21 @@
       "page": 158,
       "concept": "Hóa Khoa = Đệ nhất giải thần (đứng đầu các phụ tinh giải)",
       "source_quote": "Giữa các phụ tinh, Hóa Khoa đứng đầu các sao giải vì hiệu lực mạnh mẽ của nó. Sao này còn được gọi là 'Đệ nhất giải thần', có tác dụng cứu giải hầu như toàn diện. Tác dụng này bắt nguồn từ sự khôn ngoan và phẩm hạnh tốt của con người. Trong khi đó, các sao Quang Quý, Thiên Giải, Địa Giải tượng trưng cho sự che chở của linh thiêng; còn những sao Tả Hữu, Giải Thần, Thiên Quan, Thiên Phúc biểu hiện cho sự giúp đỡ của người đời đối với mình.",
-      "commentary": "3 nguồn cứu giải: Hóa Khoa (tự thân khôn ngoan) + Quang Quý-Thiên Giải-Địa Giải (linh thiêng) + Tả Hữu-Giải Thần-Thiên Quan-Thiên Phúc (người đời).",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "3 nguồn cứu giải: Hóa Khoa (tự thân khôn ngoan) + Quang Quý-Thiên Giải-Địa Giải (linh thiêng) + Tả Hữu-Giải Thần-Thiên Quan-Thiên Phúc (người đời).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.074",
       "source_page": 158,
       "question": "Hóa Khoa = Đệ nhất giải thần (đứng đầu các phụ tinh giải)",
-      "tags": ["hoa-khoa", "de-nhat-giai-than", "quang-quy"],
+      "tags": [
+        "concept:hoa-khoa",
+        "concept:de-nhat-giai-than",
+        "concept:quang-quy"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -973,11 +1754,21 @@
       "page": 158,
       "concept": "Thiên Giải chế khắc Đà La + Kiếp Sát",
       "source_quote": "Riêng sao Thiên Giải có hiệu lực chế khắc hai hung tinh là Đà La và Kiếp Sát. Không thấy nói đến tác dụng của Địa Giải và Giải Thần.",
-      "commentary": "Đặc tính riêng Thiên Giải: khắc chế Đà La + Kiếp Sát.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đặc tính riêng Thiên Giải: khắc chế Đà La + Kiếp Sát.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.075",
       "source_page": 158,
       "question": "Thiên Giải chế khắc Đà La + Kiếp Sát",
-      "tags": ["thien-giai", "da-la", "kiep-sat"],
+      "tags": [
+        "concept:thien-giai",
+        "concept:da-la",
+        "concept:kiep-sat"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -986,11 +1777,22 @@
       "page": 158,
       "concept": "Kiếp Không — hai sát tinh nặng nhất, mạnh ngang chính tinh đắc địa",
       "source_quote": "Địa Không, Địa Kiếp là hai sát tinh nặng nhất, mạnh nhất trong các vì sao xấu. Tuy chỉ là phụ tinh, nhưng ảnh hưởng của hai sao này mạnh ngang ngửa với chính tinh đắc địa. Chỉ riêng một trong hai sao cũng đủ hóa giải hầu hết hiệu lực của sao tốt nhất là Tử Vi.",
-      "commentary": "Đẳng cấp Kiếp Không: phụ tinh nhưng có thể vô hiệu hóa Tử Vi.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đẳng cấp Kiếp Không: phụ tinh nhưng có thể vô hiệu hóa Tử Vi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.076",
       "source_page": 158,
       "question": "Kiếp Không — hai sát tinh nặng nhất, mạnh ngang chính tinh đắc địa",
-      "tags": ["dia-khong", "dia-kiep", "sat-tinh", "tu-vi"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:sat-tinh",
+        "concept:tu-vi"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -999,11 +1801,22 @@
       "page": 158,
       "concept": "Kiếp Không đắc địa ở Tỵ Hợi Dần Thân — hoành phát đi liền hoành phá",
       "source_quote": "Ngay cả trong bốn vị trí đắc địa là Tỵ, Hợi, Dần, Thân, hai sao này cũng còn tiềm phục phá hoại, tuy có góp phần gia tăng tài danh một cách nhanh chóng. Nhưng, cái may thường đi liền với cái rủi: sự hoành phát đi liền với sự hoành phá hay một tai họa nặng nề khác (đau ốm, mất của, tang khó...).",
-      "commentary": "Paradigm Kiếp Không đắc địa: cái may = cái rủi. Hoành phát = hoành phá.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Paradigm Kiếp Không đắc địa: cái may = cái rủi. Hoành phát = hoành phá.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.077",
       "source_page": 158,
       "question": "Kiếp Không đắc địa ở Tỵ Hợi Dần Thân — hoành phát đi liền hoành phá",
-      "tags": ["dia-khong", "dia-kiep", "hoanh-phat", "hoanh-pha"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:hoanh-phat",
+        "concept:hoanh-pha"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1012,11 +1825,23 @@
       "page": 159,
       "concept": "Vị trí tốt nhất Kiếp Không = Tỵ (Hỏa); kế đến Hợi (Thủy); Dần Thân độc thủ xung chiếu",
       "source_quote": "Vị trí tốt nhất của Không, Kiếp là Tỵ. Tại đây, hành Hỏa của sao tương hòa với cung Hỏa, chủ sự hoạch phát mau chóng và bất ngờ về quan, tài, vận hội, cụ thể như trúng số lớn, thăng chức nhanh... Ở cung Hợi, Kiếp Không cũng có nghĩa tương tự, nhưng cường độ kém hơn, vì Hợi là cung Thủy vốn khắc sao Hỏa. Nhưng, nhờ đó mà nên có tai họa suy trầm, sự xuống dốc không nhanh chóng như ở Tỵ. Tại Tỵ và Hợi, Kiếp Không bao giờ cùng đồng cung... Còn ở Dần Thân, Kiếp Không độc thủ và xung chiếu, nên sự phát đạt không mạnh bằng ở Tỵ hay Hợi. Vị trí Dần tốt hơn vị trí Thân, vì lẽ Dần là Mộc hợp Hỏa, trong khi Thân là Kim vốn khắc Hỏa.",
-      "commentary": "Thứ tự đắc địa Kiếp Không: Tỵ > Hợi > Dần > Thân.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thứ tự đắc địa Kiếp Không: Tỵ > Hợi > Dần > Thân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.078",
       "source_page": 159,
       "question": "Vị trí tốt nhất Kiếp Không = Tỵ (Hỏa); kế đến Hợi (Thủy); Dần Thân độc thủ xung chiếu",
-      "tags": ["dia-khong", "dia-kiep", "ty-hoi", "dan-than", "ngu-hanh"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:ty-hoi",
+        "concept:dan-than",
+        "concept:ngu-hanh"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1025,11 +1850,21 @@
       "page": 159,
       "concept": "Tuần Triệt án ngữ Kiếp Không — đắc địa thành hãm, hãm địa được chế giảm",
       "source_quote": "Kiếp Không đắc địa gặp Tuần, Triệt án ngữ có nghĩa như hãm địa và những luận đoán phải đảo ngược. Trái lại, Kiếp hay Không hãm địa gặp Tuần hay Triệt án ngữ sẽ chế giảm hay triệt tiêu sức phá hoại của sát tinh này, nhưng không hẳn biến thành tốt đẹp.",
-      "commentary": "Nguyên tắc Tuần-Triệt với Kiếp Không: đảo ngược đắc địa, chế giảm hãm địa.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nguyên tắc Tuần-Triệt với Kiếp Không: đảo ngược đắc địa, chế giảm hãm địa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.079",
       "source_page": 159,
       "question": "Tuần Triệt án ngữ Kiếp Không — đắc địa thành hãm, hãm địa được chế giảm",
-      "tags": ["dia-khong", "dia-kiep", "tuan-triet"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:tuan-triet"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1038,11 +1873,21 @@
       "page": 159,
       "concept": "Kiếp Không tác họa nhanh, bất ngờ, tàn bạo — bất khả kháng",
       "source_quote": "Vốn là sao Hỏa, tốc độ tác họa của Không, Kiếp hãm địa rất nhanh chóng và bất ngờ... Với đặc tính đó, Kiếp Không tượng trưng cho những trường hợp bất khả kháng mà sức người khó lòng chế ngự. Gặp nó, con người hầu như bị tràn ngập bởi các yếu tố bất khả cưỡng không còn chủ động được trên nhiều tình huống. Nếu thiếu nhiều sao cứu giải mạnh mẽ, Kiếp Không báo hiệu cho một cái chết nhanh chóng, bất ngờ và tàn bạo.",
-      "commentary": "Kiếp Không = lực bất khả kháng (force majeure) — chết bất ngờ tàn bạo.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Kiếp Không = lực bất khả kháng (force majeure) — chết bất ngờ tàn bạo.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.080",
       "source_page": 159,
       "question": "Kiếp Không tác họa nhanh, bất ngờ, tàn bạo — bất khả kháng",
-      "tags": ["dia-khong", "dia-kiep", "bat-kha-khang"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:bat-kha-khang"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1051,11 +1896,21 @@
       "page": 159,
       "concept": "Kiếp Không — bệnh lý: phổi, lao, ung thư, suyễn, mụn nhọt",
       "source_quote": "Không Kiếp đơn thủ báo hiệu những bệnh sau: Đau phổi nặng như lao, ung thư, suyễn. Nếu đắc địa thì ho lâu năm. Bệnh mụn nhọt ghẻ lở nặng và lâu khỏi. Không, Kiếp đi với Thiên Đồng: ruột sợ phải mổ, hay bệnh thân phải mổ, bệnh mật có sạn.",
-      "commentary": "Bệnh tiêu biểu Kiếp Không: phổi/lao/ung thư; với Thiên Đồng → mổ ruột/sạn mật.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bệnh tiêu biểu Kiếp Không: phổi/lao/ung thư; với Thiên Đồng → mổ ruột/sạn mật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.081",
       "source_page": 159,
       "question": "Kiếp Không — bệnh lý: phổi, lao, ung thư, suyễn, mụn nhọt",
-      "tags": ["dia-khong", "dia-kiep", "benh-ly"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:benh-ly"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1064,11 +1919,22 @@
       "page": 160,
       "concept": "Kiếp Không đắc địa — tính cách: mưu trí thâm trầm, can đảm, kín đáo, thủ đoạn",
       "source_quote": "NẾU KIẾP, KHÔNG ĐẮC ĐỊA: Có mưu trí, thâm trầm và lợi hại. Có can đảm, táo bạo, dám nói dám làm. Rất kín đáo, bí mật, hay giấu diếm. Hay suy xét, mưu trí cao thâm. Có thủ đoạn cao, hay dùng thủ đoạn gian quyệt. Ích kỷ.",
-      "commentary": "Đắc địa Kiếp Không = mưu lược thâm trầm.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đắc địa Kiếp Không = mưu lược thâm trầm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.082",
       "source_page": 160,
       "question": "Kiếp Không đắc địa — tính cách: mưu trí thâm trầm, can đảm, kín đáo, thủ đoạn",
-      "tags": ["dia-khong", "dia-kiep", "dac-dia", "tinh-tinh"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:dac-dia",
+        "concept:tinh-tinh"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1077,11 +1943,22 @@
       "page": 160,
       "concept": "Kiếp Không hãm địa — tính cách: ích kỷ tột độ, gian tà, côn đồ, hiếp dâm trộm cướp",
       "source_quote": "NẾU KIẾP, KHÔNG HÃM ĐỊA: Ích kỷ tột độ trắng trợn và bất hạnh... Tự kỷ ám thị, suy tật xấu của người tử tật xấu của mình. Xảo quyệt, gian tà, biển lận, tham lam, tóm lại tính nết của một lưu manh hạng nặng, tham nhũng, hối lộ, lường gạt, gian lận, trộm cướp, bất lương, hiếp dâm. Nét của Không Kiếp không những là nét của tiểu nhân mà là nét của phường côn đồ.",
-      "commentary": "Hãm địa Kiếp Không = côn đồ hạng nặng, không chỉ tiểu nhân.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hãm địa Kiếp Không = côn đồ hạng nặng, không chỉ tiểu nhân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.083",
       "source_page": 160,
       "question": "Kiếp Không hãm địa — tính cách: ích kỷ tột độ, gian tà, côn đồ, hiếp dâm trộm cướp",
-      "tags": ["dia-khong", "dia-kiep", "ham-dia", "tinh-tinh"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:ham-dia",
+        "concept:tinh-tinh"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1090,11 +1967,22 @@
       "page": 161,
       "concept": "Kiếp Không sát phu sát thê; phụ nữ tai nạn trinh tiết",
       "source_quote": "Riêng phụ nữ thì: Sát phu, sát con. Bị tai nạn trinh tiết, ảnh hưởng đến suốt đời. Hồng nhan bạc mệnh và đa truân, hay lụy vì tình. Đặc biệt nếu gặp sát tinh, dù là đắc địa thì cũng phải gián đoạn phu thê (vợ, chồng chết sớm). Nếu gặp Đào, Hồng thì ngoài việc yểu mạng, phụ nữ phải bị hãm hiếp, mất trinh; đàn bà thì thất tiết... Kiếp Không nhất định không phải là hai sao bạc hạnh nhất của con người.",
-      "commentary": "Kiếp Không phụ nữ → sát phu, tai nạn trinh tiết; + Đào Hồng → hãm hiếp, mất trinh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Kiếp Không phụ nữ → sát phu, tai nạn trinh tiết; + Đào Hồng → hãm hiếp, mất trinh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.084",
       "source_page": 161,
       "question": "Kiếp Không sát phu sát thê; phụ nữ tai nạn trinh tiết",
-      "tags": ["dia-khong", "dia-kiep", "phu-nu", "dao-hong"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:phu-nu",
+        "concept:dao-hong"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1103,11 +1991,25 @@
       "page": 161,
       "concept": "Sao chế giải Kiếp Không hãm địa — Tử Vi/Thiên Phủ miếu vượng, Tuần Triệt, Thiên Giải, Hóa Khoa",
       "source_quote": "Hãm địa, hai sao Kiếp Không tác họa rất mạnh, dù có gặp sao chế giải, hung họa vẫn tiềm tàng, chỉ giảm bớt được ít nhiều chứ không mất hẳn. Có thể nói Kiếp Không hãm địa làm giảm sự tốt đẹp của cát tinh nhiễu hơn là cát làm mất sự hung họa của Kiếp Không. Về các chính tinh, chỉ có Tử Vi và Thiên Phủ miếu và vượng địa mới có nhiều hiệu lực đối với Kiếp Không. Về các phụ tinh có: Tuần, Triệt, Thiên Giải và Hóa Khoa, là bốn sao tương đối mạnh.",
-      "commentary": "4 phụ tinh giải Kiếp Không: Tuần, Triệt, Thiên Giải, Hóa Khoa. Còn lại không đủ.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "4 phụ tinh giải Kiếp Không: Tuần, Triệt, Thiên Giải, Hóa Khoa. Còn lại không đủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.085",
       "source_page": 161,
       "question": "Sao chế giải Kiếp Không hãm địa — Tử Vi/Thiên Phủ miếu vượng, Tuần Triệt, Thiên Giải, Hóa Khoa",
-      "tags": ["dia-khong", "dia-kiep", "tu-vi", "thien-phu", "tuan-triet", "thien-giai", "hoa-khoa"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:tu-vi",
+        "concept:thien-phu",
+        "concept:tuan-triet",
+        "concept:thien-giai",
+        "concept:hoa-khoa"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1116,11 +2018,22 @@
       "page": 161,
       "concept": "Cách Phi Thường Cách — Tử Phủ Vũ Tướng hoặc Sát Phá Liêm Tham đắc địa + cát tinh + sát tinh đắc địa",
       "source_quote": "Kiếp Không đắc địa với Phi Thương Cách: Phi thường cách hoặc gồm Tử Phủ, Vũ Tướng đắc địa, hoặc gồm Sát Phá Liêm Tham đắc địa, hoặc gồm Sát Phá Liêm Tham đắc địa được sự hội tụ của cát tinh đắc địa như Tả, Hữu, Khôi, Việt, Xương, Khúc, Long, Phượng, Đào, Hồng, Khoa, Quyên, Lộc và của sát tinh đắc địa như Kình, Đà, Không, Kiếp, Hình, Hổ. Đây là cách nguyên thủ, đế vượng, hội đủ tài đức và vận hội, có cả lương thần và hảo tướng giúp xây dựng chế độ, để danh tiếng lừng lẫy cho hậu thế.",
-      "commentary": "PHI THƯỜNG CÁCH — cách nguyên thủ đế vương, để danh hậu thế.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "PHI THƯỜNG CÁCH — cách nguyên thủ đế vương, để danh hậu thế.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.086",
       "source_page": 161,
       "question": "Cách Phi Thường Cách — Tử Phủ Vũ Tướng hoặc Sát Phá Liêm Tham đắc địa + cát tinh + sát tinh đắc địa",
-      "tags": ["phi-thuong-cach", "tu-phu-vu-tuong", "sat-pha-liem-tham", "thuong-cach"],
+      "tags": [
+        "concept:phi-thuong-cach",
+        "concept:tu-phu-vu-tuong",
+        "concept:sat-pha-liem-tham",
+        "concept:thuong-cach"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1129,11 +2042,22 @@
       "page": 162,
       "concept": "Kiếp Không + Đào Hồng — nghiệp chướng ái tình, phụ nữ tai nạn trinh tiết, yểu mạng",
       "source_quote": "Không Kiếp, Đào, Hồng: Đương số phải gặp nhiều nghiệp chướng về ái tình, đau khổ điêu đứng trong tình duyên, phải cưới xin nhiều lần. Riêng phụ nữ thì bị tai nạn trinh tiết (bị dụ dỗ, lường gạt, mất trinh, thất tiết, hoặc có thể bị hãm hiếp). Người có bộ sao này còn bị yểu mạng, hay mắc bệnh phong tình, phái nữ thì đa phu, hồng nhan bạc mệnh có thể là gái giang hồ.",
-      "commentary": "Kiếp Không + Đào Hồng = bộ tai họa tình duyên nặng nhất.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Kiếp Không + Đào Hồng = bộ tai họa tình duyên nặng nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.087",
       "source_page": 162,
       "question": "Kiếp Không + Đào Hồng — nghiệp chướng ái tình, phụ nữ tai nạn trinh tiết, yểu mạng",
-      "tags": ["dia-khong", "dia-kiep", "dao-hong", "ai-tinh"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:dao-hong",
+        "concept:ai-tinh"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1142,11 +2066,22 @@
       "page": 162,
       "concept": "Kiếp Không + Cơ/Hỏa — hỏa tai cháy nhà; + Tham đồng cung — thủy tai",
       "source_quote": "Kiếp, Cơ (hay Hỏa): Bị hỏa tai như cháy nhà, phỏng lửa. Kiếp Tham đồng cung: Bị thủy tai (chết đuối, bị giết dưới nước), nếu không cũng chật vật khăn thang độ nhật, dễ sa vào đường tù tội.",
-      "commentary": "Bảng tra Kiếp Không với 2 loại tai họa: hỏa và thủy.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bảng tra Kiếp Không với 2 loại tai họa: hỏa và thủy.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.088",
       "source_page": 162,
       "question": "Kiếp Không + Cơ/Hỏa — hỏa tai cháy nhà; + Tham đồng cung — thủy tai",
-      "tags": ["dia-khong", "dia-kiep", "hoa-tai", "thuy-tai"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:hoa-tai",
+        "concept:thuy-tai"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1155,11 +2090,23 @@
       "page": 162,
       "concept": "Cách tu sĩ Kiếp Không Tử Tham — có thể phá giới hoàn trần",
       "source_quote": "Kiếp Không, Tử, Tham: Đây là cách tu sĩ. Nhưng, vì ảnh hưởng của Kiếp Không nên có thể kẻ tu hành có dịp phá giới, trở lại trần hoàn.",
-      "commentary": "Bộ Kiếp Không + Tử Vi + Tham Lang = cách tu hành dễ phá giới.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Kiếp Không + Tử Vi + Tham Lang = cách tu hành dễ phá giới.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.089",
       "source_page": 162,
       "question": "Cách tu sĩ Kiếp Không Tử Tham — có thể phá giới hoàn trần",
-      "tags": ["dia-khong", "dia-kiep", "tu-vi", "tham-lang", "tu-si"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:tu-vi",
+        "concept:tham-lang",
+        "concept:tu-si"
+      ],
       "confidence": 0.92,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1168,11 +2115,21 @@
       "page": 164,
       "concept": "Mệnh VCD có Tứ Không hay Tam Không — phú quý nhưng không toàn vẹn",
       "source_quote": "MỆNH VÔ CHÍNH DIỆU CÓ TƯ HAY TAM KHÔNG: Đây cũng là một cách rất tốt về phú quý nhưng vẫn không toàn vẹn, tức là: Hoặc vất vả mới đạt danh tài. Hoặc thụ hưởng không lâu bền, bộc phát giai đoạn.",
-      "commentary": "Mệnh VCD + Tứ/Tam Không = phú quý nhưng vất vả + bộc phát giai đoạn.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mệnh VCD + Tứ/Tam Không = phú quý nhưng vất vả + bộc phát giai đoạn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.090",
       "source_page": 164,
       "question": "Mệnh VCD có Tứ Không hay Tam Không — phú quý nhưng không toàn vẹn",
-      "tags": ["vo-chinh-dieu", "tu-khong", "tam-khong"],
+      "tags": [
+        "concept:vo-chinh-dieu",
+        "concept:tu-khong",
+        "concept:tam-khong"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1181,11 +2138,23 @@
       "page": 164,
       "concept": "Mệnh Không Thân Kiếp / Mệnh Kiếp Thân Không — khôn ngoan nhưng thành ít bại nhiều, chóng lên chóng xuống",
       "source_quote": "MỆNH KHÔNG, THÂN KIẾP: Thái Thứ Lang cho rằng đây là người khôn ngoan, sắc sảo, nhưng trong đời vui ít buồn nhiều, thành bại thất thường, làm việc gì cũng chóng nhưng cũng mau tàn. Nếu có Đại Tiểu Hao hội họp thì hóa giải được nhiều bất lợi và lập được công danh hiển hách. Tuy nhiên nếu có Thiên Đồng, Thiên Lương hay Phá Quân ở Mệnh hay Thân thì yểu mạng. MỆNH KIẾP, THÂN KHÔNG: Thái Thứ Lang cho rằng đó là người khôn ngoan, sắc sảo, nhưng bại nhiễu, thành ít, chóng lên chóng xuống, thăng trầm bất ngờ, thất thường. Nếu Mệnh vô chính diệu có Đào Hồng thì yểu mạng.",
-      "commentary": "Trích Thái Thứ Lang — Mệnh-Thân chia tách Kiếp Không: khôn ngoan, chóng lên chóng xuống.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trích Thái Thứ Lang — Mệnh-Thân chia tách Kiếp Không: khôn ngoan, chóng lên chóng xuống.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.091",
       "source_page": 164,
       "question": "Mệnh Không Thân Kiếp / Mệnh Kiếp Thân Không — khôn ngoan nhưng thành ít bại nhiều, chóng lên chóng xuống",
-      "tags": ["dia-khong", "dia-kiep", "menh", "than", "thai-thu-lang"],
+      "tags": [
+        "concept:dia-khong",
+        "concept:dia-kiep",
+        "concept:menh",
+        "concept:than",
+        "concept:thai-thu-lang"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1194,11 +2163,22 @@
       "page": 165,
       "concept": "Địa Võng (Thổ) — âm tinh hiểm ác ngầm, luôn ở cung Tuất, đối diện Thiên La",
       "source_quote": "Đây là một âm tinh có nghĩa: Hiểm ác ngầm. Gây rắc rối, ngăn trở mọi công việc. Chủ sự bất ngờ, giam cầm. Người có Địa Võng thủ Mệnh, Thân bụng dạ khó lường, tính nết tráo trở, hiểm ác ngầm, hay hại kẻ khác mà nạn nhân không biết được. Có sách cho rằng Địa Võng có tác dụng: Gặp sao hung thì lại tốt. Gặp sao tốt thì lại hung. Lưu ý: Địa võng bao giờ cũng ở cung Tuất, đối diện với sao Thiên La, do đó cần xem xét cả sao Thiên La.",
-      "commentary": "Địa Võng cố định cung Tuất, đối Thiên La (cung Thìn). Đặc tính đảo nghịch.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Địa Võng cố định cung Tuất, đối Thiên La (cung Thìn). Đặc tính đảo nghịch.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.092",
       "source_page": 165,
       "question": "Địa Võng (Thổ) — âm tinh hiểm ác ngầm, luôn ở cung Tuất, đối diện Thiên La",
-      "tags": ["dia-vong", "thien-la", "tuat", "am-tinh"],
+      "tags": [
+        "concept:dia-vong",
+        "concept:thien-la",
+        "concept:tuat",
+        "concept:am-tinh"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1207,11 +2187,21 @@
       "page": 165,
       "concept": "Sao giải Địa Võng = Tuần, Triệt, Tử Vi, Hóa Khoa, Thiên Giải, Giải Thần",
       "source_quote": "Võng, Linh Đà, Liêm Tham: Bị bắt, xử tử. Võng và các sao giải: Làm giảm bớt hay tan biến đặc tính xấu của Địa Võng. Các sao giải này là Tuần, Triệt, Tử Vi, Hóa Khoa, Thiên Giải, Giải Thần. Địa Võng, Trực Phù: Làm tăng thêm ác tính cho đương số.",
-      "commentary": "6 sao giải Địa Võng + Trực Phù tăng ác tính.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "6 sao giải Địa Võng + Trực Phù tăng ác tính.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.093",
       "source_page": 165,
       "question": "Sao giải Địa Võng = Tuần, Triệt, Tử Vi, Hóa Khoa, Thiên Giải, Giải Thần",
-      "tags": ["dia-vong", "sao-giai", "truc-phu"],
+      "tags": [
+        "concept:dia-vong",
+        "concept:sao-giai",
+        "concept:truc-phu"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1220,11 +2210,21 @@
       "page": 165,
       "concept": "Điếu Khách (Hỏa) — hay nói khoe khoang, ham cờ bạc, bệnh tật tang khó",
       "source_quote": "Hay nói (bavard), nói năng không giữ lời. Hay khoe (vantard), khoác lác (như Lâm Quan). Khinh người. Liếng thoắng, ham chơi đặc biệt là mê cờ bạc. Chủ bệnh tật, đau yếu, tai nạn, hao tài, tang khó.",
-      "commentary": "Điếu Khách = sao khoe khoang + ham cờ bạc + tang khó. Lưu ý Pháp văn: bavard, vantard.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Điếu Khách = sao khoe khoang + ham cờ bạc + tang khó. Lưu ý Pháp văn: bavard, vantard.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.094",
       "source_page": 165,
       "question": "Điếu Khách (Hỏa) — hay nói khoe khoang, ham cờ bạc, bệnh tật tang khó",
-      "tags": ["dieu-khach", "co-bac", "tang-kho"],
+      "tags": [
+        "concept:dieu-khach",
+        "concept:co-bac",
+        "concept:tang-kho"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1233,11 +2233,20 @@
       "page": 166,
       "concept": "Điếu Khách chế hóa Hỷ Thần",
       "source_quote": "Sao Điếu Khách có tác dụng chế hóa Hỷ Thân, làm cho Hỷ Thần mất giá trị.",
-      "commentary": "Điếu Khách trung hòa / triệt tiêu Hỷ Thần.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Điếu Khách trung hòa / triệt tiêu Hỷ Thần.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.095",
       "source_page": 166,
       "question": "Điếu Khách chế hóa Hỷ Thần",
-      "tags": ["dieu-khach", "hy-than"],
+      "tags": [
+        "concept:dieu-khach",
+        "concept:hy-than"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1246,11 +2255,21 @@
       "page": 166,
       "concept": "Đường Phù (Mộc) — cát tinh nhỏ, thích thanh nhàn (giống Thai Tọa)",
       "source_quote": "Sao này là cát tinh có những ý nghĩa sau: Thích sự thanh nhàn, giống như hai sao Thái, Tọa. Điểm đạm, khiêm nhường. Lợi ích cho việc cầu công danh, có ý nghĩa may mắn. Lợi ích về điển sản, giống như hai sao Thái, Tọa. Tuy nhiên, vì là sao nhỏ nên ý nghĩa không sâu sắc và nổi bật lắm.",
-      "commentary": "Đường Phù ≈ Thai Tọa thu nhỏ — thanh nhàn, cầu danh, điền sản.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đường Phù ≈ Thai Tọa thu nhỏ — thanh nhàn, cầu danh, điền sản.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.096",
       "source_page": 166,
       "question": "Đường Phù (Mộc) — cát tinh nhỏ, thích thanh nhàn (giống Thai Tọa)",
-      "tags": ["duong-phu", "tam-thai", "bat-toa"],
+      "tags": [
+        "concept:duong-phu",
+        "concept:tam-thai",
+        "concept:bat-toa"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1259,11 +2278,21 @@
       "page": 166,
       "concept": "Hoa Cái (Kim) — Đài Các tinh, chưng diện kiểu cách thời trang khao khát tình ái",
       "source_quote": "Hoa Cái được gọi là Đài Các tinh, có những ý nghĩa sau: Sự chưng diện: Ưa xa hoa, lộng lẫy... hay làm dáng, làm đẹp, ham phô trương vẻ đẹp... (coquetterie). Sự kiểu cách: Trong bộ điệu... Lắm khi không tự nhiên hay lố bịch (affectation). Sự ham chuộng thời trang: Theo cái gì mới (snobisme)... Khao khát tình ái: Một lối ái tình tiểu tư sản, hay mới lạ, với những nhân vật danh tiếng (ca sĩ, tài tử)... Từ đó, Hoa Cái có nhiều ý nghĩa dâm đãng, âm thầm hay công khai.",
-      "commentary": "Hoa Cái = coquetterie + affectation + snobisme + ái tình tiểu tư sản; có ngầm dâm.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hoa Cái = coquetterie + affectation + snobisme + ái tình tiểu tư sản; có ngầm dâm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.097",
       "source_page": 166,
       "question": "Hoa Cái (Kim) — Đài Các tinh, chưng diện kiểu cách thời trang khao khát tình ái",
-      "tags": ["hoa-cai", "dai-cac-tinh", "thoi-trang"],
+      "tags": [
+        "concept:hoa-cai",
+        "concept:dai-cac-tinh",
+        "concept:thoi-trang"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1272,11 +2301,22 @@
       "page": 167,
       "concept": "Cách Tiền Cái Hậu Mã — Mệnh giáp Hoa Cái trước, Thiên Mã sau: phú quý sang cả",
       "source_quote": "Tiền Cái, Hậu Mã: Mệnh giáp Hoa Cái phía trước, Thiên Mã phía sau, chủ về phú quý, sang cả.",
-      "commentary": "Cách giáp đặc biệt: Hoa Cái + Thiên Mã giáp Mệnh → phú quý sang cả.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách giáp đặc biệt: Hoa Cái + Thiên Mã giáp Mệnh → phú quý sang cả.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.098",
       "source_page": 167,
       "question": "Cách Tiền Cái Hậu Mã — Mệnh giáp Hoa Cái trước, Thiên Mã sau: phú quý sang cả",
-      "tags": ["tien-cai-hau-ma", "hoa-cai", "thien-ma", "giap-menh"],
+      "tags": [
+        "concept:tien-cai-hau-ma",
+        "concept:hoa-cai",
+        "concept:thien-ma",
+        "concept:giap-menh"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1285,11 +2325,21 @@
       "page": 167,
       "concept": "Hóa Khoa (Thủy) — văn tinh, có Học có Hạnh, đỗ đạt, mô phạm, văn sĩ giáo sư",
       "source_quote": "Hóa Khoa là văn tinh chủ về khoa bảng, học vấn... Thông minh, hiếu học. Hay tìm tòi, hiếu kỳ, tự học. Dễ đỗ đạt, có khoa bảng cao, học rộng, biết nhiều. Có năng tài về suy luận, nghiên cứu, giáo khoa. Tính nhân hậu, từ thiện, nết tốt, hạnh kiểm tốt. Tóm lại, về mặt tính tình, Hóa Khoa là sao 'có Học, có Hạnh' vừa có tài, vừa có đức.",
-      "commentary": "Paradigm 'Học + Hạnh' của Hóa Khoa — vừa tài vừa đức.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Paradigm 'Học + Hạnh' của Hóa Khoa — vừa tài vừa đức.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.099",
       "source_page": 167,
       "question": "Hóa Khoa (Thủy) — văn tinh, có Học có Hạnh, đỗ đạt, mô phạm, văn sĩ giáo sư",
-      "tags": ["hoa-khoa", "van-tinh", "hoc-hanh"],
+      "tags": [
+        "concept:hoa-khoa",
+        "concept:van-tinh",
+        "concept:hoc-hanh"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1298,11 +2348,21 @@
       "page": 168,
       "concept": "Hóa Khoa KHÔNG có vị trí hãm địa; hành Thủy khắc cung Hỏa → kém sinh lực",
       "source_quote": "Vì có hiệu lực cứu giải như vậy cho nên Hóa Khoa không có vị trí nào hãm địa. Nhưng ý nghĩa này không tuyệt đối vì Khoa thuộc hành Thủy chắc chắn sẽ khắc tại các cung Hỏa. Ở những vị trí đó, có thể Hóa Khoa kém sinh lực nhất.",
-      "commentary": "Hóa Khoa không hãm địa — chỉ kém sinh lực ở cung Hỏa.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hóa Khoa không hãm địa — chỉ kém sinh lực ở cung Hỏa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.100",
       "source_page": 168,
       "question": "Hóa Khoa KHÔNG có vị trí hãm địa; hành Thủy khắc cung Hỏa → kém sinh lực",
-      "tags": ["hoa-khoa", "khong-ham-dia", "ngu-hanh"],
+      "tags": [
+        "concept:hoa-khoa",
+        "concept:khong-ham-dia",
+        "concept:ngu-hanh"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1311,11 +2371,23 @@
       "page": 168,
       "concept": "Cách Tam Hóa Liên Châu — Hóa Khoa + Hóa Quyền + Hóa Lộc phối chiếu Mệnh Thân",
       "source_quote": "Đặc biệt Hóa Khoa đi liền với Hóa Quyền và Hóa Lộc phối chiếu vào cung Mệnh, Thân thì khả năng cứu giải càng được gia tăng gấp bội. Đây gọi là cách 'Tam Hóa Liên Châu'. Được cách này, những sự may mắn sẽ đến liên tiếp, miễn là không gặp sát tinh hay ám tinh đi kèm.",
-      "commentary": "Cách thượng: Tam Hóa Liên Châu = Khoa + Quyền + Lộc phối chiếu Mệnh/Thân.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách thượng: Tam Hóa Liên Châu = Khoa + Quyền + Lộc phối chiếu Mệnh/Thân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.101",
       "source_page": 168,
       "question": "Cách Tam Hóa Liên Châu — Hóa Khoa + Hóa Quyền + Hóa Lộc phối chiếu Mệnh Thân",
-      "tags": ["tam-hoa-lien-chau", "hoa-khoa", "hoa-quyen", "hoa-loc", "thuong-cach"],
+      "tags": [
+        "concept:tam-hoa-lien-chau",
+        "concept:hoa-khoa",
+        "concept:hoa-quyen",
+        "concept:hoa-loc",
+        "concept:thuong-cach"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1324,11 +2396,22 @@
       "page": 168,
       "concept": "Hóa Kỵ (Thủy) — chỉ cái lưỡi; ám tinh gây trục trặc bộ phận đồng cung",
       "source_quote": "Hóa Kỵ chỉ cái lưỡi. Hóa Kỵ là ám tinh cho nên đi với bộ phận nào của cơ thể đều gây trục trặc cho bộ phận đó. Chỉ có thể nói gây trục trặc mà thôi, chứ chưa hẳn làm cho bộ phận đó bị thương tàn vì sức phá của Hóa Kỵ rất tầm thường về mặt bệnh lý. Hóa Kỵ với Nhật hay Nguyệt ở bất luận cung nào: Mắt kém - hoặc cận thị, viễn thị, hay đau mắt. Hóa Kỵ đi với mắt bên nào là bên đó bị trục trặc. Hóa Kỵ, Cự Môn: Miệng méo.",
-      "commentary": "Hóa Kỵ = lưỡi; sức phá tầm thường, chỉ trục trặc. Với Nhật/Nguyệt → đau mắt; với Cự Môn → miệng méo.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hóa Kỵ = lưỡi; sức phá tầm thường, chỉ trục trặc. Với Nhật/Nguyệt → đau mắt; với Cự Môn → miệng méo.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.102",
       "source_page": 168,
       "question": "Hóa Kỵ (Thủy) — chỉ cái lưỡi; ám tinh gây trục trặc bộ phận đồng cung",
-      "tags": ["hoa-ky", "am-tinh", "luoi", "cu-mon"],
+      "tags": [
+        "concept:hoa-ky",
+        "concept:am-tinh",
+        "concept:luoi",
+        "concept:cu-mon"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1337,11 +2420,22 @@
       "page": 169,
       "concept": "Hóa Kỵ — tính tình: đố kỵ, ganh tị, thị phi khẩu thiệt, cách mạng cải lương",
       "source_quote": "Sự đố kỵ, hay ganh tị, ghen ghét kẻ khác, ích kỷ, ghen tuông, tiểu tâm, đa nghi. Hay nói xấu, dèm pha kẻ khác. Ngược lại cũng bị người khác đối kỵ, ganh tị. Ý nghĩa hai chiều này làm cho Hóa Kỵ là sao thị phi, khẩu thiệt... Ưa thay cũ đổi mới, không chấp nhận hoàn cảnh hiện có, do đó người có Hóa Kỵ thủ mệnh thường có khuynh hướng cách mạng hoặc cải lương, muốn sửa đổi hoàn cảnh, thời thế.",
-      "commentary": "Hóa Kỵ 2 chiều thị phi + cách mạng cải lương — có cát tinh → tiến lên, không có → bất nhất.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hóa Kỵ 2 chiều thị phi + cách mạng cải lương — có cát tinh → tiến lên, không có → bất nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.103",
       "source_page": 169,
       "question": "Hóa Kỵ — tính tình: đố kỵ, ganh tị, thị phi khẩu thiệt, cách mạng cải lương",
-      "tags": ["hoa-ky", "tinh-tinh", "thi-phi", "cach-mang"],
+      "tags": [
+        "concept:hoa-ky",
+        "concept:tinh-tinh",
+        "concept:thi-phi",
+        "concept:cach-mang"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1350,11 +2444,22 @@
       "page": 169,
       "concept": "Cách tốt — Hóa Kỵ đắc địa ở Tứ Mộ + Nhật Nguyệt sáng: mây ngũ sắc",
       "source_quote": "Kỵ đắc địa ở Thìn Tuất Sửu Mùi gặp Nhật Nguyệt sáng đông cung: Đây là một cách rất tốt. Hóa Kỵ trong trường hợp này được ví như mây ngũ sắc bên cạnh Nhật Nguyệt sáng sủa. Có cách này sẽ hưởng phú quý lâu dài. Riêng ở Sửu Mùi đồng chung với Nhật Nguyệt nếu được thêm Tuần Triệt án ngữ thì rất rực rỡ. Nhưng hay bị đau mắt hoặc đau thần kinh.",
-      "commentary": "Cách thượng Hóa Kỵ: ở Tứ Mộ + Nhật Nguyệt sáng = mây ngũ sắc. Sửu Mùi + Tuần Triệt = đỉnh.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách thượng Hóa Kỵ: ở Tứ Mộ + Nhật Nguyệt sáng = mây ngũ sắc. Sửu Mùi + Tuần Triệt = đỉnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.104",
       "source_page": 169,
       "question": "Cách tốt — Hóa Kỵ đắc địa ở Tứ Mộ + Nhật Nguyệt sáng: mây ngũ sắc",
-      "tags": ["hoa-ky", "tu-mo", "nhat-nguyet", "may-ngu-sac"],
+      "tags": [
+        "concept:hoa-ky",
+        "concept:tu-mo",
+        "concept:nhat-nguyet",
+        "concept:may-ngu-sac"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1363,11 +2468,21 @@
       "page": 169,
       "concept": "Hóa Kỵ chế khắc Liêm Tham tại Tý Hợi — hóa giải bất lành",
       "source_quote": "Kỵ đồng cung với Liêm. Tham tại Tý Hợi: Hóa Kỵ chế khắc được sự bất lành, hóa giải nhiều hung họa do Liêm Tham Tý Hợi gây nên. Tuy đây không phải là cách tốt, nhưng cũng khá giả, ít lo ngại về bệnh tật, tai nạn.",
-      "commentary": "Đặc biệt: Hóa Kỵ là sao xấu nhưng chế ngược Liêm-Tham Tý Hợi.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đặc biệt: Hóa Kỵ là sao xấu nhưng chế ngược Liêm-Tham Tý Hợi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.105",
       "source_page": 169,
       "question": "Hóa Kỵ chế khắc Liêm Tham tại Tý Hợi — hóa giải bất lành",
-      "tags": ["hoa-ky", "liem-tham", "ty-hoi"],
+      "tags": [
+        "concept:hoa-ky",
+        "concept:liem-tham",
+        "concept:ty-hoi"
+      ],
       "confidence": 0.93,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1376,11 +2491,22 @@
       "page": 170,
       "concept": "Paradigm Hội tụ - Thất tán: hung tinh hội tụ sức phá tăng theo hệ số",
       "source_quote": "Kỷ, Sát Tinh đắc địa: Danh tài hoang phế, suốt đời lưu lạc. Nếu Kỷ Sát Tinh hãm địa thì nguy cơ càng tăng, nghèo khổ, tai họa khủng khiếp, giảm thọ. Đó là họa hại của hung tinh hội tụ, sức phá gia tăng theo hệ số.",
-      "commentary": "Paradigm trọng yếu: hung tinh hội tụ → sức phá theo HỆ SỐ chứ không cộng tuyến tính.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Paradigm trọng yếu: hung tinh hội tụ → sức phá theo HỆ SỐ chứ không cộng tuyến tính.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.106",
       "source_page": 170,
       "question": "Paradigm Hội tụ - Thất tán: hung tinh hội tụ sức phá tăng theo hệ số",
-      "tags": ["hoi-tu", "hung-tinh", "he-so", "paradigm"],
+      "tags": [
+        "concept:hoi-tu",
+        "concept:hung-tinh",
+        "concept:he-so",
+        "concept:paradigm"
+      ],
       "confidence": 0.95,
       "extracted_by": "claude-opus-atomize-v2"
     },
@@ -1389,11 +2515,23 @@
       "page": 170,
       "concept": "Hóa Kỵ ở Phu Thê — vợ chồng lục đục, các bộ Phục/Đào/Riêu/Kiếp Hình Riêu",
       "source_quote": "Ở Phu Thê: Vợ chồng lục đục hay cãi vã. Đi thêm với sao xấu khác, ý nghĩa bất lợi nặng hơn. Kỷ Phục: Vợ chồng bất hòa, khi ở khi đi... Có thể mưu hại nhau. Kỷ, Đào (Hồng): Chồng lừa dối vợ để ngoại tình. Vợ lừa dối chồng để trăng hoa... Kỷ, Riêu: Vợ hay chồng là người rất dâm đãng, bất mãn về sinh lý, dễ ngoại tình. Kỷ Kiếp Hình Riêu: Am mưu hại vợ, chồng, giết chồng, vợ. Tóm lại, Hóa Kỷ rất bất lợi ở Phu Thê nhất là khi gặp sát tinh đi kèm.",
-      "commentary": "Bảng tra Hóa Kỵ ở Phu Thê với 4 bộ sao đồng cung: Phục, Đào, Riêu, Kiếp-Hình-Riêu.",
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bảng tra Hóa Kỵ ở Phu Thê với 4 bộ sao đồng cung: Phục, Đào, Riêu, Kiếp-Hình-Riêu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
       "question_id": "tvhs.S5.107",
       "source_page": 170,
       "question": "Hóa Kỵ ở Phu Thê — vợ chồng lục đục, các bộ Phục/Đào/Riêu/Kiếp Hình Riêu",
-      "tags": ["hoa-ky", "phu-the", "phuc-binh", "dao-hong", "thien-rieu"],
+      "tags": [
+        "concept:hoa-ky",
+        "concept:phu-the",
+        "concept:phuc-binh",
+        "concept:dao-hong",
+        "concept:thien-rieu"
+      ],
       "confidence": 0.94,
       "extracted_by": "claude-opus-atomize-v2"
     }
