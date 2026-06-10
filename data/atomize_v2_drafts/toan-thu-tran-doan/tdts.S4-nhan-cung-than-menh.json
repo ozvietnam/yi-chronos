@@ -1,0 +1,792 @@
+{
+  "book_corpus_id": "tu-vi-dau-so-toan-thu-vu-tai-luc",
+  "section_id": "tdts.S4",
+  "section_title": "Sao đặc biệt VN + Nhân Cung + Thập Nhị Cung + Thân-Mệnh",
+  "pages": [61, 62, 63, 64, 65],
+  "atoms": [
+    {
+      "question_id": "tdts.S4.Q01",
+      "question": "Toàn Thư có lời giải đoán cho 4 sao Bạch Hổ, Tang Môn, Điếu Khách, Quan Phù không?",
+      "answer_atom": "Tử Vi Đẩu Số Toàn Thư KHÔNG chép lời giải đoán cho 4 sao Bạch Hổ, Tang Môn, Điếu Khách, Quan Phù. Chỉ Tử Vi Việt mới có lời giải đoán cho 4 sao này.",
+      "source_quote": "Rút lại cũng chỉ còn bốn sao Bạch Hổ, Tang Môn, Điếu Khách, và Quan Phù. Tử Vi đẩu số toàn thư không thấy chép lời giải đoán cho bốn sao trên đây. Chỉ Tử Vi Việt có lời giải đoán như sau",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["conflict:toan_thu_vs_vn", "sao:bach_ho", "sao:tang_mon", "sao:dieu_khach", "sao:quan_phu"],
+      "commentary": {
+        "viet_thuan": "4 sao chòm Thái Tuế (Bạch Hổ, Tang Môn, Điếu Khách, Quan Phù) trong Toàn Thư là sao trần — không có lời đoán. Mọi cách giải mà người Việt dùng đều do tiền nhân ta thêm vào.",
+        "nguyen_ly": "Phân biệt rõ lớp Toàn Thư (gốc Trung) và lớp Việt (bồi đắp). Khi tham chiếu các sao này phải biết mình đang dùng lớp nào.",
+        "iron_rule_warning": "KHÔNG được nói '4 sao này theo Toàn Thư...' — Toàn Thư không nói gì cả."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q02",
+      "question": "Điếu Khách theo Tử Vi Việt chủ về điều gì?",
+      "answer_atom": "Điếu Khách chủ ngôn luận, văn chương, thi phú. Hội Song Hảo, Tang Hổ là bộ bại tinh chủ phá tài sản, gia trang, gây tật bệnh hình thương.",
+      "source_quote": "Điếu Khách: Chủ về ngôn luận, văn chương, thi phú. Hội với Song Hảo, Tang Hổ là bộ bại tinh chủ phá tài sản, gia trang, gây tật bệnh hình thương.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["sao:dieu_khach", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "Sao Điếu Khách trong Tử Vi Việt: tốt thì làm nhà văn nhà thơ, hợp Tang Hổ thì phá nhà phá tài.",
+        "nguyen_ly": "Sao có 2 mặt tốt-xấu tuỳ tổ hợp đi cùng — không gắn cố định cát/hung."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q03",
+      "question": "Mã Khốc Khách hội tại Mệnh có ý nghĩa gì?",
+      "answer_atom": "Mã Khốc Khách (Thiên Mã + Thiên Khốc + Điếu Khách) lâm Mệnh chủ người học vấn có tài hùng biện, mẫn tiệp, rất khéo ngoại giao. Ví như ngựa có đủ bộ yên cương và nhạc.",
+      "source_quote": "Hội với Mã, Khốc lâm mệnh là người học vấn có tài hùng biện, mẫn tiếp rất khéo léo về ngoại giao. Mã Khốc Khách ví như ngựa có đủ bộ yên cương và nhạc.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["cach_cuc:ma_khoc_khach", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "Bộ 3 Mã-Khốc-Khách = người nói hay, đi giỏi, ngoại giao mượt.",
+        "nguyen_ly": "Hình tượng so sánh: ngựa + yên cương + nhạc = đầy đủ điều kiện thi triển tài năng."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q04",
+      "question": "Quan Phù chủ về điều gì theo Tử Vi Việt?",
+      "answer_atom": "Quan Phù chủ thông minh, cơ mưu, quyền bính. Hợp với Thái Tuế, Tuế Phá. Hội Cơ Lương, Tang Hổ Hình miếu địa tăng văn chương binh nghiệp. Hội Tuế Đà Hình Kị hãm địa khó tránh ngục hình hoặc thị phi nơi công môn.",
+      "source_quote": "Quan Phù: Chủ thông minh, cơ mưu, quyển bính. Quan Phù rất hợp với Thái Tuế, Tuế Phá hay hội với Cơ Lương, Tang Hổ Hình miếu địa tăng thêm phần rực rỡ tốt đẹp về văn chương, binh nghiệp và tính chất của các sao này. Hội với Tuế Đà Hình Kị cư hãm địa thì khó tránh được ngục hình hoặc thị phi nơi công môn.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["sao:quan_phu", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "Quan Phù miếu = quyền lực + mưu; Quan Phù hãm = thị phi tù tội.",
+        "nguyen_ly": "Quan Phù là sao 'cửa quan' — miếu thì cầm quyền, hãm thì ra-vào cửa quan vì thị phi."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q05",
+      "question": "Bạch Hổ miếu địa ở cung nào và vì sao?",
+      "answer_atom": "Miếu địa của Bạch Hổ là cung Dậu, vì theo Ngũ Hành Bạch Hổ thuộc Kim, Dậu cung là chính vị của Kim — gọi cách 'hổ khiếm tây phương' (con hổ gầm thét ở phía tây). Bạch Hổ miếu chủ oai hách quyền uy; hãm chủ hình thương tai hoạ.",
+      "source_quote": "Miếu địa của nó là cung Dậu vì theo Ngũ Hành Bạch Hổ thuộc Kim, Dậu cung là chính vị của Kim cho nên gọi bằng hổ khiếm tây phương cách (con hổ gầm thét ở phía tây).",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["sao:bach_ho", "cach_cuc:ho_khiem_tay_phuong", "ngu_hanh:kim", "cung:dau"],
+      "commentary": {
+        "viet_thuan": "Bạch Hổ thuộc Kim, Dậu là Kim chính vị → Bạch Hổ ở Dậu là vào nhà mình → miếu địa.",
+        "nguyen_ly": "Quy tắc đặt sao vào cung cùng ngũ hành chính vị → miếu địa."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q06",
+      "question": "Bạch Hổ cư Dần — tốt hay xấu?",
+      "answer_atom": "Bạch Hổ cư Dần có 2 luồng ý kiến: có người cho rất tốt vì 'hổ cư hổ vị'; lại có người nói không tốt vì 'cư Dần khác nào hổ đã xuất sơn' dễ gây hiểm nguy.",
+      "source_quote": "Bạch Hổ cư Dần có người thì cho rằng rất tốt vì hổ cư hổ vị; lại có người nói rằng không tốt vì cư Dần khác nào hổ đã xuất sơn làm dễ gây hiểm nguy.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["sao:bach_ho", "cung:dan", "conflict:noi_bo_vn"],
+      "commentary": {
+        "viet_thuan": "Bạch Hổ ở Dần — chính các thầy VN cũng không thống nhất.",
+        "iron_rule_warning": "Khi gặp Bạch Hổ-Dần → phải xét toàn cuộc, không assert cát/hung cứng."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q07",
+      "question": "Bạch Hổ Hàm Kiếm là cách gì?",
+      "answer_atom": "Bạch Hổ Hàm Kiếm là cách Bạch Hổ hội Thiên Hình tại Dần cung — càng tăng sức mạnh.",
+      "source_quote": "Bạch Hổ hàm kiếm: Nó hội Thiên Hình tại Dần cung nên càng tăng sức mạnh.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["cach_cuc:bach_ho_ham_kiem", "sao:bach_ho", "sao:thien_hinh", "cung:dan"],
+      "commentary": {
+        "viet_thuan": "Bạch Hổ ngậm kiếm — Bạch Hổ + Thiên Hình tại Dần = hổ vớ thêm dao.",
+        "nguyen_ly": "Hổ vốn đã mạnh, thêm vũ khí = uy lực tăng."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q08",
+      "question": "Phượng Long Cái Hổ là cách gì?",
+      "answer_atom": "Phượng Long Cái Hổ là tứ linh: Phượng Các, Long Trì, Hoa Cái, Bạch Hổ. Hội đủ 4 sao này cho Mệnh Thân sẽ không còn sợ hung sát tinh nữa.",
+      "source_quote": "Phượng Long Cái Hổ: Là tứ linh tức Phượng Các, Long Trì, Hoa Cái, Bạch Hổ. Hội đủ bốn sao này cho Mệnh Thân thì sẽ không còn sợ hung sát tinh nữa.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["cach_cuc:phuong_long_cai_ho", "tu_linh", "sao:phuong_cac", "sao:long_tri", "sao:hoa_cai", "sao:bach_ho"],
+      "commentary": {
+        "viet_thuan": "Tứ linh hội Mệnh Thân = áo giáp chống hung sát.",
+        "nguyen_ly": "Khi đủ tứ linh, hung sát không phát tác — paradigm bảo vệ qua cát tinh quần thể."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q09",
+      "question": "Tang Môn có lời đoán riêng không?",
+      "answer_atom": "Tang Môn không có lời giải đoán riêng chủ về những gì — chỉ thấy rải rác lại vài câu phú đoán.",
+      "source_quote": "Tang Môn: Không có lời giải đoán riêng cho sao này chủ về những gì. Chỉ thấy rải rác lại vài câu phú đoán.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["sao:tang_mon", "limitation"],
+      "commentary": {
+        "viet_thuan": "Tang Môn là sao 'mờ' — không có định nghĩa riêng kể cả trong Tử Vi Việt.",
+        "iron_rule_warning": "Không tự bịa ý nghĩa cứng cho Tang Môn — chỉ trích từ phú."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q10",
+      "question": "Long Trì Phượng Các theo Tử Vi Việt chủ về điều gì?",
+      "answer_atom": "Long Trì Phượng Các là những sao chủ về sự cao sang, đài các và vui mừng. Đi với Nhật Nguyệt rất hợp cách. Toàn Thư KHÔNG có lời giải đoán cho 2 sao này.",
+      "source_quote": "Tử Vi đẩu số toàn thư không có lời giải đoán cho Long Trì Phượng Các, Tử Vi Việt giải đoán Long Trì, Phượng Các là những sao chủ về sự cao sang, đài các và vui mừng. Chúng đi với Nhật Nguyệt rất hợp cách.",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["sao:long_tri", "sao:phuong_cac", "conflict:toan_thu_vs_vn"],
+      "commentary": {
+        "viet_thuan": "Long-Phượng = cao sang, đài các, vui — đi với Nhật Nguyệt hợp.",
+        "iron_rule_warning": "Long Trì Phượng Các trong khoa Toàn Thư là sao TRỐNG — mọi diễn giải đều của VN."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q11",
+      "question": "Long Phượng tại Mão Dậu vượng có ý nghĩa gì?",
+      "answer_atom": "Phượng Long Mão Dậu đối miễn — vượng thì Kim bảng để tên ở đầu (đỗ đầu khoa thi).",
+      "source_quote": "Phượng Long Mão Dậu đôi miễn / Vượng thì Kim bảng để tên ở đầu",
+      "source_page": 61,
+      "section_id": "tdts.S4",
+      "tags": ["phu_nom", "sao:long_tri", "sao:phuong_cac", "cung:mao", "cung:dau"],
+      "commentary": {
+        "viet_thuan": "Long Phượng đối nhau ở Mão-Dậu vượng → đỗ đầu khoa thi.",
+        "nguyen_ly": "Cặp Long Phượng đối nhau ở trục Mão-Dậu = chính trục Đông-Tây, vượng quang minh."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q12",
+      "question": "Tam Thai Bát Toạ theo Tử Vi Việt chủ gì?",
+      "answer_atom": "Tam Thai Bát Toạ ở miếu địa chủ văn chương, cát khánh, thanh quý dễ hiển đạt. Hãm địa thì cô đơn, âm thầm. Toàn Thư KHÔNG có lời giải đoán cho 2 sao này.",
+      "source_quote": "Tử Vi đẩu số toàn thư không có lời giải đoán cho hai sao Tam Thai, Bát Toạ. Theo Tử Vi Việt, giải đoán về Tam Thai, Bát Toạ là những sao nếu ở miếu địa chủ về văn chương, cát khánh, thanh quí dễ hiển đạt; nếu lạc vào hãm địa thì cô đơn, âm thầm.",
+      "source_page": 62,
+      "section_id": "tdts.S4",
+      "tags": ["sao:tam_thai", "sao:bat_toa", "conflict:toan_thu_vs_vn"],
+      "commentary": {
+        "viet_thuan": "Tam Thai Bát Toạ: miếu = văn chương sang quý; hãm = cô đơn.",
+        "iron_rule_warning": "Tam Thai Bát Toạ là sao trống trong Toàn Thư."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q13",
+      "question": "Giáp Bát Toạ giáp Tam Thai có ý nghĩa gì?",
+      "answer_atom": "Giáp Bát Toạ giáp Tam Thai — thiếu niên sớm dự lâu đài nghênh ngang (nổi danh sớm).",
+      "source_quote": "Giáp Bát Toạ, giáp Tam Thai / Thiếu niên sớm dự lâu đài nghênh ngang",
+      "source_page": 62,
+      "section_id": "tdts.S4",
+      "tags": ["phu_nom", "cach_cuc:giap_tam_thai_bat_toa"],
+      "commentary": {
+        "viet_thuan": "2 sao này kẹp Mệnh = thiếu niên đắc chí, nổi danh sớm.",
+        "nguyen_ly": "Cách 'giáp' (kẹp 2 bên) là phù trợ ngoài."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q14",
+      "question": "Hồng Loan Thiên Hỉ có lời đoán trong Toàn Thư không?",
+      "answer_atom": "Tử Vi Đẩu Số Toàn Thư KHÔNG có lời giải đoán cho 2 sao Hồng Loan, Thiên Hỉ. Lời đoán đến từ Mệnh học huyền vi trạch bí và tiền nhân VN.",
+      "source_quote": "Tử Vi đẩu số toàn thư không có lời giải đoán cho hai sao Hồng Loan, Thiên Hỉ. Nhưng trong Mệnh học huyền vi trạch bí có bài ca về Hồng Loan, Thiên Hỉ rằng",
+      "source_page": 62,
+      "section_id": "tdts.S4",
+      "tags": ["sao:hong_loan", "sao:thien_hi", "conflict:toan_thu_vs_vn", "source:menh_hoc_huyen_vi"],
+      "commentary": {
+        "viet_thuan": "Hồng-Hỉ trống trong Toàn Thư — phải trích từ Mệnh học huyền vi trạch bí.",
+        "iron_rule_warning": "Khi luận Hồng Hỉ trong khoa Toàn Thư, nói rõ nguồn ngoài Toàn Thư."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q15",
+      "question": "Thiên Hỉ Hồng Loan nhập Mệnh có ý nghĩa gì (theo Mệnh học huyền vi)?",
+      "answer_atom": "Mệnh có Thiên Hỉ Hồng Loan: làm việc gì cũng dễ trót lọt, người tài hoa. Thấy hoa đào nở: gặp nhiều quý nhân. Đồng thời cũng là người ưa tửu sắc. Có vợ thì vợ sinh quý tử, chưa vợ thì lấy vợ đẹp như Hằng Nga.",
+      "source_quote": "Mệnh có Thiên Hỉ, Hồng Loan: Làm việc gì cũng dễ trót lọt, con người tài hoa. Nếu lại thấy cả hoa đào nở: Sẽ gặp nhiều quý nhân. Nhưng đồng thời cũng là người ưa tửu sắc. Có vợ, vợ sinh cho quý tử. Chưa vợ lấy vợ đẹp tựa Hằng Nga.",
+      "source_page": 62,
+      "section_id": "tdts.S4",
+      "tags": ["sao:hong_loan", "sao:thien_hi", "cung:menh", "tinh:tai_hoa", "tinh:tuu_sac"],
+      "commentary": {
+        "viet_thuan": "Hồng-Hỉ ở Mệnh = tài hoa + may mắn + đa tình.",
+        "nguyen_ly": "Cát tinh không thuần — kèm tửu sắc."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q16",
+      "question": "Hồng Loan miếu địa ở những cung nào?",
+      "answer_atom": "Hồng Loan tại Dần, Mão, Tí, Hợi là miếu địa — chủ thông minh, hoà nhã đẹp đẽ. Hội Tử Vi tất trai lấy vợ hiền, gái lấy chồng sang. Ngược lại Hồng Loan hãm địa mang ý nghĩa dâm tà đa đoan.",
+      "source_quote": "Hồng Loan tại Dần, Mão, Tí, Hợi là miếu địa chủ sự thông minh, hoà nhã đẹp đẽ hội với sao Tử Vi tất trai lấy vợ hiển, gái lấy chồng sang. Ngược lại, Hồng Loan hãm địa thì mang ý nghĩa dâm tà đa đoan.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:hong_loan", "mieu_dia", "cung:dan", "cung:mao", "cung:ti", "cung:hoi"],
+      "commentary": {
+        "viet_thuan": "Hồng Loan 4 cung Dần Mão Tí Hợi = miếu. Hồng Loan hãm = dâm tà.",
+        "nguyen_ly": "Hồng Loan tốt-xấu lật theo cung — không phải lúc nào cũng cát."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q17",
+      "question": "Hồng Cơ Tấu Vũ Hỉ Đào là cách gì?",
+      "answer_atom": "Hồng Loan + Thiên Cơ + Tấu Thư + Vũ Khúc + Thiên Hỉ + Đào Hoa — câu ca điệu vũ nghề nào cũng tinh (tài hoa nghệ thuật).",
+      "source_quote": "Hồng Cơ Tấu Vũ Hỉ Đào / Câu ca điệu vũ nghề nào cũng tinh.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["phu_nom", "cach_cuc:hong_co_tau_vu_hi_dao"],
+      "commentary": {
+        "viet_thuan": "Tổ hợp 6 sao này = nghệ sĩ đa tài.",
+        "nguyen_ly": "Quần đào hoa + cát tinh văn chương → nghề diễn xuất."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q18",
+      "question": "Thiên Hỉ chủ về gì theo tiền nhân Việt?",
+      "answer_atom": "Thiên Hỉ chủ dung mạo tuấn mỹ hoặc người rất có duyên. Chủ mừng vui. Thủ Mệnh miệng cười có duyên. Bộ ba Hỉ Thần + Thiên Hỉ + Hồng Loan đem lại hân hoan cho đời.",
+      "source_quote": "Sao Thiên Hỉ tiền nhân ta coi nó chủ về dung mạo tuấn mỹ hoặc là con người rất có duyên. Sao Thiên Hỉ chủ mừng vui. Thiên Hỉ thủ mệnh miệng cười có duyên. Bộ ba sao Hỉ Thần, Thiên Hỉ, Hồng Loan đem lại hân hoan cho đời.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:thien_hi", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "Thiên Hỉ = duyên dáng, hay cười. Bộ 3 Hỉ Thần - Thiên Hỉ - Hồng Loan = vui suốt đời.",
+        "nguyen_ly": "Tam hỉ tinh = thường lạc quan."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q19",
+      "question": "Thiên Nguyệt Đức có trong Toàn Thư không?",
+      "answer_atom": "Thiên Nguyệt Đức KHÔNG có lời đoán ghi trong Tử Vi Đẩu Số Toàn Thư. Chỉ có lời của tiền nhân Việt: Thiên Nguyệt Đức ngộ Đào Hồng — trai lấy vợ đẹp, gái lấy chồng giàu sang. Cùng Quan Phúc trừ hung cứu người.",
+      "source_quote": "Không có lời đoán ghi trong Tử Vi Đẩu Số Toàn Thư. Chỉ có lời của tiền nhân ta rằng: Thiên Nguyệt Đức ngộ Đào Hồng / Trai lấy vợ đẹp gái chồng giàu sang / Thiên Nguyệt Đức tọa chiếu phương / Cùng là Quan Phúc trừ hung cứu người.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:thien_duc", "sao:nguyet_duc", "conflict:toan_thu_vs_vn"],
+      "commentary": {
+        "viet_thuan": "Thiên Nguyệt Đức trống trong Toàn Thư — chỉ có phú VN.",
+        "iron_rule_warning": "Khi dùng Thiên Nguyệt Đức trong khoa Toàn Thư, phải biết là dùng lớp VN."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q20",
+      "question": "Liệt kê các sao KHÔNG hiện diện trong Tử Vi Đẩu Số Toàn Thư?",
+      "answer_atom": "7 sao KHÔNG hiện diện trong Toàn Thư: Cô Thần, Quả Tú, Hoa Cái, An Quang, Thiên Quí, Kiếp Sát, Phá Toái. Đây là sáng tạo của Tử Vi Việt.",
+      "source_quote": "Những sao sau đây không có sự hiện diện trong Tử Vi Đẩu Số Toàn Thư: Cô Thân, Quả Tú, Hoa Cái, An Quang, Thiên Quí, Kiếp Sát, Phá Toái.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["conflict:toan_thu_vs_vn", "sao:co_than", "sao:qua_tu", "sao:hoa_cai", "sao:an_quang", "sao:thien_qui", "sao:kiep_sat", "sao:pha_toai"],
+      "commentary": {
+        "viet_thuan": "7 sao VN sáng tạo, Trung không có.",
+        "iron_rule_warning": "Khi luận theo paradigm Toàn Thư PHẢI bỏ 7 sao này. Khi dùng — biết là dùng lớp VN."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q21",
+      "question": "Cô Thần Quả Tú theo Tử Vi Việt chủ gì?",
+      "answer_atom": "Cô Thần Quả Tú chủ sự đơn côi, cô quả — nếu ở Thân Mệnh mà không có cát tinh.",
+      "source_quote": "Cô Thần, Quả Tú chủ về sự đơn côi; cô quả nếu chúng ở Thân Mệnh mà không có cát tinh.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:co_than", "sao:qua_tu", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "Cô-Quả ở Thân Mệnh + thiếu cát tinh = cô đơn cả đời.",
+        "nguyen_ly": "Sao cô đơn cần cát tinh giải — không tự khắc thành xấu."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q22",
+      "question": "Hoa Cái Thân Mệnh chủ gì?",
+      "answer_atom": "Hoa Cái miếu vượng tại Thân Mệnh ví như đã ngồi ngựa mà thêm lọng che. Hãm địa thì cô bần.",
+      "source_quote": "Hoa Cái miếu vượng Thân Mệnh cung ví như đã ngồi ngựa mà thêm lọng che; hãm địa thì cô bần.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:hoa_cai", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "Hoa Cái miếu = vinh hiển (ngựa + lọng); hãm = cô + nghèo.",
+        "nguyen_ly": "Hình tượng 'lọng che' = quý tướng có người che chở."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q23",
+      "question": "An Quang Thiên Quí chủ gì?",
+      "answer_atom": "An Quang, Thiên Quí chủ về ân phong và quí hiển. Vào cung Thân Mệnh sẽ thêm sang trọng hơn người.",
+      "source_quote": "An Quang, Thiên Quí chủ về ân phong và quí hiển nếu chúng vào cung Thân Mệnh sẽ thêm sang trọng hơn người.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:an_quang", "sao:thien_qui", "school:tu_vi_viet"],
+      "commentary": {
+        "viet_thuan": "An Quang - Thiên Quí ở Thân Mệnh = thêm sang.",
+        "nguyen_ly": "Cát tinh phụ trợ — không quyết định, chỉ tăng phẩm chất."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q24",
+      "question": "Đẩu Quân là sao gì?",
+      "answer_atom": "Cả Toàn Thư lẫn lý thuyết truyền khẩu Tử Vi Việt đều KHÔNG nói rõ về Đẩu Quân. Tuy nhiên trong thập nhị cung luận Toàn Thư thường nhắc đến sao này ở mỗi cung. Theo đẩu số mệnh lý của Vô Muộn, Đẩu Quân coi về nguyệt lệnh — rất ảnh hưởng đến Tiểu Hạn.",
+      "source_quote": "Cả Tử Vi Đẩu Số Toàn Thư lẫn lý thuyết truyền khẩu của khoa Tử Vi Việt đều không nói rõ về sao Đẩu Quân. Tuy nhiên, trong thập nhị cung luận, Tử Vi Đẩu Số Toàn Thư lại thường nhắc đến sao này ở mỗi cung. Theo đẩu số mệnh lý của Vô Muộn thì Đẩu Quân là sao coi về nguyệt lệnh cho nên nó rất ảnh hưởng đến Tiểu Hạn.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["sao:dau_quan", "tieu_han", "source:vo_muon"],
+      "commentary": {
+        "viet_thuan": "Đẩu Quân = sao về tháng (nguyệt lệnh) — quan trọng Tiểu Hạn.",
+        "iron_rule_warning": "Không thầy nào định nghĩa Đẩu Quân rõ — phải tham chiếu Vô Muộn."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q25",
+      "question": "Nhân cung là gì?",
+      "answer_atom": "Nhân cung là nơi đất đắc địa cho một số sao. Tuy nhiên vào nhân cung khả năng tốt sẽ bị GIẢM đến 80% hoặc nó sẽ gây thành tính kỳ quặc mà hỏng việc. Nhân cung nghĩa bóng của 'thất vị thất nghiệp' (mất vị thì mất nghề).",
+      "source_quote": "Vậy nhân cung là gì? Nhân cung là nơi đất đắc địa cho một số sao... Vào nhân cung khả năng tốt sẽ bị giảm đến 80% hoặc nó sẽ gây thành tính kỳ quặc mà hỏng việc; nhân cung nghĩa bóng của thất vị thất nghiệp.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "concept:that_vi_that_nghiep", "iron_rule:lat_paradigm"],
+      "commentary": {
+        "viet_thuan": "Nhân cung = NGHỊCH LÝ: đắc địa nhưng tốt giảm 80% hoặc thành tính kỳ quặc.",
+        "nguyen_ly": "Đắc địa ≠ vượng địa. 'Thất vị thất nghiệp' = mất chính vị thì mất chức năng.",
+        "iron_rule_warning": "QUAN TRỌNG: KHÔNG dùng paradigm 'sao đắc địa = tốt' cho nhân cung. Đắc địa nhân cung = TỐT GIẢM 80%."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q26",
+      "question": "Tử Vi ở những cung nào là nhân cung?",
+      "answer_atom": "Tử Vi tại Tí, Thìn, Hợi là nhân cung — tốt giảm 80% hoặc gây tính kỳ quặc.",
+      "source_quote": "Tử Vi tại Tí, Thìn, Hợi là nhân cung.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "sao:tu_vi", "cung:ti", "cung:thin", "cung:hoi"],
+      "commentary": {
+        "viet_thuan": "Tử Vi-Tí, Tử Vi-Thìn, Tử Vi-Hợi đều là nhân cung.",
+        "iron_rule_warning": "KHÔNG được nói 'Tử Vi cư Tí/Thìn/Hợi = tốt'. Đây là 3 vị trí GIẢM TỐT của Tử Vi."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q27",
+      "question": "Tham Lang ở cung nào là nhân cung?",
+      "answer_atom": "Tham Lang tại Dần, Thân là nhân cung.",
+      "source_quote": "Tham Lang tại Dần, Thân là nhân cung.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "sao:tham_lang", "cung:dan", "cung:than"],
+      "commentary": {
+        "viet_thuan": "Tham Lang-Dần và Tham Lang-Thân = nhân cung.",
+        "iron_rule_warning": "Tham Lang ở Dần/Thân giảm 80% tốt."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q28",
+      "question": "Thiên Tướng ở cung nào là nhân cung?",
+      "answer_atom": "Thiên Tướng tại Thìn, Tuất là nhân cung.",
+      "source_quote": "Thiên Tướng tại Thìn, Tuất là nhân cung.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "sao:thien_tuong", "cung:thin", "cung:tuat"],
+      "commentary": {
+        "viet_thuan": "Thiên Tướng-Thìn, Thiên Tướng-Tuất = nhân cung.",
+        "iron_rule_warning": "Cẩn thận khi luận Thiên Tướng cư Thìn/Tuất — tốt giảm 80%."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q29",
+      "question": "Thất Sát ở cung nào là nhân cung?",
+      "answer_atom": "Thất Sát tại Thìn, Hợi là nhân cung.",
+      "source_quote": "Thất Sát tại Thìn Hợi là nhân cung.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "sao:that_sat", "cung:thin", "cung:hoi"],
+      "commentary": {
+        "viet_thuan": "Thất Sát-Thìn, Thất Sát-Hợi = nhân cung.",
+        "iron_rule_warning": "Thất Sát ở Thìn/Hợi giảm 80% tốt."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q30",
+      "question": "Thiên Lương và Thiên Cơ ở cung nào là nhân cung?",
+      "answer_atom": "Thiên Lương tại Tị là nhân cung. Thiên Cơ tại Tị là nhân cung.",
+      "source_quote": "Thiên Lương tại Tị là nhân cung. Thiên Cơ tại Tị là nhân cung.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "sao:thien_luong", "sao:thien_co", "cung:ti"],
+      "commentary": {
+        "viet_thuan": "Cung Tị là nhân cung cho cả Thiên Lương và Thiên Cơ.",
+        "nguyen_ly": "Cùng 1 cung có thể là nhân cung cho nhiều sao khác nhau."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q31",
+      "question": "Phá Quân và Vũ Khúc ở cung nào là nhân cung?",
+      "answer_atom": "Phá Quân tại Tị, Thân là nhân cung. Vũ Khúc tại Thân là nhân cung.",
+      "source_quote": "Phá Quân tại Tị Thân là nhân cung. Vũ Khúc tại Thân là nhân cung.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "sao:pha_quan", "sao:vu_khuc", "cung:ti", "cung:than"],
+      "commentary": {
+        "viet_thuan": "Phá Quân-Tị, Phá Quân-Thân, Vũ Khúc-Thân = nhân cung.",
+        "iron_rule_warning": "Founder Tử Vi của Anh là Vũ Khúc Mệnh chủ — cần check Vũ Khúc có ở Thân hay không (nhân cung)."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q32",
+      "question": "8 sao nào có nhân cung theo Toàn Thư?",
+      "answer_atom": "Toàn Thư chỉ ghi nhân cung cho 8 vị: Tử Vi, Tham Lang, Thiên Tướng, Thất Sát, Thiên Lương, Thiên Cơ, Phá Quân, Vũ Khúc. Còn Thiên Đồng, Thiên Phủ, Thái Âm, Thái Dương, Liêm Trinh, Cự Môn KHÔNG thấy ghi nhân cung — tác giả nghi câu thơ bị thất lạc.",
+      "source_quote": "Như thế chỉ có nhân cung cho tám vị mà thôi, còn Thiên Đồng, Thiên Phủ, Thái Âm, Thái Dương, Liêm Trinh, Cự Môn không thấy ghi nhân cung, chắc câu thơ trên bị thất lạc.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:nhan_cung", "limitation:that_lac"],
+      "commentary": {
+        "viet_thuan": "8/14 chính tinh có nhân cung. 6 sao còn lại có thể bị thất lạc câu thơ.",
+        "iron_rule_warning": "Khi Mệnh có Thiên Đồng/Phủ/Âm/Dương/Liêm Trinh/Cự Môn → KHÔNG tự bịa nhân cung cho chúng."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q33",
+      "question": "Câu phú nôm 'Trai bất nhân Phá Quân Thìn Tuất, Gái bạc tình Tham Sát nhân cung' nghĩa gì?",
+      "answer_atom": "Câu phú nôm dùng từ 'nhân cung' để cảnh báo: trai có Phá Quân ở Thìn Tuất sinh bất nhân; gái có Tham Lang/Thất Sát vào nhân cung thành bạc tình.",
+      "source_quote": "Trai bất nhân Phá Quân Thìn Tuất / Gái bạc tình Tham Sát nhân cung.",
+      "source_page": 63,
+      "section_id": "tdts.S4",
+      "tags": ["phu_nom", "paradigm:nhan_cung", "sao:pha_quan", "sao:tham_lang", "sao:that_sat"],
+      "commentary": {
+        "viet_thuan": "Phú nôm cũng dùng khái niệm 'nhân cung' của Toàn Thư.",
+        "nguyen_ly": "Nhân cung ở phú nôm = bằng chứng paradigm này lan vào dân gian."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q34",
+      "question": "Thập nhị cung trên lá số mang mấy nhiệm vụ?",
+      "answer_atom": "Thập nhị cung mang 3 nhiệm vụ: (1) đại biểu 12 hàng chi để định ngũ hành hợp xung; (2) là những nơi phân định miếu địa và hãm địa cho các sao; (3) là ý nghĩa của đời sống một con người qua liên hệ công danh, tiền bạc, bạn bè, vợ con, phúc đức cha mẹ — quan trọng nhất là bản mệnh.",
+      "source_quote": "Thập nhị cung trên lá số mang ba nhiệm vụ: 1. Chúng là đại biểu cho mười hai hàng chi để định ngũ hành hợp xung. 2. Chúng là những nơi để phân định miếu địa và hãm địa cho các sao. 3. Chúng là ý nghĩa của đời sống một con người qua những liên hệ công danh, tiền bạc, bạn bè, vợ con, phúc đức cha mẹ v.v... và quan trọng nhất là bản mệnh.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:thap_nhi_cung", "co_cau:3_nhiem_vu"],
+      "commentary": {
+        "viet_thuan": "12 cung = (1) 12 chi ngũ hành, (2) bảng miếu hãm, (3) bảng đời người.",
+        "nguyen_ly": "Một cấu trúc — 3 lớp diễn dịch."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q35",
+      "question": "Mệnh cung nói về điều gì?",
+      "answer_atom": "Mệnh cung nói đến dung mạo, tài năng, nhân cách và trình độ phát triển.",
+      "source_quote": "Mệnh cung: Nói đến dung mạo, tài năng, nhân cách và trình độ phát triển.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:menh"],
+      "commentary": {
+        "viet_thuan": "Mệnh = hình dáng + tài năng + nhân cách + tầm phát triển.",
+        "nguyen_ly": "Mệnh là CỐT của con người."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q36",
+      "question": "Phụ Mẫu cung nói về điều gì?",
+      "answer_atom": "Phụ Mẫu cung nói đến sự cát hung của cha mẹ, duyên phận mình với cha mẹ, và ân huệ của cha mẹ đối với mình.",
+      "source_quote": "Phụ Mẫu cung: Nói đến sự cát hung của cha mẹ, duyên phận mình với cha mẹ, và ân huệ của cha mẹ đối với mình.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:phu_mau"],
+      "commentary": {
+        "viet_thuan": "Phụ Mẫu = cha mẹ tốt-xấu + duyên với cha mẹ + công ơn.",
+        "nguyen_ly": "Phụ Mẫu = quan hệ thẳng đứng lên."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q37",
+      "question": "Huynh Đệ cung và Phu Thê cung nói về gì?",
+      "answer_atom": "Huynh Đệ cung: anh em ruột thịt, bằng hữu thân thiết. Phu Thê cung: quan hệ vợ chồng, hình dáng vợ chồng, sinh hoạt vật chất và tinh thần của người vợ hay người chồng.",
+      "source_quote": "Huynh Đệ cung: Nói đến anh em ruột thịt, bằng hữu thân thiết. Phu Thê cung: Nói đến quan hệ vợ chồng, hình dáng vợ chồng, sinh hoạt vật chất và tinh thần của người vợ hay người chồng.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:huynh_de", "cung:phu_the"],
+      "commentary": {
+        "viet_thuan": "Huynh Đệ = anh em + bạn. Phu Thê = vợ/chồng (cả hình lẫn nội tâm).",
+        "nguyen_ly": "Phu Thê chứa cả thân và tâm của bạn đời."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q38",
+      "question": "Nam Nữ cung và Tài Bạch cung nói về gì?",
+      "answer_atom": "Nam Nữ cung: con cái và sinh hoạt về tình dục. Tài Bạch cung: sự mạnh yếu của năng lực kinh tế, tài chính, tình hình thực lợi của sự nghiệp.",
+      "source_quote": "Nam Nữ cung: Nói đến con cái và sinh hoạt về tình dục. Tài Bạch cung: Nói đến sự mạnh yếu của năng lực kinh tế, tài chính, tình hình thực lợi của sự nghiệp.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:nam_nu", "cung:tai_bach"],
+      "commentary": {
+        "viet_thuan": "Nam Nữ = con + tình dục. Tài Bạch = sức kinh tế + thực lợi nghề nghiệp.",
+        "nguyen_ly": "Nam Nữ trong Toàn Thư bao gồm CẢ tình dục — không chỉ con cái."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q39",
+      "question": "Tật Ách, Thiên Di, Nô Bộc cung nói về gì?",
+      "answer_atom": "Tật Ách: thể chất và sức khỏe. Thiên Di: quan hệ với xã hội và đối ngoại. Nô Bộc: người cộng tác hoặc gia nhân bộ thuộc.",
+      "source_quote": "Tật Ách cung: Nói đến thể chất và sức khỏe. Thiên Di cung: Nói đến quan hệ của mình với xã hội và đối ngoại quan hệ. Nô Bộc cung: Nói đến người cộng tác với mình hoặc gia nhân bộ thuộc.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:tat_ach", "cung:thien_di", "cung:no_boc"],
+      "commentary": {
+        "viet_thuan": "Tật Ách = sức khoẻ. Thiên Di = đối ngoại + xã hội. Nô Bộc = cộng sự + người làm.",
+        "nguyen_ly": "Nô Bộc thời nay = team, đối tác — không chỉ 'gia nhân'."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q40",
+      "question": "Quan Lộc, Điền Trạch, Phúc Đức cung nói về gì?",
+      "answer_atom": "Quan Lộc: cát hung của chức nghiệp công danh. Điền Trạch: gia đình sinh hoạt và các loại bất động sản. Phúc Đức: thọ yểu và mức độ hưởng thụ trong đời.",
+      "source_quote": "Quan Lộc cung: Nói đến sự cát hung của chức nghiệp công danh. Điền Trạch cung: Nói đến gia đình sinh hoạt và các loại bất động sản. Phúc Đức cung: Nói đến thọ yểu và mức độ hưởng thụ trong đời như thế nào?",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:quan_loc", "cung:dien_trach", "cung:phuc_duc"],
+      "commentary": {
+        "viet_thuan": "Quan Lộc = sự nghiệp. Điền Trạch = nhà + đất + gia đình. Phúc Đức = tuổi thọ + chất lượng sống.",
+        "nguyen_ly": "Phúc Đức KHÔNG chỉ là 'phước' — bao gồm cả thọ + hưởng thụ."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q41",
+      "question": "Cung Thân nằm ở đâu?",
+      "answer_atom": "Cung Thân lưu động, không có cung dành riêng nhất định. Nó ở 1 trong: Phúc Đức, Tài Bạch, Quan Lộc, Thiên Di, Phu Thê — hoặc đồng cung với Mệnh.",
+      "source_quote": "Còn một cung nữa nhưng nó lưu động, không có cung dành riêng nhất định là cung Thân, hoặc nó ở Phúc Đức, Tài Bạch, Quan Lộc, Thiên Di và Phu Thê, hoặc nó đồng cung với Mệnh.",
+      "source_page": 64,
+      "section_id": "tdts.S4",
+      "tags": ["thap_nhi_cung", "cung:than", "paradigm:than_luu_dong"],
+      "commentary": {
+        "viet_thuan": "Thân chỉ rơi vào 6 vị trí: Phúc, Tài, Quan, Di, Phu Thê, hoặc đồng Mệnh.",
+        "nguyen_ly": "Thân là cung 'thứ 13' — lưu động, không cố định."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q42",
+      "question": "Câu Toàn Thư 'Mệnh hảo, thân hảo, hạn hảo đáo lão vinh xương' nghĩa gì?",
+      "answer_atom": "Cung Mệnh, cung Thân và Hạn đều tốt thì suốt đời vinh xương yên ổn.",
+      "source_quote": "Sách Tử Vi đẩu số toàn thư có câu: 'Mệnh hảo, thân hảo, hạn hảo đáo lão vinh xương'. Nghĩa là: Cung Mệnh, cung Thân và Hạn đều tốt thì suốt đời vinh xương, yên ổn.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["co_van", "paradigm:menh_than_han", "cung:menh", "cung:than"],
+      "commentary": {
+        "viet_thuan": "3 yếu tố tốt cùng lúc: Mệnh + Thân + Hạn → vinh xương đến già.",
+        "nguyen_ly": "Tử Vi cần tổng hợp 3 lớp: gốc (Mệnh) + dụng (Thân) + thời (Hạn)."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q43",
+      "question": "Mệnh và Thân khác nhau ở chỗ nào (paradigm gốc)?",
+      "answer_atom": "Mệnh là THỂ, Thân là DỤNG. Có thể mà vô dụng thì phát sớm tàn sớm. Có dụng mà vô thể thì thành công muộn màng chẳng được hưởng bao nhiêu.",
+      "source_quote": "Mệnh là thể mà Thân là dụng... Có thể mà vô dụng thì phát sớm tàn sớm. Có dụng mà vô thể thì thành công muộn màng chẳng được hưởng bao nhiêu.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:menh_than_the_dung", "iron_rule:the_dung"],
+      "commentary": {
+        "viet_thuan": "Mệnh = THỂ (cơ bản, bản chất). Thân = DỤNG (vận dụng, thi triển).",
+        "nguyen_ly": "Paradigm THỂ-DỤNG xuyên suốt Tử Vi — chính là cùng paradigm với Mai Hoa của Thiệu Khang Tiết (Iron Rule #4).",
+        "iron_rule_warning": "Mệnh xấu Thân tốt = thành công MUỘN. Mệnh tốt Thân xấu = phát SỚM tàn SỚM. KHÔNG được nói 'Mệnh tốt là đủ' hay 'Thân tốt là đủ'."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q44",
+      "question": "Ma trận 2x2 Mệnh-Thân có 4 trường hợp gì?",
+      "answer_atom": "4 trường hợp: (1) Mệnh hảo Thân hảo = cả thể lẫn dụng đều hay; (2) Mệnh hoại Thân hoại = cả thể lẫn dụng đều dở; (3) Mệnh tốt Thân xấu = thể hay mà dụng dở; (4) Mệnh xấu Thân tốt = thể dở mà dụng hay.",
+      "source_quote": "Mệnh hảo, Thân hảo: Là cả thể lẫn dụng đều hay. Mệnh hoại, Thân hoại: Là cả thể lẫn dụng đều dở. Mệnh tốt, Thân xấu: Là thể hay mà dụng dở. Mệnh xấu, Thân tốt: Là thể dở mà dụng hay.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:menh_than_2x2", "matrix"],
+      "commentary": {
+        "viet_thuan": "4 ô ma trận: hảo-hảo, hoại-hoại, tốt-xấu, xấu-tốt.",
+        "nguyen_ly": "Không chỉ tốt/xấu chung — phải xét RIÊNG thể-dụng."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q45",
+      "question": "Thân Mệnh đồng cung có nguyên tắc gì?",
+      "answer_atom": "Thân Mệnh đồng cung — tốt sẽ TĂNG tốt, xấu lại CÀNG xấu.",
+      "source_quote": "Trong trường hợp Thân Mệnh đồng cung tốt sẽ tăng tốt, xấu lại càng xấu.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:than_menh_dong_cung", "iron_rule:khueych_dai"],
+      "commentary": {
+        "viet_thuan": "Thân-Mệnh chồng nhau = khuếch đại 2 chiều.",
+        "iron_rule_warning": "Thân Mệnh đồng cung KHÔNG phải là 'tốt thêm'. Là 'khuếch đại' — xấu cũng càng xấu."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q46",
+      "question": "Thân an ở Tài, Quan, Di, Phu Thê, Phúc Đức — mỗi cái chủ gì?",
+      "answer_atom": "Thân ở Tài Bạch = chủ phú. Ở Quan Lộc = chủ quý. Ở Thiên Di = dựa quan hệ bên ngoài nhiều hơn trong nhà. Ở Phu Thê (con trai) = vợ hiền năng nhưng thường sợ vợ. Ở Phúc Đức (con gái) = chồng cương cường, phục chồng tuyệt đối.",
+      "source_quote": "Thân ở cung Tài: Chủ phú. Ở Quan Lộc: Chủ quí. Ở Thiên Di: Chủ dựa vào quan hệ bên ngoài nhiều hơn trong nhà. Ở Phu Thê (con trai): Chủ có vợ hiền năng nhưng thường sợ vợ. Ở Phúc Đức (con gái): Chủ có chồng cương cường và phục chồng tuyệt đối.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:than_vi_tri", "cung:than"],
+      "commentary": {
+        "viet_thuan": "Thân ở đâu = thế đó là trọng tâm đời. Tài = giàu. Quan = sang. Di = xã giao. Phu Thê (nam) = sợ vợ. Phúc Đức (nữ) = phục chồng.",
+        "nguyen_ly": "Thân = nơi DỤNG được thi triển — vị trí Thân chỉ thiên hướng cuộc đời."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q47",
+      "question": "Cường cung của Nam mệnh là những cung nào?",
+      "answer_atom": "Xem số đàn ông, ngoài Thân Mệnh còn có 3 cường cung là Tài Bạch, Quan Lộc, Thiên Di. Ngoài ra là nhược cung kể vào hàng thứ yếu.",
+      "source_quote": "Xem số đàn ông, ngoài Thân Mệnh cung còn có ba cường cung là Tài Bạch, Quan Lộc, Thiên Di. Ngoài ra là nhược cung kể vào hàng thứ yếu.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:cuong_nhuoc_cung", "nam_menh", "cung:tai_bach", "cung:quan_loc", "cung:thien_di"],
+      "commentary": {
+        "viet_thuan": "Nam: 3 cường cung = Tài + Quan + Di (sau Thân Mệnh).",
+        "nguyen_ly": "Nam coi trọng sự nghiệp ngoài xã hội: kiếm tiền + chức + đối ngoại."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q48",
+      "question": "Cường cung của Nữ mệnh là những cung nào?",
+      "answer_atom": "Xem số đàn bà, ngoài Thân Mệnh ba cường cung còn lại là Phu Quân (Phu Thê), Phúc Đức và Tử Tức (Nam Nữ). Các cung khác kể vào hàng thứ yếu gọi là nhược cung.",
+      "source_quote": "Nhưng xem số đàn bà, ngoài Thân Mệnh cung ba cường cung còn lại là các cung Phu Quân, Phúc Đức và Tử Tức. Các cung khác kể vào hàng thứ yếu gọi là nhược cung.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["paradigm:cuong_nhuoc_cung", "nu_menh", "cung:phu_the", "cung:phuc_duc", "cung:tu_tuc"],
+      "commentary": {
+        "viet_thuan": "Nữ: 3 cường cung = Phu (chồng) + Phúc Đức + Tử (con).",
+        "nguyen_ly": "Nữ truyền thống coi trọng gia đạo: chồng + con + phúc — KHÔNG phải Tài Quan Di như nam.",
+        "iron_rule_warning": "Khi xem lá số NỮ trong paradigm Toàn Thư, KHÔNG dùng cường cung của nam. Đây là paradigm tách Nam-Nữ rõ rệt."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q49",
+      "question": "Tử Vi Đẩu Số Toàn Thư là sách của ai chép?",
+      "answer_atom": "Tử Vi Đẩu Số Toàn Thư là của La Hồng Tiên biên chép những gì mà Hi Di Trần Đoàn tiên sinh đã dạy.",
+      "source_quote": "Dưới đây là những lời giải đoán cho từng cung mà Tử Vi đẩu số toàn thư, và tôi xin nhắc lại cuốn sách này là của La Hồng Tiên biên chép những gì mà Hi Di Trần Đoàn tiên sinh đã dạy.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["meta:tac_gia", "author:la_hong_tien", "author:tran_doan"],
+      "commentary": {
+        "viet_thuan": "Toàn Thư = La Hồng Tiên biên chép lời dạy của Trần Đoàn (Hi Di tiên sinh).",
+        "nguyen_ly": "Trần Đoàn = TỔ SƯ. La Hồng Tiên = thư ký."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q50",
+      "question": "Phương pháp cổ nhân giảng tử vi có đặc điểm gì?",
+      "answer_atom": "Phương pháp cổ nhân thường lặp đi lặp lại nhiều lần qua các thể văn khác nhau (bài ca, phú, lời đoán) để người học dễ nhập tâm — vì xem Tử Vi phải có nhập tâm bởi đoán thì mới luận số một cách tinh tường được.",
+      "source_quote": "phương pháp cổ nhân thường lặp đi lặp lại nhiễu lần qua các thể văn khác nhau để cho người học dễ nhập tâm mà xem tử vi có nhập tâm bởi đoán thì mới luận số một cách tinh tường được.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["meta:phuong_phap_co_nhan", "paradigm:nhap_tam"],
+      "commentary": {
+        "viet_thuan": "Cổ nhân giảng cùng 1 ý qua nhiều thể văn → để học trò nhập tâm.",
+        "nguyen_ly": "Nhập tâm = thuộc nằm lòng đến mức tự động tuôn ra — Tử Vi không thể tra cứu kiểu từ điển."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q51",
+      "question": "Thi ca giải đoán trong Toàn Thư chia làm mấy loại?",
+      "answer_atom": "Thi ca giải đoán chia 3 loại: (1) dành cho nam mệnh; (2) dành cho nữ mệnh; (3) dành cho vận hạn.",
+      "source_quote": "Thi ca giải đoán ở đây chia ra làm ba loại: 1. Dành cho nam mệnh 2. Dành cho nữ mệnh 3. Dành cho vận hạn.",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["meta:phan_loai_thi_ca", "nam_menh", "nu_menh", "van_han"],
+      "commentary": {
+        "viet_thuan": "3 loại thi ca: nam, nữ, vận hạn.",
+        "nguyen_ly": "Sách Toàn Thư tách RIÊNG nam-nữ-vận → paradigm 3 lớp."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S4.Q52",
+      "question": "Nam Mệnh Tử Vi ca nói gì?",
+      "answer_atom": "Tử Vi Thiên Trung đệ nhất tinh / Mệnh Thân tương ngộ phúc tài hưng / Nhược phùng Tướng Tá cung trung hội / Phú quí song toàn phan lệnh danh — Tử Vi là sao đệ nhất giữa trời, Mệnh-Thân gặp nhau thì phúc tài hưng vượng; nếu hội Tướng (Thiên Tướng) và Tá (Tả Hữu) thì phú quý song toàn nổi danh.",
+      "source_quote": "Tử Vi Thiên Trung đệ nhất tinh / Mệnh Thân tương ngộ phúc tài hưng / Nhược phùng Tướng Tá cung trung hội / Phú quí song toàn phan lệnh danh",
+      "source_page": 65,
+      "section_id": "tdts.S4",
+      "tags": ["co_van", "nam_menh", "sao:tu_vi", "ca_quyet"],
+      "commentary": {
+        "viet_thuan": "Tử Vi = sao số 1. Tử Vi gặp Thân-Mệnh thì phúc tài đầy. Hợp Tướng + Tá = phú quý cả hai + nổi danh.",
+        "nguyen_ly": "Tử Vi cần Tướng Tá phụ tá — không đơn độc."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

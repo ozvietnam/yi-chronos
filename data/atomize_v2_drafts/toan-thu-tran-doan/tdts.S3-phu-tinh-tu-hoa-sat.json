@@ -1,0 +1,1161 @@
+{
+  "book_corpus_id": "tu-vi-dau-so-toan-thu-vu-tai-luc",
+  "section_id": "tdts.S3",
+  "section_title": "Phụ tinh + Tứ Hóa + Sát tinh + Chòm Lộc Tồn + Chòm Thái Tuế (p42-60)",
+  "pages": [42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+  "school": "tran_doan_co_dien",
+  "atoms": [
+    {
+      "question_id": "tdts.S3.van_xuong.Q01",
+      "question": "Sao Văn Xương chủ những điều gì?",
+      "answer_atom": "Văn Xương thuộc hành Kim, chủ về khoa giáp (thi cử đỗ đạt). Ở Thân Mệnh người u nhàn nho nhã, thanh tú, khôi ngô, bác học đa văn, cơ biến dị thường, nhất cử thành danh, phúc thọ song toàn. Bị Tứ Sát xung phá vẫn không đến nỗi hạ tiện. Nữ mệnh Văn Xương gặp cát tinh y lộc sung túc; bị Tứ Sát xung phá thì phiêu bạt lẻ mọn. Văn Xương rất cần có Quyền, Lộc.",
+      "source_quote": "Văn Xương thuộc hành Kim, chủ khoa giáp. Ở cung Thân Mệnh người u nhàn nho nhã, thanh tú, khôi ngô, bác học đa văn, cơ biến dị thường, nhất cử thành danh, phúc thọ song toàn. Nếu có bị Tứ Sát xung phá cũng không đến nỗi hạ tiện. Nữ mệnh Văn Xương gặp cát tinh trợ lực y lộc sung túc; nếu Tứ Sát xung phá phiêu bạt lẽ mọn. Sao Văn Xương rất cần có Quyền Lộc.",
+      "source_page": 42,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_xuong", "category:phu_tinh", "element:kim", "domain:khoa_giap", "gender:nu"],
+      "commentary": {
+        "han_viet_explain": "khoa giáp = thi cử đỗ cao trong các kỳ thi triều đình; Tứ Sát = bốn sao Kình Dương, Đà La, Hỏa Tinh, Linh Tinh.",
+        "viet_thuan": "Văn Xương là sao học hành thi cử. Người có Văn Xương ở Mệnh hoặc Thân thường thông minh, đẹp người, học rộng, đỗ đạt sớm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_xuong.Q02",
+      "question": "Văn Xương miếu/vượng/hãm ở đâu theo Toàn Thư?",
+      "answer_atom": "Theo bài ca: vượng địa Thìn, Tị; lợi địa Ngọ; bất lợi Mão, Dậu. Theo phú liệt kê trong Toàn Thư: miếu địa Tị, Dậu, Sửu; lợi địa Thân, Tý, Thìn, Hợi, Mão, Mùi; hãm địa Dần, Ngọ, Tuất. Vũ Tài Lục flag: trong cùng một sách bài ca và bảng phú mâu thuẫn nhau.",
+      "source_quote": "Văn Xương miếu địa Tị, Dậu, Sửu; lợi địa Thân, Tí, Thìn, Hợi, Mão, Mùi; hãm địa Dần, Ngọ, Tuất. (Vấn đề miếu hãm cho sao Văn Xương thật lung tung, trên bài ca viết một khác mà trong câu phú mà bảng liệt kê lại để một khác. Chẳng riêng gì Tử Vi đẩu số toàn thư như vậy mà cái học truyền khẩu của ta cũng thế, có nhiều điểm mâu thuẫn không thể dùng nguyên tắc nào để xác định lại).",
+      "source_page": 42,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_xuong", "category:phu_tinh", "topic:mieu_ham", "conflict:internal"],
+      "commentary": {
+        "han_viet_explain": "miếu địa = chỗ sao mạnh nhất; vượng địa = mạnh thứ hai; hãm địa = chỗ sao yếu/xấu.",
+        "viet_thuan": "Toàn Thư mâu thuẫn nội tại về miếu hãm Văn Xương: bài ca nói Thìn Tị là vượng, nhưng bảng phú lại liệt Tị Dậu Sửu là miếu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục flag mâu thuẫn nội tại trong Toàn Thư về miếu hãm Văn Xương; cả lối truyền khẩu VN cũng vậy. Không có nguyên tắc xác định lại được."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_xuong.Q03",
+      "question": "Văn Xương đi với Vũ Khúc thì sao?",
+      "answer_atom": "Mệnh Thân hoặc chiếu vào Mệnh Thân có hai sao Văn Xương Vũ Khúc là người đa học đa năng, tài kiêm văn võ.",
+      "source_quote": "Văn Xương, Vũ Khúc: Vì người đa học đa năng. (Mệnh Thân hoặc chiếu vào Mệnh Thân có hai sao Văn Xương, Vũ Khúc là người đa học đa năng). … Văn Xương, Vũ Khúc ở Mệnh Thân: Văn vũ kiêm bị.",
+      "source_page": 43,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_xuong", "combo:van_xuong+vu_khuc", "domain:van_vo_song_toan"],
+      "commentary": {
+        "han_viet_explain": "đa học đa năng = học nhiều biết nhiều; văn vũ kiêm bị = đủ cả văn lẫn võ.",
+        "viet_thuan": "Văn Xương + Vũ Khúc Mệnh/Thân = vừa giỏi văn vừa giỏi võ, học nhiều biết nhiều.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_xuong.Q04",
+      "question": "Văn Xương + Hóa Khoa cùng chiếu nghĩa là gì?",
+      "answer_atom": "Văn Xương Hóa Khoa cùng chiếu là cách kinh điển — ông Giả Nghị đỗ cao từ thuở còn niên thiếu.",
+      "source_quote": "Văn Khoa: Cũng chiếu Giả Nghị niên thiếu đăng khoa. (Văn Xương, Hóa Khoa củng chiếu, ông Giả Nghị đỗ cao từ thủa còn niên thiếu).",
+      "source_page": 43,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_xuong", "combo:van_xuong+hoa_khoa", "case:gia_nghi", "domain:khoa_bang"],
+      "commentary": {
+        "han_viet_explain": "Giả Nghị = chính khách thi nhân thời Hán, đỗ đạt rất sớm; đăng khoa = đậu khoa cử.",
+        "viet_thuan": "Văn Xương gặp Hóa Khoa cùng chiếu = đỗ cao tuổi trẻ, lấy chuyện Giả Nghị làm điển hình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_xuong.Q05",
+      "question": "Tả Phụ + Văn Xương ở Mệnh Thân thì sao?",
+      "answer_atom": "Mệnh Thân hội Tả Phụ + Văn Xương thì chức vị tới bậc tam đài.",
+      "source_quote": "Tả Phụ, Văn Xương: Vị chí tam đài. (Mệnh Thân hội Tả Phụ, Văn Xương chức vị tới bậc tam đàn).",
+      "source_page": 43,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_xuong", "combo:ta_phu+van_xuong", "rank:tam_dai"],
+      "commentary": {
+        "han_viet_explain": "tam đài = ba bậc chức quan cao nhất triều đình.",
+        "viet_thuan": "Tả Phụ + Văn Xương ở Mệnh/Thân = lên tới chức tam đài, hàng đại thần.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_khuc.Q01",
+      "question": "Sao Văn Khúc chủ những điều gì?",
+      "answer_atom": "Văn Khúc thuộc hành thủy, Bắc Đẩu tinh, chủ khoa cùng loại với Văn Xương. Vào Mệnh Thân là người khoa bảng, tài hoa phong nhã; ở Quan Lộc cung thường gặp mặt vua để chấp chính. Đơn thủ tại Mệnh Thân gặp sao hung chỉ là người bẻm mép không ra danh phận.",
+      "source_quote": "Văn Khúc thuộc hành thủy, Bắc Đẩu tinh chủ khoa cùng loại với Văn Xương, vào Mệnh Thân là người khoa bảng, tài hoa phong nhã, ở Quan Lộc cung thường gặp mặt vua để chấp chính. Nếu đơn thủ tại Mệnh Thân gặp sao hung chỉ là người bẻm mép không ra danh phận gì cả.",
+      "source_page": 43,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_khuc", "category:phu_tinh", "element:thuy", "constellation:bac_dau", "domain:khoa_bang"],
+      "commentary": {
+        "han_viet_explain": "Bắc Đẩu tinh = thuộc chùm Bắc Đẩu; chấp chính = nắm việc chính trị; bẻm mép = lém lỉnh nhưng không có thực chất.",
+        "viet_thuan": "Văn Khúc cùng họ với Văn Xương — chuyên về khoa bảng. Đơn thủ Mệnh gặp hung tinh thành kẻ chỉ giỏi mép miệng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_khuc.Q02",
+      "question": "Văn Khúc đi với Liêm Trinh, Thái Âm, Phá Quân, Tham Lang, Thất Sát, Cự Môn thì sao?",
+      "answer_atom": "Đi với Liêm Trinh làm để lại; cặp Thái Âm làm cửu lưu thuật sĩ (quân sư quạt mo). Sợ gặp Phá Quân; không ưa đi cùng Tham Lang vì dễ thành bê bối điên đảo chính sự. Hội Thất Sát thêm ác tính + Hình Kỵ là người sảo trá khó chơi, thường gặp tù ngục. Cự Môn + Văn Khúc khiến người táng chí hay nắn.",
+      "source_quote": "Cùng đi với Liêm Trinh làm để lại; cặp với Thái Âm làm cửu lưu thuật sĩ (quân sư quạt mo). Văn Khúc sợ gặp Phá Quân, cũng không ưa đi cùng Tham Lang dễ thành bê bối điên đảo chính sự. Văn Khúc hội Thất Sát thêm ác tính bao vây như Hình Kị là người sảo trá khó chơi thường gặp cảnh tù ngục. Cự Môn, Văn Khúc khiến cho người táng chí hay nắn.",
+      "source_page": 43,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_khuc", "combo:multi", "outcome:tu_nguc", "outcome:sao_tra"],
+      "commentary": {
+        "han_viet_explain": "cửu lưu thuật sĩ = thầy bói/đạo sĩ thuộc các dòng tạp học; táng chí = mất chí khí.",
+        "viet_thuan": "Văn Khúc phối các sao xấu thì hoặc làm tay sai, hoặc lừa lọc dễ tù, hoặc mất chí khí.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_khuc.Q03",
+      "question": "Số đàn bà có Văn Khúc thì sao?",
+      "answer_atom": "Số đàn bà không nên có Văn Khúc vì tính chất Văn Khúc là thủy tính dương hoa (dễ lăng nhăng).",
+      "source_quote": "Số đàn bà không nên có Văn Khúc vì tính chất của Văn Khúc là thủy tính dương hoa.",
+      "source_page": 43,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_khuc", "gender:nu", "trait:da_dam"],
+      "commentary": {
+        "han_viet_explain": "thủy tính dương hoa = nước có tính phô trương, sinh đào hoa, dâm dật.",
+        "viet_thuan": "Phụ nữ có Văn Khúc Mệnh — sách cổ coi không tốt vì dễ đào hoa lăng nhăng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.van_khuc.Q04",
+      "question": "Văn Khúc miếu/vượng/hãm ở đâu?",
+      "answer_atom": "Văn Khúc miếu địa: Tí, Thìn, Tị, Dậu. Vượng địa: Hợi, Mão, Mùi. Hãm địa: Ngọ, Tuất.",
+      "source_quote": "Văn Khúc miếu địa: Tí, Thìn, Tị, Dậu. Văn Khúc vượng địa: Hợi, Mão, Mùi. Văn Khúc hãm địa: Ngọ, Tuất.",
+      "source_page": 44,
+      "section_id": "tdts.S3",
+      "tags": ["star:van_khuc", "topic:mieu_ham"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vị trí mạnh yếu của Văn Khúc trên 12 cung địa chi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.xuong_khuc.Q01",
+      "question": "Cách Xương Khúc hiệp Mệnh, lâm Sửu Mùi, lâm Tị Hợi, lâm Phúc Đức nghĩa là gì?",
+      "answer_atom": "Xương Khúc hiệp Mệnh = số kỳ lạ. Lâm Sửu Mùi + sinh giờ Mão/Dậu = được gặp vua. Lâm Tị Hợi = bất quý tất đại phú. Cát tinh cư Phúc Đức = cực tốt, nhất là cùng Tử Vi cung Ngọ thì toàn hảo. Xương Khúc hãm cung + hung sát phá = sự nghiệp danh tiếng sụp đổ.",
+      "source_quote": "Xương Khúc hiệp mệnh tối vi kỳ. … Xương Khúc lâm Sửu, Mùi thời phùng Mão, Dậu cận thiên nhan. … Xương Khúc Tị Hợi lâm, bắt quí tất đại phú. … Xương Khúc cát tinh cư Phúc Đức vị chỉ ngọc tụ thiên. … Xương Khúc hãm cung, hung sát phá hư dự chỉ long.",
+      "source_page": 44,
+      "section_id": "tdts.S3",
+      "tags": ["combo:xuong_khuc", "cach_cuc:hiep_menh", "cach_cuc:can_thien_nhan", "domain:phu_quy"],
+      "commentary": {
+        "han_viet_explain": "hiệp Mệnh = kẹp hai bên Mệnh; cận thiên nhan = được gần mặt vua; bất quý tất đại phú = không quý thì giàu lớn.",
+        "viet_thuan": "Bộ Xương Khúc là một trong các cách quý phú quan trọng trong Toàn Thư.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.xuong_khuc.Q02",
+      "question": "Xương Khúc hãm ở Thiên Thương / đi với Liêm Trinh / với Phá Quân thì sao?",
+      "answer_atom": "Xương Khúc hãm ở thiên hương Nhan Hồi yểu chiết (Nhan Hồi chết non vì Xương Khúc đi vào hạn Thiên Thương). Cùng Liêm Trinh Tị Hợi thường bị hình ngục, ô nhục. Cùng Phá Quân lâm Dần Mão + Thất Sát/Kình Dương xung phá cuộc đời lao đao. Người sinh năm Kỷ Tân Nhâm hạn Thìn Tuất lo nạn đâm đầu xuống sông.",
+      "source_quote": "Xương Khúc hãm ư thiên hương Nhan Hồi yểu chiết. … Xương Khúc, Kỷ Tân Nhâm sinh nhân hạn phùng Thìn Tuất lự đầu hà. … Xương Khúc Liêm Trinh ở Tị Hợi tao hình bất thiện thả hư khoa. … Xương Khúc, Phá Quân lâm hổ thỏ Sát Dương xung phá bôn ba.",
+      "source_page": "44-45",
+      "section_id": "tdts.S3",
+      "tags": ["combo:xuong_khuc+pha_quan", "combo:xuong_khuc+liem_trinh", "case:nhan_hoi", "outcome:hung", "topic:han"],
+      "commentary": {
+        "han_viet_explain": "Nhan Hồi = học trò Khổng Tử chết trẻ; lự đầu hà = lo nạn nhảy/đâm đầu xuống sông; hổ thỏ = Dần Mão.",
+        "viet_thuan": "Xương Khúc gặp hung tinh thì cũng chết yểu, tù ngục, lao đao như ai.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.xuong_khuc.Q03",
+      "question": "Nữ mệnh Xương Khúc thì sao?",
+      "answer_atom": "Nữ mệnh Xương Khúc thông minh phú quý nhưng đa dâm.",
+      "source_quote": "Nữ mệnh Xương Khúc thông mình phú quí chỉ đa dâm. (Số ẩn bà Xương Khúc thủ mệnh thông minh giàu sang chỉ phải cái đa dâm).",
+      "source_page": 45,
+      "section_id": "tdts.S3",
+      "tags": ["combo:xuong_khuc", "gender:nu", "trait:da_dam"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Theo cổ thư, đàn bà Xương Khúc thì thông minh giàu sang nhưng lăng nhăng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.ta_phu.Q01",
+      "question": "Sao Tả Phụ chủ những điều gì?",
+      "answer_atom": "Tả Phụ là đế cực chủ tể chi tinh (sao phò vua), thuộc hành Thổ. Thủ Thân Mệnh giáng phúc, người hình mạo đôn hậu, khẳng khái, phong lưu. Được Tử-Phủ-Quyền-Lộc xung chiếu tam hợp chủ về đại quý văn lẫn võ. Gặp Hỏa Tinh Hóa Kỵ xung phá tuy giàu sang nhưng không lâu bền.",
+      "source_quote": "Tả Phụ là đế cực chủ tể chi tinh, thủ Thân Mệnh cung giáng phúc, người hình mạo đôn hậu khẳng khái, phong lưu. Được nếu Tử, Phủ, Quyển Lộc xung chiếu tam hợp chủ về cách đại quý cho cả văn lẫn võ; gặp Hỏa tinh Hoá Kỵ xung phá tuy giàu sang nhưng chẳng lâu bền. … Tả phụ nguyên thuộc thổ.",
+      "source_page": "45-46",
+      "section_id": "tdts.S3",
+      "tags": ["star:ta_phu", "category:phu_tinh", "element:tho", "role:de_cuc", "domain:dai_quy"],
+      "commentary": {
+        "han_viet_explain": "đế cực chủ tể = cực của ngôi vua, sao phò vua; giáng phúc = ban phúc xuống.",
+        "viet_thuan": "Tả Phụ là sao phò Tử Vi. Người có Tả Phụ hậu hĩnh, khảng khái. Đi với bộ Tử-Phủ-Quyền-Lộc thì đại quý.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.huu_bat.Q01",
+      "question": "Sao Hữu Bật chủ những điều gì?",
+      "answer_atom": "Hữu Bật là đế cực chủ chi tinh, thuộc hành Thủy. Thủ Mệnh Thân, người văn mặc tinh thông. Đồng cung Tử-Phủ thì tiền bạc, chức tước đều hay, văn vũ song toàn. Gặp Dương Đà xung phá là hạ cách. Nữ nhân Hữu Bật thủ mệnh hiển lương; gặp Dương Đà xung phá hạ tiện.",
+      "source_quote": "Hữu Bật là đế cực chủ chi tinh, thủ Mệnh Thân cung, người văn mặc tinh thông. Đồng cung có hai sao Tử — Phủ thì tiền bạc, chức tước đều hay, văn vũ song toàn. Nếu gặp Dương Đà xung phá là hạ cách. Nữ nhân có Hữu Bật thủ mệnh hiển lương, gặp Dương Đà xung phá hạ tiện. … Hữu Bật thủy vi căn.",
+      "source_page": "45-46",
+      "section_id": "tdts.S3",
+      "tags": ["star:huu_bat", "category:phu_tinh", "element:thuy", "role:de_cuc", "combo:tu_phu"],
+      "commentary": {
+        "han_viet_explain": "văn mặc tinh thông = giỏi bút mực, văn chương; hạ cách = phẩm cách thấp.",
+        "viet_thuan": "Hữu Bật cũng là sao phò Tử Vi như Tả Phụ. Gặp Tử-Phủ thì văn võ song toàn; gặp Kình Đà thì hỏng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.ta_huu.Q01",
+      "question": "Tả Phụ Hữu Bật đứng riêng / hiệp Mệnh / vào Phu Thê / gặp Liêm Trinh nghĩa là gì?",
+      "answer_atom": "Tả Hữu hiệp Mệnh = quý cách. Tả Hữu đồng cung thủ Mệnh = mặc áo lụa áo gấm đỏ (cao sang). Tả Hữu đơn thủ chiếu mệnh = ly tôn thứ xuất. Tả Hữu Liêm Trinh = phường trộm cắp dễ tù tội. Cung Phu Thê có Tả/Hữu = số hai vợ. Tả Hữu Văn Xương = vị chí tam đài. Hữu Bật + Thiên Tướng = phúc lai lâm. Tả Hữu + Khôi Việt = phúc thọ.",
+      "source_quote": "Tả Hữu Văn Xương vị chỉ tam đài. … Tả Hữu hiệp mệnh vi quí cách. … Hữu Bật, Tả Phụ chung thân phúc hậu. … Tả Hữu đông cung phi la y tử. … Tả Hữu đơn thủ chiếu mệnh cung ly tôn thứ xuất. … Tả Hữu Liêm Trinh tao hình đạo. … Hữu Bật, Thiên Tướng phúc lai lâm. … Tả Hữu tài quan hiệp củng y lộc phong doanh. … Tả Hữu Khôi Việt vi phúc thọ.",
+      "source_page": 46,
+      "section_id": "tdts.S3",
+      "tags": ["combo:ta_huu", "cach_cuc:hiep_menh", "combo:ta_huu+liem_trinh", "combo:ta_huu+khoi_viet", "outcome:phu_quy"],
+      "commentary": {
+        "han_viet_explain": "phi la y tử = mặc áo lụa áo gấm đỏ — cao sang; chung thân phúc hậu = suốt đời được phúc.",
+        "viet_thuan": "Bộ phú về cách cục Tả-Hữu kinh điển. Hiệp Mệnh = quý; đồng cung Mệnh = cao sang; nhưng gặp Liêm Trinh thì thành trộm cướp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khoi_viet.Q01",
+      "question": "Sao Thiên Khôi - Thiên Việt chủ những điều gì?",
+      "answer_atom": "Khôi Việt trên thượng giới là thần của sự hòa hợp. Vào mệnh người hội cùng Tả Hữu thì không ai là không phú quý. Khôi ở Mệnh + Việt ở Thân + thêm Tử-Phủ, Nhật-Nguyệt, Xương-Khúc, Tả-Hữu, Quyền-Lộc thì thiếu niên đã danh tiếng, đào hoa nhiều vợ đẹp, đại nạn cũng được quý nhân phù trợ, tiểu nhân không thể hại. Khôi Việt còn gọi là Thiên Ất quý nhân. Khôi Việt có ác sát xung phá vẫn phú quý nhưng không khỏi trăng hoa tư tình.",
+      "source_quote": "Hai sao Khôi — Việt trên thượng giới là thần của sự hòa hợp, vào mệnh người hội cùng Tả Hữu không ai là không phú quý. Nếu Khôi ở Mệnh, Việt ở Thân lại thêm Tử Phủ, Nhật Nguyệt, Xương Khúc, Tả Hữu, Quyên Lộc tấu hợp tuổi thiếu niên đã danh tiếng lại đào hoa nhiều vợ đẹp, dù cho gặp đại nạn cũng được quý nhân phù trợ, tiểu nhân không thể gây hung hoạ với số này. … Nếu Khôi Việt có ác sát xung phá, Khôi Việt vẫn phú quý, nhưng chẳng khỏi trăng hoa tư tình. … Khôi Việt còn có tên khác là Thiên Ất qui nhân.",
+      "source_page": "46-47",
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_khoi", "star:thien_viet", "category:phu_tinh", "alias:thien_at_quy_nhan", "role:quy_nhan", "domain:phu_quy"],
+      "commentary": {
+        "han_viet_explain": "Thiên Ất quý nhân = quý nhân lớn cứu giúp khi hoạn nạn; thượng giới = trên trời.",
+        "viet_thuan": "Khôi Việt là sao quý nhân lớn nhất trong khoa Tử Vi — đại nạn cũng được cứu, có sát tinh xung vẫn còn phú quý chỉ thêm chuyện tình ái.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khoi_viet.Q02",
+      "question": "Khôi Việt có hãm địa không?",
+      "answer_atom": "Toàn Thư KHÔNG nói tới hãm địa của Khôi Việt. Hai sao này thuộc hành hỏa (theo chương sau).",
+      "source_quote": "Chú ý: Hai sao Thiên Khôi và Thiên Việt không thấy nói tới hãm địa. Chương sau ghi hai sao này thuộc hành hỏa.",
+      "source_page": 47,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_khoi", "star:thien_viet", "topic:mieu_ham", "element:hoa", "paradigm:khong_co_ham_dia", "conflict:vs_VN"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Theo Toàn Thư, Khôi Việt KHÔNG có hãm địa — chỗ nào cũng còn dùng được. Trái với cách hiểu VN hay gán hãm vào Khôi Việt.",
+        "nguyen_ly": "Quý nhân là sao 'cứu' — đặt ở đâu cũng có tác dụng cứu, không có chỗ 'chết'.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM LẬT: Toàn Thư khẳng định Khôi Việt KHÔNG hãm địa. Đây là một trong các điểm sách lật ngược cách nghĩ 'sao nào cũng có hãm' phổ biến trong khoa Tử Vi VN."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khoi_viet.Q03",
+      "question": "Khôi Việt hiệp mệnh / có Lộc Tồn / không có Hình Sát xung / gặp ác sát thì sao?",
+      "answer_atom": "Khôi Việt Mệnh Thân thì danh cao vọng trọng (ở tam hợp chiếu mệnh kém hơn). Hiệp mệnh là cách kỳ lạ. Khôi Việt + Xương Khúc + Lộc Tồn không gặp Hình Sát xung = quý đến bậc đại thần. Gặp Dương Đà, Linh Hỏa, Không Kiếp thường có tật.",
+      "source_quote": "Khôi Việt Mệnh Thân đa triết quế. … Khôi Việt hiệp mệnh vi kỳ cách. … Khôi Việt, Xương Khúc, Lộc Tồn phù, Hình Sát vô xung đài phú quí. … Khôi Việt trùng phùng sát tấu cố tật vưu đa.",
+      "source_page": 47,
+      "section_id": "tdts.S3",
+      "tags": ["combo:khoi_viet", "cach_cuc:hiep_menh", "outcome:dai_than", "outcome:co_tat"],
+      "commentary": {
+        "han_viet_explain": "đa triết quế = bẻ nhiều cành quế, đỗ đạt cao; cố tật = có tật bệnh kinh niên.",
+        "viet_thuan": "Khôi Việt ở Mệnh/Thân thì đỗ đạt; thêm Xương Khúc Lộc Tồn không gặp Hình Sát thì đại thần; gặp Tứ Sát Kiếp Không thì có tật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.loc_ton.Q01",
+      "question": "Sao Lộc Tồn chủ những điều gì?",
+      "answer_atom": "Lộc Tồn là Bắc Đẩu tinh, chân nhân chi tinh, chủ quý tước và thọ cơ. Phò Tử Vi Thiên Tướng để tăng quyền; phò Nhật Nguyệt để tăng huy. Nên ở Thân Mệnh, Điền Trạch, Tài Bạch thì giàu có; cung Thiên Di tốt; cung Quan Lộc hay. Đứng một mình ở Mệnh thường là loại thủ tài nô keo bẩn. Gặp sao tốt càng tốt; gặp ác tinh bị khốn khổ. Hãm khi gặp Không Vong, Hỏa Tinh, Không Kiếp. Lộc Tồn thuộc hành Thổ, mười hai cung đều miếu địa, không có hãm địa.",
+      "source_quote": "Lộc Tồn là Bắc Đẩu tinh, chân nhân chỉ tinh chủ về quí tước và thọ cơ của con người. Phò Tử Vi, Thiên Tướng để tăng quyền, phò Nhật Nguyệt để tăng huy (sáng). Trong mười hai cung, Lộc Tồn nên ở các cung Thân Mệnh, Điền Trạch, Tài Bạch thì giàu có. … Nếu một mình nó đứng cung Mệnh thường là loại thủ tài nô keo bẩn. … Lộc Tồn hãm khi gặp Không Vong, Hỏa Tinh, Không Kiếp. … Lộc Tôn thuộc hành Thổ. Thập nhị cung đều là miếu địa. Không có hãm địa đối với Lộc Tôn.",
+      "source_page": "47-48",
+      "section_id": "tdts.S3",
+      "tags": ["star:loc_ton", "category:phu_tinh", "element:tho", "constellation:bac_dau", "domain:quy_tuoc_tho_co", "paradigm:khong_co_ham_dia"],
+      "commentary": {
+        "han_viet_explain": "thọ cơ = nền tảng tuổi thọ; thủ tài nô = nô lệ giữ tiền, keo bẩn.",
+        "viet_thuan": "Lộc Tồn — sao của quý + thọ + tiền. Phụ trợ cho Tử Vi Thiên Tướng Nhật Nguyệt. Đơn thủ thành kẻ keo kiệt. KHÔNG có hãm địa (chỉ 'hãm' khi bị Không Kiếp Hỏa Vong khắc chế).",
+        "nguyen_ly": "Sao Lộc thuộc Thổ — tính sinh nuôi muôn vật, đặt cung nào cũng có thể nuôi được.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM: Lộc Tồn — 12 cung đều miếu địa, không có hãm địa. Tương tự Khôi Việt."
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.loc_ton.Q02",
+      "question": "Lộc Tồn cho nữ mệnh thì sao?",
+      "answer_atom": "Nữ mệnh Lộc Tồn: người nhân từ chính trực, con gái thanh tú, khéo léo. Có sự hợp tác của Tử Vi, Thiên Phủ, Thiên Đồng thì Lộc Tồn càng thêm hay.",
+      "source_quote": "Trong nữ mệnh: Người nhân từ chính trực, con gái thanh tú, khéo léo. Có sự hợp tác của các sao Tử Vi, Thiên Phủ, Thiên Đồng, Lộc Tồn càng thêm hay.",
+      "source_page": 47,
+      "section_id": "tdts.S3",
+      "tags": ["star:loc_ton", "gender:nu", "trait:nhan_tu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đàn bà có Lộc Tồn = hiền lành, ngay thẳng, khéo tay.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.loc_ton.Q03",
+      "question": "Các cách Lộc Tồn quan trọng ghi trong Toàn Thư?",
+      "answer_atom": "Lộc Tồn thủ Tài/Trạch = vàng ngọc đầy nhà. Lộc Tồn Tí Ngọ + Thiên Di hoặc Thân Mệnh = lợi lộc vô số. Song Lộc trùng phùng (Lộc Tồn + Hóa Lộc) ở Thân Mệnh = chung thân phú quý (Lã Hậu chuyên quyền). Lộc gặp xung phá = cát thành hung. Lộc Tồn hậu trọng = thủ Mệnh người đầy đặn sống sung túc.",
+      "source_quote": "Lộc Tôn thủ ư tài trạch tích ngọc đôi kừn. … Lộc Tôn Tí Ngọ Thiên Di Thân Mệnh phùng chỉ lợi lộc nghỉ. … Song lộc trùng phùng chung thân phú quí. … Lộc phùng xung phá cát dã thành hung. … Song Lộc thủ mệnh Lã Hậu chuyên quyền. … Lộc Tôn hậu trọng đa y lộc.",
+      "source_page": 48,
+      "section_id": "tdts.S3",
+      "tags": ["star:loc_ton", "cach_cuc:song_loc", "case:la_hau", "domain:phu_quy"],
+      "commentary": {
+        "han_viet_explain": "Lã Hậu = vợ Hán Cao Tổ, nắm hết quyền bính; song Lộc trùng phùng = Lộc Tồn + Hóa Lộc gặp nhau.",
+        "viet_thuan": "Cách Song Lộc (Lộc Tồn gặp Hóa Lộc) thủ Mệnh là cực phẩm phú quý — Lã Hậu là điển hình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thien_ma.Q01",
+      "question": "Sao Thiên Mã chủ những điều gì? Các cách Mã với sao khác?",
+      "answer_atom": "Thiên Mã ở các cung đều có sự chế hóa. Vào Thân Mệnh gọi là Dịch Mã, cần Lộc Tồn, Tử Vi, Thiên Phủ, Xương Khúc thủ hay chiếu mới tốt. Đại Tiểu Hạn gặp Thiên Mã cũng cần các sao này. Mã + Lộc Tồn = Lộc Mã giao trì (hay Triệt Thiên Mã). Mã + Tứ Phủ = phù liễn mã (ngựa kéo xe vua). Mã + Hình Sát = phù thi mã (ngựa mang xác). Mã + Hỏa Tinh = chiến mã. Mã + Nhật Nguyệt = thư hùng mã. Mã + Không Vong = vong mã (ngựa lạc đường). Mã ở Tử Huyệt = tử mã. Mã + Đà La = triệt túc mã (ngựa què).",
+      "source_quote": "Thiên Mã ở các cung đều có sự chế hóa, vào cung Thân Mệnh, gọi là Dịch Mã thì cần Lộc Tôn, Tử Vi, Thiên Phủ, Xương Khúc thủ hay chiếu mới thật tốt. … Đồng cung với Lộc Tôn kêu bằng Lộc Mã giao trì hay Triệt Thiên Mã. Đồng cung với Tứ Phủ kêu bằng phù liễn mã, tức ngựa kéo xe vua. Đồng cung với Hình Sát gọi là phù thi mã, ngựa mang sác chết. Đồng cung với Hỏa Tinh gọi là chiến mã, ngựa trận. Đồng cung với Nhật Nguyệt kêu bằng thư hùng mã. Gặp Không Vong gọi là vong mã, ngựa lạc đường. Ở nơi Tử Huyệt kêu bằng tử mã, ngựa chết. Gặp Đà La kêu bằng triệt túc mã, ngựa què.",
+      "source_page": 48,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_ma", "category:phu_tinh", "alias:dich_ma", "combo:multi", "cach_cuc:loc_ma_giao_tri", "cach_cuc:chien_ma", "cach_cuc:vong_ma"],
+      "commentary": {
+        "han_viet_explain": "Dịch Mã = ngựa trạm; Lộc Mã giao trì = Lộc và Mã giao nhau; phù liễn mã = ngựa kéo xe vua; phù thi mã = ngựa chở xác.",
+        "viet_thuan": "Bộ điển danh Mã trong Toàn Thư — Mã đổi tên theo sao phối: Lộc Mã, Chiến Mã, Vong Mã, Tử Mã, Triệt Túc Mã.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thien_ma.Q02",
+      "question": "Thiên Mã thuộc hành gì? Phú đoán nào quan trọng?",
+      "answer_atom": "Toàn Thư KHÔNG ghi Thiên Mã thuộc hành gì. Phú đoán: Lộc Mã tối hỉ giao trì. Thiên Mã + tử sinh (cung tràng sinh) ở Thê cung = vợ con nhà phú quý, nhờ vợ. Mã ngộ Không Vong = chung thân bôn tẩu (suốt đời chạy ngược chạy xuôi).",
+      "source_quote": "Lộc Mã tối hỉ giao trì. (Mã cần gặp Lộc Tôn, tức Lộc Mã giao trì cách). Thiên Mã tử sinh, Thê cung phú quí hoàn đương phong tặng. … Mã ngộ Không Vong chung thân bôn tẩu. … Chú ý: Không thấy ghi sao Thiên Mã thuộc hành gì.",
+      "source_page": "48-49",
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_ma", "topic:ngu_hanh", "cach_cuc:loc_ma_giao_tri", "outcome:bon_tau"],
+      "commentary": {
+        "han_viet_explain": "chung thân bôn tẩu = suốt đời chạy ngược chạy xuôi.",
+        "viet_thuan": "Cách Lộc Mã giao trì là tinh hoa nhất của Thiên Mã. Mã gặp Không Vong thì suốt đời lao đao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Toàn Thư KHÔNG ghi Thiên Mã thuộc hành nào — flag gap trong source classical."
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_loc.Q01",
+      "question": "Sao Hóa Lộc chủ những điều gì?",
+      "answer_atom": "Hóa Lộc là thần của phúc đức. Thủ Thân Mệnh hay đứng Quan Lộc cung gặp Hóa Khoa Hóa Quyền tất làm bậc đại thần. Tiểu Hạn ngộ Hóa Lộc phát tài thăng chức. Đại Hạn 10 năm ngộ Hóa Lộc cát khánh. Hóa Lộc không sợ các ác tinh Dương Đà Hỏa Kỵ xung chiếu. Số đàn bà Hóa Lộc + cát tinh tọa hợp = mệnh phụ.",
+      "source_quote": "Hóa Lộc là thần của phúc đức, thủ Thân Mệnh hay đứng Quan Lộc cung gặp Hóa Khoa, Hóa Quyền tất làm đến bậc đại thần. Tiểu Hạn ngộ Hóa Lộc sẽ phát tài thăng chức. Đại Hạn 10 năm ngộ Hóa Lộc cát khánh. Hóa Lộc không sợ các ác tính như Dương Đà, Hỏa, Kỵ xung chiếu. Số đàn bà Hóa Lộc thủ Mệnh thêm cát tinh tọa hợp là mệnh phụ.",
+      "source_page": 49,
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_loc", "category:tu_hoa", "role:than_phuc_duc", "domain:phu_quy"],
+      "commentary": {
+        "han_viet_explain": "mệnh phụ = vợ quan, bà lớn.",
+        "viet_thuan": "Hóa Lộc — sao tài lộc + phúc đức. Không sợ Tứ Sát + Hóa Kỵ xung chiếu, là sao cát tinh mạnh nhất Tứ Hóa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_khoa.Q01",
+      "question": "Sao Hóa Khoa chủ những điều gì?",
+      "answer_atom": "Hóa Khoa coi về thi cử văn chương nghiên bút. Thủ Thân Mệnh gặp Quyền Lộc thì chức vị nhất phẩm; dù gặp ác sát tinh vẫn là loại văn chương tu sĩ vượt chúng siêu quần. Nữ mệnh Hóa Khoa chủ quý, không sợ gặp các ác tinh.",
+      "source_quote": "Trên Thượng giới Hóa Khoa tinh coi về thi cử văn chương nghiên bút, thủ Thân Mệnh gặp Quyền Lộc chức vị nhất phẩm dù gặp ác sát tinh vẫn là loại văn chương tu sĩ vượt chúng siêu quần. Nữ mệnh có Hóa Khoa chủ qui không sợ gặp các ác tinh.",
+      "source_page": 49,
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_khoa", "category:tu_hoa", "domain:thi_cu_van_chuong"],
+      "commentary": {
+        "han_viet_explain": "nhất phẩm = bậc cao nhất triều quan; nghiên bút = nghiên mực và bút.",
+        "viet_thuan": "Hóa Khoa = sao thi cử + văn chương. Cát ngay cả khi có ác sát. Nữ Khoa = sao quý nhân, không sợ tinh xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_quyen.Q01",
+      "question": "Sao Hóa Quyền chủ những điều gì?",
+      "answer_atom": "Hóa Quyền nắm việc sinh sát. Thủ Thân Mệnh hội Hóa Khoa Hóa Lộc = xuất tướng nhập tướng. Khoa với Quyền gặp nhau thì văn chương quán thế. Tiểu Hạn có Hóa Quyền rất tốt. Đại Hạn 10 năm ngộ Hóa Quyền tất nhiên đắc chí (sách viết là 'thất chí' nhưng Vũ Tài Lục flag là nghi sai). Hóa Quyền bị Dương Đà Hao Kỵ Không xung phá thường vì nghe lời sàm nịnh mà luy quan tụng, bị cất chức lưu đầy. Nữ mệnh Hóa Quyền tháo vát, đáng mệnh phụ.",
+      "source_quote": "Hóa Quyền nắm giữ việc sinh sát, thủ Thân Mệnh cung hội với Hóa Khoa, Hóa Lộc là người xuất tướng nhập tướng, Khoa với Quyền gặp nhau thì văn chương quán thế. Tiểu Hạn có Hóa Quyền rất tốt. Đại Hạn thập niên ngộ Hóa Quyền tất nhiên đắc chí (trong sách viết là tất nhiên thất chí?). Hóa Quyền bị Dương Đà Hao Kỵ Không xung phá thường vì nghe lời sàm nịnh mà luy vào ách quan tụng đến nỗi bị cất chức, lưu đầy.",
+      "source_page": 49,
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_quyen", "category:tu_hoa", "domain:quyen_uy", "conflict:typo_in_source"],
+      "commentary": {
+        "han_viet_explain": "xuất tướng nhập tướng = ra vào đều làm tướng; văn chương quán thế = văn chương đứng đầu đời.",
+        "viet_thuan": "Hóa Quyền = sao quyền lực sinh sát. Gặp Khoa Lộc = đại quý. Gặp Tứ Sát xung = bị cất chức lưu đày.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục flag typo trong Toàn Thư: sách viết 'thất chí' nhưng ngữ cảnh phải là 'đắc chí'. Đọc với cảnh giác."
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.tu_hoa.Q01",
+      "question": "Tứ Hóa Toàn Thư có nói miếu hãm không?",
+      "answer_atom": "Toàn Thư KHÔNG nói Hóa Lộc, Hóa Quyền, Hóa Khoa miếu hay hãm ở đâu. Phú nôm VN bổ sung: Hóa Lộc thủ Mệnh: Tí Ngọ Mão Dậu là vùng tốt. Hóa Quyền: Dần Mão Tị Hợi miếu địa. Hóa Khoa: Hợi Dần Thân Tỵ thủ Mệnh công danh khoa bảng tinh thông.",
+      "source_quote": "Sách Tử Vi Đẩu Số Toàn Thư không nói ba vị sao Hóa Lộc, Hóa Quyền, Hóa Khoa hãm hay miếu địa nơi nào, trong khi bài phú nôm của ta lại nêu miếu địa rõ ràng, tỉ dụ những câu: Hóa Lộc thủ ở Mệnh cung: Tí Ngọ Mão Dậu là vùng tốt tươi. Hóa Quyền chủ thế anh hùng: Dần Mão Tị Hợi là cung miếu đường. Hóa Khoa chủ văn chương thi cử: Hợi Dần Thân Tỵ thủ Mệnh cung, công danh khoa bảng tỉnh thông.",
+      "source_page": 49,
+      "section_id": "tdts.S3",
+      "tags": ["category:tu_hoa", "topic:mieu_ham", "conflict:school", "school_VN:bo_sung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Toàn Thư bỏ trống miếu hãm cho 3 Hóa cát tinh. Phái VN bổ sung: Lộc Tí Ngọ Mão Dậu; Quyền Dần Mão Tị Hợi; Khoa Hợi Dần Thân Tỵ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT TQ vs VN: Toàn Thư bỏ trống miếu hãm Tứ Hóa cát; VN bổ sung bằng phú nôm. Không thể xác định ai đúng."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.tu_hoa.Q02",
+      "question": "Các cách hợp chiếu Khoa Quyền Lộc quan trọng?",
+      "answer_atom": "Khoa Quyền Lộc hợp = phú quý song toàn. Lộc Quyền ở Mệnh phùng hợp cát = uy quyền áp chúng tướng vương triều. Quyền Lộc trùng phùng = tài quan song mỹ. Khoa ở Mệnh + Quyền triều = đăng dung giáp đệ (đỗ đạt). Hóa Lộc Tí Ngọ vị Thiên Di = phú tử văn chương quán thế. Khoa danh hãm ở hung thân = miêu nhi bất tú (khổ về thi cử). Quyền Lộc thủ Tài Phúc = xử thế vinh hoa. Quyền Lộc ở Nô Bộc dù có làm quan cũng khốn khổ.",
+      "source_quote": "Khoa Quyền Lộc hợp Phú Quý Song Toàn. … Lộc Quyền Mệnh Phùng Hợp Cát Uy Quyền Áp Chúng Tướng Vương Triều. … Quyền Lộc Trùng Phùng Tài Quan Song Mỹ. … Khoa Mệnh, Quyên Triều Đăng Dung Giáp Đệ. … Hoạt Lộc Tí Ngọ vị Thiên Di, Phú Tử Văn Chương Quán Thế. … Khoa Danh Hãm Ở Hung Thân Miêu Nhị Bất Tú. … Quyền Lộc Thủ Tài Phúc Chỉ Vị Xử Thế Vinh Hoa. … Quyền Lộc Cát Tỉnh Nô Bộc Vị, Túng Nhiên Quan Quý Đã Bôn Trì.",
+      "source_page": 50,
+      "section_id": "tdts.S3",
+      "tags": ["combo:khoa_quyen_loc", "cach_cuc:tam_hoa", "outcome:phu_quy", "outcome:khon_kho"],
+      "commentary": {
+        "han_viet_explain": "miêu nhi bất tú = mạ lúa không trổ bông; đăng dung giáp đệ = đỗ vào hàng đầu kỳ thi.",
+        "viet_thuan": "Bộ cách cục Khoa-Quyền-Lộc kinh điển trong Toàn Thư. Đặt ở Mệnh/Tài/Quan = quý phú; đặt Nô Bộc = khốn dù có quyền.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_ky.Q01",
+      "question": "Sao Hóa Kỵ chủ những điều gì (theo Toàn Thư)?",
+      "answer_atom": "Hóa Kỵ là đa quản chi thần, ở Thân Mệnh suốt đời bất thuận. Tiểu Hạn gặp Hóa Kỵ một năm làm ăn không hay; Đại Hạn thì 10 năm lận đận. Thêm Thái Tuế giao lại càng vất vả. Văn nhân vũ chức đều có tai họa bất ngờ về khẩu thiệt + tiền bạc, bán buôn. Hội Tử Vi, Thiên Phủ, Xương Khúc, Tả Hữu còn đỡ. Gặp Tứ Sát hợp phá thì công danh tiền bạc không khá. Nữ mạng bần yểu chỉ trông vào hạn.",
+      "source_quote": "Hóa Kỵ là đa quản (2) chỉ thần, ở Thân Mệnh suốt đời bất thuận. Tiểu Hạn gặp Hóa Kỵ một năm làm ăn không hay, Đại Hạn thì 10 năm lận đận. Đại Tiểu Hạn thêm Thái Tuế giao làm lại càng vất vả hơn. Văn nhân, vũ chức đều có tai họa bất ngờ về khẩu thiệt cũng như về tiền bạc, bán buôn. Nếu hội được với Tử Vi, Thiên Phủ, Xương Khúc, Tả Hữu còn đỡ. Nếu gặp luôn Tứ Sát hợp lại phá phách thì cả công danh lẫn tiền bạc chẳng mặt nào khá. Nữ mạng bần yểu chỉ trông vào hạn mà thôi.",
+      "source_page": 50,
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_ky", "category:tu_hoa", "trait:bat_thuan", "outcome:hung"],
+      "commentary": {
+        "han_viet_explain": "đa quản = quản nhiều việc, bị nhiều phiền hà; khẩu thiệt = thị phi miệng lưỡi.",
+        "viet_thuan": "Hóa Kỵ là sao xui — đặt ở Thân Mệnh thì suốt đời lận đận, hạn 10 năm khốn khó.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_ky.Q02",
+      "question": "Hóa Kỵ theo Toàn Thư có khác với cách hiểu VN không?",
+      "answer_atom": "Toàn Thư nói rất mơ hồ, cho Hóa Kỵ HOÀN TOÀN XẤU, đụng đâu hại đó. Phái VN tiền nhân giải kỹ hơn: Hóa Kỵ KHÔNG phải đụng đâu hại đó. Ở hai cung Tài Bạch và Điền Trạch lại RẤT ĐẮC DỤNG, thành thần giữ cửa giỏi giang. Hội Hóa Quyền = biến thành người mưu lược. Hội Thanh Long Long Đức = đám mây che chở cho rồng vùng vẫy. Miếu địa: Tý Hợi. Vượng địa: Dần, Mão, Dậu, Thân. Toàn Thư chỉ có hai câu thơ ghi tính tốt: 'Kị tỉnh nhập miếu phần vi giai, túng hữu quan tai diệc bất thương.'",
+      "source_quote": "Về sao này, sách Tử Vi Đẩu Số Toàn Thư nói rất mơ hồ cho Hóa Kỵ hoàn toàn xấu đụng đâu hại đó. Nhưng sang nước ta, tiền nhân Việt lại có những lời giải về Hóa Kỵ kỹ càng hơn, nói: Hóa Kỵ không phải đụng đâu hại đó. Ví dụ nó ở vào hai cung Tài Bạch và Điền Trạch lại rất đắc dụng, một thứ thần giữ cửa giỏi giang. Nó hội với Hóa Quyền lập tức biến thành người mưu lược; hội với Thanh Long, Long Đức biến ra đám mây che chở cho rồng vùng vẫy. Miếu địa của sao Hóa Kỵ là hai cung Tý, Hợi. Hóa Kỵ tính chất thuộc hành Thủy. Vượng địa của nó cũng ở các cung Dần, Mão, Dậu, Thân. Tử Vi Đẩu Số Toàn Thư chỉ có hai câu thơ nói đến tính tốt của Hóa Kỵ là: Kị tỉnh nhập miếu phần vi giai, túng hữu quan tai diệc bất thương.",
+      "source_page": 50,
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_ky", "category:tu_hoa", "conflict:school", "school_VN:phan_bien", "element:thuy"],
+      "commentary": {
+        "han_viet_explain": "đa quản = quản nhiều việc; thần giữ cửa = thần canh tài; phần vi giai = lại thành hay.",
+        "viet_thuan": "TQ Toàn Thư: Hóa Kỵ HOÀN TOÀN XẤU. VN: Kỵ ở Tài/Điền = ĐẮC DỤNG. Đây là conflict TQ-VN lớn nhất về Hóa Kỵ, Vũ Tài Lục flag rõ VN 'kỹ càng hơn'.",
+        "nguyen_ly": "Kỵ thuộc Thủy — nước có chỗ chảy (Tài/Điền) thì là nguồn lực; không có chỗ chảy thì phá hủy.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT QUAN TRỌNG: Toàn Thư = Kỵ hoàn toàn xấu. Phái VN = Kỵ ở Tài/Điền rất đắc dụng, gặp Quyền/Thanh Long thành cát. Vũ Tài Lục flag VN 'kỹ càng hơn'. Đây là điểm cần đối chiếu khi luận lá số."
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.kinh_duong.Q01",
+      "question": "Sao Kình Dương chủ những điều gì?",
+      "answer_atom": "Kình Dương là trợ tinh của Bắc Đẩu. Thủ Thân Mệnh tính thô bạo, cô độc, coi người thân thích như sơ, chịu ân trả oán. Nhập miếu địa tính quả quyết quả đoán, cơ mưu thám hiểm, hiếu dũng ưa quyền. Hợp người sinh Bắc phương và năm Thìn Tuất Sửu Mùi. Vào Mão Dậu hay tác họa. Người tuổi Giáp Mậu tất bị hung hoạ dù giàu cũng không lâu, bất thiện chung. Thêm Hóa Kỵ Kiếp Không xung phá → tàn tật. Nữ Kình Dương nhập miếu + cát = thượng cách; hao cách xung phá = khắc + hạ tiện.",
+      "source_quote": "Kình Dương là trợ tinh của sao Bắc Đẩu, thủ Thân Mệnh tính thô bạo, cô độc, coi người thân thích như sơ tính, chịu ân trả oán. Nhập miếu địa tính tình quả quyết, quả đoán, cơ mưu thám hiểm, hiếu dũng ưa quyền. Hợp với ai sinh ở Bắc phương và ai sinh nhằm năm tứ mộ Thìn, Tuất, Sửu, Mùi thì Kình Dương vào các cung Mão, Dậu hay tác họa gây tai ương hình khắc. Người tuổi Giáp, tuổi Mậu tất bị hung hoạ dù có giàu sang cũng chẳng lâu bền lại bất thiên chung.",
+      "source_page": 51,
+      "section_id": "tdts.S3",
+      "tags": ["star:kinh_duong", "category:sat_tinh", "constellation:bac_dau", "trait:tho_bao", "trait:co_doc"],
+      "commentary": {
+        "han_viet_explain": "trợ tinh = sao phụ; bất thiện chung = chết không yên; chịu ân trả oán = nhớ ơn nghĩa.",
+        "viet_thuan": "Kình Dương — sao Sát mạnh. Người Mệnh Kình hung dữ, cô độc, nhưng nhập miếu thì quyết đoán, mưu lược.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.kinh_duong.Q02",
+      "question": "Kình Dương miếu/vượng/hãm ở đâu?",
+      "answer_atom": "Kình Dương miếu địa: Thìn, Tuất, Sửu, Mùi. Vượng địa: Tý, Hợi, Thân. Hãm địa: Mão, Tỵ, Dậu, Ngọ.",
+      "source_quote": "Kình Dương miếu địa ở Thìn, Tuất, Sửu, Mùi; Vượng địa ở Tý, Hợi, Thân; hãm địa ở Mão, Tỵ, Dậu, Ngọ.",
+      "source_page": 51,
+      "section_id": "tdts.S3",
+      "tags": ["star:kinh_duong", "topic:mieu_ham"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vị trí mạnh yếu của Kình Dương trên 12 cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.kinh_duong.Q03",
+      "question": "Các phú đoán quan trọng về Kình Dương trong Toàn Thư?",
+      "answer_atom": "Kình Dương nhập miếu phú quý thanh dương. Dương + Hỏa đồng cung (Thìn Tuất Sửu Mùi) uy quyền áp chúng. Kình Dương Tý Ngọ Mão Dậu phi yếu triết tất hình thương (Ngọ nặng nhất). Kình Dương phùng Lực Sĩ — Lý Quảng nan phong. Kình Đà Hỏa Linh: phùng cát phát tài, ngộ hung tắc kỵ. Dương Linh tọa Mệnh lưu niên Bạch Hổ tại thương. Dương Đà hiệp Kỵ = bại cục. Kình Dương đối thủ Dậu cung + tuế diệt Dương Đà = người tuổi Canh rất xấu. Kình Dương + lưu Kình = Tây Thi khuynh vẫn thân.",
+      "source_quote": "Kình Dương nhập miếu phú quý thanh dương. … Dương Hỏa đông cung uy quyên áp chúng. … Kình Dương Tý, Ngọ, Mão, Dậu phi yếu triết tất hình thương. … Kình Dương phùng Lực Sĩ Lý Quảng nan phong. … Kình Đà Hỏa Linh, phùng cát phát tài ngộ hung tắc kị. … Dương, Linh tọa Mệnh lưu niên Bạch Hổ tại thương. … Dương Đà hiệp Kỵ vi bại cục. … Kình Dương đối thủ tại Dậu cung, tuế diệt Dương Đà Canh mệnh hung. … Kình Dương trùng phùng lưu Dương Tây Thi khuynh vẫn thân.",
+      "source_page": 51,
+      "section_id": "tdts.S3",
+      "tags": ["star:kinh_duong", "combo:kinh_duong+hoa_tinh", "cach_cuc:duong_hoa_dong_cung", "case:tay_thi", "case:ly_quang", "outcome:hung"],
+      "commentary": {
+        "han_viet_explain": "phi yếu triết = không chết non; hình thương = bị thương tật; thanh dương = vang danh; Lý Quảng = danh tướng Hán không được phong hầu; Tây Thi = mỹ nhân Tây Thi.",
+        "viet_thuan": "Kình Dương miếu = phú quý. Kình + Hỏa đồng cung = quyền lớn (CHÚ Ý: Dương-Hỏa cũng là combo cát khi đắc cách). Kình ở Tý/Ngọ/Mão/Dậu hãm = chết non hoặc tàn tật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.kinh_duong.Q04",
+      "question": "Kình Dương ở Ngọ thủ Mệnh — Toàn Thư có conflict với VN không?",
+      "answer_atom": "VN có câu 'Mệnh viên Ngọ tọa Kình Dương / Mã đầu đới kiếm biên cương trị vì' (cách Mã Đầu Đới Kiếm — tốt, làm tướng biên cương). Toàn Thư có câu 'Kình Dương Tý Ngọ Mão Dậu phi yếu triết tất hình thương' (Ngọ hãm địa, chết non hoặc tàn tật, Ngọ nặng nhất). Hai câu trái ngược — Vũ Tài Lục flag conflict.",
+      "source_quote": "Về sao Kình Dương, Tử Vi Đẩu Số Toàn Thư với phú đoán của tiền nhân ta có điểm khác biệt nếu ta đem so hai câu: 1. Mệnh viên Ngọ tọa Kình Dương / Mã đầu đới kiếm biên cương trị vì. 2. Kình Dương Tý, Ngọ, Mão, Dậu phi yếu triết tất hình thương.",
+      "source_page": 51,
+      "section_id": "tdts.S3",
+      "tags": ["star:kinh_duong", "conflict:school", "school_VN:phan_bien", "cach_cuc:ma_dau_doi_kiem"],
+      "commentary": {
+        "han_viet_explain": "Mã đầu đới kiếm = đầu ngựa đeo kiếm — cách võ tướng biên cương.",
+        "viet_thuan": "Mâu thuẫn TQ-VN về Kình Dương ở Ngọ: VN = cách Mã Đầu Đới Kiếm (võ tướng); Toàn Thư = Ngọ là hãm địa nặng nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT TQ vs VN: Kình Dương ở Ngọ — Toàn Thư cho là hãm địa (chết non/tàn tật); VN cho là Mã Đầu Đới Kiếm (võ tướng biên cương). Cần đối chiếu khi luận lá số."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.kinh_duong.Q05",
+      "question": "Combo Kình Đà Hỏa Linh phát tài là gì?",
+      "answer_atom": "Bốn sao Kình Dương, Đà La, Hỏa Tinh, Linh Tinh gặp sao tốt thì phát tài; gặp hung thì đại kỵ. Đây là combo lật paradigm — Tứ Sát không hoàn toàn xấu, có thể là sao phát tài khi phối cát.",
+      "source_quote": "Kình Đà Hỏa Linh, phùng cát phát tài ngộ hung tắc kị (Bốn sao Kình Dương, Đà La, Hỏa Tinh, Linh Tinh gặp sao tốt phát tài, gặp sao hung đại kỵ).",
+      "source_page": 51,
+      "section_id": "tdts.S3",
+      "tags": ["combo:tu_sat", "paradigm:phat_tai_combo", "cach_cuc:tu_sat_phat_tai"],
+      "commentary": {
+        "han_viet_explain": "phùng cát = gặp sao tốt; tắc kỵ = thì kỵ.",
+        "viet_thuan": "Tứ Sát Kình Đà Hỏa Linh KHÔNG hoàn toàn xấu — gặp cát thì phát tài. Đây là điểm chính sách bám.",
+        "nguyen_ly": "Sát tinh = năng lượng mạnh, phải có cát điều phối thì thành lực phát; không có thì thành phá.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM LẬT: Tứ Sát phùng cát PHÁT TÀI. Không phải sát tinh nào cũng phải tránh — phối hợp đúng thì là combo phú."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.da_la.Q01",
+      "question": "Sao Đà La chủ những điều gì?",
+      "answer_atom": "Đà La là trợ tinh của Bắc Đẩu. Thủ Thân Mệnh thì lòng hay làm điều bất chính, dễ khóc thầm (ám lệ trường lưu), tính cương mãnh, hành động thành cũng ngang phá cũng ngang, phiêu đãng bất định. Đi với Tham Lang vì tửu sắc đến lao bệnh. Đi với Hỏa Tinh hay mắc bệnh ngứa ghẻ. Ở Tật Ách có ám tật. Người Thìn Tuất Sửu Mùi có Đà La miếu địa vào võ rất hay, vào văn lận đận. Đà La hãm + ác sát = hình khắc. Nữ Đà La = hạ cách.",
+      "source_quote": "Đà La là trợ tinh của Bắc Đẩu, thủ ở Thân Mệnh thì lòng thường làm điều bất chính, dễ bị khóc thầm (ám lệ trường lưu), tính cương mãnh, hành động có thành cũng ngang mà phá cũng phá ngang, phiêu đãng bất định. Đi cùng với Tham Lang vì tửu sắc đến nỗi lao bệnh, đi cùng với Hỏa Tinh hay mắc bệnh ngứa ghẻ. Ở cung Tật Ách có ám tật. Những người tuổi Thìn, Tuất, Sửu, Mùi có Đà La miếu địa đi vào ngành võ rất hay, vào ngành văn lận đận. Đà La hãm địa thêm ác sát thì hình khắc. Nữ mệnh Đà La là hạ cách.",
+      "source_page": 52,
+      "section_id": "tdts.S3",
+      "tags": ["star:da_la", "category:sat_tinh", "constellation:bac_dau", "trait:phieu_dang", "outcome:am_le"],
+      "commentary": {
+        "han_viet_explain": "ám lệ trường lưu = nước mắt thầm chảy hoài; ám tật = bệnh ngầm.",
+        "viet_thuan": "Đà La — sao Sát mềm. Người Mệnh Đà hay khóc thầm, bất chính, phiêu đãng. Đi với Tham Lang/Hỏa Tinh = bệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.da_la.Q02",
+      "question": "Đà La miếu/vượng/hãm ở đâu? Phú đoán?",
+      "answer_atom": "Đà La miếu địa: Thìn, Tuất, Sửu, Mùi. Hãm địa: Mão, Dậu. Bình thường: Tị, Hợi. Phú: Đà La Tị, Hợi, Dần, Thân phi yếu triết nhỉ hình thương (chết non, tàn phế). Theo La Hồng Tiên, cách thoát là bỏ tổ nghiệp đi tha hương.",
+      "source_quote": "Đà La miếu địa Thìn, Tuất, Sửu, Mùi; hãm địa Mão Dậu; bình thường Tị Hợi. Đà La Tị, Hợi, Dần, Thân phi yếu triết nhỉ hình thương. (Ở các cung Tị, Hợi, Dần, Thân nếu không chết non, chết yểu cùng thành tàn phế. Theo kinh nghiệm của La Hồng Tiên thì trong trường hợp trên đây chỉ có cách bỏ tổ nghiệp đi tha hương tha xứ mới thoát khỏi).",
+      "source_page": 52,
+      "section_id": "tdts.S3",
+      "tags": ["star:da_la", "topic:mieu_ham", "case:la_hong_tien", "remedy:tha_huong"],
+      "commentary": {
+        "han_viet_explain": "tha hương tha xứ = bỏ quê đi xa.",
+        "viet_thuan": "Đà La Tị Hợi Dần Thân = chết non / tàn phế. Cách hóa giải duy nhất theo La Hồng Tiên: bỏ tổ nghiệp tha hương.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.kinh_da.Q01",
+      "question": "Tổng luận của Ngọc Thiểm về Kình Đà?",
+      "answer_atom": "Kình Đà thuộc hành Hỏa-Kim, vào số mệnh thường tượng trưng hung ác. Hóa khí Kình Dương = Hình; hóa khí Đà La = Kỵ. Xâm nhập tam hợp xung chiếu Mệnh Thân + gặp Tả Hữu Xương Khúc = có nốt ruồi lạ. Đà Kình + Nhật Nguyệt: nữ khắc sát chồng con, nam khắc sát thê tử; đồng cung Nhật Nguyệt = mục tật / khắc cha mẹ. Hội Tham Lang = rượu chè trai gái khốn khổ. Hội Đào Hoa = ăn chơi mang họa. Hội Hỏa Linh = gian manh.",
+      "source_quote": "Kình Dương, Đà La thuộc hành Hỏa Kim, vào số mệnh thường là tượng trưng của hung ác. Hoá khí của Kình Dương là Hình, hoá khí của Đà La là Kỵ. Nếu chúng xâm nhập vào các cung tam hợp xung chiếu Mệnh Thân mà gặp Tả Hữu, Xương Khúc trong người thế nào cũng có nốt ruồi lạ. Đà La, Kình Dương gặp Nhật Nguyệt, nữ mệnh khắc sát chồng con, nam mệnh khắc sát thê tử. Đông cung với Nhật Nguyệt bị mục tật hay khắc cha khắc mẹ. Hội cùng Tham Lang vì rượu chè trai gái mà khốn khổ. Hội cùng Đào Hoa vì ăn chơi mà mang hoạ. Tụ tập với Hỏa Linh thành kẻ gian manh.",
+      "source_page": 52,
+      "section_id": "tdts.S3",
+      "tags": ["combo:kinh_da", "author:ngoc_thiem", "element:hoa_kim", "hoa_khi:hinh_ky", "trait:not_ruoi"],
+      "commentary": {
+        "han_viet_explain": "hóa khí = khí biến hóa của sao; mục tật = bệnh mắt.",
+        "viet_thuan": "Ngọc Thiểm tiên sinh tổng luận: Kình hóa Hình, Đà hóa Kỵ. Gặp các sao khác thành combo bệnh/đào hoa/hình khắc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.da_la.Q03",
+      "question": "Cách Đà La độc thủ là gì?",
+      "answer_atom": "Đà La độc thủ = Mệnh không chính tinh, Đà La thủ Mệnh ở miếu địa. Là thứ số lạ, anh hùng hoặc đại gian đại ác, lúc phát vận rất mau.",
+      "source_quote": "Phải kể đến cách Đà La độc thủ nghĩa là mệnh không chính tính mà Đà La thủ mệnh miếu địa kể vào thứ số lạ, anh hùng hoặc đại gian đại ác, lúc phát vận rất mau.",
+      "source_page": 52,
+      "section_id": "tdts.S3",
+      "tags": ["star:da_la", "cach_cuc:da_la_doc_thu", "outcome:anh_hung_or_dai_ac"],
+      "commentary": {
+        "han_viet_explain": "độc thủ = một mình thủ Mệnh; vô chính tinh = không có chính tinh.",
+        "viet_thuan": "Cách Đà La đơn thủ Mệnh ở miếu — lá số đặc biệt: hoặc anh hùng hoặc đại gian, phát rất nhanh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_tinh.Q01",
+      "question": "Sao Hỏa Tinh chủ những điều gì?",
+      "answer_atom": "Hỏa Tinh là đại sát tướng, Nam Đẩu hiệu Sát Thân. Thủ Thân Mệnh = không nên đứng cung khác. Tính khí trầm độc, cương cường xuất chúng, râu tóc kỳ lạ, môi răng có thương ngân (vết thương). Gặp Dương Đà = gian truân từ nhỏ, nên cho người khác nuôi. Lợi Đông Nam, bất lợi Tây Bắc. Gặp Tham Lang ở vượng địa = phong hầu thượng tướng, huân nghiệp biên đình. Tam phương không có sát phá = đại phát cuối trung niên. Tăng đạo phá giới. Nữ vượng địa = khiết; hãm địa = tà dâm, hình phu khắc tử.",
+      "source_quote": "Hỏa Tinh đại sát tướng / Nam đẩu hiệu sát thân / Nhược thủ thân mệnh vị / Chư cung bất khả làm / Tính khí diệc trầm độc / Cương cường xuất chúng nhân / Mao phát đạt đa dỊ loại / Thần sỉ hữu thương ngàn / Cánh dữ Dương Đà hội / Cưỡng bảo tất tai chuân / Quá phòng xuất ngoại dưỡng / Nhị tỉnh đông nam lợi / Bất lợi tây bắc sinh / Nhược đắc Tham Lang hội / Vượng địa quý vô luận / Phong hầu cư thượng tướng / Huân nghiệp trước biên đình / Tam phương vô sát phá / Trung niên hậu thủy hưng / Tăng đạo đa phiêu đãng / Bất thủ qui giới tâm / Nữ nhân vượng địa khiết / Hãm địa chủ tà dâm / Hình phu hựu khắc tử / Hạ tiện lao bác nhân.",
+      "source_page": "52-53",
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_tinh", "category:sat_tinh", "alias:sat_than", "constellation:nam_dau", "trait:tram_doc"],
+      "commentary": {
+        "han_viet_explain": "Sát Thân = sát chính thân mạng; quá phòng = cho người khác làm con nuôi; huân nghiệp = công lao lớn.",
+        "viet_thuan": "Hỏa Tinh — đại sát mạnh nhất Tứ Sát. Người Mệnh Hỏa hung dữ, tướng quái dị. Cần Tham Lang vượng địa thì thành đại tướng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_tinh.Q02",
+      "question": "Hỏa Tinh miếu/vượng/hãm ở đâu? VN có bổ sung gì?",
+      "answer_atom": "Hỏa Tinh miếu địa: Dần, Ngọ, Tuất. Bình thường: Tị, Dậu, Sửu. Hãm địa: Hợi. Phái VN cho thêm 2 nơi miếu: Tí và Mão. Phú VN: 'Hỏa cư Hợi ngộ tuyệt đồng / Tham Linh củng hội lẫy lừng uy danh' — tức Hỏa ở hãm Hợi hoặc tuyệt địa Tràng Sinh mà gặp Tham Lang Linh Tinh thì uy danh lẫy lừng.",
+      "source_quote": "Hỏa Tinh miếu địa Dần, Ngọ, Tuất; bình thường Tị, Dậu, Sửu; hãm địa Hợi. … Tiền nhân ta cho Hỏa Tinh hai nơi miếu địa nữa là cung Tí và Mão, và đưa ra một câu phú khá quan trọng đối với sao này: Hoá cư Hợi ngộ tuyệt đồng / Tham Linh củng hội lẫy lừng uy danh.",
+      "source_page": 53,
+      "section_id": "tdts.S3",
+      "tags": ["star:hoa_tinh", "topic:mieu_ham", "conflict:school", "school_VN:bo_sung", "cach_cuc:tham_linh_cung_hoi"],
+      "commentary": {
+        "han_viet_explain": "tuyệt đồng = ở cung Tuyệt của vòng Tràng Sinh; cung hội = chiếu hội về.",
+        "viet_thuan": "VN bổ sung Tí + Mão làm miếu Hỏa Tinh. Và cách 'Tham Linh cung hội' — Hỏa hãm gặp Tham Lang Linh Tinh chiếu thì lẫy lừng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT TQ vs VN: Hỏa Tinh — Toàn Thư 3 miếu (Dần Ngọ Tuất); VN thêm 2 (Tí Mão). VN có thêm cách 'Tham Linh cung hội' lẫy lừng uy danh."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.hoa_tinh.Q03",
+      "question": "Cách Hỏa Linh và Hỏa Tham?",
+      "answer_atom": "Hỏa Linh tương ngộ = danh chấn chư bang (tiếng tăm vang đội tới nước ngoài). Hỏa Linh hiệp mệnh = bại cục (Mệnh giáp Linh giúp Hỏa là bại cục). → Combo Hỏa-Linh ĐẮC Mệnh thì cát; HIỆP (kẹp) Mệnh thì hung. Hỏa Tinh + Tham Lang vượng địa = phong hầu thượng tướng, huân nghiệp biên đình.",
+      "source_quote": "Hỏa Linh tương ngộ danh chấn chư bang (Ý nghĩa: Hỏa Tinh gặp Linh Tinh ở Mệnh, tiếng tăm vang đội tới nước ngoài). Hỏa Linh hiệp mệnh vi bại cục (Ý nghĩa: Mệnh giáp Linh giúp Hỏa là bại cục). … Nhược đắc Tham Lang hội, Vượng địa quý vô luận, Phong hầu cư thượng tướng, Huân nghiệp trước biên đình.",
+      "source_page": "53,52",
+      "section_id": "tdts.S3",
+      "tags": ["combo:hoa_linh", "combo:hoa_tham", "cach_cuc:hoa_tham_phu_quy", "cach_cuc:hoa_linh_danh_chan", "paradigm:sat_tinh_phu_quy"],
+      "commentary": {
+        "han_viet_explain": "chư bang = các nước; phong hầu = được phong tước hầu; huân nghiệp = công nghiệp lớn.",
+        "viet_thuan": "Hỏa-Tham là combo PHÚ QUÝ kinh điển: sát tinh + dục tinh đắc vượng → đại tướng biên cương. Hỏa-Linh ngộ Mệnh thì danh chấn quốc tế.",
+        "nguyen_ly": "Sát tinh + Tham (dục) = năng lượng + tham vọng → khi đắc địa = biến thành lực vô địch.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM LẬT QUAN TRỌNG: Hỏa-Tham và Linh-Tham là combo PHÚ QUÝ (lật ngược paradigm 'sát tinh phải tránh'). Hỏa-Linh ngộ Mệnh = danh chấn chư bang (tốt); Hỏa-Linh HIỆP Mệnh (kẹp Mệnh) = bại cục (xấu). Hai cách dùng ngược nhau."
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.linh_tinh.Q01",
+      "question": "Sao Linh Tinh chủ những điều gì?",
+      "answer_atom": "Linh Tinh thuộc Nam Đẩu, vi tông thần. Trí nhân Thân Mệnh: tính cách trầm ngâm lầm lì, hình mạo kỳ quái nhưng oai nghiêm. Uy thế hữu thanh danh. Gặp Tham Lang = chỉ nhật lập biên đình. Miếu địa = tài quan quý; hãm địa = cô bần. Dương Đà tấu hợp = hình đại bất thanh, cô đơn, tính khí thô, thường bị thương đới tật. Tăng đạo phiêu đãng, hoàn tục vô luân. Nữ vô cát = hình khắc thiểu lục thân, chung thân bất trinh khiết, thọ yểu khôn bần.",
+      "source_quote": "Đại sát Linh Tinh tướng / Nam đẩu vi tông thần, trí nhân thân mệnh giả; tính cách diệc trầm ngâm, hình mạo đa dị loại. Uy thế hữu thanh danh, nhược dữ Tham Lang hội chỉ nhật lập biên đình. Miếu địa tài quan quí, hãm địa chủ cô bần. Dương Đà nhược tấu hợp, kỳ hình đại bất thanh; cô đơn tính khí tổ, tân thương đới tật nhân. Tăng đạo đa phiêu đãng, hoàn tục định vô luân. Nữ nhân vô cát diệu, hình khắc thiểu lục thân, chung thân bất trinh khiết, thọ yểu nhưng khôn bần.",
+      "source_page": "53-54",
+      "section_id": "tdts.S3",
+      "tags": ["star:linh_tinh", "category:sat_tinh", "constellation:nam_dau", "trait:tram_ngam", "domain:bien_dinh"],
+      "commentary": {
+        "han_viet_explain": "tông thần = thần chủ; chỉ nhật lập biên đình = một sớm lập công ngoài biên ải; khôn bần = khốn cùng.",
+        "viet_thuan": "Linh Tinh — đại sát Nam Đẩu. Gặp Tham Lang = công danh biên cương. Hãm thì cô bần. Nữ Linh Tinh = không trinh khiết.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.linh_tinh.Q02",
+      "question": "Linh Tinh gặp Thất Sát/Phá Quân/Liêm Trinh+Dương Đà/Tham Lang thì sao?",
+      "answer_atom": "Gặp Thất Sát = chết nơi trận tiền. Gặp Phá Quân = vong gia bại sản. Gặp Liêm Trinh + Dương Đà hoặc Kiếp Không = tai nạn đao binh. Hãm địa gặp Tham Lang = danh phận vất vả. Đắc địa gặp Tham Lang = phú quý vô tả. Linh Tinh là đại sát tinh — khi gây ác hoạ thì khó ngăn, hung hoạ triền miên.",
+      "source_quote": "Thân Sát chủ trận vong, Phá Quân tài ốc khuynh. Liêm Trinh, Dương Đà hay Kiếp Không chủ đao binh. Hoặc ngộ Tham Lang Tú, Quan Lộc diệc bất ninh. Nhược phùng cư vượng địa, phú quí bất khả luận. … Nó gặp Thất Sát bị chết nơi trận tiền; gặp Phá Quân vong gia bại sản; gặp Liêm Trinh, Dương Đà hay Kiếp Không có tai nạn về đao binh. Hãm địa gặp Tham Lang danh phận vất vả. Đắc địa gặp Tham Lang phú quí vô tả.",
+      "source_page": 54,
+      "section_id": "tdts.S3",
+      "tags": ["star:linh_tinh", "combo:linh_tham", "combo:linh_that_sat", "combo:linh_pha_quan", "outcome:tran_vong", "outcome:phu_quy"],
+      "commentary": {
+        "han_viet_explain": "tài ốc khuynh = nhà cửa nghiêng đổ; phú quý vô tả = phú quý không tả nổi.",
+        "viet_thuan": "Linh Tinh là sao 'đen-trắng cực': gặp Thất/Phá/Liêm + Sát = đại hung; gặp Tham Lang đắc địa = đại phú.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM LẬT: Linh-Tham đắc địa = phú quý không tả nổi. Bộ ba Hỏa-Linh-Tham vượng địa là combo PHÚ QUÝ kinh điển trong Toàn Thư."
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khong_kiep.Q01",
+      "question": "Sao Thiên Không - Địa Kiếp chủ những điều gì?",
+      "answer_atom": "Hai sao thủ Thân Mệnh: gặp tốt thì tốt, gặp hung liền hung. Bị Tứ Sát xung chiếu: nhẹ là hạ tiện, nặng là số mệnh lục súc. Đi tu cũng bất chính; con gái làm tì thiếp, hình khắc, cô độc. Đại Tiểu Hạn gặp Không Kiếp = phá tài phá nghiệp. Phú VN nói: Thiên Không hội Đào Hoa = cầm kỳ thi họa tài ba tuyệt vời, cơ mưu quyền biến hơn người, ngàn năm mệnh bạc đời tài hoa. Thiên Không còn tên Không Vong.",
+      "source_quote": "Hai sao này thủ ở Thân Mệnh gặp tốt thì tốt, gặp hung liền hung. Nếu bị Tứ Sát xung chiếu nhẹ là loại hạ tiện, nặng là số mệnh của lục súc. Đi tu ở cửa thiền cũng bất chính, con gái làm tì thiếp hình khắc và cô độc. Đại Tiểu Hạn gặp Không Kiếp phá tài, phá nghiệp. … Thiên Không hội với Đào Hoa / Cầm Kỳ thi họa tài ba tuyệt vời / Cơ mưu quyền biến hơn người / Ngàn năm mệnh bạc là đời tài hoa. … Sao Thiên Không còn có một tên khác là Không Vong.",
+      "source_page": 55,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_khong", "star:dia_kiep", "category:sat_tinh", "alias:khong_vong", "trait:menh_bac_tai_hoa", "outcome:pha_tai"],
+      "commentary": {
+        "han_viet_explain": "lục súc = sáu loại gia súc — hạ thấp nhất; cầm kỳ thi họa = bốn nghệ thuật cổ.",
+        "viet_thuan": "Không Kiếp là sao 'mệnh bạc tài hoa'. Đặt ở Thân Mệnh đa số bị Tứ Sát xung thì hỏng, nhưng hội Đào Hoa thì tài hoa kiệt xuất chỉ là mệnh bạc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khong_kiep.Q02",
+      "question": "Các phú đoán quan trọng về Kiếp Không?",
+      "answer_atom": "Kiếp Không hiệp Mệnh = bại cục. Kiếp Không lâm hạn = Sở Bá Vương táng quốc, Lục Châu nhảy lầu tự tận. Sinh sứ Kiếp Không = bay lên giữa trời gãy cánh. Kiếp Không lâm Tài/Phúc = sinh ra đã nghèo hèn.",
+      "source_quote": "Kiếp Không hiệp Mệnh vi bại cục. … Kiếp Không lâm hạn Sử Vương táng quốc Lục Châu vong. (Gặp hạn Kiếp Không, Sở Bá Vương đổ vỡ hết nghiệp lớn. Gặp hạn Kiếp Không, nàng Lục Châu người thiếp yêu của Thạch Sùng phải nhảy lầu tự tận). Sinh sứ Kiếp Không do như bán thiên triết kiều. (Nơi tràng sinh có Kiếp Không khác nào bay lên giữa tầng trời bị gãy cánh). Kiếp Không lâm tài phúc chỉ hương sinh lai bắn tiện. (Hai sao Kiếp Không rơi vào cung Phúc Đức và Tài Bạch mới sinh ra đã nghèo hèn).",
+      "source_page": 55,
+      "section_id": "tdts.S3",
+      "tags": ["combo:khong_kiep", "cach_cuc:hiep_menh", "case:so_ba_vuong", "case:luc_chau", "outcome:dai_hung"],
+      "commentary": {
+        "han_viet_explain": "Sở Bá Vương = Hạng Vũ; Lục Châu = thiếp Thạch Sùng nhảy lầu tự tử; bán thiên triết kiều = giữa trời gãy cánh.",
+        "viet_thuan": "Kiếp Không hiệp Mệnh và Kiếp Không vào Tài/Phúc là hung cách lớn. Sở Bá Vương và Lục Châu là điển hình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thuong_su.Q01",
+      "question": "Sao Thiên Thương - Thiên Sứ chủ những điều gì?",
+      "answer_atom": "Thiên Thương = sao chủ hư hao. Thiên Sứ = sao mang sứ mạng truyền đi. Lưu niên vận hạn Thái Tuế gặp Thương Sứ — không cần hỏi đắc địa hay không; gặp cát tinh mới tốt, hội với Cự Môn, Thiên Cơ, Kình Dương, Đà La, Hỏa Tinh, Hóa Kỵ tất năm đó phá bại. Hạn Thiên Thương + ác tính = Khổng Tử (Trọng Ni) tuyệt lương ở nước Trần, Đặng Thông vong (chết).",
+      "source_quote": "Thiên Thương là sao chủ về sự hư hao, còn Thiên Sứ là sao mang sứ mạng truyền đi. Lưu niên vận hạn, Thái Tuế gặp Thiên Thương, Thiên Sứ không cần hỏi đắc địa hay không đắc địa; nếu gặp cát tinh mới tốt, nhược bằng hội với Cự Môn, Thiên Cơ, Kình Dương, Đà La, Hỏa Tinh, Hóa Kỵ tất năm ấy phá bại. … Hạn chí Thiên Hao hiệu Thiên Thương / Phu tử tại Trần dã tuyệt lương. … Thiên Thương gia ác điệu Trọng Ni tuyệt lương, Đặng Thông vong.",
+      "source_page": "55-56",
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_thuong", "star:thien_su", "category:sat_tinh", "case:khong_tu", "case:dang_thong", "topic:han"],
+      "commentary": {
+        "han_viet_explain": "Trọng Ni = tên tự Khổng Tử; Đặng Thông = quan thời Hán bị mất hết của; tuyệt lương = hết lương ăn.",
+        "viet_thuan": "Thương Sứ là sao Hạn — chuyên đốn ngã năm đó. Khổng Tử bị tuyệt lương, Đặng Thông chết, Thạch Sùng tan nhà.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thien_hinh.Q01",
+      "question": "Sao Thiên Hình chủ những điều gì?",
+      "answer_atom": "Thiên Hình thủ Mệnh Thân: nếu không đi tu thì cô độc, lắm tai nạn, chết non hoặc nghèo khổ. Anh em cha mẹ bất toàn. Hạn gặp Thiên Hình = quan tụng, mất tiền. Nhập miếu rất tốt.",
+      "source_quote": "Thiên Hình thủ Mệnh Thân nếu không đi tu thì cũng cô độc, lắm tai lắm nạn, không non yếu thì nghèo khổ. Anh em cha mẹ bất toàn. Hạn gặp Thiên Hình có quan tụng, mất tiền. Nhập miếu rất tốt.",
+      "source_page": 56,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_hinh", "category:sat_tinh", "trait:co_doc", "outcome:quan_tung"],
+      "commentary": {
+        "han_viet_explain": "quan tụng = kiện cáo; bất toàn = không nguyên vẹn.",
+        "viet_thuan": "Thiên Hình Mệnh = cô độc, đi tu, kiện cáo. Nhập miếu thì tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thien_hinh.Q02",
+      "question": "Thiên Hình thực sự là hung tinh hay không?",
+      "answer_atom": "Bài ca: Thiên Hình KHÔNG hẳn là hung tinh. Nhập miếu = HỈ THẦN (thần vui). Hội Xương Khúc cát tinh = người quan trọng triều đình. Thiên Hình ở Dần, Dậu Tuất, Mão = tự sáng rực rỡ. Gặp Văn tinh = thành đại nghiệp, nắm trăm vạn binh biên cương. Toàn Thư không có câu phú riêng cho Thiên Hình. VN bổ sung: Thái Tuế gặp Thiên Hình ở đâu là lắm tai họa; Thiên Hình + Kình Dương + Kiếp Sát dễ vào tù; cung Tử Tức có Hình Sát khó hiếm con.",
+      "source_quote": "Thiên Hình vị tất thị hung tinh / Nhập miếu danh vi thiên Hỉ Thần / Xương Khúc cát tỉnh lại tấu hợp / Định nhiên hiển hách đáo vương đình / Hình cương Dần thượng tinh Dậu Tuất / Cánh làm Mão vị tự quang minh / Tất ngộ Văn tinh thành đại nghiệp / Trưởng ác biên cương bách vạn binh. … Thiên Hình không hẳn là một hung tinh. Nếu nó nhập miếu lại là Hỉ Thần.",
+      "source_page": 56,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_hinh", "paradigm:khong_han_la_hung", "alias:hi_than", "combo:thien_hinh+xuong_khuc"],
+      "commentary": {
+        "han_viet_explain": "Hỉ Thần = thần vui, đem niềm vui; đáo vương đình = đến triều đình vua.",
+        "viet_thuan": "Bài ca Toàn Thư lật ngược paradigm 'Thiên Hình là hung tinh': nhập miếu = Hỉ Thần. Đi với văn tinh thành đại tướng biên cương trăm vạn binh.",
+        "nguyen_ly": "Thiên Hình = nguyên lý hình pháp/kỷ luật. Đúng chỗ (miếu) thì là sức mạnh kỷ luật chỉ huy quân đội; sai chỗ (hãm) thì là tai họa hình tù.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM LẬT QUAN TRỌNG: Thiên Hình KHÔNG hẳn là hung tinh — nhập miếu là HỈ THẦN. Gặp Xương Khúc và Văn tinh thì hiển hách triều đình, nắm trăm vạn binh. Toàn Thư đặt nguyên lý cao hơn cách nhìn 'sao Hình = phải tránh'."
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thien_rieu.Q01",
+      "question": "Sao Thiên Riêu chủ những điều gì?",
+      "answer_atom": "Thiên Riêu thủ Mệnh Thân: tâm tính âm độc, đa nghi, ưa nhan sắc phong lưu, đa dâm. Miếu địa = phú quý nhiều người hầu hạ. Cư Hợi = người học thức. Hội ác tinh = phá gia bại sản vì sắc dục, mang tai tiếng hoặc phạm hình. Hạn Thiên Riêu = chẳng cần mai mối cũng nên vợ chồng. Riêu + Tử Vi = người phong nhã đa tình; thêm Hồng Loan càng dâm dật. Gặp Kình Dương Thiên Hình chủ yếu (nguyên văn không rõ).",
+      "source_quote": "Thiên Riêu thủ Mệnh Thân tâm tính âm độc, đa nghi, ưa nhan sắc phong lưu, đa dâm. Vào miếu địa phú quý nhiều người hầu hạ. Cư Hợi cung là người học thức. Hội với các ác tinh phá gia bại sản vì sắc dục mà mang tai mang tiếng hay phạm hình. Hạn gặp Thiên Riêu chẳng cần mai mối cưới hỏi cũng nên vợ chồng. Riêu đi cùng Tử Vi thì cương như tương tế, người phong nhã đa tình; thêm Hồng Loan nữa càng dâm dật, phóng đãng.",
+      "source_page": 57,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_rieu", "category:sat_tinh", "trait:da_dam", "combo:rieu+tu_vi", "combo:rieu+hong_loan"],
+      "commentary": {
+        "han_viet_explain": "âm độc = tính âm hiểm; mai mối = người làm trung gian cưới hỏi.",
+        "viet_thuan": "Thiên Riêu — sao đào hoa âm. Người Mệnh Riêu lăng nhăng. Miếu thì giàu, hãm thì tan nát vì sắc dục.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.thien_rieu.Q02",
+      "question": "Thiên Riêu có phú đoán nào riêng trong Toàn Thư?",
+      "answer_atom": "Toàn Thư KHÔNG có phú riêng cho Thiên Riêu. Phú nôm VN cho số đàn bà: 'Hình Riêu phận gái long đong / Nếu chẳng lộn chồng thì cũng phản pha; Thiên Riêu Long Phượng một nhà / Thiên hương quốc sắc nõn nà giai nhân; Đào Riêu số gái ai hay / Chồng ra khỏi cửa dắt ngay giai vào.'",
+      "source_quote": "Trong Tử Vi Đẩu Số Toàn Thư không thấy có những câu phú cho riêng sao Thiên Riêu. Phú nôm của tiền nhân ta có mấy câu về Thiên Riêu dành cho số đàn bà như sau: Hình Riêu phận gái long đong / Nếu chẳng lộn chồng thì cũng phản pha / Thiên Riêu Long Phượng một nhà / Thiên hương quốc sắc nõn nà giai nhân / Đào Riêu số gái ai hay / Chồng ra khỏi cửa dắt ngay giai vào.",
+      "source_page": 57,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_rieu", "school_VN:bo_sung", "gender:nu", "combo:dao_rieu"],
+      "commentary": {
+        "han_viet_explain": "phản pha = phản chồng; giai = trai.",
+        "viet_thuan": "Toàn Thư không có phú riêng cho Thiên Riêu. VN bù bằng phú nôm cho số đàn bà — Hình-Riêu, Đào-Riêu, Riêu-Long-Phượng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Toàn Thư thiếu phú riêng cho Thiên Riêu — phái VN bổ sung. Conflict không lớn vì Toàn Thư bỏ trống."
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khoc_hu.Q01",
+      "question": "Sao Thiên Khốc - Thiên Hư chủ những điều gì?",
+      "answer_atom": "Khốc Hư là hai ác tinh, vào Thân Mệnh tối phi thường. Ở cung Phụ Mẫu khiến cha mẹ để lại sự khốn khó. Hãm địa thủ Thân Mệnh + sao xấu = cô độc cả đời, mưu đông hỏng tây, tâm sự cay đắng hoang mang. Mão Dậu Thân là vị trí tốt cho Khốc Hư (theo La Hồng Tiên); gặp sao tốt = danh phận hiển đạt. Hạn gặp Khốc Hư = cảm khốc đoạn trường (khóc đứt ruột).",
+      "source_quote": "Khốc Hư là hai ác tinh, khi vào Thân Mệnh tối phi thường. Nếu gặp ở cung Phụ Mẫu, có thể khiến cha mẹ để lại sự khốn khó. Ở hãm địa thủ Thân Mệnh cùng với các sao xấu khác, người đó dễ cô độc cả đời. Người này mưu việc phía đông, hồng việc phía tây, tâm sự thường cay đắng và hoang mang. Theo quan niệm, cung Mão, Dậu và Thân là những vị trí tốt cho Khốc Hư; nếu gặp các sao tốt thì danh phận sẽ hiển đạt. Khi gặp Đại Tiểu Hạn có Khốc Hư, người ta thường cảm thấy khốc đoạn trường.",
+      "source_page": 58,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_khoc", "star:thien_hu", "category:sat_tinh", "trait:co_doc", "outcome:khoc_doan_truong"],
+      "commentary": {
+        "han_viet_explain": "tối phi thường = rất khác thường; khốc đoạn trường = khóc đến đứt ruột.",
+        "viet_thuan": "Khốc Hư — hai ác tinh nhưng đặc biệt. Hãm địa thì cô độc; Mão Dậu Thân lại là vị trí tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.khoc_hu.Q02",
+      "question": "Khốc Hư miếu địa Tí Ngọ hay Mão Dậu Thân?",
+      "answer_atom": "Toàn Thư KHÔNG có phú riêng cho Khốc Hư. Phú nôm VN: 'Khốc Hư Tí Ngọ cung Mệnh thủ / Hội Mã Hình nghiệp võ hiển dương' — TÍ và NGỌ mới là miếu địa, chứ không phải Mão Dậu Thân như La Hồng Tiên ghi.",
+      "source_quote": "Trong Tử Vi Đẩu Số Toàn Thư không tìm thấy những câu phú nào dành riêng cho hai sao này. Tuy nhiên, trong phú nôm của tiền nhân ta ghi rằng: Khốc Hư Tí Ngọ cung Mệnh thủ / Hội Mã Hình nghiệp võ hiển dương. Điều này cho thấy Tí và Ngọ mới là miếu địa của Khốc Hư, chứ không phải lấy Mão, Dậu, hay Thân như lời La Hồng Tiên ghi lại.",
+      "source_page": 58,
+      "section_id": "tdts.S3",
+      "tags": ["star:thien_khoc", "star:thien_hu", "topic:mieu_ham", "conflict:school", "case:la_hong_tien", "cach_cuc:khoc_hu_ti_ngo"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mâu thuẫn Toàn Thư (La Hồng Tiên) vs phú nôm VN về miếu địa Khốc Hư: La Hồng Tiên = Mão Dậu Thân; VN = Tí Ngọ. Vũ Tài Lục flag VN đúng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT TQ vs VN: Khốc Hư miếu địa — La Hồng Tiên (TQ) = Mão Dậu Thân; phú nôm VN = Tí Ngọ. Vũ Tài Lục có vẻ ngả về VN."
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.tuan_triet.Q01",
+      "question": "Tuần và Triệt là sao gì theo Toàn Thư?",
+      "answer_atom": "Toàn Thư KHÔNG có lời giải đoán hay phú đoán nào về Tuần và Triệt. Triệt = Triệt lộ Không Vong. Tuần = Tuần trung Không Vong. Cả hai được Toàn Thư xếp như một loại 'Không Vong' mang tác dụng tương tự sao Thiên Không ở hãm địa — HOÀN TOÀN XẤU. Toàn Thư cũng không ghi Tuần Triệt thuộc hành nào trong Ngũ Hành.",
+      "source_quote": "Trong Tử Vi Đẩu Số Toàn Thư, không có lời giải đoán hay phú đoán nào về Tuần và Triệt. Theo đó, Triệt là Triệt lộ không vong và Tuần là Tuân trung không vong. Cả hai đều được sách kể như một loại 'không vong' mang tác dụng tương tự như sao Thiên Không ở hãm địa, nghĩa là hoàn toàn xấu. … Tử Vi Đẩu Số Toàn Thư lại không hề nói rõ Triệt và Tuần thuộc hành nào trong Ngũ Hành.",
+      "source_page": 58,
+      "section_id": "tdts.S3",
+      "tags": ["star:tuan", "star:triet", "category:sao_dac_biet", "alias:khong_vong", "paradigm:hoan_toan_xau"],
+      "commentary": {
+        "han_viet_explain": "Triệt lộ Không Vong = đường bị chặn không lối; Tuần trung Không Vong = trong vòng tuần lễ không có gì.",
+        "viet_thuan": "Toàn Thư xếp Tuần Triệt = Không Vong hoàn toàn xấu, không ghi hành Ngũ Hành.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.tuan_triet.Q02",
+      "question": "Tuần Triệt phái VN giải khác Toàn Thư thế nào?",
+      "answer_atom": "Phái VN cho Tuần Triệt KHÔNG chỉ đem hung họa mà còn có thể mang CÁT PHÚC. Có khả năng hóa giải xung sát của ác tinh. Câu phú VN: 'Tam phương xung sát hạnh nhất Triệt nhi khả bằng' — ba phương xung sát, may có Triệt nên vững lại. VN còn phân định: Sát Phá Tham TỐI KỴ Triệt Tuần; nhưng Phá Quân gặp Triệt thì ÍT bị hại hơn vì Phá Quân (Thủy) bị Triệt (Kim) khắc — Kim sinh Thủy thì không hại. Toàn Thư không ghi rõ hành nên phái VN tự gán.",
+      "source_quote": "Tuy nhiên, trên lý thuyết Tử Vi của tiền nhân ta, Tuần và Triệt lại mang nhiều tác dụng khác nhau. Chúng không chỉ đem hung họa đến mà còn có thể mang cả cát phúc. Trong trường hợp sao gặp các ác tinh xung sát, nó có khả năng hóa giải sự xung sát đó. Tiền nhân ta đã đưa ra câu: 'Tam phương xung sát hạnh nhất Triệt nhi khả bằng', nghĩa là ba phương xung sát may mắn được sao Triệt nên mới vững lại. Ngoài ra, tiên nhân ta còn phân định mức độ tai hại của hai sao này tùy theo chúng gặp sao nào. Ví dụ: Sát, Phá, Tham tối kỵ Triệt và Tuần. Nhưng nếu Phá Quân gặp Triệt, thì ít bị hại hơn hai sao kia, vì lẽ Phá Quân thuộc Thủy mà Triệt là Kim khắc Thủy.",
+      "source_page": 58,
+      "section_id": "tdts.S3",
+      "tags": ["star:tuan", "star:triet", "conflict:school", "school_VN:phan_bien", "paradigm:hoa_giai_sat", "ngu_hanh:kim_thuy"],
+      "commentary": {
+        "han_viet_explain": "tam phương xung sát = ba phương chiếu sát; hạnh = may; khả bằng = có thể nương tựa.",
+        "viet_thuan": "VN lật ngược Toàn Thư: Tuần Triệt KHÔNG chỉ hung mà có thể HÓA GIẢI SÁT, mang CÁT PHÚC. Logic Kim-Thủy: Phá Quân (Thủy) gặp Triệt (Kim) thì Kim sinh Thủy chứ không khắc → ít hại.",
+        "nguyen_ly": "Không Vong nguyên là 'rỗng' — rỗng đối với cát thì hại; rỗng đối với sát thì giải. Tùy vào sao bên cạnh.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT QUAN TRỌNG TQ vs VN: Toàn Thư = Tuần Triệt HOÀN TOÀN XẤU. VN = Tuần Triệt có thể HÓA GIẢI SÁT, mang CÁT PHÚC. Đây là điểm phái VN phát triển sâu sắc hơn Toàn Thư, Vũ Tài Lục flag tích cực."
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.chom_loc_ton.Q01",
+      "question": "Chòm sao đi theo Lộc Tồn (10 sao) là gì?",
+      "answer_atom": "Toàn Thư có bài phú ngắn: Bác Sĩ thông minh, Lực Sĩ chủ quyền; Thanh Long hỉ khí, Tiểu Hao hư hao tiền; Tướng Quân uy vũ, Tấu Thư phúc trạch; Phi Liêm chú cô độc, Hỉ Thần vui; Bệnh Phù tật bệnh, Đại Hao phá tổ; Phục Binh quan phủ khẩu thiệt. 10 sát/sao đi theo Lộc Tồn để đoán nguồn gốc họa phúc.",
+      "source_quote": "Bác sĩ thông minh lực sĩ quyển / Thanh long hỉ khí tiểu hao tiền / Tướng quân uy vũ tấn thư phúc / Phi liêm chú cò, hỉ thần diên / Bệnh phù đới dật, hao thoái tổ / Phục binh quan phủ khẩu thiệt triển / Sinh niên toạ thủ thập nhị sát / Phương cảm đoán nhân hoạ phúc nguyên.",
+      "source_page": 58,
+      "section_id": "tdts.S3",
+      "tags": ["category:chom_loc_ton", "constellation:loc_ton_circle", "star:bac_si", "star:luc_si", "star:thanh_long", "star:tuong_quan", "star:tau_thu", "star:phi_liem", "star:hi_than", "star:benh_phu", "star:phuc_binh", "star:quan_phu"],
+      "commentary": {
+        "han_viet_explain": "thập nhị sát = mười hai sát; đoán nhân hoạ phúc nguyên = đoán nguồn gốc họa phúc.",
+        "viet_thuan": "Chòm Lộc Tồn gồm 10 sao đi theo, mỗi sao mang một ý nghĩa riêng — chuyên dùng để đoán nguồn gốc họa phúc người.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.chom_loc_ton.Q02",
+      "question": "Chòm Lộc Tồn TQ vs VN có gì khác?",
+      "answer_atom": "Theo phái VN, sao Bệnh Phù KHÔNG có trong chòm Lộc Tồn — VN chỉ có Trực Phù trong chòm này; còn Bệnh Phù được tách sang chòm Thái Tuế. Đây là conflict cấu trúc chòm sao TQ vs VN.",
+      "source_quote": "Theo kiểu Việt, sao Bệnh Phù không có trong chòm Lộc Tồn mà chỉ có sao Trực Phù; còn sao Bệnh Phù lại bắn sang chòm Thái Tuế. Tiền nhân ta đã căn cứ vào bài phú về chòm sao Lộc Tồn trên đây để phát triển lời giảng đoán kỹ càng như sau.",
+      "source_page": 59,
+      "section_id": "tdts.S3",
+      "tags": ["category:chom_loc_ton", "conflict:school", "school_VN:phan_bien", "star:benh_phu", "star:truc_phu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "TQ chòm Lộc Tồn có Bệnh Phù; VN không, chỉ có Trực Phù. Bệnh Phù được VN chuyển sang chòm Thái Tuế.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT TQ vs VN: Cấu trúc chòm Lộc Tồn — Bệnh Phù thuộc chòm này (TQ) hay chuyển sang Thái Tuế (VN)."
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.chom_loc_ton.Q03",
+      "question": "Bác Sĩ - Lực Sĩ - Thanh Long - Tướng Quân - Tấu Thư trong chòm Lộc Tồn (giải VN)?",
+      "answer_atom": "Bác Sĩ: chủ văn chương bác học; đi với Thiên Riêu - Thiên Y = thầy thuốc giỏi (Toàn Thư KHÔNG có sao Thiên Y). Lực Sĩ: dòng tinh tăng hung hoặc tăng cát theo sao bên cạnh. Thanh Long: chủ may mắn; cặp Long Đức ở Thìn rất hay; gặp Hóa Kỵ = rồng mây gặp hội; cùng Long Đức ở Phúc Đức = nhà có mồ mả kết phát; cùng Lưu Hà = rồng vào biển khơi (Lưu Hà cũng KHÔNG có trong Toàn Thư). Tướng Quân: oai vệ quyền thế; cặp Thiên Tướng = lưỡng Tướng nhiều quyền; hội Binh-Hình-Ấn = võ nghiệp hiển hách. Tấu Thư: chủ sắc phong ấn tín; hội Hóa Kỵ miếu vượng = tháo vát; gặp Bạch Hổ đắc ý công danh; hội Vũ Khúc-Đào Hoa-Hỉ Thần thiên hướng nghệ thuật diễn xuất.",
+      "source_quote": "Bác Sĩ: Chủ về văn chương bác học, nếu nó đi với sao Thiên Riêu - Thiên Y là cách thầy thuốc giỏi. Xin nhớ trong Tử Vi Đẩu Số Toàn Thư không có sao nào gọi bằng Thiên Y. Lực Sĩ: Là dòng tinh có tác dụng tăng hung hoặc tăng cát khi nó đứng bên cạnh sao nào. Thanh Long: Chủ về may mắn, có tốt lành tới. … Thanh Long gặp Hóa Kỵ ví như rồng mây gặp hội. … Thanh Long đồng cung với sao Lưu Hà (không thấy có trong Tử Vi Đẩu Số Toàn Thư cái ngôi sao Lưu Hà này) là rồng vào biển khơi tha hồ vùng vẫy. Tướng Quân: Oai vệ, quyền thế. … Tấu Thư: Chủ về sắc phong ấn tín.",
+      "source_page": 59,
+      "section_id": "tdts.S3",
+      "tags": ["star:bac_si", "star:luc_si", "star:thanh_long", "star:tuong_quan", "star:tau_thu", "category:chom_loc_ton", "missing_in_toan_thu:thien_y", "missing_in_toan_thu:luu_ha"],
+      "commentary": {
+        "han_viet_explain": "lưỡng Tướng = hai Tướng; sắc phong ấn tín = giấy phong và con dấu vua ban.",
+        "viet_thuan": "5 sao đầu chòm Lộc Tồn theo cách giải VN. Toàn Thư KHÔNG có Thiên Y, Lưu Hà nhưng VN dùng — cần cảnh giác khi cross-check.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Hai sao Thiên Y và Lưu Hà KHÔNG tồn tại trong Toàn Thư nhưng phái VN dùng. Đây là VN phát minh thêm — cần đối chiếu kỹ khi luận."
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.chom_loc_ton.Q04",
+      "question": "Phi Liêm - Hỉ Thần - Bệnh Phù - Phục Binh - Quan Phủ (giải VN)?",
+      "answer_atom": "Phi Liêm: ở Thân Mệnh, trai góa vợ gái góa chồng (chủ cô độc). Đóng Dần + Bạch Hổ = hổ mọc cánh bay. Ngộ Hỏa Tinh + Thiên Hình có thể chết trận. Hỉ Thần: chủ vui mừng; cặp Thiên Hỉ = phong lưu, có hồ vơi lại đầy, tính vui; Đại Tiểu Hạn có Song Hỉ = toại ý bất ngờ. Bệnh Phù: chủ bệnh tật ốm đau; ở Mệnh + Địa Kiếp = bần khổ cơ hàn. Phục Binh: chủ khẩu thiệt quyền biến giảo quyệt; ở Mệnh + sát tinh = thủ đoạn không thực; hội Thiên Hình Thiên Tướng = võ nghiệp hiển đạt; gặp Địa Kiếp dễ bị mưu hại ngầm; gái có Thai + Phục Binh = ngoại tình/chửa hoang. Quan Phủ: chủ miệng tiếng kiện cáo; sợ hội Liêm Trinh - Thiên Hình - Thái Tuế ở hãm địa; nếu ở miếu thì Quan Phủ tốt = người có tài ăn nói.",
+      "source_quote": "Phi Liêm: Đóng tại Thân Mệnh cung, con trai đa số góa vợ, con gái góa chồng vì sao này chủ về cô độc. Phi Liêm đóng tại Dần cung gặp Bạch Hổ ví như hổ mọc cánh bay. Phi Liêm ngộ Hoả Tinh, Thiên Hình có thể chết trận. Hỉ Thần: Chủ về sự vui mừng. … Bệnh Phù: Chủ bệnh tật nên nay ốm mai đau. … Phục Binh: Chủ về khẩu thiệt quyển biến giảo quyệt ở Mệnh cung … Quan Phủ: Chủ về miệng tiếng, kiện cáo.",
+      "source_page": 59,
+      "section_id": "tdts.S3",
+      "tags": ["star:phi_liem", "star:hi_than", "star:benh_phu", "star:phuc_binh", "star:quan_phu", "category:chom_loc_ton"],
+      "commentary": {
+        "han_viet_explain": "khẩu thiệt = lưỡi miệng, thị phi; quyền biến = biến trá; giảo quyệt = gian xảo.",
+        "viet_thuan": "5 sao sau chòm Lộc Tồn — chủ cô độc, vui, bệnh, mưu kế, kiện cáo. Quan Phủ ở miếu thì là tài ăn nói (lật ngược paradigm).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.phi_thien_tam_sat.Q01",
+      "question": "Phi Thiên Tam Sát là gì? Có thật không?",
+      "answer_atom": "Toàn Thư trong chương An Sao đưa ra Phi Thiên Tam Sát = ba sao Tấu Thư, Tướng Quân, Trực Phù thuộc chòm Lộc Tồn, an theo cách: Dần Ngọ Tuất niên phi nhập Hợi Mão Mùi; Thân Tí Thìn phi nhập Tị Dậu Sửu; Hợi Mão Mùi phi nhập Thân Tí Thìn; Tị Dậu Sửu phi nhập Dần Tuất Ngọ. Bài ca: Tấu Thư = khẩu thiệt; Tướng Quân = kinh tâm; Trực Phù = quan tai. Khoa Tử Vi Việt Nam KHÔNG có Phi Thiên Tam Sát. Vũ Tài Lục flag Toàn Thư có thể SAI vì 'tạo rắc rối vô cớ và thừa thãi vô ích' — 'biết đâu chẳng do mấy ông giang hồ thuật sĩ bịa thêm ra'.",
+      "source_quote": "Tử Vi đầu số toàn thư trong chương An Sao còn đưa ra Phi Thiên, Tam Sát gây thành thắc mắc không nhỏ. … Tấu Thư khẩu thiệt hoạ lai xâm / Tướng Quân phi nhập hối tâm kinh / Trực Phù quan tai chung bất miền / Thử thị lưu niên Tam Sát tính. … Khoa Tử Vi Việt Nam không hề nói tới Phi Thiên Tam Sát. Tại sao có sự khác biệt như vậy? Lấy lý mà đoán thì có thể Tử Vi đẩu số toàn thư sai bởi lẽ nó tạo rắc rối vô cớ và thừa thãi vô ích. Biết đâu chẳng do mấy ông giang hồ thuật sĩ bịa thêm ra.",
+      "source_page": 60,
+      "section_id": "tdts.S3",
+      "tags": ["category:phi_thien_tam_sat", "star:tau_thu_phi", "star:tuong_quan_phi", "star:truc_phu_phi", "conflict:school", "school_VN:bo_qua", "skepticism:gianghoa"],
+      "commentary": {
+        "han_viet_explain": "Phi Thiên = bay trên trời; tam sát = ba sát; phi nhập = bay vào; chú nhật = cùng ngày.",
+        "viet_thuan": "Phi Thiên Tam Sát = Tấu-Tướng-Trực Phù bay theo tuổi, chỉ có ở Toàn Thư. VN bỏ. Vũ Tài Lục nghi 'giang hồ thuật sĩ bịa'.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT QUAN TRỌNG + SKEPTICISM: Phi Thiên Tam Sát CHỈ có ở Toàn Thư, VN bỏ qua hoàn toàn. Vũ Tài Lục nghi đây là phần do 'giang hồ thuật sĩ bịa thêm', không phải Trần Đoàn nguyên truyền. KHÔNG nên dùng trong luận giải nghiêm túc."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.chom_thai_tue.Q01",
+      "question": "Chòm Thái Tuế Toàn Thư có mấy sao? Khác VN thế nào?",
+      "answer_atom": "Toàn Thư chỉ có 4 sao đi theo Thái Tuế (gọi Tứ Phi Tinh): Tang Môn, Bạch Hổ, Điếu Khách, Quan Phù. An: trước Thái Tuế 2 cung an Tang Môn; sau Thái Tuế 2 cung an Điếu Khách; đối chiếu Tang Môn an Bạch Hổ; đối chiếu Điếu Khách an Quan Phù. Khoa Tử Vi VN có 11 sao đi theo Thái Tuế: Thiếu Dương, Tang Môn, Thiếu Âm, Quan Phù, Tử Phù, Tuế Phá, Long Đức, Bạch Hổ, Phúc Đức, Điếu Khách, Bệnh Phù (mỗi cung một sao, đủ 12 cung).",
+      "source_quote": "Theo cách an sao của Tử Vi Việt thì đi theo Thái Tuế có mười một sao khác là: Thiếu Dương, Tang Môn, Thiếu Âm, Quan Phù, Tử Phù, Tuế Phá, Long Đức, Bạch Hổ, Phúc Đức, Điếu Khách, Bệnh Phù mỗi cung an một sao cho đủ 12 cung. Nhưng ở Tử Vi đẩu số toàn thư chỉ có một sao đi theo Thái Tuế mà thôi. Bốn sao ấy là: Tang Môn, Bạch Hổ, Điếu Khách, Quan Phù gọi là Tứ Phi Tinh với lối an như sau: Tuế Quân tiền nhị thị Tang Môn / Hậu nhị cung trung Điếu Khách tổn / Đối chiếu Tang Môn an Bạch Hổ / Điếu Khách đối chiếu an Quan Phù.",
+      "source_page": 60,
+      "section_id": "tdts.S3",
+      "tags": ["category:chom_thai_tue", "alias:tu_phi_tinh", "conflict:school", "star:tang_mon", "star:bach_ho", "star:dieu_khach", "star:quan_phu"],
+      "commentary": {
+        "han_viet_explain": "Tứ Phi Tinh = bốn sao bay; Tuế Quân = Thái Tuế.",
+        "viet_thuan": "Toàn Thư chòm Thái Tuế chỉ 4 sao (Tang-Hổ-Điếu-Quan Phù = Tứ Phi Tinh). VN có 11 sao đủ 12 cung — phong phú hơn rất nhiều.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "CONFLICT LỚN TQ vs VN: Toàn Thư chòm Thái Tuế = 4 sao; VN = 11 sao. Conflict cấu trúc lớn nhất giữa hai phái."
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.chom_thai_tue.Q02",
+      "question": "Toàn Thư đúng hay VN đúng về chòm Thái Tuế?",
+      "answer_atom": "Vũ Tài Lục: 'Lấy lý đoán thì Tử Vi đẩu số toàn thư ĐÚNG hơn bởi lẽ những sao thêm của Tử Vi Việt không thấy có tác dụng gì cả, hình như chúng ngồi cho đủ chỗ vậy thôi, hoặc nếu có lời đoán nào thì đều hoàn toàn gượng ép.' Ví dụ Thiếu Âm Thiếu Dương ảnh hưởng ra sao? Chịu. Tử Phù hội Thiên Lương Đà La thường đau ruột kiết lỵ — quá gượng ép.",
+      "source_quote": "Lấy lý đoán thì Tử Vi đẩu số toàn thư đúng hơn bởi lẽ những sao thêm của Tử Vi Việt không thấy có tác dụng gì cả, hình như chúng ngồi cho đủ chỗ vậy thôi, hoặc nếu có lời đoán nào thì đều hoàn toàn gượng ép. Tỉ dụ: Thiếu Âm, Thiếu Dương ảnh hưởng với số ra sao? Chịu! Tỉ dụ: Tử Phù nếu hội với Thiên Lương, Đà La thường bị chứng đau ruột, kiết lỵ? Quá gượng ép!",
+      "source_page": 60,
+      "section_id": "tdts.S3",
+      "tags": ["category:chom_thai_tue", "conflict:school", "school_VN:phan_bien_nguoc", "judgment:vu_tai_luc", "skepticism:VN"],
+      "commentary": {
+        "han_viet_explain": "gượng ép = miễn cưỡng không tự nhiên.",
+        "viet_thuan": "Vũ Tài Lục đứng về phía TOÀN THƯ về chòm Thái Tuế: 7 sao VN thêm là gượng ép, không tác dụng thật. Đây là phán xét hiếm khi Vũ Tài Lục ngả TQ chứ không ngả VN.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "JUDGMENT NGƯỢC: Trong các conflict khác Vũ Tài Lục thường flag VN 'kỹ càng hơn' (Hóa Kỵ, Tuần Triệt), nhưng riêng chòm Thái Tuế ông flag TOÀN THƯ ĐÚNG HƠN. 7 sao VN thêm vào (Thiếu Dương Thiếu Âm Tử Phù Tuế Phá Long Đức Phúc Đức Bệnh Phù) là 'gượng ép'."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.dai_tieu_hao.Q01",
+      "question": "Đại Tiểu Hao đóng cung nào? Cách đặc biệt?",
+      "answer_atom": "Hai sao Đại Tiểu Hao đóng đâu hao đó. Chỉ duy hai cung Mão Dậu được Song Hao (mỗi sao đóng một cung) là RẤT HAY — thuộc cách 'chúng thủy triều đông' (trăm ngọn nước chảy về biển đông), nhất là khi chính diệu hai cung đó là Cự Môn hoặc Thiên Cơ thì người giàu sang lắm.",
+      "source_quote": "Hai sao này đóng ở đâu hao đấy. Chỉ duy hai cung Mão Dậu được Song Hào (mỗi sao đóng một cung) lại rất hay. Nó thuộc cách chúng Thủy Triều Đông, trăm ngọn nước chảy về biển đông nhất là chính diệu của hai cung đó: Cự Môn, Thiên Cơ, người giàu sang lắm.",
+      "source_page": 59,
+      "section_id": "tdts.S3",
+      "tags": ["star:dai_hao", "star:tieu_hao", "alias:song_hao", "cach_cuc:chung_thuy_trieu_dong", "paradigm:hao_thanh_phu"],
+      "commentary": {
+        "han_viet_explain": "chúng thủy triều đông = mọi dòng nước chầu về phía đông; hao = hao hụt; song hao = hai sao Hao.",
+        "viet_thuan": "Đại Tiểu Hao bình thường = hao hụt, nhưng cách Song Hao Mão Dậu + Cự Môn / Thiên Cơ = ĐẠI PHÚ (chúng thủy triều đông).",
+        "nguyen_ly": "Hao + Cự Môn (Thủy) ở Mão Dậu = nước chảy về biển đông, biến từ hao thành cát.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "PARADIGM LẬT: Đại Tiểu Hao bình thường XẤU (hao tài) nhưng Song Hao Mão Dậu + Cự Môn/Thiên Cơ thành ĐẠI PHÚ — cách Chúng Thủy Triều Đông."
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S3.pha_quan.Q01",
+      "question": "Phá Quân đơn thủ Mệnh / ở Quan Lộc / gặp Cự Môn / Phá Quân Thìn Tuất nghĩa là gì?",
+      "answer_atom": "Phá Quân đơn thủ Mệnh = người gian trá khó lường (tính diệu nan minh). Phá Quân ở Quan Lộc + Kình Dương + Linh Tinh = suốt đời vay mượn. Phá Quân gặp Cự Môn = chết đuối (Vũ Tài Lục flag VÔ LÝ vì Phá Quân không bao giờ gặp/đồng cung Cự Môn — chắc là chiếu/phạm Thiên Di). Phú VN: 'Trai bất nhân Phá Quân Thìn Tuất / Ngộ khoa tuần phản ác vì lương / Tuổi Mậu Quý lắm vàng bạc / Hoạnh tài bộc phát giàu sang một đời.'",
+      "source_quote": "Phá Quân: Tính diệu nan minh. (Số Phá Quân đơn thủ mệnh, người gian trá khó lường). Phá Quân tại cung Quan Lộc: Cùng Kình Dương và Linh Tinh tại cung Quan Lộc suốt đời vay mượn. Phá Quân gặp Cự Môn: (Phá Quân gặp Cự Môn số chết đuối. - Câu này vô lý vì Phá Quân không bao giờ gặp cũng như đồng hương với Cự Môn, chắc là chiếu hoặc phạm vào cung Thiên Di). … Trai bất nhân Phá Quân Thìn Tuất / Ngộ khoa tuần phản ác vì lương / Tuổi Mậu Quý lắm vàng bạc / Hoạnh tài bộc phát giàu sang một đời.",
+      "source_page": 42,
+      "section_id": "tdts.S3",
+      "tags": ["star:pha_quan", "category:carryover_S2", "trait:gian_tra", "combo:pha_quan+cu_mon", "conflict:internal", "case:mau_quy"],
+      "commentary": {
+        "han_viet_explain": "tính diệu nan minh = tính khó hiểu; hoạnh tài = tiền của bất ngờ.",
+        "viet_thuan": "Phú Phá Quân nối từ S2 sang trang 42. Cụ thể là người tuổi Mậu Quý + Phá Quân Thìn Tuất = giàu sang hoạnh tài.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Vũ Tài Lục flag câu 'Phá Quân gặp Cự Môn chết đuối' VÔ LÝ vì hai sao không bao giờ đồng cung — nội dung Toàn Thư có lỗi logic. Cần đọc với hiểu là 'chiếu' chứ không phải 'đồng cung'."
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
