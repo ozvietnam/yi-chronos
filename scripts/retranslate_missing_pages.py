@@ -18,9 +18,10 @@ import time
 import urllib.request
 
 
-def call_translate(base: str, token: str, book_id: str, page: int, timeout: int = 600) -> dict:
+def call_translate(base: str, token: str, book_id: str, page: int, timeout: int = 600,
+                   overwrite: bool = False) -> dict:
     url = f"{base}/api/yi-publishing/pages/{book_id}/{page}/auto-translate"
-    body = json.dumps({"overwrite": False}).encode()
+    body = json.dumps({"overwrite": overwrite}).encode()
     req = urllib.request.Request(
         url, data=body, method="POST",
         headers={"Content-Type": "application/json", "X-Session-Token": token},
@@ -36,6 +37,8 @@ def main() -> None:
     ap.add_argument("--token-file", default="/tmp/yi_owner_token")
     ap.add_argument("--base", default="http://localhost:8001")
     ap.add_argument("--delay", type=float, default=2.0)
+    ap.add_argument("--overwrite", action="store_true",
+                    help="dịch đè TOÀN BỘ dòng của trang (sửa trang dịch hỏng)")
     args = ap.parse_args()
 
     token = open(args.token_file).read().strip()
@@ -50,7 +53,7 @@ def main() -> None:
             time.sleep(args.delay)
         t1 = time.time()
         try:
-            r = call_translate(args.base, token, args.book_id, page)
+            r = call_translate(args.base, token, args.book_id, page, overwrite=args.overwrite)
         except Exception as e:
             print(f"[{i}/{len(pages)}] p{page:04d} EXC: {e}", flush=True)
             failed.append(page)
