@@ -188,6 +188,16 @@ CREATE TRIGGER IF NOT EXISTS chunks_v2_fts_delete AFTER DELETE ON chunks_v2 BEGI
     VALUES('delete', old.chunk_id, old.text, old.summary, old.atom_q_str);
 END;
 
+-- UPDATE trigger BẮT BUỘC: atomizer UPDATE atom_q_str sau khi đúc atoms.
+-- Thiếu trigger này → FTS out-of-sync → 'database disk image is malformed'
+-- khi delete trigger chạy với old values không khớp index (incident 2026-06-10).
+CREATE TRIGGER IF NOT EXISTS chunks_v2_fts_update AFTER UPDATE ON chunks_v2 BEGIN
+  INSERT INTO chunks_v2_fts(chunks_v2_fts, rowid, text, summary, atom_q_str)
+    VALUES('delete', old.chunk_id, old.text, old.summary, old.atom_q_str);
+  INSERT INTO chunks_v2_fts(rowid, text, summary, atom_q_str)
+    VALUES(new.chunk_id, new.text, new.summary, new.atom_q_str);
+END;
+
 
 -- ═══════════════════════════════════════════════════════════════════
 -- VEC indexes (atom_vec + chunks_vec) — SETUP riêng trong migrate.py

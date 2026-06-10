@@ -1,48 +1,829 @@
 {
   "book_corpus_id": "tu-vi-ham-so",
   "section_id": "tvhs.S7",
-  "section_title": "Phân tích sao Hàm Số (p201-238) — phụ tinh, sát-cát tinh, Tuần-Triệt, bảng vật dụng/thức ăn/tang chế",
-  "_note_v2": "Task gốc liệt kê 9 chính tinh (Cự Môn, Liêm Trinh, Phá Quân, Tham Lang, Thái Âm, Thái Dương, Thất Sát, Thiên Cơ, Thiên Đồng) nhưng pages p201-238 thực tế KHÔNG có section riêng cho các sao đó (chúng nằm p99-150 thuộc section trước). Pages p201-238 chứa phụ tinh: Thai, Thái Tuế, Thanh Long, Thiếu Dương/Âm, Thiên Hình, Khốc Hư, Thiên Hỷ, Khôi Việt, Thiên Không, Thiên La, Thiên Mã, Thiên Quan/Thiên Phúc, Thiên Riêu, Thương Sứ, Thiên Tài, Thiên Thọ, Thiên Trù, Thiên Y, Tràng Sinh, Trực Phù, Tuần-Triệt, Tuế Phá, Tuyệt, Tử (Tử Tức), Tử Phù, Tướng Quân, Văn Xương/Văn Khúc + 3 bảng phụ (vật dụng / thức ăn / tang chế). Atomize STRICT theo nội dung thực có.",
-  "pages": [
-    201,
-    202,
-    203,
-    204,
-    205,
-    206,
-    207,
-    208,
-    209,
-    210,
-    211,
-    212,
-    213,
-    214,
-    215,
-    216,
-    217,
-    218,
-    219,
-    220,
-    221,
-    222,
-    223,
-    224,
-    225,
-    226,
-    227,
-    228,
-    229,
-    230,
-    231,
-    232,
-    233,
-    234,
-    235,
-    236,
-    237,
-    238
-  ],
+  "section_title": "Phụ tinh + Tuần-Triệt + Bảng tra vật dụng/thức ăn/tang chế (p201-238)",
+  "_note_v2": "Task gốc liệt kê 9 chính tinh nhưng pages p201-238 thực tế chứa phụ tinh (Thai, Thái Tuế, Thanh Long, Thiếu Dương/Âm, Thiên Hình, Khốc Hư, Thiên Hỷ, Khôi Việt, Thiên Không, Thiên La, Thiên Mã, Thiên Quan/Phúc, Thiên Riêu, Thương Sứ, Thiên Tài, Thiên Thọ, Thiên Trù, Thiên Y, Tràng Sinh, Trực Phù, Tuần-Triệt, Tuế Phá, Tuyệt, Tử Tức, Tử Phù, Tướng Quân, Văn Xương/Khúc) + 3 bảng tra. Atomize STRICT theo nội dung thực có. Tuần-Triệt (p223-229) là điểm nóng nhất, atomize cực dày 19 atoms theo 5 tranh chấp + quan điểm tác giả + 3 ngoại lệ.",
+  "pages": [201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238],
   "school": "nguyen_phat_loc_ham_so",
-  "atoms": []
+  "atoms": [
+    {
+      "question_id": "tvhs.S7.thai.01",
+      "source_page": 201,
+      "question": "Sao Thai chỉ những bộ phận cơ thể nào? Bộ phận nào tiêu biểu nhất?",
+      "answer": "Thai chỉ 4 bộ phận: rốn, âm hộ, tử cung, bào thai. Rốn rất ít tiêu biểu. Ý nghĩa tập trung vào âm hộ, tử cung, bào thai — tức bộ phận sinh dục và sản dục của phụ nữ. Nói rộng, Thai tượng trưng cho vấn đề sinh lý của cả hai phái, không riêng phái nữ.",
+      "tags": ["thai", "co-the", "sinh-duc", "phu-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai.02",
+      "source_page": 201,
+      "question": "Bốn ý nghĩa tính tình của sao Thai? Đặc tính nào quan trọng nhất?",
+      "answer": "Bốn ý nghĩa: (1) Dâm dật chơi bời, mê gái mê trai; (2) Ngu dốt, mê muội, hay nhầm lẫn, a dua, dễ tin người; (3) Chủ sự thụ thai và sinh nở; (4) Chủ sự tái sinh thêm mới. Đặc tính dâm dật là quan trọng nhất. Thai chỉ ái tình thể xác, dâm dật thấp hèn, sự thúc đẩy bởi nhu cầu sinh lý có khi mang tính bệnh hoạn. So sánh với Thiên Riêu, Thai nặng nghĩa sa đọa hơn.",
+      "tags": ["thai", "tinh-tinh", "dam-dat", "phu-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai.03",
+      "source_page": 201,
+      "question": "Sao Thai kết hợp với Đào/Hồng, Xương Khúc, Riêu, Không Kiếp có ý nghĩa gì?",
+      "answer": "Thai-Đào(Hồng): ham ái tình cả vật chất lẫn tinh thần, coi nhẹ luân lý. Thai-Xương Khúc: vừa lãng mạn vừa dâm dật. Thai-Riêu: hết sức dâm dật, có thể bị thói quen sinh lý dày vò đi đến bệnh hoạn. Thai-Không Kiếp: bị hiếp dâm có hoang thai, hoặc có thai rồi phá thai, hoặc sẩy thai hư thai; cũng là trường hợp bạo dâm (sadique).",
+      "tags": ["thai", "tu-hop-sao", "dao-hong", "khong-kiep", "phu-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai.04",
+      "source_page": 201,
+      "question": "Khi Thai gặp Tuần Triệt hay sát bại tinh hội họp ở bất cứ cung nào có nghĩa gì?",
+      "answer": "Thai gặp Tuần Triệt án ngữ hay sát bại tinh hội họp ở bất cứ cung nào đều có nghĩa mới: lọt lòng mẹ đã đau yếu quặt quẹo, hoặc sinh thiếu tháng, hoặc lúc sinh gặp khó khăn phải áp dụng phương pháp cực đoan.",
+      "tags": ["thai", "tuan-triet", "sat-tinh", "sinh-no"]
+    },
+    {
+      "question_id": "tvhs.S7.thai.05",
+      "source_page": 202,
+      "question": "Thai ở cung Tử (Tử Tức) kết hợp các sao có ý nghĩa gì?",
+      "answer": "Thai-Không Kiếp: trụy thai, sẩy thai, sinh con rất khó, hoặc sinh con chết trước/trong khi lọt lòng mẹ, sát con. Thai-Nguyệt: có con cầu tự mới nuôi được. Thai-Nhật-Nguyệt: có con sinh đôi. Thai Phục Vượng Tướng: có con riêng rồi mới lấy nhau, có con hoang, có con dị bào. Thai-Bào: có con dâm đãng nhất là con gái.",
+      "tags": ["thai", "cung-tu-tuc", "phu-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai.06",
+      "source_page": 202,
+      "question": "Thai ở Phu Thê, Bào (Huynh Đệ), Hạn có ý nghĩa gì?",
+      "answer": "Ở Phu Thê — Thai-Đào: vợ chồng tiền dâm hậu thú, lẳng lơ ngoại tình. Thai Phục Vượng Tướng: vợ chồng có con riêng, con dị bào. Ở Bào — Thai Phục Vượng Tướng: anh chị em dị bào, có người bị tai nạn trinh tiết. Thai-Đào: anh chị em dâm dật lăng loàn. Ở Hạn — Thai Phục Vượng Tướng: thất tiết, vướng lưới tình, có tư thông. Thai-Riêu-Không Kiếp: chửa hoang, bị hiếp dâm, bị bắt cóc.",
+      "tags": ["thai", "cung-ung-dung", "phu-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai-tue.01",
+      "source_page": 202,
+      "question": "Thái Tuế ở tính tình có những ý nghĩa xấu và tốt nào?",
+      "answer": "Ý nghĩa xấu: nhiều chuyện, lắm mồm lắm điều, bép xép, đa ngôn, hay ngồi lê đôi mách; kích bác chỉ trích, cãi vã, kiện thưa; lạnh nhạt khinh người, ít giao thiệp nên ít bạn ít cảm tình. Ý nghĩa tốt: miệng lưỡi giỏi tranh biện lý luận — sao của luật sư, giáo sư, chính khách, có tư chất đấu lý, bênh vực, chỉ trích; nói năng lưu loát hoạt bát (giống Lưu Hà).",
+      "tags": ["thai-tue", "tinh-tinh", "ngon-ngu"]
+    },
+    {
+      "question_id": "tvhs.S7.thai-tue.02",
+      "source_page": 203,
+      "question": "Thái Tuế và Quan Phù có quan hệ gì? Ý nghĩa tai họa và lợi ích nào?",
+      "answer": "Thái Tuế bao giờ cũng hội chiếu với Quan Phù — chỉ sự báo oán vì mích lòng, kiện thưa vì lời nói chạm tự ái. Đây là hậu quả của tính nhiều chuyện, chỉ trích, nói xấu, gieo thù oán. Tai họa: hay bị nói xấu, chỉ trích, công kích, cãi vã, bút chiến; hay bị kiện cáo. Lợi ích: có lợi về công danh cho nghề cần khoa ngôn ngữ — trạng sư, giáo sư, chính trị gia.",
+      "tags": ["thai-tue", "quan-phu", "tai-hoa", "cong-danh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai-tue.03",
+      "source_page": 203,
+      "question": "Thái Tuế kết hợp các sao Cái-Kỵ, Đào Hồng, Hình, Đà Kỵ, Xương Khúc Khôi Việt, Sát Tràng?",
+      "answer": "Tuế-Cái/Tuế-Kỵ: ăn nói kiêu kỳ, dễ mất cảm tình. Tuế-Đào Hồng: bị phụ tình, cô độc, thất tình. Tuế-Hình: dễ gặp tai bay vạ gió, có thể bị kiện tụng. Tuế-Đà Kỵ: người quê kệch, ngu độn, gây ngăn trở công việc. Tuế-Xương Khúc Khôi Việt: 5 sao kết thành bộ văn tinh rất đẹp cho học hành thi cử làm quan. Tuế-Sát Tràng: tổn thọ, tổn danh, tổn tài, hay bị kiện cáo, báo thù, tai nạn.",
+      "tags": ["thai-tue", "tu-hop-sao", "van-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thai-tue.04",
+      "source_page": 203,
+      "question": "Thái Tuế ở Quan Lộc, Thiên Di, Phu Thê, Hạn có ý nghĩa gì?",
+      "answer": "Ở Quan Lộc: thường làm luật sư, giáo sư, trưởng tòa; làm chính trị thiên về đối lập; hay chỉ trích và bị chỉ trích; có thể bị điều tra nếu có Hình hội chiếu. Ở Thiên Di: hay bị miệng tiếng khẩu thiệt trong giao thiệp, hay bị kiện cáo cãi vã. Ở Phu Thê: vợ chồng bất hòa hay cãi vã, có thể ly hôn nếu gặp sao xấu, trừ phi vợ/chồng hành nghề luật sư, thẩm phán. Ở Hạn: cãi vã đôi chối trong năm đó, có đi dạy học; bị thất tình cô độc.",
+      "tags": ["thai-tue", "cung-ung-dung"]
+    },
+    {
+      "question_id": "tvhs.S7.thanh-long.01",
+      "source_page": 204,
+      "question": "Thanh Long thuộc hành gì, vị trí đắc địa nào, ý nghĩa tướng mạo và tính tình?",
+      "answer": "Thanh Long thuộc Thủy. Đắc địa ở Thìn Tuất Sửu Mùi và 2 cung Thủy Hợi Tý. Tướng mạo gương mặt tuấn tú phương phi, cốt cách sang trọng; đến hạn gặp Thanh Long sắc diện phát hiện khí chất. Tính tình: vui vẻ hòa nhã; lợi cho cầu danh thi cử; may về hôn nhân; may về sinh nở; giải trừ bệnh tật tai họa nhỏ. Thanh Long đồng nghĩa với Long Phượng.",
+      "tags": ["thanh-long", "thuy", "tinh-tinh", "phu-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thanh-long.02",
+      "source_page": 204,
+      "question": "Các cách Thanh Long với Kỵ, Lưu Hà, Bạch Hổ Hoa Cái, Tứ Linh, Quan Đới, Sát Tinh nghĩa thế nào?",
+      "answer": "Thanh Long-Kỵ ở Tứ Mộ: rồng xanh ẩn trong mây ngũ sắc, gặp may rực rỡ, lợi phú quý hôn nhân sinh nở thi cử. Thanh Long-Lưu Hà: đồng nghĩa (rồng xanh vùng vẫy trên sông lớn). Thanh Long-Bạch Hổ-Hoa Cái: cách Long Hổ Cái, rực rỡ về quan tài. Thanh Long-Bạch Hổ-Hoa Cái-Phượng Các: cách Tứ Linh, rực rỡ công danh tài lộc. Thanh Long-Quan Đới: gặp thời, đắc dụng. Thanh Long-Sát Tinh: mất hết uy lực, trở thành yểu và hèn nhát.",
+      "tags": ["thanh-long", "tu-linh", "long-ho-cai", "cach-cuc"]
+    },
+    {
+      "question_id": "tvhs.S7.thanh-long.03",
+      "source_page": 204,
+      "question": "Thanh Long ở các cung và giáp Mệnh có ý nghĩa gì? Tóm lại Thanh Long là sao như nào?",
+      "answer": "Đẹp nhất ở 2 cung Thủy Hợi Tý hoặc cung Thìn (Long cư Long vị) — như cách Long Kỵ, Long Hà. Các cách tốt nếu có ở Mệnh Thân Quan Di Tài hay Hạn đều đắc dụng. Mệnh hay Quan giáp Long giáp Mã thì hiển đạt công danh chức vị. Tóm lại: tuy là sao nhỏ nhưng Thanh Long bản chất rồng xanh nên rất uy dũng cao thượng, đem may mắn nhiều phương diện. Kết hợp với cát tinh và ở cung thuận vị thì càng phát đạt, miễn đừng gặp sát tinh.",
+      "tags": ["thanh-long", "cung-ung-dung", "giap-menh"]
+    },
+    {
+      "question_id": "tvhs.S7.thieu-duong-am.01",
+      "source_page": 205,
+      "question": "Thiếu Dương, Thiếu Âm đắc địa ở đâu? Đồng cung với Nhật Nguyệt thì sao?",
+      "answer": "Thiếu Dương đắc địa từ Dần đến Ngọ (theo Nhật). Thiếu Âm đắc địa từ Thân đến Tý (theo Nguyệt). Chỉ khi đắc địa hai sao này mới có ý nghĩa; hãm thì vô dụng. Đặc biệt Thiếu Dương đắc địa đồng cung với Nhật, Thiếu Âm đắc địa đồng cung với Nguyệt thì ý nghĩa rực rỡ hơn — ví như mặt trời mặt trăng có đôi cùng tỏa sáng. Đắc địa mà chỉ hội chiếu Nhật Nguyệt (không đồng cung) thì sáng lạn nhưng kém hơn đồng cung.",
+      "tags": ["thieu-duong", "thieu-am", "dac-dia", "nhat-nguyet"]
+    },
+    {
+      "question_id": "tvhs.S7.thieu-duong-am.02",
+      "source_page": 205,
+      "question": "Thiếu Dương Thiếu Âm có ý nghĩa gì? Kết hợp Hóa Khoa nghĩa thế nào?",
+      "answer": "Cả hai là cát tinh, có ý nghĩa tốt nếu đắc địa: thông minh; vui vẻ hòa nhã nhu hòa; nhân hậu từ thiện (tương tự Long Đức, Phúc Đức, Thiên Đức, Nguyệt Đức). Có giá trị giải trừ bệnh tật tai họa nhỏ, tương đương cứu giải của tứ đức. Đặc biệt hội họp Hóa Khoa (đồng cung hay xung chiếu): kết thành bộ sao gia tăng phúc thọ, cứu khốn phò nguy, giải trừ nhiều bệnh tật tai họa. Gặp sao tốt làm tốt thêm, gặp sao xấu thì vô dụng.",
+      "tags": ["thieu-duong", "thieu-am", "hoa-khoa", "cuu-giai"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-hinh.01",
+      "source_page": 205,
+      "question": "Thiên Hình có ý nghĩa cơ thể và bệnh lý gì?",
+      "answer": "Thiên Hình là vết thẹo — đi với sao cơ thể nào thì nơi đó có thể bị thẹo hay có dấu cắt. Bệnh lý: Thiên Hình như Kiếp Sát ví như con dao mổ (bistouri), chủ sự mổ xẻ, châm cứu. Bệnh tật có Thiên Hình liên quan việc mổ xẻ. Hình-Nhật/Nguyệt: đau mắt có thể chà xát đau đớn. Hình Kiếp-Hỷ Thần: bệnh trĩ, bị cắt.",
+      "tags": ["thien-hinh", "co-the", "benh-ly", "mo-xe"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-hinh.02",
+      "source_page": 206,
+      "question": "Thiên Hình ở tính tình có những đặc điểm gì?",
+      "answer": "Ngay thẳng, nóng nảy trực tính, bất nhẫn trước sự bất công. Năng khiếu phán xét tinh vi, phân xử tỉ mỉ công bằng — thẩm phán có Thiên Hình có thể là một Bao Công đoan chính. Đàn bà có Thiên Hình là người ngay thẳng không lẳng lơ, dù có Đào Riêu. Thiên Hình đồng nghĩa với Tử Phủ, Nhật đắc địa, Quang Quý — chế được tính hoa nguyệt dâm đãng của Đào Hồng.",
+      "tags": ["thien-hinh", "tinh-tinh", "ngay-thang"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-hinh.03",
+      "source_page": 206,
+      "question": "Thiên Hình ở công danh nghề nghiệp đắc địa ở đâu, có nghĩa gì?",
+      "answer": "Thiên Hình là sao võ cách, chủ quân sự binh quyền sát phạt — ví như thanh kiếm, tượng trưng uy quyền và khả năng chế tài. Đắc địa thì chỉ tài giỏi, thao lược, hiển đạt võ nghiệp — trường hợp bộ Binh-Thiên Hình-Tướng Ấn rất uy dũng. Thẩm phán quân đội. Với bộ y sĩ (Tướng Y, Cơ Nguyệt, Đồng Lương...) thì là bác sĩ giải phẫu hay châm cứu. Đắc địa Dần Thân Mão Dậu thì rất anh hùng nghiệp võ, công trạng lớn, nhất là Thiên Hình ở Dần.",
+      "tags": ["thien-hinh", "vo-cach", "cong-danh", "dac-dia"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-hinh.04",
+      "source_page": 206,
+      "question": "Thiên Hình ở phúc thọ tai họa — khi nào hung và tác họa thế nào?",
+      "answer": "Thiên Hình liên quan tù tội, nhất là khi gặp sát tinh — tượng trưng hình phạt (châtiment) phải gánh. Có thể nặng hơn tù tội như đâm chém bằng gươm đao, chết vì súng đạn. Trường hợp Thiên Tướng/Tướng Quân với Thiên Hình, hay Thiên Mã-Thiên Hình, hoặc Thiên Hình gặp Tuần Triệt (ví như thanh kiếm gãy, tai họa hiểm nghèo), hoặc Thiên Hình hãm địa. Hạn gặp sẽ bị họa hung xảy ra rất mau chóng — Thiên Hình tác họa mau như sao Hỏa.",
+      "tags": ["thien-hinh", "phuc-tho", "tai-hoa", "tu-toi"]
+    },
+    {
+      "question_id": "tvhs.S7.khoc-hu.01",
+      "source_page": 207,
+      "question": "Khốc Hư có ý nghĩa bệnh lý và tướng mạo thế nào?",
+      "answer": "Khốc Hư không chỉ bộ phận nào, song là bại tinh nên đi với bộ phận nào thì làm lụy ở đó. Phá Toái-Khốc Hư: đau cổ họng (thịt dư, bể tiếng). Tuế Phá-Khốc Hư: hay đau răng, hư răng. Tướng mạo: sao tư tư âu sầu, thủ mệnh thì da xanh, mắt có quầng đen, diện mạo buồn tẻ, mặt thiếu sắc khí, mắt kém thần, hay trông xuống không trông xa.",
+      "tags": ["khoc-hu", "bai-tinh", "co-the", "tuong-mao"]
+    },
+    {
+      "question_id": "tvhs.S7.khoc-hu.02",
+      "source_page": 207,
+      "question": "Khốc Hư ở tính tình có những ý nghĩa gì? Vị trí Tý Ngọ đặc biệt thế nào?",
+      "answer": "Là bại tinh và sao âu sầu: u buồn ủy mị hay phiền muộn, đa sầu; bi quan yếm thế (pessimiste); hay lãng trí nghĩ đây quên đó (distrait); hay hốt hoảng hoang mang (anxieux); ăn nói sai ngoa. Khốc Hư tượng trưng nước mắt, lo buồn, xui xẻo. Riêng ở 2 vị trí Tý và Ngọ thì có nghĩa TỐT: có chí lớn; có văn tài lỗi lạc nhất là tài hùng biện đanh thép hùng hồn; có khiếu hoạt động chính trị. Càng rõ nếu đi kèm cát tinh.",
+      "tags": ["khoc-hu", "tinh-tinh", "ty-ngo", "ngoai-le"]
+    },
+    {
+      "question_id": "tvhs.S7.khoc-hu.03",
+      "source_page": 207,
+      "question": "Khốc Hư ở phúc thọ tai họa, vị trí Thìn Tuất có gì đặc biệt?",
+      "answer": "Ở hãm địa: chủ sự khốn khổ, đau buồn tâm hồn, xui xẻo nhiều hình thức và sự yểu. Ở Thìn Tuất: hay mắc cạn và vắn số. Đi cùng Kiếp, Phù, Khách, Cự, Nhật: suốt đời bi ai, lúc nào cũng đau buồn than khóc, tiếc thương vì bệnh tật và tang tóc.",
+      "tags": ["khoc-hu", "phuc-tho", "thin-tuat", "ham-dia"]
+    },
+    {
+      "question_id": "tvhs.S7.khoc-hu.04",
+      "source_page": 207,
+      "question": "Khốc Hư với Hình Mã, Sát Phá, Quyền, Kình Tuế Khách kết hợp ra sao?",
+      "answer": "Khốc-Hình-Mã: rất hiển đạt võ nghiệp, đồng cung ở Dần thì càng uy danh. Khốc Hư-Sát hay Phá đắc địa đồng cung: quyền cao chức trọng, uy danh lừng lẫy, được thiên hạ nể phục vì uy và tài. Khốc-Quyền: có tiếng tăm. Khốc-Kình-Tuế-Khách: tang tóc liên miên từ lúc lọt lòng mẹ.",
+      "tags": ["khoc-hu", "tu-hop-sao", "vo-nghiep"]
+    },
+    {
+      "question_id": "tvhs.S7.khoc-hu.05",
+      "source_page": 208,
+      "question": "Khốc Hư ở Phu Thê, Tử Tức, Tài Bạch, Phúc Đức, Thiên Di/Hạn có ý nghĩa gì?",
+      "answer": "Phu Thê: xa nhau rồi mới lấy được; nhân duyên trắc trở buổi đầu; ăn ở có nước mắt; xung khắc nếu thêm Kình hay Đà. Tử Tức: sinh con khó nuôi, sinh nhiều nuôi ít; dễ mất sát con. Tài Bạch: khó kiếm tiền, hao tài, lo âu; ở Tý Ngọ thì trước nghèo sau giàu. Phúc Đức: tổn thọ có âm hồn báo oán nếu hãm; mã phát hiển đạt nếu đắc địa Tý Ngọ. Thiên Di/Hạn: đắc lợi nếu đắc địa, thịnh trong 5 năm sau (đại hạn) hay nửa năm sau (tiểu hạn). Gặp Tang: có tang chế.",
+      "tags": ["khoc-hu", "cung-ung-dung"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-hy.01",
+      "source_page": 208,
+      "question": "Thiên Hỷ có những ý nghĩa nào? Phối hợp Hỷ Thần thế nào?",
+      "answer": "Thiên Hỷ là cát tinh: vui vẻ, vui tính, thích cảnh vui chuyện vui, biết thưởng thức hài hước, có óc hài hước; đem lại sự may mắn đáng mừng (chance). Hai sao Thiên Hỷ và Hỷ Thần đặc tính giống nhau ở 2 điểm này. Nếu hội tụ: người ấy vui tính dễ cười, có óc hài hước pha trò, tạo hỷ khí. Đây là bộ sao của người viết/đóng hài kịch (như Molière, Phi Thoàn, Bob Hope) nếu thêm Tấu, Vũ, Đào, Hồng. Lợi ích cưới hỏi và sinh nở.",
+      "tags": ["thien-hy", "cat-tinh", "hai-huoc", "hy-than"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-hy.02",
+      "source_page": 209,
+      "question": "Thiên Hỷ ở Mệnh, Bào, Phu Thê, Quan, Phúc, Hạn kết hợp các sao có ý nghĩa gì?",
+      "answer": "Mệnh: Hỷ-Riêu (gây tai họa quái dị); Hỷ-Hồng (sớm có nhân duyên); Hỷ-Đào (lả lơi hoa nguyệt; nữ thì hư thân lang chạ). Bào: Hỷ-Riêu-Đào gặp Phá Tướng chiếu (chị em theo trai chửa hoang); Hỷ-Thai-Đào-Hồng (có người ngoại dâm). Phu Thê: Hỷ-Đào-Hồng (sánh duyên với người đẹp dễ dàng, vợ/chồng lả lơi ong bướm); thêm Riêu-Thai càng chắc ngoại tình. Quan: Hỷ-Đào-Hồng (nhờ phái nữ thăng tiến); Hỷ-Đào-Hồng-Tấu-Vũ (nghề ca xướng). Phúc: Song Hỷ (mã phát). Hạn: Hỷ-Hồng-Đào (tình duyên, bồ bịch); Hỷ-Hồng-Tả Hữu-Long Phượng-Riêu (hỷ sự thành gia thất); Song Hỷ-Đào Hồng-Khôi Việt (sinh đẻ quý tử).",
+      "tags": ["thien-hy", "cung-ung-dung", "tinh-duyen"]
+    },
+    {
+      "question_id": "tvhs.S7.khoi-viet.01",
+      "source_page": 209,
+      "question": "Thiên Khôi Thiên Việt chỉ bộ phận cơ thể nào? Kết hợp Hình, Hao ra sao?",
+      "answer": "Thiên Khôi là đầu. Thiên Việt là 2 vai. Khôi-Hình: bị thương tích trên đầu, có thẹo. Việt-Hao: vai cao vai thấp.",
+      "tags": ["khoi-viet", "co-the"]
+    },
+    {
+      "question_id": "tvhs.S7.khoi-viet.02",
+      "source_page": 210,
+      "question": "Tư thế của Khôi Việt trong gia đình và quan trường?",
+      "answer": "Trong gia đình: người có Khôi Việt ở Mệnh là con trưởng; nếu không phải con trưởng thì về sau đoạt trưởng, hoặc được cha mẹ thương yêu nhất, hoặc là rường cột gia đình. Trong quan trường: thường được giao phó công việc quan trọng, được lui tới gần gũi bậc nguyên thủ hay trưởng cơ quan.",
+      "tags": ["khoi-viet", "tu-the", "quan-truong", "con-truong"]
+    },
+    {
+      "question_id": "tvhs.S7.khoi-viet.03",
+      "source_page": 210,
+      "question": "Khôi Việt mạnh hơn Xương Khúc ở điểm nào? Hội tụ với Nhật Nguyệt Hóa Khoa cho cách gì?",
+      "answer": "Khôi Việt có nghĩa rộng hơn và mạnh hơn Xương Khúc: Khôi Việt chỉ sự xuất chúng trong khi Xương Khúc chỉ tài giỏi thông thường; Khôi Việt ám chỉ quyền uy quan trọng còn Xương Khúc không bắt buộc nghĩa quyền uy. Hội tụ cả 4 sao (Khôi Việt Xương Khúc): con người quán thế. Đi kèm Nhật Nguyệt-Khoa sáng sủa: bậc nhân tài thế giới, kiểu bác học, chính trị gia khét tiếng được khen tặng trao giải. Giáp Mệnh tuy không đẹp bằng tọa thủ nhưng được đắc thời xã hội, nhiều người kính trọng yêu mến che chở.",
+      "tags": ["khoi-viet", "xuong-khuc", "xuat-chung", "quyen-uy"]
+    },
+    {
+      "question_id": "tvhs.S7.khoi-viet.04",
+      "source_page": 210,
+      "question": "Khôi Việt có khả năng hóa giải sao hãm địa thế nào? Bị sao nào triệt giảm?",
+      "answer": "Khôi Việt có thể hóa giải bất lợi của một số sao hãm địa như Âm Dương hãm, chính tinh hãm. Tọa thủ Phúc Đức: được linh thần che chở luôn luôn, tai nạn được giải trừ, hiệu lực giống Quang Quý. Tuy nhiên những lợi điểm trên chỉ có nếu Khôi Việt KHÔNG bị Tuần Triệt, Hóa Kỵ, Thiên Hình và sát tinh xâm phạm.",
+      "tags": ["khoi-viet", "hoa-giai", "phuc-duc", "tuan-triet"]
+    },
+    {
+      "question_id": "tvhs.S7.khoi-viet.05",
+      "source_page": 211,
+      "question": "Khôi Việt ở Phụ Mẫu/Phu Thê/Tử, Quan Lộc, Tật Ách, Nô Bộc, Phúc Đức có ý nghĩa gì?",
+      "answer": "Phụ Mẫu/Phu Thê/Tử: anh em vợ chồng con cái tài ba danh giá, tạo nên sự nghiệp. Quan Lộc: công danh lừng lẫy thịnh vượng, được tín nhiệm trọng dụng. Tật Ách: ốm đau có thầy giỏi thuốc hay, tai nạn được cứu giải. Nô Bộc: có thuộc hạ đắc lực, có quản gia mẫn cán, có lương tướng tài ba, có học trò xuất sắc. Phúc Đức: có thần linh yểm trợ cứu độ. Tóm lại Khôi Việt là sao quý nhất cho công danh khoa giáp, tính tình, phúc thọ, gia đạo — bảo đảm thành nhân thành công toàn diện.",
+      "tags": ["khoi-viet", "cung-ung-dung", "khoa-giap"]
+    },
+    {
+      "question_id": "tvhs.S7.khoi-viet.06",
+      "source_page": 210,
+      "question": "Các cách Xương Khúc-Khôi Việt-Quang Quý và Tọa Khôi hướng Việt nghĩa gì?",
+      "answer": "Xương Khúc-Khôi Việt-Quang Quý: thi đỗ cao, văn bằng cao nhất (Trạng Nguyên, Tiến Sĩ, Thạc Sĩ). Tọa Khôi hướng Việt (Khôi Việt hợp chiếu): đỗ cao lúc tuổi còn trẻ. Khôi Việt-Nhật Nguyệt hãm: Khôi Việt phục hồi sức sáng cho Nhật Nguyệt hãm. Khôi Việt-Đà Kỵ: kẻ sĩ ẩn dật.",
+      "tags": ["khoi-viet", "khoa-giap", "cach-cuc"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-khong.01",
+      "source_page": 211,
+      "question": "Thiên Không (loại 1) ở tính tình và phúc thọ có nghĩa gì?",
+      "answer": "Thiên Không là sát tinh, ác tinh: gian hùng, quỷ quyệt, xảo trá, đa mưu, thủ đoạn; phá tán, phá hoại, ác hiểm. Là sao của hạng lưu manh, gian hùng, bất chính — đồng nghĩa Kiếp Sát, Lưu Hà, Phục Binh; sự hội tụ càng nói lên ý nghĩa chọc trời khuấy nước, tiểu nhân kết đảng. Phúc thọ: chủ thất bại quan trường, chậm thăng chức vụ, tiêu tán tài lộc. Riêng phái nữ Thiên Không ở Mệnh thì xui xẻo, bị tai ách gió trăng, lụy vì tình.",
+      "tags": ["thien-khong", "sat-tinh", "gian-hung", "tinh-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-khong.02",
+      "source_page": 212,
+      "question": "Thiên Không kết hợp Đào, Hồng, Binh-Kiếp Sát; đắc địa ở đâu giống Địa Không?",
+      "answer": "Không-Đào: xảo trá đa mưu về ái tình, có tài lừa phỉnh phụ nữ hay lôi cuốn nam giới bằng xảo thuật (có sách cho là tài hoa nhưng phải hiểu nghĩa xấu). Không-Hồng: thích ẩn dật, tu hành. Không-Binh-Kiếp Sát: lưu manh kết đảng phá hoại. Thiên Không đắc địa ở Tỵ Hợi Dần Thân — hiệu lực giống Địa Không.",
+      "tags": ["thien-khong", "tu-hop-sao", "dac-dia", "dia-khong"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-khong.03",
+      "source_page": 212,
+      "question": "Thiên Không ở Tài/Điền, Tật, Quan, Hạn có ý nghĩa gì? Vai trò cứu giải ở Tật?",
+      "answer": "Vì là sao phá tán nên Thiên Không ở cung Tật cứu giải được bệnh tật khá mạnh như Nhị Hao, Phá Toái. Tài/Điền: khó kiếm tiền, tán tài, tụ tán bất thường, hay kiếm tiền bằng phương pháp táo bạo ám muội, hoạnh phát hoạnh phá nếu đắc địa. Tật: ít bệnh, có bệnh chóng qua. Quan: chậm quan, chậm thăng, không thăng tột bậc, chức cao không bền, gặp nhiễu bất công, tham nhũng nếu đi Tồn hay Lộc. Hạn: bế tắc thất bại ngăn trở, tác họa mau như sao Hỏa; nếu đau thì hết bệnh.",
+      "tags": ["thien-khong", "cung-ung-dung", "cuu-giai-tat"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-la.01",
+      "source_page": 212,
+      "question": "Thiên La là sao gì? Quy luật gặp sao hung/ác ra sao?",
+      "answer": "Thiên La là một ám tinh: táo bạo, gan góc; ác hiểm; chủ sự bắt bớ giam cầm, gây rắc rối, ngăn trở công việc. Có sách cho Thiên La cũng như Địa Võng có tác dụng: gặp sao hung thì thành tốt; gặp sao ác thì thành hung.",
+      "tags": ["thien-la", "am-tinh", "dia-vong", "bat-bo"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-la.02",
+      "source_page": 213,
+      "question": "Thiên La với Thiên Lương, với Linh-Đà-Mã gặp Thanh Liêm ở Mệnh nghĩa thế nào?",
+      "answer": "Thiên La-Thiên Lương: tuy táo bạo nhưng trung hậu; nếu thêm Tử Vi, Hóa Khoa, Thiên Phủ thì đặc tính xấu giảm chế nhiều. Thiên La-Linh-Đà-Mã gặp Thanh Liêm ở Mệnh: bị bắt giữ, bị tử hình.",
+      "tags": ["thien-la", "thien-luong", "cach-cuc", "tu-hinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-ma.01",
+      "source_page": 213,
+      "question": "Thiên Mã chỉ bộ phận và vật dụng nào? Khi gặp sát tinh có hậu quả gì?",
+      "answer": "Thiên Mã là tứ chi — 2 tay 2 chân, phương tiện di chuyển. Mã gặp sát tinh tùy nặng nhẹ thì chân tay tàn tật (trặc, phỏng, mất tay chân) bất luận ở cung nào. Vật dụng: chỉ xe cộ hay phương tiện di chuyển. Thiên Mã-Không Kiếp-Binh: bị mất xe. Thiên Mã-Kình-Đà: tai nạn xe cộ. Thiên Mã-Thiên Cơ: xe có máy, xe bị trục trặc máy móc. Về súc vật: chỉ gia súc (gà vịt heo bò cừu), nếu Mã gặp Tang hay Hà thì súc vật bị dịch chết.",
+      "tags": ["thien-ma", "co-the", "xe-co", "sat-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-ma.02",
+      "source_page": 213,
+      "question": "Thiên Mã ở ý nghĩa tài năng đắc địa ở đâu, hãm ở đâu?",
+      "answer": "Thiên Mã chỉ người đa tài, có khả năng nhiều lĩnh vực, tháo vát bén nhạy may mắn. Học trò giỏi nhiều môn; công chức đa năng đa hiệu đa nhiệm; nội trợ quán xuyến một mình. Là sao quý cho công danh nghề nghiệp bất luận ngành nào, nhất là đắc địa ở Mệnh Thân Quan tại các cung Dần và Tỵ. Ở Thân thì kém, ở Hợi thì xấu vì khác hành Hỏa.",
+      "tags": ["thien-ma", "tai-nang", "dan", "ty", "han-than"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-ma.03",
+      "source_page": 213,
+      "question": "Thiên Mã chủ về sự thay đổi nào? Mã ở Điền Trạch và Phu Thê gặp Tuần Triệt Địa Không?",
+      "answer": "Thiên Mã chủ: thay đổi chỗ ở chỗ làm hoặc làm việc có tính lưu động (Thanh Tra, Đại Sứ, liên lạc viên, giao liên); đi xa, xuất ngoại, ly hương, ly tông. Người Mệnh có Mã hay đi đây đó, làm việc lưu động (quân nhân chinh chiến), xuất ngoại thường, hoặc xa nhà. Mã ở Điền Trạch: thường làm công vụ xứ ngoài (Đại Sứ, Tùy Viên Sứ Quán). Phu Thê có Mã gặp Tuần Triệt-Địa Không: bỏ vợ bỏ chồng, vợ chồng bỏ nhau.",
+      "tags": ["thien-ma", "thay-doi", "xuat-ngoai", "ly-hon"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-ma.04",
+      "source_page": 214,
+      "question": "Các cách TỐT của Thiên Mã: Mã Tử Phủ, Mã Nhật Nguyệt, Mã Lộc Tồn, Mã Hỏa/Linh, Mã Khốc, Mã Tướng, Mã-Lưu Mã?",
+      "answer": "Mã-Tử Phủ đồng cung: tài giỏi giàu sang phúc thọ song toàn; gặp thời vận như tôi gặp chúa (ngựa kéo xe vua chúa). Mã-Nhật Nguyệt sáng sủa: cách Thư hùng mã, gặp vận tốt, công danh suôn sẻ. Mã-Lộc Tồn đồng cung hoặc Tồn/Lộc chiếu: cách Chiết tiển (bẻ roi đánh ngựa) hay Lộc Mã giao trì, hạnh thông quan trường tài lộc, thường thương gia đắc tài lộc. Mã-Hỏa hay Linh đồng cung đắc địa: Chiến mã (ngựa lâm trận), về quân sự binh quyền hiển đạt; hãm địa thì bôn ba chật vật, có thể bị thương. Mã-Khốc: cách Tuấn mã (ngựa hay gặp người cưỡi giỏi), thao lược chinh chiến dũng mãnh, lập công lớn, gặp thời vận. Mã-Tướng: làm nên vinh hiển. Mã-Lưu Mã: thăng quan tiến chức, thêm tài lộc huy chương, xuất ngoại hay đổi chỗ.",
+      "tags": ["thien-ma", "cach-cuc", "luc-ma-giao-tri", "chien-ma"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-ma.05",
+      "source_page": 214,
+      "question": "Các cách XẤU của Thiên Mã: Mã Hình, Mã Tuyệt, Mã Tuần Triệt, Mã ở Hợi?",
+      "answer": "Mã-Hình đồng cung: cách Phù thi mã (ngựa mang xác chết) — tai họa khủng khiếp, có thể chết thê thẩm. Mã-Tuyệt đồng cung hay hội chiếu: cách Chiết Túc mã (ngựa què) — suy bại, ngăn trở, gây tai họa. Mã-Tuần Triệt (Tử Mã, ngựa chết): rất hung hãn, gây tai họa bại hoại chết chóc, thương tích tay chân. Thiên Mã ở Hợi: cách Mã cùng đồ (ngựa bí lối) — nghĩa như Mã Tuyệt.",
+      "tags": ["thien-ma", "cach-cuc-xau", "phu-thi-ma", "ma-cung-do"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-ma.06",
+      "source_page": 215,
+      "question": "Thiên Mã ở Điền Trạch/Quan, Phu Thê, Tài Bạch/Hạn có nghĩa gì?",
+      "answer": "Điền Trạch/Quan Lộc: thường xuất ngoại, hay đi du lịch, làm việc lưu động, làm công vụ ở ngoại quốc. Phu Thê: vợ chồng gặp nhau xa quê quán, có thể có vợ/chồng người ngoại quốc, thường cưới hỏi nhau rất nhanh. Tài Bạch/Hạn: hay có sự thay đổi (nhà, chỗ làm), xuất ngoại.",
+      "tags": ["thien-ma", "cung-ung-dung", "ngoai-quoc"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-quan-phuc.01",
+      "source_page": 215,
+      "question": "Thiên Quan và Thiên Phúc là loại sao gì? Tính tình và phúc thọ nghĩa thế nào?",
+      "answer": "Hai sao này là phúc tinh, đồng nghĩa với nhau. Tính tình: có thiện tâm, nhân hậu, hiền lành đức độ, hay làm việc thiện cứu giúp người; có tín ngưỡng tin Phật Trời nhân quả; có khiếu đi tu có thể đắc quả — giống Tứ Đức và Thiên Giải Địa Giải Giải Thần. Phúc thọ: chủ cứu giải tai họa, giảm bớt hung nguy; giảm bệnh tật; tăng phúc thọ do tu nhân tích đức.",
+      "tags": ["thien-quan", "thien-phuc", "phuc-tinh", "thien-tam"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-quan-phuc.02",
+      "source_page": 216,
+      "question": "Thiên Quan Thiên Phúc kết hợp Tướng-Riêu-Y, Cơ Nguyệt Đồng Lương, Tử-Tham nghĩa gì?",
+      "answer": "Thiên Tướng-Riêu-Y và Thiên Quan-Thiên Phúc: bác sĩ rất mát tay, lương y chữa bệnh giỏi. Cơ Nguyệt Đồng Lương-Thiên Quan-Thiên Phúc: lương y, người hảo tâm phước thiện, hay làm công tác xã hội. Tử-Tham đồng cung: đi tu, cứu được nhiều người.",
+      "tags": ["thien-quan-phuc", "y-su", "tu-hanh", "luong-y"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-quan-phuc.03",
+      "source_page": 216,
+      "question": "Thiên Quan Thiên Phúc ở các cung Quan/Di/Mệnh, Tài Bạch, Điền Trạch, Tật Ách?",
+      "answer": "Đóng ở bất luận cung nào hai sao đều mang lành thiện cho cung đó, tốt nhất ở Mệnh, Thân, Phúc, Di, Tật. Quan Lộc/Thiên Di/Mệnh: hay giúp đỡ người và được nhiều người giúp đỡ. Tài Bạch: hay dùng tiền bố thí cúng dường, sử dụng tiền vào mục đích lương thiện xã hội. Điền Trạch: có khi hiến tiền nhà cửa cho việc nghĩa. Tật Ách: được nâng đỡ giúp đỡ trong công danh tiền bạc.",
+      "tags": ["thien-quan-phuc", "cung-ung-dung", "bo-thi"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-rieu.01",
+      "source_page": 216,
+      "question": "Thiên Riêu chỉ bộ phận nào? Ý nghĩa tính tình và vị trí đắc địa?",
+      "answer": "Thiên Riêu là lông — người có Riêu ở Mệnh thì nhiều lông, đa mao, nam cũng như nữ; là đặc điểm của sinh dục. Tính tình: đa dâm đa dục, hay chơi bời trụy lạc đối với cả hai phái nhưng rất bất lợi cho riêng phái nữ; dễ sa ngã, bất chính, vô hạnh — giống Thai, Mộc Dục, Đào, Hồng, Tham Lang. Riêu đắc địa Mão Dậu: dù có sắc dục cũng không bị nhơ nhuốc, ví như sen mọc trong bùn, nhưng vẫn không mất nghĩa dâm dục. Còn có nghĩa: dị đoan mê tín, có tính đồng bóng, hay cúng kiến cầu sao xem số xem bói.",
+      "tags": ["thien-rieu", "co-the", "dam-duc", "mao-dau", "di-doan"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-rieu.02",
+      "source_page": 217,
+      "question": "Thiên Riêu ở bệnh lý và kết hợp các sao Đào, Đồng, Xương Khúc Cơ, Thai nghĩa thế nào?",
+      "answer": "Thiên Riêu báo hiệu bệnh về bộ phận sinh dục dưới nhiều hình thức (lậu, liệt dương, teo) nếu gặp hung sát tinh. Riêu-Đào (Hồng): vừa lẳng lơ vừa dâm đãng, bất kể trai gái có/chưa gia đình — bộ sao này có yếu tố ngoại tình đa mang rất nặng. Riêu-Đồng: hay thay cũ đổi mới về mặt sinh lý, đã có gia đình thì dễ ngoại tình. Riêu-Xương Khúc-Cơ: bị dày vò vì nhu cầu sinh lý bị ám ảnh rất nặng, có khuynh hướng sáng tác văn thơ dâm tình kiểu Hồ Xuân Hương, hết sức dâm đãng. Riêu-Thai: rất dâm dục, dễ có con riêng.",
+      "tags": ["thien-rieu", "tu-hop-sao", "ho-xuan-huong", "ngoai-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-rieu.03",
+      "source_page": 217,
+      "question": "Thiên Riêu ở Phu Thê/Nô Bộc, Tử Tức/Tài Bạch, Hạn có ý nghĩa gì?",
+      "answer": "Tọa thủ cung nào Thiên Riêu cũng mang nghĩa sinh lý rất nặng. Phu Thê/Nô Bộc: vợ chồng đều dâm đãng chơi bời sắc dục; có thể ngoại tình nếu gặp Đồng, Đào hay Hồng, Thai. Tử Tức/Tài Bạch: con cái lăng loàn chơi bời; anh chị em theo trai dễ hoang nếu thêm Thai. Đại Hạn/Tiểu Hạn: thời gian đó thường có nhân tình sâu đậm đi đến ân ái mặn nồng; hay tin dị đoan coi bói xem tướng cúng vái đi chùa.",
+      "tags": ["thien-rieu", "cung-ung-dung", "han", "sinh-ly"]
+    },
+    {
+      "question_id": "tvhs.S7.thuong-su.01",
+      "source_page": 217,
+      "question": "Thiên Thương và Thiên Sứ đóng ở vị trí cố định nào? Khi nào mới có ý nghĩa?",
+      "answer": "Hai sao này đóng ở vị trí cố định: Sứ đóng ở cung Tật, Thương đóng ở cung Nô. Cả hai đều là hung tinh, CHỈ DÙNG để xem hạn — đặc biệt là tiểu hạn — chứ không có ý nghĩa lắm trên toàn cuộc đời. Bao giờ cũng phải đoán vận hạn thì mới nên lưu ý đến vị trí và hội tụ của Thương Sứ với các sao khác.",
+      "tags": ["thien-thuong", "thien-su", "vi-tri-co-dinh", "han"]
+    },
+    {
+      "question_id": "tvhs.S7.thuong-su.02",
+      "source_page": 218,
+      "question": "Thương Sứ khi xét vận hạn có những ý nghĩa nào?",
+      "answer": "Ý nghĩa khi xét vận hạn: buồn thảm; xui xẻo, không may, ngăn trở mọi công việc; mang lại tang thương, bệnh tật, tai họa.",
+      "tags": ["thuong-su", "van-han", "tang-thuong"]
+    },
+    {
+      "question_id": "tvhs.S7.thuong-su.03",
+      "source_page": 218,
+      "question": "Thương Sứ ở cung hạn kết hợp các bộ sao Xương/Khúc, Kình Hỏa Riêu Cự, Cơ Cự Hình, Tuế, Lục Sát, Tang Hổ nghĩa thế nào?",
+      "answer": "Thương-Xương hay Khúc: tác họa khủng khiếp có thể chết non nếu hai hạn cùng xấu. Thương-Sứ-Kình-Hỏa-Riêu-Cự: hại của hại người. Thương-Sứ: hay ốm đau hay rắc rối vì bạn. Sứ-Cơ-Cự-Hình: kiện tụng. Sứ-Tuế: chết nếu đại hạn xấu. Sứ-Thiên Không-Lưu Kình đồng chiếu vào hạn: chết. Sứ-Tang-Hổ: có tang. Sứ ở Tý-Kình Đà-Tuế vào nhị hạn: chết. Sứ gặp Lục Sát: chết. Thương Sứ ở Tý Dần: độc. Sứ-Kình-Đà: dữ (Tử, Đồng Lương giải được). Sứ-Xương: khoa trường thi cử lận đận. Thương-Hình: bị đánh. Thương-Tang Môn: có tang, biến đổi phi thường. Thương-Khốc: thi cử lận đận.",
+      "tags": ["thuong-su", "cung-han", "tac-hoa", "tu-vong"]
+    },
+    {
+      "question_id": "tvhs.S7.thuong-su.04",
+      "source_page": 218,
+      "question": "Theo Nguyễn Mạnh Bảo, năm hạn gặp Thương Sứ nếu thiếu sao giải thì sao? Họa đến mau ở vị trí nào?",
+      "answer": "Theo Nguyễn Mạnh Bảo, năm hạn gặp hai sao này không chết thì cũng nguy mạng nếu thiếu sao giải đủ mạnh. Họa đến mau nếu Thiên Sứ ở Dần Thân Tỵ Hợi. Họa đến thật mau nếu: Thiên Thương ở Sửu Mão Thìn Dậu Tuất; Thiên Sứ ở Tý Mão Thìn Ngọ Mùi.",
+      "tags": ["thuong-su", "nguyen-manh-bao", "thoi-diem", "han"]
+    },
+    {
+      "question_id": "tvhs.S7.thuong-su.05",
+      "source_page": 219,
+      "question": "Các sao giải Thiên Sứ (chính tinh, bàng tinh, cung Phúc) là gì?",
+      "answer": "Chính tinh giải: Tử, Phủ, Lương, Đồng. Bàng tinh giải: Khoa, Lộc, Tả, Hữu, Quang Quý, Khôi Việt; Thiên giải, Địa giải, Giải Thần; Thiên quan, Thiên phúc; Tuần, Triệt. Cung Phúc tốt: nếu Phúc có nhiều sao tốt và mạnh thì chế giải khá mạnh và toàn diện. Tuy nhiên việc chế giải không có nghĩa sự việc hoàn toàn không xảy đến, mà nếu có đến thì chuyện chẳng may không tác họa đúng mức.",
+      "tags": ["thuong-su", "sao-giai", "chinh-tinh-giai", "phuc-duc"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tai.01",
+      "source_page": 219,
+      "question": "Thiên Tài có ý nghĩa chung và đặc tính gì theo Thái Thứ Lang?",
+      "answer": "Thiên Tài không có ý nghĩa gì về cơ thể, tướng mạo, tính tình, phúc thọ hay tai họa. Sao này chỉ có tác dụng làm tăng hay giảm cái tốt/xấu của các sao khác. Theo Thái Thứ Lang: gặp sao mờ ám sẽ làm giảm bớt ảnh hưởng xấu; gặp sao sáng sủa sẽ làm giảm bớt cái tốt. Dưới 2 đặc tính này, Thiên Tài có tác dụng giống sao Tuần và sao Triệt.",
+      "tags": ["thien-tai", "thai-thu-lang", "tang-giam", "tuan-triet"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tai.02",
+      "source_page": 219,
+      "question": "Quan điểm của tác giả Hàm Số về Thiên Tài so với Tuần Triệt?",
+      "answer": "Hầu hết tác giả rất ít chú ý đến sao Thiên Tài khi giải đoán, gây hoài nghi hiệu lực. Theo tác giả: có lẽ Thiên Tài không mạnh bằng Tuần Triệt. Trường hợp Thiên Tài gặp Tuần Triệt thì nó cũng không đủ sức chế giảm đặc tính của Tuần Triệt. Ngoài ra vì giống đặc tính của Tuần Triệt phối hợp, sẽ chi phối bổ túc trên các sao khác, làm tăng cường giá trị và hiệu lực của Tuần Triệt.",
+      "tags": ["thien-tai", "tac-gia-quan-diem", "tuan-triet"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tai.03",
+      "source_page": 219,
+      "question": "Thiên Tài với Nhật Nguyệt sáng/mờ ám và ở Sửu Mùi có hiệu lực thế nào?",
+      "answer": "Thiên Tài đồng cung Nhật/Nguyệt sáng sủa: che lấp ánh sáng của Nhật Nguyệt. Thiên Tài đồng cung Nhật/Nguyệt mờ ám: làm cho Nhật Nguyệt thêm rạng rỡ. Thiên Tài đóng cung Nhật/Nguyệt ở Sửu Mùi: làm cho Nhật Nguyệt thêm rạng rỡ. Trong trường hợp này Thiên Tài có hiệu lực như sao Hóa Kỵ ở Sửu Mùi. Thiên Tài vừa là hộ tinh (giảm sao xấu nhưng không trợ sao tốt) vừa là ám tinh (giảm sao tốt) — có lẽ hiệu lực hai chiều chỉ với Nhật Nguyệt mà thôi, vẫn là nghi vấn chưa giải đáp ổn thỏa.",
+      "tags": ["thien-tai", "nhat-nguyet", "suu-mui", "ho-tinh", "am-tinh"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tho.01",
+      "source_page": 220,
+      "question": "Thiên Thọ là sao gì, có những ý nghĩa nào và đẹp nhất ở cung nào?",
+      "answer": "Thiên Thọ là cát tinh: điềm đạm, hòa nhã; nhân hậu, từ thiện; làm gia tăng phúc thọ. Ở bất cứ cung nào cũng hay, nhất là ở Phúc.",
+      "tags": ["thien-tho", "cat-tinh", "phuc-tho"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tru.01",
+      "source_page": 220,
+      "question": "Thiên Trù chủ về gì? Kết hợp Lực Sĩ, Hóa Lộc, Văn Xương/Hóa Khoa nghĩa thế nào?",
+      "answer": "Thiên Trù chủ ăn uống, lộc ăn, khiếu ẩm thực: thích ăn nhậu, ham ăn (gourmand); ăn nhậu rất khỏe (gros mangeur). Đi với Lực Sĩ thì sức ăn càng khủng khiếp: hảo ăn, thường cùng bạn bè đối ẩm; thích ăn món ngon vật lạ, có gu sành điệu. Đi với Hóa Lộc: sành về ăn nhậu; thêm Lực Sĩ thì người ăn khỏe vừa tham vừa sành, sống để ăn — có thể là đầu bếp giỏi/tài tử; từ đó có tính khó ăn kén ăn. Thiên Trù người có vị giác hết sức bén nhạy tinh tế. Đi với Văn Xương hay Hóa Khoa: tác giả sách gia chánh dạy nấu ăn chế rượu, kiêm kẻ sành ăn háo ăn ăn nhiều.",
+      "tags": ["thien-tru", "an-uong", "hoa-loc", "luc-si", "dau-bep"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tru.02",
+      "source_page": 220,
+      "question": "Thiên Trù ở tài lộc và bệnh lý có ý nghĩa gì?",
+      "answer": "Tài lộc: tượng trưng lộc ăn, Thiên Trù gia tăng tài lộc; đi với Đại Tiểu Hao thì vì ăn mà hết tiền. Bệnh lý: Thiên Trù không có nghĩa bệnh lý, trái lại có nghĩa sức khỏe. Nhưng đi với một số sao khác thì ý nghĩa bệnh lý rất dễ có dù ở Mệnh hay Tật. Thiên Trù-Nhị Hao: bệnh bộ máy tiêu hóa (đau gan, đau bao tử, trúng thực, thổ tả) do bội thực bội ẩm. Thiên Trù-Không Kiếp: bệnh nặng về bội thực bội ẩm, có thể đi đến mổ xẻ sưng gan lở bao tử.",
+      "tags": ["thien-tru", "tai-loc", "benh-ly", "tieu-hoa"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-tru.03",
+      "source_page": 221,
+      "question": "Thiên Trù với Hóa Lộc/Tấu Thư và Hồng Loan nghĩa gì?",
+      "answer": "Thiên Trù-Hóa Lộc hay Tấu Thư: người có vị giác, khứu giác rất linh mẫn tinh vi. Thiên Trù-Hồng Loan: đầu bếp nổi tiếng nhờ tài nấu nướng hoặc người bào chế rượu ngon.",
+      "tags": ["thien-tru", "vi-giac", "hong-loan", "dau-bep-noi-tieng"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-y.01",
+      "source_page": 221,
+      "question": "Thiên Y có những ý nghĩa nào và cần thiết cho nghề nào?",
+      "answer": "Thiên Y: sạch sẽ vệ sinh; cứu giải bệnh tật, gặp được lương y; chủ việc thuốc men, chỉ nghề y dược. Cần thiết với y sĩ, dược sĩ, y tá, cán bộ y tế, nữ hộ sinh. Bao hàm ý nghĩa MÁT TAY.",
+      "tags": ["thien-y", "y-duoc", "luong-y", "mat-tay"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-y.02",
+      "source_page": 221,
+      "question": "Thiên Y ở Mệnh với các bộ y khoa (Tướng-Y-Quan-Phúc, Hình/Kiếp Sát, Nhật/Nguyệt, Thai) nghĩa gì?",
+      "answer": "Thiên Y ở Mệnh: hay đau yếu, hay dùng thuốc, thích dùng thuốc, có khi lạm dụng thuốc. Tướng-Y-Quan-Phúc: lương y thầy thuốc giỏi mát tay như Biển Thước. Tướng-Y-Hình (hay Kiếp Sát): bác sĩ giải phẫu như Hoa Đà (chirurgien). Nhật/Nguyệt-Y-Quan-Phúc: bác sĩ chiếu điện, nhãn khoa, thần kinh. Tướng-Y-Thai: bác sĩ trị bệnh đàn bà, đẻ chửa. Bộ sao y khoa đi liên với bộ phận cơ thể nào thì y sĩ chuyên khoa về bộ phận đó.",
+      "tags": ["thien-y", "y-su", "chuyen-khoa", "bien-thuoc", "hoa-da"]
+    },
+    {
+      "question_id": "tvhs.S7.thien-y.03",
+      "source_page": 221,
+      "question": "Thiên Y ở Quan, ở Hạn có nghĩa gì? Đắc địa ở đâu? Đi với Địa Kiếp Không?",
+      "answer": "Ở Quan: có các bộ sao y khoa trên càng chắc chắn hành nghề (ngoài ra Nguyệt-Đồng Lương cũng chủ y sĩ giỏi). Thiên Y đắc địa ở Mão Dậu: nghề càng hiển vinh được người đời biết tiếng. Bộ y khoa đi với Địa Kiếp-Địa Không: trong đời y sĩ có lần sơ suất chết người. Ở Hạn: gặp Thiên Y thì ốm đau phải chạy chữa thầy thuốc. Vì Thiên Riêu bao giờ cũng đi đôi Thiên Y nên có khi gặp bệnh bộ phận sinh dục (tiểu tiện, phong tình, bệnh đàn bà).",
+      "tags": ["thien-y", "cung-quan", "han", "mao-dau", "rieu"]
+    },
+    {
+      "question_id": "tvhs.S7.trang-sinh.01",
+      "source_page": 222,
+      "question": "Tràng Sinh có ý nghĩa chung và tình cảm phúc thọ thế nào?",
+      "answer": "Tràng Sinh cũng như Đế Vượng chỉ sự phong phú, người có tầm vóc, mập mạp có sức khỏe tốt, có tư chất cơ thể tốt và vọng sống lâu. Là quý tinh: độ lượng nhân từ quảng đại; làm tăng phúc thọ, tài lộc, con cái; có lợi cho sinh nở (như Long Phượng, Thai).",
+      "tags": ["trang-sinh", "quy-tinh", "phuc-tho", "sinh-no"]
+    },
+    {
+      "question_id": "tvhs.S7.trang-sinh.02",
+      "source_page": 222,
+      "question": "Tràng Sinh với Tử Phủ, Thiên Mã (lưu ý ở Hợi), Đế Vượng — cách phối hợp ra sao?",
+      "answer": "Tràng Sinh-Tử Phủ: người bao dung quảng đại, dễ tha thứ không câu chấp; có quan chức lớn thì ân đức rộng. Tràng Sinh-Thiên Mã: được vận hội may về nhiều mặt — công danh tiến đạt, tài lộc gia tăng, công việc thành tựu; đồng cung càng đẹp. Tuy nhiên ở Hợi vốn bất lợi cho Mã nên vất vả trắc trở, không lợi danh tài quan. Tràng Sinh-Đế Vượng: mập mạp phong túc. Tràng Sinh có thể ví như hệ số làm tăng ý nghĩa các sao đi kèm, tốt cũng như xấu.",
+      "tags": ["trang-sinh", "tu-hop-sao", "he-so", "ma-o-hoi"]
+    },
+    {
+      "question_id": "tvhs.S7.trang-sinh.03",
+      "source_page": 222,
+      "question": "Tràng Sinh ở các cung Tật, Huynh Đệ, Tử Tức, Tài Bạch, Phúc Đức, Hạn?",
+      "answer": "Chỉ trừ ở Tật gặp nhiều sao xấu thì bệnh tật nhiễu và lâu khỏi; ở các cung khác đem phúc thọ tài lộc. Huynh Đệ: anh em đông sung túc. Tử Tức: đông con. Tài Bạch: dồi dào tiền bạc. Phúc Đức: thọ. Tiểu Hạn: gặp vận may. Tùy ý nghĩa sao đi kèm, Tràng Sinh làm tăng cái hay của cát tinh hoặc cái dở của sao xấu.",
+      "tags": ["trang-sinh", "cung-ung-dung", "tang-gia-tri"]
+    },
+    {
+      "question_id": "tvhs.S7.truc-phu.01",
+      "source_page": 222,
+      "question": "Trực Phù có 2 ý nghĩa chính nào? Kết hợp Thái Tuế nghĩa gì?",
+      "answer": "Trực Phù có 2 ý nghĩa: (1) Trực tính — ăn ngay nói thẳng, không sợ mích lòng hay động chạm; từ đó có nghĩa như không cẩn ngôn vụng về trong lời nói. (2) Nhỏ mọn, hay câu chấp tiểu tiết. Nếu Thái Tuế đi liền với Trực Phù thì người đó vừa nói nhiều vừa nói thẳng.",
+      "tags": ["truc-phu", "truc-tinh", "thai-tue", "nho-mon"]
+    },
+    {
+      "question_id": "tvhs.S7.truc-phu.02",
+      "source_page": 223,
+      "question": "Tử Phù và Trực Phù theo Thái Thứ Lang đồng hóa thế nào? Phân biệt với Thiên Không?",
+      "answer": "Có sách cho Tử Phù và Trực Phù nghĩa như xấu bụng, gian tà, hay nghĩ xấu cho thiên hạ, hay làm hại bằng những hành động bất xứng — xếp vào loại gian tinh. Nhưng đây là tính gian của kẻ tiểu nhân nhỏ mọn, gian vặt, dùng mẹo nhỏ hại người, ý nghĩa KÉM MẠNH so với Thiên Không. Thái Thứ Lang đồng hóa ý nghĩa hai sao Tử Phù và Trực Phù: buồn thảm; chủ tang thương, gây rắc rối, ngăn trở mọi việc. Cả hai thuộc hành Hỏa.",
+      "tags": ["truc-phu", "tu-phu", "thai-thu-lang", "gian-tinh", "thien-khong"]
+    },
+    {
+      "question_id": "tvhs.S7.truc-phu.03",
+      "source_page": 223,
+      "question": "Trực Phù với Thái Tuế, Đế Vượng, Tử Vi, Tang Môn, Đào Hồng Cái Phục Tướng Phá nghĩa gì?",
+      "answer": "Trực Phù-Thái Tuế: nói nhiều, nói thẳng và nói xấu. Trực Phù-Đế Vượng: Đế Vượng chủ quảng đại làm giảm chế ý nghĩa xấu của Trực Phù riêng về xấu bụng; hội tụ bao hàm nghĩa ngụy quân tử (bên ngoài quân tử, bên trong tiểu nhân). Trực Phù-Tử Vi: nghĩa tương tự nhưng Tử Vi nặng trung hậu, giảm chế tính tiểu nhân mạnh hơn cả Đế Vượng; thêm Thiên Tướng hội họp thì cái dở giảm nhiều. Trực Phù-Thái Tuế-Tang Môn: bất hòa, gây thù chuốc oán. Trực Phù-Đào-Hồng-Cái-Phục-Tướng-Phá: dâm đãng. Các bộ sao trên nằm ở cung nào sẽ có ý nghĩa tùy cung đó.",
+      "tags": ["truc-phu", "tu-hop-sao", "nguy-quan-tu"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.01",
+      "source_page": 223,
+      "question": "Vì sao Tuần Triệt là cặp sao bị tranh chấp dữ dội nhất trong Tử Vi? 5 điểm tranh chấp là gì?",
+      "answer": "Trong khoa Tử Vi chưa có sao nào bị tranh chấp dữ dội như hai sao Tuần và Triệt. Có nhiều quan điểm khác nhau liên quan đến: (1) Ngũ Hành của Tuần Triệt; (2) Thời gian ảnh hưởng; (3) Cường độ ảnh hưởng; (4) Mức độ ảnh hưởng; (5) Vấn đề Tuần Triệt đồng cung. Tác giả lần lượt trình bày các quan điểm tranh chấp và nêu quan điểm riêng.",
+      "tags": ["tuan-triet", "tranh-chap", "ngu-diem", "phuong-phap-luan"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.02",
+      "source_page": 223,
+      "question": "Hai quan điểm về Ngũ Hành của Tuần Triệt là gì?",
+      "answer": "Hai quan điểm: (a) Tuần Triệt không có hành cơ hữu và cố định — an ở cung nào sẽ có hành của cung đó; an ở hai cung khác hành thì có hai hành, mỗi hành tương ứng một cung; như vậy Tuần Triệt có 5 hành. (b) Tuần Triệt thuộc hành Thủy (có người cho là Hỏa) và có 2 vị trí lợi/bại địa: lợi địa ở Tý Ngọ và Thân Dậu (gọi Hỏa Không/Kim Không, phát đạt/tiếng tăm, hạn không phá hại mà trở thành phú trạch); bại địa ở vị trí khác thì tác họa.",
+      "tags": ["tuan-triet", "ngu-hanh", "hoa-khong", "kim-khong"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.03",
+      "source_page": 224,
+      "question": "Tác giả Hàm Số phê phán quan điểm (b) về Ngũ Hành Tuần Triệt sai lầm và mâu thuẫn ở điểm nào?",
+      "answer": "Sai lầm: Tuần và Triệt CHỈ đóng ở Thìn-Tý và Ngọ-Mùi, không phải ở Tý-Ngọ là vị trí không bao giờ có. Nếu ở Thìn-Tý và Ngọ-Mùi thì làm sao gọi là Hỏa Không đơn thuần được, vì Thìn là Thổ, Mùi cũng Thổ. Mâu thuẫn: cho rằng Hỏa Không ở Tý Ngọ phát đạt còn vị trí khác (như Thìn-Mùi cung Thổ) tác họa — chẳng lẽ Tuần Triệt ở Thìn-Tý thì phát đạt cho Tý (cung Hỏa) mà tác họa cho Thìn (cung Thổ)? Đây là nghi vấn rất lớn vì thiếu căn bản lý tính khả chấp.",
+      "tags": ["tuan-triet", "ngu-hanh", "tac-gia-phe-phan", "thin-ty-ngo-mui"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.04",
+      "source_page": 224,
+      "question": "Quan điểm Thái Thứ Lang về thời gian ảnh hưởng của Tuần và Triệt? Hai nghi vấn nào được nêu ra?",
+      "answer": "Thái Thứ Lang: Tuần ảnh hưởng mạnh mẽ trong 'suốt đời người'; Triệt ảnh hưởng mạnh mẽ 'từ lúc cất tiếng chào đời cho đến năm 30 tuổi, từ 30 tuổi trở đi ảnh hưởng kém dần' (TVĐS tr.345-346). Nhiều nhà lý học không đồng ý hoàn toàn về thời điểm 30 tuổi và nêu 2 nghi vấn: căn bản nào để ấn định thời điểm 30? Sau 30 ảnh hưởng 'kém dần' vậy kém đến độ nào và bao giờ mới dứt?",
+      "tags": ["tuan-triet", "thoi-gian", "thai-thu-lang", "30-tuoi"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.05",
+      "source_page": 224,
+      "question": "Hai luận hướng về cường độ và mức độ ảnh hưởng của Tuần Triệt là gì?",
+      "answer": "Cường độ: Thái Thứ Lang cho rằng cả hai 'ảnh hưởng mạnh mẽ'; có người cho Tuần ảnh hưởng nhẹ, Triệt ảnh hưởng mạnh — chỉ nói mơ hồ nên rất khó lượng giá. Mức độ (giả thuyết thời gian ảnh hưởng 'mạnh mẽ' ngang nhau) có 2 luận hướng: (1) Tuần hay Triệt BIẾN sao xấu thành tốt, sao tốt thành xấu (ví Âm Dương hãm gặp Tuần Triệt thì sáng sủa; Âm Dương sáng gặp thì tối lại). (2) Tuần hay Triệt chỉ làm sao xấu BỚT xấu, chứ không đến nỗi làm cho tốt lên.",
+      "tags": ["tuan-triet", "cuong-do", "muc-do", "luan-huong"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.06",
+      "source_page": 225,
+      "question": "Hai quan điểm về vấn đề Tuần Triệt đồng cung là gì?",
+      "answer": "Quan điểm thứ nhất: Tuần và Triệt đồng cung PHỐI HỢP ảnh hưởng với nhau — cung nào bị Tuần Triệt đồng cung thì xấu sẽ xấu gấp đôi, tốt gấp đôi. Quan điểm thứ hai: Tuần Triệt đồng cung KHẮC CHẾ lẫn nhau — Tuần phá Triệt, Triệt phá Tuần; có người cho rằng đến độ coi như không còn có hai sao đó nữa.",
+      "tags": ["tuan-triet", "dong-cung", "phoi-hop", "khac-che"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.07",
+      "source_page": 225,
+      "question": "Quan điểm tác giả Hàm Số về ngũ hành Tuần Triệt — tính LƯỠNG HÀNH là gì?",
+      "answer": "Tử Vi học lấy ngũ hành làm gốc triết lý — Tuần Triệt cũng có hành. Tuy nhiên Tuần Triệt là HAI SAO ĐẶC BIỆT hơn các sao khác về mặt ngũ hành: không chỉ có một hành duy nhất và cố định, mà còn có thể THAY ĐỔI hành tùy vị trí tọa thủ, thậm chí có thể MANG CẢ HAI HÀNH cùng lúc nếu đóng ở cung khác hành. Tính LƯỠNG HÀNH này làm hai sao hết sức linh động, có hai hướng chi phối, mỗi hướng trên một cung. Tác giả thú nhận không có căn bản nào nhưng cho là hợp lý.",
+      "tags": ["tuan-triet", "luong-hanh", "tac-gia-quan-diem", "ngu-hanh"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.08",
+      "source_page": 225,
+      "question": "Quan điểm tác giả về thời gian ảnh hưởng của Tuần Triệt — vì sao không nên xác định thời điểm cụ thể?",
+      "answer": "Có thể chấp nhận quan điểm Thái Thứ Lang: Tuần ảnh hưởng SUỐT ĐỜI; Triệt chỉ ảnh hưởng khoảng 30 năm đầu và giảm dần từ 30 năm về sau. Nhưng chỉ nên nói đến KHOẢNG THỜI GIAN thay vì xác định thời điểm cụ thể, và không nên cho tỷ lệ giảm vì: (1) Thời gian đó lệ thuộc sự tốt xấu rất phức tạp của Phúc Đức-Mệnh Thân-Đại Tiểu Hạn là những ẩn số chi phối hỗ tương chằng chịt linh động tùy lá số. (2) Đây là 'appréciation de fait' — lượng định theo thực trạng lá số, tùy mỗi tác giả khi cân nhắc các yếu tố theo hàm số riêng.",
+      "tags": ["tuan-triet", "thoi-gian", "ham-so", "appreciation-de-fait"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.09",
+      "source_page": 225,
+      "question": "Quan điểm tác giả về cường độ ảnh hưởng theo nguyên nghĩa chữ Tuần và Triệt?",
+      "answer": "Tác giả KHÔNG cho rằng hai sao này đều 'ảnh hưởng mạnh mẽ' như Thái Thứ Lang. Theo nguyên nghĩa của chữ Tuần và Triệt, cường độ đã được quy định: Tuần ảnh hưởng NHẸ, VỪA PHẢI hơn; Triệt ảnh hưởng MẠNH, QUYẾT LIỆT hơn. Không nên và không thể cho tỷ lệ hơn kém rõ rệt vì đây là một lượng theo hàm số của Phúc-Mệnh-Thân-Hạn, chưa kể thẩm định yếu tố phúc đức thực tại có thể khác phúc đức lá số.",
+      "tags": ["tuan-triet", "cuong-do", "nguyen-nghia", "tuan-nhe-triet-manh"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.10",
+      "source_page": 226,
+      "question": "Quan điểm tác giả về mức độ ảnh hưởng — Tuần và Triệt khác nhau thế nào?",
+      "answer": "Không thể nói minh thị Tuần hay Triệt biến sao tốt thành xấu hay chỉ bớt tốt, hoặc biến sao xấu thành tốt hay bớt xấu — hiệu lực chế giảm còn lệ thuộc hàm số Phúc-Mệnh-Thân-Hạn. Cụ thể: TUẦN — vì ảnh hưởng nhẹ vừa phải, làm cho sao xấu BỚT xấu chứ không thành tốt; ngược lại làm sao tốt BỚT tốt chứ không thành xấu hẳn. TRIỆT — vì ảnh hưởng mạnh và quyết liệt hơn, có thể làm sao xấu THÀNH TỐT và ngược lại, trong suốt thời gian Triệt có hiệu lực mạnh; khi Triệt giảm dần hiệu lực thì luận như sao Tuần.",
+      "tags": ["tuan-triet", "muc-do", "che-giam", "bien-thanh"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.11",
+      "source_page": 226,
+      "question": "Quan điểm tác giả về Tuần Triệt đồng cung — luận chính-tà phân minh và kết luận?",
+      "answer": "Tuần Triệt khác cường độ-mức độ-thời gian nhưng GIỐNG về tác dụng: chi phối tất cả các sao khác không loại trừ. Trong khoa Tử Vi chưa có hung tinh nào khắc chế lẫn nhau hay cát tinh xung đột nội bộ — chỉ có sự phối hợp tác họa của hung tinh, phối hợp phù thịnh của cát tinh, và chính-tà chống nhau. Ý niệm chính-tà phân minh đưa đến: khi Tuần và Triệt đồng cung KHÔNG có sự đối kháng mà chỉ có sự PHỐI HỢP TÁC HÓA. Cụ thể cung nào bị Tuần Triệt cùng án ngữ sẽ bị CẢ HAI ảnh hưởng song hành (tốt cũng như xấu). Tiền lệ: Tả Hữu đồng cung, Không Kiếp đồng cung, Tử Phủ đồng cung, Âm Dương đồng cung — đều gia tăng ảnh hưởng đồng loại.",
+      "tags": ["tuan-triet", "dong-cung", "chinh-ta", "phoi-hop-tac-hoa"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.12",
+      "source_page": 227,
+      "question": "Tuần và Triệt khác biệt về bản chất (Ấm Tinh vs Không Tinh) và phạm vi ảnh hưởng thế nào?",
+      "answer": "Về bản chất: có tác giả cho và điều này hợp lý — Tuần là ÂM TINH, Triệt là KHÔNG TINH. Như vậy Tuần tất nhiên nhẹ hơn Triệt. Tuần báo hiệu sự trắc trở, khó khăn; Triệt báo hiệu sự bế tắc, chướng ngại lớn, sự lụn bại nặng nề. Phạm vi ảnh hưởng: Tuần ảnh hưởng SUỐT ĐỜI; Triệt chỉ mạnh đến khoảng 30 tuổi — tuổi tam thập nhi lập, từ đó con người có thể tự lập thân, không còn chịu ảnh hưởng nặng của gia đình.",
+      "tags": ["tuan-triet", "ban-chat", "am-tinh", "khong-tinh", "tam-thap-nhi-lap"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.13",
+      "source_page": 227,
+      "question": "Tác dụng tương đồng tiên quyết của Tuần Triệt ở mọi cung là gì?",
+      "answer": "Trong thời gian 2 sao còn ảnh hưởng, Tuần Triệt đóng ở bất cứ cung nào đều TIÊN QUYẾT: (1) Gây trở ngại ít hay nhiều cho cung đó — mức độ tùy sự tốt xấu của 2 cung Phúc-Mệnh-Thân (có ngoại lệ cho cung Tật). (2) Tác hóa ít nhiều trên các sao đồng cung — có 2 cường độ: hoặc biến hoàn toàn ý nghĩa của sao (xấu thành tốt hay ngược lại) hoặc chỉ giảm ảnh hưởng (bớt tốt/bớt xấu).",
+      "tags": ["tuan-triet", "tac-dung-tien-quyet", "che-giam", "phuc-menh-than"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.14",
+      "source_page": 227,
+      "question": "3 NGOẠI LỆ của tác dụng tiên quyết Tuần Triệt là gì?",
+      "answer": "(a) Chính/phụ tinh tọa thủ vốn XẤU mà gặp Tuần hay Triệt — sẽ được bớt xấu, thậm chí có thể trở thành tốt; nhưng không hẳn tuyệt đối: có thể giảm xấu hẳn, hoặc chỉ giảm cái xấu trong một hạn kỳ nào đó. (b) Tuần hay Triệt đóng ở cung TẬT — vị trí RẤT TỐT vì tiên quyết ngăn trở rất nhiều bệnh tật, tai họa lớn cho đương số, bất luận cung Tật có sao tốt hay xấu. (c) Tuần Triệt đóng tại cung VÔ CHÍNH DIỆU — rất hay. Vô Chính Diệu được Tứ Không (Tuần, Triệt, Thiên Không, Địa Không) thì rất đẹp; Tam Không thì đẹp; Nhị Không tầm thường; Nhất Không kém. Cái tốt chỉ trong thời gian Tuần/Triệt còn hiệu lực, không kéo dài mãi.",
+      "tags": ["tuan-triet", "ngoai-le", "cung-tat", "vo-chinh-dieu", "tu-khong"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.15",
+      "source_page": 228,
+      "question": "Tác dụng các sao khác đối với Tuần Triệt — có hai chiều thế nào? Các sao ngộ Tuần Triệt có mất hẳn bản chất không?",
+      "answer": "Mặc dù Tuần Triệt chi phối tất cả các sao đồng cung, hai sao này KHÔNG PHẢI BẤT KHẢ XÂM PHẠM: nó vẫn bị các sao kia chi phối lại, nhất là chính tinh. Có sự ảnh hưởng QUA LẠI HAI CHIỀU — kết luận giải đoán chung cuộc chỉ có thể đưa ra sau khi cân nhắc ảnh hưởng hai chiều với hàm số Phúc-Mệnh-Thân. Vì chi phối hai chiều nên các sao ngộ Triệt Tuần KHÔNG HOÀN TOÀN MẤT HẲN bản chất và đặc tính mà chỉ biến thể, giảm sút một phần ý nghĩa.",
+      "tags": ["tuan-triet", "hai-chieu", "chinh-tinh", "khong-mat-han"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.16",
+      "source_page": 228,
+      "question": "Tuần Triệt ở Tật Ách và Nô Bộc có ý nghĩa gì?",
+      "answer": "Tật Ách: RẤT CẦN có Tuần Triệt tại cung Tật vì nhờ 2 sao này mà bệnh, tật và họa sẽ tiêu tán hay giảm thiểu đi rất nhiều — sức khỏe và may mắn sẽ được đảm bảo nhiều hơn. Nô Bộc: Tuần Triệt ở cung này có nghĩa tôi tớ thay đổi, ra vào luôn, không ai ở lâu dài.",
+      "tags": ["tuan-triet", "cung-tat", "no-boc", "thay-doi"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.17",
+      "source_page": 228,
+      "question": "Tuần Triệt ở Điền Trạch/Tài Bạch, Phụ Mẫu, Phu Thê, Tử Tức nghĩa gì?",
+      "answer": "Điền Trạch/Tài Bạch: không có tài sản hoặc chỉ có trong giai đoạn nào đó; làm ra của cải nhưng chật vật; không hưởng di sản tổ phụ; không có của để lại cho con. Phụ Mẫu: anh chị em xung khắc hoặc ít anh chị em; anh cả/chị cả mất sớm. Phu Thê: tiên quyết nói lên sự trắc trở hôn nhân, nhất là thất bại của mối tình đầu; lấy người khác làng khác tỉnh mới tốt nhưng nhân duyên phải gặp khó khăn; Tuần Triệt gặp Mã: vợ chồng bỏ nhau rất dễ dàng. Tử Tức: sát con nhất là con đầu lòng; sinh con đầu lòng khó khăn khó nuôi.",
+      "tags": ["tuan-triet", "cung-ung-dung", "hon-nhan", "tai-san"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.18",
+      "source_page": 228,
+      "question": "Tuần Triệt ở Phúc Đức và Huynh Đệ/Phụ Mẫu (Nhật Nguyệt) nghĩa gì?",
+      "answer": "Phúc Đức: phúc đức bị trục trặc trên phương diện nào đó; Triệt Dương: dòng họ thất tự, phải lập con nuôi. Phụ Mẫu (Huynh Đệ): cha mất sớm nhất là nếu Nhật Nguyệt lạc hãm hay bị Không Kiếp chiếu — cần cân nhắc với 2 sao Nhật Nguyệt và cung Phụ Mẫu có Tuần Triệt.",
+      "tags": ["tuan-triet", "phuc-duc", "triet-duong", "phu-mau", "nhat-nguyet"]
+    },
+    {
+      "question_id": "tvhs.S7.tuan-triet.19",
+      "source_page": 229,
+      "question": "Tuần Triệt ở Quan, Mệnh, Hạn nghĩa gì? Tóm tắt vai trò chung của Tuần Triệt?",
+      "answer": "Quan: công danh lận đận khó nhọc mới làm nên; phải chịu vất vả trong một thời gian; Tướng-Triệt-Tuần: có thể bị bãi chức hay tai nạn trong công vụ. Mệnh: tuổi trẻ lận đận, nghèo cực bôn ba đau ốm; có thể mồ côi sớm hoặc sớm ra đời lập nghiệp; sinh bất phùng thời; nếu Vô Chính Diệu có Tứ/Tam Không thì làm nên danh phận nhưng không bền, tuổi thiếu nên vất vả. Hạn: gặp sao sáng sủa thì hạn lại mờ, mưu sự trắc trở thất bại; gặp sao xấu thì hạn được sáng sủa dù trắc trở ban đầu; 2 sao này hiệu lực mạnh ở đại tiểu hạn. Tóm lại Tuần Triệt là 2 sao hết sức quan trọng chi phối các cung các sao, biến tốt thành tương đối xấu, biến xấu thành tương đối tốt — hiệu lực nghịch đảo có thể làm lạc hướng luận đoán nếu cân nhắc không tinh vi.",
+      "tags": ["tuan-triet", "cung-ung-dung", "han", "tom-luoc", "nghich-dao"]
+    },
+    {
+      "question_id": "tvhs.S7.tue-pha.01",
+      "source_page": 229,
+      "question": "Tuế Phá chỉ bộ phận cơ thể và tính tình gì? Kết hợp các sao và ở cung nào?",
+      "answer": "Cơ thể: Tuế Phá là bộ răng. Tuế Phá gặp Khốc, Hư: đau răng sâu răng hư răng. Mệnh có Tuế Phá thì răng xấu hay đau. Tính tình: ngang ngược cứng đầu; phá tán. Tuế-Riêu-Đông-Triệt: rụng răng sớm. Tuế-Riêu ở Mệnh: chơi bời lếu láo du đãng. Tuế Phá ở Tử: con ngỗ nghịch khó dạy phá của. Tuế Phá ở Di: hay khích bác châm chọc người khác, tính ưa phá trêu mất dạy. Tuế Phá là sao điển hình của trẻ con đứng đắng nghịch ngợm phá phách (jeunesse délinquante).",
+      "tags": ["tue-pha", "rang", "ngo-nghich", "tre-con"]
+    },
+    {
+      "question_id": "tvhs.S7.tuyet.01",
+      "source_page": 230,
+      "question": "Tuyệt là sao gì? Ý nghĩa kết hợp với Hao, Tứ Không, Hỏa Tham Hình, Riêu Kỵ, Mã ở Hợi, Tướng Binh?",
+      "answer": "Tuyệt (thuộc Thổ) là hung tinh: chủ sự bại hoại, tiêu tán, khô hạn, làm bế tắc công việc và chiết giảm phúc thọ. Tuyệt-Hao: xảo quyệt keo kiệt tham lam. Tuyệt-Tứ Không: rất thông minh học một biết mười. Tuyệt-Hỏa-Tham-Hình: hiển hách lẫy lừng. Tuyệt-Riêu-Kỵ: chết đuối. Tuyệt-Mã ở Hợi: ngựa cùng đường, bế tắc thất bại. Tuyệt-Tướng-Binh: tai nạn về gươm súng.",
+      "tags": ["tuyet", "hung-tinh", "tu-hop-sao", "thoi"]
+    },
+    {
+      "question_id": "tvhs.S7.tuyet.02",
+      "source_page": 230,
+      "question": "Tuyệt ở Bào, Phúc, Hạn có ý nghĩa gì?",
+      "answer": "Bào: Tuyệt-Thiên Tướng có anh chị em dị bào; Tuyệt-Tướng-Vượng-Thai đồng nghĩa — nếu Bào ở cung Dương thì cùng cha khác mẹ, cung Âm thì cùng mẹ khác cha. Phúc: Tướng-Tử-Tuyệt có người chết trận. Hạn: Tuyệt-Hao hao tán tài sản; Tuyệt-Suy-Hồng Đào-Sát Phá Tham gặp Mệnh vô chính diệu thì chết.",
+      "tags": ["tuyet", "cung-ung-dung", "di-bao", "tu-vong"]
+    },
+    {
+      "question_id": "tvhs.S7.tu-tuc.01",
+      "source_page": 231,
+      "question": "Sao Tử (Tử Tức trong vòng Tràng Sinh) thuộc hành nào, có những ý nghĩa nào?",
+      "answer": "Sao Tử thuộc Thủy (có sách cho thuộc Hỏa). Ý nghĩa: thâm trầm kín đáo; hay suy nghĩ sâu xa, tính toán kỹ lưỡng, có kế hoạch; đa sầu đa cảm bi quan; làm giảm phúc thọ, chủ sự chết chóc, tang thương, sâu thẳm.",
+      "tags": ["tu-tuc", "trang-sinh", "thuy", "tham-tram"]
+    },
+    {
+      "question_id": "tvhs.S7.tu-tuc.02",
+      "source_page": 231,
+      "question": "Tử Tức ở Điền Trạch/Tài Bạch và Phúc Đức có ý nghĩa gì?",
+      "answer": "Điền Trạch/Tài Bạch: có tiền của bí mật; có quý vật chôn giấu; có khả năng giữ của, tính cẩn thận khi xài, cần kiệm nếu không nói là hà tiện. Phúc Đức: Tử-Tuyệt-Tướng-Binh trong họ có người chết trận hay bị ám sát; làm giảm số con cái.",
+      "tags": ["tu-tuc", "cung-ung-dung", "ha-tien", "tien-cua-bi-mat"]
+    },
+    {
+      "question_id": "tvhs.S7.tu-phu.01",
+      "source_page": 231,
+      "question": "Tử Phù là sao gì, chủ sự gì? Liên hệ với Trực Phù?",
+      "answer": "Tử Phù chủ sự buồn thảm, nguy khốn — là một hung tinh loại nhẹ, chỉ một ác âm vừa phải có mức độ. Theo Thái Thứ Lang sao Tử Phù thuộc Hỏa, chủ tang thương, gây rắc rối, ngăn trở mọi việc. Ngoài ra còn có ý nghĩa về sự chết, báo hiệu tang thương (xem thêm sao Trực Phù).",
+      "tags": ["tu-phu", "hung-tinh", "thai-thu-lang", "tang-thuong"]
+    },
+    {
+      "question_id": "tvhs.S7.tuong-quan.01",
+      "source_page": 231,
+      "question": "Tướng Quân là sao gì? Có những ý nghĩa tính tình nào? Khác Hóa Quyền thế nào?",
+      "answer": "Tướng Quân là một vũ tinh, phù hợp nam tính võ cách. Ý nghĩa: cương trực thẳng thắn, nóng tính bất nhẫn bất khuất; can đảm mãnh liệt hiên ngang, làm càn áo bạo; kiêu căng có óc lãnh tụ, tinh thần sứ quân, ham cầm quyền. KHÁC Hóa Quyền: Hóa Quyền chủ sự NẮM QUYỀN BINH, còn Tướng Quân chỉ sự KHAO KHÁT QUYỀN BINH, háo danh, hiếu thắng. Đối với nữ mệnh: ghen tuông lấn át chồng, hoặc có tính mạnh bạo như nam nhi.",
+      "tags": ["tuong-quan", "vu-tinh", "hoa-quyen", "lanh-tu"]
+    },
+    {
+      "question_id": "tvhs.S7.tuong-quan.02",
+      "source_page": 232,
+      "question": "Tướng Quân với Thiên Tướng, gặp Tuần Triệt, với Phục Binh Không Kiếp, Tướng Ấn Binh Hình nghĩa gì?",
+      "answer": "Thiên Tướng-Tướng Quân: uy quyền hiển hách, đồng cung càng mạnh, nặng ý nghĩa quân sự; nữ mệnh là đàn bà đảm lược tài ba hoạt động như nam giới (Jeanne d'Arc, Trưng Vương, Bà Triệu) — trong gia đình rất có uy quyền, lấn át chồng. Tướng Quân gặp Tuần Triệt án ngữ: ví như ông tướng cụt đầu — tổn hại tánh mạng, công danh, quyền thế; chủ truất giáng, bãi cách, tai nạn xe cộ phi cơ gươm đao súng đạn khủng khiếp. Tướng Quân-Phục Binh-Không Kiếp: nguy hiểm tánh mạng vì có người mưu sát. Tướng-Ấn-Binh-Hình: bộ sao uy dũng chỉ quyền tước võ nghiệp, cầm quân cầm quyền.",
+      "tags": ["tuong-quan", "thien-tuong", "tuan-triet", "jeanne-darc", "tuong-cut-dau"]
+    },
+    {
+      "question_id": "tvhs.S7.tuong-quan.03",
+      "source_page": 232,
+      "question": "Tướng Quân với Đào Hồng, Phá Binh Đào Hồng và quan điểm cần Binh-Mã hợp cách?",
+      "answer": "Tướng Quân-Đào-Hồng: đàn bà tơ duyên rắc rối, thất tiết, ngoại dâm; đàn ông hoang dâm. Tướng-Phá-Binh-Đào-Hồng: dâm dục quá đáng, tư thông, ngoại dâm, loạn luân. Có quan điểm cho rằng Tướng (dù là Thiên Tướng hay Tướng Quân) CẦN đi với Binh, Mã mới hợp cách — đủ bộ ví như tướng có quân có uy.",
+      "tags": ["tuong-quan", "dao-hong", "binh-ma", "hop-cach"]
+    },
+    {
+      "question_id": "tvhs.S7.tuong-quan.04",
+      "source_page": 232,
+      "question": "Tướng Quân ở Bào, Tử/Phu Thê, Phúc/Phụ Mẫu có ý nghĩa gì?",
+      "answer": "Bào: Tướng-Mã-Lộc anh em quyền quý; Tướng-Binh-Thai-Vượng anh chị em dị bào hoặc có người dâm đãng. Tử/Phu Thê: Tướng-Binh-Thai-Vượng có con riêng, tiền dâm hậu thú, có con ngoại hôn sau khi lấy nhau. Phúc/Phụ Mẫu: Tướng-Tử-Tuyệt-Binh có người tử trận hay bị ám sát.",
+      "tags": ["tuong-quan", "cung-ung-dung", "di-bao", "tu-tran"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.01",
+      "source_page": 232,
+      "question": "Văn Xương Văn Khúc thuộc hành gì, chỉ bộ phận nào? Quan điểm tác giả khác Thái Thứ Lang ở điểm gì?",
+      "answer": "Văn Xương thuộc Kim, Văn Khúc thuộc Thủy. Xương Khúc là 2 vú, có lẽ là vú phụ nữ hơn vì bộ ngực phái nam không có gì đáng nói. Thái Thứ Lang cho rằng Văn Xương chỉ bụng và tai, đồng thời Phượng Các cũng là tai — tác giả Hàm Số cho rằng quan điểm này có thể SAI.",
+      "tags": ["xuong-khuc", "co-the", "thai-thu-lang", "phe-phan"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.02",
+      "source_page": 233,
+      "question": "Xương Khúc ở tướng mạo và 6 cung đắc địa nào? Lưu ý khi Xương Khúc đi đôi vs đơn thủ?",
+      "answer": "Người có Xương Khúc ở Mệnh thường vẻ mặt thanh tú, khôi ngô hợp với quý tướng; đàn bà có nhan sắc. Nếu Xương Khúc đắc địa ở 6 cung Thìn Tuất Sửu Mùi Tỵ Hợi, nơi tọa Mệnh phụ nữ, thì có thân hình đẹp theo kiểu thẩm mỹ hiện đại. Lưu ý: Xương Khúc ĐI ĐÔI phối chiếu vào Mệnh thì sắc diện mới nổi bật hơn là Xương hay Khúc đơn thủ.",
+      "tags": ["xuong-khuc", "tuong-mao", "luc-cung-dac-dia", "di-doi"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.03",
+      "source_page": 233,
+      "question": "Xương Khúc có những đặc tính tinh thần (intellectual) nào?",
+      "answer": "Thông minh, hiếu học, học giỏi. Suy xét, phân tích, lý luận giỏi — dường như Xương Khúc nặng về suy luận (raisonnement) bằng lý trí nhiều hơn trực giác (intuition). Có năng khiếu rất sắc bén về văn chương, mỹ thuật, âm nhạc — tâm hồn nghệ sĩ, có óc nghệ thuật, lĩnh hội phong phú thi ca nhạc kịch, có thể trở thành nghệ sĩ. Có năng khiếu hùng biện, tài ăn nói lưu loát và cao xa — sao của nhà mô phạm giỏi, học trò xuất sắc. Đây là hai sao ăn học, khoa giáp, văn nghệ.",
+      "tags": ["xuong-khuc", "tinh-than", "ly-luan", "nghe-si", "hung-bien"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.04",
+      "source_page": 233,
+      "question": "Xương Khúc có những đặc tính tình cảm nào? Ý nghĩa sa đọa và phái nam ra sao?",
+      "answer": "Sắc sảo về tình cảm: đa cảm đa tình (sentimental) — nét độc đáo của thi nhân nghệ sĩ, đặc biệt phụ nữ. Đa sầu — dễ buồn dễ khóc dễ xúc động. Tâm hồn lãng mạn (romantique) thiên về u buồn, thỏa mãn tình cảm, mơ mộng — căn bản cho sáng tác văn chương trữ tình (lyrisme). Ý NGHĨA SA ĐỌA: nhất là phái nữ — lẳng lơ hoa nguyệt, thích phiêu lưu tình cảm; đi Thái Âm càng lả lơi; đi với Thai-Riêu-Mộc Dục thì rất dâm đãng, có thể sáng tác dâm thư kiểu Hồ Xuân Hương. Phái nam: có tâm hồn đàn bà, nặng tình cảm, nhút nhát hay e lệ. Xương Khúc còn có nghĩa thích trang điểm chưng diện. Hãm địa: có hoa tay, khéo tay, giỏi thủ công mỹ nghệ (giống Hồng Loan). Gặp Riêu đồng cung: đa nghi, tin dị đoan, đồng bóng.",
+      "tags": ["xuong-khuc", "tinh-cam", "lang-man", "sa-doa", "ho-xuan-huong", "phai-nam"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.05",
+      "source_page": 233,
+      "question": "Xương Khúc ở công danh tài lộc phúc thọ đắc địa và hãm địa khác nhau ra sao?",
+      "answer": "ĐẮC ĐỊA: Xương Khúc là bộ sao phú quý, hiển đạt, phúc thọ rất có giá trị. Có Lộc Tồn đi kèm: tài năng xuất chúng. Đi với Vũ Khúc: tài năng kiêm nhiếp văn võ, uy danh lừng lẫy và giàu sang. Giáp Mệnh cũng tốt nhưng đắc thời nhờ hoàn cảnh bên ngoài nhiều hơn tài năng. HÃM ĐỊA: khốn khổ, phải bỏ làng lập nghiệp ở xa, có tật, bị tai họa hoặc yểu tử. Đàn bà thì dâm đãng, u buồn vì gia đạo. Gặp thêm Sát Tinh có thể là gái giang hồ, khắc chồng, ti tiện.",
+      "tags": ["xuong-khuc", "dac-dia", "ham-dia", "phu-quy", "loc-ton", "vu-khuc"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.06",
+      "source_page": 234,
+      "question": "Xương Khúc với Khoa, Khôi Việt, Thái Dương, Lương, Cơ, Vũ, Tả Hữu nghĩa thế nào?",
+      "answer": "Xương Khúc-Khoa: thi đỗ dễ và cao, văn bằng cao. Xương Khúc-Khoa-Khôi Việt: khoa giáp tột đỉnh, thông minh xuất chúng, có tài thao lược, được trọng dụng đắc thời; thêm Nhật Nguyệt sáng thì tài đạt mức quốc tế. Xương Khúc-Thái Dương sáng: lịch duyệt học rộng biết nhiều (cultivé, érudit). Xương Khúc-Lương: quý hiển, uy danh lớn. Xương Khúc-Cơ: khéo léo tinh xảo về thủ công và ngôn ngữ. Xương-Vũ: tài năng văn võ, tiếng lừng lẫy; thêm Tả Hữu thì phú quý song toàn, hiển vinh về võ.",
+      "tags": ["xuong-khuc", "khoa-giap", "tu-hop-sao", "van-vo-song-toan"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.07",
+      "source_page": 234,
+      "question": "Xương Khúc với Liêm Trinh ở Sửu Mùi Tỵ Hợi Mão Dậu, gặp Tuần Triệt/Kiếp, gặp Riêu nghĩa thế nào?",
+      "answer": "Văn Xương-Liêm Trinh ở Sửu Mùi Tỵ Hợi Mão Dậu: giảm thọ; đặc biệt ở Tỵ Hợi, Xương Khúc gặp Liêm Trinh hay bị tai họa, tù tội, yểu tử. Văn Xương Khúc-Tuần Triệt hay Kiếp: thi cử lận đận, dang dở gián đoạn; công danh chật vật khốn khổ phải tha phương; hay bị tù tội yểu tử (gặp Phá đồng cung cũng vậy). Xương Khúc-Riêu: rất dâm đãng rất xinh đẹp.",
+      "tags": ["xuong-khuc", "liem-trinh", "tuan-triet-kiep", "yeu-tu", "rieu"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.08",
+      "source_page": 234,
+      "question": "Xương Khúc ở Quan Lộc, Tài Bạch, Phu Thê có ý nghĩa gì?",
+      "answer": "Quan Lộc: có ý nghĩa Xương Khúc ở Mệnh. Xương Khúc-Riêu-Đào: làm nghề mại dâm dung thân nếu Mệnh-Phúc Đức xấu. Xương Khúc-Đà-Kiếp: kẻ sĩ ẩn dật. Tài Bạch: thích cờ bạc; giàu có nếu có nhiều cát tinh tốt; phá tán hao tài nếu gặp nhiều sao xấu nhưng vẫn có người giúp đỡ. Phu Thê: vợ đẹp có học nhưng thường có nhân tình vợ lẽ; gái có chồng danh giá có học hòa thuận.",
+      "tags": ["xuong-khuc", "cung-ung-dung", "co-bac", "vo-le"]
+    },
+    {
+      "question_id": "tvhs.S7.xuong-khuc.09",
+      "source_page": 234,
+      "question": "Xương Khúc ở Hạn với Khoa/Khôi Việt, Tuế, Sát Tinh, Liêm Kình Đà nghĩa thế nào?",
+      "answer": "Xương Khúc-Khoa hay Khôi Việt: có học hành thi cử và đỗ cao trong hạn đó; gặp Kiếp có thể thi rớt. Xương Khúc-Tuế: được thăng quan, viết văn nổi tiếng. Xương Khúc-Sát Tinh: tai họa lớn, bị kiện cáo hao tài; thêm Linh bị tù. Xương Khúc-Liêm-Kình-Đà (p235): tai nạn khủng khiếp, nếu không cũng bị tù tội; đại hạn xấu thì khó thoát chết.",
+      "tags": ["xuong-khuc", "cung-han", "thang-quan", "tai-hoa"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-vat-dung.01",
+      "source_page": 235,
+      "question": "Bảng vật dụng: các sao Thiên Y, Hồng Loan, Tam Thai/Bát Tọa, Thai Tọa Khốc Hư, Thiên Cơ, Thiên Mã chỉ vật gì?",
+      "answer": "Thiên Y: quần áo (Thiên Y-Đào-Hồng quần áo đẹp sang trọng). Hồng Loan: vải vóc. Tam Thai-Bát Tọa: bàn ghế, tủ giường, đồ đạc. Thai Tọa-Khốc Hư: đồ đạc trong nhà bị mối mọt. Thiên Cơ: máy móc. Thiên Mã: xe (Thiên Cơ-Thiên Mã = xe cơ khí, hư máy móc).",
+      "tags": ["bang-tra", "vat-dung", "thien-y", "thien-co"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-vat-dung.02",
+      "source_page": 235,
+      "question": "Bảng vật dụng: Thiên Hình, Kình Dương, Thiên Tướng, Văn Xương, Khôi Việt, Vũ-Văn Khúc-Tấu Thư chỉ vật gì?",
+      "answer": "Thiên Hình: dao, kéo, binh khí. Kình Dương: tràng, đục. Thiên Tướng: bút. Văn Xương: sách vở (Quang Quý bài vở-tài liệu). Thiên Khôi-Thiên Việt: văn bằng, nghị định, giấy khen. Vũ-Văn Khúc-Tấu Thư: nhạc khí, chuông, nhạc ngựa.",
+      "tags": ["bang-tra", "vat-dung", "binh-khi", "sach-vo", "nhac-khi"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-thuc-an.01",
+      "source_page": 236,
+      "question": "Bảng thức ăn: các sao thịt (Tham Lang, Cự Môn, Thiên Mã/Khốc, Thiên Lương/Hỏa Linh, Hóa Quyền, Tham Lang Hóa Kỵ)?",
+      "answer": "Tham Lang: thịt nói chung. Tham Lang-Hóa Kỵ: thịt heo. Cự Môn: thịt bò. Thiên Mã-Thiên Khốc: thịt trâu. Thiên Lương-Hỏa Linh: thịt dê ngựa. Hóa Quyền: thịt bê, lợn sữa. Vũ Khúc: xương.",
+      "tags": ["bang-tra", "thuc-an", "thit", "tham-lang"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-thuc-an.02",
+      "source_page": 236,
+      "question": "Bảng thức ăn: hải sản, cơm, gia vị, hoa quả — các sao Thanh Long, Đà La, Bạch Hổ, Lưu Hà, Thiên Tướng, Lộc Tồn, Hồng Loan, Hóa Khoa, Khốc-Hư-Riêu, Thất Sát, Hoa Cái, Hóa Lộc?",
+      "answer": "Thanh Long: cá. Đà La: cá nhỏ nước ngọt, rượu. Long Trì: mạnh. Bạch Hổ: tôm cua hải sản. Lưu Hà: thịt rừng sơn hào. Thiên Tướng: bún miến, loài trai ốc. Lộc Tồn: cơm. Hồng Loan: lòng heo, đồ gia vị cay. Hóa Khoa: tiết canh. Khốc-Hư-Riêu: con nhộng. Thất Sát: con rươi. Hoa Cái: hạt đậu nhỏ. Hóa Lộc: hạt đậu to.",
+      "tags": ["bang-tra", "thuc-an", "hai-san", "gia-vi"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-thuc-an.03",
+      "source_page": 236,
+      "question": "Bảng thức ăn: Thái Âm, Thái Dương, Nhật Nguyệt đồng cung, Thiên Phú, Đào Hoa, Tấu Thư gặp Hỏa, Hỏa Tấu đồng cung Cự Kỵ?",
+      "answer": "Thái Âm: gia vị đắng. Thái Dương: thức ăn mặn. Nhật Nguyệt đồng cung: thức ăn ngọt, bánh. Thiên Phú: thức ăn đắt tiền. Đào Hoa: tất cả thức ăn thịnh soạn. Tấu Thư gặp Hỏa: rượu, hoa quả, nước ngọt. Hỏa-Tấu đồng cung-Cự Kỵ: rượu mùi; thuốc lá, thuốc phiện.",
+      "tags": ["bang-tra", "thuc-an", "thai-am-duong", "ruou"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-tang-che.01",
+      "source_page": 237,
+      "question": "Bảng tang chế: Tử-Phủ-Vũ-Tướng, Sát-Phá-Liêm-Tham chỉ đồ vật/người gì trong đám tang?",
+      "answer": "Tử-Phủ-Vũ-Tướng: đồ lộ bộ. Sát-Phá-Liêm-Tham: long đình, nhà táng.",
+      "tags": ["bang-tra", "tang-che", "lo-bo", "long-dinh"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-tang-che.02",
+      "source_page": 238,
+      "question": "Bảng tang chế: Cự Môn-Thiên Cơ, Kình Đà-Thiên Hình, Hỏa-Linh, Tả Phù-Hữu Bật, Văn Xương-Văn Khúc, Khôi-Việt?",
+      "answer": "Cự Môn-Thiên Cơ: áo quan. Kình Đà-Thiên Hình: mai xuổng để đào lỗ. Hỏa-Linh: bó đuốc. Tả Phù-Hữu Bật: quạt ấp mộ. Văn Xương-Văn Khúc: giấy phủ mặt, văn tế. Thiên Khôi-Thiên Việt: ông sư, thầy địa lý.",
+      "tags": ["bang-tra", "tang-che", "ao-quan", "su-dia-ly"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-tang-che.03",
+      "source_page": 238,
+      "question": "Bảng tang chế: Lộc Tồn, Hóa Khoa-Hóa Quyền, Hóa Kỵ, Tang Môn, Bạch Hổ, Thiên Khốc, Thiên Hư, Thiên Mã trong đám tang?",
+      "answer": "Lộc Tồn: đám tang ít người đưa. Hóa Khoa-Hóa Quyền: quan chức đi đám. Hóa Kỵ: cây phướn. Tang Môn: xe tang. Bạch Hổ: quần áo tang. Thiên Khốc: phường kèn. Thiên Hư: gậy chống. Thiên Mã: ngựa kéo xe tang.",
+      "tags": ["bang-tra", "tang-che", "xe-tang", "phuong-ken"]
+    },
+    {
+      "question_id": "tvhs.S7.bang-tang-che.04",
+      "source_page": 238,
+      "question": "Bảng tang chế: Quốc Ấn, Đường Phù, Tấu Thư, Hoa Cái, Đào Hoa, Hồng Loan-Quan Đới, Thiên Hỷ, Điếu Khách trong đám tang?",
+      "answer": "Quốc Ấn: vàng bạc bỏ vào áo quan. Đường Phù: đồ khâm liệm. Tấu Thư: văn tế. Hoa Cái: lọng che. Đào Hoa: cái hố. Hồng Loan-Quan Đới: dây thừng. Thiên Hỷ: đèn nến. Điếu Khách: người đến phúng điếu.",
+      "tags": ["bang-tra", "tang-che", "khan-liem", "phung-dieu"]
+    }
+  ]
 }
