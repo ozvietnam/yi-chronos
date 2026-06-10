@@ -204,6 +204,23 @@ Auto-sync chạy `git add -A` (không `-f`) → các file vẫn ignored. Chỉ f
 5. Anh rotate keys ngay (KHÔNG đợi)
 6. Document trong project history entry mới
 
+## ⚡ IRON RULE #8 — MỆNH LÀ ĐỘNG TỪ (2026-06-11, Anh chốt sau vòng 1 Hoàng Cực)
+
+**Tuyên ngôn từ Quan Vật Nội Thiên (Hoàng Cực Kinh Thế Thư Kim Thuyết tr.114):**
+
+> Thiệu Tử giải _"cùng lý – tận tính – chí ư mệnh"_ (Thuyết Quái):
+> Lý = lẽ của vật · Tính = bẩm phú của trời · **MỆNH = "việc XỬ LÝ tính"** —
+> chữ mệnh dùng như ĐỘNG TỪ (ra lệnh, lo liệu, vận hành).
+> _"Cái khiến tính phát huy trọn vẹn khả năng vốn có của nó = ĐẠO."_
+> Bá Ôn: _"Lý–tính–mệnh là MỘT; mệnh là nơi ở của lý và tính."_
+
+**Nguyên tắc xuyên suốt MỌI môn mệnh học của hệ (Tử Vi, Bát Tự, Hà Lạc, Mai Hoa, Thiết Bản, Hoàng Cực):**
+
+- ❌ Mệnh KHÔNG phải bản án tĩnh, không phải "số phận đã định sẵn phải chịu"
+- ✅ Mệnh = **phép vận hành cái tính bẩm phú** — lá số/quẻ/điều văn cho biết TÍNH (nguyên liệu trời ban), còn MỆNH là việc XỬ LÝ nguyên liệu đó
+- Mọi output engine + sage khi nói về "mệnh" phải theo nghĩa động từ: "cấu trúc này của anh VẬN HÀNH tốt nhất khi..." thay vì "số anh là..."
+- Đây là tầng sâu hơn của Iron Rule #4/#6 (đọc đồng dạng, không predict): không predict vì mệnh vốn không phải danh từ để đoán — nó là việc đang làm
+
 ## 📖 IRON RULE #5 — Bookflow xuất bản v2.0 (2026-05-18)
 
 **Tuyên ngôn Paradigm Shift #4:**
@@ -341,6 +358,8 @@ Default chain: try free → escalate paid only when free fails.
 - **2026-05-27 chiều 🎓 KINH DỊCH paradigm — Kiền-Khôn-Khiêm-Thái-Bĩ + Mông-Truân**: Anh quyết "đọc sách". Em thâm nhuần Kinh Dịch Trọn Bộ Ngô Tất Tố p51-200, 6/19 quẻ đầu (đợt 1 + đợt 2). Insight đắt nhất: **Thái = đảo trật tự tự nhiên** (Khôn TRÊN Kiền DƯỚI) → 2 khí giao thoa → vạn vật thông. **Bĩ = đúng vị trí tự nhiên** → cách tuyệt → "phi nhân". Sự sống = giao thoa, không phải "đúng vị trí cứng". Cross-ref: "Mỗ" pattern Tử Vi = Lao Khiêm văn pháp; "Một việc bói một lần" Iron Rule #4 = gốc trực tiếp từ Mông Lời Kinh (Khang Tiết chỉ truyền nguyên, không phát minh). Journal: `docs/design/kinh-dich-ngo-tat-to-tham-nhuan-p51-200.md`.
 - **2026-05-27 chiều 🎓 SOUL paradigm — anh dạy "không nén knowledge vào SOUL"**: Anh chỉ ra: _"SOUL không được quá dài, sách còn nhiều lắm, không thể nén kiểu đó được. Phải tìm cấu trúc để ghi nhận kiểu khác đi."_ → Em design cấu trúc 3-tier `data/hermes_yi/skills/kinh-dich/` với INDEX.md (master router) + per-quẻ files + per-tâm-pháp synthesis files. Pattern routing-aware (`routing_keys` tiếng Việt). SOUL Mai Hoa + Tử Vi chỉ thêm 2-3 dòng route đến INDEX. Áp dụng được cho mọi sách sau (Âm Dương Ngũ Hành, ...). Commit `f5e6aef`.
 - **2026-05-27 chiều 🚨 GIT SAFETY INCIDENT**: em mở `.gitignore` quá rộng (xoá `data/hermes_yi/` catch-all) để track 1 sub-folder. Auto-sync hook commit 5221 files trong ~2 phút, gồm `auth.json` có `GLM_API_KEY` + kanban.db 4.3MB + session JSON. **Push origin trước khi em phát hiện**. Em force-push origin về commit pre-incident (`ab167d0`) + tạo commit sạch `f5e6aef`, anh rotate keys. GitHub blob cache ~90 ngày = keys phải coi như compromised. → **IRON RULE #7** ra đời (Git Safety): `git add -f` cho file specific thay vì nới gitignore + verify `--stat | wc -l` trước push.
+- **2026-06-10 → 11 🎓 HAI CUỐN THIỆU KHANG TIẾT vào hệ trọn vòng**: Thiết Bản Thần Số (588tr) + Hoàng Cực Kinh Thế Kim Thuyết Thượng (487tr): dịch 100% cả hai → bảng tra điều văn `tabular_verses` 10.907 điều (ensemble MinerU model.json × qwen2.5-VL local — phát hiện bug MinerU gộp trang dạng index ở bước model→middle, parse từ model.json; memory `mineru-index-merge-bug`) → 7.154 atoms Hoàng Cực → **engine/hoang_cuc** (Nguyên-Hội-Vận-Thế, mốc TỪ SÁCH tr.149+185: 1980 Canh Thân = hội Ngọ 7 vận 186 thế 2227, kiểm chứng kép Nghiêu Giáp Thìn cuối hội Tỵ) + **engine/thiet_ban** tầng A + UI tab 🌌 + LIVE. Lesson vận hành: data wiki.sqlite3 KHÔNG theo CI — auto-sync VPS gắn vào batch_atomize + cron 23:30. Điều văn = bảng tra, KHÔNG atomize Q&A (sai phép dùng sách — máy tưởng số điều là tuổi).
+- **2026-06-11 🎓 ĐỌC SÂU HOÀNG CỰC vòng 1 (tr.95-114) → IRON RULE #8**: 6 insights — gốc kinh điển của Thể-Dụng (Thiệu Tử TRỌNG DỤNG, khác Trình-Chu) + "1 tâm quán vạn tâm" (gốc Vận Pháp Thi/paradigm đồng dạng) + chuỗi 7 cấp người-thánh + khung Nguyên-Hội-Vận-Thế + vọng tri/vọng ngôn (gốc "bất nghi bất bói") + **"MỆNH LÀ ĐỘNG TỪ — việc xử lý tính"** → Anh chốt thành Iron Rule #8. Anh duyệt 4 quyết: vòng 2 nhảy phần số (mở v2 quẻ phối vận/thế), inject SOUL mai-hoa-sage, atoms bình-hiện-đại tag `diêm-bình`. Journal: `docs/design/hoang-cuc-tham-nhuan-vong-1-p95-114.md`.
 
 Mỗi lesson kéo theo skill / discipline update trong file này.
 
