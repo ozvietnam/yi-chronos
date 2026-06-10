@@ -1,0 +1,6 @@
+/Users/ozvietnamdesktop/Desktop/yi/api/main.py:3529: UserWarning: Field name "register" in "LibrarianAnalyzeRequest" shadows an attribute in parent "BaseModel"
+  class LibrarianAnalyzeRequest(BaseModel):
+INFO:     Started server process [21090]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
