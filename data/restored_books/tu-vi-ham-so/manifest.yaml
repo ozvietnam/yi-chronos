@@ -1,0 +1,65 @@
+book_corpus_id: tu-vi-ham-so
+title: Tử Vi Hàm Số
+author: Nguyễn Phát Lộc
+school: nguyen_phat_loc_ham_so
+publish_year: 1972
+total_pages: 238
+
+book_profile:
+  core_def: |
+    Tử Vi = KHOA HỌC NHÂN VĂN (sciences humaines).
+    "Mang Tử Vi từ thiên đàng xuống nhân thế, từ thần quyền thánh ra nhân bản,
+    từ mê tín ra khoa học, từ thiên định đến nhân định."
+    Phương pháp HÀM SỐ — tương quan biến thiên giữa các yếu tố.
+  paradigm_keys:
+    - "Tử Vi = khoa học nhân văn, không huyền bí"
+    - "Sao = yếu tố nhân bản (không phải tinh tú thần linh)"
+    - "Phương pháp HÀM SỐ — function math"
+    - "Khoa học ĐỘNG (dynamique)"
+    - "Triết lý Âm Dương Ngũ Hành làm nền"
+    - "14 chính tinh + 96 phụ tinh = 110 sao Hàm Số phân tích đầy đủ"
+
+sections:
+  - id: "tvhs.S1"
+    title: "Lời mở + Quan điểm canh tân + Phương pháp Hàm Số (paradigm)"
+    page_start: 1
+    page_end: 30
+    expected_atoms: 80
+
+  - id: "tvhs.S2"
+    title: "Cách thiết lập lá số — an cung an sao chi tiết"
+    page_start: 31
+    page_end: 80
+    expected_atoms: 100
+
+  - id: "tvhs.S3"
+    title: "Quy tắc đoán luận + Lý giải lá số"
+    page_start: 81
+    page_end: 110
+    expected_atoms: 80
+
+  - id: "tvhs.S4"
+    title: "Tham luận 12 cung + Sự phối trí + Đặc tính tổng quát"
+    page_start: 111
+    page_end: 140
+    expected_atoms: 90
+
+  - id: "tvhs.S5"
+    title: "Tham luận Sao + Hội tụ/thất tán + Vô chính diệu + Cách cục"
+    page_start: 141
+    page_end: 170
+    expected_atoms: 90
+
+  - id: "tvhs.S6"
+    title: "Bản Mệnh + Cục + Cách + Âm Dương Ngũ Hành + Hàm Số chi tiết"
+    page_start: 171
+    page_end: 200
+    expected_atoms: 90
+
+  - id: "tvhs.S7"
+    title: "14 chính tinh phân tích Hàm Số (Cự Môn, Liêm Trinh, Phá Quân, Tham Lang, Thái Âm/Dương, Thất Sát, Thiên Cơ/Đồng, ...)"
+    page_start: 201
+    page_end: 238
+    expected_atoms: 120
+
+expected_total_atoms: 650

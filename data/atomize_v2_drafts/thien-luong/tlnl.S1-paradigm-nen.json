@@ -1,0 +1,1914 @@
+{
+  "book_corpus_id": "tu-vi-nghiem-ly-toan-thu-thien-luong",
+  "section_id": "tlnl.S1",
+  "section_title": "Paradigm nền — Lời giới thiệu, Tiểu sử, 60 Hoa Giáp, 5 Bậc Tuổi, Tam Hợp, Nạp Âm, Lộc Tồn",
+  "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "atoms": [
+    {
+      "question_id": "tlnl.S1.Q01",
+      "question": "Tử Vi thoát thai từ đâu trong kho tàng văn hóa nhân loại?",
+      "answer_atom": "Tử Vi bói toán thoát thai từ Kinh Dịch — bộ sách cổ nhất của nhân loại, làm căn bản thực nghiệm cho tư tưởng triết học Trung Hoa và Á Đông — rồi bành trướng trong dân gian.",
+      "source_quote": "Trong kho tàng văn hóa của nhân loại, chúng ta phải kể đến Kinh Dịch, một bộ sách cổ nhất của nhân loại... Tử Vi bói toán được thoát thai từ đó và bành trướng trong dân gian.",
+      "source_page": 2,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:nguon_goc",
+        "concept:kinh_dich",
+        "concept:tu_vi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thoát thai = tách ra mà sinh thành; căn bản thực nghiệm = nền tảng đã được kiểm chứng qua thực tế.",
+        "viet_thuan": "Tử Vi gốc từ Kinh Dịch tách ra rồi phổ biến trong dân gian.",
+        "nguyen_ly": "Mọi học thuyết Đông phương đều quay về Kinh Dịch như nguồn cội — Tử Vi không phải ngoại lệ, nên nguyên lý gốc của nó vẫn là Âm Dương Ngũ Hành chứ không phải huyền bí thuần túy.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q02",
+      "question": "Lúc tiên khởi Tử Vi mang tính cách gì?",
+      "answer_atom": "Tiên khởi Tử Vi mang tính cách huyền bí, cho rằng định mệnh con người đã an bài từ lúc chào đời, nên lấy thời điểm sinh để tiên đoán vị lai theo các nguyên tắc đặt định và sự tốt xấu của tinh tú hội chiếu.",
+      "source_quote": "Tiên khởi, nó mang tính cách huyền bí, định mệnh con người được cho rằng đã an bài ngay từ lúc chào đời, nên đã lấy thời điểm này để tiên đoán vị lai theo một số nguyên tắc đặt định, theo sự tốt xấu của các vì tinh tú hội chiếu...",
+      "source_page": 2,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:huyen_bi_so_khoi",
+        "concept:dinh_menh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tiên khởi = thuở đầu; hội chiếu = các sao cùng chiếu vào một cung; vị lai = tương lai.",
+        "viet_thuan": "Thuở đầu Tử Vi bị xem như môn bói tương lai dựa theo sao.",
+        "nguyen_ly": "Cụ Thiên Lương chỉ ra điểm xuất phát huyền bí để sau đó đặt vấn đề: phải đưa Tử Vi trở về thực dụng và nhân bản — đây là tiền đề cho paradigm shift của cụ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q03",
+      "question": "Cụ Thiên Lương quan niệm Tử Vi là gì?",
+      "answer_atom": "Thiên Lương tiên sinh quan niệm Tử Vi như một đạo lý của thánh nhân xưa, một môn giáo dục đạo đức của kẻ sĩ, để tự biết mình, biết người mà chung hòa dễ dàng và thích hợp với đời sống cá nhân và cộng đồng xã hội.",
+      "source_quote": "Thiên Lương tiên sinh đã quan niệm tử vi như là một đạo lý của thánh nhân xưa, một môn giáo dục đạo đức của kẻ sĩ, tự biết mình, biết người để chung hòa dễ dàng và thích hợp với đời sống cá nhân và cộng đồng xã hội.",
+      "source_page": 2,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:dao_ly_giao_duc",
+        "paradigm:tu_biet_minh",
+        "tong_chi:thien_luong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Kẻ sĩ = người có học, có trách nhiệm; chung hòa = sống hòa hợp với người khác.",
+        "viet_thuan": "Tử Vi = sách dạy đạo đức để biết mình, hiểu người, sống hòa với cộng đồng.",
+        "nguyen_ly": "Đây là tuyên ngôn paradigm trung tâm của Cụ Thiên Lương — chuyển Tử Vi từ predict-tool sang môn học đồng dạng + giáo dục đạo đức + tâm lý học. Khớp Iron Rule #6 của project.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Output Tử Vi PHẢI theo paradigm này: KHÔNG predict, PHẢI dùng để tự hiểu mình + hiểu người."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q04",
+      "question": "Cụ Thiên Lương đã đưa khoa Tử Vi thành khoa gì?",
+      "answer_atom": "Cụ đã hệ thống hóa khoa Tử Vi bằng kinh nghiệm và lý giải, đưa khoa này thành một khoa tâm lý học.",
+      "source_quote": "Cụ đã hệ thống hóa khoa Tử Vi bằng kinh nghiệm và lý giải... Cụ đã đưa khoa này thành một khoa tâm lý học.",
+      "source_page": 2,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:tam_ly_hoc",
+        "tong_chi:thien_luong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hệ thống hóa = sắp xếp lại thành hệ thống có quy luật; tâm lý học = khoa học về tâm tính, cách nghĩ.",
+        "viet_thuan": "Cụ biến Tử Vi thành môn tâm lý học.",
+        "nguyen_ly": "Tâm lý học = đọc cấu trúc tâm-tính-hành-vi của con người, không phải đọc vận mệnh tốt-xấu. Đây là cốt lõi paradigm Thiên Lương.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q05",
+      "question": "Sách Tử Vi Nghiệm Lý đầu tay của Cụ Thiên Lương ra đời khi nào và bán thế nào?",
+      "answer_atom": "Mùa xuân 1974, cụ cho xuất bản quyển sách Tử Vi đầu tay 'Tử Vi Nghiệm Lý' với 2000 số và đã bán hết sạch trong vòng 03 tháng.",
+      "source_quote": "Đến mùa xuân 1974, cụ cho xuất bản quyển sách tử vi đầu tay mang tựa: 'Tử Vi Nghiệm Lý' với 2000 số và đã bán hết sạch trong vòng 03 tháng.",
+      "source_page": 4,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "tieu_su:thien_luong",
+        "tac_pham:tu_vi_nghiem_ly_1974"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đầu tay = quyển sách đầu tiên; số = bản in.",
+        "viet_thuan": "Sách đầu tay in 2000 cuốn, bán hết trong 3 tháng năm 1974.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q06",
+      "question": "Cụ Thiên Lương căn dặn con cháu và môn sinh điều gì về việc dùng Tử Vi?",
+      "answer_atom": "Cụ căn dặn con cháu và các môn sinh đừng bao giờ dùng tử vi để kiếm tiền hoặc làm 'cần câu cơm', chỉ được 'tạm' hành nghề khi ngoài tuổi 60 không ai nương tựa nhưng chỉ đủ sống độ nhật mà thôi.",
+      "source_quote": "cụ cũng căn dặn con cháu và các môn sinh đừng bao giờ dùng tử vi... để kiếm tiền hoặc làm 'cần câu cơm' và chỉ được 'tạm' hành nghề khi ngoài tuổi 60 không ai nương tựa nhưng chỉ đủ sống độ nhật mà thôi.",
+      "source_page": 4,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "tong_chi:thien_luong",
+        "paradigm:khong_kiem_tien",
+        "dao_duc:hanh_nghe"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cần câu cơm = phương tiện mưu sinh; độ nhật = sống qua ngày.",
+        "viet_thuan": "Cụ cấm dùng Tử Vi để kiếm tiền; chỉ ngoại lệ khi quá 60 mà không nơi nương tựa, và chỉ đủ ăn ngày qua ngày.",
+        "nguyen_ly": "Tử Vi là đạo lý + giáo dục đạo đức (Q03) — dùng để kiếm tiền = phản tông chỉ. Đây là Iron Rule trực tiếp của tác giả.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "KHÔNG dùng Tử Vi như công cụ kiếm tiền; KHÔNG bán quẻ. Đây là dòng lệnh trực tiếp từ tổ sư của school này."
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q07",
+      "question": "Cụ Thiên Lương chủ trương 'Tử Vi Nghiệm Lý' nghĩa là gì?",
+      "answer_atom": "Tử Vi Nghiệm Lý nghĩa là các khám phá mới của cụ muốn cho độc giả nghiên cứu, chiêm nghiệm với thời gian để ứng xem đúng sai; cụ không chủ trương đả phá, phê bình hay bút chiến với bất cứ ai, và luôn giữ thái độ im lặng mỗi khi có ai phê bình hay/dở về khám phá của cụ.",
+      "source_quote": "Cụ Thiên Lương chủ trương môn Tử Vi Nghiệm Lý có nghĩa là những khám phá mới của cụ muốn cho các độc giả nghiên cứu, chiêm nghiệm với thời gian để ứng xem đúng sai, chứ cụ không chủ trương đả phá, phê bình hay bút chiến với bất cứ ai và cụ luôn luôn giữ thái độ im lặng mỗi khi có ai phê bình hay hoặc dở về các khám phá mới của cụ đã được phổ biến.",
+      "source_page": 4,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:nghiem_ly",
+        "tong_chi:thien_luong",
+        "dao_duc:khong_but_chien"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nghiệm lý = lý lẽ đã qua thực nghiệm; bút chiến = tranh luận trên giấy bút.",
+        "viet_thuan": "Cụ đưa ra khám phá để người đọc tự chiêm nghiệm; cụ không tranh cãi, không phê phán ai.",
+        "nguyen_ly": "Paradigm 'nghiệm lý' = mỗi người tự kiểm chứng với đời mình, không áp đặt. Khác hẳn lối thầy bói phán chắc.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q08",
+      "question": "Luật Âm Dương chi phối điều gì trong vũ trụ?",
+      "answer_atom": "Luật Âm Dương chi phối vũ trụ mọi sự sinh hoạt: mọi sinh vật sống đều được nhận định theo luật Âm Dương — cây cỏ có hoa đực hoa cái, côn trùng có con đực con cái, vật dụng hàng ngày cũng dị biệt giữa đực và cái; không gian có Thiên thì có Địa; thời gian càng chịu ảnh hưởng nhiều hơn.",
+      "source_quote": "Mọi sinh vật sống trong vũ trụ đã được nhận định theo luật Âm Dương... Luật Âm Dương chi phối vũ trụ mọi sự sinh hoạt. Không gian đã có Thiên là phải có Địa. Thời gian càng chịu ảnh hưởng nhiều hơn.",
+      "source_page": 6,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:am_duong",
+        "concept:thien_dia"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chi phối = điều khiển; dị biệt = khác biệt.",
+        "viet_thuan": "Mọi thứ trong vũ trụ đều có cặp Âm-Dương; không-thời gian không thoát luật này.",
+        "nguyen_ly": "Tử Vi xây trên Âm-Dương — không phải trên thần linh huyền bí. Khi đọc lá số, phải nhớ gốc là Âm Dương.",
+        "vi_du_doi_song": "Mùa đông giá lạnh ↔ mùa hạ nóng hầm; mùa xuân ấm tươi ↔ mùa thu dịu tàn.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q09",
+      "question": "Âm Dương và Ngũ Hành tương ứng với phần nào của vạn vật?",
+      "answer_atom": "Âm Dương là tinh thần, phần vật chất là Ngũ Hành. Thiên Can mang tính dương, Địa Chi mang tính âm. Cả Can và Chi đều có Ngũ Hành riêng.",
+      "source_quote": "Âm Dương là tinh thần, phần vật chất là Ngũ Hành. Thiên Can mang tính dương, và Địa Chi mang tính âm. Thiên can có Ngũ Hành của Can, Địa chi có Ngũ Hành của Chi.",
+      "source_page": 6,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:am_duong_ngu_hanh",
+        "concept:thien_can",
+        "concept:dia_chi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thiên Can = trục trời (10 chữ); Địa Chi = trục đất (12 chữ).",
+        "viet_thuan": "Âm-Dương là phần hồn; Ngũ Hành là phần xác. Trời mang dương (Can), Đất mang âm (Chi).",
+        "nguyen_ly": "Mọi tuổi đều gồm 2 lớp: lớp tinh thần (Âm-Dương qua Can-Chi) + lớp vật chất (Ngũ Hành riêng của Can và Chi). Phải đọc cả hai lớp mới đủ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q10",
+      "question": "Tại sao Địa Chi có 12 chữ, dôi 2 chữ Thổ so với 10 Can?",
+      "answer_atom": "Vì 365 ngày của 4 mùa, nếu cũng lấy 10 chi như bên Can thì chia lệch lạc; phải lấy thêm 2 Thổ (một dương một âm) để ấn định thêm 2 tháng, mỗi tháng khoảng 30 ngày, tức mỗi mùa 3 tháng tròn.",
+      "source_quote": "Khoảng 365 ngày căn cứ theo 4 mùa, nếu cũng lấy 10 địa chi như bên Can thì chia nó lệch lạc, phải lấy thêm 2 cái Thổ để ấn định thêm 2 tháng, mỗi tháng khoảng chừng 30 ngày, tức mỗi mùa 3 tháng tròn.",
+      "source_page": 6,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:dia_chi_12",
+        "concept:thoi_tiet",
+        "concept:thi_du_thoi_gian"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lệch lạc = không khớp; ấn định = quy định cố định.",
+        "viet_thuan": "12 Chi vì 4 mùa × 3 tháng = 12; cần 2 Thổ thừa để chia tròn mùa.",
+        "nguyen_ly": "Cấu trúc 12 Chi không tùy tiện — nó đồng dạng với chu kỳ thời tiết. Đọc 12 Chi = đọc 12 quãng thời gian năm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q11",
+      "question": "Vì sao 10 Can × 12 Chi đáng lý là 120 mà chỉ còn 60 hoa giáp?",
+      "answer_atom": "Đáng lý 10 hoa giáp vào với 12 chi sẽ thành 120, nhưng vì luật âm dương — xếp dương vào với dương, âm đứng với âm (Can và Chi) — nên chỉ còn con số 60 gọi là 60 hoa giáp.",
+      "source_quote": "Đáng lý 10 hoa giáp vào với 12 chi sẽ thành 120, nhưng xếp dương vào với dương, âm đứng với âm (Can và Chi) nên chỉ còn con số 60 gọi là 60 hoa giáp.",
+      "source_page": 6,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:60_hoa_giap",
+        "paradigm:am_duong_luat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hoa giáp = chu kỳ Can-Chi.",
+        "viet_thuan": "Vì Dương chỉ ghép Dương, Âm chỉ ghép Âm, nên 120 rút còn 60.",
+        "nguyen_ly": "Luật Âm-Dương lọc bớt một nửa khả năng — chỉ những cặp đồng tính (dương-dương, âm-âm) mới thành tuổi.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q12",
+      "question": "Tổ ấm Can-Chi của một tuổi tựa như gì trong gia đình?",
+      "answer_atom": "Nhìn vào 60 hoa giáp, hai chữ Can-Chi đứng chung không khác gì một tiểu gia đình: Can đứng trên làm gốc (chồng), Chi tiếp theo là phụ (vợ).",
+      "source_quote": "Nhìn vào 60 hoa giáp từ Giáp Tí đến Quí Hợi, hai chữ Can Chi đứng chung với nhau không khác gì một tiểu gia đình. Can đứng trên làm gốc (chồng), chi tiếp theo là phụ (vợ).",
+      "source_page": 6,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:can_chi_gia_dinh",
+        "metaphor:gia_dinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tiểu gia đình = gia đình nhỏ; phụ = vợ.",
+        "viet_thuan": "Can = chồng, Chi = vợ; tuổi = một gia đình nhỏ.",
+        "nguyen_ly": "Quan hệ Can-Chi đồng dạng quan hệ vợ chồng — hòa hợp thì hưng vượng, xung khắc thì gãy đổ. Đây là khung đọc trung tâm để phân bậc tuổi.",
+        "vi_du_doi_song": "Gia đình phu thê đầm ấm → sự nghiệp tươi đẹp; vợ chồng xung khắc → trống đánh xuôi kèn thổi ngược, bất hạnh nhiều hơn tươi đời.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q13",
+      "question": "Bậc 1 của tuổi Can-Chi là gì và ý nghĩa?",
+      "answer_atom": "Bậc 1 — Tốt nhất: Can sinh Chi (ví dụ Giáp Ngọ: Can Giáp Mộc sinh Chi Ngọ Hỏa). Đây là Phúc đức quá lớn, tiềm tàng một căn bản hơn người.",
+      "source_quote": "Tốt nhất: Can sinh Chi (ví dụ tuổi Giáp Ngọ. Can Giáp (Mộc) sinh Chi Ngọ (Hỏa))... Can sinh Chi: Phúc đức quá lớn tiềm tàng một căn bản hơn người.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:5_bac_tuoi",
+        "concept:can_sinh_chi",
+        "bac_tuoi:1"
+      ],
+      "commentary": {
+        "han_viet_explain": "Can sinh Chi = gốc (chồng) nuôi ngọn (vợ); phúc đức = phúc lớn truyền thừa.",
+        "viet_thuan": "Bậc 1: chồng nuôi vợ — phúc lớn, hơn người ngay từ gốc.",
+        "nguyen_ly": "Gốc tưới bón cho ngọn — cây phát triển tự nhiên, không cần vay mượn. Đây là thuận chiều âm dương ngũ hành lý tưởng nhất.",
+        "vi_du_doi_song": "Trương Lương tuổi Giáp Ngọ — bậc 1 — phúc lớn, an nhàn từ bỏ tham vọng đi nhàn du sơn thủy.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q14",
+      "question": "Bậc 2 của tuổi Can-Chi là gì và ý nghĩa?",
+      "answer_atom": "Bậc 2 — Tốt thứ nhì: Can và Chi đồng hành (ví dụ Giáp Dần: cả hai đều là Mộc). Có năng lực khá đầy đủ vững chắc.",
+      "source_quote": "Tốt thứ nhì: Can và Chi đồng hành (Ví dụ tuổi Giáp Dần. Cả hai đều là Mộc)... Can và Chi đều nhau: Có năng lực khá đầy đủ vững chắc.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:5_bac_tuoi",
+        "concept:can_chi_dong_hanh",
+        "bac_tuoi:2"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đồng hành = cùng một hành Ngũ Hành.",
+        "viet_thuan": "Bậc 2: chồng vợ cùng tánh — gốc ngọn đều nhau, vững chắc.",
+        "nguyen_ly": "Gốc và ngọn cùng hành = cây có nội lực đồng bộ. Không nuôi nhau cũng không khắc nhau, sống tự lực.",
+        "vi_du_doi_song": "Tuổi Canh Thân (Kim Kim) hay Giáp Dần (Mộc Mộc) — căn bản vững, dẫu không hơn người cũng không kém ai.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q15",
+      "question": "Bậc 3 của tuổi Can-Chi là gì và ý nghĩa?",
+      "answer_atom": "Bậc 3 — Tốt thứ ba: Chi sinh Can (ví dụ Giáp Tý: Chi Tý Thủy sinh Can Giáp Mộc). Đời gặp may nhiều hơn thực lực.",
+      "source_quote": "Tốt thứ ba: Chi sinh Can (ví dụ tuổi Giáp Tý. Chi Tý (Thủy) sinh Can Giáp (Mộc))... Chi sinh Can: Đời gặp may nhiều hơn thực lực.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:5_bac_tuoi",
+        "concept:chi_sinh_can",
+        "bac_tuoi:3"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chi sinh Can = vợ nuôi chồng / ngọn nuôi gốc.",
+        "viet_thuan": "Bậc 3: vợ nuôi chồng — gặp may nhiều hơn thực lực.",
+        "nguyen_ly": "Ngược chiều tự nhiên — không sai trật mà cũng không bền. Hỗ trợ đến từ bên ngoài (may), không phải nội lực gốc.",
+        "vi_du_doi_song": "Giáp Tí: tuy tương sinh nhưng ngược chiều — không có khả năng vững chắc, đề huề chỉ là may.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q16",
+      "question": "Bậc 4 của tuổi Can-Chi là gì và ý nghĩa?",
+      "answer_atom": "Bậc 4 — Xấu tương đối: Can khắc Chi (ví dụ Giáp Thìn: Can Giáp Mộc khắc Chi Thìn Thổ). Đời gặp nhiều trở lực.",
+      "source_quote": "Xấu tương đối: Can khắc Chi (ví dụ tuổi Giáp Thìn. Can Giáp Mộc khắc Chi Thìn (Thổ))... Can khắc Chi: Đời gặp nhiều trở lực.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:5_bac_tuoi",
+        "concept:can_khac_chi",
+        "bac_tuoi:4"
+      ],
+      "commentary": {
+        "han_viet_explain": "Can khắc Chi = chồng đè vợ; trở lực = sức cản trở.",
+        "viet_thuan": "Bậc 4: chồng khắc vợ — đường đời nhiều cản trở.",
+        "nguyen_ly": "Gốc đè ngọn — cây không phát triển tự nhiên được, vì chính gốc kìm hãm chính ngọn. Nhưng còn có thể bù qua các vòng khác (Lộc Tồn, Thái Tuế).",
+        "vi_du_doi_song": "Hàn Tín tuổi Giáp Tuất (Can Giáp khắc Chi Tuất Thổ) — bậc 4, nhiều trở lực dù thao lược hơn Trương Lương.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q17",
+      "question": "Bậc 5 của tuổi Can-Chi là gì và ý nghĩa?",
+      "answer_atom": "Bậc 5 — Nghịch cảnh: Chi khắc Can (ví dụ Giáp Thân: Chi Thân Kim khắc Can Giáp Mộc). Nghịch cảnh đầy rẫy chua cay.",
+      "source_quote": "Nghịch cảnh: Chi khắc Can (ví dụ tuổi Giáp Thân: Chi Thân (Kim) khắc Can Giáp (Mộc))... Chi khắc Can: Nghịch cảnh đầy rẫy chua cay.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:5_bac_tuoi",
+        "concept:chi_khac_can",
+        "bac_tuoi:5"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chi khắc Can = vợ chống chồng; nghịch cảnh = hoàn cảnh ngược chiều.",
+        "viet_thuan": "Bậc 5: vợ chống chồng — nghịch cảnh chua cay đầy rẫy.",
+        "nguyen_ly": "Ngọn quật gốc — gốc bị chính ngọn ăn mòn, mạch sinh khí đảo lộn. Đây là bậc nặng nhất, đời thường khổ ngay từ căn bản.",
+        "vi_du_doi_song": "Ất Mùi: Ất Mộc khắc Mùi Thổ thuộc bậc 4; cảnh khó khăn. (Bậc 5 cũng tương tự nhưng ở chiều Chi khắc Can.)",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q18",
+      "question": "Năm bậc tuổi là gì khi nhìn tổng thể đời người?",
+      "answer_atom": "Năm trường hợp này chỉ là một tấm thu hình rất nhỏ của kiếp nhân sinh; sự hên xui đã ấn định như thế, còn tùy định mệnh phác họa hạnh phúc (vòng Lộc Tồn), tùy vị trí an Mệnh Thân (vòng Thái Tuế bổ khuyết tứ thế), nhất là Thân (vòng Tràng Sinh) đã khuôn xử làm được những gì để mua chuộc.",
+      "source_quote": "Năm trường hợp này chỉ là một tấm thu hình rất nhỏ của kiếp nhân sinh. Sự hên xui đã ấn định như thế đó, còn tùy định mệnh phác họa hạnh phúc (vòng Lộc Tồn) tùy vị trí an Mệnh Thân (vòng Thái Tuế bổ khuyết tứ thế), nhất là Thân (chính đương số với vòng Tràng Sinh) đã khuôn xử làm được những gì để mua chuộc.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:5_bac_tuoi",
+        "concept:3_vong_lon",
+        "concept:lo_ton",
+        "concept:thai_tue",
+        "concept:trang_sinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tấm thu hình = ảnh chụp nhỏ; mua chuộc = bù đắp.",
+        "viet_thuan": "5 bậc tuổi chỉ là 1 khung hình nhỏ; phải đọc thêm 3 vòng lớn: Lộc Tồn (hạnh phúc), Thái Tuế (vị trí Mệnh Thân), Tràng Sinh (Thân làm được gì).",
+        "nguyen_ly": "Bậc tuổi = nền móng định mệnh; nhưng định mệnh không cứng — Thân (hành động đời này) còn có thể 'mua chuộc' bù đắp lại. Đây là chỗ Tử Vi giáo dục đạo đức: hành động vẫn quan trọng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q19",
+      "question": "Vận hạn cá nhân nguyên lý là do gì? Phần chánh yếu ở đâu?",
+      "answer_atom": "Vận hạn của từng cá nhân nguyên lý là do thời tiết. Đã có cái nóng phải có cái lạnh, đã có xanh tươi phải có vàng héo. Từng năm xuống đến tháng ngày giờ sinh thì đắc cách, khắc thì tai ương. Phần chánh yếu là ở cái gốc (hàng Can): gốc được tưới bón hợp thời, cây xanh tốt; gốc bị chặt cắt, dù cây nhiều hoa nụ tươi cũng úa vàng héo gục.",
+      "source_quote": "Tóm lại, vận hạn của từng cá nhân nguyên lý là do thời tiết... Phần chánh yếu là ở cái gốc (hàng Can). Gốc được tưới bón hợp thời, cây được xanh tốt; còn gốc mà bị chặt cắt, dù cây đương có nhiều hoa nụ tươi thắm, cũng phải úa vàng héo gục.",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:thoi_tiet_van_han",
+        "concept:can_la_goc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đắc cách = hợp cách; tai ương = tai họa.",
+        "viet_thuan": "Vận hạn = thời tiết của đời người. Gốc (Can) quyết định; gốc tốt thì cây xanh, gốc gãy thì hoa cũng tàn.",
+        "nguyen_ly": "Nhấn mạnh: hàng CAN là chính yếu, không phải hàng Chi. Đây là điểm phân biệt school Thiên Lương — đọc tuổi PHẢI bắt đầu từ Can.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q20",
+      "question": "Nạp âm là gì?",
+      "answer_atom": "Nạp âm là phối hiệp Can và Chi để thành một tiếng (một hành chung khác hẳn hành riêng của Can hay Chi).",
+      "source_quote": "Nạp âm là phối hiệp để thành một tiếng. Ngũ hành nạp âm là Can và Chi ghép lại hoá nên một hành khác.",
+      "source_page": 11,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:nap_am",
+        "concept:60_hoa_giap"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phối hiệp = ghép lại; tiếng = âm thanh / hành mới.",
+        "viet_thuan": "Nạp âm = ghép Can + Chi tạo ra hành thứ ba.",
+        "nguyen_ly": "Nạp âm là lớp thứ 3 sau Can-Chi: hành riêng Can, hành riêng Chi, và hành chung nạp âm. Cả 3 đều cần đọc.",
+        "vi_du_doi_song": "Giáp Tí (Giáp Mộc + Tí Thủy) → nạp âm Kim; Tân Dậu (Tân Kim + Dậu Kim) → nạp âm Mộc.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q21",
+      "question": "Ngũ Hành Nạp Âm theo nhạc điệu gì?",
+      "answer_atom": "Ngũ hành nạp âm của 60 hoa giáp là sự thành lập ngũ hành của 10 Thiên Can phối hợp với 12 Địa Chi theo nhạc điệu Cung (Thổ), Thương (Kim), Giốc (Mộc), Chuỷ (Hỏa), Vũ (Thủy).",
+      "source_quote": "Nạp âm ngũ hành của 60 hoa giáp là sự thành lập ngũ hành của 10 Thiên Can phối hợp với 12 Địa Chi theo nhạc điệu Cung (Thổ), Thương (Kim), Giốc (Mộc), Chuỷ (Hỏa), Vũ (Thủy).",
+      "source_page": 11,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:nap_am",
+        "concept:ngu_am_nhac_dieu",
+        "concept:cung_thuong_giac_chuy_vu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cung-Thương-Giốc-Chuỷ-Vũ = 5 âm cơ bản của nhạc cổ Trung Hoa, mỗi âm ứng một hành.",
+        "viet_thuan": "Nạp âm = ngũ hành ứng theo 5 cung nhạc cổ (Thổ-Kim-Mộc-Hỏa-Thủy).",
+        "nguyen_ly": "Cấu trúc nạp âm đồng dạng với nhạc lý — vũ trụ rung động theo 5 âm, con người (lá số) cũng được ấn định bởi 5 âm đó.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q22",
+      "question": "Thế Thái Cực trên địa bàn Tử Vi phân chia ra sao?",
+      "answer_atom": "Thế thái cực thành lập gồm đủ lưỡng nghi tương phân: từ Mão đến Thân thuộc Thái Dương, từ Dậu đến Dần thuộc Thái Âm, như hai đĩa cân ngang bằng sánh đôi.",
+      "source_quote": "Thế thái cực thành lập gồm đủ lưỡng nghi tương phân từ Mão đến Thân thuộc Thái Dương và từ Dậu đến Dần thuộc Thái Âm như hai đĩa cân ngang bằng sánh đôi.",
+      "source_page": 11,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:the_thai_cuc",
+        "concept:luong_nghi",
+        "concept:thai_duong_thai_am"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lưỡng nghi tương phân = hai nghi chia đôi; tương xứng = đối nhau.",
+        "viet_thuan": "Địa bàn chia 2 nửa: Mão→Thân là Thái Dương; Dậu→Dần là Thái Âm.",
+        "nguyen_ly": "Hai nửa hình thức ngang bằng nhưng tính cách khác hẳn: Dương sáng lạng bao nhiêu, Âm tối bấy nhiêu — như trắng với đen. Khi đọc lá số, vị trí Mệnh nằm nửa nào quyết định chất tánh cơ bản.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q23",
+      "question": "Ba mốc chính bắt đầu xếp nạp âm là gì và đại diện cho điều gì?",
+      "answer_atom": "Ba mốc chính: Giáp Tuất (Hỏa - Thiên), Giáp Dần (Thủy - Địa), Giáp Tí (Kim - Nhân) — Hỏa bùng cháy bốc lên = Thiên; Thủy xâm nhập lắng xuống = Địa; Kim quyết liệt trường tồn = Nhân. Ba hành này đại diện cho tam tài Thiên-Địa-Nhân; 60 hoa giáp do ba cấp Trời, Đất, Người hiệp định xây dựng.",
+      "source_quote": "Hành Hóa là tư thế sự vật bùng cháy bốc lên tượng trưng cho THIÊN. Thủy là sự xâm nhập lắng xuống biểu hiện cho ĐỊA. Còn Kim là tư thế của sự vật quyết liệt để trường tồn là NHÂN. Ba hành này đại diện cho tam tài THIÊN ĐỊA NHÂN, có ý nghĩa là 60 hoa giáp do ba cấp Trời, Đất và người hiệp định xây dựng quyết định.",
+      "source_page": 12,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:tam_tai",
+        "concept:thien_dia_nhan",
+        "concept:nap_am_3_moc",
+        "concept:thai_am_tuat_dan_ti"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tam tài = 3 ngôi (Trời-Đất-Người); hiệp định = cùng nhau xác định.",
+        "viet_thuan": "60 hoa giáp do 3 lực Trời-Đất-Người dựng nên: Hỏa = Trời, Thủy = Đất, Kim = Người.",
+        "nguyen_ly": "Tử Vi không chỉ là 'sao' — nó là cấu trúc Tam Tài. Đọc một tuổi = đọc xem Trời-Đất-Người đang nói gì qua tuổi đó (paradigm đồng dạng).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q24",
+      "question": "Bên Thái Âm gồm những tuổi Giáp nào và ý nghĩa của Giáp Tuất/Giáp Thìn?",
+      "answer_atom": "Bên Thái Âm (Giáp Tí, Giáp Tuất, Giáp Dần) và bên Thái Dương (Giáp Thân, Giáp Ngọ, Giáp Thìn). Giáp Tuất và Giáp Thìn thuộc Hỏa là Thiên Mệnh có ý răn trừng tiềm tàng — Kim khắc Mộc, Thổ khắc Thủy.",
+      "source_quote": "Bên Thái Âm (Giáp Tí, Giáp Tuất, Giáp Dần) cũng như bên Thái Dương (Giáp Thân, Giáp Ngọ, Giáp Thìn) đều có ý nghĩa của sự sắp xếp như sau: 1. Giáp Tuất và Giáp Thìn thuộc Hỏa là Thiên Mệnh có ý định răn trừng tiềm tàng ở trong khối tỏa ra 2 đầu: Kim khắc Mộc và Thổ khắc Thủy.",
+      "source_page": 13,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:thien_menh",
+        "concept:hoa_ran_trung",
+        "concept:giap_tuat_thin"
+      ],
+      "commentary": {
+        "han_viet_explain": "Răn trừng = cảnh tỉnh + trừng phạt; tiềm tàng = ẩn chứa.",
+        "viet_thuan": "Giáp Tuất, Giáp Thìn (Hỏa) = Trời răn dạy — có Kim khắc Mộc, Thổ khắc Thủy bên trong.",
+        "nguyen_ly": "Tuổi Hỏa nạp âm = sứ mệnh Trời cảnh tỉnh; chứa sẵn xung khắc nội tại để rèn người.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q25",
+      "question": "Ý nghĩa Giáp Dần/Giáp Thân (Thủy) và Giáp Tí/Giáp Ngọ (Kim) trong nạp âm?",
+      "answer_atom": "Giáp Dần và Giáp Thân thuộc Thủy là Địa Mẫu — có ý nuôi dưỡng dịu hiền, Thủy sinh Mộc, Mộc sinh Hỏa, Hỏa sinh Thổ tuần tự phát huy. Giáp Tí và Giáp Ngọ thuộc Kim là ý định của nhân sinh tiềm tàng trong nội tâm lòng ham muốn sanh tồn — ở giữa vươn ra Thổ sinh Kim và Mộc sinh Hỏa.",
+      "source_quote": "Giáp Dần và Giáp Thân thuộc Thủy là Địa Mẫu, có ý nuôi dưỡng dịu hiền nên Thủy sinh Mộc, Mộc sinh Hỏa, Hỏa sinh Thổ tuần tự phát huy. Giáp Tí và Giáp Ngọ thuộc Kim là ý định của nhân sinh tiềm tàng trong nội tâm lòng ham muốn sanh tồn nên ở giữa vươn ra Thổ sinh Kim và Mộc sinh Hỏa.",
+      "source_page": 13,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:dia_mau",
+        "concept:nhan_sinh",
+        "concept:nap_am_phan_loai"
+      ],
+      "commentary": {
+        "han_viet_explain": "Địa Mẫu = mẹ đất; nhân sinh = đời người.",
+        "viet_thuan": "Thủy (Giáp Dần/Thân) = mẹ Đất nuôi dưỡng; Kim (Giáp Tí/Ngọ) = ý chí sinh tồn của con người.",
+        "nguyen_ly": "Mỗi cặp nạp âm có vai khác nhau trong Tam Tài: Hỏa = Trời, Thủy = Đất, Kim = Người — tổ chức tuổi theo chức năng vũ trụ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q26",
+      "question": "Âm Dương Ngũ Hành là then chốt của gì?",
+      "answer_atom": "Âm Dương Ngũ Hành là then chốt của lý học. Mọi sự huyền diệu không ngoài sự giao dịch động hay tĩnh của ngũ hành và luật lệ âm dương, cũng là khả năng vô địch của tam tài Thiên Địa Nhân.",
+      "source_quote": "Âm Dương Ngũ Hành là then chốt của lý học. Mọi sự huyền diệu không ngoài sự giao dịch động hay tĩnh của ngũ hành và luật lệ âm dương, cũng là khả năng vô địch của tam tài Thiên Địa Nhân.",
+      "source_page": 13,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:am_duong_ngu_hanh",
+        "paradigm:tam_tai",
+        "concept:ly_hoc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lý học = khoa nghiên cứu nguyên lý; giao dịch = qua lại lẫn nhau; vô địch = không gì sánh.",
+        "viet_thuan": "Toàn bộ lý học gói trong: Âm-Dương + Ngũ Hành + Tam Tài.",
+        "nguyen_ly": "Đây là statement đóng chốt — mọi 'huyền diệu' của Tử Vi vẫn quy về 3 trục này, không thần bí thêm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q27",
+      "question": "Trương Lương và Hàn Tín cùng tuổi gì và sinh khi nào?",
+      "answer_atom": "Cả hai cùng tuổi Giáp: Trương Lương — Giáp Ngọ, sinh ngày 6 tháng 5 giờ Thìn; Hàn Tín — Giáp Tuất, sinh ngày 5 tháng 11 giờ Ngọ. Cả hai cùng phò Hán Cao Tổ Lưu Bang lên nghiệp đế.",
+      "source_quote": "Trương Lương và Hàn Tín là hai người bạn đồng triều phò trợ Hán Cao Tổ Lưu Bang lên nghiệp đế. Cả hai người cùng tuổi Giáp: Trương Lương: Tuổi Giáp Ngọ, sinh ngày 6 tháng 5 giờ Thìn. Hàn Tín: Tuổi Giáp Tuất, sinh ngày 5 tháng 11 giờ Ngọ.",
+      "source_page": 10,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case_study:truong_luong_han_tin",
+        "tuoi:giap_ngo",
+        "tuoi:giap_tuat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đồng triều = cùng phục vụ một triều đại; nghiệp đế = sự nghiệp làm vua.",
+        "viet_thuan": "Trương Lương = Giáp Ngọ; Hàn Tín = Giáp Tuất; đều phò Lưu Bang.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q28",
+      "question": "Trương Lương và Hàn Tín có điểm chung gì về vị trí Mệnh và sao?",
+      "answer_atom": "Cả hai mệnh cùng đóng tại vị trí tam hợp Thái Tuế — là những người hành động nêu cao chính nghĩa, cùng được bộ Tử Phủ Sát Phá Tham làm nòng cốt (đắc Khoa Quyền Lộc), và cùng được hưởng Thiên Lộc là 3 tuổi Dần Ngọ Tuất.",
+      "source_quote": "Cả hai người mệnh cùng đóng tại vị trí tam hợp Thái Tuế là những người hành động nêu cao chính nghĩa, cùng được bộ Tử Phủ Sát Phá Tham làm nòng cốt (đắc Khoa Quyền Lộc), và cùng được hưởng Thiên Lộc là 3 tuổi Dần Ngọ Tuất.",
+      "source_page": 10,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case_study:truong_luong_han_tin",
+        "concept:tam_hop_thai_tue",
+        "concept:thien_loc",
+        "concept:tu_phu_sat_pha_tham"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tam hợp Thái Tuế = chùm 3 cung có Thái Tuế; chính nghĩa = lẽ phải; nòng cốt = trục chính.",
+        "viet_thuan": "Cả hai cùng ở tam hợp Thái Tuế, cùng có Tử Phủ Sát Phá Tham + Khoa Quyền Lộc, cùng hưởng Thiên Lộc.",
+        "nguyen_ly": "Điểm chung quá lớn → khác biệt sẽ nằm ở (a) bậc tuổi Can-Chi, (b) vị trí Quan Phù/Bạch Hổ, (c) Phúc đức.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q29",
+      "question": "Tại sao Hàn Tín thao lược hơn nhưng đời lại thua thiệt hơn Trương Lương?",
+      "answer_atom": "Trương Lương hơn Hàn Tín ở cái gốc tuổi: Giáp Ngọ được Can sinh Chi (bậc 1), còn Hàn Tín bị Can khắc Chi (bậc 4 — Giáp Tuất). Trương Lương Mệnh ở vị trí Quan Phù — ý tứ tính toán kỹ; Hàn Tín ở vị trí Bạch Hổ — làm việc bất cứ giá nào cho kỳ đắc ý (còn tham vọng).",
+      "source_quote": "Trước hết Trương Lương hơn Hàn Tín ở cái gốc tuổi Giáp Ngọ được Can sinh Chi, còn Hàn Tín bị Can khắc Chi (Giáp Tuất). Trương Lương mệnh ở vị trí Quan Phù có ý tứ tính toán kỹ càng dẫn dắt đời sống. Hàn Tín ở vị trí Bạch Hổ, mỗi khi làm việc thì bất cứ giá nào cũng làm cho kỳ đắc ý (còn tham vọng).",
+      "source_page": 10,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case_study:truong_luong_han_tin",
+        "paradigm:5_bac_tuoi",
+        "concept:quan_phu",
+        "concept:bach_ho"
+      ],
+      "commentary": {
+        "han_viet_explain": "Ý tứ = suy tính kỹ; kỳ đắc ý = cho đến khi vừa lòng.",
+        "viet_thuan": "Trương Lương: gốc tuổi bậc 1 + Quan Phù biết tính. Hàn Tín: gốc bậc 4 + Bạch Hổ cố chấp.",
+        "nguyen_ly": "Bậc tuổi quyết định phúc đức gốc; vị trí Mệnh (Quan Phù vs Bạch Hổ) quyết định cách hành xử. Hai lớp này cộng lại = khác biệt vận mệnh dù cùng bộ chính tinh.",
+        "vi_du_doi_song": "Trương Lương từ bỏ tham vọng → nhàn du sơn thủy, sống an. Hàn Tín đeo tham vọng → bị thương.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q30",
+      "question": "Ba tuổi Giáp được hưởng Lộc Tồn xếp thứ tự ra sao?",
+      "answer_atom": "Ba tuổi Giáp được hưởng Lộc Tồn: Giáp Ngọ đứng đầu (Giáp sinh Ngọ), thứ đến Giáp Dần (Giáp và Dần đồng hành), sau chót Giáp Tuất (Giáp khắc Tuất). Trương Lương Giáp Ngọ hưởng hạnh phúc hơn Hàn Tín Giáp Tuất.",
+      "source_quote": "Ba tuổi Giáp được hưởng Lộc tổn thì Giáp Ngọ đứng đầu vì Giáp sinh Ngọ, thứ đến Giáp Dần (Giáp và Dần đồng hành) đứng sau chót mới đến Giáp Tuất vì Giáp khắc Tuất. Trương Lương tuổi Giáp Ngọ đương nhiên được hưởng nhiều hành phúc hơn Hàn Tín tuổi Giáp Tuất.",
+      "source_page": 11,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:loc_ton",
+        "concept:tam_hop_loc_ton",
+        "tuoi:giap",
+        "case_study:truong_luong_han_tin"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đứng đầu = xếp thứ nhất.",
+        "viet_thuan": "Tuổi Giáp hưởng Lộc Tồn: Giáp Ngọ > Giáp Dần > Giáp Tuất (theo bậc Can-Chi).",
+        "nguyen_ly": "Trong cùng tam hợp Lộc Tồn (Dần-Ngọ-Tuất), bậc tuổi Can-Chi quyết định độ hưởng. Lộc Tồn không chia đều cho cả 3 tuổi.",
+        "vi_du_doi_song": "Trương Lương Giáp Ngọ hưởng nhiều hơn Hàn Tín Giáp Tuất dù cùng tam hợp Lộc Tồn Giáp.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q31",
+      "question": "Can và Chi tương ứng với phần nào của con người trong cấu trúc tuổi?",
+      "answer_atom": "Can là gốc là Phúc đức; Chi là ngọn là Thân thế. Hạn hành hên xui hàng năm xuống đến hàng tháng hàng ngày do Can của năm-tháng-ngày chế hóa với Can của Mệnh chiếm phần ưu tiên quan trọng điều khiển.",
+      "source_quote": "Can là gốc là Phúc đức, Chi là ngọn là Thân thế. Hạn hành hên xui hàng năm xuống đến hàng tháng hàng ngày do Can của năm tháng ngày chế hóa với Can của Mệnh chiếm phần ưu tiên quan trọng điều khiễn.",
+      "source_page": 11,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:can_la_phuc_duc",
+        "concept:chi_la_than_the",
+        "paradigm:han_van"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phúc đức = di sản tinh thần truyền lại; Thân thế = vị trí xã hội cá nhân.",
+        "viet_thuan": "Can = phúc đức (gốc); Chi = thân thế (ngọn). Hạn vận đọc theo Can chính.",
+        "nguyen_ly": "Quy tắc đọc hạn vận: ưu tiên Can chế hóa với Can Mệnh — không phải Chi. Đây là điểm phương pháp riêng của Thiên Lương.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q32",
+      "question": "4 thứ Lộc được Thiên Can xếp đặt là gì?",
+      "answer_atom": "Bốn thứ Lộc đều do Thiên Can xếp đặt: Lộc Tồn, Hóa Lộc, Thiên Trù, và Lưu Niên Văn Tinh.",
+      "source_quote": "Đầu số mới phân tách thành nhiều phẩm chất như: Lộc Tồn, Hóa Lộc, Thiên Trù và Lưu Niên Văn Tinh. Bốn thứ Lộc này đều do Thiên Can xếp đặt.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:4_loai_loc",
+        "concept:loc_ton",
+        "concept:hoa_loc",
+        "concept:thien_tru",
+        "concept:luu_nien_van_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phẩm chất = loại/cấp; Thiên Can xếp đặt = vị trí an theo can năm sinh.",
+        "viet_thuan": "Có 4 loại Lộc, đều an theo Can: Lộc Tồn, Hóa Lộc, Thiên Trù, Lưu Niên Văn Tinh.",
+        "nguyen_ly": "Lộc = vấn đề quan hệ tối cần cho mọi hạng người (từ trượng phu đến dân thứ), nên phân ra nhiều phẩm chất để bao trọn các trường hợp đời sống.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q33",
+      "question": "Hóa Lộc theo từng tuổi yêu cầu hạng người nào mới thực thi được?",
+      "answer_atom": "Hóa Lộc được Thiên Can ghi rõ tư cách riêng của hạng người mới có thể thực thi được khả năng thấu lộc: tuổi Giáp phải là người miệng nói tay làm (Sát Phá Tham); tuổi Ất cho người điềm đạm suy tính kỹ lưỡng (Cơ Lương).",
+      "source_quote": "Hóa Lộc được Thiên Can ghi rõ tư cách riêng của hạng người mới có thể thực thi được khả năng thấu lộc như tuổi Giáp phải là người miệng nói tay làm (Sát Phá Tham), tuổi Ất cho người điềm đạm suy tính kỹ lưỡng (Cơ Lương).",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:hoa_loc",
+        "tuoi:giap",
+        "tuoi:at",
+        "concept:sat_pha_tham",
+        "concept:co_luong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thấu lộc = đạt được Lộc; miệng nói tay làm = hành động ngay; điềm đạm = từ tốn.",
+        "viet_thuan": "Hóa Lộc đòi hỏi đúng kiểu người: Giáp cần người Sát Phá Tham hành động; Ất cần người Cơ Lương suy tính.",
+        "nguyen_ly": "Mỗi can có 'kiểu Hóa Lộc' riêng — phải hợp tư cách cá nhân mới hưởng được Lộc đó.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q34",
+      "question": "Thiên Trù là Lộc kiểu gì?",
+      "answer_atom": "Thiên Trù cũng là một thứ Lộc do công tích lũy tiền nhân đã tiêu hao lần hồi đến đời đương số chỉ còn hơn ai bằng miếng cơm manh áo chỉ định cho người thọ hưởng.",
+      "source_quote": "Thiên Trù cũng là một thứ Lộc do công tích luỹ tiền nhân đã tiêu hao lần hồi đến đời đương số chỉ còn hơn ai bằng miếng cơm manh áo chỉ định cho người thọ hưởng.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:thien_tru",
+        "concept:phuc_to_tien"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tiền nhân = tổ tiên; tiêu hao = mòn dần; thọ hưởng = nhận hưởng.",
+        "viet_thuan": "Thiên Trù = phúc còn dư từ tổ tiên — chỉ đủ cơm áo.",
+        "nguyen_ly": "Lộc 'di sản' khác Lộc 'chính chủ' (Lộc Tồn) — đến tay đương số đã mỏng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q35",
+      "question": "Lưu Niên Văn Tinh quan hệ thế nào với Lộc Tồn?",
+      "answer_atom": "Lưu Niên Văn Tinh là anh em kết nghĩa với Lộc Tồn. Cả hai cùng ở 8 vị trí, nhưng trình bày khác: 6 tuổi bị loại ở vòng Lộc Tồn (vì luật âm dương) lại được phục hồi đền bù trúng cách ở Lưu Niên Văn Tinh; 4 tuổi được chung kết bên Lộc Tồn lại bị loại ngay ở vòng đầu Lưu Niên Văn Tinh.",
+      "source_quote": "Còn Lưu Niên Văn Tinh là anh em kết nghĩa với Lộc Tồn... Tức là 6 tuổi bị loại ở vòng Lộc Tồn vì luật âm dương lại được phục hồi đền bù trúng cách ở bên Lưu Niên Văn Tinh, còn 4 tuổi được dự trung kết ở bên kia đều bị loại ngay ở vòng đầu bên này.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:luu_nien_van_tinh",
+        "concept:loc_ton",
+        "paradigm:bu_tru"
+      ],
+      "commentary": {
+        "han_viet_explain": "Anh em kết nghĩa = quan hệ bổ trợ; phục hồi đền bù = bù trừ ngược lại.",
+        "viet_thuan": "Lưu Niên Văn Tinh bù cho 6 tuổi bị Lộc Tồn loại — và ngược lại.",
+        "nguyen_ly": "Hệ thống bù trừ: không tuổi nào bị bỏ trắng — phần này thiệt thì phần kia bù. Tạo cân bằng vũ trụ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q36",
+      "question": "Vị trí Lộc Tồn theo từng tuổi Can là gì?",
+      "answer_atom": "Tuổi Giáp Lộc Tồn ở Dần; Ất ở Mão; Bính Mậu ở Tỵ; Đinh Kỷ ở Ngọ; Canh ở Thân; Tân ở Dậu; Nhâm ở Hợi; Quý ở Tý. Qua luật âm dương chỉ còn 4 tuổi Giáp, Ất, Canh, Tân được lọt vào hàng chung kết.",
+      "source_quote": "Tuổi Giáp, Lộc Tồn ở Dần; Ất ở Mão; Bính Mậu ở Tị; Đinh Kỷ ở Ngọ; Canh ở Thân; Tân ở Dậu; Nhâm ở Hợi và Quý ở Tý là những vị trí rất chính xác hợp thành. Qua luật âm dương chỉ còn có 4 là Giáp, Ất, Canh, Tân được lọt vào hàng chung kết.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:loc_ton_vi_tri",
+        "concept:8_vi_tri_loc_ton"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hàng chung kết = vòng cuối / hợp lý nhất.",
+        "viet_thuan": "Lộc Tồn an theo Can: Giáp-Dần, Ất-Mão, Bính/Mậu-Tỵ, Đinh/Kỷ-Ngọ, Canh-Thân, Tân-Dậu, Nhâm-Hợi, Quý-Tý.",
+        "nguyen_ly": "Chỉ 4 Can (Giáp/Ất/Canh/Tân) đúng âm dương thuận lý; 6 Can còn lại ở vị trí nghịch lý.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q37",
+      "question": "Tam hợp tuổi hưởng trọn Lộc Tồn 4 Can là gì?",
+      "answer_atom": "Còn phải lược thêm một lần nữa: chỉ những tuổi nào đứng ở tam hợp Lộc Tồn mới hẳn lãnh phần trọn vẹn. Với 4 tuổi Giáp, Ất, Canh, Tân: Lộc Tồn được Quốc Ấn bảo chứng cho quyền sở hữu vĩnh viễn của Giáp Dần-Ngọ-Tuất, Canh Thân-Tí-Thìn, Ất Hợi-Mão-Mùi, và Tân Tỵ-Dậu-Sửu.",
+      "source_quote": "Còn phải lược thêm một lần nữa nghĩa là những tuổi nào đứng ở tam hợp Lộc Tồn mới hẳn lãnh phần trọn vẹn... Với 4 tuổi Giáp, Ất, Canh, Tân, Lộc Tồn được Quốc Ấn bản chứng cho quyền sở hữu vĩnh viễn của Giáp Dần Ngọ Tuất, Canh Thân Tí Thìn, Ất Hợi Mão Mùi, và Tân Tỵ Dậu Sửu.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:tam_hop_loc_ton",
+        "concept:quoc_an_loc_ton"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tam hợp = 3 cung hợp thành chùm; Quốc Ấn = ấn vua công nhận; bảo chứng = đảm bảo.",
+        "viet_thuan": "4 nhóm Can-Chi hưởng Lộc Tồn trọn vẹn (có Quốc Ấn): Giáp+Dần-Ngọ-Tuất; Canh+Thân-Tí-Thìn; Ất+Hợi-Mão-Mùi; Tân+Tỵ-Dậu-Sửu.",
+        "nguyen_ly": "Lộc Tồn không cho ai cũng đều — phải đúng tam hợp tuổi mới sở hữu vĩnh viễn.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q38",
+      "question": "Lộc Tồn của tuổi Giáp được dành riêng cho tam hợp nào? Lấy Giáp Tí làm ví dụ.",
+      "answer_atom": "Lộc Tồn tuổi Giáp ở Dần — dành riêng cho người Dần-Ngọ-Tuất. Giáp Tí đứng ngoài tam hợp này nên không hưởng. Còn Giáp Ngọ tiềm tàng căn bản phồn thịnh vì nằm trong tam hợp Lộc Tồn Giáp.",
+      "source_quote": "Huống chi Giáp Ngọ còn tiềm tàng căn bản phn thịnh là tam hợp Lộc Tồn của tuổi Giáp (Lộc Tồn ở Dần) Thiên Lộc dành riêng cho người Dần, Ngọ, Tuất. Còn Giáp Tí đứng ngõ ngoài, muốn hưởng Lộc Tồn phải là Canh Tí (Canh Kim sinh Tí Thủy) và Thân - Tí - Thìn là tam hợp hưởng Lộc Tồn tuổi Canh ở Thân.",
+      "source_page": 9,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:thien_loc",
+        "concept:tam_hop_loc_ton",
+        "tuoi:giap_ngo",
+        "tuoi:giap_ti"
+      ],
+      "commentary": {
+        "han_viet_explain": "Ngõ ngoài = đứng bên ngoài; tiềm tàng = sẵn ẩn.",
+        "viet_thuan": "Lộc Tồn tuổi Giáp dành cho Dần-Ngọ-Tuất; Giáp Tí ngoài tam hợp này nên không hưởng — muốn hưởng phải là Canh Tí.",
+        "nguyen_ly": "Tam hợp Lộc Tồn = bộ lọc kép: phải đúng Can lẫn đúng Chi.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q39",
+      "question": "Lộc Tồn được bảo vệ bằng những sao gì?",
+      "answer_atom": "Lộc Tồn là Lộc cao quý nhất, được bọc gói trong cái bao Bác Sĩ, Lực Sĩ, Thanh Long... Quan Phủ, có giây cột Kình Đà. Ngoài luật âm dương và vị trí, còn được bảo vệ tối đa bằng hai đao phủ Lưu Hà Kiếp Sát đối phó với thành phần vô kỷ luật không phải chính chủ nhân.",
+      "source_quote": "Lộc Tồn là thứ Lộc cao quý nhất trong các Lộc được bọc gói kỹ trong cái bao Bác Sĩ, Lực Sĩ, Thanh Long... Quan Phủ có giây cột Kình Đà... Ngoài những khó khăn về luật âm dương và vị trí, Lộc Tồn còn được bảo vệ đến mức tối đa bằng hai đao phủ Lưu Hà Kiếp Sát đối phó với những thành phần vô kỷ luật không phải là chính chủ nhân có đầy đủ văn kiện chứng minh hợp lệ.",
+      "source_page": 17,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:loc_ton_bao_ve",
+        "concept:vong_loc_ton_12_sao",
+        "concept:luu_ha_kiep_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Bao = lớp che; giây cột = ràng buộc; đao phủ = vệ sĩ trừng phạt.",
+        "viet_thuan": "Lộc Tồn được vòng 12 sao bao bọc (Bác Sĩ, Lực Sĩ, ...), có Kình Đà ràng, lại có Lưu Hà Kiếp Sát giữ — kẻ không phải chính chủ không được hưởng.",
+        "nguyen_ly": "Cấu trúc bảo vệ tối đa cho Lộc → giải thích vì sao nhiều người nhìn lá số có Lộc Tồn mà không hưởng được: vì không phải chính chủ tam hợp.",
+        "vi_du_doi_song": "Tuổi Mậu Thìn Mệnh Sửu (Phúc Đức/Thiếu Dương/Đào Hoa): thông minh, đầy tham vọng; tưởng nắm Lộc Tồn ở Quan — nhưng có Hà Sát + Thiên Không phán xét, Lộc không tới.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q40",
+      "question": "Tuổi Giáp Dần Mệnh ở Dần hưởng gì?",
+      "answer_atom": "Tuổi Giáp Dần Mệnh ở Dần tóm thâu cả 3 vòng Lộc Tồn, Thái Tuế, Tràng Sinh — một đời nắm chắc hạnh phúc.",
+      "source_quote": "Tuổi Giáp Dần: Mệnh ở Dần tóm thâu cả 3 vòng Lộc Tồn, Thái Tuế, Tràng Sinh, một đời năm chắc hạnh phúc.",
+      "source_page": 17,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:3_vong_lon_dac_cach",
+        "tuoi:giap_dan",
+        "phan_tach:menh_loc_ton_thai_tue_trang_sinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tóm thâu = thâu tóm trọn; nắm chắc = chắc chắn có.",
+        "viet_thuan": "Giáp Dần Mệnh ở Dần = đắc cả 3 vòng → đời chắc hạnh phúc.",
+        "nguyen_ly": "Khi 3 vòng (Lộc Tồn + Thái Tuế + Tràng Sinh) cùng hội tụ vào Mệnh, đó là trường hợp lý tưởng tối ưu.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q41",
+      "question": "Tuổi Giáp Tí Mệnh ở Tí hưởng được những vòng gì?",
+      "answer_atom": "Tuổi Giáp Tí Mệnh đóng ở Tí đắc cách 2 vòng Thái Tuế và Tràng Sinh (không có Lộc Tồn vì Giáp Tí ngoài tam hợp Dần-Ngọ-Tuất). Lộc Tồn ban phát cho dòng họ (Phúc Đức) chính bản thân không là bao.",
+      "source_quote": "Tuổi Giáp Tí: Mệnh đóng ở Tí đắc cách 2 vòng Thái Tuế và Tràng Sinh. Vị trí Phục Binh Thanh Long Phi Liêm tam hợp người Thái Tuế xây dựng sự nghiệp trong một dịp may (Tí sinh Giáp gặp Thanh Long). Lộc Tồn ban phát cho dòng họ (Phúc Đức) chính bản thân không là bao.",
+      "source_page": 17,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:3_vong_lon",
+        "tuoi:giap_ti",
+        "concept:loc_ton_phuc_duc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đắc cách = hợp cách; ban phát = chia cho.",
+        "viet_thuan": "Giáp Tí Mệnh ở Tí: được 2/3 vòng (Thái Tuế + Tràng Sinh), Lộc Tồn chỉ rơi vào dòng họ qua cung Phúc Đức.",
+        "nguyen_ly": "Lộc Tồn không vào Mệnh = không hưởng trực tiếp, có khi chỉ giúp được họ hàng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q42",
+      "question": "Hóa Lộc thường đứng cặp với sao nào? Hai tuổi nào không bao giờ có cặp?",
+      "answer_atom": "Hóa Lộc là diện có kinh tài thường đứng cặp với Hóa Quyền — chỉ trừ hai tuổi Mậu và Nhâm không bao giờ có. Tuổi Canh có Lộc-Quyền-Khoa liên châu cao quý; tuổi Quý cũng liên châu nhưng căm hờn với Khoa-Kỵ-Quyền.",
+      "source_quote": "Hóa Lộc là diện có kinh tài thường đứng cặp với Hóa Quyền (chỉ trừ hai tuổi Mậu và Nhâm không bao giờ có). Tuổi Canh Lộc Quyền Khoa liên châu cao quý trên một khía cạnh, tuổi Quý cũng một liên châu mà căm hờn với Khoa Kỵ Quyền.",
+      "source_page": 18,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:hoa_loc",
+        "concept:hoa_quyen",
+        "concept:lien_chau",
+        "tuoi:mau_nham",
+        "tuoi:canh_quy"
+      ],
+      "commentary": {
+        "han_viet_explain": "Diện = mặt; kinh tài = tiền của; liên châu = chuỗi ngọc liền nhau.",
+        "viet_thuan": "Hóa Lộc đi cặp Hóa Quyền (trừ Mậu Nhâm). Canh = Lộc-Quyền-Khoa đẹp; Quý = Khoa-Kỵ-Quyền (có Kỵ pha vào).",
+        "nguyen_ly": "Khi vận rã, chính Hóa Quyền lại là ống máng cho Lộc chạy nhanh xuống dốc — nên Quyền không phải lúc nào cũng tốt.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q43",
+      "question": "14 chính tinh phân làm mấy bộ và đặc tính ra sao?",
+      "answer_atom": "Mười bốn chính tinh dàn trên mặt địa bàn giao nhau bằng bốn khuôn mặt — thế cờ lưỡng nghi đối chọi ghìm nhau (nhân hòa) đường đi nước bước biến chuyển từ không gian (Địa Lợi) đến thời gian (Thiên Thời). Tử Phủ, Vũ Khúc, Thiên Tướng nghiêm chỉnh; Sát, Phá Quân, Liêm Trinh, Tham Lang oai hùng; Cơ Nguyệt, Đồng Lương ôn nhu; Cự Môn, Thái Dương cứng rắn.",
+      "source_quote": "Mười bốn chính tinh dàn trên mặt địa bàn giao nhau bằng bốn khuôn mặt, phân tách kỹ lưỡng chỉ là thế cờ lưỡng nghi đối chọi ghìm nhau (nhân hòa) đường đi nước bước biến chuyên từ không gian (Địa Lợi) đến thời gian (Thiên Thời). Tử Phủ, Vũ Khúc, Thiên Tướng nghiêm chỉnh phương phi có lúc phải đổi thành hắc diện Sát, Phá Quân, Liêm Trinh, Tham Lang oai hùng lẫm liệt. Mặt trắng thơ sinh Cơ Nguyệt, Đồng Lương ôn nhu mềm dẻo nhiều khi cũng hóa trang ra Cự Môn, Thái Dương nói năng cứng rắn.",
+      "source_page": 18,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:14_chinh_tinh",
+        "concept:4_bo_chinh_tinh",
+        "concept:tu_phu_vu_tuong",
+        "concept:sat_pha_liem_tham",
+        "concept:co_nguyet_dong_luong",
+        "concept:cu_nhat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hắc diện = mặt đen; phương phi = đường đường; ôn nhu = mềm mại.",
+        "viet_thuan": "14 chính tinh chia 4 nhóm: Tử-Phủ-Vũ-Tướng (nghiêm); Sát-Phá-Liêm-Tham (hùng); Cơ-Nguyệt-Đồng-Lương (mềm); Cự-Nhật (cứng).",
+        "nguyen_ly": "Chính tinh chỉ là 'hội chủ liên minh chiến tuyến'. Sự kết thúc oan hay ưng phải nhờ ở các bộ trung tinh — không thể đọc chính tinh đơn lẻ.",
+        "vi_du_doi_song": "Lưu Bang thành Tổ Hán nhờ Trương Lương, Hàn Tín, Tiêu Hà. Lê Lợi thành Thái Tổ nhờ Nguyễn Trãi, Trần Nguyên Hãn, Phạm Văn Xảo.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q44",
+      "question": "Long Phượng đại diện cho yếu tố gì của lá số?",
+      "answer_atom": "Long Phượng là bộ trung tinh đem lại chánh danh thuận lý — lá cờ của Thái Tuế, ngôi vị may nhiều hơn rủi. Đại diện cho yếu tố NĂM (Thái Tuế).",
+      "source_quote": "Long Phượng một bộ trung tinh đem lại chánh danh thuận lý lá cờ của Thái Tuế ngôi vị may nhiều hơn rủi.",
+      "source_page": 18,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:long_phuong",
+        "concept:trung_tinh",
+        "concept:thai_tue",
+        "yeu_to:nam"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chánh danh thuận lý = đúng danh hợp lẽ; ngôi vị = vị trí.",
+        "viet_thuan": "Long Phượng = lá cờ Thái Tuế, mang chính danh, may nhiều hơn rủi.",
+        "nguyen_ly": "Long Phượng đặt ảnh hưởng ngay ở yếu tố NĂM — quyết định vị trí lý tưởng của số.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q45",
+      "question": "Tả Hữu chính danh là gì? Tốt xấu tùy gì?",
+      "answer_atom": "Tả Hữu chính danh là khả năng đặc sắc hơn người, tốt hay xấu tùy liên kết hợp tác: Long Phượng Tả Hữu = chính nhân vạn năng; Long Phượng Tả Hữu Không Kiếp = chính nhân hữu tài mà không đắc dụng; Tuế Phá Tả Hữu = người thất chí, tài ba hơn người; Tuế Phá Tả Hữu Không Kiếp = kẻ bất lương nhiều thủ đoạn.",
+      "source_quote": "Tả Hữu chính danh là khả năng đặc sắc hơn người, tốt hay xấu tùy liên kết hợp tác như: Long Phượng Tả Hữu là chính nhân vạn năng, nhưng Long Phượng Tả Hữu Không Kiếp lại là chính nhân hữu tài mà không đắc dụng. Tuế Phá Tả Hữu là người thất chí, tài ba hơn người khác hắn Tuế Phá Tả Hữu Không Kiếp kẻ bất lương nhiều thủ đoạn.",
+      "source_page": 18,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:ta_huu",
+        "concept:khong_kiep",
+        "concept:tue_pha",
+        "yeu_to:thang"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chính nhân = người chánh; vạn năng = đa năng; đắc dụng = được dùng; thất chí = mất chí.",
+        "viet_thuan": "Tả Hữu = khả năng nổi trội. Đi với Long Phượng → đa năng. Đi với Không Kiếp → tài mà không dùng được. Đi với Tuế Phá → thất chí.",
+        "nguyen_ly": "Tả Hữu là 'thuộc hạ của Thái Tuế' — chỉ bộc lộ giá trị qua tổ hợp, không độc lập.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q46",
+      "question": "Xương Khúc là gì? Gặp Sát Phá Tham là cách gì?",
+      "answer_atom": "Xương Khúc chủ văn chương mỹ thuật, là bộ văn chương cốt cách thư sinh hiếu học. Đụng nhằm Sát, Phá Quân, Tham Lang là tối kỳ — không chứng nọ cũng tật kia; bồi thêm sát tinh kể như tuổi thọ triệt giảm. Cao đẹp khi xây dựng với Tử Phủ.",
+      "source_quote": "Xương Khúc chủ văn chương mỹ thuật là bộ văn chương cốt cách thư sinh hiếu học, đụng nhằm Sát, Phá Quân, Tham Lang là tối kỳ không chứng nọ cũng lại tật kia, bồi thêm sát tỉnh kể như tuổi thọ triết giảm một khi đắc ý hãnh diện với đời. Cao đẹp khi xây dựng với Tử Phủ.",
+      "source_page": 18,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:xuong_khuc",
+        "concept:sat_pha_tham",
+        "concept:tu_phu",
+        "yeu_to:gio"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tối kỳ = rất xấu / kiêng; thư sinh = học trò.",
+        "viet_thuan": "Xương Khúc = văn chương, hiếu học. Gặp Sát Phá Tham → bệnh tật, giảm thọ. Gặp Tử Phủ → cao đẹp.",
+        "nguyen_ly": "Xương Khúc đặt ở yếu tố GIỜ — nhạy với tổ hợp xung quanh. Văn nho không hợp với võ sát.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q47",
+      "question": "Bốn yếu tố của lá số là gì và 3 bộ trung tinh đặt ảnh hưởng ở đâu?",
+      "answer_atom": "Bốn yếu tố là năm, tháng, ngày, giờ. Ba bộ Long Phượng, Tả Hữu, Xương Khúc đặt ảnh hưởng ở năm-tháng-giờ; chỉ chừa yếu tố NGÀY khiêm nhượng dành cho chính tinh (Tử Vi → Phá Quân, 14 chỗ ngồi).",
+      "source_quote": "Bốn yếu tố của số là năm, tháng, ngày, giờ; ba bộ Long Phượng, Tả Hữu, Xương Khúc đặt ảnh hưởng ngay ở ba yếu tố quan trọng là năm, tháng và giờ, chỉ chừa một yếu tố ngày khiêm nhượng dành cho chính tinh.",
+      "source_page": 19,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:4_yeu_to",
+        "concept:nam_thang_ngay_gio",
+        "concept:3_bo_trung_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Yếu tố = thành phần chính; khiêm nhượng = nhường.",
+        "viet_thuan": "4 yếu tố: năm-tháng-ngày-giờ. Trung tinh chiếm 3 (năm-tháng-giờ); chính tinh chỉ ngày.",
+        "nguyen_ly": "Thai Tọa Quang Quý là phụ tinh nâng cao yếu tố NGÀY cho chính tinh. Cân giữa 14 chính tinh và 3 bộ trung tinh — đòn cân lệch nghiêng về Long Phượng Tả Hữu.",
+        "vi_du_doi_song": "Quang Trung tuổi Nhâm Thân sinh ngày 5 tháng 5 giờ Tuất — Long Phượng Tả Hữu mạnh hơn cả chính tinh.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q48",
+      "question": "Khoa Quyền Lộc tương ứng với mơ ước gì trong đời người?",
+      "answer_atom": "Lúc còn nhỏ ước mong học giỏi đậu cao, lớn lên mộng tưởng quyền cao chức lớn, lắm bạc nhiều tiền — là ba chữ Khoa Quyền Lộc với cuộc thế nhân sinh.",
+      "source_quote": "Người đời có nhiều mơ ước. Lúc còn nhỏ ước mong học giỏi đậu cao, lớn lên mộng tưởng quyền cao chức lớn, lắm bạc nhiều tiền là ba chữ Khoa Quyền Lộc với cuộc thế nhân sinh.",
+      "source_page": 20,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:khoa_quyen_loc",
+        "concept:3_mo_uoc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đậu cao = đỗ cao trong thi cử; mơ ước = ao ước.",
+        "viet_thuan": "Khoa = học giỏi; Quyền = chức quyền; Lộc = tiền của — 3 mơ ước của đời người.",
+        "nguyen_ly": "Đặt Tam Hóa song hành với 3 giai đoạn đời (trẻ → trung niên → trưởng thành). Tam Hóa không phải bản thể, chỉ là cái áo lần lượt khoác.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q49",
+      "question": "Tam Hóa có phải khả năng tư cách của cá nhân không?",
+      "answer_atom": "Tam Hóa đâu có phải là khả năng tư cách nghị lực của cá nhân nâng cao phẩm giá — chỉ là cái áo rực rỡ lần lượt khoác vào để đóng vai trò nào thôi. Hắn đó không phải là thầy tu chính xác.",
+      "source_quote": "Nhưng tam Hóa đâu có phải là khả năng tư cách nghị lực của cá nhân nâng cao phẩm giá, chỉ là cái áo rực rỡ lần lượt khoác vào để đóng vai trò nào thôi. Hắn đó không phải là thầy tu chính xác.",
+      "source_page": 20,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:tam_hoa",
+        "paradigm:tam_hoa_la_ao",
+        "metaphor:cai_ao"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tam Hóa = Khoa-Quyền-Lộc; phẩm giá = giá trị nhân cách.",
+        "viet_thuan": "Tam Hóa chỉ là cái áo khoác vai trò, không phải bản thể.",
+        "nguyen_ly": "Đây là paradigm sửa chữa quan trọng: nhiều người tôn Tam Hóa như bùa hộ mạng. Cụ Thiên Lương nói rõ — đó chỉ là vai diễn, không phải con người thật.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "KHÔNG đọc Tam Hóa như tuyên bố bản thể. Phải hỏi: cái áo này khoác lên ai? — tức xét chính tinh + vị trí Mệnh trước."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q50",
+      "question": "Trong bộ 3 Khoa Quyền Lộc, sao nào đứng cao nhất? Tại sao?",
+      "answer_atom": "Riêng Hóa Khoa có giá trị lớn hơn cả — là màn đầu đưa đến Quyền, Lộc. Khoa chủ nhân hậu uyên bác, đặc biệt từ thiện giải trừ tai họa. Nữ mệnh gặp Khoa tối quý, dù gặp ác sát vẫn giữ phần phẩm cách.",
+      "source_quote": "Bộ 3 này riêng Hóa Khoa có một giá trị lớn hơn cả là màn đầu đưa đến Quyền, Lộc. Khoa chủ nhân hậu uyên bác, đặc biệt là từ thiện giải trừ tai hoạ. Nữ mệnh gặp Khoa là tối quý, dù gặp ác sát cũng vẫn giữ phần phâm cách.",
+      "source_page": 20,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:hoa_khoa",
+        "concept:nu_menh_hoa_khoa",
+        "paradigm:khoa_la_truong_doan"
+      ],
+      "commentary": {
+        "han_viet_explain": "Màn đầu = bước đầu; uyên bác = học rộng; ác sát = sao xấu hung.",
+        "viet_thuan": "Khoa = sao đứng đầu Tam Hóa: nhân hậu, học rộng, giải tai. Nữ gặp Khoa là quý nhất.",
+        "nguyen_ly": "Khoa = đạo đức + học vấn → là gốc; Quyền + Lộc chỉ là hệ quả. Đây cũng đồng dạng với paradigm 'Đức năng thắng số'.",
+        "vi_du_doi_song": "Nữ mệnh đắc Khoa: dù lá số có ác sát vẫn giữ phẩm cách. Nhưng nếu Khoa gặp Hóa Kỵ thì như gấm vóc bị vấy bùn đen — Hóa Kỵ gọi là 'sao Kế Đô của phái yếu'.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q51",
+      "question": "Quyền chỉ là gì? Có thể đứng cao hơn Lộc không?",
+      "answer_atom": "Quyền chỉ là sự may đạt được. Nếu vụng tính sẽ sinh kiêu, rồi vì lòng tự ái có thể đem đến kết quả việc làm ác nghiệp — thì đâu phải chiếm được địa vị chắc chắn lên trên 'Lộc'.",
+      "source_quote": "Quyền chỉ là sự may đạt được. Nếu vụng tính sẽ sinh kiêu, rồi vì lòng tự ái có thế đem đến kết quả việc làm ác nghiệp thì đâu phải chiếm được địa vị chắc chắn lên trên 'Lộc'.",
+      "source_page": 22,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:hoa_quyen",
+        "paradigm:quyen_la_may"
+      ],
+      "commentary": {
+        "han_viet_explain": "Vụng tính = không biết tính; sinh kiêu = sinh kiêu ngạo; ác nghiệp = việc xấu.",
+        "viet_thuan": "Quyền = sự may. Vụng tính → kiêu → ác nghiệp; nên không đáng đứng trên Lộc.",
+        "nguyen_ly": "Thứ tự đúng trong Tam Hóa: Khoa (đức + học) > Lộc (vật chất) > Quyền (may rủi). Đây là paradigm đảo lại trật tự thường dân hiểu.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q52",
+      "question": "Định nghĩa 'Số' của Cụ Thiên Lương là gì? Đức năng thắng số nghĩa ra sao?",
+      "answer_atom": "Số là bản dự thảo một cuộc sống đã được sắp đặt gọi là định mệnh — mà THÂN kia đã dự một phần nào sửa chữa, nên mới có 'Đức năng thắng số'.",
+      "source_quote": "Số phải chăng là bản dự thảo một cuộc sống đã được sắp đặt gọi là định mệnh, mà THÂN kia đã dự một phần nào sửa chữa nên mới có 'Đức năng thắng số'.",
+      "source_page": 22,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:so_la_du_thao",
+        "paradigm:duc_nang_thang_so",
+        "concept:than_sua_chua"
+      ],
+      "commentary": {
+        "han_viet_explain": "Dự thảo = bản nháp; THÂN = phần hành động của đời; Đức năng thắng số = đức có thể thắng số mệnh.",
+        "viet_thuan": "Số = bản nháp Trời định; THÂN = mình tự sửa lại; Đức có thể thắng Số.",
+        "nguyen_ly": "Paradigm CỰC quan trọng: Tử Vi KHÔNG phải định mệnh cứng. Mệnh = bản nháp; Thân = hành động sửa; Đức = sức sửa lớn nhất. Đây chính là lý do Tử Vi = giáo dục đạo đức (Q03).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Khi đọc Tử Vi PHẢI nhắc: số chỉ là bản nháp, Thân + Đức có thể thay đổi. KHÔNG được phán 'anh sẽ thế này thế kia'."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q53",
+      "question": "Bốn hạng người trong xã hội theo phân loại tam hợp tuổi là gì?",
+      "answer_atom": "Xã hội nhân sinh có bốn hạng người: (1) Thái Tuế - Quan Phù - Bạch Hổ: người có trách nhiệm; (2) Thiếu Âm - Long Đức - Trực Phù: người thiện chí nhưng phận hẩm duyên hiu; (3) Thiếu Dương - Tử Phù - Phúc Đức: thiên phú thông minh nhạy cảm; (4) Tuế Phá - Tang Môn - Điếu Khách: bị hoàn cảnh làm vụng suy thất ý.",
+      "source_quote": "Xã hội nhân sinh có bốn hạng người: Người Thái Tuế, Quan Phù, Bạch Hổ là người nghĩ đến phận sự của mình như có trách nhiệm phải làm... Người Thiếu Âm, Long Đức, Trực Phù là người có thiện chí làm việc tiếc rằng phận hâm duyên hiu... Hạng Tuế Phá là người bị hoàn cảnh làm cho vụng suy thất ý.",
+      "source_page": 20,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:4_hang_nguoi",
+        "concept:thai_tue_quan_phu_bach_ho",
+        "concept:thieu_am_long_duc_truc_phu",
+        "concept:thieu_duong_tu_phu_phuc_duc",
+        "concept:tue_pha_tang_mon_dieu_khach"
+      ],
+      "commentary": {
+        "han_viet_explain": "Trách nhiệm = phận sự; thiện chí = ý tốt; phận hẩm = số hẩm hiu; vụng suy = suy nghĩ vụng.",
+        "viet_thuan": "4 hạng người = 4 vai xã hội: trách nhiệm / thiện chí thiệt thòi / thông minh thiên phú / bị hoàn cảnh đẩy thất ý.",
+        "nguyen_ly": "Paradigm tâm lý-xã hội — chia con người theo VAI họ giữ trong cộng đồng, không theo TỐT-XẤU. Đây là kiến trúc tâm lý học của Tử Vi Thiên Lương.",
+        "vi_du_doi_song": "Lê Thái Tổ và Sở Vương Hàn Tín = Bạch Hổ mang nghĩa khí, gánh chánh nghĩa bất cứ giá nào.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q54",
+      "question": "Khoa Quyền Lộc tác động ra sao đến từng hạng người?",
+      "answer_atom": "Với Thái Tuế-Quan Phù-Bạch Hổ: không cần Khoa Quyền Lộc, nếu có chỉ là gấm thêu hoa. Bạch Hổ mang nghĩa khí — không để ý đến quyền lộc. Với Thiếu Âm và Tuế Phá: dù có Khoa Quyền Lộc chỉ càng thêm đau đớn / dễ làm việc bạo nghịch để vinh thân rồi ngàn năm lưu xú ố danh.",
+      "source_quote": "Người Thái Tuế, Quan Phù, Bạch Hổ là người nghĩ đến phận sự của mình... đâu có cần phải Khoa, Quyền, Lộc, nếu có chỉ là gắm thêu hoa... Hai hạng này [Thiếu Âm + Tuế Phá] dù có Khoa, Quyền, Lộc chỉ càng thêm đau đớn... Nếu không giữ được chính tâm và thêm Khoa, Quyền, Lộc quyến rũ rất dễ làm những việc bạo nghịch để vinh... thân rồi ra ngàn năm lưu xú ố danh.",
+      "source_page": 20,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:khoa_quyen_loc_4_hang",
+        "paradigm:tam_hoa_la_ao",
+        "concept:tue_pha_nguy_hiem"
+      ],
+      "commentary": {
+        "han_viet_explain": "Gấm thêu hoa = đẹp thêm đẹp; lưu xú ố danh = để lại tiếng xấu.",
+        "viet_thuan": "Khoa Quyền Lộc với Thái Tuế = đẹp thêm; với Thiếu Âm/Tuế Phá = càng đau hoặc hóa ác.",
+        "nguyen_ly": "Cùng Tam Hóa, hậu quả khác hẳn theo HẠNG NGƯỜI. Đây là lý do KHÔNG đọc sao đơn lẻ. Khoa Quyền Lộc không phải bùa hộ mạng cho ai.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q55",
+      "question": "Hóa Kỵ là gì? Tại sao gọi là 'Kế Đô của phái yếu'?",
+      "answer_atom": "Hóa Kỵ là đặc phái em út trong giòng họ Hóa — núp sau hình tượng của Liêm Trinh và Cự Môn mà gây họa. Liệt vào hàng sát tinh cùng Không, Kiếp, Kình Đà Linh Hỏa, Thiên Hình — ám hại Mộc mệnh và giòng họ Giáp Ất. Nữ mệnh đắc Khoa tốt đẹp bao nhiêu, vướng Kỵ khác gì gấm vóc vấy bùn đen — cô nhân gọi Hóa Kỵ là 'sao Kế Đô của phái yếu'.",
+      "source_quote": "Người đời mến chuộng Khoa Quyền Lộc bao nhiêu, trái lại Hoá Ky làm cho ai ai thảy đều muốn xa lánh, nhất là những người tuổi có hành Can Bính, Đinh hay Hỏa mệnh. Hoá Ky núp sau hình tượng của Liêm Trinh và Cự Môn mà gây họa... nữ mệnh đắc Khoa tốt đẹp bao nhiêu, một khi vướng phải Ky khác gì gắm vóc bị vấy bùn đen nên cô nhân đã gọi Hoá Ky là sao Kế Đô của phái yếu.",
+      "source_page": 21,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:hoa_ky",
+        "concept:liem_trinh",
+        "concept:cu_mon",
+        "concept:nu_menh_ky",
+        "concept:ke_do"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đặc phái em út = ngành nhỏ nhất; Kế Đô = sao xấu nhất trong tử vi nữ; vấy bùn = dính bẩn.",
+        "viet_thuan": "Hóa Kỵ = em út họ Hóa, gây họa qua Liêm-Cự, hại Mộc mệnh và Giáp-Ất. Nữ đắc Kỵ = gấm bị vấy bùn.",
+        "nguyen_ly": "Hóa Kỵ làm suy giảm những gì tốt đẹp — chữ Kỵ chỉ nghĩa ghen tuông, hờn giận, phá hại.",
+        "vi_du_doi_song": "Cụ Phan Bội Châu Đinh Mão giờ Sửu — Cự Môn Hóa Kỵ thủ mệnh ở Tỵ = kiếp nặng lo việc đời (Tang Môn), tù đày hình phạt.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q56",
+      "question": "Cô Quả là gì? Vì sao không bao giờ góp mặt với Thái Tuế?",
+      "answer_atom": "Cô (đơn chiếc) - Quả (mỏng manh) đứng ở 8 vị trí Tứ Sinh (cô) và Tứ Mộ (quả), thuộc ba hạng Tuế Phá, Thiếu Âm, Thiếu Dương — không bao giờ Cô Quả có chỗ đứng trong tam hợp Thái Tuế. Vì người Thái Tuế sinh ra như có trách vụ làm việc cho xã hội, luôn được lòng chúng nhân ái mộ.",
+      "source_quote": "Hai chữ Cô Quả có nghĩa là đơn chiếc (cô) mỏng manh (quả), đứng trong địa bàn Tử vi chỉ ở 8 vị trí Tứ Sinh (cô) và Tứ Mộ (quả)... Còn đối với Thái Tuế không bao giờ Cô Quả có chỗ đứng trong tam hợp, tại sao vậy? Biết rằng người Thái Tuế là người sinh ra như có trách vụ làm việc cho xã hội...",
+      "source_page": 22,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:co_qua",
+        "concept:thai_tue_khong_co_qua",
+        "concept:4_sinh_4_mo"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cô = lẻ loi (đàn ông); Quả = góa (đàn bà); Tứ Sinh = Dần-Thân-Tỵ-Hợi; Tứ Mộ = Thìn-Tuất-Sửu-Mùi.",
+        "viet_thuan": "Cô Quả chỉ ở 8 cung; tam hợp Thái Tuế không có Cô Quả vì Thái Tuế = người gánh việc xã hội, được lòng người.",
+        "nguyen_ly": "Cấu trúc địa bàn loại trừ: Thái Tuế = năng động xã hội ↔ Cô Quả = đơn độc → không thể đồng tồn.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q57",
+      "question": "Cô Quả khác Đẩu Quân ra sao?",
+      "answer_atom": "Cô Quả luôn ở hoàn cảnh bất đắc ý đến có nhiều hành động khắc nghiệt bị ghép vào lý vị kỷ. Đẩu Quân khác hẳn: lý chính nghĩa sáng tỏ — hành tính của Thái Tuế (nguyệt nghịch, thời thuận) với danh hiệu 'Quân' phải khẳng khái bất khuất, tính cách nghiêm nghị. 'Đẩu' còn nghĩa đo lường, cẩn thận đúng mức — nên ghi danh 'Nguyệt Tướng', vị chỉ huy công việc hàng năm.",
+      "source_quote": "Thông thường cứ nói Cô Quả và Đâu Quân có những thành tích khắc nghiệt và vị kỷ giống nhau, thật ra nên thận trọng phân cách sự dị biệt của Cô (nam) Quả (nữ) không có gì sánh được Đâu Quân. Cô Quả luôn ở trong hoàn cảnh bất đắc ý... Đầu Quân khác hẳn, lý chành nghĩa sảng tỏ là hành tính của Thái Tuế... Chữ 'Đâu' còn có nghĩa đo lường bao gồm ý cân thận đúng mức nên được ghi danh 'Nguyệt Tướng'.",
+      "source_page": 23,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:co_qua",
+        "concept:dau_quan",
+        "concept:nguyet_tuong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Vị kỷ = chỉ vì mình; khẳng khái bất khuất = thẳng thắn không khuất phục; Nguyệt Tướng = tướng của tháng.",
+        "viet_thuan": "Cô Quả = khắc nghiệt vì bất đắc ý (vị kỷ). Đẩu Quân = khắc nghiệt vì chính nghĩa (nghiêm nghị, đo lường cẩn thận).",
+        "nguyen_ly": "Hai sao trông giống mà ý khác hẳn — phải phân biệt bản chất. Cô Quả thuộc 3 hạng yếu; Đẩu Quân thuộc Thái Tuế.",
+        "vi_du_doi_song": "Mậu Ngọ ngày 9 tháng 4 giờ Mùi: Mệnh VCD ở Quan Phù được Đẩu Quân độc thủ → tư cách tối thượng bất khuất.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q58",
+      "question": "Trường hợp tuổi nào bị ảnh hưởng Cô Quả nặng nhất?",
+      "answer_atom": "Trường hợp bị bỏ rơi: Tuổi Tứ Sinh bị Mệnh/Thân ở tam hợp Thiếu Âm; Tuổi Tứ Chính bị Mệnh/Thân ở tam hợp Tuế Phá; Tuổi Tứ Mộ bị Mệnh/Thân ở tam hợp Thiếu Dương. Người tam hợp Thái Tuế cả 12 tuổi không bao giờ bị. Riêng hai tuổi Nhâm-Quý và Thủy mệnh khi hạn gặp Cô Quả thường bị khắc chế.",
+      "source_quote": "Trên phương diện tình cảm, những trường hợp tuổi thường bị bỏ rơi hay không biết đến như sau: Tuổi Tứ Sinh bị Mệnh hay Thân đóng ở vị trí tam hợp Thiếu Âm; Tuổi Tứ Chính bị Mệnh hay Thân đóng ở vị trí tam hợp Tuế Phá; Tuổi Tứ Mộ bị Mệnh hay Thân đóng ở vị trí tam hợp Thiếu Dương. Người tam hợp Thái Tuế cả 12 tuổi hàng chỉ không bao giờ bị ảnh hưởng. Riêng hai tuổi Can là Nhâm Quý mỗi khi hạn hành gặp Cô Quả thường bị khắc chế khó khăn, trường hợp tuổi nạp âm là Thủy mệnh cũng vậy.",
+      "source_page": 24,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "concept:co_qua_bi_anh_huong",
+        "concept:tu_sinh_tu_chinh_tu_mo",
+        "concept:nham_quy_thuy_menh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Khắc chế = bị kìm; Tứ Sinh = Dần-Thân-Tỵ-Hợi; Tứ Chính = Tý-Ngọ-Mão-Dậu; Tứ Mộ = Thìn-Tuất-Sửu-Mùi.",
+        "viet_thuan": "Cô Quả nặng nhất khi tuổi và Mệnh/Thân không hợp tam hợp Thái Tuế. Thái Tuế thì luôn được bảo vệ.",
+        "nguyen_ly": "Bảng tra nhanh: ai bị Cô Quả ảnh hưởng theo tuổi và vị trí Mệnh-Thân.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q59",
+      "question": "Tiểu sử Cụ Thiên Lương — tên thật, ngày sinh, nơi sinh?",
+      "answer_atom": "Cụ Thiên Lương tên thật Lê Quang Khải, sinh 12-07-1910 (nhằm 06-06 âm lịch), giờ Mão, tại làng Phượng Lau, tỉnh Hưng Yên Bắc Việt, trong một gia đình nho giáo.",
+      "source_quote": "Cụ Thiên Lương có tên là Lê Quang Khải, sinh ngày 12-07-1910 nhằm ngày 06 tháng 06, giờ Mão trong một gia đình nho giáo tại làng Phượng Lau, tỉnh Hưng Yên Bắc Việt.",
+      "source_page": 4,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "bio:thien_luong",
+        "concept:le_quang_khai"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phượng Lau = tên làng quê Bắc Việt.",
+        "viet_thuan": "Cụ tên Lê Quang Khải, sinh 1910 ở Hưng Yên.",
+        "nguyen_ly": "Biết gốc tác giả mới hiểu được tâm thế viết sách — cụ xuất thân nho giáo, gia đình có truyền thống địa lý dịch lý.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q60",
+      "question": "Cụ Thiên Lương qua đời khi nào và ở đâu?",
+      "answer_atom": "Cụ qua đời 17/09/1985 (nhằm 22-08 Giáp Tý) khoảng 3 giờ chiều vì bệnh gan, hưởng thọ 76 tuổi, tại xã Chánh Hiệp tỉnh Sông Bé — đúng tròn 40 năm sau ngày cụ bà chánh thất qua đời.",
+      "source_quote": "cho tới ngày 17/09/1985 (nhằm ngày 22-08 Giáp Tý) lúc khoảng 3 giờ chiều thì quy tiên vì bệnh gan: vừa đúng tròn 40 năm sau ngày cụ chánh thất qua đời: hưởng thọ 76 tuổi tại xã Chánh Hiệp tỉnh Sông Bé.",
+      "source_page": 4,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "bio:thien_luong",
+        "event:qua_doi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Quy tiên = mất, về cõi tiên.",
+        "viet_thuan": "Cụ mất 1985 tại Sông Bé, thọ 76.",
+        "nguyen_ly": "Sự trùng hợp 40 năm ngày mất cụ bà — Cụ Thiên Lương đọc trong đó dấu hiệu đồng dạng của số mệnh, không phải ngẫu nhiên.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q61",
+      "question": "Cụ Thiên Lương bắt đầu nghiên cứu Tử Vi từ năm bao nhiêu tuổi và quá trình ra sao?",
+      "answer_atom": "Cụ bắt đầu nghiên cứu Tử Vi từ năm 18 tuổi, bao phen chán nản bỏ cuộc và không tin môn học cổ này, nhưng rốt cuộc quay trở về và thành công rực rỡ.",
+      "source_quote": "Cụ Thiên Lương bắt đầu nghiên cứu Tử Vi từ năm 18 tuổi, nhưng bao phen cụ chán nản bỏ cuộc và không tin môn học cổ này, nhưng rốt cuộc cụ quay trở về với nó và thành công rực rỡ.",
+      "source_page": 4,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "bio:thien_luong",
+        "process:nghien_cuu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Bao phen = nhiều lần.",
+        "viet_thuan": "Cụ học Tử Vi từ 18 tuổi, nhiều lần bỏ cuộc rồi quay lại.",
+        "nguyen_ly": "Hành trình nghi-rồi-tin-rồi-thâm nhuần — chính là kiểu học Đông phương: không tin ngay, phải nghiệm lý qua thời gian mới định.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q62",
+      "question": "Tam hợp Lộc Tồn của tuổi Giáp là ba tuổi nào?",
+      "answer_atom": "Tam hợp Lộc Tồn của tuổi Giáp là Dần-Ngọ-Tuất (Lộc Tồn của Giáp ở Dần — thuộc tam hợp Hỏa cục).",
+      "source_quote": "Tuổi Giáp, Lộc Tồn ở Dần... Còn Giáp Tí đứng ngõ ngoài, muốn hưởng Lộc Tồn phải là... và Thân - Tí - Thìn là tam hợp hưởng Lộc Tồn tuổi Canh ở Thân. Thiên Lộc dành riêng cho người Dần, Ngọ, Tuất.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "tam_hop:loc_ton",
+        "can:giap",
+        "tam_hop:dan_ngo_tuat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lộc Tồn = sao tài lộc thường trú; tam hợp = ba cung tạo thế chân vạc cách nhau 120°.",
+        "viet_thuan": "Người tuổi Giáp Dần / Giáp Ngọ / Giáp Tuất hưởng Lộc Tồn trọn vẹn nhất.",
+        "nguyen_ly": "Lộc Tồn không phải ban phát đại trà — phải đứng ĐÚNG vị trí tam hợp với cung an Lộc Tồn của Can mới hưởng trọn.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q63",
+      "question": "Tam hợp Lộc Tồn của tuổi Canh là ba tuổi nào?",
+      "answer_atom": "Tam hợp Lộc Tồn của tuổi Canh là Thân-Tí-Thìn (Lộc Tồn của Canh ở Thân — thuộc tam hợp Thủy cục).",
+      "source_quote": "Canh ở Thân... và Thân - Tí - Thìn là tam hợp hưởng Lộc Tồn tuổi Canh ở Thân.",
+      "source_page": 9,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "tam_hop:loc_ton",
+        "can:canh",
+        "tam_hop:than_ti_thin"
+      ],
+      "commentary": {
+        "han_viet_explain": "Canh = Kim dương; Thân-Tí-Thìn = tam hợp Thủy cục, Kim sinh Thủy.",
+        "viet_thuan": "Canh Thân, Canh Tí, Canh Thìn hưởng Lộc Tồn trọn vẹn.",
+        "nguyen_ly": "Đúng quy luật Kim Can sinh Thủy Chi — phối hiệp với vị trí tam hợp Thủy thì tài lộc thuận lưu.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q64",
+      "question": "Tam hợp Lộc Tồn của tuổi Ất là ba tuổi nào?",
+      "answer_atom": "Tam hợp Lộc Tồn của tuổi Ất là Hợi-Mão-Mùi (Lộc Tồn của Ất ở Mão — thuộc tam hợp Mộc cục).",
+      "source_quote": "Ất ở Mão... Hợi Mão Mùi là ba tuổi được hưởng hạnh phúc (Lộc Tồn của tuổi Ất...)",
+      "source_page": 7,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "tam_hop:loc_ton",
+        "can:at",
+        "tam_hop:hoi_mao_mui"
+      ],
+      "commentary": {
+        "han_viet_explain": "Ất = Mộc âm; Hợi-Mão-Mùi = tam hợp Mộc cục.",
+        "viet_thuan": "Ất Hợi, Ất Mão, Ất Mùi hưởng Lộc Tồn trọn vẹn.",
+        "nguyen_ly": "Can Ất Mộc về đúng cung Mộc (Mão) là vị trí gốc của bản thân — đồng-thân-đồng-hành sinh quý.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q65",
+      "question": "Tam hợp Lộc Tồn của tuổi Tân là ba tuổi nào?",
+      "answer_atom": "Tam hợp Lộc Tồn của tuổi Tân là Tỵ-Dậu-Sửu (Lộc Tồn của Tân ở Dậu — thuộc tam hợp Kim cục).",
+      "source_quote": "Tân ở Dậu... Tân Tỵ Dậu Sửu.",
+      "source_page": 27,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "tam_hop:loc_ton",
+        "can:tan",
+        "tam_hop:ty_dau_suu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tân = Kim âm; Tỵ-Dậu-Sửu = tam hợp Kim cục.",
+        "viet_thuan": "Tân Tỵ, Tân Dậu, Tân Sửu hưởng Lộc Tồn trọn vẹn.",
+        "nguyen_ly": "Can Tân Kim đứng ở cung Kim (Dậu) — đồng hành thuận thế.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q66",
+      "question": "Vì sao chỉ 4 Can Giáp-Ất-Canh-Tân hưởng trọn Lộc Tồn, còn 6 Can kia thì nghịch lý?",
+      "answer_atom": "Trong 8 vị trí Lộc Tồn, qua luật âm dương chỉ còn 4 (Giáp Ất Canh Tân) lọt vào hàng chung kết. Còn 6 tuổi Bính Đinh Mậu Kỷ Nhâm Quý đều ở nghịch cảnh — tuổi dương ở âm cung, tuổi âm ở dương cung — quyền sở hữu Lộc Tồn bấp bênh, thường bị Thiên Không / Tuần Triệt lũng đoạn.",
+      "source_quote": "Qua luật âm dương chỉ còn có 4 là Giáp, Ất, Canh, Tân được lọt vào hàng chung kết... 6 tuổi Bính, Đinh, Mậu, Kỷ, Nhâm, Quý đều ở trong nghịch cảnh (Tuổi dương thì ở âm cung, tuổi âm thì lại đứng ở dương cung)... 6 tuổi này luôn luôn một trong ba nguyện ước là Mệnh, Thái Tuế và Lộc Tồn đều bị Thiên Không, Không, Kiếp hay Tuần Triệt lũng đoạn tàn phá.",
+      "source_page": 27,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:loc_ton",
+        "rule:am_duong",
+        "tuan_triet",
+        "thien_khong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chung kết = lọt vào vòng cuối; bấp bênh = không chắc chắn.",
+        "viet_thuan": "Chỉ 4 Can Giáp Ất Canh Tân được Lộc Tồn đứng đúng âm-dương; 6 Can còn lại đứng lệch nên Lộc dễ bị phá.",
+        "nguyen_ly": "Âm-dương đồng nghi mới được hưởng trọn — chỉ là bước đầu chọn lọc, sau còn phải lọc thêm bằng tam hợp.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q67",
+      "question": "Vị trí Lộc Tồn của Bính Mậu, Đinh Kỷ, Nhâm, Quý là gì?",
+      "answer_atom": "Bính Mậu ở Tỵ; Đinh Kỷ ở Ngọ; Nhâm ở Hợi; Quý ở Tý — đây là những vị trí 'chính xác hợp thành' nhưng vì âm-dương lệch nên 6 tuổi này phải vào vòng loại.",
+      "source_quote": "Tuổi Giáp, Lộc Tồn ở Dần; Ất ở Mão; Bính Mậu ở Tị; Đinh Kỷ ở Ngọ; Canh ở Thân; Tân ở Dậu; Nhâm ở Hợi và Quý ở Tý là những vị trí rất chính xác hợp thành.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "loc_ton:vi_tri",
+        "can:10_can"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hợp thành = vị trí ngũ hành đúng.",
+        "viet_thuan": "Bảng vị trí Lộc Tồn 10 Can.",
+        "nguyen_ly": "Mỗi Can có một cung Lộc Tồn cố định tương ứng ngũ hành — Bính/Mậu Hỏa→Tỵ, Đinh/Kỷ Hỏa âm→Ngọ, Nhâm/Quý Thủy→Hợi/Tý.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q68",
+      "question": "Lưu Niên Văn Tinh đứng ở những vị trí nào theo 10 Can?",
+      "answer_atom": "Lưu Niên Văn Tinh: Giáp ở Tý, Ất ở Ngọ, Bính Mậu ở Thân, Đinh Kỷ ở Dậu, Canh ở Hợi, Tân ở Tý, Nhâm ở Dần, Quý ở Mão. Tức 6 tuổi bị loại ở vòng Lộc Tồn lại được phục hồi đền bù trúng cách ở vòng Lưu Niên Văn Tinh; 4 tuổi Giáp/Ất/Canh/Tân trúng cách Lộc Tồn thì bị loại vòng Lưu Niên Văn Tinh.",
+      "source_quote": "Lưu Niên Văn Tinh cũng ngồi ở 8 vị trí đó, nhưng trình bày có hơi khác là Giáp ở Tý, Ất ở Ngọ, Bính Mậu ở Thân, Đinh Kỷ ở Dậu, Canh ở Hợi, Tân ở Tý, Nhâm ở Dần và Quý ở Mão. Tức là 6 tuổi bị loại ở vòng Lộc Tồn vì luật âm dương lại được phục hồi đền bù trúng cách ở bên Lưu Niên Văn Tinh.",
+      "source_page": 16,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "luu_nien_van_tinh",
+        "loc_ton",
+        "bu_tru"
+      ],
+      "commentary": {
+        "han_viet_explain": "Bù trừ = đền cho cái mất.",
+        "viet_thuan": "Lưu Niên Văn Tinh bù lại cho 6 Can bị Lộc Tồn loại.",
+        "nguyen_ly": "Tạo hóa cân bằng — không Can nào hoàn toàn thiệt; thiếu ở Lộc Tồn thì được Văn Tinh bù.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q69",
+      "question": "Lộc Tồn 'cao quý nhất' trong các Lộc vì sao và được bảo vệ ra sao?",
+      "answer_atom": "Lộc Tồn là Lộc cao quý nhất, được bọc kỹ trong cái bao Bác Sĩ-Lực Sĩ-Thanh Long-Quan Phủ, có dây cột Kình-Đà; lại được bảo vệ ngoài bằng hai đao phủ Lưu Hà-Kiếp Sát đối phó với kẻ vô kỷ luật. Hà Sát trình Thiên Sứ lấy pháp lệnh sau khi Thiên Không phúc trình trường hợp vi phạm.",
+      "source_quote": "Lộc Tồn là thứ Lộc cao quý nhất trong các Lộc được bọc gói kỹ trong cái bao Bác Sĩ, Lực Sĩ, Thanh Long... Quan Phủ có giây cột Kình Đà... Lộc Tồn còn được bảo vệ đến mức tối đa bằng hai đao phủ Lưu Hà Kiếp Sát đối phó với những thành phần vô kỷ luật không phải là chính chủ nhân có đầy đủ văn kiện chứng minh hợp lệ.",
+      "source_page": 17,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "loc_ton:bao_ve",
+        "vong_loc_ton",
+        "kinh_da",
+        "luu_ha_kiep_sat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đao phủ = người trừng phạt; vô kỷ luật = không đúng tư cách.",
+        "viet_thuan": "Lộc Tồn được nhiều sao trợ vệ — kẻ không đủ tư cách thì bị Kình Đà Hà Sát chặn lại.",
+        "nguyen_ly": "Tài Lộc không tự do — phải có 'tư cách hợp lệ' (đúng tam hợp + đúng âm dương) mới hưởng được; còn thừa hưởng bất chính sẽ bị quả báo.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q70",
+      "question": "Vì sao Giáp Tí được coi là Kim hành, Giáp Tuất là Hỏa, Giáp Dần là Thủy theo nạp âm?",
+      "answer_atom": "Hỏa = bùng cháy bốc lên, tượng trưng THIÊN; Thủy = lắng xuống xâm nhập, tượng trưng ĐỊA; Kim = quyết liệt trường tồn, tượng trưng NHÂN. Ba hành này đại diện Tam Tài, là ba mốc khởi đầu nạp âm 60 hoa giáp: Giáp Tí (Kim-Nhân), Giáp Tuất (Hỏa-Thiên), Giáp Dần (Thủy-Địa).",
+      "source_quote": "Hành Hóa là tư thế sự vật bùng cháy bốc lên tượng trưng cho THIÊN. Thủy là sự xâm nhập lắng xuống biểu hiện cho ĐỊA. Còn Kim là tư thế của sự vật quyết liệt để trường tồn là NHÂN. Ba hành này đại diện cho tam tài THIÊN ĐỊA NHÂN, có ý nghĩa là 60 hoa giáp do ba cấp Trời, Đất và người hiệp định xây dựng quyết định.",
+      "source_page": 12,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "nap_am",
+        "tam_tai",
+        "thien_dia_nhan"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tam Tài = ba ngôi lớn nhất của vũ trụ: Trời, Đất, Người.",
+        "viet_thuan": "60 hoa giáp khởi từ ba mốc Hỏa-Thủy-Kim ứng với Thiên-Địa-Nhân.",
+        "nguyen_ly": "Nạp âm không tùy tiện — phải bắt đầu từ ba mốc đại diện Tam Tài rồi luân lưu các hành còn lại.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q71",
+      "question": "Ngũ hành nạp âm 5 chữ Tí với 5 Can là gì?",
+      "answer_atom": "Giáp Tí: Kim; Bính Tí: Thủy; Mậu Tí: Hỏa; Canh Tí: Thổ; Nhâm Tí: Mộc — 5 Can dương ghép cùng Chi dương Tí cho ra đủ 5 hành.",
+      "source_quote": "Giáp Tí: Kim / ÁT Dậu: Thủy; Bính Tí: Thủy / Đmh Dậu: Hỏa; Mậu Tí: Hỏa / KýDậu: Thổ; Canh Tí: Thổ / Tân Dậu: Mộc; Nhâm Tí: Mộc / Qui Dậu: Kim",
+      "source_page": 12,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "nap_am:5_chu_ti",
+        "60_hoa_giap"
+      ],
+      "commentary": {
+        "han_viet_explain": "Mỗi Chi đứng với 5 Can khác nhau cho ra 5 nạp âm khác nhau.",
+        "viet_thuan": "Cùng là tuổi Tí nhưng Giáp Tí khác Bính Tí khác Canh Tí về hành.",
+        "nguyen_ly": "Hệ thống nạp âm phân giải đủ ngũ hành cho mỗi Chi qua 5 Can — không trùng lặp.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q72",
+      "question": "Trương Lương — sinh ngày tháng giờ nào, Mệnh ở đâu?",
+      "answer_atom": "Trương Lương tuổi Giáp Ngọ, sinh ngày 6 tháng 5 giờ Thìn. Mệnh ở vị trí Quan Phù — người có ý tứ, tính toán kỹ càng dẫn dắt đời sống.",
+      "source_quote": "Trương Lương: Tuổi Giáp Ngọ, sinh ngày 6 tháng 5 giờ Thìn... Trương Lương mệnh ở vị trí Quan Phù có ý tứ tính toán kỹ càng dẫn dắt đời sống.",
+      "source_page": 10,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:truong_luong",
+        "vi_tri:quan_phu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Quan Phù = sao trong tam hợp Thái Tuế, chỉ người có chính khí, tính toán kỹ.",
+        "viet_thuan": "Trương Lương Giáp Ngọ, Mệnh Quan Phù — người mưu trí.",
+        "nguyen_ly": "Quan Phù = thế đứng của người đặt việc lên trên cảm xúc, làm việc có kế hoạch.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q73",
+      "question": "Hàn Tín — sinh ngày tháng giờ nào, Mệnh ở đâu?",
+      "answer_atom": "Hàn Tín tuổi Giáp Tuất, sinh ngày 5 tháng 11 giờ Ngọ. Mệnh ở Bạch Hổ — người mỗi khi làm việc thì bất cứ giá nào cũng phải làm cho kỳ đắc ý (còn tham vọng).",
+      "source_quote": "Hàn Tín: Tuổi Giáp Tuất, sinh ngày 5 tháng 11 giờ Ngọ... Hàn Tín ở vị trí Bạch Hổ, mỗi khi làm việc thì bất cứ giá nào cũng làm cho kỳ đắc ý (còn tham vọng).",
+      "source_page": 10,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:han_tin",
+        "vi_tri:bach_ho"
+      ],
+      "commentary": {
+        "han_viet_explain": "Bạch Hổ = sao trong tam hợp Thái Tuế nhưng mang nghĩa khí, không chịu thua, ham đắc ý.",
+        "viet_thuan": "Hàn Tín Giáp Tuất, Mệnh Bạch Hổ — người làm cho bằng được.",
+        "nguyen_ly": "Bạch Hổ cùng tam hợp Thái Tuế nhưng cấp độ thấp hơn Quan Phù — chính khí có nhưng còn dư tham vọng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q74",
+      "question": "Trương Lương khác Hàn Tín ở Phúc đức ra sao?",
+      "answer_atom": "Trương Lương có Tham Lang ở Thìn ngộ Tuần → từ bỏ tham vọng nhàn du sơn thủy. Hàn Tín có Phúc Thất Sát triều đẩu bị cả Tuần lẫn Triệt — cuộc đời đi đến chỗ bị thương.",
+      "source_quote": "Phúc đức của Trương Lương có Tham Lang ở Thìn ngộ Tuần... vị trí Mệnh, Quan Phù có thể từ bỏ mọi tham vọng để nhàn du sơn thủy. Hàn Tín Phúc Thất Sát triều đầu bị cả Tuần lẫn Triệt. Phải chăng vì thế cuộc đời đi đến chỗ bị thương.",
+      "source_page": 11,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:truong_luong_vs_han_tin",
+        "phuc_duc",
+        "tuan_triet"
+      ],
+      "commentary": {
+        "han_viet_explain": "Triều đầu = chầu vào; Tuần Triệt = hai sao chặn cản.",
+        "viet_thuan": "Trương Lương Tuần một lần → buông được; Hàn Tín Tuần Triệt cả hai → kẹt.",
+        "nguyen_ly": "Tuần một mình = giảm tốc lực; Triệt một mình = chặn đứng; cả hai = không còn lối thoát. Phúc đức quyết kết cục đời người.",
+        "vi_du_doi_song": "Trương Lương về núi tu tiên, Hàn Tín bị Lữ Hậu giết.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q75",
+      "question": "Cụ Thiên Lương phân tích 4 tuổi cùng Mệnh Tuất Phá Quân ra sao? — (a) Giáp Dần",
+      "answer_atom": "Giáp Dần: căn bản vững vàng (cả Giáp và Dần đều Mộc). Mệnh đóng ở Tuất trong tam hợp Thái Tuế, vị trí Bạch Hổ — kiếp nhân sinh có trách vụ với xã hội, làm việc mạnh bạo nhưng bị lầm tưởng. Bất nhân không thể là người Thái Tuế.",
+      "source_quote": "a) Giáp Dần: Là tuổi có một căn bản vững vàng (Giáp và Dần đều là Mộc). Mệnh đóng ở Tuất trong tam hợp Thái Tuế, vị trí Bạch Hồ là kiếp nhân sinh đã có một trách vụ gì với xã hội, thực hiện với bất cứ giá nào, mặc dầu mệnh Thủy chính xác Phá Quân. Người này làm việc có tính cách mạnh bạo bị lầm tưởng mà thôi. Bất nhân không thể là người Thái Tuế.",
+      "source_page": 15,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:giap_dan",
+        "vi_tri:bach_ho",
+        "pha_quan"
+      ],
+      "commentary": {
+        "han_viet_explain": "Bất nhân = ác, không có lòng nhân.",
+        "viet_thuan": "Giáp Dần Phá Quân ở Tuất không phải bất nhân — chỉ vì làm mạnh bạo nên người ngoài hiểu lầm.",
+        "nguyen_ly": "Câu phú 'Trai bất nhân Phá Quân Thìn Tuất' không thể áp dụng máy móc — phải xem tam hợp tuổi mới định được.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Iron Rule #6 — Không predict, phải đọc tổng thể."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q76",
+      "question": "Cụ Thiên Lương phân tích — (b) Đinh Tỵ Phá Quân ở Tuất?",
+      "answer_atom": "Đinh Tỵ: căn bản vững chắc như Giáp Dần. Mệnh ở Tuất là tư thế Thiên Phủ trong tam hợp Thiếu Dương. Người khôn ngoan Thổ Mệnh — khác hẳn Phá Quân là Thủy — có hành động khéo giỏi, không thể nói là bất nghĩa.",
+      "source_quote": "b) Đinh Ty: Cũng như Giáp Dần, Thiên Phủ có một căn bản vững chắc. Mệnh ở Tuất là tư thế Thiên Phủ trong tam hợp Thiếu Dương. Người khôn ngoan Thổ Mệnh khác hẳn Phá Quân là Thủy, có những hành động khéo giỏi không thể nói là bất nghĩa.",
+      "source_page": 15,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:dinh_ty",
+        "vi_tri:thieu_duong",
+        "thien_phu"
+      ],
+      "commentary": {
+        "han_viet_explain": "Khéo giỏi = khôn khéo.",
+        "viet_thuan": "Đinh Tỵ Phá Quân ở Tuất không bất nghĩa — vì Mệnh Thổ thắng Thủy.",
+        "nguyen_ly": "Hành Mệnh quyết tính chất Phá Quân — Thổ khắc Thủy → người Đinh Tỵ chế ngự được Phá Quân.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q77",
+      "question": "Cụ Thiên Lương phân tích — (c) Ất Mùi Phá Quân ở Tuất?",
+      "answer_atom": "Ất Mùi: Kim Mệnh ở Tuất vị trí Thiếu Âm. Người này quá tin tưởng lại vụng tính nên có hành động Phá Quân (Kim sinh Thủy Phá Quân). Sự lỗi lầm này đáng thương hại.",
+      "source_quote": "c) Ất Mùi: Kim mệnh đóng ở Tuất là vị trí Thiếu Âm. Người này vì quá tin tưởng lại vụng tính nên có những hành động Phá Quân (Kim Mệnh sinh thủy Phá Quân). Sự lỗi lầm này kém cũng đáng thương hại.",
+      "source_page": 15,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:at_mui",
+        "vi_tri:thieu_am",
+        "pha_quan"
+      ],
+      "commentary": {
+        "han_viet_explain": "Vụng tính = tính toán không khéo.",
+        "viet_thuan": "Ất Mùi Phá Quân ở Tuất sai lầm vì Kim sinh Thủy, thân nuôi tật xấu.",
+        "nguyen_ly": "Mệnh sinh xuất cho sao xấu = nuôi tính xấu của sao. Khác hẳn Mệnh khắc sao (chế ngự được).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q78",
+      "question": "Cụ Thiên Lương phân tích — (d) Bính Tí Phá Quân ở Tuất?",
+      "answer_atom": "Bính Tí: đời đầy nghịch cảnh (Tí khắc Bính) ở vị trí Điếu Khách trong tam hợp Tuế Phá, luân phiên bất đắc ý. Gặp Phá Quân đồng hành Thủy với Mệnh → tung hoành thay đổi (Điếu Khách). Nhãn hiệu Phá Quân quả là chính hiệu.",
+      "source_quote": "d) Bính Tí: Đời đầy rẫy nghịch cảnh (Tí khắc Bính) ở vị trí Điếu Khách trong tam hợp Tuế Phá, luân phiên bất đắc ý, gặp Phá Quân đồng hành Thủy với mệnh làm gì mà không tung hoành cho thỏa chí thay đổi (Điếu Khách). Nhãn hiệu Phá Quân quả là chính hiệu.",
+      "source_page": 15,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:binh_ti",
+        "vi_tri:dieu_khach",
+        "tue_pha"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nhãn hiệu chính hiệu = đúng bản chất, đúng tên gọi.",
+        "viet_thuan": "Bính Tí Phá Quân ở Tuất mới đúng nghĩa 'bất nhân' phú đã nói.",
+        "nguyen_ly": "Đồng hành Mệnh + Sao + Tuế Phá → tính xấu phát toàn lực; chỉ trường hợp này câu phú mới đúng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q79",
+      "question": "Hóa Khoa có khả năng lột xác hung tinh ra sao?",
+      "answer_atom": "Hóa Khoa như căn phòng bao che — hoán cải các vị độc dược thành các vị thuốc rất hiệu lực. Sát Phá Tham hãm địa gặp Hóa Khoa như phe Triệt giáo (súc vật tu thành tiên) được đắc đạo. Phá Quân, Tham Lang, Thất Sát trở thành hiền nhân hiệp khách treo cao phẩm giá.",
+      "source_quote": "Hóa Khoa, có thể coi như một căn phòng bao che để hoán cải từ các vị độc dược trở thành các vị thuốc rất hiệu lực bồi bổ sức khỏe. Bộ Sát Phá Tham nói chung, hãm địa nói riêng, gặp Hóa Khoa như phe Triệt giáo (súc vật tu thành tiên) được đắc đạo. Hóa khoa có khả năng lột xác phàm phu hoán cải tư cách tức là trường hợp hung tỉnh ngộ chế. Từ Phá Quân đến Tham Lang, Thất Sát trở thành những hiền nhân hiệp khách treo cao phẩm giá.",
+      "source_page": 15,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "hoa_khoa",
+        "sat_pha_tham",
+        "hung_tinh_ngo_che"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hung tinh ngộ chế = sao xấu gặp sao chế ngự, hóa thành tốt; treo cao phẩm giá = phẩm cách cao quý.",
+        "viet_thuan": "Hóa Khoa biến Sát Phá Tham từ ác thành hiệp nghĩa.",
+        "nguyen_ly": "Tử Vi không cố định tốt-xấu — gặp sao chế ngự thì hung biến cát. Phẩm chất con người do tổ hợp chứ không do 1 sao quyết định.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Iron Rule #6 — Không cứng nhắc 'sao này xấu' / 'sao kia tốt'."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q80",
+      "question": "Hai bộ phụ tinh Thai-Tọa và Quang-Quý là thuộc hạ của ai?",
+      "answer_atom": "Thai-Tọa và Quang-Quý là thuộc hạ của Tả Hữu và Xương Khúc — sinh ra để nâng cao yếu tố ngày (yếu tố an chính tinh) lên thêm giá trị; cũng như đầu quân là phụ tá của Thái Tuế.",
+      "source_quote": "Muốn nâng cao yếu tố ngày lên thêm giá trị phải khai sinh ra hai bộ phụ tinh: Thai, Toạ, Quang, Quý. Theo lý lịch, hai bộ này là thuộc hạ của Tả Hữu và Xương Khúc, cũng như đầu quân là phụ tá của Thái Tuế.",
+      "source_page": 19,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "thai_toa",
+        "quang_quy",
+        "ta_huu",
+        "xuong_khuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phụ tá = giúp việc; thuộc hạ = đệ tử.",
+        "viet_thuan": "Thai Tọa phụ giúp Tả Hữu, Quang Quý phụ giúp Xương Khúc.",
+        "nguyen_ly": "Mỗi yếu tố (năm/tháng/ngày/giờ) đều có lực lượng riêng — yếu tố ngày bị thua thiệt nên cần thêm phụ tinh bổ trợ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q81",
+      "question": "Lá số Quang Trung Hoàng Đế nói lên điều gì về cân lực 14 chính tinh vs 3 bộ trung tinh?",
+      "answer_atom": "Quang Trung tuổi Nhâm Thân sinh ngày 5 tháng 5 giờ Tuất, Mệnh ở Thân, Thất Sát triều đẩu vắng bóng Lộc Tồn Khoa Quyền Lộc; nhưng Thái Tuế in trên trán cùng Tả Phù, Long Trì, Bạch Hổ, Hoa Cái, Văn Xương quy tụ — chứng tỏ Long Phượng Tả Hữu (trung tinh) còn mạnh hơn Tử Phủ đắc Tả Hữu ở vị trí khác.",
+      "source_quote": "Tuổi Thân Mệnh hiên ngang ngồi ở Thân cung, Thiất Sát triều đầu văng bóng hẳn Lộc, Tồn, Khoa, Quyền, Lộc. Thái Tuế in ngay trên trán cùng với Tả Phù, Long Trì, Bạch Hổ, Hoa Cái, Văn Xương quy tụ cả một thế nghênh ngang một cõi sơn hà... Long Phượng có khả năng (Tả Hữu) hơn người cũng danh chính ngôn thuận hơn Tử Phủ đắc Tả Hữu ở những ngôi vị khác, mặc dầu chính thân chỉ là phận Thiất Sát triều đầu.",
+      "source_page": 19,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "case:quang_trung",
+        "long_phuong",
+        "ta_huu",
+        "thai_tue"
+      ],
+      "commentary": {
+        "han_viet_explain": "Triều đẩu = chầu vào; nghênh ngang một cõi = oai phong một vùng.",
+        "viet_thuan": "Quang Trung là thường dân lên ngôi vua — Mệnh không quý cách nhưng Tả Hữu Long Phượng quá mạnh.",
+        "nguyen_ly": "Trung tinh đắc cách có thể mạnh hơn chính tinh trung bình — đừng coi nhẹ Long Phượng Tả Hữu Xương Khúc.",
+        "vi_du_doi_song": "Quang Trung đại đế đành chịu khuất phục trước Ngọc Hân công chúa (Thê cung Thiên Tướng, Hữu Bật).",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q82",
+      "question": "Cô Quả Tứ Sinh và Tứ Mộ nghĩa là gì?",
+      "answer_atom": "Cô = đơn chiếc (cô đơn); Quả = mỏng manh (góa bụa). Trong địa bàn Tử Vi, Cô đứng ở 4 vị trí Tứ Sinh (Dần Thân Tỵ Hợi); Quả đứng ở 4 vị trí Tứ Mộ (Thìn Tuất Sửu Mùi).",
+      "source_quote": "Hai chữ Cô Quả có nghĩa là đơn chiếc (cô) mỏng manh (quả), đứng trong địa bàn Tử vi chỉ ở 8 vị trí Tứ Sinh (cô) và Tứ Mộ (quả) có tính cách nêu rõ ràng tình cảnh.",
+      "source_page": 22,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "co_qua",
+        "tu_sinh",
+        "tu_mo"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tứ Sinh = Dần Thân Tỵ Hợi (4 cung khởi sự); Tứ Mộ = Thìn Tuất Sửu Mùi (4 cung kết thúc).",
+        "viet_thuan": "Cô ở 4 cung sinh, Quả ở 4 cung mộ.",
+        "nguyen_ly": "Cô Quả vốn không phải sao xấu — chỉ là tên gọi tình cảnh; nó chỉ thành xấu khi đi với Tuế Phá / Thiếu Âm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q83",
+      "question": "Cô Quả khác Đẩu Quân ra sao? (deep)",
+      "answer_atom": "Cô Quả luôn ở hoàn cảnh bất đắc ý → hành động khắc nghiệt → bị ghép vào lý vị kỷ. Đẩu Quân khác hẳn: lý chính nghĩa sáng tỏ, hành tính của Thái Tuế (nguyệt nghịch, thời thuận), danh hiệu 'Quân' = khẳng khái bất khuất, nghiêm nghị. Chữ 'Đẩu' còn có nghĩa đo lường = cân thận đúng mức, nên Đẩu Quân = Nguyệt Tướng, vị chỉ huy công việc hàng năm khí phách hào hùng chính diện.",
+      "source_quote": "Cô Quả luôn ở trong hoàn cảnh bất đắc ý đến có nhiều hành động phải khắc nghiệt bị ghép vào lý vị kỷ. Đầu Quân khác hẳn, lý chành nghĩa sảng tỏ là hành tính của Thái Tuế (nguyệt nghịch, thời thuận) với danh hiệu chữ 'Quân' phải là khẳng khái bất khuất nên có tính cách nghiêm nghị. Chữ 'Đâu' còn có nghĩa đo lường bao gồm ý cân thận đúng mức nên được ghi danh 'Nguyệt Tướng', vị chỉ huy công việc hàng năm khí phách hào hùng chính diện.",
+      "source_page": 23,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "co_qua",
+        "dau_quan",
+        "nguyet_tuong",
+        "thai_tue"
+      ],
+      "commentary": {
+        "han_viet_explain": "Khẳng khái bất khuất = mạnh mẽ không chịu khuất phục.",
+        "viet_thuan": "Cô Quả là khắc nghiệt vì hoàn cảnh, Đẩu Quân là chính khí có chủ đích.",
+        "nguyen_ly": "Hai sao tưởng giống mà bản chất khác: Cô Quả thụ động, Đẩu Quân chủ động. Đừng nhập chung.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q84",
+      "question": "Quốc Ấn Đường Phù là gì và đứng ở vị trí nào trong vòng Lộc Tồn?",
+      "answer_atom": "Quốc Ấn = chứng chỉ công nhận minh bạch quyền thế tương xứng được thụ hưởng. Đường Phù = tín chỉ uy thế ban phát để giữ gìn bảo vật có hạn định như lá bùa trấn trạch. Quốc Ấn đứng cung thứ 9 đi xuôi sau Lộc Tồn (luôn trong tam hợp với Lộc Tồn); Đường Phù đứng cung thứ 8 từ Lộc Tồn đi ngược lại (ở cung nghịch lý âm dương).",
+      "source_quote": "Quốc Ấn ở đây là chứng chỉ được công nhận minh bạch quyền thế tương xứng được thụ hưởng. Đường Phù cũng là một tín chỉ do uy thế ban phát để giữ gìn một bảo vật có hạn định như lá bùa trấn trạch... Lộc Tồn và Quốc Ấn luôn luôn trong tam hợp vì Quốc Ấn đứng cung thứ 9 đi xuôi sau Lộc Tồn. Trái lại Đường Phù thường trực ở cung nghịch lý âm dương vì Đường Phù đứng cung thứ § từ Lộc Tồn đi ngược lại.",
+      "source_page": 27,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "quoc_an",
+        "duong_phu",
+        "loc_ton"
+      ],
+      "commentary": {
+        "han_viet_explain": "Trấn trạch = giữ nhà; tín chỉ = giấy chứng nhận.",
+        "viet_thuan": "Quốc Ấn là giấy chứng quyền lợi Lộc Tồn; Đường Phù là bùa trấn giữ Lộc Tồn.",
+        "nguyen_ly": "Lộc Tồn không đứng một mình — luôn có cặp đôi Quốc Ấn (tam hợp thuận) và Đường Phù (nghịch lý) để hợp thức hóa quyền sở hữu.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tlnl.S1.Q85",
+      "question": "60 hoa giáp do 720 mẫu sắc dị biệt là gì?",
+      "answer_atom": "Dưới phép luận số 60 (tuổi) × 12 (vị trí Mệnh) = 720 mẫu sắc dị biệt. Mỗi tuổi có 1 hành, mỗi vị trí lại đặc biệt với từng tuổi → Phá Quân, Tham Lang, Thất Sát ở các tổ hợp khác nhau phải có những cuộc lột xác nhiều thay đổi. Không thể áp dụng câu phú máy móc.",
+      "source_quote": "Dưới phép luận số 60x12 thấy có 720 mẫu sắc dị biệt thì Phá Quân và Tham Lang, Thất Sát kia hẳn phải có những cuộc lột xác nhiều thay đổi.",
+      "source_page": 14,
+      "section_id": "tlnl.S1",
+      "tags": [
+        "paradigm:720_mau",
+        "phap_luan",
+        "60x12"
+      ],
+      "commentary": {
+        "han_viet_explain": "Mẫu sắc dị biệt = kiểu khác nhau; lột xác = thay đổi bản chất.",
+        "viet_thuan": "60 tuổi × 12 cung Mệnh = 720 trường hợp khác nhau — không câu phú nào áp dụng được tuyệt đối.",
+        "nguyen_ly": "Đây là cơ sở để Cụ Thiên Lương bác bỏ lối đoán câu phú máy móc và đi vào đọc đồng dạng theo tổ hợp.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Iron Rule #6 — Đọc đồng dạng theo 720 tổ hợp, không predict bằng 1 câu phú."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
