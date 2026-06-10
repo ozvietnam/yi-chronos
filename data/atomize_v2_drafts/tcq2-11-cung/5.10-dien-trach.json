@@ -1,0 +1,2803 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.10",
+ "section_title": "Cung Điền Trạch",
+ "pages": [
+  825,
+  826,
+  827,
+  828,
+  829,
+  830,
+  831,
+  832,
+  833,
+  834,
+  835,
+  836,
+  837,
+  838,
+  839,
+  840,
+  841,
+  842,
+  843,
+  844,
+  845,
+  846
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.10-Q001",
+   "question": "Cung Điền Trạch trong Đẩu Số dùng để luận đoán những hạng mục gì?",
+   "answer_atom": "Cung Điền Trạch luận đoán: gia trạch hưng hay suy, sản nghiệp phát hay bại, tang chế, nơi làm việc thịnh suy, có biến động thay đổi gì không, nhà ở hoặc nơi làm việc có chuyển dời không.",
+   "source_quote": "Dùng Đẩu Số để luận đoán cung điền trạch, bao gồm các hạng mục như gia trạch hưng hay suy, sản nghiệp phát hay bại, tang chế, nơi làm việc thịnh suy thế nào, và có biến động, thay đổi gì hay không, nhà ở hoặc nơi làm việc có chuyển dời không",
+   "source_page": 825,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "concept:pham_vi_luan_doan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Điền Trạch (田宅) = ruộng đất nhà cửa",
+    "viet_thuan": "Cung Điền Trạch xem nhà đất, gia đạo, tang chế và cả nơi làm việc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q002",
+   "question": "Thời xưa muốn xem mệnh vận sản nghiệp, gia trạch thì xem tinh bàn của ai?",
+   "answer_atom": "Cổ nhân không ưa ở riêng, nên mệnh vận của sản nghiệp, gia trạch thường chỉ cần xem tinh bàn của gia trưởng. Thời đại tuy khác nhau nhưng nguyên tắc này vẫn còn.",
+   "source_quote": "Thời xưa, cổ nhân không ưa ở riêng, nên mệnh vận của sản nghiệp, gia trạch thường thường chỉ cần xem tính bàn của gia trưởng, điểm này không thể không biết, thời đại tuy khác nhau, nhưng nguyên tắc này thì vẫn còn.",
+   "source_page": 825,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "concept:gia_truong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Xem nhà đất cả gia đình thì lấy lá số người chủ gia đình làm chuẩn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q003",
+   "question": "Khi nào việc liên quan gia trạch, điền sản phải xem ở cung khác thay vì cung Điền Trạch?",
+   "answer_atom": "Theo nguyên tắc 'lục thân cùng vận': con trai thành đạt khiến mệnh tạo được ban phủ đệ thì xem điểm cát ở cung Tử Nữ; bị anh em gây lụy mất sạch tài sản thì xem điểm hung ở cung Huynh Đệ, chưa chắc ứng ở cung Điền Trạch. Mua bán điền trạch có tính đầu cơ thì thông thường không ứng ở cung Điền Trạch mà có thể ứng ở cung Tài Bạch.",
+   "source_quote": "Ví dụ như con trai thành đạt, bản thân mệnh tạo được phong ấm, được ban cho phủ đệ (nhà lớn), thì chỉ có thể xem điểm tượng cát tường ở cung Tử Nữ... nếu bị anh em gây lụy, là bị mất sạch tài sản gia đình, cũng chỉ có thể xem điểm hung ở cung Huynh Đệ... Trong các tình hình thông thường, không thể ứng ở cung Điền Trạch (có thể ứng ở cung Tài Bạch).",
+   "source_page": 826,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "palace:tu_nu",
+    "palace:huynh_de",
+    "palace:tai_bach",
+    "concept:luc_than_cung_van"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lục thân cùng vận = vận mệnh sáu người thân liên quan nhau",
+    "viet_thuan": "Không phải chuyện nhà đất nào cũng xem ở Điền Trạch — phải xét nguồn gốc sự việc thuộc cung nào.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q004",
+   "question": "Xem tang chế và nơi làm việc ở cung Điền Trạch như thế nào?",
+   "answer_atom": "Xem có tang ở cung Điền Trạch, trường hợp con trai đích tôn là rất chính xác. Nơi làm việc hưng suy có thể xem ở cung Điền Trạch; nếu công ty là của mệnh tạo và bản thân cũng làm việc trong đó thì cũng luận là nơi làm việc.",
+   "source_quote": "Xem có táng ở cung Điền Trạch, trường hợp con trai đích tôn rất là chính xác. Nơi làm việc hưng suy thế nào, đương nhiên có thể xem ở cung Điền Trạch.",
+   "source_page": 826,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "concept:tang_che",
+    "concept:noi_lam_viec"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đích tôn (嫡孫) = cháu trai dòng chính",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q005",
+   "question": "Cung Điền Trạch gặp Phi Liêm, Âm Sát, Thiên Diêu chủ về điều gì?",
+   "answer_atom": "Cung Điền Trạch gặp Phi Liêm chủ về nhà có mối hoặc nhiều côn trùng; gặp Âm Sát, Thiên Diêu chủ về có âm nhân.",
+   "source_quote": "Cung Điền Trạch mà gặp Phi Liêm, chủ về có mối, hoặc có nhiều côn trùng; gặp Âm Sát, Thiên Diêu, chủ về có âm nhân.",
+   "source_page": 826,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:phi_liem",
+    "star:am_sat",
+    "star:thien_dieu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm nhân (陰人) = người cõi âm, vong linh",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q006",
+   "question": "Tử Vi độc tọa thủ cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Tử Vi độc tọa thủ cung Điền Trạch thông thường đều có tự mua nhà cửa. Ở cung Ngọ thích hợp nhà cao, đất cao. Nếu có Lộc Tồn, Hóa Lộc đồng độ hay vây chiếu, nên mua đất có thể kiếm lời, cũng nên mua bán nhà cửa.",
+   "source_quote": "Tử Vi độc tọa thủ cung Điền Trạch, thông thường đều có tự mua nhà cửa. Trường hợp ở cung Ngọ, thích hợp nhà cao, đất cao. Nếu có Lộc Tồn, Hóa Lộc đồng độ hay vây chiếu, nên mua đất có thể kiếm lời, cũng nên mua bán nhà cửa.",
+   "source_page": 826,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:loc_ton",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Vi ở Điền Trạch thường tự mua được nhà; có sao lộc thì buôn đất có lời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q007",
+   "question": "Tử Vi gặp Phá Quân đồng độ hoặc vây chiếu ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về có tổ nghiệp hoặc gia nghiệp nhưng vì nguyên nhân nào đó mà suy bại. Được 'bách quan triều củng' thì có thể giữ được. Nếu là 'tại dã cô quân' hoặc có Kình Dương, Đà La, Địa Không, Địa Kiếp hội hợp, chủ về vì gia nghiệp mà bất hòa, tranh chấp; thêm sao hình, hao thì kiện cáo phiền phức; có Thiên Vu thì tranh chấp gia sản. Gặp sao lộc hoặc Phá Quân Hóa Lộc thì có tự mua nhà cửa, nên mua nhà cũ.",
+   "source_quote": "Tử Vi gặp Phá Quân đồng độ hoặc vây chiếu, chủ về có tổ nghiệp hoặc gia nghiệp, nhưng vì nguyên nhân nào đó mà suy bại. Nếu được \"bách quan triều củng\", thì có thể giữ được... có Thiên Vu thì tranh chấp gia sản. Gặp sao lộc, hoặc Phá Quân Hóa Lộc thì có tự mua nhà cửa, nên mua nhà cũ.",
+   "source_page": 826,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:pha_quan",
+    "star:thien_vu",
+    "concept:bach_quan_trieu_cung",
+    "concept:tai_da_co_quan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bách quan triều củng = trăm quan chầu về; tại dã cô quân = vua cô độc nơi hoang dã",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q008",
+   "question": "Tử Vi gặp Thất Sát đồng độ hoặc vây chiếu ở cung Điền Trạch cần xem gì?",
+   "answer_atom": "Cần phải xem tình hình cát hung của Thiên Phủ. Nếu Thiên Phủ là kho phủ đầy ắp thì tự mua nhà cửa được; nếu Thiên Phủ là 'kho lộ', 'kho trống' thì sản nghiệp lung lay. Gặp Hóa Kỵ, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, Thiên Hư thì sản nghiệp tiêu ma, phá tán.",
+   "source_quote": "Tử Vi gặp Thất Sát đồng độ hoặc vây chiếu, cần phải xem tình hình cát hung của Thiên Phủ... nếu Thiên Phủ là \"kho lộ\", \"kho trống\", thì sản nghiệp lung lay. Gặp Hóa Kỵ, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, Thiên Hư, thì sản nghiệp tiêu ma, phá tán.",
+   "source_page": 826,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:that_sat",
+    "star:thien_phu",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kho lộ = lộ khố (kho bị lộ); kho trống = không khố",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q009",
+   "question": "Tử Vi đồng độ với Tham Lang ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Gặp các sao phụ, tá cát thì nhà ở khá đẹp; gặp sát tinh thì chỉ hào nhoáng bề ngoài. Có Hỏa Tinh, Linh Tinh đồng độ mà được cát hóa và có sao cát thì sản nghiệp đột nhiên tăng lên; nhưng gặp thêm Địa Không, Địa Kiếp, Thiên Hình, Đại Hao thì được nhanh mất nhanh. Tham Lang Hóa Lộc gặp sao cát mà không gặp sát tinh, có thể mua bán nhà cửa.",
+   "source_quote": "Tử Vi đồng độ với Tham Lang, gặp các sao phụ, tá cát, thì nhà ở khá đẹp. Nếu gặp sát tinh, thì chỉ là hòa nhoáng bề ngoài. Có Hỏa Tinh, Linh Tinh đồng độ mà được cát hóa và có sao cát, sản nghiệp đột nhiên tăng lên; nhưng nếu gặp thêm Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, thì được nhanh mất nhanh!",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:tham_lang",
+    "star:hoa_tinh",
+    "star:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q010",
+   "question": "Tử Vi thủ cung Điền Trạch khi nào chủ về nguy cơ hỏa tai?",
+   "answer_atom": "Hễ Tử Vi thủ cung Điền Trạch, ngoại trừ trường hợp 'Tử Vi, Tham Lang' (Tham Lang Hóa Kỵ thì vẫn đúng), đều không nên gặp Hỏa Tinh, còn hội Kình Dương, Đà La, Địa Không, Địa Kiếp, Thiên Hư, Đại Hao, chủ về nhà cửa có nguy cơ xảy ra hỏa tai. Đến cung hạn Điền Trạch có Kình Dương, Đà La là năm ứng nghiệm.",
+   "source_quote": "Hễ Tử Vi thủ cung Điền Trạch, ngoại trừ trường hợp \"Tử Vi, Tham Lang\"... đều không nên gặp Hỏa Tinh, còn hội Kình Dương, Đà La, Địa Không, Địa Kiếp, Thiên Hư, Đại Hao, chủ về nhà cửa có nguy cơ xảy ra hỏa tai. Đến cung hạn Điền Trạch có Kình Dương, Đà La là năm ứng nghiệm.",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:hoa_tinh",
+    "concept:hoa_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q011",
+   "question": "Tử Vi thủ cung Điền Trạch gặp Văn Xương, Văn Khúc Hóa Kỵ chủ về điều gì?",
+   "answer_atom": "Tử Vi thủ cung Điền Trạch tuy gặp các sao phụ, tá cát cũng không nên gặp Văn Xương, Văn Khúc Hóa Kỵ, chủ về mua bán nhà cửa vì văn thư khế ước mà bị tổn thất.",
+   "source_quote": "Tử Vi thủ cung Điền Trạch tuy gặp các sao phụ, tá cát, cũng không nên gặp Văn Xương, Văn Khúc Hóa Kỵ, chủ về mua bán nhà cửa vì văn thư khế ước mà bị tổn thất.",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:van_xuong",
+    "star:van_khuc",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khế ước (契約) = hợp đồng, giấy tờ giao kèo",
+    "viet_thuan": "Mua bán nhà mà Xương Khúc Hóa Kỵ thì coi chừng rủi ro giấy tờ hợp đồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q012",
+   "question": "Tinh hệ Tử Vi ở cung Điền Trạch có các sao phụ tá cát hội hợp chủ về điều gì?",
+   "answer_atom": "Chủ về gia đình nhiều người ở chung, cũng chủ về nơi làm việc có nhiều nhân viên. Nếu là 'Tử Vi, Phá Quân' gặp cát tinh thì đây là cơ sở mới; nếu 'Tử Vi, Thiên Tướng' gặp sát tinh thì là cơ sở cũ đang bị lung lay, nên chú ý cơ hội thay đổi công việc hoặc cải cách.",
+   "source_quote": "Tinh hệ Tử Vi ở cung Điền Trạch, nếu có các sao phụ, tá cát hội hợp, chủ về gia đình nhiều người ở chung, cũng chủ về nơi làm việc có nhiều nhân viên.",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:pha_quan",
+    "star:thien_tuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q013",
+   "question": "Đại hạn hay lưu niên gặp tinh hệ Tử Vi thủ cung Điền Trạch khi nào chủ về dời chuyển?",
+   "answer_atom": "Đến đại hạn hay lưu niên gặp 'Tử Vi, Phá Quân', 'Tử Vi, Thiên Tướng' thủ cung Điền Trạch mới chủ về dời chuyển; nhưng nếu có sát tinh nặng thì không dời chuyển mà chủ về sửa sang hoặc dời chuyển bên trong (như đổi phòng làm việc). 'Tử Vi, Tham Lang' gặp sao lộc thì chủ xây dựng hoặc đổi nhà.",
+   "source_quote": "đến đại hạn hay lưu niên gặp \"Tử Vi, Phá Quân\", \"Tử Vi, Thiên Tướng\" thủ cung Điền Trạch mới chủ về dời chuyển; nhưng nếu có sát tinh nặng thì không đời chuyển, mà chủ về sửa sang hoặc dời chuyển bên trong",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:pha_quan",
+    "star:thien_tuong",
+    "star:tham_lang",
+    "concept:doi_chuyen"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q014",
+   "question": "Tinh hệ Tử Vi thủ cung Điền Trạch gặp cát tinh chủ về điều gì ở thời hiện đại?",
+   "answer_atom": "Hễ tinh hệ Tử Vi thủ cung Điền Trạch mà gặp cát tinh, đều chủ về mua thêm nhà cửa đất đai; ở thời hiện đại thường thường là thời kỳ thành lập công ty cổ phần.",
+   "source_quote": "Hễ tinh hệ Tử Vi thủ cung Điền Trạch mà gặp cát tinh, đều chủ về mua thêm nhà cửa đất đai; ở thời hiện đại thường thường là thời kì thành lập công ty cổ phần.",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "concept:cong_ty_co_phan"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q015",
+   "question": "Tinh hệ Tử Vi thủ cung Điền Trạch khi nào chủ về có tang?",
+   "answer_atom": "Có sao kỵ và lưu sát tinh nhập cung, xung hội lưu sát của đại hạn, lại gặp Âm Sát, Tang Môn, Bạch Hổ sẽ chủ về có tang. Nhưng cung Phụ Mẫu hay cung Mệnh phải gặp Văn Xương, Văn Khúc, hoặc cung Điền Trạch gặp Văn Xương, Văn Khúc mới đúng.",
+   "source_quote": "có sao kỵ và lưu sát tinh nhập cung, xung hội lưu sát của đại hạn, lại gặp Âm Sát, Tang Môn, Bạch Hổ, sẽ chủ về có tang. Nhưng cung Phụ Mẫu hay cung Mệnh phải gặp Văn Xương, Văn Khúc, hoặc cung Điền Trạch gặp Văn Xương, Văn Khúc mới đúng.",
+   "source_page": 827,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:tang_mon",
+    "star:bach_ho",
+    "star:am_sat",
+    "concept:tang_che"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q016",
+   "question": "Tinh hệ Tử Vi thủ cung Điền Trạch khi nào chủ về năm tăng thêm nhân khẩu?",
+   "answer_atom": "Nếu có sao cát, cát hóa, gặp Thiên Hỉ hoặc Hồng Loan, và có Lưu Xương, Lưu Khúc nhập cung, thì đây là năm tăng thêm nhân khẩu trong nhà. Nếu không gặp cát tinh, chỉ chủ về họ hàng bạn bè đến ở tạm, hoặc cơ sở làm việc có người đến thực tập hay nhậm chức tạm thời.",
+   "source_quote": "nếu có sao cát, cát hóa, gặp Thiên Hi hoặc Hồng Loan, và có Lưu Xương, Lưu Khúc nhập cung, thì đây là năm tăng thêm nhân khẩu trong nhà.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "star:thien_hi",
+    "star:hong_loan",
+    "concept:them_nhan_khau"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q017",
+   "question": "Tử Vi thủ cung Điền Trạch có bị ảnh hưởng phong thủy không?",
+   "answer_atom": "Thông thường chủ về nơi ở hay công trình không bị phong thủy ảnh hưởng; nhưng nếu gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Âm Sát thì cần chú ý vấn đề phong thủy. Các tổ hợp 'Tử Vi, Phá Quân' hay 'Tử Vi, Thiên Tướng' khi gặp các sao sát, kỵ, hình, hao, không, kiếp đều chủ về nhà ở cũ và cần xem xét kỹ về phong thủy.",
+   "source_quote": "thông thường chủ về nơi ở hay công trình không bị phong thủy ảnh hưởng; nhưng nếu gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Âm Sát thì cần chú ý vấn đề phong thủy.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tu_vi",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q018",
+   "question": "Thiên Cơ ở cung Điền Trạch chủ về tính chất gì cơ bản?",
+   "answer_atom": "Thông thường chủ về sự biến động của sản nghiệp; người xưa cho rằng liên quan đến tổ nghiệp lụn bại và bản thân phải tự tạo dựng. Ở thời hiện đại cũng chủ về thường xuyên dời chuyển, hoặc lúc mua lúc bán, thậm chí thay đổi hoàn cảnh công tác, không nhất định chỉ giới hạn ở tổ nghiệp lụn bại rồi tự tạo dựng.",
+   "source_quote": "Thiên Cơ ở cung Điền Trạch, thông thường chủ về sự biến động của sản nghiệp; do đó người xưa cho rằng nó liên quan đến tổ nghiệp lụn bại và bản thân phải tự tạo dựng.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "concept:bien_dong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Cơ (天機) = máy trời, sao chủ biến động",
+    "viet_thuan": "Thiên Cơ ở Điền Trạch = nhà đất hay biến động, hay chuyển dời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q019",
+   "question": "Làm sao biết tính chất dời chuyển của Thiên Cơ ở cung Điền Trạch là cát hay hung?",
+   "answer_atom": "Cần xem các sao hội hợp. Gặp các sao cát và cát hóa đôi khi không chủ về dời chuyển; rất ưa gặp Lộc Tồn, Thiên Mã, Thiên Khôi, Thiên Việt, Ân Quang, Thiên Quý, Tam Thai, Bát Tọa, chủ về dời chuyển mang lại cát lợi. Trái lại, gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Hóa Kỵ thì việc dời chuyển có thể là phạm sai lầm.",
+   "source_quote": "rất ưa gặp các sao Lộc Tồn, Thiên Mã, Thiên Khôi, Thiên Việt, Ân Quang, Thiên Quý, Tam Thai, Bát Tọa, sẽ chủ về dời chuyển mang lại cát lợi. Trái lại, nếu gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Hóa Kỵ, thì việc dời chuyển có thể là phạm sai lầm.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "concept:doi_chuyen"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q020",
+   "question": "Lưu niên gặp Thiên Cơ Hóa Kỵ thủ cung hạn Điền Trạch chủ về điều gì?",
+   "answer_atom": "Cũng chủ về sự thay đổi; miễn là không gặp sát tinh thì cũng không xấu.",
+   "source_quote": "Lưu niên gặp Thiên Cơ Hóa Kỵ thủ cung hạn Điền Trạch cũng chủ về sự thay đổi; miễn là không gặp sát tinh thì cũng không xấu.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "transform:hoa_ky",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q021",
+   "question": "Thiên Cơ ở bốn cung Sửu, Mùi, Tị, Hợi thủ Điền Trạch chủ về hoàn cảnh nơi ở thế nào?",
+   "answer_atom": "Chủ về hoàn cảnh nơi ở phức tạp, hoặc gần chợ, gần công xưởng, không được thanh tĩnh. Nếu có Hỏa Tinh, Linh Tinh đồng độ thì càng ồn ào hơn.",
+   "source_quote": "Thiên Cơ ở bốn cung Sửu, Mùi, Tị, hoặc Hợi, chủ về hoàn cảnh nơi ở phức tạp, hoặc gần chợ, gần công xưởng, không được thanh tĩnh. Nếu có Hỏa Tinh, Linh Tinh đồng độ thì càng ổn ào hơn.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:hoa_tinh",
+    "star:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q022",
+   "question": "Thiên Cơ đồng độ với Lộc Tồn có sát tinh hội hợp ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về bất hòa với hàng xóm láng giềng; Thiên Cơ Hóa Kỵ còn chủ về bị uy hiếp hoặc áp lực; nếu gặp thêm Thiên Hình, Quan Phù, Bạch Hổ sẽ chủ về xảy ra kiện cáo. Vì vậy nên nhường nhịn là tốt nhất, nếu không phản kháng càng nhiều sinh thị phi; cũng chủ về bị áp lực rắc rối ở cơ sở làm việc, nên chuyển đổi hoàn cảnh công tác.",
+   "source_quote": "Thiên Cơ đồng độ với Lộc Tồn và có các sát tinh hội hợp, chủ về bất hòa với hàng xóm láng giềng; Thiên Cơ Hóa Kỵ còn chủ về bị uy hiếp hoặc áp lực; nếu gặp thêm Thiên Hình, Quan Phù, Bạch Hổ, sẽ chủ về xảy ra kiện cáo.",
+   "source_page": 828,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:loc_ton",
+    "star:thien_hinh",
+    "star:quan_phu",
+    "star:bach_ho"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q023",
+   "question": "Thiên Cơ Hóa Lộc ở cung Điền Trạch khi nào mới chủ về dời chuyển cát lợi?",
+   "answer_atom": "Thiên Cơ Hóa Lộc gặp Lộc Tồn, Thiên Mã mới chủ về dời chuyển cát lợi; nếu chỉ có Hóa Lộc thì là điểm tượng 'động mà bất động', tức có kế hoạch dời chuyển nhưng chưa thực hiện.",
+   "source_quote": "Thiên Cơ Hóa Lộc, gặp Lộc Tồn, Thiên Mã, mới chủ về dời chuyển cát lợi; nếu chỉ có Hóa Lộc, thì đây là điểm tượng động mà bất động, tức có kế hoạch dời chuyển nhưng chưa thực hiện.",
+   "source_page": 829,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "transform:hoa_loc",
+    "star:loc_ton",
+    "star:thien_ma"
+   ],
+   "commentary": {
+    "han_viet_explain": "Động mà bất động = có ý định chuyển nhưng chưa chuyển",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q024",
+   "question": "Tổ hợp 'Thiên Cơ, Cự Môn' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Thường xảy ra bất hòa, tranh chấp về sản nghiệp; rất khó mua thêm nhà cửa đất đai, hoặc phải dời chuyển mà lại không dời chuyển khiến về sau hối hận. Gặp sao Lộc mới chủ về tạo dựng sản nghiệp mới. Nếu Cự Môn Hóa Kỵ thì dời chuyển sẽ phạm sai lầm; gặp thêm các sao Sát, Hình, Không, Kiếp càng chủ về vì sản nghiệp hoặc dời chuyển mà thị phi liên tiếp, thậm chí kiện cáo. Có sát tinh đồng độ thì dù được cát hóa cũng không cát tường, vẫn khó giữ sản nghiệp; ở cung Mão thì tốt hơn.",
+   "source_quote": "Tổ hợp \"Thiên Cơ, Cự Môn\" thường xảy ra bất hòa, tranh chấp về sản nghiệp; cũng chủ về rất khó mua thêm nhà cửa đất đai, hoặc chủ về phải dời chuyển mà lại không dời chuyển, khiến về sau phải hối hận.",
+   "source_page": 829,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:cu_mon",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q025",
+   "question": "Tổ hợp 'Thiên Cơ, Thái Âm' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về hay dời chuyển, nhất là ở hai cung Dần hoặc Thân thì càng đúng; gặp sát tinh thì không giữ tổ nghiệp, không được hưởng sự nghiệp có sẵn, còn thường thay đổi hoàn cảnh công tác. Nếu Thái Âm Hóa Lộc thì về sau có thể tự tạo dựng sản nghiệp, hoàn cảnh nơi ở khá yên ổn. Được cát hóa (rất ưa Thiên Cơ Hóa Lộc) lại gặp cát tinh thì mua bán bất động sản có lời, cũng nên thay đổi hoàn cảnh công tác.",
+   "source_quote": "Tổ hợp \"Thiên Cơ, Thái Âm\" chủ về hay dời chuyển, nhất là ở hai cung Dần hoặc Thân thì càng đúng... \"Thiên Cơ, Thái Âm\" được cát hóa (rất ưa Thiên Cơ Hóa Lộc), lại gặp cát tinh, thì mua bán bất động sản có lời",
+   "source_page": 829,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:thai_am",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q026",
+   "question": "Tổ hợp 'Thiên Cơ, Thiên Lương' ở cung Điền Trạch có tính chất cơ bản gì?",
+   "answer_atom": "Tính chất cơ bản chủ về khó tự tạo dựng sản nghiệp, sau 40 tuổi mới có thể mua thêm nhà cửa đất đai, sau 60 tuổi sản nghiệp mới tăng lên. Nếu Thiên Lương Hóa Lộc, phần nhiều là nhà ở cũ mà xinh đẹp.",
+   "source_quote": "Tổ hợp \"Thiên Cơ, Thiên Lương\", tính chất cơ bản chủ về khó tự tạo dựng sản nghiệp, sau 40 tuổi mới có thể mua thêm nhà cửa đất đai, sau 60 tuổi sản nghiệp mới tăng lên.",
+   "source_page": 829,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:thien_luong",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q027",
+   "question": "'Thiên Cơ, Thiên Lương' ở cung Điền Trạch khi nào là năm chủ về hỏa hoạn?",
+   "answer_atom": "Có Hỏa Tinh đồng độ, hội Linh Tinh, lại gặp thêm các sao Sát, Hao, và bị lưu sát xung hội, là năm chủ về hỏa hoạn, bị một phen hú vía. Ngoài ra nếu 'Thiên Cơ, Thiên Lương' ở Điền Trạch mà cung Mệnh là 'Vũ Khúc, Tham Lang' có Hỏa Tinh đồng độ, cũng chủ về thường thay đổi nhà ở hay địa điểm cơ sở làm việc; nếu 'Vũ Khúc, Tham Lang' gặp Lộc Tồn, Thiên Mã cũng chủ về thường dời chuyển.",
+   "source_quote": "\"Thiên Cơ, Thiên Lương\" có Hỏa tinh đồng độ, hội Linh Tinh, lại gặp thêm các sao Sát, Hao, và bị lưu sát xung hội, là năm chủ về hỏa hoạn, bị một phen hú vía.",
+   "source_page": 829,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:thien_luong",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "concept:hoa_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q028",
+   "question": "Thiên Cơ thủ cung Điền Trạch có bị ảnh hưởng phong thủy không?",
+   "answer_atom": "Trong các tình huống chung thường bị ảnh hưởng phong thủy khá nặng. Chỉ trường hợp đồng độ với Thiên Lương, được cát hóa và có sao cát, mới không bị ảnh hưởng phong thủy.",
+   "source_quote": "Thiên Cơ thủ cung Điền Trạch, trong các tình huống chung thường bị ảnh hưởng phong thủy khá nặng. Chỉ trường hợp đồng độ với Thiên Lương, được cát hỏa và có sao cát, mới không bị ảnh hưởng phong thủy.",
+   "source_page": 830,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_co",
+    "star:thien_luong",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q029",
+   "question": "Thái Dương nhập miếu thủ cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về có tổ nghiệp nhưng khó giữ. Người sinh vào ban ngày, Thái Dương nhập miếu gặp các sao phụ, tá hội hợp thì có thể tự mua, nhưng vẫn thường thay đổi, cũng chủ về dễ thay đổi nơi làm việc.",
+   "source_quote": "Thái Dương nhập miếu thủ cung Điền Trạch, chủ về có tổ nghiệp, nhưng khó giữ. Trường hợp người sinh vào ban ngày, Thái Dương nhập miếu gặp các sao phụ, tá hội hợp, thì có thể tự mua, nhưng vẫn thường thay đổi",
+   "source_page": 830,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "concept:nhap_mieu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q030",
+   "question": "Thái Dương lạc hãm thủ cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Không có tổ nghiệp, hoặc có mà phá bại, khó được hưởng. Người sinh vào ban đêm chủ về khó tự tạo dựng sản nghiệp, thường dễ dời chuyển, dễ thay đổi hoàn cảnh công tác, còn có cảm giác trôi nổi không ổn định.",
+   "source_quote": "Thái Dương lạc hãm thủ cung Điền Trạch, không có tổ nghiệp, hoặc có mà phá bại, khó được hưởng; người sinh vào ban đêm, chủ về khó tự tạo dựng sản nghiệp, thường dễ dời chuyển... có cảm giác trôi nổi không ổn định.",
+   "source_page": 830,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "concept:lac_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lạc hãm (落陷) = sao ở vị trí yếu, mất sáng",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q031",
+   "question": "Thái Dương Hóa Kỵ ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về tổ nghiệp suy bại, hoặc bình sinh sự nghiệp khó có nền tảng vững chắc; nếu lại gặp các sao sát, hình, hư, hao thì nghề nghiệp không có căn cơ; thích hợp làm môi giới, dạy học, nếu không sẽ dễ bị áp lực mà thay đổi hoàn cảnh công tác.",
+   "source_quote": "Thái Dương Hỏa Kỵ ở cung Điền Trạch, chủ về tổ nghiệp suy bại, hoặc bình sinh sự nghiệp khó có nền tảng vững chắc... thích hợp làm môi giới, dạy học, nếu không sẽ dễ bị áp lực mà thay đổi hoàn cảnh công tác.",
+   "source_page": 830,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q032",
+   "question": "Tổ hợp 'Thái Dương, Thiên Lương' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về nhà chung (thời cổ đại là đất đai của tổ tiên). Gặp các sao sát, kỵ, hình, hao, không, kiếp chủ về vì tài sản chung mà thưa kiện, không nên chiếm tài sản chung, cũng không nên đầu tư bất động sản. Được cát hóa, có sao cát thì có thể quản lý tài sản chung, thích hợp làm nghề đầu tư bất động sản nhưng cần có tính chất hùn hợp, cổ phần. Có cát tinh mới mua thêm nhà đất, mà nên mua nhà cũ; gặp sát, kỵ, hình, hao thì vì mua thêm nhà đất mà gặp phiền phức.",
+   "source_quote": "Tổ hợp \"Thái Dương, Thiên Lương\", chủ về nhà chung (thời cổ đại là đất đai của tổ tiên). \"Thái Dương, Thiên Lương\" gặp các sao sát, kỵ, hình, hao, không, kiếp, chủ về vì tài sản chung mà thưa kiện",
+   "source_page": 830,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:thien_luong",
+    "concept:nha_chung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Lương ở Điền Trạch dính tới tài sản chung — cát thì quản lý được, hung thì kiện tụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q033",
+   "question": "Tổ hợp Thái Dương và Thái Âm ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Trường hợp 'Thái Dương, Thái Âm' đồng độ là tốt; không gặp các sao sát, kỵ, không, kiếp, chủ về mua thêm bất động sản dần dần. Trường hợp Thái Âm Hóa Lộc là tốt. Có điều Thiên Lương Hóa Lộc thì bất động sản sẽ tăng tính thay đổi.",
+   "source_quote": "Tổ hợp Thái Dương và Thái Âm, trường hợp \"Thái Dương, Thái Âm\" đồng độ là tốt; không gặp các sao sát, kỵ, không, kiếp, chủ về mua thêm bất động sản dần dần.",
+   "source_page": 830,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:thai_am",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q034",
+   "question": "Thái Dương ở cung Điền Trạch có cần xem trọng phong thủy không?",
+   "answer_atom": "Thái Dương nhập miếu thì không cần xem trọng phong thủy; gặp hãm thì phải chú ý ảnh hưởng của phong thủy.",
+   "source_quote": "Thái Dương nhập miếu, không cần xem trọng phong thủy; gặp hãm thì phải chú ý ảnh hưởng của phong thủy.",
+   "source_page": 831,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q035",
+   "question": "Bốn trường hợp Hóa Kỵ (Thái Dương, Thái Âm, Thiên Đồng, Cự Môn) ở cung Điền Trạch khác nhau thế nào?",
+   "answer_atom": "Thái Dương Hóa Kỵ thì vì mua thêm nhà cửa đất đai mà chuốc thị phi. Thái Âm Hóa Kỵ thì vì mua thêm nhà cửa đất đai mà bị tổn thất. Thiên Đồng Hóa Kỵ chủ về sản nghiệp lung lay. Cự Môn Hóa Kỵ chủ về bất hòa, tranh chấp nhà cửa đất đai, hay phá tán bất động sản.",
+   "source_quote": "Nếu Thái Dương Hóa Kị, thì vì mua thêm nhà cửa đất đai mà chuốc thị phi. Thái Âm Hóa Kị, thì vì mua thêm nhà cửa đất đai mà bị tổn thất. Thiên Đồng Hóa Kị, chủ về sản nghiệp lung lay. Cự Môn Hóa Kị, sẽ chủ về bất hòa, tranh chấp nhà cửa đất đai, hay phá tán bất động sản.",
+   "source_page": 831,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:thai_am",
+    "star:thien_dong",
+    "star:cu_mon",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cùng Hóa Kỵ nhưng mỗi sao ứng một kiểu họa khác nhau: thị phi, tổn thất, lung lay, tranh chấp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q036",
+   "question": "Tổ hợp 'Thái Dương, Cự Môn' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Trường hợp đồng độ là tốt, vây chiếu thì kém xa. Được cát hóa, có sao cát, không gặp sát, kỵ, hình, chủ về mua thêm bất động sản, nên mua ở nước ngoài hoặc nơi khác; nhưng vẫn khó tránh tranh chấp, vì vậy không thích hợp làm nghề đầu tư bất động sản. Thái Dương đối nhau với Cự Môn dù gặp cát tinh cũng chủ về tranh đoạt; gặp Thiên Vũ sẽ chủ về tranh đoạt di sản. Nếu Thái Dương Hóa Kỵ gặp sát tinh, chủ về hiểu lầm với cấp chủ quản hay lãnh đạo, dẫn đến oán trách.",
+   "source_quote": "\"Thái Dương, Cự Môn\" được cát hóa, có sao cát, không gặp các sao sát, kị, hình, chủ về mua thêm bất động sản, nên mua thêm nhà cửa đất đai ở nước ngoài hoặc ở nơi khác; nhưng vẫn khó tránh tranh chấp.",
+   "source_page": 831,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:cu_mon",
+    "star:thien_vu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q037",
+   "question": "Thái Dương hội Thái Âm ở cung Điền Trạch khi nào chủ về có tang?",
+   "answer_atom": "Thái Dương hội hợp với Thái Âm là kết cấu tốt nhất ở cung Điền Trạch; nhưng nếu Thái Dương hay Thái Âm Hóa Kỵ, mà gặp các sao sát, hình, không, hao, và lưu sát hội hợp hoặc xung hội, còn gặp Thái Tuế, Bạch Hổ, Tang Môn, sẽ chủ về có tang; cũng chủ về bị oán trách trong cơ sở làm việc, gây ra điều tiếng thị phi nghiêm trọng.",
+   "source_quote": "Thái Dương hội hợp với Thái Âm là kết cấu tốt nhất ở cung Điền Trạch; nhưng nếu Thái Dương hay Thái Âm Hóa Kị... còn gặp Thái Tuế, Bạch Hổ, Tang Môn, sẽ chủ về có tang",
+   "source_page": 831,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:thai_am",
+    "star:thai_tue",
+    "star:bach_ho",
+    "star:tang_mon",
+    "concept:tang_che"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q038",
+   "question": "So sánh 'Thái Dương, Thiên Lương' và 'Thái Dương, Cự Môn' ở cung Điền Trạch khác nhau thế nào?",
+   "answer_atom": "Trường hợp Thiên Lương mà cát thì chủ về nhà lớn có tiếng tăm; trường hợp Cự Môn mà cát thì chủ về trực tiếp mua ở nơi khác. Trường hợp Thiên Lương mà hung thì mang lại áp lực; trường hợp Cự Môn mà hung thì mang lại điều tiếng thị phi.",
+   "source_quote": "Trường hợp trước (Thiên Lương) mà cát thì chủ về nhà lớn có tiếng tăm. Trường hợp sau (Cự Môn) mà cát thì chủ về trực tiếp mua ở nơi khác. Trường hợp trước (Thiên Lương) mà hung thì mang lại áp lực. Trường hợp sau (Cự Môn) mà hung thì mang lại điều tiếng thị phi.",
+   "source_page": 831,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:thien_luong",
+    "star:cu_mon",
+    "concept:so_sanh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q039",
+   "question": "Ba tổ hợp Thái Dương ở cung Điền Trạch mỗi tổ hợp ưa gặp và sợ gặp sao nào?",
+   "answer_atom": "Ưa gặp: 'Thái Dương, Thiên Lương' ưa Tả Phụ, Hữu Bật; 'Thái Dương, Cự Môn' ưa Thiên Khôi, Thiên Việt; 'Thái Dương, Thái Âm' ưa Văn Xương, Văn Khúc. Sợ gặp: 'Thái Dương, Thiên Lương' sợ Địa Không, Địa Kiếp; 'Thái Dương, Cự Môn' sợ Kình Dương, Đà La; 'Thái Dương, Thái Âm' sợ Hỏa Tinh, Linh Tinh.",
+   "source_quote": "\"Thái Dương, Thiên Lương\" ưa gặp Tả Phụ, Hữu Bật. \"Thái Dương, Cự Môn\" thì ưa gặp Thiên Khôi, Thiên Việt. \"Thái Dương, Thái Âm\" thì ưa gặp Văn Xương, Văn Khúc... \"Thái Dương, Thiên Lương\" sợ gặp Địa Không, Địa Kiếp. \"Thái Dương, Cự Môn\" sợ gặp Kình Dương, Đà La. \"Thái Dương, Thái Âm\" sợ gặp Hỏa Tinh, Linh Tinh.",
+   "source_page": 831,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_duong",
+    "star:thien_luong",
+    "star:cu_mon",
+    "star:thai_am",
+    "concept:so_sanh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Mỗi tổ hợp Thái Dương có sao trợ và sao kỵ riêng — không thể đánh đồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q040",
+   "question": "Vũ Khúc độc tọa ở cung miếu thủ cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Vũ Khúc là sao tiền tài, độc tọa ở cung miếu, cổ nhân cho rằng chủ về được thừa kế sản nghiệp lớn của cha ông — không chỉ có bất động sản mà còn thừa kế sự nghiệp. Cho nên thông thường cung Điền Trạch ưa Vũ Khúc tọa thủ.",
+   "source_quote": "Vũ Khúc là sao tiền tài, độc tọa ở cung miếu, cổ nhân cho rằng chủ về được thừa kế sản nghiệp lớn của cha ông, nhưng không, chỉ có bất động sản mà còn thừa kế sự nghiệp. Cho nên thông thường, cung Điền Trạch ưa Vũ Khúc tọa thủ.",
+   "source_page": 832,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "concept:thua_ke"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q041",
+   "question": "Vũ Khúc Hóa Lộc hoặc gặp Lộc Tồn ở cung Điền Trạch chủ về điều gì, và cần lưu ý gì?",
+   "answer_atom": "Vũ Khúc Hóa Lộc hoặc gặp Lộc Tồn đồng cung hay vây chiếu, không gặp sát tinh: tổ nghiệp to tát, có thể giữ được; gặp các sao phụ tá cát lại chủ về mua thêm dần dần. Nhưng khi cung Điền Trạch tập trung sao cát thì cung Mệnh, cung Sự Nghiệp và cung Tài Bạch sẽ có các sao bạc nhược, vì vậy cần đặc biệt xem có thể phát dương tổ nghiệp không, hay chỉ bảo thủ, hoặc thậm chí vì muốn phát dương mà dẫn đến phá tán.",
+   "source_quote": "Vũ Khúc Hóa Lộc hoặc gặp Lộc Tồn đồng cung hay vây chiếu, không gặp sát tinh, tổ nghiệp to tát, có thể giữ được... Nhưng cung Điền Trạch tập trung sao cát, thì cung Mệnh, cung Sự Nghiệp và cung Tài Bạch sẽ có các sao bạc nhược",
+   "source_page": 832,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "transform:hoa_loc",
+    "star:loc_ton"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Điền Trạch quá tốt thì các cung khác yếu đi — phải cân nhắc toàn bàn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q042",
+   "question": "Vũ Khúc thủ cung Điền Trạch ngại gặp sao nào và cung nào là cung nhược?",
+   "answer_atom": "Ngại gặp Phá Quân đồng cung hay vây chiếu, cho nên ở bốn cung Dần, Thân, Tị, Hợi là các cung nhược. Nếu Vũ Khúc Hóa Kỵ lại gặp Địa Không, Địa Kiếp, Đại Hao, Thiên Hình, ắt sẽ chủ về thất bại; dù Vũ Khúc không Hóa Kỵ cũng chủ về tổ nghiệp lung lay.",
+   "source_quote": "Vũ Khúc thủ cung Điền Trạch, ngại gặp Phá Quân đồng cung hay vây chiếu. Cho nên ở bốn cung Dần, Thân, Tị, Hợi là các cung nhược. Nếu Vũ Khúc Hóa Kỵ, lại gặp Địa Không, Địa Kiếp, Đại Hao, Thiên Hình, ắt sẽ chủ về thất bại",
+   "source_page": 832,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:pha_quan",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q043",
+   "question": "'Vũ Khúc, Thiên Tướng' và 'Vũ Khúc, Phá Quân' ở cung Điền Trạch có những cách cục xấu nào?",
+   "answer_atom": "'Vũ Khúc, Thiên Tướng' bị 'Hình Kỵ Giáp Ấn', Hỏa Tinh và Linh Tinh giáp cung, chủ về không giữ sản nghiệp, dần dần tiêu điều. 'Vũ Khúc, Phá Quân' hội Liêm Trinh Hóa Kỵ thì nên giữ sản nghiệp của cha ông; nếu cung Mệnh và cung Sự Nghiệp yếu, còn chủ về quyền hành rơi vào tay anh em.",
+   "source_quote": "\"Vũ Khúc, Thiên Tướng\" bị \"Hình Kị Giáp Ấn\", Hỏa Tinh và Linh Tinh giáp cung, cũng chủ về không giữ sản nghiệp, dần dần tiêu điều. \"Vũ Khúc, Phá Quân\" hội Liêm Trinh Hóa Kỵ, nên giữ sản nghiệp của cha ông; nếu cung Mệnh và cung Sự Nghiệp yếu, còn chủ về quyền hành rơi vào tay anh em.",
+   "source_page": 832,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "star:pha_quan",
+    "star:liem_trinh",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình Kỵ Giáp Ấn = sao hình và sao kỵ kẹp sao ấn (Thiên Tướng)",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q044",
+   "question": "Tinh hệ 'Vũ Khúc, Phá Quân' ở cung Điền Trạch khi nào chủ về tự tạo dựng sản nghiệp?",
+   "answer_atom": "Nếu Thiên Tướng hội sao cát, hoặc Phá Quân Hóa Lộc, thì không chủ về tổ nghiệp to tát, mà chủ về tổ nghiệp tiêu ma rồi bản thân tự tạo dựng nên sản nghiệp; cũng chủ về nên mua nhà cũ.",
+   "source_quote": "Tinh hệ \"Vũ Khúc, Phá Quân\", nếu Thiên Tướng hội sao cát, hoặc Phá Quân Hóa Lộc, thì không chủ về tổ nghiệp to tát, mà còn chủ về tổ nghiệp tiêu ma, mà bản thân tự tạo dựng nên sản nghiệp, cũng chủ về nên mua nhà cũ.",
+   "source_page": 832,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:pha_quan",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q045",
+   "question": "'Vũ Khúc, Tham Lang' đồng độ thành cách 'Hỏa Tham', 'Linh Tham' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Là cách 'Hỏa Tham', 'Linh Tham': sản nghiệp của cha ông đột nhiên tăng lên. Có điều, Vũ Khúc ở hai cung Thìn hoặc Tuất, đối nhau với Tham Lang đồng cung với Hỏa Tinh, hoặc đối nhau với Tham Lang có Linh Tinh vây chiếu, thì chủ về sau trung niên sản nghiệp tăng lên.",
+   "source_quote": "\"Vũ Khúc, Tham Lang\" đồng độ, là cách \"Hỏa Tham\", \"Linh Tham\", sản nghiệp của cha ông đột nhiên tăng lên.",
+   "source_page": 832,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "concept:hoa_tham",
+    "concept:linh_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hỏa Tham / Linh Tham = cách Tham Lang gặp Hỏa Tinh / Linh Tinh, chủ phát đột ngột",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q046",
+   "question": "'Vũ Khúc, Tham Lang' ở cung Điền Trạch gặp sát tinh chủ về điều gì?",
+   "answer_atom": "Gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, chủ về phá tán, thất bại, nhưng mức độ không đến nỗi quá nghiêm trọng. Cách Hỏa Tham, Linh Tham chủ về tăng nhanh phá nhanh. Nếu Vũ Khúc hóa làm sao kỵ lại gặp sát tinh, chủ về vì sản nghiệp mà bất hòa, tranh chấp; sát tinh nặng thì có tổn thất.",
+   "source_quote": "Tinh hệ \"Vũ Khúc, Tham Lang\" gặp Kình Dương, Đà La, Địa Không, Địa Kiếp Thiên Hình, Đại Hao, chủ về phá tán, thất bại... Cách Hỏa Tham, Linh Tham, chủ về tăng nhanh phá nhanh.",
+   "source_page": 833,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "concept:hoa_tham",
+    "concept:linh_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q047",
+   "question": "'Vũ Khúc, Thiên Phủ' và 'Vũ Khúc, Thất Sát' ở cung Điền Trạch cần xem yếu tố gì?",
+   "answer_atom": "'Vũ Khúc, Thiên Phủ' lợi về bất động sản, rất ưa Thiên Phủ có sao lộc: nếu Thiên Phủ là 'kho lộ', 'kho trống' thì tổ nghiệp phá bại, điêu linh; có sao lộc thì giữ được sản nghiệp cha ông và phát dương quang đại. 'Vũ Khúc, Thất Sát' có Thiên Phủ vây chiếu cũng phải chú ý Thiên Phủ có sao lộc hay là kho lộ, kho trống để định cát hung; hội Tham Lang Hóa Kỵ gặp các sao sát, hình thì chủ về xảy ra tranh đoạt nhà cửa đất đai.",
+   "source_quote": "Vũ Khúc, Thiên Phủ cũng lợi về bất động sản... Nếu Thiên Phủ là \"kho lộ\", \"kho trống\", thì tổ nghiệp phá bại, điêu linh; nếu có sao lộc, có thể giữ sản nghiệp của cha ông, mà còn có thể phát dương quang đại.",
+   "source_page": 833,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "star:that_sat",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q048",
+   "question": "Vũ Khúc thủ cung Điền Trạch nói gì về nơi làm việc và chủ nhân?",
+   "answer_atom": "Tình hình cát thường chủ về làm việc ở công ty đang hưng vượng; tình hình hung chủ về sinh biến động thay đổi. Vũ Khúc thủ cung Điền Trạch còn chủ về nơi làm việc hoạt động trong lĩnh vực kinh tế tài chính. Cổ nhân cho rằng Vũ Khúc tọa cung Điền Trạch mà cát thì vượng cho chủ nhân, hung thì bất lợi cho chủ nhân — thuyết này có thể tham khảo.",
+   "source_quote": "Hễ Vũ Khúc thủ cung Điền Trạch, tình hình cát thường chủ về làm việc ở công ty đang hưng vượng... Cổ nhân cho rằng, hễ Vũ Khúc tọa cung Điền Trạch mà cát, thì vượng cho chủ nhân",
+   "source_page": 833,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "concept:noi_lam_viec"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q049",
+   "question": "Vũ Khúc thủ cung Điền Trạch khi nào là năm chủ về hỏa tai và khi nào chủ về có tang?",
+   "answer_atom": "Đồng cung với Hỏa Tinh, lại gặp các sao hư, hao, hình, kỵ, lại có lưu sát xung hội — đây là năm chủ về hỏa tai. 'Vũ Khúc, Tham Lang' gặp Hỏa Tinh chủ về hỏa tai; Vũ Khúc Hóa Kỵ hoặc Tham Lang Hóa Kỵ có lúc cũng chủ về hỏa tai. Cung Điền Trạch là Vũ Khúc Hóa Kỵ, đến đại hạn hay tiểu vận hội Liêm Trinh Hóa Kỵ, gặp sát tinh, gặp Bạch Hổ, Tang Môn, chủ về trong nhà có tang.",
+   "source_quote": "Vũ Khúc thủ cung Điền Trạch, đồng cung với Hỏa Tinh, lại gặp các sao hư, hao, hình, kỵ lại có lưu sát xung hội, đây là năm chủ về hỏa tai... đến đại hạn hay tiểu vận hội Liêm Trinh Hóa Kỵ, gặp sát tinh, gặp các sao Bạch Hổ, Tang Môn, chủ về trong nhà có tang.",
+   "source_page": 833,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "star:hoa_tinh",
+    "star:liem_trinh",
+    "concept:hoa_tai",
+    "concept:tang_che"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q050",
+   "question": "Vũ Khúc thủ cung Điền Trạch có bị ảnh hưởng phong thủy không?",
+   "answer_atom": "Thông thường bị ảnh hưởng phong thủy, Hóa Kỵ càng phải chú ý.",
+   "source_quote": "Vũ Khúc thủ cung Điền Trạch, thông thường về bị ảnh hưởng phong thủy, Hóa Kỵ càng phải chú ý.",
+   "source_page": 833,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:vu_khuc",
+    "concept:phong_thuy",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q051",
+   "question": "Thiên Đồng thủ cung Điền Trạch chủ về tính chất gì cơ bản?",
+   "answer_atom": "Thông thường chủ về tay trắng làm nên, có thể mua thêm nhà cửa đất đai; nếu gặp sao lộc thì sẽ mua thêm nhiều nhà cửa đất đai.",
+   "source_quote": "Thiên Đồng thủ cung Điền Trạch, thông thường chủ về tay trắng làm nên, có thể mưa thêm nhà cửa đất đai; nếu gặp sao lộc thì sẽ mua thêm nhiều nhà cửa đất đai.",
+   "source_page": 833,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng ở Điền Trạch = tự tay gây dựng nhà cửa từ con số không.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q052",
+   "question": "Thiên Đồng Hóa Kỵ ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Tuy có thể tự tạo dựng sản nghiệp nhưng vì sản nghiệp mà phiền phức, hoặc hao tổn tinh thần. Thiên Đồng Hóa Kỵ mà gặp các sao cát lại nên kinh doanh bất động sản; gặp sát tinh thì không nên, chủ về xảy ra bất hòa, tranh chấp vì bất động sản. Gặp Hỏa Tinh, Linh Tinh đồng độ thì vì sản nghiệp mà rối rắm khó xử; gặp Địa Không, Địa Kiếp thì hao tổn tinh thần, rốt cuộc còn phá tán thất bại. Sát tinh ít thì thích hợp mua bán bất động sản, còn chủ về nơi ở gần chợ búa.",
+   "source_quote": "Nhưng nếu Thiên Đồng Hóa Kỵ, tuy có thể tự tạo dựng sản nghiệp, nhưng vì sản nghiệp mà phiền phức, hoặc hao tổn tinh thần. Cho nên Thiên Đồng Hóa Kỵ mà gặp các sao cát, lại nên kinh doanh bất động sản",
+   "source_page": 834,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q053",
+   "question": "Thiên Đồng Hóa Kỵ có Kình Dương, Đà La đồng độ ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Thì vì mua bất động sản mà xảy ra thị phi; nếu các sao sát, kỵ, Không, Kiếp không nặng thì thị phi không lớn, chỉ gặp phiền phức nhỏ mà thôi.",
+   "source_quote": "Thiên Đồng Hóa Kỵ, có Kình Dương, Đà La đồng độ, thì vì mua bất động sản mà xảy ra thị phi; nếu các sao sát, kỵ, Không, Kiếp không nặng, thì thị phi không lớn, chỉ gặp phiền phức nhỏ mà thôi.",
+   "source_page": 834,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "transform:hoa_ky",
+    "star:kinh_duong",
+    "star:da_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q054",
+   "question": "Thiên Đồng Hóa Lộc ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về sau trung niên và vãn niên có thể mua thêm nhiều bất động sản, mà còn ở khu vực thượng lưu. Nếu Thiên Đồng Hóa Lộc gặp sát tinh, sẽ chủ về không mua bất động sản trên vùng cao, và có nhiều đất đai nhà cửa.",
+   "source_quote": "Thiên Đồng Hóa Lộc, chủ về sau trung niên và vãn niên có thể mua thêm nhiều bất động sản, mà còn ở khu vực thượng lưu.",
+   "source_page": 834,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vãn niên (晚年) = tuổi già",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q055",
+   "question": "Thiên Đồng Hóa Kỵ hội Cự Môn Hóa Kỵ ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về quản lý công ty hoặc nhà cửa của gia tộc, vì vậy mà xảy ra phiền phức; nếu lại gặp các sao sát, kỵ trùng trùng, ắt sẽ có kiện tụng; nếu tự mua thì không xảy ra bất hòa, tranh chấp.",
+   "source_quote": "Thiên Đồng Hóa Kỵ hội Cự Môn Hóa Kỵ ở cung Điền Trạch, chủ về quản lí công ty hoặc nhà cửa của gia tộc, vì vậy mà xảy ra phiền phức; nếu lại gặp các sao sát, kỵ trùng trùng, ắt sẽ có kiện tụng; nếu tự mua thì không xảy ra bất hòa, tranh chấp.",
+   "source_page": 834,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "star:cu_mon",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q056",
+   "question": "'Thiên Đồng, Thái Âm' đồng độ ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Được cát hóa và có sao cát, cổ nhân cho rằng có thể nuôi cá, trồng hoa quả mà thành cự phú; thời hiện đại thích hợp làm nông trại, hoặc chủ về ở nơi yên tịnh. Mượn 'Thái Dương, Cự Môn' được cát hóa để hội hợp thì nên mua thêm nhà cửa đất đai ở nơi khác hay nước ngoài. Nếu Thiên Đồng Hóa Kỵ chủ về nhà ở không tiện đường giao thông; Thái Âm Hóa Kỵ nên đề phòng vì mua thêm nhà đất mà phá tài; gặp Âm Sát thì dưới nền nhà có mộ của người xưa.",
+   "source_quote": "Thiên Đồng, Thái Âm đồng độ, được cát hóa và có sao cát, cổ nhân cho rằng có thể nuôi cá, trồng hoa quả mà thành cự phú... gặp Âm Sát, thì dưới nền nhà có mộ của người xưa",
+   "source_page": 834,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "star:thai_am",
+    "star:am_sat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cự phú (巨富) = giàu lớn",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q057",
+   "question": "Tinh hệ 'Thiên Đồng, Cự Môn' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Phần nhiều bất lợi về Điền Trạch; trừ phi được cát hóa và có sao cát mà không gặp sát tinh, nếu không hễ mua bất động sản là bị tổn thất. Nếu gặp các sao sát, kỵ, hình, hao thì ắt sẽ vì bất động sản gặp phiền phức, thậm chí xảy ra kiện cáo. Còn chủ về nhị phòng hay con trai lớn mua thêm nhà cửa đất đai, nhưng phải gặp sao Lộc mới đúng.",
+   "source_quote": "Tinh hệ \"Thiên Đồng, Cự Môn\" phần nhiều bất lợi về Điền Trạch; trừ phi được cát hóa và có sao cát mà không gặp sát tinh, nếu không, hễ mua bất động sản là bị tổn thất... còn chủ về nhị phòng hay con trai lớn mua thêm nhà cửa đất đai, nhưng phải gặp sao Lộc mới đúng.",
+   "source_page": 834,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "star:cu_mon"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhị phòng (二房) = vợ thứ / chi thứ trong gia tộc",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q058",
+   "question": "Tổ hợp 'Thiên Đồng, Thiên Lương' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về tăng tính lưu động, vì vậy rất nên làm nghề mua bán bất động sản. Được cát hóa thì bán trước mua sau. Nếu Thiên Lương Hóa Lộc, bất kể mua hay bán bất động sản đều gặp chút ít phiền phức. Thiên Đồng đối nhau với Thiên Lương thì tính chất tốt hơn đồng độ, chủ về mua thêm nhà cửa đất đai khá thuận lợi.",
+   "source_quote": "Tổ hợp tịnh hệ \"Thiên Đồng, Thiên Lương\", chủ về tăng tính lưu động, vì vậy cung Điền Trạch mà gặp tịnh hệ này, rất nên làm nghề mua bán bất động sản.",
+   "source_page": 835,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "star:thien_luong",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q059",
+   "question": "Thiên Đồng thủ cung Điền Trạch nói gì về hoàn cảnh nơi ở và lưu niên?",
+   "answer_atom": "Do Thiên Đồng thiên nặng về hưởng thụ tinh thần, nên thông thường chủ về hoàn cảnh nơi ở có thể hưởng thụ thú thanh nhàn, mà không chủ về có nhiều bất động sản. Đến lưu niên Thiên Đồng thủ cung Điền Trạch, gặp các sao sát, kỵ chủ về sửa sang nhà cửa; được cát hóa và có sao cát chủ về mua thêm bất động sản. Công sở làm việc nên trang hoàng cho đẹp, có tính chất nghệ thuật thương nghiệp.",
+   "source_quote": "do Thiên Đồng thiên nặng về hưởng thụ tịnh thần, cho nên trong các tình huống thông thường đều chủ về hoàn cảnh nơi ở có thể hưởng thụ thú thanh nhàn, mà không chủ về có nhiều bất động sản.",
+   "source_page": 835,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q060",
+   "question": "Thiên Đồng ở cung Điền Trạch khi nào chủ về dễ xảy ra hỏa hoạn?",
+   "answer_atom": "Có Hỏa Tinh đồng độ, gặp Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, và có lưu sát xung khởi, chủ về dễ xảy ra hỏa hoạn; gặp Thiên Lương đồng độ hoặc vây chiếu thì chỉ bị một phen hú vía.",
+   "source_quote": "Thiên Đồng có Hỏa Tịnh đồng độ, gặp Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, và có lưu sát xung khởi, chủ về dễ xảy ra hỏa hoạn; gặp Thiên Lương đồng độ hoặc vây chiếu thì chỉ bị một phen hú vía.",
+   "source_page": 835,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_dong",
+    "star:hoa_tinh",
+    "star:thien_luong",
+    "concept:hoa_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q061",
+   "question": "Vì sao người xưa cho rằng Liêm Trinh không nên nhập cung Điền Trạch?",
+   "answer_atom": "Do Liêm Trinh thủ cung Điền Trạch có tính chất phá tổ nghiệp. Ngoài ra còn chủ về lúc tạo dựng sản nghiệp ắt sẽ gặp phiền phức, bất hòa, tranh chấp, dẫn đến phá tán, thất bại. Chỉ khi gặp các sao sát, hình là ứng nghiệm.",
+   "source_quote": "Do Liêm Trinh thủ cung Điền Trạch có tính chất phá tổ nghiệp, cho nên người xưa cho rằng Liêm Trinh không nên nhập cung Điền Trạch... Chỉ khi gặp các sao sát, hình là ứng nghiệm.",
+   "source_page": 835,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "concept:pha_to_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q062",
+   "question": "Liêm Trinh thủ Điền Trạch gặp Kình Dương, Đà La giao hội và sát kỵ hình thì nên chọn nghề gì?",
+   "answer_atom": "Nên lợi dụng tính chất này để chọn nơi làm việc: chỉ cần làm việc trong ngành sản khoa, ngoại khoa, hoặc lĩnh vực ẩm thực, 'hình pháp, kỷ luật' thì có thể phát huy. Lưu ý: dùng cung Điền Trạch để định hướng nghề nghiệp là cách suy của thời cổ đại, khi vận dụng ở thời hiện đại cần cực kỳ cẩn thận, không được quá cố chấp thuyết của cổ nhân mà phải biến thông cho hợp thời đại.",
+   "source_quote": "Liêm Trinh thủ Điền Trạch, nếu có Kình Dương, Đà La giao hội... chỉ cần làm việc trong ngành sản khoa, ngoại khoa, hoặc lĩnh vực ẩm thực, \"hình pháp, kỳ luật\", thì có thể phát huy.",
+   "source_page": 836,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:kinh_duong",
+    "star:da_la",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": "Tác giả dặn: thời hiện đại vận dụng phải biến thông, không cố chấp thuyết cổ nhân."
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q063",
+   "question": "Liêm Trinh chủ về máu có ý nghĩa gì đối với cung Điền Trạch?",
+   "answer_atom": "Cung Điền Trạch là Liêm Trinh Hóa Kỵ sẽ chủ về sự cố có liên quan đến chảy máu. Nhưng nếu lưu niên cát, lại gặp Hồng Loan, Thiên Hỉ đồng độ với Liêm Trinh thì chủ về có chuyện mừng thêm nhân khẩu. Nếu lưu niên không cát tường mà còn gặp Bạch Hổ, Tang Môn, Điếu Khách, sẽ chủ về có tang.",
+   "source_quote": "Liêm Trinh còn chủ về máu, điều này đối với cung Điền Trạch là cực kỳ quan trọng. Cung Điền Trạch là Liêm Trinh Hóa Kỵ, sẽ chủ về sự cố có liên quan đến chảy máu.",
+   "source_page": 836,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "transform:hoa_ky",
+    "star:hong_loan",
+    "star:thien_hi",
+    "star:bach_ho",
+    "star:tang_mon",
+    "star:dieu_khach"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q064",
+   "question": "'Liêm Trinh, Thiên Tướng' đối nhau với Phá Quân ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Hơi gặp sát tinh chủ về tổ nghiệp điêu linh. Nếu được 'Tài Ấm Giáp Ấn' thì có thể được hưởng tổ nghiệp; nếu 'Tài Ấm Giáp Ấn' mà còn gặp các sao phụ, tá cát thì không những có tổ nghiệp mà còn tự mua thêm nhiều bất động sản.",
+   "source_quote": "\"Liêm Trinh, Thiên Tướng\" đối nhau với Phá Quân, hơi gặp sát tinh, chủ về tổ nghiệp điều linh. Nếu được \"Tài Ấm Giáp Ấn\" thì có thể được hưởng tổ nghiệp",
+   "source_page": 836,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "star:pha_quan",
+    "concept:tai_am_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài Ấm Giáp Ấn = sao tài và sao ấm kẹp sao ấn (Thiên Tướng), cách cục tốt",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q065",
+   "question": "'Liêm Trinh, Phá Quân' đối nhau với Thiên Tướng ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Cần chú ý tính chất của Thiên Tướng, nhưng tính chất tổ nghiệp lung lay càng nặng. Nếu gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, thì sau khi phá tán có thể tự tạo dựng sản nghiệp.",
+   "source_quote": "\"Liêm Trinh, Phá Quân\" đối nhau với Thiên Tướng, đương nhiên cần phải chú ý tính chất của Thiên Tướng, nhưng tính chất tổ nghiệp lung lay càng nặng. Nếu gặp các sao Hỏa Tinh, Linh Tỉnh, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, thì sau khi phá tán có thể tự tạo dựng sản nghiệp.",
+   "source_page": 836,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "star:thien_tuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q066",
+   "question": "Tổ hợp 'Liêm Trinh, Tham Lang' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Gặp cát tinh cũng có tổ nghiệp để lại nhưng khó giữ. Nếu gặp các sao Đào Hoa và các sao sát, kỵ, hình, hao thì vì tửu sắc, thú vui không lành mạnh mà phá tán. Liêm Trinh có 'Hỏa Tham', 'Linh Tham' vây chiếu thì tốt hơn đồng độ: đồng độ sẽ hoành phát rồi hoành phá; vây chiếu thì chỉ cần bản cung hơi gặp cát tinh là có thể tăng sản nghiệp.",
+   "source_quote": "Tổ hợp sao \"Liêm Trinh, Tham Lang\" gặp cát tinh cũng có tổ nghiệp để lại, nhưng khó giữ... nếu đồng độ với \"Hỏa Tham\", \"Linh Tham\" sẽ hoành phát rồi hoành phá",
+   "source_page": 836,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "concept:hoa_tham",
+    "concept:linh_tham",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hoành phát hoành phá = phát đột ngột rồi bại đột ngột",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q067",
+   "question": "'Liêm Trinh, Thất Sát' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về không có tổ nghiệp để lại, hoặc tổ nghiệp nhỏ, nhưng có thể tự mua; nhưng nếu Liêm Trinh hóa làm sao kỵ, lại gặp các sao sát, hình, hao, sẽ chủ về vì mua bất động sản mà thất bại.",
+   "source_quote": "\"Liêm Trinh, Thất Sát\", chủ về không có tổ nghiệp để lại, hoặc tổ nghiệp nhỏ, nhưng có thể tự mua; nhưng nếu Liêm Trinh hóa làm sao kỵ, lại gặp các sao sát, hình, hao, sẽ chủ về vì mua bất động sản mà thất bại.",
+   "source_page": 836,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:that_sat",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q068",
+   "question": "'Liêm Trinh, Thiên Phủ' đối nhau với Thất Sát ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về có tổ nghiệp để lại, hoặc nên giữ nhà cửa đang có, cũng nên nối nghiệp của cha ông. Nhưng nếu Thiên Phủ là 'kho lộ', 'kho trống' thì tổ nghiệp lung lay, không giữ được lâu. Nếu Thiên Phủ là 'kho phủ đầy ắp' thì tuy giữ tổ nghiệp nhưng còn có thể khai sáng hay làm tăng thêm.",
+   "source_quote": "\"Liêm Trinh, Thiên Phủ\" đối nhau với Thất Sát; chủ về có tổ nghiệp để lại, hoặc nên giữ nhà cửa đang có... Nếu Thiên Phủ là \"kho phủ đầy ắp\", tuy giữ tổ nghiệp nhưng còn có thể khai sáng hay làm tăng thêm.",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "star:that_sat",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q069",
+   "question": "'Liêm Trinh, Thiên Tướng' thủ cung Điền Trạch khi nào là năm dễ xảy ra hỏa tai?",
+   "answer_atom": "Khi Liêm Trinh hay Thất Sát Hóa Kỵ, có Hỏa Tinh, Linh Tinh đồng độ, còn có Kình Dương, Đà La giao hội, bị lưu sát xung phá, lại gặp Đại Hao, Thiên Hư — đây là năm dễ xảy ra hỏa tai.",
+   "source_quote": "\"Liêm Trinh, Thiên Tướng\" thủ cung Điền Trạch, mà Liêm Trinh hay Thất Sát Hóa Kỵ, có Hỏa Tinh, Linh Tinh đồng độ, còn có Kình Dương, Đà La giao hội, bị lưu sát xung phá, lại gặp Đại Hao, Thiên Hư, đây là năm dễ xảy ra hỏa tai.",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "concept:hoa_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q070",
+   "question": "Hễ 'Liêm Trinh, Thiên Phủ' ở cung Điền Trạch thì cung Mệnh và cung Huynh Đệ có cấu trúc gì?",
+   "answer_atom": "Cung Mệnh ắt sẽ vô chính diệu, mượn 'Thiên Đồng, Cự Môn' để an sao; cung Huynh Đệ là Tử Vi đối nhau với Tham Lang. Nếu Tham Lang Hóa Kỵ sẽ chủ về Điền Trạch bị anh em đục đẽo.",
+   "source_quote": "Hỗ \"Liêm Trinh, Thiên Phủ\" ở cung Điền Trạch, cung Mệnh ắt sẽ vô chính điệu, mượn \"Thiên Đồng, Cự Môn\" để an sao; cung Huynh Đệ là Tử Vi đối nhau với Tham Lang, nếu Tham Lang Hóa Kỵ, sẽ chủ về Điền Trạch bị anh em đục đẻo.",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "star:tham_lang",
+    "palace:huynh_de",
+    "concept:vo_chinh_dieu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vô chính diệu = cung không có chính tinh, phải mượn sao cung đối",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q071",
+   "question": "Liêm Trinh ở cung Điền Trạch có cần chú ý phong thủy không?",
+   "answer_atom": "Thông thường nên chú ý phong thủy, trừ phi 'Liêm Trinh, Thiên Phủ' hay 'Liêm Trinh, Tham Lang' gặp cát tinh, cát hóa thì phong thủy không quan trọng lắm; còn Liêm Trinh hóa cát thì có liên quan đến phong thủy.",
+   "source_quote": "Liêm Trinh ở cung Điền Trạch, thông thường nên chú ý phong thủy, trừ phi \"Liêm Trinh, Thiên Phủ\" hay \"Liêm Trinh, Tham Lang\" gặp cát tinh, cát hóa, thì phong thủy không quan trọng lắm",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:liem_trinh",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q072",
+   "question": "Thiên Phủ tọa thủ cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Cung Điền Trạch ưa Thiên Phủ tọa thủ, chủ về có nhà cửa của cha ông để lại, hoặc được làm việc ở cơ sở có tiếng tăm. Thiên Phủ chủ về phòng thủ, nhưng lúc có các sao phụ tá hội hợp, còn có Hóa Lộc hoặc Lộc Tồn tương hội, thì có thể phát triển ở cơ sở có sẵn, có thêm nhà cửa. Nếu Thiên Phủ là 'kho lộ', 'kho trống' thì khó giữ tổ nghiệp.",
+   "source_quote": "Cung Điền Trạch ưa Thiên Phủ tọa thủ, chủ về có nhà cửa của cha ông để lại, hoặc được làm việc ở cơ sở có tiếng tăm... Nếu Thiên Phủ là \"kho lộ\", \"kho trống\", thì khó giữ tổ nghiệp.",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_phu",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q073",
+   "question": "Cách 'Văn tinh nhập trạch' của Thiên Phủ ở cung Điền Trạch là gì?",
+   "answer_atom": "Thiên Phủ rất ưa gặp các sao khoa văn: có Văn Xương, Văn Khúc, Long Trì, Phượng Các, Thiên Tài, Hóa Khoa đồng độ hoặc hội hợp là cách 'Văn tinh nhập trạch'. Người xưa cho rằng phát về khoa cử công danh, nhà có con trai học hành cao; nếu gặp thêm sao Lộc còn chủ về mua bất động sản thì đắc lợi.",
+   "source_quote": "Tức có các sao Văn Xương, Văn Khúc, Long Trì, Phương Các, Thiên Tài, Hóa Khoa đồng độ hoặc hội hợp, là cách \"Văn tinh nhập trạch\", người xưa cho rằng phát về khoa cử công danh, nhà có con trai học hành cao",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_phu",
+    "star:van_xuong",
+    "star:van_khuc",
+    "concept:van_tinh_nhap_trach"
+   ],
+   "commentary": {
+    "han_viet_explain": "Văn tinh nhập trạch (文星入宅) = sao văn vào nhà",
+    "viet_thuan": "Nhà có sao văn = con cháu học giỏi, phát công danh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q074",
+   "question": "Thiên Phủ ở cung Điền Trạch bị các sao giáp cung xấu thì chủ về điều gì?",
+   "answer_atom": "Bị Kình Dương và Đà La giáp cung, đồng thời gặp thêm Hỏa Tinh và Linh Tinh giáp cung, sẽ chủ về bị áp lực mà dời chuyển Điền Trạch, hoặc bị buộc phải bán bất động sản. Địa Không và Địa Kiếp giáp cung cũng chủ về phá tán. Vì vậy lúc Thiên Phủ đồng độ với Lộc Tồn (ắt bị Kình Đà giáp) cần phải xem có thêm sát tinh khác hay không.",
+   "source_quote": "Nếu Thiên Phủ bị Kình Dương và Đà La giáp cung, đồng thời gặp thêm Hỏa Tinh và Linh Tinh giáp cung, sẽ chủ về bị áp lực mà dời chuyển Điền Trạch, hoặc bị buộc phải bán bất động sản.",
+   "source_page": 837,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_phu",
+    "star:kinh_duong",
+    "star:da_la",
+    "star:loc_ton",
+    "concept:giap_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": "Giáp cung = hai sao kẹp hai bên cung",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q075",
+   "question": "Thiên Phủ thủ cung Điền Trạch nói gì về công việc?",
+   "answer_atom": "Vốn chủ về công việc ổn định; nhưng nếu bị giáp cung xấu như trên sẽ chủ về bị buộc phải thay đổi. Gặp các sao sát, kỵ, hình hội hợp thì nơi làm việc xảy ra bất hòa, tranh chấp.",
+   "source_quote": "Thiên Phủ thủ cung Địa Điền Trạch, vốn chủ về công việc ổn định; nhưng nếu gặp tình hình thuật ở trên, sẽ chủ về bị buộc phải thay đổi. Gặp các sao sát, kỵ, hình, hãm hội hợp, thì nơi làm việc xảy ra bất hòa, tranh chấp.",
+   "source_page": 838,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_phu",
+    "concept:noi_lam_viec"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q076",
+   "question": "Thiên Phủ đồng độ với Tử Vi được 'bách quan triều củng' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về ruộng vườn bao la, tổ nghiệp và bất động sản tự mua đều tốt. Nhưng chỉ giữ sự nghiệp có sẵn, thiếu sức khai sáng, cần xem kỹ các sao ở cung Mệnh mà định tiến thoái, vì ở xã hội hiện đại mà bảo thủ thì bất lợi.",
+   "source_quote": "Thiên Phủ rất ưa Tử Vi đồng độ, được \"bách quan triều củng\", thì ruộng vườn bao la, tổ nghiệp và bất động sản tự mua đều tốt. Nhưng chủ về chỉ giữ sự nghiệp có sẵn, thiếu sức khai sáng",
+   "source_page": 838,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_phu",
+    "star:tu_vi",
+    "concept:bach_quan_trieu_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q077",
+   "question": "Thiên Phủ ở cung Điền Trạch khi nào có nguy cơ hỏa tai và có bị phong thủy ảnh hưởng không?",
+   "answer_atom": "Đồng cung với Hỏa Tinh, gặp các sao hư, hao, không, kiếp, mà bị lưu sát xung hội, thì chủ về năm đó có nguy cơ xảy ra hỏa tai. Trong các tình huống thông thường Thiên Phủ không bị ảnh hưởng phong thủy; nhưng trường hợp có Thiên Diêu, Âm Sát đồng độ thì lại bị.",
+   "source_quote": "Thiên Phủ đồng cung với Hỏa Tinh, gặp các sao hư, hao, không, kiếp, mà bị lưu sát xung hội, thì chủ về năm đó có nguy cơ xảy ra hỏa tai. Trong các tình huống thông thường, Thiên Phủ không bị ảnh hưởng phong thủy; nhưng trường hợp có Thiên Diêu, Âm Sát đồng độ thì lại bị ảnh hưởng.",
+   "source_page": 838,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_phu",
+    "star:hoa_tinh",
+    "star:thien_dieu",
+    "star:am_sat",
+    "concept:hoa_tai",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q078",
+   "question": "Thái Âm ở cung Điền Trạch có tính chất gì cơ bản?",
+   "answer_atom": "Thái Âm chủ về phú, cho nên nhập miếu thì lợi về Điền Trạch; nếu người sinh vào ban ngày mà gặp Thái Âm lạc hãm, sẽ chủ về mua thêm nhà cửa đất đai rất gian nan. Thái Âm có các sao phụ, tá đồng độ, người xưa cho rằng được hưởng tổ nghiệp; gặp cát tinh thì có tổ nghiệp mà còn tự mua thêm.",
+   "source_quote": "Thái Âm chủ về phú, cho nên nhập miếu thì lợi về Địa Điền Trạch, nếu người sinh vào ban ngày mà gặp Thái Âm lạc hãm, sẽ chủ về mua thêm nhà cửa đất đai rất gian nan.",
+   "source_page": 838,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_am",
+    "concept:nhap_mieu",
+    "concept:lac_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phú (富) = giàu có về của cải",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q079",
+   "question": "Thái Âm gặp Thái Dương đồng độ hoặc vây chiếu ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Cổ nhân cho rằng 'Thái Dương, Thái Âm' ở cung Điền Trạch thì gia đạo hưng thịnh. Ý vị này cũng có thể áp dụng ở nơi làm việc.",
+   "source_quote": "Thái Âm cũng ưa gặp Thái Dương đồng độ hoặc vây chiếu, cổ nhân cho rằng, \"Thái Dương, Thái Âm\" ở cung Địa Điền Trạch thì gia đạo hưng thịnh. Ý vị này cũng có thể áp dụng ở nơi làm việc.",
+   "source_page": 838,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_am",
+    "star:thai_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q080",
+   "question": "Thái Âm lạc hãm gặp 'Ám Tinh' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Thái Âm lạc hãm thì dù có sao cát cũng có khuyết điểm. Nếu lại có Ám Tinh bay đến, các sao hình, hao tụ tập, e rằng phải chia lìa mẹ. 'Ám Tinh' ở đây là Cự Môn hay Văn Khúc Hóa Kỵ: trường hợp Cự Môn Hóa Kỵ thì sản nghiệp có thị phi, phá tán; trường hợp Văn Khúc Hóa Kỵ thì bất lợi về mẹ. Nếu có Địa Không, Địa Kiếp đồng cung, Văn Khúc Hóa Kỵ còn chủ về mua bán nhà cửa bị tổn thất.",
+   "source_quote": "Nếu lại có Ám Tinh bay đến, các sao hình, hao tụ tập, e rằng phải chia lìa mẹ. \"Ám Tinh\" ở đây là nói Cự Môn hay Văn Khúc Hóa Kỵ.",
+   "source_page": 838,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_am",
+    "star:cu_mon",
+    "star:van_khuc",
+    "transform:hoa_ky",
+    "concept:am_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Ám Tinh (暗星) = sao ám, sao che tối",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q081",
+   "question": "Thái Âm ở cung Điền Trạch với các tổ hợp và sát tinh khác nhau chủ về điều gì?",
+   "answer_atom": "Thái Âm nhập miếu hội sao cát: nhà ở nơi yên tịnh; lạc hãm hội sát tinh: nhà ở nơi ồn ào. 'Thái Âm, Thiên Đồng' lợi về trồng trọt; 'Thái Âm, Thiên Cơ' chủ về dời chuyển. Thái Âm có Lộc Tồn, Hỏa Tinh đồng độ, bị lưu sát xung phá sẽ dễ xảy ra hỏa tai. Thái Âm gặp Địa Không, Địa Kiếp chủ về phá tán. Thái Âm Hóa Kỵ gặp sát tinh thì nên đề phòng có tang; không có sát tinh thì gia trạch hay nơi làm việc xảy ra thị phi.",
+   "source_quote": "Thái Âm nhập miếu hội sao cát, chủ về nhà ở nơi yên tịnh; Thái Âm lạc hãm mà hội sát tinh, thì nhà ở nơi ồn ào. \"Thái Âm, Thiên Đồng\" thì lợi về trổng trọt; \"Thái Âm, Thiên Cơ\" thì chủ về dời chuyển",
+   "source_page": 839,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_am",
+    "star:thien_dong",
+    "star:thien_co",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q082",
+   "question": "Nữ mệnh lưu niên đến cung hạn Thái Âm Hóa Kỵ thủ cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Xung hội Thái Dương Hóa Kỵ, gặp sát tinh, còn gặp thêm các sao Đào Hoa, Văn Xương, Văn Khúc, thì có rắc rối khó xử về tình cảm. Ngoài ra, lưu niên đến cung hạn Thái Âm lạc hãm Hóa Kỵ ở cung Điền Trạch, gặp sát tinh thì chủ về sản nghiệp bị hao tổn; không gặp sát tinh cũng không nên đầu tư bất động sản.",
+   "source_quote": "Nữ mệnh lưu niên đến cung hạn Thái Âm Hóa Kỵ thủ cung Điền Trạch, xung hội Thái Dương Hóa Kỵ, gặp sát tinh, còn gặp thêm các sao Đào Hoa, Văn Xương, Văn Khúc, thì có rắc rối khó xử về tình cảm.",
+   "source_page": 839,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thai_am",
+    "star:thai_duong",
+    "transform:hoa_ky",
+    "concept:nu_menh",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q083",
+   "question": "Tham Lang nhập miếu ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Tham Lang nhập miếu chủ về có tổ nghiệp để lại, lạc hãm thì không có. Nếu nhập miếu, đồng độ với Hỏa Tinh, Linh Tinh, thì tự mua thêm khá nhiều bất động sản, nhưng nhà ở ắt sẽ có hư hao; tức như cổ nhân nói 'Cách Hỏa Tham nên ở nhà lớn cũ'.",
+   "source_quote": "Tham Lang nhập miếu chủ về có tổ nghiệp để lại, lạc hãm thì không có. Nếu nhập miếu, đồng độ với Hỏa Tinh, Linh Tinh, thì tự mua thêm khá nhiều bất động sản, nhưng nhà ở ắt sẽ có hư hao; tức như cổ nhân nói, \"Cách Hỏa Tham nên ở nhà lớn cũ\".",
+   "source_page": 839,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tham_lang",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "concept:hoa_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q084",
+   "question": "Cách 'Hỏa Tham', 'Linh Tham' ở cung Điền Trạch gặp sát tinh hội hợp chủ về điều gì?",
+   "answer_atom": "Có Kình Dương, Đà La, Thiên Hình, Hóa Kỵ, Địa Không, Địa Kiếp hội hợp, sẽ chủ về bất động sản có nhanh thì mất nhanh, hoặc chủ về binh tai hỏa hoạn, hay vì tửu sắc mà phá tán. Nếu đồng thời còn có các sao cát hội hợp mà sát kỵ khá nhẹ, thì chỉ bị một phen hú vía.",
+   "source_quote": "Nếu là cách \"Hỏa Tham\", \"Linh Tham\" mà có các sao Kình Dương, Đà La, Thiên Hình, Hóa Kỵ, Địa Không, Địa Kiếp hội hợp, sẽ chủ về bất động sản có nhanh thì mất nhanh, hoặc chủ về binh tai hỏa hoạn, hay vì tửu sắc mà phá tán.",
+   "source_page": 839,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tham_lang",
+    "concept:hoa_tham",
+    "concept:linh_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Binh tai (兵災) = tai họa do chiến tranh, loạn lạc",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q085",
+   "question": "Tham Lang nhập miếu không có Hỏa Linh nhưng có cát tinh ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Có cát tinh (như Hóa Khoa, Lộc Tồn, Văn Xương, Văn Khúc) đồng độ hoặc hội chiếu thì sản nghiệp hưng thịnh, bền vững. Nếu gặp các sao Đào Hoa và Long Trì, Phượng Các thì nhà ở đẹp đẽ. Còn nếu nhập miếu gặp cát tinh lại gặp thêm Hỏa Tinh, Linh Tinh thì chủ về thường dời chuyển, gia trạch không yên; hội Lộc Tồn, Thiên Mã thì càng đúng.",
+   "source_quote": "Tham Lang nhập miếu, không có Hỏa Tinh, Linh Tinh, nhưng có cát tinh (như Hóa Khoa, Lộc Tồn, Văn Xương, Văn Khúc) đồng độ hoặc hội chiếu, thì sản nghiệp hưng thịnh, bền vững.",
+   "source_page": 839,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tham_lang",
+    "star:loc_ton",
+    "star:van_xuong",
+    "star:van_khuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q086",
+   "question": "Cung Điền Trạch của lưu niên là Tham Lang Hóa Lộc hoặc Hóa Kỵ chủ về điều gì?",
+   "answer_atom": "Tham Lang Hóa Lộc: nên chủ về mua hay sửa sang nhà ở. Tham Lang Hóa Kỵ: thì chuyển dời hoặc đại tu. Nếu lưu niên Tham Lang lạc hãm, có Hỏa Tinh, Linh Tinh đồng độ, lại gặp thêm các sao hình, hao, bị lưu sát xung hội, cũng chủ về hỏa tai; gặp cát tinh thì sau hỏa tai tổn thất không lớn, chỉ sửa sang lại.",
+   "source_quote": "Vì vậy lúc cung Điền Trạch của lưu niên là Tham Lang Hóa Lộc, nên chủ về mua hay sửa sang nhà ở. Nếu Tham Lang Hóa Kỵ thì chuyển dời hoặc đại tu.",
+   "source_page": 839,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tham_lang",
+    "transform:hoa_loc",
+    "transform:hoa_ky",
+    "concept:luu_nien",
+    "concept:hoa_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q087",
+   "question": "Tham Lang chủ 'tán' không chủ 'tụ' có ý nghĩa gì ở cung Điền Trạch?",
+   "answer_atom": "Vì Tham Lang chủ về 'tán' mà không chủ về 'tụ', nên chỉ hơi gặp các sao hình, kỵ liền xảy ra sự cố. Tham Lang rất ngại Vũ Khúc Hóa Kỵ, chủ về vì tai họa mà phá tán sản nghiệp. Gặp Liêm Trinh Hóa Kỵ đến hội thì nên đề phòng Điền Trạch xảy ra chuyện phải rơi nước mắt, có chảy máu (nếu gặp thêm Thiên Hỉ thì chủ về thêm nhân khẩu).",
+   "source_quote": "Tham Lang chủ về \"tán\" mà không chủ về \"tụ\", vì vậy chỉ hơi gặp các sao hình, kỵ liền xảy ra sự cố. Tham Lang rất ngại Vũ Khúc Hóa Kỵ, chủ về vì tai họa mà phá tán sản nghiệp.",
+   "source_page": 840,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tham_lang",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tán (散) = phân tán; Tụ (聚) = gom lại",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q088",
+   "question": "Tham Lang thủ cung Điền Trạch có bị ảnh hưởng phong thủy không?",
+   "answer_atom": "Bị ảnh hưởng phong thủy rất lớn, lúc mua nhà nên cẩn thận; nơi làm việc phần nhiều là hào nhoáng bề ngoài.",
+   "source_quote": "Tham Lang thủ cung Điền Trạch bị ảnh hưởng phong thủy rất lớn, lúc mua nhà nên cẩn thận, nơi làm việc phần nhiều là hào nhoáng bề ngoài.",
+   "source_page": 840,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:tham_lang",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q089",
+   "question": "Cự Môn ở hai cung Thìn hoặc Tuất thủ Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về phải gian khổ mới mua được nhà cửa đất đai. Nếu gặp các sao sát, kỵ thì chẳng có mảnh đất cắm dùi. Nếu có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, Âm Sát, Thiên Nguyệt, Kiếp Sát tương hội và đồng độ, chủ về công ty vỡ nợ, sập tiệm, gia trạch gặp họa, hoặc binh tai hỏa hoạn, bị trộm cướp. Nếu cung Mệnh không cát tường thì bản thân phiêu bạt tứ hải; ở cung độ khác thì lấy trường hợp Cự Môn Hóa Kỵ là đúng.",
+   "source_quote": "Cự Môn ở hai cung Thìn hoặc Tuất, chủ về phải gian khổ mới mua được nhà cửa đất đai. Nếu gặp các sao sát, kỵ, thì chẳng có mảnh đất cắm dùi.",
+   "source_page": 840,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:cu_mon",
+    "concept:thin_tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q090",
+   "question": "Cự Môn ở cung Điền Trạch có lợi cho việc giữ sản nghiệp cha ông không?",
+   "answer_atom": "Cự Môn bất lợi về Điền Trạch, dù gặp cát tinh cũng không có sản nghiệp của cha ông để giữ, nhưng sau trung niên sẽ tự mua được, nhất là Cự Môn Hóa Lộc thì càng đúng.",
+   "source_quote": "Cự Môn bất lợi về Điền Trạch, dù gặp cát tinh, cũng không có sản nghiệp của cha ông để giữ, nhưng sau trung niên sẽ tự mua được, nhất là Cự Môn Hóa Lộc thì càng đúng.",
+   "source_page": 840,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:cu_mon",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q091",
+   "question": "Nữ mệnh 'Thiên Đồng, Cự Môn' thủ cung Điền Trạch mà Cự Môn Hóa Lộc chủ về điều gì?",
+   "answer_atom": "Chủ về được chồng hay bạn trai mua nhà cho; nếu đồng thời gặp thêm sát tinh thì không chịu giữ.",
+   "source_quote": "Nữ mệnh \"Thiên Đồng, Cự Môn\" thủ cung Điền Trạch, mà Cự Môn Hóa Lộc, chủ về được chổng hay bạn trai bán nhà cho; nếu đồng thời gặp thêm sát tinh, thì không chịu giữ.",
+   "source_page": 840,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:cu_mon",
+    "star:thien_dong",
+    "transform:hoa_loc",
+    "concept:nu_menh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q092",
+   "question": "Cự Môn gặp Thiên Đồng hoặc Thái Dương đồng cung hay vây chiếu ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Gặp Thiên Đồng đồng cung hay vây chiếu, gặp sát tinh hoặc Hóa Kỵ: thời cổ đại chủ về tranh giành thủy lợi, cũng chủ về dễ tranh chấp thị phi với hàng xóm láng giềng. Gặp Thái Dương đồng cung hay vây chiếu: nếu có sự nghiệp cha ông để lại thì xảy ra tranh chấp; thời hiện đại trừ phi cát tinh tụ tập, nếu không cũng dễ vì kinh doanh địa ốc mà tranh chấp; sát tinh nặng thì vì điền trạch mà hao tốn ngầm; được cát hóa thì nên làm việc cho công ty nước ngoài.",
+   "source_quote": "Cự Môn gặp Thiên Đồng đồng cung hay vây chiếu, gặp sát tinh, hoặc Hóa Kỵ, thời cổ đại là chủ về tranh giành thủy lợi, cũng chủ về dễ xảy ra tranh chấp thị phi với hàng xóm láng giềng.",
+   "source_page": 840,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:cu_mon",
+    "star:thien_dong",
+    "star:thai_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q093",
+   "question": "Cự Môn Hóa Kỵ ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về gia trạch bất an, hoặc bản thân thường xa nhà. Gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, chủ về vì sản nghiệp mà kiện tụng. Gặp Văn Khúc Hóa Kỵ, chủ về vì bán sản nghiệp mà bị lừa.",
+   "source_quote": "Cự Môn Hóa Kỵ ở cung Điền Trạch, chủ về gia trạch bất an, hoặc bản thân thường xa nhà. Gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, chủ về vì sản nghiệp mà kiện tụng. Gặp Văn Khúc Hóa Kỵ, chủ về vì bán sản nghiệp mà bị lừa.",
+   "source_page": 841,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:cu_mon",
+    "transform:hoa_ky",
+    "star:van_khuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q094",
+   "question": "Cự Môn được cát hóa nhưng đến đại vận hoặc lưu niên hóa thành sao kỵ thì sao?",
+   "answer_atom": "Có sát tinh, chủ về vì bất động sản mà chuốc họa tai, thị phi; có Hỏa Tinh đồng độ thì đề phòng hỏa tai. Cự Môn rất mẫn cảm đối với phong thủy, Hóa Kỵ thì càng nặng.",
+   "source_quote": "Cự Môn được cát hóa, đến đại vận hoặc lưu niên lại hóa làm sao kỵ, có sát tinh, chủ về vì bất động sản mà chuốc họa tai, thị phi; có Hỏa tinh đồng độ thì để phòng hỏa tai. Cự Môn rất mẫn cảm đối với phong thủy, Hóa Kỵ thì càng nặng.",
+   "source_page": 841,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:cu_mon",
+    "transform:hoa_ky",
+    "concept:phong_thuy",
+    "concept:hoa_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q095",
+   "question": "Thiên Tướng ở cung Điền Trạch với 'Tài Ấm Giáp Ấn' và 'Hình Kỵ Giáp Ấn' khác nhau thế nào?",
+   "answer_atom": "Thiên Tướng được 'Tài Ấm Giáp Ấn' chủ về có phúc ấm của cha ông; bị 'Hình Kỵ Giáp Ấn' thì không có, hoặc khó khăn mới được thì lại phá tán. Thiên Tướng cần phải gặp sao Lộc mới có thể tự mua bất động sản; gặp thêm các sao phụ, tá cát thì có nhiều sản nghiệp.",
+   "source_quote": "Thiên Tướng được \"Tài ấm giáp ấn\", chủ về có phúc ấm của cha ông; bị \"Hình kỵ giáp ấn\" thì không có, hoặc khó khăn mới được thì lại phá tán. Thiên Tướng cần phải gặp sao Lộc, mới có thể tự mua bất động sản",
+   "source_page": 841,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_tuong",
+    "concept:tai_am_giap_an",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài Ấm Giáp Ấn / Hình Kỵ Giáp Ấn = hai cách cục giáp cung đặc trưng của Thiên Tướng",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q096",
+   "question": "Thiên Tướng ở cung Điền Trạch bị các sao giáp cung khác nhau chủ về điều gì?",
+   "answer_atom": "Bị Hỏa Tinh và Linh Tinh giáp cung: gia trạch bất an, nhà ở nơi ồn ào hay có khuyết điểm; nếu lại đồng độ với các sao Không, Kiếp, Hao sẽ chủ về hỏa tai. Ưa Văn Xương và Văn Khúc giáp, Long Trì và Phượng Các giáp, Tả Phụ và Hữu Bật giáp: chủ về nhà ở hoa lệ; có sát tinh đồng độ thì chỉ hào nhoáng bề ngoài. Bị 'Hình Kỵ Giáp Ấn', Kình Dương và Đà La giáp cung: chủ về bị bốn phía quấy rối hoặc uy hiếp. Được Hóa Lộc, Hóa Quyền, Hóa Khoa giáp cung, Thiên Khôi và Thiên Việt giáp cung: chủ về nhà ở gần người quyền quý, gia trạch phát khoa cử công danh.",
+   "source_quote": "Thiên Tướng bị Hỏa tinh và Linh tinh giáp cung, chủ về gia trạch bất an, nhà ở nơi ổn ào hay có khuyết điểm... Thiên Tướng được Hóa Lộc, Hóa Quyền, Hóa Khoa giáp cung, Thiên Khôi và Thiên Việt giáp cung, đều chủ về nhà ở gần người quyền quý",
+   "source_page": 841,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_tuong",
+    "concept:giap_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Tướng nhạy với sao giáp hai bên: giáp cát thì nhà đẹp gần quý nhân, giáp hung thì bất an.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q097",
+   "question": "Thiên Tướng có các sao sát, hóa kỵ, hình hội hợp ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về vì sản nghiệp mà xảy ra thị phi bất hòa, tranh chấp; sát tinh nặng sẽ chủ về phá tán.",
+   "source_quote": "Thiên Tướng có các sao sát, hóa kỵ, hình hội hợp, chủ về vì sản nghiệp mà xảy ra thị phi bất hòa, tranh chấp; sát tinh nặng sẽ chủ về phá tán.",
+   "source_page": 841,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_tuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q098",
+   "question": "Thiên Tướng thủ cung Điền Trạch vì sao cần phải xem Thiên Phủ?",
+   "answer_atom": "Thiên Tướng thủ cung Điền Trạch cần phải xem Thiên Phủ: Thiên Phủ là kho phủ đầy ắp thì cát; Thiên Phủ là 'kho lộ', 'kho trống' thì hung.",
+   "source_quote": "Thiên Tướng thủ cung Điền Trạch, cần phải xem Thiên Phủ... \"Khố Phủ Đắc Áp\" thì cát; Thiên Phủ là \"Kho Lộ\", còn \"kho trống\" thì hung.",
+   "source_page": 842,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_tuong",
+    "star:thien_phu",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q099",
+   "question": "Thiên Tướng tụ hội với Vũ Khúc, Liêm Trinh tứ hóa ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Ưa tụ hội với Vũ Khúc Hóa Lộc: có nhiều sản nghiệp; Vũ Khúc Hóa Kỵ: sản nghiệp khuynh bại. Liêm Trinh Hóa Lộc: ắt mua thêm nhà cửa đất đai, hoặc gia trạch có hỉ khánh (chuyện mừng); Liêm Trinh Hóa Kỵ: gia trạch có chuyện đau buồn, rơi lệ. Vũ Khúc Hóa Khoa đồng độ với Thiên Tướng, được Liêm Trinh Hóa Lộc, Phá Quân Hóa Quyền vây chiếu hay hội hợp: tự tạo dựng rất nhiều sản nghiệp, rất thích hợp làm việc trong cơ cấu tài chính, cũng thích hợp kinh doanh nhà cửa đất đai.",
+   "source_quote": "Thiên Tướng ưa tụ hội với Vũ Khúc Hóa Lộc, chủ về có nhiều sản nghiệp. Nếu Vũ Khúc Hóa Kỵ sẽ chủ về sản nghiệp khuynh bại... Vũ Khúc Hóa Khoa đồng độ với Thiên Tướng, được Liêm Trinh Hóa Lộc, Phá Quân Hóa Quyền vây chiếu hay hội hợp, chủ về tự tạo dựng rất nhiều sản nghiệp",
+   "source_page": 842,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_tuong",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "transform:hoa_loc",
+    "transform:hoa_ky",
+    "transform:hoa_khoa",
+    "transform:hoa_quyen"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hỉ khánh (喜慶) = chuyện vui mừng",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q100",
+   "question": "Thiên Tướng ở cung Điền Trạch nói gì về nơi làm việc, phong thủy và nhà ở?",
+   "answer_atom": "Bị sao hung giáp cung hoặc có hung sát tinh hội hợp: chủ về bị cấp trên/chủ quản gây khó khăn, hoặc nơi làm việc không yên ổn, bị áp lực. Thiên Tướng khá mẫn cảm đối với phong thủy; gặp sát tinh, 'Vũ Khúc, Phá Quân' vây chiếu thì càng nặng. Thiên Tướng còn chủ về suốt đời ở nhà cũ.",
+   "source_quote": "Thiên Tướng khá mẫn cảm đối với phong thủy; gặp sát tinh, \"Vũ Khúc, Phá Quân\" vây chiếu thì càng nặng. Thiên Tướng còn chủ về suốt đời ở nhà cũ.",
+   "source_page": 842,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_tuong",
+    "concept:phong_thuy",
+    "concept:noi_lam_viec"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q101",
+   "question": "Thiên Lương là 'ấm tinh' ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Thiên Lương là 'ấm tinh', vì vậy khi ở cung Điền Trạch ắt sẽ có tổ nghiệp của cha ông để lại; rất nên gặp Thiên Vu, Hóa Lộc hoặc Lộc Tồn, sẽ chủ về tổ nghiệp to tát. Nhưng đồng cung với Thiên Mã, hoặc có Hỏa Tinh, Linh Tinh đồng độ, sẽ chủ về trôi dạt, dù có tổ nghiệp của cha ông để lại cũng không được hưởng.",
+   "source_quote": "Thiên Lương là \"ấm tinh\", vì vậy khi ở cung Điền Trạch ắt sẽ có tổ nghiệp của cha ông để lại; rất nên gặp Thiên Vu, Hóa Lộc hoặc Lộc Tồn, sẽ chủ về tổ nghiệp to tát.",
+   "source_page": 842,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_luong",
+    "star:thien_vu",
+    "star:loc_ton",
+    "star:thien_ma",
+    "concept:am_tinh_thien_luong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Ấm tinh (蔭星) = sao che chở, phúc ấm từ đời trước",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q102",
+   "question": "Thiên Lương gặp Thiên Đồng đồng độ hoặc vây chiếu ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Thiên Lương rất kỵ gặp Thiên Đồng đồng độ hoặc vây chiếu, trừ phi được cát hóa, hội sao cát, nếu không sẽ chủ về khó mua thêm nhà cửa đất đai, hoặc mua thêm thì cũng không được hưởng. Hơn nữa gặp sát tinh thì mua vì người khác mà bản thân không ở, thường phiêu lưu nơi đất khách, thích hợp làm việc trong ngành giao thông vận tải. Nếu được cát hóa và có sao cát, lại chủ về bán biệt thự, hoặc mua thêm nhà cửa đất đai ở nơi khác.",
+   "source_quote": "Thiên Lương rất kỵ gặp Thiên Đồng đồng độ hoặc vây chiếu, trừ phi được cát hóa, hội sao cát, nếu không sẽ chủ về khó mua thêm nhà cửa đất đai, hoặc mua thêm nhà cửa đất đai thì cũng không được hưởng.",
+   "source_page": 842,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_luong",
+    "star:thien_dong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q103",
+   "question": "'Thiên Lương, Thiên Cơ' thủ cung Điền Trạch phân biệt Hóa Lộc và Hóa Kỵ thế nào?",
+   "answer_atom": "'Thiên Lương, Thiên Cơ' thủ cung Điền Trạch chủ về thường hay dời chuyển — ứng nghiệm dời chỗ ở hoặc thay đổi hoàn cảnh công tác. Thiên Cơ Hóa Lộc cũng chủ về biến động thay đổi. Phân biệt: Hóa Lộc thì chủ động, Hóa Kỵ thì bị động; Hóa Lộc thì mua thêm nhà cửa đất đai, Hóa Kỵ thì ở nhờ. Có lúc tổ hợp 'Thiên Lương, Thiên Cơ' cũng chủ về tu sửa nhà cũ; tổ hợp 'Thiên Lương, Thiên Đồng' thì chủ về đổi nhà.",
+   "source_quote": "Phân biệt hai trường hợp là: Hóa Lộc thì chủ động, Hóa Kỵ thì bị động. Hóa Lộc thì mua thêm nhà cửa đất đai, Hóa Kỵ thì ở nhờ.",
+   "source_page": 843,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_luong",
+    "star:thien_co",
+    "star:thien_dong",
+    "transform:hoa_loc",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cùng biến động nhưng Hóa Lộc là mình chọn, Hóa Kỵ là bị ép.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q104",
+   "question": "'Thiên Lương, Thiên Đồng' và 'Thiên Lương, Thiên Cơ' ở cung Điền Trạch kỵ sao nào?",
+   "answer_atom": "Đều không nên gặp Địa Không, Địa Kiếp đồng cung và hội hợp. Nếu không sẽ chủ về cuộc đời không có nơi ở cố định, cũng khó có tài sản. Không có sát tinh, được cát hóa và có sao cát, gia nghiệp mới có căn cơ.",
+   "source_quote": "\"Thiên Lương, Thiên Đồng\" và \"Thiên Lương, Thiên Cơ\" đều không nên gặp Địa Không, Địa Kiếp đồng cung và hội hợp. Nếu không, sẽ chủ về cuộc đời không có nơi ở cố định, cũng khó có tài sản.",
+   "source_page": 843,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_luong",
+    "star:thien_dong",
+    "star:thien_co",
+    "star:dia_khong",
+    "star:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q105",
+   "question": "Thiên Lương Hóa Lộc ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Phần nhiều duyên với người không tốt. Bị Thái Dương lạc hãm vây chiếu, lại gặp sát tinh, chủ về bị người ta bài xích, chèn ép ở nơi làm việc; Thái Dương Hóa Kỵ càng chuốc thị phi, oán trách. Ngoài ra Thiên Lương gặp tứ sát tinh thì gia trạch bất an, nơi làm việc nhiều thị phi; cần gặp các sao phụ tá cát, Hóa Khoa, Hóa Quyền mới chủ về yên ổn và được người ta tôn trọng.",
+   "source_quote": "Thiên Lương Hóa Lộc ở cung Điền Trạch, phần nhiều duyên với người không tốt. Bị Thái Dương lạc hãm vây chiếu, lại gặp sát tinh, chủ về bị người ta bài xích, chèn ép ở nơi làm việc",
+   "source_page": 843,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_luong",
+    "transform:hoa_loc",
+    "star:thai_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q106",
+   "question": "Thiên Lương ở cung Điền Trạch có bị ảnh hưởng phong thủy không?",
+   "answer_atom": "Thông thường không bị ảnh hưởng phong thủy; nhưng nếu có Âm Sát đồng độ, lại gặp Hỏa Tinh, Linh Tinh, thì bị ảnh hưởng.",
+   "source_quote": "Thiên Lương thông thường không bị ảnh hưởng phong thủy; nhưng nếu có Âm Sát đồng độ, lại gặp Hỏa Tinh, Linh Tinh, thì bị ảnh hưởng.",
+   "source_page": 843,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:thien_luong",
+    "star:am_sat",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q107",
+   "question": "Thất Sát nhập cung Điền Trạch chủ về điều gì cơ bản?",
+   "answer_atom": "Nếu là độc tọa, ngoại trừ ở hai cung Dần hoặc Thân, các trường hợp còn lại mua thêm nhà cửa đất đai đều bất lợi, còn không nên làm nghề mua bán bất động sản. Thất Sát rất ưa có sao Lộc: tuy không có sản nghiệp của cha ông để lại nhưng có thể tự tạo dựng. Nếu Thất Sát đồng cung với Lộc Tồn, lại có Hóa Lộc trùng điệp, nhưng lại gặp Địa Không, Địa Kiếp, thì tổ nghiệp bị phá tán trước, đến đại vận tốt có thể khôi phục như cũ.",
+   "source_quote": "Thất Sát nhập cung Điền Trạch, nếu là độc tọa, ngoại trừ ở hai cung Dần hoặc Thân, các trường hợp còn lại mua thêm nhà cửa đất đai đều bất lợi, còn không nên làm nghề mua bán bất động sản.",
+   "source_page": 843,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:that_sat",
+    "star:loc_ton",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q108",
+   "question": "'Vũ Khúc, Thất Sát' thủ cung Điền Trạch mà Thất Sát lạc hãm chủ về điều gì?",
+   "answer_atom": "Thông thường bất lợi về bất động sản; chỉ hơi gặp sát tinh, hoặc đối cung là Thiên Phủ không cát tường thì sản nghiệp dễ bị phá tán. Vũ Khúc cần phải Hóa Lộc mới chủ về tự mua nhiều sản nghiệp.",
+   "source_quote": "Vũ Khúc, Thất Sát thủ cung Điền Trạch, mà Thất Sát lạc hãm, thông thường bất lợi về bất động sản; chỉ hơi gặp sát tinh, hoặc đối cung là Thiên Phủ không cát tường thì sản nghiệp dễ bị phá tán. Vũ Khúc cần phải Hóa Lộc, mới chủ về tự mua nhiều sản nghiệp.",
+   "source_page": 843,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:that_sat",
+    "star:vu_khuc",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q109",
+   "question": "Thất Sát thủ cung Điền Trạch ngại sao kỵ nào đồng độ?",
+   "answer_atom": "Rất ngại có sao kỵ đồng độ: Vũ Khúc Hóa Kỵ chủ về sản nghiệp khuynh bại, cũng chủ về bị buộc thôi việc. Liêm Trinh Hóa Kỵ thì nên đề phòng gia trạch xảy ra chuyện đau buồn, rơi lệ. Nếu gặp Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, cũng chủ về xảy ra sự cố khiến phải bán sản nghiệp; các sao này đồng độ còn chủ về gia nghiệp phá tán.",
+   "source_quote": "Thất Sát thủ cung Điền Trạch, rất ngại có sao kỵ đồng độ. Vũ Khúc Hóa Kị chủ về sản nghiệp khuynh bại, cũng chủ về bị buộc thôi việc. Nếu Liêm Trinh Hóa Kị thì nên đề phòng gia trạch xảy ra chuyện đau buồn, rơi lệ.",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:that_sat",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q110",
+   "question": "Thất Sát có các sát tinh đồng độ khác nhau ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Có Hỏa Tinh, Kình Dương đồng độ: chủ về đến trung niên hay vãn niên mới có thể mua được nhà cửa. Có Đà La, Linh Tinh đồng độ: gia trạch bất an, ở nơi làm việc cũng hay bị ám hại. Đồng cung với Đà La, Hỏa Tinh, bị lưu sát xung khởi: chủ về bị một phen hú vía.",
+   "source_quote": "Thất Sát có Hỏa Tinh, Kình Dương đồng độ, chủ về đến trung niên hay văn niên mới có thể mua được nhà cửa; nếu có Đà La, Linh Tinh đồng độ thì gia trạch bất an; ở nơi làm việc cũng hay bị ám hại.",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:that_sat",
+    "star:hoa_tinh",
+    "star:kinh_duong",
+    "star:da_la",
+    "star:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q111",
+   "question": "Thất Sát gặp Vũ Khúc Hóa Kỵ hoặc Vũ Khúc Hóa Lộc đồng độ ở cung Điền Trạch khác nhau thế nào?",
+   "answer_atom": "Gặp Vũ Khúc Hóa Kỵ đồng độ: chủ về bán nhà; gặp các sao sát, kỵ: gặp trắc trở hoặc bị xử phạt. Đồng cung với Vũ Khúc Hóa Lộc, gặp Thiên Vu: chủ về thăng chức, thăng tiến; gặp các sao phụ, tá cát thì chủ về có quyền. Thất Sát ở hai cung Dần hoặc Thân còn chủ về nhờ được người ta đề bạt mà thăng chức chủ quản.",
+   "source_quote": "Thất Sát gặp Vũ Khúc Hóa Kị đồng độ, chủ về bán nhà; gặp các sao sát, kỵ, chủ về gặp trắc trở hoặc bị xử phạt; đồng cung với Vũ Khúc Hóa Lộc, gặp Thiên Vũ, chủ về thăng chức, thăng tiến",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:that_sat",
+    "star:vu_khuc",
+    "star:thien_vu",
+    "transform:hoa_loc",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q112",
+   "question": "Thất Sát ở cung Điền Trạch có mẫn cảm với phong thủy không?",
+   "answer_atom": "Thất Sát không mẫn cảm đối với phong thủy. Nhưng trường hợp 'Liêm Trinh, Thất Sát' đồng độ và 'Vũ Khúc, Thất Sát' đồng độ thì cũng nên chú ý phong thủy.",
+   "source_quote": "Thất Sát không mẫn cảm đối với phong thủy. Nhưng trường hợp \"Liêm Trinh, Thất Sát\" đồng độ, và \"Vũ Khúc, Thất Sát\" đồng độ, cũng nên chú ý phong thủy.",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:that_sat",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q113",
+   "question": "Phá Quân thủ cung Điền Trạch nhập miếu và lạc hãm khác nhau thế nào?",
+   "answer_atom": "Nhập miếu: chủ về sản nghiệp cũ bị đứt đoạn; lúc gặp các sao phụ, tá cát sẽ chủ về có sản nghiệp của cha ông để lại, mà còn có thể phát triển thành mới trên nền tảng có sẵn. Lạc hãm: chủ về phá nhà cũ, cũng chủ về nơi làm việc không có sáng kiến.",
+   "source_quote": "Phá Quân thủ cung Điền Trạch, nhập miếu, chủ về sản nghiệp cũ bị đứt đoạn; cho nên lúc gặp các sao phụ, tá cát sẽ chủ về có sản nghiệp của cha ông để lại, mà còn có thể phát triển thành mới trên nền tảng có sẵn. Nếu Phá Quân lạc hãm, sẽ chủ về phá nhà cũ, cũng chủ về nơi làm việc không có sáng kiến.",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:pha_quan",
+    "concept:nhap_mieu",
+    "concept:lac_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q114",
+   "question": "Phá Quân Hóa Lộc hay Hóa Quyền gặp cát tinh ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Chủ về phá bỏ nhà cũ xây mới lại; cũng chủ về thay đổi hoàn cảnh công tác theo hướng tốt hơn.",
+   "source_quote": "Phá Quân Hóa Lộc hay Hóa Quyền, lại gặp cát tinh, chủ về phá bỏ nhà cũ xây mới lại; cũng chủ về thay đổi hoàn cảnh công tác theo hướng tốt hơn.",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:pha_quan",
+    "transform:hoa_loc",
+    "transform:hoa_quyen"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q115",
+   "question": "Phá Quân gặp các sao sát, hao ở cung Điền Trạch chủ về tai họa gì?",
+   "answer_atom": "Có Kình Dương, Đà La hội hợp, gặp Đại Hao: chủ về Điền Trạch bị thủy tai. Nếu gặp Kình Dương, Đà La lại gặp thêm Văn Khúc Hóa Kỵ hội chiếu hoặc đồng độ: chủ về bị gây lụy hoặc bị lừa mà phải bán sản nghiệp. Gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp đồng cung hoặc hội chiếu: sản nghiệp bị tổn thất; nếu hội Vũ Khúc Hóa Kỵ và Âm Sát, Đại Hao, Thiên Hư thì tường nghiêng, nhà cửa đổ nát.",
+   "source_quote": "Phá Quân có Kình Dương, Đà La hội hợp, gặp Đại Hao, chủ về Điền Trạch bị thủy tai... nếu hội Vũ Khúc Hóa Kỵ và Âm Sát, Đại Hao, Thiên Hư, thì tường nghiêng, nhà cửa đổ nát.",
+   "source_page": 844,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:pha_quan",
+    "star:van_khuc",
+    "star:vu_khuc",
+    "transform:hoa_ky",
+    "concept:thuy_tai"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủy tai (水災) = tai họa do nước, lụt lội",
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q116",
+   "question": "'Tử Vi, Phá Quân' đồng độ gặp sao lộc ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Gặp Lộc Tồn hoặc Hóa Lộc mà không có các sao sát, kỵ, hình, hao, sẽ chủ về có được sản nghiệp một cách bất ngờ; ưa nhất là gặp Thiên Khôi, Thiên Việt đồng độ. Nếu hơi gặp sát tinh thì chủ về được nhanh mất nhanh. Trường hợp 'Tử Vi, Thiên Tướng' thì không chủ về có được sản nghiệp bất ngờ; chỉ khi được 'Tài Ấm giáp' lại gặp Phá Quân Hóa Lộc mới chủ về mua thêm nhà cửa đất đai, cũng chủ về thay đổi hoàn cảnh công tác.",
+   "source_quote": "\"Tử Vi, Phá Quân\" đồng độ, gặp Lộc Tồn hoặc Hóa Lộc, mà không có các sao sát, kỵ, hình, hao, sẽ chủ về có được sản nghiệp một cách bất ngờ; ưa nhất là gặp Thiên Khôi, Thiên Việt đồng độ.",
+   "source_page": 845,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:pha_quan",
+    "star:tu_vi",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "transform:hoa_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q117",
+   "question": "Phá Quân gặp Liêm Trinh đồng độ hay hội chiếu ở cung Điền Trạch chủ về điều gì?",
+   "answer_atom": "Rất ưa Liêm Trinh Hóa Lộc, chủ về sản nghiệp tăng lên; nếu Hóa Kỵ sẽ chủ về hao tán.",
+   "source_quote": "Phá Quân gặp Liêm Trinh đồng độ hay hội chiếu, rất ưa Liêm Trinh Hóa Lộc, chủ về sản nghiệp tăng lên; nếu Hóa Kỵ, sẽ chủ về hao tán.",
+   "source_page": 845,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:pha_quan",
+    "star:liem_trinh",
+    "transform:hoa_loc",
+    "transform:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.10-Q118",
+   "question": "Cung Điền Trạch của lưu niên gặp Phá Quân chủ về điều gì?",
+   "answer_atom": "Gặp Phá Quân nhập miếu lại có sao cát: chủ về dời đến nhà mới. Nếu lạc hãm mà gặp sát tinh: gia trạch phá tán; hội Vũ Khúc Hóa Kỵ càng chủ về bán nhà bán cửa, hoặc nơi làm việc ngừng hoạt động kinh doanh. Phá Quân ở cung Điền Trạch không bị ảnh hưởng phong thủy.",
+   "source_quote": "Cung Điền Trạch của lưu niên gặp Phá Quân nhập miếu, lại có sao cát, sẽ chủ về đời đến nhà mới. Nếu lạc hãm mà gặp sát tinh, thì gia trạch phá tán... Phá Quân ở cung Điền Trạch, không bị ảnh hưởng phong thủy.",
+   "source_page": 845,
+   "section_id": "5.10",
+   "tags": [
+    "palace:dien_trach",
+    "star:pha_quan",
+    "star:vu_khuc",
+    "transform:hoa_ky",
+    "concept:luu_nien",
+    "concept:phong_thuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": null,
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}

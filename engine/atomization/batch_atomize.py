@@ -55,6 +55,8 @@ def main() -> None:
     parser.add_argument("--pages", help="vd 100-150")
     parser.add_argument("--limit", type=int, help="max chunks to atomize this run")
     parser.add_argument("--all", action="store_true", help="atomize all pending")
+    parser.add_argument("--no-sync", action="store_true",
+                        help="bỏ qua auto-sync wiki.sqlite3 lên VPS cuối run")
     args = parser.parse_args()
 
     page_range = None
@@ -107,6 +109,19 @@ def main() -> None:
     print(f"⏱  Total time: {elapsed:.1f}s ({elapsed/60:.1f} min)")
     if success > 0:
         print(f"📈 Avg per chunk: {elapsed/success:.1f}s · {total_atoms/success:.1f} atoms · {total_tokens/success:.0f} tok")
+
+    # Auto-sync lên VPS — data KHÔNG tự deploy theo CI (lesson 2026-06-11:
+    # live lệch nửa ngày vì quên chạy tay). Best-effort, không fail run.
+    if success > 0 and not args.no_sync:
+        import subprocess
+        sync_sh = PROJECT_ROOT / "scripts" / "sync-atoms-to-vps.sh"
+        print("\n🔄 Auto-sync wiki.sqlite3 → VPS ...")
+        try:
+            r = subprocess.run([str(sync_sh)], capture_output=True, text=True, timeout=300)
+            tail = (r.stdout or "").strip().splitlines()[-1:] or ["(no output)"]
+            print(f"   {'✅' if r.returncode == 0 else '⚠'} {tail[0]}")
+        except Exception as e:
+            print(f"   ⚠ sync fail (chạy tay scripts/sync-atoms-to-vps.sh): {str(e)[:100]}")
 
 
 if __name__ == "__main__":

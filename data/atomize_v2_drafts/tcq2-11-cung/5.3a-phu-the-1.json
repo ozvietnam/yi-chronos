@@ -1,0 +1,2293 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.3",
+ "section_title": "Cung Phu Thê (1)",
+ "pages": [
+  568,
+  569,
+  570,
+  571,
+  572,
+  573,
+  574,
+  575,
+  576,
+  577,
+  578,
+  579,
+  580,
+  581,
+  582,
+  583,
+  584,
+  585,
+  586,
+  587,
+  588
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.3-Q001",
+   "question": "Tử Vi độc tọa ở Tý/Ngọ thủ cung Phu Thê, được bách quan triều củng thì người bạn đời thế nào?",
+   "answer_atom": "Tử Vi độc tọa Tý/Ngọ tại Phu Thê được bách quan triều củng: bạn đời đắc lực, địa vị cao nhưng tính độc đoán mạnh; nếu thành cách 'tại dã cô quân' hoặc 'vô đạo' thì bạn đời tính cách bạo ngược.",
+   "source_quote": "Tử Vi độc tọa ở hai cung Tý hoặc Ngọ, được “bách quan triều củng”, thì người bạn đời đắc lực, địa vị cao, tính độc đoán cũng mạnh. Nếu là cách cục “tại dã cô quân” hoặc “vô đạo”, sẽ chủ về người bạn đời tính cách bạo ngược.",
+   "source_page": 568,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Vi có đủ quần thần ở cung vợ chồng: bạn đời giỏi giang nhưng hay áp đặt; cô quân thì bạo ngược.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q002",
+   "question": "Tử Vi độc tọa Tý/Ngọ tại Phu Thê, loại thiên về tinh thần và loại thiên về vật chất khác nhau thế nào?",
+   "answer_atom": "Loại thiên tinh thần: bạn đời có khuynh hướng chi phối bản thân mệnh tạo; loại thiên vật chất: bạn đời chi phối tiền bạc của mệnh tạo. Kết cấu tinh hệ cát thì là sự chi phối tốt; ngược lại mệnh tạo dễ bị phá tán, thất bại hoặc tổn thương tình cảm vì sự chi phối đó.",
+   "source_quote": "thuộc loại thiên về tinh thần, chủ về người bạn đời có khuynh hướng chi phối bản thân mệnh tạo; thuộc loại thiên về vật chất, chủ về người bạn đời chỉ phối tiền bạc của bản thân mệnh tạo.",
+   "source_page": 568,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bạn đời chi phối mình về tinh thần hoặc tiền bạc, tốt xấu tùy kết cấu sao.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q003",
+   "question": "Tử Vi độc tọa Tý/Ngọ tại Phu Thê gặp Vũ Khúc Hóa Kỵ hoặc Liêm Trinh Hóa Kỵ thì lưu niên nào ứng nghiệm gì?",
+   "answer_atom": "Gặp Vũ Khúc Hóa Kỵ mà đến lưu niên Liêm Trinh Hóa Kỵ: đổ vỡ tình cảm. Gặp Liêm Trinh Hóa Kỵ mà đến lưu niên Vũ Khúc Hóa Kỵ: không có sinh hoạt vợ chồng.",
+   "source_quote": "gặp Vũ Khúc Hóa Kỵ mà đến lưu niên Liêm Trinh Hóa Kỵ, chủ về đổ vỡ tình cảm; gặp Liêm Trinh Hóa Kỵ mà đến lưu niên Vũ Khúc Hóa Kỵ, chủ về không có sinh hoạt vợ chồng.",
+   "source_page": 568,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hai sao Kỵ này đổi chỗ nhau giữa nguyên cục và lưu niên cho hai kết quả khác nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q004",
+   "question": "Tử Vi Tý/Ngọ tại Phu Thê, lưu niên nào dễ thay đổi tình cảm; nam/nữ mệnh kỵ cung hạn nào?",
+   "answer_atom": "Loại tinh thần: lưu niên 'Thiên Đồng, Cự Môn' dễ thay đổi tình cảm; loại vật chất: lưu niên Phá Quân, 'Vũ Khúc, Thiên Tướng'. Nữ mệnh không ưa đến cung hạn 'Thái Dương, Thiên Lương' mà Thái Âm Hóa Kỵ; nam mệnh không ưa cung hạn Thái Âm Hóa Kỵ ở cung Tị.",
+   "source_quote": "Tử Vi thuộc loại thiên về tinh thần, lúc đến lưu niên “Thiên Đồng, Cự Môn”, thường thường dễ thay đổi tình cảm; thuộc loại thiên về vật chất, lúc đến lưu niên Phá Quân, “Vũ Khúc, Thiên Tướng”, cũng dễ thay đổi tình cảm.",
+   "source_page": 568,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tùy Tử Vi nghiêng tinh thần hay vật chất mà năm nguy hiểm cho tình cảm khác nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q005",
+   "question": "Tử Vi Tý/Ngọ có Tham Lang đối cung thành 'Phiếm Thủy Đào Hoa' thì cung hạn nào bất lợi?",
+   "answer_atom": "Đối cung Tham Lang thành 'Phiếm Thủy Đào Hoa': đến cung hạn 'Thiên Đồng, Cự Môn' dễ đau khổ vì tình; đến cung hạn 'Thái Dương, Thiên Lương' dễ chia lìa với người bạn đời.",
+   "source_quote": "Tham Lang ở đối cung là “Phiếm Thủy Đào Hoa”, đến cung hạn “Thiên Đồng, Cự Môn” thì dễ sinh đau khổ vì tình; đến cung hạn “Thái Dương, Thiên Lương” thì dễ chia lì với người bạn đời.",
+   "source_page": 569,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đào hoa trôi nổi đối chiếu thì hai loại cung hạn này là điểm đau tình và chia ly.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q006",
+   "question": "'Tử Vi, Phá Quân' đồng độ Sửu/Mùi thủ cung Phu Thê nói chung cát hay hung?",
+   "answer_atom": "Thông thường bất lợi: dù vốn ổn định thì trước hôn nhân cũng có sóng gió trắc trở; nếu không ổn định thì dễ ly dị. Rất kị gặp 'sao lẻ' phụ tá — thường chủ về có người thứ ba xen vào.",
+   "source_quote": "Thông thường thủ cung Phu Thê là bất lợi. Dù vốn là ổn định, trước hôn nhân cũng có sóng gió, trắc trở; nếu không ổn định thì dễ ly dị... Rất kị gặp “sao lẻ” phụ, tá thường chủ về có người thứ ba xen vào.",
+   "source_page": 569,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Phá ở cung vợ chồng vốn xấu; sao phụ tá đi lẻ một chiếc là dấu hiệu người thứ ba.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q007",
+   "question": "'Tử Vi, Phá Quân' Sửu/Mùi đến hạn sát kị hình hao không kiếp trùng trùng thì ứng nghiệm gì?",
+   "answer_atom": "Đến Đại Vận/Lưu Niên có sát, kị, hình, hao, không, kiếp trùng trùng: bạn đời bị nạn tai, bệnh tật hoặc sự nghiệp thất bại. Nguyên cục thuộc loại 'không ổn định' thì thường chủ sinh ly tử biệt. Cung hạn quan trọng: 'Tử Vi, Phá Quân', 'Liêm Trinh, Tham Lang', 'Thiên Đồng, Thiên Lương', Cự Môn thủ Phu Thê.",
+   "source_quote": "đến Đại Vận hoặc Lưu Niên có các sao sát, kị, hình, hao, không, kiếp trùng trùng, chủ về người bạn đời bị nạn tai, bệnh tật, hoặc sự nghiệp thất bại.",
+   "source_page": 569,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn xấu dồn dập thì bạn đời gặp họa; cục không ổn định thì thành sinh ly tử biệt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q008",
+   "question": "'Tử Vi, Phá Quân' Sửu/Mùi hội Liêm Trinh Hóa Lộc hoặc Tham Lang Hóa Lộc kèm sao Đào Hoa thì sao?",
+   "answer_atom": "Hội Liêm Trinh Hóa Lộc/Tham Lang Hóa Lộc lại gặp sao Đào Hoa: dễ có tình cảm bên ngoài; gặp thêm sao hư, hao thì bạn đời còn có thú vui không lành mạnh. Thường ứng nghiệm lúc đến Lưu Niên 'Tử Vi, Phá Quân' thủ cung Phu Thê.",
+   "source_quote": "Hội Liêm Trinh Hóa Lộc, Tham Lang Hóa Lộc, lại gặp các sao Đào Hoa, chủ về dễ có tình cảm bên ngoài; nếu gặp thêm các sao hư, hao thì người bạn đời còn có thú vui không lành mạnh.",
+   "source_page": 569,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc đào hoa dẫn tình ngoài; hư hao thêm tật xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q009",
+   "question": "'Tử Vi, Thiên Phủ' Dần/Thân tại Phu Thê khi nào hôn nhân dễ thay đổi?",
+   "answer_atom": "Nếu không có sao phụ tá (hoặc có mà nhiều 'sao lẻ'), hoặc Thiên Phủ là 'kho lộ', 'kho trống': đề phòng các Đại Vận Tham Lang, Phá Quân, Cự Môn hôn nhân dễ thay đổi; các cung hạn này gặp sát, kị, không, kiếp là điểm xảy ra thay đổi.",
+   "source_quote": "hoặc Thiên Phủ là “kho lộ”, “kho trống”, thì nên đề phòng lúc đến các Đại Vận Tham Lang, Phá Quân, Cự Môn, hôn nhân dễ xảy ra sự thay đổi.",
+   "source_page": 569,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Kho trống kho lộ thì ba đại vận Tham–Phá–Cự là lúc hôn nhân lung lay.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q010",
+   "question": "'Tử Vi, Thiên Phủ' Dần/Thân cần gì mới sống với nhau đến bạc đầu?",
+   "answer_atom": "Cần gặp sao đôi phụ tá mới chủ về sống đến bạc đầu. Nếu có Lộc Tồn đồng độ, vẫn chủ bạn đời ích kỷ, có khuynh hướng chi phối bạn đời. Có Thiên Thọ cùng bay đến: nam nên lấy vợ nhỏ tuổi, nữ nên lấy chồng lớn tuổi.",
+   "source_quote": "Cẩn phải gặp sao đôi phụ, tá, mới chủ về sống với nhau đến bạc đầu. Nếu có Lộc Tồn đồng độ, vẫn chủ về người bạn đời ích kỷ.",
+   "source_page": 569,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phụ tá phải đủ đôi; Lộc Tồn cho thấy bạn đời tính ích kỷ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q011",
+   "question": "'Tử Vi, Thiên Phủ' có tính chất 'tiến thủ' ở cung Phu Thê thì có chủ về bạn đời chí tiến thủ không?",
+   "answer_atom": "Không — trái lại chủ về dễ sinh ngoại tình; năm ngoại tình phần nhiều là các lưu niên có Liêm Trinh, Thiên Tướng, Thiên Đồng, Thiên Cơ thủ cung Phu Thê.",
+   "source_quote": "ở cung Phu Thê lại chẳng chủ về người bạn đời có chí tiến thủ, trái lại sẽ chủ về dễ sinh ngoại tình; năm ngoại tình phần nhiều là các lưu niên có Liêm Trinh, Thiên Tướng, Thiên Đồng, Thiên Cơ thủ cung Phu Thê.",
+   "source_page": 570,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tính tiến thủ của Tử Phủ ở cung này hóa thành nguy cơ ngoại tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q012",
+   "question": "'Tử Vi, Tham Lang' Mão/Dậu tại Phu Thê phải phân biệt điều gì trước tiên?",
+   "answer_atom": "Phải phân biệt thuộc loại 'ham muốn vật chất' hay 'dục tình'. Loại ham muốn vật chất: bạn đời có chí tiến thủ. Loại dục tình: trước hôn nhân nhiều sóng gió trắc trở, sau kết hôn cũng dễ sinh ngoại tình.",
+   "source_quote": "Cần phải phân biệt tính chất thuộc loại “ham muốn vật chất” hay “dục tình”.",
+   "source_page": 570,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:tham_lang",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Tham nghiêng vật dục thì tốt, nghiêng tình dục thì sóng gió.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q013",
+   "question": "'Tử Vi, Tham Lang' Mão/Dậu gặp Văn Xương Văn Khúc, hội Liêm Trinh Hóa Lộc/Hóa Kỵ thì sao?",
+   "answer_atom": "Gặp Văn Xương, Văn Khúc: phần nhiều thành hôn không có lễ chính thức (trường hợp 'Tử Vi, Phá Quân' gặp Tả Phụ, Hữu Bật cũng vậy) nhưng tránh được sinh ly tử biệt. Hội Liêm Trinh Hóa Lộc: bạn đời không lo lắng cho gia đình. Hội Liêm Trinh Hóa Kỵ: bạn đời thông minh nhưng dễ thất chí, ưa tìm cảm giác kích thích.",
+   "source_quote": "Lại gặp Văn Xương, Văn Khúc: Phần nhiều thành hôn mà không có lễ chính thức... nhưng có thể tránh sinh ly tử biệt.",
+   "source_page": 570,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:tham_lang",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Xương Khúc: cưới không lễ nhưng tránh được tử biệt; Liêm Lộc hay Kỵ cho hai mẫu bạn đời khác nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q014",
+   "question": "'Tử Vi, Tham Lang' gặp cát tinh có bị coi là 'Đào hoa phạm chủ' không?",
+   "answer_atom": "Không được coi là 'Đào hoa phạm chủ'; chủ về vợ chồng có thể cùng nhau sáng lập sự nghiệp, nhưng người bạn đời phải là nhân vật chính của sự nghiệp. Trong tình hình hung, năm ứng nghiệm là lưu niên Cự Môn, Liêm Trinh, Thất Sát, Vũ Khúc, Phá Quân, Thái Dương thủ Phu Thê.",
+   "source_quote": "Không được coi là “Đào hoa phạm chủ”; mà chủ về vợ chồng có thể cùng nhau sáng lập sự nghiệp, nhưng người bạn đời phải là nhân vật chính của sự nghiệp.",
+   "source_page": 570,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:tham_lang",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Có cát tinh thì Tử Tham thành cặp cùng làm ăn, bạn đời đứng vai chính.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q015",
+   "question": "'Tử Vi, Thiên Tướng' Thìn/Tuất tại Phu Thê khuyên gì về tuổi tác vợ chồng?",
+   "answer_atom": "Nam nên lấy vợ nhỏ tuổi (có thể nhỏ hơn 12 tuổi); nữ nên lấy chồng lớn tuổi (từ 8 đến 12 tuổi). Nếu thuộc loại 'vô tình' thì vợ chồng cần chênh lệch tuổi mới bù đắp được, nếu không sẽ chủ sinh ly. Cũng chủ về nên lấy người đã từng kết hôn, gặp 'sao lẻ' phụ tá càng đúng.",
+   "source_quote": "Nam mệnh nên lấy vợ nhỏ tuổi (có thể nhỏ hơn 12 tuổi). Nữ mệnh nên lấy chồng lớn tuổi (từ 8 tuổi đến 12 tuổi).",
+   "source_page": 570,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:thien_tuong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Tướng cần chênh lệch tuổi lớn, thậm chí nên lấy người từng kết hôn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q016",
+   "question": "'Tử Vi, Thiên Tướng' Thìn/Tuất loại 'vô tình' và loại 'hữu tình' khác nhau thế nào?",
+   "answer_atom": "Loại 'vô tình': tình cảm vợ chồng không thay đổi nhưng đề phòng bạn đời đột nhiên sinh bệnh — ứng khi cung Phu Thê đại vận/lưu niên có sát kỵ trùng điệp xung sát kỵ nguyên cục. Loại 'hữu tình' gặp Tả Phụ, Hữu Bật và sao cát: lợi cho vợ chồng cùng sáng nghiệp, 'phu xướng phụ tùy', có thể phát đạt nhưng vẫn có lòng ích kỷ.",
+   "source_quote": "thuộc loại “hữu tình”, gặp Tả Phụ, Hữu Bật và sao cát, thì lợi cho vợ chồng cùng nhau sáng lập sự nghiệp, gọi là “phu xướng phụ tùy”.",
+   "source_page": 571,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:thien_tuong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vô tình: coi chừng bạn đời bệnh đột ngột; hữu tình: chồng xướng vợ theo, cùng phát đạt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q017",
+   "question": "'Tử Vi, Thất Sát' Tị/Hợi tại Phu Thê chủ về điều gì?",
+   "answer_atom": "Thông thường chủ bạn đời lộng quyền. Gặp phụ tá cát: sự nghiệp bạn đời khá lớn nhưng vợ chồng gặp ít xa nhiều, hoặc chung nhà mà tình cảm xa cách. Gặp 'Hỏa Tham'/'Linh Tham' không sao đào hoa: bạn đời đột nhiên phát đạt; có sao đào hoa: bạn đời đột nhiên thay đổi tình cảm. Nên kết hôn muộn.",
+   "source_quote": "thông thường đều chủ về người bạn đời lộng quyền... gặp “Hỏa Tham”, “Linh Tham”, không có sao đào hoa, chủ về người bạn đời đột nhiên phát đạt; có sao đào hoa, chủ về người bạn đời đột nhiên thay đổi tình cảm.",
+   "source_page": 571,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Sát: bạn đời nắm quyền; Hỏa/Linh Tham cho phát đột ngột hoặc đổi lòng đột ngột.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q018",
+   "question": "'Tử Vi, Phá Quân' và 'Tử Vi, Thất Sát' tại Phu Thê cần điều kiện gì mới cát lợi?",
+   "answer_atom": "Cần được 'bách quan triều củng' và không gặp 'sao lẻ' phụ tá mới chủ hôn nhân cát lợi; 'Tử Vi, Phá Quân' còn chủ vợ chồng cùng sáng nghiệp, tay trắng làm nên. 'Tử Vi, Thiên Tướng' trước sau vẫn có khuyết điểm, tuổi vợ chồng phải chênh lệch nhiều mới nhường nhịn nhau. Tử Phá/Tử Tướng đều nên chênh lệch tuổi nhiều; nam lớn hơn vợ chừng 2-3 tuổi, nữ nhỏ hơn chồng chừng 2-3 tuổi cũng được.",
+   "source_quote": "“Tử Vi, Phá Quân” và “Tử Vi, Thất Sát” cần phải được “bách quan triều củng”, còn không gặp “sao lẻ” phụ, tá, mới chủ về hôn nhân cát lợi.",
+   "source_page": 571,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hai tổ hợp này đòi đủ quần thần và không sao lẻ mới yên ấm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q019",
+   "question": "Nam mệnh và nữ mệnh có Tử Vi ở cung Phu Thê cần lưu ý gì chung?",
+   "answer_atom": "Nam mệnh: bất luận cung độ nào, vợ đều nên có sự nghiệp; nếu ở nhà coi sóc gia đình sẽ phát huy tài lãnh đạo ở gia đình, thậm chí biến thành không nể chồng. Nữ mệnh: nếu thuộc 'tại dã cô quân' hoặc 'vô đạo' cần kết hôn muộn sau 30 tuổi, kết hôn sớm dễ trắc trở và bị gây lụy; được 'bách quan triều củng' không 'sao lẻ' mới chủ chồng đắc chí.",
+   "source_quote": "Nam mệnh mà cung phu thê gặp Tử Vi, bất luận ở cung độ nào, vợ đều nên có sự nghiệp.",
+   "source_page": 572,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Vi cung vợ chồng: vợ nên đi làm; nữ mệnh cô quân thì cưới muộn sau 30.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q020",
+   "question": "'Tử Vi, Thất Sát' Tị/Hợi tại Phu Thê, năm ứng nghiệm cát hung là các lưu niên nào?",
+   "answer_atom": "Tình hình cát ứng nghiệm ở lưu niên 'Vũ Khúc, Tham Lang', Thiên Tướng được 'Tài ấm giáp Ấn', 'Liêm Trinh, Phá Quân' thủ Phu Thê. Tình hình hung ứng nghiệm ở lưu niên 'Thiên Đồng, Thái Âm', Thiên Tướng bị 'Hình kị giáp Ấn', 'Tử Vi, Thất Sát' thủ Phu Thê.",
+   "source_quote": "trong tình hình cát thì năm ứng nghiệm là lúc đến các lưu niên “Vũ Khúc, Tham Lang”, Thiên Tướng được “Tài ấm giáp Ấn”, “Liêm Trinh, Phá Quân” thủ cung phu thê.",
+   "source_page": 571,
+   "section_id": "5.3",
+   "tags": [
+    "star:tu_vi",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cát hung của Tử Sát hiện ra ở hai nhóm lưu niên khác nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q021",
+   "question": "Thiên Cơ độc tọa Tý/Ngọ tại Phu Thê (đối cung Cự Môn) có tính chất gì?",
+   "answer_atom": "Hơi có sát tinh là đã chủ vợ chồng bằng mặt mà không bằng lòng. Nếu Thiên Cơ Hóa Kỵ hoặc Cự Môn Hóa Kỵ: vợ chồng vì tính cách không hợp hoặc bất mãn hoàn cảnh sống mà thay lòng đổi dạ. Nếu Cự Môn Hóa Kỵ: dù ly dị vẫn khó tìm được đối tượng vừa ý.",
+   "source_quote": "đối cung là Cự Môn, hơi có sát tinh là đã chủ về vợ chổng bằng mặt mà không bằng lòng.",
+   "source_page": 572,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ đối Cự: ngoài êm trong rạn; Cự Kỵ thì ly dị rồi vẫn khó tìm người ưng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q022",
+   "question": "Thiên Cơ Hóa Kỵ độc tọa Tý/Ngọ tại Phu Thê gặp sát tinh thì sự cố xảy ra khi nào, tái hôn có tốt không?",
+   "answer_atom": "Vợ chồng đều có cơ tâm; thường ra sự cố lúc đến cung hạn 'Thiên Đồng, Thiên Lương' hoặc 'Liêm Trinh, Tham Lang', phần nhiều tái hôn thì tốt đẹp hơn. Nhưng nếu Thiên Cơ Hóa Kỵ có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp đồng độ thì tái hôn vẫn không tốt.",
+   "source_quote": "thường thường ra sự cố lúc đến cung, hạn “Thiên Đồng, Thiên Lương” hoặc “Liêm Trinh, Tham Lang”, phần nhiều tái hôn thì tốt đẹp hơn.",
+   "source_page": 572,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Kỵ sát tinh: đổ vỡ ở hạn Đồng Lương/Liêm Tham, tái hôn thường tốt hơn trừ khi thêm Hỏa Linh Không Kiếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q023",
+   "question": "Thiên Cơ Tý/Ngọ tại Phu Thê gặp Thiên Đồng Hóa Lộc hoặc Thiên Đồng Hóa Kỵ thì sao?",
+   "answer_atom": "Gặp Thiên Đồng Hóa Lộc thì cát, chủ vợ chồng tay trắng làm nên. Nếu Thiên Đồng Hóa Kỵ, chủ về xa nhau thì nhiều mà gặp nhau thì ít. Gặp cát tinh thì không sợ đến cung hạn Thái Âm, Thái Dương; gặp sát kỵ mà đến cung hạn Thái Âm, Thái Dương thì vợ chồng cãi vã, rối ren.",
+   "source_quote": "gặp Thiên Đồng Hóa Lộc thì cát, chủ về vợ chổng tay trắng làm nên. Nếu Thiên Đồng, Hóa Kỵ, sẽ chủ về xa nhau thì nhiều mà gặp nhau thì ít.",
+   "source_page": 572,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lộc: cùng nhau gây dựng; Đồng Kỵ: vợ chồng xa cách.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q024",
+   "question": "Với Thiên Cơ Tý/Ngọ tại Phu Thê, tinh hệ nào có tính then chốt và biến hóa thế nào?",
+   "answer_atom": "'Thiên Đồng, Thiên Lương' là tinh hệ then chốt: gặp Hỏa Tinh, Linh Tinh — chia li trong tình hình xấu; gặp Lộc Tồn, Thiên Mã — chia li trong tình hình bình thường; gặp sát kỵ — ly dị; gặp 'Lộc Quyền Khoa hội' — vợ chồng có thể sống đến bạc đầu, nhưng đồng thời gặp Cự Môn Hóa Kỵ thì vẫn cần kiềm chế bản thân.",
+   "source_quote": "“Thiên Đồng, Thiên Lương” là tinh hệ có tính then chốt, chúng mà gặp Hỏa Tinh, Linh Tinh thì chủ về chia li trong tình hình xấu; gặp Lộc Tồn, Thiên Mã thì chủ về chia li trong tình hình bình thường.",
+   "source_page": 572,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhìn Đồng Lương biến hóa mà đoán mức độ chia ly hay bạc đầu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q025",
+   "question": "Thiên Cơ độc tọa Sửu/Mùi (đối cung Thiên Lương) tại Phu Thê có tính chất gì?",
+   "answer_atom": "Phần nhiều chủ kết hôn sớm rồi ly dị, hoặc kết hôn muộn nhưng trước hôn nhân đã gặp trắc trở tình yêu nhiều lần; gặp Địa Không, Địa Kiếp càng đúng. Rất sợ Đà La đồng cung: không những kết hôn muộn mà còn chọn lầm người tính cách không hợp, nên sinh bất mãn.",
+   "source_quote": "có đối cung là Thiên Lương, phần nhiều chủ về kết hôn sớm rồi ly dị, hoặc kết hôn muộn, nhưng trước hôn nhân đã gặp trắc trở trong tình yêu nhiều lần.",
+   "source_page": 573,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Sửu/Mùi: cưới sớm dễ tan, Đà La thì còn chọn nhầm người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q026",
+   "question": "Thiên Cơ Sửu/Mùi tại Phu Thê, trước hôn nhân thuận lợi hay trắc trở thì tốt hơn?",
+   "answer_atom": "Trước hôn nhân đã trải qua trắc trở hoặc có sóng gió trở ngại là tốt. Nếu trước hôn nhân thuận lợi, thì sau khi kết hôn thường gặp nhau ít mà xa nhau nhiều, hoặc bằng mặt mà không bằng lòng. Không nên đến cung hạn Thái Dương Hóa Kỵ, Thái Âm Hóa Kỵ; các cung hạn 'Liêm Trinh, Thiên Tướng', Cự Môn, Thiên Đồng là đại vận/lưu niên then chốt.",
+   "source_quote": "trước hôn nhân đã trải qua trắc trở, hoặc trước hôn nhân có sóng gió trở ngại là tốt. Nếu trước hôn nhân thuận lợi, thì sau khi kết hôn thường thường sẽ gặp nhau ít mà xa nhau nhiều.",
+   "source_page": 573,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Khổ trước sướng sau: trắc trở trước hôn nhân lại là điềm tốt cho cách này.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q027",
+   "question": "Thiên Cơ được cát hóa nhưng có sát tinh thì nhân duyên thế nào?",
+   "answer_atom": "Được cát hóa, không sát tinh thì còn được; có sát tinh thì dù cát hóa nhân duyên cũng không viên mãn. Vợ chồng nên chênh lệch tuổi tác mới có thể sống với nhau đến bạc đầu.",
+   "source_quote": "được cát hóa, không có sát tinh thì còn được; có sát tinh, dù cát hóa, nhân duyên cũng không mãn mãn. Vợ chồng nên chênh lệch tuổi tác, mới có thể sống với nhau đến bạc đầu.",
+   "source_page": 573,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát tinh phá nét viên mãn dù có cát hóa; chênh tuổi là cách hóa giải.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q028",
+   "question": "'Thiên Cơ, Thái Âm' Dần/Thân tại Phu Thê, nam mệnh và nữ mệnh khác nhau thế nào?",
+   "answer_atom": "Nam mệnh ưu hơn nữ mệnh: nam chủ vợ xinh đẹp, giỏi nội trợ; nữ mệnh trái lại cần đề phòng dễ bị người khác giới để ý. Nếu thuộc loại 'tâm trạng hóa' quá nặng thì hôn nhân dễ sóng gió, ví dụ bạn đời thay lòng đổi dạ, có người khác.",
+   "source_quote": "Nam mệnh cung Phu Thê gặp “Thiên Cơ, Thái Âm”, chủ về vợ xinh đẹp, giỏi nội trợ. Nữ mệnh thì trái lại, cần để phòng dễ bị người khác giới để ý.",
+   "source_page": 573,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Âm lợi nam: vợ đẹp đảm; nữ mệnh phải giữ mình trước người khác giới.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q029",
+   "question": "'Thiên Cơ, Thái Âm' Dần/Thân hội Thiên Đồng Hóa Kỵ và các tạp diệu xấu thì sao?",
+   "answer_atom": "Hội Thiên Đồng Hóa Kỵ, gặp Địa Không, Địa Kiếp, Âm Sát, Thiên Hư, Đại Hao: bạn đời tâm chí bạc nhược hoặc quá mẫn cảm, do đó dễ xảy ra sóng gió trong hôn nhân. Cát hung của các cung hạn Thái Dương, Thiên Lương, Thiên Đồng, Cự Môn là đại vận/lưu niên then chốt.",
+   "source_quote": "hội Thiên Đồng Hóa Kỵ, gặp các sao Địa Không, Địa Kiếp, Âm Sát, Thiên Hư, Đại Hao, chủ về người bạn đời tâm chí bạc nhược, hoặc quá mẫn cảm.",
+   "source_page": 573,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bạn đời yếu lòng, quá nhạy cảm — gốc của sóng gió hôn nhân cách này.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q030",
+   "question": "'Thiên Cơ, Cự Môn' Mão/Dậu tại Phu Thê cần gì mới sống đến bạc đầu?",
+   "answer_atom": "Cần gặp sao lộc mới sống với nhau đến bạc đầu. Có Hỏa Tinh, Linh Tinh đồng độ thì thành phá cách: lúc đầu hòa hợp hạnh phúc, về sau thành nguội lạnh. Các cung hạn Thiên Đồng, Thiên Lương là đại vận/lưu niên ứng nghiệm.",
+   "source_quote": "cần phải gặp sao lộc mới sống với nhau đến bạc đầu. Nhưng có Hỏa Tinh, Linh Tinh đồng độ thì thành phá cách, chủ về lúc đầu hòa hợp hạnh phúc, về sau thành nguội lạnh.",
+   "source_page": 573,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Cự đòi sao lộc; Hỏa Linh biến đầu nồng cuối lạnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q031",
+   "question": "'Thiên Cơ, Cự Môn' Mão/Dậu sau kết hôn diễn biến thế nào; Hóa Kị của từng sao chủ gì?",
+   "answer_atom": "Sau kết hôn liền có sóng gió, trải qua sóng gió mới sống đến bạc đầu; nếu không thì sau kết hôn phần nhiều thay lòng đổi dạ. Thiên Cơ Hóa Kị: dễ yêu người đã có gia đình. Cự Môn Hóa Kị: phần nhiều có nỗi khổ đau thầm kín về tình cảm. Gặp sát tinh: chủ hai lần kết hôn.",
+   "source_quote": "Nếu Thiên Cơ Hóa Kị, chủ về dễ yêu người đã có gia đình; nếu Cự Môn Hóa Kị, phần nhiều có nỗi khổ đau thẩm kín về tình cảm. Gặp sát tinh, chủ về hai lần kết hôn.",
+   "source_page": 574,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phải qua sóng gió mới bền; hai sao Hóa Kị cho hai kiểu khổ tình khác nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q032",
+   "question": "Nữ mệnh cung Phu Thê là 'Thiên Cơ, Cự Môn' có lưu ý gì?",
+   "answer_atom": "Nữ mệnh cung Phu Thê không nên là 'Thiên Cơ, Cự Môn'. Gặp Hỏa Tinh, Linh Tinh, hoặc Thiên Đồng có Đà La đồng cung: không phải mạng một lần kết hôn. Cung hạn 'Vũ Khúc, Thiên Phủ' là đại vận/lưu niên then chốt — Hóa Lộc hay Hóa Kị đều xảy ra thay đổi; nam nữ đều dễ bị người đã có gia đình theo đuổi, sinh tình huống rối rắm khó xử.",
+   "source_quote": "Nữ mệnh cung Phu Thê không nên là “Thiên Cơ, Cự Môn”. Gặp Hỏa Tinh, Linh Tinh, hoặc Thiên Đồng có Đà La đồng cung, không phải mạng một lần kết hôn.",
+   "source_page": 574,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Cự bất lợi nữ mệnh; hạn Vũ Phủ là điểm xoay then chốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q033",
+   "question": "'Thiên Cơ, Thiên Lương' Thìn/Tuất tại Phu Thê chủ về gì?",
+   "answer_atom": "Chủ kết hôn muộn, hoặc trước hôn nhân có sóng gió trong tình yêu, nếu không sẽ sinh ly. Gặp cát tinh hội hợp: vợ chồng nên chênh lệch tuổi mới sống đến bạc đầu; cũng chủ trước hôn nhân đã có một lần lìa biệt, gặp lại nhau mới sống đến bạc đầu.",
+   "source_quote": "chủ về kết hôn muộn, hoặc trước hôn nhân có sóng gió trong tình yêu, nếu không sẽ sinh ly... cũng chủ về trước hôn nhân đã có một lần lìa biệt, gặp lại nhau mới sống với nhau đến bạc đầu.",
+   "source_page": 574,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:thien_luong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lương: cưới muộn, từng chia tay rồi tái hợp mới bền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q034",
+   "question": "'Thiên Cơ, Thiên Lương' Thìn/Tuất gặp sát tinh thì đại hạn nào dễ bị người có gia đình theo đuổi?",
+   "answer_atom": "Ở cung Thìn gặp sát tinh: đến đại hạn cung Phu Thê ở cung Mùi dễ bị người đã có gia đình theo đuổi; ở Tuất thì đại hạn cung Phu Thê ở cung Sửu cũng vậy. Cung hạn Phu Thê gặp Đà La, Linh Tinh thì nhiều sóng gió, rối rắm khó phân giải. Cung hạn 'Vũ Khúc, Tham Lang' là then chốt: Hóa Kị — tình cảm vợ chồng thay đổi; hóa cát mà gặp sao đào hoa cũng thay đổi; hóa cát không đào hoa thì bình an.",
+   "source_quote": "“Thiên Cơ, Thiên Lương” ở cung Thìn, gặp sát tinh, đến đại hạn cung Phu Thê ở cung Mùi, dễ bị người đã có gia đình theo đuổi.",
+   "source_page": 574,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "star:thien_luong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn Mùi/Sửu là điểm bị người có gia đình tán tỉnh; hạn Vũ Tham quyết cát hung.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q035",
+   "question": "Thiên Cơ ở Tị/Hợi tại Phu Thê, vợ đẹp hay xấu do đâu?",
+   "answer_atom": "Ở cung Hợi thì vợ xấu; ở cung Tị thì vợ đẹp. Đây là do Thái Âm miếu hay hãm.",
+   "source_quote": "Thiên Cơ ở hai cung Tỵ hoặc Hợi, ở cung Hợi thì vợ xấu; ở cung Tỵ thì vợ đẹp. Đây là do Thái Âm miếu hay hãm.",
+   "source_page": 574,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đẹp xấu của vợ xem theo Thái Âm miếu hãm chứ không phải tự Thiên Cơ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q036",
+   "question": "Thiên Cơ Tị/Hợi gặp Văn Xương Văn Khúc và sao Đào Hoa thì sao?",
+   "answer_atom": "Gặp Văn Xương, Văn Khúc lại hội các sao Đào Hoa: bạn đời đã từng bị người khác theo đuổi; gặp thêm sát, kỵ, hình sẽ chủ vợ chồng giữa chừng chia tay. Có cát hóa, gặp Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt: bạn đời giỏi giang, có thể lập nên sự nghiệp.",
+   "source_quote": "gặp Văn Xương, Văn Khúc, lại hội hợp các sao Đào Hoa, chủ về người bạn đời đã bị người khác theo đuổi... nếu gặp thêm các sao sát, kỵ, hình, sẽ chủ về vợ chổng giữa chừng chia tay.",
+   "source_page": 575,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Xương Khúc đào hoa: bạn đời từng được săn đón; thêm sát kỵ thì đứt gánh giữa đường.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q037",
+   "question": "Thiên Cơ Tị/Hợi hội Thiên Đồng Hóa Lộc + Cự Môn Hóa Kỵ thì ai dễ thay lòng?",
+   "answer_atom": "Bản thân mệnh tạo sau khi kết hôn dễ thay lòng đổi dạ, có người khác. Nữ mệnh hội Thái Dương Hóa Kỵ gặp sát tinh: chủ sinh li với người bạn đời. Các cung hạn 'Thái Dương, Thiên Lương', 'Thiên Đồng, Cự Môn', Phá Quân là đại vận/lưu niên then chốt.",
+   "source_quote": "nếu hội Thiên Đồng Hóa Lộc, Cự Môn Hóa Kỵ, thì bản thân mệnh tạo sau khi kết hôn dễ thay lòng đổi dạ, có người khác.",
+   "source_page": 575,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tổ hợp này thì chính mình là người đổi lòng, không phải bạn đời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q038",
+   "question": "Tổng kết Thiên Cơ ở cung Phu Thê: cơ bản lợi hay bất lợi?",
+   "answer_atom": "Về cơ bản là bất lợi. Chỉ trong tình hình đối nhau hoặc đồng độ với Thái Âm, gặp cát tinh, mới sống với nhau đến bạc đầu. Rất ngại Thiên Đồng hay Cự Môn Hóa Kỵ — đều chủ rắc rối khó xử về tình cảm; cổ đại cho rằng nữ mệnh là mạng tì thiếp.",
+   "source_quote": "Về cơ bản là bất lợi. Nhưng trong tình hình đối nhau hoặc đồng độ với Thái Âm, gặp cát tinh, mới sống với nhau đến bạc đầu.",
+   "source_page": 575,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_co",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Cơ vốn xấu cho cung vợ chồng, chỉ cặp với Thái Âm có cát tinh mới yên.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q039",
+   "question": "Thái Dương ở cung Tý thủ Phu Thê có tính chất gì?",
+   "answer_atom": "Phần nhiều bạn đời có tính soi bói, bới móc; gặp Hỏa Tinh, Linh Tinh càng nặng. Có Địa Không, Địa Kiếp đồng độ: thường kết hôn muộn, hoặc có hôn ước nhưng khó kết hợp. Thái Dương Hóa Kỵ có Không Kiếp đồng cung: nữ mệnh sớm làm quả phụ, có sao cát đồng thời hội hợp cũng chủ sinh li. Có Lộc Tồn, Thiên Mã ở cung Thân mà Thái Dương Hóa Lộc: nhân duyên ở xứ người, vẫn nên kết hôn muộn.",
+   "source_quote": "Phần nhiều người bạn đời có tính soi bói, bới móc, gặp Hỏa Tinh, Linh Tinh thì càng nặng.",
+   "source_page": 575,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Dương hãm ở Tý: bạn đời hay xét nét; Kỵ + Không Kiếp rất xấu cho nữ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q040",
+   "question": "Thái Dương Hóa Kỵ ở cung Tý thủ Phu Thê, nam mệnh và nữ mệnh ứng nghiệm thế nào?",
+   "answer_atom": "Nữ mệnh: khi cung Mệnh đại hạn đến cung Tý, thường hôn nhân bất lợi, chủ sinh li hoặc rắc rối tình cảm ảnh hưởng sâu nặng; người sinh ban đêm càng nặng. Nam mệnh: sau 30 tuổi dễ thay lòng đổi dạ, người sinh ban đêm càng nặng.",
+   "source_quote": "Cung Mệnh của đại hạn đến cung Tí, thường thường hôn nhân bất lợi, chủ về sinh li... Nam mệnh... Sau 30 tuổi dễ thay lòng đổi dạ. Người sinh vào ban đêm càng nặng.",
+   "source_page": 575,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sinh ban đêm thì Thái Dương yếu, mọi tính xấu của Kỵ nặng thêm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q041",
+   "question": "Thái Dương cung Tý được 'bách quan triều củng' thì hôn nhân thế nào?",
+   "answer_atom": "Nữ mệnh tuy chủ chồng phú quý nhưng cũng hữu danh vô thực, sinh ban đêm càng nặng. Nam mệnh thì vợ có sự nghiệp, không lo cho gia đình. Thông thường không nên đến hai cung hạn Cự Môn và 'Vũ Khúc, Phá Quân' — dù có cát tinh tụ tập phần nhiều cũng không như ý.",
+   "source_quote": "được “bách quan triều củng”, nữ mệnh tuy chủ về chồng phú quý, nhưng cũng hữu danh vô thực.",
+   "source_page": 576,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Giàu sang nhưng vợ chồng chỉ còn cái danh; kỵ hạn Cự Môn và Vũ Phá.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q042",
+   "question": "Thái Dương ở cung Ngọ thủ Phu Thê chủ về gì?",
+   "answer_atom": "Bạn đời giỏi giang, có trách nhiệm. Gặp sát tinh đồng độ: ngày đêm bôn ba bận rộn bên ngoài, ít hưởng niềm vui gia đình. Có Địa Không, Địa Kiếp đồng độ: nên kết hôn muộn. Thái Dương Hóa Kỵ: nữ mệnh không nên kết hôn sớm. Có Thiên Mã ở cung Dần mà Thái Dương Hóa Lộc: đến lưu niên Thiên Đồng thủ Phu Thê chủ nhân duyên ở nơi xa hay nước ngoài.",
+   "source_quote": "Thái Dương ở cung Ngọ, chủ về người bạn đời giỏi giang, có trách nhiệm. Gặp sát tinh đồng độ, thì ngày đêm bôn ba, bận rộn ở bên ngoài.",
+   "source_page": 576,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Dương vượng ở Ngọ: bạn đời giỏi nhưng dễ vắng nhà.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q043",
+   "question": "Thái Dương Hóa Kỵ ở cung Ngọ thủ Phu Thê, nam/nữ mệnh cần lưu ý gì?",
+   "answer_atom": "Nữ mệnh: cung Mệnh đại hạn không nên cũng đến cung Ngọ — tình cảm dễ rối rắm, dễ bị người khác giới gây lụy. Nam mệnh có sát tinh: sau 30 tuổi dễ thay lòng đổi dạ.",
+   "source_quote": "Nữ mệnh cung Phu Thê là Thái Dương Hóa Kỵ ở cung Ngọ, và cung Mệnh của đại hạn không nên cũng đến cung Ngọ, chủ về tình cảm dễ sinh rối rắm.",
+   "source_page": 576,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn chồng lên đúng cung Kỵ là lúc tình cảm nhiễu loạn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q044",
+   "question": "Nữ mệnh Thái Dương cung Ngọ hội sao phụ tá thì chồng thế nào?",
+   "answer_atom": "Hội các sao phụ tá: chồng quý hiển. Nam mệnh thời cổ chủ nhờ gia đình vợ mà được quý; thời hiện đại chủ vợ có sự nghiệp tốt đẹp. Nhưng không ưa đến các cung hạn Thiên Đồng, 'Liêm Trinh, Thất Sát' — hơi gặp sát tinh thì hôn nhân dễ nổi sóng gió.",
+   "source_quote": "hội các sao phụ, tá, chủ về chồng quý hiển. Nam mệnh, thời cổ đại chủ về nhờ gia đình vợ mà được quý.",
+   "source_page": 576,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phụ tá đủ thì bạn đời hiển đạt; kỵ hạn Thiên Đồng và Liêm Sát.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q045",
+   "question": "Nam mệnh 'Thái Dương, Thái Âm' đồng độ ở cung Sửu thủ Phu Thê thì sao?",
+   "answer_atom": "Gặp cát tinh: vợ hiếp đáp chồng, sinh ban đêm càng nặng. Gặp sát, kỵ, hình hội hợp: vì vợ mà phá gia, nhẹ thì có vợ phá tài, sinh ban đêm cũng nặng hơn. Nếu là nữ mệnh gặp cát tinh thì trái lại vợ chồng tình thâm, sinh ban đêm càng tốt; sát kỵ hình nặng thì vợ chồng ý kiến trái nghịch nhau.",
+   "source_quote": "gặp cát tinh, chủ về vợ hiếp đáp chổng; người sinh vào ban đêm thì càng nặng. Nếu gặp các sao sát, kỵ, hình hội hợp, thì vì vợ mà phá gia.",
+   "source_page": 576,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm Dương ở Sửu: nam bị vợ lấn; nữ lại được tình thâm nếu có cát tinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q046",
+   "question": "'Thái Dương, Thái Âm' cung Sửu gặp Hỏa Tinh, Linh Tinh chủ gì?",
+   "answer_atom": "Chủ bất hòa với thân gia, hoặc vợ chồng tuổi tác, học lực không tương xứng.",
+   "source_quote": "gặp Hỏa Tinh, Linh Tinh, chủ về bất hòa với thân gia, hoặc chủ về vợ chồng tuổi tác, học lực không tương xứng.",
+   "source_page": 576,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa Linh gây xích mích với nhà thông gia hoặc lệch nhau về tuổi, học vấn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q047",
+   "question": "Nam mệnh 'Thái Dương, Thái Âm' Sửu mà Thái Âm Hóa Kỵ thì sao; nữ mệnh mà Thái Dương Hóa Kỵ thì sao?",
+   "answer_atom": "Nam mệnh Thái Âm Hóa Kỵ: dễ bất hòa với gia đình vợ; gặp sát tinh — vợ nhiều nạn tai bệnh tật hoặc vợ phá tài; gặp cát tinh hoặc Thái Âm Hóa Lộc — được nhà vợ trợ lực, vợ giỏi nội trợ. Nữ mệnh Thái Dương Hóa Kỵ: chồng nhiều nạn tai bệnh tật; sát tinh nặng thì có 'hình khắc', nếu không sẽ sinh ly; Thái Âm Hóa Kỵ cũng không cát tường, chồng nhiều nạn tai bệnh tật khiến mệnh tạo bất an.",
+   "source_quote": "nếu Thái Âm Hóa Kỵ, thì dễ bất hòa với gia đình vợ... nếu Thái Dương Hóa Kỵ, chủ về chồng nhiều nạn tai, bệnh tật.",
+   "source_page": 577,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm Kỵ ứng về phía vợ/nhà vợ, Dương Kỵ ứng về phía chồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q048",
+   "question": "'Thái Dương, Thái Âm' ở cung Mùi khác cung Sửu thế nào; cung hạn nào then chốt?",
+   "answer_atom": "Ý nghĩa đại khái giống ở Sửu, nhưng ở Sửu thì nam mệnh lợi hơn, ở Mùi thì nữ mệnh lợi hơn. Các cung hạn Thiên Đồng, Thiên Lương, 'Thiên Cơ, Cự Môn' là đại vận/lưu niên ứng nghiệm cát hung có tính then chốt.",
+   "source_quote": "ở cung Sửu thì nam mệnh lợi hơn; ở cung Mùi thì nữ mệnh lợi hơn.",
+   "source_page": 577,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sửu lợi nam, Mùi lợi nữ; xem hạn Đồng, Lương, Cơ Cự.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q049",
+   "question": "'Thái Dương, Cự Môn' đồng độ cung Dần với Thái Dương Hóa Lộc/Quyền/Kỵ chủ gì đặc biệt?",
+   "answer_atom": "Thái Dương Hóa Lộc, Hóa Quyền hay Hóa Kỵ mà không có Hỏa Tinh, Linh Tinh: đều chủ kết hôn với người ngoại quốc hay người ở phương xa. Nếu Hóa Kỵ ở cung Thân thì không đúng.",
+   "source_quote": "mà Thái Dương Hóa Lộc, Hóa Quyền, hay Hóa Kỵ, mà không có Hỏa Tinh, Linh Tinh, đều chủ về kết hôn với người ngoại quốc (hay người ở phương xa). Nếu Hóa Kỵ ở cung Thân thì không đúng.",
+   "source_page": 577,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Cự ở Dần là tượng hôn nhân dị quốc, riêng Kỵ ở Thân thì không.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q050",
+   "question": "'Thái Dương, Cự Môn' tại Phu Thê gặp sát tinh thì cung hạn nào dễ xảy ra sự cố?",
+   "answer_atom": "Phải không gặp sát tinh mới tốt; nếu không, đến các cung hạn 'Thiên Cơ, Thiên Lương', Thiên Tướng bị 'Hình kị giáp ấn', 'Thiên Đồng, Thái Âm' đều dễ xảy ra sự cố. Ở cung Thân xấu hơn ở cung Dần.",
+   "source_quote": "nếu không, đến các cung hạn “Thiên Cơ, Thiên Lương”, Thiên Tướng bị “Hình kị giáp ấn”, “Thiên Đồng, Thái Âm”, đều dễ xảy ra sự cố. Ở cung Thân xấu hơn ở cung Dần.",
+   "source_page": 577,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ba loại cung hạn này là điểm nổ của Dương Cự có sát.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q051",
+   "question": "'Thái Dương, Cự Môn' được cát hóa nhưng cung Phúc Đức không cát tường thì sao?",
+   "answer_atom": "Nữ mệnh chủ rời xa quê hương, lấy chồng theo chồng; nam mệnh chủ ở rể. Gặp sát tinh không nặng: vợ chồng ý kiến trái nghịch. Sát, kị, hình tụ tập: nguy cơ sinh ly tử biệt. Gặp sao phụ tá cát: nữ lấy chồng hiển quý; nam nên lấy vợ có sự nghiệp riêng, nếu không sẽ nhiều thị phi.",
+   "source_quote": "nữ mệnh chủ về rời xa quê hương, lấy chồng theo chồng; nam mệnh chủ về ở rể.",
+   "source_page": 577,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phúc Đức xấu kéo Dương Cự thành tượng xa quê, ở rể.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q052",
+   "question": "'Thái Dương, Thiên Lương' Mão/Dậu tại Phu Thê: cung nào ưu hơn và tuổi tác vợ chồng thế nào?",
+   "answer_atom": "Ở cung Mão ưu hơn cung Dậu. Gặp cát tinh: vợ chồng tuổi tác chênh lệch, hoặc vợ lớn hơn chồng; gặp Thiên Thọ thì chênh lệch càng nhiều. Gặp sát, kỵ: vợ chồng sinh ly tử biệt, hoặc bạn đời vì sự nghiệp thường đi xa; thông thường nên kết hôn muộn.",
+   "source_quote": "“Thái Dương, Thiên Lương” gặp cát tinh, chủ về vợ chồng tuổi tác chênh lệch, hoặc chủ về vợ lớn hơn chồng, gặp Thiên Thọ, tuổi tác chênh lệch càng nhiều.",
+   "source_page": 577,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:thien_luong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Lương: lệch tuổi, có khi vợ lớn hơn chồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q053",
+   "question": "'Thái Dương, Thiên Lương' ở cung Phu Thê chủ gì về tiến trình hôn nhân?",
+   "answer_atom": "Chủ có sóng gió, trắc trở trước hôn nhân, hoặc bạn cũ gặp lại nhau rồi lấy nhau. Gặp Văn Xương hay Văn Khúc: chủ hai lần kết hôn. Cần gặp các sao phụ tá cát mới chủ vợ chồng hạnh phúc sống đến bạc đầu, nhưng trước hôn nhân vẫn có trắc trở hoặc sau kết hôn có một thời kỳ xa nhau. Các cung hạn Thiên Đồng, Cự Môn, Tham Lang là then chốt.",
+   "source_quote": "chủ về có sóng gió, trắc trở trước hôn nhân, hoặc bạn cũ gặp lại nhau rồi lấy nhau. Gặp các sao như Văn Xương hay Văn Khúc, chủ về hai lần kết hôn.",
+   "source_page": 578,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "star:thien_luong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tượng bạn cũ tái ngộ thành duyên; Xương Khúc lại báo hai lần đò.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q054",
+   "question": "Thái Dương ở cung Thìn và cung Tuất thủ Phu Thê khác nhau thế nào với Cự Môn Hóa Kỵ và Hóa Lộc?",
+   "answer_atom": "Ở Thìn: rất ngại Cự Môn Hóa Kỵ — chủ sinh ly tử biệt; gặp Hóa Lộc cũng có thể kết hôn với người ngoại quốc/phương xa. Ở Tuất: gặp Cự Môn Hóa Kỵ tính bất lợi càng nghiêm trọng; với Hóa Lộc không chủ kết hôn người ngoại quốc, nhưng nữ mệnh chủ được người ngoại quốc/phương xa theo đuổi.",
+   "source_quote": "Thái Dương ở cung Thìn: Rất ngại Cự Môn Hóa Kỵ, chủ về sinh ly tử biệt. Nếu gặp Hóa Lộc, cũng có thể kết hôn với người ngoại quốc.",
+   "source_page": 578,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thìn nhẹ hơn Tuất; Cự Kỵ là điều đáng sợ nhất của cách này.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q055",
+   "question": "Thái Dương Thìn/Tuất thủ Phu Thê khi đại hạn cung Mệnh là 'Tử Vi, Phá Quân' thì sao?",
+   "answer_atom": "Thường chủ thành thân mà không có nghi lễ chính thức. Được cát hóa và có sao cát: nữ mệnh chủ vợ chồng phú quý, nhưng ở cung Tuất phần nhiều hữu danh vô thực.",
+   "source_quote": "đến đại hạn cung Mệnh là “Tử Vi, Phá Quân”, thường chủ về thành thân mà không có nghỉ lễ chính thức.",
+   "source_page": 578,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn Tử Phá: cưới không lễ; Tuất thì phú quý cũng chỉ còn danh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q056",
+   "question": "Thái Dương Thìn/Tuất tại Phu Thê kỵ tổ hợp sát tinh nào nhất?",
+   "answer_atom": "Rất kỵ có Đà La, Hỏa Tinh đồng độ; hoặc Kình Dương, Linh Tinh đồng độ — đều chủ vợ chồng không thể sống với nhau đến bạc đầu. Có điều ở cung Thìn thì tái hôn tốt hơn. Các cung hạn Cự Môn, Thiên Cơ, Thiên Đồng, Thiên Lương là đại vận/lưu niên then chốt.",
+   "source_quote": "rất kỵ có Đà La, Hỏa Tinh đồng độ; hoặc có Kình Dương, Linh Tinh đồng độ, đều chủ về vợ chồng không thể sống với nhau đến bạc đầu.",
+   "source_page": 578,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hai cặp sát tinh này phá nát chữ bạc đầu của cách Thìn/Tuất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q057",
+   "question": "Thái Dương ở Tị và Hợi thủ Phu Thê, cung nào ưu hơn; nữ mệnh ở Hợi có ngoại lệ gì?",
+   "answer_atom": "Thái Dương ở Tị ưu hơn ở Hợi, nam hay nữ mệnh đều vậy. Riêng nữ mệnh Thái Dương ở Hợi gặp các sao phụ tá tụ tập và Thái Dương được cát hóa: chủ trải qua gian khổ mà thành đại nghiệp. Nếu gặp 'sao lẻ' Văn Xương, Văn Khúc, Tả Phụ hay Hữu Bật: là mạng có hai đời chồng, tái giá tốt hơn.",
+   "source_quote": "Chủ về trải qua gian khổ mà thành đại nghiệp. Nếu gặp “sao lẻ” Văn Xương, Văn Khúc, Tả Phụ, hay Hữu Bật, thì đây là mạng có hai đời chung, tái giá tốt hơn.",
+   "source_page": 579,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hợi vốn kém nhưng nữ mệnh đủ phụ tá cát hóa lại thành đại nghiệp qua gian khổ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q058",
+   "question": "Thái Dương Tị/Hợi gặp sát tinh Hóa Kỵ thì các đại hạn nào bất lợi?",
+   "answer_atom": "Ở Tị: nữ mệnh khi cung Phu Thê đại hạn đến 'Tử Vi, Thiên Phủ' tọa thủ hoặc Thái Âm tọa thủ đều không cát lợi. Ở Hợi: nam mệnh không nên kết hôn sớm; đến đại hạn 'Tử Vi, Thiên Phủ' thủ Phu Thê — lấy vợ do yêu nhau nhưng về sau tình cảm như nước với lửa; nữ mệnh đến đại hạn Thiên Đồng thủ Phu Thê thường xảy ra sự cố.",
+   "source_quote": "Thái Dương ở cung Hợi, gặp sát tinh Hóa Kỵ, nam mệnh không nên kết hôn sớm. Đến đại hạn “Tử Vi, Thiên Phủ” thủ cung Phu Thê, chủ về lấy vợ do yêu nhau mà lấy nhau, nhưng về sau thì tình cảm như nước với lửa.",
+   "source_page": 579,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn Tử Phủ và Thiên Đồng là hai điểm nguy của Thái Dương Tị/Hợi có Kỵ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q059",
+   "question": "Thái Dương Tị/Hợi thủ Phu Thê dù gặp cát tinh vẫn có đặc điểm gì; khi nào nam nhờ vợ sang quý?",
+   "answer_atom": "Dù gặp cát tinh cũng chủ trước hôn nhân tình yêu nhiều sóng gió trắc trở. Gặp các sao đôi phụ tá tề tụ lại được 'bách quan triều củng': nam mệnh chủ nhờ vợ mà sang quý; cung Mệnh có Hỏa Tinh, Linh Tinh cũng chủ ở rể.",
+   "source_quote": "gặp các sao đôi phụ, tá tể tụ, lại được “bách quan triều củng”, nam mệnh chủ về nhờ vợ mà sang quý.",
+   "source_page": 579,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sóng gió trước hôn nhân là mặc định; đủ quần thần thì nam nhờ vợ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q060",
+   "question": "Thái Dương Tị/Hợi rất ngại Cự Môn Hóa Kỵ vì sao; nghề nghiệp nào của bạn đời hóa giải?",
+   "answer_atom": "Cự Môn Hóa Kỵ: vợ chồng có tính cách, gia thế, học thức đều không tương xứng, còn xảy ra điều tiếng thị phi liên miên. Nếu bạn đời 'dùng tài ăn nói để kiếm tiền' (giáo sư, nhân viên bán hàng, chào hàng) hoặc 'do thị phi mà kiếm tiền' (luật sư, cảnh sát) thì tốt hơn.",
+   "source_quote": "rất ngại Cự Môn Hóa Kỵ, chủ về vợ chung có tính cách, gia thế, học thức đều không tương xứng, mà còn xảy ra diều tiếng thị phi liên miên.",
+   "source_page": 579,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nghề ăn nói/thị phi của bạn đời tiêu hóa được cái thị phi của Cự Kỵ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q061",
+   "question": "Tổng quát Thái Dương ở cung Phu Thê ngại gì nhất?",
+   "answer_atom": "Hễ Thái Dương ở cung Phu Thê rất ngại Hóa Kỵ — bất kể nam nữ đều chủ sinh li tử biệt với nguyên phối. Gặp Hỏa Tinh, Linh Tinh: lúc đầu tình cảm sâu đậm nhưng lâu về sau như nước với lửa. Nam mệnh Thái Dương lạc hãm Hóa Kỵ: nên sau 30 tuổi mới kết hôn và không có hôn lễ chính thức.",
+   "source_quote": "hễ Thái Dương ở cung Phu Thê, rất ngại Hóa Kỵ, bất kể nam mệnh hay nữ mệnh, đều chủ về sinh li tử biệt với nguyên phối.",
+   "source_page": 579,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Kỵ ở cung vợ chồng là tượng mất nguyên phối.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q062",
+   "question": "Nữ mệnh Thái Dương lạc hãm Hóa Kỵ và nữ sinh ban đêm có cảnh báo gì?",
+   "answer_atom": "Nữ mệnh Thái Dương lạc hãm Hóa Kỵ: đến đại hạn cung Phu Thê có Thái Dương hội chiếu, lưu sát tinh xung chiếu — chủ vì chồng mà rơi nước mắt hoặc bị chồng bỏ rơi. Nữ sinh ban đêm thông thường cung Phu Thê không nên gặp Thái Dương, dù có sao cát cũng như không; hơi có sao Đào Hoa thì chồng thay lòng đổi dạ.",
+   "source_quote": "Nữ mệnh sinh vào ban đêm thông thường cung Phu Thê không nên gặp Thái Dương, dù có sao cát cũng như không, hơi có sao Đào Hoa thì chung thay lòng đổi dạ.",
+   "source_page": 579,
+   "section_id": "5.3",
+   "tags": [
+    "star:thai_duong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nữ sinh đêm: Thái Dương ở cung chồng mất hết tác dụng tốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q063",
+   "question": "'Vũ Khúc, Thiên Phủ' Tý/Ngọ thủ Phu Thê cần gì mới hạnh phúc; Vũ Khúc Hóa Lộc thì sao?",
+   "answer_atom": "Cần gặp sao Lộc mới chủ hôn nhân hạnh phúc; hội Liêm Trinh Hóa Lộc mới là tốt. Nếu Vũ Khúc Hóa Lộc: nam mệnh chủ vợ có năng lực làm việc giỏi hơn chồng. Nếu đối cung Thất Sát đồng độ Lộc Tồn: tình hình 'vợ đoạt quyền chồng' càng nghiêm trọng; nam mệnh cung Mệnh có Hỏa Tinh, Linh Tinh thì chủ ở rể.",
+   "source_quote": "cần phải gặp sao Lộc mới chủ về hôn nhân hạnh phúc; hội Liêm Trinh Hóa Lộc mới là tốt. Nếu Vũ Khúc Hóa Lộc, nam mệnh chủ về vợ có năng lực làm việc giỏi hơn chồng.",
+   "source_page": 580,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Phủ đòi sao Lộc; Vũ Lộc lại cho vợ giỏi lấn quyền chồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q064",
+   "question": "'Vũ Khúc, Thiên Phủ' Tý/Ngọ mà Vũ Khúc Hóa Kỵ thì hôn nhân thế nào?",
+   "answer_atom": "Nữ mệnh: hôn nhân giữa chừng đứt đoạn do chồng mắc bệnh hay chồng thay lòng có người khác. Nam mệnh: vợ chồng sinh ly. Nhiều sát tinh hội hợp: mạng tái hôn. Gặp sao phụ tá: nam nữ đều bị người đã có gia đình theo đuổi; gặp 'sao lẻ' phụ tá: mạng tái hôn; có sao Đào Hoa hội hợp: sau kết hôn vẫn bị người có gia đình theo đuổi, nữ mệnh càng nặng.",
+   "source_quote": "nếu Vũ Khúc Hóa Kỵ, nữ mệnh chủ về hôn nhân giữa chừng đứt đoạn, do chồng mắc bệnh hay chồng thay lòng đổi dạ, có người khác; nam mệnh chủ về vợ chồng sinh ly.",
+   "source_page": 580,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ ở Phu Thê: duyên đứt giữa đường, sao lẻ thì hai lần đò.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q065",
+   "question": "'Vũ Khúc, Thiên Phủ' Tý/Ngọ tại Phu Thê: các cung hạn then chốt là gì?",
+   "answer_atom": "Các cung hạn Phá Quân, 'Tử Vi, Thiên Tướng', Thiên Đồng, 'Thiên Cơ, Cự Môn' là đại vận hoặc lưu niên ứng nghiệm cát hung có tính then chốt.",
+   "source_quote": "các cung hạn Phá Quân, “Tử Vi, Thiên Tướng”, Thiên Đồng, “Thiên Cơ, Cự Môn” là đại vận hoặc lưu niên ứng nghiệm cát hung có tính then chốt.",
+   "source_page": 580,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bốn nhóm cung hạn quyết định cát hung của Vũ Phủ tại Phu Thê.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q066",
+   "question": "'Vũ Khúc, Tham Lang' Sửu/Mùi thủ Phu Thê thông thường chủ về bạn đời thế nào?",
+   "answer_atom": "Thông thường bạn đời keo kiệt, bủn xỉn, xem nặng tiền bạc, lúc nào cũng kiểm soát tiền bạc của người bạn đời. Có Lộc Tồn hoặc Hóa Lộc hội chiếu thì không đúng — chủ chồng giàu có sung túc, hoặc vợ tự mình làm ăn kinh doanh. Đồng độ Hỏa Tinh, Linh Tinh: tình cảm trước nồng ấm sau nguội lạnh. Sao Đào Hoa tụ tập: trước và sau hôn nhân đều rối rắm tình cảm.",
+   "source_quote": "thông thường chủ về người bạn đời keo kiệt, bủn xỉn, xem nặng tiền bạc, lúc nào cũng kiểm soát tiền bạc của người bạn đời.",
+   "source_page": 580,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:tham_lang",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tham: bạn đời nắm hầu bao; có Lộc thì thành tượng giàu có.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q067",
+   "question": "'Vũ Khúc, Tham Lang' Sửu/Mùi có Hóa Kỵ thì sao; cung hạn nào then chốt?",
+   "answer_atom": "Có Hóa Kỵ: vì người bạn đời mà phá tài; gặp các sao khoa văn hay Đào Hoa — thay lòng đổi dạ, có người khác; gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp — không có lạc thú khuê phòng hoặc tái hôn. Các cung hạn 'Thiên Cơ, Thiên Lương', 'Thiên Đồng, Thái Âm' thủ Phu Thê là then chốt. Vũ Khúc Hóa Kỵ, nữ mệnh đặc biệt lấy cung hạn Phu Thê 'Vũ Khúc, Thiên Tướng' (mượn sao nhập cung) để định cát hung của chồng.",
+   "source_quote": "có Hóa Kỵ, chủ về vì người bạn đời mà phá tài; gặp các sao khoa văn hay Đào Hoa, sẽ chủ về thay lòng đổi dạ, có người khác.",
+   "source_page": 580,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:tham_lang",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tham Kỵ: tốn tiền vì bạn đời; định cát hung chồng qua cung mượn Vũ Tướng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q068",
+   "question": "'Vũ Khúc, Thiên Tướng' Dần/Thân thủ Phu Thê cần điều kiện gì; quá cương hay quá nhu thì sao?",
+   "answer_atom": "Cần phải cương nhu tương tế mới chủ hôn nhân tốt đẹp; gặp Tả Phụ, Hữu Bật thì vợ chồng trợ lực nhau. Quá cương: nhân duyên vợ chồng không lâu bền (nam mệnh còn bị vợ chi phối); quá nhu: bị người bạn đời gây lụy — đều không phải mệnh cục tốt. Bị Hỏa Linh hoặc Kình Đà giáp cung thì bất lợi càng nặng; nhưng Hỏa Linh giáp mà đối cung có Lộc Tồn, Thiên Mã: bạn đời hoặc mệnh tạo bôn ba vất vả, vợ chồng gặp ít xa nhiều.",
+   "source_quote": "cần phải cương như tương tế mới chủ về hôn nhân tốt đẹp. Nếu gặp Tả Phụ, Hữu Bật, thì chủ về vợ chung trợ lực nhau.",
+   "source_page": 581,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cương nhu phải cân; lệch bên nào cũng hỏng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q069",
+   "question": "'Vũ Khúc, Thiên Tướng' Dần/Thân gặp sao đào hoa và 'sao lẻ' phụ tá; 'Hình kị giáp ấn' và 'Tài ấm giáp ấn' khác gì?",
+   "answer_atom": "Gặp sao đào hoa và 'sao lẻ' phụ tá: sau kết hôn vẫn dễ có tình yêu với người đã có gia đình. Nếu là 'Hình Kị giáp ấn': rơi vào vũng bùn tình cảm không thể tự đứng lên. Nếu là 'Tài ấm giáp ấn': tình yêu có tính chất ỷ lại vào đối tượng. Các cung hạn 'Thái Dương, Thiên Lương', 'Thiên Đồng, Cự Môn', 'Vũ Khúc, Thiên Tướng' là then chốt.",
+   "source_quote": "Nếu là “Hình Kị giáp ấn”, thì rơi vào vũng bùn của tình cảm mà không thể tự đứng lên được. Nếu là “Tài ấm giáp ấn”, sẽ chủ về tình yêu có tính chất ỷ lại vào đối tượng.",
+   "source_page": 581,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hai cách giáp của Thiên Tướng cho hai sắc thái tình: sa lầy hoặc ỷ lại.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q070",
+   "question": "'Vũ Khúc, Thất Sát' Mão/Dậu thủ Phu Thê: vì sao cung Dậu kém hơn cung Mão?",
+   "answer_atom": "Thường chủ kết hôn muộn, nếu không phần nhiều có hối tiếc trong hôn nhân, ở Dậu càng nặng. Vũ Sát ở Mão thì Thái Dương ở Thìn và Thái Âm ở Tuất đều miếu vượng; ở Dậu thì Thái Dương ở Tuất, Thái Âm ở Thìn đều lạc hãm — nên Dậu không bằng Mão. Xem hôn nhân, ngoài cung Phu Thê còn phải xem kèm miếu hãm của Thái Âm, Thái Dương.",
+   "source_quote": "xem hôn nhân, ngoài cung Phu Thê, còn cần phải xem kèm tình hình “miếu vượng lợi hãm” của Thái Âm Thái Dương.",
+   "source_page": 581,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nguyên tắc quan trọng: luận hôn nhân luôn xem kèm Âm Dương miếu hãm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q071",
+   "question": "'Vũ Khúc, Thất Sát' Mão/Dậu có Vũ Khúc Hóa Kỵ hoặc hội Liêm Trinh Hóa Kỵ kèm sát tinh nặng thì sao?",
+   "answer_atom": "Vũ Khúc Hóa Kỵ hoặc hội Liêm Trinh Hóa Kỵ, lại gặp tứ sát, Địa Không, Địa Kiếp tụ tập ở tam phương tứ chính: bạn đời bị tai nạn bất ngờ, hoặc vì bạn đời mà phá tán thất bại. Ứng nghiệm thường ở lưu niên Vũ Khúc/Liêm Trinh Hóa Kỵ trùng điệp, hoặc Kình Dương, Đà La trùng điệp; luận đại hạn thì ở các cung hạn mượn Liêm Trinh, Tham Lang, hoặc Thiên Tướng thủ Phu Thê.",
+   "source_quote": "lại gặp tứ sát, Địa Không, Địa Kiếp tụ tập ở tam phương tứ chính, chủ về người bạn đời bị tai nạn bất ngờ, hoặc vì người bạn đời mà bị phá tán, thất bại.",
+   "source_page": 581,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Kỵ chồng Kỵ, sát chồng sát là lúc tai nạn của bạn đời ứng ra.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q072",
+   "question": "'Vũ Khúc, Thất Sát' bản cung không sát mà tam phương gặp sát thì bạn đời thế nào?",
+   "answer_atom": "Bạn đời dãi dầu sương gió, phiêu lưu bên ngoài; gặp Hỏa Tinh, Linh Tinh hoặc Thiên Mã càng đúng. Tam phương gặp thêm sao phụ tá cát: bạn đời nên theo võ nghiệp. Nếu tam phương có Hỏa Tinh, Thiên Trù đồng độ, hoặc Phá Quân có sao lộc gặp Hỏa Tinh: bạn đời nên kinh doanh ngành ẩm thực.",
+   "source_quote": "Nếu bản cung không gặp sát tinh, mà tam phương gặp sát tinh, sẽ chủ về người bạn đời dãi dầu sương gió, phiêu lưu ở bên ngoài.",
+   "source_page": 582,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vị trí sát tinh đổi nghĩa: tam phương sát thì bạn đời bôn ba, hợp võ nghiệp/ẩm thực.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q073",
+   "question": "Vì sao cung Phu Thê 'Vũ Khúc, Thất Sát' thì bạn đời tính cách cứng rắn; khi nào hòa hợp được?",
+   "answer_atom": "Hễ Phu Thê gặp 'Vũ Khúc, Thất Sát' thì cung Phúc Đức ắt là 'Tử Vi, Phá Quân', nên bạn đời tính cứng rắn, thường khó hòa hợp. Hòa hợp được hay không phải xem nhóm tinh hệ 'Liêm Trinh, Tham Lang' có sắc thái gì: có sắc thái tình cảm thì hòa hợp được; thiên nặng ham muốn vật chất thì hai vợ chồng đều muốn khống chế nhau — trong tình hình này cung Mệnh có sao Đào Hoa thì vẫn chủ sống đến bạc đầu.",
+   "source_quote": "Hễ cung Phu Thê gặp “Vũ Khúc, Thất Sát”, cung Phúc Đức ắt sẽ là “Tử Vi, Phá Quân”, cho nên chủ về người bạn đời tính cách cứng rắn, thường thường khó hòa hợp.",
+   "source_page": 582,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cấu trúc cung liên hoàn: Phúc Đức Tử Phá giải thích tính cứng của bạn đời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q074",
+   "question": "'Vũ Khúc, Thất Sát' Mão/Dậu kỵ sát tinh nào nhất; Vũ Khúc Hóa Kỵ sát nặng chủ bệnh gì?",
+   "answer_atom": "Rất kỵ Hỏa Tinh, Đà La đồng độ — chủ tái hôn. Gặp 'sao lẻ' Văn Xương hay Văn Khúc, hoặc Hóa Kỵ: thành thân không có hôn lễ chính thức. Trường hợp sát tinh nặng, Vũ Khúc Hóa Kỵ: chồng có bệnh kín hoặc mắc bệnh phổi.",
+   "source_quote": "rất kỵ Hỏa Tinh, Đà La đồng độ, chủ về tái hôn... Trường hợp sát tinh nặng, Vũ Khúc Hóa Kỵ, chồng có bệnh kín, hoặc mắc bệnh phổi.",
+   "source_page": 582,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ sát nặng ứng cả vào bệnh tật kín của chồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q075",
+   "question": "Vũ Khúc độc tọa Thìn/Tuất thủ Phu Thê chủ gì?",
+   "answer_atom": "Nên kết hôn muộn. Có Hỏa Tinh, Linh Tinh đồng độ: thành hôn hấp tấp vội vàng. Được cát hóa và có sao cát: bạn đời tinh tế sắc sảo, có năng lực làm việc. Gặp sát, kỵ, hình: vợ chồng sinh ly tử biệt; sát tinh nhẹ thì vì bạn đời mà phá tài.",
+   "source_quote": "Vũ Khúc độc tọa ở hai cung Thìn hoặc Tuất, nên kết hôn muộn; có Hỏa Tinh, Linh Tinh đồng độ, chủ về thành hôn hấp tấp, vội vàng.",
+   "source_page": 582,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Khúc một mình: cưới muộn thì lành.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q076",
+   "question": "Vũ Khúc Thìn/Tuất hội Tham Lang đối cung có Hỏa/Linh thì tình yêu thế nào; cung nào ưu hơn?",
+   "answer_atom": "Khắc hại khá ít, nhưng đến đại hạn Phá Quân, Thất Sát thủ Phu Thê gặp sát kỵ hình tụ tập cũng chủ có khắc hại. Hội Tham Lang đối cung có Hỏa Tinh hoặc Linh Tinh đồng cung: phần nhiều tình yêu nồng cháy nhưng cũng nhiều trắc trở, có Thiên Diêu đồng độ càng nặng. Cung Thìn ưu hơn Tuất — xem Thái Dương, Thái Âm miếu hãm thì biết. Các cung hạn Phá Quân, Thất Sát, Thiên Lương, Cự Môn là then chốt.",
+   "source_quote": "Trường hợp hội Tham Lang ở đối cung, có Hỏa Tinh hoặc Linh Tinh đồng cung, phần nhiều chủ về tình yêu nồng cháy, nhưng cũng nhiều trắc trở.",
+   "source_page": 582,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa Tham đối chiếu: yêu cháy bỏng mà lắm gập ghềnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q077",
+   "question": "'Vũ Khúc, Phá Quân' Tị/Hợi thủ Phu Thê gặp sát kỵ hình thì sao?",
+   "answer_atom": "Hôn nhân ắt bất lợi, nên kết hôn muộn; nếu không cũng chủ tái hôn, làm nhị phòng hay kế thất. Ngại nhất có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp đồng độ — phần nhiều chủ oán hận người bạn đời. Được cát hóa, có sao cát: bạn đời tinh tế sắc sảo nhưng bản thân mệnh tạo bị bạn đời khống chế.",
+   "source_quote": "gặp các sao sát, kỵ, hình, hôn nhân ắt sẽ bất lợi, nên kết hôn muộn; nếu không cũng chủ về tái hôn, làm nhị phòng hay kế thất.",
+   "source_page": 583,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Phá: xấu thì oán hận, tốt thì bị bạn đời nắm đầu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q078",
+   "question": "'Vũ Khúc, Phá Quân' Tị/Hợi có Lộc Tồn Thiên Mã, hoặc cát hóa kèm Thất Sát sao lộc thì sao?",
+   "answer_atom": "Có Lộc Tồn, Thiên Mã cùng bay đến hoặc vây chiếu: vợ chồng mỗi người một nơi, gặp ít xa nhiều. Có Hỏa Linh hoặc Không Kiếp đồng độ: vợ chồng hữu danh vô thực. Được cát hóa có sao cát, Thất Sát kèm sao lộc đến hội: nam mệnh nhờ vợ mà kiếm được tiền, nữ mệnh phú quý; ở Tị tốt hơn ở Hợi. Cung hạn then chốt: Thiên Đồng, Cự Môn, Thiên Lương, Thái Dương.",
+   "source_quote": "có Lộc Tồn, Thiên Mã cùng bay đến, hoặc có Lộc Tồn, Thiên Mã vây chiếu, sẽ chủ về vợ chồng mỗi người một nơi, gặp nhau ít mà xa nhau nhiều.",
+   "source_page": 583,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc Mã động: hai người hai ngả; có lộc tụ đúng cách lại nhờ vợ phát tài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q079",
+   "question": "Vũ Khúc ở cung Phu Thê có Văn Khúc Hóa Kỵ đồng độ hoặc thành cách 'Linh Xương Đà Vũ' thì sao?",
+   "answer_atom": "Hễ Vũ Khúc ở Phu Thê có Văn Khúc Hóa Kỵ đồng độ: đều chủ không có hôn lễ chính thức. Nếu thành cách cục 'Linh Xương Đà Vũ': hôn nhân ắt đổ vỡ, thậm chí 'hình khắc' người bạn đời.",
+   "source_quote": "có Văn Khúc Hóa Kỵ đồng độ, đều chủ về không có hôn lễ chính thức. Nếu thành cách cục “Linh Xương Đà Vũ”, thì hôn nhân ắt sẽ đổ vỡ, thậm chí “hình khắc” người bạn đời.",
+   "source_page": 583,
+   "section_id": "5.3",
+   "tags": [
+    "star:vu_khuc",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Linh Xương Đà Vũ — cách hung nổi tiếng — vào cung vợ chồng là tan vỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q080",
+   "question": "Vì sao Thiên Đồng ở cung Phu Thê chủ về hai lần nhân duyên?",
+   "answer_atom": "Thiên Đồng chủ tay trắng làm nên — bỏ hết sự nghiệp đang có rồi tự lập sự nghiệp mới. Ý này bay vào cung Phu Thê biến thành hai lần nhân duyên. Thời cổ hôn nhân qua mai mối (tương đương 'sự nghiệp đang có') nên Thiên Đồng tại Phu Thê phần nhiều chủ nạp thiếp ('tự lập sự nghiệp mới'). Thời hiện đại: thường trước hôn nhân đã từng ở chung hoặc yêu nồng cháy, sau khi xa nhau mới tái hợp.",
+   "source_quote": "Thiên Đồng chủ về tay trắng làm nên, tức bỏ hết sự nghiệp đang có rồi mới tự lập nên sự nghiệp mới. Mang ý nghĩa này bay vào cung Phu Thê thì biến thành hai lần nhân duyên.",
+   "source_page": 583,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lấy nghĩa gốc 'bỏ cũ lập mới' của Thiên Đồng mà suy ra hai lần duyên.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q081",
+   "question": "Thiên Đồng ở cung Phu Thê khuyên gì về tuổi tác để 'xu cát tị hung'?",
+   "answer_atom": "Hễ Thiên Đồng ở Phu Thê đều chủ lấy vợ nhỏ tuổi hoặc lấy chồng lớn tuổi; tuổi tác chênh lệch nhiều mới có thể thành vợ chồng. Nếu không, nữ mệnh chủ làm nhị phòng. Đây cũng là đạo 'xu cát tị hung'.",
+   "source_quote": "Hễ Thiên Đồng ở cung Phu Thê, đều chủ về lấy vợ nhỏ tuổi, hoặc lấy chồng lớn tuổi; tuổi tác chênh lệch nhau nhiều mới có thể trở thành vợ chồng... Đây cũng là đạo “xu cát tị hung”.",
+   "source_page": 584,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Chênh tuổi nhiều là cách tránh hung cho Thiên Đồng cung vợ chồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q082",
+   "question": "'Thiên Đồng, Thái Âm' Tý/Ngọ thủ Phu Thê chủ về bạn đời thế nào?",
+   "answer_atom": "Nam mệnh chủ lấy vợ đẹp; nữ mệnh lấy chồng có phong độ. Gặp các sao Khoa Văn hoặc Đào Hoa: bạn đời được người khác giới để ý, ưu ái. Gặp sát, kỵ, hình: sinh ly tử biệt hoặc gặp ít xa nhiều.",
+   "source_quote": "Nam mệnh chủ về lấy vợ đẹp; nữ mệnh lấy chồng có phong độ.",
+   "source_page": 584,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Âm: bạn đời đẹp, dễ bị người ngoài để ý.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q083",
+   "question": "'Thiên Đồng, Thái Âm' thủ Phu Thê: các trường hợp Hóa Kỵ khác nhau chủ gì?",
+   "answer_atom": "Thái Âm Hóa Kỵ: tái hôn thì cát lợi, có thể sống đến bạc đầu. Thiên Đồng Hóa Kỵ: tái hôn cũng không cát tường. Hội Cự Môn Hóa Kỵ: nhiều điều tiếng, dễ ly dị. Hội Thái Dương Hóa Kỵ: vợ đa nghi hoặc chồng nhiều bệnh.",
+   "source_quote": "Nếu Thái Âm Hóa Kỵ, chủ về tái hôn thì cát lợi, có thể sống đến bạc đầu. Nếu Thiên Đồng Hóa Kỵ, tái hôn cũng không cát tường.",
+   "source_page": 584,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bốn sao Hóa Kỵ cho bốn kịch bản khác nhau của Đồng Âm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q084",
+   "question": "'Thiên Đồng, Thái Âm' gặp sao Lộc thì ai sinh lòng hướng ngoại; cung hạn nào then chốt?",
+   "answer_atom": "Gặp sao Lộc, nhất là Thiên Đồng Hóa Lộc, Cự Môn Hóa Lộc: bản thân mệnh tạo thường sinh lòng hướng ngoại; gặp 'sao lẻ' phụ tá càng dễ có tình cảm bên ngoài. Các cung hạn 'Thái Dương, Cự Môn', 'Liêm Trinh, Phá Quân', 'Thiên Cơ, Thiên Lương' thủ Phu Thê là đại vận/lưu niên then chốt.",
+   "source_quote": "gặp sao Lộc, nhất là Thiên Đồng Hóa Lộc, Cự Môn Hóa Lộc, chủ về bản thân mệnh tạo thường sinh lòng hướng ngoại.",
+   "source_page": 584,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:thai_am",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc ở đây lại xui chính mình hướng ngoại tìm tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q085",
+   "question": "'Thiên Đồng, Cự Môn' Sửu/Mùi thủ Phu Thê gặp Hóa Kỵ/Hóa Lộc thì sao?",
+   "answer_atom": "Gặp Hóa Kỵ hay Hóa Lộc đều dễ bị đau khổ vì tình, có tình yêu không bình thường hoặc yêu đơn phương. Nếu Cự Môn Hóa Kỵ: vợ chồng hay tranh cãi ồn ào. Gặp các sao phụ tá cát thành đôi hội nhập mới chủ hôn nhân ổn định.",
+   "source_quote": "Gặp Hóa Kỵ, Hóa Lộc, đều dễ bị đau khổ vì tình, có tình yêu không bình thường, hoặc yêu đơn phương. Nếu Cự Môn Hóa Kỵ, vợ chồng hay tranh cãi ồn ào.",
+   "source_page": 584,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Cự: Lộc hay Kỵ đều khổ tình; chỉ phụ tá đủ đôi mới ổn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q086",
+   "question": "'Thiên Đồng, Cự Môn' Sửu/Mùi gặp 'sao lẻ' thì làm sao tránh hai ba lần nhân duyên?",
+   "answer_atom": "Gặp 'sao lẻ': nếu từng ở chung hoặc hủy bỏ hôn ước thì có thể tránh phải trải qua hai, ba lần nhân duyên; nên kết hôn muộn, nữ mệnh còn chủ làm nhị phòng hay kế thất. Đến cung hạn Phu Thê 'Liêm Trinh, Thiên Phủ' đối nhau với 'Vũ Khúc, Thiên Tướng': phần nhiều yêu người đã kết hôn — xem các sao Đào Hoa hoặc Khoa Văn ở cung nào để xác định.",
+   "source_quote": "nếu từng ở chung, hoặc hủy bỏ hôn ước thì có thể tránh phải trải qua hai, ba lần nhân duyên; nên kết hôn muộn, nữ mệnh còn chủ về làm nhị phòng hay kế thất.",
+   "source_page": 584,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Từng dang dở trước hôn nhân lại là cách hóa giải số nhiều lần đò.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q087",
+   "question": "'Thiên Đồng, Cự Môn' Sửu/Mùi thủ Phu Thê thì cung Mệnh là cách gì, nên chọn đời sống thế nào?",
+   "answer_atom": "Cung Mệnh là cách 'Dương Lương Xương Lộc'. Cung Mão ưu hơn cung Dậu, nhưng dễ chủ bạn đời có sự nghiệp riêng — vì vậy nên làm khác nghề, khác chỗ làm việc, nếu không sẽ nhiều điều tiếng, rối ren.",
+   "source_quote": "thủ cung Phu Thê, cung Mệnh là cách “Dương Lương Xương Lộc”... Cung Mão ưu hơn ở cung Dậu, nhưng dễ chủ về người bạn đời có sự nghiệp riêng. Vì vậy nên làm khác nghề, khác chỗ làm việc.",
+   "source_page": 585,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:cu_mon",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vợ chồng nên mỗi người một nghề một nơi làm để tránh thị phi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q088",
+   "question": "'Thiên Đồng, Thiên Lương' Dần/Thân thủ Phu Thê chủ về tái hôn thế nào?",
+   "answer_atom": "Nam mệnh: sau khi ly hôn lấy được vợ khác xinh đẹp; nữ mệnh: sau tái giá lấy được chồng mới có sự nghiệp tốt hơn. Nam nên lấy vợ nhỏ tuổi, nữ nên lấy chồng lớn tuổi. Nếu không tái hôn: chủ vợ chồng vì hoàn cảnh mà ly tán, sau đó mới tái hợp.",
+   "source_quote": "Nam mệnh chủ về sau khi ly hôn, lấy được vợ khác xinh đẹp; nữ mệnh chủ về sau khi tái giá lấy được chồng mới có sự nghiệp tốt hơn.",
+   "source_page": 585,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:thien_luong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương: lần hai lại tốt hơn lần đầu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q089",
+   "question": "'Thiên Đồng, Thiên Lương' Dần/Thân gặp sao lẻ, sát kị hình thì sao; cung hạn nào ứng nghiệm?",
+   "answer_atom": "Gặp 'sao lẻ' phụ tá: ắt chủ tái hôn. Gặp sát, kị, hình: vợ chồng chỉ là hư danh hoặc bị 'hình khắc'. Đến cung hạn Phu Thê: Liêm Trinh Hóa Kỵ hội Vũ Khúc Hóa Kỵ — phần nhiều ứng bạn đời gặp tai nạn; Thái Dương Hóa Kỵ hội Thái Âm Hóa Kỵ — phần nhiều ứng vợ chồng sinh ly.",
+   "source_quote": "Liêm Trinh Hóa Kỵ hội Vũ Khúc Hóa Kỵ: Phần nhiều ứng nghiệm người bạn đời gặp tai nạn. Thái Dương Hóa Kỵ hội Thái Âm Hóa Kỵ: Phần nhiều ứng nghiệm vợ chồng sinh ly.",
+   "source_page": 585,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "star:thien_luong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cặp Liêm-Vũ Kỵ ứng tai nạn; cặp Âm-Dương Kỵ ứng sinh ly.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q090",
+   "question": "Thiên Đồng độc tọa Mão/Dậu (đối cung Thái Âm) thủ Phu Thê chủ gì?",
+   "answer_atom": "Chủ bạn đời xinh đẹp, tuấn tú. Được cát hóa, có sao cát: hôn nhân hạnh phúc, nhất là từng ở chung rồi mới chính thức kết hôn thì càng đúng. Có sát, kị, hình tụ hội: hai, ba lần hôn nhân; nữ mệnh chủ làm nhị phòng hay kế thất.",
+   "source_quote": "Cũng chủ về người bạn đời xinh đẹp, tuấn tú. Được cát hóa, có sao cát, chủ về hôn nhân hạnh phúc, nhất là trường hợp từng ở chung, sau đó mới chính thức kết hôn thì càng đúng.",
+   "source_page": 585,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sống chung trước cưới hợp với tính chất 'bỏ cũ lập mới' của Thiên Đồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q091",
+   "question": "Thiên Đồng Mão/Dậu hội Lộc Tồn Thiên Mã kèm Hỏa Linh, hoặc gặp tạp diệu cô quả thì sao?",
+   "answer_atom": "Thiên Đồng ở Mão hội Lộc Tồn, Thiên Mã ở cung Hợi (hoặc ở Dậu hội Lộc Tồn, Thiên Mã ở cung Tị) mà có Hỏa Tinh, Linh Tinh đồng độ: vì hoàn cảnh khách quan mà vợ chồng chia ly. Gặp Hỏa Linh, Không Kiếp cùng các tạp diệu Giải Thần (Niên Giải, Nguyệt Giải), Quả Tú, Đại Hao, Thiên Hư đồng độ: vợ chồng hữu danh vô thực.",
+   "source_quote": "mà có Hỏa Tinh, Linh Tinh đồng độ với Thiên Đồng, chủ về vì hoàn cảnh khách quan mà vợ chồng chia ly.",
+   "source_page": 585,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc Mã động + Hỏa Linh: hoàn cảnh đẩy hai người xa nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q092",
+   "question": "Nam mệnh Thiên Đồng Mão/Dậu tại Phu Thê không nên gặp tạp diệu nào; cung hạn nào then chốt?",
+   "answer_atom": "Không nên gặp Thiên Diêu, Âm Sát, Kiếp Sát — chủ vợ có thủ đoạn. Các cung hạn Phu Thê Cự Môn, Thiên Lương, Phá Quân, 'Liêm Trinh, Thiên Tướng' là đại vận/lưu niên ứng nghiệm cát hung then chốt.",
+   "source_quote": "cũng không nên gặp Thiên Diêu, Âm Sát, Kiếp Sát, chủ về vợ có thủ đoạn.",
+   "source_page": 585,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ba tạp diệu ám muội này tô màu thủ đoạn cho người vợ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q093",
+   "question": "Thiên Đồng Thìn/Tuất thủ Phu Thê thành cách 'Phản Bối' thì sao?",
+   "answer_atom": "Thiên Đồng Thìn/Tuất đối Cự Môn, tình hình tương tự 'Thiên Đồng, Cự Môn'; cung hạn then chốt: Thiên Đồng, Cự Môn, Thiên Tướng, 'Liêm Trinh, Thất Sát'. Gặp sao Đào Hoa hoặc Khoa Văn thành cách 'Phản Bối': tái hôn tốt hơn hôn nhân lần đầu; nam mệnh còn chủ được tiền của nhờ vợ, hoặc được nhạc gia nâng đỡ nên sự nghiệp thành tựu.",
+   "source_quote": "gặp các sao Đào Hoa, hoặc các sao Khoa Văn, thành cách cục “Phản Bối”, chủ về tái hôn tốt hơn hôn nhân lần đầu.",
+   "source_page": 586,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cách Phản Bối đảo ngược: lần đò thứ hai mới là bến tốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q094",
+   "question": "Thiên Đồng Tị/Hợi thủ Phu Thê có tính chất gì?",
+   "answer_atom": "Đối nhau với Thiên Lương, tính chất đại khái tương tự 'Thiên Đồng, Thiên Lương'. Cung hạn then chốt: 'Vũ Khúc, Thiên Phủ', 'Thái Âm, Thái Dương', Liêm Trinh. Có Lộc Tồn, Thiên Mã vây chiếu hoặc đồng độ: vợ chồng gặp ít xa nhiều, hoặc mỗi người một nơi; gặp Hỏa Tinh, Linh Tinh càng đúng.",
+   "source_quote": "có Lộc Tồn, Thiên Mã vây chiếu hoặc đổng độ, đều chủ về vợ chồng gặp nhau ít mà xa nhau nhiều, hoặc vợ chồng mỗi người một nơi.",
+   "source_page": 586,
+   "section_id": "5.3",
+   "tags": [
+    "star:thien_dong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Tị/Hợi mượn nghĩa Đồng Lương; Lộc Mã làm vợ chồng hai ngả.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q095",
+   "question": "Liêm Trinh thủ cung Phu Thê tổng quát là sao lành hay dữ?",
+   "answer_atom": "Không phải sao lành, nhưng chủ sinh li nhiều hơn tử biệt; vợ chồng bất hòa nhưng có thể sống đến bạc đầu — tạm coi có kết cục tốt. Nếu Liêm Trinh Hóa Kỵ trùng điệp với chính diệu khác Hóa Kỵ (của Đại Vận/Lưu Niên), còn gặp sát tinh tụ hợp: thường là cung hạn ứng nghiệm sinh li tử biệt.",
+   "source_quote": "không phải là sao lành, nhưng chủ về sinh li nhiều hơn tử biệt, vợ chồng bất hòa nhưng có thể sống với nhau đến bạc đầu, tạm coi là có kết cục tốt.",
+   "source_page": 586,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Trinh: cãi nhau cả đời nhưng vẫn ở được với nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q096",
+   "question": "Liêm Trinh thủ Phu Thê tối kị sao nào; khuyên gì về tuổi tác?",
+   "answer_atom": "Tối kị Tham Lang, Phá Quân. Gặp sát, kỵ: thường hai, ba lần hôn nhân; nữ mệnh làm nhị phòng hay kế thất, nam mệnh lấy vợ không cử hành hôn lễ chính thức — cũng là đạo 'xu cát tị hung'. Rất kỵ Hỏa Tinh đồng cung: dù gặp cát tinh cát hóa cũng chủ vì hoàn cảnh mà vợ chồng ở hai nơi. Nam nên lấy vợ nhỏ tuổi, nữ nên lấy chồng lớn tuổi, chênh lệch trên 12 tuổi cũng được.",
+   "source_quote": "Liêm Trinh thủ cung Phu Thê, tối kị Tham Lang, Phá Quân... Liêm Trinh cũng rất kỵ Hỏa Tinh đồng cung, dù gặp cát tinh và cát hóa, cũng chủ về vì hoàn cảnh khách quan mà vợ chồng ở hai nơi.",
+   "source_page": 586,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm gặp Tham/Phá là kỵ nhất; chênh tuổi lớn để tránh hung.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q097",
+   "question": "'Liêm Trinh, Thiên Tướng' Tý/Ngọ (đối Phá Quân) thủ Phu Thê có tính chất gì?",
+   "answer_atom": "Tính chất không tốt: dù có cát hóa, sao cát vẫn chủ vợ chồng bảo thủ ý kiến riêng, mạnh ai nấy lo không cùng nhau tính toán, dẫn đến bất hòa. Có Kình Dương đồng độ hoặc vây chiếu, lại gặp Hỏa Linh hoặc Không Kiếp: bạn đời bị nạn tai, bệnh tật — các cung hạn Thất Sát, 'Tử Vi, Thiên Phủ', Phá Quân, Tham Lang là đại vận/lưu niên xảy ra ứng nghiệm.",
+   "source_quote": "dù có cát hóa, sao cát, vẫn chủ về vợ chồng bảo thủ ý kiến của riêng mình, mạnh ai nấy lo mà không cùng nhau tính toán, vì vậy mà dẫn đến bất hòa.",
+   "source_page": 587,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Tướng đối Phá: hai cái tôi song song, khó chung một hướng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q098",
+   "question": "'Liêm Trinh, Thiên Tướng' Tý/Ngọ thủ Phu Thê: sao lẻ và tuổi tác ảnh hưởng thế nào?",
+   "answer_atom": "Không nên gặp 'sao lẻ' phụ tá — là điểm tượng tái hôn; đại vận/lưu niên ứng nghiệm thường đến cung hạn có Văn Xương hay Văn Khúc Hóa Kỵ. Vợ chồng nên chênh lệch tuổi tác, trên 12 tuổi cũng được. Gặp Văn Xương, Văn Khúc (đủ đôi): chủ hòa hợp và sống với nhau đến bạc đầu.",
+   "source_quote": "không nên gặp “sao lẻ” phụ tá, đây cũng là điểm tượng tái hôn... Gặp Văn Xương, Văn Khúc, chủ về hòa hợp và sống với nhau đến bạc đầu.",
+   "source_page": 587,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Xương Khúc đủ đôi thì hòa hợp, đi lẻ kèm Hóa Kỵ thì tái hôn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q099",
+   "question": "'Liêm Trinh, Thất Sát' Sửu/Mùi thủ Phu Thê cần gì mới sống đến bạc đầu?",
+   "answer_atom": "Cần Hóa Lộc, Hóa Quyền, Hóa Khoa tụ tập đủ, còn gặp 'sao đôi' phụ tá mới có thể sống đến bạc đầu, nhưng vẫn có một thời gian vợ chồng xa nhau.",
+   "source_quote": "trong tình huống có Hóa Lộc, Hóa Quyền, Hóa Khoa tụ tập đủ, mà còn gặp “sao đôi” phụ tá, mới có thể sống với nhau đến bạc đầu, nhưng vẫn có một thời gian vợ chồng xa nhau.",
+   "source_page": 587,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Sát đòi đủ tam cát hóa và phụ tá đủ đôi — điều kiện rất cao.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q100",
+   "question": "'Liêm Trinh, Thất Sát' gặp sao lẻ hoặc Kình Đà thì ứng nghiệm ở cung hạn nào?",
+   "answer_atom": "Gặp 'sao lẻ' phụ tá: chủ tái hôn — ứng nghiệm khi đến các cung hạn Thiên Đồng, Cự Môn, 'Vũ Khúc, Phá Quân'. Gặp Kình Dương, Đà La đồng độ: chủ 'hình khắc' — ứng nghiệm khi đến cung hạn 'Liêm Trinh, Thất Sát Hóa Kỵ' trùng điệp xung chiếu, ở cung Phu Thê, cung Điền Trạch hoặc cung Phúc Đức đều đúng.",
+   "source_quote": "Ứng nghiệm tái hôn là đến các cung hạn Thiên Đồng, Cự Môn, “Vũ Khúc, Phá Quân”; ứng nghiệm hình khắc là đến cung hạn “Liêm Trinh, Thất Sát Hóa Kỵ” trùng điệp xung chiếu.",
+   "source_page": 587,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:that_sat",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tái hôn và hình khắc có hai bộ cung hạn ứng nghiệm riêng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q101",
+   "question": "Liêm Trinh độc tọa Dần/Thân thủ Phu Thê có Hỏa Linh, Thiên Diêu thì sao?",
+   "answer_atom": "Đồng độ Hỏa Tinh, Linh Tinh: thành hôn hấp tấp vội vàng. Gặp thêm Thiên Diêu: phần nhiều ở chung trước rồi mới kết hôn. Có sát, kị trùng trùng: tái hôn hoặc ba lần hôn nhân. Hội Thiên Tướng bị 'Hình Khắc Giáp Ấn': nữ mệnh chủ là nhị phòng.",
+   "source_quote": "đồng độ với Hỏa Tinh, Linh Tinh, chủ về thành hôn hấp tấp, vội vàng. Nếu gặp thêm Thiên Diêu, phần nhiều là ở chung trước rồi mới kết hôn.",
+   "source_page": 588,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Dần/Thân: cưới vội, sống chung trước; sát kị nhiều thì mấy lần đò.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q102",
+   "question": "Liêm Trinh Dần/Thân thủ Phu Thê thường chủ tình cảm kiểu gì; cung hạn nào then chốt?",
+   "answer_atom": "Thường chủ có tình yêu với người đã có gia đình; ứng nghiệm khi đến cung hạn Phu Thê 'Vũ Khúc, Thiên Phủ' mà còn gặp sao Đào Hoa, Văn Xương, Văn Khúc. Các cung hạn Phá Quân, Tham Lang, Thiên Lương (ở cung Tị), Thiên Đồng (ở cung Tị) là đại vận/lưu niên ứng nghiệm cát hung then chốt.",
+   "source_quote": "thường chủ về có tình yêu với người đã có gia đình. Đến cung hạn phu thê “Vũ Khúc, Thiên Phủ”, mà còn gặp các sao Đào Hoa, Văn Xương, Văn Khúc, là đại vận hoặc lưu niên ứng nghiệm.",
+   "source_page": 588,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tượng yêu người có gia đình; điểm nổ ở hạn Vũ Phủ kèm đào hoa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q103",
+   "question": "'Liêm Trinh, Phá Quân' Mão/Dậu thủ Phu Thê có tính chất gì; gặp Hỏa Linh thì sao?",
+   "answer_atom": "Tính chất đổ vỡ khá nghiêm trọng: dù có cát hóa và sao cát cũng chủ vợ chồng bất hòa. Gặp Hỏa Tinh, Linh Tinh đồng độ: là họa lớn — bạn đời gặp bất trắc, hoặc vì bạn đời mà thất bại. Khi luận cung Phu Thê đại hạn phải xem lúc nào ứng nghiệm và tính chất sự kiện (ví dụ đại hạn Phu Thê là 'Vũ Khúc, Tham Lang' mà Vũ Khúc Hóa Kỵ — có thể là điểm thất bại; là Thiên Đồng Hóa Kỵ — có thể là gặp bất trắc).",
+   "source_quote": "tính chất đổ vỡ khá nghiêm trọng, dù có cát hóa và sao cát, cũng chủ về vợ chồng bất hòa... lại gặp Hỏa Tinh, Linh Tinh đồng độ, là họa lớn.",
+   "source_page": 588,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Phá là tổ hợp đổ vỡ nặng nhất của Liêm Trinh ở cung này.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q104",
+   "question": "'Liêm Trinh, Phá Quân' Mão/Dậu gặp sao lẻ, sao đôi Xương Khúc kèm Đào Hoa thì sao?",
+   "answer_atom": "Gặp 'sao lẻ' phụ tá: chủ tái hôn. Gặp sao đôi Văn Xương, Văn Khúc còn thêm các sao Đào Hoa: thay lòng đổi dạ, có người khác. Phần nhiều tái hôn vẫn không thấy tốt đẹp; nữ mệnh tái hôn thường không có danh phận. Cung hạn then chốt: 'Vũ Khúc, Tham Lang', 'Thiên Đồng, Thái Âm', 'Thiên Cơ, Thiên Lương', Thiên Tướng thủ Phu Thê của đại vận/lưu niên.",
+   "source_quote": "Phần nhiều tái hôn vẫn không thấy tốt đẹp; nữ mệnh tái hôn thường không có danh phận.",
+   "source_page": 588,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:pha_quan",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Phá khác Đồng Lương: tái hôn cũng chẳng khá hơn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.3-Q105",
+   "question": "'Liêm Trinh, Thiên Phủ' Thìn/Tuất thủ Phu Thê có tính chất gì?",
+   "answer_atom": "Kết cấu khá ổn định: phần nhiều chỉ chủ về bất hòa, nhưng không có 'hình khắc' hay chia li.",
+   "source_quote": "“Liêm Trinh, Thiên Phủ” đồng độ ở hai cung Thìn hoặc Tuất, kết cấu khá ổn định, phần nhiều chỉ chủ về bất hòa, nhưng không có “hình khắc” hay chia li.",
+   "source_page": 588,
+   "section_id": "5.3",
+   "tags": [
+    "star:liem_trinh",
+    "star:thien_phu",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Phủ là tổ hợp êm nhất của Liêm Trinh tại cung vợ chồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}

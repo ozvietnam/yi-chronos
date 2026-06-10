@@ -1,0 +1,2936 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.12",
+ "section_title": "Cung Phụ Mẫu",
+ "pages": [
+  870,
+  871,
+  872,
+  873,
+  874,
+  875,
+  876,
+  877,
+  878,
+  879,
+  880,
+  881,
+  882,
+  883,
+  884,
+  885,
+  886,
+  887
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.12-Q001",
+   "question": "'Tử Vi, Thất Sát' đồng độ ở hai cung Tị hoặc Hợi tại cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "'Tử Vi, Thất Sát' đồng độ ở Tị hoặc Hợi rất mẫn cảm với ảnh hưởng của hóa tinh. Tính chất cơ bản: cha mẹ có tinh thần trách nhiệm, bất kể tình hình nào mệnh tạo đều được cha mẹ thương yêu che chở.",
+   "source_quote": "“Tử Vi, Thất Sát” đồng độ ở hai cung Tị hoặc Hợi, chủ về rất mẫn cảm đối với ảnh hưởng của hóa tinh. Tính chất cơ bản là cha mẹ có tính thần trách nhiệm, bất kể trong tình hình nào, bản thân mệnh tạo đều được cha mẹ thương yêu che chở.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tu_vi",
+    "star:that_sat",
+    "position:ti_hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đồng độ (同度) = hai sao cùng đóng một cung",
+    "viet_thuan": "Tử Vi Thất Sát ở Tị/Hợi tại cung cha mẹ: cha mẹ trách nhiệm, luôn che chở con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q002",
+   "question": "'Tử Vi, Thất Sát' ở cung Phụ Mẫu ưa gặp những hóa tinh nào hội hợp?",
+   "answer_atom": "Rất ưa gặp Liêm Trinh Hóa Lộc, Phá Quân Hóa Quyền, Vũ Khúc Hóa Khoa cùng hội hợp — chủ về tình cảm giữa hai đời rất hòa hợp, còn được cha mẹ dìu dắt, nâng đỡ.",
+   "source_quote": "Cho nên rất ưa gặp Liêm Trinh Hóa Lộc, Phá Quân Hóa Quyền, Vũ Khúc Hóa Khoa cùng hội hợp, chủ về tình cảm giữa hai đời rất hòa hợp, còn được cha mẹ dìu dắt, nâng đỡ.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tu_vi",
+    "star:that_sat",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hội hợp (會合) = các sao chiếu về cùng cung",
+    "viet_thuan": "Gặp bộ Liêm Lộc – Phá Quyền – Vũ Khoa thì hai đời hòa hợp, được nâng đỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q003",
+   "question": "Tử Vi Hóa Khoa ở cung Phụ Mẫu chủ về điều gì?",
+   "answer_atom": "Tử Vi Hóa Khoa thì cha mẹ rất độc đoán; nếu là 'tại địa cô quân' thì mức độ độc đoán càng nặng.",
+   "source_quote": "Nếu Tử Vi Hóa Khoa, thì cha mẹ rất độc đoán; là “tại địa cô quân” thì mức độ độc đoán càng nặng.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tu_vi",
+    "hoa:khoa",
+    "concept:co_quan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tại địa cô quân (在地孤君) = vua cô độc nơi đất khách, Tử Vi không có bách quan triều củng",
+    "viet_thuan": "Tử Vi Hóa Khoa: cha mẹ độc đoán; Tử Vi cô quân thì càng nặng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q004",
+   "question": "Tham Lang (trong tinh hệ hội với Tử Vi Thất Sát ở cung Phụ Mẫu) được cát hóa hoặc gặp sao đào hoa thì luận thế nào?",
+   "answer_atom": "Tham Lang được cát hóa, gặp các sao khoa văn cũng chủ về tình cảm hòa hợp; gặp các sao đào hoa thì cha có nhị phòng hay có người bên ngoài.",
+   "source_quote": "Nếu Tham Lang được cát hóa, gặp các sao khoa văn, cũng chủ về tình cảm hòa hợp; gặp các sao đào hoa, cha có nhị phòng hay có người bên ngoài.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhị phòng (二房) = vợ thứ",
+    "viet_thuan": "Tham Lang cát hóa thì hòa hợp; gặp đào hoa thì cha có vợ lẽ hay người ngoài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q005",
+   "question": "Liêm Trinh Hóa Kỵ, Tham Lang Hóa Kỵ, Vũ Khúc Hóa Kỵ hội vào cung Phụ Mẫu (tinh hệ Tử Vi) mỗi sao chủ về gì?",
+   "answer_atom": "Liêm Trinh Hóa Kỵ: sát tính nặng thì hình khắc, nhẹ thì bất hòa. Tham Lang Hóa Kỵ: cha có người bên ngoài. Vũ Khúc Hóa Kỵ: cha mẹ sự nghiệp thất bại, hoặc hình khắc, chia li, nạn tai, bệnh tật. Quan hệ với cấp trên luận tương tự.",
+   "source_quote": "Nếu Liêm Trinh Hóa Kỵ, sát tính nặng thì bị hình khắc; sát tính nhẹ thì chủ về bất hòa; Tham Lang Hóa Kỵ, cũng chủ về cha có người bên ngoài; Vũ Khúc Hóa Kỵ, thì cha mẹ sự nghiệp thất bại, hoặc bị hình khắc, chia li, nạn tai, bệnh tật.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "star:vu_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình khắc (刑剋) = tổn hại, khắc hại người thân",
+    "viet_thuan": "Ba sao Hóa Kỵ cho ba kết quả khác nhau: khắc/bất hòa, cha ngoại tình, sự nghiệp cha mẹ đổ vỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q006",
+   "question": "Tính chất các sao ở cung Phụ Mẫu ứng nghiệm về cha hay về mẹ được định bằng cách nào?",
+   "answer_atom": "Phải xem Thái Âm, Thái Dương và sinh vào ban ngày hay ban đêm mà định. Ví dụ Thái Âm Hóa Kỵ ở cung Tị, cung Phụ Mẫu là Tử Vi ở cung Tí có hóa tinh đồng độ, chủ về cha chia li với gia đình, mệnh tạo theo họ mẹ.",
+   "source_quote": "Tính chất các sao ở cung Phụ Mẫu, ứng nghiệm về cha hay về mẹ vẫn phải xem Thái Âm, Thái Dương và sinh vào ban ngày hay ban đêm mà định.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am",
+    "star:thai_duong",
+    "concept:ngay_dem"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thái Dương biểu trưng cha, Thái Âm biểu trưng mẹ",
+    "viet_thuan": "Muốn biết ứng vào cha hay mẹ phải xét Nhật–Nguyệt và giờ sinh ngày/đêm.",
+    "nguyen_ly": "Nhật = cha, Nguyệt = mẹ; sao biểu trưng bị Hóa Kỵ thì người đó ứng nghiệm",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q007",
+   "question": "Thiên Cơ thủ cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Tính chất cơ bản là quan hệ cha con không được tốt; gặp 'Lộc Quyền Khoa hội' quan hệ mới ổn định, nếu không sẽ có ngăn cách giữa hai đời; nhập miếu mà không có sát tinh thì xa cách bình thường.",
+   "source_quote": "Thiên Cơ thủ cung Phụ Mẫu, tính chất cơ bản là quan hệ giữa cha con không được tốt; gặp “Lộc Quyền Khoa hội” quan hệ mới ổn định, nếu không, sẽ chủ về có ngăn cách giữa hai đời; nhập miếu mà không có sát tinh, thì xa cách bình thường.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủ (守) = sao đóng tại cung",
+    "viet_thuan": "Thiên Cơ ở cung cha mẹ: quan hệ cha con vốn không tốt, cần Lộc Quyền Khoa mới ổn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q008",
+   "question": "Thiên Cơ ở cung Phụ Mẫu có sao đào hoa, Thiên Mã hội hợp chủ về gì?",
+   "answer_atom": "Chủ về còn nhỏ đã làm con nuôi, con thừa tự của người khác, hoặc lớn lên ở rể, hoặc thân cận bên gia đình vợ hơn. Cần xem các sao sát, kỵ nặng nhẹ thế nào mà định.",
+   "source_quote": "Thiên Cơ có các sao đào hoa, Thiên Mã hội hợp, chủ về còn nhỏ đã làm nuôi, con thừa tự của người khác, hoặc lớn lên ở rể, hoặc thân cận bên gia đình vợ hơn.",
+   "source_page": 870,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thien_ma",
+    "concept:dao_hoa",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thừa tự (承嗣) = nối dõi cho người khác",
+    "viet_thuan": "Thiên Cơ + đào hoa + Thiên Mã: nhỏ làm con nuôi hoặc lớn ở rể.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q009",
+   "question": "Thiên Cơ gặp Kình Dương, Đà La hội hợp, lại gặp Địa Không, Địa Kiếp, Thiên Hình ở cung Phụ Mẫu chủ về gì?",
+   "answer_atom": "Chủ về hình khắc, hoặc làm con nuôi.",
+   "source_quote": "Thiên Cơ gặp Kình Dương, Đà La hội hợp, lại gặp Địa Không, Địa Kiếp, Thiên Hình, chủ về hình khắc, hoặc làm con nuôi.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "sat:kinh_duong",
+    "sat:da_la",
+    "sat:dia_khong",
+    "sat:dia_kiep",
+    "sat:thien_hinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Cơ gặp đủ sát tinh nặng: khắc cha mẹ hoặc làm con nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q010",
+   "question": "Thiên Cơ đồng độ với Hỏa Tinh, Linh Tinh ở cung Phụ Mẫu chủ về gì?",
+   "answer_atom": "Chủ về sinh li, không chủ về khắc.",
+   "source_quote": "Thiên Cơ đồng độ với Hỏa Tinh, Linh Tinh, chủ về sinh li, không chủ về khắc.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "sat:hoa_tinh",
+    "sat:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sinh li (生離) = sống mà phải lìa xa nhau",
+    "viet_thuan": "Thiên Cơ + Hỏa/Linh: xa lìa cha mẹ khi còn sống, không phải khắc chết.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q011",
+   "question": "Thiên Cơ độc tọa ở hai cung Tý hoặc Ngọ, hội Thiên Đồng Hóa Kỵ chủ về gì?",
+   "answer_atom": "Cũng chủ về quan hệ không được tốt; gặp sát tinh, chủ về có chuyện đau lòng rơi lệ. Nếu Cự Môn Hóa Kỵ thì lúc bé bất lợi về cha mẹ, luận giống trường hợp ở hai cung Sửu hoặc Mùi.",
+   "source_quote": "Thiên Cơ độc tọa ở hai cung Tý hoặc Ngọ, hội Thiên Đồng Hóa Kỵ, cũng chủ về quan hệ không được tốt; gặp sát tinh, chủ về có chuyện đau lòng rơi lệ.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thien_dong",
+    "hoa:ky",
+    "position:ty_ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Độc tọa (獨坐) = một mình đóng cung",
+    "viet_thuan": "Thiên Cơ Tý/Ngọ hội Đồng Kỵ: quan hệ xấu; thêm sát tinh thì có chuyện đau buồn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q012",
+   "question": "Thiên Cơ độc tọa ở hai cung Sửu hoặc Mùi tại cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Gặp cát tinh thì cha có thiên kiến; đồng độ với sao không thì xa cách cha mẹ.",
+   "source_quote": "Thiên Cơ độc tọa ở hai cung Sửu hoặc Mùi, gặp cát tinh, thì cha có thiên kiến. Thiên Cơ độc tọa ở hai cung Sửu hoặc Mùi, đồng độ với sao không, thì xa cách cha mẹ.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "position:suu_mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sao không = Địa Không, Thiên Không loại",
+    "viet_thuan": "Cơ ở Sửu/Mùi: gặp cát tinh cha thiên kiến; gặp sao không thì xa cách.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q013",
+   "question": "Tinh hệ 'Thiên Cơ, Thái Âm' ở cung Phụ Mẫu là tổ hợp tốt hay xấu?",
+   "answer_atom": "Là tổ hợp khá tốt: không có sát tinh thì không chủ về hình khắc, chỉ chủ về chia ly; có sát tinh mà không hội Hóa Kỵ cũng không hình khắc, chỉ chia li.",
+   "source_quote": "“Thiên Cơ, Thái Âm” là tổ hợp khá tốt; không có sát tinh, không chủ về hình khắc, chỉ chủ về chia ly; có sát tinh mà không hội Hóa Kỵ, cũng không chủ về hình khắc, chỉ chủ về chia li.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thai_am"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Âm là tổ hợp khá: cùng lắm là chia ly chứ không khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q014",
+   "question": "'Thiên Cơ, Thái Âm' thủ cung Phụ Mẫu mà Thiên Cơ Hóa Lộc thì có hệ quả gì?",
+   "answer_atom": "Thiên Cơ Hóa Lộc thì Thái Âm ắt sẽ Hóa Kỵ; người sinh vào ban đêm, cung Phụ Mẫu ở cung Dần, lúc bé bất lợi về cha.",
+   "source_quote": "“Thiên Cơ, Thái Âm” thủ cung Phụ Mẫu, mà Thiên Cơ Hóa Lộc, Thái Âm ắt sẽ Hóa Kỵ, người sinh vào ban đêm, cung Phụ Mẫu ở cung Dần, lúc bé bất lợi về cha.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thai_am",
+    "hoa:loc",
+    "hoa:ky",
+    "position:dan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Năm Ất: Cơ Hóa Lộc thì Âm Hóa Kỵ (can Ất)",
+    "viet_thuan": "Cơ Lộc kéo theo Âm Kỵ: sinh đêm, cung Dần thì nhỏ bất lợi về cha.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q015",
+   "question": "'Thiên Cơ, Thái Âm' đồng cung với Thiên Mã gặp sát tinh chủ về gì?",
+   "answer_atom": "Quan hệ với cha mẹ khá xa cách, mà lại thân cận với cha mẹ của người bạn đời hoặc người ngoài.",
+   "source_quote": "“Thiên Cơ, Thái Âm đồng cung với Thiên Mã, gặp sát tinh, quan hệ với cha mẹ khá xa cách, mà lại thân cận với cha mẹ của người bạn đời hoặc người ngoài.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thai_am",
+    "star:thien_ma"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Âm + Mã + sát: xa cha mẹ ruột, gần cha mẹ vợ/chồng hoặc người ngoài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q016",
+   "question": "'Thiên Cơ, Cự Môn' ở hai cung Mão hoặc Dậu tại cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Không gặp sát tinh cũng chủ về xa cách, hoặc quan hệ hai đời không tốt, hoặc bất lợi về cha mẹ. Gặp sát tinh thì hình khắc, hoặc sự nghiệp của cha bị phá tán, thất bại. Ở cung Dậu ưu hơn ở cung Mão.",
+   "source_quote": "“Thiên Cơ, Cự Môn” ở hai cung Mão hoặc Dậu, không gặp sát tinh, cũng chủ về xa cách, hoặc quan hệ giữa hai đời không tốt, hoặc bất lợi về cha mẹ. Trường hợp gặp sát tinh thì chủ về hình khắc, hoặc sự nghiệp của cha bị phá tán, thất bại. Ở cung Dậu ưu hơn ở cung Mão.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:cu_mon",
+    "position:mao_dau"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Cự Mão/Dậu vốn xa cách; thêm sát thì khắc hoặc cha thất bại; Dậu đỡ hơn Mão.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q017",
+   "question": "Trong sách, 'bất lợi về cha mẹ' nghĩa là gì khi luận cung Phụ Mẫu?",
+   "answer_atom": "Là nói lúc sinh ra cảnh ngộ của cha mẹ không tốt. Tính chất này luận về cấp trên thì cấp trên ở trong hoàn cảnh công việc bất lợi. Luận đoán lưu niên cũng vậy.",
+   "source_quote": "Nói “bất lợi về cha mẹ”, là nói sâu khi sinh ra cảnh ngộ của cha mẹ không tốt. Là tính chất này luận về cấp trên, cũng chủ về cấp trên ở trong hoàn cảnh công việc bất lợi. Luận đoán lưu niên cũng vậy.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "concept:bat_loi_cha_me",
+    "concept:cap_tren"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "'Bất lợi về cha mẹ' = lúc mình sinh ra, cha mẹ đang trong cảnh ngộ khó khăn.",
+    "nguyen_ly": "Cung Phụ Mẫu kiêm luận quan hệ với cấp trên",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q018",
+   "question": "'Thiên Cơ, Thiên Lương' ở hai cung Thìn hoặc Tuất được cát hóa, có sao cát thì chủ về gì?",
+   "answer_atom": "Chủ về được cha mẹ dìu dắt, che chở; cũng chủ về được cấp trên nâng đỡ.",
+   "source_quote": "“Thiên Cơ, Thiên Lương” ở hai cung Thìn hoặc Tuất, được cát hóa, có sao cát, sẽ chủ về được cha mẹ dìu dắt, che chở; cũng chủ về được cấp trên nâng đỡ.",
+   "source_page": 871,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thien_luong",
+    "position:thin_tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lương Thìn/Tuất có cát: được cha mẹ và cấp trên nâng đỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q019",
+   "question": "'Thiên Cơ, Thiên Lương' đồng cung với Thiên Mã ở cung Phụ Mẫu chủ về gì?",
+   "answer_atom": "Chủ về xa cách; có Hỏa Tinh thì càng xa cách với tình hình xấu.",
+   "source_quote": "“Thiên Cơ, Thiên Lương” đồng cung với Thiên Mã, chủ về xa cách; có Hỏa Tinh thì càng xa cách với tình hình xấu.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thien_luong",
+    "star:thien_ma",
+    "sat:hoa_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lương + Mã: xa cha mẹ; thêm Hỏa Tinh càng xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q020",
+   "question": "'Thiên Cơ, Thiên Lương' hội Thái Dương Hóa Kỵ luận thế nào?",
+   "answer_atom": "Người sinh vào ban đêm, bất lợi về cha. Gặp sát tinh, chủ về làm con nuôi, làm con thừa tự của người khác, hoặc gửi người khác nuôi.",
+   "source_quote": "“Thiên Cơ, Thiên Lương” hội Thái Dương Hóa Kỵ, người sinh vào ban đêm, bất lợi về cha. Gặp sát tinh, chủ về làm con nuôi, làm con thừa tự của người khác, hoặc gửi người khác nuôi.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thien_luong",
+    "star:thai_duong",
+    "hoa:ky",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Lương hội Dương Kỵ: sinh đêm bất lợi cha; thêm sát thì làm con nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q021",
+   "question": "Thiên Cơ ở hai cung Tị hoặc Hợi đồng cung với sao đào hoa và Hỏa Tinh, Linh Tinh chủ về gì?",
+   "answer_atom": "Chủ về mệnh tạo do nhị phòng hay kế thất sinh ra.",
+   "source_quote": "Thiên Cơ ở hai cung Tị hoặc Hợi, nếu đồng cung với các sao đào hoa, còn đồng cung với Hỏa Tinh, Linh Tinh, chủ về mệnh tạo do nhị phòng hay kế thất sinh ra.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "position:ti_hoi",
+    "concept:dao_hoa",
+    "concept:nhi_phong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kế thất (繼室) = vợ kế",
+    "viet_thuan": "Cơ Tị/Hợi + đào hoa + Hỏa/Linh: mình do vợ lẽ hoặc vợ kế sinh ra.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q022",
+   "question": "Thiên Cơ ở hai cung Tị hoặc Hợi gặp sát tinh hoặc 'sao lẻ' phụ tá chủ về gì?",
+   "answer_atom": "Phần nhiều chủ về cha mẹ 'lưỡng trùng'; hội Thiên Đồng Hóa Lộc thì càng đúng.",
+   "source_quote": "Thiên Cơ ở hai cung Tị hoặc Hợi, gặp sát tinh, hoặc gặp “sao lẻ” phụ, tá, phần nhiều chủ về cha mẹ “lưỡng trùng”; hội Thiên Đồng Hóa Lộc thì càng đúng.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "position:ti_hoi",
+    "concept:sao_le",
+    "concept:luong_trung"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưỡng trùng (兩重) = hai lớp, tức hai đời cha/mẹ",
+    "viet_thuan": "Cơ Tị/Hợi + sát hoặc sao lẻ phụ tá: có hai cha hoặc hai mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q023",
+   "question": "Thiên Cơ ở cung Hợi đối nhau với Thái Âm Hóa Kỵ ở cung Tị chủ về gì?",
+   "answer_atom": "Rất kỵ — chủ về lúc bé cha mẹ bị nạn tai, bệnh tật hay tử vong.",
+   "source_quote": "Thiên Cơ ở cung Hợi rất kỵ đối nhau với Thái Âm Hóa Kỵ ở cung Tị, chủ về lúc bé cha mẹ bị nạn tai, bệnh tật hay tử vong.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thai_am",
+    "hoa:ky",
+    "position:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ Hợi đối Âm Kỵ Tị: nhỏ thì cha mẹ tai nạn, bệnh, có thể mất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q024",
+   "question": "Thiên Cơ ở cung Hợi mượn 'Thái Dương, Thiên Lương' ở cung Dậu để hội hợp thì sao?",
+   "answer_atom": "Gặp các sao sát, kỵ cũng bất lợi về cha.",
+   "source_quote": "Thiên Cơ ở cung Hợi, mượn “Thái Dương, Thiên Lương” ở cung Dậu để hội hợp, gặp các sao sát, kỵ cũng bất lợi về cha.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "star:thai_duong",
+    "star:thien_luong",
+    "position:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Mượn sao (借星) = cung vô chính diệu mượn sao cung đối",
+    "viet_thuan": "Cơ Hợi mượn Dương Lương Dậu, gặp sát kỵ thì bất lợi cho cha.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q025",
+   "question": "Thời kỳ ứng nghiệm sự cố của Thiên Cơ ở cung Phụ Mẫu xác định thế nào?",
+   "answer_atom": "Hễ Thiên Cơ ở cung Phụ Mẫu hơi gặp các sao hình, kỵ liền xảy ra sự cố không hay; cần xem các sao ở cung Phụ Mẫu của lưu niên mà định thời kỳ ứng nghiệm. Phần nhiều ứng đến cung hạn 'Thái Âm, Thái Dương' thủ cung Phụ Mẫu.",
+   "source_quote": "Hễ Thiên Cơ ở cung Phụ Mẫu, hơi gặp các sao hình, kỵ liền xảy ra sự cố không hay; cần phải xem các sao ở cung Phụ Mẫu của lưu niên mà định thời kỳ ứng nghiệm. Thời kỳ ứng nghiệm phần nhiều đến cung hạn “Thái Âm, Thái Dương” thủ cung Phụ Mẫu.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_co",
+    "concept:luu_nien",
+    "concept:ung_nghiem"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Cơ nhạy với hình kỵ; thời điểm ứng thường rơi vào hạn Nhật–Nguyệt thủ Phụ Mẫu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q026",
+   "question": "Thái Dương ở cung Phụ Mẫu nhập miếu luận thế nào?",
+   "answer_atom": "Nhập miếu không chủ về khắc; gặp cát tinh, lúc bé được cha mẹ thương yêu che chở, người sinh vào ban ngày càng cát lợi.",
+   "source_quote": "Thái Dương ở cung Phụ Mẫu, nhập miếu, không chủ về khắc; gặp cát tinh, lúc bé được cha mẹ thương yêu che chở, người sinh vào ban ngày càng cát lợi.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "concept:nhap_mieu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhập miếu (入廟) = sao ở vị trí sáng đẹp nhất",
+    "viet_thuan": "Thái Dương miếu ở cung cha mẹ: không khắc, sinh ban ngày càng tốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q027",
+   "question": "Thái Dương lạc hãm ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Xem mức độ các sao sát, kỵ hội hợp mà định có hình khắc hay không, hay là cha mẹ mất; người sinh vào ban đêm thì càng hung hiểm.",
+   "source_quote": "Nếu Thái Dương lạc hãm, xem mức độ các sao sát, kỵ hội hợp, mà định có hình khắc hay không, hay là cha mẹ mất; người sinh vào ban đêm thì càng hung hiểm.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "concept:lac_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lạc hãm (落陷) = sao ở vị trí yếu tối",
+    "viet_thuan": "Thái Dương hãm: xét sát kỵ nặng nhẹ mà định khắc; sinh đêm càng nguy.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q028",
+   "question": "Thái Dương nhập miếu gặp sát tinh mà Thái Âm cũng đồng độ sát tinh thì chủ về gì? Còn lạc hãm thì sao?",
+   "answer_atom": "Thái Dương miếu gặp sát + Thái Âm đồng độ sát tinh: cha mẹ bất hòa. Thái Dương hãm gặp sát + Thái Âm có sát: khắc mẹ trước, hoặc cha mẹ chia lìa; nếu Thái Âm không có sát tinh cùng bay đến thì lúc bé vận cha bất lợi.",
+   "source_quote": "Thái Dương nhập miếu gặp sát tinh, mà Thái Âm lại đồng độ với sát tinh, chủ về cha mẹ bất hòa. Thái Dương lạc hãm gặp sát tinh, mà Thái Âm lại có sát tinh đồng độ, chủ về khắc mẹ trước, hoặc cha mẹ chia lìa.",
+   "source_page": 872,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:thai_am"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cả Nhật lẫn Nguyệt đều dính sát: miếu thì bất hòa, hãm thì khắc mẹ trước hoặc chia lìa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q029",
+   "question": "Người sinh ban ngày có Thái Dương nhập miếu hội sao cát và cát hóa ở cung Phụ Mẫu thì sao?",
+   "answer_atom": "Không những lúc bé được cha mẹ nuông chiều, mà hoàn cảnh của cha cũng cát lợi; người sinh vào ban đêm thì hơi giảm bớt.",
+   "source_quote": "Người sinh vào ban ngày, cung Phụ Mẫu là Thái Dương nhập miếu, lại hội sao cát và cát hóa, không những lúc bé được cha mẹ nuông chiều, mà hoàn cảnh của cha cũng cát lợi; người sinh vào ban đêm thì hơi giảm bớt.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "concept:ngay_dem"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sinh ngày + Dương miếu hội cát: được nuông chiều, cha thuận lợi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q030",
+   "question": "'Thái Dương, Cự Môn' ở cung Phụ Mẫu chủ về gì?",
+   "answer_atom": "Chủ về cha từng rời quê hương để lập nghiệp. Gặp Hóa Kỵ, tứ sát tinh thì cha bị nạn tai, bệnh tật; được cát hóa và có sao cát thì cha có sự nghiệp.",
+   "source_quote": "“Thái Dương, Cự Môn” ở cung Phụ Mẫu, chủ về cha từng rời quê hương để lập nghiệp. Nếu gặp Hóa Kỵ, tứ sát tinh, thì cha bị nạn tai, bệnh tật; được cát hóa và có sao cát, thì cha có sự nghiệp.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:cu_mon"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tứ sát = Kình, Đà, Hỏa, Linh",
+    "viet_thuan": "Dương Cự: cha rời quê lập nghiệp; Kỵ + tứ sát thì cha tai bệnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q031",
+   "question": "'Thái Dương, Cự Môn' được cát hóa hoặc Hóa Kỵ thì nên chọn công việc thế nào?",
+   "answer_atom": "Được cát hóa: nên làm việc cho người ngoại quốc (hay người ở phương xa), chủ về được cấp trên giúp đỡ, nâng đỡ. Hóa Kỵ: bất hòa với cấp trên, do đó nên làm nghề tự do.",
+   "source_quote": "“Thái Dương, Cự Môn” được cát hóa, nên làm việc cho người ngoại quốc (hay người ở phương xa), chủ về được cấp trên giúp đỡ, nâng đỡ. “Thái Dương, Cự Môn” Hóa Kỵ, chủ về bất hòa với cấp trên, do đó nên làm nghề tự do.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:cu_mon",
+    "concept:cap_tren"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Cự cát hóa: hợp làm cho sếp ngoại quốc; Hóa Kỵ: nên làm nghề tự do.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q032",
+   "question": "'Thái Dương, Thiên Lương' thủ cung Phụ Mẫu mà Thái Dương cát hóa thì luận thế nào?",
+   "answer_atom": "Được lực che chở rất lớn của cha mẹ. Nhưng nếu gặp các sao phụ tá cát quá nhiều, thì trái lại sẽ chủ về bản thân không được cha mẹ trợ lực.",
+   "source_quote": "“Thái Dương, Thiên Lương” thủ cung Phụ Mẫu, nếu Thái Dương cát hóa, thì được lực che chở rất lớn của cha mẹ. Có điều, nếu gặp các sao phụ tá cát quá nhiều, thì trái lại, sẽ chủ về bản thân không được cha mẹ trợ lực.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:thien_luong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Lương: Dương cát hóa thì được che chở lớn, nhưng cát tinh quá nhiều lại phản tác dụng.",
+    "nguyen_ly": "Vật cực tắc phản — cát quá nhiều thành không được trợ lực",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q033",
+   "question": "'Thái Dương, Thiên Lương' ở cung Phụ Mẫu không có sao cát thì chủ về gì?",
+   "answer_atom": "Dù không gặp các sao sát, Kỵ, cũng chủ về cha mẹ có tính độc đoán; còn chủ về cấp trên có thành kiến với mệnh tạo. Trường hợp Thái Dương Hóa Quyền là rất tốt: được cha mẹ che chở mà còn nhiều trợ lực.",
+   "source_quote": "“Thái Dương, Thiên Lương” ở cung Phụ Mẫu, nếu không có sao cát, dù không gặp các sao sát, Kỵ, cũng chủ về cha mẹ có tính độc đoán; còn chủ về cấp trên có thành kiến với mệnh tạo.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:thien_luong",
+    "hoa:quyen"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Lương không cát tinh: cha mẹ độc đoán, sếp thành kiến; Dương Hóa Quyền thì rất tốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q034",
+   "question": "'Thái Dương, Thái Âm' đồng độ ở cung Phụ Mẫu luận thế nào trong tình hình thông thường?",
+   "answer_atom": "Đều chủ về cha mẹ hạnh phúc, quan hệ với mệnh tạo cũng tốt đẹp. Thái Âm Hóa Lộc: lúc bé được nuông chiều; Thái Dương Hóa Lộc: được cha mẹ trợ lực hoặc bạn bè cha mẹ dìu dắt. Ở cung Mùi khá bất lợi về mẹ, ở cung Sửu khá bất lợi về cha.",
+   "source_quote": "“Thái Dương, Thái Âm” đồng độ, trong các tình hình thông thường đều chủ về cha mẹ hạnh phúc, quan hệ với mệnh tạo cũng tốt đẹp... ở cung Mùi thì khá bất lợi về mẹ, ở cung Sửu thì khá bất lợi về cha.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:thai_am",
+    "position:suu_mui",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Nguyệt đồng cung: cha mẹ hạnh phúc; Mùi hại mẹ, Sửu hại cha.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q035",
+   "question": "'Thái Dương, Thái Âm' đồng độ mà Thái Âm Hóa Khoa hoặc Thái Dương Hóa Khoa gặp sát tinh chủ về gì?",
+   "answer_atom": "Thái Âm Hóa Khoa gặp sát tinh và cát hóa: bất hòa với nàng dâu. Thái Dương Hóa Khoa gặp sát tinh: thời cổ cho rằng phúc ấm không đến ba đời (con cái của mệnh tạo dễ bị phá tán, thất bại) — ngày nay chỉ để tham khảo.",
+   "source_quote": "nếu Thái Âm Hóa Khoa gặp sát tinh và cát hóa, thì chủ về bất hòa với nàng dâu; Thái Dương Hóa Khoa, gặp sát tính, thời cổ đại thì cho rằng phúc ấm không đến ba đời (tức con cái của mệnh tạo dễ bị phá tán, thất bại). Tình hình này, ngày nay chỉ để tham khảo.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:thai_am",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phúc ấm (福蔭) = phúc đức cha ông để lại",
+    "viet_thuan": "Âm Khoa + sát: xích mích với con dâu; Dương Khoa + sát: cổ nhân nói phúc không tới ba đời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": "Sách ghi rõ: luận 'ba đời' ngày nay chỉ để tham khảo"
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q036",
+   "question": "Luận quan hệ với cấp trên khi 'Thái Dương, Thái Âm' đồng độ ở cung Phụ Mẫu cần lưu ý gì?",
+   "answer_atom": "Rất khó luận đoán. Gặp cát tinh thì quan hệ tốt lành, nhưng cát tinh và cát hóa quá nhiều lại chủ về cấp trên có tình cảm khiến mệnh tạo không nghĩ đến tiến thủ theo con đường riêng. Cát sát lẫn lộn thì quan hệ tốt dễ thay đổi; gặp Hóa Kỵ thì đề phòng lúc đầu tốt sau vì hiểu lầm mà chuyển xấu — thêm sao phụ tá cát thì tính chất này càng đúng.",
+   "source_quote": "Luận đoán về mối quan hệ với cấp trên, trường hợp “Thái Dương, Thái Âm” rất khó luận đoán... gặp Hóa Kỵ, nên đề phòng lúc đầu quan hệ tốt đẹp, nhưng sau vì hiểu lầm mà chuyển thành xấu.",
+   "source_page": 873,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "star:thai_am",
+    "concept:cap_tren",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Nguyệt đồng cung khó luận với sếp: cát quá nhiều cũng dở, Hóa Kỵ thì đầu tốt sau xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q037",
+   "question": "Đến lưu niên Thái Dương Hóa Kỵ ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Không luận hình khắc; có các sao sát, hình tụ tập mới chủ về nạn tai, bệnh tật; sát tinh nhẹ có lúc chỉ là bất hòa với cha mẹ. Cần thấy lưu diệu: gặp Thiên Sát, Tang Môn, Bạch Hổ mới ứng nghiệm ở cha mẹ; nếu không, có thể bất hòa với cấp trên.",
+   "source_quote": "Đến lưu niên Thái Dương Hóa Kỵ ở cung Phụ Mẫu, thì không luận hình khắc; nếu có các sao sát, hình tụ tập, mới chủ về nạn tai, bệnh tật... gặp Thiên Sát, Tang Môn, Bạch Hổ, mới ứng nghiệm ở cha mẹ; nếu không, có thể bất hòa với cấp trên.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "hoa:ky",
+    "concept:luu_nien",
+    "sat:tang_mon",
+    "sat:bach_ho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưu diệu (流曜) = sao theo năm bay đến",
+    "viet_thuan": "Lưu niên Dương Kỵ chưa chắc khắc; phải có Tang Môn, Bạch Hổ mới ứng vào cha mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q038",
+   "question": "Đến lưu niên Thái Dương Hóa Lộc gặp các sao phụ tá trùng trùng thì ứng nghiệm vào đâu?",
+   "answer_atom": "Có thể ứng nghiệm ở cấp chủ quản.",
+   "source_quote": "Đến lưu niên Thái Dương Hóa Lộc, lại gặp các sao phụ, tá trùng trùng, có thể ứng nghiệm ở cấp chủ quản.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_duong",
+    "hoa:loc",
+    "concept:luu_nien",
+    "concept:cap_tren"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lưu niên Dương Lộc + phụ tá nhiều: ứng vào cấp trên chủ quản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q039",
+   "question": "Vũ Khúc thủ cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Nếu không nhập miếu, lại không có các sao phụ tá cát nâng đỡ, sẽ chủ về hình khắc cha mẹ, hay quan hệ với cấp trên không tốt đẹp. Nếu nhập miếu, có phụ tá cát và cát hóa thì không hình khắc, nhưng quan hệ với cấp trên hay ông chủ vẫn dễ xa cách.",
+   "source_quote": "Vũ Khúc thủ cung Phụ Mẫu, nếu không nhập miếu, lại không, có các sao phụ, tá cát nâng đỡ, sẽ chủ về hình khắc cha mẹ; hay quan hệ với cấp trên không được tốt đẹp.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Khúc ở cung cha mẹ vốn cứng: không miếu không cát thì khắc; miếu có cát vẫn xa cách sếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q040",
+   "question": "Vũ Khúc Hóa Kỵ đồng thời gặp sát tinh ở cung Phụ Mẫu thì luận đoán cần tham khảo những cung nào?",
+   "answer_atom": "Cần tham khảo cung Mệnh của nguyên cục, cung Mệnh của đại vận và của lưu niên, cung Phụ Mẫu của đại vận và của lưu niên, mà luận đoán xem có hình khắc không, hay chỉ chủ về sự nghiệp của cha mẹ bị phá tán, thất bại.",
+   "source_quote": "Vũ Khúc thủ cung Phụ Mẫu, gặp Hóa Kỵ, đồng thời gặp sát tinh, thì cần phải tham khảo cung Mệnh của nguyên cục, cung Mệnh của đại vận và của lưu niên, cung Phụ Mẫu của đại vận và của lưu niên, mà luận đoán xem có hình khắc không, hay chỉ chủ về sự nghiệp của cha mẹ bị phá tán, thất bại.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "hoa:ky",
+    "concept:dai_van",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nguyên cục (原局) = lá số gốc lúc sinh",
+    "viet_thuan": "Vũ Kỵ + sát: phải đối chiếu Mệnh và Phụ Mẫu của cả nguyên cục, đại vận, lưu niên rồi mới kết luận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q041",
+   "question": "Cổ nhân chủ trương gì khi Vũ Khúc thủ cung Phụ Mẫu, và ngày nay luận thế nào?",
+   "answer_atom": "Cổ nhân chủ trương cho làm con nuôi hoặc nên rời xa quê hương để tránh hình khắc. Ngày nay không chắc ứng nghiệm, nhưng thường chủ về thiếu trợ lực của cha mẹ, hoặc giữa hai đời có sự ngăn cách.",
+   "source_quote": "Hễ Vũ Khúc thủ cung Phụ Mẫu, cổ nhân đều chủ trương cho làm con nuôi hoặc nên rời xa quê hương, cho rằng nhờ vậy có thể tránh hình khắc. Liên quan đến điểm này, ngày nay không chắc ứng nghiệm, nhưng thường chủ về thiếu trợ lực của cha mẹ, hoặc giữa hai đời có sự ngăn cách, bạn đọc nên lưu ý.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "concept:con_nuoi",
+    "concept:co_nhan_vs_hien_dai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Xưa khuyên làm con nuôi/rời quê để tránh khắc; nay hiểu là thiếu trợ lực, có ngăn cách.",
+    "nguyen_ly": "Vương Đình Chi thường chuyển nghĩa cổ sang bối cảnh hiện đại",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q042",
+   "question": "Vũ Khúc Hóa Lộc hoặc Hóa Kỵ ở cung Phụ Mẫu liên quan thế nào đến đại vận thứ nhất?",
+   "answer_atom": "Vũ Khúc Hóa Lộc thì đại vận thứ nhất sẽ hóa làm sao Kỵ, thường chủ về sản nghiệp của cha mẹ điêu linh. Vũ Khúc Hóa Kỵ thì đại vận thứ nhất sẽ hóa làm sao Lộc, thường chủ về cha mẹ bị nạn tai, bệnh tật.",
+   "source_quote": "Vũ Khúc Hóa Lộc ở cung Phụ Mẫu, thì đại vận thứ nhất sẽ hóa làm sao Kỵ, thường thường chủ về sản nghiệp của cha mẹ điều linh. Nếu Vũ Khúc Hóa Kỵ, thì đại vận thứ nhất sẽ hóa làm sao Lộc, thường chủ về cha mẹ bị nạn tai, bệnh tật.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "hoa:loc",
+    "hoa:ky",
+    "concept:dai_van"
+   ],
+   "commentary": {
+    "han_viet_explain": "Điêu linh (凋零) = tàn tạ, suy sụp",
+    "viet_thuan": "Vũ Lộc gốc → vận đầu hóa Kỵ: sản nghiệp cha mẹ suy; Vũ Kỵ gốc → vận đầu hóa Lộc: cha mẹ tai bệnh.",
+    "nguyen_ly": "Can đại vận thứ nhất thường biến hóa tứ hóa của nguyên cục",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q043",
+   "question": "Vũ Khúc Hóa Kỵ ngại nhất bị giáp cung bởi những sao nào?",
+   "answer_atom": "Rất ngại bị Kình Dương và Đà La giáp cung, Hỏa Tinh và Linh Tinh giáp cung — chủ về cha mẹ bị nạn tai, bệnh tật, hoặc bị phá tán, thất bại cực lớn.",
+   "source_quote": "Vũ Khúc Hóa Kỵ, rất ngại bị Kình Dương và Đà La giáp cung, Hỏa Tinh và Linh Tinh giáp cung, chủ về cha mẹ bị nạn tai, bệnh tật hoặc bị phá tán, thất bại cực lớn.",
+   "source_page": 874,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "hoa:ky",
+    "concept:giap_cung",
+    "sat:kinh_duong",
+    "sat:da_la",
+    "sat:hoa_tinh",
+    "sat:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Giáp cung (夾宮) = hai sao kẹp hai bên cung",
+    "viet_thuan": "Vũ Kỵ bị Kình–Đà hoặc Hỏa–Linh kẹp: cha mẹ tai bệnh hoặc đổ vỡ rất lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q044",
+   "question": "Vũ Khúc ở cung Phụ Mẫu có sát tinh hệ nặng hội hợp (Kình, Đà, Hỏa, Linh, Không, Kiếp, Hình, Hao) luận thế nào?",
+   "answer_atom": "Lúc mệnh tạo còn bé ắt cha mẹ gặp bất lợi. Đến lưu niên hay đại vận cung Phụ Mẫu gặp sát tinh hệ này cũng phải đề phòng cha mẹ gặp nạn tai, bệnh tật bất ngờ, hoặc sự nghiệp phá tán, thất bại. Thậm chí cung Phụ Mẫu gặp Vũ Khúc Hóa Kỵ đối xung cũng bị tình huống này.",
+   "source_quote": "Vũ Khúc ở cung Phụ Mẫu, có các sao Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Thiên Hình, Đại Hao hội hợp, lúc mệnh tạo còn bé ắt cha mẹ gặp bất lợi.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "sat:thien_hinh",
+    "sat:dai_hao"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đối xung (對沖) = từ cung đối diện chiếu tới",
+    "viet_thuan": "Vũ Khúc hội đủ sát tinh: nhỏ thì cha mẹ bất lợi; vận/lưu niên gặp lại cũng phải đề phòng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q045",
+   "question": "Vũ Khúc Hóa Kỵ đồng cung với Thiên Trù, Hỏa Tinh chủ về nghề nghiệp gì của cha mẹ?",
+   "answer_atom": "Thường chủ về nghề nghiệp của cha mẹ có sát khí, như nghề ẩm thực; không gặp Thiên Trù thì làm nghề dùng công cụ bén nhọn như bác sĩ ngoại khoa, thợ cắt tóc. Nghề quý hay tiện phải xem có sao phụ tá cát hội hợp hay không mà định.",
+   "source_quote": "Trường hợp Vũ Khúc Hóa Kỵ, đồng cung với Thiên Trù, Hỏa Tinh, thường thường lại chủ về nghề nghiệp của cha mẹ có sát khí, như nghề ẩm thực, v.v... Không gặp Thiên Trù thì cũng làm những nghề nghiệp dùng công cụ bén nhọn, như bác sĩ ngoại khoa, thợ cắt tóc, v.v...",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "hoa:ky",
+    "star:thien_tru",
+    "sat:hoa_tinh",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Trù (天廚) = sao bếp trời, liên quan ẩm thực",
+    "viet_thuan": "Vũ Kỵ + Thiên Trù + Hỏa: cha mẹ làm nghề dao kéo, bếp núc, mổ xẻ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q046",
+   "question": "Tổ hợp 'Vũ Khúc, Thiên Phủ' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Rất có lợi: không có các sao sát, kỵ, hình, hao thì không chủ về hình khắc. Nếu sát tinh nhẹ, có Thiên Thọ đồng cung, cũng không chủ về hình khắc.",
+   "source_quote": "Tổ hợp “Vũ Khúc, Thiên Phủ”, rất có lợi; không có các sao sát, kỵ, hình, hao, thì không chủ về hình khắc. Nếu sát tinh nhẹ, có Thiên Thọ đổng cưng, cũng không chủ về hình khắc.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "star:thien_tho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Thọ (天壽) = sao chủ thọ, hóa giải hình khắc",
+    "viet_thuan": "Vũ Phủ là tổ hợp lợi; có Thiên Thọ thì sát nhẹ cũng không khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q047",
+   "question": "'Vũ Khúc, Thiên Phủ' hội Liêm Trinh Hóa Kỵ chủ về gì?",
+   "answer_atom": "Chủ về cha con bất hòa; hội 'Tử Vi, Thiên Tướng' bị 'Hình kỵ giáp Ấn' cũng vậy; hoặc chủ về bị áp lực của cấp trên.",
+   "source_quote": "“Vũ Khúc, Thiên Phủ” hội Liêm Trinh Hóa Kỵ, sẽ chủ về cha con bất hòa; hội “Tử Vi, Thiên Tướng” bị “Hình kỵ giáp Ấn”, cũng vậy; hoặc chủ về bị áp lực của cấp trên.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "hoa:ky",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình kỵ giáp Ấn (刑忌夾印) = Thiên Tướng bị sao hình và sao kỵ kẹp hai bên",
+    "viet_thuan": "Vũ Phủ hội Liêm Kỵ: cha con bất hòa hoặc bị sếp ép.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q048",
+   "question": "'Vũ Khúc, Tham Lang' đồng độ với Hỏa Tinh, Linh Tinh ở cung Phụ Mẫu chủ về gì?",
+   "answer_atom": "Chủ về khắc; cũng chủ về quan hệ với cấp trên đột nhiên thay đổi, xảy ra bất hòa, tranh chấp quyền lợi, có kết cục rất xấu. Nếu Vũ Khúc Hóa Kỵ thì cũng chủ về cha mẹ hoang phế.",
+   "source_quote": "“Vũ Khúc, Tham Lang” đồng độ với Hỏa Tinh, Linh Tinh, chủ về khắc; cũng chủ về quan hệ với cấp trên đột nhiên thay đổi, xảy ra bất hòa, tranh chấp quyền lợi, có kết cục rất xấu.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "sat:hoa_tinh",
+    "sat:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tham + Hỏa/Linh: khắc cha mẹ, quan hệ với sếp đột biến xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q049",
+   "question": "'Vũ Khúc, Tham Lang' thủ cung Phụ Mẫu mà Tham Lang Hóa Lộc chủ về gì?",
+   "answer_atom": "Chủ về được cấp trên giúp đỡ; nếu có sát tinh thì mối quan hệ biến thành xấu.",
+   "source_quote": "“Vũ Khúc, Tham Lang” thủ cung Phụ Mẫu, mà Tham Lang Hóa Lộc, thì chủ về được cấp trên giúp đỡ; nếu có sát tinh, thì mối quan hệ biến thành xấu.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "hoa:loc",
+    "concept:cap_tren"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tham + Tham Lộc: sếp giúp đỡ, nhưng có sát thì quan hệ hóa xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q050",
+   "question": "'Vũ Khúc, Thiên Tướng' được 'Tài ấm giáp Ấn' hoặc bị 'Hình kỵ giáp Ấn' luận thế nào?",
+   "answer_atom": "Được 'Tài ấm giáp Ấn': được cha che chở, được cấp trên giúp đỡ, trợ lực. Bị 'Hình kỵ giáp Ấn': hình khắc, cũng chủ về bị cấp trên kị tài.",
+   "source_quote": "“Vũ Khúc, Thiên Tướng” được “Tài ấm giáp Ấn”, chủ về được cha che chở, cũng chủ về được cấp trên giúp đỡ, trợ lực; bị “Hình kỵ giáp Ấn” thì chủ về hình khắc, cũng chủ về bị cấp trên kị tài.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "concept:tai_am_giap_an",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài ấm giáp Ấn (財蔭夾印) = Hóa Lộc và Thiên Lương kẹp Thiên Tướng",
+    "viet_thuan": "Vũ Tướng: được Tài ấm kẹp thì cha và sếp che chở; bị Hình kỵ kẹp thì khắc, bị sếp ganh tài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q051",
+   "question": "'Vũ Khúc, Thiên Tướng' bị Hỏa-Linh hoặc Kình-Đà giáp cung chủ về gì?",
+   "answer_atom": "Chủ về hình khắc; cũng chủ về bị cấp trên bài xích, chèn ép, hoặc xảy ra hiểu lầm, tranh cãi ồn ào.",
+   "source_quote": "“Vũ Khúc, Thiên Tướng” cũng không ưa bị Hỏa Tinh và Linh Tinh giáp cung, Kình Dương và Đà La giáp cung, chủ về hình khắc; cũng chủ về bị cấp trên bài xích, chèn ép, hoặc xảy ra hiểu lầm, tranh cãi ồn ào.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "concept:giap_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Tướng bị sát tinh kẹp: khắc cha mẹ, bị sếp chèn ép.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q052",
+   "question": "'Vũ Khúc, Thất Sát' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Về cơ bản chủ về hình khắc; gặp các sao sát, kỵ thì càng nặng. Nếu không có sát tinh mà được cát hóa, có sao cát thì chỉ chủ về quan hệ xa cách. Không ưa gặp Hỏa Tinh đồng độ lại hội các sao Đào Hoa — chủ về mệnh tạo do người bên ngoài hay thứ thất sinh ra.",
+   "source_quote": "“Vũ Khúc, Thất Sát” về cơ bản cũng chủ về hình khắc; gặp các sao sát, kỵ thì càng nặng. Nếu không có sát tinh, mà được cát hóa, có sao cát thì chỉ chủ về quan hệ xa cách.",
+   "source_page": 875,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:that_sat",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thứ thất (庶室) = vợ lẽ",
+    "viet_thuan": "Vũ Sát: gốc là khắc; có cát hóa thì chỉ xa cách; + Hỏa + đào hoa: do vợ lẽ sinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q053",
+   "question": "'Vũ Khúc, Phá Quân' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Hình khắc cũng nặng, đại khái tương tự 'Vũ Khúc, Thất Sát'. Hễ Vũ Phá hay Vũ Sát ở cung Phụ Mẫu dễ chủ về thường thay đổi công tác. Nếu Vũ Khúc Hóa Kỵ, rất có thể sản nghiệp của cha mẹ bị suy sụp một cách nhanh chóng.",
+   "source_quote": "Vũ Khúc, Phá Quân hình khắc cũng nặng, đại khái tương tự như Vũ Khúc, Thất Sát. Hễ Vũ Khúc, Phá Quân hay Vũ Khúc, Thất Sát ở cung Phụ Mẫu, dễ chủ về thường thay đổi công tác.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:vu_khuc",
+    "star:pha_quan",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Phá nặng như Vũ Sát; hay đổi việc; Vũ Kỵ thì sản nghiệp cha mẹ sụp nhanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q054",
+   "question": "Thiên Đồng ở cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Thiên Đồng là sao tình cảm: nhập miếu chủ về hai đời hòa hợp, không gặp hình khắc; lúc lạc hãm thì vẫn có ý kiến bất hòa.",
+   "source_quote": "Thiên Đồng là sao tình cảm, nhập Miếu, sẽ chủ về hai đời hòa hợp, cũng không gặp hình khắc. Nhưng lúc lạc hãm thì vẫn có ý kiến bất hòa.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng sao tình cảm: miếu thì hòa hợp, hãm thì hay bất đồng ý kiến.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q055",
+   "question": "Thiên Đồng Hóa Kỵ ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Nếu sát tinh nặng, vẫn chủ về đau buồn, rơi lệ. Cần xem xét kỹ cung Phụ Mẫu của Lưu Niên và Đại Vận mà định tính chất bất lợi.",
+   "source_quote": "Thiên Đồng Hóa Kỵ, nếu sát tinh nặng, vẫn chủ về đau buồn, rơi lệ. Cần phải xem xét kỹ cung Phụ Mẫu của Lưu Niên và Đại Vận mà định tính chất bất lợi.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Kỵ + sát nặng: có chuyện đau buồn; phải xem vận hạn để định thời điểm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q056",
+   "question": "Thiên Đồng đồng độ với Kình Dương, Đà La, Hỏa Tinh, Linh Tinh tại cung Phụ Mẫu ứng thế nào với cấp trên?",
+   "answer_atom": "Đồng độ Kình Dương: bị áp lực của cấp trên dẫn đến bất hòa. Có Đà La đồng độ gặp các sao hình, kỵ: bị cấp trên gây rủi. Có Hỏa Tinh, Linh Tinh đồng độ: thường thay đổi cấp trên.",
+   "source_quote": "Thiên Đồng đồng độ với Kình Dương: Sẽ chủ về bị áp lực của cấp trên, dẫn đến bất hòa. Có Đà La đồng độ, gặp các sao hình, kỵ: Chủ về bị cấp trên gây rủi; có Hỏa Tinh, Linh Tinh đồng độ: Thường thay đổi cấp trên.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "sat:kinh_duong",
+    "sat:da_la",
+    "sat:hoa_tinh",
+    "sat:linh_tinh",
+    "concept:cap_tren"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng + Kình: sếp ép; + Đà + hình kỵ: sếp gây rủi; + Hỏa/Linh: hay đổi sếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q057",
+   "question": "Thiên Đồng Hóa Lộc ở cung Phụ Mẫu khi nào mới chủ về được cha mẹ che chở?",
+   "answer_atom": "Trường hợp gặp Thiên Lương đồng độ hoặc vây chiếu mới chủ về được cha mẹ che chở; nếu không, sẽ chủ về lúc bé cha mẹ của mệnh tạo đã xuất ngoại để mưu sinh. Thiên Đồng đồng cung với Hỏa Tinh cũng chủ về lúc bé đã rời xa cha mẹ.",
+   "source_quote": "Thiên Đồng Hóa Lộc: Trường hợp gặp Thiên Lương đồng độ hoặc vây chiếu mới chủ về được cha mẹ che chở, nếu không, sẽ chủ về lúc bé cha mẹ của mệnh tạo đã xuất ngoại để mưu sinh.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:thien_luong",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vây chiếu = các cung tam phương tứ chính chiếu về",
+    "viet_thuan": "Đồng Lộc phải có Lương mới là che chở; không thì cha mẹ đi xa mưu sinh từ khi mình bé.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q058",
+   "question": "Tinh hệ 'Thiên Đồng, Thái Âm' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Tính chất cơ bản là giàu tình cảm; nhưng có các sao sát, hình, kỵ, hao hội hợp thì cũng chủ về hình khắc, chia li. Rất ngại Thái Âm Hóa Kỵ — chủ về cha mẹ bất toàn. Được cát hóa thì không bị hình khắc; được cát hóa mà sát tinh nặng vẫn chủ về bất hòa, cũng bất hòa với cấp trên.",
+   "source_quote": "Tính chất cơ bản là giàu tình cảm; nhưng nếu có các sao sát, hình, kỵ, hao hội hợp thì cũng chủ về hình khắc, chia li. Rất ngại Thái Âm Hóa Kỵ, chủ về cha mẹ bất toàn.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:thai_am",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bất toàn (不全) = không đủ đầy, cha mẹ thiếu một",
+    "viet_thuan": "Đồng Âm giàu tình cảm; ngại nhất Âm Kỵ — cha mẹ không song toàn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q059",
+   "question": "'Thiên Đồng, Cự Môn' ở cung Phụ Mẫu có tính chất gì?",
+   "answer_atom": "Tính chất rất xấu, chủ về cha con bất hòa; Hóa Kỵ thì càng nặng. Đồng cung với Thiên Vũ, các sao sát hình nặng mà gặp Hóa Lộc hội hợp: bị tranh giành di sản của cha mẹ.",
+   "source_quote": "“Thiên Đồng, Cự Môn” ở cung Phụ Mẫu: Tính chất rất xấu, chủ về cha con bất hòa; Hóa Kỵ thì càng nặng.",
+   "source_page": 876,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:cu_mon",
+    "hoa:ky",
+    "star:thien_vu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Vũ (天巫) = sao chủ thăng thưởng, di sản",
+    "viet_thuan": "Đồng Cự rất xấu cho cung cha mẹ: cha con bất hòa; + Thiên Vũ + sát + Lộc: tranh di sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q060",
+   "question": "'Thiên Đồng, Cự Môn' đồng độ với Hỏa Tinh, Linh Tinh chủ về gì?",
+   "answer_atom": "Chủ về lúc bé làm con nuôi. Gặp các sao Đào Hoa trùng trùng: mệnh tạo do nhị phòng hay kế thất sinh ra; gặp 'sao lẻ' phụ tá: cha mẹ 'lưỡng trùng'.",
+   "source_quote": "Thiên Đồng, Cự Môn đồng độ với Hòa Tinh, Linh Tinh, chủ về lúc bé làm con nuôi. Nếu gặp các sao Đào Hoa trùng trùng, sẽ chủ về mệnh tạo do nhị phòng hay kế thất sinh ra; gặp “sao lẻ” phụ tá thì chủ về cha mẹ “lưỡng trùng”.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:cu_mon",
+    "sat:hoa_tinh",
+    "sat:linh_tinh",
+    "concept:con_nuoi",
+    "concept:luong_trung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Cự + Hỏa/Linh: bé làm con nuôi; đào hoa nhiều: do vợ lẽ sinh; sao lẻ: hai cha/mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q061",
+   "question": "'Thiên Đồng, Thiên Lương' đồng độ ở cung Phụ Mẫu chủ về gì?",
+   "answer_atom": "Hôn nhân của cha mẹ xảy ra sóng gió, trắc trở; từng hủy bỏ hôn ước thì cha mẹ mới sống với nhau đến bạc đầu. Gặp các sao Đào Hoa thì cha có tình nhân bên ngoài.",
+   "source_quote": "Thiên Đồng, Thiên Lương đồng độ, thì hôn nhân của cha mẹ xảy ra sóng gió, trắc trở, từng hủy bỏ hôn ước thì cha mẹ mới sống với nhau đến bạc đầu. Gặp các sao Đào Hoa thì cha có tình nhân bên ngoài.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:thien_luong",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương: hôn nhân cha mẹ trắc trở; từng hủy hôn ước rồi mới bền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q062",
+   "question": "'Thiên Đồng, Thiên Lương' đồng cung với Thiên Mã chủ về gì?",
+   "answer_atom": "Chủ về cha mẹ phải rời xa quê hương; gặp thêm Hỏa Tinh, Linh Tinh chủ về phiêu lưu. Có lúc còn chủ về nghề nghiệp của cha có tính lưu động.",
+   "source_quote": "Thiên Đồng, Thiên Lương đồng cung với Thiên Mã, chủ về cha mẹ phải rời xa quê hương; gặp thêm Hỏa Tinh, Linh Tinh, chủ về phiêu lưu. Tính chất của các sao này có lúc còn chủ về nghề nghiệp của cha có tính lưu động.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:thien_luong",
+    "star:thien_ma",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương + Mã: cha mẹ rời quê, nghề cha hay di chuyển.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q063",
+   "question": "'Thiên Đồng, Thiên Lương' thủ cung Phụ Mẫu mà Thiên Lương Hóa Khoa luận thế nào?",
+   "answer_atom": "Trong các tình hình thông thường đều lợi về cha mà bất lợi về mẹ; lại gặp sát tinh, chủ về hình khắc.",
+   "source_quote": "Thiên Đồng, Thiên Lương thủ cung Phụ Mẫu, mà Thiên Lương Hóa Khoa, trong các tình hình thông thường đểu lợi về cha mà bất lợi về mẹ; lại gặp sát tinh, chủ về hình khắc.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:thien_luong",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương + Lương Khoa: lợi cha, hại mẹ; thêm sát thì khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q064",
+   "question": "Thiên Đồng ở hai cung Thìn hoặc Tuất ngại điều gì nhất ở cung đối?",
+   "answer_atom": "Rất ngại đối cung là Cự Môn Hóa Kỵ — chủ về cha con bất hòa, cũng chủ về bất hòa với cấp trên.",
+   "source_quote": "Thiên Đồng ở hai cung Thìn hoặc Tuất, rất ngại đối cung là Cự Môn Hóa Kỵ, chủ về cha con bất hòa, cũng chủ về bất hòa với cấp trên.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:cu_mon",
+    "hoa:ky",
+    "position:thin_tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Thìn/Tuất bị Cự Kỵ xung: bất hòa với cha và với sếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q065",
+   "question": "Thiên Đồng có sát kỵ hình hội hợp lại thêm sao cát hoặc cát hóa (nhất là Thiên Đồng Hóa Lộc) chủ về gì?",
+   "answer_atom": "Thường thường sản nghiệp của cha mẹ tuy lớn, nhưng không đến tay mệnh tạo.",
+   "source_quote": "Thiên Đồng có các sao sát, kị, hình hội hợp, lại có thêm các sao cát hoặc cát hóa, nhất là Thiên Đồng Hóa Lộc, thường thường sản nghiệp của cha mẹ tuy lớn, nhưng không đến tay mệnh tạo.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "hoa:loc",
+    "concept:di_san"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng vừa sát vừa cát: nhà cha mẹ có của nhưng mình không được hưởng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q066",
+   "question": "Thiên Đồng đối nhau với Thiên Lương có nên đồng cung với Thiên Mã không? Và Thiên Đồng đối Thái Âm ở Mão so với Dậu?",
+   "answer_atom": "Không nên đồng cung với Thiên Mã, nếu không sẽ chủ về chia li; có Hỏa Tinh, Linh Tinh đồng độ càng nặng; cũng chủ về tổ nghiệp suy bại. Thiên Đồng đối Thái Âm ở cung Mão không bằng Thái Âm ở cung Dậu — ứng nghiệm về quan hệ với cha mẹ hoặc cấp trên.",
+   "source_quote": "Thiên Đồng đối nhau với Thiên Lương, cũng không nên đồng cung với Thiên Mã, nếu không sẽ chủ về chia li; có Hỏa Tinh, Linh Tinh đồng độ thì càng nặng; cũng chủ về tổ nghiệp suy bại.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:thien_luong",
+    "star:thai_am",
+    "star:thien_ma",
+    "position:mao_dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tổ nghiệp (祖業) = sản nghiệp tổ tiên",
+    "viet_thuan": "Đồng đối Lương + Mã: chia li, tổ nghiệp suy; Đồng Mão kém Đồng Dậu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q067",
+   "question": "Thiên Đồng đồng cung với Văn Xương, Văn Khúc, các sao Đào Hoa hoặc với phụ tá 'sao lẻ' chủ về gì?",
+   "answer_atom": "Với Văn Xương, Văn Khúc, sao Đào Hoa: cha có tình nhân bên ngoài, hoặc mệnh tạo do nhị phòng hay kế thất sinh ra. Có Tả Phụ, Hữu Bật hoặc Thiên Khôi, Thiên Việt hội hợp: gặp 'sao đôi' mới cát, gặp 'sao lẻ' thì cha mẹ có hai lần hôn nhân, không cần gặp sát tinh cũng vậy.",
+   "source_quote": "Thiên Đồng có Tả Phụ, Hữu Bật, hoặc Thiên Khôi, Thiên Việt hội hợp, trường hợp gặp “sao đôi” mới cát, gặp “sao lẻ” thì cha mẹ có hai lần hôn nhân, không cần gặp sát tinh cũng vậy.",
+   "source_page": 877,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "star:van_xuong",
+    "star:van_khuc",
+    "concept:sao_le",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sao đôi = đủ cặp phụ tá; sao lẻ = chỉ một trong cặp",
+    "viet_thuan": "Đồng + Xương Khúc đào hoa: cha có nhân tình; phụ tá lẻ: cha mẹ hai lần đò.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q068",
+   "question": "Thiên Đồng thủ cung Phụ Mẫu, đến Lưu Niên Hóa Kỵ kèm điều kiện gì thì chủ về tang sự?",
+   "answer_atom": "Đến Lưu Niên không nên Hóa Kỵ; nếu cung Phụ Mẫu gặp Văn Xương, Văn Khúc và sát tinh (hoặc cung Mệnh gặp Văn Xương, Văn Khúc, cung Phụ Mẫu gặp sát tinh), chủ về có tang sự.",
+   "source_quote": "Thiên Đồng thủ cung Phụ Mẫu, đến Lưu Niên không nên Hóa Kỵ; nếu cung Phụ Mẫu gặp Văn Xương, Văn Khúc, và sát tinh (hoặc cung Mệnh gặp Văn Xương, Văn Khúc, cung Phụ Mẫu gặp sát tinh), chủ về có tang sự.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_dong",
+    "hoa:ky",
+    "concept:luu_nien",
+    "concept:tang_su"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tang sự (喪事) = việc tang ma",
+    "viet_thuan": "Đồng ở Phụ Mẫu mà lưu niên Hóa Kỵ + Xương Khúc + sát: đề phòng có tang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q069",
+   "question": "Vì sao Liêm Trinh ở cung Phụ Mẫu cần luận đoán cẩn thận?",
+   "answer_atom": "Do là sao chủ về tình cảm và máu nên tính chất khá phức tạp. Nhất là lúc Liêm Trinh Hóa Lộc hoặc Hóa Kỵ, tính chất cực kỳ mẫn cảm, cho nên cần luận đoán cẩn thận.",
+   "source_quote": "Liêm Trinh ở cung Phụ Mẫu, do là sao chủ về tình cảm và máu, nên tính chất khá phức tạp. Nhất là lúc Liêm Trinh Hóa Lộc hoặc Hóa Kỵ, tính chất cục kỳ mẫn cảm, cho nên cần phải luận đoán cẩn thận.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Liêm Trinh chủ tình cảm và huyết (máu)",
+    "viet_thuan": "Liêm Trinh phức tạp ở cung cha mẹ, đặc biệt nhạy khi Hóa Lộc/Hóa Kỵ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q070",
+   "question": "Liêm Trinh Hóa Lộc ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Thông thường chủ về không hình khắc, hoặc tình cảm hòa hợp. Nhưng lúc này Thái Dương ắt sẽ Hóa Kỵ — tính chất cơ bản là bất lợi về cha mẹ — nên cần xem kỹ Thái Dương, Thái Âm hội hợp các sao nào (bất luận ở cung độ nào) và Liêm Trinh hội với sao nào, mới có thể đưa ra luận đoán.",
+   "source_quote": "Liêm Trinh Hóa Lộc: Thông thường chủ về không hình khắc, hoặc tình cảm hòa hợp. Có điều, lúc này Thái Dương ắt sẽ Hóa Kỵ, tính chất cơ bản là bất lợi về cha mẹ.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "hoa:loc",
+    "star:thai_duong",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Năm Giáp: Liêm Hóa Lộc, Thái Dương Hóa Kỵ",
+    "viet_thuan": "Liêm Lộc tốt nhưng kéo theo Dương Kỵ, phải xét Nhật–Nguyệt rồi mới kết luận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q071",
+   "question": "Liêm Trinh Hóa Kỵ ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Thông thường bất lợi về cha mẹ: hình khắc hay sinh ly, hoặc tình cảm không hòa hợp. Cần xem Thái Dương, Thái Âm hội hợp các sao nào mà định. Có Hỏa, Linh, Kình, Đà, Không, Kiếp, Thiên Hình, Thiên Thương hội hợp: thông thường chủ về hình khắc.",
+   "source_quote": "Liêm Trinh Hóa Kỵ: Thông thường bất lợi về cha mẹ, hình khắc hay sinh ly, hoặc tình cảm không hòa hợp. Cần phải xem Thái Dương, Thái Âm hội hợp các sao nào mà định.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "hoa:ky",
+    "sat:thien_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Kỵ: bất lợi cha mẹ; hội đủ sát tinh thì hình khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q072",
+   "question": "Liêm Trinh Hóa Kỵ đồng cung với các sao khác nhau thì phân biệt rời xa, con nuôi thế nào?",
+   "answer_atom": "Đồng cung với Hỏa Tinh, hoặc với Thiên Mã, Thiên Hư: chủ về rời xa cha mẹ. Đồng cung với Linh Tinh, hoặc với Thất Sát, Phá Quân, hay Tham Lang mà không có sao cát, còn gặp các sao hư, hao, hình, thương: chủ về làm con nuôi, con thừa tự của người khác, hay cha mẹ 'lưỡng trùng'.",
+   "source_quote": "Nếu Liêm Trinh Hóa Kỵ, đồng cung với Hỏa Tinh, hoặc đồng cung với Thiên Mã, Thiên Hư, thì chủ về rời xa cha mẹ. Nếu Liêm Trinh Hóa Kỵ, đồng cung với Linh Tinh, hoặc đồng cung với Thất Sát, Phá Quân, hay Tham Lang mà không có sao cát, còn gặp các sao hư, hao, hình, thương, thì chủ về làm con nuôi, làm con thừa tự của người khác, hay cha mẹ “lưỡng trùng”.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "hoa:ky",
+    "sat:hoa_tinh",
+    "sat:linh_tinh",
+    "concept:con_nuoi",
+    "concept:luong_trung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Kỵ + Hỏa/Mã/Hư: rời xa; + Linh hoặc Sát Phá Tham không cát: con nuôi, hai cha mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q073",
+   "question": "Liêm Trinh có Văn Xương, Văn Khúc và các sao Đào Hoa đồng cung hoặc hội chiếu chủ về gì?",
+   "answer_atom": "Chủ về mệnh tạo do nhị phòng hay kế thất sinh ra, hoặc cấp trên âm thịnh dương suy, hoặc cha có tình nhân bên ngoài. Gặp 'sao đôi' phụ tá kèm 'sao lẻ': cha có tình nhân bên ngoài; gặp Văn Xương, Văn Khúc Hóa Kỵ: mệnh tạo do nhị phòng hay kế thất sinh ra.",
+   "source_quote": "Liêm Trinh có Văn Xương, Văn Khúc, và các sao Đào Hoa đồng cung hoặc hội chiếu, chủ về mệnh tạo do nhị phòng hay kế thất sinh ra, hoặc cấp trên âm thịnh dương suy, hoặc cha có tình nhân bên ngoài.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:van_xuong",
+    "star:van_khuc",
+    "concept:dao_hoa",
+    "concept:nhi_phong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm thịnh dương suy = nữ nhiều quyền hơn nam (cấp trên là nữ)",
+    "viet_thuan": "Liêm + Xương Khúc + đào hoa: do vợ lẽ sinh, hoặc sếp nữ chiếm ưu thế, hoặc cha ngoại tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q074",
+   "question": "Liêm Trinh Hóa Kỵ gặp các sao Đào Hoa tụ tập đủ chủ về gì?",
+   "answer_atom": "Chủ về tình trạng hôn nhân của cha mẹ khá phức tạp.",
+   "source_quote": "Liêm Trinh Hóa Kỵ, gặp các sao Đào Hoa tụ tập đủ, chủ về tình trạng hôn nhân của cha mẹ khá phức tạp.",
+   "source_page": 878,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "hoa:ky",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Kỵ + đào hoa đủ bộ: hôn nhân cha mẹ rối rắm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q075",
+   "question": "'Liêm Trinh, Thiên Tướng' được 'Tài ấm giáp ấn' hoặc bị 'Hình kị giáp ấn' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Được 'Tài ấm giáp ấn': được cha mẹ che chở. Bị 'Hình kị giáp ấn': cha mẹ bị hình khắc hoặc đổ vỡ tình cảm. Nếu 'Hình kị giáp ấn' mà bản thân Liêm Trinh Hóa Kỵ ở lưu niên hoặc đại vận thì chủ về cha mẹ bị 'hình thương'.",
+   "source_quote": "Khi Liêm Trinh, Thiên Tướng được “Tài ẩm giáp ấn”, chủ về được cha mẹ che chở; ngược lại, bị “Hình kị giáp ấn”, thì chủ về cha mẹ bị hình khắc hoặc đổ vỡ tình cảm.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "concept:tai_am_giap_an",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình thương (刑傷) = tổn thương về thân thể, tai họa",
+    "viet_thuan": "Liêm Tướng: Tài ấm kẹp thì được che chở; Hình kị kẹp thì cha mẹ khắc hoặc đổ vỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q076",
+   "question": "Các tinh hệ 'Liêm Trinh, Thất Sát', 'Liêm Trinh, Phá Quân', 'Liêm Trinh, Tham Lang' ở cung Phụ Mẫu có tính chất gì?",
+   "answer_atom": "Tính chất cơ bản đều chủ về bị 'hình thương'; Hóa Kỵ gặp sát tinh càng nặng. Nếu Liêm Trinh Hóa Lộc lại gặp cát tinh thì có thể hóa giải, nên xa cách cha mẹ. Thời cổ, người xưa cho rằng nên làm con nuôi người khác, cho làm con thừa tự của bác hay chú.",
+   "source_quote": "Các tình hệ như “Liêm Trinh, Thất Sát”, “Liêm Trinh, Phá Quân”, “Liêm Trinh, Tham Lang”, tính chất cơ bản đều chủ về bị “hình thương”. Hóa Kỵ gặp sát tinh thì càng nặng.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:that_sat",
+    "star:pha_quan",
+    "star:tham_lang",
+    "hoa:ky",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm gặp Sát/Phá/Tham: gốc là hình thương; Liêm Lộc + cát tinh thì hóa giải bằng cách ở xa cha mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q077",
+   "question": "'Liêm Trinh, Thiên Phủ' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Là kết cấu rất ổn định, không chủ về hình khắc; gặp cát tinh còn chủ về tình cảm hạnh phúc. Nhưng nếu Thiên Phủ là 'kho lộ', 'kho trống' thì chủ về tình cảm hai đời bất hòa, hoặc cha có sản nghiệp mà không được hưởng.",
+   "source_quote": "Ngược lại, “Liêm Trinh, Thiên Phủ” là kết cấu rất ổn định, không chủ về hình khắc, gặp cát tinh còn chỉ về tình cảm hạnh phúc. Nếu “Liêm Trinh, Thiên Phủ” thủ cung Phụ Mẫu, mà Thiên Phủ là “kho lộ”, “kho trống”, thì chủ về tình cảm giữa hai đời bất hòa, hoặc cha có sản nghiệp mà không được hưởng.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kho lộ (露庫) = Thiên Phủ không gặp sao lộc mà lộ kho; kho trống (空庫) = Thiên Phủ gặp không kiếp",
+    "viet_thuan": "Liêm Phủ vốn ổn; chỉ xấu khi Phủ thành kho lộ/kho trống.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q078",
+   "question": "Liêm Trinh nhập cung Phụ Mẫu của lưu niên có Thất Sát, Phá Quân, Tham Lang hội hợp kèm sát kị hình hao thì sao?",
+   "answer_atom": "Cần đề phòng cha mẹ có nguy cơ về sức khỏe. Đặc biệt phải cẩn thận đến lưu niên có Bạch Hổ và Lưu Dương tương hội ở cung hạn Phụ Mẫu.",
+   "source_quote": "Khi Liêm Trinh nhập cung Phụ Mẫu của lưu niên, nếu có Thất Sát, Phá Quân, Tham Lang hội hợp, lại gặp các sao sát, kị, hình, hao xâm phạm, thì cần đề phòng cha mẹ có nguy cơ về sức khỏe. Đặc biệt phải cẩn thận đến lưu niên có Bạch Hổ và Lưu Dương tương hội ở cung hạn Phụ Mẫu.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "concept:luu_nien",
+    "sat:bach_ho",
+    "sat:luu_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưu Dương = Kình Dương của lưu niên",
+    "viet_thuan": "Lưu niên Liêm + Sát Phá Tham + sát kỵ: coi chừng sức khỏe cha mẹ, nhất là khi có Bạch Hổ + Lưu Dương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q079",
+   "question": "Liêm Trinh Hóa Kỵ ở cung Phụ Mẫu nguyên cục hội Vũ Khúc Hóa Kỵ ở cung hạn Phụ Mẫu chủ về gì?",
+   "answer_atom": "Năm đó chủ về cha mẹ bị bệnh nặng có thể tử vong. Nếu Vũ Khúc ở cung Phụ Mẫu mà hội Liêm Trinh Hóa Kỵ là điềm tượng cha mẹ bị phá tán, thất bại, quan hệ với cấp trên bị đứt đoạn, thậm chí có thể bị cấp trên đuổi việc.",
+   "source_quote": "Nếu Liêm Trinh Hóa Kỵ ở cung Phụ Mẫu của nguyên cục hội cùng Vũ Khúc Hóa Kỵ ở cung hạn Phụ Mẫu, thì năm đó chủ về cha mẹ bị bệnh nặng có thể tử vong.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "hoa:ky",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hai Kỵ Liêm–Vũ chồng nhau ở Phụ Mẫu: năm đó cha mẹ bệnh nặng, có thể mất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q080",
+   "question": "Liêm Trinh có Lưu Xương, Lưu Khúc tương hội mà cả Xương Khúc đều hóa kỵ thì sao?",
+   "answer_atom": "Cũng bất lợi về cha mẹ. Có lúc ứng nghiệm này cũng xảy ra ở cung Mệnh của lưu niên.",
+   "source_quote": "Nếu Liêm Trinh có Lưu Xương, Lưu Khúc tương hội, và cả Xương, Khúc đều hóa kỵ, thì cũng bất lợi về cha mẹ. Có lúc ứng nghiệm này cũng xảy ra ở cung Mệnh của lưu niên.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:liem_trinh",
+    "star:van_xuong",
+    "star:van_khuc",
+    "hoa:ky",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưu Xương/Lưu Khúc = Văn Xương, Văn Khúc an theo can lưu niên",
+    "viet_thuan": "Liêm hội Lưu Xương Khúc hóa kỵ: bất lợi cha mẹ, có khi ứng ở Mệnh lưu niên.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q081",
+   "question": "Thiên Phủ thủ cung Phụ Mẫu trong tình hình thông thường chủ về gì?",
+   "answer_atom": "Đều chủ về cha mẹ song toàn. Chỉ trong tình huống Thiên Phủ là 'kho lộ', 'kho trống' mới bị 'hình khắc', hoặc chủ về không được hưởng phúc ấm của cha.",
+   "source_quote": "Thiên Phủ thủ cung Phụ Mẫu, trong các tình hình thông thường đều chủ về cha mẹ song toàn. Chỉ trong tình huống Thiên Phủ là “kho lộ”, “kho trống”, mới bị “hình khắc”, hoặc chủ về không được hưởng phúc ấm của cha.",
+   "source_page": 879,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "concept:kho_lo",
+    "concept:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Song toàn (雙全) = cả cha lẫn mẹ đều còn",
+    "viet_thuan": "Thiên Phủ: cha mẹ song toàn, trừ khi là kho lộ/kho trống.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q082",
+   "question": "Thiên Phủ đồng độ với Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Với Kình Dương: hai đời bất hòa; có Đà La hội hợp: bị 'hình khắc', gặp Thiên Hình càng nặng. Với Hỏa Tinh, Linh Tinh: sinh li, gặp Thiên Hình thì lúc trẻ cha mẹ đã bất toàn. Với Địa Không, Địa Kiếp: làm con nuôi.",
+   "source_quote": "Thiên Phủ đồng độ với Kình Dương, chủ về hai đời bất hòa. Có Đà La hội hợp, chủ về bị “hình khắc”; gặp Thiên Hình thì càng nặng. Thiên Phủ đồng độ với Hỏa Tinh, Linh Tinh, chủ về sinh li; gặp Thiên Hình thì lúc trẻ cha mẹ đã bất toàn. Thiên Phủ đồng cung với Địa Không, Địa Kiếp, chủ về làm con nuôi.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "sat:kinh_duong",
+    "sat:da_la",
+    "sat:hoa_tinh",
+    "sat:linh_tinh",
+    "sat:dia_khong",
+    "sat:dia_kiep",
+    "sat:thien_hinh",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phủ + Kình: bất hòa; + Đà/Hình: khắc; + Hỏa/Linh: sinh li; + Không/Kiếp: con nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q083",
+   "question": "Thiên Phủ đồng cung với Lộc Tồn gặp sát tinh chủ về gì?",
+   "answer_atom": "Chủ về cha con bất hòa, còn chủ về cha mẹ ưa độc quyền tài chính.",
+   "source_quote": "Thiên Phủ đồng cung với Lộc Tồn, gặp sát tinh, chủ về cha con bất hòa, còn chủ về cha mẹ ưa độc quyền tài chính.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "star:loc_ton"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phủ + Lộc Tồn + sát: cha con bất hòa, cha mẹ giữ chặt tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q084",
+   "question": "Thiên Phủ gặp Hóa Lộc đồng độ hoặc vây chiếu, trường hợp nào tốt nhất?",
+   "answer_atom": "Trường hợp Vũ Khúc Hóa Lộc là rất nên — chủ về cha mẹ giàu có và được cha mẹ che chở. Gặp thêm Thiên Vũ đồng độ, hoặc Thiên Vũ ở cung Mệnh hay cung Tài Bạch, chủ về cha mẹ để lại di sản to tát.",
+   "source_quote": "Thiên Phủ gặp Hóa Lộc đồng độ hoặc vây chiếu, trường hợp Vũ Khúc Hóa Lộc là rất nên, chủ về cha mẹ giàu có và được cha mẹ che chở. Gặp thêm Thiên Vũ đồng độ, hoặc Thiên Vũ ở cung Mệnh hay cung Tài Bạch, chủ về cha mẹ để lại di sản to tát.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "hoa:loc",
+    "star:thien_vu",
+    "concept:di_san"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phủ gặp Vũ Lộc: cha mẹ giàu, che chở; thêm Thiên Vũ: để lại di sản lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q085",
+   "question": "Cung Phụ Mẫu của lưu niên là Thiên Phủ bỗng gặp Hóa Lộc hoặc Lộc Tồn trùng trùng xung hội thì sao?",
+   "answer_atom": "Phải đề phòng có tang sự.",
+   "source_quote": "Nếu cung Phụ Mẫu của lưu niên là Thiên Phủ bỗng gặp Hóa Lộc hoặc Lộc Tồn trùng trùng xung hội, phải đề phòng có tang sự.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "hoa:loc",
+    "star:loc_ton",
+    "concept:luu_nien",
+    "concept:tang_su"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lưu niên Phủ gặp Lộc dồn dập bất thường: lại là điềm tang, không phải điềm tài.",
+    "nguyen_ly": "Lộc trùng trùng đột ngột ở Phụ Mẫu = dị thường, dị thường là điềm",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q086",
+   "question": "Thiên Phủ bị Liêm Trinh Hóa Kỵ hoặc Vũ Khúc Hóa Kỵ đối xung chủ về gì? Thiên Phủ Hóa Khoa thì sao?",
+   "answer_atom": "Bị Liêm Trinh Hóa Kỵ đối xung lại gặp sát tinh: cha mẹ bất toàn. Bị Vũ Khúc Hóa Kỵ đối xung: 'hình khắc' hoặc cha mẹ sự nghiệp sụp đổ. Thiên Phủ Hóa Khoa: không bị 'hình khắc'; nếu Thái Dương Hóa Lộc ở cung miếu vượng, chủ về được cha che chở.",
+   "source_quote": "Thiên Phủ bị Liêm Trinh Hóa Kỵ đối xung, lại gặp sát tinh, chủ về cha mẹ bất toàn. Bị Vũ Khúc Hóa Kỵ đối xung, thì “hình khắc”, hoặc cha mẹ sự nghiệp sụp đổ. Thiên Phủ Hóa Khoa, chủ về không bị “hình khắc”.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "hoa:ky",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phủ bị Liêm Kỵ xung: cha mẹ bất toàn; bị Vũ Kỵ xung: khắc/sự nghiệp đổ; Phủ Hóa Khoa thì an.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q087",
+   "question": "Thiên Phủ được 'trăm quan đứng chầu' và Thiên Phủ gặp sao Đào Hoa ở cung Phụ Mẫu cần lưu ý gì?",
+   "answer_atom": "Được 'trăm quan đứng chầu' cần gặp 'sao đôi', không ưa 'sao đôi' kèm 'sao lẻ' — chủ về cha mẹ 'lưỡng trùng', hoặc mệnh tạo do nhị phòng hay kế thất sinh ra. Có sao Đào Hoa cùng bay đến, gặp 'sao lẻ' Văn Xương hay Văn Khúc: cha có tình nhân bên ngoài.",
+   "source_quote": "Thiên Phủ được “trăm quan đứng chẩu”, cần phải gặp “sao đôi”, không ưa “sao đôi” kèm “sao lẻ”, chủ về cha mẹ “lưỡng trùng”, hoặc mệnh tạo do nhị phòng hay kế thất sinh ra.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_phu",
+    "concept:tram_quan",
+    "concept:sao_le",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Trăm quan đứng chầu (百官朝拱) = nhiều phụ tá cát chầu về",
+    "viet_thuan": "Phủ trăm quan phải đủ cặp; lẻ cặp thì cha mẹ hai lớp; + đào hoa + Xương/Khúc lẻ: cha có nhân tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q088",
+   "question": "Thái Âm thủ cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Thông thường không chủ về 'hình khắc'. Nhập miếu, dù gặp sát tinh, thường cũng chỉ chủ về sinh li. Lạc hãm thì bất lợi về mẹ; đồng cung với Hỏa Tinh, Linh Tinh chỉ chủ về chia ly; sát tinh nặng thì nên đề phòng 'hình khắc'.",
+   "source_quote": "Thái Âm thủ cung Phụ Mẫu, thông thường không chủ về “hình khắc”. Nếu Thái Âm nhập miếu, dù gặp sát tinh, thường cũng chỉ chủ về sinh li. Thái Âm lạc hãm thì bất lợi về mẹ.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Âm hiền: miếu thì cùng lắm sinh li; hãm thì hại mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q089",
+   "question": "Thái Âm độc tọa lạc hãm ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Trường hợp nhẹ thì lúc bé cô độc, không được mẹ chăm sóc; nặng thì rời xa cha mẹ, hoặc mẹ bị 'hình thương'.",
+   "source_quote": "Thái Âm độc tọa không nên lạc hãm. Trường hợp nhẹ thì lúc bé cô độc, không được mẹ chăm sóc; nặng thì rời xa cha mẹ, hoặc mẹ bị “hình thương”.",
+   "source_page": 880,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am",
+    "concept:lac_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm hãm độc tọa: nhẹ thì thiếu hơi mẹ, nặng thì mẹ bị thương tổn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q090",
+   "question": "Thái Âm đồng độ với Kình Dương, Đà La, hoặc Thiên Mã - Thiên Hư ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Với Kình Dương: duyên phận với mẹ bạc bẽo, lạc hãm càng nặng. Với Đà La: bất hòa với mẹ, lạc hãm cũng càng nặng. Với Thiên Mã, Thiên Hư: không gặp Hỏa Linh cũng rời xa cha mẹ; gặp Hỏa Linh thì lúc bé đã li tán cha mẹ; thêm 'sao lẻ' thường chủ về làm con nuôi.",
+   "source_quote": "Thái Âm có Kình Dương đồng độ, chủ về duyên phận với mẹ bạc bẽo... Thái Âm có Thiên Mã, Thiên Hư đồng độ, không gặp Hỏa Tinh, Linh Tinh cũng chủ về rời xa cha mẹ; gặp Hỏa Tinh, Linh Tinh, lúc bé đã li tán cha mẹ; nếu gặp thêm “sao lẻ”, thường thường chủ về làm con nuôi.",
+   "source_page": 881,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am",
+    "sat:kinh_duong",
+    "sat:da_la",
+    "star:thien_ma",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm + Kình: duyên mẹ bạc; + Đà: bất hòa mẹ; + Mã Hư: xa lìa, thêm sao lẻ thì con nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q091",
+   "question": "Thái Âm có Thiên Lương, Thiên Thọ tương hội thì hóa giải thế nào?",
+   "answer_atom": "Dù lạc hãm và Hóa Kỵ, cũng chỉ chủ về nạn tai, bệnh tật, không chủ về 'hình khắc'.",
+   "source_quote": "Thái Âm có Thiên Lương, Thiên Thọ tương hội, dù Lạc Hãm và Hóa Kỵ, cũng chỉ chủ về nạn tai, bệnh tật, không chủ về “hình khắc”.",
+   "source_page": 881,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am",
+    "star:thien_luong",
+    "star:thien_tho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Lương = ấm tinh, Thiên Thọ = thọ tinh — đều hóa giải khắc",
+    "viet_thuan": "Âm hãm Kỵ mà có Lương + Thọ: chỉ tai bệnh, không khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q092",
+   "question": "Thái Âm ở các vị trí Mão/Dậu, Thìn/Tuất, Tị/Hợi tại cung Phụ Mẫu luận khác nhau thế nào?",
+   "answer_atom": "Mão/Dậu gặp Thiên Đồng Hóa Kỵ: sự nghiệp cha mẹ phá tán; gặp Thiên Đồng Hóa Lộc cũng không được hưởng phúc ấm của cha. Lạc hãm ở Thìn: 'hình khắc' khá nặng; ở Tuất nhập miếu, gặp sát chỉ là không có duyên với cha mẹ; cả Thìn/Tuất đều không nên Hóa Kỵ — chủ về lúc bé 'hình khắc'. Độc tọa Tị: 'hình khắc' chia li; ở Hợi thì không đúng, nhưng Thái Âm Hóa Kỵ ở Hợi lúc bé cũng chủ về khắc cha.",
+   "source_quote": "Thái Âm Lạc Hãm ở cung Thìn, “hình khắc” khá nặng; ở cung Tuất là nhập miếu, gặp sát tinh cũng chỉ chủ về không có duyên với cha mẹ... Thái Âm độc tọa ở hai cung Tị hoặc Hợi, ở cung Tị chủ về “hình khắc” chia li, ở cung Hợi thì không đúng.",
+   "source_page": 881,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am",
+    "star:thien_dong",
+    "position:mao_dau",
+    "position:thin_tuat",
+    "position:ti_hoi",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm tùy cung: Thìn nặng, Tuất nhẹ, Tị khắc, Hợi an — nhưng Hợi Hóa Kỵ vẫn khắc cha.",
+    "nguyen_ly": "Ảnh hưởng Thiên Đồng với cung Phụ Mẫu, ý nghĩa cơ bản là tự lập",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q093",
+   "question": "Thái Âm Hóa Quyền hay Hóa Khoa ở cung Phụ Mẫu mà Thái Dương vô lực thì chủ về gì?",
+   "answer_atom": "Lúc bé mẹ thay cha nuôi con, hoặc mẹ gánh vác gia đình. Nếu Thái Âm ở cung Tị, thường là điềm tượng cha chia li với gia đình hoặc tử vong. Lưu niên Thái Âm hội sát, hình, Bạch Hổ: mẹ bị thương tổn. Thái Âm Hóa Kỵ gặp Kình Đà thêm Văn Khúc: có người đâm thọc khiến bất hòa với cha mẹ hoặc cấp trên.",
+   "source_quote": "Thái Âm Hóa Quyền hay Hóa Khoa ở cung Phụ Mẫu, mà Thái Dương vô lực (như không hội hóa cát), thì lúc bé mẹ thay cha nuôi con, hoặc mẹ gánh vác gia đình.",
+   "source_page": 881,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thai_am",
+    "star:thai_duong",
+    "hoa:quyen",
+    "hoa:khoa",
+    "sat:bach_ho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vô lực = sao yếu, không có hóa cát trợ giúp",
+    "viet_thuan": "Âm mạnh Dương yếu: mẹ gánh gia đình; Âm Tị: cha lìa nhà hoặc mất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q094",
+   "question": "Tham Lang ở cung Phụ Mẫu cần điều kiện gì mới tốt?",
+   "answer_atom": "Cần phải nhập miếu mới vô hại; không nhập miếu, dù gặp các sao phụ tá và cát hóa, cũng không toàn mỹ. Đồng cung với sao Đào Hoa gặp Thiên Hư, Thiên Hình: mệnh tạo do kế thất hay nhị phòng sinh ra; thêm sát tinh thì cha mẹ bị 'hình khắc'.",
+   "source_quote": "Tham Lang ở cung Phụ Mẫu, cần phải nhập miếu mới vô; không nhập miếu, dù gặp các sao phụ, tá và cát hóa, cũng không toàn mỹ.",
+   "source_page": 881,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "concept:nhap_mieu",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Lang phải miếu mới ổn; + đào hoa Hư Hình: do vợ kế/lẽ sinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q095",
+   "question": "Tham Lang Hóa Kỵ và Tham Lang Hóa Lộc ở cung Phụ Mẫu khác nhau thế nào?",
+   "answer_atom": "Hóa Kỵ: lúc bé đã rời xa cha mẹ; gặp sát hình thì cha mẹ bị 'hình khắc'. Hóa Lộc mà lạc hãm: dù gặp sát tinh cũng không 'hình khắc', chỉ sinh li; nhập miếu Hóa Lộc đương nhiên không hình khắc, nhưng vẫn không nên gặp 'sao lẻ' phụ tá.",
+   "source_quote": "Tham Lang Hóa Kỵ, chủ về lúc bé đã rời xa cha mẹ; gặp các sao sát, hình, chủ về cha mẹ bị “hình khắc”. Tham Lang Hóa Lộc, mà lạc hãm, dù gặp sát tinh cũng không chủ về “hình khắc”, chỉ chủ về sinh li.",
+   "source_page": 882,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "hoa:ky",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Kỵ: bé đã xa cha mẹ; Tham Lộc: nhẹ hơn, chỉ sinh li.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q096",
+   "question": "Tham Lang lạc hãm gặp Thiên Mã hoặc hội 'sao lẻ' phụ tá chủ về gì?",
+   "answer_atom": "Gặp Thiên Mã đồng cung hoặc vây chiếu: xa cách. Có sao Đào Hoa: cha mẹ 'lưỡng trùng', hoặc mệnh tạo do nhị phòng hay kế thất sinh ra. Hội 'sao lẻ' phụ tá: cũng chủ về cha mẹ 'lưỡng trùng'; thêm sát tinh: tình trạng hôn nhân của cha mẹ phức tạp.",
+   "source_quote": "Tham Lang lạc hãm, gặp Thiên Mã đồng cung hoặc vây chiếu, chủ về xa cách. Có các sao Đào Hoa, cũng chủ về cha mẹ “lưỡng trùng”, hoặc mệnh tạo do nhị phòng hay kế thất sinh ra.",
+   "source_page": 882,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "star:thien_ma",
+    "concept:sao_le",
+    "concept:luong_trung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham hãm + Mã: xa cách; + đào hoa hoặc sao lẻ: hai lớp cha mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q097",
+   "question": "Tham Lang ở hai cung Tý/Ngọ hoặc Dần/Thân tại cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Tý/Ngọ có Hỏa Tinh, Linh Tinh đồng độ: lúc bé đã rời xa cha mẹ; gặp sao Đào Hoa: cha có người bên ngoài, hoặc mệnh tạo do người bên ngoài sinh ra. Dần/Thân có sát tinh: 'hình khắc'; gặp Địa Không, Địa Kiếp, Thiên Hình, Thiên Hư, Thiên Thương: cha mẹ chia tay giữa chừng.",
+   "source_quote": "Tham Lang ở hai cung Dần hoặc Thân, có sát tinh, chủ về “hình khắc”. Nếu gặp Địa Không, Địa Kiếp, Thiên Hình, Thiên Hư, Thiên Thương, thì cha mẹ chia tay giữa chừng.",
+   "source_page": 882,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "position:ty_ngo",
+    "position:dan_than",
+    "sat:hoa_tinh",
+    "sat:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Tý/Ngọ + Hỏa/Linh: bé xa cha mẹ; Dần/Thân + Không Kiếp Hình: cha mẹ nửa đường đứt gánh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q098",
+   "question": "Tham Lang độc tọa Thìn/Tuất đối cung Vũ Khúc Hóa Kỵ, và Tham Lang đồng cung Vũ Khúc Hóa Lộc, khác nhau thế nào?",
+   "answer_atom": "Đối cung Vũ Khúc Hóa Kỵ có Hỏa, Linh, Không, Kiếp: sự nghiệp của cha đột nhiên sụp đổ. Đồng cung với Vũ Khúc Hóa Lộc: sự nghiệp của cha vẻ vang, gặp sao phụ tá càng cát; nhưng thêm sao Đào Hoa thì cha có tì thiếp.",
+   "source_quote": "Tham Lang độc tọa ở hai cung Thìn hoặc Tuất, đối cung là Vũ Khúc Hóa Kỵ, có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, chủ về sự nghiệp của cha đột nhiên sụp đổ. Tham Lang đồng cung với Vũ Khúc Hóa Lộc, thì sự nghiệp của cha vẻ vang.",
+   "source_page": 882,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "star:vu_khuc",
+    "hoa:ky",
+    "hoa:loc",
+    "position:thin_tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tì thiếp (婢妾) = hầu thiếp",
+    "viet_thuan": "Tham đối Vũ Kỵ: cha sụp nghiệp đột ngột; Tham + Vũ Lộc: cha vẻ vang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q099",
+   "question": "Tham Lang lạc hãm ở Tị/Hợi đồng cung với Liêm Trinh luận thế nào?",
+   "answer_atom": "Gặp sát tinh chủ về hình, thì rời xa cha mẹ; đồng cung với Thiên Mã, Hỏa Tinh càng nặng; có Văn Xương, Văn Khúc cùng bay đến thì cha có tì thiếp.",
+   "source_quote": "Tham Lang lạc hãm ở hai cung Tỵ hoặc Hợi, đồng cung với Liêm Trinh, gặp sát tinh chủ về hình, thì rời xa cha mẹ; đồng cung với Thiên Mã, Hỏa Tinh thì càng nặng; có Văn Xương, Văn Khúc cùng bay đến, thì cha có tì thiếp.",
+   "source_page": 882,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:tham_lang",
+    "star:liem_trinh",
+    "position:ti_hoi",
+    "star:thien_ma"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Tham Tị/Hợi + sát: rời cha mẹ; + Xương Khúc: cha có thiếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q100",
+   "question": "Cự Môn ở cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Là sao ác ở cung Phụ Mẫu: không có các sao sát, kỵ mới chủ về toàn mỹ. Nếu không, dù Hóa Lộc cũng chỉ chủ về sự nghiệp của cha to tát, vẫn khó tránh 'hình khắc' hoặc bất hòa. Lạc hãm gặp sát tinh, Thiên Hình: cha mẹ bất toàn.",
+   "source_quote": "Cự Môn ở cung Phụ Mẫu là sao ác, không có các sao sát, kỵ, mới chủ về toàn mĩ. Nếu không, dù Hóa Lộc, cũng chỉ chủ về sự nghiệp của cha to tát, vẫn khó tránh “hình khắc” hoặc bất hòa.",
+   "source_page": 882,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:cu_mon"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Môn là sao dữ ở cung cha mẹ: phải sạch sát kỵ mới yên.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q101",
+   "question": "Tinh hệ 'Cự Môn, Thiên Đồng' ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Phần nhiều bất lợi về cha mẹ: có Hỏa Linh cùng bay đến thì cha mẹ con cái không hòa hợp; thêm sao Đào Hoa: hôn nhân cha mẹ phức tạp; gặp 'sao lẻ' phụ tá: cha mẹ có tình yêu khác. Còn chủ về không được hưởng sự nghiệp của cha; gặp sát tinh, Thiên Đồng không cát hóa: tổ nghiệp lụn bại; thêm Không, Kiếp, Hình: tổ nghiệp bị người ta đoạt mất.",
+   "source_quote": "Trị hệ “Cự Môn, Thiên Đồng” phần nhiều bất lợi về cha mẹ... gặp sát tinh, Thiên Đồng không có cát hóa, là tổ nghiệp lụn bại; gặp thêm Địa Không, Địa Kiếp, Thiên Hình, thì tổ nghiệp bị người ta đoạt mất.",
+   "source_page": 883,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:cu_mon",
+    "star:thien_dong",
+    "concept:to_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Đồng: bất lợi cha mẹ, tổ nghiệp dễ lụn bại hoặc bị đoạt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q102",
+   "question": "'Cự Môn, Thiên Cơ' đồng độ hoặc đối nhau ở cung Phụ Mẫu — cổ nhân và Vương Đình Chi luận khác nhau thế nào?",
+   "answer_atom": "Cổ nhân cho rằng là điềm tượng làm con nuôi người khác, người có hai họ. Thực ra nếu không gặp sát tinh thì chỉ chủ về ở ký túc xá hoặc được gửi cho người khác nuôi dưỡng, không chủ về có hai họ. Gặp sát, kị, Không, Kiếp, Hình, hao trùng trùng mới là điềm 'hình khắc' hoặc sinh li. Tinh hệ này rất bất lợi cho cung Phụ Mẫu, mức độ khắc hại rất lớn; sát tinh nhẹ thì từ bé đã rời xa cha mẹ (ví dụ cha mẹ bận công tác gửi con cho người khác nuôi).",
+   "source_quote": "Cự Môn gặp Thiên Cơ đồng độ hoặc đối nhau, cổ nhân cho rằng, là điểm tượng làm con nuôi người khác, là người có hai họ. Thực ra, nếu không gặp sát tinh thì chỉ chủ về mệnh tạo ở ký túc xá hoặc được gửi cho người khác nuôi dưỡng, không chủ về có hai họ.",
+   "source_page": 883,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:cu_mon",
+    "star:thien_co",
+    "concept:con_nuoi",
+    "concept:co_nhan_vs_hien_dai"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hai họ = mang họ khác ngoài họ cha",
+    "viet_thuan": "Cự Cơ: xưa nói con nuôi hai họ; nay hiểu nhẹ là ở ký túc/gửi nuôi nếu không sát tinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q103",
+   "question": "Kết cấu 'Cự Môn, Thái Dương' và Cự Môn Hóa Lộc/Hóa Quyền/Hóa Kỵ ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "'Cự Môn, Thái Dương' thông thường chủ về cha con bất hòa; được cát hóa thì cha mẹ rời xa quê hương. Cự Môn Hóa Lộc hay Hóa Quyền chỉ giảm bớt mức độ khắc hại; có 'Lộc trùng điệp' mới chủ về sự nghiệp của cha to tát. Cự Môn Hóa Kỵ ở cung Phụ Mẫu lưu niên có sát tinh: bất hòa với cấp trên, cũng chủ về người ngoại quốc (hay người ở phương xa) là cấp trên chủ quản.",
+   "source_quote": "Kết cấu “Cự Môn, Thái Dương”, trong các tình hình thông thường đều chủ về cha con bất hòa. Nếu được cát hóa, sẽ chủ về cha mẹ rời xa quê hương. Cự Môn Hóa Lộc hay Hóa Quyền, chỉ giảm bớt mức độ khắc hại; có “Lộc trùng điệp” mới chủ về sự nghiệp của cha to tát.",
+   "source_page": 883,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:cu_mon",
+    "star:thai_duong",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:ky",
+    "concept:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lộc trùng điệp = Hóa Lộc gặp thêm Lộc Tồn/Hóa Lộc khác",
+    "viet_thuan": "Cự Dương: cha con bất hòa; Lộc Quyền chỉ giảm khắc; lưu niên Cự Kỵ: xích mích với sếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q104",
+   "question": "Thiên Tướng thủ cung Phụ Mẫu mẫn cảm với điều gì nhất?",
+   "answer_atom": "Đặc biệt rất mẫn cảm với các sao phụ, tá. Gặp Văn Xương–Văn Khúc giáp cung, Thiên Khôi–Thiên Việt giáp cung, Tả Phụ–Hữu Bật giáp cung: có thể có cha mẹ 'lưỡng trùng', hoặc không chỉ có một mẹ; lại gặp 'sao lẻ' đồng độ hoặc vây chiếu thì càng đúng.",
+   "source_quote": "Thiên Tướng thủ cung Phụ Mẫu, đặc biệt rất mẫn cảm đối với các sao phụ, tá. Nếu gặp Văn Xương và Văn Khúc giáp cung, Thiên Khôi và Thiên Việt giáp cung, Tả Phụ và Hữu Bật giáp cung, có thể có cha mẹ “lưỡng trùng”, hoặc không chỉ có một mẹ.",
+   "source_page": 883,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_tuong",
+    "concept:giap_cung",
+    "concept:luong_trung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Tướng nhạy với sao kẹp cung: cát tinh kẹp cũng có thể báo hai mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q105",
+   "question": "Thiên Tướng bị Hỏa Tinh và Linh Tinh giáp cung, hoặc có Xương Khúc đào hoa đồng độ chủ về gì?",
+   "answer_atom": "Hỏa–Linh giáp cung: rời xa cha mẹ, gặp Thiên Mã càng đúng; nếu thêm 'sao lẻ' phụ tá đồng độ hoặc vây chiếu cũng chủ về có hai mẹ. Có Văn Xương, Văn Khúc, sao đào hoa đồng độ và hội hợp: không chỉ có một mẹ (thời hiện đại cũng có thể không chỉ có một cha).",
+   "source_quote": "Thiên Tướng bị Hỏa Tinh và Linh Tinh giáp cung, chủ về rời xa cha mẹ; gặp Thiên Mã thì càng đúng... Thiên Tướng có Văn Xương, Văn Khúc, các sao đào hoa đồng độ và hội hợp, chủ về không chỉ có một mẹ (ở thời hiện đại cũng có thể không chỉ có một cha).",
+   "source_page": 884,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_tuong",
+    "sat:hoa_tinh",
+    "sat:linh_tinh",
+    "star:thien_ma",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng bị Hỏa Linh kẹp: xa cha mẹ; + Xương Khúc đào hoa: hơn một mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q106",
+   "question": "Thiên Tướng gặp Vũ Khúc hoặc Liêm Trinh đồng độ/vây chiếu ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Rất kị gặp Vũ Khúc đồng độ hoặc vây chiếu: lúc bé bất lợi về cha mẹ; Vũ Khúc Hóa Kỵ: cha mẹ gặp nhiều nạn tai, bệnh tật. Gặp Liêm Trinh đồng độ/vây chiếu có Kình–Đà giáp, Hỏa–Linh giáp: 'hình khắc' hoặc xa cách; không sát giáp nhưng có 'sao lẻ' phụ tá thêm đào hoa: có hai mẹ; thời hiện đại thường chủ về có cấp trên 'lưỡng trùng'.",
+   "source_quote": "Thiên Tướng rất kị gặp Vũ Khúc đồng độ hoặc vây chiếu, chủ về lúc bé bất lợi về cha mẹ. Vũ Khúc Hóa Kỵ, cha mẹ gặp nhiều nạn tai, bệnh tật.",
+   "source_page": 884,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_tuong",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng kị Vũ Khúc nhất; gặp Liêm + sát giáp thì khắc hoặc xa cách.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q107",
+   "question": "Thiên Tướng ưa gặp những sao nào ở cung Phụ Mẫu?",
+   "answer_atom": "Rất ưa gặp Thiên Khôi, Thiên Việt, Tả Phụ, Hữu Bật; cũng ưa các sao Thiên Quan, Thiên Phúc, Thiên Quý, Giải Thần, Thiên Đức, Long Đức, Thiên Vu, Trường Sinh — chủ về cha mẹ hạnh phúc, cũng chủ về dễ được cấp chủ quản đề bạt.",
+   "source_quote": "Thiên Tướng rất ưa gặp Thiên Khôi, Thiên Việt, Tả Phụ, Hữu Bật; cũng ưa gặp các sao Thiên Quan, Thiên Phúc, Thiên Quý, Giải Thần, Thiên Đức, Long Đức, Thiên Vu, Trưởng Sinh, chủ về cha mẹ hạnh phúc, cũng chủ về dễ được cấp chủ quản để bạt.",
+   "source_page": 884,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_tuong",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "star:ta_phu",
+    "star:huu_bat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng ưa quý nhân tinh và cát diệu nhỏ: cha mẹ hạnh phúc, được sếp đề bạt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q108",
+   "question": "Thiên Tướng hội sát tinh nặng hoặc đến lưu niên gặp Liêm/Vũ Hóa Kỵ luận thế nào?",
+   "answer_atom": "Có Hỏa, Linh, Kình, Đà, Không, Kiếp, Thiên Hình, Thiên Thương hội hợp: cha mẹ bị 'hình khắc'. Gặp sát kị thêm 'sao lẻ' phụ tá: phải xem Thái Dương, Thái Âm miếu vượng thế nào mà định — có thể một người mất sớm, một người đi bước nữa. Lưu niên đến cung hạn Thiên Tướng hội Liêm Trinh Hóa Kỵ hoặc Vũ Khúc Hóa Kỵ, lại gặp Văn Xương, Văn Khúc và lưu sát trùng trùng xung hội: chủ về có tang sự.",
+   "source_quote": "Lưu niên đến cung hạn Thiên Tướng hội hợp với Liêm Trinh Hóa Kỵ hoặc Vũ Khúc Hóa Kỵ, lại gặp Văn Xương, Văn Khúc và lưu sát trùng trùng xung hội, sẽ chủ về có tang sự.",
+   "source_page": 884,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_tuong",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "hoa:ky",
+    "concept:luu_nien",
+    "concept:tang_su"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng + sát nặng: khắc; lưu niên hội Liêm/Vũ Kỵ + Xương Khúc + lưu sát: có tang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q109",
+   "question": "Thiên Lương ở cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Thiên Lương là 'thọ tinh', còn là 'ấm tinh': nhập miếu, không có sát tinh hoặc sát không nặng, chủ về cha mẹ song toàn. Nhập miếu không sát mà có sao cát và cát hóa hội hợp: được hưởng phúc ấm của cha mẹ; gặp Thiên Vu và sao lộc: cha mẹ có di sản, hoặc được kế thừa sự nghiệp của cha mẹ.",
+   "source_quote": "Thiên Lương là “thọ tinh”, còn là “ấm tinh”, ở cung phụ mẫu mà nhập miếu, không có sát tinh, hoặc sát tinh không nặng, chủ về cha mẹ song toàn.",
+   "source_page": 884,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_luong",
+    "star:thien_vu",
+    "concept:di_san"
+   ],
+   "commentary": {
+    "han_viet_explain": "Ấm tinh (蔭星) = sao che chở, phúc ấm",
+    "viet_thuan": "Thiên Lương miếu sạch sát: cha mẹ song toàn, được hưởng ấm, có thể được di sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q110",
+   "question": "Thiên Lương lạc hãm ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Chủ về bị 'hình khắc'; gặp các sao sát, kị càng đúng. Cổ nhân cho rằng làm con thừa tự của người khác hoặc làm con nuôi thì có thể tránh; thời hiện đại thường chủ về xa cách thì có thể tránh.",
+   "source_quote": "Thiên Lương lạc hãm, chủ về bị “hình khắc”; gặp các sao sát, kị thì càng đúng. Cổ nhân cho rằng, làm con thừa tự của người khác hoặc làm con nuôi thì có thể tránh “hình khắc”. Ở thời hiện đại, thường thường chủ về xa cách thì có thể tránh.",
+   "source_page": 884,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_luong",
+    "concept:lac_ham",
+    "concept:co_nhan_vs_hien_dai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương hãm: khắc; nay hiểu là ở xa cha mẹ thì tránh được.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q111",
+   "question": "Thiên Lương kết hợp Thiên Mã - Kình Dương, hoặc với Thiên Đồng Hóa Kỵ, hoặc Hỏa-Linh chia hai cung, luận thế nào?",
+   "answer_atom": "Có Thiên Mã, Kình Dương đồng độ: chia lìa với gia đình, hoặc ở rể mà xa cách cha mẹ. Ưa gặp Thiên Đồng đồng độ/vây chiếu, nhưng Thiên Đồng Hóa Kỵ hoặc có tứ sát + Không, Kiếp, Hình, Thương hội hợp: hai đời có định kiến trái nghịch, hoặc làm con thừa tự của bác hay chú. Thiên Lương của cung Phụ Mẫu và cung Mệnh, một cung gặp Hỏa Tinh một cung gặp Linh Tinh: điềm tượng làm con nuôi hoặc ở rể.",
+   "source_quote": "Thiên Lương của cung Phụ Mẫu và cung Mệnh, một cung gặp Hỏa Tinh, một cung gặp Linh Tinh, là điểm tượng làm con nuôi, hoặc ở rể.",
+   "source_page": 885,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_luong",
+    "star:thien_ma",
+    "sat:kinh_duong",
+    "star:thien_dong",
+    "hoa:ky",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương + Mã Kình: lìa nhà/ở rể; Đồng Kỵ: hai đời nghịch ý; Hỏa-Linh chia Mệnh-Phụ: con nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q112",
+   "question": "Thái Dương nhập miếu hay lạc hãm đối nhau với Thiên Lương ở cung Phụ Mẫu khác nhau thế nào?",
+   "answer_atom": "Thái Dương nhập miếu đối Thiên Lương: cha mẹ con cái hạnh phúc. Thái Dương lạc hãm có Không, Kiếp, Thiên Hình: hai đời ngăn cách, hoặc bất hòa nghiêm trọng với cấp trên. Thái Dương hãm gặp Lương đồng độ/vây chiếu, cát sát lẫn lộn: không 'hình khắc', chỉ không được cha mẹ che chở, hoặc cha mẹ độc đoán khiến mệnh tạo cảm thấy đơn độc. Lưu niên Thái Dương Hóa Kỵ đối Lương + Xương Khúc + lưu sát xung hội, gặp Bạch Hổ, Tang Môn nhập cung hạn: có tang sự.",
+   "source_quote": "Thái Dương nhập miếu đối nhau với Thiên Lương, chủ về cha mẹ con cái hạnh phúc. Nếu Thái Dương lạc hãm, lại có Địa Không, Địa Kiếp, Thiên Hình, thì chủ về giữa hai đời có sự ngăn cách, hoặc bất hòa nghiêm trọng với cấp trên.",
+   "source_page": 885,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:thien_luong",
+    "star:thai_duong",
+    "hoa:ky",
+    "sat:bach_ho",
+    "sat:tang_mon",
+    "concept:luu_nien",
+    "concept:tang_su"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương miếu đối Lương: hạnh phúc; Dương hãm: ngăn cách; lưu niên Dương Kỵ + Hổ/Tang: có tang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q113",
+   "question": "Thất Sát ở cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Không phải là sao thiện: dù nhập miếu cũng có quan hệ xa cách với cha mẹ; rất ghét gặp Vũ Khúc hoặc Liêm Trinh đồng độ. Sát tinh nhẹ: có ngăn cách giữa hai đời, cũng bất hòa với cấp trên. Không ưa hội Cô Thần, Quả Tú: chủ về cô độc, quan hệ xa cách với cấp trên.",
+   "source_quote": "Thất Sát ở cung Phụ Mẫu không phải là sao thiện, dù nhập miếu, cũng có quan hệ xa cách với cha mẹ; rất ghét gặp Vũ Khúc hoặc Liêm Trinh đồng độ.",
+   "source_page": 885,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:that_sat",
+    "sat:co_than",
+    "sat:qua_tu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cô Thần, Quả Tú (孤辰寡宿) = sao cô đơn",
+    "viet_thuan": "Thất Sát ở cung cha mẹ: vốn xa cách, ghét đi cùng Vũ/Liêm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q114",
+   "question": "Thất Sát đồng độ hoặc hội với Tử Vi ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Đồng độ với Tử Vi, có sao cát: không 'hình khắc', chỉ chủ về cha mẹ cực kì độc đoán; không có sao cát mà có các sao Hình, Sát, Kỵ: vẫn 'hình khắc', bất hòa, hoặc xa cách. Hội Tử Vi Hóa Quyền: cha mẹ có thành kiến cực nặng. Hội Tử Vi Hóa Khoa lại gặp cát tinh: cha mẹ có tiếng tăm, nhưng quan hệ hai đời chưa chắc hòa hợp. Đối nhau với Tử Vi, Thiên Phủ, gặp sát tinh hoặc 'sao lẻ' phụ tá: có cha mẹ 'lưỡng trùng'.",
+   "source_quote": "Thất Sát đồng độ với Tử Vi, có sao cát, không chủ về “hình khắc”, chỉ chủ về cha mẹ cực kì độc đoán... Thất Sát hội Tử Vi Hóa Quyền: Cha mẹ có thành kiến cực nặng.",
+   "source_page": 885,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:that_sat",
+    "star:tu_vi",
+    "hoa:quyen",
+    "hoa:khoa",
+    "concept:luong_trung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử Sát: cha mẹ độc đoán; Tử Quyền: thành kiến nặng; đối Tử Phủ + sao lẻ: hai lớp cha mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q115",
+   "question": "Thất Sát gặp Hỏa-Linh-Mã, hoặc Vũ/Liêm Hóa Kỵ, hoặc Vũ Khúc Hóa Lộc, luận thế nào?",
+   "answer_atom": "Đồng độ Hỏa Tinh, Linh Tinh, hoặc hội Thiên Mã: rời xa cha mẹ mà tính chất không lành. Gặp Vũ Khúc Hóa Kỵ hay Liêm Trinh Hóa Kỵ thêm hung sát: cha mẹ bị 'hình thương', hoặc sự nghiệp thất bại, bệnh tật triền miên — phải xem tạp diệu mà định. Không đồng cung sao ác nhưng hội sát ở tam hợp, còn gặp Vũ Khúc Hóa Lộc: cha mẹ theo võ nghiệp, hoặc bác sĩ ngoại khoa, nha khoa (dùng công cụ bén nhọn kiếm tiền).",
+   "source_quote": "Không đồng cung với sao ác, nhưng lại hội sát tinh ở cung tam hợp, còn gặp Vũ Khúc Hóa Lộc: Chủ về cha mẹ theo võ nghiệp, hoặc là bác sĩ ngoại khoa, nha khoa, v.v... (dùng công cụ bén nhọn để kiếm tiền).",
+   "source_page": 886,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:that_sat",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "hoa:ky",
+    "hoa:loc",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát + Hỏa/Linh/Mã: rời nhà không lành; + Vũ Lộc + sát tam hợp: cha mẹ nghề dao kéo, võ nghiệp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q116",
+   "question": "Thất Sát có Lộc Quyền Khoa hội, và Thất Sát ở lưu niên bị lưu sát xung hội gặp Hóa Kỵ, luận thế nào?",
+   "answer_atom": "Có Lộc, Quyền, Khoa hội: được cha mẹ che chở; gặp Thiên Vũ chủ về được di sản, hoặc kế thừa sự nghiệp của cha mẹ. Đến lưu niên Thất Sát thủ cung Phụ Mẫu bị lưu sát xung hội lại gặp Hóa Kỵ: cần đề phòng có tang sự.",
+   "source_quote": "Có Lộc, Quyền, Khoa hội: Chủ về được cha mẹ che chở; gặp Thiên Vũ chủ về được di sản, hoặc kế thừa sự nghiệp của cha mẹ. Đến lưu niên Thất Sát thủ cung Phụ Mẫu, bị lưu sát xung hội, lại gặp Hóa Kỵ: Cần phải đề phòng có tang sự.",
+   "source_page": 886,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:that_sat",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:khoa",
+    "star:thien_vu",
+    "concept:luu_nien",
+    "concept:tang_su"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát + tam cát hóa: được che chở, có di sản; lưu niên Sát + lưu sát + Kỵ: phòng tang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q117",
+   "question": "Phá Quân thủ cung Phụ Mẫu có tính chất cơ bản gì?",
+   "answer_atom": "Tính chất cơ bản là không tốt: hơi gặp sát tinh thì xa cách; sát tinh nặng thì 'hình khắc'. Đồng độ Hỏa Tinh, Linh Tinh: càng xa cách cha mẹ. Hỏa Tinh, Linh Tinh một sao ở cung Phụ Mẫu một sao ở cung Mệnh: quan hệ xa cách với cha mẹ. Gặp Cô Thần, Quả Tú: càng chủ về lúc bé đã rời xa cha mẹ.",
+   "source_quote": "Phá Quân thủ cung Phụ Mẫu: Tính chất cơ bản là không tốt; hơi gặp sát tinh thì chủ về xa cách; sát tinh nặng thì “hình khắc”.",
+   "source_page": 886,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:pha_quan",
+    "sat:hoa_tinh",
+    "sat:linh_tinh",
+    "sat:co_than",
+    "sat:qua_tu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Quân ở cung cha mẹ: gốc xấu, sát nhẹ xa cách, sát nặng khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q118",
+   "question": "Phá Quân độc tọa ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Tính chất cơ bản là cô độc, cũng chủ về quan hệ xa cách với cấp trên, cho nên có lúc cũng chủ về hay thay đổi công việc. Nếu gặp 'sao đôi' phụ tá thì có thể điều hòa mối quan hệ.",
+   "source_quote": "Phá Quân độc tọa ở cung Phụ Mẫu, tính chất cơ bản là cô độc, cũng chủ về quan hệ xa cách với cấp trên, cho nên có lúc cũng chủ về hay thay đổi công việc. Có điều, nếu gặp “sao đôi” phụ, tá thì có thể điều hòa mối quan hệ.",
+   "source_page": 887,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:pha_quan",
+    "concept:cap_tren"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá độc tọa: cô độc, xa sếp, hay đổi việc; sao đôi phụ tá thì hòa lại.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q119",
+   "question": "Phá Quân có sát tinh nặng đồng độ hoặc sao kị tương hội ở cung Phụ Mẫu luận thế nào?",
+   "answer_atom": "Có Kình Dương, Đà La, Địa Không, Địa Kiếp, Thiên Hình, Thiên Thương, Thiên Hư đồng độ: 'hình khắc' — cổ nhân cho rằng nên làm con nuôi, là người có hai họ; thời hiện đại có thể là sau khi chia lìa gia đình khó đoàn tụ với cha mẹ nhưng gần gũi bên thân gia. Có sao kị tương hội: phần nhiều 'hình khắc', thêm Kình Đà càng đúng; luận với cấp trên: suốt đời khó được nâng đỡ, còn bị cấp trên đoạt công.",
+   "source_quote": "Phá Quân có sao kị tương hội, phẩm nhiều chủ về “hình khắc”, nếu gặp thêm Kình Dương, Đà La thì càng đúng. Luận về quan hệ với cấp trên, chủ về suốt đời khó được cấp trên nâng đỡ, mà còn bị cấp trên đoạt công.",
+   "source_page": 887,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:pha_quan",
+    "sat:kinh_duong",
+    "sat:da_la",
+    "hoa:ky",
+    "concept:cap_tren",
+    "concept:co_nhan_vs_hien_dai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá + sát nặng: khắc, xưa nói hai họ; với sếp thì khó được nâng đỡ, bị cướp công.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q120",
+   "question": "Phá Quân Hóa Lộc và Phá Quân Hóa Quyền ở cung Phụ Mẫu khác nhau thế nào?",
+   "answer_atom": "Hóa Lộc: cha mẹ hạnh phúc; gặp thêm các sao phụ tá cát càng tốt. Hóa Quyền: tuyệt đối không nên đồng cung với Kình Dương, Đà La — nếu không sẽ chủ về cha con bất hòa, hoặc bất hòa với cấp trên.",
+   "source_quote": "Phá Quân Hóa Lộc: Thì cha mẹ hạnh phúc; gặp thêm các sao phụ, tá cát thì càng tốt. Phá Quân Hóa Quyền: Tuyệt đối không nên đồng cung với Kình Dương, Đà La, nếu không sẽ chủ về cha con bất hòa, hoặc bất hòa với cấp trên.",
+   "source_page": 887,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:pha_quan",
+    "hoa:loc",
+    "hoa:quyen",
+    "sat:kinh_duong",
+    "sat:da_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Lộc: cha mẹ hạnh phúc; Phá Quyền kỵ Kình Đà: bất hòa cha con/sếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q121",
+   "question": "Phá Quân đồng cung với 'sao lẻ' phụ tá gặp sao đào hoa hoặc Hóa Kỵ chủ về gì?",
+   "answer_atom": "Gặp các sao đào hoa: có hai mẹ; gặp Hóa Kỵ: mẹ bị 'hình thương'.",
+   "source_quote": "Phá Quân đồng cung với “sao lẻ” phụ, tá, gặp các sao đào hoa, chủ về có hai mẹ; gặp Hóa Kỵ, thì chủ về mẹ bị “hình thương”.",
+   "source_page": 887,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:pha_quan",
+    "concept:sao_le",
+    "concept:dao_hoa",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá + sao lẻ + đào hoa: hai mẹ; + Kỵ: mẹ bị thương tổn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.12-Q122",
+   "question": "Phá Quân thủ cung Phụ Mẫu của lưu niên có những tổ hợp nào chủ về cha mẹ bệnh nặng hay tang sự?",
+   "answer_atom": "Có 'sao lẻ' Tả Phụ hay Hữu Bật đồng độ, có Lưu Sát bay vào cung hạn: cha mẹ bệnh nặng, cũng chủ về kết oán với cấp trên. Gặp Vũ Khúc Hóa Kỵ hoặc Liêm Trinh Hóa Kỵ, có Lưu Xương, Lưu Khúc: có tang sự; nếu không có Lưu Xương, Lưu Khúc thì lấy trường hợp gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La làm ứng nghiệm.",
+   "source_quote": "Phá Quân thủ cung Phụ Mẫu của lưu niên, gặp Vũ Khúc Hóa Kỵ hoặc Liêm Trinh Hóa Kỵ, có Lưu Xương, Lưu Khúc, cũng chủ về có tang sự. Nếu không có Lưu Xương, Lưu Khúc thì lấy trường hợp gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La làm ứng nghiệm.",
+   "source_page": 887,
+   "section_id": "5.12",
+   "tags": [
+    "palace:phu_mau",
+    "star:pha_quan",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "hoa:ky",
+    "concept:luu_nien",
+    "concept:tang_su"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưu Sát = sát tinh an theo lưu niên",
+    "viet_thuan": "Lưu niên Phá + sao lẻ + lưu sát: cha mẹ bệnh nặng; hội Vũ/Liêm Kỵ + Lưu Xương Khúc: có tang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}

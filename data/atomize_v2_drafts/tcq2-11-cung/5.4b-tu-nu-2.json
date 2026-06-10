@@ -1,0 +1,2414 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.4",
+ "section_title": "Cung Tử Nữ (2)",
+ "pages": [
+  627,
+  628,
+  629,
+  630,
+  631,
+  632,
+  633,
+  634,
+  635,
+  636,
+  637,
+  638,
+  639,
+  640,
+  641,
+  642,
+  643,
+  644
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.4-Q101",
+   "question": "Thiên Đồng Hóa Lộc ở cung Tử Nữ (cách 'Thiên Đồng, Thiên Lương' Dần/Thân) chủ về điều gì, và các cung hạn tử nữ nào là then chốt?",
+   "answer_atom": "Thiên Đồng Hóa Lộc chủ về con cái tự lập nhưng không được thừa kế tổ nghiệp. Với 'Thiên Đồng, Thiên Lương' ở Dần hoặc Thân, các cung hạn tử nữ Thiên Cơ, Cự Môn, Thái Âm, và 'Thiên Đồng, Thiên Lương' là lưu niên/đại vận ứng nghiệm cát hung then chốt.",
+   "source_quote": "Thiên Đồng Hóa Lộc, cũng chủ về con cái tự lập, nhưng không được thừa kế tổ nghiệp. [...] Đối với “Thiên Đồng, Thiên Lương” ở hai cung Dần hoặc Thân, các cung hạn tử nữ Thiên Cơ, Cự Môn, Thái Âm, và “Thiên Đồng, Thiên Lương” là những lưu niên hay đại vận ứng nghiệm cát hung có tính then chốt.",
+   "source_page": 627,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_dong",
+    "star:thien_luong",
+    "hoa:loc",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương Dần/Thân có Hóa Lộc: con tự lập, không hưởng của cha ông.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q102",
+   "question": "Thiên Đồng độc tọa ở Mão hoặc Dậu chủ về số con và tính cách con cái thế nào?",
+   "answer_atom": "Chủ về nhiều con gái ít con trai: cung Mão năm con, cung Dậu bốn hoặc hai con. Gặp sao hình thì con còn nhỏ đã chia li gia đình. Nếu Cự Môn Hóa Kỵ, con cái nặng lý tưởng, xa rời hiện thực, cố chấp. Cung hạn tử nữ Cự Môn, Thái Dương, Thái Âm là then chốt.",
+   "source_quote": "Thiên Đồng độc tọa ở hai cung Mão hoặc Dậu, chủ về nhiều con gái, ít con trai. Ở cung Mão thì có năm con; ở cung Dậu thì bốn con hoặc hai con. Gặp sao hình thì chủ về con còn nhỏ đã chia li với gia đình. Nếu Cự Môn Hóa Kỵ, chủ về con cái có tính cách nặng lý tưởng, xa rời hiện thực, và cố chấp.",
+   "source_page": 627,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_dong",
+    "vi_tri:mao_dau",
+    "star:cu_mon",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng Mão/Dậu: con gái nhiều hơn con trai; Cự Môn Hóa Kỵ thì con mơ mộng, bướng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q103",
+   "question": "Thiên Đồng độc tọa ở Thìn hoặc Tuất chủ về số con và đặc điểm con cái thế nào?",
+   "answer_atom": "Chủ về có hai ba con; gặp sát tinh chỉ một con, gặp sao phụ tá cát thì ba con. Con cái nặng tình cảm hơn lý trí; gặp Văn Xương, Văn Khúc và sao đào hoa càng nặng tình cảm.",
+   "source_quote": "Thiên Đồng độc tọa ở hai cung Thìn hoặc Tuất, chủ về có hai ba con. Gặp sát tinh thì chỉ có một con; gặp các sao phụ, tá cát thì có ba con. Cũng chủ về con cái nặng tình cảm hơn lý trí; gặp Văn Xương, Văn Khúc và sao đào hoa thì càng nặng tình cảm.",
+   "source_page": 627,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_dong",
+    "vi_tri:thin_tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng Thìn/Tuất: 2-3 con, con sống thiên về cảm xúc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q104",
+   "question": "Thiên Đồng Hóa Lộc / Hóa Kỵ độc tọa ở Thìn hoặc Tuất khác nhau thế nào, và tổ hợp nào gây tổn thương cho con cái?",
+   "answer_atom": "Hóa Lộc: con cái không thừa hưởng tổ nghiệp mà tự lập. Hóa Kỵ: tổ nghiệp bị con cái phá tán. Nếu đồng độ Đà La lại có Hỏa Tinh, Linh Tinh đồng cung: đến trung niên con cái bị tổn thương, tàn tật, gặp bất trắc. Cung hạn tử nữ Thiên Lương, Cự Môn là then chốt.",
+   "source_quote": "Thiên Đồng Hóa Lộc, độc tọa ở hai cung Thìn hoặc Tuất, chủ về con cái không được thừa hưởng tổ nghiệp, mà tự lập. Thiên Đồng Hóa Kỵ thì tổ nghiệp bị con cái phá tán. Nếu đồng độ với Đà La, lại có Hỏa Tinh, Linh Tinh đồng cung, chủ về đến trung niên con cái bị tổn thương, tàn tật, gặp bất trắc.",
+   "source_page": 627,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_dong",
+    "vi_tri:thin_tuat",
+    "hoa:loc",
+    "hoa:ky",
+    "sao:da_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hóa Lộc con tự lập; Hóa Kỵ con phá của; Đà La + Hỏa Linh thì trung niên con gặp nạn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q105",
+   "question": "Thiên Đồng ở Tị hoặc Hợi chủ về con cái thế nào?",
+   "answer_atom": "Sinh con gái trước, có ba con. Gặp Hỏa Tinh, Linh Tinh hoặc Lộc Tồn, Thiên Mã đều chủ về con cái chia li gia đình để phát triển, tính cách khó hiểu, phản kháng mạnh; không gặp Thiên Mã vẫn chủ về con rời xa quê hương. Rất ngại Cự Môn Hóa Kỵ: hình khắc chia li, gặp sát tinh càng nặng.",
+   "source_quote": "Thiên Đồng ở hai cung Tị hoặc Hợi, chủ về sinh con gái trước, có ba con. Gặp Hỏa Tinh, Linh Tinh, hoặc gặp Lộc Tồn, Thiên Mã, đều chủ về con cái chia li với gia đình để phát triển, con cái còn có tính cách khó hiểu, tính phản kháng mạnh. [...] Rất ngại gặp Cự Môn Hóa Kỵ, chủ về hình khắc chia li; gặp sát tinh thì càng nặng.",
+   "source_page": 627,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_dong",
+    "vi_tri:ti_hoi",
+    "star:cu_mon",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng Tị/Hợi: con gái đầu, con hay đi xa, tính khó nắm bắt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q106",
+   "question": "Thiên Đồng ở Tị hoặc Hợi phải xem nhóm sao nào để định cát hung của con cái, và các cung hạn nào then chốt?",
+   "answer_atom": "Phải xem nhóm sao mượn 'Thái Âm, Thái Dương' để định cát hung họa phúc của con cái. Nếu Thái Dương Hóa Kỵ có sát tinh, người sinh ban đêm chủ về khắc con trai. Cung hạn tử nữ 'Thái Âm, Thái Dương' và 'Tử Vi, Thiên Tướng' là then chốt.",
+   "source_quote": "Thiên Đồng ở hai cung Tị hoặc Hợi, phải xem nhóm sao mượn là “Thái Âm, Thái Dương” để định cát hung họa phúc của con cái. Nếu Thái Dương Hóa Kỵ, có sát tinh, người sinh vào ban đêm sẽ chủ về khắc con trai.",
+   "source_page": 627,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_dong",
+    "vi_tri:ti_hoi",
+    "star:thai_am",
+    "star:thai_duong",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tị/Hợi mượn cặp Âm-Dương mà đoán; Thái Dương Hóa Kỵ + sinh đêm dễ khắc con trai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q107",
+   "question": "Vì sao Liêm Trinh ưa nhập cung Tử Nữ, và Liêm Trinh Hóa Kỵ khác Cự Môn Hóa Kỵ thế nào?",
+   "answer_atom": "Liêm Trinh ưa nhập cung Tử Nữ vì thông thường chủ về tình cảm hai đời rất sâu đậm, có ngăn cách cũng có thể bàn bạc giải quyết. Liêm Trinh Hóa Kỵ đại biểu nỗi đau tình cảm — con cái yểu mạng; còn Cự Môn Hóa Kỵ là biểu trưng tranh cãi bất hòa.",
+   "source_quote": "Liêm Trinh ưa nhập cung Tử Nữ, trong các tình hình thông thường đều chủ về tình cảm giữa hai đời rất sâu đậm, có ngăn cách cũng có thể cùng nhau bàn bạc để giải quyết. Cho nên Liêm Trinh Hóa Kỵ, thường thường đại biểu cho nỗi đau của tình cảm, cũng tức là con cái yểu mạng. Còn Cự Môn Hóa Kỵ là biểu trưng cho tranh cãi bất hòa.",
+   "source_page": 628,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "hoa:ky",
+    "star:cu_mon",
+    "concept:tinh_cam_hai_doi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Trinh = sao tình cảm cha con; Hóa Kỵ của nó là đau lòng, khác Cự Môn Kỵ là cãi vã.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q108",
+   "question": "Liêm Trinh Hóa Lộc ở cung Tử Nữ biểu trưng điều gì, và Hóa Kỵ khi nào mới đoán là hình thương yểu mạng?",
+   "answer_atom": "Hóa Lộc biểu trưng tình cảm vui vẻ, có thể có con gái hiếu thảo, và có thể biểu trưng số con tăng. Hóa Kỵ phải xem sát tinh: có hơn hai sát tinh bay vào cung Tử Nữ mới đoán hình thương, yểu mạng; nếu sát tinh chỉ ở tam phương thì chủ về con cái lấy oán báo ân.",
+   "source_quote": "Liêm Trinh Hóa Lộc ở cung Tử Nữ: Biểu trưng cho tình cảm vui vẻ, nên có thể có con gái hiếu thảo. [...] Nếu có hơn hai sát tinh bay vào cung Tử Nữ, thì có thể đoán là bị “hình thương”, yểu mạng. Nếu sát tinh chỉ ở tam phương, thì chủ về lấy oán báo ân.",
+   "source_page": 628,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "hoa:loc",
+    "hoa:ky",
+    "concept:sat_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Trinh Hóa Kỵ chưa chắc chết yểu — phải đếm sát tinh: >2 sát cùng cung mới nặng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q109",
+   "question": "Nguyên tắc luận đoán tổ hợp Liêm Trinh với Thiên Phủ và với Phá Quân ở cung Tử Nữ?",
+   "answer_atom": "Liêm Trinh đồng độ hay đối nhau với Thiên Phủ là tổ hợp sao rất ổn định; đồng độ hay đối nhau với Phá Quân là tổ hợp sao không ổn định. Đây là nguyên tắc luận đoán.",
+   "source_quote": "Liêm Trinh đồng độ hay đối nhau với Thiên Phủ, là tổ hợp sao rất ổn định; đồng độ hay đối nhau với Phá Quân, là tổ hợp sao không ổn định. Đây là nguyên tắc luận đoán.",
+   "source_page": 628,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "star:pha_quan",
+    "concept:nguyen_tac"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm gặp Phủ = êm; Liêm gặp Phá = xáo trộn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q110",
+   "question": "'Liêm Trinh, Thiên Tướng' ở Tý hoặc Ngọ chủ về số con thế nào, và 'Tài ấm giáp ấn' / 'Hình kỵ giáp ấn' ảnh hưởng gì?",
+   "answer_atom": "Chủ về hai con; gặp sao Đào Hoa hoặc sao phụ tá đều tăng số con; gặp 'sao lẻ' phụ tá cùng Đào Hoa trùng trùng thì có con cái khác dòng. Được 'Tài ấm giáp ấn': con phát đạt nhưng con trai muộn, sau 30 tuổi thường sinh khó hay thiếu tháng. Bị 'Hình kỵ giáp ấn': con cái hại cha mẹ; cần xem kỹ cung Phu Thê để tổng hợp.",
+   "source_quote": "Chủ về có hai con; gặp các sao Đào Hoa hoặc các sao phụ, tá đều chủ về tăng số con. Nếu gặp “sao lẻ” phụ, tá, còn gặp các sao Đào Hoa trùng trùng, sẽ chủ về có con cái khác dòng. Trường hợp được “Tài ấm giáp ấn”, con cái tuy có thể phát đạt, nhưng có con trai muộn, sau 30 tuổi thường sinh khó hay sinh thiếu tháng, nên con cái dễ bị hình khắc. Nếu bị “Hình kỵ giáp ấn”, sẽ chủ về con cái hại cha mẹ.",
+   "source_page": 628,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "vi_tri:ty_ngo",
+    "concept:tai_am_giap_an",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm-Tướng Tý/Ngọ: 2 con; được giáp tốt thì con phát nhưng muộn trai, bị giáp xấu thì con hại cha mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q111",
+   "question": "'Liêm Trinh, Thiên Tướng' ở Tý/Ngọ gặp sát kỵ không kiếp hình hao thì nên làm gì, và cung hạn nào then chốt?",
+   "answer_atom": "Chủ về con ruột bị hình thương, nên xin con nuôi. Nếu đồng thời gặp thêm cát tinh: sau khi xin con nuôi có thể sinh một con trai; gặp thêm sao Đào Hoa: người bên ngoài hay nhị phòng sinh con trai. Cung hạn tử nữ do Tham Lang, Phá Quân, hay 'Liêm Trinh, Thiên Tướng' tọa thủ là then chốt.",
+   "source_quote": "nếu có các sao sát, kỵ, không, kiếp, hình, hao hội hợp, chủ về con ruột bị \"hình thương\", nên xin con nuôi. Nếu đồng thời gặp thêm cát tinh, thì sau khi xin con nuôi có thể sinh một đứa con trai; nếu đồng thời gặp thêm sao Đào Hoa, chủ về người bên ngoài hay nhị phòng sinh con trai.",
+   "source_page": 629,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "vi_tri:ty_ngo",
+    "concept:con_nuoi",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát tinh tụ thì nên nhận con nuôi trước, sau đó có thể sinh được con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q112",
+   "question": "'Liêm Trinh, Thất Sát' ở Sửu hoặc Mùi chủ về số con thế nào?",
+   "answer_atom": "Chủ về chỉ có một con trai; gặp sao phụ tá có thể tăng số con, tính cách phẩm hạnh con cái cũng cải thiện. Nếu có Tứ Sát và Địa Không, Địa Kiếp, Thiên Hình hội hợp: bị hình khắc, có thể chỉ còn lại một đứa con trai.",
+   "source_quote": "Chủ về chỉ có một con trai. Gặp các sao phụ, tá có thể tăng số con, tính cách và phẩm hạnh của con cái cũng có cải thiện. Nếu có Tứ Sát và Địa Không, Địa Kiếp, Thiên Hình hội hợp, sẽ chủ về bị hình khắc, có thể chỉ còn lại một đứa con trai.",
+   "source_page": 629,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:that_sat",
+    "vi_tri:suu_mui"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm-Sát Sửu/Mùi: mặc định 1 con trai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q113",
+   "question": "'Liêm Trinh, Thất Sát' ở Sửu/Mùi với Hỏa Linh, Hóa Lộc, Hóa Kỵ luận thế nào, và cung hạn nào then chốt?",
+   "answer_atom": "Có Hỏa Tinh, Linh Tinh đồng độ: con cái chủ về sinh li. Liêm Trinh Hóa Lộc: tình cảm vẫn sâu đậm. Liêm Trinh Hóa Kỵ: cha con bất hòa, hậu bối thân tín lấy oán báo ân. Được cát hóa, gặp sao phụ tá cát: con cái thành tài. Cung hạn tử nữ do Thiên Tướng, 'Tử Vi, Tham Lang', 'Vũ Khúc, Phá Quân', hay 'Liêm Trinh, Thất Sát' tọa thủ là then chốt.",
+   "source_quote": "Có Hỏa Tinh, Linh Tinh đồng độ, con cái chủ về sinh li. Nếu Liêm Trinh Hóa Lộc, thì tính cảm vẫn sâu đậm; Liêm Trinh Hóa Kỵ, sẽ chủ về cha con bất hòa; cũng chủ về hậu bối thân tín lấy oán báo ân. Được cát hóa, gặp các sao phụ, tá cát, thì con cái thành tài.",
+   "source_page": 629,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:that_sat",
+    "vi_tri:suu_mui",
+    "hoa:loc",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa Linh vào là cha con xa nhau; Lộc giữ được tình, Kỵ thì bất hòa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q114",
+   "question": "Liêm Trinh độc tọa ở Dần hoặc Thân chủ về số con và thứ tự sinh thế nào?",
+   "answer_atom": "Không gặp Địa Không, Địa Kiếp: chủ về sinh con gái trước. Có sao Đào Hoa đồng cung: con gái nhiều hơn. Gặp sao phụ tá cát: có hai con trai. Không có Đào Hoa mà gặp cát tinh: có ba con trai.",
+   "source_quote": "Không gặp Địa Không, Địa Kiếp, thì chủ về sinh con gái trước. Nếu có các sao Đào Hoa đồng cung, thì con gái nhiều hơn; gặp các sao phụ, tá cát, chủ về có hai con trai. Không có sao Đào Hoa mà gặp cát tinh thì chủ về có ba con trai.",
+   "source_page": 629,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "vi_tri:dan_than"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Trinh Dần/Thân: thường con gái trước; cát tinh quyết định số con trai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q115",
+   "question": "Liêm Trinh ở Dần/Thân: con cái nên theo hướng nghề nghiệp nào?",
+   "answer_atom": "Con cái không thích hợp kinh doanh buôn bán. Gặp Lộc Tồn, Thiên Mã: con nên xa gia đình để phát triển. Liêm Trinh Hóa Lộc hội Vũ Khúc Hóa Khoa là kết cấu khá đẹp: con cái có thể phát triển về tài chính kinh tế, thích hợp làm công chức.",
+   "source_quote": "Con cái không thích hợp kinh doanh buôn bán. Gặp Lộc Tồn, Thiên Mã, con cái nên xa gia đình để phát triển. Liêm Trinh Hóa Lộc, hội Vũ Khúc Hóa Khoa, là kết cấu khá đẹp, con cái có thể phát triển về phương diện tài chính kinh tế, thích hợp làm công chức.",
+   "source_page": 629,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "vi_tri:dan_than",
+    "hoa:loc",
+    "star:vu_khuc",
+    "concept:nghe_nghiep_con_cai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con không nên buôn bán; cách Lộc-Khoa đẹp thì hợp tài chính, công chức.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q116",
+   "question": "Liêm Trinh Hóa Kỵ ở Dần/Thân chủ về điều gì, và cung hạn nào then chốt?",
+   "answer_atom": "Tình cảm giữa hai đời dễ xảy ra chuyện buồn đau, có thể chủ về con cái bị hình khắc; tình cảm hai đời không tốt mà có nỗi khổ giấu trong lòng; quan hệ với hậu bối cũng luận tương tự. Cung hạn tử nữ do Thất Sát, Phá Quân, hay Tham Lang tọa thủ là then chốt.",
+   "source_quote": "Liêm Trinh Hóa Kỵ thì tình cảm giữa hai đời dễ xảy ra chuyện buồn đau. Cần phải xem xét kỹ tổ hợp sao thực tế mà định sự cố. Có thể chủ về con cái bị hình khắc [...] Tình cảm giữa hai đời không tốt mà có nỗi khổ giấu trong lòng; mối quan hệ với hậu bối cũng luận đoán tương tự như vậy.",
+   "source_page": 629,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "vi_tri:dan_than",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Kỵ ở đây: buồn ngầm giữa cha mẹ và con, khổ không nói ra.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q117",
+   "question": "'Liêm Trinh, Phá Quân' đồng độ ở Mão hoặc Dậu chủ về số con theo quy luật chẵn lẻ thế nào?",
+   "answer_atom": "Chủ về có một con trai. Gặp 'sao đôi' phụ tá: số con tăng thành số chẵn. Gặp sát tinh và Địa Không, Địa Kiếp, Thiên Hình, Đại Hao: con bị hình khắc chỉ còn một; cát sát lẫn lộn: hình khắc còn lại số lẻ; gặp 'sao lẻ' phụ tá cũng chủ về số con là số lẻ.",
+   "source_quote": "Liêm Trình, Phá Quân đồng độ ở hai cung Mão hoặc Dậu, chủ về có một con trai. Gặp “sao đôi” phụ, tá, thì số con cái tăng lên thành số chẵn. Gặp Sát Tinh và Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, thì con cái bị hình khắc, chỉ còn một người; nếu cát tinh và sát tinh lẫn lộn, cũng chủ về con cái bị hình khắc, còn lại số lẻ. Gặp “sao lẻ” phụ, tá, cũng chủ về số con cái là số lẻ.",
+   "source_page": 630,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "vi_tri:mao_dau",
+    "concept:sao_doi_sao_le"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đếm con theo luật chẵn-lẻ của sao đôi/sao lẻ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q118",
+   "question": "'Liêm Trinh, Phá Quân' ở Mão/Dậu: con trai đầu và chuyện con nuôi luận thế nào?",
+   "answer_atom": "Thông thường chủ về con trai đầu khó nuôi; có thêm cát, cát hóa thì con trai đầu có thể bị phá tướng. Gặp 'sao lẻ' phụ tá: nhận con nuôi, hoặc con cháu mệnh tạo làm con nuôi người khác; còn tình hình đặc biệt chủ về có con giả.",
+   "source_quote": "Trong các tình huống thông thường đều chủ về con trai đầu khó nuôi. Có thêm cát, cát hóa, có thể con trai đầu bị phá tướng. Nếu gặp “sao lẻ” phụ, tá, sẽ chủ về nhận con nuôi; hoặc con cháu của mệnh tạo làm con nuôi của người khác; còn có tình hình đặc biệt, chủ về có con giả.",
+   "source_page": 630,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "vi_tri:mao_dau",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm-Phá: con trai đầu lận đận, hay dính chuyện con nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q119",
+   "question": "'Liêm Trinh, Phá Quân' ở Mão/Dậu với Hóa Lộc và Hóa Kỵ luận thế nào, và cung hạn nào then chốt?",
+   "answer_atom": "Rất ưa Hóa Lộc: Liêm Trinh Hóa Lộc thì con giỏi lập kế hoạch; Phá Quân Hóa Lộc thì rất có tài tổ chức — nên theo đó bồi dưỡng. Liêm Trinh Hóa Kỵ: con có tính phản bội, mệnh vận trắc trở; thêm sát hình Không Kiếp: yểu mạng hoặc tổn thương tàn tật; nhưng Hóa Kỵ gặp cát tinh thì trái lại con ôn hòa lễ phép, có tài đột phá, chủ về có đệ tử giỏi. Cung hạn 'Thiên Cơ, Thiên Lương', 'Thái Dương, Cự Môn', 'Liêm Trinh, Phá Quân' là then chốt.",
+   "source_quote": "rất ưa Hóa Lộc. Liêm Trinh Hóa Lộc thì con cái giỏi lập kế hoạch; Phá Quân Hóa Lộc thì rất có tài tổ chức, nên theo đó mà bồi dưỡng cho con cái. [...] Nếu Liêm Trinh Hóa Kỵ, thì con cái có tính phản bội, mệnh vận cũng thường gặp trắc trở nghiêm trọng. [...] Nhưng Hóa Kỵ mà gặp cát tinh thì trái lại, sẽ chủ về con cái là người ôn hòa lễ phép, có tài năng đột phá.",
+   "source_page": 630,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "vi_tri:mao_dau",
+    "hoa:loc",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc: con giỏi kế hoạch/tổ chức. Kỵ trơ trọi: phản bội; Kỵ kèm cát: lại thành người đột phá.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q120",
+   "question": "'Liêm Trinh, Thiên Phủ' đồng độ ở Thìn hoặc Tuất chủ về số con thế nào, và Hóa Kỵ tác động ra sao?",
+   "answer_atom": "Chủ về ba con trai; gặp 'sao đôi' phụ tá cát có thể tới năm con trai; có sao đào hoa đồng cung thì nhiều gái ít trai. Hội Vũ Khúc Hóa Kỵ: con bị khắc tới khi còn số chẵn; Liêm Trinh Hóa Kỵ: bị khắc tới khi còn số lẻ. Được cát hóa có sao cát: con phát đạt quý hiển.",
+   "source_quote": "Liêm Trình, Thiên Phủ đồng độ ở hai cung Thìn hoặc Tuất, chủ về có ba con trai; gặp “sao đôi” phụ, tá cát, thì có thể có tới năm con trai. Có các sao đào hoa đồng cung, thì nhiều con gái, ít con trai. Hội Vũ Khúc Hóa Kỵ, con cái bị khắc cho tới khi còn lại số chẵn. Liêm Trình Hóa Kỵ, con cái bị cho tới khi còn lại số lẻ.",
+   "source_page": 630,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "vi_tri:thin_tuat",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm-Phủ Thìn/Tuất: 3-5 trai; Vũ Kỵ khắc còn chẵn, Liêm Kỵ khắc còn lẻ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q121",
+   "question": "'Liêm Trinh, Thiên Phủ' ở cung Tuất khi Vũ Khúc Hóa Kỵ bị 'Hình kỵ giáp ấn' chủ về điều gì, và cung hạn nào then chốt?",
+   "answer_atom": "Hội 'Vũ Khúc, Thiên Tướng' mà Vũ Khúc Hóa Kỵ và bị 'Hình kỵ giáp ấn': chủ về con cái bị tổn thương, tàn tật, yểu mạng; cũng chủ về bị hậu bối thân cận phản bội. Cung hạn tử nữ do 'Thiên Đồng, Cự Môn', Thất Sát, Phá Quân tọa thủ là then chốt.",
+   "source_quote": "“Liêm Trinh, Thiên Phủ” ở cung Tuất, hội “Vũ Khúc, Thiên Tướng”, mà Vũ Khúc Hóa Kỵ và bị “Hình kị giáp ấn”, chủ về con cái bị tổn thương, tàn tật, yểu mạng. Cũng chủ về bị hậu bối thân cận phản bội.",
+   "source_page": 631,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "vi_tri:thin_tuat",
+    "concept:hinh_ky_giap_an",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cấu trúc xấu kép (Vũ Kỵ + giáp Hình Kỵ): con dễ tật nguyền, người dưới phản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q122",
+   "question": "'Liêm Trinh, Tham Lang' đồng độ ở Tị hoặc Hợi chủ về số con thế nào?",
+   "answer_atom": "Chủ về chỉ có một con trai. Có Địa Không, Địa Kiếp đồng cung: sinh trai trước gái sau. Có sát kỵ hình hao hội hợp: bị khắc đến khi chỉ còn một con. Sao cát tụ hội: số con tăng thành số chẵn; lại hơi gặp sát tinh thì không tăng hoặc tăng nhưng vẫn số lẻ.",
+   "source_quote": "“Liêm Trinh, Tham Lang” đồng độ ở hai cung Tị hoặc Hợi, chủ về chỉ có một con trai. Có Địa Không, Địa Kiếp đồng cung, sinh con trai trước, sinh con gái sau; có các sao sát, kỵ, hình, hao hội hợp, thì bị khắc cho đến khi chỉ còn một đứa con. Có sao cát tụ hội, số con tăng lên thành số chẵn; nếu lại hơi gặp sát tinh, thì không tăng, hoặc tăng những vẫn là số lẻ.",
+   "source_page": 631,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "vi_tri:ti_hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm-Tham Tị/Hợi: mặc định 1 trai; cát tăng chẵn, sát giữ lẻ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q123",
+   "question": "'Liêm Trinh, Tham Lang' ở Tị/Hợi với Hóa Lộc và Hóa Kỵ luận thế nào, và cung hạn nào then chốt?",
+   "answer_atom": "Liêm Trinh Hóa Lộc gặp cát tinh: tuy vất vả nhưng con cái thành tài. Hóa Kỵ không cát tường: tình cảm bất hòa, con cái chia lìa gia đình; gặp sát tinh: xảy ra sự cố bất trắc hoặc sinh thiếu tháng. Cung hạn tử nữ 'Thiên Đồng Thiên Lương', Thái Dương, hay Cự Môn tọa thủ là then chốt.",
+   "source_quote": "Nếu Liêm Trinh Hóa Lộc, lại gặp cát tinh, chủ về tuy vất vả nhưng con cái cũng sẽ thành tài. Hóa Kỵ thì không cát tường, chủ về tình cảm bất hòa, cũng chủ về con cái chia lìa với gia đình; gặp sát tinh sẽ chủ về xảy ra sự cố bất trắc, hoặc sinh thiếu tháng.",
+   "source_page": 631,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "vi_tri:ti_hoi",
+    "hoa:loc",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc: khổ trước, con nên người. Kỵ: bất hòa, con rời nhà.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q124",
+   "question": "Thiên Phủ ở cung Tử Nữ (5.4.7) chủ về con cái thế nào, số con bao nhiêu?",
+   "answer_atom": "Cung tử nữ ưa Thiên Phủ bay đến: con cái hiếu thuận, thân thiết, đôn hậu, thành thực, mà còn nhiều con. Thiên Phủ độc tọa thông thường có năm con trai; có sao đào hoa đồng cung lại gặp 'sao đôi' phụ tá thì ngoài năm trai còn nhiều con gái, hoặc năm gái ba trai; dù gặp sát tinh tổng số con không dưới năm người.",
+   "source_quote": "Cung tử nữ ưa Thiên Phủ bay đến, chủ về con cái hiếu thuận, thân thiết, đôn hậu, thành thực, mà còn có nhiều con. Cung tử nữ gặp Thiên Phủ độc tọa, thông thường chủ về có năm con trai. [...] dù gặp sát tinh, cũng chủ về tổng số con cái không dưới năm người.",
+   "source_page": 631,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Phủ vào cung con: con ngoan, đông con (chuẩn 5).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q125",
+   "question": "Thiên Phủ tọa cung Tử Nữ kỵ sao nào nhất?",
+   "answer_atom": "Thiên Phủ không kỵ sát tinh, chỉ ngại Địa Không, Địa Kiếp — là điểm tượng con cái yểu mạng. Nếu hội Thiên Tướng bị 'Hình kỵ giáp ấn' cũng chủ về con cái bị nạn tai, bệnh tật, phá tướng, yểu mạng, hoặc lúc sinh phải phẫu thuật, hoặc tính cách không hợp cha mẹ.",
+   "source_quote": "Thiên Phủ tọa cung tử nữ, không kỵ sát tinh, chỉ ngại Địa Không, Địa Kiếp, là điểm tượng con cái yểu mạng. Nếu hội Thiên Tướng bị “Hình kị giáp ấn”, cũng chủ về con cái bị nạn tai, bệnh tật.",
+   "source_page": 631,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "sao:dia_khong",
+    "sao:dia_kiep",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Phủ chịu được sát tinh, chỉ sợ Không-Kiếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q126",
+   "question": "Thiên Phủ là 'kho lộ', 'kho trống' ở cung Tử Nữ thì ảnh hưởng đến điều gì?",
+   "answer_atom": "Thiên Phủ có sao Lộc, hoặc là 'kho lộ', 'kho trống', chỉ ảnh hưởng đến cảnh ngộ cuộc đời của con cái, chứ không ảnh hưởng đến mối quan hệ giữa hai đời.",
+   "source_quote": "Cung Tử Nữ là Thiên Phủ có sao Lộc, hoặc Thiên Phủ là “kho lộ”, “kho trống”, chỉ ảnh hưởng đến cảnh ngộ cuộc đời của con cái, chứ không ảnh hưởng đến mối quan hệ giữa hai đời.",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "concept:kho_lo_kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kho lộ (露庫) = kho bị phơi bày; kho trống (空庫) = kho không có lộc",
+    "viet_thuan": "Kho tốt xấu nói về đời con, không nói tình cha con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q127",
+   "question": "Thiên Phủ đồng độ Lộc Tồn hoặc Hỏa Linh ở cung Tử Nữ ảnh hưởng việc sinh nở thế nào?",
+   "answer_atom": "Đồng độ Lộc Tồn: con đầu thường sinh quá ngày; hội Thiên Tướng được 'Tài ấm giáp ấn' càng đúng. Nhưng nếu Hỏa Tinh, Linh Tinh đồng độ với Thiên Phủ thì trái lại, chủ về sinh thiếu tháng.",
+   "source_quote": "Thiên Phủ đồng độ với Lộc Tồn, con đầu thường sinh quá ngày; Thiên Phủ hội Thiên Tướng được “Tài ấm giáp ấn” thì càng đúng. Có điều nếu Hỏa Tinh, Linh Tinh đồng độ với Thiên Phủ, thì trái lại, sẽ chủ về sinh thiếu tháng.",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "sao:loc_ton",
+    "sao:hoa_tinh",
+    "sao:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc Tồn: đẻ trễ ngày; Hỏa Linh: đẻ non.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q128",
+   "question": "Thiên Phủ gặp sát tinh, Thiên Hình, Đại Hao — và khi được 'bách quan triều củng' — chủ về điều gì?",
+   "answer_atom": "Có sát tinh, Thiên Hình, Đại Hao hội hợp: con cái tính tình quật cường, còn chủ về bị phá tướng. Nếu được 'bách quan triều cung' có Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt tụ tập: có thể có tới 10 đứa con; gặp thêm sao Đào Hoa thì hơn 10 đứa con.",
+   "source_quote": "Thiên Phủ có Sát Tinh, Thiên Hình, Đại Hao hội hợp, chủ về con cái tính tình quật cường, còn chủ về bị phá tướng. Thiên Phủ nếu được “bách quan triều cung”, có Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt tụ tập, có thể có tới 10 đứa con; gặp thêm sao Đào Hoa, thì có hơn 10 đứa con.",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "concept:bach_quan_trieu_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát-Hình-Hao: con bướng, phá tướng. Bách quan: nhà cực đông con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q129",
+   "question": "Thiên Phủ độc tọa ở Sửu hoặc Mùi chủ về điều gì khi đối cung 'Liêm Trinh, Thất Sát' Hóa Kỵ?",
+   "answer_atom": "Đối cung 'Liêm Trinh, Thất Sát' Hóa Kỵ có sát tinh: chủ về lúc sinh phải phẫu thuật. Gặp 'sao lẻ' phụ tá: có con cái khác dòng, người bên ngoài sinh con gái trước, chính thất sinh con trai đầu lòng.",
+   "source_quote": "Thiên Phủ độc tọa ở hai cung Sửu hoặc Mùi, nếu đối cung “Liêm Trinh, Thất Sát” Hóa Kỵ, có Sát Tinh, chủ về lúc sinh phải phẫu thuật. Gặp “sao lẻ” phụ, tá, chủ về có con cái khác dòng, cũng chủ về người bên ngoài sinh con gái trước, chính thất sinh con trai đầu lòng.",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "vi_tri:suu_mui",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đối cung Liêm-Sát Kỵ: sinh mổ; sao lẻ: con hai dòng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q130",
+   "question": "Thiên Phủ ở Mão hoặc Dậu khi đối cung Vũ Khúc Hóa Kỵ hay Hóa Lộc thì luận thế nào?",
+   "answer_atom": "Đối cung Vũ Khúc Hóa Kỵ: phòng con cái bị tổn thương, tàn tật, gặp bất trắc; gặp sát tinh càng đúng. Vũ Khúc Hóa Lộc và Thiên Phủ gặp cát tinh: con cái nên theo ngành kinh tế tài chính, mậu dịch, mệnh tạo cần khéo bồi dưỡng; hậu bối thân cận cũng có tài năng phương diện này.",
+   "source_quote": "Thiên Phủ ở hai cung Mão hoặc Dậu, thủ cung Tử Nữ, đối cung là Vũ Khúc Hóa Kỵ, thì nên để phòng con cái bị tổn thương, tàn tật, hoặc gặp bất trắc; gặp sát tinh thì càng đúng. Nếu Vũ Khúc Hóa Lộc, Thiên Phủ gặp cát tinh, sẽ chủ về con cái nên theo ngành kinh tế tài chính, mậu dịch",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "vi_tri:mao_dau",
+    "star:vu_khuc",
+    "hoa:ky",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ chiếu: coi chừng con bị thương tật; Vũ Lộc: hướng con vào tài chính.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q131",
+   "question": "Thiên Phủ ở Mão/Dậu khi nào con cái thừa hưởng được sản nghiệp, khi nào thất bại?",
+   "answer_atom": "Gặp Lộc Tồn đồng độ hoặc vây chiếu, đồng thời Thiên Tướng được 'Tài ấm giáp ấn': con cái được thừa hưởng sản nghiệp của mệnh tạo mà tạo dựng sự nghiệp. Nếu Thiên Phủ là 'kho lộ', 'kho trống' lại hội Thiên Tướng bị 'Hình kỵ giáp ấn': thường chủ về con cái thất bại.",
+   "source_quote": "Gặp Lộc Tồn đồng độ hoặc vây chiếu, nếu đồng thời gặp Thiên Tướng được “Tài ấm giáp ân”, sẽ chủ về con cái được thừa hưởng sản nghiệp của bản thân mệnh tạo mà tạo dựng sự nghiệp. [...] nếu Thiên Phủ là “kho lộ”, “kho trống”, lại hội Thiên Tướng bị “Hình kỵ giáp Ấn”, thường chủ về con cái thất bại.",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "vi_tri:mao_dau",
+    "concept:kho_lo_kho_trong",
+    "concept:tai_am_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Kho đầy + giáp tốt: con nối nghiệp. Kho rỗng + giáp xấu: con thất bại.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q132",
+   "question": "Thiên Phủ độc tọa ở Tị hoặc Hợi ngại sao nào, và khi nào con cái tự đảm trách được?",
+   "answer_atom": "Rất ngại Địa Không, Địa Kiếp đồng cung, cũng ngại Đà La đồng độ hoặc triều cung: cảnh ngộ cuộc đời con cái nhiều gập ghềnh, bất đắc chí, nên khéo dạy dỗ cải thiện tính cách. Được cát hóa, có sao cát, hoặc là 'kho phủ đầy ắp': con cái ắt tự đảm trách công việc, nên phát triển năng lực tổ chức và tài lãnh đạo.",
+   "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi, rất ngại Địa Không, Địa Kiếp đồng cung, cũng ngại có Đà La đồng độ hoặc triều cung, chủ về cảnh ngộ cuộc đời của con cái nhiều gập ghềnh, bất đắc chí, nên khéo dạy dỗ để cải thiện tính cách của chúng. Nếu được cát hóa, có sao cát, hoặc là “kho phủ đầy ắp”, thì con cái ắt có thể tự đảm trách công việc",
+   "source_page": 632,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "vi_tri:ti_hoi",
+    "sao:dia_khong",
+    "sao:dia_kiep",
+    "sao:da_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tị/Hợi sợ Không-Kiếp-Đà; kho đầy thì con tự lập giỏi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q133",
+   "question": "Thiên Phủ ở cung Tử Nữ đồng độ Hỏa Linh hoặc gặp Lộc Tồn Thiên Mã chủ về điều gì, và cung hạn nào then chốt?",
+   "answer_atom": "Đồng độ Hỏa Tinh, Linh Tinh: con cái nên chia lìa gia đình để phát triển, cứ ở nơi sinh ra sẽ không đắc ý. Có Lộc Tồn, Thiên Mã đồng độ hoặc vây chiếu: con cái ở nước ngoài hoặc phát triển ở nước ngoài mà thành cự phú. Thông thường lấy đối cung và các cung hạn tử nữ do Thiên Tướng, Phá Quân tọa thủ làm then chốt.",
+   "source_quote": "Đồng độ với Hỏa Tượng, Linh Tỉnh, chủ về con cái nên chia lìa với gia đình để phát triển; cứ ở nơi sinh ra thì sẽ không được đắc ý. Trường hợp có Lộc Tồn, Thiên Mã đồng độ hoặc vây chiếu, cũng chủ về con cái ở nước ngoài (hoặc nơi xa) hoặc phát triển ở nước ngoài mà thành cự phú.",
+   "source_page": 633,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_phu",
+    "sao:hoa_tinh",
+    "sao:linh_tinh",
+    "sao:thien_ma",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nguyên văn OCR 'Hỏa Tượng, Linh Tỉnh' = Hỏa Tinh, Linh Tinh",
+    "viet_thuan": "Con đi xa mới phát; Lộc-Mã thì giàu lớn nơi xứ người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q134",
+   "question": "Thái Âm thủ cung Tử Nữ (5.4.8) thông thường chủ về thứ tự sinh con thế nào?",
+   "answer_atom": "Thông thường chủ về sinh con gái trước rồi mới sinh con trai; hoặc chủ về chính thất sinh con gái trước, người bên ngoài hay kế thất sinh con trai đầu.",
+   "source_quote": "Thái Âm thủ cung Tử Nữ, thông thường chủ về sinh con gái trước rồi mới sinh con trai; hoặc chủ về chính thất sinh con gái trước, người bên ngoài hay kế thất sinh con trai đầu.",
+   "source_page": 633,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Âm: con gái đến trước.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q135",
+   "question": "Thái Âm miếu vượng và lạc hãm ở cung Tử Nữ định số con theo giờ sinh và nửa tháng sinh thế nào?",
+   "answer_atom": "Miếu vượng: người sinh ban đêm hay nửa đầu tháng có nhiều con (năm đến tám con); người sinh ban ngày hay nửa cuối tháng có ba đến năm con. Hãm: người sinh ban đêm hay nửa đầu tháng có thể ba con; người sinh ban ngày lại sinh nửa đầu tháng thì chủ về xin con nuôi trước, hoặc người bên ngoài sinh con trai đầu, sau chính thất mới có con trai.",
+   "source_quote": "Thái Âm miếu vượng: Người sinh vào ban đêm hay sinh vào nửa đầu tháng, đều có nhiều con cái, có năm đến tám người con; nếu là người sinh vào ban ngày hay sinh vào nửa cuối tháng, thì có ba đến năm người con. Thái Âm hãm: Người sinh vào ban đêm hay sinh vào nửa đầu tháng, có thể có ba người con",
+   "source_page": 633,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "concept:sinh_dem_sinh_ngay",
+    "concept:mieu_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Số con của Thái Âm tính theo cả độ sáng sao lẫn giờ/ngày sinh của đương số.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q136",
+   "question": "Thái Âm gặp sát kỵ không kiếp hình hao thì mức độ hình khắc con cái nặng nhẹ ra sao?",
+   "answer_atom": "Con cái bị hình khắc; mệnh tạo sinh ban ngày hay nửa cuối tháng thì rất nặng, sinh ban đêm hay nửa đầu tháng thì nhẹ hơn.",
+   "source_quote": "Thái Âm thủ cung Tử Nữ, gặp các sao sát, kị, không, kiếp, hình, hao, thì con cái bị hình khắc; trường hợp mệnh tạo sinh vào ban ngày hay sinh vào nửa cuối tháng thì rất nặng, mệnh tạo sinh vào ban đêm hay sinh vào nửa đầu tháng thì nhẹ hơn.",
+   "source_page": 633,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "concept:hinh_khac",
+    "concept:sinh_dem_sinh_ngay"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cùng bộ sát tinh nhưng người sinh đêm nhẹ tội hơn người sinh ngày.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q137",
+   "question": "Thái Âm miếu vượng gặp sao Lộc, sao khoa văn, sao khoa cử, Tả Hữu thì con cái thế nào?",
+   "answer_atom": "Miếu vượng gặp sao Lộc: con cái giàu có (lạc hãm thì con nhu nhược). Gặp sao khoa văn Văn Xương, Văn Khúc: con thông minh. Gặp sao khoa cử công danh Thiên Khôi, Thiên Việt, Tam Thai, Bát Tọa, Ân Quang, Thiên Quý: con quý hiển. Gặp Tả Phụ, Hữu Bật: được con cái trợ lực.",
+   "source_quote": "Thái Âm miếu vượng, gặp sao Lộc, chủ về con cái giàu có; lộc hãm, sẽ chủ về con cái nhu nhược. Thái Âm miếu Vượng gặp các sao khoa văn, Văn Xương, Văn Khúc, chủ về con cái thông minh; Gặp các sao khoa cử công danh Thiên Khôi, Thiên Việt, Tam Thai, Bát Tọa, Ân Quang, Thiên Quý, sẽ chủ về con cái quý hiển; Gặp Tả Phụ, Hữu Bật, sẽ chủ về được con cái trợ lực.",
+   "source_page": 633,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "concept:mieu_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc = con giàu, Xương Khúc = con thông minh, Khôi Việt = con quý, Tả Hữu = con đỡ đần.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q138",
+   "question": "Thái Âm đồng độ Hỏa Linh gặp Thiên Cơ, hoặc lạc hãm được cát hóa, chủ về điều gì?",
+   "answer_atom": "Đồng độ Hỏa Tinh, Linh Tinh lại gặp Thiên Cơ: con cái rời xa quê hương, cũng chủ về nhiều bệnh. Lạc hãm mà được cát hóa và có sao cát: con cái tuy tốt nhưng thiếu tài lãnh đạo, nên bồi dưỡng chúng về phương diện này.",
+   "source_quote": "Thái Âm đồng độ với Hỏa Tượng, Linh Tỉnh, lại gặp Thiên Cơ, chủ về con cái rời xa quê hương, cũng chủ về nhiều bệnh. Thái Âm lộc hãm mà được cát hóa và có sao cát, thì con cái [...] Tuy tốt, nhưng lại thiếu tài lãnh đạo, nên tài bổi cho chúng về phương diện này.",
+   "source_page": 633,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "sao:hoa_tinh",
+    "sao:linh_tinh",
+    "star:thien_co"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa Linh + Cơ: con đi xa, hay bệnh. Hãm có cát: con ngoan nhưng thiếu chất thủ lĩnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q139",
+   "question": "Thái Âm lạc hãm có Lộc Tồn đồng độ, hoặc có sao Đào Hoa, chủ về số con thế nào?",
+   "answer_atom": "Lạc hãm có Lộc Tồn đồng độ: chỉ có một con trai; sát tinh nặng thì nhị phòng hoặc người bên ngoài sinh con trai. Có sao Đào Hoa đồng độ: nhiều gái ít trai; lạc hãm còn gặp Hỏa Tinh, Linh Tinh: có con gái mà không có con trai.",
+   "source_quote": "Thái Âm lạc hãm, có Lộc Tồn đồng độ, thì chỉ có một con trai; có sát tinh nặng, thì chủ về nhị phòng hoặc người bên ngoài sinh con trai. Thái Âm có các sao Đào Hoa đồng độ, chủ về nhiều gái ít trai; lạc hãm còn gặp Hỏa Tinh, Linh Tinh, thì chủ về có con gái mà không có con trai.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "sao:loc_ton",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Âm hãm + Lộc Tồn: hiếm trai; thêm Hỏa Linh: chỉ toàn gái.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q140",
+   "question": "Thái Âm ở Mão hoặc Dậu có sao Đào Hoa trùng trùng, hoặc Thiên Đồng Hóa Kỵ xung chiếu, cần đề phòng điều gì?",
+   "answer_atom": "Đào Hoa trùng trùng: con cái dễ được người khác giới theo đuổi, đề phòng rắc rối tình cảm. Thiên Đồng Hóa Kỵ xung chiếu, có Hỏa Linh đồng độ, thêm Âm Sát, Đại Hao, Thiên Hư, Thiên Nguyệt, Bệnh Phù, Mộc Dục: đề phòng con bị thiểu năng trí tuệ; năm mang thai, cung Tử Nữ lưu niên không nên có sát, kỵ, hình, hao, không, kiếp.",
+   "source_quote": "nếu có các sao Đào Hoa trùng trùng, thì con cái dễ được người khác giới theo đuổi, cần phải đề phòng gặp rắc rối khó xử về tình cảm. Nếu Thiên Đồng Hóa Kỵ xung chiếu, có Hỏa Tinh, Linh Tinh đồng độ, lại gặp thêm các sao Âm Sát, Đại Hao, Thiên Hư, Thiên Nguyệt, Bệnh Phù, Mộc Dục, thì đề phòng con cái bị thiểu năng trí tuệ. Năm mang thai, cung Tử Nữ của lưu niên không nên có các sao sát, kỵ, hình, hao, không, kiếp.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "vi_tri:mao_dau",
+    "star:thien_dong",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tổ hợp Đồng Kỵ + Hỏa Linh + bầy sao bệnh-hư-hao: cảnh báo thiểu năng, phải chọn năm mang thai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q141",
+   "question": "Thái Âm độc tọa Mão/Dậu khi nào chủ về con cái sử dụng ma túy?",
+   "answer_atom": "Nếu Thái Dương có sát kỵ đến hội, lại gặp thêm Thiên Nguyệt, Thiên Hư, Đại Hao, Thiên Diêu, Thiên Hình, hoặc gặp Văn Khúc Hóa Kỵ đến hội: chủ về con cái sử dụng ma túy.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Mão hoặc Dậu, nếu Thái Dương có các sao sát, kỵ đến hội, lại gặp thêm các sao Thiên Nguyệt, Thiên Hư, Đại Hao, Thiên Diêu, Thiên Hình, hoặc gặp Văn Khúc Hóa Kỵ đến hội, sẽ chủ về con cái sử dụng ma túy.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "vi_tri:mao_dau",
+    "concept:ma_tuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ sao hư-hao-nguyệt-diêu quanh Thái Dương xấu: cảnh báo nghiện ngập.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q142",
+   "question": "Thái Âm độc tọa ở Thìn hoặc Tuất với Thiên Cơ Hóa Kỵ, hoặc Thái Dương đối cung có Xương Khúc, luận thế nào?",
+   "answer_atom": "Thiên Cơ Hóa Kỵ đến hội: phần nhiều sinh khó hay sinh thiếu tháng. Thái Dương ở đối cung có Văn Xương hoặc Văn Khúc đồng độ: con thông minh mà còn quý hiển. Nhưng nếu Văn Xương hay Văn Khúc có một sao Hóa Kỵ, lại gặp Thiên Hư, Đại Hao, Địa Không, Địa Kiếp, Thiên Nguyệt: con nhu nhược và có khuynh hướng sử dụng ma túy.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Thìn hoặc Tuất, nếu Thiên Cơ Hóa Kỵ đến hội, phần nhiều chủ về sinh khó hay sinh thiếu tháng. Nếu Thái Dương ở đối cung có Văn Xương hoặc Văn Khúc đồng độ, thì con cái thông minh mà còn quý hiển. Nhưng nếu Văn Xương hay Văn Khúc có một sao Hóa Kỵ, lại gặp Thiên Hư, Đại Hao, Địa Không, Địa Kiếp, Thiên Nguyệt, cũng chủ về con cái nhu nhược và có khuynh hướng sử dụng ma túy.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "vi_tri:thin_tuat",
+    "star:thien_co",
+    "hoa:ky",
+    "sao:van_xuong",
+    "sao:van_khuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cùng Xương Khúc: sáng thì con giỏi, dính Kỵ + hư hao thì ngược hẳn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q143",
+   "question": "Thái Âm độc tọa Thìn/Tuất gặp Thiên Đồng Hóa Kỵ chủ về điều gì?",
+   "answer_atom": "Không ưa gặp Thiên Đồng Hóa Kỵ: chủ về con cái ít, còn nhỏ đã chia li với gia đình; gặp sát tinh còn chủ về từ đó ít gặp mặt con cái.",
+   "source_quote": "cũng không ưa gặp Thiên Đồng Hóa Kỵ, chủ về con cái ít, còn nhỏ đã chia li với gia đình; gặp sát tinh, còn chủ về từ đó ít gặp mặt con cái.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "vi_tri:thin_tuat",
+    "star:thien_dong",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Kỵ: con ít và sớm xa nhà.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q144",
+   "question": "Thái Âm ở cung Tị khác cung Hợi thế nào về con cái?",
+   "answer_atom": "Ở cung Tị gặp sát kỵ trùng trùng: con cái nhiều nạn tai, bệnh tật, hoặc bị hình khắc. Ở cung Hợi tuy không sợ Hóa Kỵ nhưng cũng nên sinh con gái đầu lòng; sinh con trai thì nhiều nạn tai, bệnh tật.",
+   "source_quote": "Thái Âm ở cung Tị, gặp các sao sát, kỵ trùng trùng, con cái nhiều nạn tai, bệnh tật, hoặc bị hình khắc. Thái Âm ở cung Hợi tuy không sợ Hóa Kỵ, nhưng cũng nên sinh con gái đầu lòng, sinh con trai thì nhiều nạn tai, bệnh tật.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "vi_tri:ti_hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tị (hãm) xấu hơn Hợi (miếu); cả hai đều nên con gái đầu lòng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q145",
+   "question": "Thái Âm độc tọa Tị/Hợi chủ về tính chất gì của con cái, và cung hạn nào then chốt?",
+   "answer_atom": "Chủ về con cái dễ bị lụy vì tình. Nếu 'Thái Dương, Thiên Lương' kèm sao cát đến hội: con thông minh quý hiển; kèm sát tinh và Thiên Hư, Đại Hao, Thiên Nguyệt: vẫn chủ về con có khuynh hướng dùng ma túy — phân biệt khá vi tế. Các cung hạn tử nữ do Thái Dương, Cự Môn, Thiên Đồng, hay Thái Âm tọa thủ là then chốt.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Tị hoặc Hợi, chủ về con cái dễ bị lụy vì tình. Nếu “Thái Dương, Thiên Lương” kèm sao cát đến hội, thì con cái thông minh quý hiển; kèm sát tinh và Thiên Hư, Đại Hao, [...] Thiên Nguyệt thì vẫn chủ về con cái có khuynh hướng sử dụng ma túy. Ở đây phân biệt thường khá vi tế.",
+   "source_page": 634,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thai_am",
+    "vi_tri:ti_hoi",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con đa cảm dễ khổ vì tình; ranh giới giỏi/hư rất mỏng, phải xét tinh tế.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q146",
+   "question": "Tham Lang ở cung Tử Nữ (5.4.9) có sao Đào Hoa hội hợp chủ về điều gì?",
+   "answer_atom": "Chủ về chính thất không có con trai nhưng có con gái; thứ thất hoặc tì thiếp thì sinh con trai.",
+   "source_quote": "Tham Lang ở cung Tử Nữ, có các sao Đào Hoa hội hợp, chủ về chính thất không có con trai, nhưng có con gái; thứ thất hoặc tì thiếp thì sinh con trai.",
+   "source_page": 635,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham + Đào Hoa: vợ cả sinh gái, dòng thứ sinh trai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q147",
+   "question": "Tham Lang ở cung Tử Nữ khi nào chủ về có ở rể, và con rể có hòa hợp không?",
+   "answer_atom": "Gặp sao Đào Hoa còn gặp thêm 'sao lẻ' Tả Phụ, Hữu Bật: chủ về có ở rể. Tham Lang nhập cung miếu hội sao cát: con rể và con trai kế hòa hợp; lạc hãm còn hội sát tinh: con rể và con trai kế bất hòa.",
+   "source_quote": "gặp sao Đào Hoa, còn gặp thêm “sao lẻ” Tả Phụ, Hữu Bật, chủ về có ở rể. Tham Lang nhập cung miếu hội sao cát, thì con rể và con trai kế hòa hợp; nếu Tham Lang lạc hãm còn hội sát tinh, thì con rể và con trai kế bất hòa.",
+   "source_page": 635,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "concept:o_re",
+    "concept:sao_doi_sao_le"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đào Hoa + sao lẻ Tả/Hữu: nhà có rể ở chung; miếu hãm quyết định êm hay xung.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q148",
+   "question": "Tham Lang ở cung Tử Nữ gặp cát tinh hay sát kỵ thì quan hệ cha con thế nào?",
+   "answer_atom": "Gặp cát tinh: cha con hòa hợp; gặp các sao sát, kỵ: cha con bất hòa. Các tình hình này có thể vận dụng linh hoạt khi luận về quan hệ nhân tài với hậu bối — như chính thất sinh gái, thứ thất sinh trai có thể biểu trưng thiếu người dưới quyền trực tiếp, cần mượn người từ bộ môn khác.",
+   "source_quote": "Tham Lang ở cung Tử Nữ, gặp cát tinh, chủ về cha con hòa hợp; nếu gặp các sao sát, kỵ thì cha con bất hòa. Các tình hình thuật ở trên, có thể vận dụng một cách linh hoạt trong lúc luận đoán về mối quan hệ nhân tài với hậu bối.",
+   "source_page": 635,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "concept:tinh_cam_hai_doi",
+    "concept:hau_boi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cung con cũng đọc thành cung 'người dưới quyền'.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q149",
+   "question": "Tham Lang đồng độ Hỏa Tinh, Linh Tinh ở cung Tử Nữ chủ về điều gì?",
+   "answer_atom": "Chủ về tình cảm hai đời lúc đầu dung hợp, về sau biến thành lạnh nhạt — chứ chẳng chủ về con cái phát đột ngột. Còn hội Kình Dương, Đà La, Địa Không, Địa Kiếp: sinh khó; lại gặp Thiên Hình, Đại Hao: lúc sinh phải phẫu thuật.",
+   "source_quote": "Tham Lang đồng độ với Hỏa Tinh, Linh Tinh, chủ về tình cảm giữa hai đời lúc đầu dung hợp, về sau biến thành lạnh nhạt, chứ chẳng chủ về con cái phát đột ngột. Tham Lang đồng độ với Hỏa Tinh, Linh Tinh, còn hội Kình Dương, Đà La, Địa Không, Địa Kiếp, sẽ chủ về sinh khó; lại gặp Thiên Hình, Đại Hao, chủ về lúc sinh phải phẫu thuật.",
+   "source_page": 635,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "sao:hoa_tinh",
+    "sao:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cách Hỏa Tham/Linh Tham nổi tiếng phát tài KHÔNG áp dụng cho cung con — ở đây chỉ là nhạt tình dần.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q150",
+   "question": "Tham Lang có sao phụ tá cát, 'sao lẻ', hoặc Hóa Kỵ ở cung Tử Nữ chủ về điều gì?",
+   "answer_atom": "Có sao phụ tá cát đồng cung: số con tăng lên. Gặp 'sao lẻ' phụ tá: có người bên ngoài hoặc kế thất sinh con. Tham Lang Hóa Kỵ: cũng chủ về có người bên ngoài sinh con; gặp sát tinh, chính thất phần nhiều sinh khó.",
+   "source_quote": "Tham Lang có các sao phụ, tá cát đồng cung, chủ về số con cái tăng lên; gặp “sao lẻ” phụ, tá, chủ về có người bên ngoài hoặc kế thất sinh con. Tham Lang Hóa Kỵ ở cung Tử Nữ, cũng chủ về có người bên ngoài sinh con; gặp sát tinh, chính thất phần nhiều sinh khó.",
+   "source_page": 635,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "hoa:ky",
+    "concept:sao_doi_sao_le"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Kỵ: dễ có con ngoài giá thú.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q151",
+   "question": "Tham Lang ở Tý hoặc Ngọ chủ về số con và tính cách con thế nào?",
+   "answer_atom": "Chủ về có bốn con trong đó hai con trai; gặp sao phụ tá có thể tăng số con; gặp sao Đào Hoa phần nhiều ba gái một trai nhưng con dễ thành kiêu ngạo, phóng túng, lãng phí. Có Phi Liêm đồng cung, gặp sát tinh mà không có sao Lộc: con cái lãng phí.",
+   "source_quote": "Tham Lang ở hai cung Tý hoặc Ngọ, chủ về có bốn con, trong đó số đó có hai con trai; gặp các sao phụ, tá có thể tăng số con lên; gặp sao Đào Hoa, phần nhiều có ba gái một trai, nhưng con cái dễ thành [...] kiêu ngạo, phóng túng, lãng phí. Nếu có Phi Liêm đồng cung, gặp sát tinh mà không có sao Lộc, chủ về con cái lãng phí.",
+   "source_page": 635,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "vi_tri:ty_ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Tý/Ngọ: 4 con; cảnh giác con tiêu hoang.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q152",
+   "question": "Tham Lang ở cung Tý thành cách 'Phiếm thủy đào hoa' và ở cung Ngọ thành cách 'Mộc hỏa thông minh' thì luận cung Tử Nữ thế nào?",
+   "answer_atom": "Ở Tý cách 'Phiếm thủy sao đào hoa': phần nhiều sinh con gái hoặc con đầu là gái, chẳng chủ về con cái đào hoa. Ở Ngọ gặp cát tinh là cách 'Mộc hỏa thông minh': thường con đầu là trai, cũng không chủ về tính cách của con cái.",
+   "source_quote": "Tham Lang ở cung Tý: Thành cách “Phiếm thủy sao đào hoa”, chủ về phần nhiều sinh con gái, hoặc con đầu là gái, chẳng chủ về con cái đào hoa. Tham Lang ở cung Ngọ: Gặp cát tính, là cách “Mộc hỏa thông minh”, thường thường con đầu là trai, cũng không chủ về tính cách của con cải.",
+   "source_page": 636,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "vi_tri:ty_ngo",
+    "cach:phiem_thuy_dao_hoa",
+    "cach:moc_hoa_thong_minh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tên cách cục nghe ghê nhưng ở cung con chỉ định giới tính con đầu, không định nết.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q153",
+   "question": "Tham Lang ở Dần hoặc Thân chủ về số con và tình cảm hai đời thế nào?",
+   "answer_atom": "Chủ về chỉ có hai con; gặp sao đào hoa và sao phụ tá cát số con mới tăng. Tình cảm hai đời thân thiết, tốt hơn Tham Lang ở Tý/Ngọ. Hội Liêm Trinh Hóa Kỵ: tình cảm rạn nứt; gặp các sao sát, hao, hình: đau buồn đến rơi lệ.",
+   "source_quote": "Chủ về chỉ có hai con; gặp sao đào hoa và sao Phụ, tá cát, số con cái mới tăng lên. Cũng chủ về giữa hai đời có tình cảm thân thiết, tốt hơn Tham Lang ở hai cung Tý hoặc Ngọ. Nếu hội Liêm Trinh Hóa Kỵ, sẽ chủ về tình cảm có rạn nứt; gặp các sao sát, hao, hình, sẽ chủ về đau buồn đến rơi lệ.",
+   "source_page": 636,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "vi_tri:dan_than",
+    "star:liem_trinh",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Dần/Thân tình cha con ấm hơn Tý/Ngọ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q154",
+   "question": "Tham Lang ở Dần/Thân về thời điểm có con trai và Lộc Tồn Thiên Mã chủ về gì?",
+   "answer_atom": "Chủ về muộn có con trai, nên cũng chủ về chậm có môn sinh đệ tử và hậu bối thân tín. Lộc Tồn, Thiên Mã chủ về bôn ba khắp nơi; khi Tham Lang có các sao phụ tá tụ tập mà gặp Lộc Tồn, Thiên Mã, thường thường là có con cái khắp nơi.",
+   "source_quote": "Chủ về muộn có con trai. Cho nên cũng chủ về chậm có môn sinh đệ tử và hậu bối thân tín. [...] lúc Tham Lang có các sao Phụ, tá tụ tập, mà gặp Lộc Tồn, Thiên Mã, thường thường là có con cái khắp nơi.",
+   "source_page": 636,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "vi_tri:dan_than",
+    "sao:loc_ton",
+    "sao:thien_ma"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Muộn trai, muộn học trò; Lộc-Mã thì 'con rải khắp nơi'.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q155",
+   "question": "Tham Lang ở Thìn hoặc Tuất chủ về số con và các tổ hợp Vũ Khúc Hóa Lộc/Hóa Kỵ, Hỏa Linh thế nào? Cung hạn nào then chốt?",
+   "answer_atom": "Chủ về một trai hai gái; gặp sao phụ tá, sao đào hoa: con có anh em khác mẹ, số con tăng. Đối Vũ Khúc Hóa Lộc lại gặp sát tinh: sau trung niên xa con, thậm chí không gặp, đến già mới gặp lại. Đối Vũ Khúc Hóa Kỵ sát tinh nặng: con bị hình khắc; sát nhẹ kèm cát tinh: con mắc bệnh hoặc cần phẫu thuật. Đồng độ Hỏa Linh: tình thân thiết nhưng sau trung niên dần thành người lạ. Cung hạn tử nữ do Thái Âm, Thái Dương, Thiên Cơ, Cự Môn tọa thủ là then chốt.",
+   "source_quote": "Chủ về chỉ có một con trai, hai con gái; gặp các sao Phụ, tá, sao đào hoa, thì con cái có anh em khác mẹ [...] Trường hợp đối nhau với Vũ Khúc Hóa Lộc, lại gặp sát tinh, chủ về sau trung niên xa con cái, thậm chí từ đó không gặp nhau, đến già mới gặp lại. Nếu đối nhau với Vũ Khúc Hóa Kỵ, mà sát tinh nặng, chủ về con cái bị hình khắc.",
+   "source_page": 636,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:tham_lang",
+    "vi_tri:thin_tuat",
+    "star:vu_khuc",
+    "hoa:loc",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nghịch lý: Vũ Hóa Lộc chiếu mà thêm sát lại là xa con sau trung niên.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q156",
+   "question": "Vì sao Cự Môn (5.4.10) bay đến cung Tử Nữ 'chẳng phải là sao thiện'?",
+   "answer_atom": "Vì Cự Môn có thể che lấp ánh sáng của các sao khác, chỉ có Thái Dương nhập miếu ánh sáng chiếu vạn trượng mới không bị Cự Môn gây ảnh hưởng. Cho nên thông thường đều chủ về mất đứa con đầu. Thái Dương nhập miếu đồng độ hoặc vây chiếu mà gặp sát tinh vẫn chủ về mất con trai đầu; không sát tinh, gặp cát tinh, con đầu mới bình an.",
+   "source_quote": "Cự Môn bay đến cung Tử Nữ, chẳng phải là sao thiện. Cự Môn có thể che lấp ánh sáng của các sao khác, chỉ có Thái Dương nhập [...] Ánh sáng chiếu vạn trượng, mới không bị Cự Môn gây ảnh hưởng. Cho nên trong các tình hình thông thường đều chủ về mất đứa con đầu.",
+   "source_page": 636,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "star:thai_duong",
+    "concept:am_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Môn che sáng → tượng mất con đầu; chỉ Thái Dương miếu hóa giải nổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q157",
+   "question": "Cự Môn gặp Thái Dương ở cung Dần đồng độ hoặc vây chiếu thì con cái thế nào?",
+   "answer_atom": "Thái Dương ở cung Dần là tốt: hội cát chủ về con cái đa tài, có thể phát triển thành nhân tài chuyên nghiệp, nhưng sẽ có tính chất 'dùng lời nói để kiếm tiền'.",
+   "source_quote": "Trường hợp Thái Dương ở cung Dần là tốt, hội cát sẽ chủ về con cái đa tài, có thể phát triển thành nhân tài chuyên nghiệp, nhưng sẽ có tính chất “dùng lời nói để kiếm tiền”.",
+   "source_page": 637,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "star:thai_duong",
+    "concept:nghe_nghiep_con_cai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con làm nghề 'nói ra tiền': luật sư, giảng dạy, truyền thông...",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q158",
+   "question": "Cự Môn gặp Thiên Cơ đồng độ hoặc vây chiếu ở cung Tử Nữ chủ về điều gì?",
+   "answer_atom": "Chủ về hai đời đều có chủ kiến riêng, có cơ tâm; xem mức độ sát tinh hội hợp mà định nặng nhẹ. Hai đời cần phải xa cách mới có thể hóa giải.",
+   "source_quote": "Cự Môn gặp Thiên Cơ đồng độ hoặc vây chiếu: Chủ về hai đời đều có chủ kiến riêng, có cơ tâm. Xem mức độ sát tinh hội hợp mà định nặng nhẹ. Hai đời cần phải xa cách mới có thể hóa giải.",
+   "source_page": 637,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "star:thien_co"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cha con đều mưu tính riêng — ở xa nhau lại êm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q159",
+   "question": "Cự Môn gặp Thiên Đồng đồng độ hoặc vây chiếu hội sát tinh chủ về điều gì?",
+   "answer_atom": "Chủ về con cái cô độc, ý chí bạc nhược. Nếu có Tả Phụ, Hữu Bật đồng độ: con ruột không đắc lực, con dòng thứ hay con nuôi đắc lực; ở thời hiện đại có thể luận đoán là con rể đắc lực.",
+   "source_quote": "Cự Môn gặp Thiên Đồng đồng độ hoặc vây chiếu, hội sát tinh: Chủ về con cái cô độc, ý chí bạc nhược. Nếu có Tả Phụ, Hữu Bật đồng độ, chủ về con ruột không đắc lực, con dòng thứ hay con nuôi đắc lực. Ở thời hiện đại có thể luận đoán là con rể đắc lực.",
+   "source_page": 637,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "star:thien_dong",
+    "concept:con_nuoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con đẻ yếu thế, con nuôi/con rể lại được việc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q160",
+   "question": "Cự Môn Hóa Kỵ ở cung Tử Nữ, và Cự Môn gặp Kình Đà / Hỏa Linh Không Kiếp, chủ về điều gì?",
+   "answer_atom": "Hóa Kỵ: chủ về điều tiếng; gặp sát tinh thì điều tiếng thường có tính chất đau buồn, rơi lệ — cần xem xét tỉ mỉ hậu vận để phòng ngừa trước. Rất kỵ Kình Dương, Đà La: muộn có con trai hoặc có con trai thì bị hình khắc. Có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp đồng cung: chỉ chủ về cơ thể hư nhược nhiều bệnh.",
+   "source_quote": "Cự Môn Hóa Kỵ: Chủ về điều tiếng, gặp sát tinh, thì điều tiếng này thường thường còn có tính chất đau buồn, rơi lệ. [...] Cự Môn rất kỵ Kình Dương, Đà La: Chủ về muộn có con trai, hoặc chủ về có con trai thì bị hình khắc. Nếu có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp đồng cung, thì chỉ chủ về cơ thể hư nhược nhiều bệnh.",
+   "source_page": 637,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "hoa:ky",
+    "sao:kinh_duong",
+    "sao:da_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Kỵ = thị phi về con; Kình Đà nặng hơn Hỏa Linh với sao này.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q161",
+   "question": "Cự Môn khi nào chủ về con cái nhiều mà phú quý, và sao Lộc có tác dụng gì?",
+   "answer_atom": "Có Thái Dương nhập miếu đồng độ hoặc tương hội, gặp các sao phụ tá cát hoặc được cát hóa: con cái nhiều mà còn có thể phú quý; ở thời hiện đại thường là nhân tài chuyên nghiệp. Cự Môn ở cung Tử Nữ có sao Lộc: có thể giảm bớt tính chất 'cô độc và hình khắc'.",
+   "source_quote": "Cự Môn có Thái Dương nhập miếu đồng độ hoặc tương hội, gặp các sao phụ tá cát, hoặc được cát hóa: Thì con cái nhiều mà còn có thể phú quý. [...] Cự Môn ở cung Tử Nữ, có sao Lộc: Có thể giảm bớt tính chất “cô độc và hình khắc”.",
+   "source_page": 637,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "star:thai_duong",
+    "concept:sao_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc là thuốc giải cô-khắc của Cự Môn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q162",
+   "question": "Cự Môn ở Tý hoặc Ngọ thành cách 'Thạch trung ẩn ngọc' thì cung Tử Nữ luận thế nào?",
+   "answer_atom": "Thường muộn có con trai, hoặc có con muộn thì tốt hơn. Rất nên Hóa Lộc; gặp sao Lộc thì không hình khắc nhưng con cái ích kỷ. Đối cung Thiên Cơ Hóa Lộc: phần nhiều con rời xa quê hương phát triển. Thiên Cơ Hóa Kỵ: sinh thiếu tháng, sinh khó, bị hình khắc.",
+   "source_quote": "Cự Môn ở hai cung Tý hoặc Ngọ, thành cách “Thạch trung ẩn ngọc”: Thường thường muộn có con trai, hoặc có con muộn thì tốt hơn. Rất nên Hóa Lộc; gặp sao Lộc thì không hình khắc nhưng lại chủ về con cái ích kỷ. Nếu đối cung là Thiên Cơ Hóa Lộc: Phần nhiều con cái rời xa quê hương để phát triển. Nếu Thiên Cơ Hóa Kỵ: Thì sinh thiếu tháng, sinh khó, bị hình khắc.",
+   "source_page": 637,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "vi_tri:ty_ngo",
+    "cach:thach_trung_an_ngoc",
+    "star:thien_co"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ngọc trong đá: con đến muộn thì quý; có Lộc hết khắc nhưng con hơi ích kỷ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q163",
+   "question": "Cự Môn ở Tý/Ngọ đồng độ Kình Dương chủ về điều gì?",
+   "answer_atom": "Con trai đầu khó nuôi, cũng chủ về có ba con.",
+   "source_quote": "Cự Môn ở hai cung Tý hoặc Ngọ, nếu đồng độ với Kình Dương, con trai đầu khó nuôi, cũng chủ về có ba con.",
+   "source_page": 638,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "vi_tri:ty_ngo",
+    "sao:kinh_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Kình vào: trai đầu vất vả nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q164",
+   "question": "Cự Môn ở Thìn hoặc Tuất chủ về con cái thế nào?",
+   "answer_atom": "Có ba con nhưng bị hình khắc. Thành cách cục 'phản bối': con nhiều nhưng tình cảm vẫn ngăn cách. Có sát kỵ không kiếp hình hao hội hợp: hình khắc rất nặng, hai đời bất hòa, quan hệ hậu bối dễ ân biến thành thù; sát tinh nặng nên cho con đầu làm con thừa tự người khác. Rất kỵ đồng cung Đà La: con còn bé nhiều nạn tai bệnh tật hoặc thành nhân gặp nạn bất trắc — thường ứng vào cung hạn tử nữ do Cự Môn hoặc 'Liêm Trinh, Thất Sát' thủ cung.",
+   "source_quote": "Cự Môn ở hai cung Thìn hoặc Tuất, có ba con nhưng bị hình khắc. Thành cách cục “phản bối” thì con cái nhiều, nhưng tình cảm vẫn chủ về ngăn cách. [...] Gặp sát tinh nặng, chủ về con đầu nên cho làm con thừa tự của người khác. Rất kỵ đồng cung với Đà La [...] thường đến cung hạn tử nữ do Cự Môn hoặc “Liêm Trinh, Thất Sát” thủ cung thì ứng nghiệm.",
+   "source_page": 638,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "vi_tri:thin_tuat",
+    "cach:phan_boi",
+    "sao:da_la"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Thìn/Tuất: tình cha con ngăn cách, ơn dễ hóa oán.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q165",
+   "question": "Cự Môn ở Tị hoặc Hợi cung nào tốt hơn, và luận cát hung thế nào? Cung hạn nào then chốt?",
+   "answer_atom": "Ở Hợi là tốt; cung Tị thường chủ về hình khắc, sát nhẹ cũng tình cảm ngăn cách. Rất ưa Thái Dương được cát hóa đến hội, người sinh ban ngày càng tốt — khi đó không những không hình khắc mà tình hai đời hòa hợp. Nếu Thái Dương Hóa Kỵ hoặc sát kỵ trùng trùng: hình khắc sinh li, vì con hao tổn tinh thần tốn tiền mà kết quả vẫn không tốt. Có Địa Không, Địa Kiếp đồng cung: con cô độc hoặc trung niên sinh li. Cung hạn tử nữ do Liêm Trinh, Tham Lang, Thiên Đồng tọa thủ là then chốt.",
+   "source_quote": "Cự Môn ở hai cung Tị hoặc Hợi, ở cung Hợi là tốt. Cung Tị thường chủ về bị hình khắc, sát tinh nhẹ cũng chủ về tình cảm ngăn cách. Rất ưa Thái Dương được cát hóa đến hội. Người sinh vào ban ngày càng tốt. [...] Nếu Thái Dương Hóa Kỵ, hoặc các sao sát, kị trùng trùng, thì hình khắc sinh li [...] Trường hợp có Địa Không, Địa Kiếp đồng cung, chủ về con cái cô độc, hoặc đến trung niên thì sinh li.",
+   "source_page": 638,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:cu_mon",
+    "vi_tri:ti_hoi",
+    "star:thai_duong",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hợi hơn Tị; phúc của cung này treo vào độ sáng Thái Dương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q166",
+   "question": "Thiên Tướng thủ cung Tử Nữ thông thường có mấy con?",
+   "answer_atom": "Thông thường có hai con. Có cát hóa, sao cát hội hợp: con cái có thể tăng lên sáu người; gặp sát tinh thì bị khắc cho tới khi còn lại số lẻ.",
+   "source_quote": "Thiên Tướng thủ cung tử nữ, thông thường có hai con. Nếu có cát hóa, sao cát hội hợp, thì con cái có thể tăng lên sáu người; gặp sát tinh thì bị khắc cho tới khi còn lại số lẻ.",
+   "source_page": 638,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Tướng: chuẩn 2 con, cát thì tới 6.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q167",
+   "question": "Thiên Tướng ở cung Tử Nữ với tổ hợp Văn Xương Văn Khúc, Tả Phụ Hữu Bật nào thì chủ về sinh đôi?",
+   "answer_atom": "Các tổ hợp: Xương Khúc đồng độ + Tả Hữu giáp cung; Tả Hữu đồng độ + Xương Khúc giáp cung; cả bốn cùng giáp cung; hoặc một cặp giáp cung một cặp đến hội — thảy đều không gặp sát kỵ, không bị 'Hình kỵ giáp ấn', không bị Hỏa Linh Kình Đà giáp cung: thường thường chủ về sinh đôi.",
+   "source_quote": "Thiên Tướng có Văn Xương, Văn Khúc đồng độ, Tả Phụ, Hữu Bật giáp cung; hoặc Tả Phụ, Hữu Bật đồng độ, Văn Xương, Văn Khúc giáp cung; [...] thảy đều không gặp các sao sát, kị, cũng không có tình hình “Hình kỵ giáp ấn”, Hỏa Tinh, Linh Tinh Kình Dương, Đà La giáp cung; thường thường chủ về sinh đôi.",
+   "source_page": 638,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "sao:van_xuong",
+    "sao:van_khuc",
+    "sao:ta_phu",
+    "sao:huu_bat",
+    "concept:sinh_doi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ đôi văn-tá vây quanh Thiên Tướng sạch sát tinh: điềm sinh đôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q168",
+   "question": "Thiên Tướng thủ cung Tử Nữ gặp sát kỵ hình hao, hoặc hội 'sao lẻ' Tả Hữu, chủ về điều gì?",
+   "answer_atom": "Có sát kỵ hình hao hội hợp: chủ về bị hình khắc. Còn hội 'sao lẻ' Tả Phụ, Hữu Bật: chính thất sinh ba con có mất; người bên ngoài hay kế thất sinh con đầu bị mất, nhưng vẫn chủ về có con trai trước.",
+   "source_quote": "Thiên Tướng thủ cung tử nữ, nếu có các sao sát, kị, hình, hao hội hợp, chủ về bị hình khắc; còn hội “sao lẻ” Tả Phụ, Hữu Bật, chính thất sinh ba con, có mất; người bên ngoài hay kế thất sinh con đẩu bị mất, nhưng vẫn chủ về có con trai trước.",
+   "source_page": 639,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "concept:sao_doi_sao_le",
+    "concept:hinh_khac"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sao lẻ ở đây kéo theo chuyện mất con ở cả hai dòng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q169",
+   "question": "Thiên Tướng hội Thiên Phủ ở cung Tử Nữ luận theo 'kho' thế nào?",
+   "answer_atom": "Nếu Thiên Phủ thuộc loại 'kho phủ đầy ắp': Thiên Tướng dù không hội sao cát cũng chủ về có năm con. Nếu Thiên Phủ là 'kho lộ', 'kho trống': không những con cái có tính chất không tốt mà còn bị hình khắc.",
+   "source_quote": "Thiên Tướng hội Thiên Phủ, nếu thuộc loại “kho phủ đẩy ắp”, thì Thiên Tướng dù không hội sao cát cũng chủ về có năm con. Nếu Thiên Phủ là “kho lộ”, “kho trống”, không những con cái có tính chất không tốt, mà còn bị hình khắc.",
+   "source_page": 639,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "star:thien_phu",
+    "concept:kho_lo_kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng nương theo kho Phủ: kho đầy con đông, kho rỗng con hỏng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q170",
+   "question": "Thiên Tướng gặp Vũ Khúc đồng độ hoặc vây chiếu, hoặc gặp Văn Xương/Văn Khúc Hóa Kỵ, chủ về điều gì?",
+   "answer_atom": "Gặp Vũ Khúc: đã chủ về ít con; lại gặp sát tinh, Hóa Kỵ: hình khắc cô độc, nên xin con nuôi, hoặc nhị phòng hay kế thất sinh con trai; cũng chủ về bị hậu bối phản bội. Gặp Văn Xương hay Văn Khúc Hóa Kỵ: thường chủ về con cái 'thấy hai mà chỉ còn một'.",
+   "source_quote": "Thiên Tướng gặp Vũ Khúc đổng độ hoặc vây chiếu, là đã chủ về ít con cái, nếu lại gặp sát tinh, Hóa Kỵ, sẽ chủ về hình khắc cô độc, nên xin con nuôi [...] Thiên Tướng gặp Văn Xương hay Văn Khúc Hóa Kỵ, thường thường chủ về con cái thấy hai mà chỉ còn một.",
+   "source_page": 639,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "star:vu_khuc",
+    "sao:van_xuong",
+    "sao:van_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Khúc rút bớt số con; Xương/Khúc Kỵ: hai còn một.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q171",
+   "question": "Thiên Tướng đồng độ hoặc vây chiếu với Tử Vi, và với Liêm Trinh, khác nhau thế nào?",
+   "answer_atom": "Với Tử Vi: có ba con; gặp cát tinh con phát đạt, giàu lòng cảm thông nhưng tính độc đoán rất mạnh, yêu ghét tùy ý. Với Liêm Trinh: chỉ có hai con; cát thì con là nhân tài hành chính, hung thì bị hình khắc, còn có ngăn cách giữa hai đời.",
+   "source_quote": "Thiên Tướng đồng độ với Tử Vi hoặc vây chiếu, chủ về có ba con. Gặp cát tinh, con cái phát đạt, giàu lòng cảm thông, nhưng vẫn có tính độc đoán rất mạnh, yêu ghét tùy ý. Nếu gặp Liêm Trinh đổng độ hoặc vây chiếu, thì chỉ có hai con; cát thì con cái là nhân tài về hành chính, hung thì bị hình khắc",
+   "source_page": 639,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "star:tu_vi",
+    "star:liem_trinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tử-Tướng: con quyền uy độc đoán; Liêm-Tướng: con mẫu công chức.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q172",
+   "question": "Thiên Tướng được 'Tài ấm giáp ấn' và bị 'Hình kỵ giáp ấn' ở cung Tử Nữ khác nhau thế nào?",
+   "answer_atom": "'Tài ấm giáp ấn': chính thất có thể sinh con trai trước, hai đời tình cảm hòa hợp; gặp cát tinh con nên làm trong chính giới hoặc công ty. 'Hình kỵ giáp ấn': chính thất sinh con trai đầu lòng khó nuôi, hai đời tình cảm lạnh nhạt; gặp sao hung thì con bị hình khắc hoặc phá gia — nên quan sát cung tử nữ đại hạn xem có bị con gây lụy hao tài không.",
+   "source_quote": "nếu được “Tài Ất giáp ấn”, thì chính thất có thể sinh con trai trước; nếu bị “Hình kỵ giáp ấn”, chính thất sinh con trai đầu lòng sẽ khó nuôi. “Tài ấm giáp ấn” thì giữa hai đời có tình cảm hòa hợp; “Hình kỵ giáp ấn” thì giữa hai đời tình cảm lạnh nhạt. [...] Nếu “Hình kỵ giáp ấn” mà gặp sao hung, chủ về con cái bị hình khắc hoặc phá gia.",
+   "source_page": 639,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "concept:tai_am_giap_an",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài ấm giáp ấn (財蔭夾印): Hóa Lộc + Thiên Lương kẹp Thiên Tướng; Hình kỵ giáp ấn (刑忌夾印): Kình Dương/Thiên Hình + Hóa Kỵ kẹp",
+    "viet_thuan": "Hai thế giáp của Thiên Tướng quyết định ấm hay lạnh giữa hai đời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q173",
+   "question": "Cung Tử Nữ được 'Tài ấm giáp ấn' mà gặp Thiên Vu, Lộc Tồn hoặc Hóa Lộc thì chủ về điều gì?",
+   "answer_atom": "Chủ về con cái có thể được hưởng nhiều di sản.",
+   "source_quote": "Cung tử nữ được “Tài ấm giáp ấn”, mà gặp Thiên Vu, Lộc Tồn hoặc có Hóa Lộc đổng độ, chủ về con cái có thể được hưởng nhiều đi sản.",
+   "source_page": 639,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "concept:tai_am_giap_an",
+    "sao:thien_vu",
+    "sao:loc_ton"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Vu = sao thừa kế; cộng giáp tốt là con hưởng di sản lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q174",
+   "question": "Thiên Tướng ở Sửu/Mùi và độc tọa Mão/Dậu chủ về điều gì?",
+   "answer_atom": "Sửu/Mùi: gặp sao cát hoặc được sao cát giáp cung, con có thể thành tài nhưng sinh con gái trước; gặp sát kỵ hoặc bị 'Hình kỵ giáp ấn' thì hình khắc, bất hòa. Mão/Dậu: gặp sát tinh thường tình cảm không thể hòa hợp; Liêm Trinh Hóa Kỵ thì vì con cái (hay hậu bối) mà đau buồn rơi lệ; sao đào hoa trùng trùng: nhị phòng hay kế thất sinh con trai, chính thất sinh con gái.",
+   "source_quote": "Thiên Tướng ở hai cung Sửu hoặc Mùi, nếu gặp sao cát, hoặc được sao cát giáp cung, con cái cũng có thể thành tài; nhưng chủ về sinh con gái trước. [...] Thiên Tướng độc tọa hai cung Mão hoặc Dậu, gặp sát tính, thường chủ về tình cảm không thể hòa hợp. Nếu Liêm Trinh Hóa Kỵ, thì vì con cái (hay hậu bối) mà đau buồn, rơi lệ.",
+   "source_page": 640,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "vi_tri:suu_mui",
+    "vi_tri:mao_dau",
+    "star:liem_trinh",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sửu/Mùi con gái trước; Mão/Dậu sợ Liêm Kỵ — khóc vì con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q175",
+   "question": "Thiên Tướng ở Tị hoặc Hợi với sát tinh nặng chủ về điều gì?",
+   "answer_atom": "Sát kỵ hình nặng, gặp Hỏa Linh hoặc Không Kiếp đồng cung: con cái chia li với gia đình mới tốt. Có Âm Sát, Thiên Hư, Đại Hao, Thiên Hình đồng cung: con cái gặp bất trắc hoặc tự sát — thường ứng vào lưu niên/đại vận mà cung hạn tử nữ do Vũ Khúc hay Liêm Trinh Hóa Kỵ tọa thủ. Gặp sát tinh: con có tính phản kháng mạnh, ắt có duyên cớ, nên quan sát kỹ các vận hạn.",
+   "source_quote": "Thiên Tướng ở hai cung Tị hoặc Hợi, có các sao sát, kị, hình nặng, gặp Hỏa Tinh, Linh Tinh hoặc Địa Không, Địa Kiếp đồng cung, chủ về con cái chia lì với gia đình mới tốt. Nếu có Âm Sát, Thiên Hư, Đại Hao, Thiên Hình đồng cung, thì lại chủ về con cái gặp gặp bất trắc, hoặc tự sát.",
+   "source_page": 640,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "vi_tri:ti_hoi",
+    "concept:chia_li"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát nặng: cho con ở xa là cách hóa giải; bộ Âm Sát-Hư-Hao-Hình là cảnh báo nặng nhất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q176",
+   "question": "Thiên Tướng ở cung Tử Nữ lấy những cung hạn nào làm đại vận/lưu niên ứng nghiệm cát hung?",
+   "answer_atom": "Thường lấy các cung hạn tử nữ có 'Hình kỵ giáp ấn', 'Tài ấm giáp ấn', hoặc Thiên Phủ là 'kho phủ đầy ắp' / 'kho lộ', 'kho trống', hoặc các cung hạn có Liêm Trinh, Vũ Khúc, Phá Quân đồng độ.",
+   "source_quote": "Thiên Tướng ở cung tử nữ, thường lấy các cung hạn tử nữ có “Hình kị giáp Ấn”, “Tài ấm giáp ấn”, hoặc Thiên Phủ là “kho phủ đầy ắp”, Thiên Phủ là “kho lộ”, “kho trống”, hoặc các cung hạn có Liêm Trinh, Vũ Khúc, Phá Quân đồng độ, làm đại vận hoặc lưu niên ứng nghiệm cát hung.",
+   "source_page": 640,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_tuong",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vận ứng nghiệm của Thiên Tướng nằm ở thế giáp và kho Phủ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q177",
+   "question": "Thiên Lương ở cung Tử Nữ phải xem sao nào để định cát hung, và số con thế nào?",
+   "answer_atom": "Phải xem Thái Dương miếu hãm: Thái Dương miếu vượng đến hội hợp có thể giảm tính 'cô độc và hình khắc', chủ về hai ba con trai; Thái Dương hãm thì sinh con gái trước, có hai con trai. Hội 'sao đôi' phụ tá và sao cát, hoặc Hóa Lộc, Quyền, Khoa: có từ năm đến chín người con, con cái thành tài.",
+   "source_quote": "Thiên Lương ở cung tử nữ, cẩn phải xem Thái Dương miếu hãm thế nào mà định cát hung. Nếu Thái Dương ở cung miếu vượng đến hội hợp, thì có thể giảm tính chất “cô độc và hình khắc”, chủ về có hai ba con trai; nếu Thái Dương ở cung hãm thì chủ về sinh con gái trước, có hai con trai.",
+   "source_page": 640,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "star:thai_duong",
+    "concept:mieu_ham"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phúc của Thiên Lương cung con treo vào độ sáng Thái Dương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q178",
+   "question": "Thiên Lương gặp Thiên Cơ đồng độ hoặc vây chiếu, hoặc gặp sát kỵ hình hao, chủ về việc sinh nở thế nào?",
+   "answer_atom": "Gặp Thiên Cơ: lúc đến cung tử nữ của đại vận/lưu niên không tốt, thường sinh thiếu tháng hay sinh khó. Gặp sát kỵ hình hao: nên có con trai muộn, thậm chí nên nhận con nuôi hoặc sinh con gái trước; nếu con trai đầu sẽ nhiều nạn tai bệnh tật, gặp bất trắc. Sát tinh nặng lại có Không Kiếp đồng cung hoặc giáp cung sát tinh: con cái cô độc.",
+   "source_quote": "Thiên Lương gặp Thiên Cơ đồng độ hoặc vây chiếu, lúc đến cung tử nữ của đại vận hoặc lưu niên không tốt, thường sinh thiếu [...] Tháng hay sinh khó. Nếu Thiên Lương ở cung Tử Nữ mà gặp các sao sát, kỵ, hình, hao thì nên có con trai muộn, thậm chí nên nhận con nuôi, hoặc nên sinh con gái trước.",
+   "source_page": 640,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "star:thien_co",
+    "concept:sinh_kho"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương + Cơ: canh vận sinh nở; sát nhiều thì hoãn sinh trai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q179",
+   "question": "Thiên Lương được cát hóa ở cung Tử Nữ luận về thuộc cấp thế nào, và đặc điểm 'con trai đưa tang' là gì?",
+   "answer_atom": "Được cát hóa và có sao cát: có nhiều thuộc cấp đắc lực; gặp thêm sát tinh thì thuộc cấp có thể gây bất lợi cho mệnh tạo — thường ứng nghiệm ở các cung hạn tử nữ do Vũ Khúc, Thiên Cơ, hay Cự Môn tọa thủ. Thiên Lương ở cung Tử Nữ thường chủ về khắc con trai, nhưng sẽ có con trai đưa tang.",
+   "source_quote": "Nếu Thiên Lương được cát hóa và có sao cát, cũng chủ về có nhiều thuộc cấp đắc lực; nhưng nếu gặp thêm sát tinh, thì thuộc cấp có thể gây bất lợi cho mệnh tạo. [...] Thiên Lương ở cung Tử Nữ thường chủ về khắc con trai, nhưng sẽ có con trai đưa tang.",
+   "source_page": 641,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "concept:hau_boi",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nét riêng Thiên Lương: dù khắc trai vẫn 'có con trai đưa tang' — không tuyệt tự.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q180",
+   "question": "Thiên Lương gặp Thiên Đồng đồng độ hoặc vây chiếu chủ về con cái thế nào?",
+   "answer_atom": "Chủ về sinh con gái trước. Gặp cát tinh: ba người con; không gặp cát tinh: hai người con. Gặp thêm 'sao lẻ' Tả Phụ, Hữu Bật, Văn Xương hay Văn Khúc, còn gặp sao Đào Hoa: có một con trai dòng thứ. Đào Hoa trùng trùng hoặc gặp Thiên Diêu, Mộc Dục: con trai là con bên ngoài.",
+   "source_quote": "Thiên Lương gặp Thiên Đồng đồng độ hoặc vây chiếu: Chủ về sinh con gái trước. Gặp cát tính thì có ba người con; không gặp cát tinh thì hai người con. [...] Sao Đào Hoa trùng trùng, hoặc gặp Thiên Diêu, Mộc Dục cũng chủ về con trai là con bên ngoài.",
+   "source_page": 641,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "star:thien_dong",
+    "concept:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng-Lương: gái trước; trai hay thuộc dòng thứ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q181",
+   "question": "Thiên Lương gặp Thiên Cơ, hoặc gặp Thái Dương, đồng độ hay vây chiếu thì số con bao nhiêu?",
+   "answer_atom": "Với Thiên Cơ: gặp cát tinh hai con, không cát tinh một con. Với Thái Dương: gặp cát tinh bảy con, không cát tinh năm con (ba trai hai gái). Ở thời hiện đại có thể lấy số con cái để luận hậu bối thân cận nhiều hay ít.",
+   "source_quote": "Thiên Lương gặp Thiên Cơ đồng độ hoặc vây chiếu: Gặp cát tinh thì có hai người con; không gặp cát tinh thì có một người con. Thiên Lương gặp Thái Dương đồng độ hoặc vây chiếu: Gặp cát tinh thì có bảy người con; không gặp cát tinh thì có năm người con (ba trai hai gái).",
+   "source_page": 641,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "star:thien_co",
+    "star:thai_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cơ-Lương ít con, Dương-Lương đông con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q182",
+   "question": "Thiên Lương ở cung Tử Nữ kỵ nhất sao nào trong lục sát?",
+   "answer_atom": "Tuy cũng kỵ Hỏa Tinh, Linh Tinh nhưng tối kỵ Kình Dương, Đà La. Kình Đà đồng độ: con nhiều nạn tai bệnh tật, dễ gặp bất trắc. Hỏa Linh đồng độ: chỉ chủ về có con dòng thứ, con nuôi, hoặc con chia lìa gia đình. Không Kiếp đồng cung: giảm bớt số con. Lục sát tinh giáp cung Thiên Lương cũng luận tương tự.",
+   "source_quote": "Thiên Lương tuy cũng kỵ Hỏa Tinh, Linh Tinh, nhưng lại tối kỵ Kình Dương, Đà La. Kình Dương, Đà La đồng độ chủ về con cái nhiều nạn tai, bệnh tật, dễ gặp bất trắc. Hỏa Tinh, Linh Tinh đồng độ chỉ chủ về có con dòng thứ, có con nuôi, hoặc con cái chia lìa với gia đình. Địa Không, Địa Kiếp đồng cung, cũng làm giảm bớt số con cái.",
+   "source_page": 641,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "sao:kinh_duong",
+    "sao:da_la",
+    "sao:hoa_tinh",
+    "sao:linh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thứ tự độc với Lương: Kình Đà > Hỏa Linh > Không Kiếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q183",
+   "question": "Thiên Lương ở Tý hoặc Ngọ chủ về con cái thế nào?",
+   "answer_atom": "Ở cung Tý tốt hơn: thông thường hai con trai. Ở cung Ngọ: sinh con gái trước, chỉ có một con trai đưa tang. Nếu hội Thái Dương Hóa Kỵ: con cái nên làm các ngành pháp luật, y dược, công tác xã hội — nghề nghiệp có tính cứu giúp.",
+   "source_quote": "Thiên Lương ở hai cung Tý hoặc Ngọ: Ở cung Tý tốt hơn, thông thường chủ về có hai con trai; Ở cung Ngọ sinh con gái trước, chỉ có một người con trai đưa tang. Nếu Thiên Lương ở hai cung Tý hoặc Ngọ, hội Thái Dương Hóa Kỵ, con cái nên làm việc trong các ngành như pháp luật, y dược, công tác xã hội, tức nghề nghiệp có tính cứu giúp.",
+   "source_page": 641,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "vi_tri:ty_ngo",
+    "star:thai_duong",
+    "hoa:ky",
+    "concept:nghe_nghiep_con_cai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dương Kỵ hội: hướng con vào nghề cứu người để hóa giải.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q184",
+   "question": "Thiên Lương ở Sửu hoặc Mùi chủ về điều gì?",
+   "answer_atom": "Phải đề phòng sinh khó; Thiên Cơ Hóa Kỵ chủ về sinh thiếu tháng, đồng thời gặp sát tinh thì lúc sinh nguy hiểm; gặp các sao Sát, Hình mới chủ về con trai đầu bị hình khắc. Có sát tinh đồng độ: con nên nghiên cứu khoa học kỹ thuật hoặc công nghệ — thời hiện đại thường là chuyên viên điện tử, máy tính. Con cái không nhiều, hậu bối thân cận cũng không nhiều, khó có thuộc cấp đắc lực.",
+   "source_quote": "Thiên Lương ở hai cung Sửu hoặc Mùi, cũng phải để phòng sinh khó. Thiên Cơ Hóa Kỵ sẽ chủ về sinh thiếu tháng [...] có sát tinh đồng độ, con cái nên nghiên cứu khoa học kỹ thuật hoặc công nghệ. Ở thời hiện đại, thường thường là chuyên viên điện tử, máy tính. [...] con cái không nhiều; hậu bối thân cận cũng không nhiều, khó có thuộc cấp đắc lực.",
+   "source_page": 642,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "vi_tri:suu_mui",
+    "star:thien_co",
+    "hoa:ky",
+    "concept:nghe_nghiep_con_cai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương Sửu/Mùi: ít con, hướng con theo kỹ thuật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q185",
+   "question": "Thiên Lương ở Tị hoặc Hợi chủ về con cái thế nào, và cung hạn nào then chốt?",
+   "answer_atom": "Sinh con gái trước, chỉ có một con trai. Hỏa Linh đồng độ hoặc hội Lộc Tồn Thiên Mã: con rời xa quê hương. Sát Kỵ Hình tụ hợp: nên xin con nuôi hoặc nhận ở rể; đồng thời gặp thêm một đôi sao cát lại gặp Thiên Vu: thường người bên ngoài hay thứ thất sinh con trai kế thừa gia nghiệp, cũng chủ về con rể kế thừa gia nghiệp. Cung hạn tử nữ do Cự Môn, Thiên Cơ, Thái Dương tọa thủ là then chốt.",
+   "source_quote": "Thiên Lương ở hai cung Tị hoặc Hợi, chủ về sinh con gái trước, chỉ có một con trai. Gặp Hỏa Tinh, Linh Tinh đồng độ, hoặc hội Lộc Tồn, Thiên Mã, chủ về con cái rời xa quê hương. Gặp các sao Sát, Kỵ, Hình tụ hợp, nên xin con nuôi, hoặc nhận ở rể. Nếu đồng thời gặp thêm một đôi sao cát, lại gặp Thiên Vũ, thường thường là người bên ngoài hay thứ thất sinh con trai kế thừa gia nghiệp; cũng chủ về con rể kế thừa gia nghiệp.",
+   "source_page": 642,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:thien_luong",
+    "vi_tri:ti_hoi",
+    "concept:o_re",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương Tị/Hợi: một trai, dễ là rể hoặc con dòng thứ nối nghiệp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q186",
+   "question": "Thất Sát ở cung Tử Nữ (5.4.13) chủ về số con thế nào?",
+   "answer_atom": "Chủ về ít con cái; dù gặp sao phụ tá cát số con cũng không tăng. Nhưng nếu gặp sao Đào Hoa lại gặp sao Lộc: chủ về có ba bốn con gái.",
+   "source_quote": "Thất Sát ở cung Tử Nữ, chủ về ít con cái; dù gặp các sao Phụ, Tá Cát, số con cũng không tăng lên. Nhưng nếu gặp sao Đào Hoa, lại gặp sao Lộc, sẽ chủ về có ba bốn con gái.",
+   "source_page": 642,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thất Sát: hiếm con — ngoại lệ duy nhất là Đào Hoa + Lộc cho thêm con gái.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q187",
+   "question": "Thất Sát thủ cung Tử Nữ vì sao nên sinh con gái trước?",
+   "answer_atom": "Sinh con gái trước rồi sinh con trai thì tốt hơn, có thể giảm bớt bị 'hình thương'. Nếu sát kỵ hình hao không kiếp tụ hội: không có con trai; nếu có con trai cần đề phòng vì con mà phá gia, hoặc con bị tàn tật.",
+   "source_quote": "Thất Sát thủ cung Tử Nữ, sinh con gái trước rồi sinh con trai thì tốt hơn, có thể giảm bớt bị “hình thương”. Nếu có các sao Sát, Kỵ, Hình, Hao, Không, Kiếp tụ hội, sẽ chủ về không có con trai; nếu có con trai thì cần phải để phòng vì con mà phá gia, hoặc con bị tàn tật.",
+   "source_page": 642,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "concept:hinh_khac"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con gái mở đường thì đỡ khắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q188",
+   "question": "Thất Sát gặp sao Không, Hoa Cái, Văn Xương Văn Khúc, hoặc Hóa Kỵ, Không Kiếp chủ về điều gì?",
+   "answer_atom": "Gặp sao Không, thêm Hoa Cái, Văn Xương, Văn Khúc mà không được cát hóa: con cái có tư tưởng lánh đời. Hội hợp Hóa Kỵ: con nhiều nạn tai bệnh tật. Lại có Không Kiếp đồng cung mà không gặp Hoa Cái, Xương Khúc: con cái phá tán gia tài.",
+   "source_quote": "gặp sao Không, lại gặp thêm Hoa Cái, Văn Xương, Văn Khúc, nhưng không được cát hóa, sẽ chủ về con cái có tư tưởng lánh đời. Hội hợp Hóa Kỵ, chủ về con cái nhiều nạn tai, bệnh tật; lại có Địa Không, Địa Kiếp đồng cung, mà không gặp Hoa Cái, Văn Xương, Văn Khúc, chủ về con cái phá tán gia tài.",
+   "source_page": 642,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "sao:hoa_cai",
+    "hoa:ky",
+    "sao:dia_khong",
+    "sao:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cùng bộ Không-Kiếp: có chất văn thì con đi tu/ẩn dật, không có thì con phá của.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q189",
+   "question": "Thất Sát gặp Tử Vi Hóa Quyền hoặc Tử Vi Hóa Khoa đồng độ chủ về con cái thế nào?",
+   "answer_atom": "Gặp Tử Vi Hóa Quyền đồng độ: có ba con trai nhưng tính cách rất cương, trừ phi có sao phụ tá cát tụ hợp, không thì khó có thành tựu. Đồng độ Tử Vi Hóa Khoa có các sao phụ tá: ắt thành người hữu dụng.",
+   "source_quote": "Thất Sát gặp Tử Vi Hóa Quyền đồng độ, chủ về có ba con trai, nhưng tính cách rất cương; trừ phi có sao Phụ, Tá Cát tụ hợp. [...] Không sẽ khó có thành tựu. Thất Sát đồng độ với Tử Vi Hóa Khoa, có các sao phụ, tá, ắt sẽ thành người hữu dụng.",
+   "source_page": 642,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "star:tu_vi",
+    "hoa:quyen",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Quyền cho số trai nhưng cương quá; Khoa thì con thành người hữu dụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q190",
+   "question": "Thất Sát nhập miếu gặp 'sao đôi' hay 'sao lẻ' phụ tá cát khác nhau thế nào?",
+   "answer_atom": "Gặp 'sao đôi' phụ tá cát: con cái thành tài nhưng có con trai rất muộn, hoặc sinh con gái trước sinh con trai sau mới chủ về có con nối dõi. Gặp 'sao lẻ' phụ tá: kế thất hoặc người bên ngoài sinh con trai, cũng chủ về thành người hữu dụng.",
+   "source_quote": "Thất Sát nhập miếu, gặp “sao đôi” phụ, tá cát, chủ về con cái thành tài, nhưng có con trai rất muộn; hoặc sinh con gái trước, sinh con trai sau, mới chủ về có con nối dõi. Gặp “sao lẻ” phụ, tá, chủ về kế thất hoặc người bên ngoài sinh con trai, cũng chủ về thành người hữu dụng.",
+   "source_page": 643,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "concept:sao_doi_sao_le"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sao đôi: trai muộn mà thành tài; sao lẻ: trai dòng thứ vẫn nên người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q191",
+   "question": "Thất Sát ở cung Tử Nữ ít con thì luận người dưới quyền thế nào, và vì sao không nên bắt rể?",
+   "answer_atom": "Nếu cung Thân hay cung Mệnh gặp sao phụ tá hoặc chủ tinh Tử Vi, Thiên Phủ được 'bách quan triều củng': vẫn chủ về bản thân có nhiều người dưới quyền, chỉ ít môn sinh đệ tử hay hậu bối thân tín. Thất Sát độc tọa gặp sát kỵ hình hao: con cái gian nan, thậm chí không có con trai, nhưng không nên bắt rể — e rằng sẽ phản kháng; quan hệ hậu bối thân tín cũng luận tương tự.",
+   "source_quote": "Thất Sát ở cung Tử Nữ tuy chủ về ít con cái, nhưng nếu cung Thân hay cung Mệnh gặp các sao phụ, tá hoặc các chủ tinh như Tử Vi, Thiên Phủ được “bách quan triều củng”, thì vẫn chủ về bản thân có nhiều người dưới quyền [...] Thất Sát độc tọa, gặp các sao sát, kị, hình, hao, thường thường con cái gian nan, thậm chí không có con trai, nhưng không nên bắt rể, e rằng sẽ phản kháng.",
+   "source_page": 643,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "concept:bach_quan_trieu_cung",
+    "concept:o_re",
+    "concept:hau_boi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát ít con nhưng Mệnh/Thân mạnh thì vẫn đông quân; đừng ép rể vào nhà.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q192",
+   "question": "Thất Sát ở cung Tử Nữ cần xem Thiên Phủ đối cung để luận điều gì?",
+   "answer_atom": "Cần xem Thiên Phủ của đối cung là 'kho phủ đầy ắp' hay 'kho lộ', 'kho trống' để luận đoán mức độ con cái hưởng thụ tài lộc của cha mẹ.",
+   "source_quote": "Thất Sát ở cung Tử Nữ, cẩn phải xem Thiên Phủ của đối cung là “kho phủ đầy ắp” hay “kho lộ”, “kho trống”, để luận đoán mức độ con cái hưởng thụ tài lộc của cha mẹ.",
+   "source_page": 643,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "star:thien_phu",
+    "concept:kho_lo_kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát luôn đối Phủ — kho Phủ đo phần lộc con được hưởng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q193",
+   "question": "Thất Sát ở Tý hoặc Ngọ ưa và ngại tổ hợp nào?",
+   "answer_atom": "Ưa Vũ Khúc Hóa Lộc triều củng, rất ngại Vũ Khúc Hóa Kỵ: thường chủ về bị tàn tật; sát tinh nhẹ thì lúc sinh phải phẫu thuật, còn chủ về con đầu sinh thiếu tháng. Hội Phá Quân Hóa Lộc, Tham Lang Hóa Kỵ: người bên ngoài sinh con trai, còn chủ về con cái bị thất bại gây ảnh hưởng gia nghiệp.",
+   "source_quote": "Thất Sát ở hai cung Tý hoặc Ngọ, ưa Vũ Khúc Hóa Lộc triều củng, mà rất ngại Hóa Kỵ, thường thường chủ về bị tàn tật; sát tinh nhẹ thì chủ về lúc sinh phải phẫu thuật, còn chủ về con đẩu sinh thiếu tháng. Nếu hội Phá Quân Hóa Lộc, Tham Lang Hóa Kỵ, chủ về người bên ngoài sinh con trai, còn chủ về con cái bị thất bại gây ảnh hưởng đến gia nghiệp.",
+   "source_page": 643,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "vi_tri:ty_ngo",
+    "star:vu_khuc",
+    "hoa:loc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát Tý/Ngọ sống nhờ Vũ Lộc, chết vì Vũ Kỵ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q194",
+   "question": "Thất Sát ở Dần hoặc Thân chủ về con cái và hậu bối thế nào?",
+   "answer_atom": "Gặp sao phụ tá cát: có thể ba bốn con nhưng sinh con gái trước tốt hơn; gặp thêm sát tinh: bị người được mệnh tạo đề bạt phản bội. Con cái quật cường, sống cô lập, cần chú ý giáo dục, đặc biệt về quan hệ nhân tế; hậu bối kiêu ngạo không chịu bị điều khiển, lúc cất nhắc người thân tín cần lưu ý.",
+   "source_quote": "Thất Sát ở hai cung Dần hoặc Thân, nếu gặp các sao phụ, tá cát, có thể có ba bốn người con, nhưng sinh con gái trước thì tốt hơn. [...] con cái quật cường, sống cô lập, cần chú ý giáo dục, đặc biệt là về phương diện quan hệ nhân tế. Cũng chủ về hậu bối kiêu ngạo, không chịu bị điều khiển, nên lúc bất người thân tín cẩn phải lưu ý.",
+   "source_page": 643,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "vi_tri:dan_than",
+    "concept:hau_boi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con và lính đều ương ngạnh — dạy kỹ năng đối nhân xử thế.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q195",
+   "question": "Thất Sát ở Thìn hoặc Tuất chủ về con cái thế nào, và cung hạn nào then chốt?",
+   "answer_atom": "Khí chất ôn hòa hơn; gặp Văn Xương, Văn Khúc có thể bồi dưỡng thành nhân tài khoa học kỹ thuật; ở cung Tuất ưu hơn. Ở cung Thìn: muộn có con trai, nếu không con cũng nhiều nạn tai bệnh tật; Liêm Trinh Hóa Kỵ thì càng xấu. Gặp cát tinh và cát hóa: con tay trắng làm nên; gặp sát kỵ hình hao: phần nhiều bị hình khắc hoặc vì lý tưởng quá cao mà thất bại. Cung hạn tử nữ do Vũ Khúc, Liêm Trinh, Thiên Phủ, hay Thiên Tướng tọa thủ là then chốt.",
+   "source_quote": "Thất Sát ở hai cung Thìn hoặc Tuất, khí chất ôn hòa hơn; gặp Văn Xương, Văn Khúc thì có thể bồi dưỡng thành nhân tài khoa học kỹ thuật. Trường hợp ở cung Tuất ưu hơn. Ở cung Thìn, chủ về muộn có con trai, nếu không con cái cũng nhiều nạn tai, bệnh tật. [...] Trinh Hóa Kỵ thì càng xấu. Gặp cát tinh và cát hóa, con cái tay trắng làm nên. Gặp các sao sát, kị, hình, hao thì phần nhiều đều bị hình khắc, hoặc vì lí tưởng quá cao mà dẫn đến thất bại.",
+   "source_page": 643,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:that_sat",
+    "vi_tri:thin_tuat",
+    "star:liem_trinh",
+    "hoa:ky",
+    "cung_han:then_chot"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát Thìn/Tuất hiền nhất nhà Sát; Tuất hơn Thìn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q196",
+   "question": "Phá Quân ở cung Tử Nữ (5.4.14) chủ về con trai đầu lòng thế nào?",
+   "answer_atom": "Sinh con trai đầu lòng ắt sẽ có sự cố: hoặc phá tướng, nói cà lăm, khó sinh, sinh thiếu tháng, hoặc cho làm con nuôi — phải xem tổ hợp sao thực tế mà định. Vì vậy sinh con gái đầu lòng thì tốt hơn. Gặp 'sao lẻ' phụ tá: kế thất hoặc nhị phòng sinh con trai. Gặp thêm Văn Xương, Văn Khúc, các sao Đào Hoa: chủ về ở rể.",
+   "source_quote": "Phá Quân ở cung tử nữ, sinh con trai đẩu lòng ắt sẽ có sự cố, hoặc bị phá tướng, nói cà lăm, hay khó sinh, sinh thiếu tháng, hoặc cho làm con nuôi. Cần phải xem tổ hợp sao thực tế mà định. Vì vậy Phá Quân ở cung tử nữ, sinh con gái đầu lòng thì tốt hơn. [...] Nếu gặp thêm Văn Xương, Văn Khúc, các sao Đào Hoa, thì chủ về ở rể.",
+   "source_page": 644,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:pha_quan",
+    "concept:o_re"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Quân: trai đầu ắt trục trặc — mở hàng bằng con gái là lành.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q197",
+   "question": "Phá Quân có Hỏa Tinh đồng độ, hoặc ở Dần/Thân mà Thân-Mệnh gặp Hỏa Linh, chủ về điều gì?",
+   "answer_atom": "Có Hỏa Tinh đồng độ: cha con chia lìa. Ở Dần hoặc Thân, nếu cung Thân hay cung Mệnh gặp Hỏa Tinh, Linh Tinh: cũng chủ về hai đời chia li.",
+   "source_quote": "Phá Quân có Hỏa Tinh đồng độ, chủ về cha con chia lìa. Phá Quân ở hai cung Dần hoặc Thân, nếu cung thân hay cung mệnh gặp Hỏa Tinh, Linh Tinh, cũng chủ về hai đời chia li.",
+   "source_page": 644,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:pha_quan",
+    "sao:hoa_tinh",
+    "sao:linh_tinh",
+    "vi_tri:dan_than",
+    "concept:chia_li"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hỏa vào Phá: cha con mỗi người một ngả.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q198",
+   "question": "Phá Quân hội sát kỵ hình, hoặc hội Vũ Khúc Hóa Kỵ, chủ về điều gì?",
+   "answer_atom": "Hội sát kỵ hình: chủ về hình khắc, dù có con trai cũng không nhờ cậy được. Hội Vũ Khúc Hóa Kỵ, có Hỏa Linh, Không Kiếp hội chiếu: con trai có thể bị tàn tật.",
+   "source_quote": "Phá Quân hội các sao sát, kị, hình, chủ về hình khắc, dù có con trai cũng không nhờ cậy được. Nếu hội Vũ Khúc Hóa Kỵ, có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp hội chiếu, thì con trai có thể bị tàn tật.",
+   "source_page": 644,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:pha_quan",
+    "star:vu_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ + Hỏa Linh Không Kiếp quanh Phá: cảnh báo tàn tật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q199",
+   "question": "Vì sao luận Phá Quân ở cung Tử Nữ phải xét Thiên Tướng?",
+   "answer_atom": "Vì Phá Quân ở cung tử nữ ắt sẽ gặp Thiên Tướng vây chiếu; Thiên Tướng được 'Tài ấm giáp ấn' hoặc bị 'Hình kỵ giáp ấn' đều có ảnh hưởng đối với cung tử nữ.",
+   "source_quote": "Phá Quân ở cung tử nữ ắt sẽ gặp Thiên Tướng vây chiếu; Thiên Tướng được “Tài Ấm Giáp Ấn”, hoặc bị “Hình Kỵ Giáp Ấn”, đều có ảnh hưởng đối với cung tử nữ.",
+   "source_page": 644,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:pha_quan",
+    "star:thien_tuong",
+    "concept:tai_am_giap_an",
+    "concept:hinh_ky_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá luôn đối Tướng — thế giáp của Tướng dội thẳng vào cung con.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q200",
+   "question": "Phá Quân có sao lộc với sát tinh nhẹ, và Phá Quân Hóa Lộc với sát tinh nặng, khác nhau thế nào?",
+   "answer_atom": "Sao lộc + sát nhẹ: con cái bị nạn tai bệnh tật hung hiểm nhưng rốt cuộc có thể hóa giải; cũng chủ về con tay trắng làm nên sự nghiệp. Phá Quân Hóa Lộc + sát nặng: thường chính thất sinh con trai nhưng khó nuôi, kế thất hoặc thứ thất sinh con trai thì tốt hơn.",
+   "source_quote": "Phá Quân có sao lộc, sát tinh nhẹ, thì con cái bị nạn tai, bệnh tật hung hiểm, nhưng rốt cuộc có thể hóa giải; cũng chủ về con cái có thể tay trắng làm nên sự nghiệp. Phá Quân Hóa Lộc, sát tinh nặng, thường thường chủ về chính thất sinh con trai nhưng khó nuôi, kế thất hoặc thứ thất sinh con trai thì tốt hơn.",
+   "source_page": 644,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:pha_quan",
+    "hoa:loc",
+    "concept:sao_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lộc của Phá: cứu được nạn, nhưng sát nặng thì trai chính thất vẫn khó nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.4-Q201",
+   "question": "Phá Quân ở Tý hoặc Ngọ gặp 'sao đôi' phụ tá chủ về con cái thế nào?",
+   "answer_atom": "Chủ về có ba con nhưng tính cương, dễ có ngăn cách giữa hai đời; nên chú ý điều hòa quan hệ với hậu bối thân tín, nhưng chủ về có đệ tử giỏi. Gặp Liêm Trinh Hóa Lộc: hai đời có tình thâm.",
+   "source_quote": "Phá Quân ở hai cung Tí hoặc Ngọ, gặp “sao đôi” phụ tá, chủ về có ba con, nhưng tính cương, dễ có sự ngăn cách giữa hai đời. Nên chú ý điều hòa mối hệ với hậu bối thân tín, nhưng chủ về có đệ tử giỏi. Gặp Liêm Trinh Hóa Lộc, thì hai đời có tình thâm.",
+   "source_page": 644,
+   "section_id": "5.4",
+   "tags": [
+    "palace:tu_tuc",
+    "star:pha_quan",
+    "vi_tri:ty_ngo",
+    "star:liem_trinh",
+    "hoa:loc",
+    "concept:hau_boi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Tý/Ngọ (cách Anh Tinh Nhập Miếu): con cứng đầu nhưng có trò giỏi; Liêm Lộc hàn gắn tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}

@@ -1,0 +1,2284 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.6",
+ "section_title": "Cung Tật Ách (1)",
+ "pages": [
+  701,
+  702,
+  703,
+  704,
+  705,
+  706,
+  707,
+  708,
+  709,
+  710,
+  711,
+  712,
+  713,
+  714,
+  715,
+  716
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.6-Q001",
+   "question": "Thiên Cơ, Thiên Lương ở cung Tật Ách gặp sát kị và sao Đào Hoa, Văn Xương, Văn Khúc tụ tập thì nữ mệnh chủ về bệnh gì?",
+   "answer_atom": "Thiên Cơ, Thiên Lương gặp các sao sát, kị, có Đào Hoa, Văn Xương, Văn Khúc tụ tập, lại gặp thêm các tạp diệu hư, hao, hình, nguyệt thì nữ mệnh là ung thư tử cung, nhẹ cũng chủ về bệnh tử cung.",
+   "source_quote": "\"Thiên Cơ, Thiên Lương\" gặp các sao sát, kị, mà có các sao Đào Hoa, Văn Xương, Văn Khúc tụ tập, lại gặp thêm các tạp diệu hư, hao, hình, nguyệt, nữ mệnh là ung thư tử cung, nhẹ cũng chủ về bệnh tử cung.",
+   "source_page": 701,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "star:thien_luong",
+    "disease:tu_cung",
+    "disease:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tật Ách (疾厄) = cung bệnh tật tai ách",
+    "viet_thuan": "Cơ Lương + sát kị + đào hoa văn tinh + tạp diệu hư hao hình nguyệt → nữ dễ bệnh/ung thư tử cung.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q002",
+   "question": "Thiên Cơ thủ cung Tật Ách gặp Kình Dương, Thiên Hình đồng độ chủ về gì? Gặp Phi Liêm, Thiên Nguyệt thì sao?",
+   "answer_atom": "Thiên Cơ thủ Tật Ách không ưa Kình Dương, Thiên Hình đồng độ, chủ về phẫu thuật dạ dày hay đường ruột. Có Phi Liêm, Thiên Nguyệt đồng độ là điểm tượng trùng sán, khuynh hướng gan nhiễm ấu trùng; đồng độ với Thiên Lương càng dễ ứng nghiệm.",
+   "source_quote": "Hỗ Thiên Cơ thủ cung Tật Ách, đều không ưa Kình Dương, Thiên Hình đồng độ, chủ về phẫu thuật dạ dày hay đường ruột; nếu có Phi Liêm, Thiên Nguyệt đồng độ, thì đây là điểm tượng trùng sán, thường có khuynh hướng gan nhiễm ấu trùng (Clonorchiasis), lúc đồng độ với Thiên Lương càng dễ ứng nghiệm.",
+   "source_page": 701,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "disease:da_day",
+    "disease:ruot",
+    "disease:gan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đồng độ (同度) = cùng đóng một cung",
+    "viet_thuan": "Cơ + Kình/Hình → mổ dạ dày-ruột; Cơ + Phi Liêm/Thiên Nguyệt → giun sán, gan nhiễm ấu trùng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q003",
+   "question": "Tổ hợp Thiên Cơ, Thiên Lương ở cung Tật Ách đối với nữ mệnh còn chủ về điều gì về sinh nở?",
+   "answer_atom": "Tổ hợp Thiên Cơ, Thiên Lương đối với nữ mệnh chủ về dễ sinh thiếu tháng, sinh khó; có Hỏa Tinh, Thiên Mã đồng độ thì càng đúng.",
+   "source_quote": "Tổ hợp \"Thiên Cơ, Thiên Lương\", đối với nữ mệnh lại chủ về dễ sinh thiếu tháng, sinh khó; có Hỏa Tinh, Thiên Mã đồng độ thì càng đúng.",
+   "source_page": 701,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "star:thien_luong",
+    "disease:sinh_no"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nữ mệnh Cơ Lương ở Tật Ách dễ sinh non, sinh khó; thêm Hỏa Tinh + Thiên Mã càng nghiệm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q004",
+   "question": "Thiên Cơ, Thiên Lương hội hợp Thái Âm Hóa Kỵ thì bệnh lý thế nào, các sao cát hóa có hóa giải được không?",
+   "answer_atom": "Khi Cơ Lương hội Thái Âm Hóa Kỵ, Thiên Cơ ắt Hóa Lộc và Thiên Lương đồng thời Hóa Quyền, nhưng các cát hóa này không đủ sức hóa giải bệnh tật. Do Thái Âm Hóa Kỵ nên thường biểu hiện chứng âm hư dương kháng; vãn niên thị lực và thính giác suy thoái, còn dễ trúng phong dẫn đến bại liệt tay chân.",
+   "source_quote": "Nếu \"Thiên Cơ, Thiên Lương\" hội hợp với Thái Âm Hóa Kỵ, Thiên Cơ ắt sẽ Hóa Lộc, Thiên Lương cũng sẽ đồng thời Hóa Quyền, những sao cát hóa này không đủ sức hóa giải bệnh tật. Do Thái Âm Hóa Kỵ, nên thường biểu hiện chứng âm hư dương kháng, ở tuổi vãn niên, biểu hiện là thị lực và thính giác đều suy thoái, còn dễ trúng phong, dẫn đến bại liệt tay chân.",
+   "source_page": 701,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "star:thien_luong",
+    "star:thai_am",
+    "transform:hoa_ky",
+    "disease:mat",
+    "disease:tai",
+    "disease:trung_phong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm hư dương kháng (陰虛陽亢) = phần âm suy, phần dương bốc lên",
+    "viet_thuan": "Âm Kỵ kéo theo Cơ Lộc + Lương Quyền vẫn không cứu được: già yếu mắt tai, dễ tai biến liệt chân tay.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q005",
+   "question": "Thái Dương ở cung Tật Ách thuộc hành gì, kinh gì, và lúc nhập miếu chủ về bệnh gì?",
+   "answer_atom": "Thái Dương thuộc hỏa, là Kinh Dương Minh. Lúc Thái Dương nhập miếu ắt chủ về Kinh Dương Minh hỏa thịnh, dễ choáng ngất, đau đầu kinh niên — đây là chứng huyết áp cao.",
+   "source_quote": "Thái Dương thuộc hỏa, là Kinh Dương Minh. Cho nên lúc Thái Dương nhập miếu, ắt sẽ chủ về Kinh Dương Minh hỏa thịnh, dễ choáng ngất, đau đầu kinh niên. Đây là chứng huyết áp cao.",
+   "source_page": 701,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "disease:huyet_ap",
+    "disease:dau_dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kinh Dương Minh (陽明經) = một trong sáu kinh Đông y",
+    "viet_thuan": "Thái Dương miếu ở Tật Ách = hỏa vượng, dễ cao huyết áp, choáng, đau đầu lâu năm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q006",
+   "question": "Thái Dương thủ cung Tật Ách chủ về bệnh mắt như thế nào, ghét những cung và sao nào nhất?",
+   "answer_atom": "Thái Dương thuộc Lệ hỏa nên chủ về mắt; thủ Tật Ách ắt có bệnh mắt như cận thị, loạn thị, lòa mắt. Rất ghét ở cung Ngọ (ánh sáng quá thịnh) và cung Tuất (mặt trời lặn về tây). Gặp sát tinh thường phải phẫu thuật mắt; sát kị trùng trùng lại có Thiên Hình, Thiên Nguyệt, Địa Không, Địa Kiếp, Phục Binh, Phi Liêm hội hợp thường chủ về mù lòa; đặc biệt ghét hội Văn Xương, Văn Khúc Hóa Kỵ.",
+   "source_quote": "Hễ Thái Dương thủ cung Tật Ách, ắt sẽ có bệnh tật ở mắt, như cận thị, loạn thị, lòa mắt, v.v... gặp các sao sát, kị trùng trùng, lại còn có các sao Thiên Hình, Thiên Nguyệt, Địa Không, Địa Kiếp, Phục Binh, Phi Liêm hội hợp, thường chủ về mù lòa; đặc biệt rất ghét hội hợp với Văn Xương, Văn Khúc Hóa Kỵ.",
+   "source_page": 701,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "disease:mat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lệ hỏa = hỏa của mặt trời",
+    "viet_thuan": "Thái Dương tại Tật Ách gần như chắc có tật mắt; xấu nhất ở Ngọ/Tuất, sát kị chồng chất có thể mù.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q007",
+   "question": "Kinh Dương Minh hỏa thịnh của Thái Dương ảnh hưởng đến phế và đại trường ra sao? Đà La và Kình Dương phân biệt thế nào?",
+   "answer_atom": "Kinh Dương Minh hỏa thịnh ảnh hưởng đến kinh phế và kinh đại trường, nên chủ về bệnh đường hô hấp hoặc táo bón, từ đó có thể dẫn đến trĩ, đại tiện ra máu. Có Đà La đồng độ phần nhiều bệnh ở kinh phế; có Kình Dương đồng độ thì bệnh ở đại trường. Theo Đông y phế và đại trường có quan hệ biểu lí nên liên quan nhau nhưng vẫn có phân biệt.",
+   "source_quote": "Kinh đại trường, cho nên chủ về bệnh đường hô hấp hoặc đại tiện táo kết (táo bón), từ đó có thể dẫn đến bệnh trĩ, đại tiện ra máu. Có Đà La đồng độ, phần nhiều chủ về bệnh ở kinh phế. Có Kình Dương đồng độ thì chủ về bệnh ở đại trường.",
+   "source_page": 702,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "disease:phoi",
+    "disease:dai_trang",
+    "disease:tri"
+   ],
+   "commentary": {
+    "han_viet_explain": "Biểu lí (表裏) = quan hệ ngoài-trong giữa hai tạng phủ",
+    "viet_thuan": "Thái Dương hỏa thịnh: + Đà La thiên về phổi, + Kình Dương thiên về ruột già (táo bón, trĩ).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q008",
+   "question": "Tinh hệ Thái Dương, Thái Âm ở Mùi/Thìn khác gì ở Sửu/Tuất tại cung Tật Ách?",
+   "answer_atom": "Ở cung Mùi và Thìn: chủ về kinh dương minh hỏa thịnh mà âm phận không đủ — là rối loạn nội tiết. Ở cung Sửu và Tuất: phần nhiều chủ về chứng hư dương thượng kháng — là đau đầu kinh niên hoặc thiên đầu thống. Rất ghét Thái Dương Hóa Kỵ hoặc Thái Âm Hóa Kỵ, đều chủ về bệnh tật ở mắt, hoặc ở kinh can và đảm.",
+   "source_quote": "Tính hệ \"Thái Dương, Thái Âm\" ở cung Mùi và cung Thìn: Chủ về kinh dương minh hỏa thịnh mà âm phận không đủ. Tính hệ \"Thái Dương, Thái Âm\" ở cung Sửu và cung Tuất: Phần nhiều chủ về chứng hư dương thượng kháng.",
+   "source_page": 702,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thai_am",
+    "disease:noi_tiet",
+    "disease:dau_dau",
+    "disease:mat",
+    "disease:gan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hư dương thượng kháng (虛陽上亢) = dương hư bốc ngược lên trên",
+    "viet_thuan": "Nhật Nguyệt đồng cung: Mùi/Thìn → rối loạn nội tiết; Sửu/Tuất → đau nửa đầu kinh niên; gặp Hóa Kỵ → mắt, gan mật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q009",
+   "question": "Thái Dương, Thái Âm đồng cung với Địa Không, Địa Kiếp gặp sát tinh chiếu và Thiên Hình, Thiên Thương thì chủ về gì?",
+   "answer_atom": "Nếu Thái Dương, Thái Âm đồng cung với Địa Không, Địa Kiếp, gặp sát tinh chiếu, còn hội Thiên Hình, Thiên Thương thì chủ về gù lưng; sát tinh nhẹ thì lưng khòm; cũng chủ về bệnh uốn ván.",
+   "source_quote": "Nếu \"Thái Dương, Thái Âm\" đồng cung với Địa Không, Địa Kiếp, gặp sát tinh chiếu, còn hội Thiên Hình, Thiên Thương, chủ về gù lưng; sát tinh nhẹ thì lưng khòm; cũng chủ về bệnh uốn ván.",
+   "source_page": 702,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thai_am",
+    "disease:xuong",
+    "disease:lung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Nguyệt + Không Kiếp + sát + Hình/Thương → gù lưng, uốn ván; sát nhẹ chỉ khòm lưng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q010",
+   "question": "Thái Dương, Thái Âm giao hội với Văn Xương Văn Khúc hoặc Tả Phụ Hữu Bật mà có sao hóa kỵ thì khác nhau thế nào?",
+   "answer_atom": "Bốn sao Thái Dương, Thái Âm, Văn Xương, Văn Khúc giao hội mà Văn Xương hoặc Văn Khúc hóa làm sao kỵ, cũng chủ về bệnh tật ở mắt. Nếu Thái Dương, Thái Âm, Tả Phụ, Hữu Bật giao hội mà Thái Dương hoặc Thái Âm hóa làm sao kỵ, sẽ chủ về mắt to mắt nhỏ, hoặc thị lực hai mắt mất quân bình.",
+   "source_quote": "Bốn sao Thái Dương, Thái Âm, Văn Xương, Văn Khúc giao hội, mà Văn Xương, Văn Khúc có một sao hóa làm sao kỵ, cũng chủ về bệnh tật ở mắt... mà \"Thái Dương, Thái Âm\" có một sao hóa làm sao kỵ, sẽ chủ về mắt to mắt nhỏ, hoặc thị lực của hai mắt mất quân bình.",
+   "source_page": 702,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thai_am",
+    "star:van_xuong",
+    "star:van_khuc",
+    "disease:mat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Nguyệt + Xương/Khúc Kỵ → bệnh mắt; Nhật Nguyệt + Tả Hữu mà Nhật/Nguyệt Kỵ → hai mắt to nhỏ lệch nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q011",
+   "question": "Sáu sao Thái Dương, Thái Âm, Văn Xương, Văn Khúc, Hỏa Tinh, Linh Tinh giao hội cùng các tạp diệu xấu là điểm tượng gì?",
+   "answer_atom": "Sáu sao này giao hội, lại gặp thêm các sao sát, kị, hình, và Thiên Nguyệt, Âm Sát, Hoa Cái, là điểm tượng rối loạn nội tiết nghiêm trọng. Trường hợp nặng thì bộ phận nào đó trên thân thể bị biến dạng, hoặc cơ quan sinh trưởng không bình thường, bị dị dạng (như hẹp van tim), hoặc bán thân bất toại.",
+   "source_quote": "Sáu sao Thái Dương, Thái Âm, Văn Xương, Văn Khúc, Hỏa Tinh, Linh Tinh giao hội, lại gặp thêm các sao sát, kị, hình, và Thiên Nguyệt, Âm Sát, Hoa Cái, đây là điểm tượng rối loạn nội tiết nghiêm trọng.",
+   "source_page": 702,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thai_am",
+    "disease:noi_tiet",
+    "disease:tim",
+    "disease:di_dang"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tổ hợp 6 sao + tạp diệu xấu → nội tiết rối loạn nặng, có thể biến dạng cơ thể, dị tật tim, liệt nửa người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q012",
+   "question": "Tổ hợp Thái Dương, Cự Môn ở cung Tật Ách khi Thái Dương lạc hãm và khi nhập miếu khác nhau thế nào? Cự Môn Hóa Kỵ chủ về gì?",
+   "answer_atom": "Nhật Cự không ưa Thái Dương lạc hãm: chủ về dương phận không đủ, biểu hiện hạ đường huyết, huyết áp thấp, tay chân lạnh và các chứng nhược. Thái Dương nhập miếu có sát tinh là bệnh khoang miệng, thực quản; cũng dễ đau đầu kinh niên, huyết áp cao, đường huyết cao. Nếu Cự Môn Hóa Kỵ là hỏa đốt kim bị thương, dễ mắc bệnh đường hô hấp; gặp Địa Không, Địa Kiếp đồng cung là điểm tượng tràn khí phổi.",
+   "source_quote": "Tổ hợp sao \"Thái Dương, Cự Môn\", không ưa Thái Dương lạc hãm, chủ về dương phận không đủ, biểu hiện là hạ đường huyết, huyết áp thấp, hoặc tay chân lạnh, và các chứng nhược... Nếu Cự Môn Hóa Kỵ, đây là hỏa đốt kim bị thương, dễ mắc bệnh đường hô hấp.",
+   "source_page": 702,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:cu_mon",
+    "transform:hoa_ky",
+    "disease:huyet_ap",
+    "disease:phoi",
+    "disease:thuc_quan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lạc hãm (落陷) = sao ở cung mất sáng",
+    "viet_thuan": "Nhật hãm → tụt đường huyết, huyết áp thấp; Nhật miếu + sát → miệng-thực quản, cao huyết áp; Cự Kỵ + Không Kiếp → tràn khí phổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q013",
+   "question": "Thái Dương, Cự Môn đồng cung với Đà La, Thiên Hình, Thiên Nguyệt thì dễ mắc bệnh gì?",
+   "answer_atom": "Thái Dương, Cự Môn đồng cung với Đà La, Thiên Hình, Thiên Nguyệt cũng dễ bị bán thân bất toại.",
+   "source_quote": "\"Thái Dương, Cự Môn\" đồng cung với Đà La, Thiên Hình, Thiên Nguyệt, cũng dễ bị bán thân bất toại.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:cu_mon",
+    "disease:trung_phong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bán thân bất toại (半身不遂) = liệt nửa người",
+    "viet_thuan": "Nhật Cự + Đà La/Thiên Hình/Thiên Nguyệt → nguy cơ liệt nửa người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q014",
+   "question": "Tổ hợp Thái Dương, Thiên Lương ở cung Tật Ách dễ biến thành bệnh gì, và khi sát kị trùng trùng thì nam nữ khác nhau ra sao?",
+   "answer_atom": "Nhật Lương rất dễ biến thành rối loạn nội tiết, như bướu cổ. Nếu sát kị trùng trùng hội hợp, có Hỏa Tinh, Linh Tinh đồng độ, gặp các sao Thiên Hư, Âm Sát, Thiên Nguyệt, Đại Hao, Thiên Đức, Thiên Hình: nữ mệnh chủ về viêm tuyến vú cấp tính, ung thư vú; đàn ông chủ về viêm dạ dày cấp tính, ung thư dạ dày.",
+   "source_quote": "Tổ hợp \"Thái Dương, Thiên Lương\" rất dễ biến thành rối loạn nội tiết, như bướu cổ... nữ mệnh chủ về bệnh viêm tuyến vú cấp tính, ung thư vú, đàn ông chủ về viêm dạ dày cấp tính, ung thư dạ dày.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thien_luong",
+    "disease:noi_tiet",
+    "disease:vu",
+    "disease:da_day",
+    "disease:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Lương → nội tiết/bướu cổ; sát kị + Hỏa Linh + tạp diệu hung: nữ ung thư vú, nam ung thư dạ dày.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q015",
+   "question": "Bệnh tim và bệnh não bộ của tinh hệ Thái Dương, Thiên Lương khác với tinh hệ Thái Dương, Thái Âm như thế nào?",
+   "answer_atom": "Nhật Nguyệt là tâm thận bất giao, âm dương mất điều hòa, dẫn đến rối loạn nhịp tim, mất ngủ, gây bệnh tim (người xưa cho rằng bệnh não bộ cũng thuộc tạng tâm). Còn Nhật Lương thì bệnh do cơ quan gây ra, như tắc nghẽn mạch máu là một ví dụ.",
+   "source_quote": "Tình hệ \"Thái Dương, Thái Âm\" là tâm thận bất giao, âm đương mất điểu hòa, dẫn đến rối loạn nhịp tim, mất ngủ, gây ra bệnh tim...; còn tình hệ \"Thái Dương, Thiên Lương\" thì bệnh do cơ quan gây ra, như tắc nghẽn mạch máu (vascular thrombosis) là một ví dụ.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thien_luong",
+    "star:thai_am",
+    "disease:tim",
+    "disease:nao"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tâm thận bất giao (心腎不交) = tâm hỏa và thận thủy không tương thông",
+    "viet_thuan": "Cùng bệnh tim-não: Nhật Nguyệt do chức năng (mất ngủ, loạn nhịp); Nhật Lương do thực thể (tắc mạch máu).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q016",
+   "question": "Thái Dương, Thiên Lương có sát tinh còn chủ về tai họa gì ngoài bệnh tật?",
+   "answer_atom": "Nhật Lương có sát tinh cũng chủ về ăn uống trúng độc, hoặc sử dụng ma túy. Trường hợp gặp các sao Hỏa Tinh, Linh Tinh, Âm Sát, Thiên Nguyệt, Thiên Hư, Đại Hao là đúng.",
+   "source_quote": "\"Thái Dương, Thiên Lương\" có sát tinh, cũng chủ về ăn uống trúng độc, hoặc sử dụng ma túy. Trường hợp gặp các sao Hỏa Tinh, Linh Tinh, Âm Sát, Thiên Nguyệt, Thiên Hư, Đại Hao là đúng.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_duong",
+    "star:thien_luong",
+    "disease:trung_doc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nhật Lương + sát (đủ bộ Hỏa Linh, Âm Sát, Nguyệt, Hư, Hao) → ngộ độc ăn uống hoặc dính ma túy.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q017",
+   "question": "Vũ Khúc ở cung Tật Ách thuộc hành gì và vì sao chủ về tổn thương?",
+   "answer_atom": "Vũ Khúc thuộc Kim, chủ về bệnh đường hô hấp. Kim có khí 'tiêu sát' nên chủ về tổn thương, nhất là tổ hợp Vũ Khúc, Thất Sát. Hễ Vũ Khúc thủ cung Tật Ách có các sao Kình Dương, Đà La, Thiên Hình, đều có khuynh hướng bị phẫu thuật hoặc tổn thương.",
+   "source_quote": "Vũ Khúc thuộc Kim, chủ về bệnh đường hô hấp. Kim có khí \"tiêu sát\", cho nên chủ về tổn thương, nhất là tổ hợp \"Vũ Khúc, Thất Sát\". Hễ Vũ Khúc thủ cung Tật Ách, có các sao Kình Dương, Đà La, Thiên Hình, đều có khuynh hướng bị phẫu thuật hoặc tổn thương.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "disease:phoi",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiêu sát (肅殺) = khí thu liễm, sát phạt của hành Kim",
+    "viet_thuan": "Vũ Khúc Kim → hô hấp + dao kéo; gặp Kình/Đà/Hình thì dễ mổ xẻ, chấn thương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q018",
+   "question": "Vũ Khúc đồng độ với các sát tinh Hỏa Tinh, Linh Tinh, Thiên Mã, Thiên Khốc, Thiên Hư, Địa Không, Địa Kiếp cho các điểm tượng bệnh gì?",
+   "answer_atom": "Vũ Khúc đồng độ với Hỏa Tinh, Linh Tinh chủ về bị thương do kim loại. Đồng cung với Hỏa Tinh, Thiên Mã, Thiên Khốc, Thiên Hư chủ về chảy máu mũi; gặp thêm Địa Không, Địa Kiếp thì chủ về viêm khí quản, bệnh lao; sát tinh nhẹ là chứng ho.",
+   "source_quote": "Vũ Khúc đồng cung với Hỏa Tinh, Thiên Mã, Thiên Khốc, Thiên Hư, chủ về chảy máu mũi; gặp thêm Địa Không, Địa Kiếp, thì chủ về các bệnh như viêm khí quản, bệnh lao; sát tinh nhẹ là chủ về chứng ho.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "disease:mui",
+    "disease:phoi",
+    "disease:lao"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ + Hỏa/Linh → thương tích kim loại; + Hỏa Mã Khốc Hư → chảy máu cam; thêm Không Kiếp → viêm khí quản, lao.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q019",
+   "question": "Vũ Khúc thủ cung Tật Ách chủ về bệnh gì lúc bé và lúc vãn niên? Khi đồng độ Kình Đà lại có Hỏa Tinh thì sao?",
+   "answer_atom": "Vũ Khúc thủ Tật Ách chủ về lúc bé dễ bị ho gà, vãn niên dễ bị chứng phong đàm. Nếu đồng độ với Kình Dương, Đà La lại có Hỏa Tinh, thì hỏa làm kim bị tổn thương, chủ về bệnh đường hô hấp.",
+   "source_quote": "Vũ Khúc thủ cung Tật Ách, cũng chủ về lúc bé dễ bị ho gà (whooping cough), vẫn niên thì dễ bị chứng phong đàm. Nếu Vũ Khúc đồng độ với Kình Dương, Đà La, lại có Hỏa Tinh, thì hỏa làm kim bị tổn thương, chủ về bệnh đường hô hấp.",
+   "source_page": 703,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "disease:phoi",
+    "disease:ho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phong đàm (風痰) = chứng đàm kết do phong",
+    "viet_thuan": "Vũ Khúc: nhỏ hay ho gà, già hay phong đàm; Kình Đà + Hỏa = hỏa khắc kim, bệnh hô hấp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q020",
+   "question": "Vũ Khúc gặp Hóa Kỵ với tạp diệu không cát tường chủ về bệnh gì? Thiên Mã đồng độ cần đề phòng gì?",
+   "answer_atom": "Vũ Khúc gặp Hóa Kỵ, nếu hội tạp diệu không cát tường thì chủ về ung thư phổi hoặc khí quản bị bệnh nghiêm trọng; có Thiên Mã đồng độ cần đề phòng ung thư di căn.",
+   "source_quote": "Vũ Khúc gặp Hóa Kỵ, nếu hội tạp diệu không cát tường, thì chủ về ung thư phổi hoặc khí quản bị bệnh nghiêm trọng; có Thiên Mã đồng độ, cần để phòng bệnh ung thư di căn.",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "transform:hoa_ky",
+    "disease:phoi",
+    "disease:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Kỵ + tạp diệu xấu → ung thư phổi/khí quản; thêm Thiên Mã (sao động) → di căn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q021",
+   "question": "Những tổ hợp Vũ Khúc nào có khuynh hướng ung thư, khối u, loét, và mỗi tổ hợp còn chủ riêng bệnh gì?",
+   "answer_atom": "Các tổ hợp có khuynh hướng ung thư, khối u, loét là 'Vũ Khúc, Thất Sát' và 'Vũ Khúc, Phá Quân'. Kỵ nhất đồng cung với Hỏa Tinh, Thiên Mã; hoặc gặp các tạp diệu Thiên Đức, Thiên Thương, Thiên Hình, Thiên Hư, Đại Hao, Âm Sát, Kiếp Sát. Vũ Sát còn chủ về sốt bại liệt ở trẻ em, chứng chó dại; Vũ Phá chủ về bệnh răng, nhất là nha chu.",
+   "source_quote": "Các tổ hợp sao có khuynh hướng mắc bệnh ung thư, có khối u, loét, là \"Vũ Khúc, Thất Sát\" và \"Vũ Khúc, Phá Quân\". Kỵ nhất là đồng cung với Hỏa Tinh, Thiên Mã... \"Vũ Khúc, Thất Sát\" còn chủ về chứng sốt bại liệt ở trẻ em, chứng chó dại. \"Vũ Khúc, Phá Quân\" thì chủ về bệnh răng, nhất là bệnh nha chu.",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "star:that_sat",
+    "star:pha_quan",
+    "disease:ung_thu",
+    "disease:rang"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Sát/Vũ Phá là hai cặp dễ u-loét-ung thư; Vũ Sát thêm bại liệt trẻ em, Vũ Phá thêm bệnh răng lợi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q022",
+   "question": "Gặp cung hạn Tật Ách do Vũ Khúc, Thất Sát giữ cung cần đề phòng những tai nạn gì?",
+   "answer_atom": "Cần đề phòng tai nạn bất trắc gây tổn thương, như bị vật nặng đè hoặc sét đánh (thời hiện đại có thể là điện giật); còn chủ về vì bị trộm cướp mà bị thương.",
+   "source_quote": "Nếu gặp cung hạn Tật Ách do tổ hợp \"Vũ Khúc, Thất Sát\" giữ cung, cần để phòng tai nạn bất trắc gây tổn thương, như bị vật nặng đè hoặc sét đánh (ở thời hiện đại có thể là điện giật); còn chủ về vì bị trộm cướp mà bị thương.",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "star:that_sat",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cung hạn = cung của Đại Vận/Lưu Niên",
+    "viet_thuan": "Hạn Tật Ách gặp Vũ Sát: coi chừng vật nặng đè, điện giật, bị cướp đả thương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q023",
+   "question": "Tổ hợp Vũ Khúc, Thiên Phủ ở cung Tật Ách gặp sao kỵ và sát tinh chủ về gì?",
+   "answer_atom": "Vũ Khúc, Thiên Phủ gặp sao kỵ và sát tinh là chủ về tai nạn sông nước; nhưng cũng chủ về bệnh hen suyễn, kéo đàm, tràn khí phổi.",
+   "source_quote": "Tổ hợp \"Vũ Khúc, Thiên Phủ\" gặp sao kỵ và sát Tinh, là chủ về tai nạn sông nước; nhưng cũng chủ về bệnh hen suyễn, kéo đàm, tràn khí phổi (pulmonary emphysema).",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "disease:phoi",
+    "disease:hen_suyen"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vũ Phủ + kỵ sát → nạn sông nước, hoặc hen suyễn, tràn khí phổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q024",
+   "question": "Hai tổ hợp Vũ Khúc, Thiên Tướng và Vũ Khúc, Phá Quân gặp sát tinh chủ về gì? Vũ Tướng riêng còn chủ những bệnh nào?",
+   "answer_atom": "Hai tổ hợp này gặp sát tinh còn chủ về bị phá tướng, đề phòng té ngã bất trắc và nhiễm trùng, nhất là ở mặt. Vũ Tướng còn chủ về bị thương có sẹo, bị phẫu thuật, hoặc đau ruột non; phá tướng ở hàm dưới, chân tóc, hoặc đầu lưỡi; cũng chủ về ám tật, bệnh kín — nữ mệnh nên đề phòng bệnh tử cung và đường sinh dục.",
+   "source_quote": "Hai tổ hợp sao \"Vũ Khúc, Thiên Tướng\" và \"Vũ Khúc, Phá Quân\", nếu gặp sát Tinh, còn chủ về bị phá tướng, để phòng tai nạn té ngã bất trắc và bị nhiễm trùng, nhất là ở bộ phận mặt... \"Vũ Khúc, Thiên Tướng\" cũng chủ về ám tật, bệnh kín. Nhất là nữ mệnh, nên để phòng bệnh tử cung và đường sinh dục.",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "star:pha_quan",
+    "disease:tu_cung",
+    "disease:ruot",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phá tướng (破相) = hư hại dung mạo",
+    "viet_thuan": "Vũ Tướng/Vũ Phá + sát → té ngã, sẹo mặt; Vũ Tướng thêm mổ xẻ, ruột non, bệnh kín phụ khoa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q025",
+   "question": "Vũ Khúc Hóa Kỵ gặp Thiên Tướng cùng Hỏa Linh, Thiên Mã, Không Kiếp là điểm tượng gì?",
+   "answer_atom": "Vũ Khúc Hóa Kỵ gặp Thiên Tướng đồng độ hoặc vây chiếu, lại gặp thêm Hỏa Tinh, Linh Tinh, Thiên Mã, Địa Không, Địa Kiếp, là điểm tượng ruột có khối u, có thể dẫn đến ung thư, nhẹ thì viêm đại tràng.",
+   "source_quote": "Vũ Khúc Hóa Kỵ, gặp Thiên Tướng đồng độ hoặc vây chiếu, lại gặp thêm Hỏa Tinh, Linh Tinh, Thiên Mã, Địa Không, Địa Kiếp, thì đây là điểm tượng ruột có khối u, có thể dẫn đến bệnh ung thư, nhẹ thì viêm đại tràng.",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "transform:hoa_ky",
+    "disease:ruot",
+    "disease:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vây chiếu = đối cung chiếu vào",
+    "viet_thuan": "Vũ Kỵ + Tướng + Hỏa Linh Mã Không Kiếp → u ruột, nặng thành ung thư, nhẹ viêm đại tràng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q026",
+   "question": "Vũ Tướng đối Phá Quân hoặc Vũ Phá đối Thiên Tướng gặp sát kỵ hình hao và sao ác trùng trùng có thể phát triển thành bệnh gì?",
+   "answer_atom": "Trường hợp Vũ Tướng đối nhau với Phá Quân, hoặc Vũ Phá đối nhau với Thiên Tướng, nếu gặp các sao sát, kỵ, hình, hao và sao ác trùng trùng, có lúc có thể phát triển thành bệnh xương tủy, hoặc thậm chí là ung thư máu.",
+   "source_quote": "trường hợp tổ hợp \"Vũ Khúc, Thiên Tướng\" đối nhau với Phá Quân, hoặc tổ hợp \"Vũ Khúc, Phá Quân\" đối nhau với Thiên Tướng, nếu gặp các sao sát, kỵ, hình, hao và sao ác trùng trùng, có lúc có thể phát triển thành bệnh xương tủy, hoặc thậm chí là ung thư máu.",
+   "source_page": 704,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "star:pha_quan",
+    "disease:xuong_tuy",
+    "disease:mau",
+    "disease:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Trục Vũ-Tướng-Phá bị sát kỵ hình hao ác tinh dồn dập → bệnh tủy xương, ung thư máu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q027",
+   "question": "Thiên Đồng ở cung Tật Ách thuộc hành gì và chủ về nhóm bệnh nào?",
+   "answer_atom": "Thiên Đồng thuộc Thủy, chủ về bệnh bàng quang, bao gồm các bệnh ở hệ bài tiết, như thoát vị bẹn, sa đì, sưng hòn đái, bệnh lậu, viêm niệu đạo, bệnh thận.",
+   "source_quote": "Thiên Đồng thuộc Thủy, cho nên chủ về bệnh bàng quang, bao gồm các bệnh ở hệ bài tiết, như thoát vị bẹn, sa đĩ, sưng hòn đái, bệnh lậu, viêm niệu đạo, bệnh thận.",
+   "source_page": 705,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "disease:bang_quang",
+    "disease:than",
+    "disease:bai_tiet"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Đồng Thủy → bàng quang và toàn hệ bài tiết-tiết niệu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q028",
+   "question": "Vì sao Thiên Đồng đồng cung với Đà La chủ về bệnh khí quản, phế quản?",
+   "answer_atom": "Do Thủy làm Kim tiết khí, nên lúc Thiên Đồng đồng cung với Đà La thì chủ về bệnh khí quản, ống phế quản.",
+   "source_quote": "Do Thủy làm Kim tiết khí (Thiên Đồng lại thuộc Kim), nên lúc Thiên Đồng đồng cung với Đà La thì chủ về bệnh khí quản, ống phế quản (bronchia, phân nhánh của khí quản).",
+   "source_page": 705,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "disease:phoi",
+    "disease:khi_quan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiết khí (洩氣) = hành này rút khí của hành kia",
+    "viet_thuan": "Đồng (Thủy) + Đà La (Kim): Thủy rút khí Kim → bệnh khí quản, phế quản.",
+    "nguyen_ly": "Nguyên văn in '(Thiên Đồng lại thuộc Kim)' — khả năng lỗi bản in, theo ngũ hành Đà La mới thuộc Kim; giữ nguyên văn để bám sách.",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q029",
+   "question": "Thiên Đồng gặp Hóa Kỵ, hội Thái Âm, hoặc có sao Đào Hoa đồng độ thì lần lượt chủ về bệnh gì?",
+   "answer_atom": "Thiên Đồng chủ về hưởng thụ, nếu gặp Hóa Kỵ sẽ chủ về tiêu chảy. Hội hợp Thái Âm thì chủ về âm hư, biểu hiện là tiêu chảy thuộc hư chứng, kiết lị. Có các sao Đào Hoa đồng độ thì chủ về mộng tinh, di tinh, hoặc tiểu đêm; thảy đều chủ về thận khí bất túc.",
+   "source_quote": "Thiên Đồng chủ về hưởng thụ, nếu gặp Hóa Kỵ, sẽ chủ về tiêu chảy. Nếu Thiên Đồng hội hợp với Thái Âm, thì chủ về âm hư, biểu hiện là tiêu chảy thuộc hư chứng, kiết lị; có các sao Đào Hoa đồng độ thì chủ về mộng tỉnh, di tỉnh, hoặc tiểu đêm; thảy đều chủ về thận khí bất túc.",
+   "source_page": 705,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:thai_am",
+    "transform:hoa_ky",
+    "disease:tieu_hoa",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thận khí bất túc (腎氣不足) = khí thận không đủ",
+    "viet_thuan": "Đồng Kỵ → tiêu chảy; Đồng + Âm → tiêu chảy hư, kiết lị; thêm đào hoa → di mộng tinh, tiểu đêm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q030",
+   "question": "Thiên Đồng lạc hãm đồng độ Hỏa Linh gặp Không Kiếp, hoặc gặp Thiên Nguyệt, Thiên Mã thì các điểm tượng bệnh là gì?",
+   "answer_atom": "Thiên Đồng đồng độ Hỏa Tinh, Linh Tinh, nếu lạc hãm lại gặp Địa Không, Địa Kiếp là điểm tượng bàng quang, niệu đạo bị viêm, hoặc bệnh tuyến tiền liệt; gặp Thiên Nguyệt thì thận khí tiên thiên bất túc, dễ bị nước tiểu đục (albumin niệu). Đồng cung với Thiên Mã chủ về khí hư; lại gặp sát tinh là điểm tượng khí suy, hư tổn, dễ bị các chứng nhược.",
+   "source_quote": "Thiên Đồng đồng độ với Hỏa Tinh, Linh Tinh, nếu Thiên Đồng lạc hãm, lại gặp Địa Không, Địa Kiếp, đây là điểm tượng bàng quang, niệu đạo bị viêm, hoặc bệnh tuyến tiền liệt; gặp Thiên Nguyệt thì thận khí tiên thiên bất túc, dễ bị nước tiểu đục... Thiên Đồng đồng cung với Thiên Mã, chủ về khí hư.",
+   "source_page": 705,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "disease:bang_quang",
+    "disease:tien_liet",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiên thiên (先天) = bẩm sinh",
+    "viet_thuan": "Đồng hãm + Hỏa Linh + Không Kiếp → viêm đường tiểu/tiền liệt; + Nguyệt → đạm niệu; + Mã → khí hư suy nhược.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q031",
+   "question": "Tổ hợp Thiên Đồng, Thái Âm ở cung Tật Ách chủ về gì, và khi Thái Âm Hóa Kỵ thì biến chứng ra sao?",
+   "answer_atom": "Đồng Âm chủ về thấp khí, có thể phát triển thành thủy thũng, bụng trướng. Đồng cung với Hỏa Tinh, Linh Tinh chủ về bệnh do thấp hỏa, dẫn đến tứ chi đau nhức. Nếu Thái Âm Hóa Kỵ là chứng âm hư, hoặc Thủy tràn làm Mộc trôi, dẫn đến viêm gan cổ trướng; phép điều trị là phải củng cố can thận.",
+   "source_quote": "Tổ hợp sao \"Thiên Đồng, Thái Âm\", chủ về thấp khí, có thể phát triển thành thủy thũng, bụng trướng... Nếu Thái Âm Hóa Kỵ, đây là chứng âm hư, hoặc Thủy tràn làm Mộc trôi, dẫn đến viêm gan cổ trướng, phép điều trị là phải củng cố can thận.",
+   "source_page": 705,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:thai_am",
+    "transform:hoa_ky",
+    "disease:gan",
+    "disease:thuy_thung"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủy tràn Mộc trôi = Thủy quá vượng nhấn chìm Mộc",
+    "viet_thuan": "Đồng Âm → ứ nước, phù, trướng bụng; Âm Kỵ → viêm gan cổ trướng, phải bổ gan thận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q032",
+   "question": "Tính chất cơ bản 'đường, ống, dây' của Thiên Đồng, Cự Môn dẫn đến những bệnh gì?",
+   "answer_atom": "Tính chất cơ bản của Đồng Cự là 'đường, ống, dây', nên chủ về bệnh phổi, khí quản, thực quản; cũng chủ về đau thần kinh (vì thần kinh là 'đường, ống, dây' vi tế nhất trong cơ thể). Nếu các sao sát, kỵ, hình, hao tụ tập, có thể phát triển thành bệnh xương tủy, hoặc bệnh tăng bạch cầu.",
+   "source_quote": "Tính chất cơ bản của \"Thiên Đồng, Cự Môn\" là \"đường, ống, dây\", cho nên chủ về bệnh phổi, khí quản, thực quản; cũng chủ về đau thần kinh... Nếu có các sao sát, kỵ, hình, hao tụ tập, có thể phát triển thành bệnh xương tủy, hoặc bệnh tăng bạch cầu.",
+   "source_page": 705,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:cu_mon",
+    "disease:phoi",
+    "disease:than_kinh",
+    "disease:xuong_tuy"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Cự = mọi thứ hình ống trong cơ thể: phổi, khí quản, thực quản, dây thần kinh; nặng thành bệnh tủy, tăng bạch cầu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q033",
+   "question": "Thiên Đồng, Cự Môn gặp sát tinh hoặc Không Kiếp đồng cung chủ về bệnh xương cốt thế nào?",
+   "answer_atom": "Đồng Cự gặp sát tinh hoặc đồng cung Địa Không, Địa Kiếp đều chủ về xương cốt biến dạng, thoái hóa, hoặc tăng sinh, dẫn đến chèn ép dây thần kinh làm đau nhức. Có Hỏa Tinh, Linh Tinh đồng độ thì càng nặng. Nếu có Thiên Hình, Thiên Nguyệt đồng độ thì có thể là bệnh tật suốt đời, như bệnh về xương tủy bẩm sinh.",
+   "source_quote": "Xương cốt biến dạng, thoái hóa, hoặc tăng sinh, dẫn đến chèn ép dây thần kinh, làm đau nhức. Có Hỏa Tinh, Linh Tinh đồng độ thì càng nặng. Nếu có Thiên Hình, Thiên Nguyệt đồng độ, thì có thể là bệnh tật suốt đời, như bệnh về xương tủy bẩm sinh.",
+   "source_page": 706,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:cu_mon",
+    "disease:xuong",
+    "disease:than_kinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Cự + sát/Không Kiếp → thoái hóa-gai xương chèn dây thần kinh; + Hình/Nguyệt → tật xương tủy bẩm sinh suốt đời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q034",
+   "question": "Cổ nhân cho rằng tinh hệ Thiên Đồng, Thiên Lương ở cung Tật Ách chủ về bệnh ở đâu?",
+   "answer_atom": "Cổ nhân cho rằng Đồng Lương chủ về bệnh ở phần dưới (hạ tiêu), tức hệ bài tiết và bệnh đường sinh dục. Trường hợp Thiên Đồng Hóa Kỵ thấy ứng nghiệm nhiều.",
+   "source_quote": "Đối với tinh hệ \"Thiên Đồng, Thiên Lương\", cổ nhân cho rằng chủ về bệnh ở phần dưới (hạ tiêu), tức hệ bài tiết và bệnh đường sinh dục. Trường hợp Thiên Đồng Hóa Kỵ thấy ứng nghiệm nhiều.",
+   "source_page": 706,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:thien_luong",
+    "transform:hoa_ky",
+    "disease:bai_tiet",
+    "disease:sinh_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hạ tiêu (下焦) = phần dưới của tam tiêu trong Đông y",
+    "viet_thuan": "Đồng Lương → bệnh vùng dưới: bài tiết, sinh dục; Đồng Hóa Kỵ ứng nghiệm nhiều nhất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q035",
+   "question": "Thiên Đồng, Thiên Lương gặp Hỏa Linh hoặc các sao Hình Sát Kỵ cùng Thiên Nguyệt, Thiên Đức, Thiên Mã thì chủ về gì?",
+   "answer_atom": "Đồng Lương gặp sát tinh, nhất là Hỏa Tinh, Linh Tinh, sẽ chủ về đau tức vùng gan hoặc lồng tim và khó thở. Nếu gặp các sao Hình, Sát, Kỵ tụ tập, lại thêm Thiên Nguyệt, Thiên Đức, Thiên Mã, thì chủ về tắc nghẽn cơ tim.",
+   "source_quote": "Nếu gặp sát tinh, nhất là gặp Hỏa Tinh, Linh Tinh, sẽ chủ về đau tức vùng gan hoặc lồng tim và khó thở. Có điều nếu gặp các sao Hình, Sát, Kỵ tụ tập, lại có thêm các sao Thiên Nguyệt, Thiên Đức, Thiên Mã, thì chủ về tắc nghẽn cơ tim.",
+   "source_page": 706,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:thien_luong",
+    "disease:tim",
+    "disease:gan"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương + Hỏa Linh → tức vùng gan/ngực khó thở; đủ bộ Hình Sát Kỵ + Nguyệt Đức Mã → nhồi máu cơ tim.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q036",
+   "question": "Thiên Đồng, Thiên Lương đồng cung với Địa Không, Địa Kiếp chủ về bệnh gì?",
+   "answer_atom": "Đồng Lương đồng cung với Địa Không, Địa Kiếp cũng chủ về thoát vị bẹn, sa bì, sưng hòn dái.",
+   "source_quote": "\"Thiên Đồng, Thiên Lương\" đồng cung với Địa Không, Địa Kiếp, cũng chủ về thoát vị bẹn, sa bì, sưng hòn dái.",
+   "source_page": 706,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:thien_luong",
+    "disease:thoat_vi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng Lương + Không Kiếp → thoát vị bẹn, sa ruột, sưng tinh hoàn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q037",
+   "question": "Liêm Trinh ở cung Tật Ách thuộc hành gì, chủ về gì, và người xưa xem vô sinh bằng sao nào?",
+   "answer_atom": "Liêm Trinh thuộc âm hỏa, chủ về huyết, các bệnh liên quan đến máu. Cổ nhân cho rằng 'nam trọng tinh, nữ trọng huyết' nên Liêm Trinh cũng chủ về tinh dịch; xem có bị vô sinh người xưa đều xem Liêm Trinh, bất kể ở cung độ nào. Liêm Trinh ở hãm địa gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, nếu trùng hợp gặp ở cung Tử Nữ, cung Tật Ách hay cung Mệnh của đại hạn, đều đoán là vô sinh.",
+   "source_quote": "Liêm Trinh thuộc âm hỏa, cho nên chủ về huyết, các bệnh liên quan đến máu... Xem có bị vô sinh, người xưa đều xem Liêm Trinh, bất kể ở cung độ nào. Liêm Trinh ở hãm địa mà gặp Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, nếu trùng hợp gặp ở cung Tử Nữ của đại hạn, cung Tật Ách của đại hạn, hay cung Mệnh của đại hạn, đều đoán là vô sinh.",
+   "source_page": 706,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "disease:mau",
+    "disease:vo_sinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nam trọng tinh, nữ trọng huyết (男重精女重血)",
+    "viet_thuan": "Liêm Trinh = sao của máu và tinh; hãm + Hỏa Linh Không Kiếp rơi vào Tử Nữ/Tật Ách/Mệnh đại hạn → đoán vô sinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q038",
+   "question": "Liêm Trinh Hóa Kỵ ở cung Tật Ách chủ về những bệnh gì, từ nhẹ đến nặng?",
+   "answer_atom": "Liêm Trinh Hóa Kỵ là bệnh về máu huyết, như lạc huyết (xuất huyết ở miệng từ đường hô hấp hoặc dạ dày mà không ho, không ợ); cũng chủ về gặp sự cố bất trắc liên quan chảy máu; có thể mở rộng thành phong cùi, giang mai, bệnh lậu. Ứng nghiệm ôn hòa nhất là mụn. Nếu gặp sao hung sát nặng mà còn gặp Vũ Khúc Hóa Kỵ thì chủ về ung thư máu. Nữ mệnh có thể luận đoán là kinh nguyệt khô ít, huyết trắng, kinh nguyệt không điều hòa.",
+   "source_quote": "lúc Liêm Trinh Hóa Kỵ là bệnh về máu huyết, như lạc huyết...; Do đó có thể mở rộng thành bệnh phong cùi, giang mai, bệnh lậu. Ứng nghiệm ôn hòa nhất là mụn. Nếu gặp các sao hung sát nặng, mà còn gặp Vũ Khúc Hóa Kỵ, thì chủ về ung thư máu.",
+   "source_page": 706,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "transform:hoa_ky",
+    "disease:mau",
+    "disease:da",
+    "disease:kinh_nguyet"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lạc huyết (咯血) = khạc/trào máu ra miệng",
+    "viet_thuan": "Liêm Kỵ = bệnh máu: từ mụn (nhẹ nhất) đến xuất huyết, giang mai, lậu; gặp thêm Vũ Kỵ → ung thư máu; nữ thì rối loạn kinh nguyệt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q039",
+   "question": "Liêm Trinh Hóa Kỵ kỵ nhất bị sao nào xung hội, và muốn biết tai ách nghiêm trọng hay không phải xem gì?",
+   "answer_atom": "Liêm Trinh Hóa Kỵ tất kỵ bị Vũ Khúc Hóa Kỵ xung hội — gặp nạn tai chảy máu. Muốn biết tai ách có nghiêm trọng hay không, cần phải xem kèm cung Mệnh và cung Phúc Đức mà định.",
+   "source_quote": "Liêm Trinh Hóa Kỵ tất kỵ bị Vũ Khúc Hóa Kỵ xung hội. Gặp nạn tai chảy máu. Muốn biết tai ách có nghiêm trọng hay không, cần phải xem kèm cung Mệnh và cung Phúc Đức mà định.",
+   "source_page": 707,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "transform:hoa_ky",
+    "disease:mau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Xung hội (沖會) = xung chiếu và hội hợp",
+    "viet_thuan": "Liêm Kỵ gặp Vũ Kỵ xung → tai nạn đổ máu; mức độ nặng nhẹ phải đối chiếu cung Mệnh + Phúc Đức.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q040",
+   "question": "Vì sao Liêm Trinh cũng có thể coi là bệnh về 'khí', và biểu hiện cụ thể là gì?",
+   "answer_atom": "Theo lí luận Đông y, 'huyết' thuộc âm, thuộc 'lý', đối nhau với 'khí'; 'khí' thuộc dương, thuộc 'biểu'. Biểu lý dựa vào nhau, vì vậy Liêm Trinh cũng có thể coi là bệnh về 'khí' — chủ về bệnh phổi, cảm mạo, ho; gặp Hỏa Tinh, Đà La thì bệnh nặng.",
+   "source_quote": "\"Biểu\", \"lý\" dựa vào nhau, vì vậy Liêm Trinh cũng có thể coi là bệnh về \"khí\". Cho nên Liêm Trinh chủ về bệnh phổi, cảm mạo, ho; gặp Hỏa Tinh, Đà La thì bệnh nặng.",
+   "source_page": 707,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "disease:phoi",
+    "disease:ho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm dương biểu lý (陰陽表裏) = cặp phạm trù bệnh lý Đông y",
+    "viet_thuan": "Liêm Trinh chủ huyết, nhưng huyết-khí nương nhau nên cũng ứng bệnh khí: phổi, cảm, ho.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q041",
+   "question": "Tinh hệ Liêm Trinh, Thất Sát ở cung Tật Ách phần nhiều chủ về bệnh gì?",
+   "answer_atom": "Liêm Sát phần nhiều chủ về bệnh đường hô hấp. Thường gặp nhất là có sát tinh đồng độ, chủ về mũi dị ứng, viêm mũi; nếu sát tinh nặng thì chủ về viêm phổi; có Thiên Nguyệt đồng độ thì chủ về bệnh lao, ho gà.",
+   "source_quote": "tinh hệ \"Liêm Trinh, Thất Sát\" phần nhiều là chủ về bệnh đường hô hấp. Thường gặp nhất là trường hợp có sát tinh đồng độ, chủ về mũi dị ứng, viêm mũi; nếu sát tinh nặng thì chủ về bệnh viêm phổi; có Thiên Nguyệt đồng độ thì chủ về bệnh lao, ho gà.",
+   "source_page": 707,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:that_sat",
+    "disease:mui",
+    "disease:phoi",
+    "disease:lao"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Sát → hô hấp: nhẹ viêm mũi dị ứng, nặng viêm phổi; + Thiên Nguyệt → lao, ho gà.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q042",
+   "question": "Tổ hợp Liêm Trinh, Thiên Tướng gặp sát kị, gặp Hỏa Linh/Không Kiếp, hoặc bị 'Hình kị giáp ấn' thì lần lượt chủ bệnh gì?",
+   "answer_atom": "Liêm Tướng gặp các sao sát, kị là chủ về tiểu đường, sỏi bàng quang, sỏi mật, sỏi thận. Đồng độ Hỏa Tinh, Linh Tinh hoặc đồng cung Địa Không, Địa Kiếp thì chủ về đa dị ứng, nấm ngoài da, nghiêm trọng là lupus ban đỏ. Bị 'Hình kị giáp ấn' thì chủ về tắc nghẽn đường ống, cần chú ý các cơ quan đường ống và tuyến nội tiết, có lúc bệnh lại ở xương tủy.",
+   "source_quote": "Tổ hợp \"Liêm Trinh, Thiên Tướng\": Gặp các sao sát, kị là chủ về bệnh tiểu đường, sỏi bàng quang, sỏi mật, sỏi thận... Nếu \"Liêm Trinh, Thiên Tướng\" bị \"Hình kị giáp ấn\", thì chủ về tắc nghẽn đường ống, cần chú ý các cơ quan đường ống và tuyến nội tiết, có lúc bệnh lại ở xương tủy.",
+   "source_page": 707,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "disease:tieu_duong",
+    "disease:soi",
+    "disease:da",
+    "disease:noi_tiet"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình kị giáp ấn (刑忌夾印) = Thiên Tướng (ấn) bị sao hình và sao kị kẹp hai bên",
+    "viet_thuan": "Liêm Tướng: sát kị → tiểu đường, sỏi; Hỏa Linh/Không Kiếp → dị ứng, lupus; Hình kị giáp ấn → tắc ống dẫn, nội tiết, xương tủy.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q043",
+   "question": "Liêm Trinh, Phá Quân có sát tinh, có Hỏa Tinh, có Văn Khúc Hóa Kỵ thì lần lượt chủ về gì? Bị thương ở đâu so với Liêm Sát?",
+   "answer_atom": "Liêm Phá có sát tinh đồng độ còn chủ về kết sỏi; có Hỏa Tinh đồng độ chủ về tai nạn bất trắc làm bị thương; có Văn Khúc Hóa Kỵ đồng độ sẽ chủ về tai nạn sông nước. Liêm Phá mà gặp bất trắc đều bị thương ở phần đầu mặt; còn Liêm Sát thì đề phòng gãy xương.",
+   "source_quote": "\"Liêm Trinh, Phá Quân\": Có sát tinh đồng độ, còn chủ về kết sỏi... Có Văn Khúc Hóa Kỵ đồng độ, sẽ chủ về tai nạn sông nước. Hỗ \"Liêm Trinh, Phá Quân\" mà chủ về gặp bất trắc, đều bị thương ở phần đầu mặt; \"Liêm Trinh, Thất Sát\", thì đề phòng gãy xương.",
+   "source_page": 707,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "star:that_sat",
+    "disease:soi",
+    "disease:ngoai_thuong",
+    "disease:xuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Phá: sát → sỏi; Hỏa → tai nạn; Khúc Kỵ → đuối nước; bị thương thường ở đầu mặt. Liêm Sát thì lo gãy xương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q044",
+   "question": "Tổ hợp Liêm Trinh, Tham Lang có sát kị chủ về gì? Khi Liêm Trinh Hóa Kỵ và Tham Lang Hóa Kỵ đồng độ hoặc vây chiếu thì sao?",
+   "answer_atom": "Liêm Tham có các sao sát, kị thì chủ về bệnh ở cơ quan sinh dục, cũng chủ về bệnh thận. Nếu Liêm Trinh Hóa Kỵ và Tham Lang Hóa Kỵ đồng độ hoặc vây chiếu thì chủ về một căn bệnh tự miễn — hệ miễn dịch tấn công mô của chính cơ thể gây viêm, sưng tấy, đau, tổn thương mô khắp cơ thể; lupus ban đỏ hệ thống (SLE) là điển hình, nặng có thể gặp vấn đề về thận, gan, tim, phổi, hệ thần kinh hay tế bào máu.",
+   "source_quote": "Tổ hợp sao \"Liêm Trinh, Tham Lang\": Có các sao sát, kị, thì chủ về bệnh ở cơ quan sinh dục, cũng chủ về bệnh thận. Nếu Liêm Trinh Hóa Kỵ và Tham Lang Hóa Kỵ đồng độ hoặc vây chiếu, thì chủ một căn bệnh tự miễn...",
+   "source_page": 707,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "transform:hoa_ky",
+    "disease:sinh_duc",
+    "disease:than",
+    "disease:tu_mien"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Liêm Tham + sát kị → sinh dục, thận; hai sao cùng Hóa Kỵ → bệnh tự miễn kiểu lupus (SLE).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q045",
+   "question": "Bệnh thận và bệnh máu huyết của Liêm Tham ảnh hưởng lẫn nhau dẫn đến tình huống xấu nhất là gì?",
+   "answer_atom": "Bệnh thận và bệnh máu huyết ảnh hưởng lẫn nhau, dễ xảy ra các bệnh biến khác; tình huống xấu nhất là suy thận, nhẹ thì bị chứng tăng urê-huyết.",
+   "source_quote": "Về bệnh thận và bệnh máu huyết ảnh hưởng lẫn nhau, dễ xảy ra các bệnh biến khác, tình huống xấu nhất là suy thận; nhẹ thì bị chứng tăng urê-huyết.",
+   "source_page": 708,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "disease:than",
+    "disease:mau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Urê-huyết = ứ đọng urê trong máu do thận yếu",
+    "viet_thuan": "Thận và máu kéo nhau xuống: nhẹ tăng urê máu, nặng suy thận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q046",
+   "question": "Liêm Trinh ở cung Tật Ách mẫn cảm với gì nhất khi xét Đại Hạn và Lưu Niên?",
+   "answer_atom": "Liêm Trinh rất mẫn cảm đối với Tứ Hóa và Sát Tinh, cần chú ý tình huống Đại Hạn và Lưu Niên xung hội. Đại khái là rất ngại gặp Vũ Khúc Hóa Kỵ; cũng rất sợ có Kình Dương, Đà La cùng bay đến.",
+   "source_quote": "Liêm Trinh rất mẫn cảm đối với Tứ Hóa và Sát Tinh, cần chú ý tình huống Đại Hạn và Lưu Niên xung hội. Đại khái là, rất ngại gặp Vũ Khúc Hóa Kỵ; cũng rất sợ có Kình Dương, Đà La cùng bay đến.",
+   "source_page": 708,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "transform:hoa_ky",
+    "concept:dai_han_luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưu Niên (流年) = vận từng năm",
+    "viet_thuan": "Xem hạn cho Liêm Trinh tại Tật Ách: canh chừng Vũ Kỵ và Kình-Đà bay vào là thời điểm phát bệnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q047",
+   "question": "Thiên Phủ ở cung Tật Ách thuộc gì, và khi là 'kho lộ', 'kho trống' thì luận đoán thế nào?",
+   "answer_atom": "Thiên Phủ thuộc dương thổ, ở tạng phủ là vị (dạ dày). Thủ cung Tật Ách nếu là 'kho lộ', 'kho trống' có thể luận đoán là chức năng tiêu hóa kém, cơ năng tiêu hóa thất thường. Nếu lại gặp Tử Vi, Thiên Nguyệt thì là chứng biếng ăn; có lúc biểu trưng cơ năng ăn uống bị trở ngại.",
+   "source_quote": "Thiên Phủ thuộc dương thổ, ở tạng phủ là vị. Thiên Phủ thủ cung Tật Ách, nếu là \"kho lộ\", \"kho trống\", có thể luận đoán là chức năng tiêu hóa kém, cơ năng tiêu hóa thất thường. Nếu lại gặp Tử Vi, Thiên Nguyệt, thì đây là chứng biếng ăn.",
+   "source_page": 708,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_phu",
+    "star:tu_vi",
+    "disease:da_day",
+    "disease:tieu_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kho lộ/kho trống = Thiên Phủ không gặp Lộc (lộ khố/không khố)",
+    "viet_thuan": "Thiên Phủ = dạ dày; kho trống/kho lộ → tiêu hóa yếu; + Tử Vi/Thiên Nguyệt → chán ăn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q048",
+   "question": "Thiên Phủ có sao Lộc hoặc hóa Khoa thì bệnh dạ dày thuộc chứng gì? Khi nào là xuất huyết dạ dày?",
+   "answer_atom": "Thiên Phủ có sao Lộc hoặc hóa làm sao Khoa là bệnh dạ dày thuộc chứng thực, như vị nhiệt, viêm dạ dày. Nếu Liêm Trinh có Sát Tinh đến hội, hoặc Liêm Trinh Hóa Kỵ, là xuất huyết dạ dày; trường hợp Liêm Trinh không có Sát Tinh, do Liêm Trinh thuộc hỏa, hỏa thổ tương sinh, thông thường thuộc vị nhiệt, lâu ngày có thể thành thấp nhiệt.",
+   "source_quote": "Nếu như Thiên Phủ có sao Lộc, hoặc hóa làm sao Khoa, thì đây là bệnh về dạ dày thuộc chứng thực, như vị nhiệt, viêm dạ dày. Nếu Liêm Trinh có Sát Tinh đến hội, hoặc Liêm Trinh Hóa Kỵ, thì đây là xuất huyết dạ dày.",
+   "source_page": 708,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "transform:hoa_ky",
+    "disease:da_day"
+   ],
+   "commentary": {
+    "han_viet_explain": "Chứng thực (實證) = bệnh do tà khí thịnh, trái với hư chứng",
+    "viet_thuan": "Phủ có Lộc/Khoa → dạ dày nóng, viêm (chứng thực); dính Liêm Kỵ/sát → chảy máu dạ dày.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q049",
+   "question": "Thiên Phủ dễ bị ảnh hưởng của các sao khác như thế nào (Vũ Khúc, Đà La, Nguyệt Đức/Thiên Nguyệt)?",
+   "answer_atom": "Thiên Phủ dễ bị ảnh hưởng của các sao khác: đồng độ với Vũ Khúc là Thổ sinh Kim, không còn biểu trưng bệnh dạ dày mà là bệnh ở kinh phế, lấy Vũ Khúc làm luận đoán chủ yếu. Đồng độ với tạp diệu cũng bị ảnh hưởng: có Đà La đồng độ có thể biểu trưng viêm họng; có Nguyệt Đức, Thiên Nguyệt đồng độ là trạng thái suy giảm chức năng của thận.",
+   "source_quote": "khi đồng độ với Vũ Khúc, là Thiên Phủ thuộc thổ sinh Vũ Khúc thuộc kim, không còn biểu trưng cho bệnh dạ dày, mà là bệnh ở kinh phế... có Đà La đồng độ, có thể biểu trưng cho bệnh viêm họng; có Nguyệt Đức, Thiên Nguyệt đồng độ, là đại trạng thái suy giảm chức năng của thận.",
+   "source_page": 708,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "disease:phoi",
+    "disease:hong",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thổ sinh Kim = ngũ hành tương sinh",
+    "viet_thuan": "Thiên Phủ 'đổi bệnh' theo sao đi cùng: + Vũ → phổi; + Đà → họng; + Nguyệt Đức/Thiên Nguyệt → suy thận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q050",
+   "question": "Thiên Phủ đồng độ với Đà La + Linh Tinh, hoặc đối nhau Liêm Sát có Thiên Hình, hoặc có Hỏa Linh đồng cung thì chủ về gì?",
+   "answer_atom": "Hai sao Đà La, Linh Tinh đồng độ với Thiên Phủ thường chủ về bệnh túi mật. Thiên Phủ đối nhau với Liêm Sát, có Thiên Hình đồng độ hoặc vây chiếu, chủ về té ngã bị thương. Nếu có Hỏa Tinh, Linh Tinh đồng cung với Thiên Phủ thì trường vị bị tổn thương.",
+   "source_quote": "Hai sao Đà La, Linh Tinh đồng độ với Thiên Phủ, thường lại chủ về bệnh túi mật. Thiên Phủ đối nhau với \"Liêm Trinh, Thất Sát\", có Thiên Hình đồng độ hoặc vây chiếu, chủ về té ngã bị thương. Nếu có Hỏa Tinh, Linh Tinh đồng cung với Thiên Phủ, thì đây là trường vị bị tổn thương.",
+   "source_page": 709,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "star:that_sat",
+    "disease:tui_mat",
+    "disease:da_day",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Trường vị (腸胃) = ruột và dạ dày",
+    "viet_thuan": "Phủ + Đà La/Linh → túi mật; đối Liêm Sát + Hình → té ngã; + Hỏa Linh → tổn thương ruột-dạ dày.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q051",
+   "question": "Thiên Phủ đồng độ với Liêm Trinh có lúc chủ về gì, và ứng nghiệm chuyển thành chứng nhược khi nào?",
+   "answer_atom": "Thiên Phủ đồng độ với Liêm Trinh có lúc chỉ chủ về bệnh đường hô hấp, và do đó mà chuyển thành chứng nhược. Ví dụ có Thiên Nguyệt, Âm Sát đồng độ, chủ về hen suyễn, là ứng nghiệm chuyển thành chứng nhược.",
+   "source_quote": "Thiên Phủ đồng độ với Liêm Trinh, có lúc chỉ chủ về bệnh đường hô hấp, và do đó mà chuyển thành chứng nhược. Ví dụ như có Thiên Nguyệt, Âm Sát đồng độ, chủ về hen suyễn, là ứng nghiệm chuyển thành chứng nhược.",
+   "source_page": 709,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "disease:phoi",
+    "disease:hen_suyen"
+   ],
+   "commentary": {
+    "han_viet_explain": "Chứng nhược = bệnh suy nhược kéo dài",
+    "viet_thuan": "Liêm Phủ + Thiên Nguyệt/Âm Sát → hen suyễn, cơ thể suy nhược dần.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q052",
+   "question": "Thái Âm ở cung Tật Ách chủ về nhóm bệnh gì theo lý luận Đông y?",
+   "answer_atom": "Thái Âm chủ về hư tổn; thông thường là bệnh thận hoặc hệ thần kinh. Theo Đông y, suy nhược thần kinh nghiêm trọng thuộc chứng tâm thận bất giao, dẫn đến thân thể hư nhược — thực ra là bệnh mang tính thần kinh, có liên quan đến tạng thận nhưng không phải là viêm thận có tính thực chất.",
+   "source_quote": "Thái Âm thuộc âm hỏa, cho nên chủ về hư tổn; thông thường là bệnh thận hoặc hệ thần kinh. Theo lý luận Đông y, bệnh suy nhược thần kinh nghiêm trọng là thuộc chứng tâm thận bất giao, dẫn đến thân thể hư nhược.",
+   "source_page": 709,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_am",
+    "disease:than",
+    "disease:than_kinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hư tổn (虛損) = suy yếu hao tổn",
+    "viet_thuan": "Thái Âm tại Tật Ách → bệnh hư: suy nhược thần kinh, thận yếu chức năng (không phải viêm thận thực thể).",
+    "nguyen_ly": "Nguyên văn in 'Thái Âm thuộc âm hỏa' — khả năng lỗi bản in (Thái Âm theo ngũ hành thuộc âm thủy); giữ nguyên văn để bám sách.",
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q053",
+   "question": "Với Thái Âm ở Tật Ách, ảnh hưởng của Thiên Đồng và Thiên Cơ phân biệt như thế nào?",
+   "answer_atom": "Ảnh hưởng của Thiên Đồng là nhiều nhất, kế đến là Thiên Cơ, nhưng có phân biệt: Thiên Đồng biểu trưng cho bệnh thận cụ thể, Thiên Cơ biểu trưng cho bệnh thần kinh.",
+   "source_quote": "ảnh hưởng của Thiên Đồng là nhiều nhất, kế đến là Thiên Cơ, nhưng hai trường hợp này có sự phân biệt. Đại khái là, Thiên Đồng thì biểu trưng cho bệnh thận cụ thể, Thiên Cơ thì biểu trưng cho bệnh thần kinh.",
+   "source_page": 709,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_am",
+    "star:thien_dong",
+    "star:thien_co",
+    "disease:than",
+    "disease:than_kinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Âm: đi với Đồng → bệnh thận thực thể; đi với Cơ → bệnh thần kinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q054",
+   "question": "Thận yếu của Thái Âm có thể phát triển thành bệnh mắt như thế nào? Vương Đình Chỉ kể trường hợp nào?",
+   "answer_atom": "Do tạng thận yếu nên có thể phát triển thành bệnh mắt, như chứng ruồi bay trước mắt; các trường hợp này phải gặp Văn Xương hoặc Văn Khúc Hóa Kỵ, gặp sát tinh thì nghiêm trọng hơn. Vương Đình Chỉ kể từng gặp một mệnh cục người bệnh bị thoái hóa tế bào sắc tố ở võng mạc, thuộc loại bệnh bất trị hiếm gặp; đoán là bệnh mắt có tính lốm đốm thì vẫn coi là chính xác.",
+   "source_quote": "Do tạng thận yếu, cho nên cũng có thể phát triển thành bệnh mắt, như chứng ruổi bay trước mắt, v.v... các trường hợp này phải gặp Văn Xương hoặc Văn Khúc Hóa Kỵ, gặp sát tinh thì tình hình nghiêm trọng hơn. Vương Đình Chỉ kể, ông từng gặp một mệnh cục, người bệnh bị thoái hóa tế bào sắc tố ở võng mạc.",
+   "source_page": 709,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_am",
+    "star:van_xuong",
+    "star:van_khuc",
+    "transform:hoa_ky",
+    "disease:mat"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thận yếu kéo theo mắt: ruồi bay, thoái hóa võng mạc — cần Xương/Khúc Hóa Kỵ mới ứng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q055",
+   "question": "Thái Âm chịu ảnh hưởng Thiên Cơ chủ về gì, và khi Âm Cơ bị Thiên Đồng Hóa Kỵ ảnh hưởng thì chủ chứng gì?",
+   "answer_atom": "Do ảnh hưởng của Thiên Cơ nên chủ về mồ hôi trộm, âm hư, trí nhớ giảm sút. Gặp các sao sát, kỵ cũng có thể chủ về bệnh kín của phụ nữ, và ở nam giới là xuất tinh sớm, di tinh. Nếu Âm Cơ bị ảnh hưởng của Thiên Đồng Hóa Kỵ, lại có sát tinh và các sao Thiên Hư, Âm Sát, Hoa Cái, Thiên Mã, thì chủ về chứng âm nuy.",
+   "source_quote": "Do ảnh hưởng của Thiên Cơ, nên chủ về mổ hôi trộm, âm hư, trí nhớ giảm sút... Nếu \"Thái Âm, Thiên Cơ\" bị ảnh hưởng của Thiên Đồng Hóa Kỵ, lại có sát tinh và các sao Thiên Hư, Âm Sát, Hoa Cái, Thiên Mã, thì chủ về chứng âm nuy.",
+   "source_page": 709,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_am",
+    "star:thien_co",
+    "star:thien_dong",
+    "transform:hoa_ky",
+    "disease:sinh_duc",
+    "disease:than_kinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm nuy (陰痿) = liệt dương",
+    "viet_thuan": "Âm + Cơ → đổ mồ hôi trộm, hay quên; sát kỵ → bệnh kín nữ, nam di tinh; thêm Đồng Kỵ + tạp diệu → liệt dương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q056",
+   "question": "Thái Âm chủ về các chứng thủy thấp nào, và ứng nghiệm vào niên hạn nào? Văn Khúc Hóa Kỵ đồng độ thì sao?",
+   "answer_atom": "Thái Âm còn chủ về các chứng thủy thấp như tiêu chảy, kiết lị, cổ trướng; gặp niên hạn Thiên Cơ Hóa Kỵ hoặc Tham Lang Hóa Kỵ, có sát tinh cùng bay đến thì ứng nghiệm. Nếu có Văn Khúc Hóa Kỵ đồng độ thì chủ về các bệnh ban đỏ, da thấp nhiệt, ghẻ chốc.",
+   "source_quote": "Thái Âm còn chủ về các chứng thủy thấp như tiêu chảy, kiết li, cổ trướng; gặp niên hạn Thiên Cơ Hóa Kỵ hoặc Tham Lang Hóa Kỵ, có sát tinh cùng bay đến thì ứng nghiệm. Nếu có Văn Khúc Hóa Kỵ đồng độ, thì chủ về các bệnh đây là ban đỏ, da thấp nhiệt, ghẻ chốc.",
+   "source_page": 710,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_am",
+    "star:van_khuc",
+    "transform:hoa_ky",
+    "disease:tieu_hoa",
+    "disease:da"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủy thấp (水濕) = bệnh do nước ẩm ứ đọng",
+    "viet_thuan": "Thái Âm → tiêu chảy, cổ trướng — phát vào năm Cơ Kỵ/Tham Kỵ có sát; + Khúc Kỵ → bệnh da thấp nhiệt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q057",
+   "question": "Thái Âm Hóa Kỵ có Thiên Hư, Long Trì đồng độ chủ về gì, và khác với Thất Sát đồng cung Long Trì ra sao?",
+   "answer_atom": "Thái Âm Hóa Kỵ lại có thêm Thiên Hư, Long Trì đồng độ, vãn niên chủ về nặng tai hoặc tai điếc — bệnh do thận khí bất túc, khác với Thất Sát đồng cung Long Trì chủ về lỗ tai bị tổn thương. Ngoài ra Thái Âm Hóa Lộc ở niên hạn hóa kỵ sẽ chủ về âm hư, cũng có thể nhuyễn hóa thành bệnh thận bất túc.",
+   "source_quote": "Nếu Thái Âm Hóa Kỵ, lại có thêm các sao Thiên Hư, Long Trì đồng độ, vãn niên chủ về nặng tai hoặc tai điếc. Đây là bệnh do thận khí bất túc, khác với Thất Sát đồng cung với Long Trì chủ về lỗ tai bị tổn thương. Thái Âm Hóa Lộc, ở niên hạn hóa kỵ, sẽ chủ về âm hư, cũng có thể nhuyễn hóa thành bệnh thận bất túc.",
+   "source_page": 710,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thai_am",
+    "star:that_sat",
+    "transform:hoa_ky",
+    "transform:hoa_loc",
+    "disease:tai",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhuyễn hóa = chuyển hóa mềm sang dạng bệnh khác",
+    "viet_thuan": "Âm Kỵ + Hư/Long Trì → già điếc tai (do thận); khác Sát + Long Trì là tai bị chấn thương. Âm Lộc gặp năm hóa kỵ → âm hư.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q058",
+   "question": "Tham Lang ở cung Tật Ách thuộc hành gì và chủ về bệnh gì? Khi nào thiên về sinh dục, khi nào thiên về gan?",
+   "answer_atom": "Tham Lang thuộc dương mộc, còn thuộc thủy; chủ về bệnh gan và bệnh hệ sinh dục. Hễ Tham Lang đồng độ hoặc đối nhau với Tử Vi, hay với Liêm Trinh, đều có khuynh hướng bệnh hệ sinh dục. Nhưng nếu có Hỏa Tinh, Linh Tinh đồng độ thì đều chủ về bệnh gan — do ảnh hưởng tính chất của sát tinh.",
+   "source_quote": "Tham Lang thuộc dương mộc, còn thuộc thủy. Cho nên chủ về bệnh gan, còn chủ về bệnh hệ sinh dục. Hễ Tham Lang đồng độ hoặc đối nhau với Tử Vi, hay đồng độ hoặc đối nhau với Liêm Trinh, đều có khuynh hướng bệnh hệ sinh dục. Nhưng nếu có Hỏa Tinh, Linh Tinh đồng độ thì đều chủ về bệnh gan.",
+   "source_page": 710,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tham_lang",
+    "star:tu_vi",
+    "star:liem_trinh",
+    "disease:gan",
+    "disease:sinh_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tham Lang = gan + sinh dục; đi với Tử Vi/Liêm Trinh → sinh dục; thêm Hỏa Linh → chuyển sang gan.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q059",
+   "question": "Tham Lang thủ cung Tật Ách với cặp Kình Dương + Hỏa Tinh hoặc Đà La + Linh Tinh chủ về gì? Hội Liêm Trinh Hóa Kỵ thì nam nữ khác nhau ra sao?",
+   "answer_atom": "Tham Lang có Kình Dương, Hỏa Tinh cùng bay đến, hoặc Đà La, Linh Tinh cùng bay đến, đều chủ về bệnh máu huyết. Hội Liêm Trinh Hóa Kỵ: nữ mệnh chủ về băng huyết; nam mệnh chủ về di tinh, nặng thì dương nuy (liệt dương) hoặc xuất tinh sớm. Gặp Thiên Hư, Âm Sát, Thiên Thương thì càng đúng.",
+   "source_quote": "Tham Lang thủ cung Tật Ách, có Kình Dương, Hỏa Tinh cùng bay đến, hoặc Đà La, Linh Tinh cùng bay đến, đều chủ về bệnh máu huyết. Tham Lang thủ cung Tật Ách hội Liêm Trinh Hóa Kỵ, nữ mệnh chủ về băng huyết; nam mệnh chủ về di tịnh, nặng thì dương nuy (tức liệt dương) hoặc xuất tinh sớm.",
+   "source_page": 710,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tham_lang",
+    "star:liem_trinh",
+    "transform:hoa_ky",
+    "disease:mau",
+    "disease:sinh_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Băng huyết (崩血) = xuất huyết tử cung ồ ạt",
+    "viet_thuan": "Tham + cặp sát Kình-Hỏa/Đà-Linh → bệnh máu; hội Liêm Kỵ: nữ băng huyết, nam di tinh/liệt dương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q060",
+   "question": "'Bệnh sắc dục' của tinh hệ Tử Vi, Tham Lang khác 'bệnh đường sinh dục' như thế nào?",
+   "answer_atom": "Tử Tham tuy chủ về bệnh sắc dục nhưng Tham Lang Hóa Kỵ mới đúng. 'Bệnh sắc dục' là: nam mệnh chủ về dương nuy, xuất tinh sớm, dương kháng; nữ mệnh chủ về âm lãnh, lạnh tử cung, lệch tử cung — khác với bệnh đường sinh dục là cơ quan sinh dục bị viêm, có khối u.",
+   "source_quote": "Tính chất cơ bản của \"Tử Vi, Tham Lang\" tuy chủ về bệnh sắc dục, nhưng Tham Lang Hóa Kỵ mới đúng... khác với bệnh đường sinh dục. Bệnh đường sinh dục là cơ quan sinh dục bị viêm, có khối u.",
+   "source_page": 710,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:tham_lang",
+    "transform:hoa_ky",
+    "disease:sinh_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm lãnh (陰冷) = lãnh cảm, lạnh bộ phận sinh dục",
+    "viet_thuan": "Tử Tham + Tham Kỵ → bệnh chức năng phòng the (liệt dương, lãnh cảm); phân biệt với viêm/u cơ quan sinh dục.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q061",
+   "question": "Tham Lang có Hỏa Tinh đồng độ là bệnh gì, thêm Kình Dương thì sao? Tham đối Liêm có Hỏa ở tam phương thì chủ chứng gì?",
+   "answer_atom": "Tham Lang có Hỏa Tinh đồng độ là bệnh trĩ; có thêm Kình Dương thì chủ về trĩ lậu (lòi dom). Tham Lang đối nhau với Liêm Trinh, có Hỏa Tinh ở tam phương tương hội, là chứng can dương thượng kháng, thận thủy bất túc.",
+   "source_quote": "Tham Lang có Hỏa Tinh đồng độ, là bệnh trĩ; có thêm Kình Dương, thì chủ về trĩ lậu (lòi dom). Tham Lang đối nhau với Liêm Trinh, có Hỏa Tinh ở tam phương tương hội, là chứng can dương thượng kháng, thận thủy bất túc.",
+   "source_page": 710,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tham_lang",
+    "star:liem_trinh",
+    "disease:tri",
+    "disease:gan",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Can dương thượng kháng (肝陽上亢) = dương khí gan bốc lên",
+    "viet_thuan": "Tham + Hỏa → trĩ; + Kình nữa → lòi dom; Tham-Liêm đối nhau + Hỏa tam phương → gan bốc hỏa, thận thủy thiếu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q062",
+   "question": "Tham Lang đối với Vũ Khúc: Hỏa Tinh đồng độ với Tham Lang khác gì Hỏa Tinh đồng độ với Vũ Khúc?",
+   "answer_atom": "Nếu Hỏa Tinh đồng độ với Tham Lang, bệnh nguyên là kinh Dương Minh hỏa thịnh, gây tổn thương kinh phế. Nếu Hỏa Tinh đồng độ với Vũ Khúc, thì chủ về bệnh ở kinh phế, như viêm phổi, lao phổi.",
+   "source_quote": "Nếu Hỏa Tinh đồng độ với Tham Lang, bệnh nguyên là kinh Dương Minh hỏa thịnh, gây tổn thương kinh phế. Nếu Hỏa Tinh đồng độ với Vũ Khúc, thì chủ về bệnh ở kinh phế, như viêm phổi, lao phổi.",
+   "source_page": 711,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tham_lang",
+    "star:vu_khuc",
+    "disease:phoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bệnh nguyên (病源) = gốc bệnh",
+    "viet_thuan": "Cùng là Hỏa Tinh: vào Tham → hỏa vượng hại phổi từ gốc dương minh; vào Vũ → bệnh thẳng ở phổi (viêm, lao).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q063",
+   "question": "Tham Lang đồng cung với Văn Khúc Hóa Kỵ, với Hỏa Tinh hoặc Kình Dương, và nữ mệnh gặp sát tinh thì lần lượt chủ bệnh gì?",
+   "answer_atom": "Tham Lang cũng chủ về bệnh bạch điến (da có đốm trắng). Đồng cung với Văn Khúc Hóa Kỵ chủ về bệnh tật ở mắt. Đồng cung với Hỏa Tinh hoặc Kình Dương chủ về viêm gan, đầu mũi phát đỏ. Nữ mệnh Tham Lang gặp sát tinh cũng chủ về đau đầu, đầu choáng do can phong.",
+   "source_quote": "Tham Lang cũng chủ về bệnh bạch điến (đa có đốm trắng). Tham Lang đồng cung với Văn Khúc Hóa Kỵ, chủ về bệnh tật ở mắt. Tham Lang đồng cung với Hỏa Tinh, hoặc Tham Lang đồng cung với Kình Dương, chủ về viêm gan, đầu mũi phát đỏ. Nữ mệnh Tham Lang gặp sát tinh, cũng chủ về đau đầu, đầu choáng do can phong.",
+   "source_page": 711,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tham_lang",
+    "star:van_khuc",
+    "transform:hoa_ky",
+    "disease:da",
+    "disease:mat",
+    "disease:gan",
+    "disease:dau_dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Can phong (肝風) = phong khí từ gan gây choáng",
+    "viet_thuan": "Tham: + Khúc Kỵ → mắt; + Hỏa/Kình → viêm gan, mũi đỏ; nữ + sát → đau đầu choáng váng do gan.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q064",
+   "question": "Tham Lang có Vũ Khúc, Văn Khúc đồng độ thì luận thế nào khi Vũ Khúc Hóa Kỵ hoặc Văn Khúc Hóa Kỵ? Có Hỏa Linh hoặc Hình Nguyệt thì sao?",
+   "answer_atom": "Tham Lang có Vũ Khúc, Văn Khúc đồng độ: nếu Vũ Khúc Hóa Kỵ lại có sát tinh thì chủ về xảy ra sự cố bất trắc mà bị thương; nếu Văn Khúc Hóa Kỵ sẽ chủ về tai nạn sông nước. Tham Lang có Hỏa Tinh, Linh Tinh cùng bay đến chủ về bệnh túi mật, kinh phong; gặp Thiên Hình, Thiên Nguyệt thì chủ về bệnh gan.",
+   "source_quote": "Tham Lang có Vũ Khúc, Văn Khúc đồng độ: nếu Vũ Khúc Hóa Kỵ, lại có sát tinh, thì chủ về xảy ra sự cố bất trắc mà bị thương; nếu Văn Khúc Hóa Kỵ, sẽ chủ về tai nạn sông nước. Tham Lang có Hỏa Tinh, Linh Tinh cùng bay đến, chủ về bệnh túi mật, kinh phong; gặp Thiên Hình, Thiên Nguyệt, thì chủ về bệnh gan.",
+   "source_page": 711,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tham_lang",
+    "star:vu_khuc",
+    "star:van_khuc",
+    "transform:hoa_ky",
+    "disease:tui_mat",
+    "disease:gan",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kinh phong (驚風) = co giật",
+    "viet_thuan": "Tham + Vũ Kỵ → tai nạn bị thương; + Khúc Kỵ → đuối nước; + Hỏa Linh → túi mật, co giật; + Hình Nguyệt → gan.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q065",
+   "question": "Cự Môn ở cung Tật Ách thuộc hành gì và hai nhóm bệnh chính phân theo điều kiện sao nào?",
+   "answer_atom": "Cự Môn thuộc âm thổ nên chủ về hệ tiêu hóa; còn thuộc âm kim nên chủ về đường hô hấp. Trường hợp trước là gặp Lộc Tồn, Hóa Lộc; trường hợp sau là gặp Thiên Đồng, Hỏa Tinh.",
+   "source_quote": "Cự Môn thuộc âm thổ, nên chủ về hệ tiêu hóa; còn thuộc âm kim, nên chủ về đường hô hấp. Trường hợp trước là gặp Lộc Tồn, Hóa Lộc; trường hợp sau là gặp Thiên Đồng, Hỏa Tinh.",
+   "source_page": 711,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:cu_mon",
+    "disease:tieu_hoa",
+    "disease:phoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm thổ/âm kim = Cự Môn mang hai hành",
+    "viet_thuan": "Cự Môn hai mặt: gặp Lộc → bệnh tiêu hóa; gặp Đồng/Hỏa → bệnh hô hấp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q066",
+   "question": "Cự Môn Hóa Kỵ ở cung Tật Ách chủ về bệnh ở đâu, nặng nhẹ phân biệt thế nào?",
+   "answer_atom": "Cự Môn Hóa Kỵ: bệnh ở thực quản, mũi, họng, khí quản, kinh phế; nhất là bệnh viêm vòm miệng. Gặp các sao sát, hình, hư, hao là bệnh nặng; gặp sát tinh ít mà tạp diệu lại cát thì bệnh nhẹ.",
+   "source_quote": "Cự Môn Hóa Kỵ: Bệnh ở thực quản, mũi, họng, khí quản, kinh phế: nhất là bệnh viêm vòm miệng. Gặp các sao sát, hình, hư, hao là bệnh nặng; gặp sát tinh ít, mà tạp diệu lại cát thì bệnh nhẹ.",
+   "source_page": 711,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:cu_mon",
+    "transform:hoa_ky",
+    "disease:hong",
+    "disease:mui",
+    "disease:thuc_quan",
+    "disease:phoi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cự Kỵ = bệnh vùng cổ họng-mũi-thực quản-khí quản, đặc trưng viêm vòm miệng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q067",
+   "question": "Cự Môn Hóa Kỵ có Kình Đà đồng độ cùng tạp diệu hung chủ về ung thư gì? Không có Kình Đà mà có Hỏa Linh thì sao?",
+   "answer_atom": "Cự Môn Hóa Kỵ có Kình Dương, Đà La đồng độ, còn gặp thêm Thiên Hình, Thiên Đức, Thiên Nguyệt, Thiên Hư, Thiên Thương, Âm Sát, sẽ chủ về ung thư dạ dày hoặc ung thư thực quản, ung thư mũi họng. Không có Kình Đà đồng độ mà có Hỏa Tinh, Linh Tinh đồng độ thì chủ về bệnh âm thư (loại nhọt rất khó trị), bệnh phổi; gặp thêm sao hung là ung thư phổi.",
+   "source_quote": "Nếu Cự Môn Hóa Kỵ, có Kình Dương, Đà La đồng độ, còn gặp thêm các sao Thiên Hình, Thiên Đức, Thiên Nguyệt, Thiên Hư, Thiên Thương, Âm Sát, sẽ chủ về ung thư dạ dày hoặc ung thư thực quản, ung thư mũi họng... có Hỏa Tinh, Linh Tinh đồng độ, thì chủ về bệnh âm thư (loại bệnh nhọt rất khó trị), bệnh phổi; gặp thêm sao hung là ung thư phổi.",
+   "source_page": 711,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:cu_mon",
+    "transform:hoa_ky",
+    "disease:ung_thu",
+    "disease:da_day",
+    "disease:thuc_quan",
+    "disease:phoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm thư (陰疽) = nhọt độc tính âm, khó trị",
+    "viet_thuan": "Cự Kỵ + Kình Đà + tạp hung → ung thư dạ dày/thực quản/mũi họng; đổi sang Hỏa Linh → nhọt âm thư, ung thư phổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q068",
+   "question": "Cự Môn có Đà La, Thiên Nguyệt, Thiên Hình cùng bay đến và hội Thái Dương có sát tinh thì chủ về gì? Đoán trúng phong phải lấy sao nào làm chủ?",
+   "answer_atom": "Cự Môn có Đà La, Thiên Nguyệt, Thiên Hình cùng bay đến, hội Thái Dương có sát tinh đồng độ (rất kị đồng cung với Địa Không, Địa Kiếp), chủ về bán thân bất toại, trúng phong bại liệt. Đoán định trúng phong, huyết áp cao phải lấy Thái Dương làm chủ; cho nên hệ Thái Dương, Cự Môn chủ về các bệnh này.",
+   "source_quote": "Cự Môn có Đà La, Thiên Nguyệt, Thiên Hình cùng bay đến, hội Thái Dương có sát tinh đồng độ (rất kị đồng cung với Địa Không, Địa Kiếp), chủ về bán thân bất toại, trúng phong bại liệt. Đoán định trúng phong, huyết áp cao, phải lấy Thái Dương làm chủ.",
+   "source_page": 712,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:cu_mon",
+    "star:thai_duong",
+    "disease:trung_phong",
+    "disease:huyet_ap"
+   ],
+   "commentary": {
+    "han_viet_explain": "Trúng phong (中風) = tai biến mạch máu não",
+    "viet_thuan": "Muốn đoán tai biến/cao huyết áp: lấy Thái Dương làm trục; Cự + Đà Nguyệt Hình hội Nhật sát → liệt nửa người.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q069",
+   "question": "Cự Môn đối nhau với Thiên Cơ thì ngũ hành khắc chế hai chiều ra sao, và các tổ hợp sát tinh dẫn đến bệnh gì?",
+   "answer_atom": "Thiên Cơ thuộc Mộc có thể khắc Cự Môn thuộc Thổ, nhưng Cự Môn thuộc Kim lại có thể khắc Thiên Cơ thuộc Mộc, nên cần xem kỹ đồng độ với sao nào mới luận đoán được. Thông thường chủ về can vị bất hòa, buồn nôn, ợ chua. Nếu Cự Môn và Đà La tương hội, lại gặp Thiên Cơ đồng độ Hỏa Linh, sẽ chủ về huyết áp, tắc nghẽn mạch máu; gặp Địa Không, Địa Kiếp chủ về rối loạn nhịp tim, mất ngủ, tâm thận bất giao. Thiên Cơ có Cự Môn, Hỏa Tinh đồng độ chủ về vỡ mạch máu não, biểu hiện choáng ngất.",
+   "source_quote": "Thiên Cơ thuộc Mộc có thể khắc Cự Môn thuộc Thổ, nhưng Cự Môn thuộc Kim lại có thể khắc Thiên Cơ thuộc Mộc... Trong các tình huống thông thường, chủ về can vị bất hòa, buồn nôn, ợ chua... Thiên Cơ có Cự Môn, Hỏa Tinh đồng độ, chủ về vỡ mạch máu não, biểu hiện là choáng ngất.",
+   "source_page": 712,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:cu_mon",
+    "star:thien_co",
+    "disease:tieu_hoa",
+    "disease:huyet_ap",
+    "disease:nao"
+   ],
+   "commentary": {
+    "han_viet_explain": "Can vị bất hòa (肝胃不和) = gan và dạ dày mất điều hòa",
+    "viet_thuan": "Cự-Cơ khắc nhau hai chiều: thường là ợ chua buồn nôn; thêm Đà + Hỏa Linh → tắc mạch; Cơ Cự Hỏa → vỡ mạch não.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q070",
+   "question": "Thiên Tướng ở cung Tật Ách thuộc hành gì, chủ bệnh gì, và 'bệnh thận' ở đây hiểu thế nào?",
+   "answer_atom": "Thiên Tướng thuộc dương thủy, chủ về bệnh sởi (thấp chẩn), bệnh thận, phong thấp. Nói bệnh thận là nói hệ bài tiết, không nói hệ sinh dục. Thiên Tướng chịu ảnh hưởng rất lớn bởi chính diệu đồng độ hoặc vây chiếu, nên có thể nhuyễn hóa thành nhiều loại bệnh khác nhau.",
+   "source_quote": "Thiên Tướng thuộc dương thủy, cho nên cũng chủ về bệnh sởi (thấp chẩn), bệnh thận, phong thấp. Nói bệnh thận, là nói hệ bài tiết, không nói hệ sinh dục. Nhưng Thiên Tướng chịu ảnh hưởng rất lớn bởi chính diệu đồng độ hoặc vây chiếu.",
+   "source_page": 712,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_tuong",
+    "disease:da",
+    "disease:than",
+    "disease:phong_thap"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thấp chẩn (濕疹) = chàm/eczema, sởi thấp",
+    "viet_thuan": "Thiên Tướng → da (sởi/chàm), bài tiết, phong thấp; nhưng dễ 'đổi bệnh' theo chính diệu đi cùng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q071",
+   "question": "Thiên Tướng đồng độ với Tử Vi, có Không Kiếp đồng cung, hoặc đồng độ Liêm Trinh thì lần lượt chủ bệnh gì?",
+   "answer_atom": "Đồng độ với Tử Vi là bệnh bàng quang, hệ thống thủy đạo; hoặc tỳ thổ bị thấp dẫn đến da bị sởi (thấp chẩn), dị ứng, ngứa. Nếu có Địa Không, Địa Kiếp đồng cung thì chủ về vị khí, ngực căng tức, ợ chua. Thiên Tướng, Liêm Trinh đồng độ chủ về phá tướng, hoặc chủ về phẫu thuật.",
+   "source_quote": "Đồng độ với Tử Vi, là bệnh bàng quang, hệ thống thủy đạo; Hoặc là tỳ thổ bị thấp, dẫn đến da bị sởi (thấp chẩn), dị ứng, ngứa. Nếu có Địa Không, Địa Kiếp đồng cung, thì chủ về vị khí, ngực căng tức, ợ chua. \"Thiên Tướng, Liêm Trinh\" đồng độ, chủ về phá tướng, hoặc chủ về phẫu thuật.",
+   "source_page": 712,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_tuong",
+    "star:tu_vi",
+    "star:liem_trinh",
+    "disease:bang_quang",
+    "disease:da",
+    "disease:da_day"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủy đạo (水道) = đường nước trong cơ thể",
+    "viet_thuan": "Tử Tướng → bàng quang/da ngứa; + Không Kiếp → đầy hơi ợ chua; Liêm Tướng → sẹo mặt, mổ xẻ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q072",
+   "question": "Thiên Tướng ở cung Sửu đối cung là Tử Vi, Phá Quân thì cần đề phòng bệnh gì?",
+   "answer_atom": "Nếu Thiên Tướng ở cung Sửu, đối cung là Tử Vi, Phá Quân, do bị ảnh hưởng tính chất của Tử Phá nên cần đề phòng bệnh về tính dục hoặc bệnh thận. Tính chất này có liên quan đến tính chất của bản thân Thiên Tướng.",
+   "source_quote": "Nếu Thiên Tướng ở cung Sửu, đối cung là \"Tử Vi, Phá Quân\", do bị ảnh hưởng tính chất của \"Tử Vi, Phá Quân\", nên cẩn phải để phòng bệnh về tính dục hoặc bệnh thận.",
+   "source_page": 713,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_tuong",
+    "star:tu_vi",
+    "star:pha_quan",
+    "disease:sinh_duc",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đối cung (對宮) = cung xung chiếu",
+    "viet_thuan": "Tướng tại Sửu bị Tử Phá chiếu → lo bệnh tính dục, bệnh thận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q073",
+   "question": "Thiên Tướng bị giáp cung bởi Cự Môn Hóa Lộc/Hóa Kỵ hoặc Thiên Đồng Hóa Lộc/Hóa Kỵ thì nhuyễn hóa thành bệnh gì?",
+   "answer_atom": "Cự Môn Hóa Lộc giáp cung: Thiên Tướng nhuyễn hóa thành đau dạ dày. Cự Môn Hóa Kỵ: đau dạ dày thuộc hư chứng, như thòng dạ dày (sa bao tử). Thiên Đồng Hóa Lộc giáp cung: chủ về bệnh tiểu đường. Thiên Đồng Hóa Kỵ: chủ về viêm thận.",
+   "source_quote": "Giả dụ như Cự Môn Hóa Lộc giáp cung, Thiên Tướng bị ảnh hưởng có thể nhuyễn hóa thành đau dạ dày. Nếu Cự Môn Hóa Kỵ, thì đây là đau dạ dày thuộc hư chứng, như thòng dạ dày (sa bao tử). Nếu Thiên Đồng Hóa Lộc giáp cung, thì chủ về bệnh tiểu đường; Thiên Đồng Hóa Kỵ thì chủ về viêm thận.",
+   "source_page": 713,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_tuong",
+    "star:cu_mon",
+    "star:thien_dong",
+    "transform:hoa_loc",
+    "transform:hoa_ky",
+    "disease:da_day",
+    "disease:tieu_duong",
+    "disease:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Giáp cung (夾宮) = hai sao kẹp hai cung bên cạnh",
+    "viet_thuan": "Tướng bị kẹp: Cự Lộc → đau dạ dày; Cự Kỵ → sa dạ dày; Đồng Lộc → tiểu đường; Đồng Kỵ → viêm thận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q074",
+   "question": "Các sao sát giáp cung Thiên Tướng (Kình Đà, Hỏa Linh, Không Kiếp) ảnh hưởng bệnh tình thế nào?",
+   "answer_atom": "Kình Dương, Đà La giáp cung hay Hỏa Tinh, Linh Tinh giáp cung đều làm bệnh tình tăng nặng. Địa Không, Địa Kiếp giáp cung thì bệnh hoạn làm thể chất yếu đi: cùng là tiểu đường nhưng có Không Kiếp giáp thường ảnh hưởng tính cơ năng; cùng là bệnh bàng quang thì có thể phát triển thành không kiểm soát được tiểu tiện. Các trường hợp còn lại cứ theo đó suy ra.",
+   "source_quote": "nếu Kình Dương, Đà La giáp cung, hay Hỏa Tinh, Linh Tinh giáp cung, đều làm bệnh tình tăng nặng. Địa Không, Địa Kiếp giáp cung, thì bệnh hoạn làm cho thể chất yếu đi... nếu có Địa Không, Địa Kiếp thì có thể phát triển thành không kiểm soát được tiểu tiện.",
+   "source_page": 713,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_tuong",
+    "disease:tieu_duong",
+    "disease:bang_quang"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng bị sát giáp → bệnh nặng thêm; Không Kiếp giáp → suy cơ năng (vd tiểu đường biến chứng, tiểu không tự chủ).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q075",
+   "question": "Thiên Tướng có Kình Đà tương hội hoặc giáp cung, có Hỏa Linh, có Thiên Hình, có Thiên Nguyệt thì lần lượt chủ bệnh gì?",
+   "answer_atom": "Thiên Tướng có Kình Dương, Đà La tương hội hoặc bị giáp cung: chủ về phong thấp, đau xương; gặp sao kỵ giáp hoặc hội thì chủ về bệnh tim mạch hoặc trúng phong. Đồng độ hoặc bị giáp bởi Hỏa Linh: chủ về bệnh thấp hoặc kinh thận bị thấp. Thiên Hình đồng độ có sát tinh: chủ về phẫu thuật. Thiên Nguyệt đồng độ: nhuyễn hóa thành bệnh mạn tính hoặc bệnh truyền nhiễm.",
+   "source_quote": "Thiên Tướng có Kình Dương, Đà La tương hội, hoặc bị Kình Dương và Đà La giáp cung, chủ về phong thấp, đau xương. Nếu gặp sao kỵ giáp cung hoặc hội hợp, sẽ chủ về bệnh tim mạch, hoặc trúng phong... Thiên Hình đồng độ, có sát tinh, chủ về phẫu thuật. Có Thiên Nguyệt đồng độ, sẽ nhuyễn hóa thành bệnh mạn tính, hoặc bệnh truyền nhiễm.",
+   "source_page": 713,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_tuong",
+    "disease:phong_thap",
+    "disease:tim",
+    "disease:trung_phong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng + Kình Đà → phong thấp đau xương; + kỵ → tim mạch/tai biến; + Hình sát → mổ; + Nguyệt → bệnh mạn tính.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q076",
+   "question": "Thiên Lương ở cung Tật Ách thuộc gì và thông thường chủ bệnh gì?",
+   "answer_atom": "Thiên Lương thuộc dương thổ, chủ về tì vị; nữ mệnh còn chủ về tuyến vú; ở ngũ quan là mũi. Thiên Lương thủ cung Tật Ách trong các tình hình thông thường đều chủ về bệnh mũi, phần nhiều thuộc chứng thực.",
+   "source_quote": "Thiên Lương thuộc dương thổ, chủ về tì vị; nữ mệnh còn chủ về tuyến vú; ở ngũ quan là mũi. Thiên Lương thủ cung Tật Ách, trong các tình hình thông thường đều chủ về bệnh mũi, phần nhiều thuộc chứng thực.",
+   "source_page": 713,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "disease:tieu_hoa",
+    "disease:vu",
+    "disease:mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tì vị (脾胃) = lá lách và dạ dày",
+    "viet_thuan": "Thiên Lương = tì vị, tuyến vú (nữ), và mũi; thường nhất là bệnh mũi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q077",
+   "question": "Thiên Lương không có sát kị hình giao hội thì sao? Vai trò của Thiên Thọ đồng độ thế nào?",
+   "answer_atom": "Thiên Lương thủ Tật Ách mà không có các sao Sát, Kị, Hình giao hội thì chủ về ít bệnh hoặc bệnh nhẹ. Thiên Lương ưa có Thiên Thọ đồng độ: dù có sát kị thông thường cũng chuyển nguy thành an; nhưng sát kị trùng trùng ắt là bệnh nặng. Nếu có Thiên Thọ đồng độ mà Hình Sát Kị giao hội, còn thêm Thiên Nguyệt, Âm Sát, Thiên Hư, Đại Hao, thì bệnh không nguy đến tính mệnh nhưng kéo dài cả năm, hoặc bị đau suốt đời.",
+   "source_quote": "Nếu Thiên Lương thủ cung Tật Ách mà không có các sao Sát, Kị, Hình giao hội thì chủ về ít bệnh, hoặc bệnh tình nhẹ. Thiên Lương ưa có Thiên Thọ đồng độ; dù có các sao Sát, Kị, thông thường cũng có thể chuyển nguy thành an... bệnh tuy không nguy hiểm đến tính mệnh, nhưng bệnh sẽ kéo dài cả năm, hoặc bị đau suốt đời.",
+   "source_page": 714,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "star:thien_tho"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Thọ (天壽) = sao chủ tuổi thọ",
+    "viet_thuan": "Lương sạch sát → ít bệnh; có Thiên Thọ → hóa hung thành an, nhưng nếu hung tinh đủ bộ thì bệnh dai dẳng cả đời (không chết).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q078",
+   "question": "Thiên Lương gặp Thiên Cơ đồng độ hoặc hội chiếu, hoặc có Kình Đà Thiên Hình hội hợp chủ về thương tật gì?",
+   "answer_atom": "Thiên Lương gặp Thiên Cơ đồng độ hoặc hội chiếu chủ về bị thương ở ngón tay hay ngón chân; Thiên Cơ ở hãm địa thì càng nặng. Nếu có Kình Dương, Đà La, Thiên Hình hội hợp sẽ chủ về tay chân bị ngoại thương, nội thương cơ gân, cũng chủ về trật đả, bệnh cũ bị ứ máu nên đau.",
+   "source_quote": "Thiên Lương gặp Thiên Cơ đồng độ hoặc hội chiếu, chủ về bị thương ở ngón tay hay ngón chân. Thiên Cơ ở hãm địa thì càng nặng. Nếu Thiên Lương có Kình Dương, Đà La, Thiên Hình hội hợp, sẽ chủ về tay chân bị ngoại thương, nội thương cơ gân, cũng chủ về trật đả, bệnh cũ bị ứ máu nên đau.",
+   "source_page": 714,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "star:thien_co",
+    "disease:ngoai_thuong",
+    "disease:tay_chan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Trật đả (跌打) = té ngã đụng dập",
+    "viet_thuan": "Lương + Cơ → thương ngón tay/chân; + Kình Đà Hình → chấn thương gân cơ, đau ứ máu vết thương cũ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q079",
+   "question": "Thiên Lương khi nào chủ về bệnh hệ nội tiết, và nhóm sao nào ứng nghiệm trúng độc, uống lầm thuốc?",
+   "answer_atom": "Thiên Lương cũng chủ về bệnh hệ nội tiết, lúc có Thái Dương đối chiếu hoặc đồng độ là đúng. Nhóm sao này nếu gặp Âm Sát, Thiên Hư, Thiên Nguyệt, Thiên Hình, Hoa Cái, Thiên Đức, thường ứng nghiệm là dùng độc tố, trúng độc, uống lầm thuốc, hoặc chẩn trị sai.",
+   "source_quote": "Thiên Lương cũng chủ về bệnh hệ nội tiết, lúc có Thái Dương đối chiếu hoặc đồng độ là đúng. Nhóm sao này, nếu gặp Âm Sát, Thiên Hư, Thiên Nguyệt, Thiên Hình, Hoa Cái, Thiên Đức, thường ứng nghiệm là dùng độc tố, trúng độc, uống lầm thuốc, hoặc chẩn trị sai.",
+   "source_page": 714,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "star:thai_duong",
+    "disease:noi_tiet",
+    "disease:trung_doc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương + Nhật → nội tiết; thêm bộ tạp diệu Âm Sát/Hư/Nguyệt/Hình/Hoa Cái/Đức → ngộ độc, uống nhầm thuốc, chữa sai bệnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q080",
+   "question": "Thiên Lương có Địa Không, Địa Kiếp đồng cung chủ về bệnh gì, đặc điểm thế nào?",
+   "answer_atom": "Thiên Lương có Không Kiếp đồng cung là phong thấp, tê thấp, tê liệt, hoặc bệnh phong phụ khoa (thực ra là đau thần kinh) — bệnh không có thực chất, không ảnh hưởng tính mạng, nhưng kéo dài triền miên. Gặp thêm Thiên Nguyệt thì càng đúng.",
+   "source_quote": "Thiên Lương có Địa Không, Địa Kiếp đồng cung, là phong thấp, tê thấp, tê liệt, hoặc bệnh phong phụ khoa (thực ra là đau thần kinh), bệnh không có thực chất, cũng không ảnh hưởng đến tính mạng, nhưng kéo dài triền miên. Gặp thêm Thiên Nguyệt thì càng đúng.",
+   "source_page": 714,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "disease:phong_thap",
+    "disease:than_kinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tê thấp = tê do thấp khí",
+    "viet_thuan": "Lương + Không Kiếp → đau thần kinh kiểu phong thấp: không nguy hiểm nhưng dai dẳng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q081",
+   "question": "Thiên Lương rất kị đồng cung với Hỏa Linh cùng tạp diệu hung trùng trùng thì nam nữ chủ bệnh gì? Hóa Kỵ nào làm khối u dễ khuếch tán?",
+   "answer_atom": "Thiên Lương rất kị đồng cung Hỏa Tinh, Linh Tinh, còn gặp thêm Thiên Hình, Thiên Nguyệt, Âm Sát, Thiên Hư, Thiên Đức, Đại Hao trùng trùng: nam mệnh chủ về ung thư dạ dày, nữ mệnh chủ về ung thư vú; sao hung nhẹ hơn thì cũng chủ về khối u. Nam mệnh không ưa hội Thái Dương Hóa Kỵ, nữ mệnh không ưa hội Thái Âm Hóa Kỵ — sẽ chủ về khối u dễ khuếch tán.",
+   "source_quote": "Thiên Lương rất kị đồng cung với Hỏa Tinh, Linh Tinh... nam mệnh chủ về ung thư dạ dày; nữ mệnh chủ về ung thư vú. Sao hung nhẹ hơn thì cũng chủ về khối u. Nam mệnh không ưa hội Thái Dương Hóa Kỵ, nữ mệnh không ưa hội Thái Âm Hóa Kỵ, sẽ chủ về khối u dễ khuếch tán.",
+   "source_page": 714,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "star:thai_duong",
+    "star:thai_am",
+    "transform:hoa_ky",
+    "disease:ung_thu",
+    "disease:da_day",
+    "disease:vu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khuếch tán = lan rộng, di căn",
+    "viet_thuan": "Lương + Hỏa Linh + tạp hung đủ bộ: nam ung thư dạ dày, nữ ung thư vú; Nhật Kỵ (nam) / Nguyệt Kỵ (nữ) → u dễ lan.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q082",
+   "question": "Thiên Lương có Kình Đà hội hợp gặp Không Kiếp, hoặc đồng cung Thiên Mã thì chủ những bệnh gì?",
+   "answer_atom": "Có Kình Dương, Đà La hội hợp mà gặp Địa Không, Địa Kiếp, các sao Sát Hình Hư Hao không nặng: đây là bệnh hệ thần kinh; gặp sao Hình thì chủ về đau do bị thương hoặc bị phẫu thuật. Thiên Lương đồng cung Thiên Mã hội hợp Hỏa Tinh là bệnh truyền nhiễm; đồng cung Thiên Mã mà gặp Thiên Nguyệt, Thiên Hình là chứng đau do thần kinh hoặc rối loạn nội tiết gây ảnh hưởng.",
+   "source_quote": "Nếu có Kình Dương, Đà La hội hợp, mà gặp Địa Không, Địa Kiếp, các sao Sát, Hình, Hư, Hao không nặng, đây là bệnh hệ thần kinh... Thiên Lương đồng cung với Thiên Mã, hội hợp với Hỏa Tinh, là bệnh truyền nhiễm.",
+   "source_page": 714,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_luong",
+    "disease:than_kinh",
+    "disease:truyen_nhiem",
+    "disease:noi_tiet"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lương + Kình Đà + Không Kiếp (hung nhẹ) → bệnh thần kinh; + Mã + Hỏa → truyền nhiễm; + Mã + Nguyệt/Hình → đau thần kinh, nội tiết.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q083",
+   "question": "Thất Sát ở cung Tật Ách thuộc hành gì, chủ bệnh gì, và vì sao chủ về đau do bị thương?",
+   "answer_atom": "Thất Sát thuộc hành Kim nên chủ về đường hô hấp: ho, hen suyễn, bệnh lao, viêm phổi, viêm khí quản. Thất Sát có mang sát khí nên chủ về đau do bị thương, như trật đả, bị thương do vật sắc nhọn, sự cố giao thông; tinh hệ Liêm Trinh, Thất Sát thì càng đúng. Nếu Liêm Trinh Hóa Kỵ lại gặp các sao sát, hình, chủ về bị thương do tai nạn bất trắc.",
+   "source_quote": "Thất Sát thuộc hành Kim, cho nên chủ về đường hô hấp, như ho, hen suyễn, bệnh lao, viêm phổi, viêm khí quản. Thất Sát có mang sát khí, cho nên chủ về đau do bị thương, như trật đả, bị thương do vật sắc nhọn, sự cố giao thông.",
+   "source_page": 715,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:that_sat",
+    "star:liem_trinh",
+    "disease:phoi",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sát khí (殺氣) = khí sát phạt",
+    "viet_thuan": "Thất Sát = hô hấp + chấn thương (dao kéo, tai nạn giao thông); Liêm Sát càng rõ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q084",
+   "question": "Thất Sát ở cung hãm Mão Dậu Tị Hợi gặp tứ sát và Thiên Hình, Thiên Nguyệt thường chủ về gì? Liêm Sát còn chủ bệnh gì?",
+   "answer_atom": "Thất Sát rất ngại ở cung hãm. Nếu ở bốn cung Mão, Dậu, Tị, Hợi, gặp Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, gặp thêm Thiên Hình, Thiên Nguyệt, thường chủ về suốt đời tàn tật. Tinh hệ Liêm Trinh, Thất Sát còn chủ về sốt tê liệt trẻ em, lao xương, còi xương, các bệnh truyền nhiễm.",
+   "source_quote": "Thất Sát rất ngại ở cung hãm. Nếu ở bốn cung Mão, Dậu, Tị, Hợi, gặp Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, gặp thêm Thiên Hình, Thiên Nguyệt, thường chủ về suốt đời tàn tật. Tinh hệ \"Liêm Trinh, Thất Sát\" còn chủ về sốt tê liệt trẻ em, lao xương, còi xương, các bệnh truyền nhiễm.",
+   "source_page": 715,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:that_sat",
+    "star:liem_trinh",
+    "disease:tan_tat",
+    "disease:xuong",
+    "disease:truyen_nhiem"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát hãm (Mão Dậu Tị Hợi) + tứ sát + Hình Nguyệt → tàn tật suốt đời; Liêm Sát → bại liệt trẻ em, lao/còi xương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q085",
+   "question": "Thất Sát tương hội Kình Dương (không đồng cung) là bệnh gì? Ở Dần Thân thì sao?",
+   "answer_atom": "Thất Sát không đồng cung với Kình Dương nhưng tương hội Kình Dương là viêm ruột thừa. Nếu tinh hệ này ở hai cung Dần hoặc Thân, sẽ chủ về bệnh trường vị (đường tiêu hóa); sát tinh nặng là trường vị có khối u. Thất Sát ở Dần hoặc Thân có Hỏa Tinh, Linh Tinh chiếu xạ, chủ về trĩ ra máu hoặc đại tiện ra máu, còn chủ về bị nhọt ở hạ bộ.",
+   "source_quote": "Nếu Thất Sát không đồng cung với Kình Dương, nhưng lại tương hội Kình Dương, là viêm ruột thừa; nếu tinh hệ này ở hai cung Dần hoặc Thân, sẽ chủ về bệnh trường vị (đường tiêu hóa); sát tinh nặng là trường vị có khối u. Thất Sát ở hai cung Dần hoặc Thân, có Hỏa Tinh, Linh Tinh chiếu xạ, chủ về trĩ ra máu, hoặc đại tiện ra máu, còn chủ về bị nhọt ở hạ bộ.",
+   "source_page": 715,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:that_sat",
+    "disease:ruot",
+    "disease:tri",
+    "disease:tieu_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Chiếu xạ = chiếu từ tam phương tứ chính",
+    "viet_thuan": "Sát hội (không cùng cung) Kình → viêm ruột thừa; ở Dần/Thân → bệnh dạ dày-ruột, + Hỏa Linh chiếu → trĩ ra máu, nhọt hạ bộ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q086",
+   "question": "Thất Sát gặp riêng từng một sao Hỏa Tinh, Long Trì, Phượng Các, Kình Dương, Đà La thì chủ bệnh gì?",
+   "answer_atom": "Thất Sát có Hỏa Tinh đồng độ là viêm mắt; có Long Trì đồng độ là nặng tai, tai điếc; có Phượng Các đồng độ là bệnh mũi; có Kình Dương đồng độ là mắt nháy giật; có Đà La đồng độ là đau răng. Các trường hợp này đều lấy Thất Sát gặp một sao làm chuẩn; nếu gặp thêm sát tinh khác thì không đúng.",
+   "source_quote": "Thất Sát có Hỏa Tinh đồng độ, là viêm mắt; có Long Trì đồng độ, nặng tai, tai điếc; có Phượng Các đồng độ, là bệnh mũi; có Kình Dương đồng độ, mắt nháy giật; có Đà La đồng độ, đau răng. Các trường hợp vừa kể đều lấy Thất Sát gặp một sao làm chuẩn; nếu gặp thêm sát tinh khác thì không đúng.",
+   "source_page": 715,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:that_sat",
+    "disease:mat",
+    "disease:tai",
+    "disease:mui",
+    "disease:rang"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Quy tắc 'một sao làm chuẩn': Sát + đúng 1 sao → bệnh cụ thể (mắt/tai/mũi/răng); thêm sát khác là phá cách, không dùng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q087",
+   "question": "Vũ Khúc, Liêm Trinh, Tử Vi gây ảnh hưởng đến Thất Sát ở cung Tật Ách khác nhau thế nào?",
+   "answer_atom": "Vũ Khúc ảnh hưởng đến Thất Sát là các tổn thương do trật đả; nếu Vũ Khúc hóa làm sao kỵ, chủ về có khối u ở đường hô hấp. Nếu chỉ một mình Liêm Trinh thì ảnh hưởng là đường hô hấp mẫn cảm, như hen suyễn, mũi dị ứng, viêm mũi. Tử Vi gây ảnh hưởng là nội thương, đau bụng, cũng chủ về trường vị bị viêm mạn tính; nếu các sao sát, kỵ trùng trùng thì viêm phúc mạc.",
+   "source_quote": "Vũ Khúc gây ảnh hưởng đến Thất Sát, là các tổn thương do trật đả. Nếu Vũ Khúc hóa làm sao kỵ, chủ về có khối u ở đường hô hấp... Tử Vi gây ảnh hưởng đến Thất Sát, là nội thương, đau bụng, cũng chủ về trường vị bị viêm mạn tính. Nếu các sao sát, kỵ trùng trùng, thì viêm phúc mạc.",
+   "source_page": 715,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:that_sat",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "star:tu_vi",
+    "transform:hoa_ky",
+    "disease:phoi",
+    "disease:tieu_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Viêm phúc mạc = viêm màng bụng",
+    "viet_thuan": "Sát đổi bệnh theo chính diệu: Vũ → trật đả/u hô hấp; Liêm → hen, mũi dị ứng; Tử → đau bụng, viêm ruột mạn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q088",
+   "question": "Vì sao Thất Sát còn là 'huyết tinh', và Linh Tinh hay Đà La đồng độ làm thay đổi luận đoán thế nào?",
+   "answer_atom": "Thời cổ bệnh lao phổi không có thuốc đặc trị, thường bị lạc huyết, nên Thất Sát còn là 'huyết tinh'. Thời hiện đại chỉ xem là bệnh phổi; tính chất 'huyết tinh' vẫn ứng nghiệm về bị ngoại thương, khối u. Nếu Thất Sát có Linh Tinh đồng độ, lại gặp các sao hư, hao, sẽ chủ về ứ huyết chứ không chủ về máu tươi. Có Đà La đồng độ là bệnh ở xương răng; có Đà La, Linh Tinh đồng độ là bệnh xương tủy, hoặc gân cốt kinh lạc bị thương tổn ngầm.",
+   "source_quote": "cho nên Thất Sát còn là \"huyết tinh\"... nếu Thất Sát có Linh Tinh đồng độ, lại gặp các sao hư, hao, sẽ chủ về ứ huyết, chứ không chủ về máu tươi. Có Đà La đồng độ, là bệnh ở xương răng. Nhưng có Đà La, Linh Tinh đồng độ, là bệnh xương tủy, hoặc gân cốt kinh lạc bị thương tổn ngầm.",
+   "source_page": 716,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:that_sat",
+    "disease:mau",
+    "disease:rang",
+    "disease:xuong_tuy"
+   ],
+   "commentary": {
+    "han_viet_explain": "Huyết tinh (血星) = sao của máu",
+    "viet_thuan": "Sát = sao máu (xưa lao phổi khạc máu); + Linh + hư hao → ứ huyết; + Đà → răng-xương; Đà+Linh → tủy xương, gân cốt tổn thương ngầm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q089",
+   "question": "Phá Quân ở cung Tật Ách vì sao chủ về bệnh có tính tiêu hao, và sát hình trùng trùng từ bé thì sao?",
+   "answer_atom": "Phá Quân thuộc dương thủy, nhưng do hóa làm 'sao hao' nên phần nhiều chủ về bệnh tật có tính tiêu hao — thường gặp nhất là tiểu đường, hoặc hệ nội tiết mất điều hòa, không thể hấp thu dinh dưỡng. Cung Tật Ách gặp Phá Quân tọa thủ có các sao sát, hình trùng trùng, lúc bé cần đề phòng các bệnh bẩm sinh; nghiêm trọng thì thành người lùn — nhưng khác với 'Thiên Đồng, Thái Âm' chủ về thiểu năng trí tuệ.",
+   "source_quote": "Phá Quân thuộc dương thủy, nhưng do hóa làm \"sao hao\", cho nên phẩm nhiểu chủ về bệnh tật có tính tiêu hao. Thường gặp nhất là bệnh tiểu đường, hoặc hệ nội tiết mất điều hòa, không thể hấp thu dinh dưỡng... nghiêm trọng thì thành người lùn. Nhưng khác với \"Thiên Đồng, Thái Âm\" chủ về thiểu năng trí tuệ.",
+   "source_page": 716,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:pha_quan",
+    "disease:tieu_duong",
+    "disease:noi_tiet",
+    "disease:bam_sinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sao hao (耗星) = sao chủ hao tán",
+    "viet_thuan": "Phá Quân = bệnh 'hao mòn': tiểu đường, kém hấp thu; sát hình nặng từ bé → bệnh bẩm sinh, lùn (thân thể, không phải trí tuệ).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q090",
+   "question": "Phá Quân thủ cung Tật Ách trong tình huống phổ biến và khi đối nhau Thiên Tướng thì chủ về gì?",
+   "answer_atom": "Trong tình huống phổ biến, Phá Quân thủ Tật Ách chủ về trẻ con bị ghẻ chốc, cơ thể hư nhược, hoặc chủ về dễ bị thương. Phá Quân đối nhau với Thiên Tướng, cổ nhân cho rằng dễ bị phá tướng do tính chất dễ bị thương; nhưng thông thường chỉ bị ở hàm dưới, chân tóc, không ở bộ vị thấy rõ; trường hợp khá đặc biệt là ở đầu lưỡi, khoang miệng, chân răng.",
+   "source_quote": "Phá Quân thủ cung Tật Ách cũng chủ về trẻ con bị ghẻ chốc, cơ thể hư nhược, hoặc chủ về để bị thương. Phá Quân đối nhau với Thiên Tưởng, cổ nhân cho rằng dễ bị phá tướng... thông thường chỉ bị ở hàm dưới, chân tóc, mà không ở bộ vị thấy rõ ràng, trường hợp khá đặc biệt là ở đầu lưỡi, khoang miệng, chân răng.",
+   "source_page": 716,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:pha_quan",
+    "star:thien_tuong",
+    "disease:da",
+    "disease:ngoai_thuong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phá Quân: trẻ nhỏ ghẻ chốc, yếu; đối Tướng → sẹo kín (hàm dưới, chân tóc, lưỡi, miệng).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q091",
+   "question": "Phá Quân đồng độ Vũ Khúc hoặc đối nhau Vũ Khúc, Thiên Tướng mà gặp Đà La thì chủ bệnh gì? Niên hạn gặp thì sao?",
+   "answer_atom": "Phá Quân đồng độ với Vũ Khúc, hoặc đối nhau với 'Vũ Khúc, Thiên Tướng', gặp Đà La, chủ về đau răng, sâu răng, hoặc bệnh nha chu. Niên hạn gặp tinh hệ này sẽ chủ về nhổ răng. Nếu có các sao sát, kị nặng là bị thương do té ngã, hoặc chủ về gãy xương — răng và xương ứng nghiệm cùng một tinh hệ, có lúc rất khó phân biệt.",
+   "source_quote": "Phá Quân đồng độ với Vũ Khúc, hoặc đối nhau với \"Vũ Khúc, Thiên Tưởng\", gặp Đà La, chủ về đau răng, sâu răng, hoặc bệnh nha chu. Niên hạn mà gặp tình hệ này sẽ chủ về nhổ răng. Nếu có các sao sát, kị nặng là bị thương do té ngã, hoặc chủ về gãy xương. Răng và xương ứng nghiệm cùng một tình hệ, có lúc rất khó phân biệt.",
+   "source_page": 716,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:pha_quan",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "disease:rang",
+    "disease:xuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Niên hạn = vận năm",
+    "viet_thuan": "Phá + Vũ + Đà La → bệnh răng (năm gặp = nhổ răng); sát kị nặng chuyển thành té ngã gãy xương — răng và xương cùng một gốc tượng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.6-Q092",
+   "question": "Phá Quân đồng độ với Hỏa Tinh, Linh Tinh chủ về gì? Khi hư hao trùng trùng gặp thêm Thiên Hình thì nam nữ khác nhau ra sao?",
+   "answer_atom": "Phá Quân đồng độ với Hỏa Tinh, Linh Tinh chủ về âm hư, thận suy, do đó gây nên bệnh tật ở mắt. Nếu các sao hư, hao trùng trùng, còn gặp thêm Thiên Hình: nam mệnh chủ về dương nuy, nữ mệnh chủ về đau bụng kinh — đều thuộc về bệnh có tính tiêu hao.",
+   "source_quote": "Phá Quân đồng độ với Hỏa Tinh, Linh Tinh, chủ về âm hư, thận suy, do đó gây nên bệnh tật ở mắt. Nếu các sao hư, hao trùng trùng, còn gặp thêm Thiên Hình, nam mệnh chủ về dương nuy, nữ mệnh chủ về đau bụng kinh, đều thuộc về bệnh có tính tiêu hao.",
+   "source_page": 716,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:pha_quan",
+    "disease:than",
+    "disease:mat",
+    "disease:sinh_duc",
+    "disease:kinh_nguyet"
+   ],
+   "commentary": {
+    "han_viet_explain": "Dương nuy (陽痿) = liệt dương",
+    "viet_thuan": "Phá + Hỏa Linh → âm hư thận suy kéo theo mắt; hư hao + Hình: nam liệt dương, nữ đau bụng kinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}

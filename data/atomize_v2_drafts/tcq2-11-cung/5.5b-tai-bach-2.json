@@ -1,0 +1,3525 @@
+{
+ "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+ "section_id": "5.5",
+ "section_title": "Cung Tài Bạch (2)",
+ "pages": [
+  673,
+  674,
+  675,
+  676,
+  677,
+  678,
+  679,
+  680,
+  681,
+  682,
+  683,
+  684,
+  685,
+  686,
+  687,
+  688,
+  689,
+  690,
+  691,
+  692,
+  693,
+  694,
+  695,
+  696,
+  697,
+  698,
+  699,
+  700
+ ],
+ "atoms": [
+  {
+   "question_id": "tcq2-5.5-Q201",
+   "question": "Liêm Trinh Thiên Tướng ở cung Tài Bạch có hoạnh phát hoạnh phá không?",
+   "answer_atom": "Liêm Trinh, Thiên Tướng cũng có thể hoạnh phát hoạnh phá, nhưng tính chất khá hòa hoãn.",
+   "source_quote": "\"Liêm Trinh, Thiên Tướng\" cũng có thể hoạnh phát hoạnh phá, nhưng tính chất khá hòa hoãn.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:thien_tuong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hoạnh phát hoạnh phá = phát đột ngột rồi phá tán đột ngột.",
+    "viet_thuan": "Cặp Liêm Trinh - Thiên Tướng ở cung Tài Bạch có thể phất nhanh rồi mất nhanh, nhưng mức độ êm hơn các tổ hợp khác.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q202",
+   "question": "Liêm Trinh Thất Sát ở cung Sửu/Mùi tại Tài Bạch khác nhau thế nào?",
+   "answer_atom": "Ở cung Mùi thành cách \"Hùng tú kiền nguyên\", có sao lộc thì thành phú cách nhưng phải trải qua gian khổ; ở cung Sửu không thành cách này, gặp sao lộc vẫn giàu có nhưng nguồn tiền tài không thông thuận bằng cung Mùi.",
+   "source_quote": "Ở cung Mùi là cách cục \"Hùng tú kiển nguyên\", nếu có sao lộc thì có thể trở thành phú cách, nhưng vẫn phải trải qua gian khổ; ở cung Sửu tuy không thành cách cục \"Hùng tú kiển nguyên\", nhưng gặp sao lộc cũng có thể giàu có, nhưng nguồn tiền tài không thông thuận bằng ở cung Mùi.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:that_sat",
+    "pattern:hung_tu_kien_nguyen",
+    "chi:suu",
+    "chi:mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hùng tú kiền nguyên = cách cục Liêm Trinh Thất Sát ở Mùi; sao lộc = Lộc Tồn hoặc Hóa Lộc.",
+    "viet_thuan": "Liêm Trinh Thất Sát ở Mùi thành cách quý, có lộc thì giàu nhưng vất vả; ở Sửu không thành cách, có lộc vẫn giàu nhưng dòng tiền kém thuận hơn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q203",
+   "question": "Liêm Trinh Thất Sát ở cung Tài Bạch cần Hóa Lộc nào để giàu có thực chất?",
+   "answer_atom": "Ngoại trừ Liêm Trinh Hóa Lộc, gặp Phá Quân Hóa Lộc hoặc Tham Lang Hóa Lộc đều có thể trở thành giàu có, \"đầy ắp\" chứ không \"trống rỗng\". Có Văn Xương Văn Khúc đồng độ chủ về giàu lòng cảm thông; Hóa Kỵ thì không nên chịu trách nhiệm thay người khác.",
+   "source_quote": "Cho nên ngoại trừ Liêm Trinh Hóa Lộc, gặp Phá Quân Hóa Lộc hoặc Tham Lang Hóa Lộc, đều có thể trở thành giàu có, \"đẩy ắp\" chứ không \"trống rỗng\". Có Văn Xương, Văn Khúc đồng độ, chủ về giàu lòng cảm thông; Hóa Kỵ thì không nên chịu trách nhiệm thay cho người khác.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:that_sat",
+    "hoa:loc",
+    "hoa:ky",
+    "star:van_xuong",
+    "star:van_khuc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hóa Lộc = sao biến hóa chủ tài lộc theo can năm sinh.",
+    "viet_thuan": "Tổ hợp này giàu thật chất khi gặp Liêm Trinh/Phá Quân/Tham Lang Hóa Lộc; gặp Hóa Kỵ thì tránh đứng ra gánh trách nhiệm thay người khác.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q204",
+   "question": "Liêm Trinh Thất Sát ở cung Tài Bạch giỏi kiếm tiền hay giữ tiền?",
+   "answer_atom": "Giỏi tích lũy tiền mà không giỏi kiếm tiền; có các sao phụ, tá hội hợp thì năng lực kiếm tiền khá tốt.",
+   "source_quote": "\"Liêm Trinh, Thất Sát\" ở cung Tài Bạch, giỏi tích lũy tiền mà không giỏi kiếm tiền; có các sao phụ, tá hội hợp, thì năng lực kiếm tiền khá tốt.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:that_sat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sao phụ tá = Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt, Văn Xương, Văn Khúc...",
+    "viet_thuan": "Cặp này thiên về giữ và gom tiền; muốn kiếm tiền mạnh cần thêm sao phụ tá trợ giúp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q205",
+   "question": "Liêm Trinh độc tọa Dần/Thân ở cung Tài Bạch có năng lực kiếm tiền thế nào?",
+   "answer_atom": "Đối nhau với Tham Lang, năng lực kiếm tiền rất mạnh; có Hỏa Tinh đồng độ cũng chủ về hoạnh phát hoạnh phá và khá xem trọng tiền bạc.",
+   "source_quote": "Liêm Trinh độc tọa ở hai cung Dần hoặc Thân, đối nhau với Tham Lang, năng lực kiếm tiền rất mạnh; có Hỏa Tinh đồng độ, cũng chủ về hoạnh phát hoạnh phá, và khá xem trọng tiền bạc.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "star:hoa_tinh",
+    "chi:dan",
+    "chi:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Độc tọa = một mình chính tinh thủ cung; đối nhau = ở cung xung chiếu.",
+    "viet_thuan": "Liêm Trinh một mình ở Dần/Thân kiếm tiền rất mạnh; thêm Hỏa Tinh thì phất nhanh mất nhanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q206",
+   "question": "Liêm Trinh ở Dần/Thân tại Tài Bạch thích hợp nghề gì, Hóa Lộc thì sao?",
+   "answer_atom": "Rất thích hợp làm việc trong lĩnh vực kinh tế tài chính. Liêm Trinh Hóa Lộc có thể thành \"phú cục\"; Tham Lang Hóa Lộc thì nặng lòng tư lợi. Tham Lang Hóa Lộc đồng cung Hỏa Tinh chủ về phát đột ngột, biết dừng thì không suy sụp nhanh. Rất ưa \"Lộc Mã giao trì\": giỏi quản lý tiền bạc, mua bán đắc lợi.",
+   "source_quote": "Liêm Trinh ở hai cung Dần hoặc Thân, rất thích hợp làm việc trong lĩnh vực kinh tế tài chính. Nếu Liêm Trinh Hóa Lộc, có thể trở thành \"phú cục\"; Tham Lang Hóa Lộc, thì nặng lòng tư lợi. Tham Lang Hóa Lộc đồng cung với Hỏa Tinh, chủ về phát đột ngột, chỉ cần biết dừng lại thì cũng không đến nỗi suy sụp nhanh chóng. Rất ưa \"Lộc Mã giao trì\", không những giỏi quản lý tiền bạc, mà còn mua bán đắc lợi.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "star:hoa_tinh",
+    "hoa:loc",
+    "pattern:loc_ma_giao_tri"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lộc Mã giao trì = Lộc Tồn/Hóa Lộc gặp Thiên Mã, chủ tiền tài nhờ di động.",
+    "viet_thuan": "Liêm Trinh Dần/Thân hợp ngành tài chính; Hóa Lộc thì thành cục giàu, gặp Lộc Mã giao trì thì buôn bán có lời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q207",
+   "question": "Liêm Trinh Hóa Kỵ ở Dần/Thân tại cung Tài Bạch chủ về điều gì?",
+   "answer_atom": "Chủ về sự nghiệp bị trắc trở, thường việc sắp thành lại hỏng; nếu đồng thời gặp thêm các sao Sát, Hình, Hao còn chủ về kiện tụng; có Hỏa Tinh, Linh Tinh giáp cung thì càng đúng.",
+   "source_quote": "Liêm Trinh Hóa Kỵ ở hai cung Dần hoặc Thân, chủ về sự nghiệp bị trắc trở, thường thường việc sắp thành lại hỏng; nếu đồng thời gặp thêm các sao Sát, Hình, Hao, còn chủ về kiện tụng; có Hỏa Tinh, Linh Tinh giáp cung thì càng đúng.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "hoa:ky",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "chi:dan",
+    "chi:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Giáp cung = hai sao kẹp hai bên cung; Sát Hình Hao = nhóm sát tinh, Thiên Hình, Đại Hao.",
+    "viet_thuan": "Liêm Trinh Hóa Kỵ ở Dần/Thân thì việc gần thành lại hỏng, thêm sát tinh thì dính kiện tụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q208",
+   "question": "Liêm Trinh Phá Quân ở Mão/Dậu tại cung Tài Bạch có đặc điểm gì?",
+   "answer_atom": "Nguồn tiền tài không ổn định. Nếu Phá Quân Hóa Lộc, thường phải kiêm nghề hay kiêm chức vụ.",
+   "source_quote": "\"Liêm Trinh, Phá Quân\" đồng độ ở hai cung Mão hoặc Dậu, nguồn tiền tài không ổn định. Nếu Phá Quân Hóa Lộc, thường thường phải kiêm nghề hay kiêm chức vụ.",
+   "source_page": 673,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "hoa:loc",
+    "chi:mao",
+    "chi:dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đồng độ = hai sao cùng đóng một cung.",
+    "viet_thuan": "Liêm Trinh Phá Quân ở Mão/Dậu thì dòng tiền bấp bênh; Phá Quân Hóa Lộc thì hay phải làm thêm nghề tay trái.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q209",
+   "question": "Liêm Trinh Phá Quân ở Tài Bạch, Phá Quân Hóa Lộc gặp Hỏa Tinh thì sao?",
+   "answer_atom": "Phá Quân Hóa Lộc không nên gặp Hỏa Tinh, chủ về vì lòng tham mà sinh phá tán, thất bại; hoặc lý tưởng quá cao mà sinh trắc trở.",
+   "source_quote": "Liêm Trinh, Phá Quân ở cung Tài Bạch, Phá Quân Hóa Lộc thì không nên gặp Hỏa Tinh, chủ về vì lòng tham mà sinh phá tán, thất bại; hoặc lí tưởng quá cao mà sinh trắc trở.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "star:hoa_tinh",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phá tán = tiền của tan vỡ, hao hụt lớn.",
+    "viet_thuan": "Phá Quân Hóa Lộc mà thêm Hỏa Tinh thì lòng tham hoặc mơ cao quá làm đổ vỡ tiền bạc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q210",
+   "question": "Liêm Trinh Phá Quân đồng độ Lộc Tồn ở Tài Bạch gặp Hỏa Tinh thành cách gì?",
+   "answer_atom": "Trường hợp đồng độ với Lộc Tồn thì ưa gặp Hỏa Tinh, hoặc gặp \"Vũ Khúc, Tham Lang\" đồng độ với Hỏa Tinh ở cung Mệnh — đây là cách cự phú. Nhưng sau khi phát đạt vẫn có nguy cơ phá tán; năm ứng nghiệm thường là lúc cung Mệnh hoặc cung Tài Bạch của Lưu Niên gặp các sao sát, kị, hình tụ tập.",
+   "source_quote": "Trường hợp đồng độ với Lộc Tồn, thì ưa gặp Hỏa Tinh, hoặc gặp \"Vũ Khúc, Tham Lang\" đồng độ với Hỏa Tinh ở cung Mệnh, đây là cách cự phú. Nhưng sau khi phát đạt vẫn có nguy cơ phá tán, thất bại; năm ứng nghiệm thường là lúc cung Mệnh hoặc cung Tài Bạch của Lưu Niên gặp các sao sát, kị, hình tụ tập.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "star:loc_ton",
+    "star:hoa_tinh",
+    "star:vu_khuc",
+    "star:tham_lang",
+    "rule:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cự phú = giàu lớn; Lưu Niên = vận hạn từng năm.",
+    "viet_thuan": "Có Lộc Tồn cùng cung thì gặp Hỏa Tinh lại thành cách giàu lớn, nhưng phát rồi vẫn có thể vỡ vào năm sát kỵ hình tụ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q211",
+   "question": "Liêm Trinh Phá Quân ở Tài Bạch có Địa Không Địa Kiếp đồng cung thì sao?",
+   "answer_atom": "Chủ về phá tán, thất bại. Nhưng nếu đồng thời gặp sao Lộc và sao cát thì cát hung chỉ cách nhau một đường ranh, có thể thành hay bại trong tức khắc. Không nên quá sát phạt, nên chừa đường lui, biết dừng lại; không nên đầu cơ hay đầu tư mạo hiểm. Dù gặp cát tinh, sau khi phá tán cũng khó khôi phục nguyên khí.",
+   "source_quote": "Trường hợp có Địa Không, Địa Kiếp đồng cung, chủ về phá tán, thất bại. Nhưng nếu đồng thời gặp sao Lộc và sao cát, thì cát hung chỉ cách nhau một đường ranh, có thể thành hay bại trong tức khắc. Đại khái, không nên quá sát phạt, mà nên chừa đường lui, biết dừng lại. Không nên đầu cơ, hay đẩu tư mạo hiểm, nếu không ắt sẽ sinh phá tán, thất bại. Dù gặp cát tinh, sau khi phá tán, thất bại cũng khó khôi phục nguyên khí.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "star:dia_khong",
+    "star:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nguyên khí = sức lực gốc, vốn liếng căn bản.",
+    "viet_thuan": "Gặp Không Kiếp thì dễ vỡ nợ; có lộc và cát tinh thì thành bại sát nút — phải biết dừng, tránh đầu cơ mạo hiểm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q212",
+   "question": "Liêm Trinh Thiên Phủ ở Thìn/Tuất tại cung Tài Bạch có đặc tính gì?",
+   "answer_atom": "Giỏi tích lũy tiền mà cũng giỏi kiếm tiền. Nhưng nếu Thiên Phủ là \"kho lộ\", \"kho trống\" thì dù thay đổi hoàn cảnh cũng khó giữ được tiền bạc.",
+   "source_quote": "Liêm Trinh, Thiên Phủ đồng độ ở hai cung Thìn hoặc Tuất, giỏi tích lũy tiền, mà cũng giỏi kiếm tiền. Nhưng nếu Thiên Phủ là \"kho lộ\", \"kho trống\", thì dù thay đổi hoàn cảnh cũng khó giữ được tiền bạc.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "pattern:kho_lo",
+    "pattern:kho_trong",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kho lộ = Thiên Phủ có lộc nhưng lộ ra bị dòm ngó; kho trống = Thiên Phủ không sao lộc, không phụ tá.",
+    "viet_thuan": "Liêm Trinh Thiên Phủ ở Thìn/Tuất vừa kiếm vừa giữ tiền giỏi, trừ khi Thiên Phủ thành kho trống/kho lộ thì khó giữ tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q213",
+   "question": "Liêm Trinh Hóa Lộc với Lộc trùng điệp ở Tài Bạch thành cách gì? Thiên Phủ Hóa Khoa thì sao?",
+   "answer_atom": "Nếu Liêm Trinh Hóa Lộc ở cung Tài Bạch hoặc cung Mệnh có Lộc Tồn, mà cung Sự Nghiệp có Lộc Tồn hay Hóa Lộc (\"Lộc trùng điệp\" càng tốt) — đây là phú cách. Thiên Phủ Hóa Khoa thì về tiền bạc rất có uy tín, lời hứa đáng giá ngàn vàng; nếu hội Vũ Khúc Hóa Kỵ dễ bị túng thiếu, không nên đầu cơ hay hứa hẹn khinh suất.",
+   "source_quote": "Nếu Liêm Trinh Hóa Lộc ở cung Tài Bạch hoặc cung Mệnh có Lộc Tồn, mà cung Sự Nghiệp có Lộc Tồn hay Hóa Lộc (\"Lộc trùng điệp\" thì càng tốt), thì đây là phú cách. Nếu Thiên Phủ Hóa Khoa, thì về phương diện tiền bạc rất có uy tín, lời hứa đáng giá ngàn vàng. Nếu lúc này hội Vũ Khúc Hóa Kỵ, dễ bị túng thiếu.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "hoa:loc",
+    "hoa:khoa",
+    "hoa:ky",
+    "pattern:loc_trung_diep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lộc trùng điệp = nhiều tầng sao lộc (Lộc Tồn + Hóa Lộc) chồng lên nhau.",
+    "viet_thuan": "Liêm Trinh Hóa Lộc kèm Lộc Tồn nhiều tầng là cách giàu; Thiên Phủ Hóa Khoa thì uy tín tiền bạc cao, nhưng gặp Vũ Khúc Hóa Kỵ dễ kẹt tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q214",
+   "question": "Liêm Trinh Tham Lang ở Tị/Hợi tại Tài Bạch với Hóa Lộc và Hỏa/Linh Tinh chủ về gì?",
+   "answer_atom": "Trong hai sao có một sao Hóa Lộc, đồng độ với Hỏa Tinh, Linh Tinh, đều chủ về \"thiên tài\" (tiền có được ngoài thu nhập bình thường), nhưng được nhanh mất nhanh; gặp thêm Thiên Hình, Đại Hao, Địa Không, Địa Kiếp thì vì vậy mà phá tán. Đồng cung với các sao đào hoa là lĩnh vực nghệ thuật, khuynh hướng biểu diễn như ca sĩ, diễn viên.",
+   "source_quote": "Liêm Trinh, Tham Lang đồng độ ở hai cung Tị hoặc Hợi, trong hai có một sao Hóa Lộc, đồng độ với Hỏa Tinh, Linh Tinh, đều chủ về \"thiên tài\" (tiền có được ngoài thu nhập bình thường), nhưng được nhanh mất nhanh; nếu gặp thêm Thiên Hình, Đại Hao, Địa Không, Địa Kiếp, thì vì vậy mà phá tán, thất bại.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "hoa:loc",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên tài = tiền tài ngoài luồng thu nhập chính (trúng thưởng, hoa hồng bất ngờ...).",
+    "viet_thuan": "Liêm Tham Tị/Hợi có Hóa Lộc cùng Hỏa/Linh thì có lộc trời cho nhưng đến nhanh đi nhanh; thêm Hình Hao Không Kiếp thì vỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q215",
+   "question": "Liêm Trinh Tham Lang ở Tị/Hợi tại Tài Bạch thích hợp ngành nghề gì?",
+   "answer_atom": "Tổ hợp này chủ về sắc thái, thích hợp làm những công việc liên quan đến mỹ quan để kiếm tiền; cũng nên làm những nghề nghiệp liên quan đến giải trí, vui chơi và hưởng thụ.",
+   "source_quote": "Liêm Trinh, Tham Lang đồng độ ở hai cung Tị hoặc Hợi là chủ về sắc thái, vì vậy thích hợp làm những công việc liên quan đến mĩ quan để kiếm tiền; cũng nên làm những nghề nghiệp có liên quan đến giải trí, vui chơi và hưởng thụ.",
+   "source_page": 674,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "chi:ti",
+    "chi:hoi",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Mỹ quan = cái đẹp hình thức, thẩm mỹ.",
+    "viet_thuan": "Liêm Tham Tị/Hợi hợp nghề làm đẹp, thẩm mỹ, giải trí, hưởng thụ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q216",
+   "question": "Liêm Trinh Tham Lang ở Tị/Hợi có Văn Xương Văn Khúc đồng độ chủ về gì? Hóa Kỵ thì sao?",
+   "answer_atom": "Có Văn Xương, Văn Khúc đồng độ là hào nhoáng bề ngoài, chủ về lễ tiết phức tạp, có ý vị trang sức — kiếm tiền kiểu thiết kế mỹ thuật, nhưng công việc cũng có hiện tượng thiếu thực tế, trống rỗng. Liêm Trinh Hóa Kỵ chủ về phá tán, không nên cầu tài \"trên trời rơi xuống\"; Tham Lang Hóa Kỵ chủ về mục tiêu kiếm tiền khó đạt nhưng không có con đường kiếm tiền nào khác.",
+   "source_quote": "có Văn Xương, Văn Khúc đồng độ, đây là hào nhoáng bề ngoài, cũng chủ về lễ tiết phức tạp, cho nên có ý vị trang sức, đây cũng là tính chất kiếm tiền như thiết kế mỹ thuật... Trường hợp Liêm Trinh Hóa Kỵ, thì chủ về phá tán, thất bại, không nên cầu tài \"trên trời rơi xuống\"; Tham Lang Hóa Kỵ thì chủ về mục tiêu kiếm tiền khó đạt tới, nhưng vì tình hình diễn tiến nên không có con đường kiếm tiền nào khác.",
+   "source_page": 675,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:liem_trinh",
+    "star:tham_lang",
+    "star:van_xuong",
+    "star:van_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lễ tiết = nghi thức xã giao; trang sức = tô điểm bề ngoài.",
+    "viet_thuan": "Thêm Xương Khúc thì kiếm tiền kiểu thiết kế mỹ thuật nhưng dễ rỗng ruột; Liêm Kỵ thì tránh tiền từ trên trời rơi xuống.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q217",
+   "question": "Thiên Phủ thủ cung Tài Bạch tự thân có chủ về giàu có không?",
+   "answer_atom": "Không chủ về giàu có, chỉ chủ về năng lực giữ tiền và kiếm tiền. Cần phải gặp sao Lộc mới có thể trở thành \"phú cục\", Lộc Tồn hay Hóa Lộc đều được.",
+   "source_quote": "Thiên Phủ thủ cung Tài Bạch, không chủ về giàu có, chỉ chủ về năng lực giữ tiền và kiếm tiền. Cần phải gặp sao Lộc, mới có thể trở thành \"phú cục\", Lộc Tồn hay Hóa Lộc đều được.",
+   "source_page": 675,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:loc_ton",
+    "hoa:loc",
+    "pattern:phu_cuc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phú cục = cục diện giàu có.",
+    "viet_thuan": "Thiên Phủ ở Tài Bạch chỉ là khả năng giữ/kiếm tiền; phải có sao lộc mới thành giàu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q218",
+   "question": "Thiên Phủ ở Tài Bạch không có sao Lộc thì nên gì?",
+   "answer_atom": "Nếu không gặp sao Lộc thì Thiên Phủ nên Hóa Khoa, chủ về có uy tín, đặc biệt về quản lý tài chính và đầu tư, ắt sẽ có người bảo lãnh, nhờ đó có cơ hội phát triển.",
+   "source_quote": "Nếu không gặp sao Lộc, thì Thiên Phủ nên Hóa Khoa, chủ về có uy tín, đặc biệt về phương diện quản lý tài chính và đầu tư, ắt sẽ có người bảo lãnh, nhờ đó có cơ hội phát triển.",
+   "source_page": 675,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hóa Khoa = sao biến hóa chủ danh tiếng, uy tín.",
+    "viet_thuan": "Không có lộc thì Thiên Phủ Hóa Khoa cũng tốt: uy tín tài chính cao, có người đứng ra bảo lãnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q219",
+   "question": "Thiên Phủ đồng độ Lộc Tồn ở Tài Bạch có lợi và bất lợi gì?",
+   "answer_atom": "Thiên Phủ vốn bảo thủ, dùng tiền có kế hoạch; có Lộc Tồn đồng độ lại chủ về mọi việc xử lý cẩn thận — chỉ có lợi cho phát triển sự nghiệp đã có, bất lợi về mở ra cục diện mới. Nên có các sao phụ tá tụ hội mới chủ về có trợ lực và cơ hội phát triển; nếu không gặp phụ tá thì kiếm tiền gian nan, hơi gặp sát tinh thì hao tài phá tán.",
+   "source_quote": "nếu có Lộc Tồn đồng độ, lại chủ về mọi việc đều xử lý cẩn thận, điều này chỉ có lợi cho việc phát triển sự nghiệp đã có, mà bất lợi về việc mở ra cục diện mới... Thiên Phủ đồng độ với Lộc Tồn, mà không gặp các sao phụ, tá, thì kiếm tiền gian nan; hơi gặp sát tinh thì hao tài, phá tán.",
+   "source_page": 675,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:loc_ton"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bảo thủ = giữ gìn cái cũ, ngại thay đổi.",
+    "viet_thuan": "Thiên Phủ + Lộc Tồn cẩn thận quá mức, hợp giữ nghiệp cũ chứ không hợp mở hướng mới; thiếu phụ tá thì kiếm tiền chật vật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q220",
+   "question": "Thiên Phủ thành \"kho trống\" ở Tài Bạch khi nào và hậu quả gì?",
+   "answer_atom": "Thiên Phủ không có sao Lộc, không Hóa Khoa, lại không có các sao phụ tá — đây là \"kho trống\". Có Tài Tinh đồng độ hoặc tương hội (như Vũ Khúc) thì còn được; nếu không, chỉ chủ về làm việc hưởng lương, tự kinh doanh khó phát đạt, dễ đánh mất cơ hội tốt. Kho trống mà thêm sát, kỵ, không kiếp hội hợp thì túng thiếu, tự kinh doanh ắt gây tranh đoạt.",
+   "source_quote": "Thiên Phủ không có sao Lộc, lại không Hóa Khoa, mà còn không có các sao phụ, tá, đây là \"kho trống\"... Thiên Phủ là \"kho trống\", nếu lại có các sao sát, kỵ, không kiếp hội hợp, thì chủ về túng thiếu, chỉ thích hợp làm việc hưởng lương, tự kinh doanh, ắt sẽ gây ra tranh đoạt.",
+   "source_page": 675,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "pattern:kho_trong"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kho trống = Thiên Phủ thiếu lộc, thiếu khoa, thiếu phụ tá — kho không có gì bên trong.",
+    "viet_thuan": "Thiên Phủ kho trống thì nên đi làm công ăn lương, tự kinh doanh dễ túng thiếu và tranh chấp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q221",
+   "question": "Thiên Phủ kho trống/kho lộ có Âm Sát, Thiên Diêu đồng độ chủ về gì?",
+   "answer_atom": "Chủ về tiền có tính chất tính toán, cơ mưu. Nếu có Văn Xương Hóa Kỵ hoặc Văn Khúc Hóa Kỵ đồng cung — đây là lừa đảo hoặc bị lừa; cần xem cung Mệnh và cung Phúc Đức mà định mệnh tạo lừa đảo hay bị lừa.",
+   "source_quote": "Thiên Phủ là \"kho trống\" hay \"kho lộ\", có Âm Sát, Thiên Diêu đồng độ, sẽ chủ về tiền có tính chất tính toán, cơ mưu. Nếu có Văn Xương Hóa Kỵ hoặc Văn Khúc Hóa Kỵ đồng cung, đây là lừa đảo hoặc bị lừa. Cần phải xem xét kỹ cung Mệnh và cung Phúc Đức mà định mệnh tạo ra việc lừa đảo hay bị lừa.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:am_sat",
+    "star:thien_dieu",
+    "star:van_xuong",
+    "star:van_khuc",
+    "hoa:ky",
+    "pattern:kho_trong",
+    "pattern:kho_lo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Mệnh tạo = người có lá số đang luận.",
+    "viet_thuan": "Kho trống/kho lộ thêm Âm Sát Thiên Diêu thì tiền dính mưu mô; thêm Xương/Khúc Hóa Kỵ thì có chuyện lừa đảo — phải xem Mệnh, Phúc Đức để biết là lừa hay bị lừa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q222",
+   "question": "Thiên Phủ có sao Lộc gặp cát tinh nhưng thêm Địa Không Địa Kiếp đồng cung thì sao?",
+   "answer_atom": "Thường kiếm được tiền cũng sẽ bị tổn thất, nhưng số tiền kiếm được lớn hơn số tiền bị tổn thất.",
+   "source_quote": "Thiên Phủ có sao Lộc, gặp cát tinh, nếu có Địa Không, Địa Kiếp đồng cung, thường kiếm được tiền cũng sẽ bị tổn thất, nhưng số tiền kiếm được lớn hơn số tiền bị tổn thất.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:dia_khong",
+    "star:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tổn thất = mất mát, hao hụt.",
+    "viet_thuan": "Thiên Phủ có lộc có cát nhưng thêm Không Kiếp: kiếm được tiền vẫn bị hao, nhưng thu vẫn nhiều hơn mất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q223",
+   "question": "Thiên Phủ độc tọa Sửu/Mùi ở Tài Bạch thành cục gì?",
+   "answer_atom": "Đối nhau với \"Liêm Trinh, Thất Sát\", thành cục \"Nhật Nguyệt giáp tài\". Cổ nhân cho rằng Thái Dương và Thái Âm giáp tài tinh, không có quyền thì cũng giàu có; thêm Kình Dương, Đà La xung chiếu thì nên làm tăng nhân, đạo sĩ. Cục này cần gặp Lộc, Quyền, Khoa và sao cát mới nhập cách; cũng nên đồng độ Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật — chủ về nắm quyền tài chính.",
+   "source_quote": "Thiên Phủ độc tọa ở hai cung Sửu hoặc Mùi, đối nhau với \"Liêm Trinh, Thất Sát\", thành cục \"Nhật Nguyệt giáp tài\". Cổ nhân cho rằng, Thái Dương và Thái Âm giáp tài tinh, không có quyền thì cùng giàu có; thêm Kình Dương, Đà La xung chiếu thì nên làm tăng nhân, đạo sĩ. Cục này cần phải gặp Lộc, Quyền, Khoa và sao cát, mới nhập cách.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "star:that_sat",
+    "pattern:nhat_nguyet_giap_tai",
+    "star:kinh_duong",
+    "star:da_la",
+    "chi:suu",
+    "chi:mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhật Nguyệt giáp tài = Thái Dương, Thái Âm kẹp hai bên cung có tài tinh; tăng nhân = nhà sư.",
+    "viet_thuan": "Thiên Phủ Sửu/Mùi được Nhật Nguyệt kẹp là cục giàu, nhưng phải có Lộc Quyền Khoa và cát tinh mới đúng cách; bị Kình Đà xung thì hợp đường tu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q224",
+   "question": "Thiên Phủ Sửu/Mùi có Xương Khúc và sao Đào Hoa, Thiên Diêu thì chủ về gì?",
+   "answer_atom": "Nếu có Văn Xương Văn Khúc đồng cung, lại hội các sao Đào Hoa, trường kỳ có Thiên Diêu đồng độ hoặc vây chiếu, sẽ chủ về phụ nữ giữ tiền; tính chất tốt thì còn được, tính chất không tốt sẽ chủ về xảy ra khó khăn. Hội Thiên Tướng gặp \"Hình kỵ giáp ấn\" thì bị áp lực tiền bạc; hội Thiên Tướng gặp \"Tài ấm giáp ấn\" chủ về được hưởng phúc ấm hoặc có cơ hội quản lý sự nghiệp có sẵn.",
+   "source_quote": "nếu có Văn Xương, Văn Khúc đồng cung, lại hội hợp các sao Đào Hoa, thì trường kỳ có Thiên Diêu đồng độ hoặc vây chiếu, sẽ chủ về phụ nữ giữ tiền... Trường hợp hội Thiên Tướng gặp \"Hình kỵ giáp ẩn\", thì bị áp lực về tiền bạc; hội Thiên Tướng gặp \"Tài ấm giáp ấn\", chủ về được hưởng phúc ấm, hoặc có cơ hội quản lý sự nghiệp có sẵn.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:van_xuong",
+    "star:van_khuc",
+    "star:thien_dieu",
+    "star:thien_tuong",
+    "pattern:hinh_ky_giap_an",
+    "pattern:tai_am_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình kỵ giáp ấn = Thiên Hình và Hóa Kỵ kẹp Thiên Tướng; Tài ấm giáp ấn = tài tinh và Thiên Lương kẹp Thiên Tướng.",
+    "viet_thuan": "Có Xương Khúc + đào hoa + Thiên Diêu thì tiền do phụ nữ nắm giữ; Thiên Tướng bị Hình Kỵ kẹp thì áp lực tiền, được Tài Ấm kẹp thì hưởng phúc ấm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q225",
+   "question": "Thiên Phủ bị Liêm Trinh Hóa Kỵ đối xung hoặc có sát tinh đồng độ thì sao?",
+   "answer_atom": "Thiên Phủ bị Liêm Trinh Hóa Kỵ đối xung thì nhiều trắc trở; Thiên Phủ có sát tinh đồng độ thì chủ về phá tán, thất bại.",
+   "source_quote": "Thiên Phủ bị Liêm Trinh Hóa Kỵ đối xung, thì nhiều trắc trở; Thiên Phủ có sát tinh đồng độ thì chủ về phá tán, thất bại.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:liem_trinh",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đối xung = chiếu từ cung đối diện.",
+    "viet_thuan": "Liêm Trinh Hóa Kỵ chiếu vào Thiên Phủ thì lắm trắc trở; sát tinh ở cùng cung thì đổ vỡ tiền bạc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q226",
+   "question": "Thiên Phủ độc tọa Mão/Dậu ở Tài Bạch có gì khác Thiên Phủ Sửu/Mùi?",
+   "answer_atom": "Đối nhau với \"Vũ Khúc, Thất Sát\"; Vũ Khúc là sao tiền tài nên lực nắm quyền tài chính lớn hơn trường hợp Thiên Phủ ở Sửu/Mùi. Rất cần gặp các sao phụ tá hội hợp, chủ về được quản lý sự nghiệp có sẵn hoặc thừa kế sự nghiệp kinh doanh của gia tộc.",
+   "source_quote": "Thiên Phủ độc tọa ở hai cung Mão hoặc Dậu, đối nhau với \"Vũ Khúc, Thất Sát\", Vũ Khúc là sao tiền tài, nên lực nắm quyền tài chính lớn hơn trường hợp Thiên Phủ độc tọa ở hai cung Sửu hoặc Mùi. Vì vậy rất cần gặp các sao phụ, tá hội hợp, chủ về được quản lý sự nghiệp có sẵn, hoặc thừa kế sự nghiệp kinh doanh của gia tộc.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "star:that_sat",
+    "chi:mao",
+    "chi:dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thừa kế = tiếp nhận sản nghiệp từ đời trước.",
+    "viet_thuan": "Thiên Phủ Mão/Dậu có Vũ Khúc Thất Sát chiếu nên quyền tài chính mạnh hơn; có phụ tá thì được quản lý hoặc thừa kế cơ nghiệp gia tộc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q227",
+   "question": "Thiên Phủ Mão/Dậu gặp Không Kiếp Hình Hao mà Vũ Khúc Hóa Kỵ thì sao?",
+   "answer_atom": "Sẽ chủ về sự nghiệp phá tán, thất bại, hoặc hạng mục đầu tư mới bị thất bại, gây ảnh hưởng đến sự nghiệp, khiến nền tảng bị lung lay.",
+   "source_quote": "Nếu gặp Địa Không, Địa Kiếp, Thiên Hình, Đại Hao, mà Vũ Khúc Hóa Kỵ, sẽ chủ về sự nghiệp phá tán, thất bại, hoặc hạng mục đầu tư mới bị thất bại, gây ảnh hưởng đến sự nghiệp, khiến nền tảng bị lung lay.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "hoa:ky",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "star:thien_hinh",
+    "star:dai_hao"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hạng mục đầu tư = dự án bỏ vốn vào.",
+    "viet_thuan": "Thiên Phủ Mão/Dậu mà Vũ Khúc Hóa Kỵ kèm Không Kiếp Hình Hao thì dự án mới thất bại, lung lay cả nền tảng sự nghiệp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q228",
+   "question": "Thiên Phủ ưa gặp Vũ Khúc Hóa Lộc hay Hóa Khoa thế nào?",
+   "answer_atom": "Rất ưa gặp Vũ Khúc Hóa Lộc, hoặc Thiên Tướng được \"Tài ấm giáp ấn\" — sự nghiệp kinh doanh có phát triển, nên lập thêm kế hoạch mới. Nếu Vũ Khúc Hóa Khoa thì năng lực kiếm tiền rất tốt, gọi là \"tiền đẻ ra tiền\", dễ được người ta tín nhiệm, rất nên tích lũy tiền của.",
+   "source_quote": "Thiên Phủ rất ưa gặp Vũ Khúc Hóa Lộc, hoặc Thiên Tướng được \"Tài ấm giáp ấn\", thì sự nghiệp kinh doanh có phát triển, nên lập thêm kế hoạch mới. Nếu Vũ Khúc Hóa Khoa, thì năng lực kiếm tiền rất tốt, đây gọi là \"tiền đẻ ra tiền\", dễ được người ta tín nhiệm, rất nên tích lũy tiền của.",
+   "source_page": 676,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "hoa:loc",
+    "hoa:khoa",
+    "pattern:tai_am_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiền đẻ ra tiền = dùng vốn sinh lời tiếp.",
+    "viet_thuan": "Thiên Phủ gặp Vũ Khúc Hóa Lộc thì nên mở kế hoạch mới; Vũ Khúc Hóa Khoa thì giỏi sinh lời, được tín nhiệm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q229",
+   "question": "Thiên Phủ độc tọa Tị/Hợi ở Tài Bạch ưa gì nhất?",
+   "answer_atom": "Đối nhau với \"Tử Vi, Thất Sát\", rất ưa Tử Vi Hóa Quyền, Thiên Phủ đồng thời Hóa Khoa — chủ về nắm quyền tài chính. Thời hiện đại thích hợp kinh doanh tiền tệ, tài chính. Rất nên gặp \"Lộc Mã giao trì\"; nếu đồng thời gặp các sao phụ tá cát, có thể nắm quyền tài vụ ở các công ty có tính quốc tế.",
+   "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi, đối nhau với \"Tử Vi, Thất Sát\", rất ưa Tử Vi Hóa Quyền, Thiên Phủ đồng thời Hóa Khoa, chủ về nắm quyền tài chính. Ở thời hiện đại, thích hợp kinh doanh tiền tệ, tài chính. Rất nên gặp \"Lộc Mã giao trì\"; nếu đồng thời gặp các sao phụ, tá cát, có thể nắm quyền về tài vụ ở các công ty có tính quốc tế.",
+   "source_page": 677,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:tu_vi",
+    "star:that_sat",
+    "hoa:quyen",
+    "hoa:khoa",
+    "pattern:loc_ma_giao_tri",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài vụ = công việc quản lý tài chính của tổ chức.",
+    "viet_thuan": "Thiên Phủ Tị/Hợi ưa Tử Vi Hóa Quyền + Phủ Hóa Khoa: nắm quyền tài chính, hợp ngành tiền tệ, có thể làm tài chính cho công ty quốc tế.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q230",
+   "question": "Thiên Phủ kho trống hoặc kho lộ ở Tị/Hợi có hậu quả gì?",
+   "answer_atom": "Kho trống ở Tị/Hợi: nguồn tiền tài trồi sụt thất thường với biên độ rất lớn; dù làm việc rất cẩn thận vẫn dễ xảy ra sơ sót, sai lầm. Rất kỵ kho lộ: hơi có phát triển liền bị người ta dòm ngó; nếu gặp Địa Không, Địa Kiếp lại chủ về đột nhiên xảy ra phá tán, thất bại.",
+   "source_quote": "Nếu Thiên Phủ thành \"kho trống\" ở hai cung Tị hoặc Hợi, sẽ chủ về nguồn tiền tài trở sụt thất thường với biên độ rất lớn... Thiên Phủ ở hai cung Tị hoặc Hợi, rất kỵ là \"kho lộ\", chủ về hơi có phát triển liền bị người ta dòm ngó. Nếu gặp Địa Không, Địa Kiếp, lại chủ về đột nhiên xảy ra phá tán, thất bại.",
+   "source_page": 677,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "pattern:kho_trong",
+    "pattern:kho_lo",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Biên độ = mức dao động lên xuống.",
+    "viet_thuan": "Thiên Phủ Tị/Hợi kho trống thì tiền lên xuống rất mạnh; kho lộ thì vừa khá lên đã bị dòm ngó, thêm Không Kiếp thì vỡ đột ngột.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q231",
+   "question": "Tâm lý tiền bạc của Thiên Phủ độc tọa Tị/Hợi thế nào?",
+   "answer_atom": "Rất là thương tiền, không thấy tiền thì không có cảm giác an toàn. Nếu gặp sát tinh sẽ ảnh hưởng đến cơ hội phát triển. Rất kỵ hội Thiên Tướng bị \"Hình kỵ giáp ấn\", chủ về bị áp lực về tài chính.",
+   "source_quote": "Thiên Phủ độc tọa ở hai cung Tị hoặc Hợi, rất là thương tiền, không thấy tiền thì không có cảm giác an toàn. Cho nên, nếu gặp sát tinh, sẽ ảnh hưởng đến cơ hội phát triển. Cũng rất kỵ hội Thiên Tướng bị \"Hình kỵ giáp ấn\", chủ về bị áp lực về tài chính.",
+   "source_page": 677,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_phu",
+    "star:thien_tuong",
+    "pattern:hinh_ky_giap_an",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thương tiền = quý tiền, bám tiền.",
+    "viet_thuan": "Thiên Phủ Tị/Hợi rất quý tiền, không có tiền trong tay là bất an; kỵ Thiên Tướng bị Hình Kỵ kẹp vì sinh áp lực tài chính.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q232",
+   "question": "Thái Âm ở cung Tài Bạch biểu trưng cho điều gì, khác Thiên Phủ ra sao?",
+   "answer_atom": "Thái Âm là sao tiền tài nhưng chủ về \"tĩnh\", \"tàng chứa\" — biểu trưng cho tích lũy, tích tụ, suy nghĩ cẩn thận và hưởng thụ. Khác Thiên Phủ vì Thiên Phủ chỉ có ý nghĩa giữ tiền, không biểu trưng hưởng thụ và suy nghĩ cẩn thận: Thiên Phủ như ngân hàng giữ nhiều tài khoản, còn Thái Âm như nhà quản lý kinh doanh tiền tệ, nhờ kế hoạch bản thân mà thu thành quả, có cảm giác thỏa mãn.",
+   "source_quote": "Thái Âm là sao tiền tài, nhưng Thái Âm chủ về \"tĩnh\", chủ về \"tàng chứa\"; cho nên về phương diện tiền bạc là biểu trưng cho sự tích lũy, tích tụ, và suy nghĩ cẩn thận, hưởng thụ... Thái Âm thì giống như một nhà quản lý kinh doanh tiền tệ, nhờ kế hoạch của bản thân mà thu được thành quả, đương nhiên phải có cảm giác thỏa mãn.",
+   "source_page": 677,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thien_phu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tàng chứa = cất giữ bên trong.",
+    "viet_thuan": "Thái Âm ở Tài Bạch là tích lũy có kế hoạch và biết hưởng thành quả; Thiên Phủ chỉ là giữ tiền như ngân hàng giữ tài khoản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q233",
+   "question": "Thái Âm khác Vũ Khúc thế nào trong vai trò tiền tài?",
+   "answer_atom": "Thái Âm giống nhà quản lý đưa ra quyết sách, lập kế hoạch đầu tư; Vũ Khúc giống nhân viên thực hiện kế hoạch. Đưa quyết sách cần trầm tĩnh lạnh lùng, thực hiện cần quả quyết — nên Vũ Khúc chủ về quyết đoán, Thái Âm chủ về kế hoạch.",
+   "source_quote": "Thái Âm giống như nhà quản lý đưa ra quyết sách, lập kế hoạch đầu tư, còn Vũ Khúc thì giống như nhân viên thực hiện kế hoạch... Cho nên Vũ Khúc chủ về quyết đoán, còn Thái Âm chủ về kế hoạch.",
+   "source_page": 677,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:vu_khuc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Quyết sách = quyết định chiến lược.",
+    "viet_thuan": "Thái Âm là người lên kế hoạch tiền bạc, Vũ Khúc là người ra tay thực hiện.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q234",
+   "question": "Thái Âm ở Tài Bạch khi Hóa Lộc, Hóa Quyền, Hóa Khoa khác nhau thế nào?",
+   "answer_atom": "Thái Âm Hóa Lộc hoặc đồng độ với Lộc Tồn đều chủ về dư giả; Hóa Quyền làm tăng phạm vi quản lý kế hoạch tài chính và tính chất hưởng thụ tài phú; Hóa Khoa chỉ làm tăng sự nổi tiếng về tài quản lý tài chính.",
+   "source_quote": "Thái Âm Hóa Lộc, hoặc đồng độ với Lộc Tồn, đều chủ về dư giả; Hóa Quyền thì làm tăng phạm vi quản lý kế hoạch tài chính và tính chất hưởng thụ tài phú. Hóa Khoa thì chỉ làm tăng sự nổi tiếng về tài quản lý tài chính.",
+   "source_page": 678,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:loc_ton",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Dư giả = có của ăn của để.",
+    "viet_thuan": "Thái Âm Hóa Lộc thì dư dả; Hóa Quyền thì quản lý tiền rộng hơn, hưởng thụ hơn; Hóa Khoa thì nổi tiếng về tài quản lý.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q235",
+   "question": "Thái Âm nhập miếu/lạc hãm ở Tài Bạch với người sinh ngày/đêm khác nhau thế nào?",
+   "answer_atom": "Thái Âm nhập miếu: người sinh ban đêm chủ về phú quý (địa vị xã hội cũng do tài phú mà có); người sinh ban ngày tốt kế đó. Thái Âm lạc hãm: kiếm tiền gian nan; người sinh ban đêm đỡ hơn, người sinh ban ngày càng vất vả.",
+   "source_quote": "Thái Âm nhập miếu, người sinh vào ban đêm, sẽ chủ về phú quý (thực ra địa vị xã hội cũng do tài phú mà có); người sinh vào ban ngày thì tốt kế đó. Thái Âm lạc hãm, thì kiếm tiền một cách gian nan; người sinh vào ban đêm đỡ hơn, người sinh vào ban ngày thì càng vất vả.",
+   "source_page": 678,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "rule:nhap_mieu",
+    "rule:lac_ham",
+    "rule:sinh_dem",
+    "rule:sinh_ngay"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhập miếu = sao ở vị trí đắc lực nhất; lạc hãm = sao ở vị trí yếu nhất.",
+    "viet_thuan": "Thái Âm miếu + sinh đêm là phú quý; hãm thì kiếm tiền cực, sinh ngày càng cực hơn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q236",
+   "question": "So sánh Thái Dương và Thái Âm về phú quý ở cung Tài Bạch?",
+   "answer_atom": "Thái Dương chủ về quý: có địa vị xã hội trước rồi mới có tiền tài. Thái Âm chủ về phú: có tiền tài trước, hoặc có thành tựu trong giới kinh doanh rồi mới có địa vị xã hội.",
+   "source_quote": "Thái Dương chủ về quý, có địa vị xã hội trước rồi mới có tiền tài. Thái Âm chủ về phú, có tiền tài trước, hoặc có thành tựu trong giới làm ăn kinh doanh rồi mới có địa vị xã hội.",
+   "source_page": 678,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thai_duong",
+    "rule:phu_quy"
+   ],
+   "commentary": {
+    "han_viet_explain": "Quý = địa vị, danh; phú = giàu của cải.",
+    "viet_thuan": "Thái Dương: danh trước tiền sau; Thái Âm: tiền trước danh sau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q237",
+   "question": "Thái Âm Hóa Kỵ ở cung Tài Bạch chủ về điều gì?",
+   "answer_atom": "Trong các tình hình thông thường đều chủ về bị dẫn dụ mà đầu tư thất bại — bị thuyết phục, bị quyến rũ, được chỉ dẫn không chính xác, hoặc bị xu thế biến động xã hội lôi kéo. Nếu gặp Văn Khúc Hóa Kỵ xung hội thì tình hình dụ dỗ còn có tính chất lừa dối.",
+   "source_quote": "Thái Âm Hóa Kỵ, trong các tình hình thông thường đều chủ về bị dẫn dụ mà đầu tư thất bại... Nếu lại gặp Văn Khúc Hóa Kỵ xung hội, thì tình hình dụ dỗ này còn có tính chất lừa dối.",
+   "source_page": 678,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:van_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Xung hội = chiếu xung và hội hợp vào cung.",
+    "viet_thuan": "Thái Âm Hóa Kỵ là bị rủ rê đầu tư mà thua lỗ; thêm Văn Khúc Hóa Kỵ thì có yếu tố lừa đảo.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q238",
+   "question": "Thái Âm ở Tài Bạch gặp sát tinh, Không Kiếp, hoặc Hóa Lộc xung hội Văn Khúc Hóa Kỵ thì sao?",
+   "answer_atom": "Có sát tinh: thành bại bất nhất, còn gây bất hòa tranh chấp. Gặp Địa Không, Địa Kiếp: tai họa trộm cướp. Thái Âm Hóa Lộc xung hội Văn Khúc Hóa Kỵ: chủ về bị rơi mất, đánh mất.",
+   "source_quote": "Nếu có sát tinh, chủ về thành bại bất nhất mà còn gây ra bất hòa, tranh chấp; gặp Địa Không, Địa Kiếp, thì đây là tai họa trộm cướp. Thái Âm Hóa Lộc xung hội Văn Khúc Hóa Kỵ, thì chủ về bị rơi mất, đánh mất.",
+   "source_page": 678,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:van_khuc",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "hoa:loc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thành bại bất nhất = lúc thành lúc bại không đều.",
+    "viet_thuan": "Thái Âm gặp sát thì lúc được lúc mất kèm cãi vã; gặp Không Kiếp thì lo trộm cướp; Hóa Lộc gặp Văn Khúc Kỵ thì hay làm rơi mất tiền của.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q239",
+   "question": "Thái Âm độc tọa Mão/Dậu ở Tài Bạch có đặc điểm gì?",
+   "answer_atom": "Đối nhau với Thiên Đồng; ở Dậu nhập miếu nên ưu hơn ở Mão lạc hãm, nhưng cả hai đều chủ về tay trắng làm nên. Lúc kiếm tiền thường quá lý tưởng, vì vậy cũng có lúc cảm thấy mất mát.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Mão hoặc Dậu, đối nhau với Thiên Đồng; ở cung Dậu là nhập miếu, nên ưu hơn ở cung Mão là lạc hãm, nhưng cả hai trường hợp đều chủ về tay trắng làm nên... lúc kiếm tiền thường quá lý tưởng, vì vậy cũng lúc cảm thấy mất mát.",
+   "source_page": 678,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thien_dong",
+    "chi:mao",
+    "chi:dau",
+    "rule:tay_trang_lam_nen"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tay trắng làm nên = tự lập nghiệp không nhờ vốn sẵn.",
+    "viet_thuan": "Thái Âm Mão/Dậu đều tự tay gây dựng; Dậu tốt hơn Mão; kiếm tiền hay mơ mộng quá nên dễ hụt hẫng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q240",
+   "question": "Thái Âm Mão/Dậu hội sao khoa văn chủ về nguồn tiền nào?",
+   "answer_atom": "Có Thái Dương và Thiên Lương hội chiếu, nên khi hội Văn Xương, Văn Khúc, Thiên Tài, Long Trì, Phượng Các hoặc gặp Hóa Khoa, chủ về nguồn tiền tài có ý vị học thuật, thông thường biểu trưng cho nghiên cứu kinh tế tài chính. Hội Thái Dương Hóa Khoa càng chủ về nghiên cứu học thuật, hoặc làm đại lý sản phẩm danh tiếng, hoặc làm việc cho công ty/tập đoàn nổi tiếng.",
+   "source_quote": "cho nên lúc hội hợp Văn Xương, Văn Khúc, Thiên Tài, Long Trì, Phượng Các, hoặc gặp Hóa Khoa, cũng chủ về nguồn tiền tài có ý vị học thuật... Trường hợp hội Thái Dương Hóa Khoa, càng chủ về nghiên cứu học thuật, hoặc làm đại lý các sản phẩm danh tiếng, hoặc làm việc cho những công ty hay tập đoàn nổi tiếng.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thai_duong",
+    "star:thien_luong",
+    "star:van_xuong",
+    "star:van_khuc",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khoa văn = nhóm sao chủ học vấn, văn chương.",
+    "viet_thuan": "Thái Âm Mão/Dậu thêm sao học vấn thì kiếm tiền bằng học thuật, nghiên cứu tài chính, hoặc làm cho hãng danh tiếng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q241",
+   "question": "Thái Âm độc tọa Thìn/Tuất ở Tài Bạch có đặc điểm gì?",
+   "answer_atom": "Đối nhau với Thái Dương. Thông thường ở Tuất ưu hơn ở Thìn. Có điều, ở cung Thìn \"Nhật Nguyệt phản bối\", nếu có \"Lộc Quyền Khoa hội\", gặp cát tinh, cũng chủ về thành cách đại phú.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Thìn hoặc Tuất, đối nhau với Thái Dương. Trong các tình hình thông thường, ở cung Tuất ưu hơn ở cung Thìn. Có điều, ở cung Thìn \"Nhật Nguyệt phản bối\", nếu có \"Lộc Quyển Khoa hội\", gặp cát tinh, cũng chủ về thành cách đại phú.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thai_duong",
+    "pattern:nhat_nguyet_phan_boi",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhật Nguyệt phản bối = Thái Dương Thái Âm đều ở vị trí thất huy; Lộc Quyền Khoa hội = ba sao hóa cát cùng hội về.",
+    "viet_thuan": "Thái Âm Thìn/Tuất thì Tuất tốt hơn; riêng Thìn tuy phản bối nhưng đủ Lộc Quyền Khoa + cát tinh vẫn thành giàu lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q242",
+   "question": "Thái Âm Thìn/Tuất ưa Hóa Lộc nào, thứ tự phú quý ra sao?",
+   "answer_atom": "Rất ưa Thái Âm Hóa Lộc: phú rồi mới quý; Thái Dương Hóa Lộc thì quý trước phú sau — nên lúc đầu làm hưởng lương ở công ty, sau mới tự sáng lập sự nghiệp. Hội Thiên Đồng Hóa Lộc cũng chủ tay trắng làm nên; hội Thiên Cơ Hóa Lộc chỉ chủ về tiền qua tay với số lượng lớn.",
+   "source_quote": "rất ưa Thái Âm Hóa Lộc, chủ về phú rồi mới quý; Thái Dương Hóa Lộc thì quý trước phú sau. Vì vậy thông thường lúc đầu nên làm việc hưởng lương ở các công ty, sau đó mới tự sáng lập sự nghiệp. Hội Thiên Đồng Hóa Lộc cũng chủ về tay trắng làm nên; hội Thiên Cơ Hóa Lộc, chỉ chủ về tiền qua tay với số lượng lớn.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thai_duong",
+    "star:thien_dong",
+    "star:thien_co",
+    "hoa:loc",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiền qua tay = quản lý dòng tiền lớn nhưng không thuộc về mình.",
+    "viet_thuan": "Thái Âm Hóa Lộc: giàu trước danh sau; Thái Dương Hóa Lộc: danh trước giàu sau; Thiên Cơ Hóa Lộc: chỉ là tiền chảy qua tay.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q243",
+   "question": "Thái Âm Thìn/Tuất gặp các Hóa Kỵ khác nhau thì sao?",
+   "answer_atom": "Thiên Đồng Hóa Kỵ: phải lao tâm lao lực để kiếm tiền. Thiên Cơ Hóa Kỵ: bôn ba vất vả. Thái Dương Hóa Kỵ: kiếm được tiền đồng thời cũng có thị phi. Thái Dương Hóa Lộc hay Hóa Khoa đều chủ về được thừa kế sản nghiệp.",
+   "source_quote": "Nếu Thiên Đồng Hóa Kỵ, thì phải lao tâm lao lực để kiếm tiền; Thiên Cơ Hóa Kỵ, thì bôn ba vất vả; Thái Dương Hóa Kỵ, thì kiếm được tiền đồng thời cũng sẽ có thị phi. Thái Dương Hóa Lộc hay Hóa Khoa, đều chủ về được thừa kế sản nghiệp.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thien_dong",
+    "star:thien_co",
+    "star:thai_duong",
+    "hoa:ky",
+    "hoa:loc",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thị phi = điều tiếng, lời ra tiếng vào.",
+    "viet_thuan": "Đồng Kỵ thì kiếm tiền lao tâm; Cơ Kỵ thì chạy vạy; Dương Kỵ thì có tiền kèm điều tiếng; Dương Lộc/Khoa thì được thừa kế.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q244",
+   "question": "Thái Âm độc tọa Tị/Hợi ở Tài Bạch khác nhau thế nào giữa hai cung?",
+   "answer_atom": "Đối nhau với Thiên Cơ, ở Hợi ưu hơn ở Tị. Thái Âm ở Hợi thường dễ gặp cơ hội mà trở thành cự phú; ở Tị thì rất gian khổ, bôn ba tứ xứ.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Tị hoặc Hợi, đối nhau với Thiên Cơ, ở cung Hợi ưu hơn ở cung Tỵ. Thái Âm ở cung Hợi thường dễ gặp cơ hội mà trở thành cự phú; ở cung Tỵ thì rất gian khổ, bôn ba tứ xứ.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thien_co",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bôn ba tứ xứ = chạy vạy khắp nơi.",
+    "viet_thuan": "Thái Âm ở Hợi dễ thành giàu lớn; ở Tị thì cực nhọc, phải đi nhiều nơi kiếm sống.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q245",
+   "question": "Thái Âm ở Hợi thủ Tài Bạch có phải mạng kinh doanh thành giàu không?",
+   "answer_atom": "Còn chủ về có danh dự, địa vị trước rồi mới có tài phú sau; vì vậy đây không phải là mạng kinh doanh làm ăn mà trở nên giàu có, dù Thái Âm có sao lộc cũng vậy. Nếu gặp các sao khoa văn thì rất thích hợp nghiên cứu học thuật. Ở cung Tị tính chất tương đồng nhưng danh dự, địa vị giảm bớt, tiền kiếm được ít hơn hoặc gian khổ hơn.",
+   "source_quote": "Thái Âm ở cung Hợi, thủ cung Tài Bạch, còn chủ về có danh dự, địa vị trước rồi mới có tài phú sau. Vì vậy đây không phải là mạng kinh doanh làm ăn mà trở nên giàu có; dù Thái Âm có sao lộc cũng vậy. Nếu gặp các sao khoa văn, thì rất thích hợp nghiên cứu học thuật.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "chi:hoi",
+    "chi:ti"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khoa văn = sao chủ học vấn (Xương, Khúc, Khôi, Việt, Hóa Khoa...).",
+    "viet_thuan": "Thái Âm Hợi là danh trước tiền sau, không phải số buôn bán làm giàu; hợp nghiên cứu học thuật.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q246",
+   "question": "Ảnh hưởng của Thiên Cơ lên Thái Âm Tị/Hợi ở Tài Bạch thế nào?",
+   "answer_atom": "Do ảnh hưởng của Thiên Cơ nên chủ về biến động thay đổi. Tính chất không cát: tiền bạc không tụ, hoặc làm việc hưởng lương có tính lưu động trường kỳ. Tính chất cát lợi: có liên quan đến một lượng lớn tiền bạc lưu thông — như công tác xã hội với tiền cứu tế, nghiệp vụ ngân hàng với tiền gửi, nghiên cứu học thuật với khoản đầu tư lớn.",
+   "source_quote": "Do ảnh hưởng của Thiên Cơ, nên chủ về biến động thay đổi. Lúc tính chất không cát, chủ về tiền bạc không tụ, hoặc chủ về làm việc hưởng lương có tính lưu động trường kỳ. Nếu tính chất cát lợi, sẽ chủ về có liên quan đến một lượng lớn tiền bạc lưu thông.",
+   "source_page": 679,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:thien_co",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lưu động = di chuyển, không cố định.",
+    "viet_thuan": "Thiên Cơ chiếu làm Thái Âm Tị/Hợi hay biến động: xấu thì tiền không tụ, tốt thì làm việc dính đến dòng tiền lớn (ngân hàng, cứu tế, quỹ nghiên cứu).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q247",
+   "question": "Thái Âm Tị/Hợi kỵ Địa Không Địa Kiếp thế nào, và lưu ý gì về 12 cung độ của Thái Âm?",
+   "answer_atom": "Không nên có Địa Không, Địa Kiếp đồng cung, nếu không thường uổng phí tâm lực, hoặc gặp trắc trở, việc sắp thành lại hỏng. Thái Âm thủ Tài Bạch ở 12 cung độ, chỉ cung Tị và cung Hợi là chủ về quý mà không chủ về phú — điểm này cần lưu ý.",
+   "source_quote": "Thái Âm độc tọa ở hai cung Tị hoặc Hợi, không nên có Địa Không, Địa Kiếp đồng cung, nếu không sẽ thường uổng phí tâm lực, hoặc gặp trắc trở, việc sắp thành lại hỏng. Thái Âm thủ cung Tài Bạch ở 12 cung độ, chỉ cung Tị và cung Hợi là chủ về quý mà không chủ về phú, điểm này cần phải lưu ý.",
+   "source_page": 680,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thai_am",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "chi:ti",
+    "chi:hoi",
+    "rule:phu_quy"
+   ],
+   "commentary": {
+    "han_viet_explain": "Quý mà không phú = có danh vị nhưng không nhiều của cải.",
+    "viet_thuan": "Thái Âm Tị/Hợi kỵ Không Kiếp vì phí công vô ích; đặc biệt trong 12 cung chỉ Tị/Hợi là Thái Âm cho danh chứ không cho giàu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q248",
+   "question": "Tham Lang thủ cung Tài Bạch có tính chất cơ bản gì?",
+   "answer_atom": "Có tính chất xa hoa, rộng rãi, nhưng vẫn giỏi tính toán — thái độ đối với tiền bạc, nội tâm và vẻ bề ngoài thường bất nhất. Giỏi vận dụng tiền bạc nhưng không giỏi giữ tiền, thường có khuynh hướng lấy công làm thủ, do đó thích đầu cơ.",
+   "source_quote": "Tham Lang thủ cung Tài Bạch có tính chất sa hoa, rộng rãi, nhưng vẫn giỏi tính toán, cho nên thái độ đối với tiền bạc, nội tâm và vẻ bề ngoài thường bất nhất... chủ về giỏi vận dụng tiền bạc, nhưng lại không giỏi giữ tiền, thường có khuynh hướng lấy công làm thủ, do đó thích đầu cơ.",
+   "source_page": 680,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lấy công làm thủ = dùng tấn công thay phòng thủ — kiếm tiền mới thay vì giữ tiền cũ.",
+    "viet_thuan": "Tham Lang ở Tài Bạch xài sang nhưng tính kỹ, trong ngoài bất nhất; giỏi xoay tiền chứ không giỏi giữ, thích đầu cơ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q249",
+   "question": "Tham Lang ở Tài Bạch khi nào không nên đầu cơ?",
+   "answer_atom": "Nếu có Kình Dương, Đà La, Địa Không, Địa Kiếp, Đại Hao cùng hội hợp thì không nên đầu cơ, nếu không sẽ thất bại; dù Tham Lang Hóa Lộc cũng chủ về có sóng gió, trắc trở, thất bại. Không đầu cơ thì sự nghiệp vẫn bị tranh chấp cực lớn hoặc kế hoạch thay đổi vì hoàn cảnh khách quan; tuy tổn thất nhất thời nhưng cũng dễ gây dựng lại.",
+   "source_quote": "Nếu Tham Lang có Kình Dương, Đà La, Địa Không, Địa Kiếp, Đại Hao cùng hội hợp, thì không nên đầu cơ, nếu không sẽ thất bại. Dù Tham Lang Hóa Lộc, cũng chủ về có sóng gió, trắc trở, thất bại.",
+   "source_page": 680,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:kinh_duong",
+    "star:da_la",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "star:dai_hao",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đầu cơ = đánh cược vào biến động giá để kiếm lời nhanh.",
+    "viet_thuan": "Tham Lang hội đủ Kình Đà Không Kiếp Hao thì cấm đầu cơ, có Hóa Lộc cũng vẫn sóng gió.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q250",
+   "question": "Tham Lang Hóa Quyền, Hóa Lộc, Hóa Kỵ ở Tài Bạch khác nhau thế nào?",
+   "answer_atom": "Hóa Quyền: làm tăng tính đầu cơ và nhiều biến động hơn. Hóa Lộc: bất kể tình trạng tài chính thế nào đều có biểu hiện xa hoa, theo đuổi hưởng thụ hào nhoáng. Hóa Kỵ: lại dễ tự kiềm chế.",
+   "source_quote": "Tham Lang Hóa Quyền, sẽ làm tăng tính đầu cơ và nhiều biến động hơn. Tham Lang Hóa Lộc, bất kể tình trạng tài chính như thế nào, đều có biểu hiện sa hoa, theo đuổi sự hưởng thụ hào nhoáng. Nhưng nếu Tham Lang Hóa Kỵ, thì lại dễ tự kiềm chế.",
+   "source_page": 680,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "hoa:quyen",
+    "hoa:loc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tự kiềm chế = tự giữ mình, bớt phung phí.",
+    "viet_thuan": "Tham Quyền thì máu đầu cơ hơn; Tham Lộc thì xài sang bất kể giàu nghèo; Tham Kỵ thì lại biết kiềm chế.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q251",
+   "question": "Hỏa Tinh/Linh Tinh đồng độ Tham Lang ở Tài Bạch gặp lộc thì sao?",
+   "answer_atom": "Hỏa Tinh hoặc Linh Tinh đồng độ với Tham Lang, gặp thêm Lộc Tồn hoặc Hóa Lộc, chủ về phát đột ngột. Nếu đồng thời có Địa Không, Địa Kiếp thì sau khi phát lên liền xảy ra phá tán, thất bại. Không có Không Kiếp mà hội sao cát mới có thể giữ được, còn phải biết dừng kịp lúc, không được cho rằng vận may đến với mình vĩnh viễn.",
+   "source_quote": "Hỏa Tinh hoặc Linh Tinh đồng độ với Tham Lang, gặp thêm Lộc Tồn hoặc Hóa Lộc, chủ về phát đột ngột. Nếu đồng thời có Địa Không, Địa Kiếp thì sau khi phát lên liền xảy ra phá tán, thất bại. Không có Địa Không, Địa Kiếp, mà hội sao cát, mới có thể giữ được, còn phải biết dừng kịp lúc, không được cho rằng vận may đến với mình vĩnh viễn.",
+   "source_page": 680,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "star:loc_ton",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "hoa:loc",
+    "pattern:hoa_tham",
+    "pattern:linh_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phát đột ngột = hoạnh phát, giàu lên nhanh bất ngờ.",
+    "viet_thuan": "Hỏa/Linh + Tham Lang + lộc là phất nhanh; kèm Không Kiếp thì phất xong vỡ ngay; phải biết dừng đúng lúc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q252",
+   "question": "Tham Lang có \"Lộc trùng điệp\" ở Tài Bạch chủ về loại tiền nào?",
+   "answer_atom": "Thường kiếm được tiền bất ngờ nhưng chủ về được tiền bất ngờ mang tính nạn tai — ví dụ bồi thường bảo hiểm thương tật, tiền bảo hiểm nhân thọ của thân thuộc, hoặc tiền thắng cờ bạc nhưng có hậu quả xấu; kiếm được tiền nhưng đồng thời kèm theo tai họa.",
+   "source_quote": "chủ về được tiền bất ngờ mang tính nạn tai. Ví dụ như được bồi thường tiền bảo hiểm thương tật, tiền bảo hiểm nhân thọ của thân thuộc, hoặc tiền thắng được trong cờ bạc nhưng có hậu quả xấu, v.v... đều chủ về kiếm được tiền nhưng đồng thời cũng kèm theo tai họa.",
+   "source_page": 681,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "pattern:loc_trung_diep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nạn tai = tai họa, rủi ro.",
+    "viet_thuan": "Tham Lang lộc chồng lộc thì tiền bất ngờ nhưng dính tai ương — như tiền bảo hiểm, tiền cờ bạc kèm hậu quả xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q253",
+   "question": "Tham Lang đồng cung Xương Khúc và sao Đào Hoa ở Tài Bạch chủ về gì?",
+   "answer_atom": "Chủ về vì sắc mà hao tài; gặp thêm các sao sát, hình thì vì sắc mà dẫn đến thất bại, còn bị kiện tụng.",
+   "source_quote": "Tham Lang đồng cung với Văn Xương, Văn Khúc và sao Đào Hoa, chủ về vì sắc mà hao tài; gặp thêm các sao sát, hình, thì vì sắc mà dẫn đến thất bại, còn bị kiện tụng.",
+   "source_page": 681,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:van_xuong",
+    "star:van_khuc",
+    "star:dao_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vì sắc hao tài = mất tiền vì chuyện tình ái, sắc dục.",
+    "viet_thuan": "Tham Lang + Xương Khúc + đào hoa thì tốn tiền vì tình; thêm sát hình thì vừa bại vừa kiện tụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q254",
+   "question": "Tham Lang đồng độ Âm Sát, Thiên Nguyệt, Kiếp Sát ở Tài Bạch chủ về gì?",
+   "answer_atom": "Có Âm Sát đồng độ: chủ về bị lừa. Có Thiên Nguyệt đồng độ: vì bệnh mà phá tài. Có Kiếp Sát đồng độ: tranh đoạt tài sản. Các trường hợp này đều phải gặp Kình Dương, Đà La, Địa Không, Địa Kiếp mới đúng.",
+   "source_quote": "Tham Lang có Âm Sát đồng độ, chủ về bị lừa; Có Thiên Nguyệt đồng độ, chủ về vì bệnh mà phá tài; Có Kiếp Sát đồng độ, chủ về tranh đoạt tài sản. Các trường hợp vừa kể đều phải gặp Kình Dương, Đà La, Địa Không, Địa Kiếp mới đúng.",
+   "source_page": 681,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:am_sat",
+    "star:thien_nguyet",
+    "star:kiep_sat",
+    "star:kinh_duong",
+    "star:da_la",
+    "star:dia_khong",
+    "star:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kiếp Sát = tạp diệu chủ cướp đoạt.",
+    "viet_thuan": "Tham Lang kèm Âm Sát thì bị lừa, kèm Thiên Nguyệt thì tốn tiền vì bệnh, kèm Kiếp Sát thì bị giành tài sản — nhưng phải có Kình Đà Không Kiếp mới ứng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q255",
+   "question": "Tham Lang ở Tý/Ngọ thủ Tài Bạch được Tử Vi cát hóa vây chiếu thì sao?",
+   "answer_atom": "Đối nhau với Tử Vi; được Tử Vi Hóa Quyền vây chiếu thì nguồn tiền tài ổn định và đến từ nhiều phương diện. Tử Vi Hóa Khoa vây chiếu thì có danh trước rồi mới có lợi, cũng chủ về dùng giao tế thủ đoạt để kết giao nhiều người, nhờ đó vận kinh doanh đắc lợi.",
+   "source_quote": "Tham Lang ở hai cung Tý hoặc Ngọ, thủ cung Tài Bạch, đối nhau với Tử Vi, được Tử Vi Hóa Quyền vây chiếu, thì nguồn tiền tài ổn định và đến từ nhiều phương diện. Tử Vi Hóa Khoa vây chiếu, thì có danh trước rồi mới có lợi, cũng chủ về dùng giao tế thủ đạt để kết giao với nhiều người, nhờ đó mà vận kinh doanh đắc lợi.",
+   "source_page": 681,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:tu_vi",
+    "hoa:quyen",
+    "hoa:khoa",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vây chiếu = chiếu từ cung đối hoặc tam phương vào.",
+    "viet_thuan": "Tham Lang Tý/Ngọ được Tử Vi Hóa Quyền chiếu thì tiền ổn định nhiều nguồn; Tử Vi Hóa Khoa chiếu thì danh trước lợi sau, giỏi giao tế kinh doanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q256",
+   "question": "Tham Lang ở cung Tý thành cách \"Phiếm thủy đào hoa\" thì luận thế nào ở Tài Bạch?",
+   "answer_atom": "Tình hình cát: thích hợp nghề nghiệp lấy người khác giới làm đối tượng kinh doanh. Tình hình hung: vì sắc mà phá tán, thất bại. Cát hung lẫn lộn và có Hỏa Tinh, Linh Tinh đồng độ: \"tài khí\" do người khác giới mang đến, và cũng vì vậy mà sinh phá tán, thất bại.",
+   "source_quote": "Tham Lang ở cung Tý thành cách \"Phiếm thủy sao Đào Hoa\", tình hình cát, thì thích hợp với những nghề nghiệp lấy người khác giới làm đối tượng để kinh doanh; tình hình hung thì chủ về vì sắc mà phá tán, thất bại. Tình hình cát hung lẫn lộn, đồng thời còn có Hỏa Tinh, Linh Tinh đồng độ, chủ về \"tài khí\" ở người khác giới mang đến, và cũng vì vậy mà sinh phá tán, thất bại.",
+   "source_page": 681,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "pattern:phiem_thuy_dao_hoa",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "chi:ty"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phiếm thủy đào hoa = đào hoa trôi nổi trên nước, cách Tham Lang ở Tý.",
+    "viet_thuan": "Tham Lang Tý cách đào hoa nước nổi: tốt thì kinh doanh phục vụ khách khác giới; xấu thì vì tình mà phá sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q257",
+   "question": "Tham Lang Tý/Ngọ không gặp Tử Vi cát hóa, dù Hóa Lộc/Hóa Quyền thì sao?",
+   "answer_atom": "Cũng chủ về biến động, hoặc thường được phái đi công tác tạm thời, đảm nhiệm chức vụ tạm thời, phần lớn là đi nước ngoài (hoặc nơi xa) để bàn bạc công việc làm ăn. Nếu cung Sự Nghiệp là Phá Quân đồng cung với Lộc Tồn, Thiên Mã, càng chủ về ngoại vụ đắc ý.",
+   "source_quote": "nếu không gặp Tử Vi cát hóa, dù Tham Lang Hóa Lộc hay Hóa Quyền, cũng chủ về biến động, hoặc thường được phái đi công tác tạm thời hoặc đảm nhiệm chức vụ tạm thời, phần lớn là đi nước ngoài (hoặc nơi xa) để bàn bạc công việc làm ăn. Nếu cung sự nghiệp là Phá Quân đồng cung với Lộc Tồn, Thiên Mã, càng chủ về ngoại vụ đắc ý.",
+   "source_page": 681,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:tu_vi",
+    "star:pha_quan",
+    "star:loc_ton",
+    "star:thien_ma",
+    "hoa:loc",
+    "hoa:quyen",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Ngoại vụ = công việc đối ngoại, giao dịch bên ngoài.",
+    "viet_thuan": "Không có Tử Vi cát hóa chiếu thì Tham Lang Tý/Ngọ hay đi công tác xa bàn chuyện làm ăn; Sự Nghiệp có Phá Quân + Lộc Tồn + Thiên Mã thì đối ngoại càng thuận.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q258",
+   "question": "Tham Lang Tý/Ngọ thủ Tài Bạch hợp loại công việc nào?",
+   "answer_atom": "Chủ về nắm vững quản lý tài chính là thỏa mãn, bản thân không nhất định phải có vốn lớn; thích hợp làm việc hưởng lương trong công ty lớn thuộc bộ môn kinh doanh, nhưng không nên làm công tác kế hoạch.",
+   "source_quote": "Tham Lang ở hai cung Tý hoặc Ngọ, thủ cung Tài Bạch, chủ về nắm vững quản lý tài chính là thỏa mãn; bản thân không nhất định phải có vốn lớn. Vì vậy cũng thích hợp làm việc hưởng lương trong công ty lớn thuộc bộ môn kinh doanh, nhưng không nên làm công tác kế hoạch.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "chi:ty",
+    "chi:ngo",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bộ môn kinh doanh = phòng ban phụ trách bán hàng, vận hành.",
+    "viet_thuan": "Tham Lang Tý/Ngọ hợp đi làm thuê mảng kinh doanh ở công ty lớn, không hợp làm bộ phận kế hoạch.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q259",
+   "question": "Tham Lang độc tọa Dần/Thân gặp Liêm Trinh Hóa Kỵ thì hợp nghề gì?",
+   "answer_atom": "Thích hợp làm nghề tay trái, hoặc nghề liên quan đến hung sự để kiếm tiền; có liên quan đến máu là thích hợp nhất. Thời hiện đại: kinh doanh thịt đông lạnh, hoặc làm bác sĩ ngoại khoa, nha khoa.",
+   "source_quote": "nếu gặp Liêm Trinh Hóa Kỵ, thì thích hợp làm nghề tay trái, hoặc nghề liên quan đến hung sự để kiếm tiền; có liên quan đến máu là thích hợp nhất. Ở thời hiện đại, kinh doanh thịt đông lạnh cũng thuộc loại này, hoặc làm bác sĩ ngoại khoa, nha khoa.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:liem_trinh",
+    "hoa:ky",
+    "chi:dan",
+    "chi:than",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hung sự = việc liên quan tang ma, tai nạn, máu me.",
+    "viet_thuan": "Tham Lang Dần/Thân gặp Liêm Kỵ thì hợp nghề dính máu/hung sự: mổ xẻ, nha khoa, thịt đông lạnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q260",
+   "question": "Tham Lang Dần/Thân được Liêm Trinh Hóa Lộc vây chiếu hoặc cát sát lẫn lộn thì sao?",
+   "answer_atom": "Liêm Trinh Hóa Lộc vây chiếu, đồng độ Hỏa Tinh/Linh Tinh: cũng chủ về hoạnh phát. Có sát tinh hội hợp thêm Âm Sát, Thiên Diêu: nghề tay trái kiếm được tiền. Cần gặp cát tinh mới hợp nghề nghệ thuật, hưởng thụ, trang điểm, trang sức, trang trí. Cát sát lẫn lộn: kiếm được tiền đồng thời có hao tổn, còn chủ về hoạnh phát hoạnh phá.",
+   "source_quote": "Nếu Liêm Trinh Hóa Lộc vây chiếu, đồng độ với Hỏa Tinh, Linh Tinh, cũng chủ về hoành phát; có sát tinh hội hợp, lại gặp thêm Âm Sát, Thiên Diêu, sẽ chủ về nghề tay trái kiếm được tiền... Nếu cát tinh và sát tinh lẫn lộn, thì kiếm được tiền đồng thời cũng có hao tổn, còn chủ về hoành phát hoành phá.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:liem_trinh",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "star:am_sat",
+    "star:thien_dieu",
+    "hoa:loc",
+    "chi:dan",
+    "chi:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hoạnh phát hoạnh phá = phất nhanh vỡ nhanh.",
+    "viet_thuan": "Liêm Lộc chiếu + Hỏa/Linh thì phất mạnh; thêm sát + Âm Sát Thiên Diêu thì sống bằng nghề tay trái; cát sát lẫn lộn thì vừa kiếm vừa hao.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q261",
+   "question": "Tham Lang Hóa Kỵ ở cung Dần và cách \"Phong Lưu Thái Trượng\" chủ về gì?",
+   "answer_atom": "Tham Lang Hóa Kỵ ở cung Dần chủ về thường thay đổi nghề nghiệp. Tham Lang không Hóa Kỵ nhưng thành cục \"Phong Lưu Thái Trượng\" thì chủ về đầu cơ sẽ phá tán, thất bại; hoặc vì kinh doanh nghiệp dư, nghề không chính đáng mà dẫn đến thân bại danh liệt.",
+   "source_quote": "Tham Lang Hóa Kỵ ở cung Dần, chủ về thường thay đổi nghề nghiệp. Tham Lang không Hóa Kỵ, nhưng thành cục \"Phong Lưu Thái Trượng\" thì chủ về đẩu cơ sẽ phá tán, thất bại; hoặc vì kinh doanh nghiệp dư, nghề không chính đáng mà dẫn đến thân bại danh liệt.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "hoa:ky",
+    "pattern:phong_luu_thai_truong",
+    "chi:dan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phong Lưu Thái Trượng = cách Tham Lang gặp Đà La ở Dần, chủ trác táng.",
+    "viet_thuan": "Tham Kỵ ở Dần hay nhảy nghề; thành cách Phong Lưu Thái Trượng thì đầu cơ là vỡ, làm nghề không đàng hoàng thì thân bại danh liệt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q262",
+   "question": "Tham Lang độc tọa Thìn/Tuất: Hỏa/Linh Tinh nên đồng độ với sao nào?",
+   "answer_atom": "Đối nhau với Vũ Khúc. Hỏa Tinh, Linh Tinh nên đồng độ với Tham Lang; nếu đồng độ với Vũ Khúc, tuy hoạnh phát nhưng cũng có tranh chấp. Ưa sao tiền tài Vũ Khúc Hóa Lộc — năng lực vận dụng tiền bạc rất mạnh; Hóa Quyền hay Hóa Khoa là kế đó.",
+   "source_quote": "Hỏa Tinh, Linh Tinh nên đồng độ với Tham Lang; nếu đồng độ với Vũ Khúc, tuy hoành phát nhưng cũng có tranh chấp. Tham Lang độc tọa ở hai cung Thìn hoặc Tuất, ưa sao tiền tài Vũ Khúc Hóa Lộc, chủ về năng lực vận dụng tiền bạc rất mạnh; Hóa Quyền hay Hóa Khoa là kế đó.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "star:vu_khuc",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:khoa",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sao tiền tài = tài tinh, sao chủ về tiền bạc.",
+    "viet_thuan": "Ở Thìn/Tuất, Hỏa/Linh nên ở cùng Tham Lang chứ không nên cùng Vũ Khúc; ưa nhất Vũ Khúc Hóa Lộc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q263",
+   "question": "Cách Hỏa Tham/Linh Tham ở Thìn/Tuất tại Tài Bạch cần lưu ý gì?",
+   "answer_atom": "Hai cung Thìn/Tuất là cách \"Hỏa Tham\", \"Linh Tham\", được Tham Lang Hóa Lộc là tốt — đột nhiên tài vận hanh thông, còn có sắc thái đầu cơ, nhưng cần phải biết dừng, lúc đắc ý không nên tiếp tục xông tới. Nếu Tham Lang không Hóa Lộc thì mức độ phát đột ngột giảm bớt.",
+   "source_quote": "Hai cung Thìn hoặc Tuất là cách \"Hỏa Tham\", \"Linh Tham\", được Tham Lang Hóa Lộc là tốt; chủ về đột nhiên tài vận hanh thông, còn có sắc thái đẩu cơ, nhưng cẩn phải biết dừng, lúc đắc ý không nên tiếp tục xông tới. Nếu Tham Lang không Hóa Lộc thì mức độ phát đột ngột sẽ giảm bớt.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "pattern:hoa_tham",
+    "pattern:linh_tham",
+    "hoa:loc",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hanh thông = thuận lợi trôi chảy.",
+    "viet_thuan": "Hỏa Tham/Linh Tham ở Thìn/Tuất có Tham Lộc thì tài vận bừng lên đột ngột — nhưng phải biết dừng khi đang đắc ý.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q264",
+   "question": "Tham Lang Thìn/Tuất rơi vào Thiên La Địa Võng, gặp Lộc Mã giao trì thì sao?",
+   "answer_atom": "Nếu cung Mệnh hoặc cung Thiên Di có \"Lộc Mã giao trì\", sẽ chủ về rời xa quê hương để thành \"phú cục\", nhưng sự nghiệp và nguồn tiền tài ắt sẽ gặp nhiều biến động thay đổi.",
+   "source_quote": "Tham Lang ở hai cung Thìn hoặc Tuất là rơi vào \"Thiên La, Địa Võng\", nếu cung Mệnh hoặc cung Thiên Di có \"Lộc Mã giao trì\", sẽ chủ về rời xa quê hương để thành \"phú cục\", nhưng sự nghiệp và nguồn tiền tài ắt sẽ gặp nhiều biến động thay đổi.",
+   "source_page": 682,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:tham_lang",
+    "pattern:thien_la_dia_vong",
+    "pattern:loc_ma_giao_tri",
+    "palace:thien_di",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên La Địa Võng = lưới trời lưới đất, chỉ hai cung Thìn Tuất.",
+    "viet_thuan": "Tham Lang Thìn/Tuất mà Mệnh/Thiên Di có Lộc Mã giao trì thì bỏ quê đi xa mới giàu, nhưng đường tiền nhiều biến động.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q265",
+   "question": "Cự Môn thủ cung Tài Bạch có tính chất cơ bản gì?",
+   "answer_atom": "Tính chất cơ bản là lao tâm tổn thần để kiếm tiền, hoặc dùng tài ăn nói để kiếm tiền; nhưng cần đề phòng có thể vì tâm cao khí ngạo mà sinh phá tán, thất bại.",
+   "source_quote": "Cự Môn thủ cung Tài Bạch, tính chất cơ bản là lao tâm tổn thần để kiếm tiền, hoặc chủ về dùng tài ăn nói để kiếm tiền; nhưng cần phải đề phòng có thể vì tâm cao khí ngạo mà sinh phá tán, thất bại.",
+   "source_page": 683,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tâm cao khí ngạo = kiêu căng tự phụ.",
+    "viet_thuan": "Cự Môn ở Tài Bạch kiếm tiền bằng đầu óc và miệng lưỡi, nhưng kiêu ngạo là đổ vỡ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q266",
+   "question": "Cự Môn Hóa Lộc/Hóa Kỵ ở Tài Bạch hợp nghề gì?",
+   "answer_atom": "Cự Môn Hóa Lộc lợi về dùng tài ăn nói kiếm tiền: luật sư, giáo sư, bán hàng, chào hàng, quảng bá, biểu diễn. Cự Môn Hóa Kỵ thì càng đúng (càng cần các nghề này), nếu không ắt sẽ nhiều thị phi kiện tụng.",
+   "source_quote": "Cự Môn Hóa Lộc, cũng lợi về dùng tài ăn nói để kiếm tiền, những nghề nghiệp như luật sư, giáo sư, bán hàng, chào hàng, quảng bá, biểu diễn. Cự Môn Hóa Kỵ thì càng đúng, nếu không ắt sẽ nhiều thị phi kiện tụng.",
+   "source_page": 683,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "hoa:loc",
+    "hoa:ky",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Quảng bá = truyền thông, quảng cáo.",
+    "viet_thuan": "Cự Lộc hợp nghề nói: luật sư, dạy học, bán hàng, truyền thông; Cự Kỵ càng phải theo nghề nói, không thì lắm thị phi kiện cáo.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q267",
+   "question": "Vì sao Cự Môn tọa Tài Bạch phải xem kèm cung Tử Tức?",
+   "answer_atom": "\"Tài khí\" của Cự Môn bất quá chỉ thịnh một đời, nên hễ Cự Môn tọa Tài Bạch nên xem kèm cung Tử Tức. Cung Tử Tức không cát tường sẽ chủ về con cái tán tài; nếu còn gặp các sao Sát, Hình, Hao và Âm Sát, Đại Hao, Thiên Hư, Phá Toái, Phi Liêm — thì vì con cái phạm pháp mà phá tán, hoặc vì xa hoa mà thất bại.",
+   "source_quote": "\"Tài khí\" của Cự Môn bất quá chỉ thịnh một đời, cho nên hễ Cự Môn tọa cung Tài Bạch, nên xem kèm cung Tử Tức. Cung Tử Tức không cát tường sẽ chủ về con cái tán tài; nếu còn gặp các sao Sát, Hình, Hao, và các sao Âm Sát, Đại Hao, Thiên Hư, Phá Toái, Phi Liêm, thì vì con cái phạm pháp mà phá tán, thất bại, hoặc vì sa hoa mà thất bại.",
+   "source_page": 683,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "palace:tu_tuc",
+    "star:am_sat",
+    "star:dai_hao",
+    "star:thien_hu",
+    "star:pha_toai",
+    "star:phi_liem"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài khí thịnh một đời = giàu chỉ trong một thế hệ, không truyền đời.",
+    "viet_thuan": "Cự Môn giàu chỉ một đời nên phải xem cung Con Cái: cung này xấu thì con phá của, nặng thì con phạm pháp làm sạt nghiệp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q268",
+   "question": "Cự Môn ở Tài Bạch gặp Thái Dương Hóa Kỵ hoặc thêm Thiên Hình thì sao?",
+   "answer_atom": "Cự Môn Hóa Kỵ đã dễ chuốc thị phi, Thái Dương Hóa Kỵ cũng chủ về xảy ra điều tiếng thị phi cực lớn; gặp thêm Thiên Hình sẽ chủ về vì tiền mà dẫn đến kiện tụng. Nhưng nếu làm những nghề liên quan đến \"hình pháp, kỷ luật\" thì lại cát tường.",
+   "source_quote": "Cự Môn Hóa Kỵ đã dễ chuốc thị phi, Thái Dương Hóa Kỵ cũng chủ về xảy ra điểu tiếng thị phi cực lớn; nếu gặp thêm Thiên Hình, sẽ chủ về vì tiền mà dẫn đến kiện tụng. Nhưng nếu làm những nghề nghiệp liên quan đến \"hình pháp, kỷ luật\", thì lại cát tường.",
+   "source_page": 683,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:thai_duong",
+    "star:thien_hinh",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hình pháp kỷ luật = pháp luật, tư pháp, kỷ cương.",
+    "viet_thuan": "Cự/Dương Hóa Kỵ thì điều tiếng lớn, thêm Thiên Hình thì kiện vì tiền — trừ khi làm nghề pháp luật thì lại tốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q269",
+   "question": "Cự Môn ở Tài Bạch gặp Hỏa Linh Không Kiếp Đại Hao, hoặc Kình Dương Thiên Hình thì sao?",
+   "answer_atom": "Có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Đại Hao đồng độ: chủ về vì hỏa tai, chiến họa mà hao tài, phá tán. Có Kình Dương, Thiên Hình đồng độ: kiện tụng hay tranh chấp tiền bạc — nếu làm nghề có ý vị tranh chấp như nhân viên thi hành án, phát mãi, môi giới thì lại cát tường.",
+   "source_quote": "Cự Môn có Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, Đại Hao đồng độ, sẽ chủ về vì hỏa tai, chiến họa mà hao tài, phá tán. Cự Môn có Kình Dương, Thiên Hình đồng độ, chủ về kiện tụng hay tranh chấp tiền bạc. Nếu làm những nghề nghiệp có ý vị tranh chấp như nhân viên thi hành án, nhân viên phát mãi, chuyên viên môi giới, v.v... sẽ chủ về cát tường.",
+   "source_page": 683,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "star:dai_hao",
+    "star:kinh_duong",
+    "star:thien_hinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phát mãi = bán đấu giá tài sản; thi hành án = cưỡng chế theo bản án.",
+    "viet_thuan": "Cự Môn + Hỏa Linh Không Kiếp Hao thì hao tài vì cháy nổ chiến loạn; + Kình Hình thì kiện tụng tiền bạc, trừ khi làm đúng nghề tranh chấp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q270",
+   "question": "Cự Môn hội Thái Dương có cát hóa ở Tài Bạch chủ về nguồn tiền nào?",
+   "answer_atom": "Cự Môn đồng độ hoặc đối chiếu với Thái Dương, có cát hóa, hoặc cung Mệnh gặp \"Lộc Mã giao trì\", chủ về cuộc đời được người ngoại quốc (hay người ở phương xa) tín nhiệm mà thành \"phú cục\"; mệnh tạo có năng khiếu ngôn ngữ, kỹ năng này trợ giúp việc kiếm tiền.",
+   "source_quote": "Cự Môn đồng độ hoặc đối chiếu với Thái Dương, có cát hóa, hoặc cung Mệnh gặp \"Lộc Mã giao trì\", chủ về cuộc đời được người ngoại quốc (hay người ở phương xa) tín nhiệm mà thành \"phú cục\", mệnh tạo có năng khiếu về ngôn ngữ, kỹ năng này cũng có thể trợ giúp cho việc kiếm tiền.",
+   "source_page": 683,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:thai_duong",
+    "pattern:loc_ma_giao_tri"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cát hóa = được Hóa Lộc/Quyền/Khoa.",
+    "viet_thuan": "Cự + Dương cát hóa thì được người nước ngoài/phương xa tin dùng mà giàu; có khiếu ngoại ngữ hỗ trợ kiếm tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q271",
+   "question": "Cự Môn Tý/Ngọ cách \"Thạch trung ẩn ngọc\" ở Tài Bạch luận thế nào?",
+   "answer_atom": "Cự Môn ở Tý/Ngọ đối nhau Thiên Cơ, gặp sao Lộc là cách \"Thạch trung ẩn ngọc\": sau trung niên mới bộc lộ hết tài năng, đột nhiên thành cự phú; lúc trẻ ắt gian khổ. Sau khi phát đạt, nếu quá lộ tài năng dễ thành mục tiêu công kích; nếu xa hoa dâm dật cũng dễ thất bại, một khi ngã xuống thì khó đứng lên.",
+   "source_quote": "Sao Lộc là cách \"Thạch trung ẩn ngọc\", chủ về sau trung niên mới bộc lộ hết tài năng, đột nhiên thành cự phú. Có điều, lúc trẻ ắt phải gian khổ; sau khi phát đạt, nếu quá lộ tài năng lại dễ thành mục tiêu cho người ta công kích. Nếu sa hoa dâm dật, cũng dễ dẫn đến thất bại, một khi đã ngã xuống thì khó mà đứng lên được.",
+   "source_page": 684,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:thien_co",
+    "pattern:thach_trung_an_ngoc",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thạch trung ẩn ngọc = ngọc giấu trong đá, cách Cự Môn Tý/Ngọ có lộc.",
+    "viet_thuan": "Cự Môn Tý/Ngọ có lộc: trẻ khổ, sau trung niên bừng sáng thành giàu lớn; nhưng khoe tài hoặc ăn chơi là dễ sụp không gượng nổi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q272",
+   "question": "Cự Môn Tý/Ngọ thủ Tài Bạch hợp môi trường và nghề gì?",
+   "answer_atom": "Thích hợp làm việc cho công ty kinh doanh của người ngoại quốc (hay người ở phương xa) — có uy tín rồi sự nghiệp phát triển thành giàu có. Gặp sao khoa văn: hợp sự nghiệp quảng bá, có danh rồi mới có lợi. Đồng cung sao đào hoa: hợp nghề cần tài ăn nói như biểu diễn nghệ thuật — Cự Môn Hóa Lộc hay Hóa Kỵ đều như vậy.",
+   "source_quote": "thích hợp làm việc cho công ty kinh doanh của người ngoại quốc (hay người ở phương xa), chủ về có uy tín rồi sự nghiệp sẽ phát triển và thành giàu có. Nếu gặp các sao khoa văn, thì thích hợp với sự nghiệp quảng bá, cũng chủ về có danh rồi mới có lợi. Đồng cung với các sao đào hoa đồng độ, thì thích hợp làm những nghề nghiệp cần đến tài ăn nói, như biểu diễn nghệ thuật. Cự Môn Hóa Lộc hay Hóa Kỵ đều như vậy.",
+   "source_page": 684,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "hoa:loc",
+    "hoa:ky",
+    "chi:ty",
+    "chi:ngo",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khoa văn = nhóm sao học vấn văn chương.",
+    "viet_thuan": "Cự Môn Tý/Ngọ hợp làm cho công ty nước ngoài; có sao học vấn thì làm truyền thông; có đào hoa thì làm nghề ăn nói, biểu diễn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q273",
+   "question": "Cự Môn Tý/Ngọ có sát tinh, đào hoa + Âm Sát Thiên Diêu, hoặc Lộc Tồn + Hỏa Linh Hình Hao thì sao?",
+   "answer_atom": "Có sát tinh đồng độ: sự nghiệp thường gặp bất hòa tranh chấp. Có đào hoa + Âm Sát, Thiên Diêu: vì tiền mà chuốc họa sắc tình (làm biểu diễn nghệ thuật càng phải thận trọng đề phòng). Không được cát hóa nhưng có Lộc Tồn đồng độ, gặp Hỏa Tinh và Linh Tinh, còn có Thiên Hình và Đại Hao đồng cung: tranh chấp tiền bạc, kiện tụng. Có Thiên Vũ: tranh đoạt di sản hoặc tranh chấp trong sự nghiệp.",
+   "source_quote": "có sát tính đồng độ, sự nghiệp thường gặp bất hòa, tranh chấp. Có các sao đào hoa đồng độ, lại gặp thêm Âm Sát, Thiên Diêu, thì vì tiền mà chuốc họa sắc tình... có Lộc Tồn đồng độ, lại gặp Hỏa Tinh và Linh Tinh, còn có Thiên Hình và Đại Hao đồng cung, chủ về tranh chấp tiền bạc, kiện tụng. Có Thiên Vũ, chủ về tranh đoạt di sản, hoặc xảy ra tranh chấp trong sự nghiệp.",
+   "source_page": 684,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:am_sat",
+    "star:thien_dieu",
+    "star:loc_ton",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "star:thien_hinh",
+    "star:dai_hao",
+    "star:thien_vu",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Họa sắc tình = tai họa do quan hệ tình ái.",
+    "viet_thuan": "Cự Môn Tý/Ngọ thêm sát thì hay cãi vã; đào hoa + Âm Sát Diêu thì vì tiền vướng họa tình; Lộc Tồn + Hỏa Linh Hình Hao thì kiện tụng tiền bạc; Thiên Vũ thì giành di sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q274",
+   "question": "Cự Môn Thìn/Tuất ở Tài Bạch có tính chất gì?",
+   "answer_atom": "Đối nhau với Thiên Đồng, chủ về tay trắng sáng lập sự nghiệp, thích hợp công việc mang tính chuyên nghiệp, có thể thành giàu có. Thìn/Tuất là \"Thiên La, Địa Võng\", với Cự Môn là hãm địa nên chủ về khổ lụy, bôn ba vất vả — nghề chuyên nghiệp cũng nên có tính bôn ba bận rộn như kỹ sư công trình kiến trúc, đóng tàu, vận tải. Đồng cung sát tinh thì bôn ba càng nặng; không có \"Lộc Quyền Khoa hội\", không sao cát phụ tá, không Khôi Việt giáp cung thì chỉ thích hợp lao lực kiếm tiền.",
+   "source_quote": "Cự Môn đối nhau với Thiên Đồng, chủ về tay trắng sáng lập sự nghiệp, thích hợp với công việc mang tính chuyên nghiệp, có thể thành giàu có. Hai cung Thìn và Tuất là \"Thiên La, Địa Võng\", đối với Cự Môn là hãm địa, nên cũng chủ về khổ lụy, bôn ba vất vả... Nếu không có \"Lộc Quyền Khoa hội\", lại không gặp sao cát phụ tá, cũng không có Thiên Khôi, Thiên Việt đến giáp cung, thì chỉ thích hợp lao lực để kiếm tiền.",
+   "source_page": 684,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:thien_dong",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "pattern:thien_la_dia_vong",
+    "chi:thin",
+    "chi:tuat",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hãm địa = vị trí sao mất sức.",
+    "viet_thuan": "Cự Môn Thìn/Tuất tay trắng lập nghiệp bằng nghề chuyên môn nhưng vất vả bôn ba; thiếu cát tinh trợ thì chỉ là lao lực kiếm cơm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q275",
+   "question": "Cự Môn Hóa Kỵ ở Thìn/Tuất tại Tài Bạch là phản cách thế nào?",
+   "answer_atom": "Là \"phản cách\": có thể đảm nhiệm chức vụ cao một cách bất ngờ (như chưa đủ kinh nghiệm mà được bổ nhiệm chức vị cần có kinh nghiệm), nhờ vậy mà thu nhập dồi dào.",
+   "source_quote": "Cự Môn Hóa Kỵ ở hai cung Thìn hoặc Tuất, là \"phản cách\", có thể đảm nhiệm chức vụ cao một cách bất ngờ (như chưa có đủ kinh nghiệm mà được bổ nhiệm chức vị cần có kinh nghiệm), nhờ vậy mà thu nhập dồi dào.",
+   "source_page": 684,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "hoa:ky",
+    "pattern:phan_cach",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phản cách = cách cục ngược — sao xấu ở vị trí đặc biệt lại thành tốt.",
+    "viet_thuan": "Cự Kỵ tại Thìn/Tuất là phản cách: bất ngờ được giao chức cao, nhờ đó thu nhập dồi dào.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q276",
+   "question": "Cự Môn độc tọa Tị/Hợi ở Tài Bạch luận thế nào?",
+   "answer_atom": "Đối cung là Thái Dương, nên lợi về dùng tài ăn nói kiếm tiền. Gặp Thái Dương Hóa Lộc: được người ngoại quốc (hay phương xa) xem trọng, có uy tín với họ. Cự Môn Hóa Lộc: hợp nghề phát mại, đại lý bán lẻ, nên lấy người ngoại quốc/du khách làm khách hàng chủ yếu. Cự Môn Hóa Quyền: nên làm nghề dùng tài ăn nói. Gặp \"Lộc Mã giao trì\": lợi buôn bán nơi xa, thời hiện đại rất nên buôn bán tạp hóa.",
+   "source_quote": "Cự Môn độc tọa ở hai cung Tỵ hoặc Hợi, đối cung là Thái Dương, nên lợi về dùng tài ăn nói để kiếm tiền... Nếu Cự Môn Hóa Lộc, cũng thích hợp với nghề phát mại, đại lý bán lẻ; nên lấy người ngoại quốc (hay người ở phương xa), du khách, làm đối tượng khách hàng chủ yếu... Cự Môn ở hai cung Tỵ hoặc Hợi, gặp cục \"Lộc Mã giao trì\", cũng lợi về buôn bán ở nơi xa. Ở thời hiện đại, rất nên buôn bán tạp hóa.",
+   "source_page": 685,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:thai_duong",
+    "hoa:loc",
+    "hoa:quyen",
+    "pattern:loc_ma_giao_tri",
+    "chi:ti",
+    "chi:hoi",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phát mại = bán hàng, tiêu thụ.",
+    "viet_thuan": "Cự Môn Tị/Hợi sống bằng tài ăn nói; Cự Lộc hợp bán lẻ cho khách nước ngoài/du khách; có Lộc Mã thì buôn bán phương xa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q277",
+   "question": "Cự Môn Hóa Kỵ thủ Tài Bạch đến vận hội Thiên Cơ Hóa Kỵ thì nên gì?",
+   "answer_atom": "Cự Môn Hóa Kỵ thủ cung Tài Bạch đến Đại Vận hoặc Lưu Niên hội Thiên Cơ Hóa Kỵ, thì nên làm việc hưởng lương, không nên tự kinh doanh.",
+   "source_quote": "Cự Môn Hóa Kỵ thủ cung Tài Bạch đến Đại Vận hoặc Lưu Niên hội Thiên Cơ Hóa Kỵ, thì nên làm việc hưởng lương, không nên tự kinh doanh.",
+   "source_page": 685,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:cu_mon",
+    "star:thien_co",
+    "hoa:ky",
+    "rule:dai_van",
+    "rule:luu_nien"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đại Vận = vận 10 năm; Lưu Niên = vận từng năm.",
+    "viet_thuan": "Cự Kỵ gặp vận Cơ Kỵ thì nên đi làm thuê, đừng tự mở kinh doanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q278",
+   "question": "Thiên Tướng tọa cung Tài Bạch giống và khác Thiên Phủ thế nào?",
+   "answer_atom": "Có một số tình hình tương tự Thiên Phủ. Thiên Phủ là kho tiền, Thiên Tướng có thể là \"tài ấn\" — theo nghĩa hiện đại, Thiên Tướng là con dấu (ấn) giữ các tài khoản; dù \"kho phủ đầy ắp\" mà không có nó thì cũng chẳng làm được gì. Cho nên khi Thiên Tướng tọa Tài Bạch, cần phân biệt xem nó có thuộc về \"tài ấn\" hay không.",
+   "source_quote": "Thiên Phủ là kho tiền, Thiên Tướng cũng có thể là \"tài ấn\". Nói về ý nghĩa hiện đại, Thiên Tướng là con dấu (ấn) giữ các tài khoản; dù \"kho phủ đầy ắp\" mà không có nó thì cũng chẳng làm được gì. Cho nên lúc Thiên Tướng tọa cung Tài Bạch, cẩn phải phân biệt xem nó có thuộc về \"tài Ấn\" hay không.",
+   "source_page": 685,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:thien_phu",
+    "pattern:tai_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài ấn = ấn (con dấu) quản tiền — quyền ký duyệt tài chính.",
+    "viet_thuan": "Thiên Phủ là kho, Thiên Tướng là con dấu mở kho; phải xem Thiên Tướng có thành \"tài ấn\" không.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q279",
+   "question": "Thiên Tướng thành \"tài ấn\" khi nào và chủ về gì?",
+   "answer_atom": "Nếu là \"Tài ấm giáp ấn\", có Lộc Tồn, Hóa Lộc đồng độ hoặc vây chiếu đều được — chủ về giàu có, phát đạt. Nếu không gặp sao lộc nhưng cát tinh tụ hội, Thiên Tướng dù không là \"tài ấn\" nhưng cũng không thành \"phá ấn\", vẫn có thể giàu có sung túc.",
+   "source_quote": "Thiên Tướng thành \"tài ấn\", nếu là \"Tài ấm giáp ân\", có Lộc Tồn, Hóa Lộc đồng độ hoặc vây chiếu đều được, chủ về giàu có, phát đạt. Nếu không gặp sao lộc, nhưng gặp cát tinh tụ hội... Thiên Tướng dù không phải là \"tài Ấn\", nhưng cũng không thành \"phá ấn\", vẫn có thể giàu có sung túc.",
+   "source_page": 685,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:loc_ton",
+    "hoa:loc",
+    "pattern:tai_am_giap_an",
+    "pattern:tai_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tài ấm giáp ấn = tài tinh và Thiên Lương (ấm tinh) kẹp Thiên Tướng.",
+    "viet_thuan": "Thiên Tướng được Tài Ấm kẹp + sao lộc là giàu có; không lộc nhưng nhiều cát tinh thì vẫn sung túc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q280",
+   "question": "Thiên Tướng bị \"phá ấn\" khi nào và hậu quả gì?",
+   "answer_atom": "Bị \"Hình kỵ giáp ấn\", Hỏa Tinh và Linh Tinh giáp cung, Địa Không và Địa Kiếp giáp cung, có sát tinh đồng độ lại hội sát tinh, hoặc có Không Kiếp đồng cung hội sát tinh — thảy đều đúng. Hễ \"phá ấn\" đều chủ về tiền bạc trồi sụt thất thường; nếu các sao sát kỵ trùng trùng thì còn dẫn đến thất bại lớn; phần lớn các tình huống đều bị người ta làm liên lụy mà gây ra.",
+   "source_quote": "Thiên Tướng bị \"phá ấn\" là bị \"Hình kỵ giáp ấn\", Hỏa Tinh và Linh Tinh giáp cung, Địa Không và Địa Kiếp giáp cung, có sát tinh đồng độ, lại hội sát tinh, hoặc có Địa Không và Địa Kiếp đồng cung hội sát tinh, thảy đều đúng. Hễ \"phá ấn\", đều chủ về tiền bạc trôi sụt thất thường... bất kể mức độ không cát tường thế nào, phần lớn các tình huống đều bị người ta làm liên lụy mà gây ra.",
+   "source_page": 685,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "pattern:pha_an",
+    "pattern:hinh_ky_giap_an",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "star:dia_khong",
+    "star:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phá ấn = con dấu bị hỏng — Thiên Tướng mất tác dụng tốt.",
+    "viet_thuan": "Thiên Tướng bị Hình Kỵ kẹp hoặc Hỏa Linh/Không Kiếp kẹp là phá ấn: tiền lên xuống thất thường, phần lớn do bị người khác liên lụy.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q281",
+   "question": "Thiên Tướng đồng độ Lộc Tồn khác Thiên Phủ chỗ nào về thái độ tiền bạc?",
+   "answer_atom": "Thái độ đối với tiền bạc cẩn thận hơn Thiên Phủ, nhưng khác ở chỗ: Thiên Tướng thủ Tài Bạch thường có thể khẳng khái mở túi tiền cứu giúp người khác, còn Thiên Phủ đối với vấn đề này lại cực kỳ cẩn thận.",
+   "source_quote": "Thiên Tướng đồng độ với Lộc Tồn, thái độ đối với tiền bạc cẩn thận hơn Thiên Phủ, nhưng có chỗ khác với Thiên Phủ. Lúc Thiên Tướng thủ cung Tài Bạch, thường có thể khẳng khái mở túi tiền ra cứu giúp người khác, còn Thiên Phủ đối với vấn đề này lại cực kỳ cẩn thận.",
+   "source_page": 686,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:thien_phu",
+    "star:loc_ton"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khẳng khái = rộng rãi, hào phóng.",
+    "viet_thuan": "Thiên Tướng giữ tiền kỹ nhưng sẵn lòng móc túi giúp người; Thiên Phủ thì rất dè dặt chuyện này.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q282",
+   "question": "Thiên Tướng ưa Hóa Lộc/Lộc Tồn và Tài ấm giáp ấn thế nào?",
+   "answer_atom": "Ưa có Hóa Lộc hoặc Lộc Tồn đồng độ, ắt chủ về giàu có. Ưa nhất là Hóa Lộc: tiền bạc đổi dòng, có thể nắm quyền tài chính, có thể phát triển trong tình hình sự nghiệp có sẵn cục diện. Được \"Tài ấm giáp ấn\" càng dễ gặp cơ hội phát triển sự nghiệp có sẵn; cũng ưa hội hợp hoặc được giáp cung bởi Thiên Khôi, Thiên Việt.",
+   "source_quote": "Thiên Tướng ưa có Hóa Lộc hoặc Lộc Tồn đồng độ, ắt sẽ chủ về giàu có. Ưa nhất là Hóa Lộc, chủ về tiền bạc đổi dòng, có thể nắm quyền về tài chính... Thiên Tướng được \"Tài ấm giáp ấn\", càng dễ gặp cơ hội phát triển sự nghiệp có sẵn cục điện. Cho nên cũng ưa hội hợp với Thiên Khôi, Thiên Việt; hoặc được Thiên Khôi, Thiên Việt giáp cung.",
+   "source_page": 686,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:loc_ton",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "hoa:loc",
+    "pattern:tai_am_giap_an"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiền bạc đổi dòng = dòng tiền chuyển hướng có lợi.",
+    "viet_thuan": "Thiên Tướng ưa nhất Hóa Lộc — nắm được quyền tài chính, phát triển từ nền có sẵn; thêm Khôi Việt thì nhiều quý nhân cơ hội.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q283",
+   "question": "Thiên Tướng bị Hình kỵ giáp ấn kèm sát tinh/Không Kiếp đồng cung thì sao?",
+   "answer_atom": "Bị \"Hình kị giáp ấn\" chủ về bị trắc trở, hay bị gây lụy. Nếu thêm sát tinh đồng cung hoặc Địa Không, Địa Kiếp đồng cung, sẽ chủ về phá sạch tổ nghiệp, sau 40 tuổi mới dần dần tạo nên sự nghiệp.",
+   "source_quote": "Thiên Tướng nếu bị \"Hình kị giáp ấn\", sẽ chủ về bị trắc trở, hay bị gây lụy. Nếu lại có thêm sát tinh đồng cung, hoặc Địa Không, Địa Kiếp đồng cung, sẽ chủ về phá sạch tổ nghiệp, sau 40 tuổi mới dần dần tạo nên sự nghiệp.",
+   "source_page": 686,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "pattern:hinh_ky_giap_an",
+    "star:dia_khong",
+    "star:dia_kiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tổ nghiệp = sản nghiệp cha ông để lại.",
+    "viet_thuan": "Thiên Tướng bị Hình Kỵ kẹp + sát/Không Kiếp: phá hết của cha ông, sau 40 tuổi mới gây dựng lại được.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q284",
+   "question": "Thiên Tướng Sửu/Mùi ở Tài Bạch đối Tử Vi Phá Quân luận thế nào?",
+   "answer_atom": "Có thể chủ về phát đột ngột, nhưng trước khi phát ắt có một thời kỳ kinh tế khó khăn hoặc nguồn tiền tài nhỏ nhoi. Cần xem các sao hội hợp mà định mức độ: được cát hóa và sao cát thì sau khi phát có thể bình ổn; có các sao sát, kị thì vẫn trồi sụt thất thường. Thường đến các cung hạn do \"Tử Vi, Phá Quân\" hoặc Thiên Tướng thủ Tài Bạch là đại vận/lưu niên ứng nghiệm phát đột ngột.",
+   "source_quote": "Thiên Tướng ở hai cung Sửu hoặc Mùi, đối nhau với \"Tử Vi, Phá Quân\", có thể chủ về phát đột ngột. Nhưng trước khi phát đột ngột ắt sẽ có một thời kỳ kinh tế khó khăn... Thiên Tướng ở hai cung Sửu hoặc Mùi, thường đến các cung hạn do \"Tử Vi, Phá Quân\" hoặc Thiên Tướng thủ cung Tài Bạch, là những đại vận hoặc lưu niên ứng nghiệm tình hình phát đột ngột.",
+   "source_page": 686,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:tu_vi",
+    "star:pha_quan",
+    "rule:dai_van",
+    "rule:luu_nien",
+    "chi:suu",
+    "chi:mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cung hạn = cung mà Đại Vận/Lưu Niên đi đến.",
+    "viet_thuan": "Thiên Tướng Sửu/Mùi phát đột ngột sau giai đoạn túng thiếu; thời điểm ứng là khi vận đến cung Tử Phá hoặc Thiên Tướng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q285",
+   "question": "Thiên Tướng độc tọa Mão/Dậu ở Tài Bạch có tính chất gì?",
+   "answer_atom": "Đối nhau với \"Liêm Trinh, Phá Quân\", tính chất cơ bản là không cát tường — hơi gặp sát tinh thì nguồn tiền tài liền không ổn định, còn thường sinh lòng muốn thay đổi. Có Không Kiếp đồng cung, gặp sao sát kị (ngại nhất Liêm Trinh Hóa Kỵ) thì dễ bị gây lụy dẫn đến phiền phức; thêm Thiên Hình, Đại Hao, Âm Sát, hoặc đối xung Văn Xương/Văn Khúc Hóa Kỵ — ở đại hạn lưu niên này ắt xảy ra phá tán nghiêm trọng, có thể phá sản.",
+   "source_quote": "Thiên Tướng độc tọa ở hai cung Mão hoặc Dậu, đối nhau với \"Liêm Trinh, Phá Quân\", tính chất cơ bản là không cát tường... Nếu có thêm Thiên Hình, Đại Hao, Âm Sát, hoặc lại đối xung với Văn Xương hay Văn Khúc Hóa Kỵ, ở đại hạn hay lưu niên này, ắt sẽ xảy ra phá tán, thất bại nghiêm trọng, có thể phá sản.",
+   "source_page": 686,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:liem_trinh",
+    "star:pha_quan",
+    "star:thien_hinh",
+    "star:dai_hao",
+    "star:am_sat",
+    "star:van_xuong",
+    "star:van_khuc",
+    "hoa:ky",
+    "chi:mao",
+    "chi:dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đại hạn = Đại Vận, vận 10 năm.",
+    "viet_thuan": "Thiên Tướng Mão/Dậu gốc đã xấu: dễ bất ổn, bị liên lụy; nặng nhất khi Liêm Kỵ + Hình Hao Âm Sát + Xương/Khúc Kỵ — có thể phá sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q286",
+   "question": "Thiên Tướng Mão/Dậu gặp sao Lộc và nhiều cát tinh thì có ổn không?",
+   "answer_atom": "Gặp sao Lộc, được cát hóa và sao cát: tiền bạc tuy dồi dào nhưng vẫn chủ về biến động — cuộc đời ắt có một lần thay nghề đổi nghiệp quan trọng, chuyển biến cả nguồn tiền tài. Gặp sao cát quá nhiều thì hay hy vọng hão huyền rồi sinh lòng muốn thay đổi, tưởng đổi hoàn cảnh sẽ đạt lý tưởng nhưng kết quả vẫn thất vọng. Đạo \"xu cát tị hung\" hậu thiên bổ cứu: không nên muốn chuyển biến gấp rút.",
+   "source_quote": "gặp sao Lộc, lại được cát hóa và có sao cát, tiền bạc tuy dồi dào, nhưng vẫn chủ về biến động thay đổi. Cho nên cuộc đời ắt sẽ có một lần thay nghề đổi nghiệp quan trọng... Đạo \"xu cát thị hung\" dùng hậu thiên bổ cứu là không nên muốn chuyển biến gấp rút.",
+   "source_page": 687,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "rule:xu_cat_ti_hung",
+    "chi:mao",
+    "chi:dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Xu cát tị hung = hướng lành tránh dữ; hậu thiên bổ cứu = dùng nỗ lực đời sống sửa chữa lá số.",
+    "viet_thuan": "Thiên Tướng Mão/Dậu dù có lộc có cát vẫn phải đổi nghề một lần lớn; chớ nôn nóng thay đổi — đó là cách tránh dữ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q287",
+   "question": "So sánh ba trường hợp Thiên Tướng độc tọa ở Tài Bạch về tính bất ổn?",
+   "answer_atom": "Cả ba đều chủ về không ổn định. Chỉ trường hợp đối \"Tử Vi, Phá Quân\" là có phát đột ngột (sau đó vẫn trồi sụt). Không ổn định của trường hợp đối \"Liêm Trinh, Phá Quân\" thường là tự phát (nội tâm); khác với trường hợp đối \"Vũ Khúc, Phá Quân\" là do hoàn cảnh khách quan gây nên. Người ta thường khắc phục được hoàn cảnh khách quan nhưng khó khắc phục tình tự nội tâm, nên trường hợp đối Vũ Phá có cảnh ngộ khách quan tốt hơn trường hợp đối Liêm Phá.",
+   "source_quote": "Có ba tình huống Thiên Tướng độc tọa, thực ra đều chủ về không ổn định... Còn trường hợp không ổn định của \"Liêm Trinh, Phá Quân\" thường thường là tự phát, khác với trường hợp không ổn định của \"Vũ Khúc, Phá Quân\" là do hoàn cảnh khách quan gây nên. Con người thường có thể khắc phục sự thay đổi của hoàn cảnh khách quan, nhưng lại khó khắc phục tình tự của nội tâm.",
+   "source_page": 687,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:tu_vi",
+    "star:liem_trinh",
+    "star:vu_khuc",
+    "star:pha_quan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tình tự = cảm xúc, tâm trạng.",
+    "viet_thuan": "Ba thế Thiên Tướng đều bất ổn: đối Tử Phá thì có phát; đối Liêm Phá bất ổn từ trong lòng (khó chữa); đối Vũ Phá bất ổn do ngoại cảnh (dễ khắc phục hơn).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q288",
+   "question": "Thiên Tướng Tị/Hợi sợ gì nhất và hợp nghề gì khi sát tinh nhẹ?",
+   "answer_atom": "Rất sợ Vũ Khúc Hóa Kỵ xung chiếu: sóng gió trắc trở trùng trùng, đang trong hoàn cảnh khá tốt thì lại xảy ra thay đổi. Có sao cát hội hợp mà sát tinh không nặng: thích hợp nghề có tính chất \"hung sự\" để kiếm tiền như ngành ẩm thực, thịt đông lạnh — tình hình chìm nổi sẽ giảm; hoặc làm công việc chuyên nghiệp nhưng nên làm thuê hưởng lương. Gặp Vũ Khúc Hóa Lộc ắt đồng cung hoặc bị xung chiếu bởi Đà La nên không toàn mỹ; Vũ Khúc Hóa Quyền/Hóa Khoa có sao cát thì nguồn tiền khá ổn định, cuối cùng có tích lũy.",
+   "source_quote": "Thiên Tướng ở hai cung Tị hoặc Hợi, rất sợ Vũ Khúc Hóa Kỵ xung chiếu, chủ về sóng gió, trắc trở trùng trùng... Trường hợp gặp Vũ Khúc Hóa Lộc, ắt sẽ đồng cung với Đà La, hoặc bị Đà La xung chiếu. Cho nên tính chất cũng không toàn mỹ. Gặp Vũ Khúc Hóa Quyền hay Hóa Khoa, lại có sao cát đồng cung hay vây chiếu, thì nguồn tiền tài khá ổn định, cuối cùng có tích lũy.",
+   "source_page": 687,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "star:vu_khuc",
+    "star:da_la",
+    "hoa:ky",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:khoa",
+    "chi:ti",
+    "chi:hoi",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hung sự = việc dữ (dao thớt, máu, tang sự...).",
+    "viet_thuan": "Thiên Tướng Tị/Hợi kỵ nhất Vũ Kỵ chiếu; sát nhẹ thì nên làm nghề dao thớt như ẩm thực, thịt đông lạnh, hoặc làm thuê chuyên môn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q289",
+   "question": "Thiên Tướng Tị/Hợi gặp Kiếp Sát Hình hoặc Lộc Mã giao trì thì sao?",
+   "answer_atom": "Gặp các sao Kiếp, Sát, Hình: chủ về phá tán, thất bại; hoàn cảnh khách quan thay đổi liên tục. Gặp \"Lộc Mã giao trì\": chủ về thường gặp cơ hội kiếm tiền ở nơi xa.",
+   "source_quote": "Thiên Tướng ở hai cung Tị hoặc Hợi, nếu gặp các sao Kiếp, Sát, Hình thì chủ về phả tán, thất bại; hoàn cảnh khách quan thay đổi liên tục. Gặp \"Lộc Mã giao trì\", chủ về thường gặp cơ hội kiếm tiền ở nơi xa.",
+   "source_page": 688,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_tuong",
+    "pattern:loc_ma_giao_tri",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kiếp Sát Hình = nhóm Địa Kiếp, sát tinh, Thiên Hình.",
+    "viet_thuan": "Thiên Tướng Tị/Hợi gặp Kiếp Sát Hình thì đổ vỡ, ngoại cảnh xoay liên tục; có Lộc Mã thì hay có cơ hội kiếm tiền phương xa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q290",
+   "question": "Thiên Lương thủ cung Tài Bạch có nên tự kinh doanh không?",
+   "answer_atom": "Thông thường không thích hợp tự kinh doanh làm ăn (trái ngược với Thiên Lương ở cung Thiên Di là có thể giàu nhờ buôn bán). Làm trong ngành thương nghiệp cũng nên làm công việc hưởng lương; nếu không ắt xảy ra khó khăn nghiêm trọng, thậm chí gây ra nguy cơ.",
+   "source_quote": "Thiên Lương thủ cung Tài Bạch, thông thường không thích hợp tự kinh doanh làm ăn (trái ngược với trường hợp Thiên Lương ở cung Thiên Di là có thể trở thành giàu có nhờ buôn bán). Khi làm việc trong ngành thương nghiệp cũng nên làm công việc hưởng lương; nếu không ắt sẽ xảy ra khó khăn nghiêm trọng, thậm chí còn gây ra nguy cơ.",
+   "source_page": 688,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "palace:thien_di"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thương nghiệp = ngành buôn bán.",
+    "viet_thuan": "Thiên Lương ở Tài Bạch không hợp tự làm chủ — nên đi làm hưởng lương; ngược với khi nó ở cung Thiên Di.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q291",
+   "question": "Vì sao Thiên Lương không nên gặp Hóa Lộc ở Tài Bạch?",
+   "answer_atom": "Thiên Lương không nên gặp Hóa Lộc — nếu có Hóa Lộc sẽ chủ về bất hòa, tranh chấp, rối rắm khó xử. Hội với các sao Sát, Kị thì thường do đó dẫn đến phạm pháp, kiện tụng. Nếu đồng thời hội sao cát thì tình huống rối rắm ít hơn và dễ hóa giải hơn.",
+   "source_quote": "Thiên Lương không nên gặp Hóa Lộc. Nếu có Hóa Lộc, sẽ chủ về bất hòa, tranh chấp, rối rắm khó xử. Nếu Thiên Lương hội hợp với các sao Sát, Kị thì thường do đó mà dẫn đến phạm pháp, kiện tụng. Tuy nhiên, nếu đồng thời hội hợp với sao cát, thì tình huống rối rắm khó xử sẽ ít hơn và dễ hóa giải hơn.",
+   "source_page": 688,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Rối rắm khó xử = tình huống lằng nhằng khó gỡ.",
+    "viet_thuan": "Thiên Lương kỵ Hóa Lộc ở Tài Bạch: tiền đến kèm tranh cãi lằng nhằng, nặng thì phạm pháp kiện tụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q292",
+   "question": "Tính chất quản lý giám sát của Thiên Lương ở Tài Bạch chuyển thành nghề gì?",
+   "answer_atom": "Thiên Lương có tính chất quản lý, giám sát, kiểm tra. Có Thiên Nguyệt đồng độ: biến thành tra xét bệnh tình — kiếm tiền trong ngành y dược. Có Thiên Hình đồng độ: thành người trông coi \"hình pháp, kỷ luật\" — kiếm sống trong ngành tư pháp, quân đội, cảnh sát, bảo an.",
+   "source_quote": "Thiên Lương có tính chất quản lý, giám sát, kiểm tra... Nếu có Thiên Nguyệt đồng độ, thì biến thành việc tra xét bệnh tình, cho nên có thể kiếm tiền trong ngành y dược. Nếu có Thiên Hình đồng độ, thì trở thành người trông coi về \"hình pháp, kỷ luật\"; nên có thể kiếm sống trong ngành tư pháp, quân đội, cảnh sát, bảo an.",
+   "source_page": 688,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thien_nguyet",
+    "star:thien_hinh",
+    "topic:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bảo an = an ninh, bảo vệ.",
+    "viet_thuan": "Thiên Lương là sao giám sát: kèm Thiên Nguyệt thì hợp ngành y dược, kèm Thiên Hình thì hợp tư pháp, quân cảnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q293",
+   "question": "Nguồn tài lộc của Thiên Lương ở Tài Bạch đến từ đâu?",
+   "answer_atom": "Thiên Lương là \"ấm tinh\" nên chủ về có phúc ấm của ông bà cha mẹ; nhưng đôi khi không chỉ là thừa kế di sản, mà là nhờ tiếng tăm của bậc trưởng bối để được trợ lực và kiếm tiền, hoặc nhờ quan hệ với trưởng bối mà kiếm tiền, hoặc kiếm tiền nhờ sự nghiệp có sẵn. Cũng chủ về có danh trước có lợi sau, do đó Thiên Lương Hóa Khoa ưu hơn Thiên Lương Hóa Lộc.",
+   "source_quote": "Thiên Lương là \"âm tinh\", nên chủ về có phúc ấm của ông bà cha mẹ; nhưng đôi khi không chỉ chủ về thừa kế di sản, mà là nhờ tiếng tăm của bậc trưởng bối để được trợ lực và kiếm tiền... Thiên Lương thủ cung Tài Bạch cũng chủ về có danh trước có lợi sau. Do đó, Thiên Lương Hóa Khoa ưu hơn Thiên Lương Hóa Lộc.",
+   "source_page": 688,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "hoa:khoa",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Ấm tinh = sao che chở, mang phúc đức đời trước; trưởng bối = bậc bề trên.",
+    "viet_thuan": "Thiên Lương kiếm tiền nhờ phúc ấm và uy tín người lớn đỡ đầu; danh trước lợi sau — nên Hóa Khoa tốt hơn Hóa Lộc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q294",
+   "question": "Lời khuyên xu cát tị hung cho Thiên Lương thủ Tài Bạch là gì?",
+   "answer_atom": "Nên lấy phục vụ làm mục đích, không nên lấy kiếm tiền làm mục đích duy nhất. Khi tâm chí hướng đến phục vụ, tài lộc đương nhiên sung túc; nếu tâm chỉ lo kiếm tiền thì dễ không làm tròn chức trách, dễ gây rối rắm, thị phi. Thiên Lương Hóa Lộc có \"Lộc trùng điệp\" cũng chỉ giàu nhất thời, sau lưng bị bàn tán; đến vận xấu lập tức thị phi. Nên kết giao rộng, giữ phương châm \"không tổn hại lợi ích của người khác\", phải công chính.",
+   "source_quote": "Nên lấy phục vụ làm mục đích khi ở vị trí này, không nên lấy kiếm tiền làm mục đích duy nhất... Đạo \"xu cát tị hung\" không gì bằng để tâm chí vào mục đích phục vụ.",
+   "source_page": 688,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "pattern:loc_trung_diep",
+    "rule:xu_cat_ti_hung"
+   ],
+   "commentary": {
+    "han_viet_explain": "Công chính = ngay thẳng công bằng.",
+    "viet_thuan": "Thiên Lương ở Tài Bạch: lấy phục vụ làm gốc thì tiền tự đến; chăm chăm kiếm tiền thì rước thị phi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q295",
+   "question": "Thiên Lương có Thiên Mã đồng độ, hoặc gặp sao hung ở Tài Bạch thì sao?",
+   "answer_atom": "Có Thiên Mã đồng độ: tiền bạc khó tụ, còn chủ về thường bị thay đổi hoàn cảnh công tác. Nhưng Thiên Lương thủ Tài Bạch dù gặp sao hung cũng không đến nỗi nghèo.",
+   "source_quote": "Thiên Lương có Thiên Mã đồng độ ở cung Tài Bạch, tiền bạc khó tụ, còn chủ về thường bị thay đổi hoàn cảnh công tác. Thiên Lương thủ cung Tài Bạch, dù gặp sao hung, cũng không đến nỗi nghèo.",
+   "source_page": 689,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thien_ma"
+   ],
+   "commentary": {
+    "han_viet_explain": "Khó tụ = tiền vào rồi lại ra, không đọng lại.",
+    "viet_thuan": "Thiên Lương + Thiên Mã thì tiền khó giữ, hay đổi chỗ làm; nhưng Thiên Lương dù gặp hung tinh cũng không nghèo.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q296",
+   "question": "Thiên Lương ở Tý/Ngọ tại Tài Bạch khác nhau thế nào?",
+   "answer_atom": "Ở Tý ưu hơn ở Ngọ. Ở Tý được Thái Dương ở Ngọ chiếu thẳng, tính chất chuốc thị phi đố kị giảm nhiều, nhất là khi Thái Dương Hóa Lộc. Ở Tý: đời gặp nhiều cơ hội kiếm tiền nhưng \"tán tài\" cũng không ít; bản thân không được Hóa Lộc mà hội chiếu Hóa Lộc hoặc Lộc Tồn mới thành \"phú cục\". Ở Ngọ: cơ hội kiếm tiền ít hơn, cơ hội tán tài cũng ít hơn; nhưng một khi giàu có hoặc hưởng thụ xa hoa thì liền bị người ta đố kị.",
+   "source_quote": "Thiên Lương ở hai cung Tý hoặc Ngọ, ở cung Tý ưu hơn ở cung Ngọ... Thiên Lương ở cung Tý, cuộc đời gặp nhiều cơ hội kiếm tiền, nhưng \"tán tài\" cũng không ít... Thiên Lương ở cung Ngọ, cơ hội kiếm tiền ít hơn, cơ hội \"tán tài\" cũng ít hơn. Có điều, một khi giàu có sung túc, hoặc hưởng thụ xa hoa thì liền bị người ta đố kị.",
+   "source_page": 689,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thai_duong",
+    "star:loc_ton",
+    "hoa:loc",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tán tài = tiền tản đi, hao tài.",
+    "viet_thuan": "Thiên Lương Tý tốt hơn Ngọ: Tý nhiều cơ hội nhưng cũng hao nhiều, cần lộc chiếu mới giàu; Ngọ ít cơ hội, giàu lên là bị ganh ghét.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q297",
+   "question": "Thiên Lương Tý/Ngọ thành cục Dương Lương Xương Lộc thì sao?",
+   "answer_atom": "Có thể thành cục \"Dương Lương Xương Lộc\"; nếu gặp thêm các sao khoa văn (nhất là Văn Xương Hóa Khoa hoặc Văn Khúc Hóa Khoa) thì danh cao lợi lớn. Thời hiện đại có thể chuyên về phát minh mà trở nên giàu có. Nếu có Xương Khúc và sao Đào Hoa cùng hội hợp — biểu trưng nghệ thuật hay quảng bá, nên chọn nghề tính chất này. Người kinh doanh phần nhiều thừa kế sự nghiệp có sẵn, nên xem trọng thương hiệu; nếu tự tôn tự đại thì lập tức sinh phá tán hoặc sóng gió nghiêm trọng.",
+   "source_quote": "cũng có thể thành cục \"Dương Lương Xương Lộc\", nếu lại gặp các sao khoa văn, (nhất là Văn Xương Hóa Khoa, hoặc Văn Khúc Hóa Khoa), thì danh cao lợi lớn. Ở thời hiện đại, cũng có thể chuyên về phát minh mà trở nên giàu có... Nếu sau khi tạo dựng được thương nghiệp mà tự tôn tự đại, lập tức sinh phá tán, thất bại, hoặc gây ra sóng gió nghiêm trọng.",
+   "source_page": 689,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thai_duong",
+    "star:van_xuong",
+    "star:van_khuc",
+    "hoa:khoa",
+    "pattern:duong_luong_xuong_loc",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Dương Lương Xương Lộc = Thái Dương + Thiên Lương + Văn Xương + Lộc Tồn hội, cách khoa bảng.",
+    "viet_thuan": "Thành cách Dương Lương Xương Lộc thì danh cao lợi lớn, có thể giàu nhờ phát minh; nhưng kiêu căng là sụp ngay.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q298",
+   "question": "Thiên Lương độc tọa Sửu/Mùi ở Tài Bạch luận thế nào?",
+   "answer_atom": "Đối nhau với Thiên Cơ, chủ về tiền bạc không ổn định. Có Tả Phụ, Hữu Bật (giáp/đồng) cung mới chủ về có thể tích lũy. Gặp Văn Xương, Văn Khúc giáp cung thì danh lớn hơn lợi — cầu lợi không bằng cầu danh. Ở Sửu ưu hơn ở Mùi. Hội Thái Âm Hóa Lộc: hưởng sự nghiệp có sẵn hoặc thừa kế di sản; đồng cung Thiên Vu hoặc đồng cung Thái Âm thì càng đúng.",
+   "source_quote": "Thiên Lương độc tọa ở hai cung Sửu hoặc Mùi, đối nhau với Thiên Cơ, chủ về tiền bạc không ổn định... Trường hợp gặp Văn Xương, Văn Khúc giáp cung, thì danh lớn hơn lợi. Cho nên cầu lợi không bằng cầu danh... Trường hợp hội Thái Âm Hóa Lộc thì chủ về hưởng được sự nghiệp có sẵn hoặc thừa kế di sản. Thiên Lương đồng cung với Thiên Vu, hoặc đồng cung với Thái Âm thì càng đúng.",
+   "source_page": 689,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thien_co",
+    "star:ta_phu",
+    "star:huu_bat",
+    "star:van_xuong",
+    "star:van_khuc",
+    "star:thai_am",
+    "star:thien_vu",
+    "hoa:loc",
+    "chi:suu",
+    "chi:mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thiên Vu = tạp diệu chủ thăng quan, thừa kế.",
+    "viet_thuan": "Thiên Lương Sửu/Mùi tiền bất ổn, có Tả Hữu mới tích được; nên cầu danh hơn cầu lợi; hội Thái Âm Lộc thì hưởng di sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q299",
+   "question": "Thiên Lương Sửu/Mùi với cách Nhật Nguyệt và Thái Âm Hóa Khoa thì sao?",
+   "answer_atom": "Không thành cách \"Dương Lương Xương Lộc\" thì cũng thành cách \"Nhật Nguyệt tịnh chiếu\". Cung Mùi \"Nhật Nguyệt phản bối\" cần được cát hóa mới bổ cứu, nhưng vẫn chủ về kiếm tiền trong thị phi bất hòa, tranh chấp rối rắm; kiếm được tiền rồi ắt bị hao tài. Ở cung Sửu gặp Thái Âm Hóa Khoa thì Thiên Cơ ắt Hóa Kỵ — chủ về vì tiền mà bị phỉ báng, ở cung Mùi càng nặng; kiếm được tiền cũng không nên khoe khoang.",
+   "source_quote": "không thành cách \"Dương Lương Xương Lộc\" thì cũng thành cách cục \"Nhật Nguyệt tịnh chiếu\". Cung Mùi, \"Nhật Nguyệt phản bối\", cần phải được cát hóa mới có thể bổ cứu... Thiên Lương ở cung Sửu, gặp Thái Âm Hóa Khoa, Thiên Cơ ắt sẽ Hóa Kỵ, chủ về vì tiền mà bị phi báng, ở cung Mùi thì càng nặng. Vì vậy, kiếm được tiền cũng không nên khoe khoang.",
+   "source_page": 690,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thai_am",
+    "star:thien_co",
+    "hoa:khoa",
+    "hoa:ky",
+    "pattern:nhat_nguyet_tinh_chieu",
+    "pattern:nhat_nguyet_phan_boi",
+    "chi:suu",
+    "chi:mui"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nhật Nguyệt tịnh chiếu = Thái Dương Thái Âm cùng chiếu về; phỉ báng = bị nói xấu vu khống.",
+    "viet_thuan": "Thiên Lương Mùi phản bối phải có cát hóa mới đỡ, kiếm tiền giữa thị phi; Sửu gặp Âm Khoa kèm Cơ Kỵ thì có tiền là bị gièm — chớ khoe của.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q300",
+   "question": "Thiên Lương Tị/Hợi ở Tài Bạch luận thế nào?",
+   "answer_atom": "Đối nhau với Thiên Đồng, chủ về tay trắng làm nên. Được \"Lộc Mã giao trì\" thì nguồn tiền tài cuộc đời ở nơi xa hay nước khác. Do ảnh hưởng Thiên Đồng: từ thanh niên đến trung niên tiền khó tụ, dù có tổ nghiệp cũng không được hưởng. Nhưng nếu Tả Phụ, Hữu Bật một sao ở cung Mệnh một sao ở cung Tài Bạch thì được thừa kế tổ nghiệp hoặc có cơ hội quản lý sự nghiệp có sẵn.",
+   "source_quote": "Thiên Lương ở hai cung Tị hoặc Hợi, đổi nhau với Thiên Đồng, chủ về tay trắng làm nên. Nếu được \"Lộc Mã giao trì\" thì chủ về nguồn tiền tài của cuộc đời ở nơi xa, hay ở nước khác... nếu Tả Phụ, Hữu Bật một sao ở cung Mệnh, một sao ở cung Tài Bạch, thì chủ về được thừa kế tổ nghiệp, hoặc có cơ hội quản lí sự nghiệp có sẵn.",
+   "source_page": 690,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:thien_dong",
+    "star:ta_phu",
+    "star:huu_bat",
+    "pattern:loc_ma_giao_tri",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tổ nghiệp = cơ nghiệp tổ tiên.",
+    "viet_thuan": "Thiên Lương Tị/Hợi tay trắng làm nên, tiền tài ở phương xa; trẻ đến trung niên khó giữ tiền — trừ khi Tả Hữu chia đóng Mệnh và Tài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q301",
+   "question": "Thiên Lương lạc hãm Tị/Hợi có khuyết điểm gì và bổ cứu thế nào?",
+   "answer_atom": "Nguồn tiền tài không rộng, hơi khó tích tụ — do bản thân chẳng xem trọng tiền bạc mà xem trọng hưởng thụ tinh thần; nhưng hễ kiếm được tiền ắt phải lao tâm tổn thần, gây mâu thuẫn — đây là khuyết điểm lớn nhất của Thiên Lương ở Tài Bạch. Bổ cứu: cầu danh trước cầu lợi sau; rất nên gặp Văn Xương, Văn Khúc giao hội, Xương Khúc cũng nên Hóa Khoa. Nếu hội Thiên Đồng Hóa Kỵ: chỉ thích hợp công việc chuyên nghiệp hoặc nghề bán lẻ.",
+   "source_quote": "Thiên Lương lạc hãm ở hai cung Tị hoặc Hợi, nuôi tiền tài không rộng, cũng hơi khó tích tụ... Nếu cầu danh trước cầu lợi sau thì có thể bổ cứu khuyết điểm xuất ở trên. Vì vậy rất nên gặp Văn Xương, Văn Khúc giao hội; Văn Xương, Văn Khúc cũng nên Hóa Khoa. Nếu hội Thiên Đồng Hóa Kỵ, chỉ thích hợp làm công việc chuyên nghiệp, hoặc nghề bán lẻ cũng được.",
+   "source_page": 690,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:thien_luong",
+    "star:van_xuong",
+    "star:van_khuc",
+    "star:thien_dong",
+    "hoa:khoa",
+    "hoa:ky",
+    "rule:lac_ham",
+    "chi:ti",
+    "chi:hoi"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lạc hãm = sao ở vị trí yếu.",
+    "viet_thuan": "Thiên Lương hãm Tị/Hợi coi nhẹ tiền, kiếm tiền là lao tâm; chữa bằng cầu danh trước lợi sau, nên có Xương Khúc Hóa Khoa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q302",
+   "question": "Thất Sát thủ cung Tài Bạch khác Thiên Phủ thế nào về nắm giữ tài chính?",
+   "answer_atom": "Thất Sát chủ về nắm giữ tài chính nhưng khác Thiên Phủ: Thiên Phủ chủ về thủ, Thất Sát chủ về công; Thiên Phủ phát triển ở cục diện có sẵn, Thất Sát sáng lập cục diện mới. Do Thiên Phủ và Thất Sát vĩnh viễn đối nhau nên ảnh hưởng lẫn nhau — thủ có thế công, công có thế thủ; khi hội sao khác, Thiên Phủ có thể biến thủ thành công, Thất Sát biến công thành thủ — luận đoán phải phân biệt tỉ mỉ.",
+   "source_quote": "Đại khái là, Thiên Phủ chủ về thủ, Thất Sát chủ về công. Thiên Phủ chủ về phát triển ở cục diện có sẵn, còn Thất Sát thì chủ về sáng lập cục diện mới... Thiên Phủ có thể biến thủ thành công, Thất Sát cũng có thể biến thành công thành thủ. Lúc luận đoán cần phải cẩn thận phân biệt một cách tỉ mỉ.",
+   "source_page": 691,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:thien_phu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủ = giữ; công = tấn công, mở mang.",
+    "viet_thuan": "Thất Sát ở Tài Bạch là người mở cục diện mới, Thiên Phủ là người giữ cái có sẵn; hai sao đối nhau nên pha trộn tính chất của nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q303",
+   "question": "Ca quyết bí truyền của phái Trung Châu về Thất Sát thủ Tài Bạch là gì?",
+   "answer_atom": "Phái Trung Châu Vương Đình Chỉ có bí truyền bài ca quyết: \"Dần, Tỵ, Ngọ có thể hoành phát, ở cung Dậu kiếm được tiền cũng hao mòn, hai cung Thìn hoặc Tuất là phú cục, Sửu Mùi thì tích lũy được tiền, hai cung Tị Hợi thì có nhiều tiền.\"",
+   "source_quote": "phái Trung Châu Vương Đình Chỉ có bí truyền một bài ca quyết: \"Dần, Tỵ, Ngọ có thể hoành phát, ở cung Dậu kiếm được tiền cũng hao mòn, hai cung Thìn hoặc Tuất là phú cục, Sửu Mùi thì tích lũy được tiền, hai cung Tị Hợi thì có nhiều tiền.\"",
+   "source_page": 691,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "school:trung_chau",
+    "rule:ca_quyet"
+   ],
+   "commentary": {
+    "han_viet_explain": "Ca quyết = bài vè khẩu truyền tóm tắt yếu quyết.",
+    "viet_thuan": "Vương Đình Chỉ truyền vè: Thất Sát ở Dần Tỵ Ngọ phất mạnh, Dậu kiếm được nhưng hao, Thìn Tuất là cục giàu, Sửu Mùi tích lũy, Tị Hợi nhiều tiền.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q304",
+   "question": "Quan điểm Vương Đình Chỉ về Thất Sát tọa Tài Bạch khác sách khác thế nào?",
+   "answer_atom": "Hễ Thất Sát thủ Tài Bạch, tính chất đều là \"phú cục\", chỉ trường hợp ở Mão/Dậu là hãm địa — sau khi hoành phát cũng dễ tiêu hết, nhưng cũng đã một lần giàu có. Các sách khác thường không ưa Thất Sát tọa Tài Bạch, ít nhất không cho là phú cục; theo Vương Đình Chỉ, đây là quan điểm sai lầm.",
+   "source_quote": "hễ Thất Sát thủ cung Tài Bạch, tính chất đều là \"phú cục\", chỉ trường hợp ở hai cung Mão hoặc Dậu là hãm địa, sau khi hoành phát cũng dễ tiêu hết, nhưng cũng đã một lần giàu có. Các sách khác thường không ưa Thất Sát tọa cung Tài Bạch, ít nhất cũng không cho là \"phú cục\", theo Vương Đình Chỉ, đây là quan điểm sai lầm.",
+   "source_page": 691,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "school:trung_chau",
+    "pattern:phu_cuc",
+    "chi:mao",
+    "chi:dau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Hãm địa = vị trí sao yếu thế.",
+    "viet_thuan": "Vương Đình Chỉ khẳng định Thất Sát ở Tài Bạch hầu hết là cục giàu (trừ Mão/Dậu), trái với nhiều sách khác — ông cho các sách đó sai.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q305",
+   "question": "Điều kiện để Thất Sát thành phú cục ở Tài Bạch là gì?",
+   "answer_atom": "Điều kiện đầu tiên là phải có sao Lộc (tương đồng với Thiên Phủ) — Lộc Tồn hoặc hội hợp Hóa Lộc đều được — mới thành cục diện nắm giữ tài chính; nếu không, tuy nắm được tiền cũng chỉ trong phạm vi cực nhỏ. Ưa gặp Lộc Quyền Khoa hội; thêm sao phụ tá cát thì nắm đại quyền về tài phú. Nhưng trong đời ắt phải một lần gặp sóng gió, trải qua phong ba mới thành giàu có.",
+   "source_quote": "Thất Sát thành \"phú cục\", điều kiện đầu tiên là phải có sao Lộc (điểm này tương đồng với Thiên Phủ)... Nếu không tuy nắm được tiền cũng chỉ chủ về trong phạm vi cực nhỏ... trong cuộc đời ắt phải có một lần gặp sóng gió, trắc trở. Cho nên cẩn phải trải qua phong ba mới thành giàu có.",
+   "source_page": 691,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:loc_ton",
+    "hoa:loc",
+    "pattern:phu_cuc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lộc Quyền Khoa hội = ba hóa cát hội về cung.",
+    "viet_thuan": "Thất Sát muốn giàu phải có sao lộc; có thêm Quyền Khoa và phụ tá thì nắm quyền tài chính lớn — nhưng đời ắt qua một trận phong ba.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q306",
+   "question": "Thất Sát ở Tài Bạch sau phong ba có khôi phục được không?",
+   "answer_atom": "Nếu có sao Lộc, gặp cát tinh mà không có sát tinh: sau khi trải qua phong ba sẽ bình an, có thể được bạn bè trợ giúp gây dựng lại cơ nghiệp. Nếu không cát mà có sát tinh, hoặc cát ít sát nhiều: sau sóng gió rất khó khôi phục nguyên khí, một khi đầu cơ sai lầm thì khó gượng dậy nổi.",
+   "source_quote": "Nếu Thất Sát có sao Lộc, còn gặp cát tinh, mà không có sát tính, sau khi trải qua phong ba sẽ bình an, có thể được bạn bè trợ giúp gầy dựng lại cơ nghiệp. Nhưng nếu không có cát mà có sát tinh, hoặc cát tinh ít mà sát tinh nhiều, thì sau khi trải qua sóng gió rất khó khôi phục nguyên khí, còn chủ về một khi đầu cơ sai lầm thì khó mà gượng dậy nổi.",
+   "source_page": 692,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cơ nghiệp = nền tảng sự nghiệp.",
+    "viet_thuan": "Thất Sát có lộc có cát thì qua bão được bạn bè đỡ dậy; sát nhiều cát ít thì ngã là khó dậy, nhất là ngã vì đầu cơ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q307",
+   "question": "Thất Sát gặp Lộc Mã giao trì với phụ tá cát và Lộc Quyền Khoa hội thì sao?",
+   "answer_atom": "Ở thời hiện đại, thường thường là nhân vật nắm quyền tài chính cấp quốc gia; ở cục diện nhỏ thì cũng được nắm giữ tài phú ở phương xa.",
+   "source_quote": "Thất Sát gặp \"Lộc Mã giao trì\", lại gặp các sao phụ tá cát và Lộc, Quyền, Khoa hội hợp, ở thời hiện đại, thường thường là nhân vật nắm quyền tài chính cấp quốc gia; ở cục diện nhỏ thì cũng được nắm giữ tài phú ở phương xa.",
+   "source_page": 692,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "pattern:loc_ma_giao_tri"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cấp quốc gia = tầm vóc cả nước.",
+    "viet_thuan": "Thất Sát + Lộc Mã + đủ cát hóa phụ tá: có thể là người nắm tài chính quốc gia, nhỏ thì cũng quản tiền ở phương xa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q308",
+   "question": "Thất Sát ở Tài Bạch gặp Không Kiếp Đại Hao, hoặc các sát tinh đồng cung thì sao?",
+   "answer_atom": "Đồng độ/tương hội Địa Không, Địa Kiếp, Đại Hao: mưu toan kiếm tiền chỉ phí sức, kiếm được cũng sinh hao tài; thêm Thiên Hình thì không nên làm nghề không chính đáng, nếu không dễ phạm pháp, có họa lao ngục. Đồng cung Kình Dương: tranh đoạt; Đà La: chuốc đố kỵ; Hỏa Tinh, Linh Tinh: hoành phát hoành phá. Hội sát tinh trùng trùng thêm Thiên Hình, Đại Hao hoặc Văn Khúc Hóa Kị: cuộc đời dễ bị trộm cướp.",
+   "source_quote": "Thất Sát đồng độ với Địa Không, Địa Kiếp, Đại Hao đồng độ tương hội, mưu toan kiếm tiền chỉ phí sức... Thất Sát đồng cung với Kình Dương, chủ về tranh đoạt; đồng cung với Đà La, chủ về chuốc đố kỵ; đồng cung với Hỏa Tinh, Linh Tinh thì hoành phát hoành phá. Thất Sát hội sát tinh trùng trùng, còn gặp thêm Thiên Hình, Đại Hao, hoặc Văn Khúc Hóa Kị, chủ về cuộc đời dễ bị trộm cướp.",
+   "source_page": 692,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "star:dai_hao",
+    "star:thien_hinh",
+    "star:kinh_duong",
+    "star:da_la",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "star:van_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Họa lao ngục = tai họa tù tội.",
+    "viet_thuan": "Thất Sát + Không Kiếp Hao thì kiếm tiền phí công; + Hình thì tránh nghề mờ ám kẻo tù tội; Kình thì giành giật, Đà thì bị ganh, Hỏa Linh thì phất nhanh vỡ nhanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q309",
+   "question": "Vì sao Thất Sát ở Tài Bạch phải xem cung Điền Trạch (Thái Âm)?",
+   "answer_atom": "Hễ Thất Sát ở cung Tài Bạch thì cung Điền Trạch ắt là Thái Âm; nếu Thái Âm lạc hãm mà Thất Sát lại gặp các sao sát, hao, thì cần đề phòng hỏa tai hoặc chiến họa.",
+   "source_quote": "Hễ Thất Sát ở cung Tài Bạch, thì cung Điền Trạch ắt sẽ là Thái Âm, nếu Thái Âm lạc hãm, mà Thất Sát lại gặp các sao sát, hao, thì cần phải đề phòng hỏa tai hoặc chiến họa.",
+   "source_page": 692,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:thai_am",
+    "palace:dien_trach"
+   ],
+   "commentary": {
+    "han_viet_explain": "Điền Trạch = cung nhà cửa đất đai.",
+    "viet_thuan": "Thất Sát ở Tài thì Điền Trạch luôn là Thái Âm; Âm hãm + Sát gặp sát hao thì coi chừng cháy nhà, binh lửa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q310",
+   "question": "Thất Sát độc tọa Tý/Ngọ ở Tài Bạch luận thế nào?",
+   "answer_atom": "Đối cung là \"Vũ Khúc, Thiên Phủ\"; được cát hóa hoặc Lộc Tồn đồng cung thường được tiền của bất ngờ (không phải tiền phi pháp). Đồng cung Hỏa Tinh, Linh Tinh: tiền mạo hiểm, nạn tai, khó tích tụ. Không có cát hóa và sao cát: đời ít nhất một lần được tiền bất ngờ — cần bảo tồn nguyên khí vì cơ hội khó có lại. Vũ Khúc Hóa Kị: sau phá tán chỉ có thể từ từ bồi dưỡng nguyên khí, nóng nảy hấp tấp thì hoàn cảnh càng tệ.",
+   "source_quote": "Thất Sát độc tọa ở hai cung Tí hoặc Ngọ, đối cung là \"Vũ Khúc, Thiên Phủ\", được cát hóa hoặc có Lộc Tồn đồng cung, thường được tiền của bất ngờ. Có điều tiền của bất ngờ này không phải là tiền phi pháp... Vũ Khúc Hóa Kị, thì sau khi phá tán, thất bại chỉ có thể từ từ bồi dưỡng nguyên khí, hơi nóng nảy, hấp tấp thì hoàn cảnh càng tệ thêm.",
+   "source_page": 692,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:vu_khuc",
+    "star:thien_phu",
+    "star:loc_ton",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "hoa:ky",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bồi dưỡng nguyên khí = nuôi lại sức vốn từ từ.",
+    "viet_thuan": "Thất Sát Tý/Ngọ có lộc/cát hóa thì hay được tiền bất ngờ chính đáng; Vũ Kỵ thì vỡ rồi phải gượng từ từ, vội là tệ thêm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q311",
+   "question": "Thất Sát độc tọa Dần/Thân ở Tài Bạch luận thế nào?",
+   "answer_atom": "Đối cung là \"Tử Vi, Thiên Phủ\", cũng chủ về hoành phát (tham khảo đoạn Thất Sát Tý/Ngọ). Nhưng nếu Tử Vi Hóa Quyền thì vì lộng quyền mà dẫn đến thất bại. Ưa tụ hội Tử Vi Hóa Khoa, Thiên Phủ Hóa Khoa: tuy không hoành phát nhưng sóng gió nhỏ, kinh doanh có khuynh hướng lấy thủ làm công. Gặp \"Lộc Mã giao trì\": đời ít nhất một lần thay đổi nghiêm trọng về sự nghiệp, mà thay đổi theo hướng tốt.",
+   "source_quote": "Thất Sát độc tọa ở hai cung Dần hoặc Thân, đối cung là \"Tử Vi, Thiên Phủ\", cũng chủ về hoành phát... Nhưng nếu Tử Vi Hóa Quyền, thì vì lộng quyền mà dẫn đến thất bại... ưa tụ hội với Tử Vi Hóa Khoa, Thiên Phủ Hóa Khoa, thì tuy không hoành phát, nhưng sóng gió cũng nhỏ... Gặp \"Lộc Mã giao trì\", chủ về cuộc đời ít nhất cũng có một lần thay đổi nghiêm trọng về sự nghiệp, mà thay đổi theo hướng tốt.",
+   "source_page": 692,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:tu_vi",
+    "star:thien_phu",
+    "hoa:quyen",
+    "hoa:khoa",
+    "pattern:loc_ma_giao_tri",
+    "chi:dan",
+    "chi:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Lộng quyền = lạm dụng quyền lực.",
+    "viet_thuan": "Thất Sát Dần/Thân phất được, nhưng Tử Vi Hóa Quyền chiếu thì cậy quyền mà bại; ưa song Khoa thì êm; Lộc Mã thì có một lần đổi nghiệp theo hướng tốt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q312",
+   "question": "Thất Sát độc tọa Thìn/Tuất ở Tài Bạch luận thế nào?",
+   "answer_atom": "Đối cung là \"Liêm Trinh, Thiên Phủ\"; được cát hóa và sao cát thì dư giả, nhưng không nên đầu cơ hay cờ bạc, nếu không ắt phá tán. Hội Liêm Trinh Hóa Kỵ: tiền bạc không ổn định, thu nhiều chi lớn, dễ bị trộm cướp (không sát tinh mà có cát tinh thì mức độ không nặng). Gặp Liêm Trinh Hóa Lộc: trong đời dễ có tiền bất ngờ. Gặp Phá Quân Hóa Lộc: sự nghiệp không chỉ một mối, nguồn tiền đến từ nhiều phương diện.",
+   "source_quote": "Thất Sát độc tọa ở hai cung Thìn hoặc Tuất, đối cung là \"Liêm Trinh, Thiên Phủ\", nếu được cát hóa và có sao cát, cũng chủ về dư giả; nhưng không nên đẩu cơ hay cờ bạc... Nếu gặp Liêm Trinh Hóa Lộc, trong đời dễ có tiền bất ngờ. Gặp Phá Quân Hóa Lộc, thì sự nghiệp không chỉ một mối, nguồn tiền tài đến từ nhiều phương diện.",
+   "source_page": 693,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:liem_trinh",
+    "star:thien_phu",
+    "star:pha_quan",
+    "hoa:ky",
+    "hoa:loc",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Một mối = một nguồn duy nhất.",
+    "viet_thuan": "Thất Sát Thìn/Tuất có cát thì dư dả nhưng cấm cờ bạc đầu cơ; Liêm Kỵ thì tiền vào nhiều ra nhiều dễ mất trộm; Liêm Lộc thì có lộc bất ngờ; Phá Lộc thì nhiều nguồn thu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q313",
+   "question": "Thất Sát Thìn/Tuất hội Tham Lang Hóa Lộc cần lưu ý gì?",
+   "answer_atom": "Lúc vận hạn cát thường có tiền bất ngờ, nhưng vận hạn qua rồi lập tức tình hình xấu đi — lúc này chỉ nên cố gắng duy trì thành tựu đã đạt, không nên vọng động muốn phát vượt lên, nếu không sẽ phá tán, thất bại.",
+   "source_quote": "Thất Sát ở hai cung Thìn hoặc Tuất, hội Tham Lang Hóa Lộc, lúc ở vận hạn cát thường có tiền bất ngờ, nhưng khi vận hạn qua rồi lập tức tình hình xấu đi, lúc này chỉ nên cố gắng duy trì thành tựu đã đạt được, không nên vọng động muốn phát vượt lên, nếu không sẽ chủ về phá tán, thất bại.",
+   "source_page": 693,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:that_sat",
+    "star:tham_lang",
+    "hoa:loc",
+    "rule:van_han",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vọng động = manh động, hành động liều.",
+    "viet_thuan": "Thất Sát hội Tham Lộc: vận tốt có tiền bất ngờ, vận qua là xuống — phải giữ thành quả, đừng ham phất tiếp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q314",
+   "question": "Phá Quân thủ cung Tài Bạch có tính chất gì, khác Thiên Cơ thế nào?",
+   "answer_atom": "Không giỏi quản lý tài chính, mà có tính chất tìm ra nguồn tiền tài mới, phương thức khác người bình thường; sau khi tìm ra, người đi theo cũng rất nhiều — có sát tinh thì dễ gây tranh chấp cực lớn, không sát tinh thì ảnh hưởng không lớn. Thiên Cơ cũng tương tự nhưng khác: cái Thiên Cơ được là cơ hội có sẵn, không có người hỏi tới, một khi hỏi tới thì xảy ra tranh chấp; còn Phá Quân là tự tìm ra cơ hội.",
+   "source_quote": "Phá Quân thủ cung Tài Bạch, không giỏi quản lý tài chính, mà có tính chất tìm ra nguồn tiền tài mới... chỗ khác nhau là, cái Thiên Cơ được là cơ hội có sẵn, nhưng không có người hỏi tới, một khi hỏi tới thì xảy ra tranh chấp; khác với Phá Quân là tự tìm ra cơ hội.",
+   "source_page": 693,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:thien_co"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nguồn tiền tài mới = mạch thu nhập chưa ai khai thác.",
+    "viet_thuan": "Phá Quân ở Tài Bạch là người tự mở mạch tiền mới, nhiều kẻ theo sau; Thiên Cơ thì hưởng cơ hội có sẵn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q315",
+   "question": "Hoành phát của Phá Quân đồng cung Hỏa Tinh khác cách Hỏa Tham thế nào?",
+   "answer_atom": "Phá Quân đồng cung với Hỏa Tinh cũng chủ về hoành phát, nhưng khác cục \"Hỏa Tham\", \"Linh Tham\": tiền của Tham Lang là tiền bất ngờ, có tính chất bất kỳ; còn tiền của Phá Quân có được là nhờ tự tìm ra nguồn tiền tài mới mà có.",
+   "source_quote": "Đồng cung với Hỏa Tinh, cũng chủ về hoành phát, tính chất hoành phát này khác với cục \"Hỏa Tham\", \"Linh Tham\". Tiền của Tham Lang có được là tiền bất ngờ, có tính chất bất kì; còn tiền của Phá Quân có được là nhờ tự tìm ra nguồn tiền tài mới mà có.",
+   "source_page": 693,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:hoa_tinh",
+    "star:tham_lang",
+    "pattern:hoa_tham",
+    "pattern:linh_tham"
+   ],
+   "commentary": {
+    "han_viet_explain": "Bất kỳ = ngẫu nhiên, không hẹn trước.",
+    "viet_thuan": "Phá Quân + Hỏa Tinh phất nhờ tự khai mạch tiền mới; Hỏa Tham phất nhờ vận may bất ngờ — bản chất khác nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q316",
+   "question": "Phá Quân ở Tài Bạch với sao lộc và chuyển nghề luận thế nào?",
+   "answer_atom": "Ưa đồng cung Lộc Tồn hoặc Hóa Lộc. Nếu bản thân Phá Quân Hóa Lộc, ắt làm kiêm nghề, kiêm chức vụ để kiếm tiền; có sao lộc thì thu nhập dồi dào, nguồn tiền khá ổn định. Phần lớn chủ về nghề nghiệp chuyển biến rồi mới giàu có — dù gặp sát kị, sau chuyển nghề cũng cải thiện hoàn cảnh. Gặp \"Lộc Quyền Khoa hội\" thì chuyển biến xảy ra đột ngột; lúc đó rất ưa Thiên Khôi, Thiên Việt — đời gặp nhiều cơ hội.",
+   "source_quote": "Phá Quân ưa đồng cung với Lộc Tồn hoặc Hóa Lộc. Nếu bản thân Phá Quân Hóa Lộc, ắt sẽ làm kiêm nghề, kiêm chức vụ để kiếm tiền... Phá Quân thủ cung Tài Bạch, phần lớn chủ về nghề nghiệp chuyển biến rồi mới có thể giàu có... rất ưa gặp Thiên Khôi, Thiên Việt, chủ về cuộc đời gặp nhiều cơ hội.",
+   "source_page": 694,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:loc_ton",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "hoa:loc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kiêm nghề = làm thêm nghề phụ song song.",
+    "viet_thuan": "Phá Quân Hóa Lộc thì hay ôm hai nghề; thường phải đổi nghề rồi mới khá; có Lộc Quyền Khoa thì cú chuyển đến đột ngột, thêm Khôi Việt thì lắm cơ hội.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q317",
+   "question": "Phá Quân đồng cung Kình Dương, hoặc với Vũ Khúc Hóa Kỵ ở Tài Bạch thì sao?",
+   "answer_atom": "Đồng cung Kình Dương: cũng hoành phát nhưng có ý vị tranh đoạt — do tranh đoạt mà có, gây bất hòa tranh chấp rất lớn; có thêm các sao không, kiếp, hình, hao thì được mau mất mau. Phá Quân chủ về phá tan trước hưng phát sau; không cát hóa, không sao cát mà gặp sát tinh thì sau phá tán muốn hưng phát lại rất khó. Đồng cung Vũ Khúc Hóa Kỵ: thường cảm thấy thiếu năng lực tài chính, gắng gượng xoay sở thì lấy đầu này đắp đầu kia, càng muốn cải sửa càng phá tán nhanh hơn.",
+   "source_quote": "Phá Quân có Kình Dương đồng cung, cũng chủ về hoành phát, nhưng hoành phát có ý vị tranh đoạt... Phá Quân thủ cung Tài Bạch, chủ về phá tan trước hưng phát sau... Phá Quân đồng cung với Vũ Khúc Hóa Kỵ, thường cảm thấy thiếu năng lực tài chính. Nếu gắng gượng xoay sở, không những lấy đầu này đắp và đầu kia, mà càng muốn cải sửa càng phá tán nhanh hơn.",
+   "source_page": 694,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:kinh_duong",
+    "star:vu_khuc",
+    "hoa:ky"
+   ],
+   "commentary": {
+    "han_viet_explain": "Phá tan trước hưng phát sau = đổ vỡ trước rồi mới vươn lên.",
+    "viet_thuan": "Phá Quân + Kình thì phất nhờ giành giật, dễ mất nhanh; + Vũ Kỵ thì hụt vốn kinh niên, càng vá càng thủng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q318",
+   "question": "Phá Quân Tý/Ngọ ở Tài Bạch đối Liêm Trinh Thiên Tướng luận thế nào?",
+   "answer_atom": "Rất ưa Liêm Trinh Hóa Lộc — lúc này Phá Quân ắt Hóa Quyền: quyền lực và tiền bạc đều tăng, danh lợi song thu. Phá Quân không có lộc, chỉ gặp phụ tá cát, sát tinh không nặng: một khi nắm quyền thì lập tức hao tài, cần chỉnh lý nghiệp vụ mới khôi phục như cũ. Có các sao sát, kị, không, kiếp: phá tài cực lớn, việc sắp thành lại hỏng. Có cát hóa và sao cát: có danh trước có lợi sau, tuy danh lớn hơn lợi nhưng cũng sẽ giàu có.",
+   "source_quote": "Phá Quân ở hai cung Tý hoặc Ngọ, đối cung là \"Liêm Trinh, Thiên Tướng\", rất ưa Liêm Trinh Hóa Lộc, lúc này Phá Quân ắt sẽ Hóa Quyền, chủ về quyền lực và tiền bạc đều tăng, danh lợi song thu... Trường hợp có cát hóa và sao cát, thì có danh trước có lợi sau, tuy danh lớn hơn lợi, nhưng cũng sẽ giàu có.",
+   "source_page": 694,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:liem_trinh",
+    "star:thien_tuong",
+    "hoa:loc",
+    "hoa:quyen",
+    "chi:ty",
+    "chi:ngo"
+   ],
+   "commentary": {
+    "han_viet_explain": "Danh lợi song thu = được cả danh lẫn lợi.",
+    "viet_thuan": "Phá Quân Tý/Ngọ ưa Liêm Lộc + Phá Quyền: tiền quyền cùng lên; không lộc thì nắm quyền là hao tài, phải chỉnh đốn việc làm ăn mới hồi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q319",
+   "question": "Phá Quân Dần/Thân ở Tài Bạch đối Vũ Khúc Thiên Tướng luận thế nào?",
+   "answer_atom": "Nếu Vũ Khúc Hóa Kỵ: chủ về \"cọp mà ăn thức ăn của mèo\", thường phá sạch tổ nghiệp rồi mới tạo dựng sự nghiệp mới, dù \"Lộc Quyền Khoa hội\" cũng vậy. Đối cung Thiên Tướng được \"Tài ấm giáp ấn\": ắt có phúc ấm của cha ông nhưng không giữ được; Thiên Tướng bị \"Hình kỵ giáp ấn\" thì trái lại chủ về có vốn ít — cả hai đều sẽ phát triển, nhưng trường hợp trước phát triển lớn hơn. Gặp Hóa Kỵ (Tham Lang Hóa Kỵ là ngoại lệ) thì sau khi phát tài ắt hao tài liền. Thường thay đổi theo chiều hướng xấu: dù có sao cát, nếu không có Lộc Tồn hay Hóa Lộc, cũng thường vừa phát lên là bị thất bại.",
+   "source_quote": "nếu Vũ Khúc Hóa Kỵ thì chủ về \"cọp mà ăn thức ăn của mèo\", thường sẽ phá sạch tổ nghiệp rồi mới tạo dựng sự nghiệp mới, dù \"Lộc Quyền Khoa hội\" cũng vậy... Phá Quân ở hai cung Dần hoặc Thân, thường thay đổi theo chiều hướng xấu. Dù có sao cát, nếu không có Lộc Tồn hay Hóa Lộc, cũng thường chủ về vừa phát lên là bị thất bại.",
+   "source_page": 694,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:vu_khuc",
+    "star:thien_tuong",
+    "hoa:ky",
+    "hoa:loc",
+    "pattern:tai_am_giap_an",
+    "pattern:hinh_ky_giap_an",
+    "chi:dan",
+    "chi:than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cọp ăn thức ăn của mèo = bề ngoài oai nhưng thực chất nhỏ bé, túng thiếu.",
+    "viet_thuan": "Phá Quân Dần/Thân gặp Vũ Kỵ thì phá hết của cha ông rồi mới dựng lại; không lộc thì vừa lên đã ngã.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q320",
+   "question": "Phá Quân Thìn/Tuất ở Tài Bạch trong Thiên La Địa Võng luận thế nào?",
+   "answer_atom": "Đối cung \"Tử Vi, Thiên Tướng\", cần phải có một lần đột phá mới thành công, dù hội cát hóa và sao cát cũng vậy. Rất ưa Thiên Khôi, Thiên Việt giáp cung (hoặc giáp đối cung): đời nhiều cơ hội phát triển, sáng lập sự nghiệp mới. Gặp sát, kỵ, hình: tình hình càng lúc càng xuống, phải xem Đại Vận/Lưu Niên định thời cơ tiến thoái. Rất ngại Đà La đồng độ: có cơ hội đột phá nhưng dễ thất bại. Đồng cung Không Kiếp: tiền xoay chuyển rất khó khăn, rất không nên tự kinh doanh, mua sắm cũng phải suy tính kẻo thâm hụt.",
+   "source_quote": "Phá Quân ở hai cung Thìn hoặc Tuất là rơi vào \"Thiên La, Địa Võng\", đối cung là \"Tử Vi, Thiên Tướng\", cần phải có một lần đột phá mới thành công; dù hội cát hóa và sao cát cũng vậy... Rất ngại có Đà La đồng độ, chủ về có cơ hội đột phá nhưng cũng dễ thất bại. Đồng cung với Địa Không, Địa Kiếp thì tiền bạc xoay chuyển rất khó khăn, cho nên rất không nên tự kinh doanh làm ăn.",
+   "source_page": 695,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:tu_vi",
+    "star:thien_tuong",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "star:da_la",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "pattern:thien_la_dia_vong",
+    "rule:dai_van",
+    "rule:luu_nien",
+    "chi:thin",
+    "chi:tuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Đột phá = bứt phá vượt khỏi vòng kìm hãm.",
+    "viet_thuan": "Phá Quân Thìn/Tuất phải có một cú bứt phá mới thành; ưa Khôi Việt kẹp; ngại Đà La và Không Kiếp — Không Kiếp thì cấm tự kinh doanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q321",
+   "question": "Phá Quân ở ba cung Hợi, Tý, Sửu kỵ gì nhất ở Tài Bạch?",
+   "answer_atom": "Đều không nên có Văn Khúc Hóa Kỵ đồng độ — chủ về nảy sinh phá tán, thất bại nghiêm trọng. Nếu gặp thêm các sao sát, hình, hao xung hội, sẽ chủ về vỡ nợ, phá sản.",
+   "source_quote": "Phá Quân ở ba cung Hợi, Tí, Sửu, đều không nên có Văn Khúc Hóa Kỵ đồng độ, chủ về nảy sinh phá tán, thất bại nghiêm trọng. Nếu gặp thêm các sao sát, hình, hao xung hội, sẽ chủ về vỡ nợ, phá sản.",
+   "source_page": 695,
+   "section_id": "5.5",
+   "tags": [
+    "palace:tai_bach",
+    "star:pha_quan",
+    "star:van_khuc",
+    "hoa:ky",
+    "chi:hoi",
+    "chi:ty",
+    "chi:suu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Vỡ nợ = không trả nổi nợ.",
+    "viet_thuan": "Phá Quân ở Hợi/Tý/Sửu mà gặp Văn Khúc Hóa Kỵ là đại kỵ: vỡ lớn, thêm sát hình hao thì phá sản.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q322",
+   "question": "Nguyên tắc tổng quát khi luận đoán Cung Tật Ách là gì?",
+   "answer_atom": "Muốn luận đoán Đẩu Số cần thoát ra khỏi giới hạn của 12 cung mới có cái nhìn toàn diện và chính xác — luận Cung Tật Ách càng cần như vậy. Nếu chỉ căn cứ Cung Tật Ách của nguyên cục, tuy suy ra được đặc trưng cơ bản về thể chất, nhưng dễ bỏ sót ứng nghiệm Tật Ách ở Đại Vận và Lưu Niên. Phải quan sát tinh bàn xuyên suốt, tìm nhóm \"sao bệnh\", xem nó bị sát kị hình hao xung hội ở đại vận/lưu niên nào và rơi vào Cung Tật Ách, Cung Mệnh hay Cung Phúc Đức của vận đó — đó là thời kỳ ứng nghiệm.",
+   "source_quote": "Muốn luận đoán Đẩu Số cần phải thoát ra khỏi giới hạn của 12 cung mới có cái nhìn toàn diện và chính xác. Lúc luận đoán Cung Tật Ách càng cần như vậy hơn... chỉ cần tìm ra nhóm \"sao bệnh\" thì chú ý ngay. Sau đó xem nhóm \"sao bệnh\" này bị các sao sát, kị, hình, hao xung hội ở đại vận nào, hay lưu niên nào, mà còn rơi vào Cung Tật Ách, Cung Mệnh, hay Cung Phúc Đức của đại vận hoặc lưu niên, đều có thể xem đó là thời kỳ ứng nghiệm.",
+   "source_page": 695,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "rule:dai_van",
+    "rule:luu_nien",
+    "rule:sao_benh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Nguyên cục = lá số gốc lúc sinh; sao bệnh = nhóm sao chủ về bệnh tật.",
+    "viet_thuan": "Xem bệnh tật phải nhìn xuyên cả lá số và các vận, tìm nhóm sao bệnh rồi xem vận nào kích hoạt nó — đó là lúc ứng bệnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q323",
+   "question": "Luận Tật Ách phải xem kèm những cung nào và vì sao?",
+   "answer_atom": "Cần xem kèm ba cung: Tật Ách, Mệnh và Phúc Đức. Tổ hợp sao của Cung Mệnh là đặc trưng mệnh vận, có thể dùng luận đoán bệnh hoạn, nhất là sinh tử an nguy. Cung Phúc Đức chủ về hưởng thụ tinh thần và vật chất — một số bệnh ảnh hưởng đến hưởng thụ như mất ngủ, rối loạn chức năng tính dục thường ứng nghiệm ở Cung Phúc Đức.",
+   "source_quote": "Xem về tật ách, cần phải xem kèm ba cung: Tật Ách, Mệnh, và Phúc Đức... Có một số bệnh hoạn làm ảnh hưởng đến sự hưởng thụ vật chất, và ảnh hưởng cả sự hưởng thụ tinh thần, như mất ngủ, rối loạn chức năng tính dục, v.v... thường thường đều ứng nghiệm ở Cung Phúc Đức.",
+   "source_page": 696,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "palace:menh",
+    "palace:phuc_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Sinh tử an nguy = chuyện sống chết, an toàn hay nguy hiểm.",
+    "viet_thuan": "Xem bệnh phải xem cả ba cung: Tật Ách, Mệnh (sống chết), Phúc Đức (bệnh ảnh hưởng hưởng thụ như mất ngủ).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q324",
+   "question": "Mục đích dùng Đẩu Số luận tật ách là gì, và cảnh giới Túc Mệnh Luận?",
+   "answer_atom": "Trước khi phát bệnh có thể biết khoảng thời gian sắp mắc bệnh, từ đó vận dụng phép \"xu cát tị hung\": khéo dưỡng sinh, dựa tính chất bệnh điều trị trước thì có thể tránh phát bệnh. Không phải hễ tinh bàn có nhóm tinh hệ nào đó thì chắc chắn mắc bệnh đó — cho rằng như vậy là rơi vào Túc Mệnh Luận, không phải mục đích của người nghiên cứu Đẩu Số.",
+   "source_quote": "Nếu khéo dưỡng sinh, và dựa vào tính chất của bệnh để điều trị trước, thì có thể tránh phát bệnh. Không phải hễ trong tinh bàn có nhóm tinh hệ nào đó thì chắc chắn sẽ mắc một bệnh nào đó. Nếu cho rằng như vậy, là đã rơi vào Túc Mệnh Luận, đây không phải là mục đích của người nghiên cứu Đẩu Số.",
+   "source_page": 696,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "rule:xu_cat_ti_hung",
+    "rule:tuc_menh_luan"
+   ],
+   "commentary": {
+    "han_viet_explain": "Túc Mệnh Luận = thuyết định mệnh cứng — mọi sự đã an bài không đổi được.",
+    "viet_thuan": "Xem bệnh để phòng bệnh trước (dưỡng sinh, chữa sớm), không phải để tin chết cứng rằng có sao này ắt mắc bệnh kia.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q325",
+   "question": "Vương Đình Chỉ nói gì về giới hạn của Đẩu Số trong luận bệnh (ví dụ Aids, bệnh mắt hiếm)?",
+   "answer_atom": "Bệnh Aids do thiếu tư liệu chứng nghiệm nên không cách nào định được tinh hệ chủ bệnh; Vương Đình Chỉ nghi ngờ tinh hệ \"Thiên Đồng, Thái Dương\" thêm các sao Đào Hoa, Hư, Hao và Thiên Khốc là tinh hệ chủ bệnh Aids — nhưng chỉ là giả thuyết, còn phải đợi chứng thực. Ông từng luận cho một người bệnh mắt đặc trưng \"lốm đốm\", đoán là chứng ruồi bay nghiêm trọng, nhưng thực ra là thoái hóa tế bào sắc tố võng mạc — ví dụ cho thấy thuật số có tính giới hạn; thần bí hóa quá đáng là mê tín, dễ làm mình và người khác lầm lẫn.",
+   "source_quote": "Vương Đình Chỉ nghi ngờ tinh hệ \"Thiên Đồng, Thái Dương\" thêm vào các sao Đào Hoa, Hư, Hao, và Thiên Khốc, là tinh hệ chủ về bệnh Aids. Nhưng đây chỉ là giả thuyết, còn phải đợi chứng thực... Đây là một ví dụ cho thấy thuật số có tính giới hạn. Nếu thần bí hóa nó một cách quá đáng là mê tín.",
+   "source_page": 696,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_dong",
+    "star:thai_duong",
+    "star:thien_khoc",
+    "school:trung_chau"
+   ],
+   "commentary": {
+    "han_viet_explain": "Chứng nghiệm = kiểm chứng bằng thực tế.",
+    "viet_thuan": "Vương Đình Chỉ thẳng thắn nhận Đẩu Số có giới hạn: tinh hệ bệnh Aids chỉ là giả thuyết; từng đoán sai một bệnh mắt hiếm — chớ thần bí hóa thành mê tín.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q326",
+   "question": "Cơ sở luận đoán bệnh tật bằng Đẩu Số theo tiết Tật Ách là gì?",
+   "answer_atom": "Dùng Đẩu Số luận đoán bệnh tật chủ yếu căn cứ vào Ngũ Hành. Tiết này trình bày theo cách tổng hợp, mở rộng và làm rõ hơn nội dung đã trình bày ở phần 1, có bổ sung rất nhiều điều; trước thuật tên bệnh, sau trình bày các tổ hợp tinh hệ làm điểm tượng cho bệnh.",
+   "source_quote": "Dùng Đẩu Số để luận đoán bệnh tật, chủ yếu căn cứ vào Ngũ Hành... trước tiên thuật về tên bệnh, sau đó trình bày các tổ hợp tính hệ làm điểm tượng cho những bệnh tật này.",
+   "source_page": 697,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "rule:ngu_hanh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Điểm tượng = dấu hiệu tượng trưng chỉ điểm.",
+    "viet_thuan": "Luận bệnh trong Đẩu Số dựa trên Ngũ Hành; sách trình bày theo tên bệnh rồi liệt kê tổ hợp sao tương ứng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q327",
+   "question": "Tử Vi ở cung Tật Ách chủ về tạng phủ nào?",
+   "answer_atom": "Tử Vi thuộc Thổ, chủ về âm phận, ở tạng phủ chủ về tỳ (tuyến tụy). Cơ thể hấp thu dinh dưỡng nhờ tỳ thổ làm việc, nên quan sát Tử Vi ở Tật Ách có thể biết tình trạng hấp thu dinh dưỡng. Nếu Tử Vi là \"tại dã cô quân\" hay \"cô quân\", đều chủ về vì tỳ thổ yếu khiến huyết khí đều thiếu.",
+   "source_quote": "Tử Vi thuộc Thổ, chủ về âm phận, cho nên ở tạng phủ là chủ về tỳ (tuyến tụy)... Nếu Tử Vi là \"tại dã cô quân\" hay là \"cô quân\", đều chủ về vì tỳ thổ yếu khiến cho huyết khí đều thiếu.",
+   "source_page": 697,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "hanh:tho",
+    "pattern:co_quan",
+    "benh:ty"
+   ],
+   "commentary": {
+    "han_viet_explain": "Cô quân = vua cô độc — Tử Vi không có phụ tá; tại dã cô quân = vua cô độc nơi hoang dã.",
+    "viet_thuan": "Tử Vi ở Tật Ách ứng với tỳ/tụy — khả năng hấp thu dinh dưỡng; Tử Vi cô quân thì tỳ yếu, thiếu huyết khí.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q328",
+   "question": "Tử Vi Tật Ách gặp Hư Hao Xương Khúc, Không Kiếp, hoặc Phụ Tá trùng trùng thì bệnh gì?",
+   "answer_atom": "Gặp các sao Hư, Hao, Văn Xương, Văn Khúc: bệnh do thổ ảnh hưởng đến trường vị (đường tiêu hóa) — ói mửa, tiêu chảy; nhẹ thì khí trướng, khó chịu trong ngực. Gặp Địa Không, Địa Kiếp: lối tim và khó thở. Gặp sao Phụ Tá trùng trùng: đề phòng thổ khí quá mạnh, hấp thu quá nhiều dinh dưỡng, ảnh hưởng Tâm và Thận — Tâm Hỏa bị thổ mạnh làm tiết khí, Thận Thủy bị thổ mạnh khắc, dễ bệnh tâm thận bất hòa; thổ khí quá mạnh cũng chủ bệnh dạ dày.",
+   "source_quote": "Tử Vi gặp các sao Hư, Hao, Văn Xương, Văn Khúc, thì bệnh do thổ gây ảnh hưởng đến trường, vị (đường tiêu hóa), biểu trưng là ói mửa, tiêu chảy... Nếu Tử Vi gặp các sao Phụ, Tá trùng trùng, thì cần đề phòng thổ khí quá mạnh... dễ bị bệnh tâm thận bất hòa; bản thân thổ khí quá mạnh, cũng chủ về bệnh dạ dày.",
+   "source_page": 698,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:van_xuong",
+    "star:van_khuc",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "hanh:tho",
+    "benh:truong_vi",
+    "benh:tam_than"
+   ],
+   "commentary": {
+    "han_viet_explain": "Trường vị = ruột và dạ dày; tâm thận bất hòa = tim và thận mất cân bằng theo Đông y.",
+    "viet_thuan": "Tử Vi + Hư Hao Xương Khúc thì bệnh tiêu hóa (nôn, tiêu chảy); + Không Kiếp thì tim, khó thở; phụ tá quá nhiều thì thổ vượng hại tim thận, đau dạ dày.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q329",
+   "question": "Tử Vi Tật Ách có sao Đào Hoa đồng độ hoặc triều củng chủ bệnh gì?",
+   "answer_atom": "Chủ về sắc dục, cũng chủ về bệnh kín của phụ nữ. Nếu trong tinh bàn có các sao mắc bệnh thận hội hợp, có thể đoán vì sắc dục mà gây nên hư tổn.",
+   "source_quote": "Tử Vi có các sao Đào Hoa đồng độ, hoặc được các sao Đào Hoa Triều Củng, chủ về sắc dục, cũng chủ về bệnh kín của phụ nữ. Nếu trong Trình bàn có các sao mắc bệnh thận hội hợp, thì có thể đoán vì sắc dục mà gây nên hư tổn.",
+   "source_page": 698,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:dao_hoa",
+    "benh:than",
+    "benh:phu_khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Triều củng = các sao chầu về cung; bệnh kín = bệnh vùng kín, phụ khoa.",
+    "viet_thuan": "Tử Vi + đào hoa ở Tật Ách thì liên quan sắc dục, bệnh phụ khoa; có sao bệnh thận hội thì hư tổn vì sắc dục.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q330",
+   "question": "Tổ hợp Tử Vi Tham Lang ở Tật Ách chủ bệnh gì?",
+   "answer_atom": "Trong các tinh hệ Tử Vi, tổ hợp \"Tử Vi, Tham Lang\" là chủ về sắc dục; gặp các sao Phụ Tá cũng không giảm nhẹ đặc trưng này. Nếu gặp Sát Tinh thì chủ về bệnh thận. Gặp các tạp diệu Thiên Nguyệt, Thiên Hư, Âm Sát thì có khuynh hướng phát triển thành bệnh ung thư.",
+   "source_quote": "tổ hợp \"Tử Vi, Tham Lang\" là chủ về sắc dục; gặp các sao Phụ, Tá, cũng không giảm nhẹ đặc trưng này. Cho nên, nếu gặp Sát Tinh thì chủ về bệnh thận... Diệu Thiên Nguyệt, Thiên Hư, Âm Sát, thì có khuynh hướng phát triển thành bệnh ung thư.",
+   "source_page": 698,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:tham_lang",
+    "star:thien_nguyet",
+    "star:thien_hu",
+    "star:am_sat",
+    "benh:than",
+    "benh:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tạp diệu = sao nhỏ phụ trợ.",
+    "viet_thuan": "Tử Tham ở Tật Ách nặng về sắc dục, sát tinh thì bệnh thận; thêm Thiên Nguyệt, Thiên Hư, Âm Sát thì có khuynh hướng ung thư.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q331",
+   "question": "Tổ hợp Tử Vi Thiên Tướng ở Tật Ách chủ bệnh gì?",
+   "answer_atom": "Do Thiên Tướng thuộc Thủy nên chủ về tiểu đường, sỏi thận, sỏi bàng quang — bệnh hệ thống \"thủy đạo\". Gặp Địa Không, Địa Kiếp: có thể là bệnh tuyến tiền liệt. Gặp Hỏa Tinh, Linh Tinh: tỳ thổ bị thấp, phát triển thành dị ứng da như nổi mề đay. Hội Vũ Khúc Hóa Kỵ: điểm tượng phải phẫu thuật, đặc biệt mô thận; có lúc là điểm tượng ung thư xương — gặp các tạp diệu Thiên Đức, Âm Sát, Thiên Hình, Thiên Hư, Đại Hao, Thiên Nguyệt, Kiếp Sát đều có thể là bệnh ung thư.",
+   "source_quote": "Tổ hợp \"Tử Vi, Thiên Tướng\", do Thiên Tướng thuộc Thủy, nên chủ về tiểu đường, sỏi thận, sỏi bàng quang, tức bệnh tật ở hệ thống \"thủy đạo\"... Nếu \"Tử Vi, Thiên Tướng\" hội Vũ Khúc Hóa Kỵ, đây là điểm tượng phải phẫu thuật, đặc biệt chủ về mô thận; nhưng có lúc lại là điểm tượng ung thư xương... Hễ gặp các tạp diệu Thiên Đức, Âm Sát, Thiên Hình, Thiên Hư, Đại Hao, Thiên Nguyệt, Kiếp Sát, đều có thể là bệnh ung thư.",
+   "source_page": 699,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:thien_tuong",
+    "star:vu_khuc",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "hoa:ky",
+    "hanh:thuy",
+    "benh:tieu_duong",
+    "benh:than",
+    "benh:ung_thu"
+   ],
+   "commentary": {
+    "han_viet_explain": "Thủy đạo = đường nước trong cơ thể (thận, bàng quang, tiết niệu).",
+    "viet_thuan": "Tử Tướng ở Tật Ách thiên về tiểu đường, sỏi thận/bàng quang; Không Kiếp thì tiền liệt tuyến; Hỏa Linh thì mề đay; Vũ Kỵ thì mổ xẻ, có khi ung thư xương.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q332",
+   "question": "Tổ hợp Tử Vi Thất Sát ở Tật Ách chủ bệnh gì?",
+   "answer_atom": "Chủ về thổ không nuôi dưỡng phế kim: vị thu nạp dinh dưỡng không tốt, ảnh hưởng phế tạng hoặc hệ hô hấp; phế và đại trường có quan hệ biểu lý nên cũng có thể phát triển thành bệnh đường ruột. Gặp Vũ Khúc Hóa Kỵ: đề phòng bị thương vì té ngã. Gặp Liêm Trinh Hóa Kỵ: huyết chứng hoặc sự cố bất trắc có chảy máu; sao Đào Hoa trùng trùng mà Liêm Trinh Hóa Kỵ: bệnh về tính dục hoặc bệnh máu mủ. Gặp sát tinh: vị thu nạp quá mạnh gây bệnh trường vị; có Hỏa Tinh Linh Tinh đồng độ: chứng loét.",
+   "source_quote": "\"Tử Vi, Thất Sát\" chủ về thổ không nuôi dưỡng phế kim, cho nên chủ về vị thu nạp dinh dưỡng không tốt, ảnh hưởng đến phế tạng hoặc hệ hô hấp... gặp Vũ Khúc Hóa Kỵ, nên để phòng bị thương vì té ngã. Gặp Liêm Trinh Hóa Kỵ, là huyết chứng, hoặc là sự cố bất trắc có chảy máu... \"Tử Vi, Thất Sát\" có Hỏa Tinh, Linh Tỉnh đồng độ, thì đây là chứng loét.",
+   "source_page": 699,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:that_sat",
+    "star:vu_khuc",
+    "star:liem_trinh",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "hoa:ky",
+    "hanh:tho",
+    "hanh:kim",
+    "benh:ho_hap",
+    "benh:truong_vi",
+    "benh:huyet"
+   ],
+   "commentary": {
+    "han_viet_explain": "Biểu lý = quan hệ trong-ngoài giữa hai tạng phủ theo Đông y; huyết chứng = bệnh về máu.",
+    "viet_thuan": "Tử Sát ở Tật Ách: hô hấp và đường ruột yếu; Vũ Kỵ thì coi chừng té ngã; Liêm Kỵ thì bệnh máu/chảy máu; Hỏa Linh thì loét.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q333",
+   "question": "Tinh hệ Tử Vi đồng độ Kình Dương ở Tật Ách chủ về gì?",
+   "answer_atom": "Tinh hệ Tử Vi có Kình Dương đồng độ, lại gặp Thiên Hình, đều chủ về phẫu thuật hoặc vật lý trị liệu. Tử Vi đồng độ với Kình Dương chủ về bao quy đầu quá dài; nữ mệnh chủ về bệnh kín âm lãnh.",
+   "source_quote": "Hỗ tinh hệ Tử Vi có Kình Dương đồng độ, lại gặp Thiên Hình, đều chủ về phẫu thuật hoặc vật lý trị liệu. Tinh hệ Tử Vi đồng độ với Kình Dương, chủ về bao quy đầu quá dài; nữ mệnh chủ về bệnh kín âm lãnh.",
+   "source_page": 699,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:tu_vi",
+    "star:kinh_duong",
+    "star:thien_hinh",
+    "benh:phau_thuat"
+   ],
+   "commentary": {
+    "han_viet_explain": "Âm lãnh = chứng lạnh vùng kín ở nữ.",
+    "viet_thuan": "Tử Vi + Kình (+ Thiên Hình) ở Tật Ách thì có mổ xẻ/vật lý trị liệu; nam thì hẹp/dài bao quy đầu, nữ thì chứng lạnh vùng kín.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q334",
+   "question": "Thiên Cơ ở cung Tật Ách chủ về tạng phủ và bộ phận nào?",
+   "answer_atom": "Thiên Cơ thuộc Mộc, chủ về tạng can (gan), còn chủ về tứ chi, nhất là các ngón tay, ngón chân (lấy nhánh, cành cây ví với tay chân). Thiên Cơ lạc hãm gặp sát tinh: tay chân bị thương; nhập miếu gặp sát tinh: phần nhiều bệnh gan. Khi Thiên Cơ quá vượng (Hóa Lộc, Hóa Quyền, Hóa Khoa): can dương thượng kháng, dẫn đến vị thu nạp dinh dưỡng không tốt (Can Mộc khắc Tỳ Thổ).",
+   "source_quote": "Thiên Cơ thuộc Mộc, chủ về tạng can (gan), còn chủ về tứ chi, nhất là các ngón tay, ngón chân... Cho nên Thiên Cơ lạc hãm, lại gặp sát tinh, thì chủ về tay chân bị thương. Nếu nhập miếu mà gặp sát tinh, thì phần nhiều chủ về bệnh gan... khi Thiên Cơ quá vượng (như Hóa Lộc, Hóa Quyền, Hóa Khoa), sẽ chủ về can dương thượng kháng.",
+   "source_page": 699,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "hanh:moc",
+    "benh:gan",
+    "benh:tu_chi",
+    "hoa:loc",
+    "hoa:quyen",
+    "hoa:khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Can dương thượng kháng = khí dương của gan bốc lên quá mức (Đông y).",
+    "viet_thuan": "Thiên Cơ ở Tật Ách ứng gan và tay chân: hãm + sát thì thương tật tay chân, miếu + sát thì bệnh gan; quá vượng thì gan bốc hại dạ dày.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q335",
+   "question": "Thiên Cơ Tật Ách với bệnh thuở bé, ngón đôi, và nam/nữ mệnh có đào hoa?",
+   "answer_atom": "Thiên Cơ thủ Tật Ách chủ về lúc bé bị bệnh kinh phong; gặp sát kị trùng trùng thì lúc bé nhiều bệnh tật; lạc hãm thì bị thương nhất là tay chân. Nhập miếu gặp Tả Phụ, Hữu Bật có lúc ứng là ngón đôi (bàn tay/chân sáu ngón). Nữ mệnh có sao đào hoa đồng độ: chứng âm hư, lệch tử cung, kinh nguyệt không điều hòa, có lúc dẫn đến vô sinh. Nam mệnh có đào hoa đồng độ: Thận Thủy và Can Mộc mất điều hòa dẫn đến tâm thận bất giao — theo y học hiện đại có thể coi là rối loạn nội tiết, gây các chứng hư tổn.",
+   "source_quote": "Thiên Cơ thủ cung Tật Ách, cũng chủ về lúc bé bị bệnh kinh phong... Thiên Cơ nhập miếu gặp Tả Phụ, Hữu Bật, có lúc ứng là ngón đôi (bàn tay hay bàn chân có sáu ngón). Nữ mệnh: ...chủ về chứng âm hư, cũng chủ về chứng lệch tử cung, kinh nguyệt không điều hòa, có lúc vì vậy mà dẫn đến vô sinh. Nam mệnh: ...đây là điểm tượng Thận Thủy và Can Mộc mất điều hòa, dẫn đến tâm thận bất giao, nói theo y học hiện đại, có thể coi là rối loạn nội tiết.",
+   "source_page": 700,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "star:ta_phu",
+    "star:huu_bat",
+    "star:dao_hoa",
+    "benh:kinh_phong",
+    "benh:noi_tiet",
+    "benh:phu_khoa"
+   ],
+   "commentary": {
+    "han_viet_explain": "Kinh phong = co giật trẻ em; tâm thận bất giao = tim thận không giao hòa (Đông y).",
+    "viet_thuan": "Thiên Cơ Tật Ách: bé hay kinh phong; miếu + Tả Hữu có khi sáu ngón; nữ + đào hoa thì kinh nguyệt rối, có thể vô sinh; nam + đào hoa thì rối loạn nội tiết.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q336",
+   "question": "Thiên Cơ Hóa Kỵ hoặc gặp Thiên Đồng Hóa Kỵ ở Tật Ách chủ bệnh gì?",
+   "answer_atom": "Thiên Cơ còn chủ về lo toan nghĩ ngợi, cho nên nếu Hóa Kỵ, hoặc có Thiên Đồng Hóa Kỵ vây chiếu hay hội hợp, sẽ chủ về suy nhược thần kinh, cũng chủ về can dương thượng kháng.",
+   "source_quote": "Thiên Cơ còn chủ về lo toan nghĩ ngợi, cho nên, nếu Hóa Kỵ, hoặc có Thiên Đồng Hóa Kỵ vây chiếu hay hội hợp, sẽ chủ về suy nhược thần kinh, cũng chủ về can dương thượng kháng.",
+   "source_page": 700,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "star:thien_dong",
+    "hoa:ky",
+    "benh:than_kinh"
+   ],
+   "commentary": {
+    "han_viet_explain": "Suy nhược thần kinh = thần kinh yếu do lo nghĩ nhiều.",
+    "viet_thuan": "Cơ Kỵ hoặc gặp Đồng Kỵ ở Tật Ách thì hay suy nhược thần kinh vì nghĩ ngợi nhiều.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tcq2-5.5-Q337",
+   "question": "Các tổ hợp Thiên Cơ + Thái Âm / Cự Môn / Thiên Lương ở Tật Ách chủ bệnh gì?",
+   "answer_atom": "\"Thiên Cơ, Thái Âm\" với Thái Âm lạc hãm: Thận Thủy không đủ dưỡng Can Mộc — bệnh hệ thần kinh, nữ mệnh thêm rối loạn nội tiết; cả hai cùng lạc hãm gặp sát tinh là tiên thiên bất túc, âm dương đều hư, chủ các chứng nhược, ám tật, bệnh kín. \"Thiên Cơ, Cự Môn\": Cự Môn chủ hệ tiêu hóa bị Can Mộc khắc thành can vị bất hòa — đau bụng, bụng trướng; Cự Môn Hóa Kỵ càng nặng; sát tinh nặng là trào ngược dạ dày, đau thần kinh dạ dày; sát kị lẫn lộn là đau trường vị, kiết lị. \"Thiên Cơ, Thiên Lương\" gặp Kình Đà, Thiên Hình: điểm tượng viêm ruột thừa; gặp Hỏa Linh mà Thiên Cơ Hóa Kỵ: đau thần kinh dạ dày hoặc loét dạ dày.",
+   "source_quote": "\"Thiên Cơ, Thái Âm\": Nếu Thái Âm lạc hãm, đây là điểm tượng Thận Thủy không đủ để dưỡng Can Mộc... \"Thiên Cơ, Cự Môn\" thủ cung Tật Ách: Cự Môn chủ về hệ tiêu hóa, bị Can Mộc khắc, thành can vị bất hòa... Tổ hợp \"Thiên Cơ, Thiên Lương\" gặp Kình Dương, Đà La, Thiên Hình, là điểm tượng viêm ruột thừa. Gặp Hỏa Tinh, Linh Tinh, mà Thiên Cơ Hóa Kỵ thì chủ về đau thần kinh dạ dày, hoặc loét dạ dày.",
+   "source_page": 700,
+   "section_id": "5.6",
+   "tags": [
+    "palace:tat_ach",
+    "star:thien_co",
+    "star:thai_am",
+    "star:cu_mon",
+    "star:thien_luong",
+    "star:kinh_duong",
+    "star:da_la",
+    "star:thien_hinh",
+    "star:hoa_tinh",
+    "star:linh_tinh",
+    "hoa:ky",
+    "benh:than_kinh",
+    "benh:truong_vi",
+    "benh:ruot_thua"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiên thiên bất túc = bẩm sinh yếu; can vị bất hòa = gan và dạ dày xung khắc (Đông y).",
+    "viet_thuan": "Cơ Âm hãm thì bệnh thần kinh/nội tiết; Cơ Cự thì gan khắc dạ dày — đau bụng trướng bụng; Cơ Lương + Kình Đà Hình thì viêm ruột thừa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}
