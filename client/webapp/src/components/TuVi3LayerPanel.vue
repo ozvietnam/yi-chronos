@@ -42,7 +42,8 @@
           <h4>🏛 Cung {{ formatPalace(palace) }}</h4>
           <div v-for="(cv, star) in palace_data.cross_views" :key="star" class="star-block">
             <h5>⭐ {{ formatStar(star) }} <span class="badge">{{ cv.total_atoms }} atoms</span></h5>
-            <div v-for="(atoms, school) in cv.schools" :key="school" v-if="atoms.length > 0" class="school-view">
+            <template v-for="(atoms, school) in cv.schools" :key="school">
+            <div v-if="atoms && atoms.length > 0" class="school-view">
               <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
               <ul>
                 <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
@@ -52,6 +53,7 @@
                 </li>
               </ul>
             </div>
+            </template>
           </div>
         </div>
       </section>
