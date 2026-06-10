@@ -253,3 +253,106 @@ INFO:     127.0.0.1:64379 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-ki
 INFO:     127.0.0.1:64585 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/469/auto-translate HTTP/1.1" 200 OK
 INFO:     127.0.0.1:64689 - "GET /api/atomization/stats HTTP/1.1" 200 OK
 INFO:     127.0.0.1:64689 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64691 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/470/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65014 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65014 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64908 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/471/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65359 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65359 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65326 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/472/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65454 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/473/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49272 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49272 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49170 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/474/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49427 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/475/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49578 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49578 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49484 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/476/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49678 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/477/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49878 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49878 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49873 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/478/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50166 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50166 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50044 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/479/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50191 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/480/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50475 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50475 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50342 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/481/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50537 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/482/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50759 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50759 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50677 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/483/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50873 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/484/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50980 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/485/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51009 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/486/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51035 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/487/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51068 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51068 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51386 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51386 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+Quality gate FAIL on google/gemma-4-e4b: 13 empty + 0 identical / 25 non-empty source (broken_ratio=0.52). Falling back to next model.
+Model deepseek/deepseek-v4-flash:free (openrouter) failed: NotFoundError: Error code: 404 - {'error': {'message': 'This model is unavailable for free. The paid version is available now - use this slug instead: deepseek/deepseek-v4-flash', 'code': 404}, 'user_id': 'user_2uAK
+Model google/gemma-4-31b-it:free (openrouter) failed: RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your 
+Model google/gemma-4-26b-a4b-it:free (openrouter) failed: RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-26b-a4b-it:free is temporarily rate-limited upstream. Please retry shortly, or add y
+INFO:     127.0.0.1:51672 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51672 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+Got 5 translations but expected 25. Padding/truncating.
+Quality gate FAIL on MiniMax-M2: 20 empty + 0 identical / 25 non-empty source (broken_ratio=0.80). Falling back to next model.
+INFO:     127.0.0.1:51326 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/8/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51946 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/398/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52298 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52298 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52454 - "GET /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52600 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52600 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52743 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/4/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52753 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/6/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52759 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/7/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52916 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52916 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+Quality gate FAIL on google/gemma-4-e4b: 20 empty + 0 identical / 25 non-empty source (broken_ratio=0.80). Falling back to next model.
+Model deepseek/deepseek-v4-flash:free (openrouter) failed: NotFoundError: Error code: 404 - {'error': {'message': 'This model is unavailable for free. The paid version is available now - use this slug instead: deepseek/deepseek-v4-flash', 'code': 404}, 'user_id': 'user_2uAK
+Model google/gemma-4-31b-it:free (openrouter) failed: RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your 
+Model google/gemma-4-26b-a4b-it:free (openrouter) failed: RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-26b-a4b-it:free is temporarily rate-limited upstream. Please retry shortly, or add y
+INFO:     127.0.0.1:53253 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53253 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52813 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/8/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53503 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/10/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53562 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53562 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53552 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/11/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53622 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/12/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53632 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/15/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53677 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/16/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53727 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/18/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53775 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/19/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53780 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/22/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53786 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/23/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53832 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/25/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53886 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53886 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53881 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/27/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53890 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/28/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53939 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/29/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53991 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/34/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53999 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/35/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54008 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/39/auto-translate HTTP/1.1" 200 OK
+Quality gate FAIL on google/gemma-4-e4b: 3 empty + 0 identical / 6 non-empty source (broken_ratio=0.50). Falling back to next model.
+Model deepseek/deepseek-v4-flash:free (openrouter) failed: NotFoundError: Error code: 404 - {'error': {'message': 'This model is unavailable for free. The paid version is available now - use this slug instead: deepseek/deepseek-v4-flash', 'code': 404}, 'user_id': 'user_2uAK
+Model google/gemma-4-31b-it:free (openrouter) failed: RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your 
+Model google/gemma-4-26b-a4b-it:free (openrouter) failed: RateLimitError: Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-26b-a4b-it:free is temporarily rate-limited upstream. Please retry shortly, or add y
+INFO:     127.0.0.1:54212 - "GET /api/atomization/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54212 - "GET /api/atomization/quota HTTP/1.1" 200 OK
+Got 3 translations but expected 6. Padding/truncating.
+Quality gate FAIL on MiniMax-M2: 3 empty + 0 identical / 6 non-empty source (broken_ratio=0.50). Falling back to next model.
+INFO:     127.0.0.1:54108 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/40/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54327 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/41/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54379 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/42/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54384 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/45/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54442 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/46/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54448 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/47/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54495 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/48/auto-translate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54499 - "POST /api/yi-publishing/pages/hoang-cuc-kinh-the-kim-thuyet-thuong/49/auto-translate HTTP/1.1" 200 OK
