@@ -1,0 +1,66 @@
+book_corpus_id: tu-vi-nghiem-ly-toan-thu-thien-luong
+title: Tử Vi Nghiệm Lý Toàn Thư
+author: Cụ Thiên Lương (Lê Quang Khải, 1910-1985)
+school: thien_luong_dao_duc_hoc
+total_pages: 186
+
+book_profile:
+  core_def: |
+    Tử Vi = ĐẠO LÝ + GIÁO DỤC ĐẠO ĐỨC + TÂM LÝ HỌC.
+    Tự biết mình, biết người để chung hòa với đời sống.
+    KHÔNG huyền bí, KHÔNG tà thuật, KHÔNG dùng kiếm tiền.
+    Cốt: 5 bậc tuổi Can-Chi + 3 vòng (Lộc Tồn / Thái Tuế / Tràng Sinh).
+  paradigm_keys:
+    - "Tử Vi = đạo đức + tâm lý" (Iron Rule #6 mạnh nhất)
+    - "5 BẬC TUỔI CAN-CHI"
+    - "3 VÒNG LỚN: Lộc Tồn/Thái Tuế/Tràng Sinh"
+    - "TAM HỢP TUỔI hưởng Lộc Tồn"
+    - "THẾ THÁI CỰC: Mão-Thân Dương, Dậu-Dần Âm"
+    - "Can = Phúc đức, Chi = Thân thế"
+    - "Tam Hóa Liên Châu"
+    - "Hình Riêu Không Kiếp = Oan trái nghiệp quả"
+
+sections:
+  - id: "tlnl.S1"
+    title: "Paradigm nền — Hoa Giáp + 5 bậc Can-Chi + Nạp âm + Lục Thần"
+    page_start: 1
+    page_end: 27
+    expected_atoms: 90
+
+  - id: "tlnl.S2"
+    title: "Lộc + Long Phượng Tả Hữu Xương Khúc + Quốc Ấn Đường Phù + Đẩu Quân"
+    page_start: 28
+    page_end: 54
+    expected_atoms: 100
+
+  - id: "tlnl.S3"
+    title: "Thiên La Địa Võng + Thiên Trù + Hình Riêu Không Kiếp (oan trái) + Hung Sát Triệt"
+    page_start: 55
+    page_end: 81
+    expected_atoms: 100
+
+  - id: "tlnl.S4"
+    title: "Luật Âm Dương Địa Bàn + Khôi Việt + Tứ Đức + Khu đất phì nhiêu 12 cung"
+    page_start: 82
+    page_end: 108
+    expected_atoms: 100
+
+  - id: "tlnl.S5"
+    title: "Nhật Nguyệt + Tuần Triệt + Nhị/Tam Hợp/Xung + 4 tam hợp cục"
+    page_start: 109
+    page_end: 135
+    expected_atoms: 100
+
+  - id: "tlnl.S6"
+    title: "Vận Hạn + Vận Hội + Càn Khôn Hí Trường + Toán Số Dịch Học giáo huấn"
+    page_start: 136
+    page_end: 162
+    expected_atoms: 100
+
+  - id: "tlnl.S7"
+    title: "Tử Phá + Thất Sát Ngưỡng + Tam Hóa Liên Châu + 4 tuổi Ất Mậu Tân Nhâm + Đối chiếu Dương-Âm lịch"
+    page_start: 163
+    page_end: 186
+    expected_atoms: 90
+
+expected_total_atoms: 680
