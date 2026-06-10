@@ -1,0 +1,2068 @@
+{
+  "book_corpus_id": "tu-vi-dau-so-toan-thu-vu-tai-luc",
+  "section_id": "tdts.S5a",
+  "section_title": "Nhất Cung Mệnh — Nam Mệnh Ca cho 14 chính tinh + Phụ + Sát + Tứ Hóa",
+  "pages": [
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77
+  ],
+  "atoms": [
+    {
+      "question_id": "tdts.S5a.intro.Q01",
+      "question": "Mệnh và Thân khác nhau thế nào trong Tử Vi?",
+      "answer_atom": "Mệnh là THỂ, Thân là DỤNG. Mệnh hảo Thân hảo = cả thể lẫn dụng đều hay; Mệnh hoại Thân hoại = cả hai đều dở; Mệnh tốt Thân xấu = thể hay dụng dở; Mệnh xấu Thân tốt = thể dở dụng hay.",
+      "source_quote": "Mệnh là thể mà Thân là dụng. Mệnh hảo, Thân hảo: Là cả thể lẫn dụng đều hay. Mệnh hoại, Thân hoại: Là cả thể lẫn dụng đều dở. Mệnh tốt, Thân xấu: Là thể hay mà dụng dở. Mệnh xấu, Thân tốt: Là thể dở mà dụng hay.",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "palace:menh",
+        "palace:than",
+        "concept:the_dung"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thể = bản chất; Dụng = vận dụng/biểu hiện ra ngoài"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.intro.Q02",
+      "question": "Có thể mà vô dụng, hoặc có dụng mà vô thể thì sao?",
+      "answer_atom": "Có thể mà vô dụng → phát sớm tàn sớm. Có dụng mà vô thể → thành công muộn màng, chẳng được hưởng bao nhiêu.",
+      "source_quote": "Có thể mà vô dụng thì phát sớm tàn sớm. Có dụng mà vô thể thì thành công muộn màng chẳng được hưởng bao nhiêu.",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "palace:menh",
+        "palace:than",
+        "outcome:phat_som_tan_som",
+        "outcome:thanh_cong_muon"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.intro.Q03",
+      "question": "Thân Mệnh đồng cung thì sao?",
+      "answer_atom": "Thân Mệnh đồng cung: tốt sẽ tăng tốt, xấu lại càng xấu.",
+      "source_quote": "Trong trường hợp Thân Mệnh đồng cung tốt sẽ tăng tốt, xấu lại càng xấu.",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "palace:than_menh_dong_cung",
+        "concept:khuech_dai"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.intro.Q04",
+      "question": "Thân đóng vào các cung khác (Tài, Quan, Di, Phu Thê, Phúc Đức) ý nghĩa gì?",
+      "answer_atom": "Thân ở Tài → chủ PHÚ. Ở Quan Lộc → chủ QUÝ. Ở Thiên Di → chủ dựa quan hệ bên ngoài. Ở Phu Thê (trai) → có vợ hiền năng nhưng thường sợ vợ. Ở Phúc Đức (gái) → có chồng cương cường và phục chồng tuyệt đối.",
+      "source_quote": "Thân ở cung Tài: Chủ phú. Ở Quan Lộc: Chủ quí. Ở Thiên Di: Chủ dựa vào quan hệ bên ngoài nhiều hơn trong nhà. Ở Phu Thê (con trai): Chủ có vợ hiền năng nhưng thường sợ vợ. Ở Phúc Đức (con gái): Chủ có chồng cương cường và phục chồng tuyệt đối.",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "palace:than",
+        "palace:tai_bach",
+        "palace:quan_loc",
+        "palace:thien_di",
+        "palace:phu_the",
+        "palace:phuc_duc"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.intro.Q05",
+      "question": "Cường cung và nhược cung khác nhau thế nào với số nam và số nữ?",
+      "answer_atom": "Số ĐÀN ÔNG: ngoài Thân Mệnh, ba cường cung là Tài Bạch, Quan Lộc, Thiên Di. Số ĐÀN BÀ: ngoài Thân Mệnh, ba cường cung là Phu Quân, Phúc Đức, Tử Tức. Các cung còn lại là nhược cung (thứ yếu).",
+      "source_quote": "Xem số đàn ông, ngoài Thân Mệnh cung còn có ba cường cung là Tài Bạch, Quan Lộc, Thiên Di. Ngoài ra là nhược cung kể vào hàng thứ yếu. Nhưng xem số đàn bà, ngoài Thân Mệnh cung ba cường cung còn lại là các cung Phu Quân, Phúc Đức và Tử Tức.",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "concept:cuong_cung",
+        "concept:nhuoc_cung",
+        "gender:nam",
+        "gender:nu"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.intro.Q06",
+      "question": "Sách Tử Vi Đẩu Số Toàn Thư do ai biên chép, từ ai?",
+      "answer_atom": "Sách do LA HỒNG TIÊN biên chép, ghi lại những gì HI DI TRẦN ĐOÀN tiên sinh đã dạy.",
+      "source_quote": "tôi xin nhắc lại cuốn sách này là của La Hồng Tiên biên chép những gì mà Hi Di Trần Đoàn tiên sinh đã dạy",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "author:la_hong_tien",
+        "author:tran_doan",
+        "meta:book_origin"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.intro.Q07",
+      "question": "Thi ca giải đoán Mệnh trong sách chia làm mấy loại?",
+      "answer_atom": "Chia 3 loại: (1) Dành cho NAM mệnh; (2) Dành cho NỮ mệnh; (3) Dành cho VẬN HẠN. Chương này chỉ đưa loại 1 (nam mệnh), hai loại còn lại đưa xuống chương riêng để khỏi rối người đọc.",
+      "source_quote": "Thi ca giải đoán ở đây chia ra làm ba loại: 1. Dành cho nam mệnh 2. Dành cho nữ mệnh 3. Dành cho vận hạn.",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "meta:structure",
+        "gender:nam",
+        "gender:nu",
+        "topic:van_han"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q01",
+      "question": "Cổ thi 4 câu Nam Mệnh Tử Vi ca?",
+      "answer_atom": "Tử Vi Thiên Trung đệ nhất tinh / Mệnh Thân tương ngộ phúc tài hưng / Nhược phùng Tướng Tá cung trung hội / Phú quí song toàn phan lệnh danh.",
+      "source_quote": "Tử Vi Thiên Trung đệ nhất tinh\nMệnh Thân tương ngộ phúc tài hưng\nNhược phùng Tướng Tá cung trung hội\nPhú quí song toàn phan lệnh danh",
+      "source_page": 65,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "palace:menh",
+        "form:co_thi_4cau"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q02",
+      "question": "Tử Vi thủ Mệnh nói chung ý nghĩa gì?",
+      "answer_atom": "Tử Vi là đệ nhất tinh trên bầu trời. Cung Mệnh có Tử Vi → Phúc Lộc tiền tài hưng vượng.",
+      "source_quote": "Tử Vi đệ nhất tỉnh trên bầu trời. Cung mệnh có Tử Vi, Phúc Lộc tiền tài hưng vượng.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "palace:menh",
+        "outcome:phuc_loc_hung_vuong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q03",
+      "question": "Tử Vi + Tướng Tá hội tụ ở Mệnh ý nghĩa gì?",
+      "answer_atom": "Tử Vi gặp thêm Tướng Tá hội tụ → phú quí song toàn + tăm tiếng lẫy lừng.",
+      "source_quote": "Nếu thêm Tướng Tá hội tụ tất phú quí song toàn và tăm tiếng lẫy lừng.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "combo:tuong_ta",
+        "palace:menh",
+        "outcome:phu_quy_song_toan",
+        "outcome:tam_tieng_lay_lung"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q04",
+      "question": "Tử Vi thủ Mệnh gặp Kiếp Không (nhị sát) thì sao?",
+      "answer_atom": "Tử Vi thủ Mệnh rất tốt, NHƯNG gặp Kiếp Không (nhị sát) → KHÔNG THỌ.",
+      "source_quote": "Tử Vi thủ Mệnh rất tốt, nhưng nếu gặp Kiếp Không (nhị sát) thì không thọ",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "sat:kiep_khong",
+        "palace:menh",
+        "outcome:khong_tho"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q05",
+      "question": "Tử Vi thủ Mệnh gặp Dương Đà Hỏa Linh thì sao?",
+      "answer_atom": "Tử Vi gặp Dương Đà, Hỏa Linh → chỉ nên VÀO CHÙA.",
+      "source_quote": "nếu gặp Dương Đà, Hỏa Linh chỉ nên vào chùa",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "sat:duong_da",
+        "sat:hoa_linh",
+        "palace:menh",
+        "outcome:vao_chua"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q06",
+      "question": "Tử Vi đóng Thìn Tuất hội Phá Quân thì sao?",
+      "answer_atom": "Tử Vi đóng Thìn/Tuất hội Phá Quân → có thể giàu mà chẳng sang, loại HƯ DANH nếu không muốn nói tăm tiếng xấu.",
+      "source_quote": "Tử Vi đóng cung Thìn, Tuất hội cùng Phá Quân có thể giàu mà chẳng sang loại hư danh nếu không muốn nói là tăm tiếng xấu.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "combo:pha_quan",
+        "palace:thin_tuat",
+        "outcome:huu_danh_vo_thuc",
+        "outcome:tam_tieng_xau"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q07",
+      "question": "Tử Vi gặp Tham Lang tại Mão Dậu là người thế nào?",
+      "answer_atom": "Tử Vi gặp Tham Lang tại Mão/Dậu → là người ưa LÀM TÔI BẤT TRUNG.",
+      "source_quote": "Tử Vi gặp Tham Lang tại cung Mão, Dậu là người ưa làm tôi bất trung.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "combo:tham_lang",
+        "palace:mao_dau",
+        "outcome:bat_trung"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tu_vi.Q08",
+      "question": "Tử Vi bị Hỏa Linh Dương Đà vây + thêm Thất Sát thì ra người gì?",
+      "answer_atom": "Tử Vi bị Hỏa Linh Dương Đà vây + Thất Sát → người DU THỦ DU THỰC bất quí, hay lừa đảo, cô độc, nên đi tu cho bớt nghiệp chướng.",
+      "source_quote": "Bị Hỏa Linh Dương Đà vây bọc thêm Thất Sát, người du thủ du thực bất quí, hay lừa đối, cô độc nên đi tu cho bớt nghiệp chướng.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tu_vi",
+        "sat:hoa_linh",
+        "sat:duong_da",
+        "combo:that_sat",
+        "outcome:du_thu_du_thuc",
+        "outcome:di_tu"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_co.Q01",
+      "question": "Thiên Cơ + Thái Âm + Thiên Lương hợp Thái Dương đắc địa ý nghĩa gì?",
+      "answer_atom": "Thiên Cơ, Thái Âm, Thiên Lương hợp cùng Thái Dương đắc địa → kẻ tâm thường rồi cũng sẽ GIÀU SANG nhà cửa.",
+      "source_quote": "Thiên Cơ, Thái Âm, Thiên Lương hợp cùng với Thái Dương đắc địa thì kẻ tâm thường rồi cũng sẽ giàu sang nhà cửa.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_co",
+        "combo:thai_am",
+        "combo:thien_luong",
+        "combo:thai_duong",
+        "outcome:giau_sang"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_co.Q02",
+      "question": "Thiên Cơ + Khoa Quyền Lộc với người có chức tước thì sao?",
+      "answer_atom": "Người có chức tước được thêm Khoa Quyền Lộc → chức vị lên cao, diện kiến đế vương.",
+      "source_quote": "Nếu là người chức tước được thêm Khoa Quyên Lộc tất chức vị lên cao diện kiến đế vương.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_co",
+        "combo:tu_hoa",
+        "hoa:khoa",
+        "hoa:quyen",
+        "hoa:loc",
+        "outcome:dien_kien_de_vuong"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_co.Q03",
+      "question": "Thiên Cơ ngộ Hóa Kỵ ở nhàn cung (Tị) thì sao?",
+      "answer_atom": "Thiên Cơ gặp Hóa Kỵ + ở nhàn cung (Tị) → dù có chức vị tiền tài rồi cũng MẤT HẾT, trở thành phiêu bồng tăng đạo.",
+      "source_quote": "Thiên Cơ ngộ Hóa Kỵ lại ở nhàn cung (tức cung Tị) dù có chức vị tiền tài rồi cũng mất hết mà trở thành phiêu bổng tăng đạo.",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_co",
+        "hoa:hoa_ky",
+        "palace:ti",
+        "concept:nhan_cung",
+        "outcome:phieu_bong_tang_dao"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_duong.Q01",
+      "question": "Cổ thi Nam Mệnh Thái Dương ca (8 câu)?",
+      "answer_atom": "Mệnh lý Dương phùng phúc thọ nùng / Cánh kiêm Quyển Lộc lưỡng tương phùng / Khôi Xương Tả Hữu lai tương tấu / Phú quí song toàn tỉ Thạch Sùng. // Nhật Nguyệt Sửu Mùi mệnh trung phùng / Tam phương vô hóa phúc nam phong / Cánh hữu cát tỉnh chung bất mỹ / Nhược phùng Tấu Sát nhất sinh cùng.",
+      "source_quote": "Mệnh lý Dương phùng phúc thọ nùng,\nCánh kiêm Quyển Lộc lưỡng tương phùng,\nKhôi Xương Tả Hữu lai tương tấu,\nPhú quí song toàn tỉ Thạch Sùng.\nNhật Nguyệt Sửu Mùi mệnh trung phùng,\nTam phương vô hóa phúc nam phong,\nCánh hữu cát tỉnh chung bất mỹ.\nNhược phùng Tấu Sát nhất sinh cùng",
+      "source_page": 66,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_duong",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_duong.Q02",
+      "question": "Thái Dương ở Mệnh + Quyền Lộc + Khôi Xương Tả Hữu ý nghĩa gì?",
+      "answer_atom": "Mệnh có Thái Dương → phúc thọ nồng hậu. Lại được thêm Quyền Lộc + Thiên Khôi + Văn Xương + Tả Hữu → phú quý ngang với THẠCH SÙNG.",
+      "source_quote": "Trong cung Mệnh có sao, Thái Dương thì phúc thọ nông hậu. Lại được thêm Quyền Lộc và Thiên Khôi, Văn Xương rồi Tả Hữu tất nhiên phú quý ngang với Thạch Sùng.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_duong",
+        "combo:quyen_loc",
+        "combo:khoi_xuong_ta_huu",
+        "outcome:phu_quy_thach_sung"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thạch Sùng = nhân vật cực giàu thời Tấn, biểu tượng phú quý"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_duong.Q03",
+      "question": "Thái Dương ở Sửu Mùi không có Khoa Quyền Lộc thì sao?",
+      "answer_atom": "Thái Dương thủ Sửu/Mùi, tam hợp + xung chiếu không thấy Khoa Quyền Lộc → PHÚC BẠC, bị thêm Sát tinh xung phá → bần cùng suốt đời. Dù có cát tinh trợ mà không phải Khoa Quyền Lộc → cơ nghiệp cũng chẳng ra gì.",
+      "source_quote": "Mệnh đóng tại hai cung Sửu, Mùi Thái Dương thủ, nếu tam hợp và cung chiếu không thấy Khoa Quyền Lộc là phúc bạc, lại bị thêm Sát tinh xung phá xuất đời bần cùng. Thái Dương Sửu Mùi dù cát tinh trợ lực mà không phải Khoa Quyền Lộc thì kết quả cơ nghiệp hoặc sự nghiệp cũng chẳng ra gì.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_duong",
+        "palace:suu_mui",
+        "combo:tu_hoa_thieu",
+        "outcome:phuc_bac",
+        "outcome:ban_cung"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_duong.Q04",
+      "question": "Thái Dương hãm địa + Hóa Kỵ + Mệnh cường + Hóa Lộc thì sao?",
+      "answer_atom": "Thái Dương hãm địa hội Hóa Kỵ → việc gì cũng mờ ám, trục trặc, có thể gặp bất ngờ phá sản nghiệp. Nếu Mệnh KHÔNG bị khắc chế, vững vàng + có Hóa Lộc → ĐỠ HẠI.",
+      "source_quote": "Thái Dương rơi vào hãm địa hội Hóa Kỵ việc gì cũng mờ ám, trục trặc có thể gặp những vụ bất ngờ mà phá sản nghiệp. Nếu Mệnh cũng không bị khắc chế, vững vàng lại có Hóa Lộc thì đỡ hại.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_duong",
+        "concept:ham_dia",
+        "hoa:hoa_ky",
+        "hoa:hoa_loc",
+        "outcome:mo_am_truc_trac",
+        "outcome:do_hai"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.vu_khuc.Q01",
+      "question": "Cổ thi Nam Mệnh Vũ Khúc ca (8 câu)?",
+      "answer_atom": "Vũ Khúc thủ Mệnh Hóa Quyền / Cát diệu lai lâm phúc thọ toàn / Chí khí chẳng vinh đa xuất chúng / Siêu phàm nhập thánh hướng nhân tiền. // Vũ Khúc chí tình thủ Mệnh cung / Cát tinh thủ chiếu thủy xương vinh / Nhược gia Hao Sát lai xung phá / Nhậm thị tài đa tất cánh không.",
+      "source_quote": "Vũ Khúc thủ Mệnh Hóa Quyền\nCát diệu lai lâm phúc thọ toàn\nChí khí chẳng vinh đa xuất chúng\nSiêu phàm nhập thánh hướng nhân tiền\nVũ Khúc chí tình thủ Mệnh cung\nCát tinh thủ chiếu thủy xương vinh\nNhược gia Hao Sát lai xung phá\nNhậm thị tài đa tất cánh không.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:vu_khuc",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.vu_khuc.Q02",
+      "question": "Vũ Khúc thủ Mệnh hóa Quyền + cát tinh ý nghĩa gì?",
+      "answer_atom": "Vũ Khúc thủ Mệnh hóa thành Quyền + chung quanh có sao tốt → hoàn toàn PHÚC THỌ. Chí khí hơn người, tinh thần cũng hơn người.",
+      "source_quote": "Vũ Khúc thủ Mệnh hóa thành Quyền. Chung quanh có sao tốt thì hoàn toàn phúc thọ. Chí khí hơn người, tinh thần cũng hơn người.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:vu_khuc",
+        "hoa:hoa_quyen",
+        "combo:cat_tinh",
+        "outcome:phuc_tho",
+        "outcome:chi_khi_hon_nguoi"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.vu_khuc.Q03",
+      "question": "Vũ Khúc bị nhiều sát tinh xung phá thì sao?",
+      "answer_atom": "Vũ Khúc bị nhiều sát tinh xung phá → dù giàu có cũng sẽ LỤN BẠI ('nhậm thị tài đa tất cánh không' = dù tiền tài nhiều cuối cùng vẫn về không).",
+      "source_quote": "Nếu bị nhiều sát tinh xung phá dù cho giàu có cũng sẽ lụn bại.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:vu_khuc",
+        "sat:hao_sat",
+        "outcome:lun_bai",
+        "outcome:tai_da_canh_khong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_dong.Q01",
+      "question": "Cổ thi Nam Mệnh Thiên Đồng ca (8 câu)?",
+      "answer_atom": "Thiên Đồng du du thọ cánh trường / Nhược thị phúc nhàn cư miếu vương / Định giao thực lộc dự truyền dương. // Thiên Đồng nhược dữ cát tinh phùng / Tính cách thông minh bách sự thông / Nam tử định nhiên thực thiên lộc / Nữ nhàn lạc thú tú phòng trung. // Thiên Đồng thủ Mệnh lạc nhàn cung / Hỏa Tà Sát hợp cánh vi hung / Thiên Cơ Nguyệt lai tương hội / Chí Hảo không mòn độ tuế trung.",
+      "source_quote": "Thiên Đồng du du thọ cánh trường\nNhược thị phúc nhàn cư miếu vương\nĐịnh giao thực lộc dự truyền dương\nThiên Đồng nhược dữ cát tinh phùng\nTính cách thông minh bách sự thông\nNam tử định nhiên thực thiên lộc\nNữ nhàn lạc thú tú phòng trung\nThiên Đồng thủ Mệnh lạc nhàn cung\nHỏa Tà Sát hợp cánh vi hung\nThiên Cơ Nguyệt lai tương hội\nChí Hảo không mòn độ tuế trung.",
+      "source_page": 67,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_dong",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_dong.Q02",
+      "question": "Thiên Đồng thủ Mệnh ở miếu vượng ý nghĩa gì?",
+      "answer_atom": "Thiên Đồng tọa Mệnh → tính ôn hòa tử tế, có phúc lộc, đa thọ. Đóng miếu vượng → chẳng những ăn lộc mà còn danh tiếng.",
+      "source_quote": "Thiên Đồng tọa Mệnh cung, tính tình ôn hòa tử tế có phúc lộc và đa thọ. Nếu đóng tại miếu vượng chẳng những ăn lộc còn danh tiếng nữa.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_dong",
+        "concept:mieu_vuong",
+        "outcome:on_hoa",
+        "outcome:phuc_loc",
+        "outcome:da_tho"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_dong.Q03",
+      "question": "Thiên Đồng gặp cát tinh phò trợ thì sao?",
+      "answer_atom": "Thiên Đồng gặp cát tinh phò trợ → thông minh lanh lợi, làm việc gì cũng dễ lọt. Đàn ông thực thiên lộc, đàn bà sống trong nhung lụa.",
+      "source_quote": "Gặp cát tinh phò trợ, thông minh, lanh lợi làm việc gì cũng dễ lọt đàn ông thực thiên lộc, đàn bà sống trong nhung lụa.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_dong",
+        "combo:cat_tinh",
+        "outcome:thong_minh_lanh_loi",
+        "outcome:thuc_thien_loc",
+        "outcome:nhung_lua"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_dong.Q04",
+      "question": "Thiên Đồng ở nhàn cung + Hỏa Tinh Đà La thì sao?",
+      "answer_atom": "Thiên Đồng thủ Mệnh ở nhàn cung (hãm địa) + Hỏa Tinh + Đà La xung phá → rất HUNG. Dù được Nguyệt Lương tiếp ứng cũng chỉ nên AN PHẬN.",
+      "source_quote": "Thiên Đồng thủ Mệnh tại nhàn cung (nhàn cung của Thiên Đồng trong ca quyết về nhàn cung ở Chương trên không thấy ghi ở đâu cho nên phải lấy hãm địa mà đoán) thêm Hỏa Tinh, Đà La xung phá là rất hung, dù được Nguyệt Lương tiếp ứng cũng chỉ nên an phận.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_dong",
+        "concept:nhan_cung",
+        "sat:hoa_tinh",
+        "sat:da_la",
+        "combo:nguyet_luong",
+        "outcome:hung",
+        "outcome:an_phan"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.liem_trinh.Q01",
+      "question": "Cổ thi Nam Mệnh Liêm Trinh ca?",
+      "answer_atom": "Liêm Trinh thủ Mệnh diệc phi thường / Phú tính nguy nguy chí khí cường / Cách cố đính tàn quan đại quí / Vi quan thanh hiển tính danh dương. // Liêm Trinh tọa Mệnh hiệu nhàn cung / Tham Phá Quân, Kình Dương, Hỏa Tinh trung / Tùng hữu tài quan Vi bất mỹ / Bình sinh hà dĩ đắc thung dung. // Liêm Trinh lạc hãm nhập nhàn cung / Cát diệu tương phùng dã hữu hung / Yêu túc tai tàn nan thoát ách / Cánh gia ác sát mệnh coi chung.",
+      "source_quote": "Liêm Trinh thủ Mệnh diệc phi thường\nPhú tính nguy nguy chí khí cường\nCách cố đính tàn quan đại quí\nVi quan thanh hiển tính danh dương\nLiêm Trinh tọa Mệnh hiệu nhàn cung\nTham Phá Quân, Kình Dương, Hỏa Tinh trung\nTùng hữu tài quan Vi bất mỹ\nBình sinh hà dĩ đắc thung dung\nLiêm Trinh lạc hãm nhập nhàn cung\nCát diệu tương phùng dã hữu hung\nYêu túc tai tàn nan thoát ách\nCánh gia ác sát mệnh coi chung.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:liem_trinh",
+        "form:co_thi_12cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.liem_trinh.Q02",
+      "question": "Liêm Trinh thủ Mệnh nói chung là người gì?",
+      "answer_atom": "Liêm Trinh thủ Mệnh → con người PHI THƯỜNG, chí khí ưa ngang ngược. Nếu lên bằng đường 'cách cố đỉnh tân' (đấu tranh) → có thể ở bậc đại quí, làm việc giỏi giang.",
+      "source_quote": "Liêm Trinh thủ Mệnh vốn con người phi thường chí khí ưa ngang ngược, nếu lên bằng con đường cách cố đỉnh tân (đường đấu tranh) có thể ở bậc đại quí làm việc giỏi giang.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:liem_trinh",
+        "outcome:phi_thuong",
+        "outcome:chi_khi_ngang_nguoc",
+        "outcome:dai_qui"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cách cố đỉnh tân = lật cái cũ dựng cái mới (đấu tranh cách mạng)"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.liem_trinh.Q03",
+      "question": "Liêm Trinh ở nhàn cung gặp Tham Lang Phá Quân Kình Dương thì sao?",
+      "answer_atom": "Liêm Trinh rơi vào nhàn cung + gặp Tham Lang, Phá Quân, Kình Dương → dù giàu sang nhưng rất BẤP BÊNH, nay còn mai mất.",
+      "source_quote": "Liêm Trinh rơi vào nhàn cung (cũng không thấy ghi nhàn cung của Liêm Trinh trong nhàn cung ca quyết Chương trên) gặp Tham Lang, Phá Quân, Kình Dương dù có giàu sang nhưng rất bấp bênh, nay còn mai mất.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:liem_trinh",
+        "concept:nhan_cung",
+        "combo:tham_lang",
+        "combo:pha_quan",
+        "sat:kinh_duong",
+        "outcome:bap_benh"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.liem_trinh.Q04",
+      "question": "Liêm Trinh hãm địa (Tị Hợi) dù có sao tốt vẫn xấu thế nào?",
+      "answer_atom": "Liêm Trinh hãm địa (Tị/Hợi) có sao tốt vây quanh vẫn HUNG → dễ bị TÀN TẬT THƯƠNG TÍCH. Nếu ác sát nặng → phải CHẾT.",
+      "source_quote": "Liêm Trinh hãm địa (Tị Hợi) có sao tốt vây quanh vẫn hung, dễ bị tàn tật thương tích nếu ác sát nặng phải chết.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:liem_trinh",
+        "palace:ti_hoi",
+        "concept:ham_dia",
+        "outcome:tan_tat_thuong_tich",
+        "outcome:chet"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_phu.Q01",
+      "question": "Cổ thi Nam Mệnh Thiên Phủ ca?",
+      "answer_atom": "Thiên Phủ chỉ tinh thủ Mệnh cung / Gia chỉ Quyển Lộc Hỉ tương phùng / Khôi Xương Tả Hữu lai tương hội / Phụ Phượng Phan Long thượng cửu thiên. // Hỏa Linh, Dương, Đà tam phương hội / Vị nhân gian trá đa lao bác / Không Kiếp đồng viên bất vi giai / Chỉ tại Không Môn đã hưởng phúc.",
+      "source_quote": "Thiên Phủ chỉ tinh thủ Mệnh cung\nGia chỉ Quyển Lộc Hỉ tương phùng\nKhôi Xương Tả Hữu lai tương hội\nPhụ Phượng Phan Long thượng cửu thiên\nHỏa Linh, Dương, Đà tam phương hội\nVị nhân gian trá đa lao bác\nKhông Kiếp đồng viên bất vi giai\nChỉ tại Không Môn đã hưởng phúc.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_phu",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_phu.Q02",
+      "question": "Thiên Phủ + Quyền Lộc + Xương Khôi Tả Hữu ý nghĩa gì?",
+      "answer_atom": "Thiên Phủ thủ Mệnh hội Quyền Lộc + Xương, Khôi, Tả Hữu → được dựa kẻ QUYỀN QUÝ mà có chức tước.",
+      "source_quote": "Thiên Phủ thủ Mệnh hội cùng Quyển Lộc và Xương, Khôi, Tả Hữu sẽ được dựa kẻ quyền quý mà có chức tước.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_phu",
+        "combo:quyen_loc",
+        "combo:xuong_khoi_ta_huu",
+        "outcome:dua_quyen_quy",
+        "outcome:co_chuc_tuoc"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_phu.Q03",
+      "question": "Thiên Phủ bị Hỏa Linh Dương Đà vây thì sao?",
+      "answer_atom": "Thiên Phủ bị Hỏa Linh, Dương, Đà vây hãm → là người GIAN TRÁ, cuộc đời LẬN ĐẬN.",
+      "source_quote": "Nếu Thiên Phủ bị Hỏa Linh, Dương, Đà vây hãm là người gian trá cuộc đời lận đận.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_phu",
+        "sat:hoa_linh",
+        "sat:duong_da",
+        "outcome:gian_tra",
+        "outcome:lan_dan"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_phu.Q04",
+      "question": "Thiên Phủ bị Kiếp Không phá thì sao?",
+      "answer_atom": "Thiên Phủ bị Kiếp Không phá → không hay, chỉ có thể HƯỞNG PHÚC Ở CHỐN THIỀN MÔN (đi tu).",
+      "source_quote": "Thiên Phủ bị Kiếp Không phá cũng không hay, chỉ có thể hưởng phúc ở chốn thiển môn.",
+      "source_page": 68,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_phu",
+        "sat:kiep_khong",
+        "outcome:thien_mon",
+        "outcome:di_tu"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_am.Q01",
+      "question": "Cổ thi Nam Mệnh Thái Âm ca (phần đầu)?",
+      "answer_atom": "Thái Âm nguyên thị thủy chỉ tỉnh / Thân Mệnh phùng chi phúc tự sinh / Dậu Tuất Hợi viên vi đắc địa / Quang huy dương hiển tính danh hanh. // Thái Âm nhập miếu Hoá Quyền tỉnh / Thanh tú thông minh mai đẳng luân / Bẩm tính ôn lương cung kiêm nhượng / Vi quan thanh hiển liệt triều thân.",
+      "source_quote": "Thái Âm nguyên thị thủy chỉ tỉnh. Thân Mệnh phùng chi phúc tự sinh, Dậu Tuất Hợi viên vi đắc địa quang huy dương hiển tính danh hanh. Thái Âm nhập miếu Hoá Quyền tỉnh, thanh tú thông minh mai đẳng luân, bẩm tính ôn lương cung kiêm nhượng, vi quan thanh hiển liệt triều thân.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_am",
+        "form:co_thi",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_am.Q02",
+      "question": "Thái Âm thuộc hành gì và đắc địa ở đâu?",
+      "answer_atom": "Thái Âm là TINH HOA CỦA HÀNH THỦY. Đóng Thân Mệnh → phúc lộc tự sinh. Tại DẬU TUẤT HỢI là đắc địa → sáng rực rỡ và tiếng tăm.",
+      "source_quote": "Thái Âm là tinh hoa của hành thủy, đóng ở Thân Mệnh, phúc lộc tự sinh, tại Dậu Tuất Hợi là đắc địa sáng rực rỡ và tiếng tăm.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_am",
+        "element:thuy",
+        "palace:dau_tuat_hoi",
+        "concept:dac_dia"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_am.Q03",
+      "question": "Thái Âm nhập miếu hóa Quyền ý nghĩa gì?",
+      "answer_atom": "Thái Âm nhập miếu biến thành Hóa Quyền tinh → con người THANH TÚ siêu quần, bẩm tính ÔN LƯƠNG cung kiệm khiêm nhường, làm quan thanh hiển trong triều.",
+      "source_quote": "Thái Âm nhập miếu biến thành Hóa Quyền tỉnh, con người thanh tú siêu quân, bẩm tính ôn lương cung kiệm khiêm nhường làm quan thanh hiển trong triều.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_am",
+        "concept:nhap_mieu",
+        "hoa:hoa_quyen",
+        "outcome:thanh_tu",
+        "outcome:on_luong",
+        "outcome:thanh_hien"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_am.Q04",
+      "question": "Thái Âm tại Dần hội Thiên Cơ Xương Khúc thì sao?",
+      "answer_atom": "Thái Âm tại Dần hội Thiên Cơ + Xương Khúc → dù có sao tốt cũng KHÓ LÒNG làm nên cơ nghiệp. Đàn ông đi hầu, đàn bà làm đĩ. Gặp ác sát xung phá → bần cùng đến già.",
+      "source_quote": "Thái Âm tại Dần hội cùng Thiên Cơ, Xương Khúc dù có các sao tốt phù trợ cũng khó lòng làm nên cơ nghiệp; đàn ông đi hầu đàn bà, làm đĩ nếu gặp ác sát xung phá bần cùng đến già.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_am",
+        "palace:dan",
+        "combo:thien_co",
+        "combo:xuong_khuc",
+        "outcome:di_hau",
+        "outcome:lam_di",
+        "outcome:ban_cung"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_am.Q05",
+      "question": "Thái Âm hãm địa + Đà Hỏa thì sao?",
+      "answer_atom": "Thái Âm hãm địa + Đà Hỏa tương phùng → định KHỐN CÙNG. Mệnh này chỉ nên TĂNG DỮ ĐẠO (tu hành), 'Không Môn xuất nhập đắc thung dung' (vào chùa mới thong dong).",
+      "source_quote": "Nếu Thái Âm hãm địa và gặp ác tinh, đặc biệt là Đà Hỏa tương phùng, định khốn cùng. Mệnh này chỉ nghi tăng dữ đạo, Không Môn xuất nhập đắc thung dung.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_am",
+        "concept:ham_dia",
+        "sat:da_hoa",
+        "outcome:khon_cung",
+        "outcome:tang_dao",
+        "outcome:di_tu"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tham_lang.Q01",
+      "question": "Cổ thi Nam Mệnh Tham Lang ca?",
+      "answer_atom": "Tứ mộ cung trung phúc khí nùng / Để binh chỉ nhật lập biên công / Hỏa Tỉnh củng hội thành vi quí / Danh chấn chư di định hữu phong. // Tham Lang thủ Mệnh đông Dương cung / Đà Sát giao gia tất khốn cùng. // Vũ Phá Liêm Trinh đồng Sát Kiếp / Bách nghệ phòng thân độ tuế chung. // Tứ mộ Tham Lang miếu vượng cung / Gia lâm Tả Hữu phú tài ông / Nhược nhiên tái Hoá Khoa Quyển Lộc / Văn Vũ tài năng hiển đại công.",
+      "source_quote": "Nam Mệnh Tham Lang ca. Tứ mộ cung trung phúc khí nùng, để binh chỉ nhật lập biên công. Hỏa Tỉnh củng hội thành vi quí, danh chấn chư di định hữu phong. Tham Lang thủ Mệnh đông Dương cung, Đà Sát giao gia tất khốn cùng. Vũ Phá Liêm Trinh đồng Sát Kiếp, Bách nghệ phòng thân độ tuế chung. Tứ mộ Tham Lang miếu vượng cung, gia lâm Tả Hữu phú tài ông. Nhược nhiên tái Hoá Khoa Quyển Lộc, Văn Vũ tài năng hiển đại công.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tham_lang",
+        "form:co_thi",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tham_lang.Q02",
+      "question": "Tham Lang ở Tứ Mộ + Hỏa Tinh ý nghĩa gì?",
+      "answer_atom": "Tham Lang ở TỨ MỘ ĐỊA (Thìn, Tuất, Sửu, Mùi) rất hay, nên hội với HỎA TINH → oai quyền danh tiếng chấn động, CẦM QUÂN LẬP ĐẠI CÔNG.",
+      "source_quote": "Sao Tham Lang ở tứ mộ địa (Thìn, Tuất, Sửu, Mùi) rất hay, nên hội với Hỏa Tỉnh tất oai quyển danh tiếng chấn động, cầm quân lập đại công.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tham_lang",
+        "palace:tu_mo",
+        "combo:hoa_tinh",
+        "cach_cuc:hoa_tham",
+        "outcome:cam_quan_lap_dai_cong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tham_lang.Q03",
+      "question": "Tham Lang đồng cung Kình Dương + Đà Sát thì sao?",
+      "answer_atom": "Tham Lang thủ Mệnh đồng cung Kình Dương + thêm Đà Sát xâm lấn → cuộc sống KHỐN CÙNG.",
+      "source_quote": "Tham Lang thủ Mệnh đồng cung với Kình Dương thêm Đà Sát xâm lấn thì cuộc sống khốn cùng.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tham_lang",
+        "sat:kinh_duong",
+        "sat:da_sat",
+        "outcome:khon_cung"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tham_lang.Q04",
+      "question": "Tham Lang + Vũ Khúc nhưng ngộ Liêm Trinh Phá Quân Không Kiếp thì sao?",
+      "answer_atom": "Tham Lang đi với Vũ Khúc rất tốt, NHƯNG ngộ Liêm Trinh + Phá Quân + Không Kiếp → 'bách nghệ phòng thân', làm ăn nghề nào ra nghề nào, SUỐT ĐỜI VẤT VẢ.",
+      "source_quote": "Tham Lang đi với Vũ Khúc rất tốt nhưng lại ngộ Liêm Trinh Phá Quân, Không Kiếp làm ăn nghề nào ra nghề nào suốt đời vất vả.",
+      "source_page": 69,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tham_lang",
+        "combo:vu_khuc",
+        "combo:liem_trinh",
+        "combo:pha_quan",
+        "sat:khong_kiep",
+        "outcome:bach_nghe_phong_than",
+        "outcome:vat_va"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.tham_lang.Q05",
+      "question": "Tham Lang tứ mộ miếu vượng + Tả Hữu + Khoa Quyền Lộc thì sao?",
+      "answer_atom": "Tham Lang ở Tứ Mộ miếu vượng + Tả Hữu → thành PHÚ ÔNG. Có thêm Khoa Quyền Lộc → tài năng VĂN VÕ ĐỀU ĐỦ, hiển đại công.",
+      "source_quote": "Tham Lang cư Tứ Mộ Địa gặp Tả Hữu sẽ thành phú ông, có được Khoa, Quyền, Lộc nữa thì tài năng văn võ đều đủ.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:tham_lang",
+        "palace:tu_mo",
+        "combo:ta_huu",
+        "combo:khoa_quyen_loc",
+        "outcome:phu_ong",
+        "outcome:van_vo_du_du"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.cu_mon.Q01",
+      "question": "Cổ thi Nam Mệnh Cự Môn ca?",
+      "answer_atom": "Cự Môn ở Tý Ngọ nhị cung phùng / Cực trung đắc ngộ dĩ vi vinh / Tam hợp hóa cát Khoa, Quyền, Lộc / Quan cao cực phẩm y tử bào. // Thử tính hóa ám bất nghi phùng / Cánh hội hung tinh dữ tứ hung / Thần sỉ hữu thương kiêm tính mãnh / Nhược nhiên nhập miếu khả hòa bình. // Cự Môn thủ Mệnh ngộ Kình Dương, Linh Hỏa phùng chỉ sự bất tường / Vi nhân tính cấp da điên đảo / Liêm Trinh quyển chân châu tọa tú phòng.",
+      "source_quote": "Cự Môn ở Tý Ngọ nhị cung phùng\nCực trung đắc ngộ dĩ vi vinh\nTam hợp hóa cát Khoa, Quyền, Lộc\nQuan cao cực phẩm y tử bào\nThử tính hóa ám bất nghi phùng\nCánh hội hung tinh dữ tứ hung\nThần sỉ hữu thương kiêm tính mãnh\nNhược nhiên nhập miếu khả hòa bình\nCự Môn thủ Mệnh ngộ Kình Dương, Linh Hỏa phùng chỉ sự bất tường\nVi nhân tính cấp da điên đảo\nLiêm Trinh quyển chân châu tọa tú phòng.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:cu_mon",
+        "form:co_thi",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.cu_mon.Q02",
+      "question": "Cự Môn ở Tý Ngọ + Khoa Quyền Lộc ý nghĩa gì?",
+      "answer_atom": "Cự Môn ở TÝ NGỌ hợp mệnh cục → thế nào cũng VINH HIỂN. Tam hợp xung chiếu lại có Khoa Quyền Lộc → QUAN CAO CỰC PHẨM, mặc áo BÀO ĐỎ.",
+      "source_quote": "Cự Môn ở Tý Ngọ hợp với mệnh cục thế nào cũng vinh hiển, nếu tam hợp xung chiếu lại có Khoa, Quyền, Lộc tất là quan cao cực phẩm, được mặc áo bào đỏ.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:cu_mon",
+        "palace:ty_ngo",
+        "combo:khoa_quyen_loc",
+        "cach_cuc:thach_trung_an_ngoc",
+        "outcome:quan_cao_cuc_pham",
+        "outcome:bao_do"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.cu_mon.Q03",
+      "question": "Cự Môn hãm địa bị hung tinh phá phách thì sao?",
+      "answer_atom": "Cự Môn khí hóa thành ÁM, ở hãm địa + bị hung tinh phá phách → tai họa thêm, tính tình THÔ LỖ, dễ bị THƯƠNG TÍCH MÔI MIỆNG. Cự Môn ở miếu địa thì đỡ hại hơn.",
+      "source_quote": "Cự Môn khí hóa thành ám nếu ở hãm địa còn bị hung tinh phá phách càng thêm tai họa, tính tình thô lỗ, dễ bị thương tích ở môi miệng, bị hung tinh phá phách mà Cự Môn miếu địa đỡ hại hơn.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:cu_mon",
+        "concept:am_tinh",
+        "concept:ham_dia",
+        "outcome:tho_lo",
+        "outcome:thuong_tich_moi_mieng"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.cu_mon.Q04",
+      "question": "Cự Môn thủ Mệnh gặp Kình Dương Linh Hỏa thì sao?",
+      "answer_atom": "Cự Môn thủ Mệnh + gặp Kình Dương + Linh Hỏa → mọi việc đều BẤT TƯỜNG. Tính NÓNG NẢY ĐIÊN ĐẢO. Nếu là nữ Mệnh → PHÒNG KHÔNG CÔ ĐỘC.",
+      "source_quote": "Cự Môn thủ Mệnh gặp sao Kình Dương và Linh Hỏa, mọi việc đều thành bất tường. Con người tính nóng nảy điên đảo. Nếu là nữ Mệnh thì phòng không cô độc.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:cu_mon",
+        "sat:kinh_duong",
+        "sat:linh_hoa",
+        "gender:nu",
+        "outcome:bat_tuong",
+        "outcome:nong_nay_dien_dao",
+        "outcome:phong_khong_co_doc"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_tuong.Q01",
+      "question": "Cổ thi Nam Mệnh Thiên Tướng ca?",
+      "answer_atom": "Thiên Tướng tinh thần mại đẳng luân / Chiếu thủ Thân Mệnh hỉ vô ngần / Vi quan tất chủ cư nguyên tể / Tam hợp tương phùng khúc bất khinh. // Thiên Tướng cát tinh vi Mệnh chủ / Tất định tư nhân đa khắc kỷ / Tài Quan Lộc chủ vượng gia tư / Quyển áp đương thời thủy bất mỹ. // Thiên Tướng chỉ tinh phá Vũ Khúc đồng / Dương Đà, Hỏa, Linh cánh vi hung / Hoặc tác kỹ thuật Kình, Thương bối / Nhược tại Không, Môn hưởng phúc long.",
+      "source_quote": "Thiên Tướng tinh thần mại đẳng luân\nChiếu thủ Thân Mệnh hỉ vô ngần\nVi quan tất chủ cư nguyên tể\nTam hợp tương phùng khúc bất khinh\nThiên Tướng cát tinh vi Mệnh chủ\nTất định tư nhân đa khắc kỷ\nTài Quan Lộc chủ vượng gia tư\nQuyển áp đương thời thủy bất mỹ\nThiên Tướng chỉ tinh phá Vũ Khúc đồng\nDương Đà, Hỏa, Linh cánh vi hung\nHoặc tác kỹ thuật Kình, Thương bối\nNhược tại Không, Môn hưởng phúc long.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_tuong",
+        "form:co_thi_12cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_tuong.Q02",
+      "question": "Thiên Tướng thủ Thân Mệnh ý nghĩa gì?",
+      "answer_atom": "Thiên Tướng là VỊ TINH TÚ SIÊU QUẦN. Thủ Thân Mệnh → đáng mừng vô ngần, làm quan đến bậc TỂ TƯỚNG. Tam hợp chiếu có Thiên Tướng → phúc lộ không ít.",
+      "source_quote": "Thiên Tướng là một vị tinh tú siêu quần, nó thủ Thân Mệnh là đáng mừng vô ngần, làm quan đến bậc tể tướng, tam hợp chiếu có Thiên Tướng phúc lộ không ít.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_tuong",
+        "palace:than_menh",
+        "outcome:te_tuong",
+        "outcome:phuc_lo"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_tuong.Q03",
+      "question": "Thiên Tướng làm chủ Mệnh ý nghĩa gì?",
+      "answer_atom": "Thiên Tướng làm chủ Mệnh cung → là người CẢ QUYẾT TỰ CHỦ, ở chức vị GIÀU SANG.",
+      "source_quote": "Thiên Tướng làm chủ Mệnh cung là người cả quyết tự chủ ở chức vị giàu sang.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_tuong",
+        "palace:menh",
+        "outcome:ca_quyet_tu_chu",
+        "outcome:giau_sang"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_tuong.Q04",
+      "question": "Thiên Tướng gặp Vũ Khúc Phá Quân + Dương Đà Linh Hỏa thì sao?",
+      "answer_atom": "Thiên Tướng gặp Vũ Khúc, Phá Quân + Dương Đà, Linh Hỏa → nếu không LÀM THỢ, LÁI BUÔN thì đi vào TĂNG NI.",
+      "source_quote": "Thiên Tướng gặp Vũ Khúc, Phá Quân và Dương Đà, Linh Hỏa nếu không làm thợ, làm lái buôn thì đi vào con đường tăng ni.",
+      "source_page": 70,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_tuong",
+        "combo:vu_khuc",
+        "combo:pha_quan",
+        "sat:duong_da",
+        "sat:linh_hoa",
+        "outcome:lam_tho",
+        "outcome:lai_buon",
+        "outcome:tang_ni"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_luong.Q01",
+      "question": "Cổ thi Nam Mệnh Thiên Lương ca?",
+      "answer_atom": "Thiên Lương chi diệu số trung cường, hình thần ẩn trọng tính ôn lương. Gặp thêm Tả Hữu, Khúc Xương hội hợp, quản giao phú quý liệt triều cương. // Thiên Lương tỉnh tú thọ tinh phùng. Thiên Cơ, Văn Xương, Tả Hữu đồng tại Tí Ngọ Dần Thân vi nhập miếu. Quan tư thanh hiển tới bậc tam công. // Thiên Lương ngộ Hỏa Tinh nơi nhàn cư, bị Đà Sát sẽ gây hung họa, tật bệnh hao tán rồi phá nghiệp. // Hai sao Cơ, Lương, đóng tại Thìn, Tuất và sao Phá Quân ở Mão Dậu đều xấu. Nữ mệnh đắc thử vi cô độc khắc tử hình phu thê lãnh phòng.",
+      "source_quote": "Thiên Lương chi diệu số trung cường, hình thần ẩn trọng tính ôn lương. Gặp thêm Tả Hữu, Khúc Xương hội hợp, quản giao phú quý liệt triều cương. Thiên Lương tỉnh tú thọ tinh phùng. Thiên Cơ, Văn Xương, Tả Hữu đồng tại Tí Ngọ Dần Thân vi nhập miếu. Quan tư thanh hiển tới bậc tam công. Thiên Lương ngộ Hỏa Tinh nơi nhàn cư, bị Đà Sát sẽ gây hung họa, tật bệnh hao tán rồi phá nghiệp, đến nổi phải đi làm thuê làm mướn. Hai sao Cơ, Lương, đóng tại Thìn, Tuất và sao Phá Quân ở Mão Dậu đều xấu. Nữ mệnh đắc thử vi cô độc khắc tử hình phu thê lãnh phòng.",
+      "source_page": 71,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_luong",
+        "form:co_thi",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_luong.Q02",
+      "question": "Thiên Lương + Tả Hữu Xương Khúc ý nghĩa gì?",
+      "answer_atom": "Thiên Lương là sao tốt của số, HÌNH DÁNG BỆ VỆ ÔN LƯƠNG. Gặp thêm Tả Hữu + Xương Khúc → làm quan, phú quý.",
+      "source_quote": "Thiên Lương chính diệu là sao tốt của số, hình dáng bệ vệ ôn lương, gặp thêm Tả Hữu, Xương Khúc làm quan, phú quý.",
+      "source_page": 71,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_luong",
+        "combo:ta_huu",
+        "combo:xuong_khuc",
+        "outcome:be_ve_on_luong",
+        "outcome:lam_quan_phu_quy"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_luong.Q03",
+      "question": "Thiên Lương ngộ Thiên Cơ Thái Dương Văn Xương Tả Hữu ở miếu địa Tí Ngọ Dần Thân?",
+      "answer_atom": "Thiên Lương + Thiên Cơ + Thái Dương + Văn Xương + Tả Hữu ở miếu địa TÍ NGỌ DẦN THÂN → quan tư thanh hiển tới bậc TAM CÔNG.",
+      "source_quote": "Thiên Lương ngộ Thiên Cơ, Thái Dương, Văn Xương, Tả Hữu ở miếu địa Tí Ngọ Dần Thân, quan tư thanh hiển tới bậc tam công.",
+      "source_page": 71,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_luong",
+        "combo:thien_co",
+        "combo:thai_duong",
+        "combo:xuong_ta_huu",
+        "palace:ti_ngo_dan_than",
+        "outcome:tam_cong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_luong.Q04",
+      "question": "Thiên Lương ngộ Hỏa Tinh ở nhàn cư + Đà Sát thì sao?",
+      "answer_atom": "Thiên Lương ngộ Hỏa Tinh nơi nhàn cư + bị Đà Sát → gây HUNG HỌA, TẬT BỆNH, HAO TÁN, PHÁ NGHIỆP, đến nỗi phải đi LÀM THUÊ LÀM MƯỚN.",
+      "source_quote": "Thiên Lương ngộ Hỏa Tinh nơi nhàn cư, bị Đà Sát sẽ gây hung họa, tật bệnh hao tán rồi phá nghiệp, đến nổi phải đi làm thuê làm mướn.",
+      "source_page": 71,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_luong",
+        "sat:hoa_tinh",
+        "sat:da_sat",
+        "concept:nhan_cu",
+        "outcome:hung_hoa",
+        "outcome:tat_benh",
+        "outcome:lam_thue"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thien_luong.Q05",
+      "question": "Cơ Lương Thìn Tuất / Phá Quân Mão Dậu — nữ mệnh thì sao?",
+      "answer_atom": "Cơ + Lương đóng THÌN TUẤT và PHÁ QUÂN ở MÃO DẬU đều XẤU. Nữ mệnh đắc thử → CÔ ĐỘC khắc tử hình phu thê, lãnh phòng.",
+      "source_quote": "Hai sao Cơ, Lương, đóng tại Thìn, Tuất và sao Phá Quân ở Mão Dậu đều xấu. Nữ mệnh đắc thử vi cô độc khắc tử hình phu thê lãnh phòng.",
+      "source_page": 71,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thien_luong",
+        "combo:thien_co",
+        "star:pha_quan",
+        "palace:thin_tuat",
+        "palace:mao_dau",
+        "gender:nu",
+        "outcome:co_doc",
+        "outcome:khac_tu_hinh_phu_the"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.that_sat.Q01",
+      "question": "Cổ thi Nam Mệnh Thất Sát ca?",
+      "answer_atom": "Thất Sát Dần Thân Tí Ngọ cung. Tây di củng thủ phục anh hùng. Khôi, Việt, Tả Hữu, Văn Xương hội. Khoa Lộc danh cao thực vạn chung. // Sát cư hãm địa bất kham ngôn, hung hoạ do như bão hổ miên. Nhược thị Sát cường vô chế phục, thiếu niên ác tử tại hoàng tuyển. // Thất Sát tọa mệnh lạc nhàn cung, Cự, tú, Dương, Đà cánh chiếu xung. Nhược bất thương chỉ tất tổn cốt. Không Môn tăng đạo khả hưng long.",
+      "source_quote": "Thất Sát Dần Thân Tí Ngọ cung. Tây di củng thủ phục anh hùng. Khôi, Việt, Tả Hữu, Văn Xương hội. Khoa Lộc danh cao thực vạn chung. Sát cư hãm địa bất kham ngôn, hung hoạ do như bão hổ miên. Nhược thị Sát cường vô chế phục, thiếu niên ác tử tại hoàng tuyển. Thất Sát tọa mệnh lạc nhàn cung, Cự, tú, Dương, Đà cánh chiếu xung. Nhược bất thương chỉ tất tổn cốt. Không Môn tăng đạo khả hưng long.",
+      "source_page": 71,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:that_sat",
+        "form:co_thi_12cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.that_sat.Q02",
+      "question": "Thất Sát ở Dần Thân Tí Ngọ + Khôi Việt Tả Hữu thì sao?",
+      "answer_atom": "Thất Sát ở DẦN THÂN TÍ NGỌ (Tây Tứ Mệnh) → phải chấp tay chịu phục người anh hùng. Thêm Khôi, Việt, Tả Hữu tụ hội → KHOA LỘC DANH CAO, giàu sang phú quý.",
+      "source_quote": "Thất Sát đóng tại cung Dần, cùng với Tân, Tý, Ngọ, thuộc hành Tây Tứ Mệnh, phải chấp tay chịu phục người anh hùng. Nếu thêm Khôi, Việt, Tả Hữu tụ hội thì khoa lộc danh cao, giàu sang phú quý.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:that_sat",
+        "palace:dan_than_ti_ngo",
+        "combo:khoi_viet",
+        "combo:ta_huu",
+        "outcome:khoa_loc_danh_cao",
+        "outcome:giau_sang"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.that_sat.Q03",
+      "question": "Thất Sát hãm địa không có Tả Hữu thì sao?",
+      "answer_atom": "Thất Sát ở hãm địa + không có Tả, Hữu → hung họa ví như ÔM HỔ DỮ MÀ NGỦ ('bão hổ miên'). Thất Sát quá mạnh không được chế phục → có thể NGUY HIỂM ĐẾN TÍNH MẠNG.",
+      "source_quote": "Nếu Thất Sát ở hãm địa và không có Tả, Hữu, hung họa ví như ôm hổ dữ mà ngủ. Nếu Thất Sát quá mạnh mà không được chế phục có thể gây nguy hiểm đến tính mạng.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:that_sat",
+        "concept:ham_dia",
+        "outcome:bao_ho_mien",
+        "outcome:nguy_hiem_tinh_mang"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.that_sat.Q04",
+      "question": "Thất Sát ở nhàn cung + Cự Môn Dương Đà thì sao?",
+      "answer_atom": "Thất Sát thủ Mệnh ở nhàn cung + Cự Môn + Dương + Đà chiếu xung → dễ gặp TAI NẠN VỀ XƯƠNG CỐT. Nên tu tâm dưỡng tính để giảm bớt ác nghiệp.",
+      "source_quote": "Thất Sát thủ tại Mệnh ở nhàn cung, thêm Cự Môn, Dương, Đà chiếu xung thì dễ gặp tai nạn về xương cốt; nên tu tâm dưỡng tính để giảm bớt ác nghiệp.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:that_sat",
+        "concept:nhan_cung",
+        "combo:cu_mon",
+        "sat:duong_da",
+        "outcome:tai_nan_xuong_cot",
+        "outcome:tu_tam"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.pha_quan.Q01",
+      "question": "Cổ thi Nam Mệnh Phá Quân ca?",
+      "answer_atom": "Nhập miếu anh hùng bất khả dương / Quan Vũ Mệnh phùng vi thương tướng / Thứ nhân phú túc trí điển trang. // Phá Quân tại Tí, Ngọ hội Văn Xương / Tả Hữu song song nhập miếu lang / Tài Bạch phong doanh đa khẳng khái / Quan Lộc chiêu trước tá quân vương. // Phá Quân nhất diệu tối nao đương / Hoá Lộc, Khoa, Quyền hỉ dị thường / Nhược hoàn hãm địa nhưng gia sát / Phá tổ ly tôn xuất viễn hương.",
+      "source_quote": "Nhập miếu anh hùng bất khả dương, Quan Vũ Mệnh phùng vi thương tướng. Thứ nhân phú túc trí điển trang. Phá Quân tại Tí, Ngọ hội Văn Xương: Tả Hữu song song nhập miếu lang, Tài Bạch phong doanh đa khẳng khái. Quan Lộc chiêu trước tá quân vương. Phá Quân nhất diệu tối nao đương. Hoá Lộc, Khoa, Quyền hỉ dị thường. Nhược hoàn hãm địa nhưng gia sát, Phá tổ ly tôn xuất viễn hương.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:pha_quan",
+        "form:co_thi",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.pha_quan.Q02",
+      "question": "Phá Quân + Thất Sát + Tham Lang ở miếu địa hội Mệnh ý nghĩa gì?",
+      "answer_atom": "PHÁ QUÂN + THẤT SÁT + THAM LANG (Sát-Phá-Tham) cư miếu địa hội Mệnh → dấu hiệu ANH HÙNG. Người có số này như QUAN VÂN TRƯỜNG, nên làm thượng tướng; kẻ thôn dã sẽ giàu có ruộng vườn.",
+      "source_quote": "Cả ba sao Phá Quân, Thất Sát, và Tham Lang cư miếu địa hội tụ vào Mệnh cung đều là dấu hiệu của người anh hùng. Người có số này như Quan Vân Trường nên làm thượng tướng; kẻ thôn dã sẽ giàu có ruộng vườn.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:pha_quan",
+        "combo:that_sat",
+        "combo:tham_lang",
+        "cach_cuc:sat_pha_tham",
+        "outcome:anh_hung",
+        "outcome:thuong_tuong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.pha_quan.Q03",
+      "question": "Phá Quân tại Tí Ngọ + Văn Xương + Tả Hữu ý nghĩa gì?",
+      "answer_atom": "Phá Quân tại TÍ NGỌ gặp Văn Xương + Tả Hữu → tính tình KHẲNG KHÁI, tiền bạc đầy kho, có khả năng đạt đến bậc CÔNG THẦN KHAI QUỐC.",
+      "source_quote": "Phá Quân đóng tại Tí, Ngọ gặp Văn Xương và có Tả Hữu: Tính tình khẳng khái, tiền bạc đầy kho, có khả năng đạt đến bậc công thần khai quốc.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:pha_quan",
+        "palace:ti_ngo",
+        "combo:van_xuong",
+        "combo:ta_huu",
+        "outcome:khang_khai",
+        "outcome:cong_than_khai_quoc"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.pha_quan.Q04",
+      "question": "Phá Quân + Hóa Khoa Quyền Lộc vs hãm địa thì sao?",
+      "answer_atom": "Phá Quân đứng đơn độc không tốt, NHƯNG hội Khoa + Quyền + Lộc → RẤT TỐT dị thường. Nếu rơi vào HÃM ĐỊA → BỎ TỔ NGHIỆP mà đi tha hương cầu thực.",
+      "source_quote": "Phá Quân đóng đơn độc không tốt, nhưng nếu hội tụ Khoa, Quyền, Lộc thì lại rất tốt dị thường. Nếu rơi vào hãm địa sẽ bỏ tổ nghiệp mà đi tha hương cầu thực.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:pha_quan",
+        "combo:khoa_quyen_loc",
+        "concept:ham_dia",
+        "outcome:tot_di_thuong",
+        "outcome:bo_to_nghiep",
+        "outcome:tha_huong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.pha_quan.Q05",
+      "question": "Phá Quân ở cung Thân + Liêm Trinh Hỏa Dương Đà thì sao?",
+      "answer_atom": "Phá Quân không tốt khi thủ ở cung THÂN, gặp Liêm Trinh + Hỏa + Dương + Đà hội tụ → gây hung hiểm, khó tránh THƯƠNG TẬT và SUY YẾU. Chỉ nên ĐI TU để an định tâm hồn.",
+      "source_quote": "Phá Quân không tốt khi thủ tại cung Thân: Liêm Trinh, Hỏa, Dương, Đà hội tụ gây hung hiểm, khó tránh khỏi thương tật và suy yếu. Chỉ nên đi tu để an định tâm hồn.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:pha_quan",
+        "palace:than",
+        "combo:liem_trinh",
+        "sat:hoa",
+        "sat:duong_da",
+        "outcome:thuong_tat",
+        "outcome:suy_yeu",
+        "outcome:di_tu"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.van_xuong.Q01",
+      "question": "Cổ thi Nam Mệnh Văn Xương ca?",
+      "answer_atom": "Văn Xương tọa tại Mệnh vượng cung lâm / Chí đại tài cao để vạn kim / Văn nghệ tinh hoa tâm tráng đại / Tu giao bình bộ thương thanh xuân.",
+      "source_quote": "Văn Xương tọa tại Mệnh vượng cung lâm: Chí đại tài cao để vạn kim, Văn nghệ tinh hoa tâm tráng đại. Tu giao bình bộ thương thanh xuân.",
+      "source_page": 72,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:van_xuong",
+        "form:co_thi_4cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.van_xuong.Q02",
+      "question": "Văn Xương thủ Mệnh ở vượng cung ý nghĩa gì?",
+      "answer_atom": "Văn Xương thủ Mệnh ở VƯỢNG CUNG → CHÍ LỚN TÀI CAO, văn học thông minh, đời cứ thênh thang mà tiến lên.",
+      "source_quote": "Có sao Văn Xương thủ Mệnh ở vượng cung, chí lớn tài cao, văn học thông minh, đời cứ thênh thang mà tiến lên.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:van_xuong",
+        "concept:vuong_cung",
+        "outcome:chi_lon_tai_cao",
+        "outcome:thanh_thang_tien_len"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.van_xuong.Q03",
+      "question": "Văn Xương thủ Mệnh ngộ Hóa Kỵ thì sao?",
+      "answer_atom": "Văn Xương thủ Mệnh là KHÁC THƯỜNG, gặp hạn xấu không sợ. NHƯNG chỉ lo NĂM XUNG mà Văn Xương ngộ HÓA KỴ → có thể bị THƯƠNG hoặc CHẾT NON YỂU.",
+      "source_quote": "Văn Xương thủ Mệnh là con người khác thường gặp hạn xấu không sợ, chỉ lo năm xung mà Văn Xương ngộ Hóa Kỵ có thể bị thương hoặc chết non yểu.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:van_xuong",
+        "hoa:hoa_ky",
+        "concept:nam_xung",
+        "outcome:bi_thuong",
+        "outcome:chet_non"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.van_khuc.Q01",
+      "question": "Cổ thi Nam Mệnh Văn Khúc ca?",
+      "answer_atom": "Văn Khúc thủ Mệnh tối vi lương / Tướng mạo đường đường chí khí hiên ngang / Sĩ thứ phùng chi ưng phúc hậu / Trượng phu đắc thử thụ kim chương. // Văn Khúc thủ viên phùng Hóa Kỵ / Bất hỉ tam phương ác sát tụ / Thử nhân tuy sảo khẩu năng ngôn / Duy tại Không Môn khả ngộ quí.",
+      "source_quote": "Văn Khúc thủ Mệnh tối vi lương\nTướng mạo đường đường chí khí hiên ngang\nSĩ thứ phùng chi ưng phúc hậu\nTrượng phu đắc thử thụ kim chương\nVăn Khúc thủ viên phùng Hóa Kỵ\nBất hỉ tam phương ác sát tụ\nThử nhân tuy sảo khẩu năng ngôn\nDuy tại Không Môn khả ngộ quí.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:van_khuc",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.van_khuc.Q02",
+      "question": "Văn Khúc thủ Mệnh ý nghĩa gì?",
+      "answer_atom": "Văn Khúc thủ Mệnh tốt lắm → tướng mạo đường đường chí khí HIÊN NGANG. Người sĩ thứ sẽ hưởng PHÚC HẬU, kẻ trượng phu sẽ được PHONG TẶNG (thụ kim chương = nhận huy chương vàng).",
+      "source_quote": "Sao Văn Khúc thủ Mệnh tốt lắm, tướng mạo đường đường chí khí hiên ngang, người sĩ thứ sẽ hưởng phúc hậu, kẻ trượng phu sẽ được phong tặng.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:van_khuc",
+        "outcome:tuong_mao_duong_duong",
+        "outcome:hien_ngang",
+        "outcome:phuc_hau",
+        "outcome:phong_tang"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.van_khuc.Q03",
+      "question": "Văn Khúc thủ Mệnh ngộ Hóa Kỵ + Hỏa Tinh thì sao?",
+      "answer_atom": "Văn Khúc thủ Mệnh ngộ Hóa Kỵ + Hỏa Tinh → người BIỆN THUYẾT TÀI GIỎI. Tam phương có thêm ác tinh xung phá → dễ CHIÊU HUNG HỌA.",
+      "source_quote": "Văn Khúc thủ Mệnh ngộ Hóa Kỵ, Hỏa Tỉnh là người biện thuyết tài giỏi nhưng tam phương nên có ác tinh xung phá nữa mới hay, nếu có thì dễ chiêu hung hoạ.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:van_khuc",
+        "hoa:hoa_ky",
+        "sat:hoa_tinh",
+        "outcome:bien_thuyet_tai_gioi",
+        "outcome:chieu_hung_hoa"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.ta_phu.Q01",
+      "question": "Cổ thi Nam Mệnh Tả Phụ ca?",
+      "answer_atom": "Tả Phụ tôn tính năng giáng phúc / Phong lưu đôn hậu thông kim cổ / Tử Phủ, Lộc Quyển Tham Vũ hội / Văn quan vũ chức đa thanh quí. // Dương Đà Hỏa Linh tam phương chiếu / Túng hữu tài quan phí cát triệu / Liêm Trinh Phá Quân cánh lai xung / Nhược bất tàn thương chung thị yểu.",
+      "source_quote": "Tả Phụ tôn tính năng giáng phúc\nPhong lưu đôn hậu thông kim cổ\nTử Phủ, Lộc Quyển Tham Vũ hội\nVăn quan vũ chức đa thanh quí\nDương Đà Hỏa Linh tam phương chiếu\nTúng hữu tài quan phí cát triệu\nLiêm Trinh Phá Quân cánh lai xung\nNhược bất tàn thương chung thị yểu.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:ta_phu",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.ta_phu.Q02",
+      "question": "Tả Phụ + Tử Vi Thiên Phủ Lộc Quyền Tham Vũ ý nghĩa gì?",
+      "answer_atom": "Tả Phụ có thể GIÁNG PHÚC → là người ĐÔN HẬU thông kim cổ. Hội cùng Tử Vi, Thiên Phủ, Lộc Quyền, Tham Vũ → quan văn quan võ đều HIỂN QUÝ.",
+      "source_quote": "Sao Tả Phụ có thể giáng phúc là người đôn hậu thông kim cổ, nếu hội cùng Tử Vi, Thiên Phủ, Lộc Quyển và Tham Vũ, quan văn quan võ đều hiển quí.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:ta_phu",
+        "combo:tu_phu",
+        "combo:loc_quyen",
+        "combo:tham_vu",
+        "outcome:don_hau",
+        "outcome:thong_kim_co",
+        "outcome:hien_quy"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.ta_phu.Q03",
+      "question": "Tả Phụ + Dương Đà Hỏa Linh + Liêm Trinh Phá Quân Cự Môn xung thì sao?",
+      "answer_atom": "Tam phương Dương Đà Hỏa Linh chiếu → dù tiền nhiều chức trọng cũng không bằng. Gặp Liêm Trinh + Phá Quân + Cự Môn xung phá → tất bị TÀN TẬT hoặc YỂU CHIẾT.",
+      "source_quote": "Tam phương Dương Đà Hỏa Linh chiếu, dù tiền nhiều chức trọng cũng không bằng. Gặp Liêm Trinh, Phá Quân, Cự Môn xung phá tất bị tàn tật hoặc yểu chiết.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:ta_phu",
+        "sat:duong_da",
+        "sat:hoa_linh",
+        "combo:liem_trinh",
+        "combo:pha_quan",
+        "combo:cu_mon",
+        "outcome:tan_tat",
+        "outcome:yeu_chiet"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.huu_bat.Q01",
+      "question": "Cổ thi Nam Mệnh Hữu Bật ca?",
+      "answer_atom": "Hữu Bật Thiên Cơ thượng tể tỉnh / Mệnh phùng trọng hậu tối thông minh / Nhược vô Hỏa Kỵ Dương Đà hội / Gia Cát tài quan quán thế anh. // Hữu Bật tôn tính nhập mệnh cung / Nhược hoàn sát tấu chủ thường dung / Dương Đà Không Kiếp tam phương tấu / Tu trì đới tật miễn tai hung.",
+      "source_quote": "Hữu Bật Thiên Cơ thượng tể tỉnh\nMệnh phùng trọng hậu tối thông minh\nNhược vô Hỏa Kỵ Dương Đà hội\nGia Cát tài quan quán thế anh\nHữu Bật tôn tính nhập mệnh cung\nNhược hoàn sát tấu chủ thường dung\nDương Đà Không Kiếp tam phương tấu\nTu trì đới tật miễn tai hung.",
+      "source_page": 73,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:huu_bat",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.huu_bat.Q02",
+      "question": "Hữu Bật thủ Mệnh không có Hỏa Kỵ Dương Đà thì sao?",
+      "answer_atom": "Hữu Bật là người CƠ MƯU, thông minh, bệ vệ. Nếu không bị Hỏa Kỵ + Dương Đà xung phá, lại được cát tinh phù trợ → tiền tài, danh vọng DỄ TÌM.",
+      "source_quote": "Hữu Bật là người có cơ mưu, thông minh, bệ vệ. Nếu không bị Hỏa Kỵ, Dương Đà xung phá lại được cát tinh phù trợ thì tiền tài, danh vọng dễ tìm.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:huu_bat",
+        "combo:cat_tinh",
+        "outcome:co_muu",
+        "outcome:thong_minh_be_ve",
+        "outcome:tien_tai_danh_vong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.huu_bat.Q03",
+      "question": "Hữu Bật + Dương Đà Không Kiếp tam phương thì sao?",
+      "answer_atom": "Hữu Bật thủ Mệnh gặp nhiều sát tinh Dương Đà + Không Kiếp → người PHẢI CÓ TẬT mới mong tránh khỏi tai họa ('tu trì đới tật miễn tai hung').",
+      "source_quote": "Hữu Bật thủ Mệnh gặp nhiễu sát tinh Dương Đà, Không Kiếp, người phải có tật mới mong tránh khỏi tai họa.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:huu_bat",
+        "sat:duong_da",
+        "sat:khong_kiep",
+        "outcome:phai_co_tat",
+        "outcome:doi_tat_mien_hung"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.loc_ton.Q01",
+      "question": "Cổ thi Nam Mệnh Lộc Tồn ca?",
+      "answer_atom": "Nhân sinh nhược ngộ Lộc Tồn tinh / Tính cách cương cường bách sự thành / Quan viên thiên hề Xương Khúc hội / Thao thao y lộc hiển môn đình. // Lộc Tồn thủ Mệnh mạc phùng xung / Đà Hỏa giao gia phúc bất toàn / Thiên Cơ Kiếp Không Kiêu tương hội / Không Môn tăng đạo đắc thanh nhàn.",
+      "source_quote": "Nhân sinh nhược ngộ Lộc Tồn tinh\nTính cách cương cường bách sự thành\nQuan viên thiên hề Xương Khúc hội\nThao thao y lộc hiển môn đình\nLộc Tồn thủ Mệnh mạc phùng xung\nĐà Hỏa giao gia phúc bất toàn\nThiên Cơ Kiếp Không Kiêu tương hội\nKhông Môn tăng đạo đắc thanh nhàn.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:loc_ton",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.loc_ton.Q02",
+      "question": "Lộc Tồn gặp Xương Khúc ý nghĩa gì?",
+      "answer_atom": "Gặp Lộc Tồn → tính tình QUẢ QUYẾT, làm việc gì cũng thành. Thêm Xương Khúc hội tụ → Y LỘC, nhà cao cửa rộng mãi mãi.",
+      "source_quote": "Con người ta may mắn được gặp sao Lộc Tồn tính tình quả quyết làm việc gì cũng thành, có thêm Xương Khúc hội tụ thì y lộc, nhà cao cửa rộng mãi mãi.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:loc_ton",
+        "combo:xuong_khuc",
+        "outcome:qua_quyet",
+        "outcome:y_loc",
+        "outcome:nha_cao_cua_rong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.loc_ton.Q03",
+      "question": "Lộc Tồn thủ Mệnh sợ gặp gì?",
+      "answer_atom": "Lộc Tồn thủ Mệnh KHÔNG nên gặp xung phá, lại bị Dương Đà vây hãm. Lộc Tồn rất SỢ sao Thiên Cơ + Kiếp Không. Gặp hoàn cảnh này → chỉ nên VÀO CHÙA mới mong thanh nhàn.",
+      "source_quote": "Lộc Tồn thủ Mệnh không nên gặp xung phá lại bị Dương Đà vây hãm, Lộc Tồn rất sợ sao Thiên Cơ với Kiếp Không. Nếu ở hoàn cảnh này chỉ nên vào chùa mới mong thanh nhàn.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:loc_ton",
+        "sat:duong_da",
+        "combo:thien_co",
+        "sat:kiep_khong",
+        "outcome:vao_chua",
+        "outcome:thanh_nhan"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khoi_viet.Q01",
+      "question": "Cổ thi Khôi Việt Nhập Mệnh ca?",
+      "answer_atom": "Khôi Việt Mệnh Thân hạn ngộ Văn Xương / Thường nhân đắc thử túc tiền lương / Quan viên ngộ thử cao thiên dược / Tất định đương niên diện đế vương.",
+      "source_quote": "Khôi Việt Mệnh Thân hạn ngộ Văn Xương\nThường nhân đắc thử túc tiền lương\nQuan viên ngộ thử cao thiên dược\nTất định đương niên diện đế vương.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:khoi_viet",
+        "form:co_thi_4cau",
+        "palace:menh",
+        "palace:than"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khoi_viet.Q02",
+      "question": "Khôi Việt + Văn Xương ở Mệnh Thân/đáo hạn ý nghĩa gì?",
+      "answer_atom": "Khôi Việt ở Mệnh Thân, đáo hạn gặp Văn Xương → người chưa danh phận sẽ TIỀN LƯƠNG SUNG TÚC; người đã có danh phận thì NĂM ẤY SẼ GẶP VUA, LÊN CHỨC CAO.",
+      "source_quote": "Khôi Việt ở Mệnh Thân đáo hạn gặp Văn Xương, người chưa danh phận sẽ tiền lương sung túc, người đã có danh phận thì năm ấy sẽ gặp vua, lên chức cao.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:khoi_viet",
+        "combo:van_xuong",
+        "palace:menh_than",
+        "outcome:tien_luong_sung_tuc",
+        "outcome:gap_vua",
+        "outcome:len_chuc"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khoi_viet.Q03",
+      "question": "Khôi Việt có phân biệt nam nữ không?",
+      "answer_atom": "Khôi Việt là sao TỐT CHO CẢ NAM LẪN NỮ MỆNH → KHÔNG phân biệt nam nữ.",
+      "source_quote": "Khôi Việt là sao tốt cho cả nam lẫn nữ Mệnh, nên không phân biệt nam nữ.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:khoi_viet",
+        "gender:nam_nu",
+        "meta:no_gender_distinction"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.kinh_duong.Q01",
+      "question": "Cổ thi Nam Mệnh Kình Dương ca?",
+      "answer_atom": "Lộc tiền nhất vị an Kình Dương / Thượng tướng phùng chi phúc lộc gia / Cành đắc quí nhân tương thủ chiếu / Binh quyển vạn lý tráng hoàng gia. // Kình Dương thủ Mệnh tính cương cường / Tứ mộ sinh nhân phúc thọ trường / Nhược dắc Tử Phủ lai tương hội / Tu tri tài cốc phú sương sương. // Kình Dương nhất diệu lạc nhân cung / Đà Hỏa xung hề tiện thị hung / Cánh nhược Thân Mệnh đồng Kiếp Sát / Định nhiên yểu tuyệt tại đồ trung.",
+      "source_quote": "Lộc tiền nhất vị an Kình Dương\nThượng tướng phùng chi phúc lộc gia\nCành đắc quí nhân tương thủ chiếu\nBinh quyển vạn lý tráng hoàng gia\nKình Dương thủ Mệnh tính cương cường\nTứ mộ sinh nhân phúc thọ trường\nNhược dắc Tử Phủ lai tương hội\nTu tri tài cốc phú sương sương\nKình Dương nhất diệu lạc nhân cung\nĐà Hỏa xung hề tiện thị hung\nCánh nhược Thân Mệnh đồng Kiếp Sát\nĐịnh nhiên yểu tuyệt tại đồ trung.",
+      "source_page": 74,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:kinh_duong",
+        "form:co_thi_12cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.kinh_duong.Q02",
+      "question": "Kình Dương + quý nhân thủ chiếu với người võ ý nghĩa gì?",
+      "answer_atom": "Kình Dương an trước sao Lộc một cung. Con nhà võ gặp Kình Dương → PHÚC LỘC GIA TĂNG. Được thêm quý nhân thủ chiếu → BINH QUYỀN VẠN LÝ đánh đông dẹp bắc.",
+      "source_quote": "Kình Dương an tại trước sao lộc một cung con nhà võ gặp Kình Dương phúc lộc gia tăng, còn được thêm quy nhân thủ chiếu thì binh quyển vạn lý đánh đông dẹp bắc.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:kinh_duong",
+        "combo:quy_nhan",
+        "occupation:vo",
+        "outcome:phuc_loc_gia_tang",
+        "outcome:binh_quyen_van_ly"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.kinh_duong.Q03",
+      "question": "Kình Dương ở Tứ Mộ + Tử Phủ ý nghĩa gì?",
+      "answer_atom": "Kình Dương thủ Mệnh → tính nết CỨNG RẮN. Tứ Mộ (Thìn Tuất Sửu Mùi) là MIẾU ĐỊA của Kình Dương → số mới thọ. Có Tử Phủ hội hợp → tiền tài thóc gạo ĐẦY KHO.",
+      "source_quote": "Sao Kình Dương thủ mệnh tính nết cứng rắn. Tứ Mộ là nơi miếu địa của Kình Dương. Kình Dương ở Thìn, Tuất, Sửu, Mùi số mới thọ, lại có Tử Phủ hội hợp tiền tài thóc gạo đầy kho.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:kinh_duong",
+        "palace:tu_mo",
+        "concept:mieu_dia",
+        "combo:tu_phu",
+        "outcome:cung_ran",
+        "outcome:tho",
+        "outcome:tien_tai_day_kho"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.kinh_duong.Q04",
+      "question": "Kình Dương đơn độc ở Nhân cung + Đà La Hỏa Tinh + Kiếp Không thì sao?",
+      "answer_atom": "Kình Dương một mình rơi vào Nhân cung + Đà La + Hỏa Tinh xung phá → rất HUNG. Thêm Kiếp Không → có thể CHẾT ĐƯỜNG ('yểu tuyệt tại đồ trung').",
+      "source_quote": "Kình Dương một mình rơi vào Nhân cung, bị Đà La, Hỏa Tinh xung phá rất hung, lại thêm Kiếp Không có thể chết đường.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:kinh_duong",
+        "concept:nhan_cung",
+        "sat:da_la",
+        "sat:hoa_tinh",
+        "sat:kiep_khong",
+        "outcome:hung",
+        "outcome:chet_duong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.da_la.Q01",
+      "question": "Cổ thi Nam Mệnh Đà La ca?",
+      "answer_atom": "Đà La Mệnh nội tọa trung tổn / Cánh hỉ nhân sinh tứ mộ trung / Tài đắc Tử Vi Xương Phủ hội / Tài lộc phong doanh viễn phan danh. // Đà La tại hãm bất khả văn / Khẩu thiệt quan phi nhất thế xâm / Tài tán nhân ly nhập cô độc / Sở vi sở tác bất như tâm.",
+      "source_quote": "Đà La Mệnh nội tọa trung tổn: Cánh hỉ nhân sinh tứ mộ trung. Tài đắc Tử Vi Xương Phủ hội: Tài lộc phong doanh viễn phan danh. Đà La tại hãm bất khả văn: Khẩu thiệt quan phi nhất thế xâm. Tài tán nhân ly nhập cô độc: Sở vi sở tác bất như tâm.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:da_la",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.da_la.Q02",
+      "question": "Đà La thủ Mệnh ở Tứ Mộ + Tử Vi Thiên Phủ ý nghĩa gì?",
+      "answer_atom": "Đà La thủ Mệnh TỐI HỈ TỨ MỘ ĐỊA, có Tử Vi + Thiên Phủ hội hợp → TIỀN TÀI DANH VỌNG đều hay.",
+      "source_quote": "Đà La thủ Mệnh tối hỉ tứ mộ địa, có Tử Vi, Thiên Phủ hội hợp, tiền tài danh vọng đều hay.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:da_la",
+        "palace:tu_mo",
+        "combo:tu_phu",
+        "outcome:tien_tai",
+        "outcome:danh_vong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.da_la.Q03",
+      "question": "Đà La ở hãm địa thì sao?",
+      "answer_atom": "Đà La ở hãm địa → dễ bị vướng vào THỊ PHI KHẨU THIỆT, TIỀN MẤT NGƯỜI XA, làm việc gì cũng CHẲNG TOẠI Ý ('sở vi sở tác bất như tâm').",
+      "source_quote": "Đà La ở hãm địa dễ bị vướng vào thị phi khẩu thiệt, tiền mất người xa, làm việc gì cũng chẳng toại ý.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:da_la",
+        "concept:ham_dia",
+        "outcome:thi_phi_khau_thiet",
+        "outcome:tien_mat_nguoi_xa",
+        "outcome:bat_toai_y"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_linh.Q01",
+      "question": "Cổ thi Nam Mệnh Hỏa Linh ca?",
+      "answer_atom": "Hỏa Linh nhị điệu cư miếu địa / Tham Lang, Tử Phủ nghi tương hội / Vi nhân tỉnh cấp hữu uy quyển / Chấn áp hương bang chung hữu quy. // Hỏa Linh tại Mệnh lạc Nhân cung / Tây bắc sinh nhân tác sự dung / Phá tận gia tài chung bất cửu / Tu giao đời tật miễn tai hung.",
+      "source_quote": "Hỏa Linh nhị điệu cư miếu địa: Tham Lang, Tử Phủ nghi tương hội. Vi nhân tỉnh cấp hữu uy quyển: Chấn áp hương bang chung hữu quy. Hỏa Linh tại Mệnh lạc Nhân cung: Tây bắc sinh nhân tác sự dung. Phá tận gia tài chung bất cửu: Tu giao đời tật miễn tai hung.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:hoa_linh",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_linh.Q02",
+      "question": "Hỏa Tinh Linh Tinh đóng miếu địa + Tham Lang Tử Phủ ý nghĩa gì?",
+      "answer_atom": "Hỏa Tinh, Linh Tinh đóng miếu địa → CẦN có Tham Lang + Tử Vi + Thiên Phủ hội tụ thì mới thành UY QUYỀN, chấn áp hương bang mà quy hiển.",
+      "source_quote": "Hỏa Tinh, Linh Tinh đóng miếu địa, rất cần có Tham Lang, Tử Vi, Thiên Phủ hội tụ thì mới thành uy quyền, chấn áp hương bang mà quy hiển.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:hoa_linh",
+        "concept:mieu_dia",
+        "combo:tham_lang",
+        "combo:tu_phu",
+        "cach_cuc:hoa_tham",
+        "outcome:uy_quyen",
+        "outcome:chan_ap_huong_bang"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_linh.Q03",
+      "question": "Hỏa Tinh thủ Mệnh ở Nhân cung với người sinh Tây Bắc thì sao?",
+      "answer_atom": "Hỏa Tinh thủ Mệnh vào Nhân cung → người sinh phía TÂY BẮC làm việc KHÓ THÀNH. Dù phá hết tổ nghiệp vẫn chưa hết tai ương, còn phải CÓ TẬT mới tránh được hung họa.",
+      "source_quote": "Hỏa Tinh thủ Mệnh vào Nhân cung, người sinh phía tây bắc làm việc khó thành. Dù đã phá hết tổ nghiệp vẫn chưa hết tai ương, còn phải có tật mới tránh được hung hoạ.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:hoa_tinh",
+        "concept:nhan_cung",
+        "direction:tay_bac",
+        "outcome:kho_thanh",
+        "outcome:pha_to_nghiep",
+        "outcome:phai_co_tat"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khong_kiep.Q01",
+      "question": "Cổ thi Thiên Không Địa Kiếp nhập Mệnh ca?",
+      "answer_atom": "Mệnh tọa Thiên Không định xuất gia / Văn Xương, Thiên Tướng thực khảm khoa / Nhược phùng tứ cát đồng Thân Mệnh: Thụ ấm thừa ân phúc khả giai. // Địa Kiếp tòng lai sinh phát tật / Mệnh trung tương ngộ đa thu khanh.",
+      "source_quote": "Mệnh tọa Thiên Không định xuất gia. Văn Xương, Thiên Tướng thực khảm khoa. Nhược phùng tứ cát đồng Thân Mệnh: Thụ ấm thừa ân phúc khả giai. Địa Kiếp tòng lai sinh phát tật. Mệnh trung tương ngộ đa thu khanh.",
+      "source_page": 75,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:thien_khong",
+        "sat:dia_kiep",
+        "form:co_thi",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khong_kiep.Q02",
+      "question": "Thiên Không thủ Mệnh + Văn Xương Thiên Tướng ý nghĩa gì?",
+      "answer_atom": "Thiên Không thủ Mệnh → số XUẤT GIA (đi tu). Được Văn Xương + Thiên Tướng là đáng mừng. Thêm cát tinh tụ tập → được PHÚC ẤM CỦA TỔ TIÊN.",
+      "source_quote": "Sao Thiên Không thủ Mệnh là số xuất gia (đi tu), được Văn Xương, Thiên Tướng đáng mừng. Nếu lại có thêm các sao tốt tụ tập thì dược phúc ấm của tổ tiên.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:thien_khong",
+        "combo:van_xuong",
+        "combo:thien_tuong",
+        "outcome:xuat_gia",
+        "outcome:phuc_am_to_tien"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khong_kiep.Q03",
+      "question": "Địa Kiếp vào Mệnh + Dương Đà thì sao?",
+      "answer_atom": "Địa Kiếp vào Mệnh → đã có TẬT BỆNH NGAY TỪ LÚC MỚI RA ĐỜI, cuộc sống như sâu bọ. Gặp Dương Đà → TÀN KHỔ chẳng biết đến thế nào.",
+      "source_quote": "Sao Địa Kiếp vào Mệnh đã có tật bệnh ngay từ lúc mới ra đời, cuộc sống như sâu bọ; nếu gặp Dương Đà thì tàn khổ chẳng biết đến thế nào.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:dia_kiep",
+        "sat:duong_da",
+        "outcome:tat_benh_tu_be",
+        "outcome:cuoc_song_sau_bo",
+        "outcome:tan_kho"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.khong_kiep.Q04",
+      "question": "Theo Tử Vi Việt, Không Kiếp ở Tý Hợi thì sao?",
+      "answer_atom": "LƯU Ý của Vũ Tài Lục: theo Tử Vi Việt, hai sao Không Kiếp sẽ CỰC nếu được đóng vào HAI CUNG TÝ HỢI MIẾU ĐỊA. Cổ thi: 'Địa Kiếp là tối hung thần / Đóng đâu hại đó mười phần hiểm nguy / Hai cung Tý Hợi miếu vì / Hoạnh phát hoạnh phát tựa thì sấm ran.'",
+      "source_quote": "Theo Tử Vị Việt, hai sao Không Kiếp sẽ cực nếu chúng được đóng vào hai cung Tý Hợi miếu địa. Địa Kiếp là tối hung thần / Đóng đâu hại đó mười phần hiểm nguy / Hai cung Tý Hợi miếu vì / Hoạnh phát, hoạnh phát tựa thì sấm ran.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "sat:khong_kiep",
+        "sat:dia_kiep",
+        "palace:ty_hoi",
+        "concept:mieu_dia",
+        "outcome:hoanh_phat",
+        "school:tu_vi_viet"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hoạnh phát = phát đột ngột mạnh mẽ như sấm; nhưng cũng dễ hoạnh phá"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_loc.Q01",
+      "question": "Cổ thi Hóa Lộc nhập Mệnh ca?",
+      "answer_atom": "Thập thiên Hóa Lộc tối vi vinh / Nam Mệnh phùng chi phúc tự thân / Vũ chức để danh biên tái thư / Văn nhân danh dự mãn triều đình.",
+      "source_quote": "Thập thiên Hóa Lộc tối vi vinh\nNam Mệnh phùng chi phúc tự thân\nVũ chức để danh biên tái thư\nVăn nhân danh dự mãn triều đình",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_loc",
+        "form:co_thi_4cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_loc.Q02",
+      "question": "Hóa Lộc ở Mệnh ý nghĩa gì?",
+      "answer_atom": "Hóa Lộc bao giờ cũng đem đến VINH HIỂN. Đàn ông có Hóa Lộc ở Mệnh → tự nhiên phúc tới. Làm võ → tên tuổi dậy biên cương. Làm văn → danh tiếng mãn triều đình.",
+      "source_quote": "Sao Hóa Lộc bao giờ cũng đem đến sự vinh hiển. Đàn ông có Hóa Lộc ở Mệnh tự nhiên phúc tới, làm về võ tên tuổi dậy biên cương; làm về văn danh tiếng mãn triều đình.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_loc",
+        "palace:menh",
+        "gender:nam",
+        "outcome:vinh_hien",
+        "outcome:ten_tuoi_bien_cuong",
+        "outcome:danh_tieng_trieu_dinh"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_loc.Q03",
+      "question": "Hóa Lộc + Thiên Đồng + Thái Dương ý nghĩa gì?",
+      "answer_atom": "Hóa Lộc + Thiên Đồng + Thái Dương → DÂN GIẢ cũng trở thành ĐẠI PHÚ, nhà cửa ruộng vườn lục súc đều HƯNG VƯỢNG, làm việc gì cũng hay, cũng tốt.",
+      "source_quote": "Hóa Lộc. Thiên Đồng gặp Thái Dương, dân giả cũng trở thành đại phú, nhà cửa ruộng vườn lục súc đều hưng vượng, làm việc gì cũng hay, cũng tốt.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_loc",
+        "combo:thien_dong",
+        "combo:thai_duong",
+        "outcome:dai_phu",
+        "outcome:hung_vuong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_quyen.Q01",
+      "question": "Cổ thi Nam Mệnh Hóa Quyền ca?",
+      "answer_atom": "Quyên tỉnh tối hỉ cát tỉnh phù / Sự nghiệp hiên ngang đảm lượng hơn người / Cánh trí Cự Môn kiêm Vũ Khúc diệu / Tam viên trấn thủ trưởng binh phù.",
+      "source_quote": "Quyên tỉnh tối hỉ cát tỉnh phù\nSự nghiệp hiên ngang đảm lượng hơn người\nCánh trí Cự Môn kiêm Vũ Khúc diệu\nTam viên trấn thủ trưởng binh phù.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_quyen",
+        "form:co_thi_4cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_quyen.Q02",
+      "question": "Hóa Quyền cần gì để phát huy + hội Cự Môn Vũ Khúc ý nghĩa gì?",
+      "answer_atom": "Hóa Quyền CẦN các sao tốt phù trợ → sự nghiệp HIÊN NGANG, đảm lượng hơn người. Hội với Cự Môn + Vũ Khúc → TRẤN THỦ BIÊN CƯƠNG, nắm quyền vạn binh.",
+      "source_quote": "Sao Hóa Quyền cần được các sao tốt phù trợ thì sự nghiệp hiên ngang, đảm lượng hơn người. Hội với Cự Môn, Vũ Khúc thì trấn thủ biên cương, nắm quyền vạn binh.",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_quyen",
+        "combo:cat_tinh",
+        "combo:cu_mon",
+        "combo:vu_khuc",
+        "outcome:hien_ngang",
+        "outcome:tran_thu_bien_cuong",
+        "outcome:nam_quyen_van_binh"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_khoa.Q01",
+      "question": "Cổ thi Nam Mệnh Hóa Khoa ca?",
+      "answer_atom": "Khoa tỉnh văn tú tối vi kỳ / Bao tàn cẩm tú mỹ văn chương / Nhất được Vũ Môn Long biến hoá / Quản giao thanh đạt dự triều đường.",
+      "source_quote": "Khoa tỉnh văn tú tối vi kỳ\nBao tàn cẩm tú mỹ văn chương\nNhất được Vũ Môn Long biến hoá\nQuản giao thanh đạt dự triều đường",
+      "source_page": 76,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_khoa",
+        "form:co_thi_4cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_khoa.Q02",
+      "question": "Hóa Khoa thủ Mệnh ý nghĩa gì?",
+      "answer_atom": "Hóa Khoa là VĂN TINH. Thủ Mệnh → người VĂN CHƯƠNG CẨM TÚ, thi đỗ cao như CÁ VƯỢT VŨ MÔN thành RỒNG BAY, hiển đạt chốn triều đình.",
+      "source_quote": "Sao Hóa Khoa là văn tinh, thủ Mệnh cung là người văn chương cẩm tú, thi đỗ cao như cá vượt vũ môn thành rồng bay, hiển đạt chốn triều đình.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_khoa",
+        "palace:menh",
+        "concept:van_tinh",
+        "outcome:van_chuong_cam_tu",
+        "outcome:vu_mon_hoa_long",
+        "outcome:hien_dat"
+      ],
+      "commentary": {
+        "han_viet_explain": "Vũ Môn Long biến hóa = cá chép vượt Vũ Môn hóa rồng (thi đỗ vinh hiển)"
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_khoa.Q03",
+      "question": "Hóa Khoa hội Xương Khúc Khôi Việt thì sao?",
+      "answer_atom": "Hóa Khoa nhập Mệnh KHÔNG phải loại tầm thường. Hội với Xương Khúc + Khôi Việt → CÔNG DANH SÁNG LẠNG.",
+      "source_quote": "Sao Hóa Khoa nhập Mệnh không phải loại tầm thường, hội với Xương Khúc, Khôi Việt công danh sáng lạng.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_khoa",
+        "combo:xuong_khuc",
+        "combo:khoi_viet",
+        "outcome:cong_danh_sang_lang"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_ky.Q01",
+      "question": "Cổ thi Nam Mệnh Hóa Kỵ ca?",
+      "answer_atom": "Chư tinh Hoá Kỵ bất nghi phùng / Cánh hội hung tinh dữ tứ hung / Nhược đắc cát tinh lai trợ cứu / Túng nhiên phú quý bất phong long. // Tham Lang Phá Quân cư hãm địa / Ngộ cát, Hoá Kỵ chung bất lợi / Nam vi giang đạo nữ vi sương.",
+      "source_quote": "Chư tinh Hoá Kỵ bất nghi phùng,\nCánh hội hung tinh dữ tứ hung.\nNhược đắc cát tinh lai trợ cứu,\nTúng nhiên phú quý bất phong long.\nTham Lang Phá Quân cư hãm địa,\nNgộ cát, Hoá Kỵ chung bất lợi.\nNam vi giang đạo nữ vi sương.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_ky",
+        "form:co_thi_8cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_ky.Q02",
+      "question": "Hóa Kỵ + hung tinh + dù có cát tinh trợ cứu thì sao?",
+      "answer_atom": "Hóa Kỵ là sao KHÔNG NÊN GẶP. Gặp nó rồi lại bị các hung tinh → càng HUNG. Dù có cát tinh trợ cứu khiến giàu sang → cái giàu sang đó thường đi kèm với LO LẮNG NHIỄU NHƯƠNG.",
+      "source_quote": "Hoá Kỵ là sao không nên gặp. Gặp nó rồi lại bị thêm các hung tinh thì càng hung. Dù có cát tinh trợ cứu khiến cho giàu sang nhưng cái giàu sang đó thường đi kèm với nhiều lo lắng, nhiễu nhương.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_ky",
+        "combo:hung_tinh",
+        "combo:cat_tinh",
+        "outcome:hung",
+        "outcome:lo_lang_nhieu_nhuong"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.hoa_ky.Q03",
+      "question": "Tham Lang Phá Quân hãm địa + Hóa Kỵ + sát tinh thì sao?",
+      "answer_atom": "Tham Lang + Phá Quân cư HÃM ĐỊA, dù có Hóa Kỵ đắc địa cũng BẤT LỢI → đàn ông TRỘM CẮP, đàn bà ĐĨ ĐIẾM. Thêm sát tinh → cuộc đời ĂN NGỦ KHÔNG YÊN.",
+      "source_quote": "Hai sao Tham Lang, Phá Quân cư hãm địa dù có Hoá Kỵ đắc địa cũng bất lợi. Đàn ông trộm cắp, đàn bà đĩ điếm, nếu thêm sát tinh tất cuộc đời ăn ngủ không yên.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "hoa:hoa_ky",
+        "combo:tham_lang",
+        "combo:pha_quan",
+        "concept:ham_dia",
+        "outcome:trom_cap",
+        "outcome:di_diem",
+        "outcome:an_ngu_khong_yen"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_tue.Q01",
+      "question": "Cổ thi Thái Tuế Nhập Mệnh ca?",
+      "answer_atom": "Thái Tuế chỉ tinh bất khả đương / Thủ lâm quan hạn yêu suy tường / Nhược vô cát diệu lai tương trợ / Vị miểu quan tai náo nhất trường.",
+      "source_quote": "Thái Tuế chỉ tinh bất khả đương,\nThủ lâm quan hạn yêu suy tường.\nNhược vô cát diệu lai tương trợ,\nVị miểu quan tai náo nhất trường.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_tue",
+        "form:co_thi_4cau",
+        "palace:menh"
+      ],
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.thai_tue.Q02",
+      "question": "Thái Tuế đóng cung Quan hãm địa không có cát tinh thì sao?",
+      "answer_atom": "Thái Tuế vốn mang tính chất HUNG TAI. Nếu có nhập hạn hoặc đóng cung Quan HÃM ĐỊA mà không có cát tinh phù trợ → người chức vị thường gặp LẮM CHUYỆN PHIỀN TRẦM, QUAN TAI NHIỄU NHƯƠNG.",
+      "source_quote": "Sao Thái Tuế vốn mang tính chất hung tai, nếu có nhật hạn hoặc đóng cung Quan hãm địa mà không có cát tinh phù trợ, người chức vị thường gặp lắm chuyện phiền trầm.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "star:thai_tue",
+        "palace:quan",
+        "concept:ham_dia",
+        "outcome:hung_tai",
+        "outcome:quan_tai",
+        "outcome:phien_tram"
+      ],
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q01",
+      "question": "Niên thiếu công danh — phú đoán tiền nhân Việt Nam?",
+      "answer_atom": "Niên thiếu công danh: 'Hồng Loan Bát Tọa ở minh không sai' → có Hồng Loan + Bát Tọa ở Mệnh → công danh sớm.",
+      "source_quote": "a) Những người niên thiếu công danh: Hồng Loan Bát Tọa ở minh không sai.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "star:hong_loan",
+        "star:bat_toa",
+        "outcome:nien_thieu_cong_danh",
+        "school:tu_vi_viet"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q02",
+      "question": "Phủ phùng Không tài suy — phú đoán?",
+      "answer_atom": "'Phủ Phùng Không xứ tài suy: Chung thân nam bảo tư cơ lưu truyền' → Thiên Phủ gặp Tuần Triệt/Không thì tài lộc suy, suốt đời chỉ giữ lưu được cơ nghiệp khó truyền.",
+      "source_quote": "b) Phủ Phùng Không xứ tài suy: Chung thân nam bảo tư cơ lưu truyền.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "star:thien_phu",
+        "sat:khong",
+        "outcome:tai_suy"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q03",
+      "question": "Bất hiển công danh — Nhật Nguyệt Sửu Mùi đồng cung?",
+      "answer_atom": "'Mấy người bất hiển công danh: Chỉ vì Nhật Nguyệt đồng cung Sửu Mùi' → Thái Dương + Thái Âm cùng đóng Sửu hoặc Mùi → công danh KHÔNG HIỂN.",
+      "source_quote": "c) Mấy người bất hiển công danh: Chỉ vì Nhật Nguyệt đồng cung Sửu Mùi.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "combo:nhat_nguyet",
+        "palace:suu_mui",
+        "outcome:bat_hien_cong_danh"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q04",
+      "question": "Phượng Long Mão Dậu — phú đoán?",
+      "answer_atom": "'Phượng Long Mão Dậu đôi miễn: Vượng thì kim bảng ghi tên hàng đầu' → Phượng Các + Long Trì ở Mão Dậu vượng → KIM BẢNG ghi tên hàng đầu (thi đỗ cao).",
+      "source_quote": "đ) Phượng Long Mão Dậu đôi miễn: Vượng thì kim bảng ghi tên hàng đầu.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "star:phuong_cac",
+        "star:long_tri",
+        "palace:mao_dau",
+        "outcome:kim_bang"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q05",
+      "question": "Công danh đợi tuổi cao — Giáp Liêm Giáp Sát?",
+      "answer_atom": "'Công danh đợi tuổi tác cao: Giáp Liêm giáp Sát một hào không sai' → Mệnh bị giáp Liêm Trinh + giáp Thất Sát → công danh phải ĐỢI TUỔI TÁC CAO mới đến.",
+      "source_quote": "e) Công danh đợi tuổi tác cao: Giáp Liêm giáp Sát một hào không sai.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "concept:giap_cung",
+        "star:liem_trinh",
+        "star:that_sat",
+        "outcome:cong_danh_muon"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q06",
+      "question": "Dương Đà xâm Mệnh — phú đoán?",
+      "answer_atom": "'Dương Đà xâm chiếm Mệnh viên, nói năng loạn thuyết những phường điêu ngoa' → Kình Dương + Đà La xâm Mệnh → người nói năng LOẠN THUYẾT, ĐIÊU NGOA.",
+      "source_quote": "Dương Đà xâm chiếm Mệnh viên, nói năng loạn thuyết những phường điêu ngoa.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "sat:duong_da",
+        "palace:menh",
+        "outcome:loan_thuyet",
+        "outcome:dieu_ngoa"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S5a.phu_doan.Q07",
+      "question": "Tham Liêm Tỵ Hợi — phú đoán?",
+      "answer_atom": "'Tham Liêm Tỵ Hợi không bàn, chàng tiêu thủa trước tàn toán ngục hình' → Tham Lang + Liêm Trinh ở Tỵ Hợi → tiêu vong thuở trước, tàn toán NGỤC HÌNH.",
+      "source_quote": "Tham Liêm Tỵ Hợi không bàn, chàng tiêu thủa trước tàn toán ngục hình.",
+      "source_page": 77,
+      "section_id": "tdts.S5a",
+      "tags": [
+        "topic:phu_doan",
+        "combo:tham_lang",
+        "combo:liem_trinh",
+        "palace:ti_hoi",
+        "outcome:nguc_hinh",
+        "outcome:tan_toan"
+      ],
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}

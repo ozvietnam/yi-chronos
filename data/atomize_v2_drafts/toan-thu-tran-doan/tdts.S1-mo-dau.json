@@ -1,0 +1,998 @@
+{
+  "book_corpus_id": "tu-vi-dau-so-toan-thu-vu-tai-luc",
+  "section_id": "tdts.S1",
+  "section_title": "Mở đầu",
+  "pages": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  "atoms": [
+    {
+      "question_id": "tdts.S1.Q01",
+      "question": "Theo Khổng Tử, đạo được thi hành hay bị bỏ phế do điều gì quyết định?",
+      "answer_atom": "Khổng Tử cho rằng việc đạo có được thi hành hay bị bỏ phế đều do mệnh; không biết thiên mệnh thì không thể chứng tỏ đức quân tử.",
+      "source_quote": "Đạo chi tương hành dã dư? Mệnh dã. Đạo chi tương phế dã dư? Mệnh dã. Bất tri mệnh vô dĩ vi quân tử.",
+      "source_page": 3,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thien-menh", "concept:menh", "author:khong-tu"],
+      "commentary": {
+        "han_viet_explain": "Đạo chi tương hành = đạo được thi hành; tương phế = bị bỏ phế; mệnh dã = đều là mệnh; bất tri mệnh vô dĩ vi quân tử = không biết mệnh thì không lấy gì làm quân tử.",
+        "viet_thuan": "Đạo hành hay đạo phế đều do mệnh. Không biết mệnh trời thì không thể làm người quân tử.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q02",
+      "question": "Vũ Tài Lục khẳng định gì về vấn đề vận mạng và vận mạng học?",
+      "answer_atom": "Vấn đề vận mạng học có thể là nghi vấn, nhưng vấn đề vận mạng là sự thật không hồ nghi; thế gian chỉ có thể dùng sự thật phủ định lý luận chứ không thể dùng lý luận phủ định sự thật.",
+      "source_quote": "Vậy có thể khẳng định rằng vấn đề vận mạng học là nghi vấn, nhưng vấn đề vận mạng thì hẳn hoi là sự thật không hở gì nữa. Thế gian chỉ khả dĩ dùng sự thật để phủ định lý luận chứ không thể đem lý luận để phủ định sự thật.",
+      "source_page": 5,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:van-mang-la-su-that", "concept:menh-van-hoc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Có thể hoài nghi môn vận mạng học, nhưng không thể hoài nghi sự thật rằng vận mạng tồn tại và quấy nhiễu con người.",
+        "nguyen_ly": "Sự thật > lý luận. Quan niệm vận mệnh chưa bị tiến bộ trí tuệ làm biến đổi.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q03",
+      "question": "Chữ 'Thiên' trong 'Thiên mệnh' nên hiểu thế nào?",
+      "answer_atom": "Chữ 'thiên' không có nghĩa là một ông trời mang hình dung thiện ác đem họa phúc cho ai; thiên chỉ một hoàn cảnh bẩm thụ lúc vật được tạo thành, không có ý bất công nào; trời không che riêng ai, đất không chở riêng ai.",
+      "source_quote": "Thiên mệnh, chữ thiên đây không có nghĩa là một ông mang hình dung thiện ác đem họa đem phúc cho ai, thiên đây chỉ một hoàn cảnh bẩm thụ lúc vật được tạo thành, không hề có một ý bất công nào hết. Vận mạng con người phải hiểu theo quan niệm << Thiên bất tư phúc địa bất tư tải >>, trời không che riêng ai, đất không chở riêng ai.",
+      "source_page": 5,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thien-menh-phi-than-quyen", "concept:thien"],
+      "commentary": {
+        "han_viet_explain": "Thiên bất tư phúc địa bất tư tải = trời không che riêng (tư = riêng), đất không chở riêng.",
+        "viet_thuan": "Thiên mệnh = hoàn cảnh bẩm sinh lúc được tạo ra, không phải ý trời thiên vị ai.",
+        "nguyen_ly": "Phản đối paradigm thần quyền tôn giáo (Thượng Đế an bài).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Iron Rule #4/#6: KHÔNG predict-tool, KHÔNG fortune-telling. 'Thiên' = cấu trúc tự nhiên, không phải ông thần."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q04",
+      "question": "Giáo sư Tiền Mục định nghĩa Mệnh và Vận khác nhau ra sao?",
+      "answer_atom": "Mệnh là tính cách của người; Vận là sự tao ngộ giữa người với hoàn cảnh. Tính cách thì định trước, nhưng tao ngộ thì tùy thời thế mà biến.",
+      "source_quote": "Giáo sư Tiền Mục giảng: << Mệnh là tính cách của người. Vận là sự tao ngộ giữa người với hoàn cảnh. Tính cách thì định trước nhưng tao ngộ thì tùy thời thế mà biến >>.",
+      "source_page": 5,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:menh-vs-van", "concept:menh", "concept:van", "author:tien-muc"],
+      "commentary": {
+        "han_viet_explain": "Tao ngộ = gặp gỡ (sự cố tình cờ giữa người và hoàn cảnh).",
+        "viet_thuan": "Mệnh = tính cố định bên trong. Vận = cái xảy đến từ bên ngoài theo thời.",
+        "nguyen_ly": "Đặt cặp đôi Mệnh-Vận đi với nhau, không nói Mệnh suông (vì sẽ thành 'nhất thành bất biến').",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q05",
+      "question": "Tỷ lệ giữa số mệnh và tự chủ của con người theo mệnh lý là bao nhiêu?",
+      "answer_atom": "Theo mệnh lý, đời người từ quan hệ cha mẹ anh em vợ con bạn bè cho đến thọ yểu, sự nghiệp thành bại, gặp họa phúc đã được định đoạt bởi số vận tới 7 phần 10, chỉ còn 3 phần cho người hữu chí.",
+      "source_quote": "Theo mệnh lý giải thích thì đời con người ta từ quan hệ cha mẹ anh em, vợ con, bè bạn cho đến sống lâu, chết yểu, sự nghiệp thành bại, gặp hoạ hay gặp phúc đã được định đoạt bởi số vận tới 7 phần 10, chỉ còn lại 3 phần cho hữu chí giả.",
+      "source_page": 7,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:70-30", "concept:menh-ly", "concept:huu-chi"],
+      "commentary": {
+        "han_viet_explain": "Hữu chí giả = người có ý chí. 'Hữu chí cánh thành' = có chí ắt thành.",
+        "viet_thuan": "Số mệnh quyết 7 phần, tự chủ con người chỉ 3 phần.",
+        "nguyen_ly": "Cân bằng giữa định mệnh và tự do ý chí: 70% mệnh + 30% tự ngã. Mệnh lý chỉ phối đại sự, không đến từng chi tiết.",
+        "vi_du_doi_song": "Số nghèo thật đấy nhưng nếu chăm chỉ cũng có thể tránh được cảnh bần tiện nhục nhã.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q06",
+      "question": "Sách Tả Truyện nói gì về nguồn gốc của họa phúc?",
+      "answer_atom": "Họa phúc không tự đến vô cớ, nó đến theo luật nhân quả: 'Hoạ phúc vô môn duy nhân sở chiêu' — họa phúc không có cửa, đều do người tự gọi tới.",
+      "source_quote": "Nó đến theo luật nhân quả như sách Tả Truyện viết: << Hoạ phúc vô môn duy nhân sở chiêu >> (Hoạ phúc do người gọi tới).",
+      "source_page": 6,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:nhan-qua", "concept:hoa-phuc"],
+      "commentary": {
+        "han_viet_explain": "Hoạ phúc vô môn = họa và phúc không có cửa (không có cổng nào dẫn tới riêng); duy nhân sở chiêu = chỉ do người tự gọi (chiêu = vẫy gọi).",
+        "viet_thuan": "Không có ngẫu nhiên. Họa phúc đều do chính mình gọi đến.",
+        "nguyen_ly": "Cùng paradigm nhân-quả: Lão Tử bổ sung 'Hoạ mạc đại ư bất tri túc, mạc đại ư dục đắc' — họa lớn nhất là không biết đủ, là ham muốn được.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q07",
+      "question": "Mệnh vận học là khoa học hay huyền bí?",
+      "answer_atom": "Mệnh vận học Đông phương hẳn hoi là một con toán, chỉ khác ở chỗ đặt bài toán đó trên một luật tắc cao hơn. Không thể bảo mệnh vận học là huyền bí; danh từ huyền bí chỉ dùng cho các thuật phù thủy yểm bùa, đồng cốt, tabou, hội kín tôn giáo.",
+      "source_quote": "Mệnh vận học Đông phương cũng thế, nó hẳn hoi là một con toán, có khác chăng chỉ là khác vì nó đặt bài toán đó trên một luật tắc cao hơn. Không thể bảo mệnh vận học là huyền bí. Danh từ này chỉ có thể gọi các thuật phù thủyếm bùa, đông rí, tabou, hội kín tôn giáo.",
+      "source_page": 6,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:khoa-hoc-khong-huyen-bi", "concept:menh-van-hoc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mệnh vận học = một bài toán theo luật tắc cao, không phải huyền bí, không phải mê tín.",
+        "nguyen_ly": "Khuyết điểm của môn này: (a) Dễ học khó tinh tường; (b) Biết nó vậy mà không tìm hiểu tại sao; (c) Giang hồ thuật sĩ dùng thần quyền áp lực.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Iron Rule #6: 'lý chỉ dị minh' (Trần Đoàn) = nguyên lý có thể làm sáng tỏ, không huyền bí."
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q08",
+      "question": "Điểm căn bản gây xung đột giữa mệnh lý và thường lý là gì?",
+      "answer_atom": "Thường lý dựa trên sự thật hiện hữu để suy đoán vị lai; còn mệnh lý dựa trên mệnh cách vô hình để phán đoán những biến hóa đã qua và sắp tới.",
+      "source_quote": "Điểm căn bản cho sự xung đột giữa mệnh lý và thường lý là: thường lý dựa trên sự thật hiện hữu để suy đoán vị lai, mà mệnh lý lại dựa trên mệnh cách vô hình để phán đoán những biến hóa đã qua và sắp tới.",
+      "source_page": 7,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:menh-ly-vs-thuong-ly", "concept:menh-cach"],
+      "commentary": {
+        "han_viet_explain": "Mệnh cách = cấu trúc cách cục vô hình của mệnh.",
+        "viet_thuan": "Thường lý xem hiện thực mà đoán tương lai. Mệnh lý xem cấu trúc vô hình mà đoán cả quá khứ + tương lai.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": "Thường lý bảo người khỏe sống lâu. Mệnh lý có thể nói ngược: người khỏe vẫn chết trong vài năm.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q09",
+      "question": "Toàn bộ mệnh vận học Đông phương có gốc chung là gì?",
+      "answer_atom": "Toàn bộ mệnh vận học Đông phương đều có chung một gốc là Âm Dương Ngũ Hành, được hệ thống hoá qua bộ Kinh Dịch từ hơn ba ngàn năm trước.",
+      "source_quote": "Toàn bộ mệnh vận học Đông phương đều có chung một gốc là Âm Dương Ngũ Hành được hệ thống hoá qua bộ kinh Dịch từ hơn ba ngàn năm trước đây.",
+      "source_page": 7,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:am-duong-ngu-hanh", "concept:kinh-dich"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Gốc chung của mọi môn mệnh vận = Âm Dương Ngũ Hành, hệ thống qua Kinh Dịch.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q10",
+      "question": "Mệnh vận học phân ra mấy thuật và gồm những thuật nào?",
+      "answer_atom": "Mệnh vận học phân thành 5 thuật: Sơn (tu tiên), Y (chữa bệnh), Mệnh (tính số), Bốc (bói toán), Tướng (xem hình thế).",
+      "source_quote": "Mệnh vận học phân ra nhiều thuật: Sơn: Là phép tu tiên gồm ba bộ môn tu luyện: Huyền Điển — Dưỡng Sinh — Tu Mật. Y: Là chữa bệnh gồm ba phương pháp: Phương Tễ (bốc thuốc) - Châm Cứu - Linh Trị (chữa bệnh bằng ý niệm). Mệnh: Là tính số toán có các khoa Tử Bình (số Bát Tự) — Tỉnh Tôn — Tử Vi Đẩu Số. Bốc: Là bói toán dựa vào tín linh để hỏi vũ trụ thiên nhiên, có bốn lối: Bốc Dịch, Lục Nhâm, Kỳ Môn, Thái Ất. Tướng: Là xem hình thế, có ba loại: xem vân tay, điên mạo, nhân dáng; xem nhà cửa (Dương Cơ) - xem âm phân (tức địa lý phong thủy); và xem tướng trời tức Khoa Thiên Văn.",
+      "source_page": 7,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:ngu-thuat", "concept:son-y-menh-boc-tuong"],
+      "commentary": {
+        "han_viet_explain": "Sơn = núi (tu ẩn). Y = thuốc. Mệnh = số mệnh. Bốc = bói. Tướng = xem hình.",
+        "viet_thuan": "5 thuật của Mệnh vận học = Sơn + Y + Mệnh + Bốc + Tướng. Tử Vi nằm trong nhánh 'Mệnh'.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q11",
+      "question": "Khác biệt giữa Bốc và Mệnh (Tử Vi, Tử Bình) là gì?",
+      "answer_atom": "Bốc dịch, Lục nhâm, Kỳ môn nói chung là bói chỉ dùng để vấn sự — hỏi một việc đang tiến hành xem diễn biến tốt xấu ra sao. Tử Vi, Tử Bình dùng để luận về vận mệnh suốt đời người.",
+      "source_quote": "Bốc dịch, Lục nhâm, Kỳ môn: Nói chung là bói chỉ dùng để vấn sự, nghĩa là hỏi một việc đang tiến hành xem diễn biến tốt xấu của nó ra sao. Tử Vi, Tử Bình: Dùng để luận về vận mệnh suốt đời người.",
+      "source_page": 8,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:boc-vs-menh", "concept:tu-vi", "concept:tu-binh"],
+      "commentary": {
+        "han_viet_explain": "Vấn sự = hỏi việc.",
+        "viet_thuan": "Bốc = hỏi 1 việc. Mệnh (Tử Vi/Tử Bình) = luận cả đời.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q12",
+      "question": "Vì sao Tử Vi phổ biến ở Việt Nam nhưng không phổ biến ở Trung Quốc, Nhật, Hàn?",
+      "answer_atom": "Người Trung Quốc, Nhật Bản, Đại Hàn đều xem Tử Bình mà không dùng Tử Vi; chỉ ở Việt Nam Tử Vi mới phổ biến. Nguyên nhân không rõ. Một giả thuyết là Tử Vi vốn là khoa toán số dành cho bậc vua chúa nên giai cấp thống trị hạn chế phổ biến trong dân gian; có thể do biến động chính trị khiến con cháu quý tộc chạy nạn sang Việt Nam truyền lại.",
+      "source_quote": "Người Trung Quốc và các nước chịu ảnh hưởng văn hoá Hán Tộc như Nhật Bản, Đại Hàn đều xem số Tử Bình như một mà không dùng Tử Vi. Duy tại Việt Nam, khoa Tử Vi lại phổ biến phát triển mạnh; người Việt hầu như không biết đến số Tử Bình là gì cả. Nguyên nhân nào không ai rõ. Người thuộc phái hệ Tử Vi cho rằng đây là một khoa toán số dành cho bậc vua chúa, nên giai cấp thống trị đã hạn chế việc phổ biến trong dân gian.",
+      "source_page": 8,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-vi-viet-nam", "concept:tu-vi", "concept:tu-binh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi = khoa toán cho vua chúa, bị hạn chế ở Trung Quốc, lưu sang Việt Nam thì phổ biến.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q13",
+      "question": "Sao Tử Vi đại diện cho nhân vật và đức tính gì trong truyền thuyết Phong Thần?",
+      "answer_atom": "Sao Tử Vi do Bá Ấp (con lớn Văn Vương, hiếu thảo, bị Trụ Vương giết oan) cai quản; tượng trưng cho thiên lương, tôn quý và cao quý.",
+      "source_quote": "Do đề nghị của Thái Bạch Kim Tinh, Ngọc Hoàng Thượng Đế liền bổ nhiệm Bá Ấp về cai quản sao Tử Vi bởi lẽ Bá Ấp hội đủ ba tính chất: thiên lương, tôn quý và cao quý. ... Sao Tử Vi: Bá Ấp, thần của khí chất tôn quý.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:tu-vi-tinh", "concept:ba-ap"],
+      "commentary": {
+        "han_viet_explain": "Thiên lương = lương thiện trời cho; tôn quý = đáng tôn kính cao quý.",
+        "viet_thuan": "Tử Vi = Bá Ấp = thần khí chất tôn quý.",
+        "nguyen_ly": "Phong Thần là cách dân gian gán ký hiệu sao vào nhân vật sử để dễ nhớ và răn đời.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q14",
+      "question": "Sao Thiên Cơ đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thiên Cơ do Khương Thượng (Tử Nha, Lã Vọng — quân sư của Vũ Vương) cai quản; tượng trưng cho trí tuệ, quyền biến cơ mưu.",
+      "source_quote": "Lúc chết, Thái Bạch Kim Tinh mời về trời giao cho cai quản sao Thiên Cơ, bởi thế sao Thiên Cơ trong Tử Vi Đẩu Số tượng trưng cho trí tuệ, quyền biến cơ mưu. ... Sao Thiên Cơ: Khương Thượng, thần của trí tuệ, tinh thần.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thien-co", "concept:khuong-thuong"],
+      "commentary": {
+        "han_viet_explain": "Quyền biến cơ mưu = biết tùy thời ứng biến và mưu lược.",
+        "viet_thuan": "Thiên Cơ = Khương Tử Nha = trí tuệ + cơ mưu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q15",
+      "question": "Sao Thái Dương đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thái Dương do Tỉ Can (trung thần khuyên vua Trụ, đâm tim chết) cai quản; tượng trưng cho quang minh, bác ái (cực sáng, chính đại).",
+      "source_quote": "Tỉ Can chết, Thái Bạch Kim Tinh thương lắm tới đón về trời giao cho cai quản nơi cao sáng rực, cực quang minh chính đại là sao Thái Dương. ... Sao Thái Dương: Tỉ Can, thần của quang minh, bác ái.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thai-duong", "concept:ti-can"],
+      "commentary": {
+        "han_viet_explain": "Quang minh chính đại = sáng rõ ngay thẳng.",
+        "viet_thuan": "Thái Dương = Tỉ Can = quang minh, bác ái.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q16",
+      "question": "Sao Vũ Khúc đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Vũ Khúc do Vũ Vương (người diệt Trụ, dũng cảm + giỏi kinh tế) cai quản; tượng trưng cho vũ dũng đại phú, là sao chủ về tiền bạc giàu có.",
+      "source_quote": "Thái Bạch Kim Tinh nhận công nghiệp vũ dũng đánh dẹp bạo quân rất xứng đáng với sao Vũ Khúc nên dâng sớ xin Ngọc Hoàng đặt Vũ Vương nơi ấy. Vũ Vương chẳng những là người dũng cảm lại giỏi về kinh tế khiến cho đời sống dân gian sung túc. Do vậy Vũ Khúc còn là sao chủ về tiền bạc giàu có trong Tử Vi Đẩu Số. ... Sao Vũ Khúc: Vũ Vương, thần của vũ dũng đại phú.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:vu-khuc", "concept:vu-vuong"],
+      "commentary": {
+        "han_viet_explain": "Vũ dũng đại phú = dũng cảm võ + giàu lớn.",
+        "viet_thuan": "Vũ Khúc = Vũ Vương = vũ dũng + chủ tiền bạc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Liên quan founder: project_menh_chu_validated.md xác nhận Mệnh chủ Vũ Khúc theo Phú Thái Vi Q.2."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q17",
+      "question": "Sao Thiên Đồng đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thiên Đồng do Văn Vương (cha Vũ Vương, giỏi dung hòa xếp đặt) cai quản; tượng trưng cho dung hòa, ôn thuận.",
+      "source_quote": "Thái Bạch Kim Tinh nhận thấy Văn Vương xứng đáng là một vị thần giỏi dung hòa xếp đặt, tính tình ôn thuận nên cho về cai quản ngôi sao Thiên Đồng. ... Sao Thiên Đồng: Văn Vương, thần của dung hòa, ôn thuận.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thien-dong", "concept:van-vuong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Đồng = Văn Vương = dung hòa, ôn thuận.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Founder Tử Vi: Mệnh Thiên Đồng tại Tỵ (founder_tu_vi_chart.md)."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q18",
+      "question": "Sao Liêm Trinh đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Liêm Trinh do Phí Trọng (đại gian thần, dùng nịnh nót gian kế giết trung thần An triều) cai quản; chủ về những việc lắt léo không ngay thẳng, tàn nhẫn.",
+      "source_quote": "Bên cạnh vua Trụ có tên đại gian thần là Phí Trọng dùng nịnh nót và gian kế đã giết chết nhiều trung thần của An triều... Thái Bạch Kim Tinh liền dùng Phí Trọng làm vị thần của mọi sự tà ác. Trong Tử Vi Đẩu Số, Liêm Trinh chủ về những sự việc lắt léo không ngay thẳng, tàn nhẫn. ... Sao Liêm Trinh: Phỉ Trọng, thần của tàn ác, lươn lẹo.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:liem-trinh", "concept:phi-trong"],
+      "commentary": {
+        "han_viet_explain": "Lươn lẹo = uốn éo, không thẳng.",
+        "viet_thuan": "Liêm Trinh = Phí Trọng = tàn ác + lươn lẹo, không ngay thẳng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q19",
+      "question": "Sao Thiên Phủ đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thiên Phủ do Khương hoàng hậu (chính cung của vua Trụ, hiền thục tài năng, bị Trụ giết do Đát Kỷ xúi) cai quản; mang tính chất tài năng và từ bi.",
+      "source_quote": "Trụ Vương có một vị chính thức nguyên phối hoàng hậu họ Khương là người đàn bà hiển thục tài năng. ... Thái Bạch Kim Tinh đón vong hồn Khương hậu cho cai quản một nơi cao đầy vật sản phì nhiêu là sao Thiên Phủ. Trong Tử Vi Đẩu Số, sao Thiên Phủ mang tính chất tài năng và từ bi. ... Sao Thiên Phủ: Khương hoàng hậu, thần của tài năng, từ bi.",
+      "source_page": 11,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thien-phu", "concept:khuong-hau"],
+      "commentary": {
+        "han_viet_explain": "Hiển thục = đoan trang đức hạnh.",
+        "viet_thuan": "Thiên Phủ = Khương hậu = tài năng + từ bi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q20",
+      "question": "Sao Thái Âm đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thái Âm do Giả phu nhân (vợ Hoàng Phi Hổ, trọng tiết tháo, tự tử để tránh nhục) cai quản; tượng trưng cho thanh khiết, sáng đẹp và ưa sạch sẽ.",
+      "source_quote": "Linh hồn Giả phu nhân bay lên trời, Thái Bạch Kim Tinh đặt bà làm nữ thần của sự thanh khiết, cho đến trú ngụ nơi sao Thái Âm. Từ khi bà về tới thì tỉnh cầu này trở nên gọn ghẽ, sáng sủa và rất sạch. Thái Âm tinh trong khoa Tử Vi tượng trưng cho thanh khiết, sáng đẹp và ưa sạch sẽ. ... Sao Thái Âm: Giá phu nhân, thần của tỉnh khiết, trinh thảo và sạch sẽ.",
+      "source_page": 12,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thai-am", "concept:gia-phu-nhan"],
+      "commentary": {
+        "han_viet_explain": "Trinh thảo = trinh tiết và hiếu thảo.",
+        "viet_thuan": "Thái Âm = Giả phu nhân = thanh khiết, sáng đẹp, sạch sẽ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q21",
+      "question": "Sao Tham Lang đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Tham Lang do Đát Kỷ (con hồ ly hầu Cửu Thiên Huyền Nữ, mê hoặc Trụ Vương) cai quản; mang tính chất điếm đàng tửu sắc, ưa vung phí ăn chơi, tượng trưng người đàn bà phá hoại chồng con, vô tài, bất đức.",
+      "source_quote": "Thái Bạch Kim Tinh cho bắt vong hồn Đát Kỷ về phong làm thần dục vọng, ác liệt, hoang đàng để cai quản sao Tham Lang. ... Ở Tử Vi đẩu số, sao Tham Lang mang tính chất điếm đàng tửu sắc, ưa vung phí ăn chơi, tượng trưng người đàn bà phá hoại chồng con, vô tài, bất đức. ... Sao Tham Lang: Đát Kỷ, thân của dục vọng, vật chất.",
+      "source_page": 12,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:tham-lang", "concept:dat-ky"],
+      "commentary": {
+        "han_viet_explain": "Điếm đàng = lả lơi không đứng đắn.",
+        "viet_thuan": "Tham Lang = Đát Kỷ = dục vọng + vật chất + tửu sắc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q22",
+      "question": "Sao Cự Môn đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Cự Môn do Mã Thiên Kim (vợ lăng loàn của Khương Tử Nha, thắt cổ chết vì tiếc của) cai quản; là nữ thần coi việc thị phi, nồi mồm quai miệng, nghi hoặc.",
+      "source_quote": "Hồn phách Mã Thiên Kim được Thái Bạch Kim Tinh dùng làm nữ thần coi các việc thị phi, nổi mồm quai miệng, cư ngụ tại sao Cự Môn. ... Sao Cự Môn: Mã Thiên Kim, thần của thị phi, nghi hoặc.",
+      "source_page": 12,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:cu-mon", "concept:ma-thien-kim"],
+      "commentary": {
+        "han_viet_explain": "Thị phi = đúng sai cãi vã.",
+        "viet_thuan": "Cự Môn = Mã Thiên Kim = thị phi, nghi hoặc, mồm miệng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q23",
+      "question": "Sao Thiên Tướng đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thiên Tướng do Văn Thái Sư (Tể tướng + đại nguyên soái An triều, chết tại trận tiền) cai quản; là thần của từ ái, trung trinh.",
+      "source_quote": "Trong đám trung thần bên cạnh Trụ Vương còn có Văn Thái Sư làm Tể tướng và đại nguyên sứ của An triều. Quân nhà An bị Chu quân đánh thua, Văn Thái Sư chết tại trận tiền. Vong hồn lên trời được Thái Bạch Kim Tinh cho cai quản sao Thiên Tướng. ... Sao Thiên Tướng: Văn Thái Sư, thần của từ ái, trung trinh.",
+      "source_page": 12,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thien-tuong", "concept:van-thai-su"],
+      "commentary": {
+        "han_viet_explain": "Trung trinh = trung thành và trinh thực.",
+        "viet_thuan": "Thiên Tướng = Văn Thái Sư = từ ái + trung trinh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q24",
+      "question": "Sao Thiên Lương đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thiên Lương do Lý Thiên Vương (đại tướng nhà Chu, được mời làm thần ngay lúc còn sống) cai quản; là thần cai quản tổ chức, xếp đặt.",
+      "source_quote": "Bất luận ai, theo lý ra phải sau khi chết mới được làm thần, chỉ duy Lý nguyên sứ đại tướng của nhà Chu là Thái Bạch Kim Tinh theo lệnh Ngọc Hoàng, xuống mời về làm thần ngay lúc ông còn sống. Nơi trị nhậm của Lý nguyên sứ là Thiên Lương tinh. ... Sao Thiên Lương: Lý Thiên Vương, thần cẩu quản trị, tổ chức, xếp đặt.",
+      "source_page": 12,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:thien-luong", "concept:ly-thien-vuong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Lương = Lý Thiên Vương = cai quản, tổ chức, xếp đặt.",
+        "nguyen_ly": "Là sao duy nhất do nhân vật còn sống được phong làm thần.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q25",
+      "question": "Sao Thất Sát đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Thất Sát do Hoàng Phi Hổ (chồng Giả phu nhân, chống Trụ + đầu hàng Vũ Vương, chết trong trận Thằng Trì) cai quản; là thần chiến tranh chuyên coi việc sát phạt, mang tính uy nghiêm, quyết liệt.",
+      "source_quote": "Hoàng Phi Hổ uất ức vì vua Trụ làm nhục vợ mình gây ra cái chết oan uổng cho Giả phu nhân nên nổi lên đem binh mã đánh lại Trụ vương rồi đầu hàng Vũ Vương. ... Cuối cùng Hoàng Phi Hổ Chết thẳm trong trận Thằng Trì. Thái Bạch Kim Tinh đón vong hồn Phi Hổ về cai quản sao Thất Sát và phong làm thần chiến tranh chuyên coi việc sát phạt. ... Sao Thất Sát: Hoàng Phi Hổ, thần của uy nghiêm, quyết liệt.",
+      "source_page": 12,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:that-sat", "concept:hoang-phi-ho"],
+      "commentary": {
+        "han_viet_explain": "Sát phạt = giết và đánh dẹp.",
+        "viet_thuan": "Thất Sát = Hoàng Phi Hổ = uy nghiêm, quyết liệt, chiến tranh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q26",
+      "question": "Sao Phá Quân đại diện cho ai và đức tính gì?",
+      "answer_atom": "Sao Phá Quân do Trụ Vương (bạo quân, mê Đát Kỷ, tự thiêu chết khi Vũ Vương đánh vào cung) cai quản; tượng trưng tính hung bạo, ngang ngược, là thần phá hoại, tiêu hao.",
+      "source_quote": "Trụ Vương chết rồi, Thái Bạch Kim Tinh cho mang vong hôn về sao Phá Quân, phong làm thần phá hoại. Trong Tử Vi, Phá Quân tượng trưng tính hung bạo, ngang ngược. ... Sao Phá Quân: Trụ Vương, thần của phá hoại, tiêu hao.",
+      "source_page": 13,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:phong-than-truyen-thuyet", "concept:pha-quan", "concept:tru-vuong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phá Quân = Trụ Vương = phá hoại, tiêu hao, hung bạo.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q27",
+      "question": "Trần Đoàn (Hi Di tiên sinh) là người thời nào, có thân thế ra sao?",
+      "answer_atom": "Trần Đoàn sống vào giai đoạn cuối Đường chuyển sang đầu Tống (qua thời Ngũ Đại). Trong chính sử không thấy nói đến ông; tên chỉ ghi trong dã sử, truyền kỳ và sách tướng pháp lý số. Ông lớn lên giữa nhiễu nhương binh lửa nên lên núi Hoa Sơn tu ẩn; khi nắm được lẽ huyền vi âm dương thì đi tìm anh hùng và chân chúa.",
+      "source_quote": "Trong chính sử không thấy nói đến Trần Đoàn, tên ông chỉ được ghi trong dã sử, truyền kỳ và chính thức trong các sách về tướng pháp và lý số, thành thử đời sau không thể có một tiểu sử liên tục và rõ ràng về ông. ... Từ nhà Đường chuyển sang nhà Tống trải qua giai đoạn lịch sử quá độ trung ương tập quyền biến ra địa phương hùng cứ rồi chuyển thành đời Ngũ Đại đã rồi nhà Tống mới thống nhất. Trân Đoàn lớn lên giữa lúc nhiễu nhương binh lửa, giết chóc loạn lạc, ông lên núi tu ẩn để tránh hoạ.",
+      "source_page": 14,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tac-gia-than-the", "author:tran-doan", "concept:hi-di-tien-sinh"],
+      "commentary": {
+        "han_viet_explain": "Hi Di = hiệu của Trần Đoàn.",
+        "viet_thuan": "Trần Đoàn = cuối Đường đầu Tống, ẩn núi Hoa Sơn, không có trong chính sử.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": "Gặp người đàn bà gánh 2 đứa trẻ (Triệu Khuông Dận + Triệu Khuông Nghĩa) — đoán biết đó là 'hai vị thiên tử'.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q28",
+      "question": "Sách Tử Vi Đẩu Số Toàn Thư xuất hiện vào đời nào, do ai biên soạn?",
+      "answer_atom": "Đời Gia Tĩnh thuộc Minh triều có lưu truyền cuốn Tử Vi Đẩu Số Toàn Thư do tiến sĩ La Hồng Tiên biên soạn. Lời tựa nói sách là của tác giả Hi Di Trần Đoàn.",
+      "source_quote": "Chỉ biết đời nhà Gia Tĩnh thuộc Minh triểu có lưu truyền cuốn Tử Vi đẩu số toàn thư do tiến sĩ La Hồng Tiên biên soạn. Lời tựa ở đầu nói Tử Vi đẩu số toàn thư là của tác giả Hi Di Trần Đoàn.",
+      "source_page": 15,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tac-gia-than-the", "author:la-hong-tien", "concept:tu-vi-dau-so-toan-thu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sách Tử Vi Đẩu Số Toàn Thư = biên soạn đời Minh Gia Tĩnh bởi La Hồng Tiên, tác giả gốc Trần Đoàn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q29",
+      "question": "Sách Tử Vi Đẩu Số Toàn Thư của Trần Đoàn (La Hồng Tiên biên) chia làm mấy tập, nội dung gì?",
+      "answer_atom": "Sách chia làm 4 tập: Tập 1 và Tập 3 nói về tính chất + ảnh hưởng các sao, các cung vào vận-mệnh (gồm Thái vi phú, Hình tính phú, Tinh viên luận, v.v.); Tập 2 dạy cách lấy số an các sao; Tập 4 là các lá số danh nhân + thường nhân kèm lời phê.",
+      "source_quote": "Cuốn Tử Vi Đẩu Số Toàn Thư của Hi Di Trần Đoàn do La Hồng Tiên biên soạn chia ra làm 4 tập: Tập một và Tập ba nói về tính chất và ảnh hưởng các sao, các cung vào vận, vào mệnh con người qua các chương sau: Thái vi phú - Hình tính phú ... Tập hai dạy cách lấy số an các sao. Tập bốn là những lá số của các danh nhân, thường nhân với lời phê.",
+      "source_page": 16,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:cau-truc-sach", "concept:tu-vi-dau-so-toan-thu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "4 tập: T1+T3 = lý thuyết sao/cung; T2 = an sao; T4 = lá số mẫu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q30",
+      "question": "Tử Vi Đẩu Số có tất cả bao nhiêu sao theo bản gốc và theo Việt Nam?",
+      "answer_atom": "Trong Tử Vi Đẩu Số Toàn Thư có 14 chính tinh + nhiều phụ tinh + 3 chòm theo Thái Tuế / Lộc Tồn / Tràng Sinh (mỗi chòm 12 vị) + Triệt Lộ và Tuần Trung Không Vong (5 vị). Sách Tử Vi Việt Nam có thêm nhiều sao khác (Đào Hoa, Thiên Tài, Thiên Thọ, Phá Toái, Kiếp Sát...). Tổng cộng 104 vị.",
+      "source_quote": "Trong Tử Vi đẩu số toàn thư chỉ thấy chòm sao chính là 14 vị: Tử Vi — Thiên Cơ — Thái Dương - Vũ Khúc - Thiên Đồng - Liêm Trinh - Thiên Phủ - Thái Âm — Tham Lang - Cự Môn - Thiên Tướng — Thiên Lương - Thất Sát - Phá Quân. ... Tổng cộng lại là 104 vị.",
+      "source_page": 17,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:cau-truc-sao", "concept:chinh-tinh", "concept:phu-tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "14 chính tinh + phụ tinh + 3 chòm 12 vị + 5 vị Triệt-Tuần. VN bổ sung thêm nhiều sao = 104 tổng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q31",
+      "question": "Thuật ngữ 'Thủ' và 'Đồng' nghĩa là gì?",
+      "answer_atom": "Thủ mệnh = một chính tinh đóng ở cung Mệnh. Đồng = hai chính tinh đóng chung tại một cung, hoặc đóng ở các cung khác cũng được gọi là đồng.",
+      "source_quote": "Thủ mệnh: Một chính tinh đóng ở cung Mệnh. Đồng: Hai chính tinh đóng chung tại một cung, hoặc đóng ở các cung khác cũng được gọi là đồng.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:thu", "concept:dong"],
+      "commentary": {
+        "han_viet_explain": "Thủ = giữ; Đồng = cùng.",
+        "viet_thuan": "Thủ = 1 sao chính ngồi giữ. Đồng = 2 sao chính cùng cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q32",
+      "question": "Thuật ngữ 'Lâm' và 'Nhập' nghĩa là gì?",
+      "answer_atom": "Lâm và Nhập cùng nghĩa, nhưng sao tốt đóng ở đâu thì gọi là Lâm, còn sao xấu đóng ở đâu thì gọi là Nhập.",
+      "source_quote": "Hai chữ này mang cùng một nghĩa, nhưng sao tốt đóng ở đâu gọi là Lâm, còn sao xấu đóng ở đâu gọi là Nhập.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:lam", "concept:nhap"],
+      "commentary": {
+        "han_viet_explain": "Lâm = tới gần (sang trọng); Nhập = vào (xấu).",
+        "viet_thuan": "Sao tốt = Lâm; sao xấu = Nhập. Cùng nghĩa đóng vào, nhưng dùng từ khác để phân thiện ác.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q33",
+      "question": "Thuật ngữ 'Miếu' và 'Hãm' nghĩa là gì?",
+      "answer_atom": "Mỗi sao cần đứng đúng chỗ; đứng đúng chỗ là Miếu, đứng sai chỗ là Hãm. Ngoài ra còn có vượng địa, đắc địa, nhưng Miếu địa được coi là nhất. Đúng chỗ mới lợi, sai chỗ vô ích hoặc bất lợi.",
+      "source_quote": "Mỗi sao cần phải đứng tại vị trí đúng chỗ của nó. Đứng sai chỗ gọi là Hãm, đứng đúng chỗ gọi là Miếu. Ngoài ra, còn có những danh từ khác chỉ sự đúng chỗ như vượng địa, đắc địa; tuy nhiên, Miếu Địa vẫn được coi là nhất. Đúng chỗ mới lợi, sai chỗ vô ích hoặc bất lợi.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:mieu", "concept:ham", "concept:vuong-dac"],
+      "commentary": {
+        "han_viet_explain": "Miếu = đền thờ (đúng vị tôn nghiêm); Hãm = sa vào (chỗ kẹt).",
+        "viet_thuan": "Miếu = đúng chỗ (mạnh nhất); Vượng > Đắc > Miếu (theo thứ tự tốt — nhưng Miếu là nhất); Hãm = sai chỗ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": "Vua Văn Vương bị giam tù = Hãm. Tỉ Can phải thờ vua Trụ = Hãm.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q34",
+      "question": "Thuật ngữ 'Toạ' và 'Cứ' nghĩa là gì?",
+      "answer_atom": "Toạ = chỉ sao tốt ngồi tại cung nào. Cứ (tức Chiếm) = chỉ sao xấu xâm nhập tại cung nào.",
+      "source_quote": "Toạ: Chỉ sao tốt ngồi tại cung nào. Cứ (Tức Chiếm): Chỉ sao xấu xâm nhập tại cung nào.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:toa", "concept:cu"],
+      "commentary": {
+        "han_viet_explain": "Toạ = ngồi; Cứ = chiếm cứ.",
+        "viet_thuan": "Sao tốt ngồi = Toạ; sao xấu chiếm = Cứ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q35",
+      "question": "Thuật ngữ 'Bản phương', 'Hợp phương' và 'Lân phương' nghĩa là gì?",
+      "answer_atom": "Bản phương = cung chủ yếu ta căn cứ để tính. Hợp phương = các cung tam hợp của bản phương. Lân phương = các cung bên cạnh bản phương.",
+      "source_quote": "Bản phương: Là cung chủ yếu ta căn cứ vào đó để tính. Ví dụ: Mệnh ở cung Mão thì Hợp phương theo tam hợp là có Hợi và Mùi. Lân phương: Là các cung bên cạnh bản phương. Ví dụ: Thìn và Dậu là lân phương của Mão.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:ban-phuong", "concept:hop-phuong", "concept:lan-phuong"],
+      "commentary": {
+        "han_viet_explain": "Bản = gốc; Hợp = tam hợp; Lân = láng giềng.",
+        "viet_thuan": "Bản = cung chính. Hợp = 2 cung tam hợp. Lân = 2 cung kề bên.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": "Mệnh ở Mão: Hợp phương = Hợi + Mùi; Lân phương = Thìn + Dậu.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q36",
+      "question": "Thuật ngữ 'Triều' và 'Xung' nghĩa là gì?",
+      "answer_atom": "Triều = sao tốt đóng tại cung khác theo tam hợp và chiếu hướng về cung chủ yếu. Xung = sao xấu trong cùng trường hợp (theo tam hợp chiếu hướng vào). Riêng Thái Âm/Thái Dương không dùng Triều mà dùng Chiếu; Lộc Tồn và Hóa Lộc dùng chữ Củng.",
+      "source_quote": "Triều: Sao tốt đóng tại cung khác theo tam hợp và chiếu hướng về cung chủ yếu gọi là Triều. Xung: Sao xấu cùng một trường hợp trên gọi là Xung. Lưu ý: Riêng sao Thái Âm, Thái Dương không dùng chữ Triều mà dùng chữ Chiếu. Riêng sao Lộc Tồn và Hóa Lộc cũng không dùng chữ Triều mà dùng chữ Củng.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:trieu", "concept:xung", "concept:chieu", "concept:cung"],
+      "commentary": {
+        "han_viet_explain": "Triều = chầu hướng về; Xung = đâm thẳng; Chiếu = soi; Củng = chầu giữ.",
+        "viet_thuan": "Sao tốt từ tam hợp chiếu vào = Triều; sao xấu chiếu vào = Xung; Thái Âm/Thái Dương = Chiếu; Lộc Tồn/Hóa Lộc = Củng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q37",
+      "question": "Thuật ngữ 'Giáp' và 'Chiếu' nghĩa là gì? Quy tắc 'Chính không bằng Chiếu, Chiếu không bằng Giáp' áp dụng ra sao?",
+      "answer_atom": "Giáp = các sao tốt đóng tại hai cung bên cạnh cung Mệnh (lân phương). Chiếu = sao ở cung đối xung ảnh hưởng tới (Ngọ chiếu Tí, Dậu chiếu Mão). Câu 'Chính không bằng Chiếu, Chiếu không bằng Giáp' không áp dụng cho bất cứ sao nào — Thái Âm, Thái Dương cần Chiếu; Tả Phụ, Hữu Bật cần Giáp.",
+      "source_quote": "Giáp: Các sao tốt đóng tại hai cung bên cạnh cung Mệnh (lân phương) gọi là Giáp. Ví dụ: Giáp Nhật – Nguyệt, giáp Tả – Hữu. Chiếu: Là sao ở cung đối xung ảnh hưởng tới. Ví dụ: Ngọ chiếu Tí, Dậu chiếu Mão hoặc ngược lại. Về câu 'Chính không bằng Chiếu, Chiếu không bằng Giáp' không thể áp dụng cho bất cứ sao nào.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thuat-ngu", "concept:giap", "concept:chieu", "concept:hiep"],
+      "commentary": {
+        "han_viet_explain": "Giáp = kẹp (2 cung kề); Chiếu = soi từ đối xung.",
+        "viet_thuan": "Giáp = 2 sao tốt kẹp 2 bên Mệnh. Chiếu = sao đối xung soi vào. Câu cổ 'Chính < Chiếu < Giáp' KHÔNG đúng với mọi sao.",
+        "nguyen_ly": "Thái Âm/Thái Dương ưu Chiếu; Tả/Hữu ưu Giáp.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q38",
+      "question": "Tứ Yếu — 4 điểm trọng yếu khi phân biệt biến hóa sao ở 12 cung — gồm những gì?",
+      "answer_atom": "Tứ Yếu gồm: (a) Cát Hung, (b) Hư Thực, (c) Chủ Khách, (d) Cường Nhược.",
+      "source_quote": "Các sao phân phối đóng tại 12 cung, biến hóa vô cùng. Có bốn điểm trọng yếu để phân biệt: a) Cát hung b) Hư thực c) Chủ khách d) Cường nhược",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-yeu", "concept:cat-hung", "concept:hu-thuc", "concept:chu-khach", "concept:cuong-nhuoc"],
+      "commentary": {
+        "han_viet_explain": "Cát = tốt; Hung = xấu; Hư = giả; Thực = thật; Chủ = chính; Khách = phụ; Cường = mạnh; Nhược = yếu.",
+        "viet_thuan": "4 cặp đối lập làm khung phân tích: Tốt/Xấu — Giả/Thật — Chính/Phụ — Mạnh/Yếu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q39",
+      "question": "Yếu tố 'Cát Hung' trong Tứ Yếu phán đoán dựa vào điều gì?",
+      "answer_atom": "Sao có sao thiện sao ác; thiện là cát tinh, ác là hung tinh. Hung hay cát không chỉ căn cứ trên tính chất mỗi sao mà còn căn cứ trên chỗ đứng của nó đúng hay sai, miếu địa hay hãm địa.",
+      "source_quote": "Sao có sao thiện, sao ác; thiện là cát tinh, ác là hung tinh. Hung hay cát không phải chỉ căn cứ trên tính chất mỗi vị sao mà còn căn cứ trên chỗ đứng của nó đúng hay sai, miếu địa hay hãm địa.",
+      "source_page": 18,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-yeu", "concept:cat-hung", "concept:mieu-ham"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cát-Hung = tính chất sao + vị trí (Miếu/Hãm). Không xem 1 chiều.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q40",
+      "question": "Yếu tố 'Hư Thực' trong Tứ Yếu giải thích thế nào?",
+      "answer_atom": "Sao tốt ở miếu địa = thực cát (không hung dù gặp hung). Sao xấu ở hãm địa = thực hung (không cát dù gặp cát). Sao tốt ở hãm địa = hư cát (không tốt, có thể biến cát thành hung). Sao xấu ở miếu địa = hư hung (không hung, có thể biến hung thành cát).",
+      "source_quote": "Sao tốt làm miếu địa mới là thực cát, thực cát thì không hung dù gặp hung cũng chẳng sợ. Sao xấu rơi vào hãm địa mới là thực hung, thực hung thì không cát, dù gặp cát cũng khó lòng giải. Sao tốt ở hãm địa là hư cát, hư cát là không tốt, còn có thể biến cát thành hung. Sao xấu ở miếu địa là hư hung, hư hung là không hung, còn có thể biến hung thành cát.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-yeu", "concept:hu-thuc", "concept:thuc-cat", "concept:hu-cat", "concept:thuc-hung", "concept:hu-hung"],
+      "commentary": {
+        "han_viet_explain": "Hư = giả/rỗng; Thực = thật/đầy.",
+        "viet_thuan": "Tốt+Miếu = Thực cát (cứng); Xấu+Hãm = Thực hung (cứng); Tốt+Hãm = Hư cát (giả tốt, có thể đổi xấu); Xấu+Miếu = Hư hung (giả xấu, có thể đổi tốt).",
+        "nguyen_ly": "Vị trí quyết định Hư/Thực của tính chất sao.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q41",
+      "question": "Yếu tố 'Chủ Khách' trong Tứ Yếu phân chia thế nào?",
+      "answer_atom": "Lấy sao ở bản phương làm Chủ; sao tại cung tam hợp hay xung chiếu là Khách. Nếu bản phương không có chính tinh (vô chủ) thì phải mượn sao cung xung chiếu làm chủ, các sao cung tam hợp làm khách. Nếu cả 2 cung xung chiếu cùng vô chính tinh thì chỉ lấy sao khách mà luận.",
+      "source_quote": "Lấy các sao ở bản phương làm chủ, các sao tại cung tam hợp hay xung chiếu là khách. Nếu như bản phương không có chính tinh tức không có chủ thì phải mượn sao ở cung xung chiếu làm chủ, các sao cung tam hợp làm khách. Trong trường hợp cả hai cung xung chiếu cùng vô chính tinh thì chỉ lấy sao khách mà luận cát hung.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-yeu", "concept:chu-khach", "concept:vo-chinh-tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Chủ = sao trong bản cung. Khách = sao tam hợp + xung chiếu. Vô chính tinh thì mượn sao xung chiếu làm chủ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q42",
+      "question": "Yếu tố 'Cường Nhược' trong Tứ Yếu được luận ra sao?",
+      "answer_atom": "Cường nhược nói về tương quan chủ-khách. Chủ-khách đều tốt = tương đắc, đều xấu = bầy bạo ngược, khỏi xét cường nhược. Chủ-khách vừa hung vừa cát thì xét chủ mạnh hay khách mạnh: chủ mạnh thì khách theo chủ; chủ yếu thì khách kéo chủ đi. Cát cường cát thắng, hung cường hung thắng.",
+      "source_quote": "Đây ý nói cường nhược trong tương quan chủ khách. Khách với chủ đều tốt là khách chủ tương đắc hay khách chủ đều xấu là một bầy bạo ngược thì khỏi phải đặt vấn đề cường nhược. Chủ khách vừa hung vừa cát thì phải xét chủ mạnh hay khách mạnh. Nếu chủ mạnh thì khách theo chủ, nếu chủ yếu thì khách kéo chủ đi. Cát cường cát thắng, hung cường hung thắng.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-yeu", "concept:cuong-nhuoc", "concept:cat-cuong-cat-thang"],
+      "commentary": {
+        "han_viet_explain": "Tương đắc = hợp ý nhau.",
+        "viet_thuan": "Chủ yếu thì bị khách kéo theo. Cát mạnh thắng = tốt; Hung mạnh thắng = xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q43",
+      "question": "Thập Dụ điều 1 — 'Nội tự cường' nghĩa là gì?",
+      "answer_atom": "Bản phương tốt (cát) gọi là 'nội tự cường' — mạnh từ bên trong mạnh ra.",
+      "source_quote": "Bản phương tốt (cát) là <<do nội tự cường>>, mạnh từ bên trong mạnh ra.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:noi-tu-cuong", "concept:ban-phuong-cat"],
+      "commentary": {
+        "han_viet_explain": "Nội tự cường = bên trong tự mạnh.",
+        "viet_thuan": "Bản cung có sao tốt = sức mạnh tự thân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q44",
+      "question": "Thập Dụ điều 2 — 'Tòng căn tự phạt' nghĩa là gì?",
+      "answer_atom": "Bản phương xấu (hung) gọi là 'tòng căn tự phạt' — hư từ gốc rễ.",
+      "source_quote": "Bản phương xấu (hung) là <<tòng căn tự phạt>>, hư từ gốc rễ.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:tong-can-tu-phat", "concept:ban-phuong-hung"],
+      "commentary": {
+        "han_viet_explain": "Tòng căn tự phạt = từ gốc tự chặt (phạt = chặt).",
+        "viet_thuan": "Bản cung có sao xấu = hỏng từ gốc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q45",
+      "question": "Thập Dụ điều 3 — 'Nghênh xuân tiếp phúc' nghĩa là gì?",
+      "answer_atom": "Cung xung chiếu tốt gọi là 'nghênh xuân tiếp phúc' — chờ xuân đón phúc.",
+      "source_quote": "Cung xung chiếu tốt là <<nghênh xuân tiếp phúc>>, chờ xuân đón phúc.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:nghenh-xuan-tiep-phuc", "concept:cung-xung-chieu-tot"],
+      "commentary": {
+        "han_viet_explain": "Nghênh xuân tiếp phúc = đón xuân tiếp phúc.",
+        "viet_thuan": "Cung đối xung có sao tốt = đón phúc từ xa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q46",
+      "question": "Thập Dụ điều 4 — 'Đương đầu ác bổng' nghĩa là gì?",
+      "answer_atom": "Cung xung chiếu xấu gọi là 'đương đầu ác bổng' — giơ đầu chịu búa đập.",
+      "source_quote": "Cung xung chiếu xấu là <<đương đầu ác bổng>>, giơ đầu chịu búa đập.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:duong-dau-ac-bong", "concept:cung-xung-chieu-xau"],
+      "commentary": {
+        "han_viet_explain": "Đương đầu ác bổng = chính diện chịu gậy ác.",
+        "viet_thuan": "Cung đối xung có sao xấu = bị đập thẳng vào đầu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q47",
+      "question": "Thập Dụ điều 5 — 'Tả hữu phùng nguyên' nghĩa là gì?",
+      "answer_atom": "Cung tam hợp tốt gọi là 'tả hữu phùng nguyên' — lắm chân tay giúp đỡ.",
+      "source_quote": "Cung tam hợp tốt là <<tả hữu phùng nguyên>>, lắm chân tay giúp đỡ.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:ta-huu-phung-nguyen", "concept:tam-hop-tot"],
+      "commentary": {
+        "han_viet_explain": "Tả hữu phùng nguyên = trái phải gặp nguồn (nguyên = gốc/nguồn).",
+        "viet_thuan": "Tam hợp tốt = có nhiều trợ thủ 2 bên.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q48",
+      "question": "Thập Dụ điều 6 — 'Tả hữu thụ địch' nghĩa là gì?",
+      "answer_atom": "Cung tam hợp xấu gọi là 'tả hữu thụ địch' — địch từ bên phải, bên trái đánh tới.",
+      "source_quote": "Cung tam hợp xấu là <<tả hữu thụ địch>>, địch từ bên phải, bên trái đánh tới.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:ta-huu-thu-dich", "concept:tam-hop-xau"],
+      "commentary": {
+        "han_viet_explain": "Tả hữu thụ địch = trái phải chịu địch.",
+        "viet_thuan": "Tam hợp xấu = bị đánh từ 2 phía.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q49",
+      "question": "Thập Dụ điều 7 — 'Lưỡng lân tương phù' nghĩa là gì?",
+      "answer_atom": "Lân phương (cung đằng trước đằng sau) tốt gọi là 'lưỡng lân tương phù' — hai bên hàng xóm phù trợ.",
+      "source_quote": "Lân phương (cung đằng trước đằng sau) tốt là <<lưỡng lân tương phù>>, hai bên hàng xóm phù trợ.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:luong-lan-tuong-phu", "concept:lan-phuong-tot"],
+      "commentary": {
+        "han_viet_explain": "Lưỡng lân tương phù = hai láng giềng cùng đỡ.",
+        "viet_thuan": "2 cung kề có sao tốt = 2 hàng xóm phù trợ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q50",
+      "question": "Thập Dụ điều 8 — 'Lưỡng nan tương vũ' nghĩa là gì?",
+      "answer_atom": "Lân phương xấu gọi là 'lưỡng nan tương vũ' — hai bên hàng xóm mưu hại.",
+      "source_quote": "Lân phương xấu là <<lưỡng nan tương vũ>>, hai bên hàng xóm mưu hại.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:luong-nan-tuong-vu", "concept:lan-phuong-xau"],
+      "commentary": {
+        "han_viet_explain": "Lưỡng nan tương vũ = hai bên cùng lăng nhục (vũ = nhục mạ/khinh).",
+        "viet_thuan": "2 cung kề có sao xấu = 2 hàng xóm mưu hại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q51",
+      "question": "Thập Dụ điều 9 — 'Thiên tường vân tập' nghĩa là gì?",
+      "answer_atom": "Cả bốn cung (bản phương + xung chiếu + tam hợp + lân phương) cùng tốt gọi là 'thiên tường vân tập' — mây ngũ sắc kéo về chầu.",
+      "source_quote": "Cả bốn cung cùng tốt là <<thiên tường vàn tập>>, mây ngũ sắc kéo về chầu.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:thien-tuong-van-tap", "concept:tu-cung-cung-tot"],
+      "commentary": {
+        "han_viet_explain": "Thiên tường vân tập = mây lành tụ về (tường = điềm lành; vân = mây; tập = tụ).",
+        "viet_thuan": "4 cung cùng tốt = đại cát, mây lành phủ về.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q52",
+      "question": "Thập Dụ điều 10 — 'Tứ diện sở ca' nghĩa là gì?",
+      "answer_atom": "Cả bốn cung cùng xấu gọi là 'tứ diện sở ca' — bị vây tứ phía không lối thoát.",
+      "source_quote": "Cả bốn cung cùng xấu là <<tứ diện sở ca>>, bị vây tứ phía không lối thoát.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:thap-du", "concept:tu-dien-so-ca", "concept:tu-cung-cung-xau"],
+      "commentary": {
+        "han_viet_explain": "Tứ diện sở ca = bốn mặt nghe tiếng hát (điển 'tứ diện Sở ca' — Hạng Vũ bị vây).",
+        "viet_thuan": "4 cung cùng xấu = bị vây tứ phía như Hạng Vũ ở Cai Hạ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q53",
+      "question": "Bát Pháp 'Thành Phá Tứ Pháp' — 4 cách của Thành Phá là gì?",
+      "answer_atom": "Mệnh/Thân bản phương có sao tốt + gặp các sao khác ở tam hợp & xung chiếu: (1) Gặp Khoa-Quyền-Lộc-Quý = cục thành 'giao long đắc vận vũ' (rồng gặp mây nước). (2) Gặp Tứ hung Hỏa-Linh-Dương-Đà = phá cách 'miêu nhi bất tú' (chỉ nẩy mầm không xanh tốt). (3) Vừa gặp tứ hung lẫn tứ cát = trong thành có phá 'bạch khuê hữu điểm' (ngọc trắng có vết). (4) Không gặp cả tứ hung lẫn tứ cát = cách chưa thành cũng chưa phá, chờ hạn 'hỗn kim phác ngọc' (vàng lẫn khoáng, ngọc chưa lấy khỏi đá).",
+      "source_quote": "Phẩm lệnh thân bản phương có sao tốt gặp các sao khác ở cung tam hợp và xung chiếu nếu gặp: Khoa Quyển Lộc Quý: Thì kể như các cục thành, đáng phê mấy chữ <<giao long đắc vận vũ>>. Tứ hung Hỏa Linh Dương Đà: Thì kể như phá cách loại <<miêu nhỉ bất tú>>. Vừa gặp tứ hung lẫn tứ cát: Thì kể như trong thành có phá, chẳng khác chi <<bạch khuê hữu điểm>>. Cả tứ hung lẫn tứ cát đều không thì kể là cách chưa thành nhưng không bị phá, chờ xem hạn ra sao giống như <<hỗn kim phác ngọc>>.",
+      "source_page": 19,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:bat-phap", "concept:thanh-pha-tu-phap", "concept:giao-long-dac-van-vu", "concept:mieu-nhi-bat-tu", "concept:bach-khue-huu-diem", "concept:hon-kim-phac-ngoc"],
+      "commentary": {
+        "han_viet_explain": "Giao long đắc vận vũ = rồng giao gặp mây mưa; Miêu nhi bất tú = mạ không trổ; Bạch khuê hữu điểm = ngọc trắng có vết; Hỗn kim phác ngọc = vàng pha tạp, ngọc thô chưa giũa.",
+        "viet_thuan": "Mệnh có sao tốt, xem tam hợp + xung chiếu: 4 cát = thành (rồng gặp nước); 4 hung = phá (mạ không trổ); cả 2 = trong thành có phá (ngọc có vết); không 2 = chưa thành chưa phá (vàng còn lẫn khoáng).",
+        "nguyen_ly": "Tiền đề: Mệnh có sao tốt sẵn. Xét thêm sao xung quanh để định Thành/Phá.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q54",
+      "question": "Bát Pháp 'Cứu Khí Tứ Pháp' — 4 cách của Cứu Khí là gì?",
+      "answer_atom": "Mệnh/Thân cung xung chiếu tam hợp: (1) Gặp Lộc-Quý-Quyền-Khoa = cứu cách 'cửu hạn phùng cam vũ' (hạn lâu gặp mưa ngọt). (2) Gặp Hỏa-Linh-Dương-Đà = khí cách 'hử mộc nan điêu' (gỗ mục không khắc đẽo được — bỏ đi). (3) Vừa tứ cát vừa tứ hung = vừa cứu vừa khí cách 'thực kê lặc' (ăn gân gà — nuốt không trôi nhả không nỡ). (4) Không gặp cả 2 = 'thủ tàu bảo khuyết' (nấn ná đợi thời).",
+      "source_quote": "Phàm mệnh thân cung mà các xung cung chiếu tam hợp đều có: Gặp Lộc Quý Quyển Khoa là cứu cách, hạn hán lâu ngày được cơn mưa (cửu hạn phùng cam vũ). Gặp Hỏa Linh Dương Đà là khí cách (bỏ đi), cây gỗ mục không thể khắc đẽo gì được (hử mộc nan điêu). Gặp vừa tứ cát vừa tứ hung là vừa cứu vừa khí cách, giống như ăn gân gà (thực kê lặc). Không gặp cả tứ cát lẫn tứ hung là cách (thủ tàu bảo khuyết), nấn ná đợi thời.",
+      "source_page": 20,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:bat-phap", "concept:cuu-khi-tu-phap", "concept:cuu-han-phung-cam-vu", "concept:hu-moc-nan-dieu", "concept:thuc-ke-lac", "concept:thu-tau-bao-khuyet"],
+      "commentary": {
+        "han_viet_explain": "Cửu hạn phùng cam vũ = hạn lâu gặp mưa ngọt; Hử mộc nan điêu = gỗ mục khó khắc; Thực kê lặc = ăn gân gà (điển Tào Tháo); Thủ tàu bảo khuyết = giữ chỗ trống (chờ thời).",
+        "viet_thuan": "Mệnh chỉ có sao xấu (cần cứu): tứ cát = cứu (hạn gặp mưa); tứ hung = bỏ đi (gỗ mục); cả 2 = nửa cứu nửa bỏ (gân gà); không 2 = chờ thời.",
+        "nguyen_ly": "Đối lập với Thành Phá: nhân tố tiền đề là cần được cứu.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tdts.S1.Q55",
+      "question": "Tử Vi khác với Tử Bình ở điểm cơ bản nào trong cách xem?",
+      "answer_atom": "Xem Tử Bình chỉ cần thuộc lý ngũ hành cho chắc rồi cứ thế luận ra. Xem Tử Vi thì lý ngũ hành không tìm thấy mấu chốt vững chắc để làm cơ sở bàn luận; phải thuộc từng sao, từng cung, sao nào ở chỗ nào, miếu hãm, đắc địa, bất đắc địa để hạ đoán. Cái lý Tử Vi tản mạn không có nguyên tắc nhất định (do tam sao thất bản hoặc bị bí truyền).",
+      "source_quote": "Tử Vi khác với Tử Bình, ở chỗ cái lý của nó tẩn mạn không có nguyên tắc nhất định. ... Bởi thế xem Tử Bình chỉ cần thuộc lý ngũ hành cho chắc rồi cứ thế luận ra. Còn xem Tử Vi thì lý ngũ hành không tìm thấy mấu chốt vững chắc để làm cơ sở bàn luận, cho nên phải thuộc từng sao, từng cung, sao nào ở chỗ nào, miếu hãm, đắc địa, bất đắc địa để hạ đoán.",
+      "source_page": 20,
+      "section_id": "tdts.S1",
+      "tags": ["paradigm:tu-vi-vs-tu-binh", "concept:ngu-hanh", "concept:bi-truyen"],
+      "commentary": {
+        "han_viet_explain": "Tản mạn = rời rạc, không hệ thống.",
+        "viet_thuan": "Tử Bình = chỉ cần ngũ hành. Tử Vi = phải thuộc từng sao từng cung từng vị trí miếu/hãm.",
+        "nguyen_ly": "Tử Vi mất nguyên tắc do tam sao thất bản hoặc bí truyền.",
+        "vi_du_doi_song": "Đẩu số cốt tuý phú: 'Tham Vũ mộ trung cư, tam thập tải phát phúc' = Tham Lang, Vũ Khúc ở mộ địa (Thìn Tuất Sửu Mùi) tại Mệnh thì ngoài 30 tuổi mới phát.",
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
