@@ -64,7 +64,13 @@ def find_or_create_chunk(conn: sqlite3.Connection, book_corpus: str, page: int, 
 
 
 def ingest_atom(conn: sqlite3.Connection, atom: dict, section_id: str, book_corpus: str) -> int | None:
-    page = int(atom.get("source_page") or 0)
+    raw_page = atom.get("source_page") or 0
+    if isinstance(raw_page, str) and "-" in raw_page:
+        raw_page = raw_page.split("-")[0]  # "44-45" → "44"
+    try:
+        page = int(raw_page)
+    except (ValueError, TypeError):
+        return None
     if not page:
         return None
 
