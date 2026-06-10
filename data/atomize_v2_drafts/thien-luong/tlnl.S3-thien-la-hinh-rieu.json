@@ -3,7 +3,35 @@
   "section_id": "tlnl.S3",
   "section_title": "Thương Sứ — Tuần Triệt — Khôi Việt Thiên Ất Quý Nhân — Quan Phúc Tứ Đức — Mệnh ở Tứ Sinh/Chính/Mộ — 14 Chính Tinh khu đất phì nhiêu — Nhật Nguyệt — Tuần Triệt cho Mệnh có chính diệu (p55-81)",
   "school": "thien_luong_dao_duc_hoc",
-  "pages": [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81],
+  "pages": [
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81
+  ],
   "extractor_note": "Đoạn 27 trang này CHỦ YẾU bàn 7 chủ đề lớn liên tiếp (Thương Sứ → Tuần Triệt → Khôi Việt Thiên Ất → Quan Phúc Tứ Đức → Mệnh Tứ Sinh/Chính/Mộ → 14 chính tinh → Nhật Nguyệt → Tuần Triệt cho mệnh có chính diệu). Tiêu đề task gốc nhắc 'Thiên La Địa Võng + Hình Riêu Không Kiếp + Hung Sát Triệt = đáng quý + Bạch Hổ Đường Phù' — các topic này KHÔNG có chương riêng trong p55-81, chỉ xuất hiện rải rác: Thiên La Địa Võng (mention p60 'Mậu Ngọ Đà la ở Thìn La Võng', p79 chưa thấy), Hình Riêu (mention p66, p75 Nguyễn Khuyến/Nguyễn Đình Chiểu mục tật), Hung Sát Triệt (p80-81 Triệt bẻ gãy Không Kiếp), Bạch Hổ (mention p65, p69). Em atomize theo CÁI THỰC SỰ CÓ trong text, không bịa.",
   "atoms": [
     {
@@ -13,7 +41,12 @@
       "source_quote": "Thương Sứ là hai đồn canh ở giữa ba đoạn đường này. Thương là tốn hại, Sứ là thừa lệnh. Sứ ở Tật Ách là chấp chưởng thi hành tai ách là một việc làm trúng chỗ. Còn Thương sao lại ở cung Nô Bộc, không lẽ người dưới tay người nào cũng mất nhân nghĩa chỉ báo hại mệnh hình thương!",
       "source_page": 56,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_thuong", "star:thien_su", "concept:doan_duong_doi", "concept:tho"],
+      "tags": [
+        "star:thien_thuong",
+        "star:thien_su",
+        "concept:doan_duong_doi",
+        "concept:tho"
+      ],
       "commentary": {
         "han_viet_explain": "Thương = tốn hại; Sứ = thừa lệnh (sứ giả thi hành)",
         "viet_thuan": "Thiên Thương ở Nô Bộc, Thiên Sứ ở Tật Ách — là hai chốt kiểm tra giữa các mốc 50, 60, 70 tuổi.",
@@ -31,7 +64,11 @@
       "source_quote": "Câu nói thường ngày đã thành tục ngữ \"49 chưa qua, 53 đã đến\". Có ý lo sợ cho ai trong thời gian ngắn ngủi 4 năm mà đến 2 lần xui xẻo có thể về với tổ tiên.",
       "source_page": 55,
       "section_id": "tlnl.S3",
-      "tags": ["concept:han_49", "concept:han_53", "concept:so_tho"],
+      "tags": [
+        "concept:han_49",
+        "concept:han_53",
+        "concept:so_tho"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "49 và 53 là hai năm dốc lượn trước khi vào tuổi sơ thọ (50).",
@@ -49,7 +86,11 @@
       "source_quote": "Chữ Thọ là rất quý vì có thọ mới từng trải cuộc đời hướng dẫn cháu con, đâu là đường quang lẽ phải. Thọ có 3 đợt: Sơ Thọ, trung thọ và thượng thọ. Sơ thọ là tuổi 50.",
       "source_page": 55,
       "section_id": "tlnl.S3",
-      "tags": ["concept:so_tho", "concept:trung_tho", "concept:thuong_tho"],
+      "tags": [
+        "concept:so_tho",
+        "concept:trung_tho",
+        "concept:thuong_tho"
+      ],
       "commentary": {
         "han_viet_explain": "Sơ thọ = thọ bậc đầu; trung thọ = bậc giữa; thượng thọ = bậc cao nhất",
         "viet_thuan": "50 / 60 / 70 là 3 ngưỡng thọ truyền thống.",
@@ -67,7 +108,14 @@
       "source_quote": "3, 13, 23, 33, 43, 53, 63 là những năm sinh xuất (chịu đựng); 5, 15, 25, 35, 45, 55, 65 là những năm khắc xuất (phấn đấu); 7, 17, 27, 37, 47, 57, 67 là những năm bị khắc nhập (thua thiệt); 9, 19, 29, 39, 49, 59, 69 là những năm được sinh nhập (hưng vượng) trừ năm 49.",
       "source_page": 56,
       "section_id": "tlnl.S3",
-      "tags": ["concept:can_chi", "concept:ngu_hanh", "concept:sinh_xuat", "concept:khac_xuat", "concept:sinh_nhap", "concept:khac_nhap"],
+      "tags": [
+        "concept:can_chi",
+        "concept:ngu_hanh",
+        "concept:sinh_xuat",
+        "concept:khac_xuat",
+        "concept:sinh_nhap",
+        "concept:khac_nhap"
+      ],
       "commentary": {
         "han_viet_explain": "Sinh xuất = sinh cho người khác (hao); khắc xuất = mình khắc (phấn đấu); sinh nhập = được sinh cho (hưng); khắc nhập = bị khắc (thua)",
         "viet_thuan": "Đếm tuổi rồi tra Can năm đó sinh-khắc thế nào với Can sinh.",
@@ -85,7 +133,11 @@
       "source_quote": "Hàng Can tuy được sinh nhập như các năm có số 9 khác, nhưng lại là năm Chi đến năm tuổi, nghĩa là năm 49 là năm tuổi của mình. Tại sao năm tuổi lại xấu? Trong bản lập thành Tử Vi, vị trí năm tuổi luôn luôn đóng ở thế tam hợp không đắc ý (Tuế Phá Tang Môn Điếu Khách).",
       "source_page": 56,
       "section_id": "tlnl.S3",
-      "tags": ["concept:nam_49", "concept:nam_tuoi", "concept:tue_pha_tam_hop"],
+      "tags": [
+        "concept:nam_49",
+        "concept:nam_tuoi",
+        "concept:tue_pha_tam_hop"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Can sinh nhập (tốt) nhưng Chi trùng năm sinh → tam hợp Tuế Phá → mâu thuẫn, năm bất mãn.",
@@ -103,7 +155,11 @@
       "source_quote": "Năm 67 tuổi bất cứ người tuổi gì, hàng Can đều bị khắc nhập nên gọi là thiên khắc. Còn hàng Chi đều bị đối nghịch tức là thế xung như tuổi Tý gặp năm Ngọ, tuổi Mùi gặp năm Sửu... Gốc bị cắt xén, ngọn bị dập bể làm sao mà sanh tồn.",
       "source_page": 56,
       "section_id": "tlnl.S3",
-      "tags": ["concept:nam_67", "concept:thien_khac_dia_xung", "concept:thuong_tho"],
+      "tags": [
+        "concept:nam_67",
+        "concept:thien_khac_dia_xung",
+        "concept:thuong_tho"
+      ],
       "commentary": {
         "han_viet_explain": "Thiên khắc = trời (Can) khắc; địa xung = đất (Chi) xung — kép đôi xấu nhất.",
         "viet_thuan": "67 = đoạn dốc trước khi lên thượng thọ 70 — 'thất thập cô lai hi hữu' (xưa nay hiếm).",
@@ -121,7 +177,11 @@
       "source_quote": "Mỗi giai đoạn bước tới từ sơ thọ đến thượng thọ đều có một đoạn đường đồ dốc để lượn lên, người lái xe phải lành nghề (Thái Tuế) vững tay lái, xe không ham chở nặng (nới tay Quyền Lộc) mới mong an toàn.",
       "source_page": 56,
       "section_id": "tlnl.S3",
-      "tags": ["concept:thai_tue", "concept:quyen_loc", "concept:vuot_han"],
+      "tags": [
+        "concept:thai_tue",
+        "concept:quyen_loc",
+        "concept:vuot_han"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tâm vững (Thái Tuế) + giảm tham (nhả Quyền Lộc) = qua được dốc tuổi.",
@@ -139,7 +199,12 @@
       "source_quote": "Sứ ở Tật Ách là chấp chưởng thi hành tai ách là một việc làm trúng chỗ. Còn Thương sao lại ở cung Nô Bộc, không lẽ người dưới tay người nào cũng mất nhân nghĩa chỉ báo hại mệnh hình thương!",
       "source_page": 56,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_su", "star:thien_thuong", "palace:tat_ach", "palace:no_boc"],
+      "tags": [
+        "star:thien_su",
+        "star:thien_thuong",
+        "palace:tat_ach",
+        "palace:no_boc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Thiên Lương đặt câu hỏi mở: tại sao Thương ở Nô — gợi suy tư về quan hệ chủ-tớ trong tuổi già.",
@@ -157,7 +222,11 @@
       "source_quote": "Thường tình người đi xuôi là thuận đường nên gặp Thiên Thương trước có phần nhẹ hơn người đi ngược phải đụng độ Thiên Sứ ngay bước đầu. Thiên Sứ kế như vị chánh sứ thi hành mệnh lệnh, còn Thiên Thương chỉ là phân phụ tá nên có phần nhẹ tay quyết định.",
       "source_page": 57,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_thuong", "star:thien_su", "concept:di_xuoi_di_nghich"],
+      "tags": [
+        "star:thien_thuong",
+        "star:thien_su",
+        "concept:di_xuoi_di_nghich"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Sứ là chánh sứ (quyền chính); Thương là phụ tá (nhẹ tay).",
@@ -175,7 +244,12 @@
       "source_quote": "Nếu Thiên Thương có Kình Dương đứng hộ vệ ở Tí, Ngọ, Mão, Dậu thì cảnh quan tha ma bắt thường diễn tả.",
       "source_page": 57,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_thuong", "star:kinh_duong", "concept:tu_chinh", "concept:quan_tha_ma_bat"],
+      "tags": [
+        "star:thien_thuong",
+        "star:kinh_duong",
+        "concept:tu_chinh",
+        "concept:quan_tha_ma_bat"
+      ],
       "commentary": {
         "han_viet_explain": "Quan tha ma bắt = thoát kiện cáo lại gặp tai họa khác",
         "viet_thuan": null,
@@ -193,7 +267,10 @@
       "source_quote": "Bảng Đồng Hạn Của Tiểu Nhi: 1 tuổi Mệnh — Thiên Thương khắc nhập; 2 tuổi Tài; 3 tuổi Ách — Thiên Sứ sinh xuất; 4 tuổi Phối; 5 tuổi Phúc — khắc xuất; 6 tuổi Quan; 7 tuổi Nô — (Thiên Thương); 8 tuổi Di; 9 tuổi Tử — (sinh nhập); 10 tuổi Bào; 11 tuổi Phụ; 12 tuổi Điền.",
       "source_page": 57,
       "section_id": "tlnl.S3",
-      "tags": ["concept:dong_han_tieu_nhi", "concept:12_cung"],
+      "tags": [
+        "concept:dong_han_tieu_nhi",
+        "concept:12_cung"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "12 tuổi đầu đời đi qua 12 cung theo thứ tự — mỗi cung là 1 mốc kiểm tra.",
@@ -211,7 +288,10 @@
       "source_quote": "Nói đến những đấng cao dày đức hạnh phải là những thành phần kiếp sống nặng đòn cân hy sinh về phần tinh thần bác ái, xót xa trước cảnh trầm luân cõi tục. Trên thế giới có những bậc thay mặt cho đạo lý xông pha trần lụy kiếm cách nâng đỡ an ủi tinh thần người đời tín mộng không ngần ngại sự khó khăn nguy hiểm. Có phải là những bậc chân chánh tu hành của một đạo giáo (Giám Mục Hòa Thượng).",
       "source_page": 58,
       "section_id": "tlnl.S3",
-      "tags": ["concept:duc_hanh", "concept:tu_hanh"],
+      "tags": [
+        "concept:duc_hanh",
+        "concept:tu_hanh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tử Vi nhìn người tu hành là hình ảnh hy sinh tinh thần.",
@@ -229,7 +309,13 @@
       "source_quote": "Bên dương có Tử Phủ cũng như bên âm có Đồng Lương, là những bậc danh nhân khoan hòa đức độ sáng giá như Tử Vi là trên ngôi cao cả. Thiên Phủ là trung hậu bao dung giải quyết những khó khăn bằng phương tiện tiên quyết là ôn hòa. Thiên Đồng thì từ thiện nhưng không quả quyết tính tình hay thay đổi. Khác hẳn là Thiên Lương nhân đức phóng khoáng không chịu gò bó trong một khuôn khổ, tùy hoàn cảnh giao cảm.",
       "source_page": 58,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_vi", "star:thien_phu", "star:thien_dong", "star:thien_luong", "concept:duc_hanh"],
+      "tags": [
+        "star:tu_vi",
+        "star:thien_phu",
+        "star:thien_dong",
+        "star:thien_luong",
+        "concept:duc_hanh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "4 sao = 4 mẫu mực đức hạnh đối với nếp sống nhân sinh.",
@@ -247,7 +333,11 @@
       "source_quote": "Họ đã đóng vai trò Tuần Triệt của lý số. Tuần Triệt là một bộ phận trong máy huyền vi cần sửa chữa bộ phận nào khác đi một ít (Tuần) hay thay đổi hẳn một cách đặc biệt (Triệt), không như cũ những gì có liên hệ giữa hai cung mà Tuần Triệt đứng giữa ranh giới và ảnh hưởng phải theo luật âm dương trở nên nặng nhẹ.",
       "source_page": 58,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "concept:huyen_vi"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "concept:huyen_vi"
+      ],
       "commentary": {
         "han_viet_explain": "Tuần = vòng (sửa nhẹ); Triệt = chặt (thay đổi hẳn)",
         "viet_thuan": "Tuần Triệt = nhân viên giữ trật tự lưu thông ở ngã tư — chặn / nhường / hoán cải.",
@@ -265,7 +355,12 @@
       "source_quote": "Ảnh hưởng chiếu của Tuần Triệt thấy cả một luận lý khó khăn. Đặt đứng giữa 2 cung có nghĩa là chỉ có liên quan đến 2 cung. Không như Thiên Không, Thiên Tài nằm ở trong một cung ngoài công việc chỉ phối cung đó còn có liên lạc dính líu đến tam hợp, nhị hợp, xung phá là thế chung kết tập hợp nên mới có giá trị tới các cung xung chiếu.",
       "source_page": 58,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "star:thien_khong", "star:thien_tai"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "star:thien_khong",
+        "star:thien_tai"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -283,7 +378,13 @@
       "source_quote": "Thành phần vô hình là những văn tử Thiên Quan, Quí Nhân, Thiên Phúc Quí Nhân, Thiên Ất Quí Nhân (tam tài) xuống đến Thiên Đức, Nguyệt Đức, Phúc Đức, Long Đức là những linh mục đại đức đứng một địa phương.",
       "source_page": 59,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_quan", "star:thien_phuc", "star:thien_at", "concept:tam_tai_quy_nhan", "concept:tu_duc"],
+      "tags": [
+        "star:thien_quan",
+        "star:thien_phuc",
+        "star:thien_at",
+        "concept:tam_tai_quy_nhan",
+        "concept:tu_duc"
+      ],
       "commentary": {
         "han_viet_explain": "Tam tài = 3 bậc quý nhân vô hình",
         "viet_thuan": "Tử Vi paradigm: có hệ thống quý nhân từ trên cao xuống địa phương cứu vớt người đời.",
@@ -301,7 +402,13 @@
       "source_quote": "Tuổi Giáp (D) muốn thành công mỹ mãn phải là bộ Sát, Phá, Tham khi đáo hạn Thiên Không khác gì người trèo cao phái ngã đau. Nếu là mệnh Cơ, Nguyệt, Đồng, Lương gặp hạn Thiên Không là Sát, Phá, Tham lại còn nguy nam gấp bội cho nên Quan Phúc và cả Thiên Ất đỗ đồn đóng ở cung âm đỡ đòn Kình Dương ở Mão.",
       "source_page": 59,
       "section_id": "tlnl.S3",
-      "tags": ["age:giap", "star:sat_pha_tham", "star:thien_khong", "star:quan_phuc", "star:thien_at"],
+      "tags": [
+        "age:giap",
+        "star:sat_pha_tham",
+        "star:thien_khong",
+        "star:quan_phuc",
+        "star:thien_at"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Giáp + SPT đạt đỉnh + Thiên Không = ngã; Cơ Nguyệt Đồng Lương + hạn SPT-Không = nguy gấp bội.",
@@ -319,7 +426,13 @@
       "source_quote": "Tuổi Ất (A) Cơ, Lương mới có Quyền, Lộc mà cung Thìn đối với tuổi âm nam có Đà La tức là Thiên La, nên Quan Phúc và Thiên Ất chia nhau đứng tam hợp Thân Tý Thìn.",
       "source_page": 59,
       "section_id": "tlnl.S3",
-      "tags": ["age:at", "star:co_luong", "star:da_la", "concept:thien_la", "palace:thin"],
+      "tags": [
+        "age:at",
+        "star:co_luong",
+        "star:da_la",
+        "concept:thien_la",
+        "palace:thin"
+      ],
       "commentary": {
         "han_viet_explain": "Thiên La = lưới trời; Đà La ở Thìn = hiện thân của Thiên La cho tuổi âm nam",
         "viet_thuan": "Đoạn này là chỗ DUY NHẤT trong p55-81 nhắc Thiên La cụ thể: cung Thìn + tuổi âm nam + Đà La = Thiên La.",
@@ -337,7 +450,13 @@
       "source_quote": "Tuổi Mậu: Người tuổi Mậu e ngại nhất Kình Dương. Đối với người Dân có Kình Dương nhập mệnh ở Ngọ, Tuất là hạng người mà Thái Tuế có Kình nhập mệnh ở Ngọ, kế như uống cong sinh thành nên Quan Phúc phải hợp sức đóng ở Mão để chặn Thiên Không và phá bớt Kình (nhập cuộc gặp gỡ nhau). Mặt khác, Thiên Ất cũng đóng ở Mùi và giúp Quan Phúc một tay, còn một phần rửa tội cho người tuổi Thân Tí Thìn gặp hạn Thiên Không, mặc dù Phá Toái tung hoành ngang dọc.",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["age:mau", "star:kinh_duong", "star:quan_phuc", "star:thien_at", "star:thien_khong"],
+      "tags": [
+        "age:mau",
+        "star:kinh_duong",
+        "star:quan_phuc",
+        "star:thien_at",
+        "star:thien_khong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Mậu sợ Kình ở Ngọ/Tuất; Quan Phúc + Thiên Ất hợp sức đỡ.",
@@ -355,7 +474,14 @@
       "source_quote": "Tuổi Tân: Người tuổi Tân đem phước lành (Lộc Tồn) ban phát cho ba chỉ Ty Dậu Sửu. Ba cung này thường xuyên có Phá Toái lũng đoạn và tuổi Tân lại bị Triệt chặt đứt ở Ty. Ví dụ, tuổi Tân Ty ngoài Triệt ở Ty, Lộc Tồn còn bị Tuần ngăn đón ở Dậu nên Quan Phúc phải ngồi ngay ở Dậu và Ty an ủi cho được phần nào.",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["age:tan", "star:loc_ton", "star:trietan", "star:tuan", "star:quan_phuc", "star:pha_toai"],
+      "tags": [
+        "age:tan",
+        "star:loc_ton",
+        "star:trietan",
+        "star:tuan",
+        "star:quan_phuc",
+        "star:pha_toai"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -373,7 +499,13 @@
       "source_quote": "Tuổi Nhâm: Người tuổi Nhâm mở rộng địa võng cho ba tuổi Dần Ngọ Tuất (Đà la đặt lưới ở Tuất). Quan Phúc phải đóng ở Tuất và Ngọ. Còn Thiên Ất đứng ở hai cung âm (Mão và Ty) giúp ích cho Thân Tí Thìn.",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["age:nham", "concept:dia_vong", "star:da_la", "palace:tuat", "star:quan_phuc"],
+      "tags": [
+        "age:nham",
+        "concept:dia_vong",
+        "star:da_la",
+        "palace:tuat",
+        "star:quan_phuc"
+      ],
       "commentary": {
         "han_viet_explain": "Địa Võng = lưới đất; Đà La ở Tuất = hiện thân của Địa Võng cho tuổi Nhâm",
         "viet_thuan": "Đây là chỗ DUY NHẤT trong p55-81 nhắc Địa Võng cụ thể.",
@@ -391,7 +523,11 @@
       "source_quote": "Những vị trí sắp xếp trên địa bàn dành cho Thiên Quan, Thiên Phúc, Thiên Ất, Lộc Tồn xuống đến Tam Hóa và Lưu Hà do hàng Can ấn định, như có sự trù liệu tính vi vô hình mọi lẽ thừa trừ. Kiếp sống nhân sinh chỉ là kết quả của Thân (vòng Tràng Sinh) nhúng tay gặt hái.",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["concept:can", "concept:trang_sinh", "concept:than"],
+      "tags": [
+        "concept:can",
+        "concept:trang_sinh",
+        "concept:than"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -409,7 +545,13 @@
       "source_quote": "Người Mậu Ngọ sanh ngày 24 tháng 10 giờ Tỵ khiến người học số phải suy tư rất nhiều đâu là bộ mặt chính xác. Mệnh Thái Tuế Vô Chính Diệu, Thân Điêu Khách Cơ Lương. ... Người Mậu Ngọ, Hỏa mệnh không chính tinh, có Địa Không ở Mệnh, Thiên Không ở Phụ Mẫu nhị hợp sinh nhập cho Mệnh và Tuần ở Thiên Di, hay nói là Mệnh Vô Chính Diệu đắc Tam Không, phú quý khả kỳ (tốt).",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:mau_ngo", "concept:vo_chinh_dieu", "concept:tam_khong", "star:dia_khong", "star:thien_khong"],
+      "tags": [
+        "case_study:mau_ngo",
+        "concept:vo_chinh_dieu",
+        "concept:tam_khong",
+        "star:dia_khong",
+        "star:thien_khong"
+      ],
       "commentary": {
         "han_viet_explain": "Vô chính diệu = không có chính tinh; Tam Không = 3 sao có chữ Không (Thiên Không, Địa Không, Tuần / Triệt)",
         "viet_thuan": null,
@@ -427,7 +569,12 @@
       "source_quote": "Sự thật không phải cứ Mệnh nào không chính tinh mà có Tam Không cũng phú quý khả kỳ cả: vì không thuộc hành Hỏa, phải Mệnh Hỏa mới được dự trúng cách. Đây là đợt đầu tuyên lựa các thí sinh dự chung kết mà thôi.",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["concept:vo_chinh_dieu", "concept:tam_khong", "concept:hoa_menh", "rule:dieu_kien"],
+      "tags": [
+        "concept:vo_chinh_dieu",
+        "concept:tam_khong",
+        "concept:hoa_menh",
+        "rule:dieu_kien"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tam Không = cần điều kiện Mệnh Hỏa, không phải auto-tốt.",
@@ -445,7 +592,14 @@
       "source_quote": "Một đời mang hận phù hợp với Thân mắc La Võng (Đà la ở Thìn) với Địa Kiếp Hóa Kỵ ở vị trí Điều Khách (bất mãn). Hóa Kỵ Thìn Tuất Sử Mùi là nước lọc, cái Thân trong sạch Cơ Lương vẫn bị hiểu lầm, dù có biện bạch cách nào cũng uổng công cho người Mệnh Không Thân Kiếp.",
       "source_page": 60,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:mau_ngo", "star:co_luong", "star:dia_kiep", "star:hoa_ky", "concept:la_vong", "concept:menh_khong_than_kiep"],
+      "tags": [
+        "case_study:mau_ngo",
+        "star:co_luong",
+        "star:dia_kiep",
+        "star:hoa_ky",
+        "concept:la_vong",
+        "concept:menh_khong_than_kiep"
+      ],
       "commentary": {
         "han_viet_explain": "La Võng = lưới (Đà La hiện thân); Hóa Kỵ Tứ Mộ = 'nước lọc' (gột nhưng vẫn bị hiểu lầm)",
         "viet_thuan": "Mậu Ngọ này: Cơ Lương = lương thiện; bị La Võng + Kỵ vây → bị hiểu lầm cả đời.",
@@ -463,7 +617,13 @@
       "source_quote": "Giai đoạn 44-45 là thời gian nhập Quan Phù (Thiên Thời) là để mà xuống (Không Kiếp) thêm Kình Hình xâu xé tấm thân nơi La Võng.",
       "source_page": 61,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:mau_ngo", "star:quan_phu", "star:khong_kiep", "star:kinh_hinh", "concept:la_vong"],
+      "tags": [
+        "case_study:mau_ngo",
+        "star:quan_phu",
+        "star:khong_kiep",
+        "star:kinh_hinh",
+        "concept:la_vong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -481,7 +641,15 @@
       "source_quote": "Số Kỷ Mão sanh ngày 29 tháng 9 giờ Tí, Mệnh Thân Vô Chính Diệu ở Tuất được Văn Xương (Kim) đới Thổ làm điểm tựa, nhưng vì Linh Tỉnh nung nấu nên thân hình èo ọt ốm đau. Hợp với cách Cự Nhật Hữu Bật Thiên Phúc ở Dần (Quan) là người có khả năng luận lý xét đoán soi sáng giúp đời.",
       "source_page": 61,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:ky_mao", "concept:vo_chinh_dieu", "star:van_xuong", "star:linh_tinh", "star:cu_nhat", "star:huu_bat", "star:thien_phuc"],
+      "tags": [
+        "case_study:ky_mao",
+        "concept:vo_chinh_dieu",
+        "star:van_xuong",
+        "star:linh_tinh",
+        "star:cu_nhat",
+        "star:huu_bat",
+        "star:thien_phuc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -499,7 +667,13 @@
       "source_quote": "Đây là một nguyên tắc cần xác định: 1. Hạn Thái Tuế là phải đắc ý. 2. Thái Tuế gặp Không Kiếp lên dễ mà xuống. 3. Thiên Không là phá sản. 4. Thiên Không gặp Hóa Khoa xuống mà dễ lên.",
       "source_page": 61,
       "section_id": "tlnl.S3",
-      "tags": ["rule:dai_van", "star:thai_tue", "star:thien_khong", "star:khong_kiep", "star:hoa_khoa"],
+      "tags": [
+        "rule:dai_van",
+        "star:thai_tue",
+        "star:thien_khong",
+        "star:khong_kiep",
+        "star:hoa_khoa"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "4 quy tắc vận hạn nhớ kỹ.",
@@ -517,7 +691,11 @@
       "source_quote": "Lộc Tồn là thiên lộc tức là Hạnh phúc phú quí cho người đời do hàng Can quyết định đặt chỗ ngồi ở vị trí: Dần Mão Tỵ Ngọ Thân Dậu Hợi Tý. Tại sao Lộc Tồn có 8 vị trí. Mỗi tam hợp có 3 chi, 12 chỉ có 4 tam hợp (Kim, Mộc, Thủy, Hỏa). Mỗi hành đều có âm dương.",
       "source_page": 61,
       "section_id": "tlnl.S3",
-      "tags": ["star:loc_ton", "concept:tam_hop", "concept:8_vi_tri"],
+      "tags": [
+        "star:loc_ton",
+        "concept:tam_hop",
+        "concept:8_vi_tri"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -535,7 +713,10 @@
       "source_quote": "Trong 8 chỗ ngồi thì chỉ có 4 chỗ ngồi là hợp lý cho người 12 tuổi: Giáp (D) cho 3 tuổi Dần - Ngọ - Tuất; Ất (A) cho 3 tuổi Hợi - Mão - Mùi; Canh (D) cho 3 tuổi Thân - Tý - Thìn; Tân (A) cho 3 tuổi Tỵ - Dậu - Sửu. Như vậy, còn lại 4 chỗ khác dư thừa sao? Tỵ - Ngọ - Hợi - Tý cho thấy một dàn cành mất hợp lý, thương tức là trái nghịch lý âm dương. Bính Mậu Nhâm là dương nhưng lại đóng ở Tỵ Hợi là âm; Định Kỷ là âm nhưng lại ở Ngọ Tí là dương.",
       "source_page": 62,
       "section_id": "tlnl.S3",
-      "tags": ["star:loc_ton", "concept:nghich_ly_am_duong"],
+      "tags": [
+        "star:loc_ton",
+        "concept:nghich_ly_am_duong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Bính Đinh Mậu Kỷ Nhâm Quý đều nghịch lý → Lộc Tồn = phú quý nhử lừ trang xa mã.",
@@ -553,7 +734,12 @@
       "source_quote": "Trong mỗi lá số của cá nhân có 3 điểm quan hệ nhất: Mệnh: Là định mệnh của mình; Thái Tuế: Là Thiên thời đắc thắng; Lộc Tồn: Là hạnh phúc phú quý. Người nào được cả 3 điểm trơn tru, trúng cách đời phải lên hương. Còn một trong 3 điểm này bị trục trặc nên tự an ủi đi rẽ sang đường Quan Phúc tứ đức là hơn cả (từ thiện).",
       "source_page": 62,
       "section_id": "tlnl.S3",
-      "tags": ["concept:ba_diem_quan_he", "palace:menh", "star:thai_tue", "star:loc_ton"],
+      "tags": [
+        "concept:ba_diem_quan_he",
+        "palace:menh",
+        "star:thai_tue",
+        "star:loc_ton"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "3 điểm trơn tru = lên hương; trục trặc 1 điểm = nên đi đường Quan Phúc Tứ Đức (từ thiện).",
@@ -571,7 +757,13 @@
       "source_quote": "Những người trong tuổi Bính - Đinh - Mậu - Kỷ - Nhâm - Quý hãy tìm kiếm nhận cho kỹ 3 yếu điểm ở nơi số mình, không bao giờ thoát khỏi Thiên Không hay Không Kiếp. Không ở Mệnh thì ở Thái Tuế, không ở Thái Tuế thì bắt buộc phải ở Lộc Tồn. Thiết tưởng phù vân bôi đắp cho từ thiện là việc trúng cách của Thiên Ất Quan Phúc.",
       "source_page": 62,
       "section_id": "tlnl.S3",
-      "tags": ["age:binh_dinh_mau_ky_nham_quy", "star:thien_khong", "star:khong_kiep", "concept:phu_van", "concept:tu_thien"],
+      "tags": [
+        "age:binh_dinh_mau_ky_nham_quy",
+        "star:thien_khong",
+        "star:khong_kiep",
+        "concept:phu_van",
+        "concept:tu_thien"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "6 Can lẻ bị nghịch âm dương Lộc Tồn → tất yếu gặp Không Kiếp ở 1 trong 3 điểm.",
@@ -589,7 +781,11 @@
       "source_quote": "Thiên Quan: = (Dương Hỏa) giải trừ uân khúc. Thiên Phúc: = (Âm Thổ) thực hiện từ thiện.",
       "source_page": 62,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_quan", "star:thien_phuc", "ngu_hanh:hoa_tho"],
+      "tags": [
+        "star:thien_quan",
+        "star:thien_phuc",
+        "ngu_hanh:hoa_tho"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -607,7 +803,12 @@
       "source_quote": "Riêng bộ Xương Khúc phối hiệp với Khôi Việt là khoa bảng quyền uy. ... Khôi Việt đứng cặp với Xương Khúc thì nêu cao văn tài để rồi chiếm địa vị đàn anh trên khoa trường. Khôi Việt đứng với Tả Hữu là khả năng lãnh tụ. Khôi Việt đứng với Long Phượng là ngôi vị cao cả của danh nhân chính phái.",
       "source_page": 62,
       "section_id": "tlnl.S3",
-      "tags": ["star:khoi_viet", "star:xuong_khuc", "star:ta_huu", "star:long_phuong"],
+      "tags": [
+        "star:khoi_viet",
+        "star:xuong_khuc",
+        "star:ta_huu",
+        "star:long_phuong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -625,7 +826,10 @@
       "source_quote": "Khôi Việt đứng theo thiên can sắp xếp, hoàn toàn gần như nghịch hẳn lý âm dương: Giáp Mậu Dương ở Sửu - Mùi (Âm cung); Ất Kỷ Âm ở Tí - Thân (Dương cung); Bính Đinh Âm ở Hợi - Dậu (Âm cung); Nhâm Quý Âm ở Mão - Tỵ (Âm cung); Canh Tân Dương ở Ngọ - Dần (Dương cung).",
       "source_page": 63,
       "section_id": "tlnl.S3",
-      "tags": ["star:khoi_viet", "concept:nghich_am_duong"],
+      "tags": [
+        "star:khoi_viet",
+        "concept:nghich_am_duong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Khôi Việt nghịch âm dương → tư cách đoàn trưởng mà chính là người ở bậc thứ trung.",
@@ -643,7 +847,11 @@
       "source_quote": "Độn Giáp là đôn chữ Ất lên thay thế cho chữ Giáp là địa vị đoàn trưởng của 10 Thiên Can, để chữ Giáp luân lưu ấn chỗ của 6 chữ Mậu Kỷ Canh Tân Nhâm Quý ở 6 con Giáp Tí, Tuất, Thân, Ngọ, Thìn, Dần. Thái Ất cũng cùng một ý nghĩa là chữ Ất ngôi vị thứ nhì lên lãnh vai thủ trưởng của Giáp.",
       "source_page": 63,
       "section_id": "tlnl.S3",
-      "tags": ["concept:don_giap", "concept:thai_at", "concept:than_so"],
+      "tags": [
+        "concept:don_giap",
+        "concept:thai_at",
+        "concept:than_so"
+      ],
       "commentary": {
         "han_viet_explain": "Độn = núp (ẩn); Thái Ất = bậc thứ nhì của Ất",
         "viet_thuan": null,
@@ -661,7 +869,11 @@
       "source_quote": "Người Thái Tuế là người định mệnh nặn ra để lãnh những nhiệm vụ sáng giá. Người Thiên Ất là người sinh ra phụ giúp cho đời bằng hành động tích cực nhân nghĩa.",
       "source_page": 64,
       "section_id": "tlnl.S3",
-      "tags": ["star:thai_tue", "star:thien_at", "concept:su_menh"],
+      "tags": [
+        "star:thai_tue",
+        "star:thien_at",
+        "concept:su_menh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Thái Tuế = chính, Thiên Ất = phụ tá tích cực.",
@@ -679,7 +891,11 @@
       "source_quote": "Vậy tình cảm người được Thiên Ất quí nhân thủ Mệnh là tình cảm hoàn toàn không đắc ý. Ở địa vị thứ nhân mà đương nhiên thủ vai trò đoàn trưởng lo toan mọi việc, có tính cách phước thiện. Cái gì trái với đạo lý nghịch luân thường là khẳng định bắt khuất.",
       "source_page": 64,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_at", "concept:khong_dac_y", "concept:bat_khuat"],
+      "tags": [
+        "star:thien_at",
+        "concept:khong_dac_y",
+        "concept:bat_khuat"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -697,7 +913,12 @@
       "source_quote": "Nữ văn thi hào Tương Phổ là điển hình của Thiên Ất quí nhân, tuổi Đinh Dậu ngày 22 tháng 11 giờ Mão. Nhờ từ Đinh mà Mệnh đứng ngay vị trí Thái Tuế (Dậu cung) chung cùng Thiên Việt một cặp minh tinh hành Hỏa đắc cách cho Hỏa mệnh vô chính diệu. Thân phá cách (Tuế Phá) bổ khuyết cho Mệnh đắc Khôi Xương Khúc là đặc tài văn chương xuất chúng, vẫn phải chịu hâm hiu lẻ bóng goá chồng ngay từ từ 23 tuổi.",
       "source_page": 64,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:tuong_pho", "star:thien_at", "star:thai_tue", "concept:goa_chong"],
+      "tags": [
+        "case_study:tuong_pho",
+        "star:thien_at",
+        "star:thai_tue",
+        "concept:goa_chong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -715,7 +936,13 @@
       "source_quote": "Tứ đức trong Tử Vi là đức chung bao gồm từ cả vũ trụ xuống đến một dòng họ thế nhân. Hai thế lưỡng nghi là Thiên Đức (dương) và Nguyệt Đức (âm), xuống đến tứ tượng: Long Đức (thiếu âm) và Phúc Đức (thiếu dương).",
       "source_page": 65,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_duc", "star:nguyet_duc", "star:phuc_duc", "star:long_duc", "concept:tu_duc"],
+      "tags": [
+        "star:thien_duc",
+        "star:nguyet_duc",
+        "star:phuc_duc",
+        "star:long_duc",
+        "concept:tu_duc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -733,7 +960,12 @@
       "source_quote": "Tứ đức đứng chụm vào vòng Thái Tuế là vòng do địa chi chỉ phối tạo nên tư thế cá nhân trong xã hội nhân quần. Thái Tuế, Quan Phù, Bạch Hổ là trách vụ nặng nề phải gánh vác được đền công xứng đáng tuyệt đối. Cái gì đã được nêu tên là \"Thái\" (tối đa thì còn có gì vượt lên trên được).",
       "source_page": 65,
       "section_id": "tlnl.S3",
-      "tags": ["star:thai_tue", "star:quan_phu", "star:bach_ho", "concept:vong_thai_tue"],
+      "tags": [
+        "star:thai_tue",
+        "star:quan_phu",
+        "star:bach_ho",
+        "concept:vong_thai_tue"
+      ],
       "commentary": {
         "han_viet_explain": "Thái = tối đa (đỉnh)",
         "viet_thuan": "BẠCH HỔ là 1 trong 3 trụ Thái Tuế = trách vụ nặng nề (đây là chỗ duy nhất nhắc Bạch Hổ trong p55-81).",
@@ -751,7 +983,12 @@
       "source_quote": "Theo luật Ngũ Hành giao dịch có sinh phải có khắc, có xuất tất phải có nhập. Thái đã là tối đa rồi mà lại được nhập thêm, đương nhiên là điều bất hạnh. Lý công bằng là khi thiếu cần phải bổ khuyết, khi đã đầy đủ rồi mà bồi đắp thêm sẽ đi đến thế lệch, lệch đến thế tận cùng là tàn tạ. Do đó mới có Thiên Không đứng bên Thái Tuế.",
       "source_page": 65,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_khong", "star:thai_tue", "concept:can_bang", "concept:ngu_hanh"],
+      "tags": [
+        "star:thien_khong",
+        "star:thai_tue",
+        "concept:can_bang",
+        "concept:ngu_hanh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -769,7 +1006,12 @@
       "source_quote": "Hạng người tứ chính (Tý, Ngọ, Mão, Dậu) là người khăng khái nhiều khi quá cứng rắn, nên kết quả thường đem lại có phần ác liệt (Thiên Không tứ mộ). Người tứ sinh (Dần, Thân, Tỵ, Hợi) vì lòng tự hào có phần cao nên Thiên không hăm hạng này vào vòng đi luy mỗi khi tham vọng quá mức (Đào Hoa Thiên không). Còn người Tứ Mộ (Thìn, Tuất, Sửu, Mùi) biết thân hiểu phận chân yếu tay mềm, dễ khiến nhạy cảm yếm thế (Hồng Loan, Thiên Không).",
       "source_page": 65,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_khong", "concept:tu_chinh", "concept:tu_sinh", "concept:tu_mo"],
+      "tags": [
+        "star:thien_khong",
+        "concept:tu_chinh",
+        "concept:tu_sinh",
+        "concept:tu_mo"
+      ],
       "commentary": {
         "han_viet_explain": "Giấc mộng hoàng lương = giấc mộng kê vàng (giàu sang giả)",
         "viet_thuan": null,
@@ -787,7 +1029,12 @@
       "source_quote": "Thiếu dương đã vượt lên trên Thái Tuế tức là tỉnh khôn hơn Thiếu âm đứng ở tam hợp sau Thái Tuế có phần thật thà thua thiệt, vì Thiếu đương luôn luôn có Hồng Đào xốc nách (Thiếu âm nhiều trường hợp không có). Giữa Thiếu Dương và Thiếu âm đã thấy rõ ràng cán cân bù trừ chính xác. Thiếu dương được Hồng Đào vì vướng Thiên Không nên được tam tứ đức đứng ra khuyên nhủ. Thiếu âm bị bạc đãi nên chỉ một Long Đức đứng lên khuyên nhủ.",
       "source_page": 66,
       "section_id": "tlnl.S3",
-      "tags": ["concept:thieu_duong", "concept:thieu_am", "concept:hong_dao", "concept:tu_duc"],
+      "tags": [
+        "concept:thieu_duong",
+        "concept:thieu_am",
+        "concept:hong_dao",
+        "concept:tu_duc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -805,7 +1052,14 @@
       "source_quote": "Điển hình trên những lá số nên cần được vô chính diệu ở trong có những An Quang (Mộc), Hỷ Thần (Hỏa), Thiên Thọ (Thổ), Tấu Thư (Kim), Thanh Long (Thủy) tùy theo hợp hành với Mệnh là đắc cách.",
       "source_page": 66,
       "section_id": "tlnl.S3",
-      "tags": ["concept:vo_chinh_dieu", "star:an_quang", "star:hy_than", "star:thien_tho", "star:tau_thu", "star:thanh_long"],
+      "tags": [
+        "concept:vo_chinh_dieu",
+        "star:an_quang",
+        "star:hy_than",
+        "star:thien_tho",
+        "star:tau_thu",
+        "star:thanh_long"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -823,7 +1077,12 @@
       "source_quote": "Chẳng may vô chính diệu lại chứa chấp sát tinh như Thiên Hình (Kim), Lưu Hà (Thủy), Kiếp Sát (Hỏa)... mà mệnh lại đồng hành là tất cả những gì độc hại không bờ bến.",
       "source_page": 66,
       "section_id": "tlnl.S3",
-      "tags": ["concept:vo_chinh_dieu", "star:thien_hinh", "star:luu_ha", "star:kiep_sat"],
+      "tags": [
+        "concept:vo_chinh_dieu",
+        "star:thien_hinh",
+        "star:luu_ha",
+        "star:kiep_sat"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -841,7 +1100,11 @@
       "source_quote": "Thân - Tý - Thìn (Thủy); Dần - Ngọ - Tuất (Hỏa); Tỵ - Dậu - Sửu (Kim); Hợi - Mão - Mùi (Mộc). Những bộ này được ghi danh là tam hợp cục.",
       "source_page": 67,
       "section_id": "tlnl.S3",
-      "tags": ["concept:tam_hop_cuc", "concept:12_chi", "concept:ngu_hanh"],
+      "tags": [
+        "concept:tam_hop_cuc",
+        "concept:12_chi",
+        "concept:ngu_hanh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -859,7 +1122,11 @@
       "source_quote": "Dần - Thân - Tỵ - Hợi là sứ sinh, công việc của chúng vốn là bồi bổ cho Tí - Ngọ - Mão - Dậu nên có lòng tự hào quá cao (ưa đề cao khoe khoang), nuôi dưỡng người được sức khỏe đôi dào (tràng sinh) nhưng không phải là người nặng cân. Tí - Ngọ - Mão - Dậu là phần danh dự lãnh vai trò chính xác của ngũ hành, phải là người cương nghị, sức khỏe đầy đủ (Đề vượng). Vị trí Tứ Mộ là nơi gần đất xa trời, người này thường thiếu thốn sức khỏe (năm ngày ba tật). Biết phận mình nên không ưa muốn phiền nhiễu ai, đó là tư cách chính đáng của người Tứ Mộ (mềm dẻo).",
       "source_page": 67,
       "section_id": "tlnl.S3",
-      "tags": ["concept:tu_sinh", "concept:tu_chinh", "concept:tu_mo"],
+      "tags": [
+        "concept:tu_sinh",
+        "concept:tu_chinh",
+        "concept:tu_mo"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -877,7 +1144,12 @@
       "source_quote": "Mệnh Thân ở Tứ Sinh: Mạnh khỏe, ít khi nặng cân, tính tình hay để cao ưa phô trương. Mệnh Thân ở Tứ Chính: Đầy đủ sức khỏe, tinh thần kiên quyết. Mệnh Thân ở Tứ Mộ: Hay đau yếu nhưng không muốn phiền lụy ai, tính tình mềm dẻo.",
       "source_page": 68,
       "section_id": "tlnl.S3",
-      "tags": ["concept:tu_sinh", "concept:tu_chinh", "concept:tu_mo", "rule:menh_than"],
+      "tags": [
+        "concept:tu_sinh",
+        "concept:tu_chinh",
+        "concept:tu_mo",
+        "rule:menh_than"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -895,7 +1167,13 @@
       "source_quote": "Như thế chẳng hóa ra thiệt thòi cho bốn tuổi Thìn, Tuất, Sửu, Mùi một khi được vinh dự đóng ở Thái Tuế (Tứ Mộ). Thưa rằng: Thái Tuế không phải là khi nào ngồi vào vị trí chính xác Thái Tuế. Bốn tuổi này đều ở vị trí Quan Phù hay Bạch Hổ phải kể là dị nhân kỳ tài, đem hết khả năng tận tình suy tính để tạo nên sự nghiệp huy hoàng phải kể là đáng trọng (Số Trương Lương Hàn Tín). Bốn tuổi này đã được quy định là nơi Mộ địa là nơi trình diễn những vở tuống đời sáng giá với chiếc lọng che uy nghi cao cả (Hoa Cái do hàng chỉ sắp đặt ngôi vị thực thể) để đền bù sự suy kém sức khỏe.",
       "source_page": 68,
       "section_id": "tlnl.S3",
-      "tags": ["star:quan_phu", "star:bach_ho", "star:hoa_cai", "case_study:truong_luong_han_tin", "concept:tu_mo"],
+      "tags": [
+        "star:quan_phu",
+        "star:bach_ho",
+        "star:hoa_cai",
+        "case_study:truong_luong_han_tin",
+        "concept:tu_mo"
+      ],
       "commentary": {
         "han_viet_explain": "Hoa Cái = lọng che uy nghi (biểu tượng vinh dự)",
         "viet_thuan": null,
@@ -913,7 +1191,11 @@
       "source_quote": "Tràng Sinh chỉ đứng ở bốn cung Dần, Thân, Tỵ, Hợi tức là thế sinh của tam hợp. Vậy chỉ những tuổi tứ sinh mới đắc cách hợp thức luật âm dương và Thái Tuế. Về phương diện ngũ hành người Thủy mệnh được chủ cách bền vững lâu dài.",
       "source_page": 68,
       "section_id": "tlnl.S3",
-      "tags": ["star:trang_sinh", "concept:tu_sinh", "concept:thuy_menh"],
+      "tags": [
+        "star:trang_sinh",
+        "concept:tu_sinh",
+        "concept:thuy_menh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -931,7 +1213,11 @@
       "source_quote": "Đề vượng chỉ ở 4 chính cung Tý, Ngọ, Mão, Dậu thì cũng chỉ 4 tuổi này mới thụ hưởng những gì là tư thế thịnh đạt vượt mức với Kim mệnh. Hoa cái là một lợi điểm danh dự cho những người tuổi Thìn, Tuất, Sửu, Mùi tùy theo ngũ hành chế hóa của Mệnh với Hoa cái (Kim) tới mức nào.",
       "source_page": 69,
       "section_id": "tlnl.S3",
-      "tags": ["star:de_vuong", "star:hoa_cai", "concept:kim_menh"],
+      "tags": [
+        "star:de_vuong",
+        "star:hoa_cai",
+        "concept:kim_menh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -949,7 +1235,12 @@
       "source_quote": "Phúc đức in trên lá số chỉ là hình ảnh chung của một dòng họ sinh hoạt, thuận lợi hay ngang trái cho mệnh số chỉ có một phần nào trong đó. Còn do nơi Thân tự mua chuộc lấy, cho nên phúc đức cần vô chính diệu được Nhật Nguyệt đồng chiếu thì không gì sánh bằng, ví như tờ giấy trắng trải phơi bày giữa ánh sáng trời đất, bồi đắp thêm hay tự bôi lem luốc là nơi Thân không biết điều hành chữ Thọ (nhân hậu).",
       "source_page": 69,
       "section_id": "tlnl.S3",
-      "tags": ["palace:phuc_duc", "palace:menh", "palace:than", "rule:hieu_lam"],
+      "tags": [
+        "palace:phuc_duc",
+        "palace:menh",
+        "palace:than",
+        "rule:hieu_lam"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -967,7 +1258,11 @@
       "source_quote": "Mệnh đứng vào một thế liên minh tam hợp nào, khi vận hành đến thế liên minh đó mới chính là hợp cách Thiên thời (Thái Tuế). Số đã dành riêng cho cơ hội Thái Tuế là đẹp nhất (Thái = tối cao đẹp) thì không còn gì vượt hơn lên trên được nữa, nên phải ngăn chặn bằng thế Thiên Không (tay không). Nếu trong đó chứa đựng những bộ đôi như trên đã nói, thì đó chỉ là bùa mê thuốc lú mang lụy vào Thân.",
       "source_page": 70,
       "section_id": "tlnl.S3",
-      "tags": ["star:thai_tue", "star:thien_khong", "concept:bua_me_thuoc_lu"],
+      "tags": [
+        "star:thai_tue",
+        "star:thien_khong",
+        "concept:bua_me_thuoc_lu"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Quyền Lộc ở Thái Tuế = bùa mê thuốc lú nếu không có Thiên Không cân bằng.",
@@ -985,7 +1280,12 @@
       "source_quote": "Tử Tức đứng ở thế yếu điểm không bao giờ đồng hành âm dương với Mệnh Thân, luôn luôn tam hợp với Nô Bộc. Vì vậy phải tính Nô với Tử như răng với môi. Hế môi hở là răng lạnh. Nô quan hệ với Tử vì Thiên Thương nằm trực, phải có điều bất hạnh cho Tử về phương diện nào nhiều hay ít (Nô là ngoại nhân). Như một khi Mệnh là Cơ Nguyệt Đồng Lương ở đương cung, thì Nô phải là Sát Phá Tham ở âm cung. Sự đề phòng oan trái vô cùng thận trọng.",
       "source_page": 70,
       "section_id": "tlnl.S3",
-      "tags": ["palace:no_boc", "palace:tu_tuc", "star:thien_thuong", "concept:oan_trai"],
+      "tags": [
+        "palace:no_boc",
+        "palace:tu_tuc",
+        "star:thien_thuong",
+        "concept:oan_trai"
+      ],
       "commentary": {
         "han_viet_explain": "Oan trái = món nợ oan ức từ kiếp trước",
         "viet_thuan": "Nô và Tử = răng môi; Thiên Thương ở Nô → bất hạnh cho Tử về phương diện nào đó.",
@@ -1003,7 +1303,12 @@
       "source_quote": "Nếu lại là thế tam hợp Tỵ Dậu Sửu vì Phá Quân tối hãm đi đôi với Phá Toái (Toái quân lưỡng Phá). Trường hợp này phải kiếm cầu cứu ngay Hóa Khoa và Quang Quý. Nếu được hai sao này chiếu có thể yên tâm tính cuộc lâu dài.",
       "source_page": 70,
       "section_id": "tlnl.S3",
-      "tags": ["star:pha_quan", "star:pha_toai", "star:hoa_khoa", "star:quang_quy"],
+      "tags": [
+        "star:pha_quan",
+        "star:pha_toai",
+        "star:hoa_khoa",
+        "star:quang_quy"
+      ],
       "commentary": {
         "han_viet_explain": "Toái quân lưỡng Phá = Phá Quân + Phá Toái = 2 Phá cùng phá",
         "viet_thuan": null,
@@ -1021,7 +1326,11 @@
       "source_quote": "Mừng cho ai khi thấy Thiên Quan ngồi chung với Thiên Sứ, hai vị thông cảm nhau điều hoà mọi chỉ tiết thì thế nhân âu cũng dễ dàng mọi sự khó khăn trên bước đường rong ruổi.",
       "source_page": 70,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_quan", "star:thien_su", "concept:dieu_hoa"],
+      "tags": [
+        "star:thien_quan",
+        "star:thien_su",
+        "concept:dieu_hoa"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1039,7 +1348,12 @@
       "source_quote": "Thuyết Mệnh đẹp không bằng Thân đẹp, ngụ ý Mệnh điều khiển nửa đời trước còn Thân điều khiển nửa đời sau. ... Tuy nhiên, lý thuyết này cũng chưa hoàn toàn vững chắc, vì khi tính Đại Vận luôn luôn bắt đầu từ Mệnh tính đi liên tiếp đến ngày mãn cuộc. Không phải chỉ có 3 Đại Vận đầu, mà còn ngoài 30 tuổi lấy Thân xuất phát. Thuyết không hợp lý thì kết cục chắc không tài nào thắng vững chắc.",
       "source_page": 71,
       "section_id": "tlnl.S3",
-      "tags": ["palace:menh", "palace:than", "concept:dai_van", "rule:phan_bien_thuyet"],
+      "tags": [
+        "palace:menh",
+        "palace:than",
+        "concept:dai_van",
+        "rule:phan_bien_thuyet"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1057,7 +1371,13 @@
       "source_quote": "Mười hai cung này thấy ngay 4 số: 3, 5, 7, 9 trình bày ngay trước mắt: Ách = 3, Nô = 7, Phúc = 5, Tử = 9 là những con số có năng lực hy vọng hay xui xẻo do hành Can làm gốc của số mạng định đoạt, gán cho Phúc Đức điều động. Sự thật chính là Thân tạo nên rồi Mệnh sẽ kiểm điểm thi hành đúng mức.",
       "source_page": 71,
       "section_id": "tlnl.S3",
-      "tags": ["concept:bon_so_quan_he", "palace:ach", "palace:phuc_duc", "palace:no_boc", "palace:tu_tuc"],
+      "tags": [
+        "concept:bon_so_quan_he",
+        "palace:ach",
+        "palace:phuc_duc",
+        "palace:no_boc",
+        "palace:tu_tuc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "4 cung này tương ứng 4 con số 3/5/7/9 ngũ hành Can-Chi.",
@@ -1075,7 +1395,11 @@
       "source_quote": "Địa bàn vô chính diệu là bức phóng ảnh thu hẹp bầu trời bao la rộng lớn, phân tách minh bạch địa lý đông tây nam bắc và tính toán rõ ràng thiên văn thời tiết xuân hạ thu đông luân chuyển, phù hợp với cuộc điện nhân sinh trên dưới 100 dân số đủ màu da đen đỏ trắng vàng. Mỗi khu đất có biên giới hoạch định phân minh như một lục địa bằng 12 tên địa chỉ: Tý, Sửu, Dần... Tuất, Hợi.",
       "source_page": 71,
       "section_id": "tlnl.S3",
-      "tags": ["concept:dia_ban", "concept:12_cung", "concept:vu_tru"],
+      "tags": [
+        "concept:dia_ban",
+        "concept:12_cung",
+        "concept:vu_tru"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1093,7 +1417,11 @@
       "source_quote": "Nhân tính là 14 lãnh tụ du mục sống trên 12 lục địa tranh giành ảnh hưởng, kết hợp thành 2 đoàn (Lưỡng Nghĩ: Sát Phá Liêm Tham Tử Phủ Vũ Tướng và Cự Nhật Cơ Nguyệt Đồng Lương). Hai đoàn này cũng có những bất đồng ý kiến lại rời tách làm 4 phái (Tứ Tượng) kiếm nơi dựng nghiệp. Mọi sự khắc chế diễn biến đều từ tây sang đông (Kim khắc Mộc), từ bắc đến nam (Thủy khắc Hỏa).",
       "source_page": 71,
       "section_id": "tlnl.S3",
-      "tags": ["concept:14_chinh_tinh", "concept:luong_nghi", "concept:tu_tuong"],
+      "tags": [
+        "concept:14_chinh_tinh",
+        "concept:luong_nghi",
+        "concept:tu_tuong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1111,7 +1439,12 @@
       "source_quote": "Tử Phủ Vũ Tướng có Tử Vi lãnh đạo hợp thủy thổ ở chính nam (Ngọ hỏa) với đám quần thần là sứ trung tín thì phân nhau trấn nhậm các biên khu như Liêm Trinh, Phủ ở Tuất; Vũ Tướng Quân ở Dần thành một thế chân vạc uy nghi trang trọng.",
       "source_page": 72,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_vi", "palace:ngo", "star:liem_trinh", "star:vu_tuong"],
+      "tags": [
+        "star:tu_vi",
+        "palace:ngo",
+        "star:liem_trinh",
+        "star:vu_tuong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1129,7 +1462,11 @@
       "source_quote": "Rời khỏi Ngọ môn, Tử Vi luôn luôn có người kể cận. Một là được hộ giá như Tử Phủ ở Dần Thân, Tử Tướng ở Thìn Tuất; hai là bị uy hiếp như Tử Sát ở Tỵ Hợi, Tử Tham ở Mão Dậu, Tử Phá ở Sửu Mùi.",
       "source_page": 72,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_vi", "concept:ho_gia", "concept:uy_hiep"],
+      "tags": [
+        "star:tu_vi",
+        "concept:ho_gia",
+        "concept:uy_hiep"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1147,7 +1484,10 @@
       "source_quote": "Xếp theo thứ tự đất phì nhiêu do bộ Tử Phủ Vũ Tướng chiếm ngụ thì 3 vị trí Ngọ, Thân, Thìn là quý giá nhất.",
       "source_page": 72,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_phu_vu_tuong", "palace:ngo_than_thin"],
+      "tags": [
+        "star:tu_phu_vu_tuong",
+        "palace:ngo_than_thin"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1165,7 +1505,11 @@
       "source_quote": "Thiên Lương Tý Ngọ là vị trí nêu cao danh vọng, sự khác biệt ở Ngọ khiến Thiên Lương mất công mệt sức rất nhiều (mộc sinh hỏa). Ngọn đèn chiếu sáng Thái Dương ở Tý không thiếu tư cách phải chờ thời gian mới đầy đủ chói sáng. Một vị trí ở Sửu, Thiên Lương thành cao nhân đắc ý với trời cao biên rộng. ... Vậy Tý phải là khu đất phì nhiêu rất hạp cho Thiên Lương.",
       "source_page": 72,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_luong", "palace:ty", "palace:suu"],
+      "tags": [
+        "star:thien_luong",
+        "palace:ty",
+        "palace:suu"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tý = phì nhiêu nhất cho Thiên Lương; Sửu = cao nhân; Ngọ = phải mệt sức.",
@@ -1183,7 +1527,11 @@
       "source_quote": "Cự Môn thường mang tiếng là sao ám thể khó tính. Những uẩn khúc của Cự Môn đã phơi bày ở hai căn cứ Tý Ngọ được danh hiệu là Thạch Trung ấn ngọc. ... Cự Môn ở Tý, Thái Dương phải ở cung Thìn mới tỏ rõ nỗi lòng của Cự Môn chứa chấp với những cứu cánh thích hợp vững chắc nhất là Khoa Lộc, thứ đến Thiên Tài Tuần Triệt nếu có sát tinh cứng cổ.",
       "source_page": 73,
       "section_id": "tlnl.S3",
-      "tags": ["star:cu_mon", "palace:ty_ngo", "concept:thach_trung_an_ngoc"],
+      "tags": [
+        "star:cu_mon",
+        "palace:ty_ngo",
+        "concept:thach_trung_an_ngoc"
+      ],
       "commentary": {
         "han_viet_explain": "Thạch Trung ẩn ngọc = ngọc giấu trong đá",
         "viet_thuan": null,
@@ -1201,7 +1549,10 @@
       "source_quote": "Mười hai địa bàn khu đất phì nhiêu cho các sắc dân phải chăng là khoảng Tý Ngọ Dần Thân (Ngọ = Thái Dương, Tý = Thái Âm. Dần = Thiếu dương, Thân = Thiếu âm). Tí Ngọ chứa đựng những cao cách: Tử Vi Tí Ngọ, Thiên Lương Tí Ngọ, Phá Quân Tí Ngọ, Cự Môn Tí Ngọ.",
       "source_page": 73,
       "section_id": "tlnl.S3",
-      "tags": ["concept:khu_dat_phi_nhieu", "palace:ty_ngo_dan_than"],
+      "tags": [
+        "concept:khu_dat_phi_nhieu",
+        "palace:ty_ngo_dan_than"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1219,7 +1570,11 @@
       "source_quote": "Tóm lại 6 lục địa dương cung là 6 khu đất phì nhiêu còn 6 âm cung là nơi thường diễn tả những cảnh tang thương bất ổn. Đây chỉ là một khía cạnh đường lối dịch lý là luôn luôn có hai mặt cho mọi sự việc: có dương phải có âm, có tốt phải có xấu tương phản.",
       "source_page": 73,
       "section_id": "tlnl.S3",
-      "tags": ["concept:duong_cung", "concept:am_cung", "concept:dich_ly"],
+      "tags": [
+        "concept:duong_cung",
+        "concept:am_cung",
+        "concept:dich_ly"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1237,7 +1592,12 @@
       "source_quote": "Tử Vi ở Ty Hợi xuất du hộ giá có Thất Sát là tôi thần tính tình cương trực nóng nảy nên không bao giờ đồng mặt với Thiên Phủ, nên dễ hành động lầm lẫn với các bạn Liêm Phá, rồi sau mới chỉnh đốn lại được bằng sức của Tham Vũ.",
       "source_page": 76,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_vi", "palace:ty_hoi", "star:that_sat", "star:liem_pha"],
+      "tags": [
+        "star:tu_vi",
+        "palace:ty_hoi",
+        "star:that_sat",
+        "star:liem_pha"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1255,7 +1615,11 @@
       "source_quote": "Không còn thể thống là cảnh tàn tạ của Tử Phủ. Vậy Tử Vi và Thiên Phủ chỉ là hình tượng hiền hậu ôn nhu có phần nào yếu nhược. Còn lại Vũ Khúc và Thiên Tướng thì Vũ Khúc lại có tính cô độc tham lam dễ bị lợi dụng, trường hợp Vũ Phá ở Tỵ Hợi, Vũ Sát ở Mão Dậu, bộ Sát Phá Tham thị kiềm chế không còn tình nghĩa gì với Đế tinh.",
       "source_page": 77,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_vi", "star:thien_phu", "star:vu_khuc"],
+      "tags": [
+        "star:tu_vi",
+        "star:thien_phu",
+        "star:vu_khuc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Phá vỡ định kiến Tử Vi luôn mạnh — thực ra có phần yếu nhược.",
@@ -1273,7 +1637,11 @@
       "source_quote": "Đặc biệt là Thiên Tướng rất xứng danh một vị tướng nhà trời, không một trường hợp nào Thiên Tướng đứng chung với Sát Phá Tham và thường xuyên chống Phá Quân bất kể vị trí nào (Thiên Tướng xung Phá Quân) chỉ biết có Tử Vi, nếu trường hợp bị xa cách thì luôn luôn giao tiếp với Thiên Phủ.",
       "source_page": 77,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_tuong", "star:pha_quan", "concept:xung"],
+      "tags": [
+        "star:thien_tuong",
+        "star:pha_quan",
+        "concept:xung"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1291,7 +1659,11 @@
       "source_quote": "Trong 4 sao có 3 sao thuộc nhóm âm (Thiên Phủ) là Sát Phá Tham, còn lại Liêm Trinh thuộc vòng dương (Tử Vi), cho nên mỗi khi bộ Tử Phủ đứng có Liêm Trinh phò tá thì Liêm phải là đắc địa để thêm uy danh thẳng thắn liêm khiết... Trái lại bộ Sát Phá Tham một khi có thêm Liêm nhập cuộc, thì sao nào đứng chung với Liêm đều hung hãn quá mức như: Liêm Tham, Liêm Phá, Liêm Sát.",
       "source_page": 77,
       "section_id": "tlnl.S3",
-      "tags": ["star:liem_trinh", "star:tu_phu", "star:sat_pha_tham"],
+      "tags": [
+        "star:liem_trinh",
+        "star:tu_phu",
+        "star:sat_pha_tham"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1309,7 +1681,11 @@
       "source_quote": "Cuộc sống tinh thần tư tưởng siêu việt Thiên Lương là thượng phẩm, trí óc là cả khối Nhật Nguyệt. Vậy trong 14 chính tinh đâu là ngọc châu quý giá? Sự lựa chọn bảo không ngoài Thiên Tướng và Thiên Lương.",
       "source_page": 78,
       "section_id": "tlnl.S3",
-      "tags": ["star:thien_tuong", "star:thien_luong", "concept:ngoc_chau"],
+      "tags": [
+        "star:thien_tuong",
+        "star:thien_luong",
+        "concept:ngoc_chau"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tổ sư Thiên Lương tự khen 2 sao: Thiên Tướng (chính nghĩa) + Thiên Lương (siêu việt tinh thần).",
@@ -1327,7 +1703,12 @@
       "source_quote": "Thiên Lương đưa đến tột bậc cao sang nhưng vạn niên sau khi nhắm mắt không hàn gắn nổi vết thương lòng. Quyền Lộc ở đây có phải là bùa mê thuốc lú? Còn tuổi Canh Tuất sanh ngày 1 tháng 11 giờ Tí, mệnh ở Tý, chấp nhận kiếp nhân sinh ở thế Tang Môn với Thiên Lương chủ não. Thân sống trôi nổi khắp đó đây cho đến ngày về cõi là lúc lưu danh vạn thế sự, Tam Hóa Liên Châu tô điểm Nô cung, môn đệ thành danh siêu phẩm, triết nhân á thánh. ... Tuổi Phá Quân lầm lỗi vụng suy bị bả vinh hoa quyến rũ. Tang Môn nặng lo nhớ tỉnh thần sáng suốt không nản trước khó khăn.",
       "source_page": 79,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:canh_tuat", "star:tu_phu_vu_khuc", "star:tang_mon", "star:thien_luong"],
+      "tags": [
+        "case_study:canh_tuat",
+        "star:tu_phu_vu_khuc",
+        "star:tang_mon",
+        "star:thien_luong"
+      ],
       "commentary": {
         "han_viet_explain": "Á thánh = gần thánh; triết nhân = người hiền triết",
         "viet_thuan": null,
@@ -1345,7 +1726,11 @@
       "source_quote": "\"Tuần, Triệt niên đầu thiếu niên tân khổ\" là một trong những câu người mới học số hay học thuộc lòng như \"Mệnh vô chính diệu phi bần tắc yêu\". Nó giản dị dễ nhớ, mỗi khi đọc lên là thấy ngay nghĩa giảng tất ít thấy sai trật.",
       "source_page": 79,
       "section_id": "tlnl.S3",
-      "tags": ["concept:vo_chinh_dieu", "concept:phi_ban_tac_yeu", "rule:khau_quyet"],
+      "tags": [
+        "concept:vo_chinh_dieu",
+        "concept:phi_ban_tac_yeu",
+        "rule:khau_quyet"
+      ],
       "commentary": {
         "han_viet_explain": "Phi bần tắc yêu = nếu không nghèo thì yểu",
         "viet_thuan": null,
@@ -1363,7 +1748,11 @@
       "source_quote": "Mệnh vô chính diệu là Mệnh không chính tinh ví như nhà cây không cột cái, nhà đúc không sườn sắt làm nòng cốt. Vậy Mệnh vô chính diệu muốn được đắc cách phải có gì làm xương sống, nghĩa là phải có Sát Tinh đắc địa, hợp hành với Mệnh để mệnh dựa vào mà đứng lên.",
       "source_page": 79,
       "section_id": "tlnl.S3",
-      "tags": ["concept:vo_chinh_dieu", "concept:sat_tinh", "concept:xuong_song"],
+      "tags": [
+        "concept:vo_chinh_dieu",
+        "concept:sat_tinh",
+        "concept:xuong_song"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Sát Tinh đắc địa làm xương sống cho VCD.",
@@ -1381,7 +1770,12 @@
       "source_quote": "Sát Tinh chỉ có hai hành Hỏa và Kim; hai hành Thổ và Mộc coi như không có một Sát Tinh nào, còn hành Thủy có Hóa Khỳ và Lưu Hà. Hóa Khỳ phải cặp bồ với Thanh Long là trường hợp rất hiếm hữu.",
       "source_page": 79,
       "section_id": "tlnl.S3",
-      "tags": ["concept:sat_tinh", "concept:ngu_hanh_sat_tinh", "star:hoa_ky", "star:luu_ha"],
+      "tags": [
+        "concept:sat_tinh",
+        "concept:ngu_hanh_sat_tinh",
+        "star:hoa_ky",
+        "star:luu_ha"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1399,7 +1793,14 @@
       "source_quote": "Còn trong nghịch cảnh phải có Tuần Triệt đế chế hóa những gì không hay cho Mệnh như Mộc Mệnh có Thiên Hình: nếu không Tuần còn gì là Mệnh, cũng như Kim Mệnh gặp Không Kiếp, dầu đắc địa đi nữa cũng khốn khổ đảo điên, phải có Triệt bẻ gãy Không Kiếp mới mong tránh được tai hoạ.",
       "source_page": 79,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "star:thien_hinh", "star:khong_kiep", "concept:paradigm_lat_nguoc", "concept:hung_sat_triet_dang_quy"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "star:thien_hinh",
+        "star:khong_kiep",
+        "concept:paradigm_lat_nguoc",
+        "concept:hung_sat_triet_dang_quy"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Trong nghịch cảnh, Triệt bẻ gãy Không Kiếp = ĐÁNG QUÝ (cứu mạng).",
@@ -1417,7 +1818,12 @@
       "source_quote": "Chỉ có người Hỏa Mệnh được nêu cao qua thành tích đắc Không như mệnh có một Không đắc địa thủ và hai Không ở cung tam hợp không trung tinh đắc cách. Mệnh có sát tinh khắc hành Mệnh như Mộc mệnh có Thiên Hình thủ, hai cung tam hợp có Không Kiếp chiếu, tức là ngộ Không. Mệnh có một Không thủ, hai cung tam hợp có hai Không mà có trung tinh đắc cách gọi là Kiến không.",
       "source_page": 80,
       "section_id": "tlnl.S3",
-      "tags": ["concept:dac_khong", "concept:ngo_khong", "concept:kien_khong", "rule:tam_loai_khong"],
+      "tags": [
+        "concept:dac_khong",
+        "concept:ngo_khong",
+        "concept:kien_khong",
+        "rule:tam_loai_khong"
+      ],
       "commentary": {
         "han_viet_explain": "Đắc = được; Ngộ = gặp; Kiến = thấy",
         "viet_thuan": "3 loại Không CỰC KỲ khác nhau — không trộn lẫn được.",
@@ -1435,7 +1841,11 @@
       "source_quote": "Triệt an theo hàng Can (Giáp, Ất, Bính, Đinh...) thuộc Dương; còn Tuần an theo hàng Chỉ (Quý Dậu, Quý Hợi, Quý Sửu) là Âm. Cả hai đều tùy theo Mệnh viên (Dương hay Âm) mới phân định được ảnh hưởng nhiều hay ít cho một cung nào ở hai bên Tuần Triệt đóng. ... Cho Triệt là Kim, Tuần là Hỏa thấy có phần trúng nghiệm rằng người Kim mệnh bất cứ cung gì đóng ở Kim cung mà gặp Triệt, thiệt thòi của cung ấy có bị gãy đồ, nhưng có tiếng đội; và người Hỏa mệnh gặp Tuần ở Hỏa cung cũng vậy, phải có ngày ló rạng.",
       "source_page": 80,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "concept:ngu_hanh_tuan_triet"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "concept:ngu_hanh_tuan_triet"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Triệt thuộc Kim Dương, Tuần thuộc Hỏa Âm — theo Thiên Lương.",
@@ -1453,7 +1863,11 @@
       "source_quote": "Ví dụ: Triệt ở Thân Dậu cho cả hai tuổi Giáp và Kỷ. Giáp là Dương ảnh hưởng ở Thân, Kỷ là Âm ảnh hưởng đậm ở Dậu.",
       "source_page": 80,
       "section_id": "tlnl.S3",
-      "tags": ["star:triet", "age:giap_ky", "palace:than_dau"],
+      "tags": [
+        "star:triet",
+        "age:giap_ky",
+        "palace:than_dau"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1471,7 +1885,12 @@
       "source_quote": "Mệnh có chính tinh nhất là chính tinh hợp hành Mệnh không bao giờ nên có Thiên Không hay Không Kiếp chen vào trong tam hợp. Người này trong xã hội hữu công vô lao, có công bị cướp công, có của bị cướp của, rất ít ai tử tế với mình; đói thì lần đến cầu van, no là kiếm đường rút lui, lại còn hằn học.",
       "source_page": 80,
       "section_id": "tlnl.S3",
-      "tags": ["concept:chinh_tinh", "star:thien_khong", "star:khong_kiep", "concept:huu_cong_vo_lao"],
+      "tags": [
+        "concept:chinh_tinh",
+        "star:thien_khong",
+        "star:khong_kiep",
+        "concept:huu_cong_vo_lao"
+      ],
       "commentary": {
         "han_viet_explain": "Hữu công vô lao = có công nhưng không được thưởng",
         "viet_thuan": null,
@@ -1489,7 +1908,11 @@
       "source_quote": "Trường hợp chính tinh khắc hành Mệnh, lại được cung nghinh sinh sao như người Mộc ở Thìn Tuất có Vũ Khúc (cung sinh sao, sao khắc mệnh). Tưởng đâu người nặng nề vác bao bố bạc, ai dè chỉ là bao vỏ ốc, người ta ăn hết ruột thuê mướn mình khệ nệ vác đi đồ.",
       "source_page": 80,
       "section_id": "tlnl.S3",
-      "tags": ["concept:cung_sinh_sao", "concept:sao_khac_menh", "star:vu_khuc"],
+      "tags": [
+        "concept:cung_sinh_sao",
+        "concept:sao_khac_menh",
+        "star:vu_khuc"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Mộc Mệnh + Vũ Khúc ở Thìn Tuất = làm công cho người, ăn vỏ ốc.",
@@ -1507,7 +1930,12 @@
       "source_quote": "Hai trường hợp này, Tuần Triệt nhập cuộc được coi như vị bác sĩ giải phẫu tô điểm lại sắc đẹp cho bộ mặt xấu xí của khách hàng. Cũng nên phân biệt Tuần Triệt khác nhau để biết mức độ hoa mỹ của bộ mặt mới của người được giải phẫu.",
       "source_page": 80,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "concept:bac_si_giai_phau", "concept:menh_co_chinh_tinh"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "concept:bac_si_giai_phau",
+        "concept:menh_co_chinh_tinh"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Ẩn dụ bác sĩ giải phẫu — Tuần Triệt sửa khuyết điểm cho Mệnh.",
@@ -1525,7 +1953,12 @@
       "source_quote": "Đã nói Tuần chỉ là gạch nối liền hai con Giáp cũng như hai bên bờ sông có cây cầu bắc qua... thì khi xe sửa soạn lên cầu để đi qua xe phải giảm tốc độ. Tuần là cái thắng kim bớt bộ máy huyền vi của số nhất là chuyển từ vận hội này sang vận hội khác; có Mệnh viên vẫn giữ gìn chỉ tô vẽ lại phần nào khuôn mặt, từ dữ dẫn Sát Phá Tham làm dịu hiền đôi chút biến thành bạch diện thư sinh. Triệt lại khác là bao vây triệt hạ, ngăn cách từ cái xấu đến cái tốt, có nghĩa là đã không cho xâm nhập ngoài vào còn phá đổ cái gì ở trong cung phong tỏa.",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "concept:thang_kim", "concept:bao_vay_triet_ha"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "concept:thang_kim",
+        "concept:bao_vay_triet_ha"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tuần = thắng kim giảm tốc; Triệt = bao vây phá đổ.",
@@ -1543,7 +1976,11 @@
       "source_quote": "Tai hại nhất là khuôn khổ cứng rắn như Sát Phá Tham và bất khuất như Tử Tướng, không còn gì là phong độ oanh liệt của người dọc ngang trời đất bất kế trên đầu có ai. Mỗi cử động chủ trương đều hầu chực sẵn khó khăn, nhưng cũng đề bù lại, để tránh những gì nguy hiểm sắp đến (tiểu hạn mà thôi).",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["star:triet", "star:sat_pha_tham", "star:tu_tuong"],
+      "tags": [
+        "star:triet",
+        "star:sat_pha_tham",
+        "star:tu_tuong"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Triệt khắc Sát Phá Tham và Tử Tướng nặng nhất.",
@@ -1561,7 +1998,12 @@
       "source_quote": "Tuần Triệt không thể thay đổi tính cách như Thái Tuế bị Triệt không thể thành Tuế Phá, Thiếu âm bị Tuần không hẳn trở nên Thiếu Dương được. Những tính cách của sao bị Tuần Triệt cũng phải tùy thuộc vị trí mà thay đổi tư cách.",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["star:tuan", "star:triet", "star:thai_tue", "concept:tu_cach"],
+      "tags": [
+        "star:tuan",
+        "star:triet",
+        "star:thai_tue",
+        "concept:tu_cach"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1579,7 +2021,11 @@
       "source_quote": "Mệnh Thái Tuế Liêm Phá bị Triệt là người kẻ cả, không thể nhắm mắt dùng mánh khoé sắc mắc hành động, khác với Mệnh Tuế Phá Liêm Phá bị Triệt là người tự mình hạn chế thủ đoạn để làm việc và trường hợp đáng để cô võ hoan nghênh vì người tam hợp Tuế Phá thường thấy thất vọng triền miên, dễ làm việc thất nhân tâm. Ở đây tự xét mình mà trở thành người đáng phục.",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["star:thai_tue_liem_pha", "star:tue_pha_liem_pha", "star:triet"],
+      "tags": [
+        "star:thai_tue_liem_pha",
+        "star:tue_pha_liem_pha",
+        "star:triet"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tuế Phá Liêm Phá + Triệt = ĐÁNG QUÝ (paradigm lật ngược).",
@@ -1597,7 +2043,14 @@
       "source_quote": "Cũng như người Thái Tuế Tham Vũ là người có mộng ước quá lớn, mỗi khi bắt tay vào việc thấy nhiều cản trở khiến phải lòng dòng. Với người Tuế Phá Tham Võ bị Tuần lại khác, cũng thấy nhiều cản trở, lòng dục của mình bị hạn chế lại miễn là mình làm được việc. Người Thiếu Dương Tham vũ bị Tuần là người ham ôm một hoài bão, thấy không thê thức hiện nỗi trọn vẹn đành phải thuận theo đường lợi ích chung. Người Thiếu âm Tham Vũ bị Tuần lại khác, biết mình chỉ là quân bài hy sinh tốt hơn là sống theo kiểu tùy gia phong kiệm, tiếng cả nhà không an phận.",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["star:tham_vu", "star:tuan", "star:thai_tue", "star:tue_pha", "star:thieu_duong", "star:thieu_am"],
+      "tags": [
+        "star:tham_vu",
+        "star:tuan",
+        "star:thai_tue",
+        "star:tue_pha",
+        "star:thieu_duong",
+        "star:thieu_am"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Cùng Tham Vũ + Tuần — 4 vòng (Thái Tuế/Tuế Phá/Thiếu Dương/Thiếu Âm) cho 4 nhân cách khác.",
@@ -1615,7 +2068,12 @@
       "source_quote": "Tóm tắt: Tuần Triệt đương đầu thiếu niên tân khổ không phải là gì ra đời, nếu có Tuần Triệt ngay Mệnh là đều khổ ải cả tuổi thiếu thời. Việc này còn tùy ở vận hạn.",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["concept:thieu_nien_tan_kho", "star:tuan", "star:triet", "rule:tuy_van_han"],
+      "tags": [
+        "concept:thieu_nien_tan_kho",
+        "star:tuan",
+        "star:triet",
+        "rule:tuy_van_han"
+      ],
       "commentary": {
         "han_viet_explain": "Đương đầu = lúc khởi đầu; thiếu niên tân khổ = tuổi nhỏ khổ cực",
         "viet_thuan": null,
@@ -1633,7 +2091,12 @@
       "source_quote": "Hai phái cải thiện tuỳ theo tính cách từ Sát Phá Liêm Tham sang Tử Phủ Vũ Tướng đến Cự Nhật tới Cơ Nguyệt Đồng Lương, tức là phái đương nắm phần lãnh đạo đại điện cho thực thể, phái âm là phản ánh về tư tưởng tinh thần.",
       "source_page": 76,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_phu_vu_tuong", "star:co_nguyet_dong_luong", "concept:thuc_the", "concept:tinh_than"],
+      "tags": [
+        "star:tu_phu_vu_tuong",
+        "star:co_nguyet_dong_luong",
+        "concept:thuc_the",
+        "concept:tinh_than"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": null,
@@ -1651,7 +2114,12 @@
       "source_quote": "Tử Vi Tý Ngọ và Dần Thân tối cần Tả Hữu. Ở Tỵ Hợi, luôn luôn có Thất Sát đứng kèm; ở Thìn Tuất không thể xa rời Thiên Tướng. Còn Mão Dậu Sửu Mùi là cảnh triều đình Lê Chiêu Thống hay Trần Nghệ Tôn không thể thống gì là chính dinh oai nghiêm.",
       "source_page": 74,
       "section_id": "tlnl.S3",
-      "tags": ["star:tu_vi", "palace:mao_dau_suu_mui", "case_study:le_chieu_thong", "case_study:tran_nghe_ton"],
+      "tags": [
+        "star:tu_vi",
+        "palace:mao_dau_suu_mui",
+        "case_study:le_chieu_thong",
+        "case_study:tran_nghe_ton"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Lê Chiêu Thống + Trần Nghệ Tôn = 2 vua suy yếu trong sử Việt.",
@@ -1669,7 +2137,14 @@
       "source_quote": "Nhật Nguyệt tối cần bộ tam minh là Đào Hồng Hỷ. Nhật Nguyệt rất được kế là quang minh lộng lẫy. Ngoài Đào Hồng Hỷ, Nhật Nguyệt rất nên gặp 1 trong 3 bộ Xương Khúc Long Phượng Quang Quý và Hóa Khoa có công dụng như tam minh, nhất là Long Phượng nâng cao phẩm giá Nhật Nguyệt lên hàng danh dự anh minh chính đính.",
       "source_page": 75,
       "section_id": "tlnl.S3",
-      "tags": ["star:nhat_nguyet", "star:dao_hong_hy", "star:xuong_khuc", "star:long_phuong", "star:quang_quy", "star:hoa_khoa"],
+      "tags": [
+        "star:nhat_nguyet",
+        "star:dao_hong_hy",
+        "star:xuong_khuc",
+        "star:long_phuong",
+        "star:quang_quy",
+        "star:hoa_khoa"
+      ],
       "commentary": {
         "han_viet_explain": "Tam minh = 3 sao tươi sáng (Đào Hoa, Hồng Loan, Thiên Hỷ)",
         "viet_thuan": null,
@@ -1687,7 +2162,11 @@
       "source_quote": "Nhật Nguyệt được những bộ trên tô điểm sáng rực rỡ bao nhiêu, trái lại rất cần xa lánh tứ hung Kình Đà Hình Kỵ. Chúng vây bọc che lắp Nhật Nguyệt mắt cả ánh sáng, mô xẻ cắt cứa hành hạ theo nghề nghiệp vốn sẵn là thiện nghệ.",
       "source_page": 75,
       "section_id": "tlnl.S3",
-      "tags": ["star:nhat_nguyet", "concept:tu_hung", "star:kinh_da_hinh_ky"],
+      "tags": [
+        "star:nhat_nguyet",
+        "concept:tu_hung",
+        "star:kinh_da_hinh_ky"
+      ],
       "commentary": {
         "han_viet_explain": "Tứ hung = 4 sao xấu (Kình Dương, Đà La, Thiên Hình, Hóa Kỵ)",
         "viet_thuan": null,
@@ -1705,7 +2184,13 @@
       "source_quote": "Ba nhà đại văn hào: Nguyễn Khuyến: Tuổi Ất Mùi, sanh ngày 6 tháng 4 giờ Mão; Huỳnh Thúc Kháng: Tuổi Bính Tí, sanh ngày 3 tháng 10 giờ Thìn; Nguyễn Đình Chiểu: Tuổi Nhâm Ngọ, sanh ngày 13 tháng 5 giờ Dậu. Cả 3 cụ có số chịu ảnh hưởng bộ Nhật Nguyệt rất nhiều, cùng vị trí nghịch lý âm dương nên cuộc đời chan chứa một nỗi ưu tư bất mãn hầu tương tợ. Ba cụ nổi danh trên văn đàn do văn tinh Đồng Lương Khôi Việt Xương Khúc. Riêng 2 cụ Nguyễn Khuyến, Nguyễn Đình Chiểu vướng Hình Riêu Hà Sát nên mục tật tối tăm vĩnh viễn.",
       "source_page": 75,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:3_van_hao", "star:nhat_nguyet", "star:hinh_rieu", "star:ha_sat", "concept:muc_tat"],
+      "tags": [
+        "case_study:3_van_hao",
+        "star:nhat_nguyet",
+        "star:hinh_rieu",
+        "star:ha_sat",
+        "concept:muc_tat"
+      ],
       "commentary": {
         "han_viet_explain": "Mục tật = bệnh mắt; Hà Sát = Lưu Hà + Kiếp Sát",
         "viet_thuan": "Đây là chỗ DUY NHẤT trong p55-81 nhắc HÌNH RIÊU cụ thể: Hình Riêu + Hà Sát = MÙ MẮT VĨNH VIỄN.",
@@ -1723,7 +2208,11 @@
       "source_quote": "Cụ Huỳnh Thúc Kháng được Hồng Loan khai thông chỉnh đốn: Nhật Nguyệt trở nên xuất sắc hơn BƯỜI.",
       "source_page": 76,
       "section_id": "tlnl.S3",
-      "tags": ["case_study:huynh_thuc_khang", "star:hong_loan", "star:nhat_nguyet"],
+      "tags": [
+        "case_study:huynh_thuc_khang",
+        "star:hong_loan",
+        "star:nhat_nguyet"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Hồng Loan cứu Nhật Nguyệt nghịch — không mù.",
@@ -1741,7 +2230,14 @@
       "source_quote": "Bộ Nhật Nguyệt có 2 trường hợp cần phân tách chu đáo ở 2 vị trí Sửu Mùi nơi tập trung để chuyên hướng rất cần Tuần Triệt, Khoa Tài đóng vai trò trọng tài phân phối âm dương đường ai nấy đi. Đó là 4 cái chìa khóa để điều chỉnh bộ âm đương rất kiến hiệu.",
       "source_page": 75,
       "section_id": "tlnl.S3",
-      "tags": ["star:nhat_nguyet", "palace:suu_mui", "star:tuan", "star:triet", "star:hoa_khoa", "star:thien_tai"],
+      "tags": [
+        "star:nhat_nguyet",
+        "palace:suu_mui",
+        "star:tuan",
+        "star:triet",
+        "star:hoa_khoa",
+        "star:thien_tai"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Tuần / Triệt / Hóa Khoa / Thiên Tài = 4 chìa khóa cho Nhật Nguyệt Sửu Mùi.",
@@ -1759,7 +2255,11 @@
       "source_quote": "Vậy đặc biệt của Nhật Nguyệt khác với chính tinh do lý chính bất như chiếu (chiếu đẹp hơn chính). Ngọn đèn bật sáng lên xung quanh thấy rõ hơn là chân đèn, như vô chính diệu ở Mùi được Nhật Mão Nguyệt ở Hợi chiếu lên (Nhật Nguyệt chiếu hư không). Nếu thêm Hóa Kỵ thì Hóa Kỵ phải ở Mùi. Đây là cảnh trí khánh vân (mây ngũ sắc biểu hiện thái bình thịnh trị) tuyệt hoa.",
       "source_page": 75,
       "section_id": "tlnl.S3",
-      "tags": ["star:nhat_nguyet", "concept:chinh_bat_nhu_chieu", "concept:khanh_van"],
+      "tags": [
+        "star:nhat_nguyet",
+        "concept:chinh_bat_nhu_chieu",
+        "concept:khanh_van"
+      ],
       "commentary": {
         "han_viet_explain": "Chính bất như chiếu = chính tinh không bằng chiếu; khánh vân = mây ngũ sắc",
         "viet_thuan": null,
@@ -1777,7 +2277,11 @@
       "source_quote": "Đây chỉ là phần của sao, còn phần cung mới là quan trọng (tư cách). Cung là vị trí là miếng đất Mệnh, Thân ngự trị. Tuần Triệt không thể thay đổi tính cách như Thái Tuế bị Triệt không thể thành Tuế Phá.",
       "source_page": 81,
       "section_id": "tlnl.S3",
-      "tags": ["concept:cung", "concept:sao", "concept:tu_cach"],
+      "tags": [
+        "concept:cung",
+        "concept:sao",
+        "concept:tu_cach"
+      ],
       "commentary": {
         "han_viet_explain": null,
         "viet_thuan": "Cung > Sao về mặt tư cách.",
@@ -1795,7 +2299,12 @@
       "source_quote": "Nhật Nguyệt ở 12 vị trí sự thiết yếu bao giờ Nhật cũng phải ở dương cung mà Nguyệt phải ở âm địa. Nhật đắc cách là tuổi Hỏa, Nguyệt phải là tuổi Thủy. Sáng sủa hay lạc hãm chỉ là phụ, trường hợp mập mờ \"lại cái\" không bao giờ hợp cách.",
       "source_page": 75,
       "section_id": "tlnl.S3",
-      "tags": ["star:nhat_nguyet", "concept:hoa_menh", "concept:thuy_menh", "concept:lai_cai"],
+      "tags": [
+        "star:nhat_nguyet",
+        "concept:hoa_menh",
+        "concept:thuy_menh",
+        "concept:lai_cai"
+      ],
       "commentary": {
         "han_viet_explain": "Lại cái = nam pha nữ pha nam (nửa nọ nửa kia)",
         "viet_thuan": "Hành Mệnh quan trọng hơn sáng-lạc hãm khi xét Nhật Nguyệt.",

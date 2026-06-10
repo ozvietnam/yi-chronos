@@ -1,0 +1,1340 @@
+{
+  "book_corpus_id": "tu-vi-ham-so",
+  "section_id": "tvhs.S1",
+  "section_title": "Lời mở đầu + Quan điểm canh tân + Phương pháp Hàm Số + Cách thiết lập lá số (intro)",
+  "school": "nguyen_phat_loc_ham_so",
+  "author": "Nguyễn Phát Lộc",
+  "publish_year": 1972,
+  "publish_place": "Saigon",
+  "pages": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "atoms": [
+    {
+      "question_id": "tvhs.S1.Q01",
+      "question": "Bối cảnh khoa Tử Vi tại Việt Nam thời điểm Nguyễn Phát Lộc viết sách (1972) như thế nào?",
+      "answer_atom": "Tử Vi do Trần Đoàn đời Tống sáng lập, đến năm 1972 vẫn ngày càng thịnh hành trong xã hội Việt Nam, lan rộng từ giới trí thức đến kinh doanh, từ cơ quan hành chính đến đơn vị quân sự.",
+      "source_quote": "Từ khi Trần Đoàn, đời nhà Tống, sáng lập ra khoa Tử Vi cho đến ngày nay, mặc dù nhân loại đã hơn nửa thế kỷ hai mươi, nhưng khoa này ngày càng thịnh hành trong xã hội Việt Nam hiện thời. ... Số này xuất hiện ở mọi giai tầng xã hội, từ giới trí thức đến giới kinh doanh, từ cơ quan hành chính đến đơn vị quân sự.",
+      "source_page": 2,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "context:viet_nam_1972",
+        "lineage:tran_doan"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thịnh hành (盛行) = lan rộng được ưa chuộng.",
+        "viet_thuan": "Sách viết khi Tử Vi đã thành 'mốt' trong xã hội miền Nam VN.",
+        "nguyen_ly": "Bối cảnh xã hội thúc đẩy nhu cầu canh tân, vì nhiều người xem nhưng phần lớn xem theo lối mê tín.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q02",
+      "question": "Nguyễn Phát Lộc mô tả ai đến với Tử Vi để làm gì?",
+      "answer_atom": "Có quân nhân xem trước khi hành quân, chính trị gia xem trước khi chấp chánh, thương gia xem trước khi đầu tư, thanh niên xem trước khi lập gia đình — phần đông là người hoài nghi về xã hội tìm chỉ dẫn nơi huyền bí.",
+      "source_quote": "Có quân nhân xem Tử Vi trước khi hành quân, có chính trị gia xem Tử Vi trước khi quyết định chấp chánh, có thương gia xem Tử Vi trước khi đầu tư, có thanh niên xem Tử Vi trước khi lập gia đình. Hầu hết những ai hoài nghi về xã hội hiện hữu đều có khuynh hướng thăm dò số mạng của mình trong khoa bói toán.",
+      "source_page": 2,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "context:user_groups",
+        "motivation:hoai_nghi_xa_hoi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chấp chánh (執政) = nắm quyền hành chính.",
+        "viet_thuan": "Mọi giai tầng dùng Tử Vi như công cụ ra quyết định trước biến cố.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q03",
+      "question": "Tác giả phê phán điều gì về các nhà lý số đương thời?",
+      "answer_atom": "Nguyễn Phát Lộc phê phán các nhà lý số chỉ nhằm khai thác thị hiếu để mưu cầu sinh kế, thay vì khai triển Tử Vi để thâm cứu khoa học nhân văn — khiến thời trang Tử Vi không phục vụ gì cho văn hóa.",
+      "source_quote": "Nhưng, sự thịnh hành của thời trang văn hóa nói trên lại không phục vụ gì cho bộ môn văn hóa! Các nhà lý số nhắm vào việc khai thác thị hiếu của thiên hạ để mưu câu sinh kế cho chính mình, nhiều hơn là khai triển Tử Vi để thâm cứu khoa học nhân văn.",
+      "source_page": 2,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "paradigm:phe_binh",
+        "concept:khoa_hoc_nhan_van"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thâm cứu (深究) = nghiên cứu sâu.",
+        "viet_thuan": "Thầy bói đua nhau ăn theo trào lưu, không ai làm khoa học nghiêm túc.",
+        "nguyen_ly": "Đây là động lực để tác giả viết sách canh tân.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q04",
+      "question": "Hai mục tiêu nghiên cứu thuần túy của quyển sách Tử Vi Hàm Số là gì?",
+      "answer_atom": "(1) Đặt lại quan niệm để Tử Vi thành bộ môn nhân văn khả chấp, giải thoát khỏi huyền bí mê tín; (2) Chính danh phương pháp xem Tử Vi bằng cách áp dụng quy luật hàm số trong việc giải toán.",
+      "source_quote": "Thứ nhất là đặt lại một quan niệm để khoa Tử Vi có thể trở thành một bộ môn nhân văn khả dĩ chấp nhận được, khai triển được, tiến bộ được và thích thời được, giải thoát khoa này khỏi những ràng buộc huyền bí hay mê tín. Thứ hai là chính danh phương pháp xem Tử Vi, áp dụng qui luật hàm số trong việc giải toán.",
+      "source_page": 2,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "paradigm:canh_tan",
+        "method:ham_so",
+        "concept:chinh_danh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chính danh (正名) = gọi đúng tên — ở đây là gọi đúng phương pháp Hàm Số đã có sẵn trong cách xem Tử Vi.",
+        "viet_thuan": "Sách có 2 mục tiêu: đổi paradigm + đặt tên đúng cho phương pháp.",
+        "nguyen_ly": "Quan niệm trước, phương pháp sau — cả hai phải đi cùng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q05",
+      "question": "Tác giả tuyên ngôn nền tảng nào cho khoa Tử Vi?",
+      "answer_atom": "Phải đặt cho khoa Tử Vi một nền tảng KHÔNG huyền bí — không xem nó như khoa học huyền bí, không xem các 'sao' như thần linh có uy lực tuyệt đối quyết định cá tính và đời người.",
+      "source_quote": "muốn cho khoa Tử Vi có thể trở thành một bộ môn nhân văn có thể khả chấp, tôi thiển nghĩ, chúng ta không nên xem nó như một khoa học huyền bí, mà phải đặt cho khoa Tử Vi một nền tảng không huyền bí. Chúng ta không nên nhìn các 'sao' trong khoa Tử Vi... [như] những thân linh có uy lực tuyệt đối quyết định một cách độc đoán cá tính và đời người, tiền định cho mỗi cá nhân một số vận động không thể cưỡng.",
+      "source_page": 2,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "paradigm:phi_huyen_bi",
+        "anti:tien_dinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tiền định (前定) = định sẵn từ trước.",
+        "viet_thuan": "Bỏ luôn lối nhìn sao = thần, sao quyết định mệnh người.",
+        "nguyen_ly": "Phản bác paradigm thần quyền của Tử Vi cổ điển.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Khớp Iron Rule #6 — Tử Vi KHÔNG phải predict-tool, không phải tiền định."
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q06",
+      "question": "Tuyên ngôn 4 bước paradigm shift của Nguyễn Phát Lộc là gì?",
+      "answer_atom": "Phải mang khoa Tử Vi: (1) từ thiên đàng xuống nhân thế; (2) từ thần quyền thánh sang nhân bản; (3) từ mê tín ra khoa học; (4) từ thiên định đến nhân định.",
+      "source_quote": "Phải mang khoa Tử Vi từ thiên đàng xuống nhân thế, từ thần quyền thánh nhân bản, từ mê tín ra khoa học, từ thiên định đến nhân định.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "paradigm:tuyen_ngon",
+        "shift:thien_dinh->nhan_dinh",
+        "concept:nhan_ban"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thiên định (天定) = trời định; Nhân định (人定) = người định. Câu Trung Hoa cổ 'Nhân định thắng thiên' = ý chí con người có thể thắng định mệnh.",
+        "viet_thuan": "Tử Vi của Lộc là Tử Vi của người, không phải của thần.",
+        "nguyen_ly": "Đây là 4-vector paradigm shift gói gọn tinh thần canh tân.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Đúng tinh thần Iron Rule #6 — quan-sao-trace-tính, không predict."
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q07",
+      "question": "Theo Nguyễn Phát Lộc, nghĩa thật của 'sao' trong Tử Vi là gì?",
+      "answer_atom": "'Sao' tuy nghĩa đen là tinh tú, nhưng nghĩa bóng là một YẾU TỐ của con người. Cá nhân không do tinh tú xếp đặt mà do tính nết cơ bản phối hợp với truyền thống gia đình và xã hội tạo ra.",
+      "source_quote": "Các 'sao' trong Tử Vi là một tên gọi, tuy nghĩa đen là tinh tú, song nghĩa bóng là một yếu tố của con người. Cá nhân không phải do tinh tú xếp đặt mà do tính nết cơ bản, phối hợp với truyền thống gia đình và xã hội tạo ra.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:sao_la_yeu_to",
+        "paradigm:nhan_ban"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tinh tú (星宿) = các vì sao trên trời.",
+        "viet_thuan": "Sao chỉ là cái TÊN cho yếu tố trong con người, không phải thực thể trên trời.",
+        "nguyen_ly": "Đây là lý thuyết 'sao = biến số' — foundation cho hàm số.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q08",
+      "question": "Tử Vi khảo sát con người qua những yếu tố nào?",
+      "answer_atom": "Yếu tố thể chất, tính tình, tướng mạo, bệnh lý, nghề nghiệp, gia đình, xã hội, tài sản, và yếu tố vô hình hơn như phúc đức, huyết thống phụ mẫu.",
+      "source_quote": "Có yếu tố thể chất, tính tình, tướng mạo, bệnh lý, nghề nghiệp, gia đình, xã hội, tài sản, có yếu tố vô hình hơn như phúc đức, huyết thống phụ mẫu. Khoa Tử Vi đã tìm hiểu con người và đời người qua các yếu tố đó.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:yeu_to_con_nguoi",
+        "list:8_yeu_to"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi giống bảng câu hỏi nhân học: thân-tâm-quan hệ-vật chất-vô hình.",
+        "nguyen_ly": "Liệt kê này tương đương các CUNG (Mệnh, Tật Ách, Quan, Điền, Phúc, Phụ Mẫu, v.v).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q09",
+      "question": "Tại sao tên 'sao' không quan trọng?",
+      "answer_atom": "Khảo hướng Tử Vi là đặt cho mỗi yếu tố một cái tên, tạm dùng tên tinh tú để gọi — nhưng thực chất quan trọng KHÔNG do cách mệnh danh mà do thực chất và ý nghĩa của đối tượng được mệnh danh.",
+      "source_quote": "Khảo hướng của khoa này là đặt cho mỗi yếu tố một cái tên, tạm dùng tên tinh tú để gọi, nhưng thực sự quan trọng không do cách mệnh danh mà do thực chất và ý nghĩa của đối tượng được mệnh danh.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:menh_danh",
+        "method:khao_huong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Mệnh danh (命名) = đặt tên.",
+        "viet_thuan": "Tên 'Tử Vi, Thiên Cơ, Thái Dương...' chỉ là nhãn — bản chất mới là vấn đề.",
+        "nguyen_ly": "Anti-fetishism với tên sao — ý nghĩa nội hàm > tên gọi.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q10",
+      "question": "Lợi ích của quan niệm canh tân đối với khoa Tử Vi là gì?",
+      "answer_atom": "Với quan niệm canh tân, Tử Vi mới: (1) tiến bộ được như môn nhân văn có quy luật tổng quát; (2) khai triển được, tức phong phú hóa được; (3) thích thời được — không còn là khoa chết tĩnh mà sống động, thích ứng với hình thái phức tạp hơn của xã hội hiện kim.",
+      "source_quote": "Với quan niệm canh tân đó, khoa Tử Vi mới có thể tiến bộ được như một môn nhân văn khả dĩ có quy luật, dù là quy luật tổng quát. Với quan niệm canh tân đó, khoa Tử Vi mới có thể khai triển được, tức là phong phú hóa được. Với quan niệm canh tân đó, khoa Tử Vi mới thích thời được, không còn là một khoa chết tĩnh (science morte) mà có thể có triển vọng sống động.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "paradigm:loi_ich_canh_tan",
+        "anti:science_morte"
+      ],
+      "commentary": {
+        "han_viet_explain": "Science morte (Pháp) = khoa học chết.",
+        "viet_thuan": "Không canh tân thì Tử Vi mãi là khoa chết.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q11",
+      "question": "Vì sao gọi là 'chính danh' phương pháp Hàm Số?",
+      "answer_atom": "Vì phương pháp Hàm Số áp dụng ở đây VỐN ĐÃ CÓ trong cách xem Tử Vi, chỉ là chưa được định danh thích đáng. Nguyễn Phát Lộc mệnh danh là 'hàm số' chứ kỳ thuật không bày ra điều gì mới.",
+      "source_quote": "Sở dĩ gọi là chính danh vì phương pháp hàm số được áp dụng ở đây vốn đã có, chỉ hiểm chưa được định danh thích đáng. Tôi chỉ mệnh danh phương pháp này là hàm số chứ kỳ thuật không bày ra điều gì mới.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:chinh_danh_ham_so",
+        "honesty:khong_phat_minh_moi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Chính danh (正名) — Khổng Tử: 'Danh bất chính, ngôn bất thuận'.",
+        "viet_thuan": "Tác giả khiêm tốn nhận: ông không phát minh ra Hàm Số, chỉ ĐẶT TÊN cho cái đã có.",
+        "nguyen_ly": "Hàm số là cách diễn đạt hiện đại của lối luận đoán tương quan cổ điển.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q12",
+      "question": "Định nghĩa 'Hàm Số' trong Tử Vi của Nguyễn Phát Lộc?",
+      "answer_atom": "Hàm Số nhằm tìm hiểu một dữ kiện linh động trong sự liên hệ NHÂN QUẢ của các yếu tố BIẾN THIÊN. Nó nói lên tương quan uẩn khúc giữa các yếu tố.",
+      "source_quote": "Hàm số nhằm tìm hiểu một dữ kiện linh động trong sự liên hệ nhân quả của các yếu tố biến thiên. Nó nói lên được tương quan uẩn khúc giữa các yếu tố.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "definition:ham_so",
+        "concept:nhan_qua",
+        "concept:bien_thien"
+      ],
+      "commentary": {
+        "han_viet_explain": "Hàm số (函數) = function (toán học) — biến số phụ thuộc biến số khác.",
+        "viet_thuan": "Hàm Số = mối liên hệ y = f(x1, x2, ..., xn) giữa các yếu tố.",
+        "nguyen_ly": "Đây là định nghĩa CỐT LÕI của paradigm Hàm Số — nhân quả + biến thiên + tương quan.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q13",
+      "question": "Xem Tử Vi theo lối Hàm Số là tìm gì?",
+      "answer_atom": "Tìm trong tương quan giữa CÁC CUNG, CÁC SAO, BẢN MỆNH, CỤC, CÁCH những chi tiết về: phúc đức, cha mẹ, anh em, vợ chồng, con cái, bản tính, nghề nghiệp, tài sản, bạn bè, xã hội, bệnh tật, tai họa của con người và đời người.",
+      "source_quote": "Xem Tử Vi theo lối hàm số là tìm trong tương quan giữa các cung, các sao, bản mệnh, cục, cách, những chi tiết về phúc đức, cha mẹ, anh em, vợ chồng, con cái, bản tính, nghề nghiệp, tài sản, bạn bè, xã hội, bệnh tật, tai họa của con người và đời người.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:ham_so_xem_tu_vi",
+        "list:5_bien_so",
+        "list:12_doi_tuong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cục (局) = cấu hình; Cách (格) = patter/mô hình.",
+        "viet_thuan": "5 biến số gốc (cung, sao, bản mệnh, cục, cách) → 12 đối tượng cần luận.",
+        "nguyen_ly": "Map 1-nhiều giữa 5 input và 12 output.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q14",
+      "question": "Vì sao chỉ có phương pháp Hàm Số mới gói ghém được Tử Vi?",
+      "answer_atom": "Chỉ Hàm Số mới giúp vận dụng một loạt HÀNG CHỤC VÌ SAO để xem MỘT CUNG, phối xét MỘT LOẠT 5 CUNG để tìm hiểu vài yếu tố, kết hợp 5-6 yếu tố linh hoạt để xác định bí ẩn con người.",
+      "source_quote": "Chỉ có phương pháp hàm số mới giúp vận dụng một loạt hàng chục vì sao để xem một cung, phối xét một loạt 5 cung để tìm hiểu một vài yếu tố, kết hợp một loạt 5, 6 yếu tố linh hoạt để xác định một bí ẩn của con người và đời người. Chỉ có danh từ hàm số mới gói ghém được sự sống động của khoa Tử Vi.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:nhieu_sao_mot_cung",
+        "method:5_cung_phoi_xet",
+        "concept:song_dong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Multi-input multi-output — chỉ hàm số toán mới mô tả được.",
+        "nguyen_ly": "Foundation cho quy tắc phối chiếu 5 cung (xung-tam-nhị-hợp) ở Chương 2.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q15",
+      "question": "Hàm Số gắn với khái niệm Đông phương nào?",
+      "answer_atom": "Chỉ Hàm Số mới nói lên ý niệm DỊCH LÝ độc đáo của nhân loại, của nhân sinh, của nhân tính.",
+      "source_quote": "Chỉ có hàm số mới nói lên ý niệm dịch lý độc đáo của nhân loại, của nhân sinh, của nhân tính.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:dich_ly",
+        "concept:nhan_tinh",
+        "link:dich_va_ham_so"
+      ],
+      "commentary": {
+        "han_viet_explain": "Dịch lý (易理) = lý của Dịch — biến hóa, tương quan.",
+        "viet_thuan": "Tác giả nối Hàm Số phương Tây với Dịch lý phương Đông.",
+        "nguyen_ly": "Đây là cầu nối quan trọng: Dịch lý cổ điển = Hàm Số hiện đại.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q16",
+      "question": "Hàm Số là phương pháp gì? Dùng để khảo sát đối tượng nào?",
+      "answer_atom": "Hàm Số là phương pháp ĐỘNG HỌC (dynamique) khai triển quy luật biến hóa của cá tính và sinh hoạt con người. Muốn khảo sát một SINH VẬT ĐỘNG BIẾT SUY TƯ phải áp dụng PHƯƠNG PHÁP ĐỘNG.",
+      "source_quote": "Chỉ có hàm số mới là phương pháp động học (dynamique) khai triển được quy luật biến hóa vô cùng phong phú của cá tính và sinh hoạt con người. Muốn khảo sát một sinh vật động biết suy tư phải áp dụng phương pháp động mới khả thi quán triệt và diễn đạt hết các uẩn khúc của đời sống cá nhân và những yếu tố chỉ phối cá nhân trong không gian và thời gian.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:dong_hoc",
+        "method:phuong_phap_dong",
+        "concept:khong_gian_thoi_gian"
+      ],
+      "commentary": {
+        "han_viet_explain": "Động học (動學, dynamique) = khoa nghiên cứu chuyển động/biến hóa.",
+        "viet_thuan": "Người là động vật biết suy tư → phải dùng phương pháp động, không thể tĩnh.",
+        "nguyen_ly": "Đối lập với 'science morte' (khoa chết tĩnh) ở câu trước.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q17",
+      "question": "Tác giả đánh giá khám phá Hàm Số như thế nào?",
+      "answer_atom": "Quả thật là một khám phá kỳ thú khi tìm được trong nền TOÁN HỌC TÂY PHƯƠNG một phương pháp khảo tân được lề lối xem Tử Vi, phù hợp với nguyện vọng canh tân quan niệm Tử Vi.",
+      "source_quote": "Quả thật là một khám phá kỳ thú khi tìm được trong nền toán học Tây Phương một phương pháp khảo tân được lề lối xem Tử Vi, phù hợp với nguyện vọng canh tân quan niệm Tử Vi.",
+      "source_page": 3,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "bridge:tay_phuong_dong_phuong",
+        "concept:toan_hoc"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hàm số toán Tây + Tử Vi Đông = kết hợp đẹp.",
+        "nguyen_ly": "Đây là điểm độc đáo của Nguyễn Phát Lộc so với truyền thống Hoa-Việt.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q18",
+      "question": "5 mục đích biên soạn sách của Nguyễn Phát Lộc là gì?",
+      "answer_atom": "(1) Đóng góp vào việc tìm hiểu con người và đời người; (2) Hệ thống hóa hiểu biết Tử Vi của người đi trước; (3) Khai triển vài khía cạnh chưa sáng tỏ; (4) Cống hiến kiến thức riêng cho người muốn học; (5) Nêu lên một số vấn đề chưa có đáp số ổn thỏa.",
+      "source_quote": "tôi mạo muội biên soạn quyển sách này với 5 mục đích: Muốn đóng góp vào việc tìm hiểu con người và đời người. Thử hệ thống hóa những hiểu biết Tử Vi của những người đi trước. Thử khai triển thêm vài khía cạnh chưa được sáng tỏ của khoa Tử Vi. Cống hiến kiến thức của riêng mình cho những người muốn học. Nêu lên một số vấn đề chưa có đáp số ổn thỏa trong khoa Tử Vi.",
+      "source_page": 4,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "meta:5_muc_dich",
+        "purpose:he_thong_hoa"
+      ],
+      "commentary": {
+        "han_viet_explain": "Mạo muội (冒昧) = bạo gan, tự nhận khả năng giới hạn.",
+        "viet_thuan": "Sách = đóng góp + hệ thống + khai triển + truyền thụ + nêu câu hỏi mở.",
+        "nguyen_ly": "Tác giả ý thức rõ hạn của mình → mời cộng đồng tiếp tục.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q19",
+      "question": "Tác giả có thái độ gì với sở học của mình sau khi viết xong sách?",
+      "answer_atom": "Tác giả thất vọng vì nhận thấy ngành Tử Vi còn quá nhiều điều cần khám phá trong khi sở học giới hạn. Nhưng thà mạnh dạn khai phá một đoạn đường còn hơn thúc thủ đợi chờ kẻ khác.",
+      "source_quote": "Khi hoàn tất quyển sách này tôi lấy làm thất vọng vì nhận thấy ngành Tử Vi còn quá nhiều điều cần khám phá trong khi sở học của mình có giới hạn. Nhưng, thiên nghĩ, thà mạnh dạn khai phá thêm một đoạn đường để dọn một hướng đi còn hơn là thúc thủ đợi chờ kẻ khác bắt đầu.",
+      "source_page": 4,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "meta:khiem_ton",
+        "spirit:khai_pha"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thúc thủ (束手) = bó tay.",
+        "viet_thuan": "Khiêm tốn nhận hạn, nhưng quyết không bỏ cuộc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q20",
+      "question": "Quyển sách chia thành mấy phần nhấn mạnh?",
+      "answer_atom": "2 phần đặc biệt nhấn mạnh: (1) Định nghĩa và giải thích ý niệm căn bản Tử Vi + nền tảng Triết lý qua Âm Dương Ngũ Hành (gồm chương tham luận về Hàm Số và giá trị Tử Vi); (2) Phân tích ý nghĩa của 14 chính tinh và 96 phụ tinh thông dụng.",
+      "source_quote": "Để giản dị hóa công việc này, quyển sách đặc biệt nhấn mạnh đến 2 phần: Định nghĩa và giải thích những ý niệm căn bản của Tử Vi, đồng thời trình bày nền tảng Triết lý của khoa Tử Vi qua lý thuyết Âm Dương Ngũ Hành. Trong phần này, có những chương tham luận đại cương về hàm số Tử Vi và về giá trị khoa Tử Vi. Phân tích ý nghĩa của 14 chính tinh và 96 phụ tinh thông dụng của lá số Tử Vi.",
+      "source_page": 4,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "meta:structure",
+        "concept:am_duong_ngu_hanh",
+        "count:14_chinh_tinh_96_phu_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cấu trúc: nền lý thuyết + phân tích từng sao.",
+        "nguyen_ly": "Tổng 110 sao = 14 chính + 96 phụ.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q21",
+      "question": "Sách có giải đáp hết được lá số không?",
+      "answer_atom": "Không. Sách dù phong phú đến đâu cũng không liệt kê hết trường hợp/biến cố. Việc tìm hiểu chi tiết chính xác đòi hỏi: suy luận chặt chẽ + cân nhắc chu đáo + TRỰC GIÁC LINH MẪN của người giải đoán. Sách đóng góp 'nhiều lắm là chiếm phần nửa công trình giải đoán'; phần nửa còn lại tùy người xem.",
+      "source_quote": "Dù phong phú đến đâu, quyển sách này cũng không thể liệt kê tất cả trường hợp và biến cố xảy ra cho con người và đời người. Việc tìm hiểu chi tiết chính xác còn đòi hỏi sự suy luận chặt chẽ trên kiến thức hiện có, sự cân nhắc chu đáo các yếu tố và nhất là trực giác linh mẫn của người giải đoán. Phân độ góp của quyển sách, nhiều lắm là chiếm phần nữa công trình giải đoán. Phần nửa công việc còn lại tùy thuộc vào người xem số.",
+      "source_page": 4,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "humility:50_50",
+        "method:truc_giac",
+        "concept:gioi_han_sach"
+      ],
+      "commentary": {
+        "han_viet_explain": "Trực giác linh mẫn (直覺靈敏) = trực giác nhạy bén.",
+        "viet_thuan": "Sách = 50%, thầy + trực giác = 50% còn lại.",
+        "nguyen_ly": "Tử Vi không phải thuật toán hoàn chỉnh — có khoảng trống cho trực giác.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q22",
+      "question": "Theo Nguyễn Phát Lộc, lợi điểm 'vô tình luyện được' của người giải đoán Tử Vi là gì?",
+      "answer_atom": "(1) Lợi điểm về ĐỨC TÍNH — hữu dụng cho việc tu nhân; (2) Lợi điểm về sự hiểu biết TÂM LÝ — hữu dụng cho việc giao thiệp.",
+      "source_quote": "niềm lạc thú tinh thần đó cũng chưa bổ ích bằng những đoán mà người giải đoán Tử Vi vô tình luyện được. Đó là những lợi điểm về đức tính, hữu dụng cho việc tu nhân, những lợi điểm về sự hiểu biết tâm lý, hữu dụng cho việc giao thiệp.",
+      "source_page": 5,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "benefit:tu_nhan",
+        "benefit:tam_ly_giao_thiep"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tu nhân (修人) = rèn người, tu thân.",
+        "viet_thuan": "Học Tử Vi vô tình thành kỹ năng sống.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q23",
+      "question": "Học Tử Vi giúp rèn luyện những năng lực trí tuệ nào?",
+      "answer_atom": "Tự rèn óc tìm tòi, tập thói quen suy tư, phát triển năng khiếu suy luận, gọt giũa trực giác, tăng vi hóa óc phân tích và tổng hợp, rèn ý thức thực nghiệm, phát huy óc tìm tòi sự thật và trình bày sự thật đúng tầm mức.",
+      "source_quote": "khảo sát từ giải đoán Tử Vi giúp cá nhân tự rèn được óc tìm tòi, tập sự thói quen suy tư, phát triển năng khiếu suy luận, gọt giữa được trực giác, tăng vi hóa được óc phân tích và tổng hợp, rèn luyện được ý thức thực nghiệm, phát huy được óc tìm tòi sự thật và trình bày sự thật đúng tầm mức của nó.",
+      "source_page": 5,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "benefit:tri_tue",
+        "method:thuc_nghiem"
+      ],
+      "commentary": {
+        "han_viet_explain": "Ý thức thực nghiệm (實驗) = empirical mindset.",
+        "viet_thuan": "Tử Vi như môn học rèn tư duy khoa học.",
+        "nguyen_ly": "Đây là 1 luận điểm hiếm gặp — Tử Vi như 'gym tinh thần'.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q24",
+      "question": "Tác dụng thực dụng (nhãn quan) của khoa Tử Vi theo Nguyễn Phát Lộc là gì?",
+      "answer_atom": "Tử Vi có tác dụng PHỤNG SỰ NHÂN TÍNH và lợi ích cho nhân sinh: giúp mỗi cá nhân TỰ BIẾT và BIẾT NGƯỜI — điều kiện tối cần cho bang giao xã hội, chọn bạn, dùng người đúng chỗ.",
+      "source_quote": "Nhìn dưới nhãn quan thực dụng này, khoa Tử Vi có tác dụng phụng sự nhân tính và lợi ích cho nhân sinh: mỗi cá nhân có thể tự biết và biết người, một điều kiện tối cần cho việc bang giao xã hội, cho việc chọn bạn, cho việc dùng người đúng chỗ. Việc nghiên cứu Tử Vi, muốn cho thiết dụng, nhất định phải được hướng về mục đích thực tiễn đó.",
+      "source_page": 5,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "paradigm:thuc_dung",
+        "purpose:tu_biet_biet_nguoi",
+        "ethics:phung_su_nhan_tinh"
+      ],
+      "commentary": {
+        "han_viet_explain": "Phụng sự (奉事) = phục vụ, hiến dâng.",
+        "viet_thuan": "Tử Vi để phục vụ người, không để phán mệnh.",
+        "nguyen_ly": "Trở về Khổng học: 'tri kỷ tri bỉ'.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q25",
+      "question": "Sách ký ngày tháng nào và tại đâu?",
+      "answer_atom": "Saigon ngày 9 tháng 9 năm 1972, ký tên NGUYỄN PHÁT LỘC.",
+      "source_quote": "Saigon ngày 9 tháng 9 năm 1972 NGUYỄN PHÁT LỘC",
+      "source_page": 5,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "meta:colophon",
+        "context:1972_saigon"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Saigon 9-9-1972 — trước khi miền Nam VN sụp đổ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 1.0,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q26",
+      "question": "Cấu trúc Mục lục Phần I & Phần II của sách?",
+      "answer_atom": "Phần I 'Thiết lập và luận đoán lá số': Chương 1 Cách thức thiết lập lá số; Chương 2 Qui tắc đoán luận lá số. Phần II 'Tham luận đại cương về Tử Vi': Chương 1 Luận về các cung; Chương 2 Luận về các sao; Chương 3 Luận về Bản Mệnh, Cục, Cách.",
+      "source_quote": "PHẦN I: Thiết lập và luận đoán là số — CHƯƠNG I - Cách thức thiết lập lá số — CHƯƠNG II - Qui tắc đoán luận lá số. PHẦN II: THAM LUẬN ĐẠI CƯƠNG VỀ TỬ VI — CHƯƠNG I - Luận về các cung — CHƯƠNG II - Luận về các sao — CHƯƠNG III - Luận về Bản Mệnh, Cục, Cách.",
+      "source_page": 5,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "meta:toc",
+        "structure:phan_chuong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "TOC = 2 phần đã thấy được trong corpus.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q27",
+      "question": "Hai bộ phận chính trên một lá số Tử Vi là gì?",
+      "answer_atom": "ĐỊA BÀN (khoang giữa) dùng ghi họ tên, ngày tháng giờ năm sinh, tuổi Âm/Dương, Bản Mệnh, Cục, tên các tiểu hạn. THIÊN BÀN (vùng châu vi) chia làm 12 ô (mỗi ô gọi là CUNG), dùng ghi tên cung, chính tinh, phụ tinh, các thập niên.",
+      "source_quote": "Khoang giữa lá số gọi là ĐỊA BÀN, dùng để ghi họ, tên, ngày, tháng, giờ, năm sinh, tuổi Âm hay Dương, Bản Mệnh, Cục và tên các tiểu hạn. Vùng châu vi lá số, gọi là THIÊN BÀN, chia làm 12 ô, mỗi ô gọi là CUNG. ... Thiên bàn dùng để ghi tên các cung, chính tinh, phụ tinh, các thập niên.",
+      "source_page": 7,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:dia_ban",
+        "concept:thien_ban",
+        "count:12_cung"
+      ],
+      "commentary": {
+        "han_viet_explain": "Địa Bàn (地盤) = nền đất; Thiên Bàn (天盤) = đĩa trời.",
+        "viet_thuan": "Trong = thông tin người (Địa); Ngoài = 12 cung quỹ đạo (Thiên).",
+        "nguyen_ly": "Tam Tài: Thiên (12 cung) — Địa (info người) — Nhân (cá nhân ở giữa).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q28",
+      "question": "Chiều thuận và chiều nghịch trên lá số là gì?",
+      "answer_atom": "Chiều THUẬN là chiều kim đồng hồ. Chiều NGHỊCH là chiều ngược kim đồng hồ. Một số sao lấy theo thuận, một số theo nghịch.",
+      "source_quote": "Có một số sao được lấy theo chiều THUẬN, một số sao khác được lấy theo chiều NGHỊCH. Chiều thuận là chiều kim đồng hồ. Chiều nghịch là chiều ngược kim đồng hồ.",
+      "source_page": 7,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:thuan_nghich",
+        "method:huong_an_sao"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thuận = clockwise; Nghịch = counterclockwise.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.99,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q29",
+      "question": "Phụ tinh tốt và phụ tinh xấu được gọi tên gì và ghi đâu?",
+      "answer_atom": "Phụ tinh tốt = CÁT TINH, ghi bên TRÁI mỗi ô. Phụ tinh xấu = HUNG TINH, ghi bên PHẢI mỗi ô.",
+      "source_quote": "Phụ tinh tốt, gọi là CÁT TINH, ghi bên trái mỗi ô. Phụ tinh xấu, gọi chung là HUNG TINH, ghi bên phải.",
+      "source_page": 7,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:cat_tinh",
+        "concept:hung_tinh",
+        "method:ghi_la_so"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cát (吉) = tốt lành; Hung (凶) = xấu, dữ.",
+        "viet_thuan": "Quy ước ghi: tốt trái, xấu phải để dễ so sánh.",
+        "nguyen_ly": "Việc xếp hàng này lợi ích vì lúc giải đoán phải so sánh số lượng sao tốt/xấu trong 1 cung.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q30",
+      "question": "Quy trình lấy số Tử Vi gồm mấy giai đoạn?",
+      "answer_atom": "7 giai đoạn: (1) Xác định ngày giờ tháng năm sinh đúng; (2) Xác định tuổi Âm/Dương, Bản Mệnh; (3) Xác định vị trí cung Mệnh, cung Thân và các cung khác; (4) Xác định Cục; (5) An Tử Vi, Thiên Phủ và các chính tinh khác; (6) An các phụ tinh; (7) An các thập niên và tên cung tiểu hạn.",
+      "source_quote": "Có 7 giai đoạn: Xác định ngày, giờ, tháng, năm sinh cho đúng. Xác định tuổi Âm, Dương, Bản Mệnh. Xác định vị trí cung Mệnh, cung Thân và các cung khác trên lá số. Xác định Cục. An Tử Vi, Thiên Phủ và những chính tinh khác. An các phụ tinh. An các thập niên và tên cung tiểu hạn.",
+      "source_page": 8,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:7_giai_doan_lay_so",
+        "concept:an_sao"
+      ],
+      "commentary": {
+        "han_viet_explain": "An (安) = đặt yên vị trí.",
+        "viet_thuan": "Quy trình 7 bước rõ ràng để lập lá số.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q31",
+      "question": "Tử Vi dùng lịch nào để tính tuổi và ngày giờ?",
+      "answer_atom": "Khoa Tử Vi bao giờ cũng dùng ÂM LỊCH để tính tuổi, ngày, tháng, năm, giờ sinh. Phải đổi ngày dương lịch ra âm lịch.",
+      "source_quote": "Khoa Tử Vi bao giờ cũng dùng Âm lịch để tính tuổi, ngày, tháng, năm, giờ sinh. Cho nên phải đổi ngày dương lịch ra ngày âm lịch.",
+      "source_page": 8,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:am_lich",
+        "concept:doi_lich"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Luôn dùng âm lịch.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.99,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q32",
+      "question": "Lấy số theo ngày sinh hay ngày khai sinh?",
+      "answer_atom": "Chỉ lấy số theo NGÀY SANH, không lấy theo ngày khai sanh.",
+      "source_quote": "Trước hết, phải biết chắc chắn ngày sanh. Chỉ lấy số theo ngày sanh chớ không lấy theo ngày khai sanh.",
+      "source_page": 8,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:ngay_sanh_that",
+        "anti:ngay_khai_sanh"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khai sinh thường lệch ngày — phải lấy ngày sinh thật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q33",
+      "question": "Yếu tố nào trong ngày sinh là quan trọng nhất?",
+      "answer_atom": "Trong 4 yếu tố (năm, tháng, ngày, giờ âm lịch), quan trọng nhất là THÁNG và GIỜ âm lịch.",
+      "source_quote": "Ngày sanh gồm những yếu tố sau: Năm âm lịch, Tháng âm lịch, Ngày âm lịch, Giờ âm lịch. Quan trọng nhất là tháng và giờ âm lịch.",
+      "source_page": 8,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:thang_gio_quan_trong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tháng + Giờ là 2 yếu tố then chốt.",
+        "nguyen_ly": "Vì tháng + giờ quyết định an cung Mệnh + Thân.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q34",
+      "question": "Năm âm lịch nhuận có 2 tháng giống nhau xử lý sao?",
+      "answer_atom": "Dù sanh ở tháng nhuận trước hay tháng nhuận sau đều phải coi như cùng tháng, không phân biệt trước sau. (Có quan điểm chia 15-30 sang tháng sau, nhưng bị nhiều nhà khảo cứu cho là sai, vấn đề còn tranh chấp.)",
+      "source_quote": "Có năm nhuận thì có đến 2 tháng âm lịch giống nhau. Ví dụ: Năm Quý Dậu (1993) có 2 tháng 5 âm lịch. Dù sanh ở tháng 5 trước hay tháng 5 sau đều phải coi như tháng 5, không phân biệt trước sau. Có quan điểm cho rằng những người sanh từ 15 đến 30 tháng 5 sau phải coi như sanh vào tháng 6. Nhưng quan điểm này bị một số nhà khảo cứu cho là sai. Vấn đề còn đang tranh chấp.",
+      "source_page": 8,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "edge_case:thang_nhuan",
+        "debate:open"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nhuận (閏) = năm có thêm tháng để bù chênh lệch dương-âm lịch.",
+        "viet_thuan": "Tháng nhuận = cùng tên, không phân chia trước sau.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.94,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q35",
+      "question": "Cấu trúc giờ âm lịch như thế nào?",
+      "answer_atom": "Âm lịch có 12 giờ mỗi ngày, mỗi giờ kéo dài 2 tiếng đồng hồ — gọi theo 12 Địa Chi từ Tý đến Hợi.",
+      "source_quote": "Âm lịch có 12 giờ mỗi ngày, mỗi giờ kéo dài 2 tiếng đồng hồ.",
+      "source_page": 8,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:12_gio_am_lich",
+        "concept:dia_chi"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "12 giờ x 2h = 24h.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.99,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q36",
+      "question": "Quy tắc xác định giờ Tý và ngày mới?",
+      "answer_atom": "Sanh quá 23 giờ (23g01) mới kể là giờ Tý. Sanh đúng 1 giờ sáng vẫn còn kể là giờ Tý. Khi sanh giờ Tý phải lưu ý tính qua NGÀY MỚI, vì ngày mới bắt đầu từ giờ Tý.",
+      "source_quote": "Nếu sanh quá 23 giờ (23 giờ 1 phút) mới kể là giờ Tý. Nếu sanh đúng 1 giờ sáng thì còn kể là giờ Tý. Trong trường hợp sanh vào giờ Tý, phải lưu ý tính qua ngày mới, bởi lẽ ngày mới bắt đầu từ giờ Tý.",
+      "source_page": 9,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "edge_case:gio_ty",
+        "method:ngay_moi_bat_dau_ty"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "23h01 ~ 1h00 = giờ Tý, và đã sang ngày mới.",
+        "nguyen_ly": "Ngày âm lịch bắt đầu từ Tý chứ không phải nửa đêm 0h.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q37",
+      "question": "Vì sao việc tính giờ ở Việt Nam dễ sai?",
+      "answer_atom": "Đồng hồ cá nhân không chuẩn + GIỜ Ở VIỆT NAM trải qua nhiều thay đổi vì lệ thuộc yếu tố chính trị (Pháp thuộc → Nhật thuộc → Pháp thuộc → VN độc lập sửa 2 lần).",
+      "source_quote": "nguyên nhân quan trọng nhất làm cho việc tính giờ sai lạc là do giờ ở Việt Nam trải qua sự thay đổi với thời gian, vì lệ thuộc vào yếu tố chính trị. Giờ Pháp thuộc bị giờ Nhật thuộc thay đổi, giờ Nhật thuộc lại bị giờ Pháp thuộc thay đổi một lần nữa, đến thời kỳ Việt Nam độc lập, giờ cũng bị sửa 2 lần.",
+      "source_page": 9,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "edge_case:gio_viet_nam",
+        "context:chinh_tri_lich_su"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Múi giờ VN bị đổi nhiều lần → giờ ghi nhớ thường lệch giờ Tử Vi thật.",
+        "nguyen_ly": "Phải tra bảng quy đổi để tìm giờ Tử Vi chuẩn.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q38",
+      "question": "Theo bảng quy đổi, giờ Tử Vi hiện thời (1972) so với giờ sanh ra sao?",
+      "answer_atom": "Từ 1/1/1960, giờ chính thức VN lên 1 tiếng trên giờ thời đạo thứ 7 — nên giờ Tử Vi = giờ sanh TRỪ 1 tiếng. Chỉ những người sanh trước 25/11 Nhâm Ngọ và từ 12/5 Ất Mùi đến 2/12 Kỷ Hợi mới không phải cộng trừ.",
+      "source_quote": "Như vậy, chỉ những người sanh trước 25/11 Nhâm Ngọ và sanh từ 12/5 Ất Mùi đến 2/12 Kỷ Hợi mới thật sự sanh đúng giờ, không phải cộng, trừ. Hiện thời, giờ sanh sớm hơn giờ Tử Vi một tiếng đồng hồ.",
+      "source_page": 10,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "edge_case:doi_gio_1960",
+        "method:tru_1_tieng"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sanh sau 1/1/1960 → giờ Tử Vi = giờ sanh - 1h.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Lưu ý: với sanh viên VN sau 1975 cần kiểm lại múi giờ vì hệ thống lại đổi."
+      },
+      "confidence": 0.92,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q39",
+      "question": "Có mấy cách phân biệt tuổi Âm hay Dương?",
+      "answer_atom": "2 cách: (1) Tính theo hàng CAN của năm sinh; (2) Tính theo hàng CHI của năm sinh. Cả 2 cách đưa đến kết quả giống nhau. CHI Dương gồm: Tý, Dần, Thìn, Ngọ, Thân, Tuất.",
+      "source_quote": "Có 2 cách phân biệt tuổi Âm hay Dương: 1. Tính theo hàng Can của năm sinh 2. Tính theo hàng Chi của năm sinh. DƯƠNG: Tý, Dần, Thìn, Ngọ, Thân, Tuất. Cách tính nào cũng đưa đến kết quả giống nhau.",
+      "source_page": 11,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:phan_biet_am_duong",
+        "list:6_chi_duong"
+      ],
+      "commentary": {
+        "han_viet_explain": "Can (干) — Chi (支) — 10 thiên can + 12 địa chi.",
+        "viet_thuan": "Tuổi Dương/Âm theo Can hoặc Chi đều cùng kết quả.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q40",
+      "question": "Trai/gái + Dương/Âm gọi tên 4 nhóm như thế nào?",
+      "answer_atom": "Trai-Dương = DƯƠNG NAM, trai-Âm = ÂM NAM, gái-Dương = DƯƠNG NỮ, gái-Âm = ÂM NỮ.",
+      "source_quote": "Nếu là trai, tuổi Dương thì gọi là DƯƠNG NAM, tuổi Âm thì gọi là ÂM NAM. Nếu là gái, tuổi Dương thì gọi là DƯƠNG NỮ, tuổi Âm thì gọi là ÂM NỮ.",
+      "source_page": 11,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:4_nhom_gioi_tinh_am_duong"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "4 nhóm: DN, ÂN, DNữ, ÂNữ — quyết định chiều an sao.",
+        "nguyen_ly": "Dương Nam + Âm Nữ → thuận; Âm Nam + Dương Nữ → nghịch.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q41",
+      "question": "Bản Mệnh (hành) căn cứ vào đâu?",
+      "answer_atom": "Loại hành của Bản Mệnh căn cứ theo CAN và CHI của tuổi, tra bảng (Lục thập hoa giáp / Nạp âm).",
+      "source_quote": "Tiếp theo là tìm bản mệnh, đúng hơn là loại hành của Bản Mệnh, căn cứ theo Can và chỉ của tuổi, theo bảng liệt kê sau đây.",
+      "source_page": 11,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:ban_menh",
+        "method:can_chi_tra_bang"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nạp âm (納音) = hệ thống 60 nạp âm gán Ngũ Hành cho 60 hoa giáp.",
+        "viet_thuan": "Can + Chi → Bản Mệnh = 1 trong 5 hành (Kim Mộc Thủy Hỏa Thổ) có biệt danh (Hải Trung Kim, Giản Hạ Thủy...).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q42",
+      "question": "Cung Mệnh và cung Thân được an theo đâu?",
+      "answer_atom": "Vị trí cung Mệnh (M) và cung Thân (T) căn cứ vào THÁNG và GIỜ sinh.",
+      "source_quote": "XÁC ĐỊNH VỊ TRÍ CUNG MỆNH (M) VÀ CUNG THÂN (T) (căn cứ vào Tháng và Giờ sinh)",
+      "source_page": 13,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:an_menh_than",
+        "input:thang_gio"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tháng + Giờ → Mệnh + Thân.",
+        "nguyen_ly": "Đây là lý do tháng + giờ quan trọng nhất (Q33).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q43",
+      "question": "Thứ tự 12 cung sau khi an Mệnh đi theo chiều nào?",
+      "answer_atom": "Bắt đầu từ cung MỆNH, theo chiều THUẬN, ghi tiếp 12 cung: Mệnh → Phụ Mẫu → Phúc Đức → Điền Trạch → Quan Lộc → Nô Bộc → Thiên Di → Tật Ách → Tài Bạch → Tử Tức → Phu Thê → Huynh Đệ.",
+      "source_quote": "Sau khi biết được vị trí cung an Mệnh, Thân rồi bắt đầu từ cung Mệnh, theo chiều THUẬN, ghi các cung kế tiếp theo thứ tự: 1. Mệnh 2. Phụ Mẫu 3. Phúc Đức 4. Điền Trạch 5. Quan Lộc 6. Nô Bộc 7. Thiên Di 8. Tật Ách 9. Tài Bạch 10. Tử Tức 11. Phu Thê (hoặc Phu) 12. Huynh Đệ",
+      "source_page": 14,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "list:12_cung",
+        "method:an_cung_thuan"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "12 cung quay vòng quanh lá số theo chiều kim đồng hồ kể từ Mệnh.",
+        "nguyen_ly": "Đây là 12 mặt đời sống tương ứng 8 yếu tố Q08.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q44",
+      "question": "Cục của tuổi tùy thuộc yếu tố nào?",
+      "answer_atom": "Cục của tuổi tùy thuộc vào CAN của năm và vị trí cung an MỆNH (tra bảng). Cục dùng để tìm vị trí sao Tử Vi.",
+      "source_quote": "Cục của tuổi tùy thuộc vào Can và cung an Mệnh theo bảng kê dưới đây: ... Biết được tên cục, ghi ngay vào khoảng giữa lá số, dưới chỗ ghi bản mệnh, tuổi Dương Âm. Cục dùng để tìm vị trí sao Tử — Vi.",
+      "source_page": 14,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:cuc",
+        "method:tra_bang_can_cung_menh",
+        "purpose:tim_tu_vi"
+      ],
+      "commentary": {
+        "han_viet_explain": "Cục (局) — Thủy nhị cục, Mộc tam cục, Kim tứ cục, Thổ ngũ cục, Hỏa lục cục.",
+        "viet_thuan": "Can + cung Mệnh → Cục → vị trí sao Tử Vi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q45",
+      "question": "Sao Tử Vi an theo yếu tố nào?",
+      "answer_atom": "Sao Tử Vi an theo CỤC và NGÀY SINH (tra bảng). Ví dụ: Sinh ngày 7, Mộc tam Cục → Tử Vi đóng ở cung Ngọ; sinh ngày 19, Thổ ngũ cục → Tử Vi đóng ở cung Thìn.",
+      "source_quote": "XÁC ĐỊNH VỊ TRÍ SAO TỬ VI (theo Cục và Ngày sinh) Ví dụ: Sinh ngày 7, Mộc tam Cục thì sao Tử Vi đóng ở cung Ngọ. Sinh ngày 19, Thổ ngũ cục, Tử Vi đóng ở cung Thìn.",
+      "source_page": 16,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:an_tu_vi",
+        "input:cuc_ngay_sinh"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cục + ngày → vị trí Tử Vi → từ đó suy 13 chính tinh còn lại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q46",
+      "question": "Tổng số sao trong Tử Vi và phân loại?",
+      "answer_atom": "Tổng có 110 vì sao: 14 CHÍNH TINH + 96 PHỤ TINH. Trong phụ tinh nổi bật có 6 HUNG TINH (Địa Không, Kình Dương, Đà La, Địa Kiếp, Linh Tinh, Hỏa Tinh) và 16 CÁT TINH chính (Tả Phù, Hữu Bật, Thiên Khôi, Thiên Việt, Văn Xương, Văn Khúc, Long Trì, Phượng Các, Tam Thai, Bát Tọa, Ân Quang, Thiên Quý, Lộc Tồn, Hóa Khoa, Hóa Quyền, Hóa Lộc).",
+      "source_quote": "Tất cả có 110 vì sao (14 chính tinh, 96 phụ tinh). Trong số các phụ tinh, nên ghi chú những sao dưới đây, vì tính cách quan trọng và để giúp dễ giải đoán lá số: a) Hung Tinh (6 sao) Địa Không — Kình Dương — Đà La / Địa Kiếp — Linh Tinh — Hỏa Tinh. b) Cát Tinh (16 sao) Tả phù — Tam thai / Hữu bật — Bát tọa / Thiên khôi — Ân quang / Thiên việt — Thiên quý / Văn xương — Lộc tổn / Văn khúc — Hóa khoa / Long trì — Hóa quyển / Phượng các — Hóa lộc.",
+      "source_page": 25,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "count:110_sao",
+        "count:14_chinh_96_phu",
+        "list:6_hung_16_cat"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi = 14 sao chính + 96 phụ — trong đó 6 hung sát + 16 cát then chốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q47",
+      "question": "Đại hạn là gì và tính theo yếu tố nào?",
+      "answer_atom": "Đại hạn = thời gian 10 năm (thập niên). Tính dựa theo CỤC và tuổi ÂM/DƯƠNG. Mỗi thập niên ghi vào 1 cung, bắt đầu từ cung Mệnh. Dương Nam, Âm Nữ: chiều THUẬN. Âm Nam, Dương Nữ: chiều NGHỊCH.",
+      "source_quote": "Đại hạn: Là thời gian 10 năm (thập niên), được tính dựa theo Cục và tuổi Âm, Dương. Mỗi thập niên được ghi vào một cung, bắt đầu từ cung Mệnh trở đi. Dương Nam, Âm Nữ thì ghi theo chiều THUẬN. Âm Nam, Dương Nữ thì ghi theo chiều NGHỊCH.",
+      "source_page": 26,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:dai_han",
+        "method:tinh_dai_han",
+        "duration:10_nam"
+      ],
+      "commentary": {
+        "han_viet_explain": "Đại hạn (大限) = giới hạn lớn 10 năm.",
+        "viet_thuan": "Đại hạn = sóng 10 năm, đi vòng quanh lá số.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q48",
+      "question": "Đại hạn khởi số theo Cục như thế nào?",
+      "answer_atom": "Thủy nhị cục bắt đầu 2,12,22,32...; Mộc tam cục bắt đầu 3,13,23,33...; Kim tứ cục bắt đầu 4,14,24,34...; Thổ ngũ cục bắt đầu 5,15,25,35...; Hỏa lục cục bắt đầu 6,16,26,36... (bước nhảy 10).",
+      "source_quote": "Quy luật tính Cục: Thủy nhị cục: Bắt đầu bằng 2, rồi 12, 22, 32... Mộc tam cục: Bắt đầu bằng số 3, rồi 13, 23, 33... Kim tứ cục: Bắt đầu bằng số 4, rồi 14, 24, 34... Thổ ngũ cục: Bắt đầu bằng số 5, rồi 15, 25, 35... Hỏa lục cục: Bắt đầu bằng số 6, rồi 16, 26, 36...",
+      "source_page": 26,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:dai_han_khoi_so",
+        "list:5_cuc"
+      ],
+      "commentary": {
+        "han_viet_explain": "Thủy nhị = 2, Mộc tam = 3, Kim tứ = 4, Thổ ngũ = 5, Hỏa lục = 6.",
+        "viet_thuan": "Cục nào khởi số đó, mỗi cung +10 năm.",
+        "nguyen_ly": "Tên Cục đã chứa số khởi.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q49",
+      "question": "Tiểu hạn là gì và an theo chiều nào?",
+      "answer_atom": "Tiểu hạn = thời gian 1 năm, ghi theo vòng chu vi địa bàn, mỗi cung 1 tên tiểu hạn. TRAI: chiều THUẬN. GÁI: chiều NGHỊCH.",
+      "source_quote": "Tiểu hạn: Là thời gian 1 năm, được ghi theo vòng chu vi địa bàn, mỗi cung ghi một tên tiểu hạn. Nếu là Trai thì ghi theo chiều THUẬN. Gái thì ghi theo chiều NGHỊCH.",
+      "source_page": 26,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:tieu_han",
+        "duration:1_nam",
+        "method:nam_thuan_nu_nghich"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tiểu hạn (小限) = giới hạn nhỏ — 1 năm.",
+        "viet_thuan": "Năm hành: Trai thuận, Gái nghịch.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q50",
+      "question": "Sao lưu động dùng để xem gì?",
+      "answer_atom": "Có 9 sao lưu động, dời chỗ từng năm, đặc biệt dùng để xem HẠN MỖI NĂM. Ý nghĩa giống các sao cùng tên ở vị trí cố định.",
+      "source_quote": "Có 9 sao lưu động, dời chỗ từng năm một, đặc biệt dùng để xem hạn mỗi năm. Ý nghĩa 9 sao lưu động giống như ý nghĩa 9 sao cùng tên ở vị trí cố định.",
+      "source_page": 26,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:sao_luu_dong",
+        "count:9_sao",
+        "purpose:xem_han_nam"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lưu (流) = chảy, di chuyển.",
+        "viet_thuan": "9 sao đặc biệt di chuyển mỗi năm cho việc luận đoán hạn năm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.95,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q51",
+      "question": "Sao chủ Mệnh và sao chủ Thân có ý nghĩa gì?",
+      "answer_atom": "Mỗi người có 1 sao chủ Mệnh và 1 sao chủ Thân, ghi ở khoang giữa lá số. KHÔNG CÓ CÁCH nào nói đến ảnh hưởng của hai loại sao này đối với vận mạng con người — chỉ cần ghi để biết.",
+      "source_quote": "Mỗi người có một sao chủ Mệnh và một sao chủ Thân, được ghi ở khoang giữa lá số. Không có cách nào nói đến ảnh hưởng của hai loại sao này đối với vận mạng con người. Nhưng cần ghi để biết.",
+      "source_page": 28,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:sao_chu_menh",
+        "concept:sao_chu_than",
+        "honesty:khong_co_cach"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hai sao chủ này chỉ ghi nhận, không có công thức luận đoán.",
+        "nguyen_ly": "Nguyễn Phát Lộc thẳng thắn nhận: chưa có cách áp dụng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "MÂU THUẪN với Phú Thái Vi Q2 (Trần Đoàn dùng Mệnh chủ luận sâu). Đây là khác biệt giữa trường phái VN cải cách vs cổ điển TQ."
+      },
+      "confidence": 0.93,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q52",
+      "question": "Định nghĩa Luận đoán lá số theo Chương 2?",
+      "answer_atom": "Luận đoán lá số là tìm trong TƯƠNG QUAN giữa các CUNG, các SAO, BẢN MỆNH, CỤC, CÁCH những chi tiết về: phúc đức, cha mẹ, anh em, vợ chồng, con cái, bản tính, nghề nghiệp, tài sản, bạn bè, bệnh tật, tai họa, xã hội, biến cố lớn trong đời người, các giai đoạn thịnh suy, cái chết...",
+      "source_quote": "Luận đoán lá số là tìm trong tương quan giữa các cung, các sao, Bản Mệnh, Cục, Cách những chi tiết về phúc đức, cha mẹ, anh em, vợ chồng, con cái, bản tính, nghề nghiệp, tài sản, bạn bè, bệnh tật, tai họa, xã hội, biến cố lớn trong đời người, các giai đoạn thịnh suy, cái chết...",
+      "source_page": 28,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "definition:luan_doan",
+        "method:tuong_quan_5_input"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Lặp lại định nghĩa Hàm Số ở p3 với 1 chi tiết thêm: 'cái chết'.",
+        "nguyen_ly": "5 input → 14 đối tượng output (so với 12 ở Q13).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q53",
+      "question": "Ba tiêu chuẩn của một công trình luận đoán đúng mức là gì?",
+      "answer_atom": "(1) ĐẦY ĐỦ — không bỏ sót cung, sao, yếu tố, thời hạn nào; (2) CỤ THỂ — nói được nét đặc biệt của đương số, phân biệt với người khác; (3) CHÍNH XÁC — ứng sự thật, được chứng nghiệm bởi đương số.",
+      "source_quote": "Một công trình luận đoán đúng mức phải đạt ít nhất 3 tiêu chuẩn sau đây. 1) Việc luận đoán phải đầy đủ ... 2) Việc luận đoán phải cụ thể ... 3) Việc luận đoán phải chính xác.",
+      "source_page": 28,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:3_tieu_chuan",
+        "criteria:day_du_cu_the_chinh_xac"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đầy đủ + Cụ thể + Chính xác = 3 tiêu chí.",
+        "nguyen_ly": "Ba tiêu chuẩn KHÔNG liên quan nhau — có thể phong phú mà không rõ rệt, rõ rệt mà không đúng.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q54",
+      "question": "Tiêu chuẩn đầy đủ đòi gì cụ thể?",
+      "answer_atom": "Luận đoán đầy đủ phải: (a) luận tất cả các cung; (b) luận tất cả các sao trong tương quan với cung phối chiếu; (c) luận sự liên hệ Bản Mệnh-Cục-Phúc-Cách; (d) luận tiền vận, hậu vận; (e) luận biến cố trong mỗi vận hạn (10 năm, mỗi năm, mỗi tháng nếu được). Mỗi yếu tố cân nhắc về ÂM DƯƠNG NGŨ HÀNH của cung, sao, mệnh, cục.",
+      "source_quote": "Muốn đầy đủ, tác giả phải: Luận đoán tất cả các cung. Luận đoán tất cả các sao trong tương quan với các cung phối chiếu. Luận đoán sự liên hệ giữa Bản Mệnh, Cục, Phúc, Cách. Luận đoán tiền vận, hậu vận của con người. Luận đoán các biến cố trong mỗi vận hạn (10 năm, mỗi năm và nếu được mỗi tháng). ... Mỗi yếu tố phải được cân nhắc thêm về mặt âm dương Ngũ Hành của cung, sao, mệnh, cục.",
+      "source_page": 28,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "criteria:day_du_chi_tiet",
+        "method:am_duong_ngu_hanh"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Liệt kê toàn diện: cung-sao-mệnh-cục-cách-vận-năm-tháng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q55",
+      "question": "Tử Vi đạt độ chính xác bao nhiêu phần trăm là 'hay'?",
+      "answer_atom": "Thông thường, ít khi Tử Vi đạt độ chính xác 100% trừ những sự kiện hay đặc điểm giản dị. ĐẠT TỈ LỆ 80% cũng đã là HAY.",
+      "source_quote": "Thông thường, ít khi Tử Vi đạt đến độ chính xác 100 phần trăm, trừ phi đối với một số sự kiện hay đặc điểm giản dị. Đạt tỉ lệ 80 phần 100 cũng đã là hay.",
+      "source_page": 29,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "honesty:80_phan_tram",
+        "anti:tuyet_doi"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi đúng 80% là tốt — không thần thánh hóa độ chính xác.",
+        "nguyen_ly": "Phản pháo lại lối thầy bói tự tin tuyệt đối.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Khớp Iron Rule #6: không predict tuyệt đối, không fortune-telling."
+      },
+      "confidence": 0.97,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q56",
+      "question": "Thái độ của tác giả khi đương số phản ứng/giấu giếm sự thật?",
+      "answer_atom": "Tác giả KHÔNG nên quan tâm xác nhận/phủ nhận của đương số. Thái độ thích nghi nhất: chỉ chiếu vào LÁ SỐ mà giải, KHÔNG để ý phản ứng bề ngoài (nét mặt, cử chỉ, lời bàn thêm) hay nếp sống hiện tại. Xem số chỉ nên biết có MÌNH và LÁ SỐ mà thôi.",
+      "source_quote": "tác giả không nên quan tâm đến sự xác nhận hay phủ nhận của đương số. Có lắm lúc, đương số giấu giếm sự thật, nhất là khi sự thật đó chạm đến danh dự và tự ái của họ hay của gia đình họ. Thái độ thích nghi nhất của tác giả là chiếu vào lá số mà giải, không nên để ý đến phản ứng bề ngoài (nét mặt, cử chỉ, lời bàn thêm) của đương số, cũng không nên quan tâm đến nếp sống hiện tại của đương sự. ... Tác giả bao giờ cũng nên nhớ rằng mình xem lá số, chứ không phải xem tướng mạo, phản ứng hay nếp sống của đương sự. Không bao giờ nên để các yếu tố này lung lạc lập luận của mình. Xem số luôn luôn chỉ nên biết có mình và lá số mà thôi.",
+      "source_page": 29,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "ethics:khong_dao_dien",
+        "discipline:la_so_only",
+        "anti:tuong_mao_nep_song"
+      ],
+      "commentary": {
+        "han_viet_explain": "Lung lạc (蒙落) = mê hoặc, làm sai lệch.",
+        "viet_thuan": "Đừng đoán theo mặt người — đoán theo lá số.",
+        "nguyen_ly": "Discipline khoa học: không bias bởi observable bên ngoài.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q57",
+      "question": "Quy tắc phối chiếu nào phải nhớ khi xem 1 cung?",
+      "answer_atom": "Xem cung nào KHÔNG chỉ xem sao tọa thủ tại đó, mà còn KẾT HỢP với sao tọa thủ tại: (1) cung XUNG CHIẾU; (2) hai cung TAM CHIẾU; (3) cung NHỊ HỢP — tức 5 CUNG cùng lúc.",
+      "source_quote": "Xem cung nào trong lá số không phải chỉ xem các sao tọa thủ tại đó mà thôi, mà còn kết hợp với các sao tọa thủ tại cung xung chiếu, hai cung tam chiếu và cung nhị hợp. ... Tóm lại, khi xem cung nào phải ĐỒNG THỜI xem cả cung xung chiếu, hai cung tam chiếu và cung nhị hợp, tức là phải xem năm cung cùng một lúc để cân nhắc chung.",
+      "source_page": 29,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:phoi_chieu_5_cung",
+        "concept:xung_tam_nhi_hop"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tọa thủ (坐守) = ngồi giữ — sao đóng tại cung.",
+        "viet_thuan": "1 cung = 5 cung phối hợp (chính + xung + 2 tam + nhị hợp).",
+        "nguyen_ly": "Đây là cơ chế Hàm Số ở thực hành — multi-input.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q58",
+      "question": "Cung xung chiếu là gì?",
+      "answer_atom": "Cung xung chiếu là cung ĐỐI DIỆN TRỰC TIẾP. Ví dụ: Tuất xung Thìn, Dần xung Thân, Tỵ xung Hợi, Sửu xung Mùi. Vì chiếu trực tiếp nên QUAN TRỌNG HƠN tam chiếu và nhị hợp.",
+      "source_quote": "Cung xung chiếu là cung đối diện trực tiếp. Ví dụ: Cung xung chiếu của Tuất là Thìn, của Thìn là Tuất, của Dần là Thân, của Thân là Dần, của Tỵ là Hợi, của Hợi là Tỵ, của Sửu là Mùi, của Mùi là Sửu v.v... không bao giờ thay đổi. Vì chiếu trực tiếp nên cung xung chiếu quan trọng hơn hai cung tam chiếu và cung nhị hợp.",
+      "source_page": 30,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:xung_chieu",
+        "method:doi_dien"
+      ],
+      "commentary": {
+        "han_viet_explain": "Xung (沖) = đối chọi; Chiếu (照) = chiếu rọi.",
+        "viet_thuan": "180 độ đối xứng — luôn cố định.",
+        "nguyen_ly": "Ưu tiên 2 trong 5 cung phối chiếu (sau cung chánh).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q59",
+      "question": "4 bộ tam chiếu trong lá số là gì?",
+      "answer_atom": "Chỉ có 4 bộ tam chiếu: (a) Dần-Ngọ-Tuất; (b) Thân-Tý-Thìn; (c) Tỵ-Dậu-Sửu; (d) Hợi-Mão-Mùi. Hướng tam chiếu KHÔNG bao giờ thay đổi.",
+      "source_quote": "Chỉ có bốn bộ cung tam chiếu trong lá số mà thôi, và hướng tam chiếu này không bao giờ thay đổi. Đó là: a. Dần - Ngọ - Tuất b. Thân - Tý - Thìn c. Tỵ - Dậu - Sửu d. Hợi - Mão - Mùi",
+      "source_page": 30,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:tam_chieu",
+        "list:4_tam_hop"
+      ],
+      "commentary": {
+        "han_viet_explain": "Tam chiếu = 'Tam hợp' trong nhiều sách khác.",
+        "viet_thuan": "4 nhóm 3 cung tạo tam giác đều nội tiếp 12 cung.",
+        "nguyen_ly": "Hỏa cục (Dần-Ngọ-Tuất), Thủy (Thân-Tý-Thìn), Kim (Tỵ-Dậu-Sửu), Mộc (Hợi-Mão-Mùi).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.98,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q60",
+      "question": "Nhị hợp gồm những cặp nào?",
+      "answer_atom": "6 cặp nhị hợp cố định: Tý-Sửu, Dần-Hợi, Mão-Tuất, Thìn-Dậu, Tỵ-Thân, Ngọ-Mùi.",
+      "source_quote": "Thế chiếu nhị hợp trong lá số cũng không bao giờ thay đổi: Tý nhị hợp với Sửu, Dần nhị hợp với Hợi, Mão nhị hợp với Tuất, Thìn nhị hợp với Dậu, Tỵ nhị hợp với Thân, Ngọ nhị hợp với Mùi.",
+      "source_page": 30,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "concept:nhi_hop",
+        "list:6_cap_nhi_hop"
+      ],
+      "commentary": {
+        "han_viet_explain": "Nhị hợp (二合) = hai chi hợp lại.",
+        "viet_thuan": "6 cặp đối xứng qua trục Tý-Sửu / Ngọ-Mùi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.99,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S1.Q61",
+      "question": "Có thể đánh giá 5 cung phối chiếu theo thứ tự ưu tiên không?",
+      "answer_atom": "Thông thường người ta xem 5 cung ngang nhau, nhưng người tinh vi hơn ưu tiên: (1) cung CHÁNH; (2) cung XUNG CHIẾU; (3) hai cung TAM CHIẾU; (4) cung NHỊ HỢP. Đánh giá này phân biệt được ảnh hưởng trực tiếp và gián tiếp, giúp luận đoán tinh vi hơn.",
+      "source_quote": "Thông thường người ta xem năm cung có tầm quan trọng ngang nhau. Nhưng có người tinh vi hơn muốn đánh giá năm cung đó theo ưu tiên quan trọng khác nhau. Theo quan điểm này thì: Quan trọng nhất là cung chánh (ví dụ như Tuất). Quan trọng nhì là cung xung chiếu (Thìn). Quan trọng ba là hai cung tam chiếu (Dần và Ngọ). Quan trọng bốn là cung nhị hợp (Mão). Sự đánh giá này xét qua cũng hợp lý ... giúp cho việc luận đoán tinh vi hơn, cụ thể hơn, có thể chính xác hơn, đầy đủ hơn.",
+      "source_page": 30,
+      "section_id": "tvhs.S1",
+      "tags": [
+        "method:uu_tien_5_cung",
+        "concept:anh_huong_truc_tiep_gian_tiep"
+      ],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trọng số: chánh > xung > tam > nhị.",
+        "nguyen_ly": "Đây là sự tinh chỉnh của Hàm Số — không phải 5 input bằng nhau, mà có weighting.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.96,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
