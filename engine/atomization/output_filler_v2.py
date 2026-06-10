@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from engine.tu_vi.cross_school import (
-    luan_sao_cung, detect_paradigm_warnings, SCHOOL_NAMES
+    luan_sao_cung, luan_to_hop_cung, detect_paradigm_warnings, SCHOOL_NAMES
 )
 from engine.tu_vi.viet_names import vi_star, vi_chi, vi_can, vi_palace
 
@@ -60,6 +60,19 @@ def render_3_layer(la_so: dict) -> dict:
         if stars:
             per_palace[palace] = render_per_palace(palace, stars)
 
+    # Tổ hợp cung (việc D — tam phương tứ chính / giáp / mượn sao).
+    # Chỉ tính cho key là 12 chi (key chức năng menh/tai_bach không có vị trí vòng).
+    from engine.tu_vi.paradigm.to_hop_cung import CHI_RING
+    ct = la_so.get("chinh_tinh_per_palace") or {}
+    to_hop_per_palace = {}
+    for chi in CHI_RING:
+        if chi not in per_palace:
+            continue
+        try:
+            to_hop_per_palace[chi] = luan_to_hop_cung(chi, ct)
+        except Exception:
+            continue  # tổ hợp là lớp bổ sung — lỗi không được chặn render chính
+
     # Compose lớp 1 (narrative tổng — simple template)
     bac_tuoi_w = next((w for w in warnings if w["type"] == "bac_tuoi"), None)
     nhan_cung_warnings = [w for w in warnings if w["type"] == "nhan_cung"]
@@ -87,9 +100,10 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
         lop_2_parts.append("✓ Không có chính tinh nào rơi vào Nhân Cung.")
     lop_2 = "\n".join(lop_2_parts)
 
-    # Compose lớp 3 (per palace cross-school)
+    # Compose lớp 3 (per palace cross-school + tổ hợp cung)
     lop_3 = {
         "per_palace": per_palace,
+        "to_hop_per_palace": to_hop_per_palace,
         "schools_summary": {
             sc_code: SCHOOL_NAMES[sc_code]
             for sc_code in SCHOOL_NAMES
@@ -107,6 +121,7 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
                 for v in per_palace.values()
                 for s in v["stars"]
             ),
+            "to_hop_atoms": sum(v["total_atoms"] for v in to_hop_per_palace.values()),
             "schools_count": 4,
         }
     }

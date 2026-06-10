@@ -44,6 +44,41 @@
           </span>
         </div>
 
+        <!-- Tổ hợp cung: tam phương tứ chính / giáp / mượn sao (chống "luận máy móc" — Trung Châu) -->
+        <div v-if="toHopList.length" class="to-hop-section">
+          <h4>🔗 Tổ hợp cung — tam phương tứ chính · giáp · mượn sao</h4>
+          <p class="to-hop-hint">Trung Châu dạy: chỉ xét 1 cung đơn lẻ = "luận đoán máy móc". Phần này gom sao hội chiếu từ tam hợp + xung chiếu rồi đối chiếu sách.</p>
+          <div v-for="th in toHopList" :key="th.cung" class="to-hop-block">
+            <h5>🏛 Cung {{ formatPalace(th.cung) }}
+              <span class="badge">{{ th.total_atoms }} atoms tổ hợp</span>
+            </h5>
+            <div class="to-hop-meta">
+              Tứ chính: {{ th.to_hop.tu_chinh.tu_chinh.map(formatPalace).join(' · ') }}
+              — hội chiếu: {{ th.to_hop.hoi_chieu_stars.map(formatStar).join(', ') }}
+              <template v-if="th.to_hop.muon_sao.vo_chinh_dieu && th.to_hop.muon_sao.borrowed_from">
+                <br>↪ Vô chính diệu — mượn sao từ {{ formatPalace(th.to_hop.muon_sao.borrowed_from) }}:
+                {{ th.to_hop.muon_sao.stars.map(formatStar).join(', ') }}
+              </template>
+              <template v-if="th.to_hop.giap.thien_tuong_note">
+                <br>⚠ {{ th.to_hop.giap.thien_tuong_note }}
+              </template>
+            </div>
+            <template v-for="(atoms, school) in th.schools" :key="school">
+            <div v-if="atoms && atoms.length > 0" class="school-view">
+              <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
+              <ul>
+                <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
+                  <span v-for="rel in (atom.relations || [])" :key="rel" class="rel-tag">{{ formatRelation(rel) }}</span>
+                  <div class="quote" v-html="'&quot;' + annotateTerms(atom.source_quote) + '&quot;'"></div>
+                  <div v-if="atom.viet_thuan" class="paraphrase" v-html="'→ ' + annotateTerms(atom.viet_thuan)"></div>
+                  <div class="meta">📍 trang {{ atom.page_start }} · confidence {{ atom.confidence }}</div>
+                </li>
+              </ul>
+            </div>
+            </template>
+          </div>
+        </div>
+
         <div v-for="(palace_data, palace) in result.lop_3_sach_co.per_palace" :key="palace" class="palace-block">
           <h4>🏛 Cung {{ formatPalace(palace) }}</h4>
           <div v-for="(cv, star) in palace_data.cross_views" :key="star" class="star-block">
@@ -73,7 +108,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
 const props = defineProps({
   // "1988-06-05T23:30" — nếu có thì gọi from-birth, không thì founder-demo
@@ -129,6 +164,21 @@ function formatPalace(p) {
 function formatStar(s) {
   return STAR_NAMES[s] || s
 }
+
+const RELATION_NAMES = {
+  tam_phuong: 'Tam phương tứ chính', tam_hop: 'Tam hợp', hoi_chieu: 'Hội chiếu',
+  xung_chieu: 'Xung chiếu', giap: 'Giáp cung', muon_sao: 'Mượn sao',
+}
+
+function formatRelation(r) {
+  return RELATION_NAMES[r] || r
+}
+
+// Tổ hợp cung — chỉ lấy cung có atoms, ưu tiên Mệnh/Thân trước
+const toHopList = computed(() => {
+  const all = result.value?.lop_3_sach_co?.to_hop_per_palace || {}
+  return Object.values(all).filter(v => v.total_atoms > 0)
+})
 
 // ── Wiki glossary tooltip (Hán-Việt) ──────────────────────────────
 const glossaryTerms = ref({})  // term → note
@@ -347,6 +397,26 @@ h3 { margin-top: 0; }
   border-bottom: 1px dotted #6a4c93;
   cursor: help;
   color: #5a3d80;
+}
+
+.to-hop-section {
+  margin: 20px 0;
+  padding: 12px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px dashed #6a4c93;
+}
+.to-hop-hint { font-size: 0.85em; color: #666; margin: 4px 0 12px; }
+.to-hop-block { margin: 16px 0; padding-left: 12px; border-left: 2px solid #c9b8e8; }
+.to-hop-meta { font-size: 0.88em; color: #444; margin: 6px 0 10px; }
+.rel-tag {
+  display: inline-block;
+  margin: 0 6px 4px 0;
+  padding: 1px 8px;
+  background: #ede7f6;
+  color: #5a3d80;
+  border-radius: 8px;
+  font-size: 0.72em;
 }
 
 .narrative-btn {

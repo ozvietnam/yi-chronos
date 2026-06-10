@@ -106,6 +106,109 @@ def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5) -> dict:
     }
 
 
+# ── Retrieval v2: atoms tổ hợp cung (tam phương / hội chiếu / giáp / mượn sao) ──
+# Cache module-level: ~1.2k atoms relation-tagged, load 1 lần rồi filter Python.
+_RELATION_ATOMS_CACHE: list[dict] | None = None
+
+RELATION_NAMES_VI = {
+    "tam_phuong": "Tam phương tứ chính",
+    "tam_hop": "Tam hợp",
+    "hoi_chieu": "Hội chiếu",
+    "xung_chieu": "Xung chiếu / đối cung",
+    "giap": "Giáp cung",
+    "muon_sao": "Mượn sao an cung",
+}
+
+
+def _load_relation_atoms() -> list[dict]:
+    global _RELATION_ATOMS_CACHE
+    if _RELATION_ATOMS_CACHE is not None:
+        return _RELATION_ATOMS_CACHE
+    import json
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    rows = conn.execute("""
+        SELECT a.atom_id, a.subject_identifiers, a.confidence,
+               c.book_corpus_id
+        FROM atomic_questions a
+        JOIN chunks_v2 c ON c.chunk_id = a.chunk_id
+        WHERE a.subject_identifiers LIKE '%"relation"%'
+          AND a.founder_verified >= 0
+    """).fetchall()
+    conn.close()
+    out = []
+    for r in rows:
+        try:
+            subj = json.loads(r["subject_identifiers"] or "{}")
+        except json.JSONDecodeError:
+            continue
+        school = SCHOOL_MAP.get(r["book_corpus_id"])
+        if not school:
+            continue
+        out.append({
+            "atom_id": r["atom_id"],
+            "stars": set(subj.get("star") or []),
+            "relations": subj.get("relation") or [],
+            "school": school,
+            "confidence": r["confidence"],
+        })
+    _RELATION_ATOMS_CACHE = out
+    return out
+
+
+def luan_to_hop_cung(chi: str, chinh_tinh_per_palace: dict[str, list[str]],
+                     limit_per_school: int = 3) -> dict:
+    """Luận tổ hợp cung: pull atoms quan hệ cung-cung KHỚP với sao hội chiếu
+    thật của lá số (việc D — chống 'luận đoán máy móc' theo Trung Châu).
+
+    Match rule: atom relation-tagged + tag ≥2 sao + toàn bộ sao của atom
+    nằm trong tập sao hội chiếu của tứ chính (tức tổ hợp đó lá số CÓ thật).
+    Atoms giáp: sao atom ⊆ (sao cung + sao 2 cung giáp).
+    """
+    from .paradigm import to_hop_cung as compute_to_hop
+
+    th = compute_to_hop(chi, chinh_tinh_per_palace)
+    hoi_chieu_set = set(th["hoi_chieu_stars"])
+    giap_set = set(chinh_tinh_per_palace.get(chi) or [])
+    for c in th["giap"]["cungs"]:
+        giap_set |= set(th["giap"]["stars_per_cung"].get(c) or [])
+
+    by_school: dict[str, list[dict]] = {sc: [] for sc in SCHOOL_NAMES}
+    for atom in _load_relation_atoms():
+        if len(atom["stars"]) < 2:
+            continue  # combo phải ≥2 sao — atom 1 sao đã có ở lớp sao×cung
+        rels = set(atom["relations"])
+        if rels & {"tam_phuong", "tam_hop", "hoi_chieu", "xung_chieu", "muon_sao"}:
+            if atom["stars"] <= hoi_chieu_set:
+                by_school[atom["school"]].append(atom)
+                continue
+        if "giap" in rels and atom["stars"] <= giap_set:
+            by_school[atom["school"]].append(atom)
+
+    # Fetch details, sort confidence cao trước
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    schools_atoms: dict[str, list[dict]] = {}
+    for sc, atoms in by_school.items():
+        atoms.sort(key=lambda a: -(a["confidence"] or 0))
+        ids = [a["atom_id"] for a in atoms[:limit_per_school]]
+        details = _fetch_atom_details(conn, ids)
+        # Gắn relations vào detail để UI hiển thị loại quan hệ
+        rel_by_id = {a["atom_id"]: a["relations"] for a in atoms}
+        for d in details:
+            d["relations"] = rel_by_id.get(d["atom_id"], [])
+        schools_atoms[sc] = details
+    conn.close()
+
+    return {
+        "cung": chi,
+        "to_hop": th,
+        "schools": schools_atoms,
+        "schools_present": [sc for sc, a in schools_atoms.items() if a],
+        "total_atoms": sum(len(a) for a in schools_atoms.values()),
+    }
+
+
 def detect_paradigm_warnings(la_so: dict) -> list[dict]:
     """Run paradigm engine + return list warnings.
 

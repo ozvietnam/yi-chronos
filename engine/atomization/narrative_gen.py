@@ -96,6 +96,31 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                         shown += 1
                         count += 1
 
+    # Tổ hợp cung Mệnh (tam phương tứ chính / giáp / mượn sao) — chống luận máy móc
+    menh_chi = la_so_input.get("menh_palace")
+    th = (three_layer.get("lop_3_sach_co", {}).get("to_hop_per_palace") or {}).get(menh_chi)
+    if th and th.get("total_atoms"):
+        t = th["to_hop"]
+        parts.append("")
+        parts.append(
+            f"## Tổ hợp cung Mệnh (tam phương tứ chính: "
+            f"{', '.join(vi_chi(c) for c in t['tu_chinh']['tu_chinh'])}):"
+        )
+        if t["muon_sao"]["vo_chinh_dieu"] and t["muon_sao"]["borrowed_from"]:
+            parts.append(
+                f"- Mệnh vô chính diệu, mượn sao từ {vi_chi(t['muon_sao']['borrowed_from'])}: "
+                f"{', '.join(vi_star(s) for s in t['muon_sao']['stars'])}"
+            )
+        shown_th = 0
+        for school, atoms in th.get("schools", {}).items():
+            for a in atoms[:1]:
+                if shown_th >= 4:
+                    break
+                vt = a.get("viet_thuan") or a.get("source_quote") or ""
+                if vt:
+                    parts.append(f"- ({school}, {'/'.join(a.get('relations', []))}): {vt[:200]}")
+                    shown_th += 1
+
     parts.append("")
     parts.append("Viết narrative 'Chuyện về anh/chị' theo nguyên tắc đã cho.")
     return "\n".join(parts)

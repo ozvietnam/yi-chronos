@@ -14,9 +14,11 @@ from .ba_vong import ba_vong_lon, vong_loc_ton, vong_thai_tue, vong_trang_sinh
 from .bat_phap import bat_phap_classify, BAT_PHAP_CACH
 from .thap_du import thap_du_eval, THAP_DU_NAMES
 from .tam_hop_loc import tam_hop_loc_ton, LOC_TON_TAM_HOP_BY_CAN
+from .to_hop_cung import tam_phuong_tu_chinh, giap_cung, muon_sao, to_hop_cung
 
 __all__ = [
     "is_nhan_cung", "NHAN_CUNG",
+    "tam_phuong_tu_chinh", "giap_cung", "muon_sao", "to_hop_cung",
     "bac_tuoi", "BAC_TUOI_NAMES",
     "ba_vong_lon", "vong_loc_ton", "vong_thai_tue", "vong_trang_sinh",
     "bat_phap_classify", "BAT_PHAP_CACH",
