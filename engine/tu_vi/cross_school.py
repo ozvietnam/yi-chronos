@@ -22,13 +22,15 @@ SCHOOL_MAP = {
     "tu-vi-dau-so-toan-thu-vu-tai-luc": "tran_doan",
     "tu-vi-nghiem-ly-toan-thu-thien-luong": "thien_luong",
     "tu-vi-ham-so": "ham_so",
+    "tu-vi-dau-so-toan-thu-zh": "tran_doan_zh",  # bản dịch Trung Q1 Phú + Q3 sao×cung
 }
 
 SCHOOL_NAMES = {
-    "trung_chau":   "Trung Châu (Vương Đình Chỉ)",
-    "tran_doan":    "Trần Đoàn (Toàn Thư)",
-    "thien_luong":  "Cụ Thiên Lương (Nghiệm Lý)",
-    "ham_so":       "Hàm Số (Nguyễn Phát Lộc)",
+    "trung_chau":    "Trung Châu (Vương Đình Chỉ)",
+    "tran_doan":     "Trần Đoàn (Toàn Thư — Vũ Tài Lục)",
+    "tran_doan_zh":  "Trần Đoàn (TVDSTT bản dịch Trung — Q1 Phú + Q3)",
+    "thien_luong":   "Cụ Thiên Lương (Nghiệm Lý)",
+    "ham_so":        "Hàm Số (Nguyễn Phát Lộc)",
 }
 
 

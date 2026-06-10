@@ -4384,6 +4384,41 @@ def yi_wiki_glossary_tuvi() -> dict:
     return {"status": "ok", "glossary": g}
 
 
+@app.get("/api/yi-wiki/glossary/tu-vi-full")
+def yi_wiki_glossary_tuvi_full() -> dict:
+    """Glossary Tử Vi FULL từ concept_index wiki (787+ concepts school=tu_vi).
+
+    Wiki hạ cấp làm glossary layer phục vụ atom store (Anh chốt 2026-06-10).
+    Format: {"terms": {"<canonical_vi>": {"note": ..., "zh": ..., "aliases": [...]}}}
+    """
+    import sqlite3 as _sq
+    from pathlib import Path as _P
+    db = _P(__file__).resolve().parent.parent / "data/yi_wiki/wiki.sqlite3"
+    conn = _sq.connect(db)
+    try:
+        rows = conn.execute("""
+            SELECT canonical_vi, canonical_zh, short_note, aliases
+            FROM concept_index
+            WHERE (school LIKE '%tu_vi%' OR school IS NULL)
+              AND short_note IS NOT NULL AND short_note != ''
+              AND length(canonical_vi) >= 2
+        """).fetchall()
+        terms = {}
+        for vi, zh, note, aliases in rows:
+            entry = {"note": note, "zh": zh or "", "aliases": []}
+            if aliases:
+                try:
+                    import json as _j
+                    al = _j.loads(aliases) if aliases.startswith("[") else [a.strip() for a in aliases.split(",")]
+                    entry["aliases"] = [a for a in al if isinstance(a, str) and len(a) >= 2][:5]
+                except Exception:
+                    pass
+            terms[vi] = entry
+        return {"status": "ok", "count": len(terms), "terms": terms}
+    finally:
+        conn.close()
+
+
 @app.get("/api/yi-wiki/search")
 def yi_wiki_search(q: str, limit: int = 20) -> dict:
     """Full-text search wiki concepts + passages (FTS5 bm25 — #18 Phase 1).

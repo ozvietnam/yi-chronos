@@ -47,8 +47,8 @@
               <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
               <ul>
                 <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
-                  <div class="quote">"{{ atom.source_quote }}"</div>
-                  <div v-if="atom.viet_thuan" class="paraphrase">→ {{ atom.viet_thuan }}</div>
+                  <div class="quote" v-html="'&quot;' + annotateTerms(atom.source_quote) + '&quot;'"></div>
+                  <div v-if="atom.viet_thuan" class="paraphrase" v-html="'→ ' + annotateTerms(atom.viet_thuan)"></div>
                   <div class="meta">📍 trang {{ atom.page_start }} · confidence {{ atom.confidence }}</div>
                 </li>
               </ul>
@@ -101,6 +101,50 @@ function formatStar(s) {
   return STAR_NAMES[s] || s
 }
 
+// ── Wiki glossary tooltip (Hán-Việt) ──────────────────────────────
+const glossaryTerms = ref({})  // term → note
+
+async function loadGlossary() {
+  try {
+    // Full glossary từ wiki concept_index (787+ concepts) — wiki = glossary layer
+    const res = await fetch('/api/yi-wiki/glossary/tu-vi-full')
+    const data = await res.json()
+    const flat = {}
+    for (const [term, info] of Object.entries(data.terms || {})) {
+      if (info?.note) {
+        flat[term] = info.note
+        for (const alias of (info.aliases || [])) flat[alias] = info.note
+      }
+    }
+    glossaryTerms.value = flat
+  } catch { /* glossary optional — bỏ qua nếu lỗi */ }
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+let _termRegex = null  // cached alternation regex — rebuild khi glossary đổi
+
+function buildTermRegex() {
+  const terms = Object.keys(glossaryTerms.value)
+  if (!terms.length) return null
+  // Sort dài trước để match "Tuần Không Vong" trước "Tuần"; 1 regex gộp = 1 pass/text
+  terms.sort((a, b) => b.length - a.length)
+  const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  return new RegExp(`(${escaped.join('|')})`, 'g')
+}
+
+function annotateTerms(text) {
+  const html = escapeHtml(text)
+  if (!_termRegex) _termRegex = buildTermRegex()
+  if (!_termRegex) return html
+  return html.replace(_termRegex, (m) => {
+    const note = escapeHtml(glossaryTerms.value[m] || '')
+    return note ? `<span class="hv-term" title="${note}">${m}</span>` : m
+  })
+}
+
 function renderMarkdown(text) {
   return text
     .replace(/^## (.+)$/gm, '<h4>$1</h4>')
@@ -138,7 +182,7 @@ async function load() {
   }
 }
 
-onMounted(load)
+onMounted(() => { loadGlossary(); load(); })
 watch(() => props.birthDatetimeLocal, load)
 </script>
 
@@ -268,4 +312,11 @@ h3 { margin-top: 0; }
   font-size: 1.1em;
 }
 .error { color: #d9534f; }
+
+/* Wiki glossary term — gạch chấm + tooltip native */
+:deep(.hv-term) {
+  border-bottom: 1px dotted #6a4c93;
+  cursor: help;
+  color: #5a3d80;
+}
 </style>
