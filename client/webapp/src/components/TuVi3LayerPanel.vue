@@ -9,8 +9,14 @@
     <div v-else-if="result">
       <!-- Lớp 1: Chuyện về anh -->
       <section class="lop-1">
-        <h3>💬 Lớp 1 — Chuyện về anh</h3>
-        <div class="content" v-html="renderMarkdown(result.lop_1_chuyen_ve_anh)"></div>
+        <h3>💬 Lớp 1 — Chuyện về anh
+          <button class="narrative-btn" :disabled="narrativeLoading" @click="loadNarrative">
+            {{ narrativeLoading ? '⏳ Đang viết...' : narrative ? '🔄 Viết lại' : '✨ Luận mượt (AI)' }}
+          </button>
+        </h3>
+        <div v-if="narrative" class="content narrative-text" v-html="renderMarkdown(narrative)"></div>
+        <div v-else class="content" v-html="renderMarkdown(result.lop_1_chuyen_ve_anh)"></div>
+        <small v-if="narrative" class="narrative-meta">✨ AI luận theo paradigm đọc đồng dạng — mệnh 7 phần, người 3 phần</small>
       </section>
 
       <!-- Lớp 2: Vì sao -->
@@ -79,6 +85,29 @@ const props = defineProps({
 const loading = ref(true)
 const error = ref(null)
 const result = ref(null)
+const narrative = ref(null)
+const narrativeLoading = ref(false)
+
+async function loadNarrative() {
+  if (!props.birthDatetimeLocal) return
+  narrativeLoading.value = true
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/narrative', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        birth_datetime_local: props.birthDatetimeLocal,
+        timezone: props.timezone,
+        gender: props.gender,
+        force: !!narrative.value,  // đã có → user bấm lại = viết lại
+      }),
+    })
+    const data = await res.json()
+    if (data.narrative) narrative.value = data.narrative
+  } catch { /* giữ template nếu lỗi */ } finally {
+    narrativeLoading.value = false
+  }
+}
 
 const PALACE_NAMES = {
   ty: 'Tý', suu: 'Sửu', dan: 'Dần', mao: 'Mão', thin: 'Thìn', ti: 'Tỵ',
@@ -319,4 +348,18 @@ h3 { margin-top: 0; }
   cursor: help;
   color: #5a3d80;
 }
+
+.narrative-btn {
+  float: right;
+  padding: 4px 14px;
+  border: 1px solid #f4a261;
+  background: #fff;
+  color: #c2410c;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 0.75em;
+}
+.narrative-btn:disabled { opacity: 0.6; cursor: wait; }
+.narrative-text { white-space: pre-wrap; line-height: 1.8; }
+.narrative-meta { display: block; margin-top: 8px; color: #888; }
 </style>

@@ -139,6 +139,31 @@ async def render_from_birth(birth: BirthInput) -> dict:
     return result
 
 
+class NarrativeBirthInput(BirthInput):
+    force: bool = False  # force=true bỏ cache, sinh lại
+
+
+@router.post("/3-layer/narrative")
+async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
+    """Sinh narrative Lớp 1 'Chuyện về anh' bằng LLM (DeepSeek + cache theo lá số).
+
+    Tách endpoint riêng vì LLM call 5-15s — frontend gọi sau khi đã render 3-layer.
+    """
+    from engine.atomization.narrative_gen import generate_narrative
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone,
+        gender=birth.gender,
+    ))
+    result = generate_narrative(base, base["la_so_input"], force=birth.force)
+    return {
+        "narrative": result["narrative"],
+        "cached": result["cached"],
+        "model": result["model"],
+    }
+
+
 @router.get("/3-layer/founder-demo")
 async def founder_demo() -> dict:
     """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""
