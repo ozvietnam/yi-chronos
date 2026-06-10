@@ -1,0 +1,135 @@
+# Manifest sách Tử Vi Đẩu Số Toàn Thư (Trần Đoàn / Vũ Tài Lục dịch)
+# Generated 2026-06-10 từ thâm nhuần Phase 0+1 (vòng 1-4, p1-80)
+# School: tran_doan_co_dien
+
+book_corpus_id: tu-vi-dau-so-toan-thu-vu-tai-luc
+title: Tử Vi Đẩu Số Toàn Thư
+author_original: Trần Đoàn (Hi Di tiên sinh)
+editor: La Hồng Tiên (đời Minh)
+translator_vn: Vũ Tài Lục
+school: tran_doan_co_dien
+total_pages: 171
+
+# Tier metadata cho atomize
+book_profile:
+  core_def: |
+    Mệnh vận học là KHOA HỌC, không huyền bí. Bài toán đặt trên luật tắc cao hơn.
+    Mệnh = TÍNH (định trước) + Vận = TAO NGỘ (biến theo thời).
+    70% số phận, 30% tự chủ (hữu chí giả). Dịch lý là biến, hung-cát chuyển hoá.
+  paradigm_keys:
+    - "Không huyền bí" (p5-6, Iron Rule #6 compatible)
+    - "Mệnh = TÍNH, Vận = TAO NGỘ" (p5, Giáo sư Tiền Mục)
+    - "70/30 — 7 phần số + 3 phần tự chủ" (p7)
+    - "Nhân quả vô môn duy nhân sở chiêu" (p6, Tả Truyện)
+    - "TỨ YẾU" (Cát Hung / Hư Thực / Chủ Khách / Cường Nhược) (p18)
+    - "THẬP DỤ" (10 cách xem 4 cung) (p19)
+    - "BÁT PHÁP" (Thành/Phá + Cứu/Khí) (p19-20)
+    - "Mệnh = THỂ, Thân = DỤNG" (p65)
+    - "NHÂN CUNG" (8 trường hợp giảm 80% giá trị) (p63-64)
+    - "Cường/Nhược cung khác Nam-Nữ" (p65)
+  conflict_with_tcq2: |
+    - HIGH similarity (cùng Trần Đoàn gốc)
+    - Toàn Thư có Bát Pháp + Thập Dụ + Nhân Cung mà TCQ2 không có
+    - Toàn Thư có Phong Thần 14 sao truyền thuyết
+    - Hóa Kỵ trong Toàn Thư = "đụng đâu hại đó", VN nói "ở Tài+Điền lại đắc"
+    - Thiên Hình "không hẳn hung — nhập miếu là Hỉ Thần"
+    - Khôi Việt "không có hãm địa"
+
+# 7 coarse sections cho Phase 3 sub-agents parallel atomize
+# Mỗi sub-agent đọc text + atomize ~ 50-150 atoms
+sections:
+  - id: "tdts.S1"
+    title: "Mở đầu — Paradigm + Thuật ngữ + Bát Pháp + Thập Dụ"
+    page_start: 1
+    page_end: 20
+    n_pages: 20
+    focus: |
+      - Lời tác giả, lời mở (p2-8)
+      - 14 chính tinh qua Phong Thần truyền thuyết (p9-13)
+      - Trần Đoàn thân thế (p14-15)
+      - Cấu trúc 4 tập + 31 chương (p16)
+      - Thuật ngữ + 12 cung + Tam hợp/Lục xung (p17-18)
+      - TỨ YẾU + THẬP DỤ + BÁT PHÁP (p18-20)
+    expected_atoms: 60
+
+  - id: "tdts.S2"
+    title: "Chư tinh vấn đáp — 14 chính tinh"
+    page_start: 21
+    page_end: 41
+    n_pages: 21
+    focus: |
+      14 chính tinh theo template 6-mục cố định:
+      Hỏi → Đáp → Hi Di Trần Đoàn → Ngọc Thiểm bài ca → Phú nôm VN → Câu phú Toàn Thư
+      Tử Vi, Thiên Cơ, Thái Dương, Vũ Khúc, Thiên Đồng, Liêm Trinh,
+      Thiên Phủ, Thái Âm, Tham Lang, Cự Môn, Thiên Tướng, Thiên Lương, Thất Sát, Phá Quân
+    expected_atoms: 140  # 14 sao × 10 atoms
+
+  - id: "tdts.S3"
+    title: "Chư tinh vấn đáp — Phụ tinh + Tứ Hóa + Sát tinh"
+    page_start: 42
+    page_end: 60
+    n_pages: 19
+    focus: |
+      Phụ tinh: Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật, Thiên Khôi, Thiên Việt,
+      Lộc Tồn, Thiên Mã
+      Tứ Hóa: Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ
+      Sát tinh: Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Thiên Không, Địa Kiếp,
+      Thiên Thương, Thiên Sứ, Thiên Hình, Thiên Riêu, Thiên Khốc, Thiên Hư
+      Tuần Triệt, Chòm Lộc Tồn, Chòm Thái Tuế
+    expected_atoms: 150
+
+  - id: "tdts.S4"
+    title: "Thập Nhị Cung Luận — Paradigm cốt + NHÂN CUNG + Thân-Mệnh"
+    page_start: 61
+    page_end: 65
+    n_pages: 5
+    focus: |
+      - 4 sao VN thêm + 7 sao VN sáng tạo (Toàn Thư không có)
+      - NHÂN CUNG — 8 trường hợp giảm 80% (paradigm key)
+      - Thập Nhị Cung — ý nghĩa từng cung
+      - Mệnh = THỂ, Thân = DỤNG — ma trận 2x2
+      - Cường/Nhược cung khác Nam-Nữ
+    expected_atoms: 50
+
+  - id: "tdts.S5"
+    title: "Nam Mệnh Ca + Cung Mệnh-Thiên Di-Quan Lộc chi tiết"
+    page_start: 65
+    page_end: 105
+    n_pages: 41
+    focus: |
+      - Nam Mệnh Ca cho 14 chính tinh + Phụ tinh (Xương Khúc Tả Hữu Lộc Tồn Khôi Việt)
+        + Sát tinh (Kình Đà Hỏa Linh Không Kiếp) + Tứ Hóa
+      - Cung Thiên Di — 14 chính tinh × combo
+      - Cung Quan Lộc — 14 chính tinh × combo
+      - Cung Tài Bạch — 14 chính tinh × combo
+      - Cung Phu Thê — 14 chính tinh × combo
+    expected_atoms: 250
+
+  - id: "tdts.S6"
+    title: "Cung còn lại + Nữ Mệnh + Đại Hạn + Lưu Niên"
+    page_start: 106
+    page_end: 145
+    n_pages: 40
+    focus: |
+      - Cung Tử Tức, Nô Bộc, Điền Trạch, Phúc Đức, Phụ Mẫu, Tật Ách
+      - Luận Nữ Mệnh
+      - Luận Đại Hạn thập niên
+      - Luận Tiểu Hạn + Lưu Niên Thái Tuế
+      - Cái Lý Ngũ Hành trong Tử Vi
+    expected_atoms: 180
+
+  - id: "tdts.S7"
+    title: "Cách Cục + Thập Đẳng Luận + Phê Mệnh + Lá Số Danh Nhân"
+    page_start: 146
+    page_end: 171
+    n_pages: 26
+    focus: |
+      - Cách Cục (định phú quý bần tiện cục)
+      - Phân tích Mệnh theo 12 chi
+      - Thập Đẳng Luận (10 cấp số mệnh)
+      - Luận Mệnh + Phê Mệnh
+      - Lá số danh nhân + lời phê (Tập 4 của bản gốc)
+    expected_atoms: 120
+
+# Tổng expected ~ 950 atoms cho cả sách
+expected_total_atoms: 950

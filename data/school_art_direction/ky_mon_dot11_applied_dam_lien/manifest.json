@@ -1,0 +1,49 @@
+{
+  "brief": "data/school_art_direction/REQUEST_DOT_11_KY_MON_APPLIED_DAM_LIEN_ART_BRIEF.md",
+  "batch": "dot11_ky_mon_applied_dam_lien",
+  "status": "awaiting_art",
+  "assets": [
+    {
+      "id": "ky-mon-05-task-decision-gate",
+      "kind": "hero_card",
+      "target_ratio": "16:9",
+      "status": "awaiting_art"
+    },
+    {
+      "id": "ky-mon-06-cach-cuc-detection",
+      "kind": "card",
+      "target_ratio": "4:3_or_3:2",
+      "status": "awaiting_art"
+    },
+    {
+      "id": "ky-mon-07-relative-direction-center",
+      "kind": "card",
+      "target_ratio": "4:3",
+      "status": "awaiting_art"
+    },
+    {
+      "id": "ky-mon-08-heaven-earth-human-layers",
+      "kind": "card",
+      "target_ratio": "4:3_or_1:1",
+      "status": "awaiting_art"
+    },
+    {
+      "id": "ky-mon-09-duty-seal-tri-phu-tri-su",
+      "kind": "card",
+      "target_ratio": "4:3",
+      "status": "awaiting_art"
+    },
+    {
+      "id": "ky-mon-10-personal-reading-dam-lien",
+      "kind": "hero_card",
+      "target_ratio": "16:9",
+      "status": "awaiting_art"
+    },
+    {
+      "id": "ky-mon-11-avoid-and-favor-directions",
+      "kind": "optional_panoramic",
+      "target_ratio": "21:9_or_16:9",
+      "status": "optional"
+    }
+  ]
+}
