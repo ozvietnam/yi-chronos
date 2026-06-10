@@ -1,0 +1,584 @@
+{
+  "book_corpus_id": "trung-chau-tu-vi-dau-so-2",
+  "section_id": "5.1.1-5",
+  "section_title": "Cung Mệnh 5 sao đầu redo",
+  "pages": [503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520],
+  "atoms": [
+    {
+      "question_id": "tcq2-5.1.1-Q01",
+      "question": "Tử Vi độc tọa Tý/Ngọ ở cung Mệnh ưa đến vận hạn nào?",
+      "answer_atom": "Tử Vi độc tọa Tý hoặc Ngọ, nếu là 'bách quan triều củng' thì ưa đến đại hạn hay lưu niên được Hóa Lộc, Hóa Quyền, Hóa Khoa. Nếu Tử Vi Hóa Quyền hoặc Hóa Khoa ở nguyên cục mà không có bách quan triều củng thì ưa hạn có Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt, Tả Phụ, Hữu Bật hội hợp.",
+      "source_quote": "Tử Vi độc tọa ở hai cung Tý hoặc Ngọ, nếu là trường hợp “bách quan triều củng” thì ưa đến đại hạn hay lưu niên được Hóa Lộc, Hóa Quyền, Hóa Khoa. Nếu Tử Vi Hóa Quyền hoặc Hóa Khoa ở nguyên cục mà không có “bách quan triều củng”, thì ưa đến đại hạn hoặc lưu niên có các sao Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt, Tả Phụ, Hữu Bật hội hợp.",
+      "source_page": 503,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "palace:menh", "pattern:bach_quan_trieu_cung", "hoa:tam_hoa"],
+      "commentary": {
+        "han_viet_explain": "Bách quan triều củng = trăm quan chầu về, nhiều sao phụ tá vây quanh Tử Vi.",
+        "viet_thuan": "Tử Vi Tý/Ngọ có đủ bách quan thì mong hạn gặp Lộc-Quyền-Khoa; nguyên cục có Quyền/Khoa mà thiếu bách quan thì mong hạn gặp lục cát tinh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q02",
+      "question": "Tử Vi cách 'cô quân' khi đến vận hạn thì ứng thế nào?",
+      "answer_atom": "Nguyên cục là cách 'tại địa cô quân' thì đến niên hạn dù được Hóa Lộc, Hóa Quyền, Hóa Khoa cát lợi cũng nhỏ, e chỉ là nhất thời đắc ý. Nguyên cục là 'vô đạo cô quân' mà niên hạn có sát, kỵ tụ tập thì thường chủ về tai họa, phần nhiều tự chuốc lấy.",
+      "source_quote": "Nếu nguyên cục vốn là cách cục “tại địa cô quân”, đến niên hạn dù được Hóa Lộc, Hóa Quyền, Hóa Khoa, thì cát lợi cũng nhỏ, e rằng chỉ là nhất thời đắc ý. Nếu nguyên cục vốn là cách cục “vô đạo cô quân”, lại đến niên hạn có các sao sát, kỵ tụ tập, thường chủ về tai họa, mà phần nhiều là tự chuốc lấy.",
+      "source_page": 503,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "palace:menh", "pattern:co_quan"],
+      "commentary": {
+        "han_viet_explain": "Cô quân = vua cô độc, Tử Vi không có sao phụ tá phò trợ.",
+        "viet_thuan": "Vua cô độc thì hạn tốt cũng chỉ đắc ý thoáng qua; vua vô đạo gặp hạn xấu thì họa phần nhiều do mình gây ra.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q03",
+      "question": "Tử Vi tọa mệnh ưa đến cung hạn có sao nào tọa thủ?",
+      "answer_atom": "Phàm Tử Vi tọa mệnh đều ưa đến cung hạn Thiên Phủ hay Thiên Tướng tọa thủ; ưa nhất là cung hạn Tử Vi độc tọa ở Tý hoặc Ngọ.",
+      "source_quote": "Phàm là Tử Vi tọa mệnh đều ưa đến cung hạn Thiên Phủ hay Thiên Tướng tọa thủ, ưa nhất là cung hạn Tử Vi độc tọa ở Tý hoặc Ngọ.",
+      "source_page": 503,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_phu", "star:thien_tuong", "palace:menh", "han:cung_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mệnh Tử Vi thích đi tới hạn có Thiên Phủ, Thiên Tướng; tốt nhất là hạn Tử Vi độc tọa Tý/Ngọ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q04",
+      "question": "Tử Vi độc tọa Tý/Ngọ với Lộc Tồn và cách 'tại dã cô quân' có tính chất gì?",
+      "answer_atom": "Tử Vi độc tọa Tý/Ngọ ưa có Lộc Tồn đồng độ. Nhưng Tử Vi 'tại dã cô quân' phần nhiều chủ về ích khí, hay nghỉ kỵ; đến niên hạn có sát, kỵ, hình cùng chiếu thì phần nhiều chủ về oán trách, thị phi, thường còn gây nên họa kiện tụng.",
+      "source_quote": "Tử Vi độc tọa ở hai cung Tý hoặc Ngọ ưa có Lộc Tồn đồng độ. Có điều, Tử Vi “tại dã cô quân” thì phần nhiều chủ về ích khí, hay nghỉ kỵ. Đến niên hạn có các sao sát, kỵ, hình cùng chiếu, phần nhiều chủ về oán trách, thị phi, thường còn gây nên họa kiện tụng.",
+      "source_page": 503,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:loc_ton", "palace:menh", "pattern:co_quan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi Tý/Ngọ thích Lộc Tồn cùng cung; nhưng dạng cô quân thì hay nghi kỵ, hạn xấu dễ thị phi kiện tụng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q05",
+      "question": "Tử Vi tọa mệnh không ưa đến cung hạn nào, và Tử Vi Tý/Ngọ gặp các hạn đó ứng ra sao?",
+      "answer_atom": "Tử Vi tọa mệnh không ưa đến cung hạn Thiên Cơ hay Thiên Lương tọa thủ, có Cự Môn đồng độ, gặp Hóa Kỵ càng tệ. Tử Vi độc tọa Tý/Ngọ: gặp hạn Thiên Cơ chủ về phá tán thất bại; gặp hạn Thiên Lương chủ về tai ách nhưng chỉ một phen hú vía; gặp hạn Cự Môn chủ về rắc rối khó xử về tình cảm — có cát hóa thì giải quyết được, gặp sát hình thì ứng nghiệm.",
+      "source_quote": "Phàm là Tử Vi tọa mệnh đều không ưa đến cung hạn Thiên Cơ hay Thiên Lương tọa thủ, có Cự Môn đồng độ, gặp Hóa Kỵ thì càng tệ. Tử Vi độc tọa ở hai cung Tý hoặc Ngọ, gặp cung hạn Thiên Cơ sẽ chủ về phá tán, thất bại; gặp cung hạn Thiên Lương sẽ chủ về có tai ách, nhưng tai ách chỉ là một phen hú vía; gặp cung hạn Cự Môn sẽ chủ về gặp rắc rối khó xử về tình cảm, có cát hóa thì có thể giải quyết, gặp các sao sát, hình thì ứng nghiệm.",
+      "source_page": 503,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_co", "star:thien_luong", "star:cu_mon", "palace:menh", "han:cung_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mệnh Tử Vi ngại hạn Cơ (phá tán), Lương (hú vía), Cự (rắc rối tình cảm); có Hóa Kỵ càng xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q06",
+      "question": "Tử Vi Phá Quân thủ mệnh kỵ gì và vận hạn nào là then chốt?",
+      "answer_atom": "Tử Vi Phá Quân thủ mệnh tối kỵ cách 'tại dã cô quân'. Đến vận hạn Thiên Cơ, Thiên Lương hay Cự Môn thường là vận trình then chốt của cuộc đời; nếu cung hạn gặp sát, kỵ, hình hội chiếu thì dễ xảy ra sự cố ảnh hưởng cả cuộc đời. Cũng không nên đến niên hạn Thái Dương Hóa Kỵ, thường dẫn đến thị phi, oán trách.",
+      "source_quote": "“Tử Vi, Phá Quân” thủ mệnh, tối kỵ là cách cục “tại dã cô quân”, đến vận hạn Thiên Cơ, Thiên Lương, hay Cự Môn, thường là vận trình có tính then chốt của cuộc đời. Nếu cung hạn gặp các sao sát, kỵ, hình hội chiếu, chủ về dễ xảy ra sự cố, thường có thể ảnh hưởng đến cả cuộc đời; cũng không nên đến niên hạn Thái Dương Hóa Kỵ, thường dẫn đến thị phi, oán trách.",
+      "source_page": 503,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:pha_quan", "palace:menh", "han:then_chot", "hoa:hoa_ky"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Phá thủ mệnh sợ nhất thế vua cô độc; hạn Cơ/Lương/Cự là khúc quanh đời người, gặp sát kỵ hình dễ sinh sự cố lớn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q07",
+      "question": "Tử Vi Phá Quân thủ mệnh có Vũ Khúc Hóa Kỵ nguyên cục thì hạn nào nguy hiểm về tiền?",
+      "answer_atom": "Tử Vi Phá Quân thủ mệnh, Vũ Khúc Hóa Kỵ ở nguyên cục, đến đại hạn Vũ Khúc Thất Sát đồng độ, lại đến lưu niên Thái Dương Hóa Kỵ hoặc Cự Môn Hóa Kỵ, chủ về vì tiền mà chuốc họa.",
+      "source_quote": "Dương Hóa Kị hoặc Cự Môn Hóa Kị, chủ về vì tiền mà chuốc họa.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:pha_quan", "star:vu_khuc", "star:that_sat", "palace:menh", "hoa:hoa_ky", "topic:tien_tai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Phá mà nguyên cục Vũ Khúc Hóa Kỵ: đại hạn Vũ-Sát cộng lưu niên Dương Kỵ/Cự Kỵ là lúc vì tiền mang họa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Câu mở đầu nằm cuối trang 503: 'Tử Vi, Phá Quân thủ mệnh, Vũ Khúc Hóa Kỵ ở nguyên cục, đến đại hạn Vũ Khúc, Thất Sát đồng độ, lại đến lưu niên...' — quote trên là phần kết ở trang 504."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q08",
+      "question": "Tử Vi Phá Quân đến niên hạn Thiên Phủ 'kho trống', 'kho lộ' thì sao?",
+      "answer_atom": "Tử Vi Phá Quân không ưa đến niên hạn Thiên Phủ là 'kho trống', 'kho lộ', chủ về phá tài; nếu Thiên Phủ có sao Lộc thì chỉ chủ về vì tiền mà mất nghĩa.",
+      "source_quote": "“Tử Vi, Phá Quân” không ưa đến niên hạn Thiên Phủ là “kho trống”, “kho lộ”, chủ về phá tài; nếu Thiên Phủ có sao Lộc, thì chỉ chủ về vì tiền mà mất nghĩa.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:pha_quan", "star:thien_phu", "palace:menh", "topic:tien_tai"],
+      "commentary": {
+        "han_viet_explain": "Kho trống/kho lộ = Thiên Phủ không có sao Lộc hoặc bị lộ ra không được che giữ.",
+        "viet_thuan": "Tử Phá tới hạn Thiên Phủ kho rỗng thì hao tiền; Phủ có Lộc thì chỉ vì tiền mà mất tình nghĩa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q09",
+      "question": "Tử Vi Phá Quân đến niên hạn Thiên Đồng Thiên Lương gặp Thiên Cơ Hóa Kỵ thì sao?",
+      "answer_atom": "Tử Vi Phá Quân đến niên hạn Thiên Đồng Thiên Lương tọa thủ, gặp Thiên Cơ Hóa Kỵ kèm sát tinh đến xung, chủ về xử sự cần thận trọng; có cơ tâm mưu mẹo càng nhiều thì phá tán, thất bại càng lớn.",
+      "source_quote": "“Tử Vi, Phá Quân” đến niên hạn “Thiên Đồng, Thiên Lương” tọa thủ, gặp Thiên Cơ Hóa Kỵ kèm có sát tinh đến xung, chủ về xử sự cần phải thận trọng, có cơ tâm mưu mẹo càng nhiều thì phá tán, thất bại càng lớn.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:pha_quan", "star:thien_dong", "star:thien_luong", "star:thien_co", "palace:menh", "hoa:hoa_ky"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn Đồng-Lương gặp Cơ Kỵ sát xung: càng mưu mẹo càng thất bại nặng, nên xử sự thẳng thắn thận trọng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q10",
+      "question": "Tử Vi Thiên Phủ thủ mệnh với sao Lộc thì thế nào?",
+      "answer_atom": "Tử Vi Thiên Phủ thủ mệnh rất ưa gặp sao Lộc: có Lộc Tồn đồng độ, Liêm Trinh Hóa Lộc đến hội thì chủ về cự phú. Lấy trường hợp gặp Hóa Lộc, Lộc Tồn của niên hạn làm ứng nghiệm — ví dụ Tử Vi Thiên Phủ ở cung Dần, người sinh năm Giáp, đến hạn Đinh Mão chủ về kiếm được tiền hoặc gặp cơ hội làm đại lý mà phát đạt.",
+      "source_quote": "“Tử Vi, Thiên Phủ” thủ mệnh, rất ưa gặp sao Lộc, có Lộc Tồn đồng độ, Liêm Trinh Hóa Lộc đến hội, chủ về cự phú. Lấy trường hợp gặp Hóa Lộc, Lộc Tồn của niên hạn làm ứng nghiệm. Ví dụ “Tử Vi, Thiên Phủ” ở cung Dần, người sinh năm Giáp, đến hạn Đinh Mão chủ về kiếm được tiền, hoặc gặp cơ hội làm đại lý mà phát đạt.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_phu", "star:loc_ton", "star:liem_trinh", "palace:menh", "hoa:hoa_loc", "topic:tien_tai"],
+      "commentary": {
+        "han_viet_explain": "Cự phú = giàu lớn.",
+        "viet_thuan": "Tử Phủ thủ mệnh cần sao Lộc: Lộc Tồn cùng cung, Liêm Lộc hội về thì giàu lớn; ứng nghiệm vào niên hạn có Lộc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q11",
+      "question": "Tử Vi Thiên Phủ ưa đến cung hạn nào để kiếm tiền?",
+      "answer_atom": "Tử Vi Thiên Phủ ưa đến cung hạn Vũ Khúc độc tọa, gặp Lưu Lộc hoặc Tham Lang Hóa Lộc, Liêm Trinh Hóa Lộc, chủ về kiếm được tiền. Nếu lại có sao phụ tá cát, không có sát, kỵ, hình hội chiếu, nguyên cục Tử Vi Thiên Phủ có kết cấu cát lợi, thì tay trắng làm nên mà thành cự phú.",
+      "source_quote": "“Tử Vi, Thiên Phủ” ưa đến cung hạn Vũ Khúc độc tọa, gặp Lưu Lộc hoặc Tham Lang Hóa Lộc, Liêm Trinh Hóa Lộc, chủ về kiếm được tiền. Nếu lại có sao phụ, tá cát, không có các sao sát, kỵ, hình hội chiếu, nguyên cục là “Tử Vi, Thiên Phủ” lại có kết cấu cát lợi, tay trắng làm nên mà thành cự phú.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_phu", "star:vu_khuc", "palace:menh", "hoa:hoa_loc", "topic:tien_tai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Phủ tới hạn Vũ Khúc độc tọa có Lộc là hạn kiếm tiền; đủ cát không sát thì tay trắng thành giàu lớn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q12",
+      "question": "Tử Vi Thiên Phủ có hay không có sao Lộc thì niên hạn ứng khác nhau ra sao?",
+      "answer_atom": "Tử Vi Thiên Phủ không có sao Lộc, đến niên hạn gặp sao Lộc cũng cát lợi. Nếu có sao Lộc, đến niên hạn Thái Dương độc tọa ở cung Tị gặp các sao phụ tá cát, chủ về địa vị thăng tiến; trường hợp Thái Dương ở cung Hợi là tốt kế đó.",
+      "source_quote": "“Tử Vi, Thiên Phủ” không có sao Lộc, đến niên hạn gặp sao Lộc cũng cát lợi.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_phu", "star:thai_duong", "palace:menh", "hoa:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Không Lộc thì hạn gặp Lộc vẫn tốt; có Lộc thì hạn Thái Dương cung Tị nhiều cát tinh là lúc thăng tiến địa vị.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q13",
+      "question": "Với Tử Vi Thiên Phủ thủ mệnh, đại hạn nào là then chốt của mệnh vận cả đời?",
+      "answer_atom": "Người Tử Vi Thiên Phủ thủ cung mệnh: đại vận tính theo chiều nghịch thì đại hạn Thái Dương giữ cung hoặc Vũ Khúc giữ cung là then chốt của mệnh vận cả đời; đại vận đi thuận thì đại hạn Tham Lang (Vũ Khúc ở đối cung) hoặc đại hạn Cự Môn (Thái Dương ở đối cung) là then chốt. Các đại hạn này cát hay hung có ảnh hưởng rất lớn đến cuộc đời.",
+      "source_quote": "Đối với người “Tử Vi, Thiên Phủ” thủ cung mệnh, đại vận tính theo chiều nghịch, thì đại hạn Thái Dương giữ cung hoặc Vũ Khúc giữ cung, là then chốt của mệnh vận cả đời; đại vận đi thuận, thì đại hạn Tham Lang (Vũ Khúc ở đối cung) hoặc đại hạn Cự Môn (Thái Dương ở đối cung) là then chốt của mệnh vận cả đời.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_phu", "palace:menh", "han:then_chot", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Phủ: đi nghịch thì hạn Thái Dương/Vũ Khúc quyết định cả đời; đi thuận thì hạn Tham Lang/Cự Môn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q14",
+      "question": "Tử Vi Tham Lang ở cung mệnh ưa và kỵ gì?",
+      "answer_atom": "Tử Vi Tham Lang ở cung mệnh ưa gặp Hỏa Tinh, Linh Tinh, cũng ưa Tham Lang Hóa Lộc — chủ về phát lên đột ngột mà còn kéo dài. Nếu Tham Lang Hóa Kỵ thì cuộc đời nhiều vất vả khổ lụy, không được như ý; sát tinh lại nặng thì thường lúc sắp thành công đột nhiên thất bại.",
+      "source_quote": "“Tử Vi, Tham Lang” ở cung mệnh, ưa gặp Hỏa Tinh, Linh Tinh, cũng ưa gặp Tham Lang Hóa Lộc, chủ về phát lên một cách đột ngột, mà còn kéo dài. Nếu Tham Lang Hóa Kỵ, thì cuộc đời gặp nhiều vất vả khổ lụy, mà còn không được như ý. Nếu sát tính lại nặng, thường thường lúc sắp thành công thì đột nhiên thất bại.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:hoa_tinh", "star:linh_tinh", "palace:menh", "hoa:hoa_loc", "hoa:hoa_ky"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tham ưa Hỏa/Linh và Tham Lộc — phát nhanh mà bền; Tham Kỵ thì khổ lụy, sát nặng thì gần thành lại bại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q15",
+      "question": "Nữ mệnh Tử Vi Tham Lang kỵ niên vận nào về tình cảm?",
+      "answer_atom": "Nữ mệnh Tử Vi Tham Lang không ưa đến niên vận có Thái Dương thủ cung Phu Thê của niên vận, chủ về gặp kẻ bất lương.",
+      "source_quote": "Nữ mệnh “Tử Vi, Tham Lang” không ưa đến niên vận Thái Dương thủ cung Phu Thê của niên vận, chủ về gặp kẻ bất lương.",
+      "source_page": 504,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:thai_duong", "palace:menh", "palace:phu_the", "gioi:nu_menh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ Tử Tham ngại năm mà cung Phu Thê lưu niên có Thái Dương: dễ gặp người không đàng hoàng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q16",
+      "question": "Tử Vi Tham Lang kỵ niên vận cung Phu Thê có sao nào tọa thủ?",
+      "answer_atom": "Mệnh Tử Vi Tham Lang không ưa đến niên vận có cung Phu Thê là Thiên Đồng (hoặc Cự Môn) tọa thủ, chủ về rơi vào lưới tình, khó mà thoát ra.",
+      "source_quote": "Không ưa đến niên vận cung Phu Thê là Thiên Đồng (hoặc Cự Môn) tọa thủ, chủ về rơi vào lưới tình, khó mà thoát ra.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:thien_dong", "star:cu_mon", "palace:menh", "palace:phu_the"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tham gặp năm Phu Thê có Đồng hoặc Cự: dễ sa lưới tình khó dứt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q17",
+      "question": "Tử Vi Tham Lang thủ mệnh khi nào xảy ra phá tán thất bại?",
+      "answer_atom": "Tử Vi Tham Lang thủ mệnh đến đại hạn Vũ Khúc Phá Quân mà Vũ Khúc Hóa Kỵ, lại gặp lưu niên Văn Xương Hóa Kỵ hay Văn Khúc Hóa Kỵ, chủ về xảy ra phá tán, thất bại.",
+      "source_quote": "Thủ mệnh đến đại hạn “Vũ Khúc, Phá Quân”, mà Vũ Khúc Hóa Kỵ, lại gặp lưu niên Văn Xương Hóa Kỵ hay Văn Khúc Hóa Kỵ, chủ về xảy ra phá tán, thất bại.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:vu_khuc", "star:pha_quan", "star:van_xuong", "star:van_khuc", "palace:menh", "hoa:hoa_ky"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tham vào hạn Vũ-Phá có Vũ Kỵ, cộng năm Xương/Khúc Kỵ: thời điểm đổ vỡ tài chính.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q18",
+      "question": "Tử Vi Tham Lang thủ mệnh cung Mão đến hạn Thiên Lương Ngọ thì sao?",
+      "answer_atom": "Tử Vi Tham Lang thủ mệnh ở cung Mão, đến đại vận hoặc lưu niên Thiên Lương ở cung Ngọ: nếu Thiên Lương Hóa Lộc thì tham tiền hiếu sắc, dễ gây ra phiền phức; gặp thêm sát tinh thì có hung họa, nhưng cuối cùng hóa giải được.",
+      "source_quote": "Thủ mệnh ở cung Mão, đến đại vận hoặc lưu niên Thiên Lương ở cung Ngọ, nếu Thiên Lương Hóa Lộc, thì tham tiền hiếu sắc, dễ gây ra phiền phức; gặp thêm sát tinh thì có hung họa, nhưng cuối cùng hóa giải được.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:thien_luong", "palace:menh", "hoa:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tham cung Mão gặp hạn Lương Ngọ Hóa Lộc: ham tiền mê sắc sinh phiền; thêm sát có họa nhưng rồi qua.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q19",
+      "question": "Với Tử Vi Tham Lang thủ mệnh, cung hạn nào là then chốt của mệnh vận?",
+      "answer_atom": "Tử Vi Tham Lang thủ mệnh: cung hạn Thái Dương, Cự Môn tương hội và cung hạn Thiên Cơ Thái Âm đồng cung là then chốt của mệnh vận cả đời.",
+      "source_quote": "Thủ mệnh, cung hạn Thái Dương, Cự Môn tương hội và cung hạn “Thiên Cơ, Thái Âm” đồng cung, là then chốt của mệnh vận cả đời.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:thai_duong", "star:cu_mon", "star:thien_co", "star:thai_am", "palace:menh", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đời Tử Tham xoay quanh hai hạn: Dương-Cự hội và Cơ-Âm đồng cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q20",
+      "question": "Tử Vi Thiên Tướng thủ mệnh gặp lưu niên Sát Phá Lang thì sao?",
+      "answer_atom": "Tử Vi Thiên Tướng thủ mệnh gặp lưu niên 'Sát, Phá, Lang' đều chủ về biến động thay đổi; là cát hay hung phải xem xét tính chất của các tổ hợp sao mà định.",
+      "source_quote": "Thủ mệnh, gặp lưu niên “Sát, Phá, Lang”, đều chủ về biến động thay đổi; là cát hay hung, phải xem xét tính chất của các tổ hợp sao mà định.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "palace:menh", "pattern:sat_pha_lang", "han:luu_nien"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tướng gặp năm Sát-Phá-Lang là năm biến động; tốt xấu tùy tổ hợp sao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q21",
+      "question": "Tử Vi Thiên Tướng thủ mệnh đến đại vận mà Tử Vi Thiên Tướng thủ cung Tật Ách hoặc Phu Thê thì phòng gì?",
+      "answer_atom": "Tử Vi Thiên Tướng thủ mệnh: đến đại vận mà 'Tử Vi, Thiên Tướng' thủ cung Tật Ách thì phải đề phòng bệnh tim mạch; đến đại vận mà 'Tử Vi, Thiên Tướng' thủ cung Phu Thê thì phải đề phòng hôn nhân đổ vỡ.",
+      "source_quote": "Thủ mệnh, đến đại vận “Tử Vi, Thiên Tướng” thủ “cung Tật Ách”, phải để phòng bệnh tim mạch. Thủ mệnh, đến đại vận “Tử Vi, Thiên Tướng” thủ cung Phu Thê, phải để phòng hôn nhân đổ vỡ.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "palace:menh", "palace:tat_ach", "palace:phu_the", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đại vận mà cặp Tử-Tướng rơi vào Tật Ách thì coi chừng tim mạch, rơi vào Phu Thê thì coi chừng hôn nhân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q22",
+      "question": "Tử Vi Thiên Tướng thủ mệnh đến đại vận Vũ Khúc Thiên Phủ thì khi nào phá tán?",
+      "answer_atom": "Tử Vi Thiên Tướng thủ mệnh đến đại vận gặp Vũ Khúc Thiên Phủ: nếu Vũ Khúc Hóa Kỵ, hoặc Thiên Phủ là 'kho lộ', 'kho trống', sẽ chủ về vì tình hình tráo trở, điên đảo mà gây nên phá tán, thất bại — như thất nghiệp, ngừng kinh doanh, vỡ nợ, sập tiệm.",
+      "source_quote": "Thủ mệnh, đến đại vận gặp “Vũ Khúc, Thiên Phủ”, nếu Vũ Khúc Hóa Kỵ, hoặc Thiên Phủ là “kho lộ”, “kho trống”, sẽ chủ về vì tình hình tráo trở, điên đảo mà gây nên phá tán, thất bại (như thất nghiệp, ngừng kinh doanh, vỡ nợ, sập tiệm, v.v...).",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "star:vu_khuc", "star:thien_phu", "palace:menh", "hoa:hoa_ky", "topic:tien_tai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn Vũ-Phủ mà Vũ Kỵ hoặc Phủ kho rỗng: thời cuộc đảo điên kéo theo thất nghiệp, vỡ nợ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q23",
+      "question": "Tử Vi Thiên Tướng ở cung Mệnh gặp lưu niên Tử Vi Thiên Tướng thủ mệnh thì lưu ý gì?",
+      "answer_atom": "Tử Vi Thiên Tướng ở cung Mệnh, lại đến lưu niên 'Tử Vi, Thiên Tướng' thủ mệnh: trong các tình hình thông thường, không nên hợp tác với người khác; năm kế tiếp hợp tác cũng không được lâu dài.",
+      "source_quote": "Ở cung Mệnh, lại đến lưu niên “Tử Vi, Thiên Tướng” thủ mệnh, trong các tình hình thông thường, không nên hợp tác với người khác; năm kế tiếp hợp tác cũng không được lâu dài.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "palace:menh", "han:luu_nien", "topic:hop_tac"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Năm lưu niên trùng Tử-Tướng thủ mệnh: tránh bắt tay hợp tác, có hợp tác cũng chẳng bền.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q24",
+      "question": "Tử Vi Thiên Tướng thủ cung Mệnh kỵ cung hạn nào, ứng nghiệm thế nào?",
+      "answer_atom": "Tử Vi Thiên Tướng thủ cung Mệnh không ưa cung hạn Tham Lang Hóa Kỵ. Gặp nó ở bất cứ cung vị nào cũng chủ về ứng nghiệm xấu ở cung đó: ví dụ đại vận/lưu niên Tham Lang Hóa Kỵ thủ cung Phụ Mẫu — người cấp trên trọng dụng mệnh tạo lại bị hoán chuyển công tác; lưu niên Tham Lang Hóa Kỵ thủ cung Phu Thê — xảy ra thay đổi trong tình cảm.",
+      "source_quote": "Thủ cung Mệnh, không ưa cung hạn Tham Lang Hóa Kỵ. Gặp nó ở bất cứ cung vị nào, cũng đều chủ về ứng nghiệm xấu ở cung đó.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "star:tham_lang", "palace:menh", "hoa:hoa_ky"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tướng sợ Tham Lang Hóa Kỵ trong vận hạn: nó rơi cung nào thì cung đó ứng chuyện xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q25",
+      "question": "Tử Vi Thiên Tướng thủ mệnh đại vận đi nghịch thì hạn nào then chốt?",
+      "answer_atom": "Người Tử Vi Thiên Tướng thủ mệnh mà đại vận tính theo chiều nghịch: các đại vận Tham Lang, Vũ Khúc, Thiên Phủ thủ cung hạn là những vận hạn có tính then chốt của mệnh vận.",
+      "source_quote": "Đối với người “Tử Vi, Thiên Tướng” thủ mệnh mà đại vận tính theo chiểu nghịch, thì các đại vận Tham Lang, Vũ Khúc, Thiên Phủ thủ cung hạn là những vận hạn có tính then chốt của mệnh vận.",
+      "source_page": 505,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "palace:menh", "han:then_chot", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tướng đi nghịch: ba hạn Tham Lang, Vũ Khúc, Thiên Phủ là khúc quanh đời người.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q26",
+      "question": "Tử Vi Thiên Tướng thủ mệnh đại vận đi thuận thì hạn nào then chốt?",
+      "answer_atom": "Người Tử Vi Thiên Tướng thủ mệnh mà đại vận tiến theo chiều thuận: các đại vận Thất Sát, Liêm Trinh thủ cung hạn là những vận hạn có tính then chốt của mệnh vận cả đời.",
+      "source_quote": "Đối với người Tử Vi, Thiên Tướng thủ mệnh mà đại vận tiến theo chiều thuận, thì các đại vận Thất Sát, Liêm Trinh thủ cung hạn là những vận hạn có tính then chốt của mệnh vận cả đời.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:thien_tuong", "star:that_sat", "star:liem_trinh", "palace:menh", "han:then_chot", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Tướng đi thuận: hạn Thất Sát và Liêm Trinh là khúc quanh cả đời.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q27",
+      "question": "Tử Vi Thất Sát thủ mệnh có cung Tài Bạch Vũ Khúc Tham Lang gặp Hỏa Linh thì sao?",
+      "answer_atom": "Tử Vi Thất Sát thủ mệnh, cung Tài Bạch là Vũ Khúc Tham Lang, nếu gặp Hỏa Tinh, Linh Tinh thì chủ về hoạnh phát hoạnh phá — phát lên đột ngột mà suy sụp cũng nhanh chóng. Sau khi phát cần phải khép giữ gìn mới duy trì được thành tựu.",
+      "source_quote": "Tử Vi, Thất Sát thủ mệnh, cung Tài Bạch là Vũ Khúc, Tham Lang, nếu gặp Hỏa Tinh, Linh Tinh, chủ về hoạnh phát hoạnh phá, phát lên một cách đột ngột mà suy sụp cũng nhanh chóng. Sau khi phát cần phải khép giữ gìn, mới có thể duy trì thành tựu đã đạt được.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:that_sat", "star:vu_khuc", "star:tham_lang", "star:hoa_tinh", "star:linh_tinh", "palace:menh", "palace:tai_bach"],
+      "commentary": {
+        "han_viet_explain": "Hoạnh phát hoạnh phá = phát nhanh bất ngờ rồi cũng tan nhanh bất ngờ.",
+        "viet_thuan": "Tử Sát có Tài Bạch Vũ-Tham gặp Hỏa/Linh: tiền đến ào ạt rồi đi ào ạt, phát rồi phải biết giữ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q28",
+      "question": "Tử Vi Thất Sát mà Tử Vi Hóa Quyền thì sao?",
+      "answer_atom": "Tử Vi Thất Sát mà Tử Vi Hóa Quyền thì 'tài khí' trong đời không đủ để giúp cho sự nghiệp.",
+      "source_quote": "Tử Vi, Thất Sát mà Tử Vi Hóa Quyển, thì \"tài khí\" trong đời không đủ để giúp cho sự nghiệp.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:that_sat", "palace:menh", "hoa:hoa_quyen", "topic:su_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Sát có Tử Vi Hóa Quyền: quyền có mà tiền không theo kịp sự nghiệp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.82,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q29",
+      "question": "Tử Vi Thất Sát thủ mệnh có đặc tính gì về trách nhiệm, người sinh năm Quý thì sao?",
+      "answer_atom": "Tử Vi Thất Sát thủ mệnh chủ về nặng tinh thần trách nhiệm. Người sinh năm Quý, cung Sự Nghiệp là Liêm Trinh Phá Quân mà Phá Quân Hóa Lộc, lại chủ về gánh vác trách nhiệm quá mức, việc gì cũng đích thân làm.",
+      "source_quote": "Tử Vi, Thất Sát thủ mệnh, chủ về nặng tính thần trách nhiệm. Người sinh năm Quý, cung Sự Nghiệp là Liêm Trinh, Phá Quân, mà Phá Quân Hóa Lộc, lại chủ về gánh vác trách nhiệm quá mức, việc gì cũng đích thân làm.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:that_sat", "star:liem_trinh", "star:pha_quan", "palace:menh", "palace:su_nghiep", "hoa:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Sát vốn nặng trách nhiệm; sinh năm Quý có Phá Lộc ở Sự Nghiệp thì ôm việc quá mức, gì cũng tự tay làm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q30",
+      "question": "Tử Vi Thất Sát ở cung Mệnh thì cung đối có vai trò gì?",
+      "answer_atom": "Tử Vi Thất Sát ở cung Mệnh, cung đối 'Thái Dương, Cự Môn' là có tính then chốt. Thái Dương ở cung Dần thì tốt hơn ở cung Thân, nhưng vẫn phải xem các sao cát hung ra sao mà định.",
+      "source_quote": "Tử Vi, Thất Sát ở cung Mệnh, cung đối \"Thái Dương, Cự Môn\" là có tính then chốt. Thái Dương ở cung Dần thì tốt hơn ở cung Thân, nhưng vẫn phải xem các sao cát hung ra sao mà định.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:that_sat", "star:thai_duong", "star:cu_mon", "palace:menh", "han:then_chot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Sát thủ mệnh: cặp Dương-Cự đối cung quyết định nhiều; Dương ở Dần tốt hơn ở Thân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q31",
+      "question": "Nữ mệnh Tử Vi Thất Sát về hôn nhân thế nào?",
+      "answer_atom": "Nữ mệnh Tử Vi Thất Sát, hôn nhân phần nhiều không như ý. Nếu cung Mệnh và cung Phu Thê gặp sát tinh, nếu không khéo khắc chế thì tình cảm rất dễ thay đổi.",
+      "source_quote": "Nữ mệnh Tử Vi, Thất Sát, hôn nhân phần nhiều không như ý. Nếu cung Mệnh và cung Phu Thê gặp sát tinh, nếu không khéo khắc chế, thì tình cảm rất dễ thay đổi.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:that_sat", "palace:menh", "palace:phu_the", "gioi:nu_menh", "topic:hon_nhan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ Tử Sát hôn nhân thường lận đận; Mệnh và Phu Thê có sát tinh thì tình cảm dễ đổi thay nếu không tự khắc chế.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tcq2-5.1.1-Q32",
+      "question": "Với Tử Vi Thất Sát thủ mệnh, đại hạn nào là then chốt?",
+      "answer_atom": "Tử Vi Thất Sát thủ mệnh: đại hạn Thiên Tướng, Vũ Khúc, hay Tham Lang thủ cung hạn là có tính then chốt của mệnh vận cả đời.",
+      "source_quote": "Tử Vi, Thất Sát thủ mệnh, đại hạn Thiên Tướng, Vũ Khúc, hay Tham Lang thủ cung hạn, là có tính then chốt của mệnh vận cả đời.",
+      "source_page": 506,
+      "section_id": "5.1.1",
+      "tags": ["star:tu_vi", "star:that_sat", "star:thien_tuong", "star:vu_khuc", "star:tham_lang", "palace:menh", "han:then_chot", "han:dai_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Sát: ba hạn Thiên Tướng, Vũ Khúc, Tham Lang là khúc quanh cả đời.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
