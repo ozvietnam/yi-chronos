@@ -39,6 +39,7 @@ import LienHoaPanel from "./components/LienHoaPanel.vue";
 import BatTuPanel from "./components/BatTuPanel.vue";
 import HealthPanel from "./components/HealthPanel.vue";
 import KyMonPanel from "./components/KyMonPanel.vue";
+import HoangCucPanel from "./components/HoangCucPanel.vue";
 import ChinhTinhGallery from "./components/ChinhTinhGallery.vue";
 import TuViLaSoPanel from "./components/TuViLaSoPanel.vue";
 import CungPhuTheBacPhaiPanel from "./components/CungPhuTheBacPhaiPanel.vue";
@@ -414,6 +415,10 @@ onBeforeUnmount(() => {
             @click="activeMainTab = 'pytago'">
             <span class="tab-icon"><SchoolIcon name="pytago" /></span> Pytago
           </button>
+          <button type="button" :class="{ active: activeMainTab === 'hoang-cuc' }"
+            @click="activeMainTab = 'hoang-cuc'">
+            <span class="tab-icon">🌌</span> Hoàng Cực
+          </button>
         </div>
         <div class="tab-divider"></div>
         <div class="tab-group">
@@ -760,6 +765,22 @@ onBeforeUnmount(() => {
           ]"
         />
         <KyMonPanel />
+      </section>
+
+      <!-- Tab Hoàng Cực Kinh Thế — tầng thời cuộc + tra Thiết Bản (Thiệu Khang Tiết) -->
+      <section v-else-if="activeMainTab === 'hoang-cuc'" class="single-column" aria-label="Hoàng Cực Kinh Thế">
+        <TabIntro
+          icon="hoang-cuc"
+          title="Hoàng Cực Kinh Thế — tầng thời cuộc của Thiệu Khang Tiết"
+          purpose="Đặt một năm vào chu kỳ Nguyên-Hội-Vận-Thế 129.600 năm (1 nguyên = 12 hội = 360 vận = 4.320 thế). Kèm tra cứu 10.907 điều văn Thiết Bản Thần Số. Paradigm: ĐỌC ĐỒNG DẠNG — quan cái LẼ của thời, không predict."
+          :steps="[
+            'Bước 1: nhập năm muốn quan-sát (mặc định năm nay) — bấm Định vị.',
+            'Bước 2: nhập năm sinh nếu muốn thấy đời mình trải trên những THẾ nào.',
+            'Bước 3: đọc atoms trích từ chính sách 皇极经世书今说 (Diêm Tu Triện).',
+            'Bước 4: tra điều văn Thiết Bản theo số hoặc tìm theo nội dung.'
+          ]"
+        />
+        <HoangCucPanel />
       </section>
 
       <!-- Tab 6: Gia đạo — multi-actor household system -->
