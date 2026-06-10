@@ -97,13 +97,33 @@ async def render_from_birth(birth: BirthInput) -> dict:
     ))
     ls = cast["la_so"]
 
-    # Map chinh_tinh {tên_vi: idx} → {chi_canonical: [star_canonical]}
+    # Map chi index → cung CHỨC NĂNG (Mệnh/Tài Bạch/...) từ la_so palaces
+    # để lookup được CẢ atoms tagged theo chi (mao, ti) VÀ theo chức năng (menh, tai_bach)
+    PALACE_NAME_TO_CANON = {
+        "Mệnh": "menh", "Huynh Đệ": "huynh_de", "Phu Thê": "phu_the",
+        "Tử Tức": "tu_tuc", "Tài Bạch": "tai_bach", "Tật Ách": "tat_ach",
+        "Thiên Di": "thien_di", "Nô Bộc": "no_boc", "Quan Lộc": "quan_loc",
+        "Điền Trạch": "dien_trach", "Phúc Đức": "phuc_duc", "Phụ Mẫu": "phu_mau",
+    }
+    idx_to_function: dict[int, str] = {}
+    for p in (ls.get("palaces") or []):
+        fn = PALACE_NAME_TO_CANON.get(p.get("name", ""))
+        if fn is not None and p.get("branch_index") is not None:
+            idx_to_function[p["branch_index"] % 12] = fn
+
+    # Map chinh_tinh {tên_vi: idx} → {palace_key: [star_canonical]}
+    # palace_key gồm CẢ chi (ti, mao...) lẫn chức năng (menh, tai_bach...) — atoms
+    # các sách tag theo 2 kiểu khác nhau, lookup cả 2 để không sót.
     chinh_tinh_per_palace: dict[str, list[str]] = {}
     for star_vi, idx in (ls.get("chinh_tinh") or {}).items():
         star = STAR_VI_TO_CANON.get(star_vi)
+        if not star:
+            continue
         chi = IDX_TO_CHI[idx % 12]
-        if star:
-            chinh_tinh_per_palace.setdefault(chi, []).append(star)
+        chinh_tinh_per_palace.setdefault(chi, []).append(star)
+        fn = idx_to_function.get(idx % 12)
+        if fn:
+            chinh_tinh_per_palace.setdefault(fn, []).append(star)
 
     la_so_input = {
         "can": CAN_VI_TO_CANON.get(ls["year_stem"], ls["year_stem"].lower()),
