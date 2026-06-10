@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     sqlite3 \
     g++ \
+    patchelf \
     python3-dev \
     libpango-1.0-0 \
     libpangoft2-1.0-0 \
@@ -56,6 +57,12 @@ WORKDIR /Users/ozvietnamdesktop/Desktop/yi
 # Install Python deps
 COPY requirements.txt ./
 RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# sxtwl sdist build trên cp314 có thể link THIẾU libstdc++ (incident 2026-06-11:
+# _sxtwl.so undefined symbol __cxxabiv1::__class_type_info → 500 toàn bộ from-birth).
+# patchelf ép thêm DT_NEEDED libstdc++, rồi import-check để build FAIL SỚM nếu vẫn hỏng.
+RUN patchelf --add-needed libstdc++.so.6 /usr/local/lib/python3.14/site-packages/_sxtwl*.so 2>/dev/null || true
+RUN python3 -c "import sxtwl, ephem; print('sxtwl + ephem import OK')"
 
 # Copy source (data/ excluded via .dockerignore, mounted at runtime)
 COPY api/ ./api/
