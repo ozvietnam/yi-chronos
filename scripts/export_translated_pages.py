@@ -22,7 +22,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUT_ROOT = PROJECT_ROOT / "data" / "restored_books"
-BASE = "http://localhost:8001"
+BASE = "http://localhost:8000"
 TEXT_TYPES = ("text", "title", "list", "table", "index", "table_caption", "figure_caption")
 
 
