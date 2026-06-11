@@ -52,7 +52,7 @@ const showCachCuc = ref(false);    // Cách cục đọc sâu modal
 const showDaiVan = ref(false);     // 12 Đại Vận modal
 const showCompare = ref(false);    // So sánh TVĐS vs CDK modal
 const showLuuNien = ref(false);    // Lưu Niên 2026-2030 modal
-const show3Layer = ref(false);     // ⭐ Luận giải 3-Layer × 4 hệ phái (6290 atoms)
+const show3Layer = ref(false);     // ⭐ Luận giải 3-Layer × 4 hệ phái (9671 atoms)
 const oracleCards = ref([]);
 const selectedOracleCard = ref(null);
 
@@ -1453,7 +1453,7 @@ const grid = computed(() => {
       <section class="three-layer-block">
         <h4 class="section-h" style="cursor:pointer" @click="show3Layer = !show3Layer">
           📚 Luận giải 4 hệ phái — 3 Layer
-          <small style="opacity:.7">(Trung Châu · Trần Đoàn · Thiên Lương · Hàm Số — 6.290 atoms bám sách)</small>
+          <small style="opacity:.7">(Trung Châu · Trần Đoàn · Thiên Lương · Hàm Số — 9.671 atoms bám sách · 5 hệ phái)</small>
           <span style="float:right">{{ show3Layer ? '▾' : '▸' }}</span>
         </h4>
         <TuVi3LayerPanel
