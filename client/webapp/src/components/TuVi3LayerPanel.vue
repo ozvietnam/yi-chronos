@@ -44,6 +44,13 @@
           </span>
         </div>
 
+        <!-- Tứ Hóa năm sinh -->
+        <div v-if="tuHoa.length" class="tu-hoa-bar">
+          <span v-for="t in tuHoa" :key="t.hoa" :class="['tu-hoa-chip', t.hoa]">
+            {{ formatStar(t.hoa) }}: {{ formatStar(t.star) }} ({{ formatFn(t.palace_fn) || formatPalace(t.palace_chi) }})
+          </span>
+        </div>
+
         <!-- Tổ hợp cung: tam phương tứ chính / giáp / mượn sao (chống "luận máy móc" — Trung Châu) -->
         <div v-if="toHopList.length" class="to-hop-section">
           <h4>🔗 Tổ hợp cung — tam phương tứ chính · giáp · mượn sao</h4>
@@ -83,6 +90,23 @@
           <h4>🏛 Cung {{ formatPalace(palace) }}</h4>
           <div v-for="(cv, star) in palace_data.cross_views" :key="star" class="star-block">
             <h5>⭐ {{ formatStar(star) }} <span class="badge">{{ cv.total_atoms }} atoms</span></h5>
+            <template v-for="(atoms, school) in cv.schools" :key="school">
+            <div v-if="atoms && atoms.length > 0" class="school-view">
+              <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
+              <ul>
+                <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
+                  <div class="quote" v-html="'&quot;' + annotateTerms(atom.source_quote) + '&quot;'"></div>
+                  <div v-if="atom.viet_thuan" class="paraphrase" v-html="'→ ' + annotateTerms(atom.viet_thuan)"></div>
+                  <div class="meta">📍 trang {{ atom.page_start }} · confidence {{ atom.confidence }}</div>
+                </li>
+              </ul>
+            </div>
+            </template>
+          </div>
+
+          <!-- Phụ tinh / sát tinh / Tứ Hóa cùng cung -->
+          <div v-for="(cv, star) in (palace_data.phu_tinh_views || {})" :key="'pt-' + star" class="star-block phu-tinh-block">
+            <h5>✦ {{ formatStar(star) }} <span class="badge badge-phu">{{ cv.total_atoms }} atoms phụ tinh</span></h5>
             <template v-for="(atoms, school) in cv.schools" :key="school">
             <div v-if="atoms && atoms.length > 0" class="school-view">
               <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
@@ -155,7 +179,25 @@ const STAR_NAMES = {
   thien_phu: 'Thiên Phủ', thai_am: 'Thái Âm', tham_lang: 'Tham Lang',
   cu_mon: 'Cự Môn', thien_tuong: 'Thiên Tướng', thien_luong: 'Thiên Lương',
   that_sat: 'Thất Sát', pha_quan: 'Phá Quân',
+  // Phụ tinh + sát tinh + Tứ Hóa
+  ta_phu: 'Tả Phụ', huu_bat: 'Hữu Bật', van_xuong: 'Văn Xương', van_khuc: 'Văn Khúc',
+  thien_khoi: 'Thiên Khôi', thien_viet: 'Thiên Việt',
+  kinh_duong: 'Kình Dương', da_la: 'Đà La', hoa_tinh: 'Hỏa Tinh', linh_tinh: 'Linh Tinh',
+  dia_khong: 'Địa Không', dia_kiep: 'Địa Kiếp', loc_ton: 'Lộc Tồn',
+  hoa_loc: 'Hóa Lộc', hoa_quyen: 'Hóa Quyền', hoa_khoa: 'Hóa Khoa', hoa_ky: 'Hóa Kỵ',
 }
+
+const FN_NAMES = {
+  menh: 'Mệnh', huynh_de: 'Huynh Đệ', phu_the: 'Phu Thê', tu_tuc: 'Tử Tức',
+  tai_bach: 'Tài Bạch', tat_ach: 'Tật Ách', thien_di: 'Thiên Di', no_boc: 'Nô Bộc',
+  quan_loc: 'Quan Lộc', dien_trach: 'Điền Trạch', phuc_duc: 'Phúc Đức', phu_mau: 'Phụ Mẫu',
+}
+
+function formatFn(f) {
+  return f ? (FN_NAMES[f] || f) : null
+}
+
+const tuHoa = computed(() => result.value?.la_so_input?.tu_hoa || [])
 
 function formatPalace(p) {
   return PALACE_NAMES[p] || p
@@ -398,6 +440,21 @@ h3 { margin-top: 0; }
   cursor: help;
   color: #5a3d80;
 }
+
+.tu-hoa-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.tu-hoa-chip {
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 0.82em;
+  background: #ede7f6;
+  color: #4a2d70;
+}
+.tu-hoa-chip.hoa_loc { background: #e8f5e9; color: #1b5e20; }
+.tu-hoa-chip.hoa_quyen { background: #fff3e0; color: #b35900; }
+.tu-hoa-chip.hoa_khoa { background: #e3f2fd; color: #0d47a1; }
+.tu-hoa-chip.hoa_ky { background: #ffebee; color: #b71c1c; }
+.phu-tinh-block { border-left-color: #b8a5d8; }
+.badge-phu { background: #9575cd; }
 
 .to-hop-section {
   margin: 20px 0;

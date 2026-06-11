@@ -23,16 +23,24 @@ from engine.tu_vi.cross_school import (
 from engine.tu_vi.viet_names import vi_star, vi_chi, vi_can, vi_palace
 
 
-def render_per_palace(palace: str, stars: list[str]) -> dict:
-    """Render 1 cung với 14 chính tinh có thể có."""
+def render_per_palace(palace: str, stars: list[str],
+                      phu_tinh: list[str] | None = None) -> dict:
+    """Render 1 cung: chính tinh (3 atoms/hệ phái) + phụ tinh/Tứ Hóa (2 atoms/hệ phái)."""
     cross_views = {}
     for star in stars:
         cv = luan_sao_cung(star, palace, limit_per_school=3)
         cross_views[star] = cv
+    phu_views = {}
+    for star in (phu_tinh or []):
+        cv = luan_sao_cung(star, palace, limit_per_school=2)
+        if cv["total_atoms"]:
+            phu_views[star] = cv
     return {
         "palace": palace,
         "stars": stars,
+        "phu_tinh": list(phu_views.keys()),
         "cross_views": cross_views,
+        "phu_tinh_views": phu_views,
     }
 
 
@@ -54,11 +62,16 @@ def render_3_layer(la_so: dict) -> dict:
     # Paradigm warnings
     warnings = detect_paradigm_warnings(la_so)
 
-    # Render per palace
+    # Render per palace (chính tinh + phụ tinh/sát tinh/Tứ Hóa cùng cung)
+    phu_map = la_so.get("phu_tinh_per_palace") or {}
     per_palace = {}
     for palace, stars in (la_so.get("chinh_tinh_per_palace") or {}).items():
         if stars:
-            per_palace[palace] = render_per_palace(palace, stars)
+            per_palace[palace] = render_per_palace(palace, stars, phu_map.get(palace))
+    # Cung chỉ có phụ tinh (vô chính diệu) vẫn render phần phụ tinh
+    for palace, pstars in phu_map.items():
+        if palace not in per_palace and pstars:
+            per_palace[palace] = render_per_palace(palace, [], pstars)
 
     # Tổ hợp cung (việc D — tam phương tứ chính / giáp / mượn sao).
     # Chỉ tính cho key là 12 chi (key chức năng menh/tai_bach không có vị trí vòng).
@@ -122,6 +135,11 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
                 for s in v["stars"]
             ),
             "to_hop_atoms": sum(v["total_atoms"] for v in to_hop_per_palace.values()),
+            "phu_tinh_atoms": sum(
+                cv["total_atoms"]
+                for v in per_palace.values()
+                for cv in v.get("phu_tinh_views", {}).values()
+            ),
             "schools_count": 4,
         }
     }

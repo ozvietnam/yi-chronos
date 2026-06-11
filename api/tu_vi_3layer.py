@@ -65,6 +65,22 @@ STAR_VI_TO_CANON = {
     "Thất Sát": "that_sat", "Phá Quân": "pha_quan",
 }
 
+# Phụ tinh + sát tinh (an_sao trả {tên_vi: idx}) → canonical
+PHU_SAT_VI_TO_CANON = {
+    "Tả Phù": "ta_phu", "Tả Phụ": "ta_phu", "Hữu Bật": "huu_bat",
+    "Văn Xương": "van_xuong", "Văn Khúc": "van_khuc",
+    "Thiên Khôi": "thien_khoi", "Thiên Việt": "thien_viet",
+    "Kình Dương": "kinh_duong", "Đà La": "da_la",
+    "Hỏa Tinh": "hoa_tinh", "Linh Tinh": "linh_tinh",
+    "Địa Không": "dia_khong", "Địa Kiếp": "dia_kiep",
+    "Lộc Tồn": "loc_ton",
+}
+
+# Tứ Hóa: key an_sao → sao hóa canonical
+TU_HOA_TO_CANON = {
+    "Lộc": "hoa_loc", "Quyền": "hoa_quyen", "Khoa": "hoa_khoa", "Kỵ": "hoa_ky",
+}
+
 CAN_VI_TO_CANON = {
     "Giáp": "giap", "Ất": "at", "Bính": "binh", "Đinh": "dinh", "Mậu": "mau",
     "Kỷ": "ky", "Canh": "canh", "Tân": "tan", "Nhâm": "nham", "Quý": "quy",
@@ -125,6 +141,41 @@ async def render_from_birth(birth: BirthInput) -> dict:
         if fn:
             chinh_tinh_per_palace.setdefault(fn, []).append(star)
 
+    # Phụ tinh + sát tinh ({tên_vi: idx}) — dual-lookup chi + chức năng như chính tinh
+    phu_tinh_per_palace: dict[str, list[str]] = {}
+    star_idx: dict[str, int] = {}  # canonical star → idx (để định vị Tứ Hóa)
+    for src_key in ("phu_tinh", "sat_tinh"):
+        for star_vi, idx in (ls.get(src_key) or {}).items():
+            star = PHU_SAT_VI_TO_CANON.get(star_vi)
+            if star is None:
+                continue
+            star_idx[star] = idx % 12
+            chi = IDX_TO_CHI[idx % 12]
+            phu_tinh_per_palace.setdefault(chi, []).append(star)
+            fn = idx_to_function.get(idx % 12)
+            if fn:
+                phu_tinh_per_palace.setdefault(fn, []).append(star)
+    for star_vi, idx in (ls.get("chinh_tinh") or {}).items():
+        star = STAR_VI_TO_CANON.get(star_vi)
+        if star:
+            star_idx[star] = idx % 12
+
+    # Tứ Hóa: an_sao trả {"Lộc": "Tham Lang", ...} — hóa tinh đặt tại cung của sao gốc.
+    # Đưa hoa_loc/hoa_quyen/... vào palace map để retrieval pull atoms 768+ tag hoa_ky...
+    tu_hoa_summary: list[dict] = []
+    for hoa_key, star_vi in (ls.get("tu_hoa") or {}).items():
+        hoa = TU_HOA_TO_CANON.get(hoa_key)
+        base = STAR_VI_TO_CANON.get(star_vi) or PHU_SAT_VI_TO_CANON.get(star_vi)
+        if not hoa or base is None or base not in star_idx:
+            continue
+        idx = star_idx[base]
+        chi = IDX_TO_CHI[idx]
+        phu_tinh_per_palace.setdefault(chi, []).append(hoa)
+        fn = idx_to_function.get(idx)
+        if fn:
+            phu_tinh_per_palace.setdefault(fn, []).append(hoa)
+        tu_hoa_summary.append({"hoa": hoa, "star": base, "palace_chi": chi, "palace_fn": fn})
+
     la_so_input = {
         "can": CAN_VI_TO_CANON.get(ls["year_stem"], ls["year_stem"].lower()),
         "chi": CHI_VI_TO_CANON.get(ls["year_branch"], ls["year_branch"].lower()),
@@ -133,6 +184,8 @@ async def render_from_birth(birth: BirthInput) -> dict:
         "cuc": CUC_NAME_TO_CANON.get(ls.get("cuc_name", ""), "thuy_nhi_cuc"),
         "gender": "M" if birth.gender == "nam" else "F",
         "chinh_tinh_per_palace": chinh_tinh_per_palace,
+        "phu_tinh_per_palace": phu_tinh_per_palace,
+        "tu_hoa": tu_hoa_summary,
     }
     result = render_3_layer(la_so_input)
     result["la_so_input"] = la_so_input

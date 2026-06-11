@@ -56,11 +56,24 @@ def normalize_star(s: str) -> str:
     return s.lower().strip().replace(" ", "_").replace("-", "_")
 
 
+# Cache module-level — mapping gọi ~50 lần/request (mỗi sao × cung 1 lần),
+# query DB 1 lần là đủ. Re-ingest atoms thì restart API (hoặc gọi invalidate).
+_MAPPING_CACHE: tuple | None = None
+
+
+def invalidate_mapping_cache():
+    global _MAPPING_CACHE
+    _MAPPING_CACHE = None
+
+
 def build_mapping() -> dict:
     """Build mapping: (star, palace) → list[(school, atom_id, section_id, confidence)].
 
-    Returns dict[tuple[star, palace], list[dict]].
+    Returns dict[tuple[star, palace], list[dict]]. Cached module-level.
     """
+    global _MAPPING_CACHE
+    if _MAPPING_CACHE is not None:
+        return _MAPPING_CACHE
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
 
@@ -106,7 +119,8 @@ def build_mapping() -> dict:
                     "founder_verified": r["founder_verified"],
                 })
 
-    return dict(mapping), untagged
+    _MAPPING_CACHE = (dict(mapping), untagged)
+    return _MAPPING_CACHE
 
 
 def get_atoms_for(star: str, palace: str) -> list[dict]:

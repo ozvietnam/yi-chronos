@@ -96,6 +96,21 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                         shown += 1
                         count += 1
 
+    # Tứ Hóa — trục động của lá số (Lộc/Quyền/Khoa/Kỵ đóng cung nào)
+    tu_hoa = la_so_input.get("tu_hoa") or []
+    if tu_hoa:
+        HOA_VI = {"hoa_loc": "Hóa Lộc", "hoa_quyen": "Hóa Quyền",
+                  "hoa_khoa": "Hóa Khoa", "hoa_ky": "Hóa Kỵ"}
+        parts.append("")
+        parts.append("## Tứ Hóa (năm sinh):")
+        for t in tu_hoa:
+            fn = t.get("palace_fn")
+            pal_vi = vi_palace(fn) if fn else vi_chi(t.get("palace_chi", ""))
+            parts.append(
+                f"- {HOA_VI.get(t['hoa'], t['hoa'])}: {vi_star(t['star'])} "
+                f"tại cung {pal_vi}"
+            )
+
     # Tổ hợp cung Mệnh (tam phương tứ chính / giáp / mượn sao) — chống luận máy móc
     menh_chi = la_so_input.get("menh_palace")
     th = (three_layer.get("lop_3_sach_co", {}).get("to_hop_per_palace") or {}).get(menh_chi)
