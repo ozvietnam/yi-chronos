@@ -16,7 +16,13 @@ import sqlite3
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATA_PATH = PROJECT_ROOT / "data" / "tu_vi" / "cach_cuc_named.json"
+# Volume mount /opt/yi-chronos/data shadows data/ trong container → fallback
+# embedded_data/ (Dockerfile COPY data/tu_vi/ → embedded_data/tu_vi/)
+_CANDIDATES = [
+    PROJECT_ROOT / "data" / "tu_vi" / "cach_cuc_named.json",
+    PROJECT_ROOT / "embedded_data" / "tu_vi" / "cach_cuc_named.json",
+]
+DATA_PATH = next((p for p in _CANDIDATES if p.exists()), _CANDIDATES[0])
 DB_PATH = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
 
 CHI_RING = ["ty", "suu", "dan", "mao", "thin", "ti",

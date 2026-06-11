@@ -16,7 +16,12 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
-SEED_PATH = PROJECT_ROOT / "data" / "tu_vi" / "star_aliases.json"
+# Volume mount shadows data/ trong container → fallback embedded_data/
+_SEED_CANDIDATES = [
+    PROJECT_ROOT / "data" / "tu_vi" / "star_aliases.json",
+    PROJECT_ROOT / "embedded_data" / "tu_vi" / "star_aliases.json",
+]
+SEED_PATH = next((p for p in _SEED_CANDIDATES if p.exists()), _SEED_CANDIDATES[0])
 
 # Tên chuẩn tiếng Việt → canonical (để map alias wiki → canonical)
 _VI_TO_CANON = {
