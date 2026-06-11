@@ -14,9 +14,14 @@
       "tuan_triet_at_star": "sao bị Tuần/Triệt án ngữ",
       "tuan_triet_at_menh": "Tuần/Triệt án ngữ tại cung Mệnh",
       "menh_vo_chinh_dieu": "cung Mệnh không có chính tinh",
-      "stars_in_menh_tu_chinh": "tất cả sao nằm trong tứ chính cung Mệnh"
+      "stars_in_menh_tu_chinh": "tất cả sao nằm trong tứ chính cung Mệnh",
+      "star_level": "trạng thái miếu-hãm của sao tại vị trí thật",
+      "star_tu_chinh_has_any": "tứ chính cung sao X chứa ≥1 sao nhóm",
+      "star_tu_chinh_lacks_all": "tứ chính cung sao X KHÔNG chứa sao nào trong nhóm",
+      "hoa_all_in_tu_chinh_of_star": "tất cả hóa đóng trong tứ chính cung sao X",
+      "giap_2_ben": "sao X bị kẹp 2 bên bởi 2 nhóm sao khác nhau"
     },
-    "limitation": "Còn 11 cách match_rule=null: cần vòng Tràng Sinh vị trí (Tử Mã, Chiết Túc, Mộ Trung), sao Thai, hoặc đa phái lệch định nghĩa (Hình kỵ giáp ấn, Tại Dã Cô Quân...). Vẫn tra atoms được."
+    "limitation": "Còn 2 cách null: Phong lưu thái trượng (sách kho không ghi điều kiện cấu thành), VCD đắc Không các biến thể tứ/tam Không đếm chi tiết. Vòng Tràng Sinh đã an (ts_*)."
   },
   "cach_cucs": [
     {
@@ -476,7 +481,28 @@
       "loai": "hung",
       "dieu_kien": "Tử Vi lạc hãm không Bách Quan Triều Củng — vua giữa đồng không",
       "atoms_count": 23,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "star_level",
+          "star": "tu_vi",
+          "level_in": [
+            "hãm",
+            "bình"
+          ]
+        },
+        {
+          "type": "star_tu_chinh_lacks_all",
+          "star": "tu_vi",
+          "all_of": [
+            "ta_phu",
+            "huu_bat",
+            "van_xuong",
+            "van_khuc",
+            "thien_khoi",
+            "thien_viet"
+          ]
+        }
+      ]
     },
     {
       "slug": "hinh_ky_giap_an",
@@ -488,7 +514,19 @@
       "loai": "hung",
       "dieu_kien": "Thiên Tướng bị Hình + Kỵ giáp 2 bên (đa phái định nghĩa khác nhau)",
       "atoms_count": 105,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "giap_2_ben",
+          "star": "thien_tuong",
+          "ben_a": [
+            "kinh_duong",
+            "thien_hinh"
+          ],
+          "ben_b": [
+            "__hoa_ky__"
+          ]
+        }
+      ]
     },
     {
       "slug": "tai_am_giap_an",
@@ -499,7 +537,19 @@
       "loai": "cat",
       "dieu_kien": "Thiên Tướng được Tài (Lộc) + Ấm (Thiên Lương) giáp 2 bên",
       "atoms_count": 74,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "giap_2_ben",
+          "star": "thien_tuong",
+          "ben_a": [
+            "loc_ton",
+            "hoa_loc"
+          ],
+          "ben_b": [
+            "thien_luong"
+          ]
+        }
+      ]
     },
     {
       "slug": "kho_lo",
@@ -509,9 +559,23 @@
         "kho lộ"
       ],
       "loai": "hung",
-      "dieu_kien": "Thiên Phủ gặp sát-hình-kỵ giao hội — kho lộ thiên bị cướp",
+      "dieu_kien": "Thiên Phủ đồng cung sát-hình tinh — kho lộ thiên (siết: đồng cung, không tính cả tứ chính để tránh match loãng)",
       "atoms_count": 73,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "same_palace_any",
+          "star": "thien_phu",
+          "any_of": [
+            "kinh_duong",
+            "da_la",
+            "hoa_tinh",
+            "linh_tinh",
+            "dia_khong",
+            "dia_kiep",
+            "thien_hinh"
+          ]
+        }
+      ]
     },
     {
       "slug": "thien_khuyet",
@@ -523,7 +587,30 @@
       "loai": "cat",
       "dieu_kien": "Thiên Cơ gặp Cự Môn được Thái Dương miếu vượng chiếu",
       "atoms_count": 3,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "same_or_opposite",
+          "stars": [
+            "thien_co",
+            "cu_mon"
+          ]
+        },
+        {
+          "type": "star_tu_chinh_has_any",
+          "star": "thien_co",
+          "any_of": [
+            "thai_duong"
+          ]
+        },
+        {
+          "type": "star_level",
+          "star": "thai_duong",
+          "level_in": [
+            "miếu",
+            "vượng"
+          ]
+        }
+      ]
     },
     {
       "slug": "co_cu_dong_lam",
@@ -559,7 +646,7 @@
         "Cẩm gậy phong lưu"
       ],
       "loai": "hung",
-      "dieu_kien": "Tham Lang hội Thiên Hình, Kình Dương — đào hoa mang họa",
+      "dieu_kien": "Tham Lang hội Thiên Hình, Kình Dương — đào hoa mang họa (sách trong kho chỉ ghi hậu quả, chưa ghi điều kiện cấu thành — không auto-match)",
       "atoms_count": 3,
       "match_rule": null
     },
@@ -572,7 +659,25 @@
       "loai": "cat",
       "dieu_kien": "Tử Vi cư Tý/Ngọ được Khoa Quyền Lộc tam phương chiếu",
       "atoms_count": 1,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "star_at_chi",
+          "star": "tu_vi",
+          "chi_in": [
+            "ty",
+            "ngo"
+          ]
+        },
+        {
+          "type": "hoa_all_in_tu_chinh_of_star",
+          "star": "tu_vi",
+          "hoa_in": [
+            "hoa_khoa",
+            "hoa_quyen",
+            "hoa_loc"
+          ]
+        }
+      ]
     },
     {
       "slug": "am_duong_chieu_hu_vo",
@@ -627,9 +732,28 @@
         "Mộ Trung Thai Tọa"
       ],
       "loai": "trung_tinh",
-      "dieu_kien": "Thai + Bát Tọa + Mộ tọa thủ ở Tứ Mộ (chưa match được — an_sao chưa trả sao Thai + vòng Tràng Sinh)",
+      "dieu_kien": "Thai + Bát Tọa + Mộ (vòng Tràng Sinh) tọa thủ ở Tứ Mộ",
       "atoms_count": 2,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "same_palace",
+          "stars": [
+            "ts_thai",
+            "bat_toa",
+            "ts_mo"
+          ]
+        },
+        {
+          "type": "star_at_chi",
+          "star": "ts_thai",
+          "chi_in": [
+            "thin",
+            "tuat",
+            "suu",
+            "mui"
+          ]
+        }
+      ]
     },
     {
       "slug": "phu_thi_ma",
@@ -658,9 +782,18 @@
         "Thư hùng mã"
       ],
       "loai": "cat",
-      "dieu_kien": "Thiên Mã + Nhật Nguyệt sáng sủa",
+      "dieu_kien": "Thiên Mã + Nhật/Nguyệt đồng cung (sách đòi thêm sáng sủa — xem miếu hãm kèm)",
       "atoms_count": 2,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "same_palace_any",
+          "star": "thien_ma",
+          "any_of": [
+            "thai_duong",
+            "thai_am"
+          ]
+        }
+      ]
     },
     {
       "slug": "tuan_ma",
@@ -707,9 +840,17 @@
         "ngựa què"
       ],
       "loai": "hung",
-      "dieu_kien": "Thiên Mã + Tuyệt đồng cung hay hội chiếu (chưa match được — vòng Tràng Sinh chưa có vị trí)",
+      "dieu_kien": "Thiên Mã + Tuyệt (vòng Tràng Sinh) đồng cung hay hội chiếu",
       "atoms_count": 1,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "same_or_opposite",
+          "stars": [
+            "thien_ma",
+            "ts_tuyet"
+          ]
+        }
+      ]
     },
     {
       "slug": "tu_ma",
@@ -719,9 +860,17 @@
         "ngựa chết"
       ],
       "loai": "hung",
-      "dieu_kien": "Thiên Mã + Tử (vòng Tràng Sinh) (chưa match được — vòng Tràng Sinh chưa có vị trí)",
+      "dieu_kien": "Thiên Mã + Tử (vòng Tràng Sinh) đồng cung",
       "atoms_count": 4,
-      "match_rule": null
+      "match_rule": [
+        {
+          "type": "same_palace",
+          "stars": [
+            "thien_ma",
+            "ts_tu"
+          ]
+        }
+      ]
     },
     {
       "slug": "ho_cu_ho_vi",
@@ -791,17 +940,20 @@
         "Kim Không"
       ],
       "loai": "cat",
-      "dieu_kien": "Tuần-Triệt án ngữ tại Tý-Ngọ (Hỏa Không) hoặc Thân-Dậu (Kim Không) — không phùng không tắc phát",
+      "dieu_kien": "Mệnh tại Tý-Ngọ (Hỏa Không) / Thân-Dậu (Kim Không) bị Tuần-Triệt án ngữ — không phùng không tắc phát",
       "atoms_count": 16,
       "match_rule": [
         {
-          "type": "tuan_triet_at_chi",
+          "type": "menh_chi_in",
           "chi_in": [
             "ty",
             "ngo",
             "than",
             "dau"
           ]
+        },
+        {
+          "type": "tuan_triet_at_menh"
         }
       ]
     }

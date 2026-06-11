@@ -221,6 +221,14 @@ async def render_from_birth(birth: BirthInput) -> dict:
     tuan_chi = [IDX_TO_CHI[i % 12] for i in (ls.get("tuan") or [])]
     triet_chi = [IDX_TO_CHI[i % 12] for i in (ls.get("triet") or [])]
 
+    # Vòng Tràng Sinh 12 sao (ts_*) — an theo cục + can + giới tính
+    from engine.tu_vi.paradigm.trang_sinh import an_trang_sinh
+    _cuc_canon = CUC_NAME_TO_CANON.get(ls.get("cuc_name", ""), "thuy_nhi_cuc")
+    _can_canon = CAN_VI_TO_CANON.get(ls["year_stem"], ls["year_stem"].lower())
+    for sao, chi in an_trang_sinh(_cuc_canon, _can_canon, "M" if birth.gender == "nam" else "F").items():
+        if sao not in vong_sao_per_palace.setdefault(chi, []):
+            vong_sao_per_palace[chi].append(sao)
+
     # Việc 3 — đại vận hiện tại (BIẾN): tuổi mụ → cycle đang đi, cung vận = "Mệnh 10 năm"
     from datetime import datetime
     birth_year = int(birth.birth_datetime_local[:4])

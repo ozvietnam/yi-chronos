@@ -120,6 +120,71 @@ def _eval_condition(cond: dict, ctx: dict) -> bool:
                 return False
         return True
 
+    if t == "star_level":
+        # Trạng thái miếu-hãm của sao tại vị trí thật
+        from .cross_school import _mieu_ham_level
+        chis = _star_chis(cond["star"], all_stars)
+        if not chis:
+            return False
+        lv = _mieu_ham_level(cond["star"], chis[0])
+        return lv in cond["level_in"]
+
+    if t == "star_tu_chinh_has_any":
+        # Tứ chính của cung sao X chứa ít nhất 1 sao trong any_of
+        from .paradigm.to_hop_cung import tam_phuong_tu_chinh
+        for chi in _star_chis(cond["star"], all_stars):
+            tu_chinh = set(tam_phuong_tu_chinh(chi)["tu_chinh"])
+            for other in cond["any_of"]:
+                if set(_star_chis(other, all_stars)) & tu_chinh:
+                    return True
+        return False
+
+    if t == "star_tu_chinh_lacks_all":
+        # Tứ chính của cung sao X KHÔNG chứa sao nào trong all_of (Tại Dã Cô Quân)
+        from .paradigm.to_hop_cung import tam_phuong_tu_chinh
+        chis = _star_chis(cond["star"], all_stars)
+        if not chis:
+            return False
+        tu_chinh = set(tam_phuong_tu_chinh(chis[0])["tu_chinh"])
+        for other in cond["all_of"]:
+            if set(_star_chis(other, all_stars)) & tu_chinh:
+                return False
+        return True
+
+    if t == "hoa_all_in_tu_chinh_of_star":
+        # TẤT CẢ các hóa trong hoa_in đóng trong tứ chính của cung sao X
+        from .paradigm.to_hop_cung import tam_phuong_tu_chinh
+        chis = _star_chis(cond["star"], all_stars)
+        if not chis:
+            return False
+        tu_chinh = set(tam_phuong_tu_chinh(chis[0])["tu_chinh"])
+        hoa_chi = {th["hoa"]: th.get("palace_chi") for th in ctx.get("tu_hoa") or []}
+        return all(hoa_chi.get(h) in tu_chinh for h in cond["hoa_in"])
+
+    if t == "giap_2_ben":
+        # Sao X bị kẹp: 1 cung kề có sao nhóm A, cung kề KIA có sao nhóm B
+        # (Hình kỵ giáp ấn / Tài ấm giáp ấn). Nhóm hỗ trợ "__hoa_ky__" =
+        # cung kề là nơi đóng của sao hóa Kỵ năm sinh.
+        from .paradigm.to_hop_cung import giap_cung
+        hoa_ky_chi = next((th.get("palace_chi") for th in ctx.get("tu_hoa") or []
+                           if th.get("hoa") == "hoa_ky"), None)
+
+        def _side_has(chi: str, group: list[str]) -> bool:
+            for g in group:
+                if g == "__hoa_ky__":
+                    if chi == hoa_ky_chi:
+                        return True
+                elif g in (all_stars.get(chi) or []):
+                    return True
+            return False
+
+        for chi in _star_chis(cond["star"], all_stars):
+            left, right = giap_cung(chi)
+            if (_side_has(left, cond["ben_a"]) and _side_has(right, cond["ben_b"])) or \
+               (_side_has(right, cond["ben_a"]) and _side_has(left, cond["ben_b"])):
+                return True
+        return False
+
     if t == "tam_hoa_lien_chau":
         chis = []
         for th in ctx.get("tu_hoa") or []:
