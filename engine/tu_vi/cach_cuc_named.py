@@ -91,6 +91,35 @@ def _eval_condition(cond: dict, ctx: dict) -> bool:
                 return True
         return False
 
+    if t == "tuan_triet_at_chi":
+        # Tuần hoặc Triệt án ngữ tại 1 trong các chi
+        tt = set(ctx.get("tuan_chi") or []) | set(ctx.get("triet_chi") or [])
+        return bool(tt & set(cond["chi_in"]))
+
+    if t == "tuan_triet_at_star":
+        # Sao bị Tuần/Triệt án ngữ (cung sao đó nằm trong vùng tuần/triệt)
+        tt = set(ctx.get("tuan_chi") or []) | set(ctx.get("triet_chi") or [])
+        return bool(set(_star_chis(cond["star"], all_stars)) & tt)
+
+    if t == "menh_vo_chinh_dieu":
+        menh = ctx.get("menh_chi")
+        if menh is None:
+            return False
+        chinh = ctx.get("chinh_tinh") or {}
+        return not (chinh.get(menh) or [])
+
+    if t == "stars_in_menh_tu_chinh":
+        # Tất cả các sao đều nằm trong tứ chính (tam phương + xung) của cung Mệnh
+        menh = ctx.get("menh_chi")
+        if menh is None:
+            return False
+        from .paradigm.to_hop_cung import tam_phuong_tu_chinh
+        tu_chinh = set(tam_phuong_tu_chinh(menh)["tu_chinh"])
+        for s in cond["stars"]:
+            if not (set(_star_chis(s, all_stars)) & tu_chinh):
+                return False
+        return True
+
     if t == "tam_hoa_lien_chau":
         chis = []
         for th in ctx.get("tu_hoa") or []:
@@ -112,17 +141,24 @@ def match_named_cach_cucs(la_so_input: dict) -> list[dict]:
     la_so_input cần: chinh_tinh_per_palace + phu_tinh_per_palace (key 12 chi),
     menh_palace, tu_hoa (list {hoa, star, palace_chi}).
     """
-    # Gộp chính tinh + phụ tinh theo chi (bỏ key chức năng)
+    # Gộp chính tinh + phụ tinh + vòng sao theo chi (bỏ key chức năng)
     all_stars: dict[str, list[str]] = {}
-    for src in ("chinh_tinh_per_palace", "phu_tinh_per_palace"):
+    for src in ("chinh_tinh_per_palace", "phu_tinh_per_palace", "vong_sao_per_palace"):
         for k, stars in (la_so_input.get(src) or {}).items():
             if k in CHI_RING:
                 all_stars.setdefault(k, []).extend(stars)
 
+    chinh_tinh_chi = {
+        k: v for k, v in (la_so_input.get("chinh_tinh_per_palace") or {}).items()
+        if k in CHI_RING
+    }
     ctx = {
         "all_stars": all_stars,
+        "chinh_tinh": chinh_tinh_chi,
         "menh_chi": la_so_input.get("menh_palace"),
         "tu_hoa": la_so_input.get("tu_hoa") or [],
+        "tuan_chi": la_so_input.get("tuan_chi") or [],
+        "triet_chi": la_so_input.get("triet_chi") or [],
     }
 
     matched = []

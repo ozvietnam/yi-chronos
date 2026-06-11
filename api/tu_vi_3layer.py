@@ -81,6 +81,37 @@ TU_HOA_TO_CANON = {
     "Lộc": "hoa_loc", "Quyền": "hoa_quyen", "Khoa": "hoa_khoa", "Kỵ": "hoa_ky",
 }
 
+# Vòng sao phụ (Thái Tuế / Tướng Tinh / Bác Sĩ / sao Q2 / sao lẻ) → canonical.
+# Mở khóa match cách cục cần sao vòng (Hổ cư hổ vị, Tứ Linh, Tuấn mã...).
+VONG_VI_TO_CANON = {
+    # Vòng Thái Tuế
+    "Thái Tuế": "thai_tue", "Thiếu Dương": "thieu_duong", "Tang Môn": "tang_mon",
+    "Thiếu Âm": "thieu_am", "Quan Phù": "quan_phu", "Tử Phù": "tu_phu",
+    "Tuế Phá": "tue_pha", "Long Đức": "long_duc", "Bạch Hổ": "bach_ho",
+    "Phúc Đức": "phuc_duc_sao", "Điếu Khách": "dieu_khach", "Trực Phù": "truc_phu",
+    # Vòng Tướng Tinh
+    "Tướng Tinh": "tuong_tinh", "Phan An": "phan_an", "Tuế Dịch": "tue_dich",
+    "Tức Thần": "tuc_than", "Hoa Cái": "hoa_cai", "Kiếp Sát": "kiep_sat",
+    "Tai Sát": "tai_sat", "Thiên Sát": "thien_sat", "Chỉ Bối": "chi_boi",
+    "Hàm Trì": "ham_tri", "Nguyệt Sát": "nguyet_sat", "Vong Thần": "vong_than",
+    # Vòng Bác Sĩ
+    "Bác Sĩ": "bac_si", "Lực Sĩ": "luc_si", "Thanh Long": "thanh_long",
+    "Tiểu Hao": "tieu_hao", "Tướng Quân": "tuong_quan", "Tấu Thư": "tau_thu",
+    "Phi Liêm": "phi_liem", "Hỷ Thần": "hy_than", "Bệnh Phù": "benh_phu",
+    "Đại Hao": "dai_hao", "Phục Binh": "phuc_binh",
+    # Sao Q2 + sao lẻ
+    "Hồng Loan": "hong_loan", "Thiên Hỉ": "thien_hy", "Cô Thần": "co_than",
+    "Quả Tú": "qua_tu", "Tam Thai": "tam_thai", "Bát Tọa": "bat_toa",
+    "Thiên Khốc": "thien_khoc", "Thiên Hư": "thien_hu", "Long Trì": "long_tri",
+    "Phượng Các": "phuong_cac", "Thiên Diêu": "thien_rieu",
+    "Quốc Ấn": "quoc_an", "Đường Phù": "duong_phu", "Phá Toái": "pha_toai",
+    "Lưu Hà": "luu_ha", "Thiên Y": "thien_y", "Thiên Hình": "thien_hinh",
+    "Thiên Đức": "thien_duc", "Nguyệt Đức": "nguyet_duc", "Thiên Giải": "thien_giai",
+    "Giải Thần": "giai_than", "Ân Quang": "an_quang", "Thai Phụ": "thai_phu",
+    "Phong Cáo": "phong_cao", "Thiên Quan": "thien_quan", "Thiên Phúc": "thien_phuc",
+    "Thiên Trù": "thien_tru",
+}
+
 CAN_VI_TO_CANON = {
     "Giáp": "giap", "Ất": "at", "Bính": "binh", "Đinh": "dinh", "Mậu": "mau",
     "Kỷ": "ky", "Canh": "canh", "Tân": "tan", "Nhâm": "nham", "Quý": "quy",
@@ -176,6 +207,20 @@ async def render_from_birth(birth: BirthInput) -> dict:
             phu_tinh_per_palace.setdefault(fn, []).append(hoa)
         tu_hoa_summary.append({"hoa": hoa, "star": base, "palace_chi": chi, "palace_fn": fn})
 
+    # Vòng sao phụ (4 vòng + sao lẻ) → chi map; KHÔNG vào phu_tinh retrieval
+    # (giữ scope) — chỉ phục vụ match cách cục có tên.
+    vong_sao_per_palace: dict[str, list[str]] = {}
+    for src_key in ("thai_tue_belt", "tuong_tinh_belt", "bac_si_belt", "sao_q2", "sao_le"):
+        for star_vi, idx in (ls.get(src_key) or {}).items():
+            star = VONG_VI_TO_CANON.get(star_vi)
+            if star is None:
+                continue
+            chi = IDX_TO_CHI[idx % 12]
+            if star not in vong_sao_per_palace.setdefault(chi, []):
+                vong_sao_per_palace[chi].append(star)
+    tuan_chi = [IDX_TO_CHI[i % 12] for i in (ls.get("tuan") or [])]
+    triet_chi = [IDX_TO_CHI[i % 12] for i in (ls.get("triet") or [])]
+
     # Việc 3 — đại vận hiện tại (BIẾN): tuổi mụ → cycle đang đi, cung vận = "Mệnh 10 năm"
     from datetime import datetime
     birth_year = int(birth.birth_datetime_local[:4])
@@ -208,6 +253,9 @@ async def render_from_birth(birth: BirthInput) -> dict:
         "phu_tinh_per_palace": phu_tinh_per_palace,
         "tu_hoa": tu_hoa_summary,
         "dai_van_hien_tai": dai_van_hien_tai,
+        "vong_sao_per_palace": vong_sao_per_palace,
+        "tuan_chi": tuan_chi,
+        "triet_chi": triet_chi,
     }
     result = render_3_layer(la_so_input)
     result["la_so_input"] = la_so_input
