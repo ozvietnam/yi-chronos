@@ -39,6 +39,28 @@ NGUYEN_START_ASTRO = ANCHOR_YEAR - ((ANCHOR_THE - 1) * NAM_MOI_THE + ANCHOR_NAM_
 HOI_CHI = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ",
            "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
 
+# 12 BÍCH QUÁI (辟卦) — quẻ tầng HỘI, theo vòng tiêu tức Hoàng thị Kê giải
+# (tr.123 bản dịch 今说): "nhất dương sinh tại Tý (Phục) → tam dương Thái tại
+# Dần → lục dương thuần Càn tại Tỵ; nhất âm Cấu tại Ngọ → tam âm Bĩ tại Thân
+# → lục âm thuần Khôn tại Hợi". Khớp data point tr.167 (Bình Vương Đông thiên,
+# hội Ngọ, "vận nhập vào Cấu"). Anh duyệt đưa vào engine 2026-06-11.
+# Quẻ tầng VẬN/THẾ: chờ bảng chi tiết ở tập Trung/Hạ (中册/下册) — KHÔNG bịa.
+HOI_QUE = {
+    "Tý": {"que": "Phục", "han": "復", "tuong": "Nhất dương sinh — trời mở"},
+    "Sửu": {"que": "Lâm", "han": "臨", "tuong": "Nhị dương tiến"},
+    "Dần": {"que": "Thái", "han": "泰", "tuong": "Tam dương — thiên địa giao, người sinh"},
+    "Mão": {"que": "Đại Tráng", "han": "大壯", "tuong": "Tứ dương tráng thịnh"},
+    "Thìn": {"que": "Quải", "han": "夬", "tuong": "Ngũ dương quyết"},
+    "Tỵ": {"que": "Càn", "han": "乾", "tuong": "Lục dương thuần — cực thịnh"},
+    "Ngọ": {"que": "Cấu", "han": "姤", "tuong": "Nhất âm mới sinh giữa cực thịnh"},
+    "Mùi": {"que": "Độn", "han": "遯", "tuong": "Nhị âm — lui ẩn"},
+    "Thân": {"que": "Bĩ", "han": "否", "tuong": "Tam âm — thiên địa bất giao"},
+    "Dậu": {"que": "Quán", "han": "觀", "tuong": "Tứ âm — quan chiêm"},
+    "Tuất": {"que": "Bác", "han": "剝", "tuong": "Ngũ âm bác lạc"},
+    "Hợi": {"que": "Khôn", "han": "坤", "tuong": "Lục âm thuần — bế tàng"},
+}
+HOI_QUE_CITATION = "皇极经世书今说 tr.123 (12 bích quái tiêu tức, Hoàng thị Kê) + tr.167 (kiểm chứng Bình Vương vận Cấu)"
+
 # Đặc trưng từng hội theo truyền thống Hoàng Cực (khái lược — sẽ giàu thêm từ sách)
 HOI_NOTES = {
     "Tý": "Thiên khai ư Tý — trời mở",

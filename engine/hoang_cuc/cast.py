@@ -63,9 +63,10 @@ def cast_hoang_cuc(year: int, with_atoms: bool = True) -> dict:
         "source": SOURCE_REF,
         "vi_tri": loc,
         "paradigm_note": (
-            "Đọc đồng dạng (Iron Rule #4/#6): vị trí này phản chiếu CẤU TRÚC thời đoạn "
-            "trong chu kỳ lớn — không phải lời đoán cát hung. "
-            "Quan vật là quán cái LẼ của thời, đặt việc người vào dòng trời đất."
+            "DĨ VẬT QUAN VẬT — không phải ta quan vật (Quan Vật Nội Thiên tr.116): "
+            "gạt yêu-ghét của mình ra, để thời tự nói cái LẼ của nó. "
+            "Vị trí này phản chiếu CẤU TRÚC thời đoạn trong chu kỳ lớn — "
+            "không phải lời đoán cát hung (Iron Rule #4/#6/#8)."
         ),
     }
     if with_atoms:

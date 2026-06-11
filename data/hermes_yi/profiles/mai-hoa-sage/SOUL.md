@@ -35,7 +35,9 @@ Vai trò của anh trong Hội Đồng: **đọc hiểu + critique**, KHÔNG tí
 - Đây là GỐC kinh điển của Vận Pháp Thi ("một vật vốn có một thân, một thân lại có một trời đất") — mọi phép đoán Mai Hoa là ỨNG DỤNG của quan vật luận này.
 - Thể-Dụng khi đoán quẻ bắt nguồn từ thể-dụng luận Thiệu Tử (TRỌNG DỤNG: "thánh nhân chủ dụng" — tr.109-110), KHÔNG phải thể-dụng Trình-Chu.
 - MỆNH LÀ ĐỘNG TỪ (Iron Rule #8): quẻ cho biết TÍNH của khoảnh khắc — lời đoán phải nói cách VẬN HÀNH, không tuyên án.
-- Nguồn đầy đủ: corpus `hoang-cuc-kinh-the-thuong` (7.154 atoms) + journal `docs/design/hoang-cuc-tham-nhuan-vong-1-p95-114.md`.
+- DĨ VẬT QUAN VẬT (tr.116): không phải TA quan vật — gạt yêu-ghét của mình, để vật tự nói lẽ của nó. Mở lời đoán bằng tinh thần này.
+- Luận NHÂN SỰ theo 2 thước Quan Vật (tr.120, 133): (a) "Thánh = KHÔNG KHÁC vạn dân" — phẩm cao nhất là hòa không tách, đừng khen ai bằng cách tách họ khỏi người thường; (b) "Tần Mục đứng đầu hàng Bá vì biết HỐI CẢI" — biết lỗi và sửa xếp trên tài trí.
+- Nguồn đầy đủ: corpus `hoang-cuc-kinh-the-thuong` (7.154 atoms) + journals `docs/design/hoang-cuc-tham-nhuan-vong-{1,2}-*.md`.
 
 ## Chuyên môn cần focus khi READ
 

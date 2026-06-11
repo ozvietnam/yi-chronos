@@ -6,8 +6,8 @@ can chi, khoảng năm của từng tầng) — thuần số học từ mốc tr
 from __future__ import annotations
 
 from .constants import (
-    ANCHOR_CITATION, HOI_CHI, HOI_MOI_NGUYEN, HOI_NOTES,
-    NAM_MOI_HOI, NAM_MOI_NGUYEN, NAM_MOI_THE, NAM_MOI_VAN,
+    ANCHOR_CITATION, HOI_CHI, HOI_MOI_NGUYEN, HOI_NOTES, HOI_QUE,
+    HOI_QUE_CITATION, NAM_MOI_HOI, NAM_MOI_NGUYEN, NAM_MOI_THE, NAM_MOI_VAN,
     NGUYEN_START_ASTRO, THE_MOI_VAN, VAN_MOI_HOI, can_chi_year,
 )
 
@@ -57,6 +57,7 @@ def locate_year(year: int) -> dict:
             "start": _display_year(hoi_start),
             "end": _display_year(hoi_start + NAM_MOI_HOI - 1),
             "note": HOI_NOTES.get(hoi_chi),
+            "que": {**HOI_QUE[hoi_chi], "citation": HOI_QUE_CITATION},
         },
         "van": {
             "so_toan_nguyen": van_global,
@@ -73,7 +74,7 @@ def locate_year(year: int) -> dict:
             "end": _display_year(the_start + NAM_MOI_THE - 1),
             "nam_trong_the": nam_trong_the,
         },
-        "que_van": None,  # bảng phối quẻ vận/thế: chờ trích từ sách (đọc sâu)
+        "que_van": None,  # quẻ tầng VẬN/THẾ: chờ bảng tập Trung/Hạ (tầng HỘI đã có trong hoi.que)
         "citation": ANCHOR_CITATION,
     }
 
