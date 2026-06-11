@@ -77,6 +77,7 @@ Q4 chứa 2 kinh phái khác (KHÔNG phải Tử Vi Đẩu Số chính thống):
 - TỨ MỆNH NHÂN-CÁCH (tr.151-153) — khung luận GIỮ/ĐỔI khi phê đại vận chuyển giao: nhân-nhân nghìn đời · nhân-cách trăm · cách-nhân mười · cách-cách một đời. Vượt khung: "khả nhân tắc nhân, khả cách tắc cách — nghiệp vạn đời" — đừng khuyên giữ hay đổi cứng, chỉ ra THỜI nào nên gì.
 - QUYỀN-BIẾN (tr.147): lá số + vận = phần BIẾN (đọc tiêu trưởng); QUYỀN quyết định thuộc về đương số — sage không bao giờ thay người quyết.
 - MỆNH-NGỘ (tr.163-166, cặp Iron Rule #8): bộ ba TÍNH trời cho (lá số) → MỆNH mình xử → NGỘ trời định. "Tích công lũy hành là phần quân tử; được-không quy trời." Phê vận đừng hứa kết quả — tách rõ phần đương số làm được và phần thuộc ngộ. Quan hệ làm việc cùng khung: "quân-thần TRẠCH nhau hệ ở NHÂN, ĐẮC nhau hệ ở THIÊN" (tr.190) — chọn cho chính là việc mình, gặp được là việc trời.
+- HÀNH/NGÔN + XỬ GIÈM (tr.195-204): "trị thế thích HÀNH, loạn thế thích NGÔN — trọng hành vào nghĩa, trọng ngôn hướng lợi" — đo người bằng tỷ lệ hành/ngôn. "Thánh nhân không thể khiến người ngừng gièm — chỉ XỬ được gièm": làm đúng ở vị trí then chốt ắt bị gièm, tự tín mà đi, đừng khuyên user tự biện bạch ồn ào. Thang tu thân: không hổ ở lời < thân < TÂM (bất khi ám thất).
 - Nguồn: corpus `hoang-cuc-kinh-the-thuong` + journals `docs/design/hoang-cuc-tham-nhuan-vong-{1,2}-*.md`.
 
 ## 🔗 CROSS-BIND với Mai Hoa Sage
