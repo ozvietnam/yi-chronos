@@ -1,91 +1,1930 @@
 {
-"book_corpus_id": "tu-vi-ham-so",
-"section_id": "tvhs.S8",
-"section_title": "Phụ tinh chi tiết 1 (p202-220)",
-"pages": [202, 220],
-"atoms": [
-{"question_id":"tvhs.S8.Q01","question":"Thai gặp Không Kiếp ở cung Tử Tức có ý nghĩa gì?","answer_atom":"Thai gặp Không Kiếp chủ trụy thai, sẩy thai, sinh con rất khó, con chết trước hay trong khi sinh, hoặc sát con.","source_quote":"Thai, Không Kiếp: Trụy thai, sẩy thai hoặc sinh con rất khó, hoặc sinh con chết trước hay trong khi lọt lòng mẹ, hoặc sát con.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:dia_khong","star:dia_kiep","palace:tu_tuc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ Thai Không Kiếp ở Tử Tức ứng việc mất con, sinh nở hiểm nguy.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q02","question":"Thai gặp Nguyệt ở cung Tử Tức có ý nghĩa gì?","answer_atom":"Thai gặp Nguyệt: có con phải cầu tự mới nuôi được.","source_quote":"Thai, Nguyệt: Có con cầu tự mới nuôi được.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:thai_am","palace:tu_tuc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Con cái phải cầu xin (cầu tự) mới nuôi được.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q03","question":"Thai gặp Nhật Nguyệt ở cung Tử Tức có ý nghĩa gì?","answer_atom":"Thai gặp cả Nhật và Nguyệt: có con sinh đôi.","source_quote":"Thai, Nhật, Nguyệt: Có con sinh đôi.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:thai_duong","star:thai_am","palace:tu_tuc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này ứng sinh đôi.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q04","question":"Bộ Thai Phục Vượng Tướng ở cung Tử Tức có ý nghĩa gì?","answer_atom":"Thai Phục Vượng Tướng: có con riêng rồi mới lấy nhau, hoặc có con hoang, có con dị bào.","source_quote":"Thai Phục Vượng Tướng: Có con riêng rồi mới lấy nhau hoặc có con hoang, có con dị bào.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:phuc_binh","palace:tu_tuc"],"commentary":{"han_viet_explain":"Dị bào = khác mẹ.","viet_thuan":"Ứng con riêng, con ngoài hôn nhân, con khác dòng mẹ.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q05","question":"Thai gặp Bào (sao) ở cung Tử Tức có ý nghĩa gì?","answer_atom":"Thai Bào: có con dâm đãng, nhất là con gái.","source_quote":"Thai Bào: Có con dâm đãng nhất là con gái.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","palace:tu_tuc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Con cái buông thả về tình dục, đặc biệt con gái.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.75,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q06","question":"Thai Đào ở cung Phu Thê có ý nghĩa gì?","answer_atom":"Thai Đào ở Phu Thê: vợ chồng tiền dâm hậu thú, lẳng lơ, ngoại tình, hay tối thiểu cũng rất hào hoa tiến bộ.","source_quote":"Thai Đào: Vợ chồng tiền dâm hậu thú, vợ chồng lẳng lơ, ngoại tình hay tối thiểu cũng rất hào hoa tiến bộ.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:dao_hoa","palace:phu_the"],"commentary":{"han_viet_explain":"Tiền dâm hậu thú = ăn ở trước, cưới sau.","viet_thuan":"Vợ chồng quan hệ trước hôn nhân hoặc lẳng lơ ngoại tình.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q07","question":"Thai Phục Vượng Tướng ở cung Phu Thê có ý nghĩa gì?","answer_atom":"Thai Phục Vượng Tướng ở Phu Thê: vợ chồng có con riêng rồi mới lấy nhau, vợ hay chồng có con dị bào; cũng có nghĩa tiền dâm hậu thú.","source_quote":"Thai Phục Vượng Tướng: Vợ chồng có con riêng rồi mới lấy nhau, vợ hay chồng có con dị bào; cũng có nghĩa tiền dâm hậu thú.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:phuc_binh","palace:phu_the"],"commentary":{"han_viet_explain":null,"viet_thuan":"Vợ chồng có con riêng trước khi cưới nhau.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q08","question":"Thai Phục Vượng Tướng ở cung Bào (Huynh Đệ) có ý nghĩa gì?","answer_atom":"Thai Phục Vượng Tướng ở Bào: có anh chị em dị bào, có anh chị em bị tai nạn trinh tiết, hư đốn.","source_quote":"Thai Phục Vượng Tướng: Có anh chị em dị bào, có anh chị em bị tai nạn trinh tiết, hư đốn.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:phuc_binh","palace:huynh_de"],"commentary":{"han_viet_explain":null,"viet_thuan":"Anh chị em khác mẹ hoặc hư hỏng về trinh tiết.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q09","question":"Thai Đào ở cung Bào (Huynh Đệ) có ý nghĩa gì?","answer_atom":"Thai Đào ở Bào: có anh chị em dâm dật lăng loàn.","source_quote":"Thai Đào: Có anh chị em dâm dật lăng loàn.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:dao_hoa","palace:huynh_de"],"commentary":{"han_viet_explain":null,"viet_thuan":"Anh chị em buông thả tình dục.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q10","question":"Thai Phục Vượng Tướng ở Hạn có ý nghĩa gì?","answer_atom":"Thai Phục Vượng Tướng ở Hạn: thất tiết, vướng vào lưới tình đau khổ, có tư thông.","source_quote":"Thai Phục Vượng Tướng: Thất tiết, vướng vào lưới tình đau khổ, có tư thông.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:phuc_binh","concept:van_han"],"commentary":{"han_viet_explain":"Tư thông = quan hệ lén lút.","viet_thuan":"Hạn này dễ thất tiết, vướng tình ngoài luồng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q11","question":"Thai Riêu Không Kiếp ở Hạn có ý nghĩa gì?","answer_atom":"Thai Riêu Không Kiếp ở Hạn: có chửa hoang, bị hiếp dâm, bị bắt cóc.","source_quote":"Thai Riêu Không Kiếp: Có chửa hoang, bị hiếp dâm, bị bắt cóc làm đi.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:thien_rieu","star:dia_khong","star:dia_kiep","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hạn xấu nặng về tai nạn tình dục.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q12","question":"Thai gặp Thanh Long, Thiên Hỷ ở Hạn có ý nghĩa gì?","answer_atom":"Thai Thanh Long Thiên Hỷ ở Hạn: có con đẹp.","source_quote":"Thai Thanh Long, Thiên Hỷ: Có con đẹp.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:thanh_long","star:thien_hy","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hạn sinh được con xinh đẹp.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q13","question":"Thai gặp Mộc, Long Phượng ở Hạn có ý nghĩa gì?","answer_atom":"Thai, Mộc (Dục), Long Phượng ở Hạn: sinh con.","source_quote":"Thai, Mộc, Long Phượng: Sinh con.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","star:moc_duc","star:long_tri","star:phuong_cac","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hạn có tin sinh nở.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q14","question":"Tổng kết ý nghĩa sao Thai theo Tử Vi Hàm Số?","answer_atom":"Thai là sao rất quan trọng về ái tình, biểu hiện mối tình xác thịt, cuộc sống sinh lý bừa bãi, đời sống ngoại hôn của con người, bất luận nam hay nữ.","source_quote":"Tóm lại, Thai là sao rất quan trọng về ái tình, biểu hiện cho mối tình xác thịt, cho cuộc sống sinh lý bừa bãi, cho đời sống ngoại hôn của con người bất luận nam hay nữ.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai","concept:ai_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thai chủ về tình dục xác thịt và quan hệ ngoài hôn nhân.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q15","question":"Thái Tuế có những ý nghĩa tính tình xấu nào?","answer_atom":"Thái Tuế xấu: nhiều chuyện, lắm mồm lắm điều, bép xép, đa ngôn, ngồi lê đôi mách; hay kích bác chỉ trích, cãi vã, kiện thưa; lạnh nhạt khinh người, ít giao thiệp nên ít bạn, ít cảm tình.","source_quote":"Nhiều chuyện, lắm mồm, lắm điều, bép xép, đa ngôn, hay ngồi lê đôi mách. Hay kích bác, chỉ trích kẻ khác, cãi vã, hay kiện thưa. Lạnh nhạt, khinh người, ít giao thiệp, cho nên ít bạn, ít cảm tình.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai_tue","concept:tinh_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thái Tuế xấu chủ miệng lưỡi thị phi, hay chỉ trích, ít cảm tình.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q16","question":"Thái Tuế có những ý nghĩa tính tình tốt nào?","answer_atom":"Thái Tuế tốt: miệng lưỡi giỏi tranh biện, lý luận — sao của luật sư, giáo sư, chính khách, có tư chất đấu lý, bênh vực, chỉ trích; nói năng lưu loát hoạt bát, giống sao Lưu Hà chỉ sự trôi chảy ngôn ngữ.","source_quote":"Miệng lưỡi giỏi tranh biện, lý luận. Đây là sao của luật sư, giáo sư, chính khách, có tư chất đấu lý, đốn nại, bệnh vực, chỉ trích. Nói năng lưu loát, hoạt bát. Ý nghĩa này giống như sao Lưu Hà, chỉ sự trôi chảy ngôn ngữ.","source_page":202,"section_id":"tvhs.S8","tags":["star:thai_tue","star:luu_ha","concept:tinh_tinh","concept:nghe_nghiep"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thái Tuế tốt cho nghề dùng ngôn ngữ: luật sư, giáo sư, chính khách.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q17","question":"Thái Tuế có ý nghĩa gì về tai họa?","answer_atom":"Thái Tuế chủ hay bị nói xấu, chỉ trích, công kích, cãi vã, bút chiến; hay bị kiện cáo.","source_quote":"Hay bị nói xấu, chỉ trích, công kích, cãi vã, bút chiến. Hay bị kiện cáo.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","concept:tai_hoa"],"commentary":{"han_viet_explain":null,"viet_thuan":"Tai họa Thái Tuế đều từ lời nói: thị phi, kiện tụng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q18","question":"Vì sao Thái Tuế luôn liên quan đến kiện thưa, báo oán?","answer_atom":"Thái Tuế bao giờ cũng hội chiếu với Quan Phù, chỉ sự báo oán vì mích lòng, kiện thưa vì lời nói chạm tự ái — hậu quả của tính nhiều chuyện, chỉ trích, nói xấu, gieo thù oán.","source_quote":"Thái Tuế bao giờ cũng hội chiếu với Quan Phù, chỉ sự báo oán vì mích lòng, kiện thưa vì lời nói chạm tự ái. Đây là hậu quả của tính nhiều chuyện, tính chỉ trích, nói xấu, gieo thù oán.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:quan_phu","concept:kien_tung"],"commentary":{"han_viet_explain":null,"viet_thuan":"Cấu trúc an sao khiến Thái Tuế luôn hội chiếu Quan Phù nên gắn với kiện tụng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q19","question":"Thái Tuế có lợi ích gì về công danh?","answer_atom":"Thái Tuế có lợi về công danh cho những nghề cần dùng khoa ngôn ngữ như trạng sư, giáo sư, chính trị gia.","source_quote":"Lợi ích: Có lợi về công danh cho những nghề nghiệp cần dùng đến khoa ngôn ngữ như trạng sư, giáo sư, chính trị gia.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","concept:cong_danh","concept:nghe_nghiep"],"commentary":{"han_viet_explain":null,"viet_thuan":"Lợi cho nghề nói: luật sư, giáo sư, chính trị.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q20","question":"Thái Tuế gặp Hoa Cái hoặc Hóa Kỵ có ý nghĩa gì?","answer_atom":"Tuế - Cái hoặc Tuế - Kỵ: ăn nói kiêu kỳ, dễ mất cảm tình.","source_quote":"Tuế - Cái / Tuế - Kỷ: Ăn nói kiêu kỳ, dễ mất cảm tình.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:hoa_cai","star:hoa_ky"],"commentary":{"han_viet_explain":null,"viet_thuan":"Lời nói kiêu căng gây mất lòng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":"OCR ghi Kỷ, theo ngữ cảnh là Kỵ (Hóa Kỵ)."},"confidence":0.75,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q21","question":"Thái Tuế gặp Đào Hồng có ý nghĩa gì?","answer_atom":"Tuế - Đào Hồng: bị phụ tình, cô độc, thất tình.","source_quote":"Tuế - Đào Hồng: Bị phụ tình, cô độc, thất tình.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:dao_hoa","star:hong_loan"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này ứng chuyện tình duyên bị phụ bạc.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q22","question":"Thái Tuế gặp Thiên Hình có ý nghĩa gì?","answer_atom":"Tuế - Hình: dễ gặp tai bay vạ gió, có thể bị kiện tụng.","source_quote":"Tuế - Hình: Dễ gặp tai bay vạ gió, có thể bị kiện tụng.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:thien_hinh","concept:kien_tung"],"commentary":{"han_viet_explain":null,"viet_thuan":"Dễ vướng họa bất ngờ, kiện cáo.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q23","question":"Thái Tuế gặp Đà Kỵ có ý nghĩa gì?","answer_atom":"Tuế - Đà Kỵ: người quê kệch, ngu độn, gây ngăn trở công việc, hại đến quyền thế, tài lộc.","source_quote":"Tuế - Đà Kỷ: Người quê kệch, ngu độn, gây ngăn trở công việc, hại đến quyền thế, tài lộc.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:da_la","star:hoa_ky"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này làm trì trệ công việc, hại quyền lộc.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q24","question":"Thái Tuế gặp Xương Khúc Khôi Việt có ý nghĩa gì?","answer_atom":"Tuế - Xương Khúc Khôi Việt: 5 sao kết thành bộ văn tinh rất đẹp cho việc học hành, thi cử, làm quan.","source_quote":"Tuế - Xương Khúc Khôi Việt: 5 sao này kết thành bộ văn tinh rất đẹp cho việc học hành, thi cử làm quan.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:van_xuong","star:van_khuc","star:thien_khoi","star:thien_viet","concept:khoa_giap"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ văn tinh 5 sao đẹp cho học hành thi cử.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q25","question":"Thái Tuế gặp sát tinh có ý nghĩa gì?","answer_atom":"Tuế gặp Sát tinh: tổn thọ, tổn danh, tổn tài, hay bị kiện cáo, báo thù, tai nạn.","source_quote":"Tuế - Sát Tràng: Tổn thọ, tổn danh, tổn tài, hay bị kiện cáo, báo thù, tai nạn.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","concept:sat_tinh","concept:tai_hoa"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thái Tuế gặp sát tinh thì hao tổn thọ, danh, tài.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":"OCR ghi Sát Tràng, có thể là sát tinh."},"confidence":0.7,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q26","question":"Tổng kết ý nghĩa sao Thái Tuế?","answer_atom":"Thái Tuế là sao chủ về lời nói và những hậu quả tốt xấu do ngôn ngữ mà có.","source_quote":"Tóm lại, Thái Tuế là sao chủ về lời nói và những hậu quả tốt xấu do ngôn ngữ mà có.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","concept:ngon_ngu"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thái Tuế quy về một chữ: lời nói.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q27","question":"Thái Tuế ở cung Quan Lộc có ý nghĩa gì?","answer_atom":"Thái Tuế ở Quan Lộc: thường làm nghề luật sư, giáo sư, trưởng tòa; làm chính trị thiên về đối lập; hay chỉ trích và bị chỉ trích trong nghề; có thể bị điều tra nếu có Hình hội chiếu.","source_quote":"Thường làm nghề luật sư, giáo sư, trưởng tòa. Khi làm chính trị, thiên về đối lập. Hay chỉ trích và bị chỉ trích trong nghề nghiệp. Có thể bị điều tra nếu có Hình hội chiếu.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","star:thien_hinh","palace:quan_loc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Nghề nghiệp gắn với ngôn luận, dễ va chạm chỉ trích.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q28","question":"Thái Tuế ở cung Thiên Di có ý nghĩa gì?","answer_atom":"Thái Tuế ở Thiên Di: hay bị miệng tiếng khẩu thiệt trong giao thiệp; hay bị kiện cáo, cãi vã với người ngoài.","source_quote":"Hay bị miệng tiếng khẩu thiệt trong việc giao thiệp. Hay bị kiện cáo, cãi vã với người ngoài.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","palace:thien_di"],"commentary":{"han_viet_explain":null,"viet_thuan":"Ra ngoài dễ vướng thị phi, kiện cáo.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q29","question":"Thái Tuế ở cung Phu Thê có ý nghĩa gì?","answer_atom":"Thái Tuế ở Phu Thê: vợ chồng bất hòa, hay cãi vã, lắm lời; có thể ly dị, ly hôn nếu gặp sao xấu, trừ phi vợ hay chồng hành nghề luật sư, thẩm phán.","source_quote":"Vợ chồng bất hòa, hay cãi vã, lắm lời. Có thể ly dị, ly hôn, nếu gặp sao xấu, trừ phi vợ hay chỗng hành nghề luật sư, thẩm phán.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","palace:phu_the"],"commentary":{"han_viet_explain":null,"viet_thuan":"Vợ chồng khắc khẩu; nghề luật của người phối ngẫu hóa giải.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q30","question":"Thái Tuế ở Hạn có ý nghĩa gì?","answer_atom":"Thái Tuế ở Hạn: có cãi vã, đôi chối trong năm đó; có đi dạy học; bị thất tình, cô độc.","source_quote":"Có cãi vã, đôi chối trong năm đó; có đi dạy học. Bị thất tình, cô độc.","source_page":203,"section_id":"tvhs.S8","tags":["star:thai_tue","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Năm hạn có khẩu thiệt hoặc việc dạy học.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q31","question":"Thanh Long có ý nghĩa gì về tướng mạo và đắc địa ở đâu?","answer_atom":"Thanh Long không chỉ bộ phận cơ thể nào, nhưng về tướng mạo thì gương mặt tuấn tú, phương phi, cốt cách sang trọng. Hạn gặp Thanh Long thì sắc diện phát khí chất, nhất là khi đắc địa ở Thìn Tuất Sửu Mùi và hai cung Thủy Hợi, Tý.","source_quote":"về tướng mạo thì gương mặt tuấn tú, phương phi, cốt cách sang trọng. Đến hạn gặp Thanh Long thì sắc diện phát hiện khí chất, nhất là khi Thanh Long đắc địa ở Thìn, Tuất, Sửu, Mùi, và ở hai cung Thủy và Hợi, Tý.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","concept:tuong_mao","concept:dac_dia"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thanh Long cho tướng mạo tuấn tú; đắc địa tứ Mộ và Hợi Tý.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q32","question":"Thanh Long có những ý nghĩa tính tình nào?","answer_atom":"Thanh Long: vui vẻ hòa nhã; lợi cho cầu danh thi cử; may mắn về hôn nhân; may mắn về sinh nở; giải trừ được bệnh tật, tai họa nhỏ. Với những nghĩa đó, Thanh Long đồng nghĩa với Long Phượng.","source_quote":"Vui vẻ, hòa nhã. Lợi ích cho việc cầu danh, thi cử. May mắn về hôn nhân. May mắn về sinh nở. Giải trừ được bệnh tật, tai họa nhỏ. Với những ý nghĩa đó, Thanh Long đồng nghĩa với Long Phượng.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:long_tri","star:phuong_cac","concept:tinh_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Cát tinh nhỏ đem may mắn thi cử, hôn nhân, sinh nở.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q33","question":"Thanh Long gặp Hóa Kỵ ở Tứ Mộ có ý nghĩa gì?","answer_atom":"Thanh Long, Kỵ ở Tứ Mộ: ví như rồng xanh ẩn trong mây ngũ sắc — rồng gặp may, người gặp thời rực rỡ, có lợi cho phú quý, hôn nhân, sinh nở, thi cử.","source_quote":"Thanh Long, Kỷ ở Tứ Mộ: Thanh Long được ví như rồng xanh ẩn trong mây ngũ sắc, nghĩa là rồng gặp may, người gặp thời rực rỡ, có lợi cho phú quý, hôn nhân, sinh nở, thi cử.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:hoa_ky","concept:tu_mo"],"commentary":{"han_viet_explain":null,"viet_thuan":"Trường hợp hiếm Hóa Kỵ thành tốt khi đi với Thanh Long ở Thìn Tuất Sửu Mùi.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q34","question":"Thanh Long gặp Lưu Hà có ý nghĩa gì?","answer_atom":"Thanh Long, Lưu Hà: đồng nghĩa với cách Long Kỵ — rồng xanh vùng vẫy trên sông lớn, gặp thời rực rỡ.","source_quote":"Thanh Long, Lưu Hà: Đồng nghĩa như trên (rồng xanh vùng vẫy trên sông lớn).","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:luu_ha"],"commentary":{"han_viet_explain":null,"viet_thuan":"Long Hà cũng là cách rồng gặp nước, gặp thời.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q35","question":"Cách Long Hổ Cái là gì?","answer_atom":"Thanh Long, Bạch Hổ, Hoa Cái hội lại gọi là cách Long Hổ Cái, rực rỡ về quan tài (quan trường, tài lộc).","source_quote":"Thanh Long, Bạch Hổ, Hoa Cái: Cách này gọi là Long Hổ Cái, cũng rực rỡ về quan tài.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:bach_ho","star:hoa_cai","concept:cach_cuc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ ba Long Hổ Cái tốt cho công danh tài lộc.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q36","question":"Cách Tứ Linh trong Tử Vi Hàm Số gồm những sao nào?","answer_atom":"Thanh Long, Bạch Hổ, Hoa Cái, Phượng Các hội lại gọi là cách Tứ Linh, rực rỡ về công danh tài lộc.","source_quote":"Thanh Long, Bạch Hổ, Hoa Cái, Phượng Các: Cách này gọi là Tứ Linh, cũng rực rỡ về công danh tài lộc.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:bach_ho","star:hoa_cai","star:phuong_cac","concept:cach_cuc","concept:tu_linh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Tứ Linh = Long, Hổ, Cái, Phượng — đại cát cho công danh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q37","question":"Thanh Long gặp Quan Đới có ý nghĩa gì?","answer_atom":"Thanh Long, Quan Đới: người gặp thời, đắc dụng.","source_quote":"Thanh Long, Quan Đới: Người gặp thời, đắc dụng.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:quan_doi"],"commentary":{"han_viet_explain":null,"viet_thuan":"Gặp thời, được trọng dụng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q38","question":"Thanh Long gặp sát tinh có ý nghĩa gì?","answer_atom":"Thanh Long gặp Sát Tinh: mất hết uy lực, trở thành yểu và hèn nhát.","source_quote":"Thanh Long, Sát Tỉnh: Mất hết uy lực, trở thành yểu và hèn nhát.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","concept:sat_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Sát tinh phá hỏng Thanh Long.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q39","question":"Thanh Long ở các cung nào thì đẹp nhất?","answer_atom":"Thanh Long rất đẹp ở hai cung Thủy Hợi, Tý hoặc ở cung Thìn (Long cư Long vị), rực rỡ như cách Long Kỵ, Long Hà. Các cách tốt nếu ở Mệnh, Thân, Quan, Di, Tài hay Hạn đều đắc dụng đắc lợi.","source_quote":"Thanh Long rất đẹp nếu ở hai cung Thủy và Hợi, Tý hoặc ở cung Thìn (Long cư Long vị) cũng rực rỡ như trường hợp Long Kỷ, Long Hà. Ngoài ra, các cách tốt kể trên, nếu có tại cung Mệnh, Thân, Quan, Di, Tài, hay Hạn, đều đắc dụng, đắc lợi cho đương số.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","palace:menh","palace:quan_loc","concept:dac_dia"],"commentary":{"han_viet_explain":"Long cư Long vị = rồng ở đúng chỗ rồng (cung Thìn).","viet_thuan":"Đẹp nhất ở Hợi Tý (nước) và Thìn (vị rồng).","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q40","question":"Mệnh hay Quan giáp Long giáp Mã có ý nghĩa gì?","answer_atom":"Nếu Mệnh hay Quan giáp Thanh Long, giáp Thiên Mã thì hiển đạt về công danh, chức vị.","source_quote":"nếu Mệnh hay Quan giáp Long, giáp Mã thì cũng hiển đạt về công danh, chức vị.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long","star:thien_ma","palace:menh","palace:quan_loc","concept:giap_cung"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hai cung kề Mệnh/Quan có Long, Mã cũng quý hiển.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q41","question":"Tổng kết ý nghĩa sao Thanh Long?","answer_atom":"Tuy là sao nhỏ nhưng Thanh Long vốn bản chất rồng xanh nên uy dũng, cao thượng, đem may mắn về thi cử, công danh, hôn nhân, sinh nở; kết hợp với cát tinh và cung thuận vị thì càng phát đạt rực rỡ cho cả nam nữ, miễn là đừng gặp sát tinh.","source_quote":"Tuy là sao nhỏ nhưng Thanh Long, vốn là bản chất rồng xanh nên rất uy dũng, cao thượng, đem lại sự may mắn về nhiều phương diện thi cử, công danh, hôn nhân, sinh nở. Kết hợp phong phú với nhiều cát tinh và ở một số cung thuận vị, Thanh Long càng phát đạt rực rỡ cho phái nam cũng như phái nữ miễn là đừng gặp sát tính.","source_page":204,"section_id":"tvhs.S8","tags":["star:thanh_long"],"commentary":{"han_viet_explain":null,"viet_thuan":"Sao nhỏ nhưng cát khí mạnh, kỵ sát tinh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q42","question":"Thiếu Dương, Thiếu Âm đắc địa ở những vị trí nào?","answer_atom":"Thiếu Dương, Thiếu Âm đắc địa theo các vị trí đắc địa của Nhật, Nguyệt: từ Dần đến Ngọ cho Thiếu Dương, từ Thân đến Tý cho Thiếu Âm. Chỉ khi đắc địa hai sao này mới có ý nghĩa, nếu hãm thì vô dụng.","source_quote":"Từ Dần đến Ngọ cho Thiếu Dương. Từ Thân đến Tý cho Thiếu Âm. Chỉ khi nào đắc địa, hai sao này mới có ý nghĩa. Nếu hãm thì vô dụng.","source_page":205,"section_id":"tvhs.S8","tags":["star:thieu_duong","star:thieu_am","concept:dac_dia"],"commentary":{"han_viet_explain":null,"viet_thuan":"Đắc địa theo vòng sáng của mặt trời, mặt trăng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q43","question":"Thiếu Dương đồng cung với Nhật, Thiếu Âm đồng cung với Nguyệt có ý nghĩa gì?","answer_atom":"Thiếu Dương đắc địa đồng cung với Nhật, Thiếu Âm đắc địa đồng cung với Nguyệt thì ý nghĩa càng rực rỡ, ví như mặt trời mặt trăng có đôi cùng tỏa sáng. Nếu chỉ hội chiếu với Nhật Nguyệt thì cũng sáng lạn nhưng không bằng đồng cung đắc địa.","source_quote":"Đặc biệt Thiếu Dương đắc địa và đồng cung với Nhật, Thiếu Âm đắc địa và đồng cung với Nguyệt, ý nghĩa càng rực rỡ hơn, ví như mặt trời, mặt trăng đều có đôi, cùng tỏa sáng song song.","source_page":205,"section_id":"tvhs.S8","tags":["star:thieu_duong","star:thieu_am","star:thai_duong","star:thai_am"],"commentary":{"han_viet_explain":null,"viet_thuan":"Đồng cung với Nhật Nguyệt sáng là đẹp nhất.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q44","question":"Thiếu Dương, Thiếu Âm đắc địa có những ý nghĩa gì?","answer_atom":"Cả hai đều là cát tinh, đắc địa thì: thông minh; vui vẻ, hòa nhã, nhu hòa; nhân hậu, từ thiện — nghĩa nhân hậu tương tự Long Đức, Phúc Đức, Thiên Đức, Nguyệt Đức. Còn giải trừ được bệnh tật, tai họa nhỏ, tương đương giá trị cứu giải của tứ đức.","source_quote":"Thông minh. Vui vẻ, hòa nhã, nhu hòa. Nhân hậu, từ thiện. Ý nghĩa nhân hậu này tương tự như ý nghĩa của các sao Long Đức, Phúc Đức, Thiên Đức, Nguyệt Đức.","source_page":205,"section_id":"tvhs.S8","tags":["star:thieu_duong","star:thieu_am","concept:tinh_tinh","concept:tu_duc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Cát tinh nhân hậu, có sức cứu giải nhỏ như tứ đức.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q45","question":"Thiếu Dương, Thiếu Âm hội với Hóa Khoa có ý nghĩa gì?","answer_atom":"Khi hội họp với Hóa Khoa (đồng cung hoặc xung chiếu), Thiếu Âm Thiếu Dương kết thành bộ sao gia tăng phúc thọ, cứu khốn phò nguy, giải trừ nhiều bệnh tật tai họa.","source_quote":"khi hội họp với Hóa Khoa, hoặc đồng cung, hoặc xung chiếu, Thiếu Âm và Thiếu Dương kết hợp thành bộ sao gia tăng phúc thọ, cứu khốn phò nguy, giải trừ nhiều bệnh tật tai họa.","source_page":205,"section_id":"tvhs.S8","tags":["star:thieu_duong","star:thieu_am","star:hoa_khoa","concept:cuu_giai"],"commentary":{"han_viet_explain":null,"viet_thuan":"Đi với Hóa Khoa thành bộ cứu giải mạnh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q46","question":"Thiếu Dương, Thiếu Âm gặp sao tốt hay sao xấu thì sao?","answer_atom":"Thiếu Dương, Thiếu Âm gặp sao tốt thì làm tốt thêm, gặp sao xấu thì vô dụng.","source_quote":"Thiếu Dương, Thiếu Âm gặp sao tốt thì làm tốt thêm, gặp sao xấu thì vô dụng.","source_page":205,"section_id":"tvhs.S8","tags":["star:thieu_duong","star:thieu_am"],"commentary":{"han_viet_explain":null,"viet_thuan":"Chỉ phụ họa cát tinh, không chống nổi hung tinh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q47","question":"Thiên Hình có ý nghĩa gì về cơ thể?","answer_atom":"Thiên Hình là vết thẹo. Đi với sao cơ thể nào thì nơi đó có thể bị thẹo hay có may cắt.","source_quote":"Thiên Hình là vết thẹo. Đi với sao cơ thể nào thì nơi đó có thể bị thẹo hay có may cắt.","source_page":205,"section_id":"tvhs.S8","tags":["star:thien_hinh","concept:co_the"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thiên Hình ứng vết thẹo, vết mổ trên cơ thể.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q48","question":"Thiên Hình có ý nghĩa gì về bệnh lý?","answer_atom":"Thiên Hình cũng như Kiếp Sát ví như con dao mổ. Hình chủ sự mổ xẻ, châm cứu; bệnh tật có Thiên Hình là liên quan đến việc mổ xẻ.","source_quote":"Thiên Hình cũng như Kiếp Sát ví như con dao mổ (bistouri). Vì vậy, hình chủ sự mổ xẻ, châm cứu.","source_page":205,"section_id":"tvhs.S8","tags":["star:thien_hinh","star:kiep_sat","concept:benh_ly"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hình tượng con dao mổ: bệnh phải mổ xẻ.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q49","question":"Thiên Hình gặp Nhật Nguyệt có ý nghĩa bệnh lý gì?","answer_atom":"Hình, Nhật, Nguyệt: đau mắt, có thể hay chà xát đau đớn.","source_quote":"Hình, Nhật, Nguyệt: Đau mắt có thể hay chà xát đau đớn.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","star:thai_duong","star:thai_am","concept:benh_ly"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này ứng bệnh đau mắt.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q50","question":"Thiên Hình gặp Kiếp, Hỷ Thần có ý nghĩa bệnh lý gì?","answer_atom":"Hình Kiếp, Hỷ Thần: bệnh trĩ, bị cắt.","source_quote":"Hình Kiếp, Hỷ Thần: Bệnh trĩ, bị cắt.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","star:dia_kiep","star:hy_than","concept:benh_ly"],"commentary":{"han_viet_explain":null,"viet_thuan":"Ứng bệnh trĩ phải mổ.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q51","question":"Thiên Hình có ý nghĩa gì về tính tình?","answer_atom":"Thiên Hình: ngay thẳng, nóng nảy trực tính, bất nhẫn trước sự bất công; có năng khiếu phán xét tinh vi, phân xử tỉ mỉ, công bằng — thẩm phán có Thiên Hình có thể là một Bao Công đoan chính. Đàn bà có Thiên Hình là người ngay thẳng, không lẳng lơ dù có Đào Riêu; Thiên Hình chế được tính hoa nguyệt dâm đãng của Đào, Hồng.","source_quote":"Ngay thẳng, nóng nảy trực tính, bất nhẫn trước sự bất công hay bất bình lộ diện. Năng khiếu phán xét tinh vi, phân xử tỉ mỉ, công bằng. Thẩm phán có Thiên Hình có thể là một Bao Công đoan chính. Đàn bà có Thiên Hình là người ngay thẳng, không lẳng lơ, dù có Đào Riêu.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","star:dao_hoa","star:hong_loan","concept:tinh_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hình chủ ngay thẳng công minh, chế được tính đào hoa.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q52","question":"Thiên Hình có ý nghĩa gì về công danh, nghề nghiệp?","answer_atom":"Thiên Hình trước hết là sao võ cách, chủ quân sự binh quyền, sát phạt; được ví như thanh kiếm, tượng trưng cho uy quyền, khả năng chế tài. Đắc địa thì chỉ tài giỏi, thao lược, hiển đạt về võ nghiệp.","source_quote":"Thiên Hình trước hết là một sao võ cách, chủ về quân sự binh quyền, sát phạt. Thiên Hình được ví như thanh kiếm, tượng trưng cho uy quyền, cho khả năng chế tài.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","concept:vo_cach","concept:cong_danh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hình tượng thanh kiếm: uy quyền võ nghiệp.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q53","question":"Bộ sao Binh Hình Tướng Ấn có ý nghĩa gì?","answer_atom":"Bộ Binh Thiên Hình Tướng Ấn rất uy dũng, chủ mọi sự liên quan đến quyền lực, sát phạt, chỉ huy, lãnh đạo quân sự.","source_quote":"Đó là trường hợp của bộ sao Binh Thiên Hình Tướng Ấn, rất uy dũng, chủ sự mọi liên quan đến quyền lực, sát phạt, chỉ huy, lãnh đạo quân sự.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","star:phuc_binh","star:tuong_quan","star:quoc_an","concept:cach_cuc","concept:vo_cach"],"commentary":{"han_viet_explain":null,"viet_thuan":"Binh Hình Tướng Ấn = bộ võ cách lãnh đạo quân sự.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q54","question":"Thiên Hình đi với bộ sao y sĩ có ý nghĩa gì?","answer_atom":"Nếu làm thẩm phán thì có Thiên Hình có thể là thẩm phán quân đội ở Tòa Án Mặt Trận hay Tòa Án Binh. Nếu Thiên Hình đi với bộ sao y sĩ (Tướng Y, Cơ Nguyệt Đồng Lương...) thì là bác sĩ giải phẫu hay châm cứu.","source_quote":"nếu Thiên Hình đi với bộ sao y sĩ (Tướng Y, Cơ Nguyệt, Đồng Lương...) thì là bác sĩ giải phẫu hay châm cứu.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","concept:nghe_nghiep","concept:y_si"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hình + bộ y sĩ = bác sĩ mổ, châm cứu.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q55","question":"Thiên Hình đắc địa ở những vị trí nào?","answer_atom":"Thiên Hình đắc địa ở Dần, Thân, Mão, Dậu thì rất anh hùng trong nghiệp võ, có công trạng lớn, nổi danh trong nghiệp võ hay trong cách thẩm phán, y sĩ — nhất là Thiên Hình ở Dần.","source_quote":"Nếu ở vị trí đắc địa (Dần, Thân, Mão, Dậu) thì rất anh hùng trong nghiệp võ, có công trạng lớn, nổi danh trong nghiệp võ hay trong cách thẩm phán, y sĩ, nhất là Thiên Hình ở Dần.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","concept:dac_dia"],"commentary":{"han_viet_explain":null,"viet_thuan":"Đắc địa Dần Thân Mão Dậu, đẹp nhất ở Dần.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q56","question":"Thiên Hình có ý nghĩa gì về phúc thọ, tai họa?","answer_atom":"Thiên Hình liên quan đến tù tội, nhất là khi gặp sát tinh, tượng trưng cho hình phạt phải gánh chịu; có thể nặng hơn như đâm chém gươm đao, chết vì súng đạn (bộ Thiên Tướng hay Tướng Quân với Thiên Hình, Thiên Mã với Thiên Hình). Thiên Hình gặp Tuần Triệt ví như thanh kiếm gãy, chủ tai họa hiểm nghèo; Thiên Hình hãm địa cũng vậy. Hạn gặp các sao này họa hung xảy ra rất mau vì Thiên Hình tác họa mau như sao Hỏa.","source_quote":"Thiên Hình cũng liên quan đến tù tội, nhất là khi gặp sát tinh, tượng trưng cho hình phạt (châtiment) phải gánh chịu... hoặc Thiên Hình gặp Tuần Triệt (ví như thanh kiếm gãy, chủ tai họa hiểm nghèo) hoặc nếu Thiên Hình hãm địa.","source_page":206,"section_id":"tvhs.S8","tags":["star:thien_hinh","star:thien_ma","star:tuong_quan","concept:tuan_triet","concept:tai_hoa"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hình hãm hoặc gặp Tuần Triệt là kiếm gãy, họa đến nhanh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q57","question":"Khốc Hư gặp Phá Toái có ý nghĩa bệnh lý gì?","answer_atom":"Phá Toái, Khốc Hư: đau cổ họng (thịt dư, bể tiếng...).","source_quote":"Phá Toái, Khốc Hư: đau cổ họng (thịt dư, bể tiếng...)","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","star:pha_toai","concept:benh_ly"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này ứng bệnh cổ họng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q58","question":"Khốc Hư gặp Tuế Phá có ý nghĩa bệnh lý gì?","answer_atom":"Tuế Phá, Khốc Hư: hay đau răng, hư răng.","source_quote":"Tuế Phá, Khốc Hư: hay đau răng, hư răng","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","star:tue_pha","concept:benh_ly"],"commentary":{"han_viet_explain":null,"viet_thuan":"Ứng bệnh răng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q59","question":"Khốc Hư có ý nghĩa gì về tướng mạo?","answer_atom":"Khốc Hư là sao u tư, âu sầu, thủ Mệnh thì da xanh, mắt có quầng đen, diện mạo buồn tẻ, mặt thiếu sắc khí, mắt kém thần, hay trông xuống, không trông xa.","source_quote":"Khốc Hư là sao tru tư, âu sầu, cho nên thủ mệnh thì da xanh, mắt có quầng đen, diện mạo buồn tẻ, mặt thiếu sắc khí, mắt kém thần, hay trông xuống, không trông xa.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","palace:menh","concept:tuong_mao"],"commentary":{"han_viet_explain":null,"viet_thuan":"Tướng mạo u buồn, thiếu thần sắc.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q60","question":"Khốc Hư có ý nghĩa gì về tính tình?","answer_atom":"Là bại tinh và sao âu sầu, Khốc Hư có nghĩa: u buồn, ủy mị, hay phiền muộn, đa sầu; bi quan yếm thế; hay lãng trí, nghĩ đây quên đó; hay hốt hoảng, hoang mang; ăn nói sai ngoa. Khốc Hư tượng trưng cho nước mắt, lo buồn, xui xẻo.","source_quote":"U buồn, ủy mị, hay phiền muộn luôn, đa sầu. Bi quan, yếm thế (pessimiste). Hay lãng trí, nghĩ đây quên đó (distraIt). Hay hốt hoảng, hoang mang (anxieux). Ăn nói sai ngoa.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","concept:tinh_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bại tinh chủ buồn lo, nước mắt.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q61","question":"Khốc Hư ở Tý Ngọ có ý nghĩa gì?","answer_atom":"Riêng ở hai vị trí Tý và Ngọ, Khốc Hư có nghĩa tốt: có chí lớn; có văn tài lỗi lạc, nhất là tài hùng biện, nói năng đanh thép hùng hồn; có khiếu hoạt động chính trị. Đi kèm cát tinh thì càng rõ rệt.","source_quote":"Chỉ riêng ở hai vị trí Tý và Ngọ thì có nghĩa tốt: Có chí lớn. Có văn tài lỗi lạc, nhất là tài hùng biện, nói năng đanh thép, hùng hồn. Có khiếu hoạt động chính trị.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","concept:dac_dia"],"commentary":{"han_viet_explain":null,"viet_thuan":"Khốc Hư đắc địa Tý Ngọ thành tài hùng biện, chí lớn.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q62","question":"Khốc Hư hãm địa có ý nghĩa gì về phúc thọ, tai họa?","answer_atom":"Ở hãm địa, Khốc Hư chủ sự khốn khổ, đau buồn trong tâm hồn, sự xui xẻo dưới nhiều hình thức và sự yểu. Ở Thìn Tuất thì hay mắc cạn và vắn số.","source_quote":"Ở hãm địa, Khốc Hư chủ sự khốn khổ, đau buồn trong tâm hồn, sự xui xẻo dưới nhiều hình thức và sự yểu. Ở tại Thìn Tuất thì hay mắc cạn và vắn số.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","concept:ham_dia","concept:tai_hoa"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hãm thì khổ buồn, yểu; Thìn Tuất xấu.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q63","question":"Khốc Hư đi cùng Kiếp, Phù, Khách, Cự, Nhật có ý nghĩa gì?","answer_atom":"Khốc Hư đi cùng Kiếp, Phù, Khách, Cự, Nhật thì suốt đời bi ai, lúc nào cũng đau buồn, than khóc, tiếc thương vì bệnh tật, vì tang tóc.","source_quote":"Đi cùng với kiếp, phù, khách, cự, nhật thì suốt đời bi ai, lúc nào cũng đau buồn, than khóc, tiếc thương vì bệnh tật, vì tang tóc.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","star:dia_kiep","star:dieu_khach","star:cu_mon","star:thai_duong"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này chủ đời bi ai tang tóc.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q64","question":"Bộ Khốc Hình Mã có ý nghĩa gì?","answer_atom":"Khốc Hình Mã: rất hiển đạt về võ nghiệp, nếu đồng cung ở Dần thì càng uy danh.","source_quote":"Khốc Hình Mã: rất hiển đạt về võ nghiệp, nếu đồng cung ở Dần thì càng uy danh.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hinh","star:thien_ma","concept:vo_cach"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ võ cách hiển đạt, đẹp nhất ở Dần.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q65","question":"Khốc Hư gặp Sát hay Phá đắc địa đồng cung có ý nghĩa gì?","answer_atom":"Khốc Hư với Sát hay Phá đắc địa đồng cung: có quyền cao chức trọng, uy danh lừng lẫy, được thiên hạ nể phục vì uy và tài.","source_quote":"Khốc Hư Sát Hay Phá: đắc địa đồng cung có quyền cao chức trọng, uy danh lừng lẫy, được thiên hạ nể phục vì uy và tài.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","star:that_sat","star:pha_quan"],"commentary":{"han_viet_explain":null,"viet_thuan":"Đắc địa cùng Sát/Phá thì uy danh lớn.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q66","question":"Khốc gặp Quyền có ý nghĩa gì?","answer_atom":"Khốc Quyền: có tiếng tăm.","source_quote":"Khốc Quyền: có tiếng tăm.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:hoa_quyen"],"commentary":{"han_viet_explain":null,"viet_thuan":"Khốc đi với Hóa Quyền thì nổi danh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q67","question":"Khốc gặp Kình, Tuế, Khách có ý nghĩa gì?","answer_atom":"Khốc, Kình, Tuế, Khách: tang tóc liên miên, từ lúc lọt lòng mẹ.","source_quote":"Khốc, Kình, Tuế, Khách: tang tóc liên miên, từ lúc lọt lòng mẹ.","source_page":207,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:kinh_duong","star:thai_tue","star:dieu_khach","concept:tang_toc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này chủ tang tóc liên miên.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q68","question":"Khốc Hư ở cung Phu Thê có ý nghĩa gì?","answer_atom":"Khốc Hư ở Phu Thê: xa nhau rồi mới lấy nhau được; nhân duyên trắc trở buổi đầu; ăn ở với nhau có nước mắt; vợ chồng xung khắc nếu có thêm Kình hay Đà.","source_quote":"Xa nhau rồi mới lấy nhau được. Nhân duyên trắc trở buổi đầu. Ăn ở với nhau có nước mắt. Vợ chồng xung khắc nếu có thêm Kình hay Đà.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","star:kinh_duong","star:da_la","palace:phu_the"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hôn nhân trắc trở, nhiều nước mắt.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q69","question":"Khốc Hư ở cung Tử Tức có ý nghĩa gì?","answer_atom":"Khốc Hư ở Tử Tức: sinh con khó nuôi, sinh nhiều nuôi ít; dễ mất, sát con.","source_quote":"Sinh con khó nuôi, sinh nhiều nuôi ít. Dễ mất, sát con.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","palace:tu_tuc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Con cái khó nuôi.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q70","question":"Khốc Hư ở cung Tài Bạch có ý nghĩa gì?","answer_atom":"Khốc Hư ở Tài Bạch: khó kiếm tiền, hay lo âu vì tiền bạc; hao tài. Nếu ở Tý Ngọ thì trước nghèo sau giàu.","source_quote":"Khó kiếm tiền, hay lo âu vì tiền bạc. Hao tài. Nếu ở Tý Ngọ, thì trước nghèo sau giàu.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","palace:tai_bach"],"commentary":{"han_viet_explain":null,"viet_thuan":"Tiền bạc chật vật, riêng Tý Ngọ thì hậu vận khá.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q71","question":"Khốc Hư ở cung Phúc Đức có ý nghĩa gì?","answer_atom":"Khốc Hư ở Phúc Đức: tổn thọ, có âm hồn báo oán nếu hãm địa; mã phát, hiển đạt nếu đắc địa ở Tý Ngọ.","source_quote":"Tổn thọ có âm hồn báo oán nếu hãm địa. Mã phát, hiển đạt nếu đắc địa ở Tý Ngọ.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","palace:phuc_duc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hãm thì tổn phúc, đắc Tý Ngọ thì phát.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q72","question":"Khốc Hư ở Thiên Di hoặc Hạn có ý nghĩa gì?","answer_atom":"Khốc Hư ở Thiên Di/Đại Hạn: chỉ đắc lợi nếu đắc địa, nhưng chỉ thịnh trong 5 năm sau (đại hạn) hay nửa năm sau (tiểu hạn) mà thôi. Gặp Tang: có tang chế, hoặc gặp chuyện buồn thấm thía vì tang khó hoặc vì tình phụ.","source_quote":"Chỉ đắc lợi nếu đắc địa, nhưng chỉ thịnh trong 5 năm sau (nếu là đại hạn) hay nửa năm sau (nếu là tiểu hạn) mà thôi. Gặp Tang: Có tang chế, hoặc gặp phải chuyện buồn thắm thía vì tang khó hoặc vì tình phụ.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","star:tang_mon","palace:thien_di","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Đắc địa cũng chỉ thịnh nửa sau của hạn.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q73","question":"Khốc Hư nói chung ảnh hưởng các cung như thế nào?","answer_atom":"Bại tinh Khốc Hư ở đâu đều làm xấu cung đó, trừ phi đắc địa.","source_quote":"Bại tinh Khốc Hư ở đâu đều làm xấu cung đó, trừ phi đắc địa.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_khoc","star:thien_hu","concept:bai_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Nguyên tắc chung: Khốc Hư làm xấu mọi cung trừ khi đắc địa.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q74","question":"Thiên Hỷ có những ý nghĩa cơ bản nào?","answer_atom":"Thiên Hỷ là cát tinh: vui vẻ, vui tính, thích cảnh vui chuyện vui, biết thưởng thức hài hước, có óc hài hước; đem lại may mắn đáng mừng. Hai điểm này Thiên Hỷ và Hỷ Thần giống nhau — nếu hội tụ, người ấy vui tính dễ cười, pha trò, tạo hỷ khí. Đây là bộ sao của người viết hay đóng hài kịch (như Moliere, Phi Thoàn, Bob Hope) nếu có thêm Tấu, Vũ, Đào, Hồng. Còn lợi ích cho việc cưới hỏi và sinh nở.","source_quote":"Vui vẻ, vui tính, thích cảnh vui, chuyện vui, biết thưởng thức hài hước, có óc hài hước. Đem lại những sự may mắn đáng mừng (chance)... Đây là bộ sao của người viết hài kịch, hay người đóng hài kịch (như Moliere, Phi Thoàn, Bob Hope) nếu có thêm các sao Tấu, Vũ, Đào, Hồng.","source_page":208,"section_id":"tvhs.S8","tags":["star:thien_hy","star:hy_than","star:tau_thu","concept:tinh_tinh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Cát tinh của niềm vui, hỷ sự, khiếu hài hước.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q75","question":"Hỷ Riêu ở Mệnh có ý nghĩa gì?","answer_atom":"Hỷ Riêu ở Mệnh: người hay gây ra tai họa quái dị.","source_quote":"Hỷ Riêu: Người hay gây ra tai họa quái dị.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:thien_rieu","palace:menh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Bộ này ứng tai họa kỳ quặc.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q76","question":"Hỷ Hồng ở Mệnh có ý nghĩa gì?","answer_atom":"Hỷ Hồng ở Mệnh: sớm có nhân duyên.","source_quote":"Hỷ Hồng: Sớm có nhân duyên.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:hong_loan","palace:menh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Lập gia đình sớm.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q77","question":"Hỷ Đào ở Mệnh có ý nghĩa gì?","answer_atom":"Hỷ Đào ở Mệnh: lả lơi, hoa nguyệt, ham vui trong việc ái tình. Nếu là phụ nữ thì hư thân, lang chạ.","source_quote":"Hỷ Đào: Lả lơi, hoa nguyệt, ham vui trong việc ái tình. Nếu là phụ nữ thì hư thân, lang chạ.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:dao_hoa","palace:menh"],"commentary":{"han_viet_explain":null,"viet_thuan":"Ham vui ái tình, bất lợi cho nữ.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q78","question":"Hỷ Riêu Đào gặp Phá Tướng chiếu ở cung Bào có ý nghĩa gì?","answer_atom":"Hỷ Riêu Đào gặp Phá Tướng chiếu ở Bào: chị em có người theo trai, chửa hoang.","source_quote":"Hỷ Riêu Đào Gặp Phá Tướng Chiếu: Chị em có người theo trai, chửa hoang.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:thien_rieu","star:dao_hoa","star:pha_quan","palace:huynh_de"],"commentary":{"han_viet_explain":null,"viet_thuan":"Ứng chị em hư hỏng.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q79","question":"Hỷ, Thai, Đào, Hồng ở cung Bào có ý nghĩa gì?","answer_atom":"Hỷ, Thai, Đào, Hồng ở Bào: có anh chị em ngoại dâm.","source_quote":"Hỷ, Thai, Đào, Hồng: Có người ngoại dâm.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:thai","star:dao_hoa","star:hong_loan","palace:huynh_de"],"commentary":{"han_viet_explain":null,"viet_thuan":"Anh chị em có người ngoại tình.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q80","question":"Hỷ Đào Hồng ở cung Phu Thê có ý nghĩa gì?","answer_atom":"Hỷ Đào Hồng ở Phu Thê: sánh duyên cùng người đẹp một cách dễ dàng; vợ hay chồng còn có tính lả lơi, ong bướm. Nếu thêm Riêu, Thai thì càng chắc chắn có ngoại tình.","source_quote":"Hỷ Đào Hồng: Sánh duyên cùng người đẹp một cách dễ dàng; vợ hay chồng còn có tính lả lơi, ong bướm. Nếu thêm Riêu, Thai: Càng chắc chắn có ngoại tình.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:dao_hoa","star:hong_loan","star:thien_rieu","star:thai","palace:phu_the"],"commentary":{"han_viet_explain":null,"viet_thuan":"Lấy được người đẹp nhưng phối ngẫu lả lơi.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q81","question":"Hỷ Đào Hồng ở cung Quan có ý nghĩa gì?","answer_atom":"Hỷ Đào Hồng ở Quan: làm nên lúc trẻ, nhờ phái nữ mà thăng tiến. Thêm Tấu, Vũ: làm nghề ca xướng (nghệ sĩ, ca sĩ, kịch sĩ có tiếng).","source_quote":"Hỷ Đào Hồng: Làm nên lúc true, nhờ phái nữ mà thăng tiến. Hỷ Đào Hồng, Tấu, Vũ: Làm nghề ca xướng (nghệ sĩ, ca sĩ, kịch sĩ có tiếng).","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:dao_hoa","star:hong_loan","star:tau_thu","palace:quan_loc","concept:nghe_nghiep"],"commentary":{"han_viet_explain":null,"viet_thuan":"Thăng tiến sớm nhờ nữ giới; thêm Tấu Vũ thì theo nghề trình diễn.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.85,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q82","question":"Song Hỷ ở cung Phúc có ý nghĩa gì?","answer_atom":"Song Hỷ (Thiên Hỷ + Hỷ Thần) ở Phúc: mã phát.","source_quote":"Song Hỷ: Mã phát.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:hy_than","palace:phuc_duc"],"commentary":{"han_viet_explain":null,"viet_thuan":"Phúc đức phát nhanh.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.8,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q83","question":"Hỷ Hồng Đào ở Hạn có ý nghĩa gì?","answer_atom":"Hỷ Hồng Đào ở Hạn: có tình duyên, có bồ bịch.","source_quote":"Hỷ Hồng Đào: Có tình duyên, có bồ bịch.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:hong_loan","star:dao_hoa","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hạn có tình duyên mới.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q84","question":"Hỷ Hồng Tả Hữu Long Phượng Riêu ở Hạn có ý nghĩa gì?","answer_atom":"Hỷ Hồng Tả Hữu Long Phượng Riêu ở Hạn: có hỷ sự, thành gia thất.","source_quote":"Hỷ Hồng Tả Hữu Long Phượng Riêu: Có hỷ sự, thành gia thất.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:hong_loan","star:ta_phu","star:huu_bat","star:long_tri","star:phuong_cac","star:thien_rieu","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hạn cưới hỏi, lập gia đình.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
-{"question_id":"tvhs.S8.Q85","question":"Song Hỷ, Đào Hồng Khôi Việt ở Hạn có ý nghĩa gì?","answer_atom":"Song Hỷ, Đào Hồng Khôi Việt ở Hạn: sinh đẻ quý tử.","source_quote":"Song Hỷ, Đào Hồng Khôi Việt: Sinh đẻ quý tử.","source_page":209,"section_id":"tvhs.S8","tags":["star:thien_hy","star:hy_than","star:dao_hoa","star:hong_loan","star:thien_khoi","star:thien_viet","concept:van_han"],"commentary":{"han_viet_explain":null,"viet_thuan":"Hạn sinh con quý.","nguyen_ly":null,"vi_du_doi_song":null,"iron_rule_warning":null},"confidence":0.9,"extracted_by":"sub-agent-bam-sach"},
+ "book_corpus_id": "tu-vi-ham-so",
+ "section_id": "tvhs.S8",
+ "section_title": "Phụ tinh chi tiết 1 (p202-209, cứu từ file cụt)",
+ "pages": [
+  202,
+  209
+ ],
+ "atoms": [
+  {
+   "question_id": "tvhs.S8.Q01",
+   "question": "Thai gặp Không Kiếp ở cung Tử Tức có ý nghĩa gì?",
+   "answer_atom": "Thai gặp Không Kiếp chủ trụy thai, sẩy thai, sinh con rất khó, con chết trước hay trong khi sinh, hoặc sát con.",
+   "source_quote": "Thai, Không Kiếp: Trụy thai, sẩy thai hoặc sinh con rất khó, hoặc sinh con chết trước hay trong khi lọt lòng mẹ, hoặc sát con.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "palace:tu_tuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ Thai Không Kiếp ở Tử Tức ứng việc mất con, sinh nở hiểm nguy.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q02",
+   "question": "Thai gặp Nguyệt ở cung Tử Tức có ý nghĩa gì?",
+   "answer_atom": "Thai gặp Nguyệt: có con phải cầu tự mới nuôi được.",
+   "source_quote": "Thai, Nguyệt: Có con cầu tự mới nuôi được.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:thai_am",
+    "palace:tu_tuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con cái phải cầu xin (cầu tự) mới nuôi được.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q03",
+   "question": "Thai gặp Nhật Nguyệt ở cung Tử Tức có ý nghĩa gì?",
+   "answer_atom": "Thai gặp cả Nhật và Nguyệt: có con sinh đôi.",
+   "source_quote": "Thai, Nhật, Nguyệt: Có con sinh đôi.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:thai_duong",
+    "star:thai_am",
+    "palace:tu_tuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này ứng sinh đôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q04",
+   "question": "Bộ Thai Phục Vượng Tướng ở cung Tử Tức có ý nghĩa gì?",
+   "answer_atom": "Thai Phục Vượng Tướng: có con riêng rồi mới lấy nhau, hoặc có con hoang, có con dị bào.",
+   "source_quote": "Thai Phục Vượng Tướng: Có con riêng rồi mới lấy nhau hoặc có con hoang, có con dị bào.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:phuc_binh",
+    "palace:tu_tuc"
+   ],
+   "commentary": {
+    "han_viet_explain": "Dị bào = khác mẹ.",
+    "viet_thuan": "Ứng con riêng, con ngoài hôn nhân, con khác dòng mẹ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q05",
+   "question": "Thai gặp Bào (sao) ở cung Tử Tức có ý nghĩa gì?",
+   "answer_atom": "Thai Bào: có con dâm đãng, nhất là con gái.",
+   "source_quote": "Thai Bào: Có con dâm đãng nhất là con gái.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "palace:tu_tuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con cái buông thả về tình dục, đặc biệt con gái.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.75,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q06",
+   "question": "Thai Đào ở cung Phu Thê có ý nghĩa gì?",
+   "answer_atom": "Thai Đào ở Phu Thê: vợ chồng tiền dâm hậu thú, lẳng lơ, ngoại tình, hay tối thiểu cũng rất hào hoa tiến bộ.",
+   "source_quote": "Thai Đào: Vợ chồng tiền dâm hậu thú, vợ chồng lẳng lơ, ngoại tình hay tối thiểu cũng rất hào hoa tiến bộ.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:dao_hoa",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tiền dâm hậu thú = ăn ở trước, cưới sau.",
+    "viet_thuan": "Vợ chồng quan hệ trước hôn nhân hoặc lẳng lơ ngoại tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q07",
+   "question": "Thai Phục Vượng Tướng ở cung Phu Thê có ý nghĩa gì?",
+   "answer_atom": "Thai Phục Vượng Tướng ở Phu Thê: vợ chồng có con riêng rồi mới lấy nhau, vợ hay chồng có con dị bào; cũng có nghĩa tiền dâm hậu thú.",
+   "source_quote": "Thai Phục Vượng Tướng: Vợ chồng có con riêng rồi mới lấy nhau, vợ hay chồng có con dị bào; cũng có nghĩa tiền dâm hậu thú.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:phuc_binh",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vợ chồng có con riêng trước khi cưới nhau.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q08",
+   "question": "Thai Phục Vượng Tướng ở cung Bào (Huynh Đệ) có ý nghĩa gì?",
+   "answer_atom": "Thai Phục Vượng Tướng ở Bào: có anh chị em dị bào, có anh chị em bị tai nạn trinh tiết, hư đốn.",
+   "source_quote": "Thai Phục Vượng Tướng: Có anh chị em dị bào, có anh chị em bị tai nạn trinh tiết, hư đốn.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:phuc_binh",
+    "palace:huynh_de"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Anh chị em khác mẹ hoặc hư hỏng về trinh tiết.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q09",
+   "question": "Thai Đào ở cung Bào (Huynh Đệ) có ý nghĩa gì?",
+   "answer_atom": "Thai Đào ở Bào: có anh chị em dâm dật lăng loàn.",
+   "source_quote": "Thai Đào: Có anh chị em dâm dật lăng loàn.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:dao_hoa",
+    "palace:huynh_de"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Anh chị em buông thả tình dục.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q10",
+   "question": "Thai Phục Vượng Tướng ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Thai Phục Vượng Tướng ở Hạn: thất tiết, vướng vào lưới tình đau khổ, có tư thông.",
+   "source_quote": "Thai Phục Vượng Tướng: Thất tiết, vướng vào lưới tình đau khổ, có tư thông.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:phuc_binh",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": "Tư thông = quan hệ lén lút.",
+    "viet_thuan": "Hạn này dễ thất tiết, vướng tình ngoài luồng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q11",
+   "question": "Thai Riêu Không Kiếp ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Thai Riêu Không Kiếp ở Hạn: có chửa hoang, bị hiếp dâm, bị bắt cóc.",
+   "source_quote": "Thai Riêu Không Kiếp: Có chửa hoang, bị hiếp dâm, bị bắt cóc làm đi.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:thien_rieu",
+    "star:dia_khong",
+    "star:dia_kiep",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn xấu nặng về tai nạn tình dục.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q12",
+   "question": "Thai gặp Thanh Long, Thiên Hỷ ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Thai Thanh Long Thiên Hỷ ở Hạn: có con đẹp.",
+   "source_quote": "Thai Thanh Long, Thiên Hỷ: Có con đẹp.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:thanh_long",
+    "star:thien_hy",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn sinh được con xinh đẹp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q13",
+   "question": "Thai gặp Mộc, Long Phượng ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Thai, Mộc (Dục), Long Phượng ở Hạn: sinh con.",
+   "source_quote": "Thai, Mộc, Long Phượng: Sinh con.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "star:moc_duc",
+    "star:long_tri",
+    "star:phuong_cac",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn có tin sinh nở.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q14",
+   "question": "Tổng kết ý nghĩa sao Thai theo Tử Vi Hàm Số?",
+   "answer_atom": "Thai là sao rất quan trọng về ái tình, biểu hiện mối tình xác thịt, cuộc sống sinh lý bừa bãi, đời sống ngoại hôn của con người, bất luận nam hay nữ.",
+   "source_quote": "Tóm lại, Thai là sao rất quan trọng về ái tình, biểu hiện cho mối tình xác thịt, cho cuộc sống sinh lý bừa bãi, cho đời sống ngoại hôn của con người bất luận nam hay nữ.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai",
+    "concept:ai_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thai chủ về tình dục xác thịt và quan hệ ngoài hôn nhân.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q15",
+   "question": "Thái Tuế có những ý nghĩa tính tình xấu nào?",
+   "answer_atom": "Thái Tuế xấu: nhiều chuyện, lắm mồm lắm điều, bép xép, đa ngôn, ngồi lê đôi mách; hay kích bác chỉ trích, cãi vã, kiện thưa; lạnh nhạt khinh người, ít giao thiệp nên ít bạn, ít cảm tình.",
+   "source_quote": "Nhiều chuyện, lắm mồm, lắm điều, bép xép, đa ngôn, hay ngồi lê đôi mách. Hay kích bác, chỉ trích kẻ khác, cãi vã, hay kiện thưa. Lạnh nhạt, khinh người, ít giao thiệp, cho nên ít bạn, ít cảm tình.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "concept:tinh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Tuế xấu chủ miệng lưỡi thị phi, hay chỉ trích, ít cảm tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q16",
+   "question": "Thái Tuế có những ý nghĩa tính tình tốt nào?",
+   "answer_atom": "Thái Tuế tốt: miệng lưỡi giỏi tranh biện, lý luận — sao của luật sư, giáo sư, chính khách, có tư chất đấu lý, bênh vực, chỉ trích; nói năng lưu loát hoạt bát, giống sao Lưu Hà chỉ sự trôi chảy ngôn ngữ.",
+   "source_quote": "Miệng lưỡi giỏi tranh biện, lý luận. Đây là sao của luật sư, giáo sư, chính khách, có tư chất đấu lý, đốn nại, bệnh vực, chỉ trích. Nói năng lưu loát, hoạt bát. Ý nghĩa này giống như sao Lưu Hà, chỉ sự trôi chảy ngôn ngữ.",
+   "source_page": 202,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:luu_ha",
+    "concept:tinh_tinh",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Tuế tốt cho nghề dùng ngôn ngữ: luật sư, giáo sư, chính khách.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q17",
+   "question": "Thái Tuế có ý nghĩa gì về tai họa?",
+   "answer_atom": "Thái Tuế chủ hay bị nói xấu, chỉ trích, công kích, cãi vã, bút chiến; hay bị kiện cáo.",
+   "source_quote": "Hay bị nói xấu, chỉ trích, công kích, cãi vã, bút chiến. Hay bị kiện cáo.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "concept:tai_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tai họa Thái Tuế đều từ lời nói: thị phi, kiện tụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q18",
+   "question": "Vì sao Thái Tuế luôn liên quan đến kiện thưa, báo oán?",
+   "answer_atom": "Thái Tuế bao giờ cũng hội chiếu với Quan Phù, chỉ sự báo oán vì mích lòng, kiện thưa vì lời nói chạm tự ái — hậu quả của tính nhiều chuyện, chỉ trích, nói xấu, gieo thù oán.",
+   "source_quote": "Thái Tuế bao giờ cũng hội chiếu với Quan Phù, chỉ sự báo oán vì mích lòng, kiện thưa vì lời nói chạm tự ái. Đây là hậu quả của tính nhiều chuyện, tính chỉ trích, nói xấu, gieo thù oán.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:quan_phu",
+    "concept:kien_tung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cấu trúc an sao khiến Thái Tuế luôn hội chiếu Quan Phù nên gắn với kiện tụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q19",
+   "question": "Thái Tuế có lợi ích gì về công danh?",
+   "answer_atom": "Thái Tuế có lợi về công danh cho những nghề cần dùng khoa ngôn ngữ như trạng sư, giáo sư, chính trị gia.",
+   "source_quote": "Lợi ích: Có lợi về công danh cho những nghề nghiệp cần dùng đến khoa ngôn ngữ như trạng sư, giáo sư, chính trị gia.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "concept:cong_danh",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lợi cho nghề nói: luật sư, giáo sư, chính trị.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q20",
+   "question": "Thái Tuế gặp Hoa Cái hoặc Hóa Kỵ có ý nghĩa gì?",
+   "answer_atom": "Tuế - Cái hoặc Tuế - Kỵ: ăn nói kiêu kỳ, dễ mất cảm tình.",
+   "source_quote": "Tuế - Cái / Tuế - Kỷ: Ăn nói kiêu kỳ, dễ mất cảm tình.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:hoa_cai",
+    "star:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lời nói kiêu căng gây mất lòng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": "OCR ghi Kỷ, theo ngữ cảnh là Kỵ (Hóa Kỵ)."
+   },
+   "confidence": 0.75,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q21",
+   "question": "Thái Tuế gặp Đào Hồng có ý nghĩa gì?",
+   "answer_atom": "Tuế - Đào Hồng: bị phụ tình, cô độc, thất tình.",
+   "source_quote": "Tuế - Đào Hồng: Bị phụ tình, cô độc, thất tình.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:dao_hoa",
+    "star:hong_loan"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này ứng chuyện tình duyên bị phụ bạc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q22",
+   "question": "Thái Tuế gặp Thiên Hình có ý nghĩa gì?",
+   "answer_atom": "Tuế - Hình: dễ gặp tai bay vạ gió, có thể bị kiện tụng.",
+   "source_quote": "Tuế - Hình: Dễ gặp tai bay vạ gió, có thể bị kiện tụng.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:thien_hinh",
+    "concept:kien_tung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Dễ vướng họa bất ngờ, kiện cáo.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q23",
+   "question": "Thái Tuế gặp Đà Kỵ có ý nghĩa gì?",
+   "answer_atom": "Tuế - Đà Kỵ: người quê kệch, ngu độn, gây ngăn trở công việc, hại đến quyền thế, tài lộc.",
+   "source_quote": "Tuế - Đà Kỷ: Người quê kệch, ngu độn, gây ngăn trở công việc, hại đến quyền thế, tài lộc.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:da_la",
+    "star:hoa_ky"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này làm trì trệ công việc, hại quyền lộc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q24",
+   "question": "Thái Tuế gặp Xương Khúc Khôi Việt có ý nghĩa gì?",
+   "answer_atom": "Tuế - Xương Khúc Khôi Việt: 5 sao kết thành bộ văn tinh rất đẹp cho việc học hành, thi cử, làm quan.",
+   "source_quote": "Tuế - Xương Khúc Khôi Việt: 5 sao này kết thành bộ văn tinh rất đẹp cho việc học hành, thi cử làm quan.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:van_xuong",
+    "star:van_khuc",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "concept:khoa_giap"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ văn tinh 5 sao đẹp cho học hành thi cử.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q25",
+   "question": "Thái Tuế gặp sát tinh có ý nghĩa gì?",
+   "answer_atom": "Tuế gặp Sát tinh: tổn thọ, tổn danh, tổn tài, hay bị kiện cáo, báo thù, tai nạn.",
+   "source_quote": "Tuế - Sát Tràng: Tổn thọ, tổn danh, tổn tài, hay bị kiện cáo, báo thù, tai nạn.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "concept:sat_tinh",
+    "concept:tai_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Tuế gặp sát tinh thì hao tổn thọ, danh, tài.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": "OCR ghi Sát Tràng, có thể là sát tinh."
+   },
+   "confidence": 0.7,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q26",
+   "question": "Tổng kết ý nghĩa sao Thái Tuế?",
+   "answer_atom": "Thái Tuế là sao chủ về lời nói và những hậu quả tốt xấu do ngôn ngữ mà có.",
+   "source_quote": "Tóm lại, Thái Tuế là sao chủ về lời nói và những hậu quả tốt xấu do ngôn ngữ mà có.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "concept:ngon_ngu"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thái Tuế quy về một chữ: lời nói.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q27",
+   "question": "Thái Tuế ở cung Quan Lộc có ý nghĩa gì?",
+   "answer_atom": "Thái Tuế ở Quan Lộc: thường làm nghề luật sư, giáo sư, trưởng tòa; làm chính trị thiên về đối lập; hay chỉ trích và bị chỉ trích trong nghề; có thể bị điều tra nếu có Hình hội chiếu.",
+   "source_quote": "Thường làm nghề luật sư, giáo sư, trưởng tòa. Khi làm chính trị, thiên về đối lập. Hay chỉ trích và bị chỉ trích trong nghề nghiệp. Có thể bị điều tra nếu có Hình hội chiếu.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "star:thien_hinh",
+    "palace:quan_loc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nghề nghiệp gắn với ngôn luận, dễ va chạm chỉ trích.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q28",
+   "question": "Thái Tuế ở cung Thiên Di có ý nghĩa gì?",
+   "answer_atom": "Thái Tuế ở Thiên Di: hay bị miệng tiếng khẩu thiệt trong giao thiệp; hay bị kiện cáo, cãi vã với người ngoài.",
+   "source_quote": "Hay bị miệng tiếng khẩu thiệt trong việc giao thiệp. Hay bị kiện cáo, cãi vã với người ngoài.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "palace:thien_di"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ra ngoài dễ vướng thị phi, kiện cáo.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q29",
+   "question": "Thái Tuế ở cung Phu Thê có ý nghĩa gì?",
+   "answer_atom": "Thái Tuế ở Phu Thê: vợ chồng bất hòa, hay cãi vã, lắm lời; có thể ly dị, ly hôn nếu gặp sao xấu, trừ phi vợ hay chồng hành nghề luật sư, thẩm phán.",
+   "source_quote": "Vợ chồng bất hòa, hay cãi vã, lắm lời. Có thể ly dị, ly hôn, nếu gặp sao xấu, trừ phi vợ hay chỗng hành nghề luật sư, thẩm phán.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Vợ chồng khắc khẩu; nghề luật của người phối ngẫu hóa giải.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q30",
+   "question": "Thái Tuế ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Thái Tuế ở Hạn: có cãi vã, đôi chối trong năm đó; có đi dạy học; bị thất tình, cô độc.",
+   "source_quote": "Có cãi vã, đôi chối trong năm đó; có đi dạy học. Bị thất tình, cô độc.",
+   "source_page": 203,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thai_tue",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Năm hạn có khẩu thiệt hoặc việc dạy học.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q31",
+   "question": "Thanh Long có ý nghĩa gì về tướng mạo và đắc địa ở đâu?",
+   "answer_atom": "Thanh Long không chỉ bộ phận cơ thể nào, nhưng về tướng mạo thì gương mặt tuấn tú, phương phi, cốt cách sang trọng. Hạn gặp Thanh Long thì sắc diện phát khí chất, nhất là khi đắc địa ở Thìn Tuất Sửu Mùi và hai cung Thủy Hợi, Tý.",
+   "source_quote": "về tướng mạo thì gương mặt tuấn tú, phương phi, cốt cách sang trọng. Đến hạn gặp Thanh Long thì sắc diện phát hiện khí chất, nhất là khi Thanh Long đắc địa ở Thìn, Tuất, Sửu, Mùi, và ở hai cung Thủy và Hợi, Tý.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "concept:tuong_mao",
+    "concept:dac_dia"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thanh Long cho tướng mạo tuấn tú; đắc địa tứ Mộ và Hợi Tý.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q32",
+   "question": "Thanh Long có những ý nghĩa tính tình nào?",
+   "answer_atom": "Thanh Long: vui vẻ hòa nhã; lợi cho cầu danh thi cử; may mắn về hôn nhân; may mắn về sinh nở; giải trừ được bệnh tật, tai họa nhỏ. Với những nghĩa đó, Thanh Long đồng nghĩa với Long Phượng.",
+   "source_quote": "Vui vẻ, hòa nhã. Lợi ích cho việc cầu danh, thi cử. May mắn về hôn nhân. May mắn về sinh nở. Giải trừ được bệnh tật, tai họa nhỏ. Với những ý nghĩa đó, Thanh Long đồng nghĩa với Long Phượng.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:long_tri",
+    "star:phuong_cac",
+    "concept:tinh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cát tinh nhỏ đem may mắn thi cử, hôn nhân, sinh nở.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q33",
+   "question": "Thanh Long gặp Hóa Kỵ ở Tứ Mộ có ý nghĩa gì?",
+   "answer_atom": "Thanh Long, Kỵ ở Tứ Mộ: ví như rồng xanh ẩn trong mây ngũ sắc — rồng gặp may, người gặp thời rực rỡ, có lợi cho phú quý, hôn nhân, sinh nở, thi cử.",
+   "source_quote": "Thanh Long, Kỷ ở Tứ Mộ: Thanh Long được ví như rồng xanh ẩn trong mây ngũ sắc, nghĩa là rồng gặp may, người gặp thời rực rỡ, có lợi cho phú quý, hôn nhân, sinh nở, thi cử.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:hoa_ky",
+    "concept:tu_mo"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Trường hợp hiếm Hóa Kỵ thành tốt khi đi với Thanh Long ở Thìn Tuất Sửu Mùi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q34",
+   "question": "Thanh Long gặp Lưu Hà có ý nghĩa gì?",
+   "answer_atom": "Thanh Long, Lưu Hà: đồng nghĩa với cách Long Kỵ — rồng xanh vùng vẫy trên sông lớn, gặp thời rực rỡ.",
+   "source_quote": "Thanh Long, Lưu Hà: Đồng nghĩa như trên (rồng xanh vùng vẫy trên sông lớn).",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:luu_ha"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Long Hà cũng là cách rồng gặp nước, gặp thời.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q35",
+   "question": "Cách Long Hổ Cái là gì?",
+   "answer_atom": "Thanh Long, Bạch Hổ, Hoa Cái hội lại gọi là cách Long Hổ Cái, rực rỡ về quan tài (quan trường, tài lộc).",
+   "source_quote": "Thanh Long, Bạch Hổ, Hoa Cái: Cách này gọi là Long Hổ Cái, cũng rực rỡ về quan tài.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:bach_ho",
+    "star:hoa_cai",
+    "concept:cach_cuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ ba Long Hổ Cái tốt cho công danh tài lộc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q36",
+   "question": "Cách Tứ Linh trong Tử Vi Hàm Số gồm những sao nào?",
+   "answer_atom": "Thanh Long, Bạch Hổ, Hoa Cái, Phượng Các hội lại gọi là cách Tứ Linh, rực rỡ về công danh tài lộc.",
+   "source_quote": "Thanh Long, Bạch Hổ, Hoa Cái, Phượng Các: Cách này gọi là Tứ Linh, cũng rực rỡ về công danh tài lộc.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:bach_ho",
+    "star:hoa_cai",
+    "star:phuong_cac",
+    "concept:cach_cuc",
+    "concept:tu_linh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tứ Linh = Long, Hổ, Cái, Phượng — đại cát cho công danh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q37",
+   "question": "Thanh Long gặp Quan Đới có ý nghĩa gì?",
+   "answer_atom": "Thanh Long, Quan Đới: người gặp thời, đắc dụng.",
+   "source_quote": "Thanh Long, Quan Đới: Người gặp thời, đắc dụng.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:quan_doi"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Gặp thời, được trọng dụng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q38",
+   "question": "Thanh Long gặp sát tinh có ý nghĩa gì?",
+   "answer_atom": "Thanh Long gặp Sát Tinh: mất hết uy lực, trở thành yểu và hèn nhát.",
+   "source_quote": "Thanh Long, Sát Tỉnh: Mất hết uy lực, trở thành yểu và hèn nhát.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "concept:sat_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sát tinh phá hỏng Thanh Long.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q39",
+   "question": "Thanh Long ở các cung nào thì đẹp nhất?",
+   "answer_atom": "Thanh Long rất đẹp ở hai cung Thủy Hợi, Tý hoặc ở cung Thìn (Long cư Long vị), rực rỡ như cách Long Kỵ, Long Hà. Các cách tốt nếu ở Mệnh, Thân, Quan, Di, Tài hay Hạn đều đắc dụng đắc lợi.",
+   "source_quote": "Thanh Long rất đẹp nếu ở hai cung Thủy và Hợi, Tý hoặc ở cung Thìn (Long cư Long vị) cũng rực rỡ như trường hợp Long Kỷ, Long Hà. Ngoài ra, các cách tốt kể trên, nếu có tại cung Mệnh, Thân, Quan, Di, Tài, hay Hạn, đều đắc dụng, đắc lợi cho đương số.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "palace:menh",
+    "palace:quan_loc",
+    "concept:dac_dia"
+   ],
+   "commentary": {
+    "han_viet_explain": "Long cư Long vị = rồng ở đúng chỗ rồng (cung Thìn).",
+    "viet_thuan": "Đẹp nhất ở Hợi Tý (nước) và Thìn (vị rồng).",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q40",
+   "question": "Mệnh hay Quan giáp Long giáp Mã có ý nghĩa gì?",
+   "answer_atom": "Nếu Mệnh hay Quan giáp Thanh Long, giáp Thiên Mã thì hiển đạt về công danh, chức vị.",
+   "source_quote": "nếu Mệnh hay Quan giáp Long, giáp Mã thì cũng hiển đạt về công danh, chức vị.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long",
+    "star:thien_ma",
+    "palace:menh",
+    "palace:quan_loc",
+    "concept:giap_cung"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hai cung kề Mệnh/Quan có Long, Mã cũng quý hiển.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q41",
+   "question": "Tổng kết ý nghĩa sao Thanh Long?",
+   "answer_atom": "Tuy là sao nhỏ nhưng Thanh Long vốn bản chất rồng xanh nên uy dũng, cao thượng, đem may mắn về thi cử, công danh, hôn nhân, sinh nở; kết hợp với cát tinh và cung thuận vị thì càng phát đạt rực rỡ cho cả nam nữ, miễn là đừng gặp sát tinh.",
+   "source_quote": "Tuy là sao nhỏ nhưng Thanh Long, vốn là bản chất rồng xanh nên rất uy dũng, cao thượng, đem lại sự may mắn về nhiều phương diện thi cử, công danh, hôn nhân, sinh nở. Kết hợp phong phú với nhiều cát tinh và ở một số cung thuận vị, Thanh Long càng phát đạt rực rỡ cho phái nam cũng như phái nữ miễn là đừng gặp sát tính.",
+   "source_page": 204,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thanh_long"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Sao nhỏ nhưng cát khí mạnh, kỵ sát tinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q42",
+   "question": "Thiếu Dương, Thiếu Âm đắc địa ở những vị trí nào?",
+   "answer_atom": "Thiếu Dương, Thiếu Âm đắc địa theo các vị trí đắc địa của Nhật, Nguyệt: từ Dần đến Ngọ cho Thiếu Dương, từ Thân đến Tý cho Thiếu Âm. Chỉ khi đắc địa hai sao này mới có ý nghĩa, nếu hãm thì vô dụng.",
+   "source_quote": "Từ Dần đến Ngọ cho Thiếu Dương. Từ Thân đến Tý cho Thiếu Âm. Chỉ khi nào đắc địa, hai sao này mới có ý nghĩa. Nếu hãm thì vô dụng.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thieu_duong",
+    "star:thieu_am",
+    "concept:dac_dia"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đắc địa theo vòng sáng của mặt trời, mặt trăng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q43",
+   "question": "Thiếu Dương đồng cung với Nhật, Thiếu Âm đồng cung với Nguyệt có ý nghĩa gì?",
+   "answer_atom": "Thiếu Dương đắc địa đồng cung với Nhật, Thiếu Âm đắc địa đồng cung với Nguyệt thì ý nghĩa càng rực rỡ, ví như mặt trời mặt trăng có đôi cùng tỏa sáng. Nếu chỉ hội chiếu với Nhật Nguyệt thì cũng sáng lạn nhưng không bằng đồng cung đắc địa.",
+   "source_quote": "Đặc biệt Thiếu Dương đắc địa và đồng cung với Nhật, Thiếu Âm đắc địa và đồng cung với Nguyệt, ý nghĩa càng rực rỡ hơn, ví như mặt trời, mặt trăng đều có đôi, cùng tỏa sáng song song.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thieu_duong",
+    "star:thieu_am",
+    "star:thai_duong",
+    "star:thai_am"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đồng cung với Nhật Nguyệt sáng là đẹp nhất.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q44",
+   "question": "Thiếu Dương, Thiếu Âm đắc địa có những ý nghĩa gì?",
+   "answer_atom": "Cả hai đều là cát tinh, đắc địa thì: thông minh; vui vẻ, hòa nhã, nhu hòa; nhân hậu, từ thiện — nghĩa nhân hậu tương tự Long Đức, Phúc Đức, Thiên Đức, Nguyệt Đức. Còn giải trừ được bệnh tật, tai họa nhỏ, tương đương giá trị cứu giải của tứ đức.",
+   "source_quote": "Thông minh. Vui vẻ, hòa nhã, nhu hòa. Nhân hậu, từ thiện. Ý nghĩa nhân hậu này tương tự như ý nghĩa của các sao Long Đức, Phúc Đức, Thiên Đức, Nguyệt Đức.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thieu_duong",
+    "star:thieu_am",
+    "concept:tinh_tinh",
+    "concept:tu_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cát tinh nhân hậu, có sức cứu giải nhỏ như tứ đức.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q45",
+   "question": "Thiếu Dương, Thiếu Âm hội với Hóa Khoa có ý nghĩa gì?",
+   "answer_atom": "Khi hội họp với Hóa Khoa (đồng cung hoặc xung chiếu), Thiếu Âm Thiếu Dương kết thành bộ sao gia tăng phúc thọ, cứu khốn phò nguy, giải trừ nhiều bệnh tật tai họa.",
+   "source_quote": "khi hội họp với Hóa Khoa, hoặc đồng cung, hoặc xung chiếu, Thiếu Âm và Thiếu Dương kết hợp thành bộ sao gia tăng phúc thọ, cứu khốn phò nguy, giải trừ nhiều bệnh tật tai họa.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thieu_duong",
+    "star:thieu_am",
+    "star:hoa_khoa",
+    "concept:cuu_giai"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đi với Hóa Khoa thành bộ cứu giải mạnh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q46",
+   "question": "Thiếu Dương, Thiếu Âm gặp sao tốt hay sao xấu thì sao?",
+   "answer_atom": "Thiếu Dương, Thiếu Âm gặp sao tốt thì làm tốt thêm, gặp sao xấu thì vô dụng.",
+   "source_quote": "Thiếu Dương, Thiếu Âm gặp sao tốt thì làm tốt thêm, gặp sao xấu thì vô dụng.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thieu_duong",
+    "star:thieu_am"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Chỉ phụ họa cát tinh, không chống nổi hung tinh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q47",
+   "question": "Thiên Hình có ý nghĩa gì về cơ thể?",
+   "answer_atom": "Thiên Hình là vết thẹo. Đi với sao cơ thể nào thì nơi đó có thể bị thẹo hay có may cắt.",
+   "source_quote": "Thiên Hình là vết thẹo. Đi với sao cơ thể nào thì nơi đó có thể bị thẹo hay có may cắt.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "concept:co_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thiên Hình ứng vết thẹo, vết mổ trên cơ thể.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q48",
+   "question": "Thiên Hình có ý nghĩa gì về bệnh lý?",
+   "answer_atom": "Thiên Hình cũng như Kiếp Sát ví như con dao mổ. Hình chủ sự mổ xẻ, châm cứu; bệnh tật có Thiên Hình là liên quan đến việc mổ xẻ.",
+   "source_quote": "Thiên Hình cũng như Kiếp Sát ví như con dao mổ (bistouri). Vì vậy, hình chủ sự mổ xẻ, châm cứu.",
+   "source_page": 205,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "star:kiep_sat",
+    "concept:benh_ly"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hình tượng con dao mổ: bệnh phải mổ xẻ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q49",
+   "question": "Thiên Hình gặp Nhật Nguyệt có ý nghĩa bệnh lý gì?",
+   "answer_atom": "Hình, Nhật, Nguyệt: đau mắt, có thể hay chà xát đau đớn.",
+   "source_quote": "Hình, Nhật, Nguyệt: Đau mắt có thể hay chà xát đau đớn.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "star:thai_duong",
+    "star:thai_am",
+    "concept:benh_ly"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này ứng bệnh đau mắt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q50",
+   "question": "Thiên Hình gặp Kiếp, Hỷ Thần có ý nghĩa bệnh lý gì?",
+   "answer_atom": "Hình Kiếp, Hỷ Thần: bệnh trĩ, bị cắt.",
+   "source_quote": "Hình Kiếp, Hỷ Thần: Bệnh trĩ, bị cắt.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "star:dia_kiep",
+    "star:hy_than",
+    "concept:benh_ly"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ứng bệnh trĩ phải mổ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q51",
+   "question": "Thiên Hình có ý nghĩa gì về tính tình?",
+   "answer_atom": "Thiên Hình: ngay thẳng, nóng nảy trực tính, bất nhẫn trước sự bất công; có năng khiếu phán xét tinh vi, phân xử tỉ mỉ, công bằng — thẩm phán có Thiên Hình có thể là một Bao Công đoan chính. Đàn bà có Thiên Hình là người ngay thẳng, không lẳng lơ dù có Đào Riêu; Thiên Hình chế được tính hoa nguyệt dâm đãng của Đào, Hồng.",
+   "source_quote": "Ngay thẳng, nóng nảy trực tính, bất nhẫn trước sự bất công hay bất bình lộ diện. Năng khiếu phán xét tinh vi, phân xử tỉ mỉ, công bằng. Thẩm phán có Thiên Hình có thể là một Bao Công đoan chính. Đàn bà có Thiên Hình là người ngay thẳng, không lẳng lơ, dù có Đào Riêu.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "star:dao_hoa",
+    "star:hong_loan",
+    "concept:tinh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hình chủ ngay thẳng công minh, chế được tính đào hoa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q52",
+   "question": "Thiên Hình có ý nghĩa gì về công danh, nghề nghiệp?",
+   "answer_atom": "Thiên Hình trước hết là sao võ cách, chủ quân sự binh quyền, sát phạt; được ví như thanh kiếm, tượng trưng cho uy quyền, khả năng chế tài. Đắc địa thì chỉ tài giỏi, thao lược, hiển đạt về võ nghiệp.",
+   "source_quote": "Thiên Hình trước hết là một sao võ cách, chủ về quân sự binh quyền, sát phạt. Thiên Hình được ví như thanh kiếm, tượng trưng cho uy quyền, cho khả năng chế tài.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "concept:vo_cach",
+    "concept:cong_danh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hình tượng thanh kiếm: uy quyền võ nghiệp.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q53",
+   "question": "Bộ sao Binh Hình Tướng Ấn có ý nghĩa gì?",
+   "answer_atom": "Bộ Binh Thiên Hình Tướng Ấn rất uy dũng, chủ mọi sự liên quan đến quyền lực, sát phạt, chỉ huy, lãnh đạo quân sự.",
+   "source_quote": "Đó là trường hợp của bộ sao Binh Thiên Hình Tướng Ấn, rất uy dũng, chủ sự mọi liên quan đến quyền lực, sát phạt, chỉ huy, lãnh đạo quân sự.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "star:phuc_binh",
+    "star:tuong_quan",
+    "star:quoc_an",
+    "concept:cach_cuc",
+    "concept:vo_cach"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Binh Hình Tướng Ấn = bộ võ cách lãnh đạo quân sự.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q54",
+   "question": "Thiên Hình đi với bộ sao y sĩ có ý nghĩa gì?",
+   "answer_atom": "Nếu làm thẩm phán thì có Thiên Hình có thể là thẩm phán quân đội ở Tòa Án Mặt Trận hay Tòa Án Binh. Nếu Thiên Hình đi với bộ sao y sĩ (Tướng Y, Cơ Nguyệt Đồng Lương...) thì là bác sĩ giải phẫu hay châm cứu.",
+   "source_quote": "nếu Thiên Hình đi với bộ sao y sĩ (Tướng Y, Cơ Nguyệt, Đồng Lương...) thì là bác sĩ giải phẫu hay châm cứu.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "concept:nghe_nghiep",
+    "concept:y_si"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hình + bộ y sĩ = bác sĩ mổ, châm cứu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q55",
+   "question": "Thiên Hình đắc địa ở những vị trí nào?",
+   "answer_atom": "Thiên Hình đắc địa ở Dần, Thân, Mão, Dậu thì rất anh hùng trong nghiệp võ, có công trạng lớn, nổi danh trong nghiệp võ hay trong cách thẩm phán, y sĩ — nhất là Thiên Hình ở Dần.",
+   "source_quote": "Nếu ở vị trí đắc địa (Dần, Thân, Mão, Dậu) thì rất anh hùng trong nghiệp võ, có công trạng lớn, nổi danh trong nghiệp võ hay trong cách thẩm phán, y sĩ, nhất là Thiên Hình ở Dần.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "concept:dac_dia"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đắc địa Dần Thân Mão Dậu, đẹp nhất ở Dần.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q56",
+   "question": "Thiên Hình có ý nghĩa gì về phúc thọ, tai họa?",
+   "answer_atom": "Thiên Hình liên quan đến tù tội, nhất là khi gặp sát tinh, tượng trưng cho hình phạt phải gánh chịu; có thể nặng hơn như đâm chém gươm đao, chết vì súng đạn (bộ Thiên Tướng hay Tướng Quân với Thiên Hình, Thiên Mã với Thiên Hình). Thiên Hình gặp Tuần Triệt ví như thanh kiếm gãy, chủ tai họa hiểm nghèo; Thiên Hình hãm địa cũng vậy. Hạn gặp các sao này họa hung xảy ra rất mau vì Thiên Hình tác họa mau như sao Hỏa.",
+   "source_quote": "Thiên Hình cũng liên quan đến tù tội, nhất là khi gặp sát tinh, tượng trưng cho hình phạt (châtiment) phải gánh chịu... hoặc Thiên Hình gặp Tuần Triệt (ví như thanh kiếm gãy, chủ tai họa hiểm nghèo) hoặc nếu Thiên Hình hãm địa.",
+   "source_page": 206,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hinh",
+    "star:thien_ma",
+    "star:tuong_quan",
+    "concept:tuan_triet",
+    "concept:tai_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hình hãm hoặc gặp Tuần Triệt là kiếm gãy, họa đến nhanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q57",
+   "question": "Khốc Hư gặp Phá Toái có ý nghĩa bệnh lý gì?",
+   "answer_atom": "Phá Toái, Khốc Hư: đau cổ họng (thịt dư, bể tiếng...).",
+   "source_quote": "Phá Toái, Khốc Hư: đau cổ họng (thịt dư, bể tiếng...)",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "star:pha_toai",
+    "concept:benh_ly"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này ứng bệnh cổ họng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q58",
+   "question": "Khốc Hư gặp Tuế Phá có ý nghĩa bệnh lý gì?",
+   "answer_atom": "Tuế Phá, Khốc Hư: hay đau răng, hư răng.",
+   "source_quote": "Tuế Phá, Khốc Hư: hay đau răng, hư răng",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "star:tue_pha",
+    "concept:benh_ly"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ứng bệnh răng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q59",
+   "question": "Khốc Hư có ý nghĩa gì về tướng mạo?",
+   "answer_atom": "Khốc Hư là sao u tư, âu sầu, thủ Mệnh thì da xanh, mắt có quầng đen, diện mạo buồn tẻ, mặt thiếu sắc khí, mắt kém thần, hay trông xuống, không trông xa.",
+   "source_quote": "Khốc Hư là sao tru tư, âu sầu, cho nên thủ mệnh thì da xanh, mắt có quầng đen, diện mạo buồn tẻ, mặt thiếu sắc khí, mắt kém thần, hay trông xuống, không trông xa.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "palace:menh",
+    "concept:tuong_mao"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tướng mạo u buồn, thiếu thần sắc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q60",
+   "question": "Khốc Hư có ý nghĩa gì về tính tình?",
+   "answer_atom": "Là bại tinh và sao âu sầu, Khốc Hư có nghĩa: u buồn, ủy mị, hay phiền muộn, đa sầu; bi quan yếm thế; hay lãng trí, nghĩ đây quên đó; hay hốt hoảng, hoang mang; ăn nói sai ngoa. Khốc Hư tượng trưng cho nước mắt, lo buồn, xui xẻo.",
+   "source_quote": "U buồn, ủy mị, hay phiền muộn luôn, đa sầu. Bi quan, yếm thế (pessimiste). Hay lãng trí, nghĩ đây quên đó (distraIt). Hay hốt hoảng, hoang mang (anxieux). Ăn nói sai ngoa.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "concept:tinh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bại tinh chủ buồn lo, nước mắt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q61",
+   "question": "Khốc Hư ở Tý Ngọ có ý nghĩa gì?",
+   "answer_atom": "Riêng ở hai vị trí Tý và Ngọ, Khốc Hư có nghĩa tốt: có chí lớn; có văn tài lỗi lạc, nhất là tài hùng biện, nói năng đanh thép hùng hồn; có khiếu hoạt động chính trị. Đi kèm cát tinh thì càng rõ rệt.",
+   "source_quote": "Chỉ riêng ở hai vị trí Tý và Ngọ thì có nghĩa tốt: Có chí lớn. Có văn tài lỗi lạc, nhất là tài hùng biện, nói năng đanh thép, hùng hồn. Có khiếu hoạt động chính trị.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "concept:dac_dia"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Khốc Hư đắc địa Tý Ngọ thành tài hùng biện, chí lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q62",
+   "question": "Khốc Hư hãm địa có ý nghĩa gì về phúc thọ, tai họa?",
+   "answer_atom": "Ở hãm địa, Khốc Hư chủ sự khốn khổ, đau buồn trong tâm hồn, sự xui xẻo dưới nhiều hình thức và sự yểu. Ở Thìn Tuất thì hay mắc cạn và vắn số.",
+   "source_quote": "Ở hãm địa, Khốc Hư chủ sự khốn khổ, đau buồn trong tâm hồn, sự xui xẻo dưới nhiều hình thức và sự yểu. Ở tại Thìn Tuất thì hay mắc cạn và vắn số.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "concept:ham_dia",
+    "concept:tai_hoa"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hãm thì khổ buồn, yểu; Thìn Tuất xấu.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q63",
+   "question": "Khốc Hư đi cùng Kiếp, Phù, Khách, Cự, Nhật có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư đi cùng Kiếp, Phù, Khách, Cự, Nhật thì suốt đời bi ai, lúc nào cũng đau buồn, than khóc, tiếc thương vì bệnh tật, vì tang tóc.",
+   "source_quote": "Đi cùng với kiếp, phù, khách, cự, nhật thì suốt đời bi ai, lúc nào cũng đau buồn, than khóc, tiếc thương vì bệnh tật, vì tang tóc.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "star:dia_kiep",
+    "star:dieu_khach",
+    "star:cu_mon",
+    "star:thai_duong"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này chủ đời bi ai tang tóc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q64",
+   "question": "Bộ Khốc Hình Mã có ý nghĩa gì?",
+   "answer_atom": "Khốc Hình Mã: rất hiển đạt về võ nghiệp, nếu đồng cung ở Dần thì càng uy danh.",
+   "source_quote": "Khốc Hình Mã: rất hiển đạt về võ nghiệp, nếu đồng cung ở Dần thì càng uy danh.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hinh",
+    "star:thien_ma",
+    "concept:vo_cach"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ võ cách hiển đạt, đẹp nhất ở Dần.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q65",
+   "question": "Khốc Hư gặp Sát hay Phá đắc địa đồng cung có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư với Sát hay Phá đắc địa đồng cung: có quyền cao chức trọng, uy danh lừng lẫy, được thiên hạ nể phục vì uy và tài.",
+   "source_quote": "Khốc Hư Sát Hay Phá: đắc địa đồng cung có quyền cao chức trọng, uy danh lừng lẫy, được thiên hạ nể phục vì uy và tài.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "star:that_sat",
+    "star:pha_quan"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đắc địa cùng Sát/Phá thì uy danh lớn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q66",
+   "question": "Khốc gặp Quyền có ý nghĩa gì?",
+   "answer_atom": "Khốc Quyền: có tiếng tăm.",
+   "source_quote": "Khốc Quyền: có tiếng tăm.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:hoa_quyen"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Khốc đi với Hóa Quyền thì nổi danh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q67",
+   "question": "Khốc gặp Kình, Tuế, Khách có ý nghĩa gì?",
+   "answer_atom": "Khốc, Kình, Tuế, Khách: tang tóc liên miên, từ lúc lọt lòng mẹ.",
+   "source_quote": "Khốc, Kình, Tuế, Khách: tang tóc liên miên, từ lúc lọt lòng mẹ.",
+   "source_page": 207,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:kinh_duong",
+    "star:thai_tue",
+    "star:dieu_khach",
+    "concept:tang_toc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này chủ tang tóc liên miên.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q68",
+   "question": "Khốc Hư ở cung Phu Thê có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư ở Phu Thê: xa nhau rồi mới lấy nhau được; nhân duyên trắc trở buổi đầu; ăn ở với nhau có nước mắt; vợ chồng xung khắc nếu có thêm Kình hay Đà.",
+   "source_quote": "Xa nhau rồi mới lấy nhau được. Nhân duyên trắc trở buổi đầu. Ăn ở với nhau có nước mắt. Vợ chồng xung khắc nếu có thêm Kình hay Đà.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "star:kinh_duong",
+    "star:da_la",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hôn nhân trắc trở, nhiều nước mắt.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q69",
+   "question": "Khốc Hư ở cung Tử Tức có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư ở Tử Tức: sinh con khó nuôi, sinh nhiều nuôi ít; dễ mất, sát con.",
+   "source_quote": "Sinh con khó nuôi, sinh nhiều nuôi ít. Dễ mất, sát con.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "palace:tu_tuc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Con cái khó nuôi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q70",
+   "question": "Khốc Hư ở cung Tài Bạch có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư ở Tài Bạch: khó kiếm tiền, hay lo âu vì tiền bạc; hao tài. Nếu ở Tý Ngọ thì trước nghèo sau giàu.",
+   "source_quote": "Khó kiếm tiền, hay lo âu vì tiền bạc. Hao tài. Nếu ở Tý Ngọ, thì trước nghèo sau giàu.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "palace:tai_bach"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Tiền bạc chật vật, riêng Tý Ngọ thì hậu vận khá.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q71",
+   "question": "Khốc Hư ở cung Phúc Đức có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư ở Phúc Đức: tổn thọ, có âm hồn báo oán nếu hãm địa; mã phát, hiển đạt nếu đắc địa ở Tý Ngọ.",
+   "source_quote": "Tổn thọ có âm hồn báo oán nếu hãm địa. Mã phát, hiển đạt nếu đắc địa ở Tý Ngọ.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "palace:phuc_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hãm thì tổn phúc, đắc Tý Ngọ thì phát.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q72",
+   "question": "Khốc Hư ở Thiên Di hoặc Hạn có ý nghĩa gì?",
+   "answer_atom": "Khốc Hư ở Thiên Di/Đại Hạn: chỉ đắc lợi nếu đắc địa, nhưng chỉ thịnh trong 5 năm sau (đại hạn) hay nửa năm sau (tiểu hạn) mà thôi. Gặp Tang: có tang chế, hoặc gặp chuyện buồn thấm thía vì tang khó hoặc vì tình phụ.",
+   "source_quote": "Chỉ đắc lợi nếu đắc địa, nhưng chỉ thịnh trong 5 năm sau (nếu là đại hạn) hay nửa năm sau (nếu là tiểu hạn) mà thôi. Gặp Tang: Có tang chế, hoặc gặp phải chuyện buồn thắm thía vì tang khó hoặc vì tình phụ.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "star:tang_mon",
+    "palace:thien_di",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Đắc địa cũng chỉ thịnh nửa sau của hạn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q73",
+   "question": "Khốc Hư nói chung ảnh hưởng các cung như thế nào?",
+   "answer_atom": "Bại tinh Khốc Hư ở đâu đều làm xấu cung đó, trừ phi đắc địa.",
+   "source_quote": "Bại tinh Khốc Hư ở đâu đều làm xấu cung đó, trừ phi đắc địa.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_khoc",
+    "star:thien_hu",
+    "concept:bai_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Nguyên tắc chung: Khốc Hư làm xấu mọi cung trừ khi đắc địa.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q74",
+   "question": "Thiên Hỷ có những ý nghĩa cơ bản nào?",
+   "answer_atom": "Thiên Hỷ là cát tinh: vui vẻ, vui tính, thích cảnh vui chuyện vui, biết thưởng thức hài hước, có óc hài hước; đem lại may mắn đáng mừng. Hai điểm này Thiên Hỷ và Hỷ Thần giống nhau — nếu hội tụ, người ấy vui tính dễ cười, pha trò, tạo hỷ khí. Đây là bộ sao của người viết hay đóng hài kịch (như Moliere, Phi Thoàn, Bob Hope) nếu có thêm Tấu, Vũ, Đào, Hồng. Còn lợi ích cho việc cưới hỏi và sinh nở.",
+   "source_quote": "Vui vẻ, vui tính, thích cảnh vui, chuyện vui, biết thưởng thức hài hước, có óc hài hước. Đem lại những sự may mắn đáng mừng (chance)... Đây là bộ sao của người viết hài kịch, hay người đóng hài kịch (như Moliere, Phi Thoàn, Bob Hope) nếu có thêm các sao Tấu, Vũ, Đào, Hồng.",
+   "source_page": 208,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:hy_than",
+    "star:tau_thu",
+    "concept:tinh_tinh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Cát tinh của niềm vui, hỷ sự, khiếu hài hước.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q75",
+   "question": "Hỷ Riêu ở Mệnh có ý nghĩa gì?",
+   "answer_atom": "Hỷ Riêu ở Mệnh: người hay gây ra tai họa quái dị.",
+   "source_quote": "Hỷ Riêu: Người hay gây ra tai họa quái dị.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:thien_rieu",
+    "palace:menh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Bộ này ứng tai họa kỳ quặc.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q76",
+   "question": "Hỷ Hồng ở Mệnh có ý nghĩa gì?",
+   "answer_atom": "Hỷ Hồng ở Mệnh: sớm có nhân duyên.",
+   "source_quote": "Hỷ Hồng: Sớm có nhân duyên.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:hong_loan",
+    "palace:menh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lập gia đình sớm.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q77",
+   "question": "Hỷ Đào ở Mệnh có ý nghĩa gì?",
+   "answer_atom": "Hỷ Đào ở Mệnh: lả lơi, hoa nguyệt, ham vui trong việc ái tình. Nếu là phụ nữ thì hư thân, lang chạ.",
+   "source_quote": "Hỷ Đào: Lả lơi, hoa nguyệt, ham vui trong việc ái tình. Nếu là phụ nữ thì hư thân, lang chạ.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:dao_hoa",
+    "palace:menh"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ham vui ái tình, bất lợi cho nữ.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q78",
+   "question": "Hỷ Riêu Đào gặp Phá Tướng chiếu ở cung Bào có ý nghĩa gì?",
+   "answer_atom": "Hỷ Riêu Đào gặp Phá Tướng chiếu ở Bào: chị em có người theo trai, chửa hoang.",
+   "source_quote": "Hỷ Riêu Đào Gặp Phá Tướng Chiếu: Chị em có người theo trai, chửa hoang.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:thien_rieu",
+    "star:dao_hoa",
+    "star:pha_quan",
+    "palace:huynh_de"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Ứng chị em hư hỏng.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q79",
+   "question": "Hỷ, Thai, Đào, Hồng ở cung Bào có ý nghĩa gì?",
+   "answer_atom": "Hỷ, Thai, Đào, Hồng ở Bào: có anh chị em ngoại dâm.",
+   "source_quote": "Hỷ, Thai, Đào, Hồng: Có người ngoại dâm.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:thai",
+    "star:dao_hoa",
+    "star:hong_loan",
+    "palace:huynh_de"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Anh chị em có người ngoại tình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q80",
+   "question": "Hỷ Đào Hồng ở cung Phu Thê có ý nghĩa gì?",
+   "answer_atom": "Hỷ Đào Hồng ở Phu Thê: sánh duyên cùng người đẹp một cách dễ dàng; vợ hay chồng còn có tính lả lơi, ong bướm. Nếu thêm Riêu, Thai thì càng chắc chắn có ngoại tình.",
+   "source_quote": "Hỷ Đào Hồng: Sánh duyên cùng người đẹp một cách dễ dàng; vợ hay chồng còn có tính lả lơi, ong bướm. Nếu thêm Riêu, Thai: Càng chắc chắn có ngoại tình.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:dao_hoa",
+    "star:hong_loan",
+    "star:thien_rieu",
+    "star:thai",
+    "palace:phu_the"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Lấy được người đẹp nhưng phối ngẫu lả lơi.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q81",
+   "question": "Hỷ Đào Hồng ở cung Quan có ý nghĩa gì?",
+   "answer_atom": "Hỷ Đào Hồng ở Quan: làm nên lúc trẻ, nhờ phái nữ mà thăng tiến. Thêm Tấu, Vũ: làm nghề ca xướng (nghệ sĩ, ca sĩ, kịch sĩ có tiếng).",
+   "source_quote": "Hỷ Đào Hồng: Làm nên lúc true, nhờ phái nữ mà thăng tiến. Hỷ Đào Hồng, Tấu, Vũ: Làm nghề ca xướng (nghệ sĩ, ca sĩ, kịch sĩ có tiếng).",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:dao_hoa",
+    "star:hong_loan",
+    "star:tau_thu",
+    "palace:quan_loc",
+    "concept:nghe_nghiep"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Thăng tiến sớm nhờ nữ giới; thêm Tấu Vũ thì theo nghề trình diễn.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.85,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q82",
+   "question": "Song Hỷ ở cung Phúc có ý nghĩa gì?",
+   "answer_atom": "Song Hỷ (Thiên Hỷ + Hỷ Thần) ở Phúc: mã phát.",
+   "source_quote": "Song Hỷ: Mã phát.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:hy_than",
+    "palace:phuc_duc"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Phúc đức phát nhanh.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.8,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q83",
+   "question": "Hỷ Hồng Đào ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Hỷ Hồng Đào ở Hạn: có tình duyên, có bồ bịch.",
+   "source_quote": "Hỷ Hồng Đào: Có tình duyên, có bồ bịch.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:hong_loan",
+    "star:dao_hoa",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn có tình duyên mới.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q84",
+   "question": "Hỷ Hồng Tả Hữu Long Phượng Riêu ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Hỷ Hồng Tả Hữu Long Phượng Riêu ở Hạn: có hỷ sự, thành gia thất.",
+   "source_quote": "Hỷ Hồng Tả Hữu Long Phượng Riêu: Có hỷ sự, thành gia thất.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:hong_loan",
+    "star:ta_phu",
+    "star:huu_bat",
+    "star:long_tri",
+    "star:phuong_cac",
+    "star:thien_rieu",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn cưới hỏi, lập gia đình.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  },
+  {
+   "question_id": "tvhs.S8.Q85",
+   "question": "Song Hỷ, Đào Hồng Khôi Việt ở Hạn có ý nghĩa gì?",
+   "answer_atom": "Song Hỷ, Đào Hồng Khôi Việt ở Hạn: sinh đẻ quý tử.",
+   "source_quote": "Song Hỷ, Đào Hồng Khôi Việt: Sinh đẻ quý tử.",
+   "source_page": 209,
+   "section_id": "tvhs.S8",
+   "tags": [
+    "star:thien_hy",
+    "star:hy_than",
+    "star:dao_hoa",
+    "star:hong_loan",
+    "star:thien_khoi",
+    "star:thien_viet",
+    "concept:van_han"
+   ],
+   "commentary": {
+    "han_viet_explain": null,
+    "viet_thuan": "Hạn sinh con quý.",
+    "nguyen_ly": null,
+    "vi_du_doi_song": null,
+    "iron_rule_warning": null
+   },
+   "confidence": 0.9,
+   "extracted_by": "sub-agent-bam-sach"
+  }
+ ]
+}

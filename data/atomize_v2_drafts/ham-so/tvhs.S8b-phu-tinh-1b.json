@@ -1,0 +1,2078 @@
+{
+  "book_corpus_id": "tu-vi-ham-so",
+  "section_id": "tvhs.S8b",
+  "section_title": "Phụ tinh chi tiết 1b (p210-220)",
+  "pages": [210, 220],
+  "atoms": [
+    {
+      "question_id": "tvhs.S8b.Q01",
+      "question": "Tư thế của người có Khôi Việt ở Mệnh trong gia đình là gì?",
+      "answer_atom": "Người có Khôi Việt ở Mệnh là con trưởng trong gia đình; nếu không phải con trưởng thì về sau cũng đoạt trưởng, hoặc được cha mẹ thương yêu nhất, hoặc là rường cột gia đình.",
+      "source_quote": "Trong gia đình, người có Khôi Việt ở Mệnh là con trưởng. Nếu không phải là con trưởng thì về sau cũng đoạt trưởng, hoặc là được cha mẹ thương yêu nhất trong gia đình, hoặc là rường cột gia đình.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:menh", "concept:tu_the_gia_dinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt thủ Mệnh: vị thế con trưởng hoặc người gánh vác chính trong nhà.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q02",
+      "question": "Tư thế của người có Khôi Việt trong quan trường?",
+      "answer_atom": "Trong quan trường, người có Khôi Việt thường được giao phó nhiều công việc rất quan trọng, được lui tới gần gũi bậc nguyên thủ hay trưởng cơ quan.",
+      "source_quote": "Trong quan trường, người có Khôi Việt thường được giao phó nhiều công việc hết sức quan trọng, được lui tới gần gũi bậc nguyên thủ hay trưởng cơ quan.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:quan_truong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt cho vị thế được tin dùng, gần người đứng đầu tổ chức.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q03",
+      "question": "Ý nghĩa tính tình của Khôi Việt gồm những gì?",
+      "answer_atom": "Khôi Việt chỉ: thông minh xuất chúng; học hành xuất sắc về nhiều môn, thi đỗ rất dễ dàng, có năng khiếu nhiều phương diện; có năng tài đặc biệt về văn chương và võ nghệ; có mưu cơ, biết quyền biến, có tài tổ chức; có óc lãnh tụ, làm gì cũng muốn hơn người, chỉ huy thiên hạ, ăn trên ngồi trước; tính tình cao thượng, khoáng đạt.",
+      "source_quote": "Thông minh xuất chúng... Học hành xuất sắc về nhiều môn, thi đỗ rất dễ dàng, có năng khiếu về nhiều phương diện... Có năng tài đặc biệt về văn chương và võ nghệ... Có mưu cơ, biết quyên biến, có tài tổ chức... Có óc lãnh tụ, làm gì cũng muốn hơn người, chỉ huy thiên hạ, ăn trên ngồi trước... Tính tình cao thượng, khoáng đạt.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:tinh_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sáu nét tính tình của Khôi Việt: thông minh, học giỏi, văn võ kiêm toàn, mưu cơ tổ chức, óc lãnh tụ, cao thượng khoáng đạt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q04",
+      "question": "Tác giả đánh giá tổng quát Khôi Việt như thế nào so với các đức tính, tài năng?",
+      "answer_atom": "Với những ý nghĩa tính tình kể trên, Khôi Việt là một anh tài toàn diện nhất, về cả phương diện đức tính, tài năng lẫn hoạt động.",
+      "source_quote": "Với những ý nghĩa đó, Khôi Việt quả là một anh tài toàn diện nhất, về cả phương diện đức tính, tài năng lẫn hoạt động.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:anh_tai_toan_dien"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt được tác giả xem là sao của anh tài toàn diện.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q05",
+      "question": "So sánh ý nghĩa Khôi Việt với Xương Khúc?",
+      "answer_atom": "Ý nghĩa Khôi Việt mạnh hơn cả Xương Khúc: Khôi Việt chỉ sự xuất chúng trong khi Xương Khúc chỉ tài giỏi thông thường; Khôi Việt có nghĩa rộng hơn vì ám chỉ quyền uy quan trọng, trong khi Xương Khúc không bắt buộc có nghĩa quyền uy.",
+      "source_quote": "Do đó, ý nghĩa Khôi Việt còn mạnh hơn cả Xương Khúc. Khôi Việt chỉ sự xuất chúng trong khi Xương Khúc chỉ tài giỏi thông thường. Khôi Việt có nghĩa rộng hơn Xương Khúc vì Khôi Việt ám chỉ quyền uy quan trọng trong khi Xương Khúc không bắt buộc có nghĩa quyền uy.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "star:van_xuong", "star:van_khuc", "concept:so_sanh_sao"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt = xuất chúng + quyền uy; Xương Khúc = tài giỏi thông thường, không bắt buộc quyền uy.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q06",
+      "question": "Hội tụ cả 4 sao Khôi Việt Xương Khúc kèm Nhật Nguyệt, Khoa sáng sủa thì sao?",
+      "answer_atom": "Được sự hội tụ của cả 4 sao (Khôi Việt Xương Khúc) thì con người quán thế. Nếu đi kèm với Nhật Nguyệt, Khoa sáng sủa thì là bậc nhân tài thế giới, kiểu như bác học, chính trị gia khét tiếng được hoàn toàn khen tặng, trao giải.",
+      "source_quote": "Được sự hội tụ của cả 4 sao thì con người quán thế. Nếu đi kèm với Nhật Nguyệt, Khoa sáng sủa thì đây là bậc nhân tài thế giới, kiểu như bác học, chính trị gia khét tiếng được hoàn toàn khen tặng, trao giải.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "star:van_xuong", "star:van_khuc", "star:thai_duong", "star:thai_am", "star:hoa_khoa", "concept:cach_cuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bốn sao hội tụ thêm Nhật Nguyệt sáng + Hóa Khoa: cấu trúc của nhân tài tầm thế giới.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q07",
+      "question": "Khôi Việt giáp Mệnh có ý nghĩa gì?",
+      "answer_atom": "Việc Khôi Việt giáp Mệnh tuy không đẹp bằng tọa thủ, song cũng được đắc thời trong xã hội, được nhiều người kính trọng, yêu mến, che chở, hậu thuẫn.",
+      "source_quote": "Việc giáp Mệnh, tuy không đẹp bằng việc tọa thủ, song cũng được đắc thời trong xã hội, được nhiều người kính trọng, yêu mến, che chở, hậu thuẫn.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:menh", "concept:giap_menh"],
+      "commentary": {
+        "han_viet_explain": "Giáp Mệnh = hai sao đóng ở hai cung kề hai bên cung Mệnh.",
+        "viet_thuan": "Khôi Việt giáp Mệnh kém tọa thủ nhưng vẫn được người đời kính trọng, hậu thuẫn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q08",
+      "question": "Ý nghĩa phúc thọ của Khôi Việt: hóa giải được gì?",
+      "answer_atom": "Khôi Việt có thể hóa giải được bất lợi của một số sao hãm địa như Âm Dương hãm, chính tinh hãm.",
+      "source_quote": "Khôi Việt có thể hóa giải được bất lợi của một số sao hãm địa như Âm Dương hãm, chính tinh hãm.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:phuc_tho", "concept:hoa_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt có khả năng gỡ bớt cái xấu của Nhật Nguyệt hãm và chính tinh hãm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q09",
+      "question": "Khôi Việt tọa thủ ở cung Phúc Đức có hiệu lực gì?",
+      "answer_atom": "Nếu tọa thủ ở Phúc Đức thì được linh thần che chở luôn luôn, tai nạn được giải trừ, có hiệu lực giống như Quang Quý.",
+      "source_quote": "Nếu tọa thủ ở Phúc Đức thì được linh thần che chở luôn luôn, tai nạn được giải trừ, có hiệu lực giống như Quang Quý.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:phuc_duc", "concept:cuu_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt tại Phúc Đức: được che chở, giải trừ tai nạn, tương tự Quang Quý.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q10",
+      "question": "Điều kiện để các lợi điểm của Khôi Việt có hiệu lực là gì?",
+      "answer_atom": "Những lợi điểm của Khôi Việt chỉ có nếu Khôi Việt không bị Tuần, Triệt, Hóa Kỵ, Thiên Hình và sát tinh xâm phạm.",
+      "source_quote": "Tuy nhiên, cần lưu ý rằng những lợi điểm trên chỉ có nếu Khôi Việt không bị Tuần, Triệt, Hóa Kỵ, Thiên Hình và sát tinh xâm phạm.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "star:hoa_ky", "star:thien_hinh", "concept:tuan", "concept:triet", "concept:dieu_kien_hieu_luc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt bị Tuần Triệt, Hóa Kỵ, Thiên Hình, sát tinh xâm phạm thì mất các lợi điểm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q11",
+      "question": "Bộ Xương Khúc - Khôi Việt - Quang Quý có ý nghĩa gì?",
+      "answer_atom": "Xương Khúc, Khôi Việt, Quang Quý hội tụ: thi đỗ cao, văn bằng cao nhất (Trạng Nguyên, Tiến Sĩ, Thạc Sĩ...).",
+      "source_quote": "Xương Khúc - Khôi Việt - Quang Quý: Thi đỗ cao, văn bằng cao nhất (Trạng Nguyên, Tiến Sĩ, Thạc Sĩ...).",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "star:van_xuong", "star:van_khuc", "star:an_quang", "star:thien_quy", "concept:khoa_giap"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ sao văn tinh hội đủ: đỗ đạt văn bằng cao nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q12",
+      "question": "Cách 'Tọa Khôi hướng Việt' nghĩa là gì?",
+      "answer_atom": "Tọa Khôi hướng Việt (Khôi Việt hợp chiếu): đỗ cao lúc tuổi còn trẻ.",
+      "source_quote": "Tọa Khôi hướng Việt (Khôi Việt hợp chiếu): Đỗ cao lúc tuổi còn trẻ.",
+      "source_page": 210,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:khoa_giap", "concept:toa_khoi_huong_viet"],
+      "commentary": {
+        "han_viet_explain": "Tọa Khôi hướng Việt = Khôi đóng tại cung, Việt chiếu về.",
+        "viet_thuan": "Khôi tọa thủ có Việt hợp chiếu: đỗ đạt sớm khi còn trẻ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q13",
+      "question": "Khôi Việt gặp Nhật Nguyệt hãm thì sao?",
+      "answer_atom": "Khôi Việt gặp Nhật Nguyệt hãm: Khôi Việt phục hồi sức sáng cho Nhật Nguyệt hãm.",
+      "source_quote": "Khôi Việt, Nhật Nguyệt hãm: Khôi Việt phục hồi sức sáng cho Nhật Nguyệt hãm.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "star:thai_duong", "star:thai_am", "concept:hoa_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt làm Nhật Nguyệt hãm sáng trở lại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q14",
+      "question": "Khôi Việt gặp Đà Kỵ có ý nghĩa gì?",
+      "answer_atom": "Khôi Việt gặp Đà Kỵ: kẻ sĩ ẩn dật.",
+      "source_quote": "Khôi Việt Đà Kỳ: Kẻ sĩ ẩn dật.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "star:da_la", "star:hoa_ky", "concept:an_dat"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt bị Đà La + Hóa Kỵ: người tài nhưng lui về ở ẩn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "OCR ghi 'Đà Kỳ' — đọc theo văn cảnh là Đà (La) + (Hóa) Kỵ."
+      },
+      "confidence": 0.8,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q15",
+      "question": "Nguyên tắc chung về Khôi Việt khi đóng ở các cung là gì?",
+      "answer_atom": "Ở bất cứ cung nào, Khôi Việt đều ban lợi điểm cho cung đó hoặc về mặt khoa giáp, công danh, hoặc về mặt cứu độ.",
+      "source_quote": "Ở bất cứ cung nào, Khôi Việt đều ban lợi điểm cho cung đó hoặc về mặt khoa giáp, công danh, hoặc về mặt cứu độ.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:y_nghia_cac_cung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt đóng đâu cũng cho lợi: hoặc khoa giáp công danh, hoặc cứu độ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q16",
+      "question": "Khôi Việt ở Phụ Mẫu, Phu Thê, Tử Tức có ý nghĩa gì?",
+      "answer_atom": "Khôi Việt ở Phụ Mẫu, Phu Thê, Tử: anh em, vợ chồng và con cái tài ba, danh giá, tạo nên sự nghiệp.",
+      "source_quote": "a) Ở Phụ Mẫu, Phu Thê, Tử: Anh em, vợ chồng và con cái tài ba, danh giá, tạo nên sự nghiệp.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:phu_mau", "palace:phu_the", "palace:tu_tuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt ở cung lục thân: người thân tài giỏi, danh giá.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q17",
+      "question": "Khôi Việt ở Quan Lộc có ý nghĩa gì?",
+      "answer_atom": "Khôi Việt ở Quan Lộc: công danh lừng lẫy lại thịnh vượng, được tín nhiệm, trọng dụng.",
+      "source_quote": "b) Ở Quan Lộc: Công danh lừng lẫy lại thịnh vượng, được tín nhiệm, trọng dụng.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:quan_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt tại Quan Lộc: công danh rực rỡ, được tin dùng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q18",
+      "question": "Khôi Việt ở Tật Ách có ý nghĩa gì?",
+      "answer_atom": "Khôi Việt ở Tật Ách: ốm đau có thầy giỏi thuốc hay, có tai nạn được cứu giải.",
+      "source_quote": "c) Ở Tật Ách: Ốm đau có thầy giỏi thuốc hay, có tai nạn được cứu giải.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:tat_ach", "concept:cuu_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt tại Tật Ách: bệnh gặp thầy hay thuốc tốt, nạn được cứu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q19",
+      "question": "Khôi Việt ở Nô Bộc có ý nghĩa gì?",
+      "answer_atom": "Khôi Việt ở Nô Bộc: có đặc quyền đắc lực, có quản gia mẫn cán, có lương tướng tài ba, có học trò xuất sắc.",
+      "source_quote": "d) Ở Nô Bộc: Có đặc quyền đắc lực, có quản gia mẫn cán, có lương tướng tài ba, có học trò xuất sắc.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:no_boc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt tại Nô Bộc: người dưới quyền, người giúp việc đều giỏi và tận tâm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q20",
+      "question": "Khôi Việt ở Phúc Đức có ý nghĩa gì?",
+      "answer_atom": "Khôi Việt ở Phúc Đức: có thần linh yểm trợ, cứu độ.",
+      "source_quote": "e) Ở Phúc Đức: Có thần linh yểm trợ, cứu độ.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "palace:phuc_duc", "concept:cuu_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt tại Phúc Đức: được thần linh phù trợ, cứu độ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q21",
+      "question": "Tổng kết của tác giả về giá trị sao Khôi Việt?",
+      "answer_atom": "Với những năng khiếu, đức tính và tư thế trội yếu, Khôi Việt là sao quý nhất cho công danh, khoa giáp, tính tình, phúc thọ, gia đạo, bảo đảm sự thành nhân và thành công theo một nghĩa rất toàn diện.",
+      "source_quote": "Tóm lại với những năng khiếu, đức tính và tư thế trội yếu, Khôi Việt là sao quý nhất cho công danh, khoa giáp, tính tình, phúc thọ, gia đạo, bảo đảm sự thành nhân và thành công theo một nghĩa rất toàn diện và hướng lượng.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khoi", "star:thien_viet", "concept:tong_ket"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khôi Việt là quý tinh toàn diện nhất: công danh, khoa giáp, tính tình, phúc thọ, gia đạo.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q22",
+      "question": "Ý nghĩa tính tình của Thiên Không là gì?",
+      "answer_atom": "Thiên Không là sát tinh, ác tinh nên có nghĩa: gian hùng, quỷ quyệt, xảo trá, đa mưu, thủ đoạn; phá tán, phá hoại, ác hiểm. Đây là sao của hạng lưu manh, gian hùng, bất chính, đồng nghĩa với Kiếp Sát, Lưu Hà, Phục Binh. Sự hội tụ càng nói lên ý nghĩa chọc trời khuấy nước, tiểu nhân, kết đảng.",
+      "source_quote": "Thiên Không là sát tinh, ác tinh nên có nghĩa: Gian hùng, quỷ quyệt, xảo trá, đa mưu, thủ đoạn. Phá tán, phá hoại, ác hiểm. Đây là sao của hạng lưu manh, gian hùng, bất chính, đồng nghĩa với Kiếp Sát, Lưu Hà, Phục Binh.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:kiep_sat", "star:luu_ha", "star:phuc_binh", "concept:tinh_tinh", "concept:sat_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không: sát tinh chỉ gian hùng, xảo trá, phá tán; cùng nghĩa với Kiếp Sát, Lưu Hà, Phục Binh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q23",
+      "question": "Ý nghĩa phúc thọ của Thiên Không là gì?",
+      "answer_atom": "Thiên Không chủ sự thất bại trong quan trường, sự chậm thăng trong chức vụ, sự tiêu tán tài lộc.",
+      "source_quote": "Thiên Không chủ sự thất bại trong quan trường, sự chậm thăng trong chức vụ, sự tiêu tán tài lộc.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "concept:phuc_tho", "concept:quan_truong", "concept:tai_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không: thất bại quan trường, chậm thăng chức, tiêu tán tiền của.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q24",
+      "question": "Phái nữ có Thiên Không ở Mệnh thì sao?",
+      "answer_atom": "Riêng phái nữ có Thiên Không ở Mệnh thì xui xẻo, bị tai ách gió trăng, bị lụy vì tình.",
+      "source_quote": "Riêng phái nữ có Thiên Không ở Mệnh thì xui xẻo, bị tai ách gió trăng, bị lụy vì tình.",
+      "source_page": 211,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "palace:menh", "concept:nu_menh", "concept:tinh_duyen"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nữ Mệnh có Thiên Không: dễ gặp tai ách tình ái, lụy vì tình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q25",
+      "question": "Thiên Không ở cung Tật có tác dụng đặc biệt gì?",
+      "answer_atom": "Vì là sao phá tán nên Thiên Không ở cung Tật cứu giải được bệnh tật khá mạnh, như Nhị Hao, Phá Toái.",
+      "source_quote": "Tuy nhiên, vì là sao phá tán nên Thiên Không ở cung Tật cứu giải được bệnh tật khá mạnh như Nhị Hào, Phá Toái...",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "palace:tat_ach", "concept:cuu_giai_benh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tính phá tán của Thiên Không tại Tật lại phá luôn bệnh tật — cùng cơ chế với Nhị Hao, Phá Toái.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "OCR ghi 'Nhị Hào' — đọc theo văn cảnh là Nhị Hao (Đại/Tiểu Hao)."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q26",
+      "question": "Thiên Không gặp Đào Hoa có ý nghĩa gì?",
+      "answer_atom": "Không, Đào: xảo trá, đa mưu về ái tình, có tài lừa phỉnh phụ nữ hay lôi cuốn nam giới bằng xảo thuật. Có sách cho đó là sự tài hoa, nhưng phải hiểu theo nghĩa xấu.",
+      "source_quote": "Không, Đào: Xảo trá, đa mưu về ái tình, có tài lừa phỉnh phụ nữ hay lôi cuốn nam giới bằng xảo thuật. Có sách cho đó là sự tài hoa, nhưng phải hiểu theo nghĩa xấu.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:dao_hoa", "concept:ai_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không + Đào Hoa: mưu mẹo xảo trá trong tình ái, hiểu theo nghĩa xấu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q27",
+      "question": "Thiên Không gặp Hồng Loan có ý nghĩa gì?",
+      "answer_atom": "Không, Hồng: thích ẩn dật, tu hành.",
+      "source_quote": "Không, Hồng: Thích ẩn dật, tu hành.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:hong_loan", "concept:tu_hanh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không + Hồng Loan: khuynh hướng ẩn dật, đi tu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q28",
+      "question": "Thiên Không gặp Phục Binh, Kiếp Sát có ý nghĩa gì?",
+      "answer_atom": "Không, Binh, Kiếp Sát: lưu manh kết đảng phá hoại.",
+      "source_quote": "Không, Binh, Kiếp Sát: Lưu manh kết đẳng phá hoại.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:phuc_binh", "star:kiep_sat", "concept:luu_manh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không + Phục Binh + Kiếp Sát: kết bè đảng lưu manh phá hoại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q29",
+      "question": "Thiên Không đắc địa ở đâu và có hiệu lực gì?",
+      "answer_atom": "Thiên Không đắc địa ở Tỵ, Hợi, Dần, Thân có hiệu lực giống như Địa Không.",
+      "source_quote": "Thiên Không đắc địa ở Tỵ, Hợi, Dần, Thân có hiệu lực giống như Địa Không.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:dia_khong", "concept:dac_dia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không đắc địa tại 4 cung Tỵ Hợi Dần Thân, hiệu lực như Địa Không.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q30",
+      "question": "Thiên Không ở Tài Bạch, Điền Trạch có ý nghĩa gì?",
+      "answer_atom": "Thiên Không ở Tài, Điền: khó kiếm tiền; tán tài, tiền của tụ tán bất thường; hay kiếm tiền bằng phương pháp táo bạo, ám muội, hoạnh phát hoạnh phá nếu đắc địa.",
+      "source_quote": "a) Ở Tài, Điền: Khó kiếm tiền. Tán tài, tiễn của tụ tán bất thường. Hay kiếm tiền bằng phương pháp táo bạo, ám muội hoạnh phát, hoạnh phá nếu đắc địa.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "palace:tai_bach", "palace:dien_trach", "concept:tai_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không tại cung tiền bạc: tiền vào ra thất thường, đắc địa thì hoạnh phát hoạnh phá.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q31",
+      "question": "Thiên Không ở cung Tật có ý nghĩa gì?",
+      "answer_atom": "Thiên Không ở Tật: ít bệnh; có bệnh chóng qua.",
+      "source_quote": "b) Ở Tật: Ít bệnh. Có bệnh chóng qua.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "palace:tat_ach"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không tại Tật: ít ốm, ốm thì mau khỏi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q32",
+      "question": "Thiên Không ở cung Quan có ý nghĩa gì?",
+      "answer_atom": "Thiên Không ở Quan: chậm quan; có chức vụ thì chậm thăng, không thăng tột bậc; có chức vụ cao thì không bền; gặp nhiều bất công trong quan trường; tham nhũng nếu đi với Tồn hay Lộc.",
+      "source_quote": "c) Ở Quan: Chậm quan. Có chức vụ thì chậm thăng, không thăng tột bậc. Có chức vụ cao thì không bền. Gặp nhiễu bất công trong quan trường. Tham nhũng nếu đi với Tôn hay Lộc.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:loc_ton", "star:hoa_loc", "palace:quan_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Không tại Quan: công danh chậm, không bền; gặp Lộc Tồn hay Hóa Lộc thì nhiễm tham nhũng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q33",
+      "question": "Thiên Không ở Hạn có ý nghĩa gì?",
+      "answer_atom": "Thiên Không ở Hạn: bế tắc, thất bại, ngăn trở, tác họa mau như sao Hỏa; nếu đau thì hết bệnh.",
+      "source_quote": "d) Ở Hạn: Bế tắc, thất bại, ngăn trở, tác họa mau như sao Hỏa. Nếu đau thì hết bệnh.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_khong", "star:hoa_tinh", "concept:van_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn gặp Thiên Không: trắc trở đến nhanh; riêng người đang bệnh thì khỏi bệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q34",
+      "question": "Thiên La là sao gì, có những nghĩa cơ bản nào?",
+      "answer_atom": "Thiên La là một ám tinh, có nghĩa: táo bạo, gan góc; ác hiểm. Sao này chủ sự bắt bớ, giam cầm, gây rắc rối, ngăn trở công việc.",
+      "source_quote": "Đây cũng là một ám tinh. Sao này có nghĩa: Tạo bạo, gan góc... Sao này chủ sự bắt bớ, giam cầm, gây rắc rối, ngăn trở công việc.",
+      "source_page": 212,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_la", "concept:am_tinh", "concept:tinh_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên La: ám tinh chỉ táo bạo, ác hiểm; chủ bắt bớ giam cầm, ngăn trở công việc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q35",
+      "question": "Có sách cho Thiên La, Địa Võng có tác dụng gì?",
+      "answer_atom": "Có sách cho rằng Thiên La cũng như Địa Võng có tác dụng: gặp sao hung thì thành tốt; gặp sao ác thì thành hung.",
+      "source_quote": "Có sách cho rằng Thiên La cũng như Địa Võng có tác dụng: Gặp sao hung thì thành tốt. Gặp sao ác thì thành hung.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_la", "star:dia_vong", "concept:tac_dung_hai_chieu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Một thuyết: Thiên La Địa Võng đổi chiều cát hung tùy sao đi kèm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Nguyên văn hai vế 'hung thành tốt / ác thành hung' có vẻ mâu thuẫn — giữ đúng text OCR, không tự sửa."
+      },
+      "confidence": 0.7,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q36",
+      "question": "Thiên La gặp Thiên Lương có ý nghĩa gì?",
+      "answer_atom": "Thiên La, Thiên Lương: tuy táo bạo nhưng trung hậu. Trong ý nghĩa này, nếu Thiên La đi với Tử Vi, Hóa Khoa, Thiên Phủ thì đặc tính xấu của nó bị giảm chế đi nhiều.",
+      "source_quote": "Thiên La, Thiên Lương: Tuy táo bạo nhưng trung hậu. Trong ý nghĩa này, nếu Thiên La đi với Tử Vi, Hóa Khoa, Thiên Phủ thì đặc tính xấu của nó bị giảm chế đi nhiều.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_la", "star:thien_luong", "star:tu_vi", "star:hoa_khoa", "star:thien_phu", "concept:giam_che"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên La đi với cát tinh (Lương, Tử Vi, Khoa, Phủ): nét xấu bị chế giảm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q37",
+      "question": "Bộ Thiên La, Linh, Đà, Mã gặp Thanh Liêm ở Mệnh có ý nghĩa gì?",
+      "answer_atom": "Thiên La, Linh, Đà, Mã gặp Thanh Liêm ở Mệnh: bị bắt giữ, bị tử hình.",
+      "source_quote": "Thiên La, Linh, Đà, Mã gặp Thanh Liêm ở Mệnh: Bị bắt giữ, bị tử hình.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_la", "star:linh_tinh", "star:da_la", "star:thien_ma", "palace:menh", "concept:hinh_nguc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ sao hung tụ ở Mệnh theo sách: cách bị bắt giữ, trọng án.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "OCR ghi 'Thanh Liêm' — chưa rõ là Thanh Long + Liêm Trinh hay lỗi OCR; giữ nguyên văn, không suy đoán."
+      },
+      "confidence": 0.7,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q38",
+      "question": "Ý nghĩa cơ thể của Thiên Mã là gì?",
+      "answer_atom": "Thiên Mã là tứ chi, 2 tay, 2 chân, phương tiện di chuyển. Nếu Mã gặp sát tinh, tùy theo nặng nhẹ, chân tay sẽ bị tàn tật, từ trặc tay, trặc chân, phỏng tay chân cho đến mất tay chân, bất luận Thiên Mã ở cung nào.",
+      "source_quote": "Thiên Mã là tứ chỉ, 2 tay, 2 chân, phương tiện di chuyển. Vì vậy, nếu Mã gặp sát tinh, tùy theo nặng nhẹ, chân tay sẽ bị tàn tật, từ trặc tay, trặc chân, phỏng tay chân cho đến mất tay chân bất luận Thiên Mã ở cung nào.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "concept:co_the", "concept:tu_chi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Mã tượng tứ chi; gặp sát tinh thì tay chân bị thương tật, không phụ thuộc cung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q39",
+      "question": "Thiên Mã gặp Không Kiếp, Binh có ý nghĩa gì về vật dụng?",
+      "answer_atom": "Thiên Mã chỉ xe cộ hay phương tiện di chuyển nói chung. Thiên Mã, Không Kiếp, Binh: bị mất xe.",
+      "source_quote": "Thiên Mã chỉ xe cộ hay phương tiện di chuyển nói chung: Thiên Mã, Không Kiếp, Binh: Bị mất xe.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:dia_khong", "star:dia_kiep", "star:phuc_binh", "concept:vat_dung", "concept:xe_co"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã (xe cộ) gặp Không Kiếp + Phục Binh: mất xe.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q40",
+      "question": "Thiên Mã gặp Kình, Đà có ý nghĩa gì?",
+      "answer_atom": "Thiên Mã, Kình, Đà: bị tai nạn xe cộ.",
+      "source_quote": "Thiên Mã, Kình, Đà: Bị tai nạn xe cộ.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:kinh_duong", "star:da_la", "concept:tai_nan_xe"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã gặp Kình Dương + Đà La: tai nạn xe cộ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q41",
+      "question": "Thiên Mã gặp Thiên Cơ có ý nghĩa gì?",
+      "answer_atom": "Thiên Mã, Thiên Cơ: xe có máy, xe bị trục trặc máy móc.",
+      "source_quote": "Thiên Mã, Thiên Cơ: Xe có máy, xe bị trục trặc máy móc.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:thien_co", "concept:xe_co"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã + Cơ (máy móc): xe gắn máy, hoặc xe trục trặc máy.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q42",
+      "question": "Thiên Mã gặp Tang hay Hà có ý nghĩa gì về súc vật?",
+      "answer_atom": "Về súc vật, Thiên Mã chỉ gia súc (gà, vịt, heo, bò, cừu...); nếu Mã gặp Tang hay Hà thì súc vật bị dịch chết.",
+      "source_quote": "Về súc vật, thiên mã chỉ gia súc (gà, vịt, heo, bò, cừu...) nếu Mã gặp Tang hay Hà thì súc vật bị dịch chết.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:tang_mon", "star:luu_ha", "concept:suc_vat"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã (gia súc) gặp Tang Môn hay Lưu Hà: gia súc bị dịch chết.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q43",
+      "question": "Ý nghĩa tài năng của Thiên Mã là gì, đắc hãm ở đâu?",
+      "answer_atom": "Thiên Mã chỉ người đa tài, có khả năng trong nhiều lĩnh vực, tháo vát, bén nhạy, may mắn. Học trò thì giỏi nhiều môn, công chức thì đa năng đa hiệu đa nhiệm, nội trợ thì quán xuyến một mình. Thiên Mã rất quý cho công danh, nghề nghiệp bất luận ngành nào, nhất là khi đắc địa ở Mệnh, Thân, Quan, tại các cung Dần và Tị; ở Thân thì kém, ở Hợi thì xấu.",
+      "source_quote": "Thiên Mã chỉ người đa tài, có khả năng trong nhiều lĩnh vực, lại tháo vát, bén nhạy may mắn... Thiên Mã là sao rất quý cho công danh, nghề nghiệp, bất luận ngành nào, nhất là khi đắc địa ở Mệnh, Thân, Quan, tại các cung Dần và Tị ở Thân thì kém, ở Hợi thì xấu, vì khác với hành Hỏa.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "palace:menh", "palace:quan_loc", "concept:tai_nang", "concept:dac_dia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã: đa tài tháo vát, quý cho nghề nghiệp; đắc địa Dần Tị, kém ở Thân, xấu ở Hợi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q44",
+      "question": "Thiên Mã chủ về sự thay đổi như thế nào?",
+      "answer_atom": "Thiên Mã là sao điển hình chủ về: sự thay đổi chỗ ở, chỗ làm hoặc làm việc có tính cách lưu động như Thanh Tra, Đại Sứ, liên lạc viên, giao liên; sự đi xa, xuất ngoại, ly hương, ly tông.",
+      "source_quote": "Thiên Mã là sao điển hình chủ về: Sự thay đổi chỗ ở, chỗ làm hoặc làm việc có tính cách lưu động như Thanh Tra, Đại Sứ, liên lạc viên, giao liên. Sự đi xa, xuất ngoại, ly hương, ly tông.",
+      "source_page": 213,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "concept:thay_doi", "concept:xuat_ngoai", "concept:luu_dong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã chủ di động: đổi chỗ ở chỗ làm, nghề lưu động, đi xa, xuất ngoại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q45",
+      "question": "Người có Thiên Mã ở Mệnh và Mã ở Điền Trạch thì sao?",
+      "answer_atom": "Người có Thiên Mã ở Mệnh hay đi đây đi đó, làm việc lưu động (như quân nhân chinh chiến nhiều nơi), có dịp xuất ngoại thường hoặc phải xa nhà thường. Nếu Mã ở Điền Trạch thì ý nghĩa này càng chắc chắn: thường là những người làm công vụ ở xứ ngoài (Đại Sứ, Tùy Viên Sứ Quán...).",
+      "source_quote": "Người có Thiên Mã ở Mệnh hay đi đây đi đó, làm việc lưu động (như quân nhân chinh chiến nhiều nơi) có dịp xuất ngoại thường, hoặc phải xa nhà thường. Nếu Mã ở Điền Trạch thì ý nghĩa này càng chắc chắn: thường đi đây là những người làm công vụ ở xứ ngoài (Đại Sứ, Tùy Viên Sứ Quán...).",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "palace:menh", "palace:dien_trach", "concept:xuat_ngoai", "concept:luu_dong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã thủ Mệnh: đời sống di chuyển nhiều; Mã tại Điền Trạch càng khẳng định làm việc xứ ngoài.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q46",
+      "question": "Cung Phu Thê xấu có Thiên Mã gặp Tuần Triệt, Địa Không thì sao?",
+      "answer_atom": "Trong ý nghĩa thay đổi, cung phu thê xấu có Thiên Mã gặp Tuần Triệt, Địa Không thì có nghĩa bỏ vợ bỏ chồng hay vợ chồng bỏ nhau.",
+      "source_quote": "Cũng trong ý nghĩa thay đổi, phu thê xấu có Thiên Mã gặp Tuần Triệt, Địa Không thì có nghĩa bỏ vợ bỏ chồng hay vợ chồng bỏ nhau.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:dia_khong", "palace:phu_the", "concept:tuan", "concept:triet", "concept:ly_hon"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã bị Tuần Triệt, Địa Không ở cung Phu Thê xấu: vợ chồng chia lìa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q47",
+      "question": "Cách Mã Tử Phủ đồng cung có ý nghĩa gì?",
+      "answer_atom": "Mã Tử Phủ đồng cung: tài giỏi, giàu sang, phúc thọ song toàn; gặp thời vận, như tôi gặp chúa (đây là cách ngựa kéo xe cho vua chúa).",
+      "source_quote": "Mã Tử Phủ đồng cung: Tài giỏi, giàu sang, phúc thọ song toàn. Gặp thời vận, như tôi gặp chúa (đây là cách ngựa kéo xe cho vua chúa).",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:tu_vi", "star:thien_phu", "concept:cach_tot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã đồng cung Tử Vi/Thiên Phủ: cách ngựa kéo xe vua — gặp thời, vinh hiển.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q48",
+      "question": "Cách Mã gặp Nhật Nguyệt sáng sủa gọi là gì?",
+      "answer_atom": "Mã Nhật Nguyệt sáng sủa: gọi là cách Thư hùng mã, chủ việc gặp vận tốt, công danh tiến đạt suôn sẻ.",
+      "source_quote": "Mã Nhật Nguyệt sáng sủa: Đây gọi là cách Thư hùng mã, chủ việc gặp vận tốt, công danh tiến đạt suôn sẻ.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:thai_duong", "star:thai_am", "concept:thu_hung_ma", "concept:cach_tot"],
+      "commentary": {
+        "han_viet_explain": "Thư hùng mã = ngựa mái và ngựa trống (cặp Nhật Nguyệt).",
+        "viet_thuan": "Mã + Nhật Nguyệt sáng: cách Thư hùng mã, công danh thuận lợi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q49",
+      "question": "Cách Mã gặp Lộc Tồn (Lộc Mã giao trì) có ý nghĩa gì?",
+      "answer_atom": "Mã, Lộc Tồn đồng cung, hoặc Tồn hay Lộc chiếu: gọi là chiết tiển (bẻ roi đánh ngựa) hay Lộc Mã giao trì, chủ sự hanh thông về quan trường, tài lộc. Thường là cách thương gia đắc tài đắc lộc.",
+      "source_quote": "Mã, Lộc Tồn đồng cung, hoặc Tồn hay Lộc Chiếu: Gọi là chiết tiển (bẻ roi đánh ngựa) hay Lộc Mã giao trì, chủ sự hạnh thông về quan trường, tài lộc. Thường thì đây là cách thương gia đắc tài đắc lộc.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:loc_ton", "star:hoa_loc", "concept:loc_ma_giao_tri", "concept:cach_tot", "concept:thuong_gia"],
+      "commentary": {
+        "han_viet_explain": "Lộc Mã giao trì = Lộc và Mã cùng ruổi ngựa — tài lộc lưu thông.",
+        "viet_thuan": "Mã gặp Lộc Tồn/Hóa Lộc: hanh thông quan trường tài lộc, cách của thương gia phát đạt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q50",
+      "question": "Cách Mã gặp Hỏa hay Linh đồng cung có ý nghĩa gì?",
+      "answer_atom": "Mã Hỏa hay Linh đồng cung: đắc địa thì chủ về quân sự, binh quyền, hiển đạt (ý nghĩa Chiến mã, ngựa lâm trận). Nếu hãm địa thì bôn ba chật vật, có thể bị thương tích.",
+      "source_quote": "Mã Hỏa hay Linh đồng cung: Đắc địa thì chủ về quân sự, binh quyển, hiển đạt (ý nghĩa Chiến mã, ngựa lâm trận). Nếu hãm địa, thì bôn ba chật vật, có thể bị thương tích.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:hoa_tinh", "star:linh_tinh", "concept:chien_ma", "concept:quan_su"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã + Hỏa/Linh đắc địa: chiến mã — hiển đạt binh nghiệp; hãm địa: bôn ba, thương tích.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q51",
+      "question": "Cách Mã Khốc Khách (tuấn mã) có ý nghĩa gì?",
+      "answer_atom": "Mã Khốc Khách: gọi là tuấn mã, tức là ngựa hay gặp người cưỡi giỏi, ám chỉ sự thao lược, chinh chiến dũng mãnh, lập công lớn, hay gặp thời vận may mắn.",
+      "source_quote": "Mã Khốc Cách: Gọi là tuấn mã tức là ngựa hay gặp người cưỡi giỏi, ám chỉ sự thao lược, chinh chiến dũng mãnh, lập công lớn, hay gặp thời vận may mắn.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:thien_khoc", "star:dieu_khach", "concept:tuan_ma", "concept:cach_tot"],
+      "commentary": {
+        "han_viet_explain": "Tuấn mã = ngựa hay, ngựa giỏi.",
+        "viet_thuan": "Mã + Khốc Khách: tuấn mã gặp người cưỡi giỏi — thao lược, lập công lớn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "OCR ghi 'Mã Khốc Cách' — theo văn cảnh tuấn mã, thường là bộ Mã + Thiên Khốc + Điếu Khách; giữ nguyên văn trong quote."
+      },
+      "confidence": 0.75,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q52",
+      "question": "Mã gặp Tướng có ý nghĩa gì?",
+      "answer_atom": "Mã, Tướng: làm nên vinh hiển.",
+      "source_quote": "Mã, Tướng: làm nên vinh hiển.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:thien_tuong", "concept:cach_tot"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã đi với Tướng: vinh hiển.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q53",
+      "question": "Mã gặp Lưu Mã có ý nghĩa gì?",
+      "answer_atom": "Mã và Lưu Mã: thăng quan tiến chức; thêm tài lộc, huy chương; có xuất ngoại hay đổi chỗ ở, chỗ làm.",
+      "source_quote": "Mã và Lưu Mã: Thăng quan tiến chức. Thêm tài lộc, huy chương. Có xuất ngoại, hay đổi chỗ ở, chỗ làm.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:luu_thien_ma", "concept:van_han", "concept:thang_quan"],
+      "commentary": {
+        "han_viet_explain": "Lưu Mã = Thiên Mã của năm hạn (lưu niên).",
+        "viet_thuan": "Mã gốc gặp Mã lưu niên: năm thăng tiến, thêm lộc, có di chuyển xuất ngoại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q54",
+      "question": "Cách xấu Mã Hình đồng cung (Phù thi mã) có ý nghĩa gì?",
+      "answer_atom": "Mã Hình đồng cung: gọi là Phù thi mã, ngựa mang xác chết, chỉ sự tai họa khủng khiếp, có thể chết thê thảm.",
+      "source_quote": "Mã Hình đồng cung: Gọi là Phú thi mã, ngựa mang xác chết, chỉ sự tai họa khủng khiếp, có thể chết thê thẩm.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:thien_hinh", "concept:phu_thi_ma", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": "Phù thi mã = ngựa chở thây (thi = xác chết).",
+        "viet_thuan": "Mã + Hình đồng cung: cách ngựa mang xác chết — tai họa nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q55",
+      "question": "Cách Mã Tuyệt đồng cung (Chiết Túc mã) có ý nghĩa gì?",
+      "answer_atom": "Mã Tuyệt đồng cung hay hội chiếu: gọi là Chiết Túc mã hay ngựa què, chỉ sự suy bại, ngăn trở trong mọi công việc, gây tai họa.",
+      "source_quote": "Mã Tuyệt đồng cung hay hội chiếu: Gọi là Chiết Túc mã hay ngựa què, chỉ sự suy bại, ngăn trở trong mọi công việc, gây tai họa.",
+      "source_page": 214,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "star:tuyet", "concept:chiet_tuc_ma", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": "Chiết túc = gãy chân.",
+        "viet_thuan": "Mã gặp Tuyệt: ngựa què — mọi việc suy bại, trở ngại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q56",
+      "question": "Mã gặp Tuần, Triệt (Tử Mã) có ý nghĩa gì?",
+      "answer_atom": "Mã gặp Tuần, Triệt: gọi là Tử Mã, ngựa chết — rất hung hãn, gây tai họa, bại hoại, chết chóc, thương tích tay chân.",
+      "source_quote": "Mã Tuần, Triệt... Gọi là Tử Mã, ngựa chết: rất hung hãn, gây tai họa, bại hoại, chết chóc, thương tích tay chân.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "concept:tuan", "concept:triet", "concept:tu_ma", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": "Tử Mã = ngựa chết.",
+        "viet_thuan": "Mã bị Tuần Triệt án ngữ: ngựa chết — tai họa, thương tật tay chân.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Tiêu đề cách này nằm cuối p214, nội dung diễn giải ở đầu p215."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q57",
+      "question": "Thiên Mã ở Hợi gọi là gì, nghĩa ra sao?",
+      "answer_atom": "Thiên Mã ở Hợi: gọi là Mã cùng đồ, ngựa bí lối, có nghĩa như Mã Tuyệt.",
+      "source_quote": "Thiên Mã ở Hợi: Gọi là Mã cùng đồ, ngựa bí lối, có nghĩa như Mã Tuyệt.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "concept:ma_cung_do", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": "Cùng đồ = đường cùng.",
+        "viet_thuan": "Mã đóng Hợi: ngựa cùng đường, xấu như Mã gặp Tuyệt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q58",
+      "question": "Thiên Mã ở Điền Trạch (Di), Quan Lộc có ý nghĩa gì?",
+      "answer_atom": "Thiên Mã ở Điền Trạch (Di), Quan Lộc: thường xuất ngoại, hay đi du lịch, làm việc lưu động; làm công vụ ở ngoại quốc.",
+      "source_quote": "a) Ở Điền Trạch (DI), Quan Lộc (QUAN): Thường xuất ngoại, hay đi du lịch, làm việc lưu động. Làm công cụ ở ngoại quốc.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "palace:dien_trach", "palace:thien_di", "palace:quan_loc", "concept:xuat_ngoai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã ở Điền/Di/Quan: đời sống công việc gắn với di chuyển, nước ngoài.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q59",
+      "question": "Thiên Mã ở Phu Thê có ý nghĩa gì?",
+      "answer_atom": "Thiên Mã ở Phu Thê: vợ chồng gặp nhau ở xa quê quán; có thể có vợ hoặc chồng là người ngoại quốc; thường cưới hỏi nhau rất nhanh.",
+      "source_quote": "b) Ở Phu Thê: Vợ chồng gặp nhau ở xa quê quán. Có thể có vợ hoặc chồng là người ngoại quốc. Thường cưới hỏi nhau rất nhanh.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "palace:phu_the", "concept:hon_nhan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã tại Phu Thê: duyên xa quê, có thể lấy người ngoại quốc, cưới nhanh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q60",
+      "question": "Thiên Mã ở Tài Bạch (Hạn) có ý nghĩa gì?",
+      "answer_atom": "Thiên Mã ở Tài Bạch (Hạn): hay có sự thay đổi (nhà, chỗ làm), xuất ngoại.",
+      "source_quote": "c) Ở Tài Bạch (HẠN): Hay có sự thay đổi (nhà, chỗ làm), xuất ngoại.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_ma", "palace:tai_bach", "concept:van_han", "concept:thay_doi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mã tại Tài Bạch/hạn: giai đoạn nhiều thay đổi chỗ ở, chỗ làm, xuất ngoại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q61",
+      "question": "Thiên Quan và Thiên Phúc là sao gì, ý nghĩa tính tình ra sao?",
+      "answer_atom": "Thiên Quan và Thiên Phúc là phúc tinh, đồng nghĩa với nhau. Về tính tình: có thiện tâm, nhân hậu, hiền lành, đức độ, hay làm việc thiện, hay cứu giúp người; có tín ngưỡng, tin tưởng nơi Phật Trời, nhân quả; có khiếu đi tu, có thể đắc quả. Hai sao này giống với Tứ Đức và Thiên Giải, Địa Giải, Giải Thần.",
+      "source_quote": "Hai sao này là phúc tinh, đồng nghĩa với nhau... Có thiện tâm, nhân hậu, hiển lành, đức độ, hay làm việc thiện, hay cứu giúp người. Có tín ngưỡng, tin tưởng nơi Phật Trời, nhân quả. Có khiếu đi tu, có thể đắc quả. Hai sao này giống với Tứ Đức và Thiên Giải, Địa Giải, Giải Thần.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "concept:phuc_tinh", "concept:tinh_tinh", "concept:tu_hanh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc: cặp phúc tinh chỉ thiện tâm, tín ngưỡng, khiếu tu hành; cùng nhóm với Tứ Đức và bộ Giải.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q62",
+      "question": "Ý nghĩa phúc thọ của Thiên Quan, Thiên Phúc là gì?",
+      "answer_atom": "Về phúc thọ, Thiên Quan Thiên Phúc: chủ sự cứu giải tai họa, giảm bớt hung nguy; giảm bệnh tật; tăng phúc thọ do việc tu nhân tích đức, giúp người, người giúp.",
+      "source_quote": "Chủ sự cứu giải tai họa, giảm bớt hung nguy. Giảm bệnh tật. Tăng phúc thọ do việc tu nhân tích đức, giúp người, người giúp.",
+      "source_page": 215,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "concept:phuc_tho", "concept:cuu_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc cứu giải tai họa, giảm bệnh, tăng phúc thọ nhờ tích đức.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q63",
+      "question": "Bộ Thiên Tướng, Riêu, Y với Thiên Quan Thiên Phúc có ý nghĩa gì?",
+      "answer_atom": "Thiên Tướng, Riêu, Y và Thiên Quan Thiên Phúc: bác sĩ rất mát tay, lương y chữa bệnh giỏi.",
+      "source_quote": "Thiên Tướng, Riêu, Y và Thiên Quan Thiên Phúc: Bác sĩ rất mát tay, lương y chữa bệnh giỏi.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tuong", "star:thien_rieu", "star:thien_y", "star:thien_quan", "star:thien_phuc", "concept:nghe_y"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Tướng + Riêu Y + Quan Phúc: cấu trúc thầy thuốc mát tay.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q64",
+      "question": "Bộ Cơ Nguyệt Đồng Lương với Thiên Quan, Thiên Phúc có ý nghĩa gì?",
+      "answer_atom": "Cơ Nguyệt Đồng Lương, Thiên Quan, Thiên Phúc: lương y, người hảo tâm, phước thiện, hay làm công tác xã hội.",
+      "source_quote": "Cơ Nguyệt Đồng Lương, Thiên Quan, Thiên Phúc: Lưỡng y, người hảo tâm, phước thiện, hay làm công tác xã hội.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_co", "star:thai_am", "star:thien_dong", "star:thien_luong", "star:thien_quan", "star:thien_phuc", "concept:co_nguyet_dong_luong", "concept:nghe_y"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách Cơ Nguyệt Đồng Lương thêm Quan Phúc: người làm nghề y, công tác xã hội, hảo tâm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q65",
+      "question": "Tử Tham đồng cung gặp Thiên Quan Thiên Phúc có ý nghĩa gì?",
+      "answer_atom": "Tử, Tham đồng cung (với Thiên Quan Thiên Phúc): đi tu, cứu được nhiều người.",
+      "source_quote": "Tử, Tham đồng cung: Đi tu, cứu được nhiều người.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:tu_vi", "star:tham_lang", "star:thien_quan", "star:thien_phuc", "concept:tu_hanh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi + Tham Lang đồng cung trong mạch Quan Phúc: cách đi tu cứu người.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.8,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q66",
+      "question": "Nguyên tắc chung về Thiên Quan, Thiên Phúc ở các cung là gì?",
+      "answer_atom": "Đóng ở bất luận cung nào, hai sao này đều mang lại sự lành sự thiện cho cung đó, tốt nhất là ở cung Mệnh, Thân, Phúc, Di, Tật.",
+      "source_quote": "Đóng ở bất luận cung nào, hai cung này đều mang lại sự lành sự thiện cho cung đó, tốt nhất là ở cung Mệnh, Thân, Phúc, Di, Tật.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "palace:menh", "palace:phuc_duc", "palace:thien_di", "palace:tat_ach", "concept:y_nghia_cac_cung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc đóng đâu lành đó; đẹp nhất tại Mệnh, Thân, Phúc, Di, Tật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q67",
+      "question": "Thiên Quan, Thiên Phúc ở Quan Lộc, Thiên Di, Mệnh có ý nghĩa gì?",
+      "answer_atom": "Ở Quan Lộc hay Thiên Di, Mệnh: hay giúp đỡ người khác và được nhiều kẻ khác giúp đỡ.",
+      "source_quote": "Ở Quan Lộc hay Thiên Di, Mệnh: Hay giúp đỡ người khác và được nhiều kẻ khác giúp đỡ.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "palace:quan_loc", "palace:thien_di", "palace:menh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc tại Quan/Di/Mệnh: cho và nhận sự giúp đỡ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q68",
+      "question": "Thiên Quan, Thiên Phúc ở Tài Bạch có ý nghĩa gì?",
+      "answer_atom": "Ở Tài Bạch: hay dùng tiền bố thí, cúng dường, sử dụng tiền bạc vào mục đích lương thiện, xã hội.",
+      "source_quote": "Ở Tài Bạch: Hay dùng tiền bố thí, cúng dường, sử dụng tiễn bạc vào mục đích lương thiện, xã hội.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "palace:tai_bach"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc tại Tài: tiền hướng vào việc thiện.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q69",
+      "question": "Thiên Quan, Thiên Phúc ở Điền Trạch có ý nghĩa gì?",
+      "answer_atom": "Ở Điền Trạch: có khi hiến tiền, nhà cửa cho việc nghĩa.",
+      "source_quote": "Ở Điền Trạch: Có khi hiến tiền, nhà cửa cho việc nghĩa.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "palace:dien_trach"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc tại Điền: có thể hiến nhà đất cho việc nghĩa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q70",
+      "question": "Thiên Quan, Thiên Phúc ở Tật Ách có ý nghĩa gì?",
+      "answer_atom": "Ở Tật Ách: được nâng đỡ, giúp đỡ trong công danh, tiền bạc.",
+      "source_quote": "Ở Tật Ách: Được nâng đỡ, giúp đỡ trong công danh, tiền bạc.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_quan", "star:thien_phuc", "palace:tat_ach"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan Phúc tại Tật Ách: được nâng đỡ giúp đỡ (theo nguyên văn sách).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Nguyên văn ghi nội dung 'công danh, tiền bạc' tại Tật Ách — hơi lạ so với cung Tật, giữ đúng text."
+      },
+      "confidence": 0.75,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q71",
+      "question": "Ý nghĩa cơ thể của Thiên Riêu là gì?",
+      "answer_atom": "Thiên Riêu là lông. Người có Riêu ở Mệnh thì có nhiều lông, đa mao, nam cũng như nữ. Đây là một đặc điểm của sinh dục.",
+      "source_quote": "Thiên Riêu là lông. Người có riêu ở Mệnh thì có nhiều lông, đa mao, nam cũng như nữ. Đây là một đặc điểm của sinh dục.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "palace:menh", "concept:co_the"],
+      "commentary": {
+        "han_viet_explain": "Đa mao = nhiều lông.",
+        "viet_thuan": "Riêu thủ Mệnh tượng nhiều lông — sách coi là đặc điểm sinh dục.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q72",
+      "question": "Ý nghĩa tính tình của Thiên Riêu là gì?",
+      "answer_atom": "Thiên Riêu: đa dâm, đa dục, hay chơi bời trụy lạc, đối với cả hai phái nhưng rất bất lợi cho riêng phái nữ; dễ sa ngã, bất chính, vô hạnh. Thiên Riêu rất giống nghĩa với các sao Thai, Mộc Dục, Đào, Hồng, Tham Lang.",
+      "source_quote": "Đa dâm, đa dục, hay chơi bời trụy lạc, đối với cả hai phái nhưng rất bất lợi cho riêng phái nữ. Dễ sa ngã, bất chính, vô hạnh. Thiên Riêu rất giống nghĩa với các sao Thai, Mộc Dục, Đào, Hồng, Tham Lang.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:thai", "star:moc_duc", "star:dao_hoa", "star:hong_loan", "star:tham_lang", "concept:tinh_tinh", "concept:dam_duc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu chỉ dâm dục, dễ sa ngã, đặc biệt bất lợi cho nữ; cùng nhóm nghĩa với Thai, Mộc Dục, Đào, Hồng, Tham Lang.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q73",
+      "question": "Thiên Riêu đắc địa ở Mão Dậu thì sao?",
+      "answer_atom": "Nếu Riêu đắc địa ở Mão Dậu thì dù có sắc dục cũng không bị nhơ nhuốc — cách này ví như sen mọc trong bùn. Dù sao cũng không nên hiểu theo nghĩa thanh cao, vì Riêu đắc địa vẫn không mất ý nghĩa dâm dục.",
+      "source_quote": "Tuy nhiên, nếu Riêu đắc địa ở Mão Dậu thì dù có sắc dục cũng không bị nhơ nhuốc. Cách này ví như sen mọc trong bùn. Dù sao cũng không nên hiểu theo nghĩa thanh cao, vì Riêu đắc địa vẫn không mất ý nghĩa dâm dục.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "concept:dac_dia", "concept:dam_duc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu đắc địa Mão Dậu: sen mọc trong bùn — bớt nhơ nhuốc nhưng không mất nghĩa dâm dục.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q74",
+      "question": "Thiên Riêu có ý nghĩa gì về dị đoan, tín ngưỡng?",
+      "answer_atom": "Thiên Riêu: dị đoan mê tín, có tính đồng bóng, hay cúng kiến, cầu sao, xem số, xem bói.",
+      "source_quote": "Dị đoan mê tín, có tính đồng bóng, hay cúng kiến, cầu sao, xem số, xem bói.",
+      "source_page": 216,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "concept:di_doan", "concept:tinh_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu còn chỉ tính mê tín, đồng bóng, ham cúng bái bói toán.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q75",
+      "question": "Ý nghĩa bệnh lý của Thiên Riêu là gì?",
+      "answer_atom": "Thiên Riêu báo hiệu bệnh về bộ phận sinh dục dưới nhiều hình thức (lậu, liệt dương, teo...) nếu gặp hung sát tinh.",
+      "source_quote": "Thiên Riêu báo hiệu bệnh về bộ phận sinh dục dưới nhiều hình thức (lậu, liệt dương, teo...) nếu gặp hung sát tính.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "concept:benh_ly", "concept:sinh_duc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu gặp hung sát tinh: bệnh đường sinh dục.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q76",
+      "question": "Riêu gặp Đào (Hồng) có ý nghĩa gì?",
+      "answer_atom": "Riêu Đào (Hồng): vừa lẳng lơ, vừa dâm đãng, dù là trai hay gái, dù có hay chưa có gia đình. Bộ sao này có yếu tố ngoại tình, đa mang rất nặng, với nhiều hạng người, trong mọi hoàn cảnh.",
+      "source_quote": "Riêu Đào (Hồng): Vừa lẳng lơ, vừa dâm đãng, dù là trai hay gái, dù có hay chưa có gia đình. Có nghĩa bộ sao này có yếu tố ngoại tình, đa mang rất nặng, với nhiều hạng người, trong mọi hoàn cảnh.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:dao_hoa", "star:hong_loan", "concept:ngoai_tinh", "concept:dam_duc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu + Đào/Hồng: bộ sao ngoại tình, đa mang nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q77",
+      "question": "Riêu gặp Đồng có ý nghĩa gì?",
+      "answer_atom": "Riêu Đồng: hay thay cũ đổi mới về mặt sinh lý, đổi đào thay kép. Nếu đã có gia đình thì dễ ngoại tình.",
+      "source_quote": "Riêu Đông: Hay thay cũ đổi mới về mặt sinh lý, đổi đào thay thép. Nếu đã có gia đình thì dễ ngoại anh.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:thien_dong", "concept:ngoai_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu + Thiên Đồng: ưa thay đổi trong tình ái, có gia đình thì dễ ngoại tình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "OCR ghi 'Riêu Đông', 'đổi đào thay thép', 'ngoại anh' — đọc theo văn cảnh là Riêu Đồng, đổi đào thay kép, ngoại tình."
+      },
+      "confidence": 0.75,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q78",
+      "question": "Bộ Riêu Xương Khúc Cơ có ý nghĩa gì?",
+      "answer_atom": "Riêu Xương Khúc Cơ: bị dày vò vì nhu cầu sinh lý, bị ám ảnh rất nặng, có khuynh hướng sáng tác văn thơ dâm tình kiểu như Hồ Xuân Hương; hết sức dâm đãng.",
+      "source_quote": "Riêu Xương Khúc Cơ: Bị dày vò vì nhu cầu sinh lý bị ám ảnh rất nặng, có khuynh hướng sáng tác văn thơ dâm tình kiểu như Hồ Xuân Hương; hết sức dâm đãng.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:van_xuong", "star:van_khuc", "star:thien_co", "concept:van_tho_dam_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu + văn tinh (Xương Khúc) + Cơ: ám ảnh sinh lý chuyển thành sáng tác văn thơ dâm tình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q79",
+      "question": "Riêu gặp Thai có ý nghĩa gì?",
+      "answer_atom": "Riêu, Thai: rất dâm dục, dễ có con riêng.",
+      "source_quote": "Riêu, Thai: Rất dâm dục, dễ có con riêng.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:thai", "concept:dam_duc", "concept:con_rieng"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu + Thai: dâm dục nặng, dễ có con ngoài giá thú.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q80",
+      "question": "Nguyên tắc chung về Thiên Riêu ở các cung và ở Phu Thê, Nô Bộc?",
+      "answer_atom": "Tọa thủ cung nào, Thiên Riêu cũng mang nghĩa sinh lý rất nặng. Ở Phu Thê, Nô Bộc: vợ chồng đều dâm đãng, chơi bời, sắc dục; có thể ngoại tình nếu gặp Đồng, Đào hay Hồng, Thai.",
+      "source_quote": "Tọa thủ cung nào, Thiên Riêu cũng mang nghĩa sinh lý rất nặng. a) Ở Phu Thê, Nô Bộc: Vợ chồng đều dâm đãng, chơi bời, sắc dục. Có thể ngoại tình nếu gặp Đồng, Đào hay Hồng, Thai.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:thien_dong", "star:dao_hoa", "star:hong_loan", "star:thai", "palace:phu_the", "palace:no_boc", "concept:ngoai_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu ở Phu Thê/Nô Bộc: đời sống sắc dục nặng; thêm Đồng/Đào/Hồng/Thai thì có yếu tố ngoại tình.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q81",
+      "question": "Thiên Riêu ở Tử Tức, Tài Bạch có ý nghĩa gì?",
+      "answer_atom": "Thiên Riêu ở Tử Tức, Tài Bạch: con cái lăng loàn, chơi bời; anh chị em theo trai, dễ hoang nếu thêm Thai.",
+      "source_quote": "b) Ở Tử Tức, Tài Bạch: Con cái lăng loàn, chơi bời. Anh chị em theo trai, dễ hoang nếu thêm Thai.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "star:thai", "palace:tu_tuc", "palace:tai_bach"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Riêu tại Tử Tức/Tài Bạch: con cái và anh chị em sa vào chơi bời (theo nguyên văn sách).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Nguyên văn ghi cung 'Tử Tức, Tài Bạch' nhưng nội dung nói cả 'anh chị em' — giữ đúng text, không tự sửa thành Huynh Đệ."
+      },
+      "confidence": 0.7,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q82",
+      "question": "Thiên Riêu ở Đại Hạn và Tiểu Hạn có ý nghĩa gì?",
+      "answer_atom": "Dù gặp Đại Hạn hay Tiểu Hạn có Thiên Riêu, thời gian đó thường có nhân tình sâu đậm đi đến chỗ ân ái mặn nồng. Mặt khác, hạn đó đương sự hay tin dị đoan, coi bói, xem tướng, cúng vái, đi chùa.",
+      "source_quote": "Dù gặp Đại Hạn hay Tiểu Hạn, thời gian đó thường có nhân tình sâu đậm đi đến chỗ ân ái mặn nồng. Mặt khác, hạn đó đương sự hay tin dị đoan, coi bói, xem tướng, cúng vái, đi chùa...",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_rieu", "concept:van_han", "concept:nhan_tinh", "concept:di_doan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn gặp Riêu: giai đoạn có nhân tình sâu đậm, đồng thời hay tin dị đoan cúng bái.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q83",
+      "question": "Thiên Thương và Thiên Sứ đóng ở đâu, dùng để xem gì?",
+      "answer_atom": "Hai sao này đóng ở vị trí cố định: Sứ đóng ở cung Tật, Thương đóng ở cung Nô. Cả hai đều là hung tinh, chỉ dùng để xem hạn, đặc biệt là tiểu hạn, chứ không có ý nghĩa lắm trên toàn cuộc đời. Bao giờ đoán vận hạn mới nên lưu ý đến vị trí và sự hội tụ của Thương Sứ với các sao khác.",
+      "source_quote": "Hai sao này đóng ở vị trí cố định: Sứ đóng ở cung Tật, Thương đóng ở cung Nô. Cả hai đều là hung tinh, chỉ dùng để xem hạn, đặc biệt là tiểu hạn, chứ không có ý nghĩa lắm trên toàn cuộc đời.",
+      "source_page": 217,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "palace:tat_ach", "palace:no_boc", "concept:van_han", "concept:hung_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương cố định ở Nô, Sứ cố định ở Tật; hung tinh chuyên dùng xem hạn, nhất là tiểu hạn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Tiêu đề OCR ghi 'Thiên Sứ và Thiên Hương' — theo nội dung là Thiên Thương và Thiên Sứ."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q84",
+      "question": "Ý nghĩa của Thương Sứ khi xét vận hạn là gì?",
+      "answer_atom": "Ý nghĩa của Thương Sứ chỉ có khi xét vận hạn: buồn thảm; xui xẻo, không may, ngăn trở mọi công việc; mang lại tang thương, bệnh tật, tai họa.",
+      "source_quote": "Ý nghĩa này chỉ có khi xét vận hạn: Buồn thẩm. Xui xẻo, không may, ngăn trở mọi công việc. Mang lại tang thương, bệnh tật, tai họa.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "concept:van_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương Sứ trong hạn: buồn, xui, trở ngại, tang thương bệnh tật.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q85",
+      "question": "Hạn gặp Thương với Xương hay Khúc có ý nghĩa gì?",
+      "answer_atom": "Thương Xương hay Khúc: tác họa khủng khiếp, có thể chết non nếu hai hạn cùng xấu.",
+      "source_quote": "Thương Xương hay Khúc: Tác họa khủng khiếp có thể chết non nếu hai hạn cùng xấu.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:van_xuong", "star:van_khuc", "concept:van_han", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương gặp Xương/Khúc trong hạn xấu kép: tác họa rất nặng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q86",
+      "question": "Hạn gặp Thương, Sứ, Kình, Hỏa, Riêu, Cự có ý nghĩa gì?",
+      "answer_atom": "Thương, Sứ, Kình, Hỏa, Riêu, Cự: hại của, hại người.",
+      "source_quote": "Thương, Sứ, Kình, Hỏa, Riêu, Cự: Hại của, hại người.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "star:kinh_duong", "star:hoa_tinh", "star:thien_rieu", "star:cu_mon", "concept:van_han", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Thương Sứ + Kình Hỏa Riêu Cự trong hạn: tổn hại cả của lẫn người.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q87",
+      "question": "Hạn gặp Thương, Sứ (riêng hai sao) có ý nghĩa gì?",
+      "answer_atom": "Thương, Sứ: hay ốm đau (Sứ) hay rắc rối vì bạn.",
+      "source_quote": "Thương, Sứ: Hay ốm đau (Sứ) hay rắc rối vì bạn.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "concept:van_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn gặp Thương Sứ: ốm đau hoặc rắc rối từ bạn bè.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q88",
+      "question": "Hạn gặp Sứ, Cơ, Cự, Hình có ý nghĩa gì?",
+      "answer_atom": "Sứ, Cơ, Cự, Hình: kiện tụng.",
+      "source_quote": "Sứ, Cơ, Cự, Hình: Kiện tụng.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:thien_co", "star:cu_mon", "star:thien_hinh", "concept:van_han", "concept:kien_tung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sứ + Cơ Cự Hình trong hạn: dính kiện tụng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q89",
+      "question": "Hạn gặp Sứ Tuế có ý nghĩa gì?",
+      "answer_atom": "Sứ Tuế: chết nếu đại hạn xấu.",
+      "source_quote": "Sứ Tuế: Chết nếu đại hạn xấu.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:thai_tue", "concept:van_han", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sứ + Thái Tuế trong hạn, đại hạn cùng xấu: cách rất hung theo sách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q90",
+      "question": "Hạn gặp Sứ, Thiên Không, Lưu Kình đồng chiếu có ý nghĩa gì?",
+      "answer_atom": "Sứ, Thiên Không, Lưu Kình đồng chiếu vào hạn: chết.",
+      "source_quote": "Sứ, Thiên Không, Lưu Kình đồng chiếu vào hạn: Chết.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:thien_khong", "star:luu_kinh_duong", "concept:van_han", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sứ + Thiên Không + Kình lưu niên cùng chiếu hạn: cách tối hung theo sách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q91",
+      "question": "Hạn gặp Sứ, Tang, Hổ có ý nghĩa gì?",
+      "answer_atom": "Sứ, Tang, Hổ: có tang. Ở cung nào, tang có thể xảy ra cho người đó.",
+      "source_quote": "Sứ, Tang, Hổ: Có tang. Ở cung nào Tang có thể xảy ra cho người đó.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:tang_mon", "star:bach_ho", "concept:van_han", "concept:tang_su"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sứ + Tang Môn + Bạch Hổ: có tang; cung nào thì ứng vào người của cung đó.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q92",
+      "question": "Sứ ở Tý gặp Kình Đà, Tuế vào nhị hạn có ý nghĩa gì?",
+      "answer_atom": "Sứ ở Tý, Kình Đà, Tuế vào nhị hạn: chết.",
+      "source_quote": "Sứ ở Tý, Kình Đà, Tuế vào nhị hạn: Chết.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:kinh_duong", "star:da_la", "star:thai_tue", "concept:van_han", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": "Nhị hạn = đại hạn và tiểu hạn cùng lúc.",
+        "viet_thuan": "Sứ tại Tý + Kình Đà + Tuế vào cả hai hạn: cách tối hung theo sách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q93",
+      "question": "Sứ gặp Lục Sát có ý nghĩa gì?",
+      "answer_atom": "Sứ gặp Lục Sát: chết.",
+      "source_quote": "Sứ gặp Lục Sát: Chết.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "concept:luc_sat", "concept:van_han", "concept:cach_xau"],
+      "commentary": {
+        "han_viet_explain": "Lục Sát = sáu sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp).",
+        "viet_thuan": "Sứ hội đủ lục sát tinh: cách tối hung theo sách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q94",
+      "question": "Thương Sứ ở Tý, Dần có ý nghĩa gì?",
+      "answer_atom": "Thương Sứ ở Tý, Dần: độc.",
+      "source_quote": "Thương Sứ ở Tý, Dân: Độc.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "concept:van_han", "concept:vi_tri_doc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương Sứ đóng tại Tý, Dần: vị trí độc hại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "OCR ghi 'Tý, Dân' — đọc theo văn cảnh là Tý, Dần."
+      },
+      "confidence": 0.75,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q95",
+      "question": "Sứ gặp Kình, Đà có ý nghĩa gì và sao nào giải được?",
+      "answer_atom": "Sứ, Kình, Đà: dữ — nhưng Tử, Đồng Lương giải được.",
+      "source_quote": "Sứ, Kình, Đà: Dữ (Tử, Đồng Lương giải được).",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:kinh_duong", "star:da_la", "star:tu_vi", "star:thien_dong", "star:thien_luong", "concept:van_han", "concept:sao_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sứ + Kình Đà: hung, song Tử Vi và Đồng Lương hóa giải được.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q96",
+      "question": "Sứ gặp Xương có ý nghĩa gì?",
+      "answer_atom": "Sứ Xương: khoa trường thi cử lận đận.",
+      "source_quote": "Sứ Xương: Khoa trường thi cử lận đận.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_su", "star:van_xuong", "concept:thi_cu", "concept:van_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sứ + Văn Xương: đường thi cử trắc trở.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q97",
+      "question": "Thiên Thương gặp Thiên Hình có ý nghĩa gì?",
+      "answer_atom": "Thiên Thương, Thiên Hình: bị đánh.",
+      "source_quote": "Thiên thương, Thiên hình: Bị đánh.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_hinh", "concept:van_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương + Hình trong hạn: bị hành hung.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q98",
+      "question": "Thiên Thương gặp Tang Môn có ý nghĩa gì?",
+      "answer_atom": "Thiên Thương, Tang Môn: có tang, sự biến đổi phi thường.",
+      "source_quote": "Thiên Thương, Tang Môn: Có tang, sự biến đổi phi thường.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:tang_mon", "concept:van_han", "concept:tang_su"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương + Tang Môn: có tang và biến cố lớn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q99",
+      "question": "Thương gặp Khốc có ý nghĩa gì?",
+      "answer_atom": "Thương, Khốc: thi cử lận đận.",
+      "source_quote": "Thương, Khốc: Thi cử lận đận.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_khoc", "concept:thi_cu", "concept:van_han"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thương + Thiên Khốc: thi cử trắc trở.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q100",
+      "question": "Theo Nguyễn Mạnh Bảo, năm hạn gặp Thương Sứ thì sao?",
+      "answer_atom": "Theo Nguyễn Mạnh Bảo, năm hạn mà gặp hai sao Thương Sứ, không chết thì cũng nguy mạng, nếu thiếu sao giải đủ mạnh.",
+      "source_quote": "Theo Nguyễn Mạnh Bảo, năm hạn mà gặp hai sao này không chết thì cũng nguy mạng, nếu thiếu sao giải đủ mạnh.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "concept:van_han", "concept:trich_dan_tac_gia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Quan điểm Nguyễn Mạnh Bảo (được tác giả dẫn): hạn gặp Thương Sứ rất nguy nếu thiếu sao giải mạnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q101",
+      "question": "Tốc độ tác họa của Thương Sứ tùy vị trí như thế nào?",
+      "answer_atom": "Họa sẽ đến mau nếu Thiên Sứ ở Dần Thân Tỵ Hợi. Họa sẽ đến thật mau nếu: Thiên Thương ở Sửu Mão Thìn Dậu Tuất; Thiên Sứ ở Tý Mão Thìn Ngọ Mùi.",
+      "source_quote": "Họa sẽ đến mau nếu Thiên Sứ ở Dần Thân Tỵ Hợi. Họa sẽ đến thật mau nếu: Thiên Thương ở Sửu Mão Thìn Dậu Tuất. Thiên Sứ ở Tý Mão Thìn Ngọ Mùi.",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "concept:van_han", "concept:toc_do_tac_hoa"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vị trí địa chi của Thương Sứ quyết định họa đến mau hay thật mau.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q102",
+      "question": "Những chính tinh nào giải được Thiên Thương, Thiên Sứ?",
+      "answer_atom": "Chính tinh giải Thương Sứ: Tử, Phủ, Lương, Đồng.",
+      "source_quote": "3. NHỮNG SAO GIẢI THIÊN SỨ: a) CHÍNH TINH: Tử, Phủ, Lương, Đồng",
+      "source_page": 218,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "star:tu_vi", "star:thien_phu", "star:thien_luong", "star:thien_dong", "concept:sao_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bốn chính tinh Tử Vi, Thiên Phủ, Thiên Lương, Thiên Đồng giải được Thương Sứ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q103",
+      "question": "Những bàng tinh nào giải được Thiên Thương, Thiên Sứ?",
+      "answer_atom": "Bàng tinh giải Thương Sứ: Khoa, Lộc, Tả, Hữu, Quang Quý, Khôi Việt; Thiên Giải, Địa Giải, Giải Thần; Thiên Quan, Thiên Phúc; Tuần, Triệt. Ngoài ra nếu cung Phúc có nhiều sao tốt và mạnh thì sẽ chế giải khá mạnh và toàn diện.",
+      "source_quote": "Khoa, Lộc, Tả, Hữu, Quang Quý, Khôi Việt. Thiên giải, Địa giải, Giải Thần. Thiên quan, Thiên phúc. Tuần, Triệt... Ngoài ra nếu Phúc có nhiều sao tốt và mạnh thì sẽ chế giải khá mạnh và toàn diện.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "star:hoa_khoa", "star:hoa_loc", "star:ta_phu", "star:huu_bat", "star:thien_khoi", "star:thien_viet", "star:thien_quan", "star:thien_phuc", "palace:phuc_duc", "concept:sao_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Danh sách bàng tinh hóa giải Thương Sứ, kèm vai trò cung Phúc tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q104",
+      "question": "Việc chế giải Thương Sứ cần hiểu như thế nào?",
+      "answer_atom": "Việc chế giải không có nghĩa là sự việc đó hoàn toàn không xảy đến, mà là nếu có đến, chuyện chẳng may đó không tác họa đúng mức, nếu gặp sao giải hiệu lực.",
+      "source_quote": "Tuy nhiên, việc chế giải ở đây không có nghĩa là sự việc đó hoàn toàn không xảy đến, mà là nếu có đến, chuyện chẳng may đó không tác họa đúng mức, nếu gặp sao giải hiệu lực.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_thuong", "star:thien_su", "concept:sao_giai", "concept:nguyen_ly_che_giai"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Chế giải = giảm mức tác họa, không phải xóa hẳn sự việc.",
+        "nguyen_ly": "Sao giải vận hành theo lối giảm nhẹ, không triệt tiêu — nguyên tắc đọc quan trọng khi luận hạn.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q105",
+      "question": "Ý nghĩa chung của Thiên Tài là gì?",
+      "answer_atom": "Thiên Tài không có ý nghĩa gì về cơ thể, tướng mạo, tính tình, phúc thọ hay tai họa. Sao này chỉ có tác dụng làm tăng hay giảm cái tốt hay cái xấu của các sao khác mà thôi.",
+      "source_quote": "Thiên Tài không có ý nghĩa gì về cơ thể, tướng mạo, tính tình, phúc thọ hay tai họa... Sao này chỉ có tác dụng làm tăng hay giảm cái tốt hay cái xấu của các sao khác mà thôi.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tai", "concept:y_nghia_chung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Tài không có nghĩa riêng, chỉ điều chỉnh tốt xấu của sao khác.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q106",
+      "question": "Theo Thái Thứ Lang, Thiên Tài có 2 đặc tính gì?",
+      "answer_atom": "Theo Thái Thứ Lang, Thiên Tài có 2 đặc tính: nếu gặp sao mờ ám, sẽ làm giảm bớt ảnh hưởng xấu; nếu gặp sao sáng sủa, sẽ làm giảm bớt cái tốt. Nhìn dưới 2 đặc tính này, Thiên Tài có tác dụng giống như sao Tuần và sao Triệt.",
+      "source_quote": "Theo Thái Thứ Lang thì sao này có 2 đặc tính: Nếu gặp sao mờ ám, sẽ làm giảm bớt ảnh hưởng xấu. Nếu gặp sao sáng sủa, sẽ làm giảm bớt cái tốt. Nhìn dưới 2 đặc tính này, Thiên Tài có tác dụng giống như sao Tuần và sao Triệt.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tai", "concept:tuan", "concept:triet", "concept:trich_dan_tac_gia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thái Thứ Lang: Thiên Tài giảm xấu của sao mờ, giảm tốt của sao sáng — cơ chế giống Tuần Triệt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q107",
+      "question": "Tác giả đánh giá hiệu lực của Thiên Tài so với Tuần Triệt như thế nào?",
+      "answer_atom": "Hầu hết các tác giả rất ít chú ý đến Thiên Tài khi giải đoán, khiến người ta hoài nghi về hiệu lực sao này. Theo quan điểm của tác giả, có lẽ sao Thiên Tài không mạnh bằng Tuần Triệt. Trong trường hợp Thiên Tài gặp Tuần, Triệt, nó cũng không đủ sức chế giảm đặc tính của Tuần, Triệt; vì giống đặc tính Tuần Triệt nên khi phối hợp sẽ bổ túc, làm tăng cường giá trị và hiệu lực của Tuần, Triệt.",
+      "source_quote": "Theo quan điểm của tác giả, có lẽ sao Thiên Tài không mạnh bằng Tuần Triệt. Trong trường hợp Thiên Tài gặp Tuần, Triệt, nó cũng không đủ sức chế giảm đặc tính của Tuần, Triệt. Ngoài ra, vì giống đặc tính của Tuần Triệt phối hợp sẽ chi phối bổ túc trên các sao khác, làm tăng cường giá trị và hiệu lực của Tuần, Triệt.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tai", "concept:tuan", "concept:triet", "concept:quan_diem_tac_gia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tác giả: Thiên Tài yếu hơn Tuần Triệt; gặp Tuần Triệt thì cộng hưởng tăng hiệu lực Tuần Triệt chứ không chế được.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q108",
+      "question": "Thiên Tài với hai sao Nhật, Nguyệt có quan hệ gì?",
+      "answer_atom": "Thiên Tài đồng cung Nhật hay Nguyệt sáng sủa: che lấp ánh sáng của Nhật Nguyệt. Thiên Tài đồng cung Nhật hay Nguyệt mờ ám: làm cho Nhật Nguyệt thêm rạng rỡ. Thiên Tài đóng cung Nhật hay Nguyệt ở Sửu Mùi: làm cho Nhật Nguyệt thêm rạng rỡ. Trong trường hợp này, Thiên Tài có hiệu lực như sao Hóa Kỵ ở Sửu Mùi.",
+      "source_quote": "Thiên Tài đồng cung Nhật hay Nguyệt sáng sủa che lấp ánh sáng của Nhật Nguyệt. Thiên Tài đồng cung Nhật hay Nguyệt mờ ám: làm cho Nhật Nguyệt thêm rạng rỡ. Thiên Tài đóng cung Nhật hay Nguyệt ở Sửu Mùi làm cho Nhật Nguyệt thêm rạng rỡ. Trong trường hợp này, Thiên Tài có hiệu lực như sao Hóa Kỵ ở Sửu Mùi.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tai", "star:thai_duong", "star:thai_am", "star:hoa_ky", "concept:tac_dung_hai_chieu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Tài đảo chiều độ sáng Nhật Nguyệt: sáng thì che, mờ thì làm rạng; tại Sửu Mùi hiệu lực như Hóa Kỵ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q109",
+      "question": "Kết luận về bản chất hộ tinh / ám tinh của Thiên Tài?",
+      "answer_atom": "Thiên Tài vừa là hộ tinh, vừa là ám tinh. Hộ tinh: làm giảm ảnh hưởng của sao xấu nhưng không trợ lực cho sao tốt. Ám tinh: làm cho sao tốt giảm giá trị. Nhưng có lẽ hiệu lực hai chiều này chỉ có đối với hai sao Nhật Nguyệt mà thôi. Đây là một nghi vấn nữa trong Tử Vi, cho đến nay chưa giải đáp ổn thỏa.",
+      "source_quote": "Do các đặc tính trên, Thiên Tài vừa là hộ tinh, vừa là ám tinh... Nhưng, có lẽ hiệu lực hai chiều này chỉ có đối với hai sao Nhật Nguyệt mà thôi. Dù sao, đây là một nghi vấn nữa trong Tử Vi, cho đến nay chưa giải đáp ổn thỏa.",
+      "source_page": 219,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tai", "concept:ho_tinh", "concept:am_tinh", "concept:nghi_van"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Tài lưỡng tính hộ/ám, có lẽ chỉ ứng với Nhật Nguyệt; tác giả ghi nhận là nghi vấn chưa giải đáp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q110",
+      "question": "Sao Thiên Thọ có ý nghĩa gì?",
+      "answer_atom": "Thiên Thọ là cát tinh có nghĩa: điềm đạm, hòa nhã; nhân hậu, từ thiện; làm gia tăng phúc thọ. Ở bất cứ cung nào cũng hay, nhất là ở Phúc.",
+      "source_quote": "Sao này là cát tính có nghĩa: Điểm đạm, hòa nhã. Nhân hậu, từ thiện. Làm gia tăng phúc thọ. Ở bất cứ cung nào cũng hay, nhất là ở Phúc.",
+      "source_page": 220,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tho", "palace:phuc_duc", "concept:cat_tinh", "concept:phuc_tho"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Thọ: cát tinh chỉ điềm đạm nhân hậu, tăng phúc thọ; đẹp nhất tại cung Phúc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q111",
+      "question": "Ý nghĩa tính tình của Thiên Trù là gì?",
+      "answer_atom": "Thiên Trù chủ sự ăn uống, lộc ăn, khiếu ẩm thực: thích ăn nhậu, ham ăn (gourmand); ăn nhậu rất khỏe (gros mangeur). Người có Thiên Trù có vị giác hết sức bén nhạy và tinh tế.",
+      "source_quote": "Thiên Trù chủ sự ăn uống, lộc ăn, khiếu ẩm thực. Thích ăn nhậu, ham ăn (gourmand). Ăn nhậu rất khỏe (gros mangeur)... người có Thiên Trù có vị giác hết sức bén nhạy và tinh tế.",
+      "source_page": 220,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tru", "concept:tinh_tinh", "concept:am_thuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Trù: sao của lộc ăn và khiếu ẩm thực, vị giác tinh nhạy.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q112",
+      "question": "Thiên Trù đi với Lực Sĩ, Hóa Lộc thì sao?",
+      "answer_atom": "Nếu Thiên Trù đi với Lực Sĩ thì sức ăn càng khủng khiếp: hảo ăn, thường cùng bạn bè đối ẩm; thích ăn món ngon vật lạ, có gu ăn nhậu sành điệu. Nếu đi với Hóa Lộc thì sành về ăn nhậu. Được thêm Lực Sĩ nữa thì là người ăn khỏe, vừa tham ăn vừa sành ăn, người sống để ăn — có thể là đầu bếp giỏi hay đầu bếp tài tử, tự làm thức ăn cho vừa ý, từ đó có tính khó ăn, kén ăn.",
+      "source_quote": "Nếu đi với Lực Sĩ thì sức ăn càng khủng khiếp... Nếu đi với Hóa Lộc thì sành về ăn nhậu. Được thêm sao Lực Sĩ nữa thì là người ăn khỏe, vừa tham ăn, vừa sành ăn, người sống để ăn. Đây có thể là những đầu bếp giỏi, hay đầu bếp tài tử, tự mình làm lấy thức ăn cho vừa ý. Từ đó có tính khó ăn, kén ăn.",
+      "source_page": 220,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tru", "star:luc_si", "star:hoa_loc", "concept:am_thuc", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trù + Lực Sĩ: ăn khỏe; Trù + Hóa Lộc: sành ăn; đủ bộ: mẫu người đầu bếp, sống để ăn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q113",
+      "question": "Thiên Trù đi với Văn Xương hay Hóa Khoa có ý nghĩa gì?",
+      "answer_atom": "Nếu Thiên Trù đi với sao Văn Xương hay Hóa Khoa thì là tác giả các sách gia chánh dạy cách nấu ăn, chế rượu, kiêm người sành ăn, háo ăn và ăn nhiều.",
+      "source_quote": "Nếu đi với sao Văn Xương hay Hóa Khoa thì là tác giả các sách gia chánh dạy cách nấu ăn, chế rượu, kiêm nhiệm kẻ sành ăn, háo ăn và ăn nhiều.",
+      "source_page": 220,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tru", "star:van_xuong", "star:hoa_khoa", "concept:am_thuc", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": "Gia chánh = việc bếp núc, nội trợ.",
+        "viet_thuan": "Trù + văn tinh: người viết sách dạy nấu ăn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q114",
+      "question": "Ý nghĩa tài lộc của Thiên Trù là gì?",
+      "answer_atom": "Tượng trưng cho lộc ăn, Thiên Trù có nghĩa gia tăng tài lộc. Nhưng nếu đi với Đại Tiểu Hao thì vì ăn mà hết tiền.",
+      "source_quote": "Tượng trưng cho lộc ăn, Thiên Trù có nghĩa gia tăng tài lộc. Nhưng nếu đi với Đại Tiểu Hao thì vì ăn mà hết tiền.",
+      "source_page": 220,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tru", "star:dai_hao", "star:tieu_hao", "concept:tai_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trù tăng tài lộc; gặp Nhị Hao thì tiền đội nón ra đi theo miệng ăn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S8b.Q115",
+      "question": "Ý nghĩa bệnh lý của Thiên Trù là gì?",
+      "answer_atom": "Thật ra Thiên Trù không có nghĩa bệnh lý, trái lại còn có nghĩa là sức khỏe. Nhưng đi với một số sao khác, ý nghĩa bệnh lý rất dễ có, dù ở Mệnh hay ở Tật: Thiên Trù Nhị Hao — bệnh về bộ máy tiêu hóa (đau gan, đau bao tử, trúng thực, thổ tả...) do bội thực, bội ẩm mà ra; Thiên Trù Không Kiếp — bệnh nặng về bội thực, bội ẩm, có thể đi đến mổ xẻ, sưng gan, lở bao tử.",
+      "source_quote": "Thật ra Thiên Trù không có nghĩa bệnh lý, trái lại còn có nghĩa là sức khỏe... Thiên Trù Nhị Hao: Bệnh về bộ máy tiêu hóa (đau gan, đau bao tử, trúng thực, thổ tả...) do bội thực, bội ẩm mà ra. Thiên Trù Không Kiếp: Bệnh nặng về bội thực, bội ẩm, có thể đi đến mổ xẻ sưng gan, lở bao tử...",
+      "source_page": 220,
+      "section_id": "tvhs.S8b",
+      "tags": ["star:thien_tru", "star:dai_hao", "star:tieu_hao", "star:dia_khong", "star:dia_kiep", "palace:menh", "palace:tat_ach", "concept:benh_ly", "concept:tieu_hoa"],
+      "commentary": {
+        "han_viet_explain": "Bội thực, bội ẩm = ăn uống quá độ.",
+        "viet_thuan": "Trù vốn chỉ sức khỏe; gặp Nhị Hao hay Không Kiếp thì thành bệnh tiêu hóa do ăn uống quá độ.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
