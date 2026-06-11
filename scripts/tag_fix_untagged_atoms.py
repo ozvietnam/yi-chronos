@@ -34,11 +34,14 @@ CORPORA = (
 def detect(text: str) -> tuple[list[str], list[str]]:
     stars = [c for c, pats in STAR_PATTERNS.items() if any(p in text for p in pats)]
     # Biệt danh / viết tắt qua wiki — "một fact nhiều tên gọi" (Anh chốt 2026-06-11)
-    from engine.tu_vi.star_aliases import detect_stars
+    from engine.tu_vi.star_aliases import detect_stars, detect_palaces
     for s in detect_stars(text):
         if s not in stars:
             stars.append(s)
     palaces = [c for c, pats in PALACE_PATTERNS.items() if any(p in text for p in pats)]
+    for p in detect_palaces(text):
+        if p not in palaces:
+            palaces.append(p)
     return stars, palaces
 
 

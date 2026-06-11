@@ -33,6 +33,22 @@
     "Đào Hồng": ["dao_hoa", "hong_loan"],
     "Song Hỷ": ["thien_hy", "hy_than"],
     "Thương Sứ": ["thien_thuong", "thien_su"],
-    "Tuần Triệt": ["tuan_khong", "triet_khong"]
+    "Tuần Triệt": ["tuan_khong", "triet_khong"],
+    "Song Lộc": ["loc_ton", "hoa_loc"]
+  },
+  "palace_aliases": {
+    "_meta": "Cung viết tắt — pattern CỤM (giới từ + tên hoa) để tránh trùng từ thường. 'ở Tử' phải kèm dấu câu vì trùng Tử Vi. Evidence 2026-06-11: Tài 294, Phúc 170, Huynh 114, Phụ 109, Quan 95...",
+    "tai_bach": ["ở Tài", "cung Tài", "tại Tài", "vào Tài"],
+    "quan_loc": ["ở Quan", "cung Quan", "tại Quan"],
+    "phuc_duc": ["ở Phúc", "cung Phúc", "tại Phúc"],
+    "thien_di": ["ở Di", "cung Di", "tại Di"],
+    "tat_ach": ["ở Tật", "cung Tật", "tại Tật"],
+    "dien_trach": ["ở Điền", "cung Điền", "tại Điền"],
+    "no_boc": ["ở Nô", "cung Nô", "tại Nô"],
+    "phu_the": ["ở Thê", "cung Thê", "cung Phối", "ở Phối"],
+    "huynh_de": ["ở Huynh", "cung Huynh", "cung Bào", "ở Bào"],
+    "phu_mau": ["cung Phụ ", "ở Phụ Mẫu", "tại Phụ Mẫu"],
+    "tu_tuc": ["ở Tử:", "ở Tử,", "ở Tử.", "cung Tử Tức", "ở Tử Tức", "tại Tử Tức"],
+    "menh": ["ở Mệnh", "cung Mệnh", "tại Mệnh", "thủ Mệnh", "tọa Mệnh"]
   }
 }

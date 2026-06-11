@@ -85,6 +85,36 @@ def alias_to_stars() -> dict[str, list[str]]:
     return table
 
 
+_PALACE_CACHE: dict[str, list[str]] | None = None
+
+
+def palace_alias_patterns() -> dict[str, list[str]]:
+    """Bảng cung canonical → list pattern cụm viết tắt (case-sensitive)."""
+    global _PALACE_CACHE
+    if _PALACE_CACHE is not None:
+        return _PALACE_CACHE
+    table: dict[str, list[str]] = {}
+    try:
+        seed = json.loads(SEED_PATH.read_text())
+        for canon, pats in seed.get("palace_aliases", {}).items():
+            if canon.startswith("_"):
+                continue
+            table[canon] = pats
+    except Exception:
+        pass
+    _PALACE_CACHE = table
+    return table
+
+
+def detect_palaces(text: str) -> list[str]:
+    """Detect cung qua cụm viết tắt ('ở Tài', 'cung Phúc'...) — case-sensitive."""
+    found: list[str] = []
+    for canon, pats in palace_alias_patterns().items():
+        if any(p in text for p in pats) and canon not in found:
+            found.append(canon)
+    return found
+
+
 def detect_stars(text: str) -> list[str]:
     """Detect MỌI sao trong text qua mọi tên gọi (tìm song song)."""
     found: list[str] = []
