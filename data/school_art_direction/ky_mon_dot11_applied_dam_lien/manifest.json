@@ -1,49 +1,148 @@
 {
   "brief": "data/school_art_direction/REQUEST_DOT_11_KY_MON_APPLIED_DAM_LIEN_ART_BRIEF.md",
   "batch": "dot11_ky_mon_applied_dam_lien",
-  "status": "awaiting_art",
+  "generated_at": "2026-06-11T00:00:00+07:00",
+  "status": "web_ready",
   "assets": [
     {
       "id": "ky-mon-05-task-decision-gate",
       "kind": "hero_card",
       "target_ratio": "16:9",
-      "status": "awaiting_art"
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-05-task-decision-gate.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-05-task-decision-gate.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-05-task-decision-gate.prompt.md",
+      "source_size": [
+        2200,
+        1238
+      ],
+      "web_size": [
+        1600,
+        900
+      ],
+      "web_bytes": 234958,
+      "web_quality": 82,
+      "target_bytes": 450000
     },
     {
       "id": "ky-mon-06-cach-cuc-detection",
       "kind": "card",
-      "target_ratio": "4:3_or_3:2",
-      "status": "awaiting_art"
+      "target_ratio": "4:3",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-06-cach-cuc-detection.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-06-cach-cuc-detection.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-06-cach-cuc-detection.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 282576,
+      "web_quality": 82,
+      "target_bytes": 300000
     },
     {
       "id": "ky-mon-07-relative-direction-center",
       "kind": "card",
       "target_ratio": "4:3",
-      "status": "awaiting_art"
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-07-relative-direction-center.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-07-relative-direction-center.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-07-relative-direction-center.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 276560,
+      "web_quality": 82,
+      "target_bytes": 300000
     },
     {
       "id": "ky-mon-08-heaven-earth-human-layers",
       "kind": "card",
-      "target_ratio": "4:3_or_1:1",
-      "status": "awaiting_art"
+      "target_ratio": "4:3",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-08-heaven-earth-human-layers.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-08-heaven-earth-human-layers.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-08-heaven-earth-human-layers.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 230132,
+      "web_quality": 82,
+      "target_bytes": 300000
     },
     {
       "id": "ky-mon-09-duty-seal-tri-phu-tri-su",
       "kind": "card",
       "target_ratio": "4:3",
-      "status": "awaiting_art"
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-09-duty-seal-tri-phu-tri-su.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-09-duty-seal-tri-phu-tri-su.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-09-duty-seal-tri-phu-tri-su.prompt.md",
+      "source_size": [
+        2200,
+        1650
+      ],
+      "web_size": [
+        1400,
+        1050
+      ],
+      "web_bytes": 199878,
+      "web_quality": 82,
+      "target_bytes": 300000
     },
     {
       "id": "ky-mon-10-personal-reading-dam-lien",
       "kind": "hero_card",
       "target_ratio": "16:9",
-      "status": "awaiting_art"
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-10-personal-reading-dam-lien.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-10-personal-reading-dam-lien.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-10-personal-reading-dam-lien.prompt.md",
+      "source_size": [
+        2200,
+        1238
+      ],
+      "web_size": [
+        1600,
+        900
+      ],
+      "web_bytes": 229320,
+      "web_quality": 82,
+      "target_bytes": 450000
     },
     {
       "id": "ky-mon-11-avoid-and-favor-directions",
       "kind": "optional_panoramic",
-      "target_ratio": "21:9_or_16:9",
-      "status": "optional"
+      "target_ratio": "21:9",
+      "status": "web_ready",
+      "source_png": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/source/ky-mon-11-avoid-and-favor-directions.png",
+      "webp": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/web_ready/ky-mon-11-avoid-and-favor-directions.webp",
+      "prompt": "data/school_art_direction/ky_mon_dot11_applied_dam_lien/prompts/ky-mon-11-avoid-and-favor-directions.prompt.md",
+      "source_size": [
+        2200,
+        943
+      ],
+      "web_size": [
+        1600,
+        686
+      ],
+      "web_bytes": 181154,
+      "web_quality": 82,
+      "target_bytes": 450000
     }
   ]
 }
