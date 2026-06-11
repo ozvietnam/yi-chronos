@@ -178,10 +178,47 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
         lop_2_parts.append("✓ Không có chính tinh nào rơi vào Nhân Cung.")
     lop_2 = "\n".join(lop_2_parts)
 
+    # Việc 3 — đại vận hiện tại (BIẾN): cung vận = "Mệnh của 10 năm" → pull atoms
+    # sao tọa cung vận luận như Mệnh + đối chiếu miếu-hãm tại cung vận.
+    # Phú Thái Vi: "Cẩu hoặc bất sát kỳ cơ, cánh vong kỳ biến, tắc số chi tạo hóa viễn hĩ."
+    dai_van_view = None
+    dv = la_so.get("dai_van_hien_tai")
+    if dv:
+        from engine.tu_vi.mieu_vuong_ham import level_at
+        from engine.tu_vi.viet_names import vi_star as _vs, vi_chi as _vc
+        from engine.tu_vi.paradigm.to_hop_cung import muon_sao as _muon_sao
+        # Cung vận vô chính diệu → mượn sao đối cung (phép tá tinh, việc B)
+        van_stars = list(dv.get("stars") or [])
+        muon_info = None
+        if not van_stars:
+            m = _muon_sao(dv["chi"], la_so.get("chinh_tinh_per_palace") or {})
+            if m["vo_chinh_dieu"] and m["stars"]:
+                van_stars = m["stars"]
+                muon_info = m
+        dv = {**dv, "stars": van_stars, "muon_sao": muon_info}
+        van_views = {}
+        for star in van_stars:
+            cv = luan_sao_cung(star, "menh", limit_per_school=2)
+            if cv["total_atoms"]:
+                lv = level_at(_vs(star), _vc(dv["chi"]))
+                if lv:
+                    cv["mieu_ham"] = lv
+                van_views[star] = cv
+        dai_van_view = {
+            **dv,
+            "cross_views": van_views,
+            "total_atoms": sum(cv["total_atoms"] for cv in van_views.values()),
+            "vo_chinh_dieu": muon_info is not None,
+            "citation": ("Phú Thái Vi: 'quên biến hóa thì tạo hóa của số vuột mất' — "
+                         "cung đại vận luận như Mệnh tạm trong 10 năm; "
+                         "'Chư tinh cát phùng hung dã cát, chư tinh hung phùng cát dã hung'"),
+        }
+
     # Compose lớp 3 (per palace cross-school + tổ hợp cung)
     lop_3 = {
         "per_palace": per_palace,
         "to_hop_per_palace": to_hop_per_palace,
+        "dai_van_hien_tai": dai_van_view,
         "schools_summary": {
             sc_code: SCHOOL_NAMES[sc_code]
             for sc_code in SCHOOL_NAMES

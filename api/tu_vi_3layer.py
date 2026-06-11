@@ -176,6 +176,27 @@ async def render_from_birth(birth: BirthInput) -> dict:
             phu_tinh_per_palace.setdefault(fn, []).append(hoa)
         tu_hoa_summary.append({"hoa": hoa, "star": base, "palace_chi": chi, "palace_fn": fn})
 
+    # Việc 3 — đại vận hiện tại (BIẾN): tuổi mụ → cycle đang đi, cung vận = "Mệnh 10 năm"
+    from datetime import datetime
+    birth_year = int(birth.birth_datetime_local[:4])
+    age_mu = datetime.now().year - birth_year + 1
+    dai_van_hien_tai = None
+    cur = next((dv for dv in (ls.get("dai_van") or [])
+                if dv["start_age"] <= age_mu <= dv["end_age"]), None)
+    if cur:
+        idx = cur["branch_index"] % 12
+        van_chi = IDX_TO_CHI[idx]
+        dai_van_hien_tai = {
+            "cycle_index": cur["cycle_index"],
+            "chi": van_chi,
+            "fn": idx_to_function.get(idx),
+            "start_age": cur["start_age"],
+            "end_age": cur["end_age"],
+            "age_mu": age_mu,
+            "stars": [s for s in chinh_tinh_per_palace.get(van_chi, [])],
+            "phu_tinh": [s for s in phu_tinh_per_palace.get(van_chi, [])],
+        }
+
     la_so_input = {
         "can": CAN_VI_TO_CANON.get(ls["year_stem"], ls["year_stem"].lower()),
         "chi": CHI_VI_TO_CANON.get(ls["year_branch"], ls["year_branch"].lower()),
@@ -186,6 +207,7 @@ async def render_from_birth(birth: BirthInput) -> dict:
         "chinh_tinh_per_palace": chinh_tinh_per_palace,
         "phu_tinh_per_palace": phu_tinh_per_palace,
         "tu_hoa": tu_hoa_summary,
+        "dai_van_hien_tai": dai_van_hien_tai,
     }
     result = render_3_layer(la_so_input)
     result["la_so_input"] = la_so_input

@@ -44,6 +44,8 @@ def _laso_cache_key(la_so_input: dict) -> str:
         "cuc": la_so_input.get("cuc"),
         "gender": la_so_input.get("gender"),
         "ct": la_so_input.get("chinh_tinh_per_palace"),
+        # Đại vận đổi → narrative phải viết lại (BIẾN)
+        "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -145,6 +147,28 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                 if vt:
                     parts.append(f"- ({school}, {'/'.join(a.get('relations', []))}): {vt[:200]}")
                     shown_th += 1
+
+    # Đại vận hiện tại (BIẾN) — Việc 3 (đọc từ three_layer: đã áp mượn sao nếu vô chính diệu)
+    dv = (three_layer.get("lop_3_sach_co") or {}).get("dai_van_hien_tai") \
+        or la_so_input.get("dai_van_hien_tai")
+    if dv:
+        sao_txt = ", ".join(vi_star(s) for s in (dv.get("stars") or []))
+        if dv.get("vo_chinh_dieu") and sao_txt:
+            sao_txt = f"vô chính diệu, mượn sao đối cung: {sao_txt}"
+        elif sao_txt:
+            sao_txt = f"sao tọa vận: {sao_txt}"
+        else:
+            sao_txt = "cung vận vô chính diệu"
+        parts.append("")
+        parts.append(
+            f"## Đại vận hiện tại: vận {dv['cycle_index']} "
+            f"(tuổi {dv['start_age']}-{dv['end_age']}, đang tuổi mụ {dv['age_mu']}), "
+            f"cung {vi_chi(dv['chi'])} — {sao_txt}"
+        )
+        parts.append(
+            "Lưu ý: cung đại vận luận như Mệnh tạm 10 năm — kết hợp CƠ (lá số gốc) "
+            "với BIẾN (vận đang đi), không phán cứng."
+        )
 
     parts.append("")
     parts.append("Viết narrative 'Chuyện về anh/chị' theo nguyên tắc đã cho.")

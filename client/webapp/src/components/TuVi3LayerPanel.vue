@@ -51,6 +51,31 @@
           </span>
         </div>
 
+        <!-- Đại vận hiện tại (BIẾN) -->
+        <div v-if="daiVan" class="dai-van-section">
+          <h4>🧭 Đại vận hiện tại — vận {{ daiVan.cycle_index }} (tuổi {{ daiVan.start_age }}–{{ daiVan.end_age }}), cung {{ formatPalace(daiVan.chi) }}</h4>
+          <p class="to-hop-hint">Cung đại vận luận như Mệnh tạm 10 năm. {{ daiVan.citation }}</p>
+          <p v-if="daiVan.vo_chinh_dieu" class="to-hop-hint">↪ Cung vận vô chính diệu — mượn sao đối cung: {{ (daiVan.stars || []).map(formatStar).join(', ') }}</p>
+          <div v-for="(cv, star) in (daiVan.cross_views || {})" :key="'dv-' + star" class="star-block">
+            <h5>⭐ {{ formatStar(star) }} (tọa cung vận)
+              <span v-if="cv.mieu_ham" :class="['mh-badge', mhClass(cv.mieu_ham)]">{{ cv.mieu_ham }} tại cung vận</span>
+              <span class="badge">{{ cv.total_atoms }} atoms</span>
+            </h5>
+            <template v-for="(atoms, school) in cv.schools" :key="school">
+            <div v-if="atoms && atoms.length > 0" class="school-view">
+              <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
+              <ul>
+                <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
+                  <div class="quote" v-html="'&quot;' + annotateTerms(atom.source_quote) + '&quot;'"></div>
+                  <div v-if="atom.viet_thuan" class="paraphrase" v-html="'→ ' + annotateTerms(atom.viet_thuan)"></div>
+                  <div class="meta">📍 trang {{ atom.page_start }} · confidence {{ atom.confidence }}</div>
+                </li>
+              </ul>
+            </div>
+            </template>
+          </div>
+        </div>
+
         <!-- Tổ hợp cung: tam phương tứ chính / giáp / mượn sao (chống "luận máy móc" — Trung Châu) -->
         <div v-if="toHopList.length" class="to-hop-section">
           <h4>🔗 Tổ hợp cung — tam phương tứ chính · giáp · mượn sao</h4>
@@ -202,6 +227,7 @@ function formatFn(f) {
 }
 
 const tuHoa = computed(() => result.value?.la_so_input?.tu_hoa || [])
+const daiVan = computed(() => result.value?.lop_3_sach_co?.dai_van_hien_tai || null)
 
 function formatPalace(p) {
   return PALACE_NAMES[p] || p
@@ -450,6 +476,14 @@ h3 { margin-top: 0; }
   border-bottom: 1px dotted #6a4c93;
   cursor: help;
   color: #5a3d80;
+}
+
+.dai-van-section {
+  margin: 20px 0;
+  padding: 12px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #2a9d8f;
 }
 
 .tu-hoa-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
