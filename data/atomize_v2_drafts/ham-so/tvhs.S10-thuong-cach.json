@@ -1,0 +1,1016 @@
+{
+  "book_corpus_id": "tu-vi-ham-so",
+  "section_id": "tvhs.S10",
+  "section_title": "Thượng Cách + lược sử (p59-66)",
+  "pages": [59, 66],
+  "atoms": [
+    {
+      "question_id": "tvhs.S10.Q01",
+      "question": "Hạn 'Cát hung tương bán' là vận hạn như thế nào?",
+      "answer_atom": "Cát hung tương bán là vận hạn tốt xấu xen kẽ; như trường hợp hơn 1 năm tốt rồi gặp 1 năm xấu không đều đặn, đôi khi nửa năm hanh thông rồi nửa năm sau bế tắc.",
+      "source_quote": "Hơn 1 năm tốt rồi gặp 1 năm xấu không đều đặn, ví như bóng ma chập chờn trên mặt nước. — Cát hung tương bán. Như trên, nhưng đôi khi nửa năm hanh thông, rồi nửa năm sau bế tắc.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:van_han", "cach_cuc:cat_hung_tuong_ban"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vận hạn may rủi pha trộn: hơn một năm tốt rồi một năm xấu, hoặc nửa năm thuận nửa năm bế tắc, không đều đặn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Trang 59 mở đầu giữa một bảng liệt kê (mô tả đầu trang thuộc nhãn ở trang trước); cách ghép nhãn–mô tả suy từ cấu trúc cặp 'Lộc xung Mã khổn' phía dưới."
+      },
+      "confidence": 0.7,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q02",
+      "question": "Hạn 'Bộ số vô y' là vận hạn như thế nào?",
+      "answer_atom": "Bộ số vô y là vận hạn trước sau xấu tốt không rõ rệt, may đi liền với rủi kéo dài liên miên.",
+      "source_quote": "— Bộ số vô y. Vận hạn trước sau xấu tốt không rõ rệt, may đi liền với rủi kéo dài liên miên.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:van_han", "cach_cuc:bo_so_vo_y"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vận hạn xấu tốt không rõ rệt, may rủi đi liền nhau kéo dài liên miên.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Cách ghép nhãn–mô tả suy từ cấu trúc bảng liệt kê bị cắt trang."
+      },
+      "confidence": 0.7,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q03",
+      "question": "Hạn 'Lộc xung Mã khổn' là vận hạn như thế nào?",
+      "answer_atom": "Lộc xung Mã khổn là hạn gặp Sát Lộc Mã hội họp và Tam Không xâm phạm.",
+      "source_quote": "— Lộc xung Mã khổn. Hạn gặp Sát Lộc Mã hội họp và Tam Không xâm phạm.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:van_han", "cach_cuc:loc_xung_ma_khon", "star:loc_ton", "star:thien_ma"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạn mà Sát, Lộc, Mã hội họp lại bị Tam Không xâm phạm thì gọi là Lộc xung Mã khổn.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q04",
+      "question": "Theo Thái Thứ Lang, Phú Cục và Quí Cục cần xa lánh những sao nào?",
+      "answer_atom": "Thái Thứ Lang nói thêm rằng Phú Cục và Quí Cục rất cần phải xa lánh Tuần Triệt, Sát tinh và Bại tinh.",
+      "source_quote": "Phú Cục và Quí Cục trình bày sơ lược trên đây rất cần phải xa lánh Tuần Triệt, Sát, Bại tinh.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:phu_cuc", "cach_cuc:qui_cuc", "concept:tuan_triet", "concept:sat_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Các cục giàu và sang muốn giữ trọn ý nghĩa thì phải tránh Tuần Triệt cùng các sao Sát, Bại.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q05",
+      "question": "Những Quí Cục nào dù gặp khắc tinh cũng không bị chiết giảm tốt đẹp?",
+      "answer_atom": "Ngoại lệ theo Thái Thứ Lang: Quí Cục Tham Hỏa tương phùng; Nhật Nguyệt giáp Mệnh ở Sửu có Tham Vũ tọa thủ (hay ở Mùi có Phủ tọa thủ giáp Nhật Nguyệt); và Văn Xương Khúc ám củng (Mệnh hay Quan có Văn Xương Khúc) — dù gặp khắc tinh cũng không bị chiết giảm tốt đẹp, nếu Sát tinh sáng sủa lại càng thêm rực rỡ.",
+      "source_quote": "Ngoại trừ, Quí Cục: Tham Hỏa tương phùng, Nhật Nguyệt giáp Mệnh ở Sửu có Tham Vũ tọa thủ (hay ở Mùi có Phủ tọa thủ giáp Nhật Nguyệt) và Văn Xương Khúc ám củng (Mệnh hay Quan có Văn Xương Khúc) dù gặp khắc tinh cũng không bị chiết giảm tốt đẹp, và nếu Sát tinh sáng sủa lại càng thêm rực rỡ.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:tham_hoa_tuong_phung", "cach_cuc:nhat_nguyet_giap_menh", "cach_cuc:van_xuong_khuc_am_cung", "star:tham_lang", "star:hoa_tinh", "star:van_xuong", "star:van_khuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Ba ngoại lệ: Tham gặp Hỏa, Nhật Nguyệt kẹp Mệnh ở Sửu/Mùi, và Xương Khúc ám củng — gặp sao khắc vẫn không giảm tốt, Sát tinh sáng sủa còn làm rực rỡ thêm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q06",
+      "question": "Phú Cục và Quí Cục cần gặp bộ sao nào mới thật toàn mỹ?",
+      "answer_atom": "Phú và Quí rất cần gặp Khoa Quyền Lộc hội họp mới thật là toàn mỹ.",
+      "source_quote": "Phú và Quí rất cần gặp Khoa Quyển Lộc hội họp mới thật là toàn mỹ.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:phu_cuc", "cach_cuc:qui_cuc", "star:hoa_khoa", "star:hoa_quyen", "star:hoa_loc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cục giàu và cục sang chỉ toàn mỹ khi có thêm bộ Khoa Quyền Lộc hội họp.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q07",
+      "question": "Bần tiện cục gặp Tuần Triệt án ngữ thì sao?",
+      "answer_atom": "Bần tiện cục nếu gặp Tuần Triệt án ngữ (ngoại trừ trường hợp Sinh Bất Phùng Thời và Nhật Nguyệt Tàng Hung) cũng đỡ xấu xa, và nếu gặp thêm nhiều sao sáng đẹp thì chắc hẳn trở nên tốt đẹp.",
+      "source_quote": "Bần tiện cục nếu gặp Tuần Triệt án ngữ (ngoại trừ trường hợp Sinh Bất Phùng Thời và Nhật Nguyệt Tàng Hung) cũng đỡ xấu xa, và nếu gặp thêm nhiễu sao sáng đẹp, chắc hẳn là trở nên tốt đẹp.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:ban_tien_cuc", "concept:tuan_triet", "cach_cuc:sinh_bat_phung_thoi", "cach_cuc:nhat_nguyet_tang_hung"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cục nghèo hèn mà có Tuần Triệt án ngữ (trừ hai cách Sinh Bất Phùng Thời và Nhật Nguyệt Tàng Hung) thì bớt xấu; thêm nhiều sao sáng đẹp thì thành tốt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q08",
+      "question": "Danh từ Cục (hiểu theo nghĩa thứ hai) được tác giả định nghĩa như thế nào?",
+      "answer_atom": "Cục theo nghĩa thứ hai chỉ một phương diện nào đó của hạnh phúc vật chất con người — hoặc phú (giàu), hoặc quí (sang), hoặc bần tiện (không giàu, không sang). Mỗi cục quy tụ một số sao đồng đặc tính nói lên phương diện nổi bật nhất của hạnh phúc. Cục không gói ghém toàn thể các khía cạnh của hạnh phúc, nên chỉ có nghĩa phiến diện, nghĩa trội yếu nhất.",
+      "source_quote": "danh từ Cục, hiểu theo nghĩa thứ hai, được dùng để chỉ một phương diện nào đó của hạnh phúc vật chất con người — hoặc phú (giàu), hoặc quí (sang), hoặc bần tiện (không giàu, không sang) — Mỗi cục quy tụ một số sao đồng đặc tính nói lên phương diện nổi bật nhất của hạnh phúc con người. Cục không gói ghém toàn thể các khía cạnh của hạnh phúc. Do đó, Cục chỉ có một nghĩa phiến diện, nghĩa trội yếu nhất, nhấn mạnh đến một đại hạt quan trọng nhất của hạnh phúc thế tục mà thôi.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cuc", "paradigm:ham_so", "concept:phu", "concept:qui", "concept:ban_tien"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cục chỉ nói lên một mặt của hạnh phúc vật chất (giàu, sang, hay nghèo hèn), không bao trùm toàn bộ hạnh phúc — nghĩa của nó phiến diện, chỉ nhấn mặt nổi bật nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q09",
+      "question": "Sao của một cục phải hội đủ điều kiện gì, và thế nào là cục toàn hảo so với cục cần trợ lực?",
+      "answer_atom": "Các sao của một cục muốn hội đủ ý nghĩa phải được đắc địa và không bị Sát tinh hay Không Tinh (Tuần Triệt) xâm phạm. Có cục toàn hảo và có cục cần trợ lực: Quý Cục 'Khoa Quyền Lộc củng' là cục toàn hảo vì bao gồm 3 yếu tố khoa bảng, quyền tước và tài lộc; còn quý cục 'Kình Dương nhập miếu' cần được quí cục khác bổ túc và trợ lực mới đắc quý.",
+      "source_quote": "các sao của một cục, muốn hội đủ ý nghĩa quan trọng đó, phải được đắc địa và không bị Sát tinh hay Không Tinh (Tuần Triệt) xâm phạm... Ví dụ như Quý Cục \"Khoa Quyền Lộc cùng\" là một cục toàn hảo vì bao gồm 3 yếu tố: khoa bảng quyền tước và tài lộc. Còn quý cục \"Kình Dương nhập miếu\" là một cục hoàn hảo, cần được quí cục khác bổ túc và trợ lực để đắc quý.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cuc", "concept:dac_dia", "cach_cuc:khoa_quyen_loc_cung", "cach_cuc:kinh_duong_nhap_mieu", "star:kinh_duong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sao trong cục phải đắc địa và không bị Sát tinh hay Tuần Triệt phạm. Có cục tự nó đã trọn vẹn (Khoa Quyền Lộc củng), có cục phải nhờ cục khác bồi thêm mới thành quý (Kình Dương nhập miếu).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q10",
+      "question": "Người giải đoán Tử Vi phải xét Cục như thế nào?",
+      "answer_atom": "Trong thực tế ít khi gặp những cục thuần hảo; cục tốt hay gặp phá cục chế giảm hoặc Sát tinh, Không Tinh phá tán. Cục đứng một mình mới có ý nghĩa cơ hữu; đi chung với phá cục hay sát hung tinh thì mất hoặc giảm ý nghĩa. Người giải đoán bao giờ cũng phải xét cục trong bối cảnh các cục tốt xấu khác, không quy chiếu vào một cục để kết luận vội vã. Hàm số là phương pháp để đánh giá Cục.",
+      "source_quote": "Người giải đoán Tử Vi bao giờ cũng phải xét cục trong bối cảnh các cục tốt hay xấu khác chứ không nên quy chiếu vào một cục để kết luận vội vã. Một lần nữa, hàm số là phương pháp để đánh giá Cục.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cuc", "paradigm:ham_so", "concept:pha_cuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Không được nhìn một cục lẻ mà kết luận vội; phải đặt cục trong toàn cảnh các cục tốt xấu khác. Tác giả nhấn mạnh: hàm số chính là phương pháp đánh giá Cục.",
+        "nguyen_ly": "Mỗi cục chỉ có ý nghĩa cơ hữu khi đứng một mình; đi chung phá cục hay sát hung tinh thì ý nghĩa bị mất hoặc giảm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q11",
+      "question": "Cách khác Cục như thế nào?",
+      "answer_atom": "Trong khi Cục chỉ riêng rẽ một khía cạnh của hạnh phúc con người thì Cách chỉ nhiều khía cạnh của hạnh phúc cùng một lúc; vì vậy Cách đủ nghĩa và nhiều nghĩa hơn Cục. Thái Thứ Lang (Tử Vi Đẩu Số trang 289) phân biệt bốn cách: thượng cách, trung cách, hạ cách và phi thường cách.",
+      "source_quote": "Trong khi Cục chỉ riêng rẽ một khía cạnh của hạnh phúc con người thì Cách chỉ nhiều khía cạnh của hạnh phúc cùng một lúc. Vì vậy, Cách đủ nghĩa và nhiều nghĩa hơn Cục. Thái Thứ Lang, trong quyển Tử Vi Đầu Số trang 289, đã phân biệt bốn cách: thượng cách, trung cách, hạ cách và phi thường cách",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cach", "concept:cuc", "cach_cuc:thuong_cach", "cach_cuc:trung_cach", "cach_cuc:ha_cach", "cach_cuc:phi_thuong_cach"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cục nói một mặt, Cách nói nhiều mặt của hạnh phúc cùng lúc nên Cách bao quát hơn. Theo Thái Thứ Lang có bốn cách: thượng, trung, hạ và phi thường.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q12",
+      "question": "Thượng Cách được giải thích là gì và với điều kiện nào?",
+      "answer_atom": "Thượng Cách được giải thích như có chức vị lớn, phú quí hiển hách, với điều kiện phải thật hoàn toàn — nghĩa là Mệnh Cục tương sinh, âm dương thuận lý, hội đủ chính tinh trong cách đó và quy tụ nhiều cát tinh cũng đắc địa.",
+      "source_quote": "Được giải thích như có chức vị lớn, phú quí hiển hách với điều kiện phải thật hoàn toàn nghĩa là Mệnh Cục tương sinh, âm dương thuận lý, hội đủ chính tinh trong cách đó và quy tụ nhiễu cát tinh cũng đắc địa.",
+      "source_page": 59,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:thuong_cach", "concept:menh_cuc_tuong_sinh", "concept:am_duong_thuan_ly"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thượng Cách = chức vị lớn, giàu sang hiển hách, nhưng phải hội đủ: Mệnh và Cục sinh nhau, âm dương thuận lý, đủ chính tinh của bộ và nhiều cát tinh đắc địa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q13",
+      "question": "Thượng Cách gồm những bộ sao nào?",
+      "answer_atom": "Thượng Cách được Thái Thứ Lang chia làm 5 bộ: Tử Phủ Vũ Tướng; Cơ Nguyệt Đồng Lương; Sát Phá Liêm Tham; Cự Nhật; Nhật Nguyệt. Mỗi bộ phải quy tụ chính tinh miếu, vượng hay đắc địa, đồng thời với nhiều trợ tinh như Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Đào Hồng, Khoa Quyền Lộc (không thấy kể Quang Quý, Thai Tọa).",
+      "source_quote": "Thượng Cách được Thái Tử Lang chia lão 5 bộ: Tử Phủ Vũ Tướng. Cơ Nguyệt Đồng Lương. Sát Phá Liêm Tham. Cự Nhật. Nhật Nguyệt. Mỗi bộ sao như thế phải quy tụ chính tinh miếu, vượng hay đắc địa, đồng thời với nhiễu trợ tinh như Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Đào Hồng, Khoa Quyền Lộc (không thấy kể Quang Quý, Thai Tọa).",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:thuong_cach", "cach_cuc:tu_phu_vu_tuong", "cach_cuc:co_nguyet_dong_luong", "cach_cuc:sat_pha_liem_tham", "cach_cuc:cu_nhat", "cach_cuc:nhat_nguyet"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Năm bộ Thượng Cách: Tử Phủ Vũ Tướng, Cơ Nguyệt Đồng Lương, Sát Phá Liêm Tham, Cự Nhật, Nhật Nguyệt — chính tinh phải miếu/vượng/đắc địa và có nhiều trợ tinh đi kèm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q14",
+      "question": "Người đắc Thượng Cách có những điều kiện gì?",
+      "answer_atom": "Người đắc Thượng Cách: có khoa bảng cao; có chức tước cao về văn hay võ, làm quan từ hàng tam phẩm trở lên, được gần gũi với nguyên thủ quốc gia; có quyền lớn; có tiền bạc, điền sản đồ sộ; được người đời trọng vọng vì các điều kiện trên. Đây là hạng người vừa có tài vừa được trọng dụng, sinh phùng thời, có nhiều cơ hội thi thố tài năng ở hệ cấp quốc gia.",
+      "source_quote": "Có khoa bảng cao. Có chức tước cao về văn hay võ, làm quan từ hàng tam phẩm trở lên, được gần gũi với nguyên thủ quốc gia. Có quyền lớn. Có tiền bạc, điển sản đồ sộ. Được người đời trọng vọng vì các điều kiện trên.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:thuong_cach", "concept:khoa_bang", "concept:quyen_chuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Năm dấu hiệu của người Thượng Cách: học vị cao, chức tước cao gần nguyên thủ, quyền lớn, tiền bạc điền sản đồ sộ, được đời trọng vọng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q15",
+      "question": "Thượng Cách có phải là hạnh phúc trọn vẹn trăm phần trăm không?",
+      "answer_atom": "Không. Các lợi điểm của Thượng Cách có thể chỉ liên quan đến đương sự mà thôi, và có thể đi kèm với những bất lợi khác liên quan đến gia đạo, con cái, bệnh tật. Đây không phải là hạnh phúc trọn vẹn trăm phần trăm mà vẫn có ít nhiều tương đối.",
+      "source_quote": "Những lợi điểm này có thể đi kèm với những bất lợi khác liên quan đến gia đạo, con cái, bệnh tật. Đây không phải là hạnh phúc trọn vẹn trăm phần trăm mà vẫn có ít nhiều tương đối.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:thuong_cach", "paradigm:tuong_doi", "palace:gia_dao"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đắc Thượng Cách vẫn có thể chịu thiệt ở mặt khác — gia đạo, con cái, bệnh tật. Hạnh phúc của Thượng Cách chỉ là tương đối, không trọn vẹn trăm phần trăm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q16",
+      "question": "Trung Cách được Thái Thứ Lang giải thích như thế nào?",
+      "answer_atom": "Trung Cách không được hoàn toàn: Mệnh Cục tương khắc, âm dương nghịch lý, chính diệu lạc lõng (không hội đủ chính tinh) hoặc một số chính tinh trong bộ sao bị lạc hãm, không hội đủ trợ tinh nhiều và cùng đắc địa. Trung Cách gồm những nghề nghiệp, chức vị khá giả nhưng không được rực rỡ hiển hách.",
+      "source_quote": "Trung Cách không được hoàn toàn, nghĩa là Mệnh Cục tương khắc, âm dương nghịch lý, chính diệu lạc lõng (không hội đủ chính tinh) hoặc một số chính tinh trong bộ sao bị lạc hãm, không hội đủ trợ tinh nhiều và cùng đắc địa.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "concept:menh_cuc_tuong_khac", "concept:lac_ham"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trung Cách là cách khuyết: Mệnh Cục khắc nhau, âm dương nghịch, thiếu chính tinh hoặc chính tinh hãm, trợ tinh không đủ — nghề nghiệp chức vị khá giả nhưng không hiển hách.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q17",
+      "question": "Trung Cách: Cơ Nguyệt Đồng Lương hội Tả Hữu, Quang Quý, Thiên Quan, Thiên Phúc ứng với nghề gì?",
+      "answer_atom": "Cơ Nguyệt Đồng Lương hội Tả Hữu, Quang Quý, Thiên Quan, Thiên Phúc: làm bác sĩ có danh tiếng.",
+      "source_quote": "Cơ Nguyệt Đồng Lương, hội Tả Hữu, Quang Quý, Thiên Quan, Thiên Phúc: làm bác sĩ có danh tiếng.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:co_nguyet_dong_luong", "star:ta_phu", "star:huu_bat", "star:thien_quan", "star:thien_phuc", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Cơ Nguyệt Đồng Lương đi với Tả Hữu, Quang Quý, Thiên Quan, Thiên Phúc thì làm bác sĩ có tiếng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q18",
+      "question": "Trung Cách: Cơ Nguyệt Đồng Lương hội Tả Hữu Khoa Quyền Khôi Việt, Xương Khúc, Tấu ứng với nghề gì?",
+      "answer_atom": "Cơ Nguyệt Đồng Lương hội Tả Hữu Khoa Quyền Khôi Việt, Xương Khúc, Tấu: làm giáo sư, viết báo có tiếng.",
+      "source_quote": "Cơ Nguyệt Đông Lương, hội Tả Hữu Khoa Quyền Khôi Việt, Xương Khúc, Tấu: làm giáo sư, viết báo có tiếng.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:co_nguyet_dong_luong", "star:khoi_viet", "star:xuong_khuc", "star:tau_thu", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Cơ Nguyệt Đồng Lương đi với Tả Hữu, Khoa Quyền, Khôi Việt, Xương Khúc, Tấu Thư thì làm giáo sư hay viết báo có tiếng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q19",
+      "question": "Trung Cách: Tử Phủ Vũ Tướng hội Long Phượng Tả Hữu Hình, Riêu ứng với nghề gì?",
+      "answer_atom": "Tử Phủ Vũ Tướng hội Long Phượng Tả Hữu Hình, Riêu: làm thợ khéo léo.",
+      "source_quote": "Tử Phủ Vũ Tướng hội Long Phượng Tả Hữu Hình, Riêu: làm thợ khéo léo.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:tu_phu_vu_tuong", "star:long_tri", "star:phuong_cac", "star:thien_hinh", "star:thien_rieu", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Tử Phủ Vũ Tướng đi với Long Phượng, Tả Hữu, Hình, Riêu thì làm thợ khéo tay.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q20",
+      "question": "Trung Cách: Thiên Cơ hội Hồng Đào, Riêu Tấu ứng với nghề gì?",
+      "answer_atom": "Thiên Cơ hội Hồng Đào, Riêu Tấu: chuyên ca vũ nhạc kịch rất nổi danh.",
+      "source_quote": "Thiên Cơ hội Hồng Đào, Riêu Tấu: chuyên ca vũ nhạc kịch rất nổi danh.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "star:thien_co", "star:hong_loan", "star:dao_hoa", "star:thien_rieu", "star:tau_thu", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Cơ đi với Hồng Đào, Riêu, Tấu thì theo nghề ca vũ nhạc kịch và rất nổi danh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q21",
+      "question": "Trung Cách: Thiên Cơ hội Hồng Tấu ứng với nghề gì?",
+      "answer_atom": "Thiên Cơ hội Hồng Tấu: làm thợ may, thợ thêu đắc thời.",
+      "source_quote": "Thiên Cơ hội Hồng Tấu: làm thợ may, thợ thêu đắc thời.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "star:thien_co", "star:hong_loan", "star:tau_thu", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Cơ đi với Hồng, Tấu thì làm thợ may, thợ thêu gặp thời.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q22",
+      "question": "Trung Cách: Sát Phá Liêm Tham hội Hồng Đào Tấu Long Phượng ứng với nghề gì?",
+      "answer_atom": "Sát Phá Liêm Tham hội Hồng Đào Tấu Long Phượng: làm họa sĩ giỏi.",
+      "source_quote": "Sát Phá Liêm Tham hội Hồng Đào Tấu Long Phương: làm họa sĩ giỏi.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:sat_pha_liem_tham", "star:hong_loan", "star:dao_hoa", "star:tau_thu", "star:long_tri", "star:phuong_cac", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Sát Phá Liêm Tham đi với Hồng Đào, Tấu, Long Phượng thì làm họa sĩ giỏi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q23",
+      "question": "Trung Cách: Cơ Nguyệt Đồng Lương hội Tả Hữu Xương Khúc Thai Cáo ứng với nghề gì?",
+      "answer_atom": "Cơ Nguyệt Đồng Lương hội Tả Hữu Xương Khúc Thai Cáo: làm công chức nhỏ thấp, lý trưởng, xã trưởng.",
+      "source_quote": "Cơ Nguyệt Đông Lương hội Tả Hữu Xương Khúc Thai Cáo: làm công chức nhỏ thấp, lý trưởng, xã trưởng.",
+      "source_page": 60,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:co_nguyet_dong_luong", "star:thai_phu", "star:phong_cao", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Cơ Nguyệt Đồng Lương đi với Tả Hữu, Xương Khúc, Thai Cáo thì làm công chức nhỏ, lý trưởng, xã trưởng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q24",
+      "question": "Trung Cách: Cơ Nguyệt Đồng Lương hội Tướng Ấn Long Phượng Phù ứng với nghề gì?",
+      "answer_atom": "Cơ Nguyệt Đồng Lương hội Tướng Ấn Long Phượng Phù: làm phù thủy cao tay.",
+      "source_quote": "Cơ Nguyệt Đông Lương hội Tướng Ấn Long Phượng Phù: làm phù thủy cao tay.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:co_nguyet_dong_luong", "star:tuong_quan", "star:quoc_an", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Cơ Nguyệt Đồng Lương đi với Tướng Ấn, Long Phượng, Phù thì làm phù thủy cao tay.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q25",
+      "question": "Trung Cách: Sát Phá Liêm Tham hội Tả Hữu Quyền Lộc Nhật Nguyệt hãm địa ứng với nghề gì?",
+      "answer_atom": "Sát Phá Liêm Tham hội Tả Hữu Quyền Lộc Nhật Nguyệt hãm địa: là thầy tướng hay thầy bói đắc thời.",
+      "source_quote": "Sát Phá Liêm Tham hội Tả Hữu Quyên Lộc Nhật Nguyệt hãm địa: là thầy tướng hay thầy bói đắc thời.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "cach_cuc:sat_pha_liem_tham", "star:thai_duong", "star:thai_am", "concept:ham_dia", "concept:nghe_nghiep"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bộ Sát Phá Liêm Tham đi với Tả Hữu, Quyền Lộc, Nhật Nguyệt hãm địa thì làm thầy tướng, thầy bói gặp thời.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q26",
+      "question": "Trung Cách: Thiên Đồng hội Long Phượng Hình Riêu Hồng Đào ứng với khuynh hướng gì?",
+      "answer_atom": "Thiên Đồng hội Long Phượng Hình Riêu Hồng Đào: thích đồng bóng.",
+      "source_quote": "Thiên Đông hội Long Phượng Hình Riêu Hông Đào: thích đồng bóng.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "star:thien_dong", "star:long_tri", "star:phuong_cac", "star:thien_hinh", "star:thien_rieu", "concept:dong_bong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Đồng đi với Long Phượng, Hình, Riêu, Hồng Đào thì người thích đồng bóng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q27",
+      "question": "Trung Cách: Thiên Tướng hội Quang Phù Tả Hữu Tướng Ấn ứng với con đường nào?",
+      "answer_atom": "Thiên Tướng hội Quang Phù Tả Hữu Tướng Ấn: đi tu lên đến chức hòa thượng.",
+      "source_quote": "Thiên Tướng hội Quang Phù Tả Hữu Tướng Ấn: đi tu lên đến chức hòa thượng.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "star:thien_tuong", "star:an_quang", "star:tuong_quan", "star:quoc_an", "concept:tu_hanh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thiên Tướng đi với Quang, Phù, Tả Hữu, Tướng Ấn thì đi tu, lên đến chức hòa thượng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q28",
+      "question": "Tóm lại, Trung Cách gồm những hạng người nào trong xã hội?",
+      "answer_atom": "Trung Cách gồm các nghề nghiệp trung lưu, được nổi danh nhờ sự tinh vi trong nghề nghiệp, trong nghệ thuật, trong kiến thức, trong kinh nghiệm; cũng được người đời biết tiếng nhưng quyền chức ít, có ảnh hưởng ít nhiều trong xã hội thu hẹp, không có ảnh hưởng ở hệ cấp quốc gia.",
+      "source_quote": "Trung Cách gồm các nghề nghiệp trung lưu, nhưng được nổi danh nhờ sự tinh vi trong nghề nghiệp, trong nghệ thuật, trong kiến thức, trong kinh nghiệm, cũng được người đời biết tiếng, nhưng quyên chức ít, có ảnh hưởng ít nhiều trong xã hội thu hẹp, không có ảnh hưởng ở hệ cấp quốc gia.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:trung_cach", "concept:nghe_nghiep", "concept:giai_cap_xa_hoi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trung Cách là tầng nghề trung lưu: giỏi nghề, có tiếng, nhưng quyền chức ít và ảnh hưởng chỉ trong phạm vi hẹp, không tới tầm quốc gia.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q29",
+      "question": "Tác giả nhận xét gì về quan niệm xếp hạng Cách của người xưa?",
+      "answer_atom": "Tác giả nhận xét quan niệm đắc thời của người xưa cho rằng chỉ có quyền thế danh vọng cao sang mới là thượng cách, còn các nghề kỹ nghệ, doanh thương, văn hóa bị coi nhẹ. Đây là một quan niệm có thể nói là phong kiến về Cách của khoa Tử Vi, phản ánh sự xếp loại theo Sĩ, Nông, Công, Thương, dành ưu tiên thượng cách cho giới sĩ đắc thời.",
+      "source_quote": "Đây là một quan niệm có thể nói là phong kiến về Cách của khoa Tử Vi. Nó phản ánh sự xếp loại theo Sĩ, Nông, Công, Thương, dành cho ưu tiên thượng cách cho giới sĩ đắc thời.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cach", "paradigm:phe_binh", "concept:si_nong_cong_thuong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tác giả phê bình: cách xếp hạng Cách mang tính phong kiến, coi trọng quyền thế danh vọng (giới sĩ), coi nhẹ kỹ nghệ, doanh thương, văn hóa — theo khuôn Sĩ Nông Công Thương xưa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q30",
+      "question": "Hạ Cách là gì và người Hạ Cách thường có đời sống thế nào?",
+      "answer_atom": "Hạ Cách: như nhận định về Trung Cách nhưng thường các sao không đủ bộ, lại gặp nhiều sát tinh, bại tinh xâm phạm hay Tuần Triệt án ngữ. Người Hạ Cách thường suốt đời lận đận, vất vả, phải phiêu bạt, nghề nghiệp không ổn định, bữa ăn nay lo bữa mai.",
+      "source_quote": "Theo nhận định về Trung Cách nhưng thường các sao không đủ bộ lại gặp nhiều sát tinh, bại tinh xâm phạm hay Tuần Triệt án ngữ. Những người Hạ Cách thường suốt đời lận đận, vất vả, phải phiêu bạt, nghề nghiệp không ổn định, bữa ăn nay lo bữa mai.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:ha_cach", "concept:sat_tinh", "concept:bai_tinh", "concept:tuan_triet"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hạ Cách: sao không đủ bộ, nhiều sát tinh bại tinh phạm hoặc Tuần Triệt án ngữ — đời lận đận vất vả, phiêu bạt, nghề không ổn định, lo ăn từng bữa.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q31",
+      "question": "Phi Thường Cách có đặc điểm gì theo Thái Thứ Lang?",
+      "answer_atom": "Phi Thường Cách: Mệnh có Tử Phủ Vũ Tướng hội họp, tất cả đều nhập miếu, vượng hay đắc địa; Thân có Sát Phá Liêm Tham hội họp, cũng miếu, vượng hay đắc địa. Mệnh Thân lại được sự phò tá của các sao đắc địa: Tả, Hữu, Khôi Việt, Xương Khúc, Long Phượng, Hồng Đào, Khoa, Quyền, Lộc và Kình Đà, Hình Hổ. Cách này rất hiếm có; nếu gặp thì phú quý đến tột bậc, uy quyền hiển hách, để tiếng lại ngàn thu.",
+      "source_quote": "Mệnh: Tử Phủ Vũ Tướng hội họp, tất cả đều nhập miếu, vượng hay đắc địa. Thân: Sát Phá Liêm Tham hội họp, cũng miếu, vượng hay đắc địa... Phi thường cách rất hiếm có. Nếu gặp cách này thì phú quý đến tột bậc, uy quyền hiển hách, để tiếng lại ngàn thu.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["cach_cuc:phi_thuong_cach", "cach_cuc:tu_phu_vu_tuong", "cach_cuc:sat_pha_liem_tham", "palace:menh", "palace:than"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Phi Thường Cách: Mệnh đủ bộ Tử Phủ Vũ Tướng miếu vượng đắc, Thân đủ bộ Sát Phá Liêm Tham miếu vượng đắc, lại nhiều sao phò tá đắc địa. Rất hiếm; gặp thì phú quý tột bậc, uy quyền hiển hách, lưu danh ngàn thu.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Bản OCR ghi 'Kim Đà, Hình Hồ' — nhiều khả năng là 'Kình Đà, Hình Hổ'; đã giữ nguyên văn trong source_quote phần trích."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q32",
+      "question": "Tổng quan, Cách có những đặc điểm gì về phạm vi, nguồn gốc và khái niệm?",
+      "answer_atom": "Phạm vi: Cách ám chỉ giai cấp xã hội, chia làm thượng lưu, hạ lưu, trung lưu và phi thường. Nguồn gốc: Cách được suy diễn từ địa vị, công danh, nghề nghiệp, nhất là sự thịnh đạt trong sự nghiệp; quan niệm sự nghiệp nặng tính cách quyền hành, phong kiến, mô phỏng theo sự phân hạng giai cấp xã hội thời xưa thành Sĩ, Nông, Công, Thương. Khái niệm: Cách tổng hợp tất cả yếu tố của một lá số từ Bản Mệnh, Cục, Âm Dương Ngũ Hành, bộ sao chính, bộ sao phụ, sự đắc địa, sự trọn vẹn của các sao trong bộ.",
+      "source_quote": "Phạm vi: Cách ám chỉ gia cấp xã hội, chia làm thượng lưu, hạ lưu, trung lưu và phi thường... Khái niệm: Cách tổng hợp tất cả yếu tố của một lá số từ Bản Mệnh, Cục Âm Dương Ngũ Hành, bộ sao chính, bộ sao phụ, sự đắc địa, sự trọn vẹn của các sao trong bộ.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cach", "concept:giai_cap_xa_hoi", "concept:ban_menh", "concept:cuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách phản ánh giai cấp xã hội (thượng, trung, hạ, phi thường); gốc của nó là địa vị công danh nghề nghiệp; về khái niệm, Cách gom toàn bộ yếu tố của lá số: Bản Mệnh, Cục, Âm Dương Ngũ Hành, bộ sao chính phụ, độ đắc địa và độ trọn vẹn của bộ sao.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q33",
+      "question": "Tại sao Cách là ý niệm quan trọng trong Tử Vi và cách nào được ưu tiên xếp hạng nhất?",
+      "answer_atom": "Dường như có sự ưu tiên xếp hạng các cách: thứ nhất có lẽ là cách Tử, Phủ, Vũ, Tướng vì khoa Tử Vi lấy sao Tử Vi làm đế tinh. Cách là một ý niệm tổng hợp, gói ghém tất cả yếu tố của con người, của lá số vào một danh từ duy nhất — nói lên tình trạng con người một cách tổng quát và đầy đủ nhất. Có lẽ đây là một hàm số chung cuộc nói ở phần Hàm Số Tử Vi.",
+      "source_quote": "Dường như có sự ưu tiên xếp hạng các cách. Thứ nhất có lẽ là cách Tử, Phủ, Vũ, Tướng vì khoa Tử Vi lấy sao Tử Vi làm đế tinh... Có lẽ đây là một hàm số chung cuộc nói ở phần Hàm Số Tử Vi.",
+      "source_page": 61,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cach", "paradigm:ham_so", "star:tu_vi", "cach_cuc:tu_phu_vu_tuong", "concept:de_tinh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cách Tử Phủ Vũ Tướng được xếp đầu vì Tử Vi là sao vua của khoa này. Cách gom mọi yếu tố lá số vào một danh từ, là ý niệm tổng hợp quan trọng nhất — tác giả gọi đó là hàm số chung cuộc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q34",
+      "question": "Khoa Tử Vi thoát thai từ đâu?",
+      "answer_atom": "Là một sản phẩm của văn hóa Trung Quốc, khoa Tử Vi thoát thai từ triết học Trung Quốc, cụ thể là Kinh Dịch. Khoa Tử Vi đã mượn lý thuyết Âm Dương Ngũ Hành của Kinh Dịch làm nền tảng triết lý cho việc bói toán. Muốn hiểu Tử Vi tất phải biết qua về triết lý này.",
+      "source_quote": "Là một sản phẩm của văn hóa Trung Quốc, khoa Tử Vi thoát thai từ triết học Trung Quốc, cụ thể là Kinh Dịch. Khoa Tử Vi đã mượn lý thuyết Âm Dương Ngũ Hành của Kinh Dịch làm nên tầng triết lý cho việc bói toán.",
+      "source_page": 62,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:lich_su", "concept:kinh_dich", "concept:am_duong_ngu_hanh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Tử Vi sinh ra từ triết học Trung Quốc, cụ thể là Kinh Dịch, và mượn lý thuyết Âm Dương Ngũ Hành làm nền triết lý.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q35",
+      "question": "Ai là tác giả nguyên thủy của lý thuyết Âm Dương Ngũ Hành?",
+      "answer_atom": "Lý thuyết Âm Dương Ngũ Hành có từ trước đời nhà Tần. Tác giả nguyên thủy là Trân Diễn, sinh vào khoảng giữa thế kỷ 3 trước Tây Lịch. Ông sáng lập một triết phái mà các sử học gọi là Âm Dương gia. (Nguồn dẫn: quyển Triết Học Trung Quốc Đại Cương của Giản Chi và Nguyễn Hiến Lê.)",
+      "source_quote": "Lý thuyết này có từ trước đời nhà Tần. Tác giả nguyên thủy là Trân Diễn, sinh vào khoảng giữa thế kỷ 3 trước Tây Lịch. Ông sáng lập một triết phái mà các sử học gọi là Âm Dương giả.",
+      "source_page": 62,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:lich_su", "concept:am_duong_ngu_hanh", "concept:am_duong_gia"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Người khởi xướng lý thuyết Âm Dương Ngũ Hành là Trân Diễn (thế kỷ 3 trước Tây Lịch, trước đời Tần), sáng lập phái Âm Dương gia.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Bản OCR ghi 'Trân Diễn' — giữ nguyên văn theo sách phục dựng."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q36",
+      "question": "Đời nhà Tần, lý thuyết Âm Dương Ngũ Hành đã sống sót và phát triển bằng cách nào?",
+      "answer_atom": "Đến đời nhà Tần, các sách triết đều bị đốt và bị cấm lưu hành. Việc cấm đoán tự do ngôn luận khiến các học giả phải dựa vào các sách bói toán mà nghị luận. Sách bói toán bấy giờ là Kinh Dịch, những nghị luận trong sách đó là Dịch truyện. Lý thuyết Âm Dương Ngũ Hành được tập Dịch truyện này quảng diễn thêm.",
+      "source_quote": "Đến đời nhà Tân, các sách triết đều bị đốt và bị cấm lưu hành... Sách bói toán bấy giờ là Kinh Dịch, những nghị luận trong sách đó là Dịch truyện. Lý thuyết Âm Dương Ngũ Hành được tập Dịch truyện này quảng diễn thêm.",
+      "source_page": 62,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:lich_su", "concept:kinh_dich", "concept:dich_truyen"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Thời Tần đốt sách, học giả phải mượn sách bói toán (Kinh Dịch) để nghị luận; nhờ Dịch truyện mà lý thuyết Âm Dương Ngũ Hành được quảng diễn thêm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q37",
+      "question": "Đổng Trọng Thư có vai trò gì đối với lý thuyết Âm Dương Ngũ Hành?",
+      "answer_atom": "Đến đời Hán, triết gia Đổng Trọng Thư đã khai triển sâu rộng lý thuyết Âm Dương Ngũ Hành. Cái gì ông cũng ghép vào Âm Dương Ngũ Hành (vua là dương, tôi là âm; cha là dương, con là âm; chồng là dương, vợ là âm; mùa xuân thuộc Mộc, hạ thuộc Hỏa, thu thuộc Kim, đông thuộc Thủy; hướng Đông thuộc Mộc, hướng Nam thuộc Hỏa, hướng Bắc là Thủy, trung ương là Thổ). Luật biến hóa của Âm Dương Ngũ Hành được xem là luật biến hóa chung của vũ trụ và con người, áp dụng được vào việc trị nước; đời Hán có quan coi riêng về luật này để khuyến cáo chính sách quốc gia. Tác dụng bói toán đó đưa đến sự thành hình phái Tượng Số, cũng do Đổng Trọng Thư dẫn đầu.",
+      "source_quote": "Đến đời Hán, một triết gia nổi danh là Đổng Trọng Thư đã khai triển sâu rộng lý thuyết Âm Dương Ngũ Hành... Tác dụng đó đưa đến sự thành hình phái Tướng số, cũng do Đổng Trọng Thư dẫn đầu.",
+      "source_page": 62,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:lich_su", "concept:am_duong_ngu_hanh", "concept:tuong_so", "concept:dong_trong_thu"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Đổng Trọng Thư (đời Hán) là người khai triển và quảng bá lý thuyết Âm Dương Ngũ Hành mạnh nhất: ghép mọi sự vật vào âm dương ngũ hành, nâng nó thành luật chung của vũ trụ và việc trị nước, từ đó hình thành phái Tượng Số.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q38",
+      "question": "Khoa Tử Vi được khai sáng vào đời nào, do ai, và lược sử ba nhân vật chính là gì?",
+      "answer_atom": "Phái học Tượng Số đến đời nhà Tống càng thịnh đạt, được phát huy để ứng dụng vào những môn học huyền bí. Công trình này do đạo sĩ Trần Đoàn cụ thể hóa vào tướng số, trong đó khoa Tử Vi là một ngành. Tóm tắt: Trân Diễn là nguyên tổ của lý thuyết Âm Dương Ngũ Hành; Đổng Trọng Thư là người khai triển và quảng bá lỗi lạc nhất; Trần Đoàn là tác giả khai sáng khoa Tượng số của họ Đổng và lập ra môn Tử Vi.",
+      "source_quote": "Trân Diễn là nguyên tổ của lý thuyết Âm Dương Ngũ Hành. Đổng Trọng Thư là người khai triển và quảng bá lỗi lạc nhất. Trân Đoàn là tác giả khai sáng khoa Tượng số của họ Đổng và lập ra môn Tử Vi.",
+      "source_page": 62,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:lich_su", "concept:tran_doan", "concept:dong_trong_thu", "concept:tuong_so"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Ba mốc lịch sử: Trân Diễn khởi thuyết Âm Dương Ngũ Hành, Đổng Trọng Thư khai triển quảng bá, Trần Đoàn (đạo sĩ đời Tống) cụ thể hóa vào tướng số và lập ra môn Tử Vi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q39",
+      "question": "Đại lịch trình phát sinh vũ trụ từ Thái Cực diễn ra như thế nào theo Hệ từ truyện?",
+      "answer_atom": "Nguồn gốc sơ khởi nhất của vũ trụ vạn vật là Thái Cực. Hệ từ truyện viết: 'Dịch là Thái Cực, sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, Tứ Tượng sinh ra Bát Quái'. Lưỡng Nghi là 2 khí Âm Dương; Tứ Tượng là bốn mùa; Bát Quái là tám hiện tượng lớn cơ bản của vũ trụ: Càn (Trời), Khôn (Đất), Chấn (sấm sét), Tốn (gió), Khảm (nước), Ly (lửa), Cấn (núi), Đoài (đồng cỏ thấp có nước).",
+      "source_quote": "“Dịch là Thái Cực, sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, Tứ Tượng sinh ra Bát Quái”.",
+      "source_page": 63,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:thai_cuc", "concept:luong_nghi", "concept:tu_tuong", "concept:bat_quai", "concept:kinh_dich"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Vũ trụ khởi từ Thái Cực, sinh hai khí Âm Dương (Lưỡng Nghi), rồi bốn mùa (Tứ Tượng), rồi tám hiện tượng lớn (Bát Quái): Trời, Đất, sấm, gió, nước, lửa, núi, đầm.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q40",
+      "question": "Đức Sinh là gì trong tương quan hai khí Âm Dương?",
+      "answer_atom": "Trong Thái Cực tiềm phục 2 khí Âm Dương, về tính chất đối lập nhau khi còn ẩn trong Thái Cực. Vạn vật sinh thành là nhờ 2 khí Âm Dương và cũng nhờ 2 khí đó mà biến hóa. Một khí đơn độc thì không sinh phát được; phải có sự giao hợp giữa 2 khí mới sinh được vạn vật — đó là cái luật lớn của Trời Đất (gọi là Đức lớn), chính là Đức Sinh, chủ sự sinh trưởng, là cái đà sống, cái sức thúc đẩy cuộc sống.",
+      "source_quote": "Một khi đơn độc thì không sinh phát được. Phải có sự giao hợp giữa 2 khí thì mới sinh được vạn vật: Đó là cái luật lớn của Trời Đất (gọi là Đức lớn). Đức này chính là Đức Sinh.",
+      "source_page": 63,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:duc_sinh", "concept:am_duong", "concept:thai_cuc"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Âm hay Dương đứng một mình thì không sinh được gì; hai khí phải giao hợp mới sinh vạn vật. Luật lớn đó của Trời Đất gọi là Đức Sinh — sức đẩy của sự sống.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q41",
+      "question": "Quá trình Nguyên - Hanh - Lợi - Trinh gồm những giai đoạn nào?",
+      "answer_atom": "Luật sinh theo một quy tắc nhất định gọi là Đạo: quá trình diễn biến của sự vật từ lúc bắt đầu đến khi hình thành, qua bốn giai đoạn: Nguyên là trạng thái tiên khởi của vật khí bắt đầu vào cuộc sống; Hanh là hanh thông, sự tiếp xúc của nguyên vật với ngoại giới; Lợi là nhuận lợi, tình trạng vật đã thích ứng được với hoàn cảnh khi tiếp xúc với ngoại giới; Trinh là sự thành tựu hẳn hòi của sự vật. Đó là quá trình cấu tạo do sự chuyển động nội tại của 2 khí Âm Dương để sinh ra sự vật.",
+      "source_quote": "Quá trình này phải qua bốn giai đoạn là Nguyên, Hành, Lợi, Trinh... Nguyên: Là trạng thái tiên khởi của vật khí bắt đầu vào cuộc sống. Hành: Là hành thông, thông đồng, sự tiếp xúc của nguyên vật với ngoại giới. Lợi: Là nhuận lợi... Trinh: Là sự thành tựu hẳn hòi của sự vật.",
+      "source_page": 63,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:nguyen_hanh_loi_trinh", "concept:dao", "concept:am_duong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Bốn bước của Đạo sinh thành: Nguyên (khởi đầu sự sống), Hanh (thông suốt, tiếp xúc ngoại giới), Lợi (thích ứng được hoàn cảnh), Trinh (thành tựu hẳn hòi).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Bản OCR viết 'Hành' thay vì 'Hanh' ở vài chỗ; source_quote giữ nguyên văn."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q42",
+      "question": "Chu kỳ Thành - Thịnh - Suy - Hủy của sự vật diễn biến như thế nào?",
+      "answer_atom": "Khi vật thành hình, vật biến động theo một chu kỳ gồm 4 bước: Thành là giai đoạn của Thiếu Dương, khí Dương vừa từ Thái Âm sinh ra; Thịnh là giai đoạn của Thái Dương, khí Dương phát triển cao độ; Suy là giai đoạn Thiếu Âm, khí Âm vừa từ khí Dương sinh ra; Hủy là giai đoạn của Thái Âm, khí Âm phát triển cực độ, lấn át hết khí Dương. Cứ như vậy Âm Dương tiếp tục xoay vần, khi thịnh khi suy, theo một tuần hoàn sinh hóa không bao giờ đứt đoạn.",
+      "source_quote": "Thành: Là giai đoạn của Thiếu Dương... Thịnh: Là giai đoạn của Thái Dương... Suy: Là giai đoạn Thiếu Âm... Hủy: Là giai đoạn của Thái Âm, giai đoạn khí Âm phát triển cực độ, lấn át hết khí Dương. Cứ như vậy mà Âm Dương tiếp tục xoay vần, khi thịnh, khi suy, theo một tuần hoàn sinh hóa không bao giờ đứt đoạn của luật Đạo.",
+      "source_page": 63,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:thanh_thinh_suy_huy", "concept:thieu_duong", "concept:thai_duong", "concept:thieu_am", "concept:thai_am_khi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Sau khi thành hình, vật đi qua chu kỳ Thành (Thiếu Dương) → Thịnh (Thái Dương) → Suy (Thiếu Âm) → Hủy (Thái Âm), rồi Âm Dương lại xoay vần không dứt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q43",
+      "question": "Ngũ Hành là gì và thứ tự của ngũ hành theo Đổng Trọng Thư?",
+      "answer_atom": "Ngũ Hành được các triết gia xem là năm nguyên tố căn bản của vũ trụ: Mộc (gỗ, các loại cây), Hỏa (lửa hay hơi nóng), Thổ (đất hay khoáng vật trừ kim khí), Kim (vàng hay kim khí nói chung), Thủy (nước hay chất lỏng). Đổng Trọng Thư xếp thứ tự: một là Mộc, hai là Hỏa, ba là Thổ, bốn là Kim, năm là Thủy — Mộc là hành đầu, Thủy là hành chót, Thổ là hành giữa, đó là thứ tự tự nhiên. Thứ tự này có nhiều tác giả không đồng ý (như Ban Cố đời Hậu Hán), nhưng quy tắc sinh khắc thì tương đồng giữa các tác giả.",
+      "source_quote": "“Một là Mộc, hai là Hỏa, ba là Thổ, bốn là Kim, năm là Thủy. Mộc là hành đầu của ngũ hành, Thủy là hành chót, Thổ là hành giữa. Đó là thứ tự tự nhiên”.",
+      "source_page": 64,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:ngu_hanh", "concept:moc", "concept:hoa", "concept:tho", "concept:kim", "concept:thuy"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Năm nguyên tố căn bản: Mộc, Hỏa, Thổ, Kim, Thủy. Đổng Trọng Thư xếp Mộc đầu, Thủy chót, Thổ giữa; có tác giả không đồng ý thứ tự nhưng quy tắc sinh khắc thì thống nhất.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q44",
+      "question": "Quy tắc tương sinh tương khắc giữa năm hành là gì?",
+      "answer_atom": "Quy tắc: hai hành kế tiếp nhau thì sinh nhau, đứng cách nhau một hành thì khắc nhau. Tương sinh: Mộc sinh Hỏa, Hỏa sinh Thổ, Thổ sinh Kim, Kim sinh Thủy, Thủy sinh Mộc, theo chiều ấn định. Tương khắc (theo liệt kê trong sách): Kim khắc Mộc, Thủy khắc Hỏa, Mộc khắc Thổ, Thổ khắc Thủy. (Có cách dùng chữ 'thắng' thay cho chữ 'khắc', đồng nghĩa với nhau.)",
+      "source_quote": "Quy tắc này là: Hai Hành kế tiếp nhau thì sinh nhau, mà đứng cách nhau một hành thì khắc nhau. Như vậy thì Mộc sinh Hỏa, Hỏa sinh Thổ, Thổ sinh Kim, Kim sinh Thủy, Thủy sinh Mộc, theo chiều ấn định. Quy tắc tương khắc là: Kim khắc Mộc, Thủy khắc Hỏa, Mộc khắc Thổ, Thổ khắc Thủy.",
+      "source_page": 64,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:ngu_hanh", "concept:tuong_sinh", "concept:tuong_khac"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Hành kề nhau thì sinh, cách một hành thì khắc. Sinh: Mộc→Hỏa→Thổ→Kim→Thủy→Mộc. Khắc (sách liệt kê 4 cặp): Kim khắc Mộc, Thủy khắc Hỏa, Mộc khắc Thổ, Thổ khắc Thủy.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Đoạn này trong sách chỉ liệt kê 4 cặp tương khắc (không thấy ghi cặp Hỏa–Kim); atom giữ đúng nguyên văn, không bổ sung."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q45",
+      "question": "Âm Dương và Ngũ Hành quan hệ với nhau như thế nào trong việc tạo thành bốn mùa?",
+      "answer_atom": "Theo Đổng Tử: gặp lúc khí Dương đang thịnh mà hành Mộc, hành Hỏa được khí Dương ấy giúp vào thì thành mùa xuân, mùa hạ và vạn vật sinh trưởng; gặp lúc khí Âm đang thịnh mà hành Kim, hành Thủy được khí Âm giúp vào thì thành mùa Thu, mùa Đông. Vì hai khí Âm Dương đắp đổi thịnh suy và luôn luôn luân chuyển, ảnh hưởng của nó đối với ngũ hành không dứt và bốn mùa xoay vần bất tuyệt. Đổng Trọng Thư viết: 'Khí của Trời Đất hợp thì là một, chia thì là Âm và Dương, tách ra làm bốn mùa, bày sắp thành ngũ hành'.",
+      "source_quote": "“Khí của Trời Đất hợp thì là một, chia thì là Âm và Dương tác ra làm bốn mùa, bày sắp thành ngũ hành”.",
+      "source_page": 64,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:am_duong", "concept:ngu_hanh", "concept:tu_thoi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Khí Dương thịnh giúp Mộc, Hỏa thành xuân hạ; khí Âm thịnh giúp Kim, Thủy thành thu đông. Âm Dương luân chuyển thịnh suy nên bốn mùa xoay vần không dứt.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q46",
+      "question": "Vai trò của các Hành trong Tứ Thời và vị trí đặc biệt của hành Thổ là gì?",
+      "answer_atom": "Mỗi Hành làm chủ cái khí của một mùa: Mộc ở phương Đông chủ khí Xuân, Hỏa ở phương Nam chủ khí Hạ, Kim ở phương Tây chủ khí Thu, Thủy ở phương Bắc chủ khí Đông. Mộc chủ sinh mà Kim chủ sát, Hỏa chủ nóng mà Thủy chủ lạnh. Thổ ở giữa, là chân tay của Trời, đức của Thổ tươi tốt, không thể dựa vào công việc riêng của một mùa mà mệnh danh cho Thổ — có ngũ hành mà chỉ có tứ thời vì Thổ kiêm cả Tứ thời. Kim Mộc Thủy Hỏa mỗi hành có một chức vụ nhưng không nhờ nơi Thổ thì không đứng vững. Đổng Trọng Thư đặt cho Thổ vai trò đặc biệt, vừa kiêm Tứ thời vừa là chỗ dựa cho bốn hành còn lại — điểm này được phản ảnh sau này trong khoa Tử Vi.",
+      "source_quote": "Mộc ở phương Đông là chủ khí Xuân, Hỏa ở phương Nam là chủ khí Hạ, Kim ở phương Tây làm chủ khí Thu, Thủy ở phương Bắc làm chủ khí Đông... cho nên có ngũ hành mà lại có tứ thời là vì Thổ kiêm cả Tứ thời.",
+      "source_page": 64,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:ngu_hanh", "concept:tu_thoi", "concept:tho", "concept:phuong_vi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mộc–Đông–Xuân, Hỏa–Nam–Hạ, Kim–Tây–Thu, Thủy–Bắc–Đông; Thổ ở giữa kiêm cả bốn mùa và là chỗ dựa cho bốn hành kia. Vai trò đặc biệt của Thổ về sau phản ảnh trong khoa Tử Vi.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q47",
+      "question": "Thuyết ngũ hành bắt nguồn từ đâu và nằm trong những phép nào của thuật số?",
+      "answer_atom": "Thuyết ngũ hành nguyên được suy diễn từ pháp thuật ngũ hành của cổ nhân. Cổ nhân cho rằng có sự ảnh hưởng qua lại giữa con người và sự vật trong vũ trụ, nên quan sát các hiện tượng của vũ trụ có thể đoán phúc họa cho con người. Phái Tượng Số ghép ngũ hành vào một trong 6 phép của thuật số: Thiên Văn, Lịch Phổ, Ngũ Hành, Thi Quy (bói cỏ thi, bói rùa), Tạp Chiêm (đoán điềm), Hình Pháp (xem tướng). Thuyết ngũ hành được phổ cập rất nhiều ở thời Chiến Quốc, nhất là vào cuối thời này; cái gì cũng được ngũ hành hóa. Trân Diễn còn đem ngũ hành vào triết học lịch sử, gán ngũ hành vào Ngũ đức.",
+      "source_quote": "Sáu phép đó là: Thiên Văn, Lịch Phổ, Ngũ Hành, Thi Qui (bói có thi, bói rùa, Tạp Chiêm (đoán điểm), Hình Pháp (xem tướng). Thuyết ngũ hành được phổ cập rất nhiều ở thời Chiến Quốc, nhất là vào cuối thời này.",
+      "source_page": 65,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:ngu_hanh", "concept:lich_su", "concept:thuat_so", "concept:tuong_so"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Ngũ hành gốc từ pháp thuật cổ nhân — quan sát vũ trụ để đoán phúc họa con người. Phái Tượng Số xếp Ngũ Hành vào một trong 6 phép thuật số (Thiên Văn, Lịch Phổ, Ngũ Hành, Thi Quy, Tạp Chiêm, Hình Pháp). Thuyết này phổ cập mạnh thời Chiến Quốc.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q48",
+      "question": "Trần Đoàn đã khai sáng khoa Tử Vi bằng cách nào?",
+      "answer_atom": "Cái dụng phổ biến nhất của thuyết ngũ hành là cái dụng bói toán của phái Tượng Số. Nhờ đó mà đạo sĩ Trần Đoàn mới khai sáng ra khoa Tử Vi: dùng sao trên trời, được âm dương hóa và ngũ hành hóa, để xếp bày vận số của con người, rồi từ đó suy diễn trên quy luật biến hóa Âm Dương Ngũ Hành những ý nghĩa trên con người.",
+      "source_quote": "Nhờ đó mà đạo sĩ Trân Đoàn mới khai sáng ra khoa Tử Vi, dùng sao trên trời, được âm dương hóa và ngũ hành hóa, để xếp bày vận số của con người, để rồi từ đó, suy diễn trên qui luật biến hóa Âm Dương Ngũ Hành, những ý nghĩa trên con người.",
+      "source_page": 65,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:lich_su", "concept:tran_doan", "concept:am_duong_ngu_hanh", "paradigm:sao_am_duong_ngu_hanh_hoa"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Trần Đoàn lập Tử Vi bằng cách lấy sao trên trời, gán âm dương và ngũ hành cho sao, dùng chúng xếp bày vận số con người rồi suy diễn theo luật biến hóa Âm Dương Ngũ Hành.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q49",
+      "question": "Tuổi, ngày, tháng, giờ trong Tử Vi bị Âm Dương hóa và Ngũ hành hóa như thế nào?",
+      "answer_atom": "Về tuổi có tuổi Âm, tuổi Dương; vì tuổi gồm 2 yếu tố Can và Chi nên Can Chi cũng bị Âm Dương hóa: Dương gồm 5 can Giáp, Bính, Mậu, Canh, Nhâm và 6 chi Tý, Dần, Thìn, Ngọ, Thân, Tuất; Âm gồm 5 can Ất, Đinh, Kỷ, Tân, Quý và 6 chi Sửu, Mão, Tỵ, Mùi, Dậu, Hợi. Mỗi tuổi có một hành riêng (Giáp Tý, Ất Sửu thuộc Kim; Bính Dần, Đinh Mão thuộc Hỏa...). Ngày, tháng, giờ cũng có can chi riêng, nên ngày sinh có cả Âm Dương Ngũ Hành pha trộn nhau.",
+      "source_quote": "Dương gồm 5 can: Giáp, Bính, Mậu, Canh, Nhâm, và 6 chi Tý, Dần, Thìn, Ngọ, Thân, Tuất. Âm gồm có 5 can: Ất, Đinh, Kỷ, Tây, Quý, và 6 chi: Sửu, Mão, Tỵ, Mùi, Dậu, Hợi. Mỗi tuổi có một hành riêng như Giáp Tý, Ất Sửu thuộc hành Kim, Bính Dần, Đinh Mão thuộc hành Hỏa v.v...",
+      "source_page": 65,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:can_chi", "concept:am_duong_hoa", "concept:ngu_hanh_hoa", "concept:tuoi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Can chi bị chia âm dương: can dương Giáp Bính Mậu Canh Nhâm với chi dương Tý Dần Thìn Ngọ Thân Tuất; can âm Ất Đinh Kỷ Tân Quý với chi âm Sửu Mão Tỵ Mùi Dậu Hợi. Mỗi tuổi lại mang một hành riêng; ngày tháng giờ cũng có can chi riêng.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": "Bản OCR ghi can âm 'Tây' — theo dãy 5 can âm chuẩn của hệ can chi là 'Tân'; source_quote giữ nguyên văn."
+      },
+      "confidence": 0.85,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q50",
+      "question": "Cục, cung an Mệnh và các sao trong Tử Vi bị Âm Dương Ngũ Hành hóa như thế nào?",
+      "answer_atom": "Cục cũng có hành riêng: vì mỗi hành trấn ngự một số cung và theo một phương hướng riêng, hành của cục cũng bị quy tắc ngũ hành chi phối. Mệnh của mỗi người đóng một cung được Âm Dương hóa (ví dụ cung Dần là Dương, Mão là Âm, cả 2 thuộc Mộc). Chính tinh và Trợ tinh, mỗi sao có một hành riêng — ví dụ cung Mệnh ở Dần (Dương Mộc) có Liêm Trinh (Hỏa) tọa thủ thì sẽ gặp sự chi phối của cung Dương Mộc đối với sao Hỏa này.",
+      "source_quote": "Mệnh của mỗi người đóng một cung được Âm Dương hóa. Ví dụ ở cung Dần là Dương, Mão là Âm, cả 2 thuộc Mộc. Chính tinh và Trợ tinh, mỗi sao có một hành riêng. Ví dụ cung Mệnh ở Dần (Dương Mộc) có Liêm Trinh (Hỏa) tọa thủ thì sẽ gặp sự chi phối của cung Dương Mộc đối với sao Hỏa này.",
+      "source_page": 65,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:cuc", "palace:menh", "star:liem_trinh", "concept:ngu_hanh_hoa", "concept:am_duong_hoa"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Cục có hành riêng; cung an Mệnh có âm dương và hành (Dần dương, Mão âm, cùng Mộc); mỗi chính tinh, trợ tinh có hành riêng nên sao và cung chi phối lẫn nhau theo ngũ hành (như Liêm Trinh Hỏa đóng cung Dần Dương Mộc).",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q51",
+      "question": "Hệ thống Âm Dương Ngũ Hành tạo ra những tương quan phức tạp nào mà người giải đoán phải cân nhắc?",
+      "answer_atom": "Sự kiện năm tháng ngày giờ, can, chi, mệnh, cục, chính tinh, phụ tinh và các cung bị Âm Dương Ngũ Hành chi phối đồng loạt đã gây nên một hệ thống tương quan phức tạp, làm người giải đoán lâm vào mê hồn trận hầu như không có lối thoát. Ít nhất phải cân nhắc các chiều hướng chi phối: giữa Bản Mệnh và Cục về mặt ngũ hành; giữa tuổi Dương/tuổi Âm đối với Mệnh ở Dương hay Âm cung; giữa cung an Mệnh với chính tinh thủ Mệnh (nếu 2 chính tinh khác hành nhau, càng phức tạp); giữa chính tinh thủ mệnh và hành của Bản Mệnh; giữa chính tinh và phụ tinh thủ Mệnh với hành của cung an Mệnh.",
+      "source_quote": "Điều này làm cho người giải đoán Tử Vi lâm vào một mê hồn trận hầu như không có lối thoát. Thật vậy, người ta thấy ít nhất phải có sự cân nhắc giữa các chiều hướng chi phối sau: Sự chỉ phối giữa Bản Mệnh và Cục về mặt ngũ hành...",
+      "source_page": 65,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:ban_menh", "concept:cuc", "palace:menh", "paradigm:ham_so", "concept:tuong_quan_phuc_tap"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mọi yếu tố của lá số đều bị âm dương ngũ hành hóa cùng lúc, nên người đoán phải cân nhắc ít nhất 5 chiều chi phối: Mệnh–Cục, tuổi–cung, cung–chính tinh, chính tinh–Bản Mệnh, chính tinh+phụ tinh–cung Mệnh.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q52",
+      "question": "Tại sao tác giả nói khoa Tử Vi là một hệ thống hàm số phức tạp chưa có phương trình chung?",
+      "answer_atom": "Chưa kể sự chi phối của cung Phúc Đức — cung được xem rất quan trọng vì có hiệu lực chi phối trên các cung khác. Nếu phải cân nhắc tất cả mối liên hệ chằng chịt đó, sự luận đoán sẽ rơi vào chỗ võ đoán vì không có nguyên tắc nào ưu thắng: tất cả đều quan trọng hầu như ngang nhau. Mỗi yếu tố chi phối là hàm số của yếu tố khác, thành một hệ thống hàm số vô cùng phức tạp đến nỗi khó tìm được một phương trình chung. Điều này làm khoa Tử Vi tối nghĩa, khó hiểu, giảm giá trị môn học. Cho đến nay chưa thấy sách vở nào khai phá được phương trình hàm số bách biến đó. Tuy nhiên, vẫn có thể suy diễn được vài nguyên tắc căn bản hướng dẫn việc luận đoán.",
+      "source_quote": "Mỗi yếu tố chi phối là hàm số của yếu tố khác. Thành thử, ta có một hệ thống hàm số vô cùng phức tạp đến nỗi khó lòng tìm được một phương trình chung... Cho đến nay, chưa thấy sách vở nào khai phá được phương trình hàm số bách biến đó.",
+      "source_page": 66,
+      "section_id": "tvhs.S10",
+      "tags": ["paradigm:ham_so", "palace:phuc_duc", "concept:luan_doan"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Mỗi yếu tố lá số là hàm số của yếu tố khác — hệ thống hàm số bách biến chưa ai tìm ra phương trình chung. Dù vậy vẫn rút được vài nguyên tắc căn bản hướng dẫn luận đoán.",
+        "nguyen_ly": "Không có nguyên tắc nào ưu thắng tuyệt đối; tất cả yếu tố quan trọng hầu như ngang nhau.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q53",
+      "question": "Nguyên tắc nào quan trọng nhất trong việc luận đoán theo Âm Dương Ngũ Hành?",
+      "answer_atom": "Quan trọng nhất là quy luật Âm Dương. Hai khí Âm Dương là động cơ nguyên thủy phát sinh ra bốn mùa và năm hành, nên luật biến hóa của Âm Dương quan trọng hơn luật biến hóa của ngũ hành — luật ngũ hành là luật nhỏ, bị đóng khung trong quy luật Âm Dương. Hệ luận: Mệnh ai tương hợp với quy luật Âm Dương thì lợi lộc hơn; chẳng hạn con trai có tuổi Dương, mệnh đóng ở cung Dương, sinh vào ban ngày (thời gian ảnh hưởng của Thái Dương), được các dương tinh tọa thủ, sẽ có nhiều tương hợp thuận lý, lợi cho lá số.",
+      "source_quote": "Theo đúng lý thuyết thì hai khí Âm Dương là động cơ nguyên thủy phát sinh ra bốn mùa và năm hành. Luật biến hóa của Âm Dương xét thấy phải quan trọng hơn luật biến hóa của ngũ hành... Chẳng hạn con trai có tuổi Dương, mệnh đóng ở cung Dương, sinh vào ban ngày (thời gian ảnh hưởng của Thái Dương), được các dương tinh tọa thủ, sẽ có nhiễu tương hợp thuận lý, lợi cho lá số.",
+      "source_page": 66,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:am_duong", "paradigm:quy_luat_am_duong_truoc", "concept:thuan_ly", "palace:menh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Luật Âm Dương đứng trên luật ngũ hành vì Âm Dương là gốc sinh ra bốn mùa và năm hành. Mệnh thuận lý Âm Dương (trai tuổi Dương, cung Dương, sinh ban ngày, dương tinh tọa thủ) thì lá số được lợi.",
+        "nguyen_ly": "Luật ngũ hành là luật nhỏ nằm trong khung quy luật Âm Dương.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q54",
+      "question": "Hai sao Thái Âm, Thái Dương sáng sủa có ý nghĩa gì theo nguyên lý Âm Dương?",
+      "answer_atom": "Hai sao Thái Âm và Thái Dương càng sáng sủa thì càng đắc cách. Thái Dương biểu tượng cho bên nội, cho cha, cho chồng; Thái Âm biểu tượng cho bên ngoại, cho mẹ, cho vợ. Nhật Nguyệt sáng sủa thì nguyên lý Âm Dương tương thuận: đương số hưởng được dương phúc và âm phúc của hai dòng họ, của cha và mẹ, của vợ và chồng, chưa kể ảnh hưởng tốt đẹp đến con trai, con gái. Tác dụng của Âm Dương có tính cách di truyền khá mạnh và khá rộng. Phần phúc đức của con người gắn liền với sự tương hợp của yếu tố Âm Dương trong vũ trụ — nhân sinh quan và vũ trụ quan liên đới mật thiết với nhau.",
+      "source_quote": "Thái Dương biểu tượng cho bên nội, cho cha, cho chồng; Thái Âm biểu tượng cho bên ngoại, cho mẹ, cho vợ. Hai sao Nhật Nguyệt mà sáng sủa thì nguyên lý Âm Dương tương thuận: đương số sẽ ảnh hưởng được dương phúc và âm phúc của hai dòng họ, của cha và mẹ, của vợ và chồng, chưa kể ảnh hưởng tốt đẹp đến con trai, con gái.",
+      "source_page": 66,
+      "section_id": "tvhs.S10",
+      "tags": ["star:thai_duong", "star:thai_am", "concept:am_duong", "concept:phuc_duc", "paradigm:nhan_sinh_vu_tru_lien_doi"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nhật Nguyệt sáng = Âm Dương tương thuận: hưởng phúc cả hai dòng nội (Thái Dương: cha, chồng) và ngoại (Thái Âm: mẹ, vợ), tốt lây sang con cái. Tác dụng Âm Dương mang tính di truyền mạnh và rộng; phúc đức con người gắn với sự tương hợp Âm Dương của vũ trụ.",
+        "nguyen_ly": "Hàm số hạnh phúc nhân loại tùy thuộc vào biến số hợp vị của nguyên lý Âm Dương vũ trụ (lời tác giả).",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q55",
+      "question": "Quy luật ngũ hành đứng hàng thứ mấy và thể hiện trong các sao như thế nào?",
+      "answer_atom": "Quy luật ngũ hành quan trọng hàng nhì. Ngũ Hành là hậu quả của sự tác hóa Âm Dương, giống như cái ngọn phát sinh từ cái gốc, do đó quy luật ngũ hành kém quan trọng hơn quy luật Âm Dương. Sự đi đôi của Âm Dương và Ngũ Hành được thể hiện trong hầu hết các sao, nhất là chính tinh: ví dụ Thái Dương là Dương tinh thuộc hành Hỏa; Phá Quân là Âm tinh thuộc hành Thủy; Văn Xương là Dương tinh hành Kim.",
+      "source_quote": "Ngũ Hành là hậu quả của sự tác hóa Âm Dương, giống như cái ngọn phát sinh từ cái gốc. Do đó, quy luật ngũ hành tất phải kém quan trọng hơn quy luật Âm Dương... Ví dụ như Thái Dương là Dương tinh thuộc hành Hỏa; Phá Quân là Âm tinh thuộc hành Thủy; Văn Xương là Dương tinh hành Kim.",
+      "source_page": 66,
+      "section_id": "tvhs.S10",
+      "tags": ["concept:ngu_hanh", "concept:am_duong", "star:thai_duong", "star:pha_quan", "star:van_xuong"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Ngũ hành là ngọn, Âm Dương là gốc nên luật ngũ hành xếp thứ nhì. Hầu hết các sao, nhất là chính tinh, mang cả âm dương lẫn hành: Thái Dương = Dương Hỏa, Phá Quân = Âm Thủy, Văn Xương = Dương Kim.",
+        "nguyen_ly": null,
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    },
+    {
+      "question_id": "tvhs.S10.Q56",
+      "question": "Tác giả chỉ ra thiếu sót gì trong việc Âm Dương hóa các phụ tinh?",
+      "answer_atom": "Có một số lớn phụ tinh có ngũ hành mà lại thiếu Âm Dương — ví dụ Địa Không, Địa Kiếp không có Âm Dương mà chỉ có hành Hỏa. Chưa có tác giả nào cắt nghĩa được sự thiếu sót này. Nó mâu thuẫn với lý thuyết Âm Dương Ngũ Hành song đôi: Ngũ Hành không tự sinh mà phải thoát thai từ Âm Dương, cho nên Ngũ Hành phải có Âm Dương đi kèm. Tác giả đặt nghi vấn: không hiểu tại sao Trần Đoàn lại bỏ sót việc Âm Dương hóa phụ tinh, hay các tác giả hậu sinh đã bỏ sót? Sự thiếu sót này làm lý thuyết Âm Dương Ngũ Hành chưa được hoàn bị; vấn đề đặt ra là về mặt thực dụng, sự thiếu sót đó có điều lụy nào cho việc giải đoán.",
+      "source_quote": "Ví dụ như Địa không, Địa kiếp không có Âm Dương mà chỉ có hành Hỏa. Chưa có tác giả nào cắt nghĩa được sự thiếu sót này. Chính sự thiếu sót này đã mâu thuẫn với lý thuyết Âm Dương Ngũ Hành song đôi.",
+      "source_page": 66,
+      "section_id": "tvhs.S10",
+      "tags": ["star:dia_khong", "star:dia_kiep", "concept:am_duong_ngu_hanh", "paradigm:phe_binh"],
+      "commentary": {
+        "han_viet_explain": null,
+        "viet_thuan": "Nhiều phụ tinh chỉ có hành mà không có âm dương (Địa Không, Địa Kiếp chỉ hành Hỏa) — mâu thuẫn với nguyên lý ngũ hành phải thoát thai từ âm dương. Tác giả nêu nghi vấn Trần Đoàn hay hậu sinh bỏ sót, và lý thuyết vì thế chưa hoàn bị.",
+        "nguyen_ly": "Ngũ Hành không tự sinh mà thoát thai từ Âm Dương, nên về lý thuyết mọi sao có hành đều phải có âm dương đi kèm.",
+        "vi_du_doi_song": null,
+        "iron_rule_warning": null
+      },
+      "confidence": 0.9,
+      "extracted_by": "sub-agent-bam-sach"
+    }
+  ]
+}
