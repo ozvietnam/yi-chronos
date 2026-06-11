@@ -268,6 +268,8 @@ Auto-sync chạy `git add -A` (không `-f`) → các file vẫn ignored. Chỉ f
 
 **Web ≠ artifact xuất bản.** Web là sandbox/chiêm-tool. **PDF book là artifact chính thức**.
 
+**Nguyên tắc bảo tồn "tiếc dê tiếc lễ"** (Quan Vật Nội Thiên tr.172-173, Anh duyệt 2026-06-11): _"Danh còn mà thực mất, vẫn HƠN danh thực đều tiêu — lễ tuy phế mà dê còn, hậu thế mới biết đường tìm lại lễ."_ → Giữ NGUYÊN VĂN cổ + nghi thức cũ trong wiki/sách kể cả khi "không ai dùng" — biểu tượng rỗng là hạt giống phục hưng. KHÔNG lược bỏ phần cổ văn vì "user không cần".
+
 **Anh + em = đồng tác giả** mỗi cuốn (dịch giả + biên tập viên + thiết kế).
 
 ### Hệ quả em phải nhớ
