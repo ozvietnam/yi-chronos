@@ -75,6 +75,14 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
     for w in three_layer.get("warnings", []):
         parts.append(f"- [{w['type']}] {w['msg']}")
 
+    # Trạng thái miếu-hãm từng chính tinh (Việc 2)
+    star_levels = three_layer.get("star_levels") or {}
+    if star_levels:
+        parts.append("")
+        parts.append("## Trạng thái miếu-hãm (đối chiếu bảng — chỉ luận theo trạng thái THẬT này):")
+        for s, info in star_levels.items():
+            parts.append(f"- {vi_star(s)}: {info['level']} (tại {vi_chi(info['palace_chi'])})")
+
     parts.append("")
     parts.append("## Trích sách theo sao × cung (chọn lọc, tối đa 2/sao):")
     count = 0
@@ -88,6 +96,8 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                 for a in atoms[:1]:  # 1 atom / school
                     if shown >= 2 or count >= 18:
                         break
+                    if a.get("dieu_kien_khop") is False:
+                        continue  # atom lệch điều kiện miếu-hãm — không feed LLM
                     vt = a.get("viet_thuan") or ""
                     if vt:
                         parts.append(

@@ -44,6 +44,67 @@ def render_per_palace(palace: str, stars: list[str],
     }
 
 
+# Việc 2 — lọc điều kiện miếu-hãm: sách nói "nhập miếu thì X / hãm thì Y",
+# phải đối chiếu trạng thái sao THẬT của lá số. KHÔNG xóa atom (giữ đủ 2 vế
+# bám sách) — chỉ annotate khớp/lệch + đẩy atom lệch điều kiện xuống cuối.
+_MIEU_WORDS = ("nhập miếu", "miếu địa", "miếu vượng", "tại miếu", "đắc địa", "vượng địa")
+_HAM_WORDS = ("hãm địa", "lạc hãm", "bị hãm", "cư hãm", "gặp hãm")
+_GOOD_LEVELS = ("miếu", "vượng", "đắc")
+_BAD_LEVELS = ("hãm", "lạc")
+
+
+def _build_star_levels(chinh_tinh_per_palace: dict) -> dict[str, dict]:
+    """Map sao → {level, palace_chi} từ vị trí chi thật (bảng chỉ phủ 14 chính tinh)."""
+    from engine.tu_vi.mieu_vuong_ham import level_at
+    from engine.tu_vi.viet_names import vi_star, vi_chi
+    from engine.tu_vi.paradigm.to_hop_cung import CHI_RING
+
+    chi_set = set(CHI_RING)
+    out: dict[str, dict] = {}
+    for chi, stars in (chinh_tinh_per_palace or {}).items():
+        if chi not in chi_set:
+            continue
+        for s in stars:
+            lv = level_at(vi_star(s), vi_chi(chi))
+            if lv:
+                out[s] = {"level": lv, "palace_chi": chi}
+    return out
+
+
+def _annotate_mieu_ham(per_palace: dict, star_levels: dict) -> int:
+    """Gắn cờ điều kiện miếu-hãm vào atoms. Returns số atom LỆCH điều kiện."""
+    lech = 0
+    for v in per_palace.values():
+        for star, cv in (v.get("cross_views") or {}).items():
+            info = star_levels.get(star)
+            if not info:
+                continue
+            lv = info["level"]
+            cv["mieu_ham"] = lv
+            is_good = any(g in lv for g in _GOOD_LEVELS)
+            is_bad = any(b in lv for b in _BAD_LEVELS)
+            if not (is_good or is_bad):
+                continue  # bình — không đủ căn cứ phán khớp/lệch
+            for atoms in (cv.get("schools") or {}).values():
+                for a in atoms:
+                    text = f"{a.get('question_text', '')} {a.get('source_quote', '')}".lower()
+                    cond = ("mieu" if any(w in text for w in _MIEU_WORDS)
+                            else "ham" if any(w in text for w in _HAM_WORDS) else None)
+                    if cond is None:
+                        continue
+                    khop = (cond == "mieu") == is_good
+                    a["dieu_kien"] = cond
+                    a["dieu_kien_khop"] = khop
+                    if not khop:
+                        lech += 1
+                        a["dieu_kien_note"] = (
+                            f"Sách nói điều kiện {'nhập miếu/đắc' if cond == 'mieu' else 'hãm địa'} "
+                            f"— sao trong lá số này đang {lv}"
+                        )
+                atoms.sort(key=lambda a: a.get("dieu_kien_khop") is False)
+    return lech
+
+
 def render_3_layer(la_so: dict) -> dict:
     """Main entry — render 3-Layer cho cả lá số.
 
@@ -72,6 +133,10 @@ def render_3_layer(la_so: dict) -> dict:
     for palace, pstars in phu_map.items():
         if palace not in per_palace and pstars:
             per_palace[palace] = render_per_palace(palace, [], pstars)
+
+    # Việc 2 — đối chiếu miếu-hãm: annotate atoms khớp/lệch điều kiện
+    star_levels = _build_star_levels(la_so.get("chinh_tinh_per_palace") or {})
+    lech_count = _annotate_mieu_ham(per_palace, star_levels)
 
     # Tổ hợp cung (việc D — tam phương tứ chính / giáp / mượn sao).
     # Chỉ tính cho key là 12 chi (key chức năng menh/tai_bach không có vị trí vòng).
@@ -127,6 +192,7 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
         "lop_1_chuyen_ve_anh": lop_1,
         "lop_2_vi_sao": lop_2,
         "lop_3_sach_co": lop_3,
+        "star_levels": star_levels,
         "warnings": warnings,
         "metadata": {
             "atoms_pulled": sum(
@@ -135,6 +201,7 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
                 for s in v["stars"]
             ),
             "to_hop_atoms": sum(v["total_atoms"] for v in to_hop_per_palace.values()),
+            "dieu_kien_lech_atoms": lech_count,
             "phu_tinh_atoms": sum(
                 cv["total_atoms"]
                 for v in per_palace.values()

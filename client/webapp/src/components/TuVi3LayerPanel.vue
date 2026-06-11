@@ -89,12 +89,16 @@
         <div v-for="(palace_data, palace) in result.lop_3_sach_co.per_palace" :key="palace" class="palace-block">
           <h4>🏛 Cung {{ formatPalace(palace) }}</h4>
           <div v-for="(cv, star) in palace_data.cross_views" :key="star" class="star-block">
-            <h5>⭐ {{ formatStar(star) }} <span class="badge">{{ cv.total_atoms }} atoms</span></h5>
+            <h5>⭐ {{ formatStar(star) }}
+              <span v-if="cv.mieu_ham" :class="['mh-badge', mhClass(cv.mieu_ham)]">{{ cv.mieu_ham }}</span>
+              <span class="badge">{{ cv.total_atoms }} atoms</span>
+            </h5>
             <template v-for="(atoms, school) in cv.schools" :key="school">
             <div v-if="atoms && atoms.length > 0" class="school-view">
               <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
               <ul>
-                <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
+                <li v-for="atom in atoms" :key="atom.atom_id" :class="['atom', { 'atom-lech': atom.dieu_kien_khop === false }]">
+                  <div v-if="atom.dieu_kien_note" class="dieu-kien-note">⚠ {{ atom.dieu_kien_note }}</div>
                   <div class="quote" v-html="'&quot;' + annotateTerms(atom.source_quote) + '&quot;'"></div>
                   <div v-if="atom.viet_thuan" class="paraphrase" v-html="'→ ' + annotateTerms(atom.viet_thuan)"></div>
                   <div class="meta">📍 trang {{ atom.page_start }} · confidence {{ atom.confidence }}</div>
@@ -214,6 +218,13 @@ const RELATION_NAMES = {
 
 function formatRelation(r) {
   return RELATION_NAMES[r] || r
+}
+
+function mhClass(level) {
+  if (!level) return ''
+  if (level.includes('miếu') || level.includes('vượng') || level.includes('đắc')) return 'mh-good'
+  if (level.includes('hãm') || level.includes('lạc')) return 'mh-bad'
+  return 'mh-mid'
 }
 
 // Tổ hợp cung — chỉ lấy cung có atoms, ưu tiên Mệnh/Thân trước
@@ -455,6 +466,26 @@ h3 { margin-top: 0; }
 .tu-hoa-chip.hoa_ky { background: #ffebee; color: #b71c1c; }
 .phu-tinh-block { border-left-color: #b8a5d8; }
 .badge-phu { background: #9575cd; }
+
+.mh-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-size: 0.7em;
+  margin-right: 6px;
+}
+.mh-good { background: #e8f5e9; color: #1b5e20; }
+.mh-bad { background: #ffebee; color: #b71c1c; }
+.mh-mid { background: #eceff1; color: #455a64; }
+.atom-lech { opacity: 0.62; }
+.dieu-kien-note {
+  font-size: 0.8em;
+  color: #b35900;
+  background: #fff8e1;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
 
 .to-hop-section {
   margin: 20px 0;
