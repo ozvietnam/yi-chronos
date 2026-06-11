@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "description": "Bảng 'một fact nhiều tên gọi' — biệt danh/viết tắt sao Tử Vi → list sao canonical. Evidence-based: chỉ thêm tên ĐÃ XUẤT HIỆN trong atoms bám sách (đếm 2026-06-11). Nguồn sự thật chính là wiki concept_index.aliases; file này là seed + fallback.",
+    "directive": "Anh chốt 2026-06-11: 'đế tinh với tử vi thì dùng wiki mà lọc, một fact nhiều tên gọi thôi. khi tìm thì tìm song song cho ra hết kết quả.'"
+  },
+  "aliases": {
+    "Đế tinh": ["tu_vi"],
+    "Đế tọa": ["tu_vi"],
+    "Tử Vy": ["tu_vi"],
+    "Nhật Nguyệt": ["thai_duong", "thai_am"],
+    "sao Nhật": ["thai_duong"],
+    "sao Nguyệt": ["thai_am"],
+    "Xương Khúc": ["van_xuong", "van_khuc"],
+    "Tả Hữu": ["ta_phu", "huu_bat"],
+    "Tả Phù": ["ta_phu"],
+    "Khôi Việt": ["thien_khoi", "thien_viet"],
+    "Kình Đà": ["kinh_duong", "da_la"],
+    "Hỏa Linh": ["hoa_tinh", "linh_tinh"],
+    "Không Kiếp": ["dia_khong", "dia_kiep"],
+    "Lộc Mã": ["loc_ton", "thien_ma"],
+    "Tử Phủ": ["tu_vi", "thien_phu"],
+    "Sát Phá Tham": ["that_sat", "pha_quan", "tham_lang"],
+    "Sát Phá Liêm Tham": ["that_sat", "pha_quan", "liem_trinh", "tham_lang"],
+    "Cơ Nguyệt Đồng Lương": ["thien_co", "thai_am", "thien_dong", "thien_luong"],
+    "Tử Phủ Vũ Tướng": ["tu_vi", "thien_phu", "vu_khuc", "thien_tuong"],
+    "Phủ Tướng": ["thien_phu", "thien_tuong"],
+    "Cự Nhật": ["cu_mon", "thai_duong"],
+    "Cự Cơ": ["cu_mon", "thien_co"],
+    "Đồng Lương": ["thien_dong", "thien_luong"],
+    "Vũ Tham": ["vu_khuc", "tham_lang"],
+    "Liêm Tham": ["liem_trinh", "tham_lang"],
+    "Cơ Lương": ["thien_co", "thien_luong"],
+    "Đào Hồng": ["dao_hoa", "hong_loan"],
+    "Song Hỷ": ["thien_hy", "hy_than"],
+    "Thương Sứ": ["thien_thuong", "thien_su"],
+    "Tuần Triệt": ["tuan_khong", "triet_khong"]
+  }
+}

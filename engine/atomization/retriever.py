@@ -102,8 +102,24 @@ class ChunkAtomRetriever:
         Dùng cho MVP khi chưa có embedding. Khi có embedding → swap với atom_vec.
         """
         k = limit or self.atom_retrieve_k
-        # Sanitize query — FTS5 cần escape special chars
-        safe_query = self._sanitize_fts_query(query)
+        # "Một fact nhiều tên gọi" (Anh chốt 2026-06-11): expand biệt danh qua wiki
+        # → tìm SONG SONG mọi tên gọi (Đế tinh OR Tử Vi OR Đế tọa...) ra hết kết quả.
+        try:
+            from engine.tu_vi.star_aliases import expand_search_terms
+            terms = expand_search_terms(query)
+        except Exception:
+            terms = [query]
+        if len(terms) > 1:
+            # Mỗi term là 1 phrase (giữ nguyên cụm "Đế tinh"), strip quote nội bộ
+            phrases = []
+            for t in terms[:12]:
+                clean = t.replace('"', " ").strip()
+                if clean:
+                    phrases.append(f'"{clean}"')
+            safe_query = " OR ".join(phrases) if phrases else self._sanitize_fts_query(query)
+        else:
+            # Sanitize query — FTS5 cần escape special chars
+            safe_query = self._sanitize_fts_query(query)
         sql = """
             SELECT
                 aq.atom_id, aq.question_text, aq.chunk_id,
