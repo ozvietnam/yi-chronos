@@ -76,6 +76,31 @@
           </div>
         </div>
 
+        <!-- Cách cục có tên riêng — máy match điều kiện chính xác -->
+        <div v-if="cachCucNamed.length" class="cc-named-section">
+          <h4>🏆 Cách cục có tên trong lá số</h4>
+          <div v-for="cc in cachCucNamed" :key="cc.slug" class="cc-named-block">
+            <h5>
+              <span :class="['cc-loai', cc.loai]">{{ cc.loai === 'cat' ? 'CÁT' : cc.loai === 'hung' ? 'HUNG' : 'TÙY HÓA' }}</span>
+              {{ cc.ten }}
+              <span class="badge">{{ cc.total_atoms }} atoms</span>
+            </h5>
+            <p class="cc-dieu-kien">{{ cc.dieu_kien }}</p>
+            <template v-for="(atoms, school) in cc.schools" :key="school">
+            <div v-if="atoms && atoms.length > 0" class="school-view">
+              <strong class="school-name">{{ result.lop_3_sach_co.schools_summary[school] }}:</strong>
+              <ul>
+                <li v-for="atom in atoms" :key="atom.atom_id" class="atom">
+                  <div class="quote" v-html="'&quot;' + annotateTerms(atom.source_quote) + '&quot;'"></div>
+                  <div v-if="atom.viet_thuan" class="paraphrase" v-html="'→ ' + annotateTerms(atom.viet_thuan)"></div>
+                  <div class="meta">📍 trang {{ atom.page_start }}</div>
+                </li>
+              </ul>
+            </div>
+            </template>
+          </div>
+        </div>
+
         <!-- Tổ hợp cung: tam phương tứ chính / giáp / mượn sao (chống "luận máy móc" — Trung Châu) -->
         <div v-if="toHopList.length" class="to-hop-section">
           <h4>🔗 Tổ hợp cung — tam phương tứ chính · giáp · mượn sao</h4>
@@ -227,6 +252,7 @@ function formatFn(f) {
 }
 
 const tuHoa = computed(() => result.value?.la_so_input?.tu_hoa || [])
+const cachCucNamed = computed(() => result.value?.lop_3_sach_co?.cach_cuc_named || [])
 const daiVan = computed(() => result.value?.lop_3_sach_co?.dai_van_hien_tai || null)
 
 function formatPalace(p) {
@@ -492,6 +518,26 @@ h3 { margin-top: 0; }
   border-radius: 6px;
   border: 1px solid #2a9d8f;
 }
+
+.cc-named-section {
+  margin: 20px 0;
+  padding: 12px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #d4af37;
+}
+.cc-named-block { margin: 14px 0; padding-left: 12px; border-left: 2px solid #e8d48a; }
+.cc-dieu-kien { font-size: 0.88em; color: #555; margin: 4px 0 8px; }
+.cc-loai {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 8px;
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+.cc-loai.cat { background: #e8f5e9; color: #1b5e20; }
+.cc-loai.hung { background: #ffebee; color: #b71c1c; }
+.cc-loai.hung_hoa_cat, .cc-loai.trung_tinh { background: #fff3e0; color: #b35900; }
 
 .tu-hoa-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
 .tu-hoa-chip {

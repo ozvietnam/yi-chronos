@@ -226,10 +226,25 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
                          "'Chư tinh cát phùng hung dã cát, chư tinh hung phùng cát dã hung'"),
         }
 
+    # Cách cục CÓ TÊN RIÊNG (truy quét thuật ngữ 2026-06-11) — match rule chính xác
+    cach_cuc_named = []
+    try:
+        from engine.tu_vi.cach_cuc_named import match_named_cach_cucs, atoms_for_cach_cuc
+        for cc in match_named_cach_cucs(la_so):
+            atoms = atoms_for_cach_cuc(cc["slug"], cc["aliases"])
+            cach_cuc_named.append({
+                "slug": cc["slug"], "ten": cc["ten"], "loai": cc["loai"],
+                "dieu_kien": cc["dieu_kien"], "aliases": cc["aliases"],
+                **atoms,
+            })
+    except Exception:
+        pass  # lớp bổ sung — không chặn render chính
+
     # Compose lớp 3 (per palace cross-school + tổ hợp cung)
     lop_3 = {
         "per_palace": per_palace,
         "to_hop_per_palace": to_hop_per_palace,
+        "cach_cuc_named": cach_cuc_named,
         "dai_van_hien_tai": dai_van_view,
         "schools_summary": {
             sc_code: SCHOOL_NAMES[sc_code]

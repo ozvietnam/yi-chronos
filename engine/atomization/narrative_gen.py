@@ -123,6 +123,19 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                 f"tại cung {pal_vi}"
             )
 
+    # Cách cục có tên riêng — máy match chính xác điều kiện
+    named = (three_layer.get("lop_3_sach_co") or {}).get("cach_cuc_named") or []
+    if named:
+        parts.append("")
+        parts.append("## Cách cục có tên trong lá số (máy match điều kiện chính xác):")
+        for cc in named[:4]:
+            parts.append(f"- {cc['ten']} ({cc['loai']}): {cc['dieu_kien']}")
+            for school, atoms in (cc.get("schools") or {}).items():
+                for a in atoms[:1]:
+                    vt = a.get("viet_thuan") or a.get("source_quote") or ""
+                    if vt:
+                        parts.append(f"  · ({school}) {vt[:160]}")
+
     # Tổ hợp cung Mệnh (tam phương tứ chính / giáp / mượn sao) — chống luận máy móc
     menh_chi = la_so_input.get("menh_palace")
     th = (three_layer.get("lop_3_sach_co", {}).get("to_hop_per_palace") or {}).get(menh_chi)
