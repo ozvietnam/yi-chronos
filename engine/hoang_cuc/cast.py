@@ -66,7 +66,9 @@ def cast_hoang_cuc(year: int, with_atoms: bool = True) -> dict:
             "DĨ VẬT QUAN VẬT — không phải ta quan vật (Quan Vật Nội Thiên tr.116): "
             "gạt yêu-ghét của mình ra, để thời tự nói cái LẼ của nó. "
             "Vị trí này phản chiếu CẤU TRÚC thời đoạn trong chu kỳ lớn — "
-            "không phải lời đoán cát hung (Iron Rule #4/#6/#8)."
+            "không phải lời đoán cát hung (Iron Rule #4/#6/#8). "
+            "QUYỀN-BIẾN (tr.147): máy chỉ đọc BIẾN — tiêu trưởng của thời; "
+            "QUYỀN — cân khinh trọng mà quyết — thuộc về NGƯỜI, máy không bao giờ thay."
         ),
     }
     if with_atoms:

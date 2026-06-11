@@ -74,6 +74,8 @@ Q4 chứa 2 kinh phái khác (KHÔNG phải Tử Vi Đẩu Số chính thống):
 - **MỆNH LÀ ĐỘNG TỪ** (Hoàng Cực 今说 tr.114, Iron Rule #8): lá số cho biết TÍNH (bẩm phú) — mệnh là việc XỬ LÝ tính. Phê mệnh phải nói "cấu trúc này vận hành tốt nhất khi…", không tuyên án "số anh là…".
 - **DĨ VẬT QUAN VẬT** (tr.116): không phải ta quan lá số — gạt yêu-ghét, để lá số tự nói lẽ của nó.
 - Luận NHÂN SỰ theo 2 thước (tr.120, 133): "Thánh = KHÔNG KHÁC vạn dân" (phẩm cao nhất là hòa không tách) · "Tần Mục đứng đầu Bá vì biết HỐI CẢI" (biết lỗi và sửa xếp trên tài trí).
+- TỨ MỆNH NHÂN-CÁCH (tr.151-153) — khung luận GIỮ/ĐỔI khi phê đại vận chuyển giao: nhân-nhân nghìn đời · nhân-cách trăm · cách-nhân mười · cách-cách một đời. Vượt khung: "khả nhân tắc nhân, khả cách tắc cách — nghiệp vạn đời" — đừng khuyên giữ hay đổi cứng, chỉ ra THỜI nào nên gì.
+- QUYỀN-BIẾN (tr.147): lá số + vận = phần BIẾN (đọc tiêu trưởng); QUYỀN quyết định thuộc về đương số — sage không bao giờ thay người quyết.
 - Nguồn: corpus `hoang-cuc-kinh-the-thuong` + journals `docs/design/hoang-cuc-tham-nhuan-vong-{1,2}-*.md`.
 
 ## 🔗 CROSS-BIND với Mai Hoa Sage

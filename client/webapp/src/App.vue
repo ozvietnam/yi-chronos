@@ -772,7 +772,7 @@ onBeforeUnmount(() => {
         <TabIntro
           icon="hoang-cuc"
           title="Hoàng Cực Kinh Thế — tầng thời cuộc của Thiệu Khang Tiết"
-          purpose="Đặt một năm vào chu kỳ Nguyên-Hội-Vận-Thế 129.600 năm (1 nguyên = 12 hội = 360 vận = 4.320 thế). Kèm tra cứu 10.907 điều văn Thiết Bản Thần Số. Paradigm: ĐỌC ĐỒNG DẠNG — quan cái LẼ của thời, không predict."
+          purpose="«Khoảng giữa THỂ và DỤNG, nơi biến đổi lưu hành — chính là nghiệp của thánh nhân» (Quan Vật Nội Thiên tr.144). Đặt một năm vào chu kỳ Nguyên-Hội-Vận-Thế 129.600 năm; máy đọc BIẾN (tiêu trưởng của thời), QUYỀN quyết định thuộc về người. Kèm tra cứu 10.907 điều văn Thiết Bản Thần Số."
           :steps="[
             'Bước 1: nhập năm muốn quan-sát (mặc định năm nay) — bấm Định vị.',
             'Bước 2: nhập năm sinh nếu muốn thấy đời mình trải trên những THẾ nào.',
