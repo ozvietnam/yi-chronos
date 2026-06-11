@@ -1,0 +1,728 @@
+{
+  "found_aliases": [
+    {
+      "alias": "Thiên Ất quý nhân",
+      "canonical": "Thiên Khôi + Thiên Việt (bộ Khôi Việt)",
+      "type": "star",
+      "count": 8,
+      "evidence": "Khôi Việt còn có tên khác là Thiên Ất qui nhân.",
+      "atom_id": 4793
+    },
+    {
+      "alias": "Khố tinh",
+      "canonical": "Thiên Phủ",
+      "type": "star",
+      "count": 2,
+      "evidence": "Thiên Phủ được gọi là \"khố tinh\"",
+      "atom_id": 3124
+    },
+    {
+      "alias": "Ấn tinh / sao giữ ấn",
+      "canonical": "Thiên Tướng",
+      "type": "star",
+      "count": 5,
+      "evidence": "Thiên Tướng được gọi là \"ấn tinh\"",
+      "atom_id": 3125
+    },
+    {
+      "alias": "Ám tinh",
+      "canonical": "Cự Môn",
+      "type": "star",
+      "count": 14,
+      "evidence": "Gọi là 'ám tinh', chẳng phải nói bản thân Cự Môn không có ánh sáng, mà là nói nó giỏi che mất ánh sáng của người khác, cho nên gọi là 'ám'.",
+      "atom_id": 2672
+    },
+    {
+      "alias": "Sao đào hoa chính",
+      "canonical": "Tham Lang",
+      "type": "star",
+      "count": 5,
+      "evidence": "Tham Lang được gọi là sao đào hoa chính có nghĩa là gì?",
+      "atom_id": 1619
+    },
+    {
+      "alias": "Sao đào hoa thứ",
+      "canonical": "Liêm Trinh",
+      "type": "star",
+      "count": 9,
+      "evidence": "Liêm Trinh vốn được gọi là sao đào hoa thứ, hễ đào hoa ắt sẽ có tính chất mẫn cảm",
+      "atom_id": 1617
+    },
+    {
+      "alias": "Tù tinh / Chính trực quan / Đào hoa tinh",
+      "canonical": "Liêm Trinh (3 tên theo đặc tính trội)",
+      "type": "star",
+      "count": 3,
+      "evidence": "Liêm Trinh có nhiều tên gọi khác nhau tùy theo những đặc tính trội yếu: Chính trực quan, Đào hoa tỉnh, Tù tỉnh.",
+      "atom_id": 5705
+    },
+    {
+      "alias": "Sao giao tế",
+      "canonical": "Tham Lang",
+      "type": "star",
+      "count": 2,
+      "evidence": "Tại sao Tham Lang được gọi là sao giao tế?",
+      "atom_id": 150
+    },
+    {
+      "alias": "Sao tiền tài (tiển tài)",
+      "canonical": "Vũ Khúc",
+      "type": "star",
+      "count": 26,
+      "evidence": "Tại sao Vũ Khúc được gọi là sao tiển tài?",
+      "atom_id": 578
+    },
+    {
+      "alias": "Huyết tinh",
+      "canonical": "Thất Sát",
+      "type": "star",
+      "count": 2,
+      "evidence": "Thất Sát được gọi là \"huyết tinh\" trong Tử Vi vì lý do gì?",
+      "atom_id": 2828
+    },
+    {
+      "alias": "Không Vong (tên khác của Thiên Không)",
+      "canonical": "Thiên Không",
+      "type": "star",
+      "count": 22,
+      "evidence": "Sao Thiên Không còn có một tên khác là Không Vong.",
+      "atom_id": 4821,
+      "note": "ĐÁNG NGỜ: 'Không Vong' nơi khác thường chỉ Tuần/Triệt hoặc trạng thái gặp Không — cần Anh duyệt trước khi map cứng"
+    },
+    {
+      "alias": "Dịch Mã",
+      "canonical": "Thiên Mã (tại cung Thân/Mệnh)",
+      "type": "star",
+      "count": 1,
+      "evidence": "Thiên Mã ở các cung đều có sự chế hóa, vào cung Thân Mệnh, gọi là Dịch Mã",
+      "atom_id": 4799
+    },
+    {
+      "alias": "Kế Đô của phái yếu",
+      "canonical": "Hóa Kỵ (đối với nữ mệnh)",
+      "type": "star",
+      "count": 1,
+      "evidence": "cô nhân đã gọi Hoá Ky là sao Kế Đô của phái yếu.",
+      "atom_id": 4895
+    },
+    {
+      "alias": "Đệ nhất giải thần",
+      "canonical": "Hóa Khoa",
+      "type": "star",
+      "count": 1,
+      "evidence": "Giữa các phụ tinh, Hóa Khoa đứng đầu các sao giải... Sao này còn được gọi là 'Đệ nhất giải thần'",
+      "atom_id": 6686
+    },
+    {
+      "alias": "Đài Các tinh",
+      "canonical": "Hoa Cái",
+      "type": "star",
+      "count": 2,
+      "evidence": "Hoa Cái được gọi là Đài Các tinh",
+      "atom_id": 6709
+    },
+    {
+      "alias": "Lộc Kiến",
+      "canonical": "Lâm Quan (vòng Tràng Sinh) — vị trí an Lộc Tồn",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Là giai đoạn phát triển cực thịnh của hàng can ngũ hành, tức là giai đoạn Lâm quan trong vòng tràng sinh. Lâm quan còn có tên gọi khác là Lộc Kiến.",
+      "atom_id": 4562
+    },
+    {
+      "alias": "Nam Đẩu chủ tinh",
+      "canonical": "Thiên Phủ (Bắc Đẩu chủ = Tử Vi, Trung Thiên chủ = Thái Dương)",
+      "type": "star",
+      "count": 1,
+      "evidence": "Chủ tinh trong Đẩu Số: Bắc Đẩu là Tử Vi. Trung Thiên là Thái Dương. Nam Đẩu tức là Thiên Phủ.",
+      "atom_id": 997
+    },
+    {
+      "alias": "Ấm tinh (sao che chở)",
+      "canonical": "Thiên Lương",
+      "type": "star",
+      "count": 8,
+      "evidence": "Cho nên Thiên Lương tuy gọi là \"ấm tính\" (sao che chở), nhưng về bản chất lại có tính \"cô kị\".",
+      "atom_id": 3243
+    },
+    {
+      "alias": "Sao giữ mạng sống và thêm phúc",
+      "canonical": "Thiên Đồng",
+      "type": "star",
+      "count": 1,
+      "evidence": "Thiên Đồng là sao Nam Đẩu... nên cổ nhân gọi là \"sao giữ mạng sống và thêm phúc\"",
+      "atom_id": 1097
+    },
+    {
+      "alias": "Tứ Phi Tinh",
+      "canonical": "Tang Môn + Bạch Hổ + Điếu Khách + Quan Phù",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Bốn sao ấy là: Tang Môn, Bạch Hổ, Điếu Khách, Quan Phù gọi là Tứ Phi Tinh",
+      "atom_id": 4837
+    },
+    {
+      "alias": "Tứ Linh",
+      "canonical": "Long (Thanh Long) + Phượng (Phượng Các) + Hổ (Bạch Hổ) + Cái (Hoa Cái)",
+      "type": "concept",
+      "count": 5,
+      "evidence": "Hổ, Cát, Long, Phượng (gọi là Tứ Linh): Cũng rất hiển đạt về uy danh, sự nghiệp, uy tín, khoa giáp.",
+      "atom_id": 6673
+    },
+    {
+      "alias": "Tứ Hung",
+      "canonical": "Tang Môn + Bạch Hổ + Điếu Khách + Bệnh Phù",
+      "type": "concept",
+      "count": 7,
+      "evidence": "Tang, Hổ, Điếu, Bình (gọi là tứ Hung): Rất độc, báo hiệu cho tang tóc, tai nạn chết người, họa lớn.",
+      "atom_id": 6675,
+      "note": "ĐÁNG NGỜ: nguyên văn ghi 'Bình' (nghi OCR của 'Bệnh' — question_text ghi 'Tang Hổ Điếu Bệnh')"
+    },
+    {
+      "alias": "Tứ Đức",
+      "canonical": "Long Đức + Nguyệt Đức + Phúc Đức + Thiên Đức",
+      "type": "concept",
+      "count": 21,
+      "evidence": "Tứ Đức (Long Đức, Nguyệt Đức, Phúc Đức, Thiên Đức)... vừa có giá trị đức độ, vừa có giá trị cứu giải.",
+      "atom_id": 5996
+    },
+    {
+      "alias": "Bộ Hiển thần",
+      "canonical": "Long Phượng + Xương Khúc + Khôi Việt + Tả Hữu (phò tá Tử Phủ)",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Long Phượng Xương Khúc, Khôi Việt, Tả Hữu: Đây là bộ sao 'Hiển thần', chuyên phò tá cho Tử Phủ.",
+      "atom_id": 6018
+    },
+    {
+      "alias": "Chính hiệu / Bàng tinh",
+      "canonical": "Chính tinh / Phụ tinh",
+      "type": "concept",
+      "count": 3,
+      "evidence": "Chính tinh (còn gọi là chính hiệu). Phụ tinh (còn gọi là bàng tinh).",
+      "atom_id": 6555
+    },
+    {
+      "alias": "Tại Dã Cô Quân",
+      "canonical": "Tử Vi lạc hãm không có Bách Quan Triều Củng",
+      "type": "concept",
+      "count": 23,
+      "evidence": "nếu lạc hãm mà còn không có \"Bách Quan Triều Củng\", là \"Tại Dã Cô Quân\".",
+      "atom_id": 83
+    },
+    {
+      "alias": "Đào hoa phạm chủ",
+      "canonical": "Tham Lang + Tử Vi đồng cung",
+      "type": "concept",
+      "count": 15,
+      "evidence": "Nói Đào hoa phạm chủ tức là Tham Lang và Tử Vi đồng cung.",
+      "atom_id": 144
+    },
+    {
+      "alias": "Quân thần khánh hội",
+      "canonical": "Tử Vi + Thiên Phủ đồng độ Dần/Thân được Khôi Việt, Xương Khúc, Tả Hữu hội chiếu",
+      "type": "concept",
+      "count": 7,
+      "evidence": "Lúc Tử Vi và Thiên Phủ đồng độ ở hai cung Dần hoặc Thân, được... hội chiếu, gọi là \"quân thần khánh hội\".",
+      "atom_id": 1678
+    },
+    {
+      "alias": "Kho trống",
+      "canonical": "Thiên Phủ không có sao lộc hội hợp (hoặc đồng cung Địa Không/Thiên Không)",
+      "type": "concept",
+      "count": 71,
+      "evidence": "Lúc không có sao lộc hội hợp, Thiên Phủ gọi là \"kho trống\".",
+      "atom_id": 1738
+    },
+    {
+      "alias": "Kho lộ",
+      "canonical": "Thiên Phủ gặp sát tinh / sát-hình-kị giao hội",
+      "type": "concept",
+      "count": 73,
+      "evidence": "Thiên Phủ gặp sát tinh, gọi là \"kho lộ\".",
+      "atom_id": 1003
+    },
+    {
+      "alias": "Thiên La Địa Võng",
+      "canonical": "Hai cung Thìn (Thiên La) và Tuất (Địa Võng)",
+      "type": "palace",
+      "count": 55,
+      "evidence": "Hai cung Thìn và Tuất là \"Thiên La, Địa Võng\"",
+      "atom_id": 815
+    },
+    {
+      "alias": "Thiên Khuyết (cổng trời)",
+      "canonical": "Thiên Cơ gặp Cự Môn được Thái Dương miếu vượng chiếu xạ",
+      "type": "concept",
+      "count": 3,
+      "evidence": "Nếu Thiên Cơ gặp Cự Môn được Thái Dương miếu vượng chiếu xạ, thì gọi là \"Thiên Khuyết\" (cổng trời).",
+      "atom_id": 214
+    },
+    {
+      "alias": "Mã đầu đới kiếm / Mã đầu đới tiễn",
+      "canonical": "Thiên Đồng + Thái Âm cư Ngọ có Kình Dương đồng độ",
+      "type": "concept",
+      "count": 18,
+      "evidence": "Thiên Đồng, Thái Âm ở cung Ngọ khá tích cực, cho nên ưa Kình Dương đồng độ, gọi là Mã đầu đới kiếm",
+      "atom_id": 953,
+      "note": "2 biến thể tên trong cùng corpus Trung Châu: 'đới kiếm' và 'đới tiễn'"
+    },
+    {
+      "alias": "Phản bối",
+      "canonical": "Thiên Đồng cư Tuất, đối cung Cự Môn Hóa Kỵ kích phát",
+      "type": "concept",
+      "count": 24,
+      "evidence": "Thiên Đồng ở cung Tuất ưa đối cung là Cự Môn Hóa Kỵ kích phát, gọi là cục 'phản bối'",
+      "atom_id": 3486
+    },
+    {
+      "alias": "Phiếm thủy đào hoa (đào hoa trôi dạt / đào hoa kiểu nước tràn lan)",
+      "canonical": "Tham Lang cư Hợi/Tý gặp Kình Dương, Đà La",
+      "type": "concept",
+      "count": 19,
+      "evidence": "Tham Lang ở cung Hợi, gặp Kình Dương, Đà La, gọi là Phiếm thủy đào hoa",
+      "atom_id": 2647,
+      "note": "3 corpus cùng xác nhận (Trung Châu, Vũ Tài Lục, Toàn Thư zh: 'Tham ngộ Dương, Đà cư Hợi, Tý, danh vi phiếm thủy đào hoa')"
+    },
+    {
+      "alias": "Cẩm gậy phong lưu (phong lưu thái trượng)",
+      "canonical": "Tham Lang hội Thiên Hình, Kình Dương",
+      "type": "concept",
+      "count": 3,
+      "evidence": "hoặc hội Thiên Hình, Kình Dương, gọi là \"cẩm gậy phong lưu\".",
+      "atom_id": 2439,
+      "note": "Nghi là dịch của 'Phong lưu thái trượng' — cần Anh duyệt tên chuẩn"
+    },
+    {
+      "alias": "Hỏa Tham cách / Linh Tham cách",
+      "canonical": "Tham Lang ở Mộ Khố (Thìn Tuất Sửu Mùi) gặp Hỏa Tinh / Linh Tinh",
+      "type": "concept",
+      "count": 46,
+      "evidence": "Tham Lang ở Mộ Khố (tức Thìn, Tuất, Sửu, Mùi), rất ưa gặp Hỏa Tinh, đây gọi là cách \"Hỏa Tham\"; kế đến là ưa gặp Linh Tinh, gọi là \"Linh Tham cách\"",
+      "atom_id": 1062
+    },
+    {
+      "alias": "Thạch trung ẩn ngọc",
+      "canonical": "Cự Môn độc tọa Tý/Ngọ gặp Hóa Lộc/Hóa Quyền",
+      "type": "concept",
+      "count": 21,
+      "evidence": "Cự Môn độc tọa ở hai cung Tý hoặc Ngọ, gặp Hóa Lộc hoặc Hóa Quyền, gọi là cách Thạch trung ẩn ngọc",
+      "atom_id": 2770
+    },
+    {
+      "alias": "Cơ Cự đồng lâm cách",
+      "canonical": "Cự Môn + Thiên Cơ cư Mão, Hóa Lộc hội Lộc Tồn không sát tinh",
+      "type": "concept",
+      "count": 2,
+      "evidence": "\"Cự Môn, Thiên Cơ\" ở cung Mão, Hóa Lộc, hội hợp với Lộc Tồn... gọi là cách \"Cơ Cự đồng lâm cách\".",
+      "atom_id": 2843
+    },
+    {
+      "alias": "Anh tinh nhập miếu",
+      "canonical": "Phá Quân cư Tý/Ngọ được cát hóa",
+      "type": "concept",
+      "count": 3,
+      "evidence": "Phá Quân ở hai cung Tý hoặc Ngọ, được cát hóa, gọi là cách \"Anh tinh nhập miếu\".",
+      "atom_id": 3592
+    },
+    {
+      "alias": "Nguyệt lãng thiên môn",
+      "canonical": "Thái Âm cư Hợi thủ Mệnh",
+      "type": "concept",
+      "count": 5,
+      "evidence": "Nguyệt lạc Hợi cung: (Thái Âm cư Hợi thủ Mệnh, còn gọi là Nguyệt Lãng Thiên Môn cách).",
+      "atom_id": 4614
+    },
+    {
+      "alias": "Minh châu xuất hải",
+      "canonical": "An Mệnh ở Mùi, Nhật tại Mão + Nguyệt tại Hợi chiếu",
+      "type": "concept",
+      "count": 1,
+      "evidence": "An mệnh ở Mùi, Nhật tại Mão, Nguyệt tại Hợi chiếu gọi là cách minh châu hải",
+      "atom_id": 4696
+    },
+    {
+      "alias": "Thất Sát triều đẩu / Thất Sát ngưỡng đầu",
+      "canonical": "Thất Sát thủ Mệnh ở Dần-Thân (triều đẩu) / Tý-Ngọ (ngưỡng đầu)",
+      "type": "concept",
+      "count": 5,
+      "evidence": "Ở Dần, Thân, gọi là Thất Sát triều đẩu; ở Tý, Ngọ gọi là Thất Sát ngưỡng đầu.",
+      "atom_id": 5769
+    },
+    {
+      "alias": "Ngưỡng diện triều đẩu",
+      "canonical": "Tử Vi cư Tý/Ngọ được Khoa Quyền Lộc tam phương chiếu",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Tử Vi ngồi ở cung Tí, cung Ngọ được Khoa, Quyền, Lộc tam phương chiếu tới gọi là cách ngưỡng diện triều đẩu",
+      "atom_id": 3753
+    },
+    {
+      "alias": "Lộc trùng điệp",
+      "canonical": "Hóa Lộc đồng độ hoặc đối nhau với Lộc Tồn",
+      "type": "concept",
+      "count": 7,
+      "evidence": "Hóa Lộc đồng độ hoặc đối nhau với Lộc Tồn, gọi là \"Lộc trùng điệp\"...",
+      "atom_id": 16483
+    },
+    {
+      "alias": "Lộc Mã giao trì / chiết tiển / Triệt Thiên Mã",
+      "canonical": "Thiên Mã + Lộc Tồn (hoặc Hóa Lộc) đồng cung/chiếu",
+      "type": "concept",
+      "count": 33,
+      "evidence": "Mã, Lộc Tồn đồng cung, hoặc Tồn hay Lộc Chiếu: Gọi là chiết tiển (bẻ roi đánh ngựa) hay Lộc Mã giao trì",
+      "atom_id": 17793
+    },
+    {
+      "alias": "Linh Xương Đà Vũ",
+      "canonical": "Vũ Khúc đồng độ/đối nhau với Văn Xương + Linh Tinh + Đà La",
+      "type": "concept",
+      "count": 4,
+      "evidence": "Nói \"Linh Xương Đà Vũ\", tức là Vũ Khúc đồng độ hoặc đối nhau với Văn Xương, Linh Tinh, Đà La.",
+      "atom_id": 16562
+    },
+    {
+      "alias": "Toái Quân Lưỡng Phá",
+      "canonical": "Lưu Hà + Phá Toái + Phá Quân đồng cung tại Mệnh",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Lưu Hà, Phá Toái, Phá Quân đồng cung: Mệnh có cách này gọi là Toái Quân Lưỡng Phá",
+      "atom_id": 6077
+    },
+    {
+      "alias": "Hổ mọc cánh",
+      "canonical": "Bạch Hổ + Phượng Các/Phi Liêm đồng cung; sách khác: Phá Quân + Bạch Hổ",
+      "type": "concept",
+      "count": 3,
+      "evidence": "Hổ Phi đồng cung (gọi là hổ mọc cánh)... // Phá, Hổ: Gọi là hổ mọc cánh",
+      "atom_id": 6672,
+      "note": "ĐÁNG NGỜ: cùng corpus Hàm Số định nghĩa 2 tổ hợp khác nhau (Hổ+Phi và Phá+Hổ) cùng mang tên 'hổ mọc cánh'"
+    },
+    {
+      "alias": "Hổ cư hổ vị",
+      "canonical": "Bạch Hổ tọa cung Dần",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Hổ ở Dần (gọi là hổ cư hổ vị): Ví như cọp ở rừng núi",
+      "atom_id": 6674
+    },
+    {
+      "alias": "Long Hổ Cái",
+      "canonical": "Thanh Long + Bạch Hổ + Hoa Cái",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Thanh Long, Bạch Hổ, Hoa Cái: Cách này gọi là Long Hổ Cái, cũng rực rỡ về quan tài.",
+      "atom_id": 17694
+    },
+    {
+      "alias": "Mộ Trung Thai Tọa",
+      "canonical": "Thai + Tọa (Bát Tọa) + Mộ tọa thủ ở Tứ Mộ (Thìn Tuất Sửu Mùi)",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Thai, Tạo Mộ: Đây là cách gọi là Mộ Trung Thai Tọa, chủ sự quí hiển làm nên",
+      "atom_id": 6679
+    },
+    {
+      "alias": "Tam Hóa Liên Châu",
+      "canonical": "Khoa-Quyền-Lộc đứng liền nhau (liên châu); tuổi Quý biến thể 'Tam Hóa Hận Đời' (Kỵ giữa Khoa-Quyền)",
+      "type": "concept",
+      "count": 24,
+      "evidence": "tuổi Quý được liệt danh là Tam Hóa Hận Đời: Hóa Kỵ ở giữa Khoa Thiên Quyên giáp hai bên",
+      "atom_id": 5276
+    },
+    {
+      "alias": "Âm Dương chiếu hư vô",
+      "canonical": "Mệnh vô chính diệu được cả Nhật + Nguyệt hội chiếu",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Trường hợp được Âm Dương hội chiếu được gọi là Âm Dương chiếu hư vô",
+      "atom_id": 6570
+    },
+    {
+      "alias": "VCD đắc tứ/tam/nhị Không",
+      "canonical": "Cung vô chính diệu được Tuần, Triệt, Thiên Không, Địa Không chiếu/án ngữ",
+      "type": "concept",
+      "count": 12,
+      "evidence": "cung vô chính diệu được Tuần, Triệt, Thiên, Địa, Không chiếu hay án ngữ thì gọi là vô chính diệu đắc tứ Không, hay Tam Không, Nhị Không",
+      "atom_id": 6569
+    },
+    {
+      "alias": "Hỏa Không / Kim Không",
+      "canonical": "Tuần-Triệt án ngữ tại Tý-Ngọ (Hỏa Không) / Thân-Dậu (Kim Không)",
+      "type": "concept",
+      "count": 16,
+      "evidence": "Tại Tý, Ngọ, Tuần Triệt gọi là Hỏa Không; tại Thân, Dậu gọi là Kim Không...",
+      "atom_id": 17508
+    },
+    {
+      "alias": "Thư hùng mã",
+      "canonical": "Thiên Mã + Nhật Nguyệt sáng sủa",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Mã Nhật Nguyệt sáng sủa: Đây gọi là cách Thư hùng mã, chủ việc gặp vận tốt",
+      "atom_id": 17792
+    },
+    {
+      "alias": "Tuấn mã",
+      "canonical": "Thiên Mã + Thiên Khốc (Mã Khốc cách)",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Mã Khốc Cách: Gọi là tuấn mã tức là ngựa hay gặp người cưỡi giỏi",
+      "atom_id": 17795
+    },
+    {
+      "alias": "Phù thi mã (ngựa mang xác chết)",
+      "canonical": "Thiên Mã + Thiên Hình/Hình Sát đồng cung",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Đồng cung với Hình Sát gọi là phù thi mã, ngựa mang sác chết.",
+      "atom_id": 4799
+    },
+    {
+      "alias": "Chiến mã",
+      "canonical": "Thiên Mã + Hỏa Tinh đồng cung",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Đồng cung với Hỏa Tinh gọi là chiến mã, ngựa trận.",
+      "atom_id": 4799
+    },
+    {
+      "alias": "Vong mã (ngựa lạc đường)",
+      "canonical": "Thiên Mã gặp Không Vong",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Gặp Không Vong gọi là vong mã, ngựa lạc đường.",
+      "atom_id": 4799
+    },
+    {
+      "alias": "Chiết Túc mã (ngựa què)",
+      "canonical": "Thiên Mã + Tuyệt đồng cung hay hội chiếu",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Mã Tuyệt đồng cung hay hội chiếu: Gọi là Chiết Túc mã hay ngựa què",
+      "atom_id": 17799
+    },
+    {
+      "alias": "Tử Mã (ngựa chết)",
+      "canonical": "Thiên Mã + Tử (vòng Tràng Sinh)",
+      "type": "concept",
+      "count": 4,
+      "evidence": "Gọi là Tử Mã, ngựa chết: rất hung hãn, gây tai họa, bại hoại",
+      "atom_id": 17800
+    },
+    {
+      "alias": "Mã cùng đồ (ngựa bí lối)",
+      "canonical": "Thiên Mã tọa cung Hợi",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Thiên Mã ở Hợi: Gọi là Mã cùng đồ, ngựa bí lối, có nghĩa như Mã Tuyệt.",
+      "atom_id": 17801
+    },
+    {
+      "alias": "Phù liễn mã (ngựa kéo xe vua)",
+      "canonical": "Thiên Mã + Tử Phủ (Tứ Phủ) đồng cung",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Đồng cung với Tứ Phủ kêu bằng phù liễn mã, tức ngựa kéo xe vua.",
+      "atom_id": 4799
+    },
+    {
+      "alias": "Nhật lệ trung thiên",
+      "canonical": "Thái Dương cư Ngọ",
+      "type": "concept",
+      "count": 3,
+      "evidence": "Thái Dương cư Ngọ, vị chi nhật lệ trung thiên",
+      "atom_id": 9594
+    },
+    {
+      "alias": "Kim dư phủng trất",
+      "canonical": "Đế tọa (Tử Vi) + kim xa",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Đế tọa kim xa, tắc viết kim dư phủng trất",
+      "atom_id": 9600,
+      "note": "ĐÁNG NGỜ: nguyên văn phú Hán-Việt, biến thể OCR 'phủng chất' — cần đối chiếu bản gốc"
+    },
+    {
+      "alias": "Ngọc tụ thiên hương",
+      "canonical": "Văn diệu (Xương Khúc) cư cung Phúc Đức",
+      "type": "concept",
+      "count": 3,
+      "evidence": "Phúc an văn diệu, vị chi ngọc tụ thiên hương // Xương, Khúc cát tinh cư Phúc Đức, vị chi Ngọc Trục Thiên.",
+      "atom_id": 10345,
+      "note": "ĐÁNG NGỜ: 2 biến thể OCR ('ngọc tụ thiên hương' vs 'Ngọc Trục Thiên') — cần đối chiếu bản gốc 玉袖天香"
+    },
+    {
+      "alias": "Cung Giao Hữu",
+      "canonical": "Cung Nô Bộc (tên cũ)",
+      "type": "palace",
+      "count": 98,
+      "evidence": "Cung giao hữu xưa gọi là \"cung nô bộc\"... Ngày nay đổi lại gọi là \"cung giao hữu\"",
+      "atom_id": 17052
+    },
+    {
+      "alias": "Cung cường",
+      "canonical": "Cung Sự Nghiệp (đối với nam mệnh, theo quan điểm cổ nhân)",
+      "type": "palace",
+      "count": 6,
+      "evidence": "cổ nhân cho rằng nam mệnh nên xem trọng Cung Sự Nghiệp (gọi là \"cung cường\")",
+      "atom_id": 17157
+    },
+    {
+      "alias": "Quả Tú (biệt danh tình huống)",
+      "canonical": "Vũ Khúc tọa cung Phu Thê",
+      "type": "concept",
+      "count": 15,
+      "evidence": "rất ngại Vũ Khúc tọa cung Phu Thê, cổ nhân gọi là \"Quả Tú\".",
+      "atom_id": 642,
+      "note": "ĐÁNG NGỜ: Quả Tú đồng thời là tên sao riêng (Cô Thần-Quả Tú) — đây là cách cổ nhân MƯỢN tên, không phải alias sao"
+    },
+    {
+      "alias": "Ngụy quân tử",
+      "canonical": "Thái Âm thủ mệnh gặp sát tinh",
+      "type": "concept",
+      "count": 5,
+      "evidence": "gặp sát tinh là \"ngụy quân tử\"",
+      "atom_id": 2006
+    },
+    {
+      "alias": "Phản cách",
+      "canonical": "Cự Môn Hóa Kỵ tại Thìn/Tuất (hãm địa nhưng thành cách)",
+      "type": "concept",
+      "count": 8,
+      "evidence": "Cự Môn Hóa Kỵ ở hai cung Thìn hoặc Tuất, là \"phản cách\"",
+      "atom_id": 822
+    },
+    {
+      "alias": "Tài ấm giáp ấn",
+      "canonical": "Thiên Đồng/Cự Môn Hóa Lộc + Thiên Lương giáp Thiên Tướng",
+      "type": "concept",
+      "count": 74,
+      "evidence": "rất ưa gặp \"Tài ấm giáp ấn\" (tức là Thiên Đồng Hóa Lộc, hoặc Cự Môn Hóa Lộc, cùng với Thiên Lương giáp Thiên Tướng)",
+      "atom_id": 60
+    },
+    {
+      "alias": "Hình kỵ giáp ấn",
+      "canonical": "Thiên Đồng/Cự Môn Hóa Kỵ + Thiên Lương giáp Thiên Tướng",
+      "type": "concept",
+      "count": 105,
+      "evidence": "rất kị gặp \"Hình kỵ giáp ấn\" tức là Thiên Đồng Hóa Kỵ, hoặc Cự Môn Hóa Kỵ, cùng với Thiên Lương giáp Thiên Tướng",
+      "atom_id": 61
+    },
+    {
+      "alias": "Phùng Phủ khán Tướng",
+      "canonical": "Nguyên tắc: gặp Thiên Phủ phải xem kèm Thiên Tướng (và ngược lại)",
+      "type": "concept",
+      "count": 11,
+      "evidence": "Cho nên gọi là \"phùng Phủ khán Tướng\" (gặp Thiên Phủ thì phải xem Thiên Tướng)",
+      "atom_id": 3640
+    },
+    {
+      "alias": "Mộc hỏa thông minh / Mộc phùng Kim chế",
+      "canonical": "Tham Lang cư Ngọ / Tham Lang cư Thân",
+      "type": "concept",
+      "count": 6,
+      "evidence": "Tham Lang ở cung Ngọ, gọi là \"Mộc hỏa sáng thông nhau\"... Tham Lang ở cung Thân, gọi là \"Mộc bị Kim khống chế\"",
+      "atom_id": 2432
+    },
+    {
+      "alias": "Thiên khắc địa xung",
+      "canonical": "Năm 67 tuổi: Can bị khắc nhập + Chi bị xung",
+      "type": "concept",
+      "count": 4,
+      "evidence": "Năm 67 tuổi bất cứ người tuổi gì, hàng Can đều bị khắc nhập nên gọi là thiên khắc.",
+      "atom_id": 4994
+    },
+    {
+      "alias": "Sinh nhập / Sinh xuất",
+      "canonical": "Cục sinh Mệnh = sinh nhập; Mệnh sinh Cục = sinh xuất",
+      "type": "concept",
+      "count": 19,
+      "evidence": "Cục sinh Mệnh, còn gọi là sinh nhập, trái lại là sinh xuất.",
+      "atom_id": 6516
+    },
+    {
+      "alias": "Lâm / Nhập",
+      "canonical": "Sao tốt đóng tại cung = Lâm; sao xấu đóng = Nhập (cùng nghĩa 'đóng tại')",
+      "type": "concept",
+      "count": 1,
+      "evidence": "Hai chữ này mang cùng một nghĩa, nhưng sao tốt đóng ở đâu gọi là Lâm, còn sao xấu đóng ở đâu gọi là Nhập.",
+      "atom_id": 3719
+    },
+    {
+      "alias": "Triều / Xung",
+      "canonical": "Sao tốt tam hợp chiếu về cung chủ = Triều; sao xấu cùng thế = Xung",
+      "type": "concept",
+      "count": 2,
+      "evidence": "Triều: Sao tốt đóng tại cung khác theo tam hợp và chiếu hướng về cung chủ yếu gọi là Triều. Xung: Sao xấu cùng một trường hợp trên gọi là Xung.",
+      "atom_id": 3723
+    },
+    {
+      "alias": "Phi Động",
+      "canonical": "Vị trí cung di chuyển khi luận Lưu Niên/Đại Hạn",
+      "type": "concept",
+      "count": 1,
+      "evidence": "lúc luận đoán Lưu Niên hoặc Đại Hạn, vị trí của cung sẽ di chuyển, gọi là \"Phi Động\"",
+      "atom_id": 2663
+    },
+    {
+      "alias": "Nguyệt hạn / Nhật hạn",
+      "canonical": "Phép chia tiểu hạn 1 năm thành 12 hạn tháng (nguyệt hạn), nhỏ hơn nữa là nhật hạn",
+      "type": "concept",
+      "count": 3,
+      "evidence": "phân tiểu hạn 1 năm thành 12 hạn kỳ nhỏ hơn, mỗi hạn kỳ là một tháng gọi là nguyệt hạn",
+      "atom_id": 6554
+    },
+    {
+      "alias": "Thập hoa giáp / 60 hoa giáp",
+      "canonical": "60 ký hiệu Can-Chi (Lục thập hoa giáp)",
+      "type": "concept",
+      "count": 22,
+      "evidence": "vua Hoàng đế đem Giáp Tí phân biệt khinh trọng để thành 60 ký hiệu gọi là thập hoa giáp",
+      "atom_id": 4510
+    },
+    {
+      "alias": "Tứ Mộ / Mộ Khố / Mộ cung",
+      "canonical": "Bốn cung Thìn, Tuất, Sửu, Mùi",
+      "type": "palace",
+      "count": 63,
+      "evidence": "Tham Lang ở Mộ Khố (tức Thìn, Tuất, Sửu, Mùi)... // Thìn Tuất Sửu Mùi... gọi là Mộ cung",
+      "atom_id": 1062
+    }
+  ],
+  "scan_info": {
+    "date": "2026-06-11",
+    "corpora": [
+      "trung-chau-tu-vi-dau-so-2",
+      "tu-vi-dau-so-toan-thu-vu-tai-luc",
+      "tu-vi-nghiem-ly-toan-thu-thien-luong",
+      "tu-vi-ham-so",
+      "tu-vi-dau-so-toan-thu-zh"
+    ],
+    "atoms_scanned": 9671,
+    "definition_sentences_matched": 283,
+    "patterns_vi": [
+      "còn gọi là",
+      "gọi là",
+      "tức là",
+      "hay còn gọi",
+      "gọi tắt",
+      "tục gọi",
+      "cổ nhân gọi",
+      "được mệnh danh",
+      "tên gọi khác",
+      "tên khác",
+      "biệt danh",
+      "gọi chung là",
+      "hợp xưng"
+    ],
+    "patterns_han_viet": [
+      "vị chi",
+      "danh vi",
+      "nhất danh",
+      "tắc viết",
+      "kêu bằng"
+    ]
+  },
+  "notes": "Count = số atom (trong 9671 atoms của 5 corpus Tử Vi) có chứa chuỗi alias (không phân biệt hoa thường). Count cao của các từ ngắn (vd 'tứ linh','quả tú','kế đô','phản cách') có thể gồm cả nghĩa khác — chỉ tin evidence atom_id. Các mục có 'note' = ĐÁNG NGỜ, cần Anh duyệt: Không Vong=Thiên Không (xung đột với nghĩa Tuần/Triệt), Tứ Hung ghi 'Bình' nghi OCR 'Bệnh', 'hổ mọc cánh' có 2 định nghĩa khác nhau trong cùng sách Hàm Số, Quả Tú là tên mượn không phải alias sao, 2 cách phú Hán-Việt (Kim dư phủng trất, Ngọc tụ thiên hương) có biến thể OCR. KHÔNG dùng kiến thức ngoài DB — mọi canonical đều trích từ chính câu evidence."
+}
