@@ -58,9 +58,6 @@ def _fetch_atom_details(conn: sqlite3.Connection, atom_ids: list[int]) -> list[d
 # Phải đối chiếu với trạng thái thật của sao tại chi — tránh trích câu
 # "nhập miếu" cho người có sao đang hãm (sai phép dùng sách).
 
-_GOOD_LEVELS = {"miếu", "vượng", "đắc"}
-
-
 def _mieu_ham_level(star: str, chi: str) -> str | None:
     """Trạng thái miếu/vượng/đắc/bình/hãm của sao (canonical) tại chi (canonical)."""
     from .mieu_vuong_ham import level_at
@@ -71,35 +68,8 @@ def _mieu_ham_level(star: str, chi: str) -> str | None:
         return None
 
 
-def _atom_condition(text: str) -> str | None:
-    """Detect điều kiện miếu-hãm trong text atom: 'mieu' | 'ham' | 'mixed' | None."""
-    t = text.lower()
-    has_mieu = any(k in t for k in ("nhập miếu", "miếu địa", "miếu vượng", "đắc địa", "vượng địa"))
-    has_ham = any(k in t for k in ("hãm địa", "lạc hãm", "bị hãm", "hãm tại"))
-    if has_mieu and has_ham:
-        return "mixed"
-    if has_mieu:
-        return "mieu"
-    if has_ham:
-        return "ham"
-    return None
-
-
-def _annotate_mieu_ham(atoms: list[dict], level: str | None) -> None:
-    """Gắn cờ điều kiện lệch vào atom details (không drop — giữ bám sách)."""
-    if not level:
-        return
-    for a in atoms:
-        text = f"{a.get('question_text') or ''} {a.get('source_quote') or ''}"
-        cond = _atom_condition(text)
-        if cond == "mieu" and level == "hãm":
-            a["mieu_ham_check"] = "lech"
-            a["mieu_ham_note"] = f"Câu này điều kiện nhập miếu/đắc địa — sao của lá số đang {level.upper()}"
-        elif cond == "ham" and level in _GOOD_LEVELS:
-            a["mieu_ham_check"] = "lech"
-            a["mieu_ham_note"] = f"Câu này điều kiện hãm địa — sao của lá số đang {level.upper()}"
-        elif cond in ("mieu", "ham"):
-            a["mieu_ham_check"] = "khop"
+# (Annotate khớp/lệch per-atom nằm ở output_filler_v2._annotate_mieu_ham —
+#  1 nguồn duy nhất, tránh 2 bộ field. Ở đây chỉ gắn LEVEL cho cross_view.)
 
 
 def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
@@ -139,7 +109,7 @@ def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
     for sc in by_school:
         by_school[sc] = sorted(by_school[sc])[:limit_per_school]
 
-    # Trạng thái miếu-hãm tại chi thật (nếu biết) → annotate điều kiện lệch
+    # Trạng thái miếu-hãm tại chi thật (nếu biết) — badge cho UI
     level = _mieu_ham_level(s, chi) if chi else None
 
     # Fetch atom details
@@ -147,9 +117,7 @@ def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
     conn.row_factory = sqlite3.Row
     schools_atoms = {}
     for sc, ids in by_school.items():
-        details = _fetch_atom_details(conn, ids)
-        _annotate_mieu_ham(details, level)
-        schools_atoms[sc] = details
+        schools_atoms[sc] = _fetch_atom_details(conn, ids)
     conn.close()
 
     return {
