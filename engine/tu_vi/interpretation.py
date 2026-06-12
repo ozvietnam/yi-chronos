@@ -21,6 +21,7 @@ from dataclasses import asdict, dataclass, field
 from . import ngu_uan as ngu_uan_mod
 from .chinh_tinh import ALL_CHINH_TINH
 from .mieu_vuong_ham import level_at, level_score
+from .ngu_hanh_nen import sao_tai_cung
 
 
 # ─── Star semantics lookup ────────────────────────────────────────────────────
@@ -112,6 +113,7 @@ class PalaceReading:
     star_details: list[dict]             # per-star {ten_vi, keywords, tich_cuc, tieu_cuc}
     mieu_ham: dict = field(default_factory=dict)   # {star: miếu/vượng/đắc/bình/lạc/hãm}
     ngu_uan: dict | None = None          # khối Ngũ Uẩn (Tử Vi Bôn Ba) — None nếu thiếu dataset
+    ngu_hanh: list = field(default_factory=list)   # nền ngũ hành sao↔đất cung (sinh khắc)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -205,6 +207,11 @@ def interpret_palace(
 
     _, polarity_tag = _polarity_from_score(score, len(chinh_at_palace))
 
+    # Nền ngũ hành: sao đứng trên đất cung — sinh khắc + nhận định cơ chế.
+    ngu_hanh_blocks = [
+        b for b in (sao_tai_cung(s, branch) for s in chinh_at_palace) if b
+    ]
+
     # Khối Ngũ Uẩn (Tử Vi Bôn Ba) — None nếu dataset chưa build.
     ngu_uan_block = ngu_uan_mod.compose_palace_ngu_uan(
         palace_name=palace_name,
@@ -249,6 +256,7 @@ def interpret_palace(
         star_details=star_details,
         mieu_ham=mieu_ham,
         ngu_uan=ngu_uan_block,
+        ngu_hanh=ngu_hanh_blocks,
     )
 
 

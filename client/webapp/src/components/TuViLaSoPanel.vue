@@ -1373,6 +1373,24 @@ const grid = computed(() => {
               <small class="interp-stars">{{ r.chinh_tinh.join(', ') || '(không chính tinh)' }}</small>
             </header>
             <p class="interp-reading">{{ r.main_reading }}</p>
+            <!-- ⚛ Nền Âm Dương Ngũ Hành — sao đứng trên đất cung (sinh khắc) -->
+            <div v-if="expandedPalace === r.palace_name && r.ngu_hanh && r.ngu_hanh.length"
+                 class="ngu-hanh-block" @click.stop>
+              <div v-for="nh in r.ngu_hanh" :key="nh.sao" class="nh-row">
+                <div class="nh-badges">
+                  <span class="nh-badge" :data-hanh="nh.hanh_sao">
+                    {{ nh.sao }} · {{ nh.am_duong_sao }} {{ nh.hanh_sao }}<template v-if="nh.hanh_phu"> /{{ nh.hanh_phu }}</template>
+                  </span>
+                  <span class="nh-arrow">{{ nh.quan_he.arrow }}</span>
+                  <span class="nh-badge" :data-hanh="nh.hanh_cung">
+                    đất {{ nh.cung_chi }} · {{ nh.am_duong_cung }} {{ nh.hanh_cung }}
+                  </span>
+                  <span v-if="nh.hoa_khi" class="nh-hoakhi">hóa khí: {{ nh.hoa_khi }}</span>
+                </div>
+                <p class="nh-nhandinh">{{ nh.nhan_dinh }}</p>
+                <p v-if="nh.ghi_chu_lech" class="nh-lech">⚖ {{ nh.ghi_chu_lech }}</p>
+              </div>
+            </div>
             <!-- ☸ Quán chiếu Ngũ Uẩn — trường phái Tử Vi Bôn Ba (hiện đại VN) -->
             <div v-if="expandedPalace === r.palace_name && r.ngu_uan" class="ngu-uan-block" @click.stop>
               <h6 class="nu-title">☸ Quán chiếu Ngũ Uẩn <small>{{ r.ngu_uan.school }}</small></h6>
@@ -2180,6 +2198,50 @@ const grid = computed(() => {
   color: var(--text-secondary, rgba(230, 238, 245, 0.66));
   border-left: 2px solid rgba(232, 201, 90, 0.35);
   padding-left: 8px;
+}
+/* ── ⚛ Khối nền Âm Dương Ngũ Hành (sinh khắc sao↔cung) ── */
+.ngu-hanh-block {
+  margin-top: 10px;
+  padding: 9px 12px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border-soft, rgba(255, 255, 255, 0.1));
+  border-radius: 6px;
+  cursor: default;
+}
+.nh-row + .nh-row { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.08); }
+.nh-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.nh-badge {
+  font-size: 11.5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-primary, rgba(230, 238, 245, 0.9));
+}
+/* Màu 5 hành — theo bảng màu truyền thống, đủ tương phản nền tối */
+.nh-badge[data-hanh="mộc"] { border-color: rgba(90, 176, 122, 0.55); color: #8fd6a6; }
+.nh-badge[data-hanh="hỏa"] { border-color: rgba(214, 90, 74, 0.55); color: #f5a08c; }
+.nh-badge[data-hanh="thổ"] { border-color: rgba(192, 168, 120, 0.6); color: #d9c08e; }
+.nh-badge[data-hanh="kim"] { border-color: rgba(220, 220, 230, 0.45); color: #e3e6ee; }
+.nh-badge[data-hanh="thủy"] { border-color: rgba(110, 160, 220, 0.55); color: #9cc3f0; }
+.nh-arrow { font-size: 11.5px; color: var(--text-secondary, rgba(230, 238, 245, 0.65)); }
+.nh-hoakhi {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--accent-gold, #e8c95a);
+  opacity: 0.85;
+}
+.nh-nhandinh {
+  margin: 6px 0 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.8));
+}
+.nh-lech {
+  margin: 5px 0 0 0;
+  font-size: 11.5px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.6));
 }
 /* ── ☸ Khối Quán chiếu Ngũ Uẩn (Tử Vi Bôn Ba) ── */
 .ngu-uan-block {

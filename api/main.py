@@ -2246,6 +2246,52 @@ def tu_vi_chinh_tinh_detail(star_id: str) -> dict[str, object]:
     return {"status": "ok", "star": s.to_dict()}
 
 
+@app.get("/api/tu-vi/star-profiles")
+def tu_vi_star_profiles() -> dict[str, object]:
+    """Hồ sơ sâu 14 chính tinh (+ Vô Chính Diệu) + kiến thức nền Âm Dương Ngũ Hành.
+
+    Gộp 3 tầng: (1) metadata cổ truyền Q2 (hành, âm dương, hóa khí, chủ về,
+    tích cực/tiêu cực); (2) profile Ngũ Uẩn 5 lớp trường phái Tử Vi Bôn Ba;
+    (3) bảng miếu-vượng-đắc-hãm tại 12 chi ("độ khó bài học" theo từng đất cung).
+    """
+    from engine.tu_vi import list_chinh_tinh
+    from engine.tu_vi import ngu_uan as ngu_uan_mod
+    from engine.tu_vi.mieu_vuong_ham import level_at
+    from engine.tu_vi.ngu_hanh_nen import HANH_CHI, vong_sinh_khac
+
+    chi_12 = list(HANH_CHI.keys())
+    profiles = []
+    for s in list_chinh_tinh():
+        tvbb = ngu_uan_mod.get_star_profile(s.ten_vi)
+        profiles.append({
+            "co_ban": s.to_dict(),
+            "ngu_uan": tvbb,  # None nếu dataset chưa có sao này
+            "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi(s.ten_vi),
+            "mieu_ham_12_chi": {chi: level_at(s.ten_vi, chi) for chi in chi_12},
+        })
+    # Vô Chính Diệu — "tính cách thứ 15" (chỉ có trong dataset hiện đại)
+    vcd = ngu_uan_mod.get_star_profile("Vô Chính Diệu")
+    if vcd:
+        profiles.append({
+            "co_ban": {"ten_vi": "Vô Chính Diệu", "ten_zh": "無正曜",
+                       "ngu_hanh": None, "am_duong": None, "hoa_khi": None,
+                       "keywords": vcd.get("tom_gon") or [],
+                       "tich_cuc": None, "tieu_cuc": None, "chu_ve": []},
+            "ngu_uan": vcd,
+            "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi("Vô Chính Diệu"),
+            "mieu_ham_12_chi": {},
+        })
+    return {
+        "status": "ok",
+        "nen_tang": vong_sinh_khac(),
+        "profiles": profiles,
+        "paradigm_note": (
+            "Sao không tốt không xấu — mỗi sao là một dạng lực sống; "
+            "miếu hay hãm là độ khó của bài học tại từng đất cung, không phải lời khen chê."
+        ),
+    }
+
+
 _HOUR_BRANCH_BY_HOUR = (
     "Tý", "Sửu", "Sửu", "Dần", "Dần", "Mão", "Mão",
     "Thìn", "Thìn", "Tỵ", "Tỵ", "Ngọ", "Ngọ",
