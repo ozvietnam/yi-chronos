@@ -16,9 +16,11 @@ will come in v2.
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 
+from . import ngu_uan as ngu_uan_mod
 from .chinh_tinh import ALL_CHINH_TINH
+from .mieu_vuong_ham import level_at, level_score
 
 
 # ─── Star semantics lookup ────────────────────────────────────────────────────
@@ -104,10 +106,12 @@ class PalaceReading:
     chinh_tinh: list[str]                # star names present
     chinh_tinh_count: int
     hoa_attachments: list[dict]          # [{star, hoa, label}]
-    polarity_score: int                  # rough sentiment
+    polarity_score: int                  # độ-khó-bài-học score (miếu hãm + tứ hóa)
     polarity_tag: str                    # 'favorable' / 'mixed' / 'challenging' / 'empty'
     main_reading: str                    # composed Vietnamese text
     star_details: list[dict]             # per-star {ten_vi, keywords, tich_cuc, tieu_cuc}
+    mieu_ham: dict = field(default_factory=dict)   # {star: miếu/vượng/đắc/bình/lạc/hãm}
+    ngu_uan: dict | None = None          # khối Ngũ Uẩn (Tử Vi Bôn Ba) — None nếu thiếu dataset
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -134,9 +138,11 @@ def _compose_main_reading(
     """Compose Vietnamese reading sentence from inputs."""
     if not chinh_names:
         return (
-            f"Cung {palace_name} không có chính tinh — đọc theo cung đối diện "
-            f"(tam hợp). {frame.capitalize()} chịu ảnh hưởng gián tiếp; "
-            "cần xét phụ tinh + sát tinh tại cung này để bổ nghĩa."
+            f"Cung {palace_name} Vô Chính Diệu — bối cảnh mở, như vở kịch chưa chốt "
+            f"nhân vật chính: linh hoạt, dễ đổi theo môi trường, khó theo một khuôn cố định. "
+            f"{frame.capitalize()} cần xét phụ tinh tại cung và toàn cục lá số để bổ nghĩa "
+            "(lệ cổ đọc theo cung xung chiếu/tam hợp; trường phái hiện đại khuyên "
+            "xét thêm cả các cung còn lại thay vì chỉ mượn sao)."
         )
 
     stars_label = " + ".join(chinh_names)
@@ -146,18 +152,12 @@ def _compose_main_reading(
             f"{a['star']} Hóa {a['hoa']}" for a in hoa_attachments
         )
 
-    if polarity_tag == "favorable":
-        prefix = "Lực cung mạnh, tín hiệu thuận"
-    elif polarity_tag == "challenging":
-        prefix = "Cung có áp lực, cần cẩn trọng"
-    elif polarity_tag == "mixed":
-        prefix = "Cung pha trộn — vừa có tiềm năng vừa có rủi ro"
-    else:
-        prefix = "Cung trầm"
+    # Ngôn ngữ "độ khó bài học" — không gán nhãn cung tốt/xấu.
+    prefix = ngu_uan_mod.do_kho_label(polarity_tag).capitalize()
 
     return (
         f"{prefix}. Sao chính: {stars_label}{hoa_label}. "
-        f"Ý nghĩa cung {palace_name} ({frame}): xem chi tiết bên dưới."
+        f"Bối cảnh {palace_name} ({frame})."
     )
 
 
@@ -166,6 +166,7 @@ def interpret_palace(
     branch: str,
     chinh_at_palace: list[str],
     tu_hoa: dict[str, str],
+    reminder_seed: int = 0,
 ) -> PalaceReading:
     """Build reading for one palace.
 
@@ -174,6 +175,7 @@ def interpret_palace(
         branch: Vietnamese branch name (e.g. 'Tý').
         chinh_at_palace: list of chính tinh names present in this palace.
         tu_hoa: {Lộc/Quyền/Khoa/Kỵ → star_name} for the year.
+        reminder_seed: xoay vòng lời nhắc paradigm (thường = index cung).
     """
     domain = PALACE_DOMAIN.get(palace_name, {"question": "", "frame": palace_name})
 
@@ -188,24 +190,34 @@ def interpret_palace(
                 "label": HOA_TAG_LABEL[star_to_hoa[s]],
             })
 
-    # Polarity score.
+    # Độ-khó-bài-học score: miếu/vượng/đắc/bình/lạc/hãm của sao TẠI CHI này
+    # (paradigm: không có sao tốt/sao xấu — chỉ có độ khó của bài học;
+    #  bảng Q2 "Thập nhị cung Miếu Vượng Lạc Hãm đồ").
     score = 0
+    mieu_ham: dict[str, str] = {}
     for s in chinh_at_palace:
-        star = _STAR_BY_NAME.get(s)
-        # Star inherent polarity heuristic: gold stars (Tử Vi, Thiên Phủ, Thiên Đồng,
-        # Thái Dương đắc địa, Thái Âm đắc địa) trend positive; Thất Sát, Phá Quân,
-        # Tham Lang, Cự Môn, Liêm Trinh trend mixed-to-negative.
-        positive_set = {"Tử Vi", "Thiên Phủ", "Thiên Đồng", "Thiên Lương", "Thiên Tướng", "Thiên Cơ"}
-        negative_set = {"Thất Sát", "Phá Quân", "Cự Môn"}
-        if s in positive_set:
-            score += 1
-        elif s in negative_set:
-            score -= 1
+        level = level_at(s, branch)
+        if level:
+            mieu_ham[s] = level
+            score += level_score(level)
     for h in hoa_attachments:
         score += HOA_POLARITY.get(h["hoa"], 0)
 
     _, polarity_tag = _polarity_from_score(score, len(chinh_at_palace))
-    main_reading = _compose_main_reading(
+
+    # Khối Ngũ Uẩn (Tử Vi Bôn Ba) — None nếu dataset chưa build.
+    ngu_uan_block = ngu_uan_mod.compose_palace_ngu_uan(
+        palace_name=palace_name,
+        chinh_stars=chinh_at_palace,
+        hoa_attachments=hoa_attachments,
+        mieu_ham_levels=mieu_ham,
+        polarity_tag=polarity_tag,
+        reminder_seed=reminder_seed,
+    )
+
+    main_reading = ngu_uan_mod.compose_main_reading_v2(
+        palace_name, chinh_at_palace, ngu_uan_block, polarity_tag,
+    ) or _compose_main_reading(
         palace_name, domain["frame"], chinh_at_palace, hoa_attachments, polarity_tag,
     )
 
@@ -235,6 +247,8 @@ def interpret_palace(
         polarity_tag=polarity_tag,
         main_reading=main_reading,
         star_details=star_details,
+        mieu_ham=mieu_ham,
+        ngu_uan=ngu_uan_block,
     )
 
 
@@ -258,12 +272,13 @@ def interpret_la_so(la_so: dict) -> dict:
         stars_by_branch[idx].append(name)
 
     readings = []
-    for p in palaces:
+    for i, p in enumerate(palaces):
         reading = interpret_palace(
             palace_name=p["name"],
             branch=p["branch"],
             chinh_at_palace=stars_by_branch[p["branch_index"]],
             tu_hoa=tu_hoa,
+            reminder_seed=i,
         )
         readings.append(reading.to_dict())
 
@@ -278,11 +293,21 @@ def interpret_la_so(la_so: dict) -> dict:
     empty_count = sum(1 for r in readings if r["polarity_tag"] == "empty")
 
     if total_score >= 5:
-        verdict = "Lá số nghiêng thuận — nhiều cung có tín hiệu tốt."
+        verdict = (
+            "Nhiều bối cảnh thuận đà — bài học đời này phần lớn dễ vào nhịp. "
+            "Lưu ý: số đẹp dễ tạo ảo tưởng an toàn; thuận mà chủ quan thì vẫn lỡ bài."
+        )
     elif total_score <= -5:
-        verdict = "Lá số nhiều áp lực — cần phòng vệ ở cung Tật Ách + Quan Lộc."
+        verdict = (
+            "Nhiều bối cảnh có độ khó cao — không phải án phạt, mà là bộ bài tập nặng đô. "
+            "Sao chỉ quyết định độ khó của bài học, không quyết định kết cục; "
+            "người vượt được bài của mình thì trạng thái nào cũng thành công được."
+        )
     else:
-        verdict = "Lá số cân bằng — tốt xấu hỗn hợp, cần đọc theo từng cung."
+        verdict = (
+            "Các bối cảnh có độ khó đan xen — nơi thuận để lấy đà, nơi khó để rèn. "
+            "Đọc theo từng cung để biết bài học nào đang chờ ở bối cảnh nào."
+        )
 
     return {
         "palace_readings": readings,
@@ -295,9 +320,15 @@ def interpret_la_so(la_so: dict) -> dict:
             "empty_palaces": empty_count,
             "verdict": verdict,
         },
+        "paradigm_note": (
+            "Lá số là bản đồ sống theo thời gian thực, không phải bản án: nó mô tả "
+            "cấu trúc phản ứng và xu hướng vận hành, còn kết quả đời người nằm ở "
+            "lựa chọn lặp lại hàng ngày và mức độ tỉnh thức của chính mình."
+        ),
         "note": (
-            "Diễn giải v1 dựa trên ngữ nghĩa từng sao và Tứ Hóa. Phiên bản nâng cao "
-            "sẽ thêm Tam Hợp (trio palace synthesis), Lục Hội (opposite-palace mirror), "
-            "và cách cục patterns (Tử Vi đắc địa, Tử Phủ đồng cung, ...)."
+            "Diễn giải v2: độ khó bài học tính theo bảng Miếu-Vượng-Lạc-Hãm (Q2) + Tứ Hóa; "
+            "khối Ngũ Uẩn theo trường phái Tử Vi Bôn Ba (hiện đại VN). "
+            "Phiên bản sau sẽ thêm tổng lực cụm phụ tinh + liên hệ tam hợp/xung chiếu "
+            "(diễn đạt 'liên hệ giữa các bối cảnh' thay cho 'sao chiếu')."
         ),
     }

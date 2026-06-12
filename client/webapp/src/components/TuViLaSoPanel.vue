@@ -1352,11 +1352,12 @@ const grid = computed(() => {
           </small>
         </h4>
         <div class="interp-counts">
-          <span class="ic favorable">⬆ Thuận: <b>{{ interpretation.chart_summary.favorable_palaces }}</b></span>
-          <span class="ic mixed">⇆ Hỗn hợp: <b>{{ interpretation.chart_summary.mixed_palaces }}</b></span>
-          <span class="ic challenging">⬇ Khó: <b>{{ interpretation.chart_summary.challenging_palaces }}</b></span>
-          <span class="ic empty">○ Trống: <b>{{ interpretation.chart_summary.empty_palaces }}</b></span>
+          <span class="ic favorable">⬆ Bối cảnh thuận: <b>{{ interpretation.chart_summary.favorable_palaces }}</b></span>
+          <span class="ic mixed">⇆ Đan xen: <b>{{ interpretation.chart_summary.mixed_palaces }}</b></span>
+          <span class="ic challenging">⬇ Bài khó: <b>{{ interpretation.chart_summary.challenging_palaces }}</b></span>
+          <span class="ic empty">○ Bối cảnh mở: <b>{{ interpretation.chart_summary.empty_palaces }}</b></span>
         </div>
+        <p v-if="interpretation.paradigm_note" class="interp-paradigm-note">{{ interpretation.paradigm_note }}</p>
 
         <ul class="interp-list">
           <li v-for="r in interpretation.palace_readings" :key="r.palace_name"
@@ -1365,13 +1366,39 @@ const grid = computed(() => {
             <header>
               <strong>{{ r.palace_name }}</strong>
               <small>@ {{ r.branch }}</small>
-              <span class="interp-verdict">{{ r.polarity_tag === 'favorable' ? '✓ Thuận'
-                : r.polarity_tag === 'challenging' ? '✗ Khó'
-                : r.polarity_tag === 'mixed' ? '⇆ Hỗn hợp'
-                : '○ Trống' }}</span>
+              <span class="interp-verdict">{{ r.polarity_tag === 'favorable' ? '✓ Thuận đà'
+                : r.polarity_tag === 'challenging' ? '⚒ Bài khó'
+                : r.polarity_tag === 'mixed' ? '⇆ Đan xen'
+                : '○ Mở' }}</span>
               <small class="interp-stars">{{ r.chinh_tinh.join(', ') || '(không chính tinh)' }}</small>
             </header>
             <p class="interp-reading">{{ r.main_reading }}</p>
+            <!-- ☸ Quán chiếu Ngũ Uẩn — trường phái Tử Vi Bôn Ba (hiện đại VN) -->
+            <div v-if="expandedPalace === r.palace_name && r.ngu_uan" class="ngu-uan-block" @click.stop>
+              <h6 class="nu-title">☸ Quán chiếu Ngũ Uẩn <small>{{ r.ngu_uan.school }}</small></h6>
+              <p v-if="r.ngu_uan.boi_canh" class="nu-boicanh">{{ r.ngu_uan.boi_canh }}</p>
+              <div v-for="sv in r.ngu_uan.sao_dinh_vi" :key="sv.sao" class="nu-sao">
+                <span class="nu-sao-name">{{ sv.sao }}</span>
+                <span v-if="sv.tom_gon && sv.tom_gon.length" class="nu-tomgon">{{ sv.tom_gon.join(' · ') }}</span>
+                <span v-if="sv.mieu_ham" class="nu-mieuham">thế {{ sv.mieu_ham }} — độ khó bài học</span>
+                <p v-if="sv.dinh_vi" class="nu-dinhvi">{{ sv.dinh_vi }}</p>
+                <p v-if="sv.o_dau_thi" class="nu-odauthi">{{ sv.o_dau_thi }}</p>
+              </div>
+              <dl class="nu-uan-list">
+                <template v-for="u in r.ngu_uan.ngu_uan" :key="u.key">
+                  <dt>{{ u.label }}</dt>
+                  <dd>{{ u.text }}</dd>
+                </template>
+              </dl>
+              <p v-if="r.ngu_uan.thuan" class="nu-thuan">▲ Khi cấu trúc thuận: {{ r.ngu_uan.thuan }}</p>
+              <p v-if="r.ngu_uan.lech" class="nu-lech">▽ Khi bị lệch: {{ r.ngu_uan.lech }}</p>
+              <p v-for="(hn, hi) in (r.ngu_uan.hoa_notes || [])" :key="'hn' + hi" class="nu-hoa">✺ {{ hn }}</p>
+              <p v-if="r.ngu_uan.can_de_phat_huy && r.ngu_uan.can_de_phat_huy.length" class="nu-can">
+                ✦ Cần để phát huy: {{ r.ngu_uan.can_de_phat_huy.join(' ') }}
+              </p>
+              <p v-if="r.ngu_uan.cau_hoi_tu_soi" class="nu-cauhoi">Tự soi: {{ r.ngu_uan.cau_hoi_tu_soi }}</p>
+              <p class="nu-nhac">{{ r.ngu_uan.nhac_paradigm }}</p>
+            </div>
             <div v-if="expandedPalace === r.palace_name && r.star_details.length" class="interp-stardetails">
               <div v-for="sd in r.star_details" :key="sd.ten_vi" class="sd-card">
                 <button

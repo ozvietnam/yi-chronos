@@ -88,7 +88,8 @@ def build_mapping() -> dict:
             'tu-vi-dau-so-toan-thu-vu-tai-luc',
             'tu-vi-nghiem-ly-toan-thu-thien-luong',
             'tu-vi-ham-so',
-            'tu-vi-dau-so-toan-thu-zh'
+            'tu-vi-dau-so-toan-thu-zh',
+            'tuvi-bon-ba-tiktok'
         )
         AND (a.extracted_by LIKE 'sub-agent%' OR a.extracted_by = 'legacy-q1q3-ingest')
     """).fetchall()

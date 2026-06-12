@@ -23,6 +23,7 @@ SCHOOL_MAP = {
     "tu-vi-nghiem-ly-toan-thu-thien-luong": "thien_luong",
     "tu-vi-ham-so": "ham_so",
     "tu-vi-dau-so-toan-thu-zh": "tran_doan_zh",  # bản dịch Trung Q1 Phú + Q3 sao×cung
+    "tuvi-bon-ba-tiktok": "tu_vi_bon_ba",        # hiện đại VN — quán chiếu Ngũ Uẩn (2026)
 }
 
 SCHOOL_NAMES = {
@@ -31,6 +32,7 @@ SCHOOL_NAMES = {
     "tran_doan_zh":  "Trần Đoàn (TVDSTT bản dịch Trung — Q1 Phú + Q3)",
     "thien_luong":   "Cụ Thiên Lương (Nghiệm Lý)",
     "ham_so":        "Hàm Số (Nguyễn Phát Lộc)",
+    "tu_vi_bon_ba":  "Tử Vi Bôn Ba (hiện đại VN — Ngũ Uẩn)",
 }
 
 
