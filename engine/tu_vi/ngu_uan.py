@@ -321,7 +321,12 @@ def compose_main_reading_v2(
         return None
     parts: list[str] = []
     if ngu_uan_block.get("boi_canh"):
-        parts.append(f"Cung {palace_name} — {_first_sentences(ngu_uan_block['boi_canh'], 2)}")
+        bc = _first_sentences(ngu_uan_block["boi_canh"], 2)
+        # Tránh lặp "Cung Mệnh — Cung Mệnh là..." khi định nghĩa đã tự mở đầu bằng tên cung
+        if bc.lower().startswith(("cung ", f"cung {palace_name.lower()}")):
+            parts.append(bc)
+        else:
+            parts.append(f"Cung {palace_name} — {bc}")
     for sv in ngu_uan_block.get("sao_dinh_vi", [])[:2]:
         seg = []
         if sv.get("dinh_vi"):

@@ -250,7 +250,7 @@ def import_db(dataset: dict) -> None:
                'Kênh TikTok @tuvibonba — 98 video (2026)',
                'Trường phái Tử Vi hiện đại VN: lá số là bản đồ sống theo thời gian thực, sao = lực sống không tốt-xấu, cung = bối cảnh sống, miếu hãm = độ khó bài học. Khung phân tích Ngũ Uẩn.',
                ?)""",
-            (int(time.time()),),
+            (AUTHOR_NAME, int(time.time())),
         )
         author_id = cur.lastrowid
         print(f"✅ Thêm author '{AUTHOR_NAME}' (id={author_id})")

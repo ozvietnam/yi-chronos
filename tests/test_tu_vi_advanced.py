@@ -40,7 +40,9 @@ def test_interpret_palace_empty():
         tu_hoa={"Lộc": "Liêm Trinh", "Quyền": "Phá Quân", "Khoa": "Vũ Khúc", "Kỵ": "Thái Dương"},
     )
     assert r.polarity_tag == "empty"
-    assert "không có chính tinh" in r.main_reading
+    # Wording v2 (2026-06-12): VCD = "bối cảnh mở", không gán nhãn cung trống xấu
+    assert "Vô Chính Diệu" in r.main_reading
+    assert "bối cảnh mở" in r.main_reading
 
 
 def test_interpret_palace_hoa_loc_boosts_score():
