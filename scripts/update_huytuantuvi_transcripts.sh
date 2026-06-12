@@ -16,5 +16,6 @@ cd "$ROOT"
     --subs \
     --combine \
     --combined-name huytuantuvi_all_cleaned.txt
+  python3 scripts/clean_tiktok_research_outputs.py huytuantuvi
   echo "=== $(date '+%Y-%m-%d %H:%M:%S %z') update done ==="
 } >> "$LOG_DIR/weekly_update.log" 2>&1

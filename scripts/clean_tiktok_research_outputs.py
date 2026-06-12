@@ -42,6 +42,8 @@ PHRASE_FIXES = [
     (r"\bTừ VI\b", "Tử vi"),
     (r"\btử bi\b", "tử vi"),
     (r"\bTử bi\b", "Tử vi"),
+    (r"\btừ bi đẩu số\b", "tử vi đẩu số"),
+    (r"\bTừ bi đẩu số\b", "Tử vi đẩu số"),
     (r"\btử vì\b", "tử vi"),
     (r"\bTử vì\b", "Tử vi"),
     (r"\btừ vi\b", "tử vi"),
@@ -61,6 +63,14 @@ PHRASE_FIXES = [
     (r"\b2 BA\b", "hai ba"),
     (r"\bthứ BA\b", "thứ ba"),
     (r"\bThứ BA\b", "Thứ ba"),
+    (r"\btứ chủ 8 tự\b", "tứ trụ bát tự"),
+    (r"\btứ châu 8 tự\b", "tứ trụ bát tự"),
+    (r"\bcùng bài\b", "cúng bái"),
+    (r"\btương Lai\b", "tương lai"),
+    (r"\bTương Lai\b", "Tương lai"),
+    (r"\bTai họa\b", "tai họa"),
+    (r"\bcái Kim\b", "cái kim"),
+    (r"\bVA chạm\b", "va chạm"),
     (r"\bchồng em chào anh nhá\b", "chồng em"),
     (r"\buống rượu thứ\b", "phương diện thứ"),
     (r"\bphương vị thứ\b", "phương diện thứ"),
@@ -120,10 +130,15 @@ def extract_body(text_path: Path) -> str:
 
 def normalize_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text).strip()
-    for pattern, replacement in PHRASE_FIXES:
-        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE if pattern.islower() else 0)
+    for _ in range(2):
+        for pattern, replacement in PHRASE_FIXES:
+            text = re.sub(pattern, replacement, text, flags=re.IGNORECASE if pattern.islower() else 0)
     for wrong, right in COMMON_WORD_FIXES.items():
         text = re.sub(rf"\b{re.escape(wrong)}\b", right, text)
+    text = re.sub(r"\b(à|ờ|ừ|ừm|ạ)\b\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\b(a|ơ)\s+(?=[a-zà-ỹ])", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\b(đúng không|em hiểu không|đấy|nhá|nha)\b[,.]?\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\b(các bạn|anh em mình)\b", "người nghe", text, flags=re.IGNORECASE)
     text = re.sub(r"\b(\d)\s+(\d{2})\b", r"\1\2", text)
     text = re.sub(r"\s+([,.?!:;])", r"\1", text)
     text = re.sub(r"([,.?!:;])([^\s])", r"\1 \2", text)
@@ -131,6 +146,10 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"([.!?])\s+", r"\1\n\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
+
+
+def compact_text(text: str) -> str:
+    return re.sub(r"\s*\n+\s*", " ", text).strip()
 
 
 def channel_name(rows: list[dict[str, Any]], fallback: str) -> str:
@@ -142,6 +161,8 @@ def channel_name(rows: list[dict[str, Any]], fallback: str) -> str:
 
 def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
     channel_dir = TRANSCRIPT_ROOT / channel_slug
+    final_dir = channel_dir / "final"
+    final_dir.mkdir(exist_ok=True)
     rows = load_manifest(channel_dir)
     rows.sort(key=lambda row: (row.get("upload_date") or "", row.get("id") or ""))
     display_name = channel_name(rows, channel_slug)
@@ -160,6 +181,7 @@ def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
     ]
 
     missing = 0
+    video_records: list[dict[str, Any]] = []
     for idx, row in enumerate(rows, start=1):
         text_path_value = row.get("text_path")
         text_path = ROOT / text_path_value if text_path_value else channel_dir / "text" / f"{row['id']}.txt"
@@ -174,16 +196,48 @@ def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
         parts.append("")
         parts.append(f"Nguồn: {url} | Thời lượng: {duration} | Transcript: {source}")
         parts.append("")
+        clean_body = ""
         if text_path.exists():
-            parts.append(normalize_text(extract_body(text_path)))
+            clean_body = normalize_text(extract_body(text_path))
+            parts.append(clean_body)
         else:
             missing += 1
             parts.append("[Chưa có lời thoại.]")
+        video_records.append(
+            {
+                "idx": idx,
+                "date": date,
+                "title": topic,
+                "video_id": row["id"],
+                "url": url,
+                "duration": duration,
+                "has_transcript": bool(clean_body),
+                "transcript_source": source,
+                "chars": len(compact_text(clean_body)),
+                "text": compact_text(clean_body),
+            }
+        )
         parts.append("")
         parts.append("---")
         parts.append("")
 
     output_path.write_text("\n".join(parts), encoding="utf-8")
+    (channel_dir / "videos.json").write_text(json.dumps(video_records, ensure_ascii=False, indent=1), encoding="utf-8")
+    (final_dir / "transcripts.txt").write_text("\n".join(parts), encoding="utf-8")
+    (final_dir / "videos.json").write_text(json.dumps(video_records, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    index_lines = [
+        f"# {display_name} - mục lục bản sạch",
+        "",
+        f"Tổng số video: {len(video_records)}",
+        f"Có lời thoại: {sum(1 for record in video_records if record['has_transcript'])}",
+        "",
+    ]
+    for record in video_records:
+        index_lines.append(
+            f"{record['idx']:03d}. {record['date']} | {record['duration']} | {record['title']} | {record['transcript_source']} | {record['video_id']}"
+        )
+    (final_dir / "index.md").write_text("\n".join(index_lines) + "\n", encoding="utf-8")
     print(f"Wrote {output_path} ({len(rows)} videos, missing text files: {missing})")
     return output_path
 

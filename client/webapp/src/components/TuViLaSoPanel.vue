@@ -2172,6 +2172,90 @@ const grid = computed(() => {
   line-height: 1.55;
   color: var(--text-secondary, rgba(230, 238, 245, 0.78));
 }
+.interp-paradigm-note {
+  margin: 6px 0 10px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.66));
+  border-left: 2px solid rgba(232, 201, 90, 0.35);
+  padding-left: 8px;
+}
+/* ── ☸ Khối Quán chiếu Ngũ Uẩn (Tử Vi Bôn Ba) ── */
+.ngu-uan-block {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(232, 201, 90, 0.18);
+  border-radius: 6px;
+  cursor: default;
+}
+.nu-title {
+  margin: 0 0 6px 0;
+  font-size: 12.5px;
+  color: var(--accent-gold, #e8c95a);
+  letter-spacing: 0.02em;
+}
+.nu-title small {
+  font-weight: 400;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.55));
+  margin-left: 6px;
+}
+.nu-boicanh {
+  margin: 0 0 6px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-primary, rgba(230, 238, 245, 0.9));
+}
+.nu-sao { margin: 4px 0 6px 0; font-size: 12px; line-height: 1.5; }
+.nu-sao-name { font-weight: 600; color: var(--accent-gold, #e8c95a); margin-right: 6px; }
+.nu-tomgon { color: var(--text-secondary, rgba(230, 238, 245, 0.7)); font-style: italic; margin-right: 6px; }
+.nu-mieuham {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(232, 201, 90, 0.1);
+  color: var(--text-secondary, rgba(230, 238, 245, 0.75));
+}
+.nu-dinhvi, .nu-odauthi {
+  margin: 3px 0 0 0;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+}
+.nu-uan-list { margin: 8px 0 6px 0; }
+.nu-uan-list dt {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--accent-gold, #e8c95a);
+  opacity: 0.85;
+  margin-top: 6px;
+}
+.nu-uan-list dd {
+  margin: 2px 0 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.8));
+}
+.nu-thuan { color: #88d39e; }
+.nu-lech { color: #f5b08c; }
+.nu-thuan, .nu-lech, .nu-hoa, .nu-can, .nu-cauhoi {
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.nu-hoa { color: var(--text-secondary, rgba(230, 238, 245, 0.75)); }
+.nu-can { color: var(--text-primary, rgba(230, 238, 245, 0.88)); }
+.nu-cauhoi {
+  font-style: italic;
+  color: var(--text-primary, rgba(230, 238, 245, 0.85));
+  border-left: 2px solid rgba(232, 201, 90, 0.4);
+  padding-left: 8px;
+}
+.nu-nhac {
+  margin: 8px 0 0 0;
+  font-size: 11.5px;
+  font-style: italic;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.55));
+}
 .interp-stardetails {
   margin-top: 8px;
   display: flex;
