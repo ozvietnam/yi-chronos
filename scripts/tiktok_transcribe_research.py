@@ -177,6 +177,19 @@ def write_subtitle_texts(entries: list[dict[str, Any]], out_dir: Path, language:
         print(f"[{index}/{len(entries)}] subtitle {vid}")
         subtitle_path = download_subtitle(video_url(entry), vid, subtitles_dir, language)
         if not subtitle_path:
+            existing_text_path = text_dir / f"{vid}.txt"
+            if existing_text_path.exists():
+                rows.append(
+                    {
+                        **entry,
+                        "text_status": "ok",
+                        "subtitle_path": None,
+                        "text_path": str(existing_text_path.relative_to(ROOT)),
+                        "text_chars": len(existing_text_path.read_text(encoding="utf-8")),
+                        "transcript_source": "existing_text",
+                    }
+                )
+                continue
             rows.append({**entry, "text_status": "missing_subtitle"})
             continue
         transcript = clean_vtt(subtitle_path)
