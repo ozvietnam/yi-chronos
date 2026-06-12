@@ -74,7 +74,10 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
 
 
 def video_url(entry: dict[str, Any]) -> str:
-    return entry.get("webpage_url") or entry.get("url") or f"https://www.tiktok.com/@tuvibonba/video/{entry['id']}"
+    uploader = entry.get("uploader") or entry.get("playlist_title") or ""
+    if uploader:
+        return entry.get("webpage_url") or entry.get("url") or f"https://www.tiktok.com/@{uploader}/video/{entry['id']}"
+    return entry.get("webpage_url") or entry.get("url") or f"https://www.tiktok.com/video/{entry['id']}"
 
 
 def download_subtitle(url: str, video_id: str, subtitles_dir: Path, language: str) -> Path | None:
@@ -191,13 +194,23 @@ def write_subtitle_texts(entries: list[dict[str, Any]], out_dir: Path, language:
     return rows
 
 
-def combine_texts(entries: list[dict[str, Any]], out_dir: Path, filename: str) -> Path:
+def channel_display_name(entries: list[dict[str, Any]], source_url: str) -> str:
+    for entry in entries:
+        for key in ("channel", "uploader", "playlist_title"):
+            if entry.get(key):
+                return str(entry[key])
+    parsed = urlparse(source_url)
+    return parsed.path.strip("/@") or "TikTok channel"
+
+
+def combine_texts(entries: list[dict[str, Any]], out_dir: Path, filename: str, source_url: str) -> Path:
     text_dir = out_dir / "text"
     rows = sorted(entries, key=lambda row: (row.get("upload_date") or "", row.get("id") or ""))
+    display_name = channel_display_name(entries, source_url)
     parts = [
-        "# Tử Vi Bôn Ba - lời thoại nghiên cứu",
+        f"# {display_name} - lời thoại nghiên cứu",
         "",
-        f"Nguồn: {DEFAULT_CHANNEL_URL}",
+        f"Nguồn: {source_url}",
         f"Cập nhật: {datetime.now(timezone.utc).isoformat()}",
         f"Số video trong metadata: {len(entries)}",
         "",
@@ -233,7 +246,7 @@ def combine_texts(entries: list[dict[str, Any]], out_dir: Path, filename: str) -
     combined_path = out_dir / filename
     combined_path.write_text("\n".join(parts), encoding="utf-8")
     index_lines = [
-        "# Tử Vi Bôn Ba - mục lục lời thoại",
+        f"# {display_name} - mục lục lời thoại",
         "",
         f"Cập nhật: {datetime.now(timezone.utc).isoformat()}",
         f"Tổng video: {len(rows)}",
@@ -365,7 +378,7 @@ def main() -> int:
         write_jsonl(out_dir / "text_manifest.jsonl", subtitle_rows)
 
     if args.combine:
-        combined_path = combine_texts(subtitle_rows or entries, out_dir, args.combined_name)
+        combined_path = combine_texts(subtitle_rows or entries, out_dir, args.combined_name, args.channel_url)
         print(f"Combined text saved: {combined_path}")
 
     if not args.transcribe:
