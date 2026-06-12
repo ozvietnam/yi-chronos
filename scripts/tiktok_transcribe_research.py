@@ -208,16 +208,43 @@ def combine_texts(entries: list[dict[str, Any]], out_dir: Path, filename: str) -
     ]
     for idx, entry in enumerate(rows, start=1):
         path = text_dir / f"{entry['id']}.txt"
-        if not path.exists():
-            continue
         parts.append(f"## {idx:03d}. {format_date(entry.get('upload_date'))} - {title_to_topic(entry.get('title') or entry['id'])}")
         parts.append("")
-        parts.append(path.read_text(encoding="utf-8").strip())
+        if path.exists():
+            parts.append(path.read_text(encoding="utf-8").strip())
+        else:
+            parts.append(
+                "\n".join(
+                    [
+                        f"Ngày đăng: {format_date(entry.get('upload_date'))}",
+                        f"Chủ đề: {title_to_topic(entry.get('title') or entry['id'])}",
+                        f"Tiêu đề gốc: {entry.get('title') or ''}",
+                        f"Video ID: {entry['id']}",
+                        f"URL: {video_url(entry)}",
+                        f"Thời lượng: {entry.get('duration_string') or entry.get('duration') or ''}",
+                        "",
+                        "[Chưa có lời thoại: TikTok không trả phụ đề vie-VN cho video này. Cần transcription audio khi có OPENAI_API_KEY hoặc engine Whisper local.]",
+                    ]
+                )
+            )
         parts.append("")
         parts.append("---")
         parts.append("")
     combined_path = out_dir / filename
     combined_path.write_text("\n".join(parts), encoding="utf-8")
+    index_lines = [
+        "# Tử Vi Bôn Ba - mục lục lời thoại",
+        "",
+        f"Cập nhật: {datetime.now(timezone.utc).isoformat()}",
+        f"Tổng video: {len(rows)}",
+        "",
+    ]
+    for idx, entry in enumerate(rows, start=1):
+        status = "ok" if (text_dir / f"{entry['id']}.txt").exists() else "thiếu phụ đề"
+        index_lines.append(
+            f"{idx:03d}. {format_date(entry.get('upload_date'))} | {status} | {title_to_topic(entry.get('title') or entry['id'])} | {entry['id']}"
+        )
+    (out_dir / "index_all.md").write_text("\n".join(index_lines) + "\n", encoding="utf-8")
     return combined_path
 
 
@@ -366,7 +393,8 @@ def main() -> int:
         audio_path = download_audio(url, video_id, audio_dir, archive_path)
 
         print(f"[{index}/{len(entries)}] transcribe {audio_path.name}")
-        transcript = transcribe_audio(audio_path, args.model, args.language)
+        openai_language = "vi" if args.language == "vie-VN" else args.language
+        transcript = transcribe_audio(audio_path, args.model, openai_language)
         md_path.write_text(video_markdown(entry, transcript), encoding="utf-8")
         transcript_rows.append(
             {
