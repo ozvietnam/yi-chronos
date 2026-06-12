@@ -23,6 +23,7 @@ import LuuNienPanel from "./LuuNienPanel.vue";
 import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
 import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
 import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
+import ChinhTinhLibraryPanel from "./ChinhTinhLibraryPanel.vue";
 
 const inputBirth = ref("");
 const inputGender = ref("nam");
@@ -749,6 +750,10 @@ const grid = computed(() => {
     </p>
 
     <TuViPersonSwitcher />
+
+    <!-- 📖 Thư viện hồ sơ 14 chính tinh + kiến thức nền âm dương ngũ hành
+         (xem được cả khi chưa lập lá số) -->
+    <ChinhTinhLibraryPanel />
 
     <div class="tvls-form">
       <label>
