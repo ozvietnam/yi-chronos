@@ -3,6 +3,8 @@
   "batch": "dot11_ky_mon_applied_dam_lien",
   "generated_at": "2026-06-11T00:00:00+07:00",
   "status": "web_ready",
+  "qa_status": "pass",
+  "qa_note": "7/7 assets received. Source PNG files meet 2200px long-edge target. WebP files are optimized for mobile and all are below target size thresholds. Visual direction matches Qimen applied reading: task-oriented choice, cach cuc detection, relative direction, Heaven-Earth-Human layers, Tri Phu/Tri Su command axis, Dam Lien personal reading, and tactical direction guidance. Do not display as a gallery; wire each asset into its matching KyMonPanel section.",
   "assets": [
     {
       "id": "ky-mon-05-task-decision-gate",

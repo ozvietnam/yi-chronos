@@ -41,3 +41,8 @@ Mục tiêu: bổ sung ảnh minh họa cho tầng **luận đoán ứng dụng*
 - `manifest.json` đã cập nhật đường dẫn source/web/prompt, kích thước và dung lượng.
 - Tất cả WebP đang dưới ngưỡng dung lượng brief yêu cầu.
 - Dot 11 giữ vai trò ảnh insight, không thay thế board/icon Dot 01.
+- QA mỹ thuật: pass. Bộ ảnh giữ đúng bản sắc Kỳ Môn ứng dụng: bàn lệnh, cửu cung, cách cục, phương vị, trục chỉ huy.
+- Không bị lẫn với Tử Vi oracle card, Bát Tự Dot 10, hoặc board/icon Dot 01.
+- `ky-mon-06-cach-cuc-detection` có nhiều glyph quanh viền; chỉ dùng ở khối Cách cục phát hiện, không dùng làm nền toàn trang.
+- `ky-mon-10-personal-reading-dam-lien` dùng tốt cho khối personal reading vì có sách/cửu cung/sinh thần, không vẽ chân dung Đàm Liên.
+- Quy tắc UI: không phơi cả lô thành gallery. Mỗi ảnh chỉ hiện trong section tương ứng của `KyMonPanel.vue`.
