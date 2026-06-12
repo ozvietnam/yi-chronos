@@ -119,7 +119,8 @@ def main():
     print(f"   ✅ Manifest updated")
 
     # Clean tmp
-    shutil.rmtree(flat_tmp, ignore_errors=True)
+    shutil.rmtree(TMP_DIR, ignore_errors=True)
+    shutil.rmtree(work_dir, ignore_errors=True)
     print(f"\n🎉 DONE!")
     return 0
 
