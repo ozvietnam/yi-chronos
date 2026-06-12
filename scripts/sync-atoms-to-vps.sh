@@ -39,10 +39,20 @@ rsync -avz $DRY_RUN -e "ssh -i $SSH_KEY" \
     "$VPS_USER@$VPS_HOST:$VPS_DATA_DIR/yi_wiki/wiki.sqlite3"
 
 # 3. Sync mapping JSON
-echo "[3/3] Sync tu_vi_cung_sao_mapping.json ..."
+echo "[3/4] Sync tu_vi_cung_sao_mapping.json ..."
 rsync -avz $DRY_RUN -e "ssh -i $SSH_KEY" \
     "$LOCAL_DATA_DIR/tu_vi_cung_sao_mapping.json" \
     "$VPS_USER@$VPS_HOST:$VPS_DATA_DIR/tu_vi_cung_sao_mapping.json"
+
+# 3b. Sync dataset Ngũ Uẩn (Tử Vi Bôn Ba) — tầng narrative đọc file này (2026-06-12)
+echo "[4/4] Sync tuvibonba_ngu_uan.json ..."
+if [[ -f "$LOCAL_DATA_DIR/yi_wiki/tuvibonba_ngu_uan.json" ]]; then
+    rsync -avz $DRY_RUN -e "ssh -i $SSH_KEY" \
+        "$LOCAL_DATA_DIR/yi_wiki/tuvibonba_ngu_uan.json" \
+        "$VPS_USER@$VPS_HOST:$VPS_DATA_DIR/yi_wiki/tuvibonba_ngu_uan.json"
+else
+    echo "  (bỏ qua — chưa có file local)"
+fi
 
 # 4. Verify atoms count trên VPS
 if [[ -z "$DRY_RUN" ]]; then

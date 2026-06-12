@@ -230,16 +230,10 @@ def compose_palace_ngu_uan(
             "hoa": hoa,
         })
 
-    # ── 5 uẩn: bối cảnh cung + lực của từng sao ──
+    # ── 5 uẩn: LỰC CỦA SAO trước (cá nhân hóa), bối cảnh cung làm nền sau ──
     ngu_uan_doc = []
     for key in UAN_KEYS:
-        pieces = []
-        if palace_rec:
-            p_uan = (palace_rec.get("ngu_uan") or {}).get(key)
-            if isinstance(p_uan, dict):
-                p_uan = p_uan.get("mo_ta")
-            if p_uan:
-                pieces.append(_first_sentences(p_uan, 2))
+        star_pieces = []
         for s, rec in star_recs:
             if not rec:
                 continue
@@ -247,7 +241,19 @@ def compose_palace_ngu_uan(
             mo_ta = u.get("mo_ta")
             if mo_ta:
                 label = f"{s}: " if len(star_recs) > 1 else ""
-                pieces.append(f"{label}{_first_sentences(mo_ta, 3)}")
+                star_pieces.append(f"{label}{_first_sentences(mo_ta, 3)}")
+        palace_piece = None
+        if palace_rec:
+            p_uan = (palace_rec.get("ngu_uan") or {}).get(key)
+            if isinstance(p_uan, dict):
+                p_uan = p_uan.get("mo_ta")
+            if p_uan:
+                # Có sao → cung chỉ làm nền 1 câu; không sao → cung nói đủ 2 câu
+                palace_piece = _first_sentences(p_uan, 1 if star_pieces else 2)
+        pieces = star_pieces + (
+            [f"Trong bối cảnh {palace_name}: {palace_piece}"] if palace_piece and star_pieces
+            else [palace_piece] if palace_piece else []
+        )
         if pieces:
             ngu_uan_doc.append({
                 "key": key,

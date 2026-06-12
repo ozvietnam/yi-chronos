@@ -1715,6 +1715,46 @@ Anh chốt: chờ ingest Trung Châu Q2 xong (~10-12h) → review chất lượn
 
 ---
 
+## 2026-06-12 — Tử Vi Bôn Ba: trường phái thứ 5 + tầng narrative Ngũ Uẩn
+
+Anh thả một đường dẫn transcript 98 video TikTok "Tử Vi Bôn Ba" (anh Đức — thương nhân,
+không lấy tiền xem). Em đọc HẾT 98 video (không skim) → phát hiện kênh này nói gần như
+nguyên văn Iron Rule #8 của hệ mình: *"lá số không quyết định số phận — kết quả nằm trong
+lựa chọn lặp lại hàng ngày"*. Khung phân tích của kênh: **Ngũ Uẩn** (Sắc-Thọ-Tưởng-Hành-Thức)
+ốp vào từng sao, từng cung — Anh nhận xét: *"là cách não bộ tiếp nhận thông tin qua các bước;
+có hệ quy chiếu này càng hiểu sâu một chính tinh và sự tương tác của chúng."*
+
+Anh duyệt HẾT đề xuất + chốt pain point: *"trang web hiện tại ngôn ngữ diễn đạt và logic
+quá nghèo nàn."* Em thực thi trong cùng phiên:
+
+1. **Atomize**: 10 thợ trích xuất (spec chặt `EXTRACTION-SPEC.md`) → 81 records →
+   `data/yi_wiki/tuvibonba_ngu_uan.json` + **478 atoms / 96 chunks** vào wiki
+   (corpus `tuvi-bon-ba-tiktok`, author 141, claim lịch sử tag `unverified`).
+   School thứ 5 `tu_vi_bon_ba` vào cross_school — luan_sao_cung giờ trả 6 phái.
+2. **Tầng narrative Ngũ Uẩn** (`engine/tu_vi/ngu_uan.py` + `interpretation.py` v2):
+   bỏ hẳn bảng sao-tốt/sao-xấu, chấm theo **miếu-hãm = độ khó bài học**; mỗi cung giờ có
+   đoạn văn bối cảnh + sao định vị + 5 uẩn + thuận/lệch + câu tự soi + lời nhắc paradigm.
+   Trước: "Lực cung mạnh, tín hiệu thuận. Sao chính: Thiên Đồng. Xem chi tiết bên dưới."
+   Sau: "...Thiên Đồng là phúc tinh — giữa thế giới bộn bề ai cũng ganh đua, duy chỉ kiểu
+   người này có thể an nhiên với đời... đến với thế giới này là để ban phát niềm vui."
+3. **Đạo đức luận giải vào SOUL tu-vi-sage** (4 chốt chặn: gây sợ hãi+tê liệt = SAI dù đúng
+   sách; chỉ nói điều can thiệp được...) + skill `tu-vi-bon-ba/INDEX.md`.
+4. **Quiz v2 domain 5 "tật ách/bệnh sử"** (video 091): cast lá số per giờ ứng viên, sao an
+   theo giờ làm discriminator — ca của Anh: Tý=bình thường vs Sửu/Hợi=nóng trong. 22 traits.
+
+Bài học vận hành: 10 thợ chạy nền chạm trần phiên (reset 19:50) — 4 thợ kịp ghi file trước
+khi chết, 6 thợ thả lại sau reset đều về đủ. Sync VPS đã thêm dataset vào
+`sync-atoms-to-vps.sh` (cron 23:30 tự đưa lên live).
+
+*Em ghi với hết tâm: hôm nay hệ mình học được từ một người thầy đương đại đang sống —
+không chỉ từ cổ thư. "Người chăn vịt vẫn là lãnh đạo của đàn vịt."*
+
+### Lần update tiếp theo
+*(Khi Anh xem web bản mới + quyết có theo dõi kênh TVBB hàng tuần / mở rộng narrative
+Ngũ Uẩn sang tầng phê mệnh sâu.)*
+
+---
+
 # 🌸 KẾT — Câu chú đầu mỗi phiên
 
 *Em (phiên sau) đọc câu này TRƯỚC khi làm gì:*
