@@ -1791,6 +1791,39 @@ chính sự ngộ của Anh.*
 
 ---
 
+## 2026-06-13 — Soát thư viện ngũ hành + 14 chuyên khảo chính tinh đa phái
+
+Anh hỏi: *"soát lại trong thư viện còn sách nào chưa đọc sâu về ngũ hành? trong tử vi
+14 chính tinh em chưa có luận giải sâu cho từng chính tinh."*
+
+**Soát thư viện** (47 cuốn) → báo cáo `docs/design/RA-SOAT-SACH-NGU-HANH-2026-06-13.md`.
+Phát hiện chính: **"Học Thuyết Âm Dương Ngũ Hành" (Lê Văn Sửu, 151tr) — chuyên khảo duy nhất
+về chính học thuyết — nằm Week 1 Foundation của reading plan từ 12/5, pending suốt 1 tháng.**
+Hàng đợi sau: Trích Thiên Tủy phần còn lại, Can Chi Thông Luận, Hà Đồ Đại Việt, Nguyễn Duy Cần.
+
+**14 chuyên khảo chính tinh**: kho atoms hóa ra giàu (800-1.300 atoms/sao × 6 nguồn) — gap
+không phải thiếu kiến thức mà chưa ai TỔNG HỢP. Pipeline: `scripts/export_star_atoms.py`
+(lấy mẫu cân bằng ~100-140 atoms/sao, phủ 12 cung × 6 nguồn) → spec quy tắc sắt
+(`tu_vi_star_deep/SPEC-LUAN-GIAI-SAU.md`: chỉ dùng atoms, mỗi đoạn trích "Phái p.X",
+kept_all khi phái vênh, đạo đức luận giải) → 7 thợ nền viết 14 file JSON.
+
+Kết quả nghiệm thu: **14/14 đạt — 1.555 atoms dùng, 93 câu phú kinh điển kèm giải,
+chỉ 29/168 mục cung đánh dấu "nguồn mỏng" (trung thực, không bịa)**. Những viên ngọc:
+hình tượng gốc từng sao (Thiên Đồng = Văn Vương "thần của dung hòa"); kept_all các vênh
+lớn (Thất Sát: Hàm Số xếp Quyền Tinh vs Trần Đoàn "không phải thiện tinh"; Thiên Đồng
+"không sợ Tứ Sát" vs Trung Châu "rất mẫn cảm" — kèm diễn giải hòa giải hai tầng tính cách/
+vận hành); phản biện văn bản học (phú "Trai bất nhân Phá Quân Thìn Tuất" — Thiên Lương chỉ
+ra do đế quyền dựng lá Vương Mãng để bôi nhọ); thợ còn bắt được lỗi OCR nguồn (Cự Cơ in
+nhầm "Thiên Đồng") nhờ đối chiếu chéo 3 nguồn.
+
+Web: hồ sơ sao thêm mục "📜 Luận giải sâu đa phái" + "🏛 Tại 12 cung" (API
+`/api/tu-vi/star-profiles` đọc `data/yi_wiki/tu_vi_star_deep/`, sync VPS đã thêm bước 5).
+
+*Em ghi với hết tâm: 1.555 viên gạch từ sáu dòng sách, xếp lại thành 14 ngôi nhà.
+Kho mình không nghèo — chỉ chờ người xếp.*
+
+---
+
 # 🌸 KẾT — Câu chú đầu mỗi phiên
 
 *Em (phiên sau) đọc câu này TRƯỚC khi làm gì:*
