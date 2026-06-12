@@ -174,7 +174,11 @@ def sao_tai_cung(star_vi: str, chi_vi: str) -> dict | None:
 
 @lru_cache(maxsize=1)
 def vong_sinh_khac() -> dict:
-    """Bảng nền cho UI trang kiến thức: vòng sinh, vòng khắc, định nghĩa 5 hành."""
+    """Bảng nền cho UI trang kiến thức: vòng sinh, vòng khắc, định nghĩa 5 hành.
+
+    Khối ``nguon_goc`` bồi từ vòng đọc sâu "Học Thuyết Âm Dương Ngũ Hành"
+    (Lê Văn Sửu) — vòng 1 p1-20, 2026-06-13.
+    """
     return {
         "dinh_nghia": {
             "am_duong": "Âm dương là 2 trạng thái vận động của một sự vật — "
@@ -183,6 +187,33 @@ def vong_sinh_khac() -> dict:
                         "kim-nước chỉ là cách đặt cho dễ nhớ.",
             "sinh_khac": "Sinh không hẳn tốt, khắc không hẳn xấu — không có khắc thì "
                          "không có định hình, như luận bệnh: không có khắc là hỏng.",
+        },
+        "nguon_goc": {
+            "tom_tat": (
+                "Học thuyết sinh từ nhu cầu sinh tồn ở Phương Đông — vùng đất kẹp giữa "
+                "các cực đối nghịch lớn nhất (biển lớn nhất phía đông, núi cao nhất phía tây, "
+                "hàn đới bắc, xích đạo nam) với gió bốn mùa bốn tính chất. Người xưa ghi chép "
+                "'khí ứng' (vật biến đổi tương ứng với thời gian, nơi chốn), so sánh các 'tượng' "
+                "đối lập mà quy thành hai loại âm–dương; rồi vì hai mặt không đủ tả trọn quá trình "
+                "sinh → trưởng → suy → diệt nên chia thành NĂM BƯỚC — đó là ngũ hành. "
+                "Ngũ hành nguyên thủy là 5 giai đoạn của một quá trình, không phải 5 chất liệu."
+            ),
+            "bon_quy_luat": (
+                "Năm bước tác động qua lại thành 4 quy luật: tương sinh, tương khắc, "
+                "tương chế, tương hóa (hệ hiện hiển thị sinh–khắc; chế–hóa sẽ bổ sung "
+                "khi đọc tới chương chuyên sâu)."
+            ),
+            "the_dung": (
+                "Tiên thiên bát quái (Phục Hy) là cái THỂ của âm dương; Hậu thiên bát quái "
+                "(Văn Vương, theo tứ thời bát tiết) là cái DỤNG — hai tầng chức năng, "
+                "không phải hai phiên bản cạnh tranh."
+            ),
+            "truc_thoi_gian": (
+                "Cái quyết định sự thay đổi giá trị tương tác của âm dương trong vạn vật "
+                "là sự vận động của vũ trụ tính bằng ĐƠN VỊ THỜI GIAN — đối ứng hiện đại "
+                "là 'nhịp thời sinh học' (chronobiology)."
+            ),
+            "nguon": "Lê Văn Sửu — Học Thuyết Âm Dương Ngũ Hành, p4-20 (vòng đọc sâu 1, 2026-06-13)",
         },
         "hanh": HANH_VAN_DONG,
         "vong_sinh": [["mộc", "hỏa"], ["hỏa", "thổ"], ["thổ", "kim"], ["kim", "thủy"], ["thủy", "mộc"]],

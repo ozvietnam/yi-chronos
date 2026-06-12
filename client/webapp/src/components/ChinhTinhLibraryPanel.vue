@@ -98,6 +98,15 @@ function levelClass(lv) {
             <span class="nh-badge" data-hanh="mộc">mộc</span>
           </div>
           <p class="ctl-nen-line ctl-nen-sinh-khac">{{ nenTang.dinh_nghia.sinh_khac }}</p>
+          <!-- Nguồn gốc học thuyết — bồi từ vòng đọc sâu Lê Văn Sửu (2026-06-13) -->
+          <details v-if="nenTang.nguon_goc" class="ctl-nguongoc">
+            <summary>🌱 Nguồn gốc học thuyết (Lê Văn Sửu)</summary>
+            <p class="ctl-nen-line">{{ nenTang.nguon_goc.tom_tat }}</p>
+            <p class="ctl-nen-line">{{ nenTang.nguon_goc.bon_quy_luat }}</p>
+            <p class="ctl-nen-line">{{ nenTang.nguon_goc.the_dung }}</p>
+            <p class="ctl-nen-line">{{ nenTang.nguon_goc.truc_thoi_gian }}</p>
+            <p class="ctl-nen-line ctl-nguongoc-cite">— {{ nenTang.nguon_goc.nguon }}</p>
+          </details>
         </div>
 
         <!-- ── Lưới chọn sao ── -->
@@ -274,6 +283,13 @@ function levelClass(lv) {
 }
 .ctl-nen-line { margin: 2px 0; font-size: 12.5px; line-height: 1.55; color: var(--text-secondary, rgba(230,238,245,0.8)); }
 .ctl-nen-sinh-khac { font-style: italic; opacity: 0.85; }
+.ctl-nguongoc { margin-top: 8px; }
+.ctl-nguongoc summary {
+  font-size: 12px; color: var(--accent-gold, #e8c95a);
+  cursor: pointer; opacity: 0.9;
+}
+.ctl-nguongoc p { margin-top: 6px; }
+.ctl-nguongoc-cite { font-style: italic; opacity: 0.6; font-size: 11px; }
 .ctl-vong { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 5px 0; }
 .ctl-vong-label { font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.6)); margin-right: 4px; }
 .ctl-arrow { font-size: 11px; color: var(--text-secondary, rgba(230,238,245,0.55)); }
