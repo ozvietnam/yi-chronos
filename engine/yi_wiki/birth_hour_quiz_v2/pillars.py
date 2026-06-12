@@ -58,6 +58,7 @@ def build_candidates(
             gender=gender,
         )
         tu_tru = chart["tu_tru"]["pillars"]
+        lunar = chart["tu_tru"].get("lunar") or {}
         out.append({
             "chi": chi,
             "pillars": {
@@ -66,5 +67,8 @@ def build_candidates(
                 "day":   {"stem": tu_tru["day"]["stem"],   "branch": tu_tru["day"]["branch"]},
                 "hour":  {"stem": tu_tru["hour"]["stem"],  "branch": tu_tru["hour"]["branch"]},
             },
+            # Domain 5 (tật ách) cần an sao Tử Vi theo giờ → giữ lịch âm + gender
+            "lunar": {"month": lunar.get("month"), "day": lunar.get("day")},
+            "gender": gender,
         })
     return out

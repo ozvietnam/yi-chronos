@@ -1,4 +1,4 @@
-"""Orchestrate full trait derivation: rules + LLM → 19 traits per candidate."""
+"""Orchestrate full trait derivation: rules + LLM → 22 traits per candidate."""
 from __future__ import annotations
 
 from .rules.physical import derive_physical_traits
@@ -6,17 +6,20 @@ from .rules.energy import derive_energy_traits
 from .rules.personality import (
     derive_yin_yang_ratio, derive_sibling_position_hint,
 )
+from .rules.tat_ach import derive_tat_ach_traits
 from .llm_call import call_trait_llm
 
 
 def derive_all_traits(candidates: list[dict]) -> dict[str, dict[str, str]]:
-    """Derive all 19 traits for each candidate.
+    """Derive all 22 traits for each candidate.
 
     Args:
-        candidates: list of {"chi": str, "pillars": full pillars dict}
+        candidates: list of {"chi": str, "pillars": full pillars dict,
+                             "lunar": {month, day}, "gender": str}
+        (lunar/gender optional — thiếu thì domain 5 trả "unknown")
 
     Returns:
-        {chi: {trait_id: value}} — 19 traits per candidate.
+        {chi: {trait_id: value}} — 22 traits per candidate.
 
     Trait sources:
         Domain 1 (7): rules/physical.py
@@ -27,6 +30,8 @@ def derive_all_traits(candidates: list[dict]) -> dict[str, dict[str, str]]:
         Domain 4:
           - sibling_position_likely: rules/personality.py
           - 3 others: LLM
+        Domain 5 (3): rules/tat_ach.py — sao an theo giờ trên lá số Tử Vi
+          (đối chiếu bệnh sử giữa các giờ ứng viên — Tử Vi Bôn Ba video 091)
     """
     llm_out = call_trait_llm(candidates)
 
@@ -53,6 +58,9 @@ def derive_all_traits(candidates: list[dict]) -> dict[str, dict[str, str]]:
         traits["sibling_position_likely"] = derive_sibling_position_hint(pillars)
         for k in ("career_direction", "marriage_timing_rough", "health_pattern_general"):
             traits[k] = chi_llm.get(k, "unknown")
+
+        # Domain 5: tật ách / bệnh sử (rules — an sao Tử Vi theo giờ)
+        traits.update(derive_tat_ach_traits(c))
 
         out[chi] = traits
     return out

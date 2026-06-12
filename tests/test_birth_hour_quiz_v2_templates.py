@@ -1,4 +1,4 @@
-"""Tests for question templates library (19 traits)."""
+"""Tests for question templates library (22 traits)."""
 from engine.yi_wiki.birth_hour_quiz_v2.templates import TRAIT_TEMPLATES
 
 
@@ -10,10 +10,12 @@ EXPECTED_TRAITS = {
     "wake_natural_time", "energy_peak_period", "sleep_pattern",
     "career_direction", "sibling_position_likely",
     "marriage_timing_rough", "health_pattern_general",
+    # Domain 5: tật ách / bệnh sử (đối chiếu lá số — Tử Vi Bôn Ba video 091)
+    "health_hoa_linh", "health_khong_kiep", "health_sat_tinh_than",
 }
 
 
-def test_all_19_templates_present():
+def test_all_22_templates_present():
     assert set(TRAIT_TEMPLATES.keys()) == EXPECTED_TRAITS
 
 

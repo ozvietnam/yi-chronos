@@ -197,4 +197,32 @@ TRAIT_TEMPLATES = {
             "yeu_vung_x": "Có vùng yếu cụ thể (tiêu hoá / hô hấp / xương khớp)",
         },
     },
+    # ── Domain 5: TẬT ÁCH / BỆNH SỬ ─────────────────────────────────────
+    # Đối chiếu lá số theo phương pháp Tử Vi Bôn Ba (video 091): sao an theo
+    # giờ (Hỏa/Linh/Không/Kiếp) + vị trí cung Mệnh xoay theo giờ sinh →
+    # bệnh sử là tín hiệu phân biệt mạnh giữa các giờ ứng viên giáp ranh.
+    "health_hoa_linh": {
+        "question_vi": "Từ nhỏ tới nay, Anh có giai đoạn dài bị nóng trong — mụn nhọt, nhiệt, bốc hoả, khó ngủ?",
+        "domain": "tật ách / bệnh sử",
+        "value_labels": {
+            "nong_trong":  "Có, rõ rệt — mụn nhọt / nhiệt / khó ngủ kéo dài",
+            "binh_thuong": "Không — thân nhiệt ổn, da ít mụn",
+        },
+    },
+    "health_khong_kiep": {
+        "question_vi": "Anh có từng giai đoạn căng thẳng thần kinh kéo dài — suy nghĩ miên man, mất ngủ vì nghĩ nhiều, hoặc một cú đứt gãy/mất mát đột ngột?",
+        "domain": "tật ách / bệnh sử",
+        "value_labels": {
+            "cang_than_kinh": "Có — từng giai đoạn như vậy",
+            "binh_thuong":    "Không rõ rệt",
+        },
+    },
+    "health_sat_tinh_than": {
+        "question_vi": "Cơ thể Anh có nhiều \u201cdấu vết\u201d không — sẹo, mổ xẻ, bệnh vặt dai dẳng (xoang, dạ dày, da liễu)?",
+        "domain": "tật ách / bệnh sử",
+        "value_labels": {
+            "nhieu_dau_vet": "Khá nhiều — có sẹo/mổ xẻ hoặc bệnh vặt theo mình lâu",
+            "it_dau_vet":    "Ít — cơ thể khá lành",
+        },
+    },
 }
