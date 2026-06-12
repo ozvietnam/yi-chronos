@@ -18,6 +18,7 @@ const nenTang = ref(null);
 const profiles = ref([]);
 const paradigmNote = ref("");
 const selected = ref(null);
+const showCung12 = ref(false);
 
 const UAN_LABELS = {
   sac: "Sắc — biểu hiện ra ngoài",
@@ -165,6 +166,56 @@ function levelClass(lv) {
           <p v-if="selected.co_ban.tich_cuc" class="ctl-pos">✦ {{ selected.co_ban.tich_cuc }}</p>
           <p v-if="selected.co_ban.tieu_cuc" class="ctl-neg">⚠ {{ selected.co_ban.tieu_cuc }}</p>
 
+          <!-- 📜 Luận giải sâu đa phái (build từ atoms 6 nguồn, có trích trang) -->
+          <div v-if="selected.luan_giai_sau" class="ctl-deep">
+            <h6 class="ctl-deep-title">📜 Luận giải sâu đa phái
+              <small>tổng hợp từ {{ selected.luan_giai_sau.built_from_atoms }} atoms · 6 nguồn</small>
+            </h6>
+            <p v-if="selected.luan_giai_sau.tong_quan?.hinh_tuong" class="ctl-deep-p">
+              <b>Hình tượng:</b> {{ selected.luan_giai_sau.tong_quan.hinh_tuong }}</p>
+            <p v-if="selected.luan_giai_sau.tong_quan?.ban_chat" class="ctl-deep-p">
+              <b>Bản chất:</b> {{ selected.luan_giai_sau.tong_quan.ban_chat }}</p>
+            <p v-if="selected.luan_giai_sau.tong_quan?.y_nghia_hanh_hoa_khi" class="ctl-deep-p">
+              <b>Hành & hóa khí:</b> {{ selected.luan_giai_sau.tong_quan.y_nghia_hanh_hoa_khi }}</p>
+
+            <div v-if="(selected.luan_giai_sau.goc_nhin_cac_phai || []).length" class="ctl-deep-phai">
+              <p v-for="g in selected.luan_giai_sau.goc_nhin_cac_phai" :key="g.phai" class="ctl-deep-phai-item">
+                <span class="ctl-deep-phai-name">{{ g.phai }}:</span> {{ g.diem_nhan }}
+              </p>
+            </div>
+
+            <button type="button" class="ctl-deep-cung-toggle" @click="showCung12 = !showCung12">
+              🏛 Tại 12 cung {{ showCung12 ? "▲" : "▼" }}
+            </button>
+            <dl v-if="showCung12" class="ctl-deep-cung">
+              <template v-for="(v, cung) in selected.luan_giai_sau.tai_12_cung" :key="cung">
+                <dt>{{ cung }} <small v-if="v.nguon_mong">· nguồn mỏng</small></dt>
+                <dd>
+                  {{ v.luan }}
+                  <span v-if="(v.nguon || []).length" class="ctl-deep-nguon">— {{ v.nguon.join(" · ") }}</span>
+                </dd>
+              </template>
+            </dl>
+
+            <p v-if="selected.luan_giai_sau.than_cu" class="ctl-deep-p">
+              <b>Thân cư:</b> {{ selected.luan_giai_sau.than_cu }}</p>
+            <p v-if="selected.luan_giai_sau.sat_tinh_cat_tinh" class="ctl-deep-p">
+              <b>Gặp sát / cát tinh:</b> {{ selected.luan_giai_sau.sat_tinh_cat_tinh }}</p>
+
+            <div v-if="(selected.luan_giai_sau.cau_phu_kinh_dien || []).length" class="ctl-deep-phu">
+              <p class="ctl-deep-phu-label">Câu phú kinh điển:</p>
+              <blockquote v-for="(cp, i) in selected.luan_giai_sau.cau_phu_kinh_dien" :key="'cp' + i" class="ctl-quote">
+                “{{ cp.phu }}”<span v-if="cp.giai"> — {{ cp.giai }}</span>
+                <small v-if="cp.nguon"> ({{ cp.nguon }})</small>
+              </blockquote>
+            </div>
+
+            <p v-if="selected.luan_giai_sau.khac_biet_cac_phai" class="ctl-deep-khacbiet">
+              ⚖ Khác biệt giữa các phái: {{ selected.luan_giai_sau.khac_biet_cac_phai }}</p>
+            <p v-if="selected.luan_giai_sau.dao_duc_ghi_chu" class="ctl-paradigm">
+              {{ selected.luan_giai_sau.dao_duc_ghi_chu }}</p>
+          </div>
+
           <!-- Miếu hãm 12 chi -->
           <div v-if="Object.keys(selected.mieu_ham_12_chi || {}).length" class="ctl-mh">
             <span class="ctl-mh-label">Độ khó bài học tại 12 đất cung:</span>
@@ -301,5 +352,37 @@ function levelClass(lv) {
 .ctl-paradigm {
   margin: 12px 0 0 0; font-size: 11.5px; font-style: italic;
   color: var(--text-secondary, rgba(230,238,245,0.55));
+}
+/* 📜 Luận giải sâu đa phái */
+.ctl-deep {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: rgba(232, 201, 90, 0.04);
+  border: 1px solid rgba(232, 201, 90, 0.2);
+  border-radius: 6px;
+}
+.ctl-deep-title { margin: 0 0 8px 0; font-size: 13px; color: var(--accent-gold, #e8c95a); }
+.ctl-deep-title small { font-weight: 400; margin-left: 6px; color: var(--text-secondary, rgba(230,238,245,0.55)); }
+.ctl-deep-p { margin: 6px 0 0 0; font-size: 12.5px; line-height: 1.6; color: var(--text-secondary, rgba(230,238,245,0.82)); }
+.ctl-deep-p b { color: var(--text-primary, rgba(230,238,245,0.92)); }
+.ctl-deep-phai { margin: 8px 0; padding-left: 8px; border-left: 2px solid rgba(255,255,255,0.1); }
+.ctl-deep-phai-item { margin: 4px 0; font-size: 12px; line-height: 1.55; color: var(--text-secondary, rgba(230,238,245,0.75)); }
+.ctl-deep-phai-name { font-weight: 600; color: var(--text-primary, rgba(230,238,245,0.88)); }
+.ctl-deep-cung-toggle {
+  margin: 8px 0 0 0; padding: 5px 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 6px; color: var(--text-primary, rgba(230,238,245,0.88));
+  font-size: 12px; cursor: pointer;
+}
+.ctl-deep-cung { margin: 8px 0 0 0; }
+.ctl-deep-cung dt { font-size: 12px; font-weight: 600; color: var(--accent-gold, #e8c95a); margin-top: 8px; }
+.ctl-deep-cung dt small { font-weight: 400; color: #f5b08c; }
+.ctl-deep-cung dd { margin: 2px 0 0 0; font-size: 12.5px; line-height: 1.6; color: var(--text-secondary, rgba(230,238,245,0.8)); }
+.ctl-deep-nguon { display: block; margin-top: 2px; font-size: 11px; font-style: italic; color: var(--text-secondary, rgba(230,238,245,0.5)); }
+.ctl-deep-phu-label { margin: 8px 0 0 0; font-size: 12px; font-weight: 600; color: var(--text-primary, rgba(230,238,245,0.85)); }
+.ctl-deep-khacbiet {
+  margin: 8px 0 0 0; font-size: 12px; line-height: 1.55; font-style: italic;
+  color: var(--text-secondary, rgba(230,238,245,0.7));
+  border-left: 2px solid rgba(232, 201, 90, 0.35); padding-left: 8px;
 }
 </style>

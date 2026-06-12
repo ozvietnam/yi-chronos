@@ -2254,10 +2254,31 @@ def tu_vi_star_profiles() -> dict[str, object]:
     tích cực/tiêu cực); (2) profile Ngũ Uẩn 5 lớp trường phái Tử Vi Bôn Ba;
     (3) bảng miếu-vượng-đắc-hãm tại 12 chi ("độ khó bài học" theo từng đất cung).
     """
+    import json as _json
+    import unicodedata as _ud
+    from pathlib import Path as _Path
+
     from engine.tu_vi import list_chinh_tinh
     from engine.tu_vi import ngu_uan as ngu_uan_mod
     from engine.tu_vi.mieu_vuong_ham import level_at
     from engine.tu_vi.ngu_hanh_nen import HANH_CHI, vong_sinh_khac
+
+    def _slug(s: str) -> str:
+        nfkd = _ud.normalize("NFD", s)
+        s2 = "".join(c for c in nfkd if not _ud.combining(c))
+        return s2.lower().strip().replace(" ", "_").replace("đ", "d")
+
+    deep_dir = _Path(__file__).resolve().parents[1] / "data/yi_wiki/tu_vi_star_deep"
+
+    def _deep_profile(star_vi: str) -> dict | None:
+        """Chuyên khảo luận giải sâu đa phái (build từ atoms 6 nguồn) nếu đã có."""
+        p = deep_dir / f"{_slug(star_vi)}.json"
+        if not p.exists():
+            return None
+        try:
+            return _json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, _json.JSONDecodeError):
+            return None
 
     chi_12 = list(HANH_CHI.keys())
     profiles = []
@@ -2268,6 +2289,7 @@ def tu_vi_star_profiles() -> dict[str, object]:
             "ngu_uan": tvbb,  # None nếu dataset chưa có sao này
             "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi(s.ten_vi),
             "mieu_ham_12_chi": {chi: level_at(s.ten_vi, chi) for chi in chi_12},
+            "luan_giai_sau": _deep_profile(s.ten_vi),  # None nếu chưa build
         })
     # Vô Chính Diệu — "tính cách thứ 15" (chỉ có trong dataset hiện đại)
     vcd = ngu_uan_mod.get_star_profile("Vô Chính Diệu")
