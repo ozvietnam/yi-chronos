@@ -166,6 +166,27 @@ TIENG_VUNG_MIEN = [
      "vi_du": "vô ý → giô ý; anh ơi → eng ơi; anh ấy → ảnh ấy"},
 ]
 
+# ─── Ngũ hành trong NGHỆ THUẬT TẠO HÌNH (chương NHÌN, Lê Văn Sửu p190-200) ────
+# Ngũ hành ↔ hình thể + màu + dáng người + tâm lý (Bảng 4-11, 4-13, Hình 4-19).
+# `hinh_loai` cho renderer: chu_nhat | tron | vuong | tam_giac | uon_khuc.
+NGU_HANH_TAO_HINH: dict[str, dict] = {
+    "mộc":  {"hinh": "chữ nhật", "hinh_loai": "chu_nhat", "mau": "xanh", "tinh_cach": "tướng quân",
+             "dang_nguoi": "đứng hiên ngang, chống đỡ", "tam_ly": "mưu lự, giận",
+             "ly_do": "thân cây, cột, dầm nhà — chống đỡ, ngay thẳng, cứng rắn, gây lòng tin"},
+    "hỏa":  {"hinh": "tròn", "hinh_loai": "tron", "mau": "đỏ", "tinh_cach": "quân chủ",
+             "dang_nguoi": "mừng đón, vui sướng", "tam_ly": "thần minh, vui",
+             "ly_do": "quả cầu, bánh xe, đầu người, mặt trời — linh hoạt, ấm sáng, nguồn lửa-sự sống"},
+    "thổ":  {"hinh": "vuông", "hinh_loai": "vuong", "mau": "vàng", "tinh_cach": "điều hòa",
+             "dang_nguoi": "lo lắng, bình thản", "tam_ly": "bình thản, lo lắng",
+             "ly_do": "khối vuông — vững trãi, sức ì; cuối hạ đất ẩm nhão, tỳ vị hay bệnh → lo vu vơ"},
+    "kim":  {"hinh": "tam giác", "hinh_loai": "tam_giac", "mau": "trắng", "tinh_cach": "tướng phó",
+             "dang_nguoi": "suy tính, buồn rầu", "tam_ly": "trị tiết, buồn",
+             "ly_do": "giáo mác, mũi tên, mảnh vỡ, góc nhọn — phá nát cái mềm hơn, gây cảm giác buồn"},
+    "thủy": {"hinh": "uốn khúc", "hinh_loai": "uon_khuc", "mau": "đen", "tinh_cach": "tác cường",
+             "dang_nguoi": "chuẩn bị kỹ thuật, bắt bóng, nhảy, múa khéo léo", "tam_ly": "kỹ xảo, kinh hãi",
+             "ly_do": "nước chảy quanh co, dáng múa, sóng, tia chớp — khéo léo luồn lách / sợ hãi"},
+}
+
 
 def do_hinh_payload() -> dict:
     """Payload đầy đủ cho component đồ hình tương tác."""
@@ -256,6 +277,23 @@ def do_hinh_payload() -> dict:
             "thanh": SAU_THANH,
             "tieng_vung_mien": TIENG_VUNG_MIEN,
             "nguon": "Lê Văn Sửu — Học Thuyết ÂDNH, Chương 4 p146-178 (luận điểm tác giả)",
+        },
+        "ngu_hanh_tao_hinh": {
+            "ten": "Ngũ Hành trong Nghệ thuật Tạo hình (hình · màu · dáng người)",
+            "y_nghia": "Mọi vật trong tự nhiên lược về 5 HÌNH đại biểu ứng ngũ hành: Mộc=chữ nhật "
+                       "(chống đỡ), Hỏa=tròn (linh hoạt, ấm), Thổ=vuông (vững, ì), Kim=tam giác "
+                       "(sắc, phá), Thủy=uốn khúc (khéo léo / sợ). Mỗi hình + màu + dáng người gợi "
+                       "một tâm lý. Hai hình/màu cạnh nhau cộng hưởng theo sinh-khắc (tương sinh "
+                       "= hòa hợp, tương khắc = căng). Đây là nền 'đọc đồng dạng' cho thị giác.",
+            "bang": NGU_HANH_TAO_HINH,
+            "vn_khac_tq": "LƯU Ý (attribution): bảng hình thể người Việt KHÁC người Trung Quốc — "
+                          "3 hành Thủy/Mộc/Thổ trùng, nhưng HỎA↔KIM HOÁN VỊ (Kim người Việt = tam "
+                          "giác = Hỏa người TQ). Lê Văn Sửu cho bảng Việt khớp cảm quan bản năng hơn, "
+                          "bảng TQ chỉ là quy ước. (p198, Địa lý ngũ quyết)",
+            "khi_hoa_mau": "Tuệ Tĩnh (Hồng nghĩa giác tư y thư, 'Khí hóa âm dương' tr.66): khí đen → "
+                           "thủy sinh, khí đỏ → hỏa sinh, khí xanh → mộc sinh, khí trắng → kim sinh, "
+                           "khí vàng → thổ sinh.",
+            "nguon": "Lê Văn Sửu — Học Thuyết ÂDNH, Chương 4 p190-200 (Bảng 4-11, 4-13, Hình 4-19)",
         },
         "dong_ho_12_canh": {
             "ten": "Đồng hồ sinh học 12 canh giờ (Thập nhị kinh nạp địa chi)",

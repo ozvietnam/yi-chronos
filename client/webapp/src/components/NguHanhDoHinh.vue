@@ -25,6 +25,7 @@ const TABS = [
   { id: "skch", label: "Sinh·Khắc·Chế·Hóa" },
   { id: "dong_ho", label: "🕓 Đồng hồ 12 canh" },
   { id: "sau_thanh", label: "🗣 6 Thanh Việt" },
+  { id: "tao_hinh", label: "🎨 Ngũ hành Tạo hình" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -127,6 +128,21 @@ function thanhPoints(pts, ox, oy) {
 // 6 thanh xếp lưới 3 cột × 2 hàng → gốc (ox, oy) của ô thứ i
 function thanhCell(i) {
   return [4 + (i % 3) * 79, 16 + Math.floor(i / 3) * 110];
+}
+
+// ── Ngũ hành tạo hình (5 hình thể) ──────────────────────────────────────────
+const HANH_ORDER = ["mộc", "hỏa", "thổ", "kim", "thủy"];
+const taoHinh = computed(() => {
+  const b = data.value?.ngu_hanh_tao_hinh?.bang;
+  return b ? HANH_ORDER.map((h) => ({ hanh: h, ...b[h] })) : [];
+});
+const thHover = ref(null);
+function taoHinhX(i) {
+  return 28 + i * 46; // 5 cột cách đều
+}
+// đường uốn khúc (thủy) quanh tâm (cx, cy)
+function wavePts(cx, cy) {
+  return `${cx - 18},${cy + 6} ${cx - 9},${cy - 12} ${cx},${cy + 6} ${cx + 9},${cy - 12} ${cx + 18},${cy + 6}`;
 }
 
 // ── Đồng hồ sinh học 12 canh giờ ────────────────────────────────────────────
@@ -463,6 +479,47 @@ function clockXY(i, r) {
             </ul>
           </details>
           <p class="dh-nguon">— {{ data.sau_thanh_tieng_viet.nguon }}</p>
+        </div>
+      </div>
+
+      <!-- NGŨ HÀNH TẠO HÌNH: 5 hình thể + màu + dáng người -->
+      <div v-show="tab === 'tao_hinh'" class="dh-pane">
+        <svg viewBox="0 0 240 200" class="dh-svg" role="img" aria-label="Ngũ hành tạo hình 5 hình thể">
+          <g v-for="(t, i) in taoHinh" :key="t.hanh"
+             class="dh-na" @mouseenter="thHover = t" @mouseleave="thHover = null">
+            <!-- hình thể theo hành -->
+            <rect v-if="t.hinh_loai === 'chu_nhat'" :x="taoHinhX(i) - 9" :y="63" width="18" height="38" rx="2"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <circle v-else-if="t.hinh_loai === 'tron'" :cx="taoHinhX(i)" :cy="82" r="19"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <rect v-else-if="t.hinh_loai === 'vuong'" :x="taoHinhX(i) - 17" :y="65" width="34" height="34" rx="2"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <polygon v-else-if="t.hinh_loai === 'tam_giac'"
+              :points="`${taoHinhX(i)},63 ${taoHinhX(i) - 18},100 ${taoHinhX(i) + 18},100`"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <polyline v-else-if="t.hinh_loai === 'uon_khuc'" :points="wavePts(taoHinhX(i), 82)"
+              fill="none" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 4 : 3"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <text :x="taoHinhX(i)" :y="120" text-anchor="middle" class="dh-th-name" :fill="HANH_COLOR[t.hanh]">{{ t.hanh }}</text>
+            <text :x="taoHinhX(i)" :y="131" text-anchor="middle" class="dh-th-dau">{{ t.hinh }}</text>
+            <text :x="taoHinhX(i)" :y="142" text-anchor="middle" class="dh-th-dau">{{ t.mau }}</text>
+          </g>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.ngu_hanh_tao_hinh.ten }}</b></p>
+          <p>{{ data.ngu_hanh_tao_hinh.y_nghia }}</p>
+          <p v-if="thHover" class="dh-hover">
+            <b :style="{ color: HANH_COLOR[thHover.hanh] }">{{ thHover.hanh }}</b> — hình
+            <b>{{ thHover.hinh }}</b>, màu <b>{{ thHover.mau }}</b>, tính cách {{ thHover.tinh_cach }}.
+            <br />Dáng người: <b>{{ thHover.dang_nguoi }}</b>; tâm lý: {{ thHover.tam_ly }}.
+            <br /><i>{{ thHover.ly_do }}</i>
+          </p>
+          <p v-else class="dh-note">Rê chuột vào từng hình để xem dáng người + tâm lý + lý do quy loại.</p>
+          <details class="dh-skch-list">
+            <summary>⚖ Việt khác Trung Quốc (Hỏa ↔ Kim)</summary>
+            <p style="font-size:12px;padding:4px 0">{{ data.ngu_hanh_tao_hinh.vn_khac_tq }}</p>
+          </details>
+          <p class="dh-nguon">— {{ data.ngu_hanh_tao_hinh.nguon }}</p>
         </div>
       </div>
 
