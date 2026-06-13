@@ -22,7 +22,7 @@ const SIGN_ELEMENT = {
 const ELEMENT_COLOR = { fire: "#d65a4a", earth: "#9a7b4a", air: "#4ab0c2", water: "#3a6cb0" };
 
 const inputBirth = ref("");
-useActivePersonBirth(inputBirth);
+useActivePersonBirth(inputBirth, { onReady: loadAll }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 const inputLat = ref("");
 const inputLon = ref("");
 const inputSpan = ref(90);

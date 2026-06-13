@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { castThanSo } from "../lib/api.js";
+import { activePerson } from "../stores/userDataStore.js";
 
 const form = ref({
   name: "",
@@ -34,6 +35,23 @@ async function submit() {
     loading.value = false;
   }
 }
+
+// Nhập 1 lần ở profile → tự điền Họ tên + Ngày sinh + tính luôn; đổi profile → tính lại.
+let _lastSynced = null;
+function syncFromActive(force) {
+  const p = activePerson.value;
+  const bd = p?.birth_datetime_local ? p.birth_datetime_local.split("T")[0] : "";
+  if (!bd) return;
+  if (force || !form.value.birthDate || form.value.birthDate === _lastSynced) {
+    const changed = form.value.birthDate !== bd || form.value.name !== (p.name || "");
+    form.value.birthDate = bd;
+    if (p.name) form.value.name = p.name;
+    _lastSynced = bd;
+    if ((changed || force) && form.value.name.trim() && bd) submit();
+  }
+}
+onMounted(() => syncFromActive(false));
+watch(() => activePerson.value?.person_key, () => syncFromActive(true));
 
 const CORE_ORDER = [
   ["life_path", "Số Đường Đời"],

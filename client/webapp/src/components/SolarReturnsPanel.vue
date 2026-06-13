@@ -21,7 +21,7 @@ const ELEMENT_COLOR = {
 };
 
 const inputBirth = ref("");
-useActivePersonBirth(inputBirth);
+useActivePersonBirth(inputBirth, { onReady: loadReturns }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 const inputLat = ref("");
 const inputLon = ref("");
 const inputSpan = ref(60);

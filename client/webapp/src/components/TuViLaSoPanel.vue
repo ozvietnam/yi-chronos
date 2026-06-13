@@ -57,7 +57,8 @@ const show3Layer = ref(false);     // ⭐ Luận giải 3-Layer × 4 hệ phái 
 const oracleCards = ref([]);
 const selectedOracleCard = ref(null);
 
-useActivePersonBirth(inputBirth);
+// Nhập ngày sinh 1 lần ở profile → tự điền + an sao luôn; đổi profile → an lại người mới.
+useActivePersonBirth(inputBirth, { onReady: castChart });
 
 // Branch index → (row, col) in 4×4 grid (clockwise from Tỵ at top-left).
 const BRANCH_TO_GRID = {

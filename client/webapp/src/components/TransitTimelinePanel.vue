@@ -52,7 +52,7 @@ const ASPECT_DESC = {
 };
 
 const inputBirth = ref("");
-useActivePersonBirth(inputBirth);
+useActivePersonBirth(inputBirth, { onReady: loadHits }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 const inputLat = ref("");
 const inputLon = ref("");
 const inputSpan = ref(90);

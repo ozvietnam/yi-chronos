@@ -10,7 +10,7 @@ const inputTimezone = ref("Asia/Ho_Chi_Minh");
 const inputChanThuong = ref("");
 const inputAge = ref(null);
 
-useActivePersonBirth(inputBirth);
+useActivePersonBirth(inputBirth, { onReady: analyze }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 
 const data = ref(null);
 const loading = ref(false);
