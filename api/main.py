@@ -2246,6 +2246,14 @@ def tu_vi_chinh_tinh_detail(star_id: str) -> dict[str, object]:
     return {"status": "ok", "star": s.to_dict()}
 
 
+@app.get("/api/tu-vi/do-hinh-co")
+def tu_vi_do_hinh_co() -> dict[str, object]:
+    """4 đồ hình âm dương cổ (Thái cực · Tiên thiên · Hậu thiên · Hà Đồ) cho
+    đồ hình tương tác. Bồi từ vòng đọc sâu Lê Văn Sửu p21-40 (2026-06-13)."""
+    from engine.tu_vi.do_hinh_co import do_hinh_payload
+    return {"status": "ok", **do_hinh_payload()}
+
+
 @app.get("/api/tu-vi/star-profiles")
 def tu_vi_star_profiles() -> dict[str, object]:
     """Hồ sơ sâu 14 chính tinh (+ Vô Chính Diệu) + kiến thức nền Âm Dương Ngũ Hành.

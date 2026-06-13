@@ -10,6 +10,7 @@
  * Mở đầu = kiến thức nền Âm Dương Ngũ Hành (định nghĩa + vòng sinh khắc).
  */
 import { ref } from "vue";
+import NguHanhDoHinh from "./NguHanhDoHinh.vue";
 
 const open = ref(false);
 const loading = ref(false);
@@ -107,6 +108,8 @@ function levelClass(lv) {
             <p class="ctl-nen-line">{{ nenTang.nguon_goc.truc_thoi_gian }}</p>
             <p class="ctl-nen-line ctl-nguongoc-cite">— {{ nenTang.nguon_goc.nguon }}</p>
           </details>
+          <!-- ☯ Đồ hình tương tác: Thái cực · Tiên thiên · Hậu thiên · Hà Đồ -->
+          <NguHanhDoHinh />
         </div>
 
         <!-- ── Lưới chọn sao ── -->
