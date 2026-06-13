@@ -169,7 +169,9 @@ from api.tu_vi_3layer import router as tu_vi_3layer_router  # noqa: E402
 from api.atoms_verify import router as atoms_verify_router  # noqa: E402
 from api.thiet_ban import router as thiet_ban_router  # noqa: E402
 from api.hoang_cuc import router as hoang_cuc_router  # noqa: E402
+from api.sync import router as sync_router  # noqa: E402
 app.include_router(auth_router)
+app.include_router(sync_router)
 app.include_router(admin_router)
 app.include_router(atomization_router)
 app.include_router(tu_vi_3layer_router)
