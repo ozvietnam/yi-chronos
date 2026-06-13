@@ -887,8 +887,12 @@ def change_password(req: ChangePasswordRequest, request: Request) -> dict:
 
 @router.post("/switch-person")
 def switch_person(req: SwitchPersonRequest, request: Request) -> dict:
-    """Change the default person_id for the current user (e.g. impersonate)."""
-    user = require_user(request)
+    """Đổi person đang xem sang một người trong founder-network — OWNER ONLY.
+
+    Trước đây require_user → user thường có thể set default_person_id='_founder' và
+    NHẬN VỀ luôn data người đó (xem lá số + ngày sinh của anh). Gate owner-only.
+    """
+    user = require_owner(request)
     person = _load_person(req.person_id)
     if not person:
         raise HTTPException(status_code=404, detail=f"Person not found: {req.person_id}")
@@ -906,8 +910,13 @@ def switch_person(req: SwitchPersonRequest, request: Request) -> dict:
 
 @router.get("/persons")
 def list_persons(request: Request) -> dict:
-    """List all available persons from persons.sqlite3 (for user switcher)."""
-    require_user(request)
+    """List all persons from persons.sqlite3 (founder-network switcher) — OWNER ONLY.
+
+    persons.sqlite3 là mạng lưới riêng của anh (self + vợ/con/đồng nghiệp) kèm ngày sinh.
+    Trước đây chỉ require_user → MỌI user đăng nhập (kể cả mới) thấy hết network + DOB của anh
+    (privacy leak). Gate owner-only. User thường dùng /api/auth/my/persons (user_persons riêng).
+    """
+    require_owner(request)
     if not PERSONS_DB.exists():
         return {"status": "ok", "persons": []}
     db = sqlite3.connect(PERSONS_DB)

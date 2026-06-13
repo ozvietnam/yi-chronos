@@ -206,7 +206,7 @@ async function submitChangePassword() {
           <strong>{{ currentPerson.name || currentPerson.full_name }}</strong>
           <small>{{ currentPerson.birth_datetime_local }}</small>
         </div>
-        <button class="ub-item" @click="openSwitchPerson">🔄 Chuyển hồ sơ</button>
+        <button v-if="isOwner" class="ub-item" @click="openSwitchPerson">🔄 Chuyển hồ sơ</button>
         <button class="ub-item" @click="showPasswordModal = true; showMenu = false">🔐 Đổi mật khẩu</button>
         <button v-if="isOwner" class="ub-item" @click="openUsers">👥 Quản lý user</button>
         <button class="ub-item ub-danger" @click="handleLogout">⎋ Đăng xuất</button>
