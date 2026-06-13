@@ -7,16 +7,19 @@
     <div v-else-if="error" class="error">{{ error }}</div>
 
     <div v-else-if="result">
-      <!-- Lớp 1: Chuyện về anh -->
+      <!-- Lớp 1: Chuyện về anh — bài luận mượt là MẶC ĐỊNH (tự chạy) -->
       <section class="lop-1">
-        <h3>💬 Lớp 1 — Chuyện về anh
-          <button class="narrative-btn" :disabled="narrativeLoading" @click="loadNarrative">
-            {{ narrativeLoading ? '⏳ Đang viết...' : narrative ? '🔄 Viết lại' : '✨ Luận mượt (AI)' }}
+        <h3>💬 Chuyện về anh
+          <button v-if="narrative" class="narrative-btn" :disabled="narrativeLoading" @click="loadNarrative">
+            {{ narrativeLoading ? '⏳ Đang viết...' : '🔄 Viết lại' }}
           </button>
         </h3>
-        <div v-if="narrative" class="content narrative-text" v-html="renderMarkdown(narrative)"></div>
+        <div v-if="narrativeLoading && !narrative" class="content narrative-loading">
+          ✍️ Đang luận lá số của anh từ kho sách 5 hệ phái... (10-15 giây)
+        </div>
+        <div v-else-if="narrative" class="content narrative-text" v-html="renderMarkdown(narrative)"></div>
         <div v-else class="content" v-html="renderMarkdown(result.lop_1_chuyen_ve_anh)"></div>
-        <small v-if="narrative" class="narrative-meta">✨ AI luận theo paradigm đọc đồng dạng — mệnh 7 phần, người 3 phần</small>
+        <small v-if="narrative" class="narrative-meta">✨ AI luận theo paradigm đọc đồng dạng — mệnh 7 phần, người 3 phần · bám {{ result.metadata.atoms_pulled }} trích sách</small>
       </section>
 
       <!-- Lớp 2: Vì sao -->
@@ -34,10 +37,21 @@
         </div>
       </section>
 
-      <!-- Lớp 3: Sách cổ nói -->
+      <!-- Lớp 3: Sách cổ nói — DẪN CHỨNG, ẩn mặc định (atoms thô) -->
       <section class="lop-3">
-        <h3>📚 Lớp 3 — Sách cổ nói (4 hệ phái)</h3>
+        <h3>📚 Dẫn chứng từ sách cổ</h3>
 
+        <!-- Tóm tắt + tên cách cục (luôn hiện, súc tích) -->
+        <div v-if="cachCucNamed.length" class="cc-summary">
+          🏆 Cách cục trong lá số:
+          <span v-for="cc in cachCucNamed" :key="cc.slug" :class="['cc-chip', cc.loai]">{{ cc.ten }}</span>
+        </div>
+
+        <button class="atoms-toggle" @click="showAtoms = !showAtoms">
+          {{ showAtoms ? '▲ Thu gọn dẫn chứng' : `📖 Xem dẫn chứng chi tiết từ sách (${result.metadata.atoms_pulled} trích dẫn, 5 hệ phái)` }}
+        </button>
+
+        <div v-show="showAtoms">
         <div class="schools-legend">
           <span v-for="(name, code) in result.lop_3_sach_co.schools_summary" :key="code" class="school-tag">
             {{ name }}
@@ -175,6 +189,7 @@
             </template>
           </div>
         </div>
+        </div><!-- /v-show showAtoms -->
       </section>
 
       <!-- Metadata footer -->
@@ -200,6 +215,7 @@ const error = ref(null)
 const result = ref(null)
 const narrative = ref(null)
 const narrativeLoading = ref(false)
+const showAtoms = ref(false)  // dẫn chứng thô ẩn mặc định — atoms là hậu trường
 
 async function loadNarrative() {
   if (!props.birthDatetimeLocal) return
@@ -359,6 +375,9 @@ async function load() {
     const data = await res.json()
     if (data.detail) throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail))
     result.value = data
+    narrative.value = null  // reset khi đổi lá số
+    // Bài luận mượt là MẶC ĐỊNH — tự chạy ngay sau khi có lá số
+    if (props.birthDatetimeLocal) loadNarrative()
   } catch (e) {
     error.value = `Lỗi: ${e.message}`
   } finally {
@@ -612,4 +631,28 @@ h3 { margin-top: 0; }
 .narrative-btn:disabled { opacity: 0.6; cursor: wait; }
 .narrative-text { white-space: pre-wrap; line-height: 1.8; }
 .narrative-meta { display: block; margin-top: 8px; color: var(--read-text-faint); }
+.narrative-loading { color: #6a4c93; font-style: italic; padding: 16px 0; }
+
+/* Đảo sân khấu: dẫn chứng thô ẩn sau nút */
+.atoms-toggle {
+  width: 100%;
+  padding: 10px 16px;
+  margin: 8px 0 4px;
+  border: 1px dashed #6a4c93;
+  background: #faf8ff;
+  color: #5a3d80;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-align: left;
+}
+.atoms-toggle:hover { background: #f0ebfa; }
+.cc-summary { margin: 6px 0 4px; font-size: 0.92em; color: #444; }
+.cc-chip {
+  display: inline-block; margin: 0 4px; padding: 2px 10px;
+  border-radius: 10px; font-size: 0.85em;
+}
+.cc-chip.cat { background: #e8f5e9; color: #1b5e20; }
+.cc-chip.hung { background: #ffebee; color: #b71c1c; }
+.cc-chip.hung_hoa_cat, .cc-chip.trung_tinh { background: #fff3e0; color: #b35900; }
 </style>
