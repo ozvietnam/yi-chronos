@@ -114,6 +114,10 @@ def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
         mref = it.get("menh_chi_ref")
         if mref and chi and p == "menh" and mref != chi:
             continue
+        # Lỗ #7: atom neo vị trí chi cụ thể mà khác chi cung user → sai vị trí
+        pos = it.get("pos_chi")
+        if pos and chi and chi not in pos:
+            continue
         # Lỗ #6: atom combo nhiều sao — lá số phải đủ sao (đồng cung / hội chiếu)
         need = it.get("combo_need")
         if need and (same_stars is not None or tu_chinh_stars is not None):

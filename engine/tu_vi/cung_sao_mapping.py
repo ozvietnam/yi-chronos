@@ -121,6 +121,7 @@ def build_mapping() -> dict:
         # Lỗ #6: combo nhiều sao chỉ khớp khi lá số đủ sao (same/tuchinh)
         combo_need = [normalize_star(x) for x in primary] if (primary and len(primary) >= 2) else None
         combo_scope = subj.get("combo_scope")
+        pos_chi = subj.get("pos_chi")  # atom neo vị trí chi cụ thể
         for star in stars:
             for palace in palaces:
                 s = normalize_star(star)
@@ -137,6 +138,7 @@ def build_mapping() -> dict:
                     "is_weak": is_weak,
                     "combo_need": combo_need,
                     "combo_scope": combo_scope,
+                    "pos_chi": pos_chi,
                 })
 
     _MAPPING_CACHE = (dict(mapping), untagged)

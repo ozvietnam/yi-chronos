@@ -74,6 +74,25 @@ def detect_combo_scope(question: str) -> str:
     return "tuchinh" if any(w in q for w in _SCOPE_TUCHINH) else "same"
 
 
+# Lỗ #7: atom neo VỊ TRÍ chi cụ thể ("sao X ở/cư/tọa <chi>", "<chi> cung").
+# Nếu lá số có sao đó ở chi KHÁC → atom sai vị trí.
+_POS_RE = re.compile(
+    r"(?:ở|cư|tại|tọa|cung|đáo|nhập)\s+"
+    r"(Tý|Tí|Sửu|Dần|Mão|Thìn|Tỵ|Tị|Ngọ|Mùi|Thân|Dậu|Tuất|Hợi)\b"
+    r"|(Tý|Tí|Sửu|Dần|Mão|Thìn|Tỵ|Tị|Ngọ|Mùi|Thân|Dậu|Tuất|Hợi)\s+cung\b")
+
+
+def detect_pos_chi(text: str) -> list[str]:
+    """Các chi mà atom neo vị trí. Rỗng = atom nói chung, không kén chi."""
+    found = []
+    for m in _POS_RE.finditer(text or ""):
+        chi_vi = (m.group(1) or m.group(2) or "").lower()
+        c = _CHI_VI.get(chi_vi)
+        if c and c not in found:
+            found.append(c)
+    return found
+
+
 def detect_primary_stars(question: str, quote: str) -> list[str]:
     """Sao chủ ngữ: ưu tiên sao trong question_text (chủ đề atomizer chắt lọc).
 
@@ -123,7 +142,7 @@ def main():
         WHERE c.book_corpus_id IN ({qs}) AND a.founder_verified >= 0
     """, CORPORA).fetchall()
 
-    n_prim = n_case = n_gender = n_menhref = n_combo = 0
+    n_prim = n_case = n_gender = n_menhref = n_combo = n_pos = 0
     for r in rows:
         try:
             subj = json.loads(r["subject_identifiers"] or "{}")
@@ -162,6 +181,17 @@ def main():
             n_menhref += 1
             changed = True
 
+        # Lỗ #7: vị trí chi atom neo (chỉ xét question — chủ đề; quote hay liệt kê lan man)
+        pos = detect_pos_chi(q)
+        if pos:
+            if subj.get("pos_chi") != pos:
+                subj["pos_chi"] = pos
+                n_pos += 1
+                changed = True
+        elif "pos_chi" in subj:
+            del subj["pos_chi"]
+            changed = True
+
         # Lỗ #6: combo scope cho atom có ≥2 sao chủ ngữ
         prim_now = subj.get("star_primary") or []
         if len(prim_now) >= 2:
@@ -189,6 +219,7 @@ def main():
     print(f"  gender (F/M):     {n_gender}")
     print(f"  menh_chi_ref:     {n_menhref}")
     print(f"  combo_scope:      {n_combo}")
+    print(f"  pos_chi:          {n_pos}")
     if dry:
         print("[DRY RUN]")
 
