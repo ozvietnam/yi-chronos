@@ -270,8 +270,8 @@ _THIEN_TRU_BY_STEM = {
     # Pin từ ảnh tuvi.vn: Mậu→Ngọ, Kỷ→Thân (2026-06-13).
     "Giáp": "Tỵ", "Đinh": "Tỵ",
     "Ất": "Ngọ", "Mậu": "Ngọ",
-    "Kỷ": "Thân",   # sửa từ Tỵ (ảnh lá số 2 Kỷ Mão → Thân)
-    "Bính": "Tý",   # placeholder hợp lệ — chưa có lá số verify
+    "Kỷ": "Thân",   # verify lá số 2 (Kỷ Mão, tuvi.vn) → Thân
+    "Bính": "Tý",   # verify lá số 3 (Bính Dần, anlasotuvi.com) → Tý
     "Canh": "Thân", "Tân": "Dần",
     "Nhâm": "Dậu", "Quý": "Hợi",
 }
