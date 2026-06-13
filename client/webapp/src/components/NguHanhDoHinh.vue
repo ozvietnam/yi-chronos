@@ -24,6 +24,7 @@ const TABS = [
   { id: "nhiet_am", label: "Nhiệt·Ẩm" },
   { id: "skch", label: "Sinh·Khắc·Chế·Hóa" },
   { id: "dong_ho", label: "🕓 Đồng hồ 12 canh" },
+  { id: "sau_thanh", label: "🗣 6 Thanh Việt" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -113,8 +114,20 @@ const hoverRel = computed(() => {
   const biKhac = (s.khac.find((p) => p[1] === h) || [])[0];
   const ch = s.che_hoa.find((d) => d.khac[1] === h); // hành này bị khắc → có chế/hóa cứu
   return { hanh: h, con, me, khac, biKhac,
-    che: ch?.che?.hanh, hoa: ch?.hoa?.hanh, keKhac: ch?.khac?.[0] };
+    che: ch?.che?.hanh, hoa: ch?.hoa?.hanh, keKhac: ch?.khac?.[0],
+    than: s.than?.[h] || null };
 });
+
+// ── 6 Thanh tiếng Việt ──────────────────────────────────────────────────────
+const sauThanh = computed(() => data.value?.sau_thanh_tieng_viet?.thanh || []);
+// đường hình thanh: list [x,y] → chuỗi points cho polyline (offset theo ô lưới)
+function thanhPoints(pts, ox, oy) {
+  return pts.map((p) => `${ox + p[0]},${oy + p[1]}`).join(" ");
+}
+// 6 thanh xếp lưới 3 cột × 2 hàng → gốc (ox, oy) của ô thứ i
+function thanhCell(i) {
+  return [4 + (i % 3) * 79, 16 + Math.floor(i / 3) * 110];
+}
 
 // ── Đồng hồ sinh học 12 canh giờ ────────────────────────────────────────────
 const dongHo = computed(() => data.value?.dong_ho_12_canh?.kinh || []);
@@ -358,6 +371,11 @@ function clockXY(i, r) {
               <br />Khi bị <b>{{ hoverRel.keKhac }}</b> khắc quá:
               <b>{{ hoverRel.che }}</b> (con nó) chế · <b>{{ hoverRel.hoa }}</b> thông quan hóa.
             </template>
+            <template v-if="hoverRel.than">
+              <br />🫀 Tạng <b>{{ hoverRel.than.tang }}</b> · giác quan {{ hoverRel.than.quan }}
+              · sắc <b>{{ hoverRel.than.sac }}</b> · vị <b>{{ hoverRel.than.vi }}</b>
+              · ngũ âm <b>{{ hoverRel.than.am }}</b> ({{ hoverRel.than.tieng }}).
+            </template>
           </p>
           <p v-else class="dh-note">Rê chuột vào từng hành để xem mẹ-con-khắc-chế-hóa.</p>
           <details class="dh-skch-list">
@@ -403,6 +421,37 @@ function clockXY(i, r) {
           </p>
           <p v-else class="dh-note">Rê chuột vào từng canh giờ để xem kinh/tạng phủ vượng.</p>
           <p class="dh-nguon">— {{ data.dong_ho_12_canh.nguon }}</p>
+        </div>
+      </div>
+
+      <!-- 6 THANH TIẾNG VIỆT theo âm dương (khí chất sinh học người Việt) -->
+      <div v-show="tab === 'sau_thanh'" class="dh-pane">
+        <svg viewBox="0 0 240 240" class="dh-svg" role="img" aria-label="6 thanh tiếng Việt theo âm dương">
+          <g v-for="(t, i) in sauThanh" :key="t.ten"
+             class="dh-na" @mouseenter="hovered = t" @mouseleave="hovered = null">
+            <line :x1="thanhCell(i)[0] + 8" :y1="thanhCell(i)[1] + 35"
+              :x2="thanhCell(i)[0] + 72" :y2="thanhCell(i)[1] + 35"
+              stroke="rgba(232,201,90,0.12)" stroke-dasharray="2 2" />
+            <polyline :points="thanhPoints(t.pts, thanhCell(i)[0], thanhCell(i)[1])"
+              fill="none" :stroke="t.am_duong === 'âm' ? '#6ea0dc' : '#d6593a'"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 62" text-anchor="middle" class="dh-th-name">{{ t.ten }}</text>
+            <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 73" text-anchor="middle" class="dh-th-dau">{{ t.dau }} · {{ t.am_duong }}</text>
+          </g>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.sau_thanh_tieng_viet.ten }}</b></p>
+          <p>{{ data.sau_thanh_tieng_viet.y_nghia }}</p>
+          <p class="dh-legend">
+            <span class="lg lg-khac">▬ trắc = dương (dọc)</span>
+            <span class="lg lg-bang">▬ bằng = âm (ngang)</span>
+          </p>
+          <p v-if="hovered && hovered.tu_the" class="dh-hover">
+            <b>{{ hovered.ten }}</b> ({{ hovered.dau }}) — tư thế đầu-cổ: {{ hovered.tu_the }};
+            ví dụ tượng hình: <i>{{ hovered.vi_du }}</i>.
+          </p>
+          <p v-else class="dh-note">Rê chuột vào từng thanh để xem tư thế đầu-cổ + ví dụ tượng hình.</p>
+          <p class="dh-nguon">— {{ data.sau_thanh_tieng_viet.nguon }}</p>
         </div>
       </div>
 
@@ -480,6 +529,9 @@ function clockXY(i, r) {
 .ch-hoa { color: #5ab07a; font-weight: 600; }
 .dh-dh-chi { fill: var(--text-primary, rgba(230,238,245,0.95)); font-size: 10px; font-weight: 700; }
 .dh-dh-kinh { fill: var(--text-secondary, rgba(230,238,245,0.62)); font-size: 7px; }
+.lg-bang { color: #6ea0dc !important; background: rgba(110,160,220,0.1); }
+.dh-th-name { fill: var(--text-primary, rgba(230,238,245,0.92)); font-size: 9.5px; font-weight: 600; }
+.dh-th-dau { fill: var(--text-secondary, rgba(230,238,245,0.6)); font-size: 7.5px; }
 .dh-truc { margin: 10px 0 2px 0; font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.65)); }
 .dh-nguon { margin: 0; font-size: 11px; font-style: italic; color: var(--text-secondary, rgba(230,238,245,0.5)); }
 </style>

@@ -124,6 +124,26 @@ THAP_NHI_KINH = [
     {"chi": "Hợi",  "gio": "21–23h", "kinh": "Tam tiêu",     "hanh": "hỏa"},
 ]
 
+# ─── 6 Thanh tiếng Việt theo Âm Dương — khí chất sinh học người Việt ─────────
+# Lê Văn Sửu Chương 4 p146-153 (LUẬN ĐIỂM TÁC GIẢ — attribution): tiếng Việt đơn âm,
+# mỗi thanh có 'đường hình' + tư thế đầu-cổ + tính âm dương. 2 thanh BẰNG phát triển
+# NGANG = ÂM; 4 thanh TRẮC phát triển DỌC = DƯƠNG. `pts` = đường hình (hộp 80×50, y nhỏ
+# = cao độ cao); minh họa theo mô tả Hình 4-1..4-6 của tác giả.
+SAU_THANH = [
+    {"ten": "Đoản bình", "dau": "không dấu", "loai": "bằng", "am_duong": "âm",
+     "tu_the": "đầu cổ ngay ngắn", "vi_du": "đi, ngang, cân", "pts": [[8, 25], [72, 25]]},
+    {"ten": "Trường bình", "dau": "huyền  ` ", "loai": "bằng", "am_duong": "âm",
+     "tu_the": "đầu cổ hơi cúi", "vi_du": "từ từ, vừa vừa", "pts": [[8, 22], [72, 34]]},
+    {"ten": "Thượng thanh", "dau": "sắc  / ", "loai": "trắc", "am_duong": "dương",
+     "tu_the": "đầu cổ ngửa lên", "vi_du": "tiến, tới, cố, gắng", "pts": [[12, 38], [72, 12]]},
+    {"ten": "Khứ thanh", "dau": "ngã  ~ ", "loai": "trắc", "am_duong": "dương",
+     "tu_the": "hất ngửa rồi hạ", "vi_du": "ngã, cãi vã, vã", "pts": [[8, 28], [24, 28], [40, 13], [56, 26], [70, 28]]},
+    {"ten": "Hồi thanh", "dau": "hỏi  ? ", "loai": "trắc", "am_duong": "dương",
+     "tu_the": "cúi gập rồi nâng", "vi_du": "nảy, gảy, bảy, tẩy", "pts": [[8, 26], [26, 30], [40, 44], [56, 32], [70, 24]]},
+    {"ten": "Hạ thanh", "dau": "nặng  . ", "loai": "trắc", "am_duong": "dương",
+     "tu_the": "đầu cổ cúi gập", "vi_du": "rụng, đập, quật", "pts": [[18, 26], [40, 46]]},
+]
+
 
 def do_hinh_payload() -> dict:
     """Payload đầy đủ cho component đồ hình tương tác."""
@@ -199,8 +219,19 @@ def do_hinh_payload() -> dict:
             "sinh": skch["sinh"],
             "khac": skch["khac"],
             "che_hoa": skch["che_hoa"],
+            "than": skch["than"],
             "dinh_nghia": skch["dinh_nghia"],
             "nguon": skch["nguon"],
+        },
+        "sau_thanh_tieng_viet": {
+            "ten": "6 Thanh tiếng Việt theo Âm Dương (khí chất sinh học người Việt)",
+            "y_nghia": "Tiếng Việt đơn âm: mỗi thanh một 'đường hình' + tư thế đầu-cổ + tính âm dương. "
+                       "2 thanh BẰNG (không dấu, huyền) phát triển NGANG = ÂM (êm dịu); 4 thanh TRẮC "
+                       "(sắc, ngã, hỏi, nặng) phát triển DỌC = DƯƠNG (mạnh, biến động). Từ chỉ chiều hướng "
+                       "nào thường mang thanh có đường hình cùng chiều đó (tính tượng hình). LƯU Ý: đây là "
+                       "luận điểm khí chất sinh học người Việt của Lê Văn Sửu (attribution, cần đối chiếu).",
+            "thanh": SAU_THANH,
+            "nguon": "Lê Văn Sửu — Học Thuyết ÂDNH, Chương 4 p146-153 (luận điểm tác giả)",
         },
         "dong_ho_12_canh": {
             "ten": "Đồng hồ sinh học 12 canh giờ (Thập nhị kinh nạp địa chi)",

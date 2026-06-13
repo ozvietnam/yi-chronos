@@ -149,6 +149,17 @@ NGU_HANH_QUY_LUAT: dict[str, dict] = {
              "bat_quai": "Khảm", "cuu_cung": "1", "phuong": "bắc", "khi": "hàn"},
 }
 
+# Tương ứng ngũ hành ↔ tạng phủ ↔ giác quan ↔ sắc ↔ vị ↔ ngũ âm (Lê Văn Sửu p143-147,
+# dẫn Châm cứu đại thành). Bảng tương ứng THÂN THỂ — nền y học cổ + nhịp thời sinh học.
+# (Giác quan theo cách trình bày của tác giả: Tâm↔tay sờ, Tỳ↔lưỡi nếm.)
+NGU_HANH_THAN: dict[str, dict] = {
+    "mộc":  {"tang": "Can (gan)",     "phu": "Đởm (mật)",   "quan": "mắt — nhìn",   "sac": "xanh",  "vi": "chua", "am": "Giốc",   "tieng": "hô (gọi)",  "am_tc": "đều mà thẳng"},
+    "hỏa":  {"tang": "Tâm (tim)",     "phu": "Tiểu trường", "quan": "tay — sờ",     "sac": "đỏ",    "vi": "đắng", "am": "Chủy",   "tieng": "cười",      "am_tc": "êm mà dài"},
+    "thổ":  {"tang": "Tỳ (lá lách)",  "phu": "Vị (dạ dày)", "quan": "lưỡi — nếm",   "sac": "vàng",  "vi": "ngọt", "am": "Cung",   "tieng": "ca (hát)",  "am_tc": "to mà êm"},
+    "kim":  {"tang": "Phế (phổi)",    "phu": "Đại trường",  "quan": "mũi — ngửi",   "sac": "trắng", "vi": "cay",  "am": "Thương", "tieng": "khóc",      "am_tc": "nhẹ mà động"},
+    "thủy": {"tang": "Thận",          "phu": "Bàng quang",  "quan": "tai — nghe",   "sac": "đen",   "vi": "mặn",  "am": "Vũ",     "tieng": "rên",       "am_tc": "trầm mà sâu"},
+}
+
 _STAR_BY_NAME = {s.ten_vi: s for s in ALL_CHINH_TINH}
 
 
@@ -225,6 +236,7 @@ def sinh_khac_che_hoa_payload() -> dict:
         "sinh": [[h, SINH[h]] for h in _VONG_HANH],
         "khac": [[h, KHAC[h]] for h in _VONG_HANH],
         "che_hoa": [che_hoa(h, KHAC[h]) for h in _VONG_HANH],
+        "than": NGU_HANH_THAN,
         "nguon": "Lê Văn Sửu — Học Thuyết Âm Dương Ngũ Hành, p108-110 "
                  "(khớp 'Thần bí dịch tinh tượng' NXB Nhân dân Quảng Tây tr.117-118)",
     }
@@ -442,6 +454,15 @@ def vong_sinh_khac() -> dict:
                        "học = NHẬN THỨC SAI. Củng cố Iron Rule không-predict/không-định-mệnh. "
                        "(Lê Văn Sửu p124-125)",
             "nguon": "Lê Văn Sửu — chương 'Xuất xứ quy luật ngũ hành' + 'Triển vọng', p121-140",
+        },
+        "ngu_hanh_than": {
+            "bang": NGU_HANH_THAN,
+            "y_nghia": "Ngũ hành tương ứng tạng phủ + giác quan + sắc + vị + ngũ âm — nền y học cổ. "
+                       "Mỗi tạng nối một giác quan (Can-mắt, Thận-tai, Tỳ-lưỡi, Tâm-tay, Phế-mũi); "
+                       "màu/vị/âm vào tạng tương ứng (xanh-chua-Giốc→Can...). Tây phương kiểm chứng: "
+                       "màu xanh ảnh hưởng gan, màu đỏ ảnh hưởng tim. Ngũ âm Cung-Thương-Giốc-Chủy-Vũ "
+                       "= thang ngũ cung nhạc cổ, mỗi âm một tạng một loại tiếng (ca/khóc/hô/cười/rên).",
+            "nguon": "Lê Văn Sửu p143-147 (dẫn Châm cứu đại thành)",
         },
         "nhip_thoi_sinh_hoc": {
             "y_nghia": "Trục thời gian của ngũ hành được Tây phương kiểm chứng: viêm gan cấp phát "
