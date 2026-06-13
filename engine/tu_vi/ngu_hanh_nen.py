@@ -415,5 +415,40 @@ def vong_sinh_khac() -> dict:
                               "Hai câu hỏi khác nhau, có thể lệch chiều — hệ giữ cả hai để đối chiếu.",
             "nguon": "Lê Văn Sửu p108 dẫn Thần bí dịch tinh tượng tr.117-118",
         },
+        "xuat_xu": {
+            "ban_chat_la_ty_le_khi": "BẢN CHẤT ngũ hành là TỶ LỆ KHÍ (nhiệt-ẩm), KHÔNG phải "
+                       "phương hướng. Phương hướng (đông=mộc, tây=kim...) chỉ đúng với địa lý "
+                       "Phương Đông (đông biển ẩm, tây núi khô). Sang địa hình khác (vd bờ tây "
+                       "lục địa Âu-Á: gió đông lại hanh khô) thì BỎ tương ứng phương hướng, chỉ "
+                       "lấy TỶ LỆ KHÍ theo hành làm chính. Các tương ứng khác (màu-tạng, mùa-tâm "
+                       "sinh lý) thì bất biến khắp nơi. (Lê Văn Sửu p138-140)",
+            "lac_thu_khong_than_bi": "Lạc thư KHÔNG do trời định: gốc là bảng ghi Cửu Cung (chu kỳ "
+                       "9 năm), mỗi năm một cung bát quái theo hướng khí tới. Bảng tỷ lệ khí theo "
+                       "hướng gió, chỉ đổi một vị trí (đông nam↔tây bắc), thành ma phương tổng 300 "
+                       "— cùng tính chất Lạc thư (tổng 15). 'Sự trùng lặp = cân bằng âm dương trong "
+                       "tổng thể', không phải thần bí. (Lê Văn Sửu p127-130)",
+            "luan_diem_tac_gia": "LUẬN ĐIỂM RIÊNG của Lê Văn Sửu (quy kết nguồn — không phải kết "
+                       "luận đã được giới học thuật xác lập): học thuyết Âm Dương Ngũ Hành là của "
+                       "VĂN HÓA VIỆT NAM. Lập luận: (1) địa lý sinh ra ngũ hành phải có đông-biển/"
+                       "tây-núi/bắc-lạnh/nam-nóng — loại trừ chỉ còn lưu vực Dương Tử và lưu vực "
+                       "HỒNG HÀ; (2) khí chất sinh học người Việt ở hai giác quan nghe-nhìn khớp "
+                       "quy luật âm dương ngũ hành (tác giả hứa chứng minh ở cuối sách). Hệ TÔN "
+                       "TRỌNG nhưng GẮN NHÃN ATTRIBUTION: đây là position của tác giả, cần đối "
+                       "chiếu đa nguồn, KHÔNG khẳng định như sự thật lịch sử. (Lê Văn Sửu p122,133)",
+            "phe_phan_dinh_menh_hoa": "Cổ nhân phong kiến biến ngũ hành (vốn là quy luật TỰ NHIÊN) "
+                       "thành công cụ cai trị: 'vua = con trời thay trời điều hành'; thuận quy luật "
+                       "= minh quân, trái thì đổ tội cho trời phạt cả dân tộc → ngũ hành thành mê "
+                       "tín, phản quyền lợi con người. Coi ngũ hành là quy luật xã hội học/triết "
+                       "học = NHẬN THỨC SAI. Củng cố Iron Rule không-predict/không-định-mệnh. "
+                       "(Lê Văn Sửu p124-125)",
+            "nguon": "Lê Văn Sửu — chương 'Xuất xứ quy luật ngũ hành' + 'Triển vọng', p121-140",
+        },
+        "nhip_thoi_sinh_hoc": {
+            "y_nghia": "Trục thời gian của ngũ hành được Tây phương kiểm chứng: viêm gan cấp phát "
+                       "~2h sáng (giờ Sửu = Can/gan); chu kỳ tạng phủ trùng 12 địa chi; màu sắc "
+                       "tác động tim mạch trùng tương ứng ngũ hành. Nơi thí nghiệm cách xa hàng "
+                       "ngàn dặm + hàng ngàn năm vẫn cho tương ứng như nhau.",
+            "nguon": "Lê Văn Sửu p136-137 (Dương Kế Châu, Châm cứu đại thành 1601) — điểm nối engine dong_y",
+        },
         "hanh_chi": HANH_CHI,
     }

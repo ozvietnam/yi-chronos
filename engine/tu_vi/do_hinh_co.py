@@ -103,6 +103,27 @@ LAC_THU = [
 # Cạnh ngoài nối đỉnh kề = TƯƠNG SINH; sao 5 cánh nối cách-một-đỉnh = TƯƠNG KHẮC.
 NGU_GIAC = ["hỏa", "thổ", "kim", "thủy", "mộc"]
 
+# ─── Đồng hồ sinh học 12 canh giờ — Thập nhị kinh nạp địa chi ────────────────
+# Dương Kế Châu, Châm cứu đại thành (in 1601) tr.153 — bài ca "Thập nhị kinh nạp
+# địa chi": mỗi canh giờ (2 tiếng) một đường kinh/tạng phủ vượng. Lê Văn Sửu p136-137
+# nêu đây là bằng chứng TRỤC THỜI GIAN của ngũ hành ("nhịp thời sinh học"): Tây phương
+# đo 30.000 ca viêm gan cấp phát ~2h sáng = giờ Sửu = kinh Can (gan); thứ tự hoạt động
+# tạng phủ trùng chu kỳ 12 địa chi. Tý đặt ở đỉnh, thuận chiều kim đồng hồ.
+THAP_NHI_KINH = [
+    {"chi": "Tý",   "gio": "23–1h",  "kinh": "Đảm (mật)",    "hanh": "mộc"},
+    {"chi": "Sửu",  "gio": "1–3h",   "kinh": "Can (gan)",    "hanh": "mộc"},
+    {"chi": "Dần",  "gio": "3–5h",   "kinh": "Phế (phổi)",   "hanh": "kim"},
+    {"chi": "Mão",  "gio": "5–7h",   "kinh": "Đại trường",   "hanh": "kim"},
+    {"chi": "Thìn", "gio": "7–9h",   "kinh": "Vị (dạ dày)",  "hanh": "thổ"},
+    {"chi": "Tỵ",   "gio": "9–11h",  "kinh": "Tỳ (lá lách)", "hanh": "thổ"},
+    {"chi": "Ngọ",  "gio": "11–13h", "kinh": "Tâm (tim)",    "hanh": "hỏa"},
+    {"chi": "Mùi",  "gio": "13–15h", "kinh": "Tiểu trường",  "hanh": "hỏa"},
+    {"chi": "Thân", "gio": "15–17h", "kinh": "Bàng quang",   "hanh": "thủy"},
+    {"chi": "Dậu",  "gio": "17–19h", "kinh": "Thận",         "hanh": "thủy"},
+    {"chi": "Tuất", "gio": "19–21h", "kinh": "Tâm bào",      "hanh": "hỏa"},
+    {"chi": "Hợi",  "gio": "21–23h", "kinh": "Tam tiêu",     "hanh": "hỏa"},
+]
+
 
 def do_hinh_payload() -> dict:
     """Payload đầy đủ cho component đồ hình tương tác."""
@@ -180,5 +201,15 @@ def do_hinh_payload() -> dict:
             "che_hoa": skch["che_hoa"],
             "dinh_nghia": skch["dinh_nghia"],
             "nguon": skch["nguon"],
+        },
+        "dong_ho_12_canh": {
+            "ten": "Đồng hồ sinh học 12 canh giờ (Thập nhị kinh nạp địa chi)",
+            "y_nghia": "Mỗi canh giờ (2 tiếng) một đường kinh / tạng phủ vượng, tô màu theo "
+                       "ngũ hành. Đây là TRỤC THỜI GIAN của ngũ hành — 'nhịp thời sinh học'. "
+                       "Tây phương đo 30.000 ca viêm gan cấp phát ~2h sáng = giờ Sửu = kinh Can "
+                       "(gan); thứ tự hoạt động tạng phủ trùng chu kỳ 12 địa chi. Bằng chứng: "
+                       "thí nghiệm cách xa hàng ngàn dặm + hàng ngàn năm vẫn cho tương ứng như nhau.",
+            "kinh": THAP_NHI_KINH,
+            "nguon": "Dương Kế Châu — Châm cứu đại thành (in 1601) tr.153, Lê Văn Sửu dẫn p136-137",
         },
     }

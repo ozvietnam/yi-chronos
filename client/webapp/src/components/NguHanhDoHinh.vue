@@ -23,6 +23,7 @@ const TABS = [
   { id: "lac_thu", label: "Lạc Thư" },
   { id: "nhiet_am", label: "Nhiệt·Ẩm" },
   { id: "skch", label: "Sinh·Khắc·Chế·Hóa" },
+  { id: "dong_ho", label: "🕓 Đồng hồ 12 canh" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -114,6 +115,15 @@ const hoverRel = computed(() => {
   return { hanh: h, con, me, khac, biKhac,
     che: ch?.che?.hanh, hoa: ch?.hoa?.hanh, keKhac: ch?.khac?.[0] };
 });
+
+// ── Đồng hồ sinh học 12 canh giờ ────────────────────────────────────────────
+const dongHo = computed(() => data.value?.dong_ho_12_canh?.kinh || []);
+const dhHover = ref(null);
+// 12 vị trí quanh đồng hồ: index 0 (Tý) ở đỉnh, thuận chiều kim đồng hồ
+function clockXY(i, r) {
+  const ang = ((-90 + i * 30) * Math.PI) / 180;
+  return [120 + r * Math.cos(ang), 120 + r * Math.sin(ang)];
+}
 </script>
 
 <template>
@@ -363,6 +373,39 @@ const hoverRel = computed(() => {
         </div>
       </div>
 
+      <!-- ĐỒNG HỒ SINH HỌC 12 CANH GIỜ (Thập nhị kinh nạp địa chi) -->
+      <div v-show="tab === 'dong_ho'" class="dh-pane">
+        <svg viewBox="0 0 240 240" class="dh-svg" role="img" aria-label="Đồng hồ sinh học 12 canh giờ">
+          <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(232,201,90,0.25)" stroke-width="1" />
+          <circle cx="120" cy="120" r="62" fill="none" stroke="rgba(232,201,90,0.12)" stroke-width="1" />
+          <g v-for="(k, i) in dongHo" :key="k.chi">
+            <!-- nan hoa nối tâm -->
+            <line :x1="clockXY(i, 62)[0]" :y1="clockXY(i, 62)[1]"
+              :x2="clockXY(i, 88)[0]" :y2="clockXY(i, 88)[1]"
+              :stroke="HANH_COLOR[k.hanh]" stroke-width="1" opacity="0.3" />
+            <g :transform="`translate(${clockXY(i, 88)[0]},${clockXY(i, 88)[1]})`"
+               class="dh-na" @mouseenter="dhHover = k" @mouseleave="dhHover = null">
+              <circle r="17" :fill="HANH_COLOR[k.hanh] + '26'" :stroke="HANH_COLOR[k.hanh]"
+                :stroke-width="dhHover && dhHover.chi === k.chi ? 3 : 1.8" />
+              <text y="-2" text-anchor="middle" class="dh-dh-chi">{{ k.chi }}</text>
+              <text y="9" text-anchor="middle" class="dh-dh-kinh">{{ k.kinh.split(' ')[0] }}</text>
+            </g>
+          </g>
+          <text x="120" y="116" text-anchor="middle" class="dh-center" style="font-size:10px">12 CANH</text>
+          <text x="120" y="130" text-anchor="middle" class="dh-dh-kinh">nhịp thời sinh học</text>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.dong_ho_12_canh.ten }}</b></p>
+          <p>{{ data.dong_ho_12_canh.y_nghia }}</p>
+          <p v-if="dhHover" class="dh-hover">
+            <b>{{ dhHover.chi }}</b> ({{ dhHover.gio }}) — kinh <b>{{ dhHover.kinh }}</b>,
+            hành <b :style="{ color: HANH_COLOR[dhHover.hanh] }">{{ dhHover.hanh }}</b> vượng.
+          </p>
+          <p v-else class="dh-note">Rê chuột vào từng canh giờ để xem kinh/tạng phủ vượng.</p>
+          <p class="dh-nguon">— {{ data.dong_ho_12_canh.nguon }}</p>
+        </div>
+      </div>
+
       <p class="dh-truc">🕓 Trục chính: {{ data.truc_chinh }}</p>
       <p class="dh-nguon">— {{ data.nguon }}</p>
     </template>
@@ -435,6 +478,8 @@ const hoverRel = computed(() => {
 .dh-skch-list li { font-size: 12px; line-height: 1.7; color: var(--text-secondary, rgba(230,238,245,0.8)); }
 .ch-che { color: #d6593a; font-weight: 600; }
 .ch-hoa { color: #5ab07a; font-weight: 600; }
+.dh-dh-chi { fill: var(--text-primary, rgba(230,238,245,0.95)); font-size: 10px; font-weight: 700; }
+.dh-dh-kinh { fill: var(--text-secondary, rgba(230,238,245,0.62)); font-size: 7px; }
 .dh-truc { margin: 10px 0 2px 0; font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.65)); }
 .dh-nguon { margin: 0; font-size: 11px; font-style: italic; color: var(--text-secondary, rgba(230,238,245,0.5)); }
 </style>
