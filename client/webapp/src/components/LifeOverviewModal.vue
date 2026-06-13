@@ -4,12 +4,13 @@
  *
  * 10 sections + nút PRINT để xuất PDF qua browser.
  */
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
+import { activePerson } from "../stores/userDataStore.js";
 
 const emit = defineEmits(["close"]);
 
 const form = ref({
-  birth_date: "1988-05-02",
+  birth_date: "",
   birth_hour: 8,
   gender: "nam",
   name: "Đệ tử",
@@ -17,6 +18,25 @@ const form = ref({
   spouse_birth_hour: 8,
   spouse_name: "Bạn đời",
 });
+
+// Tự điền ngày + giờ + tên từ profile; đổi profile → cập nhật.
+let _lastSynced = null;
+function _syncBirth(force) {
+  const p = activePerson.value;
+  const dt = p?.birth_datetime_local;
+  if (!dt) return;
+  const d = dt.split("T")[0];
+  if (force || !form.value.birth_date || form.value.birth_date === _lastSynced) {
+    form.value.birth_date = d;
+    const hh = parseInt((dt.split("T")[1] || "").slice(0, 2), 10);
+    if (!Number.isNaN(hh)) form.value.birth_hour = hh;
+    if (p.name) form.value.name = p.name;
+    if (p.gender) form.value.gender = p.gender;
+    _lastSynced = d;
+  }
+}
+onMounted(() => _syncBirth(false));
+watch(() => activePerson.value?.person_key, () => _syncBirth(true));
 
 const report = ref(null);
 const loading = ref(false);
