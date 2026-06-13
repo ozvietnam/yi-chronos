@@ -172,31 +172,48 @@ TIENG_VUNG_MIEN = [
 # `net_pts` (Bảng 4-14 p206): đường nét đại biểu mỗi hành (toạ độ tương đối tâm, hộp ±12×±9).
 # `do_cao` + `do_cao_vat` (Bảng 4-16 p214): độ cao thị giác ↔ vật đại biểu ↔ hành.
 # `dau_thanh` (Bảng 4-15 p213): dấu thanh chữ Việt TRÙNG đường nét cùng hành (hợp nhất 6 thanh).
+# `chieu_huong`/`huong_goc` (Bảng 4-17 p226): chiều hướng thị giác + góc vẽ mũi tên (độ, -90=lên).
+# `do_dai` (Bảng 4-19 p232) ↔ ngũ âm + thanh; `do_lon` (Bảng 4-21 p237); `dang_dau` (Hình 4-38).
 NGU_HANH_TAO_HINH: dict[str, dict] = {
     "mộc":  {"hinh": "chữ nhật", "hinh_loai": "chu_nhat", "mau": "xanh", "tinh_cach": "tướng quân",
              "dang_nguoi": "đứng hiên ngang, chống đỡ", "tam_ly": "mưu lự, giận",
              "duong_net": "đường uốn ngửa (khứ văn)", "net_pts": [[-12, 6], [0, -8], [12, 6]],
              "do_cao": "trên trung bình", "do_cao_vat": "cây", "dau_thanh": "ngã (~)",
+             "chieu_huong": "chéo lên trên trung bình", "huong_goc": -45,
+             "do_dai": "hơi ngắn (1/5-2/5)", "do_lon": "2/5 × 2/5",
+             "dang_dau": "đầu hơi ngửa nghiêng, nét mặt nhăn nhíu, mày cau",
              "ly_do": "thân cây, cột, dầm nhà — chống đỡ, ngay thẳng, cứng rắn, gây lòng tin"},
     "hỏa":  {"hinh": "tròn", "hinh_loai": "tron", "mau": "đỏ", "tinh_cach": "quân chủ",
              "dang_nguoi": "mừng đón, vui sướng", "tam_ly": "thần minh, vui",
              "duong_net": "đường cong tròn (nguyệt huyền văn)", "net_pts": [[-12, -4], [-6, 6], [6, 6], [12, -4]],
              "do_cao": "cao nhất", "do_cao_vat": "mặt trời", "dau_thanh": "sắc (/)",
+             "chieu_huong": "ngửa lên cao nhất", "huong_goc": -90,
+             "do_dai": "ngắn (1/5)", "do_lon": "1/5 × 1/5",
+             "dang_dau": "đầu ngửa lên, mặt tươi cười, mắt miệng cong lên",
              "ly_do": "quả cầu, bánh xe, đầu người, mặt trời — linh hoạt, ấm sáng, nguồn lửa-sự sống"},
     "thổ":  {"hinh": "vuông", "hinh_loai": "vuong", "mau": "vàng", "tinh_cach": "điều hòa",
              "dang_nguoi": "lo lắng, bình thản", "tam_ly": "bình thản, lo lắng",
              "duong_net": "đường thẳng ngang (trực văn)", "net_pts": [[-12, 0], [12, 0]],
              "do_cao": "trung bình", "do_cao_vat": "mặt đất", "dau_thanh": "không dấu / huyền (`)",
+             "chieu_huong": "đi ngang trung bình", "huong_goc": 0,
+             "do_dai": "trung bình (2/5-3/5)", "do_lon": "3/5 × 3/5",
+             "dang_dau": "đầu ngay ngắn, mặt bình thản, mắt miệng ngay bằng",
              "ly_do": "khối vuông — vững trãi, sức ì; cuối hạ đất ẩm nhão, tỳ vị hay bệnh → lo vu vơ"},
     "kim":  {"hinh": "tam giác", "hinh_loai": "tam_giac", "mau": "trắng", "tinh_cach": "tướng phó",
              "dang_nguoi": "suy tính, buồn rầu", "tam_ly": "trị tiết, buồn",
              "duong_net": "đường cong câu (hồi văn)", "net_pts": [[-7, -9], [-7, 4], [1, 8], [6, 2]],
              "do_cao": "dưới trung bình", "do_cao_vat": "quặng kim thạch", "dau_thanh": "hỏi (?)",
+             "chieu_huong": "chéo xuống dưới trung bình", "huong_goc": 45,
+             "do_dai": "hơi dài (3/5-4/5)", "do_lon": "4/5 × 4/5",
+             "dang_dau": "đầu hơi cúi, miệng cong cụp xuống",
              "ly_do": "giáo mác, mũi tên, mảnh vỡ, góc nhọn — phá nát cái mềm hơn, gây cảm giác buồn"},
     "thủy": {"hinh": "uốn khúc", "hinh_loai": "uon_khuc", "mau": "đen", "tinh_cach": "tác cường",
              "dang_nguoi": "chuẩn bị kỹ thuật, bắt bóng, nhảy, múa khéo léo", "tam_ly": "kỹ xảo, kinh hãi",
              "duong_net": "đường gấp khúc (thủy ba văn)", "net_pts": [[-12, 6], [-6, -6], [0, 6], [6, -6], [12, 6]],
              "do_cao": "thấp nhất", "do_cao_vat": "nước (mạch ngầm)", "dau_thanh": "nặng (.)",
+             "chieu_huong": "cúi xuống thấp nhất", "huong_goc": 90,
+             "do_dai": "dài (4/5-5/5)", "do_lon": "5/5 × 5/5",
+             "dang_dau": "đầu cúi gập, miệng cụp xuống",
              "ly_do": "nước chảy quanh co, dáng múa, sóng, tia chớp — khéo léo luồn lách / sợ hãi"},
 }
 
@@ -301,6 +318,12 @@ def do_hinh_payload() -> dict:
                        "thanh chữ Việt TRÙNG 5 đường nét ngũ hành (sắc=cong tròn=Hỏa, ngã=uốn ngửa="
                        "Mộc, không dấu/huyền=thẳng=Thổ, hỏi=cong câu=Kim, nặng=gấp khúc=Thủy) → "
                        "6 thanh tiếng Việt và nét vẽ là MỘT hệ ngũ hành. Nền 'đọc đồng dạng' thị giác.",
+            "he_thi_giac_day_du": "Trọn hệ yếu tố thị giác đều quy ngũ hành: hình · màu · đường nét "
+                       "· ĐỘ CAO · CHIỀU HƯỚNG (ngửa lên cao=Hỏa → cúi xuống thấp=Thủy, đồng thời với "
+                       "hướng sức toàn thân + dáng đầu cổ + thanh nói) · ĐỘ DÀI (ngắn=Hỏa → dài=Thủy, "
+                       "khớp ngũ âm Chủy-Giốc-Cung-Thương-Vũ + 6 thanh) · ĐỘ LỚN (nhỏ 1/5=Hỏa → lớn "
+                       "5/5=Thủy) · DÁNG ĐẦU + NÉT MẶT. Kết hợp nhiều yếu tố = TỔNG HÀNH (chiếu cố "
+                       "chính-phụ). VD nét thẳng + màu trắng + đi chéo lên = thổ+kim+mộc. (Bảng 4-17→4-21)",
             "bang": NGU_HANH_TAO_HINH,
             "vn_khac_tq": "LƯU Ý (attribution): bảng hình thể người Việt KHÁC người Trung Quốc — "
                           "3 hành Thủy/Mộc/Thổ trùng, nhưng HỎA↔KIM HOÁN VỊ (Kim người Việt = tam "
