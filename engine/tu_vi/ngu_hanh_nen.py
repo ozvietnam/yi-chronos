@@ -107,6 +107,48 @@ KHI_HOA_MUA: dict[str, dict] = {
     "thủy": {"dong_tu": "Tàng",   "mua": "đông", "phuong": "bắc",        "khi": "hàn (lạnh)",   "ý": "tàng ẩn, gom về gốc rễ giữ sự sống"},
 }
 
+# ── Tương CHẾ / tương HÓA — Lê Văn Sửu p108-110 (đủ 4 quy luật ngũ hành) ──────
+# Sách giảng tới chế/hóa ở đây → kích hoạt gợi ý #2 (Anh duyệt 2026-06-13: bổ
+# sung chế/hóa KHI sách dạy tới). Khớp cổ thư "Thần bí dịch tinh tượng"
+# (NXB Nhân dân Quảng Tây, tr.117-118).
+#
+# Với cặp khắc  X ⊣khắc⊣ Y  (X = sở thắng/kẻ đi khắc; Y = sở bất thắng/kẻ bị khắc):
+#   • CHẾ = con của Y  (= SINH[Y]). Con của kẻ bị khắc quay lại khắc kẻ đi khắc,
+#           "có ý cứu trợ" cho Y. VD: Kim khắc Mộc → Hỏa (con Mộc) chế Kim.
+#   • HÓA = con của X  (= SINH[X]). X sinh Z rồi Z sinh Y → "thông quan", biến
+#           thế khắc thành chuỗi sinh nuôi Y ("hóa ác quy thiện"). VD: Kim khắc
+#           Mộc → Thủy (con Kim) hóa: Kim sinh Thủy, Thủy sinh Mộc.
+
+# Sinh-Vượng-Mộ — 3 giai đoạn của vật theo mùa ↔ 3 mức mùa (Bảng 3-10 p106).
+# Đây là NỀN LÝ THUYẾT của vòng Tràng Sinh 12 cung trong Tử Vi
+# (xem engine/tu_vi/paradigm/trang_sinh.py — vòng 12 sao thực thi).
+SINH_VUONG_MO: dict[str, dict] = {
+    "sinh":  {"chi": ["Dần", "Thân", "Tỵ", "Hợi"],   "muc_mua": "mạnh",  "y": "khởi sinh — đầu mùa"},
+    "vượng": {"chi": ["Tý", "Ngọ", "Mão", "Dậu"],    "muc_mua": "trọng", "y": "cực thịnh — giữa mùa"},
+    "mộ":    {"chi": ["Thìn", "Tuất", "Sửu", "Mùi"], "muc_mua": "quý",   "y": "tàng thu — cuối mùa, đất tứ quý"},
+}
+
+# Bảng tra tổng: ngũ hành tương ứng trong các quy luật (Bảng 3-12 p110-113).
+# Một hành hiện diện đồng dạng xuyên mùa / lục khí / ngũ vận / thiên can / địa chi /
+# tiết quý / bát quái / cửu cung / phương hướng / khí — bằng chứng "đọc đồng dạng".
+NGU_HANH_QUY_LUAT: dict[str, dict] = {
+    "mộc": {"mua": "xuân", "tu_thien": "quyết âm phong mộc (năm Tỵ, Hợi)", "ngu_van": "Đinh, Nhâm",
+            "thien_can": "Giáp, Ất", "dia_chi": "Dần, Mão", "tiet_quy": "mạnh xuân, trọng xuân",
+            "bat_quai": "Chấn, Tốn", "cuu_cung": "3, 4", "phuong": "đông, đông nam", "khi": "phong"},
+    "hỏa": {"mua": "hạ", "tu_thien": "thiếu âm quân hỏa (Tý, Ngọ) + thiếu dương tướng hỏa (Dần, Thân)",
+            "ngu_van": "Mậu, Quý", "thien_can": "Bính, Đinh", "dia_chi": "Tỵ, Ngọ",
+            "tiet_quy": "mạnh hạ, trọng hạ", "bat_quai": "Ly", "cuu_cung": "9", "phuong": "nam", "khi": "thử"},
+    "thổ": {"mua": "trưởng hạ", "tu_thien": "thái âm thấp thổ (Sửu, Mùi)", "ngu_van": "Giáp, Kỷ",
+            "thien_can": "Mậu, Kỷ", "dia_chi": "Thìn, Tuất, Sửu, Mùi", "tiet_quy": "tứ quý (quý xuân/hạ/thu/đông)",
+            "bat_quai": "Cấn, Khôn", "cuu_cung": "8, 2, 5", "phuong": "đông bắc, tây nam, trung ương", "khi": "thấp"},
+    "kim": {"mua": "thu", "tu_thien": "dương minh táo kim (Mão, Dậu)", "ngu_van": "Ất, Canh",
+            "thien_can": "Canh, Tân", "dia_chi": "Thân, Dậu", "tiet_quy": "mạnh thu, trọng thu",
+            "bat_quai": "Càn, Đoài", "cuu_cung": "6, 7", "phuong": "tây, tây bắc", "khi": "táo"},
+    "thủy": {"mua": "đông", "tu_thien": "thái dương hàn thủy (Thìn, Tuất)", "ngu_van": "Bính, Tân",
+             "thien_can": "Nhâm, Quý", "dia_chi": "Hợi, Tý", "tiet_quy": "mạnh đông, trọng đông",
+             "bat_quai": "Khảm", "cuu_cung": "1", "phuong": "bắc", "khi": "hàn"},
+}
+
 _STAR_BY_NAME = {s.ten_vi: s for s in ALL_CHINH_TINH}
 
 
@@ -138,6 +180,54 @@ def quan_he(hanh_a: str, hanh_b: str) -> dict:
     if KHAC.get(b) == a:
         return {"code": "b_khac_a", "label": "tương khắc (B khắc A)", "arrow": f"{b} ⊣ khắc ⊣ {a}"}
     return {"code": "unknown", "label": "không rõ", "arrow": "?"}
+
+
+def che_hoa(attacker: str, victim: str) -> dict | None:
+    """Hành CHẾ và hành HÓA cho cặp khắc ``attacker ⊣ victim`` (Lê Văn Sửu p108-110).
+
+    None nếu (attacker, victim) không phải cặp khắc thật.
+    """
+    a, v = attacker.lower().strip(), victim.lower().strip()
+    if KHAC.get(a) != v:
+        return None
+    che = SINH[v]   # con của kẻ bị khắc, quay lại khắc kẻ đi khắc
+    hoa = SINH[a]   # con của kẻ đi khắc, thông quan sinh xuống kẻ bị khắc
+    return {
+        "khac": [a, v],
+        "che": {
+            "hanh": che,
+            "co_che": f"{v} sinh {che}, {che} khắc {a} → {che} chế {a}, cứu {v}",
+            "y_nghia": "phản chế — con của kẻ bị khắc quay lại khắc kẻ đi khắc",
+        },
+        "hoa": {
+            "hanh": hoa,
+            "co_che": f"{a} sinh {hoa}, {hoa} sinh {v} → {hoa} thông quan, hóa khắc thành sinh",
+            "y_nghia": "thông quan — chuyển thế tương khắc thành chuỗi tương sinh nuôi kẻ bị khắc",
+        },
+    }
+
+
+_VONG_HANH = ["mộc", "hỏa", "thổ", "kim", "thủy"]
+
+
+def sinh_khac_che_hoa_payload() -> dict:
+    """5 vòng quan hệ ngũ hành (sinh/khắc) + 5 cặp khắc kèm chế·hóa — cho đồ hình + UI."""
+    return {
+        "dinh_nghia": {
+            "sinh": "Cái trước là MẸ sinh cái sau là CON: Thủy→Mộc→Hỏa→Thổ→Kim→Thủy.",
+            "khac": "Cách một hành thì khắc; kẻ đi khắc = 'sở thắng', kẻ bị khắc = 'sở bất thắng'.",
+            "che": "Tương chế: con của kẻ bị khắc quay lại khắc kẻ đi khắc → cứu trợ kẻ bị khắc.",
+            "hoa": "Tương hóa: 'thông quan' — chèn một hành ở giữa để khắc biến thành chuỗi sinh "
+                   "('hóa ác quy thiện').",
+            "can_co_khac": "Sinh không hẳn tốt, khắc không hẳn xấu — không có khắc thì không có "
+                           "định hình, không có chế-hóa thì hệ mất cân bằng.",
+        },
+        "sinh": [[h, SINH[h]] for h in _VONG_HANH],
+        "khac": [[h, KHAC[h]] for h in _VONG_HANH],
+        "che_hoa": [che_hoa(h, KHAC[h]) for h in _VONG_HANH],
+        "nguon": "Lê Văn Sửu — Học Thuyết Âm Dương Ngũ Hành, p108-110 "
+                 "(khớp 'Thần bí dịch tinh tượng' NXB Nhân dân Quảng Tây tr.117-118)",
+    }
 
 
 # Diễn giải sao-đứng-trên-đất-cung theo từng quan hệ (A = sao, B = đất cung).
@@ -289,5 +379,41 @@ def vong_sinh_khac() -> dict:
                           "hành Thổ = trạng thái cân bằng (tổng nhiệt+ẩm = 100%), giải bí ẩn vị trí Thổ",
         "vong_sinh": [["mộc", "hỏa"], ["hỏa", "thổ"], ["thổ", "kim"], ["kim", "thủy"], ["thủy", "mộc"]],
         "vong_khac": [["mộc", "thổ"], ["thổ", "thủy"], ["thủy", "hỏa"], ["hỏa", "kim"], ["kim", "mộc"]],
+        "sinh_khac_che_hoa": sinh_khac_che_hoa_payload(),
+        "sinh_vuong_mo": {
+            "bang": SINH_VUONG_MO,
+            "y_nghia": "Mỗi mùa chia 3 giai đoạn sinh-vượng-mộ ↔ 3 mức mạnh-trọng-quý. Là NỀN của "
+                       "vòng Tràng Sinh 12 cung trong Tử Vi (Tràng Sinh / Đế Vượng / Mộ...).",
+            "nguon": "Lê Văn Sửu p106 (Bảng 3-10)",
+        },
+        "ngu_hanh_quy_luat": {
+            "bang": NGU_HANH_QUY_LUAT,
+            "y_nghia": "Một hành hiện diện ĐỒNG DẠNG xuyên mùa / lục khí / ngũ vận / thiên can / "
+                       "địa chi / tiết quý / bát quái / cửu cung / phương hướng / khí — "
+                       "bằng chứng cụ thể của paradigm 'đọc đồng dạng', không phải predict.",
+            "nguon": "Lê Văn Sửu p110-113 (Bảng 3-12)",
+        },
+        "nap_am_menh": {
+            "la_gi": "Ngũ hành nạp âm 60 hoa giáp = 'MỆNH' của tuổi trong phép Tử Vi — ngũ hành "
+                     "TỔNG HỢP nhiều quy luật thời gian (can chi năm, nhịp âm dương, cung độ âm "
+                     "dương, bát quái, ngũ vận lục khí), mô tả một mặt khí chất con người.",
+            "thuat_toan": "Lê Văn Sửu p102-103: số thứ tự can chi trong 60 hoa giáp → quy về ≤30 → "
+                          "đổi chẵn-lẻ theo mốc 12 → chia 8 lấy dư → tra cung quái → lấy hành cung "
+                          "quái làm nạp âm. VD Giáp Thân (21) → 22 → chia 8 dư 6 = Khảm = Thủy.",
+            "biet_le": "Mậu Tý, Kỷ Sửu, Mậu Ngọ, Kỷ Mùi: theo bát quái ra Kim nhưng lấy HỎA "
+                       "(tích lịch hỏa / thiên thượng hỏa) — vì là năm 'thiên phù' (vận đồng với khí "
+                       "đều là hỏa), hỏa khí lấn át nhịp âm dương + cung quái.",
+            "bang_tra": "Bảng nạp âm đầy đủ 60 hoa giáp đã có trong engine Bát Tự (NAP_AM_MAP) — khớp.",
+            "nguon": "Lê Văn Sửu p102-105 (Bảng 3-8, 3-9)",
+        },
+        "the_dung_tinh_menh": {
+            "nguyen_ly": "Cổ thư 'Thần bí dịch tinh tượng' (tr.117-118): trong tinh mệnh học, NGÃ "
+                         "(người được đo mệnh / mệnh cung) = THỂ; sao vận hành đến = DỤNG (khách). "
+                         "DỤNG sinh THỂ thì tốt; THỂ sinh DỤNG thì không tốt (vì tổn ở thể).",
+            "luu_y_goc_nhin": "Trung thực: bảng miếu-hãm cổ phần nhiều xét SỨC SAO (sao mạnh/yếu ở "
+                              "đất cung); thể-dụng ở đây xét LỢI CHO NGƯỜI (mệnh được nuôi hay bị rút). "
+                              "Hai câu hỏi khác nhau, có thể lệch chiều — hệ giữ cả hai để đối chiếu.",
+            "nguon": "Lê Văn Sửu p108 dẫn Thần bí dịch tinh tượng tr.117-118",
+        },
         "hanh_chi": HANH_CHI,
     }

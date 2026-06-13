@@ -22,6 +22,7 @@ const TABS = [
   { id: "ha_do", label: "Hà Đồ" },
   { id: "lac_thu", label: "Lạc Thư" },
   { id: "nhiet_am", label: "Nhiệt·Ẩm" },
+  { id: "skch", label: "Sinh·Khắc·Chế·Hóa" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -82,6 +83,37 @@ const nhietAm = computed(() => data.value?.nhiet_am?.diem || []);
 function naXY(nhiet, am) {
   return [40 + (nhiet / 100) * 160, 200 - (am / 100) * 160];
 }
+
+// ── Ngũ giác Sinh·Khắc·Chế·Hóa ──────────────────────────────────────────────
+const skchData = computed(() => data.value?.sinh_khac_che_hoa || null);
+const nguGiac = computed(() => skchData.value?.ngu_giac || []);
+// 5 đỉnh ngũ giác: đỉnh 0 trên đỉnh, thuận chiều kim đồng hồ, 72° mỗi bước
+function pentXY(hanh) {
+  const idx = nguGiac.value.indexOf(hanh);
+  if (idx < 0) return [120, 120];
+  const ang = ((-90 + idx * 72) * Math.PI) / 180;
+  return [120 + 88 * Math.cos(ang), 120 + 88 * Math.sin(ang)];
+}
+// thu hai đầu đoạn về phía nhau (chừa chỗ cho node + mũi tên)
+function edge(h1, h2, pad) {
+  const a = pentXY(h1), b = pentXY(h2);
+  const dx = b[0] - a[0], dy = b[1] - a[1];
+  const len = Math.hypot(dx, dy) || 1;
+  const ux = dx / len, uy = dy / len;
+  return { x1: a[0] + ux * pad, y1: a[1] + uy * pad, x2: b[0] - ux * pad, y2: b[1] - uy * pad };
+}
+const skchHover = ref(null);
+const hoverRel = computed(() => {
+  const s = skchData.value, h = skchHover.value;
+  if (!s || !h) return null;
+  const con = (s.sinh.find((p) => p[0] === h) || [])[1];
+  const me = (s.sinh.find((p) => p[1] === h) || [])[0];
+  const khac = (s.khac.find((p) => p[0] === h) || [])[1];
+  const biKhac = (s.khac.find((p) => p[1] === h) || [])[0];
+  const ch = s.che_hoa.find((d) => d.khac[1] === h); // hành này bị khắc → có chế/hóa cứu
+  return { hanh: h, con, me, khac, biKhac,
+    che: ch?.che?.hanh, hoa: ch?.hoa?.hanh, keKhac: ch?.khac?.[0] };
+});
 </script>
 
 <template>
@@ -269,6 +301,68 @@ function naXY(nhiet, am) {
         </div>
       </div>
 
+      <!-- NGŨ GIÁC: SINH · KHẮC · CHẾ · HÓA (Hình 3-14) -->
+      <div v-show="tab === 'skch'" class="dh-pane">
+        <svg viewBox="0 0 240 240" class="dh-svg" role="img" aria-label="Ngũ giác sinh khắc chế hóa">
+          <defs>
+            <marker id="ar-sinh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#5ab07a" />
+            </marker>
+            <marker id="ar-khac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#d6593a" />
+            </marker>
+          </defs>
+          <template v-if="skchData">
+            <!-- cạnh ngoài = tương sinh -->
+            <line v-for="(p, i) in skchData.sinh" :key="'s' + i"
+              :x1="edge(p[0], p[1], 22).x1" :y1="edge(p[0], p[1], 22).y1"
+              :x2="edge(p[0], p[1], 22).x2" :y2="edge(p[0], p[1], 22).y2"
+              stroke="#5ab07a" stroke-width="2" marker-end="url(#ar-sinh)" opacity="0.85" />
+            <!-- sao 5 cánh trong = tương khắc -->
+            <line v-for="(p, i) in skchData.khac" :key="'k' + i"
+              :x1="edge(p[0], p[1], 22).x1" :y1="edge(p[0], p[1], 22).y1"
+              :x2="edge(p[0], p[1], 22).x2" :y2="edge(p[0], p[1], 22).y2"
+              stroke="#d6593a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar-khac)" opacity="0.7" />
+            <!-- 5 đỉnh hành -->
+            <g v-for="h in nguGiac" :key="h"
+               :transform="`translate(${pentXY(h)[0]},${pentXY(h)[1]})`"
+               class="dh-na" @mouseenter="skchHover = h" @mouseleave="skchHover = null">
+              <circle r="20" :fill="HANH_COLOR[h] + '26'" :stroke="HANH_COLOR[h]"
+                :stroke-width="skchHover === h ? 3 : 2" />
+              <text y="4" text-anchor="middle" class="dh-na-hanh" :fill="HANH_COLOR[h]">{{ h }}</text>
+            </g>
+          </template>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.sinh_khac_che_hoa.ten }}</b></p>
+          <p>{{ data.sinh_khac_che_hoa.y_nghia }}</p>
+          <p class="dh-legend">
+            <span class="lg lg-sinh">━▶ tương sinh (cạnh ngoài)</span>
+            <span class="lg lg-khac">┈▶ tương khắc (sao trong)</span>
+          </p>
+          <p v-if="hoverRel" class="dh-hover">
+            <b>{{ hoverRel.hanh }}</b> — mẹ <b>{{ hoverRel.me }}</b> sinh ra nó,
+            nó sinh con <b>{{ hoverRel.con }}</b>; nó khắc <b>{{ hoverRel.khac }}</b>,
+            bị <b>{{ hoverRel.biKhac }}</b> khắc.
+            <template v-if="hoverRel.che">
+              <br />Khi bị <b>{{ hoverRel.keKhac }}</b> khắc quá:
+              <b>{{ hoverRel.che }}</b> (con nó) chế · <b>{{ hoverRel.hoa }}</b> thông quan hóa.
+            </template>
+          </p>
+          <p v-else class="dh-note">Rê chuột vào từng hành để xem mẹ-con-khắc-chế-hóa.</p>
+          <details class="dh-skch-list">
+            <summary>5 thế khắc → chế · hóa</summary>
+            <ul>
+              <li v-for="(d, i) in skchData?.che_hoa || []" :key="i">
+                <b>{{ d.khac[0] }}</b> khắc <b>{{ d.khac[1] }}</b> →
+                chế: <span class="ch-che">{{ d.che.hanh }}</span> ·
+                hóa: <span class="ch-hoa">{{ d.hoa.hanh }}</span>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
       <p class="dh-truc">🕓 Trục chính: {{ data.truc_chinh }}</p>
       <p class="dh-nguon">— {{ data.nguon }}</p>
     </template>
@@ -331,6 +425,16 @@ function naXY(nhiet, am) {
   border-left: 2px solid rgba(232, 201, 90, 0.5);
   border-radius: 4px; font-size: 12px !important;
 }
+.dh-legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 !important; }
+.lg { font-size: 11px !important; padding: 2px 6px; border-radius: 4px; }
+.lg-sinh { color: #5ab07a !important; background: rgba(90,176,122,0.1); }
+.lg-khac { color: #d6593a !important; background: rgba(214,89,58,0.1); }
+.dh-skch-list { margin-top: 8px; }
+.dh-skch-list summary { cursor: pointer; font-size: 12px; color: var(--accent-gold, #e8c95a); }
+.dh-skch-list ul { margin: 6px 0 0 0; padding-left: 16px; }
+.dh-skch-list li { font-size: 12px; line-height: 1.7; color: var(--text-secondary, rgba(230,238,245,0.8)); }
+.ch-che { color: #d6593a; font-weight: 600; }
+.ch-hoa { color: #5ab07a; font-weight: 600; }
 .dh-truc { margin: 10px 0 2px 0; font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.65)); }
 .dh-nguon { margin: 0; font-size: 11px; font-style: italic; color: var(--text-secondary, rgba(230,238,245,0.5)); }
 </style>

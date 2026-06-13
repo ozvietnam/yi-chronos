@@ -98,15 +98,22 @@ LAC_THU = [
 ]
 
 
+# ─── Ngũ giác Sinh-Khắc-Chế-Hóa (Hình 3-14, Lê Văn Sửu p109) ────────────────
+# 5 hành trên 5 đỉnh ngũ giác, thứ tự TỪ ĐỈNH TRÊN thuận chiều kim đồng hồ.
+# Cạnh ngoài nối đỉnh kề = TƯƠNG SINH; sao 5 cánh nối cách-một-đỉnh = TƯƠNG KHẮC.
+NGU_GIAC = ["hỏa", "thổ", "kim", "thủy", "mộc"]
+
+
 def do_hinh_payload() -> dict:
     """Payload đầy đủ cho component đồ hình tương tác."""
-    from .ngu_hanh_nen import NGU_HANH_NHIET_AM, HANH_THO_3_THE
+    from .ngu_hanh_nen import NGU_HANH_NHIET_AM, HANH_THO_3_THE, sinh_khac_che_hoa_payload
     # Tọa độ ngũ hành nhiệt-ẩm: x = % nhiệt (0..100), y = % ẩm (0..100).
     nhiet_am = [
         {"hanh": h, "khi": d["khi"], "phuong": d["phuong"],
          "nhiet": d["nhiet"], "am": d["am"]}
         for h, d in NGU_HANH_NHIET_AM.items()
     ]
+    skch = sinh_khac_che_hoa_payload()
     return {
         "nguon": "Lê Văn Sửu — Học Thuyết Âm Dương Ngũ Hành, p21-40 (vòng đọc sâu 2, 2026-06-13)",
         "truc_chinh": "thời gian — mọi đồ hình đọc theo nhịp vận động của vũ trụ tính bằng đơn vị thời gian (nhịp thời sinh học)",
@@ -160,5 +167,18 @@ def do_hinh_payload() -> dict:
                        "Đây là cách giải bí ẩn hành Thổ mà các học giả nghìn năm bí.",
             "diem": nhiet_am,
             "tho_3_the": HANH_THO_3_THE,
+        },
+        "sinh_khac_che_hoa": {
+            "ten": "Sinh · Khắc · Chế · Hóa của Ngũ Hành (Hình 3-14)",
+            "y_nghia": "Cạnh ngoài ngũ giác = TƯƠNG SINH (vòng nuôi nhau, thuận chiều kim đồng hồ); "
+                       "sao 5 cánh bên trong = TƯƠNG KHẮC (cách một hành). Khi một hành bị khắc quá tay: "
+                       "CHẾ = con của nó quay lại khắc kẻ đi khắc; HÓA = chèn một hành thông quan, "
+                       "biến thế khắc thành chuỗi sinh nuôi nó. Đủ 4 quy luật mới thành hệ cân bằng.",
+            "ngu_giac": NGU_GIAC,
+            "sinh": skch["sinh"],
+            "khac": skch["khac"],
+            "che_hoa": skch["che_hoa"],
+            "dinh_nghia": skch["dinh_nghia"],
+            "nguon": skch["nguon"],
         },
     }
