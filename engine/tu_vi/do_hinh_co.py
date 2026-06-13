@@ -100,6 +100,13 @@ LAC_THU = [
 
 def do_hinh_payload() -> dict:
     """Payload đầy đủ cho component đồ hình tương tác."""
+    from .ngu_hanh_nen import NGU_HANH_NHIET_AM, HANH_THO_3_THE
+    # Tọa độ ngũ hành nhiệt-ẩm: x = % nhiệt (0..100), y = % ẩm (0..100).
+    nhiet_am = [
+        {"hanh": h, "khi": d["khi"], "phuong": d["phuong"],
+         "nhiet": d["nhiet"], "am": d["am"]}
+        for h, d in NGU_HANH_NHIET_AM.items()
+    ]
     return {
         "nguon": "Lê Văn Sửu — Học Thuyết Âm Dương Ngũ Hành, p21-40 (vòng đọc sâu 2, 2026-06-13)",
         "truc_chinh": "thời gian — mọi đồ hình đọc theo nhịp vận động của vũ trụ tính bằng đơn vị thời gian (nhịp thời sinh học)",
@@ -144,5 +151,14 @@ def do_hinh_payload() -> dict:
                        "nguồn gốc thần bí'.",
             "tong": 15,
             "o": LAC_THU,
+        },
+        "nhiet_am": {
+            "ten": "Ngũ Hành = tọa độ Nhiệt × Ẩm (lượng hóa của Lê Văn Sửu)",
+            "y_nghia": "Mỗi hành là một ĐIỂM trên mặt phẳng % nhiệt (trục ngang = dương) × % ẩm "
+                       "(trục dọc = âm). Hỏa nóng nhất, Thủy lạnh nhất, Mộc ẩm nhất, Kim khô nhất; "
+                       "Thổ ở TÂM (50-50) — trạng thái cân bằng, điểm tĩnh giữa các chuyển động. "
+                       "Đây là cách giải bí ẩn hành Thổ mà các học giả nghìn năm bí.",
+            "diem": nhiet_am,
+            "tho_3_the": HANH_THO_3_THE,
         },
     }

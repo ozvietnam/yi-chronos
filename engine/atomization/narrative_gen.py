@@ -67,10 +67,14 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
     from engine.tu_vi.viet_names import vi_can, vi_chi, vi_star, vi_palace
 
     gender_vi = "nam" if la_so_input.get("gender") == "M" else "nữ"
+    nam_duong = la_so_input.get("birth_year")
+    nam_str = f"năm sinh dương lịch {nam_duong} " if nam_duong else ""
     parts = [
-        f"## Lá số: năm {vi_can(la_so_input['can'])} {vi_chi(la_so_input['chi'])}, "
+        f"## Lá số: {nam_str}(âm lịch {vi_can(la_so_input['can'])} {vi_chi(la_so_input['chi'])}), "
         f"giới tính {gender_vi}, Mệnh tại {vi_chi(la_so_input['menh_palace'])}, "
         f"Thân tại {vi_chi(la_so_input['than_palace'])}",
+        "⚠ CHỈ dùng các số liệu cho sẵn ở đây. TUYỆT ĐỐI không tự suy/đổi năm "
+        "dương lịch, không bịa tuổi, không thêm sao/cung ngoài danh sách dưới.",
         "",
         "## Dữ kiện paradigm (engine tính):",
     ]

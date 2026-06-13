@@ -21,6 +21,7 @@ const TABS = [
   { id: "hau_thien", label: "Hậu thiên" },
   { id: "ha_do", label: "Hà Đồ" },
   { id: "lac_thu", label: "Lạc Thư" },
+  { id: "nhiet_am", label: "Nhiệt·Ẩm" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -75,6 +76,11 @@ const lacThu = computed(() => data.value?.lac_thu?.o || []);
 // Lạc Thư: ô lưới (row,col) → toạ độ SVG (3×3, ô 56px, tâm 120,120)
 function lacXY(row, col) {
   return [64 + col * 56, 64 + row * 56];
+}
+const nhietAm = computed(() => data.value?.nhiet_am?.diem || []);
+// Tọa độ nhiệt(x 0..100) ẩm(y 0..100) → SVG: x phải = nhiệt cao, y trên = ẩm cao
+function naXY(nhiet, am) {
+  return [40 + (nhiet / 100) * 160, 200 - (am / 100) * 160];
 }
 </script>
 
@@ -233,6 +239,36 @@ function lacXY(row, col) {
         </div>
       </div>
 
+      <!-- NGŨ HÀNH = TỌA ĐỘ NHIỆT × ẨM (lượng hóa Lê Văn Sửu) -->
+      <div v-show="tab === 'nhiet_am'" class="dh-pane">
+        <svg viewBox="0 0 240 240" class="dh-svg" role="img" aria-label="Ngũ hành tọa độ nhiệt ẩm">
+          <!-- trục -->
+          <line x1="40" y1="200" x2="200" y2="200" stroke="rgba(232,201,90,0.35)" />
+          <line x1="40" y1="200" x2="40" y2="40" stroke="rgba(232,201,90,0.35)" />
+          <text x="204" y="204" class="dh-axis">nhiệt →</text>
+          <text x="36" y="34" text-anchor="end" class="dh-axis">ẩm ↑</text>
+          <text x="40" y="214" text-anchor="middle" class="dh-axis">0</text>
+          <text x="200" y="214" text-anchor="middle" class="dh-axis">100% (dương)</text>
+          <text x="30" y="44" text-anchor="end" class="dh-axis">100% (âm)</text>
+          <!-- điểm 5 hành -->
+          <g v-for="d in nhietAm" :key="d.hanh"
+             :transform="`translate(${naXY(d.nhiet,d.am)[0]},${naXY(d.nhiet,d.am)[1]})`"
+             class="dh-na" @mouseenter="hovered = d" @mouseleave="hovered = null">
+            <circle r="18" :fill="HANH_COLOR[d.hanh] + '22'" :stroke="HANH_COLOR[d.hanh]" stroke-width="2" />
+            <text y="-2" text-anchor="middle" class="dh-na-hanh" :fill="HANH_COLOR[d.hanh]">{{ d.hanh }}</text>
+            <text y="10" text-anchor="middle" class="dh-na-khi">{{ d.khi }}</text>
+          </g>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.nhiet_am.ten }}</b></p>
+          <p>{{ data.nhiet_am.y_nghia }}</p>
+          <p v-if="hovered && hovered.khi" class="dh-hover">
+            <b>{{ hovered.hanh }}</b> ({{ hovered.phuong }}, khí {{ hovered.khi }}):
+            nhiệt <b>{{ hovered.nhiet }}%</b> · ẩm <b>{{ hovered.am }}%</b>.
+          </p>
+        </div>
+      </div>
+
       <p class="dh-truc">🕓 Trục chính: {{ data.truc_chinh }}</p>
       <p class="dh-nguon">— {{ data.nguon }}</p>
     </template>
@@ -280,6 +316,9 @@ function lacXY(row, col) {
 .dh-lac-num { fill: var(--text-primary, rgba(230,238,245,0.95)); font-size: 15px; font-weight: 700; }
 .dh-lac-sub { fill: var(--text-secondary, rgba(230,238,245,0.55)); font-size: 7.5px; }
 .dh-tong { color: var(--accent-gold, #e8c95a) !important; font-size: 12px !important; }
+.dh-na { cursor: pointer; }
+.dh-na-hanh { font-size: 12px; font-weight: 700; }
+.dh-na-khi { fill: var(--text-secondary, rgba(230,238,245,0.6)); font-size: 8px; }
 .dh-info { flex: 1; min-width: 200px; }
 .dh-info p { margin: 0 0 6px 0; font-size: 12.5px; line-height: 1.55; color: var(--text-secondary, rgba(230,238,245,0.8)); }
 .dh-info b { color: var(--text-primary, rgba(230,238,245,0.92)); }

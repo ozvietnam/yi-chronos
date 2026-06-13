@@ -257,6 +257,7 @@ async def render_from_birth(birth: BirthInput) -> dict:
         "than_palace": CHI_VI_TO_CANON.get(ls["than_branch"], ls["than_branch"].lower()),
         "cuc": CUC_NAME_TO_CANON.get(ls.get("cuc_name", ""), "thuy_nhi_cuc"),
         "gender": "M" if birth.gender == "nam" else "F",
+        "birth_year": birth_year,  # năm dương lịch — LLM KHÔNG được tự suy (vá bịa 1976)
         "chinh_tinh_per_palace": chinh_tinh_per_palace,
         "phu_tinh_per_palace": phu_tinh_per_palace,
         "tu_hoa": tu_hoa_summary,

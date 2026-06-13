@@ -51,6 +51,42 @@ AM_DUONG_CHI: dict[str, str] = {
 SINH: dict[str, str] = {"mộc": "hỏa", "hỏa": "thổ", "thổ": "kim", "kim": "thủy", "thủy": "mộc"}
 KHAC: dict[str, str] = {"mộc": "thổ", "thổ": "thủy", "thủy": "hỏa", "hỏa": "kim", "kim": "mộc"}
 
+# Tọa độ nhiệt-ẩm của ngũ hành — LƯỢNG HÓA gốc của Lê Văn Sửu (Bảng 3-3 p90).
+# Mỗi hành = một điểm trên mặt phẳng (% nhiệt = dương, % ẩm = âm).
+NGU_HANH_NHIET_AM: dict[str, dict] = {
+    "thủy": {"nhiet": 0,   "am": 50,  "khi": "Hàn", "phuong": "Bắc"},
+    "hỏa":  {"nhiet": 100, "am": 50,  "khi": "Thử", "phuong": "Nam"},
+    "mộc":  {"nhiet": 50,  "am": 100, "khi": "Phong", "phuong": "Đông"},
+    "kim":  {"nhiet": 50,  "am": 0,   "khi": "Táo", "phuong": "Tây"},
+    "thổ":  {"nhiet": 50,  "am": 50,  "khi": "Thấp", "phuong": "Trung ương"},
+}
+
+# Hành Thổ = trạng thái cân bằng nhiệt-ẩm (tổng luôn 100%) — giải bí ẩn vị trí Thổ (p95-96).
+HANH_THO_3_THE: list[dict] = [
+    {"the": "quân bình", "phuong": "Trung ương", "nhiet": 50, "am": 50, "ghi_chu": "thuần thổ, thế tĩnh giữa các chuyển động"},
+    {"the": "dương thắng", "phuong": "Tây nam", "nhiet": 75, "am": 25, "ghi_chu": "âm trong dương thổ"},
+    {"the": "âm thắng", "phuong": "Đông bắc", "nhiet": 25, "am": 75, "ghi_chu": "dương trong âm thổ"},
+]
+
+# Lục khí — 6 cặp địa chi (tư thiên / tại tuyền), chu kỳ 6 năm (y học vận khí, Bảng 3-5 p97).
+# Điểm nối engine dong_y; reference data, KHÔNG dùng predict.
+LUC_KHI: dict[str, dict] = {
+    "Tý-Ngọ":   {"tu_thien": "Thiếu âm quân hỏa",   "tai_tuyen": "Dương minh táo kim"},
+    "Sửu-Mùi":  {"tu_thien": "Thái âm thấp thổ",    "tai_tuyen": "Thái dương hàn thủy"},
+    "Dần-Thân": {"tu_thien": "Thiếu dương tướng hỏa", "tai_tuyen": "Quyết âm phong mộc"},
+    "Mão-Dậu":  {"tu_thien": "Dương minh táo kim",  "tai_tuyen": "Thiếu âm quân hỏa"},
+    "Thìn-Tuất": {"tu_thien": "Thái dương hàn thủy", "tai_tuyen": "Thái âm thấp thổ"},
+    "Tỵ-Hợi":   {"tu_thien": "Quyết âm phong mộc",  "tai_tuyen": "Thiếu dương tướng hỏa"},
+}
+
+# Hai cách gán thiên can ↔ ngũ hành (p100): ngũ vận (vận khí, chu kỳ 5) vs bản khí (Bát Tự, chu kỳ 10).
+THIEN_CAN_NGU_VAN: dict[str, str] = {"Giáp": "thổ", "Kỷ": "thổ", "Ất": "kim", "Canh": "kim",
+                                     "Bính": "thủy", "Tân": "thủy", "Đinh": "mộc", "Nhâm": "mộc",
+                                     "Mậu": "hỏa", "Quý": "hỏa"}
+THIEN_CAN_BAN_KHI: dict[str, str] = {"Giáp": "mộc", "Ất": "mộc", "Bính": "hỏa", "Đinh": "hỏa",
+                                     "Mậu": "thổ", "Kỷ": "thổ", "Canh": "kim", "Tân": "kim",
+                                     "Nhâm": "thủy", "Quý": "thủy"}
+
 # 5 kiểu vận động của năng lượng (định nghĩa nền — không phải vật chất)
 HANH_VAN_DONG: dict[str, str] = {
     "mộc": "sinh trưởng — vươn lên, mở rộng",
@@ -247,6 +283,10 @@ def vong_sinh_khac() -> dict:
         "hanh": HANH_VAN_DONG,
         "khi_hoa_mua": KHI_HOA_MUA,
         "khi_hoa_nguon": "Lê Văn Sửu p49 — 'Xuân Sinh, Hạ Trưởng, Trưởng Hạ Hóa, Thu Thâu, Đông Tàng'",
+        "nhiet_am": NGU_HANH_NHIET_AM,
+        "hanh_tho_3_the": HANH_THO_3_THE,
+        "nhiet_am_nguon": "Lê Văn Sửu p90 (Bảng 3-3) — lượng hóa ngũ hành thành tọa độ nhiệt × ẩm; "
+                          "hành Thổ = trạng thái cân bằng (tổng nhiệt+ẩm = 100%), giải bí ẩn vị trí Thổ",
         "vong_sinh": [["mộc", "hỏa"], ["hỏa", "thổ"], ["thổ", "kim"], ["kim", "thủy"], ["thủy", "mộc"]],
         "vong_khac": [["mộc", "thổ"], ["thổ", "thủy"], ["thủy", "hỏa"], ["hỏa", "kim"], ["kim", "mộc"]],
         "hanh_chi": HANH_CHI,
