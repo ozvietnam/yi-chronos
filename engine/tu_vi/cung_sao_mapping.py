@@ -115,7 +115,7 @@ def build_mapping() -> dict:
             untagged += 1
             continue
 
-        is_case = subj.get("is_case_study", 0)
+        is_case = subj.get("is_case_study", 0) or subj.get("is_boilerplate", 0)
         gender = subj.get("gender")  # "F" | "M" | None
         menh_ref = subj.get("menh_chi_ref")  # mệnh người khác ở chi này
         # Lỗ #6: combo nhiều sao chỉ khớp khi lá số đủ sao (same/tuchinh)

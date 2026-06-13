@@ -146,6 +146,18 @@ def detect_primary_stars(question: str, quote: str) -> list[str]:
     return _scan(question or "")[:3]
 
 
+# Lỗ #11: boilerplate — atom tổng quát không gắn lá số, lặp ở mọi cung
+_BOILERPLATE = [
+    "mẹo nhìn nhanh", "đóng ở bất kỳ", "đóng đâu thì", "ở bất cứ cung nào",
+    "đóng tại cung nào", "ở cung nào cũng", "bất kể cung nào",
+]
+
+
+def is_boilerplate(text: str) -> bool:
+    t = (text or "").lower()
+    return any(p in t for p in _BOILERPLATE)
+
+
 def detect_gender(text: str) -> str | None:
     t = text.lower()
     has_f = any(w in t for w in _FEMALE)
@@ -168,7 +180,7 @@ def main():
         WHERE c.book_corpus_id IN ({qs}) AND a.founder_verified >= 0
     """, CORPORA).fetchall()
 
-    n_prim = n_case = n_gender = n_menhref = n_combo = n_pos = 0
+    n_prim = n_case = n_gender = n_menhref = n_combo = n_pos = n_bp = 0
     for r in rows:
         try:
             subj = json.loads(r["subject_identifiers"] or "{}")
@@ -193,6 +205,12 @@ def main():
         if is_case and subj.get("is_case_study") != 1:
             subj["is_case_study"] = 1
             n_case += 1
+            changed = True
+
+        bp = 1 if is_boilerplate(q) else 0
+        if bp and subj.get("is_boilerplate") != 1:
+            subj["is_boilerplate"] = 1
+            n_bp += 1
             changed = True
 
         g = detect_gender(q + " " + sq)
@@ -257,6 +275,7 @@ def main():
     print(f"  menh_chi_ref:     {n_menhref}")
     print(f"  combo_scope:      {n_combo}")
     print(f"  pos_chi:          {n_pos}")
+    print(f"  is_boilerplate:   {n_bp}")
     if dry:
         print("[DRY RUN]")
 
