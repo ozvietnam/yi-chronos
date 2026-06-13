@@ -74,23 +74,35 @@ def detect_combo_scope(question: str) -> str:
     return "tuchinh" if any(w in q for w in _SCOPE_TUCHINH) else "same"
 
 
-# Lỗ #7: atom neo VỊ TRÍ chi cụ thể ("sao X ở/cư/tọa <chi>", "<chi> cung").
-# Nếu lá số có sao đó ở chi KHÁC → atom sai vị trí.
-_POS_RE = re.compile(
-    r"(?:ở|cư|tại|tọa|cung|đáo|nhập)\s+"
-    r"(Tý|Tí|Sửu|Dần|Mão|Thìn|Tỵ|Tị|Ngọ|Mùi|Thân|Dậu|Tuất|Hợi)\b"
-    r"|(Tý|Tí|Sửu|Dần|Mão|Thìn|Tỵ|Tị|Ngọ|Mùi|Thân|Dậu|Tuất|Hợi)\s+cung\b")
+# Lỗ #7: atom neo VỊ TRÍ chi cụ thể. Bắt MỌI token địa chi trong question —
+# kể cả format không giới từ ("Tử Vi Tý/Ngọ", "Mệnh Dần Thân"). Nếu lá số có
+# sao đó ở chi KHÁC tất cả chi atom nêu → sai vị trí.
+_CHI_TOKEN = re.compile(
+    r"\b(Tý|Tí|Sửu|Dần|Mão|Thìn|Tỵ|Tị|Ngọ|Mùi|Thân|Dậu|Tuất|Hợi)\b")
+# "Thân" hay trùng "bản thân / thân mệnh / thân thể" → loại khi đứng sau các từ này
+_THAN_FALSE = re.compile(r"(bản|thể|tự|hóa|hoá)\s*$")
 
 
 def detect_pos_chi(text: str) -> list[str]:
-    """Các chi mà atom neo vị trí. Rỗng = atom nói chung, không kén chi."""
+    """Mọi chi atom neo vị trí trong question. Rỗng = nói chung, không kén chi."""
+    t = text or ""
     found = []
-    for m in _POS_RE.finditer(text or ""):
-        chi_vi = (m.group(1) or m.group(2) or "").lower()
-        c = _CHI_VI.get(chi_vi)
+    for m in _CHI_TOKEN.finditer(t):
+        tok = m.group(1)
+        if tok == "Thân" and _THAN_FALSE.search(t[max(0, m.start() - 6):m.start()]):
+            continue  # "bản thân" / "thân thể" — không phải chi
+        c = _CHI_VI.get(tok.lower())
         if c and c not in found:
             found.append(c)
     return found
+
+
+# 14 chính tinh canonical — lỗ #9: atom chủ-thể TOÀN phụ tinh không vào ô chính tinh
+CHINH_TINH = {
+    "tu_vi", "thien_co", "thai_duong", "vu_khuc", "thien_dong", "liem_trinh",
+    "thien_phu", "thai_am", "tham_lang", "cu_mon", "thien_tuong", "thien_luong",
+    "that_sat", "pha_quan",
+}
 
 
 def detect_primary_stars(question: str, quote: str) -> list[str]:
@@ -190,6 +202,17 @@ def main():
                 changed = True
         elif "pos_chi" in subj:
             del subj["pos_chi"]
+            changed = True
+
+        # Lỗ #9: atom chủ-thể TOÀN phụ tinh (không chính tinh nào) → đánh dấu,
+        # để không lọt vào ô CHÍNH TINH (phụ tinh đã có ô riêng phu_tinh_views)
+        prim_chk = subj.get("star_primary") or []
+        is_phu_only = 1 if (prim_chk and not any(s in CHINH_TINH for s in prim_chk)) else 0
+        if is_phu_only != subj.get("primary_phu_only", 0):
+            if is_phu_only:
+                subj["primary_phu_only"] = 1
+            elif "primary_phu_only" in subj:
+                del subj["primary_phu_only"]
             changed = True
 
         # Lỗ #6: combo scope cho atom có ≥2 sao chủ ngữ

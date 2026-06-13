@@ -60,6 +60,13 @@ def _fetch_atom_details(conn: sqlite3.Connection, atom_ids: list[int]) -> list[d
 # Phải đối chiếu với trạng thái thật của sao tại chi — tránh trích câu
 # "nhập miếu" cho người có sao đang hãm (sai phép dùng sách).
 
+_CHINH_TINH = {
+    "tu_vi", "thien_co", "thai_duong", "vu_khuc", "thien_dong", "liem_trinh",
+    "thien_phu", "thai_am", "tham_lang", "cu_mon", "thien_tuong", "thien_luong",
+    "that_sat", "pha_quan",
+}
+
+
 def _mieu_ham_level(star: str, chi: str) -> str | None:
     """Trạng thái miếu/vượng/đắc/bình/hãm của sao (canonical) tại chi (canonical)."""
     from .mieu_vuong_ham import level_at
@@ -117,6 +124,10 @@ def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
         # Lỗ #7: atom neo vị trí chi cụ thể mà khác chi cung user → sai vị trí
         pos = it.get("pos_chi")
         if pos and chi and chi not in pos:
+            continue
+        # Lỗ #9: đang truy CHÍNH TINH mà atom chủ-thể toàn phụ tinh → loại
+        # (phụ tinh có ô riêng phu_tinh_views)
+        if it.get("phu_only") and s in _CHINH_TINH:
             continue
         # Lỗ #6: atom combo nhiều sao — lá số phải đủ sao (đồng cung / hội chiếu)
         need = it.get("combo_need")

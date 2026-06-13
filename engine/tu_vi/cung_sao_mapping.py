@@ -122,6 +122,7 @@ def build_mapping() -> dict:
         combo_need = [normalize_star(x) for x in primary] if (primary and len(primary) >= 2) else None
         combo_scope = subj.get("combo_scope")
         pos_chi = subj.get("pos_chi")  # atom neo vị trí chi cụ thể
+        phu_only = subj.get("primary_phu_only", 0)  # chủ-thể toàn phụ tinh
         for star in stars:
             for palace in palaces:
                 s = normalize_star(star)
@@ -139,6 +140,7 @@ def build_mapping() -> dict:
                     "combo_need": combo_need,
                     "combo_scope": combo_scope,
                     "pos_chi": pos_chi,
+                    "phu_only": phu_only,
                 })
 
     _MAPPING_CACHE = (dict(mapping), untagged)
