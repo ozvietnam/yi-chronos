@@ -82,6 +82,21 @@ HA_DO = [
     {"phuong": "Trung", "sinh": 5, "thanh": 10, "hanh": "thổ",  "vi_tri": "giữa"},
 ]
 
+# ─── Lạc Thư — ma phương cửu cung (mỗi hàng/cột/chéo = 15) ───────────────────
+# Vị trí 8 hướng + giữa (Lê Văn Sửu p44). ô lưới 3×3 theo quy ước trên=Nam dưới=Bắc.
+# loai: 'duong'(số lẻ/nhiệt) | 'am'(số chẵn/ẩm). row/col cho lưới SVG (0..2).
+LAC_THU = [
+    {"so": 4, "phuong": "Đông nam", "loai": "am",     "row": 0, "col": 0},
+    {"so": 9, "phuong": "Nam",      "loai": "duong",  "row": 0, "col": 1},
+    {"so": 2, "phuong": "Tây nam",  "loai": "am",     "row": 0, "col": 2},
+    {"so": 3, "phuong": "Đông",     "loai": "duong",  "row": 1, "col": 0},
+    {"so": 5, "phuong": "Trung",    "loai": "duong",  "row": 1, "col": 1},
+    {"so": 7, "phuong": "Tây",      "loai": "duong",  "row": 1, "col": 2},
+    {"so": 8, "phuong": "Đông bắc", "loai": "am",     "row": 2, "col": 0},
+    {"so": 1, "phuong": "Bắc",      "loai": "duong",  "row": 2, "col": 1},
+    {"so": 6, "phuong": "Tây bắc",  "loai": "am",     "row": 2, "col": 2},
+]
+
 
 def do_hinh_payload() -> dict:
     """Payload đầy đủ cho component đồ hình tương tác."""
@@ -115,9 +130,19 @@ def do_hinh_payload() -> dict:
             "cung": HAU_THIEN,
         },
         "ha_do": {
-            "ten": "Hà Đồ — quy luật nhịp âm dương (số sinh & số thành)",
+            "ten": "Hà Đồ — quy luật nhịp âm dương (số sinh & số thành) · tính THỜI GIAN",
             "y_nghia": "10 số: lẻ=dương(trắng), chẵn=âm(đen); cặp sinh-thành cách nhau 5 "
                        "(1↔6, 2↔7, 3↔8, 4↔9, 5↔10). Nhịp âm dương nhỏ bị nhịp lớn chi phối.",
             "diem": HA_DO,
+        },
+        "lac_thu": {
+            "ten": "Lạc Thư — ma phương cửu cung · tính KHÔNG GIAN",
+            "y_nghia": "9 số xếp ma phương 3×3, mọi hàng/cột/chéo đều = 15. Dương (số lẻ) = "
+                       "NHIỆT ĐỘ (tối đa Nam 9 → Bắc 1); âm (số chẵn) = ĐỘ ẨM (tối đa Đông bắc 8 "
+                       "→ Tây nam 2). Cơ sở là khí hậu thật vùng Phương Đông (đông biển ẩm, tây "
+                       "núi khô, nam nóng, bắc lạnh) — 'sản phẩm khoa học thực nghiệm, không phải "
+                       "nguồn gốc thần bí'.",
+            "tong": 15,
+            "o": LAC_THU,
         },
     }

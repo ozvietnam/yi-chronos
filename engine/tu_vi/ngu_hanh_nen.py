@@ -60,6 +60,16 @@ HANH_VAN_DONG: dict[str, str] = {
     "thủy": "lưu chuyển — thấm sâu, linh hoạt",
 }
 
+# Tên CỔ CHUẨN của 5 kiểu vận động theo khí hóa 5 mùa (Lê Văn Sửu p49):
+# "Xuân Sinh, Hạ Trưởng, Trưởng Hạ Hóa, Thu Thâu, Đông Tàng".
+KHI_HOA_MUA: dict[str, dict] = {
+    "mộc":  {"dong_tu": "Sinh",   "mua": "xuân",          "ý": "nảy mầm, phát triển mạnh"},
+    "hỏa":  {"dong_tu": "Trưởng", "mua": "hạ",            "ý": "trưởng thành, khai hoa kết trái"},
+    "thổ":  {"dong_tu": "Hóa",    "mua": "trưởng hạ (cuối hạ đầu thu)", "ý": "chuyển hóa, nuôi giữ"},
+    "kim":  {"dong_tu": "Thâu",   "mua": "thu",           "ý": "thu liễm, nhựa gom về thân, lá rụng"},
+    "thủy": {"dong_tu": "Tàng",   "mua": "đông",          "ý": "tàng ẩn, gom về gốc rễ giữ sự sống"},
+}
+
 _STAR_BY_NAME = {s.ten_vi: s for s in ALL_CHINH_TINH}
 
 
@@ -216,6 +226,8 @@ def vong_sinh_khac() -> dict:
             "nguon": "Lê Văn Sửu — Học Thuyết Âm Dương Ngũ Hành, p4-20 (vòng đọc sâu 1, 2026-06-13)",
         },
         "hanh": HANH_VAN_DONG,
+        "khi_hoa_mua": KHI_HOA_MUA,
+        "khi_hoa_nguon": "Lê Văn Sửu p49 — 'Xuân Sinh, Hạ Trưởng, Trưởng Hạ Hóa, Thu Thâu, Đông Tàng'",
         "vong_sinh": [["mộc", "hỏa"], ["hỏa", "thổ"], ["thổ", "kim"], ["kim", "thủy"], ["thủy", "mộc"]],
         "vong_khac": [["mộc", "thổ"], ["thổ", "thủy"], ["thủy", "hỏa"], ["hỏa", "kim"], ["kim", "mộc"]],
         "hanh_chi": HANH_CHI,

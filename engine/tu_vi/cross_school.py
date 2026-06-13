@@ -75,7 +75,8 @@ def _mieu_ham_level(star: str, chi: str) -> str | None:
 
 
 def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
-                  chi: str | None = None) -> dict:
+                  chi: str | None = None, gender: str | None = None,
+                  same_stars: set | None = None, tu_chinh_stars: set | None = None) -> dict:
     """Luận giải sao × cung qua 4 hệ phái.
 
     Returns dict:
@@ -100,16 +101,40 @@ def luan_sao_cung(star: str, palace: str, limit_per_school: int = 5,
     mapping, _ = build_mapping()
     items = mapping.get((s, p), [])
 
-    # Group atom_ids by school
-    by_school: dict[str, list[int]] = {sc: [] for sc in SCHOOL_NAMES}
-    for item in items:
-        school_code = SCHOOL_MAP.get(item["school"])
-        if school_code:
-            by_school[school_code].append(item["atom_id"])
+    # PRECISION (2026-06-13): loại case-study + khác giới + mệnh-ở-chi-khác.
+    g = "F" if gender in ("F", "nu", "nữ") else "M" if gender in ("M", "nam") else None
+    filtered = []
+    for it in items:
+        if it.get("is_case_study"):
+            continue  # ví dụ lá số cụ thể — không phải tri thức tổng quát
+        ag = it.get("gender")
+        if g and ag and ag != g:
+            continue  # atom chỉ đúng cho giới kia
+        # Lỗ #4: atom gắn "Mệnh ở <chi>" mà khác cung Mệnh user → lá số người khác
+        mref = it.get("menh_chi_ref")
+        if mref and chi and p == "menh" and mref != chi:
+            continue
+        # Lỗ #6: atom combo nhiều sao — lá số phải đủ sao (đồng cung / hội chiếu)
+        need = it.get("combo_need")
+        if need and (same_stars is not None or tu_chinh_stars is not None):
+            scope = it.get("combo_scope") or "same"
+            pool = tu_chinh_stars if scope == "tuchinh" else same_stars
+            if pool is not None and not set(need).issubset(pool):
+                continue
+        filtered.append(it)
+    items = filtered
 
-    # Truncate to limit_per_school (theo confidence)
-    for sc in by_school:
-        by_school[sc] = sorted(by_school[sc])[:limit_per_school]
+    # Strong (sao chủ ngữ) ưu tiên; weak (sao nhắc-kèm) chỉ bù khi thiếu.
+    strong = [it for it in items if not it.get("is_weak")]
+    weak = [it for it in items if it.get("is_weak")]
+
+    # Group atom_ids by school — strong trước, weak bù cho đủ limit
+    by_school: dict[str, list[int]] = {sc: [] for sc in SCHOOL_NAMES}
+    for pool in (strong, weak):
+        for item in pool:
+            school_code = SCHOOL_MAP.get(item["school"])
+            if school_code and len(by_school[school_code]) < limit_per_school:
+                by_school[school_code].append(item["atom_id"])
 
     # Trạng thái miếu-hãm tại chi thật (nếu biết) — badge cho UI
     level = _mieu_ham_level(s, chi) if chi else None

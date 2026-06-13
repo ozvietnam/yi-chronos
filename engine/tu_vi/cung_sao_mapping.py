@@ -101,13 +101,26 @@ def build_mapping() -> dict:
 
     for r in rows:
         subj = parse_tags(r["subject_identifiers"])
-        stars = subj.get("star", []) or subj.get("sao", [])
+        # PRECISION (2026-06-13): khóa mapping theo SAO CHỦ NGỮ (star_primary).
+        # primary có → atom MẠNH (sao đứng chủ đề câu). primary rỗng → dùng star
+        # broad nhưng đánh dấu YẾU (chỉ dùng khi cung thiếu atom mạnh).
+        primary = subj.get("star_primary")
+        if primary:
+            stars, is_weak = primary, 0
+        else:
+            stars, is_weak = (subj.get("star", []) or subj.get("sao", [])), 1
         palaces = subj.get("palace", []) or subj.get("cung", [])
 
         if not stars or not palaces:
             untagged += 1
             continue
 
+        is_case = subj.get("is_case_study", 0)
+        gender = subj.get("gender")  # "F" | "M" | None
+        menh_ref = subj.get("menh_chi_ref")  # mệnh người khác ở chi này
+        # Lỗ #6: combo nhiều sao chỉ khớp khi lá số đủ sao (same/tuchinh)
+        combo_need = [normalize_star(x) for x in primary] if (primary and len(primary) >= 2) else None
+        combo_scope = subj.get("combo_scope")
         for star in stars:
             for palace in palaces:
                 s = normalize_star(star)
@@ -118,6 +131,12 @@ def build_mapping() -> dict:
                     "school": r["school"],
                     "confidence": r["confidence"],
                     "founder_verified": r["founder_verified"],
+                    "is_case_study": is_case,
+                    "gender": gender,
+                    "menh_chi_ref": menh_ref,
+                    "is_weak": is_weak,
+                    "combo_need": combo_need,
+                    "combo_scope": combo_scope,
                 })
 
     _MAPPING_CACHE = (dict(mapping), untagged)

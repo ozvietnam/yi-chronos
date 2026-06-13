@@ -25,18 +25,24 @@ from engine.tu_vi.viet_names import vi_star, vi_chi, vi_can, vi_palace
 
 def render_per_palace(palace: str, stars: list[str],
                       phu_tinh: list[str] | None = None,
-                      chi: str | None = None) -> dict:
+                      chi: str | None = None, gender: str | None = None,
+                      same_stars: set | None = None,
+                      tu_chinh_stars: set | None = None) -> dict:
     """Render 1 cung: chính tinh (3 atoms/hệ phái) + phụ tinh/Tứ Hóa (2 atoms/hệ phái).
 
     chi = vị trí địa chi thật của cung → đối chiếu miếu-hãm (Việc 2).
+    gender = giới user → lọc atom khác giới (precision 2026-06-13).
+    same_stars/tu_chinh_stars = sao đồng cung / hội chiếu → lọc atom combo (lỗ #6).
     """
     cross_views = {}
     for star in stars:
-        cv = luan_sao_cung(star, palace, limit_per_school=3, chi=chi)
+        cv = luan_sao_cung(star, palace, limit_per_school=3, chi=chi, gender=gender,
+                           same_stars=same_stars, tu_chinh_stars=tu_chinh_stars)
         cross_views[star] = cv
     phu_views = {}
     for star in (phu_tinh or []):
-        cv = luan_sao_cung(star, palace, limit_per_school=2, chi=chi)
+        cv = luan_sao_cung(star, palace, limit_per_school=2, chi=chi, gender=gender,
+                           same_stars=same_stars, tu_chinh_stars=tu_chinh_stars)
         if cv["total_atoms"]:
             phu_views[star] = cv
     return {
@@ -136,15 +142,17 @@ def render_3_layer(la_so: dict) -> dict:
     def _chi_of(palace: str) -> str | None:
         return palace if palace in _CHI_RING else fn_to_chi.get(palace)
 
+    gender = la_so.get("gender")  # "M" | "F"
     per_palace = {}
     for palace, stars in (la_so.get("chinh_tinh_per_palace") or {}).items():
         if stars:
             per_palace[palace] = render_per_palace(
-                palace, stars, phu_map.get(palace), chi=_chi_of(palace))
+                palace, stars, phu_map.get(palace), chi=_chi_of(palace), gender=gender)
     # Cung chỉ có phụ tinh (vô chính diệu) vẫn render phần phụ tinh
     for palace, pstars in phu_map.items():
         if palace not in per_palace and pstars:
-            per_palace[palace] = render_per_palace(palace, [], pstars, chi=_chi_of(palace))
+            per_palace[palace] = render_per_palace(
+                palace, [], pstars, chi=_chi_of(palace), gender=gender)
 
     # Việc 2 — đối chiếu miếu-hãm: annotate atoms khớp/lệch điều kiện
     star_levels = _build_star_levels(la_so.get("chinh_tinh_per_palace") or {})

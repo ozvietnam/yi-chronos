@@ -20,6 +20,7 @@ const TABS = [
   { id: "tien_thien", label: "Tiên thiên" },
   { id: "hau_thien", label: "Hậu thiên" },
   { id: "ha_do", label: "Hà Đồ" },
+  { id: "lac_thu", label: "Lạc Thư" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -70,6 +71,11 @@ function hadoXY(viTri) {
 const tienThien = computed(() => data.value?.tien_thien?.cung || []);
 const hauThien = computed(() => data.value?.hau_thien?.cung || []);
 const haDo = computed(() => data.value?.ha_do?.diem || []);
+const lacThu = computed(() => data.value?.lac_thu?.o || []);
+// Lạc Thư: ô lưới (row,col) → toạ độ SVG (3×3, ô 56px, tâm 120,120)
+function lacXY(row, col) {
+  return [64 + col * 56, 64 + row * 56];
+}
 </script>
 
 <template>
@@ -199,6 +205,34 @@ const haDo = computed(() => data.value?.ha_do?.diem || []);
         </div>
       </div>
 
+      <!-- LẠC THƯ — ma phương cửu cung -->
+      <div v-show="tab === 'lac_thu'" class="dh-pane">
+        <svg viewBox="0 0 240 240" class="dh-svg" role="img" aria-label="Lạc Thư ma phương">
+          <rect x="36" y="36" width="168" height="168" rx="6" fill="none" stroke="rgba(232,201,90,0.3)" />
+          <line x1="92" y1="36" x2="92" y2="204" stroke="rgba(232,201,90,0.18)" />
+          <line x1="148" y1="36" x2="148" y2="204" stroke="rgba(232,201,90,0.18)" />
+          <line x1="36" y1="92" x2="204" y2="92" stroke="rgba(232,201,90,0.18)" />
+          <line x1="36" y1="148" x2="204" y2="148" stroke="rgba(232,201,90,0.18)" />
+          <g v-for="o in lacThu" :key="o.so"
+             :transform="`translate(${lacXY(o.row,o.col)[0]},${lacXY(o.row,o.col)[1]})`"
+             class="dh-lac" @mouseenter="hovered = o" @mouseleave="hovered = null">
+            <circle r="20" :fill="o.loai === 'duong' ? 'rgba(232,201,90,0.14)' : 'rgba(110,160,220,0.14)'"
+              :stroke="o.loai === 'duong' ? '#e8c95a' : '#6ea0dc'" stroke-width="1.5" />
+            <text y="-1" text-anchor="middle" class="dh-lac-num">{{ o.so }}</text>
+            <text y="12" text-anchor="middle" class="dh-lac-sub">{{ o.loai === 'duong' ? 'lẻ·nhiệt' : 'chẵn·ẩm' }}</text>
+          </g>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.lac_thu.ten }}</b></p>
+          <p>{{ data.lac_thu.y_nghia }}</p>
+          <p class="dh-tong">Σ mỗi hàng · cột · chéo = <b>{{ data.lac_thu.tong }}</b></p>
+          <p v-if="hovered && hovered.so" class="dh-hover">
+            Số <b>{{ hovered.so }}</b> — {{ hovered.phuong }},
+            {{ hovered.loai === 'duong' ? 'số lẻ = dương = nhiệt độ' : 'số chẵn = âm = độ ẩm' }}.
+          </p>
+        </div>
+      </div>
+
       <p class="dh-truc">🕓 Trục chính: {{ data.truc_chinh }}</p>
       <p class="dh-nguon">— {{ data.nguon }}</p>
     </template>
@@ -242,6 +276,10 @@ const haDo = computed(() => data.value?.ha_do?.diem || []);
 .dh-hado-num { fill: var(--text-primary, rgba(230,238,245,0.95)); font-size: 13px; font-weight: 600; }
 .dh-hado-sep { fill: var(--text-secondary, rgba(230,238,245,0.5)); }
 .dh-hado-hanh { fill: var(--text-secondary, rgba(230,238,245,0.7)); font-size: 9px; }
+.dh-lac { cursor: pointer; }
+.dh-lac-num { fill: var(--text-primary, rgba(230,238,245,0.95)); font-size: 15px; font-weight: 700; }
+.dh-lac-sub { fill: var(--text-secondary, rgba(230,238,245,0.55)); font-size: 7.5px; }
+.dh-tong { color: var(--accent-gold, #e8c95a) !important; font-size: 12px !important; }
 .dh-info { flex: 1; min-width: 200px; }
 .dh-info p { margin: 0 0 6px 0; font-size: 12.5px; line-height: 1.55; color: var(--text-secondary, rgba(230,238,245,0.8)); }
 .dh-info b { color: var(--text-primary, rgba(230,238,245,0.92)); }

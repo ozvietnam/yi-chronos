@@ -264,6 +264,9 @@ async def render_from_birth(birth: BirthInput) -> dict:
         "vong_sao_per_palace": vong_sao_per_palace,
         "tuan_chi": tuan_chi,
         "triet_chi": triet_chi,
+        # cung chức năng → chi thật: cho output_filler đối chiếu miếu-hãm +
+        # lọc atom "mệnh ở chi khác" (lỗ #4 precision 2026-06-13)
+        "fn_to_chi": {fn: IDX_TO_CHI[idx] for idx, fn in idx_to_function.items()},
     }
     result = render_3_layer(la_so_input)
     result["la_so_input"] = la_so_input
