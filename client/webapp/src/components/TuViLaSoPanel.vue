@@ -1394,6 +1394,11 @@ const grid = computed(() => {
                 </div>
                 <p class="nh-nhandinh">{{ nh.nhan_dinh }}</p>
                 <p v-if="nh.ghi_chu_lech" class="nh-lech">⚖ {{ nh.ghi_chu_lech }}</p>
+                <p v-if="nh.hoa_giai" class="nh-hoagiai">
+                  🌿 Lối cân bằng — chế: <b :data-hanh="nh.hoa_giai.che">{{ nh.hoa_giai.che }}</b> ·
+                  hóa (thông quan): <b :data-hanh="nh.hoa_giai.hoa">{{ nh.hoa_giai.hoa }}</b>.
+                  <span class="nh-hg-mota">Thế khắc không bế tắc — để ý sao/cung mang hai hành này làm đòn bẩy cân bằng.</span>
+                </p>
               </div>
             </div>
             <!-- ☸ Quán chiếu Ngũ Uẩn — trường phái Tử Vi Bôn Ba (hiện đại VN) -->
@@ -2248,6 +2253,18 @@ const grid = computed(() => {
   line-height: 1.5;
   color: var(--text-secondary, rgba(230, 238, 245, 0.6));
 }
+.nh-hoagiai {
+  margin: 6px 0 0 0;
+  padding: 6px 9px;
+  font-size: 12px;
+  line-height: 1.55;
+  border-left: 2px solid var(--accent-gold, #5ab07a);
+  background: rgba(90, 176, 122, 0.08);
+  border-radius: 4px;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.82));
+}
+.nh-hoagiai b { color: var(--text-primary, rgba(230, 238, 245, 0.95)); }
+.nh-hg-mota { display: block; margin-top: 2px; font-size: 11px; opacity: 0.8; }
 /* ── ☸ Khối Quán chiếu Ngũ Uẩn (Tử Vi Bôn Ba) ── */
 .ngu-uan-block {
   margin-top: 10px;
