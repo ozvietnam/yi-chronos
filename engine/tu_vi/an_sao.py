@@ -589,6 +589,16 @@ def thien_hi(year_branch: str) -> int:
     return _fix(hong_loan(year_branch) + 6)
 
 
+def thien_khong(year_branch: str) -> int:
+    """Thiên Không (天空) — an SAU Thái Tuế 1 cung theo chiều thuận địa chi.
+
+    Thái Tuế tọa cung có địa chi = chi năm sinh → Thiên Không = chi năm + 1.
+    Kiểm chứng lá số founder (Mậu Thìn 2026-06-13): Thái Tuế Thìn → Thiên Không Tỵ.
+    Sao riêng (nằm trong 1 cung), khác Địa Không (sát tinh an theo giờ tại Hợi).
+    """
+    return _fix(B[year_branch] + 1)
+
+
 def ham_tri(year_branch: str) -> int:
     """Hàm Trì — sao đào hoa chính, an theo tam hợp địa chi năm.
 
@@ -914,5 +924,7 @@ def cast_la_so(
     out["triet"] = list(q3["triet"])      # tuple → list cho JSON
     out["tuan"] = list(q3["tuan"])
     out["sao_le"] = q3["sao_le"]
+    # Thiên Không (天空) — thêm 2026-06-13 sau khi đối chiếu ảnh lá số founder
+    out["sao_le"]["Thiên Không"] = thien_khong(year_branch)
 
     return out

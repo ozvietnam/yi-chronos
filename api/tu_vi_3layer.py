@@ -109,7 +109,7 @@ VONG_VI_TO_CANON = {
     "Thiên Đức": "thien_duc", "Nguyệt Đức": "nguyet_duc", "Thiên Giải": "thien_giai",
     "Giải Thần": "giai_than", "Ân Quang": "an_quang", "Thai Phụ": "thai_phu",
     "Phong Cáo": "phong_cao", "Thiên Quan": "thien_quan", "Thiên Phúc": "thien_phuc",
-    "Thiên Trù": "thien_tru",
+    "Thiên Trù": "thien_tru", "Thiên Không": "thien_khong",
 }
 
 CAN_VI_TO_CANON = {
