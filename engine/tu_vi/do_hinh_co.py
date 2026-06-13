@@ -169,21 +169,34 @@ TIENG_VUNG_MIEN = [
 # ─── Ngũ hành trong NGHỆ THUẬT TẠO HÌNH (chương NHÌN, Lê Văn Sửu p190-200) ────
 # Ngũ hành ↔ hình thể + màu + dáng người + tâm lý (Bảng 4-11, 4-13, Hình 4-19).
 # `hinh_loai` cho renderer: chu_nhat | tron | vuong | tam_giac | uon_khuc.
+# `net_pts` (Bảng 4-14 p206): đường nét đại biểu mỗi hành (toạ độ tương đối tâm, hộp ±12×±9).
+# `do_cao` + `do_cao_vat` (Bảng 4-16 p214): độ cao thị giác ↔ vật đại biểu ↔ hành.
+# `dau_thanh` (Bảng 4-15 p213): dấu thanh chữ Việt TRÙNG đường nét cùng hành (hợp nhất 6 thanh).
 NGU_HANH_TAO_HINH: dict[str, dict] = {
     "mộc":  {"hinh": "chữ nhật", "hinh_loai": "chu_nhat", "mau": "xanh", "tinh_cach": "tướng quân",
              "dang_nguoi": "đứng hiên ngang, chống đỡ", "tam_ly": "mưu lự, giận",
+             "duong_net": "đường uốn ngửa (khứ văn)", "net_pts": [[-12, 6], [0, -8], [12, 6]],
+             "do_cao": "trên trung bình", "do_cao_vat": "cây", "dau_thanh": "ngã (~)",
              "ly_do": "thân cây, cột, dầm nhà — chống đỡ, ngay thẳng, cứng rắn, gây lòng tin"},
     "hỏa":  {"hinh": "tròn", "hinh_loai": "tron", "mau": "đỏ", "tinh_cach": "quân chủ",
              "dang_nguoi": "mừng đón, vui sướng", "tam_ly": "thần minh, vui",
+             "duong_net": "đường cong tròn (nguyệt huyền văn)", "net_pts": [[-12, -4], [-6, 6], [6, 6], [12, -4]],
+             "do_cao": "cao nhất", "do_cao_vat": "mặt trời", "dau_thanh": "sắc (/)",
              "ly_do": "quả cầu, bánh xe, đầu người, mặt trời — linh hoạt, ấm sáng, nguồn lửa-sự sống"},
     "thổ":  {"hinh": "vuông", "hinh_loai": "vuong", "mau": "vàng", "tinh_cach": "điều hòa",
              "dang_nguoi": "lo lắng, bình thản", "tam_ly": "bình thản, lo lắng",
+             "duong_net": "đường thẳng ngang (trực văn)", "net_pts": [[-12, 0], [12, 0]],
+             "do_cao": "trung bình", "do_cao_vat": "mặt đất", "dau_thanh": "không dấu / huyền (`)",
              "ly_do": "khối vuông — vững trãi, sức ì; cuối hạ đất ẩm nhão, tỳ vị hay bệnh → lo vu vơ"},
     "kim":  {"hinh": "tam giác", "hinh_loai": "tam_giac", "mau": "trắng", "tinh_cach": "tướng phó",
              "dang_nguoi": "suy tính, buồn rầu", "tam_ly": "trị tiết, buồn",
+             "duong_net": "đường cong câu (hồi văn)", "net_pts": [[-7, -9], [-7, 4], [1, 8], [6, 2]],
+             "do_cao": "dưới trung bình", "do_cao_vat": "quặng kim thạch", "dau_thanh": "hỏi (?)",
              "ly_do": "giáo mác, mũi tên, mảnh vỡ, góc nhọn — phá nát cái mềm hơn, gây cảm giác buồn"},
     "thủy": {"hinh": "uốn khúc", "hinh_loai": "uon_khuc", "mau": "đen", "tinh_cach": "tác cường",
              "dang_nguoi": "chuẩn bị kỹ thuật, bắt bóng, nhảy, múa khéo léo", "tam_ly": "kỹ xảo, kinh hãi",
+             "duong_net": "đường gấp khúc (thủy ba văn)", "net_pts": [[-12, 6], [-6, -6], [0, 6], [6, -6], [12, 6]],
+             "do_cao": "thấp nhất", "do_cao_vat": "nước (mạch ngầm)", "dau_thanh": "nặng (.)",
              "ly_do": "nước chảy quanh co, dáng múa, sóng, tia chớp — khéo léo luồn lách / sợ hãi"},
 }
 
@@ -279,12 +292,15 @@ def do_hinh_payload() -> dict:
             "nguon": "Lê Văn Sửu — Học Thuyết ÂDNH, Chương 4 p146-178 (luận điểm tác giả)",
         },
         "ngu_hanh_tao_hinh": {
-            "ten": "Ngũ Hành trong Nghệ thuật Tạo hình (hình · màu · dáng người)",
-            "y_nghia": "Mọi vật trong tự nhiên lược về 5 HÌNH đại biểu ứng ngũ hành: Mộc=chữ nhật "
-                       "(chống đỡ), Hỏa=tròn (linh hoạt, ấm), Thổ=vuông (vững, ì), Kim=tam giác "
-                       "(sắc, phá), Thủy=uốn khúc (khéo léo / sợ). Mỗi hình + màu + dáng người gợi "
-                       "một tâm lý. Hai hình/màu cạnh nhau cộng hưởng theo sinh-khắc (tương sinh "
-                       "= hòa hợp, tương khắc = căng). Đây là nền 'đọc đồng dạng' cho thị giác.",
+            "ten": "Ngũ Hành trong Nghệ thuật Tạo hình (hình · màu · đường nét · độ cao · dáng người)",
+            "y_nghia": "Mọi yếu tố thị giác đều quy về ngũ hành: HÌNH (Mộc=chữ nhật, Hỏa=tròn, "
+                       "Thổ=vuông, Kim=tam giác, Thủy=uốn khúc) · ĐƯỜNG NÉT (uốn ngửa/cong tròn/"
+                       "thẳng/cong câu/gấp khúc) · ĐỘ CAO (mặt trời cao nhất=Hỏa → nước thấp nhất=Thủy) "
+                       "· DÁNG NGƯỜI · MÀU. Hai yếu tố cạnh nhau cộng hưởng theo sinh-khắc (tương đồng "
+                       "= ổn định, tương sinh = êm dịu, tương khắc = chói gắt). HỢP NHẤT ĐẸP: 5 dấu "
+                       "thanh chữ Việt TRÙNG 5 đường nét ngũ hành (sắc=cong tròn=Hỏa, ngã=uốn ngửa="
+                       "Mộc, không dấu/huyền=thẳng=Thổ, hỏi=cong câu=Kim, nặng=gấp khúc=Thủy) → "
+                       "6 thanh tiếng Việt và nét vẽ là MỘT hệ ngũ hành. Nền 'đọc đồng dạng' thị giác.",
             "bang": NGU_HANH_TAO_HINH,
             "vn_khac_tq": "LƯU Ý (attribution): bảng hình thể người Việt KHÁC người Trung Quốc — "
                           "3 hành Thủy/Mộc/Thổ trùng, nhưng HỎA↔KIM HOÁN VỊ (Kim người Việt = tam "

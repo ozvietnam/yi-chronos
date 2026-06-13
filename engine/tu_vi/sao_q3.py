@@ -323,9 +323,10 @@ def thien_giai(lunar_month: int) -> int:
 
 def giai_than(lunar_month: int) -> int:
     """Giải Thần — giải hung (gặp Tang Môn, Bạch Hổ tốt).
-    Khởi Tuất tháng 1, nghịch đếm.
+    Khởi DẬU tháng 1, NGHỊCH đếm tới tháng sinh.
+    Pin bằng 2 lá số tuvi.vn (2026-06-13): tháng4→Ngọ, tháng3→Mùi. (Cũ khởi Tuất → lệch 1 cung.)
     """
-    return _fix(B["Tuất"] - (lunar_month - 1))
+    return _fix(B["Dậu"] - (lunar_month - 1))
 
 
 # ─── 13. Ân Quang + Thai Phụ (Văn Xương + ngày) ───────────────
