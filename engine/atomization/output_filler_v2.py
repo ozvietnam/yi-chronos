@@ -142,17 +142,40 @@ def render_3_layer(la_so: dict) -> dict:
     def _chi_of(palace: str) -> str | None:
         return palace if palace in _CHI_RING else fn_to_chi.get(palace)
 
+    # Sao đồng cung + hội chiếu của mỗi chi → lọc atom combo (lỗ #6)
+    from engine.tu_vi.paradigm.to_hop_cung import to_hop_cung as _to_hop
+    ct_chi = {k: v for k, v in (la_so.get("chinh_tinh_per_palace") or {}).items() if k in _CHI_RING}
+    for k, v in (phu_map or {}).items():
+        if k in _CHI_RING:
+            ct_chi.setdefault(k, [])
+            ct_chi[k] = list(ct_chi[k]) + list(v)
+
+    def _star_sets(palace: str):
+        chi = _chi_of(palace)
+        if not chi:
+            return None, None
+        same = set(ct_chi.get(chi) or [])
+        try:
+            tc = set(_to_hop(chi, ct_chi)["hoi_chieu_stars"])
+        except Exception:
+            tc = same
+        return same, tc
+
     gender = la_so.get("gender")  # "M" | "F"
     per_palace = {}
     for palace, stars in (la_so.get("chinh_tinh_per_palace") or {}).items():
         if stars:
+            same, tc = _star_sets(palace)
             per_palace[palace] = render_per_palace(
-                palace, stars, phu_map.get(palace), chi=_chi_of(palace), gender=gender)
+                palace, stars, phu_map.get(palace), chi=_chi_of(palace), gender=gender,
+                same_stars=same, tu_chinh_stars=tc)
     # Cung chỉ có phụ tinh (vô chính diệu) vẫn render phần phụ tinh
     for palace, pstars in phu_map.items():
         if palace not in per_palace and pstars:
+            same, tc = _star_sets(palace)
             per_palace[palace] = render_per_palace(
-                palace, [], pstars, chi=_chi_of(palace), gender=gender)
+                palace, [], pstars, chi=_chi_of(palace), gender=gender,
+                same_stars=same, tu_chinh_stars=tc)
 
     # Việc 2 — đối chiếu miếu-hãm: annotate atoms khớp/lệch điều kiện
     star_levels = _build_star_levels(la_so.get("chinh_tinh_per_palace") or {})
