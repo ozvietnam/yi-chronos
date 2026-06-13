@@ -47,6 +47,26 @@
           <span v-for="cc in cachCucNamed" :key="cc.slug" :class="['cc-chip', cc.loai]">{{ cc.ten }}</span>
         </div>
 
+        <!-- Tứ Hóa năm sinh (trục động — luôn hiện) -->
+        <div v-if="tuHoa.length" class="tu-hoa-bar">
+          <span v-for="t in tuHoa" :key="t.hoa" :class="['tu-hoa-chip', t.hoa]">
+            {{ formatStar(t.hoa) }}: {{ formatStar(t.star) }} ({{ formatFn(t.palace_fn) || formatPalace(t.palace_chi) }})
+          </span>
+        </div>
+
+        <!-- Bộ phụ tinh theo cặp + thế (luôn hiện — Anh quan tâm) -->
+        <div v-if="boPhuTinhList.length" class="bo-pt-section">
+          <h4>✦ Bộ phụ tinh — xem theo CẶP + THẾ</h4>
+          <p class="to-hop-hint">Phụ tinh không xem lẻ: ghép thành bộ (cặp sao) và xét thế với cung — đồng cung / giáp (kẹp) / hội chiếu / xung chiếu.</p>
+          <div v-for="row in boPhuTinhList" :key="row.chi" class="bo-pt-cung">
+            <strong>🏛 {{ formatPalace(row.chi) }}:</strong>
+            <span v-for="b in row.bos" :key="b.slug" :class="['bo-pt-chip', b.loai]" :title="b.the_vi + (b.du_cap ? ' · đủ cặp' : ' · lẻ')">
+              {{ b.ten }} <em>{{ b.the_vi }}</em>{{ b.du_cap ? '' : '*' }}
+            </span>
+          </div>
+          <p class="bo-pt-note">* = bộ lẻ (chỉ 1 sao có thế). Màu: <span class="bo-pt-chip sat">sát</span> <span class="bo-pt-chip hung">hung</span> <span class="bo-pt-chip cat">cát</span> <span class="bo-pt-chip dao_hoa">đào hoa</span></p>
+        </div>
+
         <button class="atoms-toggle" @click="showAtoms = !showAtoms">
           {{ showAtoms ? '▲ Thu gọn dẫn chứng' : `📖 Xem dẫn chứng chi tiết từ sách (${result.metadata.atoms_pulled} trích dẫn, 5 hệ phái)` }}
         </button>
@@ -55,13 +75,6 @@
         <div class="schools-legend">
           <span v-for="(name, code) in result.lop_3_sach_co.schools_summary" :key="code" class="school-tag">
             {{ name }}
-          </span>
-        </div>
-
-        <!-- Tứ Hóa năm sinh -->
-        <div v-if="tuHoa.length" class="tu-hoa-bar">
-          <span v-for="t in tuHoa" :key="t.hoa" :class="['tu-hoa-chip', t.hoa]">
-            {{ formatStar(t.hoa) }}: {{ formatStar(t.star) }} ({{ formatFn(t.palace_fn) || formatPalace(t.palace_chi) }})
           </span>
         </div>
 
@@ -88,19 +101,6 @@
             </div>
             </template>
           </div>
-        </div>
-
-        <!-- Bộ phụ tinh theo cặp + thế (đồng/giáp/hội/xung chiếu) -->
-        <div v-if="boPhuTinhList.length" class="bo-pt-section">
-          <h4>✦ Bộ phụ tinh — xem theo CẶP + THẾ</h4>
-          <p class="to-hop-hint">Phụ tinh không xem lẻ: ghép thành bộ (cặp sao) và xét thế với cung — đồng cung / giáp (kẹp) / hội chiếu / xung chiếu.</p>
-          <div v-for="row in boPhuTinhList" :key="row.chi" class="bo-pt-cung">
-            <strong>🏛 {{ formatPalace(row.chi) }}:</strong>
-            <span v-for="b in row.bos" :key="b.slug" :class="['bo-pt-chip', b.loai]" :title="b.the_vi + (b.du_cap ? ' · đủ cặp' : ' · lẻ')">
-              {{ b.ten }} <em>{{ b.the_vi }}</em>{{ b.du_cap ? '' : '*' }}
-            </span>
-          </div>
-          <p class="bo-pt-note">* = bộ lẻ (chỉ 1 sao có thế). Màu: <span class="bo-pt-chip sat">sát</span> <span class="bo-pt-chip hung">hung</span> <span class="bo-pt-chip cat">cát</span> <span class="bo-pt-chip dao_hoa">đào hoa</span></p>
         </div>
 
         <!-- Cách cục có tên riêng — máy match điều kiện chính xác -->
