@@ -433,24 +433,35 @@ function clockXY(i, r) {
               :x2="thanhCell(i)[0] + 72" :y2="thanhCell(i)[1] + 35"
               stroke="rgba(232,201,90,0.12)" stroke-dasharray="2 2" />
             <polyline :points="thanhPoints(t.pts, thanhCell(i)[0], thanhCell(i)[1])"
-              fill="none" :stroke="t.am_duong === 'âm' ? '#6ea0dc' : '#d6593a'"
+              fill="none" :stroke="HANH_COLOR[t.hanh]"
               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
             <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 62" text-anchor="middle" class="dh-th-name">{{ t.ten }}</text>
-            <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 73" text-anchor="middle" class="dh-th-dau">{{ t.dau }} · {{ t.am_duong }}</text>
+            <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 73" text-anchor="middle" class="dh-th-dau">{{ t.dau }} · {{ t.hanh }} · {{ t.am_duong }}</text>
           </g>
         </svg>
         <div class="dh-info">
           <p><b>{{ data.sau_thanh_tieng_viet.ten }}</b></p>
           <p>{{ data.sau_thanh_tieng_viet.y_nghia }}</p>
           <p class="dh-legend">
-            <span class="lg lg-khac">▬ trắc = dương (dọc)</span>
-            <span class="lg lg-bang">▬ bằng = âm (ngang)</span>
+            <span class="lg" style="color:#d6593a;background:rgba(214,89,58,.1)">trắc = dương (dọc)</span>
+            <span class="lg lg-bang">bằng = âm (ngang)</span>
+            <span class="lg" style="color:#e8c95a;background:rgba(232,201,90,.1)">màu = ngũ hành</span>
           </p>
           <p v-if="hovered && hovered.tu_the" class="dh-hover">
-            <b>{{ hovered.ten }}</b> ({{ hovered.dau }}) — tư thế đầu-cổ: {{ hovered.tu_the }};
-            ví dụ tượng hình: <i>{{ hovered.vi_du }}</i>.
+            <b>{{ hovered.ten }}</b> ({{ hovered.dau }}) — hành <b :style="{ color: HANH_COLOR[hovered.hanh] }">{{ hovered.hanh }}</b>,
+            độ cao {{ hovered.do_cao }}, tâm sinh lý <b>{{ hovered.tam_sinh_ly }}</b> (tạng {{ hovered.tang }}).
+            <br />Tư thế đầu-cổ: {{ hovered.tu_the }}; ví dụ tượng hình: <i>{{ hovered.vi_du }}</i>.
           </p>
-          <p v-else class="dh-note">Rê chuột vào từng thanh để xem tư thế đầu-cổ + ví dụ tượng hình.</p>
+          <p v-else class="dh-note">Rê chuột vào từng thanh: hành · tâm sinh lý · tạng · tư thế · ví dụ.</p>
+          <details v-if="data.sau_thanh_tieng_viet.tieng_vung_mien" class="dh-skch-list">
+            <summary>🗺 Giọng vùng miền ↔ ngũ hành địa lý</summary>
+            <ul>
+              <li v-for="(v, i) in data.sau_thanh_tieng_viet.tieng_vung_mien" :key="i">
+                <b :style="{ color: HANH_COLOR[v.hanh] }">{{ v.vung }}</b> ({{ v.phuong }} · {{ v.hanh }}):
+                {{ v.dac_diem }}. <i>{{ v.vi_du }}</i>
+              </li>
+            </ul>
+          </details>
           <p class="dh-nguon">— {{ data.sau_thanh_tieng_viet.nguon }}</p>
         </div>
       </div>

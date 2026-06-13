@@ -129,19 +129,41 @@ THAP_NHI_KINH = [
 # mỗi thanh có 'đường hình' + tư thế đầu-cổ + tính âm dương. 2 thanh BẰNG phát triển
 # NGANG = ÂM; 4 thanh TRẮC phát triển DỌC = DƯƠNG. `pts` = đường hình (hộp 80×50, y nhỏ
 # = cao độ cao); minh họa theo mô tả Hình 4-1..4-6 của tác giả.
+# `hanh / do_cao / tam_sinh_ly / tang` từ Bảng 4-6, 4-7 (p169-170): 6 thanh ánh xạ
+# vào ngũ hành qua độ cao + độ dài + tâm sinh lý + tạng phủ → nối 6 thanh vào hệ ngũ hành.
 SAU_THANH = [
-    {"ten": "Đoản bình", "dau": "không dấu", "loai": "bằng", "am_duong": "âm",
-     "tu_the": "đầu cổ ngay ngắn", "vi_du": "đi, ngang, cân", "pts": [[8, 25], [72, 25]]},
-    {"ten": "Trường bình", "dau": "huyền  ` ", "loai": "bằng", "am_duong": "âm",
-     "tu_the": "đầu cổ hơi cúi", "vi_du": "từ từ, vừa vừa", "pts": [[8, 22], [72, 34]]},
-    {"ten": "Thượng thanh", "dau": "sắc  / ", "loai": "trắc", "am_duong": "dương",
+    {"ten": "Thượng thanh", "dau": "sắc  / ", "loai": "trắc", "am_duong": "dương", "hanh": "hỏa",
+     "do_cao": "rất cao", "tam_sinh_ly": "thần minh, vui", "tang": "Tâm, Tiểu trường",
      "tu_the": "đầu cổ ngửa lên", "vi_du": "tiến, tới, cố, gắng", "pts": [[12, 38], [72, 12]]},
-    {"ten": "Khứ thanh", "dau": "ngã  ~ ", "loai": "trắc", "am_duong": "dương",
+    {"ten": "Khứ thanh", "dau": "ngã  ~ ", "loai": "trắc", "am_duong": "dương", "hanh": "mộc",
+     "do_cao": "hơi cao", "tam_sinh_ly": "mưu lự, giận", "tang": "Can, Đởm",
      "tu_the": "hất ngửa rồi hạ", "vi_du": "ngã, cãi vã, vã", "pts": [[8, 28], [24, 28], [40, 13], [56, 26], [70, 28]]},
-    {"ten": "Hồi thanh", "dau": "hỏi  ? ", "loai": "trắc", "am_duong": "dương",
+    {"ten": "Đoản bình", "dau": "không dấu", "loai": "bằng", "am_duong": "âm", "hanh": "thổ",
+     "do_cao": "vừa phải", "tam_sinh_ly": "bình thản", "tang": "Tỳ, Vị",
+     "tu_the": "đầu cổ ngay ngắn", "vi_du": "đi, ngang, cân", "pts": [[8, 25], [72, 25]]},
+    {"ten": "Trường bình", "dau": "huyền  ` ", "loai": "bằng", "am_duong": "âm", "hanh": "thổ",
+     "do_cao": "hơi thấp", "tam_sinh_ly": "lo lắng", "tang": "Tỳ, Vị",
+     "tu_the": "đầu cổ hơi cúi", "vi_du": "từ từ, vừa vừa", "pts": [[8, 22], [72, 34]]},
+    {"ten": "Hồi thanh", "dau": "hỏi  ? ", "loai": "trắc", "am_duong": "dương", "hanh": "kim",
+     "do_cao": "thấp", "tam_sinh_ly": "trị tiết, buồn", "tang": "Phế, Đại trường",
      "tu_the": "cúi gập rồi nâng", "vi_du": "nảy, gảy, bảy, tẩy", "pts": [[8, 26], [26, 30], [40, 44], [56, 32], [70, 24]]},
-    {"ten": "Hạ thanh", "dau": "nặng  . ", "loai": "trắc", "am_duong": "dương",
+    {"ten": "Hạ thanh", "dau": "nặng  . ", "loai": "trắc", "am_duong": "dương", "hanh": "thủy",
+     "do_cao": "rất thấp", "tam_sinh_ly": "kỹ xảo, kinh hãi", "tang": "Thận, Bàng quang",
      "tu_the": "đầu cổ cúi gập", "vi_du": "rụng, đập, quật", "pts": [[18, 26], [40, 46]]},
+]
+
+# Giọng vùng miền ↔ ngũ hành địa lý (Lê Văn Sửu p176-178) — tập quán phát âm theo môi
+# trường sinh học từng vùng. Phương vị → hành (chỉ tag nơi tác giả gán hành rõ).
+TIENG_VUNG_MIEN = [
+    {"vung": "Đồng bằng Bắc Bộ", "phuong": "bắc", "hanh": "thủy",
+     "dac_diem": "nói hơi nhanh, chuẩn cao độ, dứt khoát; thay phụ âm uốn lưỡi",
+     "vi_du": "thái thịt → xái xịt; con trâu trắng → con tâu tặng; làm lụng → nàm nụng"},
+    {"vung": "Miền Trung (Thanh-Nghệ-Tĩnh-Bình-Trị-Thiên)", "phuong": "đông (giữa)", "hanh": "mộc",
+     "dac_diem": "nói chậm, giằn giọng nặng nề, giảm thanh thượng 3-4 bậc, đưa trường bình lên đoản",
+     "vi_du": "chào đồng chí → chao đông chỉ; uống nước → uổng nược"},
+    {"vung": "Đồng bằng Nam Bộ", "phuong": "nam", "hanh": "hỏa",
+     "dac_diem": "kéo dài trường độ thanh, thêm nguyên/phụ âm; có khi đổi dấu để kéo dài",
+     "vi_du": "vô ý → giô ý; anh ơi → eng ơi; anh ấy → ảnh ấy"},
 ]
 
 
@@ -224,14 +246,16 @@ def do_hinh_payload() -> dict:
             "nguon": skch["nguon"],
         },
         "sau_thanh_tieng_viet": {
-            "ten": "6 Thanh tiếng Việt theo Âm Dương (khí chất sinh học người Việt)",
-            "y_nghia": "Tiếng Việt đơn âm: mỗi thanh một 'đường hình' + tư thế đầu-cổ + tính âm dương. "
-                       "2 thanh BẰNG (không dấu, huyền) phát triển NGANG = ÂM (êm dịu); 4 thanh TRẮC "
-                       "(sắc, ngã, hỏi, nặng) phát triển DỌC = DƯƠNG (mạnh, biến động). Từ chỉ chiều hướng "
-                       "nào thường mang thanh có đường hình cùng chiều đó (tính tượng hình). LƯU Ý: đây là "
-                       "luận điểm khí chất sinh học người Việt của Lê Văn Sửu (attribution, cần đối chiếu).",
+            "ten": "6 Thanh tiếng Việt → Âm Dương → Ngũ Hành (khí chất sinh học người Việt)",
+            "y_nghia": "Tiếng Việt đơn âm: mỗi thanh một 'đường hình' + tư thế đầu-cổ. 2 thanh BẰNG "
+                       "(không dấu, huyền) = ÂM (êm dịu, ngang); 4 thanh TRẮC (sắc, ngã, hỏi, nặng) = "
+                       "DƯƠNG (mạnh, dọc). Sâu hơn: mỗi thanh ánh xạ một NGŨ HÀNH qua độ cao + tâm sinh "
+                       "lý + tạng phủ (Thượng=Hỏa/vui, Khứ=Mộc/giận, Đoản+Trường=Thổ/bình thản-lo, "
+                       "Hồi=Kim/buồn, Hạ=Thủy/kinh hãi) → 6 thanh nối thẳng vào hệ ngũ hành. Tô màu "
+                       "theo hành. LƯU Ý: luận điểm khí chất sinh học người Việt của Lê Văn Sửu (attribution).",
             "thanh": SAU_THANH,
-            "nguon": "Lê Văn Sửu — Học Thuyết ÂDNH, Chương 4 p146-153 (luận điểm tác giả)",
+            "tieng_vung_mien": TIENG_VUNG_MIEN,
+            "nguon": "Lê Văn Sửu — Học Thuyết ÂDNH, Chương 4 p146-178 (luận điểm tác giả)",
         },
         "dong_ho_12_canh": {
             "ten": "Đồng hồ sinh học 12 canh giờ (Thập nhị kinh nạp địa chi)",

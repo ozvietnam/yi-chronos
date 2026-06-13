@@ -160,6 +160,21 @@ NGU_HANH_THAN: dict[str, dict] = {
     "thủy": {"tang": "Thận",          "phu": "Bàng quang",  "quan": "tai — nghe",   "sac": "đen",   "vi": "mặn",  "am": "Vũ",     "tieng": "rên",       "am_tc": "trầm mà sâu"},
 }
 
+# Ngũ hành ↔ tâm sinh lý ↔ độ cao/dài thanh (Bảng 4-6/4-7/4-8 p169-171). Tâm lý giao
+# thoa như ngũ hành: "lo nghĩ" = Mộc+Thổ, "lo buồn" = Thổ+Kim — tổ hợp sinh vô vàn sắc thái.
+NGU_HANH_TAM_SINH_LY: dict[str, dict] = {
+    "hỏa":  {"do_cao": "rất cao", "tinh_cam": "thần minh, vui, tếu", "tang": "Tâm, Tiểu trường",
+             "tu_mau": "sáng suốt, sướng quá, múa hát, líu tíu, tíu tít"},
+    "mộc":  {"do_cao": "hơi cao", "tinh_cam": "mưu lự, giận, bướng, dũng cảm", "tang": "Can, Đởm",
+             "tu_mau": "dũng mãnh, cãi vã, giữ vững, gãy, ngỡ"},
+    "thổ":  {"do_cao": "vừa / hơi thấp", "tinh_cam": "bình thản, lo lắng, ôn hòa, dịu dàng", "tang": "Tỳ, Vị",
+             "tu_mau": "qua loa, vâng, thương thương, em ơi, chờ xem"},
+    "kim":  {"do_cao": "thấp", "tinh_cam": "trị tiết, buồn, khắt khe, tỉ mỉ, cẩn thận", "tang": "Phế, Đại trường",
+             "tu_mau": "thử hỏi, kể lể, bủn xỉn, thủ thỉ, khủng hoảng"},
+    "thủy": {"do_cao": "rất thấp", "tinh_cam": "kỹ xảo, kinh hãi, nghi ngờ", "tang": "Thận, Bàng quang",
+             "tu_mau": "sợ, ngại, bực bội, chọi, đạp, đập, đợi"},
+}
+
 _STAR_BY_NAME = {s.ten_vi: s for s in ALL_CHINH_TINH}
 
 
@@ -463,6 +478,14 @@ def vong_sinh_khac() -> dict:
                        "màu xanh ảnh hưởng gan, màu đỏ ảnh hưởng tim. Ngũ âm Cung-Thương-Giốc-Chủy-Vũ "
                        "= thang ngũ cung nhạc cổ, mỗi âm một tạng một loại tiếng (ca/khóc/hô/cười/rên).",
             "nguon": "Lê Văn Sửu p143-147 (dẫn Châm cứu đại thành)",
+        },
+        "ngu_hanh_tam_sinh_ly": {
+            "bang": NGU_HANH_TAM_SINH_LY,
+            "y_nghia": "Ngũ hành ↔ tâm sinh lý ↔ độ cao thanh tiếng Việt (Bảng 4-6/4-8): Hỏa=vui/"
+                       "thần minh, Mộc=mưu lự/giận, Thổ=bình thản/lo, Kim=buồn/trị tiết, Thủy=kinh hãi/"
+                       "kỹ xảo. Tâm lý GIAO THOA như ngũ hành: 'lo nghĩ'=Mộc+Thổ, 'lo buồn'=Thổ+Kim — "
+                       "tổ hợp sinh vô vàn sắc thái, từ ngữ phải tổ hợp đúng quy luật mới diễn đạt nổi.",
+            "nguon": "Lê Văn Sửu p169-171 (Bảng 4-6, 4-7, 4-8)",
         },
         "nhip_thoi_sinh_hoc": {
             "y_nghia": "Trục thời gian của ngũ hành được Tây phương kiểm chứng: viêm gan cấp phát "
