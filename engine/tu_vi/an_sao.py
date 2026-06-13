@@ -730,10 +730,11 @@ def thien_hu(year_branch: str) -> int:
 def long_tri(year_branch: str) -> int:
     """Long Trì — quý, long trọng.
 
-    Quyết: "Long Trì Tý thuận Thìn" — khởi Tý, THUẬN đếm đến năm sinh.
-    Reference: TVDSTT Q.2 p86.
+    Quyết "Long Trì Tý (an tại) Thìn, thuận": NĂM TÝ → Long Trì ở Thìn, đếm
+    thuận theo chi năm. Tức khởi điểm = Thìn (không phải Tý).
+    Verify lá số founder (Mậu Thìn 2026-06-13): năm Thìn → Thìn+4 = Thân (khớp tuvi.vn).
     """
-    return _fix(B["Tý"] + B[year_branch])
+    return _fix(B["Thìn"] + B[year_branch])
 
 
 def phuong_cac(year_branch: str) -> int:
@@ -896,8 +897,8 @@ def cast_la_so(
         "Thiên Hư":   thien_hu(year_branch),
         "Long Trì":  long_tri(year_branch),
         "Phượng Các": phuong_cac(year_branch),
-        # Cặp đào hoa cốt (Trung Châu Bắc phái) — wire 2026-06-07
-        "Hàm Trì":   ham_tri(year_branch),
+        # Hàm Trì (đào hoa) đã có trong vòng Tướng Tinh (q3) — KHÔNG an lại ở đây
+        # tránh trùng 2 lần cùng cung (bug phát hiện 2026-06-13 đối chiếu ảnh).
         # LƯU Ý: "Đại Hao" engine wire vòng Bác Sĩ (chuẩn anlasotuvi); cặp đào hoa
         # giữ tên "Đại Hao đào hoa" để phân biệt
         "Đại Hao đào hoa": dai_hao_dao_hoa(year_branch),
@@ -924,7 +925,17 @@ def cast_la_so(
     out["triet"] = list(q3["triet"])      # tuple → list cho JSON
     out["tuan"] = list(q3["tuan"])
     out["sao_le"] = q3["sao_le"]
-    # Thiên Không (天空) — thêm 2026-06-13 sau khi đối chiếu ảnh lá số founder
-    out["sao_le"]["Thiên Không"] = thien_khong(year_branch)
+    # ── Sao thêm/sửa 2026-06-13 sau khi đối chiếu ảnh lá số founder (tuvi.vn) ──
+    out["sao_le"]["Thiên Không"] = thien_khong(year_branch)  # = chi năm +1 (sau Thái Tuế)
+    out["sao_le"]["Thiên La"] = B["Thìn"]   # cố định Thìn (mọi phái)
+    out["sao_le"]["Địa Võng"] = B["Tuất"]   # cố định Tuất
+    out["sao_le"]["Thiên Sứ"] = _fix(menh_idx + 7)   # cung Tật Ách
+    # Thai Phụ + Phong Cáo — phái VN phổ thông an theo GIỜ (khởi Ngọ/Dần tại giờ
+    # Tý, thuận), khớp tuvi.vn. (Engine cũ an theo Văn Khúc+ngày = phái khác → lệch.)
+    out["sao_le"]["Thai Phụ"] = _fix(B["Ngọ"] + (H - 1))
+    out["sao_le"]["Phong Cáo"] = _fix(B["Dần"] + (H - 1))
+    # Thiên Tài (từ Mệnh) + Thiên Thọ (từ Thân), khởi Tý thuận đến chi năm
+    out["sao_le"]["Thiên Tài"] = _fix(menh_idx + B[year_branch])
+    out["sao_le"]["Thiên Thọ"] = _fix(than_idx + B[year_branch])
 
     return out
