@@ -62,12 +62,13 @@ HANH_VAN_DONG: dict[str, str] = {
 
 # Tên CỔ CHUẨN của 5 kiểu vận động theo khí hóa 5 mùa (Lê Văn Sửu p49):
 # "Xuân Sinh, Hạ Trưởng, Trưởng Hạ Hóa, Thu Thâu, Đông Tàng".
+# phuong: phương vị chủ (Đổng Trọng Thư p64); khi: loại khí (Tuệ Tĩnh p65).
 KHI_HOA_MUA: dict[str, dict] = {
-    "mộc":  {"dong_tu": "Sinh",   "mua": "xuân",          "ý": "nảy mầm, phát triển mạnh"},
-    "hỏa":  {"dong_tu": "Trưởng", "mua": "hạ",            "ý": "trưởng thành, khai hoa kết trái"},
-    "thổ":  {"dong_tu": "Hóa",    "mua": "trưởng hạ (cuối hạ đầu thu)", "ý": "chuyển hóa, nuôi giữ"},
-    "kim":  {"dong_tu": "Thâu",   "mua": "thu",           "ý": "thu liễm, nhựa gom về thân, lá rụng"},
-    "thủy": {"dong_tu": "Tàng",   "mua": "đông",          "ý": "tàng ẩn, gom về gốc rễ giữ sự sống"},
+    "mộc":  {"dong_tu": "Sinh",   "mua": "xuân", "phuong": "đông",       "khi": "phong (gió)",  "ý": "nảy mầm, phát triển mạnh"},
+    "hỏa":  {"dong_tu": "Trưởng", "mua": "hạ",   "phuong": "nam",        "khi": "thử (nóng)",   "ý": "trưởng thành, khai hoa kết trái"},
+    "thổ":  {"dong_tu": "Hóa",    "mua": "trưởng hạ (cuối hạ đầu thu)", "phuong": "trung ương", "khi": "thấp (ẩm)", "ý": "chuyển hóa, nuôi giữ, giúp các hành khác"},
+    "kim":  {"dong_tu": "Thâu",   "mua": "thu",  "phuong": "tây",        "khi": "táo (khô)",    "ý": "thu liễm, nhựa gom về thân, lá rụng"},
+    "thủy": {"dong_tu": "Tàng",   "mua": "đông", "phuong": "bắc",        "khi": "hàn (lạnh)",   "ý": "tàng ẩn, gom về gốc rễ giữ sự sống"},
 }
 
 _STAR_BY_NAME = {s.ten_vi: s for s in ALL_CHINH_TINH}
@@ -197,7 +198,25 @@ def vong_sinh_khac() -> dict:
                         "kim-nước chỉ là cách đặt cho dễ nhớ.",
             "sinh_khac": "Sinh không hẳn tốt, khắc không hẳn xấu — không có khắc thì "
                          "không có định hình, như luận bệnh: không có khắc là hỏng.",
+            "khi_hoa": "Ngũ hành KHÔNG phải 5 chất liệu cấu thành vật chất (cách hiểu sai "
+                       "phổ biến). Theo Tuệ Tĩnh (thiền sư Việt thế kỷ 13): 'khí hóa' là khi "
+                       "khí hậu môi trường biến đổi (biểu thị bằng năm màu) làm vạn vật biến "
+                       "đổi tương ứng (biểu thị bằng năm hành) — diễn đạt bằng chữ 'sinh'. "
+                       "Năm khí theo tỷ lệ nhiệt-ẩm: phong, hàn, thử, thấp, táo.",
+            "khong_phai_dinh_menh": "Ngũ hành trước hết là quy luật vận động TỰ NHIÊN của "
+                       "thiên nhiên, vạn vật, con người — không phù hợp với bất kỳ suy diễn chủ "
+                       "quan nào trái quy luật tự nhiên (Lê Văn Sửu phê phán việc gán ngũ hành "
+                       "làm công cụ định mệnh/chính trị).",
+            "dinh_nghia_nguon": "Tuệ Tĩnh (khí hóa) + Lê Văn Sửu phân tích, p65, p68",
         },
+        "ung_dung_da_mon": [
+            "Thiên văn (ngũ tinh, 28 tú)", "Địa lý / phong thủy (bát trạch, tam nguyên)",
+            "Binh pháp", "Vũ thuật (ngũ hình)", "Ngôn ngữ", "Văn học (nhân vật theo ngũ hành)",
+            "Nghệ thuật tạo hình", "Tướng pháp (Ma Y Thần Tướng)",
+            "Chiêm tinh (Bát Tự Hà Lạc · Tử Bình · Tử Vi)", "Y học (kinh lạc, tạng phủ, ngũ vận lục khí)",
+        ],
+        "tu_vi_dung_sinh_khac": "Sách xác nhận: luận Tử Vi dựa phần lớn vào quan hệ SINH-KHẮC "
+                       "ngũ hành — so sánh sao↔cung, sao↔sao, sao↔địa chi (Lê Văn Sửu p73-74).",
         "nguon_goc": {
             "tom_tat": (
                 "Học thuyết sinh từ nhu cầu sinh tồn ở Phương Đông — vùng đất kẹp giữa "

@@ -99,6 +99,20 @@ function levelClass(lv) {
             <span class="nh-badge" data-hanh="mộc">mộc</span>
           </div>
           <p class="ctl-nen-line ctl-nen-sinh-khac">{{ nenTang.dinh_nghia.sinh_khac }}</p>
+          <!-- Bản chất "khí hóa" (Tuệ Tĩnh) + cảnh báo "không phải 5 vật chất" -->
+          <p v-if="nenTang.dinh_nghia.khi_hoa" class="ctl-nen-line ctl-khihoa">
+            🌬️ <b>Bản chất (khí hóa):</b> {{ nenTang.dinh_nghia.khi_hoa }}
+          </p>
+          <p v-if="nenTang.dinh_nghia.khong_phai_dinh_menh" class="ctl-nen-line ctl-khongdinhmenh">
+            ⚖ {{ nenTang.dinh_nghia.khong_phai_dinh_menh }}
+          </p>
+          <p v-if="nenTang.tu_vi_dung_sinh_khac" class="ctl-nen-line ctl-tuvisinhkhac">
+            ✦ {{ nenTang.tu_vi_dung_sinh_khac }}
+          </p>
+          <details v-if="(nenTang.ung_dung_da_mon || []).length" class="ctl-nguongoc">
+            <summary>🧭 10 lĩnh vực ngũ hành phủ khắp Đông phương học</summary>
+            <p class="ctl-nen-line">{{ nenTang.ung_dung_da_mon.join(" · ") }}</p>
+          </details>
           <!-- Nguồn gốc học thuyết — bồi từ vòng đọc sâu Lê Văn Sửu (2026-06-13) -->
           <details v-if="nenTang.nguon_goc" class="ctl-nguongoc">
             <summary>🌱 Nguồn gốc học thuyết (Lê Văn Sửu)</summary>
@@ -286,6 +300,10 @@ function levelClass(lv) {
 }
 .ctl-nen-line { margin: 2px 0; font-size: 12.5px; line-height: 1.55; color: var(--text-secondary, rgba(230,238,245,0.8)); }
 .ctl-nen-sinh-khac { font-style: italic; opacity: 0.85; }
+.ctl-khihoa, .ctl-khongdinhmenh, .ctl-tuvisinhkhac { margin-top: 6px; }
+.ctl-khihoa b { color: var(--accent-gold, #e8c95a); }
+.ctl-khongdinhmenh { border-left: 2px solid rgba(232,201,90,0.35); padding-left: 8px; }
+.ctl-tuvisinhkhac { color: var(--accent-gold, #e8c95a); opacity: 0.92; }
 .ctl-nguongoc { margin-top: 8px; }
 .ctl-nguongoc summary {
   font-size: 12px; color: var(--accent-gold, #e8c95a);
