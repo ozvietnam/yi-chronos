@@ -90,6 +90,19 @@
           </div>
         </div>
 
+        <!-- Bộ phụ tinh theo cặp + thế (đồng/giáp/hội/xung chiếu) -->
+        <div v-if="boPhuTinhList.length" class="bo-pt-section">
+          <h4>✦ Bộ phụ tinh — xem theo CẶP + THẾ</h4>
+          <p class="to-hop-hint">Phụ tinh không xem lẻ: ghép thành bộ (cặp sao) và xét thế với cung — đồng cung / giáp (kẹp) / hội chiếu / xung chiếu.</p>
+          <div v-for="row in boPhuTinhList" :key="row.chi" class="bo-pt-cung">
+            <strong>🏛 {{ formatPalace(row.chi) }}:</strong>
+            <span v-for="b in row.bos" :key="b.slug" :class="['bo-pt-chip', b.loai]" :title="b.the_vi + (b.du_cap ? ' · đủ cặp' : ' · lẻ')">
+              {{ b.ten }} <em>{{ b.the_vi }}</em>{{ b.du_cap ? '' : '*' }}
+            </span>
+          </div>
+          <p class="bo-pt-note">* = bộ lẻ (chỉ 1 sao có thế). Màu: <span class="bo-pt-chip sat">sát</span> <span class="bo-pt-chip hung">hung</span> <span class="bo-pt-chip cat">cát</span> <span class="bo-pt-chip dao_hoa">đào hoa</span></p>
+        </div>
+
         <!-- Cách cục có tên riêng — máy match điều kiện chính xác -->
         <div v-if="cachCucNamed.length" class="cc-named-section">
           <h4>🏆 Cách cục có tên trong lá số</h4>
@@ -269,6 +282,16 @@ function formatFn(f) {
 
 const tuHoa = computed(() => result.value?.la_so_input?.tu_hoa || [])
 const cachCucNamed = computed(() => result.value?.lop_3_sach_co?.cach_cuc_named || [])
+// Bộ phụ tinh: chỉ hiện cung có bộ ĐÁNG KỂ (đủ cặp, hoặc sát/hung)
+const boPhuTinhList = computed(() => {
+  const all = result.value?.lop_3_sach_co?.bo_phu_tinh_per_palace || {}
+  const rows = []
+  for (const [chi, bos] of Object.entries(all)) {
+    const keep = (bos || []).filter(b => b.du_cap || b.loai === 'sat' || b.loai === 'hung')
+    if (keep.length) rows.push({ chi, bos: keep })
+  }
+  return rows
+})
 const daiVan = computed(() => result.value?.lop_3_sach_co?.dai_van_hien_tai || null)
 
 function formatPalace(p) {
@@ -632,6 +655,20 @@ h3 { margin-top: 0; }
 .narrative-text { white-space: pre-wrap; line-height: 1.8; }
 .narrative-meta { display: block; margin-top: 8px; color: var(--read-text-faint); }
 .narrative-loading { color: #6a4c93; font-style: italic; padding: 16px 0; }
+
+/* Bộ phụ tinh */
+.bo-pt-section { margin: 16px 0; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid #b8a5d8; }
+.bo-pt-cung { margin: 8px 0; line-height: 1.9; }
+.bo-pt-chip {
+  display: inline-block; margin: 2px 4px; padding: 1px 9px;
+  border-radius: 10px; font-size: 0.82em;
+}
+.bo-pt-chip em { font-style: normal; opacity: 0.7; font-size: 0.9em; }
+.bo-pt-chip.sat { background: #ffebee; color: #b71c1c; }
+.bo-pt-chip.hung { background: #fff3e0; color: #b35900; }
+.bo-pt-chip.cat { background: #e8f5e9; color: #1b5e20; }
+.bo-pt-chip.dao_hoa { background: #fce4ec; color: #ad1457; }
+.bo-pt-note { font-size: 0.8em; color: #777; margin-top: 8px; }
 
 /* Đảo sân khấu: dẫn chứng thô ẩn sau nút */
 .atoms-toggle {

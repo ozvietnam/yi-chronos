@@ -127,6 +127,21 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                 f"tại cung {pal_vi}"
             )
 
+    # Bộ phụ tinh + THẾ tại cung Mệnh (đồng/giáp/hội/xung chiếu)
+    menh_chi = la_so_input.get("menh_palace")
+    bo_menh = ((three_layer.get("lop_3_sach_co") or {}).get("bo_phu_tinh_per_palace") or {}).get(menh_chi)
+    if bo_menh:
+        parts.append("")
+        parts.append("## Bộ phụ tinh quanh cung Mệnh (xem theo cặp + thế, không lẻ):")
+        for bo in bo_menh[:5]:
+            cap = "đủ cặp" if bo["du_cap"] else "lẻ"
+            parts.append(f"- {bo['ten']} ({bo['loai']}) — {bo['the_vi']}, {cap}")
+            for school, atoms in (bo.get("schools") or {}).items():
+                for a in atoms[:1]:
+                    vt = a.get("viet_thuan") or a.get("source_quote") or ""
+                    if vt:
+                        parts.append(f"  · ({school}) {vt[:150]}")
+
     # Cách cục có tên riêng — máy match chính xác điều kiện
     named = (three_layer.get("lop_3_sach_co") or {}).get("cach_cuc_named") or []
     if named:

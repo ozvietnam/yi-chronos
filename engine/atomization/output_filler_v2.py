@@ -271,11 +271,32 @@ Anh sinh năm {vi_can(la_so['can'])} {vi_chi(la_so['chi'])} — {bac_tuoi_w['msg
     except Exception:
         pass  # lớp bổ sung — không chặn render chính
 
+    # Bộ phụ tinh + THẾ (đồng/giáp/hội/xung chiếu) cho 12 cung — Anh chốt 2026-06-13
+    bo_phu_tinh_per_palace = {}
+    try:
+        from engine.tu_vi.bo_phu_tinh import luan_bo_phu_tinh, build_all_stars, atoms_for_bo, BO_PHU_TINH
+        _all_stars = build_all_stars(la_so)
+        _bo_map = {b[0]: (b[1], b[2]) for b in BO_PHU_TINH}
+        menh_chi = la_so.get("menh_palace")
+        for chi in _CHI_RING:
+            bos = luan_bo_phu_tinh(chi, _all_stars)
+            if not bos:
+                continue
+            # Pull atoms cho cung Mệnh (để feed narrative + hiển thị sâu)
+            if chi == menh_chi:
+                for bo in bos[:5]:
+                    a, b = _bo_map[bo["slug"]]
+                    bo.update(atoms_for_bo(a, b))
+            bo_phu_tinh_per_palace[chi] = bos
+    except Exception:
+        pass
+
     # Compose lớp 3 (per palace cross-school + tổ hợp cung)
     lop_3 = {
         "per_palace": per_palace,
         "to_hop_per_palace": to_hop_per_palace,
         "cach_cuc_named": cach_cuc_named,
+        "bo_phu_tinh_per_palace": bo_phu_tinh_per_palace,
         "dai_van_hien_tai": dai_van_view,
         "schools_summary": {
             sc_code: SCHOOL_NAMES[sc_code]
