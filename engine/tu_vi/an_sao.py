@@ -953,5 +953,12 @@ def cast_la_so(
                  "Mậu": "Thân", "Kỷ": "Dậu", "Canh": "Hợi", "Tân": "Tý",
                  "Nhâm": "Dần", "Quý": "Mão"}
     out["sao_le"]["Văn Tinh"] = B[_VAN_TINH[year_stem]]
+    # Thiên Thương (天傷) = cung Nô Bộc (đối Thiên Sứ ở Tật Ách)
+    out["sao_le"]["Thiên Thương"] = _fix(menh_idx - 7)
+    # Địa Giải = khởi Mùi tháng 1 thuận (đi cặp Thiên Giải khởi Thân) → verify Tuất
+    out["sao_le"]["Địa Giải"] = _fix(B["Mùi"] + (lunar_month - 1))
+    # GHI CHÚ đa phái (chưa sửa, 1 data-point chưa pin được công thức tuvi.vn):
+    #   Giải Thần: engine khởi Tuất nghịch tháng (→Mùi); tuvi.vn để Ngọ (khởi Dậu?)
+    #   Thiên Hỉ: engine đối xung Hồng Loan (→Tỵ); tuvi.vn để Tý
 
     return out
