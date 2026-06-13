@@ -325,6 +325,24 @@ def do_hinh_payload() -> dict:
                        "5/5=Thủy) · DÁNG ĐẦU + NÉT MẶT. Kết hợp nhiều yếu tố = TỔNG HÀNH (chiếu cố "
                        "chính-phụ). VD nét thẳng + màu trắng + đi chéo lên = thổ+kim+mộc. (Bảng 4-17→4-21)",
             "bang": NGU_HANH_TAO_HINH,
+            "danh_gia_tac_pham": {
+                "y_nghia": "Phương pháp dùng ngũ hành ĐÁNH GIÁ tác phẩm tạo hình (Lê Văn Sửu p243-244): "
+                           "(1) xem KHUÔN HÌNH giới hạn — hành của khung có hợp hành nội dung không "
+                           "(tĩnh vật→khung vuông/Thổ, niềm vui→khung tròn/Hỏa, chiến đấu→chữ nhật/Mộc, "
+                           "buồn→góc nhọn/Kim, sợ hãi→uốn khúc kéo dài/Thủy); (2) chia chính-phụ, xét "
+                           "hiệu ứng từng yếu tố (hình/màu/độ lớn/độ cao/đường nét) so ý đồ nội dung.",
+                "phan_loai": [
+                    "Toàn bộ hiệu ứng HỢP ý đồ → cảm xúc + tài năng nghệ sĩ ngang sức hài hòa tự nhiên → giá trị thẩm mỹ CAO",
+                    "Sai lệch chút ít → nhầm lẫn có thể xảy ra → vẫn TỐT",
+                    "Sai lệch khá nhiều → năng khiếu + tài nghệ chưa cao → KÉM",
+                    "Sai lệch toàn bộ → trạng thái cảm xúc bệnh hoạn/điên loạn → KHÔNG xứng gọi là tác phẩm",
+                ],
+            },
+            "do_lon_bang": {
+                "nhỏ": "Tròn · Đỏ · Hỏa (vui)", "hơi nhỏ": "Chữ nhật · Xanh · Mộc (giận)",
+                "vừa phải": "Vuông · Vàng · Thổ (lo)", "hơi lớn": "Tam giác · Trắng · Kim (buồn)",
+                "rất lớn": "Gấp nhiều khúc · Đen · Thủy (sợ)",
+            },
             "vn_khac_tq": "LƯU Ý (attribution): bảng hình thể người Việt KHÁC người Trung Quốc — "
                           "3 hành Thủy/Mộc/Thổ trùng, nhưng HỎA↔KIM HOÁN VỊ (Kim người Việt = tam "
                           "giác = Hỏa người TQ). Lê Văn Sửu cho bảng Việt khớp cảm quan bản năng hơn, "

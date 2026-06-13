@@ -545,6 +545,13 @@ function clockXY(i, r) {
             <summary>📐 Trọn hệ thị giác ↔ ngũ hành</summary>
             <p style="font-size:12px;padding:4px 0">{{ data.ngu_hanh_tao_hinh.he_thi_giac_day_du }}</p>
           </details>
+          <details v-if="data.ngu_hanh_tao_hinh.danh_gia_tac_pham" class="dh-skch-list">
+            <summary>🖼 Đánh giá tác phẩm tạo hình bằng ngũ hành</summary>
+            <p style="font-size:12px;padding:4px 0">{{ data.ngu_hanh_tao_hinh.danh_gia_tac_pham.y_nghia }}</p>
+            <ul>
+              <li v-for="(p, i) in data.ngu_hanh_tao_hinh.danh_gia_tac_pham.phan_loai" :key="i">{{ p }}</li>
+            </ul>
+          </details>
           <details class="dh-skch-list">
             <summary>🖋 Dấu thanh Việt = đường nét ngũ hành (hợp nhất 6 thanh)</summary>
             <ul>
