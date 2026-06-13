@@ -8078,6 +8078,29 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
     except Exception:
         partner_traits = None
 
+    # Khối đọc sâu Ngũ Uẩn cho đúng trục lá số đang luận:
+    # Mệnh là gốc vận hành của bản thân, Phu Thê là quan hệ một-một.
+    try:
+        from engine.tu_vi.interpretation import interpret_la_so
+
+        full_interpretation = interpret_la_so(la_so)
+        readings = full_interpretation.get("palace_readings", [])
+
+        def _palace_reading(name: str) -> dict | None:
+            return next((r for r in readings if r.get("palace_name") == name), None)
+
+        ngu_uan_focus = {
+            "menh": _palace_reading("Mệnh"),
+            "phu_the": _palace_reading("Phu Thê"),
+            "school": "Tử Vi Bôn Ba — quán chiếu Ngũ Uẩn",
+            "note": (
+                "Đọc Mệnh để hiểu cơ chế bản thân; đọc Phu Thê để hiểu cơ chế "
+                "quan hệ thân mật. Đây là bản đồ vận hành, không phải bản án."
+            ),
+        }
+    except Exception:
+        ngu_uan_focus = None
+
     return {
         "status": "ok",
         "person_key": person.person_key,
@@ -8090,6 +8113,7 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "v4": v4_result,
         "cross_reference": cross_ref,
         "partner_traits": partner_traits,
+        "ngu_uan_focus": ngu_uan_focus,
         "la_so": la_so,  # Full chart cho UI render 12 ô đối chiếu
     }
 

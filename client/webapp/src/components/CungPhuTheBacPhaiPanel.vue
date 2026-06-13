@@ -68,6 +68,9 @@ const thayToSu = computed(() => result.value?.thay_to_su || []);
 const crossRef = computed(() => result.value?.cross_reference || null);
 // Đặc điểm BẠN ĐỜI (vợ/chồng) — mới 2026-06-08, bundle bump 2026-06-09
 const partnerTraits = computed(() => result.value?.partner_traits || null);
+const nguUanFocus = computed(() => result.value?.ngu_uan_focus || null);
+const nguUanMenh = computed(() => nguUanFocus.value?.menh || null);
+const nguUanPhuThe = computed(() => nguUanFocus.value?.phu_the || null);
 
 // Full lá số 12 ô — đối chiếu với anlasotuvi.com
 const laSoFull = computed(() => result.value?.la_so || null);
@@ -184,6 +187,20 @@ function ruleColor(rule) {
   if (rule.is_cat === false) return "warning";
   return "warning";
 }
+
+function starLine(reading) {
+  const stars = reading?.chinh_tinh || [];
+  const hoa = reading?.hoa_attachments || [];
+  const hoaText = hoa.length
+    ? " · " + hoa.map((h) => `${h.star} Hóa ${h.hoa}`).join(", ")
+    : "";
+  return stars.length ? `${stars.join(" + ")}${hoaText}` : "Vô Chính Diệu";
+}
+
+function mieuHamLine(reading) {
+  const entries = Object.entries(reading?.mieu_ham || {});
+  return entries.map(([s, lv]) => `${s}: ${lv}`).join(" · ");
+}
 </script>
 
 <template>
@@ -236,6 +253,62 @@ function ruleColor(rule) {
           <span>Quan hệ có sức hút, tài nguyên và chí tiến thủ; Trung Châu không đọc đơn giản thành đào hoa xấu.</span>
         </figcaption>
       </figure>
+
+      <!-- Ngũ Uẩn focus — đọc đúng trục lá số: Mệnh × Phu Thê -->
+      <section v-if="nguUanMenh?.ngu_uan || nguUanPhuThe?.ngu_uan" class="card ngu-uan-focus-card">
+        <div class="ngu-uan-focus-head">
+          <div>
+            <h3>☸ Ngũ Uẩn cá nhân — Mệnh × Phu Thê</h3>
+            <p>{{ nguUanFocus?.note }}</p>
+          </div>
+          <span>{{ nguUanFocus?.school }}</span>
+        </div>
+
+        <div class="ngu-uan-focus-grid">
+          <article v-if="nguUanMenh?.ngu_uan" class="ngu-uan-focus-panel menh">
+            <div class="focus-kicker">Mệnh {{ nguUanMenh.branch }}</div>
+            <h4>{{ starLine(nguUanMenh) }}</h4>
+            <p class="focus-main">{{ nguUanMenh.main_reading }}</p>
+            <p v-if="mieuHamLine(nguUanMenh)" class="focus-level">{{ mieuHamLine(nguUanMenh) }}</p>
+            <div v-if="nguUanMenh.ngu_uan.thuan || nguUanMenh.ngu_uan.lech" class="focus-two-sides">
+              <p v-if="nguUanMenh.ngu_uan.thuan">▲ {{ nguUanMenh.ngu_uan.thuan }}</p>
+              <p v-if="nguUanMenh.ngu_uan.lech">▽ {{ nguUanMenh.ngu_uan.lech }}</p>
+            </div>
+            <details class="focus-details">
+              <summary>Sắc · Thọ · Tưởng · Hành · Thức</summary>
+              <dl>
+                <template v-for="u in nguUanMenh.ngu_uan.ngu_uan" :key="'menh-' + u.key">
+                  <dt>{{ u.label }}</dt>
+                  <dd>{{ u.text }}</dd>
+                </template>
+              </dl>
+            </details>
+          </article>
+
+          <article v-if="nguUanPhuThe?.ngu_uan" class="ngu-uan-focus-panel phu-the">
+            <div class="focus-kicker">Phu Thê {{ nguUanPhuThe.branch }}</div>
+            <h4>{{ starLine(nguUanPhuThe) }}</h4>
+            <p class="focus-main">{{ nguUanPhuThe.main_reading }}</p>
+            <p v-if="mieuHamLine(nguUanPhuThe)" class="focus-level">{{ mieuHamLine(nguUanPhuThe) }}</p>
+            <div v-if="(nguUanPhuThe.ngu_uan.hoa_notes || []).length" class="focus-hoa-notes">
+              <p v-for="(hn, i) in nguUanPhuThe.ngu_uan.hoa_notes" :key="'hn-focus-' + i">✺ {{ hn }}</p>
+            </div>
+            <div v-if="nguUanPhuThe.ngu_uan.thuan || nguUanPhuThe.ngu_uan.lech" class="focus-two-sides">
+              <p v-if="nguUanPhuThe.ngu_uan.thuan">▲ {{ nguUanPhuThe.ngu_uan.thuan }}</p>
+              <p v-if="nguUanPhuThe.ngu_uan.lech">▽ {{ nguUanPhuThe.ngu_uan.lech }}</p>
+            </div>
+            <details class="focus-details">
+              <summary>Sắc · Thọ · Tưởng · Hành · Thức</summary>
+              <dl>
+                <template v-for="u in nguUanPhuThe.ngu_uan.ngu_uan" :key="'phu-' + u.key">
+                  <dt>{{ u.label }}</dt>
+                  <dd>{{ u.text }}</dd>
+                </template>
+              </dl>
+            </details>
+          </article>
+        </div>
+      </section>
 
       <!-- Cung position + stars -->
       <div class="card cung-card">
@@ -1118,6 +1191,118 @@ function ruleColor(rule) {
   font-size: 0.84em;
 }
 
+/* ─── Ngũ Uẩn focus — Mệnh × Phu Thê ─────────────────────── */
+.ngu-uan-focus-card {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(126, 87, 194, 0.16), transparent 34%),
+    radial-gradient(circle at 88% 12%, rgba(72, 187, 120, 0.12), transparent 30%),
+    rgba(18, 14, 10, 0.78);
+  border-color: rgba(217, 185, 119, 0.30);
+}
+.ngu-uan-focus-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.ngu-uan-focus-head h3 {
+  margin-bottom: 4px;
+}
+.ngu-uan-focus-head p {
+  margin: 0;
+  max-width: 760px;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  font-size: 0.9em;
+}
+.ngu-uan-focus-head > span {
+  flex: 0 0 auto;
+  color: var(--read-han, #d9b977);
+  font-size: 0.78em;
+  font-style: italic;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+.ngu-uan-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.ngu-uan-focus-panel {
+  padding: 13px;
+  border: 1px solid rgba(217, 185, 119, 0.20);
+  border-radius: 8px;
+  background: rgba(10, 8, 6, 0.42);
+}
+.ngu-uan-focus-panel.menh {
+  border-left: 3px solid rgba(126, 87, 194, 0.82);
+}
+.ngu-uan-focus-panel.phu-the {
+  border-left: 3px solid rgba(72, 187, 120, 0.82);
+}
+.focus-kicker {
+  color: var(--read-text-faint, rgba(233, 220, 198, 0.5));
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ngu-uan-focus-panel h4 {
+  margin: 3px 0 8px;
+  color: var(--read-heading, #f3e6c8);
+  font-size: 1.02em;
+}
+.focus-main {
+  margin: 0;
+  color: var(--read-text, #e9dcc6);
+  font-size: 0.93em;
+  line-height: 1.65;
+}
+.focus-level {
+  margin: 8px 0 0;
+  color: var(--read-han, #d9b977);
+  font-size: 0.84em;
+}
+.focus-two-sides,
+.focus-hoa-notes {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+.focus-two-sides p,
+.focus-hoa-notes p {
+  margin: 0;
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: rgba(217, 185, 119, 0.08);
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+.focus-details {
+  margin-top: 10px;
+}
+.focus-details summary {
+  color: var(--read-han, #d9b977);
+  cursor: pointer;
+  font-size: 0.86em;
+  font-weight: 650;
+}
+.focus-details dl {
+  margin: 9px 0 0;
+}
+.focus-details dt {
+  margin-top: 8px;
+  color: var(--read-heading, #f3e6c8);
+  font-size: 0.84em;
+  font-weight: 700;
+}
+.focus-details dd {
+  margin: 3px 0 0;
+  color: var(--read-text-dim, rgba(233, 220, 198, 0.72));
+  font-size: 0.84em;
+  line-height: 1.58;
+}
+
 /* ─── Cung position card ──────────────────────────────────── */
 .cung-card {
   background: linear-gradient(135deg, rgba(217, 185, 119, 0.12) 0%, rgba(201, 161, 74, 0.06) 100%);
@@ -1906,6 +2091,15 @@ td .muted {
 .thay-credit strong, .source strong { color: var(--read-han, #d9b977); }
 
 @media (max-width: 680px) {
+  .ngu-uan-focus-head {
+    display: grid;
+  }
+  .ngu-uan-focus-head > span {
+    white-space: normal;
+  }
+  .ngu-uan-focus-grid {
+    grid-template-columns: 1fr;
+  }
   .phu-the-hero-art img { max-height: none; }
   .phu-the-inline-art,
   .phu-the-rule-art {
