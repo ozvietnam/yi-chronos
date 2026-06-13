@@ -68,10 +68,24 @@ def detect_menh_chi_ref(text: str) -> str | None:
 _SCOPE_TUCHINH = ["triều", "hội", "chiếu", "củng", "hiệp", "giáp", "tam hợp", "tam phương"]
 
 
+# Tên CẶP ĐỒNG CUNG cố định — luôn scope 'same' dù câu có chữ "hội/hiệp"
+# (vd "Tử Sát hội sát tinh" = Tử-Sát đồng cung rồi hội sao khác, không phải
+#  Tử và Sát hội nhau từ xa).
+_PAIR_SAME = [
+    "Tử Phủ", "Tử Tướng", "Tử Sát", "Tử Tham", "Tử Phá",
+    "Liêm Phủ", "Liêm Tướng", "Liêm Sát", "Liêm Phá", "Liêm Tham",
+    "Vũ Phủ", "Vũ Tướng", "Vũ Sát", "Vũ Phá", "Vũ Tham",
+    "Cơ Âm", "Cơ Cự", "Cơ Lương", "Đồng Âm", "Đồng Cự", "Đồng Lương",
+    "Dương Lương", "Dương Cự", "Cự Nhật", "Cự Cơ",
+]
+
+
 def detect_combo_scope(question: str) -> str:
     """Combo nhiều sao khớp ở: 'same' (đồng cung) hay 'tuchinh' (hội chiếu)."""
-    q = (question or "").lower()
-    return "tuchinh" if any(w in q for w in _SCOPE_TUCHINH) else "same"
+    q = question or ""
+    if any(p in q for p in _PAIR_SAME):
+        return "same"  # tên cặp đồng cung → ép same
+    return "tuchinh" if any(w in q.lower() for w in _SCOPE_TUCHINH) else "same"
 
 
 # Lỗ #7: atom neo VỊ TRÍ chi cụ thể. Bắt MỌI token địa chi trong question —
