@@ -40,6 +40,50 @@
         </div>
         <div v-else-if="chuDeText" class="content narrative-text mc-text" v-html="renderMarkdown(chuDeText)"></div>
         <small v-if="chuDeText" class="narrative-meta">✨ Luận gộp các mảng liên quan — mệnh là động từ: cấu trúc này vận hành mạnh nhất khi anh chủ động</small>
+
+        <!-- Sau khi nghe món tổng quan: 2 hành động đào sâu + soi mình -->
+        <div v-if="chuDeText && !chuDeLoading" class="mc-actions">
+          <button class="mc-deep-btn" :disabled="sauLoading" @click="loadChuDeSau(chuDeActive)">
+            🔍 Đào sâu — 2 trụ kinh điển + trích nguồn
+          </button>
+          <button class="mc-quiz-btn" :disabled="giaViLoading" @click="loadGiaVi(chuDeActive)">
+            💬 Soi mình — vài câu hỏi để thầy hiểu anh hơn
+          </button>
+        </div>
+
+        <!-- Món sâu: bài 2 trụ + bảng xuất xứ nguyên liệu -->
+        <div v-if="sauLoading" class="content narrative-loading">📚 Đang mở kho sách 2 trụ, đối chiếu Trung Châu × Trần Đoàn... (15-20 giây)</div>
+        <div v-else-if="sauText" class="mc-sau">
+          <div class="content narrative-text mc-text" v-html="renderMarkdown(sauText)"></div>
+          <details v-if="sauNguyenLieu.length" class="mc-nguyenlieu">
+            <summary>📜 Xuất xứ nguyên liệu ({{ sauNguyenLieu.length }} sao — sách & trang)</summary>
+            <div v-for="(n, i) in sauNguyenLieu" :key="i" class="nl-row">
+              <strong>{{ n.sao_vi }} @ {{ n.cung_vi }}</strong>
+              <span :class="['nl-badge', n.hoi_tu ? 'hoi' : 'don']">{{ n.hoi_tu ? '🟢 2 trụ hội tụ' : '⚪ 1 trụ' }}</span>
+              <ul><li v-for="(src, j) in n.nguon" :key="j">{{ src }}</li></ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- Soi mình: câu hỏi gia vị → lưu phản hồi -->
+        <div v-if="giaViLoading" class="content narrative-loading">💭 Đang chuẩn bị vài câu hỏi...</div>
+        <div v-else-if="giaViList.length" class="mc-quiz">
+          <p class="quiz-hint">Trả lời giúp thầy biết đúng/sai để lần sau luận chuẩn hơn cho riêng anh:</p>
+          <div v-for="(q, i) in giaViList" :key="i" class="quiz-row" :class="{ done: feedbackSent[q.atom_id] }">
+            <div class="quiz-q">{{ q.cau_hoi }}</div>
+            <div v-if="!feedbackSent[q.atom_id]" class="quiz-opts">
+              <button @click="sendFeedback(q, 'dung')">Đúng</button>
+              <button @click="sendFeedback(q, 'chua')">Chưa rõ</button>
+              <button @click="sendFeedback(q, 'khong')">Không</button>
+            </div>
+            <div v-else class="quiz-thanks">✓ Cảm ơn anh — đã ghi nhận</div>
+          </div>
+          <div class="quiz-tn">
+            <textarea v-model="traiNghiem" placeholder="Anh muốn kể thêm trải nghiệm của mình? (công việc, biến cố, điều đang trăn trở...) — thầy sẽ nhớ để luận sát hơn" rows="2"></textarea>
+            <button :disabled="!traiNghiem.trim()" @click="sendTraiNghiem">Gửi</button>
+          </div>
+          <p v-if="feedbackNeedLogin" class="quiz-login">💡 Đăng nhập để thầy lưu phản hồi và nhớ anh giữa các lần xem.</p>
+        </div>
       </section>
 
       <!-- Lớp 2: Vì sao -->
@@ -275,11 +319,86 @@ async function loadChuDeList() {
   } catch { /* để trống nếu lỗi */ }
 }
 
+// Món sâu 2 trụ + xuất xứ
+const sauText = ref(null)
+const sauNguyenLieu = ref([])
+const sauLoading = ref(false)
+const sauCache = {}
+// Gia vị: câu hỏi soi mình + phản hồi
+const giaViList = ref([])
+const giaViLoading = ref(false)
+const giaViCache = {}
+const feedbackSent = ref({})
+const feedbackNeedLogin = ref(false)
+const traiNghiem = ref('')
+
+function _birthBody(extra) {
+  return JSON.stringify({
+    birth_datetime_local: props.birthDatetimeLocal,
+    timezone: props.timezone, gender: props.gender, ...extra,
+  })
+}
+
+async function loadChuDeSau(slug) {
+  if (!props.birthDatetimeLocal || !slug) return
+  if (sauCache[slug]) { sauText.value = sauCache[slug].t; sauNguyenLieu.value = sauCache[slug].n; return }
+  sauLoading.value = true; sauText.value = null; sauNguyenLieu.value = []
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/chu-de-sau', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: _birthBody({ chu_de: slug }),
+    })
+    const data = await res.json()
+    if (data.narrative) {
+      sauText.value = data.narrative; sauNguyenLieu.value = data.nguyen_lieu || []
+      sauCache[slug] = { t: data.narrative, n: sauNguyenLieu.value }
+    }
+  } catch { /* lỗi → để trống */ } finally { sauLoading.value = false }
+}
+
+async function loadGiaVi(slug) {
+  if (!props.birthDatetimeLocal || !slug) return
+  if (giaViCache[slug]) { giaViList.value = giaViCache[slug]; return }
+  giaViLoading.value = true; giaViList.value = []
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/gia-vi', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: _birthBody({ chu_de: slug }),
+    })
+    const data = await res.json()
+    giaViList.value = data.cau_hoi || []; giaViCache[slug] = giaViList.value
+  } catch { /* lỗi */ } finally { giaViLoading.value = false }
+}
+
+async function sendFeedback(q, answer) {
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/feedback', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chu_de: chuDeActive.value, atom_id: q.atom_id, sao: q.sao_vi, cau_hoi: q.cau_hoi, answer }),
+    })
+    if (res.status === 401) { feedbackNeedLogin.value = true; return }
+    feedbackSent.value = { ...feedbackSent.value, [q.atom_id]: answer }
+  } catch { /* lỗi mạng */ }
+}
+
+async function sendTraiNghiem() {
+  if (!traiNghiem.value.trim()) return
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/feedback', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chu_de: chuDeActive.value, free_text: traiNghiem.value.trim() }),
+    })
+    if (res.status === 401) { feedbackNeedLogin.value = true; return }
+    traiNghiem.value = ''
+  } catch { /* lỗi */ }
+}
+
 async function loadChuDe(slug) {
   if (!props.birthDatetimeLocal) return
   chuDeActive.value = slug
   const m = chuDeList.value.find(x => x.slug === slug)
   chuDeTen.value = m ? m.ten : ''
+  // reset món sâu + gia vị khi đổi món
+  sauText.value = null; sauNguyenLieu.value = []; giaViList.value = []
+  feedbackSent.value = {}; feedbackNeedLogin.value = false; traiNghiem.value = ''
   if (chuDeCache[slug]) { chuDeText.value = chuDeCache[slug]; return }
   chuDeLoading.value = true
   chuDeText.value = null
@@ -769,6 +888,33 @@ h3 { margin-top: 0; }
 .mc-icon { font-size: 1.6em; }
 .mc-ten { font-size: 0.84em; font-weight: 500; text-align: center; line-height: 1.25; }
 .mc-text { background: #fffdf7; border-left: 3px solid #b8860b; padding: 14px 16px; border-radius: 6px; }
+.mc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.mc-deep-btn, .mc-quiz-btn { padding: 9px 16px; border-radius: 20px; border: 1.5px solid #b8860b; background: transparent; color: #8a6d1a; font: inherit; font-size: 0.9em; cursor: pointer; transition: all .15s; }
+.mc-deep-btn:hover:not(:disabled), .mc-quiz-btn:hover:not(:disabled) { background: #b8860b; color: #fff; }
+.mc-deep-btn:disabled, .mc-quiz-btn:disabled { opacity: .55; cursor: wait; }
+.mc-sau { margin-top: 12px; }
+.mc-nguyenlieu { margin-top: 10px; font-size: 0.86em; }
+.mc-nguyenlieu summary { cursor: pointer; color: #8a6d1a; font-weight: 500; padding: 6px 0; }
+.nl-row { padding: 8px 0; border-top: 1px dashed var(--read-border, #e0e0e0); }
+.nl-badge { margin-left: 8px; font-size: 0.85em; }
+.nl-badge.hoi { color: #2e7d32; } .nl-badge.don { color: #999; }
+.nl-row ul { margin: 4px 0 0; padding-left: 18px; color: var(--read-text-faint, #777); }
+.nl-row li { margin: 2px 0; }
+.mc-quiz { margin-top: 14px; padding: 14px 16px; background: #f7faff; border: 1px solid #cdd9ee; border-radius: 10px; }
+.quiz-hint { margin: 0 0 10px; font-size: 0.9em; color: #45607f; }
+.quiz-row { padding: 8px 0; border-top: 1px solid #e6edf7; }
+.quiz-row:first-of-type { border-top: none; }
+.quiz-q { font-size: 0.95em; margin-bottom: 6px; color: var(--read-text, #333); }
+.quiz-opts { display: flex; gap: 8px; }
+.quiz-opts button { padding: 4px 14px; border-radius: 14px; border: 1px solid #b0c4de; background: #fff; color: #3a5070; font: inherit; font-size: 0.85em; cursor: pointer; }
+.quiz-opts button:hover { background: #4a6fa5; color: #fff; border-color: #4a6fa5; }
+.quiz-thanks { font-size: 0.85em; color: #2e7d32; }
+.quiz-row.done { opacity: 0.7; }
+.quiz-tn { margin-top: 12px; display: flex; gap: 8px; align-items: flex-end; }
+.quiz-tn textarea { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #cdd9ee; font: inherit; font-size: 0.88em; resize: vertical; }
+.quiz-tn button { padding: 8px 16px; border-radius: 8px; border: none; background: #4a6fa5; color: #fff; font: inherit; cursor: pointer; }
+.quiz-tn button:disabled { opacity: .5; cursor: not-allowed; }
+.quiz-login { margin: 10px 0 0; font-size: 0.85em; color: #8a6d1a; }
 .hl-section { margin: 12px 0; padding: 12px 14px; background: #fffdf5; border: 1px solid #d4af37; border-radius: 8px; }
 .hl-section h4 { margin: 0 0 8px; color: #8a6d1a; }
 .hl-row { margin: 6px 0; font-size: 0.92em; line-height: 1.5; }
