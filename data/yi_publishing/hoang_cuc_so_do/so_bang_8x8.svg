@@ -1,0 +1,369 @@
+<svg viewBox="0 0 1415 936" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, STKaiti, Songti SC, serif">
+<rect width="1415" height="936" fill="#fbf7ef"/>
+<text x="707.5" y="46" text-anchor="middle" font-size="32" fill="#2a2018" font-weight="bold">BẢNG SỐ KHỞI–CHUNG CỦA TRỜI ĐẤT</text>
+<text x="707.5" y="78" text-anchor="middle" font-size="18" fill="#7a5a2a">天地始终之数表 · Hoàng Cực Kinh Thế — Thiệu Khang Tiết · 64 quẻ = 64 vị thời gian</text>
+<text x="707.5" y="104" text-anchor="middle" font-size="14" fill="#888">Số mỗi ô = S[quẻ thượng] × S[quẻ hạ] · S = [1, 12, 360, 4.320, 129.600, 1.555.200, 46.656.000, 559.872.000]</text>
+<text x="85" y="94" font-size="14" fill="#555">THƯỢNG quái →</text>
+<text x="85" y="114" font-size="13" fill="#999">(= Nguyên·Hội·Vận·Thế…)</text>
+<rect x="175" y="106" width="150" height="34" fill="#b8862a" opacity="0.92"/>
+<text x="250.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">乾 Càn</text>
+<rect x="325" y="106" width="150" height="34" fill="#c9a13b" opacity="0.92"/>
+<text x="400.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">兑 Đoài</text>
+<rect x="475" y="106" width="150" height="34" fill="#cf7d3a" opacity="0.92"/>
+<text x="550.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">离 Ly</text>
+<rect x="625" y="106" width="150" height="34" fill="#a14a3a" opacity="0.92"/>
+<text x="700.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">震 Chấn</text>
+<rect x="775" y="106" width="150" height="34" fill="#3f7d54" opacity="0.92"/>
+<text x="850.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">巽 Tốn</text>
+<rect x="925" y="106" width="150" height="34" fill="#2f5d8a" opacity="0.92"/>
+<text x="1000.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">坎 Khảm</text>
+<rect x="1075" y="106" width="150" height="34" fill="#6b5a8f" opacity="0.92"/>
+<text x="1150.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">艮 Cấn</text>
+<rect x="1225" y="106" width="150" height="34" fill="#3a3a4a" opacity="0.92"/>
+<text x="1300.0" y="128" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">坤 Khôn</text>
+<text x="34" y="508.0" font-size="14" fill="#555" transform="rotate(-90 34 508.0)" text-anchor="middle">HẠ quái ↓</text>
+<rect x="65" y="140" width="110" height="92" fill="#b8862a" opacity="0.55"/>
+<text x="120" y="182.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">乾 Càn</text>
+<text x="120" y="202.0" text-anchor="middle" font-size="12" fill="#fff">Nguyên·Nhật</text>
+<rect x="65" y="232" width="110" height="92" fill="#c9a13b" opacity="0.55"/>
+<text x="120" y="274.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">兑 Đoài</text>
+<text x="120" y="294.0" text-anchor="middle" font-size="12" fill="#fff">Hội·Nguyệt</text>
+<rect x="65" y="324" width="110" height="92" fill="#cf7d3a" opacity="0.55"/>
+<text x="120" y="366.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">离 Ly</text>
+<text x="120" y="386.0" text-anchor="middle" font-size="12" fill="#fff">Vận·Tinh</text>
+<rect x="65" y="416" width="110" height="92" fill="#a14a3a" opacity="0.55"/>
+<text x="120" y="458.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">震 Chấn</text>
+<text x="120" y="478.0" text-anchor="middle" font-size="12" fill="#fff">Thế·Thần</text>
+<rect x="65" y="508" width="110" height="92" fill="#3f7d54" opacity="0.55"/>
+<text x="120" y="550.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">巽 Tốn</text>
+<text x="120" y="570.0" text-anchor="middle" font-size="12" fill="#fff">Tuế·Thạch</text>
+<rect x="65" y="600" width="110" height="92" fill="#2f5d8a" opacity="0.55"/>
+<text x="120" y="642.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">坎 Khảm</text>
+<text x="120" y="662.0" text-anchor="middle" font-size="12" fill="#fff">Nguyệt·Thổ</text>
+<rect x="65" y="692" width="110" height="92" fill="#6b5a8f" opacity="0.55"/>
+<text x="120" y="734.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">艮 Cấn</text>
+<text x="120" y="754.0" text-anchor="middle" font-size="12" fill="#fff">Nhật·Hỏa</text>
+<rect x="65" y="784" width="110" height="92" fill="#3a3a4a" opacity="0.55"/>
+<text x="120" y="826.0" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold">坤 Khôn</text>
+<text x="120" y="846.0" text-anchor="middle" font-size="12" fill="#fff">Thời·Thủy</text>
+<rect x="175" y="140" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="250.0" y="166" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">乾</text>
+<text x="250.0" y="184" text-anchor="middle" font-size="12" fill="#555">Càn</text>
+<text x="250.0" y="204" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Nguyên</text>
+<text x="250.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">1</text>
+<rect x="175" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="258" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">夬</text>
+<text x="250.0" y="276" text-anchor="middle" font-size="12" fill="#555">Quải</text>
+<text x="250.0" y="296" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Hội</text>
+<text x="250.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">12</text>
+<rect x="175" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="350" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">大有</text>
+<text x="250.0" y="368" text-anchor="middle" font-size="12" fill="#555">Đại Hữu</text>
+<text x="250.0" y="388" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Vận</text>
+<text x="250.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">360</text>
+<rect x="175" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="442" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">大壮</text>
+<text x="250.0" y="460" text-anchor="middle" font-size="12" fill="#555">Đại Tráng</text>
+<text x="250.0" y="480" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Thế</text>
+<text x="250.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">4,320</text>
+<rect x="175" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="534" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">小畜</text>
+<text x="250.0" y="552" text-anchor="middle" font-size="12" fill="#555">Tiểu Súc</text>
+<text x="250.0" y="572" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Tuế</text>
+<text x="250.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">129,600</text>
+<rect x="175" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="626" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">需</text>
+<text x="250.0" y="644" text-anchor="middle" font-size="12" fill="#555">Nhu</text>
+<text x="250.0" y="664" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Nguyệt</text>
+<text x="250.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">1,555,200</text>
+<rect x="175" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="718" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">大畜</text>
+<text x="250.0" y="736" text-anchor="middle" font-size="12" fill="#555">Đại Súc</text>
+<text x="250.0" y="756" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Nhật</text>
+<text x="250.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">46,656,000</text>
+<rect x="175" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="250.0" y="810" text-anchor="middle" font-size="22" fill="#b8862a" font-weight="bold">泰</text>
+<text x="250.0" y="828" text-anchor="middle" font-size="12" fill="#555">Thái</text>
+<text x="250.0" y="848" text-anchor="middle" font-size="11" fill="#999">Nguyên-chi-Thời</text>
+<text x="250.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="325" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="166" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">履</text>
+<text x="400.0" y="184" text-anchor="middle" font-size="12" fill="#555">Lý</text>
+<text x="400.0" y="204" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Nguyên</text>
+<text x="400.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">12</text>
+<rect x="325" y="232" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="400.0" y="258" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">兑</text>
+<text x="400.0" y="276" text-anchor="middle" font-size="12" fill="#555">Đoài</text>
+<text x="400.0" y="296" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Hội</text>
+<text x="400.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">144</text>
+<rect x="325" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="350" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">睽</text>
+<text x="400.0" y="368" text-anchor="middle" font-size="12" fill="#555">Khuê</text>
+<text x="400.0" y="388" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Vận</text>
+<text x="400.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">4,320</text>
+<rect x="325" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="442" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">归妹</text>
+<text x="400.0" y="460" text-anchor="middle" font-size="12" fill="#555">Quy Muội</text>
+<text x="400.0" y="480" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Thế</text>
+<text x="400.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">51,840</text>
+<rect x="325" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="534" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">中孚</text>
+<text x="400.0" y="552" text-anchor="middle" font-size="12" fill="#555">Trung Phu</text>
+<text x="400.0" y="572" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Tuế</text>
+<text x="400.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">1,555,200</text>
+<rect x="325" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="626" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">节</text>
+<text x="400.0" y="644" text-anchor="middle" font-size="12" fill="#555">Tiết</text>
+<text x="400.0" y="664" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Nguyệt</text>
+<text x="400.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">18,662,400</text>
+<rect x="325" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="718" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">损</text>
+<text x="400.0" y="736" text-anchor="middle" font-size="12" fill="#555">Tổn</text>
+<text x="400.0" y="756" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Nhật</text>
+<text x="400.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="325" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="400.0" y="810" text-anchor="middle" font-size="22" fill="#c9a13b" font-weight="bold">临</text>
+<text x="400.0" y="828" text-anchor="middle" font-size="12" fill="#555">Lâm</text>
+<text x="400.0" y="848" text-anchor="middle" font-size="11" fill="#999">Hội-chi-Thời</text>
+<text x="400.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">6,718,464,000</text>
+<rect x="475" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="166" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">同人</text>
+<text x="550.0" y="184" text-anchor="middle" font-size="12" fill="#555">Đồng Nhân</text>
+<text x="550.0" y="204" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Nguyên</text>
+<text x="550.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">360</text>
+<rect x="475" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="258" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">革</text>
+<text x="550.0" y="276" text-anchor="middle" font-size="12" fill="#555">Cách</text>
+<text x="550.0" y="296" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Hội</text>
+<text x="550.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">4,320</text>
+<rect x="475" y="324" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="550.0" y="350" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">离</text>
+<text x="550.0" y="368" text-anchor="middle" font-size="12" fill="#555">Ly</text>
+<text x="550.0" y="388" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Vận</text>
+<text x="550.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">129,600</text>
+<rect x="475" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="442" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">丰</text>
+<text x="550.0" y="460" text-anchor="middle" font-size="12" fill="#555">Phong</text>
+<text x="550.0" y="480" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Thế</text>
+<text x="550.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">1,555,200</text>
+<rect x="475" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="534" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">家人</text>
+<text x="550.0" y="552" text-anchor="middle" font-size="12" fill="#555">Gia Nhân</text>
+<text x="550.0" y="572" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Tuế</text>
+<text x="550.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">46,656,000</text>
+<rect x="475" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="626" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">既济</text>
+<text x="550.0" y="644" text-anchor="middle" font-size="12" fill="#555">Ký Tế</text>
+<text x="550.0" y="664" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Nguyệt</text>
+<text x="550.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="475" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="718" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">贲</text>
+<text x="550.0" y="736" text-anchor="middle" font-size="12" fill="#555">Bí</text>
+<text x="550.0" y="756" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Nhật</text>
+<text x="550.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">16,796,160,000</text>
+<rect x="475" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="550.0" y="810" text-anchor="middle" font-size="22" fill="#cf7d3a" font-weight="bold">明夷</text>
+<text x="550.0" y="828" text-anchor="middle" font-size="12" fill="#555">Minh Di</text>
+<text x="550.0" y="848" text-anchor="middle" font-size="11" fill="#999">Vận-chi-Thời</text>
+<text x="550.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">201,553,920,000</text>
+<rect x="625" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="166" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">无妄</text>
+<text x="700.0" y="184" text-anchor="middle" font-size="12" fill="#555">Vô Vọng</text>
+<text x="700.0" y="204" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Nguyên</text>
+<text x="700.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">4,320</text>
+<rect x="625" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="258" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">随</text>
+<text x="700.0" y="276" text-anchor="middle" font-size="12" fill="#555">Tùy</text>
+<text x="700.0" y="296" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Hội</text>
+<text x="700.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">51,840</text>
+<rect x="625" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="350" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">噬嗑</text>
+<text x="700.0" y="368" text-anchor="middle" font-size="12" fill="#555">Phệ Hạp</text>
+<text x="700.0" y="388" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Vận</text>
+<text x="700.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">1,555,200</text>
+<rect x="625" y="416" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="700.0" y="442" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">震</text>
+<text x="700.0" y="460" text-anchor="middle" font-size="12" fill="#555">Chấn</text>
+<text x="700.0" y="480" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Thế</text>
+<text x="700.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">18,662,400</text>
+<rect x="625" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="534" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">益</text>
+<text x="700.0" y="552" text-anchor="middle" font-size="12" fill="#555">Ích</text>
+<text x="700.0" y="572" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Tuế</text>
+<text x="700.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="625" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="626" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">屯</text>
+<text x="700.0" y="644" text-anchor="middle" font-size="12" fill="#555">Truân</text>
+<text x="700.0" y="664" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Nguyệt</text>
+<text x="700.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">6,718,464,000</text>
+<rect x="625" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="718" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">颐</text>
+<text x="700.0" y="736" text-anchor="middle" font-size="12" fill="#555">Di</text>
+<text x="700.0" y="756" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Nhật</text>
+<text x="700.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">201,553,920,000</text>
+<rect x="625" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="700.0" y="810" text-anchor="middle" font-size="22" fill="#a14a3a" font-weight="bold">复</text>
+<text x="700.0" y="828" text-anchor="middle" font-size="12" fill="#555">Phục</text>
+<text x="700.0" y="848" text-anchor="middle" font-size="11" fill="#999">Thế-chi-Thời</text>
+<text x="700.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">2,418,647,040,000</text>
+<rect x="775" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="166" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">姤</text>
+<text x="850.0" y="184" text-anchor="middle" font-size="12" fill="#555">Cấu</text>
+<text x="850.0" y="204" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Nguyên</text>
+<text x="850.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">129,600</text>
+<rect x="775" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="258" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">大过</text>
+<text x="850.0" y="276" text-anchor="middle" font-size="12" fill="#555">Đại Quá</text>
+<text x="850.0" y="296" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Hội</text>
+<text x="850.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">1,555,200</text>
+<rect x="775" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="350" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">鼎</text>
+<text x="850.0" y="368" text-anchor="middle" font-size="12" fill="#555">Đỉnh</text>
+<text x="850.0" y="388" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Vận</text>
+<text x="850.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">46,656,000</text>
+<rect x="775" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="442" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">恒</text>
+<text x="850.0" y="460" text-anchor="middle" font-size="12" fill="#555">Hằng</text>
+<text x="850.0" y="480" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Thế</text>
+<text x="850.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="775" y="508" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="850.0" y="534" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">巽</text>
+<text x="850.0" y="552" text-anchor="middle" font-size="12" fill="#555">Tốn</text>
+<text x="850.0" y="572" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Tuế</text>
+<text x="850.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">16,796,160,000</text>
+<rect x="775" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="626" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">井</text>
+<text x="850.0" y="644" text-anchor="middle" font-size="12" fill="#555">Tỉnh</text>
+<text x="850.0" y="664" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Nguyệt</text>
+<text x="850.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">201,553,920,000</text>
+<rect x="775" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="718" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">蛊</text>
+<text x="850.0" y="736" text-anchor="middle" font-size="12" fill="#555">Cổ</text>
+<text x="850.0" y="756" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Nhật</text>
+<text x="850.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">6,046,617,600,000</text>
+<rect x="775" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="850.0" y="810" text-anchor="middle" font-size="22" fill="#3f7d54" font-weight="bold">升</text>
+<text x="850.0" y="828" text-anchor="middle" font-size="12" fill="#555">Thăng</text>
+<text x="850.0" y="848" text-anchor="middle" font-size="11" fill="#999">Tuế-chi-Thời</text>
+<text x="850.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">72,559,411,200,000</text>
+<rect x="925" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="166" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">讼</text>
+<text x="1000.0" y="184" text-anchor="middle" font-size="12" fill="#555">Tụng</text>
+<text x="1000.0" y="204" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Nguyên</text>
+<text x="1000.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">1,555,200</text>
+<rect x="925" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="258" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">困</text>
+<text x="1000.0" y="276" text-anchor="middle" font-size="12" fill="#555">Khốn</text>
+<text x="1000.0" y="296" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Hội</text>
+<text x="1000.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">18,662,400</text>
+<rect x="925" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="350" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">未济</text>
+<text x="1000.0" y="368" text-anchor="middle" font-size="12" fill="#555">Vị Tế</text>
+<text x="1000.0" y="388" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Vận</text>
+<text x="1000.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="925" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="442" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">解</text>
+<text x="1000.0" y="460" text-anchor="middle" font-size="12" fill="#555">Giải</text>
+<text x="1000.0" y="480" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Thế</text>
+<text x="1000.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">6,718,464,000</text>
+<rect x="925" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="534" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">涣</text>
+<text x="1000.0" y="552" text-anchor="middle" font-size="12" fill="#555">Hoán</text>
+<text x="1000.0" y="572" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Tuế</text>
+<text x="1000.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">201,553,920,000</text>
+<rect x="925" y="600" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="1000.0" y="626" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">坎</text>
+<text x="1000.0" y="644" text-anchor="middle" font-size="12" fill="#555">Khảm</text>
+<text x="1000.0" y="664" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Nguyệt</text>
+<text x="1000.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">2,418,647,040,000</text>
+<rect x="925" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="718" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">蒙</text>
+<text x="1000.0" y="736" text-anchor="middle" font-size="12" fill="#555">Mông</text>
+<text x="1000.0" y="756" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Nhật</text>
+<text x="1000.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">72,559,411,200,000</text>
+<rect x="925" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1000.0" y="810" text-anchor="middle" font-size="22" fill="#2f5d8a" font-weight="bold">师</text>
+<text x="1000.0" y="828" text-anchor="middle" font-size="12" fill="#555">Sư</text>
+<text x="1000.0" y="848" text-anchor="middle" font-size="11" fill="#999">Nguyệt-chi-Thời</text>
+<text x="1000.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">870,712,934,400,000</text>
+<rect x="1075" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="166" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">遁</text>
+<text x="1150.0" y="184" text-anchor="middle" font-size="12" fill="#555">Độn</text>
+<text x="1150.0" y="204" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Nguyên</text>
+<text x="1150.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">46,656,000</text>
+<rect x="1075" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="258" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">咸</text>
+<text x="1150.0" y="276" text-anchor="middle" font-size="12" fill="#555">Hàm</text>
+<text x="1150.0" y="296" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Hội</text>
+<text x="1150.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="1075" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="350" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">旅</text>
+<text x="1150.0" y="368" text-anchor="middle" font-size="12" fill="#555">Lữ</text>
+<text x="1150.0" y="388" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Vận</text>
+<text x="1150.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">16,796,160,000</text>
+<rect x="1075" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="442" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">小过</text>
+<text x="1150.0" y="460" text-anchor="middle" font-size="12" fill="#555">Tiểu Quá</text>
+<text x="1150.0" y="480" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Thế</text>
+<text x="1150.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">201,553,920,000</text>
+<rect x="1075" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="534" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">渐</text>
+<text x="1150.0" y="552" text-anchor="middle" font-size="12" fill="#555">Tiệm</text>
+<text x="1150.0" y="572" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Tuế</text>
+<text x="1150.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">6,046,617,600,000</text>
+<rect x="1075" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="626" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">蹇</text>
+<text x="1150.0" y="644" text-anchor="middle" font-size="12" fill="#555">Kiển</text>
+<text x="1150.0" y="664" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Nguyệt</text>
+<text x="1150.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">72,559,411,200,000</text>
+<rect x="1075" y="692" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="1150.0" y="718" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">艮</text>
+<text x="1150.0" y="736" text-anchor="middle" font-size="12" fill="#555">Cấn</text>
+<text x="1150.0" y="756" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Nhật</text>
+<text x="1150.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">2,176,782,336,000,000</text>
+<rect x="1075" y="784" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1150.0" y="810" text-anchor="middle" font-size="22" fill="#6b5a8f" font-weight="bold">谦</text>
+<text x="1150.0" y="828" text-anchor="middle" font-size="12" fill="#555">Khiêm</text>
+<text x="1150.0" y="848" text-anchor="middle" font-size="11" fill="#999">Nhật-chi-Thời</text>
+<text x="1150.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">26,121,388,032,000,000</text>
+<rect x="1225" y="140" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="166" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">否</text>
+<text x="1300.0" y="184" text-anchor="middle" font-size="12" fill="#555">Bĩ</text>
+<text x="1300.0" y="204" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Nguyên</text>
+<text x="1300.0" y="222" text-anchor="middle" font-size="12" fill="#7a5a2a">559,872,000</text>
+<rect x="1225" y="232" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="258" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">萃</text>
+<text x="1300.0" y="276" text-anchor="middle" font-size="12" fill="#555">Tụy</text>
+<text x="1300.0" y="296" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Hội</text>
+<text x="1300.0" y="314" text-anchor="middle" font-size="12" fill="#7a5a2a">6,718,464,000</text>
+<rect x="1225" y="324" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="350" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">晋</text>
+<text x="1300.0" y="368" text-anchor="middle" font-size="12" fill="#555">Tấn</text>
+<text x="1300.0" y="388" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Vận</text>
+<text x="1300.0" y="406" text-anchor="middle" font-size="12" fill="#7a5a2a">201,553,920,000</text>
+<rect x="1225" y="416" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="442" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">豫</text>
+<text x="1300.0" y="460" text-anchor="middle" font-size="12" fill="#555">Dự</text>
+<text x="1300.0" y="480" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Thế</text>
+<text x="1300.0" y="498" text-anchor="middle" font-size="12" fill="#7a5a2a">2,418,647,040,000</text>
+<rect x="1225" y="508" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="534" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">观</text>
+<text x="1300.0" y="552" text-anchor="middle" font-size="12" fill="#555">Quán</text>
+<text x="1300.0" y="572" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Tuế</text>
+<text x="1300.0" y="590" text-anchor="middle" font-size="12" fill="#7a5a2a">72,559,411,200,000</text>
+<rect x="1225" y="600" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="626" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">比</text>
+<text x="1300.0" y="644" text-anchor="middle" font-size="12" fill="#555">Tỷ</text>
+<text x="1300.0" y="664" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Nguyệt</text>
+<text x="1300.0" y="682" text-anchor="middle" font-size="12" fill="#7a5a2a">870,712,934,400,000</text>
+<rect x="1225" y="692" width="150" height="92" fill="#fff" stroke="#d8cdb5"/>
+<text x="1300.0" y="718" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">剥</text>
+<text x="1300.0" y="736" text-anchor="middle" font-size="12" fill="#555">Bác</text>
+<text x="1300.0" y="756" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Nhật</text>
+<text x="1300.0" y="774" text-anchor="middle" font-size="12" fill="#7a5a2a">26,121,388,032,000,000</text>
+<rect x="1225" y="784" width="150" height="92" fill="#fdeccd" stroke="#d8cdb5"/>
+<text x="1300.0" y="810" text-anchor="middle" font-size="22" fill="#3a3a4a" font-weight="bold">坤</text>
+<text x="1300.0" y="828" text-anchor="middle" font-size="12" fill="#555">Khôn</text>
+<text x="1300.0" y="848" text-anchor="middle" font-size="11" fill="#999">Thời-chi-Thời</text>
+<text x="1300.0" y="866" text-anchor="middle" font-size="12" fill="#7a5a2a">313,456,656,384,000,000</text>
+</svg>
