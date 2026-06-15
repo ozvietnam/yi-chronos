@@ -4,28 +4,25 @@ Cấu trúc (Quan Vật Nội Thiên + truyền thống chuẩn hóa):
     1 nguyên = 12 hội · 1 hội = 30 vận · 1 vận = 12 thế · 1 thế = 30 năm
     → 1 vận = 360 năm · 1 hội = 10.800 năm · 1 nguyên = 129.600 năm
 
-MỐC QUY CHIẾU (trích từ bản dịch 今说, tr.149 & tr.185):
-    "Hiện nay... hội thứ bảy của Ngọ, vận 186, thế 2227, năm Canh Thân thứ 16"
-    → Canh Thân thời tác giả = 1980 CN.
-    Kiểm chéo nội tại: ceil(186/30)=7 (hội Ngọ) ✓ · ceil(2227/12)=186 ✓
-    Kiểm chéo văn bản: "Nghiêu Giáp Thìn ở cuối hội Tỵ" (tr.149) ✓ với epoch này.
+MỐC QUY CHIẾU (NEO LẠI 2026 — trích trực tiếp bảng 经世 trong tự tự bộ trọn
+Thượng-Hạ, dẫn 何氏《皇极经世解知要》观物篇三十三 以运经世, PDF p16/in tr.11):
+    经元之甲一 · 经会之午七 · 经运之辛【188】· 经世之子【2245】(一世为三十年)
+    "晋怀帝...岁逢甲子, 年卦为萃" → năm GIÁP TÝ = 304 CN (Lưu Uyên xưng Hán).
+    → 304 CN = Nguyên Giáp-1 · Hội NGỌ-7 · Vận 188 · Thế 2245, NĂM 1 của thế.
+    (10 năm 甲子→癸酉 = 304-313 là đầu thế 2245.)
+    Tự kiểm nội tại: ceil(2245/12)=188 (vận) ✓ · ceil(188/30)=7 (hội Ngọ) ✓
 
-Suy ra: năm-trong-nguyên của 1980 = (2227-1)*30 + 16 = 66.796
-        → năm đầu nguyên (astronomical) = 1980 - 66796 + 1 = -64815 (= 64.816 TCN)
+Suy ra NGUYEN_START_ASTRO = 304 - ((2245-1)*30 + 1) + 1 = -67016 (= 67017 TCN).
+Kiểm chéo văn bản (ĐỀU KHỚP):
+  · Nghiêu 2357 TCN → hội Tỵ (6), cuối hội — "trước Ngọ hội ngôi Nghiêu Thuấn" (tr.185) ✓
+  · Hạ Vũ ~2070 TCN → đầu hội Ngọ (hội Ngọ khởi ~2217 TCN) — "午会由禹至今" (tr.185) ✓
+  · 304 CN → thế 2245 vận 188 hội Ngọ ✓ (chính mốc neo)
 
-⚠ Bảng PHỐI QUẺ vận/thế (60 quẻ trừ Càn Khôn Khảm Ly): CHƯA nhập —
-   nằm ở phần sau sách, sẽ trích khi đọc sâu tới (KHÔNG bịa).
+(Anchor CŨ "1980=vận186/thế2227" SAI — misread; đã thay. Lệch ~74 thế so với sách.)
 
-🚨 ANCHOR NGHI VẤN (phát hiện 2026, khi vẽ lại chương 3 "trị-loạn vạn năm"):
-   Mốc "1980 = vận 186" MÂU THUẪN toán học với lời sách (md p0185, Hoàng thị):
-   "午会由禹至今" = hội Ngọ tính từ HẠ VŨ (~2070 TCN) đến nay.
-   Nếu hội Ngọ (vận 181+) khởi ~2070 TCN thì vận 186 phải ~270 TCN, KHÔNG thể 1980 CN.
-   → Anchor hiện tại đặt ranh hội Tỵ/Ngọ ~năm 0 CN, lệch ~2000 năm so với "Ngọ từ Vũ".
-   → CẦN NEO LẠI theo niên đại truyền thống Thiệu Ung (bảng 经世 tập Trung/Hạ — chưa có).
-   Phần ĐÚNG hiện tại: Nghiêu (2357 TCN) rơi cuối hội Tỵ — khớp "trước Ngọ hội ngôi Nghiêu Thuấn".
-   Phần SAI: con số tuyệt đối của ranh hội + vận/thế hiện tại. Dùng locate_year() cho
-   suy-cấp ĐỊNH TÍNH thì OK; cho năm tuyệt đối thì CHƯA tin được tới khi neo lại.
-   Chi tiết: docs/design + data/yi_publishing/hoang_cuc_so_do/sach/chuong-03-*.md
+⚠ Bảng PHỐI QUẺ vận/thế (năm-quẻ như 304=萃 Tụy): hệ năm-quẻ chi tiết — sẽ trích
+   từ bảng 经世 đầy đủ khi OCR xong bộ trọn (data/yi_publishing_mineru/hoang-cuc-kinh-the-toan-bo).
+   Hội-quẻ (12 bích quái) đã có; hội Ngọ = Cấu.
 """
 from __future__ import annotations
 
@@ -38,11 +35,11 @@ NAM_MOI_VAN = NAM_MOI_THE * THE_MOI_VAN          # 360
 NAM_MOI_HOI = NAM_MOI_VAN * VAN_MOI_HOI          # 10 800
 NAM_MOI_NGUYEN = NAM_MOI_HOI * HOI_MOI_NGUYEN    # 129 600
 
-# Mốc từ sách (tr.149, tr.185 bản dịch 今说)
-ANCHOR_YEAR = 1980          # Canh Thân
-ANCHOR_THE = 2227           # thế thứ 2227 của nguyên
-ANCHOR_NAM_TRONG_THE = 16   # năm thứ 16 trong thế
-ANCHOR_CITATION = "皇极经世书今说 tr.149 & tr.185 (bản dịch yi-chronos)"
+# Mốc neo lại 2026 — bảng 经世 trong tự tự bộ trọn Thượng-Hạ (PDF p16/in tr.11)
+ANCHOR_YEAR = 304           # Giáp Tý — Lưu Uyên xưng Hán (晋怀帝, 304 CN)
+ANCHOR_THE = 2245           # thế thứ 2245 của nguyên
+ANCHOR_NAM_TRONG_THE = 1    # 304 = năm đầu của thế 2245 (甲子 khởi thế)
+ANCHOR_CITATION = "皇极经世书今说 trọn bộ, tự tự p16 (何氏皇极经世解知要 · 以运经世): 元甲1·会午7·运188·世2245, 甲子=304 CN"
 
 # Năm đầu nguyên hiện tại (astronomical year: 0 = 1 TCN)
 NGUYEN_START_ASTRO = ANCHOR_YEAR - ((ANCHOR_THE - 1) * NAM_MOI_THE + ANCHOR_NAM_TRONG_THE) + 1
