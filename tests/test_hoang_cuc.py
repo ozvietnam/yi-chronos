@@ -7,6 +7,11 @@ import pytest
 
 from engine.hoang_cuc.constants import NAM_MOI_NGUYEN, NGUYEN_START_ASTRO, can_chi_year
 from engine.hoang_cuc.nguyen_hoi_van_the import locate_year, timeline
+from engine.hoang_cuc.nam_que import (
+    NAM_QUE_2020_2103,
+    NAM_QUE_CHINH_VAN,
+    nam_que,
+)
 
 
 def test_anchor_304_khop_sach():
@@ -68,3 +73,32 @@ def test_timeline_marks():
     marks = timeline(1900, 2100)
     assert 6 <= len(marks) <= 9
     assert all(m["hoi_chi"] == "Ngọ" for m in marks)
+
+
+# ── Năm-quẻ (值年卦) ──────────────────────────────────────────
+
+def test_nam_que_kiem_cheo_chinh_van():
+    """KIỂM CHÉO cốt lõi: chính văn 304-313 ≡ bảng hiện đại 2025-2034."""
+    a = [NAM_QUE_CHINH_VAN[y] for y in range(304, 314)]
+    b = [NAM_QUE_2020_2103[y] for y in range(2025, 2035)]
+    assert a == b == ["革", "同人", "临", "损", "节", "中孚", "归妹", "睽", "兑", "履"]
+
+
+def test_nam_que_long_theo_van_the():
+    """Cùng Giáp Tý mà khác quẻ → không phải vòng can-chi cố định."""
+    assert nam_que(304)["han"] == "革"      # Giáp Tý
+    assert nam_que(2044)["han"] == "大过"    # Giáp Tý khác → khác quẻ
+
+
+def test_nam_que_dung_60_que():
+    """Bảng dùng đúng 60 quẻ (64 bỏ 4 thuần 乾坤坎离)."""
+    assert len(set(NAM_QUE_2020_2103.values())) == 60
+    assert not ({"乾", "坤", "坎", "离"} & set(NAM_QUE_2020_2103.values()))
+
+
+def test_nam_que_trung_thuc_none():
+    """Ngoài nguồn xác → None (không bịa). 2026 = Đồng Nhân."""
+    assert nam_que(1988) is None      # quá khứ Anh, chưa có nguồn
+    assert nam_que(1500) is None
+    assert nam_que(2026)["viet"] == "Đồng Nhân"
+    assert nam_que(2044)["suspect"] is True  # nghi lỗi bảng
