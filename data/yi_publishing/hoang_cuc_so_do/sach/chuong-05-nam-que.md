@@ -14,7 +14,7 @@ Chương 4 nói "hai đồng hồ" — mùa trời (vận) và đời người �
 
 Năm-quẻ (值年卦) dùng **60 quẻ** — tức 64 quẻ **bỏ 4 quẻ thuần** 乾·坤·坎·离 (chính văn tr.335: *"皇极所用的卦数…去乾坤坎离四卦不用，六十四去四为六十卦"*).
 
-Điều dễ tưởng nhầm: 60 quẻ ↔ 60 năm Giáp Tý, vậy cứ năm Giáp Tý là một quẻ cố định? **SAI.** Bằng chứng cứng:
+Điều dễ tưởng nhầm: 60 quẻ ứng 60 năm Giáp Tý, vậy cứ năm Giáp Tý là một quẻ cố định? **SAI.** Bằng chứng cứng:
 
 | Năm Giáp Tý | Năm-quẻ |
 |---|---|
