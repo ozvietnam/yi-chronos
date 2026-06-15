@@ -65,7 +65,8 @@ def _laso_cache_key(la_so_input: dict) -> str:
         "vd": (la_so_input.get("vong_doi") or {}).get("slug"),
         "tuoi": (la_so_input.get("vong_doi") or {}).get("tuoi_mu"),
         "tn": [t.get("loai") for t in (la_so_input.get("tin_hieu_nam") or [])],
-        "pv": "khaivi-v3",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
+        "hl": [h.get("loai") + h.get("vi_tri", "") for h in (la_so_input.get("highlights") or [])],
+        "pv": "khaivi-v4",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -127,6 +128,15 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
         for th in (la_so_input.get("tin_hieu_nam") or []):
             parts.append(f"## Tín hiệu năm xem [{th['sac_thai']}]: {th['nhac']}")
         parts.append("⚠ Nếu có tín hiệu LƯU Ý, BẮT BUỘC cặp kèm 1 điểm tích cực — đồng cảm, KHÔNG hù dọa.")
+        parts.append("")
+
+    # ĐIỂM NỔI BẬT toàn lá (engine quét) — kể ƯU TIÊN, đây là cái đắt nhất của riêng người này
+    hls = la_so_input.get("highlights") or []
+    if hls:
+        parts.append("## ⭐⭐ ĐIỂM NỔI BẬT NHẤT của lá số này (BẮT BUỘC ưu tiên đưa vào bài, "
+                     "đặc biệt cái xếp đầu — đây là nét đắt nhất của riêng người này, đừng kể dàn trải):")
+        for h in hls:
+            parts.append(f"- [{h['vi_tri']}] {h['mo_ta']}")
         parts.append("")
 
     parts.append("## Dữ kiện paradigm (engine tính):")

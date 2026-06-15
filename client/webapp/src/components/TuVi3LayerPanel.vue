@@ -41,6 +41,15 @@
       <section class="lop-3">
         <h3>📚 Dẫn chứng từ sách cổ</h3>
 
+        <!-- Điểm nổi bật toàn lá (engine quét — luôn hiện trước) -->
+        <div v-if="highlights.length" class="hl-section">
+          <h4>⭐ Điểm nổi bật nhất lá số</h4>
+          <div v-for="(h, i) in highlights" :key="i" class="hl-row">
+            <span class="hl-vitri">{{ h.vi_tri }}</span>
+            <span class="hl-mota">{{ h.mo_ta }}</span>
+          </div>
+        </div>
+
         <!-- Tóm tắt + tên cách cục (luôn hiện, súc tích) -->
         <div v-if="cachCucNamed.length" class="cc-summary">
           🏆 Cách cục trong lá số:
@@ -282,6 +291,7 @@ function formatFn(f) {
 
 const tuHoa = computed(() => result.value?.la_so_input?.tu_hoa || [])
 const cachCucNamed = computed(() => result.value?.lop_3_sach_co?.cach_cuc_named || [])
+const highlights = computed(() => result.value?.highlights || [])
 // Bộ phụ tinh: chỉ hiện cung có bộ ĐÁNG KỂ (đủ cặp, hoặc sát/hung)
 const boPhuTinhList = computed(() => {
   const all = result.value?.lop_3_sach_co?.bo_phu_tinh_per_palace || {}
@@ -684,6 +694,11 @@ h3 { margin-top: 0; }
   text-align: left;
 }
 .atoms-toggle:hover { background: #f0ebfa; }
+.hl-section { margin: 12px 0; padding: 12px 14px; background: #fffdf5; border: 1px solid #d4af37; border-radius: 8px; }
+.hl-section h4 { margin: 0 0 8px; color: #8a6d1a; }
+.hl-row { margin: 6px 0; font-size: 0.92em; line-height: 1.5; }
+.hl-vitri { display: inline-block; min-width: 64px; padding: 1px 8px; margin-right: 8px; background: #f0e6c0; color: #6a5212; border-radius: 8px; font-size: 0.85em; font-weight: 500; }
+.hl-mota { color: #3a3a38; }
 .cc-summary { margin: 6px 0 4px; font-size: 0.92em; color: #444; }
 .cc-chip {
   display: inline-block; margin: 0 4px; padding: 2px 10px;

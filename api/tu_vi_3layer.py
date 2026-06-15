@@ -271,6 +271,12 @@ async def render_from_birth(birth: BirthInput) -> dict:
     }
     result = render_3_layer(la_so_input)
     result["la_so_input"] = la_so_input
+    # Quét điểm nổi bật toàn lá (cho cả UI lẫn narrative dùng chung)
+    try:
+        from engine.tu_vi.highlights import quet_diem_noi_bat
+        result["highlights"] = quet_diem_noi_bat(la_so_input, result, top_n=6)
+    except Exception:
+        result["highlights"] = []
     return result
 
 
@@ -321,6 +327,8 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
     from engine.tu_vi.vong_doi import CHI as _VD_CHI
     _chi_vi = _VD_CHI[IDX_TO_CHI.index(ls_in["chi"])] if ls_in.get("chi") in IDX_TO_CHI else None
     ls_in["tin_hieu_nam"] = tin_hieu_nam_xem(_chi_vi, nam_xem, tuoi_mu, gender_c) if _chi_vi else []
+    # Điểm nổi bật toàn lá — render_from_birth đã quét, dùng lại (top 5 cho khai vị)
+    ls_in["highlights"] = (base.get("highlights") or [])[:5]
     result = generate_narrative(base, ls_in, force=birth.force)
     return {
         "narrative": result["narrative"],
