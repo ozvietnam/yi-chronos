@@ -22,6 +22,26 @@
         <small v-if="narrative" class="narrative-meta">✨ AI luận theo paradigm đọc đồng dạng — mệnh 7 phần, người 3 phần · bám {{ result.metadata.atoms_pulled }} trích sách</small>
       </section>
 
+      <!-- Món chính: luận theo CHỦ ĐỀ ĐỜI SỐNG — bấm món nào nấu món đó -->
+      <section class="mon-chinh">
+        <h3>🍽️ Luận sâu theo chủ đề</h3>
+        <p class="mc-hint">Chọn một mảng đời anh muốn nghe kỹ — thầy sẽ luận riêng từng món.</p>
+        <div class="mc-cards">
+          <button v-for="m in chuDeList" :key="m.slug"
+                  :class="['mc-card', { active: chuDeActive === m.slug }]"
+                  :disabled="chuDeLoading"
+                  @click="loadChuDe(m.slug)">
+            <span class="mc-icon">{{ m.icon }}</span>
+            <span class="mc-ten">{{ m.ten }}</span>
+          </button>
+        </div>
+        <div v-if="chuDeLoading" class="content narrative-loading">
+          ✍️ Đang luận món "{{ chuDeTen }}" từ kho sách... (10-15 giây)
+        </div>
+        <div v-else-if="chuDeText" class="content narrative-text mc-text" v-html="renderMarkdown(chuDeText)"></div>
+        <small v-if="chuDeText" class="narrative-meta">✨ Luận gộp các mảng liên quan — mệnh là động từ: cấu trúc này vận hành mạnh nhất khi anh chủ động</small>
+      </section>
+
       <!-- Lớp 2: Vì sao -->
       <section class="lop-2">
         <h3>💡 Lớp 2 — Vì sao</h3>
@@ -239,6 +259,48 @@ const narrative = ref(null)
 const narrativeLoading = ref(false)
 const showAtoms = ref(false)  // dẫn chứng thô ẩn mặc định — atoms là hậu trường
 
+// Món chính theo chủ đề
+const chuDeList = ref([])
+const chuDeActive = ref(null)
+const chuDeText = ref(null)
+const chuDeTen = ref('')
+const chuDeLoading = ref(false)
+const chuDeCache = {}  // slug → narrative đã luận (đỡ gọi lại trong phiên)
+
+async function loadChuDeList() {
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/chu-de')
+    const data = await res.json()
+    chuDeList.value = data.chu_de || []
+  } catch { /* để trống nếu lỗi */ }
+}
+
+async function loadChuDe(slug) {
+  if (!props.birthDatetimeLocal) return
+  chuDeActive.value = slug
+  const m = chuDeList.value.find(x => x.slug === slug)
+  chuDeTen.value = m ? m.ten : ''
+  if (chuDeCache[slug]) { chuDeText.value = chuDeCache[slug]; return }
+  chuDeLoading.value = true
+  chuDeText.value = null
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/chu-de', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        birth_datetime_local: props.birthDatetimeLocal,
+        timezone: props.timezone,
+        gender: props.gender,
+        chu_de: slug,
+      }),
+    })
+    const data = await res.json()
+    if (data.narrative) { chuDeText.value = data.narrative; chuDeCache[slug] = data.narrative }
+  } catch { /* lỗi → để trống */ } finally {
+    chuDeLoading.value = false
+  }
+}
+
 async function loadNarrative() {
   if (!props.birthDatetimeLocal) return
   narrativeLoading.value = true
@@ -409,6 +471,9 @@ async function load() {
     if (data.detail) throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail))
     result.value = data
     narrative.value = null  // reset khi đổi lá số
+    // Reset món chính khi đổi lá số (cache theo phiên giữ riêng, nhưng UI về trạng thái chọn)
+    chuDeActive.value = null; chuDeText.value = null
+    Object.keys(chuDeCache).forEach(k => delete chuDeCache[k])
     // Bài luận mượt là MẶC ĐỊNH — tự chạy ngay sau khi có lá số
     if (props.birthDatetimeLocal) loadNarrative()
   } catch (e) {
@@ -418,7 +483,7 @@ async function load() {
   }
 }
 
-onMounted(() => { loadGlossary(); load(); })
+onMounted(() => { loadGlossary(); loadChuDeList(); load(); })
 watch(() => props.birthDatetimeLocal, load)
 </script>
 
@@ -694,6 +759,16 @@ h3 { margin-top: 0; }
   text-align: left;
 }
 .atoms-toggle:hover { background: #f0ebfa; }
+.mon-chinh { margin: 18px 0; }
+.mc-hint { margin: 2px 0 10px; color: var(--read-text-faint); font-size: 0.9em; }
+.mc-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.mc-card { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 110px; padding: 12px 14px; background: var(--read-surface, #fff); border: 1.5px solid var(--read-border, #d8d8d8); border-radius: 12px; cursor: pointer; transition: all .15s; font: inherit; color: var(--read-text, #333); }
+.mc-card:hover:not(:disabled) { border-color: #b8860b; transform: translateY(-2px); box-shadow: 0 3px 10px rgba(0,0,0,.08); }
+.mc-card.active { border-color: #b8860b; background: #fffaf0; box-shadow: 0 2px 8px rgba(184,134,11,.18); }
+.mc-card:disabled { opacity: .55; cursor: wait; }
+.mc-icon { font-size: 1.6em; }
+.mc-ten { font-size: 0.84em; font-weight: 500; text-align: center; line-height: 1.25; }
+.mc-text { background: #fffdf7; border-left: 3px solid #b8860b; padding: 14px 16px; border-radius: 6px; }
 .hl-section { margin: 12px 0; padding: 12px 14px; background: #fffdf5; border: 1px solid #d4af37; border-radius: 8px; }
 .hl-section h4 { margin: 0 0 8px; color: #8a6d1a; }
 .hl-row { margin: 6px 0; font-size: 0.92em; line-height: 1.5; }

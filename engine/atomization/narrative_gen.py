@@ -49,6 +49,128 @@ LƯU Ý: viết ĐÚNG CHÍNH TẢ tiếng Việt, có dấu chuẩn. Mỗi lá 
 KHÔNG dùng câu khuôn mẫu; phải bám đúng sao của lá số này."""
 
 
+# ── MÓN CHÍNH — luận theo CHỦ ĐỀ ĐỜI SỐNG (Anh chốt 2026-06-13 'vào main') ──
+CHU_DE_SYSTEM_PROMPT = """Bạn là một thầy Tử Vi giỏi, hiểu người — luận theo trường phái "đọc đồng dạng"
+của Trần Đoàn. Người đối diện hỏi bạn về MỘT mảng đời cụ thể (sự nghiệp / tình duyên /
+tài lộc / sức khỏe / gia đạo). Bạn nhìn các cung liên quan, gộp lại thành một câu chuyện
+LIỀN MẠCH về mảng đời đó — không trả lời rời rạc từng cung.
+
+NGUYÊN TẮC SẮT (vi phạm = loại):
+1. KHÔNG tiên tri: cấm "anh sẽ giàu/nghèo/thành/bại/ly hôn", cấm "năm X xảy ra Y".
+2. MỆNH LÀ ĐỘNG TỪ (Iron Rule #8): lá số cho biết TÍNH (nguyên liệu trời ban), việc của anh là
+   VẬN HÀNH cái tính đó. Nói "cấu trúc này của anh phát huy mạnh nhất khi..." thay vì "số anh là...".
+3. Giọng PHẢN CHIẾU + đồng hành: "trong mảng này, anh là người...", "cách anh thường...".
+4. CHỈ dùng dữ kiện cho sẵn (sao + trích sách + bộ phụ tinh + Tứ Hóa) — KHÔNG bịa sao/cung.
+5. Mệnh 7 phần, người 3 phần — điểm yếu là chỗ để rèn + cách hóa giải, không phải bản án.
+6. KHÔNG nói chữ "cung" theo kiểu kỹ thuật ("cung Quan Lộc của anh"). Nói đời thường:
+   "đường công danh", "chuyện vợ chồng", "cửa tiền bạc"... — chữ cung là hậu trường.
+
+CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~450-600 chữ, KHÔNG tiêu đề mục, KHÔNG markdown):
+• Mở (2-3 câu): chạm thẳng vào mảng đời họ hỏi — bức tranh tổng về mảng này của anh là gì.
+• Thân (2-3 đoạn): đọc các yếu tố liên quan, GỘP thành câu chuyện. Nêu điểm SÁNG (thuận, mạnh)
+  và điểm CẦN GIỮ (chỗ dễ vướng) — bám đúng sao/bộ/Tứ Hóa cho sẵn. Cân bằng khen-nhắc, thẳng mà thương.
+• Kết (2-3 câu): MỆNH LÀ ĐỘNG TỪ — mảng đời này của anh vận hành tốt nhất khi anh làm gì;
+  một lời khuyên hành động cụ thể, hợp tính anh. Nhắc nhẹ 7 phần mệnh, 3 phần do anh nắm.
+
+LƯU Ý: viết ĐÚNG CHÍNH TẢ tiếng Việt, dấu chuẩn. Bám đúng dữ kiện lá số này, KHÔNG câu khuôn mẫu."""
+
+
+def _chu_de_cache_key(la_so_input: dict, slug: str) -> str:
+    core = {
+        "can": la_so_input.get("can"), "chi": la_so_input.get("chi"),
+        "menh": la_so_input.get("menh_palace"), "than": la_so_input.get("than_palace"),
+        "cuc": la_so_input.get("cuc"), "gender": la_so_input.get("gender"),
+        "ct": la_so_input.get("chinh_tinh_per_palace"),
+        "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
+        "chu_de": slug, "pv": "monchinh-v1",
+    }
+    raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(raw.encode()).hexdigest()[:32]
+
+
+def _compose_chu_de_prompt(chu_de_data: dict, la_so_input: dict) -> str:
+    """Prompt món chính — chỉ feed dữ kiện các cung liên quan chủ đề."""
+    from engine.tu_vi.viet_names import vi_can, vi_chi, vi_star
+
+    gender_vi = "nam" if la_so_input.get("gender") == "M" else "nữ"
+    nam_duong = la_so_input.get("birth_year")
+    nam_str = f"năm sinh dương lịch {nam_duong}, " if nam_duong else ""
+    parts = [
+        f"## CHỦ ĐỀ HỎI: {chu_de_data['ten']} — góc nhìn: {chu_de_data['goc_nhin']}",
+        f"## Lá số: {nam_str}(âm lịch {vi_can(la_so_input['can'])} {vi_chi(la_so_input['chi'])}), "
+        f"giới tính {gender_vi}.",
+        "⚠ CHỈ dùng số liệu cho sẵn. Không bịa sao/cung, không đổi năm dương lịch.",
+        "",
+        "## Các mảng liên quan chủ đề này (đọc gộp thành câu chuyện, KHÔNG kể tên cung):",
+    ]
+    for cd in chu_de_data.get("cung_data", []):
+        nhan = " (mảng TRỌNG TÂM của chủ đề)" if cd.get("la_chinh") else ""
+        sao_vi = ", ".join(vi_star(s) for s in cd.get("sao", [])) or "không có chính tinh (vô chính diệu)"
+        parts.append(f"\n### {cd['cung_vi']}{nhan} — sao: {sao_vi}")
+        for a in cd.get("atoms", []):
+            parts.append(f"- {vi_star(a['sao'])} ({a['school']}): {a['text']}")
+
+    bo = chu_de_data.get("bo_phu_tinh") or []
+    if bo:
+        parts.append("\n## Bộ phụ tinh đáng lưu ý (xem theo cặp + thế):")
+        for b in bo:
+            parts.append(f"- [{b.get('cung_vi','')}] {b.get('ten','')} ({b.get('loai','')}) — {b.get('the_vi','')}")
+
+    th = chu_de_data.get("tu_hoa_lq") or []
+    if th:
+        HOA_VI = {"hoa_loc": "Hóa Lộc", "hoa_quyen": "Hóa Quyền",
+                  "hoa_khoa": "Hóa Khoa", "hoa_ky": "Hóa Kỵ"}
+        parts.append("\n## Tứ Hóa rơi vào mảng này (trục động):")
+        for t in th:
+            parts.append(f"- {HOA_VI.get(t.get('hoa'), t.get('hoa'))}: {vi_star(t.get('star',''))}")
+
+    parts.append(f"\nViết bài luận về '{chu_de_data['ten']}' theo cấu trúc đã cho.")
+    return "\n".join(parts)
+
+
+def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool = False) -> dict:
+    """Luận 1 món chính theo chủ đề đời sống. Returns {narrative, cached, model}."""
+    slug = chu_de_data["slug"]
+    cache_key = _chu_de_cache_key(la_so_input, slug)
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        _ensure_cache_table(conn)
+        if not force:
+            row = conn.execute(
+                "SELECT narrative, model FROM narrative_cache WHERE cache_key = ?",
+                (cache_key,),
+            ).fetchone()
+            if row:
+                return {"narrative": row[0], "cached": True, "model": row[1]}
+
+        from engine.ai.registry import get_registry
+        registry = get_registry()
+        provider = registry.first_configured(
+            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
+        )
+        user_prompt = _compose_chu_de_prompt(chu_de_data, la_so_input)
+        resp = provider.chat(
+            messages=[
+                {"role": "system", "content": CHU_DE_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0.7,
+            max_tokens=4000,
+        )
+        narrative = (resp.content or "").strip()
+        model = f"{resp.provider}:{resp.model}"
+        if not narrative:
+            raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
+        conn.execute(
+            "INSERT OR REPLACE INTO narrative_cache (cache_key, narrative, model, created_at) VALUES (?, ?, ?, ?)",
+            (cache_key, narrative, model, int(time.time())),
+        )
+        conn.commit()
+        return {"narrative": narrative, "cached": False, "model": model}
+    finally:
+        conn.close()
+
+
 def _laso_cache_key(la_so_input: dict) -> str:
     """Hash lá số input → cache key ổn định."""
     core = {

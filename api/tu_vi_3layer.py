@@ -337,6 +337,47 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
     }
 
 
+@router.get("/3-layer/chu-de")
+async def list_chu_de() -> dict:
+    """Danh sách 5 món chính (chủ đề đời sống) cho UI render thẻ."""
+    from engine.tu_vi.chu_de import CHU_DE
+    return {"chu_de": [
+        {"slug": k, "ten": v["ten"], "icon": v["icon"], "goc_nhin": v["goc_nhin"]}
+        for k, v in CHU_DE.items()
+    ]}
+
+
+class ChuDeBirthInput(BirthInput):
+    chu_de: str
+    force: bool = False
+
+
+@router.post("/3-layer/chu-de")
+async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
+    """Luận MÓN CHÍNH theo 1 chủ đề đời sống (gom tam hợp cung liên quan + LLM).
+
+    Lazy: frontend gọi khi user bấm thẻ chủ đề.
+    """
+    from engine.tu_vi.chu_de import gom_chu_de
+    from engine.atomization.narrative_gen import generate_chu_de_narrative
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone,
+        gender=birth.gender,
+    ))
+    ls_in = base["la_so_input"]
+    cd = gom_chu_de(birth.chu_de, ls_in, base)
+    if not cd:
+        return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
+    result = generate_chu_de_narrative(cd, ls_in, force=birth.force)
+    return {
+        "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
+        "narrative": result["narrative"],
+        "cached": result["cached"], "model": result["model"],
+    }
+
+
 @router.get("/3-layer/founder-demo")
 async def founder_demo() -> dict:
     """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""
