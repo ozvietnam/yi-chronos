@@ -291,7 +291,15 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
         timezone=birth.timezone,
         gender=birth.gender,
     ))
-    result = generate_narrative(base, base["la_so_input"], force=birth.force)
+    # Vòng đời: tuổi mụ (năm xem − năm sinh + 1) → giai đoạn → chủ đề mở bài
+    from datetime import datetime
+    from engine.tu_vi.vong_doi import giai_doan_song, buoc_ngoat_dai_van
+    ls_in = base["la_so_input"]
+    by = ls_in.get("birth_year") or int(birth.birth_datetime_local[:4])
+    tuoi_mu = datetime.now().year - by + 1
+    ls_in["vong_doi"] = giai_doan_song(tuoi_mu, ls_in.get("gender", "M"))
+    ls_in["buoc_ngoat_nhac"] = buoc_ngoat_dai_van(ls_in.get("dai_van_hien_tai"))
+    result = generate_narrative(base, ls_in, force=birth.force)
     return {
         "narrative": result["narrative"],
         "cached": result["cached"],

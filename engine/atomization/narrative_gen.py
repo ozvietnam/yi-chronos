@@ -92,8 +92,32 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
         "⚠ CHỈ dùng các số liệu cho sẵn ở đây. TUYỆT ĐỐI không tự suy/đổi năm "
         "dương lịch, không bịa tuổi, không thêm sao/cung ngoài danh sách dưới.",
         "",
-        "## Dữ kiện paradigm (engine tính):",
     ]
+
+    # VÒNG ĐỜI — quyết định MỞ BÀI chạm vào điều gì (Anh chốt 2026-06-13)
+    vd = la_so_input.get("vong_doi")
+    if vd:
+        if vd["ai_xem"] == "cha_me_xem":
+            parts.append(
+                f"## ⭐ NGỮ CẢNH NGƯỜI XEM: Đây là lá số một {vd['xung_ho']} ({vd['tuoi_mu']} tuổi) "
+                f"— CHA MẸ đang xem cho con. Viết HƯỚNG TỚI CHA MẸ (xưng 'bé/con', gọi người đọc là 'anh chị'). "
+                f"Mở bài + trọng tâm: {vd['chu_de']}. "
+                f"TUYỆT ĐỐI KHÔNG nói chuyện tình duyên, hôn nhân, sự nghiệp, tài lộc của bé — "
+                f"không hợp lứa tuổi. Giọng: ấm áp, trấn an, gợi cách đồng hành cùng con."
+            )
+        else:
+            parts.append(
+                f"## ⭐ NGỮ CẢNH NGƯỜI XEM: {vd['xung_ho']} {vd['tuoi_mu']} tuổi — giai đoạn '{vd['ten']}'. "
+                f"MỞ BÀI nên CHẠM NGAY vào điều người tuổi này thường bận tâm nhất: {vd['chu_de']}. "
+                f"Bắt nhịp đồng cảm — nói trúng cái họ đang nghĩ tới, rồi mới mở rộng. "
+                f"Xưng '{vd['xung_ho']}', câu từ hợp giới tính {gender_vi}."
+            )
+        bn = la_so_input.get("buoc_ngoat_nhac")
+        if bn:
+            parts.append(f"## Bước ngoặt: {bn}")
+        parts.append("")
+
+    parts.append("## Dữ kiện paradigm (engine tính):")
     for w in three_layer.get("warnings", []):
         parts.append(f"- [{w['type']}] {w['msg']}")
 
