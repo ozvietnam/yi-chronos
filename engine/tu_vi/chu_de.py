@@ -76,7 +76,8 @@ def gom_chu_de(chu_de: str, la_so_input: dict, three_layer: dict) -> dict | None
                 for a in ats[:1]:
                     vt = a.get("viet_thuan") or a.get("source_quote")
                     if vt:
-                        atoms.append({"sao": star, "school": school, "text": vt[:200]})
+                        atoms.append({"sao": star, "school": school,
+                                      "atom_id": a.get("atom_id"), "text": vt[:200]})
         cung_data.append({"cung": cung, "cung_vi": _CUNG_VI.get(cung, cung),
                           "la_chinh": cung == spec["cung_chinh"], "sao": sao, "atoms": atoms[:6]})
 

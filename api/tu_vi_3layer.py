@@ -280,12 +280,33 @@ async def render_from_birth(birth: BirthInput) -> dict:
     return result
 
 
+def _load_feedback(request: Request) -> dict | None:
+    """Nạp phản hồi user đã đăng nhập → feed ngược vào bài (khép vòng tự học).
+
+    Guest (chưa login) → None → bài luận như cũ.
+    """
+    try:
+        from api.auth import get_current_user
+        from engine.tu_vi.feedback_store import validated_atoms, khau_vi
+        user = get_current_user(request)
+        if not user:
+            return None
+        uid = user["user_id"]
+        val = validated_atoms(uid)
+        kv = khau_vi(uid)
+        if not val and not kv.get("trai_nghiem"):
+            return None
+        return {"validated": val, "trai_nghiem": kv.get("trai_nghiem") or []}
+    except Exception:
+        return None
+
+
 class NarrativeBirthInput(BirthInput):
     force: bool = False  # force=true bỏ cache, sinh lại
 
 
 @router.post("/3-layer/narrative")
-async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
+async def narrative_from_birth(birth: NarrativeBirthInput, request: Request) -> dict:
     """Sinh narrative Lớp 1 'Chuyện về anh' bằng LLM (DeepSeek + cache theo lá số).
 
     Tách endpoint riêng vì LLM call 5-15s — frontend gọi sau khi đã render 3-layer.
@@ -329,7 +350,7 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
     ls_in["tin_hieu_nam"] = tin_hieu_nam_xem(_chi_vi, nam_xem, tuoi_mu, gender_c) if _chi_vi else []
     # Điểm nổi bật toàn lá — render_from_birth đã quét, dùng lại (top 5 cho khai vị)
     ls_in["highlights"] = (base.get("highlights") or [])[:5]
-    result = generate_narrative(base, ls_in, force=birth.force)
+    result = generate_narrative(base, ls_in, force=birth.force, feedback=_load_feedback(request))
     return {
         "narrative": result["narrative"],
         "cached": result["cached"],
@@ -353,7 +374,7 @@ class ChuDeBirthInput(BirthInput):
 
 
 @router.post("/3-layer/chu-de")
-async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
+async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
     """Luận MÓN CHÍNH theo 1 chủ đề đời sống (gom tam hợp cung liên quan + LLM).
 
     Lazy: frontend gọi khi user bấm thẻ chủ đề.
@@ -370,7 +391,7 @@ async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
     cd = gom_chu_de(birth.chu_de, ls_in, base)
     if not cd:
         return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
-    result = generate_chu_de_narrative(cd, ls_in, force=birth.force)
+    result = generate_chu_de_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
     return {
         "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
         "narrative": result["narrative"],
@@ -379,7 +400,7 @@ async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
 
 
 @router.post("/3-layer/chu-de-sau")
-async def chu_de_sau_from_birth(birth: ChuDeBirthInput) -> dict:
+async def chu_de_sau_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
     """MÓN SÂU: luận 2 trụ (Trung Châu + Trần Đoàn) + xuất xứ + hội tụ/dị biệt.
 
     User bấm 'Đào sâu' sau khi đã nghe món chính tổng quan.
@@ -394,7 +415,7 @@ async def chu_de_sau_from_birth(birth: ChuDeBirthInput) -> dict:
     cd = gom_chu_de_sau(birth.chu_de, ls_in, base)
     if not cd:
         return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
-    result = generate_chu_de_sau_narrative(cd, ls_in, force=birth.force)
+    result = generate_chu_de_sau_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
     return {
         "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
         "narrative": result["narrative"], "cached": result["cached"], "model": result["model"],
