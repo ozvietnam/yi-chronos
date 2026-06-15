@@ -87,7 +87,7 @@ lines=[
 ]
 for k,(t,c,fs,bold) in enumerate(lines):
     s.append(f'<text x="{(gx0+gx1)/2}" y="{cy+28+k*24}" text-anchor="middle" font-size="{fs}" fill="{c}"{" font-weight=\"bold\"" if bold else ""}>{esc(t)}</text>')
-s.append(f'<text x="{W/2}" y="{H-14}" text-anchor="middle" font-size="11.5" fill="#999">Vận-quẻ mịn từng năm (vd 304=萃 Tụy) chờ OCR bảng 经世 bộ trọn 950tr · Hội-quẻ = Cấu (đã chắc)</text>')
+s.append(f'<text x="{W/2}" y="{H-14}" text-anchor="middle" font-size="11.5" fill="#999">Năm-quẻ từng năm (vd 304=革 Cách) đã có trong bộ trọn 950tr (OCR xong) → Chương 5 tô từng năm · Hội-quẻ = Cấu</text>')
 s.append('</svg>')
 (OUT/"van_192.svg").write_text("\n".join(s))
 print("✓ Vẽ xong van_192.svg")

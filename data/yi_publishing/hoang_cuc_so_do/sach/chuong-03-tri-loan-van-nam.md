@@ -53,7 +53,7 @@ Nghĩa: lịch sử suy tới cực (Bá/Lực/đông) thì **có cơ xoay lại
 
 Engine cũ lệch **74 thế (~2.220 năm)** — nay đã đúng. 8/8 test xanh.
 
-**(d) Còn lại:** bảng năm-quẻ chi tiết (vd 304 = quẻ năm **萃** Tụy) là hệ năm-quẻ mịn hơn hội-quẻ — sẽ trích từ bảng 经世 đầy đủ sau khi OCR xong bộ trọn 950 trang (đang chạy nền).
+**(d) ĐÃ XONG (cập nhật 2026-06-15):** OCR bộ trọn 950 trang hoàn tất → bảng năm-quẻ chi tiết nằm trong text (vd 10 năm đầu thế 2245: 甲子**革** Cách · 乙丑 同人 · 丙寅 临 · 丁卯 损 · 戊辰 节 · 己巳 中孚 · 庚午 归妹 · 辛未 睽 · 壬申 兑 · 癸酉 履). *Sửa lỗi trước: 304 là quẻ năm **革 Cách** chứ không phải 萃 Tụy — bộ trọn ghi rõ 「甲子年卦直革」.* Sẽ trích đủ vào Chương 5.
 
 ---
 

@@ -63,7 +63,7 @@ Anh sinh ở **thế 2301 = ô thứ 9 của 12**. Theo lối đồng dạng (Ir
 ## 6. Ranh giới phải nói thẳng (GIỚI HẠN)
 
 - **Hội-quẻ = Cấu**: chắc chắn (12 bích quái tiêu tức, đã vào engine, kiểm chứng tr.123 + tr.167).
-- **Vận-quẻ / năm-quẻ mịn** (kiểu "304 CN = quẻ năm 萃 Tụy"): là **hệ phối quẻ chi tiết hơn**, nằm trong bảng 经世 của bộ trọn 950 trang — **đang OCR**. Khi xong, đồ ô-thế ở băng ③ sẽ tô được **từng năm một quẻ**, và "hai đồng hồ" khớp răng cưa tới từng năm. **Em không bịa quẻ năm khi chưa có bảng.**
+- **Vận-quẻ / năm-quẻ mịn** (kiểu "304 CN = quẻ năm **革 Cách**"): là **hệ phối quẻ chi tiết hơn**, nằm trong bảng 经世 của bộ trọn 950 trang — **OCR đã xong (2026-06-15), năm-quẻ có sẵn trong text**. Chương 5 sẽ tô được **từng năm một quẻ** ở băng ③, để "hai đồng hồ" khớp răng cưa tới từng năm. *(Lưu ý chính xác: 304 là quẻ **革 Cách**, không phải Tụy — em từng ghi nhầm, bộ trọn ghi rõ 「甲子年卦直革」.)* **Em không bịa quẻ năm khi chưa có bảng.**
 - Vận 192 là **quẻ của THỜI**, dùng chung cho mọi người sinh cùng vận. Nó **không phải** "quẻ mệnh riêng" của Anh. Quẻ mệnh riêng đến từ Mai Hoa / Thiết Bản / Hà Lạc (lá số cá nhân).
 
 ## 7. Chốt chương

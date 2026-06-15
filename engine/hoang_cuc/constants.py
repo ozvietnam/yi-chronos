@@ -6,11 +6,15 @@ Cấu trúc (Quan Vật Nội Thiên + truyền thống chuẩn hóa):
 
 MỐC QUY CHIẾU (NEO LẠI 2026 — trích trực tiếp bảng 经世 trong tự tự bộ trọn
 Thượng-Hạ, dẫn 何氏《皇极经世解知要》观物篇三十三 以运经世, PDF p16/in tr.11):
-    经元之甲一 · 经会之午七 · 经运之辛【188】· 经世之子【2245】(一世为三十年)
-    "晋怀帝...岁逢甲子, 年卦为萃" → năm GIÁP TÝ = 304 CN (Lưu Uyên xưng Hán).
+    经元之甲一 · 经会之午七 · 经运之辛百八十八 · 经世之子二千二百四十五 (一世为三十年)
+    "晋惠帝十四年, 岁逢甲子, 年卦为革" → năm GIÁP TÝ = 304 CN (Lưu Uyên xưng vương, nước Hán).
     → 304 CN = Nguyên Giáp-1 · Hội NGỌ-7 · Vận 188 · Thế 2245, NĂM 1 của thế.
     (10 năm 甲子→癸酉 = 304-313 là đầu thế 2245.)
     Tự kiểm nội tại: ceil(2245/12)=188 (vận) ✓ · ceil(188/30)=7 (hội Ngọ) ✓
+
+    ✅ ĐÃ KIỂM bằng bộ trọn 950tr (OCR 2026-06-15) — năm-quẻ 10 năm đầu thế 2245:
+       甲子革 · 乙丑同人 · 丙寅临 · 丁卯损 · 戊辰节 · 己巳中孚 · 庚午归妹 · 辛未睽 · 壬申兑 · 癸酉履
+       (Sửa lỗi cũ: 304 KHÔNG phải 萃 Tụy — đúng là 革 CÁCH. Misread bản tự tự.)
 
 Suy ra NGUYEN_START_ASTRO = 304 - ((2245-1)*30 + 1) + 1 = -67016 (= 67017 TCN).
 Kiểm chéo văn bản (ĐỀU KHỚP):
@@ -20,9 +24,9 @@ Kiểm chéo văn bản (ĐỀU KHỚP):
 
 (Anchor CŨ "1980=vận186/thế2227" SAI — misread; đã thay. Lệch ~74 thế so với sách.)
 
-⚠ Bảng PHỐI QUẺ vận/thế (năm-quẻ như 304=萃 Tụy): hệ năm-quẻ chi tiết — sẽ trích
-   từ bảng 经世 đầy đủ khi OCR xong bộ trọn (data/yi_publishing_mineru/hoang-cuc-kinh-the-toan-bo).
-   Hội-quẻ (12 bích quái) đã có; hội Ngọ = Cấu.
+✅ Bảng PHỐI QUẺ năm (năm-quẻ, vd 304=革 Cách): OCR bộ trọn 950tr ĐÃ XONG (2026-06-15);
+   bảng nằm trong TEXT dạng "干支+卦+sự kiện" (data/yi_publishing_mineru/hoang-cuc-kinh-the-toan-bo)
+   → sẽ trích vào engine + Chương 5 (tô quẻ từng năm). Hội-quẻ (12 bích quái) đã có; hội Ngọ = Cấu.
 """
 from __future__ import annotations
 
