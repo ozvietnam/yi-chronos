@@ -20,7 +20,7 @@ Built 2026-06-10 Phase C.
 """
 from __future__ import annotations
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Request, HTTPException
 from pydantic import BaseModel, Field
 
 from engine.atomization.output_filler_v2 import render_3_layer
@@ -376,6 +376,78 @@ async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
         "narrative": result["narrative"],
         "cached": result["cached"], "model": result["model"],
     }
+
+
+@router.post("/3-layer/chu-de-sau")
+async def chu_de_sau_from_birth(birth: ChuDeBirthInput) -> dict:
+    """MÓN SÂU: luận 2 trụ (Trung Châu + Trần Đoàn) + xuất xứ + hội tụ/dị biệt.
+
+    User bấm 'Đào sâu' sau khi đã nghe món chính tổng quan.
+    """
+    from engine.tu_vi.chu_de import gom_chu_de_sau
+    from engine.atomization.narrative_gen import generate_chu_de_sau_narrative
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone, gender=birth.gender))
+    ls_in = base["la_so_input"]
+    cd = gom_chu_de_sau(birth.chu_de, ls_in, base)
+    if not cd:
+        return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
+    result = generate_chu_de_sau_narrative(cd, ls_in, force=birth.force)
+    return {
+        "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
+        "narrative": result["narrative"], "cached": result["cached"], "model": result["model"],
+        # nguyên liệu xuất xứ cho UI hiển thị (minh bạch nguồn)
+        "nguyen_lieu": [
+            {"sao_vi": b["sao_vi"], "cung_vi": b["cung_vi"], "hoi_tu": b["hoi_tu"],
+             "nguon": sorted({v["xuat_xu"] for v in b["views"] if v["xuat_xu"]})}
+            for b in cd["sao_blocks"]
+        ],
+    }
+
+
+@router.post("/3-layer/gia-vi")
+async def gia_vi_from_birth(birth: ChuDeBirthInput) -> dict:
+    """Phái mỏng → câu hỏi gợi ý (Đúng/Chưa/Không) để user tự soi + ta học khẩu vị."""
+    from engine.tu_vi.chu_de import gom_gia_vi
+    from engine.atomization.narrative_gen import generate_gia_vi_questions
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone, gender=birth.gender))
+    atoms = gom_gia_vi(birth.chu_de, base["la_so_input"], base)
+    questions = generate_gia_vi_questions(atoms)
+    return {"chu_de": birth.chu_de, "cau_hoi": questions}
+
+
+class FeedbackInput(BaseModel):
+    chu_de: str | None = None
+    atom_id: int | None = None
+    sao: str | None = None
+    cau_hoi: str | None = None
+    answer: str | None = None       # dung | chua | khong
+    free_text: str | None = None    # kể thêm trải nghiệm
+
+
+@router.post("/3-layer/feedback")
+async def save_user_feedback(fb: FeedbackInput, request: Request) -> dict:
+    """Lưu phản hồi user (gated: tự lưu của mình). Vòng tự học — biết đúng/sai + khẩu vị."""
+    from api.auth import require_user
+    from engine.tu_vi.feedback_store import save_feedback
+    user = require_user(request)  # 401 nếu chưa đăng nhập
+    fid = save_feedback(user["user_id"], fb.chu_de, fb.atom_id, fb.sao,
+                        fb.cau_hoi, fb.answer, fb.free_text)
+    return {"ok": True, "id": fid}
+
+
+@router.get("/3-layer/khau-vi")
+async def get_khau_vi(request: Request) -> dict:
+    """Khẩu vị + phản hồi của CHÍNH user (gated self)."""
+    from api.auth import require_user
+    from engine.tu_vi.feedback_store import khau_vi
+    user = require_user(request)
+    return khau_vi(user["user_id"])
 
 
 @router.get("/3-layer/founder-demo")

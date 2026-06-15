@@ -96,3 +96,136 @@ def gom_chu_de(chu_de: str, la_so_input: dict, three_layer: dict) -> dict | None
         "goc_nhin": spec["goc_nhin"],
         "cung_data": cung_data, "bo_phu_tinh": bo_lq[:6], "tu_hoa_lq": tu_hoa_lq,
     }
+
+
+# ── MÓN SÂU: 2 trụ + xuất xứ (Anh chốt 2026-06-15 'đào sâu - ăn tiếp') ──
+
+def _star_sets_for_chi(chi: str, la_so_input: dict):
+    """Sao đồng cung + hội chiếu của 1 chi → lọc atom combo (giống render_3_layer)."""
+    from engine.tu_vi.paradigm.to_hop_cung import CHI_RING, to_hop_cung
+    ct_chi = {k: v for k, v in (la_so_input.get("chinh_tinh_per_palace") or {}).items() if k in CHI_RING}
+    for k, v in (la_so_input.get("phu_tinh_per_palace") or {}).items():
+        if k in CHI_RING:
+            ct_chi[k] = list(ct_chi.get(k, [])) + list(v)
+    same = set(ct_chi.get(chi) or [])
+    try:
+        tc = set(to_hop_cung(chi, ct_chi)["hoi_chieu_stars"])
+    except Exception:
+        tc = same
+    return same, tc
+
+
+def gom_chu_de_sau(chu_de: str, la_so_input: dict, three_layer: dict,
+                   cap_tru: int = 8) -> dict | None:
+    """Món SÂU: chỉ 2 trụ (Trung Châu + Trần Đoàn), nới cap cao, KÈM xuất xứ
+    (sách/tác giả/thời đại/trang) + tách đồng-thuận / dị-biệt cho từng sao chính.
+    """
+    from engine.tu_vi.cross_school import luan_sao_cung
+    from engine.tu_vi.provenance import provenance, nhan_xuat_xu, TRU_CHINH
+    from engine.tu_vi.viet_names import vi_star
+
+    spec = CHU_DE.get(chu_de)
+    if not spec:
+        return None
+    lop3 = three_layer.get("lop_3_sach_co", {})
+    per = lop3.get("per_palace", {})
+    fn_to_chi = la_so_input.get("fn_to_chi") or {}
+    gender = la_so_input.get("gender")
+
+    sao_blocks = []
+    for cung in spec["cung_lien_quan"]:
+        pd = per.get(cung)
+        if not pd:
+            continue
+        chi = fn_to_chi.get(cung)
+        same, tc = _star_sets_for_chi(chi, la_so_input) if chi else (None, None)
+        for star in (pd.get("stars") or []):
+            cv = luan_sao_cung(star, cung, limit_per_school=cap_tru, chi=chi,
+                               gender=gender, same_stars=same, tu_chinh_stars=tc)
+            schs = cv.get("schools") or {}
+            # chỉ giữ 2 trụ, kèm xuất xứ
+            tru_views = []
+            for code in TRU_CHINH:
+                atoms = schs.get(code) or []
+                for a in atoms:
+                    xx = nhan_xuat_xu(a.get("book_corpus_id"), a.get("page_start"))
+                    vt = a.get("viet_thuan") or a.get("source_quote")
+                    if vt:
+                        tru_views.append({
+                            "phai_code": code, "xuat_xu": xx, "atom_id": a.get("atom_id"),
+                            "text": vt[:280], "page": a.get("page_start"),
+                        })
+            if not tru_views:
+                continue
+            n_phai = len({v["phai_code"] for v in tru_views})
+            sao_blocks.append({
+                "sao": star, "sao_vi": vi_star(star),
+                "cung": cung, "cung_vi": _CUNG_VI.get(cung, cung),
+                "la_chinh": cung == spec["cung_chinh"],
+                "mieu_ham": cv.get("mieu_ham"),
+                "views": tru_views, "hoi_tu": n_phai >= 2,
+            })
+
+    # cách cục + tổ hợp tam phương của cung chính (chiều sâu thêm)
+    cung_chinh = spec["cung_chinh"]
+    chi_chinh = fn_to_chi.get(cung_chinh)
+    to_hop = (lop3.get("to_hop_per_palace") or {}).get(chi_chinh) if chi_chinh else None
+
+    return {
+        "slug": chu_de, "ten": spec["ten"], "icon": spec["icon"],
+        "goc_nhin": spec["goc_nhin"],
+        "sao_blocks": sao_blocks,
+        "to_hop_chinh": to_hop,
+    }
+
+
+def gom_gia_vi(chu_de: str, la_so_input: dict, three_layer: dict,
+               max_cau: int = 6) -> list[dict]:
+    """Phái mỏng (gia vị) → atoms để LẬT THÀNH CÂU HỎI gợi ý.
+
+    Returns: [{atom_id, sao, sao_vi, cung_vi, phai, phai_code, goi_y_text}]
+    Mỗi atom là 1 nhận định 1 phái → engine narrative biến thành câu hỏi Đúng/Chưa/Không.
+    """
+    from engine.tu_vi.cross_school import luan_sao_cung
+    from engine.tu_vi.provenance import GIA_VI, CORPUS_PROVENANCE
+    from engine.tu_vi.viet_names import vi_star
+
+    spec = CHU_DE.get(chu_de)
+    if not spec:
+        return []
+    per = (three_layer.get("lop_3_sach_co", {})).get("per_palace", {})
+    fn_to_chi = la_so_input.get("fn_to_chi") or {}
+    gender = la_so_input.get("gender")
+    # corpus_id của mỗi phái gia vị (để nhãn)
+    code_to_corpus = {v["phai_code"]: (k, v) for k, v in CORPUS_PROVENANCE.items()}
+
+    out, seen = [], set()
+    for cung in spec["cung_lien_quan"]:
+        pd = per.get(cung)
+        if not pd:
+            continue
+        chi = fn_to_chi.get(cung)
+        same, tc = _star_sets_for_chi(chi, la_so_input) if chi else (None, None)
+        for star in (pd.get("stars") or []):
+            cv = luan_sao_cung(star, cung, limit_per_school=3, chi=chi,
+                               gender=gender, same_stars=same, tu_chinh_stars=tc)
+            schs = cv.get("schools") or {}
+            for code in GIA_VI:
+                for a in (schs.get(code) or [])[:1]:  # 1 atom/phái/sao — đủ làm câu hỏi
+                    aid = a.get("atom_id")
+                    if aid in seen:
+                        continue
+                    vt = a.get("viet_thuan") or a.get("source_quote")
+                    if not vt:
+                        continue
+                    seen.add(aid)
+                    _, pmeta = code_to_corpus.get(code, (None, {}))
+                    out.append({
+                        "atom_id": aid, "sao": star, "sao_vi": vi_star(star),
+                        "cung_vi": _CUNG_VI.get(cung, cung),
+                        "phai": pmeta.get("phai", code), "phai_code": code,
+                        "goi_y_text": vt[:220],
+                    })
+                    if len(out) >= max_cau:
+                        return out
+    return out

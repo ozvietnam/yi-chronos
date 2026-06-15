@@ -171,6 +171,151 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
         conn.close()
 
 
+# ── MÓN SÂU: 2 trụ + xuất xứ (Anh chốt 2026-06-15 'đào sâu - ăn tiếp') ──
+CHU_DE_SAU_SYSTEM_PROMPT = """Bạn là một thầy Tử Vi bậc thầy, luận theo trường phái "đọc đồng dạng"
+của Trần Đoàn. User đã nghe luận tổng quan về một mảng đời, nay muốn HIỂU CẶN KẼ. Bạn mở
+kho sách quý ra, trình bày như bếp thượng hạng giới thiệu nguyên liệu: từng nhận định đến
+từ SÁCH nào, TÁC GIẢ nào, rồi mới chế biến (luận giải).
+
+NGUYÊN TẮC SẮT (vi phạm = loại):
+1. KHÔNG tiên tri (cấm "sẽ giàu/nghèo/thành/bại", cấm "năm X xảy ra Y").
+2. MỆNH LÀ ĐỘNG TỪ: lá số cho TÍNH, việc của user là VẬN HÀNH. "Phát huy mạnh nhất khi...".
+3. CHỈ dùng dữ kiện cho sẵn. KHÔNG bịa sao/cung/câu sách.
+4. Mệnh 7 phần, người 3 phần.
+
+ĐÂY LÀ MÓN SÂU — phải khác món tổng quan ở CHIỀU SÂU và XUẤT XỨ:
+• Khi nêu một nhận định quan trọng, DẪN NGUỒN tự nhiên trong câu: "Sách 「...」 của ... viết...",
+  hoặc "Theo Trung Châu phái...", "Bản Toàn Thư cổ ghi...". Cho user thấy nguyên liệu thượng hạng,
+  trồng từ vùng nào — KHÔNG bịa tên sách ngoài danh sách.
+• HỘI TỤ vs DỊ BIỆT: chỗ hai trụ (Trung Châu + Trần Đoàn) cùng nói → khẳng định mạnh, đây là
+  điểm chắc chắn. Chỗ hai trụ nhấn khác nhau → trình bày cả hai góc ("Trung Châu thiên về..., còn
+  Toàn Thư nhấn..."), cho user thấy bức tranh đa chiều.
+• Đi sâu vào tổ hợp tam phương tứ chính nếu có — vì sao này gặp sao kia thì sinh ra điều gì.
+
+CẤU TRÚC (Việt thuần, ấm, xưng anh/chị, ~600-800 chữ, KHÔNG markdown, KHÔNG tiêu đề mục):
+• Mở (2-3 câu): mảng đời này nhìn sâu thì cốt lõi là gì.
+• Thân (3-4 đoạn): đi từng sao/yếu tố trọng tâm, DẪN NGUỒN, nêu hội tụ + dị biệt giữa 2 trụ.
+• Kết (2-3 câu): MỆNH LÀ ĐỘNG TỪ — vận hành mạnh nhất khi nào + 1 lời khuyên hành động. Nhắc 7/3.
+
+LƯU Ý: ĐÚNG CHÍNH TẢ tiếng Việt. Bám đúng dữ kiện, KHÔNG câu khuôn mẫu."""
+
+
+def _chu_de_sau_cache_key(la_so_input: dict, slug: str) -> str:
+    core = {
+        "can": la_so_input.get("can"), "chi": la_so_input.get("chi"),
+        "menh": la_so_input.get("menh_palace"), "than": la_so_input.get("than_palace"),
+        "gender": la_so_input.get("gender"), "ct": la_so_input.get("chinh_tinh_per_palace"),
+        "chu_de": slug, "pv": "monsau-v1",
+    }
+    raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(raw.encode()).hexdigest()[:32]
+
+
+def _compose_chu_de_sau_prompt(cd_sau: dict) -> str:
+    parts = [
+        f"## CHỦ ĐỀ (luận sâu): {cd_sau['ten']} — góc nhìn: {cd_sau['goc_nhin']}",
+        "⚠ CHỈ dùng dữ kiện dưới. Dẫn nguồn đúng tên sách cho sẵn, KHÔNG bịa.",
+        "",
+        "## Nguyên liệu 2 trụ (mỗi nhận định kèm XUẤT XỨ — dùng để dẫn nguồn):",
+    ]
+    for b in cd_sau.get("sao_blocks", []):
+        chinh = " ⭐TRỌNG TÂM" if b.get("la_chinh") else ""
+        mh = f" [{b['mieu_ham']}]" if b.get("mieu_ham") else ""
+        hoi = "🟢 hai trụ HỘI TỤ" if b.get("hoi_tu") else "⚪ một trụ lên tiếng"
+        parts.append(f"\n### {b['sao_vi']} tại {b['cung_vi']}{chinh}{mh} — {hoi}")
+        for v in b["views"]:
+            src = v.get("xuat_xu") or v.get("phai_code")
+            parts.append(f"- ({src}): {v['text']}")
+
+    th = cd_sau.get("to_hop_chinh")
+    if th and th.get("total_atoms"):
+        from engine.tu_vi.viet_names import vi_chi, vi_star
+        t = th["to_hop"]
+        parts.append(f"\n## Tổ hợp tam phương tứ chính cung trọng tâm "
+                     f"({', '.join(vi_chi(c) for c in t['tu_chinh']['tu_chinh'])}):")
+        for school, atoms in (th.get("schools") or {}).items():
+            for a in atoms[:1]:
+                vt = a.get("viet_thuan") or a.get("source_quote") or ""
+                if vt:
+                    parts.append(f"- ({school}): {vt[:200]}")
+
+    parts.append(f"\nViết bài luận SÂU về '{cd_sau['ten']}' theo cấu trúc đã cho, dẫn nguồn tự nhiên.")
+    return "\n".join(parts)
+
+
+def generate_chu_de_sau_narrative(cd_sau: dict, la_so_input: dict, force: bool = False) -> dict:
+    """Luận món sâu 2 trụ + xuất xứ. Returns {narrative, cached, model}."""
+    cache_key = _chu_de_sau_cache_key(la_so_input, cd_sau["slug"])
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        _ensure_cache_table(conn)
+        if not force:
+            row = conn.execute("SELECT narrative, model FROM narrative_cache WHERE cache_key = ?",
+                               (cache_key,)).fetchone()
+            if row:
+                return {"narrative": row[0], "cached": True, "model": row[1]}
+        from engine.ai.registry import get_registry
+        provider = get_registry().first_configured(
+            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
+        resp = provider.chat(
+            messages=[{"role": "system", "content": CHU_DE_SAU_SYSTEM_PROMPT},
+                      {"role": "user", "content": _compose_chu_de_sau_prompt(cd_sau)}],
+            temperature=0.7, max_tokens=5000)
+        narrative = (resp.content or "").strip()
+        model = f"{resp.provider}:{resp.model}"
+        if not narrative:
+            raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
+        conn.execute("INSERT OR REPLACE INTO narrative_cache VALUES (?, ?, ?, ?)",
+                     (cache_key, narrative, model, int(time.time())))
+        conn.commit()
+        return {"narrative": narrative, "cached": False, "model": model}
+    finally:
+        conn.close()
+
+
+def generate_gia_vi_questions(gia_vi_atoms: list[dict]) -> list[dict]:
+    """Phái mỏng → câu hỏi gợi ý Đúng/Chưa/Không (LLM lật nhận định thành câu hỏi đời thường).
+
+    Returns: [{atom_id, sao_vi, phai, cau_hoi}] — KHÔNG cache (ít, rẻ; câu hỏi nên tươi).
+    """
+    if not gia_vi_atoms:
+        return []
+    lines = []
+    for i, a in enumerate(gia_vi_atoms):
+        lines.append(f"{i}. [sao {a['sao_vi']}, phái {a['phai']}] {a['goi_y_text']}")
+    sys = """Bạn là thầy Tử Vi thân thiện. Mỗi dòng dưới là một NHẬN ĐỊNH từ một phái (chưa chắc đúng
+với người này). Hãy LẬT mỗi nhận định thành MỘT CÂU HỎI đời thường, nhẹ nhàng, để người xem tự
+soi mình rồi trả lời Đúng/Chưa/Không. Câu hỏi phải:
+- Ngắn (1 câu), đời thường, KHÔNG dùng thuật ngữ tử vi (không nói tên sao/cung).
+- Hỏi về TÍNH CÁCH / THÓI QUEN / TRẢI NGHIỆM có thật của họ, để kiểm chứng.
+Trả về JSON array, mỗi phần tử {"i": <số dòng>, "cau_hoi": "<câu hỏi>"}. CHỈ JSON, không giải thích."""
+    from engine.ai.registry import get_registry
+    provider = get_registry().first_configured(
+        ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
+    resp = provider.chat(
+        messages=[{"role": "system", "content": sys},
+                  {"role": "user", "content": "\n".join(lines)}],
+        temperature=0.6, max_tokens=2000)
+    txt = (resp.content or "").strip()
+    # bóc JSON
+    import re
+    m = re.search(r"\[.*\]", txt, re.DOTALL)
+    qs = []
+    if m:
+        try:
+            qs = json.loads(m.group(0))
+        except Exception:
+            qs = []
+    out = []
+    for q in qs:
+        idx = q.get("i")
+        if isinstance(idx, int) and 0 <= idx < len(gia_vi_atoms):
+            a = gia_vi_atoms[idx]
+            out.append({"atom_id": a["atom_id"], "sao_vi": a["sao_vi"],
+                        "phai": a["phai"], "cau_hoi": q.get("cau_hoi", "")})
+    return out
+
+
 def _laso_cache_key(la_so_input: dict) -> str:
     """Hash lá số input → cache key ổn định."""
     core = {
