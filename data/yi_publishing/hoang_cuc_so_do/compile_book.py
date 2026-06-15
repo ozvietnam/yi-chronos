@@ -25,6 +25,7 @@ CHAPTERS = [
     "chuong-04-van-192-doi-anh.md",
     "chuong-05-nam-que.md",
     "chuong-06-luat-lu-thanh-am.md",
+    "chuong-07-gia-nhat-boi.md",
 ]
 
 COVER_HTML = f"""<div class="cover">
