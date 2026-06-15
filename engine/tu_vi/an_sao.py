@@ -938,4 +938,27 @@ def cast_la_so(
     out["sao_le"]["Thiên Tài"] = _fix(menh_idx + B[year_branch])
     out["sao_le"]["Thiên Thọ"] = _fix(than_idx + B[year_branch])
 
+    # ── Đợt 2 (research 2026-06-13, verify khớp ảnh founder) ──
+    # Đường Phù = Lộc Tồn + 5 cung thuận (engine cũ dùng bảng can = phái khác → lệch)
+    out["sao_le"]["Đường Phù"] = _fix(sat_tinh["Lộc Tồn"] + 5)
+    # Thiên Y = khởi Sửu (tháng 1) thuận đến tháng sinh (engine cũ khởi Mệnh → lệch)
+    out["sao_le"]["Thiên Y"] = _fix(B["Sửu"] + (lunar_month - 1))
+    # Thiên Quý = Văn Khúc (mùng 1) nghịch theo ngày, tiến 1 cung
+    out["sao_le"]["Thiên Quý"] = _fix(phu_tinh["Văn Khúc"] - (lunar_day - 1) + 1)
+    # Đầu Quân (投軍, sao lẻ — KHÁC Đẩu Quân 斗君 khởi hạn): khởi Thái Tuế (chi năm)
+    # kể tháng 1 nghịch tới tháng sinh, rồi kể giờ Tý thuận tới giờ sinh
+    out["sao_le"]["Đầu Quân"] = _fix(B[year_branch] - (lunar_month - 1) + (H - 1))
+    # Lưu Niên Văn Tinh (sao chuẩn, theo can năm — khác Văn Xương/Khúc)
+    _VAN_TINH = {"Giáp": "Tỵ", "Ất": "Ngọ", "Bính": "Thân", "Đinh": "Dậu",
+                 "Mậu": "Thân", "Kỷ": "Dậu", "Canh": "Hợi", "Tân": "Tý",
+                 "Nhâm": "Dần", "Quý": "Mão"}
+    out["sao_le"]["Văn Tinh"] = B[_VAN_TINH[year_stem]]
+    # Thiên Thương (天傷) = cung Nô Bộc (đối Thiên Sứ ở Tật Ách)
+    out["sao_le"]["Thiên Thương"] = _fix(menh_idx - 7)
+    # Địa Giải = khởi Mùi tháng 1 thuận (đi cặp Thiên Giải khởi Thân) → verify Tuất
+    out["sao_le"]["Địa Giải"] = _fix(B["Mùi"] + (lunar_month - 1))
+    # GHI CHÚ đa phái (chưa sửa, 1 data-point chưa pin được công thức tuvi.vn):
+    #   Giải Thần: engine khởi Tuất nghịch tháng (→Mùi); tuvi.vn để Ngọ (khởi Dậu?)
+    #   Thiên Hỉ: engine đối xung Hồng Loan (→Tỵ); tuvi.vn để Tý
+
     return out

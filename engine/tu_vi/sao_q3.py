@@ -235,18 +235,19 @@ def duong_phu(year_stem: str) -> int:
 
 # ─── 7. Phá Toái (chi năm) ────────────────────────────────────
 def pha_toai(year_branch: str) -> int:
-    """Phá Toái — sao tiêu hao, đổ vỡ.
-    Tỵ/Dậu/Sửu → Tỵ
-    Dần/Ngọ/Tuất → Dậu
-    Thân/Tý/Thìn → Sửu
-    Hợi/Mão/Mùi → Sửu (1 số phái → Hợi)
+    """Phá Toái — sao tiêu hao, đổ vỡ. An theo tứ chính/tứ sinh/tứ mộ.
+
+    Tý Ngọ Mão Dậu (tứ chính) → Tỵ
+    Dần Thân Tỵ Hợi (tứ sinh) → Dậu
+    Thìn Tuất Sửu Mùi (tứ mộ) → Sửu
+    Pin 2 lá số tuvi.vn (2026-06-13): năm Mão→Tỵ, năm Thìn→Sửu. (Cũ dùng tam hợp → sai.)
     """
     yb = B[year_branch]
-    if yb in (B["Tỵ"], B["Dậu"], B["Sửu"]):
+    if yb in (B["Tý"], B["Ngọ"], B["Mão"], B["Dậu"]):
         return B["Tỵ"]
-    if yb in (B["Dần"], B["Ngọ"], B["Tuất"]):
+    if yb in (B["Dần"], B["Thân"], B["Tỵ"], B["Hợi"]):
         return B["Dậu"]
-    return B["Sửu"]  # Thân/Tý/Thìn + Hợi/Mão/Mùi
+    return B["Sửu"]  # Thìn Tuất Sửu Mùi (tứ mộ)
 
 
 # ─── 8. Lưu Hà (can năm) ──────────────────────────────────────
@@ -266,9 +267,11 @@ def luu_ha(year_stem: str) -> int:
 
 # ─── 9. Thiên Trù (can năm) ───────────────────────────────────
 _THIEN_TRU_BY_STEM = {
-    "Giáp": "Tỵ", "Đinh": "Tỵ", "Kỷ": "Tỵ",
+    # Pin từ ảnh tuvi.vn: Mậu→Ngọ, Kỷ→Thân (2026-06-13).
+    "Giáp": "Tỵ", "Đinh": "Tỵ",
     "Ất": "Ngọ", "Mậu": "Ngọ",
-    "Bính": "Tử",  # placeholder — TODO verify
+    "Kỷ": "Thân",   # verify lá số 2 (Kỷ Mão, tuvi.vn) → Thân
+    "Bính": "Tý",   # verify lá số 3 (Bính Dần, anlasotuvi.com) → Tý
     "Canh": "Thân", "Tân": "Dần",
     "Nhâm": "Dậu", "Quý": "Hợi",
 }
@@ -323,9 +326,10 @@ def thien_giai(lunar_month: int) -> int:
 
 def giai_than(lunar_month: int) -> int:
     """Giải Thần — giải hung (gặp Tang Môn, Bạch Hổ tốt).
-    Khởi Tuất tháng 1, nghịch đếm.
+    Khởi DẬU tháng 1, NGHỊCH đếm tới tháng sinh.
+    Pin bằng 2 lá số tuvi.vn (2026-06-13): tháng4→Ngọ, tháng3→Mùi. (Cũ khởi Tuất → lệch 1 cung.)
     """
-    return _fix(B["Tuất"] - (lunar_month - 1))
+    return _fix(B["Dậu"] - (lunar_month - 1))
 
 
 # ─── 13. Ân Quang + Thai Phụ (Văn Xương + ngày) ───────────────

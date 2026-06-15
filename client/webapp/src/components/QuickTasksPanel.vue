@@ -6,9 +6,10 @@
  * 2. Trắc nghiệm xác định giờ sinh
  * 3. Xem 2 người có hợp nhau trong hôn nhân
  */
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import LifeOverviewModal from "./LifeOverviewModal.vue";
 import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
+import { activePerson } from "../stores/userDataStore.js";
 
 const emit = defineEmits(["open-tab"]);
 
@@ -18,7 +19,7 @@ const activeTask = ref(null);  // null | 'quiz' | 'marriage'
 
 // ─── Marriage Compat ──────────────────────────────────
 const mForm = ref({
-  birth_a_date: "1988-05-02",
+  birth_a_date: "",
   birth_a_hour: 8,
   name_a: "Anh",
   gender_a: "nam",
@@ -27,6 +28,25 @@ const mForm = ref({
   name_b: "Đối phương",
   gender_b: "nữ",
 });
+
+// Người A (bản thân) tự điền từ profile; người B giữ để nhập đối phương.
+let _lastSyncedA = null;
+function _syncBirthA(force) {
+  const p = activePerson.value;
+  const dt = p?.birth_datetime_local;
+  if (!dt) return;
+  const d = dt.split("T")[0];
+  if (force || !mForm.value.birth_a_date || mForm.value.birth_a_date === _lastSyncedA) {
+    mForm.value.birth_a_date = d;
+    const hh = parseInt((dt.split("T")[1] || "").slice(0, 2), 10);
+    if (!Number.isNaN(hh)) mForm.value.birth_a_hour = hh;
+    if (p.name) mForm.value.name_a = p.name;
+    if (p.gender) mForm.value.gender_a = p.gender;
+    _lastSyncedA = d;
+  }
+}
+onMounted(() => _syncBirthA(false));
+watch(() => activePerson.value?.person_key, () => _syncBirthA(true));
 const mResult = ref(null);
 const mLoading = ref(false);
 const mError = ref("");

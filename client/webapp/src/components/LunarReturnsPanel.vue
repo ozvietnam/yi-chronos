@@ -23,7 +23,7 @@ const SIGN_ELEMENT = {
 };
 
 const inputBirth = ref("");
-useActivePersonBirth(inputBirth);
+useActivePersonBirth(inputBirth, { onReady: load }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 const inputLat = ref("");
 const inputLon = ref("");
 const inputCount = ref(12);

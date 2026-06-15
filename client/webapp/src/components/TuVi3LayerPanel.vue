@@ -7,16 +7,39 @@
     <div v-else-if="error" class="error">{{ error }}</div>
 
     <div v-else-if="result">
-      <!-- Lớp 1: Chuyện về anh -->
+      <!-- Lớp 1: Chuyện về anh — bài luận mượt là MẶC ĐỊNH (tự chạy) -->
       <section class="lop-1">
-        <h3>💬 Lớp 1 — Chuyện về anh
-          <button class="narrative-btn" :disabled="narrativeLoading" @click="loadNarrative">
-            {{ narrativeLoading ? '⏳ Đang viết...' : narrative ? '🔄 Viết lại' : '✨ Luận mượt (AI)' }}
+        <h3>💬 Chuyện về anh
+          <button v-if="narrative" class="narrative-btn" :disabled="narrativeLoading" @click="loadNarrative">
+            {{ narrativeLoading ? '⏳ Đang viết...' : '🔄 Viết lại' }}
           </button>
         </h3>
-        <div v-if="narrative" class="content narrative-text" v-html="renderMarkdown(narrative)"></div>
+        <div v-if="narrativeLoading && !narrative" class="content narrative-loading">
+          ✍️ Đang luận lá số của anh từ kho sách 5 hệ phái... (10-15 giây)
+        </div>
+        <div v-else-if="narrative" class="content narrative-text" v-html="renderMarkdown(narrative)"></div>
         <div v-else class="content" v-html="renderMarkdown(result.lop_1_chuyen_ve_anh)"></div>
-        <small v-if="narrative" class="narrative-meta">✨ AI luận theo paradigm đọc đồng dạng — mệnh 7 phần, người 3 phần</small>
+        <small v-if="narrative" class="narrative-meta">✨ AI luận theo paradigm đọc đồng dạng — mệnh 7 phần, người 3 phần · bám {{ result.metadata.atoms_pulled }} trích sách</small>
+      </section>
+
+      <!-- Món chính: luận theo CHỦ ĐỀ ĐỜI SỐNG — bấm món nào nấu món đó -->
+      <section class="mon-chinh">
+        <h3>🍽️ Luận sâu theo chủ đề</h3>
+        <p class="mc-hint">Chọn một mảng đời anh muốn nghe kỹ — thầy sẽ luận riêng từng món.</p>
+        <div class="mc-cards">
+          <button v-for="m in chuDeList" :key="m.slug"
+                  :class="['mc-card', { active: chuDeActive === m.slug }]"
+                  :disabled="chuDeLoading"
+                  @click="loadChuDe(m.slug)">
+            <span class="mc-icon">{{ m.icon }}</span>
+            <span class="mc-ten">{{ m.ten }}</span>
+          </button>
+        </div>
+        <div v-if="chuDeLoading" class="content narrative-loading">
+          ✍️ Đang luận món "{{ chuDeTen }}" từ kho sách... (10-15 giây)
+        </div>
+        <div v-else-if="chuDeText" class="content narrative-text mc-text" v-html="renderMarkdown(chuDeText)"></div>
+        <small v-if="chuDeText" class="narrative-meta">✨ Luận gộp các mảng liên quan — mệnh là động từ: cấu trúc này vận hành mạnh nhất khi anh chủ động</small>
       </section>
 
       <!-- Lớp 2: Vì sao -->
@@ -34,20 +57,53 @@
         </div>
       </section>
 
-      <!-- Lớp 3: Sách cổ nói -->
+      <!-- Lớp 3: Sách cổ nói — DẪN CHỨNG, ẩn mặc định (atoms thô) -->
       <section class="lop-3">
-        <h3>📚 Lớp 3 — Sách cổ nói (4 hệ phái)</h3>
+        <h3>📚 Dẫn chứng từ sách cổ</h3>
 
-        <div class="schools-legend">
-          <span v-for="(name, code) in result.lop_3_sach_co.schools_summary" :key="code" class="school-tag">
-            {{ name }}
-          </span>
+        <!-- Điểm nổi bật toàn lá (engine quét — luôn hiện trước) -->
+        <div v-if="highlights.length" class="hl-section">
+          <h4>⭐ Điểm nổi bật nhất lá số</h4>
+          <div v-for="(h, i) in highlights" :key="i" class="hl-row">
+            <span class="hl-vitri">{{ h.vi_tri }}</span>
+            <span class="hl-mota">{{ h.mo_ta }}</span>
+          </div>
         </div>
 
-        <!-- Tứ Hóa năm sinh -->
+        <!-- Tóm tắt + tên cách cục (luôn hiện, súc tích) -->
+        <div v-if="cachCucNamed.length" class="cc-summary">
+          🏆 Cách cục trong lá số:
+          <span v-for="cc in cachCucNamed" :key="cc.slug" :class="['cc-chip', cc.loai]">{{ cc.ten }}</span>
+        </div>
+
+        <!-- Tứ Hóa năm sinh (trục động — luôn hiện) -->
         <div v-if="tuHoa.length" class="tu-hoa-bar">
           <span v-for="t in tuHoa" :key="t.hoa" :class="['tu-hoa-chip', t.hoa]">
             {{ formatStar(t.hoa) }}: {{ formatStar(t.star) }} ({{ formatFn(t.palace_fn) || formatPalace(t.palace_chi) }})
+          </span>
+        </div>
+
+        <!-- Bộ phụ tinh theo cặp + thế (luôn hiện — Anh quan tâm) -->
+        <div v-if="boPhuTinhList.length" class="bo-pt-section">
+          <h4>✦ Bộ phụ tinh — xem theo CẶP + THẾ</h4>
+          <p class="to-hop-hint">Phụ tinh không xem lẻ: ghép thành bộ (cặp sao) và xét thế với cung — đồng cung / giáp (kẹp) / hội chiếu / xung chiếu.</p>
+          <div v-for="row in boPhuTinhList" :key="row.chi" class="bo-pt-cung">
+            <strong>🏛 {{ formatPalace(row.chi) }}:</strong>
+            <span v-for="b in row.bos" :key="b.slug" :class="['bo-pt-chip', b.loai]" :title="b.the_vi + (b.du_cap ? ' · đủ cặp' : ' · lẻ')">
+              {{ b.ten }} <em>{{ b.the_vi }}</em>{{ b.du_cap ? '' : '*' }}
+            </span>
+          </div>
+          <p class="bo-pt-note">* = bộ lẻ (chỉ 1 sao có thế). Màu: <span class="bo-pt-chip sat">sát</span> <span class="bo-pt-chip hung">hung</span> <span class="bo-pt-chip cat">cát</span> <span class="bo-pt-chip dao_hoa">đào hoa</span></p>
+        </div>
+
+        <button class="atoms-toggle" @click="showAtoms = !showAtoms">
+          {{ showAtoms ? '▲ Thu gọn dẫn chứng' : `📖 Xem dẫn chứng chi tiết từ sách (${result.metadata.atoms_pulled} trích dẫn, 5 hệ phái)` }}
+        </button>
+
+        <div v-show="showAtoms">
+        <div class="schools-legend">
+          <span v-for="(name, code) in result.lop_3_sach_co.schools_summary" :key="code" class="school-tag">
+            {{ name }}
           </span>
         </div>
 
@@ -175,6 +231,7 @@
             </template>
           </div>
         </div>
+        </div><!-- /v-show showAtoms -->
       </section>
 
       <!-- Metadata footer -->
@@ -200,6 +257,49 @@ const error = ref(null)
 const result = ref(null)
 const narrative = ref(null)
 const narrativeLoading = ref(false)
+const showAtoms = ref(false)  // dẫn chứng thô ẩn mặc định — atoms là hậu trường
+
+// Món chính theo chủ đề
+const chuDeList = ref([])
+const chuDeActive = ref(null)
+const chuDeText = ref(null)
+const chuDeTen = ref('')
+const chuDeLoading = ref(false)
+const chuDeCache = {}  // slug → narrative đã luận (đỡ gọi lại trong phiên)
+
+async function loadChuDeList() {
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/chu-de')
+    const data = await res.json()
+    chuDeList.value = data.chu_de || []
+  } catch { /* để trống nếu lỗi */ }
+}
+
+async function loadChuDe(slug) {
+  if (!props.birthDatetimeLocal) return
+  chuDeActive.value = slug
+  const m = chuDeList.value.find(x => x.slug === slug)
+  chuDeTen.value = m ? m.ten : ''
+  if (chuDeCache[slug]) { chuDeText.value = chuDeCache[slug]; return }
+  chuDeLoading.value = true
+  chuDeText.value = null
+  try {
+    const res = await fetch('/api/tu-vi/3-layer/chu-de', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        birth_datetime_local: props.birthDatetimeLocal,
+        timezone: props.timezone,
+        gender: props.gender,
+        chu_de: slug,
+      }),
+    })
+    const data = await res.json()
+    if (data.narrative) { chuDeText.value = data.narrative; chuDeCache[slug] = data.narrative }
+  } catch { /* lỗi → để trống */ } finally {
+    chuDeLoading.value = false
+  }
+}
 
 async function loadNarrative() {
   if (!props.birthDatetimeLocal) return
@@ -253,6 +353,17 @@ function formatFn(f) {
 
 const tuHoa = computed(() => result.value?.la_so_input?.tu_hoa || [])
 const cachCucNamed = computed(() => result.value?.lop_3_sach_co?.cach_cuc_named || [])
+const highlights = computed(() => result.value?.highlights || [])
+// Bộ phụ tinh: chỉ hiện cung có bộ ĐÁNG KỂ (đủ cặp, hoặc sát/hung)
+const boPhuTinhList = computed(() => {
+  const all = result.value?.lop_3_sach_co?.bo_phu_tinh_per_palace || {}
+  const rows = []
+  for (const [chi, bos] of Object.entries(all)) {
+    const keep = (bos || []).filter(b => b.du_cap || b.loai === 'sat' || b.loai === 'hung')
+    if (keep.length) rows.push({ chi, bos: keep })
+  }
+  return rows
+})
 const daiVan = computed(() => result.value?.lop_3_sach_co?.dai_van_hien_tai || null)
 
 function formatPalace(p) {
@@ -359,6 +470,12 @@ async function load() {
     const data = await res.json()
     if (data.detail) throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail))
     result.value = data
+    narrative.value = null  // reset khi đổi lá số
+    // Reset món chính khi đổi lá số (cache theo phiên giữ riêng, nhưng UI về trạng thái chọn)
+    chuDeActive.value = null; chuDeText.value = null
+    Object.keys(chuDeCache).forEach(k => delete chuDeCache[k])
+    // Bài luận mượt là MẶC ĐỊNH — tự chạy ngay sau khi có lá số
+    if (props.birthDatetimeLocal) loadNarrative()
   } catch (e) {
     error.value = `Lỗi: ${e.message}`
   } finally {
@@ -366,7 +483,7 @@ async function load() {
   }
 }
 
-onMounted(() => { loadGlossary(); load(); })
+onMounted(() => { loadGlossary(); loadChuDeList(); load(); })
 watch(() => props.birthDatetimeLocal, load)
 </script>
 
@@ -612,4 +729,57 @@ h3 { margin-top: 0; }
 .narrative-btn:disabled { opacity: 0.6; cursor: wait; }
 .narrative-text { white-space: pre-wrap; line-height: 1.8; }
 .narrative-meta { display: block; margin-top: 8px; color: var(--read-text-faint); }
+.narrative-loading { color: #6a4c93; font-style: italic; padding: 16px 0; }
+
+/* Bộ phụ tinh */
+.bo-pt-section { margin: 16px 0; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid #b8a5d8; }
+.bo-pt-cung { margin: 8px 0; line-height: 1.9; }
+.bo-pt-chip {
+  display: inline-block; margin: 2px 4px; padding: 1px 9px;
+  border-radius: 10px; font-size: 0.82em;
+}
+.bo-pt-chip em { font-style: normal; opacity: 0.7; font-size: 0.9em; }
+.bo-pt-chip.sat { background: #ffebee; color: #b71c1c; }
+.bo-pt-chip.hung { background: #fff3e0; color: #b35900; }
+.bo-pt-chip.cat { background: #e8f5e9; color: #1b5e20; }
+.bo-pt-chip.dao_hoa { background: #fce4ec; color: #ad1457; }
+.bo-pt-note { font-size: 0.8em; color: #777; margin-top: 8px; }
+
+/* Đảo sân khấu: dẫn chứng thô ẩn sau nút */
+.atoms-toggle {
+  width: 100%;
+  padding: 10px 16px;
+  margin: 8px 0 4px;
+  border: 1px dashed #6a4c93;
+  background: #faf8ff;
+  color: #5a3d80;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-align: left;
+}
+.atoms-toggle:hover { background: #f0ebfa; }
+.mon-chinh { margin: 18px 0; }
+.mc-hint { margin: 2px 0 10px; color: var(--read-text-faint); font-size: 0.9em; }
+.mc-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.mc-card { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 110px; padding: 12px 14px; background: var(--read-surface, #fff); border: 1.5px solid var(--read-border, #d8d8d8); border-radius: 12px; cursor: pointer; transition: all .15s; font: inherit; color: var(--read-text, #333); }
+.mc-card:hover:not(:disabled) { border-color: #b8860b; transform: translateY(-2px); box-shadow: 0 3px 10px rgba(0,0,0,.08); }
+.mc-card.active { border-color: #b8860b; background: #fffaf0; box-shadow: 0 2px 8px rgba(184,134,11,.18); }
+.mc-card:disabled { opacity: .55; cursor: wait; }
+.mc-icon { font-size: 1.6em; }
+.mc-ten { font-size: 0.84em; font-weight: 500; text-align: center; line-height: 1.25; }
+.mc-text { background: #fffdf7; border-left: 3px solid #b8860b; padding: 14px 16px; border-radius: 6px; }
+.hl-section { margin: 12px 0; padding: 12px 14px; background: #fffdf5; border: 1px solid #d4af37; border-radius: 8px; }
+.hl-section h4 { margin: 0 0 8px; color: #8a6d1a; }
+.hl-row { margin: 6px 0; font-size: 0.92em; line-height: 1.5; }
+.hl-vitri { display: inline-block; min-width: 64px; padding: 1px 8px; margin-right: 8px; background: #f0e6c0; color: #6a5212; border-radius: 8px; font-size: 0.85em; font-weight: 500; }
+.hl-mota { color: #3a3a38; }
+.cc-summary { margin: 6px 0 4px; font-size: 0.92em; color: #444; }
+.cc-chip {
+  display: inline-block; margin: 0 4px; padding: 2px 10px;
+  border-radius: 10px; font-size: 0.85em;
+}
+.cc-chip.cat { background: #e8f5e9; color: #1b5e20; }
+.cc-chip.hung { background: #ffebee; color: #b71c1c; }
+.cc-chip.hung_hoa_cat, .cc-chip.trung_tinh { background: #fff3e0; color: #b35900; }
 </style>

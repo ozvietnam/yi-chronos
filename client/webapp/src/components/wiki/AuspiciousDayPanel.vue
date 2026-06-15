@@ -5,10 +5,11 @@
  * Input form: sinh thần + tháng cần chọn + intent + hướng + zone
  * Output: Bát Tự breakdown + Top 7 ngày + Taboos
  */
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
+import { activePerson } from "../../stores/userDataStore.js";
 
 const form = ref({
-  birth_date: "1988-05-02",
+  birth_date: "",
   birth_hour: 8,
   target_year: 2026,
   target_month: 6,
@@ -21,6 +22,23 @@ const result = ref(null);
 const loading = ref(false);
 const error = ref("");
 const intents = ref([]);
+
+// Nhập 1 lần ở profile → tự điền ngày + giờ sinh; đổi profile → cập nhật người mới.
+// (Không tự chạy vì panel còn cần intent + tháng cần chọn.)
+let _lastSynced = null;
+function syncBirthFromActive(force) {
+  const dt = activePerson.value?.birth_datetime_local;
+  if (!dt) return;
+  const d = dt.split("T")[0];
+  if (force || !form.value.birth_date || form.value.birth_date === _lastSynced) {
+    form.value.birth_date = d;
+    const hh = parseInt((dt.split("T")[1] || "").slice(0, 2), 10);
+    if (!Number.isNaN(hh)) form.value.birth_hour = hh;
+    _lastSynced = d;
+  }
+}
+onMounted(() => syncBirthFromActive(false));
+watch(() => activePerson.value?.person_key, () => syncBirthFromActive(true));
 
 const DIRECTIONS = [
   { v: "", label: "(không chọn)" },

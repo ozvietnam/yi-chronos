@@ -271,6 +271,12 @@ async def render_from_birth(birth: BirthInput) -> dict:
     }
     result = render_3_layer(la_so_input)
     result["la_so_input"] = la_so_input
+    # Quét điểm nổi bật toàn lá (cho cả UI lẫn narrative dùng chung)
+    try:
+        from engine.tu_vi.highlights import quet_diem_noi_bat
+        result["highlights"] = quet_diem_noi_bat(la_so_input, result, top_n=6)
+    except Exception:
+        result["highlights"] = []
     return result
 
 
@@ -291,11 +297,84 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
         timezone=birth.timezone,
         gender=birth.gender,
     ))
-    result = generate_narrative(base, base["la_so_input"], force=birth.force)
+    # Vòng đời: tuổi mụ (năm xem − năm sinh + 1) → giai đoạn × giới → chủ đề + cung nhấn
+    from datetime import datetime
+    from engine.tu_vi.vong_doi import giai_doan_song, buoc_ngoat_dai_van, tin_hieu_nam_xem
+    ls_in = base["la_so_input"]
+    by = ls_in.get("birth_year") or int(birth.birth_datetime_local[:4])
+    nam_xem = datetime.now().year
+    tuoi_mu = nam_xem - by + 1
+    gender_c = ls_in.get("gender", "M")
+    ls_in["vong_doi"] = giai_doan_song(tuoi_mu, gender_c)
+    ls_in["buoc_ngoat_nhac"] = buoc_ngoat_dai_van(ls_in.get("dai_van_hien_tai"))
+    # Cung trọng tâm giai đoạn × giới → tên Việt để LLM nhấn
+    _CUNG_NHAN = {
+        ("thanh_nien", "nam"): ["Mệnh", "Quan Lộc", "Thiên Di"],
+        ("thanh_nien", "nu"): ["Mệnh", "Phu Thê", "Quan Lộc"],
+        ("lap_than", "nam"): ["Quan Lộc", "Tài Bạch", "Phu Thê"],
+        ("lap_than", "nu"): ["Phu Thê", "Tử Tức", "Quan Lộc"],
+        ("tam_thap", "nam"): ["Quan Lộc", "Tài Bạch", "Tử Tức", "Phu Thê"],
+        ("tam_thap", "nu"): ["Tử Tức", "Phu Thê", "Phúc Đức"],
+        ("tu_thap", "nam"): ["Quan Lộc", "Điền Trạch", "Tật Ách"],
+        ("tu_thap", "nu"): ["Tử Tức", "Tật Ách", "Phu Thê", "Phúc Đức"],
+        ("ngu_thap", "nam"): ["Quan Lộc", "Điền Trạch", "Tật Ách", "Phúc Đức"],
+        ("ngu_thap", "nu"): ["Tử Tức", "Tật Ách", "Phúc Đức"],
+        ("luc_thap", "nam"): ["Phúc Đức", "Tật Ách", "Tử Tức"],
+        ("luc_thap", "nu"): ["Phúc Đức", "Tật Ách", "Tử Tức"],
+    }
+    vd = ls_in["vong_doi"]
+    ls_in["cung_nhan"] = _CUNG_NHAN.get((vd.get("slug"), vd.get("gioi")), [])
+    from engine.tu_vi.vong_doi import CHI as _VD_CHI
+    _chi_vi = _VD_CHI[IDX_TO_CHI.index(ls_in["chi"])] if ls_in.get("chi") in IDX_TO_CHI else None
+    ls_in["tin_hieu_nam"] = tin_hieu_nam_xem(_chi_vi, nam_xem, tuoi_mu, gender_c) if _chi_vi else []
+    # Điểm nổi bật toàn lá — render_from_birth đã quét, dùng lại (top 5 cho khai vị)
+    ls_in["highlights"] = (base.get("highlights") or [])[:5]
+    result = generate_narrative(base, ls_in, force=birth.force)
     return {
         "narrative": result["narrative"],
         "cached": result["cached"],
         "model": result["model"],
+    }
+
+
+@router.get("/3-layer/chu-de")
+async def list_chu_de() -> dict:
+    """Danh sách 5 món chính (chủ đề đời sống) cho UI render thẻ."""
+    from engine.tu_vi.chu_de import CHU_DE
+    return {"chu_de": [
+        {"slug": k, "ten": v["ten"], "icon": v["icon"], "goc_nhin": v["goc_nhin"]}
+        for k, v in CHU_DE.items()
+    ]}
+
+
+class ChuDeBirthInput(BirthInput):
+    chu_de: str
+    force: bool = False
+
+
+@router.post("/3-layer/chu-de")
+async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
+    """Luận MÓN CHÍNH theo 1 chủ đề đời sống (gom tam hợp cung liên quan + LLM).
+
+    Lazy: frontend gọi khi user bấm thẻ chủ đề.
+    """
+    from engine.tu_vi.chu_de import gom_chu_de
+    from engine.atomization.narrative_gen import generate_chu_de_narrative
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone,
+        gender=birth.gender,
+    ))
+    ls_in = base["la_so_input"]
+    cd = gom_chu_de(birth.chu_de, ls_in, base)
+    if not cd:
+        return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
+    result = generate_chu_de_narrative(cd, ls_in, force=birth.force)
+    return {
+        "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
+        "narrative": result["narrative"],
+        "cached": result["cached"], "model": result["model"],
     }
 
 

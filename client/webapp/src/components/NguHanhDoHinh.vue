@@ -25,6 +25,7 @@ const TABS = [
   { id: "skch", label: "Sinh·Khắc·Chế·Hóa" },
   { id: "dong_ho", label: "🕓 Đồng hồ 12 canh" },
   { id: "sau_thanh", label: "🗣 6 Thanh Việt" },
+  { id: "tao_hinh", label: "🎨 Ngũ hành Tạo hình" },
 ];
 
 // vị trí 8 cung → (x, y) trên vòng bán kính R quanh tâm (cx, cy)
@@ -127,6 +128,30 @@ function thanhPoints(pts, ox, oy) {
 // 6 thanh xếp lưới 3 cột × 2 hàng → gốc (ox, oy) của ô thứ i
 function thanhCell(i) {
   return [4 + (i % 3) * 79, 16 + Math.floor(i / 3) * 110];
+}
+
+// ── Ngũ hành tạo hình (5 hình thể) ──────────────────────────────────────────
+const HANH_ORDER = ["mộc", "hỏa", "thổ", "kim", "thủy"];
+const taoHinh = computed(() => {
+  const b = data.value?.ngu_hanh_tao_hinh?.bang;
+  return b ? HANH_ORDER.map((h) => ({ hanh: h, ...b[h] })) : [];
+});
+const thHover = ref(null);
+function taoHinhX(i) {
+  return 28 + i * 46; // 5 cột cách đều
+}
+// đường uốn khúc (thủy) quanh tâm (cx, cy)
+function wavePts(cx, cy) {
+  return `${cx - 18},${cy + 6} ${cx - 9},${cy - 12} ${cx},${cy + 6} ${cx + 9},${cy - 12} ${cx + 18},${cy + 6}`;
+}
+// đường nét đại biểu: net_pts (toạ độ tương đối) → points tuyệt đối quanh tâm (cx, cy)
+function netPoints(pts, cx, cy) {
+  return (pts || []).map((p) => `${cx + p[0]},${cy + p[1]}`).join(" ");
+}
+// mũi tên chiều hướng: từ (cx, cy) theo góc huong_goc (độ, -90 = lên thẳng)
+function dirEnd(goc, cx, cy, len) {
+  const r = ((goc ?? 0) * Math.PI) / 180;
+  return [cx + len * Math.cos(r), cy + len * Math.sin(r)];
 }
 
 // ── Đồng hồ sinh học 12 canh giờ ────────────────────────────────────────────
@@ -433,25 +458,114 @@ function clockXY(i, r) {
               :x2="thanhCell(i)[0] + 72" :y2="thanhCell(i)[1] + 35"
               stroke="rgba(232,201,90,0.12)" stroke-dasharray="2 2" />
             <polyline :points="thanhPoints(t.pts, thanhCell(i)[0], thanhCell(i)[1])"
-              fill="none" :stroke="t.am_duong === 'âm' ? '#6ea0dc' : '#d6593a'"
+              fill="none" :stroke="HANH_COLOR[t.hanh]"
               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
             <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 62" text-anchor="middle" class="dh-th-name">{{ t.ten }}</text>
-            <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 73" text-anchor="middle" class="dh-th-dau">{{ t.dau }} · {{ t.am_duong }}</text>
+            <text :x="thanhCell(i)[0] + 40" :y="thanhCell(i)[1] + 73" text-anchor="middle" class="dh-th-dau">{{ t.dau }} · {{ t.hanh }} · {{ t.am_duong }}</text>
           </g>
         </svg>
         <div class="dh-info">
           <p><b>{{ data.sau_thanh_tieng_viet.ten }}</b></p>
           <p>{{ data.sau_thanh_tieng_viet.y_nghia }}</p>
           <p class="dh-legend">
-            <span class="lg lg-khac">▬ trắc = dương (dọc)</span>
-            <span class="lg lg-bang">▬ bằng = âm (ngang)</span>
+            <span class="lg" style="color:#d6593a;background:rgba(214,89,58,.1)">trắc = dương (dọc)</span>
+            <span class="lg lg-bang">bằng = âm (ngang)</span>
+            <span class="lg" style="color:#e8c95a;background:rgba(232,201,90,.1)">màu = ngũ hành</span>
           </p>
           <p v-if="hovered && hovered.tu_the" class="dh-hover">
-            <b>{{ hovered.ten }}</b> ({{ hovered.dau }}) — tư thế đầu-cổ: {{ hovered.tu_the }};
-            ví dụ tượng hình: <i>{{ hovered.vi_du }}</i>.
+            <b>{{ hovered.ten }}</b> ({{ hovered.dau }}) — hành <b :style="{ color: HANH_COLOR[hovered.hanh] }">{{ hovered.hanh }}</b>,
+            độ cao {{ hovered.do_cao }}, tâm sinh lý <b>{{ hovered.tam_sinh_ly }}</b> (tạng {{ hovered.tang }}).
+            <br />Tư thế đầu-cổ: {{ hovered.tu_the }}; ví dụ tượng hình: <i>{{ hovered.vi_du }}</i>.
           </p>
-          <p v-else class="dh-note">Rê chuột vào từng thanh để xem tư thế đầu-cổ + ví dụ tượng hình.</p>
+          <p v-else class="dh-note">Rê chuột vào từng thanh: hành · tâm sinh lý · tạng · tư thế · ví dụ.</p>
+          <details v-if="data.sau_thanh_tieng_viet.tieng_vung_mien" class="dh-skch-list">
+            <summary>🗺 Giọng vùng miền ↔ ngũ hành địa lý</summary>
+            <ul>
+              <li v-for="(v, i) in data.sau_thanh_tieng_viet.tieng_vung_mien" :key="i">
+                <b :style="{ color: HANH_COLOR[v.hanh] }">{{ v.vung }}</b> ({{ v.phuong }} · {{ v.hanh }}):
+                {{ v.dac_diem }}. <i>{{ v.vi_du }}</i>
+              </li>
+            </ul>
+          </details>
           <p class="dh-nguon">— {{ data.sau_thanh_tieng_viet.nguon }}</p>
+        </div>
+      </div>
+
+      <!-- NGŨ HÀNH TẠO HÌNH: 5 hình thể + đường nét + chiều hướng + màu + dáng người -->
+      <div v-show="tab === 'tao_hinh'" class="dh-pane">
+        <svg viewBox="0 0 240 232" class="dh-svg" role="img" aria-label="Ngũ hành tạo hình">
+          <defs>
+            <marker id="ar-dir" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+            </marker>
+          </defs>
+          <g v-for="(t, i) in taoHinh" :key="t.hanh"
+             class="dh-na" @mouseenter="thHover = t" @mouseleave="thHover = null">
+            <!-- hình thể theo hành -->
+            <rect v-if="t.hinh_loai === 'chu_nhat'" :x="taoHinhX(i) - 9" :y="50" width="18" height="38" rx="2"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <circle v-else-if="t.hinh_loai === 'tron'" :cx="taoHinhX(i)" :cy="69" r="19"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <rect v-else-if="t.hinh_loai === 'vuong'" :x="taoHinhX(i) - 17" :y="52" width="34" height="34" rx="2"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <polygon v-else-if="t.hinh_loai === 'tam_giac'"
+              :points="`${taoHinhX(i)},50 ${taoHinhX(i) - 18},87 ${taoHinhX(i) + 18},87`"
+              :fill="HANH_COLOR[t.hanh] + '33'" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" />
+            <polyline v-else-if="t.hinh_loai === 'uon_khuc'" :points="wavePts(taoHinhX(i), 69)"
+              fill="none" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 4 : 3"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <text :x="taoHinhX(i)" :y="106" text-anchor="middle" class="dh-th-name" :fill="HANH_COLOR[t.hanh]">{{ t.hanh }}</text>
+            <text :x="taoHinhX(i)" :y="117" text-anchor="middle" class="dh-th-dau">{{ t.hinh }} · {{ t.mau }}</text>
+            <!-- đường nét đại biểu -->
+            <polyline :points="netPoints(t.net_pts, taoHinhX(i), 148)"
+              fill="none" :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <text :x="taoHinhX(i)" :y="172" text-anchor="middle" class="dh-th-dau">{{ t.dau_thanh }}</text>
+            <!-- mũi tên chiều hướng -->
+            <line :x1="taoHinhX(i)" :y1="206" :x2="dirEnd(t.huong_goc, taoHinhX(i), 206, 15)[0]"
+              :y2="dirEnd(t.huong_goc, taoHinhX(i), 206, 15)[1]" :style="{ color: HANH_COLOR[t.hanh] }"
+              :stroke="HANH_COLOR[t.hanh]" :stroke-width="thHover === t ? 3 : 2" marker-end="url(#ar-dir)" />
+          </g>
+          <text x="6" y="150" class="dh-axis">nét·dấu</text>
+          <text x="6" y="208" class="dh-axis">hướng</text>
+        </svg>
+        <div class="dh-info">
+          <p><b>{{ data.ngu_hanh_tao_hinh.ten }}</b></p>
+          <p>{{ data.ngu_hanh_tao_hinh.y_nghia }}</p>
+          <p v-if="thHover" class="dh-hover">
+            <b :style="{ color: HANH_COLOR[thHover.hanh] }">{{ thHover.hanh }}</b> — hình
+            <b>{{ thHover.hinh }}</b>, nét <b>{{ thHover.duong_net }}</b>, dấu <b>{{ thHover.dau_thanh }}</b>.
+            <br />Chiều hướng: <b>{{ thHover.chieu_huong }}</b>; độ cao {{ thHover.do_cao }};
+            độ dài {{ thHover.do_dai }}; độ lớn {{ thHover.do_lon }}.
+            <br />Dáng đầu·mặt: <b>{{ thHover.dang_dau }}</b>; tâm lý: {{ thHover.tam_ly }}.
+            <br /><i>{{ thHover.ly_do }}</i>
+          </p>
+          <p v-else class="dh-note">Rê chuột vào từng hành: hình · nét · dấu · chiều hướng · độ cao/dài/lớn · dáng đầu.</p>
+          <details class="dh-skch-list">
+            <summary>📐 Trọn hệ thị giác ↔ ngũ hành</summary>
+            <p style="font-size:12px;padding:4px 0">{{ data.ngu_hanh_tao_hinh.he_thi_giac_day_du }}</p>
+          </details>
+          <details v-if="data.ngu_hanh_tao_hinh.danh_gia_tac_pham" class="dh-skch-list">
+            <summary>🖼 Đánh giá tác phẩm tạo hình bằng ngũ hành</summary>
+            <p style="font-size:12px;padding:4px 0">{{ data.ngu_hanh_tao_hinh.danh_gia_tac_pham.y_nghia }}</p>
+            <ul>
+              <li v-for="(p, i) in data.ngu_hanh_tao_hinh.danh_gia_tac_pham.phan_loai" :key="i">{{ p }}</li>
+            </ul>
+          </details>
+          <details class="dh-skch-list">
+            <summary>🖋 Dấu thanh Việt = đường nét ngũ hành (hợp nhất 6 thanh)</summary>
+            <ul>
+              <li v-for="t in taoHinh" :key="'dt' + t.hanh">
+                <b :style="{ color: HANH_COLOR[t.hanh] }">{{ t.dau_thanh }}</b> = {{ t.duong_net }}
+                = hành {{ t.hanh }} ({{ t.tam_ly }})
+              </li>
+            </ul>
+          </details>
+          <details class="dh-skch-list">
+            <summary>⚖ Việt khác Trung Quốc (Hỏa ↔ Kim)</summary>
+            <p style="font-size:12px;padding:4px 0">{{ data.ngu_hanh_tao_hinh.vn_khac_tq }}</p>
+          </details>
+          <p class="dh-nguon">— {{ data.ngu_hanh_tao_hinh.nguon }}</p>
         </div>
       </div>
 

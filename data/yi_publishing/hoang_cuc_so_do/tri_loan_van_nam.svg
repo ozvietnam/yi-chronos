@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1120 720" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, STKaiti, Songti SC, serif">
+<rect width="1120" height="720" fill="#fbf7ef"/>
+<text x="560.0" y="46" text-anchor="middle" font-size="28" fill="#2a2018" font-weight="bold">ĐỒ TRỊ–LOẠN VẠN NĂM</text>
+<text x="560.0" y="74" text-anchor="middle" font-size="15" fill="#7a5a2a">皇极经世 · "Ngọ hội do Vũ chí kim, vương giáng nhi bá" — engine neo 304 CN = thế 2245 (tự tự bộ trọn)</text>
+<line x1="130" y1="134" x2="130" y2="494" stroke="#bbb" stroke-width="1.5"/>
+<text x="116" y="310.0" font-size="12.5" fill="#888" transform="rotate(-90 116 310.0)" text-anchor="middle">ĐỨC TRỊ (cao=thịnh · thấp=loạn)</text>
+<line x1="130" y1="494" x2="1014" y2="494" stroke="#bbb" stroke-width="1.5"/>
+<text x="1000" y="514" text-anchor="middle" font-size="12.5" fill="#888">THỜI GIAN →</text>
+<path d="M 130 150 L 417 233 L 703 316 L 990 393" fill="none" stroke="#a85a3a" stroke-width="3" opacity="0.45"/>
+<line x1="560.0" y1="142" x2="560.0" y2="494" stroke="#2f5d8a" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="560.0" y="136" text-anchor="middle" font-size="13.5" fill="#2f5d8a" font-weight="bold">⟵ HỘI TỴ | HỘI NGỌ ⟶ (vận 181, ~2217 TCN)</text>
+<circle cx="130" cy="150" r="12" fill="#b8862a"/>
+<text x="130" y="126" text-anchor="middle" font-size="17" fill="#b8862a" font-weight="bold">皇 Hoàng</text>
+<rect x="36" y="536" width="200" height="108" rx="8" fill="#b8862a" opacity="0.10" stroke="#b8862a" stroke-opacity="0.4"/>
+<text x="136" y="558" text-anchor="middle" font-size="14.5" fill="#b8862a" font-weight="bold">TAM HOÀNG</text>
+<text x="136" y="577" text-anchor="middle" font-size="12" fill="#444">Thượng: Đạo · vô vi · Mùa Xuân</text>
+<text x="136" y="596" text-anchor="middle" font-size="11.5" fill="#888">trước hội Ngọ (hội Tỵ)</text>
+<text x="136" y="616" text-anchor="middle" font-size="11" fill="#777">Phục Hy → Hoàng Đế</text>
+<line x1="130" y1="162" x2="136" y2="536" stroke="#b8862a" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+<circle cx="417" cy="233" r="12" fill="#c98a2e"/>
+<text x="417" y="209" text-anchor="middle" font-size="17" fill="#c98a2e" font-weight="bold">帝 Đế</text>
+<rect x="320.6666666666667" y="536" width="200" height="108" rx="8" fill="#c98a2e" opacity="0.10" stroke="#c98a2e" stroke-opacity="0.4"/>
+<text x="420.6666666666667" y="558" text-anchor="middle" font-size="14.5" fill="#c98a2e" font-weight="bold">NGŨ ĐẾ</text>
+<text x="420.6666666666667" y="577" text-anchor="middle" font-size="12" fill="#444">Thượng: Đức · nhường · Mùa Hạ</text>
+<text x="420.6666666666667" y="596" text-anchor="middle" font-size="11.5" fill="#2f5d8a">2357 TCN · hội Tỵ · thế 2156</text>
+<text x="420.6666666666667" y="616" text-anchor="middle" font-size="11" fill="#777">Nghiêu (Giáp Thìn) · Thuấn</text>
+<line x1="417" y1="245" x2="420.6666666666667" y2="536" stroke="#c98a2e" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+<circle cx="703" cy="316" r="12" fill="#a85a3a"/>
+<text x="703" y="292" text-anchor="middle" font-size="17" fill="#a85a3a" font-weight="bold">王 Vương</text>
+<rect x="607.3333333333334" y="536" width="200" height="108" rx="8" fill="#a85a3a" opacity="0.10" stroke="#a85a3a" stroke-opacity="0.4"/>
+<text x="707.3333333333334" y="558" text-anchor="middle" font-size="14.5" fill="#a85a3a" font-weight="bold">TAM VƯƠNG</text>
+<text x="707.3333333333334" y="577" text-anchor="middle" font-size="12" fill="#444">Thượng: Công · chính · Mùa Thu</text>
+<text x="707.3333333333334" y="596" text-anchor="middle" font-size="11.5" fill="#2f5d8a">2071 TCN · hội Ngọ · thế 2165</text>
+<text x="707.3333333333334" y="616" text-anchor="middle" font-size="11" fill="#777">Hạ Vũ · Thương · Chu</text>
+<line x1="703" y1="328" x2="707.3333333333334" y2="536" stroke="#a85a3a" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+<circle cx="990" cy="393" r="12" fill="#7a4a52"/>
+<text x="990" y="369" text-anchor="middle" font-size="17" fill="#7a4a52" font-weight="bold">伯 Bá</text>
+<rect x="894.0" y="536" width="200" height="108" rx="8" fill="#7a4a52" opacity="0.10" stroke="#7a4a52" stroke-opacity="0.4"/>
+<text x="994.0" y="558" text-anchor="middle" font-size="14.5" fill="#7a4a52" font-weight="bold">NGŨ BÁ → nay</text>
+<text x="994.0" y="577" text-anchor="middle" font-size="12" fill="#444">Thượng: Lực · tranh · Mùa Đông</text>
+<text x="994.0" y="596" text-anchor="middle" font-size="11.5" fill="#2f5d8a">771 TCN · hội Ngọ · thế 2209</text>
+<text x="994.0" y="616" text-anchor="middle" font-size="11" fill="#777">Bình Vương → Tống → nay</text>
+<line x1="990" y1="405" x2="994.0" y2="536" stroke="#7a4a52" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+<text x="560.0" y="702" text-anchor="middle" font-size="13" fill="#2f5d8a">"Thiên địa đại vận, Bĩ dịch nhi Thái" — suy tới cực thì có cơ xoay lại · Nay (2026) = hội Ngọ, vận 192, thế 2302</text>
+</svg>

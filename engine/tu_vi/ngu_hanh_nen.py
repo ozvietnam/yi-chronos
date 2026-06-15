@@ -160,6 +160,21 @@ NGU_HANH_THAN: dict[str, dict] = {
     "thủy": {"tang": "Thận",          "phu": "Bàng quang",  "quan": "tai — nghe",   "sac": "đen",   "vi": "mặn",  "am": "Vũ",     "tieng": "rên",       "am_tc": "trầm mà sâu"},
 }
 
+# Ngũ hành ↔ tâm sinh lý ↔ độ cao/dài thanh (Bảng 4-6/4-7/4-8 p169-171). Tâm lý giao
+# thoa như ngũ hành: "lo nghĩ" = Mộc+Thổ, "lo buồn" = Thổ+Kim — tổ hợp sinh vô vàn sắc thái.
+NGU_HANH_TAM_SINH_LY: dict[str, dict] = {
+    "hỏa":  {"do_cao": "rất cao", "tinh_cam": "thần minh, vui, tếu", "tang": "Tâm, Tiểu trường",
+             "tu_mau": "sáng suốt, sướng quá, múa hát, líu tíu, tíu tít"},
+    "mộc":  {"do_cao": "hơi cao", "tinh_cam": "mưu lự, giận, bướng, dũng cảm", "tang": "Can, Đởm",
+             "tu_mau": "dũng mãnh, cãi vã, giữ vững, gãy, ngỡ"},
+    "thổ":  {"do_cao": "vừa / hơi thấp", "tinh_cam": "bình thản, lo lắng, ôn hòa, dịu dàng", "tang": "Tỳ, Vị",
+             "tu_mau": "qua loa, vâng, thương thương, em ơi, chờ xem"},
+    "kim":  {"do_cao": "thấp", "tinh_cam": "trị tiết, buồn, khắt khe, tỉ mỉ, cẩn thận", "tang": "Phế, Đại trường",
+             "tu_mau": "thử hỏi, kể lể, bủn xỉn, thủ thỉ, khủng hoảng"},
+    "thủy": {"do_cao": "rất thấp", "tinh_cam": "kỹ xảo, kinh hãi, nghi ngờ", "tang": "Thận, Bàng quang",
+             "tu_mau": "sợ, ngại, bực bội, chọi, đạp, đập, đợi"},
+}
+
 _STAR_BY_NAME = {s.ten_vi: s for s in ALL_CHINH_TINH}
 
 
@@ -274,7 +289,8 @@ def sao_tai_cung(star_vi: str, chi_vi: str) -> dict | None:
     Returns dict cho UI:
       {sao, hanh_sao, hanh_phu, am_duong_sao, hoa_khi, cung_chi, hanh_cung,
        am_duong_cung, quan_he{code,label,arrow}, nhan_dinh, mieu_ham,
-       ghi_chu_lech (nếu bảng miếu-hãm cổ lệch chiều với sinh-khắc hành đơn)}
+       ghi_chu_lech (nếu bảng miếu-hãm cổ lệch chiều với sinh-khắc hành đơn),
+       hoa_giai{che,hoa,mo_ta} (nếu có khắc — hành chế + hành thông quan để cân bằng)}
     """
     star = _STAR_BY_NAME.get(star_vi)
     hanh_cung = HANH_CHI.get(chi_vi)
@@ -303,6 +319,26 @@ def sao_tai_cung(star_vi: str, chi_vi: str) -> dict | None:
             "Hai tầng cùng được giữ để đối chiếu."
         )
 
+    # Lối HÓA GIẢI khi có khắc — biến "căng" thành "căng + đường cân bằng" (mệnh là động từ).
+    # a_khac_b: sao khắc cung (cung bị) → chế cứu cung; b_khac_a: cung khắc sao (sao bị) → chế cứu sao.
+    hoa_giai = None
+    if qh["code"] in ("a_khac_b", "b_khac_a"):
+        attacker = hanh_sao if qh["code"] == "a_khac_b" else hanh_cung
+        victim = hanh_cung if qh["code"] == "a_khac_b" else hanh_sao
+        ch = che_hoa(attacker, victim)
+        if ch:
+            ai_bi = "đất cung" if qh["code"] == "a_khac_b" else "sao"
+            hoa_giai = {
+                "che": ch["che"]["hanh"],
+                "hoa": ch["hoa"]["hanh"],
+                "mo_ta": (
+                    f"Thế khắc {attacker}⊣{victim} không phải bế tắc: thêm hành "
+                    f"**{ch['che']['hanh']}** (chế) thì khắc bị kìm, cứu cho {ai_bi}; thêm hành "
+                    f"**{ch['hoa']['hanh']}** (thông quan/hóa) thì khắc chuyển thành chuỗi sinh nuôi {ai_bi}. "
+                    f"Trong lá số, để ý sao/cung mang hai hành này — chúng là đòn bẩy cân bằng."
+                ),
+            }
+
     return {
         "sao": star_vi,
         "hanh_sao": hanh_sao,
@@ -318,6 +354,7 @@ def sao_tai_cung(star_vi: str, chi_vi: str) -> dict | None:
         "nhan_dinh": nhan_dinh,
         "mieu_ham": level,
         "ghi_chu_lech": ghi_chu_lech,
+        "hoa_giai": hoa_giai,
     }
 
 
@@ -463,6 +500,14 @@ def vong_sinh_khac() -> dict:
                        "màu xanh ảnh hưởng gan, màu đỏ ảnh hưởng tim. Ngũ âm Cung-Thương-Giốc-Chủy-Vũ "
                        "= thang ngũ cung nhạc cổ, mỗi âm một tạng một loại tiếng (ca/khóc/hô/cười/rên).",
             "nguon": "Lê Văn Sửu p143-147 (dẫn Châm cứu đại thành)",
+        },
+        "ngu_hanh_tam_sinh_ly": {
+            "bang": NGU_HANH_TAM_SINH_LY,
+            "y_nghia": "Ngũ hành ↔ tâm sinh lý ↔ độ cao thanh tiếng Việt (Bảng 4-6/4-8): Hỏa=vui/"
+                       "thần minh, Mộc=mưu lự/giận, Thổ=bình thản/lo, Kim=buồn/trị tiết, Thủy=kinh hãi/"
+                       "kỹ xảo. Tâm lý GIAO THOA như ngũ hành: 'lo nghĩ'=Mộc+Thổ, 'lo buồn'=Thổ+Kim — "
+                       "tổ hợp sinh vô vàn sắc thái, từ ngữ phải tổ hợp đúng quy luật mới diễn đạt nổi.",
+            "nguon": "Lê Văn Sửu p169-171 (Bảng 4-6, 4-7, 4-8)",
         },
         "nhip_thoi_sinh_hoc": {
             "y_nghia": "Trục thời gian của ngũ hành được Tây phương kiểm chứng: viêm gan cấp phát "

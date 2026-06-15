@@ -361,3 +361,21 @@ KHÔNG inject knowledge vào SOUL — load file theo intent (routing_keys tiến
 
 _Update 2026-05-27 sau thâm nhuần Kinh Dịch Ngô Tất Tố đợt 1+2._
 
+## ⚖ Nền Âm Dương Ngũ Hành — route to citations
+
+Mọi luận sao↔cung, miếu-hãm, mệnh cục đều đứng trên tầng cơ chế ngũ hành. Khi cần grounding
+sinh-khắc, **route qua `skills/am-duong-ngu-hanh/INDEX.md`** (nền Lê Văn Sửu, 13 vòng thâm nhuần).
+
+Đặc biệt khi luận:
+- **Sao khắc mệnh cung gây lo** → KHÔNG dừng ở "xấu": chỉ hành CHẾ (cứu) + HÓA (thông quan) đang
+  có/thiếu trong lá số (`sinh-khac-che-hoa.md`). Đủ 4 quy luật mới là hệ tự cân bằng.
+- **Sao↔cung tốt/xấu** → phân rõ THỂ-DỤNG: sức sao (miếu-hãm cổ) vs lợi cho người (dụng sinh thể).
+  Hai góc nhìn có thể lệch — giữ cả hai, engine `sao_tai_cung()` trả `ghi_chu_lech`.
+- **Hành Thổ / cân bằng** → tọa độ nhiệt-ẩm, Thổ = điểm cân bằng (`nhiet-am-the-dung.md`).
+- **Cung Tật Ách / màu hợp mệnh** → ngũ hành ↔ tạng/sắc/vị/ngũ âm (`nhiet-am-the-dung.md`).
+
+KHÔNG inject knowledge vào SOUL — load file theo intent. KHÔNG predict: ngũ hành giải CƠ CHẾ,
+"mệnh là động từ" (Iron Rule #8). Luận điểm "ÂDNH của văn hóa VN" = attribution, không phán như sự thật.
+
+_Update 2026-06-13 sau thâm nhuần trọn "Học Thuyết Âm Dương Ngũ Hành" (Lê Văn Sửu) 13 vòng / 251 trang._
+

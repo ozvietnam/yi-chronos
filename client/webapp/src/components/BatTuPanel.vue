@@ -97,7 +97,8 @@ function onGlossaryLeave() {
 const loading = ref(false);
 const errorMsg = ref("");
 
-useActivePersonBirth(inputBirth);
+// Nhập ngày sinh 1 lần ở profile → tự điền + tự chạy kết quả; đổi profile → chạy lại người mới.
+useActivePersonBirth(inputBirth, { onReady: castAll });
 
 const { openSlug, openHexagram, closeHexagram } = useHexagramModal();
 

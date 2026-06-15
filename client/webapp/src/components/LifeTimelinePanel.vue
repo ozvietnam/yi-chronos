@@ -40,7 +40,7 @@ const ASPECT_DESC = {
 };
 
 const inputBirth = ref("");
-useActivePersonBirth(inputBirth);
+useActivePersonBirth(inputBirth, { onReady: loadTimeline }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 const inputSpan = ref(90);
 const data = ref(null);
 const loading = ref(false);

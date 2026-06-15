@@ -9,7 +9,7 @@
  * + Ngũ Uẩn 5 lớp (Tử Vi Bôn Ba) + bảng miếu-hãm 12 chi (độ khó bài học).
  * Mở đầu = kiến thức nền Âm Dương Ngũ Hành (định nghĩa + vòng sinh khắc).
  */
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import NguHanhDoHinh from "./NguHanhDoHinh.vue";
 
 const open = ref(false);
@@ -17,9 +17,28 @@ const loading = ref(false);
 const error = ref("");
 const nenTang = ref(null);
 const profiles = ref([]);
+const oracleCards = ref([]);
 const paradigmNote = ref("");
 const selected = ref(null);
+const selectedOracleCard = ref(null);
 const showCung12 = ref(false);
+
+const PURE_CHINH_TINH_SLUG = Object.freeze({
+  "Tử Vi": "tu-vi",
+  "Thiên Cơ": "thien-co",
+  "Thái Dương": "thai-duong",
+  "Vũ Khúc": "vu-khuc",
+  "Thiên Đồng": "thien-dong",
+  "Liêm Trinh": "liem-trinh",
+  "Thiên Phủ": "thien-phu",
+  "Thái Âm": "thai-am",
+  "Tham Lang": "tham-lang",
+  "Cự Môn": "cu-mon",
+  "Thiên Tướng": "thien-tuong",
+  "Thiên Lương": "thien-luong",
+  "Thất Sát": "that-sat",
+  "Phá Quân": "pha-quan",
+});
 
 const UAN_LABELS = {
   sac: "Sắc — biểu hiện ra ngoài",
@@ -36,13 +55,20 @@ async function toggle() {
     loading.value = true;
     error.value = "";
     try {
-      const resp = await fetch("/api/tu-vi/star-profiles");
-      const d = await resp.json();
+      const [profileResp, cardResp] = await Promise.all([
+        fetch("/api/tu-vi/star-profiles"),
+        fetch("/oracle-cards/tu-vi/cards.json"),
+      ]);
+      const d = await profileResp.json();
       if (d.status !== "ok") throw new Error("API trả " + d.status);
       nenTang.value = d.nen_tang;
       profiles.value = d.profiles || [];
       paradigmNote.value = d.paradigm_note || "";
       selected.value = profiles.value[0] || null;
+      if (cardResp.ok) {
+        const manifest = await cardResp.json();
+        oracleCards.value = manifest.cards || [];
+      }
     } catch (e) {
       error.value = "Không tải được hồ sơ sao: " + (e?.message || e);
     } finally {
@@ -63,6 +89,19 @@ function levelClass(lv) {
   if (lv === "đắc") return "lv-kha";
   if (lv === "hãm" || lv === "lạc") return "lv-kho";
   return "lv-binh";
+}
+
+const oracleCardsBySlug = computed(() => {
+  return new Map(oracleCards.value.map((card) => [card.slug, card]));
+});
+
+function oracleCardForProfile(profile) {
+  const slug = PURE_CHINH_TINH_SLUG[profile?.co_ban?.ten_vi];
+  return slug ? oracleCardsBySlug.value.get(slug) || null : null;
+}
+
+function openOracle(card) {
+  if (card) selectedOracleCard.value = card;
 }
 </script>
 
@@ -136,32 +175,57 @@ function levelClass(lv) {
             :data-hanh="(p.co_ban.ngu_hanh || '').split('/')[0].trim()"
             @click="selected = p"
           >
-            {{ p.co_ban.ten_vi }}
-            <small v-if="p.co_ban.ngu_hanh">{{ p.co_ban.am_duong }} {{ p.co_ban.ngu_hanh }}</small>
+            <img
+              v-if="oracleCardForProfile(p)"
+              :src="oracleCardForProfile(p).image"
+              :alt="`Thẻ ${p.co_ban.ten_vi}`"
+              loading="lazy"
+            />
+            <span>
+              {{ p.co_ban.ten_vi }}
+              <small v-if="p.co_ban.ngu_hanh">{{ p.co_ban.am_duong }} {{ p.co_ban.ngu_hanh }}</small>
+            </span>
           </button>
         </div>
 
         <!-- ── Hồ sơ sao đang chọn ── -->
         <article v-if="selected" class="ctl-detail">
-          <header class="ctl-head">
-            <h5>
-              {{ selected.co_ban.ten_vi }}
-              <span v-if="selected.co_ban.ten_zh" class="ctl-zh">{{ selected.co_ban.ten_zh }}</span>
-            </h5>
-            <div class="ctl-head-badges">
-              <span v-if="selected.co_ban.ngu_hanh" class="nh-badge"
-                :data-hanh="(selected.co_ban.ngu_hanh || '').split('/')[0].trim()">
-                {{ selected.co_ban.am_duong }} {{ selected.co_ban.ngu_hanh }}
-              </span>
-              <span v-if="selected.co_ban.hoa_khi" class="ctl-hoakhi">hóa khí: {{ selected.co_ban.hoa_khi }}</span>
-              <span v-if="(selected.co_ban.chu_ve || []).length" class="ctl-chuve">
-                chủ về: {{ selected.co_ban.chu_ve.join(", ") }}
-              </span>
+          <div class="ctl-detail-shell">
+            <button
+              v-if="oracleCardForProfile(selected)"
+              type="button"
+              class="ctl-oracle-art"
+              @click="openOracle(oracleCardForProfile(selected))"
+            >
+              <img :src="oracleCardForProfile(selected).image" :alt="`Thẻ ${selected.co_ban.ten_vi}`" loading="lazy" />
+              <span>Mở ảnh lớn</span>
+            </button>
+            <div v-else class="ctl-oracle-art ctl-oracle-art-missing">
+              <span>Chưa có ảnh</span>
             </div>
-            <p v-if="(selected.co_ban.keywords || []).length" class="ctl-kw">
-              {{ selected.co_ban.keywords.join(" · ") }}
-            </p>
-          </header>
+            <header class="ctl-head">
+              <h5>
+                {{ selected.co_ban.ten_vi }}
+                <span v-if="selected.co_ban.ten_zh" class="ctl-zh">{{ selected.co_ban.ten_zh }}</span>
+              </h5>
+              <div class="ctl-head-badges">
+                <span v-if="selected.co_ban.ngu_hanh" class="nh-badge"
+                  :data-hanh="(selected.co_ban.ngu_hanh || '').split('/')[0].trim()">
+                  {{ selected.co_ban.am_duong }} {{ selected.co_ban.ngu_hanh }}
+                </span>
+                <span v-if="selected.co_ban.hoa_khi" class="ctl-hoakhi">hóa khí: {{ selected.co_ban.hoa_khi }}</span>
+                <span v-if="(selected.co_ban.chu_ve || []).length" class="ctl-chuve">
+                  chủ về: {{ selected.co_ban.chu_ve.join(", ") }}
+                </span>
+              </div>
+              <p v-if="(selected.co_ban.keywords || []).length" class="ctl-kw">
+                {{ selected.co_ban.keywords.join(" · ") }}
+              </p>
+              <p v-if="oracleCardForProfile(selected)?.interpretation" class="ctl-art-meaning">
+                {{ oracleCardForProfile(selected).interpretation }}
+              </p>
+            </header>
+          </div>
 
           <p v-if="selected.ngu_uan?.menh_de_dinh_vi" class="ctl-dinh-vi">
             {{ selected.ngu_uan.menh_de_dinh_vi }}
@@ -262,6 +326,26 @@ function levelClass(lv) {
         <p v-if="paradigmNote" class="ctl-paradigm">{{ paradigmNote }}</p>
       </template>
     </div>
+
+    <Teleport to="body">
+      <div
+        v-if="selectedOracleCard"
+        class="ctl-lightbox"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="`Ảnh lớn ${selectedOracleCard.title}`"
+        @click.self="selectedOracleCard = null"
+      >
+        <button class="ctl-lightbox-close" type="button" @click="selectedOracleCard = null">×</button>
+        <figure>
+          <img :src="selectedOracleCard.full_image || selectedOracleCard.image" :alt="selectedOracleCard.title" />
+          <figcaption>
+            <strong>{{ selectedOracleCard.title }}</strong>
+            <span>{{ selectedOracleCard.interpretation }}</span>
+          </figcaption>
+        </figure>
+      </div>
+    </Teleport>
   </section>
 </template>
 
@@ -315,17 +399,36 @@ function levelClass(lv) {
 .ctl-vong-label { font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.6)); margin-right: 4px; }
 .ctl-arrow { font-size: 11px; color: var(--text-secondary, rgba(230,238,245,0.55)); }
 
-.ctl-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.ctl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
 .ctl-chip {
-  display: flex; flex-direction: column; align-items: flex-start;
-  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 6px 9px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
   color: var(--text-primary, rgba(230, 238, 245, 0.9));
   font-size: 12.5px;
   cursor: pointer;
+  text-align: left;
 }
+.ctl-chip img {
+  width: 34px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #071018;
+  border: 1px solid rgba(232, 201, 90, 0.18);
+}
+.ctl-chip span { min-width: 0; }
 .ctl-chip small { font-size: 10px; color: var(--text-secondary, rgba(230,238,245,0.55)); }
 .ctl-chip.active { border-color: var(--accent-gold, #e8c95a); background: rgba(232, 201, 90, 0.1); }
 
@@ -349,11 +452,62 @@ function levelClass(lv) {
 .nh-badge[data-hanh="thủy"] { color: #9cc3f0; }
 
 .ctl-detail { border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 10px; }
+.ctl-detail-shell {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 10px;
+}
+.ctl-oracle-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  border: 1px solid rgba(232, 201, 90, 0.24);
+  border-radius: 8px;
+  background: #071018;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.ctl-oracle-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ctl-oracle-art > span {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  padding: 4px 7px;
+  border: 1px solid rgba(232, 201, 90, 0.38);
+  border-radius: 6px;
+  background: rgba(5, 12, 18, 0.78);
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 10px;
+  font-weight: 760;
+}
+.ctl-oracle-art-missing {
+  display: grid;
+  place-items: center;
+  cursor: default;
+  border-style: dashed;
+}
 .ctl-head h5 { margin: 0 0 4px 0; font-size: 14.5px; color: var(--accent-gold, #e8c95a); }
 .ctl-zh { font-weight: 400; margin-left: 6px; opacity: 0.7; }
 .ctl-head-badges { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .ctl-hoakhi, .ctl-chuve { font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.7)); font-style: italic; }
 .ctl-kw { margin: 5px 0 0 0; font-size: 12px; color: var(--text-secondary, rgba(230,238,245,0.65)); font-style: italic; }
+.ctl-art-meaning {
+  margin: 8px 0 0 0;
+  padding: 8px 10px;
+  border-left: 2px solid rgba(232, 201, 90, 0.38);
+  background: rgba(232, 201, 90, 0.045);
+  color: var(--text-secondary, rgba(230,238,245,0.78));
+  font-size: 12.5px;
+  line-height: 1.55;
+}
 .ctl-dinh-vi { margin: 8px 0 4px 0; font-size: 13px; line-height: 1.6; color: var(--text-primary, rgba(230,238,245,0.92)); }
 .ctl-odau {
   margin: 4px 0 8px 0; font-size: 12.5px; line-height: 1.55;
@@ -421,5 +575,82 @@ function levelClass(lv) {
   margin: 8px 0 0 0; font-size: 12px; line-height: 1.55; font-style: italic;
   color: var(--text-secondary, rgba(230,238,245,0.7));
   border-left: 2px solid rgba(232, 201, 90, 0.35); padding-left: 8px;
+}
+
+.ctl-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 6, 12, 0.84);
+  backdrop-filter: blur(8px);
+}
+.ctl-lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(232, 201, 90, 0.35);
+  border-radius: 50%;
+  background: rgba(5, 12, 18, 0.86);
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 26px;
+  cursor: pointer;
+}
+.ctl-lightbox figure {
+  width: min(92vw, 980px);
+  max-height: 92vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) minmax(240px, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+.ctl-lightbox img {
+  width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #071018;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+}
+.ctl-lightbox figcaption {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid rgba(232, 201, 90, 0.22);
+  border-radius: 10px;
+  background: rgba(5, 12, 18, 0.72);
+}
+.ctl-lightbox figcaption strong {
+  color: var(--accent-gold-soft, #f5e6b1);
+  font-size: 18px;
+}
+.ctl-lightbox figcaption span {
+  color: rgba(248, 250, 252, 0.84);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+@media (max-width: 720px) {
+  .ctl-detail-shell {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+  .ctl-grid {
+    grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+  }
+  .ctl-lightbox {
+    padding: 14px;
+  }
+  .ctl-lightbox figure {
+    grid-template-columns: 1fr;
+    width: min(94vw, 520px);
+  }
+  .ctl-lightbox img {
+    max-height: 68vh;
+  }
 }
 </style>

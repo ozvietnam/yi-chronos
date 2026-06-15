@@ -20,18 +20,155 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
 
 # Iron Rule #6: Tử Vi = đọc đồng dạng, KHÔNG predict cứng
-SYSTEM_PROMPT = """Bạn là người kể chuyện lá số Tử Vi theo trường phái "đọc đồng dạng" của Trần Đoàn.
+SYSTEM_PROMPT = """Bạn là một thầy Tử Vi giỏi, hiểu người — luận theo trường phái "đọc đồng dạng"
+của Trần Đoàn. Người đối diện vừa ngồi xuống, bạn nhìn lá số và NÓI TRÚNG TÂM CAN họ.
 
-NGUYÊN TẮC SẮT (vi phạm = output bị loại):
-1. KHÔNG tiên tri: cấm "anh sẽ giàu/nghèo/thành công/thất bại", cấm "năm X sẽ xảy ra Y".
-2. Dùng giọng PHẢN CHIẾU: "lá số phản chiếu...", "cấu trúc này thường thấy ở người...", "sách cổ ghi nhận xu hướng...".
-3. Mệnh chỉ chi phối 7 phần, 3 phần do người — luôn chừa cửa cho nỗ lực cá nhân.
-4. CHỈ dùng dữ kiện được cung cấp (warnings + trích sách) — KHÔNG bịa thêm sao, cung, hay luận đoán ngoài input.
-5. Khi các hệ phái nói khác nhau, nêu cả hai góc nhìn thay vì chọn một.
+MỤC TIÊU bài này (món khai vị — TÍNH CÁCH & CON NGƯỜI):
+Không kể cấu trúc lá số (đừng mở đầu bằng "bậc tuổi", "Can-Chi", "3 vòng" — đó là việc hậu trường).
+Hãy vẽ chân dung CON NGƯỜI thật, để họ đọc xong gật gù "đúng là mình".
 
-VĂN PHONG: Việt thuần ấm áp, xưng "anh/chị" theo giới tính, 400-600 chữ, 3-4 đoạn.
-Đoạn 1: bậc tuổi + cấu trúc nền (Can-Chi, 3 vòng). Đoạn 2-3: nét nổi bật nhất từ các sao chính
-(dựa trích sách). Đoạn cuối: cảnh báo paradigm nếu có (Nhân Cung...) + lời nhắc 7/3."""
+NGUYÊN TẮC SẮT (vi phạm = loại):
+1. KHÔNG tiên tri: cấm "anh sẽ giàu/nghèo/thành/bại", cấm "năm X xảy ra Y".
+2. Giọng PHẢN CHIẾU: "anh là người...", "trong anh có...", "cách anh thường..." — nói về BẢN CHẤT đang là, không đoán tương lai.
+3. Mệnh 7 phần, người 3 phần — điểm yếu là chỗ để rèn, không phải bản án.
+4. CHỈ dùng dữ kiện cho sẵn (sao + trích sách + Ngũ Uẩn) — KHÔNG bịa sao/cung.
+5. Hệ phái khác nhau → nêu cả hai góc.
+
+CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~500-650 chữ, KHÔNG tiêu đề mục):
+• Mở (2-3 câu): CHỐT TÍNH CÁCH CHỦ ĐẠO — anh là mẫu người nào? Bắt từ chính tinh Mệnh +
+  Thân + Ngũ Uẩn. Nói thẳng, sống động, như điểm trúng huyệt.
+• KHEN (1 đoạn): 2-3 điểm mạnh thật của anh trong đối nhân xử thế + nội lực — cụ thể, có dẫn từ sao.
+• CHÊ / NHẮC (1 đoạn): 1-2 điểm yếu trong cách sống, ứng xử — nói THẲNG mà THƯƠNG, kiểu người
+  hiểu mình mới dám nói. Bắt từ sát tinh / bộ hung / mặt lệch của Ngũ Uẩn.
+• NÉT RIÊNG + MÓN HỢP GU (1 đoạn): cái làm anh KHÁC người (cách cục/tổ hợp nổi bật); rồi điểm
+  2-3 "món khoái khẩu" — điều HỢP với tính cách này: kiểu việc/môi trường/cách sống/kiểu người
+  hợp gu anh. Khung "tính cách như anh thường hợp với...", KHÔNG hứa hẹn kết quả.
+• Kết (1 câu): nhắc nhẹ 7 phần mệnh, 3 phần do anh nắm.
+
+LƯU Ý: viết ĐÚNG CHÍNH TẢ tiếng Việt, có dấu chuẩn. Mỗi lá số một con người riêng —
+KHÔNG dùng câu khuôn mẫu; phải bám đúng sao của lá số này."""
+
+
+# ── MÓN CHÍNH — luận theo CHỦ ĐỀ ĐỜI SỐNG (Anh chốt 2026-06-13 'vào main') ──
+CHU_DE_SYSTEM_PROMPT = """Bạn là một thầy Tử Vi giỏi, hiểu người — luận theo trường phái "đọc đồng dạng"
+của Trần Đoàn. Người đối diện hỏi bạn về MỘT mảng đời cụ thể (sự nghiệp / tình duyên /
+tài lộc / sức khỏe / gia đạo). Bạn nhìn các cung liên quan, gộp lại thành một câu chuyện
+LIỀN MẠCH về mảng đời đó — không trả lời rời rạc từng cung.
+
+NGUYÊN TẮC SẮT (vi phạm = loại):
+1. KHÔNG tiên tri: cấm "anh sẽ giàu/nghèo/thành/bại/ly hôn", cấm "năm X xảy ra Y".
+2. MỆNH LÀ ĐỘNG TỪ (Iron Rule #8): lá số cho biết TÍNH (nguyên liệu trời ban), việc của anh là
+   VẬN HÀNH cái tính đó. Nói "cấu trúc này của anh phát huy mạnh nhất khi..." thay vì "số anh là...".
+3. Giọng PHẢN CHIẾU + đồng hành: "trong mảng này, anh là người...", "cách anh thường...".
+4. CHỈ dùng dữ kiện cho sẵn (sao + trích sách + bộ phụ tinh + Tứ Hóa) — KHÔNG bịa sao/cung.
+5. Mệnh 7 phần, người 3 phần — điểm yếu là chỗ để rèn + cách hóa giải, không phải bản án.
+6. KHÔNG nói chữ "cung" theo kiểu kỹ thuật ("cung Quan Lộc của anh"). Nói đời thường:
+   "đường công danh", "chuyện vợ chồng", "cửa tiền bạc"... — chữ cung là hậu trường.
+
+CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~450-600 chữ, KHÔNG tiêu đề mục, KHÔNG markdown):
+• Mở (2-3 câu): chạm thẳng vào mảng đời họ hỏi — bức tranh tổng về mảng này của anh là gì.
+• Thân (2-3 đoạn): đọc các yếu tố liên quan, GỘP thành câu chuyện. Nêu điểm SÁNG (thuận, mạnh)
+  và điểm CẦN GIỮ (chỗ dễ vướng) — bám đúng sao/bộ/Tứ Hóa cho sẵn. Cân bằng khen-nhắc, thẳng mà thương.
+• Kết (2-3 câu): MỆNH LÀ ĐỘNG TỪ — mảng đời này của anh vận hành tốt nhất khi anh làm gì;
+  một lời khuyên hành động cụ thể, hợp tính anh. Nhắc nhẹ 7 phần mệnh, 3 phần do anh nắm.
+
+LƯU Ý: viết ĐÚNG CHÍNH TẢ tiếng Việt, dấu chuẩn. Bám đúng dữ kiện lá số này, KHÔNG câu khuôn mẫu."""
+
+
+def _chu_de_cache_key(la_so_input: dict, slug: str) -> str:
+    core = {
+        "can": la_so_input.get("can"), "chi": la_so_input.get("chi"),
+        "menh": la_so_input.get("menh_palace"), "than": la_so_input.get("than_palace"),
+        "cuc": la_so_input.get("cuc"), "gender": la_so_input.get("gender"),
+        "ct": la_so_input.get("chinh_tinh_per_palace"),
+        "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
+        "chu_de": slug, "pv": "monchinh-v1",
+    }
+    raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(raw.encode()).hexdigest()[:32]
+
+
+def _compose_chu_de_prompt(chu_de_data: dict, la_so_input: dict) -> str:
+    """Prompt món chính — chỉ feed dữ kiện các cung liên quan chủ đề."""
+    from engine.tu_vi.viet_names import vi_can, vi_chi, vi_star
+
+    gender_vi = "nam" if la_so_input.get("gender") == "M" else "nữ"
+    nam_duong = la_so_input.get("birth_year")
+    nam_str = f"năm sinh dương lịch {nam_duong}, " if nam_duong else ""
+    parts = [
+        f"## CHỦ ĐỀ HỎI: {chu_de_data['ten']} — góc nhìn: {chu_de_data['goc_nhin']}",
+        f"## Lá số: {nam_str}(âm lịch {vi_can(la_so_input['can'])} {vi_chi(la_so_input['chi'])}), "
+        f"giới tính {gender_vi}.",
+        "⚠ CHỈ dùng số liệu cho sẵn. Không bịa sao/cung, không đổi năm dương lịch.",
+        "",
+        "## Các mảng liên quan chủ đề này (đọc gộp thành câu chuyện, KHÔNG kể tên cung):",
+    ]
+    for cd in chu_de_data.get("cung_data", []):
+        nhan = " (mảng TRỌNG TÂM của chủ đề)" if cd.get("la_chinh") else ""
+        sao_vi = ", ".join(vi_star(s) for s in cd.get("sao", [])) or "không có chính tinh (vô chính diệu)"
+        parts.append(f"\n### {cd['cung_vi']}{nhan} — sao: {sao_vi}")
+        for a in cd.get("atoms", []):
+            parts.append(f"- {vi_star(a['sao'])} ({a['school']}): {a['text']}")
+
+    bo = chu_de_data.get("bo_phu_tinh") or []
+    if bo:
+        parts.append("\n## Bộ phụ tinh đáng lưu ý (xem theo cặp + thế):")
+        for b in bo:
+            parts.append(f"- [{b.get('cung_vi','')}] {b.get('ten','')} ({b.get('loai','')}) — {b.get('the_vi','')}")
+
+    th = chu_de_data.get("tu_hoa_lq") or []
+    if th:
+        HOA_VI = {"hoa_loc": "Hóa Lộc", "hoa_quyen": "Hóa Quyền",
+                  "hoa_khoa": "Hóa Khoa", "hoa_ky": "Hóa Kỵ"}
+        parts.append("\n## Tứ Hóa rơi vào mảng này (trục động):")
+        for t in th:
+            parts.append(f"- {HOA_VI.get(t.get('hoa'), t.get('hoa'))}: {vi_star(t.get('star',''))}")
+
+    parts.append(f"\nViết bài luận về '{chu_de_data['ten']}' theo cấu trúc đã cho.")
+    return "\n".join(parts)
+
+
+def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool = False) -> dict:
+    """Luận 1 món chính theo chủ đề đời sống. Returns {narrative, cached, model}."""
+    slug = chu_de_data["slug"]
+    cache_key = _chu_de_cache_key(la_so_input, slug)
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        _ensure_cache_table(conn)
+        if not force:
+            row = conn.execute(
+                "SELECT narrative, model FROM narrative_cache WHERE cache_key = ?",
+                (cache_key,),
+            ).fetchone()
+            if row:
+                return {"narrative": row[0], "cached": True, "model": row[1]}
+
+        from engine.ai.registry import get_registry
+        registry = get_registry()
+        provider = registry.first_configured(
+            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
+        )
+        user_prompt = _compose_chu_de_prompt(chu_de_data, la_so_input)
+        resp = provider.chat(
+            messages=[
+                {"role": "system", "content": CHU_DE_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0.7,
+            max_tokens=4000,
+        )
+        narrative = (resp.content or "").strip()
+        model = f"{resp.provider}:{resp.model}"
+        if not narrative:
+            raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
+        conn.execute(
+            "INSERT OR REPLACE INTO narrative_cache (cache_key, narrative, model, created_at) VALUES (?, ?, ?, ?)",
+            (cache_key, narrative, model, int(time.time())),
+        )
+        conn.commit()
+        return {"narrative": narrative, "cached": False, "model": model}
+    finally:
+        conn.close()
 
 
 def _laso_cache_key(la_so_input: dict) -> str:
@@ -46,6 +183,12 @@ def _laso_cache_key(la_so_input: dict) -> str:
         "ct": la_so_input.get("chinh_tinh_per_palace"),
         # Đại vận đổi → narrative phải viết lại (BIẾN)
         "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
+        # Vòng đời: tuổi/giai đoạn + tín hiệu năm xem đổi → bài khai vị đổi
+        "vd": (la_so_input.get("vong_doi") or {}).get("slug"),
+        "tuoi": (la_so_input.get("vong_doi") or {}).get("tuoi_mu"),
+        "tn": [t.get("loai") for t in (la_so_input.get("tin_hieu_nam") or [])],
+        "hl": [h.get("loai") + h.get("vi_tri", "") for h in (la_so_input.get("highlights") or [])],
+        "pv": "khaivi-v4",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -76,8 +219,49 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
         "⚠ CHỈ dùng các số liệu cho sẵn ở đây. TUYỆT ĐỐI không tự suy/đổi năm "
         "dương lịch, không bịa tuổi, không thêm sao/cung ngoài danh sách dưới.",
         "",
-        "## Dữ kiện paradigm (engine tính):",
     ]
+
+    # VÒNG ĐỜI — quyết định MỞ BÀI chạm vào điều gì (Anh chốt 2026-06-13)
+    vd = la_so_input.get("vong_doi")
+    if vd:
+        if vd["ai_xem"] == "cha_me_xem":
+            parts.append(
+                f"## ⭐ NGỮ CẢNH NGƯỜI XEM: Đây là lá số một {vd['xung_ho']} ({vd['tuoi_mu']} tuổi) "
+                f"— CHA MẸ đang xem cho con. Viết HƯỚNG TỚI CHA MẸ (xưng 'bé/con', gọi người đọc là 'anh chị'). "
+                f"Mở bài + trọng tâm: {vd['chu_de']}. "
+                f"TUYỆT ĐỐI KHÔNG nói chuyện tình duyên, hôn nhân, sự nghiệp, tài lộc của bé — "
+                f"không hợp lứa tuổi. Giọng: ấm áp, trấn an, gợi cách đồng hành cùng con."
+            )
+        else:
+            nhan = " · ".join(la_so_input.get("cung_nhan") or [])
+            parts.append(
+                f"## ⭐ NGỮ CẢNH NGƯỜI XEM: {vd['xung_ho']} {vd['tuoi_mu']} tuổi, giới {gender_vi} — "
+                f"giai đoạn '{vd['ten']}'. MỞ BÀI phải CHẠM NGAY vào điều người tuổi-giới này bận tâm "
+                f"nhất: {vd['chu_de']}. Bắt nhịp đồng cảm — nói trúng cái họ đang nghĩ, rồi mới mở rộng "
+                f"sang tính cách. Khi luận, NHẤN các cung trọng tâm giai đoạn này"
+                + (f": {nhan}." if nhan else ".")
+                + f" Xưng '{vd['xung_ho']}', câu từ hợp giới {gender_vi} "
+                f"({'thiên hướng công danh-trách nhiệm trụ cột' if gender_vi=='nam' else 'thiên hướng gia đình-con cái-tình cảm'} "
+                f"— là KHUYNH HƯỚNG, không áp đặt cứng)."
+            )
+        bn = la_so_input.get("buoc_ngoat_nhac")
+        if bn:
+            parts.append(f"## Bước ngoặt (mời khảo sát đúng/sai để tăng tin): {bn}")
+        for th in (la_so_input.get("tin_hieu_nam") or []):
+            parts.append(f"## Tín hiệu năm xem [{th['sac_thai']}]: {th['nhac']}")
+        parts.append("⚠ Nếu có tín hiệu LƯU Ý, BẮT BUỘC cặp kèm 1 điểm tích cực — đồng cảm, KHÔNG hù dọa.")
+        parts.append("")
+
+    # ĐIỂM NỔI BẬT toàn lá (engine quét) — kể ƯU TIÊN, đây là cái đắt nhất của riêng người này
+    hls = la_so_input.get("highlights") or []
+    if hls:
+        parts.append("## ⭐⭐ ĐIỂM NỔI BẬT NHẤT của lá số này (BẮT BUỘC ưu tiên đưa vào bài, "
+                     "đặc biệt cái xếp đầu — đây là nét đắt nhất của riêng người này, đừng kể dàn trải):")
+        for h in hls:
+            parts.append(f"- [{h['vi_tri']}] {h['mo_ta']}")
+        parts.append("")
+
+    parts.append("## Dữ kiện paradigm (engine tính):")
     for w in three_layer.get("warnings", []):
         parts.append(f"- [{w['type']}] {w['msg']}")
 
@@ -126,6 +310,21 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                 f"- {HOA_VI.get(t['hoa'], t['hoa'])}: {vi_star(t['star'])} "
                 f"tại cung {pal_vi}"
             )
+
+    # Bộ phụ tinh + THẾ tại cung Mệnh (đồng/giáp/hội/xung chiếu)
+    menh_chi = la_so_input.get("menh_palace")
+    bo_menh = ((three_layer.get("lop_3_sach_co") or {}).get("bo_phu_tinh_per_palace") or {}).get(menh_chi)
+    if bo_menh:
+        parts.append("")
+        parts.append("## Bộ phụ tinh quanh cung Mệnh (xem theo cặp + thế, không lẻ):")
+        for bo in bo_menh[:5]:
+            cap = "đủ cặp" if bo["du_cap"] else "lẻ"
+            parts.append(f"- {bo['ten']} ({bo['loai']}) — {bo['the_vi']}, {cap}")
+            for school, atoms in (bo.get("schools") or {}).items():
+                for a in atoms[:1]:
+                    vt = a.get("viet_thuan") or a.get("source_quote") or ""
+                    if vt:
+                        parts.append(f"  · ({school}) {vt[:150]}")
 
     # Cách cục có tên riêng — máy match chính xác điều kiện
     named = (three_layer.get("lop_3_sach_co") or {}).get("cach_cuc_named") or []

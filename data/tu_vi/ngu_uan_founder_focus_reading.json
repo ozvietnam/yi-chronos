@@ -1,0 +1,66 @@
+{
+  "$schema_version": "ngu_uan_founder_focus_reading.v1",
+  "created_at": "2026-06-13",
+  "scope": "Bản mẫu đọc sâu nhưng dễ hiểu cho trục Mệnh × Phu Thê trong lá số đang test.",
+  "school": [
+    "Bắc Phái Trung Châu",
+    "Tử Vi Bôn Ba — quán chiếu Ngũ Uẩn"
+  ],
+  "chart_pattern": {
+    "menh": {
+      "branch": "Tỵ",
+      "stars": ["Thiên Tướng"]
+    },
+    "phu_the": {
+      "branch": "Mão",
+      "stars": ["Tử Vi", "Tham Lang"],
+      "transformations": [{"star": "Tham Lang", "hoa": "Lộc"}]
+    }
+  },
+  "readings": [
+    {
+      "id": "menh_thien_tuong_ty_ngu_uan",
+      "title": "Mệnh Tỵ — Thiên Tướng",
+      "short_verdict": "Giữ uy tín là sức mạnh; đừng biến trách nhiệm thành đời sống thay mình.",
+      "core": "Thiên Tướng ở Mệnh là cấu trúc của người sống bằng chữ tín, vai trò và sự công nhận. Đây là người có xu hướng giữ luật, giữ thế, đứng ra gánh việc, nhưng cũng dễ tự ép mình phải xứng đáng trong mắt người khác.",
+      "ngu_uan": {
+        "sac": "Bên ngoài chỉn chu, có khí đáng tin, dễ được giao việc quan trọng.",
+        "tho": "Vui khi được tin, được nhờ, được ghi nhận; đau khi cố gắng mà không ai hiểu.",
+        "tuong": "Hay nhìn mình qua kỳ vọng người khác: mình đã làm đủ tốt chưa?",
+        "hanh": "Thấy việc là đứng ra xử lý, chưa ai giao đã tự nhận.",
+        "thuc": "Niềm tin sâu là mình có giá trị khi mình có ích."
+      },
+      "bright_side": "Khi thuận, đây là người đáng tin, có trách nhiệm, biết giữ trật tự và bảo vệ người khác mà vẫn còn ranh giới cho chính mình.",
+      "shadow_side": "Khi lệch, trách nhiệm biến thành gồng mình: sợ người khác thất vọng hơn sợ mình đau, quen làm chỗ dựa đến mức không biết dựa vào ai.",
+      "practice": "Giữ chữ tín, nhưng phải học phân quyền, học nói không, học để giá trị bản thân không phụ thuộc hoàn toàn vào việc có ích cho người khác."
+    },
+    {
+      "id": "phu_the_tu_tham_hoa_loc_mao_ngu_uan",
+      "title": "Phu Thê Mão — Tử Vi + Tham Lang Hóa Lộc",
+      "short_verdict": "Tình cảm mạnh nhất khi trở thành liên minh cùng xây đời sống.",
+      "core": "Tử Vi đưa nhu cầu được tôn trọng và được công nhận vị trí vào quan hệ. Tham Lang đưa sức hút, ham muốn sống, trải nghiệm, giao tế và tài nguyên. Hóa Lộc làm lực này nghiêng sang cơ hội, vật chất và cùng nâng đời sống.",
+      "ngu_uan": {
+        "sac": "Quan hệ có sức hút, có màu sắc, có khí xã hội; không phải kiểu tình cảm âm thầm.",
+        "tho": "Dễ vui mạnh, thích mạnh, kỳ vọng mạnh; nếu không được đáp lại đúng mức thì hụt sâu.",
+        "tuong": "Tình yêu không chỉ là tình yêu, mà là hai người cùng định nghĩa và nâng đời sống.",
+        "hanh": "Dễ cùng làm, cùng xây, cùng mở quan hệ/tài nguyên; nhưng cũng dễ tranh quyền quyết định.",
+        "thuc": "Sâu nhất là nhu cầu vừa được yêu, vừa được công nhận, vừa được sống đã."
+      },
+      "bright_side": "Khi thuận, quan hệ trở thành liên minh tài nguyên: có sức hút, có chí tiến thủ, biết cùng nhau tạo cơ hội và làm đời sống phong phú hơn.",
+      "shadow_side": "Khi lệch, tình cảm dễ thành nơi tranh quyền, tranh hưởng, tranh được công nhận hoặc để cảm xúc/ham muốn kéo đi quá nhanh.",
+      "practice": "Muốn bền phải có luật chơi rõ: vai trò, tiền bạc, quyền quyết định, ranh giới xã hội và cách xử lý cảm xúc mạnh."
+    },
+    {
+      "id": "axis_menh_thien_tuong_phu_the_tu_tham",
+      "title": "Trục Mệnh Thiên Tướng × Phu Thê Tử-Tham Hóa Lộc",
+      "short_verdict": "Một bên giữ ấn, một bên mở tài nguyên; quan hệ đúng phải vừa có tình, vừa có kỷ luật.",
+      "core": "Mệnh Thiên Tướng muốn làm đúng, giữ uy tín, gánh trách nhiệm. Phu Thê Tử-Tham Hóa Lộc kéo đời sống vào sức hút, tài nguyên và tham vọng. Nếu chỉ có hấp lực Tham Lang mà thiếu luật Thiên Tướng thì dễ rối; nếu chỉ có trách nhiệm Thiên Tướng mà thiếu sức sống Tham Lang thì quan hệ khô.",
+      "practice": "Quan hệ hợp lá số này cần mục tiêu chung, kỷ luật chung và không gian sống có cảm xúc. Cặp đôi nên cùng xây việc, nhưng phải phân quyền rõ để không biến tình cảm thành hệ thống trách nhiệm một chiều."
+    }
+  ],
+  "ui_guidance": {
+    "where": "CungPhuTheBacPhaiPanel.vue, ngay dưới hero Tử-Tham Hóa Lộc.",
+    "display": "Hai cột Mệnh và Phu Thê; desktop hai cột, mobile một cột; chi tiết 5 uẩn để trong details.",
+    "tone": "Sâu nhưng dễ hiểu, không gieo sợ, không phán kết cục."
+  }
+}

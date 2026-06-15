@@ -1,0 +1,59 @@
+<svg viewBox="0 0 1060 760" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, STKaiti, Songti SC, serif">
+<rect width="1060" height="760" fill="#fbf7ef"/>
+<text x="530.0" y="46" text-anchor="middle" font-size="28" fill="#2a2018" font-weight="bold">ĐỒ SINH HÓA — KINH THẾ BIẾN HÓA</text>
+<text x="530.0" y="74" text-anchor="middle" font-size="15.5" fill="#7a5a2a">经世变化图 · TRỜI BIẾN tính-tình-hình-thể (暑寒昼夜) · ĐẤT HÓA tẩu-phi-thảo-mộc (雨风露雷)</text>
+<circle cx="116" cy="400" r="46" fill="#fff" stroke="#2a2018" stroke-width="2.5"/>
+<path d="M116 354 A23 23 0 0 1 116 400 A23 23 0 0 0 116 446 A46 46 0 0 0 116 354 Z" fill="#2a2018"/>
+<circle cx="116" cy="377" r="6" fill="#fff"/><circle cx="116" cy="423" r="6" fill="#2a2018"/>
+<text x="116" y="472" text-anchor="middle" font-size="15" fill="#2a2018" font-weight="bold">THÁI CỰC 太极</text>
+<line x1="164" y1="400" x2="236" y2="230" stroke="#c9b896" stroke-width="1.4"/>
+<line x1="164" y1="400" x2="236" y2="570" stroke="#c9b896" stroke-width="1.4"/>
+<circle cx="276" cy="230" r="40" fill="#b8862a" opacity="0.92"/>
+<text x="276" y="227" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">动 Dương</text>
+<text x="276" y="245" text-anchor="middle" font-size="11" fill="#fff">TRỜI</text>
+<text x="276" y="287" text-anchor="middle" font-size="12.5" fill="#777">biến 变</text>
+<circle cx="276" cy="570" r="40" fill="#2f5d8a" opacity="0.92"/>
+<text x="276" y="567" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">静 Âm</text>
+<text x="276" y="585" text-anchor="middle" font-size="11" fill="#fff">ĐẤT</text>
+<text x="276" y="627" text-anchor="middle" font-size="12.5" fill="#777">hóa 化</text>
+<line x1="316" y1="230" x2="424" y2="128.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="96" width="580" height="64" rx="8" fill="#b8862a" opacity="0.090" stroke="#b8862a" stroke-opacity="0.45"/>
+<text x="454" y="137" font-size="27" fill="#b8862a" font-weight="bold">乾</text>
+<text x="496" y="122" font-size="14.5" fill="#2a2018">Càn (Nhật/Nguyên) · khí 暑 nóng</text>
+<text x="496" y="144" font-size="12.5" fill="#777">biến 性 Tính · sinh vật 化</text>
+<line x1="316" y1="230" x2="424" y2="204.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="172" width="580" height="64" rx="8" fill="#b8862a" opacity="0.110" stroke="#b8862a" stroke-opacity="0.45"/>
+<text x="454" y="213" font-size="27" fill="#b8862a" font-weight="bold">兑</text>
+<text x="496" y="198" font-size="14.5" fill="#2a2018">Đoài (Nguyệt/Hội) · khí 寒 lạnh</text>
+<text x="496" y="220" font-size="12.5" fill="#777">biến 情 Tình · sinh vật 教</text>
+<line x1="316" y1="230" x2="424" y2="280.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="248" width="580" height="64" rx="8" fill="#b8862a" opacity="0.130" stroke="#b8862a" stroke-opacity="0.45"/>
+<text x="454" y="289" font-size="27" fill="#b8862a" font-weight="bold">离</text>
+<text x="496" y="274" font-size="14.5" fill="#2a2018">Ly (Tinh/Vận) · khí 昼 ngày</text>
+<text x="496" y="296" font-size="12.5" fill="#777">biến 形 Hình · sinh vật 劝</text>
+<line x1="316" y1="230" x2="424" y2="356.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="324" width="580" height="64" rx="8" fill="#b8862a" opacity="0.150" stroke="#b8862a" stroke-opacity="0.45"/>
+<text x="454" y="365" font-size="27" fill="#b8862a" font-weight="bold">震</text>
+<text x="496" y="350" font-size="14.5" fill="#2a2018">Chấn (Thần/Thế) · khí 夜 đêm</text>
+<text x="496" y="372" font-size="12.5" fill="#777">biến 体 Thể · sinh vật 率</text>
+<line x1="316" y1="570" x2="424" y2="452.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="420" width="580" height="64" rx="8" fill="#2f5d8a" opacity="0.090" stroke="#2f5d8a" stroke-opacity="0.45"/>
+<text x="454" y="461" font-size="27" fill="#2f5d8a" font-weight="bold">坤</text>
+<text x="496" y="446" font-size="14.5" fill="#2a2018">Khôn (Thủy/Tuế) · khí 雨 mưa</text>
+<text x="496" y="468" font-size="12.5" fill="#777">hóa 走 Tẩu·thú · sinh vật 生</text>
+<line x1="316" y1="570" x2="424" y2="528.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="496" width="580" height="64" rx="8" fill="#2f5d8a" opacity="0.110" stroke="#2f5d8a" stroke-opacity="0.45"/>
+<text x="454" y="537" font-size="27" fill="#2f5d8a" font-weight="bold">艮</text>
+<text x="496" y="522" font-size="14.5" fill="#2a2018">Cấn (Hỏa/Nguyệt) · khí 风 gió</text>
+<text x="496" y="544" font-size="12.5" fill="#777">hóa 飞 Phi·chim · sinh vật 长</text>
+<line x1="316" y1="570" x2="424" y2="604.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="572" width="580" height="64" rx="8" fill="#2f5d8a" opacity="0.130" stroke="#2f5d8a" stroke-opacity="0.45"/>
+<text x="454" y="613" font-size="27" fill="#2f5d8a" font-weight="bold">坎</text>
+<text x="496" y="598" font-size="14.5" fill="#2a2018">Khảm (Thổ/Nhật) · khí 露 sương</text>
+<text x="496" y="620" font-size="12.5" fill="#777">hóa 草 Thảo·cỏ · sinh vật 收</text>
+<line x1="316" y1="570" x2="424" y2="680.0" stroke="#c9b896" stroke-width="1.4"/>
+<rect x="430" y="648" width="580" height="64" rx="8" fill="#2f5d8a" opacity="0.150" stroke="#2f5d8a" stroke-opacity="0.45"/>
+<text x="454" y="689" font-size="27" fill="#2f5d8a" font-weight="bold">巽</text>
+<text x="496" y="674" font-size="14.5" fill="#2a2018">Tốn (Thạch/Thần) · khí 雷 sấm</text>
+<text x="496" y="696" font-size="12.5" fill="#777">hóa 木 Mộc·cây · sinh vật 藏</text>
+</svg>

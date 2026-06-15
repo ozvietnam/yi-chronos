@@ -52,6 +52,24 @@ def test_sao_tai_cung_ghi_chu_lech_trung_thuc():
     assert hits >= 1, "bảng cổ chắc chắn có chỗ lệch hành đơn — phải bắt được ít nhất 1"
 
 
+def test_sao_tai_cung_hoa_giai_khi_khac():
+    """Cung có KHẮC → hoa_giai chỉ chế (khắc lại kẻ đi khắc) + hóa (thông quan).
+    Cung sinh/đồng hành → hoa_giai = None (chỉ khắc mới cần hóa giải)."""
+    # Thiên Tướng (thủy) khắc Tỵ (hỏa): a_khac_b, attacker=thủy victim=hỏa
+    r = sao_tai_cung("Thiên Tướng", "Tỵ")
+    assert r["quan_he"]["code"] == "a_khac_b"
+    hg = r["hoa_giai"]
+    assert hg is not None
+    # chế = con của victim(hỏa)=thổ; thổ khắc lại attacker(thủy)
+    assert hg["che"] == SINH["hỏa"] == "thổ" and KHAC["thổ"] == "thủy"
+    # hóa = con của attacker(thủy)=mộc; mộc sinh xuống victim(hỏa)
+    assert hg["hoa"] == SINH["thủy"] == "mộc" and SINH["mộc"] == "hỏa"
+    assert hg["mo_ta"]
+    # Đồng hành / tương sinh → không có hoa_giai
+    dong = sao_tai_cung("Thiên Phủ", "Sửu")  # thổ/thổ đồng hành
+    assert dong["quan_he"]["code"] == "dong_hanh" and dong["hoa_giai"] is None
+
+
 def test_sao_khong_ton_tai():
     assert sao_tai_cung("Sao Bịa", "Tý") is None
     assert sao_tai_cung("Tử Vi", "Chi Bịa") is None

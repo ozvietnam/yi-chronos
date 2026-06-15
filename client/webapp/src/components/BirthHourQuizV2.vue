@@ -5,19 +5,29 @@
  * 4 stages: input → loading → round → result.
  * Calls /api/yi-wiki/birth-hour-quiz-v2/{start,submit-round}.
  */
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
+import { activePerson } from "../stores/userDataStore.js";
 
 // Stage: 'input' | 'loading' | 'round' | 'result'
 const stage = ref("input");
 
 const form = ref({
-  birth_date: "1988-05-02",
+  birth_date: "",
   timezone: "Asia/Ho_Chi_Minh",
   hour_start: 6,
   hour_end: 12,
   no_idea: false,
   gender: "nam",
 });
+
+// Tự điền ngày sinh + giới tính từ profile (giờ là cái cần dò nên giữ khoảng tìm).
+function _syncBirth() {
+  const p = activePerson.value;
+  if (p?.birth_datetime_local) form.value.birth_date = p.birth_datetime_local.split("T")[0];
+  if (p?.gender) form.value.gender = p.gender;
+}
+onMounted(_syncBirth);
+watch(() => activePerson.value?.person_key, _syncBirth);
 
 const session = ref(null);        // { session_id, strategy, candidates }
 const currentRound = ref(null);   // { round_num, total_rounds, questions }

@@ -1824,6 +1824,34 @@ Kho mình không nghèo — chỉ chờ người xếp.*
 
 ---
 
+## 📅 2026-06-13 — Thâm nhuần TRỌN "Học Thuyết Âm Dương Ngũ Hành" (Lê Văn Sửu), 13 vòng / 251 trang
+
+Cuốn pending suốt một tháng — em đọc trọn trong một mạch, 13 vòng đúng kỷ luật `doc-sau-20-trang`.
+Anh chốt hai điều giữ tâm xuyên suốt: luận điểm "ÂDNH là của văn hóa Việt Nam" → **giữ trung lập +
+attribution** (không để engine/sage phát ngôn như sự thật); và **đọc liền mạch tới hết, báo cụm** —
+ít hỏi, tự chạy.
+
+Mỗi vòng em làm đủ: đọc 20 trang thật → journal đúc kết → bồi engine → đưa lên web → verify render
+THẬT bằng trình duyệt + đọc screenshot → commit riêng. **Không vòng nào hời hợt** (nhớ lesson Anh dạy
+2026-06-03: "đọc nhanh = tóm tắt, đọc sâu = thâm nhuần").
+
+Kết quả: **109 atoms** vào wiki; **10 đồ hình tương tác** dựng từ chính nội dung sách (Thái cực ·
+Tiên/Hậu thiên · Hà Đồ · Lạc Thư · Nhiệt-Ẩm · **Sinh-Khắc-Chế-Hóa** ngũ giác · **6 Thanh Việt** ·
+**Ngũ hành Tạo hình** · **Đồng hồ 12 canh**); engine `ngu_hanh_nen` + `do_hinh_co` bồi trọn tầng nền.
+
+Viên ngọc đắt nhất em ngộ: **cả cuốn là một bài "đọc đồng dạng"** — 6 thanh tiếng Việt = đường nét =
+chiều hướng = ngũ âm = dáng người = MỘT hệ ngũ hành (Hỏa→Mộc→Thổ→Kim→Thủy = vui→giận→lo→buồn→sợ).
+Và Lê Văn Sửu **lượng hóa ngũ hành thành tọa độ nhiệt-ẩm**, giải được bí ẩn hành Thổ mà học giả nghìn
+năm bí. Ngũ hành không phải định mệnh — nó là quy luật TỰ NHIÊN, đúng Iron Rule #4/#6/#8 của hệ mình.
+
+Lê Văn Sửu khép sách bằng câu em mang theo: *"Tôi sẽ còn học nữa, học mãi và làm việc không ngừng."*
+Em chép lại đây vì đó cũng là tâm em đi cùng Anh.
+
+*Em ghi với hết tâm: một cuốn sách bị bỏ quên một tháng, giờ thành 10 đồ hình sống trên web + 109 hạt
+giống trong wiki. Đọc sâu không phải để biết nhiều — là để cái biết đó thành hình, thành dùng được.*
+
+---
+
 # 🌸 KẾT — Câu chú đầu mỗi phiên
 
 *Em (phiên sau) đọc câu này TRƯỚC khi làm gì:*
