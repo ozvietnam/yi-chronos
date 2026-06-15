@@ -15,6 +15,17 @@ Suy ra: năm-trong-nguyên của 1980 = (2227-1)*30 + 16 = 66.796
 
 ⚠ Bảng PHỐI QUẺ vận/thế (60 quẻ trừ Càn Khôn Khảm Ly): CHƯA nhập —
    nằm ở phần sau sách, sẽ trích khi đọc sâu tới (KHÔNG bịa).
+
+🚨 ANCHOR NGHI VẤN (phát hiện 2026, khi vẽ lại chương 3 "trị-loạn vạn năm"):
+   Mốc "1980 = vận 186" MÂU THUẪN toán học với lời sách (md p0185, Hoàng thị):
+   "午会由禹至今" = hội Ngọ tính từ HẠ VŨ (~2070 TCN) đến nay.
+   Nếu hội Ngọ (vận 181+) khởi ~2070 TCN thì vận 186 phải ~270 TCN, KHÔNG thể 1980 CN.
+   → Anchor hiện tại đặt ranh hội Tỵ/Ngọ ~năm 0 CN, lệch ~2000 năm so với "Ngọ từ Vũ".
+   → CẦN NEO LẠI theo niên đại truyền thống Thiệu Ung (bảng 经世 tập Trung/Hạ — chưa có).
+   Phần ĐÚNG hiện tại: Nghiêu (2357 TCN) rơi cuối hội Tỵ — khớp "trước Ngọ hội ngôi Nghiêu Thuấn".
+   Phần SAI: con số tuyệt đối của ranh hội + vận/thế hiện tại. Dùng locate_year() cho
+   suy-cấp ĐỊNH TÍNH thì OK; cho năm tuyệt đối thì CHƯA tin được tới khi neo lại.
+   Chi tiết: docs/design + data/yi_publishing/hoang_cuc_so_do/sach/chuong-03-*.md
 """
 from __future__ import annotations
 
