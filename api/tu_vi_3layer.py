@@ -291,14 +291,36 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
         timezone=birth.timezone,
         gender=birth.gender,
     ))
-    # Vòng đời: tuổi mụ (năm xem − năm sinh + 1) → giai đoạn → chủ đề mở bài
+    # Vòng đời: tuổi mụ (năm xem − năm sinh + 1) → giai đoạn × giới → chủ đề + cung nhấn
     from datetime import datetime
-    from engine.tu_vi.vong_doi import giai_doan_song, buoc_ngoat_dai_van
+    from engine.tu_vi.vong_doi import giai_doan_song, buoc_ngoat_dai_van, tin_hieu_nam_xem
     ls_in = base["la_so_input"]
     by = ls_in.get("birth_year") or int(birth.birth_datetime_local[:4])
-    tuoi_mu = datetime.now().year - by + 1
-    ls_in["vong_doi"] = giai_doan_song(tuoi_mu, ls_in.get("gender", "M"))
+    nam_xem = datetime.now().year
+    tuoi_mu = nam_xem - by + 1
+    gender_c = ls_in.get("gender", "M")
+    ls_in["vong_doi"] = giai_doan_song(tuoi_mu, gender_c)
     ls_in["buoc_ngoat_nhac"] = buoc_ngoat_dai_van(ls_in.get("dai_van_hien_tai"))
+    # Cung trọng tâm giai đoạn × giới → tên Việt để LLM nhấn
+    _CUNG_NHAN = {
+        ("thanh_nien", "nam"): ["Mệnh", "Quan Lộc", "Thiên Di"],
+        ("thanh_nien", "nu"): ["Mệnh", "Phu Thê", "Quan Lộc"],
+        ("lap_than", "nam"): ["Quan Lộc", "Tài Bạch", "Phu Thê"],
+        ("lap_than", "nu"): ["Phu Thê", "Tử Tức", "Quan Lộc"],
+        ("tam_thap", "nam"): ["Quan Lộc", "Tài Bạch", "Tử Tức", "Phu Thê"],
+        ("tam_thap", "nu"): ["Tử Tức", "Phu Thê", "Phúc Đức"],
+        ("tu_thap", "nam"): ["Quan Lộc", "Điền Trạch", "Tật Ách"],
+        ("tu_thap", "nu"): ["Tử Tức", "Tật Ách", "Phu Thê", "Phúc Đức"],
+        ("ngu_thap", "nam"): ["Quan Lộc", "Điền Trạch", "Tật Ách", "Phúc Đức"],
+        ("ngu_thap", "nu"): ["Tử Tức", "Tật Ách", "Phúc Đức"],
+        ("luc_thap", "nam"): ["Phúc Đức", "Tật Ách", "Tử Tức"],
+        ("luc_thap", "nu"): ["Phúc Đức", "Tật Ách", "Tử Tức"],
+    }
+    vd = ls_in["vong_doi"]
+    ls_in["cung_nhan"] = _CUNG_NHAN.get((vd.get("slug"), vd.get("gioi")), [])
+    from engine.tu_vi.vong_doi import CHI as _VD_CHI
+    _chi_vi = _VD_CHI[IDX_TO_CHI.index(ls_in["chi"])] if ls_in.get("chi") in IDX_TO_CHI else None
+    ls_in["tin_hieu_nam"] = tin_hieu_nam_xem(_chi_vi, nam_xem, tuoi_mu, gender_c) if _chi_vi else []
     result = generate_narrative(base, ls_in, force=birth.force)
     return {
         "narrative": result["narrative"],

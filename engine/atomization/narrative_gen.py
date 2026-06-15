@@ -61,7 +61,11 @@ def _laso_cache_key(la_so_input: dict) -> str:
         "ct": la_so_input.get("chinh_tinh_per_palace"),
         # Đại vận đổi → narrative phải viết lại (BIẾN)
         "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
-        "pv": "khaivi-v2",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
+        # Vòng đời: tuổi/giai đoạn + tín hiệu năm xem đổi → bài khai vị đổi
+        "vd": (la_so_input.get("vong_doi") or {}).get("slug"),
+        "tuoi": (la_so_input.get("vong_doi") or {}).get("tuoi_mu"),
+        "tn": [t.get("loai") for t in (la_so_input.get("tin_hieu_nam") or [])],
+        "pv": "khaivi-v3",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -106,15 +110,23 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                 f"không hợp lứa tuổi. Giọng: ấm áp, trấn an, gợi cách đồng hành cùng con."
             )
         else:
+            nhan = " · ".join(la_so_input.get("cung_nhan") or [])
             parts.append(
-                f"## ⭐ NGỮ CẢNH NGƯỜI XEM: {vd['xung_ho']} {vd['tuoi_mu']} tuổi — giai đoạn '{vd['ten']}'. "
-                f"MỞ BÀI nên CHẠM NGAY vào điều người tuổi này thường bận tâm nhất: {vd['chu_de']}. "
-                f"Bắt nhịp đồng cảm — nói trúng cái họ đang nghĩ tới, rồi mới mở rộng. "
-                f"Xưng '{vd['xung_ho']}', câu từ hợp giới tính {gender_vi}."
+                f"## ⭐ NGỮ CẢNH NGƯỜI XEM: {vd['xung_ho']} {vd['tuoi_mu']} tuổi, giới {gender_vi} — "
+                f"giai đoạn '{vd['ten']}'. MỞ BÀI phải CHẠM NGAY vào điều người tuổi-giới này bận tâm "
+                f"nhất: {vd['chu_de']}. Bắt nhịp đồng cảm — nói trúng cái họ đang nghĩ, rồi mới mở rộng "
+                f"sang tính cách. Khi luận, NHẤN các cung trọng tâm giai đoạn này"
+                + (f": {nhan}." if nhan else ".")
+                + f" Xưng '{vd['xung_ho']}', câu từ hợp giới {gender_vi} "
+                f"({'thiên hướng công danh-trách nhiệm trụ cột' if gender_vi=='nam' else 'thiên hướng gia đình-con cái-tình cảm'} "
+                f"— là KHUYNH HƯỚNG, không áp đặt cứng)."
             )
         bn = la_so_input.get("buoc_ngoat_nhac")
         if bn:
-            parts.append(f"## Bước ngoặt: {bn}")
+            parts.append(f"## Bước ngoặt (mời khảo sát đúng/sai để tăng tin): {bn}")
+        for th in (la_so_input.get("tin_hieu_nam") or []):
+            parts.append(f"## Tín hiệu năm xem [{th['sac_thai']}]: {th['nhac']}")
+        parts.append("⚠ Nếu có tín hiệu LƯU Ý, BẮT BUỘC cặp kèm 1 điểm tích cực — đồng cảm, KHÔNG hù dọa.")
         parts.append("")
 
     parts.append("## Dữ kiện paradigm (engine tính):")
