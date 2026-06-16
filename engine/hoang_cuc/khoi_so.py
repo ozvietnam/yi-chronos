@@ -93,6 +93,56 @@ def chuoi_60_van() -> list[str]:
     return seq  # 60 quẻ, [0]=复 … [-1]=剥
 
 
+_C60_CACHE: list[str] | None = None
+
+
+def _c60() -> list[str]:
+    global _C60_CACHE
+    if _C60_CACHE is None:
+        _C60_CACHE = chuoi_60_van()
+    return _C60_CACHE
+
+
+def value_que(hoi: int, van_in_hoi: int) -> str:
+    """值卦 (大运) của 1 vận: hội (1-12) + vận-trong-hội (1-30)."""
+    return _c60()[5 * (hoi - 1) + (van_in_hoi - 1) // 6]
+
+
+def van_que(hoi: int, van_in_hoi: int) -> str:
+    """运卦 = đổi hào của 值卦 (hào = (van_in_hoi-1) % 6)."""
+    return bien_hao(value_que(hoi, van_in_hoi), (van_in_hoi - 1) % 6)
+
+
+def the_que(hoi: int, van_in_hoi: int, the_in_van: int) -> str:
+    """世卦 = đổi hào của 运卦 (mỗi 世卦 chủ 2 thế → hào = (the_in_van-1)//2)."""
+    return bien_hao(van_que(hoi, van_in_hoi), (the_in_van - 1) // 2)
+
+
+def year_que_method(year: int) -> dict:
+    """Quẻ-năm theo PHÉP 经世 (nested) — KHÔNG dùng bảng tra.
+
+    Thác: 会→值卦→运卦→世卦, rồi năm đi trên vòng 60 từ vị-trí 世卦.
+    ĐÃ KIỂM: khớp 10/10 chính văn 304-313 (世卦 thế 2245 = 革 = quẻ năm đầu).
+    Khác hệ flat 值年 (nam_que, vòng 60 phẳng) ở các năm hiện đại — hai truyền thống.
+    """
+    from engine.hoang_cuc.nguyen_hoi_van_the import locate_year
+    L = locate_year(year)
+    hoi = L["hoi"]["so"]
+    van = L["van"]["so_toan_nguyen"]
+    the = L["the"]["so_toan_nguyen"]
+    nam = L["the"]["nam_trong_the"]
+    van_in = (van - 1) % 30 + 1
+    the_in = (the - 1) % 12 + 1
+    tq = the_que(hoi, van_in, the_in)
+    c = _c60()
+    han = c[(c.index(tq) + nam - 1) % 60]
+    return {
+        "year": year, "han": han, "viet": viet_of(han),
+        "value_que": value_que(hoi, van_in), "van_que": van_que(hoi, van_in),
+        "the_que": tq, "nam_trong_the": nam, "he": "经世 (nested, theo phép sách)",
+    }
+
+
 def co_che() -> dict:
     """Mô tả cơ chế 4 tầng (cho UI / sách)."""
     return {

@@ -130,6 +130,16 @@ def test_khoi_so_chuoi_60_van():
     assert not (set(seq) & PURE)
 
 
+def test_year_que_method_khop_chinh_van():
+    """RÁP TRỌN: phép 经世 (会→运→世→năm) tái dựng KHỚP 10/10 chính văn 304-313.
+    世卦 thế 2245 tính độc lập = 革 = quẻ năm đầu (kiểm độc lập, không vòng vo)."""
+    from engine.hoang_cuc.khoi_so import year_que_method, the_que
+    assert the_que(7, 8, 1) == "革"  # thế 2245: hội7, vận-in8, thế-in1 → 世卦 = 革
+    exp = ["革", "同人", "临", "损", "节", "中孚", "归妹", "睽", "兑", "履"]
+    got = [year_que_method(y)["han"] for y in range(304, 314)]
+    assert got == exp
+
+
 def test_cast_co_nam_que():
     """cast_hoang_cuc nhúng nam_que (cho API the-cuc)."""
     from engine.hoang_cuc.cast import cast_hoang_cuc
