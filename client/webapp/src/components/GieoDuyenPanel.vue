@@ -13,7 +13,8 @@
     <!-- Chọn chế độ -->
     <div class="gd-mode">
       <button :class="{ on: mode === 'tim' }" @click="mode = 'tim'">🔍 Tôi đang tìm</button>
-      <button :class="{ on: mode === 'cap' }" @click="mode = 'cap'">💑 Chúng tôi đã có đôi</button>
+      <button :class="{ on: mode === 'cap' }" @click="mode = 'cap'">💑 Đã có đôi</button>
+      <button :class="{ on: mode === 'so' }" @click="mode = 'so'">⚖️ So nhiều người</button>
     </div>
 
     <!-- CHẾ ĐỘ ĐANG TÌM: 4 tính năng cho người độc thân -->
@@ -72,7 +73,49 @@
           </div>
           <p class="gd-note">{{ dres.tuoi_hop.ghi_chu }}</p>
         </div>
+        <!-- Món 2: lời văn ấm -->
+        <div class="gd-card gd-tho-card">
+          <button v-if="!dtho && !dthoLoading" class="gd-soft-btn" @click="runDuyenTho">💌 Nghe lời tâm tình về duyên của bạn</button>
+          <p v-if="dthoLoading" class="gd-mini">✍️ Thầy đang viết đôi lời...</p>
+          <div v-if="dtho" class="gd-tho">{{ dtho }}</div>
+        </div>
+        <!-- Món 4: chia sẻ -->
+        <div class="gd-share">
+          <button class="gd-soft-btn" @click="shareCard('Chân dung nửa kia của tôi', dres.chan_dung_nua_kia.mo_ta[0]||'', 'Xu hướng: '+dres.duyen_ca_nhan.xu_huong, null)">📤 Tạo thẻ chia sẻ</button>
+        </div>
         <p class="gd-para">⚖️ {{ dres.paradigm }}</p>
+      </div>
+    </section>
+
+    <!-- CHẾ ĐỘ SO NHIỀU NGƯỜI -->
+    <section v-if="mode === 'so'" class="gd-tool">
+      <h3>⚖️ So nhiều người</h3>
+      <p class="gd-tool-sub">Đang phân vân giữa vài người? Nhập lá số của bạn và của họ — hệ thống xếp hạng độ tương ứng.</p>
+      <div class="gd-person" style="margin-bottom:12px;">
+        <h4>Bạn</h4>
+        <input v-model="soMe.ten" placeholder="Tên (tuỳ chọn)" class="gd-in" />
+        <input v-model="soMe.birth" type="datetime-local" class="gd-in" />
+        <select v-model="soMe.gender" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
+      </div>
+      <div v-for="(o,i) in soOthers" :key="i" class="gd-other-row">
+        <input v-model="o.ten" :placeholder="'Người '+(i+1)" class="gd-in" style="flex:1" />
+        <input v-model="o.birth" type="datetime-local" class="gd-in" style="flex:1.4" />
+        <select v-model="o.gender" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
+        <button class="gd-x" @click="rmOther(i)" v-if="soOthers.length>1">✕</button>
+      </div>
+      <button class="gd-add" @click="addOther" v-if="soOthers.length<8">+ Thêm người</button>
+      <button class="gd-run" :disabled="soLoading" @click="runSoSanh">{{ soLoading ? '⏳ Đang so...' : '⚖️ Xếp hạng' }}</button>
+      <p v-if="soErr" class="gd-err">{{ soErr }}</p>
+      <div v-if="soRes" class="gd-result">
+        <div v-for="(r,i) in soRes.xep_hang" :key="i" class="gd-rank">
+          <span class="gd-rank-no">{{ i+1 }}</span>
+          <div class="gd-rank-body">
+            <div class="gd-rank-top"><b>{{ r.ten }}</b> <span class="gd-rank-score">{{ r.diem_tong }}</span> <span v-if="r.ung_nhau" class="gd-ung">cương–nhu ứng ✓</span></div>
+            <div class="gd-rank-muc">{{ r.muc }}</div>
+            <div v-if="r.diem_noi_bat" class="gd-rank-k">🔑 {{ r.diem_noi_bat }}</div>
+          </div>
+        </div>
+        <p class="gd-note">{{ soRes.ghi_chu }}</p>
       </div>
     </section>
 
@@ -137,6 +180,20 @@
           <ol><li v-for="(g,i) in res.gia_quy" :key="i">{{ g }}</li></ol>
         </div>
 
+        <div v-if="res.nam_hop_cuoi && res.nam_hop_cuoi.nam.length" class="gd-card">
+          <h5>📅 Năm hợp cưới ({{ res.nam_hop_cuoi.tu_nam }}–{{ res.nam_hop_cuoi.den_nam }})</h5>
+          <div class="gd-years">
+            <span v-for="(y,i) in res.nam_hop_cuoi.nam" :key="i" class="gd-year" :class="{ dam: y.ca_hai }">
+              <b>{{ y.nam }}</b> <small>{{ y.ca_hai ? '⭐ cả hai' : 'một người' }}</small>
+            </span>
+          </div>
+          <p class="gd-note">{{ res.nam_hop_cuoi.ghi_chu }}</p>
+        </div>
+
+        <div class="gd-share">
+          <button class="gd-soft-btn" @click="shareCard(res.ten1+' 💞 '+res.ten2, res.muc, 'Trục cương–nhu: '+(res.truc_cuong_nhu.ung_nhau?'ứng nhau ✓':'cần dung hòa'), res.diem_tong)">📤 Tạo thẻ chia sẻ</button>
+        </div>
+
         <details class="gd-guide">
           <summary>📖 Hướng dẫn đọc kết quả (đọc trước khi tin)</summary>
           <ul><li v-for="(h,i) in res.huong_dan" :key="i">{{ h }}</li></ul>
@@ -158,7 +215,73 @@ import { computed, ref, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
 import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
 
-const mode = ref("tim");  // 'tim' = độc thân | 'cap' = đã có đôi
+const mode = ref("tim");  // 'tim' | 'cap' | 'so'
+
+// Món 2: lời văn ấm
+const dtho = ref(""); const dthoLoading = ref(false);
+async function runDuyenTho() {
+  if (!db.value) return;
+  dthoLoading.value = true; dtho.value = "";
+  try {
+    const r = await fetch("/api/tu-vi/duyen-tho", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ birth: db.value, gender: dg.value }),
+    });
+    const d = await r.json();
+    dtho.value = d.narrative || ("Lỗi: " + (d.error || "thử lại"));
+  } catch (e) { dtho.value = "Lỗi kết nối."; } finally { dthoLoading.value = false; }
+}
+
+// Món 1: so nhiều người
+const soMe = ref({ ten: "", birth: "", gender: "nam" });
+const soOthers = ref([{ ten: "", birth: "", gender: "nữ" }, { ten: "", birth: "", gender: "nữ" }]);
+const soRes = ref(null); const soLoading = ref(false); const soErr = ref("");
+function addOther() { if (soOthers.value.length < 8) soOthers.value.push({ ten: "", birth: "", gender: "nữ" }); }
+function rmOther(i) { soOthers.value.splice(i, 1); }
+async function runSoSanh() {
+  if (!soMe.value.birth) { soErr.value = "Nhập lá số của bạn."; return; }
+  const others = soOthers.value.filter(o => o.birth);
+  if (!others.length) { soErr.value = "Nhập ít nhất 1 người để so."; return; }
+  soLoading.value = true; soErr.value = ""; soRes.value = null;
+  try {
+    const r = await fetch("/api/tu-vi/so-sanh-duyen", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ me: soMe.value, others }),
+    });
+    const d = await r.json();
+    if (d.error) soErr.value = d.error; else soRes.value = d;
+  } catch (e) { soErr.value = "Lỗi kết nối."; } finally { soLoading.value = false; }
+}
+
+// Món 4: thẻ chia sẻ (SVG → tải ảnh)
+function shareCard(title, line1, line2, score) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="315" viewBox="0 0 600 315">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6f0"/><stop offset="1" stop-color="#fbe6ef"/></linearGradient></defs>
+    <rect width="600" height="315" fill="url(#g)"/>
+    <rect x="12" y="12" width="576" height="291" rx="18" fill="none" stroke="#d9a7b8" stroke-width="2"/>
+    <text x="300" y="70" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#9c3a5a">💞 Gieo Duyên</text>
+    <text x="300" y="108" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#7d4357">${_esc(title)}</text>
+    ${score != null ? `<text x="300" y="185" text-anchor="middle" font-family="Georgia,serif" font-size="64" font-weight="bold" fill="#9c3a5a">${score}<tspan font-size="22" fill="#c98aa0">/100</tspan></text>` : ""}
+    <text x="300" y="${score != null ? 230 : 175}" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#5d4450">${_esc(line1)}</text>
+    <text x="300" y="${score != null ? 256 : 205}" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#8a7079">${_esc(line2)}</text>
+    <text x="300" y="292" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#b89aa3">kinhdich.online · đọc đồng dạng, không bói toán</text>
+  </svg>`;
+  const img = new Image();
+  const blob = new Blob([svg], { type: "image/svg+xml" });
+  const url = URL.createObjectURL(blob);
+  img.onload = () => {
+    const c = document.createElement("canvas"); c.width = 1200; c.height = 630;
+    const ctx = c.getContext("2d"); ctx.scale(2, 2); ctx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    c.toBlob((b) => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(b); a.download = "gieo-duyen.png"; a.click();
+    });
+  };
+  img.src = url;
+}
+function _esc(s) { return String(s || "").slice(0, 80).replace(/[<>&]/g, ""); }
 
 // ── Chế độ ĐANG TÌM: Duyên của tôi ──
 const dn = ref(""); const db = ref(""); const dg = ref("nam");
@@ -307,6 +430,25 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-year b { color: #2e7d32; }
 .gd-tuoi { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0; font-size: 0.88em; }
 .gd-tuoi .ok { color: #2e7d32; } .gd-tuoi .warn { color: #b06a28; }
+.gd-year.dam { background: #ffeef5; border-color: #e09ab8; } .gd-year.dam b { color: #9c3a5a; }
+/* Lời văn ấm */
+.gd-soft-btn { padding: 9px 18px; border: 1.5px solid #c98aa0; border-radius: 20px; background: transparent; color: #9c3a5a; font: inherit; font-size: 0.9em; cursor: pointer; transition: all .15s; }
+.gd-soft-btn:hover { background: #9c3a5a; color: #fff; }
+.gd-tho-card { text-align: center; }
+.gd-tho { white-space: pre-wrap; text-align: left; line-height: 1.85; color: var(--read-text,#3a3a38); font-size: 0.95em; margin-top: 8px; }
+.gd-share { text-align: center; margin: 12px 0; }
+/* So nhiều người */
+.gd-other-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+.gd-x { padding: 6px 10px; border: 1px solid #e0b0bd; border-radius: 8px; background: #fff; color: #c0392b; cursor: pointer; }
+.gd-add { display: block; margin: 4px 0 0; padding: 6px 14px; border: 1px dashed #c98aa0; border-radius: 16px; background: transparent; color: #9c3a5a; font: inherit; font-size: 0.85em; cursor: pointer; }
+.gd-rank { display: flex; gap: 12px; align-items: flex-start; padding: 12px; margin: 8px 0; background: #fdf6f8; border: 1px solid #ecd7df; border-radius: 12px; }
+.gd-rank-no { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #9c3a5a; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.gd-rank-body { flex: 1; }
+.gd-rank-top { display: flex; align-items: center; gap: 8px; }
+.gd-rank-score { font-size: 1.3em; font-weight: 700; color: #9c3a5a; }
+.gd-ung { font-size: 0.78em; color: #2e7d32; background: #eef9f0; padding: 1px 8px; border-radius: 10px; }
+.gd-rank-muc { font-size: 0.85em; color: #7d4357; margin: 2px 0; }
+.gd-rank-k { font-size: 0.82em; color: var(--read-text-faint,#777); }
 
 /* Công cụ Xem tuổi đôi lứa */
 .gd-tool { margin: 0 0 30px; padding: 22px; background: var(--read-surface,#fff); border: 1px solid #e8cdd6; border-radius: 16px; }

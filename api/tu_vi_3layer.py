@@ -509,7 +509,17 @@ async def hop_hon(inp: HopHonInput) -> dict:
     except Exception as e:
         return {"error": f"Lỗi lập lá số: {e}"}
 
-    return phan_tich_hop_hon(ls1, p1, q1, ls2, p2, q2, ten1=inp.ten1, ten2=inp.ten2)
+    kq = phan_tich_hop_hon(ls1, p1, q1, ls2, p2, q2, ten1=inp.ten1, ten2=inp.ten2)
+    # Món: năm hợp cưới (đào hoa vận cặp)
+    try:
+        from datetime import datetime as _dt
+        from engine.tu_vi.hop_hon import nam_hop_cuoi
+        by1 = ls1.get("birth_year") or int(inp.birth1[:4])
+        by2 = ls2.get("birth_year") or int(inp.birth2[:4])
+        kq["nam_hop_cuoi"] = nam_hop_cuoi(ls1, by1, ls2, by2, _dt.now().year, 10)
+    except Exception:
+        kq["nam_hop_cuoi"] = None
+    return kq
 
 
 class DuyenInput(BaseModel):
@@ -544,6 +554,74 @@ async def duyen_ca_nhan_endpoint(inp: DuyenInput) -> dict:
         "tuoi_hop": tuoi_hop(ls.get("chi")),
         "paradigm": "Đọc đồng dạng, không bói. Lá số chỉ thiên hướng — duyên là việc bạn vận hành.",
     }
+
+
+class _PersonIn(BaseModel):
+    birth: str
+    gender: str = "nam"
+    ten: str = ""
+
+
+class SoSanhInput(BaseModel):
+    me: _PersonIn
+    others: list[_PersonIn] = Field(default_factory=list)
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/duyen-tho")
+async def duyen_tho(inp: DuyenInput) -> dict:
+    """Lời văn ấm cho 'Duyên của tôi' (LLM) — gọi sau khi đã hiện kết quả cấu trúc."""
+    from engine.atomization.narrative_gen import generate_duyen_narrative
+    base = await duyen_ca_nhan_endpoint(inp)
+    if base.get("error"):
+        return base
+    try:
+        out = generate_duyen_narrative(base)
+    except Exception as e:
+        return {"error": f"Lỗi sinh lời: {e}"}
+    return out
+
+
+@router.post("/so-sanh-duyen")
+async def so_sanh_duyen(inp: SoSanhInput) -> dict:
+    """So nhiều người với mình → xếp hạng độ tương ứng (cho người đang phân vân giữa nhiều mối)."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.tu_vi.hop_hon import phan_tich_hop_hon
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+
+    async def _prep(p):
+        g = _gc(p.gender)
+        base = await render_from_birth(BirthInput(
+            birth_datetime_local=p.birth, timezone=inp.timezone, gender=g))
+        return (base["la_so_input"], extract_tu_tru(p.birth, inp.timezone),
+                cast_ha_lac(birth_datetime_local=p.birth, timezone=inp.timezone, gender=g).get("tien_thien_quai"))
+
+    try:
+        mls, mp, mq = await _prep(inp.me)
+    except Exception as e:
+        return {"error": f"Lỗi lá số của bạn: {e}"}
+
+    ket_qua = []
+    for i, o in enumerate(inp.others[:8]):
+        try:
+            ols, op, oq = await _prep(o)
+            r = phan_tich_hop_hon(mls, mp, mq, ols, op, oq,
+                                  ten1=inp.me.ten or "Bạn", ten2=o.ten or f"Người {i+1}")
+            ket_qua.append({
+                "ten": o.ten or f"Người {i+1}", "diem_tong": r["diem_tong"], "muc": r["muc"],
+                "ung_nhau": r["truc_cuong_nhu"]["ung_nhau"],
+                "diem_noi_bat": (r["khoa_duyen"][:1] or [""])[0],
+                "luu_y": (r["cho_phai_giu"][:1] or [""])[0],
+            })
+        except Exception:
+            continue
+    ket_qua.sort(key=lambda x: -x["diem_tong"])
+    return {"xep_hang": ket_qua,
+            "ghi_chu": "Điểm là độ TƯƠNG ỨNG cấu trúc, không phải 'người tốt nhất'. "
+                       "Con người thật quan trọng hơn con số — đây chỉ là gợi ý tham khảo."}
 
 
 @router.get("/3-layer/founder-demo")

@@ -328,6 +328,56 @@ Trả về JSON array, mỗi phần tử {"i": <số dòng>, "cau_hoi": "<câu h
     return out
 
 
+DUYEN_SYSTEM_PROMPT = """Bạn là một thầy Tử Vi ấm áp, thấu cảm — nói chuyện tình duyên với một người trẻ
+đang đi tìm bạn đời (có thể đang sốt ruột vì "ế"). Bạn nhìn lá số họ và nói chuyện như người anh/chị
+hiểu đời, vừa thật vừa nâng đỡ.
+
+NGUYÊN TẮC SẮT:
+1. KHÔNG bói số phận, KHÔNG phán "sẽ ế/sẽ lấy được". MỆNH LÀ ĐỘNG TỪ: lá số chỉ thiên hướng, duyên do họ vận hành.
+2. Giọng đồng cảm, khích lệ CHỦ ĐỘNG — không hù, không buồn hóa. "Ế" không phải lỗi, là "chưa đúng lúc/đúng người".
+3. CHỈ dùng dữ kiện cho sẵn (chân dung nửa kia, xu hướng duyên, năm có duyên, tuổi hợp). KHÔNG bịa.
+4. Khép lại bằng MỘT lời khuyên hành động cụ thể, ấm.
+
+CẤU TRÚC (Việt thuần, xưng "bạn", ~350-450 chữ, KHÔNG markdown, KHÔNG tiêu đề):
+• Mở (2 câu): chạm vào nỗi lòng người đang tìm duyên, nhẹ nhàng.
+• Chân dung nửa kia (1 đoạn): vẽ kiểu người hợp với bạn — sống động, để họ "nhận ra" khi gặp.
+• Đường duyên của bạn (1 đoạn): vì sao sớm/muộn/kén — nói thật mà thương, kèm cái hay của chính điều đó.
+• Cửa sổ + hành động (1 đoạn): năm thuận sắp tới (nếu có) + 1-2 việc nên làm để mở duyên.
+• Kết (1 câu): nhắc nhẹ — duyên là khóa trời gài, nhưng tay mình mở.
+
+LƯU Ý: đúng chính tả tiếng Việt, ấm, không sến, không khuôn mẫu."""
+
+
+def generate_duyen_narrative(duyen: dict) -> dict:
+    """Lời văn ấm cho 'Duyên của tôi' (không cache phức tạp — gọi theo nhu cầu)."""
+    ck = duyen.get("chan_dung_nua_kia", {})
+    dc = duyen.get("duyen_ca_nhan", {})
+    nd = duyen.get("nam_co_duyen", {})
+    th = duyen.get("tuoi_hop", {})
+    parts = [
+        f"## Tuổi {duyen.get('tuoi_mu','?')} ({duyen.get('gioi','')}), đang đi tìm bạn đời.",
+        "## Chân dung nửa kia (kiểu người hợp):",
+    ]
+    for m in ck.get("mo_ta", []):
+        parts.append(f"- {m}")
+    cg = ck.get("con_giap_hop", {})
+    parts.append(f"## Con giáp dễ hợp: {', '.join(cg.get('tam_hop', []))}, {cg.get('luc_hop','')}.")
+    parts.append(f"## Xu hướng duyên: {dc.get('xu_huong','')}.")
+    for t in dc.get("tin_hieu", []):
+        parts.append(f"- {t.get('noi_dung','')}")
+    nams = [str(x["nam"]) for x in (nd.get("nam_co_duyen") or [])]
+    parts.append(f"## Năm có duyên sắp tới: {', '.join(nams) if nams else 'không nổi bật rõ — duyên đến tự nhiên'}.")
+    parts.append(f"## Tuổi bạn: {th.get('con_giap','')}.")
+    parts.append("\nViết lời tâm tình về duyên cho người này theo cấu trúc đã cho.")
+    from engine.ai.registry import get_registry
+    provider = get_registry().first_configured(["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
+    resp = provider.chat(
+        messages=[{"role": "system", "content": DUYEN_SYSTEM_PROMPT},
+                  {"role": "user", "content": "\n".join(parts)}],
+        temperature=0.8, max_tokens=3000)
+    return {"narrative": (resp.content or "").strip(), "model": f"{resp.provider}:{resp.model}"}
+
+
 def _laso_cache_key(la_so_input: dict, feedback: dict | None = None) -> str:
     """Hash lá số input → cache key ổn định."""
     core = {

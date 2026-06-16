@@ -322,6 +322,32 @@ def _gia_quy(truc, bat_tu):
     return gq
 
 
+# ════════════════ NĂM HỢP CƯỚI (đào hoa vận cặp) ════════════════
+def nam_hop_cuoi(ls1, by1, ls2, by2, nam_xem, n_nam=10) -> dict:
+    """Năm nào sao hỉ chiếu Mệnh/Phu Thê của MỘT hoặc CẢ HAI → cửa sổ cưới.
+
+    Cả hai cùng sáng = năm đậm nhất.
+    """
+    from engine.tu_vi.duyen import dao_hoa_van
+    d1 = {x["nam"]: x for x in dao_hoa_van(ls1, by1, nam_xem, n_nam)["nam_co_duyen"]}
+    d2 = {x["nam"]: x for x in dao_hoa_van(ls2, by2, nam_xem, n_nam)["nam_co_duyen"]}
+    nam = []
+    for y in range(nam_xem, nam_xem + n_nam):
+        a, b = d1.get(y), d2.get(y)
+        if not a and not b:
+            continue
+        ca_hai = bool(a and b)
+        nam.append({
+            "nam": y, "ca_hai": ca_hai,
+            "nguoi1": (a["cung"] if a else []), "nguoi2": (b["cung"] if b else []),
+            "do_dam": "đậm (cả hai cùng sáng)" if ca_hai else "vừa (một người sáng)",
+        })
+    nam.sort(key=lambda x: (not x["ca_hai"], x["nam"]))
+    return {"tu_nam": nam_xem, "den_nam": nam_xem + n_nam - 1, "nam": nam,
+            "ghi_chu": "Năm cả hai cùng có sao hỉ chiếu Mệnh/Phu Thê = cửa sổ cưới đậm nhất. "
+                       "Là XU HƯỚNG thuận, không phải ngày giờ định — vẫn do hai người quyết."}
+
+
 # ════════════════ TỔNG HỢP ════════════════
 def phan_tich_hop_hon(ls1, pillars1, que1, ls2, pillars2, que2,
                       ten1="Người 1", ten2="Người 2") -> dict:
