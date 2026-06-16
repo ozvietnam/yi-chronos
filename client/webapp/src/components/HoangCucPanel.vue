@@ -20,6 +20,14 @@ const personBirthYear = computed(() => {
   return m ? Number(m[1]) : null;
 });
 const age = computed(() => (birthYear.value ? nowYear - Number(birthYear.value) : null));
+
+// Đồ năm — lá số lưu niên (3 lớp) cho người đang active, theo `year`
+const doNamUrl = computed(() => {
+  const bd = activePerson.value?.birth_datetime_local;
+  if (!bd) return null;
+  const g = activePerson.value?.gender || "nam";
+  return `/api/hoang-cuc/do-nam.svg?birth=${encodeURIComponent(bd)}&gender=${encodeURIComponent(g)}&year=${year.value}`;
+});
 const loadingViTri = ref(false);
 const errViTri = ref("");
 const lifeMarks = ref([]);
@@ -134,6 +142,11 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
         <span class="hc-me-note">— lá số nói <b>LÀ AI</b>; Hoàng Cực nói đang ở <b>MÙA NÀO</b></span>
       </div>
 
+      <div v-if="doNamUrl" class="hc-donam">
+        <div class="hc-donam-title">🗺️ Đồ năm {{ year }} — lá số lưu niên (3 lớp: năm-quẻ · Đại Vận · tứ hóa năm)</div>
+        <img :src="doNamUrl" :alt="`Đồ năm ${year}`" loading="lazy" />
+      </div>
+
       <div v-if="viTri" class="hc-result">
         <div class="hc-pos">
           <div class="hc-pos-line"><strong>{{ viTri.year }} ({{ viTri.can_chi }})</strong></div>
@@ -244,6 +257,9 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
 .hc-namque { color: var(--accent, #7c5cff); }
 .hc-namque em { opacity: .7; font-size: .82rem; }
 .hc-namque-flat { font-size: .8rem; opacity: .6; margin: 2px 0 0 18px; }
+.hc-donam { margin-top: 14px; }
+.hc-donam-title { font-size: .9rem; font-weight: 600; color: var(--accent, #7c5cff); margin-bottom: 6px; }
+.hc-donam img { width: 100%; max-width: 980px; border: 1px solid #e0d5b8; border-radius: 10px; background: #fbf7ef; }
 .hc-strip { margin-top: 14px; }
 .hc-strip-img { width: 100%; max-width: 100%; border: 1px solid var(--border-color, rgba(255,255,255,.1)); border-radius: 10px; background: #fbf7ef; padding: 4px; box-sizing: border-box; }
 .hc-paradigm { margin-top: 14px; font-size: .82rem; opacity: .7; font-style: italic; }

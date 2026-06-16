@@ -55,3 +55,16 @@ def hoang_cuc_nam_que_strip(birth: int = Query(..., ge=1900, le=2103),
     svg = nam_que_strip_svg(birth, now)
     return Response(content=svg, media_type="image/svg+xml",
                     headers={"Cache-Control": "public, max-age=86400"})
+
+
+@router.get("/do-nam.svg")
+def hoang_cuc_do_nam(birth: str = Query(..., description="YYYY-MM-DD HH:MM"),
+                     gender: str = Query("nam"), year: int = Query(2026)) -> Response:
+    """ĐỒ NĂM — lá số lưu niên (3 lớp: năm-quẻ + Đại Vận + tứ hóa năm). SVG."""
+    from engine.tu_vi.do_nam_svg import do_nam_svg
+    try:
+        svg = do_nam_svg(str(birth).replace("T", " "), gender or "nam", year)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    return Response(content=svg, media_type="image/svg+xml",
+                    headers={"Cache-Control": "public, max-age=3600"})
