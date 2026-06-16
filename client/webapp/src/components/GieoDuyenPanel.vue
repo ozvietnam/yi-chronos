@@ -10,8 +10,74 @@
       </div>
     </header>
 
-    <!-- Công cụ tương tác: Xem tuổi đôi lứa -->
-    <section class="gd-tool">
+    <!-- Chọn chế độ -->
+    <div class="gd-mode">
+      <button :class="{ on: mode === 'tim' }" @click="mode = 'tim'">🔍 Tôi đang tìm</button>
+      <button :class="{ on: mode === 'cap' }" @click="mode = 'cap'">💑 Chúng tôi đã có đôi</button>
+    </div>
+
+    <!-- CHẾ ĐỘ ĐANG TÌM: 4 tính năng cho người độc thân -->
+    <section v-if="mode === 'tim'" class="gd-tool">
+      <h3>🔍 Duyên của tôi</h3>
+      <p class="gd-tool-sub">Nhập lá số của bạn — hệ thống vẽ chân dung nửa kia, đọc đường tình duyên, chỉ năm có duyên và tuổi hợp.</p>
+      <div class="gd-form">
+        <div class="gd-person" style="flex:1">
+          <input v-model="dn" placeholder="Tên (tuỳ chọn)" class="gd-in" />
+          <input v-model="db" type="datetime-local" class="gd-in" />
+          <select v-model="dg" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
+        </div>
+      </div>
+      <button class="gd-run" :disabled="!db || dloading" @click="runDuyen">
+        {{ dloading ? '⏳ Đang xem...' : '💗 Xem duyên của tôi' }}
+      </button>
+      <p v-if="derr" class="gd-err">{{ derr }}</p>
+
+      <div v-if="dres" class="gd-result">
+        <!-- Chân dung nửa kia -->
+        <div class="gd-card">
+          <h5>💗 Chân dung nửa kia</h5>
+          <ul><li v-for="(m,i) in dres.chan_dung_nua_kia.mo_ta" :key="i">{{ m }}</li></ul>
+          <p class="gd-mini">Con giáp dễ hợp:
+            <b v-for="(g,i) in dres.chan_dung_nua_kia.con_giap_hop.tam_hop" :key="i">{{ g }} </b>
+            <b v-if="dres.chan_dung_nua_kia.con_giap_hop.luc_hop">· {{ dres.chan_dung_nua_kia.con_giap_hop.luc_hop }}</b>
+          </p>
+          <p class="gd-note">{{ dres.chan_dung_nua_kia.loi_khuyen }}</p>
+        </div>
+        <!-- Đường tình duyên -->
+        <div class="gd-card">
+          <h5>🔍 Đường tình duyên — xu hướng: <b>{{ dres.duyen_ca_nhan.xu_huong }}</b></h5>
+          <ul><li v-for="(t,i) in dres.duyen_ca_nhan.tin_hieu" :key="i">{{ t.noi_dung }}</li></ul>
+          <p class="gd-mini">Cách vận hành (mệnh là động từ):</p>
+          <ul class="gd-do"><li v-for="(c,i) in dres.duyen_ca_nhan.cach_van_hanh" :key="i">{{ c }}</li></ul>
+        </div>
+        <!-- Năm có duyên -->
+        <div class="gd-card">
+          <h5>📅 Năm có duyên ({{ dres.nam_co_duyen.tu_nam }}–{{ dres.nam_co_duyen.den_nam }})</h5>
+          <div v-if="dres.nam_co_duyen.nam_co_duyen.length" class="gd-years">
+            <span v-for="(y,i) in dres.nam_co_duyen.nam_co_duyen" :key="i" class="gd-year">
+              <b>{{ y.nam }}</b> <small>({{ y.cung.join('/') }} · {{ y.sao }})</small>
+            </span>
+          </div>
+          <p v-else class="gd-mini">Không có năm sao hỉ nổi bật trong 12 năm tới — duyên đến tự nhiên, chủ động vẫn hơn.</p>
+          <p class="gd-note">{{ dres.nam_co_duyen.ghi_chu }}</p>
+        </div>
+        <!-- Tuổi hợp -->
+        <div class="gd-card">
+          <h5>🧭 Tuổi hợp – tuổi cần ý thức (bạn tuổi {{ dres.tuoi_hop.con_giap }})</h5>
+          <div class="gd-tuoi">
+            <span class="ok">Tam hợp: <b>{{ dres.tuoi_hop.tam_hop.map(x=>x.con_giap).join(', ') }}</b></span>
+            <span class="ok">Lục hợp: <b>{{ dres.tuoi_hop.luc_hop.con_giap }}</b></span>
+            <span class="warn">Xung: {{ dres.tuoi_hop.luc_xung.con_giap }}</span>
+            <span class="warn">Hại: {{ dres.tuoi_hop.luc_hai.con_giap }}</span>
+          </div>
+          <p class="gd-note">{{ dres.tuoi_hop.ghi_chu }}</p>
+        </div>
+        <p class="gd-para">⚖️ {{ dres.paradigm }}</p>
+      </div>
+    </section>
+
+    <!-- CHẾ ĐỘ ĐÃ CÓ ĐÔI: Xem tuổi đôi lứa -->
+    <section v-if="mode === 'cap'" class="gd-tool">
       <h3>🔮 Xem tuổi đôi lứa — ba hệ</h3>
       <p class="gd-tool-sub">Nhập lá số của bạn và một lá số khác. Hệ thống soi Tử Vi · Bát Tự · Kinh Dịch, chấm độ <em>tương ứng</em> và gợi ý <strong>gia quy</strong>.</p>
       <div class="gd-form">
@@ -92,6 +158,24 @@ import { computed, ref, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
 import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
 
+const mode = ref("tim");  // 'tim' = độc thân | 'cap' = đã có đôi
+
+// ── Chế độ ĐANG TÌM: Duyên của tôi ──
+const dn = ref(""); const db = ref(""); const dg = ref("nam");
+const dloading = ref(false); const dres = ref(null); const derr = ref("");
+async function runDuyen() {
+  if (!db.value) return;
+  dloading.value = true; derr.value = ""; dres.value = null;
+  try {
+    const r = await fetch("/api/tu-vi/duyen", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ birth: db.value, gender: dg.value }),
+    });
+    const d = await r.json();
+    if (d.error) derr.value = d.error; else dres.value = d;
+  } catch (e) { derr.value = "Lỗi kết nối, thử lại."; } finally { dloading.value = false; }
+}
+
 // ── Công cụ Xem tuổi đôi lứa ──
 const n1 = ref(""); const b1 = ref(""); const g1 = ref("nam");
 const n2 = ref(""); const b2 = ref(""); const g2 = ref("nữ");
@@ -100,10 +184,13 @@ const loading = ref(false); const res = ref(null); const err = ref("");
 onMounted(() => {
   // prefill lá số người dùng nếu đã đăng nhập / có active person
   const bd = activeBirthDatetime?.value;
-  if (bd) b1.value = String(bd).slice(0, 16);
+  if (bd) { b1.value = String(bd).slice(0, 16); db.value = String(bd).slice(0, 16); }
   const p = activePerson?.value;
-  if (p?.name) n1.value = p.name;
-  if (p?.gender) g1.value = p.gender === "nữ" || p.gender === "nu" || p.gender === "F" ? "nữ" : "nam";
+  if (p?.name) { n1.value = p.name; dn.value = p.name; }
+  if (p?.gender) {
+    const gg = p.gender === "nữ" || p.gender === "nu" || p.gender === "F" ? "nữ" : "nam";
+    g1.value = gg; dg.value = gg;
+  }
 });
 
 async function run() {
@@ -199,6 +286,27 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-actions { margin-top: 16px; }
 .gd-pdf-btn { display: inline-block; padding: 10px 22px; border-radius: 24px; background: #9c3a5a; color: #fff; text-decoration: none; font-size: 0.92em; transition: all .15s; }
 .gd-pdf-btn:hover { background: #7d2c47; transform: translateY(-1px); }
+
+/* Chọn chế độ */
+.gd-mode { display: flex; gap: 10px; justify-content: center; margin-bottom: 18px; }
+.gd-mode button { flex: 1; max-width: 260px; padding: 12px; border: 1.5px solid #d8b8c3; border-radius: 24px; background: transparent; color: #9c3a5a; font: inherit; font-size: 0.95em; cursor: pointer; transition: all .15s; }
+.gd-mode button.on { background: #9c3a5a; color: #fff; border-color: #9c3a5a; }
+.gd-mode button:hover:not(.on) { background: #fbeef2; }
+
+/* Thẻ kết quả duyên */
+.gd-card { margin: 12px 0; padding: 14px 16px; background: #fdf6f8; border: 1px solid #ecd7df; border-radius: 12px; }
+.gd-card h5 { margin: 0 0 8px; color: #9c3a5a; font-size: 1em; }
+.gd-card h5 b { text-transform: capitalize; }
+.gd-card ul { margin: 6px 0; padding-left: 18px; } .gd-card li { margin: 5px 0; font-size: 0.9em; line-height: 1.55; color: var(--read-text,#3a3a38); }
+.gd-card ul.gd-do li { color: #2e7d32; }
+.gd-mini { margin: 8px 0 2px; font-size: 0.86em; color: #7d4357; }
+.gd-mini b { color: #9c3a5a; }
+.gd-note { margin: 8px 0 0; font-size: 0.82em; font-style: italic; color: var(--read-text-faint,#888); line-height: 1.5; }
+.gd-years { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+.gd-year { padding: 5px 12px; background: #eef9f0; border: 1px solid #b6dfc0; border-radius: 16px; font-size: 0.88em; }
+.gd-year b { color: #2e7d32; }
+.gd-tuoi { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0; font-size: 0.88em; }
+.gd-tuoi .ok { color: #2e7d32; } .gd-tuoi .warn { color: #b06a28; }
 
 /* Công cụ Xem tuổi đôi lứa */
 .gd-tool { margin: 0 0 30px; padding: 22px; background: var(--read-surface,#fff); border: 1px solid #e8cdd6; border-radius: 16px; }

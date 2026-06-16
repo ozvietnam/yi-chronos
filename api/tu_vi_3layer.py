@@ -512,6 +512,40 @@ async def hop_hon(inp: HopHonInput) -> dict:
     return phan_tich_hop_hon(ls1, p1, q1, ls2, p2, q2, ten1=inp.ten1, ten2=inp.ten2)
 
 
+class DuyenInput(BaseModel):
+    birth: str = Field(..., description="Ngày giờ sinh (ISO local)")
+    gender: str = Field("nam")
+    timezone: str = Field("Asia/Ho_Chi_Minh")
+
+
+@router.post("/duyen")
+async def duyen_ca_nhan_endpoint(inp: DuyenInput) -> dict:
+    """Duyên của tôi — bộ 4 tính năng cho người ĐANG TÌM:
+    chân dung nửa kia · đường tình duyên · năm có duyên · tuổi hợp.
+    """
+    from datetime import datetime
+    from engine.tu_vi.duyen import (chan_dung_nua_kia, duyen_ca_nhan, dao_hoa_van, tuoi_hop)
+
+    g = "nữ" if inp.gender in ("nữ", "nu", "F", "f") else "nam"
+    try:
+        base = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth, timezone=inp.timezone, gender=g))
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+    ls = base["la_so_input"]
+    by = ls.get("birth_year") or int(inp.birth[:4])
+    nam_xem = datetime.now().year
+    tuoi = nam_xem - by + 1
+    return {
+        "tuoi_mu": tuoi, "gioi": g,
+        "chan_dung_nua_kia": chan_dung_nua_kia(ls),
+        "duyen_ca_nhan": duyen_ca_nhan(ls, tuoi, g),
+        "nam_co_duyen": dao_hoa_van(ls, by, nam_xem, n_nam=12),
+        "tuoi_hop": tuoi_hop(ls.get("chi")),
+        "paradigm": "Đọc đồng dạng, không bói. Lá số chỉ thiên hướng — duyên là việc bạn vận hành.",
+    }
+
+
 @router.get("/3-layer/founder-demo")
 async def founder_demo() -> dict:
     """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""
