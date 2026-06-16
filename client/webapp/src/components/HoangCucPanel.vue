@@ -7,7 +7,8 @@ const nowYear = new Date().getFullYear();
 const year = ref(nowYear);
 const birthYear = ref(null); // tự lấy từ người đang xem (lá số); vẫn cho sửa tay
 const viTri = ref(null);
-const namQue = ref(null);    // quẻ-năm của `year` (nếu có nguồn)
+const namQue = ref(null);    // hệ flat 值年 (bảng) — chỉ 304-313 + 2020-2103
+const namQuePhep = ref(null);// hệ 经世 (phép sách, mọi năm) — kiểm 10/10 chính văn
 const atoms = ref([]);
 
 // Người đang active = cùng lá số Tử Vi/Bát Tự → tự điền tuổi, không bắt gõ
@@ -34,6 +35,7 @@ async function locate() {
     if (!r.ok || d.status !== "ok") throw new Error(d.detail || "Lỗi định vị");
     viTri.value = d.vi_tri;
     namQue.value = d.nam_que || null;
+    namQuePhep.value = d.nam_que_phep || null;
     atoms.value = d.atoms_lien_quan || [];
     // overlay đời: các thế từ năm sinh → năm sinh + 90
     if (birthYear.value) {
@@ -141,9 +143,10 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
           <div class="hc-pos-line">☀ {{ viTri.hoi.label }} <em v-if="viTri.hoi.note">— {{ viTri.hoi.note }}</em></div>
           <div class="hc-pos-line">⟳ {{ viTri.van.label }} ({{ viTri.van.start }} → {{ viTri.van.end }})</div>
           <div class="hc-pos-line">◈ {{ viTri.the.label }} ({{ viTri.the.start }} → {{ viTri.the.end }}) — năm thứ {{ viTri.the.nam_trong_the }}/30</div>
-          <div class="hc-pos-line hc-namque" v-if="namQue">🎴 Năm-quẻ {{ year }}<span v-if="birthYear"> · Anh {{ year - birthYear }} tuổi</span>:
-            <strong>{{ namQue.han }} {{ namQue.viet }}</strong>
-            <em>(nguồn: {{ namQue.lop_nguon }}<span v-if="namQue.suspect"> · nghi lỗi bảng</span>)</em></div>
+          <div class="hc-pos-line hc-namque" v-if="namQuePhep">🎴 Năm-quẻ {{ year }}<span v-if="birthYear"> · Anh {{ year - birthYear }} tuổi</span>:
+            <strong>{{ namQuePhep.han }} {{ namQuePhep.viet }}</strong>
+            <em>(phép 经世 · thế-quẻ {{ namQuePhep.the_que }} · kiểm 10/10 chính văn 304-313)</em></div>
+          <div class="hc-namque-flat" v-if="namQue">· bảng phổ thông (值年 vòng 60): {{ namQue.han }} {{ namQue.viet }}<span v-if="namQue.suspect"> · nghi lỗi</span></div>
           <div class="hc-pos-line hc-pending" v-else>Năm-quẻ: chưa có trong nguồn (ngoài 304–313 &amp; 2020–2103) — không suy diễn</div>
         </div>
 
@@ -243,6 +246,7 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
 .hc-me-note { display: block; font-size: .78rem; opacity: .72; margin-top: 2px; font-style: italic; }
 .hc-namque { color: var(--accent, #7c5cff); }
 .hc-namque em { opacity: .7; font-size: .82rem; }
+.hc-namque-flat { font-size: .8rem; opacity: .6; margin: 2px 0 0 18px; }
 .hc-strip { margin-top: 14px; }
 .hc-strip-img { width: 100%; max-width: 100%; border: 1px solid var(--border-color, rgba(255,255,255,.1)); border-radius: 10px; background: #fbf7ef; padding: 4px; box-sizing: border-box; }
 .hc-paradigm { margin-top: 14px; font-size: .82rem; opacity: .7; font-style: italic; }

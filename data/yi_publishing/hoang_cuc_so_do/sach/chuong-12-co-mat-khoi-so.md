@@ -51,12 +51,37 @@ Không phải Tổ sư giấu từng con số. Tổ sư giấu **cái KHÓA** �
 
 Nhưng xin giữ đúng đạo (Iron Rule #4/#6): có cái khóa **không biến Hoàng Cực thành máy bói**. Quẻ của năm vẫn là **tấm gương soi cấu trúc của thời**, không phải lời phán số phận. Khác biệt là: giờ ta soi được **mọi năm**, bằng **phép có thể kiểm**, chứ không phải vài con số rời rạc.
 
-## 7. Ranh giới phải nói thẳng (GIỚI HẠN)
+## 7. RÁP TRỌN — engine suy quẻ mọi năm (đã chạy)
 
-- **Đã tái dựng + KIỂM** (engine, test xanh): phép **biến hào**, luật **一贞八悔**, **chuỗi 60 值卦** (复→剥 bỏ 乾坤坎离), và **复 → 6 运卦** khớp chính văn.
-- **Chưa ráp trọn** engine "năm-bất-kỳ": cần lắp đủ bốn tầng + **neo pha** (năm nào ứng nhánh nào) + tầng **旬/年** của phần 以运经世 (sách giới thiệu riêng). Cơ chế đã chứng minh chạy đúng ở tầng 运 — việc còn lại là **lắp ráp + kiểm chéo với 304-313 và 2020-2103** đã có. Em **không tuyên bố** đã có máy suy mọi năm khi chưa kiểm trọn.
-- Đây là **bước nhảy thật** so với Chương 5: từ *"bí truyền, chiều dữ liệu"* → *"cơ chế đã mở, lõi đã chạy đúng"*.
+Không dừng ở tầng 运 nữa. Em ráp đủ bốn tầng thành một hàm `year_que_method(năm)`:
+
+1. `locate_year(năm)` → hội · vận · thế · năm-trong-thế.
+2. **值卦** = vị trí trên chuỗi 60 (theo hội + vận); **运卦** = đổi hào của 值卦; **世卦** = đổi hào của 运卦.
+3. **Năm-quẻ** = đi trên vòng 60 từ vị-trí của **世卦**, bước (năm-trong-thế − 1).
+
+**Kiểm độc lập (không vòng vo):** luật 会→运→世 (chỉ từ cấu trúc, KHÔNG nhìn dữ liệu năm) cho ra **世卦 thế 2245 = 革** — đúng bằng quẻ năm đầu của thế ấy (304 = 革). Từ đó đi vòng 60, **khớp trọn 10/10** chính văn 304-313 (革·同人·临·损·节·中孚·归妹·睽·兑·履). **Engine test xanh.**
+
+**Một chứng cứ phụ đắt giá:** phép (neo ở 304) tự cho **2044 = 大過**. Bảng hiện đại cũng ghi 2044 = 大過 — chỗ em từng nghĩ là "lỗi trùng 大過 ở 2043-2044". Nay rõ: **không phải lỗi**, mà là **đầu một thế mới reset** (2044 = năm 1 của thế, 世卦 = 大過). Phép **giải thích được cả cái dị thường** của bảng kia.
+
+## 8. Một lật ngược: HAI hệ năm-quẻ
+
+Khi ráp xong, lộ ra điều quan trọng — có **hai truyền thống** khác nhau:
+
+| | Hệ **flat 值年** (bảng phổ thông) | Hệ **经世 nested** (phép trong sách) |
+|---|---|---|
+| Cách đi | vòng 60 phẳng, period ~60 | reset theo TỪNG THẾ (世卦 dẫn) |
+| Khớp 304-313 | trùng (ngẫu nhiên cùng đoạn) | **khớp 10/10 (đúng cơ chế)** |
+| 2026 | 同人 | **师 (Sư)** |
+| Kiến trúc | một vòng | đúng thác 4 tầng của Tổ sư |
+
+Bảng em dùng ở Chương 5 (và đẩy lên web) là **hệ flat** — tiện nhưng không phải phép 经世 thật. Theo **phép của sách**, **năm-quẻ đời Anh** là: **1988 = 蛊 (Cổ) · 2026 = 师 (Sư) · 2044 = 大過 · 2068 = 晋 (Tấn)**. Em giữ cả hai (đa phái, Iron Rule #3), nhưng **đánh dấu rõ hệ 经世 mới là phép chính văn**.
+
+## 9. Ranh giới phải nói thẳng (GIỚI HẠN)
+
+- **Mạnh:** luật 会→运→世 cho 世卦 độc lập = 革 = dữ liệu thật; engine khớp **10/10** ví dụ gốc duy nhất của sách + giải thích được dị thường 2044. Test xanh.
+- **Cần thành thật:** sách chỉ có **một** cụm năm-quẻ gốc (304-313) để kiểm — nên luật "năm đi vòng 60 từ 世卦" tuy khớp trọn cụm ấy + nhất quán kiến trúc, vẫn **mới kiểm trên một thập niên**. Em **không thổi phồng** thành "đã chứng minh tuyệt đối mọi năm".
+- Đây là **bước nhảy thật** so với Chương 5: từ *"bí truyền, chỉ có bảng"* → *"phép đã ráp, chạy đúng ví dụ gốc, suy được mọi năm"*.
 
 ---
 
-*Chương 12 trả lời thách thức của Anh: cơ mật có thật, và nó là một CƠ CHẾ — không phải một con số. Bước tới: ráp trọn engine suy-năm-bất-kỳ từ cơ chế đã kiểm này, rồi tô lại dải năm-quẻ bằng phép (thay vì bảng).*
+*Chương 12 trả lời trọn thách thức của Anh: cơ mật là một CƠ CHẾ, em đã ráp nó chạy — `engine.hoang_cuc.khoi_so.year_que_method`. Cú nhắc "đừng dừng ở dữ liệu" của Anh đã mở ra phép 经世 thật, và sửa lại một chỗ em làm vội ở Chương 5.*
