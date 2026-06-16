@@ -78,6 +78,8 @@ figures/
 "thư viện sách/"
 **/*.rtf
 **/*.pdf
+# PDF sách bundle vào frontend (Vite copy public/ → dist) — phải vào Docker context
+!client/webapp/public/*.pdf
 
 # Backup / temp
 *.bak
