@@ -471,6 +471,47 @@ async def get_khau_vi(request: Request) -> dict:
     return khau_vi(user["user_id"])
 
 
+class HopHonInput(BaseModel):
+    birth1: str = Field(..., description="Ngày giờ sinh người 1 (ISO local, vd 1988-06-05T23:30)")
+    gender1: str = Field("nam", description="nam | nữ")
+    ten1: str = Field("Người 1")
+    birth2: str = Field(..., description="Ngày giờ sinh người 2")
+    gender2: str = Field("nữ")
+    ten2: str = Field("Người 2")
+    timezone: str = Field("Asia/Ho_Chi_Minh")
+
+
+@router.post("/hop-hon")
+async def hop_hon(inp: HopHonInput) -> dict:
+    """Hợp Hôn Tam Hệ — chấm độ tương ứng 2 lá số (Tử Vi + Bát Tự + Kinh Dịch).
+
+    User nhập lá số mình + 1 lá số khác → kết quả + gia quy + hướng dẫn đọc.
+    Paradigm: đọc đồng dạng, KHÔNG predict.
+    """
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.tu_vi.hop_hon import phan_tich_hop_hon
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+
+    g1, g2 = _gc(inp.gender1), _gc(inp.gender2)
+    try:
+        base1 = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth1, timezone=inp.timezone, gender=g1))
+        base2 = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth2, timezone=inp.timezone, gender=g2))
+        ls1, ls2 = base1["la_so_input"], base2["la_so_input"]
+        p1 = extract_tu_tru(inp.birth1, inp.timezone)
+        p2 = extract_tu_tru(inp.birth2, inp.timezone)
+        q1 = cast_ha_lac(birth_datetime_local=inp.birth1, timezone=inp.timezone, gender=g1).get("tien_thien_quai")
+        q2 = cast_ha_lac(birth_datetime_local=inp.birth2, timezone=inp.timezone, gender=g2).get("tien_thien_quai")
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+
+    return phan_tich_hop_hon(ls1, p1, q1, ls2, p2, q2, ten1=inp.ten1, ten2=inp.ten2)
+
+
 @router.get("/3-layer/founder-demo")
 async def founder_demo() -> dict:
     """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""

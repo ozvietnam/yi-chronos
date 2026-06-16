@@ -10,17 +10,117 @@
       </div>
     </header>
 
+    <!-- Công cụ tương tác: Xem tuổi đôi lứa -->
+    <section class="gd-tool">
+      <h3>🔮 Xem tuổi đôi lứa — ba hệ</h3>
+      <p class="gd-tool-sub">Nhập lá số của bạn và một lá số khác. Hệ thống soi Tử Vi · Bát Tự · Kinh Dịch, chấm độ <em>tương ứng</em> và gợi ý <strong>gia quy</strong>.</p>
+      <div class="gd-form">
+        <div class="gd-person">
+          <h4>Người 1 (bạn)</h4>
+          <input v-model="n1" placeholder="Tên (tuỳ chọn)" class="gd-in" />
+          <input v-model="b1" type="datetime-local" class="gd-in" />
+          <select v-model="g1" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
+        </div>
+        <div class="gd-heart">💞</div>
+        <div class="gd-person">
+          <h4>Người 2</h4>
+          <input v-model="n2" placeholder="Tên (tuỳ chọn)" class="gd-in" />
+          <input v-model="b2" type="datetime-local" class="gd-in" />
+          <select v-model="g2" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
+        </div>
+      </div>
+      <button class="gd-run" :disabled="!b1 || !b2 || loading" @click="run">
+        {{ loading ? '⏳ Đang soi ba hệ...' : '✨ Xem tương ứng' }}
+      </button>
+      <p v-if="err" class="gd-err">{{ err }}</p>
+
+      <!-- Kết quả -->
+      <div v-if="res" class="gd-result">
+        <div class="gd-score">
+          <div class="gd-score-num">{{ res.diem_tong }}<span>/100</span></div>
+          <div class="gd-score-muc">{{ res.muc }}</div>
+        </div>
+
+        <div class="gd-truc" :class="res.truc_cuong_nhu.ung_nhau ? 'ung' : 'chua'">
+          <strong>Trục Cương–Nhu:</strong>
+          {{ res.ten1 }} <b>{{ res.truc_cuong_nhu.xu_huong_1 }}</b> ·
+          {{ res.ten2 }} <b>{{ res.truc_cuong_nhu.xu_huong_2 }}</b>
+          {{ res.truc_cuong_nhu.ung_nhau ? '→ ỨNG NHAU ✓' : '' }}
+          <div class="gd-truc-gt">{{ res.truc_cuong_nhu.giai_thich }}</div>
+        </div>
+
+        <div class="gd-he">
+          <span>Tử Vi <b>{{ res.tu_vi.diem }}</b></span>
+          <span>Bát Tự <b>{{ res.bat_tu.diem }}</b></span>
+          <span>Kinh Dịch <b>{{ res.ha_lac.diem }}</b></span>
+        </div>
+
+        <div class="gd-cols">
+          <div class="gd-col khoa">
+            <h5>🔑 Khóa duyên</h5>
+            <ul><li v-for="(k,i) in res.khoa_duyen" :key="i">{{ k }}</li></ul>
+          </div>
+          <div class="gd-col giu">
+            <h5>🛠 Chỗ phải giữ</h5>
+            <ul><li v-for="(c,i) in res.cho_phai_giu" :key="i">{{ c }}</li></ul>
+          </div>
+        </div>
+
+        <div class="gd-giaquy">
+          <h5>📜 Gia quy gợi ý cho hai bạn</h5>
+          <ol><li v-for="(g,i) in res.gia_quy" :key="i">{{ g }}</li></ol>
+        </div>
+
+        <details class="gd-guide">
+          <summary>📖 Hướng dẫn đọc kết quả (đọc trước khi tin)</summary>
+          <ul><li v-for="(h,i) in res.huong_dan" :key="i">{{ h }}</li></ul>
+          <p class="gd-para">⚖️ {{ res.paradigm }}</p>
+        </details>
+      </div>
+    </section>
+
     <article class="gd-body reading-surface" v-html="rendered"></article>
 
     <footer class="gd-foot">
-      <p>Sắp tới trên trang này: nhập ngày sinh hai vợ chồng → phân tích xem tuổi 3 hệ + gợi ý <strong>gia quy</strong> riêng cho cặp của bạn.</p>
+      <p>Cuốn sách này là đúc kết của một ca điển hình. Công cụ phía trên áp cùng phương pháp cho lá số bất kỳ — đọc đồng dạng, không bói toán.</p>
     </footer>
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
+import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
+
+// ── Công cụ Xem tuổi đôi lứa ──
+const n1 = ref(""); const b1 = ref(""); const g1 = ref("nam");
+const n2 = ref(""); const b2 = ref(""); const g2 = ref("nữ");
+const loading = ref(false); const res = ref(null); const err = ref("");
+
+onMounted(() => {
+  // prefill lá số người dùng nếu đã đăng nhập / có active person
+  const bd = activeBirthDatetime?.value;
+  if (bd) b1.value = String(bd).slice(0, 16);
+  const p = activePerson?.value;
+  if (p?.name) n1.value = p.name;
+  if (p?.gender) g1.value = p.gender === "nữ" || p.gender === "nu" || p.gender === "F" ? "nữ" : "nam";
+});
+
+async function run() {
+  if (!b1.value || !b2.value) return;
+  loading.value = true; err.value = ""; res.value = null;
+  try {
+    const r = await fetch("/api/tu-vi/hop-hon", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        birth1: b1.value, gender1: g1.value, ten1: n1.value || "Người 1",
+        birth2: b2.value, gender2: g2.value, ten2: n2.value || "Người 2",
+      }),
+    });
+    const d = await r.json();
+    if (d.error) { err.value = d.error; } else { res.value = d; }
+  } catch (e) { err.value = "Lỗi kết nối, thử lại."; } finally { loading.value = false; }
+}
 
 // Markdown nhẹ → HTML (đủ cho sách: heading, đậm, nghiêng, trích dẫn, bảng, hr, list)
 function renderMarkdown(md) {
@@ -99,6 +199,46 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-actions { margin-top: 16px; }
 .gd-pdf-btn { display: inline-block; padding: 10px 22px; border-radius: 24px; background: #9c3a5a; color: #fff; text-decoration: none; font-size: 0.92em; transition: all .15s; }
 .gd-pdf-btn:hover { background: #7d2c47; transform: translateY(-1px); }
+
+/* Công cụ Xem tuổi đôi lứa */
+.gd-tool { margin: 0 0 30px; padding: 22px; background: var(--read-surface,#fff); border: 1px solid #e8cdd6; border-radius: 16px; }
+.gd-tool h3 { margin: 0 0 4px; color: #9c3a5a; font-size: 1.3em; text-align: center; }
+.gd-tool-sub { margin: 0 0 16px; text-align: center; color: var(--read-text-faint,#777); font-size: 0.9em; }
+.gd-form { display: flex; align-items: stretch; gap: 12px; flex-wrap: wrap; }
+.gd-person { flex: 1; min-width: 210px; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #fdf6f8; border-radius: 10px; }
+.gd-person h4 { margin: 0 0 2px; color: #7d2c47; font-size: 0.95em; }
+.gd-in { padding: 8px 10px; border: 1px solid #dcc6cd; border-radius: 8px; font: inherit; font-size: 0.9em; background: #fff; color: #333; }
+.gd-heart { display: flex; align-items: center; font-size: 1.6em; }
+.gd-run { display: block; width: 100%; margin-top: 14px; padding: 12px; border: none; border-radius: 24px; background: #9c3a5a; color: #fff; font: inherit; font-size: 1em; cursor: pointer; transition: all .15s; }
+.gd-run:hover:not(:disabled) { background: #7d2c47; }
+.gd-run:disabled { opacity: .5; cursor: not-allowed; }
+.gd-err { color: #c0392b; text-align: center; margin-top: 10px; font-size: 0.9em; }
+
+.gd-result { margin-top: 22px; }
+.gd-score { text-align: center; margin-bottom: 16px; }
+.gd-score-num { font-size: 3em; font-weight: 700; color: #9c3a5a; line-height: 1; }
+.gd-score-num span { font-size: 0.35em; color: #b88; font-weight: 400; }
+.gd-score-muc { color: #7d4357; font-size: 1.02em; margin-top: 4px; }
+.gd-truc { padding: 12px 16px; border-radius: 10px; margin-bottom: 14px; font-size: 0.94em; }
+.gd-truc.ung { background: #eef9f0; border: 1px solid #b6dfc0; }
+.gd-truc.chua { background: #fbf6ee; border: 1px solid #e6d6b8; }
+.gd-truc b { color: #9c3a5a; text-transform: capitalize; }
+.gd-truc-gt { margin-top: 6px; color: var(--read-text,#444); font-size: 0.92em; line-height: 1.55; }
+.gd-he { display: flex; justify-content: center; gap: 18px; margin-bottom: 16px; font-size: 0.9em; color: #7d4357; }
+.gd-he b { color: #9c3a5a; font-size: 1.1em; }
+.gd-cols { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.gd-col { flex: 1; min-width: 230px; padding: 12px 14px; border-radius: 10px; }
+.gd-col.khoa { background: #eef9f0; border: 1px solid #c4e6cd; }
+.gd-col.giu { background: #fdf3ec; border: 1px solid #ecd3bf; }
+.gd-col h5 { margin: 0 0 8px; font-size: 0.95em; }
+.gd-col.khoa h5 { color: #2e7d32; } .gd-col.giu h5 { color: #b06a28; }
+.gd-col ul { margin: 0; padding-left: 18px; } .gd-col li { margin: 6px 0; font-size: 0.88em; line-height: 1.5; color: var(--read-text,#3a3a38); }
+.gd-giaquy { padding: 14px 16px; background: #f5f0fa; border: 1px solid #d8cce8; border-radius: 10px; margin-bottom: 14px; }
+.gd-giaquy h5 { margin: 0 0 8px; color: #6a4a9c; }
+.gd-giaquy ol { margin: 0; padding-left: 20px; } .gd-giaquy li { margin: 6px 0; font-size: 0.9em; line-height: 1.55; }
+.gd-guide summary { cursor: pointer; color: #8a6d1a; font-size: 0.9em; padding: 6px 0; }
+.gd-guide ul { padding-left: 18px; } .gd-guide li { margin: 6px 0; font-size: 0.86em; color: var(--read-text-faint,#777); line-height: 1.5; }
+.gd-para { font-style: italic; color: #9c3a5a; font-size: 0.88em; margin-top: 8px; }
 
 .gd-body { line-height: 1.85; color: var(--read-text, #2b2b2b); font-size: var(--reading-scale, 1em); }
 .gd-body :deep(.gd-h1) { display: none; } /* tiêu đề sách đã ở hero */
