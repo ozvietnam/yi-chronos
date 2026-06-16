@@ -104,6 +104,32 @@ def test_nam_que_trung_thuc_none():
     assert nam_que(2044)["suspect"] is True  # nghi lỗi bảng
 
 
+# ── Khởi số (起数) — cơ chế biến hào ──────────────────────────
+
+def test_khoi_so_phuc_sau_bien():
+    """Cốt cơ mật: 复 đổi sơ→thượng = 坤·临·明夷·震·屯·颐 (chính văn dòng 1705)."""
+    from engine.hoang_cuc.khoi_so import sau_bien
+    assert sau_bien("复") == ["坤", "临", "明夷", "震", "屯", "颐"]
+
+
+def test_khoi_so_trinh_hoi():
+    """一贞八悔: 蛊 = 贞 巽(phong) · 悔 艮(sơn) — khớp Tả Truyện (dòng 8935)."""
+    from engine.hoang_cuc.khoi_so import trinh_hoi, bits_of, name_of
+    th = trinh_hoi("蛊")
+    assert th["trinh_ha"] == "巽" and th["hoi_thuong"] == "艮"
+    # roundtrip bits ↔ name trên cả 64 quẻ
+    from engine.hoang_cuc.khoi_so import XIANTIAN
+    assert all(name_of(bits_of(n)) == n for n in XIANTIAN)
+
+
+def test_khoi_so_chuoi_60_van():
+    """60 值卦: khởi 复, hết 剥, bỏ đúng 4 quẻ thuần."""
+    from engine.hoang_cuc.khoi_so import chuoi_60_van, PURE
+    seq = chuoi_60_van()
+    assert len(seq) == 60 and seq[0] == "复" and seq[-1] == "剥"
+    assert not (set(seq) & PURE)
+
+
 def test_cast_co_nam_que():
     """cast_hoang_cuc nhúng nam_que (cho API the-cuc)."""
     from engine.hoang_cuc.cast import cast_hoang_cuc
