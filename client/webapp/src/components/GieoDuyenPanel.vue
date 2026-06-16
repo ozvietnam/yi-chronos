@@ -180,6 +180,19 @@
           <ol><li v-for="(g,i) in res.gia_quy" :key="i">{{ g }}</li></ol>
         </div>
 
+        <div v-if="res.nghe_nghiep" class="gd-card">
+          <h5>💼 Nghề nghiệp đôi bên</h5>
+          <p class="gd-mini"><b>{{ res.ten1 }}</b> ({{ res.nghe_nghiep.nguoi1.thien_huong }}): {{ (res.nghe_nghiep.nguoi1.nghe || []).join('; ') }}</p>
+          <p class="gd-mini"><b>{{ res.ten2 }}</b> ({{ res.nghe_nghiep.nguoi2.thien_huong }}): {{ (res.nghe_nghiep.nguoi2.nghe || []).join('; ') }}</p>
+          <p class="gd-note">{{ res.nghe_nghiep.doi_ben }}</p>
+        </div>
+        <div v-if="res.con_cai" class="gd-card" :class="{ 'gd-hit': res.con_cai.khop }">
+          <h5>👶 Con cái có khớp không</h5>
+          <p class="gd-mini">Cung Con Cái: {{ res.ten1 }} ở {{ res.con_cai.chi_nguoi1 }} · {{ res.ten2 }} ở {{ res.con_cai.chi_nguoi2 }}
+            <b v-if="res.con_cai.quan_he"> ({{ res.con_cai.quan_he }})</b></p>
+          <p class="gd-note">{{ res.con_cai.ghi_chu }}</p>
+        </div>
+
         <div v-if="res.nam_hop_cuoi && res.nam_hop_cuoi.nam.length" class="gd-card">
           <h5>📅 Năm hợp cưới ({{ res.nam_hop_cuoi.tu_nam }}–{{ res.nam_hop_cuoi.den_nam }})</h5>
           <div class="gd-years">
@@ -431,6 +444,8 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-tuoi { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0; font-size: 0.88em; }
 .gd-tuoi .ok { color: #2e7d32; } .gd-tuoi .warn { color: #b06a28; }
 .gd-year.dam { background: #ffeef5; border-color: #e09ab8; } .gd-year.dam b { color: #9c3a5a; }
+.gd-card.gd-hit { background: #eef9f0; border-color: #b6dfc0; }
+.gd-card.gd-hit h5 { color: #2e7d32; }
 /* Lời văn ấm */
 .gd-soft-btn { padding: 9px 18px; border: 1.5px solid #c98aa0; border-radius: 20px; background: transparent; color: #9c3a5a; font: inherit; font-size: 0.9em; cursor: pointer; transition: all .15s; }
 .gd-soft-btn:hover { background: #9c3a5a; color: #fff; }

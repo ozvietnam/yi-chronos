@@ -322,6 +322,86 @@ def _gia_quy(truc, bat_tu):
     return gq
 
 
+# ════════════════ NGHỀ NGHIỆP ĐÔI BÊN ════════════════
+_QL_NGHE = {
+    "tu_vi": "lãnh đạo, quản lý cấp cao, ngành lớn/nhà nước, vị trí 'cầm trịch'",
+    "thien_co": "tư vấn, lên kế hoạch, kỹ thuật, nghiên cứu, môi giới, IT",
+    "thai_duong": "ngành công khai — giáo dục, truyền thông, chính trị, đối ngoại, quảng bá",
+    "vu_khuc": "tài chính, ngân hàng, kế toán, kỹ thuật/cơ khí, kinh doanh thực tế",
+    "thien_dong": "dịch vụ, ẩm thực, giải trí, phúc lợi, công việc nhẹ nhàng sáng tạo",
+    "liem_trinh": "pháp luật, công nghệ, kỷ luật (quân/cảnh), hoặc nghệ thuật cá tính",
+    "thien_phu": "quản lý tài sản, kho vận, hành chính, tài chính ổn định",
+    "thai_am": "bất động sản, tài chính, chăm sóc, nghệ thuật, nghiên cứu thầm lặng",
+    "tham_lang": "kinh doanh giao tế, marketing, giải trí, ngành 'hot', đa nghề",
+    "cu_mon": "nghề dùng lời — luật sư, giảng dạy, bán hàng, truyền thông, ẩm thực",
+    "thien_tuong": "trợ lý, hành chính, dịch vụ, tư vấn, thời trang, ngành chăm lo",
+    "thien_luong": "y dược, giáo dục, từ thiện, giám sát, tư vấn, tâm linh",
+    "that_sat": "kinh doanh quyết liệt, kỹ thuật, khởi nghiệp, ngành nặng/độc lập",
+    "pha_quan": "nghề biến động/tiên phong, kỹ thuật, vận tải, sáng tạo phá cách, tự do",
+}
+_LAM_CHU = {"tu_vi", "vu_khuc", "that_sat", "pha_quan", "tham_lang", "thai_duong"}
+
+
+def _nghe_1(ls):
+    fn = ls.get("fn_to_chi") or {}
+    raw = fn.get("quan_loc")
+    sao = (ls.get("chinh_tinh_per_palace") or {}).get(raw) or []
+    nghe = [_QL_NGHE[s] for s in sao if s in _QL_NGHE]
+    lam_chu = any(s in _LAM_CHU for s in sao)
+    if not sao:
+        return {"sao": [], "nghe": ["Quan Lộc vô chính diệu — nghề đa dạng, dễ đổi nghề; nên theo sở trường thực tế"],
+                "thien_huong": "linh hoạt"}
+    return {"sao": [_SAO_VI.get(s, s) for s in sao], "nghe": nghe,
+            "thien_huong": "thiên làm chủ / tự lập" if lam_chu else "thiên hợp tác / phụ tá"}
+
+
+def _nghe_doi_ben(ls1, ls2):
+    n1, n2 = _nghe_1(ls1), _nghe_1(ls2)
+    c1 = "chu" if "làm chủ" in n1["thien_huong"] else "tro"
+    c2 = "chu" if "làm chủ" in n2["thien_huong"] else "tro"
+    if c1 == "chu" and c2 == "chu":
+        gt = "Cả hai đều thiên làm chủ — nếu cùng làm ăn phải PHÂN VAI rõ (ai quyết mảng nào), kẻo 'hai vua một nước'."
+    elif c1 != c2:
+        gt = "Một người thiên dẫn dắt, một người thiên phụ trợ — bổ nhau tốt, dễ thành một ê-kíp ăn ý."
+    else:
+        gt = "Cả hai thiên hợp tác/phụ tá — êm, nhưng cần một người dám đứng mũi khi việc lớn."
+    return {"nguoi1": n1, "nguoi2": n2, "doi_ben": gt}
+
+
+# ════════════════ CON CÁI CÓ KHỚP KHÔNG (Tử Tức 2 lá) ════════════════
+def _tu_tuc_khop(ls1, ls2):
+    fn1 = (ls1.get("fn_to_chi") or {}); fn2 = (ls2.get("fn_to_chi") or {})
+    raw1, raw2 = fn1.get("tu_tuc"), fn2.get("tu_tuc")
+    chi1, chi2 = _norm_chi(raw1), _norm_chi(raw2)
+    sao1 = set((ls1.get("chinh_tinh_per_palace") or {}).get(raw1) or [])
+    sao2 = set((ls2.get("chinh_tinh_per_palace") or {}).get(raw2) or [])
+    chung = sao1 & sao2
+    loai, nhan = _rel_chi(chi1, chi2) if (chi1 and chi2) else ("trung", "")
+    diem = 50
+    khop = False
+    if loai == "đồng":
+        diem = 90; khop = True
+        gt = "Hai cung Con Cái ĐỒNG CHI (trùng khít) — quan niệm nuôi dạy con rất đồng điệu. Điểm cộng lớn."
+    elif loai in ("hop", "tam_hop"):
+        diem = 78; khop = True
+        gt = f"Hai cung Con Cái {nhan} — hòa hợp trong chuyện con cái, dễ cùng hướng."
+    elif loai == "xung":
+        diem = 38
+        gt = "Hai cung Con Cái lục xung — quan điểm nuôi dạy con dễ lệch, cần thống nhất sớm."
+    elif loai == "hai":
+        diem = 44
+        gt = "Hai cung Con Cái lục hại — có chỗ vênh ngấm về con cái, nên nói rõ kỳ vọng."
+    else:
+        gt = "Hai cung Con Cái trung tính — không đặc biệt hợp hay nghịch."
+    if chung:
+        diem = min(100, diem + 8)
+        gt += f" Lại cùng có sao {', '.join(_SAO_VI.get(s, s) for s in chung)} ở cung Con Cái — thêm điểm đồng điệu."
+    return {"chi_nguoi1": chi1, "chi_nguoi2": chi2,
+            "sao_nguoi1": [_SAO_VI.get(s, s) for s in sao1], "sao_nguoi2": [_SAO_VI.get(s, s) for s in sao2],
+            "sao_chung": [_SAO_VI.get(s, s) for s in chung], "quan_he": nhan,
+            "khop": khop, "diem": diem, "ghi_chu": gt}
+
+
 # ════════════════ NĂM HỢP CƯỚI (đào hoa vận cặp) ════════════════
 def nam_hop_cuoi(ls1, by1, ls2, by2, nam_xem, n_nam=10) -> dict:
     """Năm nào sao hỉ chiếu Mệnh/Phu Thê của MỘT hoặc CẢ HAI → cửa sổ cưới.
@@ -355,9 +435,12 @@ def phan_tich_hop_hon(ls1, pillars1, que1, ls2, pillars2, que2,
     bt = _bat_tu_compat(pillars1, pillars2)
     hl = _ha_lac_compat(que1, que2)
     truc = _truc_cuong_nhu(ls1, pillars1, que1, ls2, pillars2, que2)
+    nghe = _nghe_doi_ben(ls1, ls2)
+    tu_tuc = _tu_tuc_khop(ls1, ls2)
 
-    # Điểm tổng: trục cương–nhu trọng số cao nhất (quy luật sống sót)
-    diem_tong = round(truc["diem"] * 0.40 + tv["diem"] * 0.25 + bt["diem"] * 0.25 + hl["diem"] * 0.10)
+    # Điểm tổng: trục cương–nhu trọng số cao nhất; con cái khớp = điểm cộng nhẹ
+    diem_tong = round(truc["diem"] * 0.38 + tv["diem"] * 0.24 + bt["diem"] * 0.24
+                      + hl["diem"] * 0.08 + tu_tuc["diem"] * 0.06)
     diem_tong = max(0, min(100, diem_tong))
     if diem_tong >= 78: muc = "Tương ứng cao — duyên có nhiều chốt khóa"
     elif diem_tong >= 62: muc = "Tương ứng khá — hợp nhiều, vài chỗ cần chăm"
@@ -376,12 +459,15 @@ def phan_tich_hop_hon(ls1, pillars1, que1, ls2, pillars2, que2,
         khoa.insert(0, "TRỤC CƯƠNG–NHU ứng nhau (điểm bền nhất): " + truc["giai_thich"])
     else:
         cho_giu.insert(0, truc["giai_thich"])
+    if tu_tuc["khop"]:
+        khoa.append("Con cái: " + tu_tuc["ghi_chu"])
 
     return {
         "ten1": ten1, "ten2": ten2,
         "diem_tong": diem_tong, "muc": muc,
         "truc_cuong_nhu": truc,
         "tu_vi": tv, "bat_tu": bt, "ha_lac": hl,
+        "nghe_nghiep": nghe, "con_cai": tu_tuc,
         "khoa_duyen": khoa, "cho_phai_giu": cho_giu,
         "gia_quy": _gia_quy(truc, bt),
         "huong_dan": [
