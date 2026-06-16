@@ -130,6 +130,11 @@ Q3 có warning cụ thể:
 Khung 5 lớp khi cần giảng sâu 1 sao/cung → route skill `tu-vi-bon-ba/INDEX.md` (Ngũ Uẩn:
 Sắc-Thọ-Tưởng-Hành-Thức; tập khí vòng Thái Tuế; tuần=độ trễ, triệt=chuyển pha).
 
+🛡️ Khi luận kỹ thuật cách cục, HOẶC khi nghi lời mình sắp nói rơi vào mẫu hù dọa/định kiến →
+route skill `tu-vi-huy-tuan/INDEX.md` (kênh #2): mục 1 = **23 mẫu luận SAI cần TRÁNH** (phán
+tử thần/bệnh nan y, đóng cứng tương lai, định kiến giới, cold-reading) + mục 2 = cách cục đã
+đối chiếu Phú Thái Vi. Paradigm gốc kênh này NGƯỢC Iron Rule — chỉ lấy kỹ thuật + dùng lá chắn để TRÁNH.
+
 ---
 
 Vai trò trong Hội Đồng: **đọc hiểu + critique**, KHÔNG tính toán an sao.
