@@ -203,6 +203,52 @@ Khi user hỏi *"công danh năm nay của tôi thế nào?"*:
 
 ---
 
+## 7bis. ✅ QUYẾT ĐỊNH ĐÃ CHỐT (Anh duyệt 2026-06-16)
+
+| # | Chốt | Hệ quả |
+|---|---|---|
+| 1 | **Self-host PostgreSQL trên VPS đặt tại VN** | Tự lo cài đặt + **backup (WAL archiving/PITR + `pg_dump` cron) + TLS + giám sát**. Không có managed → vận hành là trách nhiệm của ta, phải làm chuẩn ngay từ P0. |
+| 2 | **Cross-border + pseudonymize** cho LLM chatbot | Dùng model mạnh ngoài (chất lượng cao) nhưng **BẮT BUỘC ẩn danh trước khi gửi**: chỉ lá số + facts, **không** tên/sđt/email/uid. + Làm **consent** + **hồ sơ chuyển dữ liệu nộp Bộ Công an**. |
+| 3 | **Làm nền P0–P1 trước**, chatbot sau | Ưu tiên Postgres+RLS+migrate + event log + gộp person store. Chatbot (P4) chỉ khởi động khi nền vững. |
+| 4 | Memory: **mem0** (mặc định khuyến nghị, backend pgvector self-host) | Triển khai ở P2 sau khi có nền. |
+
+---
+
+## 9. Kế hoạch P0–P1 cụ thể (việc làm ngay)
+
+### P0 — Nền Postgres (self-host VN)
+1. Dựng **PostgreSQL 16+ + extension `pgvector`** trên VPS VN; bật TLS; user/role tách quyền.
+2. **Backup chuẩn ngay từ đầu** (vì self-host): WAL archiving + PITR, `pg_dump` cron hằng ngày,
+   restore-drill. (Bù cho việc không có managed backup.)
+3. **Schema migration**: dùng `pgloader` port `users.sqlite3` → Postgres, giữ nguyên bảng hiện có
+   (`users`, `user_persons`, `user_castings`, `user_subscriptions`, …). KHÔNG đổi nghĩa dữ liệu.
+4. **Bật RLS** per `user_id` cho mọi bảng user-namespaced; policy owner-only cho data founder
+   (giữ đúng bài học privacy 2026-05-27).
+5. **Tầng truy cập DB trong YI**: thay `sqlite3.connect(...)` rải rác bằng 1 lớp repository Postgres
+   (psycopg/asyncpg). Có thể giữ shim để engine khác chưa-migrate vẫn chạy.
+6. **Migrate feedback + quiz session** (`tuvi_feedback.sqlite3`, `birth_hour_quiz_sessions`) sang Postgres.
+
+### P1 — Event log + Unified person
+7. Bảng **`user_events(id, user_id, type, payload JSONB, ts)`** append-only + index `(user_id, ts)`.
+8. Mọi callable/endpoint hiện có ghi 1 event: read khai vị, mở chương, **feedback (K5)**, gieo quẻ,
+   cast, sau này hỏi chatbot. (AppChat đẩy qua Cloud Functions như đang làm.)
+9. **Gộp person store**: `user_persons` (sync) làm canonical; map ↔ `yi_hermes.persons` qua
+   `external_id`. Sửa **quiz `save-result`** ghi đúng store sync (fix "2 sổ lệch" đã ghi nhận ở
+   spec khai-vị-feedback) — biến nó thành đường tích hợp thật thay vì để AppChat tự ghi Firestore.
+10. **Pseudonymization helper** (chuẩn bị cho P4): hàm bóc tách identity (A) khỏi payload trước khi
+    bất kỳ LLM call nào — áp cho cả narrative/quiz hiện tại (audit lại: hiện đã chỉ gửi can/chi + sao
+    + năm, **không** gửi tên/email — tốt; chỉ cần formalize thành 1 lớp + log).
+
+### Việc pháp lý song song (không phải code — Anh/đối tác pháp lý lo)
+11. Soạn **consent** dùng AI + chuyển dữ liệu xuyên biên giới (granular, thu hồi được).
+12. Lập **hồ sơ đánh giá tác động chuyển dữ liệu** nộp Bộ Công an (trước khi chatbot P4 gọi LLM ngoài).
+13. **Breach response plan 72h** + **data-subject API** (export/erase) — đưa vào P1/P5.
+
+> **Cảnh báo vận hành (self-host):** vì đã chọn tự host, **backup + PITR + restore-drill là hạng
+> mục P0 bắt buộc**, không để sau. Mất 1 VPS = mất toàn bộ data user nếu chưa có backup off-site.
+
+---
+
 ## 8. Nguồn tham chiếu (đã verify 2026-06)
 
 - AI agent memory frameworks 2026 (mem0, Zep): MachineLearningMastery, Vectorize, Atlan.
