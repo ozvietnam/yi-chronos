@@ -77,16 +77,20 @@ def trinh_hoi(name: str) -> dict:
     return {"que": name, "trinh_ha": TRI[tuple(b[:3])], "hoi_thuong": TRI[tuple(b[3:])]}
 
 
-# 60 值卦: vòng Tiên Thiên khởi từ 复, bỏ 4 quẻ thuần (复→…→剥).
-# 复 = chỉ-số tiên-thiên 32; đi GIẢM (复32·颐31·屯30·益29·震28…) vòng quanh, bỏ pure.
+# 60 值卦: vòng Tiên Thiên khởi 复 hết 剥 (chính văn dòng 1703), bỏ 4 quẻ thuần.
+# Hai cung quanh hai cực: 复(tiên-thiên 32)↓夬(2) [bỏ 离19] → [bỏ cực 乾1] →
+#                          姤(33)↑剥(63) [bỏ 坎46] → [bỏ cực 坤64] → về 复.
 def chuoi_60_van() -> list[str]:
     seq = []
-    i = XIANTIAN.index("复")  # = 31 (0-based)
-    for k in range(64):
-        nm = XIANTIAN[(i - k) % 64]
+    for n in range(32, 1, -1):          # cung 1: 复 32 → 夬 2 (giảm)
+        nm = XIANTIAN[n - 1]
         if nm not in PURE:
             seq.append(nm)
-    return seq  # 60 quẻ, [0]=复 … cuối=剥
+    for n in range(33, 64):             # cung 2: 姤 33 → 剥 63 (tăng)
+        nm = XIANTIAN[n - 1]
+        if nm not in PURE:
+            seq.append(nm)
+    return seq  # 60 quẻ, [0]=复 … [-1]=剥
 
 
 def co_che() -> dict:
