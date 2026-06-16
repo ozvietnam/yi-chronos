@@ -65,9 +65,9 @@ def do_nam_svg(birth: str, gender: str, year: int) -> str:
     menh_branch = ls.get("menh_branch") or CHI[ls["menh_index"]]
 
     FONT = "'Songti SC','STSong','PingFang SC','Times New Roman',serif"
-    W, H = 980, 760
+    W, H = 980, 788
     mx, my = 20, 96
-    cw, ch = (W - 2 * mx) / 4, (H - my - 20) / 4
+    cw, ch = (W - 2 * mx) / 4, (H - my - 46) / 4
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="{FONT}">']
     s.append(f'<rect width="{W}" height="{H}" fill="#fbf7ef"/>')
     s.append(f'<text x="{W/2}" y="34" text-anchor="middle" font-size="22" fill="#2a2018" font-weight="bold">ĐỒ {year} — {can} {chi_nam} · lá số lưu niên</text>')
@@ -129,5 +129,8 @@ def do_nam_svg(birth: str, gender: str, year: int) -> str:
         s.append(f'<text x="{ix+22:.0f}" y="{yy:.0f}" font-size="12.5" fill="{col}">{_esc(ln)}</text>')
         yy += 21
     s.append(f'<text x="{ix+iw/2:.0f}" y="{iy+ih-14:.0f}" text-anchor="middle" font-size="10.5" fill="#999">★Mệnh · ◆Đại Vận · ○Lưu Niên Mệnh</text>')
+    # gia phả — giữ lằn ranh môn phái (kính tổ): hai tổ sư, một gốc tiên thiên
+    s.append(f'<text x="{W/2}" y="{H-26:.0f}" text-anchor="middle" font-size="10.5" fill="#8a6a3a">Hoàng Cực + năm-quẻ: Thiệu Khang Tiết (邵雍) · Lá số + hư-tinh Tử Vi: Trần Đoàn (陈抟, Hi Di)</text>')
+    s.append(f'<text x="{W/2}" y="{H-11:.0f}" text-anchor="middle" font-size="9.5" fill="#aaa">Cùng gốc TIÊN THIÊN: Trần Đoàn → Lý Chi Tài → Thiệu Ung · để cạnh nhau đối chiếu (đọc đồng dạng), không hòa tan</text>')
     s.append('</svg>')
     return "\n".join(s)
