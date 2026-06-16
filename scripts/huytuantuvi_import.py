@@ -56,23 +56,25 @@ _CACH_DICT = load_cach_dict()
 
 
 def match_cach_cuc(ten: str, dieu_kien: str | None) -> dict | None:
-    """Match 1 cách Huy Tuấn với dict Phú Thái Vi. Substring 2 chiều trên chuỗi bỏ dấu."""
+    """Match 1 cách Huy Tuấn với dict Phú Thái Vi — CHỈ theo TÊN cách (không match theo
+    điều kiện để tránh trùng tên sao như 'Thiên Lương'). Yêu cầu phần trùng đủ dài (>=8 ký
+    tự bỏ dấu) để loại false-positive. Tên cách Huy Tuấn có thể chứa biến thể (vd 'Hùng Tú
+    Kiền Nguyên' ~ 'Hùng Túc Triêu Nguyên') nên dùng substring 2 chiều trên phần đủ dài."""
     nt = norm(ten)
-    if not nt or not _CACH_DICT:
+    if len(nt) < 8 or not _CACH_DICT:
         return None
+    best = None
     for nk, entry in _CACH_DICT:
-        if not nk:
+        if len(nk) < 8:
             continue
-        # tên cách Huy Tuấn nằm trong key dict, hoặc key dict nằm trong tên cách
-        if nt in nk or nk in nt:
-            return {"matched_ten": entry.get("ten"), "cap_do": entry.get("cap_do"),
-                    "y_nghia": entry.get("y_nghia")}
-    # thử match theo cụm đặc trưng (>=4 ký tự) xuất hiện trong cả tên + điều kiện
-    nd = norm(dieu_kien or "")
-    for nk, entry in _CACH_DICT:
-        if len(nk) >= 6 and nk in (nt + nd):
-            return {"matched_ten": entry.get("ten"), "cap_do": entry.get("cap_do"),
-                    "y_nghia": entry.get("y_nghia")}
+        shorter = nk if len(nk) <= len(nt) else nt
+        if shorter in nk and shorter in nt:  # phần ngắn hơn là substring của cả hai
+            # ưu tiên match dài nhất (đặc trưng nhất)
+            if best is None or len(shorter) > best[0]:
+                best = (len(shorter), entry)
+    if best:
+        e = best[1]
+        return {"matched_ten": e.get("ten"), "cap_do": e.get("cap_do"), "y_nghia": e.get("y_nghia")}
     return None
 
 
