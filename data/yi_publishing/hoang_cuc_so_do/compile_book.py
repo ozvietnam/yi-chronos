@@ -30,6 +30,7 @@ CHAPTERS = [
     "chuong-09-ha-do-lac-thu.md",
     "chuong-10-do-hau-thien.md",
     "chuong-11-thanh-am-do.md",
+    "chuong-12-co-mat-khoi-so.md",
 ]
 
 COVER_HTML = f"""<div class="cover">
