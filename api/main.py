@@ -9156,6 +9156,11 @@ if _DIST_ROOT.exists() and (_DIST_ROOT / "index.html").exists():
     if _QUE_IMAGES_DIR.exists():
         app.mount("/que-images", StaticFiles(directory=str(_QUE_IMAGES_DIR)), name="que-images")
 
+    # index.html PHẢI no-cache: tên file asset đã băm (immutable), nhưng index.html
+    # trỏ tới chúng — nếu browser cache index.html cũ thì user kẹt bundle cũ (stale).
+    # Bug 2026-06-16: Anh thấy lá số khác thiếu 'đào sâu/soi mình' do index.html cached.
+    _NO_CACHE = {"Cache-Control": "no-cache, must-revalidate"}
+
     @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], include_in_schema=False)
     async def _serve_spa(full_path: str):
         # Don't intercept api/figures/assets/que-images
@@ -9163,6 +9168,7 @@ if _DIST_ROOT.exists() and (_DIST_ROOT / "index.html").exists():
             from fastapi import HTTPException
             raise HTTPException(status_code=404)
         candidate = _DIST_ROOT / full_path
-        if candidate.is_file():
+        if candidate.is_file() and full_path:
             return _FileResponse(candidate)
-        return _FileResponse(_DIST_ROOT / "index.html")
+        # SPA fallback (mọi route ảo) → index.html, KHÔNG cache
+        return _FileResponse(_DIST_ROOT / "index.html", headers=_NO_CACHE)
