@@ -1,4 +1,13 @@
-"""Năm-quẻ (值年卦) — quẻ trực năm trong Hoàng Cực Kinh Thế.
+"""Năm-quẻ (值年卦) — HỆ FLAT 值年 (ĐÃ HẠ CẤP 2026-06-16, founder chốt "bỏ sohu").
+
+⚠ KHÔNG dùng làm hệ chính nữa. Hệ chính = `khoi_so.year_que_method` (经世 nested,
+phép sách, kiểm 10/10 chính văn). File này GIỮ lại vì: (1) cụm 304-313 là dữ liệu
+GỐC trùng khớp cả hai hệ — làm mốc kiểm chéo; (2) ghi nhận hệ flat phổ thông (sohu
+vòng-60) để đối chiếu lịch sử. cast/api/web đã chuyển hết sang year_que_method.
+
+----- (mô tả gốc giữ nguyên bên dưới) -----
+
+Năm-quẻ (值年卦) — quẻ trực năm trong Hoàng Cực Kinh Thế.
 
 Hệ năm-quẻ KHÔNG theo vòng can-chi cố định: cùng năm Giáp Tý mà 304=革 Cách
 còn 2044=大過 Đại Quá → quẻ LỒNG theo vận/thế, suy bằng biến hào (邵雍变卦法).

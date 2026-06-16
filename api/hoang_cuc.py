@@ -8,7 +8,7 @@ from fastapi import APIRouter, HTTPException, Query, Response
 
 from engine.hoang_cuc import METHOD_ID, SOURCE_REF
 from engine.hoang_cuc.cast import cast_hoang_cuc
-from engine.hoang_cuc.nam_que import nam_que
+from engine.hoang_cuc.khoi_so import year_que_method
 from engine.hoang_cuc.nam_que_svg import nam_que_strip_svg
 from engine.hoang_cuc.nguyen_hoi_van_the import locate_year, timeline
 
@@ -41,10 +41,11 @@ def hoang_cuc_timeline(start: int = Query(...), end: int = Query(...)) -> dict:
 
 @router.get("/nam-que")
 def hoang_cuc_nam_que(year: int = Query(...)) -> dict:
-    """Quẻ-năm (值年卦) của một năm. data=None nếu chưa có trong nguồn (không bịa)."""
-    q = nam_que(year)
-    return {"status": "ok", "year": year, "nam_que": q,
-            "note": None if q else "Chưa có trong nguồn (304-313, 2020-2103) — không suy diễn."}
+    """Quẻ-năm theo PHÉP 经世 (year_que_method) — hệ duy nhất, mọi năm."""
+    try:
+        return {"status": "ok", "year": year, "nam_que": year_que_method(year)}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 @router.get("/nam-que-strip.svg")
