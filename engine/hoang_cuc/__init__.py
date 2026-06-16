@@ -11,7 +11,8 @@ Design: docs/design/engine-hoang-cuc-thiet-ban-2026-06-10.md
 
 METHOD_ID = "hoang_cuc_nguyen_hoi_van_the_v1"
 SOURCE_REF = (
-    "皇极经世书今说 (Thượng) — Diêm Tu Triện tập thuyết (2007), "
-    "nguyên trứ (Tống) Thiệu Khang Tiết. Mốc quy chiếu: tr.149 & tr.185 bản dịch — "
-    "'hội Ngọ thứ 7, vận 186, thế 2227, năm Canh Thân thứ 16' (Canh Thân 1980)."
+    "皇极经世书今说 trọn bộ Thượng-Hạ — Diêm Tu Triện tập thuyết, nguyên trứ (Tống) "
+    "Thiệu Khang Tiết. Mốc quy chiếu (neo lại 2026 theo đoạn 以运经世): "
+    "Giáp Tý 304 CN = Nguyên Giáp-1 · Hội Ngọ-7 · Vận 188 · Thế 2245 (năm-quẻ 革 Cách). "
+    "Mốc cũ '1980=vận186/thế2227' đã bỏ (sai ~74 thế)."
 )

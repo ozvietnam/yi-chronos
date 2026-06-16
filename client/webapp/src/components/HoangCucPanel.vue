@@ -2,9 +2,11 @@
 import { ref, onMounted } from "vue";
 
 // ── Thời cuộc Nguyên-Hội-Vận-Thế ─────────────────────────────────────────
-const year = ref(new Date().getFullYear());
+const nowYear = new Date().getFullYear();
+const year = ref(nowYear);
 const birthYear = ref(null); // overlay đời người (optional)
 const viTri = ref(null);
+const namQue = ref(null);    // quẻ-năm của `year` (nếu có nguồn)
 const atoms = ref([]);
 const loadingViTri = ref(false);
 const errViTri = ref("");
@@ -19,6 +21,7 @@ async function locate() {
     const d = await r.json();
     if (!r.ok || d.status !== "ok") throw new Error(d.detail || "Lỗi định vị");
     viTri.value = d.vi_tri;
+    namQue.value = d.nam_que || null;
     atoms.value = d.atoms_lien_quan || [];
     // overlay đời: các thế từ năm sinh → năm sinh + 90
     if (birthYear.value) {
@@ -95,8 +98,8 @@ onMounted(async () => {
     <div class="hc-card">
       <h3>🌌 Thời cuộc — Nguyên · Hội · Vận · Thế</h3>
       <p class="hc-hint">
-        Đặt một năm vào chu kỳ 129.600 năm của Thiệu Khang Tiết. Mốc quy chiếu từ chính
-        sách (tr.149 &amp; 185): 1980 Canh Thân = hội Ngọ 7 · vận 186 · thế 2227.
+        Đặt một năm vào chu kỳ 129.600 năm của Thiệu Khang Tiết. Mốc quy chiếu (đoạn 以运经世
+        bộ trọn): Giáp Tý 304 CN = hội Ngọ 7 · vận 188 · thế 2245 · năm-quẻ 革 Cách.
       </p>
       <div class="hc-form">
         <label>Năm <input type="number" v-model.number="year" min="-64815" max="64784" /></label>
@@ -113,7 +116,9 @@ onMounted(async () => {
           <div class="hc-pos-line">☀ {{ viTri.hoi.label }} <em v-if="viTri.hoi.note">— {{ viTri.hoi.note }}</em></div>
           <div class="hc-pos-line">⟳ {{ viTri.van.label }} ({{ viTri.van.start }} → {{ viTri.van.end }})</div>
           <div class="hc-pos-line">◈ {{ viTri.the.label }} ({{ viTri.the.start }} → {{ viTri.the.end }}) — năm thứ {{ viTri.the.nam_trong_the }}/30</div>
-          <div class="hc-pos-line hc-pending" v-if="!viTri.que_van">Quẻ phối vận/thế: đang đối chiếu nguyên thư (chờ vòng đọc sâu)</div>
+          <div class="hc-pos-line hc-namque" v-if="namQue">🎴 Năm-quẻ: <strong>{{ namQue.han }} {{ namQue.viet }}</strong>
+            <em>(nguồn: {{ namQue.lop_nguon }}<span v-if="namQue.suspect"> · nghi lỗi bảng</span>)</em></div>
+          <div class="hc-pos-line hc-pending" v-else>Năm-quẻ: chưa có trong nguồn (ngoài 304–313 &amp; 2020–2103) — không suy diễn</div>
         </div>
 
         <div v-if="lifeMarks.length" class="hc-life">
@@ -125,6 +130,12 @@ onMounted(async () => {
               <span class="hc-life-years">{{ m.the_start }} → {{ m.the_end }}</span>
             </div>
           </div>
+        </div>
+
+        <div v-if="birthYear" class="hc-strip">
+          <h4>🎴 Năm-quẻ đời mình (tô màu từng năm)</h4>
+          <img class="hc-strip-img" :src="`/api/hoang-cuc/nam-que-strip.svg?birth=${birthYear}&now=${nowYear}`"
+               alt="Dải năm-quẻ đời mình" loading="lazy" />
         </div>
 
         <div v-if="atoms.length" class="hc-atoms">
@@ -202,6 +213,10 @@ onMounted(async () => {
 .hc-atoms { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
 .hc-atom-q { font-weight: 600; font-size: .9rem; }
 .hc-atom blockquote { margin: 4px 0 0; padding-left: 10px; border-left: 3px solid var(--accent, #7c5cff); font-size: .85rem; opacity: .85; }
+.hc-namque { color: var(--accent, #7c5cff); }
+.hc-namque em { opacity: .7; font-size: .82rem; }
+.hc-strip { margin-top: 14px; }
+.hc-strip-img { width: 100%; max-width: 100%; border: 1px solid var(--border-color, rgba(255,255,255,.1)); border-radius: 10px; background: #fbf7ef; padding: 4px; box-sizing: border-box; }
 .hc-paradigm { margin-top: 14px; font-size: .82rem; opacity: .7; font-style: italic; }
 .hc-verse { margin-top: 12px; padding: 10px 12px; border: 1px solid var(--border-color, rgba(255,255,255,.12)); border-radius: 10px; }
 .hc-verse-no { font-weight: 700; }
