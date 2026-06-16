@@ -35,8 +35,8 @@ def nam_que_strip_svg(birth: int, now: int) -> str:
     years = list(range(y0, y1 + 1))
     n = len(years)
     FONT = "'Songti SC','STSong','PingFang SC','Times New Roman',serif"
-    W, H = 940, 200
-    x0, x1, sy, sh = 16, 924, 56, 116
+    W, H = 940, 214
+    x0, x1, sy, sh = 16, 924, 56, 112
     cw = (x1 - x0) / n
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="{FONT}">']
     s.append(f'<text x="{W/2}" y="22" text-anchor="middle" font-size="15" fill="#7a3410" font-weight="bold">Năm-quẻ đời mình (值年卦) — {y0} → {y1}</text>')
@@ -55,11 +55,12 @@ def nam_que_strip_svg(birth: int, now: int) -> str:
             s.append(f'<text x="{cxx:.1f}" y="{sy+13:.1f}" text-anchor="middle" font-size="10" fill="#6a5a44">{_esc(q["han"])}</text>')
         if y % 5 == 0 or y == now:
             s.append(f'<text x="{x+cw/2:.1f}" y="{sy+sh+15:.0f}" text-anchor="middle" font-size="9" fill="#999">{y}</text>')
+            s.append(f'<text x="{x+cw/2:.1f}" y="{sy+sh+28:.0f}" text-anchor="middle" font-size="8.5" fill="#bbb">{y-birth} tuổi</text>')
     if y0 <= now <= y1:
         xn = x0 + (now - y0) * cw
         s.append(f'<rect x="{xn:.1f}" y="{sy-2}" width="{cw:.1f}" height="{sh+4}" fill="none" stroke="#c0392b" stroke-width="2.4"/>')
         qn = nam_que(now)
-        lab = f'NAY {now}' + (f' · {qn["han"]} {qn["viet"]}' if qn else '')
+        lab = f'NAY {now} · {now-birth} tuổi' + (f' · {qn["han"]} {qn["viet"]}' if qn else '')
         s.append(f'<text x="{xn+cw/2:.1f}" y="{sy-6:.0f}" text-anchor="middle" font-size="11.5" fill="#c0392b" font-weight="bold">{_esc(lab)}</text>')
     s.append('</svg>')
     return "\n".join(s)

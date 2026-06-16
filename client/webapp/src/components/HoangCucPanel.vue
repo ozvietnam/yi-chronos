@@ -1,13 +1,25 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
+import { activePerson } from "../stores/userDataStore.js";
 
 // ── Thời cuộc Nguyên-Hội-Vận-Thế ─────────────────────────────────────────
 const nowYear = new Date().getFullYear();
 const year = ref(nowYear);
-const birthYear = ref(null); // overlay đời người (optional)
+const birthYear = ref(null); // tự lấy từ người đang xem (lá số); vẫn cho sửa tay
 const viTri = ref(null);
 const namQue = ref(null);    // quẻ-năm của `year` (nếu có nguồn)
 const atoms = ref([]);
+
+// Người đang active = cùng lá số Tử Vi/Bát Tự → tự điền tuổi, không bắt gõ
+const personName = computed(() => activePerson.value?.name || "");
+const personBirthYear = computed(() => {
+  const p = activePerson.value;
+  if (!p) return null;
+  if (p.birth_year) return Number(p.birth_year);
+  const m = (p.birth_datetime_local || "").match(/^(\d{4})/);
+  return m ? Number(m[1]) : null;
+});
+const age = computed(() => (birthYear.value ? nowYear - Number(birthYear.value) : null));
 const loadingViTri = ref(false);
 const errViTri = ref("");
 const lifeMarks = ref([]);
@@ -83,13 +95,21 @@ async function timKiem() {
   }
 }
 
+function syncBirthFromPerson() {
+  if (personBirthYear.value) birthYear.value = personBirthYear.value;
+}
+
 onMounted(async () => {
   try {
     const r = await fetch("/api/thiet-ban/stats");
     if (r.ok) tbStats.value = await r.json();
   } catch { /* stats là trang trí — lỗi không chặn panel */ }
+  syncBirthFromPerson();
   locate();
 });
+
+// Đổi người đang xem → tự cập nhật tuổi + định vị lại
+watch(activePerson, () => { syncBirthFromPerson(); locate(); });
 </script>
 
 <template>
@@ -103,11 +123,16 @@ onMounted(async () => {
       </p>
       <div class="hc-form">
         <label>Năm <input type="number" v-model.number="year" min="-64815" max="64784" /></label>
-        <label>Năm sinh (tuỳ chọn — xem đời mình trong dòng thế)
+        <label>Năm sinh (tự lấy từ lá số — sửa được)
           <input type="number" v-model.number="birthYear" placeholder="vd 1988" /></label>
         <button @click="locate" :disabled="loadingViTri">{{ loadingViTri ? "Đang định vị…" : "Định vị" }}</button>
       </div>
       <p v-if="errViTri" class="hc-err">{{ errViTri }}</p>
+
+      <div v-if="age !== null" class="hc-me">
+        👤 <strong>{{ personName || "Anh" }}</strong> · sinh {{ birthYear }} · <strong>{{ age }} tuổi</strong> (năm {{ nowYear }})
+        <span class="hc-me-note">— lá số nói <b>LÀ AI</b>; Hoàng Cực nói đang ở <b>MÙA NÀO</b></span>
+      </div>
 
       <div v-if="viTri" class="hc-result">
         <div class="hc-pos">
@@ -116,7 +141,8 @@ onMounted(async () => {
           <div class="hc-pos-line">☀ {{ viTri.hoi.label }} <em v-if="viTri.hoi.note">— {{ viTri.hoi.note }}</em></div>
           <div class="hc-pos-line">⟳ {{ viTri.van.label }} ({{ viTri.van.start }} → {{ viTri.van.end }})</div>
           <div class="hc-pos-line">◈ {{ viTri.the.label }} ({{ viTri.the.start }} → {{ viTri.the.end }}) — năm thứ {{ viTri.the.nam_trong_the }}/30</div>
-          <div class="hc-pos-line hc-namque" v-if="namQue">🎴 Năm-quẻ: <strong>{{ namQue.han }} {{ namQue.viet }}</strong>
+          <div class="hc-pos-line hc-namque" v-if="namQue">🎴 Năm-quẻ {{ year }}<span v-if="birthYear"> · Anh {{ year - birthYear }} tuổi</span>:
+            <strong>{{ namQue.han }} {{ namQue.viet }}</strong>
             <em>(nguồn: {{ namQue.lop_nguon }}<span v-if="namQue.suspect"> · nghi lỗi bảng</span>)</em></div>
           <div class="hc-pos-line hc-pending" v-else>Năm-quẻ: chưa có trong nguồn (ngoài 304–313 &amp; 2020–2103) — không suy diễn</div>
         </div>
@@ -213,6 +239,8 @@ onMounted(async () => {
 .hc-atoms { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
 .hc-atom-q { font-weight: 600; font-size: .9rem; }
 .hc-atom blockquote { margin: 4px 0 0; padding-left: 10px; border-left: 3px solid var(--accent, #7c5cff); font-size: .85rem; opacity: .85; }
+.hc-me { margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: rgba(124,92,255,.10); border: 1px solid var(--accent, #7c5cff); font-size: .92rem; }
+.hc-me-note { display: block; font-size: .78rem; opacity: .72; margin-top: 2px; font-style: italic; }
 .hc-namque { color: var(--accent, #7c5cff); }
 .hc-namque em { opacity: .7; font-size: .82rem; }
 .hc-strip { margin-top: 14px; }
