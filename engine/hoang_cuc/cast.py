@@ -11,7 +11,6 @@ import sqlite3
 from pathlib import Path
 
 from . import METHOD_ID, SOURCE_REF
-from .nam_que import nam_que
 from .khoi_so import year_que_method
 from .nguyen_hoi_van_the import locate_year
 
@@ -64,8 +63,7 @@ def cast_hoang_cuc(year: int, with_atoms: bool = True) -> dict:
         "method": METHOD_ID,
         "source": SOURCE_REF,
         "vi_tri": loc,
-        "nam_que": nam_que(year),  # hệ flat 值年 (bảng): chỉ 304-313 + 2020-2103; None ngoài đó
-        "nam_que_phep": year_que_method(year),  # hệ 经世 (phép sách, mọi năm) — kiểm 10/10 chính văn 304-313
+        "nam_que": year_que_method(year),  # hệ 经世 (PHÉP sách) — hệ DUY NHẤT (đã bỏ sohu/flat 2026-06-16)
         "paradigm_note": (
             "DĨ VẬT QUAN VẬT — không phải ta quan vật (Quan Vật Nội Thiên tr.116): "
             "gạt yêu-ghét của mình ra, để thời tự nói cái LẼ của nó. "
