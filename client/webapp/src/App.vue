@@ -33,6 +33,7 @@ import YiDiepPanel from "./components/YiDiepPanel.vue";
 import PersonalQuaiPanel from "./components/PersonalQuaiPanel.vue";
 import GPSPanel from "./components/GPSPanel.vue";
 import FamilySystemPanel from "./components/FamilySystemPanel.vue";
+import GieoDuyenPanel from "./components/GieoDuyenPanel.vue";
 import ProfilesPanel from "./components/ProfilesPanel.vue";
 import TabIntro from "./components/TabIntro.vue";
 import LienHoaPanel from "./components/LienHoaPanel.vue";
@@ -431,6 +432,10 @@ onBeforeUnmount(() => {
         <div class="tab-divider"></div>
         <div class="tab-group">
           <span class="tab-group-label">Tổng hợp</span>
+          <button type="button" :class="{ active: activeMainTab === 'gieo-duyen' }"
+            @click="activeMainTab = 'gieo-duyen'">
+            <span class="tab-icon">💞</span> Gieo Duyên
+          </button>
           <button type="button" :class="{ active: activeMainTab === 'family' }"
             @click="activeMainTab = 'family'">
             <span class="tab-icon"><SchoolIcon name="family" /></span> Gia đạo
@@ -784,6 +789,10 @@ onBeforeUnmount(() => {
       </section>
 
       <!-- Tab 6: Gia đạo — multi-actor household system -->
+      <section v-else-if="activeMainTab === 'gieo-duyen'" class="single-column" aria-label="Gieo Duyên — đạo phu thê">
+        <GieoDuyenPanel />
+      </section>
+
       <section v-else-if="activeMainTab === 'family'" class="single-column" aria-label="Hệ thống gia đạo">
         <TabIntro
           icon="family"
