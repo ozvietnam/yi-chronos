@@ -102,3 +102,22 @@ def test_nam_que_trung_thuc_none():
     assert nam_que(1500) is None
     assert nam_que(2026)["viet"] == "Đồng Nhân"
     assert nam_que(2044)["suspect"] is True  # nghi lỗi bảng
+
+
+def test_cast_co_nam_que():
+    """cast_hoang_cuc nhúng nam_que (cho API the-cuc)."""
+    from engine.hoang_cuc.cast import cast_hoang_cuc
+    c = cast_hoang_cuc(2026, with_atoms=False)
+    assert c["nam_que"]["han"] == "同人"
+    assert cast_hoang_cuc(1500, with_atoms=False)["nam_que"] is None
+
+
+def test_nam_que_strip_svg():
+    """SVG strip cá nhân hoá — hợp lệ, clamp theo năm sinh, đánh dấu NAY."""
+    from engine.hoang_cuc.nam_que_svg import nam_que_strip_svg
+    svg = nam_que_strip_svg(1988, 2026)
+    assert svg.startswith("<svg") and svg.rstrip().endswith("</svg>")
+    assert "NAY 2026" in svg and "2020 → 2068" in svg   # clamp đời 1988 → [2020,2068]
+    assert "2020 → 2090" in nam_que_strip_svg(2010, 2026)
+    # đời ngoài khoảng nguồn → SVG báo, không vỡ
+    assert "<svg" in nam_que_strip_svg(2100, 2026)
