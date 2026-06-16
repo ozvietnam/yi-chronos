@@ -556,6 +556,64 @@ async def duyen_ca_nhan_endpoint(inp: DuyenInput) -> dict:
     }
 
 
+class GiaDaoInput(BaseModel):
+    birth1: str
+    gender1: str = "nam"
+    ten1: str = "Chồng"
+    birth2: str
+    gender2: str = "nữ"
+    ten2: str = "Vợ"
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/gia-dao")
+async def gia_dao(inp: GiaDaoInput) -> dict:
+    """Gia Đạo (đã cưới): gia quy ăn ở hợp đạo + năm thuận đón con (tính cho người nữ/mẹ)."""
+    from datetime import datetime
+    from engine.tu_vi.gia_dao import gia_quy_an_o, nam_sinh_con
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+    g1, g2 = _gc(inp.gender1), _gc(inp.gender2)
+    try:
+        b1 = await render_from_birth(BirthInput(birth_datetime_local=inp.birth1, timezone=inp.timezone, gender=g1))
+        b2 = await render_from_birth(BirthInput(birth_datetime_local=inp.birth2, timezone=inp.timezone, gender=g2))
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+    ls1, ls2 = b1["la_so_input"], b2["la_so_input"]
+    nam_xem = datetime.now().year
+    # năm sinh con: tính cho người NỮ (mẹ); nếu không có nữ → người 1
+    if g2 == "nữ":
+        me_ls, me_birth = ls2, inp.birth2
+    elif g1 == "nữ":
+        me_ls, me_birth = ls1, inp.birth1
+    else:
+        me_ls, me_birth = ls1, inp.birth1
+    by_me = me_ls.get("birth_year") or int(me_birth[:4])
+    return {
+        "gia_quy": gia_quy_an_o(ls1, ls2, inp.ten1, inp.ten2),
+        "nam_sinh_con": nam_sinh_con(me_ls, by_me, nam_xem, 10),
+        "paradigm": "Đọc đồng dạng, không bói. Nếp nhà là việc hai người vận hành mỗi ngày.",
+    }
+
+
+class DatTenInput(BaseModel):
+    birth_con: str = Field(..., description="Ngày giờ sinh của bé (ISO local)")
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/dat-ten")
+async def dat_ten(inp: DatTenInput) -> dict:
+    """Đặt tên con bổ ngũ hành: Bát Tự bé → dụng thần → gợi ý hành + chữ/tên mẫu."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.tu_vi.gia_dao import dat_ten_con
+    try:
+        pillars = extract_tu_tru(inp.birth_con, inp.timezone)
+    except Exception as e:
+        return {"error": f"Lỗi lập Bát Tự bé: {e}"}
+    return dat_ten_con(pillars)
+
+
 class _PersonIn(BaseModel):
     birth: str
     gender: str = "nam"

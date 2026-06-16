@@ -34,6 +34,7 @@ import PersonalQuaiPanel from "./components/PersonalQuaiPanel.vue";
 import GPSPanel from "./components/GPSPanel.vue";
 import FamilySystemPanel from "./components/FamilySystemPanel.vue";
 import GieoDuyenPanel from "./components/GieoDuyenPanel.vue";
+import GiaDaoPanel from "./components/GiaDaoPanel.vue";
 import ProfilesPanel from "./components/ProfilesPanel.vue";
 import TabIntro from "./components/TabIntro.vue";
 import LienHoaPanel from "./components/LienHoaPanel.vue";
@@ -794,6 +795,7 @@ onBeforeUnmount(() => {
       </section>
 
       <section v-else-if="activeMainTab === 'family'" class="single-column" aria-label="Hệ thống gia đạo">
+        <GiaDaoPanel />
         <TabIntro
           icon="family"
           title="Gia đạo — đa chủ thể"
