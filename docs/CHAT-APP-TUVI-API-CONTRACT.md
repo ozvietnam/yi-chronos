@@ -281,6 +281,56 @@ Mới nhất trước. `found:false` nếu uid chưa sync. Test: `tests/test_syn
 
 ---
 
+## 6c. Gieo Duyên — Tử Vi & Gợi ý bạn đời (✅ LIVE 2026-06-17) — G1/G2/G3/G4
+
+Hàm thuần xác định (KHÔNG cần LLM/DB), mỗi response mang `algo_version` (freshness §5bis).
+Paradigm guard "đọc đồng dạng, không tiên tri" có trong mọi response (mặt tiền diễn đạt lại — Q1).
+
+### G1 — Hồ sơ suy diễn (cụm A): nạp âm + cung mệnh Bát Trạch
+`POST /api/bat-tu/profile-derived` → `{ "birth_year": 1986, "gender": "nam" }`
+```json
+{ "algo_version": "mvp-0.1.0+profile_derived-1",
+  "profile_derived": {
+    "nap_am": { "element":"hỏa", "name":"Lư Trung Hỏa", "can_chi":"Bính Dần" },
+    "cung_menh": { "quai":"...", "element":"...", "menh_group":"dong|tay",
+                   "menh_group_label":"Đông/Tây Tứ Mệnh", "label":"..." },
+    "paradigm_guard": "..." } }
+```
+
+### G2 — Tuổi hợp (cụm B)
+`POST /api/bat-tu/compatible-years` → `{ "birth_year":1990, "gender":"nam", "span":10, "top":6 }`
+```json
+{ "algo_version":"mvp-0.1.0+compatible_years-1", "paradigm_guard":"...",
+  "compatible_years":[ {"year":1991,"can_chi":"Tân Mùi","age_gap":-1,
+                        "score":5,"grade":"Rất hợp","reason":"Ngọ+Mùi lục hợp; ..."} ] }
+```
+
+### G3 — Tuổi kết hôn (cụm C) — cần giờ sinh
+`POST /api/bat-tu/marriage-years` → `{ "birth_datetime_local":"1990-08-20T09:30:00",
+"gender":"nam", "timezone":"Asia/Ho_Chi_Minh", "from_year":2026, "count":3, "scan":6 }`
+```json
+{ "algo_version":"mvp-0.1.0+marriage_years-1", "paradigm_guard":"...",
+  "marriage_years":[ {"year":2026,"can_chi":"Bính Ngọ","score":3,"grade":"Hợp","reason":"..."} ] }
+```
+
+### G4 — So khớp hàng loạt (cụm D): compatKey + batch
+Trước hết AppChat lưu sẵn **compatKey** mỗi người (rẻ, không cần giờ sinh): can-chi năm +
+nạp âm (+ nhật chủ nếu có). Hình dạng compatKey = `{year, year_can_chi, year_branch, nap_am_element, day_master?}`.
+`POST /api/bat-tu/compat-batch`:
+```json
+{ "anchor": {"year":1990,"year_branch":"Ngọ","nap_am_element":"thổ","day_master":"Giáp"},
+  "candidates": [ {"id":"u1","year":1991,"year_branch":"Mùi","nap_am_element":"thổ","day_master":"Kỷ"} ] }
+```
+→
+```json
+{ "algo_version":"mvp-0.1.0+couple_match-1", "paradigm_guard":"...", "count":1,
+  "scores":[ {"id":"u1","score":8,"percent":99,"stars":5,"grade":"Rất hợp","highlight":"..."} ] }
+```
+1 lời gọi cho N ứng viên (giữ YI single-source, tránh O(N) request). Lưu kết quả là `couple_match` qua §6b/H1.
+Test: `tests/test_gieo_duyen.py`.
+
+---
+
 ## 7. Hạng mục cần chốt tiếp (roadmap)
 
 | # | Hạng mục | Trạng thái |

@@ -24,7 +24,10 @@ METHOD_ALGO_VERSIONS: dict[str, str] = {
     "luc_hao": "luc_hao-1",
     "mai_hoa": "mai_hoa-1",
     "lien_hoa": "lien_hoa-1",
-    "couple_match": "couple_match-1",  # gieo duyên (G1–G4)
+    "couple_match": "couple_match-1",  # gieo duyên (G4 compat-batch)
+    "profile_derived": "profile_derived-1",  # gieo duyên G1 (nạp âm + cung mệnh)
+    "compatible_years": "compatible_years-1",  # gieo duyên G2 (tuổi hợp)
+    "marriage_years": "marriage_years-1",  # gieo duyên G3 (tuổi kết hôn)
 }
 
 
