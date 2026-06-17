@@ -11,8 +11,13 @@ from __future__ import annotations
 
 import os
 import time
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Optional
+from zoneinfo import ZoneInfo
+
+# Ngân sách + dashboard tính theo NGÀY LOCAL Việt Nam (UTC+7), không phải UTC —
+# nếu dùng UTC thì "ngày" rollover lúc 07:00 giờ VN, lệch mental-model của ops.
+_TZ = ZoneInfo("Asia/Ho_Chi_Minh")
 
 from sqlalchemy import text
 
@@ -40,7 +45,7 @@ def _ensure(conn) -> None:
 
 
 def _today() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return datetime.now(_TZ).strftime("%Y-%m-%d")
 
 
 def record_spend(*, provider: str, cost_usd: float, feature: str = "",
@@ -63,7 +68,7 @@ def record_spend(*, provider: str, cost_usd: float, feature: str = "",
 
 
 def day_total(day: Optional[str] = None) -> float:
-    """Tổng chi phí USD trong ngày (mặc định hôm nay, UTC)."""
+    """Tổng chi phí USD trong ngày (mặc định hôm nay, giờ VN)."""
     day = day or _today()
     with session_scope(service=True) as conn:
         _ensure(conn)

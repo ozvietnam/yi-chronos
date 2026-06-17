@@ -36,10 +36,14 @@ def nightly_compat_precompute(self) -> dict:
     return {"status": "noop", "stage": "P0-3 plumbing"}
 
 
-@celery_app.task(name="yi.deepread.run", bind=True, max_retries=2,
-                 acks_late=True, queue="q_deepread")
+@celery_app.task(name="yi.deepread.run", bind=True, max_retries=0,
+                 acks_late=False, queue="q_deepread")
 def deepread_run(self, *, firebase_uid: str, person_key: str = "self") -> dict:
     """H5 (#38) — luận sâu DeepSeek async. Gọi orchestration (gating + ngân sách +
-    sinh + lưu lịch sử + consume). Heavy LLM → chạy ở worker q_deepread."""
+    sinh + lưu lịch sử + consume). Heavy LLM → chạy ở worker q_deepread.
+
+    AT-MOST-ONCE (acks_late=False + max_retries=0): orchestration KHÔNG idempotent
+    (mỗi lần chạy = 1 lần gọi LLM tốn tiền + 1 lần trừ lượt). Nếu worker crash giữa
+    chừng → job mất, KHÔNG redeliver → tránh double-charge. User gọi lại nếu cần."""
     from engine.deep_reading import run_deep_reading
     return run_deep_reading(firebase_uid, person_key)

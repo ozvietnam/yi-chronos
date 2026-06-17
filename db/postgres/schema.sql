@@ -110,17 +110,19 @@ CREATE TABLE IF NOT EXISTS user_subscriptions (
     id             BIGSERIAL PRIMARY KEY,
     user_id        BIGINT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
     feature_id     TEXT NOT NULL,
-    tier           TEXT,
-    enabled        SMALLINT DEFAULT 1,
+    tier           TEXT NOT NULL DEFAULT 'vip1',
+    enabled        SMALLINT NOT NULL DEFAULT 1,
     expires_at     BIGINT,
     remaining_uses INTEGER,
     total_uses     INTEGER DEFAULT 0,
     granted_by     BIGINT,
-    granted_at     BIGINT,
+    granted_at     BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM now())::BIGINT),
     notes          TEXT,
     UNIQUE(user_id, feature_id)
 );
 CREATE INDEX IF NOT EXISTS idx_user_subs_user ON user_subscriptions(user_id);
+-- khớp SQLite: truy vấn admin lọc/sắp theo feature_id (subscriptions.list by feature)
+CREATE INDEX IF NOT EXISTS idx_subs_feature ON user_subscriptions(feature_id);
 
 -- =====================================================================
 -- 6-8. Hermes memory  (nguồn: data/yi_hermes/memory.sqlite3)

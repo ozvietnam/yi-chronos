@@ -75,8 +75,9 @@ def precheck(firebase_uid: str, person_key: str = "self") -> dict:
 
 def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
                      generate: Optional[Callable[[dict, int], dict]] = None) -> dict:
-    """Chạy 1 lần luận sâu end-to-end. Idempotent về tính phí: chỉ record_spend +
-    consume_use khi generation THÀNH CÔNG."""
+    """Chạy 1 lần luận sâu end-to-end. KHÔNG idempotent (mỗi lần gọi = 1 lần tốn
+    tiền LLM + 1 lần trừ lượt) → task gọi nó phải at-most-once (xem deepread_run).
+    Chỉ record_spend + consume_use khi generation + save THÀNH CÔNG."""
     generate = generate or _generate
     uid, person = _resolve(firebase_uid, person_key)
     if uid is None:
@@ -98,13 +99,9 @@ def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
         return {"status": "error", "reason": "generation_failed",
                 "detail": (result or {}).get("message")}
 
-    # Ghi chi phí (ước lượng từ catalog nếu provider không trả cost).
-    cost = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
-    llm_spend.record_spend(provider=result.get("provider", "deepseek"),
-                           cost_usd=cost, feature=FEATURE, model=result.get("model", ""),
-                           user_id=str(uid))
-
-    # Lưu lịch sử (H1) + đóng dấu version.
+    # Thứ tự: lưu lịch sử (H1) + trừ lượt TRƯỚC, ghi chi phí SAU. Nếu save lỗi →
+    # exception thoát ra trước khi consume/record → user KHÔNG mất lượt, KHÔNG bị
+    # tính tiền (chỉ mất 1 lần sinh — họ gọi lại). Tránh "charged-but-lost".
     av = algo_version("tu_vi")
     res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
     with session_scope(service=True) as conn:
@@ -120,6 +117,13 @@ def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
         ).scalar()
 
     usage = subs.consume_use(uid, FEATURE)
+
+    # Ghi chi phí cuối cùng (ước lượng từ catalog). record_spend tự nuốt lỗi →
+    # nếu fail chỉ under-count, không làm hỏng request đã thành công.
+    cost = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
+    llm_spend.record_spend(provider=result.get("provider", "deepseek"),
+                           cost_usd=cost, feature=FEATURE, model=result.get("model", ""),
+                           user_id=str(uid))
     return {
         "status": "done", "casting_id": cid, "algo_version": av,
         "provider": result.get("provider"),
