@@ -1,0 +1,47 @@
+# P0 — stack hạ tầng để DEV/STAGING chạy thử Postgres + Redis + PgBouncer.
+# KHÔNG dùng file này cho prod 20M (prod = managed/self-host VN có HA + PITR,
+# xem runbook). Đây là môi trường local để test migrate + RLS + Celery.
+#
+#   docker compose -f infra/docker-compose.p0.yml up -d
+#   DATABASE_URL=postgresql+psycopg://yi_app:app@localhost:6432/yi \
+#     python scripts/migrate_sqlite_to_postgres.py --apply-schema --truncate
+#
+services:
+  postgres:
+    image: pgvector/pgvector:pg16        # Postgres 16 + pgvector (cho RAG H6 sau)
+    environment:
+      POSTGRES_USER: yi_app
+      POSTGRES_PASSWORD: app             # DEV ONLY — prod dùng secret
+      POSTGRES_DB: yi
+    ports: ["5432:5432"]
+    volumes:
+      - yi_pgdata:/var/lib/postgresql/data
+      - ../db/postgres/schema.sql:/docker-entrypoint-initdb.d/10-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yi_app -d yi"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  pgbouncer:
+    image: edoburu/pgbouncer:latest
+    environment:
+      DB_HOST: postgres
+      DB_USER: yi_app
+      DB_PASSWORD: app
+      DB_NAME: yi
+      POOL_MODE: transaction            # phù hợp SQLAlchemy pool nhỏ + pre_ping
+      MAX_CLIENT_CONN: "1000"
+      DEFAULT_POOL_SIZE: "25"
+    ports: ["6432:5432"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "no"]
+    ports: ["6379:6379"]
+
+volumes:
+  yi_pgdata:

@@ -6,6 +6,8 @@ PyJWT>=2.8
 pytest>=8.0
 skyfield>=1.50
 SQLAlchemy>=2.0
+# P0 data layer (Postgres prod driver). SQLite vẫn là default dev/test.
+psycopg[binary]>=3.1
 uvicorn[standard]>=0.30
 # Kỳ Môn Độn Giáp engine deps (vendored kinqimen từ kentang2017/kinqimen)
 # Required cho engine/ky_mon/vendored/kinqimen/config.py
