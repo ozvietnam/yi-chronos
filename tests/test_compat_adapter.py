@@ -59,6 +59,20 @@ def test_insert_lastrowid_users_pk(backend):
         c.close()
 
 
+def test_lastrowid_on_execute_result(backend):
+    """Regression: auth.py đọc `cur = db.execute(INSERT); cur.lastrowid` — sqlite3.Cursor
+    expose lastrowid TRÊN result, không chỉ trên connection. Trước fix → AttributeError."""
+    c = db.compat_connect()
+    try:
+        cur = c.execute("INSERT INTO users(email,display_name,password_hash,"
+                        "password_salt,role,created_at) VALUES (?,?,?,?,?,?)",
+                        ("res@x", "R", "h", "s", "user", 1))
+        c.commit()
+        assert cur.lastrowid >= 1 and cur.lastrowid == c.lastrowid
+    finally:
+        c.close()
+
+
 def test_insert_lastrowid_id_pk(backend):
     c = db.compat_connect()
     try:

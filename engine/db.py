@@ -172,7 +172,11 @@ class CompatConnection:
             if pk:
                 row = self._sa.execute(text(named + f" RETURNING {pk}"), mapping)
                 self.lastrowid = row.scalar()
-                return _CompatResult([])
+                # sqlite3.Cursor expose .lastrowid TRÊN KẾT QUẢ execute() — call-site
+                # cũ đọc `cur.lastrowid`. Gương lastrowid lên result để giữ contract.
+                res0 = _CompatResult([])
+                res0.lastrowid = self.lastrowid
+                return res0
         res = self._sa.execute(text(named), mapping)
         try:
             rows = res.fetchall() if res.returns_rows else []
@@ -180,6 +184,7 @@ class CompatConnection:
             rows = []
         result = _CompatResult(rows)
         result.rowcount = res.rowcount
+        result.lastrowid = self.lastrowid
         return result
 
     def executescript(self, script: str):
