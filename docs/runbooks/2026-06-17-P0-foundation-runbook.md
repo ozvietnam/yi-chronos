@@ -101,7 +101,7 @@ pg_dump "postgresql://yi_app:<secret>@<host>:5432/yi" -Fc -f yi_$(date +%F).dump
 - **P0-2c:** `yi_hermes/memory.py` → engine.db (FTS5/GIN, 18+8 test). ✅
 - **P0-2d:** `auth.py` + `admin.py` → engine.db qua `CompatConnection` adapter;
   schema + sessions/audit_log/publications; migrate đủ bảng. ✅ → **đủ điều kiện cutover.**
-- **P0-3:** Celery + Redis + Beat (queue `q_deepread`/`q_hermes`/`q_digest`/`q_compat`) — nền H5/H7.
+- **P0-3:** Celery + Redis + Beat (queue `q_deepread`/`q_hermes`/`q_digest`/`q_compat`) — nền H5/H7. ✅ plumbing + test eager.
 - **P0-4:** gunicorn đa worker + Nginx LB + ≥3 instance + rolling deploy (`Dockerfile`/`deploy.yml`).
 - **P0-5:** observability (Prometheus/Grafana/Sentry + bảng `llm_spend`) + rate-limit Redis.
 - **P0-6:** read replica + PgBouncer prod + partition `user_castings`/`user_events` (khi tới mốc).
@@ -112,3 +112,26 @@ pg_dump "postgresql://yi_app:<secret>@<host>:5432/yi" -Fc -f yi_$(date +%F).dump
 > chạy SQLite bình thường (non-breaking).
 
 Mỗi PR có test + cập nhật runbook. Sharding/Citus: hoãn tới khi đo nghẽn ghi thật.
+
+---
+
+## P0-3 — chạy Celery worker + Beat (sau khi có Redis)
+
+Redis lấy từ `infra/docker-compose.p0.yml` (hoặc Redis managed). Env:
+`CELERY_BROKER_URL=redis://<host>:6379/0` (mặc định localhost).
+
+```bash
+# Worker — nghe mọi queue (prod: tách worker/queue để scale độc lập)
+celery -A engine.tasks.celery_app:celery_app worker \
+  -Q q_deepread,q_hermes,q_digest,q_compat,q_default -l info
+
+# Beat — bộ hẹn giờ CRON (digest tuần + precompute đêm)
+celery -A engine.tasks.celery_app:celery_app beat -l info
+
+# Smoke: đẩy 1 task ping
+python -c "from engine.tasks.jobs import ping; print(ping.delay('hi').get(timeout=10))"
+```
+
+Prod: chạy worker/beat thành **service riêng** (systemd/supervisor/container), tách
+worker theo queue để scale (q_deepread ít concurrency timeout cao; q_digest throughput
+cao). Logic nghiệp vụ các task ở H5 (#38) / H7 (#40) / cụm D — P0-3 mới là plumbing.

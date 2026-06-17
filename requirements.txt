@@ -8,6 +8,9 @@ skyfield>=1.50
 SQLAlchemy>=2.0
 # P0 data layer (Postgres prod driver). SQLite vẫn là default dev/test.
 psycopg[binary]>=3.1
+# P0-3 hàng đợi async + cache (Celery + Beat; broker/backend Redis).
+celery>=5.3
+redis>=5.0
 uvicorn[standard]>=0.30
 # Kỳ Môn Độn Giáp engine deps (vendored kinqimen từ kentang2017/kinqimen)
 # Required cho engine/ky_mon/vendored/kinqimen/config.py
