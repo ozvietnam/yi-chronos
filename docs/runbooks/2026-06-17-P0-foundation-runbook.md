@@ -95,11 +95,20 @@ pg_dump "postgresql://yi_app:<secret>@<host>:5432/yi" -Fc -f yi_$(date +%F).dump
 
 ## Lộ trình P0 (chuỗi PR)
 
-- **PR1 (file này):** data layer — schema+RLS+engine+migration+test. ✅
-- **PR2:** chuyển `api/auth.py` + `sync.py` + `subscriptions.py` + `memory.py` sang `engine.db` (bỏ `sqlite3`), giữ nguyên hành vi (test hồi quy).
-- **PR3:** Celery + Redis + Beat (queue `q_deepread`/`q_hermes`/`q_digest`/`q_compat`) — nền cho H5/H7.
-- **PR4:** gunicorn đa worker + Nginx LB + ≥3 instance + rolling deploy (sửa `Dockerfile`/`deploy.yml`).
-- **PR5:** observability (Prometheus/Grafana/Sentry + bảng `llm_spend`) + rate-limit Redis.
-- **PR6:** read replica + PgBouncer prod + partition `user_castings`/`user_events` (khi tới mốc).
+- **P0-1:** data layer — schema+RLS+engine+migration+test. ✅
+- **P0-2:** `subscriptions.py` → engine.db (dual-driver, 10 test). ✅
+- **P0-2b:** `sync.py` (bridge H1/H2/H4) → engine.db (16 sqlite + 1 PG flow). ✅
+- **P0-2c:** `yi_hermes/memory.py` → engine.db (FTS5/GIN, 18+8 test). ✅
+- **P0-2d:** `auth.py` + `admin.py` → engine.db qua `CompatConnection` adapter;
+  schema + sessions/audit_log/publications; migrate đủ bảng. ✅ → **đủ điều kiện cutover.**
+- **P0-3:** Celery + Redis + Beat (queue `q_deepread`/`q_hermes`/`q_digest`/`q_compat`) — nền H5/H7.
+- **P0-4:** gunicorn đa worker + Nginx LB + ≥3 instance + rolling deploy (`Dockerfile`/`deploy.yml`).
+- **P0-5:** observability (Prometheus/Grafana/Sentry + bảng `llm_spend`) + rate-limit Redis.
+- **P0-6:** read replica + PgBouncer prod + partition `user_castings`/`user_events` (khi tới mốc).
+
+> **CUTOVER (sau P0-2d):** mọi module users.sqlite3 (subscriptions+sync+auth+admin) +
+> memory đã chuyển → có thể set `DATABASE_URL=postgresql+psycopg://…` để hợp nhất.
+> Chạy migrate (§3) trước, verify ALL OK, rồi mới flip env + restart. Trước đó vẫn
+> chạy SQLite bình thường (non-breaking).
 
 Mỗi PR có test + cập nhật runbook. Sharding/Citus: hoãn tới khi đo nghẽn ghi thật.

@@ -47,6 +47,17 @@ PLAN = [
     ("data/yi_users/users.sqlite3", "user_subscriptions",
      ["id", "user_id", "feature_id", "tier", "enabled", "expires_at",
       "remaining_uses", "total_uses", "granted_by", "granted_at", "notes"], set()),
+    ("data/yi_users/users.sqlite3", "audit_log",
+     ["id", "user_id", "actor_user_id", "action", "target_email", "ip_address",
+      "user_agent", "details_json", "created_at"], {"details_json"}),
+    ("data/yi_users/users.sqlite3", "user_publications",
+     ["id", "user_id", "person_key", "pub_type", "title", "file_dir", "formats",
+      "total_chars", "cost_usd", "provider", "model", "version", "generated_at",
+      "status", "notes"], {"formats"}),
+    ("data/yi_users/users.sqlite3", "publication_shares",
+     ["id", "publication_id", "token", "created_by", "created_at", "expires_at",
+      "access_count", "max_accesses", "note"], set()),
+    # sessions: KHÔNG migrate (ephemeral — user đăng nhập lại sau cutover).
     ("data/yi_hermes/memory.sqlite3", "user_facts",
      ["id", "user_id", "fact", "category", "confidence", "source_session_id",
       "notes", "extracted_at"], set()),
@@ -58,7 +69,8 @@ PLAN = [
 ]
 
 SERIAL_TABLES = ["users", "user_persons", "user_castings", "user_favorites",
-                 "user_subscriptions", "user_facts", "chat_summaries",
+                 "user_subscriptions", "audit_log", "user_publications",
+                 "publication_shares", "user_facts", "chat_summaries",
                  "glossary_views"]
 
 
