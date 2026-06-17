@@ -103,7 +103,7 @@ pg_dump "postgresql://yi_app:<secret>@<host>:5432/yi" -Fc -f yi_$(date +%F).dump
   schema + sessions/audit_log/publications; migrate đủ bảng. ✅ → **đủ điều kiện cutover.**
 - **P0-3:** Celery + Redis + Beat (queue `q_deepread`/`q_hermes`/`q_digest`/`q_compat`) — nền H5/H7. ✅ plumbing + test eager.
 - **P0-4:** gunicorn đa worker (UvicornWorker) — vá G3. ✅ config + test. (Nginx LB + ≥3 instance = ops, xem dưới.)
-- **P0-5:** observability (Prometheus/Grafana/Sentry + bảng `llm_spend`) + rate-limit Redis.
+- **P0-5:** `llm_spend` ledger + hard-stop ngân sách LLM + rate-limit (Redis/fallback). ✅ code+test. (Prometheus/Grafana/Sentry = ops, gắn sau.)
 - **P0-6:** read replica + PgBouncer prod + partition `user_castings`/`user_events` (khi tới mốc).
 
 > **CUTOVER (sau P0-2d):** mọi module users.sqlite3 (subscriptions+sync+auth+admin) +

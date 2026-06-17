@@ -271,3 +271,20 @@ CREATE POLICY p_sessions ON sessions          USING (app_rls_ok(user_id::text)) 
 CREATE POLICY p_audit    ON audit_log          USING (app_rls_ok(COALESCE(user_id::text,'_'))) WITH CHECK (true);
 CREATE POLICY p_pub      ON user_publications  USING (app_rls_ok(user_id::text))    WITH CHECK (app_rls_ok(user_id::text));
 CREATE POLICY p_share    ON publication_shares USING (app_rls_ok(created_by::text)) WITH CHECK (app_rls_ok(created_by::text));
+
+-- =====================================================================
+-- P0-5: llm_spend — ledger chi phí LLM (ops/aggregate, không per-user nhạy
+-- cảm → service-mode, KHÔNG RLS). Hard-stop ngân sách ngày (engine/llm_spend.py).
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS llm_spend (
+    ts          BIGINT NOT NULL,
+    day         TEXT NOT NULL,
+    provider    TEXT NOT NULL,
+    feature     TEXT,
+    model       TEXT,
+    tokens_in   INTEGER DEFAULT 0,
+    tokens_out  INTEGER DEFAULT 0,
+    cost_usd    REAL DEFAULT 0,
+    user_id     TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_llm_spend_day ON llm_spend(day);
