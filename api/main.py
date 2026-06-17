@@ -289,6 +289,16 @@ def health() -> dict[str, str]:
     }
 
 
+@app.get("/api/version")
+def version() -> dict:
+    """H3 — version contract cho freshness §5bis.
+
+    AppChat so `algo_version` (+ per-method) với bản đã cache; khác → refetch.
+    Nhẹ, không auth (chỉ là số version, không phải data user)."""
+    from engine.algo_version import version_info
+    return version_info()
+
+
 @app.get("/api/ruleset/active")
 def active_ruleset() -> dict[str, str]:
     return {

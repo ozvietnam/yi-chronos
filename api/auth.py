@@ -169,6 +169,7 @@ def _init_schema(db: sqlite3.Connection) -> None:
             verdict       TEXT,                              -- ngắn gọn — cát/hung/cảnh báo
             tags          TEXT,                              -- comma-separated
             note          TEXT,                              -- user note
+            algo_version  TEXT,                              -- version engine khi tính (freshness §5bis)
             created_at    INTEGER NOT NULL,
             FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
         );
@@ -355,11 +356,20 @@ def _migrate_v2_suspend_columns(db: sqlite3.Connection) -> None:
     db.commit()
 
 
+def _migrate_casting_algo_version_column(db: sqlite3.Connection) -> None:
+    """Add user_castings.algo_version to pre-existing DBs (idempotent)."""
+    cols = {r[1] for r in db.execute("PRAGMA table_info(user_castings)").fetchall()}
+    if cols and "algo_version" not in cols:
+        db.execute("ALTER TABLE user_castings ADD COLUMN algo_version TEXT")
+        db.commit()
+
+
 def _ensure_initialized() -> None:
     db = _connect()
     try:
         _init_schema(db)
         _migrate_v2_suspend_columns(db)
+        _migrate_casting_algo_version_column(db)
         _seed_founder(db)
     finally:
         db.close()
@@ -1082,25 +1092,27 @@ def delete_my_person(person_id: int, request: Request) -> dict:
 def save_casting(req: CastingSave, request: Request) -> dict:
     """Save một lần gieo quẻ vào history user."""
     import json as _json
+    from engine.algo_version import algo_version as _algo_version
     user = require_user(request)
+    av = _algo_version(req.method)
     db = _connect()
     try:
         cur = db.execute("""
             INSERT INTO user_castings
                 (user_id, method, subject_person_key, question,
-                 input_json, result_json, verdict, tags, note, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 input_json, result_json, verdict, tags, note, algo_version, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             user["user_id"], req.method, req.subject_person_key, req.question,
             _json.dumps(req.input_json, ensure_ascii=False) if req.input_json else None,
             _json.dumps(req.result_json, ensure_ascii=False),
-            req.verdict, req.tags, req.note, int(time.time()),
+            req.verdict, req.tags, req.note, av, int(time.time()),
         ))
         db.commit()
         new_id = cur.lastrowid
     finally:
         db.close()
-    return {"status": "ok", "id": new_id}
+    return {"status": "ok", "id": new_id, "algo_version": av}
 
 
 @router.get("/my/castings")
@@ -1114,7 +1126,7 @@ def list_castings(request: Request, method: Optional[str] = None,
         if method:
             rows = db.execute("""
                 SELECT id, method, subject_person_key, question,
-                       input_json, result_json, verdict, tags, note, created_at
+                       input_json, result_json, verdict, tags, note, algo_version, created_at
                 FROM user_castings
                 WHERE user_id=? AND method=?
                 ORDER BY created_at DESC LIMIT ? OFFSET ?
@@ -1122,7 +1134,7 @@ def list_castings(request: Request, method: Optional[str] = None,
         else:
             rows = db.execute("""
                 SELECT id, method, subject_person_key, question,
-                       input_json, result_json, verdict, tags, note, created_at
+                       input_json, result_json, verdict, tags, note, algo_version, created_at
                 FROM user_castings
                 WHERE user_id=?
                 ORDER BY created_at DESC LIMIT ? OFFSET ?
@@ -1130,7 +1142,7 @@ def list_castings(request: Request, method: Optional[str] = None,
     finally:
         db.close()
     cols = ["id", "method", "subject_person_key", "question",
-            "input_json", "result_json", "verdict", "tags", "note", "created_at"]
+            "input_json", "result_json", "verdict", "tags", "note", "algo_version", "created_at"]
     items = []
     for r in rows:
         d = dict(zip(cols, r))

@@ -224,6 +224,63 @@ App chat nên **thu thập khu vực sinh ngay từ form** để sẵn sàng, k�
 
 ---
 
+## 6b. Lịch sử & version (✅ LIVE 2026-06-17) — H1/H2/H3
+
+Hợp đồng để **mọi lần hỏi / lá số / so khớp đều được lưu thành lịch sử**, và để cache
+diễn giải bên app chat **tự làm tươi** khi YI nâng cấp engine ("mỗi tuần một khám phá").
+Tất cả dùng auth **service-to-service** giống §1 (`X-API-Key` + `firebase_uid` trong body/path).
+Điều kiện: user đã được sync trước qua `POST /api/sync/upsert-from-firebase` (nếu chưa → `404`).
+
+### H3 — Version contract
+
+`GET /api/version` (nhẹ, không auth — chỉ là số version):
+```json
+{ "algo_version": "mvp-0.1.0",
+  "ziwei_ruleset": "bac_phai_v1",
+  "methods": { "tu_vi": "tu_vi-1", "bat_tu": "bat_tu-1", "couple_match": "couple_match-1", "...": "..." },
+  "server_time": 1750000000 }
+```
+App chat lưu `algo_version` (toàn cục) **và** `methods[<method>]` kèm mỗi reading đã cache.
+Khi gọi lại: **khác version → refetch** (ghi đè cache); **trùng version nhưng quá TTL 24h → refetch**;
+**trùng + trong TTL → dùng cache**. (Chi tiết §5bis spec gieo duyên.)
+
+### H1 — Lưu lịch sử (app chat đẩy sang sau khi cast/so khớp)
+
+`POST /api/sync/castings` — một lần cast/luận:
+```json
+{ "firebase_uid": "abc", "method": "tu_vi",
+  "subject_person_key": "self", "question": "Lá số của tôi?",
+  "input_json": { "...": "đầu vào" }, "result_json": { "...": "kết quả engine" },
+  "verdict": null, "tags": null, "note": null }
+```
+→ `200 { "status":"ok", "id": 12, "algo_version": "mvp-0.1.0+tu_vi-1" }`
+(YI tự đóng dấu `algo_version` theo `method` — app chat không cần gửi.)
+
+`POST /api/sync/favorites` — một mục đã lưu (vd gieo duyên):
+```json
+{ "firebase_uid": "abc", "kind": "couple_match",
+  "label": "Tôi × Lan Anh", "payload_json": { "score": 82 } }
+```
+→ `200 { "status":"ok", "id": 5 }`
+
+### H2 — Đọc lịch sử hợp nhất (dựng tab "Lịch sử")
+
+`GET /api/sync/history/{firebase_uid}?type=&method=&kind=&limit=50&offset=0`
+- `type`: `casting` | `favorite` | bỏ trống (cả hai)
+- `method`: lọc trong castings · `kind`: lọc trong favorites
+```json
+{ "found": true, "yi_user_id": 3, "total": 12, "count": 2,
+  "items": [
+    { "type":"casting", "id":12, "method":"tu_vi", "question":"…",
+      "result":{…}, "verdict":null, "algo_version":"mvp-0.1.0+tu_vi-1", "created_at":1750000000 },
+    { "type":"favorite", "id":5, "kind":"couple_match", "label":"Tôi × Lan Anh",
+      "payload":{"score":82}, "created_at":1749990000 }
+  ] }
+```
+Mới nhất trước. `found:false` nếu uid chưa sync. Test: `tests/test_sync_history.py`, `tests/test_version_contract.py`.
+
+---
+
 ## 7. Hạng mục cần chốt tiếp (roadmap)
 
 | # | Hạng mục | Trạng thái |
@@ -231,7 +288,7 @@ App chat nên **thu thập khu vực sinh ngay từ form** để sẵn sàng, k�
 | 1 | Wire **MiniMax** cho quiz giờ sinh + chạy E2E start→submit→save | ✅ provider đã chốt — chờ em wire |
 | 2 | **True-solar-time** theo khu vực sinh (§6) | đã duyệt — chờ em làm |
 | 3 | **Auth + rate-limit** (§1) | em đề xuất — chờ anh duyệt |
-| 4 | Chuẩn lưu **hồ sơ tình duyên / person** (yi_hermes vs app chat tự lưu) | cần chốt |
+| 4 | Chuẩn lưu **hồ sơ tình duyên / person** (yi_hermes vs app chat tự lưu) | ✅ chốt: YI là sổ cái — lịch sử qua §6b (H1/H2), person qua `/api/sync/*` |
 | 5 | **Mode gieo Lục Hào thủ công** (nếu app chat không bắt cử chỉ) | tùy nhu cầu |
 
 ---

@@ -91,9 +91,9 @@ Free user vẫn cast được cơ bản; **luận sâu + digest tuần là quy�
 
 | ID | Việc | Repo | Ghi chú |
 |---|---|---|---|
-| **H1** | Cast qua bridge (F1) **tự lưu** `user_castings` (hiện cast chưa chắc lưu lịch sử) | yi-chronos | nối `castChart` → sau khi engine trả, ghi `/my/castings` với `X-User-Id` |
-| **H2** | API đọc lịch sử cho AppChat: `GET /api/my/history` (gộp castings + favorites, phân trang, lọc theo method) | yi-chronos | đã có list castings/favorites — gói lại 1 endpoint thân thiện |
-| **H3** | Mọi response suy diễn trả `algo_version` + endpoint nhẹ `GET /api/version` (= G0a của spec gieo duyên) | yi-chronos | trục của §5bis freshness |
+| **H1** | ✅ Cast qua bridge **tự lưu** lịch sử + đóng dấu `algo_version` — `POST /api/sync/castings` + `POST /api/sync/favorites` (service-keyed) | yi-chronos | DONE 2026-06-17 (`api/sync.py`); cột `user_castings.algo_version` + migration idempotent |
+| **H2** | ✅ API đọc lịch sử hợp nhất cho AppChat: `GET /api/sync/history/{firebase_uid}` (gộp castings + favorites, mới nhất trước, phân trang, lọc `method`/`kind`/`type`) | yi-chronos | DONE 2026-06-17 (`api/sync.py`) |
+| **H3** | ✅ `GET /api/version` (algo_version + per-method) + helper `engine/algo_version.py` đóng dấu mọi reading | yi-chronos | DONE 2026-06-17 — trục của §5bis freshness; kế thừa `core.config.ALGORITHM_VERSION` |
 | **H4** | Gieo duyên G1–G4 (nạp âm/cung mệnh, tuổi hợp, tuổi cưới, compat-batch) — kết quả lưu `couple_match` | yi-chronos | theo spec §6 |
 | **H5** | Nối **luận sâu DeepSeek** (F5) qua bridge: callable `deepReading` → `check_access` → engine → lưu castings → `consume_use` | cả 2 | job dài → async + trạng thái "đang luận" |
 | **H6** | Nối **Hermes** (F6) qua bridge: callable `askHermes` đọc memory + history + chart, trả lời/phản biện; ghi `chat_summaries`+`user_facts` | cả 2 | đây là "vũ khí bí mật" — xem §5 |

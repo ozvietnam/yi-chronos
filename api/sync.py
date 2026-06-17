@@ -74,8 +74,17 @@ def _open() -> sqlite3.Connection:
     db = _auth._connect()
     _auth._init_schema(db)
     _auth._migrate_v2_suspend_columns(db)
+    _auth._migrate_casting_algo_version_column(db)
     _ensure_sync_columns(db)
     return db
+
+
+def _user_id_for_uid(db: sqlite3.Connection, firebase_uid: str) -> Optional[int]:
+    """Resolve a firebase_uid → YI user_id, or None if not synced yet."""
+    row = db.execute(
+        "SELECT user_id FROM users WHERE firebase_uid = ?", (firebase_uid,)
+    ).fetchone()
+    return row[0] if row else None
 
 
 # ─── request models ─────────────────────────────────────────────────────────
@@ -94,6 +103,27 @@ class UpsertFromFirebaseRequest(BaseModel):
     email: Optional[str] = None
     display_name: Optional[str] = None
     birth: Optional[BirthInfo] = None
+
+
+class CastingSaveRequest(BaseModel):
+    """H1 — một lần cast / luận do AppChat đẩy sang (qua Cloud Functions)."""
+    firebase_uid: str
+    method: str                                # 'tu_vi' | 'bat_tu' | 'luc_hao' | ...
+    subject_person_key: Optional[str] = None
+    question: Optional[str] = None
+    input_json: Optional[dict] = None
+    result_json: dict
+    verdict: Optional[str] = None
+    tags: Optional[str] = None
+    note: Optional[str] = None
+
+
+class FavoriteSaveRequest(BaseModel):
+    """H1 — một mục favorite (vd gieo duyên couple_match) do AppChat đẩy sang."""
+    firebase_uid: str
+    kind: str                                  # 'couple_match' | 'auspicious_day' | ...
+    label: str
+    payload_json: dict
 
 
 # ─── endpoints ───────────────────────────────────────────────────────────────
@@ -244,6 +274,155 @@ def resolve_firebase_uid(
             "display_name": row[2],
             "phone": row[3],
             "self_person": self_person,
+        }
+    finally:
+        db.close()
+
+
+# ─── H1: lịch sử chảy qua cầu (service-keyed) ────────────────────────────────
+
+@router.post("/castings")
+def save_casting_from_bridge(
+    req: CastingSaveRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Lưu một lần cast/luận vào lịch sử user, đóng dấu `algo_version`.
+
+    Gọi bởi Cloud Functions của AppChat sau khi cast xong → mọi tương tác đều
+    thành lịch sử (Anh: "những lần hỏi … đều cần lưu lại"). 404 nếu uid chưa sync.
+    """
+    _require_service_key(x_api_key)
+    import json as _json
+    from engine.algo_version import algo_version
+
+    av = algo_version(req.method)
+    db = _open()
+    try:
+        user_id = _user_id_for_uid(db, req.firebase_uid)
+        if user_id is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+        cur = db.execute(
+            """
+            INSERT INTO user_castings
+                (user_id, method, subject_person_key, question,
+                 input_json, result_json, verdict, tags, note, algo_version, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                user_id, req.method, req.subject_person_key, req.question,
+                _json.dumps(req.input_json, ensure_ascii=False) if req.input_json else None,
+                _json.dumps(req.result_json, ensure_ascii=False),
+                req.verdict, req.tags, req.note, av, int(time.time()),
+            ),
+        )
+        db.commit()
+        return {"status": "ok", "id": cur.lastrowid, "algo_version": av}
+    finally:
+        db.close()
+
+
+@router.post("/favorites")
+def save_favorite_from_bridge(
+    req: FavoriteSaveRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Lưu một mục favorite (vd gieo duyên couple_match) vào lịch sử user."""
+    _require_service_key(x_api_key)
+    import json as _json
+
+    db = _open()
+    try:
+        user_id = _user_id_for_uid(db, req.firebase_uid)
+        if user_id is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+        cur = db.execute(
+            "INSERT INTO user_favorites (user_id, kind, label, payload_json, created_at) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (user_id, req.kind, req.label,
+             _json.dumps(req.payload_json, ensure_ascii=False), int(time.time())),
+        )
+        db.commit()
+        return {"status": "ok", "id": cur.lastrowid}
+    finally:
+        db.close()
+
+
+# ─── H2: lịch sử hợp nhất (castings + favorites) cho AppChat ─────────────────
+
+@router.get("/history/{firebase_uid}")
+def history_for_uid(
+    firebase_uid: str,
+    method: Optional[str] = None,
+    kind: Optional[str] = None,
+    type: Optional[str] = None,        # 'casting' | 'favorite' | None (cả hai)
+    limit: int = 50,
+    offset: int = 0,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Lịch sử hợp nhất của 1 user, mới nhất trước, phân trang + lọc.
+
+    Gộp `user_castings` (type=casting) + `user_favorites` (type=favorite), mỗi
+    item gắn `type` + `algo_version` (nếu có). AppChat dựng tab "Lịch sử" từ đây.
+    """
+    _require_service_key(x_api_key)
+    import json as _json
+
+    db = _open()
+    try:
+        user_id = _user_id_for_uid(db, firebase_uid)
+        if user_id is None:
+            return {"found": False}
+
+        items: list[dict] = []
+
+        if type in (None, "casting") and not kind:
+            sql = (
+                "SELECT id, method, subject_person_key, question, result_json, "
+                "verdict, tags, note, algo_version, created_at FROM user_castings WHERE user_id=?"
+            )
+            params: list = [user_id]
+            if method:
+                sql += " AND method=?"
+                params.append(method)
+            for r in db.execute(sql, params).fetchall():
+                try:
+                    result = _json.loads(r[4]) if r[4] else None
+                except Exception:
+                    result = None
+                items.append({
+                    "type": "casting", "id": r[0], "method": r[1],
+                    "subject_person_key": r[2], "question": r[3], "result": result,
+                    "verdict": r[5], "tags": r[6], "note": r[7],
+                    "algo_version": r[8], "created_at": r[9],
+                })
+
+        if type in (None, "favorite") and not method:
+            sql = "SELECT id, kind, label, payload_json, created_at FROM user_favorites WHERE user_id=?"
+            params = [user_id]
+            if kind:
+                sql += " AND kind=?"
+                params.append(kind)
+            for r in db.execute(sql, params).fetchall():
+                try:
+                    payload = _json.loads(r[3]) if r[3] else None
+                except Exception:
+                    payload = None
+                items.append({
+                    "type": "favorite", "id": r[0], "kind": r[1], "label": r[2],
+                    "payload": payload, "created_at": r[4],
+                })
+
+        # Hợp nhất theo thời gian, mới nhất trước; phân trang trong bộ nhớ
+        # (per-user nên nhỏ — nếu sau này phình to sẽ chuyển sang UNION + index).
+        items.sort(key=lambda it: it["created_at"], reverse=True)
+        total = len(items)
+        page = items[offset:offset + limit]
+        return {
+            "found": True,
+            "yi_user_id": user_id,
+            "items": page,
+            "count": len(page),
+            "total": total,
         }
     finally:
         db.close()
