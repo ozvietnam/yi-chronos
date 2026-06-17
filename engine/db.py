@@ -104,3 +104,112 @@ def healthcheck() -> dict:
     except Exception as e:  # pragma: no cover
         return {"db": "error", "driver": "postgres" if is_postgres() else "sqlite",
                 "detail": str(e)[:200]}
+
+
+# ─── SQLite-compat adapter (cho migrate module lớn như auth.py với diff nhỏ) ──
+# Giữ NGUYÊN văn phong sqlite3 (? placeholder, .execute().fetchone(), .lastrowid,
+# .commit(), .close()) nhưng chạy trên engine.db (SQLite/Postgres). RETURNING tự
+# thêm cho INSERT để có lastrowid trên cả 2 driver.
+import re as _re
+
+# pk dùng cho RETURNING theo bảng (mặc định 'id'; None = không có serial pk).
+_TABLE_PK = {"users": "user_id", "sessions": None, "audit_log": "id"}
+
+
+def _qmark_to_named(sql: str):
+    """'... ?, ? ...' → '... :p0, :p1 ...' + tên tham số theo thứ tự."""
+    idx = 0
+    names: list[str] = []
+
+    def _repl(_m):
+        nonlocal idx
+        n = f"p{idx}"
+        names.append(n)
+        idx += 1
+        return f":{n}"
+
+    return _re.sub(r"\?", _repl, sql), names
+
+
+def _table_of_insert(sql: str) -> Optional[str]:
+    m = _re.search(r"insert\s+into\s+([a-zA-Z_][\w]*)", sql, _re.IGNORECASE)
+    return m.group(1) if m else None
+
+
+class _CompatResult:
+    def __init__(self, rows):
+        self._rows = rows
+
+    def fetchone(self):
+        return self._rows[0] if self._rows else None
+
+    def fetchall(self):
+        return self._rows
+
+
+class CompatConnection:
+    """Wrapper kiểu sqlite3 trên 1 SQLAlchemy connection (1 transaction)."""
+
+    def __init__(self, engine: Engine, *, service: bool = True):
+        self._sa = engine.connect()
+        self._txn = self._sa.begin()
+        self._pg = is_postgres()
+        self._service = service
+        self.lastrowid = None
+        self._apply_guc()
+
+    def _apply_guc(self):
+        if self._pg and self._service:
+            self._sa.execute(text("SELECT set_config('app.service_mode','on',true)"))
+
+    def execute(self, sql: str, params=()):
+        named, names = _qmark_to_named(sql)
+        mapping = {names[i]: v for i, v in enumerate(params)} if params else {}
+        head = sql.lstrip()[:6].upper()
+        if head == "INSERT" and "RETURNING" not in sql.upper():
+            tbl = _table_of_insert(sql)
+            pk = _TABLE_PK.get(tbl, "id")
+            if pk:
+                row = self._sa.execute(text(named + f" RETURNING {pk}"), mapping)
+                self.lastrowid = row.scalar()
+                return _CompatResult([])
+        res = self._sa.execute(text(named), mapping)
+        try:
+            rows = res.fetchall() if res.returns_rows else []
+        except Exception:
+            rows = []
+        result = _CompatResult(rows)
+        result.rowcount = res.rowcount
+        return result
+
+    def executescript(self, script: str):
+        # SQLite: dùng executescript gốc (nhiều câu); psycopg: exec cả script.
+        raw = getattr(self._sa.connection, "dbapi_connection", None)
+        if raw is not None and hasattr(raw, "executescript"):
+            raw.executescript(script)
+        else:
+            self._sa.exec_driver_sql(script)
+        return _CompatResult([])
+
+    def commit(self):
+        self._txn.commit()
+        self._txn = self._sa.begin()
+        self._apply_guc()  # GUC LOCAL reset sau commit → set lại
+
+    def close(self):
+        try:
+            self._txn.rollback()   # sqlite: close không commit phần chưa commit
+        except Exception:
+            pass
+        self._sa.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+
+
+def compat_connect(*, service: bool = True) -> CompatConnection:
+    """Mở 1 CompatConnection trên engine hiện hành (giữ văn phong sqlite3)."""
+    return CompatConnection(get_engine(), service=service)

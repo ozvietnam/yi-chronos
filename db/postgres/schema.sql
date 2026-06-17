@@ -194,3 +194,80 @@ CREATE POLICY p_subs       ON user_subscriptions USING (app_rls_ok(user_id::text
 CREATE POLICY p_facts      ON user_facts        USING (app_rls_ok(user_id)) WITH CHECK (app_rls_ok(user_id));
 CREATE POLICY p_summaries  ON chat_summaries    USING (app_rls_ok(user_id)) WITH CHECK (app_rls_ok(user_id));
 CREATE POLICY p_glossary   ON glossary_views    USING (app_rls_ok(user_id)) WITH CHECK (app_rls_ok(user_id));
+
+-- =====================================================================
+-- Bổ sung P0-2d: sessions + audit_log + publications (cần cho auth/admin
+-- chạy trên Postgres). Faithful 1:1 với api/auth.py._init_schema (SQLite).
+-- =====================================================================
+CREATE TABLE IF NOT EXISTS sessions (
+    token       TEXT PRIMARY KEY,
+    user_id     BIGINT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    created_at  BIGINT NOT NULL,
+    expires_at  BIGINT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_sessions_user    ON sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions(expires_at);
+
+CREATE TABLE IF NOT EXISTS audit_log (
+    id            BIGSERIAL PRIMARY KEY,
+    user_id       BIGINT,
+    actor_user_id BIGINT,
+    action        TEXT NOT NULL,
+    target_email  TEXT,
+    ip_address    TEXT,
+    user_agent    TEXT,
+    details_json  JSONB,
+    created_at    BIGINT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_audit_user    ON audit_log(user_id);
+CREATE INDEX IF NOT EXISTS idx_audit_action  ON audit_log(action);
+CREATE INDEX IF NOT EXISTS idx_audit_created ON audit_log(created_at);
+
+CREATE TABLE IF NOT EXISTS user_publications (
+    id           BIGSERIAL PRIMARY KEY,
+    user_id      BIGINT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    person_key   TEXT NOT NULL,
+    pub_type     TEXT NOT NULL,
+    title        TEXT NOT NULL,
+    file_dir     TEXT NOT NULL,
+    formats      JSONB NOT NULL DEFAULT '{}'::jsonb,
+    total_chars  INTEGER DEFAULT 0,
+    cost_usd     REAL DEFAULT 0,
+    provider     TEXT,
+    model        TEXT,
+    version      TEXT,
+    generated_at BIGINT NOT NULL,
+    status       TEXT NOT NULL DEFAULT 'active',
+    notes        TEXT,
+    UNIQUE(user_id, person_key, pub_type)
+);
+CREATE INDEX IF NOT EXISTS idx_pub_user        ON user_publications(user_id);
+CREATE INDEX IF NOT EXISTS idx_pub_user_person ON user_publications(user_id, person_key);
+
+CREATE TABLE IF NOT EXISTS publication_shares (
+    id             BIGSERIAL PRIMARY KEY,
+    publication_id BIGINT NOT NULL REFERENCES user_publications(id) ON DELETE CASCADE,
+    token          TEXT UNIQUE NOT NULL,
+    created_by     BIGINT NOT NULL,
+    created_at     BIGINT NOT NULL,
+    expires_at     BIGINT,
+    access_count   INTEGER NOT NULL DEFAULT 0,
+    max_accesses   INTEGER,
+    note           TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_share_token ON publication_shares(token);
+
+-- RLS: auth/admin truy cập qua service-mode (bypass) — bật để phòng thủ chiều sâu.
+ALTER TABLE sessions           ENABLE ROW LEVEL SECURITY;  ALTER TABLE sessions           FORCE ROW LEVEL SECURITY;
+ALTER TABLE audit_log          ENABLE ROW LEVEL SECURITY;  ALTER TABLE audit_log          FORCE ROW LEVEL SECURITY;
+ALTER TABLE user_publications  ENABLE ROW LEVEL SECURITY;  ALTER TABLE user_publications  FORCE ROW LEVEL SECURITY;
+ALTER TABLE publication_shares ENABLE ROW LEVEL SECURITY;  ALTER TABLE publication_shares FORCE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS p_sessions  ON sessions;
+DROP POLICY IF EXISTS p_audit     ON audit_log;
+DROP POLICY IF EXISTS p_pub       ON user_publications;
+DROP POLICY IF EXISTS p_share     ON publication_shares;
+CREATE POLICY p_sessions ON sessions          USING (app_rls_ok(user_id::text))    WITH CHECK (app_rls_ok(user_id::text));
+CREATE POLICY p_audit    ON audit_log          USING (app_rls_ok(COALESCE(user_id::text,'_'))) WITH CHECK (true);
+CREATE POLICY p_pub      ON user_publications  USING (app_rls_ok(user_id::text))    WITH CHECK (app_rls_ok(user_id::text));
+CREATE POLICY p_share    ON publication_shares USING (app_rls_ok(created_by::text)) WITH CHECK (app_rls_ok(created_by::text));
