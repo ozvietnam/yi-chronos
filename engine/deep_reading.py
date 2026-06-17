@@ -118,11 +118,18 @@ def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
 
     usage = subs.consume_use(uid, FEATURE)
 
-    # Ghi chi phí cuối cùng (ước lượng từ catalog). record_spend tự nuốt lỗi →
-    # nếu fail chỉ under-count, không làm hỏng request đã thành công.
-    cost = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
+    # Ghi chi phí cuối cùng. Ưu tiên cost THẬT provider báo (phe_menh trả cost_usd +
+    # tokens) — fallback ước lượng catalog chỉ khi provider không báo (cost<=0).
+    # Tránh under-count khi fallback rơi vào provider đắt (vd Anthropic). record_spend
+    # tự nuốt lỗi → fail chỉ under-count, không hỏng request đã thành công.
+    real_cost = float(result.get("cost_usd") or 0)
+    cost = real_cost if real_cost > 0 else float(
+        subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
+    toks = result.get("tokens") or {}
     llm_spend.record_spend(provider=result.get("provider", "deepseek"),
                            cost_usd=cost, feature=FEATURE, model=result.get("model", ""),
+                           tokens_in=int(toks.get("prompt") or 0),
+                           tokens_out=int(toks.get("completion") or 0),
                            user_id=str(uid))
     return {
         "status": "done", "casting_id": cid, "algo_version": av,

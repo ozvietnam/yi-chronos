@@ -17,6 +17,7 @@ Nguồn (mặc định theo layout hiện tại):
 from __future__ import annotations
 
 import argparse
+import json as _json
 import sqlite3
 from pathlib import Path
 
@@ -25,6 +26,25 @@ from sqlalchemy import text
 from engine.db import apply_schema, get_engine, is_postgres, session_scope
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def _json_or_none(v):
+    """Chuẩn hoá giá trị cho cột JSONB: '' / chuỗi không-phải-JSON / None → NULL.
+    Tránh `CAST('' AS JSONB)` làm abort cả batch (dữ liệu cũ có thể rỗng)."""
+    if v is None:
+        return None
+    if isinstance(v, (dict, list)):
+        return _json.dumps(v, ensure_ascii=False)
+    if isinstance(v, str):
+        s = v.strip()
+        if not s:
+            return None
+        try:
+            _json.loads(s)
+        except (ValueError, TypeError):
+            return None
+        return s
+    return None
 
 # (sqlite_file, table, columns, json_columns)
 PLAN = [
@@ -113,6 +133,9 @@ def migrate(*, dry_run: bool, do_schema: bool, truncate: bool) -> int:
             continue
 
         with session_scope(service=True) as conn:
+            # SQLite lưu timestamp text ở UTC (CURRENT_TIMESTAMP) → ép phiên UTC để
+            # text→TIMESTAMPTZ không bị dịch theo TZ server (lệch +7h ở VN).
+            conn.execute(text("SET LOCAL TIME ZONE 'UTC'"))
             if truncate:
                 conn.execute(text(f"TRUNCATE {table} RESTART IDENTITY CASCADE"))
             if rows:
@@ -120,9 +143,17 @@ def migrate(*, dry_run: bool, do_schema: bool, truncate: bool) -> int:
                 placeholders = []
                 for c in use_cols:
                     placeholders.append(f"CAST(:{c} AS JSONB)" if c in json_cols else f":{c}")
+                # ON CONFLICT DO NOTHING → chạy lại an toàn (không trùng PK) kể cả
+                # khi KHÔNG --truncate (idempotent cutover, không cần dedup tay).
                 sql = (f"INSERT INTO {table} ({', '.join(use_cols)}) "
-                       f"VALUES ({', '.join(placeholders)})")
-                params = [dict(zip(use_cols, r)) for r in rows]
+                       f"VALUES ({', '.join(placeholders)}) ON CONFLICT DO NOTHING")
+                params = []
+                for r in rows:
+                    d = dict(zip(use_cols, r))
+                    for jc in json_cols:
+                        if jc in d:
+                            d[jc] = _json_or_none(d[jc])
+                    params.append(d)
                 conn.execute(text(sql), params)
         print(f"  ✓ {table}: copied {n_src}")
         report.append((table, n_src, n_src))
@@ -147,8 +178,10 @@ def migrate(*, dry_run: bool, do_schema: bool, truncate: bool) -> int:
         with session_scope(service=True) as conn:
             for table, n_src, _ in report:
                 n_dst = conn.execute(text(f"SELECT count(*) FROM {table}")).scalar()
-                mark = "OK" if n_dst >= n_src else "MISMATCH"
-                if n_dst < n_src:
+                # Cutover sạch: đích PHẢI bằng nguồn. n_dst != n_src (kể cả lớn hơn =
+                # double-load) đều là MISMATCH — '>=' cũ che mất nhân đôi dữ liệu.
+                mark = "OK" if n_dst == n_src else "MISMATCH"
+                if n_dst != n_src:
                     ok = False
                 print(f"  {mark:9} {table}: src={n_src} dst={n_dst}")
         print("RESULT:", "ALL OK" if ok else "HAS MISMATCH")

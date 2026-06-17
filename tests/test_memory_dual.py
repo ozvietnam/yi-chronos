@@ -62,6 +62,16 @@ def test_summaries_and_fulltext_search(backend):
     assert any("sự nghiệp" in s.summary for s in hits)
 
 
+def test_search_matches_key_topics_only(backend):
+    """Recall parity: query CHỈ khớp key_topics (không có trong summary) vẫn ra.
+    Trước fix, nhánh Postgres chỉ index summary → topic-only match bị mất."""
+    u = "u_topic"
+    mem.add_summary(user_id=u, summary="Buổi trò chuyện về định hướng tương lai",
+                    key_topics=["thiên di", "xuất ngoại"])
+    hits = mem.search_summaries(u, "xuất ngoại", limit=5)
+    assert len(hits) >= 1 and hits[0].user_id == u
+
+
 def test_glossary_and_context(backend):
     u = "u_ctx"
     mem.log_glossary_view(u, "Tử Vi")

@@ -319,22 +319,25 @@ def search_summaries(user_id: str, query: str, limit: int = 5) -> list[ChatSumma
             "COALESCE(s.chart_data_hash,''), s.created_at")
     with _scope() as conn:
         if _is_pg():
+            # tsvector gộp summary + key_topics (parity với SQLite FTS — nếu chỉ
+            # summary thì topic-only match bị mất). key_topics là JSONB → ::text.
+            tsv = ("to_tsvector('simple', coalesce(s.summary,'') || ' ' || "
+                   "coalesce(s.key_topics::text,''))")
             rows = conn.execute(
                 text(f"""SELECT {cols} FROM chat_summaries s
                          WHERE s.user_id=:uid
-                           AND to_tsvector('simple', coalesce(s.summary,''))
-                               @@ plainto_tsquery('simple', :q)
-                         ORDER BY ts_rank(to_tsvector('simple', coalesce(s.summary,'')),
-                                          plainto_tsquery('simple', :q)) DESC
+                           AND {tsv} @@ plainto_tsquery('simple', :q)
+                         ORDER BY ts_rank({tsv}, plainto_tsquery('simple', :q)) DESC
                          LIMIT :lim"""),
                 {"uid": user_id, "q": query, "lim": limit},
             ).fetchall()
             if rows:
                 return [_row_to_summary(r) for r in rows]
-            # fallback LIKE (query rỗng/không match tsquery)
+            # fallback LIKE (query rỗng/không match tsquery) — cũng phủ key_topics
             rows = conn.execute(
                 text(f"SELECT {cols} FROM chat_summaries s WHERE s.user_id=:uid "
-                     f"AND s.summary ILIKE :pat ORDER BY s.id DESC LIMIT :lim"),
+                     f"AND (s.summary ILIKE :pat OR s.key_topics::text ILIKE :pat) "
+                     f"ORDER BY s.id DESC LIMIT :lim"),
                 {"uid": user_id, "pat": f"%{query}%", "lim": limit},
             ).fetchall()
             return [_row_to_summary(r) for r in rows]

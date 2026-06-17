@@ -87,6 +87,17 @@ def test_happy_path_charges_and_saves(backend):
     assert row[0] == "tu_vi" and "deep" in row[1]
 
 
+def test_records_real_provider_cost(backend):
+    """Cost ghi vào ledger là cost THẬT provider báo (không phải catalog phẳng)."""
+    _seed(remaining=1)
+    def gen(person, uid):
+        return {"status": "ok", "provider": "anthropic", "cost_usd": 0.42,
+                "tokens": {"prompt": 1200, "completion": 800}, "phe_menh": "…"}
+    r = dr.run_deep_reading("uid_h5", generate=gen)
+    assert r["status"] == "done"
+    assert abs(llm_spend.day_total() - 0.42) < 1e-6   # cost thật, không phải 0.05
+
+
 def test_denied_without_subscription(backend):
     _seed(sub=False)
     r = dr.run_deep_reading("uid_h5", generate=_stub_must_not_call)
