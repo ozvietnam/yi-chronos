@@ -17,10 +17,15 @@ def client(monkeypatch, tmp_path):
     """App wired to an isolated empty users.sqlite3 + a known service key."""
     db = tmp_path / "users.sqlite3"
     import api.auth as auth
+    import engine.db as _db
     monkeypatch.setattr(auth, "AUTH_DB", db)
+    # sync.py giờ dùng engine.db → trỏ DATABASE_URL về CÙNG file temp.
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{db}")
+    _db.get_engine.cache_clear()
     monkeypatch.setenv("YI_SYNC_API_KEY", "test-secret")
     from api.main import app
-    return TestClient(app)
+    yield TestClient(app)
+    _db.get_engine.cache_clear()
 
 
 def test_requires_service_key(client):
