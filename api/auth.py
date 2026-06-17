@@ -40,6 +40,11 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Request, Response, status
 from pydantic import BaseModel, EmailStr
+from sqlalchemy.exc import IntegrityError as _SAIntegrityError
+
+# Dual-driver: SQLite ném sqlite3.IntegrityError; Postgres (qua SQLAlchemy/psycopg)
+# ném sqlalchemy.exc.IntegrityError. Handler 409 phải bắt cả hai (P0-2d).
+_INTEGRITY_ERRORS = (sqlite3.IntegrityError, _SAIntegrityError)
 
 logger = logging.getLogger(__name__)
 
@@ -710,7 +715,7 @@ def register(req: RegisterRequest, request: Request) -> dict:
             ))
             db.commit()
             new_id = cur.lastrowid
-        except sqlite3.IntegrityError:
+        except _INTEGRITY_ERRORS:
             raise HTTPException(status_code=409, detail="Email đã tồn tại")
     finally:
         db.close()
@@ -752,7 +757,7 @@ def signup(req: SignupRequest, request: Request, response: Response) -> dict:
             """, (email, name, pw_hash, salt, int(time.time())))
             db.commit()
             new_id = cur.lastrowid
-        except sqlite3.IntegrityError:
+        except _INTEGRITY_ERRORS:
             raise HTTPException(status_code=409, detail="Email đã được đăng ký rồi. Vui lòng đăng nhập.")
     finally:
         db.close()
@@ -1071,7 +1076,7 @@ def add_my_person(req: UserPersonCreate, request: Request) -> dict:
             ))
             db.commit()
             new_id = cur.lastrowid
-        except sqlite3.IntegrityError:
+        except _INTEGRITY_ERRORS:
             raise HTTPException(409, f"person_key {req.person_key!r} already exists")
     finally:
         db.close()
