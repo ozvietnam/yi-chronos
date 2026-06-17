@@ -40,6 +40,11 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Request, Response, status
 from pydantic import BaseModel, EmailStr
+from sqlalchemy.exc import IntegrityError as _SAIntegrityError
+
+# Dual-driver: SQLite ném sqlite3.IntegrityError; Postgres (qua SQLAlchemy/psycopg)
+# ném sqlalchemy.exc.IntegrityError. Handler 409 phải bắt cả hai (P0-2d).
+_INTEGRITY_ERRORS = (sqlite3.IntegrityError, _SAIntegrityError)
 
 logger = logging.getLogger(__name__)
 
@@ -99,9 +104,26 @@ COOKIE_NAME = "yi_session"
 
 # ─── DB init ──────────────────────────────────────────────────────────────────
 
-def _connect() -> sqlite3.Connection:
+def _connect():
+    """Runtime DB connection cho auth/admin — qua engine.db adapter (dual-driver
+    SQLite/Postgres, P0-2d). Giữ văn phong sqlite3 (?, fetchone, lastrowid,
+    commit, close) nên call-sites KHÔNG đổi. service-mode (auth là server-side,
+    tra session theo token trước khi biết user → cần bypass RLS).
+
+    DDL/seed sqlite-specific (PRAGMA/AUTOINCREMENT/FTS) KHÔNG đi qua đây — chúng
+    dùng `_sqlite_raw_connect()`.
+    """
     AUTH_DB.parent.mkdir(parents=True, exist_ok=True)
-    return sqlite3.connect(AUTH_DB)
+    from engine.db import compat_connect
+    return compat_connect(service=True)
+
+
+def _sqlite_raw_connect() -> sqlite3.Connection:
+    """Raw sqlite3 trên đúng file engine (dev) — chỉ cho DDL/migration/seed."""
+    from engine.db import database_url
+    path = database_url().replace("sqlite:///", "", 1)
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    return sqlite3.connect(path)
 
 
 def _init_schema(db: sqlite3.Connection) -> None:
@@ -365,7 +387,19 @@ def _migrate_casting_algo_version_column(db: sqlite3.Connection) -> None:
 
 
 def _ensure_initialized() -> None:
-    db = _connect()
+    """Driver-aware: SQLite → tạo schema + migrate + seed founder trên file engine.
+    Postgres → apply_schema (db/postgres/schema.sql, idempotent) + seed founder."""
+    from engine.db import apply_schema, get_engine, is_postgres
+    if is_postgres():
+        with get_engine().begin() as conn:
+            apply_schema(conn)
+        db = _connect()           # adapter (service-mode) — seed nếu users rỗng
+        try:
+            _seed_founder(db)
+        finally:
+            db.close()
+        return
+    db = _sqlite_raw_connect()
     try:
         _init_schema(db)
         _migrate_v2_suspend_columns(db)
@@ -681,7 +715,7 @@ def register(req: RegisterRequest, request: Request) -> dict:
             ))
             db.commit()
             new_id = cur.lastrowid
-        except sqlite3.IntegrityError:
+        except _INTEGRITY_ERRORS:
             raise HTTPException(status_code=409, detail="Email đã tồn tại")
     finally:
         db.close()
@@ -723,7 +757,7 @@ def signup(req: SignupRequest, request: Request, response: Response) -> dict:
             """, (email, name, pw_hash, salt, int(time.time())))
             db.commit()
             new_id = cur.lastrowid
-        except sqlite3.IntegrityError:
+        except _INTEGRITY_ERRORS:
             raise HTTPException(status_code=409, detail="Email đã được đăng ký rồi. Vui lòng đăng nhập.")
     finally:
         db.close()
@@ -1042,7 +1076,7 @@ def add_my_person(req: UserPersonCreate, request: Request) -> dict:
             ))
             db.commit()
             new_id = cur.lastrowid
-        except sqlite3.IntegrityError:
+        except _INTEGRITY_ERRORS:
             raise HTTPException(409, f"person_key {req.person_key!r} already exists")
     finally:
         db.close()

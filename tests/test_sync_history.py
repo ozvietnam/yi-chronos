@@ -19,10 +19,14 @@ HDR = {"X-API-Key": "test-secret"}
 def client(monkeypatch, tmp_path):
     db = tmp_path / "users.sqlite3"
     import api.auth as auth
+    import engine.db as _db
     monkeypatch.setattr(auth, "AUTH_DB", db)
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{db}")
+    _db.get_engine.cache_clear()
     monkeypatch.setenv("YI_SYNC_API_KEY", "test-secret")
     from api.main import app
-    return TestClient(app)
+    yield TestClient(app)
+    _db.get_engine.cache_clear()
 
 
 def _sync_user(client, uid="uid_hist"):
