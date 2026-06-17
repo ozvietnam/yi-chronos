@@ -106,4 +106,6 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
     CMD curl -f http://127.0.0.1:8000/api/health || exit 1
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# P0-4: gunicorn quản N uvicorn worker (đa lõi + HA mỗi instance) thay vì 1 uvicorn.
+# Số worker theo WEB_CONCURRENCY (mặc định max(3, 2*cpu+1)). Xem gunicorn.conf.py.
+CMD ["gunicorn", "api.main:app", "-c", "gunicorn.conf.py"]

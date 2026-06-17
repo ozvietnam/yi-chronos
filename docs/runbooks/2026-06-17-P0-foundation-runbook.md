@@ -102,7 +102,7 @@ pg_dump "postgresql://yi_app:<secret>@<host>:5432/yi" -Fc -f yi_$(date +%F).dump
 - **P0-2d:** `auth.py` + `admin.py` → engine.db qua `CompatConnection` adapter;
   schema + sessions/audit_log/publications; migrate đủ bảng. ✅ → **đủ điều kiện cutover.**
 - **P0-3:** Celery + Redis + Beat (queue `q_deepread`/`q_hermes`/`q_digest`/`q_compat`) — nền H5/H7. ✅ plumbing + test eager.
-- **P0-4:** gunicorn đa worker + Nginx LB + ≥3 instance + rolling deploy (`Dockerfile`/`deploy.yml`).
+- **P0-4:** gunicorn đa worker (UvicornWorker) — vá G3. ✅ config + test. (Nginx LB + ≥3 instance = ops, xem dưới.)
 - **P0-5:** observability (Prometheus/Grafana/Sentry + bảng `llm_spend`) + rate-limit Redis.
 - **P0-6:** read replica + PgBouncer prod + partition `user_castings`/`user_events` (khi tới mốc).
 
@@ -135,3 +135,18 @@ python -c "from engine.tasks.jobs import ping; print(ping.delay('hi').get(timeou
 Prod: chạy worker/beat thành **service riêng** (systemd/supervisor/container), tách
 worker theo queue để scale (q_deepread ít concurrency timeout cao; q_digest throughput
 cao). Logic nghiệp vụ các task ở H5 (#38) / H7 (#40) / cụm D — P0-3 mới là plumbing.
+
+
+---
+
+## P0-4 — gunicorn đa worker + LB
+
+`Dockerfile` CMD đã đổi `uvicorn` (1 process) → `gunicorn -c gunicorn.conf.py`
+(N=`WEB_CONCURRENCY`, mặc định max(3, 2*cpu+1) worker UvicornWorker). Vá G3 (1 lõi /
+crash = downtime) ở **mức mỗi instance**.
+
+**HA thật ở mốc lớn (ops, ngoài code):**
+- Chạy **≥3 instance** container (deploy.yml/compose) sau **Nginx/Caddy LB** với
+  health-check `/api/health` → 1 instance chết, LB chuyển hướng, không downtime.
+- **Rolling deploy**: LB rút instance cũ → deploy → thêm lại, lần lượt.
+- Job dài (H5) KHÔNG ở web worker → Celery (P0-3). Web worker chỉ phục vụ request ngắn.
