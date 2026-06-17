@@ -15,8 +15,12 @@ workers = int(os.environ.get("WEB_CONCURRENCY", max(3, 2 * _cpu + 1)))
 worker_class = "uvicorn.workers.UvicornWorker"
 bind = os.environ.get("BIND", "0.0.0.0:8000")
 
-# Timeout rộng cho request engine nặng (an sao/cast); job rất dài đã ở Celery.
-timeout = int(os.environ.get("GUNICORN_TIMEOUT", "120"))
+# Timeout cho request engine nặng. Mặc định 180s: một số endpoint GỌI LLM ĐỒNG BỘ
+# (quiz tìm giờ sinh / luận giải dùng MiniMax|DeepSeek) có thể vượt 120s → gunicorn
+# giết worker giữa response = 502 + rớt request khác trên worker đó. Job RẤT dài (H5
+# luận sâu) đã đẩy sang Celery. TODO: chuyển nốt các endpoint LLM-inline sang async
+# queue để có thể hạ timeout này về ~60s (worker không bị giữ lâu).
+timeout = int(os.environ.get("GUNICORN_TIMEOUT", "180"))
 graceful_timeout = 30
 keepalive = 5
 

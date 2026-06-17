@@ -21,7 +21,7 @@ _TZ = ZoneInfo("Asia/Ho_Chi_Minh")
 
 from sqlalchemy import text
 
-from engine.db import session_scope
+from engine.db import is_postgres, session_scope
 
 _DDL = """
 CREATE TABLE IF NOT EXISTS llm_spend (
@@ -88,8 +88,50 @@ def daily_budget_usd() -> float:
 
 
 def over_daily_budget() -> bool:
-    """True nếu chi hôm nay ≥ ngân sách → caller rớt về self-host/free hoặc từ chối."""
+    """True nếu chi hôm nay ≥ ngân sách → caller rớt về self-host/free hoặc từ chối.
+
+    LƯU Ý: đây là check 'mềm' (read-then-act) — có cửa sổ TOCTOU khi nhiều request
+    đồng thời. Cho luồng tốn tiền (H5), dùng `try_charge()` (atomic) thay vì cái này."""
     return day_total() >= daily_budget_usd()
+
+
+def try_charge(*, cost_usd: float, feature: str = "", model: str = "",
+               tokens_in: int = 0, tokens_out: int = 0,
+               user_id: Optional[str] = None) -> bool:
+    """Đặt-chỗ ngân sách ATOMIC: trong MỘT transaction có khoá, kiểm tra
+    (tổng_ngày + cost ≤ ngân sách) RỒI ghi ngay → nhiều request đồng thời không thể
+    cùng vượt cap (đóng cửa sổ TOCTOU của over_daily_budget).
+
+    Trả True nếu đã ghi (được phép tiêu); False nếu sẽ vượt ngân sách (KHÔNG ghi).
+    Caller nên ghi 'đặt chỗ' = ước lượng trước khi gọi LLM, rồi điều chỉnh về cost
+    thật bằng record_spend(delta) sau (hoặc record_spend(-est) để hoàn nếu lỗi).
+
+    Lỗi hạ tầng → fail-open (True, không ghi): không chặn user vì lỗi đo lường."""
+    budget = daily_budget_usd()
+    day = _today()
+    try:
+        with session_scope(service=True) as conn:
+            _ensure(conn)
+            if is_postgres():
+                # advisory lock cấp-transaction → serialize mọi gate tới khi commit.
+                conn.execute(text("SELECT pg_advisory_xact_lock(hashtext('yi_llm_budget'))"))
+            total = conn.execute(
+                text("SELECT COALESCE(SUM(cost_usd),0) FROM llm_spend WHERE day=:d"),
+                {"d": day},
+            ).scalar() or 0.0
+            if float(total) + float(cost_usd) > budget:
+                return False
+            conn.execute(
+                text("""INSERT INTO llm_spend
+                        (ts, day, provider, feature, model, tokens_in, tokens_out, cost_usd, user_id)
+                        VALUES (:ts,:day,:prov,:feat,:model,:ti,:to,:cost,:uid)"""),
+                {"ts": int(time.time()), "day": day, "prov": "reserve",
+                 "feat": feature, "model": model or "reserve", "ti": tokens_in,
+                 "to": tokens_out, "cost": float(cost_usd), "uid": user_id},
+            )
+            return True
+    except Exception:
+        return True
 
 
 def spend_summary(day: Optional[str] = None) -> dict:

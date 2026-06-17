@@ -32,5 +32,11 @@ def test_web_concurrency_env_override():
     assert ns["workers"] == 8
 
 
+def test_timeout_high_for_inline_llm_and_overridable():
+    # ≥150s: endpoint gọi LLM đồng bộ (quiz/luận giải) có thể vượt 120s (#6)
+    assert _load()["timeout"] >= 150
+    assert _load(env={"GUNICORN_TIMEOUT": "240"})["timeout"] == 240
+
+
 def test_uvicorn_worker_importable():
     import uvicorn.workers  # noqa: F401  — worker_class phải import được

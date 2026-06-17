@@ -1,21 +1,33 @@
 """P0-5 — rate-limit (chống abuse đốt LLM / spam endpoint).
 
-Fixed-window counter: Redis (đa worker/instance dùng chung) nếu có; nếu không →
-fallback in-memory per-process (đủ cho dev/test/1 worker). API layer gọi `allow()`
-trước endpoint tốn LLM (H5/H6) + hạn mức/ngày theo gói.
+Sliding-window-log: đếm số sự kiện trong [now-window, now] thay vì bucket cố định
+→ KHÔNG còn lỗ hổng burst 2× ở ranh giới cửa sổ (fixed-window cũ cho phép `limit`
+cuối bucket N + `limit` đầu bucket N+1 trong ~1s).
+
+Backend:
+  - Redis (sorted set, chia sẻ đa worker/instance) nếu có — ĐÂY là đường prod.
+  - Fallback in-memory per-process: CHỈ cho dev/test/1-worker. Ở prod đa-worker,
+    fallback = limit × số worker (mỗi process đếm riêng) → coi Redis là BẮT BUỘC ở
+    prod (đặt REDIS_URL). Lần đầu fallback có log cảnh báo.
 """
 from __future__ import annotations
 
+import itertools
+import logging
 import os
 import threading
 import time
 from typing import Optional
 
+logger = logging.getLogger(__name__)
+
 _REDIS_URL = (os.environ.get("REDIS_URL") or os.environ.get("CELERY_BROKER_URL")
               or "redis://localhost:6379/0")
 _redis = None              # None=chưa thử · False=không có · client=có
-_mem: dict[str, tuple[int, int]] = {}
+_mem: dict[str, list[float]] = {}   # key → timestamps (giây) trong cửa sổ
 _lock = threading.Lock()
+_seq = itertools.count()   # đảm bảo member ZADD là duy nhất
+_warned_fallback = False
 
 
 def _get_redis():
@@ -32,42 +44,61 @@ def _get_redis():
     return _redis or None
 
 
+def _warn_fallback():
+    global _warned_fallback
+    if not _warned_fallback:
+        _warned_fallback = True
+        logger.warning("ratelimit: Redis không sẵn sàng → fallback in-memory "
+                       "per-process. Ở prod đa-worker PHẢI đặt REDIS_URL.")
+
+
 def allow(key: str, limit: int, window_sec: int = 60) -> bool:
-    """True nếu còn quota cho `key` trong cửa sổ `window_sec`; False nếu vượt."""
+    """True nếu còn quota cho `key` trong cửa sổ trượt `window_sec`; False nếu vượt."""
     if limit <= 0:
         return False
-    bucket = int(time.time()) // window_sec
+    now = time.time()
+    cutoff = now - window_sec
     r = _get_redis()
     if r is not None:
         try:
-            rk = f"rl:{key}:{bucket}"
-            n = r.incr(rk)
-            if n == 1:
-                r.expire(rk, window_sec)
-            return n <= limit
+            rk = f"rl:{key}"
+            pipe = r.pipeline()
+            pipe.zremrangebyscore(rk, 0, cutoff)         # bỏ sự kiện ngoài cửa sổ
+            pipe.zadd(rk, {f"{now}:{next(_seq)}": now})  # ghi sự kiện hiện tại
+            pipe.zcard(rk)                               # đếm trong cửa sổ
+            pipe.expire(rk, window_sec + 1)
+            _, _, n, _ = pipe.execute()
+            return int(n) <= limit
         except Exception:
             pass  # Redis lỗi giữa chừng → fallback
+    _warn_fallback()
     with _lock:
-        cnt, b = _mem.get(key, (0, bucket))
-        if b != bucket:
-            cnt, b = 0, bucket
-        cnt += 1
-        _mem[key] = (cnt, b)
-        return cnt <= limit
+        dq = _mem.setdefault(key, [])
+        i = 0
+        while i < len(dq) and dq[i] < cutoff:
+            i += 1
+        if i:
+            del dq[:i]
+        dq.append(now)
+        return len(dq) <= limit
 
 
 def remaining(key: str, limit: int, window_sec: int = 60) -> int:
-    """Số lượt còn lại trong cửa sổ hiện tại (xấp xỉ; cho UI/headers)."""
-    bucket = int(time.time()) // window_sec
+    """Số lượt còn lại trong cửa sổ trượt hiện tại (xấp xỉ; cho UI/headers)."""
+    now = time.time()
+    cutoff = now - window_sec
     r = _get_redis()
     if r is not None:
         try:
-            used = int(r.get(f"rl:{key}:{bucket}") or 0)
+            rk = f"rl:{key}"
+            r.zremrangebyscore(rk, 0, cutoff)
+            used = int(r.zcard(rk) or 0)
             return max(0, limit - used)
         except Exception:
             pass
-    cnt, b = _mem.get(key, (0, bucket))
-    used = cnt if b == bucket else 0
+    with _lock:
+        dq = _mem.get(key, [])
+        used = sum(1 for t in dq if t >= cutoff)
     return max(0, limit - used)
 
 

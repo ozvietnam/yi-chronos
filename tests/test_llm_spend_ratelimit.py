@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import time
 
 import pytest
 from sqlalchemy import text
@@ -55,7 +56,26 @@ def test_spend_summary_breakdown(backend):
     assert s["budget_usd"] == 1.0
 
 
+def test_try_charge_atomic_gate(backend):
+    # budget 1.0 (fixture). Đặt-chỗ atomic: ghi khi còn quota, từ chối khi sẽ vượt.
+    assert spend.try_charge(cost_usd=0.6, feature="h5") is True
+    assert abs(spend.day_total() - 0.6) < 1e-6
+    assert spend.try_charge(cost_usd=0.5, feature="h5") is False   # 1.1 > 1.0 → chặn
+    assert abs(spend.day_total() - 0.6) < 1e-6                     # KHÔNG ghi khi chặn
+    assert spend.try_charge(cost_usd=0.4, feature="h5") is True    # 1.0 ≤ 1.0 → ok
+    assert abs(spend.day_total() - 1.0) < 1e-6
+
+
 # ─── rate-limit (in-memory fallback; không cần Redis daemon) ─────────────────
+
+def test_ratelimit_sliding_prunes_old_events():
+    """Sliding-window: sự kiện ngoài cửa sổ bị prune (không như fixed-window)."""
+    rl.reset("u:slide")
+    now = time.time()
+    rl._mem["u:slide"] = [now - 120, now - 90, now - 61]   # 3 sự kiện CŨ (>60s)
+    assert rl.allow("u:slide", limit=3, window_sec=60) is True   # cũ prune → còn quota
+    assert rl.remaining("u:slide", limit=3, window_sec=60) == 2  # chỉ 1 trong cửa sổ
+
 
 def test_ratelimit_allows_up_to_limit_then_blocks():
     rl.reset("u:test")

@@ -89,48 +89,57 @@ def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
     if not access["allowed"]:
         return {"status": "denied", "reason": access["reason"]}
 
-    # Hard-stop ngân sách LLM (master plan §5) — KHÔNG gọi LLM nếu đã vượt.
-    if llm_spend.over_daily_budget():
+    # Đặt-chỗ ngân sách ATOMIC (master plan §5): ghi trước 1 khoản ước lượng. Nếu
+    # sẽ vượt cap → từ chối, KHÔNG gọi LLM. Đóng cửa sổ TOCTOU khi nhiều request
+    # đồng thời (khác over_daily_budget 'mềm').
+    est = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
+    if not llm_spend.try_charge(cost_usd=est, feature=FEATURE, model="reserve",
+                                user_id=str(uid)):
         return {"status": "budget_exceeded"}
 
-    result = generate(person, uid)
-    if not isinstance(result, dict) or result.get("status") == "error":
-        # generation lỗi → KHÔNG trừ lượt/không tính tiền
-        return {"status": "error", "reason": "generation_failed",
-                "detail": (result or {}).get("message")}
+    def _refund():
+        # hoàn lại khoản đặt-chỗ bằng dòng âm (giữ "không tính tiền khi lỗi").
+        llm_spend.record_spend(provider="reserve", cost_usd=-est, feature=FEATURE,
+                               model="refund", user_id=str(uid))
 
-    # Thứ tự: lưu lịch sử (H1) + trừ lượt TRƯỚC, ghi chi phí SAU. Nếu save lỗi →
-    # exception thoát ra trước khi consume/record → user KHÔNG mất lượt, KHÔNG bị
-    # tính tiền (chỉ mất 1 lần sinh — họ gọi lại). Tránh "charged-but-lost".
-    av = algo_version("tu_vi")
-    res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
-    with session_scope(service=True) as conn:
-        cid = conn.execute(
-            text(f"""INSERT INTO user_castings
-                    (user_id, method, subject_person_key, question, result_json,
-                     verdict, tags, note, algo_version, created_at)
-                    VALUES (:uid,'tu_vi',:pk,:q,{res_expr},NULL,'deep,phe_menh',NULL,:av,:now)
-                    RETURNING id"""),
-            {"uid": uid, "pk": person_key, "q": "Luận sâu phê mệnh (DeepSeek)",
-             "res": json.dumps(result, ensure_ascii=False), "av": av,
-             "now": int(time.time())},
-        ).scalar()
+    try:
+        result = generate(person, uid)
+        if not isinstance(result, dict) or result.get("status") == "error":
+            _refund()
+            return {"status": "error", "reason": "generation_failed",
+                    "detail": (result or {}).get("message")}
 
-    usage = subs.consume_use(uid, FEATURE)
+        # Lưu lịch sử (H1) + trừ lượt. Nếu save/consume lỗi → except _refund() bên dưới.
+        av = algo_version("tu_vi")
+        res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
+        with session_scope(service=True) as conn:
+            cid = conn.execute(
+                text(f"""INSERT INTO user_castings
+                        (user_id, method, subject_person_key, question, result_json,
+                         verdict, tags, note, algo_version, created_at)
+                        VALUES (:uid,'tu_vi',:pk,:q,{res_expr},NULL,'deep,phe_menh',NULL,:av,:now)
+                        RETURNING id"""),
+                {"uid": uid, "pk": person_key, "q": "Luận sâu phê mệnh (DeepSeek)",
+                 "res": json.dumps(result, ensure_ascii=False), "av": av,
+                 "now": int(time.time())},
+            ).scalar()
+        usage = subs.consume_use(uid, FEATURE)
+    except Exception:
+        _refund()
+        raise
 
-    # Ghi chi phí cuối cùng. Ưu tiên cost THẬT provider báo (phe_menh trả cost_usd +
-    # tokens) — fallback ước lượng catalog chỉ khi provider không báo (cost<=0).
-    # Tránh under-count khi fallback rơi vào provider đắt (vd Anthropic). record_spend
-    # tự nuốt lỗi → fail chỉ under-count, không hỏng request đã thành công.
+    # Điều chỉnh đặt-chỗ → cost THẬT provider báo (phe_menh trả cost_usd + tokens):
+    # ghi delta = thật − ước lượng (có thể âm). Tránh under-count khi fallback rơi vào
+    # provider đắt. record_spend nuốt lỗi → fail chỉ lệch nhẹ, không hỏng request.
     real_cost = float(result.get("cost_usd") or 0)
-    cost = real_cost if real_cost > 0 else float(
-        subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
-    toks = result.get("tokens") or {}
-    llm_spend.record_spend(provider=result.get("provider", "deepseek"),
-                           cost_usd=cost, feature=FEATURE, model=result.get("model", ""),
-                           tokens_in=int(toks.get("prompt") or 0),
-                           tokens_out=int(toks.get("completion") or 0),
-                           user_id=str(uid))
+    if real_cost > 0:
+        toks = result.get("tokens") or {}
+        llm_spend.record_spend(provider=result.get("provider", "deepseek"),
+                               cost_usd=real_cost - est, feature=FEATURE,
+                               model=result.get("model", ""),
+                               tokens_in=int(toks.get("prompt") or 0),
+                               tokens_out=int(toks.get("completion") or 0),
+                               user_id=str(uid))
     return {
         "status": "done", "casting_id": cid, "algo_version": av,
         "provider": result.get("provider"),
