@@ -28,7 +28,10 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine
 
 # Dev fallback: 1 file SQLite hợp nhất (chỉ cho local/test, KHÔNG phải prod).
-_DEFAULT_SQLITE = Path(__file__).resolve().parent.parent / "data" / "yi_users" / "yi_unified.sqlite3"
+# Dev fallback: store user hiện tại (users.sqlite3) — để các module được chuyển
+# sang engine.db vẫn đọc đúng dữ liệu cũ trên dev (non-breaking). Prod set DATABASE_URL
+# → Postgres hợp nhất. (memory.sqlite3 là file riêng, chuyển ở PR sau.)
+_DEFAULT_SQLITE = Path(__file__).resolve().parent.parent / "data" / "yi_users" / "users.sqlite3"
 
 
 def database_url() -> str:
