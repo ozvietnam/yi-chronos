@@ -20,12 +20,26 @@ Built 2026-06-10 Phase C.
 """
 from __future__ import annotations
 
-from fastapi import APIRouter, Request, HTTPException
+import sqlite3
+import time
+from pathlib import Path
+from typing import Optional
+
+from fastapi import APIRouter, Header, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from engine.atomization.output_filler_v2 import render_3_layer
 
 router = APIRouter(prefix="/api/tu-vi", tags=["tu-vi-3layer"])
+
+# Phản hồi độ khớp chân dung (cuối mỗi phần: khai vị + từng món chính) — lưu cạnh
+# users. KHÔNG để chung wiki.sqlite3 (đó là content db, ngoài CI). Đây là dữ liệu
+# vận hành theo user (X-User-Id = Firebase UID do AppChat xác thực).
+_PROJECT_ROOT = Path(__file__).resolve().parents[1]
+FEEDBACK_DB = _PROJECT_ROOT / "data/yi_users/tuvi_feedback.sqlite3"
+
+# verdict: mức độ khớp CHÂN DUNG (để soát dữ liệu sinh) — KHÔNG phải "bói đúng/sai".
+VALID_VERDICTS = {"correct", "close", "wrong", "vague"}
 
 
 class LaSoInput(BaseModel):
@@ -708,3 +722,70 @@ async def founder_demo() -> dict:
         }
     }
     return render_3_layer(la_so)
+
+
+# ── Phản hồi độ khớp (cuối mỗi phần luận) ────────────────────────────────────
+
+def _ensure_feedback_table(conn: sqlite3.Connection) -> None:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS tuvi_feedback (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id     TEXT,                -- X-User-Id (Firebase UID), nullable
+            person_key  TEXT,                -- hồ sơ mệnh lý (nếu app gửi)
+            section     TEXT NOT NULL,       -- 'khai_vi' | slug món chính
+            verdict     TEXT NOT NULL,       -- correct|close|wrong|vague
+            note        TEXT,
+            model       TEXT,                -- bài luận do model nào sinh (truy vết)
+            created_at  INTEGER NOT NULL
+        )
+    """)
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_tuvi_feedback_user "
+        "ON tuvi_feedback (user_id, section)"
+    )
+
+
+class FeedbackInput(BaseModel):
+    section: str = Field(..., description="'khai_vi' hoặc slug món chính (vd 'su-nghiep')")
+    verdict: str = Field(..., description="correct | close | wrong | vague")
+    note: Optional[str] = Field(None, description="ghi chú tự do của user (tùy chọn)")
+    person_key: Optional[str] = None
+    model: Optional[str] = Field(None, description="model đã sinh bài (truy vết, tùy chọn)")
+
+
+@router.post("/feedback")
+async def submit_feedback(
+    fb: FeedbackInput,
+    x_user_id: Optional[str] = Header(default=None),
+) -> dict:
+    """Nhận phản hồi độ KHỚP CHÂN DUNG cuối mỗi phần luận (khai vị + món chính).
+
+    Mục đích: (1) đo độ khớp để cải thiện luận giải; (2) cờ NGHI NGỜ DỮ LIỆU SINH
+    khi verdict ∈ {wrong, vague} → AppChat mời user soát lại ngày/giờ sinh (lẫn
+    âm-dương, không nhớ giờ) hoặc chạy quiz tìm giờ. KHÔNG phải "bói đúng/sai".
+    """
+    verdict = (fb.verdict or "").strip().lower()
+    if verdict not in VALID_VERDICTS:
+        raise HTTPException(422, f"verdict không hợp lệ: {fb.verdict!r} (cho phép: {sorted(VALID_VERDICTS)})")
+    if not (fb.section or "").strip():
+        raise HTTPException(422, "thiếu section")
+
+    FEEDBACK_DB.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(FEEDBACK_DB)
+    try:
+        _ensure_feedback_table(conn)
+        conn.execute(
+            "INSERT INTO tuvi_feedback "
+            "(user_id, person_key, section, verdict, note, model, created_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (x_user_id, fb.person_key, fb.section.strip(), verdict,
+             fb.note, fb.model, int(time.time())),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+    # wrong/vague = tín hiệu dữ liệu sinh có thể sai → AppChat gợi ý soát lại.
+    birth_doubt = verdict in ("wrong", "vague")
+    return {"status": "ok", "stored": True, "section": fb.section.strip(),
+            "verdict": verdict, "birth_doubt": birth_doubt}

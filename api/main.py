@@ -169,7 +169,9 @@ from api.tu_vi_3layer import router as tu_vi_3layer_router  # noqa: E402
 from api.atoms_verify import router as atoms_verify_router  # noqa: E402
 from api.thiet_ban import router as thiet_ban_router  # noqa: E402
 from api.hoang_cuc import router as hoang_cuc_router  # noqa: E402
+from api.sync import router as sync_router  # noqa: E402
 app.include_router(auth_router)
+app.include_router(sync_router)
 app.include_router(admin_router)
 app.include_router(atomization_router)
 app.include_router(tu_vi_3layer_router)
@@ -285,6 +287,16 @@ def health() -> dict[str, str]:
         "ziwei_school": ZIWEI_SCHOOL,
         "ziwei_ruleset_id": ZIWEI_RULESET_ID,
     }
+
+
+@app.get("/api/version")
+def version() -> dict:
+    """H3 — version contract cho freshness §5bis.
+
+    AppChat so `algo_version` (+ per-method) với bản đã cache; khác → refetch.
+    Nhẹ, không auth (chỉ là số version, không phải data user)."""
+    from engine.algo_version import version_info
+    return version_info()
 
 
 @app.get("/api/ruleset/active")
@@ -1321,6 +1333,91 @@ def bat_tu_hon_nhan(request: BatTuLifeDomainRequest) -> dict[str, object]:
         "algorithm_version": ALGORITHM_VERSION,
         "bat_tu_state": state,
         "hon_nhan": hn,
+    }
+
+
+class GieoDuyenProfileRequest(BaseModel):
+    birth_year: int
+    gender: str = "nam"
+
+
+class CompatibleYearsRequest(BaseModel):
+    birth_year: int
+    gender: Optional[str] = None
+    span: int = 10
+    top: int = 6
+
+
+class MarriageYearsRequest(BaseModel):
+    birth_datetime_local: str
+    gender: str = "nam"
+    timezone: str = "Asia/Ho_Chi_Minh"
+    from_year: Optional[int] = None
+    count: int = 3
+    scan: int = 6
+
+
+class CompatBatchRequest(BaseModel):
+    anchor: dict                  # compat_key(...) của user
+    candidates: list[dict]        # mỗi item: compat_key(...) + 'id'
+
+
+@app.post("/api/bat-tu/profile-derived")
+def bat_tu_profile_derived(request: GieoDuyenProfileRequest) -> dict[str, object]:
+    """G1 — nạp âm + cung mệnh Bát Trạch (cụm A gieo duyên). Hàm thuần."""
+    from engine.algo_version import algo_version
+    from engine.bat_tu.gieo_duyen import profile_derived
+
+    return {
+        "algo_version": algo_version("profile_derived"),
+        "profile_derived": profile_derived(request.birth_year, request.gender),
+    }
+
+
+@app.post("/api/bat-tu/compatible-years")
+def bat_tu_compatible_years(request: CompatibleYearsRequest) -> dict[str, object]:
+    """G2 — tuổi (năm sinh) hợp với user (cụm B). Hàm thuần."""
+    from engine.algo_version import algo_version
+    from engine.bat_tu.gieo_duyen import PARADIGM_GUARD, compatible_years
+
+    items = compatible_years(request.birth_year, request.gender,
+                             span=request.span, top=request.top)
+    return {
+        "algo_version": algo_version("compatible_years"),
+        "paradigm_guard": PARADIGM_GUARD,
+        "compatible_years": items,
+    }
+
+
+@app.post("/api/bat-tu/marriage-years")
+def bat_tu_marriage_years(request: MarriageYearsRequest) -> dict[str, object]:
+    """G3 — năm dương lịch tốt để kết hôn (cụm C). Cần giờ sinh. Hàm thuần."""
+    from engine.algo_version import algo_version
+    from engine.bat_tu.gieo_duyen import PARADIGM_GUARD, marriage_years
+
+    items = marriage_years(
+        request.birth_datetime_local, request.gender, request.timezone,
+        from_year=request.from_year, count=request.count, scan=request.scan,
+    )
+    return {
+        "algo_version": algo_version("marriage_years"),
+        "paradigm_guard": PARADIGM_GUARD,
+        "marriage_years": items,
+    }
+
+
+@app.post("/api/bat-tu/compat-batch")
+def bat_tu_compat_batch(request: CompatBatchRequest) -> dict[str, object]:
+    """G4 — chấm 1 anchor với N ứng viên (cụm D). 1 lời gọi cho N người."""
+    from engine.algo_version import algo_version
+    from engine.bat_tu.gieo_duyen import PARADIGM_GUARD, compat_batch
+
+    scores = compat_batch(request.anchor, request.candidates)
+    return {
+        "algo_version": algo_version("couple_match"),
+        "paradigm_guard": PARADIGM_GUARD,
+        "scores": scores,
+        "count": len(scores),
     }
 
 
