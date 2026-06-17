@@ -38,7 +38,8 @@ def nightly_compat_precompute(self) -> dict:
 
 @celery_app.task(name="yi.deepread.run", bind=True, max_retries=2,
                  acks_late=True, queue="q_deepread")
-def deepread_run(self, *, firebase_uid: str, payload: dict | None = None) -> dict:
-    """H5 (#38) — luận sâu DeepSeek async. P0-3: no-op (chưa gọi engine/gate)."""
-    logger.info("deepread_run: plumbing only (H5 #38 chưa triển khai logic)")
-    return {"status": "noop", "stage": "P0-3 plumbing", "firebase_uid": firebase_uid}
+def deepread_run(self, *, firebase_uid: str, person_key: str = "self") -> dict:
+    """H5 (#38) — luận sâu DeepSeek async. Gọi orchestration (gating + ngân sách +
+    sinh + lưu lịch sử + consume). Heavy LLM → chạy ở worker q_deepread."""
+    from engine.deep_reading import run_deep_reading
+    return run_deep_reading(firebase_uid, person_key)

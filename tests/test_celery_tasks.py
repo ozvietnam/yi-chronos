@@ -53,7 +53,8 @@ def test_long_job_config_for_deepread():
 
 
 def test_stub_tasks_noop_eager():
-    from engine.tasks.jobs import weekly_digest_tick, nightly_compat_precompute, deepread_run
+    # weekly_digest/compat vẫn là plumbing (H7/#40 + cụm D chưa làm logic).
+    # deepread_run đã chạy thật (H5) — kiểm chứng ở tests/test_deep_reading.py.
+    from engine.tasks.jobs import weekly_digest_tick, nightly_compat_precompute
     assert weekly_digest_tick.delay().get()["status"] == "noop"
     assert nightly_compat_precompute.delay().get()["status"] == "noop"
-    assert deepread_run.delay(firebase_uid="u1").get()["firebase_uid"] == "u1"

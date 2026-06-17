@@ -385,3 +385,47 @@ def history_for_uid(
             "found": True, "yi_user_id": user_id,
             "items": page, "count": len(page), "total": total,
         }
+
+
+# ─── H5: luận sâu DeepSeek (async qua Celery q_deepread) ─────────────────────
+
+class DeepReadingRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+
+
+@router.post("/deep-reading")
+def enqueue_deep_reading(
+    req: DeepReadingRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """H5 — xếp hàng job luận sâu (gói trả phí). Pre-check nhanh: 404 chưa sync,
+    422 thiếu giờ sinh, 403 không có quyền (gói). Hợp lệ → enqueue → trả job_id."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.deep_reading import precheck
+
+    pc = precheck(req.firebase_uid, req.person_key)
+    if not pc["ok"]:
+        raise HTTPException(pc["code"], pc["reason"])
+
+    from engine.tasks.jobs import deepread_run
+    async_res = deepread_run.delay(firebase_uid=req.firebase_uid, person_key=req.person_key)
+    return {"status": "processing", "job_id": async_res.id}
+
+
+@router.get("/deep-reading/{job_id}")
+def deep_reading_status(
+    job_id: str,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Trạng thái job luận sâu. AppChat poll cho tới khi state=SUCCESS → result."""
+    _require_service_key(x_api_key)
+    from engine.tasks.celery_app import celery_app
+    res = celery_app.AsyncResult(job_id)
+    out: dict = {"job_id": job_id, "state": res.state}
+    if res.successful():
+        out["result"] = res.result
+    elif res.failed():
+        out["error"] = str(res.result)[:300]
+    return out

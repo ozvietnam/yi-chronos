@@ -350,3 +350,24 @@ Test: `tests/test_gieo_duyen.py`.
 - `500`: lỗi engine (vd thiếu provider ở endpoint cần LLM).
 
 > Mọi schema trong doc này khớp Pydantic model tại thời điểm cập nhật. Khi engine đổi, doc cập nhật theo cùng commit.
+
+## 6d. Luận sâu DeepSeek — H5 (✅ orchestration 2026-06-17, async, gói trả phí)
+
+Job dài (~30–90s) → **async qua Celery `q_deepread`**. Gói trả phí (`tu_vi_phe_menh_sau`).
+Bọc engine `TuViAnalyzer.phe_menh()` + gating + hard-stop ngân sách LLM + lưu lịch sử + trừ lượt.
+
+### Tạo job
+`POST /api/sync/deep-reading` (service key) → `{ "firebase_uid":"abc", "person_key":"self" }`
+- Pre-check nhanh: `404` chưa sync · `422` thiếu giờ sinh · `403` không có quyền (gói).
+- Hợp lệ → `200 { "status":"processing", "job_id":"<celery-id>" }`.
+
+### Poll trạng thái
+`GET /api/sync/deep-reading/{job_id}` (service key) →
+`{ "job_id", "state":"PENDING|STARTED|SUCCESS|FAILURE", "result"?: {...} }`
+- `state=SUCCESS` → `result = { "status":"done", "casting_id", "algo_version", "provider", "remaining_uses" }`.
+- Kết quả luận sâu lưu vào `user_castings` (method `tu_vi`, tag `deep,phe_menh`) → đọc lại qua §6b history.
+
+### An toàn
+- **Hard-stop ngân sách**: nếu chi LLM ngày ≥ `LLM_DAILY_BUDGET_USD` → job trả `budget_exceeded`, KHÔNG gọi LLM.
+- **Không tính phí khi lỗi**: generation lỗi → KHÔNG `consume_use`, KHÔNG `record_spend`.
+- **Pseudonymize**: chỉ chart facts vào LLM (không tên/uid). Test: `tests/test_deep_reading.py`.
