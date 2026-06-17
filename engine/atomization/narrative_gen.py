@@ -75,27 +75,29 @@ CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~450-600 chữ, KHÔNG 
 LƯU Ý: viết ĐÚNG CHÍNH TẢ tiếng Việt, dấu chuẩn. Bám đúng dữ kiện lá số này, KHÔNG câu khuôn mẫu."""
 
 
-def _chu_de_cache_key(la_so_input: dict, slug: str) -> str:
+def _chu_de_cache_key(la_so_input: dict, slug: str, feedback: dict | None = None) -> str:
     core = {
         "can": la_so_input.get("can"), "chi": la_so_input.get("chi"),
         "menh": la_so_input.get("menh_palace"), "than": la_so_input.get("than_palace"),
         "cuc": la_so_input.get("cuc"), "gender": la_so_input.get("gender"),
         "ct": la_so_input.get("chinh_tinh_per_palace"),
         "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
-        "chu_de": slug, "pv": "monchinh-v1",
+        "fb": _fb_signature(feedback),
+        "chu_de": slug, "pv": "monchinh-v2",
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
 
 
-def _compose_chu_de_prompt(chu_de_data: dict, la_so_input: dict) -> str:
+def _compose_chu_de_prompt(chu_de_data: dict, la_so_input: dict, feedback: dict | None = None) -> str:
     """Prompt món chính — chỉ feed dữ kiện các cung liên quan chủ đề."""
     from engine.tu_vi.viet_names import vi_can, vi_chi, vi_star
 
     gender_vi = "nam" if la_so_input.get("gender") == "M" else "nữ"
     nam_duong = la_so_input.get("birth_year")
     nam_str = f"năm sinh dương lịch {nam_duong}, " if nam_duong else ""
-    parts = [
+    parts = list(_fb_block(feedback))
+    parts += [
         f"## CHỦ ĐỀ HỎI: {chu_de_data['ten']} — góc nhìn: {chu_de_data['goc_nhin']}",
         f"## Lá số: {nam_str}(âm lịch {vi_can(la_so_input['can'])} {vi_chi(la_so_input['chi'])}), "
         f"giới tính {gender_vi}.",
@@ -108,7 +110,10 @@ def _compose_chu_de_prompt(chu_de_data: dict, la_so_input: dict) -> str:
         sao_vi = ", ".join(vi_star(s) for s in cd.get("sao", [])) or "không có chính tinh (vô chính diệu)"
         parts.append(f"\n### {cd['cung_vi']}{nhan} — sao: {sao_vi}")
         for a in cd.get("atoms", []):
-            parts.append(f"- {vi_star(a['sao'])} ({a['school']}): {a['text']}")
+            ok, mark = _fb_atom_ok(feedback, a.get("atom_id"))
+            if not ok:
+                continue
+            parts.append(f"- {mark}{vi_star(a['sao'])} ({a['school']}): {a['text']}")
 
     bo = chu_de_data.get("bo_phu_tinh") or []
     if bo:
@@ -128,10 +133,11 @@ def _compose_chu_de_prompt(chu_de_data: dict, la_so_input: dict) -> str:
     return "\n".join(parts)
 
 
-def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool = False) -> dict:
+def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool = False,
+                              feedback: dict | None = None) -> dict:
     """Luận 1 món chính theo chủ đề đời sống. Returns {narrative, cached, model}."""
     slug = chu_de_data["slug"]
-    cache_key = _chu_de_cache_key(la_so_input, slug)
+    cache_key = _chu_de_cache_key(la_so_input, slug, feedback)
     conn = sqlite3.connect(DB_PATH)
     try:
         _ensure_cache_table(conn)
@@ -148,7 +154,7 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
         provider = registry.first_configured(
             ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
         )
-        user_prompt = _compose_chu_de_prompt(chu_de_data, la_so_input)
+        user_prompt = _compose_chu_de_prompt(chu_de_data, la_so_input, feedback)
         resp = provider.chat(
             messages=[
                 {"role": "system", "content": CHU_DE_SYSTEM_PROMPT},
@@ -171,7 +177,208 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
         conn.close()
 
 
-def _laso_cache_key(la_so_input: dict) -> str:
+# ── MÓN SÂU: 2 trụ + xuất xứ (Anh chốt 2026-06-15 'đào sâu - ăn tiếp') ──
+CHU_DE_SAU_SYSTEM_PROMPT = """Bạn là một thầy Tử Vi bậc thầy, luận theo trường phái "đọc đồng dạng"
+của Trần Đoàn. User đã nghe luận tổng quan về một mảng đời, nay muốn HIỂU CẶN KẼ. Bạn mở
+kho sách quý ra, trình bày như bếp thượng hạng giới thiệu nguyên liệu: từng nhận định đến
+từ SÁCH nào, TÁC GIẢ nào, rồi mới chế biến (luận giải).
+
+NGUYÊN TẮC SẮT (vi phạm = loại):
+1. KHÔNG tiên tri (cấm "sẽ giàu/nghèo/thành/bại", cấm "năm X xảy ra Y").
+2. MỆNH LÀ ĐỘNG TỪ: lá số cho TÍNH, việc của user là VẬN HÀNH. "Phát huy mạnh nhất khi...".
+3. CHỈ dùng dữ kiện cho sẵn. KHÔNG bịa sao/cung/câu sách.
+4. Mệnh 7 phần, người 3 phần.
+
+ĐÂY LÀ MÓN SÂU — phải khác món tổng quan ở CHIỀU SÂU và XUẤT XỨ:
+• Khi nêu một nhận định quan trọng, DẪN NGUỒN tự nhiên trong câu: "Sách 「...」 của ... viết...",
+  hoặc "Theo Trung Châu phái...", "Bản Toàn Thư cổ ghi...". Cho user thấy nguyên liệu thượng hạng,
+  trồng từ vùng nào — KHÔNG bịa tên sách ngoài danh sách.
+• HỘI TỤ vs DỊ BIỆT: chỗ hai trụ (Trung Châu + Trần Đoàn) cùng nói → khẳng định mạnh, đây là
+  điểm chắc chắn. Chỗ hai trụ nhấn khác nhau → trình bày cả hai góc ("Trung Châu thiên về..., còn
+  Toàn Thư nhấn..."), cho user thấy bức tranh đa chiều.
+• Đi sâu vào tổ hợp tam phương tứ chính nếu có — vì sao này gặp sao kia thì sinh ra điều gì.
+
+CẤU TRÚC (Việt thuần, ấm, xưng anh/chị, ~600-800 chữ, KHÔNG markdown, KHÔNG tiêu đề mục):
+• Mở (2-3 câu): mảng đời này nhìn sâu thì cốt lõi là gì.
+• Thân (3-4 đoạn): đi từng sao/yếu tố trọng tâm, DẪN NGUỒN, nêu hội tụ + dị biệt giữa 2 trụ.
+• Kết (2-3 câu): MỆNH LÀ ĐỘNG TỪ — vận hành mạnh nhất khi nào + 1 lời khuyên hành động. Nhắc 7/3.
+
+LƯU Ý: ĐÚNG CHÍNH TẢ tiếng Việt. Bám đúng dữ kiện, KHÔNG câu khuôn mẫu."""
+
+
+def _chu_de_sau_cache_key(la_so_input: dict, slug: str, feedback: dict | None = None) -> str:
+    core = {
+        "can": la_so_input.get("can"), "chi": la_so_input.get("chi"),
+        "menh": la_so_input.get("menh_palace"), "than": la_so_input.get("than_palace"),
+        "gender": la_so_input.get("gender"), "ct": la_so_input.get("chinh_tinh_per_palace"),
+        "fb": _fb_signature(feedback),
+        "chu_de": slug, "pv": "monsau-v2",
+    }
+    raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(raw.encode()).hexdigest()[:32]
+
+
+def _compose_chu_de_sau_prompt(cd_sau: dict, feedback: dict | None = None) -> str:
+    parts = list(_fb_block(feedback))
+    parts += [
+        f"## CHỦ ĐỀ (luận sâu): {cd_sau['ten']} — góc nhìn: {cd_sau['goc_nhin']}",
+        "⚠ CHỈ dùng dữ kiện dưới. Dẫn nguồn đúng tên sách cho sẵn, KHÔNG bịa.",
+        "",
+        "## Nguyên liệu 2 trụ (mỗi nhận định kèm XUẤT XỨ — dùng để dẫn nguồn):",
+    ]
+    for b in cd_sau.get("sao_blocks", []):
+        chinh = " ⭐TRỌNG TÂM" if b.get("la_chinh") else ""
+        mh = f" [{b['mieu_ham']}]" if b.get("mieu_ham") else ""
+        hoi = "🟢 hai trụ HỘI TỤ" if b.get("hoi_tu") else "⚪ một trụ lên tiếng"
+        parts.append(f"\n### {b['sao_vi']} tại {b['cung_vi']}{chinh}{mh} — {hoi}")
+        for v in b["views"]:
+            ok, mark = _fb_atom_ok(feedback, v.get("atom_id"))
+            if not ok:
+                continue
+            src = v.get("xuat_xu") or v.get("phai_code")
+            parts.append(f"- {mark}({src}): {v['text']}")
+
+    th = cd_sau.get("to_hop_chinh")
+    if th and th.get("total_atoms"):
+        from engine.tu_vi.viet_names import vi_chi, vi_star
+        t = th["to_hop"]
+        parts.append(f"\n## Tổ hợp tam phương tứ chính cung trọng tâm "
+                     f"({', '.join(vi_chi(c) for c in t['tu_chinh']['tu_chinh'])}):")
+        for school, atoms in (th.get("schools") or {}).items():
+            for a in atoms[:1]:
+                vt = a.get("viet_thuan") or a.get("source_quote") or ""
+                if vt:
+                    parts.append(f"- ({school}): {vt[:200]}")
+
+    parts.append(f"\nViết bài luận SÂU về '{cd_sau['ten']}' theo cấu trúc đã cho, dẫn nguồn tự nhiên.")
+    return "\n".join(parts)
+
+
+def generate_chu_de_sau_narrative(cd_sau: dict, la_so_input: dict, force: bool = False,
+                                  feedback: dict | None = None) -> dict:
+    """Luận món sâu 2 trụ + xuất xứ. Returns {narrative, cached, model}."""
+    cache_key = _chu_de_sau_cache_key(la_so_input, cd_sau["slug"], feedback)
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        _ensure_cache_table(conn)
+        if not force:
+            row = conn.execute("SELECT narrative, model FROM narrative_cache WHERE cache_key = ?",
+                               (cache_key,)).fetchone()
+            if row:
+                return {"narrative": row[0], "cached": True, "model": row[1]}
+        from engine.ai.registry import get_registry
+        provider = get_registry().first_configured(
+            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
+        resp = provider.chat(
+            messages=[{"role": "system", "content": CHU_DE_SAU_SYSTEM_PROMPT},
+                      {"role": "user", "content": _compose_chu_de_sau_prompt(cd_sau, feedback)}],
+            temperature=0.7, max_tokens=5000)
+        narrative = (resp.content or "").strip()
+        model = f"{resp.provider}:{resp.model}"
+        if not narrative:
+            raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
+        conn.execute("INSERT OR REPLACE INTO narrative_cache VALUES (?, ?, ?, ?)",
+                     (cache_key, narrative, model, int(time.time())))
+        conn.commit()
+        return {"narrative": narrative, "cached": False, "model": model}
+    finally:
+        conn.close()
+
+
+def generate_gia_vi_questions(gia_vi_atoms: list[dict]) -> list[dict]:
+    """Phái mỏng → câu hỏi gợi ý Đúng/Chưa/Không (LLM lật nhận định thành câu hỏi đời thường).
+
+    Returns: [{atom_id, sao_vi, phai, cau_hoi}] — KHÔNG cache (ít, rẻ; câu hỏi nên tươi).
+    """
+    if not gia_vi_atoms:
+        return []
+    lines = []
+    for i, a in enumerate(gia_vi_atoms):
+        lines.append(f"{i}. [sao {a['sao_vi']}, phái {a['phai']}] {a['goi_y_text']}")
+    sys = """Bạn là thầy Tử Vi thân thiện. Mỗi dòng dưới là một NHẬN ĐỊNH từ một phái (chưa chắc đúng
+với người này). Hãy LẬT mỗi nhận định thành MỘT CÂU HỎI đời thường, nhẹ nhàng, để người xem tự
+soi mình rồi trả lời Đúng/Chưa/Không. Câu hỏi phải:
+- Ngắn (1 câu), đời thường, KHÔNG dùng thuật ngữ tử vi (không nói tên sao/cung).
+- Hỏi về TÍNH CÁCH / THÓI QUEN / TRẢI NGHIỆM có thật của họ, để kiểm chứng.
+Trả về JSON array, mỗi phần tử {"i": <số dòng>, "cau_hoi": "<câu hỏi>"}. CHỈ JSON, không giải thích."""
+    from engine.ai.registry import get_registry
+    provider = get_registry().first_configured(
+        ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
+    resp = provider.chat(
+        messages=[{"role": "system", "content": sys},
+                  {"role": "user", "content": "\n".join(lines)}],
+        temperature=0.6, max_tokens=2000)
+    txt = (resp.content or "").strip()
+    # bóc JSON
+    import re
+    m = re.search(r"\[.*\]", txt, re.DOTALL)
+    qs = []
+    if m:
+        try:
+            qs = json.loads(m.group(0))
+        except Exception:
+            qs = []
+    out = []
+    for q in qs:
+        idx = q.get("i")
+        if isinstance(idx, int) and 0 <= idx < len(gia_vi_atoms):
+            a = gia_vi_atoms[idx]
+            out.append({"atom_id": a["atom_id"], "sao_vi": a["sao_vi"],
+                        "phai": a["phai"], "cau_hoi": q.get("cau_hoi", "")})
+    return out
+
+
+DUYEN_SYSTEM_PROMPT = """Bạn là một thầy Tử Vi ấm áp, thấu cảm — nói chuyện tình duyên với một người trẻ
+đang đi tìm bạn đời (có thể đang sốt ruột vì "ế"). Bạn nhìn lá số họ và nói chuyện như người anh/chị
+hiểu đời, vừa thật vừa nâng đỡ.
+
+NGUYÊN TẮC SẮT:
+1. KHÔNG bói số phận, KHÔNG phán "sẽ ế/sẽ lấy được". MỆNH LÀ ĐỘNG TỪ: lá số chỉ thiên hướng, duyên do họ vận hành.
+2. Giọng đồng cảm, khích lệ CHỦ ĐỘNG — không hù, không buồn hóa. "Ế" không phải lỗi, là "chưa đúng lúc/đúng người".
+3. CHỈ dùng dữ kiện cho sẵn (chân dung nửa kia, xu hướng duyên, năm có duyên, tuổi hợp). KHÔNG bịa.
+4. Khép lại bằng MỘT lời khuyên hành động cụ thể, ấm.
+
+CẤU TRÚC (Việt thuần, xưng "bạn", ~350-450 chữ, KHÔNG markdown, KHÔNG tiêu đề):
+• Mở (2 câu): chạm vào nỗi lòng người đang tìm duyên, nhẹ nhàng.
+• Chân dung nửa kia (1 đoạn): vẽ kiểu người hợp với bạn — sống động, để họ "nhận ra" khi gặp.
+• Đường duyên của bạn (1 đoạn): vì sao sớm/muộn/kén — nói thật mà thương, kèm cái hay của chính điều đó.
+• Cửa sổ + hành động (1 đoạn): năm thuận sắp tới (nếu có) + 1-2 việc nên làm để mở duyên.
+• Kết (1 câu): nhắc nhẹ — duyên là khóa trời gài, nhưng tay mình mở.
+
+LƯU Ý: đúng chính tả tiếng Việt, ấm, không sến, không khuôn mẫu."""
+
+
+def generate_duyen_narrative(duyen: dict) -> dict:
+    """Lời văn ấm cho 'Duyên của tôi' (không cache phức tạp — gọi theo nhu cầu)."""
+    ck = duyen.get("chan_dung_nua_kia", {})
+    dc = duyen.get("duyen_ca_nhan", {})
+    nd = duyen.get("nam_co_duyen", {})
+    th = duyen.get("tuoi_hop", {})
+    parts = [
+        f"## Tuổi {duyen.get('tuoi_mu','?')} ({duyen.get('gioi','')}), đang đi tìm bạn đời.",
+        "## Chân dung nửa kia (kiểu người hợp):",
+    ]
+    for m in ck.get("mo_ta", []):
+        parts.append(f"- {m}")
+    cg = ck.get("con_giap_hop", {})
+    parts.append(f"## Con giáp dễ hợp: {', '.join(cg.get('tam_hop', []))}, {cg.get('luc_hop','')}.")
+    parts.append(f"## Xu hướng duyên: {dc.get('xu_huong','')}.")
+    for t in dc.get("tin_hieu", []):
+        parts.append(f"- {t.get('noi_dung','')}")
+    nams = [str(x["nam"]) for x in (nd.get("nam_co_duyen") or [])]
+    parts.append(f"## Năm có duyên sắp tới: {', '.join(nams) if nams else 'không nổi bật rõ — duyên đến tự nhiên'}.")
+    parts.append(f"## Tuổi bạn: {th.get('con_giap','')}.")
+    parts.append("\nViết lời tâm tình về duyên cho người này theo cấu trúc đã cho.")
+    from engine.ai.registry import get_registry
+    provider = get_registry().first_configured(["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
+    resp = provider.chat(
+        messages=[{"role": "system", "content": DUYEN_SYSTEM_PROMPT},
+                  {"role": "user", "content": "\n".join(parts)}],
+        temperature=0.8, max_tokens=3000)
+    return {"narrative": (resp.content or "").strip(), "model": f"{resp.provider}:{resp.model}"}
+
+
+def _laso_cache_key(la_so_input: dict, feedback: dict | None = None) -> str:
     """Hash lá số input → cache key ổn định."""
     core = {
         "can": la_so_input.get("can"),
@@ -188,10 +395,57 @@ def _laso_cache_key(la_so_input: dict) -> str:
         "tuoi": (la_so_input.get("vong_doi") or {}).get("tuoi_mu"),
         "tn": [t.get("loai") for t in (la_so_input.get("tin_hieu_nam") or [])],
         "hl": [h.get("loai") + h.get("vi_tri", "") for h in (la_so_input.get("highlights") or [])],
-        "pv": "khaivi-v4",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
+        "fb": _fb_signature(feedback),  # phản hồi user → bài viết lại sát hơn
+        "pv": "khaivi-v5",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
+
+
+# ── Khép vòng tự học: feed phản hồi user ngược vào bài (Anh chốt 2026-06-16) ──
+def _fb_signature(feedback: dict | None):
+    """Chữ ký phản hồi → đổi cache khi user trả lời thêm (bài phải viết lại)."""
+    if not feedback:
+        return None
+    val = feedback.get("validated") or {}
+    return {"v": sorted((str(k), v) for k, v in val.items()),
+            "tn": len(feedback.get("trai_nghiem") or [])}
+
+
+def _fb_block(feedback: dict | None) -> list[str]:
+    """Khối hướng dẫn cá nhân hóa từ phản hồi user (đặt đầu prompt)."""
+    if not feedback:
+        return []
+    parts = []
+    tn = feedback.get("trai_nghiem") or []
+    if tn:
+        parts.append("## ⭐⭐ NGƯỜI NÀY ĐÃ TỰ KỂ VỀ MÌNH (ưu tiên TUYỆT ĐỐI — dệt vào bài tự "
+                     "nhiên, cho thấy thầy NHỚ họ; KHÔNG nhắc lại nguyên văn như vẹt):")
+        for t in tn[:10]:
+            parts.append(f"- {t}")
+    val = feedback.get("validated") or {}
+    n_dung = sum(1 for x in val.values() if x == "dung")
+    n_khong = sum(1 for x in val.values() if x == "khong")
+    if n_dung or n_khong:
+        parts.append(f"## Phản hồi đã thu của riêng người này: {n_dung} điều họ XÁC NHẬN đúng "
+                     f"(các trích dưới có dấu ✓ → nói CHẮC, làm điểm tựa), {n_khong} điều họ nói "
+                     f"KHÔNG đúng (đã LỌC khỏi dữ kiện — tuyệt đối đừng nhắc).")
+    if parts:
+        parts.append("")
+    return parts
+
+
+def _fb_atom_ok(feedback: dict | None, atom_id) -> tuple[bool, str]:
+    """(còn dùng?, prefix). atom user phủ nhận → bỏ; xác nhận → đánh dấu ✓."""
+    if not feedback or atom_id is None:
+        return True, ""
+    ans = (feedback.get("validated") or {}).get(atom_id) \
+        or (feedback.get("validated") or {}).get(str(atom_id))
+    if ans == "khong":
+        return False, ""
+    if ans == "dung":
+        return True, "✓[user xác nhận ĐÚNG] "
+    return True, ""
 
 
 def _ensure_cache_table(conn: sqlite3.Connection):
@@ -205,14 +459,15 @@ def _ensure_cache_table(conn: sqlite3.Connection):
     """)
 
 
-def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
+def _compose_user_prompt(three_layer: dict, la_so_input: dict, feedback: dict | None = None) -> str:
     """Compose prompt từ render_3_layer output — chỉ feed dữ kiện thật."""
     from engine.tu_vi.viet_names import vi_can, vi_chi, vi_star, vi_palace
 
     gender_vi = "nam" if la_so_input.get("gender") == "M" else "nữ"
     nam_duong = la_so_input.get("birth_year")
     nam_str = f"năm sinh dương lịch {nam_duong} " if nam_duong else ""
-    parts = [
+    parts = list(_fb_block(feedback))
+    parts += [
         f"## Lá số: {nam_str}(âm lịch {vi_can(la_so_input['can'])} {vi_chi(la_so_input['chi'])}), "
         f"giới tính {gender_vi}, Mệnh tại {vi_chi(la_so_input['menh_palace'])}, "
         f"Thân tại {vi_chi(la_so_input['than_palace'])}",
@@ -288,10 +543,13 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
                         break
                     if a.get("dieu_kien_khop") is False:
                         continue  # atom lệch điều kiện miếu-hãm — không feed LLM
+                    ok, mark = _fb_atom_ok(feedback, a.get("atom_id"))
+                    if not ok:
+                        continue  # user đã nói điều này KHÔNG đúng → bỏ
                     vt = a.get("viet_thuan") or ""
                     if vt:
                         parts.append(
-                            f"- {vi_star(star)} × {vi_palace(palace)} ({school}): {vt[:200]}"
+                            f"- {mark}{vi_star(star)} × {vi_palace(palace)} ({school}): {vt[:200]}"
                         )
                         shown += 1
                         count += 1
@@ -391,12 +649,13 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict) -> str:
     return "\n".join(parts)
 
 
-def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False) -> dict:
+def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False,
+                       feedback: dict | None = None) -> dict:
     """Generate (hoặc lấy cache) narrative Lớp 1.
 
     Returns: {narrative, cached, model}
     """
-    cache_key = _laso_cache_key(la_so_input)
+    cache_key = _laso_cache_key(la_so_input, feedback)
 
     conn = sqlite3.connect(DB_PATH)
     try:
@@ -416,7 +675,7 @@ def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False
         provider = registry.first_configured(
             ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
         )
-        user_prompt = _compose_user_prompt(three_layer, la_so_input)
+        user_prompt = _compose_user_prompt(three_layer, la_so_input, feedback)
         resp = provider.chat(
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},

@@ -50,6 +50,10 @@ Nhắc lại bậc thang (1 thế = 30 năm):
 
 > **Đây chính là "đồng dạng kép":** mùa trời gần như đứng yên, nhưng bên trong nó, lịch sử người chạy hết tốc lực. Một kiếp người không cảm được cái mùa-trời chậm rãi (10.800 năm), nhưng cảm rất rõ khúc dốc lịch sử mình rơi vào.
 
+Cùng một ý, nhìn theo "hai đồng hồ lồng nhau" và ba thang đồng tâm:
+
+![Đồng dạng kép — đời người trong mùa của trời đất](../dong_dang_kep.svg)
+
 ## 5. Anh đứng ở "cuối vận" — điều đó nói gì
 
 Anh sinh ở **thế 2301 = ô thứ 9 của 12**. Theo lối đồng dạng (Iron Rule #4/#6 — *đọc cấu trúc, không bói*):

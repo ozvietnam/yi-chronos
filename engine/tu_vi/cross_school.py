@@ -24,6 +24,7 @@ SCHOOL_MAP = {
     "tu-vi-ham-so": "ham_so",
     "tu-vi-dau-so-toan-thu-zh": "tran_doan_zh",  # bản dịch Trung Q1 Phú + Q3 sao×cung
     "tuvi-bon-ba-tiktok": "tu_vi_bon_ba",        # hiện đại VN — quán chiếu Ngũ Uẩn (2026)
+    "tu-vi-huy-tuan-tiktok": "tu_vi_huy_tuan",   # hiện đại VN — Trung Châu phái, kỹ thuật cách cục (2026)
 }
 
 SCHOOL_NAMES = {
@@ -33,6 +34,7 @@ SCHOOL_NAMES = {
     "thien_luong":   "Cụ Thiên Lương (Nghiệm Lý)",
     "ham_so":        "Hàm Số (Nguyễn Phát Lộc)",
     "tu_vi_bon_ba":  "Tử Vi Bôn Ba (hiện đại VN — Ngũ Uẩn)",
+    "tu_vi_huy_tuan": "Huy Tuấn Tử Vi (hiện đại VN — Trung Châu phái, kỹ thuật cách cục)",
 }
 
 

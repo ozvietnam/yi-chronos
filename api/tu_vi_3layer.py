@@ -25,7 +25,7 @@ import time
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, Header, HTTPException
+from fastapi import APIRouter, Header, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from engine.atomization.output_filler_v2 import render_3_layer
@@ -294,12 +294,33 @@ async def render_from_birth(birth: BirthInput) -> dict:
     return result
 
 
+def _load_feedback(request: Request) -> dict | None:
+    """Nạp phản hồi user đã đăng nhập → feed ngược vào bài (khép vòng tự học).
+
+    Guest (chưa login) → None → bài luận như cũ.
+    """
+    try:
+        from api.auth import get_current_user
+        from engine.tu_vi.feedback_store import validated_atoms, khau_vi
+        user = get_current_user(request)
+        if not user:
+            return None
+        uid = user["user_id"]
+        val = validated_atoms(uid)
+        kv = khau_vi(uid)
+        if not val and not kv.get("trai_nghiem"):
+            return None
+        return {"validated": val, "trai_nghiem": kv.get("trai_nghiem") or []}
+    except Exception:
+        return None
+
+
 class NarrativeBirthInput(BirthInput):
     force: bool = False  # force=true bỏ cache, sinh lại
 
 
 @router.post("/3-layer/narrative")
-async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
+async def narrative_from_birth(birth: NarrativeBirthInput, request: Request) -> dict:
     """Sinh narrative Lớp 1 'Chuyện về anh' bằng LLM (DeepSeek + cache theo lá số).
 
     Tách endpoint riêng vì LLM call 5-15s — frontend gọi sau khi đã render 3-layer.
@@ -343,7 +364,7 @@ async def narrative_from_birth(birth: NarrativeBirthInput) -> dict:
     ls_in["tin_hieu_nam"] = tin_hieu_nam_xem(_chi_vi, nam_xem, tuoi_mu, gender_c) if _chi_vi else []
     # Điểm nổi bật toàn lá — render_from_birth đã quét, dùng lại (top 5 cho khai vị)
     ls_in["highlights"] = (base.get("highlights") or [])[:5]
-    result = generate_narrative(base, ls_in, force=birth.force)
+    result = generate_narrative(base, ls_in, force=birth.force, feedback=_load_feedback(request))
     return {
         "narrative": result["narrative"],
         "cached": result["cached"],
@@ -367,7 +388,7 @@ class ChuDeBirthInput(BirthInput):
 
 
 @router.post("/3-layer/chu-de")
-async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
+async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
     """Luận MÓN CHÍNH theo 1 chủ đề đời sống (gom tam hợp cung liên quan + LLM).
 
     Lazy: frontend gọi khi user bấm thẻ chủ đề.
@@ -384,12 +405,295 @@ async def chu_de_from_birth(birth: ChuDeBirthInput) -> dict:
     cd = gom_chu_de(birth.chu_de, ls_in, base)
     if not cd:
         return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
-    result = generate_chu_de_narrative(cd, ls_in, force=birth.force)
+    result = generate_chu_de_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
     return {
         "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
         "narrative": result["narrative"],
         "cached": result["cached"], "model": result["model"],
     }
+
+
+@router.post("/3-layer/chu-de-sau")
+async def chu_de_sau_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
+    """MÓN SÂU: luận 2 trụ (Trung Châu + Trần Đoàn) + xuất xứ + hội tụ/dị biệt.
+
+    User bấm 'Đào sâu' sau khi đã nghe món chính tổng quan.
+    """
+    from engine.tu_vi.chu_de import gom_chu_de_sau
+    from engine.atomization.narrative_gen import generate_chu_de_sau_narrative
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone, gender=birth.gender))
+    ls_in = base["la_so_input"]
+    cd = gom_chu_de_sau(birth.chu_de, ls_in, base)
+    if not cd:
+        return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
+    result = generate_chu_de_sau_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
+    return {
+        "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
+        "narrative": result["narrative"], "cached": result["cached"], "model": result["model"],
+        # nguyên liệu xuất xứ cho UI hiển thị (minh bạch nguồn)
+        "nguyen_lieu": [
+            {"sao_vi": b["sao_vi"], "cung_vi": b["cung_vi"], "hoi_tu": b["hoi_tu"],
+             "nguon": sorted({v["xuat_xu"] for v in b["views"] if v["xuat_xu"]})}
+            for b in cd["sao_blocks"]
+        ],
+    }
+
+
+@router.post("/3-layer/gia-vi")
+async def gia_vi_from_birth(birth: ChuDeBirthInput) -> dict:
+    """Phái mỏng → câu hỏi gợi ý (Đúng/Chưa/Không) để user tự soi + ta học khẩu vị."""
+    from engine.tu_vi.chu_de import gom_gia_vi
+    from engine.atomization.narrative_gen import generate_gia_vi_questions
+
+    base = await render_from_birth(BirthInput(
+        birth_datetime_local=birth.birth_datetime_local,
+        timezone=birth.timezone, gender=birth.gender))
+    atoms = gom_gia_vi(birth.chu_de, base["la_so_input"], base)
+    questions = generate_gia_vi_questions(atoms)
+    return {"chu_de": birth.chu_de, "cau_hoi": questions}
+
+
+class FeedbackInput(BaseModel):
+    chu_de: str | None = None
+    atom_id: int | None = None
+    sao: str | None = None
+    cau_hoi: str | None = None
+    answer: str | None = None       # dung | chua | khong
+    free_text: str | None = None    # kể thêm trải nghiệm
+
+
+@router.post("/3-layer/feedback")
+async def save_user_feedback(fb: FeedbackInput, request: Request) -> dict:
+    """Lưu phản hồi user (gated: tự lưu của mình). Vòng tự học — biết đúng/sai + khẩu vị."""
+    from api.auth import require_user
+    from engine.tu_vi.feedback_store import save_feedback
+    user = require_user(request)  # 401 nếu chưa đăng nhập
+    fid = save_feedback(user["user_id"], fb.chu_de, fb.atom_id, fb.sao,
+                        fb.cau_hoi, fb.answer, fb.free_text)
+    return {"ok": True, "id": fid}
+
+
+@router.get("/3-layer/khau-vi")
+async def get_khau_vi(request: Request) -> dict:
+    """Khẩu vị + phản hồi của CHÍNH user (gated self)."""
+    from api.auth import require_user
+    from engine.tu_vi.feedback_store import khau_vi
+    user = require_user(request)
+    return khau_vi(user["user_id"])
+
+
+class HopHonInput(BaseModel):
+    birth1: str = Field(..., description="Ngày giờ sinh người 1 (ISO local, vd 1988-06-05T23:30)")
+    gender1: str = Field("nam", description="nam | nữ")
+    ten1: str = Field("Người 1")
+    birth2: str = Field(..., description="Ngày giờ sinh người 2")
+    gender2: str = Field("nữ")
+    ten2: str = Field("Người 2")
+    timezone: str = Field("Asia/Ho_Chi_Minh")
+
+
+@router.post("/hop-hon")
+async def hop_hon(inp: HopHonInput) -> dict:
+    """Hợp Hôn Tam Hệ — chấm độ tương ứng 2 lá số (Tử Vi + Bát Tự + Kinh Dịch).
+
+    User nhập lá số mình + 1 lá số khác → kết quả + gia quy + hướng dẫn đọc.
+    Paradigm: đọc đồng dạng, KHÔNG predict.
+    """
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.tu_vi.hop_hon import phan_tich_hop_hon
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+
+    g1, g2 = _gc(inp.gender1), _gc(inp.gender2)
+    try:
+        base1 = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth1, timezone=inp.timezone, gender=g1))
+        base2 = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth2, timezone=inp.timezone, gender=g2))
+        ls1, ls2 = base1["la_so_input"], base2["la_so_input"]
+        p1 = extract_tu_tru(inp.birth1, inp.timezone)
+        p2 = extract_tu_tru(inp.birth2, inp.timezone)
+        q1 = cast_ha_lac(birth_datetime_local=inp.birth1, timezone=inp.timezone, gender=g1).get("tien_thien_quai")
+        q2 = cast_ha_lac(birth_datetime_local=inp.birth2, timezone=inp.timezone, gender=g2).get("tien_thien_quai")
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+
+    kq = phan_tich_hop_hon(ls1, p1, q1, ls2, p2, q2, ten1=inp.ten1, ten2=inp.ten2)
+    # Món: năm hợp cưới (đào hoa vận cặp)
+    try:
+        from datetime import datetime as _dt
+        from engine.tu_vi.hop_hon import nam_hop_cuoi
+        by1 = ls1.get("birth_year") or int(inp.birth1[:4])
+        by2 = ls2.get("birth_year") or int(inp.birth2[:4])
+        kq["nam_hop_cuoi"] = nam_hop_cuoi(ls1, by1, ls2, by2, _dt.now().year, 10)
+    except Exception:
+        kq["nam_hop_cuoi"] = None
+    return kq
+
+
+class DuyenInput(BaseModel):
+    birth: str = Field(..., description="Ngày giờ sinh (ISO local)")
+    gender: str = Field("nam")
+    timezone: str = Field("Asia/Ho_Chi_Minh")
+
+
+@router.post("/duyen")
+async def duyen_ca_nhan_endpoint(inp: DuyenInput) -> dict:
+    """Duyên của tôi — bộ 4 tính năng cho người ĐANG TÌM:
+    chân dung nửa kia · đường tình duyên · năm có duyên · tuổi hợp.
+    """
+    from datetime import datetime
+    from engine.tu_vi.duyen import (chan_dung_nua_kia, duyen_ca_nhan, dao_hoa_van, tuoi_hop)
+
+    g = "nữ" if inp.gender in ("nữ", "nu", "F", "f") else "nam"
+    try:
+        base = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth, timezone=inp.timezone, gender=g))
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+    ls = base["la_so_input"]
+    by = ls.get("birth_year") or int(inp.birth[:4])
+    nam_xem = datetime.now().year
+    tuoi = nam_xem - by + 1
+    return {
+        "tuoi_mu": tuoi, "gioi": g,
+        "chan_dung_nua_kia": chan_dung_nua_kia(ls),
+        "duyen_ca_nhan": duyen_ca_nhan(ls, tuoi, g),
+        "nam_co_duyen": dao_hoa_van(ls, by, nam_xem, n_nam=12),
+        "tuoi_hop": tuoi_hop(ls.get("chi")),
+        "paradigm": "Đọc đồng dạng, không bói. Lá số chỉ thiên hướng — duyên là việc bạn vận hành.",
+    }
+
+
+class GiaDaoInput(BaseModel):
+    birth1: str
+    gender1: str = "nam"
+    ten1: str = "Chồng"
+    birth2: str
+    gender2: str = "nữ"
+    ten2: str = "Vợ"
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/gia-dao")
+async def gia_dao(inp: GiaDaoInput) -> dict:
+    """Gia Đạo (đã cưới): gia quy ăn ở hợp đạo + năm thuận đón con (tính cho người nữ/mẹ)."""
+    from datetime import datetime
+    from engine.tu_vi.gia_dao import gia_quy_an_o, nam_sinh_con
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+    g1, g2 = _gc(inp.gender1), _gc(inp.gender2)
+    try:
+        b1 = await render_from_birth(BirthInput(birth_datetime_local=inp.birth1, timezone=inp.timezone, gender=g1))
+        b2 = await render_from_birth(BirthInput(birth_datetime_local=inp.birth2, timezone=inp.timezone, gender=g2))
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+    ls1, ls2 = b1["la_so_input"], b2["la_so_input"]
+    nam_xem = datetime.now().year
+    # năm sinh con: tính cho người NỮ (mẹ); nếu không có nữ → người 1
+    if g2 == "nữ":
+        me_ls, me_birth = ls2, inp.birth2
+    elif g1 == "nữ":
+        me_ls, me_birth = ls1, inp.birth1
+    else:
+        me_ls, me_birth = ls1, inp.birth1
+    by_me = me_ls.get("birth_year") or int(me_birth[:4])
+    return {
+        "gia_quy": gia_quy_an_o(ls1, ls2, inp.ten1, inp.ten2),
+        "nam_sinh_con": nam_sinh_con(me_ls, by_me, nam_xem, 10),
+        "paradigm": "Đọc đồng dạng, không bói. Nếp nhà là việc hai người vận hành mỗi ngày.",
+    }
+
+
+class DatTenInput(BaseModel):
+    birth_con: str = Field(..., description="Ngày giờ sinh của bé (ISO local)")
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/dat-ten")
+async def dat_ten(inp: DatTenInput) -> dict:
+    """Đặt tên con bổ ngũ hành: Bát Tự bé → dụng thần → gợi ý hành + chữ/tên mẫu."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.tu_vi.gia_dao import dat_ten_con
+    try:
+        pillars = extract_tu_tru(inp.birth_con, inp.timezone)
+    except Exception as e:
+        return {"error": f"Lỗi lập Bát Tự bé: {e}"}
+    return dat_ten_con(pillars)
+
+
+class _PersonIn(BaseModel):
+    birth: str
+    gender: str = "nam"
+    ten: str = ""
+
+
+class SoSanhInput(BaseModel):
+    me: _PersonIn
+    others: list[_PersonIn] = Field(default_factory=list)
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/duyen-tho")
+async def duyen_tho(inp: DuyenInput) -> dict:
+    """Lời văn ấm cho 'Duyên của tôi' (LLM) — gọi sau khi đã hiện kết quả cấu trúc."""
+    from engine.atomization.narrative_gen import generate_duyen_narrative
+    base = await duyen_ca_nhan_endpoint(inp)
+    if base.get("error"):
+        return base
+    try:
+        out = generate_duyen_narrative(base)
+    except Exception as e:
+        return {"error": f"Lỗi sinh lời: {e}"}
+    return out
+
+
+@router.post("/so-sanh-duyen")
+async def so_sanh_duyen(inp: SoSanhInput) -> dict:
+    """So nhiều người với mình → xếp hạng độ tương ứng (cho người đang phân vân giữa nhiều mối)."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.tu_vi.hop_hon import phan_tich_hop_hon
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+
+    async def _prep(p):
+        g = _gc(p.gender)
+        base = await render_from_birth(BirthInput(
+            birth_datetime_local=p.birth, timezone=inp.timezone, gender=g))
+        return (base["la_so_input"], extract_tu_tru(p.birth, inp.timezone),
+                cast_ha_lac(birth_datetime_local=p.birth, timezone=inp.timezone, gender=g).get("tien_thien_quai"))
+
+    try:
+        mls, mp, mq = await _prep(inp.me)
+    except Exception as e:
+        return {"error": f"Lỗi lá số của bạn: {e}"}
+
+    ket_qua = []
+    for i, o in enumerate(inp.others[:8]):
+        try:
+            ols, op, oq = await _prep(o)
+            r = phan_tich_hop_hon(mls, mp, mq, ols, op, oq,
+                                  ten1=inp.me.ten or "Bạn", ten2=o.ten or f"Người {i+1}")
+            ket_qua.append({
+                "ten": o.ten or f"Người {i+1}", "diem_tong": r["diem_tong"], "muc": r["muc"],
+                "ung_nhau": r["truc_cuong_nhu"]["ung_nhau"],
+                "diem_noi_bat": (r["khoa_duyen"][:1] or [""])[0],
+                "luu_y": (r["cho_phai_giu"][:1] or [""])[0],
+            })
+        except Exception:
+            continue
+    ket_qua.sort(key=lambda x: -x["diem_tong"])
+    return {"xep_hang": ket_qua,
+            "ghi_chu": "Điểm là độ TƯƠNG ỨNG cấu trúc, không phải 'người tốt nhất'. "
+                       "Con người thật quan trọng hơn con số — đây chỉ là gợi ý tham khảo."}
 
 
 @router.get("/3-layer/founder-demo")

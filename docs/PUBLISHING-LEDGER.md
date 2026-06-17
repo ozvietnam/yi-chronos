@@ -115,3 +115,11 @@ v2.0 thêm Stage 2 (planning), Stage 3 (routing), Stage 4 (4-way image handling)
 
 **Generator**: `scripts/compile_kinh_dich_book.py` (pandoc + WeasyPrint)
 **Status**: ✅ FINAL v1.0 — sẵn cho user offline
+
+## GIEO DUYÊN — Đạo phu thê 3 hệ (2026-06-16)
+- **Status**: published (web + PDF live)
+- **Edition**: v1.0 · 8 chương + vĩ thanh · 4413 chữ
+- **Files**: `data/published/gieo-duyen/manuscript.md` + `GIEO-DUYEN.pdf` (make-pdf, cover+TOC)
+- **Web**: kinhdich.online → tab 💞 Gieo Duyên (GieoDuyenPanel.vue, đọc + tải PDF /GIEO-DUYEN.pdf)
+- **Nội dung**: ca điển hình lá số vợ chồng founder (ẩn danh) soi 3 hệ + chương phản biện đa chiều + kết KIM=GIA QUY (7 điều). Paradigm không-predict.
+- **Đồng tác giả**: Anh Thắng + YI-Chronos. Backlog: engine Hợp Hôn 3 hệ tương tác.

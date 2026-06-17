@@ -63,6 +63,8 @@ docs/
 !data/hermes_yi/skills/kinh-dich/INDEX.md
 # Restored books markdown (cho live reading)
 !data/restored_books/**/content.md
+# Sách bundle vào frontend (import ?raw lúc build) — phải vào Docker context
+!client/webapp/src/content/*.md
 
 # Tests
 tests/
@@ -76,6 +78,8 @@ figures/
 "thư viện sách/"
 **/*.rtf
 **/*.pdf
+# PDF sách bundle vào frontend (Vite copy public/ → dist) — phải vào Docker context
+!client/webapp/public/*.pdf
 
 # Backup / temp
 *.bak

@@ -1,0 +1,101 @@
+<svg viewBox="0 0 1180 860" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, STKaiti, Songti SC, serif">
+<rect width="1180" height="860" fill="#fbf7ef"/>
+<text x="590.0" y="40" text-anchor="middle" font-size="27" fill="#2a2018" font-weight="bold">ĐỒ HẬU THIÊN (后天八卦 Văn Vương) — bát quái "để DÙNG"</text>
+<text x="590.0" y="68" text-anchor="middle" font-size="14" fill="#7a5a2a">"先天为体，后天为用" · 帝出乎震 → … → 成言乎艮 · đồng hồ bốn mùa · trên Nam dưới Bắc trái Đông phải Tây</text>
+<circle cx="430" cy="450" r="250" fill="none" stroke="#d8c89a" stroke-dasharray="5 5"/>
+<circle cx="430" cy="450" r="30" fill="#c9a13b" fill-opacity="0.18" stroke="#a8621c"/>
+<text x="430" y="448" text-anchor="middle" font-size="15" fill="#7a3410" font-weight="bold">5</text>
+<text x="430" y="465" text-anchor="middle" font-size="9.5" fill="#999">Trung</text>
+<path d="M 180 450 A 250 250 0 0 1 253 273" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 253 273 A 250 250 0 0 1 430 200" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 430 200 A 250 250 0 0 1 607 273" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 607 273 A 250 250 0 0 1 680 450" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 680 450 A 250 250 0 0 1 607 627" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 607 627 A 250 250 0 0 1 430 700" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 430 700 A 250 250 0 0 1 253 627" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<path d="M 253 627 A 250 250 0 0 1 180 450" fill="none" stroke="#bbb" stroke-width="1" marker-end="url(#ar)"/>
+<defs><marker id="ar" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#bbb"/></marker></defs>
+<circle cx="430" cy="200" r="40" fill="#c0392b" fill-opacity="0.10" stroke="#c0392b" stroke-opacity="0.45"/>
+<rect x="409.0" y="203.0" width="42" height="6" fill="#7a3410"/><rect x="409.0" y="193.0" width="18.0" height="6" fill="#7a3410"/><rect x="433.0" y="193.0" width="18.0" height="6" fill="#7a3410"/><rect x="409.0" y="183.0" width="42" height="6" fill="#7a3410"/>
+<text x="430" y="224" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">离</text>
+<text x="430" y="124" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="bold">Ly · Lạc 9</text>
+<text x="430" y="139" text-anchor="middle" font-size="10" fill="#888">Nam · Hạ</text>
+<circle cx="253" cy="273" r="40" fill="#6a8a3a" fill-opacity="0.10" stroke="#6a8a3a" stroke-opacity="0.45"/>
+<rect x="232.2" y="276.2233047033631" width="18.0" height="6" fill="#7a3410"/><rect x="256.2" y="276.2233047033631" width="18.0" height="6" fill="#7a3410"/><rect x="232.2" y="266.2233047033631" width="42" height="6" fill="#7a3410"/><rect x="232.2" y="256.2233047033631" width="42" height="6" fill="#7a3410"/>
+<text x="253" y="297" text-anchor="middle" font-size="16" fill="#6a8a3a" font-weight="bold">巽</text>
+<text x="202" y="218" text-anchor="middle" font-size="12" fill="#6a8a3a" font-weight="bold">Tốn · Lạc 4</text>
+<text x="202" y="233" text-anchor="middle" font-size="10" fill="#888">Đông-Nam</text>
+<circle cx="180" cy="450" r="40" fill="#3f7d54" fill-opacity="0.10" stroke="#3f7d54" stroke-opacity="0.45"/>
+<rect x="159.0" y="452.99999999999994" width="42" height="6" fill="#7a3410"/><rect x="159.0" y="442.99999999999994" width="18.0" height="6" fill="#7a3410"/><rect x="183.0" y="442.99999999999994" width="18.0" height="6" fill="#7a3410"/><rect x="159.0" y="432.99999999999994" width="18.0" height="6" fill="#7a3410"/><rect x="183.0" y="432.99999999999994" width="18.0" height="6" fill="#7a3410"/>
+<text x="180" y="474" text-anchor="middle" font-size="16" fill="#3f7d54" font-weight="bold">震</text>
+<text x="108" y="446" text-anchor="middle" font-size="12" fill="#3f7d54" font-weight="bold">Chấn · Lạc 3</text>
+<text x="108" y="461" text-anchor="middle" font-size="10" fill="#888">Đông · Xuân</text>
+<circle cx="253" cy="627" r="40" fill="#7a6a52" fill-opacity="0.10" stroke="#7a6a52" stroke-opacity="0.45"/>
+<rect x="232.2" y="629.7766952966368" width="18.0" height="6" fill="#7a3410"/><rect x="256.2" y="629.7766952966368" width="18.0" height="6" fill="#7a3410"/><rect x="232.2" y="619.7766952966368" width="18.0" height="6" fill="#7a3410"/><rect x="256.2" y="619.7766952966368" width="18.0" height="6" fill="#7a3410"/><rect x="232.2" y="609.7766952966368" width="42" height="6" fill="#7a3410"/>
+<text x="253" y="651" text-anchor="middle" font-size="16" fill="#7a6a52" font-weight="bold">艮</text>
+<text x="202" y="674" text-anchor="middle" font-size="12" fill="#7a6a52" font-weight="bold">Cấn · Lạc 8</text>
+<text x="202" y="689" text-anchor="middle" font-size="10" fill="#888">Đông-Bắc</text>
+<circle cx="430" cy="700" r="40" fill="#2f5d8a" fill-opacity="0.10" stroke="#2f5d8a" stroke-opacity="0.45"/>
+<rect x="409.0" y="703.0" width="18.0" height="6" fill="#7a3410"/><rect x="433.0" y="703.0" width="18.0" height="6" fill="#7a3410"/><rect x="409.0" y="693.0" width="42" height="6" fill="#7a3410"/><rect x="409.0" y="683.0" width="18.0" height="6" fill="#7a3410"/><rect x="433.0" y="683.0" width="18.0" height="6" fill="#7a3410"/>
+<text x="430" y="724" text-anchor="middle" font-size="16" fill="#2f5d8a" font-weight="bold">坎</text>
+<text x="430" y="768" text-anchor="middle" font-size="12" fill="#2f5d8a" font-weight="bold">Khảm · Lạc 1</text>
+<text x="430" y="783" text-anchor="middle" font-size="10" fill="#888">Bắc · mùa Đông</text>
+<circle cx="607" cy="627" r="40" fill="#8a7a55" fill-opacity="0.10" stroke="#8a7a55" stroke-opacity="0.45"/>
+<rect x="585.8" y="629.776695296637" width="42" height="6" fill="#7a3410"/><rect x="585.8" y="619.776695296637" width="42" height="6" fill="#7a3410"/><rect x="585.8" y="609.776695296637" width="42" height="6" fill="#7a3410"/>
+<text x="607" y="651" text-anchor="middle" font-size="16" fill="#8a7a55" font-weight="bold">乾</text>
+<text x="658" y="674" text-anchor="middle" font-size="12" fill="#8a7a55" font-weight="bold">Càn · Lạc 6</text>
+<text x="658" y="689" text-anchor="middle" font-size="10" fill="#888">Tây-Bắc</text>
+<circle cx="680" cy="450" r="40" fill="#c9a13b" fill-opacity="0.10" stroke="#c9a13b" stroke-opacity="0.45"/>
+<rect x="659.0" y="453.0" width="42" height="6" fill="#7a3410"/><rect x="659.0" y="443.0" width="42" height="6" fill="#7a3410"/><rect x="659.0" y="433.0" width="18.0" height="6" fill="#7a3410"/><rect x="683.0" y="433.0" width="18.0" height="6" fill="#7a3410"/>
+<text x="680" y="474" text-anchor="middle" font-size="16" fill="#c9a13b" font-weight="bold">兑</text>
+<text x="752" y="446" text-anchor="middle" font-size="12" fill="#c9a13b" font-weight="bold">Đoài · Lạc 7</text>
+<text x="752" y="461" text-anchor="middle" font-size="10" fill="#888">Tây · Thu</text>
+<circle cx="607" cy="273" r="40" fill="#7a6a52" fill-opacity="0.10" stroke="#7a6a52" stroke-opacity="0.45"/>
+<rect x="585.8" y="276.22330470336317" width="18.0" height="6" fill="#7a3410"/><rect x="609.8" y="276.22330470336317" width="18.0" height="6" fill="#7a3410"/><rect x="585.8" y="266.22330470336317" width="18.0" height="6" fill="#7a3410"/><rect x="609.8" y="266.22330470336317" width="18.0" height="6" fill="#7a3410"/><rect x="585.8" y="256.22330470336317" width="18.0" height="6" fill="#7a3410"/><rect x="609.8" y="256.22330470336317" width="18.0" height="6" fill="#7a3410"/>
+<text x="607" y="297" text-anchor="middle" font-size="16" fill="#7a6a52" font-weight="bold">坤</text>
+<text x="658" y="218" text-anchor="middle" font-size="12" fill="#7a6a52" font-weight="bold">Khôn · Lạc 2</text>
+<text x="658" y="233" text-anchor="middle" font-size="10" fill="#888">Tây-Nam</text>
+<text x="430" y="795" text-anchor="middle" font-size="11" fill="#999">Mũi tên = 帝出乎震 (chu trình năm) · số Lạc = vị trí trên Lạc Thư (洛书 → Hậu Thiên)</text>
+<rect x="820" y="120" width="320" height="300" rx="10" fill="#2f5d8a" fill-opacity="0.05" stroke="#2f5d8a" stroke-opacity="0.3"/>
+<text x="980" y="148" text-anchor="middle" font-size="15" fill="#7a3410" font-weight="bold">TIÊN THIÊN vs HẬU THIÊN</text>
+<text x="834" y="176" font-size="10.5" fill="#888"></text>
+<text x="912" y="176" font-size="10.8" fill="#2f5d8a" font-weight="bold">Tiên Thiên (Ch8)</text>
+<text x="1030" y="176" font-size="10.8" fill="#a8621c" font-weight="bold">Hậu Thiên (đây)</text>
+<text x="834" y="208" font-size="10.5" fill="#888">Vai</text>
+<text x="912" y="208" font-size="10.8" fill="#2f5d8a">THỂ 体 (gốc)</text>
+<text x="1030" y="208" font-size="10.8" fill="#a8621c">DỤNG 用 (dùng)</text>
+<text x="834" y="240" font-size="10.5" fill="#888">Tổ</text>
+<text x="912" y="240" font-size="10.8" fill="#2f5d8a">Phục Hy</text>
+<text x="1030" y="240" font-size="10.8" fill="#a8621c">Văn Vương</text>
+<text x="834" y="272" font-size="10.5" fill="#888">Trên-dưới</text>
+<text x="912" y="272" font-size="10.8" fill="#2f5d8a">乾南 坤北</text>
+<text x="1030" y="272" font-size="10.8" fill="#a8621c">离南 坎北</text>
+<text x="834" y="304" font-size="10.5" fill="#888">Đông-Tây</text>
+<text x="912" y="304" font-size="10.8" fill="#2f5d8a">日东 月西</text>
+<text x="1030" y="304" font-size="10.8" fill="#a8621c">震东 兑西</text>
+<text x="834" y="336" font-size="10.5" fill="#888">Nghĩa</text>
+<text x="912" y="336" font-size="10.8" fill="#2f5d8a">lập thể · vũ trụ</text>
+<text x="1030" y="336" font-size="10.8" fill="#a8621c">mặt phẳng · bốn mùa</text>
+<text x="834" y="368" font-size="10.5" fill="#888">Gốc số</text>
+<text x="912" y="368" font-size="10.8" fill="#2f5d8a">Hà Đồ (55)</text>
+<text x="1030" y="368" font-size="10.8" fill="#a8621c">Lạc Thư (45)</text>
+<rect x="820" y="440" width="320" height="250" rx="10" fill="#3f7d54" fill-opacity="0.05" stroke="#3f7d54" stroke-opacity="0.3"/>
+<text x="980" y="468" text-anchor="middle" font-size="14" fill="#2f6d44" font-weight="bold">帝出乎震 — chu trình mùa</text>
+<text x="836" y="492" font-size="11" fill="#3f7d54" font-weight="bold">震 Chấn</text>
+<text x="912" y="492" font-size="10" fill="#777">Xuân — vạn vật khởi động</text>
+<text x="836" y="516" font-size="11" fill="#555" font-weight="normal">巽 Tốn</text>
+<text x="912" y="516" font-size="10" fill="#777">cuối xuân — đều khắp</text>
+<text x="836" y="540" font-size="11" fill="#c0392b" font-weight="bold">离 Ly</text>
+<text x="912" y="540" font-size="10" fill="#777">Hạ — sáng tỏ, gặp nhau</text>
+<text x="836" y="564" font-size="11" fill="#555" font-weight="normal">坤 Khôn</text>
+<text x="912" y="564" font-size="10" fill="#777">cuối hạ — nuôi dưỡng</text>
+<text x="836" y="588" font-size="11" fill="#c9a13b" font-weight="bold">兑 Đoài</text>
+<text x="912" y="588" font-size="10" fill="#777">Thu — vui, thu hoạch</text>
+<text x="836" y="612" font-size="11" fill="#555" font-weight="normal">乾 Càn</text>
+<text x="912" y="612" font-size="10" fill="#777">cuối thu — giao tranh</text>
+<text x="836" y="636" font-size="11" fill="#2f5d8a" font-weight="bold">坎 Khảm</text>
+<text x="912" y="636" font-size="10" fill="#777">Đông — nhọc, ẩn tàng</text>
+<text x="836" y="660" font-size="11" fill="#555" font-weight="normal">艮 Cấn</text>
+<text x="912" y="660" font-size="10" fill="#777">cuối đông — thành, dừng</text>
+<text x="590.0" y="844" text-anchor="middle" font-size="11" fill="#999">Văn Vương đổi vị Phục Hy "để ứng thiên thời, ứng địa phương" — biến THỂ của Dịch thành DỤNG (tr.461) · "vương giả chi pháp"</text>
+</svg>

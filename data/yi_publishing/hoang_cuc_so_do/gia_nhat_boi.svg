@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1180 900" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, STKaiti, Songti SC, serif">
+<rect width="1180" height="900" fill="#fbf7ef"/>
+<text x="590.0" y="40" text-anchor="middle" font-size="27" fill="#2a2018" font-weight="bold">GIA-NHẤT-BỘI (加一倍法) — cây nhân đôi sinh 64 quẻ</text>
+<text x="590.0" y="67" text-anchor="middle" font-size="14" fill="#7a5a2a">道→1 Thái Cực→2 Lưỡng Nghi→4 Tứ Tượng→8 Bát Quái→…→64 · Trình Hạo gọi "phép thêm một gấp đôi"</text>
+<text x="590.0" y="95" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">① CÂY NHÂN ĐÔI — vạch liền = dương (1), vạch đứt = âm (0)</text>
+<circle cx="590.0" cy="129" r="17" fill="#c9a13b" fill-opacity="0.3" stroke="#a8621c"/>
+<text x="590.0" y="134" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">太极</text>
+<text x="616.0" y="134" font-size="11" fill="#888">1 — Thái Cực</text>
+<rect x="308" y="167" width="44" height="7" fill="#7a3410"/>
+<line x1="590.0" y1="146" x2="330.0" y2="164" stroke="#ccc"/>
+<rect x="828" y="167" width="19" height="7" fill="#7a3410"/><rect x="853" y="167" width="19" height="7" fill="#7a3410"/>
+<line x1="590.0" y1="146" x2="850.0" y2="164" stroke="#ccc"/>
+<text x="590.0" y="173" text-anchor="middle" font-size="11" fill="#888">2 — Lưỡng Nghi</text>
+<rect x="238" y="208" width="44" height="7" fill="#7a3410"/>
+<rect x="238" y="197" width="44" height="7" fill="#7a3410"/>
+<rect x="458" y="208" width="19" height="7" fill="#7a3410"/><rect x="483" y="208" width="19" height="7" fill="#7a3410"/>
+<rect x="458" y="197" width="44" height="7" fill="#7a3410"/>
+<rect x="678" y="208" width="44" height="7" fill="#7a3410"/>
+<rect x="678" y="197" width="19" height="7" fill="#7a3410"/><rect x="703" y="197" width="19" height="7" fill="#7a3410"/>
+<rect x="898" y="208" width="19" height="7" fill="#7a3410"/><rect x="923" y="208" width="19" height="7" fill="#7a3410"/>
+<rect x="898" y="197" width="19" height="7" fill="#7a3410"/><rect x="923" y="197" width="19" height="7" fill="#7a3410"/>
+<text x="1110" y="209" text-anchor="end" font-size="11" fill="#888">4 — Tứ Tượng</text>
+<rect x="122" y="263" width="44" height="7" fill="#7a3410"/><rect x="122" y="252" width="44" height="7" fill="#7a3410"/><rect x="122" y="241" width="44" height="7" fill="#7a3410"/>
+<text x="144" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">乾</text>
+<text x="144" y="315" text-anchor="middle" font-size="10.5" fill="#777">Càn</text>
+<rect x="249" y="263" width="44" height="7" fill="#7a3410"/><rect x="249" y="252" width="44" height="7" fill="#7a3410"/><rect x="249" y="241" width="19" height="7" fill="#7a3410"/><rect x="274" y="241" width="19" height="7" fill="#7a3410"/>
+<text x="271" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">兑</text>
+<text x="271" y="315" text-anchor="middle" font-size="10.5" fill="#777">Đoài</text>
+<rect x="377" y="263" width="44" height="7" fill="#7a3410"/><rect x="377" y="252" width="19" height="7" fill="#7a3410"/><rect x="402" y="252" width="19" height="7" fill="#7a3410"/><rect x="377" y="241" width="44" height="7" fill="#7a3410"/>
+<text x="399" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">离</text>
+<text x="399" y="315" text-anchor="middle" font-size="10.5" fill="#777">Ly</text>
+<rect x="504" y="263" width="44" height="7" fill="#7a3410"/><rect x="504" y="252" width="19" height="7" fill="#7a3410"/><rect x="529" y="252" width="19" height="7" fill="#7a3410"/><rect x="504" y="241" width="19" height="7" fill="#7a3410"/><rect x="529" y="241" width="19" height="7" fill="#7a3410"/>
+<text x="526" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">震</text>
+<text x="526" y="315" text-anchor="middle" font-size="10.5" fill="#777">Chấn</text>
+<rect x="632" y="263" width="19" height="7" fill="#7a3410"/><rect x="657" y="263" width="19" height="7" fill="#7a3410"/><rect x="632" y="252" width="44" height="7" fill="#7a3410"/><rect x="632" y="241" width="44" height="7" fill="#7a3410"/>
+<text x="654" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">巽</text>
+<text x="654" y="315" text-anchor="middle" font-size="10.5" fill="#777">Tốn</text>
+<rect x="759" y="263" width="19" height="7" fill="#7a3410"/><rect x="784" y="263" width="19" height="7" fill="#7a3410"/><rect x="759" y="252" width="44" height="7" fill="#7a3410"/><rect x="759" y="241" width="19" height="7" fill="#7a3410"/><rect x="784" y="241" width="19" height="7" fill="#7a3410"/>
+<text x="781" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">坎</text>
+<text x="781" y="315" text-anchor="middle" font-size="10.5" fill="#777">Khảm</text>
+<rect x="887" y="263" width="19" height="7" fill="#7a3410"/><rect x="912" y="263" width="19" height="7" fill="#7a3410"/><rect x="887" y="252" width="19" height="7" fill="#7a3410"/><rect x="912" y="252" width="19" height="7" fill="#7a3410"/><rect x="887" y="241" width="44" height="7" fill="#7a3410"/>
+<text x="909" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">艮</text>
+<text x="909" y="315" text-anchor="middle" font-size="10.5" fill="#777">Cấn</text>
+<rect x="1014" y="263" width="19" height="7" fill="#7a3410"/><rect x="1039" y="263" width="19" height="7" fill="#7a3410"/><rect x="1014" y="252" width="19" height="7" fill="#7a3410"/><rect x="1039" y="252" width="19" height="7" fill="#7a3410"/><rect x="1014" y="241" width="19" height="7" fill="#7a3410"/><rect x="1039" y="241" width="19" height="7" fill="#7a3410"/>
+<text x="1036" y="299" text-anchor="middle" font-size="14" fill="#7a3410" font-weight="bold">坤</text>
+<text x="1036" y="315" text-anchor="middle" font-size="10.5" fill="#777">Khôn</text>
+<text x="1110" y="253" text-anchor="end" font-size="11" fill="#888">8 — Bát Quái</text>
+<text x="590.0" y="339" text-anchor="middle" font-size="11.5" fill="#999">…mỗi quẻ thêm 1 hào lại gấp đôi: 8→16→32→<tspan fill="#7a3410" font-weight="bold">64 quẻ</tspan> (6 hào)</text>
+<text x="80" y="369" font-size="14" fill="#2f5d8a" font-weight="bold">② Đây chính là LŨY THỪA CỦA 2:</text>
+<rect x="120" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.06" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="180" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2⁰ = <tspan font-weight="bold" font-size="16">1</tspan></text>
+<text x="180" y="420" text-anchor="middle" font-size="10" fill="#888">太极</text>
+<text x="252" y="409" text-anchor="middle" font-size="15" fill="#bbb">×2</text>
+<rect x="270" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.08" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="330" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2¹ = <tspan font-weight="bold" font-size="16">2</tspan></text>
+<text x="330" y="420" text-anchor="middle" font-size="10" fill="#888">两仪</text>
+<text x="402" y="409" text-anchor="middle" font-size="15" fill="#bbb">×2</text>
+<rect x="420" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.1" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="480" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2² = <tspan font-weight="bold" font-size="16">4</tspan></text>
+<text x="480" y="420" text-anchor="middle" font-size="10" fill="#888">四象</text>
+<text x="552" y="409" text-anchor="middle" font-size="15" fill="#bbb">×2</text>
+<rect x="570" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.12" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="630" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2³ = <tspan font-weight="bold" font-size="16">8</tspan></text>
+<text x="630" y="420" text-anchor="middle" font-size="10" fill="#888">八卦</text>
+<text x="702" y="409" text-anchor="middle" font-size="15" fill="#bbb">×2</text>
+<rect x="720" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.14" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="780" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2⁴ = <tspan font-weight="bold" font-size="16">16</tspan></text>
+<text x="780" y="420" text-anchor="middle" font-size="10" fill="#888"></text>
+<text x="852" y="409" text-anchor="middle" font-size="15" fill="#bbb">×2</text>
+<rect x="870" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.16" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="930" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2⁵ = <tspan font-weight="bold" font-size="16">32</tspan></text>
+<text x="930" y="420" text-anchor="middle" font-size="10" fill="#888"></text>
+<text x="1002" y="409" text-anchor="middle" font-size="15" fill="#bbb">×2</text>
+<rect x="1020" y="383" width="120" height="44" rx="6" fill="#2f5d8a" fill-opacity="0.18" stroke="#2f5d8a" stroke-opacity="0.4"/>
+<text x="1080" y="403" text-anchor="middle" font-size="13" fill="#2f5d8a">2⁶ = <tspan font-weight="bold" font-size="16">64</tspan></text>
+<text x="1080" y="420" text-anchor="middle" font-size="10" fill="#888">64 quẻ</text>
+<rect x="80" y="455" width="500" height="120" rx="9" fill="#3f7d54" fill-opacity="0.06" stroke="#3f7d54" stroke-opacity="0.4"/>
+<text x="110" y="481" font-size="14" fill="#2f6d44" font-weight="bold">③ Cầu nối: NHỊ PHÂN</text>
+<text x="110" y="503" font-size="11.5" fill="#444">Âm = vạch đứt = 0 · Dương = vạch liền = 1</text>
+<text x="110" y="522" font-size="11.5" fill="#444">Một quẻ = 6 hào = 6 chữ số nhị phân = 2⁶ = 64</text>
+<text x="110" y="541" font-size="11.5" fill="#444">Leibniz (1703) thấy đồ Tiên Thiên Phục Hy →</text>
+<text x="110" y="560" font-size="11.5" fill="#444">nhận ra chính là số học nhị phân → máy tính/AI</text>
+<rect x="600" y="455" width="500" height="120" rx="9" fill="#a8621c" fill-opacity="0.06" stroke="#a8621c" stroke-opacity="0.4"/>
+<text x="630" y="481" font-size="14" fill="#a8621c" font-weight="bold">④ Triết lý chữ MỘT (一)</text>
+<text x="850" y="513" text-anchor="middle" font-size="20" fill="#7a3410" font-weight="bold">一 → vạn → 一</text>
+<text x="850" y="531" text-anchor="middle" font-size="10.8" fill="#444">Vạn vật khởi từ MỘT, phân thành vạn, rồi quy MỘT</text>
+<text x="850" y="548" text-anchor="middle" font-size="10.8" fill="#444">Sách tự nối hiện đại (tr.31): cải gen, nhân bản —</text>
+<text x="850" y="565" text-anchor="middle" font-size="10.8" fill="#444">một tế bào phân thành nghìn vạn tế bào, cùng lý ấy</text>
+<text x="590.0" y="884" text-anchor="middle" font-size="11" fill="#999">Nguồn: Quan Vật Ngoại Thiên (tự tự bộ trọn) · "加一倍法" = lời Trình Minh Đạo · Thái thị: "Tần Hán đến nay, một người mà thôi"</text>
+</svg>

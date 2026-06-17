@@ -1,0 +1,75 @@
+<svg viewBox="0 0 1180 900" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, STKaiti, Songti SC, serif">
+<rect width="1180" height="900" fill="#fbf7ef"/>
+<text x="590.0" y="40" text-anchor="middle" font-size="26" fill="#2a2018" font-weight="bold">CƠ MẬT 起数 — quẻ-năm KHÔNG bí truyền, là THÁC BIẾN HÀO 4 TẦNG</text>
+<text x="590.0" y="67" text-anchor="middle" font-size="13.5" fill="#7a5a2a">Nguyên lý 一贞八悔 · mỗi tầng = đổi lần lượt 6 hào (一卦六变) · bản 今说 giải rõ, không giấu</text>
+<text x="60" y="92" font-size="15" fill="#7a3410" font-weight="bold">① THÁC 4 TẦNG (会 → 运 → 世 → 年)</text>
+<rect x="60" y="110" width="200" height="36" rx="6" fill="#2f5d8a" fill-opacity="0.10" stroke="#2f5d8a" stroke-opacity="0.45"/>
+<text x="78" y="134" font-size="17" fill="#2f5d8a" font-weight="bold">会</text>
+<text x="150" y="132" font-size="12.5" fill="#2f5d8a" font-weight="bold">Hội</text>
+<text x="278" y="133" font-size="11" fill="#666">10.800 năm</text>
+<text x="100" y="154" text-anchor="middle" font-size="11" fill="#bbb">↓ đổi hào</text>
+<rect x="60" y="154" width="200" height="36" rx="6" fill="#3f7d54" fill-opacity="0.10" stroke="#3f7d54" stroke-opacity="0.45"/>
+<text x="78" y="178" font-size="17" fill="#3f7d54" font-weight="bold">值卦/大运</text>
+<text x="150" y="176" font-size="12.5" fill="#3f7d54" font-weight="bold">Trị quái</text>
+<text x="278" y="177" font-size="11" fill="#666">60 quẻ vòng Tiên Thiên (bỏ 乾坤坎离) · 12 hội×5</text>
+<text x="100" y="198" text-anchor="middle" font-size="11" fill="#bbb">↓ đổi hào</text>
+<rect x="60" y="198" width="200" height="36" rx="6" fill="#a8621c" fill-opacity="0.10" stroke="#a8621c" stroke-opacity="0.45"/>
+<text x="78" y="222" font-size="17" fill="#a8621c" font-weight="bold">运卦</text>
+<text x="150" y="220" font-size="12.5" fill="#a8621c" font-weight="bold">Vận quái</text>
+<text x="278" y="221" font-size="11" fill="#666">đổi 6 hào của 值卦 → 30 vận/hội</text>
+<text x="100" y="242" text-anchor="middle" font-size="11" fill="#bbb">↓ đổi hào</text>
+<rect x="60" y="242" width="200" height="36" rx="6" fill="#c98a2e" fill-opacity="0.10" stroke="#c98a2e" stroke-opacity="0.45"/>
+<text x="78" y="266" font-size="17" fill="#c98a2e" font-weight="bold">世卦</text>
+<text x="150" y="264" font-size="12.5" fill="#c98a2e" font-weight="bold">Thế quái</text>
+<text x="278" y="265" font-size="11" fill="#666">đổi 6 hào của 运卦 · mỗi quẻ 2 thế → 12 thế/vận</text>
+<text x="100" y="286" text-anchor="middle" font-size="11" fill="#bbb">↓ đổi hào</text>
+<rect x="60" y="286" width="200" height="36" rx="6" fill="#c0392b" fill-opacity="0.10" stroke="#c0392b" stroke-opacity="0.45"/>
+<text x="78" y="310" font-size="17" fill="#c0392b" font-weight="bold">年卦</text>
+<text x="150" y="308" font-size="12.5" fill="#c0392b" font-weight="bold">Niên quái</text>
+<text x="278" y="309" font-size="11" fill="#666">đổi hào của 世卦 (以运经世) — tầng năm</text>
+<text x="640" y="92" font-size="15" fill="#7a3410" font-weight="bold">② VÍ DỤ ĐÃ KIỂM: 复 đổi 6 hào</text>
+<text x="700" y="122" text-anchor="middle" font-size="13" fill="#7a3410" font-weight="bold">复 (gốc)</text>
+<rect x="684" y="177" width="32" height="5" fill="#7a3410"/><rect x="684" y="168" width="13" height="5" fill="#7a3410"/><rect x="703" y="168" width="13" height="5" fill="#7a3410"/><rect x="684" y="159" width="13" height="5" fill="#7a3410"/><rect x="703" y="159" width="13" height="5" fill="#7a3410"/><rect x="684" y="150" width="13" height="5" fill="#7a3410"/><rect x="703" y="150" width="13" height="5" fill="#7a3410"/><rect x="684" y="141" width="13" height="5" fill="#7a3410"/><rect x="703" y="141" width="13" height="5" fill="#7a3410"/><rect x="684" y="132" width="13" height="5" fill="#7a3410"/><rect x="703" y="132" width="13" height="5" fill="#7a3410"/>
+<text x="700" y="217" text-anchor="middle" font-size="10" fill="#999">sơ hào dương</text>
+<line x1="745" y1="162" x2="770" y2="137" stroke="#ddd" stroke-width="0.8"/>
+<text x="818" y="110" text-anchor="middle" font-size="10" fill="#c0392b">đổi sơ</text>
+<rect x="802" y="161" width="13" height="5" fill="#c0392b"/><rect x="821" y="161" width="13" height="5" fill="#c0392b"/><rect x="802" y="152" width="13" height="5" fill="#7a3410"/><rect x="821" y="152" width="13" height="5" fill="#7a3410"/><rect x="802" y="143" width="13" height="5" fill="#7a3410"/><rect x="821" y="143" width="13" height="5" fill="#7a3410"/><rect x="802" y="134" width="13" height="5" fill="#7a3410"/><rect x="821" y="134" width="13" height="5" fill="#7a3410"/><rect x="802" y="125" width="13" height="5" fill="#7a3410"/><rect x="821" y="125" width="13" height="5" fill="#7a3410"/><rect x="802" y="116" width="13" height="5" fill="#7a3410"/><rect x="821" y="116" width="13" height="5" fill="#7a3410"/>
+<text x="818" y="200" text-anchor="middle" font-size="13" fill="#2a2018" font-weight="bold">坤</text>
+<text x="818" y="215" text-anchor="middle" font-size="9.5" fill="#888">Khôn</text>
+<line x1="745" y1="162" x2="890" y2="137" stroke="#ddd" stroke-width="0.8"/>
+<text x="938" y="110" text-anchor="middle" font-size="10" fill="#c0392b">đổi nhị</text>
+<rect x="922" y="161" width="32" height="5" fill="#7a3410"/><rect x="922" y="152" width="32" height="5" fill="#c0392b"/><rect x="922" y="143" width="13" height="5" fill="#7a3410"/><rect x="941" y="143" width="13" height="5" fill="#7a3410"/><rect x="922" y="134" width="13" height="5" fill="#7a3410"/><rect x="941" y="134" width="13" height="5" fill="#7a3410"/><rect x="922" y="125" width="13" height="5" fill="#7a3410"/><rect x="941" y="125" width="13" height="5" fill="#7a3410"/><rect x="922" y="116" width="13" height="5" fill="#7a3410"/><rect x="941" y="116" width="13" height="5" fill="#7a3410"/>
+<text x="938" y="200" text-anchor="middle" font-size="13" fill="#2a2018" font-weight="bold">临</text>
+<text x="938" y="215" text-anchor="middle" font-size="9.5" fill="#888">Lâm</text>
+<line x1="745" y1="162" x2="1010" y2="137" stroke="#ddd" stroke-width="0.8"/>
+<text x="1058" y="110" text-anchor="middle" font-size="10" fill="#c0392b">đổi tam</text>
+<rect x="1042" y="161" width="32" height="5" fill="#7a3410"/><rect x="1042" y="152" width="13" height="5" fill="#7a3410"/><rect x="1061" y="152" width="13" height="5" fill="#7a3410"/><rect x="1042" y="143" width="32" height="5" fill="#c0392b"/><rect x="1042" y="134" width="13" height="5" fill="#7a3410"/><rect x="1061" y="134" width="13" height="5" fill="#7a3410"/><rect x="1042" y="125" width="13" height="5" fill="#7a3410"/><rect x="1061" y="125" width="13" height="5" fill="#7a3410"/><rect x="1042" y="116" width="13" height="5" fill="#7a3410"/><rect x="1061" y="116" width="13" height="5" fill="#7a3410"/>
+<text x="1058" y="200" text-anchor="middle" font-size="13" fill="#2a2018" font-weight="bold">明夷</text>
+<text x="1058" y="215" text-anchor="middle" font-size="9.5" fill="#888">Minh Di</text>
+<line x1="745" y1="162" x2="770" y2="287" stroke="#ddd" stroke-width="0.8"/>
+<text x="818" y="260" text-anchor="middle" font-size="10" fill="#c0392b">đổi tứ</text>
+<rect x="802" y="311" width="32" height="5" fill="#7a3410"/><rect x="802" y="302" width="13" height="5" fill="#7a3410"/><rect x="821" y="302" width="13" height="5" fill="#7a3410"/><rect x="802" y="293" width="13" height="5" fill="#7a3410"/><rect x="821" y="293" width="13" height="5" fill="#7a3410"/><rect x="802" y="284" width="32" height="5" fill="#c0392b"/><rect x="802" y="275" width="13" height="5" fill="#7a3410"/><rect x="821" y="275" width="13" height="5" fill="#7a3410"/><rect x="802" y="266" width="13" height="5" fill="#7a3410"/><rect x="821" y="266" width="13" height="5" fill="#7a3410"/>
+<text x="818" y="350" text-anchor="middle" font-size="13" fill="#2a2018" font-weight="bold">震</text>
+<text x="818" y="365" text-anchor="middle" font-size="9.5" fill="#888">Chấn</text>
+<line x1="745" y1="162" x2="890" y2="287" stroke="#ddd" stroke-width="0.8"/>
+<text x="938" y="260" text-anchor="middle" font-size="10" fill="#c0392b">đổi ngũ</text>
+<rect x="922" y="311" width="32" height="5" fill="#7a3410"/><rect x="922" y="302" width="13" height="5" fill="#7a3410"/><rect x="941" y="302" width="13" height="5" fill="#7a3410"/><rect x="922" y="293" width="13" height="5" fill="#7a3410"/><rect x="941" y="293" width="13" height="5" fill="#7a3410"/><rect x="922" y="284" width="13" height="5" fill="#7a3410"/><rect x="941" y="284" width="13" height="5" fill="#7a3410"/><rect x="922" y="275" width="32" height="5" fill="#c0392b"/><rect x="922" y="266" width="13" height="5" fill="#7a3410"/><rect x="941" y="266" width="13" height="5" fill="#7a3410"/>
+<text x="938" y="350" text-anchor="middle" font-size="13" fill="#2a2018" font-weight="bold">屯</text>
+<text x="938" y="365" text-anchor="middle" font-size="9.5" fill="#888">Truân</text>
+<line x1="745" y1="162" x2="1010" y2="287" stroke="#ddd" stroke-width="0.8"/>
+<text x="1058" y="260" text-anchor="middle" font-size="10" fill="#c0392b">đổi thượng</text>
+<rect x="1042" y="311" width="32" height="5" fill="#7a3410"/><rect x="1042" y="302" width="13" height="5" fill="#7a3410"/><rect x="1061" y="302" width="13" height="5" fill="#7a3410"/><rect x="1042" y="293" width="13" height="5" fill="#7a3410"/><rect x="1061" y="293" width="13" height="5" fill="#7a3410"/><rect x="1042" y="284" width="13" height="5" fill="#7a3410"/><rect x="1061" y="284" width="13" height="5" fill="#7a3410"/><rect x="1042" y="275" width="13" height="5" fill="#7a3410"/><rect x="1061" y="275" width="13" height="5" fill="#7a3410"/><rect x="1042" y="266" width="32" height="5" fill="#c0392b"/>
+<text x="1058" y="350" text-anchor="middle" font-size="13" fill="#2a2018" font-weight="bold">颐</text>
+<text x="1058" y="365" text-anchor="middle" font-size="9.5" fill="#888">Di</text>
+<text x="940" y="422" text-anchor="middle" font-size="11" fill="#3f7d54">✓ khớp chính văn dòng 1705 (engine test xanh)</text>
+<rect x="60" y="470" width="1060" height="150" rx="10" fill="#c9a13b" fill-opacity="0.06" stroke="#c9a13b" stroke-opacity="0.4"/>
+<text x="590.0" y="498" text-anchor="middle" font-size="15" fill="#8a4a14" font-weight="bold">③ NGUYÊN LÝ 一贞八悔 (một trinh, tám hối)</text>
+<text x="590.0" y="522" text-anchor="middle" font-size="12" fill="#555">MỘT quái DƯỚI (贞 / bản quái) ghép CẢ TÁM quái TRÊN (悔 / biến quái) → 8 quẻ. 8 贞 × 8 悔 = 64 quẻ.</text>
+<text x="590.0" y="548" text-anchor="middle" font-size="12" fill="#555">Tả Truyện đã dùng: 蛊 = 贞 巽(phong) · 悔 艮(sơn); 随 = 贞 雷(chấn) · 悔 đoài. — quẻ = (dưới, trên).</text>
+<text x="590.0" y="574" text-anchor="middle" font-size="12" fill="#555">Vì biến hào LỒNG nhiều tầng nên cùng Giáp Tý mà 304 = 革 còn 2044 = 大過 — KHÔNG phải vòng 60 cố định.</text>
+<text x="590.0" y="648" text-anchor="middle" font-size="14" fill="#2f5d8a" font-weight="bold">Vậy "cơ mật" là gì?</text>
+<text x="590.0" y="672" text-anchor="middle" font-size="12" fill="#444">Không phải một con số thần bí — mà là một CƠ CHẾ SINH: từ 1 quẻ gốc, đổi hào lồng 4 tầng, sinh ra</text>
+<text x="590.0" y="695" text-anchor="middle" font-size="12" fill="#444">quẻ của từng hội/vận/thế/năm. Nắm cơ chế = suy được BẤT KỲ năm nào, không cần thuộc bảng.</text>
+<text x="590.0" y="718" text-anchor="middle" font-size="12" fill="#444">Tổ sư giấu cái KHÓA (phép biến), không giấu từng con số. 今说 mở khóa ấy ra — và nó VẬN HÀNH ĐƯỢC.</text>
+<text x="590.0" y="884" text-anchor="middle" font-size="11" fill="#999">engine.hoang_cuc.khoi_so — bits_of/bien_hao/sau_bien/chuoi_60_van · 17/17 test · nguồn Ngoại Thiên dòng 1703-1707, 8935</text>
+</svg>

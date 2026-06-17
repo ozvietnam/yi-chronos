@@ -7,6 +7,11 @@ import pytest
 
 from engine.hoang_cuc.constants import NAM_MOI_NGUYEN, NGUYEN_START_ASTRO, can_chi_year
 from engine.hoang_cuc.nguyen_hoi_van_the import locate_year, timeline
+from engine.hoang_cuc.nam_que import (
+    NAM_QUE_2020_2103,
+    NAM_QUE_CHINH_VAN,
+    nam_que,
+)
 
 
 def test_anchor_304_khop_sach():
@@ -68,3 +73,85 @@ def test_timeline_marks():
     marks = timeline(1900, 2100)
     assert 6 <= len(marks) <= 9
     assert all(m["hoi_chi"] == "Ngọ" for m in marks)
+
+
+# ── Năm-quẻ (值年卦) ──────────────────────────────────────────
+
+def test_nam_que_kiem_cheo_chinh_van():
+    """KIỂM CHÉO cốt lõi: chính văn 304-313 ≡ bảng hiện đại 2025-2034."""
+    a = [NAM_QUE_CHINH_VAN[y] for y in range(304, 314)]
+    b = [NAM_QUE_2020_2103[y] for y in range(2025, 2035)]
+    assert a == b == ["革", "同人", "临", "损", "节", "中孚", "归妹", "睽", "兑", "履"]
+
+
+def test_nam_que_long_theo_van_the():
+    """Cùng Giáp Tý mà khác quẻ → không phải vòng can-chi cố định."""
+    assert nam_que(304)["han"] == "革"      # Giáp Tý
+    assert nam_que(2044)["han"] == "大过"    # Giáp Tý khác → khác quẻ
+
+
+def test_nam_que_dung_60_que():
+    """Bảng dùng đúng 60 quẻ (64 bỏ 4 thuần 乾坤坎离)."""
+    assert len(set(NAM_QUE_2020_2103.values())) == 60
+    assert not ({"乾", "坤", "坎", "离"} & set(NAM_QUE_2020_2103.values()))
+
+
+def test_nam_que_trung_thuc_none():
+    """Ngoài nguồn xác → None (không bịa). 2026 = Đồng Nhân."""
+    assert nam_que(1988) is None      # quá khứ Anh, chưa có nguồn
+    assert nam_que(1500) is None
+    assert nam_que(2026)["viet"] == "Đồng Nhân"
+    assert nam_que(2044)["suspect"] is True  # nghi lỗi bảng
+
+
+# ── Khởi số (起数) — cơ chế biến hào ──────────────────────────
+
+def test_khoi_so_phuc_sau_bien():
+    """Cốt cơ mật: 复 đổi sơ→thượng = 坤·临·明夷·震·屯·颐 (chính văn dòng 1705)."""
+    from engine.hoang_cuc.khoi_so import sau_bien
+    assert sau_bien("复") == ["坤", "临", "明夷", "震", "屯", "颐"]
+
+
+def test_khoi_so_trinh_hoi():
+    """一贞八悔: 蛊 = 贞 巽(phong) · 悔 艮(sơn) — khớp Tả Truyện (dòng 8935)."""
+    from engine.hoang_cuc.khoi_so import trinh_hoi, bits_of, name_of
+    th = trinh_hoi("蛊")
+    assert th["trinh_ha"] == "巽" and th["hoi_thuong"] == "艮"
+    # roundtrip bits ↔ name trên cả 64 quẻ
+    from engine.hoang_cuc.khoi_so import XIANTIAN
+    assert all(name_of(bits_of(n)) == n for n in XIANTIAN)
+
+
+def test_khoi_so_chuoi_60_van():
+    """60 值卦: khởi 复, hết 剥, bỏ đúng 4 quẻ thuần."""
+    from engine.hoang_cuc.khoi_so import chuoi_60_van, PURE
+    seq = chuoi_60_van()
+    assert len(seq) == 60 and seq[0] == "复" and seq[-1] == "剥"
+    assert not (set(seq) & PURE)
+
+
+def test_year_que_method_khop_chinh_van():
+    """RÁP TRỌN: phép 经世 (会→运→世→năm) tái dựng KHỚP 10/10 chính văn 304-313.
+    世卦 thế 2245 tính độc lập = 革 = quẻ năm đầu (kiểm độc lập, không vòng vo)."""
+    from engine.hoang_cuc.khoi_so import year_que_method, the_que
+    assert the_que(7, 8, 1) == "革"  # thế 2245: hội7, vận-in8, thế-in1 → 世卦 = 革
+    exp = ["革", "同人", "临", "损", "节", "中孚", "归妹", "睽", "兑", "履"]
+    got = [year_que_method(y)["han"] for y in range(304, 314)]
+    assert got == exp
+
+
+def test_cast_co_nam_que():
+    """cast nhúng nam_que theo PHÉP 经世 (hệ duy nhất, bỏ sohu): 304=革, 2026=师."""
+    from engine.hoang_cuc.cast import cast_hoang_cuc
+    assert cast_hoang_cuc(304, with_atoms=False)["nam_que"]["han"] == "革"
+    assert cast_hoang_cuc(2026, with_atoms=False)["nam_que"]["han"] == "师"
+
+
+def test_nam_que_strip_svg():
+    """SVG strip cá nhân hoá — hợp lệ, clamp theo năm sinh, đánh dấu NAY."""
+    from engine.hoang_cuc.nam_que_svg import nam_que_strip_svg
+    svg = nam_que_strip_svg(1988, 2026)
+    assert svg.startswith("<svg") and svg.rstrip().endswith("</svg>")
+    assert "NAY 2026" in svg and "1988 → 2068" in svg   # CẢ ĐỜI (phép 经世, không clamp)
+    assert "2010 → 2090" in nam_que_strip_svg(2010, 2026)
+    assert "<svg" in nam_que_strip_svg(2100, 2026)       # đời sau cũng tính được
