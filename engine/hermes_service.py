@@ -74,16 +74,40 @@ def sync_souls_from_profiles() -> dict:
     return synced
 
 
+def _build_chart_data(person: dict) -> dict:
+    """Cast facts thật từ giờ sinh (engine — sage chỉ LUẬN, không tự tính). Resilient:
+    cast lỗi → vẫn trả phần birth tối thiểu (council/mock vẫn chạy)."""
+    birth = person.get("birth_datetime_local")
+    gender = person.get("gender") or "nam"
+    tz = person.get("timezone") or "Asia/Ho_Chi_Minh"
+    chart: dict = {"birth_datetime_local": birth, "gender": gender, "timezone": tz}
+    try:
+        from engine.bat_tu.cast import cast_bat_tu
+        chart["bat_tu"] = cast_bat_tu(birth_datetime_local=birth, timezone=tz, gender=gender)
+    except Exception:
+        pass
+    try:
+        from engine.tu_vi.an_sao import cast_la_so
+        chart["tu_vi"] = cast_la_so(birth_datetime_local=birth, timezone=tz, gender=gender)
+    except Exception:
+        pass
+    return chart
+
+
 def _real_consult(question: str, person: dict, uid: int) -> dict:
-    """Bọc council in-process sẵn có. (Nâng dùng SOUL sâu = follow-up.)"""
+    """Bọc council in-process sẵn có (sages dùng SOUL sâu qua prompt_overrides)."""
     from engine.ai.council import consult_council
-    chart = {"birth_datetime_local": person.get("birth_datetime_local"),
-             "gender": person.get("gender")}
-    res = consult_council(question=question, chart_data=chart, persist=False)
+    res = consult_council(question=question, chart_data=_build_chart_data(person),
+                          persist=False)
+    pu = res.get("providers_used") or {}     # dict {agent: provider} | đôi khi list
+    if isinstance(pu, dict):
+        provider = pu.get("orchestrator") or next(iter(pu.values()), "deepseek")
+    else:
+        provider = (list(pu) or ["deepseek"])[0]
     return {
         "synthesis": res.get("final_synthesis") or "",
         "agents": res.get("agents_consulted") or [],
-        "provider": (res.get("providers_used") or ["deepseek"])[0],
+        "provider": provider,
         "cost_usd": float(res.get("cost_usd") or 0),
         "raw": res,
     }

@@ -142,6 +142,33 @@ def test_not_synced(backend):
     assert r["status"] == "error" and r["reason"] == "not_synced"
 
 
+# ── E2E: chuỗi thật run_council → _real_consult → council (mock provider) ────────
+
+def test_e2e_real_council_path_with_mock_provider(backend, monkeypatch):
+    """Không inject consult → đi qua _real_consult thật (cast chart + consult_council).
+    Ép provider mock cho deterministic + free. Verify nguyên chuỗi sinh synthesis + lưu."""
+    _seed(remaining=1)
+    from engine.ai import council
+    from engine.ai.registry import get_registry
+    mock = get_registry().get("mock")
+    monkeypatch.setattr(council, "_get_agent_provider", lambda aid: (mock, "mock"))
+    monkeypatch.setattr(council, "_get_orchestrator_provider", lambda: (mock, "mock"))
+
+    r = hs.run_council("uid_h6", Q)          # REAL path, không stub
+    assert r["status"] == "done" and r["tier"] == "paid"
+    assert r["synthesis"] and r["casting_id"] >= 1 and r["agents"]
+    with db.session_scope(service=True) as c:
+        n = c.execute(text("SELECT count(*) FROM user_castings WHERE user_id=:u "
+                           "AND method='hermes_council'"), {"u": _uid_of("uid_h6")}).scalar()
+    assert n == 1
+
+
+def _uid_of(fb_uid: str) -> int:
+    with db.session_scope(service=True) as c:
+        return c.execute(text("SELECT user_id FROM users WHERE firebase_uid=:u"),
+                         {"u": fb_uid}).scalar()
+
+
 # ── slice 4: council dùng SOUL sâu (bơm profiles/*/SOUL.md vào prompt_overrides) ─
 
 def test_sync_souls_from_profiles_makes_council_use_deep_soul(tmp_path, monkeypatch):
