@@ -32,7 +32,9 @@ def test_call_trait_llm_retries_on_invalid_json():
 
 
 def test_call_trait_llm_raises_on_total_failure():
-    mock = MagicMock(side_effect=["bad1", "bad2", "bad3"])
+    # Every provider in the chain (deepseek → lmstudio → anthropic) returns
+    # unparseable text → all parse-fail → RuntimeError.
+    mock = MagicMock(side_effect=lambda *a, **k: "not json")
     with patch("engine.yi_wiki.birth_hour_quiz_v2.llm_call._provider_complete", mock):
         try:
             call_trait_llm(CAND)

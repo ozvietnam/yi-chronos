@@ -16,10 +16,10 @@ def test_registry_lists_all_providers():
 
     reg = get_registry()
     names = {p["name"] for p in reg.list_providers()}
-    # 8 providers per project stack (CLAUDE.md): local + cloud + free + paid + mock.
+    # 9 providers: local (ollama, lmstudio) + cloud + free + paid + mock.
     assert names == {
         "zai", "deepseek", "anthropic", "minimax",
-        "gemini", "openrouter", "ollama", "mock",
+        "gemini", "openrouter", "ollama", "lmstudio", "mock",
     }
 
 
@@ -202,7 +202,7 @@ def test_api_list_providers():
     assert r.status_code == 200
     payload = r.json()
     assert payload["status"] == "ok"
-    assert len(payload["providers"]) == 8  # full provider stack (CLAUDE.md)
+    assert len(payload["providers"]) == 9  # full provider stack + LM Studio (CLAUDE.md)
 
 
 def test_api_list_agents():
@@ -213,9 +213,9 @@ def test_api_list_agents():
     r = client.get("/api/ai/agents")
     assert r.status_code == 200
     payload = r.json()
-    assert len(payload["agents"]) == 7
+    assert len(payload["agents"]) == 8  # 8 council sages
     ids = {a["id"] for a in payload["agents"]}
-    assert ids == {"mai_hoa", "luc_hao", "lien_hoa", "tu_vi", "bat_tu", "ha_lac", "western"}
+    assert ids == {"mai_hoa", "luc_hao", "lien_hoa", "tu_vi", "bat_tu", "ha_lac", "than_so", "western"}
 
 
 def test_api_get_prompt_returns_default_and_current():
