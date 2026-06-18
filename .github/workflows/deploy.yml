@@ -58,53 +58,63 @@ jobs:
           cache-to: type=gha,mode=max
 
   deploy:
-    name: SSH deploy to VPS
+    name: Deploy to VPS (via Tailscale)
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (need docker-compose.prod.yml)
+      - name: Checkout (need docker-compose.prod.yml + deploy/remote_deploy.sh)
         uses: actions/checkout@v4
 
-      - name: Sync docker-compose.prod.yml to VPS
-        uses: appleboy/scp-action@v0.1.7
+      # Vì sao bỏ appleboy/scp-action + ssh-action:
+      # GitHub-hosted runner dùng dải IP Azure dùng-chung; firewall mạng của
+      # Hostinger thỉnh thoảng DROP gói SYN từ một IP runner "nóng" → lỗi
+      # `dial tcp <VPS_IP>:22: i/o timeout`. VPS KHÔNG có firewall chặn (đã kiểm
+      # tra: không fail2ban/ufw/csf, iptables INPUT trống, conntrack 0.8%).
+      # appleboy là action `uses:` nên không bọc được trong retry. Thay bằng
+      # raw scp/ssh để: (1) bọc trong nick-fields/retry — timeout tức thời tự
+      # khỏi trong cùng 1 run thay vì phải rerun tay; (2) gộp 3 kết nối → 2,
+      # giảm khả năng kích hoạt bộ chặn burst của Hostinger.
+      # 2026-06-18: runner join Tailscale (VPN mesh) rồi SSH tới VPS qua hostname
+      # tailnet `yi-vps` (IP 100.x) → né hẳn firewall edge Hostinger ở port 22 public.
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v3
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: docker-compose.prod.yml
-          target: /opt/yi-chronos/
-          strip_components: 0
+          authkey: ${{ secrets.TS_AUTHKEY }}
+          hostname: gha-deploy-${{ github.run_id }}
 
-      - name: Rename + ensure compose file present
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            mv -f /opt/yi-chronos/docker-compose.prod.yml /opt/yi-chronos/docker-compose.yml
-            ls -la /opt/yi-chronos/docker-compose.yml
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          install -m 600 /dev/null ~/.ssh/deploy_key
+          printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+          test -s ~/.ssh/deploy_key || { echo "::error::VPS_SSH_KEY rỗng — kiểm tra secret"; exit 1; }
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.0
+      - name: Deploy (scp compose + remote up) with retry-on-timeout
+        uses: nick-fields/retry@v3
+        env:
+          # Tailscale IP của VPS `yi-vps` (MagicDNS: yi-vps.tailfbdf4f.ts.net).
+          # SSH qua IP 100.x đi trong đường hầm WireGuard → KHÔNG chạm IP public
+          # 187.127.98.35:22 nên né hẳn firewall edge Hostinger. Nếu xóa/đổi node
+          # Tailscale thì cập nhật lại IP này (xem `tailscale ip -4` trên VPS).
+          DEPLOY_HOST: 100.104.69.16
+          DEPLOY_USER: ${{ secrets.VPS_USER }}
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
+          timeout_minutes: 8
+          max_attempts: 4
+          retry_wait_seconds: 30
+          warning_on_retry: true
+          shell: bash
+          command: |
             set -euo pipefail
-            cd /opt/yi-chronos
-            echo "═══ Pull new image ═══"
-            docker compose pull
-            echo "═══ Recreate container ═══"
-            docker compose up -d --remove-orphans
-            sleep 8
-            echo "═══ Status ═══"
-            docker compose ps
-            echo "═══ Container logs (last 120 lines, for crash diagnosis) ═══"
-            docker logs --tail 120 yi-chronos 2>&1 || true
-            echo "═══ Prune dangling images ═══"
-            docker image prune -f --filter "until=24h" || true
+            SSHOPT=(-i "$HOME/.ssh/deploy_key" \
+              -o ConnectTimeout=30 \
+              -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
+              -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+              -o LogLevel=ERROR)
+            echo "─── [1/2] Copy docker-compose.prod.yml → VPS:/opt/yi-chronos/docker-compose.yml ───"
+            scp "${SSHOPT[@]}" docker-compose.prod.yml "$DEPLOY_USER@$DEPLOY_HOST:/opt/yi-chronos/docker-compose.yml"
+            echo "─── [2/2] Chạy deploy script trên VPS ───"
+            ssh "${SSHOPT[@]}" "$DEPLOY_USER@$DEPLOY_HOST" 'bash -s' < deploy/remote_deploy.sh
 
       - name: Verify live health endpoint
         run: |
