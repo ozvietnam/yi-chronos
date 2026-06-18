@@ -44,7 +44,8 @@ Thiết Bản là hệ **"bói" nhất** → **căng nhất** với đạo đọ
 
 - **STORE (quan trọng)**: canonical = **DB `data/yi_wiki/wiki.sqlite3` bảng `tabular_verses`** (corpus `thiet-ban-than-so`, **10.907 điều, 8.217 có vi ~75%**). File `data/tabular_verses_v1_*.json` là **bản OCR cũ STALE (5.7k vi)** — KHÔNG ingest đè DB. Dịch mới → ghi thẳng vào DB (UPDATE ... WHERE vi IS NULL), rồi sync.
 - **ĐÃ CÓ**: `engine/thiet_ban` + `api/thiet_ban` (verse/range/search/volume/stats) + web (HoangCucPanel ô "🔢 Tra điều văn" + khung đúng-đạo). OCR bảng điều văn tr.106–587 (qwen-VL).
-- **GAP**: (1) phần đầu (起数 tables + 考刻, tr.1–105) **chưa OCR** → chưa tính số từ ngày sinh (KEYSTONE); (2) ~2.690 điều DB chưa có vi (gồm cả mảnh OCR vỡ).
+- **KEYSTONE 起数 — ĐÃ HIỂU PHÉP** (16/6): phương pháp nằm ở Càn Tập (restored p0006–0013), tài liệu hoá ở **`docs/design/THIET-BAN-KHOI-SO.md`**; nền số = Hà Đồ-Lạc Thư (Chương 9) → `engine/thiet_ban/khoi_so.py` (phần kiểm-được). Bonus: front matter sách có Tử Vi an-sao + tứ hóa, **kiểm chéo khớp Đồ Năm**. CHƯA ship engine tính-số vì: 八卦加则 OCR mờ/khẩu quyết + 考刻 cần cha-mẹ-bát-tự & sự kiện + **thiếu cặp kiểm** (không bịa số đóng đinh). Chờ: OCR sạch Lệ + 1-2 cặp kiểm.
+- **GAP khác**: ~2.690 điều DB chưa có vi (gồm cả mảnh OCR vỡ).
 - **LIVE**: DB → VPS qua `scripts/sync-atoms-to-vps.sh` (đẩy cả wiki.sqlite3; chỉ chạy khi gom đủ thay đổi, tránh đè state vì 1 nhúm điều).
 - **PATH** (làm không cần hỏi): ① thêm khung GOAL+đúng-đạo vào web Thiết Bản → ② dịch nốt ~1.690 điều → ③ OCR 起数+考刻 → ④ engine tính-số-từ-ngày-sinh → ⑤ trang/sách Thiết Bản hoàn chỉnh.
 
