@@ -1,39 +1,35 @@
 ---
 name: tu-vi-nu-menh
-description: Luận Nữ Mệnh — Toàn Thư tr.108+. ⚠ CHỨA phán xét giới cổ (dâm/lẳng/làm thiếp) — BẮT BUỘC qua LÁ CHẮN ĐẠO ĐỨC, đọc đồng dạng, KHÔNG phát ngôn nguyên văn.
+description: Luận Nữ Mệnh — Toàn Thư tr.108–121. Giữ NGUYÊN NGHĨA cổ văn (Anh chốt 2026-06-17: sách cổ tôn trọng, không nhẹ hóa). Ghi chú bối cảnh thời đại, KHÔNG đổi nghĩa.
 metadata:
   hermes:
-    tags: [tu_vi, nu_menh, moral_shield, Reference, LongContext]
+    tags: [tu_vi, nu_menh, co_van_nguyen_nghia, Reference, LongContext]
     routing_mode: long
     routing_keys: [nu-menh, la-so-nu, phu-nu]
   source:
     book_corpus_id: "tu-vi-dau-so-toan-thu-vu-tai-luc"
     author: "Trần Đoàn (Hi Di), dịch Vũ Tài Lục"
-    pages_orig: "108-120 (còn tiếp vòng 7)"
+    pages_orig: "108-121"
     journal: "docs/design/tu-vi-toan-thu-tran-doan-tham-nhuan-vong-6-p101-120.md"
   curated_at: 2026-06-17
 ---
 
-# Luận Nữ Mệnh — Toàn Thư tr.108+ (đọc tới p120, còn tiếp)
+# Luận Nữ Mệnh — Toàn Thư tr.108–121
 
-Mỗi chính tinh có "Nữ Mệnh ca" riêng — đọc lá số người nữ. Đã đọc: Tử Vi, Thiên Cơ, Thái Dương, Vũ Khúc, Thiên Đồng, (Liêm Trinh… tiếp vòng 7).
+> **Nguyên tắc (Anh chốt 2026-06-17):** sách cổ GIỮ NGUYÊN NGHĨA. Sự thật trong sách
+> ta tôn trọng — kể cả ngôn từ nay nghe sốc. KHÔNG "nhẹ hóa", KHÔNG đổi nghĩa.
+> Chỉ ghi chú bối cảnh: đây là quan niệm Tử Vi cổ (đời Tống → bản dịch cận đại),
+> phản ánh xã hội phong kiến. Trình bày trung thực; bối cảnh để người đọc tự hiểu thời đại.
 
-## 🛡️ LÁ CHẮN ĐẠO ĐỨC (BẮT BUỘC — đồng bộ school tu_vi_huy_tuan)
-Văn cổ tr.108-110 chứa nhiều phán xét giới NẶNG, lỗi thời:
-- *"Tử Phá Tham hội → đa dâm"*, *"Dần Thân Cơ Nguyệt → dâm bôn"*, *"Thiên Đồng+Thái Âm → dâm sảo, làm thiếp/ca kỹ"*, *"Vũ Khúc đơn thủ → khắc phu"*, *"Thái Dương phản bối → khắc chồng khắc con nên lấy lẽ"*…
+Mỗi chính tinh có "Nữ Mệnh ca" riêng. Trích nguyên nghĩa:
 
-**Hermes / sage TUYỆT ĐỐI KHÔNG**: phát ngôn nguyên văn các phán xét "dâm / lẳng lơ / làm thiếp / khắc chồng / nên lấy lẽ" cho người nữ. Đây là định kiến giới thời phong kiến.
+- **Tử Vi nữ mệnh**: đóng Mệnh → vượng phu ích tử, sang giàu. Nhưng *Tử-Phá-Tham hội → đa dâm*; gặp Đào Hoa → gian truân, duyên khó sớm.
+- **Thiên Cơ nữ mệnh**: được cát tinh phù → làm việc giỏi hơn đấng trượng phu; +Quyền Lộc → vinh hoa. Đi với **Thái Âm** (Dần Thân) → đẹp nhưng *lẳng lơ, dễ vào dâm phong, làm thiếp / ca kỹ*. Phú nôm: *"Dần Thân Cơ Nguyệt dành dành dâm bôn"*.
+- **Thái Dương nữ mệnh**: chính chiếu cung Thân → sắc đẹp, đoan trang, +cát → mệnh phụ phu nhân; cư Mệnh → tháo vát giỏi giang. *Phản bối → tâm địa hoang mang, y lộc bình thường, đoản thọ, khắc chồng khắc con, nên lấy lẽ và yên phận mới đỡ sóng gió.*
+- **Vũ Khúc nữ mệnh**: +Thiên Phủ → chí khí hùng; +Tả Hữu Song Lộc → song toàn phú quý. Đơn thủ → tính dị thường, y lộc dư nhưng dễ phá bại / yểu. *Vũ Khúc là Quả Tú tinh → nữ mệnh gặp phải cướp tranh quyền chồng.*
+- **Thiên Đồng nữ mệnh**: thông minh lanh lợi, +Xương Khúc → tài lộc tự nhiên. *Đi với Thái Âm → dâm sảo, y lộc rốt cuộc bất mỹ, làm thị thiếp.*
+- **(Liêm Trinh nữ mệnh… tiếp vòng 7 từ tr.121.)**
 
-**PHẢI làm (đọc đồng dạng — Iron Rule #6):** chuyển sang luận TÍNH CÁCH trung tính, bình đẳng:
-- "Tham Lang/Đào Hoa ở nữ" → *sức hút, giao tế rộng, đa tài, cá tính nồng* (KHÔNG = "dâm").
-- "Vũ Khúc nữ" → *chí khí độc lập, quyết đoán, giỏi tài chính* (KHÔNG = "khắc phu"); +Thiên Phủ/Tả Hữu/Lộc → song toàn phú quý (sách cũng công nhận mặt sáng).
-- "Thiên Cơ nữ + cát" → *"làm việc giỏi hơn đấng trượng phu"* (sách KHEN năng lực nữ — lấy vế này).
-- "Thái Dương nữ chính chiếu" → *đoan trang, tháo vát, mệnh phụ phu nhân* (lấy vế sáng).
-
-→ Giữ nguyên văn cổ trong wiki (bảo tồn "tiếc dê tiếc lễ") + flag `moral_shield`, NHƯNG output cho user luôn qua lăng kính bình đẳng + năng lực. Tham chiếu 23 mẫu lá chắn của school `tu_vi_huy_tuan`.
-
-## Nét sáng đáng lấy (sách tự nêu)
-- Tử Vi nữ → vượng phu ích tử, sang giàu (khi không gặp tà sát).
-- Thiên Cơ nữ + Quyền Lộc → vinh hoa, năng lực hơn người.
-- Vũ Khúc nữ + Thiên Phủ + Tả Hữu Lộc → chí khí hùng, song toàn phú quý.
-- Thái Dương nữ chính chiếu + cát → mệnh phụ phu nhân, đoan trang tháo vát.
+## Ghi chú dùng cho sage
+- Trích đúng nguyên nghĩa khi user hỏi (không bịa, không bóp). Nếu user là nữ và nhạy cảm, có thể NÊU BỐI CẢNH "đây là quan niệm Tử Vi thời phong kiến" — nhưng KHÔNG sửa nội dung sách.
+- Sách cũng tự nêu nhiều vế KHEN năng lực nữ (Thiên Cơ giỏi hơn trượng phu, Vũ Khúc chí khí hùng, Thái Dương mệnh phụ) — trình bày ĐỦ cả hai vế, không cắt xén bên nào.
