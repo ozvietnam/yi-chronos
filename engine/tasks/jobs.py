@@ -24,9 +24,10 @@ def ping(echo: str = "pong") -> dict:
 
 @celery_app.task(name="yi.digest.weekly_tick", bind=True, max_retries=3)
 def weekly_digest_tick(self) -> dict:
-    """H7 (#40) — quét cái MỚI/user gói tháng → notifyUser FCM. P0-3: no-op."""
-    logger.info("weekly_digest_tick: plumbing only (H7 #40 chưa triển khai logic)")
-    return {"status": "noop", "stage": "P0-3 plumbing", "see": "issue #40"}
+    """H7 (#40) — digest tuần cho user gói: tổng hợp hoạt động 7 ngày → lưu (AppChat
+    đẩy FCM). Không gọi LLM (rẻ). Chạy Beat thứ Hai 06:00."""
+    from engine.digest import run_weekly_digest_all
+    return {"status": "ok", **run_weekly_digest_all()}
 
 
 @celery_app.task(name="yi.compat.nightly_precompute", bind=True, max_retries=3)
