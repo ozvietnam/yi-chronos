@@ -96,6 +96,11 @@ COPY data/tu_vi/ ./embedded_data/tu_vi/
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 
+# Gunicorn config — CMD chạy `gunicorn -c gunicorn.conf.py`. Thiếu dòng COPY này
+# từ 604c654a → container crash-loop "Error: 'gunicorn.conf.py' doesn't exist"
+# → live 404 (incident 2026-06-18). Path WORKDIR-relative, KHÔNG bị volume shadow.
+COPY gunicorn.conf.py ./
+
 # Create data mount point (actual data via volume)
 RUN mkdir -p ./data && chmod 755 ./data
 
