@@ -21,22 +21,22 @@ Tổ Tử Vi = **Trần Đoàn (Hi Di)** — KHÔNG phải Thiệu Khang Tiết 
 
 ## Trạng thái đọc sâu (vòng / trang)
 - vòng 1–4: tr.1–80 (Book Profile, 14 chính tinh chư tinh, Nam Mệnh Ca, paradigm: 70/30, Mệnh-Thân Thể-Dụng, Nhân Cung, Cường-Nhược, Bát Pháp, Thập Dụ)
-- **vòng 5: tr.81–100 ✅** — Thập Nhị Cung Luận (12 cung × chính tinh) + mở Vận Hạn → `thap-nhi-cung-toan-thu.md`
+- **vòng 5: tr.81–100 ✅** — Thập Nhị Cung Luận (12 cung) → tách per-cung trong `cung/`
 - *Tiếp theo (vòng 6): tr.100–120 — Vận Hạn (sao nhập Đại Vận / Tiểu Hạn).*
 
-## Map cung → file (luận theo cung cụ thể)
+## Map cung → file (tách chi tiết per-cung, routing mịn)
 | Cung user hỏi | Route |
 |---|---|
-| Sự nghiệp / Quan Lộc | `thap-nhi-cung-toan-thu.md` §1 |
-| Tiền bạc / Tài Bạch | §2 |
-| Vợ chồng / Phu Thê (Gieo Duyên) | §3 ★ |
-| Phúc Đức / phúc phận | §4 (⚠ xung đột cổ-Việt: mộ phần) |
-| Cha mẹ / Phụ Mẫu | §5 (Nhật=cha, Nguyệt=mẹ) |
-| Bạn bè / đối tác / Nô Bộc | §6 (⚠ xung đột: lứa đôi) |
-| Nhà đất / Điền Trạch | §7 (Hỏa/Linh+Vũ/Tham = ngoại lệ tốt) |
-| Sức khỏe / Tật Ách | §8 (→ module Chiếu Đởm Kinh riêng) |
-| Anh em / Huynh Đệ | §9 |
-| Con cái / Tử Tức (Gia Đạo) | §10 ★ |
+| Sự nghiệp / Quan Lộc | `cung/quan-loc.md` |
+| Tiền bạc / Tài Bạch | `cung/tai-bach.md` |
+| Vợ chồng / Phu Thê (Gieo Duyên) | `cung/phu-the.md` ★ |
+| Phúc Đức / phúc phận | `cung/phuc-duc.md` (⚠ cổ-Việt: mộ phần) |
+| Cha mẹ / Phụ Mẫu | `cung/phu-mau.md` (Nhật=cha, Nguyệt=mẹ) |
+| Bạn bè / đối tác / Nô Bộc | `cung/no-boc.md` (⚠ cổ-Việt: lứa đôi) |
+| Nhà đất / Điền Trạch | `cung/dien-trach.md` (Hỏa/Linh+Vũ/Tham ngoại lệ tốt) |
+| Sức khỏe / Tật Ách | `cung/tat-ach.md` (→ Chiếu Đởm Kinh riêng) |
+| Anh em / Huynh Đệ | `cung/huynh-de.md` |
+| Con cái / Tử Tức (Gia Đạo) | `cung/tu-tuc.md` ★ |
 
 ## Khoá đọc nhanh (áp mọi cung)
 **Tứ Sát = Dương Đà · Linh Hỏa · Không Kiếp** đảo cát→hung ở mọi cung. Ngoại lệ: Hỏa/Linh + Vũ Khúc/Tham Lang ở Điền Trạch = cực tốt.
