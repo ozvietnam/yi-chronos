@@ -133,3 +133,161 @@ def dat_ten_con(pillars_con: dict) -> dict:
         "ghi_chu": "Đặt tên theo phép cổ là BỔ DỤNG THẦN (hành lá số bé cần), không chỉ bổ hành thiếu. "
                    "Đây là GỢI Ý hành + chữ mẫu — tên hay còn cần hợp họ, âm vần, ý nghĩa và mong muốn của cha mẹ.",
     }
+
+
+# ════════ 4. LUẬN LÁ SỐ CON CÁI (founder chốt 2026-06-18) ════════
+# Đọc cái NỀN bé được trao (THỂ), KHÔNG phán định đời bé (DỤNG). Thận trọng vì là trẻ em.
+# "Mô hình hình thành con người": con = trường năng lượng lúc sinh ⊗ gen bố mẹ ⊗ môi trường.
+
+# 14 chính tinh → lăng kính TRẺ: khí chất bẩm + hướng nuôi dưỡng (không phán số).
+SAO_TRE = {
+    "tu_vi": ("Tử Vi", "có chủ kiến, thích được tôn trọng, khí 'đầu đàn'",
+              "cho bé vai trò nhỏ để dẫn dắt; dạy khiêm nhường, đừng đè ép cái tự tôn."),
+    "thien_co": ("Thiên Cơ", "nhanh trí, hiếu động, đầu óc hay xoay",
+                 "cho câu đố, lắp ráp, kể chuyện; dạy kiên định kẻo 'cả thèm chóng chán'."),
+    "thai_duong": ("Thái Dương", "sáng, nhiệt, hướng ngoại, hào phóng",
+                   "khuyến khích hoạt động nhóm, thể thao; dạy bé giữ sức, biết nghỉ."),
+    "vu_khuc": ("Vũ Khúc", "cương nghị, thực tế, thích rõ ràng, sớm biết tính toán",
+                "dạy mềm mỏng & nói ra cảm xúc; khen cả nỗ lực, không chỉ kết quả."),
+    "thien_dong": ("Thiên Đồng", "hồn nhiên, vui, dễ thương, ưa an nhàn",
+                   "khích lệ tự cố gắng, giao việc nhỏ vừa sức, tránh nuông để bé ỷ lại."),
+    "liem_trinh": ("Liêm Trinh", "cá tính mạnh, nguyên tắc riêng, cảm xúc nồng",
+                   "kênh năng lượng vào kỷ luật tích cực (võ, nhạc, đội nhóm); lắng nghe bé."),
+    "thien_phu": ("Thiên Phủ", "điềm, biết giữ, độ lượng, hơi thận trọng",
+                  "khuyến khích thử cái mới, bớt rụt rè; cho bé cảm giác an toàn để bước ra."),
+    "thai_am": ("Thái Âm", "dịu, tình cảm, mơ mộng, yêu cái đẹp",
+                "nuôi mạch nghệ thuật (vẽ, nhạc, văn); dạy mạnh dạn, bớt giữ trong lòng."),
+    "tham_lang": ("Tham Lang", "đa tài, ham vui, hiếu kỳ, khéo giao tế",
+                  "hướng đam mê vào việc có ích; dạy chuyên nhất một thứ tới nơi."),
+    "cu_mon": ("Cự Môn", "tò mò, hay hỏi 'tại sao', miệng lưỡi, đôi khi hoài nghi",
+               "trả lời bé thật lòng; dạy lời nói thiện, dùng cái miệng để kết bạn."),
+    "thien_tuong": ("Thiên Tướng", "trung hậu, biết điều, thích giúp người, trọng lễ",
+                    "trân trọng tấm lòng bé; nhưng dạy bé tự lo cho mình nữa, đừng quên mình."),
+    "thien_luong": ("Thiên Lương", "già dặn trước tuổi, có lòng che chở, ưa lý lẽ",
+                    "cho bé được làm trẻ con, bớt ôm việc người lớn; nuôi lòng nhân sẵn có."),
+    "that_sat": ("Thất Sát", "mạnh mẽ, độc lập, quyết đoán, ưa thử thách",
+                 "cho không gian + ranh giới rõ ràng; dạy nhẫn, biến gan lì thành bản lĩnh."),
+    "pha_quan": ("Phá Quân", "phá cách, tiên phong, không thích lối mòn",
+                 "cho đất sáng tạo + hướng dẫn nhất quán; biến 'phá' thành 'đổi mới có ích'."),
+}
+
+CUNG_TRE = {
+    "menh": "Bản tính & khí chất bé",
+    "phu_mau": "Duyên với cha mẹ & người trên (thầy cô, quý nhân) — cũng là nẻo học hỏi",
+    "phuc_duc": "Phúc ấm & tâm an — cái bé hưởng từ gốc nhà",
+    "tat_ach": "Thân thể — chỗ nên để ý chăm (cái NỀN, không phải bệnh án)",
+    "huynh_de": "Anh chị em & bạn bè — cách bé nương tựa, kết bạn",
+    "quan_loc": "Nẻo học & việc về sau — mầm thiên hướng",
+}
+
+_SINH_NH = {"Mộc": "Hỏa", "Hỏa": "Thổ", "Thổ": "Kim", "Kim": "Thủy", "Thủy": "Mộc"}
+_KHAC_NH = {"Mộc": "Thổ", "Thổ": "Thủy", "Thủy": "Hỏa", "Hỏa": "Kim", "Kim": "Mộc"}
+VAN_TINH = {"van_xuong": "Văn Xương", "van_khuc": "Văn Khúc", "hoa_khoa": "Hóa Khoa"}
+
+
+def _doc_cung_tre(ls, fn):
+    """Đọc 1 cung theo lăng kính trẻ: chính tinh → khí chất + hướng nuôi."""
+    ct = ls.get("chinh_tinh_per_palace") or {}
+    fn2chi = ls.get("fn_to_chi") or {}
+    chi = fn2chi.get(fn)
+    sao = ct.get(fn) or (ct.get(chi) if chi else None) or []
+    sao = [s for s in sao if s in SAO_TRE]
+    if not sao:
+        return {"cung": CUNG_TRE[fn], "chi": chi, "chinh_tinh": [],
+                "vo_chinh_dieu": True,
+                "khi_chat": "Vô chính diệu — bé chưa lộ nét đậm ở mặt này; "
+                            "nét sẽ rõ dần theo môi trường & người bé gần.",
+                "nuoi": "Cho bé hình mẫu rõ ràng để soi (cha mẹ, thầy, sách) — "
+                        "môi trường định hình mạnh ở cung vô chính diệu."}
+    return {
+        "cung": CUNG_TRE[fn], "chi": chi, "vo_chinh_dieu": False,
+        "chinh_tinh": [SAO_TRE[s][0] for s in sao],
+        "khi_chat": "; ".join(SAO_TRE[s][1] for s in sao),
+        "nuoi": " ".join(SAO_TRE[s][2] for s in sao),
+    }
+
+
+def _doc_van_tinh(ls):
+    """Văn tinh (Xương/Khúc/Hóa Khoa) chiếu Mệnh/Quan/Phụ Mẫu → duyên chữ nghĩa."""
+    pt = ls.get("phu_tinh_per_palace") or {}
+    fn2chi = ls.get("fn_to_chi") or {}
+    found = []
+    for fn in ("menh", "quan_loc", "phu_mau"):
+        chi = fn2chi.get(fn)
+        stars = set((pt.get(fn) or []) + ((pt.get(chi) or []) if chi else []))
+        hit = [VAN_TINH[s] for s in stars if s in VAN_TINH]
+        if hit:
+            found.append({"cung": CUNG_TRE.get(fn, fn), "van_tinh": hit})
+    if not found:
+        return None
+    return {"co_van_tinh": True, "chi_tiet": found,
+            "luan": "Có văn tinh chiếu việc học → bé có DUYÊN chữ nghĩa / thi cử. "
+                    "Là thiên hướng cần VUN (đọc sách cùng bé, khen sự tìm tòi), không phải bảo đảm."}
+
+
+def _doi_chieu_bo_me(child_dung, child_day_el, parents):
+    """Trường năng lượng bố mẹ ⊗ cái con CẦN (dụng thần). Hướng nuôi, KHÔNG phán bố mẹ tốt/xấu cho con."""
+    need = child_dung[0] if child_dung else child_day_el
+    out = []
+    for p in parents:
+        el = p.get("hanh")
+        vai = p.get("vai", "Cha/Mẹ")
+        if not el:
+            continue
+        if el == need:
+            rel, loi = "đồng khí", (f"{vai} cùng hành **{el}** với cái con cần → đồng khí, củng cố "
+                                    f"cái bé vốn cần. Gần {vai.lower()}, bé được tiếp thêm đúng nguồn.")
+        elif _SINH_NH.get(el) == need:
+            rel, loi = "sinh con", (f"{vai} hành **{el}** SINH ra hành con cần (**{need}**) → "
+                                    f"{vai.lower()} là NGUỒN nuôi cái bé thiếu. Đây là chỗ dựa lớn cho bé.")
+        elif _KHAC_NH.get(el) == need:
+            rel, loi = "khắc nhẹ", (f"{vai} hành **{el}** khắc hành con cần (**{need}**) — KHÔNG phải xấu; "
+                                    f"chỉ là mặt đó {vai.lower()} nên DỊU & kiên nhẫn, đừng ép cái con vốn yếu.")
+        elif _SINH_NH.get(need) == el:
+            rel, loi = "con sinh bố mẹ", (f"Hành con cần (**{need}**) lại SINH cho {vai.lower()} (**{el}**) → "
+                                         f"bé hay 'lo ngược' cho {vai.lower()}; nhớ để bé được là trẻ con.")
+        else:
+            rel, loi = "trung tính", (f"{vai} hành **{el}** — tương quan êm với cái con cần (**{need}**); "
+                                      f"giữ nếp đồng hành là đủ.")
+        out.append({"vai": vai, "hanh": el, "quan_he": rel, "loi": loi})
+    return {"con_can": need, "doi_chieu": out,
+            "ghi_chu": "Đây là cách đọc TRƯỜNG NĂNG LƯỢNG (con = năng lượng sinh ⊗ gen bố mẹ ⊗ môi trường), "
+                       "để biết hướng NUÔI — không phải chấm điểm bố mẹ hợp/khắc con."}
+
+
+def luan_la_so_con(child_ls, child_pillars, parents=None) -> dict:
+    """Luận lá số con: lăng kính trẻ (6 cung) + Bát Tự dụng thần + đối chiếu trường khí bố mẹ.
+
+    child_ls: la_so_input của bé (từ render_from_birth).
+    child_pillars: tứ trụ bé (từ extract_tu_tru) — để tính dụng thần.
+    parents: [{"vai": "Bố"/"Mẹ", "hanh": "Mộc"}, ...] (hành nhật chủ bố mẹ), tuỳ chọn.
+    """
+    from engine.tu_vi.hop_hon import _pillars_list, _dung_than, _element_counts
+
+    cung = [_doc_cung_tre(child_ls, fn)
+            for fn in ("menh", "phu_mau", "phuc_duc", "tat_ach", "huynh_de", "quan_loc")]
+    out = {
+        "cung": cung,
+        "van_tinh": _doc_van_tinh(child_ls),
+        "paradigm": "Đọc cái NỀN bé được trao (khí chất, thân, phúc) để biết hướng DÌU DẮT — "
+                    "KHÔNG phán định đời bé. Mệnh là dịch: bé sẽ lớn lên & tự viết phần DỤNG. "
+                    "Thận trọng gấp đôi vì là trẻ em.",
+    }
+    pl = _pillars_list(child_pillars or {})
+    if len(pl) >= 4:
+        dung, tag, day_el = _dung_than(pl)
+        cnt = _element_counts(pl)
+        thieu = sorted(cnt, key=lambda k: cnt[k])
+        out["bat_tu"] = {
+            "nhat_chu": pl[2][0], "nhat_chu_hanh": day_el, "than": tag,
+            "ngu_hanh_co": cnt, "hanh_thieu_nhat": thieu[0],
+            "hanh_con_can": dung[:2],
+            "huong_nuoi": f"Bé nhật chủ {pl[2][0]} ({day_el}), thân {tag}. "
+                          f"Hướng vun bồi: thiên về hành {', '.join(dung[:2])} "
+                          f"(môi trường, hoạt động, màu sắc, sự dìu dắt mang hành đó).",
+        }
+        if parents:
+            out["truong_bo_me"] = _doi_chieu_bo_me(dung, day_el, parents)
+    else:
+        out["bat_tu"] = {"note": "Cần đủ ngày + giờ sinh của bé để tính dụng thần & hướng nuôi."}
+    return out

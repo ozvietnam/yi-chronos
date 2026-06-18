@@ -8,7 +8,8 @@
 
     <div class="gd2-mode">
       <button :class="{ on: tab==='nha' }" @click="tab='nha'">🧭 Nếp nhà & đón con</button>
-      <button :class="{ on: tab==='ten' }" @click="tab='ten'">👶 Đặt tên con</button>
+      <button :class="{ on: tab==='con' }" @click="tab='con'">👶 Luận lá số con</button>
+      <button :class="{ on: tab==='ten' }" @click="tab='ten'">✍️ Đặt tên con</button>
       <button :class="{ on: tab==='phuc' }" @click="tab='phuc'">🏮 Phúc ấm & quan hệ</button>
     </div>
 
@@ -72,6 +73,66 @@
       </div>
     </section>
 
+    <!-- Luận lá số con cái -->
+    <section v-if="tab==='con'" class="gd2-card">
+      <p class="gd2-sub">Nhập ngày + giờ sinh của bé. Thêm ngày sinh Bố/Mẹ → đối chiếu <b>trường năng lượng</b>
+        (con = năng lượng lúc sinh ⊗ gen bố mẹ ⊗ môi trường) để biết hướng <b>nuôi dưỡng</b>.
+        Đọc cái NỀN bé được trao, KHÔNG phán định đời bé.</p>
+      <div class="gd2-form">
+        <div class="gd2-person">
+          <h4>👶 Con</h4>
+          <input v-model="con.birth" type="datetime-local" class="gd2-in" />
+          <select v-model="con.gender" class="gd2-in"><option value="nam">Bé trai</option><option value="nữ">Bé gái</option></select>
+        </div>
+        <div class="gd2-person">
+          <h4>Bố / Mẹ <small>(tuỳ chọn — để đối chiếu trường khí)</small></h4>
+          <label class="gd2-lbl">Bố — ngày sinh</label>
+          <input v-model="con.bo" type="date" class="gd2-in" />
+          <label class="gd2-lbl">Mẹ — ngày sinh</label>
+          <input v-model="con.me" type="date" class="gd2-in" />
+        </div>
+      </div>
+      <button class="gd2-run" :disabled="!con.birth || lloading" @click="runLuanCon">
+        {{ lloading ? '⏳ Đang luận...' : '👶 Luận lá số con' }}
+      </button>
+      <p v-if="lerr" class="gd2-err">{{ lerr }}</p>
+
+      <div v-if="luancon" class="gd2-result">
+        <div v-if="luancon.bat_tu && luancon.bat_tu.nhat_chu" class="gd2-box gd2-hanh">
+          <h5>🌱 Hướng nuôi dưỡng (theo Bát Tự bé)</h5>
+          <p class="gd2-mini">Nhật chủ bé: <b>{{ luancon.bat_tu.nhat_chu }}</b> ({{ luancon.bat_tu.nhat_chu_hanh }})
+            · thân {{ luancon.bat_tu.than }} · hành con cần: <b>{{ luancon.bat_tu.hanh_con_can.join(', ') }}</b></p>
+          <p class="gd2-mini">{{ luancon.bat_tu.huong_nuoi }}</p>
+        </div>
+
+        <div v-if="luancon.truong_bo_me" class="gd2-box">
+          <h5>👨‍👩‍👧 Trường năng lượng Bố Mẹ ⊗ cái con cần ({{ luancon.truong_bo_me.con_can }})</h5>
+          <ul>
+            <li v-for="(x,i) in luancon.truong_bo_me.doi_chieu" :key="i">
+              <b>{{ x.vai }}</b> ({{ x.hanh }}) — <span v-html="md(x.loi)"></span>
+            </li>
+          </ul>
+          <p class="gd2-note">{{ luancon.truong_bo_me.ghi_chu }}</p>
+        </div>
+
+        <div v-for="(c,i) in luancon.cung" :key="i" class="gd2-box">
+          <h5>{{ c.cung }}
+            <small v-if="!c.vo_chinh_dieu">— {{ c.chinh_tinh.join(', ') }}</small>
+            <small v-else>— vô chính diệu</small>
+          </h5>
+          <p class="gd2-mini"><b>Khí chất:</b> {{ c.khi_chat }}</p>
+          <p class="gd2-mini"><b>Hướng dìu:</b> {{ c.nuoi }}</p>
+        </div>
+
+        <div v-if="luancon.van_tinh" class="gd2-box gd2-hanh">
+          <h5>📚 Văn tinh — duyên học</h5>
+          <p class="gd2-mini">{{ luancon.van_tinh.luan }}</p>
+        </div>
+
+        <p class="gd2-note">{{ luancon.paradigm }}</p>
+      </div>
+    </section>
+
     <!-- Đặt tên con -->
     <section v-if="tab==='ten'" class="gd2-card">
       <p class="gd2-sub">Nhập ngày + giờ sinh của bé — hệ thống tính Bát Tự, tìm hành bé cần (dụng thần) và gợi ý chữ/tên.</p>
@@ -109,6 +170,25 @@ const w = ref({ ten: "Vợ", birth: "", gender: "nữ" });
 const nha = ref(null); const loading = ref(false); const err = ref("");
 const cbirth = ref(""); const ten = ref(null); const tloading = ref(false); const terr = ref("");
 const pbirth = ref(""); const pgender = ref("nam"); const phuc = ref(null); const ploading = ref(false); const perr = ref("");
+const con = ref({ birth: "", gender: "nam", bo: "", me: "" });
+const luancon = ref(null); const lloading = ref(false); const lerr = ref("");
+// đổi **đậm** → <b> (loi do server sinh, không phải input user → an toàn v-html)
+function md(s) { return String(s || "").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+async function runLuanCon() {
+  if (!con.value.birth) return;
+  lloading.value = true; lerr.value = ""; luancon.value = null;
+  try {
+    const r = await fetch("/api/tu-vi/luan-con", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        birth_con: con.value.birth, gender_con: con.value.gender,
+        bo_birth: con.value.bo || null, me_birth: con.value.me || null,
+      }),
+    });
+    const d = await r.json();
+    if (d.error) lerr.value = d.error; else luancon.value = d;
+  } catch (e) { lerr.value = "Lỗi kết nối."; } finally { lloading.value = false; }
+}
 async function runPhuc() {
   if (!pbirth.value) return;
   ploading.value = true; perr.value = ""; phuc.value = null;
@@ -171,6 +251,8 @@ async function runTen() {
 .gd2-person { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #f5faf5; border-radius: 10px; }
 .gd2-person h4 { margin: 0 0 2px; color: #2e7d32; font-size: 0.95em; }
 .gd2-in { padding: 8px 10px; border: 1px solid #c6dcc6; border-radius: 8px; font: inherit; font-size: 0.9em; background: #fff; color: #333; }
+.gd2-lbl { font-size: 0.78em; color: #5a6a55; margin: 2px 0 -4px; }
+.gd2-box ul { margin: 0; padding-left: 18px; } .gd2-box li { margin: 6px 0; font-size: 0.9em; line-height: 1.55; color: var(--read-text,#3a3a38); }
 .gd2-run { display: block; width: 100%; margin-top: 14px; padding: 12px; border: none; border-radius: 22px; background: #2e7d32; color: #fff; font: inherit; font-size: 1em; cursor: pointer; }
 .gd2-run:disabled { opacity: .5; cursor: not-allowed; }
 .gd2-err { color: #c0392b; text-align: center; margin-top: 10px; }

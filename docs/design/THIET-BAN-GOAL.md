@@ -44,10 +44,11 @@ Thiết Bản là hệ **"bói" nhất** → **căng nhất** với đạo đọ
 
 - **STORE (quan trọng)**: canonical = **DB `data/yi_wiki/wiki.sqlite3` bảng `tabular_verses`** (corpus `thiet-ban-than-so`, **10.907 điều, 8.217 có vi ~75%**). File `data/tabular_verses_v1_*.json` là **bản OCR cũ STALE (5.7k vi)** — KHÔNG ingest đè DB. Dịch mới → ghi thẳng vào DB (UPDATE ... WHERE vi IS NULL), rồi sync.
 - **ĐÃ CÓ**: `engine/thiet_ban` + `api/thiet_ban` (verse/range/search/volume/stats) + web (HoangCucPanel ô "🔢 Tra điều văn" + khung đúng-đạo). OCR bảng điều văn tr.106–587 (qwen-VL).
-- **KEYSTONE 起数 — ĐÃ HIỂU PHÉP** (16/6): phương pháp nằm ở Càn Tập (restored p0006–0013), tài liệu hoá ở **`docs/design/THIET-BAN-KHOI-SO.md`**; nền số = Hà Đồ-Lạc Thư (Chương 9) → `engine/thiet_ban/khoi_so.py` (phần kiểm-được). Bonus: front matter sách có Tử Vi an-sao + tứ hóa, **kiểm chéo khớp Đồ Năm**. CHƯA ship engine tính-số vì: 八卦加则 OCR mờ/khẩu quyết + 考刻 cần cha-mẹ-bát-tự & sự kiện + **thiếu cặp kiểm** (không bịa số đóng đinh). Chờ: OCR sạch Lệ + 1-2 cặp kiểm.
+- **KEYSTONE 起数 — ĐỌC ĐÚNG TỪ BẢN GỐC** (đọc lại 18/6): phương pháp ở Càn Tập, **đọc THẲNG ảnh scan `..._origin.pdf` tr.9-10** → tài liệu hoá ở **`docs/design/THIET-BAN-KHOI-SO.md`**. ⚠ **Đính chính**: bản in CHỈNH TỀ, không mờ — cái "mờ/đảo" ghi cũ là do **pipeline MinerU làm rối bảng**, KHÔNG phải sách. Đọc đúng được: 天干/地支/日主配卦 (地支 là **7艮8兑** đúng bản gốc), 河洛配数 (9/8/7/6/5/4), 地支取数 Hà Đồ, **安身命** (thuật toán sạch), 五虎遁, 60 纳音 → vào `engine/thiet_ban/khoi_so.py`. Tứ hóa kiểm chéo khớp Đồ Năm. CHƯA ship engine tính-SỐ vì: 八卦加则 (ráp số cuối) cần **bảng 纳卦 từng 集** (origin page_idx 17+) + **cặp kiểm**; 考刻 cần **bát tự cha mẹ + sự kiện** (→ tính năng GIA ĐẠO).
+- **GIA ĐẠO (shipped 18/6)**: 考刻 cần bát tự cha mẹ → biến thành **tính năng**: trang Gia đạo + **luận lá số con cái** (`POST /api/tu-vi/luan-con`, `GiaDaoPanel` tab 👶). Xem `docs/design/GIA-DAO.md`. Bát tự bố mẹ thu ở đây dùng lại cho 考刻 sau.
 - **GAP khác**: ~2.690 điều DB chưa có vi (gồm cả mảnh OCR vỡ).
 - **LIVE**: DB → VPS qua `scripts/sync-atoms-to-vps.sh` (đẩy cả wiki.sqlite3; chỉ chạy khi gom đủ thay đổi, tránh đè state vì 1 nhúm điều).
-- **PATH** (làm không cần hỏi): ① thêm khung GOAL+đúng-đạo vào web Thiết Bản → ② dịch nốt ~1.690 điều → ③ OCR 起数+考刻 → ④ engine tính-số-từ-ngày-sinh → ⑤ trang/sách Thiết Bản hoàn chỉnh.
+- **PATH** (làm không cần hỏi): ① web Thiết Bản đúng-đạo ✓ → ② dịch nốt ~1.690 điều → ③ đọc bảng 纳卦 từng 集 (page_idx 17+) + tìm cặp kiểm → ④ engine 起数 ráp-số → ⑤ nối 考刻 vào Gia đạo → ⑥ trang/sách Thiết Bản hoàn chỉnh.
 
 ---
 

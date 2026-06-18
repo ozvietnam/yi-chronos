@@ -668,6 +668,61 @@ async def dat_ten(inp: DatTenInput) -> dict:
     return dat_ten_con(pillars)
 
 
+class LuanConInput(BaseModel):
+    birth_con: str = Field(..., description="Ngày giờ sinh của bé (ISO local)")
+    gender_con: str = Field("nam", description="nam | nữ")
+    bo_birth: Optional[str] = Field(None, description="Ngày sinh của Bố (ISO; giờ tuỳ chọn) — cho đối chiếu trường khí")
+    me_birth: Optional[str] = Field(None, description="Ngày sinh của Mẹ (ISO; giờ tuỳ chọn)")
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/luan-con")
+async def luan_con(inp: LuanConInput) -> dict:
+    """Luận lá số con cái: lăng kính trẻ (6 cung) + Bát Tự dụng thần (hướng nuôi)
+    + đối chiếu TRƯỜNG NĂNG LƯỢNG bố mẹ (nếu có bát tự bố/mẹ). Đọc cái NỀN, không phán."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.tu_vi.gia_dao import luan_la_so_con
+    from engine.tu_vi.hop_hon import _pillars_list, CAN_NH
+
+    def _gc(g):
+        return "nữ" if g in ("nữ", "nu", "F", "f") else "nam"
+
+    def _nhat_chu_hanh(birth):
+        """Hành nhật chủ từ ngày sinh (giờ tuỳ chọn → mặc định 12:00, day pillar ổn định)."""
+        b = birth.strip()
+        if "T" not in b:
+            b = b + "T12:00"
+        try:
+            pl = _pillars_list(extract_tu_tru(b, inp.timezone))
+            if len(pl) >= 3:
+                return CAN_NH.get(pl[2][0])
+        except Exception:
+            return None
+        return None
+
+    try:
+        base = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth_con, timezone=inp.timezone, gender=_gc(inp.gender_con)))
+        child_ls = base["la_so_input"]
+        child_pillars = extract_tu_tru(inp.birth_con, inp.timezone)
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số bé: {e}"}
+
+    parents = []
+    if inp.bo_birth:
+        h = _nhat_chu_hanh(inp.bo_birth)
+        if h:
+            parents.append({"vai": "Bố", "hanh": h})
+    if inp.me_birth:
+        h = _nhat_chu_hanh(inp.me_birth)
+        if h:
+            parents.append({"vai": "Mẹ", "hanh": h})
+
+    out = luan_la_so_con(child_ls, child_pillars, parents or None)
+    out["highlights"] = base.get("highlights", [])
+    return out
+
+
 class _PersonIn(BaseModel):
     birth: str
     gender: str = "nam"
