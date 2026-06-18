@@ -192,6 +192,10 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
     <!-- B. Tra Thiết Bản -->
     <div class="hc-card">
       <h3>🔢 Tra điều văn Thiết Bản Thần Số</h3>
+      <p class="hc-tb-goal">
+        <b>Mục đích:</b> soi những điều <b>đã định</b> của một đời theo <b>từng tuổi</b> — để HIỂU cái nền mình được trao, không phải để sợ.
+        <span class="hc-tb-dao">Đọc đúng đạo: đây là <b>bàn tay được chia</b> (cái nền), không phải bản án — mệnh là dịch, người là cái biến.</span>
+      </p>
       <p class="hc-hint" v-if="tbStats">
         Bảng tra {{ tbStats.total?.toLocaleString() }} điều (số {{ tbStats.seq_range?.[0] }}–{{ tbStats.seq_range?.[1] }}),
         {{ tbStats.with_vi?.toLocaleString() }} điều có bản dịch. Phép TÍNH số từ bát tự: chờ đọc sâu phần lệ (tầng B).
@@ -260,6 +264,8 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
 .hc-donam { margin-top: 14px; }
 .hc-donam-title { font-size: .9rem; font-weight: 600; color: var(--accent, #7c5cff); margin-bottom: 6px; }
 .hc-donam img { width: 100%; max-width: 980px; border: 1px solid #e0d5b8; border-radius: 10px; background: #fbf7ef; }
+.hc-tb-goal { font-size: .88rem; line-height: 1.5; margin: 4px 0 8px; padding: 8px 10px; border-radius: 8px; background: rgba(124,92,255,.06); border-left: 3px solid var(--accent, #7c5cff); }
+.hc-tb-dao { display: block; font-size: .8rem; opacity: .75; font-style: italic; margin-top: 3px; }
 .hc-strip { margin-top: 14px; }
 .hc-strip-img { width: 100%; max-width: 100%; border: 1px solid var(--border-color, rgba(255,255,255,.1)); border-radius: 10px; background: #fbf7ef; padding: 4px; box-sizing: border-box; }
 .hc-paradigm { margin-top: 14px; font-size: .82rem; opacity: .7; font-style: italic; }
