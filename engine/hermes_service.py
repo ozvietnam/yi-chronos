@@ -94,11 +94,34 @@ def _build_chart_data(person: dict) -> dict:
     return chart
 
 
+def build_user_context(uid: int, person: Optional[dict] = None, query_hint: str = "") -> str:
+    """Bối cảnh RIÊNG của user cho sage — 'Hermes biết rõ từng người'. MỌI user đều có
+    (founder chỉ là một user, KHÔNG đặc cách). Lấy từ DB cô lập theo user_id (RLS).
+
+    PSEUDONYMIZE (PDPL): KHÔNG đưa tên/uid/sđt/email vào — chỉ giờ sinh (chart cần) +
+    ký ức (facts/summaries do user tự chia sẻ qua chat). resilient: lỗi → context rỗng."""
+    parts: list[str] = []
+    if person and person.get("birth_datetime_local"):
+        parts.append(f"- Giờ sinh: {person['birth_datetime_local']} · giới tính: "
+                     f"{person.get('gender', '?')}")
+    try:
+        from engine.yi_hermes import memory
+        mem = memory.build_memory_context(str(uid), query_hint=query_hint)
+        if mem:
+            parts.append(mem)
+    except Exception:
+        pass
+    return "Bối cảnh người hỏi (ẩn danh):\n" + "\n".join(parts) if parts else ""
+
+
 def _real_consult(question: str, person: dict, uid: int) -> dict:
     """Bọc council in-process sẵn có (sages dùng SOUL sâu qua prompt_overrides)."""
     from engine.ai.council import consult_council
-    res = consult_council(question=question, chart_data=_build_chart_data(person),
-                          persist=False)
+    chart = _build_chart_data(person)
+    ctx = build_user_context(uid, person, query_hint=question)
+    if ctx:
+        chart["user_context"] = ctx       # sage thấy bối cảnh riêng user (đã pseudonymize)
+    res = consult_council(question=question, chart_data=chart, persist=False)
     pu = res.get("providers_used") or {}     # dict {agent: provider} | đôi khi list
     if isinstance(pu, dict):
         provider = pu.get("orchestrator") or next(iter(pu.values()), "deepseek")

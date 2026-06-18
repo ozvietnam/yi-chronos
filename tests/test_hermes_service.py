@@ -169,6 +169,34 @@ def _uid_of(fb_uid: str) -> int:
                          {"u": fb_uid}).scalar()
 
 
+def test_user_context_pseudonymized(backend):
+    """'Hermes biết người hỏi' nhưng pseudonymize: có giờ sinh, KHÔNG lộ firebase_uid."""
+    person = {"birth_datetime_local": "1990-01-01T01:00:00", "gender": "nam"}
+    a = _seed("uid_A")
+    ctx = hs.build_user_context(a, person, query_hint="sự nghiệp")
+    assert "1990-01-01" in ctx and "uid_A" not in ctx
+
+
+@pytest.mark.skipif("pg" not in BACKENDS, reason="cần PG (memory tables qua schema.sql)")
+def test_user_context_isolated_pg():
+    """Ký ức riêng + KHÔNG lẫn data người khác — kiểm trên PG (driver prod)."""
+    import os
+    os.environ["DATABASE_URL"] = PG_DSN
+    db.get_engine.cache_clear()
+    with db.get_engine().begin() as c:
+        c.exec_driver_sql("DROP SCHEMA public CASCADE; CREATE SCHEMA public;")
+        db.apply_schema(c)
+    from engine.yi_hermes import memory
+    a = _seed("uid_A"); b = _seed("uid_B")
+    memory.add_fact(user_id=str(a), fact="Chuyển việc năm 2019", category="event")
+    memory.add_fact(user_id=str(b), fact="Thích hội hoạ trừu tượng", category="preference")
+    person = {"birth_datetime_local": "1990-01-01T01:00:00", "gender": "nam"}
+    ctx_a = hs.build_user_context(a, person, query_hint="sự nghiệp")
+    assert "Chuyển việc năm 2019" in ctx_a          # biết bối cảnh chính A
+    assert "hội hoạ" not in ctx_a                   # KHÔNG rò data của B
+    db.get_engine.cache_clear()
+
+
 # ── slice 4: council dùng SOUL sâu (bơm profiles/*/SOUL.md vào prompt_overrides) ─
 
 def test_sync_souls_from_profiles_makes_council_use_deep_soul(tmp_path, monkeypatch):
