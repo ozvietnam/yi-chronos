@@ -16,7 +16,7 @@
 | Lập quẻ: Lục Hào | ✅ **LIVE** | Cần `interaction_signal` (entropy động tác). |
 | So khớp tình duyên (Bát Tự + Hôn nhân nạp âm) | ✅ **LIVE** | Offline, không cần LLM/DB. |
 | **Tìm lại giờ sinh (quiz v2)** | ✅ logic LIVE · ⚠️ **cần LLM** | Provider đã chốt: **MiniMax token plan**. Không có provider → endpoint trả `status:error`. |
-| Hiệu chỉnh giờ theo **khu vực sinh** (true-solar-time) | 🟡 **PLANNED** | Đã chốt sẽ làm. Hiện backend chỉ map timezone. Xem §6. |
+| Hiệu chỉnh giờ theo **khu vực sinh** (true-solar-time) | ✅ **LIVE 2026-06-18** | `birth_province`/`birth_longitude` optional trên `tu-vi/cast` + `bat-tu/cast`. Xem §6. |
 | Auth / rate-limit | 🟡 **ĐỀ XUẤT** | Xem §1. Hiện endpoint public. |
 
 ---
@@ -211,16 +211,18 @@ App chat cần **ghi nhận đường tình duyên** của user và **so khớp 
 
 ---
 
-## 6. Khu vực sinh → hiệu chỉnh giờ mặt trời thật (🟡 PLANNED — đã duyệt)
+## 6. Khu vực sinh → hiệu chỉnh giờ mặt trời thật (✅ LIVE 2026-06-18)
 
-Hiện backend chỉ dùng **timezone**, chưa hiệu chỉnh theo **kinh độ nơi sinh**. Đã chốt sẽ thêm **true-solar-time correction** (lệch giữa giờ đồng hồ và giờ mặt trời thật theo kinh độ tỉnh/thành) — quan trọng vì **giờ là biến bất định nhất**, ảnh hưởng trụ Giờ ở ranh giới canh.
+Backend hiệu chỉnh **true-solar-time** theo kinh độ nơi sinh (lệch giữa giờ đồng hồ và giờ mặt trời thật) — quan trọng vì **giờ là biến bất định nhất**, ảnh hưởng trụ Giờ ở ranh giới canh.
 
-**Khi triển khai**, các endpoint nhận birth time sẽ thêm field **optional** (backward-compatible):
+`POST /api/tu-vi/cast` và `POST /api/bat-tu/cast` nhận thêm 2 field **optional** (backward-compatible — thiếu cả 2 → giữ nguyên hành vi timezone cũ):
 ```jsonc
-{ "birth_province": "Lạng Sơn" }      // hoặc:
-{ "birth_longitude": 106.76 }          // độ kinh Đông
+{ "birth_province": "Lạng Sơn" }      // tên tỉnh/thành VN (không phân biệt dấu), hoặc:
+{ "birth_longitude": 106.76 }          // độ kinh Đông (CHÍNH XÁC — ưu tiên hơn province)
 ```
-App chat nên **thu thập khu vực sinh ngay từ form** để sẵn sàng, kể cả trước khi backend bật tính năng.
+- Công thức: `Δphút = (kinh_độ − 105.0) × 4 + equation_of_time(ngày)`; dịch giờ sinh civil → giờ mặt trời thật TRƯỚC khi lập trụ Giờ (và xét 早子時 đổi ngày nếu vượt 23h).
+- `birth_longitude` chính xác > `birth_province`. Tỉnh không có trong map → bỏ qua (giữ civil time). App chat nên thu **khu vực sinh** từ form; gửi `birth_longitude` nếu có toạ độ chính xác.
+- Engine: `core/true_solar_time.py` (map tỉnh + EoT). Có thể mở rộng map tỉnh khi cần.
 
 ---
 

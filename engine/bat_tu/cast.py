@@ -54,6 +54,7 @@ def cast_bat_tu(
     birth_datetime_local: str,
     timezone: str = "Asia/Ho_Chi_Minh",
     gender: str = "nam",
+    birth_longitude: float | None = None,
 ) -> dict:
     """Cast a Bát Tự chart from a birth datetime.
 
@@ -62,9 +63,17 @@ def cast_bat_tu(
       - thap_than_chart: per-pillar Thập Thần labels
       - ngu_hanh: element distribution
       - day_master_assessment: strength tag
+
+    `birth_longitude` (optional, °E): apply true-solar-time correction (#35) — the
+    civil time is shifted to true solar time at that longitude before casting, so the
+    Hour pillar reflects the real sun. None → civil-time behavior (backward-compatible).
     """
     if gender not in ("nam", "nữ"):
         raise ValueError("gender must be 'nam' or 'nữ'")
+
+    if birth_longitude is not None:
+        from core.true_solar_time import adjust_datetime
+        birth_datetime_local = adjust_datetime(birth_datetime_local, birth_longitude)
 
     base = extract_tu_tru(birth_datetime_local, timezone)
     day_master = base["day_master"]["stem"]

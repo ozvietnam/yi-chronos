@@ -82,6 +82,9 @@ class BatTuCastRequest(BaseModel):
     birth_datetime_local: str
     timezone: str = "Asia/Ho_Chi_Minh"
     gender: Literal["nam", "nữ"] = "nam"
+    # True-solar-time correction (#35, optional, backward-compatible).
+    birth_province: str | None = None
+    birth_longitude: float | None = None
 
 
 class HaLacCastRequest(BaseModel):
@@ -369,6 +372,9 @@ class TuViCastRequest(BaseModel):
     gender: Literal["nam", "nữ"] = "nam"
     target_year: int | None = None
     include_interpretation: bool = True
+    # True-solar-time correction (#35, optional, backward-compatible).
+    birth_province: str | None = None
+    birth_longitude: float | None = None
 
 
 # ── Birth Hour Quiz v2 schemas ─────────────────────────────────────────

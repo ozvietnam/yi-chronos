@@ -1210,11 +1210,15 @@ def than_so_glossary() -> dict[str, object]:
 def bat_tu_cast(request: BatTuCastRequest) -> dict[str, object]:
     """Cast a Bát Tự chart (Tứ trụ + Thập thần + Ngũ hành balance)."""
     from engine.bat_tu import cast_bat_tu
+    from core.true_solar_time import resolve_longitude
 
     result = cast_bat_tu(
         birth_datetime_local=request.birth_datetime_local,
         timezone=request.timezone,
         gender=request.gender,
+        birth_longitude=resolve_longitude(
+            birth_longitude=request.birth_longitude, birth_province=request.birth_province
+        ),
     )
     return {
         "algorithm_version": ALGORITHM_VERSION,
@@ -2445,11 +2449,19 @@ def tu_vi_cast(request: TuViCastRequest) -> dict[str, object]:
     # Resolve inputs.
     if request.birth_datetime_local:
         from core.chronos import calculate_chronos_state
+        from core.true_solar_time import adjust_datetime, resolve_longitude
         from engine.yi_wiki.lich_conversion import SolarDateTime, solar_to_lunar
 
-        chronos = calculate_chronos_state(request.birth_datetime_local, request.timezone)
+        # True-solar-time correction (#35): shift civil → true solar time at birth
+        # longitude before lunar/ganzhi conversion. Opt-in, backward-compatible.
+        _lon = resolve_longitude(
+            birth_longitude=request.birth_longitude, birth_province=request.birth_province
+        )
+        _bdt = adjust_datetime(request.birth_datetime_local, _lon)
+
+        chronos = calculate_chronos_state(_bdt, request.timezone)
         from datetime import datetime as _dt
-        local_dt = _dt.fromisoformat(request.birth_datetime_local)
+        local_dt = _dt.fromisoformat(_bdt)
         # lich_conversion handles 早子時: hour≥23 → lunar day of next day (#13 fix)
         solar = SolarDateTime(
             year=local_dt.year, month=local_dt.month, day=local_dt.day,
