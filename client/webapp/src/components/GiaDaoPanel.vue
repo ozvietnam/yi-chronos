@@ -9,7 +9,30 @@
     <div class="gd2-mode">
       <button :class="{ on: tab==='nha' }" @click="tab='nha'">🧭 Nếp nhà & đón con</button>
       <button :class="{ on: tab==='ten' }" @click="tab='ten'">👶 Đặt tên con</button>
+      <button :class="{ on: tab==='phuc' }" @click="tab='phuc'">🏮 Phúc ấm & quan hệ</button>
     </div>
+
+    <!-- Phúc Đức (mộ phần tổ tiên) + Nô Bộc (đối tác / lứa đôi) -->
+    <section v-if="tab==='phuc'" class="gd2-card">
+      <p class="gd2-sub">Đọc sâu cung Phúc Đức (phúc ấm tổ tiên) và Nô Bộc (kẻ dưới / đối tác / lứa đôi) — theo Toàn Thư cổ + góc dân gian Việt (ghi rõ nguồn).</p>
+      <div class="gd2-person" style="max-width:340px;margin:0 auto;">
+        <input v-model="pbirth" type="datetime-local" class="gd2-in" />
+        <select v-model="pgender" class="gd2-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
+      </div>
+      <button class="gd2-run" :disabled="!pbirth || ploading" @click="runPhuc">{{ ploading ? '⏳ Đang đọc...' : '🏮 Đọc Phúc Đức & Nô Bộc' }}</button>
+      <p v-if="perr" class="gd2-err">{{ perr }}</p>
+      <div v-if="phuc" class="gd2-result">
+        <div class="gd2-box" v-for="(blk,key) in {'🏮 Phúc Đức (phúc ấm tổ tiên)':phuc.phuc_duc, '🤝 Nô Bộc (đối tác / kẻ dưới / lứa đôi)':phuc.no_boc}" :key="key">
+          <h5>{{ key }} — {{ blk.chinh_tinh.join(', ') || 'vô chính diệu' }}</h5>
+          <ul><li v-for="(l,i) in blk.luan_co_van" :key="i">{{ l }}</li></ul>
+          <div class="gd2-viet">
+            <b>🇻🇳 Góc dân gian Việt:</b> {{ blk.goc_dan_gian_viet.noi_dung }}
+            <div class="gd2-nguon">Nguồn: {{ blk.goc_dan_gian_viet.nguon }}</div>
+          </div>
+          <p class="gd2-note">{{ blk.paradigm }}</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Nếp nhà + năm đón con (cặp) -->
     <section v-if="tab==='nha'" class="gd2-card">
@@ -85,10 +108,23 @@ const h = ref({ ten: "Chồng", birth: "", gender: "nam" });
 const w = ref({ ten: "Vợ", birth: "", gender: "nữ" });
 const nha = ref(null); const loading = ref(false); const err = ref("");
 const cbirth = ref(""); const ten = ref(null); const tloading = ref(false); const terr = ref("");
+const pbirth = ref(""); const pgender = ref("nam"); const phuc = ref(null); const ploading = ref(false); const perr = ref("");
+async function runPhuc() {
+  if (!pbirth.value) return;
+  ploading.value = true; perr.value = ""; phuc.value = null;
+  try {
+    const r = await fetch("/api/tu-vi/cung-sau", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ birth: pbirth.value, gender: pgender.value }),
+    });
+    const d = await r.json();
+    if (d.error) perr.value = d.error; else phuc.value = d;
+  } catch (e) { perr.value = "Lỗi kết nối."; } finally { ploading.value = false; }
+}
 
 onMounted(() => {
   const bd = activeBirthDatetime?.value;
-  if (bd) h.value.birth = String(bd).slice(0, 16);
+  if (bd) { h.value.birth = String(bd).slice(0, 16); pbirth.value = String(bd).slice(0, 16); }
 });
 
 async function runNha() {
@@ -149,4 +185,6 @@ async function runTen() {
 .gd2-hanh h5 { color: #8a6d1a; }
 .gd2-names { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .gd2-name { padding: 6px 14px; background: #fff; border: 1px solid #d4af37; border-radius: 16px; color: #6a5212; font-size: 0.95em; }
+.gd2-viet { margin: 10px 0 4px; padding: 10px 12px; background: #fff8ee; border: 1px solid #e6cfa0; border-radius: 8px; font-size: 0.86em; color: #6a5212; line-height: 1.55; }
+.gd2-nguon { margin-top: 4px; font-size: 0.82em; font-style: italic; color: #9a7a3a; }
 </style>
