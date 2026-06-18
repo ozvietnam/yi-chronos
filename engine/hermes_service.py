@@ -33,6 +33,29 @@ QUICK_EST_USD = 0.01            # 1 lần gọi LLM 1 sage — rẻ hơn council
 _DAY = 86400
 
 
+CACHE_TTL_SEC = 86400          # "một việc một lần" (Iron #4): cùng câu/ngày → trả lại cũ
+
+
+def _cached(uid: int, method: str, question: str, ttl: int = CACHE_TTL_SEC):
+    """Exact-dedup theo (user, method, câu hỏi) trong TTL → tái dùng kết quả đã lưu
+    (user_castings). Iron #4 'một việc một lần' + cắt chi phí LLM. Trả (casting_id, data)
+    hoặc (None, None). Dùng chính storage lịch sử — KHÔNG bảng mới."""
+    import json as _j
+    cutoff = int(time.time()) - ttl
+    with session_scope(service=True) as conn:
+        row = conn.execute(
+            text("""SELECT id, result_json FROM user_castings
+                    WHERE user_id=:u AND method=:m AND question=:q AND created_at>=:c
+                    ORDER BY id DESC LIMIT 1"""),
+            {"u": uid, "m": method, "q": question[:500], "c": cutoff},
+        ).fetchone()
+    if not row:
+        return None, None
+    rj = row[1]
+    data = rj if isinstance(rj, (dict, list)) else (_j.loads(rj) if rj else {})
+    return row[0], data
+
+
 def _gate(uid: int, free_key: str, free_limit: int) -> tuple[str, Optional[str]]:
     """Quyết quyền: 'paid' (có gói council) → 'free' (còn lượt free/ngày theo free_key) →
     'denied'. Free tier dùng ratelimit (Redis đa-worker / in-memory dev). KHÔNG trừ lượt gói."""
@@ -173,6 +196,13 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     if not person or not person.get("birth_datetime_local"):
         return {"status": "error", "reason": "missing_birth"}
 
+    # "Một việc một lần" (Iron #4): cùng câu trong ngày → trả lại cũ, KHÔNG tốn LLM/tiền
+    cid_c, cached = _cached(uid, "hermes_council", question)
+    if cached:
+        return {"status": "done", "cached": True, "casting_id": cid_c,
+                "synthesis": cached.get("synthesis"), "agents": cached.get("agents"),
+                "paradigm_ok": cached.get("paradigm_ok", True)}
+
     tier, deny_reason = _gate(uid, "council_free", FREE_DAILY_COUNCIL)
     if tier == "denied":
         return {"status": "denied", "reason": deny_reason}
@@ -285,6 +315,12 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
         return {"status": "error", "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
         return {"status": "error", "reason": "missing_birth"}
+
+    cid_c, cached = _cached(uid, "hermes_quick", question)   # "một việc một lần" (Iron #4)
+    if cached:
+        return {"status": "done", "cached": True, "casting_id": cid_c,
+                "sage": cached.get("sage"), "answer": cached.get("answer"),
+                "paradigm_ok": cached.get("paradigm_ok", True)}
 
     tier, deny_reason = _gate(uid, "quick_free", FREE_DAILY_QUICK)
     if tier == "denied":

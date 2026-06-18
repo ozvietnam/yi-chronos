@@ -87,9 +87,9 @@ def test_free_tier_quick_happy(backend):
 
 def test_free_quick_cap_then_denied(backend):
     _seed(sub=False)
-    for _ in range(hs.FREE_DAILY_QUICK):
-        assert hs.run_quick("uid_q", Q, answer=_ans_ok)["status"] == "done"
-    r = hs.run_quick("uid_q", Q, answer=_ans_must_not_call)
+    for i in range(hs.FREE_DAILY_QUICK):     # câu KHÁC nhau → không cache, tiêu quota thật
+        assert hs.run_quick("uid_q", f"{Q} (câu {i})", answer=_ans_ok)["status"] == "done"
+    r = hs.run_quick("uid_q", f"{Q} (câu cuối)", answer=_ans_must_not_call)
     assert r["status"] == "denied"
 
 
@@ -116,6 +116,18 @@ def test_answer_failed_no_charge(backend):
 def test_not_synced(backend):
     r = hs.run_quick("ghost", Q, answer=_ans_must_not_call)
     assert r["status"] == "error" and r["reason"] == "not_synced"
+
+
+def test_cache_one_question_once(backend):
+    """'Một việc một lần' (Iron #4): hỏi lại cùng câu → cache hit, KHÔNG gọi LLM/tính tiền."""
+    _seed(sub=False)
+    r1 = hs.run_quick("uid_q", Q, answer=_ans_ok)
+    assert r1["status"] == "done" and not r1.get("cached")
+    spent = llm_spend.day_total()
+    r2 = hs.run_quick("uid_q", Q, answer=_ans_must_not_call)   # answer KHÔNG được gọi
+    assert r2["status"] == "done" and r2["cached"] is True
+    assert r2["casting_id"] == r1["casting_id"]                # trả lại đúng kết quả cũ
+    assert llm_spend.day_total() == spent                     # KHÔNG tính tiền lần 2
 
 
 # ── endpoint ─────────────────────────────────────────────────────────────────
