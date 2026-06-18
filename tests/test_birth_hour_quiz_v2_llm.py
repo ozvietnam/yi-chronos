@@ -57,3 +57,15 @@ def test_parse_rejects_invalid_enum():
 def test_parse_rejects_non_json():
     with pytest.raises(ValueError, match="non-JSON"):
         parse_llm_response("just some text", expected_candidates=["Mão"])
+
+
+def test_parse_normalizes_gio_prefixed_keys():
+    """LM Studio / qwen3-coder keys the chi as "Giờ Tý" instead of bare "Tý"
+    (live #33 bug). Parser must normalize back to expected bare-chi keys."""
+    raw = ('{"Giờ Tý": {"decision_style": "analytical", "leadership_orientation": '
+           '"supportive", "emotional_pattern": "cool", "communication_style": '
+           '"nuanced", "career_direction": "creative", "marriage_timing_rough": '
+           '"25_30", "health_pattern_general": "on"}}')
+    result = parse_llm_response(raw, expected_candidates=["Tý"])
+    assert "Tý" in result, "Giờ-prefixed key must be normalized to bare chi"
+    assert result["Tý"]["decision_style"] == "analytical"
