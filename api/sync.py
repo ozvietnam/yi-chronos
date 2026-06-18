@@ -429,3 +429,52 @@ def deep_reading_status(
     elif res.failed():
         out["error"] = str(res.result)[:300]
     return out
+
+
+# ─── H6.0: Hội Đồng Hermes (async qua Celery q_hermes) ──────────────────────
+
+class HermesCouncilRequest(BaseModel):
+    firebase_uid: str
+    question: str
+    person_key: str = "self"
+
+
+@router.post("/hermes-council")
+def enqueue_hermes_council(
+    req: HermesCouncilRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """H6.0 — xếp hàng 1 lượt Hội Đồng. Rào phạm vi chạy NGAY (đồng bộ): ngoài miền /
+    chưa rõ việc → trả lời mời luôn (200, KHÔNG enqueue, KHÔNG tốn LLM). Hợp lệ →
+    404 chưa sync · 422 thiếu giờ sinh · 403 không có quyền → enqueue → job_id."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.hermes_service import precheck
+
+    pc = precheck(req.firebase_uid, req.question, req.person_key)
+    if not pc["ok"]:
+        if "scope" in pc:                       # ngoài miền / cần làm rõ → trả lời, không lỗi
+            return {"status": pc["scope"], "reply": pc["reply"]}
+        raise HTTPException(pc["code"], pc["reason"])
+
+    from engine.tasks.jobs import hermes_council_run
+    res = hermes_council_run.delay(firebase_uid=req.firebase_uid, question=req.question,
+                                   person_key=req.person_key)
+    return {"status": "processing", "job_id": res.id}
+
+
+@router.get("/hermes-council/{job_id}")
+def hermes_council_status(
+    job_id: str,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Trạng thái job Hội Đồng. AppChat poll tới khi SUCCESS → result (synthesis...)."""
+    _require_service_key(x_api_key)
+    from engine.tasks.celery_app import celery_app
+    res = celery_app.AsyncResult(job_id)
+    out: dict = {"job_id": job_id, "state": res.state}
+    if res.successful():
+        out["result"] = res.result
+    elif res.failed():
+        out["error"] = str(res.result)[:300]
+    return out

@@ -47,3 +47,13 @@ def deepread_run(self, *, firebase_uid: str, person_key: str = "self") -> dict:
     chừng → job mất, KHÔNG redeliver → tránh double-charge. User gọi lại nếu cần."""
     from engine.deep_reading import run_deep_reading
     return run_deep_reading(firebase_uid, person_key)
+
+
+@celery_app.task(name="yi.hermes.council_run", bind=True, max_retries=0,
+                 acks_late=False, queue="q_hermes")
+def hermes_council_run(self, *, firebase_uid: str, question: str,
+                       person_key: str = "self") -> dict:
+    """H6.0 — Hội Đồng Hermes async. Orchestration: scope guard → gate → ngân sách →
+    council → post-filter → lưu → consume. AT-MOST-ONCE như deepread (không idempotent)."""
+    from engine.hermes_service import run_council
+    return run_council(firebase_uid, question, person_key)

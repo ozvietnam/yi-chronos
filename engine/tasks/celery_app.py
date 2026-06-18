@@ -17,6 +17,7 @@ import os
 
 from celery import Celery
 from celery.schedules import crontab
+from celery.signals import worker_process_init
 
 BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379/0")
 RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", BROKER_URL)
@@ -59,3 +60,14 @@ celery_app.conf.update(
         },
     },
 )
+
+
+@worker_process_init.connect
+def _hydrate_sage_souls(**_kwargs):
+    """Mỗi worker process khởi động → bơm SOUL sâu (profiles/*/SOUL.md) vào
+    prompt_overrides để council dùng đúng persona chuyên sâu. Idempotent, nuốt lỗi."""
+    try:
+        from engine.hermes_service import sync_souls_from_profiles
+        sync_souls_from_profiles()
+    except Exception:
+        pass
