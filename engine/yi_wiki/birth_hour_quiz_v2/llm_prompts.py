@@ -103,6 +103,24 @@ def parse_llm_response(raw: str, expected_candidates: list[str]) -> dict:
     if not isinstance(data, dict):
         raise ValueError(f"LLM returned non-object root: {type(data).__name__}")
 
+    # Normalize keys → expected chi. Models key the chi differently (deepseek: "Tý";
+    # qwen/LM Studio: "Giờ Tý") — map each expected chi to whatever LLM key contains
+    # it, so downstream code can rely on bare-chi keys.
+    normalized: dict = {}
+    for chi in expected_candidates:
+        match = next(
+            (k for k in data if isinstance(k, str) and (
+                k == chi
+                or k.replace("Giờ", "").replace("giờ", "").strip() == chi
+                or chi in k
+            )),
+            None,
+        )
+        if match is not None and isinstance(data[match], dict):
+            normalized[chi] = data[match]
+    if normalized:
+        data = normalized
+
     # Validate enum values
     for chi in expected_candidates:
         if chi not in data:
