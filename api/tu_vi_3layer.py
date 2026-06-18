@@ -536,6 +536,26 @@ async def hop_hon(inp: HopHonInput) -> dict:
     return kq
 
 
+class ThienLuongInput(BaseModel):
+    birth: str
+    gender: str = "nam"
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/thien-luong")
+async def thien_luong_endpoint(inp: ThienLuongInput) -> dict:
+    """Góc nhìn phái Thiên Lương (đọc tuổi trước sao, Thái Tuế chủ đạo). Song song Trần Đoàn/Trung Châu."""
+    from engine.tu_vi.thien_luong import luan_thien_luong
+    g = "nữ" if inp.gender in ("nữ", "nu", "F", "f") else "nam"
+    try:
+        base = await render_from_birth(BirthInput(
+            birth_datetime_local=inp.birth, timezone=inp.timezone, gender=g))
+    except Exception as e:
+        return {"error": f"Lỗi lập lá số: {e}"}
+    ls = base["la_so_input"]
+    return luan_thien_luong(ls.get("can"), ls.get("chi"), ls.get("menh_palace"), ls.get("than_palace"))
+
+
 class CungSauInput(BaseModel):
     birth: str
     gender: str = "nam"

@@ -86,6 +86,18 @@
         </div>
       </section>
 
+      <!-- Góc nhìn phái Thiên Lương (đọc tuổi trước sao, Thái Tuế chủ đạo) -->
+      <section v-if="thienLuong" class="thien-luong">
+        <h3>🌿 Góc nhìn phái Thiên Lương <small>(đọc tuổi trước sao · Thái Tuế = chánh danh)</small></h3>
+        <div class="tl-row"><b>Bậc tuổi:</b> bậc {{ thienLuong.bac_tuoi.bac }} — {{ thienLuong.bac_tuoi.quan_he }} ({{ thienLuong.bac_tuoi.can }}{{ thienLuong.bac_tuoi.chi }}): {{ thienLuong.bac_tuoi.y_nghia }}</div>
+        <div class="tl-row"><b>Tư cách (vòng Thái Tuế):</b> Mệnh = <em>{{ thienLuong.tu_cach_menh.vong }}</em> · Thân = <em>{{ thienLuong.tu_cach_than.vong }}</em>
+          <div class="tl-sub">{{ thienLuong.tu_cach_menh.mo_ta }}</div></div>
+        <div class="tl-row"><b>Âm dương Mệnh:</b> {{ thienLuong.am_duong_menh.nhan_dinh }}</div>
+        <div class="tl-row"><b>Đức bản mệnh:</b> {{ thienLuong.duc_ban_menh }}</div>
+        <div v-if="thienLuong.dong_luc_doi_nguoi" class="tl-row"><b>Động lực đời:</b> {{ thienLuong.dong_luc_doi_nguoi }}</div>
+        <small class="tl-note">{{ thienLuong.tong_chi }}</small>
+      </section>
+
       <!-- Lớp 2: Vì sao -->
       <section class="lop-2">
         <h3>💡 Lớp 2 — Vì sao</h3>
@@ -302,6 +314,20 @@ const result = ref(null)
 const narrative = ref(null)
 const narrativeLoading = ref(false)
 const showAtoms = ref(false)  // dẫn chứng thô ẩn mặc định — atoms là hậu trường
+
+// Góc nhìn Thiên Lương (lazy theo lá số)
+const thienLuong = ref(null)
+async function loadThienLuong() {
+  if (!props.birthDatetimeLocal) return
+  try {
+    const r = await fetch('/api/tu-vi/thien-luong', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ birth: props.birthDatetimeLocal, gender: props.gender }),
+    })
+    const d = await r.json()
+    if (!d.error) thienLuong.value = d
+  } catch { /* để trống nếu lỗi */ }
+}
 
 // Món chính theo chủ đề
 const chuDeList = ref([])
@@ -593,8 +619,9 @@ async function load() {
     // Reset món chính khi đổi lá số (cache theo phiên giữ riêng, nhưng UI về trạng thái chọn)
     chuDeActive.value = null; chuDeText.value = null
     Object.keys(chuDeCache).forEach(k => delete chuDeCache[k])
+    thienLuong.value = null
     // Bài luận mượt là MẶC ĐỊNH — tự chạy ngay sau khi có lá số
-    if (props.birthDatetimeLocal) loadNarrative()
+    if (props.birthDatetimeLocal) { loadNarrative(); loadThienLuong() }
   } catch (e) {
     error.value = `Lỗi: ${e.message}`
   } finally {
@@ -878,6 +905,14 @@ h3 { margin-top: 0; }
   text-align: left;
 }
 .atoms-toggle:hover { background: #f0ebfa; }
+.thien-luong { margin: 18px 0; padding: 16px 18px; background: #f3f9f3; border: 1px solid #c9e0c9; border-radius: 12px; }
+.thien-luong h3 { margin: 0 0 10px; color: #2e7d32; }
+.thien-luong h3 small { color: #6a8a6a; font-weight: 400; font-size: 0.62em; }
+.tl-row { margin: 7px 0; font-size: 0.92em; color: var(--read-text,#333); line-height: 1.55; }
+.tl-row b { color: #2e7d32; }
+.tl-row em { color: #1b5e20; font-style: normal; font-weight: 600; }
+.tl-sub { margin: 3px 0 0 8px; font-size: 0.9em; color: var(--read-text-faint,#667); }
+.tl-note { display: block; margin-top: 10px; font-size: 0.8em; font-style: italic; color: var(--read-text-faint,#888); line-height: 1.5; }
 .mon-chinh { margin: 18px 0; }
 .mc-hint { margin: 2px 0 10px; color: var(--read-text-faint); font-size: 0.9em; }
 .mc-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
