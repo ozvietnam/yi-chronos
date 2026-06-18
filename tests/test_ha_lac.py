@@ -8,6 +8,9 @@ from __future__ import annotations
 
 import pytest
 
+# #34: /api/ha-lac/cast giờ dual-auth → test endpoint chạy as owner để qua gate.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 from engine.ha_lac import cast_ha_lac
 from engine.ha_lac.constants import BRANCH_NUMBER_PAIRS, STEM_NUMBERS
 from engine.ha_lac.hau_thien import _flip_line, derive_hau_thien

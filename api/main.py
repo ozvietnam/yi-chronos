@@ -9,7 +9,7 @@ from typing import Optional
 from uuid import uuid4
 from zoneinfo import ZoneInfo
 
-from fastapi import FastAPI, Request, HTTPException, BackgroundTasks
+from fastapi import FastAPI, Request, HTTPException, BackgroundTasks, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -163,6 +163,7 @@ app.add_middleware(
 # - User mới (gia đình/khách) đăng ký, có namespace persons + quẻ history riêng
 # - Owner thấy mọi tab, user thường ẩn dev tabs (Cài đặt, Lexicon, ...)
 from api.auth import router as auth_router  # noqa: E402
+from api.service_auth import require_caller, rate_limit_caller  # noqa: E402  (#34 dual-auth)
 from api.admin import router as admin_router  # noqa: E402
 from api.atomization import router as atomization_router  # noqa: E402
 from api.tu_vi_3layer import router as tu_vi_3layer_router  # noqa: E402
@@ -1113,7 +1114,7 @@ def feedback(request: FeedbackRequest) -> dict[str, object]:
 
 
 @app.post("/api/luc-hao/cast")
-def luc_hao_cast(request: LucHaoCastRequest) -> dict[str, object]:
+def luc_hao_cast(request: LucHaoCastRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     result = cast_luc_hao(
         datetime_local=request.datetime_local,
         timezone=request.timezone,
@@ -1207,7 +1208,7 @@ def than_so_glossary() -> dict[str, object]:
 
 
 @app.post("/api/bat-tu/cast")
-def bat_tu_cast(request: BatTuCastRequest) -> dict[str, object]:
+def bat_tu_cast(request: BatTuCastRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     """Cast a Bát Tự chart (Tứ trụ + Thập thần + Ngũ hành balance)."""
     from engine.bat_tu import cast_bat_tu
     from core.true_solar_time import resolve_longitude
@@ -1498,7 +1499,7 @@ class BatTuCompatibilityRequest(BaseModel):
 
 
 @app.post("/api/bat-tu/compatibility")
-def bat_tu_compatibility(request: BatTuCompatibilityRequest) -> dict[str, object]:
+def bat_tu_compatibility(request: BatTuCompatibilityRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     """So 2 lá số Bát Tự (vợ-chồng / partner / cha-con / sibling).
 
     Source: Nạp Âm + 5 hợp Can + Lục/Tam hợp chi.
@@ -1692,7 +1693,7 @@ def ha_lac_luan_giai_endpoint(request: HaLacLuanGiaiRequest) -> dict[str, object
 
 
 @app.post("/api/ha-lac/cast")
-def ha_lac_cast(request: HaLacCastRequest) -> dict[str, object]:
+def ha_lac_cast(request: HaLacCastRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     """Cast Bát Tự Hà Lạc — derives 2 personal hexagrams + decade trajectory.
 
     Cross-module: Bát Tự → 2 Kinh Dịch hexagrams + lifetime decade walk.
@@ -2437,7 +2438,7 @@ def _hour_branch_from_hour(hour: int) -> str:
 
 
 @app.post("/api/tu-vi/cast")
-def tu_vi_cast(request: TuViCastRequest) -> dict[str, object]:
+def tu_vi_cast(request: TuViCastRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     """Cast a full Tử Vi lá số.
 
     Two input modes:
@@ -5083,7 +5084,7 @@ class MarriageCompatRequest(BaseModel):
 
 
 @app.post("/api/yi-wiki/marriage-compat")
-def yi_wiki_marriage_compat(req: MarriageCompatRequest) -> dict:
+def yi_wiki_marriage_compat(req: MarriageCompatRequest, caller: dict = Depends(require_caller)) -> dict:
     from engine.yi_wiki.marriage_compat import analyze_compatibility
     try:
         r = analyze_compatibility(req.birth_a_iso, req.birth_b_iso, req.name_a, req.name_b)
@@ -9074,13 +9075,15 @@ def _quiz_v2_build_final_result(sess: dict, scores: dict, result, status: str) -
 
 
 @app.post("/api/yi-wiki/birth-hour-quiz-v2/start")
-def quiz_v2_start(req: BirthHourQuizV2StartRequest):
+def quiz_v2_start(req: BirthHourQuizV2StartRequest, caller: dict = Depends(require_caller)):
     """Start a new birth-hour quiz session: build candidates, derive traits, return round 1."""
     from engine.yi_wiki.birth_hour_quiz_v2 import session_store
     from engine.yi_wiki.birth_hour_quiz_v2.pillars import build_candidates
     from engine.yi_wiki.birth_hour_quiz_v2.derivation import derive_all_traits
     from engine.yi_wiki.birth_hour_quiz_v2.engine import detect_strategy, generate_questions
 
+    # Quiz start tốn LLM (derive traits) → siết: 10 session/ngày/user (#34).
+    rate_limit_caller(caller, bucket="quiz_start", limit=10, window_sec=86400)
     try:
         session_store.init_schema(_QUIZ_V2_DB)
 
@@ -9144,7 +9147,7 @@ def quiz_v2_start(req: BirthHourQuizV2StartRequest):
 
 
 @app.post("/api/yi-wiki/birth-hour-quiz-v2/submit-round")
-def quiz_v2_submit_round(req: BirthHourQuizV2SubmitRequest):
+def quiz_v2_submit_round(req: BirthHourQuizV2SubmitRequest, caller: dict = Depends(require_caller)):
     """Score a round's answers; return next round OR final result."""
     from engine.yi_wiki.birth_hour_quiz_v2 import session_store
     from engine.yi_wiki.birth_hour_quiz_v2.scoring import score_answer, after_round
@@ -9232,7 +9235,7 @@ def quiz_v2_submit_round(req: BirthHourQuizV2SubmitRequest):
 
 
 @app.get("/api/yi-wiki/birth-hour-quiz-v2/session/{session_id}")
-def quiz_v2_get_session(session_id: str):
+def quiz_v2_get_session(session_id: str, caller: dict = Depends(require_caller)):
     from engine.yi_wiki.birth_hour_quiz_v2 import session_store
     sess = session_store.get_session(_QUIZ_V2_DB, session_id)
     if not sess:
@@ -9241,7 +9244,7 @@ def quiz_v2_get_session(session_id: str):
 
 
 @app.post("/api/yi-wiki/birth-hour-quiz-v2/save-result")
-def quiz_v2_save_result(req: BirthHourQuizV2SaveRequest):
+def quiz_v2_save_result(req: BirthHourQuizV2SaveRequest, caller: dict = Depends(require_caller)):
     """Save inferred hour to a person's profile (via engine.yi_hermes.persons)."""
     from engine.yi_wiki.birth_hour_quiz_v2 import session_store
     from engine.yi_wiki.birth_hour_quiz_v2.rules.branches import HOUR_RANGES

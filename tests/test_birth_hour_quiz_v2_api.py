@@ -1,7 +1,11 @@
 """Integration tests for Birth Hour Quiz v2 API endpoints (LLM mocked)."""
 from unittest.mock import patch
+import pytest
 from fastapi.testclient import TestClient
 from api.main import app
+
+# #34: cast/quiz endpoints giờ dual-auth → test chạy as owner (session) để qua gate.
+pytestmark = pytest.mark.usefixtures("as_owner")
 
 client = TestClient(app)
 

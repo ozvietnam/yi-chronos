@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import pytest
 
+# #34: /api/bat-tu/cast + /compatibility giờ dual-auth → test chạy as owner để qua gate.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 from engine.bat_tu import cast_bat_tu, extract_tu_tru, thap_than_of
 from engine.bat_tu.ngu_hanh import (
     count_elements,

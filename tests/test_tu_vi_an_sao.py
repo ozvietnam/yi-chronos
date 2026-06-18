@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import pytest
 
+# #34: /api/tu-vi/cast giờ dual-auth → test endpoint chạy as owner để qua gate.
+pytestmark = pytest.mark.usefixtures("as_owner")
+
 from engine.tu_vi import cast_la_so
 from engine.tu_vi.an_sao import (
     BRANCHES_TVI,
