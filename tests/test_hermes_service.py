@@ -9,6 +9,7 @@ from sqlalchemy import text
 import engine.db as db
 import engine.hermes_service as hs
 import engine.llm_spend as llm_spend
+import engine.ratelimit as rl
 import engine.subscriptions as subs
 
 PG_DSN = os.environ.get("YI_TEST_PG_DSN", "").strip()
@@ -64,6 +65,7 @@ def backend(request, tmp_path, monkeypatch):
             c.execute(text("TRUNCATE users, user_persons, user_castings, "
                            "user_subscriptions, llm_spend RESTART IDENTITY CASCADE"))
     db.get_engine.cache_clear()
+    rl.reset()                       # free-tier counter sạch giữa các test
     yield request.param
     db.get_engine.cache_clear()
 
@@ -104,10 +106,20 @@ def test_post_filter_flags_predictive(backend):
     assert vd == "paradigm_flag"
 
 
-def test_denied_without_subscription(backend):
-    _seed(sub=False)
+def test_free_tier_3_per_day_then_denied(backend):
+    _seed(sub=False)                 # không gói → free tier 3 lượt/ngày
+    for _ in range(hs.FREE_DAILY_COUNCIL):
+        r = hs.run_council("uid_h6", Q, consult=_consult_ok)
+        assert r["status"] == "done" and r["tier"] == "free"
+    # hết lượt free → từ chối, KHÔNG gọi council
     r = hs.run_council("uid_h6", Q, consult=_consult_must_not_call)
-    assert r["status"] == "denied" and r["reason"] == "no_subscription"
+    assert r["status"] == "denied" and r["reason"] == "no_subscription_and_free_exhausted"
+
+
+def test_paid_tier_consumes_grant(backend):
+    _seed(remaining=1)
+    r = hs.run_council("uid_h6", Q, consult=_consult_ok)
+    assert r["status"] == "done" and r["tier"] == "paid" and r["remaining_uses"] == 0
 
 
 def test_budget_blocks_before_council(backend, monkeypatch):
@@ -173,8 +185,10 @@ def test_endpoint_404_not_synced(client):
     assert r.status_code == 404
 
 
-def test_endpoint_403_no_subscription(client):
-    _seed(sub=False)
+def test_endpoint_403_when_free_exhausted(client):
+    uid = _seed(sub=False)
+    for _ in range(hs.FREE_DAILY_COUNCIL):       # tiêu hết lượt free
+        rl.allow(f"council_free:{uid}", hs.FREE_DAILY_COUNCIL, hs._DAY)
     r = client.post("/api/sync/hermes-council",
                     json={"firebase_uid": "uid_h6", "question": Q}, headers=HDR)
     assert r.status_code == 403
