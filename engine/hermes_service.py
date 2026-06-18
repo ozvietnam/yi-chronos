@@ -27,17 +27,42 @@ from engine.db import is_postgres, session_scope
 from engine.deep_reading import _resolve  # tái dùng uid→(user_id, person)
 
 FEATURE = "hermes_council"
-FREE_DAILY_COUNCIL = 3          # FREE tier: 3 lượt/ngày (master plan); gói = check_access
+FREE_DAILY_COUNCIL = 3          # FREE tier: council 3 lượt/ngày (premium đa-sage)
+FREE_DAILY_QUICK = 10           # FREE tier: trả lời nhanh 1-sage 10 lượt/ngày (rẻ, hằng ngày)
+QUICK_EST_USD = 0.01            # 1 lần gọi LLM 1 sage — rẻ hơn council nhiều
 _DAY = 86400
 
 
-def _gate(uid: int) -> tuple[str, Optional[str]]:
-    """Quyết quyền: 'paid' (có gói) → 'free' (còn lượt free/ngày) → 'denied'.
-    Free tier dùng ratelimit (Redis đa-worker / in-memory dev). KHÔNG trừ lượt gói."""
+CACHE_TTL_SEC = 86400          # "một việc một lần" (Iron #4): cùng câu/ngày → trả lại cũ
+
+
+def _cached(uid: int, method: str, question: str, ttl: int = CACHE_TTL_SEC):
+    """Exact-dedup theo (user, method, câu hỏi) trong TTL → tái dùng kết quả đã lưu
+    (user_castings). Iron #4 'một việc một lần' + cắt chi phí LLM. Trả (casting_id, data)
+    hoặc (None, None). Dùng chính storage lịch sử — KHÔNG bảng mới."""
+    import json as _j
+    cutoff = int(time.time()) - ttl
+    with session_scope(service=True) as conn:
+        row = conn.execute(
+            text("""SELECT id, result_json FROM user_castings
+                    WHERE user_id=:u AND method=:m AND question=:q AND created_at>=:c
+                    ORDER BY id DESC LIMIT 1"""),
+            {"u": uid, "m": method, "q": question[:500], "c": cutoff},
+        ).fetchone()
+    if not row:
+        return None, None
+    rj = row[1]
+    data = rj if isinstance(rj, (dict, list)) else (_j.loads(rj) if rj else {})
+    return row[0], data
+
+
+def _gate(uid: int, free_key: str, free_limit: int) -> tuple[str, Optional[str]]:
+    """Quyết quyền: 'paid' (có gói council) → 'free' (còn lượt free/ngày theo free_key) →
+    'denied'. Free tier dùng ratelimit (Redis đa-worker / in-memory dev). KHÔNG trừ lượt gói."""
     access = subs.check_access(uid, FEATURE)
     if access["allowed"]:
         return "paid", None
-    if ratelimit.allow(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY):
+    if ratelimit.allow(f"{free_key}:{uid}", free_limit, _DAY):
         return "free", None
     return "denied", "no_subscription_and_free_exhausted"
 
@@ -171,7 +196,14 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     if not person or not person.get("birth_datetime_local"):
         return {"status": "error", "reason": "missing_birth"}
 
-    tier, deny_reason = _gate(uid)
+    # "Một việc một lần" (Iron #4): cùng câu trong ngày → trả lại cũ, KHÔNG tốn LLM/tiền
+    cid_c, cached = _cached(uid, "hermes_council", question)
+    if cached:
+        return {"status": "done", "cached": True, "casting_id": cid_c,
+                "synthesis": cached.get("synthesis"), "agents": cached.get("agents"),
+                "paradigm_ok": cached.get("paradigm_ok", True)}
+
+    tier, deny_reason = _gate(uid, "council_free", FREE_DAILY_COUNCIL)
     if tier == "denied":
         return {"status": "denied", "reason": deny_reason}
 
@@ -230,4 +262,113 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
         "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
         "free_remaining": (ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY)
                            if tier == "free" else None),
+    }
+
+
+# ─── Đường TRẢ LỜI NHANH 1-sage (everyday, rẻ — bổ trợ council premium) ───────
+
+def _real_quick(question: str, person: dict, uid: int) -> dict:
+    """1 sage liên quan nhất trả lời (1 lần gọi LLM) — dùng SOUL sâu + chart facts +
+    bối cảnh user (pseudonymized). Rẻ hơn council nhiều."""
+    from engine.ai.agents import run_agent
+    from engine.ai.council import _get_agent_provider
+    from engine.ai.kanban_council import select_sages
+    sage = (select_sages(question) or ["tu_vi"])[0]
+    chart = _build_chart_data(person)
+    ctx = build_user_context(uid, person, query_hint=question)
+    if ctx:
+        chart["user_context"] = ctx
+    provider, model = _get_agent_provider(sage)
+    resp = run_agent(agent_id=sage, provider=provider, model=model,
+                     question=question, chart_data=chart, round_label="quick", challenges=None)
+    toks = {"prompt": getattr(resp, "prompt_tokens", 0), "completion": getattr(resp, "completion_tokens", 0)}
+    return {"answer": resp.content or "", "sage": sage,
+            "provider": getattr(resp, "provider", "deepseek"), "cost_usd": 0.0, "tokens": toks}
+
+
+def precheck_quick(firebase_uid: str, question: str, person_key: str = "self") -> dict:
+    """Như precheck nhưng cho đường nhanh (free cap riêng quick_free)."""
+    sv = guard.classify_scope(question)
+    if sv.verdict != "in_scope":
+        return {"ok": False, "scope": sv.verdict, "reply": sv.reply, "reason": sv.reason}
+    uid, person = _resolve(firebase_uid, person_key)
+    if uid is None:
+        return {"ok": False, "code": 404, "reason": "not_synced"}
+    if not person or not person.get("birth_datetime_local"):
+        return {"ok": False, "code": 422, "reason": "missing_birth"}
+    if not subs.check_access(uid, FEATURE)["allowed"]:
+        if ratelimit.remaining(f"quick_free:{uid}", FREE_DAILY_QUICK, _DAY) <= 0:
+            return {"ok": False, "code": 403, "reason": "no_subscription_and_free_exhausted"}
+    return {"ok": True, "user_id": uid}
+
+
+def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
+              answer: Optional[Callable[[str, dict, int], dict]] = None) -> dict:
+    """1 lượt trả lời nhanh 1-sage. KHÔNG idempotent → task at-most-once."""
+    sv = guard.classify_scope(question)
+    if sv.verdict != "in_scope":
+        return {"status": sv.verdict, "reply": sv.reply, "reason": sv.reason}
+
+    answer = answer or _real_quick
+    uid, person = _resolve(firebase_uid, person_key)
+    if uid is None:
+        return {"status": "error", "reason": "not_synced"}
+    if not person or not person.get("birth_datetime_local"):
+        return {"status": "error", "reason": "missing_birth"}
+
+    cid_c, cached = _cached(uid, "hermes_quick", question)   # "một việc một lần" (Iron #4)
+    if cached:
+        return {"status": "done", "cached": True, "casting_id": cid_c,
+                "sage": cached.get("sage"), "answer": cached.get("answer"),
+                "paradigm_ok": cached.get("paradigm_ok", True)}
+
+    tier, deny_reason = _gate(uid, "quick_free", FREE_DAILY_QUICK)
+    if tier == "denied":
+        return {"status": "denied", "reason": deny_reason}
+
+    est = QUICK_EST_USD
+    if not llm_spend.try_charge(cost_usd=est, feature="hermes_quick", model="reserve",
+                                user_id=str(uid)):
+        return {"status": "budget_exceeded"}
+
+    def _refund():
+        llm_spend.record_spend(provider="reserve", cost_usd=-est, feature="hermes_quick",
+                               model="refund", user_id=str(uid))
+
+    try:
+        result = answer(question, person, uid)
+        if not isinstance(result, dict) or not result.get("answer"):
+            _refund()
+            return {"status": "error", "reason": "answer_failed"}
+
+        violations = guard.paradigm_violations(result.get("answer", ""))
+        av = algo_version("tu_vi")
+        payload = {"answer": result.get("answer"), "sage": result.get("sage"),
+                   "paradigm_ok": not violations, "violations": violations}
+        res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
+        with session_scope(service=True) as conn:
+            cid = conn.execute(
+                text(f"""INSERT INTO user_castings
+                        (user_id, method, subject_person_key, question, result_json,
+                         verdict, tags, note, algo_version, created_at)
+                        VALUES (:uid,'hermes_quick',:pk,:q,{res_expr},:vd,'quick',NULL,:av,:now)
+                        RETURNING id"""),
+                {"uid": uid, "pk": person_key, "q": question[:500],
+                 "res": json.dumps(payload, ensure_ascii=False),
+                 "vd": "paradigm_flag" if violations else None,
+                 "av": av, "now": int(time.time())},
+            ).scalar()
+        usage = subs.consume_use(uid, FEATURE) if tier == "paid" else {"ok": False}
+    except Exception:
+        _refund()
+        raise
+
+    real_cost = float(result.get("cost_usd") or 0)
+    if real_cost > 0:
+        llm_spend.record_spend(provider=result.get("provider", "deepseek"),
+                               cost_usd=real_cost - est, feature="hermes_quick",
+                               user_id=str(uid))
+    return {
+        "status": "done", "casting_id": cid, "tier": tier, "sage": result.get("sage"),
+        "paradigm_ok": not violations, "answer": result.get("answer"),
     }

@@ -108,11 +108,11 @@ def test_post_filter_flags_predictive(backend):
 
 def test_free_tier_3_per_day_then_denied(backend):
     _seed(sub=False)                 # không gói → free tier 3 lượt/ngày
-    for _ in range(hs.FREE_DAILY_COUNCIL):
-        r = hs.run_council("uid_h6", Q, consult=_consult_ok)
+    for i in range(hs.FREE_DAILY_COUNCIL):    # câu KHÁC nhau → không cache, tiêu quota thật
+        r = hs.run_council("uid_h6", f"{Q} (câu {i})", consult=_consult_ok)
         assert r["status"] == "done" and r["tier"] == "free"
     # hết lượt free → từ chối, KHÔNG gọi council
-    r = hs.run_council("uid_h6", Q, consult=_consult_must_not_call)
+    r = hs.run_council("uid_h6", f"{Q} (câu cuối)", consult=_consult_must_not_call)
     assert r["status"] == "denied" and r["reason"] == "no_subscription_and_free_exhausted"
 
 
@@ -120,6 +120,19 @@ def test_paid_tier_consumes_grant(backend):
     _seed(remaining=1)
     r = hs.run_council("uid_h6", Q, consult=_consult_ok)
     assert r["status"] == "done" and r["tier"] == "paid" and r["remaining_uses"] == 0
+
+
+def test_cache_one_question_once(backend):
+    """Iron #4: hỏi lại cùng câu → cache hit, KHÔNG gọi council/tính tiền/trừ lượt."""
+    uid = _seed(remaining=2)
+    r1 = hs.run_council("uid_h6", Q, consult=_consult_ok)
+    assert r1["status"] == "done" and not r1.get("cached")
+    spent = llm_spend.day_total()
+    r2 = hs.run_council("uid_h6", Q, consult=_consult_must_not_call)  # council KHÔNG chạy
+    assert r2["status"] == "done" and r2["cached"] is True and r2["casting_id"] == r1["casting_id"]
+    assert llm_spend.day_total() == spent                            # không tính tiền lần 2
+    # còn nguyên 1 lượt gói (lần 2 không trừ)
+    assert subs.check_access(uid, hs.FEATURE)["subscription"]["remaining_uses"] == 1
 
 
 def test_budget_blocks_before_council(backend, monkeypatch):
