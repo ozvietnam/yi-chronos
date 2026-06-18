@@ -3261,11 +3261,14 @@ def yi_hermes_reload_context() -> dict:
 
 
 @app.get("/api/yi-hermes/context/summary/{soul_key}")
-def yi_hermes_context_summary_for(soul_key: str) -> dict:
+def yi_hermes_context_summary_for(soul_key: str, http_request: Request) -> dict:
     """Show what context is currently injected for a given soul_key.
 
-    For UI: 'Hermes biết gì về user này?'
+    For UI: 'Hermes biết gì về user này?'. OWNER-ONLY — soul_key tuỳ ý (gồm _founder)
+    là data nhạy cảm; end-user có namespace riêng (/api/auth/my). Vá rò 2026-06-18.
     """
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.yi_hermes import context_summary
 
     # URL-decode soul_key (might contain ':')
