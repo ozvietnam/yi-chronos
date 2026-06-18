@@ -388,6 +388,21 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
         _refund()
         raise
 
+    # H6 (#39) — vòng ký ức "càng dùng càng hiểu": chưng cất summary phiên này để
+    # build_memory_context phiên sau có ngữ cảnh. Lightweight (KHÔNG thêm LLM call →
+    # giữ quick tier rẻ); fact-distillation sâu (LLM) để dành tier deep (#38).
+    # Lỗi memory KHÔNG được làm hỏng câu trả lời.
+    try:
+        from engine.yi_hermes import memory
+        ans = (result.get("answer") or "")
+        memory.add_summary(
+            user_id=str(uid),
+            summary=f"[Hỏi nhanh] {question[:160]} → {ans[:240]}",
+            session_id=cid,
+        )
+    except Exception:
+        pass
+
     real_cost = float(result.get("cost_usd") or 0)
     if real_cost > 0:
         llm_spend.record_spend(provider=result.get("provider", "deepseek"),
