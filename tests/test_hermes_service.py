@@ -138,6 +138,7 @@ def test_sync_souls_from_profiles_makes_council_use_deep_soul(tmp_path, monkeypa
     synced = hs.sync_souls_from_profiles()
     # các sage có profile track → được sync, SOUL sâu (>500 ký tự, không mỏng)
     assert synced.get("tu_vi", 0) > 500 and synced.get("bat_tu", 0) > 300
+    assert "than_so" in synced                      # Thần số học vào roster council (Phase-1)
     # council (qua get_prompt) giờ trả SOUL sâu thay persona mặc định
     assert len(prompt_store.get_prompt("tu_vi")) == synced["tu_vi"]
 

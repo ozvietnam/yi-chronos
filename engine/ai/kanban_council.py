@@ -37,6 +37,7 @@ SAGES_BY_TAG: dict[str, str] = {
     "bat_tu": "bat-tu-sage",
     "ha_lac": "ha-lac-sage",
     "western": "chiem-tinh-sage",
+    "than_so": "than-so-sage",
 }
 ARBITER_PROFILE = "arbiter"
 

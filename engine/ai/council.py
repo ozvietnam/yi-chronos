@@ -38,6 +38,7 @@ DEFAULT_AGENT_PROVIDER: dict[str, list[str]] = {
     "ha_lac":   ["deepseek", "zai", "anthropic", "mock"],
     # Tây agent — Anthropic preferred for psychology, fallback ZAI
     "western":  ["anthropic", "zai", "deepseek", "mock"],
+    "than_so":  ["deepseek", "zai", "anthropic", "mock"],
 }
 
 # Orchestrator default — Claude Opus

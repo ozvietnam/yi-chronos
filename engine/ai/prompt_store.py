@@ -26,6 +26,7 @@ AGENT_IDS: tuple[str, ...] = (
     "bat_tu",
     "ha_lac",
     "western",
+    "than_so",
 )
 ORCHESTRATOR_ID = "orchestrator"
 ALL_PROMPT_IDS: tuple[str, ...] = AGENT_IDS + (ORCHESTRATOR_ID,)
@@ -162,5 +163,11 @@ AGENT_METADATA: dict[str, dict] = {
         "icon": "♈",
         "specialty": "Natal chart + Transits + Progressions + Psychology",
         "best_for": "Tâm lý nội tâm, khung tâm lý học Jung",
+    },
+    "than_so": {
+        "name_vi": "Thần Số Học",
+        "icon": "🔢",
+        "specialty": "Pythagoras + Chaldean — số đường đời / linh hồn / biểu đạt",
+        "best_for": "Soi tính qua con số ngày sinh + tên, đối chiếu chéo",
     },
 }

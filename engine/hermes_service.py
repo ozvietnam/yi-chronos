@@ -39,7 +39,7 @@ SAGE_PROFILE = {
 _SOUL_SYNC = {
     "tu_vi": "tu-vi-sage", "bat_tu": "bat-tu-sage", "mai_hoa": "mai-hoa-sage",
     "luc_hao": "luc-hao-sage", "ha_lac": "ha-lac-sage", "lien_hoa": "lien-hoa-sage",
-    "western": "chiem-tinh-sage", "orchestrator": "yi-orchestrator",
+    "western": "chiem-tinh-sage", "than_so": "than-so-sage", "orchestrator": "yi-orchestrator",
 }
 _PROFILES_DIR = Path(__file__).resolve().parent.parent / "data" / "hermes_yi" / "profiles"
 
