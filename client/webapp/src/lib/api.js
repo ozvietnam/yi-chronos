@@ -716,3 +716,15 @@ export function yiHermesGlossarySearch(query) {
 export function yiHermesGlossaryGet(termVi) {
   return request(`/api/yi-hermes/glossary/term/${encodeURIComponent(termVi)}`);
 }
+
+/**
+ * H6.0 — hỏi Hermes (trả lời nhanh 1-sage) cho user đang đăng nhập.
+ * Đồng bộ: trả {status:"done", answer, sage, ...} | {status:"out_of_scope", reply}
+ * | {status:"denied"|"budget_exceeded"|...}. Yêu cầu đăng nhập (cookie phiên same-origin).
+ */
+export function hermesAsk({ question, personKey = "self" }) {
+  return request("/api/hermes/ask", {
+    method: "POST",
+    body: JSON.stringify({ question, person_key: personKey }),
+  });
+}
