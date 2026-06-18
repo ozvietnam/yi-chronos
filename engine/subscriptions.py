@@ -41,6 +41,14 @@ FEATURE_CATALOG = {
         "cost_estimate_usd": 0.02,
         "approx_duration_sec": 75,
     },
+    "hermes_council": {
+        "name_vi": "Hội Đồng Hermes — tư vấn phản biện đa phái",
+        "name_zh": "赫尔墨斯议会",
+        "description": "Triệu tập 2-5 sage (mỗi trường phái 1 sage) đọc độc lập + arbiter tổng hợp đồng thuận/mâu thuẫn. Đa chiều, có trích dẫn, không phán quyết thay (mệnh-là-động-từ).",
+        "tier_required": "vip1",
+        "cost_estimate_usd": 0.08,
+        "approx_duration_sec": 90,
+    },
     # Future features:
     # "mai_hoa_premium": {...},
     # "bat_tu_dyad_premium": {...},
