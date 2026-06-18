@@ -57,15 +57,23 @@ def _resolve_endpoint(api_key: str, override: str | None = None) -> str:
 class MiniMaxProvider(LLMProvider):
     """MiniMax (Hailuo) LLM provider — supports Coding Plan + General API."""
 
-    # Curated list of models (probed 2026-05-12 against sk-cp- key)
+    # Curated list of models (re-probed 2026-06-18 via GET /v1/models, sk-cp- key)
     _MODELS: tuple[str, ...] = (
-        "MiniMax-M2",                 # ✓ Token Plan main — reasoning w/ <think>
-        "minimax-m2",                  # ✓ lowercase alias
+        "MiniMax-M3",                  # ✓ newest flagship reasoning (chủ lực 2026-06)
+        "MiniMax-M2.7",                # reasoning
+        "MiniMax-M2.7-highspeed",      # faster variant (thinks less)
+        "MiniMax-M2.5",
+        "MiniMax-M2.1",
+        "MiniMax-M2",                  # legacy reasoning w/ <think>
         "MiniMax-M1",                  # flagship reasoning (general API only)
         "MiniMax-Text-01",             # general text
-        "coding-plan-vlm",             # vision-aware coding (token plan only)
-        "coding-plan-search",          # search-aware coding (token plan only)
     )
+
+    # M-series là reasoning model: nhồi <think>...</think> TRƯỚC câu trả lời. Nếu
+    # max_tokens quá thấp, toàn bộ ngân sách token bị think ăn → answer bị cắt →
+    # content rỗng sau khi strip (bug 2026-06-18: quiz/council trả rỗng vì
+    # max_tokens=1500-2000). Sàn token cho reasoning model để answer luôn kịp ra.
+    _REASONING_MIN_TOKENS = 4000
 
     def __init__(self, api_key: str | None = None, endpoint: str | None = None):
         self._api_key = api_key or os.environ.get("MINIMAX_API_KEY", "")
@@ -83,10 +91,10 @@ class MiniMaxProvider(LLMProvider):
 
     @property
     def default_model(self) -> str:
-        # Coding plan keys → default to MiniMax-M2 (text reasoning, working slot)
-        # Note: coding-plan-vlm needs image input; M2 is best for text-only cleanup.
+        # Coding plan keys → MiniMax-M3 (newest flagship, chủ lực 2026-06).
+        # Override per-call via model=; env YI_MINIMAX_MODEL cũng được tôn trọng.
         if self._api_key.startswith("sk-cp-"):
-            return "MiniMax-M2"
+            return os.environ.get("YI_MINIMAX_MODEL", "MiniMax-M3")
         return "MiniMax-M1"
 
     @property
@@ -115,11 +123,15 @@ class MiniMaxProvider(LLMProvider):
             )
         endpoint = _resolve_endpoint(self._api_key, self._endpoint_override)
         target_model = model or self.default_model
+        # Reasoning M-series: sàn token để <think> không nuốt hết answer (xem
+        # _REASONING_MIN_TOKENS). Model thường (Text-01) giữ nguyên max_tokens.
+        is_reasoning = target_model.lower().startswith(("minimax-m1", "minimax-m2", "minimax-m3"))
+        effective_max = max(max_tokens, self._REASONING_MIN_TOKENS) if is_reasoning else max_tokens
         body = {
             "model": target_model,
             "messages": messages,
             "temperature": temperature,
-            "max_tokens": max_tokens,
+            "max_tokens": effective_max,
             "stream": False,
         }
         data = json.dumps(body).encode("utf-8")
