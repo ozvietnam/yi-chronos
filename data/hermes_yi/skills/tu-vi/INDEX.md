@@ -22,8 +22,11 @@ Tổ Tử Vi = **Trần Đoàn (Hi Di)** — KHÔNG phải Thiệu Khang Tiết 
 ## Trạng thái đọc sâu (vòng / trang)
 - vòng 1–4: tr.1–80 (Book Profile, 14 chính tinh chư tinh, Nam Mệnh Ca, paradigm: 70/30, Mệnh-Thân Thể-Dụng, Nhân Cung, Cường-Nhược, Bát Pháp, Thập Dụ)
 - **vòng 5: tr.81–100 ✅** — Thập Nhị Cung Luận (12 cung) → `cung/`
-- **vòng 6: tr.101–120 ✅** — Vận Hạn (sao nhập hạn) → `van-han.md`; mở Nữ Mệnh → `nu-menh.md` (⚠ lá chắn đạo đức)
-- *Tiếp theo (vòng 7): tr.121–140 — Nữ Mệnh ca (tiếp) + ?*
+- **vòng 6: tr.101–120 ✅** — Vận Hạn → `van-han.md`; Nữ Mệnh → `nu-menh.md`
+- **vòng 7 (swarm e2e): tr.121–171 ✅** — Ngũ Hành → `ngu-hanh.md`; Hình dáng-Tính tình → `hinh-dang-tinh-tinh.md`; Cách cục + Mệnh 12 cung → `cach-cuc-menh-12-cung.md`; Thập Đẳng Luận + Mệnh VCD + phú đánh số → `cach-cuc-phu-danh-so.md`
+
+## 🏁 QUYỂN HOÀN THÀNH (171/171 trang) — 2026-06-17
+Đọc trọn Tử Vi Đẩu Số Toàn Thư. Skill Hermes: INDEX + 10 file `cung/` + van-han + nu-menh + ngu-hanh + hinh-dang-tinh-tinh + cach-cuc-menh-12-cung + cach-cuc-phu-danh-so.
 
 ## Map cung → file (tách chi tiết per-cung, routing mịn)
 | Cung user hỏi | Route |
@@ -39,7 +42,11 @@ Tổ Tử Vi = **Trần Đoàn (Hi Di)** — KHÔNG phải Thiệu Khang Tiết 
 | Anh em / Huynh Đệ | `cung/huynh-de.md` |
 | Con cái / Tử Tức (Gia Đạo) | `cung/tu-tuc.md` ★ |
 | Vận hạn / "năm nay thế nào" / năm xung | `van-han.md` (⚠ KHÔNG bán năm-xung cứng) |
-| Lá số nữ / phụ nữ | `nu-menh.md` (⚠ lá chắn đạo đức bắt buộc) |
+| Lá số nữ / phụ nữ | `nu-menh.md` (giữ nguyên nghĩa cổ + ghi chú thời đại) |
+| Ngũ hành sao / sinh-khắc-chế-hóa / nạp âm | `ngu-hanh.md` (⚠ Vũ Tài Lục phê phái Việt — xem dưới) |
+| Hình dáng / tướng mạo / tính tình | `hinh-dang-tinh-tinh.md` |
+| Cách cục / Mệnh đóng cung địa chi | `cach-cuc-menh-12-cung.md` |
+| Cách cục có tên / phú / Thập Đẳng Luận / Mệnh VCD | `cach-cuc-phu-danh-so.md` |
 
 ## Khoá đọc nhanh (áp mọi cung)
 **Tứ Sát = Dương Đà · Linh Hỏa · Không Kiếp** đảo cát→hung ở mọi cung. Ngoại lệ: Hỏa/Linh + Vũ Khúc/Tham Lang ở Điền Trạch = cực tốt.
