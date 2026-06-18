@@ -156,3 +156,24 @@ def co_che() -> dict:
         "vi_du": {"value": "复", "sau_bien": sau_bien("复")},
         "source": "皇极经世书今说 Ngoại Thiên (dòng 1703-1707, 8935)",
     }
+
+
+def bang_que_nam(year_from: int, year_to: int) -> list[dict]:
+    """RENDER bảng 经世衍易图 — quẻ-năm cho khoảng [year_from, year_to].
+
+    Đây là bảng Ngoại Thiên (quẻ phối vận/thế) mà engine v2 sinh ra bằng PHÉP
+    (year_que_method), thay cho việc tra bảng tĩnh. Mỗi dòng: năm + quẻ + vận/thế.
+    """
+    if year_to < year_from:
+        year_from, year_to = year_to, year_from
+    if year_to - year_from > 1000:
+        raise ValueError("khoảng quá rộng (>1000 năm)")
+    out = []
+    for y in range(year_from, year_to + 1):
+        q = year_que_method(y)
+        out.append({
+            "nam": y, "han": q.get("han"), "viet": q.get("viet"),
+            "the_que": q.get("the_que"), "van_que": q.get("van_que"),
+            "nam_trong_the": q.get("nam_trong_the"),
+        })
+    return out
