@@ -2905,6 +2905,22 @@ def yi_hermes_chat(req: YiHermesChatRequest, http_request: Request) -> dict:
     return {"status": "ok", "response": result}
 
 
+class HermesAskRequest(BaseModel):
+    question: str
+    person_key: str = "self"
+
+
+@app.post("/api/hermes/ask")
+def hermes_ask(req: HermesAskRequest, http_request: Request) -> dict:
+    """H6.0 — trả lời nhanh 1-sage cho USER WEB đang đăng nhập (đồng bộ, trả ngay).
+    Đi qua run_quick: rào phạm vi → gate (gói/free) → ngân sách → 1 sage → post-filter →
+    lưu + cache. Resolve theo user_id (không cần firebase_uid/service-key)."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine.hermes_service import run_quick
+    return run_quick("", req.question, req.person_key, user_id=user["user_id"])
+
+
 @app.get("/api/yi-hermes/modules")
 def yi_hermes_modules() -> dict:
     """List all modules YI-Hermes knows about."""
