@@ -34,8 +34,13 @@ def _provider_complete(prompt: str, provider_name: str = "deepseek",
 # parse strictly. Anthropic fallback uses default Sonnet.
 _QUIZ_MODELS = {
     "deepseek": "deepseek-chat",
+    "lmstudio": "qwen3-coder-30b-a3b-instruct-mlx",  # local instruct → clean JSON
     "anthropic": None,  # provider default
 }
+
+# Fallback chain (#33): DeepSeek primary (prod, returns clean JSON), then LM Studio
+# (free local — dev + resilience when cloud key is down), then Anthropic (paid, last).
+_QUIZ_PROVIDER_CHAIN = ("deepseek", "lmstudio", "anthropic")
 
 
 def call_trait_llm(candidates: list[dict]) -> dict:
@@ -50,30 +55,23 @@ def call_trait_llm(candidates: list[dict]) -> dict:
     expected = [c["chi"] for c in candidates]
     last_error: Exception | None = None
 
-    # Primary: DeepSeek (V3 chat), retry once
-    for attempt in range(2):
-        try:
-            raw = _provider_complete(
-                prompt, provider_name="deepseek", model=_QUIZ_MODELS["deepseek"],
-            )
-            logger.info("LLM deepseek attempt %d raw len=%d", attempt + 1, len(raw or ""))
-            return parse_llm_response(raw, expected)
-        except ValueError as e:
-            logger.warning("LLM deepseek attempt %d parse failed: %s", attempt + 1, e)
-            last_error = e
-        except RuntimeError as e:
-            logger.warning("LLM deepseek attempt %d transport failed: %s", attempt + 1, e)
-            last_error = e
-            break  # don't retry on provider missing
+    for provider_name in _QUIZ_PROVIDER_CHAIN:
+        # 1 retry on parse-fail for the primary; single shot for fallbacks.
+        retries = 2 if provider_name == _QUIZ_PROVIDER_CHAIN[0] else 1
+        for attempt in range(retries):
+            try:
+                raw = _provider_complete(
+                    prompt, provider_name=provider_name, model=_QUIZ_MODELS.get(provider_name),
+                )
+                logger.info("LLM %s attempt %d raw len=%d", provider_name, attempt + 1, len(raw or ""))
+                return parse_llm_response(raw, expected)
+            except ValueError as e:  # parse fail → retry same provider
+                logger.warning("LLM %s attempt %d parse failed: %s", provider_name, attempt + 1, e)
+                last_error = e
+            except RuntimeError as e:  # provider missing/unreachable → next provider
+                logger.warning("LLM %s transport failed: %s", provider_name, e)
+                last_error = e
+                break
 
-    # Fallback: Anthropic Claude
-    try:
-        raw = _provider_complete(
-            prompt, provider_name="anthropic", model=_QUIZ_MODELS["anthropic"],
-        )
-        return parse_llm_response(raw, expected)
-    except (ValueError, RuntimeError) as e:
-        logger.error("LLM fallback also failed: %s", e)
-        raise RuntimeError(
-            f"LLM all retries failed (last: {last_error or e})"
-        ) from (last_error or e)
+    logger.error("LLM all providers failed (last: %s)", last_error)
+    raise RuntimeError(f"LLM all retries failed (last: {last_error})") from last_error

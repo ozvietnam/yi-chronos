@@ -19,6 +19,7 @@ from .providers import (
     DeepSeekProvider,
     GeminiProvider,
     LLMProvider,
+    LMStudioProvider,
     MiniMaxProvider,
     MockProvider,
     OllamaProvider,
@@ -68,6 +69,7 @@ class ProviderRegistry:
             "gemini":      GeminiProvider(),
             "openrouter":  OpenRouterProvider(),
             "ollama":      OllamaProvider(),
+            "lmstudio":    LMStudioProvider(),
             "mock":        MockProvider(),
         }
         self._lock = Lock()

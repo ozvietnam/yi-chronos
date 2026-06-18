@@ -8,6 +8,7 @@ from .anthropic import AnthropicProvider
 from .base import LLMProvider, LLMResponse, ProviderError
 from .deepseek import DeepSeekProvider
 from .gemini import GeminiProvider
+from .lmstudio import LMStudioProvider
 from .minimax import MiniMaxProvider
 from .mock import MockProvider
 from .ollama import OllamaProvider
@@ -19,6 +20,7 @@ __all__ = [
     "AnthropicProvider",
     "DeepSeekProvider",
     "GeminiProvider",
+    "LMStudioProvider",
     "LLMProvider",
     "LLMResponse",
     "MiniMaxProvider",
