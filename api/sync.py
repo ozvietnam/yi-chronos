@@ -16,6 +16,7 @@ GIỮ NGUYÊN. Non-breaking: prod chưa set DATABASE_URL vẫn dùng users.sqlit
 """
 from __future__ import annotations
 
+import logging
 import secrets
 import sqlite3
 import time
@@ -29,6 +30,7 @@ from api import auth as _auth
 from engine.db import database_url, is_postgres, session_scope
 
 router = APIRouter(prefix="/api/sync", tags=["sync"])
+logger = logging.getLogger(__name__)
 
 
 # ─── service-to-service auth ────────────────────────────────────────────────
@@ -105,6 +107,42 @@ def _user_id_for_uid(conn, firebase_uid: str) -> Optional[int]:
         {"uid": firebase_uid},
     ).fetchone()
     return row[0] if row else None
+
+
+# ─── sync-job result store (#50): khi broker Celery chưa sẵn sàng (prod chưa có
+# Redis — #41), quick tier chạy ĐỒNG BỘ inline rồi lưu kết quả ở đây để endpoint
+# poll vẫn trả {state:SUCCESS} theo đúng contract AppChat. Portable SQLite+PG. ──
+
+def _ensure_quick_jobs(conn) -> None:
+    conn.execute(text(
+        "CREATE TABLE IF NOT EXISTS quick_job_results ("
+        "job_id TEXT PRIMARY KEY, result_json TEXT, created_at BIGINT)"
+    ))
+
+
+def _save_quick_result(conn, job_id: str, result: dict) -> None:
+    import json
+    _ensure_quick_jobs(conn)
+    conn.execute(
+        text("INSERT INTO quick_job_results (job_id, result_json, created_at) "
+             "VALUES (:j, :r, :t)"),
+        {"j": job_id, "r": json.dumps(result, ensure_ascii=False), "t": int(time.time())},
+    )
+
+
+def _get_quick_result(conn, job_id: str) -> Optional[dict]:
+    import json
+    _ensure_quick_jobs(conn)
+    row = conn.execute(
+        text("SELECT result_json FROM quick_job_results WHERE job_id = :j"),
+        {"j": job_id},
+    ).fetchone()
+    if not row:
+        return None
+    try:
+        return json.loads(row[0])
+    except Exception:
+        return None
 
 
 # ─── request models ─────────────────────────────────────────────────────────
@@ -622,10 +660,23 @@ def enqueue_hermes_quick(
             return {"status": pc["scope"], "reply": pc["reply"]}
         raise HTTPException(pc["code"], pc["reason"])
 
-    from engine.tasks.jobs import hermes_quick_run
-    res = hermes_quick_run.delay(firebase_uid=req.firebase_uid, question=req.question,
-                                 person_key=req.person_key)
-    return {"status": "processing", "job_id": res.id}
+    try:
+        from engine.tasks.jobs import hermes_quick_run
+        res = hermes_quick_run.delay(firebase_uid=req.firebase_uid, question=req.question,
+                                     person_key=req.person_key)
+        return {"status": "processing", "job_id": res.id}
+    except Exception as e:
+        # Broker Celery (Redis) chưa sẵn sàng / celery chưa cài (#41) → enqueue throw → 500 (#50).
+        # Quick tier vốn ĐỒNG BỘ (run_quick "trả ngay") → chạy inline + lưu kết quả để
+        # poll vẫn theo contract {processing→job_id→SUCCESS}. KHÔNG áp cho council/deep
+        # (quá chậm cho HTTP sync — chờ Redis #41).
+        logger.warning("hermes-quick enqueue failed (%s) → sync fallback", e)
+        from engine.hermes_service import run_quick
+        result = run_quick(req.firebase_uid, req.question, req.person_key)
+        job_id = f"sync-{secrets.token_hex(16)}"
+        with session_scope(service=True) as conn:
+            _save_quick_result(conn, job_id, result)
+        return {"status": "processing", "job_id": job_id}
 
 
 @router.get("/hermes-quick/{job_id}")
@@ -635,6 +686,13 @@ def hermes_quick_status(
 ) -> dict:
     """Trạng thái job trả lời nhanh."""
     _require_service_key(x_api_key)
+    # Job chạy đồng bộ (sync fallback #50) → đọc từ store, không qua Celery.
+    if job_id.startswith("sync-"):
+        with session_scope(service=True) as conn:
+            result = _get_quick_result(conn, job_id)
+        if result is None:
+            return {"job_id": job_id, "state": "PENDING"}
+        return {"job_id": job_id, "state": "SUCCESS", "result": result}
     from engine.tasks.celery_app import celery_app
     res = celery_app.AsyncResult(job_id)
     out: dict = {"job_id": job_id, "state": res.state}
