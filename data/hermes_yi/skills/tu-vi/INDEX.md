@@ -21,8 +21,9 @@ Tổ Tử Vi = **Trần Đoàn (Hi Di)** — KHÔNG phải Thiệu Khang Tiết 
 
 ## Trạng thái đọc sâu (vòng / trang)
 - vòng 1–4: tr.1–80 (Book Profile, 14 chính tinh chư tinh, Nam Mệnh Ca, paradigm: 70/30, Mệnh-Thân Thể-Dụng, Nhân Cung, Cường-Nhược, Bát Pháp, Thập Dụ)
-- **vòng 5: tr.81–100 ✅** — Thập Nhị Cung Luận (12 cung) → tách per-cung trong `cung/`
-- *Tiếp theo (vòng 6): tr.100–120 — Vận Hạn (sao nhập Đại Vận / Tiểu Hạn).*
+- **vòng 5: tr.81–100 ✅** — Thập Nhị Cung Luận (12 cung) → `cung/`
+- **vòng 6: tr.101–120 ✅** — Vận Hạn (sao nhập hạn) → `van-han.md`; mở Nữ Mệnh → `nu-menh.md` (⚠ lá chắn đạo đức)
+- *Tiếp theo (vòng 7): tr.121–140 — Nữ Mệnh ca (tiếp) + ?*
 
 ## Map cung → file (tách chi tiết per-cung, routing mịn)
 | Cung user hỏi | Route |
@@ -37,6 +38,8 @@ Tổ Tử Vi = **Trần Đoàn (Hi Di)** — KHÔNG phải Thiệu Khang Tiết 
 | Sức khỏe / Tật Ách | `cung/tat-ach.md` (→ Chiếu Đởm Kinh riêng) |
 | Anh em / Huynh Đệ | `cung/huynh-de.md` |
 | Con cái / Tử Tức (Gia Đạo) | `cung/tu-tuc.md` ★ |
+| Vận hạn / "năm nay thế nào" / năm xung | `van-han.md` (⚠ KHÔNG bán năm-xung cứng) |
+| Lá số nữ / phụ nữ | `nu-menh.md` (⚠ lá chắn đạo đức bắt buộc) |
 
 ## Khoá đọc nhanh (áp mọi cung)
 **Tứ Sát = Dương Đà · Linh Hỏa · Không Kiếp** đảo cát→hung ở mọi cung. Ngoại lệ: Hỏa/Linh + Vũ Khúc/Tham Lang ở Điền Trạch = cực tốt.
