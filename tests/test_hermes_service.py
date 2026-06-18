@@ -9,6 +9,7 @@ from sqlalchemy import text
 import engine.db as db
 import engine.hermes_service as hs
 import engine.llm_spend as llm_spend
+import engine.ratelimit as rl
 import engine.subscriptions as subs
 
 PG_DSN = os.environ.get("YI_TEST_PG_DSN", "").strip()
@@ -64,6 +65,7 @@ def backend(request, tmp_path, monkeypatch):
             c.execute(text("TRUNCATE users, user_persons, user_castings, "
                            "user_subscriptions, llm_spend RESTART IDENTITY CASCADE"))
     db.get_engine.cache_clear()
+    rl.reset()                       # free-tier counter sạch giữa các test
     yield request.param
     db.get_engine.cache_clear()
 
@@ -104,10 +106,20 @@ def test_post_filter_flags_predictive(backend):
     assert vd == "paradigm_flag"
 
 
-def test_denied_without_subscription(backend):
-    _seed(sub=False)
+def test_free_tier_3_per_day_then_denied(backend):
+    _seed(sub=False)                 # không gói → free tier 3 lượt/ngày
+    for _ in range(hs.FREE_DAILY_COUNCIL):
+        r = hs.run_council("uid_h6", Q, consult=_consult_ok)
+        assert r["status"] == "done" and r["tier"] == "free"
+    # hết lượt free → từ chối, KHÔNG gọi council
     r = hs.run_council("uid_h6", Q, consult=_consult_must_not_call)
-    assert r["status"] == "denied" and r["reason"] == "no_subscription"
+    assert r["status"] == "denied" and r["reason"] == "no_subscription_and_free_exhausted"
+
+
+def test_paid_tier_consumes_grant(backend):
+    _seed(remaining=1)
+    r = hs.run_council("uid_h6", Q, consult=_consult_ok)
+    assert r["status"] == "done" and r["tier"] == "paid" and r["remaining_uses"] == 0
 
 
 def test_budget_blocks_before_council(backend, monkeypatch):
@@ -128,6 +140,33 @@ def test_council_failed_no_charge(backend):
 def test_not_synced(backend):
     r = hs.run_council("ghost", Q, consult=_consult_must_not_call)
     assert r["status"] == "error" and r["reason"] == "not_synced"
+
+
+# ── E2E: chuỗi thật run_council → _real_consult → council (mock provider) ────────
+
+def test_e2e_real_council_path_with_mock_provider(backend, monkeypatch):
+    """Không inject consult → đi qua _real_consult thật (cast chart + consult_council).
+    Ép provider mock cho deterministic + free. Verify nguyên chuỗi sinh synthesis + lưu."""
+    _seed(remaining=1)
+    from engine.ai import council
+    from engine.ai.registry import get_registry
+    mock = get_registry().get("mock")
+    monkeypatch.setattr(council, "_get_agent_provider", lambda aid: (mock, "mock"))
+    monkeypatch.setattr(council, "_get_orchestrator_provider", lambda: (mock, "mock"))
+
+    r = hs.run_council("uid_h6", Q)          # REAL path, không stub
+    assert r["status"] == "done" and r["tier"] == "paid"
+    assert r["synthesis"] and r["casting_id"] >= 1 and r["agents"]
+    with db.session_scope(service=True) as c:
+        n = c.execute(text("SELECT count(*) FROM user_castings WHERE user_id=:u "
+                           "AND method='hermes_council'"), {"u": _uid_of("uid_h6")}).scalar()
+    assert n == 1
+
+
+def _uid_of(fb_uid: str) -> int:
+    with db.session_scope(service=True) as c:
+        return c.execute(text("SELECT user_id FROM users WHERE firebase_uid=:u"),
+                         {"u": fb_uid}).scalar()
 
 
 # ── slice 4: council dùng SOUL sâu (bơm profiles/*/SOUL.md vào prompt_overrides) ─
@@ -173,8 +212,10 @@ def test_endpoint_404_not_synced(client):
     assert r.status_code == 404
 
 
-def test_endpoint_403_no_subscription(client):
-    _seed(sub=False)
+def test_endpoint_403_when_free_exhausted(client):
+    uid = _seed(sub=False)
+    for _ in range(hs.FREE_DAILY_COUNCIL):       # tiêu hết lượt free
+        rl.allow(f"council_free:{uid}", hs.FREE_DAILY_COUNCIL, hs._DAY)
     r = client.post("/api/sync/hermes-council",
                     json={"firebase_uid": "uid_h6", "question": Q}, headers=HDR)
     assert r.status_code == 403

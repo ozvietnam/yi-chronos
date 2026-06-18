@@ -20,12 +20,26 @@ from sqlalchemy import text
 
 from engine import hermes_guard as guard
 from engine import llm_spend
+from engine import ratelimit
 from engine import subscriptions as subs
 from engine.algo_version import algo_version
 from engine.db import is_postgres, session_scope
 from engine.deep_reading import _resolve  # tái dùng uid→(user_id, person)
 
 FEATURE = "hermes_council"
+FREE_DAILY_COUNCIL = 3          # FREE tier: 3 lượt/ngày (master plan); gói = check_access
+_DAY = 86400
+
+
+def _gate(uid: int) -> tuple[str, Optional[str]]:
+    """Quyết quyền: 'paid' (có gói) → 'free' (còn lượt free/ngày) → 'denied'.
+    Free tier dùng ratelimit (Redis đa-worker / in-memory dev). KHÔNG trừ lượt gói."""
+    access = subs.check_access(uid, FEATURE)
+    if access["allowed"]:
+        return "paid", None
+    if ratelimit.allow(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY):
+        return "free", None
+    return "denied", "no_subscription_and_free_exhausted"
 
 # tag sage → thư mục profile (đồng bộ engine/ai/kanban_council.SAGES_BY_TAG)
 SAGE_PROFILE = {
@@ -60,16 +74,40 @@ def sync_souls_from_profiles() -> dict:
     return synced
 
 
+def _build_chart_data(person: dict) -> dict:
+    """Cast facts thật từ giờ sinh (engine — sage chỉ LUẬN, không tự tính). Resilient:
+    cast lỗi → vẫn trả phần birth tối thiểu (council/mock vẫn chạy)."""
+    birth = person.get("birth_datetime_local")
+    gender = person.get("gender") or "nam"
+    tz = person.get("timezone") or "Asia/Ho_Chi_Minh"
+    chart: dict = {"birth_datetime_local": birth, "gender": gender, "timezone": tz}
+    try:
+        from engine.bat_tu.cast import cast_bat_tu
+        chart["bat_tu"] = cast_bat_tu(birth_datetime_local=birth, timezone=tz, gender=gender)
+    except Exception:
+        pass
+    try:
+        from engine.tu_vi.an_sao import cast_la_so
+        chart["tu_vi"] = cast_la_so(birth_datetime_local=birth, timezone=tz, gender=gender)
+    except Exception:
+        pass
+    return chart
+
+
 def _real_consult(question: str, person: dict, uid: int) -> dict:
-    """Bọc council in-process sẵn có. (Nâng dùng SOUL sâu = follow-up.)"""
+    """Bọc council in-process sẵn có (sages dùng SOUL sâu qua prompt_overrides)."""
     from engine.ai.council import consult_council
-    chart = {"birth_datetime_local": person.get("birth_datetime_local"),
-             "gender": person.get("gender")}
-    res = consult_council(question=question, chart_data=chart, persist=False)
+    res = consult_council(question=question, chart_data=_build_chart_data(person),
+                          persist=False)
+    pu = res.get("providers_used") or {}     # dict {agent: provider} | đôi khi list
+    if isinstance(pu, dict):
+        provider = pu.get("orchestrator") or next(iter(pu.values()), "deepseek")
+    else:
+        provider = (list(pu) or ["deepseek"])[0]
     return {
         "synthesis": res.get("final_synthesis") or "",
         "agents": res.get("agents_consulted") or [],
-        "provider": (res.get("providers_used") or ["deepseek"])[0],
+        "provider": provider,
         "cost_usd": float(res.get("cost_usd") or 0),
         "raw": res,
     }
@@ -89,7 +127,9 @@ def precheck(firebase_uid: str, question: str, person_key: str = "self") -> dict
         return {"ok": False, "code": 422, "reason": "missing_birth"}
     access = subs.check_access(uid, FEATURE)
     if not access["allowed"]:
-        return {"ok": False, "code": 403, "reason": access["reason"]}
+        # không có gói → còn lượt FREE/ngày thì cho qua (peek, KHÔNG trừ; worker mới trừ)
+        if ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY) <= 0:
+            return {"ok": False, "code": 403, "reason": "no_subscription_and_free_exhausted"}
     return {"ok": True, "user_id": uid}
 
 
@@ -108,9 +148,9 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     if not person or not person.get("birth_datetime_local"):
         return {"status": "error", "reason": "missing_birth"}
 
-    access = subs.check_access(uid, FEATURE)
-    if not access["allowed"]:
-        return {"status": "denied", "reason": access["reason"]}
+    tier, deny_reason = _gate(uid)
+    if tier == "denied":
+        return {"status": "denied", "reason": deny_reason}
 
     # reserve ngân sách atomic (P0-5) — vượt cap → từ chối, không gọi LLM
     est = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.08))
@@ -148,7 +188,8 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
                  "vd": "paradigm_flag" if violations else None,
                  "av": av, "now": int(time.time())},
             ).scalar()
-        usage = subs.consume_use(uid, FEATURE)
+        # gói → trừ lượt gói; free → đã đếm ở _gate (ratelimit), không trừ gói
+        usage = subs.consume_use(uid, FEATURE) if tier == "paid" else {"ok": False}
     except Exception:
         _refund()
         raise
@@ -160,8 +201,10 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
                                cost_usd=real_cost - est, feature=FEATURE,
                                user_id=str(uid))
     return {
-        "status": "done", "casting_id": cid, "algo_version": av,
+        "status": "done", "casting_id": cid, "algo_version": av, "tier": tier,
         "agents": result.get("agents"), "paradigm_ok": paradigm_ok,
         "synthesis": result.get("synthesis"),
         "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
+        "free_remaining": (ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY)
+                           if tier == "free" else None),
     }
