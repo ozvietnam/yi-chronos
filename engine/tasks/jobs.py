@@ -57,3 +57,12 @@ def hermes_council_run(self, *, firebase_uid: str, question: str,
     council → post-filter → lưu → consume. AT-MOST-ONCE như deepread (không idempotent)."""
     from engine.hermes_service import run_council
     return run_council(firebase_uid, question, person_key)
+
+
+@celery_app.task(name="yi.hermes.quick_run", bind=True, max_retries=0,
+                 acks_late=False, queue="q_hermes")
+def hermes_quick_run(self, *, firebase_uid: str, question: str,
+                     person_key: str = "self") -> dict:
+    """H6.0 — trả lời nhanh 1-sage (everyday, rẻ). At-most-once như council."""
+    from engine.hermes_service import run_quick
+    return run_quick(firebase_uid, question, person_key)

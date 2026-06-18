@@ -478,3 +478,51 @@ def hermes_council_status(
     elif res.failed():
         out["error"] = str(res.result)[:300]
     return out
+
+
+# ─── H6.0: Trả lời nhanh 1-sage (async qua q_hermes) ────────────────────────
+
+class HermesQuickRequest(BaseModel):
+    firebase_uid: str
+    question: str
+    person_key: str = "self"
+
+
+@router.post("/hermes-quick")
+def enqueue_hermes_quick(
+    req: HermesQuickRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """H6.0 — xếp hàng 1 lượt trả lời nhanh 1-sage (everyday, rẻ). Rào phạm vi chạy NGAY
+    (ngoài miền/cần làm rõ → reply, không enqueue). 404/422/403 như council."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.hermes_service import precheck_quick
+
+    pc = precheck_quick(req.firebase_uid, req.question, req.person_key)
+    if not pc["ok"]:
+        if "scope" in pc:
+            return {"status": pc["scope"], "reply": pc["reply"]}
+        raise HTTPException(pc["code"], pc["reason"])
+
+    from engine.tasks.jobs import hermes_quick_run
+    res = hermes_quick_run.delay(firebase_uid=req.firebase_uid, question=req.question,
+                                 person_key=req.person_key)
+    return {"status": "processing", "job_id": res.id}
+
+
+@router.get("/hermes-quick/{job_id}")
+def hermes_quick_status(
+    job_id: str,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Trạng thái job trả lời nhanh."""
+    _require_service_key(x_api_key)
+    from engine.tasks.celery_app import celery_app
+    res = celery_app.AsyncResult(job_id)
+    out: dict = {"job_id": job_id, "state": res.state}
+    if res.successful():
+        out["result"] = res.result
+    elif res.failed():
+        out["error"] = str(res.result)[:300]
+    return out
