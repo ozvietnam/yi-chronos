@@ -130,6 +130,18 @@ def test_not_synced(backend):
     assert r["status"] == "error" and r["reason"] == "not_synced"
 
 
+# ── slice 4: council dùng SOUL sâu (bơm profiles/*/SOUL.md vào prompt_overrides) ─
+
+def test_sync_souls_from_profiles_makes_council_use_deep_soul(tmp_path, monkeypatch):
+    from engine.ai import prompt_store
+    monkeypatch.setattr(prompt_store, "_DB_PATH", tmp_path / "ai_prompts.sqlite3")
+    synced = hs.sync_souls_from_profiles()
+    # các sage có profile track → được sync, SOUL sâu (>500 ký tự, không mỏng)
+    assert synced.get("tu_vi", 0) > 500 and synced.get("bat_tu", 0) > 300
+    # council (qua get_prompt) giờ trả SOUL sâu thay persona mặc định
+    assert len(prompt_store.get_prompt("tu_vi")) == synced["tu_vi"]
+
+
 # ── endpoint gating (mirror H5) ──────────────────────────────────────────────
 
 HDR = {"X-API-Key": "test-secret"}

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import time
+from pathlib import Path
 from typing import Callable, Optional
 
 from sqlalchemy import text
@@ -32,6 +33,31 @@ SAGE_PROFILE = {
     "tu_vi": "tu-vi-sage", "bat_tu": "bat-tu-sage", "ha_lac": "ha-lac-sage",
     "than_so": "than-so-sage", "western": "chiem-tinh-sage",
 }
+
+
+# agent_id council (ALL_PROMPT_IDS) → thư mục profile chứa SOUL sâu
+_SOUL_SYNC = {
+    "tu_vi": "tu-vi-sage", "bat_tu": "bat-tu-sage", "mai_hoa": "mai-hoa-sage",
+    "luc_hao": "luc-hao-sage", "ha_lac": "ha-lac-sage", "lien_hoa": "lien-hoa-sage",
+    "western": "chiem-tinh-sage", "orchestrator": "yi-orchestrator",
+}
+_PROFILES_DIR = Path(__file__).resolve().parent.parent / "data" / "hermes_yi" / "profiles"
+
+
+def sync_souls_from_profiles() -> dict:
+    """Bơm SOUL.md sâu (profiles/*/SOUL.md — nguồn chân lý, đã track) vào
+    prompt_overrides → council (qua get_prompt) dùng đúng SOUL chuyên sâu thay persona
+    mỏng. Idempotent → gọi lúc khởi động worker. Trả {agent_id: số ký tự đã sync}."""
+    from engine.ai import prompt_store
+    synced: dict[str, int] = {}
+    for agent_id, d in _SOUL_SYNC.items():
+        f = _PROFILES_DIR / d / "SOUL.md"
+        if f.exists():
+            content = f.read_text(encoding="utf-8").strip()
+            if content:
+                prompt_store.set_prompt(agent_id, content)
+                synced[agent_id] = len(content)
+    return synced
 
 
 def _real_consult(question: str, person: dict, uid: int) -> dict:
