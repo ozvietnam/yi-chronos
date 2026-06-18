@@ -77,9 +77,15 @@ jobs:
       # 2026-06-18: runner join Tailscale (VPN mesh) rồi SSH tới VPS qua hostname
       # tailnet `yi-vps` (IP 100.x) → né hẳn firewall edge Hostinger ở port 22 public.
       - name: Connect to Tailscale
+        # 2026-06-18: dùng OAuth client (KHÔNG hết hạn) thay authkey (hết hạn ≤90 ngày).
+        # OAuth scope `auth_keys` (write) + tag:ci → action tự mint auth key ephemeral
+        # mỗi run. tag:ci PHẢI có tagOwners trong ACL trước (admin/acls), nếu không
+        # action báo lỗi "tag not found". 2 secret: TS_OAUTH_CLIENT_ID + TS_OAUTH_SECRET.
         uses: tailscale/github-action@v3
         with:
-          authkey: ${{ secrets.TS_AUTHKEY }}
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
           hostname: gha-deploy-${{ github.run_id }}
 
       - name: Setup SSH key
