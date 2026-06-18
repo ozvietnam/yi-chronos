@@ -49,6 +49,24 @@ def _real_consult(question: str, person: dict, uid: int) -> dict:
     }
 
 
+def precheck(firebase_uid: str, question: str, person_key: str = "self") -> dict:
+    """Kiểm nhanh ở endpoint TRƯỚC khi enqueue (phản hồi tức thì, không tốn worker).
+    - scope: out_of_scope/needs_focus → trả reply ngay (KHÔNG enqueue, KHÔNG tốn LLM).
+    - 404 chưa sync · 422 thiếu giờ sinh · 403 không có quyền (gói)."""
+    sv = guard.classify_scope(question)
+    if sv.verdict != "in_scope":
+        return {"ok": False, "scope": sv.verdict, "reply": sv.reply, "reason": sv.reason}
+    uid, person = _resolve(firebase_uid, person_key)
+    if uid is None:
+        return {"ok": False, "code": 404, "reason": "not_synced"}
+    if not person or not person.get("birth_datetime_local"):
+        return {"ok": False, "code": 422, "reason": "missing_birth"}
+    access = subs.check_access(uid, FEATURE)
+    if not access["allowed"]:
+        return {"ok": False, "code": 403, "reason": access["reason"]}
+    return {"ok": True, "user_id": uid}
+
+
 def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
                 consult: Optional[Callable[[str, dict, int], dict]] = None) -> dict:
     """Chạy 1 lượt Hội Đồng. KHÔNG idempotent → task gọi phải at-most-once."""

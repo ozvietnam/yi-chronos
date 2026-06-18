@@ -128,3 +128,54 @@ def test_council_failed_no_charge(backend):
 def test_not_synced(backend):
     r = hs.run_council("ghost", Q, consult=_consult_must_not_call)
     assert r["status"] == "error" and r["reason"] == "not_synced"
+
+
+# ── endpoint gating (mirror H5) ──────────────────────────────────────────────
+
+HDR = {"X-API-Key": "test-secret"}
+
+
+@pytest.fixture
+def client(backend, monkeypatch):
+    monkeypatch.setenv("YI_SYNC_API_KEY", "test-secret")
+    from api.main import app
+    from fastapi.testclient import TestClient
+    return TestClient(app)
+
+
+def test_endpoint_requires_service_key(client):
+    r = client.post("/api/sync/hermes-council", json={"firebase_uid": "x", "question": Q})
+    assert r.status_code == 401
+
+
+def test_endpoint_out_of_scope_returns_reply_no_enqueue(client):
+    r = client.post("/api/sync/hermes-council",
+                    json={"firebase_uid": "x", "question": "Viết hộ em code Python"}, headers=HDR)
+    assert r.status_code == 200 and r.json()["status"] == "out_of_scope" and r.json()["reply"]
+
+
+def test_endpoint_404_not_synced(client):
+    r = client.post("/api/sync/hermes-council",
+                    json={"firebase_uid": "ghost", "question": Q}, headers=HDR)
+    assert r.status_code == 404
+
+
+def test_endpoint_403_no_subscription(client):
+    _seed(sub=False)
+    r = client.post("/api/sync/hermes-council",
+                    json={"firebase_uid": "uid_h6", "question": Q}, headers=HDR)
+    assert r.status_code == 403
+
+
+def test_endpoint_enqueue_eager(client, monkeypatch):
+    _seed(remaining=1)
+    from engine.tasks.celery_app import celery_app
+    celery_app.conf.task_always_eager = True
+    monkeypatch.setattr(hs, "run_council",
+                        lambda uid, q, pk="self": {"status": "done", "casting_id": 1})
+    try:
+        r = client.post("/api/sync/hermes-council",
+                        json={"firebase_uid": "uid_h6", "question": Q}, headers=HDR)
+        assert r.status_code == 200 and r.json()["status"] == "processing" and r.json()["job_id"]
+    finally:
+        celery_app.conf.task_always_eager = False
