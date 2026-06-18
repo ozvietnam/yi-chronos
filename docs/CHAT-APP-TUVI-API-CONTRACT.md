@@ -207,7 +207,23 @@ App chat cần **ghi nhận đường tình duyên** của user và **so khớp 
 ```
 **Response 200:** `{ status, person_a, person_b, nap_am_relation, chi_relation, nhat_chu_relation, total_score, grade, summary, blessings, warnings }`. Nhẹ, hợp cho preview/kết quả nhanh.
 
-> **Lưu hồ sơ đối tượng để so khớp lại:** dùng person store `engine/yi_hermes/persons` (đã có), hoặc app chat tự lưu rồi gọi API stateless. Chốt ở §7 item 4.
+### 5.4 Lưu hồ sơ "đối tượng so khớp" — person store qua `/api/sync/persons` ✅ (#36, Y5)
+
+**Chốt (§7 item 4):** YI là sổ cái. Compatibility (§5.2/§5.3) **stateless** (nhận birth inline) — nhưng để **so khớp lại nhiều lần** không phải nhập lại, AppChat lưu đối tượng vào YI per `firebase_uid`. (`/api/yi-hermes/persons` là **owner-only** — KHÔNG dùng cho user app.)
+
+Tất cả service-keyed (`X-API-Key`). `'self'` set qua `/api/sync/upsert-from-firebase`; đối tượng so khớp set qua đây.
+
+- **`POST /api/sync/persons`** — upsert (idempotent theo `person_key`):
+  ```json
+  { "firebase_uid":"abc", "person_key":"partner", "name":"Người thương",
+    "gender":"nam", "birth_datetime_local":"1988-03-15T07:30:00",
+    "timezone":"Asia/Ho_Chi_Minh", "relationship":"crush" }
+  ```
+  → `{ yi_user_id, person_key, created }`. `404` nếu user chưa sync (gọi `/upsert-from-firebase` trước).
+- **`GET /api/sync/persons/{firebase_uid}`** → `{ found, yi_user_id, persons:[{person_key,name,relationship,gender,birth_datetime_local,timezone,birth_place}] }` (gồm cả `self`).
+- **`DELETE /api/sync/persons/{firebase_uid}/{person_key}`** → `{ deleted, person_key }`. Cấm xóa `'self'` (→ `400`).
+
+**Luồng Track E (#28) — so khớp với person đã lưu:** (1) `POST /persons` lưu đối tượng → (2) `GET /persons/{uid}` đọc birth của `self` + đối tượng → (3) gọi `POST /api/bat-tu/compatibility` (hoặc `/marriage-compat`) **stateless** với 2 birth đó. Không cần endpoint compatibility-by-id riêng.
 
 ---
 
@@ -340,7 +356,7 @@ Test: `tests/test_gieo_duyen.py`.
 | 1 | Wire **MiniMax** cho quiz giờ sinh + chạy E2E start→submit→save | ✅ provider đã chốt — chờ em wire |
 | 2 | **True-solar-time** theo khu vực sinh (§6) | đã duyệt — chờ em làm |
 | 3 | **Auth + rate-limit** (§1) | em đề xuất — chờ anh duyệt |
-| 4 | Chuẩn lưu **hồ sơ tình duyên / person** (yi_hermes vs app chat tự lưu) | ✅ chốt: YI là sổ cái — lịch sử qua §6b (H1/H2), person qua `/api/sync/*` |
+| 4 | Chuẩn lưu **hồ sơ tình duyên / person** (yi_hermes vs app chat tự lưu) | ✅ chốt + **IMPL (#36)**: YI là sổ cái — person qua `/api/sync/persons` (**§5.4**), lịch sử qua §6b (H1/H2) |
 | 5 | **Mode gieo Lục Hào thủ công** (nếu app chat không bắt cử chỉ) | tùy nhu cầu |
 
 ---

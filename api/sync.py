@@ -145,6 +145,22 @@ class FavoriteSaveRequest(BaseModel):
     payload_json: dict
 
 
+class SyncPersonUpsertRequest(BaseModel):
+    """Y5 (#36) — lưu hồ sơ 'đối tượng so khớp' (partner/candidate) cho 1 user.
+
+    person_key tự do (KHÁC 'self' — 'self' set qua upsert-from-firebase): vd
+    'partner', 'crush', 'candidate_1'. Idempotent theo (user_id, person_key).
+    """
+    firebase_uid: str
+    person_key: str
+    name: str
+    gender: Optional[str] = None
+    birth_datetime_local: Optional[str] = None
+    timezone: str = "Asia/Ho_Chi_Minh"
+    birth_place: Optional[str] = None
+    relationship: Optional[str] = None         # 'partner' | 'spouse' | 'crush' | ...
+
+
 # ─── endpoints ───────────────────────────────────────────────────────────────
 
 @router.post("/upsert-from-firebase")
@@ -264,6 +280,107 @@ def resolve_firebase_uid(
             "found": True, "yi_user_id": user_id, "email": row[1],
             "display_name": row[2], "phone": row[3], "self_person": self_person,
         }
+
+
+# ─── Y5 (#36): person store cho so khớp tình duyên (service-keyed) ───────────
+# Kiến trúc đã chốt (contract §7 item 4): YI là sổ cái, person qua /api/sync/*.
+# 'self' set qua upsert-from-firebase; đối tượng so khớp (partner/candidate) set
+# qua đây. Compatibility VẪN stateless (§5.2) — AppChat đọc person rồi gọi cast.
+
+@router.post("/persons")
+def upsert_person(
+    req: SyncPersonUpsertRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Lưu/cập nhật 1 person (đối tượng so khớp) cho user. Idempotent theo person_key."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    now = int(time.time())
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+        if user_id is None:
+            raise HTTPException(
+                status.HTTP_404_NOT_FOUND,
+                "user chưa sync — gọi /api/sync/upsert-from-firebase trước",
+            )
+        existing = conn.execute(
+            text("SELECT id FROM user_persons WHERE user_id=:id AND person_key=:pk"),
+            {"id": user_id, "pk": req.person_key},
+        ).fetchone()
+        created = existing is None
+        if existing:
+            conn.execute(
+                text("""UPDATE user_persons
+                           SET name=:name, relationship=COALESCE(:rel, relationship),
+                               gender=COALESCE(:g, gender),
+                               birth_datetime_local=COALESCE(:bdt, birth_datetime_local),
+                               timezone=:tz, birth_place=COALESCE(:bp, birth_place),
+                               updated_at=:now
+                         WHERE id=:pid"""),
+                {"name": req.name, "rel": req.relationship, "g": req.gender,
+                 "bdt": req.birth_datetime_local, "tz": req.timezone,
+                 "bp": req.birth_place, "now": now, "pid": existing[0]},
+            )
+        else:
+            conn.execute(
+                text("""INSERT INTO user_persons (user_id, person_key, name, relationship,
+                            gender, birth_datetime_local, timezone, birth_place,
+                            created_at, updated_at)
+                        VALUES (:id,:pk,:name,:rel,:g,:bdt,:tz,:bp,:now,:now)"""),
+                {"id": user_id, "pk": req.person_key, "name": req.name,
+                 "rel": req.relationship, "g": req.gender,
+                 "bdt": req.birth_datetime_local, "tz": req.timezone,
+                 "bp": req.birth_place, "now": now},
+            )
+        return {"yi_user_id": user_id, "person_key": req.person_key, "created": created}
+
+
+@router.get("/persons/{firebase_uid}")
+def list_persons(
+    firebase_uid: str,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Liệt kê mọi person của user (self + đối tượng so khớp) — cho AppChat pick."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, firebase_uid)
+        if user_id is None:
+            return {"found": False, "persons": []}
+        rows = conn.execute(
+            text("""SELECT person_key, name, relationship, gender,
+                           birth_datetime_local, timezone, birth_place
+                      FROM user_persons WHERE user_id=:id ORDER BY person_key"""),
+            {"id": user_id},
+        ).fetchall()
+        persons = [
+            {"person_key": r[0], "name": r[1], "relationship": r[2], "gender": r[3],
+             "birth_datetime_local": r[4], "timezone": r[5], "birth_place": r[6]}
+            for r in rows
+        ]
+        return {"found": True, "yi_user_id": user_id, "persons": persons}
+
+
+@router.delete("/persons/{firebase_uid}/{person_key}")
+def delete_person(
+    firebase_uid: str,
+    person_key: str,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Xóa 1 person. KHÔNG cho xóa 'self' (hồ sơ gốc của user)."""
+    _require_service_key(x_api_key)
+    if person_key == "self":
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, "không thể xóa person 'self'")
+    _ensure_schema()
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, firebase_uid)
+        if user_id is None:
+            return {"deleted": False, "reason": "user not found"}
+        res = conn.execute(
+            text("DELETE FROM user_persons WHERE user_id=:id AND person_key=:pk"),
+            {"id": user_id, "pk": person_key},
+        )
+        return {"deleted": bool(getattr(res, "rowcount", 0)), "person_key": person_key}
 
 
 # ─── H1: lịch sử chảy qua cầu (service-keyed) ────────────────────────────────
