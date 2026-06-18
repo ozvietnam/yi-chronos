@@ -41,9 +41,11 @@ DEFAULT_AGENT_PROVIDER: dict[str, list[str]] = {
     "than_so":  ["deepseek", "zai", "anthropic", "mock"],
 }
 
-# Orchestrator default — Claude Opus
-ORCHESTRATOR_PROVIDER_ORDER: list[str] = ["anthropic", "deepseek", "zai", "mock"]
+# Orchestrator (Trọng tài tổng hợp) — MiniMax-M3 chủ lực 2026-06 (reasoning sâu cho
+# bước synthesis là output quan trọng nhất user đọc). Anthropic/DeepSeek fallback.
+ORCHESTRATOR_PROVIDER_ORDER: list[str] = ["minimax", "anthropic", "deepseek", "zai", "mock"]
 ORCHESTRATOR_PREFERRED_MODEL: dict[str, str] = {
+    "minimax":   "MiniMax-M3",      # chủ lực — reasoning model, token floor lo <think>
     "anthropic": "claude-opus-4-5-20250929",
     "deepseek":  "deepseek-reasoner",
     "zai":       "glm-4.5-flash",   # free tier — Council can run without z.ai balance
@@ -139,10 +141,17 @@ def _get_orchestrator_provider() -> tuple[LLMProvider, str]:
     return reg.get("mock"), "mock-v1"
 
 
-def _get_agent_provider(agent_id: str) -> tuple[LLMProvider, str]:
-    """Pick provider for a specific agent based on preference order."""
+def _get_agent_provider(agent_id: str, prefer_reasoning: bool = False) -> tuple[LLMProvider, str]:
+    """Pick provider for a specific agent based on preference order.
+
+    prefer_reasoning=True (council premium luận sâu): đẩy MiniMax-M3 lên đầu chuỗi
+    (chủ lực). Đường nhanh đồng bộ (run_quick) giữ False → DeepSeek nhanh, KHÔNG để
+    M3 (~30-45s) phá UX "trả ngay" / timeout gunicorn.
+    """
     reg = get_registry()
     order = DEFAULT_AGENT_PROVIDER.get(agent_id, ["zai", "deepseek", "anthropic", "mock"])
+    if prefer_reasoning:
+        order = ["minimax", *[p for p in order if p != "minimax"]]
     p = reg.first_configured(order)
     return p, p.default_model
 
@@ -394,7 +403,8 @@ def consult_council(
 
     # Phase 1: Round 1 independent
     def _run_one(aid: str, round_label: str, challenges_text: str | None) -> AgentResponse:
-        provider, model = _get_agent_provider(aid)
+        # Council = premium luận sâu → MiniMax-M3 chủ lực (prefer_reasoning).
+        provider, model = _get_agent_provider(aid, prefer_reasoning=True)
         return run_agent(
             agent_id=aid, provider=provider, model=model,
             question=question, chart_data=chart_data,
