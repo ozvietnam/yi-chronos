@@ -2905,6 +2905,22 @@ def yi_hermes_chat(req: YiHermesChatRequest, http_request: Request) -> dict:
     return {"status": "ok", "response": result}
 
 
+class HermesAskRequest(BaseModel):
+    question: str
+    person_key: str = "self"
+
+
+@app.post("/api/hermes/ask")
+def hermes_ask(req: HermesAskRequest, http_request: Request) -> dict:
+    """H6.0 — trả lời nhanh 1-sage cho USER WEB đang đăng nhập (đồng bộ, trả ngay).
+    Đi qua run_quick: rào phạm vi → gate (gói/free) → ngân sách → 1 sage → post-filter →
+    lưu + cache. Resolve theo user_id (không cần firebase_uid/service-key)."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine.hermes_service import run_quick
+    return run_quick("", req.question, req.person_key, user_id=user["user_id"])
+
+
 @app.get("/api/yi-hermes/modules")
 def yi_hermes_modules() -> dict:
     """List all modules YI-Hermes knows about."""
@@ -3245,11 +3261,14 @@ def yi_hermes_reload_context() -> dict:
 
 
 @app.get("/api/yi-hermes/context/summary/{soul_key}")
-def yi_hermes_context_summary_for(soul_key: str) -> dict:
+def yi_hermes_context_summary_for(soul_key: str, http_request: Request) -> dict:
     """Show what context is currently injected for a given soul_key.
 
-    For UI: 'Hermes biết gì về user này?'
+    For UI: 'Hermes biết gì về user này?'. OWNER-ONLY — soul_key tuỳ ý (gồm _founder)
+    là data nhạy cảm; end-user có namespace riêng (/api/auth/my). Vá rò 2026-06-18.
     """
+    from api.auth import require_owner
+    require_owner(http_request)
     from engine.yi_hermes import context_summary
 
     # URL-decode soul_key (might contain ':')

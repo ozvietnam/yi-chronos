@@ -36,6 +36,27 @@ _DAY = 86400
 CACHE_TTL_SEC = 86400          # "một việc một lần" (Iron #4): cùng câu/ngày → trả lại cũ
 
 
+def _person_of(user_id: int, person_key: str = "self") -> Optional[dict]:
+    """Lấy person của user (web auth — đã có user_id, không cần firebase_uid)."""
+    with session_scope(service=True) as conn:
+        p = conn.execute(
+            text("""SELECT name, gender, birth_datetime_local, timezone
+                    FROM user_persons WHERE user_id=:u AND person_key=:pk"""),
+            {"u": user_id, "pk": person_key},
+        ).fetchone()
+    if not p:
+        return None
+    return {"name": p[0], "gender": p[1], "birth_datetime_local": p[2],
+            "timezone": p[3] or "Asia/Ho_Chi_Minh"}
+
+
+def _resolve_entry(firebase_uid: Optional[str], user_id: Optional[int], person_key: str):
+    """Web (user_id trực tiếp) hoặc AppChat service (firebase_uid → user_id)."""
+    if user_id is not None:
+        return user_id, _person_of(user_id, person_key)
+    return _resolve(firebase_uid, person_key)
+
+
 def _cached(uid: int, method: str, question: str, ttl: int = CACHE_TTL_SEC):
     """Exact-dedup theo (user, method, câu hỏi) trong TTL → tái dùng kết quả đã lưu
     (user_castings). Iron #4 'một việc một lần' + cắt chi phí LLM. Trả (casting_id, data)
@@ -182,15 +203,17 @@ def precheck(firebase_uid: str, question: str, person_key: str = "self") -> dict
 
 
 def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
+                user_id: Optional[int] = None,
                 consult: Optional[Callable[[str, dict, int], dict]] = None) -> dict:
-    """Chạy 1 lượt Hội Đồng. KHÔNG idempotent → task gọi phải at-most-once."""
+    """Chạy 1 lượt Hội Đồng. KHÔNG idempotent → task gọi phải at-most-once.
+    Web: truyền user_id (đã đăng nhập). AppChat service: truyền firebase_uid."""
     # 0) Cổng RẺ: rào phạm vi Socratic (chưa tốn gì)
     sv = guard.classify_scope(question)
     if sv.verdict != "in_scope":
         return {"status": sv.verdict, "reply": sv.reply, "reason": sv.reason}
 
     consult = consult or _real_consult
-    uid, person = _resolve(firebase_uid, person_key)
+    uid, person = _resolve_entry(firebase_uid, user_id, person_key)
     if uid is None:
         return {"status": "error", "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
@@ -303,14 +326,16 @@ def precheck_quick(firebase_uid: str, question: str, person_key: str = "self") -
 
 
 def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
+              user_id: Optional[int] = None,
               answer: Optional[Callable[[str, dict, int], dict]] = None) -> dict:
-    """1 lượt trả lời nhanh 1-sage. KHÔNG idempotent → task at-most-once."""
+    """1 lượt trả lời nhanh 1-sage. KHÔNG idempotent → task at-most-once.
+    Web: truyền user_id. AppChat service: truyền firebase_uid."""
     sv = guard.classify_scope(question)
     if sv.verdict != "in_scope":
         return {"status": sv.verdict, "reply": sv.reply, "reason": sv.reason}
 
     answer = answer or _real_quick
-    uid, person = _resolve(firebase_uid, person_key)
+    uid, person = _resolve_entry(firebase_uid, user_id, person_key)
     if uid is None:
         return {"status": "error", "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):

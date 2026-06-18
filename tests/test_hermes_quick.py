@@ -157,3 +157,17 @@ def test_endpoint_404(client):
     r = client.post("/api/sync/hermes-quick",
                     json={"firebase_uid": "ghost", "question": Q}, headers=HDR)
     assert r.status_code == 404
+
+
+# ── A1: đường WEB (user đăng nhập gọi trực tiếp theo user_id) ─────────────────
+
+def test_run_quick_by_user_id(backend):
+    """Web entry: resolve theo user_id (không firebase_uid)."""
+    uid = _seed(sub=False)
+    r = hs.run_quick("", Q, user_id=uid, answer=_ans_ok)
+    assert r["status"] == "done" and r["sage"] == "tu_vi"
+
+
+def test_web_endpoint_requires_login(client):
+    # /api/hermes/ask cần đăng nhập (require_user) → guest 401
+    assert client.post("/api/hermes/ask", json={"question": Q}).status_code == 401
