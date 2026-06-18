@@ -31,3 +31,28 @@ def as_owner(monkeypatch):
     monkeypatch.setattr(auth, "require_user", lambda request: owner, raising=True)
     monkeypatch.setattr(auth, "require_owner", lambda request: owner, raising=True)
     return owner
+
+
+@pytest.fixture
+def force_mock_council(monkeypatch):
+    """Force Council provider selection to Mock.
+
+    Council orchestration tests verify LOGIC (rounds, synthesis, agent filtering),
+    not LLM output. Since MiniMax-M3 became chủ lực (prefer_reasoning), an unguarded
+    consult would fire real M3 reasoning calls → slow (~45s ea), paid, flaky. This
+    pins both provider getters to Mock so the tests stay fast + deterministic.
+    Provider-SELECTION logic is covered separately by a network-free unit test.
+    """
+    import engine.ai.council as council
+    from engine.ai.registry import get_registry
+
+    mock = get_registry().get("mock")
+    monkeypatch.setattr(
+        council, "_get_agent_provider",
+        lambda agent_id, prefer_reasoning=False: (mock, "mock-v1"), raising=True,
+    )
+    monkeypatch.setattr(
+        council, "_get_orchestrator_provider",
+        lambda: (mock, "mock-v1"), raising=True,
+    )
+    return mock

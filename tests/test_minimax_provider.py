@@ -28,8 +28,8 @@ def test_minimax_with_key():
 def test_minimax_coding_plan_default_model():
     from engine.ai.providers.minimax import MiniMaxProvider
     p = MiniMaxProvider(api_key="sk-cp-test123")
-    # Coding plan → MiniMax-M2 (text reasoning, working slot)
-    assert p.default_model == "MiniMax-M2"
+    # Coding plan → MiniMax-M3 (chủ lực 2026-06, newest flagship reasoning)
+    assert p.default_model == "MiniMax-M3"
     assert "Coding Plan" in p.display_name
 
 
@@ -175,7 +175,7 @@ def test_minimax_set_api_key_at_runtime(monkeypatch):
     assert p.is_configured is False
     p.set_api_key("sk-cp-newkey")
     assert p.is_configured is True
-    assert p.default_model == "MiniMax-M2"
+    assert p.default_model == "MiniMax-M3"
 
 
 def test_minimax_set_api_key_strips_whitespace():

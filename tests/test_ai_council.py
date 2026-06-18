@@ -64,6 +64,21 @@ def test_first_configured_falls_back_to_mock():
     assert p.name == "mock"
 
 
+def test_agent_provider_prefers_minimax_when_reasoning():
+    """Council premium (prefer_reasoning=True) → MiniMax-M3 chủ lực ở đầu chuỗi.
+    Đường nhanh đồng bộ (False) KHÔNG dùng minimax (M3 ~45s sẽ phá UX 'trả ngay').
+    Network-free: chỉ kiểm tra logic chọn provider."""
+    from engine.ai.council import _get_agent_provider
+    from engine.ai.registry import get_registry
+
+    if not get_registry().get("minimax").is_configured:
+        pytest.skip("minimax key not configured (CI: ai_keys.json gitignored)")
+    p_reason, _ = _get_agent_provider("tu_vi", prefer_reasoning=True)
+    assert p_reason.name == "minimax"
+    p_quick, _ = _get_agent_provider("tu_vi", prefer_reasoning=False)
+    assert p_quick.name != "minimax"
+
+
 # ─── Prompt store ─────────────────────────────────────────────────────────────
 
 
@@ -134,7 +149,7 @@ def test_run_agent_rejects_unknown_id():
 # ─── Council orchestration ───────────────────────────────────────────────────
 
 
-def test_consult_council_with_explicit_agents():
+def test_consult_council_with_explicit_agents(force_mock_council):
     from engine.ai.council import consult_council
 
     r = consult_council(
@@ -149,7 +164,7 @@ def test_consult_council_with_explicit_agents():
     assert r["duration_ms"] > 0
 
 
-def test_consult_council_skip_challenge():
+def test_consult_council_skip_challenge(force_mock_council):
     from engine.ai.council import consult_council
 
     r = consult_council(
@@ -161,7 +176,7 @@ def test_consult_council_skip_challenge():
     assert r["round_3_outputs"] == []   # skipped
 
 
-def test_consult_council_rejects_invalid_agent():
+def test_consult_council_rejects_invalid_agent(force_mock_council):
     """Invalid agents should be filtered out, only valid ones used."""
     from engine.ai.council import consult_council
 
@@ -174,7 +189,7 @@ def test_consult_council_rejects_invalid_agent():
     assert "fake_agent" not in r["agents_consulted"]
 
 
-def test_consult_council_persists_session():
+def test_consult_council_persists_session(force_mock_council):
     from engine.ai.council import consult_council, get_session
 
     r = consult_council(
@@ -260,7 +275,7 @@ def test_api_set_provider_key():
     assert r.json()["status"] == "ok"
 
 
-def test_api_council_consult_with_mock_fallback():
+def test_api_council_consult_with_mock_fallback(force_mock_council):
     from fastapi.testclient import TestClient
     from api.main import app
 

@@ -67,6 +67,8 @@ class MiniMaxProvider(LLMProvider):
         "MiniMax-M2",                  # legacy reasoning w/ <think>
         "MiniMax-M1",                  # flagship reasoning (general API only)
         "MiniMax-Text-01",             # general text
+        "coding-plan-vlm",             # vision-aware coding (token plan only)
+        "coding-plan-search",          # search-aware coding (token plan only)
     )
 
     # M-series là reasoning model: nhồi <think>...</think> TRƯỚC câu trả lời. Nếu
