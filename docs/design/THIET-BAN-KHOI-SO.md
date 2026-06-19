@@ -1,113 +1,103 @@
-# THIẾT BẢN — Phương Pháp 起数 (tính số từ ngày sinh)
+# THIẾT BẢN — Phép 起数 (tính số điều văn): CƠ MẬT đã thấu
 
-> Keystone của Thiết Bản. Đọc THẲNG từ ảnh scan bản gốc 《邵康节说易·铁板神数》
-> (Trung Châu Cổ Tịch), Càn Tập — `..._origin.pdf` trang 9-10. Lập 2026-06-16, **đọc lại 2026-06-18**.
+> Keystone của Thiết Bản. Đọc THẲNG ảnh scan bản gốc 《邵康节说易·铁板神数》(Trung Châu Cổ Tịch),
+> Càn Tập `..._origin.pdf` tr.9-21 + **kiểm chéo 10 nguồn TQ** (163, sohu 朴易天下, 知乎, baidu).
+> Lập 16/6, **đọc lại + thấu cơ mật 18-19/6**.
 >
-> **Đính chính 2026-06-18 (founder soi bản gốc):** bản in **CHỈNH TỀ, RÕ RÀNG** — KHÔNG mờ.
-> Cái "mờ/đảo" trong ghi chép cũ là do **pipeline MinerU làm rối bảng** (parse PDF→markdown vỡ ô),
-> KHÔNG phải lỗi sách. Đã đọc lại bằng mắt trên scan gốc; mục 1-2 dưới đây là bản ĐÚNG.
+> **Kết luận một câu:** 铁板 **KHÔNG phải hàm ngày-sinh → số**. Số điều văn là số **CÁ NHÂN**,
+> chỉ chốt được sau **考刻 (đối chiếu lục thân đã biết)** — đó CHÍNH là cái làm nó "chuẩn",
+> và cũng là lý do **không thể tự-động-hoá thuần từ ngày sinh**.
 
 ---
 
-## 0. Sách tự nói về phép (Càn Tập, origin p9)
+## 0. Bản gốc CHỈNH TỀ — đính chính lỗi pipeline
 
-> *"Tiền hiền chư phu tử **mật truyền lý số**: từ **bát tự bản thân + cha mẹ**, phối **ngũ âm bát quái**; mỗi giờ phải suy **tám khắc**, mỗi khắc lại suy **mười lăm phân**. Suy đến đúng giờ, tự nhiên toàn số đều hợp, hoạ phước cát hung mảy may không sai."*
-> (盖闻人禀天地…唯前贤诸夫子秘传理数，从本人父母本身八字，配合五音八卦，每一时须推八刻，每一刻又推十五分。)
+Founder soi bản gốc 18/6: **in rất đẹp, không mờ**. Cái "mờ/đảo" ghi trước là do **pipeline MinerU làm rối bảng** (vỡ ô lưới 干支 dày), KHÔNG phải sách. Đã đọc lại bằng mắt; mọi luật dưới đây là bản ĐÚNG.
 
-→ Phép gồm 2 nửa: **(A) 起数 — phối quái lấy số** từ bát tự; **(B) 考刻 — neo đúng khắc/phân** bằng **bát tự cha mẹ + sự kiện đời thật**. Chính 考刻 cho Thiết Bản "độ chính xác đóng đinh" — và cũng chính nó khiến phép **không thuần cơ học** (cần dữ kiện ngoài + dò lặp). **Đây chính là gốc của tính năng GIA ĐẠO** (xem §5).
+## 1. Toàn cảnh phép — 6 BƯỚC (kiểm chéo 朴易天下 / 163 / baidu)
 
-## 1. Các Lệ phối quái / lấy số — ĐỌC ĐÚNG TỪ BẢN GỐC
+```
+① 八字排盘        Lập tứ trụ
+② 八卦取数        Can-chi → SỐ (太玄数 + 先天八卦数)         ← TẤT ĐỊNH (lớp A)
+③ 皇极起数        Ráp 千百十个 → 先天命数 (元会运世)          ← TẤT ĐỊNH (lớp A)
+④ 考刻定分        DÒ 调整数 bằng lục thân đã biết            ← CALIBRATE (lớp B = GIA ĐẠO)
+⑤ 加减秘数        基数 ± 秘数 → số điều văn theo loại việc    ← GIẤU (lớp C)
+⑥ 查阅条文        Tra bảng 纳卦 8 集 → điều văn               ← bảng CÓ trong sách, chưa số hoá
+```
 
-**① 天干配卦例 (Thiên can phối quái)** — origin p9:
-> 壬甲从乾数，乙庚向坤求。庚来艮上立，辛在巽方留。己以震门起，戊以离为头。丙须坎处出，丁向兑家收。
+**3 LỚP — đây là cơ mật cốt lõi:**
 
-| Can | Quái | | Can | Quái |
-|---|---|---|---|---|
-| Nhâm 壬 · Giáp 甲 | Càn | | Mậu 戊 | Ly |
-| Ất 乙 | Khôn | | Bính 丙 | Khảm |
-| Canh 庚 | Cấn | | Đinh 丁 | Đoài |
-| Tân 辛 | Tốn | | Quý 癸 | *(bản gốc không nêu rõ)* |
-| Kỷ 己 | Chấn | | | |
+| Lớp | Là gì | Trạng thái |
+|---|---|---|
+| **A — Số học tất định** | 太玄数, 先天八卦数, 序数, 安身命, base 时×30+日 | ✅ Đã code + KIỂM (engine `khoi_so.py`) |
+| **B — 考刻 (dò, không tính)** | 调整数 "đối ra" bằng lục thân (cha mẹ, anh em) | ✅ Khung đã code = **gia đạo** (cần bát tự bố mẹ) |
+| **C — Giấu** | 秘数 từng loại + cách index bảng 纳卦 | ⛔ Mọi nguồn GIẤU + thiếu cặp kiểm → KHÔNG bịa |
 
-⚠ Bản gốc chép cả "乙**庚**向坤" lẫn "**庚**来艮上" → chữ 庚 (Canh) hiện ở **hai vế** (Khôn & Cấn). Đây là **đặc điểm văn bản thật** của bản này (không phải OCR), cần **bảng 纳卦 từng 集** (origin page_idx 17+) hoặc **cặp kiểm** để phân định 乙/庚/癸. Engine đánh dấu `THIEN_CAN_QUAI_NOTE`.
+## 2. LỚP A — số học tất định (đã code + kiểm)
 
-**② 地支配卦例 (Địa chi phối quái — số Hậu Thiên/Lạc Thư)** — origin p9:
-> 一数坎兮二数坤，三震四巽数中分。五寄中宫六乾是，**七艮八兑**九离门。
-
-→ 1 Khảm · 2 Khôn · 3 Chấn · 4 Tốn · 5 trung cung · 6 Càn · **7 Cấn · 8 Đoài** · 9 Ly.
-
-🔧 **Tự đính chính:** ghi chép cũ của em nói "bản chép 7 Cấn 8 Đoài là OCR đảo, dùng chuẩn 7 Đoài 8 Cấn" — **SAI**. Bản gốc IN RÕ là **七艮八兑** (7 Cấn 8 Đoài); đây là cách bài của chính sách này. Engine theo đúng bản gốc.
-
-**③ 日主配卦例 (Nhật chủ phối quái)** — origin p9:
-> 亥子坎宫寅震木，巳午离门丑在坤。卯酉乾金辰是兑，[未]艮原来戌巽真。
-
-→ Hợi·Tý → Khảm · Dần → Chấn · Tỵ·Ngọ → Ly · Sửu → Khôn · Mão·Dậu → Càn · Thìn → Đoài · Mùi → Cấn · Tuất → Tốn. (Thân: bản gốc chưa nêu rõ.)
-
-**④ 河洛配数例 (Hà-Lạc phối số — 河洛理数)** — origin p9:
-> 甲己子午[九]，乙庚丑未八。丙辛寅申七，丁壬卯酉六。戊癸辰戌五，巳亥单四数。
-
-| Can/Chi | Số | | Can/Chi | Số |
+**① 太玄数** (sách gọi "河洛配数例"; 3 nguồn TQ gọi 太玄数) — origin p9:
+| 干 / 支 | Số | | 干 / 支 | Số |
 |---|---|---|---|---|
 | Giáp Kỷ · Tý Ngọ | 9 | | Đinh Nhâm · Mão Dậu | 6 |
 | Ất Canh · Sửu Mùi | 8 | | Mậu Quý · Thìn Tuất | 5 |
 | Bính Tân · Dần Thân | 7 | | Tỵ Hợi | 4 |
 
-**⑤ 地支取数例 (Địa chi thủ số — Hà Đồ)** — origin p10:
-> 亥子一六水，寅卯三八木，巳午二七火，申酉四九金，中宫辰戌丑未五十(土)。
+**② 先天八卦数** (Phục Hy, sohu xác nhận): Càn1 Đoài2 Ly3 Chấn4 Tốn5 Khảm6 Cấn7 Khôn8.
+*(Khác 地支配卦 Hậu Thiên ở §3 — hai hệ số dùng ở hai bước.)*
 
-→ Hợi·Tý 1·6 Thủy · Dần·Mão 3·8 Mộc · Tỵ·Ngọ 2·7 Hỏa · Thân·Dậu 4·9 Kim · Thìn·Tuất·Sửu·Mùi 5·10 Thổ.
+**③ Công thức nền 先天命数** (北派 = 时+日; 南派 = 日+时干支):
+> 基数 = (**时支序数 × 30** + 日干序数 + 调整数) ÷ 5
+- ×30 KHỚP khẩu quyết sách **"爻从三十起"** (八卦加则).
+- **KIỂM:** ca 163.com 戊(Mậu)日 午(Ngọ)时, 调整数=5 → (7×30 + 5 + 5)/5 = **44** ✓ (engine `co_so_bac_phai` ra đúng 44).
+- 元堂动爻 = base mod 6 (1..6).
 
-**⑥ 安身命例 (An Thân Mệnh)** — origin p10, **thuật toán SẠCH (cơ học hoá được)**:
-> 大抵人命俱从寅上起正月，顺至本生月。又自人生月上起子时，逆至本生时安命，顺至本生时安身。若有闰月，作多一月算。
+**④ 安身命** (origin p10, thuật toán sạch = Tử Vi): từ Dần khởi Giêng → cung tháng; từ đó khởi Tý, nghịch→Mệnh, thuận→Thân.
 
-→ Từ **Dần** khởi tháng Giêng, thuận đến tháng sinh = cung tháng. Từ cung tháng khởi giờ **Tý**, **nghịch** đến giờ sinh = **Mệnh**; **thuận** đến giờ sinh = **Thân**. Nhuận: tính thêm 1 tháng. (Giống hệt an Mệnh-Thân Tử Vi.) → `engine/thiet_ban/khoi_so.py::an_than_menh`.
+## 3. Các Lệ phối quái (origin p9-10, đọc đúng bản gốc)
 
-**⑦ 起五岁例 (五虎遁 khởi tháng)** — origin p10:
-> 甲己之岁起丙寅，乙庚之岁起戊寅，丙辛之岁起庚寅，丁壬之岁起壬寅，戊癸之岁起甲寅。
+- **天干配卦**: 壬甲乾, 乙坤, 庚艮, 辛巽, 己震, 戊离, 丙坎, 丁兑 *(庚 bản gốc lưỡng vị 坤/艮; 癸 chưa nêu — chờ bảng 纳卦 phân định)*.
+- **地支配卦** (Hậu Thiên/Lạc Thư): 1坎 2坤 3震 4巽 5中 6乾 **7艮 8兑** 9离. *(Bản gốc IN 七艮八兑 — "sửa 7兑8艮" cũ của mình là SAI. ⚠ Lưu ý: 河洛理数 CHUẨN dùng 7兑8艮; sách 铁板 này dùng 7艮8兑 — khác hệ, giữ đúng bản.)*
+- **日主配卦**: 亥子坎, 寅震, 巳午离, 丑坤, 卯酉乾, 辰兑, 未艮, 戌巽.
+- **地支取数 Hà Đồ**: 亥子1·6 寅卯3·8 巳午2·7 申酉4·9 辰戌丑未5·10.
+- **五虎遁**: Giáp/Kỷ→Bính, Ất/Canh→Mậu, Bính/Tân→Canh, Đinh/Nhâm→Nhâm, Mậu/Quý→Giáp. · **60 纳音** đọc trọn.
 
-→ Can năm → can tháng Giêng (Dần): Giáp/Kỷ→Bính, Ất/Canh→Mậu, Bính/Tân→Canh, Đinh/Nhâm→Nhâm, Mậu/Quý→Giáp. → `NGU_HO_DON`.
+## 4. LỚP B — 考刻 = CƠ MẬT làm nên độ chuẩn
 
-**⑧ 六十花甲子纳音歌** — origin p10: bảng 60 纳音 đầy đủ (Giáp Tý Ất Sửu Hải Trung Kim…). Dùng cho "ngũ âm" trong phép (配合五音). Đọc rõ trọn bài.
+Sách (origin p8): *"từ bát tự **bản thân + cha mẹ**, mỗi giờ suy **tám khắc**, mỗi khắc suy **mười lăm phân**, suy đến đúng giờ thì toàn số đều hợp."*
 
-## 2. 八卦加则例 — khẩu quyết RÁP SỐ (origin p9)
+→ 考刻 = **DÒ 调整数** trong không gian **8 khắc × 15 phân** sao cho điều văn **lục thân KHỚP sự thật đã biết** (số anh em, cha/mẹ còn-mất + con giáp, số con, biến cố...). 163.com chốt: *"调整数 không tính ra được, mà **'đối' ra"*.
 
-> 爻从三十起，乾卦六为头。兑为后少女，只中一网收。变知六伯止，应世两同俦。**遇十须不用**，玄玄妙法周。当看多寡数，及止悉因由。
+**Hệ quả lớn:** không có lục thân (nhất là **bát tự cha mẹ**) thì **không chốt được số**. Đây CHÍNH LÀ lý do founder cần đưa **bát tự bố mẹ vào trang Gia Đạo** — gia đạo = đầu vào 考刻. Engine: `kao_khac_khung()` (`khoi_so.py`) liệt kê đúng cần đối chiếu gì, KHÔNG bịa 条文.
 
-→ "Hào khởi từ **ba mươi**, Càn quái **sáu** làm đầu… **gặp mười ắt không dùng** (逢十不用)… xem số nhiều ít mà định." Đây là **luật cộng dồn (mod-10) ra số điều văn**. Khẩu quyết cô đọng — đọc RÕ chữ, nhưng **quy trình ráp đầy đủ** (ghép ⑧ trụ × phối quái × Hà-Lạc số → dãy số 1000–12989) vẫn cần **bảng 纳卦 từng 集** (origin page_idx 17+) để biết mỗi 集 ăn số nào, + **cặp kiểm** để xác nhận. KHÔNG suy ẩu.
+南派 / 北派: Nam trọng 日+时干支; Bắc trọng 月柱+时辰. (Chọn phái khi có cặp kiểm.)
 
-## 3. Phần KIỂM-ĐƯỢC vs CHƯA-đủ-để-ship số
+## 5. LỚP C — phần GIẤU (KHÔNG ship số)
 
-| Hạng mục | Trạng thái |
-|---|---|
-| ①–⑤ phối quái + phối số (4 hệ) | ✅ Đọc rõ bản gốc → đã vào `khoi_so.py` (config thuần) |
-| ⑥ An Thân Mệnh | ✅ Thuật toán sạch → `an_than_menh()` (kiểm chéo Tử Vi) |
-| ⑦ 五虎遁 · ⑧ 60 纳音 | ✅ Đọc rõ → config |
-| Tứ Hóa theo can (front matter p11-12) | ✅ Kiểm chéo khớp `engine/tu_vi/do_nam_svg` |
-| 八卦加则 → SỐ điều văn cuối | ⏳ Khẩu quyết rõ, nhưng cần **bảng 纳卦 từng 集** + **cặp kiểm** mới ráp đúng |
-| 庚/癸 trong 天干配卦 | ⏳ Văn bản lưỡng vị — chờ bảng 纳卦 phân định |
-| 考刻 (neo khắc/phân) | ⏳ Cần **bát tự cha mẹ + sự kiện đời** → **tính năng GIA ĐẠO** (§5) |
+- **秘数** (基数 ± 秘数 → số điều văn theo loại việc: huynh đệ, phụ mẫu, thê, tử...): **mọi nguồn TQ cố tình KHÔNG công bố** (知乎 tác giả: "条文 và 秘数 tôi vẫn không chép lên").
+- **Bảng 纳卦 8 集** (查阅条文): **sách Anh CÓ CHỨA** — origin page_idx 16+ (坤集... mỗi 集 nhiều khối 纳乾坤屯卦/纳艮卦/纳师卦..., mỗi khối là dãy **signature 干支 4-5 chữ + hành**). In rõ, nhưng cực dày (~hàng nghìn dòng × 8 集); MinerU làm vỡ.
+- **THIẾU cặp kiểm**: không có "bát tự X → số điều Y" đã biết để validate (không như 304-313 của Hoàng Cực).
 
-⛔ **Không làm:** ship hàm "bát tự → số điều" khi chưa có bảng 纳卦 + cặp kiểm — đó là **bói giả-chính-xác**, phản đạo (Iron Rule #4/#6). Thiết Bản mạnh ở 考刻 (người + sự kiện), không phải auto thuần.
+⛔ **Không làm:** ship "bát tự → số điều" khi thiếu 秘数 + cặp kiểm = **bói giả-chính-xác**, phản đạo (Iron Rule #4/#6). Nhất là đời người.
 
-## 4. Bước tiếp (đọc thêm bản gốc)
+## 6. Liên hệ HOÀNG CỰC (phát hiện kèm)
 
-- Đọc **page_idx 17-19** (các bảng 纳卦 từng 集 — 乾集/坎集…) để biết mỗi 集 ánh xạ số nào.
-- Tìm **起例/排盘示范** (ví dụ mẫu có sẵn dãy số) làm **cặp kiểm** — như 304-313 đã làm cho Hoàng Cực.
-- Có cặp kiểm → mới cơ học hoá 八卦加则 + bật engine tính-số.
+Bước ③ là **皇极起数 (元会运世)** — chính hệ Hoàng Cực ta ĐÃ có engine (`engine/hoang_cuc`). Tức Thiết Bản mượn khung Nguyên-Hội-Vận-Thế của tổ sư để định "先天命数". Đây là cầu nối 2 hệ trong cùng nhà Thiệu Khang Tiết.
 
-## 5. 考刻 → TÍNH NĂNG GIA ĐẠO (founder chốt 2026-06-18)
+## 7. Đường tới (PATH ③-④ keystone)
 
-Founder: *"cần bát tự của bố mẹ thì càng tốt, cho vào trang gia đạo, luận lá số cho Con cái."*
+1. **Số hoá 8 集 bảng 纳卦** từ origin page_idx 16+ (vision OCR cẩn thận từng 集, KHÔNG dùng MinerU). Lưu thành tra cứu.
+2. **Tìm ≥1 cặp kiểm** (một lá số 铁板 đã có sẵn dãy số điều văn — sách案例 / thầy / cộng đồng) → validate base + 秘数.
+3. Có cặp kiểm → giải ngược **秘数** → bật engine `base ± 秘数 → tra 纳卦`.
+4. Nối **考刻** vào trang Gia Đạo (lục thân bố mẹ) → chốt 调整数.
 
-考刻 cần **bát tự cha mẹ** — biến yêu cầu này thành **tính năng**, không phải rào cản:
+## Nguồn
 
-- **Trang Gia Đạo** = một "hộ" gồm nhiều người (cha, mẹ, các con), mỗi người có ngày sinh → **bát tự + lá số Tử Vi** (dùng `engine/tu_vi` + `engine/bat_tu` sẵn có).
-- **Luận lá số con cái**: đọc lá số của con, **đối chiếu nền cha mẹ** — đúng "mô hình hình thành con người" của founder ([[founder_mo_hinh_hinh_thanh_con_nguoi]]): _con = trường năng lượng lúc sinh ⊗ gen cha mẹ ⊗ môi trường_ (Tam Tài hiện đại).
-- Bát tự cha mẹ thu thập ở đây **đồng thời** phục vụ 考刻 Thiết Bản sau này (khi có bảng 纳卦 + cặp kiểm).
-- Vẫn giữ **đọc-đồng-dạng**: đọc cái NỀN con được trao, KHÔNG phán định đời con. Đặc biệt thận trọng vì là **trẻ em**.
-
-→ Spec hạ tầng + UI: xem `docs/design/GIA-DAO.md`.
+- Bản gốc: `data/yi_publishing_mineru/shao-yong-.../auto/..._origin.pdf` tr.9-21.
+- [163.com 铁板神数皇极起数法](https://www.163.com/dy/article/KE5DP1V30521C9T8.html) — 6 bước + ca 戊日午时→44 + 调整数 "đối ra".
+- [sohu 朴易天下 详细计算方法](https://www.sohu.com/a/965131029_479097) — 太玄数 + 先天八卦数 + 元会运世.
+- [知乎 铁版神数的N种算法](https://zhuanlan.zhihu.com/p/137658598) — N biến thể, tác giả giấu 秘数.
+- [baidu 铁版神数](https://baike.baidu.com/item/铁版神数/3901251) — 南/北派 考时定刻.
 
 ---
 
-*Keystone tới mức TRUNG THỰC cho phép: phép đã đọc ĐÚNG từ bản gốc + tài liệu hoá + phần cơ-học-được đã chốt; engine tính-số chờ bảng 纳卦 + cặp kiểm. Không bịa số đóng đinh lên đời người — nhất là đời trẻ con.*
+*Trung thực tối đa: phép đã THẤU (6 bước + 3 lớp), lớp A đã code + kiểm (ca 44), lớp B (考刻) thành khung gia đạo; lớp C (秘数 + bảng) chờ số hoá + cặp kiểm. Cơ mật lớn nhất: số là CÁ NHÂN (考刻), không bịa từ ngày sinh.*

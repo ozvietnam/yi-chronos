@@ -34,11 +34,22 @@ NHAT_CHU_QUAI = {"Hợi": "Khảm", "Tý": "Khảm", "Dần": "Chấn", "Tỵ": 
                  "Sửu": "Khôn", "Mão": "Càn", "Dậu": "Càn", "Thìn": "Đoài",
                  "Mùi": "Cấn", "Tuất": "Tốn", "Thân": None}  # Thân: bản gốc chưa rõ
 
-# 河洛配数 (origin p9, 河洛理数): can & chi → số
+# 太玄数 (origin p9 sách gọi "河洛配数例"; KIỂM CHÉO 3 nguồn TQ: 163/sohu/知乎 đều gọi
+#   THÁI HUYỀN SỐ): 甲己子午9, 乙庚丑未8, 丙辛寅申7, 丁壬卯酉6, 戊癸辰戌5, 巳亥4.
 HA_LAC_CAN = {"Giáp": 9, "Kỷ": 9, "Ất": 8, "Canh": 8, "Bính": 7, "Tân": 7,
               "Đinh": 6, "Nhâm": 6, "Mậu": 5, "Quý": 5}
 HA_LAC_CHI = {"Tý": 9, "Ngọ": 9, "Sửu": 8, "Mùi": 8, "Dần": 7, "Thân": 7,
               "Mão": 6, "Dậu": 6, "Thìn": 5, "Tuất": 5, "Tỵ": 4, "Hợi": 4}
+TAI_HUYEN_CAN = HA_LAC_CAN  # alias đúng tên
+TAI_HUYEN_CHI = HA_LAC_CHI
+
+# 先天八卦数 (Phục Hy): dùng ở bước ráp số (sohu xác nhận). Khác 地支配卦 (Hậu Thiên) ở trên.
+TIEN_THIEN_QUAI_SO = {"Càn": 1, "Đoài": 2, "Ly": 3, "Chấn": 4,
+                      "Tốn": 5, "Khảm": 6, "Cấn": 7, "Khôn": 8}
+
+# 序数 (số thứ tự) cho công thức base: can 甲1..癸10, chi 子1..亥12.
+CAN_SO = {c: i + 1 for i, c in enumerate(CAN)}
+CHI_SO = {c: i + 1 for i, c in enumerate(CHI)}
 
 # 地支取数 Hà Đồ (origin p10): 亥子1,6 寅卯3,8 巳午2,7 申酉4,9 辰戌丑未5,10
 DIA_CHI_HA_DO = {"Hợi": (1, "Thủy"), "Tý": (6, "Thủy"), "Dần": (3, "Mộc"), "Mão": (8, "Mộc"),
@@ -74,5 +85,56 @@ def phoi_tru(can: str, chi: str) -> dict:
     }
 
 
-NOT_IMPLEMENTED = ("Số điều văn cuối (八卦加则 ráp số) cần bảng 纳卦 từng 集 + cặp kiểm — "
-                   "chưa cơ học hoá, không bịa. Xem docs/design/THIET-BAN-KHOI-SO.md")
+def co_so_bac_phai(hour_branch: str, day_stem: str, dieu_chinh_so: int = 0) -> dict:
+    """先天命数 base — biến thể BẮC PHÁI (lấy 时 + 日), theo ca tài liệu (163.com):
+        基数 = (时支序数 × 30 + 日干序数 + 调整数) ÷ 5
+    ⚠ Đây là CÔNG THỨC NỀN tài liệu hoá (北派 giản lược) — KHỚP khẩu quyết sách
+    "爻从三十起" (×30). KHÔNG phải số điều văn cuối: thiếu 秘数 (lớp C) + 考刻 phải neo
+    bằng lục thân. `dieu_chinh_so` = ẩn số 考刻 (xem kao_khac_khung). Không claim ra 条文."""
+    ts = CHI_SO.get(hour_branch)
+    ds = CAN_SO.get(day_stem)
+    if ts is None or ds is None:
+        return {"error": "Cần đúng can ngày + chi giờ."}
+    tong = ts * 30 + ds + dieu_chinh_so
+    return {
+        "cong_thuc": "(时支序数×30 + 日干序数 + 调整数) ÷ 5",
+        "thoi_chi_so": ts, "nhat_can_so": ds, "dieu_chinh_so": dieu_chinh_so,
+        "tong": tong, "co_so": tong // 5, "du": tong % 5,
+        "dong_hao": (tong % 6) or 6,  # 元堂动爻 = base mod 6 (1..6)
+        "phai": "bắc (时+日)",
+    }
+
+
+# 考刻 — KHUNG (không phải hàm thuần): vì 调整数 phải "đối" bằng lục thân đã biết.
+KAO_KHAC_LUC_THAN = [
+    "Số anh chị em (mấy người, thứ mấy)",
+    "Cha còn / mất (năm nào) — tuổi/con giáp cha",
+    "Mẹ còn / mất (năm nào) — tuổi/con giáp mẹ",
+    "Vợ/chồng — con giáp, năm cưới",
+    "Số con (trai/gái)",
+    "Biến cố lớn đã rồi (năm tuổi)",
+]
+
+
+def kao_khac_khung(known_facts: dict | None = None) -> dict:
+    """考刻 = DÒ 调整数 trong không gian '8 khắc × 15 phân' sao cho điều văn lục thân
+    KHỚP sự thật đã biết. Đây là phần làm nên độ chuẩn của 铁板 — và cũng là lý do nó
+    KHÔNG phải hàm ngày-sinh→số. Hàm này trả KHUNG (cần gì để 考刻), KHÔNG bịa 条文."""
+    have = [k for k in (known_facts or {}) if (known_facts or {}).get(k)]
+    return {
+        "khong_gian_do": "8 khắc × 15 phân (origin p8: 'mỗi giờ suy tám khắc, mỗi khắc suy mười lăm phân')",
+        "can_doi_chieu": KAO_KHAC_LUC_THAN,
+        "da_co": have,
+        "con_thieu": [k for k in ["số anh em", "cha", "mẹ"] if k not in have],
+        "nguon_du_kien": "bát tự + lục thân CHA MẸ → trang Gia Đạo (docs/design/GIA-DAO.md)",
+        "ghi_chu": "调整数 'không tính ra được, mà đối ra' (163.com). Không đủ lục thân → "
+                   "KHÔNG chốt được số điều văn. Đúng đạo: không bịa.",
+    }
+
+
+# Phần GIẤU (lớp C) — KHÔNG ship số điều văn:
+NOT_IMPLEMENTED = (
+    "Số điều văn cuối = base ± 秘数 → tra bảng 纳卦 8 集 (sách Anh CÓ chứa, page_idx 16+). "
+    "Thiếu: (1) giá trị 秘数 từng loại (mọi nguồn TQ GIẤU), (2) ≥1 cặp kiểm (bát tự→số đã biết) "
+    "để validate. KHÔNG bịa số đóng đinh lên đời người. Xem docs/design/THIET-BAN-KHOI-SO.md."
+)
