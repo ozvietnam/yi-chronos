@@ -3,7 +3,16 @@
 Cặp kiểm: ví dụ README repo xaminxan/tiebanshenshu (kiểm chéo, repo không LICENSE
 → chỉ dùng làm cặp-kiểm số học; verse dùng DB của ta, đã xác nhận cùng kho).
 """
-from engine.thiet_ban.lap_so import lap_thiet_ban_so, tra_dieu_van, NAP_AM, _nhat_menh, _ngu_am
+from engine.thiet_ban.lap_so import (
+    lap_thiet_ban_so, tra_dieu_van, tra_luu_nien, NAP_AM, _nhat_menh, _ngu_am,
+)
+
+
+def test_luu_nien_lookup_khop_anchor():
+    """流年 (字母,岁)→条文: 福|1 tuổi → 1141+992 = 2133 → DB 并蒂双莲."""
+    r = tra_luu_nien("福", 1)
+    assert r["so"] == 2133
+    assert "并蒂双莲" in (r["dieu_van"] or "")
 
 
 def test_birth_only_1924():

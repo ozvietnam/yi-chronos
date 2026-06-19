@@ -47,6 +47,22 @@ def tra_dieu_van(seq_no: int) -> dict | None:
         return None
     return {"so": row[1], "volume": row[0], "zh": row[2], "vi": row[3]}
 
+
+def tra_luu_nien(letter: str, age: int) -> dict | None:
+    """流年条文 theo (CHỮ CÁI lưu niên, TUỔI mụ): 14-14 (字母,岁)→ 条文 = 基数+加数 → tra DB.
+
+    ⚠ Đây là bảng TRA. Cách suy CHỮ CÁI từng năm (letter-walk: 流年字母 từ
+    LIUNIAN_START/SEQ + MARKER + LETTER theo 刻/后天命数) CHƯA wire — nên hàm này
+    cần đưa SẴN chữ cái. Không bịa chữ cái."""
+    key = f"{letter}|{age}"
+    seq = (_tables().get("luu_nien_by_letter_age") or {}).get(key)
+    if not seq:
+        return None
+    v = tra_dieu_van(seq)
+    return {"chu_cai": letter, "tuoi": age, "so": seq,
+            "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi")}
+
+
 VI2CAN = {"Giáp": "甲", "Ất": "乙", "Bính": "丙", "Đinh": "丁", "Mậu": "戊",
           "Kỷ": "己", "Canh": "庚", "Tân": "辛", "Nhâm": "壬", "Quý": "癸"}
 VI2CHI = {"Tý": "子", "Sửu": "丑", "Dần": "寅", "Mão": "卯", "Thìn": "辰", "Tỵ": "巳",
