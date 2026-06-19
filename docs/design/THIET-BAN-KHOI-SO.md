@@ -16,10 +16,14 @@ Tìm được **2 repo chạy được** (cặp kiểm máy): `xaminxan/tiebansh
 **Engine `engine/thiet_ban/lap_so.py` (clean-room, viết lại PHÉP — repo không LICENSE nên
 chỉ học số/cặp-kiểm; verse dùng DB ta):**
 - Chuỗi 起数: 先天命数 → 五音 → 日命/时运 → 考刻(初/正刻) → **本命数** → 后天命数 → 十二辟卦.
-- **KIỂM**: ví dụ repo 1924-06-15 16:00 nam, hỏi 2025-04-20 → 先天 11 · 本命 **344** · 辟卦 **泰** ✓ (test).
+- ⚖️ **Founder chốt 19/6: CHỈ THEO GIỜ SINH (THỂ cố định), BỎ đường "giờ hỏi → kết quả"**
+  (mơ hồ; phải chốt cái cố định quan sát được trước, chưa đụng cái động). 日命/时运 lấy
+  theo **giờ SINH** (không còn 求测时). `lap_thiet_ban_so(birth_dt, gender)` — không nhận giờ hỏi.
+  考刻 chính xác KHẮC sinh = bằng **lục thân** (gia đạo), KHÔNG phải giờ hỏi.
+- KIỂM birth-only: 1924-06-15 16:00 nam → 先天 **11** ✓; lá founder (戊辰戊午壬辰庚子) →
+  本命 **802** · 辟卦 **观** · ra 本命条文 (test). Cùng giờ sinh → CÙNG kết quả (xác định).
 - 条文: `条文 = 基数 + 序数 + 秘数(theo loại)` → tra DB ta. KIỂM ngữ nghĩa: 复初刻先天2 兄弟
   offset 2530 → 410+350+2530 = **3290** → DB "兄弟三人数中注定" ✓ (offset "anh em" ra verse anh em).
-- Full chain chạy: lá rơi 辟卦 có 秘数 (vd 观) → ra 本命条文 thật (Tính cách/Tài năng/Tài vận/Anh em).
 
 ⚠ **秘数 còn PARTIAL**: bảng offset công khai (`14-10`, 288 tổ hợp) chỉ phủ vài 辟卦 (复, 观...);
 nhiều 辟卦 chưa có → lá đó báo "秘数 chưa đủ" (KHÔNG bịa). Bộ 秘数 đầy đủ vẫn là phần mật truyền.

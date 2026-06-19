@@ -6,21 +6,25 @@ Cặp kiểm: ví dụ README repo xaminxan/tiebanshenshu (kiểm chéo, repo kh
 from engine.thiet_ban.lap_so import lap_thiet_ban_so, tra_dieu_van, NAP_AM, _nhat_menh, _ngu_am
 
 
-def test_readme_example_1924():
-    """Sinh 1924-06-15 16:00 nam, hỏi 2025-04-20 10:00 → 先天11 · 五音2 · 本命344."""
-    r = lap_thiet_ban_so("1924-06-15T16:00", "nam", "2025-04-20T10:00")
+def test_birth_only_1924():
+    """Sinh 1924-06-15 16:00 nam — CHỈ giờ sinh (đã bỏ giờ hỏi). 先天命数 11."""
+    r = lap_thiet_ban_so("1924-06-15T16:00", "nam")
     assert r["bat_tu_sinh"] == "甲子 庚午 乙丑 甲申"
-    assert r["tien_thien_menh_so"] == 11
+    assert r["tien_thien_menh_so"] == 11        # birth-only, ổn định
     assert r["ngu_am_so"] == 2 and r["ngu_am"] == "徵"
-    assert r["nhat_menh"] == 4 and r["thoi_van"] == 3
-    assert r["khao_khac"] == "初刻"
-    assert r["ban_menh_so"] == 344
-    assert r["hau_thien_menh_so"] == 3
+
+
+def test_co_dinh_theo_gio_sinh():
+    """KHÔNG còn tham số giờ hỏi: cùng giờ sinh → CÙNG kết quả (THỂ cố định)."""
+    a = lap_thiet_ban_so("1988-06-05T23:30", "nam")
+    b = lap_thiet_ban_so("1988-06-05T23:30", "nam")
+    assert a["ban_menh_so"] == b["ban_menh_so"]
+    assert a["thap_nhi_tich_quai"] == b["thap_nhi_tich_quai"]
 
 
 def test_tien_thien_cong_thuc():
     """先天命数 = tháng + 3 − giờ-chi-số (≤0 → +12). Giờ Thân(9): 5+3−9=−1→11."""
-    r = lap_thiet_ban_so("1924-06-15T16:00", "nam", "2025-04-20T10:00")
+    r = lap_thiet_ban_so("1924-06-15T16:00", "nam")
     assert r["tien_thien_menh_so"] == 11
 
 
@@ -44,10 +48,11 @@ def test_ngu_am_phoi():
     assert am == "徵" and so == 2
 
 
-def test_tich_quai_1924_khop_readme():
-    """辟卦 (刻+本命数): 初刻|344 → 泰 (đúng output README repo)."""
-    r = lap_thiet_ban_so("1924-06-15T16:00", "nam", "2025-04-20T10:00")
-    assert r["thap_nhi_tich_quai"] == "泰"
+def test_tich_quai_co():
+    """辟卦 tra được từ 本命数 birth-only (lá founder 本命802 → 观)."""
+    r = lap_thiet_ban_so("1988-06-05T23:30", "nam")
+    assert r["ban_menh_so"] == 802
+    assert r["thap_nhi_tich_quai"] == "观"
 
 
 def test_co_che_dieu_van_co_ngu_nghia():
@@ -57,11 +62,10 @@ def test_co_che_dieu_van_co_ngu_nghia():
     assert "仁慈" in (tra_dieu_van(1796) or {}).get("zh", "")  # 性格 1036
 
 
-def test_full_chain_co_dieu_van_khi_co_秘数():
-    """Lá rơi vào 辟卦 có 秘数 (观) → ra 本命条文 thật từ DB."""
-    r = lap_thiet_ban_so("1988-06-05T23:30", "nam", "2024-01-05T10:00")
-    assert r["thap_nhi_tich_quai"] == "观"
+def test_full_chain_birth_only_co_dieu_van():
+    """Lá founder (birth-only) rơi 辟卦 观 có 秘数 → 本命条文 thật từ DB."""
+    r = lap_thiet_ban_so("1988-06-05T23:30", "nam")
     assert r["ban_menh_dieu_van"] is not None
     sos = [m["so"] for m in r["ban_menh_dieu_van"]["muc"]]
-    assert all(s >= 1000 for s in sos)  # số điều văn hợp lệ
-    assert any(m["dieu_van"] for m in r["ban_menh_dieu_van"]["muc"])  # có verse từ DB
+    assert all(s >= 1000 for s in sos)
+    assert any(m["dieu_van"] for m in r["ban_menh_dieu_van"]["muc"])

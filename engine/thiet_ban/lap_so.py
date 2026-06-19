@@ -91,46 +91,49 @@ def _ngu_am(cong_num: int, year_can: str) -> tuple[str, int]:
     return am, NGU_AM_SO[am]
 
 
-def _nhat_menh(day_nayin: str, query_can: str) -> int:
-    """日命 = ((can求测 idx + nạp-âm-ngày idx) mod 5)+1 (khớp bảng 14-5 repo)."""
-    return ((CAN.index(query_can) + NGU_HANH_IDX[day_nayin]) % 5) + 1
+def _nhat_menh(day_nayin: str, hour_can: str) -> int:
+    """日命 = ((can-giờ-SINH idx + nạp-âm-ngày idx) mod 5)+1 (cấu trúc bảng 14-5)."""
+    return ((CAN.index(hour_can) + NGU_HANH_IDX[day_nayin]) % 5) + 1
 
 
-def _thoi_van(query_hour_nayin: str) -> int:
-    """时运 = idx ngũ hành +1 (水1火2木3金4土5)."""
-    return NGU_HANH_IDX[query_hour_nayin] + 1
+def _thoi_van(hour_nayin: str) -> int:
+    """时运 = idx ngũ hành nạp-âm GIỜ SINH +1 (水1火2木3金4土5)."""
+    return NGU_HANH_IDX[hour_nayin] + 1
 
 
 def _zh_pillar(p: dict) -> str:
     return VI2CAN[p["stem"]] + VI2CHI[p["branch"]]
 
 
-def lap_thiet_ban_so(birth_dt: str, gender: str, query_dt: str,
+def lap_thiet_ban_so(birth_dt: str, gender: str,
                      timezone: str = "Asia/Ho_Chi_Minh") -> dict:
-    """Bát tự (sinh) + thời điểm HỎI → chuỗi số Thiết Bản. gender: nam|nữ."""
+    """Bát tự SINH → chuỗi số Thiết Bản CỐ ĐỊNH (THỂ). gender: nam|nữ.
+
+    CHỈ theo giờ SINH — KHÔNG dùng giờ hỏi (founder chốt 19/6: bỏ đường giờ-hỏi vì
+    mơ hồ; chốt cái cố định quan sát được trước). 考刻 chính xác khắc sinh → tinh chỉnh
+    bằng LỤC THÂN (việc đời / bát tự bố mẹ ở gia đạo), KHÔNG phải giờ hỏi."""
     b = extract_tu_tru(birth_dt, timezone)
-    q = extract_tu_tru(query_dt, timezone)
-    bp, qp = b["pillars"], q["pillars"]
+    bp = b["pillars"]
     year_can = VI2CAN[bp["year"]["stem"]]
     hour_chi = VI2CHI[bp["hour"]["branch"]]
+    hour_can = VI2CAN[bp["hour"]["stem"]]
     day_zh = _zh_pillar(bp["day"])
-    q_hour_can = VI2CAN[qp["hour"]["stem"]]
-    q_hour_zh = _zh_pillar(qp["hour"])
+    hour_zh = _zh_pillar(bp["hour"])
     lunar = b["lunar"]
     lmonth = lunar["month"] + (1 if lunar.get("is_leap_month") else 0)
     if lmonth > 12:
         lmonth = 1
     lday = lunar["day"]
 
-    # ① 先天命数
+    # ① 先天命数 (giờ sinh)
     cong = lmonth + 3 - (CHI.index(hour_chi) + 1)
     if cong <= 0:
         cong += 12
-    # ② 五音命数
+    # ② 五音命数 (năm sinh)
     am, am_so = _ngu_am(cong, year_can)
-    # ③ 日命 + 时运
-    day_life = _nhat_menh(NAP_AM[day_zh], q_hour_can)
-    time_luck = _thoi_van(NAP_AM[q_hour_zh])
+    # ③ 日命 + 时运 — đều theo GIỜ SINH (không còn giờ hỏi)
+    day_life = _nhat_menh(NAP_AM[day_zh], hour_can)
+    time_luck = _thoi_van(NAP_AM[hour_zh])
     s = day_life + time_luck
     # ④ 考刻 (初刻/正刻)
     yang_year = year_can in "甲丙戊庚壬"
@@ -172,9 +175,10 @@ def lap_thiet_ban_so(birth_dt: str, gender: str, query_dt: str,
         "hau_thien_menh_so": hau_thien,
         "thap_nhi_tich_quai": pq,
         "ban_menh_dieu_van": ban_menh_dieu_van,
-        "ghi_chu": ("Số điều văn = 基数+序数+秘数 (kiểm chéo DB của ta). " +
-                    ("秘数 phái này CHƯA có cho辟卦 này → bản luận chưa đủ; cần khôi phục thêm."
-                     if not ban_menh_dieu_van else "考刻 chính xác hơn cần lục thân (gia đạo).")),
-        "paradigm": "Đọc cái ĐÃ ĐỊNH (THỂ) để HIỂU cái nền, KHÔNG phán cái mình sống (DỤNG). "
-                    "Mệnh là dịch — người là cái biến.",
+        "ghi_chu": ("Bản luận CỐ ĐỊNH theo giờ SINH (THỂ) — để quan sát đúng/sai. " +
+                    ("秘数 cho 辟卦 này CHƯA khôi phục đủ → phần điều văn còn trống (không bịa)."
+                     if not ban_menh_dieu_van
+                     else "Muốn chốt chính xác hơn KHẮC sinh: 考刻 bằng lục thân (gia đạo), KHÔNG dùng giờ hỏi.")),
+        "paradigm": "Đọc cái ĐÃ ĐỊNH (THỂ) — cái nền từ lúc sinh — để HIỂU mình, không phán. "
+                    "Mệnh là dịch: người là cái biến (DỤNG), tự viết lấy.",
     }
