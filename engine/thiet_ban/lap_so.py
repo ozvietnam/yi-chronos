@@ -33,19 +33,31 @@ def _tables() -> dict:
     return _TABLES
 
 
+# Ưu tiên bản 图解 (thẩm quyền, founder chọn) → fallback DB cũ 邵乙 (2 bản khác ~38%).
+_CORPUS_PRIORITY = ("thiet-ban-than-so-tujie", "thiet-ban-than-so")
+
+
 def tra_dieu_van(seq_no: int) -> dict | None:
-    """Tra LỜI điều văn từ DB của ta (tabular_verses, corpus thiet-ban-than-so)."""
+    """Tra LỜI điều văn: ưu tiên corpus 图解 (`...-tujie`), fallback DB cũ.
+
+    Bản 图解 = thẩm quyền (founder chọn) nhưng pass MinerU mới phủ ~57% → chỗ
+    trống dùng DB cũ (đánh dấu nguồn). Trả thêm `nguon` + `do_tin` (seq_confidence)."""
     if not _DB_PATH.exists():
         return None
     c = sqlite3.connect(_DB_PATH)
     try:
-        row = c.execute("SELECT volume, seq_no, zh, vi FROM tabular_verses WHERE seq_no=? LIMIT 1",
-                        (seq_no,)).fetchone()
+        for corpus in _CORPUS_PRIORITY:
+            row = c.execute(
+                "SELECT volume, seq_no, zh, vi, seq_confidence FROM tabular_verses "
+                "WHERE book_corpus_id=? AND seq_no=? AND zh IS NOT NULL LIMIT 1",
+                (corpus, seq_no)).fetchone()
+            if row:
+                return {"so": row[1], "volume": row[0], "zh": row[2], "vi": row[3],
+                        "nguon": "图解" if corpus.endswith("tujie") else "DB-邵乙",
+                        "do_tin": row[4]}
     finally:
         c.close()
-    if not row:
-        return None
-    return {"so": row[1], "volume": row[0], "zh": row[2], "vi": row[3]}
+    return None
 
 
 def tra_luu_nien(letter: str, age: int) -> dict | None:
