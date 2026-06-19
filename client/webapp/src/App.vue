@@ -5,6 +5,7 @@ import SchoolIcon from "./components/SchoolIcon.vue";
 import UserBadge from "./components/UserBadge.vue";
 import OnboardingModal from "./components/OnboardingModal.vue";
 import AdminPanel from "./components/AdminPanel.vue";
+import HermesAdminPanel from "./components/HermesAdminPanel.vue";
 import MyPublicationsPanel from "./components/MyPublicationsPanel.vue";
 import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
@@ -485,6 +486,10 @@ onBeforeUnmount(() => {
               @click="activeMainTab = 'admin'">
               <span class="tab-icon">👥</span> Admin
             </button>
+            <button type="button" :class="{ active: activeMainTab === 'admin-hermes' }"
+              @click="activeMainTab = 'admin-hermes'">
+              <span class="tab-icon">🛡️</span> Quản trị Hermes
+            </button>
           </div>
         </template>
       </section>
@@ -907,6 +912,10 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'admin'" class="single-column" aria-label="Admin dashboard">
         <AdminPanel />
+      </section>
+
+      <section v-else-if="activeMainTab === 'admin-hermes'" class="single-column" aria-label="Phòng Quản Trị Hermes">
+        <HermesAdminPanel />
       </section>
 
       <section v-else-if="activeMainTab === 'pytago'" class="maihoa-page" aria-label="Trang trường phái Pytago">
