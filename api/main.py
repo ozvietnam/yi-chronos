@@ -1079,6 +1079,9 @@ def compare_basic(request: CompareBasicRequest) -> dict[str, object]:
 
 @app.post("/api/personal-profile")
 def personal_profile(request: PersonalProfileRequest) -> dict[str, object]:
+    # Guard: guest / chưa có active person → birth rỗng → tránh 500 (fromisoformat '')
+    if not (request.birth_datetime_local or "").strip():
+        return {"error": "no_birth", "message": "Chưa có dữ liệu sinh thần để tính cộng hưởng cá nhân."}
     profile = BirthProfile(**request.model_dump())
     personal_vector = build_personal_vector(profile)
     universe = build_universe_snapshot(timezone_name=request.timezone)

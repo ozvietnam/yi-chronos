@@ -183,6 +183,11 @@ async function handleProfileSubmit(form) {
   feedbackStatus.value = "";
   try {
     const payload = toPersonalProfileApiPayload(form);
+    // Guard: chưa có sinh thần (guest / chưa chọn hồ sơ) → đừng gọi (tránh 500)
+    if (!payload || !(payload.birth_datetime_local || "").trim()) {
+      personal.value = null;
+      return;
+    }
     personal.value = await submitPersonalProfile(payload);
     const ix = profiles.value.findIndex((p) => p.id === activeProfileId.value);
     if (ix >= 0) {
