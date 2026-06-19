@@ -67,23 +67,61 @@ def roll_8(base_binary: str, base_seq: int, year_num: int) -> list[dict]:
             "tam_quai": out}
 
 
-def base_que_from_bat_tu(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
-    """Quẻ cơ bản (基本卦法): 上卦=(月干+月支 太玄)mod8, 下卦=(年干+年支 太玄)mod8.
+# 文王后天数 → quái bits (top-down). 后天: 坎1坤2震3巽4中5乾6兑7艮8离9.
+HAU_THIEN_TO_BITS = {1: "010", 2: "000", 3: "001", 4: "110", 5: "000",
+                     6: "111", 7: "011", 8: "100", 0: "100", 9: "101"}
 
-    Verify được (太玄 + 先天 mod-8). NHƯNG 'Số Tự Cơ Bản' cần bảng 配数 riêng (thiếu)."""
+
+def nguyen_cua_nam(year: int) -> str:
+    """元: 上(1864-1923)/中(1924-1983)/下(1984-2043), chu kỳ 180 năm."""
+    return ["上元", "中元", "下元"][((year - 1864) // 60) % 3]
+
+
+def nam_so_bql(year: int, can_tx: int, chi_tx: int, yang_year: bool, is_male: bool) -> int:
+    """Số năm theo 元 (图解 tr.96): 上=干×10+支; 下=支×10+干;
+    中: 阳年男/阴年女=干×100+支×10, 阳年女/阴年男=支×100+干×10."""
+    ng = nguyen_cua_nam(year)
+    if ng == "上元":
+        return can_tx * 10 + chi_tx
+    if ng == "下元":
+        return chi_tx * 10 + can_tx
+    if (yang_year and is_male) or ((not yang_year) and (not is_male)):
+        return can_tx * 100 + chi_tx * 10
+    return chi_tx * 100 + can_tx * 10
+
+
+def base_que_bat_quai_lan(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """Quẻ cơ bản 八卦滚 (图解 tr.97): 上卦=(太玄 LẺ)mod8→后天; 下卦=(太玄 CHẴN)mod8→后天.
+    KIỂM: 女 2006 丙戌庚寅丁亥辛亥 → odd26→坤, even22→乾 → 地天泰 (4410)."""
     from engine.bat_tu.tu_tru import extract_tu_tru
     from engine.thiet_ban.khoi_so import TAI_HUYEN_CAN, TAI_HUYEN_CHI
     p = extract_tu_tru(birth_dt, timezone)["pillars"]
-    def th(pk):
-        return TAI_HUYEN_CAN[p[pk]["stem"]] + TAI_HUYEN_CHI[p[pk]["branch"]]
-    upper_n = th("month") % 8
-    lower_n = th("year") % 8
-    upper = NUM_TO_TRI_BITS[upper_n]
-    lower = NUM_TO_TRI_BITS[lower_n]
-    binary = upper + lower
-    return {"upper_so": upper_n or 8, "lower_so": lower_n or 8, "binary": binary,
-            "ten": ten_que(binary),
-            "_thieu": "Số Tự Cơ Bản (基本数序) cần bảng 配数 — chưa có, không bịa."}
+    nums = []
+    for pk in ("year", "month", "day", "hour"):
+        nums += [TAI_HUYEN_CAN[p[pk]["stem"]], TAI_HUYEN_CHI[p[pk]["branch"]]]
+    odd = sum(x for x in nums if x % 2)
+    even = sum(x for x in nums if x % 2 == 0)
+    binary = HAU_THIEN_TO_BITS[odd % 8] + HAU_THIEN_TO_BITS[even % 8]
+    return {"odd": odd, "even": even, "binary": binary,
+            "ten": ten_que(binary), "base_seq": so_tu_co_ban(binary)}
+
+
+def roll_bat_quai_lan(birth_dt: str, gender: str = "nam",
+                      timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """Trọn 八卦滚: base (后天 lẻ/chẵn) + 元-năm → roll 8 quẻ. Geometry VALIDATE 8/8 vs 图解."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.thiet_ban.khoi_so import TAI_HUYEN_CAN, TAI_HUYEN_CHI, CAN
+    p = extract_tu_tru(birth_dt, timezone)["pillars"]
+    base = base_que_bat_quai_lan(birth_dt, timezone)
+    yc = p["year"]["stem"]
+    year = int(birth_dt[:4])
+    yang = CAN.index(yc) % 2 == 0   # CAN (khoi_so) là tên Việt; yc cũng Việt
+    is_male = gender in ("nam", "男", "M", "m")
+    nam_so = nam_so_bql(year, TAI_HUYEN_CAN[yc], TAI_HUYEN_CHI[p["year"]["branch"]], yang, is_male)
+    r = roll_8(base["binary"], base["base_seq"], nam_so)
+    return {"base": base, "nguyen": nguyen_cua_nam(year), "nam_so": nam_so, **r,
+            "_thieu_dieu_van": "48 điều văn cần bảng 序/先天/后天数 từng quẻ (密码本) + "
+                               "kho 条文 SẠCH (DB ta lệch số vài 集). Hình học 8 quẻ ĐÃ validate."}
 
 
 # ════════ 八卦基本配数表 (图解 tr.96) — bảng 数序 đã có! ════════

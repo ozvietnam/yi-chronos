@@ -5,9 +5,30 @@ Các test này khoá toán ĐÚNG (và ghi rõ chỗ tài liệu sai).
 """
 from core.hexagram import compose_hexagram_binary as C
 from engine.thiet_ban.bat_quai_lan import (
-    ho_quai, dao_quai, bien_hao, ten_que, roll_8, base_que_from_bat_tu,
-    so_tu_co_ban, quai_trung_so_tu_tru,
+    ho_quai, dao_quai, bien_hao, ten_que, roll_8,
+    so_tu_co_ban, quai_trung_so_tu_tru, roll_bat_quai_lan, nguyen_cua_nam,
 )
+
+
+def test_roll_8_khop_vi_du_sach():
+    """八卦滚 (图解 tr.97-98): 女 2006 → 地天泰(4410), 年số 57 (下元) →
+    8 quẻ = 归妹·大壮·既济·夬·无妄·随·解·兑 (khớp 8/8)."""
+    r = roll_8(C("Khôn", "Càn"), 4410, 57)   # 地天泰
+    tens = [q["ten"] for q in r["tam_quai"]]
+    assert tens == ["Quy Muội", "Đại Tráng", "Ký Tế", "Quải",
+                    "Vô Vọng", "Tùy", "Giải", "Đoài"]
+
+
+def test_nguyen_cua_nam():
+    assert nguyen_cua_nam(2006) == "下元" and nguyen_cua_nam(1988) == "下元"
+    assert nguyen_cua_nam(1950) == "中元" and nguyen_cua_nam(1900) == "上元"
+
+
+def test_roll_bat_quai_lan_birth():
+    """Trọn 八卦滚 từ giờ sinh → 8 quẻ + base + năm-số (tất định)."""
+    r = roll_bat_quai_lan("1988-06-05T23:30", "nam")
+    assert len(r["tam_quai"]) == 8 and r["base"]["base_seq"] > 0
+    assert r["nguyen"] == "下元"
 
 
 def test_so_tu_co_ban_4410():
@@ -61,7 +82,8 @@ def test_roll_8_ra_8_que():
     assert all(len(q["binary"]) == 6 for q in r["tam_quai"])
 
 
-def test_base_que_birth_only():
-    """Quẻ cơ bản từ giờ sinh (太玄 mod-8) — verify được, không lỗi."""
-    bq = base_que_from_bat_tu("1988-06-05T23:30")
-    assert len(bq["binary"]) == 6 and bq["ten"]
+def test_base_que_bat_quai_lan_birth():
+    """Quẻ cơ bản 八卦滚 từ giờ sinh (后天 lẻ/chẵn) — verify shape."""
+    from engine.thiet_ban.bat_quai_lan import base_que_bat_quai_lan
+    bq = base_que_bat_quai_lan("1988-06-05T23:30")
+    assert len(bq["binary"]) == 6 and bq["ten"] and bq["base_seq"] > 0
