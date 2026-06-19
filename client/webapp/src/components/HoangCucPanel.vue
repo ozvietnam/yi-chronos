@@ -150,14 +150,16 @@ async function daPhep() {
     const hdr = { "Content-Type": "application/json" };
     const opt = { method: "POST", headers: hdr, body: JSON.stringify({ birth_datetime_local: tbBirth.value }) };
     const optG = { method: "POST", headers: hdr, body: JSON.stringify({ birth_datetime_local: tbBirth.value, gender: tbGender.value }) };
-    const [qt, nh, gt, ts, tht] = await Promise.all([
+    const [qt, nh, gt, ts, tht, nc, tn] = await Promise.all([
       fetch("/api/thiet-ban/quai-trung", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/nguyen-hoi-van-the", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/bat-quai-gia-tac", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/truoc-sau-que", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/tien-hau-thien", optG).then((r) => r.json()),
+      fetch("/api/thiet-ban/nhat-chu-hoa-que", opt).then((r) => r.json()),
+      fetch("/api/thiet-ban/thap-nhi-tich", opt).then((r) => r.json()),
     ]);
-    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt, truoc_sau: ts, tien_hau: tht };
+    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt, truoc_sau: ts, tien_hau: tht, nhat_chu: nc, thap_nhi: tn };
   } catch (e) { tbLapErr.value = String(e.message || e); }
   finally { tbMultiLoading.value = false; }
 }
@@ -407,6 +409,20 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
           <div v-for="(m,i) in [...tbMulti.tien_hau.dieu_van_tien_thien, ...tbMulti.tien_hau.dieu_van_hau_thien]" :key="'tht'+i" class="hc-dv-row">
             <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
             <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
+        <div v-if="tbMulti.nhat_chu && tbMulti.nhat_chu.dieu_van" class="hc-dv-block">
+          <h4>🌅 日主化卦 <span class="hc-pending">{{ tbMulti.nhat_chu.que }}</span></h4>
+          <div v-for="(m,i) in tbMulti.nhat_chu.dieu_van" :key="'nc'+i" class="hc-dv-row">
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
+        <div v-if="tbMulti.thap_nhi && tbMulti.thap_nhi.so" class="hc-dv-block">
+          <h4>🌙 十二辟卦化卦 <span class="hc-pending">月 {{ tbMulti.thap_nhi.nguyet_chi }} → {{ tbMulti.thap_nhi.tich_que }}</span></h4>
+          <div class="hc-dv-row">
+            <span class="hc-dv-zh">{{ tbMulti.thap_nhi.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ tbMulti.thap_nhi.so }}</span>
           </div>
         </div>
       </div>

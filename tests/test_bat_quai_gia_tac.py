@@ -72,3 +72,18 @@ def test_truoc_sau_que_from_birth():
     r = truoc_sau_que("1988-06-05T23:30")
     assert len(r["dieu_van_truoc"]) == 4 and len(r["dieu_van_sau"]) == 4
     assert r["truoc_base"] > 0
+
+
+def test_nhat_chu_hoa_que_khop_6471():
+    """日主化卦 (图解 tr.2357): 壬午日 → 乾上离下 天火同人 → base 6471, 8 条文 (±96×4)."""
+    from engine.thiet_ban.bat_quai_gia_tac import nhat_chu_hoa_que, gia_tac_mot_que
+    assert gia_tac_mot_que("Nhâm", "Ngọ")["so"] == 6471      # 壬午 → 6471
+    r = nhat_chu_hoa_que("1988-06-05T23:30")
+    assert r["base"] > 0 and len(r["dieu_van"]) == 8
+
+
+def test_thap_nhi_tich_hoa_que():
+    """十二辟卦化卦: nguyệt chi → 辟卦 → 八卦加则. Lá Anh 月午 → 辟卦 天风姤."""
+    from engine.thiet_ban.bat_quai_gia_tac import thap_nhi_tich_hoa_que
+    r = thap_nhi_tich_hoa_que("1988-06-05T23:30")
+    assert r["tich_que"] == "Cấu" and 1 <= r["so"] <= 13000   # 月 Ngọ → 姤 (Cấu)

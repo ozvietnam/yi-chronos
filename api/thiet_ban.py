@@ -157,6 +157,28 @@ def thiet_ban_tien_hau_thien(req: LapSoRequest) -> dict:
     return {"status": "ok", "method": "先后天卦八卦加则法", "source": SOURCE_REF, **r}
 
 
+@router.post("/nhat-chu-hoa-que")
+def thiet_ban_nhat_chu(req: BirthOnlyRequest) -> dict:
+    """日主化卦取数法: chỉ 日柱 → 八卦加则 → base ±96×4 = 8 条文. Cặp kiểm 壬午→6471."""
+    from engine.thiet_ban.bat_quai_gia_tac import nhat_chu_hoa_que
+    try:
+        r = nhat_chu_hoa_que(req.birth_datetime_local, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 日主化卦: {e}")
+    return {"status": "ok", "method": "日主化卦取数法", "source": SOURCE_REF, **r}
+
+
+@router.post("/thap-nhi-tich")
+def thiet_ban_thap_nhi_tich(req: BirthOnlyRequest) -> dict:
+    """十二辟卦化卦取数: nguyệt chi → 辟卦 (消息) → 八卦加则 → 条文."""
+    from engine.thiet_ban.bat_quai_gia_tac import thap_nhi_tich_hoa_que
+    try:
+        r = thap_nhi_tich_hoa_que(req.birth_datetime_local, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 十二辟卦: {e}")
+    return {"status": "ok", "method": "十二辟卦化卦取数", "source": SOURCE_REF, **r}
+
+
 @router.post("/quai-trung")
 def thiet_ban_quai_trung(req: BirthOnlyRequest) -> dict:
     """卦中取数法 (太玄): 年月→quẻ1, 日时→quẻ2 (先天 mod-8) → 4 条文 (图解 cặp kiểm 4/4)."""

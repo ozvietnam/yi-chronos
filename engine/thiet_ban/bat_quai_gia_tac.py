@@ -123,6 +123,42 @@ def truoc_sau_que_tu_taixuan(yc, yz, mc, mz, dc, dz, hc, hz) -> dict:
             "sau_sos": _pm96(sau["so"], False)}       # 后卦 −96×4
 
 
+# 12 辟卦 (消息卦) theo NGUYỆT CHI (图解 tr.4257): (上卦, 下卦)
+TICH_QUAI = {
+    "Tý": ("Khôn", "Chấn"), "Sửu": ("Khôn", "Đoài"), "Dần": ("Khôn", "Càn"),
+    "Mão": ("Chấn", "Càn"), "Thìn": ("Đoài", "Càn"), "Tỵ": ("Càn", "Càn"),
+    "Ngọ": ("Càn", "Tốn"), "Mùi": ("Càn", "Cấn"), "Thân": ("Càn", "Khôn"),
+    "Dậu": ("Tốn", "Khôn"), "Tuất": ("Cấn", "Khôn"), "Hợi": ("Khôn", "Khôn"),
+}
+
+
+def nhat_chu_hoa_que(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """日主化卦取数法 (图解 tr.2357): CHỈ 日柱 → 八卦加则 → base ±96×4 mỗi chiều = 8 条文.
+    KIỂM 壬午日 → 乾(壬)上离(午)下 天火同人 → base 6471."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    d = extract_tu_tru(birth_dt, timezone)["pillars"]["day"]
+    q = gia_tac_mot_que(d["stem"], d["branch"])
+    sos = _pm96(q["so"], True) + _pm96(q["so"], False)         # +96×4 ∪ −96×4
+    return {"que": q["que"], "base": q["so"],
+            "dieu_van": [{"so": s, "dieu_van": (tra_dieu_van(s) or {}).get("zh"),
+                          "vi": (tra_dieu_van(s) or {}).get("vi")} for s in sos],
+            "_phap": "日主化卦取数法 — chỉ 日柱 → 八卦加则 → ±96×4 (8 条文)."}
+
+
+def thap_nhi_tich_hoa_que(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """十二辟卦化卦取数 (图解 tr.4257): NGUYỆT CHI → 辟卦 (消息) → 八卦加则 → 1 条文."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    m = extract_tu_tru(birth_dt, timezone)["pillars"]["month"]
+    up, lo = TICH_QUAI[m["branch"]]
+    q = _tac_que(up, lo)
+    v = tra_dieu_van(q["so"]) or {}
+    return {"nguyet_chi": m["branch"], "tich_que": q["que"], "so": q["so"],
+            "dieu_van": v.get("zh"), "vi": v.get("vi"),
+            "_phap": "十二辟卦化卦取数 — nguyệt chi → 辟卦 → 八卦加则."}
+
+
 def truoc_sau_que(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
     """前后卦取数法 (图解 tr.3133): 年月→前卦, 日时→后卦 (太玄%8→后天) → 八卦加则 → ±96×4.
     VALIDATE cặp kiểm sách: 前卦 水地比 → 1478, 后卦 水雷屯 → 1387 (+/−96×4)."""
