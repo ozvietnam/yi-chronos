@@ -164,7 +164,8 @@ def test_e2e_real_council_path_with_mock_provider(backend, monkeypatch):
     from engine.ai import council
     from engine.ai.registry import get_registry
     mock = get_registry().get("mock")
-    monkeypatch.setattr(council, "_get_agent_provider", lambda aid: (mock, "mock"))
+    monkeypatch.setattr(council, "_get_agent_provider",
+                        lambda aid, prefer_reasoning=False: (mock, "mock"))
     monkeypatch.setattr(council, "_get_orchestrator_provider", lambda: (mock, "mock"))
 
     r = hs.run_council("uid_h6", Q)          # REAL path, không stub

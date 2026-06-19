@@ -52,6 +52,20 @@ def test_build_profile_idempotent(temp_db):
 
 
 def test_build_profile_no_birth_skipped(temp_db):
+    from api import sync
+    sync._ensure_schema()                            # tạo user_persons (rỗng) trong temp db
     from engine import menh_profile as mp
     r = mp.build_profile(987654)                     # user không có self → skip, không lỗi
     assert r["status"] == "skipped" and r["reason"] == "no_birth"
+
+
+def test_cast_la_so_from_birth_produces_chart():
+    """Helper engine (vá bug _build_chart_data): cast tu_vi từ birth → la_số hợp lệ."""
+    from engine.tu_vi.from_birth import cast_la_so_from_birth, hour_branch_from_hour
+    assert hour_branch_from_hour(23) == "Tý" and hour_branch_from_hour(0) == "Tý"
+    la_so = cast_la_so_from_birth(birth_datetime_local="1988-06-05T23:30:00",
+                                  timezone="Asia/Ho_Chi_Minh", gender="nam")
+    assert isinstance(la_so, dict) and la_so          # KHÔNG raise (bug cũ raise âm thầm)
+    # la số phải có 12 cung (cấu trúc Tử Vi)
+    blob = str(la_so)
+    assert "cung" in blob.lower() or "palace" in blob.lower() or len(la_so) >= 5

@@ -141,8 +141,10 @@ def _build_chart_data(person: dict) -> dict:
     except Exception:
         pass
     try:
-        from engine.tu_vi.an_sao import cast_la_so
-        chart["tu_vi"] = cast_la_so(birth_datetime_local=birth, timezone=tz, gender=gender)
+        # FIX 2026-06-19: trước đây gọi cast_la_so(birth_datetime_local=...) SAI signature
+        # → tu_vi luôn raise âm thầm → sage luận thiếu lá số. Dùng helper convert đúng.
+        from engine.tu_vi.from_birth import cast_la_so_from_birth
+        chart["tu_vi"] = cast_la_so_from_birth(birth_datetime_local=birth, timezone=tz, gender=gender)
     except Exception:
         pass
     return chart
