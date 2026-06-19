@@ -87,17 +87,30 @@ def list_pending(limit: int = 50) -> list[dict]:
 
 
 def review(proposal_id: int, *, approve: bool, reviewer: str, note: str = "") -> dict:
-    """Anh duyệt 1 đề xuất pending → approved | rejected."""
+    """Anh duyệt 1 đề xuất pending → approved | rejected.
+
+    ADR 3-tầng §3: duyệt cập nhật chạm T1 (impact='high' = sách/lăng kính/sage mới)
+    → bump `knowledge_version` ⇒ cache T3 cũ tự vô hiệu ⇒ lần hỏi sau luận bằng kiến
+    thức mới. Low-impact (skill tweak nhỏ) KHÔNG bump (tránh vô hiệu cache toàn hệ vô cớ).
+    """
     new_status = "approved" if approve else "rejected"
     with session_scope(service=True) as conn:
         _ensure(conn)
+        row = conn.execute(
+            text("SELECT impact FROM evolve_proposals WHERE id=:id AND status='pending'"),
+            {"id": proposal_id},
+        ).fetchone()
         n = conn.execute(
             text("""UPDATE evolve_proposals
                     SET status=:s, reviewed_at=:t, reviewer=:r, note=:n
                     WHERE id=:id AND status='pending'"""),
             {"s": new_status, "t": int(time.time()), "r": reviewer, "n": note, "id": proposal_id},
         ).rowcount
-    return {"id": proposal_id, "status": new_status if n else "not_pending", "updated": bool(n)}
+    out = {"id": proposal_id, "status": new_status if n else "not_pending", "updated": bool(n)}
+    if n and approve and row and row[0] == "high":
+        from engine.system_meta import bump_knowledge_version
+        out["knowledge_version"] = bump_knowledge_version()
+    return out
 
 
 def get_proposal(proposal_id: int) -> Optional[dict]:

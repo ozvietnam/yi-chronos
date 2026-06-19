@@ -63,6 +63,14 @@ def _cached(uid: int, method: str, question: str, ttl: int = CACHE_TTL_SEC):
     hoặc (None, None). Dùng chính storage lịch sử — KHÔNG bảng mới."""
     import json as _j
     cutoff = int(time.time()) - ttl
+    # ADR 3-tầng §3: cache T3 tự vô hiệu khi knowledge_version bump (sách/lăng kính
+    # mới được duyệt) — entry tạo TRƯỚC lần bump cuối = luận bằng kiến thức CŨ → miss
+    # ⇒ lần hỏi sau luận lại với kiến thức mới. KHÔNG để lỗi version phá cache chính.
+    try:
+        from engine.system_meta import knowledge_version_updated_at
+        cutoff = max(cutoff, knowledge_version_updated_at())
+    except Exception:
+        pass
     with session_scope(service=True) as conn:
         row = conn.execute(
             text("""SELECT id, result_json FROM user_castings
