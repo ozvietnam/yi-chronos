@@ -39,6 +39,7 @@ SAGES_BY_TAG: dict[str, str] = {
     "western": "chiem-tinh-sage",
     "than_so": "than-so-sage",
     "chieu_dom": "chieu-dom-kinh-sage",   # Tử Vi Bắc phái / 18 Phi Tinh (nội tâm)
+    "thiet_ban": "thiet-ban-sage",        # Thiết Bản Thần Số — dịch điều văn + lời bình
 }
 ARBITER_PROFILE = "arbiter"
 

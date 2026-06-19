@@ -28,6 +28,7 @@ AGENT_IDS: tuple[str, ...] = (
     "western",
     "than_so",
     "chieu_dom",   # Tử Vi Bắc phái / 18 Phi Tinh — đọc nội tâm sâu (sage độc lập, Anh chốt 19/6)
+    "thiet_ban",   # Thiết Bản Thần Số — dịch điều văn cổ văn + lời bình (Anh chốt 20/6)
 )
 ORCHESTRATOR_ID = "orchestrator"
 ALL_PROMPT_IDS: tuple[str, ...] = AGENT_IDS + (ORCHESTRATOR_ID,)
@@ -176,5 +177,11 @@ AGENT_METADATA: dict[str, dict] = {
         "icon": "🪞",
         "specialty": "Tử Vi Bắc phái — 18 Phi Tinh, soi chỗ sâu nhất của nội tâm",
         "best_for": "Đọc tâm hồn/chiều sâu tâm lý, cốt cách bên trong (không tiên tri sự kiện)",
+    },
+    "thiet_ban": {
+        "name_vi": "Thiết Bản Thần Số",
+        "icon": "🔩",
+        "specialty": "Dịch điều văn cổ văn Hán → Việt + lời bình (Thiệu Khang Tiết lineage)",
+        "best_for": "Giải nghĩa điều văn Thiết Bản theo đại vận/lưu niên, đọc đồng dạng",
     },
 }

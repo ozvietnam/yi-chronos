@@ -40,6 +40,7 @@ DEFAULT_AGENT_PROVIDER: dict[str, list[str]] = {
     "western":  ["anthropic", "zai", "deepseek", "mock"],
     "than_so":  ["deepseek", "zai", "anthropic", "mock"],
     "chieu_dom": ["deepseek", "zai", "anthropic", "mock"],   # Bắc phái nội tâm (council prefer_reasoning→M3)
+    "thiet_ban": ["deepseek", "zai", "anthropic", "mock"],   # dịch cổ văn điều văn → DeepSeek-Reasoner
 }
 
 # Orchestrator (Trọng tài tổng hợp) — MiniMax-M3 chủ lực 2026-06 (reasoning sâu cho

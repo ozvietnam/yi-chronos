@@ -5,7 +5,7 @@ Design: docs/design/engine-hoang-cuc-thiet-ban-2026-06-10.md
 """
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
 from engine.thiet_ban import METHOD_ID, SOURCE_REF
@@ -101,6 +101,36 @@ def thiet_ban_luu_nien_so(req: LuuNienSoRequest) -> dict:
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Lỗi 流年取数: {e}")
     return {"status": "ok", "method": "流年取数法", "source": SOURCE_REF, **r}
+
+
+class _DieuVanItem(BaseModel):
+    so: int
+    zh: str = ""
+    ngu_canh: str = ""
+
+
+class LuanDieuVanRequest(BaseModel):
+    items: list[_DieuVanItem] = Field(..., max_length=200)
+    force: bool = False
+
+
+@router.post("/luan-dieu-van")
+def thiet_ban_luan_dieu_van(req: LuanDieuVanRequest, request: Request) -> dict:
+    """Sage `thiet_ban` DỊCH điều văn cổ văn Hán → Việt + LỜI BÌNH (Hermes quản lý sage).
+
+    Điều văn cố định → CACHE theo số điều (dịch 1 lần, lần sau instant). Gate đăng-nhập
+    (chặn anon đốt LLM; bản dịch là tài nguyên CHUNG, cache xong mọi người hưởng).
+    Paradigm Iron #6/#8: dịch trung thực + bình đọc-đồng-dạng, KHÔNG predict cát/hung."""
+    from api.auth import get_current_user
+    if not get_current_user(request):
+        raise HTTPException(status_code=401, detail="Cần đăng nhập để sage dịch điều văn.")
+    from engine.thiet_ban.luan_dieu_van import luan_dieu_van
+    items = [{"so": it.so, "zh": it.zh, "ngu_canh": it.ngu_canh} for it in req.items]
+    try:
+        r = luan_dieu_van(items, force=req.force)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi luận điều văn: {e}")
+    return {"status": "ok", "method": "thiet_ban_sage_dich", **r}
 
 
 @router.post("/truoc-sau-que")
