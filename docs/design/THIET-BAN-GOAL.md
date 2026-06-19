@@ -1,55 +1,77 @@
-# THIẾT BẢN THẦN SỐ — GOAL & Cách Đọc Đúng Đạo
+# THIẾT BẢN THẦN SỐ — GOAL & La-bàn (v2, theo sách 图解)
 
-> La-bàn cho mọi việc về Thiết Bản (铁板神数). Có GOAL này rồi thì **tự chạy**, không hỏi vặt.
-> Lập 2026-06-16 theo yêu cầu founder ("phải có GOAL thì không phải hỏi nhiều").
+> La-bàn cho mọi việc Thiết Bản. Có GOAL này thì **tự chạy, validated từng bước, ít hỏi**.
+> v1 lập 2026-06-16; **v2 viết lại 2026-06-19** sau khi founder add sách thẩm quyền 《图解铁版神数》.
 
 ---
 
 ## GOAL — một câu
 
-**Làm sáng tỏ những điều ĐÃ ĐỊNH của một đời — theo TỪNG TUỔI — để người đọc HIỂU cái nền mình được trao (bàn tay được chia), KHÔNG phải để sợ một số phận đóng đinh.**
+**Dựng engine Thiết Bản: bát tự → (nhiều phép 取数) → số → tra điều văn (kho sạch) → đọc cái
+ĐÃ ĐỊNH của một đời (mạnh nhất: LỤC THÂN), để HIỂU cái nền — KHÔNG bói, KHÔNG hù.**
+Độ chính xác đỉnh cao đến từ **考刻 (neo khắc/phân bằng lục thân đã biết)** — đặt ở trang Gia Đạo.
 
-## Sách là gì
+## Nguồn THẨM QUYỀN (xếp hạng)
 
-- **铁板神数** — hệ số "chắc như tấm sắt" (铁板 = không lay chuyển). Là hệ phán **chi tiết, cụ thể nhất** trong nhà Thiệu Khang Tiết.
-- **~12.000 điều văn (条文)** đánh số, **mỗi điều gắn một TUỔI**; tổ chức theo **tập (集)**. Nội dung: số anh em, song thân còn/mất, vợ chồng con cái, thọ yểu, biến cố từng năm tuổi.
-- **Cách dùng**: bát tự + **考刻 (khảo khắc)** — neo chính xác KHẮC giờ sinh bằng **sự kiện đời thật** (số anh em, năm cha/mẹ mất…) — ra một dãy SỐ → tra điều văn đánh số. Càng neo đúng khắc, càng trúng.
+1. **《图解易经象数学·铁版神数》** (陕西师大, `thư viện sách/thieukhangtiet/757915970-...pdf`, 347tr) —
+   bản hiện đại tổng hợp各派, CÓ 图表 + **举例 (cặp kiểm)** + 密码本 + **13000 条文 sạch**. ⭐ Chuẩn để validate.
+2. Bản gốc 《邵康节说易（乙）》(origin.pdf) — bản khắc CŨ, có **lỗi in** (天干配卦 lệch 纳甲, 7艮8兑) → chỉ dùng đối chiếu, KHÔNG làm chuẩn tính.
+3. Repo open-source `xaminxan/tiebanshenshu` — cặp kiểm máy (đã khớp 108/108 流年). Không LICENSE → chỉ học số.
+4. DB `wiki.sqlite3` bảng `tabular_verses` (corpus thiet-ban-than-so) — kho điều văn của ta (lấp lỗ từ nguồn #1).
 
-## Vị trí trong 4 hệ Tổ sư (độ phân giải)
+## Cấu trúc sách 图解 (bản đồ)
 
-| Hệ | Đọc gì | Độ phân giải |
-|---|---|---|
-| Hoàng Cực | mùa của thời | vĩ mô — vạn năm |
-| Mai Hoa | một khoảnh khắc | tức thời |
-| Tử Vi *(Trần Đoàn)* | cấu trúc tâm-thiên-thân | một đời, theo cung |
-| **Thiết Bản** | **chi tiết TỪNG TUỔI** | **vi mô nhất, cụ thể nhất** |
+- **上篇**: 18 取数法 (tr.67-109).
+- **中篇**: 乾集 19 歌诀 (tr.112-128) + 坤集 密码集 21 mục (tr.130-141: 各宫流度/斗宫密数/纳卦表甲乙丙/师徒爻/升仙年月爻).
+- **下篇**: 13000 条文 (子1001→亥13000, tr.144-553).
 
-## Đọc ĐÚNG ĐẠO (quan trọng nhất — paradigm)
+## 18 取数法 — mỗi phép sinh điều văn theo một góc (trạng thái validate)
 
-Thiết Bản là hệ **"bói" nhất** → **căng nhất** với đạo đọc-đồng-dạng (Iron Rule #4/#6/#8). Quy tắc bắt buộc:
+| # | Phép | Cho ra | Trạng thái |
+|---|---|---|---|
+| 五音/十二辟卦 (repo) | 本命 + 流年 | 本命条文 + 流年 từng tuổi | ✅ engine `lap_so.py`, 流年 khớp 108/108 |
+| 12. 卦中取数法 (太玄) | 4 điều (年月+日时+互卦) | birth-only | ✅ `quai_trung_so_tu_tru`, khớp 4/4 cặp kiểm sách |
+| 13. 八卦滚法 | 48 điều (toàn diện) | birth-only | ◑ geometry + 配数表 xong; base 后天 odd/even + full roll CHƯA validate |
+| 4. 考时定刻 + 17/18 考刻论lục thân | neo khắc/phân | cần lục thân | ⏳ tr.69/118/121 (cặp kiểm) — CHƯA đọc kỹ |
+| 7. 元堂取数 | 先天/后天卦 | birth | ✅ có sẵn `engine/ha_lac` (河洛真数) |
+| 14/15/16. 元会运世/大运/流年 | vĩ mô + năm | | ◑ 元会运世 ↔ engine Hoàng Cực; 流年 đã wire |
+| 8-11. 八卦加则/前后卦/六爻和数 | điều bổ sung | | ⏳ chưa làm |
 
-1. **Đọc cái ĐÃ ĐỊNH (THỂ) — bàn tay được chia**: gia cảnh, thân, hoàn cảnh khởi, các mốc đã rồi. **KHÔNG phán cái DỤNG** (mình SỐNG ra sao) — vì **mệnh là dịch**, người là cái BIẾN (founder ngộ 16/6, [[founder_menh_la_dich]]).
-2. **Dùng để HIỂU mình + hoà giải quá khứ**, KHÔNG để sợ tương lai.
-3. Điều văn về tương lai/thọ yểu → trình bày như **cấu trúc/điều kiện**, luôn kèm: *"đây là cái NỀN, không phải bản án; người là cái biến."* **Không hù doạ.**
-4. Kế thừa Mai Hoa: **không nghi không bói · một việc bói một lần** (Iron Rule #4).
-5. **Attribution rõ**: Thiết Bản **tương truyền** Thiệu Khang Tiết (gán truyền thống; văn bản thực có lẽ biên soạn Minh/Thanh mượn danh). KHÔNG nhận nhầm công tổ.
+→ **"N种算法"**: Thiết Bản đầy đủ = NHIỀU phép, mỗi phép góp điều văn (lục thân, tính cách, tài, lưu niên, thọ). Một quẻ đọc tổng hợp nhiều phép.
 
-## Output contract (feature cho user)
+## 考刻 = đỉnh cao (đặt ở GIA ĐẠO)
 
-- ✅ Tra điều văn theo số / khoảng / chữ / tập.
-- ⏳ **Tính số từ ngày sinh** (cần OCR 起数 + phép 考刻) — bước biến Thiết Bản từ "tra cứu" thành "công cụ trọn".
-- Mỗi lần hiện điều văn → **kèm 1 dòng đúng-đạo** (cái nền, không phải bản án).
+Sách 乾集: *"从本人**父母本身八字**... 每一时推八刻, 每刻推十五分, 推到准时, 全数悉合."* →
+考刻 = dùng **lục thân đã biết** (số anh em, cha/mẹ tuổi gì còn-mất...) + **bát tự cha mẹ** để neo đúng
+KHẮC/PHÂN sinh (8 khắc × 15 phân). Đây là máy **trắc nghiệm giờ sinh** + làm bản luận "chuẩn đóng đinh".
+→ Đặt ở trang Gia Đạo (`docs/design/GIA-DAO.md`). 考刻论父母兄弟 (tr.118) + 考分论夫妻子女 (tr.121) có ví dụ.
 
-## Trạng thái & roadmap (tự chạy theo thứ tự này)
+## Paradigm (Iron Rule #4/#6/#8 — căng nhất vì là hệ "bói" nhất)
 
-- **STORE (quan trọng)**: canonical = **DB `data/yi_wiki/wiki.sqlite3` bảng `tabular_verses`** (corpus `thiet-ban-than-so`, **10.907 điều, 8.217 có vi ~75%**). File `data/tabular_verses_v1_*.json` là **bản OCR cũ STALE (5.7k vi)** — KHÔNG ingest đè DB. Dịch mới → ghi thẳng vào DB (UPDATE ... WHERE vi IS NULL), rồi sync.
-- **ĐÃ CÓ**: `engine/thiet_ban` + `api/thiet_ban` (verse/range/search/volume/stats) + web (HoangCucPanel ô "🔢 Tra điều văn" + khung đúng-đạo). OCR bảng điều văn tr.106–587 (qwen-VL).
-- **KEYSTONE 起数 — ĐỌC ĐÚNG TỪ BẢN GỐC** (đọc lại 18/6): phương pháp ở Càn Tập, **đọc THẲNG ảnh scan `..._origin.pdf` tr.9-10** → tài liệu hoá ở **`docs/design/THIET-BAN-KHOI-SO.md`**. ⚠ **Đính chính**: bản in CHỈNH TỀ, không mờ — cái "mờ/đảo" ghi cũ là do **pipeline MinerU làm rối bảng**, KHÔNG phải sách. Đọc đúng được: 天干/地支/日主配卦 (地支 là **7艮8兑** đúng bản gốc), 河洛配数 (9/8/7/6/5/4), 地支取数 Hà Đồ, **安身命** (thuật toán sạch), 五虎遁, 60 纳音 → vào `engine/thiet_ban/khoi_so.py`. Tứ hóa kiểm chéo khớp Đồ Năm. CHƯA ship engine tính-SỐ vì: 八卦加则 (ráp số cuối) cần **bảng 纳卦 từng 集** (origin page_idx 17+) + **cặp kiểm**; 考刻 cần **bát tự cha mẹ + sự kiện** (→ tính năng GIA ĐẠO).
-- **GIA ĐẠO (shipped 18/6)**: 考刻 cần bát tự cha mẹ → biến thành **tính năng**: trang Gia đạo + **luận lá số con cái** (`POST /api/tu-vi/luan-con`, `GiaDaoPanel` tab 👶). Xem `docs/design/GIA-DAO.md`. Bát tự bố mẹ thu ở đây dùng lại cho 考刻 sau.
-- **GAP khác**: ~2.690 điều DB chưa có vi (gồm cả mảnh OCR vỡ).
-- **LIVE**: DB → VPS qua `scripts/sync-atoms-to-vps.sh` (đẩy cả wiki.sqlite3; chỉ chạy khi gom đủ thay đổi, tránh đè state vì 1 nhúm điều).
-- **PATH** (làm không cần hỏi): ① web Thiết Bản đúng-đạo ✓ → ② dịch nốt ~1.690 điều → ③ đọc bảng 纳卦 từng 集 (page_idx 17+) + tìm cặp kiểm → ④ engine 起数 ráp-số → ⑤ nối 考刻 vào Gia đạo → ⑥ trang/sách Thiết Bản hoàn chỉnh.
+- Đọc cái **ĐÃ ĐỊNH (THỂ)** — lục thân, gia cảnh, thân, cái nền — KHÔNG phán cái **DỤNG** (mình sống ra sao). Mệnh là động từ.
+- CHỈ theo **giờ SINH** (founder chốt: bỏ "giờ hỏi", quá mơ hồ).
+- Để **HIỂU + hoà giải**, KHÔNG để sợ. Không hù thọ yểu. Attribution rõ (tương truyền Thiệu Khang Tiết).
+
+## KỶ LUẬT VALIDATE (bắt buộc — "vào việc cẩn thận")
+
+**Mỗi phép TRƯỚC khi ship: phải khớp ví dụ mẫu của sách (cặp kiểm) + ra verse thật trong DB.**
+Thiếu cặp kiểm / thiếu 密码 → KHÔNG bịa số. Ghi rõ chỗ partial. (Đã giữ kỷ luật này xuyên suốt.)
+
+## Trạng thái hiện tại (2026-06-19)
+
+- ✅ Engine `lap_so.py` (五音/辟卦): 本命 + 流年 từng tuổi, validate 108/108. UI live local (tab Hoàng Cực → 🎴 Lập số).
+- ✅ `bat_quai_lan.py`: geometry 互/变/倒, 八卦基本配数表 (`so_tu_co_ban`), 卦中取数法 (`quai_trung_so_tu_tru`, khớp 4/4).
+- ✅ 天干配卦 sửa về 纳甲 chuẩn (xác nhận bởi sách 图解). 元堂/大限 có ở `engine/ha_lac`.
+- ◑ 八卦滚 full · 考刻 lục thân · 条文 lấp lỗ từ sách 图解 — chưa xong.
+
+## PATH (làm theo thứ tự, validated)
+
+1. **Hoàn tất 八卦滚**: sửa base → 后天 odd/even; validate full roll vs ví dụ 图解 (女2006 丙戌庚寅丁亥辛亥 → 地天泰 → 雷泽归妹 → 8 quẻ → 48 điều). Đọc tr.97-98.
+2. **考刻论父母兄弟 + 考分论夫妻子女** (tr.118-121): đọc + dựng phép lục thân (cặp kiểm) → nối Gia Đạo (bát tự cha mẹ).
+3. **坤集 密码集** (tr.130-141): số hoá các 流度/密数/纳卦表 (数序 cho các phép cần).
+4. **条文 sạch**: lấp lỗ hổng DB (vd 9356) + sửa OCR từ 下篇 sách 图解 (13000 bản in đẹp).
+5. **Web**: gộp đa-phép vào panel (本命 + lục thân + lưu niên + 八卦滚), nối 考刻 ở Gia Đạo.
 
 ---
 
-*Nguyên tắc vận hành: bám GOAL này, chạy trọn từng bước của PATH, chỉ hỏi khi thật sự bị chặn (thiếu quyết định không suy được từ GOAL).*
+*Nguyên tắc: bám GOAL, chạy trọn PATH, mỗi bước VALIDATE bằng cặp kiểm sách + DB, KHÔNG bịa. Chỉ hỏi khi thật sự bị chặn.*
