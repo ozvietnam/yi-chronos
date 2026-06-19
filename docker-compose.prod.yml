@@ -11,9 +11,18 @@ services:
       - TZ=Asia/Ho_Chi_Minh
       - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
       - YI_CHRONOS_CORS_ORIGINS=${YI_CHRONOS_CORS_ORIGINS:-https://kinhdich.online,https://www.kinhdich.online}
+      # #41 — Redis broker/backend cho Celery (.delay enqueue) + ratelimit shared.
+      # Khi redis service chạy, hermes-quick/deep-reading/council enqueue THẬT (async)
+      # thay vì 500/sync-fallback. ratelimit dùng REDIS_URL → chia sẻ đa worker.
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - REDIS_URL=redis://redis:6379/0
     volumes:
       # Host /opt/yi-chronos/data → container path matching Mac (WORKDIR-relative)
       - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
+    depends_on:
+      redis:
+        condition: service_healthy
     # Traefik runs in host network on this VPS — it can reach bridge container IPs.
     # No need to share an external network; just expose internal port via labels.
     expose:
@@ -42,3 +51,78 @@ services:
       # NOTE: HTTP→HTTPS redirect is global on this Traefik
       # (--entrypoints.web.http.redirections.entrypoint.to=websecure)
       # so we don't need an explicit insecure router.
+
+  # ── #41 G4/G7 — Redis: Celery broker/backend + cache + rate-limit ──────────
+  redis:
+    image: redis:7-alpine
+    container_name: yi-redis
+    restart: unless-stopped
+    mem_limit: 256m
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  # ── #41 G4 — Celery worker: nuốt job async (H5 deep #38 · H6 hermes #39 · ───
+  #            compat) — KHÔNG có worker thì .delay() treo PENDING. ───────────
+  worker:
+    image: ghcr.io/ozvietnam/yi-chronos:latest
+    container_name: yi-worker
+    restart: unless-stopped
+    mem_limit: 1g
+    command:
+      - celery
+      - -A
+      - engine.tasks.celery_app
+      - worker
+      - -Q
+      - q_default,q_hermes,q_deepread,q_digest,q_compat
+      - --loglevel=info
+      - --concurrency=2
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ── #41 — Celery Beat: CRON (digest tuần H7 #40 · precompute đêm cụm D) ─────
+  beat:
+    image: ghcr.io/ozvietnam/yi-chronos:latest
+    container_name: yi-beat
+    restart: unless-stopped
+    mem_limit: 512m
+    command:
+      - celery
+      - -A
+      - engine.tasks.celery_app
+      - beat
+      - --loglevel=info
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
+    depends_on:
+      redis:
+        condition: service_healthy
+
+volumes:
+  redis-data:
