@@ -111,9 +111,9 @@ def test_free_tier_3_per_day_then_denied(backend):
     for i in range(hs.FREE_DAILY_COUNCIL):    # câu KHÁC nhau → không cache, tiêu quota thật
         r = hs.run_council("uid_h6", f"{Q} (câu {i})", consult=_consult_ok)
         assert r["status"] == "done" and r["tier"] == "free"
-    # hết lượt free → từ chối, KHÔNG gọi council
+    # hết lượt free + không đủ xu → từ chối (mời nạp), KHÔNG gọi council
     r = hs.run_council("uid_h6", f"{Q} (câu cuối)", consult=_consult_must_not_call)
-    assert r["status"] == "denied" and r["reason"] == "no_subscription_and_free_exhausted"
+    assert r["status"] == "denied" and r["reason"] == "insufficient_xu"
 
 
 def test_paid_tier_consumes_grant(backend):

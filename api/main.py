@@ -2937,6 +2937,33 @@ def hermes_ask(req: HermesAskRequest, http_request: Request) -> dict:
     return run_quick("", req.question, req.person_key, user_id=user["user_id"])
 
 
+# ─── Ví Xu (YI-web parity — user đăng nhập) ──────────────────────────────────
+@app.get("/api/wallet")
+def wallet_me(http_request: Request) -> dict:
+    """Số dư ví + chi phí + lượt quick free còn lại của USER WEB đang đăng nhập."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine import ratelimit, xu_wallet
+    uid = user["user_id"]
+    return {
+        "balance": xu_wallet.get_balance(uid),
+        "xu_cost": xu_wallet.XU_COST,
+        "free_quick_remaining": ratelimit.remaining(
+            f"quick_free:{uid}", xu_wallet.FREE_QUICK_PER_DAY, 86400),
+        "free_quick_per_day": xu_wallet.FREE_QUICK_PER_DAY,
+        "daily_bonus_xu": xu_wallet.DAILY_BONUS_XU,
+    }
+
+
+@app.post("/api/wallet/claim-daily")
+def wallet_me_claim(http_request: Request) -> dict:
+    """Tặng xu đăng nhập 1 lần/ngày (welcome window) cho user web."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine import xu_wallet
+    return xu_wallet.claim_daily(user["user_id"])
+
+
 # ─── Phòng Quản Trị Hermes (owner-only console — plan 2026-06-18) ────────────
 class _SoulEditReq(BaseModel):
     content: str
