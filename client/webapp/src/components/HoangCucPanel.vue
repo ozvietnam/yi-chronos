@@ -226,6 +226,7 @@ async function dichDieuVan() {
     const d = await r.json();
     if (!r.ok) { tbDichErr.value = d.detail || `Lỗi ${r.status}`; return; }
     tbDich.value = { ...tbDich.value, ...(d.luan || {}) };
+    if (d.error) tbDichErr.value = d.error;          // provider lỗi → báo rõ, không im lặng
   } catch (e) { tbDichErr.value = String(e.message || e); }
   finally { tbDichLoading.value = false; }
 }

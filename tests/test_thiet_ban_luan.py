@@ -46,6 +46,24 @@ def test_translate_and_cache(monkeypatch, tmp_path):
     get_engine.cache_clear()
 
 
+def test_provider_fail_surfaces_error(monkeypatch, tmp_path):
+    """Provider lỗi (key placeholder/hiccup) → out có 'error', KHÔNG im lặng rỗng."""
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path}/tb_err.sqlite3")
+    get_engine.cache_clear()
+    from engine.ai import council
+
+    class BoomP:
+        def chat(self, *a, **k):
+            raise RuntimeError("no api key")
+
+    monkeypatch.setattr(council, "_get_agent_provider",
+                        lambda aid, prefer_reasoning=False: (BoomP(), "mock"))
+    from engine.thiet_ban.luan_dieu_van import luan_dieu_van
+    r = luan_dieu_van([{"so": 99, "zh": "测试"}])
+    assert r["translated"] == 0 and "error" in r
+    get_engine.cache_clear()
+
+
 def test_endpoint_requires_login(monkeypatch, tmp_path):
     monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path}/tb2.sqlite3")
     get_engine.cache_clear()

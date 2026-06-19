@@ -107,14 +107,26 @@ def luan_dieu_van(items: list[dict], *, force: bool = False) -> dict:
     todo = [it for it in valid if int(it["so"]) not in result]
 
     fresh_all: dict[int, dict] = {}
+    n_fail = 0
     for i in range(0, len(todo), _CHUNK):
         chunk = todo[i:i + _CHUNK]
         try:
-            fresh_all.update(_translate_chunk(chunk))
+            got = _translate_chunk(chunk)
         except Exception:
-            continue   # 1 chunk lỗi không chặn các chunk khác / phần đã cache
+            got = {}                 # 1 chunk lỗi không chặn chunk khác / phần đã cache
+        if got:
+            fresh_all.update(got)
+        else:
+            n_fail += len(chunk)
     if fresh_all:
         _save(fresh_all)
         result.update(fresh_all)
-    return {"luan": {str(k): v for k, v in result.items()},
-            "translated": len(fresh_all), "from_cache": len(result) - len(fresh_all)}
+    out = {"luan": {str(k): v for k, v in result.items()},
+           "translated": len(fresh_all), "from_cache": len(result) - len(fresh_all)}
+    # Surface lỗi: có điều văn cần dịch nhưng KHÔNG dịch được điều nào (provider lỗi/chưa cấu
+    # hình) → báo rõ để UI hiện thông báo thay vì im lặng rỗng.
+    if n_fail and not fresh_all:
+        out["error"] = "Sage dịch thất bại — provider LLM lỗi hoặc chưa cấu hình key. Thử lại sau."
+    elif n_fail:
+        out["partial_failed"] = n_fail
+    return out
