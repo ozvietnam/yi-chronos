@@ -3070,6 +3070,23 @@ def admin_hermes_commander(req: _CommanderReq, request: Request) -> dict:
     return {"status": "ok", **commander_answer(req.question)}
 
 
+class _MasterReviewReq(BaseModel):
+    sample_question: str = ""
+    tags: Optional[list[str]] = None
+
+
+@app.post("/api/admin/hermes/master-review")
+def admin_hermes_master_review(req: _MasterReviewReq, request: Request) -> dict:
+    """Hermes Chúa: rà soát công việc + giao mỗi sage con TỰ ĐÁNH GIÁ sản phẩm (owner-only).
+
+    Chạy song song self-eval từng sage → tổng hợp flagged. Tốn LLM (1 call/sage) → owner-only."""
+    from api.auth import require_owner
+    require_owner(request)
+    from engine.hermes_master import master_review
+    return {"status": "ok", **master_review(sample_question=req.sample_question or None,
+                                             tags=req.tags, max_workers=8)}
+
+
 @app.get("/api/yi-hermes/modules")
 def yi_hermes_modules() -> dict:
     """List all modules YI-Hermes knows about."""

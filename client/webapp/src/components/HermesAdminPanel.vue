@@ -89,6 +89,17 @@ async function loadAudit() {
   catch (e) { err.value = e.message; }
 }
 
+// ── Hermes Chúa (master review — giao sage con tự đánh giá) ──────────────────
+const chua = ref(null);
+const chuaBusy = ref(false);
+async function runChua() {
+  if (!confirm("Hermes Chúa rà soát + giao MỌI sage tự đánh giá sản phẩm? (tốn LLM, ~20-40s)")) return;
+  chuaBusy.value = true; err.value = ""; chua.value = null;
+  try { chua.value = await api("/master-review", { method: "POST", body: {} }); }
+  catch (e) { err.value = e.message; }
+  finally { chuaBusy.value = false; }
+}
+
 function switchTab(t) {
   tab.value = t;
   if (t === "roster") loadRoster();
@@ -111,6 +122,7 @@ onMounted(loadRoster);
       <button :class="{ on: tab === 'metrics' }" @click="switchTab('metrics')">Giám sát</button>
       <button :class="{ on: tab === 'commander' }" @click="switchTab('commander')">Chỉ huy</button>
       <button :class="{ on: tab === 'audit' }" @click="switchTab('audit')">Audit</button>
+      <button :class="{ on: tab === 'chua' }" @click="switchTab('chua')">👑 Chúa</button>
     </nav>
 
     <p v-if="err" class="ha-err">{{ err }}</p>
@@ -195,6 +207,34 @@ onMounted(loadRoster);
         </tbody>
       </table>
     </section>
+
+    <!-- Hermes Chúa -->
+    <section v-else-if="tab === 'chua'">
+      <p class="muted">Hermes Chúa rà soát công việc + giao mỗi sage con <b>TỰ ĐÁNH GIÁ</b> sản phẩm
+        (tạo luận mẫu + tự chấm tuân-paradigm + chỉ lỗi + đề xuất). Tốn LLM ~1 lượt/sage.</p>
+      <button @click="runChua" :disabled="chuaBusy">
+        {{ chuaBusy ? "Các sage đang tự đánh giá…" : "👑 Rà soát + giao tự đánh giá" }}
+      </button>
+      <div v-if="chua" class="ha-chua">
+        <div class="ha-chua-sum">
+          <span class="badge">{{ chua.n_sages }} sage</span>
+          <span class="badge">điểm TB {{ chua.avg_score ?? "?" }}/10</span>
+          <span class="badge" :class="{ flag: chua.n_flagged }">{{ chua.n_flagged }} cần xem lại</span>
+        </div>
+        <div v-for="e in chua.evals" :key="e.tag" class="ha-card" :class="{ 'ha-flag': !e.paradigm_ok }">
+          <div><b>{{ e.name || e.tag }}</b>
+            <span v-if="e.ok" class="badge">paradigm {{ e.paradigm_score }}/10</span>
+            <span class="badge" :class="{ flag: !e.paradigm_ok }">{{ e.paradigm_ok ? "✓ đạt" : "⚠ xem lại" }}</span>
+          </div>
+          <div v-if="e.error" class="ha-err">{{ e.error }}</div>
+          <template v-else>
+            <div class="ha-sample"><small class="muted">mẫu:</small> {{ e.sample }}</div>
+            <div v-if="e.issues && e.issues.length" class="ha-issues"><small class="muted">lỗi tự thấy:</small> {{ e.issues.join("; ") }}</div>
+            <div v-if="e.de_xuat" class="muted"><small>đề xuất: {{ e.de_xuat }}</small></div>
+          </template>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -207,6 +247,12 @@ onMounted(loadRoster);
   background: transparent; border-radius: 6px; cursor: pointer; color: inherit; }
 .ha-tabs button.on { background: var(--read-accent, #6b4); color: #fff; border-color: transparent; }
 .ha-err { color: #c33; background: var(--read-err-bg, #fee); padding: .4rem .6rem; border-radius: 6px; }
+.ha-chua { margin-top: .8rem; }
+.ha-chua-sum { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .6rem; }
+.ha-flag { border-color: #d97706 !important; background: rgba(217,119,6,.07); }
+.badge.flag { border-color: #d97706; color: #d97706; }
+.ha-sample { font-size: .9rem; margin: .3rem 0; line-height: 1.55; }
+.ha-issues { font-size: .85rem; color: #c2410c; margin: .25rem 0; }
 .ha-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
 .ha-table th, .ha-table td { text-align: left; padding: .35rem .4rem;
   border-bottom: 1px solid var(--read-border, #eee); vertical-align: top; }
