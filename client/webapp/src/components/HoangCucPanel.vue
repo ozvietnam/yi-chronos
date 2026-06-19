@@ -180,6 +180,25 @@ async function kaoKhac() {
   finally { tbMultiLoading.value = false; }
 }
 
+// ── 大运 / 流年 取数 ──────────────────────────────────────────────────────
+const tbVanNien = ref(null);
+const tbLuuNienAge = ref(30);
+async function vanNien() {
+  if (!tbBirth.value) { tbLapErr.value = "Cần ngày + giờ sinh."; return; }
+  tbMultiLoading.value = true; tbLapErr.value = ""; tbVanNien.value = null;
+  try {
+    const hdr = { "Content-Type": "application/json" };
+    const [dv, ln] = await Promise.all([
+      fetch("/api/thiet-ban/dai-van-so", { method: "POST", headers: hdr,
+        body: JSON.stringify({ birth_datetime_local: tbBirth.value, gender: tbGender.value }) }).then((r) => r.json()),
+      fetch("/api/thiet-ban/luu-nien-so", { method: "POST", headers: hdr,
+        body: JSON.stringify({ birth_datetime_local: tbBirth.value, from_age: tbLuuNienAge.value, to_age: tbLuuNienAge.value + 9 }) }).then((r) => r.json()),
+    ]);
+    tbVanNien.value = { dai_van: dv, luu_nien: ln };
+  } catch (e) { tbLapErr.value = String(e.message || e); }
+  finally { tbMultiLoading.value = false; }
+}
+
 function syncBirthFromPerson() {
   if (personBirthYear.value) birthYear.value = personBirthYear.value;
 }
@@ -380,6 +399,38 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
           <span class="hc-conf">#{{ tbKaoKhac.phu_mau_hoa_que.so }}</span>
         </div>
         <p :class="tbKaoKhac.ket_qua==='khớp' ? 'hc-tb-dao' : 'hc-pending'">{{ tbKaoKhac.ket_qua==='khớp' ? ('✓ ' + (tbKaoKhac.khop||[]).join('; ')) : (tbKaoKhac.ghi_chu || tbKaoKhac.ket_qua) }}</p>
+      </div>
+    </div>
+
+    <!-- B0d. 大运 / 流年 取数 -->
+    <div class="hc-card" v-if="tbBirth || tbVanNien">
+      <h3>📅 大运 / 流年 取数</h3>
+      <p class="hc-hint">Khung VẬN (đại vận 10 năm) + NIÊN (lưu niên từng năm) — đọc cái ĐÃ ĐỊNH theo thời, không phán.</p>
+      <div class="hc-form">
+        <label>Lưu niên từ tuổi <input type="number" v-model.number="tbLuuNienAge" min="1" max="110" /></label>
+        <button @click="vanNien" :disabled="tbMultiLoading">{{ tbMultiLoading ? "Đang tính…" : "Tính vận/niên" }}</button>
+      </div>
+      <div v-if="tbVanNien" class="hc-lapso">
+        <div v-if="tbVanNien.dai_van && tbVanNien.dai_van.dai_van" class="hc-dv-block">
+          <h4>🔟 大运 (8 đại vận) <span class="hc-pending">基本数 {{ tbVanNien.dai_van.basic_so }}</span></h4>
+          <template v-for="(v,i) in tbVanNien.dai_van.dai_van" :key="'dv'+i">
+            <div v-for="(m,j) in v.dieu_van" :key="'dv'+i+'_'+j" class="hc-dv-row">
+              <span class="hc-dv-muc">{{ v.van }} · {{ v.tuoi }}t</span>
+              <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+              <span class="hc-conf">#{{ m.so }}</span>
+            </div>
+          </template>
+        </div>
+        <div v-if="tbVanNien.luu_nien && tbVanNien.luu_nien.luu_nien" class="hc-dv-block">
+          <h4>📆 流年 (10 năm)</h4>
+          <template v-for="(x,i) in tbVanNien.luu_nien.luu_nien" :key="'ln'+i">
+            <div v-for="(m,j) in x.dieu_van" :key="'ln'+i+'_'+j" class="hc-dv-row">
+              <span class="hc-dv-muc">{{ x.tuoi }}t · {{ x.nam }} {{ x.can_chi }}</span>
+              <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+              <span class="hc-conf">#{{ m.so }}</span>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
 

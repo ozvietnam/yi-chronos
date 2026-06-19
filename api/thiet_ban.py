@@ -74,6 +74,35 @@ def thiet_ban_bat_quai_gia_tac(req: BirthOnlyRequest) -> dict:
     return {"status": "ok", "method": "八卦加则法", "source": SOURCE_REF, **r}
 
 
+@router.post("/dai-van-so")
+def thiet_ban_dai_van(req: LapSoRequest) -> dict:
+    """大运取数法: 基本数(月日时年干) + mỗi đại vận(干支) → 2 条文/vận (8 đại vận)."""
+    from engine.thiet_ban.van_nien import dai_van_thu_so
+    try:
+        r = dai_van_thu_so(req.birth_datetime_local, req.gender, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 大运取数: {e}")
+    return {"status": "ok", "method": "大运取数法", "source": SOURCE_REF, **r}
+
+
+class LuuNienSoRequest(BaseModel):
+    birth_datetime_local: str = Field(..., description="vd 1988-06-05T23:30")
+    from_age: int = Field(1, ge=1, le=120)
+    to_age: int = Field(60, ge=1, le=120)
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/luu-nien-so")
+def thiet_ban_luu_nien_so(req: LuuNienSoRequest) -> dict:
+    """流年取数法: 基本数 + mỗi năm(干支) → 2 条文/năm (theo tuổi mụ)."""
+    from engine.thiet_ban.van_nien import luu_nien_thu_so
+    try:
+        r = luu_nien_thu_so(req.birth_datetime_local, req.from_age, req.to_age, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 流年取数: {e}")
+    return {"status": "ok", "method": "流年取数法", "source": SOURCE_REF, **r}
+
+
 @router.post("/truoc-sau-que")
 def thiet_ban_truoc_sau(req: BirthOnlyRequest) -> dict:
     """前后卦取数法: 年月→前卦, 日时→后卦 (太玄%8→后天) → 八卦加则 → 前+96×4, 后−96×4 = 8 điều.
