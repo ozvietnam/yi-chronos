@@ -122,16 +122,33 @@ jobs:
             echo "─── [2/2] Chạy deploy script trên VPS ───"
             ssh "${SSHOPT[@]}" "$DEPLOY_USER@$DEPLOY_HOST" 'bash -s' < deploy/remote_deploy.sh
 
-      - name: Verify live health endpoint
-        run: |
-          for i in 1 2 3 4 5 6; do
-            RESP=$(curl -sf -o /tmp/h.json -w "%{http_code}" https://kinhdich.online/api/health || echo "fail")
-            if [ "$RESP" = "200" ]; then
-              echo "✅ Live: $(cat /tmp/h.json)"
-              exit 0
-            fi
-            echo "Attempt $i returned: $RESP, retrying in 10s..."
-            sleep 10
-          done
-          echo "❌ Health check failed after 6 attempts"
-          exit 1
+      # Vì sao verify CHẠY TRÊN VPS (qua Tailscale) thay vì curl thẳng từ runner:
+      # firewall edge Hostinger DROP gói của IP runner Azure trên CẢ 22 (đã né
+      # bằng Tailscale) LẪN 443 → `curl https://kinhdich.online` TỪ RUNNER treo
+      # ~2 phút rồi trả "000" DÙ site sống 200 với mọi người khác (đã kiểm: run
+      # 27836992209, 6 lần thử cách nhau ~2'23" = SYN timeout do gói bị DROP). Tăng
+      # retry KHÔNG cứu được vì block kéo dài cả cửa sổ chạy. Nên check phải chạy
+      # TỪ VPS qua đường hầm Tailscale (đường đã chứng minh OK ở bước deploy) —
+      # deploy/verify_health.sh curl qua loopback (--resolve …→127.0.0.1) nên vẫn
+      # đi đúng stack Traefik + TLS cert thật, chỉ đổi điểm đứng nhìn để né firewall.
+      # Bọc nick-fields/retry để 1 cú rớt SSH/Tailscale tạm thời KHÔNG thành false-red;
+      # exit 1 từ script (app thật sự không 200) vẫn propagate ra đỏ = lỗi THẬT.
+      - name: Verify live health endpoint (trên VPS qua Tailscale — né firewall chặn runner)
+        uses: nick-fields/retry@v3
+        env:
+          DEPLOY_HOST: 100.104.69.16
+          DEPLOY_USER: ${{ secrets.VPS_USER }}
+        with:
+          timeout_minutes: 5
+          max_attempts: 3
+          retry_wait_seconds: 20
+          warning_on_retry: true
+          shell: bash
+          command: |
+            set -euo pipefail
+            SSHOPT=(-i "$HOME/.ssh/deploy_key" \
+              -o ConnectTimeout=30 \
+              -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
+              -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+              -o LogLevel=ERROR)
+            ssh "${SSHOPT[@]}" "$DEPLOY_USER@$DEPLOY_HOST" 'bash -s' < deploy/verify_health.sh
