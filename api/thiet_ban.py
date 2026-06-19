@@ -57,6 +57,41 @@ def thiet_ban_kao_khac(req: KaoKhacRequest) -> dict:
     return {"status": "ok", "method": "考时定刻·乾坤流度数法", "source": SOURCE_REF, **r}
 
 
+class BirthOnlyRequest(BaseModel):
+    birth_datetime_local: str = Field(..., description="vd 1988-06-05T23:30")
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/quai-trung")
+def thiet_ban_quai_trung(req: BirthOnlyRequest) -> dict:
+    """卦中取数法 (太玄): 年月→quẻ1, 日时→quẻ2 (先天 mod-8) → 4 条文 (图解 cặp kiểm 4/4)."""
+    from engine.thiet_ban.bat_quai_lan import quai_trung_thu_so
+    try:
+        rows = quai_trung_thu_so(req.birth_datetime_local, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 卦中取数: {e}")
+    return {"status": "ok", "method": "卦中取数法 (太玄)", "source": SOURCE_REF, "dieu_van": rows}
+
+
+class NguyenHoiRequest(BaseModel):
+    birth_datetime_local: str = Field(..., description="vd 1988-06-05T23:30")
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/nguyen-hoi-van-the")
+def thiet_ban_nguyen_hoi(req: NguyenHoiRequest) -> dict:
+    """元会运世法: 元-会-运-世 (太玄) → 2 基本数 → 8 条文. TẤT ĐỊNH theo giờ sinh.
+
+    Nối khung Nguyên-Hội-Vận-Thế của Thiệu Ung (Hoàng Cực). 基本数 là SƠ; chốt cuối
+    qua 考刻 (±30 đối chiếu đời). Đọc cái ĐÃ ĐỊNH, KHÔNG bói."""
+    from engine.thiet_ban.nguyen_hoi_van_the import nguyen_hoi_van_the
+    try:
+        r = nguyen_hoi_van_the(req.birth_datetime_local, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 元会运世: {e}")
+    return {"status": "ok", "method": "元会运世法(一)", "source": SOURCE_REF, **r}
+
+
 @router.get("/stats")
 def thiet_ban_stats() -> dict:
     return {"status": "ok", "method": METHOD_ID, "source": SOURCE_REF, **V.stats()}

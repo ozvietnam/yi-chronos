@@ -135,6 +135,47 @@ async function lapSo() {
   }
 }
 
+// ── Đa phép Thiết Bản (卦中取数 / 元会运世) + 考刻 lục thân ──────────────────
+const tbMulti = ref(null);          // { quai_trung, nguyen_hoi }
+const tbMultiLoading = ref(false);
+const tbChaChi = ref("");           // địa chi năm sinh CHA (考刻)
+const tbMeChi = ref("");            // địa chi năm sinh MẸ
+const tbKaoKhac = ref(null);
+const CHI12 = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+
+async function daPhep() {
+  if (!tbBirth.value) { tbLapErr.value = "Cần ngày + giờ sinh."; return; }
+  tbMultiLoading.value = true; tbLapErr.value = ""; tbMulti.value = null;
+  try {
+    const body = JSON.stringify({ birth_datetime_local: tbBirth.value });
+    const opt = { method: "POST", headers: { "Content-Type": "application/json" }, body };
+    const [qt, nh] = await Promise.all([
+      fetch("/api/thiet-ban/quai-trung", opt).then((r) => r.json()),
+      fetch("/api/thiet-ban/nguyen-hoi-van-the", opt).then((r) => r.json()),
+    ]);
+    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh };
+  } catch (e) { tbLapErr.value = String(e.message || e); }
+  finally { tbMultiLoading.value = false; }
+}
+
+async function kaoKhac() {
+  if (!tbBirth.value) { tbLapErr.value = "Cần ngày + giờ sinh."; return; }
+  tbMultiLoading.value = true; tbLapErr.value = ""; tbKaoKhac.value = null;
+  try {
+    const r = await fetch("/api/thiet-ban/kao-khac", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        birth_datetime_local: tbBirth.value,
+        cha_chi: tbChaChi.value || null, me_chi: tbMeChi.value || null,
+      }),
+    });
+    const d = await r.json();
+    if (!r.ok || d.status !== "ok") throw new Error(d.detail || "Lỗi 考刻");
+    tbKaoKhac.value = d;
+  } catch (e) { tbLapErr.value = String(e.message || e); }
+  finally { tbMultiLoading.value = false; }
+}
+
 function syncBirthFromPerson() {
   if (personBirthYear.value) birthYear.value = personBirthYear.value;
 }
@@ -267,6 +308,47 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
           </template>
         </div>
         <p class="hc-tb-dao">{{ tbLap.ban_menh.paradigm }}</p>
+      </div>
+    </div>
+
+    <!-- B0b. Đa phép Thiết Bản (卦中取数 / 元会运世) -->
+    <div class="hc-card" v-if="tbBirth || tbMulti">
+      <h3>🧮 Đa phép Thiết Bản (cùng giờ sinh)</h3>
+      <p class="hc-hint">Mỗi phép soi một góc cái ĐÃ ĐỊNH — 卦中取数 (年月·日时) + 元会运世 (khung Thiệu Ung).</p>
+      <button @click="daPhep" :disabled="tbMultiLoading">{{ tbMultiLoading ? "Đang tính…" : "Chạy đa phép" }}</button>
+      <div v-if="tbMulti" class="hc-lapso">
+        <div v-if="tbMulti.quai_trung && tbMulti.quai_trung.dieu_van" class="hc-dv-block">
+          <h4>📜 卦中取数法 <span class="hc-pending">(4 điều, cặp kiểm 4/4)</span></h4>
+          <div v-for="(m,i) in tbMulti.quai_trung.dieu_van" :key="'qt'+i" class="hc-dv-row">
+            <span class="hc-dv-muc">{{ m.que }} · {{ m.nhan }}</span>
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
+        <div v-if="tbMulti.nguyen_hoi" class="hc-dv-block">
+          <h4>🌌 元会运世法 <span class="hc-pending">元{{ tbMulti.nguyen_hoi.nguyen_so }} 会{{ tbMulti.nguyen_hoi.hoi_so }} 运{{ tbMulti.nguyen_hoi.van_so }} 世{{ tbMulti.nguyen_hoi.the_so }}</span></h4>
+          <div v-for="(m,i) in [...tbMulti.nguyen_hoi.dieu_van_nguyen_hoi, ...tbMulti.nguyen_hoi.dieu_van_van_the]" :key="'nh'+i" class="hc-dv-row">
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B0c. 考刻 lục thân -->
+    <div class="hc-card" v-if="tbBirth || tbKaoKhac">
+      <h3>🔍 考刻 — neo khắc bằng lục thân</h3>
+      <p class="hc-tb-dao">乾坤流度数法: 年柱 → 父母爻 → sinh tiêu cha/mẹ. Đỉnh cao chính xác Thiết Bản — cấp sinh tiêu cha/mẹ để xác nhận khắc sinh (考刻).</p>
+      <div class="hc-form">
+        <label>Cha tuổi <select v-model="tbChaChi" class="hc-sel"><option value="">—</option><option v-for="c in CHI12" :key="c" :value="c">{{ c }}</option></select></label>
+        <label>Mẹ tuổi <select v-model="tbMeChi" class="hc-sel"><option value="">—</option><option v-for="c in CHI12" :key="c" :value="c">{{ c }}</option></select></label>
+        <button @click="kaoKhac" :disabled="tbMultiLoading">考刻</button>
+      </div>
+      <div v-if="tbKaoKhac" class="hc-lapso">
+        <div class="hc-bm-head">年柱 <b>{{ tbKaoKhac.nam_tru }}</b> → quẻ <b>{{ tbKaoKhac.que }}</b> · 父母爻 <b>{{ tbKaoKhac.phu_mau_chi }}</b> → dự đoán cha/mẹ tuổi <b>{{ tbKaoKhac.sinh_tieu_du_doan }}</b></div>
+        <div class="hc-dv-row"><span class="hc-dv-muc">CHA (乾宫)</span><span class="hc-dv-zh">{{ tbKaoKhac.cha && tbKaoKhac.cha.dieu_van_chuan }}</span><span class="hc-conf">#{{ tbKaoKhac.cha && tbKaoKhac.cha.mat_so }}</span></div>
+        <div class="hc-dv-row"><span class="hc-dv-muc">MẸ (坤宫)</span><span class="hc-dv-zh">{{ tbKaoKhac.me && tbKaoKhac.me.dieu_van_chuan }}</span><span class="hc-conf">#{{ tbKaoKhac.me && tbKaoKhac.me.mat_so }}</span></div>
+        <p :class="tbKaoKhac.ket_qua==='khớp' ? 'hc-tb-dao' : 'hc-pending'">{{ tbKaoKhac.ket_qua==='khớp' ? ('✓ ' + (tbKaoKhac.khop||[]).join('; ')) : (tbKaoKhac.ghi_chu || tbKaoKhac.ket_qua) }}</p>
       </div>
     </div>
 
