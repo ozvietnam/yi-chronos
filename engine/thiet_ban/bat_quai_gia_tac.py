@@ -18,8 +18,10 @@ Sách nói có biến thể 2 (干支纳甲 + 子丑30...) — chưa làm; biế
 """
 from __future__ import annotations
 
-from core.hexagram import compose_hexagram_binary, get_hexagram_by_binary
+from core.hexagram import TRIGRAM_BITS, compose_hexagram_binary, get_hexagram_by_binary
 from engine.thiet_ban.khoi_so import THIEN_CAN_QUAI
+
+_BITS_TO_TRI = {v: k for k, v in TRIGRAM_BITS.items()}
 
 # 支 配卦 (日主配卦诀, 图解 tr.1466-1470): 亥子坎·寅卯震·巳午离·丑坤·申酉乾·辰兑·未艮·戌巽
 DIA_CHI_QUAI_NHATCHU = {
@@ -64,6 +66,85 @@ def phu_mau_sinh_tieu(cha_chi: str, me_chi: str) -> dict:
     """父母生肖化卦取数法 (图解 tr.4253) — LỤC THÂN: 父支→上卦, 母支→下卦 (日主配卦),
     rồi 八卦加则 → 1 条文. Dùng lại lõi 八卦加则 ĐÃ validate (cặp kiểm 2472/3384)."""
     return _tac_que(DIA_CHI_QUAI_NHATCHU[cha_chi], DIA_CHI_QUAI_NHATCHU[me_chi])
+
+
+def _pm96(base: int, cong: bool) -> list:
+    """递加/递减 96 bốn lần (图解 tr.2759-2761): 先天卦 +96×4, 后天卦 −96×4."""
+    step = 96 if cong else -96
+    return [base + step * i for i in range(1, 5)]
+
+
+def tien_hau_thien_gia_tac(birth_dt: str, gender: str = "nam",
+                           timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """先后天卦八卦加则法 (图解 tr.2751): 先天卦/后天卦 (河洛真数, từ engine.ha_lac) →
+    mỗi quẻ 八卦加则 → 先天 +96×4, 后天 −96×4 = 8 条文.
+
+    VALIDATE: 八卦加则 + ±96 khớp ví dụ sách (震为雷→3387→[3483,3579,3675,3771];
+    后天 2477→[2381,2285,2189,2093]). 先天卦/后天卦 lấy từ ha_lac (engine 河洛 của hệ)."""
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    hl = cast_ha_lac(birth_datetime_local=birth_dt, timezone=timezone, gender=gender)
+    tt, ht = hl["tien_thien_quai"], hl["hau_thien_quai"]
+    tt_q = _tac_que(tt["upper_trigram"], tt["lower_trigram"])
+    ht_q = _tac_que(ht["upper_trigram"], ht["lower_trigram"])
+
+    def pack(sos):
+        out = []
+        for s in sos:
+            v = tra_dieu_van(s, prefer_tujie=True) or {}
+            out.append({"so": s, "dieu_van": v.get("zh"), "vi": v.get("vi")})
+        return out
+
+    return {
+        "tien_thien_que": tt.get("name_vi"), "hau_thien_que": ht.get("name_vi"),
+        "tien_thien_base": tt_q["so"], "hau_thien_base": ht_q["so"],
+        "dieu_van_tien_thien": pack(_pm96(tt_q["so"], True)),    # +96×4
+        "dieu_van_hau_thien": pack(_pm96(ht_q["so"], False)),    # −96×4
+        "_phap": "先后天卦八卦加则法 — 先天卦/后天卦 (河洛真数) → 八卦加则 → ±96×4. "
+                 "Cơ chế validate cặp kiểm sách; quẻ tiên/hậu thiên từ engine ha_lac.",
+    }
+
+
+def _tx_to_trigram(can_tx: int, chi_tx: int) -> str:
+    """太玄(干)+太玄(支) → 后天卦 (>8 thì %8). 9→坎,18→坤... (KIỂM ví dụ sách)."""
+    s = can_tx + chi_tx
+    du = s if s <= 8 else (s % 8)
+    from engine.thiet_ban.bat_quai_lan import HAU_THIEN_TO_BITS
+    return _BITS_TO_TRI[HAU_THIEN_TO_BITS[du]]
+
+
+def truoc_sau_que_tu_taixuan(yc, yz, mc, mz, dc, dz, hc, hz) -> dict:
+    """Lõi 前后卦 từ 8 太玄数 (thuần, test cặp kiểm). 前卦=年(上)月(下), 后卦=日(上)时(下)."""
+    truoc = _tac_que(_tx_to_trigram(yc, yz), _tx_to_trigram(mc, mz))   # 前卦
+    sau = _tac_que(_tx_to_trigram(dc, dz), _tx_to_trigram(hc, hz))     # 后卦
+    return {"truoc_que": truoc["que"], "sau_que": sau["que"],
+            "truoc_base": truoc["so"], "sau_base": sau["so"],
+            "truoc_sos": _pm96(truoc["so"], True),    # 前卦 +96×4
+            "sau_sos": _pm96(sau["so"], False)}       # 后卦 −96×4
+
+
+def truoc_sau_que(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """前后卦取数法 (图解 tr.3133): 年月→前卦, 日时→后卦 (太玄%8→后天) → 八卦加则 → ±96×4.
+    VALIDATE cặp kiểm sách: 前卦 水地比 → 1478, 后卦 水雷屯 → 1387 (+/−96×4)."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.thiet_ban.khoi_so import TAI_HUYEN_CAN, TAI_HUYEN_CHI
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    p = extract_tu_tru(birth_dt, timezone)["pillars"]
+
+    def tx(pk):
+        return TAI_HUYEN_CAN[p[pk]["stem"]], TAI_HUYEN_CHI[p[pk]["branch"]]
+
+    (yc, yz), (mc, mz), (dc, dz), (hc, hz) = tx("year"), tx("month"), tx("day"), tx("hour")
+    s = truoc_sau_que_tu_taixuan(yc, yz, mc, mz, dc, dz, hc, hz)
+
+    def pack(sos):
+        return [{"so": x, "dieu_van": (tra_dieu_van(x, prefer_tujie=True) or {}).get("zh"),
+                 "vi": (tra_dieu_van(x, prefer_tujie=True) or {}).get("vi")} for x in sos]
+
+    return {"truoc_que": s["truoc_que"], "sau_que": s["sau_que"],
+            "truoc_base": s["truoc_base"], "sau_base": s["sau_base"],
+            "dieu_van_truoc": pack(s["truoc_sos"]), "dieu_van_sau": pack(s["sau_sos"]),
+            "_phap": "前后卦取数法 — 年月→前卦(+96×4), 日时→后卦(−96×4). Cặp kiểm 1478/1387."}
 
 
 def bat_quai_gia_tac_tu_tru(pillars: dict) -> list:

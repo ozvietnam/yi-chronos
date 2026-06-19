@@ -40,3 +40,35 @@ def test_phu_mau_sinh_tieu():
     from engine.thiet_ban.bat_quai_gia_tac import phu_mau_sinh_tieu
     r = phu_mau_sinh_tieu("Mùi", "Thân")     # 未→艮(上), 申→乾(下) = 山天大畜
     assert r["upper"] == "Cấn" and r["lower"] == "Càn" and 1 <= r["so"] <= 13000
+
+
+def test_pm96_khop_vi_du_sach():
+    """±96×4 khớp ví dụ sách: 先天 3387→[3483,3579,3675,3771]; 后天 2477→[2381,2285,2189,2093]."""
+    from engine.thiet_ban.bat_quai_gia_tac import _pm96
+    assert _pm96(3387, True) == [3483, 3579, 3675, 3771]
+    assert _pm96(2477, False) == [2381, 2285, 2189, 2093]
+
+
+def test_tien_hau_thien_gia_tac_birth():
+    """先后天卦八卦加则 từ giờ sinh — 4+4 điều, base > 0 (先天卦/后天卦 từ ha_lac)."""
+    from engine.thiet_ban.bat_quai_gia_tac import tien_hau_thien_gia_tac
+    r = tien_hau_thien_gia_tac("1988-06-05T23:30", "nam")
+    assert len(r["dieu_van_tien_thien"]) == 4 and len(r["dieu_van_hau_thien"]) == 4
+    assert r["tien_thien_base"] > 0 and r["tien_thien_que"]
+
+
+def test_truoc_sau_que_khop_cap_kiem():
+    """前后卦 (图解 tr.3160): 太玄 年5+4→坎,月9+9→坤 = 水地比 → 八卦加则 1478;
+    日9+8→坎,时5+6→震 = 水雷屯 → 1387. ±96×4 khớp sách."""
+    from engine.thiet_ban.bat_quai_gia_tac import truoc_sau_que_tu_taixuan
+    s = truoc_sau_que_tu_taixuan(5, 4, 9, 9, 9, 8, 5, 6)
+    assert s["truoc_base"] == 1478 and s["sau_base"] == 1387
+    assert s["truoc_sos"] == [1574, 1670, 1766, 1862]
+    assert s["sau_sos"] == [1291, 1195, 1099, 1003]
+
+
+def test_truoc_sau_que_from_birth():
+    from engine.thiet_ban.bat_quai_gia_tac import truoc_sau_que
+    r = truoc_sau_que("1988-06-05T23:30")
+    assert len(r["dieu_van_truoc"]) == 4 and len(r["dieu_van_sau"]) == 4
+    assert r["truoc_base"] > 0

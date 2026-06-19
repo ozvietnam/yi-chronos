@@ -147,14 +147,17 @@ async function daPhep() {
   if (!tbBirth.value) { tbLapErr.value = "Cần ngày + giờ sinh."; return; }
   tbMultiLoading.value = true; tbLapErr.value = ""; tbMulti.value = null;
   try {
-    const body = JSON.stringify({ birth_datetime_local: tbBirth.value });
-    const opt = { method: "POST", headers: { "Content-Type": "application/json" }, body };
-    const [qt, nh, gt] = await Promise.all([
+    const hdr = { "Content-Type": "application/json" };
+    const opt = { method: "POST", headers: hdr, body: JSON.stringify({ birth_datetime_local: tbBirth.value }) };
+    const optG = { method: "POST", headers: hdr, body: JSON.stringify({ birth_datetime_local: tbBirth.value, gender: tbGender.value }) };
+    const [qt, nh, gt, ts, tht] = await Promise.all([
       fetch("/api/thiet-ban/quai-trung", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/nguyen-hoi-van-the", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/bat-quai-gia-tac", opt).then((r) => r.json()),
+      fetch("/api/thiet-ban/truoc-sau-que", opt).then((r) => r.json()),
+      fetch("/api/thiet-ban/tien-hau-thien", optG).then((r) => r.json()),
     ]);
-    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt };
+    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt, truoc_sau: ts, tien_hau: tht };
   } catch (e) { tbLapErr.value = String(e.message || e); }
   finally { tbMultiLoading.value = false; }
 }
@@ -337,6 +340,20 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
         <div v-if="tbMulti.nguyen_hoi" class="hc-dv-block">
           <h4>🌌 元会运世法 <span class="hc-pending">元{{ tbMulti.nguyen_hoi.nguyen_so }} 会{{ tbMulti.nguyen_hoi.hoi_so }} 运{{ tbMulti.nguyen_hoi.van_so }} 世{{ tbMulti.nguyen_hoi.the_so }}</span></h4>
           <div v-for="(m,i) in [...tbMulti.nguyen_hoi.dieu_van_nguyen_hoi, ...tbMulti.nguyen_hoi.dieu_van_van_the]" :key="'nh'+i" class="hc-dv-row">
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
+        <div v-if="tbMulti.truoc_sau && tbMulti.truoc_sau.dieu_van_truoc" class="hc-dv-block">
+          <h4>🀄 前后卦取数法 <span class="hc-pending">前 {{ tbMulti.truoc_sau.truoc_que }} · 后 {{ tbMulti.truoc_sau.sau_que }}</span></h4>
+          <div v-for="(m,i) in [...tbMulti.truoc_sau.dieu_van_truoc, ...tbMulti.truoc_sau.dieu_van_sau]" :key="'ts'+i" class="hc-dv-row">
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
+        <div v-if="tbMulti.tien_hau && tbMulti.tien_hau.dieu_van_tien_thien" class="hc-dv-block">
+          <h4>☯ 先后天卦八卦加则 <span class="hc-pending">先天 {{ tbMulti.tien_hau.tien_thien_que }} · 后天 {{ tbMulti.tien_hau.hau_thien_que }}</span></h4>
+          <div v-for="(m,i) in [...tbMulti.tien_hau.dieu_van_tien_thien, ...tbMulti.tien_hau.dieu_van_hau_thien]" :key="'tht'+i" class="hc-dv-row">
             <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
             <span class="hc-conf">#{{ m.so }}</span>
           </div>

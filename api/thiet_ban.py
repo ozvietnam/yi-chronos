@@ -74,6 +74,30 @@ def thiet_ban_bat_quai_gia_tac(req: BirthOnlyRequest) -> dict:
     return {"status": "ok", "method": "八卦加则法", "source": SOURCE_REF, **r}
 
 
+@router.post("/truoc-sau-que")
+def thiet_ban_truoc_sau(req: BirthOnlyRequest) -> dict:
+    """前后卦取数法: 年月→前卦, 日时→后卦 (太玄%8→后天) → 八卦加则 → 前+96×4, 后−96×4 = 8 điều.
+    Cặp kiểm sách 1478/1387 ✓."""
+    from engine.thiet_ban.bat_quai_gia_tac import truoc_sau_que
+    try:
+        r = truoc_sau_que(req.birth_datetime_local, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 前后卦: {e}")
+    return {"status": "ok", "method": "前后卦取数法", "source": SOURCE_REF, **r}
+
+
+@router.post("/tien-hau-thien")
+def thiet_ban_tien_hau_thien(req: LapSoRequest) -> dict:
+    """先后天卦八卦加则法: 先天卦/后天卦 (河洛真数) → 八卦加则 → 先天+96×4, 后天−96×4 = 8 điều.
+    Cơ chế ±96 validate cặp kiểm sách; quẻ tiên/hậu thiên từ engine ha_lac."""
+    from engine.thiet_ban.bat_quai_gia_tac import tien_hau_thien_gia_tac
+    try:
+        r = tien_hau_thien_gia_tac(req.birth_datetime_local, req.gender, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 先后天卦: {e}")
+    return {"status": "ok", "method": "先后天卦八卦加则法", "source": SOURCE_REF, **r}
+
+
 @router.post("/quai-trung")
 def thiet_ban_quai_trung(req: BirthOnlyRequest) -> dict:
     """卦中取数法 (太玄): 年月→quẻ1, 日时→quẻ2 (先天 mod-8) → 4 条文 (图解 cặp kiểm 4/4)."""
