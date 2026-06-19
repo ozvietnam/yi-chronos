@@ -196,7 +196,7 @@ Hãy chọn agents nào tham gia tranh luận cho câu hỏi này. Trả về JS
 }}
 ```
 
-Chọn 2-5 agent là vừa phải. Tránh gọi tất cả 7 trừ khi thực sự cross-domain.
+Chọn 2-5 agent là vừa phải. Tránh gọi tất cả 9 trừ khi thực sự cross-domain.
 """
 
     try:
