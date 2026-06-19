@@ -2937,6 +2937,112 @@ def hermes_ask(req: HermesAskRequest, http_request: Request) -> dict:
     return run_quick("", req.question, req.person_key, user_id=user["user_id"])
 
 
+# ─── Phòng Quản Trị Hermes (owner-only console — plan 2026-06-18) ────────────
+class _SoulEditReq(BaseModel):
+    content: str
+
+
+class _EvolveReviewReq(BaseModel):
+    approve: bool
+    note: str = ""
+
+
+class _CommanderReq(BaseModel):
+    question: str
+
+
+@app.get("/api/admin/hermes/roster")
+def admin_hermes_roster(request: Request) -> dict:
+    from api.auth import require_owner
+    require_owner(request)
+    from engine.admin_hermes import get_roster
+    return {"status": "ok", "roster": get_roster()}
+
+
+@app.post("/api/admin/hermes/sage/{tag}/toggle")
+def admin_hermes_toggle(tag: str, request: Request) -> dict:
+    from api.auth import require_owner
+    from engine import admin_hermes as ah
+    user = require_owner(request)
+    new_state = not ah.is_sage_enabled(tag)
+    ah.set_sage_enabled(tag, new_state)
+    ah.audit("toggle_sage", actor_user_id=user["user_id"],
+             details={"tag": tag, "enabled": new_state})
+    return {"status": "ok", "tag": tag, "enabled": new_state}
+
+
+@app.get("/api/admin/hermes/sage/{tag}/soul")
+def admin_hermes_get_soul(tag: str, request: Request) -> dict:
+    from api.auth import require_owner
+    require_owner(request)
+    from engine.ai import prompt_store as ps
+    try:
+        return {"status": "ok", "tag": tag, "soul": ps.get_prompt(tag),
+                "overridden": ps.is_overridden(tag), "default": ps.get_default(tag)}
+    except Exception:
+        raise HTTPException(status_code=404, detail=f"unknown sage/prompt: {tag}")
+
+
+@app.put("/api/admin/hermes/sage/{tag}/soul")
+def admin_hermes_set_soul(tag: str, req: _SoulEditReq, request: Request) -> dict:
+    from api.auth import require_owner
+    from engine.ai import prompt_store as ps
+    from engine import admin_hermes as ah
+    user = require_owner(request)
+    try:
+        ps.set_prompt(tag, req.content)
+    except Exception:
+        raise HTTPException(status_code=404, detail=f"unknown sage/prompt: {tag}")
+    ah.audit("edit_soul", actor_user_id=user["user_id"],
+             details={"tag": tag, "size": len(req.content)})
+    return {"status": "ok", "tag": tag, "size": len(req.content)}
+
+
+@app.get("/api/admin/hermes/evolve/pending")
+def admin_hermes_evolve_pending(request: Request) -> dict:
+    from api.auth import require_owner
+    require_owner(request)
+    from engine import evolve_gate
+    return {"status": "ok", "pending": evolve_gate.list_pending(limit=100)}
+
+
+@app.post("/api/admin/hermes/evolve/{proposal_id}/review")
+def admin_hermes_evolve_review(proposal_id: int, req: _EvolveReviewReq,
+                               request: Request) -> dict:
+    from api.auth import require_owner
+    from engine import evolve_gate, admin_hermes as ah
+    user = require_owner(request)
+    res = evolve_gate.review(proposal_id, approve=req.approve,
+                             reviewer=f"owner:{user['user_id']}", note=req.note)
+    ah.audit("evolve_review", actor_user_id=user["user_id"],
+             details={"id": proposal_id, "approve": req.approve, "result": res})
+    return {"status": "ok", **res}
+
+
+@app.get("/api/admin/hermes/metrics")
+def admin_hermes_metrics(request: Request) -> dict:
+    from api.auth import require_owner
+    require_owner(request)
+    from engine.admin_hermes import get_metrics
+    return {"status": "ok", "metrics": get_metrics()}
+
+
+@app.get("/api/admin/hermes/audit")
+def admin_hermes_audit_log(request: Request) -> dict:
+    from api.auth import require_owner
+    require_owner(request)
+    from engine.admin_hermes import list_audit
+    return {"status": "ok", "audit": list_audit(limit=100)}
+
+
+@app.post("/api/admin/hermes/commander/ask")
+def admin_hermes_commander(req: _CommanderReq, request: Request) -> dict:
+    from api.auth import require_owner
+    require_owner(request)
+    from engine.admin_hermes import commander_answer
+    return {"status": "ok", **commander_answer(req.question)}
+
+
 @app.get("/api/yi-hermes/modules")
 def yi_hermes_modules() -> dict:
     """List all modules YI-Hermes knows about."""
