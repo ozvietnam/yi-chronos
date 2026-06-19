@@ -22,6 +22,7 @@ from engine import hermes_guard as guard
 from engine import llm_spend
 from engine import ratelimit
 from engine import subscriptions as subs
+from engine import xu_wallet
 from engine.algo_version import algo_version
 from engine.db import is_postgres, session_scope
 from engine.deep_reading import _resolve  # tái dùng uid→(user_id, person)
@@ -31,6 +32,9 @@ FREE_DAILY_COUNCIL = 3          # FREE tier: council 3 lượt/ngày (premium đ
 FREE_DAILY_QUICK = 10           # FREE tier: trả lời nhanh 1-sage 10 lượt/ngày (rẻ, hằng ngày)
 QUICK_EST_USD = 0.01            # 1 lần gọi LLM 1 sage — rẻ hơn council nhiều
 _DAY = 86400
+# Chi phí xu theo loại (ví TRUNG TÂM ở YI — khớp AppChat). Sau khi hết free/ngày
+# (không có gói VIP) → tiêu xu thay vì denied cứng. Xem engine/xu_wallet.py.
+_XU_KIND = {"quick_free": "quick", "council_free": "council"}
 
 
 CACHE_TTL_SEC = 86400          # "một việc một lần" (Iron #4): cùng câu/ngày → trả lại cũ
@@ -85,15 +89,27 @@ def _cached(uid: int, method: str, question: str, ttl: int = CACHE_TTL_SEC):
     return row[0], data
 
 
-def _gate(uid: int, free_key: str, free_limit: int) -> tuple[str, Optional[str]]:
-    """Quyết quyền: 'paid' (có gói council) → 'free' (còn lượt free/ngày theo free_key) →
-    'denied'. Free tier dùng ratelimit (Redis đa-worker / in-memory dev). KHÔNG trừ lượt gói."""
-    access = subs.check_access(uid, FEATURE)
-    if access["allowed"]:
-        return "paid", None
+def _gate(uid: int, free_key: str, free_limit: int) -> dict:
+    """Quyết quyền + THU PHÍ: 'paid' (gói VIP) → 'free' (còn lượt free/ngày) →
+    'xu' (hết free → tiêu xu từ ví TRUNG TÂM) → 'denied' (hết free + không đủ xu).
+
+    Free tier dùng ratelimit (Redis đa-worker / in-memory dev). 'paid' KHÔNG trừ lượt
+    gói ở đây (consume_use sau khi serve). 'xu' đã TRỪ xu (atomic) ngay tại đây →
+    caller phải HOÀN (xu_wallet.grant) nếu sau đó vượt ngân sách / LLM lỗi.
+
+    Trả {tier, reason?, xu_cost?, xu_balance?, need?, have?}."""
+    if subs.check_access(uid, FEATURE)["allowed"]:
+        return {"tier": "paid"}
     if ratelimit.allow(f"{free_key}:{uid}", free_limit, _DAY):
-        return "free", None
-    return "denied", "no_subscription_and_free_exhausted"
+        return {"tier": "free"}
+    # hết lượt free → tiêu xu (ví trung tâm)
+    kind = _XU_KIND.get(free_key, "quick")
+    cost = xu_wallet.XU_COST[kind]
+    r = xu_wallet.spend(uid, cost, f"hermes_{kind}")
+    if r["ok"]:
+        return {"tier": "xu", "xu_cost": cost, "xu_balance": r["balance"]}
+    return {"tier": "denied", "reason": "insufficient_xu",
+            "xu_cost": cost, "need": r["need"], "have": r["have"]}
 
 # tag sage → thư mục profile (đồng bộ engine/ai/kanban_council.SAGES_BY_TAG)
 SAGE_PROFILE = {
@@ -242,19 +258,28 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
                 "synthesis": cached.get("synthesis"), "agents": cached.get("agents"),
                 "paradigm_ok": cached.get("paradigm_ok", True)}
 
-    tier, deny_reason = _gate(uid, "council_free", FREE_DAILY_COUNCIL)
+    g = _gate(uid, "council_free", FREE_DAILY_COUNCIL)
+    tier = g["tier"]
     if tier == "denied":
-        return {"status": "denied", "reason": deny_reason}
+        return {"status": "denied", "reason": g.get("reason"),
+                "xu_cost": g.get("xu_cost"), "have": g.get("have")}
+
+    def _refund_xu():
+        # 'xu' đã trừ ở _gate → hoàn lại nếu không serve được (budget/LLM lỗi)
+        if tier == "xu":
+            xu_wallet.grant(uid, g["xu_cost"], "refund_hermes_council")
 
     # reserve ngân sách atomic (P0-5) — vượt cap → từ chối, không gọi LLM
     est = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.08))
     if not llm_spend.try_charge(cost_usd=est, feature=FEATURE, model="reserve",
                                 user_id=str(uid)):
+        _refund_xu()
         return {"status": "budget_exceeded"}
 
     def _refund():
         llm_spend.record_spend(provider="reserve", cost_usd=-est, feature=FEATURE,
                                model="refund", user_id=str(uid))
+        _refund_xu()
 
     try:
         result = consult(question, person, uid)
@@ -301,6 +326,8 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
         "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
         "free_remaining": (ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY)
                            if tier == "free" else None),
+        "xu_cost": g.get("xu_cost") if tier == "xu" else None,
+        "xu_balance": g.get("xu_balance") if tier == "xu" else None,
     }
 
 
@@ -363,18 +390,26 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
                 "sage": cached.get("sage"), "answer": cached.get("answer"),
                 "paradigm_ok": cached.get("paradigm_ok", True)}
 
-    tier, deny_reason = _gate(uid, "quick_free", FREE_DAILY_QUICK)
+    g = _gate(uid, "quick_free", FREE_DAILY_QUICK)
+    tier = g["tier"]
     if tier == "denied":
-        return {"status": "denied", "reason": deny_reason}
+        return {"status": "denied", "reason": g.get("reason"),
+                "xu_cost": g.get("xu_cost"), "have": g.get("have")}
+
+    def _refund_xu():
+        if tier == "xu":
+            xu_wallet.grant(uid, g["xu_cost"], "refund_hermes_quick")
 
     est = QUICK_EST_USD
     if not llm_spend.try_charge(cost_usd=est, feature="hermes_quick", model="reserve",
                                 user_id=str(uid)):
+        _refund_xu()
         return {"status": "budget_exceeded"}
 
     def _refund():
         llm_spend.record_spend(provider="reserve", cost_usd=-est, feature="hermes_quick",
                                model="refund", user_id=str(uid))
+        _refund_xu()
 
     try:
         result = answer(question, person, uid)
@@ -427,4 +462,8 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
     return {
         "status": "done", "casting_id": cid, "tier": tier, "sage": result.get("sage"),
         "paradigm_ok": not violations, "answer": result.get("answer"),
+        "free_remaining": (ratelimit.remaining(f"quick_free:{uid}", FREE_DAILY_QUICK, _DAY)
+                           if tier == "free" else None),
+        "xu_cost": g.get("xu_cost") if tier == "xu" else None,
+        "xu_balance": g.get("xu_balance") if tier == "xu" else None,
     }

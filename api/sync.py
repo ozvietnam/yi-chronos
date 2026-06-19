@@ -731,3 +731,77 @@ def hermes_quick_status(
     elif res.failed():
         out["error"] = str(res.result)[:300]
     return out
+
+
+# ─── Ví Xu trung tâm (YI = nguồn chân lý) — kênh AppChat (service-keyed) ──────
+# AppChat KHÔNG tự trừ ở Firestore nữa: nạp (sau RevenueCat/IAP) + đọc số dư +
+# tặng xu đăng nhập đều gọi xuống đây. Tiêu xu xảy ra TRONG luồng Hermes
+# (engine.hermes_service._gate) — không có endpoint "spend" rời (chống double-charge).
+
+class XuGrantRequest(BaseModel):
+    firebase_uid: str
+    amount: int
+    reason: str = "topup"
+    ref: Optional[str] = None   # vd RevenueCat transaction id (idempotency phía caller)
+
+
+@router.get("/wallet/{firebase_uid}")
+def wallet_balance(
+    firebase_uid: str,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Số dư ví + chi phí + lượt quick free còn lại hôm nay."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine import ratelimit, xu_wallet
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, firebase_uid)
+    if user_id is None:
+        return {"found": False}
+    return {
+        "found": True,
+        "balance": xu_wallet.get_balance(user_id),
+        "xu_cost": xu_wallet.XU_COST,
+        "free_quick_remaining": ratelimit.remaining(
+            f"quick_free:{user_id}", xu_wallet.FREE_QUICK_PER_DAY, 86400),
+        "free_quick_per_day": xu_wallet.FREE_QUICK_PER_DAY,
+    }
+
+
+@router.post("/wallet/grant")
+def wallet_grant(
+    req: XuGrantRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Nạp/tặng xu (sau thanh toán đã xác thực ở AppChat). Trả số dư mới."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine import xu_wallet
+    if req.amount <= 0:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, "amount phải > 0")
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+    bal = xu_wallet.grant(user_id, req.amount, req.reason, ref=req.ref)
+    return {"status": "ok", "balance": bal}
+
+
+class XuClaimRequest(BaseModel):
+    firebase_uid: str
+
+
+@router.post("/wallet/claim-daily")
+def wallet_claim_daily(
+    req: XuClaimRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Tặng xu đăng nhập (login bonus) 1 lần/ngày trong cửa sổ welcome."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine import xu_wallet
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+    return xu_wallet.claim_daily(user_id)
