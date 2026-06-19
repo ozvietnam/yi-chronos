@@ -145,7 +145,8 @@ def lap_thiet_ban_so(birth_dt: str, gender: str, query_dt: str,
     hau_thien = (cong + ban_menh) % 8 or 8
     # ⑦ 十二辟卦 (theo 刻 + 本命数) + 本命条文 (基数+序数+秘数 → tra DB ta)
     T = _tables()
-    pq = (T.get("hex_by_khac_banmenh") or {}).get(f"{khac}|{ban_menh}")
+    pq = ((T.get("hex_by_khac_banmenh") or {}).get(f"{khac}|{ban_menh}")
+          or (T.get("hex_simple_by_banmenh") or {}).get(str(ban_menh)))
     ban_menh_dieu_van = None
     rec = (T.get("offsets_by_pq_khac_cong") or {}).get(f"{pq}|{khac}|{cong}") if pq else None
     if rec:

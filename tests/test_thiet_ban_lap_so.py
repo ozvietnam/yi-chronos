@@ -3,7 +3,7 @@
 Cặp kiểm: ví dụ README repo xaminxan/tiebanshenshu (kiểm chéo, repo không LICENSE
 → chỉ dùng làm cặp-kiểm số học; verse dùng DB của ta, đã xác nhận cùng kho).
 """
-from engine.thiet_ban.lap_so import lap_thiet_ban_so, NAP_AM, _nhat_menh, _ngu_am
+from engine.thiet_ban.lap_so import lap_thiet_ban_so, tra_dieu_van, NAP_AM, _nhat_menh, _ngu_am
 
 
 def test_readme_example_1924():
@@ -42,3 +42,26 @@ def test_ngu_am_phoi():
     """五音 cong=11, can năm 甲 (nhóm 甲己) → 徵(2)."""
     am, so = _ngu_am(11, "甲")
     assert am == "徵" and so == 2
+
+
+def test_tich_quai_1924_khop_readme():
+    """辟卦 (刻+本命数): 初刻|344 → 泰 (đúng output README repo)."""
+    r = lap_thiet_ban_so("1924-06-15T16:00", "nam", "2025-04-20T10:00")
+    assert r["thap_nhi_tich_quai"] == "泰"
+
+
+def test_co_che_dieu_van_co_ngu_nghia():
+    """基数+序数+秘数 → điều văn DB ta, ĐÚNG NGỮ NGHĨA (复初刻先天2):
+    兄弟 offset 2530 → 410+350+2530=3290 → verse VỀ anh em."""
+    assert (tra_dieu_van(3290) or {}).get("zh") == "兄弟三人数中注定"
+    assert "仁慈" in (tra_dieu_van(1796) or {}).get("zh", "")  # 性格 1036
+
+
+def test_full_chain_co_dieu_van_khi_co_秘数():
+    """Lá rơi vào 辟卦 có 秘数 (观) → ra 本命条文 thật từ DB."""
+    r = lap_thiet_ban_so("1988-06-05T23:30", "nam", "2024-01-05T10:00")
+    assert r["thap_nhi_tich_quai"] == "观"
+    assert r["ban_menh_dieu_van"] is not None
+    sos = [m["so"] for m in r["ban_menh_dieu_van"]["muc"]]
+    assert all(s >= 1000 for s in sos)  # số điều văn hợp lệ
+    assert any(m["dieu_van"] for m in r["ban_menh_dieu_van"]["muc"])  # có verse từ DB

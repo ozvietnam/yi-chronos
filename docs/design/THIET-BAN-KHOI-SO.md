@@ -5,8 +5,25 @@
 > Lập 16/6, **đọc lại + thấu cơ mật 18-19/6**.
 >
 > **Kết luận một câu:** 铁板 **KHÔNG phải hàm ngày-sinh → số**. Số điều văn là số **CÁ NHÂN**,
-> chỉ chốt được sau **考刻 (đối chiếu lục thân đã biết)** — đó CHÍNH là cái làm nó "chuẩn",
-> và cũng là lý do **không thể tự-động-hoá thuần từ ngày sinh**.
+> chỉ chốt được sau **考刻 (đối chiếu lục thân đã biết)** — đó CHÍNH là cái làm nó "chuẩn".
+
+## ✅ ĐÃ BẬT ENGINE (19/6) — validate qua cặp kiểm mã nguồn mở
+
+Tìm được **2 repo chạy được** (cặp kiểm máy): `xaminxan/tiebanshenshu` (Python, 起数 + bảng)
++ `Horace-Maxwell/horosa-skill` (河洛/邵子). **条文 của repo KHỚP TỪNG CHỮ với DB của ta**
+(子集 1001 "一树残花有枝复茂"...) → sách Anh **cùng kho 12 集×1000** với repo.
+
+**Engine `engine/thiet_ban/lap_so.py` (clean-room, viết lại PHÉP — repo không LICENSE nên
+chỉ học số/cặp-kiểm; verse dùng DB ta):**
+- Chuỗi 起数: 先天命数 → 五音 → 日命/时运 → 考刻(初/正刻) → **本命数** → 后天命数 → 十二辟卦.
+- **KIỂM**: ví dụ repo 1924-06-15 16:00 nam, hỏi 2025-04-20 → 先天 11 · 本命 **344** · 辟卦 **泰** ✓ (test).
+- 条文: `条文 = 基数 + 序数 + 秘数(theo loại)` → tra DB ta. KIỂM ngữ nghĩa: 复初刻先天2 兄弟
+  offset 2530 → 410+350+2530 = **3290** → DB "兄弟三人数中注定" ✓ (offset "anh em" ra verse anh em).
+- Full chain chạy: lá rơi 辟卦 có 秘数 (vd 观) → ra 本命条文 thật (Tính cách/Tài năng/Tài vận/Anh em).
+
+⚠ **秘数 còn PARTIAL**: bảng offset công khai (`14-10`, 288 tổ hợp) chỉ phủ vài 辟卦 (复, 观...);
+nhiều 辟卦 chưa có → lá đó báo "秘数 chưa đủ" (KHÔNG bịa). Bộ 秘数 đầy đủ vẫn là phần mật truyền.
+Dữ liệu facts (cited) ở `data/restored_books/thiet-ban-than-so/khoi_so_tables.json`.
 
 ---
 
