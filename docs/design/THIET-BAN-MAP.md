@@ -60,10 +60,32 @@ Mẫu lặp rõ: 7 nhóm can dẫn × 5 mẫu phụ.
 
 ⚠ Giả thuyết — **chưa kiểm** vì thiếu 演式/cặp kiểm. Quyển 乙 KHÔNG có 演式 (chỉ method + bảng); cặp kiểm có thể ở quyển 甲/丙 hoặc nguồn ngoài (đang săn).
 
+## SỐ HOÁ 坤集 — XONG đợt 1 (đường tất định model.json)
+
+Pilot vision = **6–7.5/10** (bảng dày + chú hành li ti) → **bỏ vision**. Dùng **model.json
+theo toạ độ** (per-page sạch, bug gộp ở middle.json — đã biết) = tất định, nhân rộng được:
+- Bộ trích: `engine/thiet_ban/koan_table_extract.py`
+- Kết quả: `data/restored_books/thiet-ban-than-so/koan_tables.json`
+- **131 trang · 256 mục 纳卦 · 4.567 dòng signature · 476 dòng cờ-soát** (OCR nghi: 成→戊, 已→己, **支→巳**...).
+
+**Hiểu thêm về tổ chức 坤集** (đọc 256 tên mục): mục 纳X卦 đặt theo **QUẺ KẾT QUẢ** sau 配卦
+(屯 nhiều nhất: 纳乾坤屯卦/纳甲土屯卦/纳月屯卦/纳屯木卦/纳屯金卦...; rồi 比/艮/师/晋/复/星/金火...).
+→ **Cơ chế tra (hoàn chỉnh về cấu trúc):** bát tự → 配卦 (乾集) → ra 1 QUẺ + lối 纳 → vào mục
+纳X卦 tương ứng → khớp DÒNG signature (qua 考刻) → 条文.
+
+## TRẦN GIẢI MÃ (thành thật)
+
+Đã decode tới: **phương pháp (乾集) + cấu trúc (目录) + 4.567 dòng signature số hoá + cơ chế tra**.
+CÒN cần để **bật engine bát-tự→số**, và đều cần **CẶP KIỂM**:
+1. Công thức 八卦加则 ráp bát tự → signature CHÍNH XÁC (khẩu quyết cô đọng, nhiều cách hiểu).
+2. Liên kết signature → SỐ điều văn (dòng signature không mang số; số nằm ở trang 条文 — link qua vị trí/thứ tự?).
+3. 秘数 (offset từng loại) — giấu.
+⟹ Cả 3 chỉ chốt được khi có **1 cặp kiểm** (bát tự → số đã biết). Không bịa.
+
 ## Việc (theo task)
 
-- [#4] Map cấu trúc ✓ (file này).
-- [#5] Giải mã signature: cần đọc nội dung 1-2 section + đối chiếu 八卦加则.
-- [#6] Cặp kiểm: thợ nền đang săn (quyển khác / 案例 ngoài).
-- [#7] Số hoá 坤集: theo section, vision (không MinerU). Bắt đầu từ 纳乾坤屯卦.
-- [#8] Giải ngược 秘数 + engine (cần #5+#6+#7).
+- [#4] Map cấu trúc ✓.
+- [#5] Giải mã: cấu trúc + cơ chế tra ✓; công thức số CHÍNH XÁC chờ cặp kiểm.
+- [#6] Cặp kiểm: đang săn (quyển khác / 案例 / **thầy Thiết Bản luận 1 lá số đã biết** — có thể qua mạng lưới Anh).
+- [#7] Số hoá 坤集 ✓ đợt 1 (model.json, 4.567 dòng). Còn: soát 476 dòng cờ + verify mẫu.
+- [#8] Giải ngược 秘数 + engine (chờ #6).
