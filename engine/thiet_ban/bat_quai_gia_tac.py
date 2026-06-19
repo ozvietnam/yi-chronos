@@ -132,6 +132,49 @@ TICH_QUAI = {
 }
 
 
+# 先天数 theo tên quái (Fuxi): 乾1兑2离3震4巽5坎6艮7坤8
+TT_SO = {"Càn": 1, "Đoài": 2, "Ly": 3, "Chấn": 4,
+         "Tốn": 5, "Khảm": 6, "Cấn": 7, "Khôn": 8}
+
+
+def _co_so_hu(binary: str, so_map: dict) -> int:
+    """基数 #10 = 上卦数(千) + 下卦数(百) + 互卦上数(十) + 互卦下数(个). so_map = 先天/后天."""
+    from engine.thiet_ban.bat_quai_lan import ho_quai
+    hu = ho_quai(binary)
+    return (so_map[_BITS_TO_TRI[binary[0:3]]] * 1000 + so_map[_BITS_TO_TRI[binary[3:6]]] * 100
+            + so_map[_BITS_TO_TRI[hu[0:3]]] * 10 + so_map[_BITS_TO_TRI[hu[3:6]]])
+
+
+def _pm48(base: int) -> list:
+    """±48 × {2,4,8,16} → 8 条文 (图解 tr.3019); >13000 thì −12000."""
+    out = [base + 48 * k for k in (2, 4, 8, 16)] + [base - 48 * k for k in (2, 4, 8, 16)]
+    return [s - 12000 if s > 13000 else s for s in out]
+
+
+def tien_hau_thien_thu_so(birth_dt: str, gender: str = "nam",
+                          timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """先后天卦取数法 #10 (图解 tr.3007): 先天卦/后天卦 + 互卦 → 2 基数 → ±48×{2,4,8,16} = 16 条文.
+    VALIDATE: 先天基数 夬→互乾→2111; 后天基数 睽→互既济→9719 (cặp kiểm sách)."""
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    hl = cast_ha_lac(birth_datetime_local=birth_dt, timezone=timezone, gender=gender)
+    tt, ht = hl["tien_thien_quai"], hl["hau_thien_quai"]
+    tt_bin = compose_hexagram_binary(tt["upper_trigram"], tt["lower_trigram"])
+    ht_bin = compose_hexagram_binary(ht["upper_trigram"], ht["lower_trigram"])
+    tt_base = _co_so_hu(tt_bin, TT_SO)              # 先天基数 (先天数)
+    ht_base = _co_so_hu(ht_bin, HAU_THIEN_SO)       # 后天基数 (后天数)
+
+    def pack(sos):
+        return [{"so": s, "dieu_van": (tra_dieu_van(s, prefer_tujie=True) or {}).get("zh"),
+                 "vi": (tra_dieu_van(s, prefer_tujie=True) or {}).get("vi")} for s in sos]
+
+    return {"tien_thien_que": tt.get("name_vi"), "hau_thien_que": ht.get("name_vi"),
+            "tien_thien_base": tt_base, "hau_thien_base": ht_base,
+            "dieu_van_tien_thien": pack(_pm48(tt_base)),
+            "dieu_van_hau_thien": pack(_pm48(ht_base)),
+            "_phap": "先后天卦取数法 #10 — 先天卦/后天卦 + 互卦 → 2 基数 → ±48×{2,4,8,16}."}
+
+
 def nhat_chu_hoa_que(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> dict:
     """日主化卦取数法 (图解 tr.2357): CHỈ 日柱 → 八卦加则 → base ±96×4 mỗi chiều = 8 条文.
     KIỂM 壬午日 → 乾(壬)上离(午)下 天火同人 → base 6471."""

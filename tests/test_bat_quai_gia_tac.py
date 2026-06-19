@@ -87,3 +87,19 @@ def test_thap_nhi_tich_hoa_que():
     from engine.thiet_ban.bat_quai_gia_tac import thap_nhi_tich_hoa_que
     r = thap_nhi_tich_hoa_que("1988-06-05T23:30")
     assert r["tich_que"] == "Cấu" and 1 <= r["so"] <= 13000   # 月 Ngọ → 姤 (Cấu)
+
+
+def test_co_so_hu_khop_cap_kiem():
+    """先后天卦取数 #10 (图解 tr.3033-3091): 夬→互乾→先天基数 2111; 睽→互既济→后天基数 9719."""
+    from engine.thiet_ban.bat_quai_gia_tac import _co_so_hu, TT_SO, HAU_THIEN_SO, _pm48
+    from core.hexagram import compose_hexagram_binary as C
+    assert _co_so_hu(C("Đoài", "Càn"), TT_SO) == 2111         # 夬 (兑上乾下) 先天数
+    assert _co_so_hu(C("Ly", "Đoài"), HAU_THIEN_SO) == 9719   # 睽 (离上兑下) 后天数
+    assert _pm48(2111) == [2207, 2303, 2495, 2879, 2015, 1919, 1727, 1343]
+
+
+def test_tien_hau_thien_thu_so_birth():
+    from engine.thiet_ban.bat_quai_gia_tac import tien_hau_thien_thu_so
+    r = tien_hau_thien_thu_so("1988-06-05T23:30", "nam")
+    assert len(r["dieu_van_tien_thien"]) == 8 and len(r["dieu_van_hau_thien"]) == 8
+    assert r["tien_thien_base"] > 0

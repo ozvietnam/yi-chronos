@@ -150,7 +150,7 @@ async function daPhep() {
     const hdr = { "Content-Type": "application/json" };
     const opt = { method: "POST", headers: hdr, body: JSON.stringify({ birth_datetime_local: tbBirth.value }) };
     const optG = { method: "POST", headers: hdr, body: JSON.stringify({ birth_datetime_local: tbBirth.value, gender: tbGender.value }) };
-    const [qt, nh, gt, ts, tht, nc, tn] = await Promise.all([
+    const [qt, nh, gt, ts, tht, nc, tn, tts] = await Promise.all([
       fetch("/api/thiet-ban/quai-trung", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/nguyen-hoi-van-the", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/bat-quai-gia-tac", opt).then((r) => r.json()),
@@ -158,8 +158,9 @@ async function daPhep() {
       fetch("/api/thiet-ban/tien-hau-thien", optG).then((r) => r.json()),
       fetch("/api/thiet-ban/nhat-chu-hoa-que", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/thap-nhi-tich", opt).then((r) => r.json()),
+      fetch("/api/thiet-ban/tien-hau-thien-thu-so", optG).then((r) => r.json()),
     ]);
-    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt, truoc_sau: ts, tien_hau: tht, nhat_chu: nc, thap_nhi: tn };
+    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt, truoc_sau: ts, tien_hau: tht, nhat_chu: nc, thap_nhi: tn, tien_hau_so: tts };
   } catch (e) { tbLapErr.value = String(e.message || e); }
   finally { tbMultiLoading.value = false; }
 }
@@ -423,6 +424,13 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
           <div class="hc-dv-row">
             <span class="hc-dv-zh">{{ tbMulti.thap_nhi.dieu_van || "—" }}</span>
             <span class="hc-conf">#{{ tbMulti.thap_nhi.so }}</span>
+          </div>
+        </div>
+        <div v-if="tbMulti.tien_hau_so && tbMulti.tien_hau_so.dieu_van_tien_thien" class="hc-dv-block">
+          <h4>🔯 先后天卦取数 (互卦) <span class="hc-pending">先 {{ tbMulti.tien_hau_so.tien_thien_que }} · 后 {{ tbMulti.tien_hau_so.hau_thien_que }}</span></h4>
+          <div v-for="(m,i) in [...tbMulti.tien_hau_so.dieu_van_tien_thien, ...tbMulti.tien_hau_so.dieu_van_hau_thien]" :key="'ths'+i" class="hc-dv-row">
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
           </div>
         </div>
       </div>

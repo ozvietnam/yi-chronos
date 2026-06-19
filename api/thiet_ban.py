@@ -157,6 +157,18 @@ def thiet_ban_tien_hau_thien(req: LapSoRequest) -> dict:
     return {"status": "ok", "method": "先后天卦八卦加则法", "source": SOURCE_REF, **r}
 
 
+@router.post("/tien-hau-thien-thu-so")
+def thiet_ban_tien_hau_thu_so(req: LapSoRequest) -> dict:
+    """先后天卦取数法 #10: 先天卦/后天卦 + 互卦 → 2 基数 → ±48×{2,4,8,16} = 16 条文.
+    Cặp kiểm sách: 先天基数 2111 (夬→互乾), 后天基数 9719 (睽→互既济)."""
+    from engine.thiet_ban.bat_quai_gia_tac import tien_hau_thien_thu_so
+    try:
+        r = tien_hau_thien_thu_so(req.birth_datetime_local, req.gender, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 先后天卦取数: {e}")
+    return {"status": "ok", "method": "先后天卦取数法", "source": SOURCE_REF, **r}
+
+
 @router.post("/nhat-chu-hoa-que")
 def thiet_ban_nhat_chu(req: BirthOnlyRequest) -> dict:
     """日主化卦取数法: chỉ 日柱 → 八卦加则 → base ±96×4 = 8 条文. Cặp kiểm 壬午→6471."""
