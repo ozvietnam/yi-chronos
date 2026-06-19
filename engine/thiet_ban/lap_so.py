@@ -33,28 +33,32 @@ def _tables() -> dict:
     return _TABLES
 
 
-# Ưu tiên bản 图解 (thẩm quyền, founder chọn) → fallback DB cũ 邵乙 (2 bản khác ~38%).
-_CORPUS_PRIORITY = ("thiet-ban-than-so-tujie", "thiet-ban-than-so")
+# 2 bản 条文 KHÁC nhau ~38% (đánh số riêng). MỖI PHÉP dùng bản GỐC của nó (Iron Rule #3):
+#  • 五音/辟卦 本命 + 流年 (repo-native, validate 108/108, tuổi khớp) → DB '邵乙'
+#  • 卦中取数 / 八卦滚 (图解-native, cặp kiểm 图解)                    → '图解'
+_CORPUS_DB = ("thiet-ban-than-so", "thiet-ban-than-so-tujie")
+_CORPUS_TUJIE = ("thiet-ban-than-so-tujie", "thiet-ban-than-so")
 
 
-def tra_dieu_van(seq_no: int) -> dict | None:
-    """Tra LỜI điều văn: ưu tiên corpus 图解 (`...-tujie`), fallback DB cũ.
+def tra_dieu_van(seq_no: int, prefer_tujie: bool = False) -> dict | None:
+    """Tra LỜI điều văn theo BẢN GỐC của phép gọi (tránh lệch tuổi do khác bản).
 
-    Bản 图解 = thẩm quyền (founder chọn) nhưng pass MinerU mới phủ ~57% → chỗ
-    trống dùng DB cũ (đánh dấu nguồn). Trả thêm `nguon` + `do_tin` (seq_confidence)."""
+    prefer_tujie=False (mặc định, phái repo) → DB trước, 图解 fallback.
+    prefer_tujie=True (phép 图解: 卦中/八卦滚) → 图解 trước, DB fallback.
+    Trả thêm `nguon` + `do_tin` (seq_confidence) + `age_marks`."""
     if not _DB_PATH.exists():
         return None
     c = sqlite3.connect(_DB_PATH)
     try:
-        for corpus in _CORPUS_PRIORITY:
+        for corpus in (_CORPUS_TUJIE if prefer_tujie else _CORPUS_DB):
             row = c.execute(
-                "SELECT volume, seq_no, zh, vi, seq_confidence FROM tabular_verses "
-                "WHERE book_corpus_id=? AND seq_no=? AND zh IS NOT NULL LIMIT 1",
-                (corpus, seq_no)).fetchone()
+                "SELECT volume, seq_no, zh, vi, seq_confidence, age_marks_raw "
+                "FROM tabular_verses WHERE book_corpus_id=? AND seq_no=? "
+                "AND zh IS NOT NULL LIMIT 1", (corpus, seq_no)).fetchone()
             if row:
                 return {"so": row[1], "volume": row[0], "zh": row[2], "vi": row[3],
                         "nguon": "图解" if corpus.endswith("tujie") else "DB-邵乙",
-                        "do_tin": row[4]}
+                        "do_tin": row[4], "age_marks": row[5]}
     finally:
         c.close()
     return None
@@ -72,7 +76,8 @@ def tra_luu_nien(letter: str, age: int) -> dict | None:
         return None
     v = tra_dieu_van(seq)
     return {"chu_cai": letter, "tuoi": age, "so": seq,
-            "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi")}
+            "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi"),
+            "age_marks": (v or {}).get("age_marks"), "nguon": (v or {}).get("nguon")}
 
 
 VI2CAN = {"Giáp": "甲", "Ất": "乙", "Bính": "丙", "Đinh": "丁", "Mậu": "戊",
@@ -260,6 +265,7 @@ def luu_nien_chain(birth_dt: str, gender: str, max_age: int = 80,
             "tuoi": age, "nam_chi": cur_dz, "thanh": sound, "marker": marker,
             "chu_cai": letter, "so": seq,
             "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi"),
+            "age_marks": (v or {}).get("age_marks"), "nguon": (v or {}).get("nguon"),
         })
     return {
         "tien_thien_menh_so": cong, "hau_thien_menh_so": pn, "khao_khac": khac,

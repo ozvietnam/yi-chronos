@@ -173,7 +173,7 @@ def quai_trung_thu_so(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> list
     pillars = {pk: (p[pk]["stem"], p[pk]["branch"]) for pk in ("year", "month", "day", "hour")}
     out = []
     for r in quai_trung_so_tu_tru(pillars):
-        v = tra_dieu_van(r["so"])
+        v = tra_dieu_van(r["so"], prefer_tujie=True)   # 卦中 = phép 图解-native
         out.append({**r, "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi")})
     return out
 

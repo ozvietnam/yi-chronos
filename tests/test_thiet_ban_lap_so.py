@@ -29,11 +29,18 @@ def test_luu_nien_chain_letter_walk():
 
 
 def test_luu_nien_tuoi_nhung_khop():
-    """Tự-kiểm: tuổi tính ra KHỚP tuổi GHI trong điều văn (一岁→1, 二十八→28)."""
+    """Tự-kiểm: tuổi tính ra KHỚP tuổi GHI trong điều văn.
+    Đa bản: 图解 ghi tuổi ở CỘT (（1）), DB cũ nhét vào câu (一岁) — chấp nhận cả hai."""
+    CN = {1: "一", 28: "二十八"}
     r = luu_nien_chain("1988-06-05T23:30", "nam", max_age=30)
-    by_age = {x["tuoi"]: (x["dieu_van"] or "") for x in r["luu_nien"]}
-    assert by_age[1].startswith("一岁")
-    assert "二十八" in by_age[28]
+    rows = {x["tuoi"]: x for x in r["luu_nien"]}
+
+    def khop_tuoi(x, n):
+        blob = (x.get("dieu_van") or "") + (x.get("age_marks") or "")
+        return str(n) in blob or CN[n] in blob
+
+    assert khop_tuoi(rows[1], 1)
+    assert khop_tuoi(rows[28], 28)
 
 
 def test_luu_nien_co_dinh_theo_sinh():
@@ -95,8 +102,10 @@ def test_tich_quai_co():
 def test_co_che_dieu_van_co_ngu_nghia():
     """基数+序数+秘数 → điều văn DB ta, ĐÚNG NGỮ NGHĨA (复初刻先天2):
     兄弟 offset 2530 → 410+350+2530=3290 → verse VỀ anh em."""
-    assert (tra_dieu_van(3290) or {}).get("zh") == "兄弟三人数中注定"
-    assert "仁慈" in (tra_dieu_van(1796) or {}).get("zh", "")  # 性格 1036
+    import re
+    _strip = lambda s: re.sub(r"[，。、；！？\s]", "", s or "")  # noqa: E731
+    assert _strip((tra_dieu_van(3290) or {}).get("zh")) == "兄弟三人数中注定"
+    assert "仁慈" in (tra_dieu_van(1796) or {}).get("zh", "")  # 性格 1036 (图解 trống→DB)
 
 
 def test_full_chain_birth_only_co_dieu_van():
