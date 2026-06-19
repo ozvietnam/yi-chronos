@@ -103,6 +103,38 @@ async function timKiem() {
   }
 }
 
+// ── Lập số Thiết Bản từ NGÀY SINH (本命 + 流年) ───────────────────────────
+const tbBirth = ref("");
+const tbGender = ref("nam");
+const tbMaxAge = ref(60);
+const tbLap = ref(null);
+const tbLapLoading = ref(false);
+const tbLapErr = ref("");
+
+function syncTbBirthFromPerson() {
+  const bd = activePerson.value?.birth_datetime_local;
+  if (bd && !tbBirth.value) tbBirth.value = String(bd).slice(0, 16);
+  if (activePerson.value?.gender) tbGender.value = activePerson.value.gender;
+}
+
+async function lapSo() {
+  if (!tbBirth.value) { tbLapErr.value = "Cần ngày + giờ sinh."; return; }
+  tbLapLoading.value = true; tbLapErr.value = ""; tbLap.value = null;
+  try {
+    const r = await fetch("/api/thiet-ban/lap-so", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ birth_datetime_local: tbBirth.value, gender: tbGender.value, max_age: tbMaxAge.value }),
+    });
+    const d = await r.json();
+    if (!r.ok || d.status !== "ok") throw new Error(d.detail || "Lỗi lập số");
+    tbLap.value = d;
+  } catch (e) {
+    tbLapErr.value = String(e.message || e);
+  } finally {
+    tbLapLoading.value = false;
+  }
+}
+
 function syncBirthFromPerson() {
   if (personBirthYear.value) birthYear.value = personBirthYear.value;
 }
@@ -113,11 +145,12 @@ onMounted(async () => {
     if (r.ok) tbStats.value = await r.json();
   } catch { /* stats là trang trí — lỗi không chặn panel */ }
   syncBirthFromPerson();
+  syncTbBirthFromPerson();
   locate();
 });
 
 // Đổi người đang xem → tự cập nhật tuổi + định vị lại
-watch(activePerson, () => { syncBirthFromPerson(); locate(); });
+watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); locate(); });
 </script>
 
 <template>
@@ -189,6 +222,54 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
       </div>
     </div>
 
+    <!-- B0. Lập số Thiết Bản từ ngày sinh -->
+    <div class="hc-card">
+      <h3>🎴 Lập số Thiết Bản từ ngày sinh</h3>
+      <p class="hc-tb-goal">
+        <b>Bản mệnh + lưu niên từng tuổi</b> — tính TẤT ĐỊNH theo <b>giờ SINH</b> (không giờ hỏi).
+        <span class="hc-tb-dao">Đọc cái ĐÃ ĐỊNH (THỂ) để hiểu cái nền — mệnh là dịch, người là cái biến.</span>
+      </p>
+      <div class="hc-form">
+        <label>Ngày giờ sinh <input type="datetime-local" v-model="tbBirth" /></label>
+        <label>Giới <select v-model="tbGender" class="hc-sel"><option value="nam">Nam</option><option value="nữ">Nữ</option></select></label>
+        <label>Xem tới tuổi <input type="number" v-model.number="tbMaxAge" min="1" max="108" /></label>
+        <button @click="lapSo" :disabled="tbLapLoading">{{ tbLapLoading ? "Đang lập…" : "Lập số" }}</button>
+      </div>
+      <p v-if="tbLapErr" class="hc-err">{{ tbLapErr }}</p>
+
+      <div v-if="tbLap" class="hc-lapso">
+        <div class="hc-bm-head">
+          Bát tự: <b>{{ tbLap.ban_menh.bat_tu_sinh }}</b> · {{ tbLap.ban_menh.am_lich }} ·
+          先天 <b>{{ tbLap.ban_menh.tien_thien_menh_so }}</b> · 五音 {{ tbLap.ban_menh.ngu_am }} ·
+          本命数 <b>{{ tbLap.ban_menh.ban_menh_so }}</b> · 辟卦 <b>{{ tbLap.ban_menh.thap_nhi_tich_quai || "—" }}</b> · {{ tbLap.ban_menh.khao_khac }}
+        </div>
+
+        <div v-if="tbLap.ban_menh.ban_menh_dieu_van" class="hc-dv-block">
+          <h4>📜 Bản mệnh (cái đã định)</h4>
+          <template v-for="(m,i) in tbLap.ban_menh.ban_menh_dieu_van.muc" :key="i">
+            <div v-if="m.dieu_van" class="hc-dv-row">
+              <span class="hc-dv-muc">{{ m.muc }}</span>
+              <span class="hc-dv-zh">{{ m.dieu_van }}</span>
+              <span class="hc-conf">#{{ m.so }}</span>
+            </div>
+          </template>
+        </div>
+        <p v-else class="hc-pending">Bản mệnh điều văn: 秘数 cho 辟卦 này chưa khôi phục đủ — không bịa số.</p>
+
+        <div v-if="tbLap.luu_nien && tbLap.luu_nien.luu_nien" class="hc-dv-block">
+          <h4>🗓️ Lưu niên từng tuổi <span class="hc-pending">(tất định theo giờ sinh)</span></h4>
+          <template v-for="x in tbLap.luu_nien.luu_nien" :key="x.tuoi">
+            <div v-if="x.dieu_van" class="hc-dv-row">
+              <span class="hc-dv-muc">{{ x.tuoi }} tuổi</span>
+              <span class="hc-dv-zh">{{ x.dieu_van }}</span>
+              <span class="hc-conf">#{{ x.so }}</span>
+            </div>
+          </template>
+        </div>
+        <p class="hc-tb-dao">{{ tbLap.ban_menh.paradigm }}</p>
+      </div>
+    </div>
+
     <!-- B. Tra Thiết Bản -->
     <div class="hc-card">
       <h3>🔢 Tra điều văn Thiết Bản Thần Số</h3>
@@ -198,7 +279,7 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
       </p>
       <p class="hc-hint" v-if="tbStats">
         Bảng tra {{ tbStats.total?.toLocaleString() }} điều (số {{ tbStats.seq_range?.[0] }}–{{ tbStats.seq_range?.[1] }}),
-        {{ tbStats.with_vi?.toLocaleString() }} điều có bản dịch. Phép TÍNH số từ bát tự: chờ đọc sâu phần lệ (tầng B).
+        {{ tbStats.with_vi?.toLocaleString() }} điều có bản dịch. Phép TÍNH số từ ngày sinh: đã bật (ô "🎴 Lập số" phía trên).
       </p>
       <div class="hc-form">
         <label>Số điều <input type="number" v-model.number="tbSeq" placeholder="vd 1002" min="991" max="12990"
@@ -258,6 +339,16 @@ watch(activePerson, () => { syncBirthFromPerson(); locate(); });
 .hc-atom blockquote { margin: 4px 0 0; padding-left: 10px; border-left: 3px solid var(--accent, #7c5cff); font-size: .85rem; opacity: .85; }
 .hc-me { margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: rgba(124,92,255,.10); border: 1px solid var(--accent, #7c5cff); font-size: .92rem; }
 .hc-me-note { display: block; font-size: .78rem; opacity: .72; margin-top: 2px; font-style: italic; }
+.hc-sel { padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border-color, rgba(255,255,255,.15)); background: transparent; color: inherit; }
+.hc-sel option { color: #222; }
+.hc-lapso { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.hc-bm-head { font-size: .9rem; padding: 8px 12px; border-radius: 10px; background: rgba(124,92,255,.10); border: 1px solid var(--accent, #7c5cff); line-height: 1.7; }
+.hc-dv-block h4 { margin: 4px 0 6px; font-size: .92rem; }
+.hc-dv-row { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; border-bottom: 1px dashed var(--border-color, rgba(255,255,255,.1)); font-size: .9rem; }
+.hc-dv-muc { flex: 0 0 92px; opacity: .7; font-size: .8rem; }
+.hc-dv-zh { flex: 1; }
+.hc-tb-goal { font-size: .85rem; opacity: .85; margin: 4px 0 10px; line-height: 1.55; }
+.hc-tb-dao { display: block; font-size: .8rem; opacity: .7; font-style: italic; margin-top: 4px; }
 .hc-namque { color: var(--accent, #7c5cff); }
 .hc-namque em { opacity: .7; font-size: .82rem; }
 .hc-namque-flat { font-size: .8rem; opacity: .6; margin: 2px 0 0 18px; }

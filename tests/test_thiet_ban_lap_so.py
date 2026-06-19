@@ -4,7 +4,8 @@ Cặp kiểm: ví dụ README repo xaminxan/tiebanshenshu (kiểm chéo, repo kh
 → chỉ dùng làm cặp-kiểm số học; verse dùng DB của ta, đã xác nhận cùng kho).
 """
 from engine.thiet_ban.lap_so import (
-    lap_thiet_ban_so, tra_dieu_van, tra_luu_nien, NAP_AM, _nhat_menh, _ngu_am,
+    lap_thiet_ban_so, tra_dieu_van, tra_luu_nien, luu_nien_chain,
+    NAP_AM, _nhat_menh, _ngu_am,
 )
 
 
@@ -13,6 +14,33 @@ def test_luu_nien_lookup_khop_anchor():
     r = tra_luu_nien("福", 1)
     assert r["so"] == 2133
     assert "并蒂双莲" in (r["dieu_van"] or "")
+
+
+def test_luu_nien_chain_letter_walk():
+    """Letter-walk đầy đủ (validate VÀNG: 108/108 chữ cái khớp engine repo tieban).
+    Lá founder: 先天6 后天8 初刻, tam-hợp 申子辰, khởi 3, age1 → chữ 桃 #2408."""
+    r = luu_nien_chain("1988-06-05T23:30", "nam", max_age=108)
+    assert r["tien_thien_menh_so"] == 6 and r["hau_thien_menh_so"] == 8
+    assert r["nhom_tam_hop"] == "申子辰" and r["khoi_dau_so"] == 3
+    a1 = r["luu_nien"][0]
+    assert a1["thanh"] == "五" and a1["marker"] == "水" and a1["chu_cai"] == "桃" and a1["so"] == 2408
+    # phủ điều văn cao
+    assert sum(1 for x in r["luu_nien"] if x["so"]) >= 100
+
+
+def test_luu_nien_tuoi_nhung_khop():
+    """Tự-kiểm: tuổi tính ra KHỚP tuổi GHI trong điều văn (一岁→1, 二十八→28)."""
+    r = luu_nien_chain("1988-06-05T23:30", "nam", max_age=30)
+    by_age = {x["tuoi"]: (x["dieu_van"] or "") for x in r["luu_nien"]}
+    assert by_age[1].startswith("一岁")
+    assert "二十八" in by_age[28]
+
+
+def test_luu_nien_co_dinh_theo_sinh():
+    """流年 TẤT ĐỊNH theo giờ sinh — cùng input, cùng kết quả."""
+    a = luu_nien_chain("1990-03-20T08:00", "nữ", max_age=20)
+    b = luu_nien_chain("1990-03-20T08:00", "nữ", max_age=20)
+    assert [x["so"] for x in a["luu_nien"]] == [x["so"] for x in b["luu_nien"]]
 
 
 def test_birth_only_1924():

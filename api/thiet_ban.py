@@ -6,11 +6,34 @@ Design: docs/design/engine-hoang-cuc-thiet-ban-2026-06-10.md
 from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query
+from pydantic import BaseModel, Field
 
 from engine.thiet_ban import METHOD_ID, SOURCE_REF
 from engine.thiet_ban import verses as V
 
 router = APIRouter(prefix="/api/thiet-ban", tags=["thiet-ban"])
+
+
+class LapSoRequest(BaseModel):
+    birth_datetime_local: str = Field(..., description="vd 1988-06-05T23:30")
+    gender: str = Field("nam", description="nam | nữ")
+    timezone: str = "Asia/Ho_Chi_Minh"
+    max_age: int = Field(80, ge=1, le=108)
+
+
+@router.post("/lap-so")
+def thiet_ban_lap_so(req: LapSoRequest) -> dict:
+    """Lập số Thiết Bản TỪ GIỜ SINH (本命 + 流年 từng tuổi) — TẤT ĐỊNH, không giờ hỏi.
+
+    Đọc cái ĐÃ ĐỊNH (THỂ) để hiểu cái nền; 考刻 tới 15 phút cần lục thân (gia đạo)."""
+    from engine.thiet_ban.lap_so import lap_thiet_ban_so, luu_nien_chain
+    try:
+        ban_menh = lap_thiet_ban_so(req.birth_datetime_local, req.gender, req.timezone)
+        luu_nien = luu_nien_chain(req.birth_datetime_local, req.gender, req.max_age, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi lập số: {e}")
+    return {"status": "ok", "method": METHOD_ID, "source": SOURCE_REF,
+            "ban_menh": ban_menh, "luu_nien": luu_nien}
 
 
 @router.get("/stats")
