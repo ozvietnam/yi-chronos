@@ -93,6 +93,11 @@ SERIAL_TABLES = ["users", "user_persons", "user_castings", "user_favorites",
                  "publication_shares", "user_facts", "chat_summaries",
                  "glossary_views"]
 
+# Bảng con FK user_id → users(user_id) ON DELETE CASCADE (db/postgres/schema.sql).
+# SQLite KHÔNG enforce FK → tích rows MỒ CÔI (user đã xoá nhưng con còn). PG enforce
+# → chèn orphan = ForeignKeyViolation vỡ cả batch. Phải LỌC orphan trước khi chèn.
+FK_USER_TABLES = {"user_persons", "user_castings", "user_favorites", "user_subscriptions"}
+
 
 def _sqlite_rows(db_path: Path, table: str, cols: list[str]):
     if not db_path.exists():
@@ -118,6 +123,14 @@ def migrate(*, dry_run: bool, do_schema: bool, truncate: bool) -> int:
             apply_schema(conn)
         print("• schema applied")
 
+    # user_id hợp lệ (từ nguồn) → lọc orphan ở bảng con FK→users (PG enforce FK).
+    valid_users: set = set()
+    _udb = ROOT / "data/yi_users/users.sqlite3"
+    if _udb.exists():
+        _uc = sqlite3.connect(_udb)
+        valid_users = {r[0] for r in _uc.execute("SELECT user_id FROM users")}
+        _uc.close()
+
     report: list[tuple[str, int, int]] = []
     for rel, table, cols, json_cols in PLAN:
         src = _sqlite_rows(ROOT / rel, table, cols)
@@ -126,6 +139,14 @@ def migrate(*, dry_run: bool, do_schema: bool, truncate: bool) -> int:
             report.append((table, 0, 0))
             continue
         use_cols, rows = src
+        # Lọc orphan: bảng con FK→users mà user_id ∉ users (junk pre-FK) → drop + báo.
+        if table in FK_USER_TABLES and "user_id" in use_cols:
+            _ui = use_cols.index("user_id")
+            _before = len(rows)
+            rows = [r for r in rows if r[_ui] in valid_users]
+            _dropped = _before - len(rows)
+            if _dropped:
+                print(f"  ⚠ {table}: bỏ {_dropped} dòng MỒ CÔI (user_id không có trong users)")
         n_src = len(rows)
         if dry_run:
             print(f"  - {table}: {n_src} dòng (dry-run, không ghi)")
