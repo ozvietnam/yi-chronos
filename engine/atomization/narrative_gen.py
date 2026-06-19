@@ -155,16 +155,16 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
             ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
         )
         user_prompt = _compose_chu_de_prompt(chu_de_data, la_so_input, feedback)
-        resp = provider.chat(
-            messages=[
-                {"role": "system", "content": CHU_DE_SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
-            ],
-            temperature=0.7,
-            max_tokens=4000,
-        )
-        narrative = (resp.content or "").strip()
-        model = f"{resp.provider}:{resp.model}"
+        msgs = [{"role": "system", "content": CHU_DE_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}]
+        # token floor + retry chống reasoning-model (MiniMax-M) <think> ăn hết → rỗng
+        narrative, model = "", ""
+        for mt in (6000, 10000):
+            resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
+            narrative = (resp.content or "").strip()
+            model = f"{resp.provider}:{resp.model}"
+            if narrative:
+                break
         if not narrative:
             raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
         conn.execute(
@@ -681,22 +681,19 @@ def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False
             ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
         )
         user_prompt = _compose_user_prompt(three_layer, la_so_input, feedback)
-        resp = provider.chat(
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
-            ],
-            temperature=0.7,
-            # Reasoning models (MiniMax-M2) tiêu tokens cho <think> trước khi trả lời
-            # → phải cho trần cao, nếu không đáp án bị cắt rỗng.
-            max_tokens=4000,
-        )
-        narrative = (resp.content or "").strip()
-        model = f"{resp.provider}:{resp.model}"
+        msgs = [{"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}]
+        # Reasoning models (MiniMax-M) tiêu tokens cho <think> trước khi trả lời →
+        # trần cao + retry; nếu không đáp án bị cắt rỗng.
+        narrative, model = "", ""
+        for mt in (6000, 10000):
+            resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
+            narrative = (resp.content or "").strip()
+            model = f"{resp.provider}:{resp.model}"
+            if narrative:
+                break
         if not narrative:
-            raise RuntimeError(
-                f"LLM {model} trả về rỗng (reasoning tokens cạn?) — không cache"
-            )
+            raise RuntimeError(f"LLM {model} trả về rỗng (reasoning tokens cạn?) — không cache")
 
         conn.execute(
             "INSERT OR REPLACE INTO narrative_cache (cache_key, narrative, model, created_at) VALUES (?, ?, ?, ?)",
