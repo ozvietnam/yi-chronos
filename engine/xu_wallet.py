@@ -138,12 +138,25 @@ def get_balance(user_id: int) -> int:
 
 
 def grant(user_id: int, amount: int, reason: str, ref: Optional[str] = None) -> int:
-    """Cộng xu (tặng/nạp). Trả số dư mới. amount phải > 0."""
+    """Cộng xu (tặng/nạp). Trả số dư mới. amount phải > 0.
+
+    IDEMPOTENT theo `ref` (nếu có): nếu đã tồn tại 1 dòng sổ cái cộng (delta>0) cùng
+    (user_id, ref) → KHÔNG cộng lại, trả số dư hiện tại. Bảo vệ webhook RevenueCat
+    retry + migration chạy lại không cộng trùng tiền. `ref` nên là id giao dịch
+    toàn-cục-duy-nhất (RevenueCat txn) hoặc khoá migration (vd 'migrate:{uid}')."""
     if amount <= 0:
         raise ValueError("grant: amount phải > 0")
     with session_scope(service=True) as conn:
         _ensure(conn)
         _lock(conn, user_id)
+        if ref is not None:
+            dup = conn.execute(
+                text("""SELECT 1 FROM xu_ledger
+                        WHERE user_id=:u AND ref=:r AND delta>0 LIMIT 1"""),
+                {"u": int(user_id), "r": ref},
+            ).fetchone()
+            if dup:
+                return _read_balance(conn, user_id)   # đã cộng trước đó → no-op
         new = _read_balance(conn, user_id) + int(amount)
         _write(conn, user_id, new)
         _ledger(conn, user_id, int(amount), reason, new, ref)

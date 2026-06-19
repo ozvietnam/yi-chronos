@@ -54,6 +54,19 @@ def test_grant_increases_balance(temp_db):
     assert w.get_balance(1) == 150
 
 
+def test_grant_idempotent_by_ref(temp_db):
+    from engine import xu_wallet as w
+    assert w.grant(3, 100, "topup", ref="rc_txn_99") == 100
+    # webhook retry cùng ref → KHÔNG cộng lại
+    assert w.grant(3, 100, "topup", ref="rc_txn_99") == 100
+    assert w.get_balance(3) == 100
+    # ref khác → cộng bình thường
+    assert w.grant(3, 50, "topup", ref="rc_txn_100") == 150
+    # không ref → luôn cộng (vd thưởng thủ công)
+    assert w.grant(3, 10, "manual") == 160
+    assert w.grant(3, 10, "manual") == 170
+
+
 def test_grant_rejects_nonpositive(temp_db):
     from engine import xu_wallet as w
     with pytest.raises(ValueError):
