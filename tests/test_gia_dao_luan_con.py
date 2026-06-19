@@ -4,8 +4,8 @@ Nguồn luật: 《邵康节说易·铁板神数》Càn Tập, origin.pdf tr.9-1
 Bản gốc IN CHỈNH TỀ — cái "mờ" cũ là lỗi pipeline MinerU, không phải sách.
 """
 from engine.thiet_ban.khoi_so import (
-    DIA_CHI_QUAI, HA_LAC_CAN, HA_LAC_CHI, NGU_HO_DON, NHAT_CHU_QUAI,
-    an_than_menh, phoi_tru,
+    CAN_SO, CHI_SO, DIA_CHI_QUAI, HA_LAC_CAN, HA_LAC_CHI, NGU_HO_DON, NHAT_CHU_QUAI,
+    TIEN_THIEN_QUAI_SO, an_than_menh, co_so_bac_phai, kao_khac_khung, phoi_tru,
 )
 from engine.tu_vi.gia_dao import _doc_cung_tre, _doi_chieu_bo_me, luan_la_so_con
 
@@ -56,6 +56,33 @@ def test_phoi_tru_shape():
     out = phoi_tru("Giáp", "Tý")
     assert out["can_quai"] == "Càn" and out["chi_quai"] == "Khảm"
     assert out["ha_lac_can_so"] == 9 and out["chi_hado_so"] == 6
+
+
+def test_tien_thien_quai_so():
+    """先天八卦数 Phục Hy: 乾1兑2离3震4巽5坎6艮7坤8 (sohu xác nhận)."""
+    assert TIEN_THIEN_QUAI_SO["Càn"] == 1 and TIEN_THIEN_QUAI_SO["Đoài"] == 2
+    assert TIEN_THIEN_QUAI_SO["Cấn"] == 7 and TIEN_THIEN_QUAI_SO["Khôn"] == 8
+
+
+def test_so_thu_tu():
+    assert CAN_SO["Giáp"] == 1 and CAN_SO["Quý"] == 10
+    assert CHI_SO["Tý"] == 1 and CHI_SO["Ngọ"] == 7 and CHI_SO["Hợi"] == 12
+
+
+def test_co_so_bac_phai_khop_ca_tai_lieu():
+    """KIỂM với ca tài liệu 163.com: 戊(Mậu)日 午(Ngọ)时, 调整数=5 → 基数 44."""
+    r = co_so_bac_phai("Ngọ", "Mậu", dieu_chinh_so=5)
+    assert r["thoi_chi_so"] == 7 and r["nhat_can_so"] == 5
+    assert r["tong"] == 220 and r["co_so"] == 44
+    assert 1 <= r["dong_hao"] <= 6
+
+
+def test_kao_khac_khung_can_luc_than():
+    """考刻 = khung dò 调整数, KHÔNG bịa 条文; phải nêu cần lục thân gì."""
+    kk = kao_khac_khung({"số anh em": 3})
+    assert len(kk["can_doi_chieu"]) >= 5
+    assert "cha" in kk["con_thieu"] and "mẹ" in kk["con_thieu"]
+    assert "không bịa" in kk["ghi_chu"].lower()
 
 
 # ════════ Luận lá số con — engine thuần (không cần sxtwl) ════════
