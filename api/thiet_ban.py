@@ -36,6 +36,27 @@ def thiet_ban_lap_so(req: LapSoRequest) -> dict:
             "ban_menh": ban_menh, "luu_nien": luu_nien}
 
 
+class KaoKhacRequest(BaseModel):
+    birth_datetime_local: str = Field(..., description="vd 1988-06-05T23:30")
+    cha_chi: str | None = Field(None, description="ĐỊA CHI năm sinh CHA (vd 'Thìn'), tuỳ chọn")
+    me_chi: str | None = Field(None, description="ĐỊA CHI năm sinh MẸ, tuỳ chọn")
+    timezone: str = "Asia/Ho_Chi_Minh"
+
+
+@router.post("/kao-khac")
+def thiet_ban_kao_khac(req: KaoKhacRequest) -> dict:
+    """考刻 乾坤流度数法: 年柱 → 父母爻 → dự đoán sinh tiêu cha/mẹ (考刻 初刻).
+
+    Cấp sinh tiêu cha/mẹ (gia đạo) → đối chiếu để xác nhận sơ-khắc / báo cần dò khắc sâu.
+    Đây là phép LỤC THÂN — đọc cái ĐÃ ĐỊNH, KHÔNG bói; sơ-khắc lệch thì cần dò ±khắc."""
+    from engine.thiet_ban.kao_khac import kao_khac_from_birth
+    try:
+        r = kao_khac_from_birth(req.birth_datetime_local, req.cha_chi, req.me_chi, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 考刻: {e}")
+    return {"status": "ok", "method": "考时定刻·乾坤流度数法", "source": SOURCE_REF, **r}
+
+
 @router.get("/stats")
 def thiet_ban_stats() -> dict:
     return {"status": "ok", "method": METHOD_ID, "source": SOURCE_REF, **V.stats()}
