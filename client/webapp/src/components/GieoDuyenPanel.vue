@@ -215,11 +215,11 @@
       </div>
     </section>
 
-    <article class="gd-body reading-surface" v-html="rendered"></article>
-
-    <footer class="gd-foot">
-      <p>Cuốn sách này là đúc kết của một ca điển hình. Công cụ phía trên áp cùng phương pháp cho lá số bất kỳ — đọc đồng dạng, không bói toán.</p>
-    </footer>
+    <details class="gd-book-toggle">
+      <summary>📖 Đọc sách <b>"Gieo Duyên"</b> — đúc kết đầy đủ qua 3 hệ (một ca điển hình)</summary>
+      <article class="gd-body reading-surface" v-html="rendered"></article>
+      <p class="gd-foot">Cuốn sách là đúc kết của một ca điển hình. Công cụ phía trên áp cùng phương pháp cho lá số bất kỳ — đọc đồng dạng, không bói toán.</p>
+    </details>
   </div>
 </template>
 
@@ -505,7 +505,13 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-guide ul { padding-left: 18px; } .gd-guide li { margin: 6px 0; font-size: 0.86em; color: var(--read-text-faint,#777); line-height: 1.5; }
 .gd-para { font-style: italic; color: #9c3a5a; font-size: 0.88em; margin-top: 8px; }
 
-.gd-body { line-height: 1.85; color: var(--read-text, #2b2b2b); font-size: var(--reading-scale, 1em); }
+.gd-book-toggle { margin-top: 24px; border-top: 1px solid #ecd7df; padding-top: 14px; }
+.gd-book-toggle > summary { cursor: pointer; padding: 12px 16px; background: #fdf6f8; border: 1px solid #ecd7df; border-radius: 10px; color: #9c3a5a; font-size: 0.98em; list-style: none; }
+.gd-book-toggle > summary::-webkit-details-marker { display: none; }
+.gd-book-toggle > summary::before { content: '▸ '; color: #c98aa0; }
+.gd-book-toggle[open] > summary::before { content: '▾ '; }
+.gd-book-toggle > summary:hover { background: #fbeef2; }
+.gd-body { line-height: 1.85; color: var(--read-text, #2b2b2b); font-size: var(--reading-scale, 1em); margin-top: 16px; }
 .gd-body :deep(.gd-h1) { display: none; } /* tiêu đề sách đã ở hero */
 .gd-body :deep(h3) { margin: 28px 0 10px; padding-top: 14px; border-top: 1px solid #eddfe4; color: #9c3a5a; font-size: 1.25em; }
 .gd-body :deep(h4) { margin: 20px 0 8px; color: #7d4357; font-size: 1.08em; }
