@@ -139,5 +139,12 @@ def kao_khac_from_birth(birth_dt: str, cha_chi: str | None = None,
     from engine.bat_tu.tu_tru import extract_tu_tru
     p = extract_tu_tru(birth_dt, timezone)["pillars"]
     yc, yz = p["year"]["stem"], p["year"]["branch"]
-    return {"nam_tru": f"{yc} {yz}",
-            **doi_chieu_luc_than(yc, yz, cha_chi, me_chi)}
+    out = {"nam_tru": f"{yc} {yz}", **doi_chieu_luc_than(yc, yz, cha_chi, me_chi)}
+    # 父母生肖化卦取数 (lục thân bổ sung) khi có cả sinh tiêu cha + mẹ
+    if cha_chi and me_chi:
+        from engine.thiet_ban.bat_quai_gia_tac import phu_mau_sinh_tieu
+        q = phu_mau_sinh_tieu(cha_chi, me_chi)
+        v = tra_dieu_van(q["so"], prefer_tujie=True) or {}
+        out["phu_mau_hoa_que"] = {**q, "dieu_van": v.get("zh"), "vi": v.get("vi"),
+                                  "phap": "父母生肖化卦取数 (父支上·母支下 → 八卦加则)"}
+    return out

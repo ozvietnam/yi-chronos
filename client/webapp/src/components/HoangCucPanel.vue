@@ -149,11 +149,12 @@ async function daPhep() {
   try {
     const body = JSON.stringify({ birth_datetime_local: tbBirth.value });
     const opt = { method: "POST", headers: { "Content-Type": "application/json" }, body };
-    const [qt, nh] = await Promise.all([
+    const [qt, nh, gt] = await Promise.all([
       fetch("/api/thiet-ban/quai-trung", opt).then((r) => r.json()),
       fetch("/api/thiet-ban/nguyen-hoi-van-the", opt).then((r) => r.json()),
+      fetch("/api/thiet-ban/bat-quai-gia-tac", opt).then((r) => r.json()),
     ]);
-    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh };
+    tbMulti.value = { quai_trung: qt, nguyen_hoi: nh, gia_tac: gt };
   } catch (e) { tbLapErr.value = String(e.message || e); }
   finally { tbMultiLoading.value = false; }
 }
@@ -325,6 +326,14 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
             <span class="hc-conf">#{{ m.so }}</span>
           </div>
         </div>
+        <div v-if="tbMulti.gia_tac && tbMulti.gia_tac.quai" class="hc-dv-block">
+          <h4>➕ 八卦加则法 <span class="hc-pending">(4 quẻ năm/tháng/ngày/giờ)</span></h4>
+          <div v-for="(m,i) in tbMulti.gia_tac.quai" :key="'gt'+i" class="hc-dv-row">
+            <span class="hc-dv-muc">{{ m.tru }} · {{ m.que }}</span>
+            <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
+            <span class="hc-conf">#{{ m.so }}</span>
+          </div>
+        </div>
         <div v-if="tbMulti.nguyen_hoi" class="hc-dv-block">
           <h4>🌌 元会运世法 <span class="hc-pending">元{{ tbMulti.nguyen_hoi.nguyen_so }} 会{{ tbMulti.nguyen_hoi.hoi_so }} 运{{ tbMulti.nguyen_hoi.van_so }} 世{{ tbMulti.nguyen_hoi.the_so }}</span></h4>
           <div v-for="(m,i) in [...tbMulti.nguyen_hoi.dieu_van_nguyen_hoi, ...tbMulti.nguyen_hoi.dieu_van_van_the]" :key="'nh'+i" class="hc-dv-row">
@@ -348,6 +357,11 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
         <div class="hc-bm-head">年柱 <b>{{ tbKaoKhac.nam_tru }}</b> → quẻ <b>{{ tbKaoKhac.que }}</b> · 父母爻 <b>{{ tbKaoKhac.phu_mau_chi }}</b> → dự đoán cha/mẹ tuổi <b>{{ tbKaoKhac.sinh_tieu_du_doan }}</b></div>
         <div class="hc-dv-row"><span class="hc-dv-muc">CHA (乾宫)</span><span class="hc-dv-zh">{{ tbKaoKhac.cha && tbKaoKhac.cha.dieu_van_chuan }}</span><span class="hc-conf">#{{ tbKaoKhac.cha && tbKaoKhac.cha.mat_so }}</span></div>
         <div class="hc-dv-row"><span class="hc-dv-muc">MẸ (坤宫)</span><span class="hc-dv-zh">{{ tbKaoKhac.me && tbKaoKhac.me.dieu_van_chuan }}</span><span class="hc-conf">#{{ tbKaoKhac.me && tbKaoKhac.me.mat_so }}</span></div>
+        <div v-if="tbKaoKhac.phu_mau_hoa_que" class="hc-dv-row">
+          <span class="hc-dv-muc">父母生肖化卦</span>
+          <span class="hc-dv-zh">{{ tbKaoKhac.phu_mau_hoa_que.dieu_van || "—" }}</span>
+          <span class="hc-conf">#{{ tbKaoKhac.phu_mau_hoa_que.so }}</span>
+        </div>
         <p :class="tbKaoKhac.ket_qua==='khớp' ? 'hc-tb-dao' : 'hc-pending'">{{ tbKaoKhac.ket_qua==='khớp' ? ('✓ ' + (tbKaoKhac.khop||[]).join('; ')) : (tbKaoKhac.ghi_chu || tbKaoKhac.ket_qua) }}</p>
       </div>
     </div>

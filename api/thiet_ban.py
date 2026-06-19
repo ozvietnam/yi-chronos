@@ -62,6 +62,18 @@ class BirthOnlyRequest(BaseModel):
     timezone: str = "Asia/Ho_Chi_Minh"
 
 
+@router.post("/bat-quai-gia-tac")
+def thiet_ban_bat_quai_gia_tac(req: BirthOnlyRequest) -> dict:
+    """八卦加则法 (thường dùng nhất): tứ trụ → 4 quẻ (干配卦上/支配卦下) → 4 条文.
+    后天数×1000 + tổng địa-chi-số 6 hào − 下卦后天数. Cặp kiểm sách 2472/3384 ✓."""
+    from engine.thiet_ban.bat_quai_gia_tac import bat_quai_gia_tac
+    try:
+        r = bat_quai_gia_tac(req.birth_datetime_local, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 八卦加则: {e}")
+    return {"status": "ok", "method": "八卦加则法", "source": SOURCE_REF, **r}
+
+
 @router.post("/quai-trung")
 def thiet_ban_quai_trung(req: BirthOnlyRequest) -> dict:
     """卦中取数法 (太玄): 年月→quẻ1, 日时→quẻ2 (先天 mod-8) → 4 条文 (图解 cặp kiểm 4/4)."""
