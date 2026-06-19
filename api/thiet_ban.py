@@ -157,6 +157,18 @@ def thiet_ban_tien_hau_thien(req: LapSoRequest) -> dict:
     return {"status": "ok", "method": "先后天卦八卦加则法", "source": SOURCE_REF, **r}
 
 
+@router.post("/luc-hao-can-chi")
+def thiet_ban_luc_hao_can_chi(req: LapSoRequest) -> dict:
+    """先后天卦六爻干支和数法 #9: 先天卦 纳甲 六爻 太玄和 → base → ±96×4 = 8 条文.
+    Cặp kiểm sách: 山雷颐 → base 4245."""
+    from engine.thiet_ban.bat_quai_gia_tac import luc_hao_can_chi_thu_so
+    try:
+        r = luc_hao_can_chi_thu_so(req.birth_datetime_local, req.gender, req.timezone)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Lỗi 六爻干支和数: {e}")
+    return {"status": "ok", "method": "六爻干支和数法", "source": SOURCE_REF, **r}
+
+
 @router.post("/tien-hau-thien-thu-so")
 def thiet_ban_tien_hau_thu_so(req: LapSoRequest) -> dict:
     """先后天卦取数法 #10: 先天卦/后天卦 + 互卦 → 2 基数 → ±48×{2,4,8,16} = 16 条文.

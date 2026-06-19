@@ -103,3 +103,16 @@ def test_tien_hau_thien_thu_so_birth():
     r = tien_hau_thien_thu_so("1988-06-05T23:30", "nam")
     assert len(r["dieu_van_tien_thien"]) == 8 and len(r["dieu_van_hau_thien"]) == 8
     assert r["tien_thien_base"] > 0
+
+
+def test_luc_hao_base_khop_4245():
+    """六爻干支和数 #9 (图解 tr.2969): 山雷颐 → 纳甲太玄和 上42 下45 → base 4245."""
+    from engine.thiet_ban.bat_quai_gia_tac import luc_hao_base_tu_que
+    from core.hexagram import compose_hexagram_binary as C
+    assert luc_hao_base_tu_que(C("Cấn", "Chấn")) == 4245
+
+
+def test_luc_hao_can_chi_thu_so_birth():
+    from engine.thiet_ban.bat_quai_gia_tac import luc_hao_can_chi_thu_so
+    r = luc_hao_can_chi_thu_so("1988-06-05T23:30", "nam")
+    assert r["base"] > 0 and len(r["dieu_van"]) == 8

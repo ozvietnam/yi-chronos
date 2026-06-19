@@ -137,6 +137,33 @@ TT_SO = {"Càn": 1, "Đoài": 2, "Ly": 3, "Chấn": 4,
          "Tốn": 5, "Khảm": 6, "Cấn": 7, "Khôn": 8}
 
 
+def luc_hao_base_tu_que(binary: str) -> int:
+    """六爻干支和数 base (图解 tr.2905): 纳甲 6 hào, 太玄(干+支) mỗi hào (=10 thì BỎ);
+    上卦(hào4-6)之和 (千百) + 下卦(hào1-3)之和 (十个). KIỂM 颐 → 4245."""
+    from engine.luc_hao import jingfang as jf
+    from engine.thiet_ban.khoi_so import TAI_HUYEN_CAN, TAI_HUYEN_CHI
+    sums = [TAI_HUYEN_CAN[c] + TAI_HUYEN_CHI[z] for c, z in jf.najia_of(binary)]
+    lower = sum(s for s in sums[0:3] if s != 10)        # 下卦 hào 1-3
+    upper = sum(s for s in sums[3:6] if s != 10)        # 上卦 hào 4-6
+    return upper * 100 + lower
+
+
+def luc_hao_can_chi_thu_so(birth_dt: str, gender: str = "nam",
+                           timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """先后天卦六爻干支和数法 #9 — 先天卦 纳甲太玄和 → base → +96×4 ∪ −96×4 = 8 条文."""
+    from engine.ha_lac.cast import cast_ha_lac
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    tt = cast_ha_lac(birth_datetime_local=birth_dt, timezone=timezone,
+                     gender=gender)["tien_thien_quai"]
+    binary = compose_hexagram_binary(tt["upper_trigram"], tt["lower_trigram"])
+    base = luc_hao_base_tu_que(binary)
+    sos = _pm96(base, True) + _pm96(base, False)
+    return {"tien_thien_que": tt.get("name_vi"), "base": base,
+            "dieu_van": [{"so": s, "dieu_van": (tra_dieu_van(s, prefer_tujie=True) or {}).get("zh"),
+                          "vi": (tra_dieu_van(s, prefer_tujie=True) or {}).get("vi")} for s in sos],
+            "_phap": "六爻干支和数法 #9 — 先天卦 纳甲 太玄和 → base → ±96×4."}
+
+
 def _co_so_hu(binary: str, so_map: dict) -> int:
     """基数 #10 = 上卦数(千) + 下卦数(百) + 互卦上数(十) + 互卦下数(个). so_map = 先天/后天."""
     from engine.thiet_ban.bat_quai_lan import ho_quai
