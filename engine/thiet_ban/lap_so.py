@@ -198,3 +198,60 @@ def lap_thiet_ban_so(birth_dt: str, gender: str,
         "paradigm": "Đọc cái ĐÃ ĐỊNH (THỂ) — cái nền từ lúc sinh — để HIỂU mình, không phán. "
                     "Mệnh là dịch: người là cái biến (DỤNG), tự viết lấy.",
     }
+
+
+# 三合 cục: chi năm → nhóm (cho 流年 letter-walk)
+_TAM_HOP = {"寅": "寅午戌", "午": "寅午戌", "戌": "寅午戌", "申": "申子辰", "子": "申子辰",
+            "辰": "申子辰", "巳": "巳酉丑", "酉": "巳酉丑", "丑": "巳酉丑",
+            "亥": "亥卯未", "卯": "亥卯未", "未": "亥卯未"}
+
+
+def luu_nien_chain(birth_dt: str, gender: str, max_age: int = 80,
+                   timezone: str = "Asia/Ho_Chi_Minh") -> dict:
+    """流年条文 TỰ ĐỘNG từng tuổi (letter-walk đầy đủ) — TẤT ĐỊNH theo giờ SINH.
+
+    Phép (đúng repo tieban, viết lại): từ 先天命数 + 年干 → chuỗi 12 thanh (14-11-2),
+    xoay theo 起始数 (14-11-1, nhóm tam-hợp năm + giới). Mỗi tuổi: chi lưu niên + thanh
+    → 标记 (14-12, theo 后天命数) → chữ cái (14-13, theo 刻+chẵnlẻ+thanh+标记) →
+    条文 (14-14, base+add) → tra DB. KHÔNG dùng giờ hỏi."""
+    T = _tables()
+    base = lap_thiet_ban_so(birth_dt, gender, timezone)
+    cong = base["tien_thien_menh_so"]
+    pn = base["hau_thien_menh_so"]
+    khac = base["khao_khac"]
+    year_zh = base["bat_tu_sinh"].split()[0]      # trụ năm, vd 戊辰
+    year_gan, year_chi = year_zh[0], year_zh[1]
+
+    bg = _TAM_HOP.get(year_chi)
+    g = "男" if gender in ("nam", "男", "M", "m") else "女"
+    start = (T.get("ln_start_zhigroup_gender") or {}).get(f"{bg}|{g}")
+    raw_seq = (T.get("ln_seq_cong_gan") or {}).get(f"{cong}|{year_gan}")
+    if not start or not raw_seq or len(raw_seq) < 12:
+        return {"error": "Thiếu bảng letter-walk cho cấu hình này.", "_base": base}
+    off = (13 - start) % 12
+    final_seq = [raw_seq[(i + off) % 12] for i in range(12)]
+
+    markers = T.get("ln_marker_zhi_houtian") or {}
+    letters = T.get("ln_letter_khac_parity_sound_marker") or {}
+    ln_tab = T.get("luu_nien_by_letter_age") or {}
+    chi0 = CHI.index(year_chi)
+    rows = []
+    for age in range(1, max_age + 1):
+        cur_dz = CHI[(chi0 + age - 1) % 12]
+        sound = final_seq[(age - 1) % 12]
+        marker = markers.get(f"{cur_dz}|{pn}")
+        parity = "奇数" if age % 2 else "偶数"
+        letter = letters.get(f"{khac}|{parity}|{sound}|{marker}") if marker else None
+        seq = ln_tab.get(f"{letter}|{age}") if letter else None
+        v = tra_dieu_van(seq) if seq else None
+        rows.append({
+            "tuoi": age, "nam_chi": cur_dz, "thanh": sound, "marker": marker,
+            "chu_cai": letter, "so": seq,
+            "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi"),
+        })
+    return {
+        "tien_thien_menh_so": cong, "hau_thien_menh_so": pn, "khao_khac": khac,
+        "nhom_tam_hop": bg, "khoi_dau_so": start, "chuoi_thanh": final_seq,
+        "luu_nien": rows,
+        "ghi_chu": "流年 TẤT ĐỊNH theo giờ sinh (không giờ hỏi). Điều văn = base+add (14-14) tra DB ta.",
+    }
