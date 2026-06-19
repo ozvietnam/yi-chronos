@@ -23,5 +23,13 @@ docker compose ps
 echo "═══ Log container (120 dòng cuối — chẩn đoán crash) ═══"
 docker logs --tail 120 yi-chronos 2>&1 || true
 
+echo "═══ Log Celery worker + beat (#41 — xác nhận nối broker + ready) ═══"
+docker logs --tail 40 yi-worker 2>&1 || true
+docker logs --tail 15 yi-beat 2>&1 || true
+
+echo "═══ Trạng thái container sau start-period (worker healthy chưa?) ═══"
+sleep 45
+docker compose ps
+
 echo "═══ Prune image rác (>24h) ═══"
 docker image prune -f --filter "until=24h" || true
