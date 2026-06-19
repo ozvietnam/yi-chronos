@@ -228,9 +228,10 @@ def test_api_list_agents():
     r = client.get("/api/ai/agents")
     assert r.status_code == 200
     payload = r.json()
-    assert len(payload["agents"]) == 8  # 8 council sages
+    assert len(payload["agents"]) == 9  # 9 council sages (+ chieu_dom Bắc phái 2026-06-19)
     ids = {a["id"] for a in payload["agents"]}
-    assert ids == {"mai_hoa", "luc_hao", "lien_hoa", "tu_vi", "bat_tu", "ha_lac", "than_so", "western"}
+    assert ids == {"mai_hoa", "luc_hao", "lien_hoa", "tu_vi", "bat_tu", "ha_lac",
+                   "than_so", "western", "chieu_dom"}
 
 
 def test_api_get_prompt_returns_default_and_current():

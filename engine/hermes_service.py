@@ -147,6 +147,12 @@ def _build_chart_data(person: dict) -> dict:
         chart["tu_vi"] = cast_la_so_from_birth(birth_datetime_local=birth, timezone=tz, gender=gender)
     except Exception:
         pass
+    try:
+        # Chiếu Đởm Kinh (Bắc phái / 18 Phi Tinh) — cho sage chieu_dom đọc nội tâm.
+        from engine.tu_vi.from_birth import cast_chieu_dom_from_birth
+        chart["chieu_dom"] = cast_chieu_dom_from_birth(birth_datetime_local=birth, timezone=tz, gender=gender)
+    except Exception:
+        pass
     return chart
 
 

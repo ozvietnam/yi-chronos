@@ -27,6 +27,7 @@ AGENT_IDS: tuple[str, ...] = (
     "ha_lac",
     "western",
     "than_so",
+    "chieu_dom",   # Tử Vi Bắc phái / 18 Phi Tinh — đọc nội tâm sâu (sage độc lập, Anh chốt 19/6)
 )
 ORCHESTRATOR_ID = "orchestrator"
 ALL_PROMPT_IDS: tuple[str, ...] = AGENT_IDS + (ORCHESTRATOR_ID,)
@@ -169,5 +170,11 @@ AGENT_METADATA: dict[str, dict] = {
         "icon": "🔢",
         "specialty": "Pythagoras + Chaldean — số đường đời / linh hồn / biểu đạt",
         "best_for": "Soi tính qua con số ngày sinh + tên, đối chiếu chéo",
+    },
+    "chieu_dom": {
+        "name_vi": "Chiếu Đởm Kinh (Bắc phái)",
+        "icon": "🪞",
+        "specialty": "Tử Vi Bắc phái — 18 Phi Tinh, soi chỗ sâu nhất của nội tâm",
+        "best_for": "Đọc tâm hồn/chiều sâu tâm lý, cốt cách bên trong (không tiên tri sự kiện)",
     },
 }

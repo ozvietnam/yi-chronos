@@ -38,6 +38,7 @@ SAGES_BY_TAG: dict[str, str] = {
     "ha_lac": "ha-lac-sage",
     "western": "chiem-tinh-sage",
     "than_so": "than-so-sage",
+    "chieu_dom": "chieu-dom-kinh-sage",   # Tử Vi Bắc phái / 18 Phi Tinh (nội tâm)
 }
 ARBITER_PROFILE = "arbiter"
 

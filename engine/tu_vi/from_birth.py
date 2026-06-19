@@ -57,3 +57,32 @@ def cast_la_so_from_birth(*, birth_datetime_local: str,
         year_branch=year_parts[1],
         gender=gender,
     )
+
+
+def cast_chieu_dom_from_birth(*, birth_datetime_local: str,
+                              timezone: str = "Asia/Ho_Chi_Minh",
+                              gender: str = "nam",
+                              birth_longitude: Optional[float] = None,
+                              birth_province: Optional[str] = None) -> dict:
+    """Cast lá số Chiếu Đởm Kinh (Bắc phái / 18 Phi Tinh) từ giờ sinh dương lịch.
+    Hệ PARALLEL với Tử Vi chính thống → namespace riêng cho sage chieu_dom."""
+    from core.chronos import calculate_chronos_state
+    from core.true_solar_time import adjust_datetime, resolve_longitude
+    from engine.yi_wiki.lich_conversion import SolarDateTime, solar_to_lunar
+    from engine.tu_vi.chieu_dom_kinh_an_sao import cast_chieu_dom_kinh
+
+    lon = resolve_longitude(birth_longitude=birth_longitude, birth_province=birth_province)
+    bdt = adjust_datetime(birth_datetime_local, lon)
+    chronos = calculate_chronos_state(bdt, timezone)
+    local_dt = _dt.fromisoformat(bdt)
+    solar = SolarDateTime(year=local_dt.year, month=local_dt.month, day=local_dt.day,
+                          hour=local_dt.hour, minute=local_dt.minute)
+    lunar = solar_to_lunar(solar)
+    year_parts = chronos.ganzhi.year.split()
+    return cast_chieu_dom_kinh(
+        year_stem=year_parts[0],
+        year_branch=year_parts[1],
+        lunar_month=lunar.lunar_month,
+        hour_branch=hour_branch_from_hour(local_dt.hour),
+        gender=gender,
+    )

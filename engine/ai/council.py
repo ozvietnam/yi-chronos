@@ -39,6 +39,7 @@ DEFAULT_AGENT_PROVIDER: dict[str, list[str]] = {
     # Tây agent — Anthropic preferred for psychology, fallback ZAI
     "western":  ["anthropic", "zai", "deepseek", "mock"],
     "than_so":  ["deepseek", "zai", "anthropic", "mock"],
+    "chieu_dom": ["deepseek", "zai", "anthropic", "mock"],   # Bắc phái nội tâm (council prefer_reasoning→M3)
 }
 
 # Orchestrator (Trọng tài tổng hợp) — MiniMax-M3 chủ lực 2026-06 (reasoning sâu cho
