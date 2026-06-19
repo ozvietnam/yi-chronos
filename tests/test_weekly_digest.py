@@ -83,6 +83,17 @@ def test_idempotent_same_week(users):
     assert n2["skipped_already"] >= 1
 
 
+def test_teaser_new_lens_item():
+    """ADR task 5: knowledge_version vừa bump → teaser có ý 'lăng kính mới'."""
+    from engine.digest import _teaser
+    d = {"n": 2, "by_method": {"tu_vi": 2}, "highlights": []}
+    with_lens = _teaser(d, new_lens=True)
+    assert any("lăng kính mới" in it.lower() for it in with_lens["items"])
+    without = _teaser(d, new_lens=False)
+    assert not any("lăng kính mới" in it.lower() for it in without["items"])
+    assert len(with_lens["items"]) <= 3      # vẫn teaser ngắn
+
+
 def test_no_activity_not_sent(users):
     """User có sub nhưng KHÔNG hoạt động tuần qua → không làm phiền."""
     from engine.db import session_scope

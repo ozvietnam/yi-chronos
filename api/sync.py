@@ -279,12 +279,24 @@ def upsert_from_firebase(
                      "tz": b.timezone, "bp": b.birth_place, "now": now},
                 )
 
-        return {
+        result = {
             "yi_user_id": user_id,
             "person_key": person_key,
             "firebase_uid": req.firebase_uid,
             "created": created,
         }
+
+    # ADR 3-tầng task 4: T2 LUÔN SẴN — pre-compute hồ sơ mệnh-lý (an sao/tứ trụ) ngay
+    # sau khi có giờ sinh → lần luận sau đọc T2 tức thì (không cast lại). Best-effort:
+    # cast tất định (KHÔNG LLM), lỗi KHÔNG được phá sync identity. (Ngoài with-block →
+    # không nested session_scope.)
+    if req.birth is not None and req.birth.datetime_local:
+        try:
+            from engine.menh_profile import build_profile
+            build_profile(user_id)
+        except Exception as e:
+            logger.warning("build_profile sau sync uid=%s lỗi: %s", user_id, e)
+    return result
 
 
 @router.get("/resolve/{firebase_uid}")

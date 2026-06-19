@@ -51,6 +51,17 @@ def test_build_profile_idempotent(temp_db):
     assert mp.get_profile(uid)["computed_at"] >= n1
 
 
+def test_profile_auto_built_on_sync(temp_db):
+    """ADR task 4: upsert-from-firebase (có giờ sinh) tự build T2 → đọc tức thì."""
+    from fastapi.testclient import TestClient
+    from api.main import app
+    from engine import menh_profile as mp
+    uid = _make_user_with_birth(TestClient(app))     # KHÔNG gọi build_profile thủ công
+    prof = mp.get_profile(uid)
+    assert prof is not None, "T2 phải được pre-compute trong upsert-from-firebase"
+    assert prof["facts"].get("bat_tu") and prof["facts"].get("tu_vi")
+
+
 def test_build_profile_no_birth_skipped(temp_db):
     from api import sync
     sync._ensure_schema()                            # tạo user_persons (rỗng) trong temp db

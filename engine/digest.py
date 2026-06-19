@@ -70,11 +70,18 @@ def _already_sent_this_week(conn, user_id: int, now: int) -> bool:
     return row is not None
 
 
-def _teaser(digest: dict) -> dict:
-    """Rút digest đầy → payload teaser (1-3 ý + deeplink), KHÔNG luận đầy."""
+def _teaser(digest: dict, new_lens: bool = False) -> dict:
+    """Rút digest đầy → payload teaser (1-3 ý + deeplink), KHÔNG luận đầy.
+
+    ADR task 5: `new_lens` (knowledge_version vừa bump tuần này = sách/lăng kính mới
+    được duyệt) → ưu tiên 1 ý "khám phá lăng kính mới" (proactive, lá số không đổi —
+    chỉ MỞ THÊM cách đọc; cache T3 đã tự vô hiệu nên luận lại sẽ ra điều mới)."""
     n, by = digest["n"], digest.get("by_method", {})
     methods = ", ".join(f"{k}×{v}" for k, v in by.items()) or "nhiều môn"
-    items = [f"Tuần qua bạn có {n} lượt chiêm nghiệm ({methods})."]
+    items: list[str] = []
+    if new_lens:
+        items.append("🌟 Có lăng kính mới từ sách vừa nạp — luận lại lá số để khám phá thêm.")
+    items.append(f"Tuần qua bạn có {n} lượt chiêm nghiệm ({methods}).")
     if digest.get("highlights"):
         q = (digest["highlights"][0].get("question") or "").strip()
         if q:
@@ -111,6 +118,12 @@ def run_weekly_digest_all(now: Optional[int] = None,
     notify_fn inject để test; mặc định _real_notify (no-op tới khi prvchat#36 cấp URL)."""
     now = now or int(time.time())
     notify_fn = notify_fn or _real_notify
+    # ADR task 5: lăng kính mới = knowledge_version vừa bump trong tuần (sách mới duyệt).
+    try:
+        from engine.system_meta import knowledge_version_updated_at
+        new_lens = knowledge_version_updated_at() >= (now - 7 * 86400)
+    except Exception:
+        new_lens = False
     with session_scope(service=True) as conn:
         uids = [r[0] for r in conn.execute(
             text("SELECT DISTINCT user_id FROM user_subscriptions WHERE enabled=1")
@@ -130,7 +143,7 @@ def run_weekly_digest_all(now: Optional[int] = None,
             fb = _firebase_uid(conn, uid)
         if fb:
             try:
-                notify_fn(fb, _teaser(d))             # push (best-effort, không chặn)
+                notify_fn(fb, _teaser(d, new_lens=new_lens))   # push (best-effort)
             except Exception as e:
                 logger.warning("digest push fail uid=%s: %s", uid, e)
         sent += 1
