@@ -564,9 +564,18 @@ def enqueue_deep_reading(
     if not pc["ok"]:
         raise HTTPException(pc["code"], pc["reason"])
 
-    from engine.tasks.jobs import deepread_run
-    async_res = deepread_run.delay(firebase_uid=req.firebase_uid, person_key=req.person_key)
-    return {"status": "processing", "job_id": async_res.id}
+    try:
+        from engine.tasks.jobs import deepread_run
+        async_res = deepread_run.delay(firebase_uid=req.firebase_uid, person_key=req.person_key)
+        return {"status": "processing", "job_id": async_res.id}
+    except Exception as e:
+        # Broker Redis chưa lên prod (#41/PR#53). Tier luận sâu 30-90s → KHÔNG
+        # sync-fallback được như quick (#50) → trả 503 sạch để AppChat báo graceful.
+        logger.warning("deep-reading enqueue failed (broker down? #41): %s", e)
+        raise HTTPException(
+            status.HTTP_503_SERVICE_UNAVAILABLE,
+            "Luận sâu tạm chưa sẵn sàng (đang nâng cấp hạ tầng async). Thử lại sau.",
+        )
 
 
 @router.get("/deep-reading/{job_id}")
@@ -612,10 +621,19 @@ def enqueue_hermes_council(
             return {"status": pc["scope"], "reply": pc["reply"]}
         raise HTTPException(pc["code"], pc["reason"])
 
-    from engine.tasks.jobs import hermes_council_run
-    res = hermes_council_run.delay(firebase_uid=req.firebase_uid, question=req.question,
-                                   person_key=req.person_key)
-    return {"status": "processing", "job_id": res.id}
+    try:
+        from engine.tasks.jobs import hermes_council_run
+        res = hermes_council_run.delay(firebase_uid=req.firebase_uid, question=req.question,
+                                       person_key=req.person_key)
+        return {"status": "processing", "job_id": res.id}
+    except Exception as e:
+        # Broker Redis chưa lên prod (#41/PR#53). Hội Đồng nhiều phút → KHÔNG
+        # sync-fallback → 503 sạch (graceful) thay vì 500 thô.
+        logger.warning("hermes-council enqueue failed (broker down? #41): %s", e)
+        raise HTTPException(
+            status.HTTP_503_SERVICE_UNAVAILABLE,
+            "Hội Đồng tạm chưa sẵn sàng (đang nâng cấp hạ tầng async). Thử lại sau.",
+        )
 
 
 @router.get("/hermes-council/{job_id}")
