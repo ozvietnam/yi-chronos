@@ -17,22 +17,31 @@ from __future__ import annotations
 CAN = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"]
 CHI = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
 
-# 天干配卦 (origin p9): 壬甲从乾, 乙→坤, 庚→艮, 辛→巽, 己→震, 戊→离, 丙→坎, 丁→兑.
-# ⚠ Bản gốc chép "乙庚向坤…庚来艮上" → 庚 xuất hiện 2 nơi (坤 & 艮): cần bảng 纳卦
-#   từng 集 hoặc cặp kiểm để phân định 乙/庚/癸. Tạm theo lối chuẩn-nhất, ĐÁNH DẤU.
-THIEN_CAN_QUAI = {"Nhâm": "Càn", "Giáp": "Càn", "Ất": "Khôn", "Canh": "Cấn",
-                  "Tân": "Tốn", "Kỷ": "Chấn", "Mậu": "Ly", "Bính": "Khảm", "Đinh": "Đoài"}
-THIEN_CAN_QUAI_NOTE = "Quý chưa rõ; 庚 bản gốc lưỡng vị (坤/艮) — chờ bảng 纳卦 từng 集 phân định"
+# 天干配卦 — ⚠ ĐỐI CHIẾU 2026-06-19 (founder đưa tài liệu nghiên cứu):
+# · BẢN 乙 của founder IN (origin p9, đọc kỹ 2 lần): 壬甲乾, 乙[庚]坤, 庚→艮, 辛巽,
+#   己→震, 戊→离, 丙→坎, 丁兑. NHƯNG 庚 hiện 2 lần (乙庚 + 庚来艮) + THIẾU 癸
+#   → dấu hiệu BẢN KHẮC LỖI. 4 quẻ (庚/己/戊/丙) lệch chuẩn.
+# · CHUẨN 纳甲 (京房, tài liệu + phổ quát): 壬甲乾, 乙癸坤, 庚→震, 辛巽, 戊→坎,
+#   己→离, 丙→艮, 丁兑. → DÙNG cái này cho engine (chuẩn, attested).
+THIEN_CAN_QUAI = {  # = 纳甲 chuẩn (đã sửa theo đối chiếu)
+    "Nhâm": "Càn", "Giáp": "Càn", "Ất": "Khôn", "Quý": "Khôn", "Canh": "Chấn",
+    "Tân": "Tốn", "Mậu": "Khảm", "Kỷ": "Ly", "Bính": "Cấn", "Đinh": "Đoài"}
+THIEN_CAN_QUAI_BAN_AT = {  # bản 乙 IN (giữ để đối chiếu — có lỗi khắc, KHÔNG dùng tính)
+    "Nhâm": "Càn", "Giáp": "Càn", "Ất": "Khôn", "Canh": "Cấn",
+    "Tân": "Tốn", "Kỷ": "Chấn", "Mậu": "Ly", "Bính": "Khảm", "Đinh": "Đoài"}
+THIEN_CAN_QUAI_NOTE = ("Bản 乙 in lệch chuẩn 纳甲 + lỗi khắc (庚 2 lần, thiếu 癸). "
+                       "Engine dùng 纳甲 chuẩn; bản 乙 giữ ở THIEN_CAN_QUAI_BAN_AT để đối chiếu.")
 
 # 地支配卦 (origin p9, số Hậu Thiên/Lạc Thư): 1坎2坤3震4巽5中6乾【7艮8兑】9离
 #   (bản gốc là 7艮8兑 — sửa lại nhận định cũ "7兑8艮" của mình là SAI).
 DIA_CHI_QUAI = {"Tý": ("Khảm", 1), "Mùi": ("Khôn", 2), "Mão": ("Chấn", 3), "Tỵ": ("Tốn", 4),
                 "Tuất": ("Càn", 6), "Sửu": ("Cấn", 7), "Thân": ("Đoài", 8), "Ngọ": ("Ly", 9)}
 
-# 日主配卦 (origin p9): 亥子坎, 寅震, 巳午离, 丑坤, 卯酉乾, 辰兑, 未艮, 戌巽
+# 日主配卦 (origin p9; tài liệu xác nhận "未申艮" → Thân=Cấn, khớp): 亥子坎, 寅震,
+#   巳午离, 丑坤, 卯酉乾, 辰兑, 未申艮, 戌巽.
 NHAT_CHU_QUAI = {"Hợi": "Khảm", "Tý": "Khảm", "Dần": "Chấn", "Tỵ": "Ly", "Ngọ": "Ly",
                  "Sửu": "Khôn", "Mão": "Càn", "Dậu": "Càn", "Thìn": "Đoài",
-                 "Mùi": "Cấn", "Tuất": "Tốn", "Thân": None}  # Thân: bản gốc chưa rõ
+                 "Mùi": "Cấn", "Thân": "Cấn", "Tuất": "Tốn"}
 
 # 太玄数 (origin p9 sách gọi "河洛配数例"; KIỂM CHÉO 3 nguồn TQ: 163/sohu/知乎 đều gọi
 #   THÁI HUYỀN SỐ): 甲己子午9, 乙庚丑未8, 丙辛寅申7, 丁壬卯酉6, 戊癸辰戌5, 巳亥4.
