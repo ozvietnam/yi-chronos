@@ -86,7 +86,62 @@ def base_que_from_bat_tu(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> d
             "_thieu": "Số Tự Cơ Bản (基本数序) cần bảng 配数 — chưa có, không bịa."}
 
 
+# ════════ 八卦基本配数表 (图解 tr.96) — bảng 数序 đã có! ════════
+# 上卦数 = 180 + (先天数−1)×540 ; 下卦数 = 450 + (先天数−1)×540.
+# Số Tự Cơ Bản (基本数) của 1 quẻ = 上卦数[quái trên] + 下卦数[quái dưới].
+def _phoi_so(bits_topdown: str, is_upper: bool) -> int:
+    tt = TIEN_THIEN_SO[bits_topdown]
+    return (180 if is_upper else 450) + (tt - 1) * 540
+
+
+def so_tu_co_ban(binary: str) -> int:
+    """基本数 (Số Tự Cơ Bản): 上卦数[trên] + 下卦数[dưới]. Vd 水火既济=2880+1530=4410."""
+    return _phoi_so(binary[0:3], True) + _phoi_so(binary[3:6], False)
+
+
+# ════════ 卦中取数法 / 太玄取数法 (图解 tr.94-95) — 4 điều văn, CÓ cặp kiểm ════════
+# KIỂM: nam 己丑乙亥癸卯乙卯 → 7198, 7157, 9356, 9363 (图解 tr.95) — engine khớp 4/4.
+def quai_trung_so_tu_tru(pillars: dict) -> list[dict]:
+    """Lõi 卦中取数 từ tứ trụ {pk: (can_vi, chi_vi)} → 4 SỐ điều văn (không tra DB).
+    pk ∈ year/month/day/hour. Tách riêng để TEST khớp cặp kiểm sách."""
+    from engine.thiet_ban.khoi_so import TAI_HUYEN_CAN, TAI_HUYEN_CHI
+
+    def thx(pk):
+        return TAI_HUYEN_CAN[pillars[pk][0]], TAI_HUYEN_CHI[pillars[pk][1]]
+
+    def m8(x):
+        return x % 8 or 8
+
+    rows = []
+    for upk, lok, nhan in (("year", "month", "năm·tháng"), ("day", "hour", "ngày·giờ")):
+        ug, uz = thx(upk)
+        lg, lz = thx(lok)
+        up_so = m8(ug + uz)   # = 先天数 quái trên
+        binary = NUM_TO_TRI_BITS[up_so] + NUM_TO_TRI_BITS[m8(lg + lz)]
+        hu = ho_quai(binary)
+        qian = (up_so + 6) % 10                 # 逢十不用
+        t1 = qian * 1000 + up_so * 100 + ug * 10 + uz
+        t2 = qian * 1000 + up_so * 100 + TIEN_THIEN_SO[hu[0:3]] * 10 + TIEN_THIEN_SO[hu[3:6]]
+        rows += [{"nhan": nhan, "que": ten_que(binary), "so": t1},
+                 {"nhan": nhan, "que": ten_que(binary), "so": t2}]
+    return rows
+
+
+def quai_trung_thu_so(birth_dt: str, timezone: str = "Asia/Ho_Chi_Minh") -> list[dict]:
+    """卦中取数 từ giờ sinh: 年→上/月→下 = quẻ1; 日→上/时→下 = quẻ2 (先天 mod-8). 4 điều văn."""
+    from engine.bat_tu.tu_tru import extract_tu_tru
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    p = extract_tu_tru(birth_dt, timezone)["pillars"]
+    pillars = {pk: (p[pk]["stem"], p[pk]["branch"]) for pk in ("year", "month", "day", "hour")}
+    out = []
+    for r in quai_trung_so_tu_tru(pillars):
+        v = tra_dieu_van(r["so"])
+        out.append({**r, "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi")})
+    return out
+
+
 NOT_IMPLEMENTED = (
-    "八卦滚 → SỐ điều văn: cần bảng 数序 từng quẻ (3 hệ × 2 số, tài liệu nói khác nhau "
-    "theo phái) + Số Tự Cơ Bản + 秘数 bí truyền. Hình học (8 quẻ) ĐÃ đúng; số 条文 chưa validate được."
+    "八卦滚 → 48 điều văn: hình học 8 quẻ ĐÚNG + 八卦基本配数表 ĐÃ có (so_tu_co_ban). "
+    "CÒN: base quẻ 八卦滚 dùng 后天 odd/even (khác base_que hiện theo 先天 月/年) — cần sửa + "
+    "validate full vs ví dụ 图解 (地天泰→雷泽归妹). 卦中取数法 thì ĐÃ validate (cặp kiểm 7198...)."
 )

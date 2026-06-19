@@ -6,7 +6,22 @@ Các test này khoá toán ĐÚNG (và ghi rõ chỗ tài liệu sai).
 from core.hexagram import compose_hexagram_binary as C
 from engine.thiet_ban.bat_quai_lan import (
     ho_quai, dao_quai, bien_hao, ten_que, roll_8, base_que_from_bat_tu,
+    so_tu_co_ban, quai_trung_so_tu_tru,
 )
+
+
+def test_so_tu_co_ban_4410():
+    """八卦基本配数表 (图解 tr.96): 水火既济 = 坎2880+离1530 = 4410; 地天泰 = 坤3960+乾450 = 4410."""
+    assert so_tu_co_ban(C("Khảm", "Ly")) == 4410
+    assert so_tu_co_ban(C("Khôn", "Càn")) == 4410
+
+
+def test_quai_trung_khop_cap_kiem_sach():
+    """卦中取数法 (图解 tr.95): nam 己丑乙亥癸卯乙卯 → 7198, 7157, 9356, 9363 (khớp 4/4)."""
+    pillars = {"year": ("Kỷ", "Sửu"), "month": ("Ất", "Hợi"),
+               "day": ("Quý", "Mão"), "hour": ("Ất", "Mão")}
+    sos = [r["so"] for r in quai_trung_so_tu_tru(pillars)]
+    assert sos == [7198, 7157, 9356, 9363]
 
 BI = C("Càn", "Khôn")  # 天地否
 
