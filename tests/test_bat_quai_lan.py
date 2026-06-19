@@ -87,3 +87,13 @@ def test_base_que_bat_quai_lan_birth():
     from engine.thiet_ban.bat_quai_lan import base_que_bat_quai_lan
     bq = base_que_bat_quai_lan("1988-06-05T23:30")
     assert len(bq["binary"]) == 6 and bq["ten"] and bq["base_seq"] > 0
+
+
+def test_dieu_van_48_cong_thuc_khop_cap_kiem():
+    """八卦滚 求条文数 (图解 tr.98): công thức + 序数 khớp cặp kiểm 归妹 → 3142 thật."""
+    from engine.thiet_ban.bat_quai_lan import dieu_van_48_tu_3he, GUI_MEI_KIEM, seri_so
+    from engine.thiet_ban.lap_so import tra_dieu_van
+    assert seri_so(C("Chấn", "Đoài")) == 42        # 归妹 震上兑下 序数=42
+    sos = dieu_van_48_tu_3he([GUI_MEI_KIEM])
+    assert sos == [4287, 4231, 8742, 8731, 3142, 3187]
+    assert "水尽山穷" in (tra_dieu_van(3142, prefer_tujie=True) or {}).get("zh", "")

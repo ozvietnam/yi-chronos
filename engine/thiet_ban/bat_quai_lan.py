@@ -137,6 +137,32 @@ def so_tu_co_ban(binary: str) -> int:
     return _phoi_so(binary[0:3], True) + _phoi_so(binary[3:6], False)
 
 
+# ════════ 八卦滚 → 48 条文 (图解 tr.97-98 "13.求条文数") ════════
+# Mỗi quẻ → 3 hệ số 2 chữ (上卦×10 + 下卦): A=序数(排列/先天序), B=先天洛书数, C=后天洛书数.
+# 6 điều/quẻ = AB, AC, BA, BC, CA, CB → 8 quẻ = 48 điều.
+# ✅ CÔNG THỨC + 序数 VALIDATE cặp kiểm sách: 归妹(震上兑下) 序42·先天87·后天31 →
+#    [4287,4231,8742,8731,3142,3187]; 3142="水尽山穷处，万事总成空" (DB 图解 ✓).
+# ⚠ B/C (先天洛书数/后天洛书数) per-quái: scan KHÔNG in bảng; giá trị 归妹 (兑→7,1) LỆCH
+#    hệ chuẩn (Fuxi/文王) → KHÔNG suy được từ 1 điểm. Sách tự nhận phép đa phái khác nhau
+#    (tr.4249-4259). → để `dieu_van_48_tu_3he` NHẬN bảng 3-hệ; chưa auto-ráp đủ (không bịa B/C).
+GUI_MEI_KIEM = (42, 87, 31)   # cặp kiểm 归妹 (序数, 先天洛书数, 后天洛书数)
+
+
+def seri_so(binary: str) -> int:
+    """序数 (排列/先天序 Fuxi): 上卦先天数×10 + 下卦先天数. 归妹(震4兑2)=42 ✓ (validate)."""
+    return TIEN_THIEN_SO[binary[0:3]] * 10 + TIEN_THIEN_SO[binary[3:6]]
+
+
+def dieu_van_48_tu_3he(quai_3he: list) -> list:
+    """48 条文 từ list 8 bộ (A序, B先天洛书, C后天洛书) → AB,AC,BA,BC,CA,CB mỗi quẻ.
+    CÔNG THỨC chuẩn (图解 tr.98). Cần bảng B/C đúng phái mới ráp đủ 48 (xem ghi chú trên)."""
+    out = []
+    for A, B, C in quai_3he:
+        out += [A * 100 + B, A * 100 + C, B * 100 + A,
+                B * 100 + C, C * 100 + A, C * 100 + B]
+    return out
+
+
 # ════════ 卦中取数法 / 太玄取数法 (图解 tr.94-95) — 4 điều văn, CÓ cặp kiểm ════════
 # KIỂM: nam 己丑乙亥癸卯乙卯 → 7198, 7157, 9356, 9363 (图解 tr.95) — engine khớp 4/4.
 def quai_trung_so_tu_tru(pillars: dict) -> list[dict]:
