@@ -20,7 +20,7 @@
 | | AppChat (prvchat) | YI-Chronos |
 |---|---|---|
 | Ví | `users/{uid}.xu` Firestore + `grantXu/spendXu/claimDailyXu` (đã ship) | `xu_wallet` + `xu_ledger` (PR #54) — **canonical** |
-| Hằng số | quick 1 / council 5 / deep 99 · free quick 3/ngày · +10 xu/30 ngày | **KHỚP** (engine `xu_wallet`) |
+| Hằng số | quick 1 / council 5 / deep 99 · +10 xu/30 ngày | **KHỚP**; free/ngày do YI quản (quick 10 / council 3 — Anh chốt giữ nguyên §9.1) |
 | Charging | `XU_ENFORCED` flag (đang wire) | `_gate`: VIP → free → **xu** → denied(insufficient_xu) |
 | Nạp | (chưa) RevenueCat/IAP | `POST /api/sync/wallet/grant` (idempotent ref) |
 
@@ -98,7 +98,7 @@ Kết quả Hermes `done` (quick/council) trả thêm `tier`, và khi `tier="xu"
 - `xu_ledger` không chứa PII (chỉ user_id nội bộ + ref giao dịch) — số dư cô lập theo user; YI-web đọc qua authed self.
 
 ## 9. Việc còn mở (đã ghi, chờ làm/Anh chốt)
-1. **Free numbers parity**: YI hiện `FREE_DAILY_QUICK=10`, `FREE_DAILY_COUNCIL=3`. AppChat = quick **3**, council **0**. Đổi 2 hằng số (test dùng hằng số động → an toàn) — **chờ Anh chốt con số cuối**.
+1. **Free numbers**: **CHỐT (Anh duyệt 2026-06-19): GIỮ NGUYÊN** YI `FREE_DAILY_QUICK=10`, `FREE_DAILY_COUNCIL=3` — rộng tay giai đoạn đầu để hút người dùng, KHÔNG ép parity 3/0. Vì YI là nguồn chân lý, đây là con số hiệu lực cho **cả kênh AppChat** (free quick 3 cũ của AppChat không còn áp). Không đổi code.
 2. **Migrate daily_last_claim + account_created_at**: bổ sung tham số cho `/wallet/grant` (hoặc endpoint `/wallet/migrate` riêng) để set `daily_last_claim` + `created_at` chuẩn lúc di trú.
 3. **deep-reading spend 99 xu**: wire `engine/deep_reading` qua cùng cơ chế `_gate`/`spend` (hiện mới quick + council).
 4. **YI-web UI ví (Vue)**: số dư + nhận xu hằng ngày + luồng nạp — parity AppChat.
