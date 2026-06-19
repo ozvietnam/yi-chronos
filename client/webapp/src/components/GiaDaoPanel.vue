@@ -4,6 +4,7 @@
       <div class="gd2-icon">🏡</div>
       <h2>Gia Đạo</h2>
       <p class="gd2-sub">Cưới rồi — ăn ở thế nào cho hợp đạo, đón con năm nào thuận, đặt tên con ra sao.</p>
+      <p class="gd2-tag">Đọc đồng dạng để tham khảo, không bói toán · mệnh là động từ — cấu trúc cho biết nên vận hành thế nào</p>
     </header>
 
     <div class="gd2-mode">
@@ -243,6 +244,7 @@ async function runTen() {
 .gd2-icon { font-size: 2.2em; }
 .gd2-hero h2 { margin: 6px 0 4px; color: #2e7d32; font-size: 1.7em; }
 .gd2-sub { margin: 4px 0; color: #5a6a55; font-size: 0.92em; }
+.gd2-tag { margin: 8px 0 0; color: #6f8a66; font-size: 0.84em; font-style: italic; }
 .gd2-mode { display: flex; gap: 10px; justify-content: center; margin-bottom: 16px; }
 .gd2-mode button { flex: 1; max-width: 240px; padding: 11px; border: 1.5px solid #b2d4b2; border-radius: 22px; background: transparent; color: #2e7d32; font: inherit; cursor: pointer; transition: all .15s; }
 .gd2-mode button.on { background: #2e7d32; color: #fff; border-color: #2e7d32; }
