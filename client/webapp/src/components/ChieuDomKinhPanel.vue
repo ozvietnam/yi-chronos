@@ -441,6 +441,41 @@ async function loadAll() {
   }
 }
 
+// ── Luận NỘI TÂM bằng SAGE Chiếu Đởm Kinh (giọng trầm-sâu, đọc đồng dạng) ──────
+const noiTamLuan = ref("");
+const noiTamLoading = ref(false);
+const noiTamError = ref("");
+
+async function loadNoiTam() {
+  const person = activePerson.value;
+  const genderText = String(person?.gender || person?.gender_optional || "nam").toLowerCase();
+  const chartPayload = person?.person_key
+    ? { person_key: person.person_key }
+    : person?.birth_datetime_local
+      ? {
+          birth_datetime_local: person.birth_datetime_local,
+          timezone: person.timezone || "Asia/Ho_Chi_Minh",
+          gender: genderText.includes("nữ") || genderText.includes("nu") ? "nữ" : "nam",
+          name: person.name || person.label || "Người",
+        }
+      : null;
+  if (!chartPayload) { noiTamError.value = "Chưa chọn người hoặc thiếu giờ sinh để luận."; return; }
+  noiTamLoading.value = true; noiTamError.value = ""; noiTamLuan.value = "";
+  try {
+    const resp = await fetch("/api/tu-vi/q4/cdk/luan-noi-tam", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      credentials: "include", body: JSON.stringify(chartPayload),
+    });
+    const data = await resp.json();
+    if (data.status === "ok") noiTamLuan.value = data.luan || "";
+    else noiTamError.value = data.message || `Lỗi ${resp.status}`;
+  } catch (e) {
+    noiTamError.value = String(e.message || e);
+  } finally {
+    noiTamLoading.value = false;
+  }
+}
+
 // Section labels cho deep interpretation từ DeepSeek
 const DEEP_SECTION_LABELS = {
   ban_chat_cung: '1️⃣ Bản chất cung — năng lượng nền',
@@ -1086,6 +1121,22 @@ const cdkDeepFeatureStatus = computed(() => {
         <span><b>Tháng âm:</b> {{ cdkChart.lunar_month }}</span>
         <span><b>Giờ:</b> {{ cdkChart.hour_branch }}</span>
       </div>
+
+      <!-- 🪞 Luận NỘI TÂM bằng sage Chiếu Đởm Kinh (giọng trầm-sâu, đọc đồng dạng) -->
+      <div class="cdk-noitam">
+        <div class="cdk-noitam-head">
+          <div class="cdk-noitam-intro">
+            <b>🪞 Luận Nội Tâm — Sage Chiếu Đởm Kinh</b>
+            <span>Giọng trầm-sâu, soi cốt cách tâm hồn &amp; chỗ khắc khoải. KHÔNG tiên tri — đọc đồng dạng (Bắc phái, 18 Phi Tinh).</span>
+          </div>
+          <button class="cdk-noitam-btn" :disabled="noiTamLoading" @click="loadNoiTam">
+            {{ noiTamLoading ? "Đang soi nội tâm…" : (noiTamLuan ? "Luận lại" : "Luận nội tâm") }}
+          </button>
+        </div>
+        <p v-if="noiTamError" class="cdk-error">⚠ {{ noiTamError }}</p>
+        <div v-if="noiTamLuan" class="cdk-noitam-body">{{ noiTamLuan }}</div>
+      </div>
+
       <div class="cdk-chart-guide">
         <div>
           <b>1. An sao</b>
@@ -1878,6 +1929,32 @@ Verdict: {{ st.meaning.summary }}</title></text>
 .cdk-sub b { color: #fcd34d; }
 .cdk-loading { text-align: center; padding: 20px; color: #a78bfa; }
 .cdk-error { color: #f87171; padding: 12px; }
+
+/* 🪞 Luận Nội Tâm — sage Chiếu Đởm Kinh (tông indigo sâu, cảm giác soi tâm hồn) */
+.cdk-noitam {
+  margin: 14px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 8px;
+}
+.cdk-noitam-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+.cdk-noitam-intro b { color: #c4b5fd; font-size: 15px; display: block; margin-bottom: 3px; }
+.cdk-noitam-intro span { font-size: 12.5px; color: rgba(230, 238, 245, 0.7); line-height: 1.55; }
+.cdk-noitam-btn {
+  flex-shrink: 0;
+  padding: 9px 18px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: #fff; border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.35);
+}
+.cdk-noitam-btn:disabled { opacity: 0.6; cursor: wait; }
+.cdk-noitam-body {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(167, 139, 250, 0.2);
+  white-space: pre-wrap; line-height: 1.75; font-size: 14.5px; color: #e6eef5;
+}
 
 .cdk-chart {
   margin: 20px 0;

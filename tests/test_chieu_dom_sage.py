@@ -34,3 +34,36 @@ def test_roster_includes_chieu_dom():
     from engine.admin_hermes import get_roster
     row = next((r for r in get_roster() if r["tag"] == "chieu_dom"), None)
     assert row and "Bắc phái" in row["specialty"]
+
+
+def test_luan_noi_tam_endpoint(monkeypatch, tmp_path, as_owner):
+    """Endpoint luận nội tâm: owner bypass → cast CĐK → chạy sage chieu_dom → trả luan."""
+    import pytest
+    from fastapi.testclient import TestClient
+    from engine.db import get_engine
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{tmp_path}/cdk.sqlite3")
+    get_engine.cache_clear()
+    from api import sync
+    sync._ensure_schema()
+
+    from engine.ai import council
+    from engine.ai.providers.base import LLMResponse
+
+    class MockP:
+        def chat(self, messages, model=None, **kw):
+            assert "18 Phi Tinh" in messages[0]["content"]   # persona chieu_dom nạp đúng
+            return LLMResponse(content="**Cốt cách nội tâm**: Hư tọa Mệnh — nỗi trống cần lấp bằng ý nghĩa.",
+                               model="mock", provider="mock", prompt_tokens=1, completion_tokens=1, total_tokens=2)
+
+    monkeypatch.setattr(council, "_get_agent_provider",
+                        lambda aid, prefer_reasoning=False: (MockP(), "mock"))
+
+    from api.main import app
+    c = TestClient(app)
+    r = c.post("/api/tu-vi/q4/cdk/luan-noi-tam",
+               json={"birth_datetime_local": "1988-06-05T23:30:00",
+                     "timezone": "Asia/Ho_Chi_Minh", "gender": "nam"})
+    assert r.status_code == 200
+    d = r.json()
+    assert d["status"] == "ok" and "nội tâm" in d["luan"].lower()
+    get_engine.cache_clear()

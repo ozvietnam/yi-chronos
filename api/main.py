@@ -8399,6 +8399,57 @@ def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
     return result
 
 
+@app.post("/api/tu-vi/q4/cdk/luan-noi-tam")
+def yi_tuvi_cdk_luan_noi_tam(req: _AnalyzeRequest, request: Request) -> dict:
+    """Luận NỘI TÂM tổng thể bằng SAGE Chiếu Đởm Kinh (Bắc phái / 18 Phi Tinh).
+
+    Khác luận-cung (per-cung thực dụng): đây là GIỌNG sage chieu_dom — trầm-sâu-từ-bi,
+    soi cốt cách tâm hồn, chỗ khắc khoải + sức mạnh ngầm. Paradigm Iron #4/#6/#8 (đọc đồng
+    dạng, KHÔNG predict, mệnh-là-động-từ). VIP1-gated, owner bypass — như luận-cung.
+    """
+    from engine.ai.council import _get_agent_provider
+    from engine.ai.agents import run_agent
+    from engine.tu_vi.from_birth import cast_chieu_dom_from_birth
+    from engine.subscriptions import check_access, consume_use
+    from api.auth import get_current_user
+
+    user = get_current_user(request)
+    if not user:
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng VIP."}
+    if user.get("role") != "owner":
+        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
+        if not access.get("allowed"):
+            return {"status": "error",
+                    "message": f"Không có quyền VIP1 — {access.get('reason', 'unknown')}",
+                    "vip_check": access}
+
+    person = _resolve_person_from_request(req, request)
+    try:
+        chart = cast_chieu_dom_from_birth(
+            birth_datetime_local=person.birth_datetime_local,
+            timezone=person.timezone, gender=person.gender)
+    except Exception as e:
+        return {"status": "error", "message": f"Lỗi lập lá số CĐK: {e}"}
+
+    provider, model = _get_agent_provider("chieu_dom", prefer_reasoning=True)
+    resp = run_agent(
+        agent_id="chieu_dom", provider=provider, model=model,
+        question=("Hãy luận NỘI TÂM tổng thể cho lá số Chiếu Đởm Kinh này: cốt cách tâm hồn gốc, "
+                  "các Phi Tinh đang lên tiếng, chỗ khắc khoải & chỗ sức mạnh ngầm, và 'mệnh là động "
+                  "từ' — cấu trúc này vận hành đẹp nhất khi nào. KHÔNG tiên tri cát/hung."),
+        chart_data={"chieu_dom": chart}, max_tokens=4000, temperature=0.6)
+
+    if user.get("role") != "owner":
+        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
+
+    return {
+        "status": "ok", "luan": resp.content,
+        "provider": resp.provider, "model": resp.model,
+        "menh_branch": chart.get("menh_branch"),
+        "paradigm_note": "Sage Chiếu Đởm Kinh — đọc đồng dạng nội tâm, KHÔNG predict (Iron #4/#6/#8).",
+    }
+
+
 @app.post("/api/tu-vi/q4/cdk/eval-cach-cuc")
 def yi_tuvi_cdk_eval_cach_cuc(req: _AnalyzeRequest, request: Request) -> dict:
     """Eval 6 cách cục Chiếu Đởm Kinh cho lá số cụ thể.
