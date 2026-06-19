@@ -429,7 +429,12 @@ async def chu_de_sau_from_birth(birth: ChuDeBirthInput, request: Request) -> dic
     cd = gom_chu_de_sau(birth.chu_de, ls_in, base)
     if not cd:
         return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
-    result = generate_chu_de_sau_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
+    try:
+        result = generate_chu_de_sau_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
+    except Exception as e:
+        # LLM rỗng/timeout → trả lỗi mềm cho UI (KHÔNG để 500 vỡ trang)
+        return {"error": f"Thầy đang bận, chưa luận sâu được — anh thử lại sau giây lát. ({e})",
+                "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"]}
     return {
         "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
         "narrative": result["narrative"], "cached": result["cached"], "model": result["model"],

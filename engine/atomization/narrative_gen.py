@@ -269,14 +269,19 @@ def generate_chu_de_sau_narrative(cd_sau: dict, la_so_input: dict, force: bool =
         from engine.ai.registry import get_registry
         provider = get_registry().first_configured(
             ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
-        resp = provider.chat(
-            messages=[{"role": "system", "content": CHU_DE_SAU_SYSTEM_PROMPT},
-                      {"role": "user", "content": _compose_chu_de_sau_prompt(cd_sau, feedback)}],
-            temperature=0.7, max_tokens=5000)
-        narrative = (resp.content or "").strip()
-        model = f"{resp.provider}:{resp.model}"
+        msgs = [{"role": "system", "content": CHU_DE_SAU_SYSTEM_PROMPT},
+                {"role": "user", "content": _compose_chu_de_sau_prompt(cd_sau, feedback)}]
+        # Món sâu = output dài + model reasoning (MiniMax-M) tiêu nhiều token cho <think>
+        # → trần cao 8000; nếu vẫn rỗng (think ăn hết) retry 1 lần với trần cao hơn.
+        narrative, model = "", ""
+        for mt in (8000, 12000):
+            resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
+            narrative = (resp.content or "").strip()
+            model = f"{resp.provider}:{resp.model}"
+            if narrative:
+                break
         if not narrative:
-            raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
+            raise RuntimeError(f"LLM {model} trả về rỗng (think ăn hết token) — không cache")
         conn.execute("INSERT OR REPLACE INTO narrative_cache VALUES (?, ?, ?, ?)",
                      (cache_key, narrative, model, int(time.time())))
         conn.commit()

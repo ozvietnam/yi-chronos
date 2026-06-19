@@ -53,6 +53,7 @@
 
         <!-- Món sâu: bài 2 trụ + bảng xuất xứ nguyên liệu -->
         <div v-if="sauLoading" class="content narrative-loading">📚 Đang mở kho sách 2 trụ, đối chiếu Trung Châu × Trần Đoàn... (15-20 giây)</div>
+        <p v-else-if="sauErr" class="mc-sau-err">{{ sauErr }} <button class="mc-deep-btn" @click="loadChuDeSau(chuDeActive)">Thử lại</button></p>
         <div v-else-if="sauText" class="mc-sau">
           <div class="content narrative-text mc-text" v-html="renderMarkdown(sauText)"></div>
           <details v-if="sauNguyenLieu.length" class="mc-nguyenlieu">
@@ -347,6 +348,7 @@ async function loadChuDeList() {
 
 // Món sâu 2 trụ + xuất xứ
 const sauText = ref(null)
+const sauErr = ref('')
 const sauNguyenLieu = ref([])
 const sauLoading = ref(false)
 const sauCache = {}
@@ -368,7 +370,7 @@ function _birthBody(extra) {
 async function loadChuDeSau(slug) {
   if (!props.birthDatetimeLocal || !slug) return
   if (sauCache[slug]) { sauText.value = sauCache[slug].t; sauNguyenLieu.value = sauCache[slug].n; return }
-  sauLoading.value = true; sauText.value = null; sauNguyenLieu.value = []
+  sauLoading.value = true; sauText.value = null; sauNguyenLieu.value = []; sauErr.value = ''
   try {
     const res = await fetch('/api/tu-vi/3-layer/chu-de-sau', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: _birthBody({ chu_de: slug }),
@@ -377,8 +379,10 @@ async function loadChuDeSau(slug) {
     if (data.narrative) {
       sauText.value = data.narrative; sauNguyenLieu.value = data.nguyen_lieu || []
       sauCache[slug] = { t: data.narrative, n: sauNguyenLieu.value }
+    } else {
+      sauErr.value = data.error || 'Chưa luận sâu được, anh thử lại sau giây lát.'
     }
-  } catch { /* lỗi → để trống */ } finally { sauLoading.value = false }
+  } catch { sauErr.value = 'Lỗi kết nối, thử lại.' } finally { sauLoading.value = false }
 }
 
 async function loadGiaVi(slug) {
