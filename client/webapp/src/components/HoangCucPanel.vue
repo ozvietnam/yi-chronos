@@ -182,6 +182,9 @@ async function kaoKhac() {
 
 // ── 大运 / 流年 取数 ──────────────────────────────────────────────────────
 const tbVanNien = ref(null);
+const tbDich = ref({});            // {so: {dich, binh}} — bản dịch + lời bình sage Thiết Bản
+const tbDichLoading = ref(false);
+const tbDichErr = ref("");
 const tbLuuNienAge = ref(30);
 async function vanNien() {
   if (!tbBirth.value) { tbLapErr.value = "Cần ngày + giờ sinh."; return; }
@@ -197,6 +200,34 @@ async function vanNien() {
     tbVanNien.value = { dai_van: dv, luu_nien: ln };
   } catch (e) { tbLapErr.value = String(e.message || e); }
   finally { tbMultiLoading.value = false; }
+}
+
+// Gom mọi điều văn {so, zh} từ kết quả (đệ quy, dedup theo so) → sage dịch + lời bình.
+function _collectVerses(obj, acc, seen) {
+  if (Array.isArray(obj)) { for (const x of obj) _collectVerses(x, acc, seen); return acc; }
+  if (obj && typeof obj === "object") {
+    const zh = obj.dieu_van;
+    if (obj.so != null && typeof zh === "string" && zh && zh !== "—" && !seen.has(obj.so)) {
+      seen.add(obj.so); acc.push({ so: obj.so, zh });
+    }
+    for (const v of Object.values(obj)) _collectVerses(v, acc, seen);
+  }
+  return acc;
+}
+async function dichDieuVan() {
+  const items = _collectVerses(tbVanNien.value, [], new Set());
+  if (!items.length) { tbDichErr.value = "Chưa có điều văn để dịch (bấm Vận niên trước)."; return; }
+  tbDichLoading.value = true; tbDichErr.value = "";
+  try {
+    const r = await fetch("/api/thiet-ban/luan-dieu-van", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      credentials: "include", body: JSON.stringify({ items }),
+    });
+    const d = await r.json();
+    if (!r.ok) { tbDichErr.value = d.detail || `Lỗi ${r.status}`; return; }
+    tbDich.value = { ...tbDich.value, ...(d.luan || {}) };
+  } catch (e) { tbDichErr.value = String(e.message || e); }
+  finally { tbDichLoading.value = false; }
 }
 
 function syncBirthFromPerson() {
@@ -411,6 +442,13 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
         <button @click="vanNien" :disabled="tbMultiLoading">{{ tbMultiLoading ? "Đang tính…" : "Tính vận/niên" }}</button>
       </div>
       <div v-if="tbVanNien" class="hc-lapso">
+        <div class="hc-dich-bar">
+          <button class="hc-dich-btn" :disabled="tbDichLoading" @click="dichDieuVan">
+            {{ tbDichLoading ? "Sage đang dịch…" : "🔩 Dịch + lời bình (sage Thiết Bản)" }}
+          </button>
+          <span class="hc-pending">Dịch điều văn cổ văn → tiếng Việt + lời bình (đọc đồng dạng, không tiên tri). Dịch 1 lần lưu lại.</span>
+          <span v-if="tbDichErr" class="hc-dich-err">⚠ {{ tbDichErr }}</span>
+        </div>
         <div v-if="tbVanNien.dai_van && tbVanNien.dai_van.dai_van" class="hc-dv-block">
           <h4>🔟 大运 (8 đại vận) <span class="hc-pending">基本数 {{ tbVanNien.dai_van.basic_so }}</span></h4>
           <template v-for="(v,i) in tbVanNien.dai_van.dai_van" :key="'dv'+i">
@@ -418,6 +456,10 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
               <span class="hc-dv-muc">{{ v.van }} · {{ v.tuoi }}t</span>
               <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
               <span class="hc-conf">#{{ m.so }}</span>
+              <div v-if="tbDich[m.so]" class="hc-dv-luan">
+                <div class="hc-dv-vi">{{ tbDich[m.so].dich }}</div>
+                <div v-if="tbDich[m.so].binh" class="hc-dv-binh">{{ tbDich[m.so].binh }}</div>
+              </div>
             </div>
           </template>
         </div>
@@ -428,6 +470,10 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
               <span class="hc-dv-muc">{{ x.tuoi }}t · {{ x.nam }} {{ x.can_chi }}</span>
               <span class="hc-dv-zh">{{ m.dieu_van || "—" }}</span>
               <span class="hc-conf">#{{ m.so }}</span>
+              <div v-if="tbDich[m.so]" class="hc-dv-luan">
+                <div class="hc-dv-vi">{{ tbDich[m.so].dich }}</div>
+                <div v-if="tbDich[m.so].binh" class="hc-dv-binh">{{ tbDich[m.so].binh }}</div>
+              </div>
             </div>
           </template>
         </div>
@@ -508,7 +554,17 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
 .hc-lapso { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
 .hc-bm-head { font-size: .9rem; padding: 8px 12px; border-radius: 10px; background: rgba(124,92,255,.10); border: 1px solid var(--accent, #7c5cff); line-height: 1.7; }
 .hc-dv-block h4 { margin: 4px 0 6px; font-size: .92rem; }
-.hc-dv-row { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; border-bottom: 1px dashed var(--border-color, rgba(255,255,255,.1)); font-size: .9rem; }
+.hc-dv-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; padding: 5px 0; border-bottom: 1px dashed var(--border-color, rgba(255,255,255,.1)); font-size: .9rem; }
+/* Dịch + lời bình sage Thiết Bản (xuống dòng riêng dưới điều văn zh) */
+.hc-dich-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 4px 0 12px; }
+.hc-dich-btn { padding: 7px 14px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+  background: linear-gradient(135deg, #b45309, #d97706); color: #fff; box-shadow: 0 2px 8px rgba(180,83,9,.3); }
+.hc-dich-btn:disabled { opacity: .6; cursor: wait; }
+.hc-dich-err { color: #f87171; font-size: .85rem; }
+.hc-dv-luan { flex-basis: 100%; margin: 4px 0 2px 0; padding: 6px 10px; border-left: 2px solid #d97706;
+  background: rgba(217,119,6,.08); border-radius: 0 6px 6px 0; }
+.hc-dv-vi { font-size: .92rem; line-height: 1.55; }
+.hc-dv-binh { font-size: .85rem; opacity: .82; margin-top: 4px; font-style: italic; line-height: 1.5; }
 .hc-dv-muc { flex: 0 0 92px; opacity: .7; font-size: .8rem; }
 .hc-dv-zh { flex: 1; }
 .hc-tb-goal { font-size: .85rem; opacity: .85; margin: 4px 0 10px; line-height: 1.55; }
