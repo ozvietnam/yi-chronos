@@ -14,7 +14,38 @@ KIỂM: ví dụ README repo — sinh 1924-06-15 16:00 nam, hỏi 2025-04-20 10:
 """
 from __future__ import annotations
 
+import json
+import sqlite3
+from pathlib import Path
+
 from engine.bat_tu.tu_tru import extract_tu_tru
+
+_ROOT = Path(__file__).resolve().parents[2]
+_TABLES_PATH = _ROOT / "data/restored_books/thiet-ban-than-so/khoi_so_tables.json"
+_DB_PATH = _ROOT / "data/yi_wiki/wiki.sqlite3"
+_TABLES = None
+
+
+def _tables() -> dict:
+    global _TABLES
+    if _TABLES is None:
+        _TABLES = json.loads(_TABLES_PATH.read_text()) if _TABLES_PATH.exists() else {}
+    return _TABLES
+
+
+def tra_dieu_van(seq_no: int) -> dict | None:
+    """Tra LỜI điều văn từ DB của ta (tabular_verses, corpus thiet-ban-than-so)."""
+    if not _DB_PATH.exists():
+        return None
+    c = sqlite3.connect(_DB_PATH)
+    try:
+        row = c.execute("SELECT volume, seq_no, zh, vi FROM tabular_verses WHERE seq_no=? LIMIT 1",
+                        (seq_no,)).fetchone()
+    finally:
+        c.close()
+    if not row:
+        return None
+    return {"so": row[1], "volume": row[0], "zh": row[2], "vi": row[3]}
 
 VI2CAN = {"Giáp": "甲", "Ất": "乙", "Bính": "丙", "Đinh": "丁", "Mậu": "戊",
           "Kỷ": "己", "Canh": "庚", "Tân": "辛", "Nhâm": "壬", "Quý": "癸"}
@@ -112,6 +143,23 @@ def lap_thiet_ban_so(birth_dt: str, gender: str, query_dt: str,
     ban_menh = fact * 30 + lday
     # ⑥ 后天命数 (% 8)
     hau_thien = (cong + ban_menh) % 8 or 8
+    # ⑦ 十二辟卦 (theo 刻 + 本命数) + 本命条文 (基数+序数+秘数 → tra DB ta)
+    T = _tables()
+    pq = (T.get("hex_by_khac_banmenh") or {}).get(f"{khac}|{ban_menh}")
+    ban_menh_dieu_van = None
+    rec = (T.get("offsets_by_pq_khac_cong") or {}).get(f"{pq}|{khac}|{cong}") if pq else None
+    if rec:
+        CATS = [("tinh_cach", "Tính cách"), ("tai_nang", "Tài năng & tiền trình"),
+                ("tai_van", "Tài vận"), ("huynh_de", "Số anh em")]
+        out_cats = []
+        for key, label in CATS:
+            for off in rec.get(key, []):
+                seq = rec["base"] + rec["seq"] + off
+                v = tra_dieu_van(seq)
+                out_cats.append({"muc": label, "so": seq,
+                                 "dieu_van": (v or {}).get("zh"), "vi": (v or {}).get("vi")})
+        ban_menh_dieu_van = {"base": rec["base"], "seq_so": rec["seq"], "muc": out_cats}
+
     return {
         "bat_tu_sinh": f"{_zh_pillar(bp['year'])} {_zh_pillar(bp['month'])} {day_zh} {_zh_pillar(bp['hour'])}",
         "am_lich": f"tháng {lunar['month']}{'(nhuận)' if lunar.get('is_leap_month') else ''} ngày {lday}",
@@ -121,6 +169,11 @@ def lap_thiet_ban_so(birth_dt: str, gender: str, query_dt: str,
         "khao_khac": khac, "nhom_khac": nhom,
         "ban_menh_so": ban_menh,
         "hau_thien_menh_so": hau_thien,
-        "_chua_xong": "Số điều văn cuối cần bảng 辟卦+基数+序数+秘数 (đang giải ngược, "
-                      "kiểm chéo DB ta); 考刻 chính xác cần lục thân (gia đạo).",
+        "thap_nhi_tich_quai": pq,
+        "ban_menh_dieu_van": ban_menh_dieu_van,
+        "ghi_chu": ("Số điều văn = 基数+序数+秘数 (kiểm chéo DB của ta). " +
+                    ("秘数 phái này CHƯA có cho辟卦 này → bản luận chưa đủ; cần khôi phục thêm."
+                     if not ban_menh_dieu_van else "考刻 chính xác hơn cần lục thân (gia đạo).")),
+        "paradigm": "Đọc cái ĐÃ ĐỊNH (THỂ) để HIỂU cái nền, KHÔNG phán cái mình sống (DỤNG). "
+                    "Mệnh là dịch — người là cái biến.",
     }
