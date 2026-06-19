@@ -17,6 +17,23 @@ echo "═══ Recreate container ═══"
 docker compose up -d --remove-orphans
 sleep 8
 
+# ─── Seed dữ liệu TĨNH version-controlled vào volume (fix bind-mount shadow) ───
+# Volume /opt/yi-chronos/data CHE data/ trong image → file tĩnh (data/tu_vi/*.json,
+# seeds, restored_books, skills) KHÔNG thấy ở runtime → endpoint đọc chúng trả 500
+# (vd /api/tu-vi/q4/chieu-dom-kinh-phi-tinh). Dockerfile đã copy chúng vào embedded_data/
+# (path KHÔNG bị shadow). Đây copy embedded_data/* → data/* để populate volume. CHỈ ghi đè
+# file tĩnh; embedded_data KHÔNG chứa *.sqlite3 nên data user (yi_users, yi_hermes/*.sqlite3)
+# TUYỆT ĐỐI không bị đụng.
+echo "═══ Seed embedded_data → data (tránh volume shadow) ═══"
+docker exec yi-chronos sh -c '
+  for d in tu_vi seeds; do
+    [ -d "embedded_data/$d" ] && mkdir -p "data/$d" && cp -rf "embedded_data/$d/." "data/$d/" 2>/dev/null || true
+  done
+  [ -d embedded_data/restored_books ] && cp -rf embedded_data/restored_books/. data/restored_books/ 2>/dev/null || true
+  [ -d embedded_data/hermes_yi/skills ] && mkdir -p data/hermes_yi/skills && cp -rf embedded_data/hermes_yi/skills/. data/hermes_yi/skills/ 2>/dev/null || true
+  echo "  seeded tu_vi json: $(ls data/tu_vi/*.json 2>/dev/null | wc -l) | seeds: $(ls data/seeds/ 2>/dev/null | wc -l)"
+' || echo "  (seed bỏ qua — container chưa sẵn sàng?)"
+
 echo "═══ Trạng thái container ═══"
 docker compose ps
 
