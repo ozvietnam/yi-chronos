@@ -25,12 +25,20 @@ import time
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, Header, HTTPException, Request
+from fastapi import APIRouter, Depends, Header, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from engine.atomization.output_filler_v2 import render_3_layer
+from api.service_auth import require_caller, rate_limit_caller
 
 router = APIRouter(prefix="/api/tu-vi", tags=["tu-vi-3layer"])
+
+# P0 security (review 2026-06-21): route gọi LLM / tính nặng (render_from_birth ×N)
+# PHẢI gate require_caller (đồng bộ /api/tu-vi/cast vốn đã gate) + rate-limit — chặn
+# khách ẩn danh spam ngày sinh ngẫu nhiên đốt quota/tiền LLM của founder.
+_LLM_BUCKET = "tuvi_3layer"
+_LLM_LIMIT = 60          # ≤60 lần / giờ / user (owner miễn) — rộng cho user thật, chặn spam
+_LLM_WINDOW = 3600
 
 # Phản hồi độ khớp chân dung (cuối mỗi phần: khai vị + từng món chính) — lưu cạnh
 # users. KHÔNG để chung wiki.sqlite3 (đó là content db, ngoài CI). Đây là dữ liệu
@@ -320,11 +328,13 @@ class NarrativeBirthInput(BirthInput):
 
 
 @router.post("/3-layer/narrative")
-async def narrative_from_birth(birth: NarrativeBirthInput, request: Request) -> dict:
+async def narrative_from_birth(birth: NarrativeBirthInput, request: Request,
+                               caller: dict = Depends(require_caller)) -> dict:
     """Sinh narrative Lớp 1 'Chuyện về anh' bằng LLM (DeepSeek + cache theo lá số).
 
     Tách endpoint riêng vì LLM call 5-15s — frontend gọi sau khi đã render 3-layer.
     """
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
     from engine.atomization.narrative_gen import generate_narrative
 
     base = await render_from_birth(BirthInput(
@@ -388,11 +398,13 @@ class ChuDeBirthInput(BirthInput):
 
 
 @router.post("/3-layer/chu-de")
-async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
+async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request,
+                            caller: dict = Depends(require_caller)) -> dict:
     """Luận MÓN CHÍNH theo 1 chủ đề đời sống (gom tam hợp cung liên quan + LLM).
 
     Lazy: frontend gọi khi user bấm thẻ chủ đề.
     """
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
     from engine.tu_vi.chu_de import gom_chu_de
     from engine.atomization.narrative_gen import generate_chu_de_narrative
 
@@ -414,11 +426,13 @@ async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
 
 
 @router.post("/3-layer/chu-de-sau")
-async def chu_de_sau_from_birth(birth: ChuDeBirthInput, request: Request) -> dict:
+async def chu_de_sau_from_birth(birth: ChuDeBirthInput, request: Request,
+                                caller: dict = Depends(require_caller)) -> dict:
     """MÓN SÂU: luận 2 trụ (Trung Châu + Trần Đoàn) + xuất xứ + hội tụ/dị biệt.
 
     User bấm 'Đào sâu' sau khi đã nghe món chính tổng quan.
     """
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
     from engine.tu_vi.chu_de import gom_chu_de_sau
     from engine.atomization.narrative_gen import generate_chu_de_sau_narrative
 
@@ -448,8 +462,10 @@ async def chu_de_sau_from_birth(birth: ChuDeBirthInput, request: Request) -> dic
 
 
 @router.post("/3-layer/gia-vi")
-async def gia_vi_from_birth(birth: ChuDeBirthInput) -> dict:
+async def gia_vi_from_birth(birth: ChuDeBirthInput,
+                            caller: dict = Depends(require_caller)) -> dict:
     """Phái mỏng → câu hỏi gợi ý (Đúng/Chưa/Không) để user tự soi + ta học khẩu vị."""
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
     from engine.tu_vi.chu_de import gom_gia_vi
     from engine.atomization.narrative_gen import generate_gia_vi_questions
 
@@ -741,8 +757,10 @@ class SoSanhInput(BaseModel):
 
 
 @router.post("/duyen-tho")
-async def duyen_tho(inp: DuyenInput) -> dict:
+async def duyen_tho(inp: DuyenInput,
+                    caller: dict = Depends(require_caller)) -> dict:
     """Lời văn ấm cho 'Duyên của tôi' (LLM) — gọi sau khi đã hiện kết quả cấu trúc."""
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
     from engine.atomization.narrative_gen import generate_duyen_narrative
     base = await duyen_ca_nhan_endpoint(inp)
     if base.get("error"):
@@ -755,8 +773,10 @@ async def duyen_tho(inp: DuyenInput) -> dict:
 
 
 @router.post("/so-sanh-duyen")
-async def so_sanh_duyen(inp: SoSanhInput) -> dict:
+async def so_sanh_duyen(inp: SoSanhInput,
+                        caller: dict = Depends(require_caller)) -> dict:
     """So nhiều người với mình → xếp hạng độ tương ứng (cho người đang phân vân giữa nhiều mối)."""
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
     from engine.bat_tu.tu_tru import extract_tu_tru
     from engine.ha_lac.cast import cast_ha_lac
     from engine.tu_vi.hop_hon import phan_tich_hop_hon
@@ -797,8 +817,10 @@ async def so_sanh_duyen(inp: SoSanhInput) -> dict:
 
 
 @router.get("/3-layer/founder-demo")
-async def founder_demo() -> dict:
-    """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""
+async def founder_demo(request: Request) -> dict:
+    """Lá số founder Mậu Thìn — OWNER-ONLY (dữ liệu cá nhân founder, review 2026-06-21)."""
+    from api.auth import require_owner  # inline → tôn trọng monkeypatch as_owner (như main.py)
+    require_owner(request)
     la_so = {
         "can": "mau",
         "chi": "thin",

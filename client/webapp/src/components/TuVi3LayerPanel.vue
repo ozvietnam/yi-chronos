@@ -301,6 +301,7 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
+import { renderMarkdown, escapeHtml } from '../utils/tuviMarkdown.js'  // XSS-safe (escape-first)
 
 const props = defineProps({
   // "1988-06-05T23:30" — nếu có thì gọi from-birth, không thì founder-demo
@@ -564,10 +565,6 @@ async function loadGlossary() {
   } catch { /* glossary optional — bỏ qua nếu lỗi */ }
 }
 
-function escapeHtml(s) {
-  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-}
-
 let _termRegex = null  // cached alternation regex — rebuild khi glossary đổi
 
 function buildTermRegex() {
@@ -587,15 +584,6 @@ function annotateTerms(text) {
     const note = escapeHtml(glossaryTerms.value[m] || '')
     return note ? `<span class="hv-term" title="${note}">${m}</span>` : m
   })
-}
-
-function renderMarkdown(text) {
-  return text
-    .replace(/^## (.+)$/gm, '<h4>$1</h4>')
-    .replace(/^\*\*(.+?)\*\*/gm, '<strong>$1</strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/^- (.+)$/gm, '<li>$1</li>')
 }
 
 async function load() {
