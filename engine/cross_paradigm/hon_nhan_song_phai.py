@@ -14,19 +14,16 @@ từ output thật của từng engine (hiện dùng hướng TỔNG của mỗi
 """
 from __future__ import annotations
 
-import json
-import unicodedata
 from typing import Any, Optional
 
-from engine.hermes_guard import paradigm_violations
+from engine.cross_paradigm._common import (  # primitive liên-phái dùng chung
+    CONCORD_DI, CONCORD_DONG, CONCORD_MOT,
+    concord as _concord, norm as _norm, reframe_check as _reframe_check,
+)
 
 # Engine con — import ở module level để test monkeypatch được (spec: "mock engine con").
 from engine.bat_tu.hon_nhan import analyze_hon_nhan
 from engine.tu_vi.chiem_phu_the_v4 import chiem_phu_the_v4
-
-CONCORD_DONG = "đồng_tham"   # 2 phái cùng hướng → tin cao
-CONCORD_DI = "dị_tham"       # lệch hướng → giữ CẢ HAI, thận trọng (KHÔNG chọn phái)
-CONCORD_MOT = "một_phía"     # chỉ 1 phái có tín hiệu
 
 # Ma trận 12 khía cạnh (issue #55). lead = phái DẪN luận chính; phái kia cross-check.
 ASPECTS: list[dict] = [
@@ -43,24 +40,6 @@ ASPECTS: list[dict] = [
     {"id": 11, "ten": "Tài sản chung / kinh tế gia đình",      "lead": "bat_tu"},
     {"id": 12, "ten": "Định khắc giờ sinh (định bàn)",         "lead": "tu_vi"},
 ]
-
-
-def _norm(s: str) -> str:
-    s = unicodedata.normalize("NFD", s or "")
-    return "".join(c for c in s if unicodedata.category(c) != "Mn").lower().replace("đ", "d")
-
-
-def _concord(lead_dir: Optional[str], cross_dir: Optional[str]) -> str:
-    """Đồng-tham nếu cùng hướng; dị-tham nếu lệch; một-phía nếu thiếu 1 phía."""
-    if lead_dir is None or cross_dir is None:
-        return CONCORD_MOT
-    return CONCORD_DONG if lead_dir == cross_dir else CONCORD_DI
-
-
-def _reframe_check(text: str) -> tuple[bool, list[str]]:
-    """(paradigm_ok, flags). ok=False nếu dính giọng tiên tri (Iron #4/#6/#8)."""
-    flags = paradigm_violations(text or "")
-    return (not flags), flags
 
 
 # ── hướng TỔNG mỗi engine (xấp xỉ foundation; per-khía-cạnh tinh chỉnh sau) ──────
