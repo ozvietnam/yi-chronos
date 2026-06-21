@@ -39,8 +39,28 @@ commit_and_push() {
     return  # nothing staged after .gitignore filter
   fi
 
+  # ─── GUARD Iron Rule #7 (review 2026-06-21) — chặn tái diễn leak secret 27/5 ───
+  # Chỉ soi file THÊM MỚI (diff-filter=A) theo ĐUÔI/TÊN secret → KHÔNG cảnh báo nhầm
+  # khi sửa file code đã track (vd token_utils.py). Trúng → BỎ staged + STOP (để anh
+  # xử tay: gitignore/xoá), KHÔNG commit/push. Tầng 2 = pattern trong .gitignore.
+  local _secret_hits
+  _secret_hits=$(git diff --cached --name-only --diff-filter=A | grep -iE '\.(pem|key|p12|pfx|keystore|jks)$|(^|/)(id_rsa|id_dsa|id_ecdsa|id_ed25519|\.htpasswd|\.netrc|auth\.json|.*secret.*\.(json|ya?ml|txt|env|ini|toml)|.*credential.*\.(json|ya?ml)|.*token.*\.(json|txt)|.*[_-]keys?\.json)' || true)
+  if [ -n "$_secret_hits" ]; then
+    log "⛔ ABORT auto-sync: file NHẠY CẢM trong staging — KHÔNG commit/push:"
+    printf '%s\n' "$_secret_hits" | while IFS= read -r _f; do [ -n "$_f" ] && log "      $_f"; done
+    log "    → gitignore (hoặc xoá) file đó rồi auto-sync chạy lại. (Iron Rule #7)"
+    git reset -q
+    return 1
+  fi
+
   local count files msg
   count=$(git diff --cached --name-only | wc -l | tr -d ' ')
+  # Quá nhiều file bất ngờ = nghi gitignore hỏng (incident 5221-file) → STOP, để anh kiểm tay.
+  if [ "$count" -gt "${AUTO_SYNC_MAX_FILES:-100}" ]; then
+    log "⛔ ABORT auto-sync: staged ${count} file (> ${AUTO_SYNC_MAX_FILES:-100}) — nghi gitignore hỏng. KHÔNG push."
+    git reset -q
+    return 1
+  fi
   files=$(git diff --cached --name-only | head -3 | tr '\n' ' ' | sed 's/ $//')
   msg="auto-sync $(date +'%Y-%m-%d %H:%M') · ${count} file(s)"
 

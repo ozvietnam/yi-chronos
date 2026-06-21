@@ -82,3 +82,42 @@ client/webapp/dist/
 
 # Daily health briefs — chỉ track file đầu tiên, không track tất cả
 data/daily_briefs/
+
+# ─── Hardening secrets (review 2026-06-21, Iron Rule #7 — chặn leak như incident 27/5) ───
+# Phòng thủ TẦNG 2 (tầng 1 = guard trong scripts/deploy/auto-sync.sh). Trước đây .gitignore
+# chỉ chặn TÊN cụ thể (.env, data/ai_keys.json) → file secret tên lạ (secrets.json, mykey.pem,
+# id_rsa…) vẫn lọt `git add -A`. Nhắm theo ĐUÔI + TÊN đặc trưng, KHÔNG dùng *secret* trần
+# (tránh ignore nhầm code như token_utils.py).
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+.htpasswd
+.netrc
+id_rsa
+id_rsa.*
+id_dsa
+id_ecdsa
+id_ed25519
+id_ed25519.*
+*secret*.json
+*secret*.yml
+*secret*.yaml
+*secret*.txt
+*secret*.env
+*secret*.ini
+*secret*.toml
+*credential*.json
+*credential*.yml
+*credential*.yaml
+*credentials*.json
+*credentials*.yaml
+*token*.json
+*token*.txt
+*.token
+**/auth.json
+**/api_keys.json
+**/apikeys.json
+**/*_keys.json
