@@ -54,9 +54,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # (Future cleanup task: refactor 20+ hardcoded paths to Path(__file__).resolve()...)
 WORKDIR /Users/ozvietnamdesktop/Desktop/yi
 
-# Install Python deps
-COPY requirements.txt ./
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Install Python deps — cài từ requirements.lock (PIN CHÍNH XÁC cây phụ thuộc → build
+# tái lập, chống drift + supply-chain). requirements.txt giữ làm intent (review 2026-06-21).
+COPY requirements.txt requirements.lock ./
+RUN pip install --upgrade pip && pip install -r requirements.lock
 
 # sxtwl sdist build trên cp314 có thể link THIẾU libstdc++ (incident 2026-06-11:
 # _sxtwl.so undefined symbol __cxxabiv1::__class_type_info → 500 toàn bộ from-birth).
