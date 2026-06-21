@@ -192,14 +192,17 @@ def build_user_context(uid: int, person: Optional[dict] = None, query_hint: str 
     return "Bối cảnh người hỏi (ẩn danh):\n" + "\n".join(parts) if parts else ""
 
 
-def _real_consult(question: str, person: dict, uid: int) -> dict:
-    """Bọc council in-process sẵn có (sages dùng SOUL sâu qua prompt_overrides)."""
+def _real_consult(question: str, person: dict, uid: int,
+                  explicit_agents: Optional[list] = None) -> dict:
+    """Bọc council in-process sẵn có (sages dùng SOUL sâu qua prompt_overrides).
+    explicit_agents (tùy chọn) = danh sách tag sage user CHỌN — None thì Trọng tài tự định tuyến."""
     from engine.ai.council import consult_council
     chart = _build_chart_data(person)
     ctx = build_user_context(uid, person, query_hint=question)
     if ctx:
         chart["user_context"] = ctx       # sage thấy bối cảnh riêng user (đã pseudonymize)
-    res = consult_council(question=question, chart_data=chart, persist=False)
+    res = consult_council(question=question, chart_data=chart, persist=False,
+                          explicit_agents=explicit_agents)
     pu = res.get("providers_used") or {}     # dict {agent: provider} | đôi khi list
     if isinstance(pu, dict):
         provider = pu.get("orchestrator") or next(iter(pu.values()), "deepseek")
@@ -235,7 +238,7 @@ def precheck(firebase_uid: str, question: str, person_key: str = "self") -> dict
 
 
 def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
-                user_id: Optional[int] = None,
+                user_id: Optional[int] = None, explicit_agents: Optional[list] = None,
                 consult: Optional[Callable[[str, dict, int], dict]] = None) -> dict:
     """Chạy 1 lượt Hội Đồng. KHÔNG idempotent → task gọi phải at-most-once.
     Web: truyền user_id (đã đăng nhập). AppChat service: truyền firebase_uid."""
@@ -245,6 +248,9 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
         return {"status": sv.verdict, "reply": sv.reply, "reason": sv.reason}
 
     consult = consult or _real_consult
+    if explicit_agents and consult is _real_consult:   # user CHỌN sage → truyền qua (giữ chữ ký 3-arg cho stub test)
+        _ea = explicit_agents
+        consult = lambda q, p, u: _real_consult(q, p, u, explicit_agents=_ea)
     uid, person = _resolve_entry(firebase_uid, user_id, person_key)
     if uid is None:
         return {"status": "error", "reason": "not_synced"}
@@ -256,6 +262,7 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     if cached:
         return {"status": "done", "cached": True, "casting_id": cid_c,
                 "synthesis": cached.get("synthesis"), "agents": cached.get("agents"),
+                "voices": cached.get("voices") or [],
                 "paradigm_ok": cached.get("paradigm_ok", True)}
 
     g = _gate(uid, "council_free", FREE_DAILY_COUNCIL)
@@ -292,8 +299,13 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
         paradigm_ok = not violations
 
         av = algo_version("tu_vi")
+        _raw = result.get("raw") if isinstance(result.get("raw"), dict) else {}
+        voices = [{"agent_id": v.get("agent_id"), "name": v.get("agent_name_vi"),
+                   "content": v.get("content")}
+                  for v in (_raw.get("round_1_outputs") or [])
+                  if isinstance(v, dict) and v.get("content") and not v.get("error")]
         payload = {"synthesis": result.get("synthesis"), "agents": result.get("agents"),
-                   "paradigm_ok": paradigm_ok, "violations": violations}
+                   "voices": voices, "paradigm_ok": paradigm_ok, "violations": violations}
         res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
         with session_scope(service=True) as conn:
             cid = conn.execute(
@@ -322,7 +334,7 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     return {
         "status": "done", "casting_id": cid, "algo_version": av, "tier": tier,
         "agents": result.get("agents"), "paradigm_ok": paradigm_ok,
-        "synthesis": result.get("synthesis"),
+        "synthesis": result.get("synthesis"), "voices": voices,
         "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
         "free_remaining": (ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY)
                            if tier == "free" else None),

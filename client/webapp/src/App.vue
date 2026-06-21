@@ -48,6 +48,7 @@ import TuViLaSoPanel from "./components/TuViLaSoPanel.vue";
 import CungPhuTheBacPhaiPanel from "./components/CungPhuTheBacPhaiPanel.vue";
 import ChieuDomKinhPanel from "./components/ChieuDomKinhPanel.vue";
 import YiHermesChat from "./components/YiHermesChat.vue";
+import HoiHermesPanel from "./components/HoiHermesPanel.vue";
 import LexiconPanel from "./components/LexiconPanel.vue";
 import SettingsPanel from "./components/SettingsPanel.vue";
 import ResearchPanel from "./components/ResearchPanel.vue";
@@ -382,6 +383,14 @@ onBeforeUnmount(() => {
             @click="activeMainTab = 'my-publications'"
             title="Hồ sơ kết quả: PDF, Word, MD đã sinh thành">
             <span class="tab-icon">📚</span> Kết quả
+          </button>
+        </div>
+        <div class="tab-divider"></div>
+        <div class="tab-group">
+          <span class="tab-group-label">Hermes</span>
+          <button type="button" :class="{ active: activeMainTab === 'hoi-hermes' }"
+            @click="activeMainTab = 'hoi-hermes'">
+            <span class="tab-icon">⚖️</span> Hỏi Hermes
           </button>
         </div>
         <div class="tab-divider"></div>
@@ -912,6 +921,10 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'admin'" class="single-column" aria-label="Admin dashboard">
         <AdminPanel />
+      </section>
+
+      <section v-else-if="activeMainTab === 'hoi-hermes'" class="single-column" aria-label="Hỏi Hermes — Hội Đồng đa trường phái">
+        <HoiHermesPanel />
       </section>
 
       <section v-else-if="activeMainTab === 'admin-hermes'" class="single-column" aria-label="Phòng Quản Trị Hermes">

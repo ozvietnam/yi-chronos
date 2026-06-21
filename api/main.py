@@ -2937,6 +2937,36 @@ def hermes_ask(req: HermesAskRequest, http_request: Request) -> dict:
     return run_quick("", req.question, req.person_key, user_id=user["user_id"])
 
 
+class HermesCouncilRequest(BaseModel):
+    question: str
+    person_key: str = "self"
+    agents: Optional[list[str]] = None   # tag sage user CHỌN; None = Trọng tài tự định tuyến
+
+
+@app.post("/api/hermes/council")
+def hermes_council_ask(req: HermesCouncilRequest, http_request: Request) -> dict:
+    """Trang Hỏi Hermes — HỎI HỘI ĐỒNG đa-sage cho người đang xem (login).
+    run_council: rào phạm vi → gate (gói/free/xu) → ngân sách → council (chọn sage tùy chọn) →
+    trả tiếng nói TỪNG sage (voices) + tổng hợp arbiter (synthesis) + cờ paradigm."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine.hermes_service import run_council
+    return run_council("", req.question, req.person_key,
+                       user_id=user["user_id"], explicit_agents=req.agents)
+
+
+@app.get("/api/hermes/sages")
+def hermes_sages(http_request: Request) -> dict:
+    """Danh sách sage cho picker trang Hỏi Hermes (login). Metadata công khai, không nhạy cảm."""
+    from api.auth import require_user
+    require_user(http_request)
+    from engine.ai.prompt_store import AGENT_IDS, AGENT_METADATA
+    from engine.admin_hermes import is_sage_enabled
+    sages = [{"tag": t, **AGENT_METADATA.get(t, {})}
+             for t in AGENT_IDS if is_sage_enabled(t)]
+    return {"status": "ok", "sages": sages}
+
+
 # ─── Ví Xu (YI-web parity — user đăng nhập) ──────────────────────────────────
 @app.get("/api/wallet")
 def wallet_me(http_request: Request) -> dict:
