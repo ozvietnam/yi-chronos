@@ -126,6 +126,18 @@ from engine.transit_timeline import compute_transit_hits
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_db()
+    # P1 (review 2026-06-21): bật WAL mọi SQLite → reader + writer song song, giảm
+    # 'database is locked' dưới tải đa-worker. WAL persistent → 1 lần lúc startup là đủ
+    # cho MỌI connection (kể cả ~135 raw sqlite3.connect). Non-fatal nếu lỗi.
+    try:
+        import logging
+        from pathlib import Path
+        from core.sqlite_tune import enable_wal_all
+        _n_wal = enable_wal_all(Path(__file__).resolve().parents[1] / "data")
+        logging.getLogger("yi.startup").info("SQLite WAL: bật %d file", _n_wal)
+    except Exception:
+        import logging
+        logging.exception("enable_wal_all() failed at startup (non-fatal)")
     # Bootstrap founder Person profile on first startup (idempotent)
     try:
         from engine.yi_hermes.persons import ensure_founder

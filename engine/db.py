@@ -24,7 +24,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Iterator, Optional
 
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, event, text
 from sqlalchemy.engine import Engine
 
 # Dev fallback: 1 file SQLite hợp nhất (chỉ cho local/test, KHÔNG phải prod).
@@ -57,7 +57,19 @@ def get_engine(url: Optional[str] = None) -> Engine:
             future=True,
         )
     # SQLite dev/test
-    return create_engine(url, future=True, connect_args={"check_same_thread": False})
+    eng = create_engine(url, future=True, connect_args={"check_same_thread": False})
+
+    # P1 (review 2026-06-21): mỗi connection SQLite bật WAL + busy_timeout + synchronous
+    # =NORMAL (concurrency đa-worker). WAL persistent → cũng giúp raw connect cùng file.
+    @event.listens_for(eng, "connect")
+    def _sqlite_pragmas(dbapi_con, _rec):  # noqa: ANN001
+        cur = dbapi_con.cursor()
+        cur.execute("PRAGMA journal_mode=WAL")
+        cur.execute("PRAGMA synchronous=NORMAL")
+        cur.execute("PRAGMA busy_timeout=5000")
+        cur.close()
+
+    return eng
 
 
 @contextmanager
