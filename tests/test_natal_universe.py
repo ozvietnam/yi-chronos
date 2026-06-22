@@ -40,6 +40,26 @@ def test_symbolic_dia_ban():
     assert ty["lon_center"] == 270.0 and ty["hanh"] == "thuy"
 
 
+def test_chinh_tinh_an_sao_computable():
+    """14 chính tinh đặt TẤT ĐỊNH từ thời điểm sinh + mỗi sao mang ngũ hành."""
+    n = build_natal(FOUNDER, lat=21.03, lon=105.85)
+    d = n["dia_ban"]
+    assert d["cuc"] == 5  # Thổ ngũ cục
+    assert d["tu_vi_chi"] == "Mão"
+    # đủ 14 chính tinh trải trên 12 cung
+    total = sum(len(c["chinh_tinh"]) for c in d["cung"])
+    assert total == 14
+    # Mệnh (Tỵ) = Thiên Tướng, ngũ hành thủy (khớp lá số thật founder 91/91)
+    ty = next(c for c in d["cung"] if c["chi"] == "Tỵ")
+    assert [s["name"] for s in ty["chinh_tinh"]] == ["Thiên Tướng"]
+    assert ty["chinh_tinh"][0]["ngu_hanh"] == "thủy"
+    # Mão = Tử Vi (thổ) + Tham Lang (đồng cung)
+    mao = next(c for c in d["cung"] if c["chi"] == "Mão")
+    assert {s["name"] for s in mao["chinh_tinh"]} == {"Tử Vi", "Tham Lang"}
+    tuvi = next(s for s in mao["chinh_tinh"] if s["name"] == "Tử Vi")
+    assert tuvi["ngu_hanh"] == "thổ"
+
+
 def test_requires_tzinfo():
     import pytest
     with pytest.raises(ValueError):
