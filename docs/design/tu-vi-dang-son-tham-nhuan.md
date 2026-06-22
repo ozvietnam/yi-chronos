@@ -41,3 +41,19 @@
 **CHƯA gặp:** bảng 14-sao→định-mệnh + "ngũ kỳ trận pháp" + "Thái Cực=sóng hấp dẫn" → nằm ở chương chính tinh / phần triết sâu (Chương 6+). Đọc tiếp.
 
 **Đã quyết (Anh bảo "vào việc"):** (1) đọc tiếp **lái tới chương chính tinh** tìm bảng 14-sao; (2) **"giả tướng" NÂNG thành trụ paradigm** phái Đằng Sơn — đã tích hợp vào sách (Phần III) + sẽ vào SOUL phái.
+
+---
+
+## VÒNG 3 — Chương chính tinh: cấu trúc + Âm Dương thiên văn (tr.73-125)
+
+- tr.122,125: **bảng phân bố 14 chính tinh** trên 12 cung + đẩu (bắc/nam/**đế**) — vd Dần: Tử Vi+Thiên Phủ (đế); Tý: Cự Môn (bắc); Ngọ: Liêm Trinh+Thiên Tướng. = các thế an-sao kinh điển (Tử Vi tại Dần…).
+- tr.110: **cặp Âm Dương** (Thái Dương ↔ Thái Âm) xử lý bằng **vị trí THÁNG thiên văn**: tháng 2 = ôn hòa, tháng 11 = cực đoan. → "tính" của sao **biến theo thời điểm thiên văn**.
+- 🔑 → grounding cho **Phần IV (Biến)**: chất của sao không hằng định mà **phụ thuộc cấu hình thiên văn/thời gian** — đúng tinh thần "hệ động lực" (đèn rọi tái-trọng-số), nhưng Đằng Sơn neo nó vào thiên văn THẬT.
+
+### KẾT LUẬN khảo sát Tập 1 (tr.1-125):
+- Tập 1 = **thiên văn + cấu trúc + chính tinh NGHIÊM TÚC** (giả tướng · địa-bàn-từ-quỹ-đạo · Âm Dương theo tháng · phân bố sao). KHÔNG có: bảng 14-sao→Destinism/Fatalism, "Thái Cực=sóng hấp dẫn", "ngũ kỳ trận pháp".
+- → Nội dung **exotic** trên ảnh TikTok ở **Tập 2 (Các Sao Thần Sát)** HOẶC là **Nam Ngư tự overlay** (trộn nguồn). Cần xác minh nếu muốn điền nốt nhãn Phần II cột ⏳ (hiện đã có 7 nhãn từ ảnh gốc — đủ minh hoạ).
+- Part II sách ta **độc lập** với nhãn Đằng Sơn (mô hình 4-trục là của ta) → KHÔNG bị chặn.
+
+### Đã tích hợp vào sách (vòng 1-3):
+Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (giả tướng) · [tiếp: Phần IV neo "biến" vào thiên văn].
