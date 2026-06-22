@@ -30,6 +30,7 @@ EXPENSIVE_POST = [
     ("/api/tu-vi/3-layer/gia-vi", {**_BIRTH, "chu_de": "su-nghiep"}),
     ("/api/tu-vi/duyen-tho", {"birth": "1988-06-05T23:30", "gender": "nam"}),
     ("/api/tu-vi/so-sanh-duyen", {"me": {"birth": "1988-06-05T23:30", "gender": "nam"}, "others": []}),
+    ("/api/tu-vi/3-layer/thai-do-so-phan", dict(_BIRTH)),  # (d) hồ sơ thái-độ-số-phận
 ]
 
 

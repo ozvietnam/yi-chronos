@@ -816,6 +816,31 @@ async def so_sanh_duyen(inp: SoSanhInput,
                        "Con người thật quan trọng hơn con số — đây chỉ là gợi ý tham khảo."}
 
 
+# 12 cung CHỨC NĂNG — lọc khỏi chinh_tinh_per_palace để KHÔNG đếm trùng (map có cả
+# chi-key 'ty/mao...' lẫn function-key 'menh/tai_bach...').
+_FUNCTION_PALACES = frozenset({
+    "menh", "huynh_de", "phu_the", "tu_tuc", "tai_bach", "tat_ach",
+    "thien_di", "no_boc", "quan_loc", "dien_trach", "phuc_duc", "phu_mau",
+})
+
+
+@router.post("/3-layer/thai-do-so-phan")
+async def thai_do_so_phan_from_birth(birth: BirthInput, request: Request,
+                                     caller: dict = Depends(require_caller)) -> dict:
+    """Hồ sơ THÁI ĐỘ SỐ PHẬN — Phần II 《Tử Vi Tính Được》 (phái tu_vi_dang_son).
+
+    Embedding 14 chính tinh → không-gian-thái-độ (Định-Biến/Thụ-Tác/Nội-Ngoại). Đọc
+    THẾ ĐỨNG vận hành cái tính (đọc đồng dạng), KHÔNG predict (Iron #4/#6/#8).
+    """
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
+    from engine.tu_vi.thai_do_so_phan import ho_so_thai_do
+    base = await render_from_birth(birth)
+    ls_in = base["la_so_input"]
+    by_function = {k: v for k, v in (ls_in.get("chinh_tinh_per_palace") or {}).items()
+                   if k in _FUNCTION_PALACES}
+    return {"thai_do_so_phan": ho_so_thai_do(by_function), "phai": "tu_vi_dang_son"}
+
+
 @router.get("/3-layer/founder-demo")
 async def founder_demo(request: Request) -> dict:
     """Lá số founder Mậu Thìn — OWNER-ONLY (dữ liệu cá nhân founder, review 2026-06-21)."""
