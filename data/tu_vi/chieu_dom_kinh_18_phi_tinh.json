@@ -10,51 +10,283 @@
     "rule": "Dương Phi Tinh + Dương cung → phúc trọng; Âm Phi Tinh + Âm cung → phúc trọng. Mismatch (Dương sao + Âm cung hoặc ngược lại) → tai trọng.",
     "exception": "Nếu sao ở miếu/đường/lạc/vượng thì không câu nệ âm-dương (p0275 r004-l003)."
   },
-  "duong_palaces": ["Tý", "Dần", "Thìn", "Ngọ", "Thân", "Tuất"],
-  "am_palaces": ["Sửu", "Mão", "Tỵ", "Mùi", "Dậu", "Hợi"],
+  "duong_palaces": [
+    "Tý",
+    "Dần",
+    "Thìn",
+    "Ngọ",
+    "Thân",
+    "Tuất"
+  ],
+  "am_palaces": [
+    "Sửu",
+    "Mão",
+    "Tỵ",
+    "Mùi",
+    "Dậu",
+    "Hợi"
+  ],
   "phi_tinh_9_duong": [
-    {"id": "tu", "name_vi": "Tử", "name_zh": "紫", "ngu_hanh": "mộc", "polarity": "dương",
-     "an_position": "Tý (default)", "source_ref": "Q4 p0286 r010, p0275 r002"},
-    {"id": "van", "name_vi": "Văn", "name_zh": "文", "ngu_hanh": "mộc", "polarity": "dương",
-     "an_position_mieu": ["Dần", "Ngọ", "Tuất"], "source_ref": "Q4 p0289 r013, p0275 r002"},
-    {"id": "phuc", "name_vi": "Phúc", "name_zh": "福", "ngu_hanh": "thổ", "polarity": "dương",
-     "an_position_mieu": ["Thân", "Mão"], "source_ref": "Q4 p0291 r020, p0275 r002"},
-    {"id": "loc", "name_vi": "Lộc", "name_zh": "禄", "ngu_hanh": "mộc", "polarity": "dương",
-     "an_position_mieu": ["Tỵ", "Thân"], "source_ref": "Q4 p0292 r011, p0275 r002"},
-    {"id": "an", "name_vi": "Ấn", "name_zh": "印", "ngu_hanh": "thổ", "polarity": "dương",
-     "an_position_mieu": ["Tý", "Mão", "Thìn"], "source_ref": "Q4 p0288 r006, p0275 r002"},
-    {"id": "tho", "name_vi": "Thọ", "name_zh": "寿", "ngu_hanh": "thổ", "polarity": "dương",
-     "an_position_mieu": ["Hợi", "Dậu", "Tuất"], "source_ref": "Q4 p0289 r002, p0275 r002"},
-    {"id": "truong", "name_vi": "Trượng", "name_zh": "杖", "ngu_hanh": "mộc", "polarity": "dương",
-     "an_position_mieu": ["Mùi", "Hợi", "Tý", "Thân"], "source_ref": "Q4 p0293 r002, p0275 r002"},
-    {"id": "kho", "name_vi": "Khố", "name_zh": "库", "ngu_hanh": "thổ", "polarity": "dương",
-     "an_position_mieu": ["Mão", "Tỵ", "Hợi", "Ngọ"], "source_ref": "Q4 p0290 r018, p0275 r002"},
-    {"id": "dieu", "name_vi": "Diêu", "name_zh": "姚", "ngu_hanh": "thổ", "polarity": "dương",
-     "an_position_mieu": ["Mão", "Thìn", "Tuất", "Hợi"], "source_ref": "Q4 p0296 r009, p0275 r002"}
+    {
+      "id": "tu",
+      "name_vi": "Tử",
+      "name_zh": "紫",
+      "ngu_hanh": "mộc",
+      "polarity": "dương",
+      "an_position": "Tý (default)",
+      "source_ref": "Q4 p0286 r010, p0275 r002"
+    },
+    {
+      "id": "van",
+      "name_vi": "Văn",
+      "name_zh": "文",
+      "ngu_hanh": "mộc",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Dần",
+        "Ngọ",
+        "Tuất"
+      ],
+      "source_ref": "Q4 p0289 r013, p0275 r002"
+    },
+    {
+      "id": "phuc",
+      "name_vi": "Phúc",
+      "name_zh": "福",
+      "ngu_hanh": "thổ",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Thân",
+        "Mão"
+      ],
+      "source_ref": "Q4 p0291 r020, p0275 r002"
+    },
+    {
+      "id": "loc",
+      "name_vi": "Lộc",
+      "name_zh": "禄",
+      "ngu_hanh": "mộc",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Tỵ",
+        "Thân"
+      ],
+      "source_ref": "Q4 p0292 r011, p0275 r002"
+    },
+    {
+      "id": "an",
+      "name_vi": "Ấn",
+      "name_zh": "印",
+      "ngu_hanh": "thổ",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Tý",
+        "Mão",
+        "Thìn"
+      ],
+      "source_ref": "Q4 p0288 r006, p0275 r002"
+    },
+    {
+      "id": "tho",
+      "name_vi": "Thọ",
+      "name_zh": "寿",
+      "ngu_hanh": "thổ",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Hợi",
+        "Dậu",
+        "Tuất"
+      ],
+      "source_ref": "Q4 p0289 r002, p0275 r002"
+    },
+    {
+      "id": "truong",
+      "name_vi": "Trượng",
+      "name_zh": "杖",
+      "ngu_hanh": "mộc",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Mùi",
+        "Hợi",
+        "Tý",
+        "Thân"
+      ],
+      "source_ref": "Q4 p0293 r002, p0275 r002"
+    },
+    {
+      "id": "kho",
+      "name_vi": "Khố",
+      "name_zh": "库",
+      "ngu_hanh": "thổ",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Mão",
+        "Tỵ",
+        "Hợi",
+        "Ngọ"
+      ],
+      "source_ref": "Q4 p0290 r018, p0275 r002"
+    },
+    {
+      "id": "dieu",
+      "name_vi": "Diêu",
+      "name_zh": "姚",
+      "ngu_hanh": "thổ",
+      "polarity": "dương",
+      "an_position_mieu": [
+        "Mão",
+        "Thìn",
+        "Tuất",
+        "Hợi"
+      ],
+      "source_ref": "Q4 p0296 r009, p0275 r002"
+    }
   ],
   "phi_tinh_9_am": [
-    {"id": "quy", "name_vi": "Quý", "name_zh": "贵", "ngu_hanh": "thổ", "polarity": "âm",
-     "an_position_mieu": ["Dần", "Thìn", "Hợi", "Mão", "Mùi"], "source_ref": "Q4 p0287 r018, p0275 r004"},
-    {"id": "hong", "name_vi": "Hồng", "name_zh": "红", "ngu_hanh": "kim", "polarity": "âm",
-     "an_position_mieu": ["Thìn", "Sửu", "Dần"], "source_ref": "Q4 p0291 r008, p0275 r004"},
-    {"id": "di", "name_vi": "Dị", "name_zh": "异", "ngu_hanh": "thổ", "polarity": "âm",
-     "an_position_mieu": ["Sửu", "Dần", "Thìn", "Mùi"], "source_ref": "Q4 p0293 r017, p0275 r004"},
-    {"id": "mao", "name_vi": "Mao", "name_zh": "毛", "ngu_hanh": "thủy", "polarity": "âm",
-     "an_position_mieu": ["Tý", "Mão", "Dần", "Tuất"], "source_ref": "Q4 p0294 r011, p0275 r004"},
-    {"id": "hu", "name_vi": "Hư", "name_zh": "虚", "ngu_hanh": "thủy", "polarity": "âm",
-     "an_position_chinh": "Ngọ", "an_position_mieu": ["Sửu", "Ngọ", "Dậu", "Hợi"],
-     "source_ref": "Q4 p0287 r004, p0275 r004"},
-    {"id": "quan", "name_vi": "Quán", "name_zh": "贯", "ngu_hanh": "thổ", "polarity": "âm",
-     "an_position_mieu": ["Mão", "Tỵ", "Ngọ", "Mùi", "Hợi"], "source_ref": "Q4 p0290 r006, p0275 r004"},
-    {"id": "hinh", "name_vi": "Hình", "name_zh": "刑", "ngu_hanh": "hỏa", "polarity": "âm",
-     "an_position_mieu": ["Dần", "Ngọ", "Dậu", "Tuất"], "source_ref": "Q4 p0296 r002, p0275 r004"},
-    {"id": "nhan", "name_vi": "Nhận", "name_zh": "刃", "ngu_hanh": "kim", "polarity": "âm",
-     "an_position_mieu": ["Thân", "Tỵ", "Ngọ", "Dần", "Dậu"], "source_ref": "Q4 p0295 r005, p0275 r004"},
-    {"id": "khoc", "name_vi": "Khốc", "name_zh": "哭", "ngu_hanh": "kim", "polarity": "âm",
-     "an_position_mieu": ["Sửu", "Thân", "Mão", "Ngọ"], "source_ref": "Q4 p0298 r013, p0275 r004"}
+    {
+      "id": "quy",
+      "name_vi": "Quý",
+      "name_zh": "贵",
+      "ngu_hanh": "thổ",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Dần",
+        "Thìn",
+        "Hợi",
+        "Mão",
+        "Mùi"
+      ],
+      "source_ref": "Q4 p0287 r018, p0275 r004"
+    },
+    {
+      "id": "hong",
+      "name_vi": "Hồng",
+      "name_zh": "红",
+      "ngu_hanh": "kim",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Thìn",
+        "Sửu",
+        "Dần"
+      ],
+      "source_ref": "Q4 p0291 r008, p0275 r004",
+      "aliases": [
+        "Loan",
+        "Hồng Loan",
+        "鸾"
+      ],
+      "note_2026_06_23": "Bản an (p0272 r017) gọi 'Loan'; bản polarity (p0275 r004) gọi 'Hồng' — cùng sao Hồng Loan, cực ÂM/Kim."
+    },
+    {
+      "id": "di",
+      "name_vi": "Dị",
+      "name_zh": "异",
+      "ngu_hanh": "thổ",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Sửu",
+        "Dần",
+        "Thìn",
+        "Mùi"
+      ],
+      "source_ref": "Q4 p0293 r017, p0275 r004"
+    },
+    {
+      "id": "mao",
+      "name_vi": "Mao",
+      "name_zh": "毛",
+      "ngu_hanh": "thủy",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Tý",
+        "Mão",
+        "Dần",
+        "Tuất"
+      ],
+      "source_ref": "Q4 p0294 r011, p0275 r004"
+    },
+    {
+      "id": "hu",
+      "name_vi": "Hư",
+      "name_zh": "虚",
+      "ngu_hanh": "thủy",
+      "polarity": "âm",
+      "an_position_chinh": "Ngọ",
+      "an_position_mieu": [
+        "Sửu",
+        "Ngọ",
+        "Dậu",
+        "Hợi"
+      ],
+      "source_ref": "Q4 p0287 r004, p0275 r004"
+    },
+    {
+      "id": "quan",
+      "name_vi": "Quán",
+      "name_zh": "贯",
+      "ngu_hanh": "thổ",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Mão",
+        "Tỵ",
+        "Ngọ",
+        "Mùi",
+        "Hợi"
+      ],
+      "source_ref": "Q4 p0290 r006, p0275 r004"
+    },
+    {
+      "id": "hinh",
+      "name_vi": "Hình",
+      "name_zh": "刑",
+      "ngu_hanh": "hỏa",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Dần",
+        "Ngọ",
+        "Dậu",
+        "Tuất"
+      ],
+      "source_ref": "Q4 p0296 r002, p0275 r004"
+    },
+    {
+      "id": "nhan",
+      "name_vi": "Nhận",
+      "name_zh": "刃",
+      "ngu_hanh": "kim",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Thân",
+        "Tỵ",
+        "Ngọ",
+        "Dần",
+        "Dậu"
+      ],
+      "source_ref": "Q4 p0295 r005, p0275 r004"
+    },
+    {
+      "id": "khoc",
+      "name_vi": "Khốc",
+      "name_zh": "哭",
+      "ngu_hanh": "kim",
+      "polarity": "âm",
+      "an_position_mieu": [
+        "Sửu",
+        "Thân",
+        "Mão",
+        "Ngọ"
+      ],
+      "source_ref": "Q4 p0298 r013, p0275 r004"
+    }
   ],
   "engine_notes": {
     "usage": "Engine module chieu_dom_kinh_an_sao.py (D10) sẽ tính vị trí 18 Phi Tinh theo formula Q4 p0272-p0273. Engine khác parallel với engine.tu_vi.an_sao chính thống.",
     "ui_implication": "Panel UI 'Chiếu Đởm Kinh' tách riêng — KHÔNG merge vào main TuViLaSoPanel (Iron Rule: tránh conflict 14 chính tinh × 18 Phi Tinh)"
+  },
+  "star_name_reconciliation_2026_06_23": {
+    "method": "Đối chiếu sách gốc Q4: p0272 r017 (Khởi Tử Vi lệ, an) vs p0275 r002+r004 (Cửu Dương/Cửu Âm tinh, polarity)",
+    "Loan_eq_Hong": "'Loan' (an list) = 'Hồng' (Hồng Loan 红鸾, polarity list) — CÙNG sao, cực ÂM/Kim. Luật khớp-cực áp theo cực âm.",
+    "Khong_is_19th": "'Không' (Thiên Không) được AN trong Group A (p0272 r017) nhưng KHÔNG trong 18 Phi Tinh có polarity (p0275) → NGOÀI luật khớp-cực phúc/tai (sao an-mà-không-luận-cực).",
+    "canonical_18": "18 Phi Tinh CHUẨN = 9 Dương (Tử Văn Phúc Lộc Ấn Thọ Trượng Khố Diêu) + 9 Âm (Quý Hồng Dị Mao Hư Quán Hình Nhận Khốc) theo p0275 — file này ĐÚNG. 'Tử' là sao neo phép an, vẫn tính trong 9 Dương."
   }
 }
