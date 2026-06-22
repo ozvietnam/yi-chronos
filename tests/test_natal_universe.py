@@ -60,6 +60,20 @@ def test_chinh_tinh_an_sao_computable():
     assert tuvi["ngu_hanh"] == "thổ"
 
 
+def test_tu_hoa_deterministic_by_can():
+    """Tứ Hóa = hàm tất định của CAN năm (Mậu → Lộc:Tham Lang, Quyền:Thái Âm, Kỵ:Thiên Cơ)."""
+    n = build_natal(FOUNDER, lat=21.03, lon=105.85)
+    th = n["dia_ban"]["tu_hoa"]
+    assert th["Lộc"] == "Tham Lang"
+    assert th["Quyền"] == "Thái Âm"
+    assert th["Kỵ"] == "Thiên Cơ"
+    # Tham Lang (đồng cung Mão) mang Hóa Lộc; chính tinh không hóa → hoa=None
+    mao = next(c for c in n["dia_ban"]["cung"] if c["chi"] == "Mão")
+    assert next(s for s in mao["chinh_tinh"] if s["name"] == "Tham Lang")["hoa"] == "Lộc"
+    ty = next(c for c in n["dia_ban"]["cung"] if c["chi"] == "Tỵ")
+    assert ty["chinh_tinh"][0]["hoa"] is None  # Thiên Tướng (Mệnh) không hóa
+
+
 def test_requires_tzinfo():
     import pytest
     with pytest.raises(ValueError):
