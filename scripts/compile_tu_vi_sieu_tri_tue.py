@@ -52,6 +52,10 @@ th { background:#fff3d6; color:#806000; }
 em { color:#446690; font-style:italic; } strong { color:#ba4d00; }
 code { background:#f4efe6; padding:.05em .3em; border-radius:3px; font-size:9pt; }
 hr { border:none; border-top:1px solid #e0d4b8; margin:1.5em 0; }
+figure { margin:1.3em 0; text-align:center; page-break-inside:avoid; }
+img { max-width:100%; height:auto; border:1px solid #ece3cf; border-radius:6px; }
+figcaption { font-size:8.5pt; color:#6a6356; font-style:italic; text-align:justify;
+  margin-top:.45em; padding:0 .4em; line-height:1.45; }
 #TOC { page-break-after: always; }
 #TOC ul { list-style:none; } #TOC a { color:#806000; text-decoration:none; }
 """
@@ -89,9 +93,12 @@ def main() -> int:
             "--from", "markdown+pipe_tables+blank_before_blockquote+yaml_metadata_block+tex_math_dollars",
             "--to", "html5", "--standalone", "--toc", "--toc-depth", "2",
             "--metadata", "lang=vi", "--css", str(css),
+            # đồ hình: figures/*.png nằm trong BOOK; nhúng base64 để WeasyPrint render được
+            "--resource-path", str(BOOK),
+            "--embed-resources",
         ], check=True)
 
-        out_pdf = OUT / "Tu-Vi-Tinh-Duoc-v0.2.pdf"
+        out_pdf = OUT / "Tu-Vi-Tinh-Duoc-v0.3.pdf"
         from weasyprint import HTML
         HTML(filename=str(html)).write_pdf(str(out_pdf))
         size_kb = out_pdf.stat().st_size // 1024

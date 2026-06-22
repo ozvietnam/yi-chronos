@@ -22,6 +22,8 @@ Không bước nào cần "trực giác". **An sao đã là toán học thuần 
 
 → *Hệ quả về độ chính xác:* bước đầu của chính xác là **đúng nguyên liệu**. Lá số an sai thì mọi luận sau đều sai — "rác vào, rác ra". Máy bảo đảm nguyên liệu đúng tuyệt đối. Đây là phần "tăng độ chính xác" **chắc chắn nhất**.
 
+![**Đồ hình 1 — An sao là phép dịch tất định.** Khi an Tử Vi vào cung Dần (cùng Thiên Phủ, gọi "Tử Phủ đồng cung"), mười ba sao còn lại rơi vào vị trí cố định bằng một phép dịch — không cần "trực giác", máy tính sai số bằng không. Màu phân theo đẩu: vàng = đế (Tử Vi · Phủ · Nhật · Nguyệt), lam = bắc đẩu, lục = nam đẩu.](figures/fig4-14-chinh-tinh.png)
+
 ## I.2 — Lá số là một ĐỒ THỊ CÓ NHÃN
 
 An sao cho ta `L`. Nhưng `L` không phải danh sách rời — nó là một **cấu trúc quan hệ**. Hình thức hoá thành đồ thị `G = (V, E, λ)`:
@@ -37,6 +39,12 @@ An sao cho ta `L`. Nhưng `L` không phải danh sách rời — nó là một *
 > nhãn `λ` không phải ký hiệu tùy tiện — nó **mã hoá một cấu hình thiên văn tại điểm sinh**.
 > (Và "ngũ hành" mà nhãn dùng, theo Đằng Sơn, là **xấp xỉ rời rạc của continuum âm dương** —
 > "hình ngũ giác thay hình tròn khi thiếu compass": một mô hình hoá có sai số kiểm soát được.)
+
+![**Đồ hình 2 — Địa bàn 12 cung (Càn Khôn đồ).** Mỗi cung là một đỉnh của đồ thị `G`, mang nhãn: ngũ hành (mã màu) · tháng · tiết khí · can lộc-vị · quái · phương. Bốn cung chính (Tý-Ngọ-Mão-Dậu) là trục phương hướng; bốn cung Thổ (Thìn-Tuất-Sửu-Mùi) là "tứ khố".](figures/fig1-dia-ban-12-cung.png)
+
+![**Đồ hình 3 — Địa bàn sinh ra từ thiên văn.** Bốn tháng "tứ sinh" (Dần-Tỵ-Thân-Hợi) là bốn vị trí Trái Đất trên quỹ đạo quanh Mặt Trời; dấu vuông "giờ Tý" là mặt Trái Đất quay ra xa Mặt Trời lúc nửa đêm. Tháng + giờ cùng định cung Mệnh — đây là chỗ Đằng Sơn chứng minh nhãn cung có **referent vật lý thật**.](figures/fig3-dia-ban-thien-van.png)
+
+![**Đồ hình 4 — Ngũ hành = ngũ giác xấp xỉ hình tròn âm dương.** Vòng tròn nét đứt là âm dương (liên tục, vô hạn cung bậc); ngũ giác nội tiếp là ngũ hành (5 mốc rời rạc, theo vòng Sinh). Khe vàng giữa cạnh và cung là **sai số** — đủ nhỏ nên "dùng được". Đây là tư duy *mô hình hoá có sai số* của một kỹ sư.](figures/fig2-ngu-hanh-ngu-giac.png)
 
 Vì sao điều này quan trọng? Vì **ý nghĩa của một sao không nằm ở bản thân nó, mà ở VỊ TRÍ trong đồ thị.** Vũ Khúc ở Mệnh khác Vũ Khúc ở Tài Bạch; Vũ Khúc *được Thiên Phủ tam hợp* khác Vũ Khúc *bị Phá Quân xung*. Luận Tử Vi, ở tầng sâu, là **đọc topology** (cấu trúc liên kết) của đồ thị — không phải tra nghĩa từng sao rời.
 
