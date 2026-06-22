@@ -40,6 +40,21 @@ def _star_ngu_hanh(name: str) -> str:
         return ""
 
 
+def _star_do_sang(name: str, chi: str) -> str:
+    """Độ sáng theo VỊ TRÍ (miếu-vượng-hãm rút gọn): 'đắc' nếu ở đắc-địa, 'hãm' nếu
+    lạc-địa, 'bình' còn lại. Thuộc tính TÍNH ĐƯỢC (Đằng Sơn: kiểm nghiệm đắc/hãm địa) —
+    cùng một sao mạnh hay yếu là HÀM của cung nó đậu."""
+    try:
+        s = get_chinh_tinh_by_name(name)
+        if chi in s.dac_dia:
+            return "đắc"
+        if chi in s.lac_dia:
+            return "hãm"
+    except Exception:
+        pass
+    return "bình"
+
+
 def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
     """Gộp bầu trời thật + địa bàn ký hiệu cho một thời điểm sinh.
 
@@ -86,7 +101,12 @@ def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
         "hanh": CHI_HANH[chi],
         "is_menh": chi == menh,
         "chinh_tinh": [
-            {"name": n, "ngu_hanh": _star_ngu_hanh(n), "hoa": hoa_of_star.get(n)}
+            {
+                "name": n,
+                "ngu_hanh": _star_ngu_hanh(n),
+                "hoa": hoa_of_star.get(n),
+                "do_sang": _star_do_sang(n, chi),
+            }
             for n in stars_by_cung.get(i, [])
         ],
     } for i, chi in enumerate(CHI)]

@@ -632,8 +632,10 @@ function buildNatalScene() {
     (c.chinh_tinh || []).forEach((st, k) => {
       const hk = HANH_KEY[(st.ngu_hanh || "").split("/")[0].trim()] || "kim";
       const rr = R_DIA - 0.55 - k * 0.36;
+      // độ sáng theo VỊ TRÍ (đắc to/sáng · hãm nhỏ/mờ) — sao mạnh-yếu là hàm của cung
+      const bright = st.do_sang === "đắc" ? 1.28 : st.do_sang === "hãm" ? 0.76 : 1.0;
       const slabel = makeTextSprite(st.hoa ? `${st.name} ·${st.hoa}` : st.name, HANH_CSS[hk] || "#cfe9e4");
-      slabel.scale.set(st.hoa ? 0.72 : 0.6, 0.17, 1);
+      slabel.scale.set((st.hoa ? 0.72 : 0.6) * bright, 0.17 * bright, 1);
       slabel.position.copy(eclipticVec(c.lon_center, rr, 0.05));
       natalGroup.add(slabel);
       if (st.hoa) {

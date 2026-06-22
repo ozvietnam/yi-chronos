@@ -74,6 +74,16 @@ def test_tu_hoa_deterministic_by_can():
     assert ty["chinh_tinh"][0]["hoa"] is None  # Thiên Tướng (Mệnh) không hóa
 
 
+def test_do_sang_by_position():
+    """Độ sáng = HÀM của vị trí (đắc/hãm địa)."""
+    n = build_natal(FOUNDER, lat=21.03, lon=105.85)
+    ty = next(c for c in n["dia_ban"]["cung"] if c["chi"] == "Tỵ")
+    assert ty["chinh_tinh"][0]["do_sang"] == "đắc"  # Thiên Tướng đắc tại Tỵ (Mệnh founder)
+    tu = next(c for c in n["dia_ban"]["cung"] if c["chi"] == "Tý")
+    td = next(s for s in tu["chinh_tinh"] if s["name"] == "Thái Dương")
+    assert td["do_sang"] == "hãm"  # Thái Dương lạc tại Tý
+
+
 def test_requires_tzinfo():
     import pytest
     with pytest.raises(ValueError):
