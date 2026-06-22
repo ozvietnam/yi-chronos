@@ -130,7 +130,9 @@ def an_thien_khoc(year_branch: str) -> str:
 
 
 def an_thien_dieu(lunar_month: int) -> str:
-    """An Thiên Diêu — Q4 implies similar logic. Use Sửu start as Q4 r006 hint."""
+    """An Thiên Diêu — GỐC Q4 p0272 r002 "Thiên Diêu (tại Sửu thuận hành)" + r014
+    "Hình [Dậu] Diêu [Sửu] giai thuận hành, sổ chí sinh nguyệt". KHÔNG phải heuristic —
+    từ Sửu, thuận, đếm tới tháng sinh (xác nhận sách gốc 2026-06-23)."""
     return _add_branches("Sửu", lunar_month - 1, "thuận")
 
 
@@ -157,22 +159,23 @@ def an_dai_han_cdk(menh_branch: str, year_stem: str, gender: str) -> list[dict]:
     Per Q4 p0273 r010: "Dương nam Âm nữ tòng Mệnh cung thuận sổ, thập niên hành nhất
     cung; Âm nam Dương nữ tòng Thân cung nghịch sổ".
 
-    NOTE: Chiếu Đởm Kinh đảo âm-dương convention → "Dương nam" theo CDK = Giáp/Bính/Mậu/
-    Canh/Nhâm sinh nhân theo chính thống. Em DÙNG chính thống convention cho engine
-    để đồng nhất với engine.tu_vi.an_sao main (avoid confusion).
+    SỬA 2026-06-23 theo SÁCH GỐC (Q4 p0273 r014-r015 đặt NGAY SAU luật hạn r010):
+    CDK dùng convention ĐẢO (Giáp Bính Mậu Canh Nhâm = ÂM) để định "Dương nam/Âm nữ"
+    cho CHIỀU hạn. Trước đây engine dùng chuẩn (không-đảo) = NGƯỢC gốc → nay theo
+    STEM_POLARITY_CDK. (Vd Mậu = âm → "âm nam" → nghịch, không còn thuận.)
+
+    LƯU Ý còn tồn (chưa xử lý, cần cung Thân): gốc r010 nói "âm nam dương nữ tòng THÂN
+    cung nghịch sổ" — khởi từ cung Thân, không phải Mệnh. Engine hiện luôn khởi từ
+    menh_branch (đơn giản hóa). Chiều đã đúng gốc; điểm khởi Mệnh/Thân cần bổ sung sau.
     """
-    # Standard convention (NOT CDK reversed) for cross-engine consistency
-    stem_polarity_std = {
-        "Giáp": "dương", "Bính": "dương", "Mậu": "dương", "Canh": "dương", "Nhâm": "dương",
-        "Ất": "âm", "Đinh": "âm", "Kỷ": "âm", "Tân": "âm", "Quý": "âm",
-    }
-    polarity = stem_polarity_std.get(year_stem, "dương")
+    polarity = STEM_POLARITY_CDK.get(year_stem, "âm")
     is_thuan = (polarity == "dương" and gender == "nam") or (polarity == "âm" and gender == "nữ")
 
     cycles = []
     for i in range(8):  # 8 cycles × 10 năm = 80 năm
-        idx_offset = i if is_thuan else -i
-        branch = _add_branches(menh_branch, idx_offset, "thuận" if is_thuan else "nghịch")
+        # FIX 2026-06-23: trước đây idx_offset=-i KÈM direction="nghịch" → triệt tiêu
+        # (luôn thuận). Dùng i dương, để direction lo dấu mới đúng chiều nghịch.
+        branch = _add_branches(menh_branch, i, "thuận" if is_thuan else "nghịch")
         cycles.append({
             "cycle_index": i + 1,
             "branch": branch,

@@ -40,10 +40,14 @@ Thân nịch giang hồ (Hợi/Tý + bất miếu, hung) · Tử đầu la võng
 - **Mệnh Dậu:** Quý (cao quý, âm→khớp→**phúc**) + Khốc (bi-mẫn/sâu, âm→**phúc**) + Trượng (chống đỡ, dương→lệch→tai). → **nội tâm cao-quý + nhạy-cảm-sâu, được nâng**; chỉ "chống đỡ bên ngoài" hơi nghịch. (Cộng hưởng "ghế tĩnh vua động" của lăng kính chính thống: ngoài tĩnh, trong sâu.)
 - Tử (đế CDK) @ Hợi/Phúc Đức lệch → tai; Hình @ Tý/Điền Trạch lệch → tai.
 
-## 8. ⚠️ 3 ĐIỂM CẦN ANH QUYẾT (gap thật, kiểu Đằng-Sơn-verify bắt được)
-1. **Convention can ĐẢO mâu thuẫn data ↔ engine:** data tuyên bố Giáp...= ÂM, nhưng `an_dai_han_cdk` CỐ Ý chạy **không-đảo** (override về chuẩn cross-engine). → theo gốc CDK (đảo) hay chuẩn (không-đảo)? Production đang **không-đảo**.
-2. **18-list ↔ cast pantheon lệch:** engine cast ra **"Không", "Loan"** (Group A nguồn p0272) KHÔNG có trong bảng 18-Phi-Tinh JSON (JSON có "Hồng", thiếu "Không") → 2 sao không map cực. Matcher còn **gộp** Phúc/Lộc→"Phúc Lộc" và Không/Hư→"Thiên Hư" khi tra miếu. Cần reconcile 1 danh sách chuẩn.
-3. **Thiên Diêu thiếu formula gốc** — engine dùng heuristic, cần nguồn xác nhận.
+## 8. ✅ 3 ĐIỂM — ĐÃ RA NHẼ THEO SÁCH GỐC (Anh giao "xem lại sách gốc làm cho ra nhẽ", sửa 2026-06-23)
+Đối chiếu trực tiếp chữ Hán-Việt nguồn `tuvidauso-zh/p0272-0275`:
+
+1. **Convention can ĐẢO → ĐÚNG là ĐẢO (đã sửa engine).** Gốc p0273 r014-r015 _"thập can sở chúc âm dương: Giáp Bính Mậu Canh Nhâm chúc ÂM"_ đặt NGAY SAU luật hạn r010 _"Dương nam âm nữ tòng Mệnh thuận; âm nam dương nữ tòng Thân nghịch"_ → đảo áp cho CHIỀU hạn. Engine trước chạy không-đảo = **sai gốc**. **Đã sửa** `an_dai_han_cdk` dùng `STEM_POLARITY_CDK`. **+ vá bug double-negation** (`idx_offset=-i` kèm `direction=nghịch` → triệt tiêu, CDK Đại Hạn TRƯỚC GIỜ LUÔN thuận cho mọi người). Nay Anh (Mậu=âm→âm nam) → **nghịch Dậu→Thân→Mùi→Ngọ→Tỵ**; kiểm chéo dương-nam → thuận. 5 test pass. **Còn tồn**: gốc nói âm-nam khởi từ cung THÂN (engine luôn khởi Mệnh) — đơn giản hóa, cần Thân, đã ghi chú trong code.
+2. **"Không"/"Loan" → ĐÚNG là engine, JSON cần note (đã thêm).** Gốc p0272 r017 (an) liệt kê Không+Loan; p0275 r002/r004 (18 phi tinh polarity) liệt kê Hồng (KHÔNG có Không/Loan). Phán: **"Loan" = "Hồng" (Hồng Loan 红鸾, âm/Kim)** — cùng sao, đã thêm `aliases` để áp cực. **"Không" = sao thứ 19** (an mà không trong 18 polarity) → đúng là ngoài luật khớp-cực. 18 chuẩn = 9 Dương+9 Âm p0275 (JSON đúng). Lá số Anh sau sửa: **10 phúc/8 tai/1 ngoài-luật**.
+3. **Thiên Diêu → ĐÚNG là engine (không phải heuristic).** Gốc p0272 r002 _"Thiên Diêu (tại Sửu thuận hành)"_ + r014 _"Hình [Dậu] Diêu [Sửu] giai thuận hành, sổ chí sinh nguyệt"_ → từ Sửu thuận tới tháng sinh = đúng công thức engine. **Đã sửa docstring** cite gốc (bỏ chữ "heuristic/hint").
+
+**→ Phán quyết chung:** ENGINE đúng ở 2/3 (Không-Loan, Diêu); chỉ point 1 (convention + bug chiều) là lỗi thật, đã sửa theo gốc. Data JSON đã thêm note đối chiếu.
 
 ## Nguồn
 Engine: `chieu_dom_kinh_an_sao.py` · `cdk_cach_cuc_matcher.py` · `cdk_cung_analyzer.py` · `from_birth.py`.
