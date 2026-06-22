@@ -69,7 +69,7 @@ import CrossCastPanel from "./components/wiki/CrossCastPanel.vue";
 import PublishingWorkspace from "./components/publishing/PublishingWorkspace.vue";
 import LibraryView from "./components/publishing/LibraryView.vue";
 import { applyBirthFromUrlOnMount } from "./composables/useBirthShare.js";
-import { getActiveRuleset, getPlanetPositions, getUniverseNow, submitFeedback, submitPersonalProfile } from "./lib/api";
+import { getActiveRuleset, getNatalUniverse, getPlanetPositions, getUniverseNow, submitFeedback, submitPersonalProfile } from "./lib/api";
 import {
   createEmptyProfile,
   loadProfilesState,
@@ -87,6 +87,30 @@ const personal = ref(null);
 const feedbackStatus = ref("");
 const error = ref("");
 const loadingUniverse = ref(false);
+
+// Lá số trên nền vũ trụ thật (natal mode cho UniverseCore)
+const natalData = ref(null);
+const natalLoading = ref(false);
+const natalError = ref("");
+async function loadNatal() {
+  const at = activeBirthDatetime.value;
+  if (!at) {
+    natalError.value = "Chưa có ngày sinh — chọn người ở hồ sơ trước.";
+    return;
+  }
+  natalLoading.value = true;
+  natalError.value = "";
+  try {
+    natalData.value = await getNatalUniverse({ at });
+  } catch (err) {
+    natalError.value = err?.message || String(err);
+  } finally {
+    natalLoading.value = false;
+  }
+}
+function clearNatal() {
+  natalData.value = null;
+}
 const activeRuleset = ref(null);
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
@@ -539,13 +563,25 @@ onBeforeUnmount(() => {
           ]"
         />
         <div class="universe-dashboard">
-          <section class="core-stage universe-stage" aria-label="Trực quan lõi vũ trụ">
+          <section class="core-stage universe-stage" aria-label="Trực quan lõi vũ trụ" style="position: relative;">
             <UniverseCore
               :universe="universe"
               :planet-positions="planetPositions"
               :selected-time-zone="selectedTimeZone"
               :now="now"
+              :natal-data="natalData"
             />
+            <div style="position:absolute; top:14px; left:50%; transform:translateX(-50%); z-index:6; display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; max-width:92%;">
+              <button
+                type="button"
+                :disabled="natalLoading"
+                @click="natalData ? clearNatal() : loadNatal()"
+                style="border:1px solid rgba(232,168,56,0.55); background:rgba(18,14,8,0.74); color:#ffd98a; border-radius:999px; padding:7px 16px; font-size:13px; font-weight:700; cursor:pointer; backdrop-filter:blur(4px);"
+              >
+                {{ natalLoading ? "Đang dựng lá số…" : natalData ? "× Tắt lá số" : "✦ Lá số trên nền vũ trụ" }}
+              </button>
+              <span v-if="natalError" style="color:#f0897c; font-size:12px; background:rgba(18,14,8,0.7); padding:3px 8px; border-radius:6px;">{{ natalError }}</span>
+            </div>
           </section>
           <section class="universe-weather" aria-label="Trạng thái vũ trụ">
             <EnergyWeatherPanel :universe="universe" :loading="loadingUniverse" />
