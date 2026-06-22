@@ -84,6 +84,19 @@ def test_do_sang_by_position():
     assert td["do_sang"] == "hãm"  # Thái Dương lạc tại Tý
 
 
+def test_luu_nien_breathes_by_year():
+    """Tầng lưu niên: mỗi năm Can khác → lưu Tứ Hóa bắn vào sao KHÁC ('mệnh là động từ')."""
+    base = build_natal(FOUNDER, lat=21.03, lon=105.85)
+    assert base["luu_nien"] is None  # không year → không có lưu niên
+    n = build_natal(FOUNDER, lat=21.03, lon=105.85, target_year=2026)
+    ln = n["luu_nien"]
+    assert ln["year"] == 2026
+    assert ln["can_chi"].split()[0] == "Bính"  # 2026 = Bính Ngọ
+    # lưu Tứ Hóa 2026 (Bính) KHÁC Tứ Hóa gốc Mậu của founder → lá số "thở"
+    assert ln["tu_hoa"]["Lộc"] == "Thiên Đồng"
+    assert ln["tu_hoa"]["Lộc"] != base["dia_ban"]["tu_hoa"]["Lộc"]
+
+
 def test_requires_tzinfo():
     import pytest
     with pytest.raises(ValueError):

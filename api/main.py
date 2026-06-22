@@ -397,6 +397,7 @@ def natal_universe(
     lat: float = 21.03,
     lon: float = 105.85,
     tz_hours: float = 7.0,
+    year: int | None = None,
 ) -> dict[str, object]:
     """Lá số trên nền vũ trụ: bầu trời THẬT lúc sinh + địa bàn Tử Vi KÝ HIỆU.
 
@@ -412,7 +413,7 @@ def natal_universe(
     dt = datetime.fromisoformat(at.replace("Z", "+00:00"))
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone(timedelta(hours=tz_hours)))
-    return build_natal(dt, lat=lat, lon=lon)
+    return build_natal(dt, lat=lat, lon=lon, target_year=year)
 
 
 def _parse_birth_utc(birth_at: str) -> datetime:

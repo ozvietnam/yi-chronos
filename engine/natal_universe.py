@@ -55,11 +55,16 @@ def _star_do_sang(name: str, chi: str) -> str:
     return "bình"
 
 
-def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
+def build_natal(
+    birth_local: datetime, lat: float, lon: float, target_year: int | None = None
+) -> dict:
     """Gộp bầu trời thật + địa bàn ký hiệu cho một thời điểm sinh.
 
     - birth_local: datetime CÓ tzinfo (giờ địa phương nơi sinh).
     - lat/lon: toạ độ nơi sinh (độ) — để tính Ascendant + giờ thật.
+    - target_year: nếu có → kèm tầng LƯU NIÊN (lá số "thở" theo năm): lưu Tứ Hóa +
+      cung Thái Tuế năm đó. Mỗi năm Can khác → Tứ Hóa bắn vào sao khác = "mệnh là
+      động từ" hiện hình. Tính được SÂN KHẤU năm đó, KHÔNG tính kết cục (Iron #4/#6/#8).
     """
     if birth_local.tzinfo is None:
         raise ValueError("birth_local phải có tzinfo (giờ địa phương nơi sinh)")
@@ -111,7 +116,19 @@ def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
         ],
     } for i, chi in enumerate(CHI)]
 
+    # Tầng LƯU NIÊN — lá số "thở" theo năm (lưu Tứ Hóa + Thái Tuế). Hàm thuần của Can năm.
+    luu_nien = None
+    if target_year is not None:
+        ly = solar_to_lunar(SolarDateTime(target_year, 6, 15, 12, 0))
+        luu_nien = {
+            "year": target_year,
+            "can_chi": ly.year_can_chi,
+            "thai_tue_chi": ly.year_chi,
+            "tu_hoa": an_sao.tu_hoa_assignments(ly.year_can_chi.split()[0]),
+        }
+
     return {
+        "luu_nien": luu_nien,
         "birth": {
             "local": birth_local.isoformat(),
             "utc": utc.replace(microsecond=0).isoformat().replace("+00:00", "Z"),
