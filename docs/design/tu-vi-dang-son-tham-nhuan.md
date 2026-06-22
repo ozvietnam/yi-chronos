@@ -64,3 +64,19 @@ Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (gi�
 - Thử OCR toàn 315 trang (tesseract `-l vie`) để đọc per-star hiệu quả: **tesseract/leptonica KHÔNG decode được PNG render 150dpi của calibre** ("file not found" dù `identify` đọc OK). Test 1 trang 110dpi thì OK → vấn đề định dạng PNG ở batch 150dpi.
 - Quan trọng hơn: file render ~23KB/trang = **trang gần TRẮNG** → sách Đằng Sơn **NẶNG ĐỒ HÌNH, THƯA CHỮ** (text-layer 37K chars/315tr; mỗi trang ~1 heading + đôi câu + diagram). Giá trị nằm ở **ĐỒ HÌNH** (đã đọc trực quan các trang then chốt) hơn là prose để OCR.
 - **Kết luận:** core đã rút (giả tướng · địa-bàn-thiên-văn · ngũ-hành-xấp-xỉ · Âm-Dương-theo-tháng) + vào **v0.2**. Đào sâu per-diagram tiếp = paced multi-session (đọc trực quan, tốn context). **Resumable** khi Anh muốn: render dpi khác + đọc trực quan từng chương, hoặc tải Tập 2.
+
+---
+
+## VÒNG 4 — VẼ LẠI ĐỒ HÌNH (2026-06-22, Anh chỉnh hướng QUAN TRỌNG)
+
+**Anh phản hồi:** _"Đồ hình em thấy khó, còn anh đọc sách rất thích vì nó trực quan dễ hiểu, em nên đọc cẩn thận và vẽ lại trên web cho anh xem."_ → Em **undervalue đồ hình** (vòng OCR coi "nặng đồ hình" là lý do DỪNG — SAI: đồ hình chính là chỗ HAY NHẤT). Anh học bằng hình. Đổi hướng: đọc kỹ + vẽ lại.
+
+- **Vẽ lại 4 đồ hình nền móng** (SVG sạch qua show_widget, mã màu ngũ hành/đẩu):
+  1. **Địa bàn 12 cung (Càn Khôn đồ)** — đủ thuộc tính từng cung (chi·âm dương·hành·tháng·tiết khí·can lộc·quái·phương).
+  2. **Ngũ hành = ngũ giác xấp xỉ hình tròn** — vòng tròn âm dương (liên tục) + ngũ giác (rời rạc) + khe sai số.
+  3. **Địa bàn từ thiên văn** — Mặt Trời + 4 Trái Đất (tháng Dần/Tỵ/Thân/Hợi) + giờ Tý + quỹ đạo.
+  4. **Phân bố 14 chính tinh** — thế Tử Phủ đồng cung tại Dần, đẩu bắc/nam/đế.
+- **Artifact:** `docs/books/tu-vi-sieu-tri-tue/do-hinh-dang-son.html` (web đứng riêng) + 4 PNG `figures/` + script `scripts/render_dang_son_figures.py`.
+- **Nhúng vào sách → v0.3** (56tr, 1.36MB): Phần I.1 (14 sao) + I.2 (địa bàn·thiên văn·ngũ hành). Sách hết "chay chữ".
+- 🔑 **PIPELINE TÁI DÙNG** cho mọi đồ hình sách sau: SVG (show_widget) → HTML → **cairosvg** PNG (phải **strip `var()`→fallback**; cairosvg áp được `<style>` class + marker/arc, KHÔNG hiểu var()) → nhúng pandoc (`--resource-path BOOK --embed-resources`) → WeasyPrint.
+- **CÒN (resumable):** nhiều đồ hình nữa — Âm Dương theo tháng (tr.110), per-star chương chính tinh, Tả Hữu Xương Khúc → đọc kỹ + vẽ tiếp theo nhịp.
