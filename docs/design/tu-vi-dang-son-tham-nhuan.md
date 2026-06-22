@@ -123,3 +123,20 @@ Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (gi�
 **Tổng kết 3 vòng loop "đọc+ứng dụng 3D":** natal 3D giờ phơi bày trọn cái TÍNH ĐƯỢC — vị trí 14 sao (hàm) · ngũ hành sao (sinh-khắc) · Tứ Hóa (hàm Can) · quan hệ tam-hợp/xung (đồ thị) · độ sáng (hàm vị trí). Tất cả deploy + verify live trên lá số thật founder.
 
 **CÒN (loop tiếp):** phụ tinh Tả-Hữu-Xương-Khúc-Khôi-Việt (tr.150) · sát tinh (Kình-Đà-Hỏa-Linh-Không-Kiếp) · tầng Bát Tự 4 trụ trên cùng vòng · panel chú giải bên cạnh 3D.
+
+---
+
+## VÒNG 8 — MỎ VÀNG: Tử Vi là CHUỖI ĐỊNH LÝ, không phải truyền thống học vẹt (Anh chốt 2026-06-22: "chưa thấy mỏ vàng ngoài vẽ cung Mệnh 3D")
+
+**Anh phê đúng:** em mải kỹ thuật (3D/video) — cái VỎ; chưa đào cái LÕI. Đào lại bằng text-layer (tìm 18 trang dày chữ nhất = chỗ giấu lý lẽ, vì sách hình-nhiều-chữ-thưa). Lõi của Đằng Sơn (kế thừa **Tạ Phồn Trị** + bổ túc) = **DẪN XUẤT toàn bộ tử vi từ vài nguyên lý**, KHÔNG học thuộc:
+
+1. **Tại sao đúng 14 chính tinh** (tr.118): 4 đế tinh + 9 cung trống cần lấp để "thái hòa" → nhưng **âm-dương đòi số CHẴN** → thêm 10 (không 9) → 4+10=**14**. Số 14 được SUY RA.
+2. **Đặt sao = ràng buộc QUÂN BÌNH** (tr.120-121): chính tinh dương 5 sao / 4 cung trống → 1 phải mượn cung nhóm âm; chọn cách giữ mỗi nhóm 1 sao dương (cân), bỏ cách gây lệch. Âm/dương sao phân theo **CỘNG HƯỞNG**: 2 sao trái nghịch cộng hưởng → cực đoan → xấu → âm; tương đồng → nhẹ → tốt → dương.
+3. **🏆 ĐỊNH LUẬT BẢO TOÀN = 0** (tr.172): _"tổng các yếu tố bài toán tử vi là ZÉRO; gặp bế tắc thì thêm sao có tổng âm-dương = 0."_ → **Xương Khúc + Tả Hữu là HỆ QUẢ của Tứ Hóa** (đẻ ra để cân về 0), không phải sao cho sẵn. Đây là vỉa sâu nhất — một **luật đối xứng/bảo toàn** kiểu vật lý áp vào tử vi.
+4. **Bản chất sao = quan hệ NGŨ HÀNH** (tr.200): Tử Vi là **lãnh đạo** vì nó hoà được cả Liêm + Vũ (2 sao khắc nhau) → "lãnh tụ dùng được nhiều loại thuộc hạ". Tam hợp **Liêm-Tử-Vũ = vòng ngũ-hành-SINH** (hỏa-thổ-kim); Sát-Phá-Tham = kim-thủy-mộc. Cấu trúc tam hợp được SUY RA.
+5. **Hóa Kỵ theo CHIỀU** (tr.170): sao "thuận lý" đi ngược kim đồng hồ, Hóa Kỵ "nghịch lý" → thuận kim đồng hồ. Can âm gặp mâu thuẫn (Cự Môn không thể vừa Lộc vừa Kỵ) → phải đổi phép. "Tại sao Thiên Lương/Phá Quân không Hóa Kỵ" (tr.171) — câu hỏi VÌ SAO.
+6. **Độ sáng (miếu-hãm) suy từ vị trí** (tr.215): bảng 12 cung mỗi sao "cực tốt/hơi tốt/khá xấu/cực xấu" theo âm-dương cung × sao.
+
+**→ Ý NGHĨA cho 《Tử Vi Tính Được》:** "tính được" KHÔNG chỉ là "an sao = hàm" (cái em đã viết). Tầng sâu hơn: **bản thân LUẬT tử vi tính được = DẪN XUẤT được từ nguyên lý** (parity, bảo-toàn-0, ngũ-hành-sinh, đối xứng). Đây là chương còn THIẾU của sách — phải thêm "Phần dẫn xuất: vì sao 14 sao, vì sao Xương Khúc, vì sao tam hợp" → đó mới là sách ngang tầm Đằng Sơn, không phải tô vẽ.
+
+**CÒN đào (mỏ còn sâu):** cụm dày tr.181-220 (4332+3683 ký tự — đậm đặc nhất) · tr.234 bài tự-kiểm (sách có bài tập!) · tr.243 Trường Sinh × ngũ hành · đối chiếu Tạ Phồn Trị là ai.
