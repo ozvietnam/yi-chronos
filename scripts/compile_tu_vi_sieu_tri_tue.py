@@ -91,7 +91,7 @@ def main() -> int:
             "--metadata", "lang=vi", "--css", str(css),
         ], check=True)
 
-        out_pdf = OUT / "Tu-Vi-Tinh-Duoc-v0.1.pdf"
+        out_pdf = OUT / "Tu-Vi-Tinh-Duoc-v0.2.pdf"
         from weasyprint import HTML
         HTML(filename=str(html)).write_pdf(str(out_pdf))
         size_kb = out_pdf.stat().st_size // 1024
