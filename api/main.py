@@ -3474,10 +3474,16 @@ def yi_hermes_update_founder(req: YiHermesContentUpdateRequest, request: Request
 
 
 @app.post("/api/yi-hermes/context/reload")
-def yi_hermes_reload_context() -> dict:
-    """Force-reload manifest + founder from disk (clear cache)."""
+def yi_hermes_reload_context(request: Request) -> dict:
+    """Force-reload manifest + founder from disk (clear cache). OWNER-ONLY.
+
+    Trước đây không gate → guest ép được server clear cache + reload hồ sơ
+    founder/manifest từ disk (admin op; lạm dụng gây tải / đua điều kiện).
+    Gate owner-only, đồng bộ với /context/founder + /context/manifest lân cận."""
+    from api.auth import require_owner
     from engine.yi_hermes import reload_context_files
 
+    require_owner(request)
     reload_context_files()
     return {"status": "ok"}
 

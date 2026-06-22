@@ -797,8 +797,19 @@ async def so_sanh_duyen(inp: SoSanhInput) -> dict:
 
 
 @router.get("/3-layer/founder-demo")
-async def founder_demo() -> dict:
-    """Demo lá số founder Mậu Thìn (1988-06-05 23:30 Nam)."""
+async def founder_demo(request: Request) -> dict:
+    """Lá số founder Mậu Thìn (1988-06-05 23:30 Nam) — OWNER-ONLY.
+
+    Trả nguyên cấu trúc 12 cung + 14 chính tinh của founder. Trước đây không gate
+    → `curl /api/tu-vi/3-layer/founder-demo` rò lá số thật cho mọi khách (cùng họ
+    các lần rò PII founder, audit 2026-05-27). Gate owner-only, đồng bộ với
+    /api/yi-hermes/context/founder + /api/yi-publishing/dai-van/founder.
+
+    UI không bị ảnh hưởng: TuVi3LayerPanel chỉ render sau khi an sao (v-if=data)
+    nên luôn truyền birth → gọi /3-layer/from-birth, không chạm fallback này.
+    """
+    from api.auth import require_owner
+    require_owner(request)
     la_so = {
         "can": "mau",
         "chi": "thin",

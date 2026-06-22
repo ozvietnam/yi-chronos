@@ -27,6 +27,9 @@ SENSITIVE_GET = [
     "/api/yi-hermes/persons/_founder",
     "/api/yi-hermes/network/_founder",
     "/api/yi-hermes/context/summary/_founder",
+    # Lá số 3-Layer của founder (Mậu Thìn, 1988-06-05 23:30) — trước đây public,
+    # curl trả nguyên cấu trúc 12 cung + 14 chính tinh cho mọi khách. Gate owner-only.
+    "/api/tu-vi/3-layer/founder-demo",
 ]
 
 
@@ -42,6 +45,9 @@ SENSITIVE_POST = [
     ("/api/hermes/ask", {"question": "Lá số tử vi của tôi?"}),
     ("/api/yi-hermes/memory/_founder/facts", {"fact": "x", "category": "event"}),
     ("/api/yi-hermes/persons", {"person_key": "x", "name": "X"}),
+    # Admin op: clear cache + reload hồ sơ founder/manifest từ disk. Guest ép được
+    # → lạm dụng gây tải / đua điều kiện. Cùng họ /context/founder, /context/manifest.
+    ("/api/yi-hermes/context/reload", {}),
 ]
 
 
