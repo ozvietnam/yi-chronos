@@ -57,3 +57,10 @@
 
 ### Đã tích hợp vào sách (vòng 1-3):
 Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (giả tướng) · [tiếp: Phần IV neo "biến" vào thiên văn].
+
+---
+
+## GHI CHÚ OCR (2026-06-22) — vì sao DỪNG đào sâu tự động Tập 1
+- Thử OCR toàn 315 trang (tesseract `-l vie`) để đọc per-star hiệu quả: **tesseract/leptonica KHÔNG decode được PNG render 150dpi của calibre** ("file not found" dù `identify` đọc OK). Test 1 trang 110dpi thì OK → vấn đề định dạng PNG ở batch 150dpi.
+- Quan trọng hơn: file render ~23KB/trang = **trang gần TRẮNG** → sách Đằng Sơn **NẶNG ĐỒ HÌNH, THƯA CHỮ** (text-layer 37K chars/315tr; mỗi trang ~1 heading + đôi câu + diagram). Giá trị nằm ở **ĐỒ HÌNH** (đã đọc trực quan các trang then chốt) hơn là prose để OCR.
+- **Kết luận:** core đã rút (giả tướng · địa-bàn-thiên-văn · ngũ-hành-xấp-xỉ · Âm-Dương-theo-tháng) + vào **v0.2**. Đào sâu per-diagram tiếp = paced multi-session (đọc trực quan, tốn context). **Resumable** khi Anh muốn: render dpi khác + đọc trực quan từng chương, hoặc tải Tập 2.
