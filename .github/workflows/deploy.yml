@@ -7,6 +7,11 @@ on:
       - '**.md'
       - 'docs/**'
       - '.gitignore'
+      # Phi-runtime — KHÔNG vào image (tránh deploy no-op). LƯU Ý: KHÔNG ignore cả
+      # data/** vì Dockerfile embed data/{tu_vi,seeds,restored_books,hermes_yi/skills}.
+      - 'scripts/**'
+      - 'tests/**'
+      - 'data/published/**'
   workflow_dispatch:
 
 env:
