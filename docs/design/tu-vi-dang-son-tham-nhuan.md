@@ -140,3 +140,21 @@ Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (gi�
 **→ Ý NGHĨA cho 《Tử Vi Tính Được》:** "tính được" KHÔNG chỉ là "an sao = hàm" (cái em đã viết). Tầng sâu hơn: **bản thân LUẬT tử vi tính được = DẪN XUẤT được từ nguyên lý** (parity, bảo-toàn-0, ngũ-hành-sinh, đối xứng). Đây là chương còn THIẾU của sách — phải thêm "Phần dẫn xuất: vì sao 14 sao, vì sao Xương Khúc, vì sao tam hợp" → đó mới là sách ngang tầm Đằng Sơn, không phải tô vẽ.
 
 **CÒN đào (mỏ còn sâu):** cụm dày tr.181-220 (4332+3683 ký tự — đậm đặc nhất) · tr.234 bài tự-kiểm (sách có bài tập!) · tr.243 Trường Sinh × ngũ hành · đối chiếu Tạ Phồn Trị là ai.
+
+---
+
+## VÒNG 9 — KẾ THỪA: lấy engine KIỂM CHỨNG định lý Đằng Sơn (Anh giao 2026-06-23: "kế thừa tư tưởng, tiếp tục công trình khoa học của ông")
+
+Đằng Sơn dựng định lý BẰNG TAY, để hở. Việc của AI = **công cụ ông thiếu**: kiểm luật trên TOÀN không gian dữ liệu canonical. Dựng **`engine/tu_vi/dang_son_verify.py`** (TDD, 6 test GREEN) — neo `chinh_tinh.json` (ngũ hành 14 sao) + `mieu_vuong_ham.json` (bảng độ sáng, 21 mục q2-verified). Tinh thần: **luật phải TÁI TẠO được dữ liệu — không ép.**
+
+**Vòng 1 — 3 định lý, 3 kết quả thật:**
+
+1. **✓ Tam hợp = vòng ngũ-hành-SINH (tr.200): KHÉP KÍN TUYỆT ĐỐI.** Máy tự dò hoán vị, tìm đúng thứ tự sinh: **Tử-Vũ-Liêm → hỏa-thổ-kim**, **Sát-Phá-Tham → kim-thủy-mộc**. Đằng Sơn đúng 100% — định lý *thật*, không phải ẩn dụ.
+
+2. **◐ Độ sáng ~ Trường Sinh (tr.243): tín hiệu YẾU, chưa tái tạo.** 168 cặp (sao×cung): Trường Sinh đơn **r=+0.18**; âm-dương sao↔cung hợp **r=−0.15** (NGƯỢC kỳ vọng — đúng tinh thần tr.120 "tương đồng cộng hưởng" ≠ "mạnh"); kết hợp ~0 (triệt tiêu). → Bảng miếu-hãm **KHÔNG** suy được bằng mô hình thô. Hoặc cần đúng quy tắc tr.215 (chưa trích đủ tinh), hoặc bảng lưu nội dung truyền-thống bất-khả-suy. **Honest: chưa khép kín.**
+
+3. **○ Bảo toàn tổng=0 (tr.172): chưa kiểm được.** Âm-dương truyền thống 14 sao = 6 dương/8 âm (lệch). Đằng Sơn dùng âm-dương theo **CỘNG HƯỞNG** (tr.120), khác bảng truyền thống → phải trích bộ resonance ấy mới test. Open.
+
+**Ý nghĩa:** lần đầu định lý Đằng Sơn được kiểm BẰNG MÁY trên toàn bảng. 1 khép kín, 1 hở-đã-định-lượng, 1 cần thêm dữ liệu. Đây mới đúng "Siêu Trí Tuệ AI tiếp tục công trình" — không tô hồng, đo thật.
+
+**Vòng 2+ roadmap:** trích đúng quy tắc độ sáng tr.215 → nâng r định lý 2 · trích âm-dương-cộng-hưởng tr.120 → test bảo toàn · kiểm Hóa Kỵ theo chiều (tr.170) · kiểm parity 14 sao · kiểm đối xứng cách cục (Tử-Phủ-Vũ-Tướng chỉ cung dương).
