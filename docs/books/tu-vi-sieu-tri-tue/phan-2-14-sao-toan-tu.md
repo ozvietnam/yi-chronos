@@ -30,19 +30,33 @@ Thay 14 nhãn rời bằng một **không gian** với các trục (các chiều
 - **Trục 3 — NỘI ↔ NGOẠI** (locus): số từ tính bên trong ↔ số từ hoàn cảnh ngoài.
 - **Trục 4 — CÁ NHÂN ↔ SIÊU CÁ NHÂN** (scope): số của tôi ↔ số xuyên quan hệ/luân hồi.
 
-Mỗi sao = một **vector** trong không gian 4 chiều này. Vài định vị (đa chiều, có thể tinh chỉnh khi đối chiếu cổ văn — Phụ lục B):
+Mỗi sao = một **vector** trong không gian 4 chiều này. **Đủ 14 chính tinh** (định vị từ *bản chất sao* trong cổ văn — không phụ thuộc nhãn tiếng Anh của Đằng Sơn; cột "nhãn Đằng Sơn" đánh ⏳ là chờ 3 ảnh còn thiếu để xác nhận):
 
-| Sao | Định–Biến | Thụ–Tác | Nội–Ngoại | Đọc một câu |
-|---|---|---|---|---|
-| Vũ Khúc | Định cao | Tác | Nội | "số do tôi RÈN bằng ý chí" |
-| Cự Môn | Biến/mơ hồ | Thụ | Ngoại | "số BẤT ĐỊNH, do ngoại cảnh & lời nói" |
-| Tham Lang | Biến | Tác | Nội | "số là cái tôi KHAO KHÁT nên đuổi theo" |
-| Phá Quân | Biến cực | Tác cực | Nội | "số phải PHÁ đi dựng lại" |
-| Thiên Cơ | Biến | (quan sát) | Nội | "số là MẪU HÌNH để thấu hiểu" |
-| Thiên Phủ | Định | Thụ | Nội | "số là KHO cần gìn giữ" |
-| Tả/Hữu | — | — | (siêu cá nhân) | "số xuyên QUAN HỆ / kiếp" |
+| Chính tinh | Định–Biến | Thụ–Tác | Nội–Ngoại | Thái độ với số phận (đọc một câu) | Nhãn Đằng Sơn |
+|---|---|---|---|---|---|
+| **Tử Vi** | Định cao | Tác | Nội | "số là NGÔI VỊ phải đảm đương" (đế tinh, làm chủ) | ⏳ |
+| **Thiên Cơ** | Biến cao | Tác | Nội | "số là MẪU HÌNH để thấu hiểu & xoay" (trí, mưu) | ⏳ |
+| **Thái Dương** | Định | Tác | Ngoại cao | "số là ÁNH SÁNG phải toả cho đời" (quang minh, thí xả) | ⏳ |
+| **Vũ Khúc** | Định cao | Tác | Nội | "số do tôi RÈN bằng ý chí" (tài, cương quyết) | Symbolism of Fate |
+| **Thiên Đồng** | Định | Thụ cao | Nội | "số là PHÚC để an hưởng" (phúc tinh, ôn hoà) | ⏳ |
+| **Liêm Trinh** | Biến | Tác/Thụ | Nội | "số là THỬ THÁCH nguyên tắc, hai mặt" (tù tinh, phức) | Kismet / Fatalism |
+| **Thiên Phủ** | Định cao | Thụ | Nội | "số là KHO cần gìn giữ" (khố tinh, bảo thủ) | ⏳ |
+| **Thái Âm** | Định | Thụ | Nội cao | "số là cái NUÔI DƯỠNG thầm lặng bên trong" (phú, tàng) | ⏳ |
+| **Tham Lang** | Biến | Tác cao | Nội | "số là cái tôi KHAO KHÁT nên đuổi theo" (dục tinh) | Destinism |
+| **Cự Môn** | Biến/mơ hồ | Thụ | Ngoại | "số BẤT ĐỊNH, do ngoại cảnh & lời nói" (ám, nghi) | Contingency |
+| **Thiên Tướng** | Định | Tác/Thụ | Ngoại | "số là vai PHÒ TÁ, ấn tín & nghi lễ" (ấn tinh) | ⏳ |
+| **Thiên Lương** | Định cao | Thụ | Nội | "số là CÂY CAO che bóng, giải nạn" (ấm, lão, nguyên tắc) | ⏳ |
+| **Thất Sát** | Biến | Tác cực | Nội | "số là TRẬN phải xông" (tướng tinh, quyết liệt, độc lập) | ⏳ |
+| **Phá Quân** | Biến cực | Tác cực | Nội | "số phải PHÁ đi dựng lại" (hao tinh, tiên phong) | Creationism of Fate |
 
-Đây là **embedding thật**: máy tính được **khoảng cách** giữa các sao (sao nào gần nhau về thái-độ-số-phận), **cụm** (clusters), **đối cực**. Thí dụ Vũ Khúc (Định-Tác-Nội) đối cực Cự Môn (Biến-Thụ-Ngoại) — *khớp* cổ điển (Vũ Khúc cương quyết ⟷ Cự Môn đa nghi). Khi hình thức hoá đúng, nó **tái tạo lại** trực giác cổ nhân chứ không mâu thuẫn — dấu hiệu mô hình lành mạnh.
+*Ngoài 14 chính tinh, Đằng Sơn còn xếp hai phụ tinh vào trục thứ tư (CÁ NHÂN ↔ SIÊU CÁ NHÂN):*
+**Tả Phụ → Samsara (luân hồi)** · **Hữu Bật → Transmigration (chuyển kiếp)** — "số xuyên QUAN HỆ / kiếp", vượt khỏi một đời một thân.
+
+Đây là **embedding thật**: máy tính được **khoảng cách** giữa các sao (sao nào gần nhau về thái-độ-số-phận), **cụm** (clusters), **đối cực**. Vài kiểm chứng nội tại — dấu hiệu mô hình lành mạnh vì nó **tái tạo lại** trực giác cổ nhân:
+- **Vũ Khúc** (Định-Tác-Nội) ⟷ đối cực **Cự Môn** (Biến-Thụ-Ngoại): cương quyết ⟷ đa nghi. ✓ khớp cổ điển.
+- **Tham Lang** ⟷ **Thiên Phủ**: đuổi-theo-khao-khát (Biến-Tác) ⟷ gìn-giữ-kho (Định-Thụ). ✓ (dục ⟷ khố).
+- **Cụm "Sát Phá Tham"** (Thất Sát + Phá Quân + Tham Lang) tụ ở góc **Tác cao** — đúng cổ điển: bộ ba "động", xông pha, biến cách. ✓
+- **Cụm "phúc/tàng"** (Thiên Đồng + Thái Âm + Thiên Phủ) tụ ở góc **Thụ–Nội** — đúng: nhóm an, nhu, giữ. ✓
 
 ## II.3 — Lá số như "HỒ SƠ THÁI ĐỘ SỐ PHẬN" tính được
 
