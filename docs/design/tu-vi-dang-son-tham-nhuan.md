@@ -80,3 +80,21 @@ Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (gi�
 - **Nhúng vào sách → v0.3** (56tr, 1.36MB): Phần I.1 (14 sao) + I.2 (địa bàn·thiên văn·ngũ hành). Sách hết "chay chữ".
 - 🔑 **PIPELINE TÁI DÙNG** cho mọi đồ hình sách sau: SVG (show_widget) → HTML → **cairosvg** PNG (phải **strip `var()`→fallback**; cairosvg áp được `<style>` class + marker/arc, KHÔNG hiểu var()) → nhúng pandoc (`--resource-path BOOK --embed-resources`) → WeasyPrint.
 - **CÒN (resumable):** nhiều đồ hình nữa — Âm Dương theo tháng (tr.110), per-star chương chính tinh, Tả Hữu Xương Khúc → đọc kỹ + vẽ tiếp theo nhịp.
+
+---
+
+## VÒNG 5 — Đọc-để-ỨNG-DỤNG: 14 chính tinh tính-được → natal 3D (2026-06-22)
+
+**Anh chốt:** _"vừa đọc thêm sách vừa tự ứng dụng vào 3d theo ngôn ngữ khoa học"_ — trục chính vẫn là "tử vi TÍNH ĐƯỢC", 3D là áo trực quan cho cái lõi tính-toán.
+
+Đọc 4 trang mới (tr.95/135/150/165):
+- **tr.135 "Kiểm nghiệm lại lý ngũ hành của 14 chính tinh"** — Đằng Sơn gán mỗi chính tinh một NGŨ HÀNH + Bát Quái (Cự Môn=Li/Hỏa · Thất Sát=Đoài/Kim · Tham Lang=Tốn/Mộc · Thiên Lương=Khôn/Thổ · Thái Âm=Thủy…). → **ngũ hành sao = thuộc tính TÍNH ĐƯỢC**, nền của sinh-khắc.
+- **tr.165 "Cách an bài Lộc Quyền"** — Tứ Hóa (Lộc/Quyền/Khoa/Kỵ) đặt tất định theo **CAN năm** (hàm thuần).
+- tr.95 ngũ hành nạp âm + Cục (Thủy nhị/Hỏa lục); tr.150 Tả Phụ/Văn Xương nhìn từ địa bàn.
+- 🔑 **Đúc kết:** MỌI lớp Tử Vi = HÀM TẤT ĐỊNH (vị trí sao · ngũ hành sao · Tứ Hóa theo Can) → đây CHÍNH LÀ "tử vi tính được" mà Phần I sách ta hình thức hoá.
+
+**Ứng dụng vào 3D (ngôn ngữ khoa học) — commit 56b29955:**
+- Backend `/api/natal-universe` +14 chính tinh per cung qua **engine an_sao canonical** (chuỗi hàm thuần: giờ→`cung_menh_index`→`cuc_so`→`tu_vi_position`→`place_14_chinh_tinh`) + ngũ hành mỗi sao (`chinh_tinh.json`). **Validate: Mệnh Tỵ=Thiên Tướng(thủy) KHỚP lá số thật founder 91/91** (`test_chinh_tinh_an_sao_computable`, cuc 5, đủ 14 sao). TDD 4/4.
+- Frontend UniverseCore vẽ 14 sao lên địa bàn 3D, **màu theo NGŨ HÀNH sao** → cấu trúc sinh-khắc (functor đồng dạng Phần III) hiện hình trong không gian thật.
+
+**CÒN (loop tiếp):** Tứ Hóa lên 3D (theo Can, tr.165) · tam-hợp/xung-chiếu lines (đồ thị có nhãn Phần I.2) · miếu-vượng-hãm (độ sáng sao = size) · phụ tinh Tả-Hữu-Xương-Khúc (tr.150).
