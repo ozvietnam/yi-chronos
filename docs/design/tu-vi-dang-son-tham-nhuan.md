@@ -98,3 +98,15 @@ Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (gi�
 - Frontend UniverseCore vẽ 14 sao lên địa bàn 3D, **màu theo NGŨ HÀNH sao** → cấu trúc sinh-khắc (functor đồng dạng Phần III) hiện hình trong không gian thật.
 
 **CÒN (loop tiếp):** Tứ Hóa lên 3D (theo Can, tr.165) · tam-hợp/xung-chiếu lines (đồ thị có nhãn Phần I.2) · miếu-vượng-hãm (độ sáng sao = size) · phụ tinh Tả-Hữu-Xương-Khúc (tr.150).
+
+---
+
+## VÒNG 6 — Tứ Hóa + đồ-thị-quan-hệ → natal 3D (2026-06-22, commit c5d5f649)
+
+Đọc tr.175 ("Giải quyết vấn nạn hóa Kỵ") + tr.190 (trắng) — củng cố Tứ Hóa là tâm điểm.
+**Ứng dụng (vòng 2 của loop):**
+- **Tứ Hóa tính-được:** backend +`dia_ban.tu_hoa` + cờ `hoa` mỗi chính tinh (hàm thuần `an_sao.tu_hoa_assignments(Can)`; founder Mậu → Lộc:Tham Lang, Quyền:Thái Âm, Kỵ:Thiên Cơ). Frontend: **chấm màu** trên sao (Lộc lá · Quyền đỏ · Khoa lam · Kỵ xám). TDD `test_tu_hoa_deterministic_by_can`.
+- **Đồ-thị-có-nhãn (Phần I.2) hiện hình:** vẽ **tam-hợp** (tam giác) + **xung-chiếu** (đường) của Mệnh trên địa bàn 3D — luận Tử Vi = đọc TOPOLOGY quan hệ cố định, không tra sao rời. Founder Mệnh Tỵ → tam hợp Tỵ-Dậu-Sửu + xung Hợi.
+- Polish: camera gần (3.7,5.5) + chữ sao to hơn.
+
+**CÒN (loop tiếp):** miếu-vượng-hãm = size sao (engine `chinh_tinh.json` dac_dia/lac_dia) · phụ tinh Tả-Hữu-Xương-Khúc (tr.150) · tầng Bát Tự 4 trụ · sáng nền/label.
