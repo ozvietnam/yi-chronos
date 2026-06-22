@@ -4,7 +4,7 @@ import json
 import os
 import time
 from contextlib import asynccontextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 from uuid import uuid4
 from zoneinfo import ZoneInfo
@@ -119,6 +119,7 @@ from engine.progressions import (
 )
 from engine.returns import compute_solar_returns
 from engine.sky import calculate_sky_chart
+from engine.natal_universe import build_natal
 from engine.solar_arc import compute_solar_arc_hits
 from engine.transit_timeline import compute_transit_hits
 
@@ -388,6 +389,30 @@ def sky_now(
         else:
             dt_utc = dt_utc.astimezone(timezone.utc)
     return calculate_sky_chart(dt_utc=dt_utc, lat=lat, lon=lon).to_dict()
+
+
+@app.get("/api/natal-universe")
+def natal_universe(
+    at: str,
+    lat: float = 21.03,
+    lon: float = 105.85,
+    tz_hours: float = 7.0,
+) -> dict[str, object]:
+    """Lá số trên nền vũ trụ: bầu trời THẬT lúc sinh + địa bàn Tử Vi KÝ HIỆU.
+
+    Gộp vị trí hoàng đạo thật của 10 thiên thể (skyfield/DE440s) + 12 cung địa chi
+    (neo tiết khí = vị trí thật Mặt Trời) + cung Mệnh. Tôn trọng giả tướng: nền thật
+    + lớp ký hiệu suy TỪ nền, không rắc sao Tử Vi lên trời thật.
+
+    Query params:
+    - at: ISO 8601 giờ sinh ĐỊA PHƯƠNG. Có offset → dùng offset; không → áp tz_hours.
+    - lat, lon: nơi sinh (mặc định Hà Nội).
+    - tz_hours: múi giờ nếu `at` không có offset (mặc định +7).
+    """
+    dt = datetime.fromisoformat(at.replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone(timedelta(hours=tz_hours)))
+    return build_natal(dt, lat=lat, lon=lon)
 
 
 def _parse_birth_utc(birth_at: str) -> datetime:
