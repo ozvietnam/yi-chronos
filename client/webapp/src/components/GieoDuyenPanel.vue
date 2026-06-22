@@ -227,8 +227,16 @@
 import { computed, ref, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
 import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
+import { authHeaders } from "../stores/authStore.js";
 
 const mode = ref("tim");  // 'tim' | 'cap' | 'so'
+
+// Thông điệp khi route LLM/nặng bị gate: 401 = cần đăng nhập, 429 = quá ngưỡng.
+function _gateMsg(status) {
+  return status === 401
+    ? "🔒 Tính năng này cần đăng nhập. Bạn đăng nhập để dùng nhé."
+    : "⏳ Bạn đã dùng khá nhiều trong giờ qua — thử lại sau ít phút.";
+}
 
 // Món 2: lời văn ấm
 const dtho = ref(""); const dthoLoading = ref(false);
@@ -237,9 +245,10 @@ async function runDuyenTho() {
   dthoLoading.value = true; dtho.value = "";
   try {
     const r = await fetch("/api/tu-vi/duyen-tho", {
-      method: "POST", headers: { "Content-Type": "application/json" },
+      method: "POST", headers: authHeaders(), credentials: "include",
       body: JSON.stringify({ birth: db.value, gender: dg.value }),
     });
+    if (r.status === 401 || r.status === 429) { dtho.value = _gateMsg(r.status); return; }
     const d = await r.json();
     dtho.value = d.narrative || ("Lỗi: " + (d.error || "thử lại"));
   } catch (e) { dtho.value = "Lỗi kết nối."; } finally { dthoLoading.value = false; }
@@ -258,9 +267,10 @@ async function runSoSanh() {
   soLoading.value = true; soErr.value = ""; soRes.value = null;
   try {
     const r = await fetch("/api/tu-vi/so-sanh-duyen", {
-      method: "POST", headers: { "Content-Type": "application/json" },
+      method: "POST", headers: authHeaders(), credentials: "include",
       body: JSON.stringify({ me: soMe.value, others }),
     });
+    if (r.status === 401 || r.status === 429) { soErr.value = _gateMsg(r.status); return; }
     const d = await r.json();
     if (d.error) soErr.value = d.error; else soRes.value = d;
   } catch (e) { soErr.value = "Lỗi kết nối."; } finally { soLoading.value = false; }

@@ -301,6 +301,14 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
+import { authHeaders } from '../stores/authStore.js'
+
+// Thông điệp khi route LLM bị gate: 401 = cần đăng nhập, 429 = quá ngưỡng/giờ.
+function _gateMsg(status) {
+  return status === 401
+    ? '🔒 Phần luận giải chi tiết cần đăng nhập. Anh đăng nhập để xem nhé.'
+    : '⏳ Anh đã xem khá nhiều trong giờ qua — nghỉ chút rồi thử lại giúp em.'
+}
 
 const props = defineProps({
   // "1988-06-05T23:30" — nếu có thì gọi from-birth, không thì founder-demo
@@ -373,8 +381,9 @@ async function loadChuDeSau(slug) {
   sauLoading.value = true; sauText.value = null; sauNguyenLieu.value = []; sauErr.value = ''
   try {
     const res = await fetch('/api/tu-vi/3-layer/chu-de-sau', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: _birthBody({ chu_de: slug }),
+      method: 'POST', headers: authHeaders(), credentials: 'include', body: _birthBody({ chu_de: slug }),
     })
+    if (res.status === 401 || res.status === 429) { sauErr.value = _gateMsg(res.status); return }
     const data = await res.json()
     if (data.narrative) {
       sauText.value = data.narrative; sauNguyenLieu.value = data.nguyen_lieu || []
@@ -391,8 +400,9 @@ async function loadGiaVi(slug) {
   giaViLoading.value = true; giaViList.value = []
   try {
     const res = await fetch('/api/tu-vi/3-layer/gia-vi', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: _birthBody({ chu_de: slug }),
+      method: 'POST', headers: authHeaders(), credentials: 'include', body: _birthBody({ chu_de: slug }),
     })
+    if (res.status === 401 || res.status === 429) { giaViList.value = []; return }
     const data = await res.json()
     giaViList.value = data.cau_hoi || []; giaViCache[slug] = giaViList.value
   } catch { /* lỗi */ } finally { giaViLoading.value = false }
@@ -435,7 +445,8 @@ async function loadChuDe(slug) {
   try {
     const res = await fetch('/api/tu-vi/3-layer/chu-de', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: authHeaders(),
+      credentials: 'include',
       body: JSON.stringify({
         birth_datetime_local: props.birthDatetimeLocal,
         timezone: props.timezone,
@@ -443,6 +454,7 @@ async function loadChuDe(slug) {
         chu_de: slug,
       }),
     })
+    if (res.status === 401 || res.status === 429) { chuDeText.value = _gateMsg(res.status); return }
     const data = await res.json()
     if (data.narrative) { chuDeText.value = data.narrative; chuDeCache[slug] = data.narrative }
   } catch { /* lỗi → để trống */ } finally {
@@ -456,7 +468,8 @@ async function loadNarrative() {
   try {
     const res = await fetch('/api/tu-vi/3-layer/narrative', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: authHeaders(),
+      credentials: 'include',
       body: JSON.stringify({
         birth_datetime_local: props.birthDatetimeLocal,
         timezone: props.timezone,
@@ -464,6 +477,7 @@ async function loadNarrative() {
         force: !!narrative.value,  // đã có → user bấm lại = viết lại
       }),
     })
+    if (res.status === 401 || res.status === 429) { narrative.value = _gateMsg(res.status); return }
     const data = await res.json()
     if (data.narrative) narrative.value = data.narrative
   } catch { /* giữ template nếu lỗi */ } finally {
@@ -606,7 +620,8 @@ async function load() {
     if (props.birthDatetimeLocal) {
       res = await fetch('/api/tu-vi/3-layer/from-birth', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders(),
+        credentials: 'include',
         body: JSON.stringify({
           birth_datetime_local: props.birthDatetimeLocal,
           timezone: props.timezone,

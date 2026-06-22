@@ -44,6 +44,12 @@ function _authHeaders() {
   return h;
 }
 
+// Public alias — panel dùng cho các call đã gate (gửi kèm session token để
+// xác thực; dùng chung với credentials:"include" cho cookie same-origin).
+export function authHeaders() {
+  return _authHeaders();
+}
+
 export async function loadCurrentUser() {
   isLoadingAuth.value = true;
   authError.value = "";
