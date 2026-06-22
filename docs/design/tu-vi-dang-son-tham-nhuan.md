@@ -110,3 +110,16 @@ Phần I (địa-bàn-thiên-văn + ngũ-hành-xấp-xỉ) · Phần III.5 (gi�
 - Polish: camera gần (3.7,5.5) + chữ sao to hơn.
 
 **CÒN (loop tiếp):** miếu-vượng-hãm = size sao (engine `chinh_tinh.json` dac_dia/lac_dia) · phụ tinh Tả-Hữu-Xương-Khúc (tr.150) · tầng Bát Tự 4 trụ · sáng nền/label.
+
+---
+
+## VÒNG 7 — Miếu-vượng-hãm = độ sáng sao → natal 3D (2026-06-22, commit 18c53b9e)
+
+Đọc tr.210/230 (trắng — sách thưa); grounding từ engine `chinh_tinh.json` (dac_dia/lac_dia mỗi sao). **Ứng dụng (vòng 3 của loop):**
+- **Độ sáng tính-được:** `_star_do_sang(name, chi)` → đắc (ở đắc-địa) / hãm (lạc-địa) / bình. `/api/natal-universe` +`do_sang` mỗi chính tinh. → "**sao mạnh hay yếu là HÀM của cung nó đậu**", không phải tính cố hữu.
+- Frontend: sao **đắc TO** (×1.28), **hãm NHỎ** (×0.76) → độ mạnh-yếu hiện hình bằng kích cỡ.
+- **Validate:** Thiên Tướng **đắc tại Tỵ** (Mệnh founder — khớp memory `founder_tu_vi_chart` "Mệnh Thiên Tướng đắc tại Tỵ"!) · Thái Dương **hãm tại Tý**. TDD `test_do_sang_by_position`, 6/6.
+
+**Tổng kết 3 vòng loop "đọc+ứng dụng 3D":** natal 3D giờ phơi bày trọn cái TÍNH ĐƯỢC — vị trí 14 sao (hàm) · ngũ hành sao (sinh-khắc) · Tứ Hóa (hàm Can) · quan hệ tam-hợp/xung (đồ thị) · độ sáng (hàm vị trí). Tất cả deploy + verify live trên lá số thật founder.
+
+**CÒN (loop tiếp):** phụ tinh Tả-Hữu-Xương-Khúc-Khôi-Việt (tr.150) · sát tinh (Kình-Đà-Hỏa-Linh-Không-Kiếp) · tầng Bát Tự 4 trụ trên cùng vòng · panel chú giải bên cạnh 3D.
