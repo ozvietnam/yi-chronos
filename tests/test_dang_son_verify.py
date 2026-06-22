@@ -54,7 +54,25 @@ def test_brightness_relation_nourish_brighter_than_deplete():
     assert r_rel >= r_ts
 
 
+def test_hoa_ky_duong_can_is_tu_vi_chum_minus_tu_vi():
+    # Đằng Sơn tr.170: Hóa Kỵ 5 can DƯƠNG = chùm Tử Vi bỏ Tử Vi
+    # ("bỏ Tử Vi ra ngoài thì được 5 sao hóa y hệt tài liệu hiện hành")
+    r = dsv.verify_hoa_ky_structure()
+    assert r["duong_match_tu_vi_chum_minus_tuvi"] is True
+    assert set(r["duong_ky"]) == {"Thái Dương", "Liêm Trinh", "Thiên Cơ",
+                                   "Thiên Đồng", "Vũ Khúc"}
+
+
+def test_hoa_ky_am_can_pulls_in_xuong_khuc():
+    # Đằng Sơn tr.172 "Âm Kỵ là lý do hiện hữu của Xương Khúc": Hóa Kỵ can ÂM kéo
+    # Văn Xương + Văn Khúc (phụ tinh) vào → dấu vết định luật bảo toàn ③
+    r = dsv.verify_hoa_ky_structure()
+    assert "Văn Xương" in r["am_auxiliary_stars"]
+    assert "Văn Khúc" in r["am_auxiliary_stars"]
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
-    assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "conservation"}
+    assert set(rep) >= {"tam_hop", "brightness", "brightness_relation",
+                        "hoa_ky_structure", "conservation"}

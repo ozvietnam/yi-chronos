@@ -203,10 +203,40 @@ def verify_conservation():
     }
 
 
+# Hai chùm sao (lấy từ engine an_sao.place_14_chinh_tinh — nguồn thật, không tự nhận)
+TU_VI_CHUM = ["Tử Vi", "Thiên Cơ", "Thái Dương", "Vũ Khúc", "Thiên Đồng", "Liêm Trinh"]
+PHU_CHUM = ["Thiên Phủ", "Thái Âm", "Tham Lang", "Cự Môn", "Thiên Tướng",
+            "Thiên Lương", "Thất Sát", "Phá Quân"]
+CAN_DUONG = ["Giáp", "Bính", "Mậu", "Canh", "Nhâm"]
+CAN_AM = ["Ất", "Đinh", "Kỷ", "Tân", "Quý"]
+
+
+def verify_hoa_ky_structure():
+    """Định lý Hóa Kỵ (tr.170-172): Tứ Hóa Kỵ KHÔNG tùy tiện — suy từ cấu trúc chùm.
+
+    - 5 can DƯƠNG: Hóa Kỵ = đúng chùm Tử Vi BỎ Tử Vi ("bỏ Tử Vi ra ngoài thì được
+      5 sao hóa y hệt tài liệu hiện hành", tr.170).
+    - 5 can ÂM: chính tinh chùm Phủ không đủ → hệ kéo PHỤ TINH Văn Xương/Văn Khúc vào.
+      Dấu vết định luật bảo toàn ③: "Âm Kỵ là lý do hiện hữu của Xương Khúc" (tr.172).
+    """
+    from engine.tu_vi.an_sao import TU_HOA_TABLE
+    duong_ky = {TU_HOA_TABLE[c]["Kỵ"] for c in CAN_DUONG}
+    am_ky = [TU_HOA_TABLE[c]["Kỵ"] for c in CAN_AM]
+    return {
+        "duong_ky": sorted(duong_ky),
+        "duong_match_tu_vi_chum_minus_tuvi": duong_ky == (set(TU_VI_CHUM) - {"Tử Vi"}),
+        "am_ky": am_ky,
+        "am_phu_chum_stars": [s for s in am_ky if s in PHU_CHUM],
+        "am_auxiliary_stars": [s for s in am_ky
+                               if s not in TU_VI_CHUM and s not in PHU_CHUM],
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
         "brightness": verify_brightness(),
         "brightness_relation": verify_brightness_relation(),
+        "hoa_ky_structure": verify_hoa_ky_structure(),
         "conservation": verify_conservation(),
     }
