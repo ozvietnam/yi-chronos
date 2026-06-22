@@ -232,11 +232,47 @@ def verify_hoa_ky_structure():
     }
 
 
+# Phụ tinh Tứ Hóa + âm-dương cặp kinh điển (Xương dương/Khúc âm, Tả dương/Hữu âm)
+_AUX_AD = {"Văn Xương": "dương", "Văn Khúc": "âm", "Tả Phù": "dương", "Hữu Bật": "âm"}
+
+
+def verify_tu_hoa_balance():
+    """Định luật bảo toàn ③ (tr.172) — test trực tiếp âm-dương toàn bảng Tứ Hóa.
+
+    V4: tổng KHÔNG cân theo âm-dương TRUYỀN THỐNG (15 dương / 25 âm) → ③ không phải
+    số học âm-dương ngây thơ (Đằng Sơn dùng resonance, tr.120). NHƯNG phụ tinh
+    Xương/Khúc/Tả/Hữu tự cân 3/3 → ③ đúng ở dạng CẤU TRÚC: phụ tinh là bộ cân-bằng
+    zero-sum (khớp Vòng 3 — phụ tinh hiện đúng nơi hệ cần đóng).
+    """
+    from engine.tu_vi.an_sao import TU_HOA_TABLE
+    ad = {STARS[s]["display"]: STARS[s]["am_duong"] for s in STARS}
+    ad.update(_AUX_AD)
+    per_hoa, tot_d, tot_a, aux_d, aux_a = {}, 0, 0, 0, 0
+    for hoa in ("Lộc", "Quyền", "Khoa", "Kỵ"):
+        stars = [TU_HOA_TABLE[c][hoa] for c in TU_HOA_TABLE]
+        d = sum(1 for s in stars if ad.get(s) == "dương")
+        a = sum(1 for s in stars if ad.get(s) == "âm")
+        per_hoa[hoa] = {"duong": d, "am": a}
+        tot_d, tot_a = tot_d + d, tot_a + a
+        for s in stars:
+            if s in _AUX_AD:
+                aux_d += _AUX_AD[s] == "dương"
+                aux_a += _AUX_AD[s] == "âm"
+    return {
+        "per_hoa": per_hoa,
+        "total_duong": tot_d, "total_am": tot_a,
+        "naive_balanced": tot_d == tot_a,
+        "aux_duong": aux_d, "aux_am": aux_a,
+        "aux_balanced": aux_d == aux_a,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
         "brightness": verify_brightness(),
         "brightness_relation": verify_brightness_relation(),
         "hoa_ky_structure": verify_hoa_ky_structure(),
+        "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

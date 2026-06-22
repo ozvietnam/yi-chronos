@@ -71,8 +71,16 @@ def test_hoa_ky_am_can_pulls_in_xuong_khuc():
     assert "Văn Khúc" in r["am_auxiliary_stars"]
 
 
+def test_tu_hoa_aux_stars_internally_balanced():
+    # V4: âm-dương Tứ Hóa KHÔNG cân theo truyền thống (③ không phải số học ngây thơ)
+    # NHƯNG phụ tinh Xương/Khúc/Tả/Hữu tự cân → ③ đúng ở dạng CẤU TRÚC zero-sum.
+    r = dsv.verify_tu_hoa_balance()
+    assert r["naive_balanced"] is False        # tổng lệch (15 dương / 25 âm)
+    assert r["aux_balanced"] is True           # phụ tinh tự cân 3/3
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation",
-                        "hoa_ky_structure", "conservation"}
+                        "hoa_ky_structure", "tu_hoa_balance", "conservation"}
