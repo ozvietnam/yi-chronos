@@ -18,8 +18,14 @@ from pathlib import Path
 
 _DATA = Path(__file__).resolve().parents[2] / "data" / "tu_vi"
 
-# Vòng tương SINH ngũ hành
+# Vòng tương SINH + KHẮC ngũ hành (Đằng Sơn Chương 8 tr.80)
 NGU_HANH_SINH = {"mộc": "hỏa", "hỏa": "thổ", "thổ": "kim", "kim": "thủy", "thủy": "mộc"}
+NGU_HANH_KHAC = {"mộc": "thổ", "thổ": "thủy", "thủy": "hỏa", "hỏa": "kim", "kim": "mộc"}
+
+# Ngũ hành 12 chi (Đằng Sơn tr.82 "Lý ngũ hành của thập nhị địa chi")
+CHI_HANH = {"Tý": "thủy", "Sửu": "thổ", "Dần": "mộc", "Mão": "mộc", "Thìn": "thổ",
+            "Tỵ": "hỏa", "Ngọ": "hỏa", "Mùi": "thổ", "Thân": "kim", "Dậu": "kim",
+            "Tuất": "thổ", "Hợi": "thủy"}
 
 # id sao → tên hiển thị (bảng độ sáng dùng tên hiển thị)
 _STAR_DISPLAY = {
@@ -138,6 +144,51 @@ def verify_brightness():
     return {"n_pairs": len(xs), "correlation": round(_corr(xs, ys), 4)}
 
 
+def ngu_hanh_relation(star_hanh: str, chi_hanh: str) -> str:
+    """Quan hệ ngũ hành của CUNG (chi) đối với SAO — theo Chương 8 Đằng Sơn."""
+    if star_hanh == chi_hanh:
+        return "đồng hành"
+    if NGU_HANH_SINH.get(chi_hanh) == star_hanh:
+        return "cung sinh sao"            # cung dưỡng sao → mạnh
+    if NGU_HANH_SINH.get(star_hanh) == chi_hanh:
+        return "sao sinh cung"            # sao bị tiết khí → yếu
+    if NGU_HANH_KHAC.get(chi_hanh) == star_hanh:
+        return "cung khắc sao"            # sao bị chế → yếu nhất
+    if NGU_HANH_KHAC.get(star_hanh) == chi_hanh:
+        return "sao khắc cung"            # sao chế cung → trung tính
+    return "?"
+
+
+_REL_STRENGTH = {"đồng hành": 2, "cung sinh sao": 2, "sao khắc cung": 0,
+                 "sao sinh cung": -1, "cung khắc sao": -2}
+
+
+def verify_brightness_relation():
+    """Mô hình ngũ-hành-quan-hệ (Ch.8): độ sáng theo sinh-khắc sao↔chi.
+    Vòng 2 cho thấy mô hình này (r≈0.20) > Trường Sinh (r≈0.18), và độ sáng trung
+    bình mỗi nhóm xếp ĐÚNG hướng — nhưng vẫn yếu: bảng miếu-hãm giữ nội dung
+    truyền-thống bất-khả-suy ngoài luật ngũ hành thuần.
+    """
+    from collections import defaultdict
+    m = json.loads((_DATA / "mieu_vuong_ham.json").read_text(encoding="utf-8"))
+    scores = {k: v["score"] for k, v in m["levels"].items()}
+    table = m["table"]
+    buck, xs, ys = defaultdict(list), [], []
+    for info in STARS.values():
+        disp = info["display"]
+        if disp not in table:
+            continue
+        for cung, level in table[disp].items():
+            if level not in scores:
+                continue
+            rel = ngu_hanh_relation(info["hanh"], CHI_HANH[cung])
+            buck[rel].append(scores[level])
+            xs.append(_REL_STRENGTH[rel])
+            ys.append(scores[level])
+    means = {r: round(sum(v) / len(v), 3) for r, v in buck.items()}
+    return {"n_pairs": len(xs), "correlation": round(_corr(xs, ys), 4), "group_means": means}
+
+
 def verify_conservation():
     """Bảo toàn tổng âm-dương=0 (tr.172) — báo cáo trung thực với dữ liệu sẵn có."""
     duong = [s for s, i in STARS.items() if i["am_duong"] == "dương"]
@@ -156,5 +207,6 @@ def full_report():
     return {
         "tam_hop": verify_tam_hop(),
         "brightness": verify_brightness(),
+        "brightness_relation": verify_brightness_relation(),
         "conservation": verify_conservation(),
     }
