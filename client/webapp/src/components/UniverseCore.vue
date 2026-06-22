@@ -564,6 +564,10 @@ const HANH_HEX = { thuy: 0x4a90d9, moc: 0x4caf50, hoa: 0xe05a4a, tho: 0xd4a82a, 
 const HANH_CSS = { thuy: "#8fbdee", moc: "#86d28f", hoa: "#f0897c", tho: "#e6c45a", kim: "#c2c7cc" };
 // ngũ hành sao (data có dấu "thủy/mộc/…", có thể "mộc / thủy") → khoá HANH_CSS
 const HANH_KEY = { "thủy": "thuy", "mộc": "moc", "hỏa": "hoa", "thổ": "tho", "kim": "kim" };
+// Tứ Hóa (theo Can năm) + quan hệ cố định địa bàn (đồ-thị-có-nhãn, Phần I.2)
+const TU_HOA_HEX = { "Lộc": 0x4caf50, "Quyền": 0xe05a4a, "Khoa": 0x4a90d9, "Kỵ": 0x6a6356 };
+const TAM_HOP_GROUPS = [["Thân", "Tý", "Thìn"], ["Hợi", "Mão", "Mùi"], ["Dần", "Ngọ", "Tuất"], ["Tỵ", "Dậu", "Sửu"]];
+const XUNG_DOI = { "Tý": "Ngọ", "Sửu": "Mùi", "Dần": "Thân", "Mão": "Dậu", "Thìn": "Tuất", "Tỵ": "Hợi", "Ngọ": "Tý", "Mùi": "Sửu", "Thân": "Dần", "Dậu": "Mão", "Tuất": "Thìn", "Hợi": "Tỵ" };
 const NATAL_BODY_VI = {
   sun: "Nhật", moon: "Nguyệt", mercury: "Thủy", venus: "Kim", mars: "Hỏa",
   jupiter: "Mộc", saturn: "Thổ", uranus: "Thiên", neptune: "Hải", pluto: "Diêm"
@@ -624,14 +628,46 @@ function buildNatalScene() {
       natalGroup.add(marker);
     }
     // 14 chính tinh — an sao TẤT ĐỊNH; màu theo NGŨ HÀNH sao (nền sinh-khắc / functor)
+    // + Tứ Hóa (chấm màu): Lộc xanh lá · Quyền đỏ · Khoa lam · Kỵ xám
     (c.chinh_tinh || []).forEach((st, k) => {
       const hk = HANH_KEY[(st.ngu_hanh || "").split("/")[0].trim()] || "kim";
-      const slabel = makeTextSprite(st.name, HANH_CSS[hk] || "#cfe9e4");
-      slabel.scale.set(0.52, 0.15, 1);
-      slabel.position.copy(eclipticVec(c.lon_center, R_DIA - 0.52 - k * 0.34, 0.05));
+      const rr = R_DIA - 0.55 - k * 0.36;
+      const slabel = makeTextSprite(st.hoa ? `${st.name} ·${st.hoa}` : st.name, HANH_CSS[hk] || "#cfe9e4");
+      slabel.scale.set(st.hoa ? 0.72 : 0.6, 0.17, 1);
+      slabel.position.copy(eclipticVec(c.lon_center, rr, 0.05));
       natalGroup.add(slabel);
+      if (st.hoa) {
+        const hdot = new THREE.Mesh(
+          new THREE.SphereGeometry(0.045, 12, 10),
+          new THREE.MeshBasicMaterial({ color: TU_HOA_HEX[st.hoa] || 0xffffff })
+        );
+        hdot.position.copy(eclipticVec(c.lon_center, rr, 0.2));
+        natalGroup.add(hdot);
+      }
     });
   });
+
+  // tam-hợp (tam giác) + xung-chiếu (đường) của Mệnh — đồ-thị-có-nhãn (Phần I.2):
+  // cấu trúc QUAN HỆ cố định mà luận Tử Vi đọc topology, không tra nghĩa sao rời.
+  const menhChi = data.dia_ban?.menh_chi;
+  const lonByChi = {};
+  (data.dia_ban?.cung || []).forEach((c) => { lonByChi[c.chi] = c.lon_center; });
+  const tamHop = TAM_HOP_GROUPS.find((g) => g.includes(menhChi));
+  if (tamHop) {
+    const pts = tamHop.map((chi) => eclipticVec(lonByChi[chi], R_DIA, 0));
+    pts.push(pts[0]);
+    natalGroup.add(new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({ color: 0x66c2b5, transparent: true, opacity: 0.5 })
+    ));
+  }
+  const xc = XUNG_DOI[menhChi];
+  if (xc && lonByChi[xc] !== undefined) {
+    natalGroup.add(new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([eclipticVec(lonByChi[menhChi], R_DIA, 0), eclipticVec(lonByChi[xc], R_DIA, 0)]),
+      new THREE.LineBasicMaterial({ color: 0xe0a040, transparent: true, opacity: 0.55 })
+    ));
+  }
 
   // 10 thiên thể tại vị trí hoàng đạo THẬT
   (data.sky?.bodies || []).forEach((b) => {
@@ -678,7 +714,7 @@ function switchToNatal() {
   setLiveVisible(false);
   natalGroup.visible = true;
   controls.target.set(0, 0, 0);
-  camera.position.set(0, 4.4, 6.6);
+  camera.position.set(0, 3.7, 5.5);
   controls.update();
 }
 

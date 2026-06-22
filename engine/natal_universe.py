@@ -66,6 +66,9 @@ def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
     stars_by_cung: dict[int, list[str]] = {}
     for star_name, cung_idx in an_sao.place_14_chinh_tinh(tu_vi_idx).items():
         stars_by_cung.setdefault(cung_idx, []).append(star_name)
+    # Tứ Hóa — hàm tất định của CAN năm (Đằng Sơn tr.165): sao nào hóa Lộc/Quyền/Khoa/Kỵ.
+    tu_hoa = an_sao.tu_hoa_assignments(year_stem)
+    hoa_of_star = {star: hoa for hoa, star in tu_hoa.items()}
 
     bodies = [{
         "name": b.name,
@@ -83,7 +86,7 @@ def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
         "hanh": CHI_HANH[chi],
         "is_menh": chi == menh,
         "chinh_tinh": [
-            {"name": n, "ngu_hanh": _star_ngu_hanh(n)}
+            {"name": n, "ngu_hanh": _star_ngu_hanh(n), "hoa": hoa_of_star.get(n)}
             for n in stars_by_cung.get(i, [])
         ],
     } for i, chi in enumerate(CHI)]
@@ -104,6 +107,7 @@ def build_natal(birth_local: datetime, lat: float, lon: float) -> dict:
             "menh_chi": menh,
             "cuc": cuc,
             "tu_vi_chi": CHI[tu_vi_idx],
+            "tu_hoa": tu_hoa,
             "lunar_month": lun.lunar_month,
             "lunar_day": lun.lunar_day,
             "hour_chi": lun.hour_chi,
