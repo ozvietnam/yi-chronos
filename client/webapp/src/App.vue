@@ -45,6 +45,7 @@ const KyMonPanel = defineAsyncComponent(() => import("./components/KyMonPanel.vu
 const HoangCucPanel = defineAsyncComponent(() => import("./components/HoangCucPanel.vue"));
 const ChinhTinhGallery = defineAsyncComponent(() => import("./components/ChinhTinhGallery.vue"));
 const TuViLaSoPanel = defineAsyncComponent(() => import("./components/TuViLaSoPanel.vue"));
+const DangSonPanel = defineAsyncComponent(() => import("./components/DangSonPanel.vue"));
 const CungPhuTheBacPhaiPanel = defineAsyncComponent(() => import("./components/CungPhuTheBacPhaiPanel.vue"));
 const ChieuDomKinhPanel = defineAsyncComponent(() => import("./components/ChieuDomKinhPanel.vue"));
 const YiHermesChat = defineAsyncComponent(() => import("./components/YiHermesChat.vue"));
@@ -741,7 +742,7 @@ onBeforeUnmount(() => {
 
       <!-- Tab: Tử Vi — Lá số đầy đủ + 14 chính tinh schema -->
       <section v-else-if="activeMainTab === 'tu-vi'" class="single-column" aria-label="Tử Vi lá số">
-        <nav class="tuvi-school-tabs" aria-label="Hai trường phái Tử Vi">
+        <nav class="tuvi-school-tabs" aria-label="Ba trường phái Tử Vi">
           <button
             type="button"
             :class="{ active: activeTuViSchool === 'bac-phai' }"
@@ -762,6 +763,17 @@ onBeforeUnmount(() => {
             <span>
               <b>Chiếu Đởm Kinh</b>
               <small>18 phi tinh · pháp tượng · Nhập Cốt Tiên Kinh</small>
+            </span>
+          </button>
+          <button
+            type="button"
+            :class="{ active: activeTuViSchool === 'dang-son' }"
+            @click="activeTuViSchool = 'dang-son'"
+          >
+            <span class="school-mark">🔬</span>
+            <span>
+              <b>Đằng Sơn — Khoa Học</b>
+              <small>tính được cái TÍNH · lá số 3D · video Đại Vận</small>
             </span>
           </button>
         </nav>
@@ -795,7 +807,7 @@ onBeforeUnmount(() => {
           <ChinhTinhGallery />
         </template>
 
-        <template v-else>
+        <template v-else-if="activeTuViSchool === 'chieu-dom'">
           <TabIntro
             icon="tu-vi"
             title="Chiếu Đởm Kinh — 18 Phi Tinh + Nhập Cốt Tiên Kinh"
@@ -809,6 +821,21 @@ onBeforeUnmount(() => {
             ]"
           />
           <ChieuDomKinhPanel />
+        </template>
+
+        <template v-else-if="activeTuViSchool === 'dang-son'">
+          <TabIntro
+            icon="tu-vi"
+            title="Đằng Sơn — Tử Vi Hoàn Toàn Khoa Học"
+            purpose="Phái Tử Vi thứ 6 (khoa-học-hoá): lá số là HÀM TẤT ĐỊNH của thời điểm sinh. Mọi tầng — an sao, ngũ hành, Tứ Hóa, độ sáng, lưu niên — tính được tuyệt đối. Nhưng đó là cấu trúc TÍNH (bẩm phú), không phải MỆNH (động từ, việc vận hành). Đọc đồng dạng, KHÔNG bói. Tổ sư cận đại: TS. Đằng Sơn."
+            :steps="[
+              'Bước 1: chọn người ở Hồ sơ (cần ngày sinh).',
+              'Bước 2: bấm Lập hồ sơ tính-được — engine tính 14 chính tinh + ngũ hành + Tứ Hóa + độ sáng.',
+              'Bước 3: xem lá số trên nền vũ trụ THẬT (3D) — cái tính-được phủ lên thiên văn thật.',
+              'Bước 4: xem video Đại Vận — lá số chuyển động qua thập niên (mệnh là động từ).'
+            ]"
+          />
+          <DangSonPanel @go-universe="activeMainTab = 'universe'" />
         </template>
       </section>
 
