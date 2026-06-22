@@ -19,6 +19,10 @@ const props = defineProps({
   now: {
     type: Date,
     default: () => new Date()
+  },
+  natalData: {
+    type: Object,
+    default: null
   }
 });
 
@@ -41,6 +45,7 @@ let sun;
 let sunGlow;
 let hexagramGroup;
 let constellationGroup;
+let natalGroup;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let frameId;
@@ -143,6 +148,10 @@ function initScene() {
   animate();
   window.addEventListener("resize", resize);
   renderer.domElement.addEventListener("pointerdown", onPointerDown);
+  if (props.natalData) {
+    buildNatalScene();
+    switchToNatal();
+  }
 }
 
 function addStars() {
@@ -306,6 +315,8 @@ function applyCenteredLayout() {
 function switchToGeocentric() {
   viewMode.value = "geocentric";
   centerBodyName.value = "Trái Đất";
+  if (natalGroup) natalGroup.visible = false;
+  setLiveVisible(true);
   applyCenteredLayout();
   controls.target.set(0, 0, 0);
   camera.position.set(0, 2.3, 4.2);
@@ -315,6 +326,8 @@ function switchToGeocentric() {
 function switchToHeliocentric() {
   viewMode.value = "heliocentric";
   centerBodyName.value = "Mặt Trời";
+  if (natalGroup) natalGroup.visible = false;
+  setLiveVisible(true);
   applyCenteredLayout();
   controls.target.set(0, 0, 0);
   camera.position.set(0, 4.6, 8.9);
@@ -546,6 +559,119 @@ function refreshMarkers() {
   addHexagramMarkers();
 }
 
+// ---- NATAL MODE: lá số trên nền vũ trụ thật (additive, mặc định tắt) ----
+const HANH_HEX = { thuy: 0x4a90d9, moc: 0x4caf50, hoa: 0xe05a4a, tho: 0xd4a82a, kim: 0x9aa0a6 };
+const HANH_CSS = { thuy: "#8fbdee", moc: "#86d28f", hoa: "#f0897c", tho: "#e6c45a", kim: "#c2c7cc" };
+const NATAL_BODY_VI = {
+  sun: "Nhật", moon: "Nguyệt", mercury: "Thủy", venus: "Kim", mars: "Hỏa",
+  jupiter: "Mộc", saturn: "Thổ", uranus: "Thiên", neptune: "Hải", pluto: "Diêm"
+};
+
+function eclipticVec(lonDeg, radius, y = 0) {
+  const a = (lonDeg * Math.PI) / 180;
+  return new THREE.Vector3(Math.cos(a) * radius, y, Math.sin(a) * radius);
+}
+
+function disposeNatal() {
+  if (!natalGroup) return;
+  natalGroup.traverse((obj) => {
+    obj.geometry?.dispose?.();
+    if (obj.material) {
+      obj.material.map?.dispose?.();
+      obj.material.dispose?.();
+    }
+  });
+  scene.remove(natalGroup);
+  natalGroup = null;
+}
+
+function buildNatalScene() {
+  if (!scene || !props.natalData) return;
+  disposeNatal();
+  natalGroup = new THREE.Group();
+  natalGroup.name = "natal-group";
+  const data = props.natalData;
+  const R_DIA = 2.35;
+  const R_PLANET = 3.15;
+  const R_ZOD = 3.9;
+
+  // Trái Đất (tâm — geocentric)
+  const earth = new THREE.Mesh(
+    new THREE.SphereGeometry(0.16, 48, 32),
+    new THREE.MeshStandardMaterial({ color: 0x2a6ea5, roughness: 0.82, emissive: 0x0b2838, emissiveIntensity: 0.22 })
+  );
+  natalGroup.add(earth);
+
+  // vòng tham chiếu
+  natalGroup.add(makeOrbitLine(R_DIA, 0xd4a82a, 0.16));
+  natalGroup.add(makeOrbitLine(R_PLANET, 0x99f6e4, 0.1));
+
+  // địa bàn 12 cung (ký hiệu, neo tiết khí) — Mệnh tô đậm
+  (data.dia_ban?.cung || []).forEach((c) => {
+    const css = HANH_CSS[c.hanh] || "#c5f8f1";
+    const label = makeTextSprite(c.is_menh ? `${c.chi} ★` : c.chi, css);
+    label.scale.set(c.is_menh ? 0.86 : 0.6, c.is_menh ? 0.23 : 0.16, 1);
+    label.position.copy(eclipticVec(c.lon_center, R_DIA, 0.02));
+    natalGroup.add(label);
+    if (c.is_menh) {
+      const marker = new THREE.Mesh(
+        new THREE.SphereGeometry(0.05, 16, 12),
+        new THREE.MeshBasicMaterial({ color: HANH_HEX[c.hanh] || 0xe05a4a })
+      );
+      marker.position.copy(eclipticVec(c.lon_center, R_DIA, 0));
+      natalGroup.add(marker);
+    }
+  });
+
+  // 10 thiên thể tại vị trí hoàng đạo THẬT
+  (data.sky?.bodies || []).forEach((b) => {
+    const isSun = b.name === "sun";
+    const color = isSun ? 0xffc857 : b.name === "moon" ? 0xdce5ec : 0xc5d4d8;
+    const dot = new THREE.Mesh(
+      new THREE.SphereGeometry(isSun ? 0.07 : 0.045, 18, 14),
+      new THREE.MeshBasicMaterial({ color })
+    );
+    dot.position.copy(eclipticVec(b.ecliptic_longitude, R_PLANET, 0));
+    natalGroup.add(dot);
+    const nm = NATAL_BODY_VI[b.name] || b.name;
+    const label = makeTextSprite(b.is_retrograde && !isSun ? `${nm} ngh` : nm, isSun ? "#ffd98a" : "#cfe9e4");
+    label.scale.set(0.46, 0.14, 1);
+    label.position.copy(eclipticVec(b.ecliptic_longitude, R_PLANET, 0.15));
+    natalGroup.add(label);
+  });
+
+  // cầu nối Mặt Trời (vạch đứt từ tâm ra vòng trời thật)
+  const sunLon = data.sky?.sun_longitude;
+  if (typeof sunLon === "number") {
+    const line = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([eclipticVec(sunLon, R_DIA * 0.5, 0), eclipticVec(sunLon, R_ZOD, 0)]),
+      new THREE.LineDashedMaterial({ color: 0xffc857, dashSize: 0.12, gapSize: 0.08, transparent: true, opacity: 0.85 })
+    );
+    line.computeLineDistances();
+    natalGroup.add(line);
+  }
+
+  natalGroup.visible = false;
+  scene.add(natalGroup);
+}
+
+function setLiveVisible(on) {
+  if (solarSystem) solarSystem.visible = on;
+  if (hexagramGroup) hexagramGroup.visible = on;
+}
+
+function switchToNatal() {
+  if (!props.natalData) return;
+  if (!natalGroup) buildNatalScene();
+  if (!natalGroup) return;
+  viewMode.value = "natal";
+  setLiveVisible(false);
+  natalGroup.visible = true;
+  controls.target.set(0, 0, 0);
+  camera.position.set(0, 4.4, 6.6);
+  controls.update();
+}
+
 function resize() {
   if (!renderer || !canvasRef.value) return;
   const parent = canvasRef.value.parentElement;
@@ -602,6 +728,18 @@ watch(
     addSolarSystem();
   }
 );
+watch(
+  () => props.natalData,
+  (val) => {
+    if (!scene) return;
+    if (val) {
+      buildNatalScene();
+      switchToNatal();
+    } else {
+      switchToHeliocentric();
+    }
+  }
+);
 </script>
 
 <template>
@@ -640,6 +778,7 @@ watch(
     <div class="view-controls">
       <button type="button" :class="{ active: viewMode === 'heliocentric' }" @click="switchToHeliocentric">Nhật tâm</button>
       <button type="button" :class="{ active: viewMode === 'geocentric' }" @click="switchToGeocentric">Địa tâm</button>
+      <button v-if="natalData" type="button" :class="{ active: viewMode === 'natal' }" @click="switchToNatal">Lá số</button>
     </div>
   </div>
 </template>

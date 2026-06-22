@@ -142,6 +142,14 @@ export function getSkyNow({ at = null, lat = null, lon = null } = {}) {
   return request(`/api/sky-now${qs ? `?${qs}` : ""}`);
 }
 
+export function getNatalUniverse({ at, lat = null, lon = null, tzHours = 7 }) {
+  const params = new URLSearchParams({ at });
+  if (lat !== null && lat !== "") params.set("lat", lat);
+  if (lon !== null && lon !== "") params.set("lon", lon);
+  if (tzHours !== null && tzHours !== "") params.set("tz_hours", String(tzHours));
+  return request(`/api/natal-universe?${params.toString()}`);
+}
+
 export function getLifeTimeline({ birthAt, spanYears = 90 }) {
   const params = new URLSearchParams({ birth_at: birthAt, span_years: String(spanYears) });
   return request(`/api/life-timeline?${params.toString()}`);
