@@ -113,7 +113,7 @@ def render_frame(R, hl, caption: str) -> str:
     P.append('<style>text{font-family:Georgia,"Times New Roman",serif}</style>')
     # tiêu đề
     P.append(f'<text x="640" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#e6c45a">'
-             f'ĐẠI VẬN cung {dv["branch"]} · tuổi {dv["start_age"]}–{dv["end_age"]} · {db["year_can_chi"]} → lưu {R["n"]["luu_nien"]["can_chi"]}</text>')
+             f'ĐẠI VẬN cung {dv["branch"]} · tuổi {dv["start_age"]}–{dv["end_age"]} · lá số {db["year_can_chi"]} · lưu niên {R["n"]["luu_nien"]["can_chi"]}</text>')
 
     def center(chi):
         c, r = CELL[chi]
