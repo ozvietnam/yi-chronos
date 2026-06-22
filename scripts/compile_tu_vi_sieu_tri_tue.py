@@ -23,6 +23,7 @@ OUT = ROOT / "data/published"
 PARTS = [
     "phan-0-tuyen-ngon.md",
     "phan-1-nen-toan-hoc.md",
+    "phan-1b-dan-xuat.md",
     "phan-2-14-sao-toan-tu.md",
     "phan-3-dong-dang.md",
     "phan-4-bien-dong-luc.md",
@@ -98,7 +99,7 @@ def main() -> int:
             "--embed-resources",
         ], check=True)
 
-        out_pdf = OUT / "Tu-Vi-Tinh-Duoc-v0.3.pdf"
+        out_pdf = OUT / "Tu-Vi-Tinh-Duoc-v0.4.pdf"
         from weasyprint import HTML
         HTML(filename=str(html)).write_pdf(str(out_pdf))
         size_kb = out_pdf.stat().st_size // 1024
