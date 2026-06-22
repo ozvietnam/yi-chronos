@@ -562,6 +562,8 @@ function refreshMarkers() {
 // ---- NATAL MODE: lá số trên nền vũ trụ thật (additive, mặc định tắt) ----
 const HANH_HEX = { thuy: 0x4a90d9, moc: 0x4caf50, hoa: 0xe05a4a, tho: 0xd4a82a, kim: 0x9aa0a6 };
 const HANH_CSS = { thuy: "#8fbdee", moc: "#86d28f", hoa: "#f0897c", tho: "#e6c45a", kim: "#c2c7cc" };
+// ngũ hành sao (data có dấu "thủy/mộc/…", có thể "mộc / thủy") → khoá HANH_CSS
+const HANH_KEY = { "thủy": "thuy", "mộc": "moc", "hỏa": "hoa", "thổ": "tho", "kim": "kim" };
 const NATAL_BODY_VI = {
   sun: "Nhật", moon: "Nguyệt", mercury: "Thủy", venus: "Kim", mars: "Hỏa",
   jupiter: "Mộc", saturn: "Thổ", uranus: "Thiên", neptune: "Hải", pluto: "Diêm"
@@ -621,6 +623,14 @@ function buildNatalScene() {
       marker.position.copy(eclipticVec(c.lon_center, R_DIA, 0));
       natalGroup.add(marker);
     }
+    // 14 chính tinh — an sao TẤT ĐỊNH; màu theo NGŨ HÀNH sao (nền sinh-khắc / functor)
+    (c.chinh_tinh || []).forEach((st, k) => {
+      const hk = HANH_KEY[(st.ngu_hanh || "").split("/")[0].trim()] || "kim";
+      const slabel = makeTextSprite(st.name, HANH_CSS[hk] || "#cfe9e4");
+      slabel.scale.set(0.52, 0.15, 1);
+      slabel.position.copy(eclipticVec(c.lon_center, R_DIA - 0.52 - k * 0.34, 0.05));
+      natalGroup.add(slabel);
+    });
   });
 
   // 10 thiên thể tại vị trí hoàng đạo THẬT
