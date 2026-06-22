@@ -43,7 +43,18 @@ def test_brightness_truong_sinh_has_positive_signal():
     assert r["correlation"] > 0        # có tín hiệu thuận, không phản
 
 
+def test_brightness_relation_nourish_brighter_than_deplete():
+    # Đằng Sơn Ch.8 (tr.80): cung SINH sao (dưỡng) ở thế lợi; sao SINH cung (bị tiết
+    # khí) ở thế thiệt. → độ sáng TB nhóm "cung sinh sao" phải CAO HƠN "sao sinh cung".
+    g = dsv.verify_brightness_relation()["group_means"]
+    assert g["cung sinh sao"] > g["sao sinh cung"]
+    # và mô hình quan-hệ (Ch.8) khá hơn Trường Sinh đơn (Vòng 1)
+    r_rel = dsv.verify_brightness_relation()["correlation"]
+    r_ts = dsv.verify_brightness()["correlation"]
+    assert r_rel >= r_ts
+
+
 def test_report_runs_end_to_end():
-    # Báo cáo tổng phải chạy trọn, trả đủ 3 mảng định lý
+    # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
-    assert set(rep) >= {"tam_hop", "brightness", "conservation"}
+    assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "conservation"}

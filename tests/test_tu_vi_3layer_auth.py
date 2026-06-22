@@ -164,3 +164,36 @@ def test_pure_3layer_render_open(client):
         "cuc": "thuy_nhi_cuc", "gender": "M",
         "chinh_tinh_per_palace": {"ty": ["thien_dong"]}})
     assert r.status_code == 200  # render thuần (không LLM) — vẫn mở
+
+
+# ─── 5) Route cấu trúc nặng (an sao/Bát Tự, KHÔNG LLM): guest VẪN dùng, nhưng
+#        throttle nhẹ chống abuse CPU (bucket chung tuvi_cast). ───────────────
+STRUCTURAL_ROUTES = [
+    ("/api/tu-vi/hop-hon",
+     {"birth1": "1988-06-05T23:30", "gender1": "nam",
+      "birth2": "1990-02-02T10:00", "gender2": "nữ"}),
+    ("/api/tu-vi/thien-luong", {"birth": "1988-06-05T23:30", "gender": "nam"}),
+    ("/api/tu-vi/cung-sau", {"birth": "1988-06-05T23:30", "gender": "nam"}),
+    ("/api/tu-vi/duyen", {"birth": "1988-06-05T23:30", "gender": "nam"}),
+    ("/api/tu-vi/gia-dao",
+     {"birth1": "1988-06-05T23:30", "gender1": "nam",
+      "birth2": "1990-02-02T10:00", "gender2": "nữ"}),
+    ("/api/tu-vi/dat-ten", {"birth_con": "2020-03-03T08:00"}),
+    ("/api/tu-vi/luan-con", {"birth_con": "2020-03-03T08:00", "gender_con": "nam"}),
+]
+
+
+@pytest.mark.parametrize("path,body", STRUCTURAL_ROUTES)
+def test_structural_guest_allowed(client, path, body):
+    """Route cấu trúc (CPU, không LLM) KHÔNG hard-gate — guest vẫn dùng được."""
+    r = client.post(path, json=body)
+    assert r.status_code != 401, f"{path}: không nên chặn guest (chỉ throttle), nhận {r.status_code}"
+
+
+@pytest.mark.parametrize("path,body", STRUCTURAL_ROUTES)
+def test_structural_rate_limited(client, monkeypatch, path, body):
+    """Vượt ngưỡng CPU (bucket tuvi_cast) → 429 cho cả route cấu trúc."""
+    _as_session(monkeypatch, user_id=91, role="user")
+    ratelimit._mem[f"{mod.CAST_BUCKET}:91"] = [time.time()] * mod.CAST_LIMIT
+    r = client.post(path, json=body)
+    assert r.status_code == 429, f"{path}: vượt ngưỡng phải 429, nhận {r.status_code}"
