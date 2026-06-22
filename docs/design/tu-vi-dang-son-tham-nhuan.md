@@ -27,6 +27,17 @@
 - Bảng **14 sao → định mệnh luận** (Destinism/Fatalism…) — chưa thấy ở Ch1-2; nằm sâu hơn (chương phân tích từng sao / phần triết). → đọc tiếp các vòng sẽ điền nốt nhãn cho Phần II + Phụ lục B.
 - "Thái Cực = sóng hấp dẫn", "ngũ kỳ trận pháp" — chưa gặp; vòng sau.
 
-### Câu hỏi cho Anh (doc-sau-20-trang — vòng hỏi):
-1. Đọc tiếp **tuần tự Chương 3→27** (em báo đúc kết mỗi ~20 trang), hay **nhảy thẳng** tới chương có bảng 14-sao-định-mệnh + "ngũ kỳ trận pháp" (ưu tiên hoàn tất (b) cho Phần II)?
-2. "Giả tướng" — Anh muốn em **nâng thành 1 trụ paradigm** của phái Đằng Sơn (ngang "đọc đồng dạng") không?
+---
+
+## VÒNG 2 — Nền THIÊN VĂN của địa bàn (Chương 2-4, tr.31-50)
+
+Đằng Sơn **dẫn xuất địa bàn từ THIÊN VĂN THẬT** (không tùy tiện):
+- Sơ đồ Trái Đất quanh **MẶT TRỜI** (tr.31,43,45,50): mỗi tháng (Dần=1, Tỵ=4, Thân=7, Hợi=10) Trái Đất ở một vị trí quỹ đạo; "giờ Tý" + "phương khai sinh" → định **vị trí cung Mệnh/Thân trên địa bàn**.
+- "Khác biệt giữa giờ và tháng" · "Lý thiên văn của cung mệnh / cung thân" · mệnh-thân thuận/nghịch — đều suy từ hình học quỹ đạo.
+- 🔑 **Cấu trúc lá số CÓ REFERENT VẬT LÝ THẬT** (vị trí Trái Đất–Mặt Trời), không phải ký hiệu tùy tiện. → củng cố Phần I sách ta: "đồ thị có nhãn" không võ đoán — nó mã hoá một cấu hình thiên văn tại điểm sinh.
+
+**Đúc kết vòng 2:** Đây là "khoa học" THẬT của Đằng Sơn (thiên văn), KHÁC cái "ẩn dụ" (sóng hấp dẫn) — phải phân biệt khi gắn cờ: địa-bàn-từ-thiên-văn = `cơ-sở-thật`; "Thái Cực=sóng hấp dẫn" = `ẩn dụ`.
+
+**CHƯA gặp:** bảng 14-sao→định-mệnh + "ngũ kỳ trận pháp" + "Thái Cực=sóng hấp dẫn" → nằm ở chương chính tinh / phần triết sâu (Chương 6+). Đọc tiếp.
+
+**Đã quyết (Anh bảo "vào việc"):** (1) đọc tiếp **lái tới chương chính tinh** tìm bảng 14-sao; (2) **"giả tướng" NÂNG thành trụ paradigm** phái Đằng Sơn — đã tích hợp vào sách (Phần III) + sẽ vào SOUL phái.

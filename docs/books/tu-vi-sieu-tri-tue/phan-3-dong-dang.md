@@ -53,4 +53,10 @@ Một phép so: lá số đồng dạng với anh như **bản đồ** đồng d
 
 **Nối Mai Hoa:** Thiệu Khang Tiết dạy *quan-vật-trace-tính* — quan sát một hiện tượng để truy ngược về cái Tính. Đó đúng là **đi functor theo chiều ngược** (Tính Người ← Lá Số ← Vũ Trụ). Tử Vi và Mai Hoa, dưới hình thức hoá này, là **cùng một functor đọc theo hai chiều**. (Một thống nhất đẹp mà chỉ lộ ra khi viết bằng ngôn ngữ cấu trúc.)
 
+### III.5 — Chứng từ chính Đằng Sơn: "tử vi là môn nghiên cứu GIẢ TƯỚNG"
+
+Người ta dễ nghĩ "khoa học hoá tử vi" nghĩa là biến nó thành máy đoán. Nhưng **chính Đằng Sơn — Chương 1 _Tử Vi Hoàn Toàn Khoa Học_ — viết: _"Tử vi là một môn nghiên cứu GIẢ TƯỚNG."_** *Giả tướng* = cái **biểu kiến / hiện tượng**, không phải thực tại nhân quả. "Mặt Trời mọc đằng đông" là một giả tướng (thật ra Trái Đất quay) — nhưng giả tướng ấy **chính xác, dùng được, tính được**, miễn ta biết nó là biểu kiến.
+
+Đây là **chứng từ nội-phái** cho luận đề cuốn sách: functor đồng dạng ánh xạ *giả tướng* (cấu trúc biểu kiến của lá số) ↔ *giả tướng* (cấu trúc biểu kiến của tính người) — một **tương ứng giữa hai biểu kiến**, không phải dây chuyền nhân quả. Mà giả tướng, theo định nghĩa, **không chứa kết cục thực tại** — nên càng tính, càng không chạm "định mệnh". Đằng Sơn, bằng hai chữ "giả tướng", đã tự đặt mình đúng phía trong ranh giới TÍNH/MỆNH; ta chỉ viết tiếp cho minh bạch.
+
 → **Cầu sang Phần IV:** tới đây ta có cái TÍNH *tĩnh* — bản đồ. Nhưng đời người *chuyển động*: Đại Vận, Lưu Niên đưa thời gian vào. Phần IV hỏi: thời gian làm gì với bản đồ — và vì sao "vận" cũng không phải lời tiên tri.

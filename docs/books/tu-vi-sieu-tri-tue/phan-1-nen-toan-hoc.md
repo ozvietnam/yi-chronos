@@ -30,6 +30,14 @@ An sao cho ta `L`. Nhưng `L` không phải danh sách rời — nó là một *
 - **λ** (nhãn) = mỗi đỉnh mang: chức năng cung + tập sao + độ miếu-hãm từng sao tại đó.
 - **E** (cạnh) = quan hệ vị trí **cố định** giữa cung: **tam hợp** (bộ ba cách 4 cung) · **xung chiếu** (đối diện, cách 6 cung) · **nhị hợp / giáp** (kề / kẹp).
 
+> 📐 **Đồ thị này KHÔNG võ đoán — nó có referent thiên văn thật.** Đằng Sơn (_Tử Vi Hoàn
+> Toàn Khoa Học_, Ch.2-4) dẫn xuất "địa bàn" 12 cung **từ hình học Trái Đất quanh Mặt Trời**:
+> mỗi tháng Trái Đất ở một vị trí quỹ đạo, mỗi giờ một góc tự quay → định vị cung Mệnh/Thân.
+> Mỗi đỉnh `V` mang luôn {ngũ hành · tiết khí · can lộc-vị · Bát Quái · phương hướng}. Tức
+> nhãn `λ` không phải ký hiệu tùy tiện — nó **mã hoá một cấu hình thiên văn tại điểm sinh**.
+> (Và "ngũ hành" mà nhãn dùng, theo Đằng Sơn, là **xấp xỉ rời rạc của continuum âm dương** —
+> "hình ngũ giác thay hình tròn khi thiếu compass": một mô hình hoá có sai số kiểm soát được.)
+
 Vì sao điều này quan trọng? Vì **ý nghĩa của một sao không nằm ở bản thân nó, mà ở VỊ TRÍ trong đồ thị.** Vũ Khúc ở Mệnh khác Vũ Khúc ở Tài Bạch; Vũ Khúc *được Thiên Phủ tam hợp* khác Vũ Khúc *bị Phá Quân xung*. Luận Tử Vi, ở tầng sâu, là **đọc topology** (cấu trúc liên kết) của đồ thị — không phải tra nghĩa từng sao rời.
 
 Người xưa biết điều này bằng trực giác ("sao chẳng đứng một mình, phải xem hội hợp"). Hình thức hoá biến trực giác thành thứ máy **tính được**: tam hợp/xung chiếu là phép toán trên đồ thị; "hội hợp" là các *đường đi* trong `G`.
