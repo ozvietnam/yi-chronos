@@ -267,12 +267,60 @@ def verify_tu_hoa_balance():
     }
 
 
+# Đường đi chủ Lộc/Quyền (Ch.14 tr.163-165, kế thừa Tạ Phồn Trị): 11 sao.
+# Lộc(can) = walk[start]; Quyền(can) = walk[start+1] — Quyền luôn KỀ Lộc.
+LOC_QUYEN_WALK = ["Liêm Trinh", "Phá Quân", "Cự Môn", "Thái Dương", "Vũ Khúc",
+                  "Tham Lang", "Thái Âm", "Thiên Đồng", "Thiên Cơ", "Thiên Lương", "Tử Vi"]
+_CAN_START = {"Giáp": 0, "Quý": 1, "Tân": 2, "Canh": 3, "Kỷ": 4,
+              "Mậu": 5, "Đinh": 6, "Bính": 7, "Ất": 8, "Nhâm": 9}
+
+
+def verify_loc_quyen_walk():
+    """Định lý Lộc/Quyền (Ch.14): toàn bộ 20 ô Hóa Lộc + Hóa Quyền của 10 can đọc ra
+    từ MỘT đường đi 11 sao — Lộc(can)=walk[start(can)], Quyền(can)=walk[start+1].
+    Quyền luôn KỀ Lộc (bước +1). Phần Tứ Hóa tưởng học-thuộc nhất → dẫn xuất từ 1 cấu trúc.
+    """
+    from engine.tu_vi.an_sao import TU_HOA_TABLE
+    loc_ok = quyen_ok = 0
+    for can, start in _CAN_START.items():
+        if LOC_QUYEN_WALK[start] == TU_HOA_TABLE[can]["Lộc"]:
+            loc_ok += 1
+        if LOC_QUYEN_WALK[start + 1] == TU_HOA_TABLE[can]["Quyền"]:
+            quyen_ok += 1
+    return {"n_can": len(_CAN_START), "loc_match": loc_ok, "quyen_match": quyen_ok,
+            "perfect": loc_ok == quyen_ok == len(_CAN_START)}
+
+
+def verify_star_hoa_participation():
+    """Định lý Ch.17 (tr.191-196): TÍNH của sao đọc từ việc nó THAM GIA Tứ Hóa ra sao.
+    - Phủ/Tướng/Sát: hoàn toàn KHÔNG hóa (bị động, xung-chiếu vĩnh viễn).
+    - Cơ/Nguyệt(Thái Âm)/Vũ: hóa ĐỦ 4/4 (chủ động, đa năng).
+    - Tử Vi/Thiên Lương: không hóa Kỵ.
+    """
+    from engine.tu_vi.an_sao import TU_HOA_TABLE
+    appear = {}
+    for hoas in TU_HOA_TABLE.values():
+        for hoa, star in hoas.items():
+            appear.setdefault(star, set()).add(hoa)
+    g = lambda s: appear.get(s, set())
+    never_hoa = [s for s in ("Thiên Phủ", "Thiên Tướng", "Thất Sát") if not g(s)]
+    full_hoa = [s for s in ("Thiên Cơ", "Thái Âm", "Vũ Khúc") if len(g(s)) == 4]
+    never_ky = [s for s in ("Tử Vi", "Thiên Lương") if "Kỵ" not in g(s)]
+    return {
+        "never_hoa": never_hoa, "full_hoa": full_hoa, "never_ky": never_ky,
+        "phu_tuong_sat_never_hoa": len(never_hoa) == 3,
+        "co_nguyet_vu_full_hoa": len(full_hoa) == 3,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
         "brightness": verify_brightness(),
         "brightness_relation": verify_brightness_relation(),
         "hoa_ky_structure": verify_hoa_ky_structure(),
+        "loc_quyen_walk": verify_loc_quyen_walk(),
+        "star_hoa_participation": verify_star_hoa_participation(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

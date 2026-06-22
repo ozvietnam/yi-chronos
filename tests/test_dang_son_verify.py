@@ -79,8 +79,25 @@ def test_tu_hoa_aux_stars_internally_balanced():
     assert r["aux_balanced"] is True           # phụ tinh tự cân 3/3
 
 
+def test_loc_quyen_single_walk_reproduces_table():
+    # Ch.14 (tr.163-165): toàn bộ Lộc+Quyền 10 can đọc từ MỘT đường đi 11 sao;
+    # Quyền = Lộc kế tiếp (+1). 20 ô Tứ Hóa dẫn xuất từ 1 cấu trúc.
+    r = dsv.verify_loc_quyen_walk()
+    assert r["loc_match"] == 10      # 10/10 Lộc khớp TU_HOA_TABLE
+    assert r["quyen_match"] == 10    # 10/10 Quyền khớp
+    assert r["perfect"] is True
+
+
+def test_star_hoa_participation_reveals_nature():
+    # Ch.17: Phủ/Tướng/Sát hoàn toàn không hóa; Cơ/Nguyệt/Vũ hóa đủ 4/4; Tử/Lương không Kỵ.
+    r = dsv.verify_star_hoa_participation()
+    assert r["phu_tuong_sat_never_hoa"] is True
+    assert r["co_nguyet_vu_full_hoa"] is True
+    assert set(r["never_ky"]) == {"Tử Vi", "Thiên Lương"}
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
-    assert set(rep) >= {"tam_hop", "brightness", "brightness_relation",
-                        "hoa_ky_structure", "tu_hoa_balance", "conservation"}
+    assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
+                        "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance", "conservation"}
