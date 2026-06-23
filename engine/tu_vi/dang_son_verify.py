@@ -588,8 +588,8 @@ def verify_menh_than_chu():
     Mệnh chủ — Tý:Tham Lang · Sửu/Hợi:Cự Môn · Dần/Tuất:Lộc Tồn · Mão/Dậu:Văn Khúc · Tỵ/Mùi:VŨ KHÚC
     · Thìn/Thân:Liêm Trinh · Ngọ:Phá Quân. → founder Mệnh Tỵ = VŨ KHÚC (KHÔNG Liêm Trinh — bảng VN sai).
     Thân chủ — Tý:LINH Tinh · Ngọ:Hỏa Tinh · Sửu/Mùi:Thiên Tướng · Dần/Thân:Thiên Lương · Mão/Dậu:Thiên
-    Đồng · Tỵ/Hợi:Thiên Cơ · Thìn/Tuất:Văn Xương. ENGINE LỆCH ở Tý (engine=Hỏa Tinh, Đằng Sơn=Linh Tinh)
-    — Linh Tinh vắng mặt toàn bảng Thân chủ engine = nghi BUG sao chép (KHÔNG đụng founder năm Thìn=Văn Xương).
+    Đồng · Tỵ/Hợi:Thiên Cơ · Thìn/Tuất:Văn Xương. Engine KHỚP TRỌN 12/12 sau khi vá BUG sao chép ở Tý
+    (engine cũ Tý=Hỏa Tinh trùng Ngọ → sửa về Linh Tinh; founder năm Thìn=Văn Xương không đổi).
     """
     from engine.tu_vi import an_sao as _a
 

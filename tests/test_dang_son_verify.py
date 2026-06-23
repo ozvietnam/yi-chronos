@@ -209,12 +209,14 @@ def test_menh_than_chu_ch23():
     assert r["menh_chu_follows_dang_son"] is True
     assert r["founder_menh_chu"] == "Vũ Khúc"          # founder Mệnh Tỵ — KHÔNG phải Liêm Trinh
     assert r["founder_than_chu"] == "Văn Xương"        # founder năm Thìn (khớp cả engine + Đằng Sơn)
-    # Thân chủ: engine LỆCH Đằng Sơn đúng 1 chỗ (Tý) — Linh Tinh vắng mặt toàn bảng = nghi BUG
-    assert r["than_chu_match"] == 11
-    assert r["than_chu_diverges_at"] == ["Tý"]
-    assert r["ty_than_chu_engine"] == "Hỏa Tinh"
+    # Thân chủ: engine KHỚP TRỌN Đằng Sơn 12/12 sau khi vá BUG sao chép ở Tý
+    # (engine cũ Tý="Hỏa Tinh" trùng Ngọ → sửa về "Linh Tinh" theo TVDSTT Q.2 + Đằng Sơn T2 tr.279).
+    # Giữ assert ty_than_chu_engine + linh_tinh_missing làm CHỐT CHẶN tái-lỗi (regression guard).
+    assert r["than_chu_match"] == 12
+    assert r["than_chu_diverges_at"] == []
+    assert r["ty_than_chu_engine"] == "Linh Tinh"
     assert r["ty_than_chu_dang_son"] == "Linh Tinh"
-    assert r["linh_tinh_missing_in_engine_table"] is True
+    assert r["linh_tinh_missing_in_engine_table"] is False
 
 
 def test_tuan_triet_ch24_ch25():
