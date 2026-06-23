@@ -1,0 +1,2438 @@
+{
+ "corpus": "tuvi-dang-son",
+ "school": "tu_vi_dang_son",
+ "n": 270,
+ "concepts": [
+  {
+   "canonical_vi": "thiên-không-tôn-giáo-linh-cảm",
+   "short_note": "",
+   "first_seen_page": 1,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-21-p1-17",
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 2
+  },
+  {
+   "canonical_vi": "12-cung-dẫn-từ-Trường-Sinh",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "14-chính-tinh-vì-sao-14",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "2-chiều-dương-nam-âm-nữ",
+   "short_note": "",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "2-chùm-dẫn-xuất",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "3-cặp-phản-đề-thái-tuế",
+   "short_note": "thiên-không-trực-phù / thiếu-âm-phúc-đức / hồng-loan-thiên-hỉ",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "3-loại-thiên-không",
+   "short_note": "4-góc-tu-hành / tý-ngọ-mão-dậu-giả-tu / tứ-mộ-độc-thủ-gieo-họa",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "34-sao-nền + 70-80-thần-sát",
+   "short_note": "",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "4-năm-giáp-ất-canh-tân-ôn-hòa",
+   "short_note": "gần-trung-đạo",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "6-cường-6-nhược-cung",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Mệnh-ngoài/Thân-trong",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Mệnh-phiêu-lãng/Thân-về-gốc-sau-30",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Thiên-Tướng-mượn-chỗ",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Thái-Dương-quý-chính-trị/Thái-Âm-phú-thương-mại",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Thái-Âm-Dương-dẫn-xuất",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Triệt-không-ở-Tuất-Hợi",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Tuần-Triệt-2-chấn-động",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Tạ Phồn Trị",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Tử-Phủ-hợp-ly",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "Tử-Vi-hoàng-đế/Thiên-Phủ-vua-bù-nhìn",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "VVĐNT",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "binh-hình-tướng-ấn",
+   "short_note": "",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "biến-số-không-tạo-số-mạng",
+   "short_note": "chống-định-mệnh",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-19-p349-369"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "biết-mình-biết-địch",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bài-thiệu-tứ-hóa",
+   "short_note": "",
+   "first_seen_page": 174,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-10-p174-192"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bài-toán-2-sao-cùng-cung-âm-dương",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bác-sỹ-thông-minh",
+   "short_note": "",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bát-quái-14-chính-tinh",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bát-quái-3-tính-chất",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bát-tự-cảm-giác-định-mệnh-cố-định",
+   "short_note": "phê",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bản-mệnh-vs-chính-tinh",
+   "short_note": "",
+   "first_seen_page": 155,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-9-p155-173"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bảng-lý-tính-sao-nhân-duyên",
+   "short_note": "",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bảng-tổng-kết-14-chính-tinh",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bảo-toàn-tổng-0",
+   "short_note": "vô-cực-sinh-thái-cực",
+   "first_seen_page": 5,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-1-p5-25"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "bộ-4-tập-map",
+   "short_note": "",
+   "first_seen_page": 370,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-20-p370-381-HET-TAP-1"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "canh-âm-đồng-không-đồng-âm",
+   "short_note": "",
+   "first_seen_page": 1,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-21-p1-17"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "canh-âm-đồng-thắng-thống-kê",
+   "short_note": "độ-ngờ-21%",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chiêm-tinh-tây-bế-tắc-thiếu-lý-thuyết",
+   "short_note": "",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chiết-túc-mã",
+   "short_note": "đà-mã",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chu-dịch-dữ-tử-vi-đẩu-số",
+   "short_note": "Tạ Phồn Trị, nguồn đúng",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chuông-treo-mỏng-manh",
+   "short_note": "lộc-tồn-lưu-hà",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chính-thường-vs-bất-thường",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chính/phụ-tuần-triệt",
+   "short_note": "âm-dương-năm",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "chủ-tớ-tương-tác",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "coi-nhẹ-ngũ-hành-tuần-triệt",
+   "short_note": "",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cung-Mệnh=vũ-trụ+mặt-trời",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cung-Thân=phương-khai-sinh",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cá-nhân-hóa-lá-số-Gauss",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cách-cục-mang-thời-thế",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cách-cục-⟷-64-quẻ-dịch",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cô-quả-phương-vị",
+   "short_note": "đế-vượng+lâm-quan+suy",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cô-quả=chi-năm KHÔNG-ngũ-hành-tử-bình",
+   "short_note": "Iron#3",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cô-quả=đạo-hạnh-cho-chân-tu",
+   "short_note": "KHÔNG bất-hạnh",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "công-thức-mệnh-M=3+T−G",
+   "short_note": "",
+   "first_seen_page": 174,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-10-p174-192"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cùng-tắc-biến",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cùng-tắc-biến-窮則變",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cơ-hao=cách-tốt",
+   "short_note": "",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cơ-nguyệt-vũ-hoàn-toàn-hóa",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cơ-nguyệt-đồng-lương-tác-lại-nhân",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cầm-tinh-âm-dương",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cộng-hưởng-mạnh-yếu→xác-suất",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cục-số-làn-sóng-tiệm-tiến",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "cự-môn-ám-tinh-cần-đột-phá",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "dao-cạo-occam-tử-vi",
+   "short_note": "",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "dòng-sông-số-mạng",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "dương-thịnh-âm-suy-chủ-quan",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "dẫn-xuất-tả-hữu-xương-khúc",
+   "short_note": "",
+   "first_seen_page": 174,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-10-p174-192"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "errata-hình-riêu-không-phải-lục-bại",
+   "short_note": "",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "errata-kỵ-đông",
+   "short_note": "",
+   "first_seen_page": 370,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-20-p370-381-HET-TAP-1"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "errata-obliquity-23.5°",
+   "short_note": "",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "giả-tướng",
+   "short_note": "",
+   "first_seen_page": 5,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-1-p5-25"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hao-tuyệt=keo-kiệt · mộc-cái=buông-thả-yếu · thai-vượng-tướng-bình-đào-hồng",
+   "short_note": "",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "huyền-không-tứ-hóa",
+   "short_note": "",
+   "first_seen_page": 5,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-1-p5-25"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hình-riêu-không-kiếp-từ-luật-toàn-không",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hình-riêu-không-kiếp-đặc-tính",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hóa-khoa-đại-thể-zigzag",
+   "short_note": "",
+   "first_seen_page": 211,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-12-p211-228"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hóa-kỵ-dương=chùm-tử-vi-trừ-tử-vi",
+   "short_note": "",
+   "first_seen_page": 193,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-11-p193-210"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hỏa-linh-thuận-giờ=bất-biến-so-mặt-trời (phái-hán) vs vn-thuận-nghịch",
+   "short_note": "",
+   "first_seen_page": 235,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-34-p235-253"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hỏa-linh-tỵ-dậu-sửu: truyền-thống(hỏa-mão) vs đằng-sơn/tạ-phồn-trị",
+   "short_note": "hỏa-tuất",
+   "first_seen_page": 235,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-34-p235-253"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hỏa-linh=cặp-sát-quân-bình-khôi-việt",
+   "short_note": "chi-năm, tam-hợp-thủy-hỏa",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hỏa-linh=thủy-hỏa-giao-thoa",
+   "short_note": "hỏa-dương/linh-âm",
+   "first_seen_page": 235,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-34-p235-253"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "hỏa-mã-chiến-mã · sát-phá-tham-hỏa-linh-nồi-vung · linh-xương-đà-vũ-đầu-hà · thiên-trù-hóa-giải-hỏa-linh",
+   "short_note": "",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khoa-học-tiệm-tiến-einstein",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khung-tw-địa-phương-vòng-ngoài",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khôi-cương-thìn-tuất-quý-nhân-tránh",
+   "short_note": "",
+   "first_seen_page": 121,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-28-p121-139"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khôi-việt-cứu-chính-tinh-cực-hãm-hóa-kỵ",
+   "short_note": "",
+   "first_seen_page": 121,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-28-p121-139"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khôi-việt-ngộ-triệt=quý-nhân-bị-hãm-trong-nhà",
+   "short_note": "",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khôi-việt-truyền-thống vs đổi-mới/tạ-phồn-trị",
+   "short_note": "canh-kỷ",
+   "first_seen_page": 121,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-28-p121-139"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "khôi-việt=lục-cát-gốc-thiên-ất-quý-nhân",
+   "short_note": "",
+   "first_seen_page": 121,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-28-p121-139"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kim=may-mắn/mộc=cái-ta/thổ=phản-kháng/hỏa=hành-động/thủy=lời-nói",
+   "short_note": "",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kình-hóa-hình / đà-hóa-kỵ",
+   "short_note": "",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kình-miếu-tứ-mộ-hãm-tứ-chính",
+   "short_note": "",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kình-năm / dương-nhận-ngày",
+   "short_note": "tử-vi≠tử-bình",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kình-đà-hành-kim",
+   "short_note": "lộc-tồn-thổ-sinh",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kình-đà=quá-sớm-quá-trễ",
+   "short_note": "tiền-kình-hậu-đà",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kình=dê-húc / đà=cái-lưới",
+   "short_note": "",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "kỵ-cát-đại-quân-bình-1/3",
+   "short_note": "",
+   "first_seen_page": 18,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "la-võng-thúc-bó",
+   "short_note": "mão-dậu-trục-bình-hòa",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "liêm-tử-vũ-vs-sát-phá-tham-chính-thống-phản-loạn",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "liễu-vô-bỏ-thần-sát-26-sao",
+   "short_note": "",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "long-đức+tứ-mộ-cửa-không=tu-dưỡng",
+   "short_note": "Tổ xác nhận",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-40-p349-358-HOAN-TAT"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "luật-bù-trừ",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lá-số=xu-hướng-không-bản-án",
+   "short_note": "",
+   "first_seen_page": 45,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-3-p45-62"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lưu-hà-ngũ-hành-thuần vs thái-thứ-lang",
+   "short_note": "đinh-canh-đảo",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lưu-hà=ngũ-hành-thần-sát-nguy-cơ",
+   "short_note": "",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lưu-hà≡lộc-tồn",
+   "short_note": "mậu-kỷ-canh-nhâm",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lưu-tứ-hóa-niên-đại-hạn",
+   "short_note": "",
+   "first_seen_page": 211,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-12-p211-228"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lộc-mã-giao-trì",
+   "short_note": "chỉ-4-năm-ôn-hòa",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lộc-phùng-xung-phá",
+   "short_note": "cát-xứ-tàng-hung",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lộc-trước-quyền-sau",
+   "short_note": "",
+   "first_seen_page": 193,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-11-p193-210"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lộc-tồn-không-ở-tứ-mộ",
+   "short_note": "",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lộc-tồn=kết-hợp-lộc-quyền-khoa-kỵ",
+   "short_note": "4-mùa/thổ-trung-ương",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lộc-tồn=tổ-hợp-lộc-quyền-khoa-kỵ",
+   "short_note": "",
+   "first_seen_page": 1,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-21-p1-17"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lục-cát=tài-nhân(tả-hữu-xương-khúc)+tài-thiên-địa",
+   "short_note": "khôi-việt",
+   "first_seen_page": 121,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-28-p121-139"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lục-sát vs tứ-sát",
+   "short_note": "",
+   "first_seen_page": 235,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-34-p235-253"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "lục-sát-phản-đề-lục-cát",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ma-quân-là-bạn-đạo",
+   "short_note": "sát-tinh=nhiên-liệu-tu-dưỡng",
+   "first_seen_page": 235,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-34-p235-253"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "minh-châu-xuất-hải",
+   "short_note": "",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "miếu-hãm-ngũ-hành-khiêm-nhượng",
+   "short_note": "",
+   "first_seen_page": 155,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-9-p155-173"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "miếu-hãm=âm-dương-không-ngũ-hành",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mã-khốc-khách=nghị-lực-đấu-tranh",
+   "short_note": "",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mã-trường-sinh(lộc-mã) vs mã-tuyệt",
+   "short_note": "đại-hao",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mã-đầu-đới-kiếm",
+   "short_note": "cùng-tắc-biến",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mão-dậu-nhị-không=trục-tu-hành",
+   "short_note": "quân-bình-âm-dương",
+   "first_seen_page": 311,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-38-p311-329"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mệnh-chủ=chi-mệnh-tiên-thiên",
+   "short_note": "tỵ→vũ-khúc",
+   "first_seen_page": 273,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-36-p273-291"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mệnh-thông vs mệnh-bị-triệt-lệch-một-dặm",
+   "short_note": "",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "mệnh-vận-phân-ly",
+   "short_note": "",
+   "first_seen_page": 5,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-1-p5-25"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-1-chiều-trời-người",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-14-chính-tinh-đới",
+   "short_note": "",
+   "first_seen_page": 155,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-9-p155-173"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-cục-số",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-19-p349-369"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-mã=động-đới-hỏa",
+   "short_note": "",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-rơ-mạnh-yếu",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-tứ-hóa-đới-thổ",
+   "short_note": "",
+   "first_seen_page": 174,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-10-p174-192"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành-xấp-xỉ-âm-dương",
+   "short_note": "",
+   "first_seen_page": 5,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-1-p5-25"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-hành=gần-đúng-âm-dương",
+   "short_note": "4-hình-cầu→5-tổ-hợp",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "ngũ-tinh=bát-tự",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "nhóm-chính-tiền-xung-hậu",
+   "short_note": "",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "nhóm-chính/xung/tiền/hậu",
+   "short_note": "gặp/trái/không-hợp/trễ-thời",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "nhật-nguyệt-sửu-mùi-hóa-kỵ=tuyệt-xứ-phùng-sinh",
+   "short_note": "",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "nhị-hợp-lục-hại-chính-tinh",
+   "short_note": "",
+   "first_seen_page": 370,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-20-p370-381-HET-TAP-1"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "nhị-hợp-lục-hại-sao",
+   "short_note": "",
+   "first_seen_page": 155,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-9-p155-173"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "năm-là-chính-gốc-5-hành-tinh",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phá-toái/thương-sứ/tài-thọ/lưu-tù",
+   "short_note": "",
+   "first_seen_page": 273,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-36-p273-291"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phái-thiên-lương-thái-tuế",
+   "short_note": "",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phán-xét-tốt-xấu-là-chủ-quan",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phù-thi-mã→anh-hùng-mã",
+   "short_note": "Đằng-Sơn-bác",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phú-phong-kiến-đọc-thời-thế",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phúc-cường-cung=dấu-chân-tu",
+   "short_note": "",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phúc-đức-trương-mục-tiết-kiệm",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phúc-đức-tuyệt-xứ-phùng-sinh",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phủ-tướng-quý-nhân/triều-viên",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "phủ-tướng-sát-không-hóa",
+   "short_note": "",
+   "first_seen_page": 193,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-11-p193-210"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "quan-phúc=sao-sai-chỗ",
+   "short_note": "",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "quan-phúc=thử-thách-chế-ngự-bản-năng",
+   "short_note": "ứng-tu-hành",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "quang-quý-thầy-thuốc",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-19-p349-369"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "quyền-lộc-tiểu-quân-bình",
+   "short_note": "",
+   "first_seen_page": 18,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "quốc-ấn-đường-phù-ln-văn-tinh-tam-hợp",
+   "short_note": "",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "riêu-y-thuốc-đắng-giã-tật",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "sao=tín-hiệu",
+   "short_note": "",
+   "first_seen_page": 36,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-23-p36-53"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "song-hao-phản-đề-lộc-tồn",
+   "short_note": "",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "song-hao=phản-đề-lộc-tồn",
+   "short_note": "thẳng-góc",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "suy-ngược-hóa-tính-3-ca-không-hóa",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "sát-phá-tham-dương-vs-liêm-tham-âm",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "sát-phá-tham-thiên-không-kiếp",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tam-tài=hệ-quả-âm-dương",
+   "short_note": "năm=thiên-địa / tháng-ngày-giờ=nhân",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-40-p349-358-HOAN-TAT"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thai-cáo-tam-thai-bát-tọa-dẫn-đường",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tham-lang-giao-tế",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thanh-long-lưu-hà=nguy→cơ-hội-người-tài",
+   "short_note": "",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thanh-long-rồng-chờ-thời",
+   "short_note": "",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thanh-long-thu-phục-hóa-kỵ-lưu-hà",
+   "short_note": "",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thanh-long=rồng-chờ-thời",
+   "short_note": "",
+   "first_seen_page": 108,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-27-p108-120"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-cơ-sao-đổi-thay-quái-chấn",
+   "short_note": "",
+   "first_seen_page": 248,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-14-p248-267"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-không≠địa-không",
+   "short_note": "",
+   "first_seen_page": 1,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-21-p1-17"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-lương-thày-đời-khôn-mẹ",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-mã=thế-xung-thái-tuế",
+   "short_note": "động-lực-quật",
+   "first_seen_page": 197,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-32-p197-215"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-quan-truyền-thống-vn-đúng",
+   "short_note": "",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-trù=khắc-tinh-hỏa-linh",
+   "short_note": "thực-thần-chế-sát",
+   "first_seen_page": 235,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-34-p235-253"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-gần-tu-hành-giác-ngộ",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-hình-phá-cách",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-mẫn-cảm-sai-ly-đi-dặm",
+   "short_note": "",
+   "first_seen_page": 211,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-12-p211-228"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-phụ-lục-quyền-uy-vay-mượn",
+   "short_note": "",
+   "first_seen_page": 370,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-20-p370-381-HET-TAP-1"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-sao-thừa-ép-cùng-liêm",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-sợ-hình-tuần-triệt",
+   "short_note": "",
+   "first_seen_page": 370,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-20-p370-381-HET-TAP-1"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-sứ-giả/vũ-khúc-đại-tướng-viễn-chinh",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-19-p349-369"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng-yếu-nhất-hình-thức",
+   "short_note": "",
+   "first_seen_page": 370,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-20-p370-381-HET-TAP-1"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-tướng=nửa-ông-nửa-thằng",
+   "short_note": "",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiên-địa-nhân={tháng-ngày-giờ}⇔ta-{năm}⇔trời-đất",
+   "short_note": "",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiếu-dương+thiên-không-mâu-thuẫn-cùng-chỗ",
+   "short_note": "",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiếu-dương=2-cực",
+   "short_note": "mưu-danh ↔ ngộ-hư-danh",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thiếu-dương↔kiếp-sát",
+   "short_note": "thánh-tính↔băng-tâm-sát",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thái-tuế-∉-tuần",
+   "short_note": "định lý",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thái-tuế≠mộc-tinh",
+   "short_note": "alpha-kim-tụ",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thân-chủ=chi-năm-hậu-thiên",
+   "short_note": "thìn→văn-xương; tý→LINH-tinh",
+   "first_seen_page": 273,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-36-p273-291"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thần-sát=công-thức-hóa",
+   "short_note": "≠mượn-tử-bình",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thần-sát=tài-thiên-địa",
+   "short_note": "Tam Tài",
+   "first_seen_page": 1,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-21-p1-17"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "thời-gian=chỉ-tiêu-cộng-hưởng, đại-hạn>tiểu-hạn",
+   "short_note": "",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tiền-đề-tương-ứng-VVĐNT",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "toàn-bộ-trước-cục-bộ",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "triệt-mạnh-hơn-tuần",
+   "short_note": "",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "triệt-tuần-tháo-gỡ (không-nhất-luật-tốt) ≠ thiên-lương",
+   "short_note": "",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "triệt=không-vong-của-tháng",
+   "short_note": "can-năm, thiên-dương-dư-mạnh",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tu-dưỡng-vượt-sát-tinh",
+   "short_note": "",
+   "first_seen_page": 273,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-36-p273-291"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuyệt-xứ-phùng-sinh",
+   "short_note": "cùng-tắc-biến",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuyệt-xứ-phùng-sinh/mã-đầu-đới-kiếm",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần-giảm-50%-cả-đời / triệt-giảm-80-90%-30-năm-đầu",
+   "short_note": "",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần-hoàn-biểu-kiến-mộc-tinh",
+   "short_note": "",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần-triệt-cùng-cung-mạnh-gấp-bội",
+   "short_note": "50%-max",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần-triệt=công-cụ-tu-dưỡng",
+   "short_note": "",
+   "first_seen_page": 311,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-38-p311-329"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần-triệt=cặp-tranh-cãi-nhất",
+   "short_note": "",
+   "first_seen_page": 273,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-36-p273-291"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần-triệt=đặc-tính-cung KHÔNG-tam-phương",
+   "short_note": "",
+   "first_seen_page": 311,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-38-p311-329"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần=căn-ngăn (giảm-cường-độ-mọi-sao, cả-đời) ↔ triệt=cắt-đứt",
+   "short_note": "triệt-hạ, 30-năm-đầu, tạm-thời",
+   "first_seen_page": 311,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-38-p311-329"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần=hỏa-đới-mộc / triệt=kim-đới-thủy",
+   "short_note": "",
+   "first_seen_page": 311,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-38-p311-329"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuần=không-vong-của-năm",
+   "short_note": "lục-giáp-tuần, phản-thái-tuế, tài-thiên-địa-nhẹ",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuế-sai-chống-sao-thật",
+   "short_note": "",
+   "first_seen_page": 18,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tuế-sai-không-lỗi",
+   "short_note": "",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tài-địa=thái-tuế-cluster",
+   "short_note": "",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tóm-lược-thần-sát-tập-2",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-40-p349-358-HOAN-TAT"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tùng-cường",
+   "short_note": "vcd-tuần-triệt",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tương-quan-1-chiều",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tương-ứng-không-nhân-quả",
+   "short_note": "",
+   "first_seen_page": 63,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-4-p63-80"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tượng-cô-đọng-14-chính-tinh",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-19-p349-369"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tượng-hiện-đại-hóa-14-chính-tinh",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tượng-linh-hoạt-theo-hoàn-cảnh",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tọa-quý-hướng-quý",
+   "short_note": "",
+   "first_seen_page": 121,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-28-p121-139"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tốt-xấu-xác-suất-không-tuyệt-đối",
+   "short_note": "",
+   "first_seen_page": 328,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-18-p328-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tổng-0-sinh-sao",
+   "short_note": "",
+   "first_seen_page": 193,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-11-p193-210"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tổng-luận-46-điểm-arc",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-19-p349-369"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tổng-số-zero-sinh-sao",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-hóa-đa-phái-Canh",
+   "short_note": "",
+   "first_seen_page": 174,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-10-p174-192"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-hóa=4-biến-số-quân-bình",
+   "short_note": "",
+   "first_seen_page": 18,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-hóa=sinh-thành-trụ-diệt=4-mùa",
+   "short_note": "",
+   "first_seen_page": 174,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-10-p174-192"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-hóa=tài-thiên",
+   "short_note": "",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-40-p349-358-HOAN-TAT"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-linh=long-phượng-hổ-cái",
+   "short_note": "",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-mã-cực-đoan/tứ-mộ-tu-dưỡng/đào-hoa-duyên-nghiệp",
+   "short_note": "",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tứ-đức-chế-hóa-duyên-nghiệp",
+   "short_note": "",
+   "first_seen_page": 216,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-33-p216-234"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tử-phủ-neo-mùa-màng",
+   "short_note": "",
+   "first_seen_page": 18,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tử-phủ-tướng-âm-dương-ngộ-triệt",
+   "short_note": "miếu-sụt/hãm-cứu, trừ-mão-dậu-tu-hành",
+   "first_seen_page": 330,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-39-p330-348"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tử-vi-ban-phúc/thiên-lương-giải-họa/phá-quân-không-cư-cung-người",
+   "short_note": "",
+   "first_seen_page": 211,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-12-p211-228"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "tử-vi-không-hóa-kỵ",
+   "short_note": "",
+   "first_seen_page": 193,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-11-p193-210"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "uy-lực-yếu-nhất",
+   "short_note": "tài-nhân, trọng-đại-hạn",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vòng-bác-sỹ≠trường-sinh",
+   "short_note": "",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vòng-lộc-tồn-bác-sỹ-12-sao-4-nhóm",
+   "short_note": "",
+   "first_seen_page": 90,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-26-p90-107"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vòng-thái-tuế-12-sao=5-hành-tinh",
+   "short_note": "",
+   "first_seen_page": 159,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-30-p159-177"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vòng-thái-tuế=tài-địa",
+   "short_note": "chi-năm",
+   "first_seen_page": 140,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-29-p140-158"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vòng-tràng-sinh-12-thời-luận-cách",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vòng-trường-sinh=nạp-hành",
+   "short_note": "thổ-cùng-thủy",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vũ-khúc-càn-vs-thiên-tướng-vô-quái",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vũ-khúc-quả-tú-cô-độc",
+   "short_note": "",
+   "first_seen_page": 308,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-17-p308-327"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "vũ-khúc-vi-quả-tú-càn-cha-lạnh",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "xung-phá-không-vong-hóa",
+   "short_note": "",
+   "first_seen_page": 292,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-37-p292-310"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "xương-khúc-tả-hữu-từ-tứ-hóa",
+   "short_note": "",
+   "first_seen_page": 193,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-11-p193-210"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "âm-dương-tùy-bài-toán-nhóm-bình-hòa-cực-đoan",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "âm-dương-vô-hình-vs-tử-phủ-hữu-hình",
+   "short_note": "",
+   "first_seen_page": 288,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-16-p288-307"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "âm-dương=thuyết-tối-hậu",
+   "short_note": "",
+   "first_seen_page": 54,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-24-p54-71"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "âm=tháng-dương=giờ",
+   "short_note": "Tạ Phồn Trị",
+   "first_seen_page": 18,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-22-p18-35"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đa-phái-âm-dương-sao",
+   "short_note": "",
+   "first_seen_page": 155,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-9-p155-173"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đoạn-kiều-triệt-lộ",
+   "short_note": "",
+   "first_seen_page": 311,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-38-p311-329"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đà-miếu-tứ-mộ-hãm-tứ-mã",
+   "short_note": "",
+   "first_seen_page": 72,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-25-p72-89"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đào-hoa-nữ-tính-bát-quái",
+   "short_note": "",
+   "first_seen_page": 268,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-15-p268-287"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đào-mã-cái-sát=vòng-trường-sinh",
+   "short_note": "mộc-dục/bệnh/mộ/tuyệt",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đào-sát-tam-hợp/mã-cái-cách",
+   "short_note": "",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đơn-hành-nạp-hành",
+   "short_note": "",
+   "first_seen_page": 118,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-7-p118-135"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đại-thể-tiểu-thể",
+   "short_note": "",
+   "first_seen_page": 81,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-5-p81-98"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đẩu-quân=nguyệt-tướng",
+   "short_note": "",
+   "first_seen_page": 254,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-35-p254-272"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đẩu-quân=âm-bản-lộc-tồn",
+   "short_note": "",
+   "first_seen_page": 273,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-36-p273-291"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đằng-sơn-bác-bỏ-thần-sát",
+   "short_note": "vs liễu-vô",
+   "first_seen_page": 349,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-40-p349-358-HOAN-TAT"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đặc-tính-sao-tiệm-tiến",
+   "short_note": "",
+   "first_seen_page": 136,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-8-p136-154"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đế-vương-bá-tinh",
+   "short_note": "",
+   "first_seen_page": 1,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-21-p1-17"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đồng-sinh-cộng-tử",
+   "short_note": "",
+   "first_seen_page": 178,
+   "sources": [
+    "tu-vi-dang-son-T2-vong-31-p178-196"
+   ],
+   "count": 1
+  },
+  {
+   "canonical_vi": "đời-bể-khổ-sát-phá-tham-cấu-trúc",
+   "short_note": "",
+   "first_seen_page": 229,
+   "sources": [
+    "tu-vi-dang-son-FULL-vong-13-p229-247"
+   ],
+   "count": 1
+  }
+ ]
+}

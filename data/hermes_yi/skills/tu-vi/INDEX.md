@@ -48,6 +48,16 @@ Tổ Tử Vi = **Trần Đoàn (Hi Di)** — KHÔNG phải Thiệu Khang Tiết 
 | Cách cục / Mệnh đóng cung địa chi | `cach-cuc-menh-12-cung.md` |
 | Cách cục có tên / phú / Thập Đẳng Luận / Mệnh VCD | `cach-cuc-phu-danh-so.md` |
 
+## Lăng kính KHOA-HỌC-HÓA (Đằng Sơn — đa phái, present song song Toàn Thư)
+| User hỏi | Route |
+|---|---|
+| "vì sao có sao này" / suy sao từ âm dương / cơ chế | `dang-son-khoa-hoc-hoa.md` |
+| thần sát (Lộc Tồn, Kình Đà, Khôi Việt, Hỏa Linh) / vòng Thái Tuế / Đào-Mã-Cái-Sát | `dang-son-khoa-hoc-hoa.md` |
+| Tuần Triệt (căn-ngăn / cắt-đứt) / Mão Dậu nhị không / vòng Trường Sinh cục | `dang-son-khoa-hoc-hoa.md` |
+| Cô Thần Quả Tú / tuyệt-xứ-phùng-sinh / "tổng hợp lá số" | `dang-son-khoa-hoc-hoa.md` (engine `dai_tong_hop`) |
+
+→ Wiki corpus `tuvi-dang-son` (270 concepts, school=tu_vi_dang_son); định lý kiểm máy `engine/tu_vi/dang_son_verify.py`.
+
 ## Khoá đọc nhanh (áp mọi cung)
 **Tứ Sát = Dương Đà · Linh Hỏa · Không Kiếp** đảo cát→hung ở mọi cung. Ngoại lệ: Hỏa/Linh + Vũ Khúc/Tham Lang ở Điền Trạch = cực tốt.
 
