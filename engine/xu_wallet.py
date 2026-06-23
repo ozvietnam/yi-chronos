@@ -150,6 +150,61 @@ def recent_ledger(user_id: int, limit: int = 20) -> list[dict]:
              "balance_after": int(r[4]), "ref": r[5]} for r in rows]
 
 
+# ── Báo cáo doanh thu/xu cho admin (aggregate trong SQL — dual-driver, scale) ─
+# Phân loại reason ledger → nhóm hoạt động. nạp IAP (AppChat) = topup = DOANH THU.
+_CAT_SQL = """CASE
+  WHEN reason LIKE 'admin:%' THEN 'admin'
+  WHEN reason LIKE 'refund%' THEN 'refund'
+  WHEN reason = 'hermes_quick' THEN 'quick'
+  WHEN reason = 'hermes_council' THEN 'council'
+  WHEN reason LIKE 'cross_paradigm%' THEN 'giao_duyen'
+  WHEN reason LIKE '%daily%' OR reason LIKE '%bonus%' OR reason LIKE '%welcome%' OR reason LIKE '%login%' THEN 'daily_bonus'
+  WHEN delta > 0 THEN 'topup'
+  ELSE 'spend_other'
+END"""
+
+
+def system_stats() -> dict:
+    """Tổng quan doanh thu/xu toàn hệ (cho admin). Aggregate trong SQL."""
+    with session_scope(service=True) as conn:
+        _ensure(conn)
+        circ, nw = conn.execute(
+            text("SELECT COALESCE(SUM(balance),0), COUNT(*) FROM xu_wallet")).fetchone()
+        cats = conn.execute(text(
+            f"""SELECT {_CAT_SQL} AS cat,
+                   COALESCE(SUM(CASE WHEN delta>0 THEN delta ELSE 0 END),0) AS gained,
+                   COALESCE(SUM(CASE WHEN delta<0 THEN -delta ELSE 0 END),0) AS spent,
+                   COUNT(*) AS n
+                FROM xu_ledger GROUP BY 1""")).fetchall()
+    by_cat = {r[0]: {"gained": int(r[1]), "spent": int(r[2]), "n": int(r[3])} for r in cats}
+    revenue_xu = by_cat.get("topup", {}).get("gained", 0)   # nạp IAP/AppChat = doanh thu
+    return {
+        "circulating": int(circ), "n_wallets": int(nw),
+        "revenue_xu": revenue_xu, "revenue_vnd": revenue_xu * XU_VND,
+        "granted_total": sum(c["gained"] for c in by_cat.values()),
+        "spent_total": sum(c["spent"] for c in by_cat.values()),
+        "bonus_given_xu": by_cat.get("daily_bonus", {}).get("gained", 0),
+        "admin_adjusted_xu": by_cat.get("admin", {}).get("gained", 0) - by_cat.get("admin", {}).get("spent", 0),
+        "by_category": by_cat, "xu_vnd": XU_VND,
+        "fees": {"quick": XU_COST["quick"], "council": XU_COST["council"], "deep": XU_COST["deep"],
+                 "giao_duyen": 30, "free_quick_per_day": FREE_QUICK_PER_DAY,
+                 "daily_bonus": DAILY_BONUS_XU, "welcome_days": WELCOME_WINDOW_DAYS},
+    }
+
+
+def recent_ledger_global(limit: int = 50) -> list[dict]:
+    """Sổ giao dịch xu TOÀN HỆ gần đây (join email) — cho admin theo dõi thu phí."""
+    with session_scope(service=True) as conn:
+        _ensure(conn)
+        rows = conn.execute(text(
+            f"""SELECT l.ts, l.user_id, u.email, l.delta, l.reason, l.balance_after, l.ref,
+                       {_CAT_SQL} AS cat
+                FROM xu_ledger l LEFT JOIN users u ON u.user_id = l.user_id
+                ORDER BY l.ts DESC LIMIT :n"""), {"n": int(limit)}).fetchall()
+    return [{"ts": r[0], "user_id": r[1], "email": r[2], "delta": int(r[3]),
+             "reason": r[4], "balance_after": int(r[5]), "ref": r[6], "cat": r[7]} for r in rows]
+
+
 def admin_adjust(user_id: int, delta: int, reason: str) -> dict:
     """OWNER cộng/trừ xu tay (admin). `delta` ±; số dư KHÔNG xuống dưới 0. Ghi sổ cái
     reason='admin:<reason>'. Trả {balance, delta_applied}. (grant chỉ cộng >0 — đây mới ±.)"""

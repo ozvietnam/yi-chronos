@@ -39,3 +39,28 @@ def test_admin_xu_endpoint_owner_only(temp_db):
     c = TestClient(app)
     r = c.post("/api/admin/users/7/xu", json={"delta": 10, "reason": "test"})
     assert r.status_code in (401, 403)                          # khách ẩn danh chặn
+
+
+def test_system_stats_revenue_and_classification(temp_db):
+    """Doanh thu = nạp IAP; phân loại đúng hoạt động; quy đổi ₫."""
+    from engine import xu_wallet as x
+    x.grant(1, 100, "iap_pack_100")           # nạp IAP → doanh thu
+    x.grant(1, 10, "daily_bonus")             # thưởng (không tính doanh thu)
+    x.spend(1, 5, "hermes_council")           # tiêu Hội Đồng
+    x.spend(1, 30, "cross_paradigm_couple_sync")   # tiêu giao duyên
+    s = x.system_stats()
+    assert s["revenue_xu"] == 100 and s["revenue_vnd"] == 100 * x.XU_VND
+    assert s["circulating"] == 75 and s["spent_total"] == 35
+    assert s["by_category"]["council"]["spent"] == 5
+    assert s["by_category"]["giao_duyen"]["spent"] == 30
+    assert s["bonus_given_xu"] == 10
+    g = x.recent_ledger_global(10)
+    assert g and g[0]["cat"] in ("council", "giao_duyen", "topup", "daily_bonus")
+
+
+def test_xu_overview_transactions_owner_only(temp_db):
+    from fastapi.testclient import TestClient
+    from api.main import app
+    c = TestClient(app)
+    assert c.get("/api/admin/xu/overview").status_code in (401, 403)
+    assert c.get("/api/admin/xu/transactions").status_code in (401, 403)

@@ -370,6 +370,23 @@ def admin_user_xu_adjust(user_id: int, req: AdminXuAdjustRequest, request: Reque
     return {"status": "ok", **r}
 
 
+@router.get("/xu/overview")
+def admin_xu_overview(request: Request) -> dict:
+    """Tổng quan doanh thu/xu toàn hệ (owner): lưu hành, doanh thu nạp (IAP/AppChat),
+    tiêu theo hoạt động, thưởng, cấu trúc phí."""
+    require_owner(request)
+    from engine import xu_wallet
+    return {"status": "ok", **xu_wallet.system_stats()}
+
+
+@router.get("/xu/transactions")
+def admin_xu_transactions(request: Request, limit: int = 50) -> dict:
+    """Sổ giao dịch xu toàn hệ gần đây (owner) — theo dõi mọi hoạt động thu phí/nạp."""
+    require_owner(request)
+    from engine import xu_wallet
+    return {"status": "ok", "transactions": xu_wallet.recent_ledger_global(min(max(limit, 1), 200))}
+
+
 # ─── 4. PATCH user (role / reset pwd / display_name) ─────────────────────────
 
 class AdminUpdateUserRequest(BaseModel):

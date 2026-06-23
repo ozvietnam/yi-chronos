@@ -486,11 +486,34 @@ async function revokeVipSub(sub) {
 }
 
 // ── Init based on tab ──────────────────────────────────────────────────────
+// ── Xu / Doanh thu (monetization) ──
+const xuOverview = ref(null);
+const xuTx = ref([]);
+const xuTabLoading = ref(false);
+async function loadXuTab() {
+  xuTabLoading.value = true;
+  try {
+    const [o, t] = await Promise.all([
+      fetch("/api/admin/xu/overview", { headers: authHeaders(), credentials: "include" }).then((r) => r.json()),
+      fetch("/api/admin/xu/transactions?limit=80", { headers: authHeaders(), credentials: "include" }).then((r) => r.json()),
+    ]);
+    if (o.status === "ok") xuOverview.value = o;
+    if (t.status === "ok") xuTx.value = t.transactions || [];
+  } finally { xuTabLoading.value = false; }
+}
+const XU_CAT_LABEL = {
+  topup: "💳 Nạp (IAP/AppChat)", council: "⚖️ Hội Đồng", giao_duyen: "💞 Giao duyên",
+  quick: "💭 Hỏi nhanh", daily_bonus: "🎁 Thưởng", admin: "🛠️ Admin chỉnh",
+  refund: "↩️ Hoàn", spend_other: "• Khác",
+};
+function xuCatLabel(c) { return XU_CAT_LABEL[c] || c; }
+
 watch(subTab, (newTab) => {
   if (newTab === "dashboard" && !dashboardData.value) loadDashboard();
   if (newTab === "users" && !usersData.value.users.length) loadUsers();
   if (newTab === "audit" && !auditData.value.entries.length) loadAudit();
   if (newTab === "vip" && !vipSubscriptions.value.length && !vipCatalog.value.length) loadVipData();
+  if (newTab === "xu" && !xuOverview.value) loadXuTab();
 }, { immediate: false });
 
 onMounted(() => {
@@ -535,6 +558,7 @@ const actionIcon = {
       <button :class="{ active: subTab === 'users' }" @click="subTab = 'users'">👥 Users</button>
       <button :class="{ active: subTab === 'audit' }" @click="subTab = 'audit'">📜 Audit log</button>
       <button :class="{ active: subTab === 'vip' }" @click="subTab = 'vip'">✨ VIP & Subscriptions</button>
+      <button :class="{ active: subTab === 'xu' }" @click="subTab = 'xu'">💰 Doanh thu / Xu</button>
     </nav>
 
     <!-- ─── DASHBOARD ─────────────────────────────────────────────────────── -->
@@ -915,6 +939,65 @@ const actionIcon = {
       </table>
     </section>
 
+    <!-- ─── 💰 DOANH THU / XU (monetization, đồng bộ AppChat) ──────────────── -->
+    <section v-if="subTab === 'xu'" class="ap-section">
+      <div v-if="xuTabLoading" class="ap-loading">Đang tải doanh thu…</div>
+      <template v-else-if="xuOverview">
+        <div class="ap-xu-cards">
+          <div class="ap-xu-card revenue">
+            <span class="ap-xu-num">{{ (xuOverview.revenue_vnd || 0).toLocaleString('vi-VN') }}₫</span>
+            <span class="ap-xu-lbl">Doanh thu nạp · {{ xuOverview.revenue_xu }} xu (IAP/AppChat)</span>
+          </div>
+          <div class="ap-xu-card">
+            <span class="ap-xu-num">{{ xuOverview.circulating }}</span>
+            <span class="ap-xu-lbl">Xu lưu hành · {{ xuOverview.n_wallets }} ví</span>
+          </div>
+          <div class="ap-xu-card">
+            <span class="ap-xu-num">{{ xuOverview.spent_total }}</span>
+            <span class="ap-xu-lbl">Xu đã tiêu (thu phí)</span>
+          </div>
+          <div class="ap-xu-card">
+            <span class="ap-xu-num">{{ xuOverview.bonus_given_xu }}</span>
+            <span class="ap-xu-lbl">Xu thưởng đã phát</span>
+          </div>
+        </div>
+
+        <h4>💸 Xu tiêu theo hoạt động</h4>
+        <ul class="ap-list">
+          <li v-for="cat in ['council','giao_duyen','quick','spend_other']" :key="cat">
+            <template v-if="xuOverview.by_category[cat] && xuOverview.by_category[cat].spent">
+              <strong>{{ xuCatLabel(cat) }}</strong>
+              <small>{{ xuOverview.by_category[cat].spent }} xu · {{ xuOverview.by_category[cat].n }} lượt</small>
+            </template>
+          </li>
+        </ul>
+
+        <h4>🏷️ Cấu trúc phí (1 xu = {{ xuOverview.xu_vnd.toLocaleString('vi-VN') }}₫ · đồng bộ AppChat)</h4>
+        <div class="ap-xu-fees">
+          <span class="ap-fee">Hỏi nhanh {{ xuOverview.fees.quick }} xu (free {{ xuOverview.fees.free_quick_per_day }}/ngày)</span>
+          <span class="ap-fee">Hội Đồng {{ xuOverview.fees.council }} xu</span>
+          <span class="ap-fee">Giao duyên {{ xuOverview.fees.giao_duyen }} xu</span>
+          <span class="ap-fee">Luận sâu {{ xuOverview.fees.deep }} xu</span>
+          <span class="ap-fee">Thưởng {{ xuOverview.fees.daily_bonus }} xu/ngày × {{ xuOverview.fees.welcome_days }}n</span>
+        </div>
+
+        <h4>📒 Sổ giao dịch toàn hệ ({{ xuTx.length }}) <button class="ap-btn-ghost ap-refresh" @click="loadXuTab">🔄</button></h4>
+        <table class="ap-xu-tx">
+          <thead><tr><th>Khi</th><th>User</th><th>Hoạt động</th><th>Δ xu</th><th>Số dư</th></tr></thead>
+          <tbody>
+            <tr v-for="(t,i) in xuTx" :key="i">
+              <td><small>{{ fmtTime(t.ts) }}</small></td>
+              <td><small>{{ t.email || ('#'+t.user_id) }}</small></td>
+              <td><small>{{ xuCatLabel(t.cat) }}</small></td>
+              <td><strong :class="t.delta >= 0 ? 'xu-plus' : 'xu-minus'">{{ t.delta >= 0 ? '+' : '' }}{{ t.delta }}</strong></td>
+              <td><small>{{ t.balance_after }}</small></td>
+            </tr>
+            <tr v-if="!xuTx.length"><td colspan="5" class="ap-empty">Chưa có giao dịch</td></tr>
+          </tbody>
+        </table>
+      </template>
+    </section>
+
     <!-- ─── GRANT VIP MODAL ───────────────────────────────────────────────── -->
     <div v-if="vipGrantOpen" class="vip-modal-overlay" @click.self="vipGrantOpen = false">
       <div class="vip-modal">
@@ -1180,6 +1263,19 @@ const actionIcon = {
 .ap-xu-ledger summary { cursor: pointer; color: #94a3b8; }
 .xu-plus { color: #86efac; }
 .xu-minus { color: #fca5a5; }
+/* 💰 Dashboard doanh thu */
+.ap-xu-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.7rem; margin: 0.6rem 0 1rem; }
+.ap-xu-card { padding: 0.9rem 1rem; border-radius: 8px; background: #0f172a; border: 1px solid #1e293b; }
+.ap-xu-card.revenue { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+.ap-xu-num { display: block; font-size: 1.5rem; font-weight: 700; color: #f8fafc; }
+.ap-xu-card.revenue .ap-xu-num { color: #fde68a; }
+.ap-xu-lbl { font-size: 0.78rem; color: #94a3b8; }
+.ap-xu-fees { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0 1rem; }
+.ap-fee { font-size: 0.8rem; padding: 0.25rem 0.6rem; border: 1px solid #334155; border-radius: 14px; color: #cbd5e1; }
+.ap-xu-tx { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 0.4rem; }
+.ap-xu-tx th, .ap-xu-tx td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b; }
+.ap-xu-tx th { color: #94a3b8; font-weight: 500; }
+.ap-refresh { font-size: 0.75rem; padding: 0.1rem 0.4rem; }
 .ap-list { list-style: none; padding: 0; margin: 0; }
 .ap-list li {
   padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b;
