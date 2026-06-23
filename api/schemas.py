@@ -372,6 +372,7 @@ class TuViCastRequest(BaseModel):
     gender: Literal["nam", "nữ"] = "nam"
     target_year: int | None = None
     include_interpretation: bool = True
+    include_dai_tong_hop: bool = False   # đại tổng hợp lá số (kết tinh 40 vòng Đằng Sơn)
     # True-solar-time correction (#35, optional, backward-compatible).
     birth_province: str | None = None
     birth_longitude: float | None = None

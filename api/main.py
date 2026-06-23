@@ -2593,6 +2593,16 @@ def tu_vi_cast(request: TuViCastRequest, caller: dict = Depends(require_caller))
 
         response["interpretation"] = interpret_la_so(result)
 
+    if request.include_dai_tong_hop:
+        # Đại tổng hợp — kết tinh 40 vòng đọc Đằng Sơn (THỂ-DỤNG-hậu-thiên + arc tu-dưỡng).
+        # Iron #4/#6: đọc TÍNH/cấu-trúc/cơ-hội, KHÔNG predict.
+        from engine.tu_vi.dai_tong_hop import dai_tong_hop
+        from engine.tu_vi.render_dai_tong_hop import to_svg
+
+        _syn = dai_tong_hop(result)
+        response["dai_tong_hop"] = _syn
+        response["dai_tong_hop_svg"] = to_svg(_syn)
+
     # Lưu trú sao for target_year if provided.
     if request.target_year is not None and request.birth_datetime_local:
         from datetime import datetime as _dt

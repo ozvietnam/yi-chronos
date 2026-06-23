@@ -32,6 +32,7 @@ const inputTargetYear = ref(new Date().getFullYear());
 const data = ref(null);
 const interpretation = ref(null);
 const luuTru = ref(null);
+const daiTongHopSvg = ref(null);   // đại tổng hợp lá số (kết tinh 40 vòng Đằng Sơn) — poster SVG
 const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
 const cungLoading = ref(false);
 const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
@@ -347,6 +348,7 @@ async function castChart() {
       timezone: inputTimezone.value,
       gender: inputGender.value,
       include_interpretation: true,
+      include_dai_tong_hop: true,
       target_year: inputTargetYear.value || null,
     };
     const resp = await fetch("/api/tu-vi/cast", {
@@ -357,6 +359,7 @@ async function castChart() {
     data.value = resp.la_so;
     interpretation.value = resp.interpretation || null;
     luuTru.value = resp.luu_tru_year || null;
+    daiTongHopSvg.value = resp.dai_tong_hop_svg || null;
 
     // ⭐ Load Q1 Phú + Q3 sao×cung passages (background, non-blocking)
     loadCungReading();
@@ -391,6 +394,7 @@ function reset() {
   data.value = null;
   interpretation.value = null;
   luuTru.value = null;
+  daiTongHopSvg.value = null;
   cungReading.value = null;
   expandedPalace.value = null;
   errorMsg.value = "";
@@ -1347,6 +1351,17 @@ const grid = computed(() => {
         </p>
       </template>
 
+      <!-- ── Đại tổng hợp lá số (kết tinh 40 vòng Đằng Sơn) ───────── -->
+      <section v-if="daiTongHopSvg" class="dai-tong-hop-block">
+        <h4 class="section-h">🪷 Đại tổng hợp lá số</h4>
+        <p class="dth-note">
+          Kết tinh 40 vòng đọc sâu <em>Tử Vi Hoàn Toàn Khoa Học</em> (Đằng Sơn): THỂ–DỤNG–hậu thiên +
+          arc tu-dưỡng + cân bằng trung thực. Đọc đồng dạng (TÍNH/cơ-hội) — <strong>không phán kết cục</strong>.
+        </p>
+        <!-- SVG poster tự-chứa (an toàn: do engine sinh, không phải input người dùng) -->
+        <div class="dth-figure" v-html="daiTongHopSvg"></div>
+      </section>
+
       <!-- ── Interpretation — 12 cung readings ───────────────────── -->
       <template v-if="interpretation">
         <h4 class="section-h">
@@ -1988,6 +2003,31 @@ const grid = computed(() => {
 }
 .dv-mini-age { color: rgba(232, 201, 90, 0.7); font-weight: 700; min-width: 20px; }
 .dv-mini-branch { color: #e6eef5; font-weight: 600; }
+
+/* ── Đại tổng hợp lá số ──────────────────────────────────────────────── */
+.dai-tong-hop-block {
+  margin: 18px 0;
+  padding: 14px;
+  border: 1px solid var(--border, rgba(230, 238, 245, 0.12));
+  border-radius: 12px;
+  background: var(--read-surface, rgba(255, 255, 255, 0.02));
+}
+.dth-note {
+  margin: 4px 0 12px 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted, rgba(230, 238, 245, 0.6));
+}
+.dth-figure {
+  width: 100%;
+  overflow-x: auto;
+}
+.dth-figure :deep(svg) {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
 
 /* ── Đại Vận strip ───────────────────────────────────────────────────── */
 .section-h {

@@ -433,3 +433,32 @@ def test_cast_la_so_has_vong_truong_sinh_founder_menh_tuyet():
     assert ts["Bệnh"] == _NB["Dần"]        # đồng cung Thiên Mã
     assert ts["Tuyệt"] == _NB["Tỵ"]        # đồng cung Mệnh founder
     assert ts["Lâm Quan"] == _NB["Hợi"]    # đồng cung Thiên Di
+
+
+def test_api_tu_vi_cast_include_dai_tong_hop():
+    """/api/tu-vi/cast với include_dai_tong_hop=True trả synthesis + SVG (founder Mậu Thìn)."""
+    from fastapi.testclient import TestClient
+
+    from api.main import app
+
+    client = TestClient(app)
+    response = client.post(
+        "/api/tu-vi/cast",
+        json={
+            "lunar_month": 4, "lunar_day": 22, "hour_branch": "Tý",
+            "year_stem": "Mậu", "year_branch": "Thìn", "gender": "nam",
+            "include_interpretation": False,
+            "include_dai_tong_hop": True,
+        },
+    )
+    assert response.status_code == 200
+    payload = response.json()
+    assert "dai_tong_hop" in payload
+    syn = payload["dai_tong_hop"]
+    assert syn["co"]["menh_branch"] == "Tỵ"
+    assert syn["co"]["menh_truong_sinh_stage"] == "Tuyệt"
+    assert syn["the_dung_hau_thien"]["the"]["sao"] == "Vũ Khúc"
+    assert syn["cua_tu"]["count"] == 4
+    assert "KHÔNG PREDICT" in syn["disclaimer"]
+    # SVG poster đính kèm
+    assert payload["dai_tong_hop_svg"].startswith("<svg")
