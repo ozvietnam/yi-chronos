@@ -442,6 +442,58 @@ def verify_khoi_viet_school():
     }
 
 
+def verify_dao_ma_cai_sat():
+    """Định lý Đào-Mã-Cái-Sát (Tập 2 Ch.17) — an theo CHI năm, suy từ vòng Trường Sinh ngũ hành.
+
+    Đằng Sơn (chú thích 3-4): Tử Vi dùng thuyết "ĐỒNG SINH CỘNG TỬ" (mộc TS Hợi, hỏa+thổ TS Dần,
+    kim TS Tỵ, thủy TS Thân; THUẬN cho cả âm-dương — KHÔNG dùng "âm sinh dương tử"). Trung Châu phái HK
+    chỉ giữ 4 trong 12 vị trí: Đào Hoa(Hàm Trì)=Mộc Dục(+1), Thiên Mã=Bệnh(+6), Hoa Cái=Mộ(+8),
+    Kiếp Sát=Tuyệt(+9). Cặp Đào-Sát ("đoan/xấu") vĩnh viễn TAM HỢP. Kiểm engine (ham_tri / sao_q3.thien_ma
+    / vòng Tướng Tinh) có tái tạo đúng phái này cho trọn 12 chi năm.
+    Founder năm Thìn (Thân Tý Thìn, thủy) → Kiếp Sát ở Tỵ = đồng cung Mệnh.
+    """
+    from engine.tu_vi import an_sao as _a, sao_q3
+
+    branches = list(_a.BRANCHES_TVI)             # tuple int→name
+    NB = {name: i for i, name in enumerate(branches)}   # name→index
+    # Trường Sinh head theo tam hợp chi năm (đồng sinh cộng tử, thuận)
+    TS_HEAD = {
+        "Dần": NB["Dần"], "Ngọ": NB["Dần"], "Tuất": NB["Dần"],      # hỏa+thổ → TS Dần
+        "Thân": NB["Thân"], "Tý": NB["Thân"], "Thìn": NB["Thân"],   # thủy   → TS Thân
+        "Tỵ": NB["Tỵ"], "Dậu": NB["Tỵ"], "Sửu": NB["Tỵ"],           # kim    → TS Tỵ
+        "Hợi": NB["Hợi"], "Mão": NB["Hợi"], "Mùi": NB["Hợi"],       # mộc    → TS Hợi
+    }
+    dao_ok = ma_ok = cai_ok = sat_ok = dao_sat_th = 0
+    for yb in branches:
+        ts = TS_HEAD[yb]
+        exp_dao = (ts + 1) % 12   # Mộc Dục
+        exp_ma = (ts + 6) % 12    # Bệnh
+        exp_cai = (ts + 8) % 12   # Mộ
+        exp_sat = (ts + 9) % 12   # Tuyệt
+        tt = sao_q3.tuong_tinh_belt(yb)
+        if _a.ham_tri(yb) == exp_dao:
+            dao_ok += 1
+        if sao_q3.thien_ma(yb) == exp_ma:
+            ma_ok += 1
+        if tt["Hoa Cái"] == exp_cai:
+            cai_ok += 1
+        if tt["Kiếp Sát"] == exp_sat:
+            sat_ok += 1
+        if (_a.ham_tri(yb) - tt["Kiếp Sát"]) % 12 in (4, 8):   # Đào-Sát tam hợp
+            dao_sat_th += 1
+    n = len(branches)
+    return {
+        "n_branches": n,
+        "dao_hoa_is_moc_duc": dao_ok,
+        "thien_ma_is_benh": ma_ok,
+        "hoa_cai_is_mo": cai_ok,
+        "kiep_sat_is_tuyet": sat_ok,
+        "follows_dong_sinh_cong_tu": dao_ok == ma_ok == cai_ok == sat_ok == n,
+        "dao_sat_tam_hop": dao_sat_th,
+        "founder_kiep_sat_branch": branches[sao_q3.tuong_tinh_belt("Thìn")["Kiếp Sát"]],
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -454,6 +506,7 @@ def full_report():
         "loc_ton_kinh_da": verify_loc_ton_kinh_da(),
         "luu_ha_school": verify_luu_ha_school(),
         "khoi_viet_school": verify_khoi_viet_school(),
+        "dao_ma_cai_sat": verify_dao_ma_cai_sat(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

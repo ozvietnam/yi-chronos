@@ -151,10 +151,27 @@ def test_khoi_viet_follows_dang_son_traditional_school():
     assert r["mau_khoi_viet"] == ["Mùi", "Sửu"]        # founder Mậu → quý nhân Sửu/Mùi (Tài↔Phúc)
 
 
+def test_dao_ma_cai_sat_follows_dang_son_truong_sinh():
+    # Tập 2 Ch.17: Đào Hoa / Thiên Mã / Hoa Cái / Kiếp Sát an theo CHI năm, suy ra từ vòng
+    # Trường Sinh ngũ hành "ĐỒNG SINH CỘNG TỬ" (chú thích 3-4) — Trung Châu phái HK chỉ giữ 4
+    # trong 12 vị trí: Đào Hoa=Mộc Dục, Thiên Mã=Bệnh, Hoa Cái=Mộ, Kiếp Sát=Tuyệt.
+    # tam hợp→ngũ hành→Trường Sinh thuận: Hỏa/Thổ(Dần Ngọ Tuất)→Dần, Thủy(Thân Tý Thìn)→Thân,
+    # Kim(Tỵ Dậu Sửu)→Tỵ, Mộc(Hợi Mão Mùi)→Hợi. Cặp Đào-Sát "đoan/xấu" vĩnh viễn tam hợp.
+    r = dsv.verify_dao_ma_cai_sat()
+    assert r["n_branches"] == 12
+    assert r["dao_hoa_is_moc_duc"] == 12
+    assert r["thien_ma_is_benh"] == 12
+    assert r["hoa_cai_is_mo"] == 12
+    assert r["kiep_sat_is_tuyet"] == 12
+    assert r["follows_dong_sinh_cong_tu"] is True
+    assert r["dao_sat_tam_hop"] == 12             # cặp Đào-Sát vĩnh viễn tam hợp
+    assert r["founder_kiep_sat_branch"] == "Tỵ"   # năm Thìn → Kiếp Sát ở Tỵ = Mệnh founder
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
                         "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
-                        "khoi_viet_school"}
+                        "khoi_viet_school", "dao_ma_cai_sat"}
