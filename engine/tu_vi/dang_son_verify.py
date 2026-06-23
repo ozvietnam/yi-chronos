@@ -352,6 +352,40 @@ def verify_bat_quai_ngu_hanh():
     }
 
 
+def verify_loc_ton_kinh_da():
+    """Định lý Lộc Tồn (Tập 2 Ch.6) + Kình Đà (Tập 2 Ch.7) — kế thừa, kiểm bằng máy.
+
+    Ch.6: Lộc Tồn an theo CAN năm = MÙA (Giáp Ất→Dần Mão xuân, Bính Đinh Mậu Kỷ→Tỵ Ngọ
+    hạ, Canh Tân→Thân Dậu thu, Nhâm Quý→Hợi Tý đông). Vì gom đủ 4 mùa = "kết hợp khít khao
+    Lộc-Quyền-Khoa-Kỵ" = hành Thổ trung ương → Lộc Tồn KHÔNG BAO GIỜ ở tứ mộ Thìn Tuất Sửu Mùi.
+    Ch.7: "tiền Kình hậu Đà" — Kình Dương = Lộc+1 (đến quá sớm, ứng dương), Đà La = Lộc−1
+    (đến quá trễ, ứng âm). Kiểm trên engine an_sao canonical (loc_ton/kinh_duong/da_la), trọn 10 can.
+    """
+    from engine.tu_vi import an_sao as _a
+
+    B = _a.BRANCHES_TVI
+    TU_MO = {"Thìn", "Tuất", "Sửu", "Mùi"}
+    SEASON = {"Giáp": "Dần", "Ất": "Mão", "Bính": "Tỵ", "Đinh": "Ngọ", "Mậu": "Tỵ",
+              "Kỷ": "Ngọ", "Canh": "Thân", "Tân": "Dậu", "Nhâm": "Hợi", "Quý": "Tý"}
+    flank, avoid_mo, season = [], [], []
+    for s in _a.STEMS_TVI:
+        lt, kd, dl = _a.loc_ton(s), _a.kinh_duong(s), _a.da_la(s)
+        if kd == (lt + 1) % 12 and dl == (lt - 1) % 12:
+            flank.append(s)
+        if B[lt] not in TU_MO:
+            avoid_mo.append(s)
+        if B[lt] == SEASON[s]:
+            season.append(s)
+    n = len(_a.STEMS_TVI)
+    return {
+        "n_stems": n,
+        "tien_kinh_hau_da": len(flank),
+        "loc_ton_avoids_tu_mo": len(avoid_mo),
+        "loc_ton_matches_season": len(season),
+        "all_pass": len(flank) == len(avoid_mo) == len(season) == n,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -361,6 +395,7 @@ def full_report():
         "loc_quyen_walk": verify_loc_quyen_walk(),
         "star_hoa_participation": verify_star_hoa_participation(),
         "bat_quai_ngu_hanh": verify_bat_quai_ngu_hanh(),
+        "loc_ton_kinh_da": verify_loc_ton_kinh_da(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

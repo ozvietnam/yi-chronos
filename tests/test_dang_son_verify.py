@@ -112,9 +112,23 @@ def test_bat_quai_star_mapping_ngu_hanh_consistent():
     assert "Thiên Tướng" not in dsv.BAT_QUAI_STAR
 
 
+def test_loc_ton_kinh_da_structure_ch6_ch7():
+    # Tập 2 Ch.6: Lộc Tồn an theo can = MÙA (Giáp Ất→Dần Mão xuân, Bính Đinh Mậu Kỷ→Tỵ Ngọ
+    # hạ, Canh Tân→Thân Dậu thu, Nhâm Quý→Hợi Tý đông) → chứa đủ 4 mùa = hành Thổ trung
+    # ương → Lộc Tồn KHÔNG BAO GIỜ ở tứ mộ Thìn Tuất Sửu Mùi.
+    # Tập 2 Ch.7: "tiền Kình hậu Đà" — Kình Dương = Lộc+1 (quá sớm/dương), Đà La = Lộc−1
+    # (quá trễ/âm). Cả hai luật phải tái tạo trọn 10 can từ engine an_sao canonical.
+    r = dsv.verify_loc_ton_kinh_da()
+    assert r["n_stems"] == 10
+    assert r["tien_kinh_hau_da"] == 10        # Kình=Lộc+1, Đà=Lộc−1 cả 10 can
+    assert r["loc_ton_avoids_tu_mo"] == 10    # Lộc Tồn ∉ Thìn Tuất Sửu Mùi
+    assert r["loc_ton_matches_season"] == 10  # Lộc Tồn = mùa theo can (Ch.6)
+    assert r["all_pass"] is True
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
-                        "conservation", "bat_quai_ngu_hanh"}
+                        "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da"}
