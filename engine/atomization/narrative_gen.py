@@ -19,6 +19,45 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
 
+# Chuỗi provider cho VĂN DÀI — ưu tiên model SINH NHANH (gemini-2.5-flash):
+# xử lý prompt to + bài dài ổn định, không phí token suy luận ẩn. MiniMax-M3
+# (reasoning) để CUỐI: với prompt lớn nó ngốn token <think> → trả RỖNG (cạn token)
+# hoặc TIMEOUT 120s (bài học 2026-06-23: prompt 11k ký tự → minimax 89s ra rỗng).
+NARRATIVE_PROVIDER_CHAIN = ["gemini", "openrouter", "anthropic", "deepseek", "minimax"]
+
+
+def _chat_long(messages: list[dict], temperature: float = 0.7,
+               chain: list[str] | None = None) -> tuple[str, str]:
+    """Sinh văn dài có FALLBACK theo chuỗi provider. Trả (content, 'provider:model').
+
+    Provider lỗi/trả-rỗng → tự nhảy sang provider kế (first_configured chỉ chọn 1,
+    KHÔNG tự fallback runtime → tự lo ở đây). MiniMax cần trần token cao; còn lại
+    1 lần gọi đủ vì không phí token <think>.
+    """
+    from engine.ai.registry import get_registry
+    reg = get_registry()
+    last = ""
+    for name in (chain or NARRATIVE_PROVIDER_CHAIN):
+        prov = reg.first_configured([name])
+        if getattr(prov, "name", "") != name:
+            continue  # provider này chưa cấu hình / đã đánh dấu hỏng phiên này
+        ceilings = (16000, 20000) if name == "minimax" else (8000,)
+        broke = False
+        for mt in ceilings:
+            try:
+                resp = prov.chat(messages=messages, temperature=temperature, max_tokens=mt)
+            except Exception as e:  # provider trục trặc → sang provider kế
+                last = f"{name}: {str(e)[:80]}"
+                broke = True
+                break
+            content = (resp.content or "").strip()
+            if content:
+                return content, f"{resp.provider}:{resp.model}"
+            last = f"{name}: rỗng(mt={mt})"
+        if broke:
+            continue
+    raise RuntimeError(f"Mọi provider văn-dài thất bại — {last}")
+
 # Iron Rule #6: Tử Vi = đọc đồng dạng, KHÔNG predict cứng
 SYSTEM_PROMPT = """Bạn là một thầy Tử Vi giỏi, hiểu người — luận theo trường phái "đọc đồng dạng"
 của Trần Đoàn. Người đối diện vừa ngồi xuống, bạn nhìn lá số và NÓI TRÚNG TÂM CAN họ.
@@ -153,24 +192,10 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
             if row:
                 return {"narrative": row[0], "cached": True, "model": row[1]}
 
-        from engine.ai.registry import get_registry
-        registry = get_registry()
-        provider = registry.first_configured(
-            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
-        )
         user_prompt = _compose_chu_de_prompt(chu_de_data, la_so_input, feedback)
         msgs = [{"role": "system", "content": CHU_DE_SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}]
-        # token floor + retry chống reasoning-model (MiniMax-M) <think> ăn hết → rỗng
-        narrative, model = "", ""
-        for mt in (14000, 20000):
-            resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
-            narrative = (resp.content or "").strip()
-            model = f"{resp.provider}:{resp.model}"
-            if narrative:
-                break
-        if not narrative:
-            raise RuntimeError(f"LLM {model} trả về rỗng — không cache")
+        narrative, model = _chat_long(msgs, temperature=0.7)
         conn.execute(
             "INSERT OR REPLACE INTO narrative_cache (cache_key, narrative, model, created_at) VALUES (?, ?, ?, ?)",
             (cache_key, narrative, model, int(time.time())),
@@ -270,22 +295,9 @@ def generate_chu_de_sau_narrative(cd_sau: dict, la_so_input: dict, force: bool =
                                (cache_key,)).fetchone()
             if row:
                 return {"narrative": row[0], "cached": True, "model": row[1]}
-        from engine.ai.registry import get_registry
-        provider = get_registry().first_configured(
-            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
         msgs = [{"role": "system", "content": CHU_DE_SAU_SYSTEM_PROMPT},
                 {"role": "user", "content": _compose_chu_de_sau_prompt(cd_sau, feedback)}]
-        # Món sâu = output dài + model reasoning (MiniMax-M) tiêu nhiều token cho <think>
-        # → trần cao 8000; nếu vẫn rỗng (think ăn hết) retry 1 lần với trần cao hơn.
-        narrative, model = "", ""
-        for mt in (14000, 20000):
-            resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
-            narrative = (resp.content or "").strip()
-            model = f"{resp.provider}:{resp.model}"
-            if narrative:
-                break
-        if not narrative:
-            raise RuntimeError(f"LLM {model} trả về rỗng (think ăn hết token) — không cache")
+        narrative, model = _chat_long(msgs, temperature=0.7)
         conn.execute("INSERT OR REPLACE INTO narrative_cache VALUES (?, ?, ?, ?)",
                      (cache_key, narrative, model, int(time.time())))
         conn.commit()
@@ -310,14 +322,12 @@ soi mình rồi trả lời Đúng/Chưa/Không. Câu hỏi phải:
 - Ngắn (1 câu), đời thường, KHÔNG dùng thuật ngữ tử vi (không nói tên sao/cung).
 - Hỏi về TÍNH CÁCH / THÓI QUEN / TRẢI NGHIỆM có thật của họ, để kiểm chứng.
 Trả về JSON array, mỗi phần tử {"i": <số dòng>, "cau_hoi": "<câu hỏi>"}. CHỈ JSON, không giải thích."""
-    from engine.ai.registry import get_registry
-    provider = get_registry().first_configured(
-        ["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
-    resp = provider.chat(
-        messages=[{"role": "system", "content": sys},
-                  {"role": "user", "content": "\n".join(lines)}],
-        temperature=0.6, max_tokens=2000)
-    txt = (resp.content or "").strip()
+    try:
+        txt, _ = _chat_long(
+            [{"role": "system", "content": sys},
+             {"role": "user", "content": "\n".join(lines)}], temperature=0.6)
+    except Exception:
+        return []
     # bóc JSON
     import re
     m = re.search(r"\[.*\]", txt, re.DOTALL)
@@ -378,13 +388,10 @@ def generate_duyen_narrative(duyen: dict) -> dict:
     parts.append(f"## Năm có duyên sắp tới: {', '.join(nams) if nams else 'không nổi bật rõ — duyên đến tự nhiên'}.")
     parts.append(f"## Tuổi bạn: {th.get('con_giap','')}.")
     parts.append("\nViết lời tâm tình về duyên cho người này theo cấu trúc đã cho.")
-    from engine.ai.registry import get_registry
-    provider = get_registry().first_configured(["minimax", "gemini", "openrouter", "anthropic", "deepseek"])
-    resp = provider.chat(
-        messages=[{"role": "system", "content": DUYEN_SYSTEM_PROMPT},
-                  {"role": "user", "content": "\n".join(parts)}],
-        temperature=0.8, max_tokens=3000)
-    return {"narrative": (resp.content or "").strip(), "model": f"{resp.provider}:{resp.model}"}
+    narrative, model = _chat_long(
+        [{"role": "system", "content": DUYEN_SYSTEM_PROMPT},
+         {"role": "user", "content": "\n".join(parts)}], temperature=0.8)
+    return {"narrative": narrative, "model": model}
 
 
 def _laso_cache_key(la_so_input: dict, feedback: dict | None = None) -> str:
@@ -679,27 +686,11 @@ def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False
             if row:
                 return {"narrative": row[0], "cached": True, "model": row[1]}
 
-        # LLM call — multi-provider fallback (cost-aware chain, key nào sống dùng key đó)
-        from engine.ai.registry import get_registry
-
-        registry = get_registry()
-        provider = registry.first_configured(
-            ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
-        )
+        # LLM — chuỗi fallback văn-dài (gemini trước, MiniMax cuối)
         user_prompt = _compose_user_prompt(three_layer, la_so_input, feedback)
         msgs = [{"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}]
-        # Reasoning models (MiniMax-M) tiêu tokens cho <think> trước khi trả lời →
-        # trần cao + retry; nếu không đáp án bị cắt rỗng.
-        narrative, model = "", ""
-        for mt in (14000, 20000):
-            resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
-            narrative = (resp.content or "").strip()
-            model = f"{resp.provider}:{resp.model}"
-            if narrative:
-                break
-        if not narrative:
-            raise RuntimeError(f"LLM {model} trả về rỗng (reasoning tokens cạn?) — không cache")
+        narrative, model = _chat_long(msgs, temperature=0.7)
 
         conn.execute(
             "INSERT OR REPLACE INTO narrative_cache (cache_key, narrative, model, created_at) VALUES (?, ?, ?, ?)",
