@@ -168,10 +168,24 @@ def test_dao_ma_cai_sat_follows_dang_son_truong_sinh():
     assert r["founder_kiep_sat_branch"] == "Tỵ"   # năm Thìn → Kiếp Sát ở Tỵ = Mệnh founder
 
 
+def test_tu_mo_tu_duong_config_ch19():
+    # Tập 2 Ch.19 p222-223: TUỔI TỨ MỘ (Thìn Tuất Sửu Mùi) = "dễ tu tâm dưỡng tính hơn các tuổi khác".
+    # Chữ ký tính toán: Thiên Không + Thiếu Dương + Kiếp Sát + Cô Thần CÙNG đáp 1 cung GÓC
+    # (Dần Thân Tỵ Hợi) → 4 sao duyên-nghiệp chế-hóa; sao lạc-lõng (Hồng năm dương / Hỉ năm âm)
+    # cùng cung Long Đức (tứ đức tiếp tay Thiếu Dương). Đối chiếu tuổi tứ Đào Hoa (Tý Ngọ Mão Dậu):
+    # Thiên Không ĐỘC THỦ ở tứ mộ (không góc, vắng Hồng Loan) = gieo họa.
+    r = dsv.verify_tu_mo_tu_duong()
+    assert r["tu_mo_years_corner_colocated"] == 4    # cả 4 năm tứ mộ: 4 sao cùng 1 cung góc
+    assert r["tu_mo_lac_long_eq_long_duc"] == 4      # lạc-lõng ≡ Long Đức cả 4 năm
+    assert r["dao_hoa_thien_khong_doc_thu"] == 4     # tứ Đào Hoa: Thiên Không độc thủ tứ mộ
+    assert r["follows_dang_son_tu_duong"] is True
+    assert r["founder_corner"] == "Tỵ"               # năm Thìn → góc tu-dưỡng = Mệnh Tỵ
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
                         "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
-                        "khoi_viet_school", "dao_ma_cai_sat"}
+                        "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong"}

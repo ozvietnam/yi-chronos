@@ -494,6 +494,54 @@ def verify_dao_ma_cai_sat():
     }
 
 
+def verify_tu_mo_tu_duong():
+    """Định lý tu-dưỡng TỨ MỘ (Tập 2 Ch.19 p222-223) — chữ ký tính toán của "tuổi tứ mộ dễ tu tâm
+    dưỡng tính hơn các tuổi khác".
+
+    TUỔI TỨ MỘ (Thìn Tuất Sửu Mùi): Thiên Không + Thiếu Dương + Kiếp Sát + Cô Thần CÙNG đáp 1 cung
+    GÓC (Dần Thân Tỵ Hợi) → 4 sao duyên-nghiệp (bản-năng / thánh-tính / băng-tâm-sát / cô-độc) chế-hóa
+    lẫn nhau; sao lạc-lõng (Hồng năm dương, Hỉ năm âm) cùng cung Long Đức (tứ đức tiếp tay Thiếu Dương).
+    Đối chiếu tuổi tứ Đào Hoa (Tý Ngọ Mão Dậu): Thiên Không ĐỘC THỦ ở tứ mộ (không góc, vắng Hồng Loan)
+    = gieo họa. Founder năm Thìn → góc tu-dưỡng = Tỵ = đồng cung Mệnh.
+    """
+    from engine.tu_vi import an_sao as _a, sao_q3
+
+    BR = _a.BRANCHES_TVI
+    NB = {n: i for i, n in enumerate(BR)}
+    CORNERS = {NB[x] for x in ("Dần", "Thân", "Tỵ", "Hợi")}
+    TU_MO = {NB[x] for x in ("Thìn", "Tuất", "Sửu", "Mùi")}
+
+    colo = lac = 0
+    for yb in ("Thìn", "Tuất", "Sửu", "Mùi"):
+        tt = _a.thai_tue_belt(yb)
+        tts = sao_q3.tuong_tinh_belt(yb)
+        core = {_a.thien_khong(yb), tt["Thiếu Dương"], tts["Kiếp Sát"], _a.co_than(yb)}
+        if len(core) == 1 and next(iter(core)) in CORNERS:
+            colo += 1
+        duong = NB[yb] % 2 == 0
+        lac_star = _a.hong_loan(yb) if duong else _a.thien_hi(yb)
+        if lac_star == tt["Long Đức"]:
+            lac += 1
+
+    doc_thu = 0
+    for yb in ("Tý", "Ngọ", "Mão", "Dậu"):
+        tk = _a.thien_khong(yb)
+        if tk in TU_MO and tk not in CORNERS:
+            doc_thu += 1
+
+    tt = _a.thai_tue_belt("Thìn")
+    tts = sao_q3.tuong_tinh_belt("Thìn")
+    fcore = {_a.thien_khong("Thìn"), tt["Thiếu Dương"], tts["Kiếp Sát"], _a.co_than("Thìn")}
+    founder_corner = BR[next(iter(fcore))] if len(fcore) == 1 else None
+    return {
+        "tu_mo_years_corner_colocated": colo,
+        "tu_mo_lac_long_eq_long_duc": lac,
+        "dao_hoa_thien_khong_doc_thu": doc_thu,
+        "follows_dang_son_tu_duong": colo == 4 and lac == 4 and doc_thu == 4,
+        "founder_corner": founder_corner,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -507,6 +555,7 @@ def full_report():
         "luu_ha_school": verify_luu_ha_school(),
         "khoi_viet_school": verify_khoi_viet_school(),
         "dao_ma_cai_sat": verify_dao_ma_cai_sat(),
+        "tu_mo_tu_duong": verify_tu_mo_tu_duong(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }
