@@ -154,6 +154,13 @@ async def lifespan(_: FastAPI):
     except Exception:
         import logging
         logging.exception("yi_lexicon seed_all() failed at startup")
+    # Seed mã khuyến mãi mặc định (idempotent — OZFREIGHT 50 xu)
+    try:
+        from engine.promo_codes import seed_default_codes
+        seed_default_codes()
+    except Exception:
+        import logging
+        logging.exception("promo seed_default_codes() failed at startup")
     yield
 
 
@@ -3060,6 +3067,23 @@ def wallet_me_claim(http_request: Request) -> dict:
     user = require_user(http_request)
     from engine import xu_wallet
     return xu_wallet.claim_daily(user["user_id"])
+
+
+class PromoRedeemRequest(BaseModel):
+    code: str
+
+
+@app.post("/api/wallet/redeem")
+def wallet_redeem(req: PromoRedeemRequest, http_request: Request) -> dict:
+    """User nhập MÃ QUÀ → cộng xu qua ví trung tâm (AppChat đọc số dư chung → tự đồng bộ).
+    Login required. 1 lần/user theo cấu hình mã."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine import promo_codes
+    r = promo_codes.redeem(user["user_id"], req.code)
+    if not r.get("ok"):
+        return {"status": "error", "reason": r.get("reason")}
+    return {"status": "ok", **r}
 
 
 # ─── Phòng Quản Trị Hermes (owner-only console — plan 2026-06-18) ────────────

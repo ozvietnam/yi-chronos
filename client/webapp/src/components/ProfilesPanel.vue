@@ -36,6 +36,7 @@ import {
 } from "../stores/userDataStore.js";
 import BirthShareButton from "./BirthShareButton.vue";
 import UserPersonsPanel from "./UserPersonsPanel.vue";
+import RedeemCodeWidget from "./RedeemCodeWidget.vue";
 import { isAuthenticated } from "../stores/authStore.js";
 
 // Unified id for picker option values: DB rows expose `person_key`, localStorage
@@ -154,6 +155,8 @@ const stats = computed(() => ({
       <span>Hồ sơ — Person · Family · Organization · Event</span>
       <small>4 loại thực thể được dùng xuyên suốt các trường phái</small>
     </div>
+
+    <RedeemCodeWidget v-if="isAuthenticated" />
 
     <!-- DB-backed user_persons (hiển thị khi đã đăng nhập) -->
     <UserPersonsPanel v-if="isAuthenticated" />

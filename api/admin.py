@@ -387,6 +387,57 @@ def admin_xu_transactions(request: Request, limit: int = 50) -> dict:
     return {"status": "ok", "transactions": xu_wallet.recent_ledger_global(min(max(limit, 1), 200))}
 
 
+# ─── 3c. Mã khuyến mãi tặng xu (campaign trả thưởng) ─────────────────────────
+
+class AdminPromoCreateRequest(BaseModel):
+    code: str
+    xu: int
+    campaign: str = ""
+    per_user_once: bool = True
+    max_total: Optional[int] = None       # tổng lượt tối đa; None = vô hạn
+    expires_at: Optional[int] = None       # epoch giây; None = vô hạn
+    note: str = ""
+
+
+@router.post("/promo/codes")
+def admin_create_promo(req: AdminPromoCreateRequest, request: Request) -> dict:
+    """OWNER tạo mã tặng xu cho chiến dịch (vd OZFREIGHT = 50 xu, 1 lần/user)."""
+    actor = require_owner(request)
+    from engine import promo_codes
+    try:
+        code = promo_codes.create_code(
+            req.code, req.xu, campaign=req.campaign, per_user_once=req.per_user_once,
+            max_total=req.max_total, expires_at=req.expires_at, note=req.note,
+            created_by=actor["user_id"])
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    _record_audit("admin_create_promo", actor_user_id=actor["user_id"], request=request,
+                  details={"code": code["code"], "xu": code["xu"], "campaign": code["campaign"]})
+    return {"status": "ok", "code": code}
+
+
+@router.get("/promo/codes")
+def admin_list_promo(request: Request) -> dict:
+    """Danh sách mã + thống kê đã dùng (owner)."""
+    require_owner(request)
+    from engine import promo_codes
+    return {"status": "ok", "codes": promo_codes.list_codes()}
+
+
+@router.post("/promo/codes/{code}/toggle")
+def admin_toggle_promo(code: str, request: Request) -> dict:
+    """Bật/tắt mã (owner)."""
+    actor = require_owner(request)
+    from engine import promo_codes
+    c = promo_codes.get_code(code)
+    if not c:
+        raise HTTPException(404, "Mã không tồn tại")
+    promo_codes.set_active(code, not c["active"])
+    _record_audit("admin_toggle_promo", actor_user_id=actor["user_id"], request=request,
+                  details={"code": c["code"], "active": not c["active"]})
+    return {"status": "ok", "active": not c["active"]}
+
+
 # ─── 4. PATCH user (role / reset pwd / display_name) ─────────────────────────
 
 class AdminUpdateUserRequest(BaseModel):

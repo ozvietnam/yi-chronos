@@ -490,16 +490,47 @@ async function revokeVipSub(sub) {
 const xuOverview = ref(null);
 const xuTx = ref([]);
 const xuTabLoading = ref(false);
+const promoCodes = ref([]);
+const promoForm = ref({ code: "", xu: 50, campaign: "", per_user_once: true, max_total: null });
+const promoMsg = ref("");
+const promoBusy = ref(false);
 async function loadXuTab() {
   xuTabLoading.value = true;
   try {
-    const [o, t] = await Promise.all([
+    const [o, t, p] = await Promise.all([
       fetch("/api/admin/xu/overview", { headers: authHeaders(), credentials: "include" }).then((r) => r.json()),
       fetch("/api/admin/xu/transactions?limit=80", { headers: authHeaders(), credentials: "include" }).then((r) => r.json()),
+      fetch("/api/admin/promo/codes", { headers: authHeaders(), credentials: "include" }).then((r) => r.json()),
     ]);
     if (o.status === "ok") xuOverview.value = o;
     if (t.status === "ok") xuTx.value = t.transactions || [];
+    if (p.status === "ok") promoCodes.value = p.codes || [];
   } finally { xuTabLoading.value = false; }
+}
+async function createPromo() {
+  const f = promoForm.value;
+  if (!f.code.trim() || !f.xu) { promoMsg.value = "Cần mã + số xu."; return; }
+  promoBusy.value = true; promoMsg.value = "";
+  try {
+    const r = await fetch("/api/admin/promo/codes", {
+      method: "POST", headers: authHeaders(), credentials: "include",
+      body: JSON.stringify({ code: f.code.trim(), xu: f.xu, campaign: f.campaign.trim(),
+        per_user_once: f.per_user_once, max_total: f.max_total || null }),
+    });
+    const d = await r.json();
+    if (!r.ok) { promoMsg.value = d.detail || `Lỗi ${r.status}`; return; }
+    promoMsg.value = `Đã tạo mã ${d.code.code} (+${d.code.xu} xu).`;
+    promoForm.value = { code: "", xu: 50, campaign: "", per_user_once: true, max_total: null };
+    await loadXuTab();
+  } catch (e) { promoMsg.value = String(e.message || e); }
+  finally { promoBusy.value = false; }
+}
+async function togglePromo(code) {
+  try {
+    await fetch(`/api/admin/promo/codes/${encodeURIComponent(code)}/toggle`, {
+      method: "POST", headers: authHeaders(), credentials: "include" });
+    await loadXuTab();
+  } catch (e) { promoMsg.value = String(e.message || e); }
 }
 const XU_CAT_LABEL = {
   topup: "💳 Nạp (IAP/AppChat)", council: "⚖️ Hội Đồng", giao_duyen: "💞 Giao duyên",
@@ -995,6 +1026,30 @@ const actionIcon = {
             <tr v-if="!xuTx.length"><td colspan="5" class="ap-empty">Chưa có giao dịch</td></tr>
           </tbody>
         </table>
+
+        <h4>🎟️ Mã khuyến mãi — chiến dịch tặng xu</h4>
+        <div class="ap-promo-create">
+          <input v-model="promoForm.code" placeholder="MÃ (vd OZFREIGHT)" class="ap-xu-in" style="width:160px" />
+          <input type="number" v-model.number="promoForm.xu" placeholder="xu" class="ap-xu-in" style="width:80px" />
+          <input v-model="promoForm.campaign" placeholder="Tên chiến dịch" class="ap-xu-in" style="flex:1;min-width:140px" />
+          <label class="ap-promo-once"><input type="checkbox" v-model="promoForm.per_user_once" /> 1 lần/user</label>
+          <input type="number" v-model.number="promoForm.max_total" placeholder="Cap (∞)" class="ap-xu-in" style="width:90px" />
+          <button class="ap-btn-warn" :disabled="promoBusy" @click="createPromo">Tạo mã</button>
+        </div>
+        <p v-if="promoMsg" class="ap-xu-msg">{{ promoMsg }}</p>
+        <table class="ap-xu-tx" v-if="promoCodes.length">
+          <thead><tr><th>Mã</th><th>Xu</th><th>Chiến dịch</th><th>1 lần</th><th>Đã dùng</th><th></th></tr></thead>
+          <tbody>
+            <tr v-for="c in promoCodes" :key="c.code">
+              <td><strong>{{ c.code }}</strong></td>
+              <td class="xu-plus">+{{ c.xu }}</td>
+              <td><small>{{ c.campaign || '—' }}</small></td>
+              <td><small>{{ c.per_user_once ? '✓' : '—' }}</small></td>
+              <td><small>{{ c.used_count }}{{ c.max_total ? '/' + c.max_total : '' }}</small></td>
+              <td><button class="ap-btn-ghost ap-refresh" @click="togglePromo(c.code)">{{ c.active ? '🟢' : '⚪' }}</button></td>
+            </tr>
+          </tbody>
+        </table>
       </template>
     </section>
 
@@ -1276,6 +1331,8 @@ const actionIcon = {
 .ap-xu-tx th, .ap-xu-tx td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b; }
 .ap-xu-tx th { color: #94a3b8; font-weight: 500; }
 .ap-refresh { font-size: 0.75rem; padding: 0.1rem 0.4rem; }
+.ap-promo-create { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.5rem 0; }
+.ap-promo-once { font-size: 0.8rem; color: #cbd5e1; display: flex; align-items: center; gap: 0.25rem; }
 .ap-list { list-style: none; padding: 0; margin: 0; }
 .ap-list li {
   padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b;

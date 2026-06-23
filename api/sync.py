@@ -787,6 +787,31 @@ def wallet_grant(
     return {"status": "ok", "balance": bal}
 
 
+class PromoRedeemBridgeRequest(BaseModel):
+    firebase_uid: str
+    code: str
+
+
+@router.post("/promo/redeem")
+def promo_redeem_bridge(
+    req: PromoRedeemBridgeRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """AppChat: user nhập MÃ QUÀ → cộng xu qua ví TRUNG TÂM (chung với web → đồng bộ 2 chiều).
+    Service-keyed. 1 lần/user theo cấu hình mã (chống đổi trùng dù web hay app)."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine import promo_codes
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+    r = promo_codes.redeem(user_id, req.code)
+    if not r.get("ok"):
+        return {"status": "error", "reason": r.get("reason")}
+    return {"status": "ok", **r}
+
+
 class XuClaimRequest(BaseModel):
     firebase_uid: str
 
