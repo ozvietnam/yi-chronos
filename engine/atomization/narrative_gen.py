@@ -163,7 +163,7 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
                 {"role": "user", "content": user_prompt}]
         # token floor + retry chống reasoning-model (MiniMax-M) <think> ăn hết → rỗng
         narrative, model = "", ""
-        for mt in (8000, 12000):
+        for mt in (14000, 20000):
             resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
             narrative = (resp.content or "").strip()
             model = f"{resp.provider}:{resp.model}"
@@ -278,7 +278,7 @@ def generate_chu_de_sau_narrative(cd_sau: dict, la_so_input: dict, force: bool =
         # Món sâu = output dài + model reasoning (MiniMax-M) tiêu nhiều token cho <think>
         # → trần cao 8000; nếu vẫn rỗng (think ăn hết) retry 1 lần với trần cao hơn.
         narrative, model = "", ""
-        for mt in (8000, 12000):
+        for mt in (14000, 20000):
             resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
             narrative = (resp.content or "").strip()
             model = f"{resp.provider}:{resp.model}"
@@ -692,7 +692,7 @@ def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False
         # Reasoning models (MiniMax-M) tiêu tokens cho <think> trước khi trả lời →
         # trần cao + retry; nếu không đáp án bị cắt rỗng.
         narrative, model = "", ""
-        for mt in (8000, 12000):
+        for mt in (14000, 20000):
             resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
             narrative = (resp.content or "").strip()
             model = f"{resp.provider}:{resp.model}"
