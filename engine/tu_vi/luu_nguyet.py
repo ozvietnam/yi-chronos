@@ -13,6 +13,11 @@ Phép dịch (thuần hàm của lá số + lịch can-chi):
   5. Tứ Hóa tháng = TU_HOA_TABLE[can tháng] → mỗi hóa: sao → branch → cung.
      Phụ tinh (Văn Xương/Văn Khúc/Tả Phù/Hữu Bật) không nằm trong 14 chính tinh
      natal → branch=None, palace="(phụ tinh)".
+
+⚠️ GIỚI HẠN tháng nhuận (Đằng Sơn Tập 1 Ch.2, đọc 2026-06-23): engine hiện chỉ 12
+   tháng âm/năm. Năm nhuận có 13 tháng; tháng nhuận nằm TRỌN trong 1 cung (chung với
+   tháng kề), là hệ quả phép-gần-đúng → cổ pháp: tính CẢ HAI trường hợp (chung tháng
+   trước / tháng sau) rồi dùng dữ kiện khác chọn. Chưa xử lý ở v1.
 """
 from __future__ import annotations
 
