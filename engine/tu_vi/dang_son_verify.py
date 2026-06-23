@@ -413,6 +413,35 @@ def verify_luu_ha_school():
     }
 
 
+def verify_khoi_viet_school():
+    """Định lý Khôi Việt (Tập 2 Ch.11-12) — Iron #3 đa phái, kiểm engine đứng phái nào.
+
+    Khôi Việt = Lục Cát (cùng Tả Hữu Xương Khúc), gốc thần sát THIÊN ẤT QUÝ NHÂN (an theo can năm,
+    cứu chính tinh cực hãm hóa Kỵ). Đằng Sơn theo BÀI THIỆU TRUYỀN THỐNG: Giáp Mậu Canh→Sửu Mùi,
+    Ất Kỷ→Tý Thân, Bính Đinh→Hợi Dậu, Nhâm Quý→Mão Tỵ, Tân→Ngọ Dần. Tranh chấp: phái "đổi mới"
+    cho Canh=Ngọ Dần (giống Tân); Tạ Phồn Trị cho Kỷ=Dần Ngọ. Kiểm `an_sao.thien_khoi_viet` theo phái nào.
+    Founder Mậu → Khôi Việt Sửu/Mùi = trục Tài Bạch ↔ Phúc Đức ("tọa quý hướng quý").
+    """
+    from engine.tu_vi import an_sao as _a
+
+    B = _a.BRANCHES_TVI
+    TRADITIONAL = {"Giáp": {"Sửu", "Mùi"}, "Mậu": {"Sửu", "Mùi"}, "Canh": {"Sửu", "Mùi"},
+                   "Ất": {"Tý", "Thân"}, "Kỷ": {"Tý", "Thân"},
+                   "Bính": {"Hợi", "Dậu"}, "Đinh": {"Hợi", "Dậu"},
+                   "Nhâm": {"Mão", "Tỵ"}, "Quý": {"Mão", "Tỵ"}, "Tân": {"Ngọ", "Dần"}}
+    engine_tbl = {s: {B[i] for i in _a.thien_khoi_viet(s)} for s in _a.STEMS_TVI}
+    match = [s for s in _a.STEMS_TVI if engine_tbl[s] == TRADITIONAL[s]]
+    n = len(_a.STEMS_TVI)
+    return {
+        "n_stems": n,
+        "match_traditional": len(match),
+        "follows_dang_son_school": len(match) == n,
+        "canh_traditional_suu_mui": engine_tbl["Canh"] == {"Sửu", "Mùi"},
+        "ky_traditional_than_ty": engine_tbl["Kỷ"] == {"Tý", "Thân"},
+        "mau_khoi_viet": sorted(engine_tbl["Mậu"]),
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -424,6 +453,7 @@ def full_report():
         "bat_quai_ngu_hanh": verify_bat_quai_ngu_hanh(),
         "loc_ton_kinh_da": verify_loc_ton_kinh_da(),
         "luu_ha_school": verify_luu_ha_school(),
+        "khoi_viet_school": verify_khoi_viet_school(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

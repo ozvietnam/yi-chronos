@@ -138,9 +138,23 @@ def test_luu_ha_follows_dang_son_ngu_hanh_school():
     assert r["mau_luu_ha"] == "Tỵ"                  # founder Mậu → Lưu Hà ≡ Lộc Tồn ≡ Mệnh Tỵ
 
 
+def test_khoi_viet_follows_dang_son_traditional_school():
+    # Tập 2 Ch.11-12: Khôi Việt = Lục Cát, gốc thần sát Thiên Ất quý nhân (an theo can năm).
+    # Đằng Sơn theo BÀI THIỆU TRUYỀN THỐNG (Giáp Mậu Canh→Sửu Mùi, Ất Kỷ→Tý Thân, Tân→Ngọ Dần...);
+    # bác phái "đổi mới" (Canh=Ngọ Dần giống Tân) + Tạ Phồn Trị (Kỷ=Dần Ngọ). Kiểm engine theo phái nào.
+    r = dsv.verify_khoi_viet_school()
+    assert r["n_stems"] == 10
+    assert r["match_traditional"] == 10
+    assert r["follows_dang_son_school"] is True
+    assert r["canh_traditional_suu_mui"] is True      # KHÔNG theo đổi mới (Ngọ Dần)
+    assert r["ky_traditional_than_ty"] is True         # KHÔNG theo Tạ Phồn Trị (Dần Ngọ)
+    assert r["mau_khoi_viet"] == ["Mùi", "Sửu"]        # founder Mậu → quý nhân Sửu/Mùi (Tài↔Phúc)
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
-                        "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school"}
+                        "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
+                        "khoi_viet_school"}
