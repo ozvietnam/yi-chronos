@@ -126,9 +126,21 @@ def test_loc_ton_kinh_da_structure_ch6_ch7():
     assert r["all_pass"] is True
 
 
+def test_luu_ha_follows_dang_son_ngu_hanh_school():
+    # Tập 2 Ch.10: Lưu Hà an theo CAN năm. Đằng Sơn BẢO VỆ phái ngũ-hành-thuần (bài thiệu /
+    # Mệnh Lý Sách Ẩn): Đinh→Thân, Canh→Thìn — KHÁC Thái Thứ Lang (TVĐSTB) đảo chỗ Đinh↔Canh
+    # (Đinh→Thìn, Canh→Thân) mà Đằng Sơn cho là sai. Kiểm engine sao_q3.luu_ha theo phái nào.
+    r = dsv.verify_luu_ha_school()
+    assert r["n_stems"] == 10
+    assert r["match_ngu_hanh_thuan"] == 10          # engine khớp trọn phái Đằng Sơn bảo vệ
+    assert r["follows_dang_son_school"] is True
+    assert r["differs_from_thai_thu_lang_at"] == ["Canh", "Đinh"]  # đúng 2 can tranh chấp
+    assert r["mau_luu_ha"] == "Tỵ"                  # founder Mậu → Lưu Hà ≡ Lộc Tồn ≡ Mệnh Tỵ
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
-                        "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da"}
+                        "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school"}

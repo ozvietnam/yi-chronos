@@ -386,6 +386,33 @@ def verify_loc_ton_kinh_da():
     }
 
 
+def verify_luu_ha_school():
+    """Định lý Lưu Hà (Tập 2 Ch.10) — Iron #3 đa phái, kiểm engine đứng phái nào.
+
+    Lưu Hà an theo CAN năm. Đằng Sơn BẢO VỆ phái NGŨ-HÀNH-THUẦN (bài thiệu / Mệnh Lý Sách Ẩn):
+    Đinh→Thân, Canh→Thìn. Thái Thứ Lang (Tử Vi Đẩu Số Tân Biên) ĐẢO CHỖ Đinh↔Canh
+    (Đinh→Thìn, Canh→Thân) — Đằng Sơn cho là lỗi. Kiểm `sao_q3.luu_ha` (engine canonical) theo phái nào.
+    Founder Mậu → Lưu Hà ở Tỵ = đồng cung Lộc Tồn = Mệnh (Mậu/Kỷ/Canh/Nhâm có Lưu Hà ≡ Lộc Tồn).
+    """
+    from engine.tu_vi import sao_q3, an_sao as _a
+
+    B = _a.BRANCHES_TVI
+    NGU_HANH_THUAN = {"Giáp": "Dậu", "Ất": "Tuất", "Bính": "Mùi", "Đinh": "Thân", "Mậu": "Tỵ",
+                      "Kỷ": "Ngọ", "Canh": "Thìn", "Tân": "Mão", "Nhâm": "Hợi", "Quý": "Tý"}
+    THAI_THU_LANG = {**NGU_HANH_THUAN, "Đinh": "Thìn", "Canh": "Thân"}  # đảo Đinh↔Canh
+    engine_tbl = {s: B[sao_q3.luu_ha(s)] for s in _a.STEMS_TVI}
+    match_nh = [s for s in _a.STEMS_TVI if engine_tbl[s] == NGU_HANH_THUAN[s]]
+    differ_ttl = [s for s in _a.STEMS_TVI if engine_tbl[s] != THAI_THU_LANG[s]]
+    n = len(_a.STEMS_TVI)
+    return {
+        "n_stems": n,
+        "match_ngu_hanh_thuan": len(match_nh),
+        "follows_dang_son_school": len(match_nh) == n,
+        "differs_from_thai_thu_lang_at": sorted(differ_ttl),
+        "mau_luu_ha": engine_tbl["Mậu"],
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -396,6 +423,7 @@ def full_report():
         "star_hoa_participation": verify_star_hoa_participation(),
         "bat_quai_ngu_hanh": verify_bat_quai_ngu_hanh(),
         "loc_ton_kinh_da": verify_loc_ton_kinh_da(),
+        "luu_ha_school": verify_luu_ha_school(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }
