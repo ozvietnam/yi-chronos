@@ -184,6 +184,7 @@ from api.atoms_verify import router as atoms_verify_router  # noqa: E402
 from api.thiet_ban import router as thiet_ban_router  # noqa: E402
 from api.hoang_cuc import router as hoang_cuc_router  # noqa: E402
 from api.sync import router as sync_router  # noqa: E402
+from api.cross_paradigm import router as cross_paradigm_router  # noqa: E402  (#55/#56)
 app.include_router(auth_router)
 app.include_router(sync_router)
 app.include_router(admin_router)
@@ -192,6 +193,7 @@ app.include_router(tu_vi_3layer_router)
 app.include_router(atoms_verify_router)
 app.include_router(thiet_ban_router)
 app.include_router(hoang_cuc_router)
+app.include_router(cross_paradigm_router)
 
 # ⭐ Serve figures from restored books — cho UI hiển thị ảnh minh hoạ
 from fastapi.staticfiles import StaticFiles

@@ -1,10 +1,11 @@
 <script setup>
 // 🔬 Nhà của phái Tử Vi Đằng Sơn — "Tử Vi Hoàn Toàn Khoa Học"
 // Gom các tác phẩm THẬT của phái: cấu trúc tính-được (/api/natal-universe) +
-// lá số 3D nền vũ trụ + video Đại Vận + sách. Paradigm: tính được TÍNH ≠ tính MỆNH.
-import { ref } from "vue";
+// lá số 3D nền vũ trụ + video Đại Vận + sách + NHỊP THÁNG (lưu nguyệt la-bàn-chú-ý).
+// Paradigm: tính được TÍNH ≠ tính MỆNH; nhịp tháng = la bàn chú-ý, không phải bói.
+import { ref, computed } from "vue";
 import { activeBirthDatetime } from "../stores/userDataStore.js";
-import { getNatalUniverse } from "../lib/api";
+import { getNatalUniverse, getLuuNguyet } from "../lib/api";
 
 const emit = defineEmits(["go-universe"]);
 const data = ref(null);
@@ -27,6 +28,24 @@ async function load() {
   catch (e) { err.value = e?.message || String(e); }
   finally { loading.value = false; }
 }
+
+// 🧭 Nhịp tháng (lưu nguyệt) — la bàn chú-ý, đa năm, load on click
+const rhythm = ref(null);
+const rLoading = ref(false);
+const rErr = ref("");
+const selYear = ref(null);
+async function loadRhythm() {
+  const at = activeBirthDatetime.value;
+  if (!at) { rErr.value = "Chưa có ngày sinh — vào tab Hồ sơ chọn 'Bản thân' trước."; return; }
+  rLoading.value = true; rErr.value = "";
+  try {
+    rhythm.value = await getLuuNguyet({ at, yearStart: year, yearEnd: year + 5 });
+    selYear.value = rhythm.value?.years?.[0]?.year ?? year;
+  } catch (e) { rErr.value = e?.message || String(e); }
+  finally { rLoading.value = false; }
+}
+const selYearData = computed(() => rhythm.value?.years?.find((y) => y.year === selYear.value) || null);
+function pal(h) { return h && h.palace ? h.palace : "—"; }
 </script>
 
 <template>
@@ -55,7 +74,7 @@ async function load() {
       <div v-if="data" class="ds-struct">
         <p class="ds-meta">
           Mệnh <b>{{ data.dia_ban.menh_chi }}</b> · Cục <b>{{ data.dia_ban.cuc }}</b> ·
-          Tử Vi an tại <b>{{ data.dia_ban.tu_vi_chi }}</b> · {{ data.dia_ban.year_can_chi }}
+          Tử Vi an <b>{{ data.dia_ban.tu_vi_chi }}</b> · {{ data.dia_ban.year_can_chi }}
         </p>
         <div class="ds-grid">
           <div v-for="c in data.dia_ban.cung" :key="c.chi" class="ds-cung" :class="{ menh: c.is_menh }">
@@ -76,6 +95,39 @@ async function load() {
         </p>
       </div>
       <p v-else-if="!err" class="ds-hint">Bấm để engine tính 14 chính tinh + ngũ hành + Tứ Hóa + độ sáng — toàn hàm tất định, sai số người bằng 0.</p>
+    </section>
+
+    <!-- 🧭 Nhịp tháng — la bàn chú-ý -->
+    <section class="ds-card">
+      <div class="ds-card-h">
+        <h3>🧭 Nhịp tháng — la bàn chú-ý</h3>
+        <button class="ds-btn" :disabled="rLoading" @click="loadRhythm">
+          {{ rLoading ? "Đang tính…" : rhythm ? "Tính lại" : "Xem nhịp tháng" }}
+        </button>
+      </div>
+      <p class="ds-paradigm-sm">
+        Mỗi tháng âm, cấu trúc rọi sáng một cung: <b style="color:#5fc46a">Lộc</b> = cửa mở phía ngoài ·
+        <b style="color:#e0884a">Kỵ</b> = nút thắt phía trong. Đây là <i>la bàn chú-ý</i> — tháng này nên
+        để tâm vào đâu — <b>không phải bói kết cục</b> (soi mịn chỉ dịch tiêu điểm, không co độ bất định).
+      </p>
+      <p v-if="rErr" class="ds-err">{{ rErr }}</p>
+
+      <div v-if="rhythm">
+        <div class="ds-years">
+          <button v-for="y in rhythm.years" :key="y.year" class="ds-year"
+                  :class="{ on: y.year === selYear }" @click="selYear = y.year">
+            {{ y.year }}<small>{{ y.year_stem }}</small>
+          </button>
+        </div>
+        <div v-if="selYearData" class="ds-months">
+          <div v-for="m in selYearData.months" :key="m.month" class="ds-month">
+            <div class="ds-mhead">Tháng {{ m.month }}<span>{{ m.month_can_chi }}</span></div>
+            <div class="ds-flow loc"><span class="dot"></span>{{ pal(m.hoa['Lộc']) }}</div>
+            <div class="ds-flow ky"><span class="dot"></span>{{ pal(m.hoa['Kỵ']) }}</div>
+          </div>
+        </div>
+      </div>
+      <p v-else-if="!rErr" class="ds-hint">12 tháng × 6 năm tới — cung nào sáng Lộc/Kỵ mỗi tháng, engine tính tất định. Dùng như lịch quan-sát: tháng nào nên đặt tâm vào cung nào.</p>
     </section>
 
     <!-- Tác phẩm của phái -->
@@ -121,6 +173,19 @@ async function load() {
 .ds-hoa { color: #0b1016; font-size: 10px; font-weight: 800; padding: 1px 5px; border-radius: 4px; }
 .ds-ds { color: #6a7680; font-size: 11px; font-style: italic; }
 .ds-luu { background: #0b1016; border: 1px solid #26323f; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 14px; color: #c4d0d8; }
+.ds-paradigm-sm { color: #c9b98a; font-size: 13.5px; margin: 2px 0 12px; line-height: 1.5; }
+.ds-years { display: flex; flex-wrap: wrap; gap: 7px; margin: 4px 0 12px; }
+.ds-year { background: #0b1016; border: 1px solid #26323f; color: #c4d0d8; border-radius: 8px; padding: 5px 12px; font-size: 13.5px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; line-height: 1.15; }
+.ds-year small { color: #8a9aa6; font-size: 10px; font-weight: 400; }
+.ds-year.on { border-color: #e6c45a; color: #ffd98a; background: #16140c; }
+.ds-months { display: grid; grid-template-columns: repeat(auto-fill, minmax(134px, 1fr)); gap: 8px; }
+.ds-month { background: #0b1016; border: 1px solid #26323f; border-radius: 8px; padding: 8px 10px; }
+.ds-mhead { color: #c4d0d8; font-size: 13px; font-weight: 700; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: baseline; }
+.ds-mhead span { color: #8a9aa6; font-weight: 400; font-size: 11px; }
+.ds-flow { display: flex; align-items: center; gap: 6px; font-size: 13.5px; margin: 2px 0; }
+.ds-flow .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.ds-flow.loc { color: #cfe8c0; } .ds-flow.loc .dot { background: #5fc46a; }
+.ds-flow.ky { color: #e8cdb0; } .ds-flow.ky .dot { background: #e0884a; }
 .ds-works { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .ds-work { display: flex; align-items: center; gap: 12px; text-align: left; text-decoration: none; background: #0b1016; border: 1px solid #26323f; border-radius: 10px; padding: 13px 15px; color: #dbe4ea; cursor: pointer; }
 .ds-work:hover { border-color: #e6c45a; }

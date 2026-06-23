@@ -805,3 +805,104 @@ def wallet_claim_daily(
     if user_id is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
     return xu_wallet.claim_daily(user_id)
+
+
+# ─── Cross-paradigm liên-phái (Bát Tự THỂ × Tử Vi DỤNG) — kênh AppChat ───────
+# #55 hôn nhân song phái (1 lá, 12 khía cạnh) + #56 so đôi đích danh (2 lá).
+# Trừ 30 xu qua ví TRUNG TÂM (engine.cross_paradigm.service → xu_wallet), cache "một
+# việc một lần" (Iron #4) KHÔNG trừ lại. Engine LÕI đọc-đồng-dạng (Iron #4/#6/#8).
+
+def _self_person(conn, user_id: int) -> Optional[dict]:
+    """Person 'self' của user → {gender, birth_datetime_local, timezone} hoặc None."""
+    p = conn.execute(
+        text("""SELECT gender, birth_datetime_local, timezone
+                FROM user_persons WHERE user_id=:u AND person_key='self'"""),
+        {"u": user_id},
+    ).fetchone()
+    if not p:
+        return None
+    return {"gender": p[0], "birth_datetime_local": p[1],
+            "timezone": p[2] or "Asia/Ho_Chi_Minh"}
+
+
+def _person_by_key(conn, user_id: int, person_key: str) -> Optional[dict]:
+    p = conn.execute(
+        text("""SELECT gender, birth_datetime_local, timezone
+                FROM user_persons WHERE user_id=:u AND person_key=:pk"""),
+        {"u": user_id, "pk": person_key},
+    ).fetchone()
+    if not p:
+        return None
+    return {"gender": p[0], "birth_datetime_local": p[1],
+            "timezone": p[2] or "Asia/Ho_Chi_Minh"}
+
+
+class HonNhanSongPhaiRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+
+
+@router.post("/hon-nhan-song-phai")
+def hon_nhan_song_phai_bridge(
+    req: HonNhanSongPhaiRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """#55 — hợp nhất song phái (12 khía cạnh) cho AppChat. 404 chưa sync · 422 thiếu
+    giờ sinh · 402 không đủ xu (insufficient_xu). Trừ 30 xu (cache Iron #4 không trừ lại)."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.cross_paradigm import service as cps
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+        if user_id is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+        person = _person_by_key(conn, user_id, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh cho person — cần cập nhật trước khi luận")
+    out = cps.run_hon_nhan_song_phai(user_id, person)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return out
+
+
+class CoupleSyncRequest(BaseModel):
+    firebase_uid: str
+    partner_person_key: Optional[str] = None   # đối tượng đã lưu (đã có đồng thuận)
+    partner_birth: Optional[BirthInfo] = None  # hoặc nhập trực tiếp (PDPL: KHÔNG lưu)
+    person_key: str = "self"                   # lá của chính user
+
+
+@router.post("/couple-sync")
+def couple_sync_bridge(
+    req: CoupleSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """#56 — so đôi đích danh 2 lá cho AppChat. Người thứ 2 lấy từ partner_person_key
+    (đã lưu, đã đồng thuận) hoặc partner_birth (nhập trực tiếp, KHÔNG lưu — PDPL).
+    404 chưa sync · 422 thiếu giờ sinh · 402 không đủ xu. Trừ 30 xu (cache Iron #4)."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.cross_paradigm import service as cps
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+        if user_id is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+        person_a = _person_by_key(conn, user_id, req.person_key)
+        person_b = None
+        if req.partner_person_key:
+            person_b = _person_by_key(conn, user_id, req.partner_person_key)
+    if req.partner_birth and req.partner_birth.datetime_local:
+        person_b = {"gender": req.partner_birth.gender,
+                    "birth_datetime_local": req.partner_birth.datetime_local,
+                    "timezone": req.partner_birth.timezone}
+    if not person_a or not person_a.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh của bạn (person 'self')")
+    if not person_b or not person_b.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh người thứ 2 (partner_person_key hoặc partner_birth)")
+    out = cps.run_couple_sync(user_id, person_a, person_b)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return out

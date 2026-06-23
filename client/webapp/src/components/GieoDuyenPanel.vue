@@ -213,6 +213,43 @@
           <p class="gd-para">⚖️ {{ res.paradigm }}</p>
         </details>
       </div>
+
+      <!-- #55 — Hôn nhân – Gia đình (song phái): Bát Tự THỂ × Tử Vi DỤNG, 12 khía cạnh.
+           Khung dựng sẵn (Anh duyệt 2026-06-19) — nối vào luận sâu (30 xu) của chính bạn. -->
+      <details class="gd-songphai">
+        <summary>🀄 Hôn nhân – Gia đình (song phái) · 12 khía cạnh — luận sâu</summary>
+        <p class="gd-tool-sub">
+          Hợp nhất <b>Bát Tự (THỂ — bạn là ai)</b> và <b>Tử Vi (DỤNG — bạn vận hành điều gì)</b>
+          trên <b>lá số của chính bạn</b>. Hai phái cùng hướng → <em>đồng-tham</em> (tin cao);
+          lệch hướng → <em>dị-tham</em> (giữ cả hai, thận trọng). Mệnh là động từ — không bói cát/hung.
+        </p>
+        <div class="gd-sp-grid">
+          <div v-for="a in songPhaiAspects" :key="a.id" class="gd-sp-cell"
+               :class="spResult ? ('c-' + (spById[a.id]?.concord || 'mot')) : ''">
+            <div class="gd-sp-head">
+              <span class="gd-sp-id">{{ a.id }}</span>
+              <span class="gd-sp-ten">{{ a.ten }}</span>
+              <span class="gd-sp-lead" :class="a.lead">{{ a.lead === 'bat_tu' ? 'Bát Tự' : 'Tử Vi' }}</span>
+            </div>
+            <div v-if="spResult && spById[a.id]" class="gd-sp-body">
+              <span class="gd-sp-concord">{{ concordLabel(spById[a.id].concord) }}</span>
+              <p class="gd-sp-read">{{ spById[a.id].lead_reading }}</p>
+              <p v-if="spById[a.id].cross_reading" class="gd-sp-cross">↔ {{ spById[a.id].cross_reading }}</p>
+              <small v-if="spById[a.id].unsourced" class="gd-sp-uns">chưa có nguồn corpus</small>
+            </div>
+            <div v-else class="gd-sp-body gd-sp-skel">
+              <span class="gd-sp-concord">—</span>
+              <p class="gd-sp-read">Mở luận để soi khía cạnh này.</p>
+            </div>
+          </div>
+        </div>
+        <button class="gd-run gd-sp-open" :disabled="spLoading" @click="openSongPhai">
+          {{ spLoading ? '⏳ Đang luận...' : '🔓 Mở luận sâu (30 xu)' }}
+        </button>
+        <p v-if="spErr" class="gd-err">{{ spErr }}</p>
+        <p v-if="spResult && spResult.cached" class="gd-note">♻️ Lượt hỏi gần đây — không trừ xu lại (một việc một lần).</p>
+        <p v-if="spResult" class="gd-para">⚖️ {{ spResult.paradigm }}</p>
+      </details>
     </section>
 
     <details class="gd-book-toggle">
@@ -343,6 +380,47 @@ async function run() {
     const d = await r.json();
     if (d.error) { err.value = d.error; } else { res.value = d; }
   } catch (e) { err.value = "Lỗi kết nối, thử lại."; } finally { loading.value = false; }
+}
+
+// #55 — Hôn nhân song phái (12 khía cạnh). Ma trận đồng bộ engine
+// engine/cross_paradigm/hon_nhan_song_phai.ASPECTS — KHUNG dựng sẵn, cắm dữ liệu khi mở luận.
+const songPhaiAspects = [
+  { id: 1, ten: "Tính cách / khí chất phối ngẫu", lead: "tu_vi" },
+  { id: 2, ten: "Chất lượng hôn nhân tổng thể", lead: "tu_vi" },
+  { id: 3, ten: "Ứng kỳ (khoảng kích hoạt quan hệ)", lead: "tu_vi" },
+  { id: 4, ten: "Năng lượng tương tác hợp / khắc", lead: "bat_tu" },
+  { id: 5, ten: "'Cao thấp' / lực của Thê tinh", lead: "bat_tu" },
+  { id: 6, ten: "Hợp đôi (hai người)", lead: "bat_tu" },
+  { id: 7, ten: "Điểm căng quan hệ (xa cách / biến động)", lead: "tu_vi" },
+  { id: 8, ten: "Con cái — cách nuôi dưỡng / truyền tính", lead: "tu_vi" },
+  { id: 9, ten: "Cha mẹ / anh chị em", lead: "bat_tu" },
+  { id: 10, ten: "Tâm lý / EQ hôn nhân (khí số)", lead: "tu_vi" },
+  { id: 11, ten: "Tài sản chung / kinh tế gia đình", lead: "bat_tu" },
+  { id: 12, ten: "Định khắc giờ sinh (định bàn)", lead: "tu_vi" },
+];
+const spLoading = ref(false); const spResult = ref(null); const spErr = ref("");
+const spById = computed(() => {
+  const m = {};
+  for (const k of (spResult.value?.khia_canh || [])) m[k.id] = k;
+  return m;
+});
+function concordLabel(c) {
+  return c === "đồng_tham" ? "✓ đồng-tham" : c === "dị_tham" ? "⚠ dị-tham" : "• một-phía";
+}
+async function openSongPhai() {
+  spLoading.value = true; spErr.value = "";
+  try {
+    const r = await fetch("/api/cross-paradigm/hon-nhan", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person_key: "self" }),
+    });
+    if (r.status === 401) { spErr.value = "Đăng nhập để mở luận sâu trên lá số của bạn."; return; }
+    if (r.status === 402) { spErr.value = "Không đủ xu (cần 30 xu) — nạp thêm để mở luận."; return; }
+    if (r.status === 422) { spErr.value = "Cần cập nhật giờ sinh của bạn trước khi luận."; return; }
+    const d = await r.json();
+    if (!r.ok) { spErr.value = (d && d.detail) || "Không mở được luận, thử lại."; return; }
+    spResult.value = d;
+  } catch (e) { spErr.value = "Lỗi kết nối, thử lại."; } finally { spLoading.value = false; }
 }
 
 // Markdown nhẹ → HTML (đủ cho sách: heading, đậm, nghiêng, trích dẫn, bảng, hr, list)
@@ -528,4 +606,25 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-body :deep(strong) { color: #7d2c47; }
 
 .gd-foot { margin-top: 28px; padding: 16px; background: #f7f3f0; border-radius: 12px; text-align: center; color: var(--read-text-faint,#777); font-size: 0.9em; }
+
+/* #55 — khung Hôn nhân song phái (12 khía cạnh) */
+.gd-songphai { margin-top: 18px; padding: 14px 16px; background: #faf6f8; border: 1px solid #ecd9e1; border-radius: 12px; }
+.gd-songphai > summary { cursor: pointer; font-weight: 700; color: #7d2c47; }
+.gd-sp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 14px 0; }
+.gd-sp-cell { border: 1px solid #e7dde2; border-radius: 10px; padding: 10px; background: #fff; }
+.gd-sp-cell.c-đồng_tham { border-color: #8bc4a0; background: #f3faf5; }
+.gd-sp-cell.c-dị_tham { border-color: #e0b772; background: #fdf8ef; }
+.gd-sp-head { display: flex; align-items: center; gap: 6px; }
+.gd-sp-id { background: #7d2c47; color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.72em; flex: none; }
+.gd-sp-ten { flex: 1; font-weight: 600; font-size: 0.86em; }
+.gd-sp-lead { font-size: 0.68em; padding: 1px 6px; border-radius: 6px; background: #eee; color: #555; flex: none; }
+.gd-sp-lead.bat_tu { background: #e6eef7; color: #2c5a7d; }
+.gd-sp-lead.tu_vi { background: #f3e8ec; color: #7d2c47; }
+.gd-sp-body { margin-top: 7px; }
+.gd-sp-concord { font-size: 0.74em; font-weight: 700; color: #555; }
+.gd-sp-read { margin: 4px 0 0; font-size: 0.82em; color: #444; }
+.gd-sp-cross { margin: 3px 0 0; font-size: 0.78em; color: #777; }
+.gd-sp-uns { color: #b08; opacity: 0.6; font-size: 0.72em; }
+.gd-sp-skel { opacity: 0.5; }
+.gd-sp-open { margin-top: 6px; }
 </style>
