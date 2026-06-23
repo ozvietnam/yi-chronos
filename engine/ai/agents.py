@@ -55,6 +55,7 @@ def _user_message_for_agent(
     chart_data: dict,
     round_label: str | None = None,
     challenges: str | None = None,
+    expert_context: str | None = None,
 ) -> str:
     """Compose the user-role message for one agent."""
     parts = []
@@ -62,11 +63,19 @@ def _user_message_for_agent(
         parts.append(f"## VÒNG {round_label}")
     parts.append("## CÂU HỎI CỦA USER\n" + (question or "(không có câu hỏi cụ thể, hãy đưa nhận định tổng quan)"))
     parts.append("## DỮ LIỆU CHART TỪ ENGINE\n```json\n" + _stringify_chart(chart_data) + "\n```")
+    if expert_context:
+        parts.append(expert_context)
     if challenges:
         parts.append("## CÂU HỎI CHẤT VẤN TỪ TRỌNG TÀI\n" + challenges)
         parts.append(
             "Hãy phản hồi cụ thể vào câu hỏi chất vấn, hoặc bảo vệ quan điểm "
             "ban đầu nếu thấy đúng. Không sáo ngữ."
+        )
+    elif expert_context:
+        parts.append(
+            "Hãy đưa nhận định theo format đã định trong Persona — bám dữ liệu chart VÀ "
+            "DẪN cụ thể tri thức sâu từ sách ở trên (tên cách/sao/nguyên lý + trích), "
+            "không bịa, không nói chung chung."
         )
     else:
         parts.append(
@@ -93,11 +102,21 @@ def run_agent(
         raise ValueError(f"Unknown agent_id: {agent_id!r}")
 
     persona = get_prompt(agent_id)
+    # RAG grounding: vòng đầu (chưa có chất vấn) → bơm tri thức sâu trích sách cho sage
+    # luận như chuyên gia, dẫn cụ thể. Best-effort, không chặn nếu lỗi/thiếu DB.
+    expert_ctx = ""
+    if not challenges:
+        try:
+            from .expert_context import build_expert_context
+            expert_ctx = build_expert_context(question, agent_id)
+        except Exception:
+            expert_ctx = ""
     user_msg = _user_message_for_agent(
         question=question,
         chart_data=chart_data,
         round_label=round_label,
         challenges=challenges,
+        expert_context=expert_ctx,
     )
 
     meta = AGENT_METADATA[agent_id]

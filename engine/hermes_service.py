@@ -201,8 +201,11 @@ def _real_consult(question: str, person: dict, uid: int,
     ctx = build_user_context(uid, person, query_hint=question)
     if ctx:
         chart["user_context"] = ctx       # sage thấy bối cảnh riêng user (đã pseudonymize)
+    # skip_challenge=True: bỏ vòng phản biện 2/3 (chậm ~2x) — round 1 đã được RAG grounding
+    # (mỗi sage trích sách → chuyên gia) nên tổng hợp vẫn sâu mà nhanh gấp đôi. Debate sâu
+    # để dành chế độ "luận sâu" sau (cho câu hỏi lớn).
     res = consult_council(question=question, chart_data=chart, persist=False,
-                          explicit_agents=explicit_agents)
+                          explicit_agents=explicit_agents, skip_challenge=True)
     pu = res.get("providers_used") or {}     # dict {agent: provider} | đôi khi list
     if isinstance(pu, dict):
         provider = pu.get("orchestrator") or next(iter(pu.values()), "deepseek")
