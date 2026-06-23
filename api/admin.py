@@ -443,6 +443,60 @@ def admin_toggle_promo(code: str, request: Request) -> dict:
     return {"status": "ok", "active": not c["active"]}
 
 
+# ─── 3d. Nhật ký HỎI-ĐÁP của user (hoạt động) ────────────────────────────────
+# Lưu ở user_castings (mỗi lượt 1 dòng: method · câu hỏi · kết quả · cờ paradigm · giờ).
+# Scale 2M: feed toàn hệ ORDER BY id DESC LIMIT (PK index, nhanh); lọc user_id (đã index).
+
+_METHOD_XU = {"hermes_council": 5, "hermes_quick": 1,
+              "cross_paradigm_couple_sync": 30, "cross_paradigm_hon_nhan": 30}
+
+
+@router.get("/activity")
+def admin_activity(request: Request, limit: int = 50,
+                   method: Optional[str] = None, user_id: Optional[int] = None) -> dict:
+    """Nhật ký hỏi-đáp toàn hệ (owner) — paginated. Lọc theo method/user. Kèm xu/lượt theo method."""
+    require_owner(request)
+    from engine.db import session_scope
+    from sqlalchemy import text
+    n = min(max(limit, 1), 100)
+    where, params = ["1=1"], {"n": n}
+    if method:
+        where.append("c.method = :m"); params["m"] = method
+    if user_id:
+        where.append("c.user_id = :u"); params["u"] = user_id
+    with session_scope(service=True) as conn:
+        rows = conn.execute(text(
+            f"""SELECT c.id, c.user_id, u.email, c.method, c.question, c.verdict, c.created_at
+                FROM user_castings c LEFT JOIN users u ON u.user_id = c.user_id
+                WHERE {' AND '.join(where)} ORDER BY c.id DESC LIMIT :n"""), params).fetchall()
+    return {"status": "ok", "activity": [
+        {"id": r[0], "user_id": r[1], "email": r[2], "method": r[3],
+         "question": r[4], "verdict": r[5], "created_at": r[6],
+         "xu": _METHOD_XU.get(r[3], 0)} for r in rows]}
+
+
+@router.get("/activity/{casting_id}")
+def admin_activity_detail(casting_id: int, request: Request) -> dict:
+    """Chi tiết 1 lượt hỏi-đáp: câu hỏi + KẾT QUẢ (synthesis/answer). Owner-only."""
+    require_owner(request)
+    import json as _j
+    from engine.db import session_scope
+    from sqlalchemy import text
+    with session_scope(service=True) as conn:
+        r = conn.execute(text(
+            "SELECT id, user_id, method, question, result_json, verdict, created_at "
+            "FROM user_castings WHERE id = :i"), {"i": casting_id}).fetchone()
+    if not r:
+        raise HTTPException(404, "Không tìm thấy lượt hỏi-đáp")
+    rj = r[4]
+    data = rj if isinstance(rj, (dict, list)) else (_j.loads(rj) if rj else {})
+    answer = ""
+    if isinstance(data, dict):
+        answer = data.get("synthesis") or data.get("answer") or data.get("reply") or ""
+    return {"status": "ok", "id": r[0], "user_id": r[1], "method": r[2], "question": r[3],
+            "answer": answer, "result": data, "verdict": r[5], "created_at": r[6]}
+
+
 # ─── 4. PATCH user (role / reset pwd / display_name) ─────────────────────────
 
 class AdminUpdateUserRequest(BaseModel):

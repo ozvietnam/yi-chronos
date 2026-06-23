@@ -539,12 +539,43 @@ const XU_CAT_LABEL = {
 };
 function xuCatLabel(c) { return XU_CAT_LABEL[c] || c; }
 
+// ── Nhật ký hỏi-đáp (hoạt động user) ──
+const activity = ref([]);
+const activityMethod = ref("");
+const activityLoading = ref(false);
+const activityDetail = ref(null);
+const METHOD_LABEL = {
+  hermes_council: "⚖️ Hội Đồng", hermes_quick: "💭 Hỏi nhanh",
+  cross_paradigm_couple_sync: "💞 So đôi", cross_paradigm_hon_nhan: "💞 Hôn nhân",
+  mai_hoa: "🌸 Mai Hoa", bat_tu: "🎋 Bát Tự", tu_vi: "🌌 Tử Vi", chieu_dom: "🪞 Chiếu Đởm",
+};
+function methodLabel(m) { return METHOD_LABEL[m] || m; }
+async function loadActivity() {
+  activityLoading.value = true; activityDetail.value = null;
+  try {
+    const qs = new URLSearchParams({ limit: "60" });
+    if (activityMethod.value) qs.set("method", activityMethod.value);
+    const r = await fetch(`/api/admin/activity?${qs}`, { headers: authHeaders(), credentials: "include" });
+    const d = await r.json();
+    if (d.status === "ok") activity.value = d.activity || [];
+  } finally { activityLoading.value = false; }
+}
+async function viewActivity(id) {
+  if (activityDetail.value && activityDetail.value.id === id) { activityDetail.value = null; return; }
+  try {
+    const r = await fetch(`/api/admin/activity/${id}`, { headers: authHeaders(), credentials: "include" });
+    const d = await r.json();
+    if (d.status === "ok") activityDetail.value = d;
+  } catch { /* ignore */ }
+}
+
 watch(subTab, (newTab) => {
   if (newTab === "dashboard" && !dashboardData.value) loadDashboard();
   if (newTab === "users" && !usersData.value.users.length) loadUsers();
   if (newTab === "audit" && !auditData.value.entries.length) loadAudit();
   if (newTab === "vip" && !vipSubscriptions.value.length && !vipCatalog.value.length) loadVipData();
   if (newTab === "xu" && !xuOverview.value) loadXuTab();
+  if (newTab === "activity" && !activity.value.length) loadActivity();
 }, { immediate: false });
 
 onMounted(() => {
@@ -590,6 +621,7 @@ const actionIcon = {
       <button :class="{ active: subTab === 'audit' }" @click="subTab = 'audit'">📜 Audit log</button>
       <button :class="{ active: subTab === 'vip' }" @click="subTab = 'vip'">✨ VIP & Subscriptions</button>
       <button :class="{ active: subTab === 'xu' }" @click="subTab = 'xu'">💰 Doanh thu / Xu</button>
+      <button :class="{ active: subTab === 'activity' }" @click="subTab = 'activity'">💬 Hỏi đáp</button>
     </nav>
 
     <!-- ─── DASHBOARD ─────────────────────────────────────────────────────── -->
@@ -1054,6 +1086,46 @@ const actionIcon = {
       </template>
     </section>
 
+    <!-- ─── 💬 NHẬT KÝ HỎI-ĐÁP (hoạt động user) ───────────────────────────── -->
+    <section v-if="subTab === 'activity'" class="ap-section">
+      <div class="ap-act-bar">
+        <select v-model="activityMethod" @change="loadActivity" class="ap-xu-in" style="width:auto">
+          <option value="">Tất cả phương pháp</option>
+          <option value="hermes_council">⚖️ Hội Đồng</option>
+          <option value="hermes_quick">💭 Hỏi nhanh</option>
+          <option value="cross_paradigm_couple_sync">💞 So đôi</option>
+          <option value="tu_vi">🌌 Tử Vi</option>
+          <option value="bat_tu">🎋 Bát Tự</option>
+          <option value="mai_hoa">🌸 Mai Hoa</option>
+        </select>
+        <button class="ap-btn-ghost ap-refresh" @click="loadActivity">🔄</button>
+        <small class="ap-act-note">Nhật ký lưu ở <code>user_castings</code> · chat nổi ở <code>sessions</code> · hội đồng ở <code>council_sessions</code></small>
+      </div>
+      <div v-if="activityLoading" class="ap-loading">Đang tải…</div>
+      <table class="ap-xu-tx" v-else>
+        <thead><tr><th>Khi</th><th>User</th><th>Phương pháp</th><th>Câu hỏi</th><th>Xu</th><th>Cờ</th></tr></thead>
+        <tbody>
+          <template v-for="a in activity" :key="a.id">
+            <tr class="ap-act-row" @click="viewActivity(a.id)">
+              <td><small>{{ fmtTime(a.created_at) }}</small></td>
+              <td><small>{{ a.email || ('#' + a.user_id) }}</small></td>
+              <td><small>{{ methodLabel(a.method) }}</small></td>
+              <td><small>{{ (a.question || '').slice(0, 64) }}</small></td>
+              <td><small class="xu-minus">{{ a.xu ? '-' + a.xu : '' }}</small></td>
+              <td><small>{{ a.verdict === 'paradigm_flag' ? '⚠' : '' }}</small></td>
+            </tr>
+            <tr v-if="activityDetail && activityDetail.id === a.id" :key="'d' + a.id">
+              <td colspan="6" class="ap-act-detail">
+                <div><b>Hỏi:</b> {{ activityDetail.question }}</div>
+                <div class="ap-act-answer"><b>Đáp:</b> {{ activityDetail.answer || '(không có nội dung văn bản — xem result_json)' }}</div>
+              </td>
+            </tr>
+          </template>
+          <tr v-if="!activity.length"><td colspan="6" class="ap-empty">Chưa có lượt hỏi-đáp</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <!-- ─── GRANT VIP MODAL ───────────────────────────────────────────────── -->
     <div v-if="vipGrantOpen" class="vip-modal-overlay" @click.self="vipGrantOpen = false">
       <div class="vip-modal">
@@ -1334,6 +1406,13 @@ const actionIcon = {
 .ap-refresh { font-size: 0.75rem; padding: 0.1rem 0.4rem; }
 .ap-promo-create { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.5rem 0; }
 .ap-promo-once { font-size: 0.8rem; color: #cbd5e1; display: flex; align-items: center; gap: 0.25rem; }
+.ap-act-bar { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.ap-act-note { color: #64748b; font-size: 0.74rem; }
+.ap-act-note code { background: #1e293b; padding: 0.05rem 0.3rem; border-radius: 3px; }
+.ap-act-row { cursor: pointer; }
+.ap-act-row:hover { background: rgba(148,163,184,0.08); }
+.ap-act-detail { background: #0f172a; padding: 0.6rem 0.8rem; font-size: 0.85rem; line-height: 1.6; }
+.ap-act-answer { margin-top: 0.4rem; white-space: pre-wrap; color: #cbd5e1; }
 .ap-list { list-style: none; padding: 0; margin: 0; }
 .ap-list li {
   padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b;
