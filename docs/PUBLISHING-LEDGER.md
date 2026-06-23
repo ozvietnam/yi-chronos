@@ -124,3 +124,12 @@ v2.0 thêm Stage 2 (planning), Stage 3 (routing), Stage 4 (4-way image handling)
 - **Web**: kinhdich.online → tab 💞 Gieo Duyên (GieoDuyenPanel.vue, đọc + tải PDF /GIEO-DUYEN.pdf)
 - **Nội dung**: ca điển hình lá số vợ chồng founder (ẩn danh) soi 3 hệ + chương phản biện đa chiều + kết KIM=GIA QUY (7 điều). Paradigm không-predict.
 - **Đồng tác giả**: Anh Thắng + YI-Chronos. Backlog: engine Hợp Hôn 3 hệ tương tác.
+
+## TỬ VI HOÀN TOÀN KHOA HỌC — Đọc Sâu 40 Vòng + Đại Tổng Hợp (2026-06-23)
+- **Status**: published (PDF ✅) — Bookflow Iron #5
+- **Edition**: v1.0 · 122 trang · 3607 KB · A4
+- **Files**: `data/published/Tu-Vi-Dang-Son-Doc-Sau-40-Vong-v1.0.pdf` (+ .html intermediate)
+- **Generator**: `data/yi_publishing/dang_son_doc_sau/compile_book.py` (pandoc + WeasyPrint; đồ hình cairosvg)
+- **Nội dung**: cover + TOC + Lời mở (paradigm khoa-học-hóa, 3 trụ + 9 định lý) + Đại tổng hợp lá số (đồ hình SVG) + **40 vòng** (T1 1-20 nền + T2 21-40 thần sát/Tuần Triệt) + colophon. Đọc đồng dạng, KHÔNG predict.
+- **Nguồn**: Đằng Sơn 《Tử Vi Hoàn Toàn Khoa Học》 T1+T2 (~738tr gốc). Wiki corpus `tuvi-dang-son` (270 concepts). 9 định lý kiểm máy (`engine/tu_vi/dang_son_verify.py`, 21 test).
+- **Đồng tác giả**: Đằng Sơn (nguyên tác) · Anh Thắng + Claude (đọc/dịch/đúc kết/biên soạn, YI-CHRONOS).
