@@ -198,10 +198,30 @@ def test_hoa_linh_engine_diverges_from_dang_son_at_ty_dau_suu():
     assert r["founder_thin_hoa_linh"] == ["Dần", "Tuất"]  # năm Thìn khớp CẢ 2 phái (tranh chấp chỉ ở Tỵ Dậu Sửu)
 
 
+def test_menh_than_chu_ch23():
+    # Tập 2 Ch.23 p278-279: Mệnh chủ (theo chi Mệnh) + Thân chủ (theo chi năm), bí kíp Trần Đoàn.
+    # Mệnh chủ Đằng Sơn: Tý=Tham Lang, Sửu/Hợi=Cự Môn, Dần/Tuất=Lộc Tồn, Mão/Dậu=Văn Khúc,
+    # Tỵ/Mùi=VŨ KHÚC, Thìn/Thân=Liêm Trinh, Ngọ=Phá Quân → khẳng định founder Mệnh Tỵ = VŨ KHÚC
+    # (KHÔNG Liêm Trinh như bảng VN sai). Thân chủ: Tý=LINH Tinh, Ngọ=Hỏa Tinh, Sửu/Mùi=Thiên Tướng,
+    # Dần/Thân=Thiên Lương, Mão/Dậu=Thiên Đồng, Tỵ/Hợi=Thiên Cơ, Thìn/Tuất=Văn Xương.
+    r = dsv.verify_menh_than_chu()
+    assert r["menh_chu_match"] == 12
+    assert r["menh_chu_follows_dang_son"] is True
+    assert r["founder_menh_chu"] == "Vũ Khúc"          # founder Mệnh Tỵ — KHÔNG phải Liêm Trinh
+    assert r["founder_than_chu"] == "Văn Xương"        # founder năm Thìn (khớp cả engine + Đằng Sơn)
+    # Thân chủ: engine LỆCH Đằng Sơn đúng 1 chỗ (Tý) — Linh Tinh vắng mặt toàn bảng = nghi BUG
+    assert r["than_chu_match"] == 11
+    assert r["than_chu_diverges_at"] == ["Tý"]
+    assert r["ty_than_chu_engine"] == "Hỏa Tinh"
+    assert r["ty_than_chu_dang_son"] == "Linh Tinh"
+    assert r["linh_tinh_missing_in_engine_table"] is True
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
                         "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
-                        "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong", "hoa_linh_school"}
+                        "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong", "hoa_linh_school",
+                        "menh_than_chu"}

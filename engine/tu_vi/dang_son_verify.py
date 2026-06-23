@@ -581,6 +581,48 @@ def verify_hoa_linh_school():
     }
 
 
+def verify_menh_than_chu():
+    """Định lý Mệnh chủ / Thân chủ (Tập 2 Ch.23 p278-279) — bí kíp Trần Đoàn, Iron #3.
+
+    Mệnh chủ an theo CHI MỆNH cung; Thân chủ an theo CHI NĂM. Bảng Đằng Sơn (≡ TVDSTT Q.2):
+    Mệnh chủ — Tý:Tham Lang · Sửu/Hợi:Cự Môn · Dần/Tuất:Lộc Tồn · Mão/Dậu:Văn Khúc · Tỵ/Mùi:VŨ KHÚC
+    · Thìn/Thân:Liêm Trinh · Ngọ:Phá Quân. → founder Mệnh Tỵ = VŨ KHÚC (KHÔNG Liêm Trinh — bảng VN sai).
+    Thân chủ — Tý:LINH Tinh · Ngọ:Hỏa Tinh · Sửu/Mùi:Thiên Tướng · Dần/Thân:Thiên Lương · Mão/Dậu:Thiên
+    Đồng · Tỵ/Hợi:Thiên Cơ · Thìn/Tuất:Văn Xương. ENGINE LỆCH ở Tý (engine=Hỏa Tinh, Đằng Sơn=Linh Tinh)
+    — Linh Tinh vắng mặt toàn bảng Thân chủ engine = nghi BUG sao chép (KHÔNG đụng founder năm Thìn=Văn Xương).
+    """
+    from engine.tu_vi import an_sao as _a
+
+    BR = _a.BRANCHES_TVI
+    MENH_CHU_DS = {
+        "Tý": "Tham Lang", "Sửu": "Cự Môn", "Hợi": "Cự Môn", "Dần": "Lộc Tồn", "Tuất": "Lộc Tồn",
+        "Mão": "Văn Khúc", "Dậu": "Văn Khúc", "Tỵ": "Vũ Khúc", "Mùi": "Vũ Khúc",
+        "Thìn": "Liêm Trinh", "Thân": "Liêm Trinh", "Ngọ": "Phá Quân",
+    }
+    THAN_CHU_DS = {
+        "Tý": "Linh Tinh", "Ngọ": "Hỏa Tinh", "Sửu": "Thiên Tướng", "Mùi": "Thiên Tướng",
+        "Dần": "Thiên Lương", "Thân": "Thiên Lương", "Mão": "Thiên Đồng", "Dậu": "Thiên Đồng",
+        "Tỵ": "Thiên Cơ", "Hợi": "Thiên Cơ", "Thìn": "Văn Xương", "Tuất": "Văn Xương",
+    }
+    menh_eng = {b: _a.menh_chu(BR.index(b)) for b in BR}
+    than_eng = {b: _a.than_chu(b) for b in BR}
+    menh_match = [b for b in BR if menh_eng[b] == MENH_CHU_DS[b]]
+    than_match = [b for b in BR if than_eng[b] == THAN_CHU_DS[b]]
+    than_div = sorted(b for b in BR if than_eng[b] != THAN_CHU_DS[b])
+    linh_missing = "Linh Tinh" not in set(than_eng.values())
+    return {
+        "menh_chu_match": len(menh_match),
+        "menh_chu_follows_dang_son": len(menh_match) == 12,
+        "founder_menh_chu": menh_eng["Tỵ"],
+        "founder_than_chu": than_eng["Thìn"],
+        "than_chu_match": len(than_match),
+        "than_chu_diverges_at": than_div,
+        "ty_than_chu_engine": than_eng["Tý"],
+        "ty_than_chu_dang_son": THAN_CHU_DS["Tý"],
+        "linh_tinh_missing_in_engine_table": linh_missing,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -596,6 +638,7 @@ def full_report():
         "dao_ma_cai_sat": verify_dao_ma_cai_sat(),
         "tu_mo_tu_duong": verify_tu_mo_tu_duong(),
         "hoa_linh_school": verify_hoa_linh_school(),
+        "menh_than_chu": verify_menh_than_chu(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }
