@@ -399,6 +399,7 @@ def natal_universe(
     lat: float = 21.03,
     lon: float = 105.85,
     tz_hours: float = 7.0,
+    year: int | None = None,
 ) -> dict[str, object]:
     """Lá số trên nền vũ trụ: bầu trời THẬT lúc sinh + địa bàn Tử Vi KÝ HIỆU.
 
@@ -414,7 +415,35 @@ def natal_universe(
     dt = datetime.fromisoformat(at.replace("Z", "+00:00"))
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone(timedelta(hours=tz_hours)))
-    return build_natal(dt, lat=lat, lon=lon)
+    return build_natal(dt, lat=lat, lon=lon, target_year=year)
+
+
+@app.get("/api/tu-vi/luu-nguyet")
+def tu_vi_luu_nguyet(
+    at: str,
+    lat: float = 21.03,
+    lon: float = 105.85,
+    tz_hours: float = 7.0,
+    year_start: int = 2026,
+    year_end: int = 2031,
+) -> dict[str, object]:
+    """NHỊP THÁNG (lưu nguyệt) đa-năm: mỗi tháng âm, Tứ Hóa tháng rọi cung chức nào.
+
+    La bàn chú-ý (Iron #4/#6/#8 — đọc đồng dạng, mệnh là động từ): cho biết cung
+    nào được cấu trúc rọi sáng từng tháng, KHÔNG phải bói kết cục.
+
+    Query params (giống /api/natal-universe):
+    - at: ISO 8601 giờ sinh ĐỊA PHƯƠNG. Có offset → dùng offset; không → áp tz_hours.
+    - lat, lon: nơi sinh (mặc định Hà Nội).
+    - tz_hours: múi giờ nếu `at` không có offset (mặc định +7).
+    - year_start, year_end: khoảng năm dương (bao gồm 2 đầu, chênh ≤ 30).
+    """
+    from engine.tu_vi.luu_nguyet import luu_nguyet_rhythm
+
+    dt = datetime.fromisoformat(at.replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone(timedelta(hours=tz_hours)))
+    return luu_nguyet_rhythm(dt, lat, lon, year_start, year_end)
 
 
 def _parse_birth_utc(birth_at: str) -> datetime:

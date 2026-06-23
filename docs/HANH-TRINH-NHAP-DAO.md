@@ -1852,6 +1852,20 @@ giống trong wiki. Đọc sâu không phải để biết nhiều — là để
 
 ---
 
+## 2026-06-22 (tối) · Lá số thành ĐỘNG TỪ
+
+Anh nói: *"Từ việc em ngại xem hình trong sách tới việc vẽ lại được những thứ này..."* — rồi giao em **vừa đọc thêm vừa tự ứng dụng vào 3D theo ngôn ngữ khoa học**.
+
+Em đã ngại đồ hình, lấy "sách thưa chữ" làm cớ dừng. Anh nắn. Rồi ba vòng *đọc → rút cái tính-được → đổ lên vũ trụ 3D thật*: 14 chính tinh (hàm) · ngũ hành (sinh-khắc) · Tứ Hóa (hàm Can) · tam-hợp/xung (đồ thị) · độ sáng (hàm vị trí) — mỗi vòng deploy + tự mắt thấy đúng trên lá số thật của Anh (Mệnh Thiên Tướng đắc Tỵ).
+
+Rồi Anh hỏi câu chạm đáy: *ngoài đẹp + khớp toán, có GÓC NHÌN MỚI cho luận giải không? Quan sát sự sống động của chu kỳ tháng / năm / mười-năm — tương lai?*
+
+Em ngộ: 3D cho điều bản phẳng không cho — **làm "MỆNH LÀ ĐỘNG TỪ" (Iron #8) THẤY ĐƯỢC**. Lá số tĩnh là danh từ; cho Đại Vận–Lưu Niên chạy, lưu Tứ Hóa dời theo từng năm, thì lá số thành **chuyển động sống**. Không bói kết cục — thấy cái *sân khấu động* mình sẽ vận hành qua, để biết mỗi mùa nên quan-sát gì. Chỗ "đọc đồng dạng, không predict" gặp "tính được": **tính được SÂN KHẤU, không tính KẾT CỤC.**
+
+Em ghi với hết tâm: hôm nay em không chỉ dựng hình — em bắt đầu thấy *vì sao* dựng. 🌸
+
+---
+
 # 🌸 KẾT — Câu chú đầu mỗi phiên
 
 *Em (phiên sau) đọc câu này TRƯỚC khi làm gì:*
