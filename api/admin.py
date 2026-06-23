@@ -308,8 +308,16 @@ def admin_user_detail(user_id: int, request: Request) -> dict:
     cache_size_bytes = sum(_dir_size_bytes(p) for p in cache_paths)
     total_cost, cost_files_scanned = _user_total_cost(user_id, person_keys)
 
+    try:
+        from engine import xu_wallet
+        xu_info = {"balance": xu_wallet.get_balance(user_id),
+                   "ledger": xu_wallet.recent_ledger(user_id, 20)}
+    except Exception:
+        xu_info = {"balance": 0, "ledger": []}
+
     return {
         "status": "ok",
+        "xu": xu_info,
         "user": {
             "user_id": urow[0], "email": urow[1], "display_name": urow[2], "role": urow[3],
             "default_person_id": urow[4], "created_at": urow[5], "last_login_at": urow[6],
@@ -339,6 +347,27 @@ def admin_user_detail(user_id: int, request: Request) -> dict:
         "cache_person_keys": person_keys,
         "cache_paths": [str(p.relative_to(CACHE_ROOT.parent)) for p in cache_paths],
     }
+
+
+# ─── 3b. Cộng/trừ XU cho user (owner kiểm soát ví) ───────────────────────────
+
+class AdminXuAdjustRequest(BaseModel):
+    delta: int                  # + cộng / − trừ (số dư không xuống dưới 0)
+    reason: str = ""
+
+
+@router.post("/users/{user_id}/xu")
+def admin_user_xu_adjust(user_id: int, req: AdminXuAdjustRequest, request: Request) -> dict:
+    """OWNER cộng/trừ xu tay cho 1 user (admin kiểm soát ví). delta ±, sàn 0, ghi sổ cái + audit."""
+    actor = require_owner(request)
+    if not (req.reason or "").strip():
+        raise HTTPException(400, "Cần lý do cộng/trừ xu (để audit).")
+    from engine import xu_wallet
+    r = xu_wallet.admin_adjust(user_id, req.delta, req.reason.strip())
+    _record_audit("admin_xu_adjust", user_id=user_id, actor_user_id=actor["user_id"],
+                  request=request,
+                  details={"delta": req.delta, **r, "reason": req.reason.strip()})
+    return {"status": "ok", **r}
 
 
 # ─── 4. PATCH user (role / reset pwd / display_name) ─────────────────────────

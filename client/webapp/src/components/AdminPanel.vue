@@ -61,6 +61,28 @@ const userOffset = ref(0);
 const selectedUserId = ref(null);
 const userDetail = ref(null);
 const userDetailLoading = ref(false);
+// ── Xu: owner cộng/trừ ví user ──
+const xuDelta = ref(null);
+const xuReason = ref("");
+const xuBusy = ref(false);
+const xuMsg = ref("");
+async function adjustXu(userId) {
+  if (!xuDelta.value) return;
+  if (!xuReason.value.trim()) { xuMsg.value = "Cần lý do (audit)."; return; }
+  xuBusy.value = true; xuMsg.value = "";
+  try {
+    const r = await fetch(`/api/admin/users/${userId}/xu`, {
+      method: "POST", headers: authHeaders(), credentials: "include",
+      body: JSON.stringify({ delta: xuDelta.value, reason: xuReason.value.trim() }),
+    });
+    const d = await r.json();
+    if (!r.ok) { xuMsg.value = d.detail || `Lỗi ${r.status}`; return; }
+    xuMsg.value = `Đã ${d.delta_applied >= 0 ? "cộng" : "trừ"} ${Math.abs(d.delta_applied)} xu → số dư ${d.balance}.`;
+    xuDelta.value = null; xuReason.value = "";
+    await openUserDetail(userId);   // refresh số dư + sổ cái
+  } catch (e) { xuMsg.value = String(e.message || e); }
+  finally { xuBusy.value = false; }
+}
 const selectedUserIds = ref(new Set());
 const bulkAction = ref("clear_cache");
 const bulkBusy = ref(false);
@@ -726,6 +748,25 @@ const actionIcon = {
                 </button>
               </div>
 
+              <h4>🪙 Ví Xu — số dư <b>{{ userDetail.xu?.balance ?? 0 }}</b> xu</h4>
+              <div class="ap-xu-adjust">
+                <input type="number" v-model.number="xuDelta" placeholder="± xu (vd 50 / -20)" class="ap-xu-in" />
+                <input v-model="xuReason" placeholder="Lý do (bắt buộc — audit)" class="ap-xu-in ap-xu-reason" />
+                <button class="ap-btn-warn" :disabled="xuBusy || !xuDelta" @click="adjustXu(userDetail.user.user_id)">
+                  {{ xuBusy ? '…' : 'Cộng/Trừ xu' }}
+                </button>
+              </div>
+              <p v-if="xuMsg" class="ap-xu-msg">{{ xuMsg }}</p>
+              <details v-if="userDetail.xu?.ledger?.length" class="ap-xu-ledger">
+                <summary>Lịch sử xu ({{ userDetail.xu.ledger.length }})</summary>
+                <ul class="ap-list">
+                  <li v-for="(l,i) in userDetail.xu.ledger" :key="i">
+                    <strong :class="l.delta >= 0 ? 'xu-plus' : 'xu-minus'">{{ l.delta >= 0 ? '+' : '' }}{{ l.delta }}</strong>
+                    <small>→ {{ l.balance_after }} · {{ l.reason }} · {{ fmtTime(l.ts) }}</small>
+                  </li>
+                </ul>
+              </details>
+
               <h4>👥 Persons ({{ userDetail.persons.length }})</h4>
               <ul class="ap-list">
                 <li v-for="p in userDetail.persons" :key="p.id">
@@ -1130,6 +1171,15 @@ const actionIcon = {
 .ap-quick-actions button {
   padding: 0.4rem 0.7rem; border-radius: 4px; cursor: pointer; font-size: 0.82rem;
 }
+.ap-xu-adjust { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; margin: 0.5rem 0; }
+.ap-xu-in { padding: 0.4rem 0.6rem; border-radius: 4px; border: 1px solid #334155;
+  background: #0f172a; color: #e2e8f0; font-size: 0.85rem; width: 150px; }
+.ap-xu-reason { flex: 1; min-width: 160px; width: auto; }
+.ap-xu-msg { font-size: 0.82rem; color: #86efac; margin: 0.3rem 0; }
+.ap-xu-ledger { margin: 0.5rem 0; font-size: 0.85rem; }
+.ap-xu-ledger summary { cursor: pointer; color: #94a3b8; }
+.xu-plus { color: #86efac; }
+.xu-minus { color: #fca5a5; }
 .ap-list { list-style: none; padding: 0; margin: 0; }
 .ap-list li {
   padding: 0.35rem 0.5rem; border-bottom: 1px solid #1e293b;

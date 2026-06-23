@@ -137,6 +137,36 @@ def get_balance(user_id: int) -> int:
         return _read_balance(conn, user_id)
 
 
+def recent_ledger(user_id: int, limit: int = 20) -> list[dict]:
+    """Sổ cái xu gần đây của 1 user (cho admin xem lịch sử cộng/trừ)."""
+    with session_scope(service=True) as conn:
+        _ensure(conn)
+        rows = conn.execute(
+            text("""SELECT ts, day, delta, reason, balance_after, ref FROM xu_ledger
+                    WHERE user_id=:u ORDER BY ts DESC LIMIT :n"""),
+            {"u": int(user_id), "n": int(limit)},
+        ).fetchall()
+    return [{"ts": r[0], "day": r[1], "delta": int(r[2]), "reason": r[3],
+             "balance_after": int(r[4]), "ref": r[5]} for r in rows]
+
+
+def admin_adjust(user_id: int, delta: int, reason: str) -> dict:
+    """OWNER cộng/trừ xu tay (admin). `delta` ±; số dư KHÔNG xuống dưới 0. Ghi sổ cái
+    reason='admin:<reason>'. Trả {balance, delta_applied}. (grant chỉ cộng >0 — đây mới ±.)"""
+    delta = int(delta)
+    if delta == 0:
+        return {"balance": get_balance(user_id), "delta_applied": 0}
+    with session_scope(service=True) as conn:
+        _ensure(conn)
+        _lock(conn, user_id)
+        bal = _read_balance(conn, user_id)
+        new_bal = max(0, bal + delta)
+        applied = new_bal - bal
+        _write(conn, user_id, new_bal)
+        _ledger(conn, user_id, applied, (f"admin:{reason}")[:120], new_bal, None)
+    return {"balance": new_bal, "delta_applied": applied}
+
+
 def grant(user_id: int, amount: int, reason: str, ref: Optional[str] = None) -> int:
     """Cộng xu (tặng/nạp). Trả số dư mới. amount phải > 0.
 
