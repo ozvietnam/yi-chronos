@@ -3,6 +3,15 @@
 Nguồn: `data/yi_publishing/q1_tuvi/master/cach_cuc_index.json`
 Build từ Phú Thái Vi (Quyển 1 — Tử Vi Đẩu Số Toàn Thư của Trần Đoàn).
 
+⚠️ ĐỌC THỜI-THẾ-AWARE (Đằng Sơn, Tử Vi Hoàn Toàn Khoa Học Tập 1 Ch.7, đọc 2026-06-23):
+   Nhiều cách cục MANG THỜI-THẾ PHONG KIẾN trong lời phán → KHÔNG còn đúng literal.
+   VD kinh điển: "Tử Phá mộ cung (Sửu/Mùi) bất trung bất hiếu" = phán thời quân chủ
+   chuyên chế (tam cương ngũ thường ép cứng → ai nghịch truyền thống = phản loạn). NAY
+   Tử Phá = khuynh hướng đi-ngược-xã-hội: xã hội ổn định→khó đắc ý, hỗn loạn→dễ đắc ý.
+   → Cách phán ĐẠO ĐỨC phong kiến (bất trung/bất hiếu/dâm/yểu…) phải đọc theo BỐI CẢNH
+   + cá-nhân-hóa (đại-thể→tiểu-thể, Iron #4/#6), KHÔNG áp thẳng làm bản án. Caller hiển
+   thị cách cục NÊN kèm cờ cảnh báo này cho cách mang phán-đạo-đức.
+
 Sử dụng:
     from engine.tu_vi.cach_cuc_dict import load_dictionary, lookup_by_name, match_cach_in_chart
 
