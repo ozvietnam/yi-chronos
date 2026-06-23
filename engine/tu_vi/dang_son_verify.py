@@ -623,6 +623,46 @@ def verify_menh_than_chu():
     }
 
 
+def verify_tuan_triet():
+    """Định lý Tuần Triệt (Tập 2 Ch.24-25) — không vong.
+
+    Tuần ("Tuần trung không vong") = 2 chi ngoài chu kỳ thiên can của lục-giáp-tuần chứa năm sinh
+    (Thiên-Địa trái cựa → "không vong"; tài Thiên-Địa, "phản Thái Tuế"). Triệt ("Triệt lộ không vong")
+    = không vong của THÁNG, an theo can năm (Bảng 2 Đằng Sơn): Giáp Kỷ→Thân Dậu · Ất Canh→Ngọ Mùi ·
+    Bính Tân→Thìn Tỵ · Đinh Nhâm→Dần Mão · Mậu Quý→Tý Sửu. ĐỊNH LÝ (tr.294): THÁI TUẾ KHÔNG BAO GIỜ
+    bị Tuần xâm phạm (chi năm ∉ Tuần, vì chi năm nằm TRONG tuần còn không-vong là 2 chi DƯ).
+    Founder Mậu Thìn → Triệt Tý-Sửu (Tật Ách-Tài Bạch), Tuần Tuất-Hợi (Nô Bộc-Thiên Di) → Mệnh Tỵ THÔNG
+    (ngoài cả hai); Thiên Di Hợi (Phá Quân + Không Kiếp) NẰM TRONG Tuần → xung-phá bị không-vong-hóa.
+    """
+    from engine.tu_vi import an_sao as _a, sao_q3
+
+    BR = _a.BRANCHES_TVI
+    STEMS = _a.STEMS_TVI
+    TRIET_DS = {
+        "Giáp": {"Thân", "Dậu"}, "Kỷ": {"Thân", "Dậu"}, "Ất": {"Ngọ", "Mùi"}, "Canh": {"Ngọ", "Mùi"},
+        "Bính": {"Thìn", "Tỵ"}, "Tân": {"Thìn", "Tỵ"}, "Đinh": {"Dần", "Mão"}, "Nhâm": {"Dần", "Mão"},
+        "Mậu": {"Tý", "Sửu"}, "Quý": {"Tý", "Sửu"},
+    }
+    triet_match = [s for s in STEMS if {BR[i] for i in sao_q3.triet(s)} == TRIET_DS[s]]
+    never = True
+    for k in range(60):                                   # 60 lục giáp năm
+        stem, branch_idx = STEMS[k % 10], k % 12
+        if branch_idx in sao_q3.tuan(stem, BR[branch_idx]):
+            never = False
+            break
+    ftriet = {BR[i] for i in sao_q3.triet("Mậu")}
+    ftuan = {BR[i] for i in sao_q3.tuan("Mậu", "Thìn")}
+    return {
+        "triet_match": len(triet_match),
+        "triet_follows_dang_son": len(triet_match) == 10,
+        "thai_tue_never_in_tuan": never,
+        "founder_triet": sorted(ftriet),
+        "founder_tuan": sorted(ftuan),
+        "menh_clear_of_both": "Tỵ" not in (ftriet | ftuan),
+        "thien_di_in_tuan": "Hợi" in ftuan,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -639,6 +679,7 @@ def full_report():
         "tu_mo_tu_duong": verify_tu_mo_tu_duong(),
         "hoa_linh_school": verify_hoa_linh_school(),
         "menh_than_chu": verify_menh_than_chu(),
+        "tuan_triet": verify_tuan_triet(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

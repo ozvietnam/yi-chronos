@@ -217,6 +217,21 @@ def test_menh_than_chu_ch23():
     assert r["linh_tinh_missing_in_engine_table"] is True
 
 
+def test_tuan_triet_ch24_ch25():
+    # Tập 2 Ch.24-25: Tuần = không vong của NĂM (2 chi ngoài chu kỳ thiên can lục-giáp-tuần, tài Thiên-Địa,
+    # "phản Thái Tuế"); Triệt = không vong của THÁNG (an theo can năm). Triệt Đằng Sơn Bảng 2: Giáp Kỷ→Thân Dậu,
+    # Ất Canh→Ngọ Mùi, Bính Tân→Thìn Tỵ, Đinh Nhâm→Dần Mão, Mậu Quý→Tý Sửu. ĐỊNH LÝ (tr.294): THÁI TUẾ
+    # KHÔNG BAO GIỜ bị Tuần xâm phạm. Founder Mậu Thìn → Triệt Tý-Sửu, Tuần Tuất-Hợi; Mệnh Tỵ THÔNG.
+    r = dsv.verify_tuan_triet()
+    assert r["triet_match"] == 10
+    assert r["triet_follows_dang_son"] is True
+    assert r["thai_tue_never_in_tuan"] is True          # định lý Đằng Sơn p294 (cả 60 lục giáp)
+    assert r["founder_triet"] == ["Sửu", "Tý"]          # Tật Ách + Tài Bạch
+    assert r["founder_tuan"] == ["Hợi", "Tuất"]         # Thiên Di + Nô Bộc
+    assert r["menh_clear_of_both"] is True              # Mệnh Tỵ ngoài cả Tuần lẫn Triệt
+    assert r["thien_di_in_tuan"] is True                # Thiên Di Hợi (Phá Quân Không Kiếp) bị không-vong-hóa
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
@@ -224,4 +239,4 @@ def test_report_runs_end_to_end():
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
                         "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
                         "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong", "hoa_linh_school",
-                        "menh_than_chu"}
+                        "menh_than_chu", "tuan_triet"}
