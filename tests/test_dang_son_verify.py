@@ -182,10 +182,26 @@ def test_tu_mo_tu_duong_config_ch19():
     assert r["founder_corner"] == "Tỵ"               # năm Thìn → góc tu-dưỡng = Mệnh Tỵ
 
 
+def test_hoa_linh_engine_diverges_from_dang_son_at_ty_dau_suu():
+    # Tập 2 Ch.20-21: Iron #3 — CHỖ ĐẦU TIÊN engine KHÔNG theo phái Đằng Sơn (ghi nhận trung thực,
+    # KHÔNG ép sửa). Bài thiệu truyền thống: Tỵ Dậu Sửu → Hỏa Mão, Linh Tuất. Đằng Sơn suy lại từ
+    # thủy-hỏa giao thoa (trùng Tạ Phồn Trị) ĐẢO riêng Tỵ Dậu Sửu → Hỏa Tuất, Linh Mão. Engine theo
+    # TRUYỀN THỐNG. Về giờ: engine cộng h cho cả Hỏa+Linh (thuận-thuận = phái Hán/thiên-văn).
+    r = dsv.verify_hoa_linh_school()
+    assert r["match_traditional"] == 12
+    assert r["engine_follows_traditional"] is True
+    assert r["match_dang_son_correction"] == 9          # 3 năm Tỵ Dậu Sửu khác Đằng Sơn
+    assert r["diverges_from_dang_son_at"] == ["Dậu", "Sửu", "Tỵ"]
+    assert r["ty_dau_suu_engine"] == ["Mão", "Tuất"]    # engine = truyền thống
+    assert r["ty_dau_suu_dang_son"] == ["Tuất", "Mão"]  # Đằng Sơn/Tạ Phồn Trị đảo
+    assert r["gio_both_thuan_han_school"] is True        # giờ: cả 2 sao thuận = phái Hán/thiên-văn
+    assert r["founder_thin_hoa_linh"] == ["Dần", "Tuất"]  # năm Thìn khớp CẢ 2 phái (tranh chấp chỉ ở Tỵ Dậu Sửu)
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
                         "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
                         "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
-                        "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong"}
+                        "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong", "hoa_linh_school"}

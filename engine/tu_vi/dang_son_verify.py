@@ -542,6 +542,45 @@ def verify_tu_mo_tu_duong():
     }
 
 
+def verify_hoa_linh_school():
+    """Định lý Hỏa Linh (Tập 2 Ch.20-21) — Iron #3 đa phái. CHỖ ĐẦU TIÊN engine KHÔNG theo phái
+    Đằng Sơn (ghi nhận TRUNG THỰC, KHÔNG ép sửa — multi-school respect, present cho founder duyệt).
+
+    Bài thiệu TRUYỀN THỐNG (Hỏa, Linh) tại cung khởi: Dần Ngọ Tuất→(Sửu,Mão) · Thân Tý Thìn→(Dần,Tuất)
+    · Tỵ Dậu Sửu→(Mão,Tuất) · Hợi Mão Mùi→(Dậu,Tuất). Đằng Sơn suy lại từ thủy-hỏa giao thoa
+    (trùng Tạ Phồn Trị): ĐẢO riêng Tỵ Dậu Sửu → (Tuất, Mão). Engine `hoa_linh_tinh` theo TRUYỀN THỐNG.
+    Về GIỜ: engine cộng h cho CẢ Hỏa+Linh (thuận-thuận = phái Hán/thiên-văn — Đằng Sơn cho là chuẩn
+    thiên-văn nhất, dù bản thân tạm dùng VN thuận-nghịch). Founder năm Thìn → Hỏa Dần, Linh Tuất:
+    KHỚP cả 2 phái (tranh chấp chỉ ở Tỵ Dậu Sửu).
+    """
+    from engine.tu_vi import an_sao as _a
+
+    BR = _a.BRANCHES_TVI
+    TRAD = {
+        "Dần": ("Sửu", "Mão"), "Ngọ": ("Sửu", "Mão"), "Tuất": ("Sửu", "Mão"),
+        "Thân": ("Dần", "Tuất"), "Tý": ("Dần", "Tuất"), "Thìn": ("Dần", "Tuất"),
+        "Tỵ": ("Mão", "Tuất"), "Dậu": ("Mão", "Tuất"), "Sửu": ("Mão", "Tuất"),
+        "Hợi": ("Dậu", "Tuất"), "Mão": ("Dậu", "Tuất"), "Mùi": ("Dậu", "Tuất"),
+    }
+    DANGSON = {**TRAD, "Tỵ": ("Tuất", "Mão"), "Dậu": ("Tuất", "Mão"), "Sửu": ("Tuất", "Mão")}
+    eng = {yb: tuple(BR[i] for i in _a.hoa_linh_tinh(yb, 1)) for yb in BR}   # giờ Tý → h=0
+    match_trad = [yb for yb in BR if eng[yb] == TRAD[yb]]
+    match_ds = [yb for yb in BR if eng[yb] == DANGSON[yb]]
+    tds = ("Tỵ", "Dậu", "Sửu")
+    e1, e2 = _a.hoa_linh_tinh("Tý", 1), _a.hoa_linh_tinh("Tý", 2)            # h: 0 vs 1
+    both_thuan = ((e2[0] - e1[0]) % 12 == 1) and ((e2[1] - e1[1]) % 12 == 1)
+    return {
+        "match_traditional": len(match_trad),
+        "match_dang_son_correction": len(match_ds),
+        "engine_follows_traditional": len(match_trad) == 12,
+        "diverges_from_dang_son_at": sorted(yb for yb in tds if eng[yb] != DANGSON[yb]),
+        "ty_dau_suu_engine": list(eng["Tỵ"]),
+        "ty_dau_suu_dang_son": list(DANGSON["Tỵ"]),
+        "gio_both_thuan_han_school": both_thuan,
+        "founder_thin_hoa_linh": list(eng["Thìn"]),
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -556,6 +595,7 @@ def full_report():
         "khoi_viet_school": verify_khoi_viet_school(),
         "dao_ma_cai_sat": verify_dao_ma_cai_sat(),
         "tu_mo_tu_duong": verify_tu_mo_tu_duong(),
+        "hoa_linh_school": verify_hoa_linh_school(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }
