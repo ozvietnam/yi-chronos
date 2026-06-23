@@ -168,6 +168,11 @@ def verify_brightness_relation():
     Vòng 2 cho thấy mô hình này (r≈0.20) > Trường Sinh (r≈0.18), và độ sáng trung
     bình mỗi nhóm xếp ĐÚNG hướng — nhưng vẫn yếu: bảng miếu-hãm giữ nội dung
     truyền-thống bất-khả-suy ngoài luật ngũ hành thuần.
+
+    📖 BẢN FULL xác nhận (Đằng Sơn Tập 1 tr.18, đọc 2026-06-23): "ngũ hành là một
+    phép tính GẦN ĐÚNG của bài toán âm dương" (ngũ giác ≈ vòng tròn). → r≈0.20 yếu
+    KHÔNG phải engine sai, mà vì CHÍNH ngũ-hành là xấp xỉ ⇒ độ sáng vốn bất-khả-khít.
+    Lời sách ↔ kết quả máy khép vòng.
     """
     from collections import defaultdict
     m = json.loads((_DATA / "mieu_vuong_ham.json").read_text(encoding="utf-8"))
