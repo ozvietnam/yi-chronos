@@ -632,7 +632,7 @@ def menh_chu(menh_branch_idx: int) -> str:
 # Thân chủ: chọn theo địa chi năm sinh
 # Source: TVDSTT Q.2 - An Thân chủ quyết
 _THAN_CHU_BY_YEAR_BRANCH: dict[int, str] = {
-    B["Tý"]:   "Hỏa Tinh",
+    B["Tý"]:   "Linh Tinh",
     B["Sửu"]:  "Thiên Tướng",
     B["Dần"]:  "Thiên Lương",
     B["Mão"]:  "Thiên Đồng",

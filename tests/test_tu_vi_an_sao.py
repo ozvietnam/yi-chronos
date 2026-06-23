@@ -27,6 +27,7 @@ from engine.tu_vi.an_sao import (
     loc_ton,
     place_14_chinh_tinh,
     ta_phu,
+    than_chu,
     thien_khoi_viet,
     thien_phu_position,
     tieu_han_for_age,
@@ -395,3 +396,34 @@ def test_api_tu_vi_cast_datetime_mode():
     assert "input_resolved" in payload
     # Hour 10 → Tỵ (09:00-11:00).
     assert payload["input_resolved"]["hour_branch"] == "Tỵ"
+
+
+# ─── Thân chủ (An Thân chủ quyết, TVDSTT Q.2) ─────────────────────────────────
+
+
+def test_than_chu_ty_is_linh_tinh():
+    """Thân chủ năm Tý = LINH TINH (KHÔNG phải Hỏa Tinh).
+
+    Tử Vi Đẩu Số Toàn Thư Q.2 (An Thân chủ quyết) + Đằng Sơn _Tử Vi Hoàn Toàn
+    Khoa Học_ T2 tr.279: "Tý Ngọ sinh nhân Linh Hỏa tú" → năm Tý ⇒ Linh Tinh,
+    năm Ngọ ⇒ Hỏa Tinh. Bug sao chép cũ để Tý = "Hỏa Tinh" (trùng Ngọ).
+    """
+    assert than_chu("Tý") == "Linh Tinh"
+    assert than_chu("Ngọ") == "Hỏa Tinh"   # giữ nguyên — KHÔNG đổi
+
+
+def test_than_chu_full_table_matches_classical():
+    """Toàn bảng 12 chi Thân chủ khớp TVDSTT Q.2 / Đằng Sơn; "Linh Tinh" PHẢI hiện diện.
+
+    Bằng chứng chống bug sao chép: nếu "Linh Tinh" vắng mặt mà "Hỏa Tinh" xuất hiện
+    2 lần (Tý+Ngọ) thì bảng sai. Founder năm Thìn = Văn Xương (không đụng tới).
+    """
+    expected = {
+        "Tý": "Linh Tinh", "Sửu": "Thiên Tướng", "Dần": "Thiên Lương",
+        "Mão": "Thiên Đồng", "Thìn": "Văn Xương", "Tỵ": "Thiên Cơ",
+        "Ngọ": "Hỏa Tinh", "Mùi": "Thiên Tướng", "Thân": "Thiên Lương",
+        "Dậu": "Thiên Đồng", "Tuất": "Văn Xương", "Hợi": "Thiên Cơ",
+    }
+    got = {b: than_chu(b) for b in expected}
+    assert got == expected
+    assert "Linh Tinh" in got.values()
