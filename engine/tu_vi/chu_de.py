@@ -73,13 +73,13 @@ def gom_chu_de(chu_de: str, la_so_input: dict, three_layer: dict) -> dict | None
         atoms = []
         for star, cv in (pd.get("cross_views") or {}).items():
             for school, ats in (cv.get("schools") or {}).items():
-                for a in ats[:1]:
+                for a in ats[:2]:  # 2 atom/phái/sao (trước: 1) → dày dẫn chứng
                     vt = a.get("viet_thuan") or a.get("source_quote")
                     if vt:
                         atoms.append({"sao": star, "school": school,
-                                      "atom_id": a.get("atom_id"), "text": vt[:200]})
+                                      "atom_id": a.get("atom_id"), "text": vt[:360]})
         cung_data.append({"cung": cung, "cung_vi": _CUNG_VI.get(cung, cung),
-                          "la_chinh": cung == spec["cung_chinh"], "sao": sao, "atoms": atoms[:6]})
+                          "la_chinh": cung == spec["cung_chinh"], "sao": sao, "atoms": atoms[:10]})
 
     # Bộ phụ tinh của các cung liên quan (qua chi)
     bo_lq = []
@@ -154,7 +154,7 @@ def gom_chu_de_sau(chu_de: str, la_so_input: dict, three_layer: dict,
                     if vt:
                         tru_views.append({
                             "phai_code": code, "xuat_xu": xx, "atom_id": a.get("atom_id"),
-                            "text": vt[:280], "page": a.get("page_start"),
+                            "text": vt[:480], "page": a.get("page_start"),
                         })
             if not tru_views:
                 continue

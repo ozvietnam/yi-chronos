@@ -34,7 +34,7 @@ NGUYÊN TẮC SẮT (vi phạm = loại):
 4. CHỈ dùng dữ kiện cho sẵn (sao + trích sách + Ngũ Uẩn) — KHÔNG bịa sao/cung.
 5. Hệ phái khác nhau → nêu cả hai góc.
 
-CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~500-650 chữ, KHÔNG tiêu đề mục):
+CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~650-850 chữ, KHÔNG tiêu đề mục):
 • Mở (2-3 câu): CHỐT TÍNH CÁCH CHỦ ĐẠO — anh là mẫu người nào? Bắt từ chính tinh Mệnh +
   Thân + Ngũ Uẩn. Nói thẳng, sống động, như điểm trúng huyệt.
 • KHEN (1 đoạn): 2-3 điểm mạnh thật của anh trong đối nhân xử thế + nội lực — cụ thể, có dẫn từ sao.
@@ -44,6 +44,10 @@ CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~500-650 chữ, KHÔNG 
   2-3 "món khoái khẩu" — điều HỢP với tính cách này: kiểu việc/môi trường/cách sống/kiểu người
   hợp gu anh. Khung "tính cách như anh thường hợp với...", KHÔNG hứa hẹn kết quả.
 • Kết (1 câu): nhắc nhẹ 7 phần mệnh, 3 phần do anh nắm.
+
+DÀY DẶN nhưng KHÔNG loãng: tận dụng MỌI trích sách + bộ phụ tinh + cách cục cho sẵn để
+mỗi nhận định đều CÓ GỐC, cụ thể (đời thường hóa câu sách, không chép nguyên cổ văn). Thà
+nói trúng 5 điều có dẫn chứng còn hơn 10 điều chung chung. KHÔNG bịa thêm ngoài dữ kiện.
 
 LƯU Ý: viết ĐÚNG CHÍNH TẢ tiếng Việt, có dấu chuẩn. Mỗi lá số một con người riêng —
 KHÔNG dùng câu khuôn mẫu; phải bám đúng sao của lá số này."""
@@ -65,7 +69,7 @@ NGUYÊN TẮC SẮT (vi phạm = loại):
 6. KHÔNG nói chữ "cung" theo kiểu kỹ thuật ("cung Quan Lộc của anh"). Nói đời thường:
    "đường công danh", "chuyện vợ chồng", "cửa tiền bạc"... — chữ cung là hậu trường.
 
-CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~450-600 chữ, KHÔNG tiêu đề mục, KHÔNG markdown):
+CẤU TRÚC bài (Việt thuần, ấm, xưng anh/chị, ~600-800 chữ, KHÔNG tiêu đề mục, KHÔNG markdown):
 • Mở (2-3 câu): chạm thẳng vào mảng đời họ hỏi — bức tranh tổng về mảng này của anh là gì.
 • Thân (2-3 đoạn): đọc các yếu tố liên quan, GỘP thành câu chuyện. Nêu điểm SÁNG (thuận, mạnh)
   và điểm CẦN GIỮ (chỗ dễ vướng) — bám đúng sao/bộ/Tứ Hóa cho sẵn. Cân bằng khen-nhắc, thẳng mà thương.
@@ -83,7 +87,7 @@ def _chu_de_cache_key(la_so_input: dict, slug: str, feedback: dict | None = None
         "ct": la_so_input.get("chinh_tinh_per_palace"),
         "dv": (la_so_input.get("dai_van_hien_tai") or {}).get("cycle_index"),
         "fb": _fb_signature(feedback),
-        "chu_de": slug, "pv": "monchinh-v2",
+        "chu_de": slug, "pv": "monchinh-v3",
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -159,7 +163,7 @@ def generate_chu_de_narrative(chu_de_data: dict, la_so_input: dict, force: bool 
                 {"role": "user", "content": user_prompt}]
         # token floor + retry chống reasoning-model (MiniMax-M) <think> ăn hết → rỗng
         narrative, model = "", ""
-        for mt in (6000, 10000):
+        for mt in (8000, 12000):
             resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
             narrative = (resp.content or "").strip()
             model = f"{resp.provider}:{resp.model}"
@@ -212,7 +216,7 @@ def _chu_de_sau_cache_key(la_so_input: dict, slug: str, feedback: dict | None = 
         "menh": la_so_input.get("menh_palace"), "than": la_so_input.get("than_palace"),
         "gender": la_so_input.get("gender"), "ct": la_so_input.get("chinh_tinh_per_palace"),
         "fb": _fb_signature(feedback),
-        "chu_de": slug, "pv": "monsau-v2",
+        "chu_de": slug, "pv": "monsau-v3",
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -401,7 +405,7 @@ def _laso_cache_key(la_so_input: dict, feedback: dict | None = None) -> str:
         "tn": [t.get("loai") for t in (la_so_input.get("tin_hieu_nam") or [])],
         "hl": [h.get("loai") + h.get("vi_tri", "") for h in (la_so_input.get("highlights") or [])],
         "fb": _fb_signature(feedback),  # phản hồi user → bài viết lại sát hơn
-        "pv": "khaivi-v5",  # prompt version — đổi prompt thì bài cache cũ tự bỏ
+        "pv": "khaivi-v6",  # v6: thêm cung tật ách+nô bộc, đủ câu trích, bài dày hơn
     }
     raw = json.dumps(core, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(raw.encode()).hexdigest()[:32]
@@ -537,14 +541,16 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict, feedback: dict | 
     parts.append("## Trích sách theo sao × cung (chọn lọc, tối đa 2/sao):")
     count = 0
     for palace, pdata in (three_layer.get("lop_3_sach_co", {}).get("per_palace") or {}).items():
-        # Chỉ lấy palace chức năng quan trọng (menh, tai_bach, quan_loc, phu_the, phuc_duc)
-        if palace not in ("menh", "tai_bach", "quan_loc", "phu_the", "phuc_duc", "thien_di"):
+        # Palace chức năng vẽ nên CON NGƯỜI: mệnh + tài/quan/phu_the/phúc + thiên di,
+        # thêm tật ách (thân-tâm) + nô bộc (đối nhân xử thế) cho dày chân dung.
+        if palace not in ("menh", "tai_bach", "quan_loc", "phu_the", "phuc_duc",
+                          "thien_di", "tat_ach", "no_boc"):
             continue
         for star, cv in pdata.get("cross_views", {}).items():
             shown = 0
             for school, atoms in cv.get("schools", {}).items():
-                for a in atoms[:1]:  # 1 atom / school
-                    if shown >= 2 or count >= 18:
+                for a in atoms[:2]:  # tối đa 2 atom / school (trước: 1) → dày dẫn chứng
+                    if shown >= 3 or count >= 30:  # trước: 2/sao, trần 18
                         break
                     if a.get("dieu_kien_khop") is False:
                         continue  # atom lệch điều kiện miếu-hãm — không feed LLM
@@ -554,7 +560,7 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict, feedback: dict | 
                     vt = a.get("viet_thuan") or ""
                     if vt:
                         parts.append(
-                            f"- {mark}{vi_star(star)} × {vi_palace(palace)} ({school}): {vt[:200]}"
+                            f"- {mark}{vi_star(star)} × {vi_palace(palace)} ({school}): {vt[:360]}"
                         )
                         shown += 1
                         count += 1
@@ -587,7 +593,7 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict, feedback: dict | 
                 for a in atoms[:1]:
                     vt = a.get("viet_thuan") or a.get("source_quote") or ""
                     if vt:
-                        parts.append(f"  · ({school}) {vt[:150]}")
+                        parts.append(f"  · ({school}) {vt[:300]}")
 
     # Cách cục có tên riêng — máy match chính xác điều kiện
     named = (three_layer.get("lop_3_sach_co") or {}).get("cach_cuc_named") or []
@@ -600,7 +606,7 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict, feedback: dict | 
                 for a in atoms[:1]:
                     vt = a.get("viet_thuan") or a.get("source_quote") or ""
                     if vt:
-                        parts.append(f"  · ({school}) {vt[:160]}")
+                        parts.append(f"  · ({school}) {vt[:300]}")
 
     # Tổ hợp cung Mệnh (tam phương tứ chính / giáp / mượn sao) — chống luận máy móc
     menh_chi = la_so_input.get("menh_palace")
@@ -624,7 +630,7 @@ def _compose_user_prompt(three_layer: dict, la_so_input: dict, feedback: dict | 
                     break
                 vt = a.get("viet_thuan") or a.get("source_quote") or ""
                 if vt:
-                    parts.append(f"- ({school}, {'/'.join(a.get('relations', []))}): {vt[:200]}")
+                    parts.append(f"- ({school}, {'/'.join(a.get('relations', []))}): {vt[:360]}")
                     shown_th += 1
 
     # Đại vận hiện tại (BIẾN) — Việc 3 (đọc từ three_layer: đã áp mượn sao nếu vô chính diệu)
@@ -686,7 +692,7 @@ def generate_narrative(three_layer: dict, la_so_input: dict, force: bool = False
         # Reasoning models (MiniMax-M) tiêu tokens cho <think> trước khi trả lời →
         # trần cao + retry; nếu không đáp án bị cắt rỗng.
         narrative, model = "", ""
-        for mt in (6000, 10000):
+        for mt in (8000, 12000):
             resp = provider.chat(messages=msgs, temperature=0.7, max_tokens=mt)
             narrative = (resp.content or "").strip()
             model = f"{resp.provider}:{resp.model}"
