@@ -746,6 +746,30 @@ def phuong_cac(year_branch: str) -> int:
     return _fix(B["Tuất"] - B[year_branch])
 
 
+# ─── Vòng Trường Sinh theo CỤC (Đằng Sơn Tử Vi HTKH Tập 2 Ch.22) ──────────────
+# Khởi Trường Sinh theo NẠP-HÀNH của cục Mệnh (KHÔNG đơn hành): Thổ đi CÙNG vòng Thủy.
+_CUC_TRUONG_SINH_START = {2: "Thân", 3: "Hợi", 4: "Tỵ", 5: "Thân", 6: "Dần"}
+VONG_TRUONG_SINH_STAGES = (
+    "Trường Sinh", "Mộc Dục", "Quan Đới", "Lâm Quan", "Đế Vượng", "Suy",
+    "Bệnh", "Tử", "Mộ", "Tuyệt", "Thai", "Dưỡng",
+)
+
+
+def an_vong_truong_sinh(cuc: int, year_stem: str, gender: str) -> dict[str, int]:
+    """Vòng Trường Sinh 12 sao theo CỤC Mệnh — Đằng Sơn Tử Vi HTKH Tập 2 Ch.22.
+
+    Khởi Trường Sinh theo NẠP-HÀNH của cục (Thủy/Thổ nhị-ngũ→Thân, Mộc tam→Hợi, Kim tứ→Tỵ,
+    Hỏa lục→Dần; thổ đi CÙNG vòng thủy). Chiều: dương-nam / âm-nữ THUẬN; âm-nam / dương-nữ NGHỊCH
+    (tái dùng dai_van_direction). Trả {tên giai đoạn: branch_index}.
+    """
+    if cuc not in _CUC_TRUONG_SINH_START:
+        raise ValueError(f"cuc must be 2..6, got {cuc!r}")
+    start = B[_CUC_TRUONG_SINH_START[cuc]]
+    direction = dai_van_direction(year_stem, gender)
+    return {stage: _fix(start + direction * k)
+            for k, stage in enumerate(VONG_TRUONG_SINH_STAGES)}
+
+
 # ─── 11. Top-level orchestrator ───────────────────────────────────────────────
 
 
@@ -925,6 +949,8 @@ def cast_la_so(
     out["triet"] = list(q3["triet"])      # tuple → list cho JSON
     out["tuan"] = list(q3["tuan"])
     out["sao_le"] = q3["sao_le"]
+    # Vòng Trường Sinh theo CỤC (Đằng Sơn T2 Ch.22) — 1/3 vòng cốt lõi (cùng Lộc Tồn + Thái Tuế)
+    out["trang_sinh"] = an_vong_truong_sinh(cuc, year_stem, gender)
     # ── Sao thêm/sửa 2026-06-13 sau khi đối chiếu ảnh lá số founder (tuvi.vn) ──
     out["sao_le"]["Thiên Không"] = thien_khong(year_branch)  # = chi năm +1 (sau Thái Tuế)
     out["sao_le"]["Thiên La"] = B["Thìn"]   # cố định Thìn (mọi phái)

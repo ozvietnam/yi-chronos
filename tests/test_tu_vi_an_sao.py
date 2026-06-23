@@ -13,6 +13,7 @@ from engine.tu_vi.an_sao import (
     CUC_NAMES,
     PALACE_NAMES,
     TU_HOA_TABLE,
+    an_vong_truong_sinh,
     arrange_palaces,
     cuc_so,
     cung_menh_index,
@@ -395,3 +396,40 @@ def test_api_tu_vi_cast_datetime_mode():
     assert "input_resolved" in payload
     # Hour 10 → Tỵ (09:00-11:00).
     assert payload["input_resolved"]["hour_branch"] == "Tỵ"
+
+
+# ─── Vòng Trường Sinh theo CỤC (Đằng Sơn T2 Ch.22) ───────────────────────────
+
+_NB = {n: i for i, n in enumerate(BRANCHES_TVI)}  # name → index
+
+
+def test_an_vong_truong_sinh_cuc_heads():
+    # Đằng Sơn T2 Ch.22: khởi Trường Sinh theo NẠP-HÀNH cục Mệnh (KHÔNG đơn hành).
+    # Thủy nhị→Thân · Mộc tam→Hợi · Kim tứ→Tỵ · Thổ ngũ→Thân (thổ CÙNG thủy) · Hỏa lục→Dần.
+    for cuc, head in {2: "Thân", 3: "Hợi", 4: "Tỵ", 5: "Thân", 6: "Dần"}.items():
+        v = an_vong_truong_sinh(cuc, "Giáp", "nam")  # Giáp dương + nam → THUẬN
+        assert v["Trường Sinh"] == _NB[head], f"cục {cuc} phải khởi TS ở {head}"
+        assert len(v) == 12
+
+
+def test_an_vong_truong_sinh_direction_am_nam_nghich():
+    # Chiều: dương-nam / âm-nữ THUẬN; âm-nam / dương-nữ NGHỊCH.
+    thuan = an_vong_truong_sinh(6, "Giáp", "nam")   # dương nam → thuận: Dần→Mão (Mộc Dục +1)
+    assert thuan["Mộc Dục"] == _NB["Mão"]
+    nghich = an_vong_truong_sinh(6, "Ất", "nam")    # âm nam → nghịch: Dần→Sửu (Mộc Dục −1)
+    assert nghich["Mộc Dục"] == _NB["Sửu"]
+
+
+def test_cast_la_so_has_vong_truong_sinh_founder_menh_tuyet():
+    # Founder Mậu Thìn nam, cục 5 (Thổ ngũ) → TS Thân, dương nam THUẬN:
+    # Mệnh Tỵ = TUYỆT · Thiên Di Hợi = Lâm Quan · Thiên Mã Dần = Bệnh · Đế Vượng = Tý.
+    la = cast_la_so(lunar_month=4, lunar_day=22, hour_branch="Tý",
+                    year_stem="Mậu", year_branch="Thìn", gender="nam")
+    assert la["cuc"] == 5
+    ts = la["trang_sinh"]
+    assert len(ts) == 12
+    assert ts["Trường Sinh"] == _NB["Thân"]
+    assert ts["Đế Vượng"] == _NB["Tý"]
+    assert ts["Bệnh"] == _NB["Dần"]        # đồng cung Thiên Mã
+    assert ts["Tuyệt"] == _NB["Tỵ"]        # đồng cung Mệnh founder
+    assert ts["Lâm Quan"] == _NB["Hợi"]    # đồng cung Thiên Di
