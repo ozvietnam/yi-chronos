@@ -318,6 +318,40 @@ def verify_star_hoa_participation():
     }
 
 
+# Ch.20 (tr.270-276): TÍNH BÁT QUÁI của 14 chính tinh. 8 sao mang 1 quái; ngũ hành quái
+# khớp ngũ hành sao (đã dẫn xuất độc lập) — bằng chứng mapping CÓ NGUYÊN LÝ. Ngoại lệ DUY
+# NHẤT: Thiên Đồng (Đoài/kim mà Đồng thủy — gán Đoài vì Đoài "con gái út vui vẻ" không hợp
+# Sát hung dữ, tr.271-272). 6 sao VÔ-QUÁI: Phủ Tướng Sát Âm Dương Cự (14 = 8 + 6).
+QUAI_HANH = {"Càn": "kim", "Khảm": "thủy", "Cấn": "thổ", "Chấn": "mộc",
+             "Tốn": "mộc", "Li": "hỏa", "Khôn": "thổ", "Đoài": "kim"}
+BAT_QUAI_STAR = {"Vũ Khúc": "Càn", "Phá Quân": "Khảm", "Tử Vi": "Cấn", "Thiên Cơ": "Chấn",
+                 "Tham Lang": "Tốn", "Liêm Trinh": "Li", "Thiên Lương": "Khôn",
+                 "Thiên Đồng": "Đoài"}
+NO_QUAI_STARS = ["Thiên Phủ", "Thiên Tướng", "Thất Sát", "Thái Âm", "Thái Dương", "Cự Môn"]
+
+
+def verify_bat_quai_ngu_hanh():
+    """Định lý Ch.20 (tr.270-276): mapping 8 chính tinh → 8 quái NHẤT QUÁN với ngũ hành sao
+    (dẫn xuất độc lập ở chinh_tinh.json). Khớp 7/8; Thiên Đồng là ngoại lệ Đằng Sơn TỰ NÊU.
+    14 chính tinh = 8 (có quái) + 6 (vô quái), không trùng, phủ trọn.
+    """
+    disp2hanh = {v["display"]: v["hanh"] for v in STARS.values()}
+    matches, mismatches = [], []
+    for star, quai in BAT_QUAI_STAR.items():
+        if QUAI_HANH[quai] == disp2hanh.get(star):
+            matches.append(star)
+        else:
+            mismatches.append(star)
+    covers_all = sorted(list(BAT_QUAI_STAR) + NO_QUAI_STARS) == sorted(disp2hanh)
+    return {
+        "n_quai_stars": len(BAT_QUAI_STAR),
+        "n_match": len(matches),
+        "matches": matches,
+        "mismatches": mismatches,
+        "covers_all_14": covers_all,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -326,6 +360,7 @@ def full_report():
         "hoa_ky_structure": verify_hoa_ky_structure(),
         "loc_quyen_walk": verify_loc_quyen_walk(),
         "star_hoa_participation": verify_star_hoa_participation(),
+        "bat_quai_ngu_hanh": verify_bat_quai_ngu_hanh(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }

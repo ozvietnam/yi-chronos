@@ -96,8 +96,25 @@ def test_star_hoa_participation_reveals_nature():
     assert set(r["never_ky"]) == {"Tử Vi", "Thiên Lương"}
 
 
+def test_bat_quai_star_mapping_ngu_hanh_consistent():
+    # Ch.20 (tr.270-276): 8 chính tinh có tính bát quái, mỗi sao ứng 1 quái mà NGŨ HÀNH
+    # của quái khớp ngũ hành (độc lập dẫn xuất ở chinh_tinh.json) của sao — bằng chứng
+    # mapping CÓ NGUYÊN LÝ, không tùy tiện. Ngoại lệ DUY NHẤT: Thiên Đồng (Đoài/kim mà
+    # Đồng hành thủy) — chính Đằng Sơn nêu (tr.272: "Đồng chưa bị mang tính rõ rệt như Sát").
+    r = dsv.verify_bat_quai_ngu_hanh()
+    assert r["n_quai_stars"] == 8
+    assert r["n_match"] == 7                       # 7/8 khớp ngũ hành quái = ngũ hành sao
+    assert r["mismatches"] == ["Thiên Đồng"]       # ngoại lệ duy nhất, đúng sách
+    assert r["covers_all_14"] is True              # 8 có-quái + 6 vô-quái = trọn 14, không trùng
+    # Mệnh chủ Vũ Khúc ứng Càn (quái uy lực nhất); Mệnh cung Thiên Tướng vô-quái → THỂ/DỤNG.
+    assert dsv.BAT_QUAI_STAR["Vũ Khúc"] == "Càn"
+    assert "Thiên Tướng" in dsv.NO_QUAI_STARS
+    assert "Thiên Tướng" not in dsv.BAT_QUAI_STAR
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
-                        "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance", "conservation"}
+                        "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
+                        "conservation", "bat_quai_ngu_hanh"}
