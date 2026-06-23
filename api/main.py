@@ -3083,6 +3083,11 @@ def wallet_redeem(req: PromoRedeemRequest, http_request: Request) -> dict:
     r = promo_codes.redeem(user["user_id"], req.code)
     if not r.get("ok"):
         return {"status": "error", "reason": r.get("reason")}
+    try:   # push real-time → AppChat refresh số dư tức thì (best-effort)
+        from engine import appchat_notify
+        appchat_notify.notify_wallet(user["user_id"], r["balance"], delta=r["xu"], reason="promo")
+    except Exception:
+        pass
     return {"status": "ok", **r}
 
 

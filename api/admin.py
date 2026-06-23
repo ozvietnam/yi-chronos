@@ -367,6 +367,11 @@ def admin_user_xu_adjust(user_id: int, req: AdminXuAdjustRequest, request: Reque
     _record_audit("admin_xu_adjust", user_id=user_id, actor_user_id=actor["user_id"],
                   request=request,
                   details={"delta": req.delta, **r, "reason": req.reason.strip()})
+    try:   # push real-time → AppChat refresh số dư (best-effort)
+        from engine import appchat_notify
+        appchat_notify.notify_wallet(user_id, r["balance"], delta=r["delta_applied"], reason="admin")
+    except Exception:
+        pass
     return {"status": "ok", **r}
 
 

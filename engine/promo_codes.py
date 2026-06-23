@@ -94,14 +94,20 @@ def get_code(code: str) -> Optional[dict]:
 
 
 def list_codes() -> list[dict]:
+    """Danh sách mã + THỐNG KÊ hiệu quả (đo ROI campaign): unique user đã đổi (used_count),
+    tổng xu đã phát (xu_issued), lần đổi gần nhất (last_redeemed)."""
     with session_scope(service=True) as conn:
         _ensure(conn)
         rows = conn.execute(text(
-            """SELECT code, xu, campaign, per_user_once, max_total, used_count, active,
-                      expires_at, note, created_at FROM promo_codes ORDER BY created_at DESC""")).fetchall()
+            """SELECT c.code, c.xu, c.campaign, c.per_user_once, c.max_total, c.used_count,
+                      c.active, c.expires_at, c.note, c.created_at,
+                      COALESCE(SUM(r.xu), 0) AS xu_issued, MAX(r.redeemed_at) AS last_redeemed
+               FROM promo_codes c LEFT JOIN promo_redemptions r ON r.code = c.code
+               GROUP BY c.code ORDER BY c.created_at DESC""")).fetchall()
     return [{"code": r[0], "xu": int(r[1]), "campaign": r[2], "per_user_once": bool(r[3]),
              "max_total": r[4], "used_count": int(r[5]), "active": bool(r[6]),
-             "expires_at": r[7], "note": r[8], "created_at": r[9]} for r in rows]
+             "expires_at": r[7], "note": r[8], "created_at": r[9],
+             "xu_issued": int(r[10] or 0), "last_redeemed": r[11]} for r in rows]
 
 
 def set_active(code: str, active: bool) -> None:

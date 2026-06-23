@@ -1038,14 +1038,15 @@ const actionIcon = {
         </div>
         <p v-if="promoMsg" class="ap-xu-msg">{{ promoMsg }}</p>
         <table class="ap-xu-tx" v-if="promoCodes.length">
-          <thead><tr><th>Mã</th><th>Xu</th><th>Chiến dịch</th><th>1 lần</th><th>Đã dùng</th><th></th></tr></thead>
+          <thead><tr><th>Mã</th><th>Xu</th><th>Chiến dịch</th><th>Đã đổi</th><th>Xu phát</th><th>Đổi cuối</th><th></th></tr></thead>
           <tbody>
             <tr v-for="c in promoCodes" :key="c.code">
               <td><strong>{{ c.code }}</strong></td>
               <td class="xu-plus">+{{ c.xu }}</td>
               <td><small>{{ c.campaign || '—' }}</small></td>
-              <td><small>{{ c.per_user_once ? '✓' : '—' }}</small></td>
-              <td><small>{{ c.used_count }}{{ c.max_total ? '/' + c.max_total : '' }}</small></td>
+              <td><small>{{ c.used_count }}{{ c.max_total ? '/' + c.max_total : '' }}{{ c.per_user_once ? ' · 1/user' : '' }}</small></td>
+              <td><small class="xu-plus">{{ c.xu_issued }}</small></td>
+              <td><small>{{ c.last_redeemed ? fmtTime(c.last_redeemed) : '—' }}</small></td>
               <td><button class="ap-btn-ghost ap-refresh" @click="togglePromo(c.code)">{{ c.active ? '🟢' : '⚪' }}</button></td>
             </tr>
           </tbody>
