@@ -24,6 +24,7 @@ from engine.hermes_guard import paradigm_violations
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
 from . import knowledge_loader as kb
+from .cham_cap import cham_cap_do
 from .quy_trinh import build_quy_trinh_day_du
 
 METHOD_ID = "tinh_duyen_nu_menh_v1"
@@ -128,21 +129,27 @@ _KEYWORDS_NAM_PHU = ("thê tài", "đắc thê", "thê hiền", "vượng thê",
 
 
 # --------------------------------------------------------------------------- #
-# HÀNG RÀO CỨNG — DANH SÁCH CẤM (verdict) + _scrub
+# HÀNG RÀO CỨNG — 2 TẦNG: kết-án vô-giá-trị (LUÔN chặn) + khái-niệm-phân-tích
 # --------------------------------------------------------------------------- #
-# Iron Rule #4/#6/#8 + CLAUDE.md: các cụm KẾT ÁN / PHÁN ĐỊNH MỆNH TUYỆT ĐỐI
-# KHÔNG được phép xuất hiện trong BẤT KỲ string nào surface ra output.
-# Đây là tầng chặn cuối (defense-in-depth): kể cả nếu dict bị regress hoặc một
-# trường thô lọt qua reframe, _scrub sẽ thay bằng bản trung tính + bật cờ caution.
+# Iron Rule #4/#6/#8 + CLAUDE.md. Sửa 2026-06-25 sau khi phát hiện hàng rào thô
+# (substring) XÓA TRẮNG cả bước phân tích Thương Quan: tên bước "3. Thương Quan
+# (gốc khắc phu)" + toàn bộ luận bị thay placeholder → mất phân tích quan trọng nhất.
 #
-# LƯU Ý: 'cô quả/cô đơn/cô độc' CHỈ hợp lệ trong câu BIỆN CHÍNH (bác bỏ định kiến),
-# nên KHÔNG đưa vào danh sách cấm cứng (sẽ scrub nhầm câu biện chính). Chúng vẫn
-# được _co_tu_khoa bắt để buộc reframe ở nhánh cách cục.
-_FORBIDDEN_VERDICTS = (
-    "khắc chồng", "sát chồng", "sát phu", "khắc phu", "mưu hại",
-    "làm gái", "hạ tiện", "dâm xướng", "dâm tiện", "dâm đãng",
-    "kỹ nữ", "làm thiếp", "làm lẽ", "khắc tử", "hình khắc tử",
-    "hình phu", "đắc thê tài", "thê hiền",
+# TẦNG (a) — KẾT ÁN ĐẠO ĐỨC vô giá trị phân tích: LUÔN chặn (substring), vì đây là
+# lời sỉ nhục/kết án thời phong kiến, không mang nội dung mệnh-lý gì để giữ.
+_FORBIDDEN_CONDEMNATION = (
+    "làm gái", "dâm xướng", "dâm tiện", "dâm đãng", "kỹ nữ",
+    "làm thiếp", "làm lẽ", "hạ tiện", "mưu hại",
+    "đắc thê tài", "thê hiền",
+)
+
+# TẦNG (b) — KHÁI NIỆM PHÂN TÍCH ('khắc phu/khắc chồng/sát phu/khắc tử/hình phu/
+# khắc quan'): KHÔNG hard-block nữa. Đây là thuật ngữ Tử Bình (伤官见官) cần để
+# luận thật. Chỉ chặn KHI ở ngữ cảnh LỜI-PHÁN-VÀO-NGƯỜI (chủ ngữ-người + giọng
+# phán) — việc đó để engine.hermes_guard.paradigm_violations (đã tinh chỉnh
+# context-aware 2026-06-25) bắt. Liệt kê ở đây chỉ để tài liệu hoá ý đồ.
+_ANALYTIC_CONCEPTS = (
+    "khắc phu", "khắc chồng", "sát phu", "khắc tử", "hình phu", "khắc quan",
 )
 
 # Bản trung tính thay thế khi một string surface vi phạm (paradigm-safe).
@@ -153,15 +160,49 @@ _SCRUB_REPLACEMENT = (
 )
 
 
+# Khung PHỦ ĐỊNH / BIỆN-CHÍNH: khi cụm cấm nằm SAU 1 dấu hiệu bác-bỏ trong cùng câu
+# ('KHÔNG phán ...', 'không phải số ...', 'cấm ...', 'bác bỏ ...', 'KHÔNG: "..."'),
+# string là LỜI DẶN / BIỆN CHÍNH (Iron Rule #5 — tiếc dê tiếc lễ: giữ nguyên văn cổ
+# kèm bác bỏ), KHÔNG phải verdict phán-vào-người → KHÔNG scrub.
+# CHỈ những marker BÁC-BỎ rõ ràng (đứng đầu mệnh đề phủ định verdict). KHÔNG gồm
+# 'tránh'/'thay vì' trơ vì chúng có thể nằm trong câu củng cố verdict ('không tránh
+# được'). Mục tiêu: miễn scrub cho disclaimer/biện-chính, KHÔNG miễn cho verdict trá hình.
+_PROHIBITION_MARKERS = (
+    "không phán", "không phải", "không nói", "không đọc thành", "không có",
+    "không nghĩa", "không bao giờ", "không kết án", "không được",
+    "cấm ", "đừng ", "bác bỏ", "biện chính", "không: ", "không:'",
+    "tuyệt đối không", "phải tránh", "đề phòng",
+)
+
+
+def _in_prohibition_frame(low: str) -> bool:
+    """True nếu string mang dấu hiệu rõ ràng là LỜI DẶN/BIỆN-CHÍNH (bác bỏ verdict),
+    chứ không phải phát ngôn verdict. Dùng để miễn scrub cho disclaimer/guidance."""
+    return any(m in low for m in _PROHIBITION_MARKERS)
+
+
 def _has_forbidden(text: str) -> bool:
-    """True nếu text (đã lower) chứa BẤT KỲ cụm verdict cấm nào."""
+    """True nếu text vi phạm hàng rào cứng cuối:
+      (a) chứa cụm KẾT ÁN đạo đức vô giá trị (LUÔN chặn), HOẶC
+      (b) dính giọng TIÊN TRI / lời-phán-vào-người (paradigm_violations —
+          context-aware: 'khắc phu' khái-niệm KHÔNG dính, 'em sẽ khắc chồng' dính).
+
+    NGOẠI LỆ (sửa 2026-06-25): nếu string nằm trong KHUNG PHỦ ĐỊNH/BIỆN-CHÍNH
+    ('KHÔNG phán …', 'không phải số …', 'bác bỏ …') thì đây là LỜI DẶN dạy engine/
+    sage KHÔNG được nói verdict — KHÔNG scrub (nếu không, disclaimer tự huỷ chính nó,
+    đúng class bug đã xoá trắng bước Thương Quan).
+    """
     if not text:
         return False
     low = text.lower()
-    if any(v in low for v in _FORBIDDEN_VERDICTS):
-        return True
-    # Tầng 2: tái dùng hermes_guard bắt giọng TIÊN TRI ("sẽ giàu/nghèo", số đề…).
-    if paradigm_violations(text):
+    in_frame = _in_prohibition_frame(low)
+    if any(v in low for v in _FORBIDDEN_CONDEMNATION):
+        # Kết án đạo đức: chỉ miễn khi rõ là biện-chính bác bỏ; ngược lại LUÔN chặn.
+        if not in_frame:
+            return True
+    # Tầng 2: hermes_guard bắt giọng tiên tri + lời-phán-vào-người (đã context-aware
+    # nên KHÔNG xoá nhầm khái niệm phân tích trung tính 'Thương Quan khắc Quan').
+    if paradigm_violations(text) and not in_frame:
         return True
     return False
 
@@ -683,8 +724,9 @@ def _narration_brief(stage: dict, personality: dict, cach_cuc: list[dict]) -> di
         "must_reframe_refs": must_reframe,
         "canh_bao_paradigm": (
             "Mọi cách trong must_reframe_refs BẮT BUỘC reframe (đọc đồng dạng, mệnh là "
-            "động từ) — KHÔNG đọc nguyên văn lời cổ kết án. KHÔNG phán 'sẽ ly hôn / số "
-            "cô quả'. Định thời chỉ là 'năm cần giữ gìn', không phải tiên tri."
+            "động từ) — KHÔNG đọc nguyên văn lời cổ kết án. KHÔNG phán-vào-người (cấm mọi "
+            "lời tiên tri định mệnh hướng thẳng vào chủ thể). Định thời chỉ là 'năm cần "
+            "giữ gìn', không phải tiên tri."
         ),
     }
 
@@ -738,10 +780,12 @@ def read_tinh_duyen(
     Returns:
         dict với các khoá: method_id, input, stage, personality,
         cung_phu_the_tuvi, batu_hon_nhan, song_phai_reconcile, cach_cuc,
-        dinh_thoi, narration_brief, quy_trinh_day_du, base_12_khia_canh,
-        paradigm_ok, sources, _disclaimer.
+        dinh_thoi, narration_brief, quy_trinh_day_du, chan_doan_cap_do,
+        base_12_khia_canh, paradigm_ok, sources, _disclaimer.
         (quy_trinh_day_du = {tu_vi_12_buoc, bat_tu_10_buoc, xep_hang_yeu_to,
-        tong_hop_kim_tu_thap} — KEY MỚI, các key cũ giữ nguyên 100%.)
+        tong_hop_kim_tu_thap}; chan_doan_cap_do = {cap_do 1-5, ten_cap,
+        do_thay_doi_duoc, phan_loai, tin_hieu_kich_hoat, lo_trinh,
+        nguyen_tac_vang, _nguon} — KEY MỚI, các key cũ giữ nguyên 100%.)
     """
     # (a) Lập lá số + bát tự.
     la_so = cast_la_so_from_birth(
@@ -806,6 +850,16 @@ def read_tinh_duyen(
         la_so=la_so, bat_tu_state=bat_tu_state, gender=gender, as_of_year=as_of_year,
     )
 
+    # (m) CHẨN ĐOÁN CẤP ĐỘ — đọc factor từ quy_trinh + áp cham_cap_do.json → CẤP
+    #     1-5 + lộ trình. Ngôn ngữ XÂY DỰNG (gọi tên độ khó như khái niệm + chấm cấp
+    #     + chỉ lối), KHÔNG phán-vào-người. KEY MỚI 'chan_doan_cap_do' — GIỮ mọi key cũ.
+    chan_doan_cap_do = cham_cap_do(
+        quy_trinh_day_du=quy_trinh_day_du,
+        la_so=la_so,
+        bat_tu_state=bat_tu_state,
+        gender=gender,
+    )
+
     # --- HÀNG RÀO CỨNG CUỐI CÙNG (defense-in-depth): scrub MỌI string surface.
     # Áp lên TẤT CẢ block đưa ra ngoài (cach_cuc, cung_phu_the_tuvi, batu,
     # personality, reconcile, stage, dinh_thoi, narration_brief, base). Nếu BẤT
@@ -822,6 +876,8 @@ def read_tinh_duyen(
     base_khia_canh = _scrub_tree(base.get("khia_canh", []), _n)
     # Hàng rào cứng áp luôn lên DỮ LIỆU MỚI (12+10 bước + xếp hạng + tổng hợp).
     quy_trinh_day_du = _scrub_tree(quy_trinh_day_du, _n)
+    # Hàng rào cứng áp luôn lên CHẨN ĐOÁN CẤP ĐỘ (lộ trình + nguyên tắc vàng).
+    chan_doan_cap_do = _scrub_tree(chan_doan_cap_do, _n)
     scrubbed_count = _n[0]
 
     return {
@@ -846,6 +902,8 @@ def read_tinh_duyen(
         "narration_brief": narration_brief,
         # KEY MỚI: quy trình đầy đủ (12 bước Tử Vi + 10 bước Bát Tự + xếp hạng + tổng hợp).
         "quy_trinh_day_du": quy_trinh_day_du,
+        # KEY MỚI: chẩn đoán CẤP ĐỘ thử thách (1-5) + lộ trình (ngôn ngữ xây dựng).
+        "chan_doan_cap_do": chan_doan_cap_do,
         "base_12_khia_canh": base_khia_canh,
         "paradigm_ok": bool(base.get("paradigm_ok", True)),
         # Cờ caution: số string đã bị scrub vì chứa từ cấm (0 = sạch hoàn toàn).

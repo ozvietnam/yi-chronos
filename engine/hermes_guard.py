@@ -56,6 +56,28 @@ _OUT_OF_SCOPE = [
 # Đại từ ngôi-2 bao cả nữ-mệnh (em/chị) — narration tình duyên xưng "em/chị",
 # pattern cũ chỉ có anh/chị/ban → trượt biến thể "mệnh em là", "số em đã định".
 _PRON = r"(anh|chi|em|ban|co|nang)"
+
+# Cụm kết-án-hôn-nhân nữ-mệnh thời phong kiến (khắc chồng / sát phu / cô quả /
+# khó lấy chồng). LƯU Ý quan trọng (sửa 2026-06-24): các cụm này CŨNG là KHÁI NIỆM
+# PHÂN TÍCH trung tính trong Tử Bình ('Thương Quan khắc Quan', 'cấu trúc khắc phu',
+# 'khí khắc chồng' = 伤官见官) — KHÔNG được hard-block tuyệt đối, vì sẽ xoá trắng cả
+# bước phân tích Thương Quan. Chỉ là VI PHẠM khi ở ngữ cảnh LỜI-PHÁN-VÀO-NGƯỜI:
+# có CHỦ NGỮ-NGƯỜI (anh/chị/em/cô/nàng/'số'/'mệnh') + GIỌNG PHÁN (sẽ/chắc chắn/nhất
+# định/số…đã định). Vd CẤM: "em sẽ khắc chồng", "số cô là cô quả", "chắc chắn khắc phu".
+# Vd CHO QUA (khái niệm phân tích): "Thương Quan khắc Quan", "khí khắc phu cần chế hóa".
+# \b cuối mỗi nhánh → tránh khớp nhầm substring (vd 'co qua' trong 'co quan' = cô quân).
+_KET_AN_HON = r"(khac chong|sat chong|sat phu|khac phu|co qua|kho lay chong|khong lay duoc chong)\b"
+# Dấu hiệu PHÁN đứng TRƯỚC cụm kết án (trong khoảng ngắn) → lời-phán-vào-người.
+# Gồm: giọng phán (se/chac chan/…), hoặc chủ-ngữ-người (đại từ), hoặc 'mệnh/số' +
+# đại từ ('mệnh em', 'số cô'). KHÔNG gồm 'mệnh' trơ — vì 'nữ mệnh là khí khắc chồng'
+# là KHÁI NIỆM PHÂN TÍCH ('nữ mệnh' = domain term), không phải phán-vào-người.
+_PHAN_TRUOC = (
+    r"((se|chac chan|nhat dinh|the nao cung|kieu gi cung|" + _PRON + r")"
+    r"|(menh|so)\s+" + _PRON + r")\b.{0,18}\b"
+)
+# Dấu hiệu PHÁN đứng SAU cụm kết án (vd "khắc chồng đã định / là cái chắc").
+_PHAN_SAU = r"\b.{0,12}(da dinh|la cai chac|khong tranh duoc|chac chan)"
+
 _PREDICT = [
     r"\b(se|chac chan|nhat dinh|the nao cung|kieu gi cung)\s+(giau|ngheo|thanh cong|that bai|chet|ly hon|pha san|trung)",
     r"so (de|lo|xo|danh de)", r"con so may man (la|chinh la)\s*\d", r"danh con\s*\d",
@@ -63,10 +85,11 @@ _PREDICT = [
     r"tuong lai (cua " + _PRON + r"|se la)",
     r"(nam|thang|ngay) \d+ " + _PRON + r" (se|chac)",
     r"menh " + _PRON + r" la\b", r"so " + _PRON + r" (la|da dinh)",
-    # forbidden-verdicts định mệnh (đồng bộ với tinh_duyen.reading._FORBIDDEN_VERDICTS):
-    # các lời kết án nữ-mệnh thời phong kiến — cấm narration sinh ra mới.
-    r"\bkhac chong\b", r"\bsat chong\b", r"\bsat phu\b", r"\bkhac phu\b",
-    r"\bco qua\b", r"\bso co qua\b", r"\bkho lay chong\b", r"\bkhong lay duoc chong\b",
+    # Kết-án-hôn-nhân CHỈ khi có chủ-ngữ-người + giọng phán (KHÔNG bắt khái niệm
+    # phân tích trung tính như 'Thương Quan khắc Quan' / 'khí khắc phu cần chế hóa').
+    _PHAN_TRUOC + _KET_AN_HON,
+    _KET_AN_HON + _PHAN_SAU,
+    # "(em) sẽ / chắc chắn (không) lấy được chồng" — phán cứng về kết cục hôn nhân.
     r"\b(se|chac chan|nhat dinh) (khong )?(lay duoc|lay) chong\b",
 ]
 

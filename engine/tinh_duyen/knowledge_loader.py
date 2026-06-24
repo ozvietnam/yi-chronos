@@ -24,6 +24,7 @@ _FILES = {
     "personality": "personality_comm_style.json",
     "cach_cuc": "cach_cuc_tinh_duyen.json",
     "life_stages": "life_stages.json",
+    "cham_cap_do": "cham_cap_do.json",
 }
 
 

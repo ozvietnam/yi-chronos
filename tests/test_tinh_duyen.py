@@ -7,15 +7,28 @@ import json
 import pytest
 
 from engine.tinh_duyen import read_tinh_duyen
-from engine.tinh_duyen.reading import METHOD_ID, _has_forbidden, _scrub
+from engine.tinh_duyen.reading import (
+    METHOD_ID,
+    _FORBIDDEN_CONDEMNATION,
+    _has_forbidden,
+    _in_prohibition_frame,
+    _scrub,
+)
 
-# Danh sách CẤM (verdict) — KHÔNG được xuất hiện trong OUTPUT (Iron Rule #4/#6/#8,
-# CLAUDE.md). 'cô quả/cô đơn/cô độc' KHÔNG nằm đây vì hợp lệ trong câu biện chính.
-FORBIDDEN_VERDICTS = [
-    "khắc chồng", "sát chồng", "sát phu", "khắc phu", "mưu hại",
-    "làm gái", "hạ tiện", "dâm xướng", "dâm tiện", "dâm đãng",
-    "kỹ nữ", "làm thiếp", "làm lẽ", "khắc tử", "hình khắc tử",
-    "hình phu", "đắc thê tài", "thê hiền",
+# TẦNG (a) — KẾT ÁN ĐẠO ĐỨC vô giá trị phân tích: KHÔNG được xuất hiện như verdict
+# (chỉ hợp lệ khi nằm trong KHUNG BIỆN-CHÍNH 'không phải số làm lẽ…'). Iron Rule
+# #4/#6/#8 + CLAUDE.md. ('khắc phu/khắc chồng/sát phu' KHÔNG còn ở đây — chúng là
+# KHÁI NIỆM PHÂN TÍCH Tử Bình 伤官见官, chỉ cấm khi phán-vào-người.)
+FORBIDDEN_CONDEMNATION = [
+    "làm gái", "dâm xướng", "dâm tiện", "dâm đãng", "kỹ nữ",
+    "làm thiếp", "làm lẽ", "hạ tiện", "mưu hại", "đắc thê tài", "thê hiền",
+]
+
+# Lời-PHÁN-VÀO-NGƯỜI (verdict định mệnh hướng thẳng chủ thể) — TUYỆT ĐỐI cấm,
+# kể cả khi dùng khái niệm phân tích 'khắc chồng/cô quả' với chủ-ngữ-người + giọng phán.
+FORBIDDEN_PERSON_VERDICTS = [
+    "em sẽ khắc chồng", "số cô quả", "chắc chắn ly hôn", "mệnh em là khắc chồng",
+    "sẽ không lấy được chồng",
 ]
 
 # 5 lá NỮ trải tuổi 13-44 (gồm 2009-05-10 Thất Sát + 1985-11-02 Liêm Phá).
@@ -38,6 +51,8 @@ REQUIRED_KEYS = {
     "method_id", "input", "stage", "personality", "cung_phu_the_tuvi",
     "batu_hon_nhan", "song_phai_reconcile", "cach_cuc", "dinh_thoi",
     "base_12_khia_canh", "paradigm_ok", "sources", "_disclaimer",
+    # KEY MỚI: chẩn đoán cấp độ thử thách (giữ mọi key cũ).
+    "chan_doan_cap_do",
 }
 
 
@@ -118,12 +133,67 @@ def test_no_crash_all_cases():
 # HÀNG RÀO CỨNG — paradigm (Iron Rule #4/#6/#8, CLAUDE.md CẤM TUYỆT ĐỐI)
 # --------------------------------------------------------------------------- #
 @pytest.mark.parametrize("birth", FEMALE_CHARTS)
-def test_no_forbidden_verdict_words_in_output(birth):
-    """Toàn bộ output (json.dumps) KHÔNG chứa BẤT KỲ từ cấm verdict nào (0 lần)."""
+def test_no_condemnation_verdict_in_output(birth):
+    """Cụm KẾT ÁN đạo đức (làm gái/dâm/làm lẽ/hạ tiện…) chỉ được phép xuất hiện khi
+    nằm trong KHUNG BIỆN-CHÍNH (bác bỏ); KHÔNG bao giờ là verdict trần."""
     res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
-    dump = json.dumps(res, ensure_ascii=False).lower()
-    hits = [w for w in FORBIDDEN_VERDICTS if w in dump]
-    assert hits == [], f"{birth}: lọt từ cấm vào output: {hits}"
+
+    def walk(o):
+        if isinstance(o, str):
+            yield o
+        elif isinstance(o, dict):
+            for v in o.values():
+                yield from walk(v)
+        elif isinstance(o, (list, tuple)):
+            for v in o:
+                yield from walk(v)
+
+    for s in walk(res):
+        low = s.lower()
+        cond = [w for w in FORBIDDEN_CONDEMNATION if w in low]
+        if cond:
+            assert _in_prohibition_frame(low), \
+                f"{birth}: kết án TRẦN (không biện-chính): {cond} | {s[:120]}"
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_no_person_directed_verdict_in_output(birth):
+    """Lời-PHÁN-VÀO-NGƯỜI ('em sẽ khắc chồng', 'số cô quả') TUYỆT ĐỐI không lọt output
+    DƯỚI DẠNG VERDICT TRẦN. Cho phép khi nằm trong khung BIỆN-CHÍNH (bác bỏ định kiến —
+    Iron Rule #5 tiếc dê tiếc lễ), nhưng KHÔNG được phán trần vào chủ thể."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+
+    def walk(o):
+        if isinstance(o, str):
+            yield o
+        elif isinstance(o, dict):
+            for v in o.values():
+                yield from walk(v)
+        elif isinstance(o, (list, tuple)):
+            for v in o:
+                yield from walk(v)
+
+    for s in walk(res):
+        low = s.lower()
+        hits = [w for w in FORBIDDEN_PERSON_VERDICTS if w in low]
+        if hits:
+            assert _in_prohibition_frame(low), \
+                f"{birth}: verdict phán-vào-người TRẦN: {hits} | {s[:120]}"
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_thuong_quan_step_preserved(birth):
+    """REGRESSION (bug cũ): bước Thương Quan KHÔNG bị scrub xoá trắng — phải còn
+    ten_buoc + luận THẬT (gọi tên cấu trúc khắc Quan như khái niệm phân tích)."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    b3 = res["quy_trinh_day_du"]["bat_tu_10_buoc"]["buoc"][2]
+    # Tên bước phải là ngôn ngữ phân tích trung tính, KHÔNG bị thay placeholder.
+    assert b3["ten_buoc"].startswith("3."), f"{birth}: bước 3 sai nhãn"
+    assert "Thương Quan" in b3["ten_buoc"]
+    assert "đã được lược" not in b3["ten_buoc"], f"{birth}: bước 3 bị scrub xoá trắng!"
+    # Luận phải còn nội dung phân tích thật (không phải placeholder).
+    assert "đã được lược" not in b3["luan"], f"{birth}: luận bước 3 bị scrub!"
+    assert "Thương Quan" in b3["luan"]
 
 
 @pytest.mark.parametrize("birth", FEMALE_CHARTS)
@@ -165,13 +235,38 @@ def test_no_male_gender_cach_in_female_output(birth):
     assert nams == [], f"{birth}: lọt cách góc nhìn nam: {nams}"
 
 
-def test_scrub_replaces_forbidden_string():
-    """_scrub thay string chứa từ cấm bằng bản trung tính; giữ nguyên string sạch."""
-    dirty = "Nữ mệnh này khắc chồng, sát phu rõ ràng."
+def test_scrub_blocks_person_directed_verdict():
+    """_scrub thay string PHÁN-VÀO-NGƯỜI bằng bản trung tính (chủ-ngữ-người + giọng phán)."""
+    dirty = "Em sẽ khắc chồng, chắc chắn cô quả."
     out = _scrub(dirty)
-    assert "khắc chồng" not in out.lower()
-    assert "sát phu" not in out.lower()
+    assert out != dirty
+    assert "đã được lược" in out
     assert _has_forbidden(dirty) is True
+
+
+def test_scrub_blocks_condemnation_word():
+    """_scrub LUÔN chặn kết án đạo đức trần (không có khung biện-chính)."""
+    dirty = "Nữ mệnh này làm lẽ, hạ tiện."
+    assert _has_forbidden(dirty) is True
+    assert _scrub(dirty) != dirty
+
+
+def test_scrub_keeps_analytic_concept():
+    """KHÁI NIỆM PHÂN TÍCH ('Thương Quan khắc Quan', 'khắc phu' trung tính) KHÔNG bị scrub.
+
+    Đây là CORE của fix: 'khắc phu/khắc chồng' khi là khái niệm phân tích (không
+    chủ-ngữ-người, không giọng phán) phải GIỮ NGUYÊN để luận thật."""
+    concept = ("Thương Quan khắc Quan (伤官见官) — với nữ mệnh là khí khắc phu, "
+               "cấu trúc cần chế hóa qua Ấn/Tài.")
+    assert _has_forbidden(concept) is False
+    assert _scrub(concept) == concept
+
+
+def test_scrub_keeps_bien_chinh_frame():
+    """Khung BIỆN-CHÍNH bác bỏ verdict (Iron Rule #5) KHÔNG bị scrub tự huỷ."""
+    bien = "Cổ cho là 'số làm lẽ' nhưng KHÔNG phải số làm lẽ — nay là sống chung không cưới."
+    assert _in_prohibition_frame(bien.lower()) is True
+    assert _scrub(bien) == bien
 
     clean = "Cấu trúc khí này độc lập, vận hành tốt khi theo nghề chuyên chú."
     assert _scrub(clean) == clean

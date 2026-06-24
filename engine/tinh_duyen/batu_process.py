@@ -7,7 +7,7 @@ sư phụ truyền dạy (Tử Bình → Thiệu Vĩ Hoa → Trích Thiên Tủy
 
     1.  Nhật chủ + Phu Thê tinh   (官 = chồng chính / 杀 = tình nhân-người mạnh)
     2.  Quan Sát vượng / nhược     (so với Nhật chủ)
-    3.  THƯƠNG QUAN (gốc khắc phu) — lộ / tàng, ở trụ nào
+    3.  THƯƠNG QUAN (cấu trúc khắc Quan = áp lực lên sao phối ngẫu) — lộ / tàng, ở trụ nào
     4.  CHẾ HÓA Thương Quan        (Ấn khắc Thương / Thực-Tài thông quan / Quan hợp)
     5.  Đại Vận → Quan Sát         (vận đi qua kích / khắc sao chồng)
     6.  Lưu Niên                   (năm khí được kích hoạt / cần giữ gìn)
@@ -26,8 +26,10 @@ muc_do_anh_huong (mức độ ảnh hưởng tới tình duyên) — 3 loại:
 
 PARADIGM (Iron Rule #4 / #6 / #8): KHÔNG BÓI. Đọc đồng dạng — lá số cho biết
 TÍNH (nguyên liệu trời ban); 'mệnh' là việc XỬ LÝ tính đó (mệnh là ĐỘNG TỪ).
-KHÔNG phán 'sẽ ly hôn / số khắc chồng'. Mọi luận điểm GROUND vào nguồn cổ thật
-(_nguon[]) — KHÔNG bịa. Đây là điểm vượt AI-free (vốn chỉ trích web).
+KHÔNG phán-vào-người ('em sẽ ly hôn / số em cô quả'). Được GỌI TÊN cấu trúc như
+KHÁI NIỆM phân tích ('cấu trúc Thương Quan khắc Quan', 'áp lực lên sao phối ngẫu')
++ chấm cấp + chỉ lối. Mọi luận điểm GROUND vào nguồn cổ thật (_nguon[]) — KHÔNG bịa.
+Đây là điểm vượt AI-free (vốn chỉ trích web).
 """
 
 from __future__ import annotations
@@ -55,14 +57,15 @@ METHOD_ID = "batu_tinh_duyen_10_buoc_v1"
 _QUAN = "Chính Quan"   # 正官 — chồng chính danh
 _SAT = "Thất Sát"      # 七殺 — người đàn ông mạnh / tình nhân / chồng cá tính
 _QUAN_SAT = (_QUAN, _SAT)
-_THUONG_QUAN = "Thương Quan"   # 伤官 — gốc khắc Quan (khắc phu)
+_THUONG_QUAN = "Thương Quan"   # 伤官 — gốc khắc Quan (sao phối ngẫu của nữ mệnh)
 _THUC_THAN = "Thực Thần"       # 食神 — thông quan (tiết khí, hóa Thương)
 
 _NHAT_CHI_DISCLAIMER = (
-    "Engine đọc đồng dạng (Iron Rule #4/#6/#8) — KHÔNG bói, KHÔNG phán 'sẽ ly hôn / "
-    "số khắc chồng'. Lá số cho biết TÍNH (nguyên liệu trời ban); 'mệnh' là việc XỬ LÝ "
-    "tính đó (mệnh là ĐỘNG TỪ). Các tín hiệu 'khắc phu / cô' chỉ là CẤU TRÚC KHÍ cần "
-    "ý thức + chăm sóc, KHÔNG phải bản án. Định thời chỉ là 'năm cần giữ gìn'."
+    "Engine đọc đồng dạng (Iron Rule #4/#6/#8) — KHÔNG bói, KHÔNG phán-vào-người (cấm "
+    "mọi lời tiên tri định mệnh hướng thẳng vào chủ thể). Lá số cho biết TÍNH (nguyên "
+    "liệu trời ban); 'mệnh' là việc XỬ LÝ tính đó (mệnh là ĐỘNG TỪ). Các CẤU TRÚC khắc "
+    "Quan / áp lực lên sao phối ngẫu chỉ là KHÍ cần ý thức + chăm sóc, KHÔNG phải bản "
+    "án. Định thời chỉ là 'năm cần giữ gìn'."
 )
 
 # Element tiếng Việt -> ý nghĩa lục thân khi THIẾU (nữ mệnh) — Tử Bình kinh điển:
@@ -274,7 +277,7 @@ def _buoc_2_quan_sat_vuong_nhuoc(state: dict, distrib: dict) -> dict:
 
 
 # --------------------------------------------------------------------------- #
-# BƯỚC 3 — Thương Quan (gốc khắc phu): lộ / tàng, ở trụ nào
+# BƯỚC 3 — Thương Quan (cấu trúc khắc Quan = áp lực lên sao phối ngẫu): lộ/tàng
 # --------------------------------------------------------------------------- #
 def _buoc_3_thuong_quan(state: dict, distrib: dict) -> dict:
     pillars = state["tu_tru"]["pillars"]
@@ -288,21 +291,23 @@ def _buoc_3_thuong_quan(state: dict, distrib: dict) -> dict:
 
     if tq_n == 0:
         luan = (
-            "Không thấy Thương Quan trong Tứ Trụ → KHÔNG có gốc trực tiếp khắc Quan (khắc phu) "
-            "từ bẩm sinh. Khí khắc phu nếu có sẽ đến từ Đại Vận / Lưu Niên dẫn Thương Quan (BƯỚC 5,6)."
+            "Không thấy Thương Quan trong Tứ Trụ → KHÔNG có gốc trực tiếp khắc Quan (sao "
+            "phối ngẫu) từ bẩm sinh. Áp lực lên sao Quan nếu có sẽ đến từ Đại Vận / Lưu Niên "
+            "dẫn Thương Quan (BƯỚC 5,6)."
         )
         muc = "gian_tiep"
     else:
         vi_tri = []
         if lo:
-            vi_tri.append("LỘ trên thiên can (" + ", ".join(f"Trụ {x['tru_vi']}" for x in lo) + ") — khắc phu rõ, biểu hiện ra ngoài")
+            vi_tri.append("LỘ trên thiên can (" + ", ".join(f"Trụ {x['tru_vi']}" for x in lo) + ") — áp lực lên sao Quan rõ, biểu hiện ra ngoài")
         if tang:
-            vi_tri.append("TÀNG trong địa chi (" + ", ".join(f"Trụ {x['tru_vi']}" for x in tang) + ") — khắc phu ngầm, ẩn dưới")
+            vi_tri.append("TÀNG trong địa chi (" + ", ".join(f"Trụ {x['tru_vi']}" for x in tang) + ") — áp lực lên sao Quan ngầm, ẩn dưới")
         manh = tq_n >= 2 and tq_n > tong_qs
         luan = (
             f"Thương Quan = {tq_n:.1f} ({'; '.join(vi_tri)}). 伤官 là gốc TRỰC TIẾP khắc 官 "
-            f"(伤官见官 = Thương Quan thấy Quan): với nữ mệnh là khí khắc chồng. "
-            + ("Thương Quan MẠNH hơn Quan Sát → tín hiệu khắc phu nổi trội, cần CHẾ HÓA (xem BƯỚC 4). "
+            f"(伤官见官 = Thương Quan thấy Quan): với nữ mệnh là cấu trúc tạo áp lực lên sao "
+            "phối ngẫu. "
+            + ("Thương Quan MẠNH hơn Quan Sát → áp lực lên sao Quan nổi trội, cần CHẾ HÓA (xem BƯỚC 4). "
                if manh else "Mức vừa phải — chế hóa được thì khí Thương Quan thành tài hoa/biểu đạt. ")
             + "Đọc đồng dạng: Thương Quan = óc phản biện, cá tính độc lập — vận hành tốt khi "
             "có Ấn dẫn (học vấn) hoặc Tài tiết (sự nghiệp) thay vì xung trực diện người bạn đời."
@@ -310,7 +315,7 @@ def _buoc_3_thuong_quan(state: dict, distrib: dict) -> dict:
         muc = "truc_tiep"
 
     return {
-        "ten_buoc": "3. Thương Quan (gốc khắc phu) — lộ/tàng, ở trụ nào",
+        "ten_buoc": "3. Thương Quan (cấu trúc khắc Quan = áp lực lên sao phối ngẫu) — lộ/tàng, ở trụ nào",
         "du_lieu": {
             "thuong_quan": round(tq_n, 1),
             "lo": lo,
@@ -318,7 +323,7 @@ def _buoc_3_thuong_quan(state: dict, distrib: dict) -> dict:
             "manh_hon_quan_sat": tq_n > tong_qs and tq_n > 0,
         },
         "luan": luan,
-        "_nguon": _kb_nguon("to_hop") or ["Tử Bình: 伤官见官 — Thương Quan khắc Chính Quan (nữ = khắc phu); chế hóa qua Ấn/Tài (Trích Thiên Tủy Ch.6 Nữ Mệnh)"],
+        "_nguon": _kb_nguon("to_hop") or ["Tử Bình: 伤官见官 — Thương Quan khắc Chính Quan (nữ mệnh = áp lực lên sao phối ngẫu); chế hóa qua Ấn/Tài (Trích Thiên Tủy Ch.6 Nữ Mệnh)"],
         "muc_do_anh_huong": muc,
     }
 
@@ -341,7 +346,7 @@ def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
             "kha_dung": True,
             "luan": (
                 f"Có Ấn = {an_n:.1f} → Ấn (học vấn, dưỡng dục, từ thiện) KHẮC Thương Quan, "
-                "biến khí khắc phu thành trí tuệ hữu dụng. Đây là phép chế hóa CAO QUÝ nhất "
+                "biến áp lực-lên-sao-Quan thành trí tuệ hữu dụng. Đây là phép chế hóa CAO QUÝ nhất "
                 "cho nữ mệnh Thương Quan."
             ),
         })
@@ -361,7 +366,7 @@ def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
             "kha_dung": True,
             "luan": (
                 f"Có Thực Thần = {thuc_n:.1f} → khí ngày tiết ra hiền hòa (Thực) thay vì gắt (Thương), "
-                "làm dịu cấu trúc khắc phu."
+                "làm dịu cấu trúc áp lực lên sao phối ngẫu."
             ),
         })
     # 3) Quan hợp / Quan vượng tự lập (官星有力) — khí chồng đủ mạnh tự đứng.
@@ -377,18 +382,18 @@ def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
 
     co_che_hoa = bool(duong_che)
     if tq_n == 0:
-        ket = "Không có Thương Quan nên không cần chế hóa khắc phu (BƯỚC 3 trống)."
+        ket = "Không có Thương Quan nên không cần chế hóa áp lực lên sao Quan (BƯỚC 3 trống)."
         muc = "gian_tiep"
     elif co_che_hoa:
         ket = (
-            f"Thương Quan = {tq_n:.1f} CÓ {len(duong_che)} đường chế hóa khả dụng → khí khắc phu "
+            f"Thương Quan = {tq_n:.1f} CÓ {len(duong_che)} đường chế hóa khả dụng → áp lực lên sao Quan "
             "được hóa thành tài hoa/sự nghiệp. Vận hành tốt khi Anh/Chị Ý THỨC dùng đúng kênh "
             "(học vấn / sự nghiệp) thay vì xung trực diện."
         )
         muc = "gian_tiep"
     else:
         ket = (
-            f"Thương Quan = {tq_n:.1f} nhưng THIẾU Ấn / Thực / Tài để chế hóa → khí khắc phu "
+            f"Thương Quan = {tq_n:.1f} nhưng THIẾU Ấn / Thực / Tài để chế hóa → áp lực lên sao Quan "
             "trực diện hơn. Hóa giải qua HÀNH ĐỘNG (Iron Rule #8): bổ Ấn (học/thiện) + chọn "
             "đối tác khí trường bù đắp + đầu tư giao tiếp. KHÔNG phải bản án."
         )
@@ -444,7 +449,7 @@ def _buoc_5_dai_van(state: dict) -> dict:
                 "y_nghia": (
                     "đại vận dẫn KHÍ CHỒNG (官杀) — vận thường khởi/kích duyên phối ngẫu"
                     if is_quan_sat else
-                    "đại vận dẫn Thương Quan — khí khắc phu được kích, năm cần GIỮ GÌN giao tiếp"
+                    "đại vận dẫn Thương Quan — áp lực lên sao Quan được kích, năm cần GIỮ GÌN giao tiếp"
                 ),
             })
 
@@ -455,7 +460,7 @@ def _buoc_5_dai_van(state: dict) -> dict:
         )
         luan = (
             f"Các đại vận có thiên can là Quan Sát / Thương Quan: {moc}. "
-            "Vận dẫn 官杀 = khí chồng được kích (duyên dễ khởi); vận dẫn Thương Quan = khí khắc phu "
+            "Vận dẫn 官杀 = khí chồng được kích (duyên dễ khởi); vận dẫn Thương Quan = áp lực lên sao Quan "
             "được kích (năm cần giữ gìn). Đọc đồng dạng: đây là CỬA SỔ khí, không phải lời tiên tri."
         )
     else:
@@ -495,7 +500,7 @@ def _buoc_6_luu_nien(state: dict, age: Optional[int], as_of_year: Optional[int])
     if kich_phu:
         y = "năm khí CHỒNG (官杀) được kích — duyên/quan hệ phối ngẫu dễ động (theo hướng cát nếu khí thuận)."
     elif kich_thuong:
-        y = "năm Thương Quan kích — khí khắc phu được khơi, năm cần GIỮ GÌN giao tiếp vợ chồng."
+        y = "năm Thương Quan kích — áp lực lên sao Quan được khơi, năm cần GIỮ GÌN giao tiếp vợ chồng."
     else:
         y = "năm không trực tiếp kích sao chồng — đọc thêm tương tác địa chi với nhật chi."
 

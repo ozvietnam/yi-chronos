@@ -37,6 +37,44 @@ def _quy_trinh_highlights(td: dict) -> tuple[str, list[str]]:
     return tong_hop, noi_bat
 
 
+def _cham_cap_block(td: dict) -> str:
+    """Dựng khối CHẨN ĐOÁN CẤP ĐỘ (chấm cấp + lộ trình) để bơm vào system-prompt.
+
+    Lời thầy phải: GỌI TÊN độ khó như KHÁI NIỆM ('mức độ thử thách N/5') + chỉ lộ
+    trình cụ thể — KHÔNG phán-vào-người ('em sẽ khắc chồng / số cô quả')."""
+    cc = td.get("chan_doan_cap_do") or {}
+    if not cc:
+        return ""
+    cap = cc.get("cap_do")
+    ten = cc.get("ten_cap")
+    muc = cc.get("muc_do_thu_thach")
+    doi = cc.get("do_thay_doi_duoc")
+    phan_loai = cc.get("phan_loai")
+    tin_hieu = cc.get("tin_hieu_kich_hoat") or []
+    lo_trinh = cc.get("lo_trinh") or []
+
+    lines = [
+        "## CHẨN ĐOÁN CẤP ĐỘ THỬ THÁCH (chấm cấp + chỉ lối — ngôn ngữ XÂY DỰNG)",
+        f"- Mức độ thử thách: {muc} ({ten}); phân loại: {phan_loai}; "
+        f"khả năng chuyển hoá bằng rèn/chọn: {doi}.",
+        "- Diễn đạt độ khó như một KHÁI NIỆM phân tích ('mức độ thử thách "
+        f"{muc}', 'cấu trúc Thương Quan', 'áp lực lên cung phối ngẫu') — TUYỆT ĐỐI "
+        "KHÔNG phán-vào-người ('em sẽ khắc chồng / số cô quả / chắc chắn ly hôn').",
+    ]
+    if tin_hieu:
+        lines.append("- Tín hiệu THẬT trên lá này (gọi tên cấu trúc, không kết án):")
+        lines += [f"  · {t}" for t in tin_hieu[:5]]
+    if lo_trinh:
+        lines.append(f"- LỘ TRÌNH cụ thể cần CHỈ cho người đọc (theo cấp {cap}):")
+        lines += [f"  · {b}" for b in lo_trinh[:5]]
+    lines.append(
+        "- BẮT BUỘC đính khung 'mệnh là động từ': cấp độ đo ĐỘ KHÓ của nguyên liệu "
+        "trời ban (TÍNH), KHÔNG đo kết cục — kết cục do HÀNH VI + LỰA CHỌN quyết định. "
+        "Cấp cao = cần 'chọn khôn' nhiều hơn, KHÔNG = 'chắc chắn khổ'."
+    )
+    return "\n".join(lines) + "\n\n"
+
+
 def _build_system_prompt(person: dict, td: dict) -> str:
     """Dựng system-prompt narrate từ khẩu vị giao tiếp + chặng tuổi + paradigm."""
     personality = td.get("personality") or {}
@@ -114,6 +152,7 @@ def _build_system_prompt(person: dict, td: dict) -> str:
         "chạc, đi vào lựa chọn thực tế). HÃY chọn giọng đúng với tuổi này.\n\n"
 
         + quy_trinh_block +
+        _cham_cap_block(td) +
 
         "## CÁCH VIẾT\n"
         "- Viết tiếng Việt, xưng hô ấm áp, tôn trọng.\n"
@@ -136,6 +175,17 @@ def _td_payload_for_llm(td: dict) -> dict:
         "cach_cuc": td.get("cach_cuc"),
         "dinh_thoi": td.get("dinh_thoi"),
         "narration_brief": td.get("narration_brief"),
+        # Chẩn đoán cấp độ (chấm cấp + lộ trình) — gọn, đủ để sage chỉ lối cụ thể.
+        "chan_doan_cap_do": {
+            "cap_do": (td.get("chan_doan_cap_do") or {}).get("cap_do"),
+            "ten_cap": (td.get("chan_doan_cap_do") or {}).get("ten_cap"),
+            "muc_do_thu_thach": (td.get("chan_doan_cap_do") or {}).get("muc_do_thu_thach"),
+            "do_thay_doi_duoc": (td.get("chan_doan_cap_do") or {}).get("do_thay_doi_duoc"),
+            "phan_loai": (td.get("chan_doan_cap_do") or {}).get("phan_loai"),
+            "tin_hieu_kich_hoat": (td.get("chan_doan_cap_do") or {}).get("tin_hieu_kich_hoat"),
+            "lo_trinh": (td.get("chan_doan_cap_do") or {}).get("lo_trinh"),
+            "ranh_gioi": (td.get("chan_doan_cap_do") or {}).get("ranh_gioi"),
+        },
         # Quy trình đầy đủ: chỉ bơm phần TỔNG HỢP + XẾP HẠNG (gọn, đủ ground) —
         # KHÔNG bơm trọn 22 bước raw để tránh prompt phình + loãng giọng.
         "quy_trinh_tong_hop": {
