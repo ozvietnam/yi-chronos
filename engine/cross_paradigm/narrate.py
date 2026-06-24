@@ -103,8 +103,28 @@ def _td_payload_for_llm(td: dict) -> dict:
     }
 
 
+def _hard_guard_note(flags: list[str]) -> str:
+    """Cảnh báo CỨNG chèn vào system-prompt khi regenerate sau khi bắt vi phạm."""
+    return (
+        "\n\n## ⛔ CẢNH BÁO CỨNG — LẦN TRƯỚC BẠN ĐÃ VI PHẠM PARADIGM\n"
+        "Bản nháp vừa rồi dính giọng TIÊN TRI / lời KẾT ÁN ĐỊNH MỆNH (mẫu bắt được: "
+        f"{', '.join(flags)}). VIẾT LẠI hoàn toàn: TUYỆT ĐỐI không 'khắc chồng', "
+        "'số cô quả', 'sẽ ly hôn', 'khó/không lấy được chồng', không số đề, không "
+        "'năm X chắc chắn sẽ…'. Chỉ đọc TÍNH (cấu trúc khí) và gợi cách VẬN HÀNH — "
+        "'cấu trúc của em vận hành tốt nhất khi…'. Mệnh là ĐỘNG TỪ, trao quyền chủ động."
+    )
+
+
 def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
     """Diễn đạt output engine tình duyên thành lời sage (đúng khẩu vị + chặng tuổi).
+
+    PARADIGM ENFORCEMENT (Iron #4/#6/#8): output LLM free-form (temp 0.6) là tầng
+    rủi ro CAO NHẤT — LLM có thể bịa verdict định mệnh dù data gốc đã sạch. Vì thế
+    output BẮT BUỘC qua reframe_check (hermes_guard.paradigm_violations):
+      1) sạch → trả luôn.
+      2) dính → REGENERATE 1 lần với cảnh báo cứng liệt kê flags (đồng bộ chuẩn
+         hermes_service reject+regenerate).
+      3) vẫn dính → trả '' để UI fallback về bản cấu trúc ĐÃ-SẠCH (an toàn).
 
     An toàn tuyệt đối: bất kỳ lỗi nào (registry/provider/LLM) → trả '' (caller fallback
     về bản cấu trúc). KHÔNG charge xu ở đây (đã charge ở run_tinh_duyen).
@@ -114,10 +134,12 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
         from engine.ai.agents import run_agent
         from engine.ai.council import _get_agent_provider, sage_model
 
+        from engine.cross_paradigm._common import reframe_check
+
         provider, model = _get_agent_provider("tu_vi", prefer_reasoning=False)
         model = sage_model(provider, fallback=model)
 
-        system_prompt = _build_system_prompt(person, td)
+        base_system_prompt = _build_system_prompt(person, td)
         payload = _td_payload_for_llm(td)
 
         stage = td.get("stage") or {}
@@ -131,17 +153,32 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
             + _json.dumps(payload, ensure_ascii=False)
         )
 
-        resp = run_agent(
-            agent_id="tu_vi",
-            provider=provider,
-            model=model,
-            question=question,
-            chart_data={"system_prompt_override": system_prompt, "tinh_duyen": payload},
-            max_tokens=1400,
-            temperature=0.6,
-        )
-        content = (getattr(resp, "content", "") or "").strip()
-        return content
+        def _call(system_prompt: str) -> str:
+            resp = run_agent(
+                agent_id="tu_vi",
+                provider=provider,
+                model=model,
+                question=question,
+                chart_data={"system_prompt_override": system_prompt, "tinh_duyen": payload},
+                max_tokens=1400,
+                temperature=0.6,
+            )
+            return (getattr(resp, "content", "") or "").strip()
+
+        # Lần 1.
+        content = _call(base_system_prompt)
+        ok, flags = reframe_check(content)
+        if ok:
+            return content
+
+        # Lần 2 (regenerate với cảnh báo cứng) — chuẩn reject+regenerate toàn hệ.
+        content = _call(base_system_prompt + _hard_guard_note(flags))
+        ok, _ = reframe_check(content)
+        if ok:
+            return content
+
+        # Vẫn vi phạm → KHÔNG leak. Trả '' để UI fallback bản cấu trúc đã-sạch.
+        return ""
     except Exception:
         return ""
 

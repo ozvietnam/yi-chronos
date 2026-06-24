@@ -53,11 +53,21 @@ _OUT_OF_SCOPE = [
 ]
 
 # ── giọng TIÊN TRI (cấm — vi phạm paradigm đọc-đồng-dạng) ─────────────────────
+# Đại từ ngôi-2 bao cả nữ-mệnh (em/chị) — narration tình duyên xưng "em/chị",
+# pattern cũ chỉ có anh/chị/ban → trượt biến thể "mệnh em là", "số em đã định".
+_PRON = r"(anh|chi|em|ban|co|nang)"
 _PREDICT = [
     r"\b(se|chac chan|nhat dinh|the nao cung|kieu gi cung)\s+(giau|ngheo|thanh cong|that bai|chet|ly hon|pha san|trung)",
     r"so (de|lo|xo|danh de)", r"con so may man (la|chinh la)\s*\d", r"danh con\s*\d",
-    r"\bse trung\b", r"chac chan (se )?(xay ra|den|toi)", r"tuong lai (cua anh|cua chi|se la)",
-    r"(nam|thang|ngay) \d+ (anh|chi|ban) (se|chac)", r"menh anh la\b", r"so anh (la|da dinh)",
+    r"\bse trung\b", r"chac chan (se )?(xay ra|den|toi)",
+    r"tuong lai (cua " + _PRON + r"|se la)",
+    r"(nam|thang|ngay) \d+ " + _PRON + r" (se|chac)",
+    r"menh " + _PRON + r" la\b", r"so " + _PRON + r" (la|da dinh)",
+    # forbidden-verdicts định mệnh (đồng bộ với tinh_duyen.reading._FORBIDDEN_VERDICTS):
+    # các lời kết án nữ-mệnh thời phong kiến — cấm narration sinh ra mới.
+    r"\bkhac chong\b", r"\bsat chong\b", r"\bsat phu\b", r"\bkhac phu\b",
+    r"\bco qua\b", r"\bso co qua\b", r"\bkho lay chong\b", r"\bkhong lay duoc chong\b",
+    r"\b(se|chac chan|nhat dinh) (khong )?(lay duoc|lay) chong\b",
 ]
 
 # \b hai đầu → tránh khớp nhầm substring (vd "hao" trong "chao em")
