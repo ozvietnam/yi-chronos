@@ -25,9 +25,16 @@ GOAL (Anh chốt 2026-06-24): sản phẩm gieo duyên **nữ-mệnh chuyên tì
 - ✅ **Demo LLM THẬT** (lá 36t Liêm-Sát): paradigm chuẩn, trao quyền *"em là người tự cầm lái cuộc đời mình"*, forbidden=0.
 - 🐛 2 lỗi tự bắt+fix sau demo: (a) vô chính diệu Mệnh → mượn đối cung (personality không rỗng); (b) narrate chặn mock-leak.
 
-## ⏭️ CÒN LẠI (chờ Anh duyệt — bước outward-facing)
-- **Deploy lên live** kinhdich.online (push origin → CI deploy.yml → VPS). Knowledge JSON nằm trong repo (engine/) nên deploy theo code, KHÔNG cần sync wiki.sqlite3. = bước cuối để "đẩy AppChat thu phí". CẦN Anh duyệt (outward-facing + thu tiền thật).
-- Tuỳ chọn nâng cấp sau: giá theo chặng (nhóm 30-34 cao nhất) thay vì phẳng 30 xu; live screenshot.
+## ✅ ĐÃ DEPLOY LIVE (2026-06-24, Anh duyệt)
+- Push origin → CI deploy.yml (run 28111107920, commit 5dc81da9) → VPS **SUCCESS**.
+- Smoke-test live kinhdich.online: health 200; `/api/cross-paradigm/tinh-duyen` + `/narrate` + `/api/sync/tinh-duyen` đều **401 "Authentication required"** (sống + gated đúng, không 404).
+- Knowledge JSON theo repo (engine/) nên deploy cùng code — KHÔNG cần sync wiki.sqlite3.
+
+## ⏭️ Polish sau (không chặn)
+- 🟡 **Narration (lời thầy) chập chờn**: DeepSeek đôi lúc trả mock/lỗi tạm → narrate fallback `''` (UX về bản cấu trúc — an toàn nhưng mất "lời thầy"). Đề xuất: **chuỗi fallback provider** (deepseek→minimax→gemini) trong `narrate.py` để ổn định.
+- Giá theo chặng tuổi (nhóm 30-34 cao nhất) thay vì phẳng 30 xu.
+- Bổ sung luận nam mệnh; lấy nốt 3 sách 慧心斋主/天乙上人 (paywalled) khi có account.
+- Live screenshot thẻ 💍 cần đăng nhập (gated) — Anh tự xem hoặc cấp login test.
 
 ## Wiring blueprint (tham chiếu)
 | Điểm ráp | File | Pattern |
