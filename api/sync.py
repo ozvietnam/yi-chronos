@@ -1038,6 +1038,9 @@ def tinh_duyen_bridge(
     out = cps.run_tinh_duyen(user_id, person)
     if out.get("status") == "insufficient_xu":
         raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    # Presentation-ready cho prvchat render (sections JSON thuần kind→widget).
+    from engine.tinh_duyen.display import build_display
+    out["display"] = build_display(out, person.get("gender") or "nữ")
     return out
 
 

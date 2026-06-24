@@ -77,6 +77,9 @@ def tinh_duyen_self(req: TinhDuyenRequest,
     out = cps.run_tinh_duyen(uid, person)
     if out.get("status") == "insufficient_xu":
         raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    # ADDITIVE: thêm lớp trình bày dùng chung (web + AppChat) — GIỮ mọi key cũ.
+    from engine.tinh_duyen.display import build_display
+    out["display"] = build_display(out, person.get("gender") or "nữ")
     return out
 
 

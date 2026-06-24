@@ -213,6 +213,43 @@ App chat cần **ghi nhận đường tình duyên** của user và **so khớp 
 
 Tất cả service-keyed (`X-API-Key`). `'self'` set qua `/api/sync/upsert-from-firebase`; đối tượng so khớp set qua đây.
 
+### § Tình duyên — schema `sections` (trình bày dùng chung web + AppChat)
+
+`POST /api/sync/tinh-duyen` (AppChat) và `POST /api/cross-paradigm/tinh-duyen` (web) **đều trả thêm key `display`** (additive — mọi key engine cũ giữ nguyên). `display` là lớp **trình bày dùng chung**: SẠCH, CÓ THỨ TỰ, đã ẨN internal (`base_12_khia_canh`, `scrub_caution_count`, các `_nguon` rải rác đã GOM vào section `nguon`). **prvchat render theo `kind`** — `sections` là **JSON thuần, KHÔNG HTML**.
+
+```json
+{
+  "display": {
+    "meta": {
+      "title": "Tình duyên — người chồng",
+      "gender": "nữ", "phoi_ngau": "chồng",  // gender-aware: nữ→chồng, nam→vợ
+      "tuoi": 35, "stage_id": "lam-lai-tai-hop", "moi_truong": "...",
+      "disclaimer": "đọc đồng dạng — KHÔNG bói...",  // paradigm Iron #4/#6/#8
+      "method_id": "tinh_duyen_nu_menh_v1", "paradigm_ok": true
+    },
+    "sections": [ /* THỨ TỰ ưu tiên, section RỖNG đã bị bỏ */ ]
+  }
+}
+```
+
+**`kind` → widget prvchat render** (mỗi section có `id` + `icon` + `title` + `kind`):
+
+| `kind` | Widget gợi ý | Trường dữ liệu |
+|---|---|---|
+| `cap_do` | **Gauge 1-5 (KILLER, luôn lên đầu)** | `data{cap_do,max:5,ten_cap,do_thay_doi_duoc,phan_loai,muc_do_thu_thach,tin_hieu[],lo_trinh[],nguyen_tac}` + `refs[]` |
+| `qa` | Accordion câu hỏi-đáp | `items[]{hoi,dap,he('tu_vi'|'bat_tu'|'mai_hoa'),cta_gieo_que:bool}` — `cta_gieo_que=true` → nút gieo quẻ Mai Hoa |
+| `prose_list` | Danh sách tiêu đề + đoạn văn | `items[]{ten,noi_dung}` + `refs[]` |
+| `pairs` | 2 cột so sánh + nhãn trạng thái | `items[]{chu_de,tu_vi,bat_tu,trang_thai('hội tụ'|'dị biệt')}` |
+| `timeline` | Dòng thời gian + chip loại | `items[]{loai('kích hoạt'|'giữ gìn'),mo_ta,start_age,end_age,branch}` |
+| `list` | Danh sách + tone | `items[]{ten,noi_dung,tone('the_manh'|'can_chu_y'|'trung_tinh')}` |
+| `collapsible` | Khối thu gọn "Luận chi tiết" | `data{kim_tu_thap,xep_hang{truc_tiep,gian_tiep,tiem_an},buoc_tu_vi[]{ten_buoc,luan},buoc_bat_tu[]}` |
+| `narration` | Khối "Lời thầy" (fetch sau) | `content:null` + `fetch_action:'/api/cross-paradigm/tinh-duyen/narrate'` |
+| `cta` | Nút hành động (phác họa) | `action`, `note` (disclaimer biểu tượng) |
+| `cta_gieo_que` | Nút gieo quẻ quyết định | `action:'/api/cross-paradigm/tinh-duyen/gieo-que'` |
+| `refs` | Danh sách nguồn cuối trang | `items[]` (string) |
+
+Section `id` cố định theo thứ tự: `cap_do · hoi_dap · cung_phu_the · song_phai · dinh_thoi · cach_cuc · luan_chi_tiet · loi_thay · phac_hoa · gieo_que · nguon`. **Section thiếu data → KHÔNG xuất hiện** (prvchat không cần xử lý rỗng). Web dùng `--read-*` tokens (dark-mode safe); AppChat render JSON thuần. Đây là PRESENTATION — KHÔNG đổi mệnh-lý.
+
 - **`POST /api/sync/persons`** — upsert (idempotent theo `person_key`):
   ```json
   { "firebase_uid":"abc", "person_key":"partner", "name":"Người thương",
