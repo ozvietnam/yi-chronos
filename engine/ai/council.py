@@ -46,11 +46,13 @@ DEFAULT_AGENT_PROVIDER: dict[str, list[str]] = {
 
 # Orchestrator (Trọng tài tổng hợp) — MiniMax-M3 chủ lực 2026-06 (reasoning sâu cho
 # bước synthesis là output quan trọng nhất user đọc). Anthropic/DeepSeek fallback.
-ORCHESTRATOR_PROVIDER_ORDER: list[str] = ["minimax", "anthropic", "deepseek", "zai", "mock"]
+# Orchestrator (Trọng tài: triage + chất vấn + tổng hợp) — deepseek-chat ƯU TIÊN: TIN CẬY +
+# chi tiết, KHÔNG flaky như M3 (M3 prompt lớn → <think> ăn token → rỗng/timeout 120s → mock rác).
+ORCHESTRATOR_PROVIDER_ORDER: list[str] = ["deepseek", "minimax", "anthropic", "zai", "mock"]
 ORCHESTRATOR_PREFERRED_MODEL: dict[str, str] = {
     "minimax":   "MiniMax-M3",      # chủ lực — reasoning model, token floor lo <think>
     "anthropic": "claude-opus-4-5-20250929",
-    "deepseek":  "deepseek-reasoner",
+    "deepseek":  "deepseek-chat",   # V3 non-reasoning — TIN CẬY cho triage/tổng hợp (R1 flaky token)
     "zai":       "glm-4.5-flash",   # free tier — Council can run without z.ai balance
     "mock":      "mock-v1",
 }
