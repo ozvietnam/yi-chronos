@@ -4,7 +4,8 @@
     "paradigm": "KHÔNG BÓI — đọc đồng dạng, mệnh là động từ (Iron Rule #4/#6/#8). 王亭之: không phán ẩu, không kết án. Đọc TÍNH (cấu trúc) → cách VẬN HÀNH. Lời phán đạo-đức phong kiến (dâm/khắc/hạ tiện…) trong nguồn cổ phải đọc theo bối cảnh + cá-nhân-hóa, KHÔNG áp thẳng làm bản án.",
     "ung_dung": "Nữ mệnh — xem cung Phu Thê + đào hoa + phối ngẫu trong gieo duyên.",
     "nguon_goc": "Tử Vi Đẩu Số Toàn Thư Quyển 1 (Phú Thái Vi) — Trần Đoàn / Hi Di tiên sinh.",
-    "so_muc": 157
+    "so_muc": 157,
+    "bien_chinh_note": "Field bien_chinh = bản đọc-đồng-dạng (Iron Rule #4/#6/#8) sẽ được SURFACE cho user. y_nghia_duyen + han_tu giữ nguyên CHỈ để truy vết nguồn cổ, KHÔNG surface. gioi_tinh: nam = phú góc nhìn nam (loại khỏi nữ mệnh), nu = riêng nữ mệnh, chung = áp dụng chung."
   },
   "cach_cuc": [
     {
@@ -26,7 +27,9 @@
         "trang": [
           64
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Hình (kỷ luật, ranh giới rõ) gặp Tham Lang (khí ham sống mãnh liệt, sức hút giao tế lớn) tạo nên một người đa cảm, nhiều sức hấp dẫn. Cấu trúc này vận hành đẹp nhất khi khí Tham được Thiên Hình giữ trong khuôn: nguồn năng lượng dồi dào ấy nếu dồn vào nghệ thuật, giao tế có nguyên tắc thì thành duyên rộng; khí cần ý thức giữ chừng mực để không phân tán."
     },
     {
       "ten_cach": "Cô Quân",
@@ -48,7 +51,9 @@
         "trang": [
           23
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tử Vi (khí chủ-soái, muốn đứng đầu) mà thiếu Tả Phụ Hữu Bật (người trợ lực đồng hành) thì như vị chủ đứng một mình — đẹp mà chưa trọn. Cấu trúc này vận hành tốt nhất khi chủ động tìm bạn đồng hành tin cậy thay vì ôm hết; khí cần học mở lòng nhận trợ giúp để bớt cô độc trong tình cảm."
     },
     {
       "ten_cach": "Cơ Cự phá cách",
@@ -73,7 +78,9 @@
         "trang": [
           73
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Cơ (linh hoạt, nghĩ nhanh) gặp Cự Môn (ngôn luận, biện biệt) ở Thân/Dậu là một tổ hợp nhiều biến động trong lời nói và quan hệ. Cấu trúc này vận hành tốt nhất khi đem trí linh hoạt và khẩu tài vào một chuyên môn rõ ràng; khí cần giữ lời và chọn duyên cẩn trọng, tránh nói nhiều mà mỏng."
     },
     {
       "ten_cach": "Cơ Lương Âm Cự Dương Hỏa Kỵ xung hợp",
@@ -97,7 +104,9 @@
         "trang": [
           104
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tổ hợp Thiên Lương–Thái Âm–Cự Môn gặp Kình Dương, Hỏa, Hóa Kỵ là khí tình cảm rất sâu nhưng nhiều sóng. Đọc theo 王亭之 ('nữ mệnh phản dị phấn phát' — nữ mệnh càng nhiều biến càng dễ bứt lên): đây không phải bản án, mà là dấu hiệu khí tình cảm cần một kênh ổn định. Cấu trúc này vận hành tốt nhất khi người ấy gắn năng lượng cảm xúc vào việc chuyên tâm và một mối quan hệ được vun đắp có ý thức; khí cần giữ gìn ranh giới để không bị cuốn theo cảm xúc nhất thời."
     },
     {
       "ten_cach": "Cơ Nguyệt Dần Thân nữ mệnh",
@@ -122,7 +131,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Cơ Nguyệt (Thiên Cơ linh hoạt + Thái Âm dịu, thẩm mỹ) tại Dần/Thân cho người con gái khéo léo, tinh tế, ưa cái đẹp. Bỏ lối phán cũ, đọc đồng dạng: đây là khí mềm và giỏi xoay xở. Cấu trúc này vận hành tốt nhất khi đặt sự khéo léo vào nghề cần sự tinh tế; khí cần giữ chủ kiến để không lệ thuộc người khác."
     },
     {
       "ten_cach": "Cơ Nguyệt đồng cung",
@@ -143,7 +154,9 @@
         "trang": [
           105
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Cơ (linh hoạt) đồng Thái Âm (dịu, thẩm mỹ) cho người con gái dung mạo khéo, đa cảm. Đọc theo paradigm động từ: khí này giàu sức quyến rũ và năng lực thẩm mỹ. Cấu trúc vận hành đẹp nhất khi hướng vào sáng tạo và một mối duyên chân thành được chọn lựa; khí cần ý thức giữ gìn để cảm xúc không dẫn dắt."
     },
     {
       "ten_cach": "Cơ Xương Khúc nguyệt phùng",
@@ -169,7 +182,9 @@
         "trang": [
           114
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Cơ–Xương–Khúc cùng Thái Âm hội tại Dần là khí tài hoa, văn vẻ, đa cảm. Bỏ lời phán nghề nghiệp cũ, đọc cấu trúc: người có tài về chữ nghĩa và sức hấp dẫn. Vận hành tốt nhất khi đem tài hoa vào con đường văn nghệ/chuyên môn vững; khí cần nền tảng ổn định để tài không trôi nổi."
     },
     {
       "ten_cach": "Cự Môn Mệnh hãm chủ dâm xướng",
@@ -189,7 +204,9 @@
         "trang": [
           118
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Cự Môn (ngôn luận, đào sâu) ở Mệnh hãm địa là khí lời nói mạnh nhưng dễ thị phi. Bỏ lối kết án, đọc đồng dạng: đây là người có khẩu tài và chiều sâu, cần kênh đúng. Cấu trúc vận hành tốt nhất khi đem lời vào nghề dùng miệng lưỡi chính đáng (giảng dạy, tư vấn, pháp lý); khí cần giữ lời và chọn môi trường lành để tránh tranh chấp."
     },
     {
       "ten_cach": "Cự Môn đồng Thiên Cơ",
@@ -210,7 +227,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Cự Môn (biện biệt) đồng Thiên Cơ (linh hoạt): theo phú gốc, người phối ngẫu đảm việc nhà, dung mạo ưa nhìn. Cấu trúc này nói lên một gia đạo có người bạn đời khéo vun vén; vận hành tốt khi hai bên cùng trọng sự khéo léo và đối thoại."
     },
     {
       "ten_cach": "Dương Đà nhập miếu gia cát tinh trì thú miễn hình",
@@ -231,7 +250,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Kình Dương (cương mãnh, sắc bén) và Đà La (bền bỉ, ngẫm sâu) khi nhập miếu lại gặp cát tinh là khí mạnh được hoá lành. Cấu trúc này vận hành tốt nhất khi kết duyên muộn, chín chắn — sự cương đó cần thời gian để mềm lại; khí cần giữ nhẫn để duyên bền."
     },
     {
       "ten_cach": "Giáp Kỵ diệc hung",
@@ -251,7 +272,9 @@
         "trang": [
           196
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Bị Hóa Kỵ (khí vướng mắc) kẹp là dấu hiệu một điểm tâm hay bám và phải học gỡ. Đọc động từ: đây không phải án nghèo-cô, mà là bài học buông. Cấu trúc vận hành tốt nhất khi người ấy nhận diện chỗ mình dễ chấp và chủ động tháo; khí cần giữ lòng rộng để bớt tự cô lập."
     },
     {
       "ten_cach": "Háo ngộ Tham Lang, sính dâm tình ư tỉnh để",
@@ -271,7 +294,9 @@
         "trang": [
           18
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Địa Hao gặp Tham Lang (khí ham sống mạnh) là khí dễ hao tán vào hưởng thụ. Bỏ lời phán, đọc cấu trúc: nguồn năng lượng tình cảm lớn cần được tiết chế. Vận hành tốt nhất khi dồn sức ham sống vào mục tiêu rõ ràng; khí cần giữ gìn để không phung phí vào nhất thời."
     },
     {
       "ten_cach": "Hình ngộ Tham Lang",
@@ -292,7 +317,9 @@
         "trang": [
           16
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Hình (nguyên tắc) gặp Tham Lang (ham sống) cho người phong lưu, nhiều sức hút nhưng dễ vượt khuôn. Đọc đồng dạng: khí này cần Thiên Hình làm bờ đê. Cấu trúc vận hành tốt nhất khi giữ kỷ luật với chính mình; khí cần ý thức giữ chừng mực để duyên đứng đắn, bền lâu."
     },
     {
       "ten_cach": "Hóa Lộc Lộc Tồn xung hợp",
@@ -313,7 +340,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hóa Lộc gặp Lộc Tồn xung hợp là khí sinh lợi và quý hiển hội tụ — một cấu trúc rất tốt cho nữ mệnh. Vận hành tốt nhất khi người ấy phát huy năng lực tạo phúc cho gia đình; khí thuận cho cả tài lẫn tình, con cái đề huề."
     },
     {
       "ten_cach": "Hỏa Linh Dương Đà Cự Môn Không Động tụ hội",
@@ -338,7 +367,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hỏa–Linh–Kình–Đà cùng Cự Môn, Địa Không tụ hội là khí rất mạnh và xung. Đọc theo 王亭之 (không phán ẩu): đây là cấu trúc nhiều biến, cần kênh giải toả. Vận hành tốt nhất khi đem khí cương quyết vào việc khó cần bản lĩnh; khí cần giữ gìn sức khoẻ và chọn môi trường lành, tránh để xung khí dồn vào quan hệ."
     },
     {
       "ten_cach": "Hỏa Linh nhập nữ mệnh cát quyết",
@@ -360,7 +391,9 @@
         "trang": [
           134
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hỏa–Linh gặp Tham Lang hội hợp, tam phương không sát là cách Hỏa Tham đẹp: khí bùng phát được Tham hoá thành sức hút và may mắn. Cấu trúc này vận hành rất tốt cho nữ mệnh — duyên và phúc cùng đến; khí thuận, an ổn trong nhà."
     },
     {
       "ten_cach": "Hỏa Linh nhập nữ mệnh hung quyết",
@@ -381,7 +414,9 @@
         "trang": [
           134
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hỏa Linh (khí bùng phát + dồn nén) đứng đơn lẻ trong nữ mệnh là khí nóng thiếu kênh. Bỏ lời phán yểu, đọc đồng dạng: cần Tham Lang hoặc cát tinh để hoá. Vận hành tốt nhất khi người ấy có việc lớn để dồn khí và giữ gìn sức khoẻ; khí cần điều hoà để không tự đốt mình."
     },
     {
       "ten_cach": "Hỏa Tinh + Kình Dương",
@@ -402,7 +437,9 @@
         "trang": [
           133
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hỏa Tinh (bùng phát) cùng Kình Dương (sắc bén) là khí rất nóng từ sớm. Bỏ lời phán cô-khắc, đọc cấu trúc: hai khí cương gặp nhau cần thời gian thuần. Vận hành tốt nhất khi hướng sức mạnh vào rèn luyện và kết duyên muộn; khí cần giữ ôn hoà để bớt va chạm."
     },
     {
       "ten_cach": "Hồng Loan Thiên Quý chiếu",
@@ -423,7 +460,9 @@
         "trang": [
           282
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Hồng Loan (duyên dáng) và Thiên Quý (quý hiển) chiếu là khí nhân duyên đẹp và được nâng đỡ — phú gốc nói người phối ngẫu sang quý, gia đạo có người giúp. Cấu trúc vận hành tốt cho đời sống lứa đôi hài hoà, có quý nhân."
     },
     {
       "ten_cach": "Hồng Loan dữ Thiên Quý thành hàng nhạn",
@@ -444,7 +483,9 @@
         "trang": [
           280
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hồng Loan (duyên) và Thiên Quý (quý hiển) là khí thân tộc gắn bó, anh em thuận hoà. Cấu trúc vận hành tốt cho các mối quan hệ ruột thịt và bạn đời êm ấm."
     },
     {
       "ten_cach": "Hồng Loan hỷ Thìn Sửu Dần Mão Hợi",
@@ -471,7 +512,9 @@
         "trang": [
           297
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hồng Loan (khí nhân duyên tươi sáng) đóng ở Thìn/Sửu/Dần/Mão/Hợi là vị trí đẹp. Cấu trúc này vận hành thuận cho nhân duyên — duyên dễ đến và lành."
     },
     {
       "ten_cach": "Hồng Loan nhập miếu",
@@ -491,7 +534,9 @@
         "trang": [
           290
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hồng Loan nhập miếu cho dung mạo ưa nhìn, tính ôn hoà, nổi bật giữa đám đông. Cấu trúc này vận hành tốt cho nhân duyên và quan hệ — khí dịu mà cuốn hút."
     },
     {
       "ten_cach": "Hồng Loan phùng Tham tú",
@@ -512,7 +557,9 @@
         "trang": [
           20
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hồng Loan (duyên nồng) gặp Tham Lang (ham sống mạnh) là khí nhân duyên rất đậm. Bỏ lời phán cũ, đọc đồng dạng: sức hút lớn cần định hướng. Vận hành tốt nhất khi người ấy giữ sự đoan chính trong giao tế; khí cần ý thức giữ gìn để duyên không thành rối."
     },
     {
       "ten_cach": "Hồng Loan thủ mệnh",
@@ -538,7 +585,9 @@
         "trang": [
           291
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hồng Loan thủ mệnh ở Tỵ/Hợi/Dần/Sửu cho nửa đời hưởng phúc, được quý hiển. Cấu trúc này vận hành thuận cho nhân duyên và vận phúc."
     },
     {
       "ten_cach": "Hồng Loan đắc địa",
@@ -558,7 +607,9 @@
         "trang": [
           299
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hồng Loan đắc địa cho uy nghi, đẹp đẽ, ưa hưởng thụ đời sống. Cấu trúc vận hành tốt cho nhân duyên; khí cần giữ chừng mực trong hưởng lạc để phúc bền."
     },
     {
       "ten_cach": "Hữu Bật Thiên Tướng phúc lai lâm",
@@ -579,7 +630,9 @@
         "trang": [
           181
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hữu Bật (trợ lực, người đồng hành) và Thiên Tướng (phụ tá trung hậu) cùng đến nữ mệnh là khí phúc lành, có người nâng đỡ. Cấu trúc vận hành tốt cho đời sống lứa đôi êm ấm, được trợ giúp."
     },
     {
       "ten_cach": "Khoa tinh nhập nữ mệnh",
@@ -600,7 +653,9 @@
         "trang": [
           139
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hóa Khoa (danh tiếng, học thức) nhập nữ mệnh là khí thanh cao, có tiếng tốt, tứ đức kiêm toàn. Cấu trúc này vận hành rất tốt — người phụ nữ có học, được trọng; chồng con đều nhờ khí lành ấy mà vinh hiển."
     },
     {
       "ten_cach": "Kình Dương nhập nữ mệnh",
@@ -625,7 +680,9 @@
         "trang": [
           131
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Kình Dương (cương sắc) gặp Hỏa, Cơ, Cự, Kỵ trong nữ mệnh là tổ hợp nhiều khí cương va nhau. Đọc theo 王亭之 (không phán ẩu): đây là cấu trúc cần điều hoà, không phải định mệnh. Vận hành tốt nhất khi đem khí mạnh vào việc đòi bản lĩnh và giữ gìn sức khoẻ; khí cần ôn hoà để bớt sóng gió."
     },
     {
       "ten_cach": "Linh Tinh hãm địa",
@@ -645,7 +702,9 @@
         "trang": [
           42
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Linh Tinh (khí âm thầm, dồn nén) ở hãm địa là khí sức ngầm thiếu lối ra. Bỏ lời phán cô-nghèo, đọc đồng dạng: cần kênh để bộc lộ. Vận hành tốt nhất khi người ấy tìm việc bền cần kiên nhẫn; khí cần giữ lòng cởi mở để bớt tự khép."
     },
     {
       "ten_cach": "Linh Tinh hình khắc",
@@ -665,7 +724,9 @@
         "trang": [
           163
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Linh Tinh (dồn nén, sức ngầm) là khí dễ đi đường vòng trong gắn kết — có thể sống xa quê, nhận nuôi, ở rể. Bỏ lời phán hình-khắc, đọc cấu trúc: đây là duyên gắn kết theo nẻo khác thường. Vận hành tốt nhất khi người ấy chấp nhận con đường riêng của mình; khí cần giữ sự bền bỉ để duyên thành."
     },
     {
       "ten_cach": "Liêm Trinh hãm địa",
@@ -689,7 +750,9 @@
         "trang": [
           110
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Liêm Trinh (nguyên tắc + đào hoa, lý tưởng) ở Tỵ/Hợi hãm là khí lý tưởng cao mà dễ thấy mình lẻ loi — hợp với nghề tinh xảo, tu hành, binh nghiệp. Bỏ lời phán cô đơn, đọc đồng dạng: đây là khí độc lập, đi con đường riêng. Vận hành tốt nhất khi theo nghề cần sự chuyên chú; khí cần giữ lòng rộng để gắn kết người thân."
     },
     {
       "ten_cach": "Liêm Trinh hóa Kỵ bất kiến cát",
@@ -713,7 +776,9 @@
         "trang": [
           58
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Liêm Trinh (lý tưởng, sâu sắc) hóa Kỵ (vướng mắc cần gỡ) mà thiếu cát là khí tình cảm dễ rối và hao. Bỏ lời phán cũ, đọc cấu trúc: nơi tâm hay chấp về tình, phải học buông. Vận hành tốt nhất khi người ấy gỡ chỗ bám và chọn duyên tỉnh táo; khí cần giữ gìn để bảo toàn mình."
     },
     {
       "ten_cach": "Liêm Trinh đồng Tham Lang",
@@ -734,7 +799,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Liêm Trinh (lý tưởng) và Tham Lang (ham sống) đồng cung: theo phú gốc đây là khí khó hợp với người bạn đời, dễ va. Đọc đồng dạng: hai khí mạnh cần dung hoà. Cấu trúc vận hành tốt khi kết duyên muộn, chọn người điềm tĩnh; khí cần học nhường để gia đạo êm."
     },
     {
       "ten_cach": "Ly tông thứ xuất",
@@ -755,7 +822,9 @@
         "trang": [
           17
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tả Phụ hoặc Hữu Bật (trợ lực) đơn thủ Mệnh là khí một người tự lập, có thể sống xa gốc gác, hoặc sinh trong hoàn cảnh thứ thất. Đọc đồng dạng: đây là duyên gia đình theo nẻo riêng, không phải án. Vận hành tốt nhất khi người ấy chủ động dựng nền cho mình."
     },
     {
       "ten_cach": "Lương Âm Dần Thân chủ dâm dật",
@@ -782,7 +851,9 @@
         "trang": [
           181
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Lương (che chở, thanh cao) ở Tỵ/Hợi và Thái Âm (dịu) ở Dần/Thân là khí tình cảm phong phú. Bỏ lời phán cũ, đọc cấu trúc: nếu không hãm thì y lộc đủ đầy; hãm thì cần nỗ lực hơn. Vận hành tốt nhất khi hướng khí mềm vào chăm sóc và nghề tinh tế; khí cần giữ chủ kiến."
     },
     {
       "ten_cach": "Lương Đồng Tỵ Hợi nam lãng đãng nữ dâm",
@@ -807,7 +878,9 @@
         "trang": [
           181
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Lương (che chở) đồng Thiên Đồng (hồn nhiên, an vui) ở Tỵ/Hợi là khí phóng khoáng, ưa tự do. Bỏ lời phán nam-nữ, đọc đồng dạng: đây là khí thích bay nhảy, cần neo. Vận hành tốt nhất khi người ấy tìm được điểm tựa và mục tiêu; khí cần giữ chừng để duyên ổn định."
     },
     {
       "ten_cach": "Lộc Tồn chủ cô",
@@ -827,7 +900,9 @@
         "trang": [
           147
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Lộc Tồn (tích luỹ, giữ gìn) là khí thiên về an ổn vật chất, đôi khi đi cùng cảm giác đơn độc trong tự lập. Bỏ lời phán cô độc thành bản án, đọc đồng dạng: đây là người tự lo được cho mình. Vận hành tốt nhất khi mở lòng chia sẻ với người thân; khí cần giữ sự ấm áp để bớt khép."
     },
     {
       "ten_cach": "Lộc Tồn hãm địa",
@@ -847,7 +922,9 @@
         "trang": [
           129
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Lộc Tồn (giữ gìn) ở hãm địa gặp Không Kiếp, Linh Hỏa là khí an ổn bị lung lay. Bỏ lời phán phu-phụ phân ly, đọc đồng dạng: đây là dấu hiệu quan hệ cần vun đắp có ý thức. Vận hành tốt nhất khi có cát tinh trợ và hai bên cùng giữ; khí cần giữ gìn để duyên bền."
     },
     {
       "ten_cach": "Lộc Tồn nhập nữ mệnh",
@@ -867,7 +944,9 @@
         "trang": [
           129
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Lộc Tồn (an ổn) nhập nữ mệnh cho dung mạo thanh tú; gặp Tử Phủ, Đồng Trinh thì khí càng quý. Cấu trúc này vận hành tốt — người phụ nữ vững vàng, có phúc về cả tài lẫn tình."
     },
     {
       "ten_cach": "Lộc Tồn tương sinh vô khắc thê nghi niên thiểu tịnh đầu trì thú giả",
@@ -887,7 +966,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Lộc Tồn tương sinh không xung khắc: theo phú gốc, người bạn đời nên ít tuổi hơn, hai bên sống lâu bền, kết duyên muộn thì tốt. Cấu trúc vận hành thuận cho hôn nhân khi chọn đúng thời và đúng người."
     },
     {
       "ten_cach": "Lộc chủ nhược địa",
@@ -916,7 +997,9 @@
         "trang": [
           47
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Hóa Lộc (sinh lợi) rơi vào đất yếu (Không Kiếp hoặc Tý/Ngọ/Thân/Dậu) là khí lợi bị giảm lực. Bỏ lời phán cô-nghèo, đọc đồng dạng: tiềm năng có mà chưa gặp đất tốt. Vận hành tốt nhất khi người ấy chủ động tạo điều kiện cho khí lợi phát; khí cần kiên trì gây dựng."
     },
     {
       "ten_cach": "Mã Tảo tinh / Đoản Thọ sát",
@@ -940,7 +1023,9 @@
         "trang": [
           42
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Linh–Hỏa–Đà–Kình hội tụ (cách Mã Tảo/Đoản Thọ) là khí bốn sát rất mạnh và gấp. Bỏ lời phán hình-cô-hoạ, đọc theo paradigm: đây là cấu trúc cần điều hoà và giữ gìn. Vận hành tốt nhất khi dồn khí cương vào nghề đòi bản lĩnh, giữ sức khoẻ và sự bình tâm; khí cần ôn hoà để hoá hung thành dụng."
     },
     {
       "ten_cach": "Mệnh vô chính diệu",
@@ -960,7 +1045,9 @@
           163,
           196
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Mệnh vô chính diệu (không có chính tinh) là khí như tờ giấy trắng — mềm, dễ thích nghi, hấp thụ khí của cung xung chiếu. Bỏ lời phán yểu-cô-nghèo, đọc đồng dạng: đây là người uyển chuyển, vận đời do tu dưỡng định nhiều. Vận hành tốt nhất khi người ấy chủ động chọn môi trường lành và mượn cát tinh giáp; khí cần một điểm tựa rõ."
     },
     {
       "ten_cach": "Nguyệt Lạc Hợi Cung",
@@ -983,7 +1070,9 @@
         "trang": [
           76
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thái Âm (dịu, nội tâm) lạc ở Hợi là khí trăng sáng giữa đêm — đẹp thanh cao, sâu lắng, có chút biệt lập. Cấu trúc này vận hành tốt cho người giàu nội tâm và thẩm mỹ; khí cần mở lòng chia sẻ để bớt cô."
     },
     {
       "ten_cach": "Nhất sinh cô bần",
@@ -1003,7 +1092,9 @@
         "trang": [
           78
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Phá Quân (phá-cũ-dựng-mới) thủ mệnh ở hãm địa là khí thay đổi mạnh, dễ đi một mình một đường. Bỏ lời phán cô-nghèo, đọc đồng dạng: đây là người dám phá để dựng. Vận hành tốt nhất khi đem khí cải cách vào việc lớn; khí cần giữ kiên định để vượt giai đoạn khó."
     },
     {
       "ten_cach": "Nhận túc đồng hình tổn phụ mẫu",
@@ -1024,7 +1115,9 @@
         "trang": [
           295
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Kình Dương (sắc) và Đà La (vòng) cùng chiếu là khí ảnh hưởng tới quan hệ cha mẹ; nam có thể làm con nuôi, nữ duyên cần vun. Bỏ lời phán goá-bụa, đọc đồng dạng: đây là dấu hiệu gắn kết gia đình theo nẻo riêng. Vận hành tốt nhất khi người ấy chủ động dựng tổ ấm và giữ duyên có ý thức."
     },
     {
       "ten_cach": "Nhật Lệ Trung Thiên",
@@ -1045,7 +1138,9 @@
         "trang": [
           63
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thái Dương (toả sáng) cư Ngọ — cách Nhật Lệ Trung Thiên: khí mặt trời giữa trời, quyền quý, giàu sang. Với nữ mệnh là khí mạnh mẽ, biết gánh vác, hỗ trợ chồng ích con. Cấu trúc vận hành rất tốt — người phụ nữ có khí phách và phúc lớn."
     },
     {
       "ten_cach": "Nữ Nhân Mệnh Cung",
@@ -1073,7 +1168,9 @@
         "trang": [
           189
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Cách an Mệnh đúng cung hợp tuổi (theo can) là khí thuận; an ở Thìn/Tuất/Sửu/Mùi (tứ mộ) thì khí cần nỗ lực hơn. Đọc đồng dạng: vị trí an mệnh cho biết khí khởi điểm. Vận hành tốt nhất khi người ấy phát huy đúng sở trường của cung mình."
     },
     {
       "ten_cach": "Nữ mệnh Phá Quân hãm địa ngộ Hỏa Dương Cự Cơ sát kỵ",
@@ -1098,7 +1195,9 @@
         "trang": [
           124
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Phá Quân (phá-dựng) hãm địa gặp Hỏa, Kình, Cự, Cơ, Hóa Kỵ trong nữ mệnh là khí thay đổi mạnh giữa nhiều sóng. Đọc theo 王亭之 ('nữ mệnh phản dị phấn phát'): biến nhiều chính là chất liệu để bứt lên. Vận hành tốt nhất khi người ấy đem khí cải cách vào sự nghiệp riêng; khí cần giữ gìn và chọn môi trường lành."
     },
     {
       "ten_cach": "Nữ mệnh Phá Quân nhập miếu gia cát Diệu",
@@ -1118,7 +1217,9 @@
         "trang": [
           124
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Phá Quân (phá-dựng) nhập miếu trong nữ mệnh là khí cải cách được đặt đúng chỗ; thêm cát tinh thì thành phú quý. Cấu trúc này vận hành tốt — người phụ nữ dám đổi mới và gây dựng cơ đồ."
     },
     {
       "ten_cach": "Nữ mệnh Thiên Lương Dương Đà Hỏa Kỵ xung khắc",
@@ -1142,7 +1243,9 @@
         "trang": [
           32
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương (thanh cao) gặp Kình, Đà, Hỏa, Hóa Kỵ xung khắc là khí dễ vướng thị phi, danh tiếng bị soi. Bỏ lời phán không-trong-sạch, đọc đồng dạng: đây là cấu trúc cần giữ danh và giữ lời. Vận hành tốt nhất khi người ấy đề cao sự minh bạch; khí cần giữ gìn tiếng tăm để hoá lành."
     },
     {
       "ten_cach": "Nữ mệnh Thiên Lương cát tinh nhập miếu",
@@ -1162,7 +1265,9 @@
         "trang": [
           32
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương (che chở, thanh cao) cùng cát tinh nhập miếu trong nữ mệnh là khí lành — biết vun vén, hỗ trợ chồng, ích lợi cho con. Cấu trúc vận hành rất tốt cho gia đạo hoà thuận."
     },
     {
       "ten_cach": "Nữ nhân Hỏa Tinh hãm địa",
@@ -1182,7 +1287,9 @@
         "trang": [
           41
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Hỏa Tinh (bùng phát) ở hãm địa trong nữ mệnh là khí nóng thiếu kênh. Bỏ lời phán tà-dâm, đọc đồng dạng: đây là năng lượng cần được điều hoà. Vận hành tốt nhất khi người ấy dồn khí vào việc cụ thể và giữ bình tâm; khí cần ôn hoà để không bốc đồng."
     },
     {
       "ten_cach": "Phiếm Thủy Đào Hoa",
@@ -1208,7 +1315,9 @@
           63,
           188
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) ở Hợi/Tý — cách Phiếm Thủy Đào Hoa: khí nhân duyên rất nồng như hoa trôi trên nước. Gặp cát thì thành sức hút lành, gặp hình kỵ thì cần tiết chế. Vận hành tốt nhất khi người ấy định hướng sức hút vào quan hệ chân thành; khí cần giữ gìn chừng mực."
     },
     {
       "ten_cach": "Phiếm thủy đào hoa",
@@ -1232,7 +1341,9 @@
         "trang": [
           17
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (khí ham sống mạnh) ở Hợi/Tý là cách Phiếm Thủy Đào Hoa — khí nhân duyên nồng đậm. Đọc đồng dạng: đây là người giàu sức hút và đa cảm. Vận hành tốt nhất khi hướng năng lượng vào giao tế lành mạnh; khí cần ý thức giữ chừng mực."
     },
     {
       "ten_cach": "Phong Lưu Thải Trượng",
@@ -1256,7 +1367,9 @@
         "trang": [
           188
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) và Đà La (đường vòng, ngẫm sâu) ở Dần — cách Phong Lưu Thải Trượng: khí phong lưu, nhiều sức hút. Đọc đồng dạng: nguồn duyên rộng cần khuôn. Vận hành tốt nhất khi giữ nguyên tắc với chính mình; khí cần ý thức giữ gìn để duyên đứng đắn."
     },
     {
       "ten_cach": "Phong lưu tà trượng",
@@ -1277,7 +1390,9 @@
         "trang": [
           17
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Hình (nguyên tắc) gặp Tham Lang (ham sống) — cách Phong Lưu Tà Trượng: khí hấp dẫn nhưng dễ vượt khuôn. Đọc đồng dạng: cần Thiên Hình làm bờ đê. Vận hành tốt nhất khi giữ kỷ luật bản thân; khí cần ý thức giữ chừng mực để phong lưu thành duyên lành."
     },
     {
       "ten_cach": "Phá Quân Tý Ngọ vi nhân miếu",
@@ -1301,7 +1416,9 @@
         "trang": [
           124
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Phá Quân (phá-dựng) ở Tý/Ngọ nhập miếu trong nữ mệnh là cách rất đẹp: khí cải cách được đặt đúng vị, mang phúc thọ, tài năng hơn người. Cấu trúc vận hành rất tốt — người phụ nữ bản lĩnh, dựng được cơ đồ."
     },
     {
       "ten_cach": "Phá Quân chủ hạn nùng huyết",
@@ -1321,7 +1438,9 @@
         "trang": [
           124
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Phá Quân (biến động mạnh) chủ một giai đoạn vận sức khoẻ cần chú ý, hao tổn bất ngờ; nữ nhân có thể gặp việc buồn trong nhà. Đọc đồng dạng theo Đại Vận: đây là lời nhắc giữ gìn trong vận đó, không phải định mệnh. Vận hành tốt nhất khi người ấy phòng xa, chăm sức khoẻ và giữ tâm an."
     },
     {
       "ten_cach": "Phá Quân gia tứ sát",
@@ -1341,7 +1460,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Phá Quân (phá-dựng) thêm bốn sát là khí thay đổi rất mạnh và gấp. Bỏ hẳn lời phán cũ về việc hại người thân, đọc theo 王亭之 (không phán ẩu): đây là cấu trúc nhiều biến cần kênh giải toả lành. Vận hành tốt nhất khi người ấy dồn khí cải cách vào sự nghiệp đòi bản lĩnh, có thể hợp đời sống tinh thần/tu tập; khí cần giữ gìn quan hệ ruột thịt bằng sự bao dung."
     },
     {
       "ten_cach": "Phá Quân nữ mệnh bất nghi phùng Kình Dương gia hãm",
@@ -1362,7 +1483,9 @@
         "trang": [
           124
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Phá Quân (phá-dựng) trong nữ mệnh gặp Kình Dương hãm là khí cải cách va với khí sắc bén — dễ nhiều sóng trong lứa đôi. Bỏ lời phán cũ, đọc đồng dạng: đây là dấu hiệu quan hệ cần vun đắp rất có ý thức và chọn người điềm tĩnh. Vận hành tốt nhất khi người ấy hướng khí mạnh vào sự nghiệp; khí cần giữ gìn để gia đạo bớt va chạm."
     },
     {
       "ten_cach": "Phá Quân, Tham Lang phùng Lộc Mã",
@@ -1385,7 +1508,9 @@
         "trang": [
           191
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Phá Quân, Tham Lang (hai khí mạnh: phá-dựng + ham sống) gặp Lộc Tồn, Thiên Mã (an ổn + di động) là khí năng động, phóng khoáng, nhiều sức hút. Bỏ lời phán nam-nữ cũ, đọc đồng dạng: nguồn năng lượng lớn cần định hướng. Vận hành tốt nhất khi đem khí ấy vào việc lớn và giao tế lành; khí cần giữ chừng mực để không phân tán."
     },
     {
       "ten_cach": "Sát Phá xung phá",
@@ -1405,7 +1530,9 @@
         "trang": [
           104
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tử Vi (chủ-soái) trong nữ mệnh bị Sát, Phá xung phá là khí chủ bị động. Bỏ lời phán cũ, đọc đồng dạng: dù đủ đầy vật chất nhưng khí cần được an định. Vận hành tốt nhất khi người ấy tìm Tả Hữu trợ và giữ sự đoan chính trong giao tế; khí cần giữ gìn để duyên ổn."
     },
     {
       "ten_cach": "Tam Bất Liễu",
@@ -1425,7 +1552,9 @@
         "trang": [
           296
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Hình (kỷ luật, nguyên tắc) đi một mình — cách Tam Bất Liễu: khí cô độc, hợp đời sống tinh thần, tu tập, nghiên cứu. Bỏ lời phán không-thành-gia, đọc đồng dạng: đây là người có duyên với con đường thanh tịnh hoặc lập gia muộn. Vận hành tốt nhất khi người ấy theo đuổi việc cần sự chuyên chú; khí cần giữ lòng rộng để gắn kết."
     },
     {
       "ten_cach": "Tham Lang Dương Nhân đồng viên",
@@ -1449,7 +1578,9 @@
         "trang": [
           64
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) và Kình Dương (sắc bén) đồng cung ở Dần là khí thông minh, phong lưu, nhiều sức hút. Đọc đồng dạng: trí sắc và duyên rộng hợp nhau. Vận hành tốt nhất khi đem trí và sức hút vào giao tế có nguyên tắc; khí cần ý thức giữ chừng mực."
     },
     {
       "ten_cach": "Tham Lang Hãm Địa Nữ Mệnh",
@@ -1469,7 +1600,9 @@
         "trang": [
           116
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tham Lang (ham sống mãnh liệt) ở hãm địa trong nữ mệnh là khí nồng mà chưa được đất tốt. Bỏ hẳn lời phán hại-chồng-con và goá bụa, đọc theo 王亭之: đây là khí giàu năng lượng cần định hướng, không phải bản án. Vận hành tốt nhất khi người ấy dồn sức ham sống vào sự nghiệp, sáng tạo và một mối duyên được chọn lựa kỹ; khí cần giữ gìn để duyên bền và gia đạo ấm."
     },
     {
       "ten_cach": "Tham Lang dâm dật",
@@ -1489,7 +1622,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) mang khí đa cảm, ưa cái đẹp, có thể ghen và sống mạnh. Bỏ hẳn lời phán đạo-đức cũ, đọc đồng dạng: đây là nguồn năng lượng tình cảm lớn cần khuôn. Vận hành tốt nhất khi người ấy hướng khí vào sáng tạo và quan hệ chân thành; khí cần ý thức giữ chừng mực và sự tin cậy trong lứa đôi."
     },
     {
       "ten_cach": "Tham Lang dương đà giao tịnh",
@@ -1511,7 +1646,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) với Kình Dương, Đà La (sắc + vòng) giao nhau là khí phong lưu rất mạnh. Bỏ lời phán cũ, đọc đồng dạng: sức hút lớn dễ cuốn người. Vận hành tốt nhất khi giữ nguyên tắc và chọn duyên tỉnh táo; khí cần ý thức giữ gìn để không sa vào hưởng lạc."
     },
     {
       "ten_cach": "Tham Lang dữ Thất Sát Nhật Nguyệt đồng triền",
@@ -1534,7 +1671,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) cùng Thất Sát (độc lập), Nhật Nguyệt đồng triền là tổ hợp khí mạnh, đa cảm, hào hoa. Bỏ lời phán cũ, đọc đồng dạng: nhiều năng lượng nhưng dễ hư hoa. Vận hành tốt nhất khi người ấy neo khí vào mục tiêu thực; khí cần giữ chừng mực để bền vững."
     },
     {
       "ten_cach": "Tham Lang hãm địa gặp Dương Đà Kỵ",
@@ -1557,7 +1696,9 @@
         "trang": [
           115
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) hãm địa gặp Kình, Đà, Hóa Kỵ là khí nồng bị nhiều cản. Bỏ lời phán cô-nghèo-tật, đọc đồng dạng: tiềm năng lớn gặp đất khó, cần kiên trì. Vận hành tốt nhất khi người ấy chủ động tạo điều kiện và giữ sức khoẻ; khí cần bền bỉ để vượt cản."
     },
     {
       "ten_cach": "Tham Lang hội Phá Quân",
@@ -1578,7 +1719,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) hội Phá Quân (phá-dựng) là khí dễ cuốn vào hưởng lạc nếu thiếu khuôn. Bỏ lời phán mất-mạng, đọc đồng dạng: đây là lời nhắc tiết chế tửu sắc. Vận hành tốt nhất khi người ấy dồn năng lượng vào việc lớn; khí cần giữ chừng mực để giữ mình."
     },
     {
       "ten_cach": "Tham Lang hỷ kiến Không Vong",
@@ -1599,7 +1742,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) gặp Không Vong (khí trống, hướng tinh thần) lại hoá đoan chính — sức hút được tinh thần hoá. Cấu trúc này vận hành tốt: khí ham sống được thăng hoa thành sự điềm đạm, có chiều sâu."
     },
     {
       "ten_cach": "Tham Lang nhập miếu",
@@ -1621,7 +1766,9 @@
           115,
           126
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) nhập miếu là khí rất mạnh, tối cao cường; gặp ác tinh thì cần tiết chế. Bỏ lời phán cũ, đọc đồng dạng: đây là nguồn năng lượng và sức hút lớn. Vận hành tốt nhất khi đem khí vào giao tế và sự nghiệp; khí cần ý thức giữ chừng mực khi quanh có sát."
     },
     {
       "ten_cach": "Tham Lang nữ nhân ngộ Thái Âm",
@@ -1642,7 +1789,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tham Lang (ham sống) trong nữ mệnh là khí nồng, gặp Thái Âm (dịu) càng đa cảm. Bỏ lời phán hình-khắc, đọc đồng dạng: đây là người giàu cảm xúc và sức hút. Vận hành tốt nhất khi hướng khí vào sáng tạo và chọn duyên kỹ; khí cần ý thức giữ gìn để cảm xúc không dẫn dắt."
     },
     {
       "ten_cach": "Tham Lang thủ mệnh",
@@ -1662,7 +1811,9 @@
         "trang": [
           58
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống mãnh liệt) thủ mệnh là khí nhân duyên rất nồng; hãm địa thêm sát thì càng cần tiết chế. Bỏ lời phán cũ, đọc đồng dạng: nguồn năng lượng tình cảm lớn cần định hướng. Vận hành tốt nhất khi người ấy dồn khí vào nghệ thuật, giao tế lành; khí cần ý thức giữ chừng mực."
     },
     {
       "ten_cach": "Tham Lang tại Tài Bạch với Vũ Khúc Thái Âm",
@@ -1685,7 +1836,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) ở Tài Bạch cùng Vũ Khúc, Thái Âm là khí tài và tình đan nhau, khó tự phát. Bỏ lời phán cũ, đọc đồng dạng: cần kênh rõ để khí không loãng. Vận hành tốt nhất khi tách bạch việc tiền và việc tình, đặt mục tiêu cụ thể; khí cần giữ chừng mực."
     },
     {
       "ten_cach": "Tham Lang đồng Liêm Trinh",
@@ -1706,7 +1859,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Tham Lang (ham sống) và Liêm Trinh (lý tưởng) đồng cung: theo phú gốc là khí khó hợp với người bạn đời, dễ va. Đọc đồng dạng: hai khí mạnh cần dung hoà. Cấu trúc vận hành tốt khi kết duyên muộn và chọn người điềm tĩnh; khí cần học nhường."
     },
     {
       "ten_cach": "Tham Phá hãm địa gặp Kỵ",
@@ -1727,7 +1882,9 @@
         "trang": [
           140
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang, Phá Quân (ham sống + phá-dựng) ở hãm địa gặp Hóa Kỵ là khí mạnh gặp nhiều cản. Bỏ hẳn lời phán cũ về nam-nữ, đọc đồng dạng: nguồn năng lượng lớn cần định hướng và môi trường lành. Vận hành tốt nhất khi người ấy dồn khí vào việc chính đáng cần bản lĩnh; khí cần giữ gìn, tránh để hoàn cảnh xấu lôi kéo."
     },
     {
       "ten_cach": "Tham Sát đồng thủ thân mệnh (tiếp)",
@@ -1748,7 +1905,9 @@
         "trang": [
           30
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) cùng Thất Sát (độc lập) đồng thủ thân mệnh là khí rất mạnh và gấp. Bỏ lời phán yểu và nghề cũ, đọc đồng dạng: đây là cấu trúc cần giữ gìn sức khoẻ và định hướng. Vận hành tốt nhất khi đem khí vào sự nghiệp đòi bản lĩnh; khí cần ôn hoà để bền."
     },
     {
       "ten_cach": "Tham cư Hợi, Tý",
@@ -1772,7 +1931,9 @@
         "trang": [
           16
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) ở Hợi/Tý — cách đào hoa trên nước: khí nhân duyên rất nồng. Bỏ lời phán cũ, đọc đồng dạng: người giàu sức hút và đa cảm. Vận hành tốt nhất khi hướng khí vào giao tế lành; khí cần ý thức giữ chừng mực."
     },
     {
       "ten_cach": "Tham lang cư Tý, nãi vi phiếm thủy đào hoa",
@@ -1796,7 +1957,9 @@
         "trang": [
           21
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) đóng ở Tý là cách Phiếm Thủy Đào Hoa — khí nhân duyên nồng, đa tình, dễ nhiều cảm xúc trong tình cảm. Đọc đồng dạng: đây là người sức hút mạnh, sống tình cảm. Vận hành tốt nhất khi định hướng sức hút vào quan hệ chân thành; khí cần giữ gìn để tránh sóng gió cảm xúc."
     },
     {
       "ten_cach": "Thiên Cơ Thiên Lương Kình Dương hội",
@@ -1818,7 +1981,9 @@
         "trang": [
           22
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Cơ, Thiên Lương (linh hoạt + che chở) gặp Kình Dương (sắc bén) là khí sớm có va chạm, muộn dễ thấy lẻ loi. Bỏ lời phán hình-cô, đọc đồng dạng: đây là cấu trúc cần điều hoà sớm. Vận hành tốt nhất khi người ấy học mềm và giữ quan hệ có ý thức; khí cần ôn hoà để bớt cô."
     },
     {
       "ten_cach": "Thiên Cơ đồng Thái Âm",
@@ -1839,7 +2004,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Cơ (linh hoạt) đồng Thái Âm (dịu, thẩm mỹ): theo phú gốc, người bạn đời đảm việc nhà, dung mạo ưa nhìn. Cấu trúc vận hành tốt cho gia đạo có người vun vén khéo léo."
     },
     {
       "ten_cach": "Thiên Diêu chiếu Mệnh",
@@ -1859,7 +2026,9 @@
         "trang": [
           278
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Diêu (đa cảm, lãng mạn, sức hút) chiếu Mệnh là khí giàu tình cảm và quyến rũ. Bỏ lời phán dâm-dục và ngoại tình, đọc đồng dạng: đây là nguồn năng lượng lãng mạn cần ý thức giữ chừng. Vận hành tốt nhất khi người ấy hướng khí vào nghệ thuật và một mối duyên chân thành; khí cần giữ gìn sự thuỷ chung."
     },
     {
       "ten_cach": "Thiên Hình tọa Dần cùng Dậu Tuất",
@@ -1885,7 +2054,9 @@
         "trang": [
           44
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Hình (kỷ luật) ở Dần cùng Dậu/Tuất, lâm Mão thì tự sáng — gặp Văn tinh thành đại nghiệp, nắm quyền. Tính khí có phần độc lập, hợp đời sống tinh thần. Bỏ lời phán bệnh-tật, đọc đồng dạng: đây là khí nguyên tắc mạnh có thể thành sự nghiệp lớn. Vận hành tốt nhất khi đặt kỷ luật vào việc đáng; khí cần giữ gìn sức khoẻ và mở lòng."
     },
     {
       "ten_cach": "Thiên Lương Nguyệt Diệu nữ dâm bần",
@@ -1906,7 +2077,9 @@
         "trang": [
           181
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương (thanh cao) và Thái Âm (dịu) trong nữ mệnh là khí tình cảm sâu, nhiều suy tư. Bỏ lời phán cũ, đọc đồng dạng: đây là người giàu nội tâm, cần nền vững. Vận hành tốt nhất khi người ấy đem khí mềm vào chăm sóc và nghề tinh tế; khí cần giữ chủ kiến để bớt chênh vênh."
     },
     {
       "ten_cach": "Thiên Lương Nguyệt Diệu nữ mệnh bần",
@@ -1934,7 +2107,9 @@
         "trang": [
           59
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương hoặc Thái Dương vào nữ mệnh là khí thanh cao, ngay thẳng; hãm địa thì đường đời cần nỗ lực hơn. Bỏ lời phán cũ, đọc đồng dạng: đây là người có cốt cách, dù gặp khó vẫn giữ được mình. Vận hành tốt nhất khi người ấy kiên trì và giữ phẩm; khí cần bền chí để vượt giai đoạn khó."
     },
     {
       "ten_cach": "Thiên Lương Thiên Mã",
@@ -1961,7 +2136,9 @@
         "trang": [
           53
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương (che chở) gặp Thiên Mã (di động, bôn ba) trong nữ mệnh là khí năng động, ưa đổi chỗ, không thích gò bó. Bỏ lời phán cũ, đọc đồng dạng: đây là người phóng khoáng, thích tự do. Vận hành tốt nhất khi có việc để dồn khí di động và một điểm tựa tình cảm; khí cần neo để duyên ổn."
     },
     {
       "ten_cach": "Thiên Lương Thiên Mã phong lưu",
@@ -1982,7 +2159,9 @@
         "trang": [
           181
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Lương (che chở) gặp Thiên Mã (di động) là khí phóng khoáng, phong lưu, ưa rong ruổi. Đọc đồng dạng: đây là người năng động, nhiều trải nghiệm. Vận hành tốt nhất khi dồn khí vào việc cần đi lại và giữ một điểm neo; khí cần chừng mực để bền."
     },
     {
       "ten_cach": "Thiên Lương hãm địa, gia Dương, Đà, Hỏa, Linh, cô khắc, khí tổ nhập chuế",
@@ -2006,7 +2185,9 @@
         "trang": [
           162
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương (thanh cao) hãm địa thêm Kình, Đà, Hỏa, Linh là khí dễ thấy đơn độc, gắn kết gia đình theo nẻo riêng (xa quê, ở rể, nhận nuôi). Bỏ lời phán cô-khắc, đọc đồng dạng: đây là duyên gia đình khác thường, không phải án. Vận hành tốt nhất khi người ấy chủ động dựng tổ ấm; khí cần kiên trì gắn kết."
     },
     {
       "ten_cach": "Thiên Lương đồng vị",
@@ -2026,7 +2207,9 @@
         "trang": [
           25
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Lương (che chở, thanh cao) đồng vị là khí hợp đời sống tinh thần, tu tập; nữ mệnh thì khéo léo, đa cảm. Bỏ lời phán cũ, đọc đồng dạng: đây là người có cốt cách thanh và giàu cảm xúc. Vận hành tốt nhất khi hướng khí vào việc thanh tịnh hoặc nghề tinh tế; khí cần giữ chừng mực."
     },
     {
       "ten_cach": "Thiên Tướng hội Phá Thất dương đà hỏa linh (nữ mệnh)",
@@ -2047,7 +2230,9 @@
         "trang": [
           119
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Tướng (phụ tá trung hậu) trong nữ mệnh gặp Phá, Thất, Kình Đà, Hỏa Linh là khí ôn hậu giữa nhiều sóng. Bỏ hẳn lời phán cô-khắc và vị thế cũ, đọc theo 王亭之: đây là cấu trúc cần được nâng đỡ và một mối duyên vững. Vận hành tốt nhất khi người ấy tìm bạn đời điềm tĩnh và môi trường lành; khí cần giữ gìn để gia đạo bền."
     },
     {
       "ten_cach": "Thiên Tướng nhập nữ mệnh",
@@ -2067,7 +2252,9 @@
         "trang": [
           119
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Tướng (phụ tá trung hậu, ôn hoà) nhập nữ mệnh là khí thông minh, biết điều phối — phú quý, hỗ trợ chồng và ích cho con. Cấu trúc này vận hành rất tốt cho gia đạo hoà thuận, đủ đầy."
     },
     {
       "ten_cach": "Thiên hình ngộ tham, tất chủ phong lưu hình trượng",
@@ -2088,7 +2275,9 @@
         "trang": [
           21
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Hình (nguyên tắc) gặp Tham Lang (ham sống) là khí phong lưu cần khuôn phép. Bỏ lời phán hình-phạt, đọc đồng dạng: sức hút lớn cần Thiên Hình giữ. Vận hành tốt nhất khi giữ kỷ luật với chính mình; khí cần ý thức giữ chừng mực để duyên đứng đắn."
     },
     {
       "ten_cach": "Thiên nhận quán cung tài lộc hợp cách",
@@ -2106,7 +2295,9 @@
         "trang": [
           295
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Nhận chiếu các cung cho tài lộc hợp cách; nhưng khí sắc bén ấy ảnh hưởng tới quan hệ lứa đôi của cả nam lẫn nữ. Bỏ hẳn lời phán đạo-đức cũ, đọc đồng dạng: đây là khí mạnh về tiền nhưng cần mềm trong tình. Vận hành tốt nhất khi người ấy phát huy năng lực tài chính và học dịu trong quan hệ; khí cần giữ gìn sự hoà ái để duyên bền."
     },
     {
       "ten_cach": "Thiên Đồng Hãm Ngọ Hạ Cục",
@@ -2130,7 +2321,9 @@
         "trang": [
           109
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Đồng (hồn nhiên, an vui) ở Ngọ hãm, sinh năm Canh ở Hợi thuộc hạ cách, gặp sát thì khí dễ đơn độc, sức khoẻ cần chú ý. Bỏ lời phán cũ, đọc đồng dạng: đây là dấu hiệu giữ gìn thân và tâm. Vận hành tốt nhất khi người ấy chăm sức khoẻ và mở lòng kết giao; khí cần điều hoà để bớt cô."
     },
     {
       "ten_cach": "Thiên Đồng Thái Âm đồng cung",
@@ -2151,7 +2344,9 @@
         "trang": [
           110
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Đồng (hồn nhiên) và Thái Âm (dịu) đồng cung trong nữ mệnh là khí dịu dàng, khéo léo, đủ đầy y lộc. Bỏ hẳn lời phán cũ, đọc theo 王亭之: đây là người mềm mại, giàu cảm xúc, cần một mối duyên được vun đắp có ý thức. Vận hành tốt nhất khi người ấy đem khí dịu vào chăm sóc gia đình và giữ chủ kiến; khí cần giữ gìn sự thuỷ chung để gia đạo ấm."
     },
     {
       "ten_cach": "Thiên Đồng đồng Cự Môn",
@@ -2172,7 +2367,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Đồng (hồn nhiên) đồng Cự Môn (biện biệt) thêm bốn sát: theo phú gốc là khí khó hợp với người bạn đời. Đọc đồng dạng: hai khí cần dung hoà, lời nói cần giữ. Cấu trúc vận hành tốt khi hai bên cùng học lắng nghe; khí cần giữ ôn hoà để gia đạo êm."
     },
     {
       "ten_cach": "Thiên Đồng đồng Thiên Lương",
@@ -2193,7 +2390,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Đồng (an vui) và Thiên Lương (che chở) đồng cung: theo phú gốc, vợ chồng rất hoà hợp, đẹp đôi. Cấu trúc vận hành tốt cho lứa đôi êm ấm, nương tựa nhau."
     },
     {
       "ten_cach": "Thiên Đồng đồng Thái Âm",
@@ -2214,7 +2413,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Đồng (an vui) và Thái Âm (dịu) đồng cung: theo phú gốc, người bạn đời biết hỗ trợ, dung mạo ưa nhìn. Cấu trúc vận hành tốt cho gia đạo dịu dàng, đầm ấm."
     },
     {
       "ten_cach": "Thái Dương chính chiếu nữ mệnh",
@@ -2235,7 +2436,9 @@
         "trang": [
           107
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thái Dương (toả sáng) chính chiếu nữ mệnh cùng cát tinh là khí đẹp đẽ, đức hạnh, ngay thẳng — được phong quý. Cấu trúc này vận hành rất tốt cho người phụ nữ có khí phách và phẩm hạnh."
     },
     {
       "ten_cach": "Thái Dương miếu vượng",
@@ -2256,7 +2459,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Dương (toả sáng) miếu vượng: theo phú gốc, kết duyên muộn thì tốt, nhờ người bạn đời mà thêm quý. Cấu trúc vận hành tốt khi chọn đúng thời điểm kết duyên."
     },
     {
       "ten_cach": "Thái Dương nhập miếu nữ mệnh",
@@ -2277,7 +2482,9 @@
         "trang": [
           113
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thái Dương (toả sáng) nhập miếu trong nữ mệnh là khí rạng rỡ — được phong quý; hãm địa thì đường gia đạo cần nỗ lực hơn. Bỏ lời phán đạo-đức cũ, đọc đồng dạng: khí cho đi mạnh, cần được đặt đúng chỗ. Vận hành tốt nhất khi miếu vượng người ấy toả sáng và gánh vác; hãm thì cần giữ gìn và chọn môi trường lành."
     },
     {
       "ten_cach": "Thái Dương phản chiếu",
@@ -2298,7 +2505,9 @@
         "trang": [
           107
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thái Dương (toả sáng) phản chiếu là khí cho đi nhiều mà dễ hao, đời sống bận rộn. Bỏ hẳn lời phán đạo-đức cũ và vị thế cũ, đọc đồng dạng: đây là người tận tuỵ, cần học giữ sức cho mình. Vận hành tốt nhất khi người ấy biết cân bằng cho-nhận và chăm sóc bản thân; khí cần giữ gìn để bền lâu."
     },
     {
       "ten_cach": "Thái Dương đồng Cự Môn",
@@ -2325,7 +2534,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Dương (toả sáng) và Cự Môn (biện biệt) đồng cung, nếu không gặp sát thì khí hoà — gia đạo lứa đôi êm. Cấu trúc vận hành tốt khi tránh được sát tinh; khí cần giữ lời để quan hệ bền."
     },
     {
       "ten_cach": "Thái Dương đồng Thiên Lương",
@@ -2348,7 +2559,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Dương (toả sáng) và Thiên Lương (che chở) đồng cung thêm Tả Hữu (trợ lực): theo phú gốc, kết được người bạn đời hiền minh. Cấu trúc vận hành tốt cho lứa đôi tương kính, có quý nhân trợ."
     },
     {
       "ten_cach": "Thái Dương đồng Thái Âm",
@@ -2369,7 +2582,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Dương (toả sáng) và Thái Âm (dịu) đồng cung: theo phú gốc, người bạn đời đảm việc nhà. Cấu trúc vận hành tốt cho gia đạo phân vai hài hoà, trong ngoài đỡ nhau."
     },
     {
       "ten_cach": "Thái Âm Thiên Lương Tử Vi Thiên Cơ Thiên Đồng Thiên Phủ Tham Lang Cự Môn Thất Sát tài hưng vượng hôn nhân hỉ sự",
@@ -2397,7 +2612,9 @@
         "trang": [
           173
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tổ hợp nhiều cát tinh (Thái Âm, Thiên Lương, Tử Vi, Thiên Cơ, Thiên Đồng, Thiên Phủ, Tham Lang, Cự Môn, Thất Sát) hội là khí năm vận hưng vượng, hôn nhân có hỉ sự, mọi việc thuận. Cấu trúc vận hành rất tốt — duyên lành và tài lộc cùng đến."
     },
     {
       "ten_cach": "Thái Âm đồng Thiên Đồng",
@@ -2418,7 +2635,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Âm (dịu) và Thiên Đồng (an vui) đồng cung: theo phú gốc, người bạn đời đảm việc nhà. Cấu trúc vận hành tốt cho gia đạo dịu dàng, êm ấm."
     },
     {
       "ten_cach": "Thân Mệnh Tứ Không",
@@ -2439,7 +2658,9 @@
         "trang": [
           277
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thân và Mệnh gặp tứ không (Tuần, Triệt) là khí trống, hướng tinh thần, có duyên với đời sống thanh tịnh hoặc sự tự lập. Bỏ lời phán cô độc trọn đời, đọc đồng dạng: đây là người dễ buông cái thế tục, hợp tu dưỡng. Vận hành tốt nhất khi người ấy theo con đường tinh thần hoặc việc cần sự tĩnh; khí cần giữ một điểm neo trong đời thường."
     },
     {
       "ten_cach": "Thân Mệnh lưỡng cung câu hữu sát",
@@ -2460,7 +2681,9 @@
         "trang": [
           68
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thân và Mệnh đều có sát tinh là khí mạnh, nhiều xung. Bỏ lời phán hoạ-thâm, đọc đồng dạng: đây là cấu trúc cần kênh giải toả và tiết chế. Vận hành tốt nhất khi người ấy dồn khí vào việc đòi bản lĩnh và tránh sa đà tửu sắc; khí cần giữ gìn để hoá hung."
     },
     {
       "ten_cach": "Thất Sát chủ cô",
@@ -2480,7 +2703,9 @@
         "trang": [
           147
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thất Sát (độc lập, chí lớn, đứng được một mình) là khí tự lập mạnh, có phần biệt lập trong gắn kết. Bỏ lời phán cô độc thành án, đọc đồng dạng: đây là người tự chủ, hợp dẫn dắt. Vận hành tốt nhất khi đem khí độc lập vào sự nghiệp; khí cần học mở lòng để gắn kết gia đình."
     },
     {
       "ten_cach": "Thất Sát cô tinh tham tú phùng",
@@ -2503,7 +2728,9 @@
         "trang": [
           122
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thất Sát (độc lập) gặp Tham Lang, Hỏa, Đà trong nữ mệnh là khí cương mạnh, cá tính rõ. Bỏ hẳn lời phán tính-hư và vị thế cũ, đọc theo 王亭之: đây là người bản lĩnh, không khuất phục. Vận hành tốt nhất khi người ấy đem khí mạnh vào sự nghiệp riêng và chọn bạn đời điềm tĩnh; khí cần giữ gìn để gia đạo hài hoà."
     },
     {
       "ten_cach": "Thất Sát khắc tảo, ly tổ lục thân, cốt nhục cô độc",
@@ -2523,7 +2750,9 @@
         "trang": [
           162
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thất Sát (độc lập) là khí gắn kết gia đình theo nẻo riêng — có thể xa quê sớm, tự lập từ nhỏ, ít nương tựa ruột thịt. Bỏ lời phán cô độc, đọc đồng dạng: đây là người sớm tự đứng vững. Vận hành tốt nhất khi người ấy dựng nền cho mình và chủ động vun đắp tình thân; khí cần mở lòng để bớt lẻ."
     },
     {
       "ten_cach": "Thất Sát nhập nữ mệnh",
@@ -2543,7 +2772,9 @@
         "trang": [
           122
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thất Sát (độc lập, chí lớn) nhập nữ mệnh là khí thông minh, khí phách, đứng được một mình. Bỏ hẳn lời phán cũ về việc tổn hại lứa đôi, đọc theo 王亭之 ('nữ mệnh phản dị phấn phát'): đây là người bản lĩnh, càng gặp thử thách càng vững. Vận hành tốt nhất khi người ấy đem chí lớn vào sự nghiệp và chọn bạn đời tôn trọng sự độc lập của mình; khí cần giữ gìn để vừa mạnh mẽ vừa mềm trong tình."
     },
     {
       "ten_cach": "Tả Phụ nhập nữ mệnh hợp Tử Phủ",
@@ -2565,7 +2796,9 @@
         "trang": [
           127
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tả Phụ (trợ lực) nhập nữ mệnh hợp Tử Phủ là khí hiền tài, chí khí cao — được phong tặng phú quý. Cấu trúc này vận hành rất tốt cho người phụ nữ có tài và có phúc."
     },
     {
       "ten_cach": "Tứ sát hội chiếu",
@@ -2586,7 +2819,9 @@
         "trang": [
           40
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tứ sát hội chiếu, gặp Hao, Sứ, Kiếp, Không là khí bôn ba, sức khoẻ cần chú ý; có duyên với đời sống tinh thần. Bỏ lời phán bần-yểu, đọc đồng dạng: đây là cấu trúc cần giữ gìn và tìm sự an định. Vận hành tốt nhất khi người ấy chăm sức khoẻ, chọn việc bền; khí cần điều hoà để bớt vất vả."
     },
     {
       "ten_cach": "Tử Phá Tham Lang",
@@ -2607,7 +2842,9 @@
         "trang": [
           180
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tử Vi, Phá Quân, Tham Lang (chủ-soái + phá-dựng + ham sống) hội là tổ hợp ba khí rất mạnh và nồng. Bỏ hẳn lời phán cũ, đọc đồng dạng: nguồn năng lượng tình cảm cực lớn cần định hướng rõ. Vận hành tốt nhất khi người ấy dồn khí vào sự nghiệp và giao tế lành; khí cần ý thức giữ chừng mực để không phân tán."
     },
     {
       "ten_cach": "Tử Vi nhập miếu",
@@ -2627,7 +2864,9 @@
         "trang": [
           282
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Tử Vi (chủ-soái) nhập miếu: theo phú gốc, kết được người bạn đời sang đẹp; lạc hãm thì duyên cần chọn lựa kỹ. Cấu trúc vận hành tốt khi miếu vượng; khí cần giữ sự đoan chính và chọn người tương xứng."
     },
     {
       "ten_cach": "Tử Vi đồng Phá Quân",
@@ -2648,7 +2887,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Tử Vi (chủ-soái) đồng Phá Quân (phá-dựng): theo phú gốc là khí khó hợp với người bạn đời. Đọc đồng dạng: hai khí mạnh cần dung hoà. Cấu trúc vận hành tốt khi kết duyên muộn, chọn người điềm tĩnh; khí cần học nhường."
     },
     {
       "ten_cach": "Tử Vi đồng Thiên Phủ",
@@ -2669,7 +2910,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Tử Vi (chủ-soái) và Thiên Phủ (ôn hậu, tề gia): theo phú gốc, vợ chồng hoà hợp đến già. Cấu trúc vận hành rất tốt cho lứa đôi bền vững, nương tựa nhau."
     },
     {
       "ten_cach": "Văn Xương Văn Khúc Hội",
@@ -2692,7 +2935,9 @@
         "trang": [
           53
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Văn Xương, Văn Khúc (văn vẻ, tài hoa) hội cùng Thái Âm, Thiên Cơ là khí đa cảm, tài hoa, sức hút lớn (phú lấy Dương Quý Phi làm ví). Bỏ lời phán cũ, đọc đồng dạng: đây là người tài hoa và quyến rũ. Vận hành tốt nhất khi đem tài vào nghệ thuật, văn chương; khí cần ý thức giữ chừng mực trong tình cảm."
     },
     {
       "ten_cach": "Vũ Khúc chi túc vi quả túc",
@@ -2714,7 +2959,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Vũ Khúc (cương quyết, thực tế, giỏi tài chính) trong nữ mệnh là khí mạnh mẽ, độc lập, đôi khi thấy lẻ loi vì quá tự lập; hãm gặp Xương Khúc thêm sát thì cần nỗ lực hơn. Bỏ lời phán cô-nghèo, đọc đồng dạng: đây là người bản lĩnh về tài. Vận hành tốt nhất khi người ấy phát huy năng lực và học mềm trong tình; khí cần giữ ấm để bớt cô."
     },
     {
       "ten_cach": "Vũ Khúc ngộ Dương Đà tài cô khắc",
@@ -2736,7 +2983,9 @@
         "trang": [
           27
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Vũ Khúc (cương quyết về tài) gặp Kình, Đà (sắc + vòng) là khí tiền bạc nhiều biến, quan hệ dễ va. Bỏ lời phán cô-khắc, đọc đồng dạng: đây là khí mạnh cần điều hoà. Vận hành tốt nhất khi người ấy tách bạch tiền và tình, học dịu; khí cần giữ ôn hoà để duyên bền."
     },
     {
       "ten_cach": "Vũ Khúc đồng Tham Lang",
@@ -2757,7 +3006,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Vũ Khúc (cương quyết) và Tham Lang (ham sống) đồng cung: theo phú gốc, kết duyên muộn thì không va. Cấu trúc vận hành tốt khi chọn đúng thời điểm; khí cần học mềm để gia đạo êm."
     },
     {
       "ten_cach": "Vũ Khúc đồng Thất Sát",
@@ -2778,7 +3029,9 @@
         "trang": [
           144
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Vũ Khúc (cương quyết) và Thất Sát (độc lập) đồng cung là hai khí rất cứng, đường lứa đôi nhiều va. Bỏ lời phán cũ, đọc đồng dạng: cần dung hoà và chọn người điềm tĩnh. Cấu trúc vận hành tốt khi kết duyên muộn; khí cần học nhường để bền."
     },
     {
       "ten_cach": "Xương Tham cư mệnh phấn cốt toái thi",
@@ -2803,7 +3056,9 @@
         "trang": [
           54
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Văn Xương (văn vẻ) và Tham Lang (ham sống) cư mệnh ở Tỵ/Hợi thêm sát kỵ là khí tài hoa giữa nhiều sóng, sức khoẻ cần chú ý. Bỏ hẳn lời phán cũ, đọc theo 王亭之: đây là cấu trúc cần giữ gìn, không phải định mệnh. Vận hành tốt nhất khi người ấy đem tài vào nghệ thuật và giữ thân tâm an; khí cần điều hoà để hoá lành."
     },
     {
       "ten_cach": "Đoan chính Tử Vi, Thái Dương tinh",
@@ -2829,7 +3084,9 @@
         "trang": [
           59
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tử Vi (chủ-soái) và Thái Dương (toả sáng) tọa Mệnh ở Tý/Tỵ/Hợi là khí đoan chính, phú quý; người phụ nữ sớm gặp người bạn đời hiền. Cấu trúc này vận hành rất tốt cho gia đạo sáng và bền."
     },
     {
       "ten_cach": "Đà La dữ Tham Lang đồng độ",
@@ -2850,7 +3107,9 @@
         "trang": [
           40
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Đà La (đường vòng, ngẫm sâu) cùng Tham Lang (ham sống) là khí dễ vướng vào hưởng lạc mà hao sức. Bỏ lời phán cũ, đọc đồng dạng: đây là lời nhắc tiết chế tửu sắc. Vận hành tốt nhất khi người ấy giữ chừng mực và dồn sức vào việc bền; khí cần ôn hoà để giữ mình."
     },
     {
       "ten_cach": "Đà La hãm địa gia sát",
@@ -2870,7 +3129,9 @@
         "trang": [
           40
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Đà La (bền, vòng) hãm địa thêm sát là khí gắn kết gia đình theo nẻo riêng, đời cần nỗ lực hơn. Bỏ hẳn lời phán hình-khắc và vị thế cũ, đọc đồng dạng: đây là người đi đường vòng nhưng bền. Vận hành tốt nhất khi người ấy kiên trì dựng nền và giữ tình thân; khí cần nhẫn để vượt khó."
     },
     {
       "ten_cach": "Đào Hoa Phạm Chủ",
@@ -2892,7 +3153,9 @@
         "trang": [
           62
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tham Lang (ham sống) phạm Tử Vi (chủ-soái) — cách Đào Hoa Phạm Chủ: khí nhân duyên rất nồng lấn cả khí chủ. Bỏ lời phán cũ, đọc đồng dạng: sức hút quá mạnh cần khuôn. Vận hành tốt nhất khi người ấy để khí chủ dẫn dắt khí duyên, giữ sự đoan chính; khí cần ý thức giữ chừng mực."
     },
     {
       "ten_cach": "Đào hoa phạm chủ vi chí dâm",
@@ -2912,7 +3175,9 @@
         "trang": [
           16
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Đào hoa (Tham Lang) phạm chủ tinh là khí nhân duyên cực nồng. Bỏ lời phán cũ, đọc đồng dạng: đây là nguồn sức hút rất lớn cần định hướng. Vận hành tốt nhất khi người ấy hướng khí vào giao tế lành và giữ chừng mực; khí cần ý thức để duyên không thành rối."
     },
     {
       "ten_cach": "Cự Lương tương hội Liêm Trinh tịnh hợp Lộc uyên ương",
@@ -2936,7 +3201,9 @@
         "trang": [
           55
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Cự Môn, Thiên Lương cùng Liêm Trinh, có Lộc Tồn/Hóa Lộc ở cung Phu Thê là khí lứa đôi vinh hiển, như đôi uyên ương. Cấu trúc vận hành rất tốt cho hôn nhân đẹp và đủ đầy."
     },
     {
       "ten_cach": "Liêm Trinh chủ sinh ly gia Dương Đà Hỏa Linh Không Kiếp khắc tam thê",
@@ -2962,7 +3229,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Liêm Trinh (lý tưởng + đào hoa) ở Phu Thê thêm Kình, Đà, Hỏa, Linh, Không, Kiếp là khí lứa đôi nhiều thử thách, dễ xa cách. Bỏ hẳn lời phán cũ, đọc đồng dạng: đây là dấu hiệu quan hệ cần vun đắp rất có ý thức. Vận hành tốt nhất khi kết duyên muộn, chọn người vững và cùng giữ; khí cần giữ gìn để duyên bền."
     },
     {
       "ten_cach": "Liêm Trinh đồng nhập miếu miễn hình",
@@ -2982,7 +3251,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Liêm Trinh (lý tưởng) nhập miếu ở Phu Thê là khí lứa đôi được hoá lành — tránh được va chạm. Cấu trúc vận hành tốt cho gia đạo êm; khí cần giữ sự chân thành để duyên vững."
     },
     {
       "ten_cach": "Phá Quân nam nữ câu khắc biệt thú chủ sinh ly",
@@ -3002,7 +3273,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Phá Quân (phá-dựng) ở Phu Thê là khí lứa đôi nhiều biến, dễ xa cách nếu vội. Bỏ lời phán cũ, đọc đồng dạng: đây là cấu trúc cần kết duyên chín chắn. Vận hành tốt nhất khi cả hai cùng dám điều chỉnh và chọn nhau kỹ; khí cần giữ gìn để bền."
     },
     {
       "ten_cach": "Tam phương tứ chính gặp sát tại Phu cung",
@@ -3020,7 +3293,9 @@
         "trang": [
           60
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tam phương tứ chính gặp sát tại cung Phu là khí lứa đôi nhiều thử thách; cung Phu không chính diệu thì duyên dễ chông chênh. Bỏ lời phán chia-lìa-khắc-hại, đọc đồng dạng: đây là dấu hiệu cần vun đắp có ý thức. Vận hành tốt nhất khi hai bên cùng giữ và mượn cát tinh hoá; khí cần giữ gìn để duyên ổn."
     },
     {
       "ten_cach": "Thiên Cơ Thái Âm đồng chủ mỹ dung bất nghi hãm địa",
@@ -3041,7 +3316,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Cơ (linh hoạt) và Thái Âm (dịu) ở Phu Thê là khí người bạn đời dung mạo đẹp, khéo léo; không nên ở hãm địa. Cấu trúc vận hành tốt khi đắc địa — gia đạo có người vun vén tinh tế."
     },
     {
       "ten_cach": "Thiên Cơ chiêu mỹ thục",
@@ -3061,7 +3338,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Cơ (linh hoạt) ở cung Phu Thê là khí người bạn đời đẹp nết na, khéo léo. Cấu trúc vận hành tốt cho gia đạo có người đảm đang, tinh tế."
     },
     {
       "ten_cach": "Thiên Lương thê nghi đại mỹ dung",
@@ -3081,7 +3360,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Lương (che chở) ở cung Phu Thê là khí người bạn đời lớn tuổi hơn, chững chạc, dung mạo ưa nhìn. Cấu trúc vận hành tốt khi chọn người chín chắn để nương tựa."
     },
     {
       "ten_cach": "Thiên Mã tọa thê cung tất chủ đắc thê tài",
@@ -3101,7 +3382,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thiên Mã (di động) tọa cung Phu Thê: theo phú gốc, nhờ người bạn đời mà thêm thuận về tài. Cấu trúc vận hành tốt cho gia đạo năng động, hai bên cùng tạo dựng."
     },
     {
       "ten_cach": "Thiên Đồng đồng hòa khí",
@@ -3122,7 +3405,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thiên Đồng (an vui) cùng Thiên Lương (che chở) ở Phu Thê là khí vợ chồng hoà khí, nương tựa nhau. Cấu trúc vận hành tốt cho lứa đôi êm ấm, dịu dàng."
     },
     {
       "ten_cach": "Thiềm cung chiết quế",
@@ -3143,7 +3428,9 @@
         "trang": [
           64
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Âm (dịu) và Văn Khúc (tài hoa) đồng cung Phu Thê — cách Thiềm cung chiết quế: khí văn chương thịnh, người bạn đời thanh nhã, gia đạo có danh. Cấu trúc vận hành rất tốt cho lứa đôi tài hoa, hiển đạt."
     },
     {
       "ten_cach": "Thái Âm hội Văn Khúc ư thê cung",
@@ -3164,7 +3451,9 @@
         "trang": [
           16
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Âm (dịu) gặp Văn Khúc (tài hoa) tại cung Thê — cách Hàm cung chiết quế: khí văn chương xuất chúng, người bạn đời thanh nhã. Cấu trúc vận hành rất tốt cho gia đạo có học, có danh."
     },
     {
       "ten_cach": "Thái âm hợp văn khúc ư thê cung",
@@ -3186,7 +3475,9 @@
         "trang": [
           21
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Âm (dịu) gặp Văn Xương, Văn Khúc (văn vẻ, tài hoa) ở cung Phu Thê là khí người phối ngẫu thanh nhã, bản thân có danh vọng văn chương. Cấu trúc vận hành rất tốt cho lứa đôi tài hoa, hiển đạt."
     },
     {
       "ten_cach": "Thường cung chiết quế",
@@ -3207,7 +3498,9 @@
         "trang": [
           17
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Thái Âm (dịu) hội Văn Khúc (tài hoa) ở cung Thê — cách Thường cung chiết quế: khí văn chương thịnh đạt, người bạn đời thanh nhã. Cấu trúc vận hành rất tốt cho gia đạo có học và danh tiếng."
     },
     {
       "ten_cach": "Thất Sát tảo khắc",
@@ -3227,7 +3520,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thất Sát (độc lập, chí lớn) ở cung Phu Thê là khí lứa đôi cần kết duyên chín chắn, tránh vội. Bỏ lời phán cũ, đọc đồng dạng: đây là dấu hiệu chọn bạn đời tôn trọng sự độc lập của nhau. Vận hành tốt nhất khi kết duyên muộn và cùng giữ khoảng riêng; khí cần giữ gìn để bền."
     },
     {
       "ten_cach": "Tả Hữu tại Phu Thê",
@@ -3248,7 +3543,9 @@
         "trang": [
           37
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tả Phụ hoặc Hữu Bật (trợ lực) tại cung Phu Thê là khí đường tình duyên có thể qua hai chặng. Đọc đồng dạng: đây là dấu hiệu duyên đến theo nhiều đoạn, không phải án. Vận hành tốt nhất khi người ấy trân trọng từng giai đoạn và chọn lựa kỹ."
     },
     {
       "ten_cach": "Tả Phụ Hữu Bật hài lão",
@@ -3269,7 +3566,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Tả Phụ, Hữu Bật (trợ lực) ở Phu Thê là khí vợ chồng hoà hợp đến già, đỡ đần nhau. Cấu trúc vận hành rất tốt cho lứa đôi bền vững, tương trợ."
     },
     {
       "ten_cach": "Văn Xương thê thiểu nội trợ thông minh",
@@ -3289,7 +3588,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Văn Xương (văn vẻ) ở cung Phu Thê là khí người bạn đời trẻ trung, đảm đang, thông minh. Cấu trúc vận hành tốt cho gia đạo có người khéo léo, sáng dạ."
     },
     {
       "ten_cach": "Vũ Khúc đồng diệc khắc hoặc trì thú miễn hình",
@@ -3311,7 +3612,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Vũ Khúc (cương quyết) cùng Thất Sát (độc lập) ở Phu Thê là hai khí cứng — đường lứa đôi nhiều va; kết duyên muộn thì hoá lành. Bỏ lời phán cũ, đọc đồng dạng: cần dung hoà và chọn người điềm tĩnh. Vận hành tốt nhất khi kết duyên chín chắn; khí cần học nhường để bền."
     },
     {
       "ten_cach": "Đẩu Quân quá độ tại thê cung phùng cát tinh thê thiếp mỹ vô tai khắc",
@@ -3329,7 +3632,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "nam",
+      "bien_chinh": "Đẩu Quân chuyển độ tới cung Phu Thê gặp cát tinh là khí lứa đôi đẹp, không tai hoạ. Cấu trúc vận hành tốt cho giai đoạn duyên lành, gia đạo êm."
     },
     {
       "ten_cach": "Đồng Xương Khúc thê thiếp đa",
@@ -3350,7 +3655,9 @@
         "trang": [
           145
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Văn Xương và Văn Khúc (văn vẻ, tài hoa) cùng cung Phu Thê là khí đường tình duyên có thể qua nhiều chặng, nhiều mối quan tâm. Đọc đồng dạng: đây là người giàu tình cảm và tài hoa. Vận hành tốt nhất khi người ấy trân trọng và chọn lựa kỹ; khí cần giữ sự thuỷ chung."
     },
     {
       "ten_cach": "Liêm Lộc lâm thân",
@@ -3375,7 +3682,9 @@
         "trang": [
           22
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Liêm Trinh (lý tưởng) Hóa Lộc đến cung Thân trong nữ mệnh là khí trinh khiết, thuần hậu, có đức. Cấu trúc này vận hành rất tốt cho người phụ nữ có phẩm hạnh và phúc lành."
     },
     {
       "ten_cach": "Nữ nhân Thiên Phủ mệnh thân cung",
@@ -3399,7 +3708,9 @@
         "trang": [
           113
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Thiên Phủ (ôn hậu, tề gia) ở Mệnh và Thân, được Tử Vi chiếu tam hợp là khí thông minh, dung mạo tươi sáng — được phong tước. Cấu trúc này vận hành rất tốt cho người phụ nữ vững vàng, có phúc và quý."
     },
     {
       "ten_cach": "Thất Sát lâm thân",
@@ -3419,7 +3730,9 @@
         "trang": [
           68
         ]
-      }
+      },
+      "gioi_tinh": "chung",
+      "bien_chinh": "Thất Sát (độc lập, chí lớn) lâm Thân là khí mạnh mẽ, có chí khác thường — phú nhắc đây là khí trời phú, năng lượng lớn. Bỏ lời phán cũ, đọc đồng dạng: đây là người bản lĩnh, cá tính rõ. Vận hành tốt nhất khi đem khí độc lập vào việc lớn; khí cần ý thức giữ chừng mực trong giao tế."
     },
     {
       "ten_cach": "Tử Phủ đồng thủ",
@@ -3440,7 +3753,9 @@
         "trang": [
           104
         ]
-      }
+      },
+      "gioi_tinh": "nu",
+      "bien_chinh": "Tử Vi (chủ-soái) và Thiên Phủ (ôn hậu) cùng trấn thân mệnh trong nữ mệnh là khí phú quý, phúc dồi dào. Cấu trúc này vận hành rất tốt cho người phụ nữ vững vàng, có khí phách và phúc lớn."
     }
   ]
 }
