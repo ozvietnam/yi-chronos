@@ -8,9 +8,11 @@ import pytest
 
 from engine.tinh_duyen.gender_lens import (
     apply_gender,
+    apply_gender_clause_aware,
     cau_hoi_gender,
     co_than_qua_tu,
     gioi_phoi_ngau,
+    has_opposite_gender_marker,
     is_female,
     is_male,
     khac_phoi_ngau,
@@ -150,6 +152,59 @@ def test_cau_hoi_nu_giu():
 def test_cau_hoi_nam_doi():
     assert cau_hoi_gender("chồng em thế nào?", "nam") == "vợ em thế nào?"
     assert cau_hoi_gender("khi nào lấy chồng?", "nam") == "khi nào lấy vợ?"
+
+
+# ── apply_gender_clause_aware: GIỮ mệnh đề trích dẫn nữ tường minh ──────────
+def test_has_opposite_gender_marker():
+    assert has_opposite_gender_marker("Thái Dương (nữ mệnh) → chồng là trụ cột")
+    assert has_opposite_gender_marker("女命骨髓赋: 府相之星女命躔")
+    assert has_opposite_gender_marker("nữ nên lấy chồng lớn tuổi")
+    assert has_opposite_gender_marker("Thái Dương Hóa Kỵ (nữ) → chồng nhiều nạn")
+    assert not has_opposite_gender_marker("Tử-Tướng Thìn/Tuất → nên chênh tuổi")
+    assert not has_opposite_gender_marker("")
+    assert not has_opposite_gender_marker(None)
+
+
+def test_clause_aware_nu_giu_nguyen():
+    s = "Tử-Phủ → ổn định; Thái Dương (nữ mệnh) → chồng là trụ cột."
+    assert apply_gender_clause_aware(s, "nu") == s
+
+
+def test_clause_aware_nam_giu_menh_de_nu_doi_menh_de_trung_tinh():
+    # Mệnh đề tagged-NỮ tường minh GIỮ NGUYÊN; mệnh đề trung tính → đảo sang vợ.
+    s = ("Tử-Phủ Dần/Thân + Thiên Thọ → nữ nên lấy chồng lớn tuổi; "
+         "đọc chính tinh tại Phu Thê cho đặc điểm bạn đời.")
+    out = apply_gender_clause_aware(s, "nam")
+    # source row phái nữ giữ verbatim — KHÔNG vỡ thành 'nữ nên lấy vợ'
+    assert "nữ nên lấy chồng lớn tuổi" in out
+    assert "nữ nên lấy vợ" not in out
+
+
+def test_clause_aware_khong_tao_nu_nen_lay_vo():
+    """Defect task_e8589344: NAM không bao giờ sinh 'nữ nên lấy vợ' /
+    '(nữ mệnh) → vợ là trụ cột' từ bảng tra Tử Vi."""
+    rows = [
+        "Tử-Phủ Dần/Thân + Thiên Thọ → nữ nên lấy chồng lớn tuổi.",
+        "Thái Dương (nữ mệnh) → chồng là trụ cột nhưng Hóa Kỵ → chồng nhiều nạn.",
+        "Thái Dương Hóa Kỵ (nữ) → chồng nhiều nạn tai bệnh.",
+    ]
+    for r in rows:
+        out = apply_gender_clause_aware(r, "nam")
+        assert "nữ nên lấy vợ" not in out
+        assert "(nữ mệnh) → vợ" not in out
+        assert "(nữ) → vợ" not in out
+        # văn nữ canonical còn nguyên (source citation bảo tồn)
+        assert out == r
+
+
+def test_clause_aware_neutral_van_masculinize():
+    # mệnh đề KHÔNG tagged-nữ → vẫn đảo đúng cho nam (vợ, không 'chồng')
+    s = "Đọc chính tinh tại Phu Thê → đặc điểm người chồng; sao chồng là 官杀."
+    out = apply_gender_clause_aware(s, "nam")
+    assert "người vợ" in out
+    assert "sao vợ" in out
+    assert "财" in out
+    assert "chồng" not in out
 
 
 # ── ANTI: KHÔNG BAO GIỜ phán 'tái hôn/khắc chồng' cho nam ───────────────────

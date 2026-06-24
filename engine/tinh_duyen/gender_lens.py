@@ -45,6 +45,8 @@ __all__ = [
     "co_than_qua_tu",
     "term_map",
     "apply_gender",
+    "apply_gender_clause_aware",
+    "has_opposite_gender_marker",
     "phoi_ngau_label",
     "gioi_phoi_ngau",
     "cau_hoi_gender",
@@ -134,11 +136,14 @@ def co_than_qua_tu(gender: Optional[str]) -> str:
 # bị 'chồng' nuốt mất). apply_gender sort lại theo độ dài key giảm dần.
 _MALE_TERM_MAP: dict[str, str] = {
     "người chồng": "người vợ",
+    "người phụ nữ": "người đàn ông",
     "khắc chồng": "khắc vợ",
     "khắc phu": "khắc thê",
     "lấy chồng": "lấy vợ",
     "sao chồng": "sao vợ",
     "phu tinh": "thê tinh",
+    "phụ nữ": "đàn ông",
+    "đàn bà": "đàn ông",
     "chồng": "vợ",
     "官杀": "财",
 }
@@ -183,6 +188,58 @@ def apply_gender(text: Optional[str], gender: Optional[str]) -> str:
         else:
             out = out.replace(key, repl)
     return out
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Clause-aware masculinization — KHÔNG đụng vào mệnh đề tagged-NỮ tường minh
+# ──────────────────────────────────────────────────────────────────────────
+# Dấu hiệu chủ ngữ mệnh đề là NỮ TƯỜNG MINH (source citation Tử Vi / 女命骨髓赋).
+# Khi đọc cho NAM, các mệnh đề này là TRÍCH DẪN GỐC mô tả phái nữ — phải giữ
+# NGUYÊN VĂN nữ, KHÔNG masculinize (nếu không → 'nữ nên lấy vợ' = vỡ nghĩa).
+_FEMALE_MARKER = re.compile(
+    r"\(\s*nữ[^)]*\)"          # '(nữ)', '(nữ mệnh)'
+    r"|nữ\s+mệnh"               # 'nữ mệnh'
+    r"|nữ\s+nên"               # 'nữ nên lấy chồng …'
+    r"|女命",                   # 女命骨髓赋 …
+    re.IGNORECASE,
+)
+
+# Tách mệnh đề: ngăn cách bằng ';' '。' hoặc xuống dòng. Giữ delimiter để ghép lại
+# nguyên trạng (không nuốt dấu).
+_CLAUSE_SPLIT = re.compile(r"([;；。\n]+)")
+
+
+def has_opposite_gender_marker(text: Optional[str]) -> bool:
+    """True nếu text chứa dấu hiệu chủ ngữ NỮ tường minh (source citation)."""
+    if not text:
+        return False
+    return bool(_FEMALE_MARKER.search(text))
+
+
+def apply_gender_clause_aware(text: Optional[str], gender: Optional[str]) -> str:
+    """Như apply_gender nhưng BỎ QUA mệnh đề tagged-NỮ tường minh khi đọc NAM.
+
+    Dùng cho block reconcile.tuvi_doc_bang (bảng tra Tử Vi) — text TRỘN: vừa có
+    mệnh đề trung tính (mô tả cung Phu Thê → đảo sang vợ/财 cho nam ĐÚNG) vừa có
+    mệnh đề TRÍCH DẪN GỐC phái nữ ('(nữ mệnh) → chồng là trụ cột', '女命骨髓赋',
+    'nữ nên lấy chồng lớn tuổi'). Mệnh đề nữ tường minh = GIỮ NGUYÊN, chỉ đảo các
+    mệnh đề còn lại. Nữ (flagship) → trả nguyên văn.
+    """
+    if text is None:
+        return ""
+    if not is_male(gender):
+        return text
+    parts = _CLAUSE_SPLIT.split(text)
+    out = []
+    for seg in parts:
+        # delimiter segment (chỉ gồm ; 。 \n) → giữ nguyên
+        if _CLAUSE_SPLIT.fullmatch(seg):
+            out.append(seg)
+        elif has_opposite_gender_marker(seg):
+            out.append(seg)  # mệnh đề nữ tường minh: GIỮ NGUYÊN văn nữ
+        else:
+            out.append(apply_gender(seg, "nam"))
+    return "".join(out)
 
 
 # ──────────────────────────────────────────────────────────────────────────
