@@ -42,3 +42,12 @@ def test_endpoint_login_gated():
     c = TestClient(app)
     assert c.get("/api/chan-dung").status_code in (401, 403)
     assert c.get("/api/chan-dung?person_key=self").status_code in (401, 403)
+
+
+def test_sync_chan_dung_service_gated():
+    """Cầu nối AppChat: /api/sync/chan-dung yêu cầu service key (X-API-Key)."""
+    from fastapi.testclient import TestClient
+    from api.main import app
+    c = TestClient(app)
+    r = c.post("/api/sync/chan-dung", json={"firebase_uid": "x", "person_key": "self"})
+    assert r.status_code in (401, 403)

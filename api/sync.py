@@ -665,6 +665,33 @@ def hermes_council_status(
     return out
 
 
+# ─── Chân Dung khách hàng — bệ phóng sang AppChat (Anh chốt 2026-06-24) ──────
+
+class ChanDungSyncRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+
+
+@router.post("/chan-dung")
+def sync_chan_dung(req: ChanDungSyncRequest,
+                   x_api_key: Optional[str] = Header(None, alias="X-API-Key")) -> dict:
+    """AppChat KÉO Chân Dung khách (tổng hợp 3 lá số DETERMINISTIC: cốt cách Bát Tự + mệnh/cách-cục/
+    đại-vận Tử Vi + nội tâm Chiếu Đởm + hướng dẫn) để hiển thị trong app. Đọc đồng dạng, KHÔNG predict.
+    Nhanh/free; bản LLM văn xuôi sâu = sản phẩm trả phí riêng (Luận Sâu/Hội Đồng)."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.hermes_service import _person_of
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "user chưa sync")
+    person = _person_of(user_id, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "person thiếu giờ sinh")
+    from engine.chan_dung import build_chan_dung
+    return build_chan_dung(person)
+
+
 # ─── H6.0: Trả lời nhanh 1-sage (async qua q_hermes) ────────────────────────
 
 class HermesQuickRequest(BaseModel):
