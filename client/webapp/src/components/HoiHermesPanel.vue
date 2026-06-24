@@ -4,7 +4,7 @@
  * Chọn sage muốn hỏi → Hội Đồng đa-sage luận cho người đang xem → xem TỪNG tiếng nói + tổng
  * hợp arbiter. Không chọn sage = Trọng tài tự định tuyến. Login-gated; tốn gói/free/xu.
  */
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { activePerson } from "../stores/userDataStore.js";
 import { sessionToken } from "../stores/authStore.js";
 
@@ -14,6 +14,14 @@ const question = ref("");
 const result = ref(null);
 const loading = ref(false);
 const err = ref("");
+const elapsed = ref(0);             // giây đã chờ (council luận sâu chạy ngầm)
+const LS_KEY = "yi_council_job";    // nhớ job đang chạy → quay lại vẫn tự hiện kết quả
+let pollTimer = null, tickTimer = null;
+
+function stopTimers() {
+  if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
+  if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
+}
 
 const personName = computed(() => activePerson.value?.name || "người đang xem");
 const personKey = computed(() => activePerson.value?.person_key || "self");
@@ -42,20 +50,59 @@ function toggle(tag) {
 async function askCouncil() {
   if (!question.value.trim()) { err.value = "Nhập câu hỏi đã."; return; }
   if (!hasBirth.value) { err.value = "Người đang xem chưa có giờ sinh — chọn người có giờ sinh để Hội Đồng đọc lá số."; return; }
-  loading.value = true; err.value = ""; result.value = null;
+  loading.value = true; err.value = ""; result.value = null; elapsed.value = 0;
+  stopTimers();
+  tickTimer = setInterval(() => { elapsed.value += 1; }, 1000);
   try {
     const agents = picked.value.size ? [...picked.value] : null;   // null = Trọng tài tự chọn
-    const r = await fetch("/api/hermes/council", {
+    const r = await fetch("/api/hermes/council/enqueue", {
       method: "POST", headers: authHeaders(), credentials: "include",
       body: JSON.stringify({ question: question.value, person_key: personKey.value, agents }),
     });
     const d = await r.json();
-    if (!r.ok) { err.value = d.detail || `Lỗi ${r.status}`; return; }
-    result.value = d;
-  } catch (e) { err.value = String(e.message || e); }
-  finally { loading.value = false; }
+    if (!r.ok) { err.value = d.detail || `Lỗi ${r.status}`; loading.value = false; stopTimers(); return; }
+    if (d.status !== "processing") {       // scope: ngoài miền / cần làm rõ → hiện lời mời luôn
+      result.value = d; loading.value = false; stopTimers(); return;
+    }
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ job_id: d.job_id, q: question.value })); } catch { /* noop */ }
+    pollJob(d.job_id);
+  } catch (e) { err.value = String(e.message || e); loading.value = false; stopTimers(); }
 }
-onMounted(loadSages);
+
+async function pollJob(jobId) {
+  try {
+    const r = await fetch(`/api/hermes/council/job/${jobId}`, { headers: authHeaders(), credentials: "include" });
+    const d = await r.json();
+    if (d.state === "SUCCESS") {
+      result.value = d.result || {}; loading.value = false; stopTimers();
+      try { localStorage.removeItem(LS_KEY); } catch { /* noop */ }
+      return;
+    }
+    if (d.state === "FAILURE") {
+      err.value = "Hội Đồng gặp trục trặc khi luận. Anh thử hỏi lại sau nhé.";
+      loading.value = false; stopTimers();
+      try { localStorage.removeItem(LS_KEY); } catch { /* noop */ }
+      return;
+    }
+    pollTimer = setTimeout(() => pollJob(jobId), 5000);     // PENDING/STARTED → chờ tiếp
+  } catch {
+    pollTimer = setTimeout(() => pollJob(jobId), 8000);     // lỗi mạng tạm → thử lại
+  }
+}
+
+function resumePending() {       // quay lại trang khi job còn chạy → tiếp tục poll, tự hiện
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(LS_KEY) || "null"); } catch { saved = null; }
+  if (saved && saved.job_id) {
+    loading.value = true; elapsed.value = 0; question.value = saved.q || question.value;
+    stopTimers();
+    tickTimer = setInterval(() => { elapsed.value += 1; }, 1000);
+    pollJob(saved.job_id);
+  }
+}
+
+onMounted(() => { loadSages(); resumePending(); });
+onUnmounted(stopTimers);
 </script>
 
 <template>
@@ -80,10 +127,12 @@ onMounted(loadSages);
       placeholder="Hỏi Hội Đồng một điều lớn… (vd: con đang phân vân đổi hướng sự nghiệp, xin các thầy soi giúp)"></textarea>
     <div class="hh-actions">
       <button class="hh-ask" :disabled="loading" @click="askCouncil">
-        {{ loading ? "⚖️ Đang triệu tập Hội Đồng… (~1 phút)" : "⚖️ Hỏi Hội Đồng" }}
+        {{ loading ? `⚖️ Đang luận sâu… (${elapsed}s)` : "⚖️ Hỏi Hội Đồng (luận sâu)" }}
       </button>
-      <span v-if="picked.size" class="hh-note">{{ picked.size }} sage được chọn</span>
+      <span v-if="picked.size && !loading" class="hh-note">{{ picked.size }} sage được chọn</span>
     </div>
+    <p v-if="loading" class="hh-progress">🔮 Hội Đồng đang luận nhiều vòng + bám sách cổ — luận sâu cần
+      <b>vài phút</b>, chạy ngầm. Anh cứ để đó (hoặc qua tab khác rồi quay lại) — kết quả sẽ <b>tự hiện</b>.</p>
     <p v-if="err" class="hh-err">⚠ {{ err }}</p>
 
     <!-- Kết quả -->
@@ -134,6 +183,8 @@ onMounted(loadSages);
 .hh-ask:disabled { opacity: .65; cursor: wait; }
 .hh-note { font-size: .82rem; color: var(--read-muted, #888); }
 .hh-err { color: #c2410c; background: rgba(217,119,6,.08); padding: .5rem .7rem; border-radius: 6px; }
+.hh-progress { color: var(--read-muted, #666); background: rgba(124,58,237,.06); border: 1px dashed rgba(124,58,237,.3);
+  padding: .55rem .8rem; border-radius: 8px; font-size: .9rem; line-height: 1.6; }
 .hh-result { margin-top: 1rem; }
 .hh-synth { border: 1px solid var(--read-border, #ddd); border-left: 3px solid #7c3aed;
   border-radius: 0 8px 8px 0; padding: .8rem 1rem; background: rgba(124,58,237,.05); }
