@@ -1084,3 +1084,191 @@ def couple_sync_bridge(
     if out.get("status") == "insufficient_xu":
         raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
     return out
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# Gieo Duyên — bridge các món còn web-only sang /api/sync cho AppChat (2026-06-25)
+# 4 free (duyen/duyen-tho/hop-hon/so-sanh) + 3 sub-flow tình duyên (phac-hoa 50xu/
+# gieo-que/narrate). TÁI DÙNG core web (Iron #1): KHÔNG luận lại, chỉ wrap service-key.
+# ════════════════════════════════════════════════════════════════════════════
+
+def _synced_person(firebase_uid: str, person_key: str) -> tuple[int, dict]:
+    """Lookup (user_id, person) của user đã sync → raise 404 chưa sync / 422 thiếu giờ
+    sinh. Dùng chung các bridge duyên (DRY)."""
+    _ensure_schema()
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, firebase_uid)
+        if user_id is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+        person = _person_by_key(conn, user_id, person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh cho person — cập nhật trước khi luận")
+    return user_id, person
+
+
+class DuyenSyncRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+
+
+@router.post("/duyen")
+async def duyen_bridge(
+    req: DuyenSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Bộ 4 món FREE 'đang tìm': chân dung nửa kia · đường tình duyên · năm có duyên ·
+    tuổi hợp. Deterministic, không trừ xu. 404 chưa sync · 422 thiếu giờ sinh."""
+    _require_service_key(x_api_key)
+    _, person = _synced_person(req.firebase_uid, req.person_key)
+    from api.tu_vi_3layer import DuyenInput, duyen_ca_nhan_endpoint
+    return await duyen_ca_nhan_endpoint(DuyenInput(
+        birth=person["birth_datetime_local"],
+        gender=person.get("gender") or "nam",
+        timezone=person.get("timezone") or "Asia/Ho_Chi_Minh"))
+
+
+@router.post("/duyen-tho")
+async def duyen_tho_bridge(
+    req: DuyenSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Lời văn ấm (LLM) cho 'Duyên của tôi' — FREE (service-keyed, không rate-limit user)."""
+    _require_service_key(x_api_key)
+    _, person = _synced_person(req.firebase_uid, req.person_key)
+    from api.tu_vi_3layer import DuyenInput, duyen_ca_nhan_endpoint
+    from engine.atomization.narrative_gen import generate_duyen_narrative
+    base = await duyen_ca_nhan_endpoint(DuyenInput(
+        birth=person["birth_datetime_local"],
+        gender=person.get("gender") or "nam",
+        timezone=person.get("timezone") or "Asia/Ho_Chi_Minh"))
+    if base.get("error"):
+        return base
+    try:
+        return generate_duyen_narrative(base)
+    except Exception as e:  # noqa: BLE001
+        return {"error": f"Lỗi sinh lời: {e}"}
+
+
+class HopHonSyncRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+    partner_birth: BirthInfo
+    ten_self: str = "Bạn"
+    ten_partner: str = "Người ấy"
+
+
+@router.post("/hop-hon")
+async def hop_hon_bridge(
+    req: HopHonSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Xem tuổi đôi lứa BA HỆ (Tử Vi + Bát Tự + Kinh Dịch) — FREE. Self từ firebase_uid +
+    partner_birth (nhập trực tiếp, KHÔNG lưu — PDPL)."""
+    _require_service_key(x_api_key)
+    _, person = _synced_person(req.firebase_uid, req.person_key)
+    if not req.partner_birth or not req.partner_birth.datetime_local:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh người ấy (partner_birth)")
+    from api.tu_vi_3layer import HopHonInput, hop_hon
+    return await hop_hon(HopHonInput(
+        birth1=person["birth_datetime_local"], gender1=person.get("gender") or "nam", ten1=req.ten_self,
+        birth2=req.partner_birth.datetime_local, gender2=req.partner_birth.gender or "nam", ten2=req.ten_partner,
+        timezone=person.get("timezone") or req.partner_birth.timezone or "Asia/Ho_Chi_Minh"))
+
+
+class SoSanhOther(BaseModel):
+    birth: str
+    gender: str = "nam"
+    ten: str = ""
+
+
+class SoSanhSyncRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+    ten_self: str = "Bạn"
+    others: list[SoSanhOther] = []
+
+
+@router.post("/so-sanh-duyen")
+async def so_sanh_duyen_bridge(
+    req: SoSanhSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """So nhiều người (≤8) với mình → xếp hạng tương ứng — FREE. Self từ firebase_uid,
+    others nhập trực tiếp (KHÔNG lưu — PDPL)."""
+    _require_service_key(x_api_key)
+    _, person = _synced_person(req.firebase_uid, req.person_key)
+    from api.tu_vi_3layer import SoSanhInput, _so_sanh_duyen_core
+    inp = SoSanhInput(
+        me={"birth": person["birth_datetime_local"],
+            "gender": person.get("gender") or "nam", "ten": req.ten_self},
+        others=[{"birth": o.birth, "gender": o.gender, "ten": o.ten} for o in req.others],
+        timezone=person.get("timezone") or "Asia/Ho_Chi_Minh")
+    return await _so_sanh_duyen_core(inp)
+
+
+class PhacHoaSyncRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+    vung_mien: Optional[str] = None
+    dan_toc: Optional[str] = None
+    do_tuoi: Optional[str] = None
+    gen_anh: bool = True
+
+
+@router.post("/tinh-duyen/phac-hoa")
+def phac_hoa_bridge(
+    req: PhacHoaSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Phác hoạ CHÂN DUNG BIỂU TƯỢNG người phối ngẫu (+ ảnh) — 50 xu. HOÀN xu nếu yêu cầu
+    ảnh mà không tạo được (Iron #4 cache). 402 thiếu xu · 404 chưa sync · 422 thiếu giờ sinh."""
+    _require_service_key(x_api_key)
+    user_id, person = _synced_person(req.firebase_uid, req.person_key)
+    from engine.cross_paradigm import service as cps
+    out = cps.run_phac_hoa_phoi_ngau(
+        user_id, person, vung_mien=req.vung_mien, dan_toc=req.dan_toc,
+        do_tuoi=req.do_tuoi, gen_anh=req.gen_anh)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return out
+
+
+class GieoQueSyncRequest(BaseModel):
+    firebase_uid: str
+    cau_hoi: str
+    seed_numbers: Optional[list[int]] = None
+
+
+@router.post("/tinh-duyen/gieo-que")
+def gieo_que_bridge(
+    req: GieoQueSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Gieo 1 quẻ Mai Hoa cho câu hỏi QUYẾT ĐỊNH tình duyên — 0 xu (deterministic).
+    Iron #4: không nghi không bói, KHÔNG cát/hung, KHÔNG chốt nên/không cưới-chia."""
+    _require_service_key(x_api_key)
+    cau_hoi = (req.cau_hoi or "").strip()
+    if not cau_hoi:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu câu hỏi quyết định — không nghi không bói (Iron #4)")
+    from engine.tinh_duyen.gieo_que_quyet_dinh import gieo_que_tinh_duyen
+    return gieo_que_tinh_duyen(cau_hoi, req.seed_numbers)
+
+
+@router.post("/tinh-duyen/narrate")
+def narrate_bridge(
+    req: DuyenSyncRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Lời thầy diễn đạt tình duyên đã luận — 0 xu nếu đã cached trong TTL (Iron #4);
+    chỉ trừ 30 xu nếu user CHƯA từng luận (miss cache). 402 thiếu xu."""
+    _require_service_key(x_api_key)
+    user_id, person = _synced_person(req.firebase_uid, req.person_key)
+    from engine.cross_paradigm import service as cps
+    from engine.cross_paradigm.narrate import narrate_tinh_duyen
+    out = cps.run_tinh_duyen(user_id, person)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return {"narration": narrate_tinh_duyen(person, out)}
