@@ -1,0 +1,306 @@
+{
+  "_meta": {
+    "ten": "Bản đồ chuyển dữ kiện lá số → CHÂN DUNG BIỂU TƯỢNG tướng mạo người phối ngẫu (để dựng prompt tạo ảnh)",
+    "muc_dich": "Map dữ kiện lá số (chính tinh cung Phu Thê + ngũ hành Phu Thê/官杀 + chi ngày sinh) → các đặc điểm tướng mạo MÔ TẢ ĐƯỢC (khuôn mặt, dáng, mắt, mũi, da, tóc, biểu cảm, dáng đi, nghề đặc trưng) để ghép thành prompt sinh ảnh một KIỂU người.",
+    "paradigm": "ĐỌC ĐỒNG DẠNG, KHÔNG BÓI / KHÔNG DỰ ĐOÁN (Iron Rule #4/#6/#8). Đây KHÔNG phải tiên đoán gương mặt người thật mà em sẽ cưới. Đây là CHÂN DUNG BIỂU TƯỢNG / ĐỒNG DẠNG — phản chiếu KHÍ CHẤT của cung Phu Thê, tức KIỂU người mà cấu trúc tâm-thân của em VẬN HÀNH hợp. Cung Phu Thê cho biết TÍNH (nguyên liệu trời ban); ảnh chỉ là hình tượng hoá cái tính đó, KHÔNG phải bản án về một cá nhân cụ thể. Mệnh là ĐỘNG TỪ — đọc cách vận hành, không kết án.",
+    "disclaimer_bat_buoc": "MỌI output / UI / ảnh PHẢI hiển thị rõ: 'Đây là chân dung BIỂU TƯỢNG phản chiếu khí chất cung Phu Thê — một KIỂU người hợp với cấu trúc của bạn, KHÔNG phải gương mặt người bạn sẽ cưới. Không có yếu tố tiên đoán hay cát/hung.' Prompt sinh ảnh mô tả MỘT KIỂU (a type of person), KHÔNG cá nhân hoá thành 'người sẽ cưới', KHÔNG gắn tên/tuổi cụ thể.",
+    "nguon_chinh": [
+      "Tài liệu #4 — Bảng tướng mạo phối ngẫu (14 chính tinh cung Phu Thê → khuôn mặt/chiều cao/dáng/mắt/mũi; ngũ hành Phu Thê tinh 官杀 theo Manh Phái → da/dáng; chi ngày → mức nổi bật ngoại hình; nhân tướng tóc/mắt/dáng đi theo ngũ hành+chính tinh; nghề đặc trưng theo Phu Thê + Quan Lộc)",
+      "形性赋 (Hình Tính Phú) — Tử Vi Đẩu Số Toàn Thư: phú luận hình-tính 14 chính tinh (vóc dáng, sắc diện, khí chất ứng với từng sao)"
+    ],
+    "cach_dung_prompt": "Gom field từ 3 lớp (chinh_tinh_phu_the cho sao chủ cung Phu Thê → ngu_hanh_quan_sat cho hành của Phu Thê tinh / 官杀 → chi_ngay cho mức nổi bật → nhan_tuong cho tóc/dáng đi), ghép thành câu mô tả type. Đào hoa (Tham Lang / Thiên Diêu / Hồng Loan) → thêm 'nụ cười duyên'. LUÔN gắn disclaimer_bat_buoc vào caption ảnh.",
+    "luu_y": "Sao 天姚 = Thiên Diêu (đào hoa), không thêm trùng vào engine (memory tu_vi_hoai_tinh_dang_son_truc). Chiều cao chỉ là khoảng tham chiếu BIỂU TƯỢNG, không khẳng định nhân trắc học.",
+    "ngay_tao": "2026-06-25"
+  },
+
+  "chinh_tinh_phu_the": {
+    "_ghi_chu": "14 chính tinh khi tọa CUNG PHU THÊ → đặc điểm tướng mạo BIỂU TƯỢNG của KIỂU phối ngẫu. chieu_cao_nam/chieu_cao_nu = khoảng tham chiếu khi phối ngẫu là nam/nữ. mieu/hãm điều chỉnh sắc thái (miếu = nét đẹp/sáng rõ hơn, hãm = nét trầm/khắc khổ hơn) nhưng KHÔNG đổi thành cát/hung.",
+
+    "Tử Vi": {
+      "ten_han": "紫微",
+      "khuon_mat": "mặt vuông chữ điền, uy nghi đường bệ, trán rộng, thần thái chững chạc",
+      "chieu_cao_nam": "1m72–1m78",
+      "chieu_cao_nu": "1m62–1m68",
+      "dang_nguoi": "tầm thước đến cao, vóc đầy đặn vững vàng, phong thái lãnh đạo",
+      "mat": "mắt sáng, ánh nhìn điềm tĩnh có uy",
+      "mui": "mũi cao thẳng, sống mũi rõ",
+      "mieng": "miệng cân đối, môi vừa phải, ít cười nhưng cười thì có sức nặng",
+      "bieu_cam": "trầm ổn, tự tôn, chủ động dẫn dắt",
+      "nghe_dac_trung": "quản lý, lãnh đạo, điều hành, vị trí có quyền (Phu Thê + Quan Lộc chủ quyền)",
+      "_nguon": "Tài liệu #4 (Tử Vi: mặt vuông uy nghi, cao 1m72-78); 形性赋 (Tử Vi diện tử hoàng, hình mạo đôn hậu uy trọng)"
+    },
+
+    "Thiên Cơ": {
+      "ten_han": "天机",
+      "khuon_mat": "mặt nhỏ thanh, nét lanh lợi, gò má gọn",
+      "chieu_cao_nam": "1m68–1m74",
+      "chieu_cao_nu": "1m58–1m64",
+      "dang_nguoi": "tầm thước, người gầy hoạt, nhanh nhẹn linh hoạt",
+      "mat": "mắt sáng linh động, đảo nhanh, ánh thông minh",
+      "mui": "mũi thanh nhỏ vừa phải",
+      "mieng": "miệng nhỏ, nói nhanh khéo léo",
+      "bieu_cam": "lanh lợi, hiếu động, hay suy nghĩ, biểu cảm thay đổi nhanh",
+      "nghe_dac_trung": "tư vấn, kế hoạch, kỹ thuật, môi giới, công việc cần mưu trí linh hoạt",
+      "_nguon": "Tài liệu #4 (Thiên Cơ: mặt nhỏ lanh, mắt sáng); 形性赋 (Thiên Cơ thân trường, tính cấp tâm từ, đa học đa năng)"
+    },
+
+    "Thái Dương": {
+      "ten_han": "太阳",
+      "khuon_mat": "mặt vuông đầy, sắc da đỏ hồng/ngăm sáng, thần sắc rạng",
+      "chieu_cao_nam": "1m72–1m80",
+      "chieu_cao_nu": "1m60–1m66",
+      "dang_nguoi": "cao lớn, vóc khỏe khoắn nam tính, phóng khoáng",
+      "mat": "mắt to sáng, ánh nhìn hào sảng ấm áp",
+      "mui": "mũi cao, đầy đặn",
+      "mieng": "miệng rộng vừa, cười tươi cởi mở",
+      "bieu_cam": "hướng ngoại, nhiệt thành, hào phóng, năng lượng cao",
+      "nghe_dac_trung": "lãnh đạo, công chúng, giáo dục, chính trị, nghề tỏa sáng nơi đông người",
+      "_nguon": "Tài liệu #4 (Thái Dương: mặt vuông da đỏ hồng, mắt sáng, nam tính); 形性赋 (Thái Dương diện hồng, hùng tráng, hảo thi vi)"
+    },
+
+    "Vũ Khúc": {
+      "ten_han": "武曲",
+      "khuon_mat": "mặt vuông, sắc da ngăm, nét cứng cỏi cương nghị, xương hàm rõ",
+      "chieu_cao_nam": "1m68–1m74",
+      "chieu_cao_nu": "1m56–1m62",
+      "dang_nguoi": "thấp đến tầm thước, vóc chắc đậm, gân guốc rắn rỏi",
+      "mat": "mắt sắc kiên định, ánh nhìn thẳng cương quyết",
+      "mui": "mũi to chắc, sống mũi có lực",
+      "mieng": "miệng nghiêm, môi mỏng vừa, ít lời ngọt",
+      "bieu_cam": "cương trực, quả quyết, thực tế, ít biểu lộ cảm xúc",
+      "nghe_dac_trung": "tài chính, ngân hàng, kế toán, kim khí/cơ khí, quân-cảnh (Vũ Khúc = tài tinh + kim)",
+      "_nguon": "Tài liệu #4 (Vũ Khúc: mặt vuông da ngăm; nghề tài chính); 形性赋 (Vũ Khúc tính cương quả, hình tiểu thanh cao)"
+    },
+
+    "Thiên Đồng": {
+      "ten_han": "天同",
+      "khuon_mat": "mặt tròn đầy, nét trẻ trung phúc hậu, da mịn",
+      "chieu_cao_nam": "1m66–1m72",
+      "chieu_cao_nu": "1m56–1m62",
+      "dang_nguoi": "tầm thước, vóc đầy đặn tròn trịa, dáng thư thái",
+      "mat": "mắt hiền, ánh nhìn dịu, hay cười",
+      "mui": "mũi tròn đầy, nhỏ nhắn",
+      "mieng": "miệng nhỏ xinh, môi mềm, hay mỉm cười",
+      "bieu_cam": "hiền hòa, ôn nhu, ưa hưởng thụ, dễ gần trẻ trung",
+      "nghe_dac_trung": "dịch vụ, ẩm thực, giải trí, công việc nhẹ nhàng thoải mái (phúc tinh)",
+      "_nguon": "Tài liệu #4 (Thiên Đồng: mặt tròn trẻ trung); 形性赋 (Thiên Đồng phì mãn, mục thanh, tính ôn hòa)"
+    },
+
+    "Liêm Trinh": {
+      "ten_han": "廉贞",
+      "khuon_mat": "mặt nhỏ gọn, nét sắc sảo có cá tính, gò má hơi cao",
+      "chieu_cao_nam": "1m68–1m74",
+      "chieu_cao_nu": "1m58–1m64",
+      "dang_nguoi": "tầm thước, vóc rắn gọn, phong cách cá tính nổi bật",
+      "mat": "mắt sắc có thần, ánh nhìn cuốn hút pha chút bất cần",
+      "mui": "mũi cao thẳng, nét rõ",
+      "mieng": "môi mỏng, miệng nét rạch ròi, cười tinh",
+      "bieu_cam": "cá tính mạnh, vừa kỷ luật vừa đào hoa ngầm, có sức hút",
+      "nghe_dac_trung": "hành chính-pháp quy, nghệ thuật-thiết kế, kỹ thuật, nghề cần kỷ luật + sáng tạo (Liêm Trinh = thứ đào hoa + chính)",
+      "_nguon": "Tài liệu #4 (Liêm Trinh: mặt nhỏ, mắt sắc, môi mỏng); 形性赋 (Liêm Trinh mi khoan khẩu khoát, tính cương)"
+    },
+
+    "Thiên Phủ": {
+      "ten_han": "天府",
+      "khuon_mat": "mặt tròn đầy đặn, phúc hậu đôn hậu, nét hiền viên mãn",
+      "chieu_cao_nam": "1m68–1m74",
+      "chieu_cao_nu": "1m58–1m64",
+      "dang_nguoi": "tầm thước, vóc đầy đặn vững chãi, dáng ung dung",
+      "mat": "mắt to hiền, ánh nhìn ấm bao dung",
+      "mui": "mũi đầy đặn, sống mũi tròn",
+      "mieng": "miệng vừa, môi dày phúc hậu, hay cười điềm đạm",
+      "bieu_cam": "ôn hòa, độ lượng, biết tích trữ, đáng tin cậy",
+      "nghe_dac_trung": "quản trị-kho quỹ, tài chính-bất động sản, hành chính, nghề giữ-gìn tích lũy (kho tinh)",
+      "_nguon": "Tài liệu #4 (Thiên Phủ: mặt tròn đầy phúc hậu); 形性赋 (Thiên Phủ ôn lương, diện phương viên, tính khoan dung)"
+    },
+
+    "Thái Âm": {
+      "ten_han": "太阴",
+      "khuon_mat": "mặt tròn trái xoan, da trắng, nét thanh tú dịu dàng",
+      "chieu_cao_nam": "1m68–1m74",
+      "chieu_cao_nu": "1m58–1m64",
+      "dang_nguoi": "tầm thước, vóc thanh mảnh mềm mại, dáng nhẹ nhàng",
+      "mat": "mắt to long lanh, ánh nhìn dịu dàng đa cảm",
+      "mui": "mũi thanh nhỏ, sống mũi thẳng nhẹ",
+      "mieng": "miệng nhỏ, môi mềm, cười kín đáo duyên",
+      "bieu_cam": "ôn nhu, tình cảm, lãng mạn, nội tâm tinh tế",
+      "nghe_dac_trung": "tài vụ thầm lặng, nghệ thuật-văn hóa, chăm sóc, mỹ phẩm-làm đẹp, nghề về đêm/nội bộ (âm tinh)",
+      "_nguon": "Tài liệu #4 (Thái Âm: mặt tròn da trắng, mắt to); 形性赋 (Thái Âm thanh kỳ, nhược hãm tắc khuy, hình thanh tú)"
+    },
+
+    "Tham Lang": {
+      "ten_han": "贪狼",
+      "khuon_mat": "mặt tròn (hoặc dài khi đồng Vũ Khúc), nét sinh động đào hoa, sắc diện tươi",
+      "chieu_cao_nam": "1m68–1m76",
+      "chieu_cao_nu": "1m58–1m66",
+      "dang_nguoi": "tầm thước đến cao, vóc cân đối gợi cảm, dáng hoạt bát",
+      "mat": "mắt to đẹp đa tình, ánh nhìn cuốn hút biết cười",
+      "mui": "mũi đầy, sống mũi đẹp",
+      "mieng": "môi dày gợi cảm, miệng tươi, nụ cười duyên (đào hoa chủ tinh)",
+      "bieu_cam": "sôi nổi, đa tài đa nghệ, hấp dẫn, giỏi giao tế",
+      "nghe_dac_trung": "giao tế-quan hệ, giải trí-nghệ thuật, kinh doanh-tiếp thị, nghề cần sức hút cá nhân",
+      "_nguon": "Tài liệu #4 (Tham Lang: mặt tròn, mắt to, đào hoa, môi dày); 形性赋 (Tham Lang vi thiện ác chi thần, hình tính phóng đãng đa nghệ)"
+    },
+
+    "Cự Môn": {
+      "ten_han": "巨门",
+      "khuon_mat": "mặt dài, miệng rộng, nét rõ góc cạnh, gò má cao",
+      "chieu_cao_nam": "1m70–1m76",
+      "chieu_cao_nu": "1m60–1m66",
+      "dang_nguoi": "cao tầm thước, vóc cân đối chắc, dáng đĩnh đạc",
+      "mat": "mắt sắc có thần, ánh nhìn xét đoán",
+      "mui": "mũi cao, sống mũi rõ",
+      "mieng": "miệng rộng, môi rõ nét, ăn nói lưu loát (khẩu tinh)",
+      "bieu_cam": "khẩu khí mạnh, biện luận, nghiêm túc, hay phân tích nghi vấn",
+      "nghe_dac_trung": "luật sư, giáo viên/diễn giả, truyền thông-phát thanh, bán hàng bằng lời, nghề dùng miệng (Cự Môn = ám tinh chủ khẩu thiệt)",
+      "_nguon": "Tài liệu #4 (Cự Môn: mặt dài, miệng rộng, mắt sắc; nghề luật/giáo); 形性赋 (Cự Môn diện viên trường, đôn hậu nhi đa nghi)"
+    },
+
+    "Thiên Tướng": {
+      "ten_han": "天相",
+      "khuon_mat": "mặt vuông hoặc trái xoan đẹp, ngũ quan hài hòa cân đối, tướng mạo đoan chính",
+      "chieu_cao_nam": "1m70–1m76",
+      "chieu_cao_nu": "1m60–1m66",
+      "dang_nguoi": "tầm thước cân đối, vóc đầy đặn nhã nhặn, phong thái lịch thiệp",
+      "mat": "mắt sáng đẹp, ánh nhìn ôn hòa trung hậu",
+      "mui": "mũi cao thẳng cân đối",
+      "mieng": "miệng cân, môi vừa, cười nhã nhặn",
+      "bieu_cam": "đoan trang, trung thực, biết điều, ưa thẩm mỹ và lễ nghi",
+      "nghe_dac_trung": "trợ lý-tham mưu, ngoại giao, ẩm thực-phục vụ tinh tế, hành chính-văn phòng (ấn tinh phụ tá)",
+      "_nguon": "Tài liệu #4 (Thiên Tướng: mặt vuông/trái xoan đẹp, ngũ quan hài hòa); 形性赋 (Thiên Tướng tướng mạo đôn hậu, ngôn ngữ thành thực)"
+    },
+
+    "Thiên Lương": {
+      "ten_han": "天梁",
+      "khuon_mat": "mặt dài, nét hiền nho nhã, thần thái thanh cao",
+      "chieu_cao_nam": "1m70–1m76",
+      "chieu_cao_nu": "1m60–1m66",
+      "dang_nguoi": "cao, vóc gầy thanh thoát, dáng khoan thai đĩnh đạc",
+      "mat": "mắt hiền có thần, ánh nhìn từ tốn độ lượng",
+      "mui": "mũi thẳng thanh, sống mũi cao",
+      "mieng": "miệng vừa, môi mỏng nhã, cười hiền",
+      "bieu_cam": "nho nhã, điềm đạm, thích che chở giúp người, có phong thái trưởng thượng",
+      "nghe_dac_trung": "y dược-chăm sóc, giáo dục, giám sát-kiểm tra, từ thiện-tôn giáo, nghề cứu giúp (ấm tinh chủ phúc thọ)",
+      "_nguon": "Tài liệu #4 (Thiên Lương: mặt dài hiền, gầy, nho nhã); 形性赋 (Thiên Lương ôn hòa, hình thần ổn trọng, thanh tú)"
+    },
+
+    "Thất Sát": {
+      "ten_han": "七杀",
+      "khuon_mat": "mặt vuông góc cạnh, mày rậm, nét lạnh uy nghiêm, xương rõ",
+      "chieu_cao_nam": "1m72–1m80",
+      "chieu_cao_nu": "1m60–1m66",
+      "dang_nguoi": "cao lớn vạm vỡ, vóc rắn chắc lực lưỡng, dáng đi mạnh dứt khoát",
+      "mat": "mắt sáng lạnh sắc bén, ánh nhìn uy nghi có sát khí",
+      "mui": "mũi cao to, sống mũi rõ có lực",
+      "mieng": "miệng nghiêm, môi rõ, ít cười",
+      "bieu_cam": "quyết liệt, độc lập, uy nghiêm, dám xông pha",
+      "nghe_dac_trung": "quân-cảnh, thể thao-võ thuật, kỹ thuật nặng, khởi nghiệp-chinh chiến thương trường (sát tinh chủ quyền uy)",
+      "_nguon": "Tài liệu #4 (Thất Sát: mặt vuông, mày rậm, mắt sáng lạnh, vạm vỡ); 形性赋 (Thất Sát hình mạo đường đường, tính cương dũng)"
+    },
+
+    "Phá Quân": {
+      "ten_han": "破军",
+      "khuon_mat": "mặt dài, mũi cao, mắt sâu, nét gồ ghề phá cách cá tính",
+      "chieu_cao_nam": "1m70–1m78",
+      "chieu_cao_nu": "1m58–1m66",
+      "dang_nguoi": "cao tầm thước, vóc chắc lệch (vai/lưng có nét đặc trưng), dáng đi nhanh mạnh",
+      "mat": "mắt sâu có thần, ánh nhìn dữ dội bất kham",
+      "mui": "mũi cao gồ, sống mũi nổi",
+      "mieng": "miệng rộng, môi dày, nét bướng",
+      "bieu_cam": "phá cách, dấn thân, ưa thay đổi đột phá, không theo lối mòn",
+      "nghe_dac_trung": "nghề biến động-tiên phong, kỹ thuật-hàng hải, phá-dựng (xây dựng/tái cấu trúc), thể thao mạo hiểm (hao tinh chủ phá cũ)",
+      "_nguon": "Tài liệu #4 (Phá Quân: mặt dài, mũi cao, mắt sâu); 形性赋 (Phá Quân ngũ đoản, bối hậu mi khoan, tính cương quả hảo bác)"
+    }
+  },
+
+  "ngu_hanh_quan_sat": {
+    "_ghi_chu": "Ngũ hành của Phu Thê tinh / 官杀 (Quan Sát — sao chồng/vợ trong Bát Tự, Manh Phái) → da + dáng + khuôn mặt. Dùng để TINH CHỈNH lớp chính tinh (vd Vũ Khúc thuộc Kim → nhấn da trắng/nét sắc). Khi lá số nghiêng hành nào thì pha thêm sắc thái hành đó.",
+
+    "Kim": {
+      "da": "trắng nõn, sáng mịn",
+      "dang": "cao thon, xương cốt thanh, vóc gọn gàng cân đối",
+      "mat_khuon": "khuôn mặt thanh tú góc cạnh, mũi cao, ngũ quan rõ nét sắc sảo",
+      "_nguon": "Tài liệu #4 (官杀 Kim — Manh Phái: trắng nõn, cao thon, mũi cao)"
+    },
+    "Mộc": {
+      "da": "da sáng tự nhiên, sắc tươi",
+      "dang": "cao thẳng, người gầy dong dỏng, lưng thẳng",
+      "mat_khuon": "mặt dài, trán cao, nét thanh nho nhã",
+      "_nguon": "Tài liệu #4 (官杀 Mộc — Manh Phái: cao thẳng gầy, mặt dài trán cao)"
+    },
+    "Thủy": {
+      "da": "da hơi ngăm/bóng, sắc linh hoạt",
+      "dang": "tròn trịa, người mềm mại uyển chuyển, hoạt bát",
+      "mat_khuon": "mặt tròn đầy, mắt to long lanh linh hoạt",
+      "_nguon": "Tài liệu #4 (官杀 Thủy — Manh Phái: tròn linh hoạt, da ngăm, mắt to)"
+    },
+    "Hỏa": {
+      "da": "da đỏ hồng hào, sắc diện rạng",
+      "dang": "tầm thước nhanh nhẹn, vóc cân đối tươi tắn, năng động",
+      "mat_khuon": "khuôn mặt xinh tươi, mắt sáng có lửa, môi đỏ",
+      "_nguon": "Tài liệu #4 (官杀 Hỏa — Manh Phái: da đỏ hồng xinh, mắt sáng, môi đỏ)"
+    },
+    "Thổ": {
+      "da": "da vàng/ngăm ấm, dày dặn",
+      "dang": "thấp đầy đặn, vóc chắc nịch vững vàng",
+      "mat_khuon": "mặt vuông, cằm rộng đầy, nét đôn hậu chắc chắn",
+      "_nguon": "Tài liệu #4 (官杀 Thổ — Manh Phái: thấp đầy đặn, da vàng, mặt vuông cằm rộng)"
+    }
+  },
+
+  "chi_ngay": {
+    "_ghi_chu": "Địa chi NGÀY sinh → MỨC NỔI BẬT của ngoại hình phối ngẫu (3 nhóm Tứ Chính / Tứ Sinh / Tứ Mộ). Đây là sắc thái 'độ nổi bật', KHÔNG phải cát/hung — giản dị cũng là một vẻ đẹp riêng.",
+
+    "tu_chinh_dao_hoa": {
+      "chi": ["Tý", "Ngọ", "Mão", "Dậu"],
+      "ten": "Tứ Chính (Tứ bại / Đào hoa)",
+      "muc_ngoai_hinh": "ngoại hình NỔI BẬT, cuốn hút, ưa nhìn — nét đào hoa rõ, dễ gây ấn tượng",
+      "goi_y_prompt": "gương mặt sáng nổi bật, thần thái cuốn hút, nụ cười duyên",
+      "_nguon": "Tài liệu #4 (chi ngày Tý/Ngọ/Mão/Dậu = ngoại hình nổi bật)"
+    },
+    "tu_sinh_thong_minh": {
+      "chi": ["Dần", "Thân", "Tị", "Hợi"],
+      "ten": "Tứ Sinh (Tứ trường sinh)",
+      "muc_ngoai_hinh": "ngoại hình BÌNH THƯỜNG DỄ NHÌN, ưa nhìn vừa phải, toát ra nét thông minh nhanh nhẹn",
+      "goi_y_prompt": "gương mặt dễ nhìn hài hòa, ánh mắt thông minh lanh lợi, phong thái nhanh nhẹn",
+      "_nguon": "Tài liệu #4 (chi ngày Dần/Thân/Tị/Hợi = bình thường dễ nhìn, thông minh)"
+    },
+    "tu_mo_don_hau": {
+      "chi": ["Thìn", "Tuất", "Sửu", "Mùi"],
+      "ten": "Tứ Mộ (Tứ khố)",
+      "muc_ngoai_hinh": "ngoại hình GIẢN DỊ, mộc mạc, nét đôn hậu chân chất đáng tin",
+      "goi_y_prompt": "gương mặt mộc mạc đôn hậu, thần thái hiền lành chân chất, vẻ giản dị đáng tin",
+      "_nguon": "Tài liệu #4 (chi ngày Thìn/Tuất/Sửu/Mùi = giản dị đôn hậu)"
+    }
+  },
+
+  "nhan_tuong": {
+    "_ghi_chu": "Lớp nhân tướng bổ trợ: tóc theo ngũ hành + dáng đi theo ngũ hành/chính tinh. Ghép sau cùng vào prompt để tăng độ sống động.",
+
+    "toc_theo_ngu_hanh": {
+      "Kim": "tóc mượt thẳng, sắc đen ánh, gọn gàng",
+      "Mộc": "tóc dày khỏe, hơi dài tự nhiên, sắc đen mạnh",
+      "Thủy": "tóc mềm gợn sóng nhẹ, óng, linh hoạt",
+      "Hỏa": "tóc hơi xoăn/bồng, sắc nâu ánh đỏ, nhiều khí",
+      "Thổ": "tóc dày chắc, đen đậm, nét mộc mạc",
+      "_nguon": "Tài liệu #4 (nhân tướng: tóc theo ngũ hành)"
+    },
+    "dang_di": {
+      "_theo_chinh_tinh": {
+        "Tử Vi / Thiên Phủ / Thiên Tướng": "dáng đi khoan thai đĩnh đạc, đường bệ",
+        "Thái Dương / Thất Sát / Phá Quân": "dáng đi nhanh mạnh dứt khoát, sải bước rộng",
+        "Thiên Cơ / Tham Lang / Liêm Trinh": "dáng đi nhanh nhẹn hoạt bát, linh hoạt",
+        "Thái Âm / Thiên Đồng / Thiên Lương": "dáng đi nhẹ nhàng thư thái, mềm mại",
+        "Vũ Khúc / Cự Môn": "dáng đi vững chắc có lực, nghiêm cẩn"
+      },
+      "_theo_ngu_hanh": {
+        "Kim": "bước đi gọn dứt khoát, lưng thẳng",
+        "Mộc": "bước đi thẳng vươn, dáng cao thanh",
+        "Thủy": "bước đi uyển chuyển mềm mại, linh hoạt",
+        "Hỏa": "bước đi nhanh nhẹ, năng động",
+        "Thổ": "bước đi chậm chắc, vững vàng đằm"
+      },
+      "_nguon": "Tài liệu #4 (nhân tướng: dáng đi theo ngũ hành + chính tinh)"
+    }
+  }
+}
