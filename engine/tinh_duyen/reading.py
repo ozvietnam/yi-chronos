@@ -237,13 +237,18 @@ def _apply_gender_tree(obj: Any, gender: str) -> Any:
 
     CHỈ áp cho NAM (nữ flagship trả nguyên văn). Dùng cho các block MÔ TẢ PHỐI NGẪU
     (cung Phu Thê Tử Vi, batu_hon_nhan, personality.cach_yeu…) nơi text là ngữ cảnh
-    DANH TỪ phối ngẫu — KHÔNG chứa động từ 'chồng' (chất đống). Với block có verb-trap
-    (vd tuvi 12 bước 'xếp lên lưu niên') đã xử lý riêng tại nguồn.
+    DANH TỪ phối ngẫu. Với block có verb-trap (vd tuvi 12 bước 'xếp lên lưu niên')
+    đã xử lý riêng tại nguồn.
+
+    CLAUSE-AWARE: dùng GL.apply_gender_clause_aware → mệnh đề TRÍCH DẪN GỐC phái nữ
+    tường minh ('(nữ mệnh) → chồng là trụ cột', '女命骨髓赋', 'nữ nên lấy chồng lớn
+    tuổi' trong reconcile.tuvi_doc_bang) GIỮ NGUYÊN văn nữ, KHÔNG bị masculinize
+    thành 'nữ nên lấy vợ' (vỡ nghĩa). Mệnh đề trung tính vẫn đảo sang vợ/财 cho nam.
     """
     if GL.is_female(gender):
         return obj
     if isinstance(obj, str):
-        return GL.apply_gender(obj, "nam")
+        return GL.apply_gender_clause_aware(obj, "nam")
     if isinstance(obj, dict):
         return {k: _apply_gender_tree(v, gender) for k, v in obj.items()}
     if isinstance(obj, (list, tuple)):
@@ -810,6 +815,12 @@ def read_tinh_duyen(
         tra_loi, can_gieo_que, can_la_so_doi, do_tin, section_nguon, tan_suat}]
         — KEY MỚI, các key cũ giữ nguyên 100%.)
     """
+    # Chuẩn hoá giới về token tu_vi yêu cầu ('nam' / 'nữ' có dấu). GL.norm_gender
+    # nhận đầu vào lỏng ('nu', 'female', 'male'…) nhưng trả 'nam'/'nu' (không dấu);
+    # tu_vi an_sao raise ValueError nếu khác 'nam'/'nữ'. Map về đúng token tại biên
+    # để caller truyền 'nu' không vỡ.
+    gender = "nam" if GL.is_male(gender) else "nữ"
+
     # (a) Lập lá số + bát tự.
     la_so = cast_la_so_from_birth(
         birth_datetime_local=birth_datetime_local,
