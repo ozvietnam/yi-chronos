@@ -59,6 +59,29 @@ def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
             except Exception:
                 return ""
 
+        # Cách cục NAMED + đại vận HIỆN TẠI (tinh hoa: engine đã tính, surface lên)
+        cach_cuc, dai_van = [], None
+        try:
+            import datetime
+            from engine.tu_vi import cach_cuc_dict
+            from engine.tu_vi.cach_cuc_named import match_named_cach_cucs
+            from engine.tu_vi.la_so_input_builder import build_la_so_input
+            by = int(birth_iso[:4])
+            lsi = build_la_so_input(ls, gender, birth_year=by, now_year=datetime.datetime.now().year)
+            matched = match_named_cach_cucs(lsi) or []
+            for c in matched[:6]:
+                ten = c.get("ten")
+                nghia = ""
+                try:
+                    e = cach_cuc_dict.lookup_by_name(ten)
+                    nghia = ((e or {}).get("y_nghia") or "")[:240]
+                except Exception:
+                    pass
+                cach_cuc.append({"ten": ten, "loai": c.get("loai"),
+                                 "dieu_kien": c.get("dieu_kien"), "y_nghia": nghia})
+            dai_van = lsi.get("dai_van_hien_tai")
+        except Exception as e:
+            logger.info("chan_dung cách cục lỗi: %s", str(e)[:120])
         return {
             "menh_cung": ls.get("menh_branch"),
             "than_cung": ls.get("than_branch"),
@@ -67,6 +90,8 @@ def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
             "than_chu": ls.get("than_chu"),
             "chinh_tinh_tai_menh": [{"sao": s, "nghia": _nghia(s)} for s in tai_menh],
             "tu_hoa": ls.get("tu_hoa") or {},
+            "cach_cuc": cach_cuc,
+            "dai_van_hien_tai": dai_van,
         }
     except Exception as e:
         logger.info("chan_dung tu_vi lỗi: %s", str(e)[:120])
