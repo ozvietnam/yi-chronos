@@ -889,15 +889,12 @@ OUTPUT JSON với 5 phần (mỗi phần là Markdown text, 6-12 câu phú thi 4
         if cached:
             return cached
 
-        # Multi-provider fallback: minimax → gemini → openrouter → anthropic → deepseek
+        # Provider chain: deepseek ĐẦU — deepseek-chat (V3→v4-flash) verified prod TIN CẬY cho
+        # prompt phê mệnh JSON (16s, JSON hợp lệ). model reasoning (v4-pro, MiniMax-M3 và CẢ
+        # M2.7-highspeed) <think> ăn sạch token → content RỖNG (đo prod 2026-06-24). minimax CUỐI.
+        # Chọn + gọi provider ở loop bên dưới (cần fallback theo content-RỖNG, không chỉ exception).
         from engine.ai.registry import get_registry
         registry = get_registry()
-        try:
-            provider = registry.first_configured(
-                ["minimax", "gemini", "openrouter", "anthropic", "deepseek"]
-            )
-        except Exception as e:
-            return {"status": "error", "message": f"No LLM provider configured: {e}"}
 
         # Build rich context — chart + cách cục + cung reading + safety
         ctx_parts = [self.chart_summary]
@@ -945,23 +942,36 @@ KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai."""
         # Reinforce JSON output in user prompt (some providers don't honor response_format)
         full_user_prompt = user_prompt + "\n\n**OUTPUT BẮT BUỘC**: JSON object đầy đủ 5 keys (khai_de, menh_than, dai_van, canh_bao, ket_tam_an). KHÔNG markdown wrapper, KHÔNG ```json fence."
 
-        # Model non-reasoning bắt buộc: prompt phê mệnh lớn → v4-pro/M3 reasoning ăn sạch
-        # max_tokens → content RỖNG (đo prod 2026-06-24). sage_model map provider→biến thể
-        # non-reasoning (minimax→M2.7-highspeed, deepseek→chat); provider khác→default (đã non-reasoning).
+        # Gọi theo chain, ÉP model non-reasoning, NHẬN provider ĐẦU TIÊN trả content KHÔNG RỖNG.
+        # Mấu chốt: model reasoning trả status-ok nhưng content="" (think ăn token rồi bị strip)
+        # → fallback-theo-exception KHÔNG bắt được. Phải kiểm content rỗng để nhảy provider kế.
         from engine.ai.council import sage_model
-        gen_model = sage_model(provider)
-        try:
-            resp = provider.chat(
-                messages=[
-                    {"role": "system", "content": self.SYSTEM_PHE_MENH},
-                    {"role": "user", "content": full_user_prompt},
-                ],
-                model=gen_model,
-                temperature=0.7,
-                max_tokens=4000,
-            )
-        except Exception as e:
-            return {"status": "error", "message": f"LLM call failed ({provider.name}): {e}"}
+        messages = [
+            {"role": "system", "content": self.SYSTEM_PHE_MENH},
+            {"role": "user", "content": full_user_prompt},
+        ]
+        resp = None
+        provider = None
+        last_err = "no provider configured"
+        for _name in ["deepseek", "gemini", "openrouter", "anthropic", "minimax"]:
+            try:
+                _p = registry.get(_name)
+            except Exception:
+                continue
+            if not getattr(_p, "is_configured", False) or registry.is_unhealthy(_name):
+                continue
+            try:
+                _r = _p.chat(messages=messages, model=sage_model(_p),
+                             temperature=0.7, max_tokens=4000)
+            except Exception as e:
+                last_err = f"{_name}: {e}"
+                continue
+            if (getattr(_r, "content", "") or "").strip():
+                resp, provider = _r, _p
+                break
+            last_err = f"{_name}: empty content (reasoning ăn token?)"
+        if resp is None or provider is None:
+            return {"status": "error", "message": f"Tất cả provider rỗng/lỗi. Last: {last_err}"}
 
         content = resp.content if hasattr(resp, "content") else str(resp)
         # Try to strip markdown fences if present
