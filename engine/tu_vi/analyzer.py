@@ -945,12 +945,18 @@ KHÔNG predict cụ thể — dùng "mỗ" pattern khi nói về tương lai."""
         # Reinforce JSON output in user prompt (some providers don't honor response_format)
         full_user_prompt = user_prompt + "\n\n**OUTPUT BẮT BUỘC**: JSON object đầy đủ 5 keys (khai_de, menh_than, dai_van, canh_bao, ket_tam_an). KHÔNG markdown wrapper, KHÔNG ```json fence."
 
+        # Model non-reasoning bắt buộc: prompt phê mệnh lớn → v4-pro/M3 reasoning ăn sạch
+        # max_tokens → content RỖNG (đo prod 2026-06-24). sage_model map provider→biến thể
+        # non-reasoning (minimax→M2.7-highspeed, deepseek→chat); provider khác→default (đã non-reasoning).
+        from engine.ai.council import sage_model
+        gen_model = sage_model(provider)
         try:
             resp = provider.chat(
                 messages=[
                     {"role": "system", "content": self.SYSTEM_PHE_MENH},
                     {"role": "user", "content": full_user_prompt},
                 ],
+                model=gen_model,
                 temperature=0.7,
                 max_tokens=4000,
             )
@@ -1183,6 +1189,7 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
 {chr(10).join(f'  "{k}": "string 2000-4000 chữ Tiếng Việt theo cấu trúc 3 lớp"' + ("," if i < len(section_keys)-1 else "") for i, k in enumerate(section_keys))}
 }}"""
 
+        from engine.ai.council import sage_model
         resp = None
         last_err = None
         tried = []
@@ -1197,6 +1204,9 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
                         {"role": "system", "content": self.SYSTEM_PHE_MENH_SAU},
                         {"role": "user", "content": user_prompt},
                     ],
+                    # non-reasoning bắt buộc: prompt VIP cực lớn → v4-pro/M3 reasoning ăn sạch
+                    # token → content rỗng (đo prod 2026-06-24). deepseek-chat tin cậy + nhanh.
+                    model=sage_model(current),
                     temperature=0.5,
                     max_tokens=32000,  # 5 sections × 4000 chars VN ≈ 12k tokens; safety margin
                 )

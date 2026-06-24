@@ -50,6 +50,9 @@ def test_luan_noi_tam_endpoint(monkeypatch, tmp_path, as_owner):
     from engine.ai.providers.base import LLMResponse
 
     class MockP:
+        name = "mock"          # endpoint normalize model qua sage_model(provider) → cần .name
+        default_model = "mock-v1"
+
         def chat(self, messages, model=None, **kw):
             assert "18 Phi Tinh" in messages[0]["content"]   # persona chieu_dom nạp đúng
             return LLMResponse(content="**Cốt cách nội tâm**: Hư tọa Mệnh — nỗi trống cần lấp bằng ý nghĩa.",
