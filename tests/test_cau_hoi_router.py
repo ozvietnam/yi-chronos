@@ -160,6 +160,20 @@ def test_reading_has_cau_hoi_tuoi_key():
         assert ROUTER_ITEM_KEYS.issubset(item.keys())
 
 
+def test_reading_question_text_not_scrubbed():
+    """REGRESSION: field 'cau_hoi' (câu hỏi của user, vd 'Tôi có khắc chồng không?')
+    KHÔNG bị _scrub_tree thay placeholder — nếu không UI hiển thị câu hỏi thành
+    '[lời cổ … đã được lược]'. Câu hỏi là khái-niệm-phân-tích hợp lệ."""
+    out = _reading(_BIRTH_27)
+    items = out["cau_hoi_tuoi"]
+    # Có câu chứa 'khắc chồng' và câu đó PHẢI giữ nguyên text, không placeholder.
+    khac = [q for q in items if "khắc chồng" in (q["cau_hoi"] or "").lower()]
+    assert khac, "nhóm 26-30 phải có câu 'có khắc chồng?'"
+    for q in items:
+        assert "đã được lược" not in (q["cau_hoi"] or ""), \
+            f"câu hỏi bị scrub xoá trắng: {q['cau_hoi']!r}"
+
+
 def test_reading_old_keys_preserved():
     """KEY MỚI không phá API cũ — mọi key cũ vẫn còn."""
     out = _reading(_BIRTH_27)

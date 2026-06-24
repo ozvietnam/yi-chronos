@@ -898,9 +898,13 @@ def read_tinh_duyen(
         "quy_trinh_day_du": quy_trinh_day_du,
         "chan_doan_cap_do": chan_doan_cap_do,
     }
+    # router ĐÃ scrub field 'tra_loi' (text tự ráp). KHÔNG _scrub_tree cả list ở đây:
+    # field 'cau_hoi' là CHÍNH câu hỏi của user (vd 'Tôi có khắc chồng không?') — đây là
+    # khái-niệm-phân-tích hợp lệ, KHÔNG được thay placeholder (nếu không UI hiển thị câu
+    # hỏi thành '[lời cổ … đã được lược]'). Chỉ scrub field 'tra_loi' (defense-in-depth).
     cau_hoi_tuoi = tra_loi_cau_hoi_tuoi(_reading_for_router, age=age, gender=gender)
-    # Defense-in-depth: scrub lại text router tự ráp (đã rút từ block sạch, nhưng vẫn quét).
-    cau_hoi_tuoi = _scrub_tree(cau_hoi_tuoi, _n)
+    for _item in cau_hoi_tuoi:
+        _item["tra_loi"] = _scrub_tree(_item.get("tra_loi"), _n)
     scrubbed_count = _n[0]
 
     return {
