@@ -2,10 +2,30 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from engine.tinh_duyen import read_tinh_duyen
-from engine.tinh_duyen.reading import METHOD_ID
+from engine.tinh_duyen.reading import METHOD_ID, _has_forbidden, _scrub
+
+# Danh sách CẤM (verdict) — KHÔNG được xuất hiện trong OUTPUT (Iron Rule #4/#6/#8,
+# CLAUDE.md). 'cô quả/cô đơn/cô độc' KHÔNG nằm đây vì hợp lệ trong câu biện chính.
+FORBIDDEN_VERDICTS = [
+    "khắc chồng", "sát chồng", "sát phu", "khắc phu", "mưu hại",
+    "làm gái", "hạ tiện", "dâm xướng", "dâm tiện", "dâm đãng",
+    "kỹ nữ", "làm thiếp", "làm lẽ", "khắc tử", "hình khắc tử",
+    "hình phu", "đắc thê tài", "thê hiền",
+]
+
+# 5 lá NỮ trải tuổi 13-44 (gồm 2009-05-10 Thất Sát + 1985-11-02 Liêm Phá).
+FEMALE_CHARTS = [
+    "2009-05-10T08:00",   # ~17, Mệnh có Thất Sát
+    "1985-11-02T10:00",   # ~41, Liêm Phá
+    "2000-03-15T14:30",   # ~26
+    "1995-07-07T06:00",   # ~31
+    "1988-06-05T23:30",   # ~38
+]
 
 # (birth, as_of_year, expected_age_approx, expected_stage_id)
 CASES = [

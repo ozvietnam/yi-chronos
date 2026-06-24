@@ -20,6 +20,7 @@ from typing import Any, Optional
 
 from engine.bat_tu.cast import cast_bat_tu
 from engine.cross_paradigm.hon_nhan_song_phai import luan_hon_nhan_song_phai
+from engine.hermes_guard import paradigm_violations
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
 from . import knowledge_loader as kb
@@ -49,6 +50,12 @@ _DAO_HOA_KICH_HOAT = ("Hồng Loan", "Thiên Hỉ")
 # --------------------------------------------------------------------------- #
 # Helpers
 # --------------------------------------------------------------------------- #
+def _is_nu(gender: str) -> bool:
+    """True nếu giới tính là NỮ (engine mặc định nữ mệnh)."""
+    g = (gender or "").strip().lower()
+    return g in ("nữ", "nu", "female", "f", "")
+
+
 def _parse_birth(birth_datetime_local: str) -> datetime:
     """Parse 'YYYY-MM-DDTHH:MM' (cho phép thiếu phút / có giây)."""
     s = birth_datetime_local.strip()
@@ -117,6 +124,68 @@ _KEYWORDS_KET_AN = (
 
 # Câu phú rõ ràng góc nhìn NAM (vô nghĩa/sai cho nữ mệnh) → loại khỏi output nữ.
 _KEYWORDS_NAM_PHU = ("thê tài", "đắc thê", "thê hiền", "vượng thê", "thê thiếp")
+
+
+# --------------------------------------------------------------------------- #
+# HÀNG RÀO CỨNG — DANH SÁCH CẤM (verdict) + _scrub
+# --------------------------------------------------------------------------- #
+# Iron Rule #4/#6/#8 + CLAUDE.md: các cụm KẾT ÁN / PHÁN ĐỊNH MỆNH TUYỆT ĐỐI
+# KHÔNG được phép xuất hiện trong BẤT KỲ string nào surface ra output.
+# Đây là tầng chặn cuối (defense-in-depth): kể cả nếu dict bị regress hoặc một
+# trường thô lọt qua reframe, _scrub sẽ thay bằng bản trung tính + bật cờ caution.
+#
+# LƯU Ý: 'cô quả/cô đơn/cô độc' CHỈ hợp lệ trong câu BIỆN CHÍNH (bác bỏ định kiến),
+# nên KHÔNG đưa vào danh sách cấm cứng (sẽ scrub nhầm câu biện chính). Chúng vẫn
+# được _co_tu_khoa bắt để buộc reframe ở nhánh cách cục.
+_FORBIDDEN_VERDICTS = (
+    "khắc chồng", "sát chồng", "sát phu", "khắc phu", "mưu hại",
+    "làm gái", "hạ tiện", "dâm xướng", "dâm tiện", "dâm đãng",
+    "kỹ nữ", "làm thiếp", "làm lẽ", "khắc tử", "hình khắc tử",
+    "hình phu", "đắc thê tài", "thê hiền",
+)
+
+# Bản trung tính thay thế khi một string surface vi phạm (paradigm-safe).
+_SCRUB_REPLACEMENT = (
+    "[lời cổ mang sắc thái kết án thời phong kiến đã được lược — đọc đồng dạng: "
+    "đây là một TÍNH (cấu trúc khí), không phải bản án; cấu trúc này VẬN HÀNH tốt "
+    "nhất khi được ý thức và chăm sóc (Iron Rule #8)]"
+)
+
+
+def _has_forbidden(text: str) -> bool:
+    """True nếu text (đã lower) chứa BẤT KỲ cụm verdict cấm nào."""
+    if not text:
+        return False
+    low = text.lower()
+    if any(v in low for v in _FORBIDDEN_VERDICTS):
+        return True
+    # Tầng 2: tái dùng hermes_guard bắt giọng TIÊN TRI ("sẽ giàu/nghèo", số đề…).
+    if paradigm_violations(text):
+        return True
+    return False
+
+
+def _scrub(text: str) -> str:
+    """Quét 1 string: nếu chứa BẤT KỲ từ cấm nào thì thay bằng bản trung tính,
+    ngược lại trả nguyên. Đây là primitive lá của hàng rào cứng."""
+    if isinstance(text, str) and _has_forbidden(text):
+        return _SCRUB_REPLACEMENT
+    return text
+
+
+def _scrub_tree(obj: Any, counter: list[int]) -> Any:
+    """Đệ quy qua dict/list/str, áp _scrub lên MỌI string lá.
+    counter[0] += số string bị thay thế (cờ caution)."""
+    if isinstance(obj, str):
+        scrubbed = _scrub(obj)
+        if scrubbed is not obj and scrubbed != obj:
+            counter[0] += 1
+        return scrubbed
+    if isinstance(obj, dict):
+        return {k: _scrub_tree(v, counter) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_scrub_tree(v, counter) for v in obj]
+    return obj
 
 
 def _count_quan_sat(thap_than_distribution: dict) -> dict:
@@ -409,15 +478,21 @@ _SAT_TINH_HO_TRO = (
 )
 
 
-def _cach_cuc(la_so: dict) -> list[dict]:
+def _cach_cuc(la_so: dict, gender: str = "nữ") -> list[dict]:
     cc = kb.get("cach_cuc")["cach_cuc"]
     phu_the_idx = la_so["palaces"][2]["branch_index"]
+    is_nu = _is_nu(gender)
     hits = []
     for c in cc:
         dk = c.get("dieu_kien_phat_hien", {}) or {}
         sao_req = dk.get("sao") or []
         if not sao_req:
             continue
+
+        # LOẠI mục góc nhìn NAM khỏi output NỮ MỆNH (field gioi_tinh trong dict).
+        if is_nu and c.get("gioi_tinh") == "nam":
+            continue
+
         cung = dk.get("cung", "Mệnh")
         idx = _cung_index_by_name(la_so, cung)
         if idx is None:
@@ -427,11 +502,13 @@ def _cach_cuc(la_so: dict) -> list[dict]:
             continue
 
         cat_hung = c.get("cat_hung")
-        y_nghia = c.get("y_nghia_duyen") or ""
-        han_tu = c.get("han_tu") or ""
+        y_nghia = c.get("y_nghia_duyen") or ""   # raw cổ — CHỈ để truy vết, KHÔNG surface
+        han_tu = c.get("han_tu") or ""            # raw cổ — CHỈ để truy vết, KHÔNG surface
+        bien_chinh = c.get("bien_chinh") or ""    # bản đọc-đồng-dạng — SURFACE field này
 
-        # Lọc phú rõ ràng góc nhìn NAM (vô nghĩa cho nữ mệnh).
-        if _la_nam_phu(y_nghia, han_tu):
+        # Lọc phú rõ ràng góc nhìn NAM (vô nghĩa cho nữ mệnh) — phòng dict thiếu
+        # gioi_tinh nhưng câu vẫn rõ là góc nhìn nam.
+        if is_nu and _la_nam_phu(y_nghia, han_tu):
             continue
 
         is_judgmental = _co_tu_khoa(y_nghia, han_tu)
@@ -453,32 +530,35 @@ def _cach_cuc(la_so: dict) -> list[dict]:
         else:
             cat_hung_out = "trung_tinh"
 
-        if require_bien_chinh:
-            van_hanh = (
-                "Đây là một TÍNH (cấu trúc khí bẩm phú), KHÔNG phải bản án. "
-                "Lời cổ mang sắc thái thời đại cũ; đọc đồng dạng thì cấu trúc này "
-                "VẬN HÀNH tốt nhất khi được ý thức và chăm sóc — mệnh là việc xử lý "
-                "tính, không phải số phận đã định (Iron Rule #8)."
-            )
-            # KHÔNG đưa y_nghia_duyen thô (chứa từ kết án) sang nhánh narrate.
-            y_nghia_out = None
-            y_nghia_goc_tham_khao = y_nghia  # giữ raw để tra cứu, KHÔNG narrate
+        # SURFACE = bien_chinh (đã reframe trong dict). Nếu dict thiếu bien_chinh,
+        # fallback: với mục an toàn dùng y_nghia, với mục cần biện chính dùng câu
+        # vận hành chung — TUYỆT ĐỐI KHÔNG surface raw kết án.
+        if bien_chinh:
+            doc_dong_dang = bien_chinh
+        elif not require_bien_chinh:
+            doc_dong_dang = y_nghia
         else:
-            van_hanh = None
-            y_nghia_out = y_nghia
-            y_nghia_goc_tham_khao = None
+            doc_dong_dang = (
+                "Đây là một TÍNH (cấu trúc khí bẩm phú), KHÔNG phải bản án. "
+                "Đọc đồng dạng thì cấu trúc này VẬN HÀNH tốt nhất khi được ý thức "
+                "và chăm sóc — mệnh là việc xử lý tính, không phải số phận đã định "
+                "(Iron Rule #8)."
+            )
+
+        van_hanh = doc_dong_dang if require_bien_chinh else None
 
         hits.append({
             "ten_cach": c.get("ten_cach"),
-            "han_tu": han_tu,
             "cung": cung,
+            "gioi_tinh": c.get("gioi_tinh", "chung"),
             "uu_tien_phu_the": (idx == phu_the_idx),  # cách ở Phu Thê liên quan hơn
             "sao_khop": sao_req,
-            "y_nghia_duyen": y_nghia_out,
+            # bien_chinh = field SURFACE chính (đọc đồng dạng).
+            "bien_chinh": doc_dong_dang,
             "cat_hung": cat_hung_out,
             "van_hanh": van_hanh,
             "require_bien_chinh": require_bien_chinh,
-            "y_nghia_goc_tham_khao": y_nghia_goc_tham_khao,
+            # raw cổ KHÔNG surface ra UI; chỉ giữ pointer nguồn để truy vết.
             "_nguon": c.get("_nguon"),
         })
     # Ưu tiên cách ở cung Phu Thê lên đầu (bài toán hôn nhân).
@@ -700,13 +780,29 @@ def read_tinh_duyen(
     reconcile = _reconcile(base)
 
     # (i) CÁCH CỤC.
-    cach_cuc = _cach_cuc(la_so)
+    cach_cuc = _cach_cuc(la_so, gender=gender)
 
     # (j) ĐỊNH THỜI.
     dinh_thoi = _dinh_thoi(la_so, age, phu_the_idx)
 
     # (k) NARRATION BRIEF cho chặng 3.
     narration_brief = _narration_brief(stage, personality, cach_cuc)
+
+    # --- HÀNG RÀO CỨNG CUỐI CÙNG (defense-in-depth): scrub MỌI string surface.
+    # Áp lên TẤT CẢ block đưa ra ngoài (cach_cuc, cung_phu_the_tuvi, batu,
+    # personality, reconcile, stage, dinh_thoi, narration_brief, base). Nếu BẤT
+    # KỲ string nào còn chứa từ cấm → thay bằng bản trung tính + bật cờ caution.
+    _n = [0]
+    stage = _scrub_tree(stage, _n)
+    personality = _scrub_tree(personality, _n)
+    cung_phu_the = _scrub_tree(cung_phu_the, _n)
+    batu = _scrub_tree(batu, _n)
+    reconcile = _scrub_tree(reconcile, _n)
+    cach_cuc = _scrub_tree(cach_cuc, _n)
+    dinh_thoi = _scrub_tree(dinh_thoi, _n)
+    narration_brief = _scrub_tree(narration_brief, _n)
+    base_khia_canh = _scrub_tree(base.get("khia_canh", []), _n)
+    scrubbed_count = _n[0]
 
     return {
         "method_id": METHOD_ID,
@@ -728,8 +824,10 @@ def read_tinh_duyen(
         "cach_cuc": cach_cuc,
         "dinh_thoi": dinh_thoi,
         "narration_brief": narration_brief,
-        "base_12_khia_canh": base.get("khia_canh", []),
+        "base_12_khia_canh": base_khia_canh,
         "paradigm_ok": bool(base.get("paradigm_ok", True)),
+        # Cờ caution: số string đã bị scrub vì chứa từ cấm (0 = sạch hoàn toàn).
+        "scrub_caution_count": scrubbed_count,
         "sources": _collect_sources(),
         "_disclaimer": _DISCLAIMER,
     }
