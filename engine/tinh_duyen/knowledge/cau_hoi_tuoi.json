@@ -1,0 +1,378 @@
+{
+  "_meta": {
+    "ten": "BỘ CÂU HỎI TÌNH DUYÊN THEO NHÓM TUỔI — NỮ MỆNH (định tuyến tới section reading_output)",
+    "muc_dich": "Mỗi nhóm tuổi có nhu cầu hỏi tình duyên khác nhau. File này liệt kê các câu hỏi TOP theo từng nhóm, định tuyến mỗi câu tới section CÓ SẴN trong reading_output (read_tinh_duyen) để rút câu trả lời ĐÃ paradigm-safe — KHÔNG bịa luận mới.",
+    "paradigm": "KHÔNG bói, KHÔNG phán có/không. Mệnh là ĐỘNG TỪ (Iron Rule #8) — đọc đồng dạng, không predict (Iron Rule #4/#6). Câu 'có khắc chồng?' KHÔNG trả 'có/không' mà trả QUA chan_doan_cap_do (cấp + lộ trình rèn, ngôn ngữ xây dựng). Câu QUYẾT ĐỊNH nhị nguyên (có nên cưới/chia tay) → KHÔNG tự chốt từ lá số, mà flag can_gieo_que=true (cần câu hỏi + tâm user → Mai Hoa quan-vật-trace-tính). Mọi câu trả lời ground vào section thật + đi qua _scrub.",
+    "luu_y_section_nguon": "Giá trị section_nguon là KEY THẬT trong reading_output: stage | personality | cung_phu_the_tuvi | batu_hon_nhan | song_phai_reconcile | cach_cuc | dinh_thoi | chan_doan_cap_do | quy_trinh_day_du. Với quy_trinh_day_du ghi rõ bước cung con (Nô Bộc / Tử Tức / Tài Bạch) trong section_nguon_chi_tiet.",
+    "ma_tran_engine": {
+      "tu_vi": {
+        "gioi": ["năm cưới (định thời theo Đại Vận/Lưu Niên qua cung Phu Thê)", "tính cách chồng (chính tinh + sát Phu Thê)", "số con / khả năng sinh con (cung Tử Tức)", "dấu hiệu ly hôn (cung Phu Thê hãm + Hóa Kỵ + sát hội)", "người thứ ba (Nô Bộc + đào hoa)"],
+        "section_chu_luc": ["dinh_thoi", "cung_phu_the_tuvi", "quy_trinh_day_du"],
+        "ghi_chu": "Tử Vi mạnh ở SNAPSHOT cấu trúc + ĐỊNH THỜI cửa sổ năm. Trả lời theo 'cấu trúc này vận hành tốt nhất khi...', không 'năm X anh sẽ giàu/cưới'."
+      },
+      "bat_tu": {
+        "gioi": ["khắc phu (Thương Quan vượng / Quan Sát nhược → đọc lực, không phán)", "ngoại tình / đào hoa (đào hoa + hợp-xung Phu tinh)", "cự ly vợ chồng (ngũ hành điều hậu, hàn/táo)", "cân bằng ngũ hành nội tâm (dụng thần điều hậu)"],
+        "section_chu_luc": ["batu_hon_nhan", "chan_doan_cap_do", "song_phai_reconcile"],
+        "ghi_chu": "Bát Tự mạnh ở LỰC ngũ hành + tương tác Thương Quan/Quan Sát. 'Khắc phu' đọc thành CẤP ĐỘ + lộ trình rèn (chan_doan_cap_do), KHÔNG verdict."
+      },
+      "mai_hoa": {
+        "gioi": ["QUYẾT ĐỊNH nhị nguyên (có nên cưới người này / có nên chia tay chờ người khác / nên đợi hay chấp nhận)", "chọn ngày (cưới, sinh con) qua quan-vật"],
+        "section_chu_luc": ["(không có section reading sẵn — phải GIEO QUẺ riêng)"],
+        "ghi_chu": "Mai Hoa = quan-vật-trace-tính, KHÔNG predict cát/hung. Bắt buộc 4 bước: lời quẻ/hào (chủ) + Thể-Dụng ngũ hành + ngoại ứng (HỎI user) + tư thế thân (HỎI user). Một việc bói một lần. Câu QUYẾT ĐỊNH → can_gieo_que=true, KHÔNG chốt từ lá số."
+      }
+    },
+    "nhom_khan_nhat": "26-30 (nhu cầu cao + khẩn nhất: chưa lấy được chồng, năm vàng kết hôn, sinh con, người thứ ba)",
+    "schema_cau_hoi": {
+      "cau_hoi": "string — câu hỏi user thường đặt",
+      "tan_suat": "cao | trung | thấp",
+      "he_chinh": "tu_vi | bat_tu | kinh_dich (kinh_dich = Mai Hoa, dùng cho câu quyết định/chọn ngày)",
+      "section_nguon": "key trong reading_output để rút câu trả lời (hoặc 'gieo_que_mai_hoa' nếu cần quẻ)",
+      "section_nguon_phu": "danh sách section bổ trợ (optional)",
+      "section_nguon_chi_tiet": "bước cung con trong quy_trinh_day_du nếu áp dụng (optional)",
+      "can_gieo_que": "true nếu là câu QUYẾT ĐỊNH/nhị nguyên cần Mai Hoa",
+      "can_la_so_doi": "true nếu cần lá số người kia",
+      "paradigm_note": "cách trả lời đúng paradigm (optional)"
+    }
+  },
+
+  "nhom_tuoi": {
+    "16-20": {
+      "ten": "Tuổi mới lớn / sinh viên",
+      "tam_ly_cot_loi": "tò mò về duyên phận, lo sợ định kiến 'khắc chồng / khó lấy chồng', crush đầu đời",
+      "cau_hoi": [
+        {
+          "cau_hoi": "Tôi có khó lấy chồng không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["cung_phu_the_tuvi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "KHÔNG trả 'khó/dễ'. Đọc thành cấp độ thử thách + lộ trình: cấu trúc duyên của em vận hành tốt nhất khi rèn điều gì."
+        },
+        {
+          "cau_hoi": "Tôi có bị khắc chồng không?",
+          "tan_suat": "cao",
+          "he_chinh": "bat_tu",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["batu_hon_nhan"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "TUYỆT ĐỐI không 'có/không khắc chồng'. Trả QUA chan_doan_cap_do: cấp (1-5) + lộ trình rèn (constructive), biện chính định kiến cổ."
+        },
+        {
+          "cau_hoi": "Crush của tôi / người này có hợp với tôi không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "gieo_que_mai_hoa",
+          "section_nguon_phu": ["cung_phu_the_tuvi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": true,
+          "paradigm_note": "Cần lá số người kia để so đôi (flag can_la_so_doi). Nếu chưa có lá số người kia → gợi xem cung_phu_the_tuvi của chính em (kiểu người hợp khí chất)."
+        },
+        {
+          "cau_hoi": "Cung Phu Thê của tôi tốt hay xấu?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "cung_phu_the_tuvi",
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc cấu trúc (chính tinh, sát, đào hoa Phu Thê) như TÍNH bẩm phú, không 'tốt/xấu' tĩnh — nói cấu trúc này vận hành tốt nhất khi nào."
+        },
+        {
+          "cau_hoi": "Tính cách của tôi trong tình yêu / hôn nhân thế nào?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "personality",
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "personality = khí chất + khẩu vị giao tiếp (đối chiếu Thập Thần Bát Tự). Đọc làm nguyên liệu để em XỬ LÝ (mệnh động từ)."
+        },
+        {
+          "cau_hoi": "Tôi thuộc kiểu người yêu như thế nào?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "personality",
+          "section_nguon_phu": ["cach_cuc"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false
+        }
+      ]
+    },
+
+    "21-25": {
+      "ten": "Bắt đầu yêu nghiêm túc / chuẩn bị lập gia đình",
+      "tam_ly_cot_loi": "đang yêu, cân nhắc cưới, phân vân người này có phải định mệnh, áp lực cưới đúng tuổi",
+      "cau_hoi": [
+        {
+          "cau_hoi": "Năm nào tôi cưới được?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "dinh_thoi",
+          "section_nguon_phu": ["song_phai_reconcile"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc CỬA SỔ thời điểm Đại Vận/Lưu Niên qua cung Phu Thê, không chốt 1 năm cứng. 'Cấu trúc này thuận duyên nhất ở vận...'."
+        },
+        {
+          "cau_hoi": "Người này có phải định mệnh của tôi không?",
+          "tan_suat": "cao",
+          "he_chinh": "kinh_dich",
+          "section_nguon": "gieo_que_mai_hoa",
+          "section_nguon_phu": ["cung_phu_the_tuvi"],
+          "can_gieo_que": true,
+          "can_la_so_doi": true,
+          "paradigm_note": "Câu QUYẾT ĐỊNH/nhận-định về 1 người cụ thể → KHÔNG chốt từ lá số. Nếu có lá số đôi → so đôi tham khảo; nhưng 'định mệnh' → gieo quẻ Mai Hoa (cần câu hỏi + tâm user)."
+        },
+        {
+          "cau_hoi": "Tôi có nên chia tay người này để chờ người khác không?",
+          "tan_suat": "cao",
+          "he_chinh": "kinh_dich",
+          "section_nguon": "gieo_que_mai_hoa",
+          "can_gieo_que": true,
+          "can_la_so_doi": false,
+          "paradigm_note": "QUYẾT ĐỊNH nhị nguyên thuần tuý → CHỈ Mai Hoa. KHÔNG dùng lá số phán nên/không nên. Hỏi ngoại ứng + tư thế thân khi gieo."
+        },
+        {
+          "cau_hoi": "Hai lá số của chúng tôi có hợp nhau không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "gieo_que_mai_hoa",
+          "section_nguon_phu": ["song_phai_reconcile", "cung_phu_the_tuvi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": true,
+          "paradigm_note": "Cần lá số người kia (flag). So đôi cấu trúc — đọc bổ khuyết/cộng hưởng, không chấm điểm 'hợp/không hợp'."
+        },
+        {
+          "cau_hoi": "Tôi có khắc chồng không, nếu có thì hóa giải thế nào?",
+          "tan_suat": "trung",
+          "he_chinh": "bat_tu",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["batu_hon_nhan"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "'Hóa giải' = lộ trình rèn trong chan_doan_cap_do (lo_trinh_ren), không phải bùa/phán. Cấp độ + việc cần làm để cấu trúc vận hành thuận."
+        },
+        {
+          "cau_hoi": "Tính cách chồng tương lai của tôi ra sao?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "cung_phu_the_tuvi",
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc chính tinh + cát/sát cung Phu Thê làm 'kiểu khí chất bạn đời cộng hưởng', không 'chồng sẽ là người X cụ thể'."
+        }
+      ]
+    },
+
+    "26-30": {
+      "ten": "Cao điểm áp lực hôn nhân (nhu cầu CAO + KHẨN nhất)",
+      "tam_ly_cot_loi": "áp lực 'sao chưa lấy chồng', muốn năm vàng kết hôn, lo khả năng sinh con, sợ người thứ ba",
+      "uu_tien": "nhom khan nhat — ưu tiên route nhanh, giọng đồng hành, không phán",
+      "cau_hoi": [
+        {
+          "cau_hoi": "Tại sao đến giờ tôi vẫn chưa lấy được chồng?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["cung_phu_the_tuvi", "dinh_thoi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Tổng hợp 3 section: cấp độ thử thách (lý do cấu trúc) + cấu trúc Phu Thê + cửa sổ thời điểm phía trước. Constructive, không trách-số."
+        },
+        {
+          "cau_hoi": "Năm vàng kết hôn của tôi là năm nào?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "dinh_thoi",
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Cửa sổ năm thuận duyên (Đại Vận/Lưu Niên qua Phu Thê), trình bày như khoảng thời gian cấu trúc cộng hưởng, không định mệnh."
+        },
+        {
+          "cau_hoi": "Khả năng sinh con của tôi thế nào?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "quy_trinh_day_du",
+          "section_nguon_chi_tiet": "tu_vi_12_buoc → bước cung TỬ TỨC",
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc cung Tử Tức (chính tinh + cát/sát) như cấu trúc 'duyên con', KHÔNG phán có/không con hay số con cứng. Nhạy cảm → giọng nhẹ, gợi y học khi cần."
+        },
+        {
+          "cau_hoi": "Chồng tôi có ngoại tình / có người thứ ba không?",
+          "tan_suat": "cao",
+          "he_chinh": "bat_tu",
+          "section_nguon": "quy_trinh_day_du",
+          "section_nguon_chi_tiet": "tu_vi_12_buoc → bước cung NÔ BỘC (+ đào hoa)",
+          "section_nguon_phu": ["batu_hon_nhan"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc Nô Bộc + đào hoa Bát Tự như TÍN HIỆU cấu trúc cần để ý, KHÔNG phán 'chồng sẽ ngoại tình'. Biến lo lắng thành điều cần vun đắp trong tương quan."
+        },
+        {
+          "cau_hoi": "Tôi nên đợi đúng người hay chấp nhận người đang theo đuổi?",
+          "tan_suat": "cao",
+          "he_chinh": "kinh_dich",
+          "section_nguon": "gieo_que_mai_hoa",
+          "can_gieo_que": true,
+          "can_la_so_doi": false,
+          "paradigm_note": "QUYẾT ĐỊNH nhị nguyên → CHỈ gieo quẻ Mai Hoa (câu hỏi + tâm user + ngoại ứng + tư thế). KHÔNG chốt từ lá số."
+        },
+        {
+          "cau_hoi": "Tôi có khắc chồng không?",
+          "tan_suat": "trung",
+          "he_chinh": "bat_tu",
+          "section_nguon": "chan_doan_cap_do",
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Như mọi nhóm: trả QUA chan_doan_cap_do, không verdict."
+        },
+        {
+          "cau_hoi": "Tính cách người chồng phù hợp với tôi nhất là kiểu nào?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "cung_phu_the_tuvi",
+          "section_nguon_phu": ["personality"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false
+        }
+      ]
+    },
+
+    "31-35": {
+      "ten": "Trong hôn nhân — vận hành & thử thách",
+      "tam_ly_cot_loi": "đã cưới, lo hôn nhân ổn không, hay cãi vã, sợ ngoại tình, tính chuyện sinh con",
+      "cau_hoi": [
+        {
+          "cau_hoi": "Hôn nhân của tôi có ổn không, có dấu hiệu ly hôn không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["dinh_thoi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "KHÔNG phán 'sẽ ly hôn'. Đọc cấp độ thử thách + cửa sổ vận căng/thuận + lộ trình rèn để vận hành qua giai đoạn khó."
+        },
+        {
+          "cau_hoi": "Chồng tôi có đang ngoại tình không?",
+          "tan_suat": "cao",
+          "he_chinh": "bat_tu",
+          "section_nguon": "quy_trinh_day_du",
+          "section_nguon_chi_tiet": "tu_vi_12_buoc → bước cung NÔ BỘC (+ đào hoa Bát Tự)",
+          "section_nguon_phu": ["batu_hon_nhan"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Tín hiệu cấu trúc Nô Bộc/đào hoa, KHÔNG buộc tội. Hướng tới củng cố tương quan, không gieo nghi kỵ."
+        },
+        {
+          "cau_hoi": "Tại sao vợ chồng tôi hay cãi nhau / xung khắc?",
+          "tan_suat": "cao",
+          "he_chinh": "bat_tu",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["song_phai_reconcile"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc lực Thương Quan/Quan Sát + ngũ hành điều hậu thành 'điểm va chạm cấu trúc' + lộ trình rèn (lo_trinh_ren), constructive."
+        },
+        {
+          "cau_hoi": "Tôi nên sinh con vào năm nào?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "quy_trinh_day_du",
+          "section_nguon_chi_tiet": "tu_vi_12_buoc → bước cung TỬ TỨC",
+          "section_nguon_phu": ["dinh_thoi", "gieo_que_mai_hoa"],
+          "can_gieo_que": true,
+          "can_la_so_doi": false,
+          "paradigm_note": "Cấu trúc Tử Tức + cửa sổ vận (Tử Vi) cho KHOẢNG; CHỌN NGÀY cụ thể → Mai Hoa quan-vật (can_gieo_que). Không phán năm cứng."
+        },
+        {
+          "cau_hoi": "Vợ chồng tôi có hợp để đi đường dài không?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "song_phai_reconcile",
+          "section_nguon_phu": ["cung_phu_the_tuvi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": true,
+          "paradigm_note": "Cần lá số chồng (flag). Đọc bổ khuyết hai cấu trúc, không chấm điểm hợp/không."
+        },
+        {
+          "cau_hoi": "Có nên ly hôn không?",
+          "tan_suat": "trung",
+          "he_chinh": "kinh_dich",
+          "section_nguon": "gieo_que_mai_hoa",
+          "can_gieo_que": true,
+          "can_la_so_doi": false,
+          "paradigm_note": "QUYẾT ĐỊNH lớn → CHỈ Mai Hoa + giọng cực kỳ thận trọng, đồng hành. KHÔNG chốt từ lá số. Khuyến nghị suy xét kỹ, tham vấn chuyên môn khi cần."
+        }
+      ]
+    },
+
+    "36-40": {
+      "ten": "Trung niên — bền vững & người đến muộn",
+      "tam_ly_cot_loi": "lo hôn nhân bền đến già, người độc thân mong duyên đến muộn, người đổ vỡ cân nhắc tái hôn",
+      "cau_hoi": [
+        {
+          "cau_hoi": "Hôn nhân của tôi có bền đến già không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["dinh_thoi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc cấp độ + cửa sổ vận về sau + lộ trình giữ gìn, không phán 'bền/tan'."
+        },
+        {
+          "cau_hoi": "Tôi có người đến muộn không, duyên muộn có thật không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "cung_phu_the_tuvi",
+          "section_nguon_phu": ["dinh_thoi", "gieo_que_mai_hoa"],
+          "can_gieo_que": true,
+          "can_la_so_doi": false,
+          "paradigm_note": "Cấu trúc Phu Thê + cửa sổ vận muộn (Tử Vi); nếu hỏi 'người này có phải duyên muộn' về 1 người cụ thể → Mai Hoa. Không phán chắc có/không."
+        },
+        {
+          "cau_hoi": "Tôi có nên tái hôn không / tái hôn có tốt không?",
+          "tan_suat": "cao",
+          "he_chinh": "tu_vi",
+          "section_nguon": "song_phai_reconcile",
+          "section_nguon_phu": ["chan_doan_cap_do", "gieo_que_mai_hoa"],
+          "can_gieo_que": true,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc song_phai_reconcile (mục tái hôn) cho cấu trúc; QUYẾT ĐỊNH 'có nên' → Mai Hoa. Giọng tôn trọng lựa chọn, không phán."
+        },
+        {
+          "cau_hoi": "Cuối đời tình duyên của tôi sẽ ra sao?",
+          "tan_suat": "trung",
+          "he_chinh": "tu_vi",
+          "section_nguon": "dinh_thoi",
+          "section_nguon_phu": ["cung_phu_the_tuvi"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Đọc vận về sau như cấu trúc đang vận hành, mệnh động từ — 'giai đoạn này thuận khi em...'."
+        },
+        {
+          "cau_hoi": "Người mới này có hợp để tôi đi tiếp không?",
+          "tan_suat": "trung",
+          "he_chinh": "kinh_dich",
+          "section_nguon": "gieo_que_mai_hoa",
+          "section_nguon_phu": ["song_phai_reconcile"],
+          "can_gieo_que": true,
+          "can_la_so_doi": true,
+          "paradigm_note": "Vừa cần lá số người kia (so đôi tham khảo) vừa là QUYẾT ĐỊNH → Mai Hoa chốt phần quyết định."
+        },
+        {
+          "cau_hoi": "Làm sao để giữ hôn nhân hòa thuận lâu dài?",
+          "tan_suat": "trung",
+          "he_chinh": "bat_tu",
+          "section_nguon": "chan_doan_cap_do",
+          "section_nguon_phu": ["song_phai_reconcile"],
+          "can_gieo_que": false,
+          "can_la_so_doi": false,
+          "paradigm_note": "Lộ trình rèn (lo_trinh_ren) + dung hòa song phái — hành đạo, không bói."
+        }
+      ]
+    }
+  }
+}

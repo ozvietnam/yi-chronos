@@ -25,6 +25,7 @@ _FILES = {
     "cach_cuc": "cach_cuc_tinh_duyen.json",
     "life_stages": "life_stages.json",
     "cham_cap_do": "cham_cap_do.json",
+    "cau_hoi_tuoi": "cau_hoi_tuoi.json",
 }
 
 
