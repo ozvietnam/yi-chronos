@@ -287,7 +287,7 @@ Format: Vietnamese prose, không cần JSON.
             ],
             model=model,
             temperature=0.5,
-            max_tokens=800,
+            max_tokens=1500,   # phản biện kỹ hơn (luận sâu)
         )
         return resp.content
     except ProviderError as e:
@@ -353,7 +353,7 @@ Vietnamese markdown.
             ],
             model=model,
             temperature=0.5,
-            max_tokens=1300,   # gọn lại → tổng hợp nhanh hơn (chunk reasoning chậm nhất)
+            max_tokens=4000,   # LUẬN SÂU: tổng hợp DÀI, CHI TIẾT (async — không tiếc thời gian)
         )
         return resp.content
     except ProviderError as e:
@@ -374,7 +374,8 @@ Vietnamese markdown.
 
 # ─── Parallel round runner (bounded — KHÔNG treo theo sage chậm) ─────────────
 
-SAGE_TIMEOUT_S = 70   # cả vòng tối đa 70s; sage chưa kịp → bỏ (council vẫn tổng hợp)
+SAGE_TIMEOUT_S = 220   # luận sâu (token cao + debate) cần lâu; cap để chống TREO vô hạn (provider kẹt),
+                       # KHÔNG phải để nhanh — async chạy ngầm. Sage quá hạn → bỏ, council vẫn tổng hợp.
 
 
 def _timed_out_response(aid: str) -> AgentResponse:
@@ -455,14 +456,15 @@ def consult_council(
 
     # Phase 1: Round 1 independent
     def _run_one(aid: str, round_label: str, challenges_text: str | None) -> AgentResponse:
-        # Sage = NHANH non-reasoning (RAG cấp chiều sâu) — bỏ M3 reasoning vì prompt lớn → <think>
-        # ăn sạch token → đáp rỗng + chậm. Ép _SAGE_FAST_MODEL cho provider được chọn.
+        # Sage dùng deepseek-chat (non-reasoning, TIN CẬY — M3 reasoning rỗng trên prompt lớn).
+        # LUẬN SÂU: max_tokens=3500 → sage viết phân tích DÀI, CHI TIẾT (RAG cấp dẫn chứng sách).
         provider, model = _get_agent_provider(aid)
         model = _SAGE_FAST_MODEL.get(provider.name, model)
         return run_agent(
             agent_id=aid, provider=provider, model=model,
             question=question, chart_data=chart_data,
             round_label=round_label, challenges=challenges_text,
+            max_tokens=3500,
         )
 
     if parallel and len(selected_agents) > 1:
