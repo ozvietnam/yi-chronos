@@ -146,421 +146,282 @@
           Đã dùng {{ tdRes.charged_xu }} xu<span v-if="tdRes.xu_balance != null"> · số dư: {{ tdRes.xu_balance }} xu</span>.
         </p>
 
-        <!-- ⭐ KHỐI CHẨN ĐOÁN CẤP ĐỘ — tính năng KILLER, hiển thị đầu tiên -->
-        <div v-if="tdRes.chan_doan_cap_do && tdRes.chan_doan_cap_do.cap_do" class="gd-card gd-cd">
-          <div class="gd-cd-top">
-            <span class="gd-cd-badge" :class="'lv-' + tdRes.chan_doan_cap_do.cap_do">
-              Mức độ thử thách {{ tdRes.chan_doan_cap_do.cap_do }}/5
-              <b v-if="tdRes.chan_doan_cap_do.ten_cap"> — {{ tdRes.chan_doan_cap_do.ten_cap }}</b>
-            </span>
-            <div class="gd-cd-dots" :aria-label="'Cấp ' + tdRes.chan_doan_cap_do.cap_do + ' trên 5'">
-              <span v-for="n in 5" :key="n" class="gd-cd-dot"
-                    :class="{ on: n <= tdRes.chan_doan_cap_do.cap_do }"></span>
-            </div>
-          </div>
+        <!-- ── RENDERER GENERIC: lặp display.sections, dispatch theo section.kind ── -->
+        <template v-if="tdSections.length">
+          <div v-for="(sec, si) in tdSections" :key="sec.id || si" class="gd-card gd-sec">
+            <h5 v-if="sec.title" class="gd-sec-h">
+              <TablerIcon v-if="sec.icon" :name="sec.icon" /> {{ sec.title }}
+            </h5>
 
-          <p v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc || tdRes.chan_doan_cap_do.phan_loai"
-             class="gd-cd-summary">
-            <b v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc">{{ tdRes.chan_doan_cap_do.do_thay_doi_duoc }}</b>
-            <span v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc"> chuyển hoá được</span>
-            <span v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc && tdRes.chan_doan_cap_do.phan_loai"> · </span>
-            <span v-if="tdRes.chan_doan_cap_do.phan_loai" class="gd-cd-class">{{ tdRes.chan_doan_cap_do.phan_loai }}</span>
-          </p>
-          <p v-if="tdRes.chan_doan_cap_do.muc_do_thu_thach" class="gd-mini">{{ tdRes.chan_doan_cap_do.muc_do_thu_thach }}</p>
-
-          <!-- Tín hiệu kích hoạt -->
-          <div v-if="(tdRes.chan_doan_cap_do.tin_hieu_kich_hoat || []).length" class="gd-cd-sec">
-            <p class="gd-cd-h">🔎 Tín hiệu kích hoạt</p>
-            <ul class="gd-cd-signals">
-              <li v-for="(t, i) in tdRes.chan_doan_cap_do.tin_hieu_kich_hoat" :key="i">{{ t }}</li>
-            </ul>
-          </div>
-
-          <!-- LỘ TRÌNH — checklist hành động (mệnh là động từ) -->
-          <div v-if="(tdRes.chan_doan_cap_do.lo_trinh || []).length" class="gd-cd-sec">
-            <p class="gd-cd-h">🧭 Lộ trình — việc cần LÀM (mệnh là động từ)</p>
-            <ul class="gd-cd-steps">
-              <li v-for="(s, i) in tdRes.chan_doan_cap_do.lo_trinh" :key="i">
-                <span class="gd-cd-check">✓</span><span>{{ s }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Lộ trình rèn (chi tiết tu/đến/cách) -->
-          <div v-if="(tdRes.chan_doan_cap_do.lo_trinh_ren || []).length" class="gd-cd-sec">
-            <p class="gd-cd-h">🌿 Đường rèn — chuyển hoá theo chặng</p>
-            <div v-for="(r, i) in tdRes.chan_doan_cap_do.lo_trinh_ren" :key="i" class="gd-cd-ren">
-              <span class="gd-cd-ren-from">{{ r.tu }}</span>
-              <span class="gd-cd-ren-arrow">→</span>
-              <span class="gd-cd-ren-to">{{ r.den }}</span>
-              <p v-if="r.cach" class="gd-do-text">{{ r.cach }}</p>
-            </div>
-          </div>
-
-          <p v-if="tdRes.chan_doan_cap_do.ranh_gioi" class="gd-note">⚠ Ranh giới: {{ tdRes.chan_doan_cap_do.ranh_gioi }}</p>
-          <p v-if="tdRes.chan_doan_cap_do.doi_chieu_cheo" class="gd-mini">⇄ {{ tdRes.chan_doan_cap_do.doi_chieu_cheo }}</p>
-
-          <p v-if="tdRes.chan_doan_cap_do.nguyen_tac_vang" class="gd-cd-vang">
-            “{{ tdRes.chan_doan_cap_do.nguyen_tac_vang }}”
-          </p>
-          <RefBlock v-if="tdRes.chan_doan_cap_do._nguon" kind="cite">{{ fmtNguon(tdRes.chan_doan_cap_do._nguon) }}</RefBlock>
-        </div>
-
-        <!-- KHỐI HỎI–ĐÁP THEO TUỔI -->
-        <div v-if="(tdRes.cau_hoi_tuoi || []).length" class="gd-card gd-cht">
-          <h5>💬 Hỏi – đáp theo chặng đời</h5>
-          <div v-for="(q, i) in tdRes.cau_hoi_tuoi" :key="i" class="gd-cht-item">
-            <div class="gd-cht-q">
-              <span class="gd-cht-he" :class="'he-' + q.he_tra_loi">{{ heLabel(q.he_tra_loi) }}</span>
-              <span class="gd-cht-text">{{ q.cau_hoi }}</span>
+            <!-- kind: cap_do — badge mức N/5 + dots + tín hiệu + lộ trình + nguyên tắc -->
+            <div v-if="sec.kind === 'cap_do'" class="gd-cd">
+              <div class="gd-cd-top">
+                <span class="gd-cd-badge" :class="'lv-' + sec.data.cap_do">
+                  Mức độ thử thách {{ sec.data.cap_do }}/{{ sec.data.max || 5 }}
+                  <b v-if="sec.data.ten_cap"> — {{ sec.data.ten_cap }}</b>
+                </span>
+                <div class="gd-cd-dots" :aria-label="'Cấp ' + sec.data.cap_do + ' trên ' + (sec.data.max || 5)">
+                  <span v-for="n in (sec.data.max || 5)" :key="n" class="gd-cd-dot"
+                        :class="{ on: n <= sec.data.cap_do }"></span>
+                </div>
+              </div>
+              <p v-if="sec.data.do_thay_doi_duoc || sec.data.phan_loai" class="gd-cd-summary">
+                <b v-if="sec.data.do_thay_doi_duoc">{{ sec.data.do_thay_doi_duoc }}</b>
+                <span v-if="sec.data.do_thay_doi_duoc"> chuyển hoá được</span>
+                <span v-if="sec.data.do_thay_doi_duoc && sec.data.phan_loai"> · </span>
+                <span v-if="sec.data.phan_loai" class="gd-cd-class">{{ sec.data.phan_loai }}</span>
+              </p>
+              <p v-if="sec.data.muc_do_thu_thach" class="gd-mini">{{ sec.data.muc_do_thu_thach }}</p>
+              <div v-if="(sec.data.tin_hieu || []).length" class="gd-cd-sec">
+                <p class="gd-cd-h">🔎 Tín hiệu kích hoạt</p>
+                <ul class="gd-cd-signals"><li v-for="(t, i) in sec.data.tin_hieu" :key="i">{{ t }}</li></ul>
+              </div>
+              <div v-if="(sec.data.lo_trinh || []).length" class="gd-cd-sec">
+                <p class="gd-cd-h">🧭 Lộ trình — việc cần LÀM (mệnh là động từ)</p>
+                <ul class="gd-cd-steps">
+                  <li v-for="(s, i) in sec.data.lo_trinh" :key="i">
+                    <span class="gd-cd-check">✓</span><span>{{ s }}</span>
+                  </li>
+                </ul>
+              </div>
+              <p v-if="sec.data.nguyen_tac" class="gd-cd-vang">“{{ sec.data.nguyen_tac }}”</p>
+              <RefBlock v-if="(sec.refs || []).length" kind="cite">{{ sec.refs.join('; ') }}</RefBlock>
             </div>
 
-            <!-- Câu quyết-định → nút Gieo quẻ thay vì trả lời chốt -->
-            <div v-if="q.can_gieo_que" class="gd-cht-gieo">
-              <p class="gd-note">Đây là câu QUYẾT ĐỊNH — không chốt thay bạn. Gieo một quẻ để soi tâm (không cát/hung).</p>
-              <button v-if="gqOpen !== i" class="gd-soft-btn" @click="openGieo(i, q.cau_hoi)">🔮 Gieo quẻ quyết định</button>
+            <!-- kind: qa — hỏi-đáp; câu cta_gieo_que → nút gieo quẻ -->
+            <div v-else-if="sec.kind === 'qa'" class="gd-qa">
+              <div v-for="(q, i) in sec.items" :key="i" class="gd-cht-item">
+                <div class="gd-cht-q">
+                  <span class="gd-cht-he" :class="'he-' + q.he">{{ heLabel(q.he) }}</span>
+                  <span class="gd-cht-text">{{ q.hoi }}</span>
+                </div>
+                <div v-if="q.cta_gieo_que" class="gd-cht-gieo">
+                  <p class="gd-note">Đây là câu QUYẾT ĐỊNH — không chốt thay bạn. Gieo một quẻ để soi tâm (không cát/hung).</p>
+                  <button v-if="gqOpen !== i" class="gd-soft-btn" @click="openGieo(i, q.hoi)">🔮 Gieo quẻ quyết định</button>
+                  <div v-else class="gd-gieo-box">
+                    <textarea v-model="gqCauHoi" rows="2" class="gd-in gd-gieo-ta"
+                              placeholder="Viết rõ câu hỏi quyết định của bạn (một việc — một quẻ)"></textarea>
+                    <div class="gd-gieo-actions">
+                      <button class="gd-run gd-gieo-run" :disabled="gqLoading || !gqCauHoi.trim()" @click="runGieoQue(i)">
+                        {{ gqLoading ? '⏳ Đang gieo...' : '🔮 Gieo quẻ' }}
+                      </button>
+                      <button class="gd-soft-btn" @click="closeGieo">Đóng</button>
+                    </div>
+                    <p v-if="gqErr" class="gd-err">{{ gqErr }}</p>
+                  </div>
+                  <div v-if="gqRes && gqResFor === i" class="gd-que">
+                    <p class="gd-que-cauhoi">“{{ gqRes.cau_hoi }}”</p>
+                    <div class="gd-que-row">
+                      <div class="gd-que-cell">
+                        <span class="gd-que-tag">Quẻ chính</span>
+                        <b>{{ gqRes.que_chinh?.ten_que }}</b>
+                        <small v-if="gqRes.que_chinh?.king_wen_index">#{{ gqRes.que_chinh.king_wen_index }}</small>
+                      </div>
+                      <div class="gd-que-cell"><span class="gd-que-tag">Quẻ hỗ</span><b>{{ gqRes.que_ho?.ten_que }}</b></div>
+                      <div class="gd-que-cell"><span class="gd-que-tag">Quẻ biến</span><b>{{ gqRes.que_bien?.ten_que }}</b></div>
+                      <div class="gd-que-cell"><span class="gd-que-tag">Hào động</span><b>hào {{ gqRes.hao_dong }}</b></div>
+                    </div>
+                    <div v-if="gqRes.the_dung" class="gd-que-td">
+                      <p class="gd-mini">
+                        <b>Thể:</b> {{ gqRes.the_dung.que_the }} ({{ gqRes.the_dung.ngu_hanh_the }})
+                        · <b>Dụng:</b> {{ gqRes.the_dung.que_dung }} ({{ gqRes.the_dung.ngu_hanh_dung }})
+                        · <span class="gd-que-quanhe">{{ gqRes.the_dung.quan_he }}</span>
+                      </p>
+                      <p v-if="gqRes.the_dung.doc_dong_dang" class="gd-do-text">{{ gqRes.the_dung.doc_dong_dang }}</p>
+                    </div>
+                    <details class="gd-guide gd-que-buoc">
+                      <summary>📿 4 bước đoán quẻ (đọc đồng dạng)</summary>
+                      <div v-for="(b, k) in bonBuocList(gqRes.bon_buoc)" :key="k" class="gd-que-buoc-item">
+                        <p class="gd-cd-h">{{ b.ten }}</p>
+                        <p v-if="b.huong_doc" class="gd-mini">{{ b.huong_doc }}</p>
+                        <p v-if="b.cau_hoi_cho_user" class="gd-do-text">❓ {{ b.cau_hoi_cho_user }}</p>
+                      </div>
+                    </details>
+                    <div v-if="gqRes.tam_phap" class="gd-que-tam">
+                      <p v-for="(v, k) in gqRes.tam_phap" :key="k" class="gd-note">• {{ v }}</p>
+                    </div>
+                    <p v-if="gqRes._paradigm" class="gd-para">⚖️ {{ gqRes._paradigm }}</p>
+                  </div>
+                </div>
+                <div v-else class="gd-cht-a"><p>{{ q.dap }}</p></div>
+              </div>
+            </div>
 
+            <!-- kind: prose_list — tên + nội dung (cung Phu Thê) -->
+            <div v-else-if="sec.kind === 'prose_list'" class="gd-prose">
+              <div v-for="(it, i) in sec.items" :key="i" class="gd-td-line">
+                <b v-if="it.ten">{{ it.ten }}</b>
+                <p class="gd-mini">{{ it.noi_dung }}</p>
+              </div>
+              <RefBlock v-if="(sec.refs || []).length" kind="cite">{{ sec.refs.join('; ') }}</RefBlock>
+            </div>
+
+            <!-- kind: pairs — Tử Vi ⇄ Bát Tự -->
+            <div v-else-if="sec.kind === 'pairs'" class="gd-pairs">
+              <div v-for="(it, i) in sec.items" :key="i" class="gd-td-recon-row">
+                <div class="gd-td-recon-h">{{ it.chu_de }}
+                  <span class="gd-pairs-tt" :class="it.trang_thai === 'hội tụ' ? 'ok' : 'warn'">{{ it.trang_thai }}</span>
+                </div>
+                <p v-if="it.tu_vi" class="gd-mini"><span class="gd-td-pill tv">Tử Vi</span> {{ it.tu_vi }}</p>
+                <p v-if="it.bat_tu" class="gd-mini"><span class="gd-td-pill bt">Bát Tự</span> {{ it.bat_tu }}</p>
+              </div>
+            </div>
+
+            <!-- kind: timeline — định thời -->
+            <div v-else-if="sec.kind === 'timeline'" class="gd-tl">
+              <div v-for="(it, i) in sec.items" :key="i" class="gd-tl-row"
+                   :class="it.loai === 'kích hoạt' ? 'kh' : 'gg'">
+                <span class="gd-tl-age">
+                  <b v-if="it.start_age != null">{{ it.start_age }}<span v-if="it.end_age != null">–{{ it.end_age }}</span> tuổi</b>
+                  <small v-if="it.branch"> · {{ it.branch }}</small>
+                </span>
+                <span class="gd-tl-tag" :class="it.loai === 'kích hoạt' ? 'ok' : 'warn'">{{ it.loai }}</span>
+                <p class="gd-mini">{{ it.mo_ta }}</p>
+              </div>
+            </div>
+
+            <!-- kind: list — cách cục -->
+            <div v-else-if="sec.kind === 'list'" class="gd-list">
+              <div v-for="(it, i) in sec.items" :key="i" class="gd-td-cach" :class="'cc-' + (it.tone || 'trung_tinh')">
+                <div class="gd-td-cach-h">
+                  <b>{{ it.ten }}</b>
+                  <span class="gd-td-cach-tag" :class="'cc-' + (it.tone || 'trung_tinh')">{{ toneLabel(it.tone) }}</span>
+                </div>
+                <p class="gd-mini">{{ it.noi_dung }}</p>
+              </div>
+            </div>
+
+            <!-- kind: collapsible — luận chi tiết 12+10 -->
+            <details v-else-if="sec.kind === 'collapsible'" class="gd-qt">
+              <summary class="gd-qt-sum">▸ Mở luận chi tiết</summary>
+              <p v-if="sec.data.kim_tu_thap" class="gd-qt-tong">{{ sec.data.kim_tu_thap }}</p>
+              <div class="gd-qt-rank">
+                <div v-for="grp in xepHangGroups" :key="grp.key"
+                     v-show="(sec.data.xep_hang?.[grp.key] || []).length"
+                     class="gd-qt-rank-grp" :class="'xh-' + grp.key">
+                  <p class="gd-cd-h">{{ grp.icon }} {{ grp.label }}</p>
+                  <ul><li v-for="(y, i) in sec.data.xep_hang[grp.key]" :key="i">{{ fmtRank(y) }}</li></ul>
+                </div>
+              </div>
+              <details v-if="(sec.data.buoc_tu_vi || []).length" class="gd-qt-sub">
+                <summary>🏯 Tử Vi — {{ sec.data.buoc_tu_vi.length }} bước</summary>
+                <div v-for="(b, i) in sec.data.buoc_tu_vi" :key="i" class="gd-qt-step">
+                  <div class="gd-qt-step-h"><span class="gd-qt-no">{{ i + 1 }}</span><b>{{ b.ten_buoc }}</b></div>
+                  <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
+                </div>
+              </details>
+              <details v-if="(sec.data.buoc_bat_tu || []).length" class="gd-qt-sub">
+                <summary>🀄 Bát Tự — {{ sec.data.buoc_bat_tu.length }} bước</summary>
+                <div v-for="(b, i) in sec.data.buoc_bat_tu" :key="i" class="gd-qt-step">
+                  <div class="gd-qt-step-h"><span class="gd-qt-no">{{ i + 1 }}</span><b>{{ b.ten_buoc }}</b></div>
+                  <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
+                </div>
+              </details>
+            </details>
+
+            <!-- kind: narration — lời thầy (fetch async qua fetch_action) -->
+            <div v-else-if="sec.kind === 'narration'" class="gd-narr">
+              <button v-if="!tdNarr && !tdNarrLoading" class="gd-soft-btn" @click="runTinhDuyenNarrate">
+                ✍️ Nghe lời thầy luận tình duyên
+              </button>
+              <p v-if="tdNarrLoading" class="gd-mini">✍️ Thầy đang viết...</p>
+              <div v-if="tdNarr" class="gd-tho">{{ tdNarr }}</div>
+            </div>
+
+            <!-- kind: cta — phác hoạ (nút + disclaimer) -->
+            <div v-else-if="sec.kind === 'cta'" class="gd-ph">
+              <p class="gd-ph-disc">
+                ⚠️ {{ sec.note || 'Chân dung BIỂU TƯỢNG phản chiếu khí chất cung Phu Thê — KHÔNG phải ảnh người thật bạn sẽ cưới. Không tiên đoán, không cát/hung.' }}
+              </p>
+              <button v-if="!phOpen && !phRes" class="gd-soft-btn" @click="phOpen = true">🎨 {{ sec.title }} (biểu tượng)</button>
+              <div v-if="phOpen && !phRes" class="gd-ph-form">
+                <label class="gd-ph-lab">Vùng miền</label>
+                <select v-model="phVung" class="gd-in">
+                  <option value="bắc">Bắc</option><option value="trung">Trung</option>
+                  <option value="nam">Nam</option><option value="tây nguyên">Tây Nguyên</option>
+                </select>
+                <label class="gd-ph-lab">Dân tộc</label>
+                <input v-model="phDanToc" class="gd-in" placeholder="Kinh" />
+                <label class="gd-ph-lab">Độ tuổi mong muốn: <b>{{ phDoTuoi }}</b></label>
+                <input v-model.number="phDoTuoi" type="range" min="18" max="70" step="1" class="gd-ph-range" />
+                <div class="gd-ph-actions">
+                  <button class="gd-run gd-ph-run" :disabled="phLoading" @click="runPhacHoa(sec.action)">
+                    {{ phLoading ? '⏳ Đang phác họa...' : '🎨 Phác họa (50 xu)' }}
+                  </button>
+                  <button class="gd-soft-btn" @click="phOpen = false">Đóng</button>
+                </div>
+              </div>
+              <p v-if="phErr" class="gd-err">{{ phErr }}</p>
+              <div v-if="phRes" class="gd-ph-res">
+                <p v-if="phRes.cached" class="gd-note">♻️ Lượt gần đây — không trừ xu lại (một việc một lần).</p>
+                <p v-else-if="phRes.charged_xu" class="gd-note">
+                  Đã dùng {{ phRes.charged_xu }} xu<span v-if="phRes.xu_balance != null"> · số dư: {{ phRes.xu_balance }} xu</span>.
+                </p>
+                <div class="gd-ph-img-wrap">
+                  <img v-if="phRes.image_b64" :src="'data:image/png;base64,' + phRes.image_b64"
+                       alt="Chân dung biểu tượng người phối ngẫu" class="gd-ph-img" />
+                  <div v-else class="gd-ph-noimg">
+                    <span class="gd-ph-noimg-icon">🖼️</span>
+                    <p class="gd-mini">{{ phRes.image_note || 'Ảnh đang tạo / chưa tạo được — xem hồ sơ tướng mạo bên dưới.' }}</p>
+                    <button class="gd-soft-btn" :disabled="phLoading" @click="runPhacHoa(sec.action)">🔁 Thử tạo lại ảnh</button>
+                  </div>
+                </div>
+                <table v-if="phRes.ho_so" class="gd-ph-table">
+                  <tbody>
+                    <tr v-for="row in phHoSoRows" :key="row.key" v-show="phRes.ho_so[row.key]">
+                      <th>{{ row.label }}</th><td>{{ phRes.ho_so[row.key] }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <RefBlock v-if="phRes.ho_so && phRes.ho_so._nguon" kind="cite">{{ fmtNguon(phRes.ho_so._nguon) }}</RefBlock>
+                <p class="gd-ph-disc gd-ph-disc-bottom">
+                  ⚖️ {{ phRes.disclaimer || phRes.ho_so?._disclaimer ||
+                    'Chân dung BIỂU TƯỢNG phản chiếu khí chất cung Phu Thê — KHÔNG phải ảnh người thật bạn sẽ cưới.' }}
+                </p>
+                <button class="gd-soft-btn" @click="resetPhacHoa">🎨 Phác họa lại (chọn lại vùng/tuổi)</button>
+              </div>
+            </div>
+
+            <!-- kind: cta_gieo_que — nút gieo quẻ độc lập -->
+            <div v-else-if="sec.kind === 'cta_gieo_que'" class="gd-gieo-cta">
+              <p class="gd-note">Gieo một quẻ Mai Hoa cho câu hỏi quyết định — soi tâm, không cát/hung (một việc một quẻ).</p>
+              <button v-if="gqOpen !== -100" class="gd-soft-btn" @click="openGieo(-100, '')">🔮 Gieo quẻ quyết định</button>
               <div v-else class="gd-gieo-box">
                 <textarea v-model="gqCauHoi" rows="2" class="gd-in gd-gieo-ta"
                           placeholder="Viết rõ câu hỏi quyết định của bạn (một việc — một quẻ)"></textarea>
                 <div class="gd-gieo-actions">
-                  <button class="gd-run gd-gieo-run" :disabled="gqLoading || !gqCauHoi.trim()" @click="runGieoQue(i)">
+                  <button class="gd-run gd-gieo-run" :disabled="gqLoading || !gqCauHoi.trim()" @click="runGieoQue(-100)">
                     {{ gqLoading ? '⏳ Đang gieo...' : '🔮 Gieo quẻ' }}
                   </button>
                   <button class="gd-soft-btn" @click="closeGieo">Đóng</button>
                 </div>
                 <p v-if="gqErr" class="gd-err">{{ gqErr }}</p>
               </div>
-
-              <!-- Kết quả quẻ -->
-              <div v-if="gqRes && gqResFor === i" class="gd-que">
+              <div v-if="gqRes && gqResFor === -100" class="gd-que">
                 <p class="gd-que-cauhoi">“{{ gqRes.cau_hoi }}”</p>
                 <div class="gd-que-row">
-                  <div class="gd-que-cell">
-                    <span class="gd-que-tag">Quẻ chính</span>
-                    <b>{{ gqRes.que_chinh?.ten_que }}</b>
-                    <small v-if="gqRes.que_chinh?.king_wen_index">#{{ gqRes.que_chinh.king_wen_index }}</small>
-                  </div>
-                  <div class="gd-que-cell">
-                    <span class="gd-que-tag">Quẻ hỗ</span>
-                    <b>{{ gqRes.que_ho?.ten_que }}</b>
-                  </div>
-                  <div class="gd-que-cell">
-                    <span class="gd-que-tag">Quẻ biến</span>
-                    <b>{{ gqRes.que_bien?.ten_que }}</b>
-                  </div>
-                  <div class="gd-que-cell">
-                    <span class="gd-que-tag">Hào động</span>
-                    <b>hào {{ gqRes.hao_dong }}</b>
-                  </div>
+                  <div class="gd-que-cell"><span class="gd-que-tag">Quẻ chính</span><b>{{ gqRes.que_chinh?.ten_que }}</b></div>
+                  <div class="gd-que-cell"><span class="gd-que-tag">Quẻ hỗ</span><b>{{ gqRes.que_ho?.ten_que }}</b></div>
+                  <div class="gd-que-cell"><span class="gd-que-tag">Quẻ biến</span><b>{{ gqRes.que_bien?.ten_que }}</b></div>
+                  <div class="gd-que-cell"><span class="gd-que-tag">Hào động</span><b>hào {{ gqRes.hao_dong }}</b></div>
                 </div>
-
                 <div v-if="gqRes.the_dung" class="gd-que-td">
-                  <p class="gd-mini">
-                    <b>Thể:</b> {{ gqRes.the_dung.que_the }} ({{ gqRes.the_dung.ngu_hanh_the }})
-                    · <b>Dụng:</b> {{ gqRes.the_dung.que_dung }} ({{ gqRes.the_dung.ngu_hanh_dung }})
-                    · <span class="gd-que-quanhe">{{ gqRes.the_dung.quan_he }}</span>
-                  </p>
                   <p v-if="gqRes.the_dung.doc_dong_dang" class="gd-do-text">{{ gqRes.the_dung.doc_dong_dang }}</p>
-                </div>
-
-                <details class="gd-guide gd-que-buoc">
-                  <summary>📿 4 bước đoán quẻ (đọc đồng dạng)</summary>
-                  <div v-for="(b, k) in bonBuocList(gqRes.bon_buoc)" :key="k" class="gd-que-buoc-item">
-                    <p class="gd-cd-h">{{ b.ten }}</p>
-                    <p v-if="b.huong_doc" class="gd-mini">{{ b.huong_doc }}</p>
-                    <p v-if="b.cau_hoi_cho_user" class="gd-do-text">❓ {{ b.cau_hoi_cho_user }}</p>
-                  </div>
-                </details>
-
-                <div v-if="gqRes.tam_phap" class="gd-que-tam">
-                  <p v-for="(v, k) in gqRes.tam_phap" :key="k" class="gd-note">• {{ v }}</p>
                 </div>
                 <p v-if="gqRes._paradigm" class="gd-para">⚖️ {{ gqRes._paradigm }}</p>
               </div>
             </div>
 
-            <!-- Câu thường → trả lời -->
-            <div v-else class="gd-cht-a">
-              <p>{{ q.tra_loi }}</p>
-              <span v-if="q.do_tin != null" class="gd-cht-dotin">độ tin {{ Math.round((q.do_tin <= 1 ? q.do_tin * 100 : q.do_tin)) }}%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- KHỐI LUẬN CHI TIẾT 12+10 BƯỚC (collapsible) -->
-        <details v-if="tdRes.quy_trinh_day_du" class="gd-card gd-qt">
-          <summary class="gd-qt-sum">▸ Luận chi tiết 12 + 10 bước</summary>
-
-          <p v-if="tdRes.quy_trinh_day_du.tong_hop_kim_tu_thap" class="gd-qt-tong">
-            {{ tdRes.quy_trinh_day_du.tong_hop_kim_tu_thap }}
-          </p>
-
-          <!-- Xếp hạng yếu tố -->
-          <div v-if="tdRes.quy_trinh_day_du.xep_hang_yeu_to" class="gd-qt-rank">
-            <div v-for="grp in xepHangGroups" :key="grp.key"
-                 v-show="(tdRes.quy_trinh_day_du.xep_hang_yeu_to[grp.key] || []).length"
-                 class="gd-qt-rank-grp" :class="'xh-' + grp.key">
-              <p class="gd-cd-h">{{ grp.icon }} {{ grp.label }}</p>
-              <ul>
-                <li v-for="(y, i) in tdRes.quy_trinh_day_du.xep_hang_yeu_to[grp.key]" :key="i">{{ fmtYeuTo(y) }}</li>
-              </ul>
-            </div>
+            <!-- kind: refs — nguồn -->
+            <ul v-else-if="sec.kind === 'refs'" class="gd-refs">
+              <li v-for="(s, i) in sec.items" :key="i">{{ s }}</li>
+            </ul>
           </div>
 
-          <!-- 12 bước Tử Vi -->
-          <details v-if="(tdRes.quy_trinh_day_du.tu_vi_12_buoc?.buoc || []).length" class="gd-qt-sub">
-            <summary>🏯 Tử Vi — 12 bước</summary>
-            <div v-for="(b, i) in tdRes.quy_trinh_day_du.tu_vi_12_buoc.buoc" :key="i" class="gd-qt-step">
-              <div class="gd-qt-step-h">
-                <span class="gd-qt-no">{{ i + 1 }}</span>
-                <b>{{ b.ten_buoc }}</b>
-                <small v-if="b.sao_chinh"> · {{ Array.isArray(b.sao_chinh) ? b.sao_chinh.join(', ') : b.sao_chinh }}</small>
-                <span v-if="b.muc_do_anh_huong" class="gd-qt-muc">{{ b.muc_do_anh_huong }}</span>
-              </div>
-              <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
-            </div>
-          </details>
+          <!-- disclaimer paradigm cuối (từ meta) -->
+          <p v-if="tdRes.display?.meta?.disclaimer" class="gd-para">⚖️ {{ tdRes.display.meta.disclaimer }}</p>
+        </template>
 
-          <!-- 10 bước Bát Tự -->
-          <details v-if="(tdRes.quy_trinh_day_du.bat_tu_10_buoc?.buoc || []).length" class="gd-qt-sub">
-            <summary>🀄 Bát Tự — 10 bước</summary>
-            <div v-for="(b, i) in tdRes.quy_trinh_day_du.bat_tu_10_buoc.buoc" :key="i" class="gd-qt-step">
-              <div class="gd-qt-step-h">
-                <span class="gd-qt-no">{{ i + 1 }}</span>
-                <b>{{ b.ten_buoc }}</b>
-                <small v-if="b.sao_chinh"> · {{ Array.isArray(b.sao_chinh) ? b.sao_chinh.join(', ') : b.sao_chinh }}</small>
-                <span v-if="b.muc_do_anh_huong" class="gd-qt-muc">{{ b.muc_do_anh_huong }}</span>
-              </div>
-              <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
-            </div>
-          </details>
-        </details>
-
-        <!-- STAGE -->
-        <div v-if="tdRes.stage" class="gd-card gd-td-stage">
-          <h5>🌱 Chặng đời — tuổi {{ tdRes.stage.tuoi }}</h5>
-          <p v-if="tdRes.stage.chua_du_tuoi" class="gd-note">Bạn còn trẻ — đọc như khung tham chiếu, duyên đến tự nhiên.</p>
-          <p v-if="tdRes.stage.moi_truong" class="gd-mini"><b>Môi trường:</b> {{ tdRes.stage.moi_truong }}</p>
-          <p v-if="tdRes.stage.tam_ly_cot_loi" class="gd-mini"><b>Tâm lý cốt lõi:</b> {{ tdRes.stage.tam_ly_cot_loi }}</p>
-          <p v-if="tdRes.stage.cau_hoi_chinh" class="gd-td-quote">“{{ tdRes.stage.cau_hoi_chinh }}”</p>
-        </div>
-
-        <!-- PERSONALITY -->
-        <div v-if="tdRes.personality" class="gd-card">
-          <h5>💗 Khí chất &amp; cách yêu</h5>
-          <p v-if="tdRes.personality.menh_chinh_tinh?.length" class="gd-mini">
-            Mệnh chính tinh: <b>{{ tdRes.personality.menh_chinh_tinh.join(', ') }}</b>
-          </p>
-          <p v-else-if="tdRes.personality.vo_chinh_dieu" class="gd-mini">Mệnh vô chính diệu — tính khí mềm, hấp thu theo môi trường.</p>
-          <div v-for="(p,i) in (tdRes.personality.profiles||[])" :key="i" class="gd-td-prof">
-            <div class="gd-td-prof-h"><b>{{ p.sao }}</b><small v-if="p.ten_han"> · {{ p.ten_han }}</small></div>
-            <p v-if="p.khi_chat" class="gd-mini"><b>Khí chất:</b> {{ p.khi_chat }}</p>
-            <p v-if="p.cach_yeu" class="gd-mini"><b>Cách yêu:</b> {{ p.cach_yeu }}</p>
-            <div v-if="p.khau_vi_giao_tiep" class="gd-td-kv">
-              <span v-if="p.khau_vi_giao_tiep.giong" class="gd-td-tag">giọng: {{ p.khau_vi_giao_tiep.giong }}</span>
-              <span v-if="p.khau_vi_giao_tiep.nen?.length" class="gd-td-tag ok">nên: {{ p.khau_vi_giao_tiep.nen.join(' · ') }}</span>
-              <span v-if="p.khau_vi_giao_tiep.tranh?.length" class="gd-td-tag warn">tránh: {{ p.khau_vi_giao_tiep.tranh.join(' · ') }}</span>
-            </div>
-            <RefBlock v-if="p._nguon" kind="cite">{{ fmtNguon(p._nguon) }}</RefBlock>
-          </div>
-        </div>
-
-        <!-- CUNG PHU THÊ (Tử Vi) -->
-        <div v-if="tdRes.cung_phu_the_tuvi" class="gd-card">
-          <h5>🏯 Cung Phu Thê (Tử Vi) — tại {{ tdRes.cung_phu_the_tuvi.phu_the_branch }}</h5>
-          <p v-if="tdRes.cung_phu_the_tuvi.muon_sao_doi_cung" class="gd-note">Vô chính diệu — mượn sao đối cung để luận.</p>
-          <p v-if="tdRes.cung_phu_the_tuvi.chinh_tinh?.length" class="gd-mini">
-            Chính tinh: <b>{{ tdRes.cung_phu_the_tuvi.chinh_tinh.join(', ') }}</b>
-          </p>
-          <div v-for="(c,i) in (tdRes.cung_phu_the_tuvi.chinh_tinh_luan||[])" :key="'ct'+i" class="gd-td-line">
-            <b>{{ c.sao }}</b><small v-if="c.ten_han"> · {{ c.ten_han }}</small>
-            <p v-if="c.tinh_chat_phoi_ngau" class="gd-mini">{{ c.tinh_chat_phoi_ngau }}</p>
-            <p v-if="c.dieu_can_chu_y" class="gd-note">⚠ {{ c.dieu_can_chu_y }}</p>
-            <RefBlock v-if="c._nguon" kind="cite">{{ fmtNguon(c._nguon) }}</RefBlock>
-          </div>
-          <div v-for="(d,i) in (tdRes.cung_phu_the_tuvi.dao_hoa_luan||[])" :key="'dh'+i" class="gd-td-line">
-            <b>🌸 {{ d.sao }}</b> <span v-if="d.y_nghia_duyen" class="gd-mini">{{ d.y_nghia_duyen }}</span>
-            <RefBlock v-if="d._nguon" kind="cite">{{ fmtNguon(d._nguon) }}</RefBlock>
-          </div>
-          <div v-for="(s,i) in (tdRes.cung_phu_the_tuvi.sat_tinh_luan||[])" :key="'st'+i" class="gd-td-line">
-            <b class="gd-td-warn">{{ s.sao }}</b> <span v-if="s.y_nghia" class="gd-mini">{{ s.y_nghia }}</span>
-            <RefBlock v-if="s._nguon" kind="cite">{{ fmtNguon(s._nguon) }}</RefBlock>
-          </div>
-          <div v-for="(h,i) in (tdRes.cung_phu_the_tuvi.tu_hoa_luan||[])" :key="'th'+i" class="gd-td-line">
-            <b>Hóa {{ h.hoa }}</b> ({{ h.sao }}) <span v-if="h.y_nghia" class="gd-mini">{{ h.y_nghia }}</span>
-            <RefBlock v-if="h._nguon" kind="cite">{{ fmtNguon(h._nguon) }}</RefBlock>
-          </div>
-        </div>
-
-        <!-- BÁT TỰ HÔN NHÂN -->
-        <div v-if="tdRes.batu_hon_nhan" class="gd-card">
-          <h5>🀄 Hôn nhân theo Bát Tự</h5>
-          <p class="gd-mini">Nhật chủ <b>{{ tdRes.batu_hon_nhan.nhat_chu }}</b> · Nhật chi <b>{{ tdRes.batu_hon_nhan.nhat_chi }}</b>
-            <span v-if="tdRes.batu_hon_nhan.nhat_chi_la_dao_hoa"> · 🌸 đào hoa</span></p>
-          <p v-if="tdRes.batu_hon_nhan.trang_thai_luan" class="gd-mini">
-            <b>Sao chồng (官杀):</b> {{ tdRes.batu_hon_nhan.trang_thai_luan.mo_ta || tdRes.batu_hon_nhan.trang_thai_luan }}
-          </p>
-          <p v-if="tdRes.batu_hon_nhan.trang_thai_luan?.van_hanh" class="gd-do-text">→ {{ tdRes.batu_hon_nhan.trang_thai_luan.van_hanh }}</p>
-          <p v-if="tdRes.batu_hon_nhan.phoi_ngau_cung_luan" class="gd-mini">
-            <b>Cung phối ngẫu (日支):</b> {{ tdRes.batu_hon_nhan.phoi_ngau_cung_luan.mo_ta || tdRes.batu_hon_nhan.phoi_ngau_cung_luan }}
-          </p>
-          <RefBlock v-if="tdRes.batu_hon_nhan._nguon" kind="cite">{{ fmtNguon(tdRes.batu_hon_nhan._nguon) }}</RefBlock>
-        </div>
-
-        <!-- SONG PHÁI RECONCILE -->
-        <div v-if="(tdRes.song_phai_reconcile||[]).length" class="gd-card gd-td-recon">
-          <h5>⇄ Song phái — Tử Vi ⇄ Bát Tự (hội tụ / dị biệt)</h5>
-          <div v-for="(r,i) in tdRes.song_phai_reconcile" :key="i" class="gd-td-recon-row">
-            <div class="gd-td-recon-h">{{ r.chu_de }}</div>
-            <p v-if="r.tuvi_doc_bang" class="gd-mini"><span class="gd-td-pill tv">Tử Vi</span> {{ r.tuvi_doc_bang }}</p>
-            <p v-if="r.batu_doc_bang" class="gd-mini"><span class="gd-td-pill bt">Bát Tự</span> {{ r.batu_doc_bang }}</p>
-            <p v-if="r.khi_HOI_TU" class="gd-do-text">✓ Hội tụ: {{ r.khi_HOI_TU }}</p>
-            <p v-if="r.khi_DI_BIET" class="gd-note">⚖ Dị biệt: {{ r.khi_DI_BIET }}</p>
-            <p v-if="r.phai_uu_tien" class="gd-mini">Ưu tiên đọc: <b>{{ r.phai_uu_tien }}</b></p>
-            <RefBlock v-if="r._nguon" kind="cite">{{ fmtNguon(r._nguon) }}</RefBlock>
-          </div>
-        </div>
-
-        <!-- CÁCH CỤC (bien_chinh — đọc đồng dạng) -->
-        <div v-if="(tdRes.cach_cuc||[]).length" class="gd-card">
-          <h5>📐 Cách cục — đọc đồng dạng (không phán bản án)</h5>
-          <div v-for="(c,i) in tdRes.cach_cuc" :key="i" class="gd-td-cach"
-               :class="'cc-' + (c.cat_hung || 'trung_tinh')">
-            <div class="gd-td-cach-h">
-              <b>{{ c.ten_cach }}</b>
-              <span class="gd-td-cach-tag" :class="'cc-' + (c.cat_hung || 'trung_tinh')">
-                {{ catHungLabel(c.cat_hung) }}
-              </span>
-              <span v-if="c.uu_tien_phu_the" class="gd-td-cach-pt">cung Phu Thê</span>
-            </div>
-            <p class="gd-mini">{{ c.bien_chinh }}</p>
-            <p v-if="c.van_hanh && c.van_hanh !== c.bien_chinh" class="gd-do-text">→ {{ c.van_hanh }}</p>
-            <RefBlock v-if="c._nguon" kind="cite">{{ fmtNguon(c._nguon) }}</RefBlock>
-          </div>
-        </div>
-
-        <!-- ĐỊNH THỜI -->
-        <div v-if="tdRes.dinh_thoi" class="gd-card gd-td-thoi">
-          <h5>📅 Định thời — năm khí được kích hoạt / cần giữ gìn</h5>
-          <div v-if="(tdRes.dinh_thoi.nam_kich_hoat||[]).length">
-            <p class="gd-mini"><b>Đại vận có khí hỉ sự / duyên kích hoạt:</b></p>
-            <div class="gd-years">
-              <span v-for="(n,i) in tdRes.dinh_thoi.nam_kich_hoat" :key="'k'+i" class="gd-year">
-                <b>{{ n.start_age }}–{{ n.end_age }} tuổi</b>
-                <small>({{ (n.sao_kich_hoat||[]).join('/') }})</small>
-              </span>
-            </div>
-          </div>
-          <div v-if="(tdRes.dinh_thoi.nam_can_giu_gin||[]).length">
-            <p class="gd-mini"><b>Đại vận cần GIỮ GÌN / chăm sóc quan hệ:</b></p>
-            <div class="gd-years">
-              <span v-for="(n,i) in tdRes.dinh_thoi.nam_can_giu_gin" :key="'g'+i" class="gd-year dam">
-                <b>{{ n.start_age }}–{{ n.end_age }} tuổi</b>
-                <small>({{ (n.ly_do||[]).join('; ') }})</small>
-              </span>
-            </div>
-          </div>
-          <p v-if="!(tdRes.dinh_thoi.nam_kich_hoat||[]).length && !(tdRes.dinh_thoi.nam_can_giu_gin||[]).length" class="gd-note">
-            Không có mốc đại vận nổi bật trong tầm tuổi — duyên vận hành đều, chủ động vẫn hơn.
-          </p>
-          <p v-if="tdRes.dinh_thoi.bien_chinh_hien_dai" class="gd-note">{{ tdRes.dinh_thoi.bien_chinh_hien_dai }}</p>
-        </div>
-
-        <!-- LỜI THẦY (narrate) -->
-        <div class="gd-card gd-tho-card">
-          <button v-if="!tdNarr && !tdNarrLoading" class="gd-soft-btn" @click="runTinhDuyenNarrate">✍️ Nghe lời thầy luận tình duyên</button>
-          <p v-if="tdNarrLoading" class="gd-mini">✍️ Thầy đang viết...</p>
-          <div v-if="tdNarr" class="gd-tho">
-            <div class="gd-td-narr-h">✍️ Lời thầy</div>
-            {{ tdNarr }}
-          </div>
-        </div>
-
-        <!-- 🎨 PHÁC HOẠ NGƯỜI PHỐI NGẪU (chân dung BIỂU TƯỢNG) -->
-        <div class="gd-card gd-ph">
-          <h5>🎨 Phác họa người phối ngẫu (biểu tượng)</h5>
-          <p class="gd-ph-disc">
-            ⚠️ Đây là chân dung <b>BIỂU TƯỢNG</b> phản chiếu khí chất cung Phu Thê của bạn —
-            một <b>KIỂU người</b> mà cấu trúc của bạn vận hành hợp.
-            <b>KHÔNG phải ảnh người thật bạn sẽ cưới.</b> Không tiên đoán, không cát/hung.
-          </p>
-
-          <button v-if="!phOpen && !phRes" class="gd-soft-btn" @click="phOpen = true">
-            🎨 Phác họa người phối ngẫu (biểu tượng)
-          </button>
-
-          <!-- Form nhập -->
-          <div v-if="phOpen && !phRes" class="gd-ph-form">
-            <label class="gd-ph-lab">Vùng miền</label>
-            <select v-model="phVung" class="gd-in">
-              <option value="bắc">Bắc</option>
-              <option value="trung">Trung</option>
-              <option value="nam">Nam</option>
-              <option value="tây nguyên">Tây Nguyên</option>
-            </select>
-
-            <label class="gd-ph-lab">Dân tộc</label>
-            <input v-model="phDanToc" class="gd-in" placeholder="Kinh" />
-
-            <label class="gd-ph-lab">Độ tuổi mong muốn: <b>{{ phDoTuoi }}</b></label>
-            <input v-model.number="phDoTuoi" type="range" min="18" max="70" step="1" class="gd-ph-range" />
-
-            <div class="gd-ph-actions">
-              <button class="gd-run gd-ph-run" :disabled="phLoading" @click="runPhacHoa">
-                {{ phLoading ? '⏳ Đang phác họa...' : '🎨 Phác họa (50 xu)' }}
-              </button>
-              <button class="gd-soft-btn" @click="phOpen = false">Đóng</button>
-            </div>
-          </div>
-          <p v-if="phErr" class="gd-err">{{ phErr }}</p>
-
-          <!-- Kết quả -->
-          <div v-if="phRes" class="gd-ph-res">
-            <p v-if="phRes.cached" class="gd-note">♻️ Lượt gần đây — không trừ xu lại (một việc một lần).</p>
-            <p v-else-if="phRes.charged_xu" class="gd-note">
-              Đã dùng {{ phRes.charged_xu }} xu<span v-if="phRes.xu_balance != null"> · số dư: {{ phRes.xu_balance }} xu</span>.
-            </p>
-
-            <!-- Ảnh hoặc fallback -->
-            <div class="gd-ph-img-wrap">
-              <img v-if="phRes.image_b64" :src="'data:image/png;base64,' + phRes.image_b64"
-                   alt="Chân dung biểu tượng người phối ngẫu" class="gd-ph-img" />
-              <div v-else class="gd-ph-noimg">
-                <span class="gd-ph-noimg-icon">🖼️</span>
-                <p class="gd-mini">{{ phRes.image_note || 'Ảnh đang tạo / chưa tạo được — xem hồ sơ tướng mạo bên dưới.' }}</p>
-                <button class="gd-soft-btn" :disabled="phLoading" @click="runPhacHoa">🔁 Thử tạo lại ảnh</button>
-              </div>
-            </div>
-
-            <!-- Bảng hồ sơ tướng mạo -->
-            <table v-if="phRes.ho_so" class="gd-ph-table">
-              <tbody>
-                <tr v-for="row in phHoSoRows" :key="row.key" v-show="phRes.ho_so[row.key]">
-                  <th>{{ row.label }}</th><td>{{ phRes.ho_so[row.key] }}</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <RefBlock v-if="phRes.ho_so && phRes.ho_so._nguon" kind="cite">{{ fmtNguon(phRes.ho_so._nguon) }}</RefBlock>
-
-            <!-- Disclaimer lặp lại dưới ảnh (bắt buộc, nổi bật) -->
-            <p class="gd-ph-disc gd-ph-disc-bottom">
-              ⚖️ {{ phRes.disclaimer || phRes.ho_so?._disclaimer ||
-                'Chân dung BIỂU TƯỢNG phản chiếu khí chất cung Phu Thê — KHÔNG phải ảnh người thật bạn sẽ cưới.' }}
-            </p>
-
-            <button class="gd-soft-btn" @click="resetPhacHoa">🎨 Phác họa lại (chọn lại vùng/tuổi)</button>
-          </div>
-        </div>
-
-        <!-- NGUỒN -->
-        <details v-if="(tdRes.sources||[]).length" class="gd-guide">
-          <summary>📚 Nguồn tri thức</summary>
-          <ul><li v-for="(s,i) in tdRes.sources" :key="i">{{ s }}</li></ul>
-        </details>
-
-        <p v-if="tdRes._disclaimer" class="gd-para">⚖️ {{ tdRes._disclaimer }}</p>
       </div>
     </section>
 
@@ -706,7 +567,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, h, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
 import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
 import RefBlock from "./RefBlock.vue";
@@ -714,6 +575,30 @@ import { sessionToken } from "../stores/authStore.js";
 import { tuviPersonName, tuviPersonBirth, tuviPersonGender } from "../stores/tuviPersonStore.js";
 
 const mode = ref("tim");  // 'tim' | 'cap' | 'so' | 'tinh'
+
+// Icon tiêu đề section: map tên Tabler (display.py) → emoji nhẹ (không thêm dep).
+const _ICONS = {
+  gauge: "🎯", messages: "💬", users: "🏯", "arrows-shuffle": "⇄",
+  clock: "📅", recycle: "📐", "stack-2": "📚", quote: "✍️",
+  palette: "🎨", "yin-yang": "🔮", book: "📚",
+};
+const TablerIcon = (props) => h("span", { class: "gd-sec-ic" }, _ICONS[props.name] || "");
+TablerIcon.props = ["name"];
+
+// Sections từ lớp trình bày dùng chung (build_display backend). [] nếu chưa có.
+const tdSections = computed(() => tdRes.value?.display?.sections || []);
+
+function toneLabel(t) {
+  return t === "the_manh" ? "✓ thế mạnh" : t === "can_chu_y" ? "⚠ cần chú ý" : "• trung tính";
+}
+function fmtRank(y) {
+  if (y == null) return "";
+  if (typeof y === "string") return y;
+  if (typeof y === "object") {
+    return [y.ten_buoc, y.luan_tom].filter(Boolean).join(" — ") || JSON.stringify(y);
+  }
+  return String(y);
+}
 
 // Auth headers (cookie session + token), giống tuviPersonStore.
 function _authHeaders() {
@@ -826,10 +711,10 @@ function resetPhacHoa() {
   phRes.value = null; phErr.value = ""; phOpen.value = true;
 }
 
-async function runPhacHoa() {
+async function runPhacHoa(action) {
   phLoading.value = true; phErr.value = "";
   try {
-    const r = await fetch("/api/cross-paradigm/tinh-duyen/phac-hoa", {
+    const r = await fetch(action || "/api/cross-paradigm/tinh-duyen/phac-hoa", {
       method: "POST",
       headers: _authHeaders(),
       credentials: "include",
@@ -1479,4 +1364,32 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-qt-no { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--gd-accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.74em; font-weight: 700; }
 .gd-qt-muc { margin-left: auto; font-size: 0.72em; color: var(--read-text-faint, #999); }
 .gd-qt-step .gd-mini { margin: 6px 0 0; }
+
+/* ── RENDERER GENERIC theo section.kind (dùng --read-* tokens, dark-mode safe) ── */
+.gd-sec-h { display: flex; align-items: center; gap: 6px; }
+.gd-sec-ic { font-size: 1.05em; line-height: 1; }
+.gd-prose .gd-td-line:last-child, .gd-pairs .gd-td-recon-row:last-child,
+.gd-list .gd-td-cach:last-child, .gd-tl .gd-tl-row:last-child { margin-bottom: 0; }
+
+/* pairs — trạng thái hội tụ / dị biệt */
+.gd-pairs-tt { font-size: 0.72em; padding: 1px 8px; border-radius: 10px; margin-left: 6px; }
+.gd-pairs-tt.ok { background: var(--gd-ok-bg); color: var(--gd-ok); }
+.gd-pairs-tt.warn { background: var(--gd-warn-bg); color: var(--gd-warn); }
+
+/* timeline — định thời */
+.gd-tl-row { margin: 8px 0; padding: 9px 11px; border-radius: 10px; border: 1px solid var(--gd-border); background: var(--read-surface, #fff); }
+.gd-tl-row.kh { border-color: var(--gd-ok-border); background: var(--gd-ok-bg); }
+.gd-tl-row.gg { border-color: var(--gd-warn-border); background: var(--gd-warn-bg); }
+.gd-tl-age b { color: var(--gd-accent); } .gd-tl-age small { color: var(--read-text-faint, #999); }
+.gd-tl-tag { font-size: 0.72em; padding: 1px 8px; border-radius: 10px; margin-left: 8px; }
+.gd-tl-tag.ok { background: var(--gd-ok-bg); color: var(--gd-ok); }
+.gd-tl-tag.warn { background: var(--gd-warn-bg); color: var(--gd-warn); }
+.gd-tl-row .gd-mini { margin: 6px 0 0; }
+
+/* refs — nguồn */
+.gd-refs { margin: 0; padding-left: 18px; }
+.gd-refs li { margin: 4px 0; font-size: 0.84em; color: var(--read-text-faint, #777); line-height: 1.5; }
+
+/* cta_gieo_que độc lập */
+.gd-gieo-cta { text-align: left; }
 </style>
