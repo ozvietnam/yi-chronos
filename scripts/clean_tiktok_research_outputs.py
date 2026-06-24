@@ -92,6 +92,19 @@ PHRASE_FIXES = [
     (r"\bAI cũng\b", "ai cũng"),
     (r"\bAI là\b", "ai là"),
     (r"\bAI nhìn\b", "anh nhìn"),
+    (r"\bchống tương lai\b", "chồng tương lai"),
+    (r"\bchống sau\b", "chồng sau"),
+    (r"\bđời chống\b", "đời chồng"),
+    (r"\blấy chống\b", "lấy chồng"),
+    (r"\blay chống\b", "lấy chồng"),
+    (r"\bvợ chống\b", "vợ chồng"),
+    (r"\bnảy\b", "này"),
+    (r"\bbao lầu\b", "bao lâu"),
+    (r"\bnến tảng\b", "nền tảng"),
+    (r"\bhồn nhẫn\b", "hôn nhân"),
+    (r"\bLuận sưỡng\b", "Luận sướng"),
+    (r"\bkhö qUa\b", "khổ qua"),
+    (r"\bPhu The\b", "Phu Thê"),
 ]
 
 BOILERPLATE_PATTERNS = [
@@ -166,6 +179,7 @@ def extract_body(text_path: Path) -> str:
             break
     body = "\n".join(lines[start:]).strip()
     body = re.sub(r"\n?Nguồn lời thoại: Whisper local.*$", "", body, flags=re.S).strip()
+    body = re.sub(r"\n?Nguồn lời thoại: OCR thumbnail/poster.*$", "", body, flags=re.S).strip()
     return body
 
 

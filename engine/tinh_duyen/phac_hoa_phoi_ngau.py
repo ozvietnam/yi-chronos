@@ -328,7 +328,7 @@ def build_prompt_anh(ho_so: dict,
     vm = (vung_mien or ho_so.get("vung_mien") or "").strip().lower()
     region = _VUNG_EN.get(vm, "Vietnamese")
 
-    age = (do_tuoi or ho_so.get("do_tuoi") or "").strip()
+    age = str(do_tuoi or ho_so.get("do_tuoi") or "").strip()
     if age:
         age_clause = age if "year" in age.lower() else f"around {age}-year-old"
     else:

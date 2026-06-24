@@ -201,8 +201,19 @@ def run_phac_hoa_phoi_ngau(uid: int, person: dict,
             "disclaimer": ho_so["_disclaimer"],
         }
 
-    return _charge_and_run(
+    out = _charge_and_run(
         uid, "cross_paradigm_phac_hoa", sig, _run, gia_xu=GIA_XU_PHAC_HOA)
+    # CÔNG BẰNG: ảnh là điểm chính của phép này — nếu yêu cầu gen ảnh mà KHÔNG ra ảnh
+    # (key lỗi/quota), HOÀN lại xu đã trừ (user vẫn nhận hồ sơ tướng mạo). Cache-hit
+    # (charged_xu=0) hoặc thiếu xu (status) thì bỏ qua.
+    if (gen_anh and not out.get("image_b64") and out.get("charged_xu")
+            and out.get("status") != "insufficient_xu"):
+        xu_wallet.grant(uid, out["charged_xu"], "refund_phac_hoa_no_image")
+        out["refunded_xu"] = out["charged_xu"]
+        out["charged_xu"] = 0
+        out["image_note"] = ((out.get("image_note") or "")
+                             + " — đã HOÀN xu vì chưa tạo được ảnh (cần key Gemini image hợp lệ).")
+    return out
 
 
 def run_couple_sync(uid: int, person_a: dict, person_b: dict) -> dict[str, Any]:

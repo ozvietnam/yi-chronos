@@ -63,20 +63,17 @@ def image_variants(image_path: Path, work_dir: Path) -> list[Path]:
     full = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
     full_path = work_dir / f"{image_path.stem}_full.png"
     cv2.imwrite(str(full_path), full)
-    variants.append(full_path)
 
     crop = image[int(height * 0.22) : int(height * 0.88), int(width * 0.03) : int(width * 0.97)]
     crop = cv2.resize(crop, None, fx=2.5, fy=2.5, interpolation=cv2.INTER_CUBIC)
     crop_path = work_dir / f"{image_path.stem}_crop.png"
     cv2.imwrite(str(crop_path), crop)
-    variants.append(crop_path)
 
     gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
     gray = cv2.bilateralFilter(gray, 9, 75, 75)
     threshold = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 9)
     threshold_path = work_dir / f"{image_path.stem}_threshold.png"
     cv2.imwrite(str(threshold_path), threshold)
-    variants.append(threshold_path)
 
     # Most photo-mode posters in this channel use large black/red title text on
     # a pale card around the middle-lower part of the image. Isolating those
@@ -93,6 +90,7 @@ def image_variants(image_path: Path, work_dir: Path) -> list[Path]:
     title_mask_path = work_dir / f"{image_path.stem}_title_mask.png"
     cv2.imwrite(str(title_mask_path), title_mask)
     variants.append(title_mask_path)
+    variants.append(threshold_path)
     return variants
 
 
