@@ -128,8 +128,19 @@ def test_an_internal_khong_con_base12_scrub():
 
 def test_sections_la_json_thuan_render_duoc():
     # AppChat: sections phải serialise JSON được (không HTML, không object lạ).
+    import re
     d = build_display(_read("nữ"), "nữ")
     s = json.dumps(d, ensure_ascii=False)
-    assert "<" not in s or "</" not in s  # không có thẻ HTML đóng-mở
+    # Quét CHẶT thẻ HTML thật (mở/đóng) — KHÔNG dùng OR yếu (dễ pass sai).
+    html_tags = re.findall(r"</?[a-zA-Z][^>]*>", s)
+    assert not html_tags, f"display KHÔNG được chứa thẻ HTML, thấy: {html_tags[:5]}"
     round_trip = json.loads(s)
     assert round_trip["meta"]["phoi_ngau"] == "chồng"
+    # Mỗi section phải có kind hợp lệ + payload render được (data/items/content/action).
+    valid_kinds = {"cap_do", "qa", "prose_list", "pairs", "timeline", "list",
+                   "collapsible", "narration", "cta", "cta_gieo_que", "refs"}
+    for sec in round_trip["sections"]:
+        assert sec["kind"] in valid_kinds, f"kind lạ: {sec['kind']}"
+        has_payload = any(k in sec for k in
+                          ("data", "items", "content", "action", "fetch_action"))
+        assert has_payload, f"section {sec['id']} thiếu payload render"

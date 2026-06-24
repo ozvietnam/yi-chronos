@@ -6,6 +6,8 @@ nhánh quyết định tiền. Narrate dùng provider 'mock' (deterministic, kh�
 """
 from __future__ import annotations
 
+import json
+
 import engine.cross_paradigm.service as S
 
 # Lá có Mệnh chính tinh (Liêm Trinh + Thất Sát) → personality.profiles có khẩu vị giao tiếp.
@@ -167,3 +169,99 @@ def test_import_api_va_routes_dang_ky():
     sync_paths = {r.path for r in sync_router.routes}
     # sync router có prefix riêng; path tương đối là '/tinh-duyen'.
     assert any(p.endswith("/tinh-duyen") for p in sync_paths)
+
+
+# ── 4) API-LEVEL: response THỰC chứa display['sections'] (khoá contract #3) ───
+_BIRTH = "1990-08-20T14:00"
+_PERSON_DB = {"birth_datetime_local": _BIRTH, "gender": "nữ",
+              "timezone": "Asia/Ho_Chi_Minh"}
+
+
+def test_endpoint_cross_paradigm_tra_display_sections(monkeypatch):
+    """POST /api/cross-paradigm/tinh-duyen → resp['display']['sections'] non-rỗng,
+    JSON thuần (không HTML), gender-aware (nữ → 'chồng')."""
+    import re
+    from fastapi import FastAPI
+    from fastapi.testclient import TestClient
+
+    import api.cross_paradigm as CP
+    from api.service_auth import require_caller
+    from engine.tinh_duyen.reading import read_tinh_duyen
+
+    # Engine output thật (deterministic) — chỉ tránh đụng DB/ví.
+    real = read_tinh_duyen(birth_datetime_local=_BIRTH, gender="nữ")
+    monkeypatch.setattr(CP, "_person", lambda uid, key: dict(_PERSON_DB))
+    monkeypatch.setattr(
+        "engine.cross_paradigm.service.run_tinh_duyen",
+        lambda uid, person: dict(real, charged_xu=30, cached=False),
+    )
+
+    app = FastAPI()
+    app.include_router(CP.router)
+    app.dependency_overrides[require_caller] = lambda: {
+        "source": "session", "user_id": "1", "is_owner": False,
+    }
+    c = TestClient(app)
+    r = c.post("/api/cross-paradigm/tinh-duyen", json={"person_key": "self"})
+    assert r.status_code == 200, r.text
+    out = r.json()
+    assert "display" in out, "endpoint phải gắn key 'display'"
+    disp = out["display"]
+    assert disp["sections"], "display['sections'] phải non-rỗng"
+    assert disp["meta"]["phoi_ngau"] == "chồng"   # nữ mệnh → người chồng
+    assert disp["sections"][0]["id"] == "cap_do"  # KILLER lên đầu
+    # JSON thuần, không HTML.
+    assert not re.findall(r"</?[a-zA-Z][^>]*>", json.dumps(disp, ensure_ascii=False))
+    # ADDITIVE — giữ nguyên key engine cũ.
+    assert "cung_phu_the_tuvi" in out and "stage" in out
+
+
+def test_endpoint_sync_tinh_duyen_tra_display_sections(monkeypatch):
+    """POST /api/sync/tinh-duyen (AppChat) → resp['display']['sections'] gender-aware
+    (nam → 'vợ'), JSON thuần. Mock service-key + helper DB."""
+    import re
+    from fastapi import FastAPI
+    from fastapi.testclient import TestClient
+
+    import api.sync as SY
+    from engine.tinh_duyen.reading import read_tinh_duyen
+
+    real = read_tinh_duyen(birth_datetime_local=_BIRTH, gender="nam")
+    monkeypatch.setattr(SY, "_require_service_key", lambda key: None)
+    monkeypatch.setattr(SY, "_ensure_schema", lambda: None)
+
+    class _Conn:
+        pass
+
+    import contextlib
+
+    @contextlib.contextmanager
+    def _scope(service=False):
+        yield _Conn()
+
+    monkeypatch.setattr(SY, "session_scope", _scope)
+    monkeypatch.setattr(SY, "_user_id_for_uid", lambda conn, uid: 1)
+    monkeypatch.setattr(
+        SY, "_person_by_key",
+        lambda conn, uid, key: {"birth_datetime_local": _BIRTH, "gender": "nam",
+                                "timezone": "Asia/Ho_Chi_Minh"},
+    )
+    monkeypatch.setattr(
+        "engine.cross_paradigm.service.run_tinh_duyen",
+        lambda uid, person: dict(real, charged_xu=30, cached=False),
+    )
+
+    app = FastAPI()
+    app.include_router(SY.router)
+    c = TestClient(app)
+    r = c.post("/api/sync/tinh-duyen",
+               json={"firebase_uid": "u1", "person_key": "self"},
+               headers={"X-API-Key": "x"})
+    assert r.status_code == 200, r.text
+    out = r.json()
+    assert "display" in out
+    disp = out["display"]
+    assert disp["sections"]
+    assert disp["meta"]["phoi_ngau"] == "vợ"   # nam mệnh → người vợ
+    assert "vợ" in disp["meta"]["title"]
+    assert not re.findall(r"</?[a-zA-Z][^>]*>", json.dumps(disp, ensure_ascii=False))

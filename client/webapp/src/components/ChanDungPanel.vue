@@ -201,6 +201,7 @@ onMounted(load);
           <p v-if="cd.duyen.nua_kia.con_giap_hop" class="cd-dy-row">Con giáp hợp: tam hợp <b>{{ (cd.duyen.nua_kia.con_giap_hop.tam_hop || []).join(", ") }}</b> · lục hợp <b>{{ cd.duyen.nua_kia.con_giap_hop.luc_hop }}</b></p>
           <p v-if="cd.duyen.xu_huong" class="cd-dy-row">Xu hướng duyên: <b>{{ cd.duyen.xu_huong }}</b></p>
           <p v-if="cd.duyen.nua_kia.loi_khuyen" class="cd-dy-note">{{ cd.duyen.nua_kia.loi_khuyen }}</p>
+          <button class="cd-detail" @click="emit('open-page', 'gieo-duyen')">Xem sâu ở trang Gieo Duyên →</button>
         </details>
       </section>
 
