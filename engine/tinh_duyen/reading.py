@@ -906,6 +906,9 @@ def read_tinh_duyen(
         cach_cuc = _apply_gender_tree(cach_cuc, gender)
         dinh_thoi = _apply_gender_tree(dinh_thoi, gender)
         narration_brief = _apply_gender_tree(narration_brief, gender)
+        # stage (life_stages.json) viết cho NỮ → mirror từ vựng cho nam (phụ nữ→đàn
+        # ông, lấy chồng→lấy vợ). Tâm-lý-tuổi nam sâu hơn để bản sau; đây là mức mirror.
+        stage = _apply_gender_tree(stage, gender)
 
     # --- HÀNG RÀO CỨNG CUỐI CÙNG (defense-in-depth): scrub MỌI string surface.
     # Áp lên TẤT CẢ block đưa ra ngoài (cach_cuc, cung_phu_the_tuvi, batu,

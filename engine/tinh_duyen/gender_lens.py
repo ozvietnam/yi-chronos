@@ -136,11 +136,14 @@ def co_than_qua_tu(gender: Optional[str]) -> str:
 # bị 'chồng' nuốt mất). apply_gender sort lại theo độ dài key giảm dần.
 _MALE_TERM_MAP: dict[str, str] = {
     "người chồng": "người vợ",
+    "người phụ nữ": "người đàn ông",
     "khắc chồng": "khắc vợ",
     "khắc phu": "khắc thê",
     "lấy chồng": "lấy vợ",
     "sao chồng": "sao vợ",
     "phu tinh": "thê tinh",
+    "phụ nữ": "đàn ông",
+    "đàn bà": "đàn ông",
     "chồng": "vợ",
     "官杀": "财",
 }
