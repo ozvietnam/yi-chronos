@@ -692,6 +692,29 @@ def sync_chan_dung(req: ChanDungSyncRequest,
     return build_chan_dung(person)
 
 
+@router.get("/tu-vi/per-cung")
+def sync_tu_vi_per_cung(firebase_uid: str, person_key: str = "self",
+                        x_api_key: Optional[str] = Header(None, alias="X-API-Key")) -> dict:
+    """Luận TỪNG CUNG theo SAO (free) cho AppChat (yêu cầu #2 2026-06-24): mỗi cung kèm chính tinh
+    thực tế + nghĩa sao + câu luận-theo-sao. Biến lá số 'nông' → có chiều sâu. Đọc đồng dạng."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.hermes_service import _person_of
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "user chưa sync")
+    person = _person_of(user_id, person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "person thiếu giờ sinh")
+    from engine.tu_vi.from_birth import cast_la_so_from_birth
+    from engine.tu_vi.per_cung_reading import per_cung_star_reading
+    ls = cast_la_so_from_birth(birth_datetime_local=person["birth_datetime_local"],
+                               timezone=person.get("timezone") or "Asia/Ho_Chi_Minh",
+                               gender=person.get("gender") or "nam")
+    return {"found": True, "cung": per_cung_star_reading(ls)}
+
+
 # ─── H6.0: Trả lời nhanh 1-sage (async qua q_hermes) ────────────────────────
 
 class HermesQuickRequest(BaseModel):
@@ -798,21 +821,38 @@ def wallet_balance(
 @router.get("/wallet/{firebase_uid}/transactions")
 def wallet_transactions(
     firebase_uid: str,
-    limit: int = 30,
+    limit: int = 50,
     x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
 ) -> dict:
-    """Sổ cái giao dịch xu (nạp +, luận −) — màn lịch sử giao dịch AppChat (#9 checklist 2026-06-24).
-    Mỗi giao dịch: {ts, day, delta, reason, balance_after, ref}."""
+    """Sổ cái giao dịch xu (nạp +, luận −) — màn lịch sử giao dịch AppChat (yêu cầu #4 2026-06-24).
+    Contract app: items[{type:grant|spend|daily, amount:+/-, reason, created_at:iso, balance_after}]."""
     _require_service_key(x_api_key)
     _ensure_schema()
+    from datetime import datetime
+    from datetime import timezone as _tz
     from engine import xu_wallet
     with session_scope(service=True) as conn:
         user_id = _user_id_for_uid(conn, firebase_uid)
     if user_id is None:
-        return {"found": False, "transactions": []}
+        return {"found": False, "items": []}
     n = min(max(limit, 1), 100)
-    return {"found": True, "balance": xu_wallet.get_balance(user_id),
-            "transactions": xu_wallet.recent_ledger(user_id, n)}
+
+    def _type(delta: int, reason: str) -> str:
+        r = (reason or "").lower()
+        if "daily" in r:
+            return "daily"
+        return "grant" if delta > 0 else "spend"
+
+    def _iso(ts) -> Optional[str]:
+        try:
+            return datetime.fromtimestamp(int(ts), _tz.utc).isoformat()
+        except Exception:
+            return None
+
+    items = [{"type": _type(t["delta"], t["reason"]), "amount": t["delta"],
+              "reason": t["reason"], "created_at": _iso(t["ts"]),
+              "balance_after": t["balance_after"]} for t in xu_wallet.recent_ledger(user_id, n)]
+    return {"found": True, "balance": xu_wallet.get_balance(user_id), "items": items}
 
 
 @router.post("/wallet/grant")
