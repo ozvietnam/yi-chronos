@@ -30,3 +30,13 @@ L5 tử-vong (0% đổi, chỉ không-cưới) · L4 bệnh/suy (10-15%, chọn 
 3. **Route câu hỏi theo tuổi + 3 engine** (#3) — trả lời câu hỏi cụ thể của tuổi; mỗi câu giao hệ mạnh nhất; **nối Mai Hoa** làm tầng quyết định.
 
 **Nguyên tắc thủ thư**: mọi luận điểm ground vào sách thật trong kho (王亭之 深造讲义, 女命骨髓赋, 形性赋, Toàn Thư, Thiệu Vĩ Hoa, Trích Thiên Tủy, wiki) — VƯỢT bản free-AI (vốn chỉ trích web lichngaytot/tuviglobal).
+
+---
+
+## ✅ ĐÃ DỰNG XONG cả 3 trụ (2026-06-25, 217 test, qua phản biện đối kháng từng trụ)
+- **Trụ 1** `engine/tinh_duyen/{tuvi_process,batu_process,quy_trinh}.py` → `read_tinh_duyen.quy_trinh_day_du` (12+10 bước, kim-tự-tháp). Nối engine sẵn, không xây lại.
+- **Trụ 2** `cham_cap.py` + `knowledge/cham_cap_do.json` → `chan_doan_cap_do` (5 cấp + lộ trình). **Sửa hàng rào** `_scrub`/`hermes_guard` context-aware (cho khái niệm phân tích, chặn lời-phán-vào-người) — vá over-scrub xóa Thương Quan. + đối-chiếu-chéo 2 phái.
+- **Trụ 3** `cau_hoi_router.py` + `knowledge/cau_hoi_tuoi.json` → `cau_hoi_tuoi` (31 câu/5 nhóm tuổi); `gieo_que_quyet_dinh.py` (Mai Hoa cho câu quyết định, tái dùng `core.hexagram`+`the_dung_van_phuong`, Iron #4). API `/gieo-que`.
+- **UX** GieoDuyenPanel.vue: 3 khối PRO + nút gieo quẻ + dark-mode tokens. read_tinh_duyen = 18 key, API không vỡ.
+- Lỗi adversarial bắt được: engine **bịa** "Tham Lang ở Tử Tức" (guard) · **over-scrub** xóa Thương Quan (context-aware) · bịa luận lá-số-không-có. → đã fix hết.
+- Deploy: push→CI (Dockerfile npm build webapp)→VPS kinhdich.online.
