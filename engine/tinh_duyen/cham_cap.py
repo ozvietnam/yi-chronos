@@ -147,13 +147,28 @@ def _extract_factors(qt: dict, la_so: dict, bat_tu_state: dict) -> dict:
     tq_manh_hon_qs = bool(bt3.get("manh_hon_quan_sat"))
     co_che_hoa = bool(bt4.get("co_duong_che_hoa"))
 
-    # Thương Quan VƯỢNG (≥2 và mạnh hơn Quan Sát) — định nghĩa theo bước 3.
-    tq_vuong = thuong_quan >= 2.0 and tq_manh_hon_qs
+    # ── NGƯỠNG SỐ HỌC = QUY ƯỚC ENGINE (KHÔNG phải con số có thẩm quyền cổ văn) ──
+    # Issue V2 #2: _nguon chỉ ground KHÁI NIỆM (伤官见官, chế hóa, thân-Quan cân lệch);
+    # còn các MỐC SỐ dưới đây (≥2.0 vượng, ≥3.0 cực vượng, <1.0 nhược, ≤0 cực nhược)
+    # là heuristic NỘI BỘ engine — đơn vị = "điểm Thập Thần" (visible 1.0 + hidden 0.5,
+    # quy ước nu_menh.py/_cnt). Cổ văn nói ĐỊNH TÍNH ("Thương Quan vượng", "Quan nhược"),
+    # engine lượng-hoá để chấm cấp nhất quán; KHÔNG được ngộ nhận con số có thẩm quyền cổ.
+    _TQ_VUONG = 2.0       # quy ước: Thương Quan ≥2 điểm = "vượng"
+    _TQ_CUC_VUONG = 3.0   # quy ước: ≥3 điểm = "cực vượng" (đương lệnh/thành cách)
+    _QUAN_NHUOC = 1.0     # quy ước: tổng Quan Sát <1 điểm = "nhược"
+
+    # Thương Quan VƯỢNG (≥ngưỡng VÀ mạnh hơn Quan Sát) — định nghĩa theo bước 3.
+    tq_vuong = thuong_quan >= _TQ_VUONG and tq_manh_hon_qs
     # Quan (sao chồng) NHƯỢC: tổng Quan Sát thấp.
-    quan_nhuoc = tong_quan_sat < 1.0
+    quan_nhuoc = tong_quan_sat < _QUAN_NHUOC
     quan_cuc_nhuoc = tong_quan_sat <= 0.0
-    # Thương Quan CỰC VƯỢNG (≥3 và mạnh hơn Quan Sát).
-    tq_cuc_vuong = thuong_quan >= 3.0 and tq_manh_hon_qs
+    # Thương Quan CỰC VƯỢNG (≥ngưỡng cao VÀ mạnh hơn Quan Sát).
+    tq_cuc_vuong = thuong_quan >= _TQ_CUC_VUONG and tq_manh_hon_qs
+
+    # Thân VƯỢNG (nhat_chu_tag) — Issue V2 #3: factor có sẵn nhưng detector L4 chưa
+    # dùng. "Thân vượng lấn Quan quá nhược" (mô tả L4 JSON) cần tag này để khớp đúng
+    # cấu trúc cân-lệch âm-dương, thay vì để JSON mô tả rộng hơn code thực thi.
+    than_vuong = nhat_chu_tag in ("strong", "very_strong")
 
     return {
         # Tử Vi cung Phu Thê
@@ -172,6 +187,7 @@ def _extract_factors(qt: dict, la_so: dict, bat_tu_state: dict) -> dict:
         "sao_phu_the_lanh_dac": sao_phu_the_lanh_dac,
         # Bát Tự
         "nhat_chu_tag": nhat_chu_tag,
+        "than_vuong": than_vuong,
         "trang_thai_quan_sat": trang_thai_quan_sat,
         "tong_quan_sat": tong_quan_sat,
         "thuong_quan": thuong_quan,
@@ -180,6 +196,17 @@ def _extract_factors(qt: dict, la_so: dict, bat_tu_state: dict) -> dict:
         "co_che_hoa": co_che_hoa,
         "quan_nhuoc": quan_nhuoc,
         "quan_cuc_nhuoc": quan_cuc_nhuoc,
+        # Ghi rõ ngưỡng = quy ước engine (truy vết + chống ngộ nhận thẩm quyền cổ).
+        "_nguong_quy_uoc_engine": {
+            "thuong_quan_vuong": _TQ_VUONG,
+            "thuong_quan_cuc_vuong": _TQ_CUC_VUONG,
+            "quan_nhuoc_duoi": _QUAN_NHUOC,
+            "_ghi_chu": (
+                "Mốc số là QUY ƯỚC ENGINE (đơn vị: điểm Thập Thần, visible 1.0 + "
+                "hidden 0.5), KHÔNG phải con số có thẩm quyền cổ văn. Cổ văn chỉ nói "
+                "định tính (vượng/nhược); engine lượng-hoá để chấm cấp nhất quán."
+            ),
+        },
     }
 
 
@@ -214,6 +241,16 @@ def _signals_L4(f: dict) -> tuple[list[str], list[str]]:
         core.append(
             f"Thương Quan vượng ({f['thuong_quan']:.1f}) KHÔNG chế hóa + Quan "
             "(sao phối ngẫu) nhược → cấu trúc 'cái tôi/sáng tạo' áp đảo khí phối ngẫu"
+        )
+    # CORE — Bát Tự: THÂN VƯỢNG lấn Quan quá nhược (cân-lệch âm-dương rõ).
+    # Issue V2 #3: dùng nhat_chu_tag (than_vuong) đúng như mô tả JSON L4
+    # ("thân vượng lấn Quan quá nhược → cân-lệch âm-dương rõ"). Yêu cầu Thương Quan
+    # vượng-không-chế đi kèm để KHÔNG fire chỉ vì thân khoẻ (thân vượng + Quan đủ
+    # mạnh = cân xứng, KHÔNG phải L4 — xem _buoc_2 'thân vững + Quan vượng = cân xứng').
+    if f["than_vuong"] and f["quan_nhuoc"] and f["tq_vuong"] and not f["co_che_hoa"]:
+        core.append(
+            "Thân (Nhật Chủ) VƯỢNG lấn Quan (sao phối ngẫu) quá nhược + Thương Quan "
+            "vượng không chế → cân-lệch âm-dương rõ (khí bản thân áp đảo khí phối ngẫu)"
         )
     # CORE — Tử Vi: cung Phu Thê có sát + Khốc/Hư (khí sầu/trống) — áp lực mạnh có cấu trúc.
     if f["pt_so_sat"] >= 1 and f["khoc_hu"]:
@@ -300,6 +337,89 @@ def _signals_L1(f: dict) -> tuple[list[str], list[str]]:
 
 
 # --------------------------------------------------------------------------- #
+# ĐỐI CHIẾU CHÉO Tử Vi ⇔ Bát Tự (Issue V2 #1) — chống thổi phồng khi 2 phái lệch
+# --------------------------------------------------------------------------- #
+# Paradigm (Iron Rule #3 kept_all + tuvi_batu_reconcile.json): nơi 2 phái HỘI TỤ →
+# kết luận chắc; nơi DỊ BIỆT → điểm chung làm CHẮC, điểm riêng làm ĐIỀU KIỆN/sắc thái.
+# Trước đây cham_cap quét cấp-cao-nhất bất kể phái nào fire core → lá có CẢ
+# (Thương Quan vượng-không-chế = core L4 Bát Tự) LẪN (cát tinh đắc Phu Thê = lành rõ
+# Tử Vi) bị chốt thẳng L4 = thổi phồng. Lớp này: nếu cấp cao (≥4) do MỘT phái đẩy lên
+# mà phái KIA báo LÀNH RÕ → HẠ 1 cấp + cờ doi_chieu_cheo (an toàn, không thổi phồng).
+def _core_tu_phai_bat_tu(f: dict) -> bool:
+    """Core cấp cao có đến từ cấu trúc BÁT TỰ (Thương Quan / thân-Quan)?"""
+    return (
+        (f["tq_vuong"] and not f["co_che_hoa"] and f["quan_nhuoc"]) or
+        (f["tq_cuc_vuong"] and not f["co_che_hoa"] and f["quan_cuc_nhuoc"]) or
+        (f["than_vuong"] and f["quan_nhuoc"] and f["tq_vuong"] and not f["co_che_hoa"])
+    )
+
+
+def _core_tu_phai_tu_vi(f: dict) -> bool:
+    """Core cấp cao có đến từ cấu trúc TỬ VI (sát + Khốc/Hư / cụm sát + Hóa Kỵ)?"""
+    return (
+        (f["pt_so_sat"] >= 1 and bool(f["khoc_hu"])) or
+        (bool(f["tu_sat_o_phu_the"]) and f["pt_hoa_ky"] and f["pt_so_sat"] >= 2 and not f["pt_co_dac"])
+    )
+
+
+def _tu_vi_lanh_ro(f: dict) -> bool:
+    """Tử Vi báo cung Phu Thê LÀNH RÕ: chính tinh đắc/miếu + ít sát + KHÔNG Hóa Kỵ +
+    KHÔNG Cô Thần/Quả Tú (đúng L1 core TV kèm support sạch)."""
+    return (
+        f["pt_co_dac"] and f["pt_so_sat"] <= 1 and not f["pt_hoa_ky"]
+        and not f["co_than_qua_tu"] and not f["khoc_hu"]
+    )
+
+
+def _bat_tu_lanh_ro(f: dict) -> bool:
+    """Bát Tự báo khí phối ngẫu LÀNH RÕ: Thương Quan hài hoà (vô Thương, hoặc có chế +
+    không vượng) VÀ Quan không cực nhược (sao chồng còn nguồn khí)."""
+    tq_hai_hoa = (
+        f["thuong_quan"] == 0
+        or (f["thuong_quan"] > 0 and f["co_che_hoa"] and not f["tq_vuong"])
+    )
+    return tq_hai_hoa and not f["quan_cuc_nhuoc"]
+
+
+def _reconcile_cheo(chosen: int, f: dict) -> tuple[int, Optional[dict]]:
+    """Đối chiếu chéo 2 phái trước khi chốt cấp CAO (≥4).
+
+    Trả (cap_sau_dieu_chinh, ghi_chu | None). Chỉ HẠ TỐI ĐA 1 cấp (không tụt sâu),
+    và chỉ khi cấp cao do MỘT phái đẩy lên còn phái KIA lành rõ (mâu thuẫn thật).
+    """
+    if chosen < 4:
+        return chosen, None
+
+    bt_day = _core_tu_phai_bat_tu(f)
+    tv_day = _core_tu_phai_tu_vi(f)
+
+    # Cấp cao do BÁT TỰ đẩy (Tử Vi KHÔNG góp core) nhưng Tử Vi lành rõ → dị biệt.
+    if bt_day and not tv_day and _tu_vi_lanh_ro(f):
+        return chosen - 1, {
+            "phai_day_cap_cao": "bat_tu",
+            "phai_bao_lanh": "tu_vi",
+            "ly_do": (
+                "Bát Tự cho cấu trúc Thương Quan/thân-Quan nặng (đẩy cấp cao) NHƯNG "
+                "Tử Vi cho cung Phu Thê đắc/miếu, ít sát, không Hóa Kỵ/Cô Thần (lành "
+                "rõ) → hai phái DỊ BIỆT. Theo kept_all (Iron Rule #3): điểm chung làm "
+                "chắc, điểm riêng làm điều kiện → HẠ 1 cấp (an toàn, không thổi phồng)."
+            ),
+        }
+    # Cấp cao do TỬ VI đẩy (Bát Tự KHÔNG góp core) nhưng Bát Tự lành rõ → dị biệt.
+    if tv_day and not bt_day and _bat_tu_lanh_ro(f):
+        return chosen - 1, {
+            "phai_day_cap_cao": "tu_vi",
+            "phai_bao_lanh": "bat_tu",
+            "ly_do": (
+                "Tử Vi cho cung Phu Thê tụ sát/Khốc-Hư (đẩy cấp cao) NHƯNG Bát Tự cho "
+                "khí Thương Quan hài hoà + Quan còn nguồn (lành rõ) → hai phái DỊ BIỆT. "
+                "Theo kept_all (Iron Rule #3): HẠ 1 cấp (an toàn, không thổi phồng)."
+            ),
+        }
+    return chosen, None
+
+
+# --------------------------------------------------------------------------- #
 # Public API — chấm cấp 5 bậc theo CORE signal (support chỉ tô đậm, không đẩy cấp)
 # --------------------------------------------------------------------------- #
 def cham_cap_do(
@@ -349,6 +469,19 @@ def cham_cap_do(
         # Không cấp nào có core → mặc định L1 (an toàn, không thổi phồng độ khó).
         chosen = 1
 
+    # ĐỐI CHIẾU CHÉO Tử Vi ⇔ Bát Tự (Issue V2 #1): nếu cấp CAO (≥4) do MỘT phái đẩy
+    # lên mà phái KIA báo LÀNH RÕ → hai phái dị biệt → HẠ 1 cấp (kept_all, không thổi
+    # phồng). Chạy sau khi đã có chosen; tối đa hạ 1 cấp.
+    cap_truoc_doi_chieu = chosen
+    chosen, doi_chieu_cheo = _reconcile_cheo(chosen, f)
+    if doi_chieu_cheo:
+        doi_chieu_cheo["cap_truoc_doi_chieu"] = cap_truoc_doi_chieu
+        doi_chieu_cheo["cap_sau_doi_chieu"] = chosen
+        doi_chieu_cheo["_nguon"] = (
+            "tuvi_batu_reconcile.json (HỘI TỤ→chắc, DỊ BIỆT→điểm chung làm chắc + "
+            "điểm riêng làm điều kiện); Iron Rule #3 (kept_all đa phái)"
+        )
+
     # Cờ RANH GIỚI: cấp cao hơn liền kề có tín hiệu (core HOẶC support) nhưng chưa
     # đủ core để khớp → giáp ranh, sage diễn đạt mềm. Theo _meta: chọn cấp THẤP hơn.
     ranh_gioi = False
@@ -360,6 +493,13 @@ def cham_cap_do(
 
     # tin_hieu_kich_hoat = core (bằng chứng chính) + support của CẤP ĐÃ CHỌN.
     tin_hieu = list(core[chosen]) + list(support[chosen])
+    # Nếu đã HẠ cấp do đối chiếu chéo: cấp mới có thể không có core riêng → giữ bằng
+    # chứng cấu trúc của cấp gốc (gắn nhãn 'đã hạ cấp') để không mất tín hiệu THẬT.
+    if doi_chieu_cheo and not core[chosen]:
+        tin_hieu = [
+            f"(đã hạ từ cấp {cap_truoc_doi_chieu} do đối chiếu chéo 2 phái) " + t
+            for t in core[cap_truoc_doi_chieu]
+        ] + list(support[chosen])
 
     key = f"L{chosen}"
     cap_entry = cac_cap[key]
@@ -377,6 +517,8 @@ def cham_cap_do(
         "tin_hieu_kich_hoat": tin_hieu,
         "lo_trinh": list(cap_entry.get("lo_trinh") or []),
         "ranh_gioi": ranh_gioi,
+        # Đối chiếu chéo 2 phái (None nếu không có dị biệt hạ cấp) — minh bạch quá trình.
+        "doi_chieu_cheo": doi_chieu_cheo,
         "nguyen_tac_vang": nguyen_tac_vang,
         # Phép rèn cốt lõi (cho cấp L1-L3) — đính kèm để sage chỉ lối cụ thể.
         "lo_trinh_ren": data.get("lo_trinh_ren"),

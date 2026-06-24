@@ -5,10 +5,20 @@
     "ap_dung": "NỮ MỆNH — đọc các YẾU TỐ engine ĐÃ tính trong quy_trinh_day_du (trạng thái cung Phu Thê, sát + Hóa Kỵ Phu Thê, Thương Quan vượng/lộ-tàng, chế hóa có/không, Quan Sát vượng/nhược, Cô Thần Quả Tú) rồi suy ra CẤP + LỘ TRÌNH.",
     "muc_dich": "Cho engine một THANG ĐỌC chung: gọi tên độ khó như KHÁI NIỆM phân tích ('cấu trúc Thương Quan', 'áp lực lên cung phối ngẫu', 'mức độ thử thách 3/5') + chấm cấp + chỉ lối — KHÔNG lời-phán-vào-người.",
     "cach_dung_engine": [
-      "Engine quét tin_hieu_nhan_dien của từng cấp theo các factor ĐÃ có trong quy_trinh_day_du (KHÔNG tính lại lý). Khớp cấp CAO nhất mà tín hiệu thoả → trả {cap, do_thay_doi_duoc, phan_loai, lo_trinh}.",
+      "Engine quét tin_hieu_nhan_dien của từng cấp theo các factor ĐÃ có trong quy_trinh_day_du (KHÔNG tính lại lý). Khớp cấp CAO nhất mà tín hiệu CORE thoả → trả {cap, do_thay_doi_duoc, phan_loai, lo_trinh}.",
       "Nếu mơ hồ giữa 2 cấp → chọn cấp THẤP hơn (an toàn, không thổi phồng độ khó) và ghi chú 'ranh giới'.",
+      "ĐỐI CHIẾU CHÉO 2 phái trước khi chốt cấp CAO (≥4): nếu cấp cao do MỘT phái đẩy lên (vd Bát Tự Thương Quan vượng) mà phái KIA báo LÀNH RÕ (vd Tử Vi cung Phu Thê đắc, không Hóa Kỵ/Cô Thần) → hai phái DỊ BIỆT → HẠ 1 cấp + cờ doi_chieu_cheo (kept_all, Iron Rule #3). Tránh thổi phồng khi 2 phái mâu thuẫn. Tham chiếu tuvi_batu_reconcile.json.",
       "Mọi output phải đi kèm nguyen_tac_vang: đây là TIỀM NĂNG, không phải án — kích hoạt hay không tuỳ HÀNH VI."
     ],
+    "nguong_so_hoc_la_quy_uoc_engine": {
+      "_mo_ta": "Các MỐC SỐ engine dùng để lượng-hoá 'vượng/nhược' là QUY ƯỚC NỘI BỘ, KHÔNG phải con số có thẩm quyền cổ văn. _nguon trong file này ground KHÁI NIỆM (伤官见官, chế hóa, thân-Quan cân lệch), KHÔNG ground con số. Cổ văn nói định tính; engine lượng-hoá để chấm cấp nhất quán.",
+      "don_vi": "điểm Thập Thần (mỗi sao lộ = 1.0, mỗi sao tàng = 0.5 — quy ước engine/bat_tu nu_menh.py)",
+      "thuong_quan_vuong": "≥ 2.0 điểm VÀ mạnh hơn tổng Quan Sát",
+      "thuong_quan_cuc_vuong": "≥ 3.0 điểm VÀ mạnh hơn tổng Quan Sát",
+      "quan_nhuoc": "tổng Quan Sát < 1.0 điểm",
+      "quan_cuc_nhuoc": "tổng Quan Sát ≤ 0.0 điểm",
+      "than_vuong": "nhat_chu_strength_tag ∈ {strong, very_strong} (từ engine.bat_tu ngũ hành đánh giá)"
+    },
     "paradigm": {
       "iron_rule": "#4 + #6 + #8 (đọc đồng dạng, mệnh là động từ) + 王亭之 'bất khả mậu mậu nhiên suy đoán' / 'nữ mệnh phản dị phấn phát'",
       "nguyen_tac": [

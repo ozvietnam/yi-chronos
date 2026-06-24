@@ -187,6 +187,129 @@ def test_cap_cao_can_core_signal():
 
 
 # --------------------------------------------------------------------------- #
+# Issue V2 #1 — ĐỐI CHIẾU CHÉO Tử Vi ⇔ Bát Tự (chống thổi phồng khi 2 phái lệch)
+# --------------------------------------------------------------------------- #
+def test_doi_chieu_cheo_field_co_mat():
+    """Mọi kết quả có field doi_chieu_cheo (None nếu không dị biệt, dict nếu hạ cấp)."""
+    for birth in _BIRTHS:
+        r = _run(birth)
+        assert "doi_chieu_cheo" in r, f"{birth}: thiếu field doi_chieu_cheo"
+        dc = r["doi_chieu_cheo"]
+        assert dc is None or isinstance(dc, dict)
+
+
+def test_doi_chieu_cheo_ha_cap_khi_2_phai_di_biet():
+    """Bát Tự đẩy L4 (TQ vượng-không-chế + Quan nhược) NHƯNG Tử Vi lành rõ → HẠ 1 cấp."""
+    from engine.tinh_duyen.cham_cap import _reconcile_cheo
+    f = {
+        "tq_vuong": True, "tq_cuc_vuong": False, "co_che_hoa": False,
+        "quan_nhuoc": True, "quan_cuc_nhuoc": False, "than_vuong": False,
+        "thuong_quan": 2.5,
+        "pt_co_dac": True, "pt_so_sat": 0, "pt_hoa_ky": False,
+        "co_than_qua_tu": [], "khoc_hu": [], "tu_sat_o_phu_the": [],
+    }
+    new, note = _reconcile_cheo(4, f)
+    assert new == 3, "phải hạ L4 → L3 khi Bát Tự nặng nhưng Tử Vi lành rõ"
+    assert note and note["phai_day_cap_cao"] == "bat_tu"
+    assert note["phai_bao_lanh"] == "tu_vi"
+    # _nguon + cap_truoc/sau được cham_cap_do gắn ở tầng tích hợp (không ở helper).
+
+
+def test_doi_chieu_cheo_tang_tich_hop_gan_nguon_va_cap(monkeypatch):
+    """Qua cham_cap_do đầy đủ: dị biệt → cap_do hạ + cờ có _nguon + cap_truoc/sau + bằng chứng."""
+    import engine.tinh_duyen.cham_cap as mod
+    f_dibiet = {
+        "tq_vuong": True, "tq_cuc_vuong": False, "co_che_hoa": False,
+        "quan_nhuoc": True, "quan_cuc_nhuoc": False, "than_vuong": False,
+        "thuong_quan": 2.5,
+        "pt_co_dac": True, "pt_so_sat": 0, "pt_hoa_ky": False,
+        "co_than_qua_tu": [], "khoc_hu": [], "tu_sat_o_phu_the": [],
+        "pt_chinh_tinh": ["Thiên Tướng"], "sao_phu_the_lanh_dac": ["Thiên Tướng"],
+        "pt_sat_tinh": [],
+        # các key detector khác cần (không kích hoạt — set rỗng/False).
+        "sao_cuong_bien_ham": [], "sao_tinh_cam_ham": [],
+    }
+    monkeypatch.setattr(mod, "_extract_factors", lambda *a, **k: f_dibiet)
+    r = mod.cham_cap_do({}, {}, {}, gender="nữ")
+    assert r["cap_do"] == 3, "L4 (BT) + TV lành rõ → hạ về L3"
+    dc = r["doi_chieu_cheo"]
+    assert dc and dc["cap_truoc_doi_chieu"] == 4 and dc["cap_sau_doi_chieu"] == 3
+    assert dc.get("_nguon") and "reconcile" in dc["_nguon"].lower()
+    # Vẫn giữ bằng chứng THẬT của cấp gốc (gắn nhãn 'đã hạ cấp').
+    assert any("đã hạ" in t for t in r["tin_hieu_kich_hoat"])
+
+
+def test_doi_chieu_cheo_KHONG_ha_khi_2_phai_hoi_tu():
+    """Cả 2 phái cùng nặng (HỘI TỤ) → KHÔNG hạ cấp (kết luận chắc)."""
+    from engine.tinh_duyen.cham_cap import _reconcile_cheo
+    f = {
+        "tq_vuong": True, "tq_cuc_vuong": False, "co_che_hoa": False,
+        "quan_nhuoc": True, "quan_cuc_nhuoc": False, "than_vuong": False,
+        "thuong_quan": 2.5,
+        "pt_co_dac": False, "pt_so_sat": 2, "pt_hoa_ky": False,
+        "co_than_qua_tu": [], "khoc_hu": ["Thiên Hư"], "tu_sat_o_phu_the": [],
+    }
+    new, note = _reconcile_cheo(4, f)
+    assert new == 4 and note is None, "hội tụ 2 phái → giữ nguyên cấp"
+
+
+def test_doi_chieu_cheo_chi_cham_cap_cao():
+    """Đối chiếu chéo CHỈ áp cho cấp ≥4 (L1-L3 rèn được, không cần hạ)."""
+    from engine.tinh_duyen.cham_cap import _reconcile_cheo
+    f = {"tq_vuong": False, "tq_cuc_vuong": False, "co_che_hoa": True,
+         "quan_nhuoc": False, "quan_cuc_nhuoc": False, "than_vuong": False,
+         "thuong_quan": 1.0, "pt_co_dac": True, "pt_so_sat": 0, "pt_hoa_ky": False,
+         "co_than_qua_tu": [], "khoc_hu": [], "tu_sat_o_phu_the": []}
+    new, note = _reconcile_cheo(3, f)
+    assert new == 3 and note is None
+
+
+# --------------------------------------------------------------------------- #
+# Issue V2 #3 — detector L4 'thân vượng lấn Quan' dùng nhat_chu_tag (factor có sẵn)
+# --------------------------------------------------------------------------- #
+def test_than_vuong_lan_quan_la_core_L4():
+    """nhat_chu strong + Quan nhược + TQ vượng-không-chế → core L4 'thân vượng lấn Quan'."""
+    from engine.tinh_duyen.cham_cap import _signals_L4
+    f = {"than_vuong": True, "quan_nhuoc": True, "tq_vuong": True, "co_che_hoa": False,
+         "thuong_quan": 2.0, "pt_so_sat": 0, "khoc_hu": [], "pt_sat_tinh": [],
+         "co_than_qua_tu": [], "pt_hoa_ky": False}
+    core, _ = _signals_L4(f)
+    assert any("VƯỢNG lấn" in c for c in core), "detector thân-vượng không fire"
+
+
+def test_than_vuong_nhung_quan_du_manh_KHONG_fire():
+    """Thân vượng NHƯNG Quan không nhược → KHÔNG phải lấn (chống bắn rộng)."""
+    from engine.tinh_duyen.cham_cap import _signals_L4
+    f = {"than_vuong": True, "quan_nhuoc": False, "tq_vuong": True, "co_che_hoa": False,
+         "thuong_quan": 2.0, "pt_so_sat": 0, "khoc_hu": [], "pt_sat_tinh": [],
+         "co_than_qua_tu": [], "pt_hoa_ky": False}
+    core, _ = _signals_L4(f)
+    assert not any("VƯỢNG lấn" in c for c in core)
+
+
+# --------------------------------------------------------------------------- #
+# Issue V2 #2 — ngưỡng số học được ghi rõ là QUY ƯỚC ENGINE (không thẩm quyền cổ)
+# --------------------------------------------------------------------------- #
+def test_nguong_so_hoc_ghi_ro_quy_uoc_engine(res):
+    r, birth = res
+    nq = r["_factors"].get("_nguong_quy_uoc_engine")
+    assert isinstance(nq, dict), f"{birth}: thiếu _nguong_quy_uoc_engine trong _factors"
+    assert "quy ước" in nq.get("_ghi_chu", "").lower()
+    assert "thẩm quyền cổ" in nq.get("_ghi_chu", "").lower()
+    # Mốc số phải lộ ra để truy vết.
+    for k in ("thuong_quan_vuong", "thuong_quan_cuc_vuong", "quan_nhuoc_duoi"):
+        assert k in nq
+
+
+def test_nguong_quy_uoc_co_trong_json():
+    """JSON cham_cap_do ghi rõ ngưỡng là quy ước engine, _nguon ground khái niệm."""
+    from engine.tinh_duyen import knowledge_loader as kb
+    data = kb.get("cham_cap_do")
+    nq = data["_meta"].get("nguong_so_hoc_la_quy_uoc_engine")
+    assert nq and "không phải con số có thẩm quyền cổ" in nq["_mo_ta"].lower()
+
+
+# --------------------------------------------------------------------------- #
 # Tích hợp vào read_tinh_duyen — key 'chan_doan_cap_do' + giữ key cũ
 # --------------------------------------------------------------------------- #
 def test_tich_hop_vao_read_tinh_duyen():
