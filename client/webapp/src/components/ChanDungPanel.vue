@@ -27,6 +27,10 @@ const METHOD_LABEL = {
 };
 function methodLabel(m) { return METHOD_LABEL[m] || m; }
 function fmtDate(ts) { try { return new Date(ts * 1000).toLocaleDateString("vi-VN"); } catch { return ""; } }
+const TS_KEYS = ["life_path", "expression", "soul_urge", "personality", "birthday", "maturity"];
+const TS_LABEL = { life_path: "Đường đời", expression: "Sứ mệnh", soul_urge: "Linh hồn",
+  personality: "Nhân cách", birthday: "Ngày sinh", maturity: "Trưởng thành" };
+function stripMd(s) { return (s || "").replace(/\*\*/g, "").replace(/^#+\s*/gm, ""); }
 
 const PALACE_VI = {
   menh: "Mệnh", huynh_de: "Huynh Đệ", phu_the: "Phu Thê", tu_tuc: "Tử Tức", tai_bach: "Tài Bạch",
@@ -163,6 +167,40 @@ onMounted(load);
         </div>
       </section>
 
+      <!-- Cung đường đời (Hà Lạc) -->
+      <section v-if="cd.ha_lac && cd.ha_lac.overview" class="cd-card cd-halac">
+        <h3>🔯 Cung đường đời <small>— Hà Lạc Lý Số</small></h3>
+        <p class="cd-hl-over">{{ stripMd(cd.ha_lac.overview) }}</p>
+        <p v-if="cd.ha_lac.tien_thien || cd.ha_lac.hau_thien" class="cd-hl-quai">
+          Tiên Thiên: <b>{{ cd.ha_lac.tien_thien }}</b> · Hậu Thiên: <b>{{ cd.ha_lac.hau_thien }}</b></p>
+        <p v-if="cd.ha_lac.giai_doan_hien_tai" class="cd-hl-stage">{{ stripMd(cd.ha_lac.giai_doan_hien_tai) }}</p>
+        <p v-if="cd.ha_lac.closing" class="cd-hl-close">{{ stripMd(cd.ha_lac.closing) }}</p>
+      </section>
+
+      <!-- Thần số học -->
+      <section v-if="cd.than_so && cd.than_so.life_path && cd.than_so.life_path.value" class="cd-card cd-thanso">
+        <h3>🔢 Thần số học <small>— lăng kính tâm lý phương Tây</small></h3>
+        <div class="cd-ts-grid">
+          <div v-for="key in TS_KEYS" :key="key" v-show="cd.than_so[key] && cd.than_so[key].value" class="cd-ts-item">
+            <span class="cd-ts-label">{{ TS_LABEL[key] }}</span>
+            <span class="cd-ts-val">{{ cd.than_so[key] && cd.than_so[key].value }}</span>
+            <span class="cd-ts-arch">{{ cd.than_so[key] && cd.than_so[key].archetype }}</span>
+          </div>
+        </div>
+        <p v-if="cd.than_so.life_path && cd.than_so.life_path.dong_dang" class="cd-ts-dd">{{ cd.than_so.life_path.dong_dang }}</p>
+      </section>
+
+      <!-- Đường tình duyên -->
+      <section v-if="cd.duyen && cd.duyen.nua_kia && cd.duyen.nua_kia.chinh_tinh && cd.duyen.nua_kia.chinh_tinh.length"
+        class="cd-card cd-duyen">
+        <h3>💞 Đường tình duyên <small>— Tử Vi cung Phu Thê</small></h3>
+        <p class="cd-dy-row"><b>Nửa kia</b> (chính tinh {{ cd.duyen.nua_kia.chinh_tinh.join(", ") }}):</p>
+        <ul class="cd-dy-list"><li v-for="(m, i) in (cd.duyen.nua_kia.mo_ta || [])" :key="i">{{ m }}</li></ul>
+        <p v-if="cd.duyen.nua_kia.con_giap_hop" class="cd-dy-row">Con giáp hợp: tam hợp <b>{{ (cd.duyen.nua_kia.con_giap_hop.tam_hop || []).join(", ") }}</b> · lục hợp <b>{{ cd.duyen.nua_kia.con_giap_hop.luc_hop }}</b></p>
+        <p v-if="cd.duyen.xu_huong" class="cd-dy-row">Xu hướng duyên: <b>{{ cd.duyen.xu_huong }}</b></p>
+        <p v-if="cd.duyen.nua_kia.loi_khuyen" class="cd-dy-note">{{ cd.duyen.nua_kia.loi_khuyen }}</p>
+      </section>
+
       <!-- Hành trình -->
       <section v-if="history.length" class="cd-card cd-history">
         <h3>📜 Hành trình đã hỏi <small>({{ history.length }})</small></h3>
@@ -246,6 +284,24 @@ onMounted(load);
 .cd-hmethod { white-space: nowrap; }
 .cd-hq { flex: 1; color: var(--read-muted, #777); }
 .cd-hdate { white-space: nowrap; color: var(--read-muted, #999); font-size: .82rem; }
+.cd-halac { border-left: 3px solid #ca8a04; }
+.cd-hl-over { line-height: 1.7; }
+.cd-hl-quai { font-size: .9rem; margin: .4rem 0; }
+.cd-hl-stage { font-size: .9rem; color: var(--read-fg, inherit); margin: .4rem 0; padding: .45rem .6rem;
+  background: rgba(202,138,4,.08); border-radius: 6px; line-height: 1.6; }
+.cd-hl-close { font-size: .85rem; font-style: italic; color: var(--read-muted, #888); margin-top: .4rem; }
+.cd-thanso { border-left: 3px solid #d4537e; }
+.cd-ts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: .5rem; }
+.cd-ts-item { display: flex; flex-direction: column; gap: .1rem; padding: .4rem .6rem;
+  border: 1px solid var(--read-border, #eee); border-radius: 8px; }
+.cd-ts-label { font-size: .76rem; color: var(--read-muted, #888); }
+.cd-ts-val { font-size: 1.3rem; font-weight: 800; color: #d4537e; }
+.cd-ts-arch { font-size: .82rem; line-height: 1.4; }
+.cd-ts-dd { margin-top: .5rem; font-size: .88rem; line-height: 1.6; color: var(--read-muted, #777); }
+.cd-duyen { border-left: 3px solid #e24b4a; }
+.cd-dy-row { margin: .35rem 0; line-height: 1.6; }
+.cd-dy-list { margin: .3rem 0; padding-left: 1.1rem; line-height: 1.65; font-size: .92rem; }
+.cd-dy-note { font-size: .88rem; font-style: italic; color: var(--read-muted, #777); margin-top: .4rem; }
 .cd-products { margin: 1.2rem 0; }
 .cd-products h3 { margin: 0 0 .7rem; }
 .cd-prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .7rem; }
