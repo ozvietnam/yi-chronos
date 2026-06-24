@@ -94,6 +94,47 @@ PHRASE_FIXES = [
     (r"\bAI nhìn\b", "anh nhìn"),
 ]
 
+BOILERPLATE_PATTERNS = [
+    r"\bHãy subscribe cho kênh La(?:\s+La)?\s+School\b",
+    r"\bsubscribe cho kênh La(?:\s+La)?\s+School\b",
+    r"\bHãy subscribe cho kênh lalaschool\b",
+    r"\bHãy subscribe cho kênh Ghiền Mì Gõ\b",
+    r"\bHãy subscribe cho kênh\b",
+    r"\blalaschool\b",
+    r"\bHãy đăng ký kênh để ủng hộ kênh mình nhé\b",
+    r"\bHãy đăng ký kênh\b",
+    r"\bđể ủng hộ kênh của mình nhé\b",
+    r"\bĐể không bỏ lỡ những video hấp dẫn\b",
+    r"\bCảm ơn (?:người nghe|các bạn) đã theo dõi(?: và hẹn gặp lại)?\b",
+    r"\bHẹn gặp lại\b",
+    r"\bngười nghe trong những video tiếp theo\b",
+    r"\bmình nhé\b",
+]
+
+DOMAIN_TERMS = [
+    "tử vi",
+    "đẩu số",
+    "lá số",
+    "cung ",
+    "sao ",
+    "mệnh",
+    "phu thê",
+    "tử tức",
+    "tài bạch",
+    "quan lộc",
+    "thiên ",
+    "thái ",
+    "vũ khúc",
+    "cự môn",
+    "tham lang",
+    "phá quân",
+    "liêm trinh",
+    "thất sát",
+    "hóa ",
+    "tuần",
+    "triệt",
+]
+
 
 def load_manifest(channel_dir: Path) -> list[dict[str, Any]]:
     manifest = channel_dir / "text_manifest.jsonl"
@@ -130,6 +171,8 @@ def extract_body(text_path: Path) -> str:
 
 def normalize_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text).strip()
+    for pattern in BOILERPLATE_PATTERNS:
+        text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
     for _ in range(2):
         for pattern, replacement in PHRASE_FIXES:
             text = re.sub(pattern, replacement, text, flags=re.IGNORECASE if pattern.islower() else 0)
@@ -150,6 +193,16 @@ def normalize_text(text: str) -> str:
 
 def compact_text(text: str) -> str:
     return re.sub(r"\s*\n+\s*", " ", text).strip()
+
+
+def has_research_content(text: str, source: str) -> bool:
+    compact = compact_text(text)
+    if len(compact) < 20:
+        return False
+    if source == "whisper_local":
+        lowered = compact.lower()
+        return len(compact) >= 100 and any(term in lowered for term in DOMAIN_TERMS)
+    return True
 
 
 def channel_name(rows: list[dict[str, Any]], fallback: str) -> str:
@@ -199,7 +252,11 @@ def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
         clean_body = ""
         if text_path.exists():
             clean_body = normalize_text(extract_body(text_path))
-            parts.append(clean_body)
+            if has_research_content(clean_body, source):
+                parts.append(clean_body)
+            else:
+                clean_body = ""
+                parts.append("[Không nhận diện được lời thoại rõ ràng.]")
         else:
             missing += 1
             parts.append("[Chưa có lời thoại.]")
