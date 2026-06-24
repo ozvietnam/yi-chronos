@@ -99,6 +99,10 @@ COPY data/tu_vi/ ./embedded_data/tu_vi/
 RUN mkdir -p ./embedded_data/yi_publishing/q1_tuvi/master
 COPY data/yi_publishing/q1_tuvi/master/concepts_index.json data/yi_publishing/q1_tuvi/master/cach_cuc_index.json ./embedded_data/yi_publishing/q1_tuvi/master/
 
+# Thần Số học master dicts — engine than_so load runtime (Chân Dung mục Thần Số)
+RUN mkdir -p ./embedded_data/than_so/master
+COPY data/than_so/master/ ./embedded_data/than_so/master/
+
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 

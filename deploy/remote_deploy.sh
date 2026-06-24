@@ -26,7 +26,7 @@ sleep 8
 # TUYỆT ĐỐI không bị đụng.
 echo "═══ Seed embedded_data → data (tránh volume shadow) ═══"
 docker exec yi-chronos sh -c '
-  for d in tu_vi seeds; do
+  for d in tu_vi seeds than_so; do
     [ -d "embedded_data/$d" ] && mkdir -p "data/$d" && cp -rf "embedded_data/$d/." "data/$d/" 2>/dev/null || true
   done
   [ -d embedded_data/restored_books ] && cp -rf embedded_data/restored_books/. data/restored_books/ 2>/dev/null || true

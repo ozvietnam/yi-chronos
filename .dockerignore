@@ -43,6 +43,11 @@ data/
 !data/yi_publishing/q1_tuvi/master/concepts_index.json
 !data/yi_publishing/q1_tuvi/master/cach_cuc_index.json
 
+# Thần Số học master dicts (letter_maps, number_meanings, karmic_debt, cross_bind...) — engine load runtime
+!data/than_so/
+!data/than_so/master/
+!data/than_so/master/*.json
+
 # Docs (not needed in runtime image) — except citation markdown:
 # .md files trong skills/kinh-dich/ phải vào image cho RAG luận sâu
 
