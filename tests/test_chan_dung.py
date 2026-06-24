@@ -15,6 +15,20 @@ def test_build_portrait_complete():
     assert len(r["products"]) >= 2
     # paradigm note đọc đồng dạng
     assert "không" in r["paradigm_note"].lower()
+    # depth v2: cách cục + đại vận hiện tại + hướng dẫn Bát Tự
+    assert "cach_cuc" in r["menh"] and "dai_van_hien_tai" in r["menh"]
+    assert "huong_dan" in r and isinstance(r["huong_dan"].get("su_nghiep"), list)
+
+
+def test_la_so_input_builder():
+    """build_la_so_input → per-palace + đại vận hiện tại (cho cách cục matcher)."""
+    from engine.tu_vi.from_birth import cast_la_so_from_birth
+    from engine.tu_vi.la_so_input_builder import build_la_so_input
+    ls = cast_la_so_from_birth(birth_datetime_local="1988-06-05T23:30:00",
+                               timezone="Asia/Ho_Chi_Minh", gender="nam")
+    lsi = build_la_so_input(ls, "nam", birth_year=1988, now_year=2026)
+    assert lsi["menh_palace"] and isinstance(lsi["chinh_tinh_per_palace"], dict)
+    assert lsi["dai_van_hien_tai"] and lsi["dai_van_hien_tai"]["start_age"] <= 39 <= lsi["dai_van_hien_tai"]["end_age"]
 
 
 def test_missing_birth():

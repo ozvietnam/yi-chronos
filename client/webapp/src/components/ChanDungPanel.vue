@@ -28,6 +28,14 @@ const METHOD_LABEL = {
 function methodLabel(m) { return METHOD_LABEL[m] || m; }
 function fmtDate(ts) { try { return new Date(ts * 1000).toLocaleDateString("vi-VN"); } catch { return ""; } }
 
+const PALACE_VI = {
+  menh: "Mệnh", huynh_de: "Huynh Đệ", phu_the: "Phu Thê", tu_tuc: "Tử Tức", tai_bach: "Tài Bạch",
+  tat_ach: "Tật Ách", thien_di: "Thiên Di", no_boc: "Nô Bộc", quan_loc: "Quan Lộc",
+  dien_trach: "Điền Trạch", phuc_duc: "Phúc Đức", phu_mau: "Phụ Mẫu",
+};
+function fnLabel(fn) { return PALACE_VI[fn] || fn || ""; }
+function loaiLabel(l) { return l === "hung" ? "cần lưu tâm" : (l === "cat" || l === "cát") ? "lợi thế" : (l || ""); }
+
 function authHeaders() {
   const h = { "Content-Type": "application/json" };
   if (sessionToken.value) h["X-Session-Token"] = sessionToken.value;
@@ -109,6 +117,19 @@ onMounted(load);
         <div v-if="cd.menh.tu_hoa" class="cd-tuhoa">
           <span v-for="(star, hoa) in cd.menh.tu_hoa" :key="hoa" class="cd-hoa">Hóa {{ hoa }}: <b>{{ star }}</b></span>
         </div>
+        <p v-if="cd.menh.dai_van_hien_tai" class="cd-daivan">
+          ⏳ Đang ở <b>Đại Vận {{ cd.menh.dai_van_hien_tai.start_age }}–{{ cd.menh.dai_van_hien_tai.end_age }} tuổi</b>
+          — vận cung {{ fnLabel(cd.menh.dai_van_hien_tai.fn) }}
+        </p>
+        <div v-if="cd.menh.cach_cuc && cd.menh.cach_cuc.length" class="cd-caccuc">
+          <p class="cd-cc-label">Cách cục nổi bật:</p>
+          <details v-for="c in cd.menh.cach_cuc" :key="c.ten" class="cd-cc">
+            <summary><b>{{ c.ten }}</b> <span class="cd-cc-loai" :class="c.loai">{{ loaiLabel(c.loai) }}</span></summary>
+            <p v-if="c.dieu_kien" class="cd-cc-dk">{{ c.dieu_kien }}</p>
+            <p v-if="c.y_nghia" class="cd-cc-nghia">{{ c.y_nghia }}
+              <span class="cd-cc-note">— nguyên văn sách cổ, đọc đồng dạng (không phải lời phán định)</span></p>
+          </details>
+        </div>
       </section>
 
       <!-- Nội tâm (Chiếu Đởm) -->
@@ -116,6 +137,24 @@ onMounted(load);
         <h3>🪞 Nội tâm <small>— Chiếu Đởm Kinh (Bắc phái)</small></h3>
         <p class="cd-noitam-body">Phi tinh tọa mệnh nội tâm: <b>{{ cd.noi_tam.phi_tinh_tai_menh.join(", ") || "—" }}</b>
           (cung {{ cd.noi_tam.menh_cung }}). Lăng kính nội tâm sâu, song hành với Tử Vi chính thống.</p>
+      </section>
+
+      <!-- Đường đời (Bát Tự gợi mở) -->
+      <section v-if="cd.huong_dan && ((cd.huong_dan.su_nghiep && cd.huong_dan.su_nghiep.length) || (cd.huong_dan.loi_khuyen && cd.huong_dan.loi_khuyen.length))"
+        class="cd-card cd-huongdan">
+        <h3>🧭 Đường đời <small>— gợi mở từ Bát Tự</small></h3>
+        <p v-if="cd.huong_dan.su_nghiep && cd.huong_dan.su_nghiep.length" class="cd-hd-row">
+          <b>Hướng nghề hợp</b><span v-if="cd.huong_dan.dung_hanh"> (dụng hành {{ cd.huong_dan.dung_hanh }})</span>:
+          {{ cd.huong_dan.su_nghiep.join(" · ") }}
+        </p>
+        <div v-if="cd.huong_dan.suc_khoe && cd.huong_dan.suc_khoe.length" class="cd-hd-row">
+          <b>Sức khỏe lưu tâm:</b>
+          <p v-for="s in cd.huong_dan.suc_khoe" :key="s.hanh" class="cd-hd-sk"><b>{{ s.hanh }}</b> — {{ s.note }}</p>
+        </div>
+        <div v-if="cd.huong_dan.loi_khuyen && cd.huong_dan.loi_khuyen.length" class="cd-hd-row">
+          <b>Lời khuyên:</b>
+          <ul class="cd-hd-lk"><li v-for="(l, i) in cd.huong_dan.loi_khuyen" :key="i">{{ l }}</li></ul>
+        </div>
       </section>
 
       <!-- Hành trình -->
@@ -174,6 +213,23 @@ onMounted(load);
 .cd-sao { line-height: 1.7; margin: .35rem 0; padding-left: .5rem; border-left: 2px solid var(--read-border, #ddd); }
 .cd-tuhoa { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .6rem; }
 .cd-hoa { font-size: .82rem; color: var(--read-muted, #777); }
+.cd-daivan { margin-top: .6rem; font-size: .9rem; padding: .4rem .6rem; border-radius: 6px;
+  background: rgba(124,58,237,.08); }
+.cd-caccuc { margin-top: .7rem; }
+.cd-cc-label { font-size: .85rem; color: var(--read-muted, #888); margin: 0 0 .3rem; }
+.cd-cc { border: 1px solid var(--read-border, #e3e3e3); border-radius: 8px; margin-bottom: .4rem; padding: .15rem .6rem; }
+.cd-cc summary { cursor: pointer; padding: .4rem 0; font-size: .92rem; }
+.cd-cc-loai { font-size: .72rem; padding: 1px 7px; border-radius: 10px; margin-left: .3rem; }
+.cd-cc-loai.hung { background: rgba(217,119,6,.12); color: #c2410c; }
+.cd-cc-loai.cat, .cd-cc-loai.cát { background: rgba(22,163,74,.12); color: #15803d; }
+.cd-cc-dk { font-size: .82rem; color: var(--read-muted, #888); margin: .2rem 0; }
+.cd-cc-nghia { font-size: .88rem; line-height: 1.6; margin: .2rem 0 .5rem; }
+.cd-cc-note { font-size: .75rem; color: var(--read-muted, #999); font-style: italic; }
+.cd-huongdan { border-left: 3px solid #ca8a04; }
+.cd-hd-row { margin: .5rem 0; line-height: 1.6; font-size: .92rem; }
+.cd-hd-sk { margin: .25rem 0; font-size: .88rem; color: var(--read-muted, #777); }
+.cd-hd-lk { margin: .3rem 0 0; padding-left: 1.2rem; }
+.cd-hd-lk li { line-height: 1.6; font-size: .9rem; margin: .15rem 0; }
 .cd-noitam-body { line-height: 1.7; }
 .cd-hrow { display: flex; gap: .7rem; align-items: baseline; padding: .35rem 0;
   border-bottom: 1px solid var(--read-border, #eee); font-size: .9rem; }

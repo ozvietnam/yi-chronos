@@ -18,8 +18,9 @@ import logging
 logger = logging.getLogger("yi.chan_dung")
 
 
-def _bat_tu_cot_cach(birth_iso: str, gender: str, name: str, tz: str) -> dict:
-    """Cốt cách từ Bát Tự — tái dùng generate_life_overview (nhật chủ + ngũ hành + dụng thần)."""
+def _bat_tu(birth_iso: str, gender: str, name: str) -> tuple[dict, dict]:
+    """Cốt cách + hướng dẫn từ Bát Tự — 1 lần gọi generate_life_overview, tách 2 phần.
+    Trả (cot_cach, huong_dan). Lỗi → ({}, {})."""
     try:
         from engine.yi_wiki.life_overview import generate_life_overview
         g = "nam" if (gender or "nam") in ("nam", "M", "male") else "nu"
@@ -28,18 +29,31 @@ def _bat_tu_cot_cach(birth_iso: str, gender: str, name: str, tz: str) -> dict:
         sp = dm.get("stem_profile") or {}
         tt = ov.get("section_1_tu_tru") or {}
         fav = ov.get("section_9_favorable") or {}
-        return {
+        career = ov.get("section_6_career") or {}
+        health = ov.get("section_8_health") or {}
+        advice = ov.get("section_10_advice") or {}
+        thua = tt.get("thua_hanh") or []
+        thieu = tt.get("thieu_hanh") or []
+        hnotes = health.get("health_notes") or {}
+        suc_khoe = [{"hanh": h, "note": hnotes[h]} for h in (list(thua) + list(thieu)) if h in hnotes]
+        cot_cach = {
             "nhat_chu": sp.get("label") or f"{dm.get('nhat_chu', '')} {dm.get('nhat_chu_hanh', '')}".strip(),
             "hinh_anh": sp.get("image"),
             "tinh_cach": sp.get("personality"),
             "ngu_hanh": tt.get("hanh_count") or {},
-            "thieu_hanh": tt.get("thieu_hanh"),    # hành thiếu → nên bổ
-            "thua_hanh": tt.get("thua_hanh"),      # hành thừa
-            "favorable": fav.get("favorable") or {},   # màu/hướng/số hợp
+            "thieu_hanh": thieu, "thua_hanh": thua,
+            "favorable": fav.get("favorable") or {},
         }
+        huong_dan = {
+            "su_nghiep": career.get("candidates") or [],
+            "dung_hanh": career.get("dung_hanh"),
+            "suc_khoe": suc_khoe[:3],
+            "loi_khuyen": (advice.get("key_principles") or [])[:5],
+        }
+        return cot_cach, huong_dan
     except Exception as e:
         logger.info("chan_dung bat_tu lỗi: %s", str(e)[:120])
-        return {}
+        return {}, {}
 
 
 def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
@@ -136,14 +150,16 @@ def build_chan_dung(person: dict) -> dict:
     gender = (person or {}).get("gender") or "nam"
     tz = (person or {}).get("timezone") or "Asia/Ho_Chi_Minh"
     name = (person or {}).get("name") or "Quý khách"
+    cot_cach, huong_dan = _bat_tu(birth, gender, name)
     return {
         "ok": True,
         "name": name,
         "birth": birth,
         "gender": gender,
-        "cot_cach": _bat_tu_cot_cach(birth, gender, name, tz),
+        "cot_cach": cot_cach,
         "menh": _tu_vi_menh(birth, gender, tz),
         "noi_tam": _noi_tam(birth, gender, tz),
+        "huong_dan": huong_dan,
         "products": BEST_PRODUCTS,
         "paradigm_note": "Chân dung này ĐỌC ĐỒNG DẠNG — phản chiếu cấu trúc của bạn, không phán "
                          "trước cát/hung. Mệnh là cách VẬN HÀNH cái tính trời cho, không phải án định sẵn.",
