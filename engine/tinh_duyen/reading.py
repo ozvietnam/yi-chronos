@@ -24,6 +24,7 @@ from engine.hermes_guard import paradigm_violations
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
 from . import knowledge_loader as kb
+from .cau_hoi_router import tra_loi_cau_hoi_tuoi
 from .cham_cap import cham_cap_do
 from .quy_trinh import build_quy_trinh_day_du
 
@@ -785,7 +786,9 @@ def read_tinh_duyen(
         (quy_trinh_day_du = {tu_vi_12_buoc, bat_tu_10_buoc, xep_hang_yeu_to,
         tong_hop_kim_tu_thap}; chan_doan_cap_do = {cap_do 1-5, ten_cap,
         do_thay_doi_duoc, phan_loai, tin_hieu_kich_hoat, lo_trinh,
-        nguyen_tac_vang, _nguon} — KEY MỚI, các key cũ giữ nguyên 100%.)
+        nguyen_tac_vang, _nguon}; cau_hoi_tuoi = list[{cau_hoi, he_tra_loi,
+        tra_loi, can_gieo_que, can_la_so_doi, do_tin, section_nguon, tan_suat}]
+        — KEY MỚI, các key cũ giữ nguyên 100%.)
     """
     # (a) Lập lá số + bát tự.
     la_so = cast_la_so_from_birth(
@@ -878,6 +881,26 @@ def read_tinh_duyen(
     quy_trinh_day_du = _scrub_tree(quy_trinh_day_du, _n)
     # Hàng rào cứng áp luôn lên CHẨN ĐOÁN CẤP ĐỘ (lộ trình + nguyên tắc vàng).
     chan_doan_cap_do = _scrub_tree(chan_doan_cap_do, _n)
+
+    # (n) CÂU HỎI THEO TUỔI — rút câu trả lời cho bộ câu hỏi TOP của nhóm tuổi từ
+    #     các block ĐÃ SCRUB ở trên (KHÔNG bịa luận mới). Câu QUYẾT ĐỊNH nhị nguyên
+    #     → flag gieo quẻ Mai Hoa; câu cần lá số người kia → flag so-sánh-duyên.
+    #     KEY MỚI 'cau_hoi_tuoi' — GIỮ mọi key cũ + API.
+    _reading_for_router = {
+        "input": {"tuoi": age, "gio_sinh_thieu": _thieu_gio_sinh(birth_datetime_local)},
+        "stage": stage,
+        "personality": personality,
+        "cung_phu_the_tuvi": cung_phu_the,
+        "batu_hon_nhan": batu,
+        "song_phai_reconcile": reconcile,
+        "cach_cuc": cach_cuc,
+        "dinh_thoi": dinh_thoi,
+        "quy_trinh_day_du": quy_trinh_day_du,
+        "chan_doan_cap_do": chan_doan_cap_do,
+    }
+    cau_hoi_tuoi = tra_loi_cau_hoi_tuoi(_reading_for_router, age=age, gender=gender)
+    # Defense-in-depth: scrub lại text router tự ráp (đã rút từ block sạch, nhưng vẫn quét).
+    cau_hoi_tuoi = _scrub_tree(cau_hoi_tuoi, _n)
     scrubbed_count = _n[0]
 
     return {
@@ -904,6 +927,8 @@ def read_tinh_duyen(
         "quy_trinh_day_du": quy_trinh_day_du,
         # KEY MỚI: chẩn đoán CẤP ĐỘ thử thách (1-5) + lộ trình (ngôn ngữ xây dựng).
         "chan_doan_cap_do": chan_doan_cap_do,
+        # KEY MỚI: bộ câu hỏi TOP theo tuổi + câu trả lời rút từ section (paradigm-safe).
+        "cau_hoi_tuoi": cau_hoi_tuoi,
         "base_12_khia_canh": base_khia_canh,
         "paradigm_ok": bool(base.get("paradigm_ok", True)),
         # Cờ caution: số string đã bị scrub vì chứa từ cấm (0 = sạch hoàn toàn).

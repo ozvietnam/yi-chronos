@@ -75,6 +75,52 @@ def _cham_cap_block(td: dict) -> str:
     return "\n".join(lines) + "\n\n"
 
 
+def _cau_hoi_tuoi_block(td: dict) -> str:
+    """Dựng khối CÂU HỎI THEO TUỔI — lời thầy cấu trúc QUANH việc TRẢ LỜI các câu hỏi
+    chính của chặng tuổi (tự nhiên hơn so với liệt kê dữ liệu khô).
+
+    Mỗi câu đã có sẵn câu trả lời rút từ section (paradigm-safe). Lời thầy nên dệt
+    các câu trả lời này thành mạch, ưu tiên câu tần suất CAO, và:
+    - câu can_gieo_que=True: KHÔNG tự chốt, mời người đọc gieo quẻ Mai Hoa (cần tâm).
+    - câu can_la_so_doi=True: nhắc cần lá số người kia (so-sánh-duyên)."""
+    items = td.get("cau_hoi_tuoi") or []
+    if not items:
+        return ""
+    lines = [
+        "## CÂU HỎI CHÍNH CỦA TUỔI NÀY (dệt lời thầy QUANH việc trả lời các câu này)",
+        "Người ở tuổi này thường mang đúng những thắc mắc dưới đây. Hãy để bài đọc TRẢ "
+        "LỜI tự nhiên cho chúng — KHÔNG liệt kê khô, mà dệt thành mạch tâm tình, ưu tiên "
+        "câu tần suất CAO. Mỗi câu kèm sẵn câu trả lời ĐÃ ground section (đừng bịa thêm):",
+    ]
+    # Ưu tiên câu tần suất cao lên trước, giữ tối đa 6 câu cho prompt gọn.
+    ordered = sorted(items, key=lambda q: 0 if q.get("tan_suat") == "cao" else 1)
+    for q in ordered[:6]:
+        ch = (q.get("cau_hoi") or "").strip()
+        tl = (q.get("tra_loi") or "").strip()
+        if not ch:
+            continue
+        lines.append(f"- HỎI: {ch}")
+        if q.get("can_gieo_que"):
+            lines.append(
+                "  → ĐÂY LÀ CÂU QUYẾT ĐỊNH: KHÔNG tự chốt nên/không từ lá số. Nhẹ nhàng "
+                "mời người đọc GIEO QUẺ MAI HOA (đọc đồng dạng — cần tâm + ngoại ứng + "
+                "tư thế), nói rõ quyết định là của họ."
+            )
+        elif q.get("can_la_so_doi"):
+            lines.append(
+                "  → Cần lá số người kia (so-sánh-duyên); chưa có thì gợi đọc cung Phu Thê "
+                "của chính người hỏi (kiểu khí chất hợp), KHÔNG chấm điểm hợp/không."
+            )
+        if tl:
+            lines.append(f"  ĐÁP (ground sẵn): {tl}")
+    lines.append(
+        "- Với mọi câu mang sắc thái lo sợ ('khắc chồng', 'người thứ ba', 'có con "
+        "không'): TRẢ LỜI qua CẤP ĐỘ + lộ trình + cấu trúc cần để ý — TUYỆT ĐỐI không "
+        "verdict có/không, không phán-vào-người."
+    )
+    return "\n".join(lines) + "\n\n"
+
+
 def _build_system_prompt(person: dict, td: dict) -> str:
     """Dựng system-prompt narrate từ khẩu vị giao tiếp + chặng tuổi + paradigm."""
     personality = td.get("personality") or {}
@@ -151,7 +197,8 @@ def _build_system_prompt(person: dict, td: dict) -> str:
         "Lưu ý: bé gái ~16 tuổi nói NHẸ - ẤM - gợi mở khác hẳn phụ nữ ~35 tuổi (nói chững "
         "chạc, đi vào lựa chọn thực tế). HÃY chọn giọng đúng với tuổi này.\n\n"
 
-        + quy_trinh_block +
+        + _cau_hoi_tuoi_block(td) +
+        quy_trinh_block +
         _cham_cap_block(td) +
 
         "## CÁCH VIẾT\n"
@@ -175,6 +222,8 @@ def _td_payload_for_llm(td: dict) -> dict:
         "cach_cuc": td.get("cach_cuc"),
         "dinh_thoi": td.get("dinh_thoi"),
         "narration_brief": td.get("narration_brief"),
+        # Câu hỏi chính của tuổi + câu trả lời ground sẵn — XƯƠNG SỐNG để dệt lời thầy.
+        "cau_hoi_tuoi": td.get("cau_hoi_tuoi"),
         # Chẩn đoán cấp độ (chấm cấp + lộ trình) — gọn, đủ để sage chỉ lối cụ thể.
         "chan_doan_cap_do": {
             "cap_do": (td.get("chan_doan_cap_do") or {}).get("cap_do"),
