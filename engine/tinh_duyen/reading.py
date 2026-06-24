@@ -237,7 +237,7 @@ def _pick_stage(age: int) -> dict:
 # --------------------------------------------------------------------------- #
 # (e) PERSONALITY
 # --------------------------------------------------------------------------- #
-def _personality(menh_chinh_tinh: list[str], nhat_chu: str, thap_than: dict) -> dict:
+def _personality(menh_chinh_tinh: list[str], nhat_chu: str, thap_than: dict, muon_doi_cung: bool = False) -> dict:
     pdict = kb.get("personality")
     profiles = []
     for star in menh_chinh_tinh:
@@ -256,7 +256,8 @@ def _personality(menh_chinh_tinh: list[str], nhat_chu: str, thap_than: dict) -> 
         })
     return {
         "menh_chinh_tinh": menh_chinh_tinh,
-        "vo_chinh_dieu": len(menh_chinh_tinh) == 0,
+        "vo_chinh_dieu": muon_doi_cung or len(menh_chinh_tinh) == 0,
+        "muon_sao_doi_cung": muon_doi_cung,
         "profiles": profiles,
         "doi_chieu_batu": {
             "nhat_chu": nhat_chu,
@@ -756,6 +757,11 @@ def read_tinh_duyen(
     # (c) Trích xuất chỉ số then chốt.
     phu_the_idx = la_so["palaces"][2]["branch_index"]
     menh_chinh_tinh = _stars_at(la_so["chinh_tinh"], la_so["menh_index"])
+    menh_muon_doi_cung = False
+    if not menh_chinh_tinh:
+        # Vô chính diệu cung Mệnh -> mượn chính tinh đối cung (Thiên Di) đọc tính cách.
+        menh_chinh_tinh = _stars_at(la_so["chinh_tinh"], _opposite(la_so["menh_index"]))
+        menh_muon_doi_cung = True
     nhat_chu = bat_tu_state["tu_tru"]["day_master"]["stem"]
     quan_sat_count = _count_quan_sat(bat_tu_state.get("thap_than_distribution", {}))
 
@@ -768,6 +774,7 @@ def read_tinh_duyen(
     personality = _personality(
         menh_chinh_tinh, nhat_chu,
         bat_tu_state.get("thap_than_distribution", {}),
+        muon_doi_cung=menh_muon_doi_cung,
     )
 
     # (f) CUNG PHU THÊ TỬ VI.

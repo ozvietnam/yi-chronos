@@ -163,7 +163,11 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
                 max_tokens=1400,
                 temperature=0.6,
             )
-            return (getattr(resp, "content", "") or "").strip()
+            content = (getattr(resp, "content", "") or "").strip()
+            # Provider mock-fallback (thiếu key / lỗi tạm) KHÔNG được lộ cho user trả phí.
+            if "[MOCK" in content or "mock response" in content or "paste api key" in content.lower():
+                return ""
+            return content
 
         # Lần 1.
         content = _call(base_system_prompt)
