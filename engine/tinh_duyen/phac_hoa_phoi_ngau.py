@@ -389,26 +389,40 @@ def ve_anh_phoi_ngau(ho_so: dict,
 
     Lỗi / không có key → trả {image_b64: None, ho_so, prompt, note} (KHÔNG sập).
     Thành công → {image_path, image_b64, prompt, ho_so}.
+
+    note phân biệt nguyên nhân để nút 'Thử tạo lại' có nghĩa:
+      - "chưa cấu hình khoá ảnh" (thiếu key — bấm lại vô ích cho tới khi cài key)
+      - "tạo ảnh lỗi tạm thời (...)"  (key có nhưng API lỗi/quota — bấm lại có thể được)
     """
     if prompt is None:
         prompt = build_prompt_anh(ho_so, vung_mien, dan_toc, do_tuoi)
 
+    from engine.yi_publishing import image_redraw_gemini as G
+
+    # 1) Phải có khoá ảnh — thiếu key thì báo riêng để 'Thử tạo lại' không vô nghĩa.
+    try:
+        G._get_api_key()
+    except Exception as exc:  # noqa: BLE001
+        logger.info("ve_anh_phoi_ngau: thiếu khoá ảnh — %s", exc)
+        return {
+            "image_b64": None,
+            "image_path": None,
+            "prompt": prompt,
+            "ho_so": ho_so,
+            "note": "chưa cấu hình khoá ảnh",
+            "note_code": "no_key",
+            "_disclaimer": _DISCLAIMER,
+        }
+
+    # 2) Có key → gọi text2img THẬT (generate_image_gemini). Lỗi API/quota = tạm thời.
     try:
         _ANH_DIR.mkdir(parents=True, exist_ok=True)
         out_path = _ANH_DIR / f"phoi_ngau_{int(time.time() * 1000)}.png"
 
-        from engine.yi_publishing import image_redraw_gemini as G
-
-        # generate_redraw_gemini là img2img; ta gọi qua text2img nếu có, else dùng
-        # generate_redraw_gemini với input None (nó sẽ raise → fallback graceful).
-        gen = getattr(G, "generate_image_gemini", None) or getattr(G, "generate_redraw_gemini")
-        try:
-            # text2img path (nếu có hàm thuần text)
-            res = gen(prompt, output_path=out_path)  # type: ignore[arg-type]
-        except TypeError:
-            # img2img signature (prompt, input_image_path, *, output_path) — không có
-            # ảnh gốc cho text2img → coi như không tạo được, fallback graceful.
-            raise RuntimeError("backend chỉ hỗ trợ img2img, cần ảnh gốc")
+        gen = getattr(G, "generate_image_gemini", None)
+        if gen is None:
+            raise RuntimeError("backend không có hàm text2img generate_image_gemini")
+        res = gen(prompt, output_path=out_path)
 
         saved_path = res.get("output_path") if isinstance(res, dict) else str(out_path)
         b64 = None
@@ -423,12 +437,13 @@ def ve_anh_phoi_ngau(ho_so: dict,
             "_disclaimer": _DISCLAIMER,
         }
     except Exception as exc:  # noqa: BLE001 — graceful, không sập UX
-        logger.info("ve_anh_phoi_ngau fallback (không tạo được ảnh): %s", exc)
+        logger.warning("ve_anh_phoi_ngau: tạo ảnh lỗi (có key) — %s", exc)
         return {
             "image_b64": None,
             "image_path": None,
             "prompt": prompt,
             "ho_so": ho_so,
-            "note": "chưa tạo được ảnh",
+            "note": f"tạo ảnh lỗi tạm thời ({type(exc).__name__})",
+            "note_code": "gen_error",
             "_disclaimer": _DISCLAIMER,
         }

@@ -127,6 +127,64 @@ def generate_redraw_gemini(
     }
 
 
+def generate_image_gemini(
+    prompt: str,
+    *,
+    output_path: Path,
+    model: str = GEMINI_IMAGE_MODEL,
+) -> dict:
+    """Text-to-image generation via Gemini 2.5 Flash Image (no source image).
+
+    Khác generate_redraw_gemini (img2img): KHÔNG cần ảnh gốc — chỉ truyền prompt text.
+    Dùng cho phác hoạ chân dung BIỂU TƯỢNG (engine.tinh_duyen.phac_hoa_phoi_ngau).
+
+    Args:
+        prompt: mô tả ảnh (text-to-image instruction).
+        output_path: nơi lưu PNG.
+
+    Returns: dict {output_path, elapsed_seconds, prompt, model, mode, text_response}.
+    Raise RuntimeError nếu Gemini không trả ảnh (vd quota / safety block).
+    """
+    client = get_client()
+
+    t0 = time.time()
+    logger.info(f"Calling Gemini {model} (text2img)...")
+
+    response = client.models.generate_content(
+        model=model,
+        contents=[prompt],
+    )
+    elapsed = time.time() - t0
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    saved = False
+    output_text = ""
+
+    if response.candidates and response.candidates[0].content:
+        for part in response.candidates[0].content.parts:
+            if part.text:
+                output_text += part.text
+            elif part.inline_data:
+                img_bytes = part.inline_data.data
+                output_path.write_bytes(img_bytes)
+                saved = True
+                logger.info(f"Saved {len(img_bytes)} bytes → {output_path}")
+
+    if not saved:
+        logger.error(f"No image in Gemini text2img response. Text: {output_text[:300]}")
+        raise RuntimeError(
+            f"Gemini returned no image. Text response: {output_text[:300]}")
+
+    return {
+        "output_path": str(output_path),
+        "elapsed_seconds": elapsed,
+        "prompt": prompt,
+        "model": model,
+        "mode": "gemini-text2img",
+        "text_response": output_text,
+    }
+
+
 def build_gemini_prompt(
     context_text: str = "",
     style: str = "",

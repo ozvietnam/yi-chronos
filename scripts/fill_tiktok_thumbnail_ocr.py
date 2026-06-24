@@ -77,6 +77,22 @@ def image_variants(image_path: Path, work_dir: Path) -> list[Path]:
     threshold_path = work_dir / f"{image_path.stem}_threshold.png"
     cv2.imwrite(str(threshold_path), threshold)
     variants.append(threshold_path)
+
+    # Most photo-mode posters in this channel use large black/red title text on
+    # a pale card around the middle-lower part of the image. Isolating those
+    # colors avoids Tesseract reading decorative branches and texture as text.
+    title_crop = image[int(height * 0.38) : int(height * 0.76), int(width * 0.05) : int(width * 0.95)]
+    hsv = cv2.cvtColor(title_crop, cv2.COLOR_BGR2HSV)
+    mask_dark = cv2.inRange(hsv, (0, 0, 0), (179, 255, 115))
+    mask_red1 = cv2.inRange(hsv, (0, 60, 40), (12, 255, 220))
+    mask_red2 = cv2.inRange(hsv, (165, 60, 40), (179, 255, 220))
+    title_mask = cv2.bitwise_or(mask_dark, cv2.bitwise_or(mask_red1, mask_red2))
+    title_mask = cv2.morphologyEx(title_mask, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)))
+    title_mask = 255 - title_mask
+    title_mask = cv2.resize(title_mask, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
+    title_mask_path = work_dir / f"{image_path.stem}_title_mask.png"
+    cv2.imwrite(str(title_mask_path), title_mask)
+    variants.append(title_mask_path)
     return variants
 
 
@@ -136,15 +152,24 @@ def score_text(text: str) -> tuple[int, int, int]:
     return (domain_hits, vietnamese, letters)
 
 
+def score_candidate(variant_name: str, text: str) -> tuple[int, int, int, int]:
+    domain_hits, vietnamese, letters = score_text(text)
+    title_mask_bonus = 0
+    if "title_mask" in variant_name and 15 <= len(text) <= 260 and vietnamese >= 2:
+        title_mask_bonus = 1000
+    length_penalty = max(0, len(text) - 350)
+    return (title_mask_bonus + domain_hits * 100 - length_penalty, vietnamese, letters, -len(text))
+
+
 def ocr_image(image_path: Path, work_dir: Path) -> str:
-    candidates: list[str] = []
+    candidates: list[tuple[str, str]] = []
     for variant in image_variants(image_path, work_dir):
         for psm in ("6", "11"):
-            candidates.append(clean_ocr_text(run_tesseract(variant, psm)))
-    candidates = [candidate for candidate in candidates if len(candidate) >= 12]
+            candidates.append((variant.name, clean_ocr_text(run_tesseract(variant, psm))))
+    candidates = [(name, candidate) for name, candidate in candidates if len(candidate) >= 12]
     if not candidates:
         return ""
-    return max(candidates, key=score_text)
+    return max(candidates, key=lambda item: score_candidate(item[0], item[1]))[1]
 
 
 def text_for_entry(row: dict[str, Any], text: str) -> str:

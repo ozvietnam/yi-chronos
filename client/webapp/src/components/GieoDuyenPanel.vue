@@ -21,7 +21,7 @@
     <!-- CHẾ ĐỘ ĐANG TÌM: 4 tính năng cho người độc thân -->
     <section v-if="mode === 'tim'" class="gd-tool">
       <h3>🔍 Duyên của tôi</h3>
-      <p class="gd-tool-sub">Nhập lá số của bạn — hệ thống vẽ chân dung nửa kia, đọc đường tình duyên, chỉ năm có duyên và tuổi hợp.</p>
+      <p class="gd-tool-sub">Nhập lá số của bạn — hệ thống phác hoạ chân dung BIỂU TƯỢNG kiểu người hợp khí chất với bạn, đọc đường tình duyên, chỉ năm có duyên và tuổi hợp.</p>
       <div class="gd-form">
         <div class="gd-person" style="flex:1">
           <input v-model="dn" placeholder="Tên (tuỳ chọn)" class="gd-in" />

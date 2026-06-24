@@ -90,31 +90,56 @@ def test_build_prompt_khong_lan_tieng_viet_co_dau():
 
 # ── 3) vẽ ảnh fallback an toàn (không key) ───────────────────────────────────
 def test_ve_anh_fallback_khong_key(monkeypatch):
-    """Không có key / backend lỗi → trả image_b64=None + note, KHÔNG raise."""
+    """Thiếu key → trả image_b64=None + note 'chưa cấu hình khoá ảnh', KHÔNG raise."""
     ls, bt = _chart("nữ")
     hs = P.lap_ho_so_tuong_mao(ls, bt, gender="nữ")
 
-    # ép backend lỗi (giả lập thiếu key).
     import engine.yi_publishing.image_redraw_gemini as G
 
-    def boom(*a, **kw):
-        raise RuntimeError("no key")
+    def no_key(*a, **kw):
+        raise RuntimeError("Gemini API key not found")
 
-    monkeypatch.setattr(G, "generate_redraw_gemini", boom, raising=False)
-    if hasattr(G, "generate_image_gemini"):
-        monkeypatch.setattr(G, "generate_image_gemini", boom, raising=False)
+    monkeypatch.setattr(G, "_get_api_key", no_key, raising=False)
 
     out = P.ve_anh_phoi_ngau(hs)
     assert out["image_b64"] is None
-    assert out["note"] == "chưa tạo được ảnh"
+    assert out["note"] == "chưa cấu hình khoá ảnh"
+    assert out["note_code"] == "no_key"
     assert out["prompt"] and "Portrait of a" in out["prompt"]
     assert out["ho_so"] == hs
     assert out["_disclaimer"]
 
 
+def test_ve_anh_loi_tam_thoi_khi_co_key(monkeypatch):
+    """Có key nhưng backend lỗi (quota/API) → note 'tạo ảnh lỗi tạm thời', KHÔNG raise.
+
+    Phân biệt với thiếu-key để nút 'Thử tạo lại' có nghĩa."""
+    ls, bt = _chart("nữ")
+    hs = P.lap_ho_so_tuong_mao(ls, bt, gender="nữ")
+
+    import engine.yi_publishing.image_redraw_gemini as G
+
+    monkeypatch.setattr(G, "_get_api_key", lambda *a, **k: "x" * 39, raising=False)
+
+    def boom(*a, **kw):
+        raise RuntimeError("quota exceeded")
+
+    monkeypatch.setattr(G, "generate_image_gemini", boom, raising=False)
+
+    out = P.ve_anh_phoi_ngau(hs)
+    assert out["image_b64"] is None
+    assert out["note_code"] == "gen_error"
+    assert out["note"].startswith("tạo ảnh lỗi tạm thời")
+    assert out["_disclaimer"]
+
+
 def test_ve_anh_thanh_cong_mock(monkeypatch, tmp_path):
-    """Backend trả ảnh → ve_anh đọc file, trả image_b64 + image_path."""
+    """Backend text2img trả ảnh → ve_anh đọc file, trả image_b64 + image_path.
+
+    Mock dùng ĐÚNG signature thật của generate_image_gemini (prompt, *, output_path),
+    KHÔNG che giấu bug img2img/text2img như trước."""
     import base64
+    import inspect
     ls, bt = _chart("nữ")
     hs = P.lap_ho_so_tuong_mao(ls, bt, gender="nữ")
 
@@ -123,10 +148,20 @@ def test_ve_anh_thanh_cong_mock(monkeypatch, tmp_path):
 
     import engine.yi_publishing.image_redraw_gemini as G
 
-    def fake_gen(prompt, *args, output_path=None, **kw):
+    # Hàm text2img THẬT phải tồn tại với signature (prompt, *, output_path, model=...).
+    assert hasattr(G, "generate_image_gemini"), "thiếu backend text2img"
+    real_sig = inspect.signature(G.generate_image_gemini)
+    assert "input_image_path" not in real_sig.parameters, \
+        "generate_image_gemini phải là text2img (KHÔNG cần ảnh gốc)"
+    op = real_sig.parameters["output_path"]
+    assert op.kind == inspect.Parameter.KEYWORD_ONLY
+
+    def fake_gen(prompt, *, output_path, model=G.GEMINI_IMAGE_MODEL):
+        # ép signature khớp THẬT — nếu real code gọi kiểu img2img sẽ vỡ ở đây.
         return {"output_path": str(fake_png), "prompt": prompt}
 
-    monkeypatch.setattr(G, "generate_redraw_gemini", fake_gen, raising=False)
+    monkeypatch.setattr(G, "_get_api_key", lambda *a, **k: "x" * 39, raising=False)
+    monkeypatch.setattr(G, "generate_image_gemini", fake_gen, raising=False)
 
     out = P.ve_anh_phoi_ngau(hs)
     assert out["image_path"] == str(fake_png)
