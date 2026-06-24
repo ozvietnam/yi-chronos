@@ -16,7 +16,20 @@ GOAL (Anh chốt 2026-06-24): sản phẩm gieo duyên **nữ-mệnh chuyên tì
 - ⚠️ **Bài học lớn**: phản biện đối kháng bắt được BLOCKER paradigm (build-pytest-xanh vẫn surface "khắc chồng/cô độc" cho bé gái 17t). Đã fix: reframe 157 cách cục → `bien_chinh` (đọc-đồng-dạng) + `gioi_tinh` flag (loại 30 phú góc-nhìn-nam khỏi nữ mệnh) + **hàng rào cứng `_scrub_tree`** (cấm verdict lexicon) + reuse `engine.hermes_guard`. Verified: forbidden=0 trên 6 lá nữ, moat-voice 36×, stage đúng (`stage_id`).
 - Cast: `engine.tu_vi.from_birth.cast_la_so_from_birth` + `engine.bat_tu.cast.cast_bat_tu`. Tests: `tests/test_tinh_duyen.py` (38).
 
-## Chặng 3 — Wiring ⏭️ CHỜ ENGINE (blueprint sẵn)
+## Chặng 3 — Wiring ✅ XONG (47 tests, build xanh, demo LLM thật)
+- **service** `engine/cross_paradigm/service.py::run_tinh_duyen(uid,person)` (30 xu, cache, hoàn xu nếu lỗi).
+- **API web** `POST /api/cross-paradigm/tinh-duyen` + `/tinh-duyen/narrate` (require_caller, 402).
+- **API AppChat** `POST /api/sync/tinh-duyen` (X-API-Key). Chung service → ví xu trung tâm.
+- **sage narrate** `engine/cross_paradigm/narrate.py::narrate_tinh_duyen` — giọng theo `personality.khau_vi_giao_tiep` + chặng tuổi; DeepSeek `deepseek-chat`. **2 hàng rào**: (1) `_PREDICT` regex nâng cấp (bắt 'mệnh em là/khắc chồng/cô quả'); (2) hậu-kiểm `reframe_check` → regenerate 1 lần → fallback `''`; **chặn mock-leak** (không rò '[MOCK]' cho user trả phí).
+- **UX** `GieoDuyenPanel.vue` mode `tinh` + thẻ 💍 (stage/personality/cung Phu Thê/song phái/cách cục/định thời/nguồn + "✍️ Lời thầy"), `--read-*` tokens.
+- ✅ **Demo LLM THẬT** (lá 36t Liêm-Sát): paradigm chuẩn, trao quyền *"em là người tự cầm lái cuộc đời mình"*, forbidden=0.
+- 🐛 2 lỗi tự bắt+fix sau demo: (a) vô chính diệu Mệnh → mượn đối cung (personality không rỗng); (b) narrate chặn mock-leak.
+
+## ⏭️ CÒN LẠI (chờ Anh duyệt — bước outward-facing)
+- **Deploy lên live** kinhdich.online (push origin → CI deploy.yml → VPS). Knowledge JSON nằm trong repo (engine/) nên deploy theo code, KHÔNG cần sync wiki.sqlite3. = bước cuối để "đẩy AppChat thu phí". CẦN Anh duyệt (outward-facing + thu tiền thật).
+- Tuỳ chọn nâng cấp sau: giá theo chặng (nhóm 30-34 cao nhất) thay vì phẳng 30 xu; live screenshot.
+
+## Wiring blueprint (tham chiếu)
 | Điểm ráp | File | Pattern |
 |---|---|---|
 | Service | `engine/cross_paradigm/service.py:150+` | `run_tinh_duyen(uid,person)` = `_chart_of` + `read_tinh_duyen` + `_charge_and_run(...,"cross_paradigm_tinh_duyen",sig,...)` (trừ `GIA_XU`=30, cache, hoàn xu nếu lỗi) |

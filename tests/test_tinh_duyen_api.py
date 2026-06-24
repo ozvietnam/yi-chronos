@@ -83,27 +83,46 @@ def test_run_tinh_duyen_gioi_tinh_khac_co_note(monkeypatch):
 
 
 # ── 2) narrate (provider mock) ───────────────────────────────────────────────
-def test_narrate_tinh_duyen_tra_text_provider_mock(monkeypatch):
-    """Ép provider 'mock' → narrate trả text khác rỗng, hệ thống không sập."""
+def test_narrate_chan_mock_khong_ro_ra_user(monkeypatch):
+    """Provider mock-fallback (thiếu key/lỗi tạm) KHÔNG được lộ '[MOCK…]' cho user trả phí
+    → narrate trả '' để UX fallback bản cấu trúc đã-sạch."""
     from engine.ai.registry import get_registry
     from engine.cross_paradigm import narrate as N
     from engine.tinh_duyen.reading import read_tinh_duyen
 
     mock = get_registry().get("mock")
-    # Ép _get_agent_provider → mock (deterministic, không phụ thuộc key thật trong env).
     import engine.ai.council as C
     monkeypatch.setattr(C, "_get_agent_provider",
                         lambda agent_id, prefer_reasoning=False: (mock, "mock-v1"))
 
     td = read_tinh_duyen(birth_datetime_local=_BIRTH_NU, gender="nữ")
-    # Chốt tiền đề: lá này phải có khẩu vị giao tiếp để narrate có gì để bám.
     profs = td["personality"]["profiles"]
     assert profs and profs[0].get("khau_vi_giao_tiep"), "lá test phải có khẩu vị giao tiếp"
 
     txt = N.narrate_tinh_duyen(_PERSON, td)
-    assert isinstance(txt, str) and txt.strip(), "narrate phải trả text khác rỗng"
-    # mock agent gắn nhãn [MOCK • Agent …] → xác nhận đi qua run_agent.
-    assert "MOCK" in txt or "Agent" in txt
+    assert txt == "", "narrate PHẢI chặn mock (không rò '[MOCK]' cho user) → trả ''"
+
+
+def test_narrate_passthrough_text_sach(monkeypatch):
+    """LLM trả text SẠCH (paradigm-safe) → narrate cho qua nguyên văn (qua guard)."""
+    import engine.ai.agents as A
+    from engine.cross_paradigm import narrate as N
+    from engine.tinh_duyen.reading import read_tinh_duyen
+
+    clean = ("Cấu trúc của em vận hành tốt nhất khi em chủ động chọn người tôn trọng "
+             "sự độc lập của mình. Đây là khí mạnh để em tự quyết, không phải bản án.")
+
+    class _Resp:
+        content = clean
+        provider = "stub"
+        model = "stub-v1"
+
+    # run_agent được import BÊN TRONG narrate (from engine.ai.agents import run_agent)
+    # → patch tại NGUỒN engine.ai.agents.run_agent.
+    monkeypatch.setattr(A, "run_agent", lambda **kw: _Resp())
+    td = read_tinh_duyen(birth_datetime_local=_BIRTH_NU, gender="nữ")
+    txt = N.narrate_tinh_duyen(_PERSON, td)
+    assert txt == clean, "text LLM sạch phải được narrate trả nguyên văn"
 
 
 def test_narrate_system_prompt_theo_khau_vi():
