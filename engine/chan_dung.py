@@ -113,15 +113,39 @@ def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
 
 
 def _noi_tam(birth_iso: str, gender: str, tz: str) -> dict:
-    """Nội tâm từ Chiếu Đởm Kinh (18 Phi Tinh) — phản chiếu phần tâm hồn sâu."""
+    """Nội tâm từ Chiếu Đởm Kinh (18 Phi Tinh) — phản chiếu phần tâm hồn sâu.
+    CÓ NGHĨA: ngũ hành từng phi tinh + polarity cung Mệnh (dương→phúc trọng tai khinh /
+    âm→phúc khinh tai trọng, theo polarity_rule sách Q4)."""
     try:
         from engine.tu_vi.from_birth import cast_chieu_dom_from_birth
         cd = cast_chieu_dom_from_birth(birth_datetime_local=birth_iso, timezone=tz, gender=gender)
         stars = cd.get("stars") or {}
         menh = cd.get("menh_branch")
         tai_menh = [name for name, chi in stars.items() if chi == menh]
-        return {"menh_cung": menh, "phi_tinh_tai_menh": tai_menh,
-                "paradigm": cd.get("paradigm_note")}
+        # metadata: ngũ hành phi tinh + dương/âm cung Mệnh (đọc đồng dạng — không predict)
+        nh_map, duong, am, pol = {}, [], [], ""
+        try:
+            import json
+            import pathlib
+            d = json.loads(pathlib.Path("data/tu_vi/chieu_dom_kinh_18_phi_tinh.json")
+                           .read_text(encoding="utf-8"))
+            for grp in ("phi_tinh_9_duong", "phi_tinh_9_am"):
+                for s in (d.get(grp) or []):
+                    if s.get("name_vi"):
+                        nh_map[s["name_vi"]] = s.get("ngu_hanh")
+            duong = d.get("duong_palaces") or []
+            am = d.get("am_palaces") or []
+            pol = (d.get("polarity_rule") or {}).get("rule") or ""
+        except Exception:
+            pass
+        cung_pol = "dương" if menh in duong else ("âm" if menh in am else None)
+        return {
+            "menh_cung": menh,
+            "cung_polarity": cung_pol,
+            "polarity_note": pol,
+            "phi_tinh_tai_menh": [{"sao": s, "ngu_hanh": nh_map.get(s)} for s in tai_menh],
+            "paradigm": cd.get("paradigm_note"),
+        }
     except Exception as e:
         logger.info("chan_dung noi_tam lỗi: %s", str(e)[:120])
         return {}

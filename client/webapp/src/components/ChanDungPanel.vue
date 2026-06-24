@@ -133,10 +133,16 @@ onMounted(load);
       </section>
 
       <!-- Nội tâm (Chiếu Đởm) -->
-      <section v-if="cd.noi_tam && cd.noi_tam.phi_tinh_tai_menh" class="cd-card cd-noitam">
+      <section v-if="cd.noi_tam && cd.noi_tam.phi_tinh_tai_menh && cd.noi_tam.phi_tinh_tai_menh.length"
+        class="cd-card cd-noitam">
         <h3>🪞 Nội tâm <small>— Chiếu Đởm Kinh (Bắc phái)</small></h3>
-        <p class="cd-noitam-body">Phi tinh tọa mệnh nội tâm: <b>{{ cd.noi_tam.phi_tinh_tai_menh.join(", ") || "—" }}</b>
-          (cung {{ cd.noi_tam.menh_cung }}). Lăng kính nội tâm sâu, song hành với Tử Vi chính thống.</p>
+        <p class="cd-noitam-body">
+          Phi tinh tọa mệnh nội tâm (cung <b>{{ cd.noi_tam.menh_cung }}</b><span v-if="cd.noi_tam.cung_polarity"> — {{ cd.noi_tam.cung_polarity }} cung</span>):
+          <span v-for="(p, i) in cd.noi_tam.phi_tinh_tai_menh" :key="p.sao">
+            <b>{{ p.sao }}</b><span v-if="p.ngu_hanh" class="cd-nt-nh"> ({{ p.ngu_hanh }})</span>{{ i < cd.noi_tam.phi_tinh_tai_menh.length - 1 ? ", " : "" }}</span>
+        </p>
+        <p v-if="cd.noi_tam.polarity_note" class="cd-nt-pol">{{ cd.noi_tam.polarity_note }}</p>
+        <p class="cd-nt-foot">Lăng kính nội tâm sâu, song hành Tử Vi chính thống (18 phi tinh Bắc phái).</p>
       </section>
 
       <!-- Đường đời (Bát Tự gợi mở) -->
@@ -231,6 +237,10 @@ onMounted(load);
 .cd-hd-lk { margin: .3rem 0 0; padding-left: 1.2rem; }
 .cd-hd-lk li { line-height: 1.6; font-size: .9rem; margin: .15rem 0; }
 .cd-noitam-body { line-height: 1.7; }
+.cd-nt-nh { color: var(--read-muted, #888); font-size: .85rem; }
+.cd-nt-pol { margin: .4rem 0; font-size: .88rem; line-height: 1.6; color: var(--read-fg, inherit);
+  padding: .4rem .6rem; border-radius: 6px; background: rgba(8,145,178,.07); }
+.cd-nt-foot { margin: .4rem 0 0; font-size: .8rem; color: var(--read-muted, #999); font-style: italic; }
 .cd-hrow { display: flex; gap: .7rem; align-items: baseline; padding: .35rem 0;
   border-bottom: 1px solid var(--read-border, #eee); font-size: .9rem; }
 .cd-hmethod { white-space: nowrap; }
