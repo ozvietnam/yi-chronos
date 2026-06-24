@@ -3030,6 +3030,43 @@ def hermes_council_ask(req: HermesCouncilRequest, http_request: Request) -> dict
                        user_id=user["user_id"], explicit_agents=req.agents)
 
 
+@app.post("/api/hermes/council/enqueue")
+def hermes_council_enqueue(req: HermesCouncilRequest, http_request: Request) -> dict:
+    """Hỏi Hermes ASYNC — luận SÂU chạy NGẦM (3 vòng Socratic, nhiều phút). Enqueue → job_id;
+    frontend poll /job/{id} tới khi xong (KHÔNG timeout như gọi sync). Rào phạm vi chạy ngay
+    (rẻ, không LLM) → ngoài miền/cần làm rõ thì trả lời luôn, không xếp hàng."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine import hermes_guard as guard
+    sv = guard.classify_scope(req.question)
+    if sv.verdict != "in_scope":
+        return {"status": sv.verdict, "reply": sv.reply}
+    try:
+        from engine.tasks.jobs import hermes_council_run
+        res = hermes_council_run.delay(question=req.question, person_key=req.person_key,
+                                       user_id=user["user_id"], explicit_agents=req.agents)
+        return {"status": "processing", "job_id": res.id}
+    except Exception as e:
+        logging.getLogger(__name__).warning("council enqueue failed (broker?): %s", e)
+        raise HTTPException(503, "Hội Đồng tạm chưa sẵn sàng (hạ tầng async). Thử lại sau.")
+
+
+@app.get("/api/hermes/council/job/{job_id}")
+def hermes_council_job(job_id: str, http_request: Request) -> dict:
+    """Trạng thái job Hội Đồng (web, login). Poll tới state=SUCCESS → result (voices + synthesis).
+    PENDING/STARTED = đang luận; SUCCESS = xong; FAILURE = lỗi."""
+    from api.auth import require_user
+    require_user(http_request)
+    from engine.tasks.celery_app import celery_app
+    res = celery_app.AsyncResult(job_id)
+    out: dict = {"job_id": job_id, "state": res.state}
+    if res.successful():
+        out["result"] = res.result
+    elif res.failed():
+        out["error"] = str(res.result)[:300]
+    return out
+
+
 @app.get("/api/hermes/sages")
 def hermes_sages(http_request: Request) -> dict:
     """Danh sách sage cho picker trang Hỏi Hermes (login). Metadata công khai, không nhạy cảm."""
