@@ -772,11 +772,9 @@ async def duyen_tho(inp: DuyenInput,
     return out
 
 
-@router.post("/so-sanh-duyen")
-async def so_sanh_duyen(inp: SoSanhInput,
-                        caller: dict = Depends(require_caller)) -> dict:
-    """So nhiều người với mình → xếp hạng độ tương ứng (cho người đang phân vân giữa nhiều mối)."""
-    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
+async def _so_sanh_duyen_core(inp: SoSanhInput) -> dict:
+    """Core so-sánh nhiều người (KHÔNG auth/rate-limit) — DÙNG CHUNG web route +
+    sync bridge AppChat (Iron #1, tránh dedup debt). Xếp hạng độ tương ứng cấu trúc."""
     from engine.bat_tu.tu_tru import extract_tu_tru
     from engine.ha_lac.cast import cast_ha_lac
     from engine.tu_vi.hop_hon import phan_tich_hop_hon
@@ -814,6 +812,14 @@ async def so_sanh_duyen(inp: SoSanhInput,
     return {"xep_hang": ket_qua,
             "ghi_chu": "Điểm là độ TƯƠNG ỨNG cấu trúc, không phải 'người tốt nhất'. "
                        "Con người thật quan trọng hơn con số — đây chỉ là gợi ý tham khảo."}
+
+
+@router.post("/so-sanh-duyen")
+async def so_sanh_duyen(inp: SoSanhInput,
+                        caller: dict = Depends(require_caller)) -> dict:
+    """So nhiều người với mình → xếp hạng độ tương ứng (cho người đang phân vân giữa nhiều mối)."""
+    rate_limit_caller(caller, bucket=_LLM_BUCKET, limit=_LLM_LIMIT, window_sec=_LLM_WINDOW)
+    return await _so_sanh_duyen_core(inp)
 
 
 # 12 cung CHỨC NĂNG — lọc khỏi chinh_tinh_per_palace để KHÔNG đếm trùng (map có cả
