@@ -3067,6 +3067,21 @@ def hermes_council_job(job_id: str, http_request: Request) -> dict:
     return out
 
 
+@app.get("/api/chan-dung")
+def chan_dung_get(http_request: Request, person_key: str = "self") -> dict:
+    """Chân Dung khách hàng — tổng hợp DETERMINISTIC 'khách LÀ AI' từ 3 lá số (Bát Tự cốt cách +
+    Tử Vi mệnh + Chiếu Đởm nội tâm) + sản phẩm tốt nhất. Login-gated. Nhanh, free, đọc đồng dạng
+    (không predict). Bản LLM văn xuôi sâu = sản phẩm trả phí (Luận Sâu / Hội Đồng)."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine.hermes_service import _resolve_entry
+    _uid, person = _resolve_entry(None, user["user_id"], person_key)
+    if not person:
+        return {"ok": False, "reason": "not_found"}
+    from engine.chan_dung import build_chan_dung
+    return build_chan_dung(person)
+
+
 @app.get("/api/hermes/sages")
 def hermes_sages(http_request: Request) -> dict:
     """Danh sách sage cho picker trang Hỏi Hermes (login). Metadata công khai, không nhạy cảm."""

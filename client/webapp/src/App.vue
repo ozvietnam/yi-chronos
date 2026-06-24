@@ -50,6 +50,7 @@ const CungPhuTheBacPhaiPanel = defineAsyncComponent(() => import("./components/C
 const ChieuDomKinhPanel = defineAsyncComponent(() => import("./components/ChieuDomKinhPanel.vue"));
 const YiHermesChat = defineAsyncComponent(() => import("./components/YiHermesChat.vue"));
 const HoiHermesPanel = defineAsyncComponent(() => import("./components/HoiHermesPanel.vue"));
+const ChanDungPanel = defineAsyncComponent(() => import("./components/ChanDungPanel.vue"));
 const LexiconPanel = defineAsyncComponent(() => import("./components/LexiconPanel.vue"));
 const SettingsPanel = defineAsyncComponent(() => import("./components/SettingsPanel.vue"));
 const ResearchPanel = defineAsyncComponent(() => import("./components/ResearchPanel.vue"));
@@ -116,6 +117,11 @@ const activeRuleset = ref(null);
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
+// Chân Dung → bấm sản phẩm tốt nhất → nhảy tab tương ứng (deep tạm về Hội Đồng — luận sâu nhất hiện có)
+function onOpenProduct(key) {
+  const map = { council: "hoi-hermes", deep: "hoi-hermes", duyen: "gieo-duyen" };
+  activeMainTab.value = map[key] || "hoi-hermes";
+}
 // Publishing tab state: null = Library gallery, "<book_id>" = Workspace
 const publishingSelectedBook = ref(null);
 function openBookInWorkspace(bookId) { publishingSelectedBook.value = bookId; }
@@ -413,6 +419,10 @@ onBeforeUnmount(() => {
         <div class="tab-divider"></div>
         <div class="tab-group">
           <span class="tab-group-label">Hermes</span>
+          <button type="button" :class="{ active: activeMainTab === 'chan-dung' }"
+            @click="activeMainTab = 'chan-dung'" title="Chân dung tổng hợp: bạn là ai qua ba lá số">
+            <span class="tab-icon">🪞</span> Chân Dung
+          </button>
           <button type="button" :class="{ active: activeMainTab === 'hoi-hermes' }"
             @click="activeMainTab = 'hoi-hermes'">
             <span class="tab-icon">⚖️</span> Hỏi Hermes
@@ -984,6 +994,10 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'admin'" class="single-column" aria-label="Admin dashboard">
         <AdminPanel />
+      </section>
+
+      <section v-else-if="activeMainTab === 'chan-dung'" class="single-column" aria-label="Chân Dung khách hàng">
+        <ChanDungPanel @open-product="onOpenProduct" />
       </section>
 
       <section v-else-if="activeMainTab === 'hoi-hermes'" class="single-column" aria-label="Hỏi Hermes — Hội Đồng đa trường phái">
