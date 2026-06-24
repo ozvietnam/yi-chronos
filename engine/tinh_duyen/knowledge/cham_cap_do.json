@@ -1,0 +1,183 @@
+{
+  "_meta": {
+    "ten": "CHẤM CẤP ĐỘ thử thách hôn nhân — NỮ MỆNH (5 cấp, ngôn ngữ xây dựng)",
+    "phai": "Tử Vi (Phú Thái Vi) + Tử Bình (Thiệu Vĩ Hoa & Trần Viên) + biện chính 王亭之 + Trích Thiên Tủy",
+    "ap_dung": "NỮ MỆNH — đọc các YẾU TỐ engine ĐÃ tính trong quy_trinh_day_du (trạng thái cung Phu Thê, sát + Hóa Kỵ Phu Thê, Thương Quan vượng/lộ-tàng, chế hóa có/không, Quan Sát vượng/nhược, Cô Thần Quả Tú) rồi suy ra CẤP + LỘ TRÌNH.",
+    "muc_dich": "Cho engine một THANG ĐỌC chung: gọi tên độ khó như KHÁI NIỆM phân tích ('cấu trúc Thương Quan', 'áp lực lên cung phối ngẫu', 'mức độ thử thách 3/5') + chấm cấp + chỉ lối — KHÔNG lời-phán-vào-người.",
+    "cach_dung_engine": [
+      "Engine quét tin_hieu_nhan_dien của từng cấp theo các factor ĐÃ có trong quy_trinh_day_du (KHÔNG tính lại lý). Khớp cấp CAO nhất mà tín hiệu thoả → trả {cap, do_thay_doi_duoc, phan_loai, lo_trinh}.",
+      "Nếu mơ hồ giữa 2 cấp → chọn cấp THẤP hơn (an toàn, không thổi phồng độ khó) và ghi chú 'ranh giới'.",
+      "Mọi output phải đi kèm nguyen_tac_vang: đây là TIỀM NĂNG, không phải án — kích hoạt hay không tuỳ HÀNH VI."
+    ],
+    "paradigm": {
+      "iron_rule": "#4 + #6 + #8 (đọc đồng dạng, mệnh là động từ) + 王亭之 'bất khả mậu mậu nhiên suy đoán' / 'nữ mệnh phản dị phấn phát'",
+      "nguyen_tac": [
+        "KHÔNG bói: cấm tuyệt đối lời-phán-vào-người ('em sẽ khắc chồng / số cô quả / lận đận / chắc chắn ly hôn / chồng chết'). Chỉ GỌI TÊN cấu trúc + chấm cấp + chỉ lối.",
+        "Mệnh = ĐỘNG TỪ: cấp độ đo ĐỘ KHÓ của nguyên liệu trời ban (TÍNH), KHÔNG đo kết cục. Kết cục do việc XỬ LÝ tính (hành vi) quyết định.",
+        "Cùng một cấu trúc → outcome khác nhau tuỳ MÔI TRƯỜNG + LỰA CHỌN. Cấp cao = cần 'chọn khôn' nhiều hơn, KHÔNG = 'chắc chắn khổ'.",
+        "Diễn đạt dạng: 'mức độ thử thách N/5 — cấu trúc này vận hành tốt nhất khi...', tuyệt đối tránh 'sẽ / chắc chắn / số phải chịu'."
+      ],
+      "_nguon": "docs/design/bat-tu-thieu-vi-hoa-tham-nhuan.md (paradigm guardrail tr.7); Iron Rule #4/#6/#8 CLAUDE.md; memory honnhan_numenh_sources (王亭之 biện chính định kiến + 女命骨髓賦 + tc7 深造講義)"
+    },
+    "thang_5_cap_tong_quan": {
+      "L1": "70-80% đổi được — rèn nhẹ, ý thức vun vén là đủ",
+      "L2": "50-60% đổi được — rèn chủ động gắn kết",
+      "L3": "40-50% đổi được — RANH GIỚI: rèn bắt đầu hiệu quả thật sự",
+      "L4": "10-15% đổi được bằng rèn — CHỌN KHÔN là chính",
+      "L5": "≈0% đổi cấu trúc — cực hiếm, chuyển hướng khí (sự nghiệp/độc lập)"
+    }
+  },
+
+  "cac_cap": {
+    "L1": {
+      "cap": 1,
+      "ten_cap": "Thuận khí — thử thách nhẹ (1/5)",
+      "muc_do_thu_thach": "1/5",
+      "mo_ta": "Cấu trúc cung phối ngẫu cơ bản LÀNH: cung Phu Thê đắc/miếu, sao chồng có vai vế rõ, các sát tinh nếu có thì nhẹ và được hoá giải; bên Bát Tự, khí 食伤 (Thực-Thương) nếu có lại nằm ở vị trí hỷ dụng (giúp người nữ tài hoa mà không lấn át sao chồng). Đây là TÍNH thuận — nền tốt để vun đắp.",
+      "do_thay_doi_duoc": "70-80%",
+      "phan_loai": "rèn được",
+      "tin_hieu_nhan_dien": [
+        "cung Phu Thê đắc/miếu (chính tinh tốt: Thiên Đồng/Thái Âm/Thiên Lương/Thiên Tướng đắc) + chỉ 1-2 sát nhẹ ĐÃ được hoá giải (Hóa Khoa/Hóa Lộc/cát tinh đồng cung)",
+        "KHÔNG có Hóa Kỵ đóng/xung chiếu cung Phu Thê",
+        "Bát Tự: Thương Quan là HỶ DỤNG (không khắc trực diện Chính Quan, hoặc có Tài thông quan sẵn) — 食伤 hài hoà",
+        "Quan Sát (sao chồng) vượng vừa phải, thân cũng đủ vững → cân xứng",
+        "không có (hoặc rất mờ) Cô Thần / Quả Tú ở cung phối ngẫu"
+      ],
+      "lo_trinh": [
+        "Ý thức vun vén đều đặn là đủ: dành thời gian chất lượng, giữ lời nói ấm.",
+        "Tận dụng nền lành để xây thói quen gắn kết sớm (không chủ quan bỏ bê).",
+        "Hướng tài hoa (nếu Thương Quan hỷ dụng) vào sáng tạo/sự nghiệp chung — biến năng lượng thành chất keo."
+      ],
+      "_nguon": "tuvi_phuthe.json (cung Phu Thê đắc/miếu + cát hoá); batu_hon_nhan.json to_hop_then_chot (Thương Quan hỷ dụng + Tài thông quan); Phú Thái Vi (cát tinh hội tụ = thuận); guardrail tr.7"
+    },
+
+    "L2": {
+      "cap": 2,
+      "ten_cap": "Lạnh nhạt — thử thách vừa (2/5)",
+      "muc_do_thu_thach": "2/5",
+      "mo_ta": "Cấu trúc nghiêng về sự THIẾU ẤM hơn là xung khắc: cung phối ngẫu mang sao chủ tình cảm nhưng HÃM (Thiên Đồng/Thái Âm hãm → dễ lạnh nhạt, thiếu chủ động bày tỏ), Thương Quan KHÔNG quá vượng nên không tạo khắc mạnh. Khó nằm ở 'khoảng cách cảm xúc', không ở 'va chạm dữ'.",
+      "do_thay_doi_duoc": "50-60%",
+      "phan_loai": "rèn được",
+      "tin_hieu_nhan_dien": [
+        "cung Phu Thê có Thiên Đồng / Thái Âm HÃM (hoặc chính tinh tình cảm bị thất hãm) → khí lạnh nhạt, ngại biểu lộ",
+        "Thương Quan KHÔNG quá vượng (lộ nhẹ hoặc chủ yếu tàng) → không khắc Quan mạnh",
+        "Quan Sát vượng/nhược ở mức trung tính, không bị 食伤 lấn át rõ",
+        "sát tinh ở cung Phu Thê ít/nhẹ, KHÔNG đi kèm Hóa Kỵ nặng",
+        "có thể thoáng Cô Thần HOẶC Quả Tú đơn lẻ (khuynh hướng khép, chưa thành cô lập)"
+      ],
+      "lo_trinh": [
+        "Chủ động gắn kết: người mang khí lạnh cần TẬP biểu lộ — nói lời quan tâm cụ thể thay vì giữ trong lòng.",
+        "Đầu tư 'thời gian chất lượng' đều đặn (lịch hẹn cố định, hoạt động chung) để bù phần khí thiếu ấm.",
+        "Học ngôn ngữ thể hiện tình cảm phù hợp với bạn đời (lời/việc/quà/chạm/thời gian)."
+      ],
+      "_nguon": "tuvi_phuthe.json (Thiên Đồng/Thái Âm hãm = lạnh nhạt); batu_hon_nhan.json (Thương Quan không vượng → không khắc mạnh); personality_comm_style.json (ngôn ngữ thể hiện tình cảm); guardrail tr.7"
+    },
+
+    "L3": {
+      "cap": 3,
+      "ten_cap": "Ranh giới — thử thách đáng kể, rèn bắt đầu hiệu quả (3/5)",
+      "muc_do_thu_thach": "3/5",
+      "mo_ta": "ĐÂY LÀ RANH GIỚI quan trọng nhất của thang: từ cấp này, công phu RÈN bắt đầu cho hiệu quả thật sự, vì cấu trúc tuy có va chạm nhưng VẪN CÓ THUỐC trong mệnh. Cung phối ngẫu mang sao cương/biến (Cự Môn/Liêm Trinh/Phá Quân hãm) hoặc kèm Cô Thần/Quả Tú; bên Bát Tự Thương Quan vượng NHƯNG có Tài hoặc Ấn chế hoá. Khó là thật, nhưng 'cái tôi' và 'lời nói' chỉnh được.",
+      "do_thay_doi_duoc": "40-50%",
+      "phan_loai": "rèn + chọn khôn",
+      "tin_hieu_nhan_dien": [
+        "cung Phu Thê có Cự Môn / Liêm Trinh / Phá Quân HÃM (khẩu thiệt, cương, biến động) + Cô Thần HOẶC Quả Tú đồng/giáp cung",
+        "Bát Tự: Thương Quan VƯỢNG nhưng CÓ chế hoá sẵn (Tài thông quan: Thương Quan → Tài → Quan; HOẶC Ấn chế Thương Quan)",
+        "Quan Sát có mặt nhưng chịu áp lực từ 食伤 (chưa đến mức bị triệt)",
+        "sát tinh ở cung Phu Thê mức vừa, có thể kèm Hóa Kỵ nhẹ nhưng KHÔNG cùng cụm sát nặng",
+        "thân/Nhật Chủ không quá nhược (còn đủ lực để 'dụng thuốc')"
+      ],
+      "lo_trinh": [
+        "Hạ cái tôi: chuyển cấu trúc Thương Quan (hiếu thắng, hay phản biện) sang Thực Thần (khích lệ, ôn hoà) — xem lo_trinh_ren.thuong_quan_sang_thuc_than.",
+        "Tập LẮNG NGHE trước khi phản bác — đặc biệt khi cung có Cự Môn (khéo lời, xem lo_trinh_ren.cu_mon_sang_kheo_loi).",
+        "CHỌN KHÔN bạn đời: ưu tiên người bản tính hiền/bao dung (Thiên Lương / Thiên Đồng đắc ở lá số bạn đời) để khí cương được dịu.",
+        "Kích hoạt 'thuốc' sẵn có: nếu mệnh có Tài thông quan thì hướng sự nghiệp/tài chính chung làm cầu nối; nếu có Ấn thì lấy học vấn/khuôn phép làm nền."
+      ],
+      "_nguon": "tuvi_phuthe.json (Cự Môn/Liêm/Phá hãm + Cô Thần Quả Tú); batu_hon_nhan.json to_hop_then_chot.thuong_quan_kien_quan (Thương Quan vượng + Tài/Ấn chế = có thuốc); pattern #7 tr.352 + #8 tr.353; 王亭之 (đủ lực thì rèn được)"
+    },
+
+    "L4": {
+      "cap": 4,
+      "ten_cap": "Khí cương lấn — thử thách lớn, chọn khôn là chính (4/5)",
+      "muc_do_thu_thach": "4/5",
+      "mo_ta": "Cấu trúc tạo ÁP LỰC mạnh lên trục phối ngẫu mà THIẾU thuốc giải đối ứng: Thương Quan vượng KHÔNG có chế hoá (không Tài thông quan, không Ấn áp Thương) trong khi Quan (sao chồng) lại nhược → khí 'cái tôi/sáng tạo' áp đảo khí 'chồng'; cung phối ngẫu thêm sát + Thiên Khốc/Thiên Hư (sầu, trống). Rèn vẫn có ý nghĩa nhưng biên độ nhỏ; trọng tâm chuyển sang LỰA CHỌN khôn ngoan về cách thức kết hôn.",
+      "do_thay_doi_duoc": "10-15%",
+      "phan_loai": "chọn khôn là chính",
+      "tin_hieu_nhan_dien": [
+        "Bát Tự: Thương Quan VƯỢNG + KHÔNG chế hoá (thiếu cả Tài thông quan lẫn Ấn chế Thương) + Quan NHƯỢC (sao chồng yếu, không gốc/bị khắc)",
+        "cung Phu Thê có sát tinh + Thiên Khốc / Thiên Hư (khí sầu, trống) đồng/chiếu",
+        "có Cô Thần và/hoặc Quả Tú đóng cung phối ngẫu rõ (khuynh hướng độc lập/khép mạnh)",
+        "Hóa Kỵ chạm cung Phu Thê đi kèm cụm sát (chưa tới mức 'không chế' tuyệt đối của L5)",
+        "thân vượng lấn Quan quá nhược → cân-lệch âm-dương rõ"
+      ],
+      "lo_trinh": [
+        "CHỌN KHÔN — cưới MUỘN (sau ~35 tuổi): để khí cương lắng, người nữ trưởng thành chọn bạn đời chín hơn.",
+        "CHỌN KHÔN — bạn đời CÁCH TUỔI lớn (người chín chắn, bao dung, đủ vững để không bị khí cương lấn).",
+        "CHỌN KHÔN — sống XA định kỳ (công việc xa, hai không gian riêng) để giảm va chạm trực tiếp, giữ khoảng thở.",
+        "Song song vẫn rèn (biên độ 10-15%): chuyển Thương Quan → Thực Thần, mở lòng với Cô Thần/Quả Tú — nhưng KHÔNG kỳ vọng rèn xoá hết, mục tiêu là làm dịu.",
+        "Hướng phần lớn khí cương vào SỰ NGHIỆP/sáng tạo — nơi Thương Quan vượng là tài sản thật (王亭之 'phản dị phấn phát')."
+      ],
+      "_nguon": "batu_hon_nhan.json to_hop_then_chot (Thương Quan vượng không chế + Quan nhược) + pattern #7 tr.352; tuvi_phuthe.json (sát + Thiên Khốc/Hư + Cô Thần Quả Tú); 女命骨髓賦 (cô khắc cấu hình); 王亭之 (chọn khôn thay vì kết án)"
+    },
+
+    "L5": {
+      "cap": 5,
+      "ten_cap": "Cực khó — chuyển hướng khí (5/5)",
+      "muc_do_thu_thach": "5/5",
+      "mo_ta": "CỰC HIẾM. Cấu trúc dồn áp lực tối đa lên trục phối ngẫu mà KHÔNG có bất kỳ thuốc giải nào: cung Phu Thê tụ sát nặng (vd Thất Sát + Vũ Khúc + Hóa Kỵ + nhiều sát) và KHÔNG được chế hoá; bên Bát Tự Thương Quan CỰC VƯỢNG, không Tài/không Ấn, Quan cực nhược. Ở cấp này, rèn gần như không chuyển được CẤU TRÚC — nhưng đây vẫn KHÔNG phải bản án về hạnh phúc: nó nói rằng trục 'hôn nhân truyền thống' không phải nơi khí của người nữ vận hành tốt nhất, và lối ra là CHUYỂN HƯỚNG khí.",
+      "do_thay_doi_duoc": "≈0% (đổi cấu trúc); 100% quyền chuyển hướng khí",
+      "phan_loai": "chọn khôn là chính",
+      "tin_hieu_nhan_dien": [
+        "cung Phu Thê: Thất Sát + Vũ Khúc + Hóa Kỵ (hoặc cụm sát rất nặng) + NHIỀU sát tinh + KHÔNG có cát tinh/cát hoá chế giải",
+        "Bát Tự: Thương Quan CỰC VƯỢNG (thành cách/đương lệnh) + KHÔNG Tài thông quan + KHÔNG Ấn chế + Quan CỰC NHƯỢC (gần như vô Quan hoặc Quan bị triệt)",
+        "Hóa Kỵ + cụm sát cùng dồn vào trục phối ngẫu, không lối thông quan nào còn mở",
+        "không có dấu hiệu 'thuốc' nào trong cả Tử Vi lẫn Bát Tự (đối chiếu chéo đều thiếu)"
+      ],
+      "lo_trinh": [
+        "CÂN NHẮC không kết hôn theo khuôn truyền thống / hoặc kết hôn rất muộn với điều kiện sống độc lập rõ ràng — đây là một LỰA CHỌN hợp lý, không phải thất bại.",
+        "Sống ĐỘC LẬP, lấy tự chủ làm nền hạnh phúc; nếu kết duyên thì chọn hình thức ít va chạm nhất (xa, riêng không gian, bạn đời rất bao dung).",
+        "CHUYỂN khí cực vượng vào SỰ NGHIỆP / sáng tạo / cống hiến — nơi cấu trúc này thành sức mạnh lớn (王亭之 'nữ mệnh phản dị phấn phát').",
+        "Giữ tâm: cấp 5 chỉ nói 'trục phối ngẫu cực khó vận hành', KHÔNG nói 'đời không hạnh phúc'. Hạnh phúc có thể nằm ở trục khác."
+      ],
+      "_nguon": "tuvi_phuthe.json (Thất Sát/Vũ Khúc + Hóa Kỵ + cụm sát không chế); batu_hon_nhan.json (Thương Quan cực vượng không chế + Quan cực nhược); 女命骨髓賦; 王亭之 'bất khả mậu mậu nhiên suy đoán' (cấm phán cứng) + 'phản dị phấn phát'; Trích Thiên Tủy (vô thuốc thì thuận theo thế khí)"
+    }
+  },
+
+  "nguyen_tac_vang": {
+    "_mo_ta": "Khối BẮT BUỘC đính kèm MỌI kết quả chấm cấp. Cấp độ là TIỀM NĂNG, KHÔNG phải án.",
+    "tuyen_bo": "Cấp độ thử thách đo ĐỘ KHÓ của nguyên liệu trời ban (TÍNH), KHÔNG đo kết cục hôn nhân. Kết cục do việc XỬ LÝ tính (HÀNH VI + LỰA CHỌN) quyết định — mệnh là động từ.",
+    "cac_diem": [
+      "TIỀM NĂNG chứ không phải ÁN: cùng một cấp, hai người hành xử khác nhau → kết cục khác nhau. Cấu trúc chỉ cho biết độ khó của bài, không cho biết điểm số cuối.",
+      "Kích hoạt hay KHÔNG tuỳ hành vi: cấp cao chỉ nghĩa là 'cần chọn khôn + rèn nhiều hơn', không nghĩa là 'chắc chắn khổ'.",
+      "王亭之: 'bất khả mậu mậu nhiên suy đoán' (không được hồ đồ suy đoán cứng) — và 'dĩ kim nhật xã hội ngôn, nữ mệnh phản dị phấn phát' (cấu trúc xưa cho là 'cô khắc' nay thường giúp nữ TỰ LẬP).",
+      "Cấm lời-phán-vào-người: không bao giờ nói 'em khắc chồng / số cô quả / chắc chắn ly hôn'. Chỉ nói 'cấu trúc Thương Quan mạnh — mức độ thử thách N/5 — vận hành tốt nhất khi...'.",
+      "Cấp 4-5 KHÔNG = bất hạnh: chúng nói trục hôn-nhân-truyền-thống khó vận hành, lối ra là chọn khôn hoặc chuyển hướng khí sang trục mạnh hơn (sự nghiệp/độc lập)."
+    ],
+    "_nguon": "memory honnhan_numenh_sources (王亭之 深造講義 tc7 + biện chính định kiến); Iron Rule #8 (mệnh là động từ); guardrail tr.7; Trích Thiên Tủy (xét thế khí, không kết án)"
+  },
+
+  "lo_trinh_ren": {
+    "_mo_ta": "3 phép chuyển hoá cốt lõi cho cấp L1-L3 (nơi rèn cho hiệu quả thật). Mỗi phép: chuyển TỪ cấu trúc khó → ĐẾN trạng thái lành, bằng CÁCH cụ thể (hành vi constructive).",
+    "thuong_quan_sang_thuc_than": {
+      "ten": "Thương Quan → Thực Thần",
+      "tu": "Cấu trúc Thương Quan biểu lộ: hiếu thắng, hay phản biện/cãi, kiêu, đòi tự do tuyệt đối, dễ chê bai bạn đời.",
+      "den": "Khí Thực Thần: ôn hoà, khích lệ thay vì chê, khiêm nhường, biến tài hoa thành sự sẻ chia ấm áp.",
+      "cach": "Trước khi phản bác, dừng 1 nhịp hỏi 'điều này có cần nói ngay không?'. Đổi câu chê thành câu khích lệ ('anh làm thế này sẽ hay hơn' thay vì 'sao anh làm dở vậy'). Hướng tài hoa/óc phản biện vào công việc, để dành sự dịu dàng cho gia đình. (Cùng nguồn 食伤 nhưng Thực Thần ôn — Thương Quan cương.)",
+      "_nguon": "batu_hon_nhan.json (Công năng 10 Thần tr.83-87: Thực Thần ôn hoà chế Sát = lành; Thương Quan đối địch Quan; Tâm tính Thương Quan tr.88); pattern #8 tr.353"
+    },
+    "co_than_qua_tu_sang_mo_long": {
+      "ten": "Cô Thần / Quả Tú → mở lòng",
+      "tu": "Khuynh hướng Cô Thần (khép, thích một mình, dựng tường) / Quả Tú (tự lập đến mức cô lập, ngại dựa vào ai).",
+      "den": "Chủ động mở lòng: cho phép mình được nâng đỡ, chia sẻ điểm yếu, gắn kết thay vì rút lui.",
+      "cach": "Mỗi tuần chủ động một hành động kết nối (nhờ giúp một việc nhỏ, kể một nỗi lo). Tập nói 'em cần anh' thay vì gánh hết một mình. Tham gia hoạt động chung để giảm phản xạ co cụm. Coi tính tự lập là SỨC MẠNH — chỉ cần thêm cánh cửa cho người khác bước vào.",
+      "_nguon": "tuvi_phuthe.json (Cô Thần Quả Tú = khuynh hướng độc lập/khép); personality_comm_style.json (mở kênh gắn kết); 王亭之 (tự lập là thế mạnh, cần thêm cửa mở)"
+    },
+    "cu_mon_sang_kheo_loi": {
+      "ten": "Cự Môn → khéo lời",
+      "tu": "Cấu trúc Cự Môn: khẩu thiệt, hay tranh luận, lời sắc dễ gây tổn thương, nghi ngại nên dò xét.",
+      "den": "Khéo lời: dùng tài ăn nói để hoá giải thay vì gây hấn, đặt câu hỏi thay vì kết tội, biến miệng lưỡi sắc thành lời thuyết phục ấm.",
+      "cach": "Thay câu kết tội ('anh lúc nào cũng...') bằng câu cảm nhận ('em thấy hơi buồn khi...'). Dùng tài hùng biện để giải thích, không để áp đảo. Khi nghi ngại → hỏi thẳng nhẹ nhàng thay vì dò xét ngầm. Cự Môn vốn là sao 'ám' giỏi soi — hướng nó vào việc thấu hiểu bạn đời, không vào việc bắt lỗi.",
+      "_nguon": "tuvi_phuthe.json (Cự Môn = khẩu thiệt/ám tinh khi hãm); personality_comm_style.json (chuyển kết-tội → cảm-nhận); Phú Thái Vi (Cự Môn thiện biện — dụng đúng thì quý)"
+    }
+  }
+}
