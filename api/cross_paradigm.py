@@ -80,6 +80,37 @@ def tinh_duyen_self(req: TinhDuyenRequest,
     return out
 
 
+class PhacHoaRequest(BaseModel):
+    person_key: str = "self"
+    vung_mien: Optional[str] = None
+    dan_toc: Optional[str] = None
+    do_tuoi: Optional[str] = None
+    gen_anh: bool = True
+
+
+@router.post("/api/cross-paradigm/tinh-duyen/phac-hoa")
+def tinh_duyen_phac_hoa(req: PhacHoaRequest,
+                        caller: dict = Depends(require_caller)) -> dict:
+    """Phác hoạ CHÂN DUNG BIỂU TƯỢNG người phối ngẫu (đọc đồng dạng — Iron #4/#6/#8).
+
+    KHÔNG phải tiên đoán gương mặt người thật sẽ cưới — là hình tượng hoá KHÍ CHẤT
+    cung Phu Thê (KIỂU người cấu trúc của user vận hành hợp). Trừ 50 xu (gen ảnh tốn
+    tiền THẬT). Ảnh graceful: thiếu key → image_b64=null + note, KHÔNG sập. Cache Iron #4.
+    """
+    from engine.cross_paradigm import service as cps
+    uid = int(caller["user_id"])
+    person = _person(uid, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh — cập nhật person trước khi phác hoạ")
+    out = cps.run_phac_hoa_phoi_ngau(
+        uid, person, vung_mien=req.vung_mien, dan_toc=req.dan_toc,
+        do_tuoi=req.do_tuoi, gen_anh=req.gen_anh)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return out
+
+
 class GieoQueRequest(BaseModel):
     cau_hoi: str
     seed_numbers: Optional[list[int]] = None

@@ -477,6 +477,83 @@
           </div>
         </div>
 
+        <!-- 🎨 PHÁC HOẠ NGƯỜI PHỐI NGẪU (chân dung BIỂU TƯỢNG) -->
+        <div class="gd-card gd-ph">
+          <h5>🎨 Phác họa người phối ngẫu (biểu tượng)</h5>
+          <p class="gd-ph-disc">
+            ⚠️ Đây là chân dung <b>BIỂU TƯỢNG</b> phản chiếu khí chất cung Phu Thê của bạn —
+            một <b>KIỂU người</b> mà cấu trúc của bạn vận hành hợp.
+            <b>KHÔNG phải ảnh người thật bạn sẽ cưới.</b> Không tiên đoán, không cát/hung.
+          </p>
+
+          <button v-if="!phOpen && !phRes" class="gd-soft-btn" @click="phOpen = true">
+            🎨 Phác họa người phối ngẫu (biểu tượng)
+          </button>
+
+          <!-- Form nhập -->
+          <div v-if="phOpen && !phRes" class="gd-ph-form">
+            <label class="gd-ph-lab">Vùng miền</label>
+            <select v-model="phVung" class="gd-in">
+              <option value="bắc">Bắc</option>
+              <option value="trung">Trung</option>
+              <option value="nam">Nam</option>
+              <option value="tây nguyên">Tây Nguyên</option>
+            </select>
+
+            <label class="gd-ph-lab">Dân tộc</label>
+            <input v-model="phDanToc" class="gd-in" placeholder="Kinh" />
+
+            <label class="gd-ph-lab">Độ tuổi mong muốn: <b>{{ phDoTuoi }}</b></label>
+            <input v-model.number="phDoTuoi" type="range" min="18" max="70" step="1" class="gd-ph-range" />
+
+            <div class="gd-ph-actions">
+              <button class="gd-run gd-ph-run" :disabled="phLoading" @click="runPhacHoa">
+                {{ phLoading ? '⏳ Đang phác họa...' : '🎨 Phác họa (50 xu)' }}
+              </button>
+              <button class="gd-soft-btn" @click="phOpen = false">Đóng</button>
+            </div>
+          </div>
+          <p v-if="phErr" class="gd-err">{{ phErr }}</p>
+
+          <!-- Kết quả -->
+          <div v-if="phRes" class="gd-ph-res">
+            <p v-if="phRes.cached" class="gd-note">♻️ Lượt gần đây — không trừ xu lại (một việc một lần).</p>
+            <p v-else-if="phRes.charged_xu" class="gd-note">
+              Đã dùng {{ phRes.charged_xu }} xu<span v-if="phRes.xu_balance != null"> · số dư: {{ phRes.xu_balance }} xu</span>.
+            </p>
+
+            <!-- Ảnh hoặc fallback -->
+            <div class="gd-ph-img-wrap">
+              <img v-if="phRes.image_b64" :src="'data:image/png;base64,' + phRes.image_b64"
+                   alt="Chân dung biểu tượng người phối ngẫu" class="gd-ph-img" />
+              <div v-else class="gd-ph-noimg">
+                <span class="gd-ph-noimg-icon">🖼️</span>
+                <p class="gd-mini">{{ phRes.image_note || 'Ảnh đang tạo / chưa tạo được — xem hồ sơ tướng mạo bên dưới.' }}</p>
+                <button class="gd-soft-btn" :disabled="phLoading" @click="runPhacHoa">🔁 Thử tạo lại ảnh</button>
+              </div>
+            </div>
+
+            <!-- Bảng hồ sơ tướng mạo -->
+            <table v-if="phRes.ho_so" class="gd-ph-table">
+              <tbody>
+                <tr v-for="row in phHoSoRows" :key="row.key" v-show="phRes.ho_so[row.key]">
+                  <th>{{ row.label }}</th><td>{{ phRes.ho_so[row.key] }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <RefBlock v-if="phRes.ho_so && phRes.ho_so._nguon" kind="cite">{{ fmtNguon(phRes.ho_so._nguon) }}</RefBlock>
+
+            <!-- Disclaimer lặp lại dưới ảnh (bắt buộc, nổi bật) -->
+            <p class="gd-ph-disc gd-ph-disc-bottom">
+              ⚖️ {{ phRes.disclaimer || phRes.ho_so?._disclaimer ||
+                'Chân dung BIỂU TƯỢNG phản chiếu khí chất cung Phu Thê — KHÔNG phải ảnh người thật bạn sẽ cưới.' }}
+            </p>
+
+            <button class="gd-soft-btn" @click="resetPhacHoa">🎨 Phác họa lại (chọn lại vùng/tuổi)</button>
+          </div>
+        </div>
+
         <!-- NGUỒN -->
         <details v-if="(tdRes.sources||[]).length" class="gd-guide">
           <summary>📚 Nguồn tri thức</summary>
@@ -716,6 +793,71 @@ async function runTinhDuyenNarrate() {
     tdNarr.value = "";
   } finally {
     tdNarrLoading.value = false;
+  }
+}
+
+// ── 🎨 Phác hoạ người phối ngẫu (chân dung BIỂU TƯỢNG — Iron #4/#6/#8) ──
+// KHÔNG phải ảnh người thật sẽ cưới: là hình tượng hoá KHÍ CHẤT cung Phu Thê.
+const phOpen = ref(false);
+const phVung = ref("bắc");
+const phDanToc = ref("Kinh");
+const phDoTuoi = ref(30);
+const phLoading = ref(false);
+const phRes = ref(null);
+const phErr = ref("");
+
+const phHoSoRows = [
+  { key: "gioi_tinh_phoi_ngau", label: "Giới tính" },
+  { key: "khuon_mat", label: "Khuôn mặt" },
+  { key: "dang_nguoi", label: "Dáng người" },
+  { key: "chieu_cao", label: "Chiều cao" },
+  { key: "da", label: "Nước da" },
+  { key: "mat", label: "Ánh mắt" },
+  { key: "mui", label: "Mũi" },
+  { key: "mieng", label: "Miệng" },
+  { key: "toc", label: "Tóc" },
+  { key: "nghe", label: "Nghề" },
+  { key: "phong_cach", label: "Phong cách" },
+  { key: "bieu_cam", label: "Thần thái" },
+  { key: "moi_truong", label: "Bối cảnh" },
+];
+
+function resetPhacHoa() {
+  phRes.value = null; phErr.value = ""; phOpen.value = true;
+}
+
+async function runPhacHoa() {
+  phLoading.value = true; phErr.value = "";
+  try {
+    const r = await fetch("/api/cross-paradigm/tinh-duyen/phac-hoa", {
+      method: "POST",
+      headers: _authHeaders(),
+      credentials: "include",
+      body: JSON.stringify({
+        person_key: "self",
+        vung_mien: phVung.value,
+        dan_toc: (phDanToc.value || "Kinh").trim(),
+        do_tuoi: String(phDoTuoi.value),
+      }),
+    });
+    let d = null;
+    try { d = await r.json(); } catch (_) { d = null; }
+    if (r.status === 401) { phErr.value = "Đăng nhập để phác họa trên lá số của bạn."; return; }
+    if (r.status === 402) {
+      const need = (d && (d.detail?.need_xu ?? d.need_xu ?? d.required_xu)) || 50;
+      const have = d && (d.detail?.xu_balance ?? d.xu_balance);
+      phErr.value = `Không đủ xu — cần ${need} xu để phác họa` +
+        (have != null ? ` (bạn đang có ${have} xu).` : ".") + " Nạp thêm để mở.";
+      return;
+    }
+    if (r.status === 422) { phErr.value = "Cần cập nhật giờ sinh của bạn trước khi phác họa."; return; }
+    if (!r.ok) { phErr.value = (d && (d.detail || d.error)) || "Không phác họa được, thử lại."; return; }
+    phRes.value = d;
+    phOpen.value = false;
+  } catch (e) {
+    phErr.value = "Lỗi kết nối, thử lại.";
+  } finally {
+    phLoading.value = false;
   }
 }
 
@@ -1234,6 +1376,26 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-td-thoi { background: #fbf6ee; border-color: #e6d6b8; }
 .gd-td-thoi h5 { color: #8a6d1a; }
 .gd-td-narr-h { font-weight: 700; color: var(--gd-accent); margin-bottom: 6px; }
+
+/* 🎨 Phác hoạ người phối ngẫu (chân dung BIỂU TƯỢNG) */
+.gd-ph { background: linear-gradient(165deg, var(--read-surface, #fffaf7), var(--gd-surface-2)); border: 1.5px solid var(--gd-accent-soft); }
+.gd-ph-disc { margin: 6px 0 10px; padding: 9px 12px; border-radius: 10px; background: var(--gd-warn-bg); border: 1px solid var(--gd-warn-border); color: var(--gd-warn); font-size: 0.86em; line-height: 1.5; }
+.gd-ph-disc b { color: var(--gd-warn); }
+.gd-ph-disc-bottom { margin-top: 12px; }
+.gd-ph-form { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.gd-ph-lab { font-size: 0.86em; color: var(--read-text, #5d4450); font-weight: 600; margin-top: 4px; }
+.gd-ph-range { width: 100%; accent-color: var(--gd-accent); }
+.gd-ph-actions { display: flex; gap: 10px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+.gd-ph-run { margin: 0; }
+.gd-ph-res { margin-top: 10px; }
+.gd-ph-img-wrap { display: flex; justify-content: center; margin: 10px 0; }
+.gd-ph-img { max-width: 320px; width: 100%; border-radius: 14px; border: 1px solid var(--gd-border); box-shadow: 0 2px 14px rgba(156,58,90,0.12); }
+.gd-ph-noimg { text-align: center; padding: 22px 14px; border: 1.5px dashed var(--gd-accent-soft); border-radius: 14px; background: var(--gd-surface); width: 100%; }
+.gd-ph-noimg-icon { font-size: 2em; display: block; margin-bottom: 6px; opacity: 0.7; }
+.gd-ph-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9em; }
+.gd-ph-table th { text-align: left; width: 34%; padding: 7px 10px; color: var(--gd-accent); font-weight: 600; vertical-align: top; border-bottom: 1px solid var(--gd-border); }
+.gd-ph-table td { padding: 7px 10px; color: var(--read-text, #3a3a38); line-height: 1.5; border-bottom: 1px solid var(--gd-border); }
+.gd-ph-table tr:last-child th, .gd-ph-table tr:last-child td { border-bottom: none; }
 
 /* ⭐ KHỐI CHẨN ĐOÁN CẤP ĐỘ (KILLER) */
 .gd-cd { background: linear-gradient(165deg, var(--read-surface, #fffaf7), var(--gd-surface-2)); border: 1.5px solid #e09ab8; box-shadow: 0 2px 14px rgba(156,58,90,0.08); }

@@ -20,6 +20,7 @@ from engine import xu_wallet
 from engine.db import session_scope
 
 GIA_XU = 30  # giá đã chốt (#55/#56) — luận liên-phái sâu
+GIA_XU_PHAC_HOA = 50  # phác hoạ chân dung phối ngẫu — GEN ẢNH tốn tiền THẬT → giá cao hơn
 CACHE_TTL_SEC = 86400  # "một việc một lần" (Iron #4): cùng input/ngày → trả lại cũ
 
 
@@ -92,8 +93,9 @@ def _save(uid: int, method: str, sig: str, result: dict) -> Optional[int]:
 
 
 def _charge_and_run(uid: int, method: str, sig: str,
-                    run_fn: Callable[[], dict]) -> dict[str, Any]:
-    """Cache → (miss) trừ 30 xu → chạy engine → lưu. Hoàn xu nếu engine lỗi.
+                    run_fn: Callable[[], dict],
+                    gia_xu: int = GIA_XU) -> dict[str, Any]:
+    """Cache → (miss) trừ `gia_xu` → chạy engine → lưu. Hoàn xu nếu engine lỗi.
 
     Trả dict result của engine + {charged_xu, xu_balance, cached, casting_id}.
     Thiếu xu → {status:'insufficient_xu', need, have, gia_xu} (caller mời nạp)."""
@@ -101,25 +103,25 @@ def _charge_and_run(uid: int, method: str, sig: str,
     if cached is not None:
         cached = dict(cached)
         cached.update({"cached": True, "charged_xu": 0, "casting_id": cid,
-                       "gia_xu": GIA_XU})
+                       "gia_xu": gia_xu})
         return cached
 
-    r = xu_wallet.spend(uid, GIA_XU, f"cross_paradigm_{method}")
+    r = xu_wallet.spend(uid, gia_xu, f"cross_paradigm_{method}")
     if not r["ok"]:
         return {"status": "insufficient_xu", "need": r["need"], "have": r["have"],
-                "gia_xu": GIA_XU}
+                "gia_xu": gia_xu}
 
     try:
         result = run_fn()
     except Exception:
         # Engine lỗi sau khi đã trừ → HOÀN xu (tiền: không nuốt — xu_wallet docstring).
-        xu_wallet.grant(uid, GIA_XU, f"refund_cross_paradigm_{method}")
+        xu_wallet.grant(uid, gia_xu, f"refund_cross_paradigm_{method}")
         raise
 
     result = dict(result)
     casting_id = _save(uid, method, sig, result)
-    result.update({"cached": False, "charged_xu": GIA_XU, "xu_balance": r["balance"],
-                   "casting_id": casting_id, "gia_xu": GIA_XU})
+    result.update({"cached": False, "charged_xu": gia_xu, "xu_balance": r["balance"],
+                   "casting_id": casting_id, "gia_xu": gia_xu})
     return result
 
 
@@ -161,6 +163,46 @@ def run_tinh_duyen(uid: int, person: dict) -> dict[str, Any]:
     if note and out.get("status") != "insufficient_xu":
         out["nu_menh_note"] = note
     return out
+
+
+def run_phac_hoa_phoi_ngau(uid: int, person: dict,
+                           vung_mien: Optional[str] = None,
+                           dan_toc: Optional[str] = None,
+                           do_tuoi: Optional[str] = None,
+                           gen_anh: bool = True) -> dict[str, Any]:
+    """Phác hoạ CHÂN DUNG BIỂU TƯỢNG người phối ngẫu (đọc đồng dạng — Iron #4/#6/#8).
+
+    Trừ 50 xu (gen ảnh tốn tiền THẬT). Cache "một việc một lần" (Iron #4). Hồ sơ luôn
+    grounded vào bảng #4 + 形性赋; ảnh là graceful (không key → image_b64=None + note).
+    """
+    from engine.tinh_duyen.phac_hoa_phoi_ngau import (
+        lap_ho_so_tuong_mao, build_prompt_anh, ve_anh_phoi_ngau)
+    chart = _chart_of(person)
+    gender = person.get("gender") or "nữ"
+    sig = (f"phac_hoa:{person.get('birth_datetime_local')}:{gender}"
+           f":{vung_mien or ''}:{dan_toc or ''}:{do_tuoi or ''}")
+
+    def _run() -> dict:
+        ho_so = lap_ho_so_tuong_mao(
+            la_so=chart["la_so"], bat_tu_state=chart["bat_tu_state"],
+            gender=gender, vung_mien=vung_mien, dan_toc=dan_toc, do_tuoi=do_tuoi)
+        prompt = build_prompt_anh(ho_so, vung_mien, dan_toc, do_tuoi)
+        anh = (ve_anh_phoi_ngau(ho_so, vung_mien, dan_toc, do_tuoi, prompt=prompt)
+               if gen_anh else {"image_b64": None, "image_path": None,
+                                "note": "không yêu cầu tạo ảnh"})
+        return {
+            "method_id": "phac_hoa_phoi_ngau_v1",
+            "paradigm_ok": True,
+            "ho_so": ho_so,
+            "prompt": prompt,
+            "image_b64": anh.get("image_b64"),
+            "image_path": anh.get("image_path"),
+            "image_note": anh.get("note"),
+            "disclaimer": ho_so["_disclaimer"],
+        }
+
+    return _charge_and_run(
+        uid, "cross_paradigm_phac_hoa", sig, _run, gia_xu=GIA_XU_PHAC_HOA)
 
 
 def run_couple_sync(uid: int, person_a: dict, person_b: dict) -> dict[str, Any]:
