@@ -146,6 +146,197 @@
           Đã dùng {{ tdRes.charged_xu }} xu<span v-if="tdRes.xu_balance != null"> · số dư: {{ tdRes.xu_balance }} xu</span>.
         </p>
 
+        <!-- ⭐ KHỐI CHẨN ĐOÁN CẤP ĐỘ — tính năng KILLER, hiển thị đầu tiên -->
+        <div v-if="tdRes.chan_doan_cap_do && tdRes.chan_doan_cap_do.cap_do" class="gd-card gd-cd">
+          <div class="gd-cd-top">
+            <span class="gd-cd-badge" :class="'lv-' + tdRes.chan_doan_cap_do.cap_do">
+              Mức độ thử thách {{ tdRes.chan_doan_cap_do.cap_do }}/5
+              <b v-if="tdRes.chan_doan_cap_do.ten_cap"> — {{ tdRes.chan_doan_cap_do.ten_cap }}</b>
+            </span>
+            <div class="gd-cd-dots" :aria-label="'Cấp ' + tdRes.chan_doan_cap_do.cap_do + ' trên 5'">
+              <span v-for="n in 5" :key="n" class="gd-cd-dot"
+                    :class="{ on: n <= tdRes.chan_doan_cap_do.cap_do }"></span>
+            </div>
+          </div>
+
+          <p v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc || tdRes.chan_doan_cap_do.phan_loai"
+             class="gd-cd-summary">
+            <b v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc">{{ tdRes.chan_doan_cap_do.do_thay_doi_duoc }}</b>
+            <span v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc"> chuyển hoá được</span>
+            <span v-if="tdRes.chan_doan_cap_do.do_thay_doi_duoc && tdRes.chan_doan_cap_do.phan_loai"> · </span>
+            <span v-if="tdRes.chan_doan_cap_do.phan_loai" class="gd-cd-class">{{ tdRes.chan_doan_cap_do.phan_loai }}</span>
+          </p>
+          <p v-if="tdRes.chan_doan_cap_do.muc_do_thu_thach" class="gd-mini">{{ tdRes.chan_doan_cap_do.muc_do_thu_thach }}</p>
+
+          <!-- Tín hiệu kích hoạt -->
+          <div v-if="(tdRes.chan_doan_cap_do.tin_hieu_kich_hoat || []).length" class="gd-cd-sec">
+            <p class="gd-cd-h">🔎 Tín hiệu kích hoạt</p>
+            <ul class="gd-cd-signals">
+              <li v-for="(t, i) in tdRes.chan_doan_cap_do.tin_hieu_kich_hoat" :key="i">{{ t }}</li>
+            </ul>
+          </div>
+
+          <!-- LỘ TRÌNH — checklist hành động (mệnh là động từ) -->
+          <div v-if="(tdRes.chan_doan_cap_do.lo_trinh || []).length" class="gd-cd-sec">
+            <p class="gd-cd-h">🧭 Lộ trình — việc cần LÀM (mệnh là động từ)</p>
+            <ul class="gd-cd-steps">
+              <li v-for="(s, i) in tdRes.chan_doan_cap_do.lo_trinh" :key="i">
+                <span class="gd-cd-check">✓</span><span>{{ s }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lộ trình rèn (chi tiết tu/đến/cách) -->
+          <div v-if="(tdRes.chan_doan_cap_do.lo_trinh_ren || []).length" class="gd-cd-sec">
+            <p class="gd-cd-h">🌿 Đường rèn — chuyển hoá theo chặng</p>
+            <div v-for="(r, i) in tdRes.chan_doan_cap_do.lo_trinh_ren" :key="i" class="gd-cd-ren">
+              <span class="gd-cd-ren-from">{{ r.tu }}</span>
+              <span class="gd-cd-ren-arrow">→</span>
+              <span class="gd-cd-ren-to">{{ r.den }}</span>
+              <p v-if="r.cach" class="gd-do-text">{{ r.cach }}</p>
+            </div>
+          </div>
+
+          <p v-if="tdRes.chan_doan_cap_do.ranh_gioi" class="gd-note">⚠ Ranh giới: {{ tdRes.chan_doan_cap_do.ranh_gioi }}</p>
+          <p v-if="tdRes.chan_doan_cap_do.doi_chieu_cheo" class="gd-mini">⇄ {{ tdRes.chan_doan_cap_do.doi_chieu_cheo }}</p>
+
+          <p v-if="tdRes.chan_doan_cap_do.nguyen_tac_vang" class="gd-cd-vang">
+            “{{ tdRes.chan_doan_cap_do.nguyen_tac_vang }}”
+          </p>
+          <RefBlock v-if="tdRes.chan_doan_cap_do._nguon" kind="cite">{{ fmtNguon(tdRes.chan_doan_cap_do._nguon) }}</RefBlock>
+        </div>
+
+        <!-- KHỐI HỎI–ĐÁP THEO TUỔI -->
+        <div v-if="(tdRes.cau_hoi_tuoi || []).length" class="gd-card gd-cht">
+          <h5>💬 Hỏi – đáp theo chặng đời</h5>
+          <div v-for="(q, i) in tdRes.cau_hoi_tuoi" :key="i" class="gd-cht-item">
+            <div class="gd-cht-q">
+              <span class="gd-cht-he" :class="'he-' + q.he_tra_loi">{{ heLabel(q.he_tra_loi) }}</span>
+              <span class="gd-cht-text">{{ q.cau_hoi }}</span>
+            </div>
+
+            <!-- Câu quyết-định → nút Gieo quẻ thay vì trả lời chốt -->
+            <div v-if="q.can_gieo_que" class="gd-cht-gieo">
+              <p class="gd-note">Đây là câu QUYẾT ĐỊNH — không chốt thay bạn. Gieo một quẻ để soi tâm (không cát/hung).</p>
+              <button v-if="gqOpen !== i" class="gd-soft-btn" @click="openGieo(i, q.cau_hoi)">🔮 Gieo quẻ quyết định</button>
+
+              <div v-else class="gd-gieo-box">
+                <textarea v-model="gqCauHoi" rows="2" class="gd-in gd-gieo-ta"
+                          placeholder="Viết rõ câu hỏi quyết định của bạn (một việc — một quẻ)"></textarea>
+                <div class="gd-gieo-actions">
+                  <button class="gd-run gd-gieo-run" :disabled="gqLoading || !gqCauHoi.trim()" @click="runGieoQue(i)">
+                    {{ gqLoading ? '⏳ Đang gieo...' : '🔮 Gieo quẻ' }}
+                  </button>
+                  <button class="gd-soft-btn" @click="closeGieo">Đóng</button>
+                </div>
+                <p v-if="gqErr" class="gd-err">{{ gqErr }}</p>
+              </div>
+
+              <!-- Kết quả quẻ -->
+              <div v-if="gqRes && gqResFor === i" class="gd-que">
+                <p class="gd-que-cauhoi">“{{ gqRes.cau_hoi }}”</p>
+                <div class="gd-que-row">
+                  <div class="gd-que-cell">
+                    <span class="gd-que-tag">Quẻ chính</span>
+                    <b>{{ gqRes.que_chinh?.ten_que }}</b>
+                    <small v-if="gqRes.que_chinh?.king_wen_index">#{{ gqRes.que_chinh.king_wen_index }}</small>
+                  </div>
+                  <div class="gd-que-cell">
+                    <span class="gd-que-tag">Quẻ hỗ</span>
+                    <b>{{ gqRes.que_ho?.ten_que }}</b>
+                  </div>
+                  <div class="gd-que-cell">
+                    <span class="gd-que-tag">Quẻ biến</span>
+                    <b>{{ gqRes.que_bien?.ten_que }}</b>
+                  </div>
+                  <div class="gd-que-cell">
+                    <span class="gd-que-tag">Hào động</span>
+                    <b>hào {{ gqRes.hao_dong }}</b>
+                  </div>
+                </div>
+
+                <div v-if="gqRes.the_dung" class="gd-que-td">
+                  <p class="gd-mini">
+                    <b>Thể:</b> {{ gqRes.the_dung.que_the }} ({{ gqRes.the_dung.ngu_hanh_the }})
+                    · <b>Dụng:</b> {{ gqRes.the_dung.que_dung }} ({{ gqRes.the_dung.ngu_hanh_dung }})
+                    · <span class="gd-que-quanhe">{{ gqRes.the_dung.quan_he }}</span>
+                  </p>
+                  <p v-if="gqRes.the_dung.doc_dong_dang" class="gd-do-text">{{ gqRes.the_dung.doc_dong_dang }}</p>
+                </div>
+
+                <details class="gd-guide gd-que-buoc">
+                  <summary>📿 4 bước đoán quẻ (đọc đồng dạng)</summary>
+                  <div v-for="(b, k) in bonBuocList(gqRes.bon_buoc)" :key="k" class="gd-que-buoc-item">
+                    <p class="gd-cd-h">{{ b.ten }}</p>
+                    <p v-if="b.huong_doc" class="gd-mini">{{ b.huong_doc }}</p>
+                    <p v-if="b.cau_hoi_cho_user" class="gd-do-text">❓ {{ b.cau_hoi_cho_user }}</p>
+                  </div>
+                </details>
+
+                <div v-if="gqRes.tam_phap" class="gd-que-tam">
+                  <p v-for="(v, k) in gqRes.tam_phap" :key="k" class="gd-note">• {{ v }}</p>
+                </div>
+                <p v-if="gqRes._paradigm" class="gd-para">⚖️ {{ gqRes._paradigm }}</p>
+              </div>
+            </div>
+
+            <!-- Câu thường → trả lời -->
+            <div v-else class="gd-cht-a">
+              <p>{{ q.tra_loi }}</p>
+              <span v-if="q.do_tin != null" class="gd-cht-dotin">độ tin {{ Math.round((q.do_tin <= 1 ? q.do_tin * 100 : q.do_tin)) }}%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KHỐI LUẬN CHI TIẾT 12+10 BƯỚC (collapsible) -->
+        <details v-if="tdRes.quy_trinh_day_du" class="gd-card gd-qt">
+          <summary class="gd-qt-sum">▸ Luận chi tiết 12 + 10 bước</summary>
+
+          <p v-if="tdRes.quy_trinh_day_du.tong_hop_kim_tu_thap" class="gd-qt-tong">
+            {{ tdRes.quy_trinh_day_du.tong_hop_kim_tu_thap }}
+          </p>
+
+          <!-- Xếp hạng yếu tố -->
+          <div v-if="tdRes.quy_trinh_day_du.xep_hang_yeu_to" class="gd-qt-rank">
+            <div v-for="grp in xepHangGroups" :key="grp.key"
+                 v-show="(tdRes.quy_trinh_day_du.xep_hang_yeu_to[grp.key] || []).length"
+                 class="gd-qt-rank-grp" :class="'xh-' + grp.key">
+              <p class="gd-cd-h">{{ grp.icon }} {{ grp.label }}</p>
+              <ul>
+                <li v-for="(y, i) in tdRes.quy_trinh_day_du.xep_hang_yeu_to[grp.key]" :key="i">{{ fmtYeuTo(y) }}</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 12 bước Tử Vi -->
+          <details v-if="(tdRes.quy_trinh_day_du.tu_vi_12_buoc?.buoc || []).length" class="gd-qt-sub">
+            <summary>🏯 Tử Vi — 12 bước</summary>
+            <div v-for="(b, i) in tdRes.quy_trinh_day_du.tu_vi_12_buoc.buoc" :key="i" class="gd-qt-step">
+              <div class="gd-qt-step-h">
+                <span class="gd-qt-no">{{ i + 1 }}</span>
+                <b>{{ b.ten_buoc }}</b>
+                <small v-if="b.sao_chinh"> · {{ Array.isArray(b.sao_chinh) ? b.sao_chinh.join(', ') : b.sao_chinh }}</small>
+                <span v-if="b.muc_do_anh_huong" class="gd-qt-muc">{{ b.muc_do_anh_huong }}</span>
+              </div>
+              <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
+            </div>
+          </details>
+
+          <!-- 10 bước Bát Tự -->
+          <details v-if="(tdRes.quy_trinh_day_du.bat_tu_10_buoc?.buoc || []).length" class="gd-qt-sub">
+            <summary>🀄 Bát Tự — 10 bước</summary>
+            <div v-for="(b, i) in tdRes.quy_trinh_day_du.bat_tu_10_buoc.buoc" :key="i" class="gd-qt-step">
+              <div class="gd-qt-step-h">
+                <span class="gd-qt-no">{{ i + 1 }}</span>
+                <b>{{ b.ten_buoc }}</b>
+                <small v-if="b.sao_chinh"> · {{ Array.isArray(b.sao_chinh) ? b.sao_chinh.join(', ') : b.sao_chinh }}</small>
+                <span v-if="b.muc_do_anh_huong" class="gd-qt-muc">{{ b.muc_do_anh_huong }}</span>
+              </div>
+              <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
+            </div>
+          </details>
+        </details>
+
         <!-- STAGE -->
         <div v-if="tdRes.stage" class="gd-card gd-td-stage">
           <h5>🌱 Chặng đời — tuổi {{ tdRes.stage.tuoi }}</h5>
@@ -526,6 +717,84 @@ async function runTinhDuyenNarrate() {
   } finally {
     tdNarrLoading.value = false;
   }
+}
+
+// ── Hỏi–đáp theo tuổi: badge hệ + gieo quẻ quyết định ──
+function heLabel(he) {
+  return he === "bat_tu" ? "Bát Tự" : he === "mai_hoa" ? "Mai Hoa" : "Tử Vi";
+}
+
+const gqOpen = ref(-1);        // index câu đang mở ô gieo quẻ
+const gqCauHoi = ref("");
+const gqLoading = ref(false);
+const gqErr = ref("");
+const gqRes = ref(null);
+const gqResFor = ref(-1);      // index câu mà kết quả quẻ thuộc về
+
+function openGieo(i, prefill) {
+  gqOpen.value = i;
+  gqErr.value = "";
+  if (gqResFor.value !== i) { gqRes.value = null; gqResFor.value = -1; }
+  if (!gqCauHoi.value.trim()) gqCauHoi.value = prefill || "";
+}
+function closeGieo() { gqOpen.value = -1; gqErr.value = ""; }
+
+async function runGieoQue(i) {
+  const cauHoi = gqCauHoi.value.trim();
+  if (!cauHoi) { gqErr.value = "Viết câu hỏi quyết định trước khi gieo (không nghi không bói)."; return; }
+  gqLoading.value = true; gqErr.value = "";
+  try {
+    const r = await fetch("/api/cross-paradigm/tinh-duyen/gieo-que", {
+      method: "POST",
+      headers: _authHeaders(),
+      credentials: "include",
+      body: JSON.stringify({ cau_hoi: cauHoi }),
+    });
+    const d = await r.json().catch(() => null);
+    if (r.status === 401) { gqErr.value = "Đăng nhập để gieo quẻ."; return; }
+    if (r.status === 422) { gqErr.value = (d && (d.detail || d.error)) || "Thiếu câu hỏi — một câu một quẻ."; return; }
+    if (!r.ok) { gqErr.value = (d && (d.detail || d.error)) || "Không gieo được, thử lại."; return; }
+    gqRes.value = d;
+    gqResFor.value = i;
+    gqOpen.value = -1;  // thu ô nhập, hiện kết quả (một việc một lần)
+  } catch (e) {
+    gqErr.value = "Lỗi kết nối, thử lại.";
+  } finally {
+    gqLoading.value = false;
+  }
+}
+
+// 4 bước đoán quẻ -> mảng theo thứ tự để render
+function bonBuocList(bb) {
+  if (!bb) return [];
+  const order = ["buoc_1_loi_que_hao", "buoc_2_the_dung", "buoc_3_ngoai_ung", "buoc_4_tu_the"];
+  const out = [];
+  for (const k of order) {
+    const b = bb[k];
+    if (!b) continue;
+    out.push({
+      ten: b.ten,
+      huong_doc: b.huong_doc,
+      cau_hoi_cho_user: b.cau_hoi_cho_user,
+    });
+  }
+  return out;
+}
+
+// ── Luận chi tiết: nhóm xếp hạng yếu tố ──
+const xepHangGroups = [
+  { key: "truc_tiep", label: "Trực tiếp", icon: "🎯" },
+  { key: "gian_tiep", label: "Gián tiếp", icon: "🔗" },
+  { key: "tiem_an", label: "Tiềm ẩn", icon: "🌫" },
+];
+function fmtYeuTo(y) {
+  if (y == null) return "";
+  if (typeof y === "string") return y;
+  if (typeof y === "object") {
+    return [y.ten || y.yeu_to || y.ten_buoc, y.luan || y.mo_ta || y.ghi_chu]
+      .filter(Boolean).join(" — ") || JSON.stringify(y);
+  }
+  return String(y);
 }
 
 // Món 2: lời văn ấm
@@ -926,4 +1195,87 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-td-thoi { background: #fbf6ee; border-color: #e6d6b8; }
 .gd-td-thoi h5 { color: #8a6d1a; }
 .gd-td-narr-h { font-weight: 700; color: #9c3a5a; margin-bottom: 6px; }
+
+/* ⭐ KHỐI CHẨN ĐOÁN CẤP ĐỘ (KILLER) */
+.gd-cd { background: linear-gradient(165deg, var(--read-surface, #fffaf7), #fbeef2); border: 1.5px solid #e09ab8; box-shadow: 0 2px 14px rgba(156,58,90,0.08); }
+.gd-cd-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.gd-cd-badge { display: inline-block; padding: 6px 14px; border-radius: 18px; background: #9c3a5a; color: #fff; font-size: 0.92em; font-weight: 600; }
+.gd-cd-badge b { font-weight: 700; }
+.gd-cd-badge.lv-1 { background: #2e7d32; } .gd-cd-badge.lv-2 { background: #5d9e3a; }
+.gd-cd-badge.lv-3 { background: #b8862a; } .gd-cd-badge.lv-4 { background: #c06a28; }
+.gd-cd-badge.lv-5 { background: #9c3a5a; }
+.gd-cd-dots { display: flex; gap: 5px; }
+.gd-cd-dot { width: 12px; height: 12px; border-radius: 50%; background: #e6d2da; border: 1px solid #d3aebd; }
+.gd-cd-dot.on { background: #9c3a5a; border-color: #9c3a5a; }
+.gd-cd-summary { margin: 4px 0 6px; font-size: 0.96em; color: var(--read-text, #5d4450); }
+.gd-cd-summary b { color: #9c3a5a; font-size: 1.15em; }
+.gd-cd-class { font-style: italic; color: #7d4357; }
+.gd-cd-sec { margin: 12px 0 0; }
+.gd-cd-h { margin: 0 0 5px; font-size: 0.9em; font-weight: 700; color: #7d2c47; }
+.gd-cd-signals { margin: 0; padding-left: 18px; }
+.gd-cd-signals li { margin: 4px 0; font-size: 0.88em; color: var(--read-text, #3a3a38); line-height: 1.5; }
+.gd-cd-steps { list-style: none; margin: 0; padding: 0; }
+.gd-cd-steps li { display: flex; gap: 8px; align-items: flex-start; margin: 6px 0; padding: 8px 10px; background: var(--read-surface, #fff); border: 1px solid #c4e6cd; border-radius: 8px; font-size: 0.9em; color: var(--read-text, #2e7d32); line-height: 1.5; }
+.gd-cd-check { flex: none; color: #2e7d32; font-weight: 700; }
+.gd-cd-ren { margin: 8px 0; padding: 8px 10px; background: var(--read-surface, #fff); border-left: 3px solid #c98aa0; border-radius: 6px; }
+.gd-cd-ren-from { color: var(--read-text-faint, #999); } .gd-cd-ren-arrow { margin: 0 6px; color: #9c3a5a; }
+.gd-cd-ren-to { font-weight: 700; color: #9c3a5a; }
+.gd-cd-vang { margin: 14px 0 0; padding: 10px 14px; background: #fbf3f6; border-left: 3px solid #9c3a5a; border-radius: 6px; font-style: italic; font-size: 0.94em; color: var(--read-text, #5d4450); line-height: 1.6; }
+
+/* KHỐI HỎI–ĐÁP THEO TUỔI */
+.gd-cht-item { margin: 12px 0; padding: 12px; background: var(--read-surface, #fff); border: 1px solid #ecd7df; border-radius: 10px; }
+.gd-cht-q { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.gd-cht-text { font-weight: 600; font-size: 0.92em; color: var(--read-text, #3a3a38); }
+.gd-cht-he { flex: none; font-size: 0.7em; padding: 2px 8px; border-radius: 8px; background: #eee; color: #555; }
+.gd-cht-he.he-tu_vi { background: #f3e8ec; color: #7d2c47; }
+.gd-cht-he.he-bat_tu { background: #e6eef7; color: #2c5a7d; }
+.gd-cht-he.he-mai_hoa { background: #eef9f0; color: #2e7d32; }
+.gd-cht-a { margin-top: 6px; }
+.gd-cht-a p { margin: 0; font-size: 0.9em; color: var(--read-text, #444); line-height: 1.55; }
+.gd-cht-dotin { display: inline-block; margin-top: 5px; font-size: 0.74em; color: var(--read-text-faint, #999); }
+.gd-cht-gieo { margin-top: 8px; }
+.gd-gieo-box { margin-top: 8px; }
+.gd-gieo-ta { width: 100%; resize: vertical; box-sizing: border-box; }
+.gd-gieo-actions { display: flex; gap: 10px; align-items: center; margin-top: 8px; }
+.gd-gieo-run { width: auto; margin-top: 0; padding: 9px 20px; }
+
+/* Kết quả quẻ */
+.gd-que { margin-top: 12px; padding: 12px 14px; background: #faf6f8; border: 1px solid #e3d0d9; border-radius: 10px; }
+.gd-que-cauhoi { margin: 0 0 10px; font-style: italic; color: #7d2c47; font-size: 0.92em; }
+.gd-que-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+.gd-que-cell { display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; background: var(--read-surface, #fff); border: 1px solid #ecd7df; border-radius: 8px; text-align: center; }
+.gd-que-tag { font-size: 0.7em; color: var(--read-text-faint, #999); text-transform: uppercase; letter-spacing: 0.5px; }
+.gd-que-cell b { color: #9c3a5a; font-size: 1.02em; }
+.gd-que-cell small { color: var(--read-text-faint, #aaa); font-size: 0.75em; }
+.gd-que-td { margin-top: 10px; }
+.gd-que-quanhe { font-weight: 700; color: #6a4a9c; }
+.gd-que-buoc { margin-top: 10px; }
+.gd-que-buoc summary { color: #7d2c47; }
+.gd-que-buoc-item { margin: 8px 0; padding-left: 4px; }
+.gd-que-tam { margin-top: 10px; }
+
+/* KHỐI LUẬN CHI TIẾT 12+10 */
+.gd-qt { padding: 0; overflow: hidden; }
+.gd-qt-sum { cursor: pointer; padding: 14px 16px; color: #9c3a5a; font-weight: 700; font-size: 0.98em; list-style: none; }
+.gd-qt-sum::-webkit-details-marker { display: none; }
+.gd-qt[open] .gd-qt-sum { border-bottom: 1px solid #ecd7df; }
+.gd-qt > *:not(summary) { margin-left: 16px; margin-right: 16px; }
+.gd-qt > *:last-child { margin-bottom: 14px; }
+.gd-qt-tong { margin: 14px 16px; padding: 10px 14px; background: #f5f0fa; border-left: 3px solid #6a4a9c; border-radius: 6px; font-size: 0.92em; color: var(--read-text, #5d4450); line-height: 1.6; }
+.gd-qt-rank { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 16px; }
+.gd-qt-rank-grp { flex: 1; min-width: 180px; padding: 10px 12px; border-radius: 8px; background: var(--read-surface, #fff); border: 1px solid #ecd7df; }
+.gd-qt-rank-grp.xh-truc_tiep { border-color: #c4e6cd; background: #f3faf5; }
+.gd-qt-rank-grp.xh-gian_tiep { border-color: #d8cce8; background: #f7f3fb; }
+.gd-qt-rank-grp.xh-tiem_an { border-color: #e6d6b8; background: #fbf6ee; }
+.gd-qt-rank-grp ul { margin: 4px 0 0; padding-left: 18px; }
+.gd-qt-rank-grp li { margin: 4px 0; font-size: 0.84em; color: var(--read-text, #444); line-height: 1.5; }
+.gd-qt-sub { margin: 10px 16px; }
+.gd-qt-sub > summary { cursor: pointer; color: #7d2c47; font-size: 0.92em; font-weight: 600; padding: 6px 0; }
+.gd-qt-step { margin: 8px 0; padding: 8px 10px; background: var(--read-surface, #fff); border: 1px solid #ecd7df; border-radius: 8px; }
+.gd-qt-step-h { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.gd-qt-step-h b { color: #9c3a5a; font-size: 0.9em; }
+.gd-qt-step-h small { color: var(--read-text-faint, #999); }
+.gd-qt-no { flex: none; width: 22px; height: 22px; border-radius: 50%; background: #9c3a5a; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.74em; font-weight: 700; }
+.gd-qt-muc { margin-left: auto; font-size: 0.72em; color: var(--read-text-faint, #999); }
+.gd-qt-step .gd-mini { margin: 6px 0 0; }
 </style>

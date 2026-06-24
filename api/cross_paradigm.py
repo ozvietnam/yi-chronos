@@ -80,6 +80,27 @@ def tinh_duyen_self(req: TinhDuyenRequest,
     return out
 
 
+class GieoQueRequest(BaseModel):
+    cau_hoi: str
+    seed_numbers: Optional[list[int]] = None
+
+
+@router.post("/api/cross-paradigm/tinh-duyen/gieo-que")
+def tinh_duyen_gieo_que(req: GieoQueRequest,
+                        caller: dict = Depends(require_caller)) -> dict:
+    """Gieo 1 quẻ Mai Hoa cho câu hỏi QUYẾT ĐỊNH tình duyên (đọc đồng dạng, Iron #4).
+
+    KHÔNG charge thêm xu — đã trả phí ở /tinh-duyen; gieo quẻ chỉ soi tâm cho câu
+    quyết-định, KHÔNG cát/hung, KHÔNG chốt nên/không cưới-chia. Engine deterministic.
+    """
+    from engine.tinh_duyen.gieo_que_quyet_dinh import gieo_que_tinh_duyen
+    cau_hoi = (req.cau_hoi or "").strip()
+    if not cau_hoi:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu câu hỏi quyết định — không nghi không bói (Iron #4)")
+    return gieo_que_tinh_duyen(cau_hoi, req.seed_numbers)
+
+
 @router.post("/api/cross-paradigm/tinh-duyen/narrate")
 def tinh_duyen_narrate(req: TinhDuyenRequest,
                        caller: dict = Depends(require_caller)) -> dict:
