@@ -24,3 +24,16 @@ def test_per_cung_endpoint_service_gated():
 def test_transactions_endpoint_service_gated():
     c = TestClient(app)
     assert c.get("/api/sync/wallet/x/transactions").status_code in (401, 403, 503)
+
+
+def test_deep_cung_invalid_cung():
+    from engine.tu_vi.deep_cung import CUNG_KEYS, deep_cung_reading
+    assert len(CUNG_KEYS) == 12 and "menh" in CUNG_KEYS
+    r = deep_cung_reading(999999, {"birth_datetime_local": "x"}, "not_a_cung")
+    assert r.get("error") == "invalid_cung"   # chặn sớm, KHÔNG trừ xu
+
+
+def test_deep_cung_endpoint_service_gated():
+    c = TestClient(app)
+    r = c.post("/api/sync/deep-cung", json={"firebase_uid": "x", "cung_key": "menh"})
+    assert r.status_code in (401, 403, 503)

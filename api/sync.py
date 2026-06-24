@@ -23,6 +23,7 @@ import time
 from typing import Optional
 
 from fastapi import APIRouter, Header, HTTPException, status
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from sqlalchemy import text
 
@@ -713,6 +714,39 @@ def sync_tu_vi_per_cung(firebase_uid: str, person_key: str = "self",
                                timezone=person.get("timezone") or "Asia/Ho_Chi_Minh",
                                gender=person.get("gender") or "nam")
     return {"found": True, "cung": per_cung_star_reading(ls)}
+
+
+class DeepCungRequest(BaseModel):
+    firebase_uid: str
+    cung_key: str
+    person_key: str = "self"
+
+
+@router.post("/deep-cung")
+def sync_deep_cung(req: DeepCungRequest,
+                   x_api_key: Optional[str] = Header(None, alias="X-API-Key")):
+    """Luận SÂU 1 cung −10 xu (cache vĩnh viễn) cho AppChat (yêu cầu #3 2026-06-24).
+    → 200 {interpretation, xu_balance, cached} · 402 {reason,need,have} · 404 not_synced · 422 missing_birth."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.hermes_service import _person_of
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "not_synced")
+    person = _person_of(user_id, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "missing_birth")
+    from engine.tu_vi.deep_cung import deep_cung_reading
+    r = deep_cung_reading(user_id, person, req.cung_key)
+    if r.get("error") == "invalid_cung":
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, "invalid_cung")
+    if r.get("insufficient"):
+        return JSONResponse(status_code=402,
+                            content={"reason": "insufficient_xu", "need": r["need"], "have": r["have"]})
+    if r.get("error"):
+        raise HTTPException(status.HTTP_502_BAD_GATEWAY, r["error"])
+    return {"interpretation": r["interpretation"], "xu_balance": r["xu_balance"], "cached": r["cached"]}
 
 
 # ─── H6.0: Trả lời nhanh 1-sage (async qua q_hermes) ────────────────────────
