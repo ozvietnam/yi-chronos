@@ -122,6 +122,11 @@ function onOpenProduct(key) {
   const map = { council: "hoi-hermes", deep: "hoi-hermes", duyen: "gieo-duyen" };
   activeMainTab.value = map[key] || "hoi-hermes";
 }
+// Chân Dung → nhảy sang TRANG CHUYÊN GIA luận sâu (Bát Tự 'bat-tu' / Tử Vi 'tu-vi' / Thần Số 'pytago')
+function onOpenPage(tab) {
+  activeMainTab.value = tab;
+  if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+}
 // Publishing tab state: null = Library gallery, "<book_id>" = Workspace
 const publishingSelectedBook = ref(null);
 function openBookInWorkspace(bookId) { publishingSelectedBook.value = bookId; }
@@ -997,7 +1002,7 @@ onBeforeUnmount(() => {
       </section>
 
       <section v-else-if="activeMainTab === 'chan-dung'" class="single-column" aria-label="Chân Dung khách hàng">
-        <ChanDungPanel @open-product="onOpenProduct" />
+        <ChanDungPanel @open-product="onOpenProduct" @open-page="onOpenPage" />
       </section>
 
       <section v-else-if="activeMainTab === 'hoi-hermes'" class="single-column" aria-label="Hỏi Hermes — Hội Đồng đa trường phái">

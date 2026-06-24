@@ -8,7 +8,7 @@ import { ref, computed, watch, onMounted } from "vue";
 import { activePerson } from "../stores/userDataStore.js";
 import { sessionToken } from "../stores/authStore.js";
 
-const emit = defineEmits(["open-product"]);
+const emit = defineEmits(["open-product", "open-page"]);
 
 const cd = ref(null);
 const history = ref([]);
@@ -85,8 +85,11 @@ onMounted(load);
     <p v-else-if="err" class="cd-err">⚠ {{ err }}</p>
 
     <template v-else-if="cd && cd.ok">
-      <!-- Cốt cách (Bát Tự) -->
-      <section class="cd-card cd-cot">
+      <p class="cd-intro">Tổng kết từ <b>3 trường phái chính</b> — bấm “Xem chi tiết” để vào trang chuyên gia luận sâu.</p>
+
+      <!-- ══ 3 TRƯỜNG PHÁI CHÍNH (kết quả cuối) ══ -->
+      <!-- 1. Bát Tự -->
+      <section class="cd-card cd-cot cd-main">
         <h3>🎋 Cốt cách <small>— Bát Tự</small></h3>
         <div class="cd-nhatchu">
           <span class="cd-nc-label">{{ cd.cot_cach.nhat_chu }}</span>
@@ -104,10 +107,11 @@ onMounted(load);
         <p v-if="cd.cot_cach.favorable && cd.cot_cach.favorable.colors" class="cd-fav">
           🎨 Hợp: màu {{ cd.cot_cach.favorable.colors }} · hướng {{ cd.cot_cach.favorable.direction }} · số {{ (cd.cot_cach.favorable.numbers || []).join(", ") }}
         </p>
+        <button class="cd-detail" @click="emit('open-page', 'bat-tu')">Xem chi tiết ở trang Bát Tự →</button>
       </section>
 
-      <!-- Mệnh (Tử Vi) -->
-      <section class="cd-card cd-menh">
+      <!-- 2. Tử Vi -->
+      <section class="cd-card cd-menh cd-main">
         <h3>🌌 Mệnh <small>— Tử Vi Đẩu Số</small></h3>
         <div class="cd-menh-top">
           <span class="cd-pill">Mệnh tại <b>{{ cd.menh.menh_cung }}</b></span>
@@ -134,51 +138,11 @@ onMounted(load);
               <span class="cd-cc-note">— nguyên văn sách cổ, đọc đồng dạng (không phải lời phán định)</span></p>
           </details>
         </div>
+        <button class="cd-detail" @click="emit('open-page', 'tu-vi')">Xem chi tiết ở trang Tử Vi →</button>
       </section>
 
-      <!-- Nội tâm (Chiếu Đởm) -->
-      <section v-if="cd.noi_tam && cd.noi_tam.phi_tinh_tai_menh && cd.noi_tam.phi_tinh_tai_menh.length"
-        class="cd-card cd-noitam">
-        <h3>🪞 Nội tâm <small>— Chiếu Đởm Kinh (Bắc phái)</small></h3>
-        <p class="cd-noitam-body">
-          Phi tinh tọa mệnh nội tâm (cung <b>{{ cd.noi_tam.menh_cung }}</b><span v-if="cd.noi_tam.cung_polarity"> — {{ cd.noi_tam.cung_polarity }} cung</span>):
-          <span v-for="(p, i) in cd.noi_tam.phi_tinh_tai_menh" :key="p.sao">
-            <b>{{ p.sao }}</b><span v-if="p.ngu_hanh" class="cd-nt-nh"> ({{ p.ngu_hanh }})</span>{{ i < cd.noi_tam.phi_tinh_tai_menh.length - 1 ? ", " : "" }}</span>
-        </p>
-        <p v-if="cd.noi_tam.polarity_note" class="cd-nt-pol">{{ cd.noi_tam.polarity_note }}</p>
-        <p class="cd-nt-foot">Lăng kính nội tâm sâu, song hành Tử Vi chính thống (18 phi tinh Bắc phái).</p>
-      </section>
-
-      <!-- Đường đời (Bát Tự gợi mở) -->
-      <section v-if="cd.huong_dan && ((cd.huong_dan.su_nghiep && cd.huong_dan.su_nghiep.length) || (cd.huong_dan.loi_khuyen && cd.huong_dan.loi_khuyen.length))"
-        class="cd-card cd-huongdan">
-        <h3>🧭 Đường đời <small>— gợi mở từ Bát Tự</small></h3>
-        <p v-if="cd.huong_dan.su_nghiep && cd.huong_dan.su_nghiep.length" class="cd-hd-row">
-          <b>Hướng nghề hợp</b><span v-if="cd.huong_dan.dung_hanh"> (dụng hành {{ cd.huong_dan.dung_hanh }})</span>:
-          {{ cd.huong_dan.su_nghiep.join(" · ") }}
-        </p>
-        <div v-if="cd.huong_dan.suc_khoe && cd.huong_dan.suc_khoe.length" class="cd-hd-row">
-          <b>Sức khỏe lưu tâm:</b>
-          <p v-for="s in cd.huong_dan.suc_khoe" :key="s.hanh" class="cd-hd-sk"><b>{{ s.hanh }}</b> — {{ s.note }}</p>
-        </div>
-        <div v-if="cd.huong_dan.loi_khuyen && cd.huong_dan.loi_khuyen.length" class="cd-hd-row">
-          <b>Lời khuyên:</b>
-          <ul class="cd-hd-lk"><li v-for="(l, i) in cd.huong_dan.loi_khuyen" :key="i">{{ l }}</li></ul>
-        </div>
-      </section>
-
-      <!-- Cung đường đời (Hà Lạc) -->
-      <section v-if="cd.ha_lac && cd.ha_lac.overview" class="cd-card cd-halac">
-        <h3>🔯 Cung đường đời <small>— Hà Lạc Lý Số</small></h3>
-        <p class="cd-hl-over">{{ stripMd(cd.ha_lac.overview) }}</p>
-        <p v-if="cd.ha_lac.tien_thien || cd.ha_lac.hau_thien" class="cd-hl-quai">
-          Tiên Thiên: <b>{{ cd.ha_lac.tien_thien }}</b> · Hậu Thiên: <b>{{ cd.ha_lac.hau_thien }}</b></p>
-        <p v-if="cd.ha_lac.giai_doan_hien_tai" class="cd-hl-stage">{{ stripMd(cd.ha_lac.giai_doan_hien_tai) }}</p>
-        <p v-if="cd.ha_lac.closing" class="cd-hl-close">{{ stripMd(cd.ha_lac.closing) }}</p>
-      </section>
-
-      <!-- Thần số học -->
-      <section v-if="cd.than_so && cd.than_so.life_path && cd.than_so.life_path.value" class="cd-card cd-thanso">
+      <!-- 3. Thần số -->
+      <section v-if="cd.than_so && cd.than_so.life_path && cd.than_so.life_path.value" class="cd-card cd-thanso cd-main">
         <h3>🔢 Thần số học <small>— lăng kính tâm lý phương Tây</small></h3>
         <div class="cd-ts-grid">
           <div v-for="key in TS_KEYS" :key="key" v-show="cd.than_so[key] && cd.than_so[key].value" class="cd-ts-item">
@@ -188,17 +152,56 @@ onMounted(load);
           </div>
         </div>
         <p v-if="cd.than_so.life_path && cd.than_so.life_path.dong_dang" class="cd-ts-dd">{{ cd.than_so.life_path.dong_dang }}</p>
+        <button class="cd-detail" @click="emit('open-page', 'pytago')">Xem chi tiết ở trang Thần Số →</button>
       </section>
 
-      <!-- Đường tình duyên -->
-      <section v-if="cd.duyen && cd.duyen.nua_kia && cd.duyen.nua_kia.chinh_tinh && cd.duyen.nua_kia.chinh_tinh.length"
-        class="cd-card cd-duyen">
-        <h3>💞 Đường tình duyên <small>— Tử Vi cung Phu Thê</small></h3>
-        <p class="cd-dy-row"><b>Nửa kia</b> (chính tinh {{ cd.duyen.nua_kia.chinh_tinh.join(", ") }}):</p>
-        <ul class="cd-dy-list"><li v-for="(m, i) in (cd.duyen.nua_kia.mo_ta || [])" :key="i">{{ m }}</li></ul>
-        <p v-if="cd.duyen.nua_kia.con_giap_hop" class="cd-dy-row">Con giáp hợp: tam hợp <b>{{ (cd.duyen.nua_kia.con_giap_hop.tam_hop || []).join(", ") }}</b> · lục hợp <b>{{ cd.duyen.nua_kia.con_giap_hop.luc_hop }}</b></p>
-        <p v-if="cd.duyen.xu_huong" class="cd-dy-row">Xu hướng duyên: <b>{{ cd.duyen.xu_huong }}</b></p>
-        <p v-if="cd.duyen.nua_kia.loi_khuyen" class="cd-dy-note">{{ cd.duyen.nua_kia.loi_khuyen }}</p>
+      <!-- ══ LĂNG KÍNH PHỤ (thu gọn — bấm để mở) ══ -->
+      <section class="cd-extra">
+        <p class="cd-extra-h">🔭 Thêm lăng kính <small>(bấm mở từng mục)</small></p>
+
+        <details class="cd-ex" v-if="cd.huong_dan && ((cd.huong_dan.su_nghiep && cd.huong_dan.su_nghiep.length) || (cd.huong_dan.loi_khuyen && cd.huong_dan.loi_khuyen.length))">
+          <summary>🧭 Đường đời — gợi mở từ Bát Tự</summary>
+          <p v-if="cd.huong_dan.su_nghiep && cd.huong_dan.su_nghiep.length" class="cd-hd-row">
+            <b>Hướng nghề hợp</b><span v-if="cd.huong_dan.dung_hanh"> (dụng hành {{ cd.huong_dan.dung_hanh }})</span>:
+            {{ cd.huong_dan.su_nghiep.join(" · ") }}
+          </p>
+          <div v-if="cd.huong_dan.suc_khoe && cd.huong_dan.suc_khoe.length" class="cd-hd-row">
+            <b>Sức khỏe lưu tâm:</b>
+            <p v-for="s in cd.huong_dan.suc_khoe" :key="s.hanh" class="cd-hd-sk"><b>{{ s.hanh }}</b> — {{ s.note }}</p>
+          </div>
+          <div v-if="cd.huong_dan.loi_khuyen && cd.huong_dan.loi_khuyen.length" class="cd-hd-row">
+            <b>Lời khuyên:</b>
+            <ul class="cd-hd-lk"><li v-for="(l, i) in cd.huong_dan.loi_khuyen" :key="i">{{ l }}</li></ul>
+          </div>
+        </details>
+
+        <details class="cd-ex" v-if="cd.ha_lac && cd.ha_lac.overview">
+          <summary>🔯 Cung đường đời — Hà Lạc Lý Số</summary>
+          <p class="cd-hl-over">{{ stripMd(cd.ha_lac.overview) }}</p>
+          <p v-if="cd.ha_lac.tien_thien || cd.ha_lac.hau_thien" class="cd-hl-quai">
+            Tiên Thiên: <b>{{ cd.ha_lac.tien_thien }}</b> · Hậu Thiên: <b>{{ cd.ha_lac.hau_thien }}</b></p>
+          <p v-if="cd.ha_lac.giai_doan_hien_tai" class="cd-hl-stage">{{ stripMd(cd.ha_lac.giai_doan_hien_tai) }}</p>
+          <p v-if="cd.ha_lac.closing" class="cd-hl-close">{{ stripMd(cd.ha_lac.closing) }}</p>
+        </details>
+
+        <details class="cd-ex" v-if="cd.noi_tam && cd.noi_tam.phi_tinh_tai_menh && cd.noi_tam.phi_tinh_tai_menh.length">
+          <summary>🪞 Nội tâm — Chiếu Đởm Kinh (Bắc phái)</summary>
+          <p class="cd-noitam-body">
+            Phi tinh tọa mệnh nội tâm (cung <b>{{ cd.noi_tam.menh_cung }}</b><span v-if="cd.noi_tam.cung_polarity"> — {{ cd.noi_tam.cung_polarity }} cung</span>):
+            <span v-for="(p, i) in cd.noi_tam.phi_tinh_tai_menh" :key="p.sao">
+              <b>{{ p.sao }}</b><span v-if="p.ngu_hanh" class="cd-nt-nh"> ({{ p.ngu_hanh }})</span>{{ i < cd.noi_tam.phi_tinh_tai_menh.length - 1 ? ", " : "" }}</span>
+          </p>
+          <p v-if="cd.noi_tam.polarity_note" class="cd-nt-pol">{{ cd.noi_tam.polarity_note }}</p>
+        </details>
+
+        <details class="cd-ex" v-if="cd.duyen && cd.duyen.nua_kia && cd.duyen.nua_kia.chinh_tinh && cd.duyen.nua_kia.chinh_tinh.length">
+          <summary>💞 Đường tình duyên — Tử Vi cung Phu Thê</summary>
+          <p class="cd-dy-row"><b>Nửa kia</b> (chính tinh {{ cd.duyen.nua_kia.chinh_tinh.join(", ") }}):</p>
+          <ul class="cd-dy-list"><li v-for="(m, i) in (cd.duyen.nua_kia.mo_ta || [])" :key="i">{{ m }}</li></ul>
+          <p v-if="cd.duyen.nua_kia.con_giap_hop" class="cd-dy-row">Con giáp hợp: tam hợp <b>{{ (cd.duyen.nua_kia.con_giap_hop.tam_hop || []).join(", ") }}</b> · lục hợp <b>{{ cd.duyen.nua_kia.con_giap_hop.luc_hop }}</b></p>
+          <p v-if="cd.duyen.xu_huong" class="cd-dy-row">Xu hướng duyên: <b>{{ cd.duyen.xu_huong }}</b></p>
+          <p v-if="cd.duyen.nua_kia.loi_khuyen" class="cd-dy-note">{{ cd.duyen.nua_kia.loi_khuyen }}</p>
+        </details>
       </section>
 
       <!-- Hành trình -->
@@ -302,6 +305,20 @@ onMounted(load);
 .cd-dy-row { margin: .35rem 0; line-height: 1.6; }
 .cd-dy-list { margin: .3rem 0; padding-left: 1.1rem; line-height: 1.65; font-size: .92rem; }
 .cd-dy-note { font-size: .88rem; font-style: italic; color: var(--read-muted, #777); margin-top: .4rem; }
+/* Trang Chân Dung = tóm kết quả cuối; 3 trường phái chính nổi + lăng kính phụ thu gọn */
+.cd-intro { font-size: .92rem; color: var(--read-muted, #777); margin: .2rem 0 1rem; line-height: 1.6; }
+.cd-main { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+.cd-detail { margin-top: .85rem; display: inline-block; cursor: pointer; font-size: .86rem; font-weight: 600;
+  padding: .42rem .85rem; border-radius: 8px; border: 1px solid var(--read-border, #ccc);
+  background: transparent; color: inherit; transition: background .12s, border-color .12s, color .12s; }
+.cd-detail:hover { border-color: #7c3aed; color: #7c3aed; background: rgba(124,58,237,.07); }
+.cd-extra { margin: 1.5rem 0 .6rem; padding-top: .9rem; border-top: 1px dashed var(--read-border, #ddd); }
+.cd-extra-h { font-size: .95rem; font-weight: 700; margin: 0 0 .6rem; color: var(--read-fg, inherit); }
+.cd-extra-h small { font-weight: 400; color: var(--read-muted, #999); font-size: .8rem; }
+.cd-ex { border: 1px solid var(--read-border, #e3e3e3); border-radius: 8px; margin-bottom: .45rem;
+  padding: .1rem .85rem; background: var(--read-bg, transparent); }
+.cd-ex > summary { cursor: pointer; padding: .55rem 0; font-size: .94rem; font-weight: 600; }
+.cd-ex[open] > summary { margin-bottom: .35rem; border-bottom: 1px solid var(--read-border, #eee); }
 .cd-products { margin: 1.2rem 0; }
 .cd-products h3 { margin: 0 0 .7rem; }
 .cd-prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .7rem; }
