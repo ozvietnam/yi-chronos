@@ -50,4 +50,5 @@ def test_sync_chan_dung_service_gated():
     from api.main import app
     c = TestClient(app)
     r = c.post("/api/sync/chan-dung", json={"firebase_uid": "x", "person_key": "self"})
-    assert r.status_code in (401, 403)
+    # 503 = YI_SYNC_API_KEY chưa cấu hình (môi trường test) · 401 = key sai · cả hai = không lọt
+    assert r.status_code in (401, 403, 503)
