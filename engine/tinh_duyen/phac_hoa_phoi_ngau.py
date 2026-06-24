@@ -24,6 +24,7 @@ import time
 from pathlib import Path
 from typing import Optional
 
+from engine.tinh_duyen import gender_lens as GL
 from engine.tinh_duyen import knowledge_loader as KL
 
 logger = logging.getLogger(__name__)
@@ -38,15 +39,23 @@ _DISCLAIMER = (
 
 _NGUON = "Bảng tướng mạo phối ngẫu (Tài liệu #4) + 形性赋 (Hình Tính Phú, Tử Vi Đẩu Số Toàn Thư)"
 
-# Day Master element (ngũ hành chữ Nhật can) bị KHẮC bởi hành nào = hành của 官杀.
-# Quan Sát (sao chồng/vợ) = ngũ hành KHẮC nhật chủ.
+# Ngũ hành SAO PHỐI NGẪU theo giới:
+#   NỮ → 官杀 = hành KHẮC nhật chủ (_KHAC_NGUOC).
+#   NAM → 财  = hành nhật chủ KHẮC (_KHAC_XUOI).
 # Kim khắc Mộc, Mộc khắc Thổ, Thổ khắc Thủy, Thủy khắc Hỏa, Hỏa khắc Kim.
-_KHAC_NGUOC = {  # day_master_element -> hành khắc nó (= hành 官杀)
+_KHAC_NGUOC = {  # day_master_element -> hành khắc nó (= hành 官杀, sao CHỒNG ở nữ mệnh)
     "mộc": "Kim",
     "thổ": "Mộc",
     "thủy": "Thổ",
     "hỏa": "Thủy",
     "kim": "Hỏa",
+}
+_KHAC_XUOI = {  # day_master_element -> hành mà nó khắc (= hành 财, sao VỢ ở nam mệnh)
+    "kim": "Mộc",
+    "mộc": "Thổ",
+    "thổ": "Thủy",
+    "thủy": "Hỏa",
+    "hỏa": "Kim",
 }
 
 _HANH_VI = {"kim": "Kim", "mộc": "Mộc", "thủy": "Thủy", "hỏa": "Hỏa", "thổ": "Thổ"}
@@ -100,8 +109,12 @@ def _co_dao_hoa_cung_phu_the(la_so: dict) -> bool:
     return False
 
 
-def _hanh_quan_sat(bat_tu_state: dict) -> Optional[str]:
-    """Ngũ hành 官杀 (sao chồng/vợ) = hành KHẮC nhật chủ. Trả 'Kim'/'Mộc'/... hoặc None."""
+def _hanh_quan_sat(bat_tu_state: dict, gender: str = "nữ") -> Optional[str]:
+    """Ngũ hành SAO PHỐI NGẪU theo giới. Trả 'Kim'/'Mộc'/... hoặc None.
+
+    NỮ → 官杀 = hành KHẮC nhật chủ (_KHAC_NGUOC).
+    NAM → 财  = hành nhật chủ KHẮC (_KHAC_XUOI).
+    """
     if not bat_tu_state:
         return None
     try:
@@ -118,7 +131,9 @@ def _hanh_quan_sat(bat_tu_state: dict) -> Optional[str]:
             dm = None
     if not dm:
         return None
-    return _KHAC_NGUOC.get(str(dm).strip().lower())
+    dm = str(dm).strip().lower()
+    table = _KHAC_XUOI if GL.is_male(gender) else _KHAC_NGUOC
+    return table.get(dm)
 
 
 def _chi_ngay(bat_tu_state: dict) -> Optional[str]:
@@ -170,8 +185,8 @@ def lap_ho_so_tuong_mao(la_so: dict,
     nh_map = tm["ngu_hanh_quan_sat"]
     nhan_tuong = tm["nhan_tuong"]
 
-    g = (gender or "nữ").strip().lower()
-    gioi_phoi = _GIOI_NGUOC.get(g, "nam" if g in ("nữ", "nu") else "nữ")
+    # Giới phối ngẫu = NGƯỢC user (nữ→vẽ nam, nam→vẽ nữ) qua gender_lens chuẩn.
+    gioi_phoi = "nữ" if GL.is_male(gender) else "nam"
 
     # 1) chính tinh cung Phu Thê → sao chủ tướng mạo.
     sao_phu_the = _chinh_tinh_o_cung(la_so, 2)
@@ -183,8 +198,8 @@ def lap_ho_so_tuong_mao(la_so: dict,
             break
     base = chinh_map.get(sao_chu) if sao_chu else None
 
-    # 2) ngũ hành 官杀 → da + dáng tinh chỉnh.
-    hanh = _hanh_quan_sat(bat_tu_state)
+    # 2) ngũ hành sao phối ngẫu theo giới (nữ 官杀 / nam 财) → da + dáng tinh chỉnh.
+    hanh = _hanh_quan_sat(bat_tu_state, gender=gender)
     nh = nh_map.get(hanh) if hanh else None
 
     # 3) chi ngày → mức nổi bật.

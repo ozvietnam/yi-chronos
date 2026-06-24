@@ -41,6 +41,7 @@ from engine.tu_vi.dai_van_luu_nien_phu_the import (
     luu_nien_phu_the_markers,
 )
 from engine.tinh_duyen import knowledge_loader as kb
+from engine.tinh_duyen import gender_lens as GL
 
 METHOD_ID = "tinh_duyen_tuvi_12_buoc_v1"
 
@@ -345,7 +346,7 @@ def doc_tuvi_12_buoc(
         + (f"Năm đáng chú ý: "
            + "; ".join(f"{m['year']}({m['year_branch']})" for m in markers) + ". "
            if markers else "Không có mốc Hồng Loan/Thiên Hỉ rõ trong khung này. ")
-        + "Tiểu hạn an theo chi năm sinh, chồng lên lưu niên để định tháng. "
+        + "Tiểu hạn an theo chi năm sinh, xếp lên lưu niên để định tháng. "
         "Mốc = 'năm khí được kích hoạt', không phải tiên tri."
     )
     buoc.append(_buoc(
@@ -483,14 +484,22 @@ def doc_tuvi_12_buoc(
         min_overlap=2, max_results=5,
     )
     cach_names = [c.get("ten") for c in cach if c.get("ten")]
+    chu_the = "người nữ" if gender == "nữ" else "người nam"
+    # Biện chính 女命反易奋发 là của 王亭之 cho NỮ MỆNH (cương liệt → tự lập). Với nam,
+    # cương liệt vốn được cổ văn coi là cát → chỉ cần khung 'mệnh là động từ'.
+    if gender == "nữ":
+        bien_chinh = ("王亭之 biện chính: nữ cương liệt (Vũ Khúc…) thời nay thành tự lập, thành đạt "
+                      "(女命反易奋发) — Mệnh là động từ, không phải số phận đóng đinh.")
+    else:
+        bien_chinh = ("Mệnh cương liệt (Vũ Khúc…) là khí chủ động, quyết đoán — Mệnh là động từ, "
+                      "vận hành tốt khi hướng vào trách nhiệm + chọn bạn đời bao dung, không phải số phận đóng đinh.")
     luan12 = (
         f"Cung Mệnh tại {BRANCHES_TVI[m_idx % 12]} ({', '.join(m_s['chinh']) or 'VCD'}"
         + (f"; {', '.join(x['sao']+' '+x['muc'] for x in m_tt)}" if m_tt else "")
-        + ") là CHỦ THỂ — chính bản thân người nữ. Tử Vi đọc hôn nhân không tách rời Mệnh: "
+        + f") là CHỦ THỂ — chính bản thân {chu_the}. Tử Vi đọc hôn nhân không tách rời Mệnh: "
         "tính cách, độ cương-nhu, cách yêu của chủ thể quyết định cách VẬN HÀNH duyên. "
         + ("Cách cục tổng nổi: " + ", ".join(cach_names) + ". " if cach_names else "")
-        + "王亭之 biện chính: nữ cương liệt (Vũ Khúc…) thời nay thành tự lập, thành đạt "
-        "(女命反易奋发) — Mệnh là động từ, không phải số phận đóng đinh."
+        + bien_chinh
     )
     buoc.append(_buoc(
         "12. Cung Mệnh (命宫) — chủ thể & cách cục tổng",
@@ -502,6 +511,14 @@ def doc_tuvi_12_buoc(
         ["cach_cuc_dict.match_cach_in_chart (Phú Thái Vi 545 cách)",
          "tuvi_phuthe.json (王亭之 女命反易奋发, tc7.txt)"],
     ))
+
+    # NAM: đảo từ-vựng giới trên surface 'luan' của 12 bước (chồng→vợ, sao chồng→sao vợ).
+    # An toàn: verb-trap 'chồng lên lưu niên' đã đổi thành 'xếp lên' ở BƯỚC 6 nên
+    # apply_gender không hiểu nhầm động từ 'chồng' (chất đống) thành phối-ngẫu.
+    if gender == "nam":
+        for b in buoc:
+            if isinstance(b.get("luan"), str):
+                b["luan"] = GL.apply_gender(b["luan"], "nam")
 
     return {
         "method_id": METHOD_ID,

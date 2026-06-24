@@ -21,6 +21,7 @@ from __future__ import annotations
 
 from typing import Optional
 
+from . import gender_lens as GL
 from . import knowledge_loader as kb
 
 # Trần ký tự cho câu trả lời rút gọn (giữ gọn cho UI).
@@ -329,10 +330,18 @@ def tra_loi_cau_hoi_tuoi(
     _key, block = _pick_nhom_tuoi(age)
     cau_hoi_list = block.get("cau_hoi") or []
 
+    # cau_hoi_tuoi.json viết THUẦN NỮ (lấy chồng/khắc chồng/chồng ngoại tình…). Với NAM,
+    # transform câu hỏi + câu trả lời qua gender_lens (lấy vợ/khắc thê/vợ ngoại tình…).
+    # KHÔNG bao giờ phán 'tái hôn/khắc chồng' kiểu nữ cho nam — apply_gender đảo hết.
+    is_male = GL.is_male(gender)
+
     counter = [0]
     results: list[dict] = []
     for q in cau_hoi_list:
         tra_loi = _build_answer(q, out)
+        # NAM: đảo từ-vựng giới TRƯỚC khi rút gọn/scrub (lấy chồng→lấy vợ…).
+        if is_male:
+            tra_loi = GL.apply_gender(tra_loi, "nam")
         tra_loi = _shorten(tra_loi)
         # Hàng rào cứng defense-in-depth (text tự ráp cũng phải qua _scrub).
         scrubbed = _scrub(tra_loi)
@@ -340,8 +349,13 @@ def tra_loi_cau_hoi_tuoi(
             counter[0] += 1
         tra_loi = scrubbed
 
+        # Câu hỏi của user cũng đảo giới (NAM hỏi 'lấy vợ', không 'lấy chồng').
+        cau_hoi_txt = q.get("cau_hoi")
+        if is_male:
+            cau_hoi_txt = GL.apply_gender(cau_hoi_txt, "nam")
+
         results.append({
-            "cau_hoi": q.get("cau_hoi"),
+            "cau_hoi": cau_hoi_txt,
             "he_tra_loi": _he_tra_loi(q),
             "tra_loi": tra_loi,
             "can_gieo_que": bool(q.get("can_gieo_que")),

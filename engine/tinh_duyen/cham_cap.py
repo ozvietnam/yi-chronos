@@ -27,9 +27,48 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
+from . import gender_lens as GL
 from . import knowledge_loader as kb
 
 METHOD_ID = "cham_cap_do_nu_menh_v1"
+
+# ── CONCEPT-MAP theo giới (NAM mirror) ──────────────────────────────────────
+# cham_cap_do.json + signal text viết theo NỮ (伤官 khắc 官). Với NAM, khái niệm đối
+# xứng là 比劫 đoạt 财: 'Thương Quan' → 'Tỷ Kiếp', 'Quan (sao phối ngẫu)' → 'Tài
+# (sao phối ngẫu)'. Áp SAU GL.apply_gender (lo chồng→vợ / khắc phu→khắc thê) để
+# nam đọc đúng cơ học mà KHÔNG bao giờ phán 'tái hôn/khắc chồng'.
+# Thứ tự: cụm DÀI trước (để 'Thương Quan vượng' không bị 'Quan' nuốt).
+_CONCEPT_MAP_NAM = [
+    ("Thương Quan", "Tỷ Kiếp"),
+    ("伤官见官", "比劫夺财"),
+    ("食伤", "食伤"),                 # giữ (cùng tên 2 giới)
+    ("Quan Sát", "Tài tinh"),
+    ("Quan (sao phối ngẫu)", "Tài (sao phối ngẫu)"),
+    ("thân-Quan", "thân-Tài"),
+    ("lấn Quan", "đoạt Tài"),
+    ("Quan nhược", "Tài nhược"),
+    ("Quan còn nguồn", "Tài còn nguồn"),
+    ("khí 'chồng'", "khí 'vợ'"),
+    ("cái tôi/sáng tạo", "bản ngã/đua tranh"),
+]
+
+
+def _concept_gender(text: Optional[str], gender: Optional[str]) -> str:
+    """Đổi text theo giới: GL.apply_gender (chồng→vợ…) RỒI concept-map (Thương Quan→
+    Tỷ Kiếp…). Nữ (flagship) trả nguyên văn."""
+    if text is None:
+        return ""
+    if not GL.is_male(gender):
+        return text
+    out = GL.apply_gender(text, "nam")
+    for src, dst in _CONCEPT_MAP_NAM:
+        out = out.replace(src, dst)
+    return out
+
+
+def _concept_gender_list(items, gender: Optional[str]) -> list:
+    return [_concept_gender(x, gender) if isinstance(x, str) else x for x in (items or [])]
+
 
 # Mức trạng thái cung (Tử Vi) coi là HÃM/yếu (tín hiệu khó) vs ĐẮC/tốt (tín hiệu lành).
 _MUC_HAM = {"hãm", "lạc", "bình"}
@@ -504,18 +543,20 @@ def cham_cap_do(
     key = f"L{chosen}"
     cap_entry = cac_cap[key]
 
+    # Áp lăng kính giới lên MỌI field người-đọc-thấy (NAM: chồng→vợ + Thương Quan→
+    # Tỷ Kiếp…). Nữ (flagship) giữ nguyên văn.
     return {
         "method_id": METHOD_ID,
         "gender": gender,
         "cap_do": cap_entry["cap"],
-        "ten_cap": cap_entry["ten_cap"],
+        "ten_cap": _concept_gender(cap_entry["ten_cap"], gender),
         "muc_do_thu_thach": cap_entry["muc_do_thu_thach"],
         "do_thay_doi_duoc": cap_entry["do_thay_doi_duoc"],
         "phan_loai": cap_entry["phan_loai"],
-        "mo_ta": cap_entry["mo_ta"],
+        "mo_ta": _concept_gender(cap_entry["mo_ta"], gender),
         # Tín hiệu THẬT trên lá này (đã khớp cấp đã chọn) — bằng chứng, không bịa.
-        "tin_hieu_kich_hoat": tin_hieu,
-        "lo_trinh": list(cap_entry.get("lo_trinh") or []),
+        "tin_hieu_kich_hoat": _concept_gender_list(tin_hieu, gender),
+        "lo_trinh": _concept_gender_list(list(cap_entry.get("lo_trinh") or []), gender),
         "ranh_gioi": ranh_gioi,
         # Đối chiếu chéo 2 phái (None nếu không có dị biệt hạ cấp) — minh bạch quá trình.
         "doi_chieu_cheo": doi_chieu_cheo,

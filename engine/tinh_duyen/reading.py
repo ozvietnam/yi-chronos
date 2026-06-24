@@ -23,6 +23,7 @@ from engine.cross_paradigm.hon_nhan_song_phai import luan_hon_nhan_song_phai
 from engine.hermes_guard import paradigm_violations
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
+from . import gender_lens as GL
 from . import knowledge_loader as kb
 from .cau_hoi_router import tra_loi_cau_hoi_tuoi
 from .cham_cap import cham_cap_do
@@ -228,6 +229,25 @@ def _scrub_tree(obj: Any, counter: list[int]) -> Any:
         return {k: _scrub_tree(v, counter) for k, v in obj.items()}
     if isinstance(obj, (list, tuple)):
         return [_scrub_tree(v, counter) for v in obj]
+    return obj
+
+
+def _apply_gender_tree(obj: Any, gender: str) -> Any:
+    """Đệ quy đảo từ-vựng giới (GL.apply_gender) lên MỌI string lá của 1 block.
+
+    CHỈ áp cho NAM (nữ flagship trả nguyên văn). Dùng cho các block MÔ TẢ PHỐI NGẪU
+    (cung Phu Thê Tử Vi, batu_hon_nhan, personality.cach_yeu…) nơi text là ngữ cảnh
+    DANH TỪ phối ngẫu — KHÔNG chứa động từ 'chồng' (chất đống). Với block có verb-trap
+    (vd tuvi 12 bước 'xếp lên lưu niên') đã xử lý riêng tại nguồn.
+    """
+    if GL.is_female(gender):
+        return obj
+    if isinstance(obj, str):
+        return GL.apply_gender(obj, "nam")
+    if isinstance(obj, dict):
+        return {k: _apply_gender_tree(v, gender) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_apply_gender_tree(v, gender) for v in obj]
     return obj
 
 
@@ -863,6 +883,19 @@ def read_tinh_duyen(
         gender=gender,
     )
 
+    # --- LĂNG KÍNH GIỚI (gender_lens) cho NAM: đảo từ-vựng phối ngẫu (chồng→vợ, sao
+    # chồng→sao vợ, khắc phu→khắc thê, 官杀→财) trên các block MÔ TẢ PHỐI NGẪU. Nữ
+    # (flagship) giữ nguyên. quy_trinh_day_du + chan_doan_cap_do ĐÃ giới-tính-hoá ở
+    # engine con (tuvi/batu_process + cham_cap) → KHÔNG áp lại tránh double-transform.
+    if GL.is_male(gender):
+        cung_phu_the = _apply_gender_tree(cung_phu_the, gender)
+        batu = _apply_gender_tree(batu, gender)
+        personality = _apply_gender_tree(personality, gender)
+        reconcile = _apply_gender_tree(reconcile, gender)
+        cach_cuc = _apply_gender_tree(cach_cuc, gender)
+        dinh_thoi = _apply_gender_tree(dinh_thoi, gender)
+        narration_brief = _apply_gender_tree(narration_brief, gender)
+
     # --- HÀNG RÀO CỨNG CUỐI CÙNG (defense-in-depth): scrub MỌI string surface.
     # Áp lên TẤT CẢ block đưa ra ngoài (cach_cuc, cung_phu_the_tuvi, batu,
     # personality, reconcile, stage, dinh_thoi, narration_brief, base). Nếu BẤT
@@ -876,7 +909,10 @@ def read_tinh_duyen(
     cach_cuc = _scrub_tree(cach_cuc, _n)
     dinh_thoi = _scrub_tree(dinh_thoi, _n)
     narration_brief = _scrub_tree(narration_brief, _n)
-    base_khia_canh = _scrub_tree(base.get("khia_canh", []), _n)
+    _base_kc = base.get("khia_canh", [])
+    if GL.is_male(gender):
+        _base_kc = _apply_gender_tree(_base_kc, gender)
+    base_khia_canh = _scrub_tree(_base_kc, _n)
     # Hàng rào cứng áp luôn lên DỮ LIỆU MỚI (12+10 bước + xếp hạng + tổng hợp).
     quy_trinh_day_du = _scrub_tree(quy_trinh_day_du, _n)
     # Hàng rào cứng áp luôn lên CHẨN ĐOÁN CẤP ĐỘ (lộ trình + nguyên tắc vàng).

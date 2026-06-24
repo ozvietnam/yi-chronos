@@ -49,16 +49,45 @@ from engine.bat_tu.nu_menh import analyze_nu_menh
 from engine.bat_tu.thap_than import thap_than_of
 from engine.bat_tu.vuong_suy_dao_nghich import detect_vuong_suy_paradox
 
+from . import gender_lens as GL
 from . import knowledge_loader as kb
 
 METHOD_ID = "batu_tinh_duyen_10_buoc_v1"
 
-# Sao CHỒNG ở nữ mệnh.
+# Sao CHỒNG ở nữ mệnh (DEFAULT — flagship). Nam mệnh đảo qua _glens() bên dưới.
 _QUAN = "Chính Quan"   # 正官 — chồng chính danh
 _SAT = "Thất Sát"      # 七殺 — người đàn ông mạnh / tình nhân / chồng cá tính
 _QUAN_SAT = (_QUAN, _SAT)
 _THUONG_QUAN = "Thương Quan"   # 伤官 — gốc khắc Quan (sao phối ngẫu của nữ mệnh)
 _THUC_THAN = "Thực Thần"       # 食神 — thông quan (tiết khí, hóa Thương)
+
+
+def _glens(gender: Optional[str]) -> dict:
+    """Lăng kính giới (gender_lens) — gom MỌI hằng số phụ thuộc giới vào 1 dict để
+    truyền xuống các BƯỚC, thay cho hardcode 官杀/伤官.
+
+    NỮ (flagship): phối ngẫu = 官杀 (Chính Quan/Thất Sát); khắc = 伤官 (Thương Quan).
+    NAM (mirror ĐÚNG): phối ngẫu = 财 (Chính Tài/Thiên Tài); khắc = 比劫 (Tỷ Kiếp).
+    Mọi text surface (lời luận) đi qua GL.apply_gender(gender) ở tầng gọi.
+    """
+    phoi_ngau = tuple(GL.phu_the_thap_than(gender))      # ('Chính Quan','Thất Sát') | ('Chính Tài','Thiên Tài')
+    khac = GL.khac_phoi_ngau(gender)
+    ke_khac_list = tuple(khac["ke_khac_list"])           # nữ: ('Thương Quan','Thực Thần') · nam: ('Kiếp Tài','Tỷ Kiên')
+    is_male = GL.is_male(gender)
+    return {
+        "is_male": is_male,
+        "phoi_ngau": phoi_ngau,                  # sao phối ngẫu (= 官杀 nữ / 财 nam)
+        "phoi_ngau_chinh": phoi_ngau[0],         # Chính Quan / Chính Tài
+        "phoi_ngau_le": phoi_ngau[1],            # Thất Sát / Thiên Tài
+        "ke_khac": khac["ke_khac"],              # mô tả KẺ KHẮC phối ngẫu (str có hán)
+        "ke_khac_list": ke_khac_list,            # thập thần khắc phối ngẫu (quét lộ/tàng)
+        "ke_khac_chinh": ke_khac_list[0],        # Thương Quan / Kiếp Tài (gốc khắc chính)
+        "che_hoa": khac["che_hoa"],              # đường chế hoá theo giới
+        "han_ke_khac": khac["han"]["ke_khac"],   # 伤官 / 比劫
+        "han_phoi_ngau": khac["han"]["bi_khac"], # 官 / 财
+        "label": GL.phoi_ngau_label(gender),     # 'chồng' / 'vợ'
+        "co_than_qua_tu": GL.co_than_qua_tu(gender),  # 'Quả Tú' / 'Cô Thần'
+    }
 
 _NHAT_CHI_DISCLAIMER = (
     "Engine đọc đồng dạng (Iron Rule #4/#6/#8) — KHÔNG bói, KHÔNG phán-vào-người (cấm "
@@ -155,57 +184,65 @@ def _kb_nguon(*keys: str) -> list[str]:
 # --------------------------------------------------------------------------- #
 # BƯỚC 1 — Nhật chủ + Phu Thê tinh
 # --------------------------------------------------------------------------- #
-def _buoc_1_nhat_chu_phu_the(state: dict, distrib: dict) -> dict:
+def _buoc_1_nhat_chu_phu_the(state: dict, distrib: dict, gl: dict) -> dict:
     pillars = state["tu_tru"]["pillars"]
     dm = state["tu_tru"]["day_master"]
     day_master = dm["stem"]
+    label = gl["label"]            # 'chồng' | 'vợ'
+    sao_chinh = gl["phoi_ngau_chinh"]
+    sao_le = gl["phoi_ngau_le"]
 
-    quan_loc_tang = _scan_thap_than(pillars, day_master, _QUAN_SAT)
-    chinh_quan_n = _cnt(distrib, _QUAN)
-    that_sat_n = _cnt(distrib, _SAT)
-    tong = chinh_quan_n + that_sat_n
+    quan_loc_tang = _scan_thap_than(pillars, day_master, gl["phoi_ngau"])
+    chinh_n = _cnt(distrib, sao_chinh)
+    le_n = _cnt(distrib, sao_le)
+    tong = chinh_n + le_n
 
     bk = kb.get("batu_hon_nhan")["phu_tinh"]
+    # knowledge JSON viết cho NỮ (官杀); với nam dùng cùng khung tâm-tính (Quan↔Tài
+    # đối xứng âm-dương) — chỉ đảo TỪ surface qua apply_gender.
     cq = bk.get("chinh_quan", {})
     ts = bk.get("that_sat", {})
 
     if tong == 0:
         luan = (
-            f"Nhật chủ {day_master} ({dm['element']}). Cả Chính Quan ({_QUAN}) lẫn "
-            f"Thất Sát ({_SAT}) đều KHÔNG hiện trong Tứ Trụ → 'Phu tinh vô khí'. "
-            "Đọc đồng dạng: cấu trúc chưa khắc rõ hình ảnh người chồng — KHÔNG nghĩa là "
-            "'không lấy chồng', mà là duyên phối ngẫu cần được CHỌN + vun chủ động, "
-            "tín hiệu phối ngẫu rõ hơn ở Đại Vận / Lưu Niên có Quan Sát."
+            f"Nhật chủ {day_master} ({dm['element']}). Cả {sao_chinh} lẫn "
+            f"{sao_le} đều KHÔNG hiện trong Tứ Trụ → 'sao phối ngẫu vô khí'. "
+            f"Đọc đồng dạng: cấu trúc chưa khắc rõ hình ảnh người {label} — KHÔNG nghĩa là "
+            f"'không lấy {label}', mà là duyên phối ngẫu cần được CHỌN + vun chủ động, "
+            f"tín hiệu phối ngẫu rõ hơn ở Đại Vận / Lưu Niên có sao phối ngẫu."
         )
     else:
-        hon_tap = chinh_quan_n > 0 and that_sat_n > 0
+        hon_tap = chinh_n > 0 and le_n > 0
         luan = (
-            f"Nhật chủ {day_master} ({dm['element']}). Sao chồng ở nữ mệnh = 官杀: "
-            f"Chính Quan {chinh_quan_n:.1f} (chồng chính danh — {cq.get('tam_tinh_chong','')[:40]}…), "
-            f"Thất Sát {that_sat_n:.1f} (đàn ông MẠNH/cá tính — {ts.get('tam_tinh_chong','')[:40]}…). "
+            f"Nhật chủ {day_master} ({dm['element']}). Sao phối ngẫu = {gl['han_phoi_ngau']}: "
+            f"{sao_chinh} {chinh_n:.1f} (phối ngẫu chính danh — {cq.get('tam_tinh_chong','')[:40]}…), "
+            f"{sao_le} {le_n:.1f} (người bạn đời MẠNH/cá tính — {ts.get('tam_tinh_chong','')[:40]}…). "
         )
         if hon_tap:
+            hon_tu = "官杀混杂" if not gl["is_male"] else "财星混杂"
             luan += (
-                "Chính Quan + Thất Sát CÙNG hiện = 官杀混杂 (Quan Sát hỗn tạp) — khí chồng "
-                "đa dạng/phức tạp; vận hành tốt nhất khi 'khứ Sát lưu Quan' (định hướng vào "
-                "mối quan hệ chính danh, để khí Thất Sát thành động lực thay vì rối)."
+                f"{sao_chinh} + {sao_le} CÙNG hiện = {hon_tu} (sao phối ngẫu hỗn tạp) — khí phối ngẫu "
+                "đa dạng/phức tạp; vận hành tốt nhất khi định hướng vào "
+                "mối quan hệ chính danh, để khí sao lẻ thành động lực thay vì rối."
             )
         else:
-            chu = _QUAN if chinh_quan_n >= that_sat_n else _SAT
-            luan += f"Sao chồng CHỦ ĐẠO = {chu} (đọc tính khí người bạn đời theo sao này)."
+            chu = sao_chinh if chinh_n >= le_n else sao_le
+            luan += f"Sao phối ngẫu CHỦ ĐẠO = {chu} (đọc tính khí người bạn đời theo sao này)."
 
     return {
-        "ten_buoc": "1. Nhật chủ + Phu Thê tinh (官=chồng / 杀=người mạnh)",
+        "ten_buoc": f"1. Nhật chủ + sao phối ngẫu ({gl['han_phoi_ngau']} = {label})",
         "du_lieu": {
             "nhat_chu": day_master,
             "nhat_chu_element": dm["element"],
-            "chinh_quan": round(chinh_quan_n, 1),
-            "that_sat": round(that_sat_n, 1),
-            "tong_quan_sat": round(tong, 1),
+            "sao_phoi_ngau": list(gl["phoi_ngau"]),
+            "phoi_ngau_chinh": round(chinh_n, 1),
+            "phoi_ngau_le": round(le_n, 1),
+            "tong_phoi_ngau": round(tong, 1),
+            # Giữ key cũ cho nữ-compat (downstream cham_cap đọc tong_quan_sat từ BƯỚC 2).
             "phu_tinh_lo_tang": quan_loc_tang,
-            "quan_sat_hon_tap": chinh_quan_n > 0 and that_sat_n > 0,
+            "phoi_ngau_hon_tap": chinh_n > 0 and le_n > 0,
         },
-        "luan": luan,
+        "luan": GL.apply_gender(luan, "nu" if not gl["is_male"] else "nam"),
         "_nguon": _kb_nguon("phu_tinh"),
         "muc_do_anh_huong": "truc_tiep",
     }
@@ -214,59 +251,67 @@ def _buoc_1_nhat_chu_phu_the(state: dict, distrib: dict) -> dict:
 # --------------------------------------------------------------------------- #
 # BƯỚC 2 — Quan Sát vượng / nhược (so Nhật chủ)
 # --------------------------------------------------------------------------- #
-def _buoc_2_quan_sat_vuong_nhuoc(state: dict, distrib: dict) -> dict:
+def _buoc_2_quan_sat_vuong_nhuoc(state: dict, distrib: dict, gl: dict) -> dict:
     dm = state["tu_tru"]["day_master"]
+    label = gl["label"]
     assessment = state.get("ngu_hanh", {}).get("day_master_assessment", {})
     strength_tag = assessment.get("strength_tag", "")
     strength_label = assessment.get("strength_label", "")
-    # 官杀 pressure = element khắc Nhật chủ (đã có sẵn trong breakdown).
+    # Áp lực phía phối ngẫu: nữ = 官杀 pressure (element khắc Nhật chủ); nam = 财 (element
+    # Nhật chủ khắc, tiết khí). breakdown chỉ có sẵn quan_sat_pressure → dùng làm tham
+    # chiếu cho nữ; nam đọc qua tổng điểm 财.
     pressure = assessment.get("breakdown", {}).get("quan_sat_pressure", 0.0)
-    tong_qs = _cnt(distrib, _QUAN) + _cnt(distrib, _SAT)
+    chinh_n = _cnt(distrib, gl["phoi_ngau_chinh"])
+    le_n = _cnt(distrib, gl["phoi_ngau_le"])
+    tong_pn = chinh_n + le_n
 
     bk = kb.get("batu_hon_nhan")["phu_tinh"]["trang_thai_quan_sat"]
-    # phân loại trạng thái 官杀 đối SÁNH Nhật chủ.
-    if tong_qs == 0:
-        key, trang_thai = "vo_quan", "vô Quan"
-    elif _cnt(distrib, _QUAN) > 0 and _cnt(distrib, _SAT) > 0:
-        key, trang_thai = "quan_sat_hon_tap", "Quan Sát hỗn tạp"
-    elif tong_qs >= 3:
+    # phân loại trạng thái sao phối ngẫu đối SÁNH Nhật chủ (cùng heuristic 2 giới).
+    if tong_pn == 0:
+        key, trang_thai = "vo_quan", "vô sao phối ngẫu"
+    elif chinh_n > 0 and le_n > 0:
+        key, trang_thai = "quan_sat_hon_tap", "sao phối ngẫu hỗn tạp"
+    elif tong_pn >= 3:
         key, trang_thai = "vuong", "vượng"
     else:
         key, trang_thai = "nhuoc", "nhược"
     entry = bk.get(key) or bk.get("nhuoc") or {}
 
     day_weak = strength_tag in ("weak", "very_weak")
-    # Cân xứng thân-Quan: cốt lõi luận hôn nhân nữ mệnh.
+    # Cân xứng thân–sao phối ngẫu: cốt lõi luận hôn nhân.
     if day_weak and trang_thai == "vượng":
         can_doi = (
-            "Thân NHƯỢC + Quan VƯỢNG = sức ép từ phía chồng / quan hệ lớn → cần BỔ thân "
+            f"Thân NHƯỢC + sao {label} VƯỢNG = sức ép từ phía {label} / quan hệ lớn → cần BỔ thân "
             "(Ấn = học vấn, Tỉ Kiếp = đồng minh) để khí được cân, quan hệ mới nâng đỡ nhau."
         )
     elif not day_weak and trang_thai == "vượng":
-        can_doi = "Thân vững + Quan vượng = cấu trúc CÂN XỨNG — vợ chồng có thể nâng đỡ nhau."
+        can_doi = f"Thân vững + sao {label} vượng = cấu trúc CÂN XỨNG — hai người có thể nâng đỡ nhau."
     elif trang_thai == "nhược":
-        can_doi = "Quan nhược = hình ảnh người chồng mờ nhạt hơn — duyên cần chủ động vun, chọn kỹ."
+        can_doi = f"Sao {label} nhược = hình ảnh người bạn đời mờ nhạt hơn — duyên cần chủ động vun, chọn kỹ."
     else:
-        can_doi = "Đối sánh thân–Quan để biết quan hệ cân hay lệch (xem BƯỚC 8 ngũ hành thiếu)."
+        can_doi = f"Đối sánh thân–sao {label} để biết quan hệ cân hay lệch (xem BƯỚC 8 ngũ hành thiếu)."
 
     # Tái dùng vượng-suy điên đảo (Trích Thiên Tủy Ch.17) nếu lá số cực đoan.
     counts = state.get("ngu_hanh", {}).get("counts", {})
     paradox = detect_vuong_suy_paradox(dm["element"], counts)
 
     return {
-        "ten_buoc": "2. Quan Sát vượng / nhược (so Nhật chủ)",
+        "ten_buoc": f"2. Sao phối ngẫu vượng / nhược (so Nhật chủ) — {gl['han_phoi_ngau']}",
         "du_lieu": {
             "nhat_chu_strength_tag": strength_tag,
             "nhat_chu_strength_label": strength_label,
             "quan_sat_pressure_score": pressure,
-            "tong_quan_sat": round(tong_qs, 1),
+            # tong_quan_sat = tổng sao PHỐI NGẪU theo giới (giữ KEY cũ để cham_cap đọc;
+            # nữ = 官杀, nam = 财). Đây là 'lực sao phối ngẫu' bất kể giới.
+            "tong_quan_sat": round(tong_pn, 1),
             "trang_thai_quan_sat": trang_thai,
             "vuong_suy_dien_dao": paradox,   # None nếu không cực đoan
         },
-        "luan": (
+        "luan": GL.apply_gender(
             f"{entry.get('y_nghia','')} {can_doi} "
             + (f"⚡ Lá số CỰC ĐOAN: {paradox['paradigm_text']} → dụng thần đảo logic "
-               f"(Trích Thiên Tủy Ch.17)." if paradox else "")
+               f"(Trích Thiên Tủy Ch.17)." if paradox else ""),
+            "nu" if not gl["is_male"] else "nam",
         ),
         "_nguon": (
             [f"batu_hon_nhan.trang_thai_quan_sat.{key}: {entry.get('_nguon','')}"]
@@ -279,51 +324,71 @@ def _buoc_2_quan_sat_vuong_nhuoc(state: dict, distrib: dict) -> dict:
 # --------------------------------------------------------------------------- #
 # BƯỚC 3 — Thương Quan (cấu trúc khắc Quan = áp lực lên sao phối ngẫu): lộ/tàng
 # --------------------------------------------------------------------------- #
-def _buoc_3_thuong_quan(state: dict, distrib: dict) -> dict:
+def _buoc_3_thuong_quan(state: dict, distrib: dict, gl: dict) -> dict:
     pillars = state["tu_tru"]["pillars"]
     day_master = state["tu_tru"]["day_master"]["stem"]
-    tq_loc_tang = _scan_thap_than(pillars, day_master, (_THUONG_QUAN,))
-    tq_n = _cnt(distrib, _THUONG_QUAN)
-    tong_qs = _cnt(distrib, _QUAN) + _cnt(distrib, _SAT)
+    # KẺ KHẮC phối ngẫu theo giới: nữ = 伤官 (+食神); nam = 比劫 (Kiếp Tài + Tỷ Kiên).
+    ke_khac_list = gl["ke_khac_list"]
+    ke_khac_chinh = gl["ke_khac_chinh"]
+    kk_loc_tang = _scan_thap_than(pillars, day_master, ke_khac_list)
+    kk_n = sum(_cnt(distrib, s) for s in ke_khac_list)
+    tong_pn = _cnt(distrib, gl["phoi_ngau_chinh"]) + _cnt(distrib, gl["phoi_ngau_le"])
+    label = gl["label"]
+    han_kk = gl["han_ke_khac"]      # 伤官 | 比劫
+    han_pn = gl["han_phoi_ngau"]    # 官 | 财
+    kien = "伤官见官" if not gl["is_male"] else "比劫夺财"   # Thương Quan thấy Quan / Tỷ Kiếp đoạt Tài
 
-    lo = [x for x in tq_loc_tang if x["lo_tang"] == "lộ"]
-    tang = [x for x in tq_loc_tang if x["lo_tang"] == "tàng"]
+    lo = [x for x in kk_loc_tang if x["lo_tang"] == "lộ"]
+    tang = [x for x in kk_loc_tang if x["lo_tang"] == "tàng"]
 
-    if tq_n == 0:
+    if kk_n == 0:
         luan = (
-            "Không thấy Thương Quan trong Tứ Trụ → KHÔNG có gốc trực tiếp khắc Quan (sao "
-            "phối ngẫu) từ bẩm sinh. Áp lực lên sao Quan nếu có sẽ đến từ Đại Vận / Lưu Niên "
-            "dẫn Thương Quan (BƯỚC 5,6)."
+            f"Không thấy {ke_khac_chinh} trong Tứ Trụ → KHÔNG có gốc trực tiếp khắc sao phối "
+            f"ngẫu ({han_pn}) từ bẩm sinh. Áp lực lên sao phối ngẫu nếu có sẽ đến từ Đại Vận / "
+            f"Lưu Niên dẫn {han_kk} (BƯỚC 5,6)."
         )
         muc = "gian_tiep"
     else:
         vi_tri = []
         if lo:
-            vi_tri.append("LỘ trên thiên can (" + ", ".join(f"Trụ {x['tru_vi']}" for x in lo) + ") — áp lực lên sao Quan rõ, biểu hiện ra ngoài")
+            vi_tri.append("LỘ trên thiên can (" + ", ".join(f"Trụ {x['tru_vi']}" for x in lo) + ") — áp lực lên sao phối ngẫu rõ, biểu hiện ra ngoài")
         if tang:
-            vi_tri.append("TÀNG trong địa chi (" + ", ".join(f"Trụ {x['tru_vi']}" for x in tang) + ") — áp lực lên sao Quan ngầm, ẩn dưới")
-        manh = tq_n >= 2 and tq_n > tong_qs
+            vi_tri.append("TÀNG trong địa chi (" + ", ".join(f"Trụ {x['tru_vi']}" for x in tang) + ") — áp lực lên sao phối ngẫu ngầm, ẩn dưới")
+        manh = kk_n >= 2 and kk_n > tong_pn
+        if not gl["is_male"]:
+            doc = ("Đọc đồng dạng: Thương Quan = óc phản biện, cá tính độc lập — vận hành tốt khi "
+                   "có Ấn dẫn (học vấn) hoặc Tài tiết (sự nghiệp) thay vì xung trực diện người bạn đời.")
+            che = "có Ấn dẫn / Tài tiết"
+        else:
+            doc = ("Đọc đồng dạng: Tỷ Kiếp = bản ngã mạnh, đua tranh, trọng nghĩa khí — vận hành tốt khi "
+                   "có Thực Thương hoá (chuyển sang sự nghiệp/sáng tạo) hoặc Quan Sát chế, thay vì tranh đoạt khí vợ.")
+            che = "có Thực Thương hoá / Quan Sát chế"
         luan = (
-            f"Thương Quan = {tq_n:.1f} ({'; '.join(vi_tri)}). 伤官 là gốc TRỰC TIẾP khắc 官 "
-            f"(伤官见官 = Thương Quan thấy Quan): với nữ mệnh là cấu trúc tạo áp lực lên sao "
-            "phối ngẫu. "
-            + ("Thương Quan MẠNH hơn Quan Sát → áp lực lên sao Quan nổi trội, cần CHẾ HÓA (xem BƯỚC 4). "
-               if manh else "Mức vừa phải — chế hóa được thì khí Thương Quan thành tài hoa/biểu đạt. ")
-            + "Đọc đồng dạng: Thương Quan = óc phản biện, cá tính độc lập — vận hành tốt khi "
-            "có Ấn dẫn (học vấn) hoặc Tài tiết (sự nghiệp) thay vì xung trực diện người bạn đời."
+            f"{ke_khac_chinh} = {kk_n:.1f} ({'; '.join(vi_tri)}). {han_kk} là gốc TRỰC TIẾP khắc {han_pn} "
+            f"({kien}): với người mệnh này là cấu trúc tạo áp lực lên sao phối ngẫu ({label}). "
+            + (f"{ke_khac_chinh} MẠNH hơn sao phối ngẫu → áp lực nổi trội, cần CHẾ HÓA ({che}, xem BƯỚC 4). "
+               if manh else f"Mức vừa phải — chế hóa được thì khí {ke_khac_chinh} thành tài hoa/sức bật. ")
+            + doc
         )
         muc = "truc_tiep"
 
+    nguon = (
+        ["Tử Bình: 伤官见官 — Thương Quan khắc Chính Quan (nữ mệnh = áp lực lên sao phối ngẫu); chế hóa qua Ấn/Tài (Trích Thiên Tủy Ch.6 Nữ Mệnh)"]
+        if not gl["is_male"] else
+        ["Tử Bình: 比劫夺财 — Tỷ Kiếp đoạt Tài (nam mệnh = áp lực lên sao vợ); chế hóa qua Thực Thương hoá Tỷ Kiếp sinh Tài, hoặc Quan Sát chế Tỷ Kiếp (子平真詮; Thiệu Vĩ Hoa)"]
+    )
     return {
-        "ten_buoc": "3. Thương Quan (cấu trúc khắc Quan = áp lực lên sao phối ngẫu) — lộ/tàng, ở trụ nào",
+        "ten_buoc": f"3. {ke_khac_chinh} (cấu trúc khắc sao phối ngẫu = áp lực lên {label}) — lộ/tàng, ở trụ nào",
         "du_lieu": {
-            "thuong_quan": round(tq_n, 1),
+            # giữ KEY cũ 'thuong_quan' để cham_cap/test nữ đọc; với nam = tổng điểm Tỷ Kiếp.
+            "thuong_quan": round(kk_n, 1),
+            "ke_khac_phoi_ngau": list(ke_khac_list),
             "lo": lo,
             "tang": tang,
-            "manh_hon_quan_sat": tq_n > tong_qs and tq_n > 0,
+            "manh_hon_quan_sat": kk_n > tong_pn and kk_n > 0,
         },
-        "luan": luan,
-        "_nguon": _kb_nguon("to_hop") or ["Tử Bình: 伤官见官 — Thương Quan khắc Chính Quan (nữ mệnh = áp lực lên sao phối ngẫu); chế hóa qua Ấn/Tài (Trích Thiên Tủy Ch.6 Nữ Mệnh)"],
+        "luan": GL.apply_gender(luan, "nu" if not gl["is_male"] else "nam"),
+        "_nguon": _kb_nguon("to_hop") or nguon,
         "muc_do_anh_huong": muc,
     }
 
@@ -331,70 +396,88 @@ def _buoc_3_thuong_quan(state: dict, distrib: dict) -> dict:
 # --------------------------------------------------------------------------- #
 # BƯỚC 4 — Chế hóa Thương Quan
 # --------------------------------------------------------------------------- #
-def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
-    tq_n = _cnt(distrib, _THUONG_QUAN)
+def _buoc_4_che_hoa(state: dict, distrib: dict, gl: dict) -> dict:
+    # kk_n = lực KẺ KHẮC phối ngẫu (nữ 伤官 / nam 比劫). Giữ tên biến chung.
+    kk_n = sum(_cnt(distrib, s) for s in gl["ke_khac_list"])
     an_n = _cnt(distrib, "Chính Ấn") + _cnt(distrib, "Thiên Ấn") + _cnt(distrib, "Kiêu Thần")
     tai_n = _cnt(distrib, "Chính Tài") + _cnt(distrib, "Thiên Tài")
     thuc_n = _cnt(distrib, _THUC_THAN)
-    tong_qs = _cnt(distrib, _QUAN) + _cnt(distrib, _SAT)
+    thuong_n = _cnt(distrib, _THUONG_QUAN)
+    tong_pn = _cnt(distrib, gl["phoi_ngau_chinh"]) + _cnt(distrib, gl["phoi_ngau_le"])
+    tong_qs = _cnt(distrib, _QUAN) + _cnt(distrib, _SAT)   # Quan Sát (dùng chế Tỷ Kiếp cho nam)
+    ke_khac_chinh = gl["ke_khac_chinh"]
+    label = gl["label"]
 
     duong_che = []
-    # 1) Ấn khắc Thương (伤官配印) — đường chế hóa CAO QUÝ nhất.
-    if an_n >= 1:
-        duong_che.append({
-            "phep": "Ấn khắc Thương (伤官配印)",
-            "kha_dung": True,
-            "luan": (
-                f"Có Ấn = {an_n:.1f} → Ấn (học vấn, dưỡng dục, từ thiện) KHẮC Thương Quan, "
-                "biến áp lực-lên-sao-Quan thành trí tuệ hữu dụng. Đây là phép chế hóa CAO QUÝ nhất "
-                "cho nữ mệnh Thương Quan."
-            ),
-        })
-    # 2) Thực/Tài thông quan (伤官生财) — Thương Quan sinh Tài, khí thoát qua sự nghiệp.
-    if tai_n >= 1:
-        duong_che.append({
-            "phep": "Thương Quan sinh Tài (伤官生财)",
-            "kha_dung": True,
-            "luan": (
-                f"Có Tài = {tai_n:.1f} → Thương Quan chuyển khí xuống Tài (sự nghiệp/kinh doanh) "
-                "thay vì xung Quan. Tài lại sinh Quan = vòng thông quan, gián tiếp nuôi khí chồng."
-            ),
-        })
-    if thuc_n >= 1:
-        duong_che.append({
-            "phep": "Thực Thần tiết tú (食神泄秀)",
-            "kha_dung": True,
-            "luan": (
-                f"Có Thực Thần = {thuc_n:.1f} → khí ngày tiết ra hiền hòa (Thực) thay vì gắt (Thương), "
-                "làm dịu cấu trúc áp lực lên sao phối ngẫu."
-            ),
-        })
-    # 3) Quan hợp / Quan vượng tự lập (官星有力) — khí chồng đủ mạnh tự đứng.
-    if tong_qs >= 2 and tq_n <= tong_qs:
-        duong_che.append({
-            "phep": "Quan Sát hữu lực tự lập",
-            "kha_dung": True,
-            "luan": (
-                f"Quan Sát = {tong_qs:.1f} ≥ Thương Quan = {tq_n:.1f} → khí chồng đủ sức đứng vững, "
-                "Thương Quan không áp đảo được — quan hệ ổn nếu giữ giao tiếp ôn hòa."
-            ),
-        })
+    if not gl["is_male"]:
+        # ── NỮ: chế 伤官 (Ấn khắc Thương / Thương sinh Tài / Thực tiết tú / Quan tự lập) ──
+        if an_n >= 1:
+            duong_che.append({
+                "phep": "Ấn khắc Thương (伤官配印)", "kha_dung": True,
+                "luan": (f"Có Ấn = {an_n:.1f} → Ấn (học vấn, dưỡng dục, từ thiện) KHẮC Thương Quan, "
+                         "biến áp lực-lên-sao-Quan thành trí tuệ hữu dụng. Đây là phép chế hóa CAO QUÝ nhất "
+                         "cho nữ mệnh Thương Quan."),
+            })
+        if tai_n >= 1:
+            duong_che.append({
+                "phep": "Thương Quan sinh Tài (伤官生财)", "kha_dung": True,
+                "luan": (f"Có Tài = {tai_n:.1f} → Thương Quan chuyển khí xuống Tài (sự nghiệp/kinh doanh) "
+                         "thay vì xung Quan. Tài lại sinh Quan = vòng thông quan, gián tiếp nuôi khí chồng."),
+            })
+        if thuc_n >= 1:
+            duong_che.append({
+                "phep": "Thực Thần tiết tú (食神泄秀)", "kha_dung": True,
+                "luan": (f"Có Thực Thần = {thuc_n:.1f} → khí ngày tiết ra hiền hòa (Thực) thay vì gắt (Thương), "
+                         "làm dịu cấu trúc áp lực lên sao phối ngẫu."),
+            })
+        if tong_pn >= 2 and kk_n <= tong_pn:
+            duong_che.append({
+                "phep": "Quan Sát hữu lực tự lập", "kha_dung": True,
+                "luan": (f"Quan Sát = {tong_pn:.1f} ≥ Thương Quan = {kk_n:.1f} → khí chồng đủ sức đứng vững, "
+                         "Thương Quan không áp đảo được — quan hệ ổn nếu giữ giao tiếp ôn hòa."),
+            })
+        ten_buoc = "4. Chế hóa Thương Quan (Ấn khắc Thương / Thực-Tài thông quan / Quan tự lập)"
+        nguon = [
+            "Tử Bình: 伤官配印 / 伤官生财 — chế hóa Thương Quan (Trích Thiên Tủy Ch.6 Nữ Mệnh; Thiệu Vĩ Hoa Tập 2)",
+            "engine.bat_tu.hoa_giai (Thiệu Vĩ Hoa Tập 2 Ch.24 — hóa giải qua hành động)",
+        ]
+    else:
+        # ── NAM: chế 比劫 đoạt Tài (Thực Thương hoá 比劫 sinh 财 / Quan Sát chế 比劫) ──
+        food_n = thuc_n + thuong_n   # 食伤 = Thực + Thương cùng tiết Tỷ Kiếp xuống Tài
+        if food_n >= 1:
+            duong_che.append({
+                "phep": "Thực Thương hoá Tỷ Kiếp sinh Tài (比劫→食伤→财)", "kha_dung": True,
+                "luan": (f"Có Thực Thương = {food_n:.1f} → Tỷ Kiếp KHÔNG đoạt Tài trực diện mà tiết khí "
+                         "xuống Thực Thương rồi sinh Tài (sự nghiệp/sáng tạo). Đây là phép thông quan "
+                         "CAO QUÝ nhất cho nam mệnh Tỷ Kiếp vượng — giữ được sao vợ (财)."),
+            })
+        if tong_qs >= 1:
+            duong_che.append({
+                "phep": "Quan Sát chế Tỷ Kiếp (官杀制比劫)", "kha_dung": True,
+                "luan": (f"Có Quan Sát = {tong_qs:.1f} → Quan Sát KHẮC Tỷ Kiếp, ghìm bản ngã/đua tranh "
+                         "(kỷ luật, danh vị, trách nhiệm) → khí vợ (财) được bảo toàn."),
+            })
+        ten_buoc = "4. Chế hóa Tỷ Kiếp (Thực Thương hoá sinh Tài / Quan Sát chế Tỷ Kiếp)"
+        nguon = [
+            "Tử Bình: 比劫夺财 chế qua 食伤 thông quan (比劫→食伤→财) hoặc 官杀 chế 比劫 (子平真詮; Thiệu Vĩ Hoa Tập 2)",
+            "engine.bat_tu.hoa_giai (Thiệu Vĩ Hoa Tập 2 Ch.24 — hóa giải qua hành động)",
+        ]
 
     co_che_hoa = bool(duong_che)
-    if tq_n == 0:
-        ket = "Không có Thương Quan nên không cần chế hóa áp lực lên sao Quan (BƯỚC 3 trống)."
+    if kk_n == 0:
+        ket = f"Không có {ke_khac_chinh} nên không cần chế hóa áp lực lên sao phối ngẫu (BƯỚC 3 trống)."
         muc = "gian_tiep"
     elif co_che_hoa:
         ket = (
-            f"Thương Quan = {tq_n:.1f} CÓ {len(duong_che)} đường chế hóa khả dụng → áp lực lên sao Quan "
-            "được hóa thành tài hoa/sự nghiệp. Vận hành tốt khi Anh/Chị Ý THỨC dùng đúng kênh "
-            "(học vấn / sự nghiệp) thay vì xung trực diện."
+            f"{ke_khac_chinh} = {kk_n:.1f} CÓ {len(duong_che)} đường chế hóa khả dụng → áp lực lên sao phối "
+            "ngẫu được hóa thành tài hoa/sự nghiệp. Vận hành tốt khi Anh/Chị Ý THỨC dùng đúng kênh "
+            "thay vì xung trực diện."
         )
         muc = "gian_tiep"
     else:
         ket = (
-            f"Thương Quan = {tq_n:.1f} nhưng THIẾU Ấn / Thực / Tài để chế hóa → áp lực lên sao Quan "
-            "trực diện hơn. Hóa giải qua HÀNH ĐỘNG (Iron Rule #8): bổ Ấn (học/thiện) + chọn "
+            f"{ke_khac_chinh} = {kk_n:.1f} nhưng THIẾU đường chế hóa → áp lực lên sao phối ngẫu "
+            "trực diện hơn. Hóa giải qua HÀNH ĐỘNG (Iron Rule #8): dùng đúng kênh khí + chọn "
             "đối tác khí trường bù đắp + đầu tư giao tiếp. KHÔNG phải bản án."
         )
         muc = "truc_tiep"
@@ -403,9 +486,10 @@ def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
     hoa_giai = luan_hoa_giai(state)
 
     return {
-        "ten_buoc": "4. Chế hóa Thương Quan (Ấn khắc Thương / Thực-Tài thông quan / Quan tự lập)",
+        "ten_buoc": ten_buoc,
         "du_lieu": {
-            "thuong_quan": round(tq_n, 1),
+            # giữ KEY cũ 'thuong_quan' = lực kẻ-khắc phối ngẫu theo giới (cham_cap đọc).
+            "thuong_quan": round(kk_n, 1),
             "an": round(an_n, 1),
             "tai": round(tai_n, 1),
             "thuc_than": round(thuc_n, 1),
@@ -416,11 +500,8 @@ def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
                 "duong_sinh": hoa_giai.get("duong_sinh"),
             },
         },
-        "luan": ket,
-        "_nguon": [
-            "Tử Bình: 伤官配印 / 伤官生财 — chế hóa Thương Quan (Trích Thiên Tủy Ch.6 Nữ Mệnh; Thiệu Vĩ Hoa Tập 2)",
-            "engine.bat_tu.hoa_giai (Thiệu Vĩ Hoa Tập 2 Ch.24 — hóa giải qua hành động)",
-        ],
+        "luan": GL.apply_gender(ket, "nu" if not gl["is_male"] else "nam"),
+        "_nguon": nguon,
         "muc_do_anh_huong": muc,
     }
 
@@ -428,17 +509,21 @@ def _buoc_4_che_hoa(state: dict, distrib: dict) -> dict:
 # --------------------------------------------------------------------------- #
 # BƯỚC 5 — Đại Vận → Quan Sát
 # --------------------------------------------------------------------------- #
-def _buoc_5_dai_van(state: dict) -> dict:
+def _buoc_5_dai_van(state: dict, gl: dict) -> dict:
     day_master = state["tu_tru"]["day_master"]["stem"]
+    phoi_ngau = set(gl["phoi_ngau"])
+    ke_khac = set(gl["ke_khac_list"])
+    label = gl["label"]
+    han_pn = gl["han_phoi_ngau"]
     cycles = state.get("dai_van", {}).get("cycles", [])
     qua_quan = []
     for c in cycles:
         if c.get("start_age", 0) > 75:   # tầm hữu dụng đời người
             continue
         stem_tt = thap_than_of(day_master, c["stem"])
-        is_quan_sat = stem_tt in _QUAN_SAT
-        is_thuong = stem_tt == _THUONG_QUAN
-        if is_quan_sat or is_thuong:
+        is_phoi_ngau = stem_tt in phoi_ngau
+        is_ke_khac = stem_tt in ke_khac
+        if is_phoi_ngau or is_ke_khac:
             qua_quan.append({
                 "cycle_index": c.get("cycle_index"),
                 "stem": c["stem"],
@@ -447,9 +532,9 @@ def _buoc_5_dai_van(state: dict) -> dict:
                 "end_age": c.get("end_age"),
                 "thap_than_stem": stem_tt,
                 "y_nghia": (
-                    "đại vận dẫn KHÍ CHỒNG (官杀) — vận thường khởi/kích duyên phối ngẫu"
-                    if is_quan_sat else
-                    "đại vận dẫn Thương Quan — áp lực lên sao Quan được kích, năm cần GIỮ GÌN giao tiếp"
+                    f"đại vận dẫn KHÍ {label.upper()} ({han_pn}) — vận thường khởi/kích duyên phối ngẫu"
+                    if is_phoi_ngau else
+                    f"đại vận dẫn {gl['ke_khac_chinh']} — áp lực lên sao phối ngẫu được kích, năm cần GIỮ GÌN giao tiếp"
                 ),
             })
 
@@ -459,20 +544,21 @@ def _buoc_5_dai_van(state: dict) -> dict:
             for x in qua_quan
         )
         luan = (
-            f"Các đại vận có thiên can là Quan Sát / Thương Quan: {moc}. "
-            "Vận dẫn 官杀 = khí chồng được kích (duyên dễ khởi); vận dẫn Thương Quan = áp lực lên sao Quan "
-            "được kích (năm cần giữ gìn). Đọc đồng dạng: đây là CỬA SỔ khí, không phải lời tiên tri."
+            f"Các đại vận có thiên can là sao phối ngẫu / kẻ khắc phối ngẫu: {moc}. "
+            f"Vận dẫn {han_pn} = khí {label} được kích (duyên dễ khởi); vận dẫn {gl['ke_khac_chinh']} = "
+            "áp lực lên sao phối ngẫu được kích (năm cần giữ gìn). Đọc đồng dạng: đây là CỬA SỔ khí, "
+            "không phải lời tiên tri."
         )
     else:
         luan = (
-            "Trong tầm hữu dụng (≤75t) không có đại vận nào thiên can là Quan Sát/Thương Quan rõ. "
+            "Trong tầm hữu dụng (≤75t) không có đại vận nào thiên can là sao phối ngẫu/kẻ khắc rõ. "
             "Khí phối ngẫu chủ yếu đọc qua tương tác ĐỊA CHI đại vận với nhật chi (BƯỚC 7) + Lưu Niên."
         )
 
     return {
-        "ten_buoc": "5. Đại Vận → Quan Sát (vận kích/khắc sao chồng)",
+        "ten_buoc": f"5. Đại Vận → sao phối ngẫu ({han_pn}) (vận kích/khắc sao {label})",
         "du_lieu": {"dai_van_lien_quan": qua_quan},
-        "luan": luan,
+        "luan": GL.apply_gender(luan, "nu" if not gl["is_male"] else "nam"),
         "_nguon": ["engine.bat_tu.dai_van (Tử Bình: đại vận 10 năm dẫn khí Thập Thần qua thiên can)"],
         "muc_do_anh_huong": "gian_tiep",
     }
@@ -481,7 +567,7 @@ def _buoc_5_dai_van(state: dict) -> dict:
 # --------------------------------------------------------------------------- #
 # BƯỚC 6 — Lưu Niên
 # --------------------------------------------------------------------------- #
-def _buoc_6_luu_nien(state: dict, age: Optional[int], as_of_year: Optional[int]) -> dict:
+def _buoc_6_luu_nien(state: dict, age: Optional[int], as_of_year: Optional[int], gl: dict) -> dict:
     ln = analyze_luu_nien(
         state,
         current_age=age,
@@ -491,18 +577,20 @@ def _buoc_6_luu_nien(state: dict, age: Optional[int], as_of_year: Optional[int])
     luu_nien = ln.get("luu_nien", {})
     ln_tt = luu_nien.get("thap_than_vs_dm")
     nhat_chi = state["tu_tru"]["pillars"]["day"]["branch"]
+    label = gl["label"]
+    han_pn = gl["han_phoi_ngau"]
 
     # Tương tác Lưu Niên vs NHẬT CHI (cung phối ngẫu) — trọng tâm tình duyên.
     vs_nhat_chi = _branch_interaction(luu_nien.get("branch", ""), nhat_chi) if luu_nien.get("branch") else []
 
-    kich_phu = ln_tt in _QUAN_SAT
-    kich_thuong = ln_tt == _THUONG_QUAN
+    kich_phu = ln_tt in gl["phoi_ngau"]
+    kich_khac = ln_tt in gl["ke_khac_list"]
     if kich_phu:
-        y = "năm khí CHỒNG (官杀) được kích — duyên/quan hệ phối ngẫu dễ động (theo hướng cát nếu khí thuận)."
-    elif kich_thuong:
-        y = "năm Thương Quan kích — áp lực lên sao Quan được khơi, năm cần GIỮ GÌN giao tiếp vợ chồng."
+        y = f"năm khí {label.upper()} ({han_pn}) được kích — duyên/quan hệ phối ngẫu dễ động (theo hướng cát nếu khí thuận)."
+    elif kich_khac:
+        y = f"năm {gl['ke_khac_chinh']} kích — áp lực lên sao phối ngẫu được khơi, năm cần GIỮ GÌN giao tiếp."
     else:
-        y = "năm không trực tiếp kích sao chồng — đọc thêm tương tác địa chi với nhật chi."
+        y = f"năm không trực tiếp kích sao {label} — đọc thêm tương tác địa chi với nhật chi."
 
     return {
         "ten_buoc": "6. Lưu Niên (năm khí kích hoạt / cần giữ gìn)",
@@ -513,11 +601,12 @@ def _buoc_6_luu_nien(state: dict, age: Optional[int], as_of_year: Optional[int])
             "tuong_tac_voi_nhat_chi": vs_nhat_chi,
             "danh_gia_tong": ln.get("overall", {}),
         },
-        "luan": (
+        "luan": GL.apply_gender(
             f"Lưu Niên {luu_nien.get('stem','')} {luu_nien.get('branch','')} — Thập Thần so Nhật chủ = "
             f"{ln_tt}: {y}"
             + (f" Địa chi Lưu Niên vs NHẬT CHI ({nhat_chi}): "
-               + "; ".join(i["narrative"] for i in vs_nhat_chi) if vs_nhat_chi else "")
+               + "; ".join(i["narrative"] for i in vs_nhat_chi) if vs_nhat_chi else ""),
+            "nu" if not gl["is_male"] else "nam",
         ),
         "_nguon": ["engine.bat_tu.luu_nien (Tử Bình: Lưu Niên dẫn khí năm; tương tác địa chi với cung phối ngẫu)"],
         "muc_do_anh_huong": "tiem_an",
@@ -527,7 +616,7 @@ def _buoc_6_luu_nien(state: dict, age: Optional[int], as_of_year: Optional[int])
 # --------------------------------------------------------------------------- #
 # BƯỚC 7 — Tứ trụ xung-hình-hợp (trọng tâm NHẬT CHI = cung phối ngẫu)
 # --------------------------------------------------------------------------- #
-def _buoc_7_xung_hinh_hop(state: dict) -> dict:
+def _buoc_7_xung_hinh_hop(state: dict, gl: dict) -> dict:
     pillars = state["tu_tru"]["pillars"]
     nhat_chi = pillars["day"]["branch"]
     pos_vi = {"year": "Năm", "month": "Tháng", "hour": "Giờ"}
@@ -602,7 +691,7 @@ def _buoc_7_xung_hinh_hop(state: dict) -> dict:
             "nhat_chi_hinh_hai": hinh_hai,
             "toan_cuc_tuong_tac": toan_cuc,
         },
-        "luan": luan_nc,
+        "luan": GL.apply_gender(luan_nc, "nu" if not gl["is_male"] else "nam"),
         "_nguon": _kb_nguon("phoi_ngau") + ["engine.bat_tu.luu_nien tables (Tử Bình: lục hợp/lục xung/lục hại/tự hình/tương hình giữa địa chi; nhật chi = cung phối ngẫu)"],
         "muc_do_anh_huong": "truc_tiep" if (nhat_chi_co_xung or nhat_chi_co_hop or nhat_chi_co_hinh_hai) else "gian_tiep",
     }
@@ -611,56 +700,72 @@ def _buoc_7_xung_hinh_hop(state: dict) -> dict:
 # --------------------------------------------------------------------------- #
 # BƯỚC 8 — Ngũ hành thiếu
 # --------------------------------------------------------------------------- #
-def _buoc_8_ngu_hanh_thieu(state: dict) -> dict:
+def _buoc_8_ngu_hanh_thieu(state: dict, gl: dict) -> dict:
     dm_el = state["tu_tru"]["day_master"]["element"]
     counts = state.get("ngu_hanh", {}).get("counts", {}) or count_elements(state["tu_tru"]["pillars"])
+    label = gl["label"]
 
-    # Hành chồng (官杀) = hành KHẮC Nhật chủ; hành con (Thực Thương) = hành Nhật chủ SINH.
-    # _CONTROLS[x] = hành mà x khắc → đảo map để tìm hành KHẮC dm_el.
-    hanh_chong = next((k for k, v in _CONTROLS.items() if v == dm_el), "")
-    hanh_con = _GENERATES.get(dm_el, "")          # DM sinh ra
+    # Hành phối ngẫu + hành con đối xứng theo giới (Tử Bình lục thân):
+    #   NỮ: phối ngẫu (官杀) = hành KHẮC Nhật chủ; con (食伤) = hành Nhật chủ SINH.
+    #   NAM: phối ngẫu (财)  = hành Nhật chủ KHẮC;  con (官杀)  = hành KHẮC Nhật chủ.
+    hanh_khac_dm = next((k for k, v in _CONTROLS.items() if v == dm_el), "")  # element khắc DM (官杀)
+    hanh_dm_khac = _CONTROLS.get(dm_el, "")     # element DM khắc (财)
+    hanh_dm_sinh = _GENERATES.get(dm_el, "")    # element DM sinh (食伤)
+    if not gl["is_male"]:
+        hanh_phoi_ngau = hanh_khac_dm
+        hanh_con = hanh_dm_sinh
+        pn_giai = "hành khắc Nhật chủ = hành CHỒNG/官杀"
+        con_giai = "hành Nhật chủ sinh ra = hành CON/Thực Thương"
+    else:
+        hanh_phoi_ngau = hanh_dm_khac
+        hanh_con = hanh_khac_dm
+        pn_giai = "hành Nhật chủ khắc = hành VỢ/财"
+        con_giai = "hành khắc Nhật chủ = hành CON/官杀"
 
-    total = sum(counts.values()) or 1.0
     thieu = [el for el, v in counts.items() if v < 1.0]      # gần như vắng mặt
     nguy = {el: round(v, 1) for el, v in counts.items() if v < 1.0}
 
     notes = []
-    chong_thieu = counts.get(hanh_chong, 0) < 1.0
+    pn_thieu = counts.get(hanh_phoi_ngau, 0) < 1.0
     con_thieu = counts.get(hanh_con, 0) < 1.0
-    if hanh_chong and chong_thieu:
+    if hanh_phoi_ngau and pn_thieu:
         notes.append(
-            f"THIẾU {_ELEMENT_VI.get(hanh_chong, hanh_chong)} (hành khắc Nhật chủ = hành CHỒNG/官杀, "
-            f"chỉ {counts.get(hanh_chong,0):.1f}) → 'thiếu hành chồng': hình ảnh người bạn đời mờ "
+            f"THIẾU {_ELEMENT_VI.get(hanh_phoi_ngau, hanh_phoi_ngau)} ({pn_giai}, "
+            f"chỉ {counts.get(hanh_phoi_ngau,0):.1f}) → 'thiếu hành {label}': hình ảnh người bạn đời mờ "
             "nguồn khí, duyên cần chủ động vun + bù hành này qua môi trường (màu/hướng/nghề)."
         )
     if hanh_con and con_thieu:
         notes.append(
-            f"THIẾU {_ELEMENT_VI.get(hanh_con, hanh_con)} (hành Nhật chủ sinh ra = hành CON/Thực Thương, "
+            f"THIẾU {_ELEMENT_VI.get(hanh_con, hanh_con)} ({con_giai}, "
             f"chỉ {counts.get(hanh_con,0):.1f}) → 'thiếu hành con': khí con cái yếu nguồn, "
-            "bù hành này + xem Đại Vận có dẫn Thực Thương không."
+            "bù hành này + xem Đại Vận có dẫn hành con không."
         )
     if not notes:
         notes.append(
-            "Ngũ hành tương đối đủ ở 2 hành then chốt (hành chồng + hành con) — "
-            "không có tín hiệu 'thiếu chồng / thiếu con' theo cấu trúc bẩm sinh."
+            f"Ngũ hành tương đối đủ ở 2 hành then chốt (hành {label} + hành con) — "
+            f"không có tín hiệu 'thiếu {label} / thiếu con' theo cấu trúc bẩm sinh."
         )
 
     return {
-        "ten_buoc": "8. Ngũ hành thiếu (thiếu Kim=thiếu chồng, thiếu Hỏa=thiếu con…)",
+        "ten_buoc": f"8. Ngũ hành thiếu (thiếu hành {label} / thiếu hành con theo Nhật chủ)",
         "du_lieu": {
             "nhat_chu_element": dm_el,
             "counts": {k: round(v, 1) for k, v in counts.items()},
-            "hanh_chong": hanh_chong,
+            # KEY CŨ 'hanh_chong' giữ nguyên (compat) = hành PHỐI NGẪU theo giới.
+            "hanh_chong": hanh_phoi_ngau,
+            "hanh_phoi_ngau": hanh_phoi_ngau,
             "hanh_con": hanh_con,
             "hanh_thieu": thieu,
             "hanh_thieu_chi_tiet": nguy,
-            "thieu_hanh_chong": chong_thieu,
+            "thieu_hanh_chong": pn_thieu,
+            "thieu_hanh_phoi_ngau": pn_thieu,
             "thieu_hanh_con": con_thieu,
         },
-        "luan": " ".join(notes),
+        "luan": GL.apply_gender(" ".join(notes), "nu" if not gl["is_male"] else "nam"),
         "_nguon": [
-            "Tử Bình: hành KHẮC Nhật chủ = Quan Sát (chồng ở nữ mệnh); hành Nhật chủ SINH = Thực Thương (con). "
-            "Thiếu hành = thiếu nguồn khí lục thân tương ứng (Trích Thiên Tủy Ch.6 Nữ Mệnh).",
+            "Tử Bình: NỮ hành KHẮC Nhật chủ = 官杀 (chồng), hành Nhật chủ SINH = 食伤 (con); "
+            "NAM hành Nhật chủ KHẮC = 财 (vợ), hành KHẮC Nhật chủ = 官杀 (con). "
+            "Thiếu hành = thiếu nguồn khí lục thân tương ứng (Trích Thiên Tủy Ch.6).",
             "engine.bat_tu.ngu_hanh.count_elements",
         ],
         "muc_do_anh_huong": "gian_tiep",
@@ -682,9 +787,12 @@ _THAN_SAT_DUYEN = {
 }
 
 
-def _buoc_9_than_sat(state: dict) -> dict:
+def _buoc_9_than_sat(state: dict, gl: dict) -> dict:
     than_sat = state.get("than_sat", []) or []
-    duyen, co, canh_bao, khac = [], [], [], []
+    # Sao cô đơn THEO GIỚI: nữ = Quả Tú · nam = Cô Thần. Sao kia (lệch giới) hạ thành
+    # phụ — vẫn ghi nhận nhưng KHÔNG nhấn 'cô đơn' (Tử Bình: 男孤辰 / 女寡宿).
+    sao_co_dung_gioi = gl["co_than_qua_tu"]
+    duyen, co, co_lech_gioi, canh_bao = [], [], [], []
     for s in than_sat:
         name = s.get("name", "")
         loai, mota = _THAN_SAT_DUYEN.get(name, (None, None))
@@ -698,16 +806,19 @@ def _buoc_9_than_sat(state: dict) -> dict:
         if loai == "duyen":
             duyen.append(item)
         elif loai == "co":
-            co.append(item)
+            # CHỈ sao cô-đơn-đúng-giới vào nhóm 'co' (đẩy cấp); sao kia → phụ.
+            (co if name == sao_co_dung_gioi else co_lech_gioi).append(item)
         elif loai == "canh_bao":
             canh_bao.append(item)
-        # các thần sát khác không liên quan duyên → bỏ qua khỏi 3 nhóm trên.
+        # các thần sát khác không liên quan duyên → bỏ qua khỏi nhóm trên.
 
     parts = []
     if duyen:
         parts.append("Sao DUYÊN: " + ", ".join(f"{x['name']} (Trụ {x['tru']})" for x in duyen) + " → sức hút phối ngẫu, năm gặp dễ khởi chuyện vui.")
     if co:
-        parts.append("Sao CÔ (đơn lẻ): " + ", ".join(f"{x['name']} (Trụ {x['tru']})" for x in co) + " → khí lẻ loi; đọc đồng dạng = cần CHỦ ĐỘNG kết nối, KHÔNG phải bản án cô độc/góa.")
+        parts.append(f"Sao CÔ ({sao_co_dung_gioi}, đúng giới): " + ", ".join(f"{x['name']} (Trụ {x['tru']})" for x in co) + " → khí lẻ loi; đọc đồng dạng = cần CHỦ ĐỘNG kết nối, KHÔNG phải bản án cô độc.")
+    if co_lech_gioi:
+        parts.append("Sao cô lệch giới (ghi nhận, không nhấn): " + ", ".join(x["name"] for x in co_lech_gioi) + ".")
     if canh_bao:
         parts.append("Tín hiệu CẦN Ý THỨC: " + ", ".join(x["name"] for x in canh_bao) + " → đầu tư giao tiếp + chọn đối tác khí trường bù đắp.")
     if not parts:
@@ -718,10 +829,12 @@ def _buoc_9_than_sat(state: dict) -> dict:
         "du_lieu": {
             "sao_duyen": duyen,
             "sao_co": co,
+            "sao_co_lech_gioi": co_lech_gioi,
+            "sao_co_dung_gioi": sao_co_dung_gioi,
             "sao_canh_bao": canh_bao,
         },
-        "luan": " ".join(parts),
-        "_nguon": _kb_nguon("dao_hoa") + ["engine.bat_tu.than_sat (三命通會 + 滴天髓 + 子平真詮; Thiệu Vĩ Hoa tr.144 Âm Dương Xô Lệch)"],
+        "luan": GL.apply_gender(" ".join(parts), "nu" if not gl["is_male"] else "nam"),
+        "_nguon": _kb_nguon("dao_hoa") + ["engine.bat_tu.than_sat (三命通會 + 滴天髓 + 子平真詮; 男孤辰女寡宿; Thiệu Vĩ Hoa tr.144 Âm Dương Xô Lệch)"],
         "muc_do_anh_huong": "tiem_an",
     }
 
@@ -737,54 +850,60 @@ _TRU_SOM_MUON = {
 }
 
 
-def _buoc_10_cung_vi_tang_can(state: dict, distrib: dict) -> dict:
+def _buoc_10_cung_vi_tang_can(state: dict, distrib: dict, gl: dict) -> dict:
     pillars = state["tu_tru"]["pillars"]
     day_master = state["tu_tru"]["day_master"]["stem"]
     nhat_chi = pillars["day"]["branch"]
+    label = gl["label"]
+    han_pn = gl["han_phoi_ngau"]   # 官 | 财
 
-    quan_loc_tang = _scan_thap_than(pillars, day_master, _QUAN_SAT)
+    pn_loc_tang = _scan_thap_than(pillars, day_master, gl["phoi_ngau"])
 
-    # 官杀 ở CAN = xa (lộ, dễ thấy nhưng quan hệ "bên ngoài"); ở CHI = gần (tàng,
-    # khí thân mật). 官杀 ở NHẬT CHI = gần nhất (chồng "trong nhà").
-    o_can = [x for x in quan_loc_tang if x["vi_tri"] == "can"]
-    o_chi = [x for x in quan_loc_tang if x["vi_tri"] == "chi"]
+    # Sao phối ngẫu ở CAN = xa (lộ, dễ thấy nhưng quan hệ "bên ngoài"); ở CHI = gần
+    # (tàng, khí thân mật). Ở NHẬT CHI = gần nhất (phối ngẫu "trong nhà").
+    o_can = [x for x in pn_loc_tang if x["vi_tri"] == "can"]
+    o_chi = [x for x in pn_loc_tang if x["vi_tri"] == "chi"]
     o_nhat_chi = [x for x in o_chi if x["tru"] == "day"]
 
     # Phân tích phối ngẫu cung (nhật chi) qua knowledge JSON grounded.
     phoi_ngau = kb.get("batu_hon_nhan")["phoi_ngau_cung"].get("y_nghia_dia_chi", {}).get(nhat_chi)
 
-    # Sớm/muộn theo trụ có Quan Sát đầu tiên.
+    # Sớm/muộn theo trụ có sao phối ngẫu đầu tiên.
     som_muon = None
-    if quan_loc_tang:
-        first = sorted(quan_loc_tang, key=lambda x: ["year", "month", "day", "hour"].index(x["tru"]))[0]
+    if pn_loc_tang:
+        first = sorted(pn_loc_tang, key=lambda x: ["year", "month", "day", "hour"].index(x["tru"]))[0]
         som_muon = {"tru": first["tru"], "mo_ta": _TRU_SOM_MUON[first["tru"]][0], "khung": _TRU_SOM_MUON[first["tru"]][1]}
 
     parts = []
     if o_nhat_chi:
         parts.append(
-            "官杀 TÀNG ngay NHẬT CHI (cung phối ngẫu) = chồng 'trong nhà', khí phối ngẫu GẦN + rõ — "
+            f"{han_pn} TÀNG ngay NHẬT CHI (cung phối ngẫu) = {label} 'trong nhà', khí phối ngẫu GẦN + rõ — "
             "tín hiệu duyên phối ngẫu mật thiết."
         )
     elif o_chi:
-        parts.append("官杀 TÀNG trong địa chi (không ở nhật chi) = khí chồng GẦN nhưng ẩn, cần thời điểm khơi mở.")
+        parts.append(f"{han_pn} TÀNG trong địa chi (không ở nhật chi) = khí {label} GẦN nhưng ẩn, cần thời điểm khơi mở.")
     if o_can:
-        parts.append("官杀 LỘ trên thiên can = khí chồng 'ở xa/bên ngoài', dễ thấy nhưng quan hệ thiên về hình thức/xã giao hơn.")
-    if not quan_loc_tang:
-        parts.append("Không có 官杀 trên cả can lẫn chi — xem khí phối ngẫu qua Đại Vận/Lưu Niên (BƯỚC 5,6).")
+        parts.append(f"{han_pn} LỘ trên thiên can = khí {label} 'ở xa/bên ngoài', dễ thấy nhưng quan hệ thiên về hình thức/xã giao hơn.")
+    if not pn_loc_tang:
+        parts.append(f"Không có sao phối ngẫu ({han_pn}) trên cả can lẫn chi — xem khí phối ngẫu qua Đại Vận/Lưu Niên (BƯỚC 5,6).")
     if som_muon:
-        parts.append(f"Quan Sát xuất hiện sớm nhất ở {som_muon['khung']} → duyên ứng {som_muon['mo_ta']}.")
+        parts.append(f"Sao phối ngẫu xuất hiện sớm nhất ở {som_muon['khung']} → duyên ứng {som_muon['mo_ta']}.")
 
     return {
-        "ten_buoc": "10. Cung vị & tàng can (官杀 ở can=xa/chi=gần; trụ nào=sớm/muộn)",
+        "ten_buoc": f"10. Cung vị & tàng can ({han_pn} ở can=xa/chi=gần; trụ nào=sớm/muộn)",
         "du_lieu": {
             "nhat_chi": nhat_chi,
+            # KEY CŨ quan_sat_* giữ nguyên (compat) = vị trí sao PHỐI NGẪU theo giới.
             "quan_sat_o_can": o_can,
             "quan_sat_o_chi": o_chi,
             "quan_sat_o_nhat_chi": o_nhat_chi,
+            "phoi_ngau_o_can": o_can,
+            "phoi_ngau_o_chi": o_chi,
+            "phoi_ngau_o_nhat_chi": o_nhat_chi,
             "phoi_ngau_cung_luan": phoi_ngau,
             "som_muon": som_muon,
         },
-        "luan": " ".join(parts),
+        "luan": GL.apply_gender(" ".join(parts), "nu" if not gl["is_male"] else "nam"),
         "_nguon": _kb_nguon("phu_tinh", "phoi_ngau"),
         "muc_do_anh_huong": "tiem_an",
     }
@@ -812,6 +931,7 @@ def doc_batu_10_buoc(
     if "tu_tru" not in bat_tu_state:
         raise ValueError("bat_tu_state phải chứa khoá 'tu_tru' (output của cast_bat_tu).")
 
+    gl = _glens(gender)   # lăng kính giới: nữ 官杀/伤官 · nam 财/比劫
     distrib = bat_tu_state.get("thap_than_distribution", {}) or {}
 
     # Tuổi (xấp xỉ) để dò Đại Vận hiện tại cho Lưu Niên.
@@ -827,16 +947,16 @@ def doc_batu_10_buoc(
         age = None
 
     buoc = [
-        _buoc_1_nhat_chu_phu_the(bat_tu_state, distrib),
-        _buoc_2_quan_sat_vuong_nhuoc(bat_tu_state, distrib),
-        _buoc_3_thuong_quan(bat_tu_state, distrib),
-        _buoc_4_che_hoa(bat_tu_state, distrib),
-        _buoc_5_dai_van(bat_tu_state),
-        _buoc_6_luu_nien(bat_tu_state, age, as_of_year),
-        _buoc_7_xung_hinh_hop(bat_tu_state),
-        _buoc_8_ngu_hanh_thieu(bat_tu_state),
-        _buoc_9_than_sat(bat_tu_state),
-        _buoc_10_cung_vi_tang_can(bat_tu_state, distrib),
+        _buoc_1_nhat_chu_phu_the(bat_tu_state, distrib, gl),
+        _buoc_2_quan_sat_vuong_nhuoc(bat_tu_state, distrib, gl),
+        _buoc_3_thuong_quan(bat_tu_state, distrib, gl),
+        _buoc_4_che_hoa(bat_tu_state, distrib, gl),
+        _buoc_5_dai_van(bat_tu_state, gl),
+        _buoc_6_luu_nien(bat_tu_state, age, as_of_year, gl),
+        _buoc_7_xung_hinh_hop(bat_tu_state, gl),
+        _buoc_8_ngu_hanh_thieu(bat_tu_state, gl),
+        _buoc_9_than_sat(bat_tu_state, gl),
+        _buoc_10_cung_vi_tang_can(bat_tu_state, distrib, gl),
     ]
 
     # Cross-grounding: tái dùng nu_menh.py + hon_nhan.py + luc_than.py để đối chiếu chéo.

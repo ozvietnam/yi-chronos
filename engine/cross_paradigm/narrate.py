@@ -122,9 +122,23 @@ def _cau_hoi_tuoi_block(td: dict) -> str:
 
 
 def _build_system_prompt(person: dict, td: dict) -> str:
-    """Dựng system-prompt narrate từ khẩu vị giao tiếp + chặng tuổi + paradigm."""
+    """Dựng system-prompt narrate từ khẩu vị giao tiếp + chặng tuổi + paradigm.
+
+    Giới-tính-hoá: nữ (flagship) = 'chồng / 官杀'; nam (mirror) = 'vợ / 财'. Prompt
+    nhắc sage nói đúng phối ngẫu theo giới + KHÔNG bao giờ phán 'tái hôn/khắc chồng'
+    kiểu nữ cho nam.
+    """
     personality = td.get("personality") or {}
     stage = td.get("stage") or {}
+    gender = ((td.get("input") or {}).get("gender")
+              or (person or {}).get("gender") or "nữ")
+    is_male = str(gender).strip().lower() in ("nam", "male", "m", "trai", "boy")
+    label = "vợ" if is_male else "chồng"
+    gioi_label = "NAM MỆNH" if is_male else "NỮ MỆNH"
+    sao_pn = "财 (Chính Tài/Thiên Tài)" if is_male else "官杀 (Chính Quan/Thất Sát)"
+    khac_pn = "比劫 Tỷ Kiếp đoạt Tài" if is_male else "伤官 Thương Quan khắc Quan"
+    cam_verdict = ("'khắc vợ', 'sẽ ly hôn', 'không lấy được vợ'" if is_male
+                   else "'khắc chồng', 'số cô quả', 'sẽ ly hôn', 'không lấy được chồng'")
 
     # Gom khẩu vị giao tiếp từ Mệnh chính tinh (mỗi sao có 1 block khẩu vị).
     giong, do_dai, cach_khung = [], [], []
@@ -166,17 +180,24 @@ def _build_system_prompt(person: dict, td: dict) -> str:
         )
 
     return (
-        "Bạn là nhà luận giải Tử Vi/Bát Tự đọc TÌNH DUYÊN NỮ MỆNH theo paradigm ĐỌC "
+        f"Bạn là nhà luận giải Tử Vi/Bát Tự đọc TÌNH DUYÊN {gioi_label} theo paradigm ĐỌC "
         "ĐỒNG DẠNG (không bói). Bạn nhận DỮ LIỆU CẤU TRÚC đã được engine kiểm duyệt "
         "paradigm; việc của bạn là DIỄN ĐẠT thành lời cho người đọc — KHÔNG bịa thêm sao, "
         "KHÔNG tự suy ra cách cục mới.\n\n"
 
-        "## NGUYÊN TẮC PARADIGM (BẮT BUỘC — Iron Rule #4/#6/#8)\n"
+        "## GIỚI TÍNH NGƯỜI ĐỌC (BẮT BUỘC nói đúng phối ngẫu)\n"
+        f"- Người đọc là {gioi_label}: phối ngẫu = '{label}'. Sao phối ngẫu = {sao_pn}; "
+        f"cấu trúc khắc phối ngẫu = {khac_pn}.\n"
+        f"- Luôn gọi phối ngẫu là '{label}' (KHÔNG nói '{'chồng' if is_male else 'vợ'}'). "
+        + ("Với NAM: KHÔNG BAO GIỜ dùng khung nữ mệnh ('tái hôn kiểu nữ', 'khắc chồng', "
+           "'số làm lẽ') — đọc cơ học 财/khắc thê cho đúng.\n\n" if is_male else
+           "\n\n")
+
+        + "## NGUYÊN TẮC PARADIGM (BẮT BUỘC — Iron Rule #4/#6/#8)\n"
         "1. Mệnh là ĐỘNG TỪ: lá số cho biết TÍNH (nguyên liệu trời ban), còn 'mệnh' là "
         "việc XỬ LÝ tính đó. Luôn nói theo kiểu 'cấu trúc của em VẬN HÀNH tốt nhất khi…', "
         "trao quyền chủ động cho người đọc.\n"
-        "2. TUYỆT ĐỐI KHÔNG phán: 'khắc chồng', 'số cô quả', 'sẽ ly hôn', 'không lấy được "
-        "chồng', hay bất kỳ lời kết án / tiên tri định mệnh nào.\n"
+        f"2. TUYỆT ĐỐI KHÔNG phán: {cam_verdict}, hay bất kỳ lời kết án / tiên tri định mệnh nào.\n"
         "3. Định thời chỉ là 'năm khí được kích hoạt' / 'năm cần giữ gìn', KHÔNG phải "
         "lời tiên tri.\n\n"
 
@@ -288,8 +309,12 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
 
         stage = td.get("stage") or {}
         tuoi = stage.get("tuoi")
+        _gender = ((td.get("input") or {}).get("gender")
+                   or (person or {}).get("gender") or "nữ")
+        _gioi = ("nam mệnh" if str(_gender).strip().lower() in
+                 ("nam", "male", "m", "trai", "boy") else "nữ mệnh")
         question = (
-            f"Hãy đọc TÌNH DUYÊN nữ mệnh (tuổi {tuoi}) dựa trên DỮ LIỆU CẤU TRÚC dưới đây. "
+            f"Hãy đọc TÌNH DUYÊN {_gioi} (tuổi {tuoi}) dựa trên DỮ LIỆU CẤU TRÚC dưới đây. "
             "Diễn đạt đúng khẩu vị giao tiếp + đúng giọng của chặng tuổi đã nêu trong "
             "system prompt. Nói theo paradigm 'mệnh là động từ', trao quyền chủ động, "
             "KHÔNG bói, KHÔNG phán định mệnh.\n\n"
