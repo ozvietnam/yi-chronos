@@ -55,6 +55,17 @@ ORCHESTRATOR_PREFERRED_MODEL: dict[str, str] = {
     "mock":      "mock-v1",
 }
 
+# Council SAGE = model NHANH non-reasoning. RAG grounding (expert_context) đã cấp chiều sâu trích
+# sách cho sage → KHÔNG cần model reasoning (M3/R1): prompt sage lớn (persona+chart+RAG) làm
+# <think> ăn sạch token output → ĐÁP RỖNG (len=0) + chậm + timeout (đo prod 2026-06-24: tu_vi M3
+# len=0, chieu_dom timeout>70s → voices=0, council 'chung chung'). Ép model không-think, nhanh.
+_SAGE_FAST_MODEL: dict[str, str] = {
+    "deepseek":  "deepseek-chat",            # V3 general, non-reasoning, nhanh + giỏi Đông phương
+    "zai":       "glm-4.5-flash",            # free, nhanh
+    "minimax":   "MiniMax-M2.7-highspeed",   # nghĩ ít
+    "anthropic": "claude-haiku-4-5-20251001",
+}
+
 
 _DB_PATH = Path(__file__).resolve().parent.parent.parent / "data" / "ai_council.sqlite3"
 
@@ -444,8 +455,10 @@ def consult_council(
 
     # Phase 1: Round 1 independent
     def _run_one(aid: str, round_label: str, challenges_text: str | None) -> AgentResponse:
-        # Council = premium luận sâu → MiniMax-M3 chủ lực (prefer_reasoning).
-        provider, model = _get_agent_provider(aid, prefer_reasoning=True)
+        # Sage = NHANH non-reasoning (RAG cấp chiều sâu) — bỏ M3 reasoning vì prompt lớn → <think>
+        # ăn sạch token → đáp rỗng + chậm. Ép _SAGE_FAST_MODEL cho provider được chọn.
+        provider, model = _get_agent_provider(aid)
+        model = _SAGE_FAST_MODEL.get(provider.name, model)
         return run_agent(
             agent_id=aid, provider=provider, model=model,
             question=question, chart_data=chart_data,
