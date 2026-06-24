@@ -61,6 +61,12 @@ def _parse_birth(birth_datetime_local: str) -> datetime:
     return datetime.strptime(s[:10], "%Y-%m-%d")
 
 
+def _thieu_gio_sinh(birth_datetime_local: str) -> bool:
+    """True nếu input KHÔNG mang thành phần giờ (chỉ ngày) → cung phụ thuộc giờ
+    tính theo giờ Tý mặc định, độ tin cậy thấp."""
+    return "T" not in birth_datetime_local and ":" not in birth_datetime_local
+
+
 def _calc_age(birth: datetime, as_of_year: Optional[int]) -> int:
     """Tuổi (mụ-độc-lập, theo năm dương) tại as_of_year (mặc định năm hiện tại)."""
     year = as_of_year if as_of_year else datetime.now().year
@@ -80,6 +86,37 @@ def _stars_at(index_map: dict, branch_index: int) -> list[str]:
 
 def _opposite(branch_index: int) -> int:
     return (branch_index + 6) % 12
+
+
+# Nhóm sao trên lá số chứa {tên_sao: branch_index} (để tra vị trí 1 sao).
+_STAR_GROUPS = ("chinh_tinh", "phu_tinh", "sao_q2", "sat_tinh", "sao_le")
+
+
+def _star_index(la_so: dict, star: str) -> Optional[int]:
+    """Tra branch_index của 1 sao trên TẤT CẢ nhóm (chinh + phụ + q2 + sát + lẻ).
+
+    Tứ Hóa thường rơi vào PHỤ TINH (Tả/Hữu/Xương/Khúc) — không chỉ ở chinh_tinh.
+    """
+    if not star:
+        return None
+    for grp in _STAR_GROUPS:
+        g = la_so.get(grp)
+        if isinstance(g, dict) and star in g:
+            return g[star]
+    return None
+
+
+# Từ khoá kết án đạo đức / phán định mệnh trong lời cổ — engine KHÔNG surface raw,
+# phải reframe sang ngôn ngữ đọc-đồng-dạng (Iron Rule #4/#6/#8).
+_KEYWORDS_KET_AN = (
+    "dâm", "xướng", "kỹ nữ", "kỹ", "hạ tiện", "tiện", "làm lẽ", "thiếp", "hầu",
+    "tôi tớ", "tớ", "phân ly", "cô độc", "cô đơn", "cô khắc", "cô quả",
+    "khắc chồng", "khắc phu", "khắc tử", "sát phu", "mưu hại", "góa", "quả phụ",
+    "bất hài", "ngoài giá thú", "lận đận", "bần", "nghèo hèn",
+)
+
+# Câu phú rõ ràng góc nhìn NAM (vô nghĩa/sai cho nữ mệnh) → loại khỏi output nữ.
+_KEYWORDS_NAM_PHU = ("thê tài", "đắc thê", "thê hiền", "vượng thê", "thê thiếp")
 
 
 def _count_quan_sat(thap_than_distribution: dict) -> dict:
@@ -112,6 +149,7 @@ def _pick_stage(age: int) -> dict:
         chosen = stages[0] if age < stages[0]["tuoi_min"] else stages[-1]
     return {
         "tuoi": age,
+        "chua_du_tuoi": age < stages[0]["tuoi_min"],
         "stage_id": chosen["id"],
         "tuoi_min": chosen["tuoi_min"],
         "tuoi_max": chosen["tuoi_max"],
@@ -175,13 +213,18 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
         chinh_tinh = _stars_at(la_so["chinh_tinh"], _opposite(phu_the_idx))
         muon_doi_cung = True
 
-    dao_hoa = _stars_at(la_so["sao_q2"], phu_the_idx)
+    # sao_phu_q2: TOÀN BỘ sao phụ Q2 toạ cung Phu Thê (gồm cả không-đào-hoa
+    # như Thiên Mã/Phượng Các). dao_hoa CHỈ giữ sao thực sự là đào hoa (lọc qua
+    # dao_hoa_tinh dict) để không gây hiểu nhầm cho sage/UI.
+    sao_phu_q2 = _stars_at(la_so["sao_q2"], phu_the_idx)
+    dao_hoa = [s for s in sao_phu_q2 if kb.name_to_key(s) in dao_map]
     sat = _stars_at(la_so["sat_tinh"], phu_the_idx)
     # Tứ Hóa nhập Phu: hoá nào mà sao mang hoá đó toạ cung Phu Thê.
+    # Tra trên TẤT CẢ nhóm sao (hoá hay rơi vào phụ tinh Tả/Hữu/Xương/Khúc).
     tu_hoa_nhap_phu = [
         {"hoa": h, "sao": star}
         for h, star in la_so["tu_hoa"].items()
-        if la_so["chinh_tinh"].get(star) == phu_the_idx
+        if _star_index(la_so, star) == phu_the_idx
     ]
 
     # Ghép tri thức grounded _nguon.
@@ -239,6 +282,7 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
         "phu_the_branch": _BRANCHES[phu_the_idx],
         "muon_sao_doi_cung": muon_doi_cung,
         "chinh_tinh": chinh_tinh,
+        "sao_phu_q2": sao_phu_q2,
         "dao_hoa": dao_hoa,
         "sat_tinh": sat,
         "tu_hoa_nhap_phu": tu_hoa_nhap_phu,
@@ -253,12 +297,20 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
 # (g) BÁT TỰ HÔN NHÂN
 # --------------------------------------------------------------------------- #
 def _trang_thai_quan_sat(quan_sat_count: dict) -> str:
+    """Trả đúng key trong batu_hon_nhan.phu_tinh.trang_thai_quan_sat:
+    'vo_quan' | 'nhuoc' | 'vuong' | 'quan_sat_hon_tap'.
+    """
     total = quan_sat_count.get("tong_quan_sat", 0)
     if total == 0:
-        return "vo_hinh"   # 官杀 không hiện rõ
+        return "vo_quan"   # 官杀 không hiện
+    chinh_quan = quan_sat_count.get("Chính Quan", {}).get("total", 0)
+    that_sat = quan_sat_count.get("Thất Sát", {}).get("total", 0)
+    # Cả Chính Quan lẫn Thất Sát cùng hiện = 官杀混杂 (hỗn tạp).
+    if chinh_quan > 0 and that_sat > 0:
+        return "quan_sat_hon_tap"
     if total >= 3:
         return "vuong"
-    return "binh_hoa"
+    return "nhuoc"
 
 
 def _batu_hon_nhan(bat_tu_state: dict, quan_sat_count: dict) -> dict:
@@ -270,7 +322,7 @@ def _batu_hon_nhan(bat_tu_state: dict, quan_sat_count: dict) -> dict:
     # Trạng thái 官杀.
     trang_thai = _trang_thai_quan_sat(quan_sat_count)
     tt_dict = bk["phu_tinh"].get("trang_thai_quan_sat", {})
-    trang_thai_luan = tt_dict.get(trang_thai) or tt_dict.get("binh_hoa")
+    trang_thai_luan = tt_dict.get(trang_thai) or tt_dict.get("nhuoc")
 
     # 日支 phối ngẫu cung.
     dia_chi_map = bk["phoi_ngau_cung"].get("y_nghia_dia_chi", {})
@@ -298,15 +350,10 @@ def _batu_hon_nhan(bat_tu_state: dict, quan_sat_count: dict) -> dict:
 # --------------------------------------------------------------------------- #
 def _reconcile(base: dict) -> list[dict]:
     rec = kb.get("reconcile")["chu_de"]
-    khia_canh = base.get("khia_canh", []) or []
-    # concord lấy theo thứ tự khía cạnh base (best-effort), gắn vào 8 chủ đề.
+    # KHÔNG ghép base['khia_canh'] vào chu_de theo INDEX: hai taxonomy khác hẳn
+    # (12 khía cạnh vs 8 chủ đề) → ghép theo vị trí là vô nghĩa, lệch ngữ nghĩa.
     out = []
-    for i, cd in enumerate(rec):
-        concord = None
-        base_ref = None
-        if i < len(khia_canh):
-            concord = khia_canh[i].get("concord")
-            base_ref = {"id": khia_canh[i].get("id"), "ten": khia_canh[i].get("ten")}
+    for cd in rec:
         out.append({
             "chu_de": cd.get("chu_de"),
             "tuvi_doc_bang": cd.get("tuvi_doc_bang"),
@@ -314,8 +361,6 @@ def _reconcile(base: dict) -> list[dict]:
             "khi_HOI_TU": cd.get("khi_HOI_TU"),
             "khi_DI_BIET": cd.get("khi_DI_BIET"),
             "phai_uu_tien": cd.get("phai_uu_tien"),
-            "concord_tu_base": concord,
-            "base_khia_canh_ref": base_ref,
             "_nguon": cd.get("_nguon"),
         })
     return out
@@ -335,14 +380,38 @@ def _cung_index_by_name(la_so: dict, cung_name: str) -> Optional[int]:
 
 
 def _all_stars_at(la_so: dict, branch_index: int) -> set[str]:
+    """Tất cả sao tọa 1 cung — gồm cả phu_tinh (Văn Xương/Khúc/Tả/Hữu/Khôi/Việt)
+    và sao_le; nếu thiếu sẽ bỏ sót ~23 cách tham chiếu các sao phụ này.
+    """
     found = set()
-    for grp in ("chinh_tinh", "sao_q2", "sat_tinh"):
-        found.update(_stars_at(la_so.get(grp, {}), branch_index))
+    for grp in _STAR_GROUPS:
+        g = la_so.get(grp, {})
+        if isinstance(g, dict):
+            found.update(_stars_at(g, branch_index))
     return found
+
+
+def _co_tu_khoa(*texts: str) -> bool:
+    blob = " ".join(t for t in texts if t)
+    return any(kw in blob for kw in _KEYWORDS_KET_AN)
+
+
+def _la_nam_phu(*texts: str) -> bool:
+    blob = " ".join(t for t in texts if t)
+    return any(kw in blob for kw in _KEYWORDS_NAM_PHU)
+
+
+# Sát tinh / dấu hiệu hãm → điều kiện phụ để 1-sao-cách HUNG mới được kích hoạt
+# (tránh bắn quá rộng: chỉ có mặt 1 sao là gắn 'cô độc/phân ly').
+_SAT_TINH_HO_TRO = (
+    "Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh",
+    "Địa Không", "Địa Kiếp", "Thiên Hình",
+)
 
 
 def _cach_cuc(la_so: dict) -> list[dict]:
     cc = kb.get("cach_cuc")["cach_cuc"]
+    phu_the_idx = la_so["palaces"][2]["branch_index"]
     hits = []
     for c in cc:
         dk = c.get("dieu_kien_phat_hien", {}) or {}
@@ -354,17 +423,66 @@ def _cach_cuc(la_so: dict) -> list[dict]:
         if idx is None:
             continue
         present = _all_stars_at(la_so, idx)
-        # Khớp: tất cả sao điều kiện cùng có mặt tại cung đó.
-        if all(s in present for s in sao_req):
-            hits.append({
-                "ten_cach": c.get("ten_cach"),
-                "han_tu": c.get("han_tu"),
-                "cung": cung,
-                "sao_khop": sao_req,
-                "y_nghia_duyen": c.get("y_nghia_duyen"),
-                "cat_hung": c.get("cat_hung"),
-                "_nguon": c.get("_nguon"),
-            })
+        if not all(s in present for s in sao_req):
+            continue
+
+        cat_hung = c.get("cat_hung")
+        y_nghia = c.get("y_nghia_duyen") or ""
+        han_tu = c.get("han_tu") or ""
+
+        # Lọc phú rõ ràng góc nhìn NAM (vô nghĩa cho nữ mệnh).
+        if _la_nam_phu(y_nghia, han_tu):
+            continue
+
+        is_judgmental = _co_tu_khoa(y_nghia, han_tu)
+
+        # Cách 1-sao mang nghĩa kết án: yêu cầu thêm điều kiện phụ (có sát tinh /
+        # hãm địa tại cung) mới kích hoạt — tránh bắn quá rộng.
+        if len(sao_req) == 1 and (cat_hung == "hung" or is_judgmental):
+            co_sat = bool(present & set(_SAT_TINH_HO_TRO))
+            ham_dia = "hãm" in han_tu or "hãm" in y_nghia
+            if not (co_sat or ham_dia):
+                continue
+
+        # --- REFRAME paradigm (Iron Rule #4/#6/#8): KHÔNG surface raw lời kết án.
+        require_bien_chinh = (cat_hung == "hung") or is_judgmental
+        if cat_hung == "hung":
+            cat_hung_out = "diem_can_chu_y"
+        elif cat_hung == "cat":
+            cat_hung_out = "the_manh"
+        else:
+            cat_hung_out = "trung_tinh"
+
+        if require_bien_chinh:
+            van_hanh = (
+                "Đây là một TÍNH (cấu trúc khí bẩm phú), KHÔNG phải bản án. "
+                "Lời cổ mang sắc thái thời đại cũ; đọc đồng dạng thì cấu trúc này "
+                "VẬN HÀNH tốt nhất khi được ý thức và chăm sóc — mệnh là việc xử lý "
+                "tính, không phải số phận đã định (Iron Rule #8)."
+            )
+            # KHÔNG đưa y_nghia_duyen thô (chứa từ kết án) sang nhánh narrate.
+            y_nghia_out = None
+            y_nghia_goc_tham_khao = y_nghia  # giữ raw để tra cứu, KHÔNG narrate
+        else:
+            van_hanh = None
+            y_nghia_out = y_nghia
+            y_nghia_goc_tham_khao = None
+
+        hits.append({
+            "ten_cach": c.get("ten_cach"),
+            "han_tu": han_tu,
+            "cung": cung,
+            "uu_tien_phu_the": (idx == phu_the_idx),  # cách ở Phu Thê liên quan hơn
+            "sao_khop": sao_req,
+            "y_nghia_duyen": y_nghia_out,
+            "cat_hung": cat_hung_out,
+            "van_hanh": van_hanh,
+            "require_bien_chinh": require_bien_chinh,
+            "y_nghia_goc_tham_khao": y_nghia_goc_tham_khao,
+            "_nguon": c.get("_nguon"),
+        })
+    # Ưu tiên cách ở cung Phu Thê lên đầu (bài toán hôn nhân).
+    hits.sort(key=lambda h: not h["uu_tien_phu_the"])
     return hits
 
 
@@ -378,17 +496,29 @@ def _dai_van_hien_tai(la_so: dict, age: int) -> Optional[dict]:
     return None
 
 
+# Tầm hữu dụng đời người cho định thời (tránh báo mốc tuổi 100+).
+_DINH_THOI_TUOI_TRAN = 75
+
+
+def _trong_tam_huu_dung(dv: dict, age: int) -> bool:
+    """Chỉ giữ đại vận trong tầm hữu dụng: đã/đang/sắp tới (≤ age+30) và
+    bắt đầu trước trần tuổi đời người (~75). Tránh mốc tuổi 100+ vô nghĩa.
+    """
+    start = dv.get("start_age", 0)
+    return start <= age + 30 and start <= _DINH_THOI_TUOI_TRAN
+
+
 def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
     tp_dinh = kb.get("tuvi_phuthe").get("dinh_thoi", {})
     dv_hien_tai = _dai_van_hien_tai(la_so, age)
+    dai_van = [dv for dv in la_so.get("dai_van", []) if _trong_tam_huu_dung(dv, age)]
 
-    # Năm KÍCH HOẠT (mức đại-vận): đại vận có cung đi qua nơi có Hồng Loan / Thiên Hỉ
-    # hoặc Hồng Loan/Thiên Hỉ ở Mệnh / Phu Thê.
+    # Năm KÍCH HOẠT (mức đại-vận): đại vận có cung đi qua nơi có Hồng Loan / Thiên Hỉ.
     kich_hoat_sao = {
         s: i for s, i in la_so["sao_q2"].items() if s in _DAO_HOA_KICH_HOAT
     }
     nam_kich_hoat = []
-    for dv in la_so.get("dai_van", []):
+    for dv in dai_van:
         bi = dv.get("branch_index")
         touched = [s for s, i in kich_hoat_sao.items() if i == bi]
         if touched:
@@ -403,20 +533,19 @@ def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
 
     # Năm CẦN GIỮ GÌN (mức đại-vận): đại vận đi qua cung Phu Thê mà nơi đó có
     # Hóa Kỵ nhập hoặc Kình Dương toạ -> năm cần chăm sóc (KHÔNG phán ly hôn).
+    # Hóa Kỵ tra trên TẤT CẢ nhóm sao (hoá hay rơi vào phụ tinh).
     ky_star = la_so["tu_hoa"].get("Kỵ")
-    ky_idx = la_so["chinh_tinh"].get(ky_star) if ky_star else None
+    ky_idx = _star_index(la_so, ky_star) if ky_star else None
     kinh_idx = la_so["sat_tinh"].get("Kình Dương")
     nam_giu_gin = []
-    for dv in la_so.get("dai_van", []):
+    for dv in dai_van:
         bi = dv.get("branch_index")
         reasons = []
         if bi == phu_the_idx and ky_idx == phu_the_idx:
             reasons.append(f"Hóa Kỵ ({ky_star}) tại cung Phu Thê")
         if bi == phu_the_idx and kinh_idx == phu_the_idx:
             reasons.append("Kình Dương tại cung Phu Thê")
-        # Đại vận đi tới chính cung Phu Thê cũng là chặng tiêu điểm quan hệ.
-        if bi == phu_the_idx and not reasons:
-            reasons.append("đại vận đi qua cung Phu Thê — chặng tiêu điểm quan hệ")
+        # CHỈ báo khi có Kỵ/Kình thực sự (không fire chỉ vì index trùng cung Phu Thê).
         if reasons:
             nam_giu_gin.append({
                 "cycle_index": dv.get("cycle_index"),
@@ -439,20 +568,71 @@ def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
 
 
 # --------------------------------------------------------------------------- #
+# (k) NARRATION BRIEF — gộp giọng cho chặng 3 (sage narrate)
+# --------------------------------------------------------------------------- #
+def _narration_brief(stage: dict, personality: dict, cach_cuc: list[dict]) -> dict:
+    """Gộp giọng (stage + Mệnh chính tinh) + cờ must-reframe để sage chỉ đọc 1 brief,
+    không phải tự ráp nhiều nguồn → giảm rủi ro narrate sai paradigm.
+    """
+    nen, tranh = [], []
+    for p in personality.get("profiles", []):
+        kv = p.get("khau_vi_giao_tiep") or {}
+        nen.extend(kv.get("nen", []) or [])
+        tranh.extend(kv.get("tranh", []) or [])
+    # Khử trùng giữ thứ tự.
+    nen = list(dict.fromkeys(nen))
+    tranh = list(dict.fromkeys(tranh))
+
+    must_reframe = [
+        c["ten_cach"] for c in cach_cuc if c.get("require_bien_chinh")
+    ]
+    return {
+        "giong_uu_tien_stage": stage.get("giong_van"),
+        "giong_tu_menh_chinh_tinh": [
+            {"sao": p["sao"], "khau_vi": p.get("khau_vi_giao_tiep")}
+            for p in personality.get("profiles", [])
+        ],
+        "uu_tien_giong": (
+            "Khi giọng chặng-tuổi và khẩu vị sao xung nhau: ƯU TIÊN giọng CHẶNG TUỔI "
+            "(stage.giong_van) làm khung an toàn, dùng khẩu vị sao để tô màu chi tiết."
+        ),
+        "nen": nen,
+        "tranh": tranh,
+        "must_reframe_refs": must_reframe,
+        "canh_bao_paradigm": (
+            "Mọi cách trong must_reframe_refs BẮT BUỘC reframe (đọc đồng dạng, mệnh là "
+            "động từ) — KHÔNG đọc nguyên văn lời cổ kết án. KHÔNG phán 'sẽ ly hôn / số "
+            "cô quả'. Định thời chỉ là 'năm cần giữ gìn', không phải tiên tri."
+        ),
+    }
+
+
+# --------------------------------------------------------------------------- #
 # Sources gom lại
 # --------------------------------------------------------------------------- #
+_SOURCE_META_KEYS = (
+    "nguon", "nguon_chinh", "nguon_goc", "nguon_da_dung",
+    "_nguon", "sach", "title",
+)
+
+
 def _collect_sources() -> list[str]:
     out = []
     for key in ("tuvi_phuthe", "batu_hon_nhan", "reconcile", "personality",
                 "cach_cuc", "life_stages"):
-        meta = kb.get(key).get("_meta", {})
-        src = meta.get("nguon") or meta.get("_nguon") or meta.get("sach") or meta.get("title")
+        block = kb.get(key)
+        meta = block.get("_meta", {})
+        src = None
+        for mk in _SOURCE_META_KEYS:
+            if meta.get(mk):
+                src = meta[mk]
+                break
+        # batu_hon_nhan: _meta thiếu key nguồn rõ → lấy phu_tinh._nguon_goc.
+        if not src and key == "batu_hon_nhan":
+            src = block.get("phu_tinh", {}).get("_nguon_goc")
         if isinstance(src, (list, tuple)):
             src = "; ".join(str(x) for x in src)
-        if src:
-            out.append(f"{key}: {src}")
-        else:
-            out.append(key)
+        out.append(f"{key}: {src}" if src else key)
     return out
 
 
@@ -525,6 +705,9 @@ def read_tinh_duyen(
     # (j) ĐỊNH THỜI.
     dinh_thoi = _dinh_thoi(la_so, age, phu_the_idx)
 
+    # (k) NARRATION BRIEF cho chặng 3.
+    narration_brief = _narration_brief(stage, personality, cach_cuc)
+
     return {
         "method_id": METHOD_ID,
         "input": {
@@ -533,6 +716,7 @@ def read_tinh_duyen(
             "timezone": timezone,
             "as_of_year": as_of_year,
             "tuoi": age,
+            "gio_sinh_thieu": _thieu_gio_sinh(birth_datetime_local),
             "menh_branch": la_so.get("menh_branch"),
             "phu_the_branch": _BRANCHES[phu_the_idx],
         },
@@ -543,6 +727,7 @@ def read_tinh_duyen(
         "song_phai_reconcile": reconcile,
         "cach_cuc": cach_cuc,
         "dinh_thoi": dinh_thoi,
+        "narration_brief": narration_brief,
         "base_12_khia_canh": base.get("khia_canh", []),
         "paradigm_ok": bool(base.get("paradigm_ok", True)),
         "sources": _collect_sources(),
