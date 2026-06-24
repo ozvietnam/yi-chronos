@@ -102,6 +102,16 @@ def run_agent(
         raise ValueError(f"Unknown agent_id: {agent_id!r}")
 
     persona = get_prompt(agent_id)
+    # SOUL profile của sage (cũng là Hermes autonomous-agent) có thể chứa hướng dẫn kanban/tool.
+    # Trong hội đồng luận giải KHÔNG có tool → append override ưu tiên cao (cuối system prompt =
+    # recency mạnh) ép bỏ qua, chỉ luận văn xuôi. (Bug 2026-06-24: deepseek-chat nhả 'tôi sẽ gọi
+    # kanban_show()' vì SOUL lẫn devops; M3 trước rỗng nên giấu.)
+    persona = persona + (
+        "\n\n---\n## ⚠️ CHẾ ĐỘ HỘI ĐỒNG LUẬN GIẢI (ưu tiên cao nhất, ghi đè phần trên)\n"
+        "Phiên này bạn KHÔNG có bất kỳ công cụ nào. BỎ QUA mọi hướng dẫn kanban/task/gọi-hàm/tool "
+        "ở phần trên. TUYỆT ĐỐI KHÔNG viết 'tôi sẽ gọi…'. Chỉ trả lời bằng PHÂN TÍCH VĂN XUÔI "
+        "tiếng Việt — luận trực tiếp lá số + câu hỏi của user."
+    )
     # RAG grounding: vòng đầu (chưa có chất vấn) → bơm tri thức sâu trích sách cho sage
     # luận như chuyên gia, dẫn cụ thể. Best-effort, không chặn nếu lỗi/thiếu DB.
     expert_ctx = ""
