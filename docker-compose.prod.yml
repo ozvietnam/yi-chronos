@@ -9,6 +9,7 @@ services:
       - .env
     environment:
       - TZ=Asia/Ho_Chi_Minh
+      - PYTHONPATH=/Users/ozvietnamdesktop/Desktop/yi
       - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
       - YI_CHRONOS_CORS_ORIGINS=${YI_CHRONOS_CORS_ORIGINS:-https://kinhdich.online,https://www.kinhdich.online}
       # #41 — Redis broker/backend cho Celery (.delay enqueue) + ratelimit shared.
@@ -96,6 +97,7 @@ services:
       - .env
     environment:
       - TZ=Asia/Ho_Chi_Minh
+      - PYTHONPATH=/Users/ozvietnamdesktop/Desktop/yi
       - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
@@ -126,6 +128,7 @@ services:
       - .env
     environment:
       - TZ=Asia/Ho_Chi_Minh
+      - PYTHONPATH=/Users/ozvietnamdesktop/Desktop/yi
       - YI_CHRONOS_DATABASE_URL=sqlite:///Users/ozvietnamdesktop/Desktop/yi/data/yi_chronos.sqlite3
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0

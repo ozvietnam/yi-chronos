@@ -17,6 +17,7 @@ import json
 import sqlite3
 import time
 from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as _FuturesTimeout
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -341,7 +342,7 @@ Vietnamese markdown.
             ],
             model=model,
             temperature=0.5,
-            max_tokens=2000,
+            max_tokens=1300,   # gọn lại → tổng hợp nhanh hơn (chunk reasoning chậm nhất)
         )
         return resp.content
     except ProviderError as e:
@@ -358,6 +359,44 @@ Vietnamese markdown.
             return f"[Trọng tài fallback Mock — {provider.name} lỗi: {e}]\n\n{resp.content}"
         except Exception:
             return f"(Trọng tài lỗi giai đoạn tổng hợp: {e})"
+
+
+# ─── Parallel round runner (bounded — KHÔNG treo theo sage chậm) ─────────────
+
+SAGE_TIMEOUT_S = 70   # cả vòng tối đa 70s; sage chưa kịp → bỏ (council vẫn tổng hợp)
+
+
+def _timed_out_response(aid: str) -> AgentResponse:
+    meta = AGENT_METADATA.get(aid, {})
+    return AgentResponse(agent_id=aid, agent_name_vi=meta.get("name_vi", aid),
+                         provider="-", model="-", content="",
+                         error=f"timeout >{SAGE_TIMEOUT_S}s")
+
+
+def _run_round_parallel(selected_agents, run_one, round_label, challenges):
+    """Chạy 1 vòng sage SONG SONG 1 đợt (pool đủ rộng) + DEADLINE chung → council
+    KHÔNG treo vì 1 sage chậm/provider treo. Sage quá hạn = error response, bỏ qua.
+    shutdown(wait=False): trả ngay, không chặn chờ thread sage còn kẹt."""
+    import time as _t
+    pool = ThreadPoolExecutor(max_workers=min(len(selected_agents), 8))
+    try:
+        futures = {aid: pool.submit(run_one, aid, round_label, challenges)
+                   for aid in selected_agents}
+        deadline = _t.monotonic() + SAGE_TIMEOUT_S
+        out = []
+        for aid in selected_agents:
+            remaining = max(0.0, deadline - _t.monotonic())
+            try:
+                out.append(futures[aid].result(timeout=remaining))
+            except _FuturesTimeout:
+                out.append(_timed_out_response(aid))
+            except Exception as e:   # provider chết bất ngờ → cũng bỏ qua, đừng vỡ council
+                out.append(AgentResponse(
+                    agent_id=aid, agent_name_vi=AGENT_METADATA.get(aid, {}).get("name_vi", aid),
+                    provider="-", model="-", content="", error=str(e)[:120]))
+        return out
+    finally:
+        pool.shutdown(wait=False)
 
 
 # ─── Top-level orchestrator ──────────────────────────────────────────────────
@@ -414,9 +453,7 @@ def consult_council(
         )
 
     if parallel and len(selected_agents) > 1:
-        with ThreadPoolExecutor(max_workers=min(len(selected_agents), 4)) as pool:
-            futures = {aid: pool.submit(_run_one, aid, "1", None) for aid in selected_agents}
-            round_1 = [futures[aid].result() for aid in selected_agents]
+        round_1 = _run_round_parallel(selected_agents, _run_one, "1", None)
     else:
         round_1 = [_run_one(aid, "1", None) for aid in selected_agents]
 
@@ -432,9 +469,7 @@ def consult_council(
         session.round_2_challenges = challenges
 
         if parallel and len(selected_agents) > 1:
-            with ThreadPoolExecutor(max_workers=min(len(selected_agents), 4)) as pool:
-                futures = {aid: pool.submit(_run_one, aid, "3", challenges) for aid in selected_agents}
-                round_3 = [futures[aid].result() for aid in selected_agents]
+            round_3 = _run_round_parallel(selected_agents, _run_one, "3", challenges)
         else:
             round_3 = [_run_one(aid, "3", challenges) for aid in selected_agents]
 
