@@ -23,7 +23,6 @@ TÁI DÙNG engine sẵn (KHÔNG viết lại):
   - engine.tu_vi.from_birth          : cast_la_so_from_birth
   - engine.tu_vi.mieu_vuong_ham      : level_at / level_label (trạng thái sao)
   - engine.tu_vi.cach_cuc_dict       : match_cach_in_chart (cách cục)
-  - engine.tu_vi.chiem_phu_the_v4    : chiem_phu_the_v4 (26 quy luật Phu Thê)
   - engine.tu_vi.dai_van_luu_nien_phu_the : cung_phu_the_dai_van + luu_nien_phu_the_markers
   - engine.tinh_duyen.knowledge_loader    : kho tri thức 6 JSON grounded _nguon
 """
@@ -37,7 +36,6 @@ from engine.tu_vi.an_sao import BRANCHES_TVI, PALACE_NAMES
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 from engine.tu_vi.mieu_vuong_ham import level_at, level_label
 from engine.tu_vi import cach_cuc_dict
-from engine.tu_vi.chiem_phu_the_v4 import chiem_phu_the_v4
 from engine.tu_vi.dai_van_luu_nien_phu_the import (
     cung_phu_the_dai_van,
     luu_nien_phu_the_markers,
@@ -371,8 +369,10 @@ def doc_tuvi_12_buoc(
         "cung 'tình dục/thân mật'). "
         + ("Có đào hoa (" + ", ".join(tt_dao) + ") — sắc thái tình cảm đậm, cần vận hành lành mạnh. "
            if tt_dao else "")
-        + "Tham Lang/đào hoa tụ ở đây: cổ văn nói tình cảm nồng — đọc lại theo Vương Đình Chi "
-        "là sức sống tình cảm, không kết án."
+        + ("Tham Lang tọa Tử Tức: 王亭之 ghi 贪狼…追求情欲 — sức sống tình cảm/thân mật mạnh, "
+           "đọc lại là năng lượng, không kết án. "
+           if ("Tham Lang" in tt_s["chinh"] or tt_dao) else
+           "Không có Tham Lang/đào hoa tụ tại Tử Tức → tầng thân-mật đọc theo chính tinh tọa cung, không thêm sắc thái đào hoa.")
     )
     buoc.append(_buoc(
         "7. Cung Tử Tức (子女宫) — con cái & tầng thân mật",

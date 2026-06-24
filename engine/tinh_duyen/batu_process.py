@@ -39,12 +39,6 @@ from engine.bat_tu.hoa_giai import luan_hoa_giai
 from engine.bat_tu.hon_nhan import analyze_hon_nhan
 from engine.bat_tu.luc_than import analyze_luc_than
 from engine.bat_tu.luu_nien import (
-    LUC_HAI,
-    LUC_HOP,
-    LUC_XUNG,
-    TAM_HINH_GROUPS,
-    TU_HINH,
-    TUONG_HINH,
     _branch_interaction,
     analyze_luu_nien,
 )
@@ -555,20 +549,38 @@ def _buoc_7_xung_hinh_hop(state: dict) -> dict:
     # Đào hoa nhật chi (Tý/Ngọ/Mão/Dậu) — sức hút phối ngẫu.
     dao_hoa_nhat_chi = nhat_chi in ("Tý", "Ngọ", "Mão", "Dậu")
 
-    nhat_chi_co_xung = any(i["type"] in ("lục xung",) for i in nhat_chi_inter)
+    # Phân loại tương tác nhật chi — KHÔNG bỏ sót tự hình / lục hại / tương hình
+    # (đều là tín hiệu cung phối ngẫu kinh điển, cùng polarity 'hung' với lục xung).
+    _HINH_HAI = ("tự hình", "lục hại", "tương hình", "tương hình (vô lễ)")
+    nhat_chi_co_xung = any(i["type"] == "lục xung" for i in nhat_chi_inter)
     nhat_chi_co_hop = any(i["type"] == "lục hợp" for i in nhat_chi_inter)
+    hinh_hai = [i for i in nhat_chi_inter if i["type"] in _HINH_HAI]
+    nhat_chi_co_hinh_hai = bool(hinh_hai)
 
     if nhat_chi_co_xung:
         luan_nc = (
             f"NHẬT CHI {nhat_chi} (cung phối ngẫu) bị LỤC XUNG → cung vợ chồng có khí động/biến — "
             "đọc đồng dạng là quan hệ cần linh hoạt, dễ thay đổi nơi-ở/hoàn cảnh, KHÔNG phán ly tán."
         )
+    elif nhat_chi_co_hinh_hai:
+        loai = "; ".join(sorted({i["type"] for i in hinh_hai}))
+        luan_nc = (
+            f"NHẬT CHI {nhat_chi} (cung phối ngẫu) có {loai.upper()} với trụ khác "
+            "(" + "; ".join(i["narrative"] for i in hinh_hai if i.get("narrative")) + ") "
+            "→ cung vợ chồng vướng khí 'hình/hại' — Tử Bình coi đây là tín hiệu cọ xát/dằng dai "
+            "trong quan hệ (tự hình = tự dày vò bên trong; lục hại = ngấm ngầm tổn hao; tương hình = "
+            "va chạm). Đọc đồng dạng: cần Ý THỨC chăm sóc + giải toả, KHÔNG phán khắc/ly tán."
+        )
     elif nhat_chi_co_hop:
         luan_nc = (
             f"NHẬT CHI {nhat_chi} (cung phối ngẫu) có LỤC HỢP → khí cung vợ chồng hợp, duyên gắn kết."
         )
     else:
-        luan_nc = f"NHẬT CHI {nhat_chi} (cung phối ngẫu) không xung/hợp mạnh với trụ khác — cung tương đối ổn."
+        luan_nc = f"NHẬT CHI {nhat_chi} (cung phối ngẫu) không xung/hình/hại/hợp mạnh với trụ khác — cung tương đối ổn."
+
+    # Lục hợp + hình/hại đồng thời: bổ sung cảnh báo 'hợp mà vẫn vướng'.
+    if nhat_chi_co_hop and nhat_chi_co_hinh_hai and not nhat_chi_co_xung:
+        luan_nc += " Tuy có lục hợp gắn kết nhưng đồng thời vướng hình/hại — gắn bó mà vẫn cần giải toả cọ xát."
 
     if dao_hoa_nhat_chi:
         luan_nc += f" Nhật chi {nhat_chi} là một trong tứ chính (子午卯酉) = đào hoa toạ mệnh, sức hút phối ngẫu nổi."
@@ -579,11 +591,15 @@ def _buoc_7_xung_hinh_hop(state: dict) -> dict:
             "nhat_chi": nhat_chi,
             "nhat_chi_tuong_tac": nhat_chi_inter,
             "nhat_chi_dao_hoa": dao_hoa_nhat_chi,
+            "nhat_chi_co_xung": nhat_chi_co_xung,
+            "nhat_chi_co_hop": nhat_chi_co_hop,
+            "nhat_chi_co_hinh_hai": nhat_chi_co_hinh_hai,
+            "nhat_chi_hinh_hai": hinh_hai,
             "toan_cuc_tuong_tac": toan_cuc,
         },
         "luan": luan_nc,
-        "_nguon": _kb_nguon("phoi_ngau") + ["engine.bat_tu.luu_nien tables (Tử Bình: lục hợp/lục xung/lục hại/tam hình giữa địa chi; nhật chi = cung phối ngẫu)"],
-        "muc_do_anh_huong": "truc_tiep" if nhat_chi_co_xung or nhat_chi_co_hop else "gian_tiep",
+        "_nguon": _kb_nguon("phoi_ngau") + ["engine.bat_tu.luu_nien tables (Tử Bình: lục hợp/lục xung/lục hại/tự hình/tương hình giữa địa chi; nhật chi = cung phối ngẫu)"],
+        "muc_do_anh_huong": "truc_tiep" if (nhat_chi_co_xung or nhat_chi_co_hop or nhat_chi_co_hinh_hai) else "gian_tiep",
     }
 
 
@@ -595,8 +611,7 @@ def _buoc_8_ngu_hanh_thieu(state: dict) -> dict:
     counts = state.get("ngu_hanh", {}).get("counts", {}) or count_elements(state["tu_tru"]["pillars"])
 
     # Hành chồng (官杀) = hành KHẮC Nhật chủ; hành con (Thực Thương) = hành Nhật chủ SINH.
-    hanh_chong = _CONTROLS.get(dm_el, "")        # khắc DM
-    # _CONTROLS[x] = hành mà x khắc → cần đảo để tìm hành khắc DM.
+    # _CONTROLS[x] = hành mà x khắc → đảo map để tìm hành KHẮC dm_el.
     hanh_chong = next((k for k, v in _CONTROLS.items() if v == dm_el), "")
     hanh_con = _GENERATES.get(dm_el, "")          # DM sinh ra
 
