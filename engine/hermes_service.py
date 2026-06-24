@@ -351,7 +351,7 @@ def _real_quick(question: str, person: dict, uid: int) -> dict:
     """1 sage liên quan nhất trả lời (1 lần gọi LLM) — dùng SOUL sâu + chart facts +
     bối cảnh user (pseudonymized). Rẻ hơn council nhiều."""
     from engine.ai.agents import run_agent
-    from engine.ai.council import _get_agent_provider
+    from engine.ai.council import _SAGE_FAST_MODEL, _get_agent_provider
     from engine.ai.kanban_council import select_sages
     sage = (select_sages(question) or ["tu_vi"])[0]
     chart = _build_chart_data(person)
@@ -359,6 +359,9 @@ def _real_quick(question: str, person: dict, uid: int) -> dict:
     if ctx:
         chart["user_context"] = ctx
     provider, model = _get_agent_provider(sage)
+    # FIX answer_failed (app báo 2026-06-24): default_model deepseek-v4-pro trả RỖNG (reasoning ăn
+    # token) → answer="" → answer_failed. Ép deepseek-chat (non-reasoning, tin cậy) như council sage.
+    model = _SAGE_FAST_MODEL.get(provider.name, model)
     resp = run_agent(agent_id=sage, provider=provider, model=model,
                      question=question, chart_data=chart, round_label="quick", challenges=None)
     toks = {"prompt": getattr(resp, "prompt_tokens", 0), "completion": getattr(resp, "completion_tokens", 0)}
