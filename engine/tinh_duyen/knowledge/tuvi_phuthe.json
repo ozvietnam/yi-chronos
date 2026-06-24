@@ -1,0 +1,273 @@
+{
+  "_meta": {
+    "ten": "Tri thức Tình Duyên / Hôn Nhân cho NỮ MỆNH — Tử Vi Đẩu Số",
+    "phai": "Trung Châu phái / Tứ Hóa (中州派) — Vương Đình Chi 王亭之",
+    "paradigm": "ĐỌC ĐỒNG DẠNG, KHÔNG BÓI (Iron Rule #4/#6/#8). Mệnh là ĐỘNG TỪ — lá số cho biết TÍNH (cấu trúc bẩm phú), engine đọc cách VẬN HÀNH cái tính đó cho hợp thời, KHÔNG phán 'số cô quả / sát chồng / hôn nhân tan vỡ'. Theo Vương Đình Chi: 不可贸贸然推断 (đừng đoán ẩu), 不可断为定数 (không kết án thành số định). Mọi 'cát/hung' cổ văn được GIỮ NGUYÊN (tiếc dê tiếc lễ) nhưng PHẢI kèm biện-chính hiện đại.",
+    "doi_tuong": "NỮ MỆNH (女命) — xem tình duyên + hôn nhân trong tính năng gieo duyên",
+    "nguon_chinh": [
+      "中州派紫微斗数深造讲义 — 王亭之 (Vương Đình Chi), file /tmp/tc7.txt",
+      "女命骨髓赋 (Nữ Mệnh Cốt Tủy Phú) — verse gốc trong Tử Vi Đẩu Số Toàn Thư, chú 王亭之",
+      "docs/design/honnhan-numenh-nguon-va-khung.md (khung luận đúc từ 2 nguồn trên)"
+    ],
+    "luu_y_doc": "Sao 天姚 = Thiên Diêu (KHÔNG phải Thiên Dao); trong hệ engine đã có sẵn ở sao_le/sao_q2/sat_tinh (memory tu_vi_hoai_tinh_dang_son_truc) — KHÔNG thêm trùng.",
+    "ngay_tao": "2026-06-24"
+  },
+
+  "chinh_tinh_phu_the": {
+    "_ghi_chu": "14 chính tinh khi tọa CUNG PHU THÊ (夫妻宫) của nữ mệnh. tinh_chat_phoi_ngau = nét phối ngẫu/cấu trúc tình cảm; cat_hung = sắc thái cổ văn (giữ nguyên, không kết án); dieu_can_chu_y = điều cần lưu tâm khi VẬN HÀNH.",
+
+    "tu_vi": {
+      "ten_han": "紫微",
+      "tinh_chat_phoi_ngau": "Phối ngẫu có khí chất chủ động, tự tôn, muốn làm chủ. Tử Vi cần phụ tá (Tả Phụ Hữu Bật, Xương Khúc) để điều hòa tính độc đoán; thiếu phụ tá thì cô.",
+      "cat_hung": "trung tính — cát khi đắc bách quan triều củng (百官朝拱), kém khi cô quân (孤君) không phụ tá.",
+      "dieu_can_chu_y": "Tử Vi đồng cung Tham Lang ở Phu Thê = đậm sắc đào hoa (紫贪见昌曲则加强桃花色彩); cần Thiên Hình / không-vong để thành cách 'thanh bạch' (清白). Đọc tính: phối ngẫu trọng thể diện, cần được tôn trọng để hôn nhân vận hành êm.",
+      "_nguon": "tc7.txt dòng 42, 290; design doc §2B"
+    },
+
+    "thien_co": {
+      "ten_han": "天机",
+      "tinh_chat_phoi_ngau": "Phối ngẫu trí xảo, nhiều biến động trong tư tưởng/tình cảm; Thiên Cơ chủ 'biến', dễ thay đổi tâm tư hơn thay đổi thực tế.",
+      "cat_hung": "trung tính — sợ Hỏa Linh Thiên Hình Không Kiếp Thiên Hư Âm Sát Hàm Trì Đại Hao làm xấu đi.",
+      "dieu_can_chu_y": "Thiên Cơ hóa Kỵ ở Phu Thê → tâm tư đa nghi, dễ sinh thị phi tình cảm; vận hành tốt khi đôi bên giao tiếp rõ ràng, tránh ngờ vực ngầm.",
+      "_nguon": "tc7.txt dòng 75 (sao xấu ảnh hưởng Thiên Cơ), 1097"
+    },
+
+    "thai_duong": {
+      "ten_han": "太阳",
+      "tinh_chat_phoi_ngau": "Phối ngẫu hào sảng, hướng ngoại, gánh vác; nữ mệnh Thái Dương ở Phu Thê thường được chồng che chở/cứu giúp tính thu liễm của bản thân.",
+      "cat_hung": "cát khi nhập miếu đắc cát; hung khi lạc hãm hóa Kỵ.",
+      "dieu_can_chu_y": "Thái Dương ở Phu Thê hóa Kỵ + hội Cự Môn hóa Kỵ → đa nghi đa lo dẫn tới rạn nứt (因多疑多虑而至婚姻败裂). Thái Dương lạc hãm/hóa Kỵ → nữ mệnh 'phòng gặp người không tốt' (防遇人不淑) = lưu ý chọn bạn đời kỹ, KHÔNG phải định mệnh xấu.",
+      "_nguon": "tc7.txt dòng 939, 1133, 1205, 1219, 1361"
+    },
+
+    "vu_khuc": {
+      "ten_han": "武曲",
+      "tinh_chat_phoi_ngau": "Sao cương liệt (刚烈之星) — đồng thời mang tính cô khắc (孤克). Phối ngẫu cứng cỏi, độc lập, thực tế, ít lời ngọt.",
+      "cat_hung": "CỔ VĂN coi rất kỵ Vũ Khúc tọa Phu Thê, gọi là [寡宿] (Quả Tú). 凡刚烈之星一定不利六亲. NHƯNG ở cung Tài/Quan/Phúc thì KHÔNG kỵ — chỉ kỵ ở Mệnh/Phụ Mẫu/Huynh Đệ/Phu Thê/Tử Nữ/Giao Hữu.",
+      "dieu_can_chu_y": "Biện-chính hiện đại (王亭之): cổ xã hội nữ không sự nghiệp, lấy chồng là lấy sự nghiệp chồng nên rất sợ Quả Tú; nay nữ có sự nghiệp riêng → cương liệt thành tự lập, thành đạt (女命反易奋发). Đọc TÍNH: cần không gian độc lập, hai người là đối tác bình đẳng thì vận hành tốt. Đại kỵ Vũ Khúc hóa Kỵ bị Kình-Đà giáp (羊陀夹武曲之忌 = kết cấu rất xấu) → năm/vận đó cần giữ gìn.",
+      "_nguon": "tc7.txt dòng 119, 120, 121, 1104; design doc §2B,§2C"
+    },
+
+    "thien_dong": {
+      "ten_han": "天同",
+      "tinh_chat_phoi_ngau": "Phối ngẫu hiền hòa, ưa hưởng thụ, tình cảm, mềm mỏng; Thiên Đồng là phúc tinh nhưng tính nhu nhược.",
+      "cat_hung": "CỔ VĂN không thích Thiên Đồng tọa NỮ MỆNH: [虽美而淫] (tuy đẹp mà...). Cổ nhân coi tính 'tinh thần trống trải, ưa hưởng thụ lại phung phí, mềm yếu' = bản chất thiếp thị thời cổ.",
+      "dieu_can_chu_y": "Biện-chính (王亭之): [虽美而淫] là ĐỊNH KIẾN bối cảnh thiếp-thị thời cổ, KHÔNG phải bản án (天同坐女命虽美而淫 = 定见, 不是宿命). Nay đọc là: tình cảm phong phú, cần được yêu thương; vận hành tốt khi có chỗ dựa tinh thần ổn định. Sợ Cự Môn hóa Kỵ hội + đào hoa chư diệu → năm tình cảm biến động.",
+      "_nguon": "tc7.txt dòng 148, 1105, 1766; design doc §2C"
+    },
+
+    "liem_trinh": {
+      "ten_han": "廉贞",
+      "tinh_chat_phoi_ngau": "Liêm Trinh là 'thứ đào hoa' (次桃花), chủ tình cảm, mâu thuẫn lý-trí và tình. Phối ngẫu giàu cảm xúc, có chiều sâu nội tâm, nhưng dễ giằng xé.",
+      "cat_hung": "CỔ VĂN: 廉贞清白能相守 (Liêm Trinh thanh bạch thì giữ được nhau) — tức Liêm Trinh KHÔNG hội đào hoa-sát thì hôn nhân bền. Liêm Trinh hóa Kỵ + đào hoa + sát → 'phòng nhân sắc sinh tai' (因色生灾).",
+      "dieu_can_chu_y": "Liêm Trinh mạnh (hóa Lộc, hoặc hội Xương Khúc/Hồng Loan Thiên Hỉ/Hàm Trì Đại Hao/Mộc Dục Thiên Diêu/Tam Thai Bát Tọa) → tinh hệ nặng tính tình cảm; vận hành tốt khi giữ 'thanh bạch' — chuyên nhất, tránh vướng đa giác tình cảm.",
+      "_nguon": "tc7.txt dòng 169, 532, 533, 871, 1132; 女命骨髓赋 (design doc §2A)"
+    },
+
+    "thien_phu": {
+      "ten_han": "天府",
+      "tinh_chat_phoi_ngau": "Phối ngẫu ôn hòa, giữ gìn, có khả năng tích lũy/ổn định gia sản (库星). Thiên Phủ tường hòa (天府祥和) → hôn nhân ổn định.",
+      "cat_hung": "CỔ VĂN TỐT: 府相之星女命躔, 必当子贵与夫贤 (Phủ-Tướng tọa nữ mệnh → con quý chồng hiền). Thiên Phủ ở Phu Thê → đại vận khó làm ly tán.",
+      "dieu_can_chu_y": "Sợ 空库/露库 (kho rỗng / kho lộ) — khi đó tính giữ gìn mất, dễ vì cầu vật dục mà sa sẩy. Đọc TÍNH: phối ngẫu cần cảm giác an toàn/ổn định, vận hành tốt khi xây nền tài chính-gia đình vững.",
+      "_nguon": "tc7.txt dòng 822, 886; 女命骨髓赋 (design doc §2A,§2B)"
+    },
+
+    "thai_am": {
+      "ten_han": "太阴",
+      "tinh_chat_phoi_ngau": "Phối ngẫu dịu dàng, nội liễm, tình cảm sâu kín (chủ âm/nữ tính). Thái Âm là điền trạch chủ + tài, phối ngẫu thường chu đáo việc nhà.",
+      "cat_hung": "Nên nhập miếu (入庙), kỵ lạc hãm (落陷). Thái Âm lạc hãm/hóa Kỵ → nữ mệnh 'phòng hôn nhân quan hệ có biến' (防婚姻关系有变), hoặc sinh ly tử biệt với phối ngẫu (与配偶生离死别) —须详夫妻宫 (phải xét kỹ cung Phu Thê).",
+      "dieu_can_chu_y": "ĐIỂM VÀNG biện-chính (王亭之): 太阴化权女命主御夫有术 — Thái Âm hóa Quyền ở nữ mệnh = khéo điều phối/dẫn dắt chồng một cách tinh tế (người ngoài chỉ thấy hiền thục). KHÔNG phải 'đoạt quyền chồng'. Đọc là: nội lực mềm mà dẫn dắt, vận hành tốt khi giữ vai trò điều hòa âm thầm.",
+      "_nguon": "tc7.txt dòng 233, 1122, 1124, 1280, 1768; design doc §2C"
+    },
+
+    "tham_lang": {
+      "ten_han": "贪狼",
+      "tinh_chat_phoi_ngau": "Tham Lang chủ vật dục + tình dục, hóa khí vi đào hoa (化气为桃花). Phối ngẫu sức hút mạnh, nồng nhiệt; cần phân biệt thiên vật-dục hay tình-dục.",
+      "cat_hung": "Cổ văn ở Phu Thê: vật dục quá sâu → phối ngẫu trọng vật chất; tình dục quá sâu → 爱情姻缘皆呈反复 (ái tình hôn nhân phản phúc). Quá lạnh nhạt → phối ngẫu gặp cảnh không tốt / hôn nhân khó hòa hợp.",
+      "dieu_can_chu_y": "Tham Lang tứ vượng (Tý Ngọ Mão Dậu) = vật dục sâu; nếu thành [桃花犯主] (đào hoa phạm chủ, với Tử Tham) thì là kết cấu tình dục, cần Thiên Hình/Không-diệu để thành 'thanh bạch'. [泛水桃花] (Tham Lang Tý + Kình, hoặc Hợi + Đà) / [风流采杖] (Tham Lang Dần + Đà, hoặc hội Thiên Hình Kình) = đào hoa nặng. Đọc TÍNH: tình cảm sống động, vận hành tốt khi hướng sức hút vào sáng tạo/tài nghệ, tránh để 'đào hoa trùng trùng' ở vận-niên kéo theo biến động tình cảm.",
+      "_nguon": "tc7.txt dòng 263, 264, 271, 277, 290, 294, 295, 610, 614"
+    },
+
+    "cu_mon": {
+      "ten_han": "巨门",
+      "tinh_chat_phoi_ngau": "Cự Môn chủ khẩu thiệt thị phi, nội tâm trầm. Phối ngẫu giỏi ngôn từ/biện luận nhưng dễ khẩu giác; quan hệ cần lời nói rõ ràng.",
+      "cat_hung": "Cự Môn hóa Kỵ ở Phu Thê → 'tranh cãi vô cớ', dễ phát triển tình cảm ngoài hôn nhân (易生畸恋/苦恋); thêm Kình Dương + năm lưu → 'lưu niên nguy hiểm hôn nhân'.",
+      "dieu_can_chu_y": "Cự Môn 'thạch trung ẩn ngọc' (石中隐玉) thì sâu sắc. Đọc TÍNH: cặp đôi nuôi nhau bằng đối thoại; vận hành tốt khi giao tiếp thẳng thắn, không để hiểu lầm tích tụ; cảnh giác năm Cự Môn hóa Kỵ + Kình.",
+      "_nguon": "tc7.txt dòng 891, 935, 1216, 1217, 1218, 1608, 1621, 1623, 1626; design doc §2B"
+    },
+
+    "thien_tuong": {
+      "ten_han": "天相",
+      "tinh_chat_phoi_ngau": "Thiên Tướng chủ phụ tá, ấn tinh, khí chất ưu nhã (气质优雅). Phối ngẫu chu đáo, biết điều, trọng nghi lễ, thích chăm sóc.",
+      "cat_hung": "CỔ VĂN TỐT: 府相之星女命躔, 必当子贵与夫贤. Sợ [刑忌夹印] (Hình-Kỵ giáp Ấn) và [财荫夹印] không thuận → dễ mất chí hoặc nhu nhược dựa dẫm.",
+      "dieu_can_chu_y": "Thiên Tướng dễ chịu ảnh hưởng cung bên cạnh (giáp cung). Đọc TÍNH: phối ngẫu hòa nhã đáng tin; vận hành tốt khi tránh để áp lực hai bên (Hình-Kỵ) đè, giữ chính kiến.",
+      "_nguon": "tc7.txt dòng 878, 963, 969; 女命骨髓赋 (design doc §2A)"
+    },
+
+    "thien_luong": {
+      "ten_han": "天梁",
+      "tinh_chat_phoi_ngau": "Thiên Lương chủ ấm/che chở, nguyên tắc, lớn tuổi-trưởng thượng tính (老成). Phối ngẫu chững chạc, nguyên tắc, có thể hơn tuổi/như bậc trưởng.",
+      "cat_hung": "Thiên Lương 'cương lệ' (刚戾) → vận hạn lục thân tang bệnh ly tán; CỔ VĂN: 女命万不宜于此运限内恋爱结婚 (vận Thiên Lương cương lệ, nữ rất không nên yêu/kết hôn trong vận đó, kẻo nhiều đau khổ).",
+      "dieu_can_chu_y": "Cảnh báo này là về THỜI ĐIỂM (vận), KHÔNG phải bản án cả đời. Thiên Lương hóa Khoa + Xương Khúc Khôi Việt thì khác. Đọc TÍNH: cần phối ngẫu/quan hệ có chiều sâu nguyên tắc; chọn thời điểm chín muồi để kết hôn (tránh đỉnh vận cương lệ).",
+      "_nguon": "tc7.txt dòng 953, 1736, 1738"
+    },
+
+    "that_sat": {
+      "ten_han": "七杀",
+      "tinh_chat_phoi_ngau": "Thất Sát cương quyết, uy mãnh, độc lập (杀破狼 trục biến động). Phối ngẫu mạnh mẽ, quyết đoán, chủ động, ít ngọt ngào.",
+      "cat_hung": "Sao cương liệt mang cô khắc. CỔ VĂN: 七杀沉吟福不荣; 太刚克则必刑夫克子, 人生未免孤寂 — quá cương khắc thì cô tịch. NHƯNG 须注意其刚克的程度 (phải xét MỨC độ cương khắc), không kết luận cứng.",
+      "dieu_can_chu_y": "Biện-chính (王亭之): cương liệt 'tùy cung' — chỉ kỵ khi quá cương khắc; nay nữ mệnh Thất Sát thường tự lập thành đạt. Đọc TÍNH: phối ngẫu/bản thân cá tính mạnh, vận hành tốt khi hai bên tôn trọng không gian riêng, hợp tác như đồng minh thay vì tranh quyền. Thất Sát nên 'uy quyền' (威权), kỵ 'cô cao' (孤高).",
+      "_nguon": "tc7.txt dòng 403, 1300; 女命骨髓赋 (design doc §2A)"
+    },
+
+    "pha_quan": {
+      "ten_han": "破军",
+      "tinh_chat_phoi_ngau": "Phá Quân chủ phá cũ lập mới, sức phá hoại + khai sáng. Phối ngẫu cá tính khác lạ, nhiều sóng gió biến đổi, không theo lề lối thường.",
+      "cat_hung": "Phá Quân vô cát hóa + Lộc-Mã hội sát → 'nam nữ lãng đãng' (破军无吉化, 禄马会煞, 男女浪荡); thêm đào hoa + Thiên Mã → nữ mệnh ý chí mỏng, 'thấy lạ đổi lòng' (见异思迁).",
+      "dieu_can_chu_y": "Khẩu quyết Trung Châu phái: 女命佳者亦如红拂 (nữ mệnh Phá Quân kết cấu tốt thì như Hồng Phất — dám tự chọn người mình yêu, chủ động số phận). Đọc TÍNH: cần được tự do làm mới; vận hành tốt khi phối ngẫu chấp nhận sự thay đổi, cùng nhau phá-lập có định hướng (cần cát hóa).",
+      "_nguon": "tc7.txt dòng 431; 女命骨髓赋 (design doc §2A)"
+    }
+  },
+
+  "dao_hoa_tinh": {
+    "_ghi_chu": "Nhóm 桃花诸曜 (đào hoa chư diệu) theo Trung Châu phái — chủ sức hút, duyên, tình cảm. Tại CUNG PHU THÊ hoặc hội chiếu chúng tăng sắc thái tình cảm/đào hoa. Bản thân KHÔNG hung; chỉ khi tụ-trùng + sát-kỵ mới thành 'đào hoa kiếp'. KHÔNG phán 'lăng nhăng'.",
+
+    "thien_dieu": {
+      "ten_han": "天姚",
+      "y_nghia_duyen": "Đào hoa chủ phong tình, sức quyến rũ tinh tế, duyên ngầm. Cùng Tử Tham đồng độ = tình dục thậm thâm (情欲甚深). Hội sát-kỵ ở Phu Thê → cổ văn nói 'trùng hôn tái giá' → ĐỌC LẠI: duyên có nhiều chương, cần chọn lựa kỹ, không phải 'số phải lấy nhiều lần'.",
+      "_nguon": "tc7.txt dòng 615, 871, 1573; design doc §2B"
+    },
+    "ham_tri": {
+      "ten_han": "咸池 (Hàm Trì = Đào Hoa sát)",
+      "y_nghia_duyen": "Đào hoa chủ mị lực, hấp dẫn giới tính; thường đi cặp Đại Hao. Hội Thái Âm lạc hãm/hóa Kỵ + Đà La Linh Thiên Hình Thiên Hư Âm Sát → tăng sắc thái tình cảm trồi sụt. Đọc: nét cuốn hút, cần hướng lành.",
+      "_nguon": "tc7.txt dòng 75, 233, 494, 615, 871, 1437"
+    },
+    "moc_duc": {
+      "ten_han": "沐浴 (Mộc Dục)",
+      "y_nghia_duyen": "Đào hoa thuộc vòng Tràng Sinh, chủ sức xuân, duyên dáng. Đi trong nhóm 天姚沐浴咸池大耗 — khi tụ ở cung Phu/Phúc + bất như ý hôn nhân → cổ nói dễ sinh ngoại tình (红杏出墙). Đọc: năng lượng tình cảm dồi dào, cần chỗ thoát lành mạnh.",
+      "_nguon": "tc7.txt dòng 494, 615, 871"
+    },
+    "dai_hao": {
+      "ten_han": "大耗",
+      "y_nghia_duyen": "Đi cặp Hàm Trì trong nhóm đào hoa; chủ hao tán + dao động tình cảm khi hội cung Phu/Phúc. Tự thân là tạp diệu, không phán hung độc lập — đọc theo cụm.",
+      "_nguon": "tc7.txt dòng 494, 615, 871"
+    },
+    "hong_loan": {
+      "ten_han": "红鸾",
+      "y_nghia_duyen": "Đào hoa chủ HỶ SỰ hôn nhân, duyên lành cưới hỏi (đi cặp Thiên Hỉ). Hội Phu Thê/Mệnh thường ứng năm có hôn sự/đính ước. Khi hội Linh Tinh Địa Không Âm Sát Thiên Hư → dễ giằng xé lý-trí và tình. Đọc tích cực: tín hiệu duyên lành.",
+      "_nguon": "tc7.txt dòng 552, 871"
+    },
+    "thien_hi": {
+      "ten_han": "天喜",
+      "y_nghia_duyen": "Đào hoa chủ hỷ khánh, niềm vui, duyên hôn nhân (cặp với Hồng Loan). Lưu Hồng Loan/Thiên Hỉ tới cung Phu Thê thường ứng thời điểm duyên/cưới. Đọc: dấu mốc vui trong tình cảm.",
+      "_nguon": "tc7.txt dòng 552, 871"
+    },
+    "xuong_khuc": {
+      "ten_han": "文昌文曲 (Xương Khúc — đào hoa văn tinh)",
+      "y_nghia_duyen": "Tăng tình cảm/sức hấp dẫn trí tuệ; cùng Tử Tham/Liêm Tham tăng sắc đào hoa. Văn Khúc hóa Kỵ ở Phu Thê → 'đào hoa kiếp' nghiêm trọng khi hội cụm đào hoa. Đọc: duyên đến qua tài hoa, văn nghệ.",
+      "_nguon": "tc7.txt dòng 42, 871, 903, 1105"
+    },
+    "_cum_dao_hoa_kiep": {
+      "_ghi_chu": "'桃花诸曜毕集' (đào hoa chư diệu tụ đủ) + 化忌/煞曜 mới thành 'đào hoa kiếp' (因色致祸/桃花劫). Một-hai đào hoa lẻ KHÔNG đáng ngại. Nguyên tắc Vương Đình Chi: xét CỤM + sát-kỵ, không phán theo một sao lẻ.",
+      "_nguon": "tc7.txt dòng 822, 877, 969, 1105"
+    }
+  },
+
+  "tu_hoa_phu_the": {
+    "_ghi_chu": "Tứ Hóa (禄权科忌) nhập CUNG PHU THÊ nữ mệnh. Theo Trung Châu phái/Tứ Hóa: Tứ Hóa là then chốt đọc động (cơ + biến). Hóa Kỵ ở Phu Thê là tín hiệu cần CHĂM SÓC quan hệ, KHÔNG phải án ly hôn.",
+    "hoa_loc": {
+      "ten_han": "化禄",
+      "y_nghia": "Lộc nhập Phu Thê → duyên thuận, phối ngẫu mang lại lợi/ấm áp, tình cảm có 'của để dành'. Cần đề phòng Lộc + đào hoa → 'tài lộc và sóng tình đến cùng lúc' (财禄与感情波折同来). Đọc: nền tình cảm dồi dào, vận hành tốt khi không tham lan man.",
+      "_nguon": "tc7.txt dòng 1646; nguyên lý Tứ Hóa Trung Châu phái"
+    },
+    "hoa_quyen": {
+      "ten_han": "化权",
+      "y_nghia": "Quyền nhập Phu Thê → phối ngẫu chủ động, có quyền uy; hoặc bản thân nắm vai dẫn trong quan hệ. Thái Âm hóa Quyền (nữ) = 御夫有术 (khéo điều phối chồng). Đọc: cần phân vai rõ, tránh tranh quyền; vận hành tốt khi dẫn dắt mềm.",
+      "_nguon": "tc7.txt dòng 1118 (Vũ Khúc hóa Lộc/Tham hóa Quyền tương đối → cô khắc); design doc §2C (太阴化权御夫)"
+    },
+    "hoa_khoa": {
+      "ten_han": "化科",
+      "y_nghia": "Khoa nhập Phu Thê → duyên có tiếng, phối ngẫu có danh/học thức, quan hệ ôn hòa nhã. CẢNH BÁO Vương Đình Chi: 武曲化科会紫府, 易生变情, 不满丈夫 → ảnh hưởng hôn nhân (Khoa không phải lúc nào cũng thuần cát). Đọc: trọng thể diện đôi lứa.",
+      "_nguon": "tc7.txt dòng (Vũ Khúc hóa Khoa hội Tử Phủ) ; design doc §2B"
+    },
+    "hoa_ky": {
+      "ten_han": "化忌",
+      "y_nghia": "Kỵ nhập Phu Thê = tiêu điểm cần CHĂM SÓC: Cự Môn hóa Kỵ → khẩu giác, dễ ngoại tình; Vũ Khúc hóa Kỵ (bị Kình-Đà giáp) → kết cấu rất xấu của bản hôn; Văn Khúc hóa Kỵ → đào hoa kiếp; Thái Dương/Thái Âm hóa Kỵ → 'phòng gặp người không tốt' / quan hệ có biến. Đọc ĐỘNG TỪ: năm/vận Kỵ tới Phu Thê = NĂM CẦN GIỮ GÌN, đối thoại nhiều, hoãn quyết định lớn — KHÔNG phán 'tất ly hôn'.",
+      "_nguon": "tc7.txt dòng 616, 891, 903, 938, 939, 1119, 1623; design doc §2B,§2C"
+    }
+  },
+
+  "sat_tinh_phu_the": {
+    "_ghi_chu": "Lục sát (Kình Đà Hỏa Linh Không Kiếp) ở CUNG PHU THÊ nữ mệnh. Nguyên tắc Vương Đình Chi: 不可贸贸然推断 — sát tinh phải xét cùng chính diệu, không kết án. 三方四正嫌逢杀, 更在夫宫祸患深 (女命骨髓赋): sát hội + tại cung Phu thì lưu tâm sâu — nhưng là 'cần giữ gìn', không phải định mệnh.",
+    "kinh_duong": {
+      "ten_han": "擎羊 (Kình Dương)",
+      "y_nghia": "Sát cương, chủ hình thương tranh chấp. Ở/chiếu Phu Thê tăng cương khắc; cặp với chính tinh + hóa Kỵ → 'lưu niên nguy hiểm hôn nhân' (vd Cự Môn hóa Kỵ + lưu Kình). Đọc: quan hệ có ma sát, vận hành tốt khi tiết chế nóng nảy, năm lưu Kình tới Phu Thê thì giữ gìn.",
+      "_nguon": "tc7.txt dòng 121, 615, 616, 903, 938; design doc §2B"
+    },
+    "da_la": {
+      "ten_han": "陀罗 (Đà La)",
+      "y_nghia": "Sát âm trầm, chủ dây dưa trì trệ, phiền muộn ngầm. Hai trùng Đà La đồng triền Phu Thê → 'nhân hôn nhân mà sinh khốn nhiễu' (主因婚姻而生困挠). Đọc: vướng mắc kéo dài, cần giải tỏa sớm tránh tích tụ.",
+      "_nguon": "tc7.txt dòng 121, 295, 903, 938"
+    },
+    "hoa_tinh": {
+      "ten_han": "火星 (Hỏa Tinh)",
+      "y_nghia": "Sát hỏa, chủ nóng gấp, biến cố nhanh. 女命见火铃古人认为凌夫克子 (cổ cho là 'lăng phu khắc tử'). Biện-chính Vương Đình Chi: 此论仍应详命宫正曜星系而定, 不可贸贸然推断 (phải xét chính diệu Mệnh cung, KHÔNG đoán ẩu). Đọc: tính khí nóng/quan hệ có lửa, vận hành tốt khi học hạ nhiệt.",
+      "_nguon": "tc7.txt dòng 75, 295; design doc §2C"
+    },
+    "linh_tinh": {
+      "ten_han": "铃星 (Linh Tinh)",
+      "y_nghia": "Sát hỏa âm, chủ uất kết âm thầm. Đi cặp Hỏa trong câu cổ 火铃凌夫克子. Cùng nguyên tắc biện-chính như Hỏa Tinh — không kết án. Đọc: uẩn khúc ngầm, cần được lắng nghe.",
+      "_nguon": "tc7.txt dòng 75, 552; design doc §2A,§2C"
+    },
+    "dia_khong": {
+      "ten_han": "地空 (Địa Không)",
+      "y_nghia": "Không diệu, chủ trống trải, lý tưởng hóa, dễ vỡ mộng. Ở Phu Thê + chính diệu tình cảm → tinh thần trống vắng, kỳ vọng không thực. Lưu ý: Không diệu cũng CHẾ HÓA đào hoa (天刑空曜 → 清白). Đọc: cần kỳ vọng thực tế.",
+      "_nguon": "tc7.txt dòng 75, 290 (天刑空曜制化桃花), 552, 879"
+    },
+    "dia_kiep": {
+      "ten_han": "地劫 (Địa Kiếp)",
+      "y_nghia": "Kiếp diệu, chủ hao tổn, bất ngờ tổn thất. Ở Phu Thê tăng dao động/mất mát tình cảm. Cùng Không diệu thuộc nhóm chế hóa đào hoa nhưng cũng làm trống trải. Đọc: phòng tổn thất tình cảm do nông nổi.",
+      "_nguon": "tc7.txt dòng 75 (空劫 ảnh hưởng xấu), 879"
+    }
+  },
+
+  "dinh_thoi": {
+    "_ghi_chu": "Cách định THỜI ĐIỂM duyên/hôn — đây là tầng động (biến), tầng cốt lõi của Trung Châu phái/Tứ Hóa mà hệ tĩnh còn yếu. Nguyên tắc: chồng tầng Đại Vận (大运) lên Lưu Niên (流年), xem cung Phu Thê của TỪNG tầng. Mệnh là động từ: định thời = chỉ ra NĂM NÊN LÀM GÌ, không phải tiên tri cứng.",
+
+    "phuong_phap": [
+      {
+        "buoc": "1. Cung Phu Thê đại vận (大运夫妻宫)",
+        "noi_dung": "Đại vận đi qua, lấy cung Phu Thê của đại vận làm trục: chính diệu + Tứ Hóa của đại vận rơi vào đó cho biết 'chương' tình cảm 10 năm này. Vd: hành Thái Âm lạc hãm vận → phòng hôn nhân có biến; vận Thiên Lương cương lệ → 万不宜恋爱结婚 (không nên kết hôn trong vận đó).",
+        "_nguon": "tc7.txt dòng 1736, 1768, 1280; design doc §2B"
+      },
+      {
+        "buoc": "2. Cung Phu Thê lưu niên (流年夫妻宫)",
+        "noi_dung": "Lưu niên: xem cung Phu Thê của năm đó + lưu Tứ Hóa + lưu Kình-Đà. Năm có HỶ DUYÊN: lưu Hồng Loan/Thiên Hỉ + Lộc tới Phu Thê. Năm CẦN GIỮ GÌN: lưu niên Phu Thê gặp 化忌 + 擎羊 (vd năm Đinh Dậu Thiên Đồng Cự Môn, Cự Môn hóa Kỵ + Kình = 'lưu niên nguy hiểm hôn nhân').",
+        "_nguon": "tc7.txt dòng 616, 903, 938, 939; design doc §2B"
+      },
+      {
+        "buoc": "3. Dấu hiệu NĂM CẦN GIỮ GÌN (cảnh báo mềm, không phán định)",
+        "noi_dung": "Khi cung Phu Thê (đại vận HOẶC lưu niên) đồng thời gặp: Hóa Kỵ + Kình Dương (hoặc bị Kình-Đà giáp) → năm tình cảm dễ căng, nên đối thoại nhiều, hoãn quyết định lớn (cưới/ly/đầu tư chung). Thêm đào hoa chư diệu tụ + sát → đề phòng 'đào hoa kiếp'. Cách diễn đạt PHẢI: 'năm nay là năm cần giữ gìn, vận hành quan hệ cẩn trọng' — KHÔNG: 'năm nay sẽ ly hôn'.",
+        "_nguon": "tc7.txt dòng 616, 121 (羊陀夹忌), 969, 1105; design doc §2B,§2C"
+      },
+      {
+        "buoc": "4. Chồng tầng (đại vận ⊗ lưu niên)",
+        "noi_dung": "Cẩn trọng nhất khi sát-kỵ của ĐẠI VẬN và LƯU NIÊN cùng dồn vào một cung Phu Thê (vd lưu Kình + đại vận Đà cùng giáp/chiếu). 'Hai trùng' (两重) sát/kỵ = tín hiệu mạnh nhất. Vd thực: hành Đinh Mùi đại vận Thiên Tướng hai trùng [刑忌夹印], cung Phu [廉贪] hai trùng Đà La → 主因婚姻而生困挠.",
+        "_nguon": "tc7.txt dòng 938, 939, 1119"
+      }
+    ],
+
+    "bien_chinh_hien_dai": {
+      "_ghi_chu": "Bắt buộc kèm khi output định thời/cát-hung — đúng paradigm hệ (Iron Rule #4/#6/#8).",
+      "diem_vang": [
+        "不可贸贸然推断 — đừng đoán ẩu; sát tinh phải xét cùng chính diệu Mệnh cung.",
+        "以今日社会言, 女命反易奋发 — thời nay, sao 'cô khắc' (Vũ Khúc/Thất Sát/Phá Quân/Hỏa Linh) lại GIÚP nữ tự lập, thành đạt.",
+        "天同坐女命虽美而淫 = định kiến bối cảnh thiếp-thị thời cổ, KHÔNG phải bản án.",
+        "太阴化权女命主御夫有术 — khéo điều phối chồng tinh tế (người ngoài chỉ thấy hiền thục), không phải đoạt quyền.",
+        "古代认为宜偏房继室, 现代或主无正式婚礼 — câu cổ 'nên làm thiếp/kế thất' nay đọc là 'có thể sống chung không cưới chính thức', không phải số làm lẽ.",
+        "女命佳者亦如红拂 (Phá Quân) — nữ kết cấu tốt thì như Hồng Phất, dám chủ động chọn người mình yêu."
+      ],
+      "_nguon": "design doc §2C (đúc từ 王亭之 中州派深造讲义); tc7.txt dòng 148, 403, 119-120, 431"
+    }
+  }
+}

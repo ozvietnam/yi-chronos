@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "ban_so": "1.0",
+    "ngay": "2026-06-24",
+    "vai_tro": "Trọng tài đối chiếu hai phái Tử Vi (紫微斗数) ⇔ Bát Tự (八字/子平) cho HÔN NHÂN — NỮ MỆNH",
+    "muc_tieu": "Tìm chân lý: nơi hai phái HỘI TỤ → kết luận chắc; nơi DỊ BIỆT → giữ cả hai (kept_all, Iron Rule #3), điểm chung làm chắc, điểm riêng làm sắc thái/điều kiện",
+    "paradigm_bat_buoc": [
+      "KHÔNG BÓI (Iron Rule #4/#6): đọc đồng dạng, không predict 'sẽ ly dị / sẽ giàu năm X'",
+      "MỆNH LÀ ĐỘNG TỪ (Iron Rule #8): đọc TÍNH (cấu trúc khí/sao) → cách VẬN HÀNH, không phải bản án tĩnh",
+      "王亭之 (Vương Đình Chi) biện chính định kiến cổ: '不可贸贸然推断' (đừng đoán ẩu), '以今日社会言 女命反易奋发' (nay sao cô-khắc lại giúp nữ tự lập) — KHÔNG phán 'số cô quả / sát chồng', KHÔNG kết án",
+      "THỂ-DỤNG: Bát Tự = THỂ (năng lượng ngũ hành/thập thần, tiên thiên — 'bạn LÀ AI'); Tử Vi = DỤNG (tinh diệu × cung, hậu thiên — 'bạn VẬN HÀNH/TRẢI QUA điều gì')"
+    ],
+    "nguon_da_dung": [
+      "Tử Vi — Trung Châu Tử Vi Đẩu Số Q2, Vương Đình Chi (王亭之) §5.3 Cung Phu Thê: engine/tu_vi/phu_the_partner_traits.py",
+      "Tử Vi — Trung Châu phái Thâm Tạo Giảng Nghĩa (王亭之 中州派紫微斗数深造讲义): memory honnhan_numenh_sources.md (book_id trung-chau-phai-tu-vi-tham-tao-giang-nghia)",
+      "Tử Vi — 女命骨髓赋 (Nữ Mệnh Cốt Tủy Phú) trong Tử Vi Đẩu Số Toàn Thư: wiki corpus tuvi-toan-thu-lht-zh",
+      "Tử Vi — Hồng Loan/Thiên Hỉ định thời: engine/tu_vi/dai_van_luu_nien_phu_the.py",
+      "Bát Tự — Trích Thiên Tủy bình chú, Nhậm Thiết Tiều, Chương 6 Nữ Mệnh: engine/bat_tu/nu_menh.py",
+      "Bát Tự — Thiệu Vĩ Hoa & Trần Viên, Dự đoán theo Tứ trụ (Cung Phối + Tài/Quan tinh + Đào Hoa): engine/bat_tu/hon_nhan.py",
+      "Khung hợp nhất song phái: engine/cross_paradigm/hon_nhan_song_phai.py (12 khía cạnh, đồng-tham/dị-tham)"
+    ]
+  },
+  "chu_de": [
+    {
+      "chu_de": "Bao giờ cưới / duyên đến",
+      "tuvi_doc_bang": "Cung Phu Thê (chính tinh + Tuần/Triệt) là CẤU TRÚC nền; ĐỊNH THỜI dựa Đại Vận + Lưu Niên — năm Hồng Loan (红鸾) hoặc Thiên Hỉ (天喜) bay đến cung Mệnh hoặc cung Phu Thê = năm khí hôn nhân được kích hoạt. Chính tinh dạng 'cô khắc/cương liệt' (Tử Vi tại dã cô quân, vô đạo) → tín hiệu kết hôn muộn (sau 30) thuận hơn kết hôn sớm.",
+      "batu_doc_bang": "Cung Phối = địa chi Trụ Ngày (đại biểu chồng); Phu tinh = Chính Quan/Thất Sát. ĐỊNH THỜI: Đại Vận có Quan tinh vượng, hoặc Lưu Niên có chi lục-hợp / tam-hợp với Cung Phối (Trụ Ngày chi) = chu kỳ khí phối ngẫu được khơi.",
+      "khi_HOI_TU": "Cả hai phái đều KHÔNG chốt một con số tuổi — đều nói 'duyên đến khi KHÍ được kích hoạt qua vận/niên'. Nói thẳng được: thời điểm hôn nhân là CỬA SỔ động theo vận, không phải mốc cố định; cả hai cùng chỉ ra giai đoạn vận/niên thuận để chủ động vun đắp.",
+      "khi_DI_BIET": "Tử Vi đánh dấu thời điểm bằng sao bay (Hồng Loan/Thiên Hỉ) — tín hiệu rời rạc theo năm. Bát Tự đánh dấu bằng hợp-cục chi + Quan tinh vượng — tín hiệu theo cả Đại Vận dài. XỬ LÝ: lấy điểm chung 'cửa sổ động' làm CHẮC; dùng năm Hồng Loan/Thiên Hỉ (Tử Vi, sắc nét) lồng vào Đại Vận có Quan vượng + hợp Cung Phối (Bát Tự, nền dài) → khi hai tín hiệu trùng năm = cửa sổ đậm nhất.",
+      "phai_uu_tien": "Tử Vi mạnh hơn cho ĐỊNH THỜI điểm (sao lưu niên cho độ phân giải theo NĂM); Bát Tự mạnh hơn cho XÁC NHẬN giai đoạn dài (Đại Vận 10 năm). Lý do: hệ Hồng Loan/Thiên Hỉ + tứ-hóa lưu niên của Tử Vi vốn thiết kế để soi từng năm.",
+      "_nguon": "engine/tu_vi/dai_van_luu_nien_phu_the.py (Hồng Loan/Thiên Hỉ đến Mệnh/Phu Thê); engine/tu_vi/phu_the_partner_traits.py (kết hôn muộn p572); engine/bat_tu/hon_nhan.py (_suggest_timing: lục hợp/tam hợp Cung Phối + Quan tinh vượng)"
+    },
+    {
+      "chu_de": "Chồng / bạn đời thế nào",
+      "tuvi_doc_bang": "Đọc CHÍNH TINH tại cung Phu Thê → đặc điểm bạn đời. VD: Tử Vi tọa → khí 'Đế tinh', địa vị cao, tự tin, có khuynh hướng chi phối; Tử-Phủ → ổn định, có chí tiến thủ; Tử-Tham → thuần dục vọng (vật chất hoặc dục tình), có thể thiên hướng tâm linh/tôn giáo; Thái Dương (nữ mệnh) → chồng là trụ cột nhưng Thái Dương Hóa Kỵ → chồng nhiều nạn tai/bệnh.",
+      "batu_doc_bang": "Hai lớp: (1) địa chi Cung Phối (Trụ Ngày chi) cho 'chất' bạn đời theo ngũ hành chi — VD Tý thủy: sâu, ẩn, nhạy cảm; Ngọ hỏa: nhiệt tình, bộc lộ; Dậu kim âm: tinh tế, thẩm mỹ. (2) Phu tinh = Chính Quan (chồng đoan chính, có khuôn phép) vs Thất Sát (đối tượng mạnh, cương, kẻ cường).",
+      "khi_HOI_TU": "Hai phái cùng đọc 'chất khí' của bạn đời từ một vị trí trung tâm (cung Phu Thê ⇔ Cung Phối Trụ Ngày). Khi Tử Vi cho 'Đế tinh chi phối' mà Bát Tự cho 'Thất Sát' (đối tượng cương mạnh) → HỘI TỤ, kết luận chắc: bạn đời có cá tính mạnh/quyền uy, mối quan hệ vận hành tốt khi mệnh tạo có không gian riêng, không tranh ngôi.",
+      "khi_DI_BIET": "Tử Vi mô tả CHI TIẾT tính cách + nghề + ngoại hình bạn đời (qua tổ hợp sao). Bát Tự mô tả 'chất nền' ngũ hành + vai khí (Quan/Sát) — trừu tượng hơn. XỬ LÝ: điểm chung về CƯỜNG ĐỘ cá tính (mạnh/mềm) làm CHẮC; chi tiết riêng của Tử Vi (nghề, tâm linh, ngoại hình) làm SẮC THÁI cần kiểm chứng đời thực, không chốt cứng.",
+      "phai_uu_tien": "Tử Vi mạnh hơn cho CHÂN DUNG bạn đời (60 tinh hệ tại Phu Thê cho mô tả giàu chi tiết). Bát Tự mạnh hơn cho 'độ hợp khí' giữa hai người (sinh-khắc ngũ hành). Lý do: Trung Châu Q2 §5.3 có registry chi tiết từng tổ hợp sao cho đặc điểm phối ngẫu.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (TU_VI_TRAITS, Thái Dương p272 — Trung Châu Q2 §5.3.1); engine/bat_tu/hon_nhan.py (CUNG_PHOI_BRANCH_TRAIT + _count_partner_star Chính Quan/Thất Sát)"
+    },
+    {
+      "chu_de": "Có hợp nhau không / chất lượng hôn nhân",
+      "tuvi_doc_bang": "Đọc cung Phu Thê: có Hóa Kỵ / Sát tinh (Kình-Đà-Hỏa-Linh-Không-Kiếp) / Tuần-Triệt đóng tại Phu Thê → điểm căng (trắc trở, biến động). Tam phương tứ chính cung Phu Thê hội cát phụ (Tả-Hữu, Khôi-Việt, Xương-Khúc) → hài hòa. 女命骨髓赋: 府相之星女命躔 → 必当子贵与夫贤 (Phủ-Tướng tọa nữ mệnh → chồng hiền con quý).",
+      "batu_doc_bang": "Cung Phối (Trụ Ngày chi) tương tác với 3 trụ kia: lục hợp → ấm áp; lục xung / lục hại / tương hình → biến động, bất hòa ngầm, va chạm. Tổng hợp thành nhãn 'thuận / trung bình / thử thách'. Đào Hoa / Hồng Diễm tô thêm sắc; Cô Thần / Quả Tú → khuynh hướng cô.",
+      "khi_HOI_TU": "Cả hai cùng dùng logic 'hợp = lành, xung/khắc = căng' tại một cung trung tâm. Khi Tử Vi báo Phu Thê có Sát/Kỵ VÀ Bát Tự báo Cung Phối bị lục xung/tương hình → HỘI TỤ, nói thẳng được: cấu trúc quan hệ có điểm căng nội tại, cần ý thức hóa giải bằng giao tiếp + lựa chọn đối tác bù khuyết — KHÔNG nói 'hôn nhân tan vỡ'.",
+      "khi_DI_BIET": "Trường hợp lệch (một phái lành, một phái căng) = dị-tham → giữ CẢ HAI (Iron #3). XỬ LÝ: điểm chung làm CHẮC; điểm riêng thành ĐIỀU KIỆN — VD Tử Vi lành nhưng Bát Tự xung Cung Phối: 'cấu trúc bạn đời tốt (Tử Vi) NHƯNG nền khí dễ va chạm (Bát Tự) → quan hệ vận hành tốt khi giảm xung đột sinh hoạt thường nhật'.",
+      "phai_uu_tien": "Cân bằng — KHÔNG phái nào áp đảo. Bát Tự nhỉnh cho 'năng lượng tương tác hợp/khắc' (sinh-khắc ngũ hành là sở trường THỂ); Tử Vi nhỉnh cho 'chất lượng tổng thể + điểm căng' qua Sát-Kỵ ở Phu Thê. Khung song phái xếp khía cạnh 2 (chất lượng tổng thể) lead Tử Vi, khía cạnh 4 (năng lượng hợp/khắc) lead Bát Tự.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (Hóa Kỵ/Sát warning); 女命骨髓赋 corpus tuvi-toan-thu-lht-zh (memory honnhan_numenh_sources.md); engine/bat_tu/hon_nhan.py (_branch_interactions_with + overall label thuận/trung bình/thử thách); engine/cross_paradigm/hon_nhan_song_phai.py (ASPECTS 2 & 4)"
+    },
+    {
+      "chu_de": "Duyên sớm hay muộn",
+      "tuvi_doc_bang": "Một số tổ hợp sao tại Phu Thê chỉ rõ nên kết hôn MUỘN/chênh tuổi: Tử Vi 'tại dã cô quân/vô đạo' (nữ) → kết hôn sau 30 thuận hơn; Tử-Tướng Thìn/Tuất → nên chênh lệch tuổi, kết hôn muộn; Tử-Phủ Dần/Thân + Thiên Thọ → nữ nên lấy chồng lớn tuổi. Sát/Kỵ nặng tại Phu Thê thời trẻ → duyên sớm dễ trắc trở.",
+      "batu_doc_bang": "Quan tinh (Phu) vô căn hoặc quá yếu lúc trẻ → tín hiệu phối ngẫu chưa rõ giai đoạn đầu, duyên muộn. Quan tinh vượng + Cung Phối được hợp sớm trong các Đại Vận đầu → duyên đến sớm. Thân nhược + Quan quá vượng → cần đủ tuổi/vận để 'gánh' được khí phối ngẫu (muộn ổn hơn).",
+      "khi_HOI_TU": "Cả hai cùng quy 'sớm/muộn' về việc KHÍ phối ngẫu đủ điều kiện vận hành chưa, không về số tuổi cố định. Khi Tử Vi báo 'cô quân nên muộn' VÀ Bát Tự báo 'Quan vô căn / thân nhược gánh không nổi' → HỘI TỤ: duyên vận hành bền hơn khi đến muộn/khi mệnh tạo đã vững — đây là LỜI KHUYÊN VẬN HÀNH, không phải lời tiên tri 'ế'.",
+      "khi_DI_BIET": "Có thể lệch: Tử Vi 'nên muộn' nhưng Bát Tự có Quan vượng hợp Cung Phối sớm. XỬ LÝ: giữ cả hai — điểm chung (duyên là cửa sổ động) làm CHẮC; sắc thái 'sớm vận hành được nhưng cần củng cố nội lực' (Tử Vi) thành ĐIỀU KIỆN đi kèm. Tránh tuyệt đối kết luận 'số muộn duyên' theo nghĩa định mệnh.",
+      "phai_uu_tien": "Tử Vi mạnh hơn cho chỉ dấu 'nên sớm/muộn' rõ ràng (các cách cô quân/Thiên Thọ/chênh tuổi nói thẳng). Bát Tự bổ trợ bằng độ vững của thân + thời điểm Quan vượng. Lý do: Trung Châu Q2 ghi minh thị tuổi/độ chênh cho từng tổ hợp sao.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (kết hôn muộn p572, Tử-Tướng p173, Tử-Phủ Thiên Thọ p569); engine/bat_tu/nu_menh.py (quan_sat_vo_can; quan_qua_vuong_than_nhuoc)"
+    },
+    {
+      "chu_de": "Đào hoa nhiều hay ít",
+      "tuvi_doc_bang": "Sao đào hoa: Hồng Loan, Thiên Hỉ, Hàm Trì, Đại Hao, Thiên Diêu, Mộc Dục; tổ hợp Tham Lang/Liêm Trinh là 'chính tinh đào hoa'. Cách 'Phiếm Thủy Đào Hoa' (Tham/Tý + Kình) hay 'Phong Lưu Thái Trượng' (Dần + Đà) → khuynh hướng vì sắc. Tử-Tham tại Phu Thê → bạn đời thiên dục vọng/sắc tình. Số lượng + vị trí sao đào hoa quanh Mệnh-Phu Thê cho mức 'đậm/nhạt'.",
+      "batu_doc_bang": "Đào Hoa (咸池) theo tam-hợp chi (Tý-Thìn-Thân→Dậu; Sửu-Tỵ-Dậu→Ngọ; Dần-Ngọ-Tuất→Mão; Mão-Mùi-Hợi→Tý) + sao Hồng Diễm. Cấu trúc Thực Thương vượng + Tỉ Kiếp + Tài → tính cách thoáng, giao tiếp rộng (paradigm CỔ gọi 'dâm tà' — engine bác bỏ định kiến này).",
+      "khi_HOI_TU": "Cả hai cùng có hệ sao/cấu trúc 'đào hoa' định lượng được mức đậm-nhạt. Khi Tử Vi nhiều sao đào hoa quanh Mệnh-Phu VÀ Bát Tự có Đào Hoa hiện + cấu trúc Thực-Thương-Tỉ-Tài → HỘI TỤ: sức hút/giao tế rộng là một NÉT TÍNH, cách vận hành lành mạnh là chuyển thành duyên xã hội/sáng tạo, chọn đối tác kỹ.",
+      "khi_DI_BIET": "ĐẶC BIỆT QUAN TRỌNG về paradigm: cả engine Tử Vi lẫn Bát Tự đều CẢNH BÁO không đọc đào hoa như 'lăng nhăng/dâm'. Nếu lệch (một phái nhiều, một phái ít) → giữ cả hai, lấy mức TRUNG bình làm chắc, mức cao của một phái thành điều kiện 'cần ý thức ranh giới', tuyệt đối KHÔNG kết án đạo đức (王亭之 不可贸贸然推断).",
+      "phai_uu_tien": "Tử Vi mạnh hơn cho đào hoa (kho sao đào hoa phong phú + các cách định danh như Phiếm Thủy Đào Hoa; corpus 桃花×357 trong Thâm Tạo Giảng Nghĩa). Bát Tự bổ trợ bằng Hàm Trì + cấu trúc thập thần. Lý do: Tử Vi vốn nhiều sao chuyên về nhân duyên/giao tế.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (Tử-Tham vật dục/sắc dục p584; Phiếm Thủy Đào Hoa/Phong Lưu Thái Trượng p594); engine/bat_tu/hon_nhan.py (DAO_HOA_BY_BRANCH, Hồng Diễm); engine/bat_tu/nu_menh.py (phong_luu — bác bỏ định kiến 'dâm tà'); memory honnhan_numenh_sources.md (桃花×357)"
+    },
+    {
+      "chu_de": "Trăn trở / trở ngại trong hôn nhân",
+      "tuvi_doc_bang": "Cấu hình cảnh báo tại Phu Thê: Hóa Kỵ (vì bạn đời mà phá tài / thay lòng); Sát tinh + Phu Thê → hình khắc/sinh ly; Thái Dương Hóa Kỵ (nữ) → chồng nhiều nạn tai bệnh; Không-Kiếp tại Phu Thê → thiếu lạc thú khuê phòng / có thể tái hôn. 女命骨髓赋: 三方四正逢杀 + 在夫宫 → 祸患深 (tam phương tứ chính gặp sát + ở cung Phu → trở ngại sâu).",
+      "batu_doc_bang": "Cảnh báo nữ mệnh: 'Thương Quan kiến Quan' (Thương Quan + Quan tinh cùng hiện, không Ấn) → cấu hình khắc chồng cổ điển, hôn nhân biến động; 'Quan Sát hỗn tạp' (Chính Quan + Thất Sát đồng lộ) → nhiều mối đan xen; Cung Phối lục xung/tương hình với trụ khác → tổ ấm khó ổn. Hóa giải: Ấn ('Thương Quan phối Ấn' = học vấn/từ thiện).",
+      "khi_HOI_TU": "Cả hai cùng định vị 'trăn trở' là ĐIỂM CĂNG CẤU TRÚC có thể hóa giải, KHÔNG phải định mệnh. Khi Tử Vi báo Sát/Kỵ tại Phu Thê VÀ Bát Tự báo Thương Quan kiến Quan → HỘI TỤ rõ: có một nút thắt trong cách quan hệ vận hành; nói thẳng được nhưng PHẢI kèm hướng hóa giải (bù Ấn/học vấn/giao tiếp), tuyệt đối không 'sát chồng/khắc phu'.",
+      "khi_DI_BIET": "Khi lệch → giữ cả hai. Điểm chung 'có nút thắt cần ý thức' làm CHẮC; nội dung riêng (Tử Vi: phá tài / sức khỏe chồng; Bát Tự: khắc qua Thương Quan) thành SẮC THÁI mô tả nút thắt nằm ở đâu. Cả hai engine đều có 'paradigm_guard/warning' nhắc đọc bằng góc nhìn hiện đại.",
+      "phai_uu_tien": "Cân bằng, hơi nghiêng Bát Tự cho CƠ CHẾ hóa giải (Thương Quan phối Ấn cho phương án rõ: học vấn/từ thiện). Tử Vi mạnh cho ĐỊNH VỊ nút thắt (sao nào, cung nào). Lý do: Tử Bình có logic dụng-thần/hóa-giải bằng ngũ hành mạch lạc.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (Hóa Kỵ/Không-Kiếp p395, Thái Dương Hóa Kỵ p272); 女命骨髓赋 三方四正逢杀 (memory honnhan_numenh_sources.md); engine/bat_tu/hon_nhan.py (Thương Quan kiến Quan, Quan Sát hỗn tạp); engine/bat_tu/nu_menh.py (thuong_quan_khac_quan + hóa giải bằng Ấn)"
+    },
+    {
+      "chu_de": "Khả năng làm lại / tái hôn",
+      "tuvi_doc_bang": "Tín hiệu trực tiếp tại Phu Thê: Tử-Tướng Thìn/Tuất → nên lấy người ĐÃ TỪNG KẾT HÔN (tái hôn/li dị/góa), gặp 'sao lẻ' phụ-tá càng đúng; Không-Kiếp tại Phu Thê → có thể TÁI HÔN; Tử-Phá Sửu/Mùi → trước hôn nhân sóng gió, nếu vốn không ổn dễ ly dị (mở khả năng làm lại). Định thời làm lại = năm Hồng Loan/Thiên Hỉ bay đến Phu Thê ở giai đoạn vận sau.",
+      "batu_doc_bang": "Cung Phối lục xung/tương hình nặng + Quan tinh không ổn → tổ ấm đầu khó bền; nhưng Đại Vận sau có Quan tinh vượng + Lưu Niên hợp Cung Phối → cửa sổ khí phối ngẫu MỚI mở lại. Bát Tự đọc theo CHUỖI vận: vận trước căng không khóa vận sau.",
+      "khi_HOI_TU": "Cả hai cùng coi 'làm lại' là KHÍ phối ngẫu được kích hoạt LẠI ở vận sau — mệnh là động từ (Iron #8), không phải 'số một đời chồng'. Khi Tử Vi cho tín hiệu tái hôn (Không-Kiếp/Tử-Tướng) VÀ Bát Tự cho cửa sổ Quan vượng vận sau → HỘI TỤ: khả năng làm lại là một LỐI VẬN HÀNH mở, không phải vết nhơ.",
+      "khi_DI_BIET": "Tử Vi cho tín hiệu tái hôn khá TRỰC TIẾP qua sao; Bát Tự suy ra GIÁN TIẾP qua chuỗi Đại Vận. XỬ LÝ: điểm chung 'làm lại là cửa sổ động ở vận sau' làm CHẮC; chỉ dấu trực tiếp của Tử Vi (nên chọn người đã từng kết hôn) thành SẮC THÁI/gợi ý, không kết luận cứng 'chắc chắn tái hôn'.",
+      "phai_uu_tien": "Tử Vi mạnh hơn rõ rệt cho chủ đề này (có sao/cách chỉ thẳng tái hôn + định thời bằng Hồng Loan/Thiên Hỉ vận sau). Bát Tự bổ trợ bằng cấu trúc chuỗi vận. Lý do: Trung Châu Q2 ghi minh thị các cách 'nên lấy người tái hôn / có thể tái hôn'.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (Tử-Tướng lấy người tái hôn p570, Không-Kiếp tái hôn p395, Tử-Phá ly dị p569); engine/tu_vi/dai_van_luu_nien_phu_the.py (Hồng Loan/Thiên Hỉ vận sau); engine/bat_tu/hon_nhan.py (_suggest_timing chuỗi Đại Vận)"
+    },
+    {
+      "chu_de": "Cô đơn / khuynh hướng tự lập (biện chính định kiến 'cô quả')",
+      "tuvi_doc_bang": "Sao 'cương liệt/cô khắc' tùy cung: Vũ Khúc, Thất Sát, Quả Tú, Cô Thần, Thiên Mã cô độc; Tử Vi 'tại dã cô quân' (đế tinh không phụ tá triều củng) → khí cô. 女命骨髓赋 phía xấu: 武曲寡宿 (Vũ Khúc + Quả Tú). NHƯNG 王亭之 biện chính: '以今日社会言, 女命反易奋发' — nay các cấu trúc 'cô khắc' lại giúp nữ ĐỘC LẬP, tự chủ sự nghiệp.",
+      "batu_doc_bang": "Cô Thần / Quả Tú trong than_sat; Quan tinh vô căn (Phu tinh không hiện) → tín hiệu phối ngẫu mờ; thân vượng + Tỉ Kiếp nhiều → tự lập, ít dựa. Trích Thiên Tủy bình chú nhấn: nữ mệnh hiện đại KHÁC nữ mệnh cổ — môi trường + lựa chọn cá nhân quyết định nhiều hơn cấu trúc.",
+      "khi_HOI_TU": "RẤT QUAN TRỌNG — cả hai phái + cả hai engine ĐỀU đã nội bộ hóa việc BÁC BỎ định kiến 'số cô quả/sát phu'. HỘI TỤ chắc nhất của toàn bộ tài liệu: cấu trúc 'cô khắc' = TÍNH tự lập/độc lập mạnh, cách vận hành thời nay là biến nó thành sức bật sự nghiệp + chọn đối tác tôn trọng không gian riêng. Nói thẳng: KHÔNG có 'số ế', chỉ có cấu trúc cần cách vận hành phù hợp.",
+      "khi_DI_BIET": "Nếu một phái báo 'cô' đậm hơn → vẫn KHÔNG nâng thành phán xét. Điểm chung (tự lập là TÍNH, không phải án) làm CHẮC; mức đậm của một phái chỉ là gợi ý 'nên chủ động đầu tư giao tiếp + chọn người bù khuyết'. Đây là chủ đề mà paradigm guard nghiêm nhất.",
+      "phai_uu_tien": "Cân bằng. Tử Vi giàu sao mô tả 'cô khắc' theo cung; Bát Tự cho góc 'thân vượng tự lập + biện chính hiện đại' mạch lạc. Cả hai engine đều có 'paradigm_warning/paradigm_guard' bắt buộc — đây là chủ đề trọng tài phải canh paradigm gắt nhất, ưu tiên TÂM hơn kỹ thuật.",
+      "_nguon": "engine/tu_vi/phu_the_partner_traits.py (Tử Vi tại dã cô quân p568); 女命骨髓赋 武曲寡宿 + 王亭之 以今日社会言女命反易奋发 (memory honnhan_numenh_sources.md); engine/bat_tu/hon_nhan.py (Cô Thần/Quả Tú _detect_special_stars); engine/bat_tu/nu_menh.py (paradigm_guard 'nữ mệnh hiện đại khác cổ điển')"
+    }
+  ]
+}

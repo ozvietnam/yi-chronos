@@ -1,0 +1,258 @@
+{
+  "_meta": {
+    "muc_dich": "Bản đồ TÍNH (cấu trúc) → cách VẬN HÀNH của 14 chính tinh khi tọa Mệnh, để engine lái GIỌNG VĂN của thầy theo tính cách của từng người (nữ mệnh). Không phải để bói.",
+    "paradigm": {
+      "menh_la_dong_tu": "Iron Rule #8 — Mệnh = việc XỬ LÝ cái tính bẩm phú. Sao cho biết TÍNH (nguyên liệu trời ban); cách VẬN HÀNH là việc người đó làm. Output luôn dạng 'cấu trúc này vận hành tốt nhất khi...', KHÔNG 'số cô là...'.",
+      "doc_dong_dang_khong_predict": "Iron Rule #6 — quan-sao-trace-tính, không fortune-telling. Không nói 'sẽ thành/bại', 'năm X giàu/nghèo'.",
+      "vuong_dinh_chi": "Theo 王亭之 (Vương Đình Chi, Trung Châu phái) — 'bất phán yểu, bất kết án' (không phán chết yểu, không kết án). Tử Vi chỉ hiện tiên thiên vận thế趋向; thực tế còn 地运 (bối cảnh xã hội) + 人运 (hậu thiên nhân sự) — hậu thiên nhân sự thường có thể đổi tiên thiên vận thế. Cấm武断 kiểu cổ ('nữ Thất Sát福德cung tất là娼婢', 'Tham Lang居旺宫终身鼠窃') — đó là định kiến bối cảnh phong kiến, KHÔNG dùng phán người.",
+      "nu_menh": "Riêng nữ mệnh: biện chính định kiến cổ ('hư mỹ nhi dâm', 'phụ đoạt phu quyền', 'khắc phu khắc tử'). Đọc TÍNH → cách vận hành lành mạnh, không gắn án 'sát chồng/số khổ'.",
+      "khong_bia": "Chỉ dùng nội dung CÓ trong nguồn. Mỗi mục có field _nguon."
+    },
+    "nguon": [
+      "tc7.txt = 王亭之《中州派紫微斗数》深造讲义 — 上篇 星曜论 §1-14 (十四正曜), dòng 32-441 — mô tả TÍNH (性) từng chính tinh. Đây là chất liệu 形性 (hình tính) chính.",
+      "tc7.txt 序论 — paradigm 'bất phán yểu, bất kết án' + hậu thiên đổi tiên thiên.",
+      "numenh_phu.txt — chỉ chứa mục lục《女命骨髓赋》/《形性赋》(không có thân văn), dùng để xác nhận khung phú; thân văn 形性 lấy từ 星曜论 trong tc7.",
+      "CLAUDE.md Iron Rule #6 #8 (paradigm), MEMORY honnhan_numenh_sources (王亭之深造讲义 = nguồn sâu nhất nữ mệnh)."
+    ],
+    "doi_chieu_batu_thap_than": "Cột thập thần (十神 Bát Tự) là ÁNH XẠ TÍNH HỌC (gần đúng) để engine bắc cầu sang luận Bát Tự — không phải đồng nhất hệ. Ghi rõ là ước lệ.",
+    "so_muc": 14
+  },
+
+  "tu_vi": {
+    "ten_han": "紫微",
+    "khi_chat": "Đế tinh, Bắc Đẩu chủ tinh (âm thổ) — chí tôn chí quý, ví như vua một nước. Có khí lãnh đạo, uy nghi, tự trọng cao. Khuyết điểm gốc: 'độc đoán độc hành, tự cao tự đại' (独断独行、自高自大). Rất sợ làm 'cô quân' (孤君) — không ai phò tá thì hoặc进退失据 hoặc cứng cổ không chịu khuất. Khi gặp昌曲 thì tư tưởng优雅, bớt độc đoán; khi bị sát tinh vây (四煞并照) thì thành '暴君', thành kiến quá sâu mà tâm chí lại yếu, chủ quan cao ngạo.",
+    "_nguon": "tc7.txt §1 紫微 dòng 33-63",
+    "cach_yeu": "Yêu theo thế 'người trên' — cần được tôn trọng, được nhìn nhận vị thế. Thể hiện tình cảm bằng sự che chở, đứng ra lo liệu, dẫn dắt; ít khi hạ mình. Cần đối phương 'phò tá' (như百官朝拱) thì mới mềm; thiếu người nâng đỡ dễ thành cô độc, ôm việc một mình ('sự sự thân lực thân vi').",
+    "_nguon_cach_yeu": "Suy từ tính 帝座 + 孤君 + '事事亲力亲为' (tc7 dòng 61) — diễn theo paradigm vận hành, không phán.",
+    "khau_vi_giao_tiep": {
+      "giong": "trọng-thị (kính nể) + lý-lẽ có chừng mực; đặt cô ở vị thế người quyết định, không dạy đời",
+      "do_dai": "vừa",
+      "cach_khung": "Khung lời như tham vấn một người có tầm: 'Với cấu trúc lãnh đạo của cô, điều đáng cân nhắc là...' — để cô tự thấy mình cầm quyết định. Tránh ra lệnh hay nói cô sai.",
+      "nen": ["công nhận tầm vóc / vị thế trước khi góp ý", "trình bày như đưa lựa chọn để cô chọn", "nhắc giá trị của người 'phò tá' bên cạnh (cộng sự, bạn đời) để cô bớt ôm hết"],
+      "tranh": ["ra lệnh, áp đặt", "chê thẳng khiến cô phải 'khuất phục'", "gây cảm giác cô đơn không ai đứng cùng"]
+    },
+    "doi_chieu_batu_thap_than": "正官/正印 (chính quan / chính ấn) — uy quyền, danh vị, được phò tá; thiên về 'quý' hơn 'phú'.",
+    "_nguon_thap_than": "ước lệ tính học (đế tọa chủ quý, cần ấn-quan朝拱), không phải đồng nhất hệ"
+  },
+
+  "thien_co": {
+    "ten_han": "天机",
+    "khi_chat": "Nam Đẩu đệ nhất tinh (âm mộc) — ví như 'mưu sĩ / quân sư'. Thông minh cơ biến, đa mưu, ham học才艺 (văn xương khúc, long trì phượng các). Nhược: dễ 'tâm tư bất định, đa lao đa lự nhi thiểu thực tế hiệu quả' (suy nghĩ nhiều, lo lắng nhiều mà ít kết quả thật), nhất là khi gặp hỏa linh giáp chế. Hóa忌 + sát/không thì dễ lệch thành '奸僻' (xảo trá lệch lạc). Thích依附 quyền quý để phát huy tài.",
+    "_nguon": "tc7.txt §2 天机 dòng 65-83",
+    "cach_yeu": "Yêu bằng đầu óc — quan sát, phân tích, dò xét trước khi mở lòng; cần một mối quan hệ có 'chỗ dựa' để cô được phát huy. Dễ nghĩ ngợi, đổi ý, lo xa; tình cảm theo dạng đồng hành trí tuệ hơn là bùng nổ.",
+    "_nguon_cach_yeu": "Suy từ 谋士 + 心思不定 + 依附权贵 (tc7 §2) — diễn vận hành.",
+    "khau_vi_giao_tiep": {
+      "giong": "lý-lẽ + cô-đọng, gợi mở để cô tự suy; tôn trọng sự nhanh trí của cô",
+      "do_dai": "vừa",
+      "cach_khung": "Đặt vấn đề như một bài toán có nhiều phương án: 'Có mấy hướng, cô thấy hướng nào hợp?' — để trí cơ biến của cô vận hành, đừng bắt cô tin ngay.",
+      "nen": ["cho dữ kiện rõ để cô phân tích", "khen sự nhạy bén / khéo léo", "giúp cô chốt lại kẻo nghĩ vòng vo lo xa"],
+      "tranh": ["ép quyết định gấp khiến cô bất an", "nói chung chung mơ hồ (cô sẽ nghi)", "khuấy thêm nỗi lo"]
+    },
+    "doi_chieu_batu_thap_than": "伤官/正印 (thương quan + chính ấn) — đa trí, giỏi biến hóa ngôn từ + ham học; cần ấn để định.",
+    "_nguon_thap_than": "ước lệ: 机变才智 ~伤官, 喜化科归正道 ~印"
+  },
+
+  "thai_duong": {
+    "ten_han": "太阳",
+    "khi_chat": "Trung thiên tinh (dương hỏa) — phát射 quang nhiệt, 'quang hoa đoạt mục', chủ thanh danh và quý hiển. Tính hướng ngoại, hào phóng, công khai, chiếu sáng người khác (chủ quý hơn chủ phú). Nhược: nếu phát射 thái quá thì流于空虚欠沉实 (rỗng, thiếu trầm thực); cũng là sao của 'từ tụng thị phi khẩu thiệt' — gặp hình diêu nhiều dễ chuốc oán. Cần '中和'. Nữ夜生 + lạc hãm dễ cảm空虚, trung niên về sau phu-tử duyên khuyết là khuyết hám đời người (đọc theo paradigm: là điểm cần vận hành, không phải án).",
+    "_nguon": "tc7.txt §3 太阳 dòng 85-114",
+    "cach_yeu": "Yêu kiểu cho đi, soi sáng, lo cho người khác trước — rộng rãi, công khai, không giấu giếm. Dễ dốc sức vì người mình thương đến mức quên giữ lại cho mình. Cần được tiếp 'nhiệt' lại khi cạn (sao放射性 救济) — tức cần đối phương biết đáp lại để không thấy trống.",
+    "_nguon_cach_yeu": "Suy từ 发射光热 + 主贵不主富 + 太过则空虚 + 中和 (tc7 §3).",
+    "khau_vi_giao_tiep": {
+      "giong": "ấm + sáng-rõ, ghi nhận sự cho đi của cô; lời thẳng nhưng ôn",
+      "do_dai": "vừa",
+      "cach_khung": "Ghi nhận trước cái cô đã cho đi/gánh vác: 'Cô vốn là người soi đường cho người khác — nhưng phần cho chính mình thì sao?' — kéo về 中和.",
+      "nen": ["công nhận sự rộng lượng, vai trò 'trụ' của cô", "nhắc cô giữ lại năng lượng cho bản thân (中和)", "nói rõ ràng, minh bạch"],
+      "tranh": ["mỉa mai chuyện thị phi quanh cô (dễ chạm)", "khuyên cô 'thu mình' cứng nhắc", "nói nước đôi"]
+    },
+    "doi_chieu_batu_thap_than": "食神/正官 (thực thần + chính quan) — toả sáng, cho đi, danh vị công khai.",
+    "_nguon_thap_than": "ước lệ: 发射主贵显, 施与 ~食神; 主贵 ~官"
+  },
+
+  "vu_khuc": {
+    "ten_han": "武曲",
+    "khi_chat": "Bắc Đẩu đệ lục tinh (âm kim) — tài tinh, thiên về 'chất' (cụ thể, hành动) khác Thái Âm thiên 'tính' (kế hoạch, trừu tượng). Cương liệt, dứt khoát, thực tế, hành động mạnh. Vì cương liệt nên đới '孤克' (cô khắc) — bất lợi lục thân khi tọa các cung lục thân, nhưng ở tài-quan-phúc thì cương liệt thành tích cực tiến thủ. Điều hòa được bằng昌曲 (mềm lại nhưng优柔寡断), 天府, hoặc禄 ('见禄羁糜' — có lộc thì đổi tính cương). Cổ gọi nữ Vũ Khúc thủ phu thê là '寡宿' / '妇夺夫权' — đây là定kiến bối cảnh cổ, KHÔNG phán; đọc là: cô có tính tự chủ kinh tế-hành động mạnh, vận hành tốt khi được tôn trọng quyền tự quyết.",
+    "_nguon": "tc7.txt §4 武曲 dòng 116-137 (biện chính nữ mệnh theo序论 + Iron Rule)",
+    "cach_yeu": "Yêu thực tế, dứt khoát, ít hoa mỹ — thể hiện bằng việc làm, bằng lo toan vật chất, bằng sự đáng tin cậy hơn lời ngọt. Thẳng, có thể có vẻ 'cứng'; cần người hiểu rằng cương là cách cô bảo vệ. Có禄/được tôn trọng thì mềm hẳn.",
+    "_nguon_cach_yeu": "Suy từ 偏重质/行动/具体 + 刚烈 + 见禄则改其刚 (tc7 §4).",
+    "khau_vi_giao_tiep": {
+      "giong": "cô-đọng + quyết-đoán, đi thẳng việc; tôn trọng năng lực tự chủ của cô",
+      "do_dai": "ngắn",
+      "cach_khung": "Nói gọn, có dữ kiện, tôn trọng quyền quyết của cô: 'Đây là thực tế, cô tự cân.' Tránh vòng vo cảm xúc — cô trọng việc hơn lời.",
+      "nen": ["đi thẳng vào trọng tâm", "tôn trọng tự chủ + năng lực hành động của cô", "công nhận sự đáng tin / gánh vác thực tế"],
+      "tranh": ["nói dài, sến, vòng vo", "ám chỉ 'phụ đoạt phu quyền' / 'sát chồng' (cấm — định kiến)", "ép cô mềm yếu trái tính"]
+    },
+    "doi_chieu_batu_thap_than": "正财/七杀 (chính tài + thất sát) — thực tế tiền bạc + quyết đoán cương kim.",
+    "_nguon_thap_than": "ước lệ: 财星 ~正财; 刚烈孤克 ~七杀"
+  },
+
+  "thien_dong": {
+    "ten_han": "天同",
+    "khi_chat": "Nam Đẩu đệ tứ tinh (dương thủy) — 'ích phúc bảo sinh chi tinh', hòa khí nhất trong Nam Đẩu. Hóa khí vi 'phúc' nhưng phúc thường đến SAU một phen挫折 ('tiên bần hậu phúc, tiên vô hậu hữu'). Tính: hiền hòa, ưa hưởng thụ (như官 lo yến lạc), thiên vật chất, dễ chịu. Nhược: 软弱 (mềm yếu), hơi浪费, dễ精神空虚; cần sát/kỵ thích宜 'kích phát' trong điều kiện phù hợp mới phấn (có禄 mới chịu được kích). Cổ chê nữ Thiên Đồng '虽美而淫' — định kiến bối cảnh cổ (nữ phải trinh liệt), KHÔNG phán; đọc là: cô hiền, ham an vui, vận hành tốt khi có chút thử thách để khỏi trống.",
+    "_nguon": "tc7.txt §5 天同 dòng 139-165 (biện chính nữ mệnh)",
+    "cach_yeu": "Yêu hiền, mềm, ưa cảm giác ấm êm an vui — thích được chiều, thích sự dễ chịu; ngại xung đột. Dễ nhường, dễ chịu thiệt; cần một động lực/kích nhẹ để chủ động hơn trong tình cảm. Sau sóng gió thì biết trân quý an định ('tiên bần hậu phúc').",
+    "_nguon_cach_yeu": "Suy từ 和气/享受/软弱 + 先历艰危然后发福 (tc7 §5).",
+    "khau_vi_giao_tiep": {
+      "giong": "dịu + ấm, an ủi trước, khích lệ nhẹ sau; không gây áp lực",
+      "do_dai": "vừa",
+      "cach_khung": "Bọc lời trong sự ấm áp, rồi gài một 'kích nhẹ' để cô dấn: 'Cô vốn hiền và biết hưởng cái lành — giờ thử bước thêm một chút cho mình.' Khẳng định phúc đến sau gian khó.",
+      "nen": ["trấn an, tạo cảm giác an toàn trước", "khích lệ dịu để cô chủ động", "công nhận tính hiền hòa là điểm mạnh"],
+      "tranh": ["lời gay gắt, phán xét (cô tổn thương + co lại)", "ám chỉ 'hư mỹ nhi dâm' (cấm — định kiến)", "tạo áp lực dồn dập"]
+    },
+    "doi_chieu_batu_thap_than": "食神 (thực thần) — hiền hòa, hưởng thụ, an nhàn.",
+    "_nguon_thap_than": "ước lệ: 享受/和气/化福 ~食神 (hiền-hưởng-thụ)"
+  },
+
+  "liem_trinh": {
+    "ten_han": "廉贞",
+    "khi_chat": "Bắc Đẩu đệ ngũ tinh (âm hỏa) — TÍNH HAI MẶT (nội tâm xung đột): 'thứ đào hoa' nên có mặt ÂM NHU (đa cảm, thiên tình); nhưng hóa khí vi 囚/杀 nên cũng có mặt DƯƠNG CƯƠNG (lý trí, quyết liệt). Dương cương → trọng lý trí, chủ quý; âm nhu → trọng cảm tình, chủ phú. Mấu chốt là điều hòa hai mặt, nếu xung đột tăng thì người '不良不莠' (dở dở ương ương) hoặc痛苦自造. Gặp昌曲禄存 thì phát âm nhu (lễ nhạc); gặp紫杀破 thì phát dương cương (võ công, quyết绝).",
+    "_nguon": "tc7.txt §6 廉贞 dòng 167-200",
+    "cach_yeu": "Yêu giằng co giữa lý trí và cảm xúc — lúc nồng nàn đa cảm, lúc lại tỉnh táo phòng thủ, kỷ luật. Tình cảm sâu (thứ đào hoa) nhưng tự kiềm. Vận hành tốt khi hai mặt được điều hòa: cho phép cô vừa được mềm vừa được giữ nguyên tắc, không ép chọn một bên.",
+    "_nguon_cach_yeu": "Suy từ 阴柔重感情/阳刚重理智 + 调和 (tc7 §6).",
+    "khau_vi_giao_tiep": {
+      "giong": "lý-lẽ ĐAN xen ấm; vừa có nguyên tắc rõ vừa thấu cảm",
+      "do_dai": "sâu",
+      "cach_khung": "Thừa nhận cả hai mặt của cô: 'Cô vừa là người có nguyên tắc, vừa là người tình cảm sâu — không cần ép chọn.' Giúp cô điều hòa thay vì phán cô mâu thuẫn.",
+      "nen": ["thừa nhận chiều sâu cảm xúc lẫn lý trí", "giúp dung hòa hai mặt, tránh để xung đột tăng", "trình bày có cấu trúc, có lý nhưng không lạnh"],
+      "tranh": ["chê cô 'mâu thuẫn/khó hiểu'", "đẩy về một cực (chỉ tình hoặc chỉ lý)", "kích cho mặt cương bùng (dễ quyết绝)"]
+    },
+    "doi_chieu_batu_thap_than": "七杀 + 正印/桃花 (thất sát đan xen ấn/đào hoa) — cương-nhu giằng co, lý-tình song hành.",
+    "_nguon_thap_than": "ước lệ: 囚杀阳刚 ~七杀; 次桃花阴柔 ~印/桃"
+  },
+
+  "thien_phu": {
+    "ten_han": "天府",
+    "khi_chat": "Nam Đẩu chủ tinh (dương thổ) — 'kho tài' (财库), như thống đốc ngân hàng trung ương: biết VẬN DỤNG và TÍCH TRỮ tài nhưng thiếu năng lực 生财 (tạo ra của cải). Tính: ổn trọng, thủ thành (守成 giỏi, khai sáng kém), thiên hưởng lạc, thích an định, không thích nghịch cảnh. Quyết đoán/lãnh đạo kém Tử Vi nhưng cũng ít chủ quan hơn. '空库' (kho rỗng, vô禄) → người thiện dụng thủ đoạn, ngoài viên dung trong nhiều quyền术, thành cô lập; '露库' (kho lộ, gặp sát) → người gian điêu hư ngụy. (Lưu ý: 空/露库 là luận BẢN CHẤT, vận hạn流年 không dùng để phán người gian.)",
+    "_nguon": "tc7.txt §7 天府 dòng 202-227",
+    "cach_yeu": "Yêu cần an định, ổn trọng — coi trọng nền tảng vững (kinh tế, gia đình), giỏi giữ và vun (thủ thành) hơn là tạo sóng gió mới. Thể hiện tình bằng sự đảm bảo, che chắn, lo cái 'kho' chung. Khi thiếu nền (空库) dễ phòng thủ, dùng thủ đoạn, thành cô lập — cần được tiếp 'lộc' (an toàn) để mở lòng.",
+    "_nguon_cach_yeu": "Suy từ 守成/安定/耽享乐 + 空库则孤立 (tc7 §7).",
+    "khau_vi_giao_tiep": {
+      "giong": "trọng-thị + ổn-định, tạo cảm giác chắc chắn an toàn",
+      "do_dai": "vừa",
+      "cach_khung": "Khung quanh sự an định và nền tảng: 'Cô là người giữ được, vun được — giờ điều cần là một nền vững để cô yên tâm mở ra.' Tránh đẩy cô vào mạo hiểm.",
+      "nen": ["nhấn an toàn, nền tảng, sự bền", "công nhận tài quản lý / vun vén", "trấn an khi cô phòng thủ (空库 → cô lập)"],
+      "tranh": ["xui mạo hiểm, đảo lộn (trái tính thủ thành)", "phán cô 'gian/thủ đoạn' (空露库 là luận bản chất, không phán người)", "tạo bất ổn"]
+    },
+    "doi_chieu_batu_thap_than": "正印/正财 (chính ấn + chính tài) — kho tàng, tích trữ, ổn trọng thủ thành.",
+    "_nguon_thap_than": "ước lệ: 财库/守成/库藏 ~印+财"
+  },
+
+  "thai_am": {
+    "ten_han": "太阴",
+    "khi_chat": "Trung thiên tinh (âm thủy), dạ生 lấy làm chủ tinh — tính '潜藏与收敛' (tiềm tàng, thu liễm) trái với Thái Dương扩散发射. Chủ PHÚ (giàu) + 'tính' (kế hoạch, trừu tượng). Khi nhập miếu/cát hóa thì 'anh hoa nội liễm' (英华内敛 — đẹp mà kín đáo, thông minh优雅). Khi lạc hãm/hóa kỵ thì quá thu liễm → bất hòa, dễ thành权术阴谋 nếu không được Thái Dương cứu济. Coi trọng HẬU THIÊN NỖ LỰC (太阴喜佐曜多于辅曜 — tự lực hơn tha lực). Phúc đức cung rất hệ trọng (luôn có Cự Môn) — dễ精神困扰/đa tâm sự nội tâm.",
+    "_nguon": "tc7.txt §8 太阴 dòng 229-260",
+    "cach_yeu": "Yêu kín đáo, dịu dàng, sâu lắng — thu vào trong, ít phô; tình cảm tinh tế, để ý, vun đắp âm thầm. Coi trọng sự nỗ lực bản thân, 'một phen奋斗然后有成'. Nội tâm nhiều tâm sự (phúc đức Cự Môn) nên cần được thấu hiểu, dễ tủi nếu bị bỏ rơi cảm xúc.",
+    "_nguon_cach_yeu": "Suy từ 潜藏收敛/英华内敛 + 后天努力 + 福德宫吃紧 (tc7 §8).",
+    "khau_vi_giao_tiep": {
+      "giong": "dịu + sâu, tinh tế, kiên nhẫn lắng nghe nội tâm cô",
+      "do_dai": "sâu",
+      "cach_khung": "Đi vào nhẹ và sâu, chạm phần nội tâm kín: 'Bên trong cô có nhiều điều chưa nói ra...' — cho cô không gian an toàn để mở. Công nhận nỗ lực thầm lặng của cô.",
+      "nen": ["nhẹ nhàng, kiên nhẫn, gợi mở nội tâm", "công nhận sự nỗ lực âm thầm + tinh tế", "tạo không gian an toàn để cô bộc lộ"],
+      "tranh": ["lời sỗ sàng, ồn ào, phô trương", "bỏ qua cảm xúc khiến cô thu mình thêm", "ép cô 'nói ra ngay'"]
+    },
+    "doi_chieu_batu_thap_than": "正印/正财 (chính ấn + chính tài, thiên âm) — thu liễm, tích, dịu; chủ phú.",
+    "_nguon_thap_than": "ước lệ: 潜藏/收敛/主富 ~印(âm)+财"
+  },
+
+  "tham_lang": {
+    "ten_han": "贪狼",
+    "khi_chat": "Bắc Đẩu đệ nhất tinh (dương mộc, khí thuộc thủy) — sao物欲 đồng thời truy情欲, hóa khí vi đào hoa. Là 'then chốt biến hóa' của杀破狼; động cơ 'biến' xuất từ truy cầu vật dục hoặc tình dục. Khi cấu trúc tốt: biến hóa tích cực, viên hoạt khéo léo, là biểu hiện才艺, được người ưa. Khi xấu/vật dục quá sâu: '随波逐浪, 爱恶无定' (theo sóng, yêu ghét bất định), dễ vì tư lợi đổi quan hệ xã giao, ưa装饰自己. Chế hóa bằng火/铃 (thành横发才华) hoặc天刑/空曜. (Cổ '终身鼠窃' / nữ '贪淫' là định kiến cổ — KHÔNG phán.)",
+    "_nguon": "tc7.txt §9 贪狼 dòng 262-299 (biện chính nữ mệnh)",
+    "cach_yeu": "Yêu sống động, linh hoạt, có sức hút (đào hoa) — giỏi giao tiếp, biết làm đẹp mình, thích sự mới mẻ và biến đổi. Nồng nhiệt, có thể yêu cả vật chất lẫn cảm xúc. Cần hướng năng lượng biến hóa vào sáng tạo/才艺 thay vì 'theo sóng'. Vận hành tốt khi được công nhận tài năng và sức hút một cách lành mạnh.",
+    "_nguon_cach_yeu": "Suy từ 物欲/情欲/桃花/变化/才艺/圆滑 (tc7 §9).",
+    "khau_vi_giao_tiep": {
+      "giong": "sống-động + ấm, hấp dẫn, có chút dí dỏm; tôn trọng sự đa diện của cô",
+      "do_dai": "vừa",
+      "cach_khung": "Khơi sự năng động và sức hút của cô theo hướng dựng xây: 'Cô có sức hút và khả năng xoay chuyển — dùng nó cho điều cô thật sự muốn.' Tránh nhãn 'lăng nhăng'.",
+      "nen": ["công nhận sức hút, tài giao tiếp, sự linh hoạt", "hướng năng lượng biến hóa vào sáng tạo/才艺", "giữ giọng sinh động, không khô"],
+      "tranh": ["gắn nhãn 'đào hoa/lăng nhăng/dâm' (cấm — định kiến cổ)", "lời khô cứng, giáo điều (cô chán)", "ép khuôn cô đứng yên một chỗ"]
+    },
+    "doi_chieu_batu_thap_than": "伤官/偏财 + 桃花 (thương quan + thiên tài + đào hoa) — tài hoa, sức hút, biến động, vật-tình dục.",
+    "_nguon_thap_than": "ước lệ: 才艺/物欲/情欲/变化 ~伤官+偏财+桃"
+  },
+
+  "cu_mon": {
+    "ten_han": "巨门",
+    "khi_chat": "Bắc Đẩu đệ nhị tinh (âm thổ, khí âm kim) — 'ám diệu' (暗曜): không phải tự thân không sáng, mà giỏi che lấp ánh sáng người khác. Đặc sắc nhất: ĐA NGÔN (多言 — nói nhiều, biện luận滔滔, người khác thành thính giả), và ưa揭发别人阴私 → '背面是非'. Đặc sắc thứ hai: ĐA NGHI (多疑 — đánh giá người thiên về mặt阴暗). Vì hai tính này → nhân tế quan hệ kém ('lục thân quả hợp, giao nhân sơ thiện chung ác'). Hóa giải: Thái Dương miếu vượng giải ám; hóa禄 (khí圆滑) / hóa权 (giảm nghi). Khi转化为善: cực hợp nghề DÙNG LỜI — luật sư, ngoại giao, thầy giáo, bán hàng, biểu diễn nghệ thuật (đa ngôn → thiện biện, đa nghi → thâm려/suy xét).",
+    "_nguon": "tc7.txt §10 巨门 dòng 301-327",
+    "cach_yeu": "Yêu bằng lời và bằng sự dò xét — nói nhiều khi tin tưởng, nhưng hay nghi, hay xét nét, cần được trấn an lặp lại. Dễ 'nói ra' khúc mắc thay vì nuốt vào. Vận hành tốt khi sự đa nghi được chuyển thành suy xét lành mạnh và lời nói thành thiện biện; cần đối phương minh bạch, nhất quán để cô bớt nghi.",
+    "_nguon_cach_yeu": "Suy từ 多言/多疑 + 转化为善 (tc7 §10).",
+    "khau_vi_giao_tiep": {
+      "giong": "lý-lẽ rõ ràng + minh bạch nhất quán; cho cô không gian được nói",
+      "do_dai": "sâu",
+      "cach_khung": "Nói thật rõ, không úp mở (cô sẽ nghi mọi khoảng mờ): 'Tôi nói thẳng để cô khỏi phải đoán...' — và để cô được trình bày, được phản biện. Biến nghi của cô thành câu hỏi để giải đáp.",
+      "nen": ["minh bạch, nhất quán, giải thích cặn kẽ (giải nghi)", "để cô nói/biện luận, lắng nghe hết", "công nhận tài ăn nói / phân tích sắc bén"],
+      "tranh": ["úp mở, nửa kín nửa hở (kích đa nghi)", "phán cô 'lắm điều/thị phi'", "cắt lời, không cho cô bày tỏ"]
+    },
+    "doi_chieu_batu_thap_than": "伤官 (thương quan) — đa ngôn, biện tài, đa nghi, biểu đạt sắc.",
+    "_nguon_thap_than": "ước lệ điển hình: 巨门多言善辩+多疑 ~伤官 (đề bài đã nêu)"
+  },
+
+  "thien_tuong": {
+    "ten_han": "天相",
+    "khi_chat": "Nam Đẩu đệ nhị tinh (dương thủy) — hóa khí vi 'ấn' (掌印官), tượng trưng quyền uy (vô ấn tắc lệnh bất hành). Nhưng BẢN THÂN thiếu đặc chất riêng: người giữ ấn không có quyền tự thân, chỉ là biểu tượng quyền → 'tính cách hoàn toàn受环境支配, 见善则善, 遇恶则恶'. Vì dễ chịu môi trường chi phối, luận Thiên Tướng phải xem GIÁP CUNG trước (财荫夹印 → tốt; 刑忌夹印 → xấu) — 'lưỡng lân tương vũ' hay 'tả hữu phùng nguyên'. Trung hậu, có khí phụ trợ, trọng nghĩa khi gặp môi trường lành.",
+    "_nguon": "tc7.txt §11 天相 dòng 329-356",
+    "cach_yeu": "Yêu theo môi trường và người bên cạnh — dễ bị ảnh hưởng bởi hoàn cảnh, bởi đối phương; ở bên người tốt thì hiện cái tốt, gần người xấu thì lệ thuộc cái xấu. Trung hậu, biết phụ trợ, đồng hành, giữ thể diện chung. Cần một 'môi trường lành' (giáp tốt) để bản chất tử tế của cô được phát.",
+    "_nguon_cach_yeu": "Suy từ 受环境支配 + 见善则善 + 重夹宫 (tc7 §11).",
+    "khau_vi_giao_tiep": {
+      "giong": "dịu + ổn-định, tạo môi trường ấm-lành để cô tốt lên",
+      "do_dai": "vừa",
+      "cach_khung": "Bao quanh cô bằng một khung tích cực, lành mạnh (vì cô thấm môi trường): 'Khi ở cạnh điều lành, cái tốt trong cô tự hiện ra.' Nhấn vào chọn môi trường / người đồng hành đúng.",
+      "nen": ["tạo bầu không khí tích cực, ấm áp (môi trường lành)", "công nhận sự trung hậu, biết phụ trợ", "giúp cô chọn người/hoàn cảnh tốt để nương"],
+      "tranh": ["đặt cô vào khung tiêu cực, phán xét nặng (cô thấm theo)", "chê cô 'không có chính kiến'", "bỏ mặc cô trong môi trường xấu"]
+    },
+    "doi_chieu_batu_thap_than": "正印 (chính ấn) — chưởng ấn, trung hậu, phụ tá, theo môi trường.",
+    "_nguon_thap_than": "ước lệ: 化气为印/掌印 ~正印"
+  },
+
+  "thien_luong": {
+    "ten_han": "天梁",
+    "khi_chat": "Nam Đẩu đệ tam tinh (dương thổ) — ví như 'giám sát ngự sử' (闻风奏事, can vua, đàn hặc đại thần): tuy gọi 'ấm tinh' (荫星 — che chở, hóa giải tai nạn) nhưng bản chất đới '孤忌' (cô kỵ). Mặt cô kỵ: 掉臂独行 (đi một mình, sải tay), cá tính mạnh, nguyên tắc cao. Mặt ấm: ưa theo nguyên tắc của mình đứng ra排解纠纷, phán định thị phi → hay cuốn vào漩涡困难. Vì vậy hợp nghề có sẵn màu 'cứu nạn giải khó': y dược, bảo hiểm, công tác xã hội. Gặp天刑 → 'thiết diện Bao Chửng' (nguyên tắc sắt); gặp空劫 → 'Nguyễn Tịch Kê Khang' (sĩ末thế, phóng khoáng bất kham). Không thích禄 (đới禄 thì cá tính bị đẩy, dễ随波逐流, hoặc vì tài chuốc妒忌).",
+    "_nguon": "tc7.txt §12 天梁 dòng 358-387",
+    "cach_yeu": "Yêu kiểu che chở, gánh vác, đứng ra lo cho người — như 'cây xà' đỡ nhà; có nguyên tắc rõ, thẳng thắn, đôi khi cô độc vì 'sải tay đi một mình'. Hay xen vào hóa giải khó khăn cho người mình thương (đó là cách yêu). Vận hành tốt khi nguyên tắc của cô được tôn trọng và không bị ép phải 'theo sóng'.",
+    "_nguon_cach_yeu": "Suy từ 荫星/孤忌/掉臂独行/排解纠纷 (tc7 §12).",
+    "khau_vi_giao_tiep": {
+      "giong": "trọng-thị + lý-lẽ có nguyên tắc; thẳng, tôn trọng khí khái của cô",
+      "do_dai": "vừa",
+      "cach_khung": "Tôn trọng nguyên tắc và tinh thần gánh vác của cô: 'Cô là người đứng ra che chở — nhưng đôi khi cũng cần ai đó che cho cô.' Không cố bẻ nguyên tắc của cô.",
+      "nen": ["tôn trọng nguyên tắc, khí khái, sự thẳng thắn", "công nhận vai trò che chở/giải khó của cô", "nhắc cô nhận lại sự nâng đỡ (kẻo cô独行 cô độc)"],
+      "tranh": ["ép cô bỏ nguyên tắc, 'theo sóng' (trái tính)", "phán cô 'cô độc/khó gần'", "lời xu nịnh thiếu nguyên tắc (cô khinh)"]
+    },
+    "doi_chieu_batu_thap_than": "正印/枭印 (chính ấn / thiên ấn) — che chở, nguyên tắc, cô cao, giải nạn.",
+    "_nguon_thap_than": "ước lệ: 荫星护佑+孤忌原则 ~印(che chở+cô cao)"
+  },
+
+  "that_sat": {
+    "ten_han": "七杀",
+    "khi_chat": "Nam Đẩu đệ ngũ tinh (âm kim) — tướng tinh ('chủ soái' của quân, so với Phá Quân là 'tiên phong'). So sánh: Thất Sát 较劳心 (nhọc tâm), có thể '掉臂独行' (độc lập tự chủ). Tính CƯƠNG KHẮC nổi bật → khí chất không hợp昌曲 (mềm), hợp左右魁钺. Miếu vượng + cát thì 'có mưu lược, làm đại tướng, chưởng sinh sát chi quyền'; gặp sát kỵ hình thì cương khắc tăng, đời nhiều gian nan, cần脚踏实地稳守, không đầu cơ. Nữ mệnh: 'thái cương khắc tắc khắc phu khắc tử, nhân sinh cô tịch' là CÁCH NÓI CỔ — đọc theo paradigm: cô có khí độc lập-quyết đoán mạnh, vận hành tốt khi được tự chủ + chân thực稳守, KHÔNG phán 'sát chồng'.",
+    "_nguon": "tc7.txt §13 七杀 dòng 389-417 (biện chính nữ mệnh)",
+    "cach_yeu": "Yêu mạnh mẽ, độc lập, dứt khoát — tự chủ cao, không thích lệ thuộc, có chí khí 'tướng soái'. Thể hiện tình bằng hành động và sự gánh vác chứ không mềm mỏng; có giai đoạn khó khăn cần vững vàng vượt qua. Vận hành tốt khi được tôn trọng quyền tự chủ và không bị coi là 'quá cứng'.",
+    "_nguon_cach_yeu": "Suy từ 将星/刚克/掉臂独行/脚踏实地稳守 (tc7 §13).",
+    "khau_vi_giao_tiep": {
+      "giong": "quyết-đoán + cô-đọng, thẳng thắn ngang hàng; tôn trọng chí khí của cô",
+      "do_dai": "ngắn",
+      "cach_khung": "Nói thẳng, ngang vai, tôn trọng sự tự chủ: 'Cô là người tự cầm lái — đây là dữ kiện để cô tự quyết.' Tránh thương hại hay áp đặt.",
+      "nen": ["đi thẳng, ngắn gọn, ngang hàng", "tôn trọng tự chủ + chí khí mạnh", "khuyên稳守 chân thực thay vì mạo hiểm"],
+      "tranh": ["áp đặt, thương hại, nói vòng", "gắn án 'khắc phu khắc tử / cô độc' (cấm — định kiến cổ)", "đòi cô mềm yếu trái khí chất"]
+    },
+    "doi_chieu_batu_thap_than": "七杀 (thất sát) — cương khắc, quyết đoán, tướng khí, độc lập.",
+    "_nguon_thap_than": "ước lệ: 将星刚克 ~七杀 (trùng tên, nghĩa gần)"
+  },
+
+  "pha_quan": {
+    "ten_han": "破军",
+    "khi_chat": "Bắc Đẩu đệ thất tinh (dương thủy) — 'tiên phong' của quân: chỉ chủ XUNG PHONG (tấn công), không chủ退守. Người Phá Quân thủ Mệnh '能攻不能守', không yên định được; thường nhận việc khó, giải xong lại giao người khác giữ, mình lại đi mở mặt trận mới → đặc biệt辛劳, ít hưởng thành quả của chính mình. Biến hóa của Phá Quân là '旧事创新' (việc cũ mở mới — phá rồi dựng), khác Tham Lang (biến柔和, ngầm) và Thất Sát (biến đột ngột, có thể toàn mới). Có禄/化禄 thì khai sáng có thu hoạch; vô禄无权 thì chỉ phá mà thiếu khai sáng. Khí chất không hợp昌曲. (Nữ '见异思迁/意志薄弱' khi破军无吉化禄马会煞 là cách nói cổ — KHÔNG phán; '女命佳者亦如红拂' — bản hay thì như Hồng Phất nữ.)",
+    "_nguon": "tc7.txt §14 破军 dòng 419-441 (biện chính nữ mệnh, dẫn '红拂')",
+    "cach_yeu": "Yêu kiểu phá-cũ-dựng-mới — dám thay đổi, dám làm lại, không an phận; nhiều khi dấn thân vất vả vì người mình thương mà ít đòi hồi đáp. Mãnh liệt, tiên phong, có thể bất ổn nếu không có 'lộc' (điểm tựa/thu hoạch). Vận hành tốt khi sức khai phá của cô được hướng vào 'dựng' chứ không chỉ 'phá', và được công nhận sự xông pha.",
+    "_nguon_cach_yeu": "Suy từ 冲锋/能攻不能守/旧事创新/辛劳 (tc7 §14).",
+    "khau_vi_giao_tiep": {
+      "giong": "quyết-đoán + ấm, cổ vũ sức xông pha; thẳng, không sến",
+      "do_dai": "ngắn",
+      "cach_khung": "Cổ vũ sức khai phá, hướng về dựng xây: 'Cô là người dám phá để dựng — giờ hãy chừa cho mình cả phần hưởng thành quả nữa.' Khẳng định nỗ lực xông pha của cô.",
+      "nen": ["công nhận sự dám thay đổi / xông pha", "hướng năng lượng vào 'dựng' (旧事创新) + nhắc cô giữ lại thành quả cho mình", "ngắn gọn, dứt khoát, có lửa"],
+      "tranh": ["gò bó, bắt an phận (trái tính)", "gắn nhãn 'cả thèm chóng chán / bạc tình' (cấm — định kiến cổ)", "lời ủy mị dài dòng"]
+    },
+    "doi_chieu_batu_thap_than": "七杀/伤官 (thất sát + thương quan) — phá cách, khai sáng, xông pha, bất kham khuôn.",
+    "_nguon_thap_than": "ước lệ: 冲锋破旧立新 ~七杀+伤官"
+  }
+}

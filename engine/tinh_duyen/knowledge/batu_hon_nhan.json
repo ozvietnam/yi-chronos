@@ -1,0 +1,241 @@
+{
+  "_meta": {
+    "ten": "Tri thức TÌNH DUYÊN / HÔN NHÂN cho NỮ MỆNH theo Bát Tự (Tử Bình)",
+    "phai": "Tử Bình — Thiệu Vĩ Hoa & Trần Viên",
+    "ap_dung": "NỮ MỆNH (lá số nữ)",
+    "paradigm": {
+      "iron_rule": "#4 + #6 + #8 (đọc đồng dạng, mệnh là động từ) + 王亭之 (Vương Đình Chi) 'bất khả mậu mậu nhiên suy đoán'",
+      "nguyen_tac": [
+        "KHÔNG bói: không phán 'số cô quả / sát chồng / lận đận tình duyên'. Đọc TÍNH (cấu trúc khí) rồi mô tả cách VẬN HÀNH.",
+        "Mệnh = ĐỘNG TỪ: lá số cho biết nguyên liệu trời ban (TÍNH); việc xử lý tính (MỆNH) là quyền của người nữ. 'Mệnh cố kết, Vận lưu biến — BỔ qua hành động là quyền của Anh/Chị.' (Thiệu Vĩ Hoa).",
+        "王亭之 biện chính định kiến cổ: 'dĩ kim nhật xã hội ngôn, nữ mệnh phản dị phấn phát' — nay cấu trúc xưa cho là 'cô khắc' lại thường giúp nữ TỰ LẬP. KHÔNG kết án.",
+        "Cùng cấu trúc → outcome khác nhau tùy MÔI TRƯỜNG + LỰA CHỌN (tr.107-108, 2 nam Kình Dương: chém mướn vs thăng tướng).",
+        "Mọi cảnh báo cấu hình diễn đạt theo nghĩa: 'cấu trúc này VẬN HÀNH tốt nhất khi...', KHÔNG diễn đạt 'sẽ ly hôn / chồng chết'."
+      ],
+      "_nguon": "docs/design/bat-tu-thieu-vi-hoa-tham-nhuan.md (paradigm guardrail tr.7, Iron Rule #4/#6/#8 CLAUDE.md); memory honnhan_numenh_sources (王亭之 biện chính định kiến)"
+    },
+
+    "phu_tinh": {
+      "_mo_ta": "Với NỮ MỆNH, sao đại biểu CHỒNG / người đàn ông = 官杀 (Quan Sát): Chính Quan + Thất Sát. Đối xứng với nam mệnh dùng Tài Tinh làm vợ.",
+      "_nguon_goc": "Lục Thân paradigm Chương 10 tr.150-180: Vợ/chồng = Tài Tinh + Trụ Ngày (nam dùng Tài làm vợ); nữ mệnh đối xứng dùng Quan Sát làm chồng. Engine hon_nhan.py: 'Nữ: Chính Quan (chồng) + Thất Sát (đối tượng mạnh / kẻ cường)'.",
+      "chinh_quan": {
+        "han": "正官",
+        "viet": "Chính Quan",
+        "y_nghia": "Sao CHỒNG CHÍNH ở nữ mệnh — đại biểu người chồng danh chính ngôn thuận, mối quan hệ chính thức, hôn nhân có khuôn phép.",
+        "tam_tinh_chong": "Trung chính, công bằng, có kỷ luật, có danh tiếng; mặt tiêu: cứng nhắc, gò bó, tạo áp lực.",
+        "_nguon": "Tâm tính 10 Thần tr.88 (Chính Quan: trung chính/công bằng/kỷ luật/danh tiếng — cứng nhắc/gò bó/áp lực); Lục Thân tr.150-180"
+      },
+      "that_sat": {
+        "han": "七殺",
+        "viet": "Thất Sát (Thiên Quan)",
+        "y_nghia": "Ở nữ mệnh = đối tượng đàn ông MẠNH / cường, sức ép lớn; người chồng cá tính dữ, hoặc mối quan hệ ngoài khuôn phép khi đi cùng Chính Quan.",
+        "tam_tinh_chong": "Quyết đoán, dũng mãnh, có tố chất lãnh đạo; mặt tiêu: nếu không được chế hóa thì thành tai họa / thành kẻ đối địch.",
+        "che_hoa": "Thất Sát quá mạnh CẦN được chế (Thực Thần chế Sát) hoặc hóa (Ấn hóa Sát) thì người đàn ông đó 'quý hiển', vận hành tốt; không chế thì khí cường lấn át.",
+        "_nguon": "Tâm tính 10 Thần tr.88 (Thất Sát: quyết đoán/dũng mãnh/leadership — tai họa nếu không chế); Công năng 10 Thần tr.83-87 (Thực Thần chế Sát; Ấn hóa Sát = quý hiển tr.353 pattern #8)"
+      },
+      "trang_thai_quan_sat": {
+        "_mo_ta": "Đọc TRẠNG THÁI của sao chồng (官杀) = đọc cấu trúc khí mà người bạn đời mang đến, KHÔNG = đoán có/không có chồng.",
+        "vuong": {
+          "y_nghia": "官杀 vượng (được lệnh tháng / có gốc / được sinh): hình ảnh người chồng rõ nét, có vai vế, có sức nặng trong đời người nữ. Nếu Nhật Chủ (thân) cũng đủ vững thì vận hành hài hòa.",
+          "van_hanh": "Thân vượng + Quan vượng = cấu trúc cân xứng, quan hệ vợ chồng có thể nâng đỡ nhau. Thân nhược + Quan quá vượng = sức ép từ phía chồng lớn → cần BỔ thân (Ấn / Tỉ Kiếp) để cân.",
+          "_nguon": "5 quy tắc Vượng Thân tr.70 (được lệnh/đắc địa/được sinh/được trợ); Dụng Thần nhược + Quan Sát nhiều → Ấn hóa Sát + Tỉ Kiếp sinh thân tr.101-104"
+        },
+        "nhuoc": {
+          "y_nghia": "官杀 nhược (không gốc, bị khắc, bị hợp đi): hình ảnh người chồng mờ nhạt trong cấu trúc khí, hoặc vai trò chồng không nổi bật.",
+          "van_hanh": "KHÔNG đọc là 'không có chồng'. Đọc là: TÍNH của nữ mệnh này không lấy quan hệ chồng làm trục chính → có thể tự lập, sự nghiệp/con cái nổi hơn. 王亭之: cấu trúc này nay 'phản dị phấn phát' (dễ tự vươn lên).",
+          "_nguon": "memory honnhan_numenh_sources (王亭之 'nữ mệnh phản dị phấn phát'); paradigm mệnh-là-động-từ Iron Rule #8"
+        },
+        "vo_quan": {
+          "han": "无官 (官杀 không xuất hiện / quá ẩn)",
+          "y_nghia": "Bát Tự không lộ 官杀, hoặc 官杀 chỉ tàng rất sâu trong địa chi.",
+          "van_hanh": "Đọc đồng dạng: trục 'chồng' không phải nơi khí của người nữ tụ lại mạnh nhất → duyên đến cần chủ động hơn, hoặc đời sống nội tâm / sự nghiệp chiếm trọng tâm. Có thể BỔ qua Đại Vận / Lưu Niên dẫn 官杀 tới (xem mục dinh_thoi). TUYỆT ĐỐI không phán 'không chồng'.",
+          "_nguon": "Lục Thân tr.150-180 (sao Lục Thân ẩn/lộ); paradigm BỔ qua vận tr.97 ('có thuốc trong mệnh'); guardrail không-bói tr.7"
+        },
+        "quan_sat_hon_tap": {
+          "han": "官杀混杂",
+          "viet": "Quan Sát hỗn tạp",
+          "y_nghia": "Cả Chính Quan VÀ Thất Sát cùng lộ rõ trong Bát Tự (lẫn lộn sao chồng chính + đối tượng mạnh).",
+          "van_hanh": "Cấu trúc khí có NHIỀU hình ảnh đàn ông cùng hiển → tình duyên dễ phức tạp, nhiều mối / nhiều lựa chọn / khó dứt khoát. Tử Bình cổ trọng 'khứ sát lưu quan' hoặc 'khứ quan lưu sát' (lọc bớt 1 để thuần) thì vận hành rõ ràng hơn. Cách VẬN HÀNH: chọn rõ một trục, dùng Thực Thần (chế Sát) hoặc hợp để 'thanh thuần'. KHÔNG kết án 'lăng nhăng' — đọc là TÍNH cần được làm thuần.",
+          "che_giai": "Thực Thần chế Thất Sát để 'thanh' (giữ Chính Quan); hoặc Can hợp hợp đi một trong hai (xem to_hop_then_chot).",
+          "_nguon": "Công năng 10 Thần tr.83-87 (Thực Thần chế Sát); Quy tắc Sinh-Khắc 10 Thần tr.80 (xét cụ thể, sinh/khắc không = tốt/xấu); guardrail tr.7 (không kết án)"
+        }
+      }
+    },
+
+    "phoi_ngau_cung": {
+      "_mo_ta": "日支 = chi Trụ NGÀY = CUNG PHỐI NGẪU (cung vợ/chồng). Là 'nhà' của bạn đời trong lá số. Đọc địa chi + can ẩn + tương tác với các trụ khác.",
+      "_nguon_goc": "Lục Thân paradigm Chương 10 tr.150-180: 'Vợ chồng = Tài Tinh + trụ Ngày'; engine hon_nhan.py: 'Cung Phối = Trụ Ngày địa chi (đại biểu cho vợ/chồng)'.",
+      "nguyen_tac_doc": "Chi Trụ Ngày là TỌA của bạn đời. Chi này: (1) thuộc hành gì → tính khí bạn đời; (2) là 官杀/Tài/Ấn... gì so với Nhật Can → vai trò; (3) tương tác (hợp/xung/hình/hại) với các chi khác → ổn định của tổ ấm.",
+      "y_nghia_dia_chi": {
+        "Tý": "Cung Phối thuộc Tý (thủy dương theo dụng / âm theo thể) — bạn đời tâm tư sâu, ưa ẩn, nhạy cảm, thiên Trí. Tý là một trong 4 đào hoa (xem dao_hoa).",
+        "Sửu": "Cung Phối thuộc Sửu (thổ ẩm, kho Kim) — bạn đời chăm chỉ, kiên nhẫn, truyền thống, ôm giữ.",
+        "Dần": "Cung Phối thuộc Dần (mộc dương) — bạn đời có chí tiến thủ, năng động, cương trực.",
+        "Mão": "Cung Phối thuộc Mão (mộc âm) — bạn đời nhẹ nhàng, mềm mại, ưa thẩm mỹ. Mão là một trong 4 đào hoa.",
+        "Thìn": "Cung Phối thuộc Thìn (thổ dương, kho Thủy) — bạn đời có tổ chức, quyền uy ngầm; Thìn-Tuất dễ tự hình/xung.",
+        "Tỵ": "Cung Phối thuộc Tỵ (hỏa âm) — bạn đời thông minh, kín đáo, có chiều sâu.",
+        "Ngọ": "Cung Phối thuộc Ngọ (hỏa dương) — bạn đời nhiệt tình, sáng tỏ, dễ bộc lộ. Ngọ là một trong 4 đào hoa.",
+        "Mùi": "Cung Phối thuộc Mùi (thổ khô, kho Mộc) — bạn đời tâm tính ngoan, biết chiều; Sửu-Mùi dễ xung.",
+        "Thân": "Cung Phối thuộc Thân (kim dương) — bạn đời quyết đoán, có tài, hơi cứng đầu.",
+        "Dậu": "Cung Phối thuộc Dậu (kim âm) — bạn đời tinh tế, nhãn quan thẩm mỹ, có tài năng. Dậu là một trong 4 đào hoa.",
+        "Tuất": "Cung Phối thuộc Tuất (thổ dương, kho Hỏa) — bạn đời trung thành, có nguyên tắc; Thìn-Tuất dễ xung.",
+        "Hợi": "Cung Phối thuộc Hợi (thủy âm) — bạn đời giàu cảm xúc, sâu sắc, đôi khi trầm.",
+        "_nguon": "engine hon_nhan.py CUNG_PHOI_BRANCH_TRAIT (12 chi, suy từ BRANCH_ELEMENT âm dương ngũ hành); Bản tính ngũ hành tr.24-26 (5 đức Nhân-Lễ-Tín-Nghĩa-Trí); kho mộ Thìn/Tuất/Sửu/Mùi"
+      },
+      "y_nghia_can_an_nhat_chi": {
+        "_mo_ta": "Can ẩn (tàng can) trong chi Trụ Ngày = nội tâm / bản chất sâu của bạn đời. Đọc can ẩn đó là Thập Thần gì so với Nhật Can: nếu là 官杀 (với nữ) = cung phối tàng chính sao chồng → bạn đời 'đúng vai', quan hệ có gốc; nếu tàng Tỉ Kiếp = dễ cạnh tranh; nếu tàng Tài = thiên về vật chất/quản gia.",
+        "_nguon": "Tàng can (BRANCH_HIDDEN_STEMS) + thap_than_of trong engine; Lục Thân tr.150-180; mục Sát tàng Ấn thấu tr.123 (đọc can tàng trong chi)"
+      },
+      "phoi_ngau_cung_tuong_tac": {
+        "tu_hop": "Chi Trụ Ngày HỢP với chi khác (lục hợp / tam hợp) → bạn đời gắn kết, có duyên hợp tác; nếu hợp hóa thành Kỵ Thần thì 'hợp mà hại'.",
+        "bi_xung": "Chi Trụ Ngày bị LỤC XUNG (vd Tý-Ngọ, Mão-Dậu, Dần-Thân, Tỵ-Hợi, Thìn-Tuất, Sửu-Mùi) → tổ ấm dễ động, hay xê dịch, cần không gian riêng để vận hành ổn.",
+        "bi_hinh": "Chi Trụ Ngày bị TAM HÌNH / tự hình → quan hệ dễ có cọ xát ngầm, ân oán; cách vận hành: minh bạch, giải quyết sớm.",
+        "bi_hai": "Chi Trụ Ngày bị LỤC HẠI → có hiểu lầm/ngấm ngầm; cần giao tiếp.",
+        "_nguon": "engine hon_nhan.py _branch_interactions_with (LUC_HOP/LUC_XUNG/LUC_HAI/TAM_HOP/TAM_HINH); journal tr.731 BATCH 2 (Lục Hợp/Xung/Hại/Tam Hợp/Tam Hình)"
+      }
+    },
+
+    "dao_hoa": {
+      "_mo_ta": "桃花 (Đào Hoa) — sao duyên/sức hút. Bốn chi đào hoa là 子午卯酉 (Tý Ngọ Mão Dậu) — bốn chính khí của bốn mùa. Hồng Diễm (红艳) là một sao duyên khác (sức hấp dẫn nồng).",
+      "_nguon_goc": "engine hon_nhan.py DAO_HOA_BY_BRANCH (4-stage classical theo tam hợp cục → đào hoa); journal tr.633 Thần Sát (Đào Hoa, Hồng Diễm trong 15+ thần sát đã có engine).",
+      "tu_chi_dao_hoa": {
+        "tinh_chat": "子午卯酉 = bốn chính khí (Thủy/Hỏa/Mộc/Kim chính vị). Khi xuất hiện làm đào hoa = khí duyên mạnh, có sức hút, ưa cái đẹp, giao tế rộng.",
+        "_nguon": "Tý/Mão/Ngọ/Dậu là 4 chi đào hoa cổ điển; engine DAO_HOA_BY_BRANCH dẫn ra Dậu/Ngọ/Mão/Tý"
+      },
+      "cach_tinh": {
+        "quy_tac": "Lấy chi NĂM (hoặc chi NGÀY) → tra theo tam hợp cục: Thân-Tý-Thìn (thủy cục) → đào hoa Dậu; Tỵ-Dậu-Sửu (kim cục) → đào hoa Ngọ; Dần-Ngọ-Tuất (hỏa cục) → đào hoa Mão; Hợi-Mão-Mùi (mộc cục) → đào hoa Tý.",
+        "_nguon": "engine hon_nhan.py DAO_HOA_BY_BRANCH (4 trio → 1 đào hoa)"
+      },
+      "y_nghia_van_hanh": {
+        "dao_hoa_trong_menh": "Đào hoa trong tứ trụ (nhất là Trụ Ngày/Giờ) ở nữ mệnh = duyên dáng, có sức hút, đời sống tình cảm phong phú. ĐỌC là TÍNH (sức hút), KHÔNG kết án 'đa tình/lăng nhăng'. Cách vận hành tốt: dùng sức hút vào giao tế/nghệ thuật/quan hệ lành mạnh.",
+        "dao_hoa_lai_vans": "Đào hoa đến trong Đại Vận / Lưu Niên = giai đoạn duyên động, dễ gặp gỡ, dễ rung động (xem dinh_thoi).",
+        "hong_diem": "红艳 (Hồng Diễm) = sao sức hấp dẫn nồng/lãng mạn; tô đậm nét đào hoa, đọc là khí quyến rũ tự nhiên.",
+        "_nguon": "journal tr.633 (Đào Hoa + Hồng Diễm trong thần sát engine); guardrail tr.7 (đọc tính không kết án); engine hon_nhan.py bước 5 'Đào hoa / Hồng Diễm → tô thêm'"
+      }
+    },
+
+    "to_hop_then_chot": {
+      "_mo_ta": "Các tổ hợp Thập Thần then chốt riêng cho tình duyên/hôn nhân NỮ MỆNH. Mọi tổ hợp đọc theo công năng + sinh khắc cụ thể, KHÔNG quy về tốt/xấu cứng.",
+      "_nguon_goc": "Công năng 10 Thần tr.83-87; Tâm tính tr.88; Quy tắc Sinh-Khắc 10 Thần tr.80; patterns engine tr.342-356; vượng-nhược tr.70.",
+      "ti_kiep_tranh_phu": {
+        "han": "比劫争夫 (Tỉ Kiên / Kiếp Tài tranh phu)",
+        "co_che": "Với NỮ, chồng = 官杀. Tỉ Kiếp KHÔNG trực tiếp đoạt 官杀 (Tỉ Kiếp đoạt TÀI mới là cơ chế chuẩn ở nam). Ở nữ mệnh, Tỉ Kiếp nhiều = nhiều 'người ngang vai' (chị em / đối thủ nữ) cùng tranh trong môi trường → tình duyên dễ có cạnh tranh, hoặc khó giữ độc quyền quan hệ. Đặc biệt khi 官 (chồng) bị Tỉ Kiếp 'phân khí' qua hợp.",
+        "van_hanh": "Cách vận hành: Tỉ Kiếp vượng cần Quan Sát chế hoặc Thực Thương xì bớt; trong tình cảm cần ranh giới rõ ràng, tránh tam giác. KHÔNG phán 'bị cướp chồng' — đọc là môi trường cạnh tranh cần làm chủ.",
+        "_nguon": "Công năng 10 Thần tr.83-87 (Tỉ Kiên: trợ thân/đoạt Tài/đối lập Quan Sát; Kiếp Tài: hợp Quan/đối lập Tài); Tâm tính tr.88 (Tỉ Kiên cô độc; Kiếp Tài mù quáng manh động); pattern 'Tài bị Kiếp đoạt' tr.351 (gốc cơ chế, áp cho nam-Tài; ở nữ đọc qua môi trường + hợp Quan)"
+      },
+      "thuong_quan_kien_quan": {
+        "han": "伤官见官 (Thương Quan kiến Quan)",
+        "co_che": "Thương Quan KHẮC Chính Quan. Với nữ, Chính Quan = chồng → Thương Quan lộ cùng Chính Quan = sao khắc chồng đối mặt sao chồng. Cổ thư xem là cấu hình hôn nhân dễ biến động, nhất là khi Nhật Chủ NHƯỢC.",
+        "van_hanh": "ĐỌC ĐỒNG DẠNG (王亭之 + Iron Rule #8): Thương Quan = thông minh/tài hoa/hiếu thắng/đòi tự do; cấu trúc này = người nữ có cá tính mạnh, không chịu khuôn phép áp đặt → 'phản dị phấn phát' (dễ tự lập, tự chủ). KHÔNG phán 'sát chồng / khắc phu'. Cách vận hành: (1) Tài Tinh thông quan (Thương Quan sinh Tài, Tài sinh Quan → hóa khắc thành sinh); (2) chọn bạn đời tôn trọng tự do/cá tính; (3) hướng tài hoa vào sự nghiệp/sáng tạo.",
+        "che_giai": "Tài Tinh làm cầu thông quan (Thương Quan → Tài → Quan); hoặc Ấn chế Thương Quan khi cần giữ khuôn phép.",
+        "_nguon": "Công năng 10 Thần tr.83-87 (Thương Quan: đối địch Quan; Ấn áp Thương; Tài sinh Quan); pattern #7 tr.352 'Thương Quan kiến Quan: cảnh báo khi Thương Quan + Chính Quan đồng lộ + Day Master nhược'; Tâm tính Thương Quan tr.88; 王亭之 'nữ mệnh phản dị phấn phát' (memory)"
+      },
+      "thuc_thuong_khac_quan_phu": {
+        "han": "食伤克官 (Thực Thần / Thương Quan khắc Quan = khắc chồng)",
+        "co_che": "Thực Thần + Thương Quan (食伤) đều là khí Nhật Chủ sinh ra (= con cái ở nữ mệnh), và đều KHẮC 官杀 (chồng). 食伤 quá vượng so với 官杀 → khí 'con cái / sáng tạo / cái tôi' lấn át khí 'chồng'.",
+        "van_hanh": "Đọc đồng dạng: nữ mệnh 食伤 vượng = giàu năng lực sinh sản/sáng tạo/biểu đạt, đặt con cái & sự nghiệp lên trục chính. Trong quan hệ cần ý thức nhường khí cho bạn đời. Riêng THỰC THẦN (ôn hòa) chế Sát = TỐT khi gặp Thất Sát quá mạnh (làm chồng-cường dịu lại, 'quý hiển'). Phân biệt: Thực Thần chế Sát = lành; Thương Quan kiến Chính Quan = cần thông quan.",
+        "_nguon": "Quy tắc Sinh-Khắc 10 Thần tr.80 (Thương Thực khắc Quan Sát); pattern #8 tr.353 (Thực Thần chế Sát = tốt khi Thất Sát mạnh); Lục Thân tr.150-180 (con cái = Thực Thương ở nữ); Công năng tr.83-87"
+      },
+      "than_vuong_nhuoc_anh_huong_duyen": {
+        "than_vuong": "Nhật Chủ VƯỢNG ở nữ mệnh: khí bản thân mạnh, tự chủ cao → quan hệ vận hành tốt khi 官杀 (chồng) cũng đủ lực để 'tương xứng'; nếu Quan quá yếu thì nữ mạnh lấn, cần chọn bạn đời có nội lực hoặc nhường khí. Thân vượng dùng Quan Sát / Tài / Thực Thương làm dụng.",
+        "than_nhuoc": "Nhật Chủ NHƯỢC + 官杀 nhiều = sức ép từ phía chồng/đàn ông lớn → dễ cảm thấy bị áp. Cách vận hành: BỔ thân bằng Ấn (官杀 sinh Ấn, Ấn sinh thân = 'hóa Sát sinh thân' — biến áp lực thành nuôi dưỡng) hoặc Tỉ Kiếp trợ thân.",
+        "can_xung": "Lý tưởng = THÂN và 官杀 CÂN XỨNG (thân vượng quan vượng, hoặc cả hai trung hòa) → vợ chồng nâng đỡ nhau. Mất cân = một bên lấn → cần BỔ qua dụng thần + môi trường + lựa chọn (mệnh là động từ).",
+        "_nguon": "5 quy tắc Vượng Thân tr.70; Dụng Thần nhược + Quan Sát nhiều → Ấn (hóa Sát) + Tỉ Kiếp tr.101-104; Iron Rule #8 (mệnh là động từ, BỔ qua hành động)"
+      },
+      "quan_an_tuong_sinh": {
+        "han": "官印相生 (Quan Ấn tương sinh)",
+        "co_che": "官杀 (chồng) sinh Ấn, Ấn sinh Nhật Chủ → khí chồng nuôi dưỡng bản thân nữ qua trung gian Ấn. Cấu hình hài hòa: chồng nâng đỡ, quan hệ có gốc nuôi dưỡng.",
+        "van_hanh": "Đọc là cấu trúc 'chồng → che chở → mình' lưu thông; vận hành thuận khi cả ba mắt xích đủ khí. Đặc biệt hợp khi thân nhược cần Ấn.",
+        "_nguon": "Quy tắc Sinh-Khắc 10 Thần tr.80 (Quan Sát → Ấn Kiêu → Day Master); Công năng Chính Quan tr.83-87 (sinh Ấn); Dụng Thần nhược + Quan Sát nhiều dùng Ấn tr.101-104"
+      }
+    },
+
+    "hop_hon": {
+      "_mo_ta": "Nguyên tắc hợp tuổi / hợp đôi hai lá số Bát Tự — đối chiếu tương tác Can-Chi giữa hai Trụ Ngày (và toàn cục), và xét DỤNG THẦN bổ khuyết cho nhau.",
+      "_nguon_goc": "engine hon_nhan.py + compatibility.py; journal tr.731 (Lục Hợp/Xung/Hại/Tam Hợp/Tam Hình); tr.728 Can Hóa Hợp 5 cặp; Nạp Âm 60 hoa giáp (compatibility.py); BỔ qua hôn nhân tr.240 (hôn nhân là một phương tiện 'Bổ' khí thiếu).",
+      "nguyen_tac_lon": "Hợp hôn KHÔNG phán 'hợp/khắc tuyệt đối'. Đọc: hai cấu trúc khí khi đặt cạnh nhau thì BỔ cho nhau (hành thiếu của người này được người kia bù) hay LẤN nhau (cùng thiếu/cùng thừa một hành). Hợp tốt nhất = Dụng Thần của người này là khí người kia mang dồi dào.",
+      "nhat_tru_tuong_tac": {
+        "hop": {
+          "han": "合 (Lục Hợp / Tam Hợp giữa chi Trụ Ngày hai người)",
+          "y_nghia": "Chi Trụ Ngày (cung phối) của hai người LỤC HỢP hoặc TAM HỢP → hai cung phối kéo về nhau, dễ gắn bó, ăn ý. Lục hợp 6 cặp: Tý-Sửu, Dần-Hợi, Mão-Tuất, Thìn-Dậu, Tỵ-Thân, Ngọ-Mùi.",
+          "_nguon": "engine LUC_HOP (6 cặp) + TAM_HOP; hon_nhan.py 'Lục hợp → quan hệ ấm áp'"
+        },
+        "xung": {
+          "han": "冲 (Lục Xung)",
+          "y_nghia": "Chi Trụ Ngày hai người LỤC XUNG (Tý-Ngọ, Sửu-Mùi, Dần-Thân, Mão-Dậu, Thìn-Tuất, Tỵ-Hợi) → hai cung phối xung động → quan hệ nhiều va chạm, hay xê dịch. KHÔNG = 'không lấy được'; đọc là cần khoảng riêng + giải xung (qua chi thứ ba hợp).",
+          "_nguon": "engine LUC_XUNG (6 cặp); hon_nhan.py xung động cung phối; journal tr.731"
+        },
+        "hinh": {
+          "han": "刑 (Tam Hình / Tự Hình)",
+          "y_nghia": "Chi hai người tạo Tam Hình (Dần-Tỵ-Thân; Sửu-Tuất-Mùi; Tý-Mão) hoặc tự hình (Thìn-Thìn, Ngọ-Ngọ, Dậu-Dậu, Hợi-Hợi) → cọ xát ngầm, ân oán dai dẳng. Cách vận hành: minh bạch sớm, tránh dồn nén.",
+          "_nguon": "engine TAM_HINH_GROUPS; journal tr.731 (Tam Hình)"
+        },
+        "hai": {
+          "han": "害 (Lục Hại)",
+          "y_nghia": "Chi hai người tạo Lục Hại → hiểu lầm ngấm ngầm, dễ tổn thương kín. Cần giao tiếp.",
+          "_nguon": "engine LUC_HAI; journal tr.731 (Lục Hại)"
+        }
+      },
+      "can_hoa_hop": {
+        "han": "天干五合 (Thiên Can Hóa Hợp 5 cặp)",
+        "5_cap": {
+          "Giáp-Kỷ": "hóa Thổ — Trung Chính chi hợp",
+          "Ất-Canh": "hóa Kim — Nhân Nghĩa chi hợp",
+          "Bính-Tân": "hóa Thủy — Uy Chế chi hợp",
+          "Đinh-Nhâm": "hóa Mộc — Dâm Loạn chi hợp (gắn duyên tình mạnh)",
+          "Mậu-Quý": "hóa Hỏa — Vô Tình chi hợp"
+        },
+        "y_nghia_hop_hon": "Khi Nhật Can (hoặc can trụ chính) của hai người tạo CAN HỢP → có lực 'hút' giữa hai người. Đặc biệt Đinh-Nhâm (Dâm Loạn chi hợp) = lực hấp dẫn tình cảm rõ. Đọc là khí tương cảm, KHÔNG quy giá trị đạo đức theo tên cổ.",
+        "_nguon": "journal tr.728 (luu_nien.py::detect_can_hoa_hop — Giáp-Kỷ→Thổ Trung Chính; Ất-Canh→Kim Nhân Nghĩa; Bính-Tân→Thủy Uy Chế; Đinh-Nhâm→Mộc Dâm Loạn; Mậu-Quý→Hỏa Vô Tình)"
+      },
+      "dung_than_bo_khuyet": {
+        "nguyen_tac": "Tiêu chí hợp hôn SÂU nhất (theo paradigm BỔ): xét DỤNG THẦN mỗi người. Nếu khí mà người A thiếu (Dụng Thần A) lại là khí người B dồi dào (và ngược lại) → hai người BỔ cho nhau → cộng hưởng lành. Nếu cả hai cùng thiếu một hành → cùng yếu chỗ đó, cần môi trường/đời sống bù chung.",
+        "vi_du": "Nữ Dụng Thần = Mộc (thân nhược cần Tỉ Kiếp Mộc + Ấn Thủy), gặp bạn đời Bát Tự nhiều Mộc-Thủy → người kia mang khí nuôi dưỡng mình → hợp. Đây là cùng cơ chế 'BỔ qua hôn nhân' của Thiệu Vĩ Hoa.",
+        "_nguon": "Bản tính ngũ hành chữ 'BỔ' tr.24 ('chìa khóa vàng'); tr.240 (hôn nhân là phương tiện Bổ khí thiếu); Dụng Thần cascade tr.101-109; engine dung_than.py"
+      },
+      "dong_bo_thong_tin": {
+        "y_nghia": "Tứ Trụ vợ-chồng có ĐỒNG BỘ thông tin (cộng hưởng): cấu trúc khí hai người ảnh hưởng lẫn nhau, không độc lập. Hợp hôn = chọn cộng hưởng nâng đỡ.",
+        "_nguon": "journal tr.225-235 (Đồng bộ thông tin gia đình; family_system.compute_family_resonance); tr.235-240 (cùng cấu trúc ≠ cùng số phận — môi trường + lựa chọn khác)"
+      }
+    },
+
+    "dinh_thoi": {
+      "_mo_ta": "ĐỊNH THỜI điểm động duyên / kết hôn qua 大运 (Đại Vận) + 流年 (Lưu Niên). KHÔNG predict 'năm X chắc chắn cưới'; chỉ chỉ ra giai đoạn khí duyên/khí chồng được KÍCH HOẠT → khả năng động duyên cao. Người nữ chủ động trong cửa sổ đó (mệnh là động từ).",
+      "_nguon_goc": "Chương 6 Đại Vận + Lưu Niên tr.120-140; engine hon_nhan.py bước 6 'Thời điểm khả thi (suggestion, không predict)'; Iron Rule #6 (CƠ + BIẾN); tr.123 (Đại Vận = trụ 5, Lưu Niên = trụ 6).",
+      "nguyen_tac": "Đại Vận quyết định tốt/xấu TỔNG của 10 năm; Lưu Niên quyết định CỤ THỂ từng năm. Đại Vận + Lưu Niên = trụ thứ 5 và 6, tham gia thực vào cân bằng Tứ Trụ (can-chi KHÔNG tách, cùng tác động 10 năm trọn).",
+      "tin_hieu_dong_duyen": {
+        "quan_tinh_den": {
+          "tin_hieu": "Đại Vận / Lưu Niên dẫn 官杀 (Chính Quan / Thất Sát) tới, nhất là khi mệnh cục vốn thiếu/yếu sao chồng → 'khí chồng' được kích hoạt → giai đoạn duyên chồng rõ nét. Nếu 官杀 đó là HỈ/DỤNG của lá số → cửa sổ thuận.",
+          "_nguon": "tr.582-586 (Mười Thần Đại Vận = mạch chính Mệnh; Thập Thần Đại Vận = HỈ của Dụng → vận tốt); phu_tinh 官杀 = chồng; engine hon_nhan.py 'Đại Vận có Tài/Quan tinh vượng'"
+        },
+        "dao_hoa_den": {
+          "tin_hieu": "Đại Vận / Lưu Niên có chi ĐÀO HOA (子午卯酉 theo cục) tới → giai đoạn duyên động, dễ gặp gỡ, dễ rung động, sức hút tăng.",
+          "_nguon": "dao_hoa (mục trên); journal tr.633 (Đào Hoa engine); engine hon_nhan.py bước 6"
+        },
+        "cung_phoi_bi_hop": {
+          "tin_hieu": "Lưu Niên / Đại Vận có chi LỤC HỢP hoặc TAM HỢP với chi Trụ Ngày (cung phối) → cung phối được 'hợp tới' → năm dễ thành đôi / tiến triển quan hệ. Đặc biệt hợp hóa thành Dụng Thần = thuận.",
+          "_nguon": "engine hon_nhan.py bước 6 'Lưu Niên có chi hợp / hợp cục với Trụ Ngày chi'; LUC_HOP/TAM_HOP; tr.123"
+        },
+        "can_hop_nhat_can": {
+          "tin_hieu": "Lưu Niên / Đại Vận có Thiên Can tạo CAN HỢP với Nhật Can (5 cặp, nhất là Đinh-Nhâm) → lực tương cảm với người khác giới được khơi → năm dễ động lòng / gặp duyên.",
+          "_nguon": "can_hoa_hop (mục hop_hon); journal tr.728 (detect_can_hoa_hop)"
+        }
+      },
+      "tin_hieu_bien_dong": {
+        "cung_phoi_bi_xung": {
+          "tin_hieu": "Lưu Niên / Đại Vận XUNG chi Trụ Ngày (cung phối) → giai đoạn quan hệ vợ chồng dễ động: xê dịch, xa cách công tác, va chạm, hoặc thay đổi lớn trong quan hệ. ĐỌC là 'khí cung phối bị động' cần giữ ổn + giao tiếp; KHÔNG phán 'ly hôn năm đó'.",
+          "_nguon": "tr.123 (tương tác can-chi Đại Vận); engine LUC_XUNG áp lên Trụ Ngày; guardrail tr.7 (không predict cứng)"
+        },
+        "thuong_quan_quan_gap_nhau": {
+          "tin_hieu": "Với nữ thân nhược: Lưu Niên / Đại Vận đưa Thương Quan tới khi mệnh đã có Chính Quan (hoặc ngược lại) → kích hoạt 'Thương Quan kiến Quan' → giai đoạn quan hệ chồng dễ căng. Cách vận hành: Tài tinh thông quan, nhường khí, tránh quyết định lớn lúc khí xung.",
+          "_nguon": "pattern #7 tr.352 (Thương Quan kiến Quan + Day Master nhược); to_hop_then_chot.thuong_quan_kien_quan"
+        },
+        "quan_sat_hon_tap_dong": {
+          "tin_hieu": "Lưu Niên đưa thêm 官 hoặc 杀 khiến mệnh thành 官杀混杂 tạm thời → giai đoạn tình cảm dễ rối/nhiều lựa chọn cùng lúc. Cách vận hành: chọn rõ một trục.",
+          "_nguon": "to_hop_then_chot.quan_sat_hon_tap; Quy tắc Sinh-Khắc tr.80"
+        }
+      },
+      "luu_y_paradigm": "Mọi tín hiệu định thời chỉ là CỬA SỔ khí được kích hoạt — biểu hiện thực còn tùy môi trường + nghiệp + LỰA CHỌN của người nữ (cùng Tứ Trụ ≠ cùng số phận, tr.235-240). Engine xuất 'giai đoạn khí thuận/động', người nữ tự quyết hành động.",
+      "_nguon": "tr.235-240 (đồng bộ + khác biệt); Iron Rule #8 (mệnh là động từ); Iron Rule #4 (đọc đồng dạng, không predict)"
+    }
+  }
+}

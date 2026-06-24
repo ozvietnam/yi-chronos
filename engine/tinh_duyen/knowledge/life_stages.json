@@ -1,0 +1,131 @@
+{
+  "_meta": {
+    "ten": "6 chặng tuổi tình duyên — nữ mệnh (gieo duyên)",
+    "mo_ta": "Hình thức hóa thành dữ liệu để engine chọn chặng theo tuổi thật từ ngày sinh, rồi đọc lá số nữ về hôn nhân theo paradigm ĐỌC ĐỒNG DẠNG (mệnh là động từ), KHÔNG bói.",
+    "paradigm": "Iron Rule #4/#6/#8: đọc TÍNH (cấu trúc sao/cung Phu) → cách VẬN HÀNH phù hợp tuổi & thời nay. KHÔNG phán 'số cô quả / sát chồng'. Theo 王亭之: '不可贸贸然推断' (đừng đoán ẩu), không kết án nữ mệnh; '以今日社会言, 女命反易奋发' (thời nay tính 'cô khắc' lại giúp nữ tự lập).",
+    "doi_tuong": "nữ mệnh (female chart)",
+    "nguon_goc": [
+      "中州派紫微斗数深造讲义 — 王亭之 (Vương Đình Chi) — đã tải, catalog books.json",
+      "女命骨髓赋 (chú 王亭之) — verse gốc trong Tử Vi Đẩu Số Toàn Thư (TUVIFULL), đã ingest wiki",
+      "docs/design/honnhan-numenh-nguon-va-khung.md (khung luận đúc từ 2 nguồn trên)"
+    ],
+    "ghi_chu_trung_thuc": "Nguồn sách 王亭之 + 女命骨髓赋 cung cấp KHUNG LUẬN nữ-mệnh hôn nhân (đọc cung Phu theo chính tinh, sát/đào hoa/天姚, định thời 运限/流年, biện chính định kiến cổ). Việc CHIA THÀNH 6 CHẶNG TUỔI + tâm lý người dùng VN + giọng văn + gói/giá xu là THIẾT KẾ SẢN PHẨM (product + tâm lý người dùng VN), KHÔNG phải nội dung sách. Mỗi mục ghi _nguon rõ phần nào từ sách, phần nào từ thiết kế. KHÔNG bịa câu chữ gán cho sách.",
+    "_map_rule": "Engine đọc tuổi thật từ ngày sinh (age = năm hiện tại − năm sinh, hoặc chính xác theo ngày) → chọn chặng có tuoi_min <= age <= tuoi_max. Nếu age < tuoi_min của chặng đầu hoặc > tuoi_max của chặng cuối thì kẹp về chặng gần nhất (clamp). Khi đọc lá số: dùng cung Phu Thê + chính tinh + sát/đào hoa/天姚 + định thời 运限/流年 theo khung 王亭之, NHƯNG diễn đạt theo cau_hoi_chinh + giong_van + do_sau của chặng tương ứng."
+  },
+  "stages": [
+    {
+      "id": "rung-dong-dau",
+      "tuoi_min": 13,
+      "tuoi_max": 17,
+      "moi_truong": "cấp 3 (lớp 10–12), rung động đầu đời, áp lực thi cử",
+      "tam_ly_cot_loi": "Lần đầu biết để ý một người, tim đập khi thấy ai đó. Sợ bị từ chối, sợ bạn bè biết, chưa phân biệt được 'thích' và 'thân'. Hình ảnh bản thân (ngoại hình, được công nhận) rất nhạy cảm. Cần được lắng nghe chứ không cần lời khuyên cứng.",
+      "cau_hoi_chinh": [
+        "Bạn ấy có thích mình không, hay chỉ là mình tưởng?",
+        "Mình nên nói ra hay giữ trong lòng?",
+        "Làm sao để không bị tổn thương nếu bị từ chối?",
+        "Yêu sớm có ảnh hưởng học hành không?"
+      ],
+      "nhu_cau": "Được công nhận cảm xúc là thật và đẹp, không bị chê 'trẻ con'. Một góc nhìn dịu dàng giúp em hiểu chính mình hơn là phán đoán về người kia.",
+      "giong_van": "Như một người chị nhẹ nhàng, ấm. Tuyệt đối không phán 'số em lận đận', không dọa. Đọc CẤU TRÚC tính cách của em (em vốn giàu cảm xúc / lý trí / e dè...) rồi nói cách em vận hành tốt nhất ở tuổi này, không nói tương lai hôn nhân.",
+      "do_sau": "nong",
+      "goi": "free",
+      "gia_xu_goi_y": 0,
+      "_nguon": "tam_ly + product (chặng tuổi, tâm lý người dùng VN). Cách đọc 'TÍNH → vận hành, không phán số' = paradigm 王亭之 / Iron Rule #4/#6/#8. Tuổi này KHÔNG luận hôn nhân/cung Phu (chưa phù hợp) — chỉ soi tính cách + cảm xúc."
+    },
+    {
+      "id": "kham-pha-truong-thanh",
+      "tuoi_min": 18,
+      "tuoi_max": 23,
+      "moi_truong": "đại học / đi làm sớm / xa nhà lần đầu, mối tình thật sự đầu tiên",
+      "tam_ly_cot_loi": "Bắt đầu yêu nghiêm túc, có thể đã trải qua chia tay đầu tiên. Loay hoay giữa tự do cá nhân và gắn bó. Bị ảnh hưởng mạnh bởi bạn bè, mạng xã hội, so sánh. Câu hỏi lớn: 'người này có hợp với mình lâu dài không, hay chỉ vui?'",
+      "cau_hoi_chinh": [
+        "Người yêu hiện tại có phải người phù hợp với mình không?",
+        "Vì sao mình hay gặp kiểu người làm mình tổn thương?",
+        "Nên tiếp tục hay dừng lại mối quan hệ này?",
+        "Mình có đang yêu nhầm vì cô đơn không?"
+      ],
+      "nhu_cau": "Hiểu KIỂU người mình hay bị thu hút và vì sao (cấu trúc nội tâm), để chọn lành mạnh hơn — không phải để biết 'số có lấy được chồng giàu không'.",
+      "giong_van": "Như một người bạn lớn hiểu chuyện, thẳng thắn nhưng không phán xét. Soi cung Phu Thê + đào hoa của em như một TẤM GƯƠNG giúp em nhận ra khuôn mẫu (pattern) lặp lại trong tình yêu, để em chủ động đổi cách yêu.",
+      "do_sau": "vua",
+      "goi": "free",
+      "gia_xu_goi_y": 9,
+      "_nguon": "tam_ly + product (chặng tuổi). Đọc cung Phu Thê theo chính tinh + đào hoa để soi 'kiểu người bị thu hút' = khung 王亭之 (mục 2.B: 贪狼/巨门/天府... trong cung Phu). Diễn đạt 'tấm gương / pattern' = paradigm đồng dạng, không predict."
+    },
+    {
+      "id": "chon-ban-doi",
+      "tuoi_min": 24,
+      "tuoi_max": 29,
+      "moi_truong": "đi làm ổn định, bạn bè bắt đầu cưới, áp lực 'bao giờ lấy chồng'",
+      "tam_ly_cot_loi": "Cân nhắc cưới thật sự: người đang yêu có cưới được không? Bắt đầu chịu áp lực gia đình ('bằng tuổi này con nhà người ta...'). Sợ chọn sai người cho cả đời. Đồng thời sự nghiệp đang lên — giằng co giữa phát triển bản thân và lập gia đình.",
+      "cau_hoi_chinh": [
+        "Người này có cưới được không? Có hợp để đi đường dài?",
+        "Mình hợp với người như thế nào để hôn nhân bền?",
+        "Có nên cưới bây giờ hay chờ thêm/lo sự nghiệp trước?",
+        "Hai đứa hợp tuổi / hợp mệnh không?"
+      ],
+      "nhu_cau": "Một góc nhìn vững vàng về việc cưới ai và cưới thế nào thì VẬN HÀNH bền, giảm áp lực 'phải cưới gấp'. Cần được trấn an rằng tự lập/lên sự nghiệp không phải là 'cô khắc'.",
+      "giong_van": "Như một cố vấn điềm tĩnh, có chiều sâu. Đọc cung Phu Thê + cách phối với cung Mệnh, chỉ ra hôn nhân của em VẬN HÀNH tốt nhất theo kiểu nào (cần bạn đời ra sao). Chủ động BIỆN CHÍNH định kiến cổ: nếu lá số có sao 'cương liệt' thì nói rõ 'thời nay giúp em tự lập/thành đạt', không nói 'sát phu'.",
+      "do_sau": "sau",
+      "goi": "paid",
+      "gia_xu_goi_y": 25,
+      "_nguon": "tam_ly + product (chặng tuổi). Đọc cung Phu Thê + 命宫 phối hợp + 'cưới ai thì hợp' = khung 王亭之 mục 2.B. Biện chính 'cương liệt ≠ sát phu, thời nay 女命反易奋发' = trực tiếp 王亭之 mục 2.C + 女命骨髓赋 (mặt sao tốt: 府相之星女命躔 必当子贵与夫贤)."
+    },
+    {
+      "id": "giu-lua-hon-nhan",
+      "tuoi_min": 30,
+      "tuoi_max": 34,
+      "moi_truong": "đã cưới hoặc đang trong hôn nhân/sống chung, con nhỏ, áp lực kinh tế + gia đình hai bên",
+      "tam_ly_cot_loi": "Đỉnh áp lực: vừa làm vợ, làm mẹ, vừa giữ sự nghiệp, vừa lo nhà hai bên. Lãng mạn giảm, mâu thuẫn cơm-áo tăng. Câu hỏi chuyển từ 'có lấy được không' sang 'làm sao giữ cho bền, làm sao bớt cãi'. Có thể xuất hiện nghi ngờ, mệt mỏi, cảm giác bị xem nhẹ. Đây là nhóm CHI TRẢ cao nhất vì nỗi đau thật và cấp bách.",
+      "cau_hoi_chinh": [
+        "Vì sao vợ chồng dạo này hay cãi nhau / lạnh nhạt?",
+        "Hôn nhân của mình năm nay có sóng gió không, cần giữ gìn gì?",
+        "Chồng có đang thay đổi / có người khác không?",
+        "Mình nên cố giữ hay buông? Làm sao để không mất chính mình?"
+      ],
+      "nhu_cau": "Được nhìn nhận nỗi mệt là thật, và có một bản đồ cụ thể: giai đoạn này cần GIỮ GÌN điều gì, đâu là thời điểm dễ căng (định thời), cách vận hành để qua sóng — không phải lời phán 'số ly hôn'.",
+      "giong_van": "Như một người đồng hành sâu sắc, nâng đỡ, tuyệt đối không dọa ly hôn. Đọc cung Phu Thê + ĐỊNH THỜI (đại vận / lưu niên cung Phu gặp Hóa Kỵ + Kình Dương = năm cần giữ gìn). Nói rõ đây là 'thời điểm cần nâng niu', là việc XỬ LÝ (mệnh = động từ), không phải bản án.",
+      "do_sau": "sau",
+      "goi": "paid",
+      "gia_xu_goi_y": 39,
+      "_nguon": "tam_ly + product (chặng tuổi, nhóm chi trả cao nhất). ĐỊNH THỜI 'lưu niên 夫妻宫 gặp 化忌 + 擎羊 = năm nguy hiểm hôn nhân, cần giữ gìn' = trực tiếp 王亭之 mục 2.B.3 (vd 丁酉 巨门化忌 + 擎羊; 太阴落陷 vận phòng biến). 'Mệnh là động từ / việc giữ gìn' = Iron Rule #8."
+    },
+    {
+      "id": "lam-lai-tai-hop",
+      "tuoi_min": 35,
+      "tuoi_max": 44,
+      "moi_truong": "có thể đã ly hôn / ly thân / góa / hoặc hôn nhân lâu năm đang xét lại; con đã lớn hơn",
+      "tam_ly_cot_loi": "Đối diện câu hỏi nặng: làm lại từ đầu? Tái hôn? Hay an phận một mình và vẫn hạnh phúc? Sợ định kiến xã hội ('phụ nữ một đời chồng'), sợ con bị ảnh hưởng, vừa khao khát được yêu lại vừa cảnh giác. Cần được tôn trọng lựa chọn, không bị thương hại.",
+      "cau_hoi_chinh": [
+        "Mình có nên mở lòng lại / tái hôn không?",
+        "Lần này làm sao để không lặp lại sai lầm cũ?",
+        "Người mới này có thật lòng không, có hợp để đi tiếp?",
+        "Ở một mình thì có ổn không, có 'cô độc' như người ta nói không?"
+      ],
+      "nhu_cau": "Được khẳng định rằng làm lại / ở một mình đều là lựa chọn đáng trọng. Hiểu vì sao mối cũ trục trặc (cấu trúc), để lần này vận hành khác — và được gỡ bỏ định kiến 'tái giá là số xấu'.",
+      "giong_van": "Như một người từng trải, ấm áp và bình đẳng. Nếu lá số có dấu hiệu 'trùng hôn tái giá' (天姚 hội sát-kỵ ở cung Phu) thì đọc như MỘT KHẢ NĂNG VẬN HÀNH (em có thể có duyên muộn/duyên thứ hai), KHÔNG nói 'số hai đời chồng' kiểu kết tội. Chủ động dẫn lời biện chính: cổ cho là 'thiên phòng kế thất', nay là tự do chọn lại.",
+      "do_sau": "sau",
+      "goi": "paid",
+      "gia_xu_goi_y": 35,
+      "_nguon": "tam_ly + product (chặng tuổi). '天姚 hội sát-kỵ ở 夫妻宫 → trùng hôn tái giá' + '古代认为宜偏房继室, 现代或主无正式婚礼' = trực tiếp 王亭之 mục 2.B.2 + 2.C. Đọc như 'khả năng vận hành, không kết tội' = paradigm 王亭之 ('不可贸贸然推断') + Iron Rule #8."
+    },
+    {
+      "id": "an-yen-tu-tai",
+      "tuoi_min": 45,
+      "tuoi_max": 99,
+      "moi_truong": "trung niên trở đi: hôn nhân lâu năm ổn định, hoặc sống một mình tự tại, con cái trưởng thành",
+      "tam_ly_cot_loi": "Bớt câu hỏi 'lấy ai', nhiều hơn câu hỏi 'sống phần đời còn lại thế nào cho an'. Nhìn lại cả hành trình tình duyên: trân trọng, tiếc nuối, làm hòa với quá khứ. Quan tâm bạn đời tuổi già, sự bầu bạn, ý nghĩa. Một số tìm lại tình muộn.",
+      "cau_hoi_chinh": [
+        "Phần đời còn lại của tình cảm vợ chồng mình sẽ thế nào, làm sao cho ấm?",
+        "Mình và bạn đời về già có nương tựa được nhau không?",
+        "Nhìn lại, những trắc trở tình duyên đời mình mang ý nghĩa gì?",
+        "Tuổi này còn duyên mới / bầu bạn được không?"
+      ],
+      "nhu_cau": "Một cái nhìn an ủi, đúc kết và làm hòa — giúp trân trọng hiện tại và sống nhẹ nhõm với phần đời còn lại, không khơi lại vết thương.",
+      "giong_van": "Như một bậc tri kỷ điềm đạm, hướng về sự an yên và ý nghĩa. Đọc cả cung Phu Thê + cung Phúc Đức như một bức tranh trọn vẹn của TÍNH, soi cách an trú. Không phán hậu vận, chỉ chiếu sáng cách sống cho thanh thản.",
+      "do_sau": "sau",
+      "goi": "paid",
+      "gia_xu_goi_y": 30,
+      "_nguon": "tam_ly + product (chặng tuổi). Đọc 夫妻宫 + 福德宫 = khung Tử Vi tổng quát. 'Không phán hậu vận, chiếu sáng cách an trú' = paradigm đồng dạng (Iron Rule #4/#6), mệnh là động từ (#8). Mặt sao tốt nền tảng: 廉贞清白能相守 / 天同理亦然 (女命骨髓赋)."
+    }
+  ]
+}
