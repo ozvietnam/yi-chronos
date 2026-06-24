@@ -1012,6 +1012,35 @@ def hon_nhan_song_phai_bridge(
     return out
 
 
+class TinhDuyenRequest(BaseModel):
+    firebase_uid: str
+    person_key: str = "self"
+
+
+@router.post("/tinh-duyen")
+def tinh_duyen_bridge(
+    req: TinhDuyenRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Tình duyên nữ mệnh (engine làm giàu) cho AppChat. 404 chưa sync · 422 thiếu giờ
+    sinh · 402 không đủ xu. Trừ 30 xu (cache Iron #4 không trừ lại)."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.cross_paradigm import service as cps
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+        if user_id is None:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "firebase_uid not synced")
+        person = _person_by_key(conn, user_id, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh cho person — cần cập nhật trước khi luận")
+    out = cps.run_tinh_duyen(user_id, person)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return out
+
+
 class CoupleSyncRequest(BaseModel):
     firebase_uid: str
     partner_person_key: Optional[str] = None   # đối tượng đã lưu (đã có đồng thuận)

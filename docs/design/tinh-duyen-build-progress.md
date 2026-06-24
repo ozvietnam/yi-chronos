@@ -11,9 +11,10 @@ GOAL (Anh chốt 2026-06-24): sản phẩm gieo duyên **nữ-mệnh chuyên tì
 - `cach_cuc_tinh_duyen.json` — **157 cách cục** tình duyên (điều kiện phát hiện + ý nghĩa)
 - `life_stages.json` — 6 chặng tuổi {tuổi,môi trường,tâm lý,câu hỏi chính,giọng,độ sâu,gói,giá xu}
 
-## Chặng 2 — Engine `tinh_duyen` 🔄 ĐANG BUILD (`w5klma3me`)
-`engine/tinh_duyen/reading.py` :: `read_tinh_duyen(birth_datetime_local, gender='nữ', timezone, as_of_year)` — MỞ RỘNG `cross_paradigm/hon_nhan_song_phai.luan_hon_nhan_song_phai`. Build → 3 agent phản biện đối kháng → fix → pytest.
-Cast confirmed: `engine.tu_vi.from_birth.cast_la_so_from_birth` + `engine.bat_tu.cast.cast_bat_tu`. Output dict: {stage, personality, cung_phu_the_tuvi, batu_hon_nhan, song_phai_reconcile, cach_cuc, dinh_thoi, base_12_khia_canh, paradigm_ok, sources}.
+## Chặng 2 — Engine `tinh_duyen` ✅ XONG (paradigm-safe, pytest 38)
+`engine/tinh_duyen/reading.py` :: `read_tinh_duyen(birth_datetime_local, gender='nữ', timezone, as_of_year)` — MỞ RỘNG `cross_paradigm/hon_nhan_song_phai`. Output dict keys: `method_id, input{tuoi,menh_branch,phu_the_branch}, stage{stage_id,moi_truong,tam_ly_cot_loi,cau_hoi_chinh,giong_van}, personality{menh_chinh_tinh,khi_chat,cach_yeu,khau_vi_giao_tiep{giong,do_dai,cach_khung,nen,tranh}}, cung_phu_the_tuvi, batu_hon_nhan, song_phai_reconcile[], cach_cuc[], dinh_thoi, base_12_khia_canh, paradigm_ok, scrub_caution_count, sources, _disclaimer`.
+- ⚠️ **Bài học lớn**: phản biện đối kháng bắt được BLOCKER paradigm (build-pytest-xanh vẫn surface "khắc chồng/cô độc" cho bé gái 17t). Đã fix: reframe 157 cách cục → `bien_chinh` (đọc-đồng-dạng) + `gioi_tinh` flag (loại 30 phú góc-nhìn-nam khỏi nữ mệnh) + **hàng rào cứng `_scrub_tree`** (cấm verdict lexicon) + reuse `engine.hermes_guard`. Verified: forbidden=0 trên 6 lá nữ, moat-voice 36×, stage đúng (`stage_id`).
+- Cast: `engine.tu_vi.from_birth.cast_la_so_from_birth` + `engine.bat_tu.cast.cast_bat_tu`. Tests: `tests/test_tinh_duyen.py` (38).
 
 ## Chặng 3 — Wiring ⏭️ CHỜ ENGINE (blueprint sẵn)
 | Điểm ráp | File | Pattern |

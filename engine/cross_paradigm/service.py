@@ -137,6 +137,32 @@ def run_hon_nhan_song_phai(uid: int, person: dict) -> dict[str, Any]:
     )
 
 
+def run_tinh_duyen(uid: int, person: dict) -> dict[str, Any]:
+    """Xem TÌNH DUYÊN nữ mệnh (engine làm giàu từ kho 6 JSON). Trừ 30 xu (cache Iron #4).
+
+    Tối ưu cho NỮ mệnh; nếu gender không phải nữ vẫn chạy nhưng gắn note. KHÔNG cast
+    tay (read_tinh_duyen tự lập lá số + bát tự). Caller phải đã validate có giờ sinh."""
+    from engine.tinh_duyen.reading import read_tinh_duyen
+    birth = person.get("birth_datetime_local")
+    gender = person.get("gender") or "nữ"
+    tz = person.get("timezone") or "Asia/Ho_Chi_Minh"
+    sig = f"tinh_duyen:{birth}:{gender}"
+    note = None if (gender or "").strip().lower() in ("nữ", "nu", "female", "f", "") \
+        else "Engine tối ưu cho NỮ mệnh — kết quả với giới tính khác chỉ tham khảo."
+    out = _charge_and_run(
+        uid, "cross_paradigm_tinh_duyen", sig,
+        lambda: read_tinh_duyen(
+            birth_datetime_local=birth,
+            gender=gender,
+            timezone=tz,
+            as_of_year=None,
+        ),
+    )
+    if note and out.get("status") != "insufficient_xu":
+        out["nu_menh_note"] = note
+    return out
+
+
 def run_couple_sync(uid: int, person_a: dict, person_b: dict) -> dict[str, Any]:
     """#56 — so đôi đích danh 2 lá (Bát Tự hợp hôn + Tử Vi Phu Thê chéo). Trừ 30 xu."""
     from engine.cross_paradigm.couple_sync import luan_so_doi

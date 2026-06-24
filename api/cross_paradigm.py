@@ -60,6 +60,47 @@ def hon_nhan_self(req: HonNhanRequest,
     return out
 
 
+class TinhDuyenRequest(BaseModel):
+    person_key: str = "self"
+
+
+@router.post("/api/cross-paradigm/tinh-duyen")
+def tinh_duyen_self(req: TinhDuyenRequest,
+                    caller: dict = Depends(require_caller)) -> dict:
+    """Tình duyên nữ mệnh (engine làm giàu) cho lá của chính user. Trừ 30 xu (cache Iron #4)."""
+    from engine.cross_paradigm import service as cps
+    uid = int(caller["user_id"])
+    person = _person(uid, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh — cập nhật person trước khi luận")
+    out = cps.run_tinh_duyen(uid, person)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    return out
+
+
+@router.post("/api/cross-paradigm/tinh-duyen/narrate")
+def tinh_duyen_narrate(req: TinhDuyenRequest,
+                       caller: dict = Depends(require_caller)) -> dict:
+    """Diễn đạt (sage narrate) output tình duyên đã cached — KHÔNG charge thêm.
+
+    Đọc lại engine output qua run_tinh_duyen: nếu đã cached trong TTL (Iron #4) → trả
+    bản cũ với charged_xu=0; chỉ trừ xu nếu user CHƯA từng luận (miss cache)."""
+    from engine.cross_paradigm import service as cps
+    from engine.cross_paradigm.narrate import narrate_tinh_duyen
+    uid = int(caller["user_id"])
+    person = _person(uid, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
+                            "thiếu giờ sinh — cập nhật person trước khi luận")
+    out = cps.run_tinh_duyen(uid, person)
+    if out.get("status") == "insufficient_xu":
+        raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    narration = narrate_tinh_duyen(person, out)
+    return {"narration": narration}
+
+
 class CoupleSyncRequest(BaseModel):
     person_key: str = "self"
     partner_person_key: Optional[str] = None

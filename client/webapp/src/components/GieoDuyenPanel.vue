@@ -15,6 +15,7 @@
       <button :class="{ on: mode === 'tim' }" @click="mode = 'tim'">🔍 Tôi đang tìm</button>
       <button :class="{ on: mode === 'cap' }" @click="mode = 'cap'">💑 Đã có đôi</button>
       <button :class="{ on: mode === 'so' }" @click="mode = 'so'">⚖️ So nhiều người</button>
+      <button :class="{ on: mode === 'tinh' }" @click="mode = 'tinh'">💍 Tình duyên</button>
     </div>
 
     <!-- CHẾ ĐỘ ĐANG TÌM: 4 tính năng cho người độc thân -->
@@ -116,6 +117,182 @@
           </div>
         </div>
         <p class="gd-note">{{ soRes.ghi_chu }}</p>
+      </div>
+    </section>
+
+    <!-- CHẾ ĐỘ TÌNH DUYÊN (nữ mệnh) — đọc đồng dạng trên lá số của chính bạn -->
+    <section v-if="mode === 'tinh'" class="gd-tool">
+      <h3>💍 Nữ mệnh — Tình duyên</h3>
+      <p class="gd-tool-sub">
+        Soi đường tình duyên trên <b>lá số của chính bạn</b> — hợp nhất Tử Vi và Bát Tự, đọc theo từng
+        chặng đời. Mệnh là động từ: lá số cho biết <em>TÍNH</em> (nguyên liệu trời ban), còn cách
+        <em>vận hành</em> là ở bạn — không bói cát/hung.
+      </p>
+
+      <div v-if="tdWho" class="gd-td-who">
+        <span>Đọc cho: <b>{{ tdWho }}</b></span>
+        <span v-if="tdBirth"> · sinh {{ tdBirth }}</span>
+        <span v-if="tdGender"> · {{ tdGender }}</span>
+      </div>
+
+      <button class="gd-run" :disabled="tdLoading" @click="runTinhDuyen">
+        {{ tdLoading ? '⏳ Đang soi tình duyên...' : '💗 Xem tình duyên (30 xu)' }}
+      </button>
+      <p v-if="tdErr" class="gd-err">{{ tdErr }}</p>
+
+      <div v-if="tdRes" class="gd-result gd-td">
+        <p v-if="tdRes.cached" class="gd-note">♻️ Lượt hỏi gần đây — không trừ xu lại (một việc một lần).</p>
+        <p v-else-if="tdRes.charged_xu" class="gd-note">
+          Đã dùng {{ tdRes.charged_xu }} xu<span v-if="tdRes.xu_balance != null"> · số dư: {{ tdRes.xu_balance }} xu</span>.
+        </p>
+
+        <!-- STAGE -->
+        <div v-if="tdRes.stage" class="gd-card gd-td-stage">
+          <h5>🌱 Chặng đời — tuổi {{ tdRes.stage.tuoi }}</h5>
+          <p v-if="tdRes.stage.chua_du_tuoi" class="gd-note">Bạn còn trẻ — đọc như khung tham chiếu, duyên đến tự nhiên.</p>
+          <p v-if="tdRes.stage.moi_truong" class="gd-mini"><b>Môi trường:</b> {{ tdRes.stage.moi_truong }}</p>
+          <p v-if="tdRes.stage.tam_ly_cot_loi" class="gd-mini"><b>Tâm lý cốt lõi:</b> {{ tdRes.stage.tam_ly_cot_loi }}</p>
+          <p v-if="tdRes.stage.cau_hoi_chinh" class="gd-td-quote">“{{ tdRes.stage.cau_hoi_chinh }}”</p>
+        </div>
+
+        <!-- PERSONALITY -->
+        <div v-if="tdRes.personality" class="gd-card">
+          <h5>💗 Khí chất &amp; cách yêu</h5>
+          <p v-if="tdRes.personality.menh_chinh_tinh?.length" class="gd-mini">
+            Mệnh chính tinh: <b>{{ tdRes.personality.menh_chinh_tinh.join(', ') }}</b>
+          </p>
+          <p v-else-if="tdRes.personality.vo_chinh_dieu" class="gd-mini">Mệnh vô chính diệu — tính khí mềm, hấp thu theo môi trường.</p>
+          <div v-for="(p,i) in (tdRes.personality.profiles||[])" :key="i" class="gd-td-prof">
+            <div class="gd-td-prof-h"><b>{{ p.sao }}</b><small v-if="p.ten_han"> · {{ p.ten_han }}</small></div>
+            <p v-if="p.khi_chat" class="gd-mini"><b>Khí chất:</b> {{ p.khi_chat }}</p>
+            <p v-if="p.cach_yeu" class="gd-mini"><b>Cách yêu:</b> {{ p.cach_yeu }}</p>
+            <div v-if="p.khau_vi_giao_tiep" class="gd-td-kv">
+              <span v-if="p.khau_vi_giao_tiep.giong" class="gd-td-tag">giọng: {{ p.khau_vi_giao_tiep.giong }}</span>
+              <span v-if="p.khau_vi_giao_tiep.nen?.length" class="gd-td-tag ok">nên: {{ p.khau_vi_giao_tiep.nen.join(' · ') }}</span>
+              <span v-if="p.khau_vi_giao_tiep.tranh?.length" class="gd-td-tag warn">tránh: {{ p.khau_vi_giao_tiep.tranh.join(' · ') }}</span>
+            </div>
+            <RefBlock v-if="p._nguon" kind="cite">{{ fmtNguon(p._nguon) }}</RefBlock>
+          </div>
+        </div>
+
+        <!-- CUNG PHU THÊ (Tử Vi) -->
+        <div v-if="tdRes.cung_phu_the_tuvi" class="gd-card">
+          <h5>🏯 Cung Phu Thê (Tử Vi) — tại {{ tdRes.cung_phu_the_tuvi.phu_the_branch }}</h5>
+          <p v-if="tdRes.cung_phu_the_tuvi.muon_sao_doi_cung" class="gd-note">Vô chính diệu — mượn sao đối cung để luận.</p>
+          <p v-if="tdRes.cung_phu_the_tuvi.chinh_tinh?.length" class="gd-mini">
+            Chính tinh: <b>{{ tdRes.cung_phu_the_tuvi.chinh_tinh.join(', ') }}</b>
+          </p>
+          <div v-for="(c,i) in (tdRes.cung_phu_the_tuvi.chinh_tinh_luan||[])" :key="'ct'+i" class="gd-td-line">
+            <b>{{ c.sao }}</b><small v-if="c.ten_han"> · {{ c.ten_han }}</small>
+            <p v-if="c.tinh_chat_phoi_ngau" class="gd-mini">{{ c.tinh_chat_phoi_ngau }}</p>
+            <p v-if="c.dieu_can_chu_y" class="gd-note">⚠ {{ c.dieu_can_chu_y }}</p>
+            <RefBlock v-if="c._nguon" kind="cite">{{ fmtNguon(c._nguon) }}</RefBlock>
+          </div>
+          <div v-for="(d,i) in (tdRes.cung_phu_the_tuvi.dao_hoa_luan||[])" :key="'dh'+i" class="gd-td-line">
+            <b>🌸 {{ d.sao }}</b> <span v-if="d.y_nghia_duyen" class="gd-mini">{{ d.y_nghia_duyen }}</span>
+            <RefBlock v-if="d._nguon" kind="cite">{{ fmtNguon(d._nguon) }}</RefBlock>
+          </div>
+          <div v-for="(s,i) in (tdRes.cung_phu_the_tuvi.sat_tinh_luan||[])" :key="'st'+i" class="gd-td-line">
+            <b class="gd-td-warn">{{ s.sao }}</b> <span v-if="s.y_nghia" class="gd-mini">{{ s.y_nghia }}</span>
+            <RefBlock v-if="s._nguon" kind="cite">{{ fmtNguon(s._nguon) }}</RefBlock>
+          </div>
+          <div v-for="(h,i) in (tdRes.cung_phu_the_tuvi.tu_hoa_luan||[])" :key="'th'+i" class="gd-td-line">
+            <b>Hóa {{ h.hoa }}</b> ({{ h.sao }}) <span v-if="h.y_nghia" class="gd-mini">{{ h.y_nghia }}</span>
+            <RefBlock v-if="h._nguon" kind="cite">{{ fmtNguon(h._nguon) }}</RefBlock>
+          </div>
+        </div>
+
+        <!-- BÁT TỰ HÔN NHÂN -->
+        <div v-if="tdRes.batu_hon_nhan" class="gd-card">
+          <h5>🀄 Hôn nhân theo Bát Tự</h5>
+          <p class="gd-mini">Nhật chủ <b>{{ tdRes.batu_hon_nhan.nhat_chu }}</b> · Nhật chi <b>{{ tdRes.batu_hon_nhan.nhat_chi }}</b>
+            <span v-if="tdRes.batu_hon_nhan.nhat_chi_la_dao_hoa"> · 🌸 đào hoa</span></p>
+          <p v-if="tdRes.batu_hon_nhan.trang_thai_luan" class="gd-mini">
+            <b>Sao chồng (官杀):</b> {{ tdRes.batu_hon_nhan.trang_thai_luan.mo_ta || tdRes.batu_hon_nhan.trang_thai_luan }}
+          </p>
+          <p v-if="tdRes.batu_hon_nhan.trang_thai_luan?.van_hanh" class="gd-do-text">→ {{ tdRes.batu_hon_nhan.trang_thai_luan.van_hanh }}</p>
+          <p v-if="tdRes.batu_hon_nhan.phoi_ngau_cung_luan" class="gd-mini">
+            <b>Cung phối ngẫu (日支):</b> {{ tdRes.batu_hon_nhan.phoi_ngau_cung_luan.mo_ta || tdRes.batu_hon_nhan.phoi_ngau_cung_luan }}
+          </p>
+          <RefBlock v-if="tdRes.batu_hon_nhan._nguon" kind="cite">{{ fmtNguon(tdRes.batu_hon_nhan._nguon) }}</RefBlock>
+        </div>
+
+        <!-- SONG PHÁI RECONCILE -->
+        <div v-if="(tdRes.song_phai_reconcile||[]).length" class="gd-card gd-td-recon">
+          <h5>⇄ Song phái — Tử Vi ⇄ Bát Tự (hội tụ / dị biệt)</h5>
+          <div v-for="(r,i) in tdRes.song_phai_reconcile" :key="i" class="gd-td-recon-row">
+            <div class="gd-td-recon-h">{{ r.chu_de }}</div>
+            <p v-if="r.tuvi_doc_bang" class="gd-mini"><span class="gd-td-pill tv">Tử Vi</span> {{ r.tuvi_doc_bang }}</p>
+            <p v-if="r.batu_doc_bang" class="gd-mini"><span class="gd-td-pill bt">Bát Tự</span> {{ r.batu_doc_bang }}</p>
+            <p v-if="r.khi_HOI_TU" class="gd-do-text">✓ Hội tụ: {{ r.khi_HOI_TU }}</p>
+            <p v-if="r.khi_DI_BIET" class="gd-note">⚖ Dị biệt: {{ r.khi_DI_BIET }}</p>
+            <p v-if="r.phai_uu_tien" class="gd-mini">Ưu tiên đọc: <b>{{ r.phai_uu_tien }}</b></p>
+            <RefBlock v-if="r._nguon" kind="cite">{{ fmtNguon(r._nguon) }}</RefBlock>
+          </div>
+        </div>
+
+        <!-- CÁCH CỤC (bien_chinh — đọc đồng dạng) -->
+        <div v-if="(tdRes.cach_cuc||[]).length" class="gd-card">
+          <h5>📐 Cách cục — đọc đồng dạng (không phán bản án)</h5>
+          <div v-for="(c,i) in tdRes.cach_cuc" :key="i" class="gd-td-cach"
+               :class="'cc-' + (c.cat_hung || 'trung_tinh')">
+            <div class="gd-td-cach-h">
+              <b>{{ c.ten_cach }}</b>
+              <span class="gd-td-cach-tag" :class="'cc-' + (c.cat_hung || 'trung_tinh')">
+                {{ catHungLabel(c.cat_hung) }}
+              </span>
+              <span v-if="c.uu_tien_phu_the" class="gd-td-cach-pt">cung Phu Thê</span>
+            </div>
+            <p class="gd-mini">{{ c.bien_chinh }}</p>
+            <p v-if="c.van_hanh && c.van_hanh !== c.bien_chinh" class="gd-do-text">→ {{ c.van_hanh }}</p>
+            <RefBlock v-if="c._nguon" kind="cite">{{ fmtNguon(c._nguon) }}</RefBlock>
+          </div>
+        </div>
+
+        <!-- ĐỊNH THỜI -->
+        <div v-if="tdRes.dinh_thoi" class="gd-card gd-td-thoi">
+          <h5>📅 Định thời — năm khí được kích hoạt / cần giữ gìn</h5>
+          <div v-if="(tdRes.dinh_thoi.nam_kich_hoat||[]).length">
+            <p class="gd-mini"><b>Đại vận có khí hỉ sự / duyên kích hoạt:</b></p>
+            <div class="gd-years">
+              <span v-for="(n,i) in tdRes.dinh_thoi.nam_kich_hoat" :key="'k'+i" class="gd-year">
+                <b>{{ n.start_age }}–{{ n.end_age }} tuổi</b>
+                <small>({{ (n.sao_kich_hoat||[]).join('/') }})</small>
+              </span>
+            </div>
+          </div>
+          <div v-if="(tdRes.dinh_thoi.nam_can_giu_gin||[]).length">
+            <p class="gd-mini"><b>Đại vận cần GIỮ GÌN / chăm sóc quan hệ:</b></p>
+            <div class="gd-years">
+              <span v-for="(n,i) in tdRes.dinh_thoi.nam_can_giu_gin" :key="'g'+i" class="gd-year dam">
+                <b>{{ n.start_age }}–{{ n.end_age }} tuổi</b>
+                <small>({{ (n.ly_do||[]).join('; ') }})</small>
+              </span>
+            </div>
+          </div>
+          <p v-if="!(tdRes.dinh_thoi.nam_kich_hoat||[]).length && !(tdRes.dinh_thoi.nam_can_giu_gin||[]).length" class="gd-note">
+            Không có mốc đại vận nổi bật trong tầm tuổi — duyên vận hành đều, chủ động vẫn hơn.
+          </p>
+          <p v-if="tdRes.dinh_thoi.bien_chinh_hien_dai" class="gd-note">{{ tdRes.dinh_thoi.bien_chinh_hien_dai }}</p>
+        </div>
+
+        <!-- LỜI THẦY (narrate) -->
+        <div class="gd-card gd-tho-card">
+          <button v-if="!tdNarr && !tdNarrLoading" class="gd-soft-btn" @click="runTinhDuyenNarrate">✍️ Nghe lời thầy luận tình duyên</button>
+          <p v-if="tdNarrLoading" class="gd-mini">✍️ Thầy đang viết...</p>
+          <div v-if="tdNarr" class="gd-tho">
+            <div class="gd-td-narr-h">✍️ Lời thầy</div>
+            {{ tdNarr }}
+          </div>
+        </div>
+
+        <!-- NGUỒN -->
+        <details v-if="(tdRes.sources||[]).length" class="gd-guide">
+          <summary>📚 Nguồn tri thức</summary>
+          <ul><li v-for="(s,i) in tdRes.sources" :key="i">{{ s }}</li></ul>
+        </details>
+
+        <p v-if="tdRes._disclaimer" class="gd-para">⚖️ {{ tdRes._disclaimer }}</p>
       </div>
     </section>
 
@@ -264,8 +441,92 @@
 import { computed, ref, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
 import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
+import RefBlock from "./RefBlock.vue";
+import { sessionToken } from "../stores/authStore.js";
+import { tuviPersonName, tuviPersonBirth, tuviPersonGender } from "../stores/tuviPersonStore.js";
 
-const mode = ref("tim");  // 'tim' | 'cap' | 'so'
+const mode = ref("tim");  // 'tim' | 'cap' | 'so' | 'tinh'
+
+// Auth headers (cookie session + token), giống tuviPersonStore.
+function _authHeaders() {
+  const h = { "Content-Type": "application/json" };
+  if (sessionToken.value) h["X-Session-Token"] = sessionToken.value;
+  return h;
+}
+
+// ── Chế độ TÌNH DUYÊN (nữ mệnh) — đọc trên lá số của chính bạn ──
+const tdLoading = ref(false); const tdRes = ref(null); const tdErr = ref("");
+const tdNarr = ref(""); const tdNarrLoading = ref(false);
+const tdWho = computed(() => tuviPersonName?.value || "");
+const tdBirth = computed(() => (tuviPersonBirth?.value || "").slice(0, 16).replace("T", " "));
+const tdGender = computed(() => {
+  const g = tuviPersonGender?.value;
+  return g === "nữ" || g === "nu" || g === "F" ? "nữ" : g === "nam" || g === "M" ? "nam" : "";
+});
+
+function fmtNguon(n) {
+  if (!n) return "";
+  if (typeof n === "string") return n;
+  if (Array.isArray(n)) return n.map(fmtNguon).filter(Boolean).join("; ");
+  if (typeof n === "object") {
+    return [n.sach, n.title, n.quyen, n.trang, n.chuong, n.ghi_chu]
+      .filter(Boolean).join(" · ") || JSON.stringify(n);
+  }
+  return String(n);
+}
+
+function catHungLabel(c) {
+  return c === "the_manh" ? "✓ thế mạnh" : c === "diem_can_chu_y" ? "⚠ cần chú ý" : "• trung tính";
+}
+
+async function runTinhDuyen() {
+  tdLoading.value = true; tdErr.value = ""; tdRes.value = null; tdNarr.value = "";
+  try {
+    const r = await fetch("/api/cross-paradigm/tinh-duyen", {
+      method: "POST",
+      headers: _authHeaders(),
+      credentials: "include",
+      body: JSON.stringify({ person_key: "self" }),
+    });
+    let d = null;
+    try { d = await r.json(); } catch (_) { d = null; }
+    if (r.status === 401) { tdErr.value = "Đăng nhập để xem tình duyên trên lá số của bạn."; return; }
+    if (r.status === 402) {
+      const need = (d && (d.detail?.need_xu ?? d.need_xu ?? d.required_xu)) || 30;
+      const have = d && (d.detail?.xu_balance ?? d.xu_balance);
+      tdErr.value = `Không đủ xu — cần ${need} xu để xem tình duyên` +
+        (have != null ? ` (bạn đang có ${have} xu).` : ".") + " Nạp thêm để mở luận.";
+      return;
+    }
+    if (r.status === 422) { tdErr.value = "Cần cập nhật giờ sinh của bạn trước khi xem."; return; }
+    if (!r.ok) { tdErr.value = (d && (d.detail || d.error)) || "Không xem được, thử lại."; return; }
+    tdRes.value = d;
+  } catch (e) {
+    tdErr.value = "Lỗi kết nối, thử lại.";
+  } finally {
+    tdLoading.value = false;
+  }
+}
+
+async function runTinhDuyenNarrate() {
+  // Narrate optional — lỗi KHÔNG làm vỡ UI.
+  tdNarrLoading.value = true; tdNarr.value = "";
+  try {
+    const r = await fetch("/api/cross-paradigm/tinh-duyen/narrate", {
+      method: "POST",
+      headers: _authHeaders(),
+      credentials: "include",
+      body: JSON.stringify({ person_key: "self" }),
+    });
+    const d = await r.json().catch(() => null);
+    if (r.ok && d && d.narration) tdNarr.value = d.narration;
+    else tdNarr.value = "";
+  } catch (e) {
+    tdNarr.value = "";
+  } finally {
+    tdNarrLoading.value = false;
+  }
+}
 
 // Món 2: lời văn ấm
 const dtho = ref(""); const dthoLoading = ref(false);
@@ -627,4 +888,42 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-sp-uns { color: #b08; opacity: 0.6; font-size: 0.72em; }
 .gd-sp-skel { opacity: 0.5; }
 .gd-sp-open { margin-top: 6px; }
+
+/* 💍 Tình duyên (nữ mệnh) */
+.gd-td { font-size: var(--reading-scale, 1em); }
+.gd-td-who { text-align: center; margin: 4px 0 12px; font-size: 0.88em; color: var(--read-text-faint, #7d4357); }
+.gd-td-who b { color: #9c3a5a; }
+.gd-td-stage { background: #f3faf5; border-color: #c4e6cd; }
+.gd-td-stage h5 { color: #2e7d32; }
+.gd-td-quote { margin: 8px 0 0; font-style: italic; color: var(--read-text, #5d4450); font-size: 0.92em; line-height: 1.6; }
+.gd-td-prof { margin: 10px 0; padding: 10px 12px; background: var(--read-surface, #fff); border: 1px solid #ecd7df; border-radius: 10px; }
+.gd-td-prof-h { color: #9c3a5a; font-size: 0.96em; }
+.gd-td-prof-h small { color: var(--read-text-faint, #999); font-weight: 400; }
+.gd-td-kv { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.gd-td-tag { font-size: 0.76em; padding: 2px 8px; border-radius: 10px; background: #f3e8ec; color: #7d2c47; }
+.gd-td-tag.ok { background: #eef9f0; color: #2e7d32; }
+.gd-td-tag.warn { background: #fdf3ec; color: #b06a28; }
+.gd-td-line { margin: 8px 0; padding: 8px 10px; border-left: 2px solid #ecd7df; }
+.gd-td-line b { color: #9c3a5a; }
+.gd-td-line b.gd-td-warn, .gd-td-warn { color: #b06a28 !important; }
+.gd-do-text { margin: 6px 0 0; font-size: 0.86em; color: #2e7d32; line-height: 1.55; }
+.gd-td-recon { background: #f7f3fb; border-color: #ddd0ea; }
+.gd-td-recon h5 { color: #6a4a9c; }
+.gd-td-recon-row { margin: 10px 0; padding: 10px 12px; background: var(--read-surface, #fff); border: 1px solid #e3d8ef; border-radius: 10px; }
+.gd-td-recon-h { font-weight: 700; color: #6a4a9c; font-size: 0.92em; margin-bottom: 4px; }
+.gd-td-pill { font-size: 0.72em; padding: 1px 7px; border-radius: 8px; margin-right: 5px; }
+.gd-td-pill.tv { background: #f3e8ec; color: #7d2c47; }
+.gd-td-pill.bt { background: #e6eef7; color: #2c5a7d; }
+.gd-td-cach { margin: 8px 0; padding: 10px 12px; border-radius: 10px; border: 1px solid #ecd7df; background: var(--read-surface, #fff); }
+.gd-td-cach.cc-the_manh { border-color: #c4e6cd; background: #f3faf5; }
+.gd-td-cach.cc-diem_can_chu_y { border-color: #ecd3bf; background: #fdf6ef; }
+.gd-td-cach-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.gd-td-cach-h b { color: #9c3a5a; }
+.gd-td-cach-tag { font-size: 0.72em; padding: 1px 8px; border-radius: 10px; background: #eee; color: #555; }
+.gd-td-cach-tag.cc-the_manh { background: #eef9f0; color: #2e7d32; }
+.gd-td-cach-tag.cc-diem_can_chu_y { background: #fdf3ec; color: #b06a28; }
+.gd-td-cach-pt { font-size: 0.72em; color: #7d2c47; background: #f3e8ec; padding: 1px 8px; border-radius: 10px; }
+.gd-td-thoi { background: #fbf6ee; border-color: #e6d6b8; }
+.gd-td-thoi h5 { color: #8a6d1a; }
+.gd-td-narr-h { font-weight: 700; color: #9c3a5a; margin-bottom: 6px; }
 </style>
