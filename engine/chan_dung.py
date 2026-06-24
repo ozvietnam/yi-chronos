@@ -151,6 +151,69 @@ def _noi_tam(birth_iso: str, gender: str, tz: str) -> dict:
         return {}
 
 
+def _ha_lac(birth_iso: str, gender: str, tz: str, age: int) -> dict:
+    """Cung đường đời (Hà Lạc Lý Số) — 2 quẻ Tiên/Hậu Thiên + giai đoạn 12 hào. Deterministic, đọc đồng dạng."""
+    try:
+        from engine.ha_lac.cast import cast_ha_lac
+        from engine.ha_lac.luan_giai import compose_ha_lac_luan_giai
+        g = "nam" if (gender or "nam") in ("nam", "M", "male") else "nữ"
+        hl = compose_ha_lac_luan_giai(
+            cast_ha_lac(birth_datetime_local=birth_iso, timezone=tz, gender=g), current_age=age)
+        tt = hl.get("tien_thien_luan") or {}
+        ht = hl.get("hau_thien_luan") or {}
+        return {
+            "overview": hl.get("overview"),
+            "tien_thien": tt.get("name_vi"), "hau_thien": ht.get("name_vi"),
+            "giai_doan_hien_tai": hl.get("bo_huong_stage"),
+            "closing": hl.get("closing"),
+        }
+    except Exception as e:
+        logger.info("chan_dung ha_lac lỗi: %s", str(e)[:120])
+        return {}
+
+
+def _duyen(birth_iso: str, gender: str, tz: str, age: int) -> dict:
+    """Đường tình duyên (Tử Vi) — chân dung nửa kia + xu hướng + cách vận hành. Deterministic."""
+    try:
+        from engine.tu_vi.duyen import chan_dung_nua_kia, duyen_ca_nhan
+        from engine.tu_vi.from_birth import cast_la_so_from_birth
+        from engine.tu_vi.la_so_input_builder import build_la_so_input
+        ls = cast_la_so_from_birth(birth_datetime_local=birth_iso, timezone=tz, gender=gender)
+        lsi = build_la_so_input(ls, gender, birth_year=int(birth_iso[:4]))
+        g = "M" if (gender or "nam") in ("nam", "M", "male") else "F"
+        nk = chan_dung_nua_kia(lsi)
+        ca = duyen_ca_nhan(lsi, age, g)
+        return {
+            "nua_kia": {"chinh_tinh": nk.get("chinh_tinh"), "mo_ta": nk.get("mo_ta"),
+                        "con_giap_hop": nk.get("con_giap_hop"), "loi_khuyen": nk.get("loi_khuyen")},
+            "xu_huong": ca.get("xu_huong"),
+            "tin_hieu": ca.get("tin_hieu"),
+            "cach_van_hanh": ca.get("cach_van_hanh"),
+        }
+    except Exception as e:
+        logger.info("chan_dung duyen lỗi: %s", str(e)[:120])
+        return {}
+
+
+def _than_so(name: str, birth_iso: str) -> dict:
+    """Thần Số học — 6 con số cốt lõi (lăng kính tâm lý phương Tây, đọc đồng dạng). Deterministic."""
+    try:
+        from engine.than_so.core_numbers import compute_core
+        from engine.than_so.interpretation import compose_reading
+        y, m, d = int(birth_iso[:4]), int(birth_iso[5:7]), int(birth_iso[8:10])
+        core = (compose_reading(compute_core(name or "Quý khách", d, m, y)).get("core") or {})
+
+        def _n(k):
+            e = core.get(k) or {}
+            return {"value": e.get("value"), "archetype": e.get("archetype_vi"),
+                    "dong_dang": e.get("dong_dang")}
+        return {k: _n(k) for k in ("life_path", "expression", "soul_urge",
+                                   "personality", "birthday", "maturity")}
+    except Exception as e:
+        logger.info("chan_dung than_so lỗi: %s", str(e)[:120])
+        return {}
+
+
 # Sản phẩm tốt nhất dẫn từ chân dung (bệ phóng) — đọc xong muốn sâu hơn thì lên đây.
 BEST_PRODUCTS = [
     {"key": "deep", "icon": "📜", "ten": "Luận Sâu Trọn Đời",
@@ -174,6 +237,11 @@ def build_chan_dung(person: dict) -> dict:
     gender = (person or {}).get("gender") or "nam"
     tz = (person or {}).get("timezone") or "Asia/Ho_Chi_Minh"
     name = (person or {}).get("name") or "Quý khách"
+    import datetime
+    try:
+        age = datetime.datetime.now().year - int(birth[:4]) + 1   # tuổi mụ (cho Hà Lạc + duyên)
+    except Exception:
+        age = None
     cot_cach, huong_dan = _bat_tu(birth, gender, name)
     return {
         "ok": True,
@@ -184,6 +252,9 @@ def build_chan_dung(person: dict) -> dict:
         "menh": _tu_vi_menh(birth, gender, tz),
         "noi_tam": _noi_tam(birth, gender, tz),
         "huong_dan": huong_dan,
+        "ha_lac": _ha_lac(birth, gender, tz, age),
+        "duyen": _duyen(birth, gender, tz, age),
+        "than_so": _than_so(name, birth),
         "products": BEST_PRODUCTS,
         "paradigm_note": "Chân dung này ĐỌC ĐỒNG DẠNG — phản chiếu cấu trúc của bạn, không phán "
                          "trước cát/hung. Mệnh là cách VẬN HÀNH cái tính trời cho, không phải án định sẵn.",
