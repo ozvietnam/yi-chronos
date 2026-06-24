@@ -24,6 +24,7 @@ from engine.hermes_guard import paradigm_violations
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
 from . import knowledge_loader as kb
+from .quy_trinh import build_quy_trinh_day_du
 
 METHOD_ID = "tinh_duyen_nu_menh_v1"
 
@@ -737,7 +738,10 @@ def read_tinh_duyen(
     Returns:
         dict với các khoá: method_id, input, stage, personality,
         cung_phu_the_tuvi, batu_hon_nhan, song_phai_reconcile, cach_cuc,
-        dinh_thoi, base_12_khia_canh, paradigm_ok, sources, _disclaimer.
+        dinh_thoi, narration_brief, quy_trinh_day_du, base_12_khia_canh,
+        paradigm_ok, sources, _disclaimer.
+        (quy_trinh_day_du = {tu_vi_12_buoc, bat_tu_10_buoc, xep_hang_yeu_to,
+        tong_hop_kim_tu_thap} — KEY MỚI, các key cũ giữ nguyên 100%.)
     """
     # (a) Lập lá số + bát tự.
     la_so = cast_la_so_from_birth(
@@ -795,6 +799,13 @@ def read_tinh_duyen(
     # (k) NARRATION BRIEF cho chặng 3.
     narration_brief = _narration_brief(stage, personality, cach_cuc)
 
+    # (l) QUY TRÌNH ĐẦY ĐỦ — gộp 12 bước Tử Vi + 10 bước Bát Tự + xếp hạng yếu tố
+    #     theo mức độ ảnh hưởng + tổng hợp kim tự tháp (paradigm động-từ). Tái dùng
+    #     la_so + bat_tu_state đã cast ở trên (KHÔNG cast lại). KHÔNG gọi LLM.
+    quy_trinh_day_du = build_quy_trinh_day_du(
+        la_so=la_so, bat_tu_state=bat_tu_state, gender=gender, as_of_year=as_of_year,
+    )
+
     # --- HÀNG RÀO CỨNG CUỐI CÙNG (defense-in-depth): scrub MỌI string surface.
     # Áp lên TẤT CẢ block đưa ra ngoài (cach_cuc, cung_phu_the_tuvi, batu,
     # personality, reconcile, stage, dinh_thoi, narration_brief, base). Nếu BẤT
@@ -809,6 +820,8 @@ def read_tinh_duyen(
     dinh_thoi = _scrub_tree(dinh_thoi, _n)
     narration_brief = _scrub_tree(narration_brief, _n)
     base_khia_canh = _scrub_tree(base.get("khia_canh", []), _n)
+    # Hàng rào cứng áp luôn lên DỮ LIỆU MỚI (12+10 bước + xếp hạng + tổng hợp).
+    quy_trinh_day_du = _scrub_tree(quy_trinh_day_du, _n)
     scrubbed_count = _n[0]
 
     return {
@@ -831,6 +844,8 @@ def read_tinh_duyen(
         "cach_cuc": cach_cuc,
         "dinh_thoi": dinh_thoi,
         "narration_brief": narration_brief,
+        # KEY MỚI: quy trình đầy đủ (12 bước Tử Vi + 10 bước Bát Tự + xếp hạng + tổng hợp).
+        "quy_trinh_day_du": quy_trinh_day_du,
         "base_12_khia_canh": base_khia_canh,
         "paradigm_ok": bool(base.get("paradigm_ok", True)),
         # Cờ caution: số string đã bị scrub vì chứa từ cấm (0 = sạch hoàn toàn).

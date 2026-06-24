@@ -15,6 +15,28 @@ import json as _json
 from typing import Any
 
 
+def _quy_trinh_highlights(td: dict) -> tuple[str, list[str]]:
+    """Trích tổng-hợp kim-tự-tháp + vài bước NỔI BẬT (ưu tiên trực tiếp) để bơm
+    vào prompt → lời thầy giàu hơn (bám đúng quy trình 22 bước đã ground)."""
+    qt = td.get("quy_trinh_day_du") or {}
+    tong_hop = (qt.get("tong_hop_kim_tu_thap") or "").strip()
+
+    xep_hang = qt.get("xep_hang_yeu_to") or {}
+    noi_bat: list[str] = []
+    # Ưu tiên các yếu tố TRỰC TIẾP (đỉnh kim tự tháp), rồi GIÁN TIẾP — lấy tối đa 5.
+    for bucket in ("truc_tiep", "gian_tiep"):
+        for it in (xep_hang.get(bucket) or []):
+            ten = (it.get("ten_buoc") or "").strip()
+            tom = (it.get("luan_tom") or "").strip()
+            if ten and tom:
+                noi_bat.append(f"[{bucket}] {ten}: {tom}")
+            if len(noi_bat) >= 5:
+                break
+        if len(noi_bat) >= 5:
+            break
+    return tong_hop, noi_bat
+
+
 def _build_system_prompt(person: dict, td: dict) -> str:
     """Dựng system-prompt narrate từ khẩu vị giao tiếp + chặng tuổi + paradigm."""
     personality = td.get("personality") or {}
@@ -45,6 +67,19 @@ def _build_system_prompt(person: dict, td: dict) -> str:
 
     def _join(xs: list[str]) -> str:
         return "; ".join(x for x in xs if x) or "(không nêu cụ thể)"
+
+    tong_hop, noi_bat = _quy_trinh_highlights(td)
+    quy_trinh_block = ""
+    if tong_hop or noi_bat:
+        quy_trinh_block = (
+            "## QUY TRÌNH ĐẦY ĐỦ (12 bước Tử Vi + 10 bước Bát Tự — ĐÃ ground sách thật)\n"
+            "Dựa vào tổng hợp KIM TỰ THÁP dưới đây làm XƯƠNG SỐNG bài đọc: ưu tiên các "
+            "yếu tố TRỰC TIẾP (60-70%), rồi GIÁN TIẾP (20-25%), TIỀM ẨN (10-15%).\n"
+            + (f"- Tổng hợp kim tự tháp: {tong_hop}\n" if tong_hop else "")
+            + ("- Các bước nổi bật cần đưa vào lời đọc:\n"
+               + "".join(f"  · {x}\n" for x in noi_bat) if noi_bat else "")
+            + "\n"
+        )
 
     return (
         "Bạn là nhà luận giải Tử Vi/Bát Tự đọc TÌNH DUYÊN NỮ MỆNH theo paradigm ĐỌC "
@@ -78,6 +113,8 @@ def _build_system_prompt(person: dict, td: dict) -> str:
         "Lưu ý: bé gái ~16 tuổi nói NHẸ - ẤM - gợi mở khác hẳn phụ nữ ~35 tuổi (nói chững "
         "chạc, đi vào lựa chọn thực tế). HÃY chọn giọng đúng với tuổi này.\n\n"
 
+        + quy_trinh_block +
+
         "## CÁCH VIẾT\n"
         "- Viết tiếng Việt, xưng hô ấm áp, tôn trọng.\n"
         "- Bám sát DỮ LIỆU CẤU TRÚC engine cấp (personality, cung Phu Thê, Bát Tự hôn "
@@ -99,6 +136,14 @@ def _td_payload_for_llm(td: dict) -> dict:
         "cach_cuc": td.get("cach_cuc"),
         "dinh_thoi": td.get("dinh_thoi"),
         "narration_brief": td.get("narration_brief"),
+        # Quy trình đầy đủ: chỉ bơm phần TỔNG HỢP + XẾP HẠNG (gọn, đủ ground) —
+        # KHÔNG bơm trọn 22 bước raw để tránh prompt phình + loãng giọng.
+        "quy_trinh_tong_hop": {
+            "tong_hop_kim_tu_thap":
+                (td.get("quy_trinh_day_du") or {}).get("tong_hop_kim_tu_thap"),
+            "xep_hang_yeu_to":
+                (td.get("quy_trinh_day_du") or {}).get("xep_hang_yeu_to"),
+        },
         "_disclaimer": td.get("_disclaimer"),
     }
 
