@@ -795,6 +795,26 @@ def wallet_balance(
     }
 
 
+@router.get("/wallet/{firebase_uid}/transactions")
+def wallet_transactions(
+    firebase_uid: str,
+    limit: int = 30,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+) -> dict:
+    """Sổ cái giao dịch xu (nạp +, luận −) — màn lịch sử giao dịch AppChat (#9 checklist 2026-06-24).
+    Mỗi giao dịch: {ts, day, delta, reason, balance_after, ref}."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine import xu_wallet
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, firebase_uid)
+    if user_id is None:
+        return {"found": False, "transactions": []}
+    n = min(max(limit, 1), 100)
+    return {"found": True, "balance": xu_wallet.get_balance(user_id),
+            "transactions": xu_wallet.recent_ledger(user_id, n)}
+
+
 @router.post("/wallet/grant")
 def wallet_grant(
     req: XuGrantRequest,
