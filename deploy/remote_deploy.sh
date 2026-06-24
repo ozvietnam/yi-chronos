@@ -31,7 +31,8 @@ docker exec yi-chronos sh -c '
   done
   [ -d embedded_data/restored_books ] && cp -rf embedded_data/restored_books/. data/restored_books/ 2>/dev/null || true
   [ -d embedded_data/hermes_yi/skills ] && mkdir -p data/hermes_yi/skills && cp -rf embedded_data/hermes_yi/skills/. data/hermes_yi/skills/ 2>/dev/null || true
-  echo "  seeded tu_vi json: $(ls data/tu_vi/*.json 2>/dev/null | wc -l) | seeds: $(ls data/seeds/ 2>/dev/null | wc -l)"
+  [ -d embedded_data/yi_publishing ] && cp -rf embedded_data/yi_publishing/. data/yi_publishing/ 2>/dev/null || true
+  echo "  seeded tu_vi json: $(ls data/tu_vi/*.json 2>/dev/null | wc -l) | seeds: $(ls data/seeds/ 2>/dev/null | wc -l) | q1 dicts: $(ls data/yi_publishing/q1_tuvi/master/*.json 2>/dev/null | wc -l)"
 ' || echo "  (seed bỏ qua — container chưa sẵn sàng?)"
 
 echo "═══ Trạng thái container ═══"

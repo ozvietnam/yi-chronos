@@ -1,0 +1,4804 @@
+{
+  "Thái Vi phú": {
+    "term": "Thái Vi phú",
+    "kind": "the_loai",
+    "definition": "Bài phú quan trọng của Tử Vi Đẩu Số, tổng quát các nguyên lý và cách cục.",
+    "first_page": 16,
+    "occurrences": 1
+  },
+  "Phản bối": {
+    "term": "Phản bối",
+    "kind": "bien_cach",
+    "definition": "Thái Dương và Thái Âm xung chiếu hoặc lạc xung, chủ bất lợi.",
+    "first_page": 16,
+    "occurrences": 2
+  },
+  "Tuần Không Vong": {
+    "term": "Tuần Không Vong",
+    "kind": "sao",
+    "definition": "Sao Không Vong làm giảm lực các sao khác, gây trở ngại.",
+    "first_page": 16,
+    "occurrences": 3
+  },
+  "Hóa Lộc": {
+    "term": "Hóa Lộc",
+    "kind": "hoa",
+    "definition": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+    "first_page": 16,
+    "occurrences": 57
+  },
+  "Thiên Mã": {
+    "term": "Thiên Mã",
+    "kind": "sao",
+    "definition": "Sao chủ về sự di động, xa xôi, xuất ngoại.",
+    "first_page": 16,
+    "occurrences": 20
+  },
+  "Đào hoa": {
+    "term": "Đào hoa",
+    "kind": "sao",
+    "definition": "Chỉ Tham Lang, chủ về tình duyên, dâm dật.",
+    "first_page": 16,
+    "occurrences": 1
+  },
+  "Phụ, Bật": {
+    "term": "Phụ, Bật",
+    "kind": "sao",
+    "definition": "Tả Phụ và Hữu Bật, sao phụ trợ cho Tử Vi, chủ quyền lực.",
+    "first_page": 16,
+    "occurrences": 1
+  },
+  "Tử Vi": {
+    "term": "Tử Vi",
+    "kind": "sao",
+    "definition": "Sao chủ về đế vương, quyền lực tối cao, sinh ra dung mạo trọng hậu.",
+    "first_page": 17,
+    "occurrences": 40
+  },
+  "Thiên Phủ": {
+    "term": "Thiên Phủ",
+    "kind": "sao",
+    "definition": "Sao chủ về tôn quý, thể chất thuần hòa, cát tinh ổn định.",
+    "first_page": 17,
+    "occurrences": 28
+  },
+  "Thái Dương": {
+    "term": "Thái Dương",
+    "kind": "sao",
+    "definition": "Sao mặt trời, chủ về quyền lực, danh vọng, sự sáng suốt.",
+    "first_page": 17,
+    "occurrences": 35
+  },
+  "Thái Âm": {
+    "term": "Thái Âm",
+    "kind": "sao",
+    "definition": "Sao mặt trăng, chủ về tài lộc, sự dịu dàng, văn chương.",
+    "first_page": 17,
+    "occurrences": 35
+  },
+  "Thiên Cơ": {
+    "term": "Thiên Cơ",
+    "kind": "sao",
+    "definition": "Sao chủ về trí tuệ, sự nhanh nhẹn, thiện tâm.",
+    "first_page": 17,
+    "occurrences": 26
+  },
+  "Vũ Khúc": {
+    "term": "Vũ Khúc",
+    "kind": "sao",
+    "definition": "Sao chủ về võ, tính cương cường, quyết đoán.",
+    "first_page": 17,
+    "occurrences": 33
+  },
+  "Thiên Đồng": {
+    "term": "Thiên Đồng",
+    "kind": "sao",
+    "definition": "Sao chủ về phúc đức, an nhàn, người béo đầy đặn.",
+    "first_page": 17,
+    "occurrences": 19
+  },
+  "Liêm Trinh": {
+    "term": "Liêm Trinh",
+    "kind": "sao",
+    "definition": "Sao chủ về tham vọng, sắc đẹp, mày rộng miệng tươi.",
+    "first_page": 17,
+    "occurrences": 31
+  },
+  "Tả Phụ": {
+    "term": "Tả Phụ",
+    "kind": "sao",
+    "definition": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+    "first_page": 17,
+    "occurrences": 36
+  },
+  "Hữu Bật": {
+    "term": "Hữu Bật",
+    "kind": "sao",
+    "definition": "Sao chủ về sự phò tá, giống Tả Phụ, kết hợp với Tử Vi.",
+    "first_page": 17,
+    "occurrences": 38
+  },
+  "Văn Xương": {
+    "term": "Văn Xương",
+    "kind": "sao",
+    "definition": "Sao chủ về văn học, khoa cử, thông minh.",
+    "first_page": 17,
+    "occurrences": 52
+  },
+  "Văn Khúc": {
+    "term": "Văn Khúc",
+    "kind": "sao",
+    "definition": "Sao chủ về văn chương, nghệ thuật, tài năng.",
+    "first_page": 17,
+    "occurrences": 37
+  },
+  "Hóa Kỵ": {
+    "term": "Hóa Kỵ",
+    "kind": "hoa",
+    "definition": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+    "first_page": 17,
+    "occurrences": 41
+  },
+  "Kình Dương": {
+    "term": "Kình Dương",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về hình phạt, chướng ngại, đụng độ.",
+    "first_page": 17,
+    "occurrences": 59
+  },
+  "Linh Tinh": {
+    "term": "Linh Tinh",
+    "kind": "sao",
+    "definition": "Sao hỏa, chủ về nóng nảy, tai nạn, xung đột.",
+    "first_page": 17,
+    "occurrences": 37
+  },
+  "Thiên Hình": {
+    "term": "Thiên Hình",
+    "kind": "sao",
+    "definition": "Sao chủ về hình phạt, pháp luật, sự nghiêm khắc.",
+    "first_page": 17,
+    "occurrences": 18
+  },
+  "Địa Kiếp": {
+    "term": "Địa Kiếp",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về tai họa, mất mát, kiếp nạn.",
+    "first_page": 17,
+    "occurrences": 31
+  },
+  "Thiên Tướng": {
+    "term": "Thiên Tướng",
+    "kind": "sao",
+    "definition": "Sao chủ về ấn tín, quyền hành, sự bảo vệ.",
+    "first_page": 17,
+    "occurrences": 20
+  },
+  "Thiên Lương": {
+    "term": "Thiên Lương",
+    "kind": "sao",
+    "definition": "Sao chủ về phúc đức, tuổi thọ, sự nhân từ.",
+    "first_page": 17,
+    "occurrences": 28
+  },
+  "Thiên Phúc": {
+    "term": "Thiên Phúc",
+    "kind": "sao",
+    "definition": "Sao chủ về phúc khí, an lành, hưởng thụ.",
+    "first_page": 17,
+    "occurrences": 5
+  },
+  "Tham Lang": {
+    "term": "Tham Lang",
+    "kind": "sao",
+    "definition": "Sao chủ về sắc đẹp, tham vọng, đào hoa, phong lưu.",
+    "first_page": 17,
+    "occurrences": 45
+  },
+  "Thất Sát": {
+    "term": "Thất Sát",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về chiến đấu, chết chóc, uy lực.",
+    "first_page": 17,
+    "occurrences": 40
+  },
+  "Phá Quân": {
+    "term": "Phá Quân",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về phá hoại, thay đổi, sự đổ vỡ.",
+    "first_page": 17,
+    "occurrences": 32
+  },
+  "Thiên Khôi": {
+    "term": "Thiên Khôi",
+    "kind": "sao",
+    "definition": "Sao chủ về quý nhân, sự giúp đỡ, được tôn trọng.",
+    "first_page": 17,
+    "occurrences": 15
+  },
+  "Thiên Việt": {
+    "term": "Thiên Việt",
+    "kind": "sao",
+    "definition": "Sao chủ về quý nhân, tương tự Thiên Khôi.",
+    "first_page": 17,
+    "occurrences": 15
+  },
+  "Lộc Tồn": {
+    "term": "Lộc Tồn",
+    "kind": "sao",
+    "definition": "Sao chủ về lộc, của cải, sự bền vững.",
+    "first_page": 17,
+    "occurrences": 43
+  },
+  "Quan Phủ": {
+    "term": "Quan Phủ",
+    "kind": "sao",
+    "definition": "Sao chủ về quan tinh, quyền thế, nhưng dễ gặp kiện tụng.",
+    "first_page": 17,
+    "occurrences": 7
+  },
+  "Bạch Hổ": {
+    "term": "Bạch Hổ",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về tang sự, tai họa, hình phạt.",
+    "first_page": 17,
+    "occurrences": 11
+  },
+  "Thái Tuế": {
+    "term": "Thái Tuế",
+    "kind": "sao",
+    "definition": "Sao chủ về năm hạn, sự thay đổi, có thể gây họa.",
+    "first_page": 17,
+    "occurrences": 31
+  },
+  "Bác Sĩ": {
+    "term": "Bác Sĩ",
+    "kind": "sao",
+    "definition": "Sao cát, chủ về học vấn, tri thức.",
+    "first_page": 17,
+    "occurrences": 5
+  },
+  "Lực Sĩ": {
+    "term": "Lực Sĩ",
+    "kind": "sao",
+    "definition": "Sao cát, chủ về sức khỏe, quyền thế.",
+    "first_page": 17,
+    "occurrences": 7
+  },
+  "Tướng Quân": {
+    "term": "Tướng Quân",
+    "kind": "sao",
+    "definition": "Sao chủ về quân lực, uy nghiêm.",
+    "first_page": 17,
+    "occurrences": 6
+  },
+  "Thanh Long": {
+    "term": "Thanh Long",
+    "kind": "sao",
+    "definition": "Sao cát, chủ về may mắn, thăng tiến.",
+    "first_page": 17,
+    "occurrences": 5
+  },
+  "Bệnh Phù": {
+    "term": "Bệnh Phù",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về bệnh tật, ốm đau.",
+    "first_page": 17,
+    "occurrences": 4
+  },
+  "Quan Phù": {
+    "term": "Quan Phù",
+    "kind": "sao",
+    "definition": "Sao chủ về kiện tụng, quan phi.",
+    "first_page": 17,
+    "occurrences": 6
+  },
+  "Đế tọa kim xa": {
+    "term": "Đế tọa kim xa",
+    "kind": "bien_cach",
+    "definition": "Cách cục Tử Vi ngồi xe vàng, tượng trưng cho sự giàu sang phú quý.",
+    "first_page": 17,
+    "occurrences": 1
+  },
+  "Ngọc tụ thiên hương": {
+    "term": "Ngọc tụ thiên hương",
+    "kind": "bien_cach",
+    "definition": "Thiên Phúc và Văn tinh đồng cung, tụ họp văn vẻ, tươi đẹp.",
+    "first_page": 17,
+    "occurrences": 1
+  },
+  "Hoàng điện triêu ban": {
+    "term": "Hoàng điện triêu ban",
+    "kind": "bien_cach",
+    "definition": "Thái Dương hội Văn Xương ở Quan Lộc, vào chầu vua.",
+    "first_page": 17,
+    "occurrences": 1
+  },
+  "Thường cung chiết quế": {
+    "term": "Thường cung chiết quế",
+    "kind": "bien_cach",
+    "definition": "Thái Âm hội Văn Khúc ở Thê cung, bẻ cành quế cung trăng.",
+    "first_page": 17,
+    "occurrences": 1
+  },
+  "Mệnh cung": {
+    "term": "Mệnh cung",
+    "kind": "cung",
+    "definition": "Cung chính của một người, phản ảnh tính cách, số phận.",
+    "first_page": 17,
+    "occurrences": 3
+  },
+  "Tài Bạch": {
+    "term": "Tài Bạch",
+    "kind": "cung",
+    "definition": "Cung tài lộc, thể hiện khả năng kiếm tiền.",
+    "first_page": 17,
+    "occurrences": 6
+  },
+  "Quan Lộc": {
+    "term": "Quan Lộc",
+    "kind": "cung",
+    "definition": "Cung quan nghiệp, thể hiện sự nghiệp, chức vụ.",
+    "first_page": 17,
+    "occurrences": 6
+  },
+  "Thê cung": {
+    "term": "Thê cung",
+    "kind": "cung",
+    "definition": "Cung hôn nhân, thể hiện bạn đời.",
+    "first_page": 17,
+    "occurrences": 1
+  },
+  "Thiên Di": {
+    "term": "Thiên Di",
+    "kind": "cung",
+    "definition": "Cung di chuyển, thể hiện sự thay đổi, nơi xa.",
+    "first_page": 17,
+    "occurrences": 7
+  },
+  "Nô Bộc": {
+    "term": "Nô Bộc",
+    "kind": "cung",
+    "definition": "Cung bạn bè, đồng sự, cấp dưới.",
+    "first_page": 17,
+    "occurrences": 3
+  },
+  "Điền Trạch": {
+    "term": "Điền Trạch",
+    "kind": "cung",
+    "definition": "Cung nhà cửa, tài sản bất động sản.",
+    "first_page": 17,
+    "occurrences": 4
+  },
+  "Phụ Mẫu": {
+    "term": "Phụ Mẫu",
+    "kind": "cung",
+    "definition": "Cung cha mẹ, thể hiện gia đình.",
+    "first_page": 17,
+    "occurrences": 1
+  },
+  "Tật Ách": {
+    "term": "Tật Ách",
+    "kind": "cung",
+    "definition": "Cung sức khỏe, thể hiện bệnh tật.",
+    "first_page": 17,
+    "occurrences": 4
+  },
+  "Cự Môn": {
+    "term": "Cự Môn",
+    "kind": "sao",
+    "definition": "Sao chủ về thị phi, khẩu thiệt.",
+    "first_page": 18,
+    "occurrences": 39
+  },
+  "Hỏa Tinh": {
+    "term": "Hỏa Tinh",
+    "kind": "sao",
+    "definition": "Sao Hỏa, chủ về nóng nảy, hung bạo.",
+    "first_page": 18,
+    "occurrences": 44
+  },
+  "Tam Thai": {
+    "term": "Tam Thai",
+    "kind": "sao",
+    "definition": "Sao phụ, chủ về mô phạm, mẫu mực.",
+    "first_page": 18,
+    "occurrences": 5
+  },
+  "Đà La": {
+    "term": "Đà La",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về tù tội, gian trá.",
+    "first_page": 18,
+    "occurrences": 47
+  },
+  "Hóa Quyền": {
+    "term": "Hóa Quyền",
+    "kind": "hoa",
+    "definition": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+    "first_page": 18,
+    "occurrences": 43
+  },
+  "Địa Hao": {
+    "term": "Địa Hao",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về hao tán, phá hoại.",
+    "first_page": 18,
+    "occurrences": 2
+  },
+  "không vong": {
+    "term": "không vong",
+    "kind": "the_loai",
+    "definition": "Tuần không hoặc Địa không, làm mất uy lực sao.",
+    "first_page": 18,
+    "occurrences": 2
+  },
+  "miếu vượng": {
+    "term": "miếu vượng",
+    "kind": "the_loai",
+    "definition": "Trạng thái tốt nhất của sao, phát huy tác dụng tích cực.",
+    "first_page": 18,
+    "occurrences": 7
+  },
+  "lạc hãm": {
+    "term": "lạc hãm",
+    "kind": "the_loai",
+    "definition": "Trạng thái xấu của sao, khó phát huy tác dụng.",
+    "first_page": 18,
+    "occurrences": 2
+  },
+  "Tả Phụ Hữu Bật": {
+    "term": "Tả Phụ Hữu Bật",
+    "kind": "sao",
+    "definition": "Hai sao phụ tinh thuộc Bắc Đẩu, hỗ trợ Tử Vi, chủ về quyền lực và phú quý.",
+    "first_page": 19,
+    "occurrences": 2
+  },
+  "Nam Bắc nhị đẩu": {
+    "term": "Nam Bắc nhị đẩu",
+    "kind": "bien_cach",
+    "definition": "Tập hợp của các sao Nam Đẩu và Bắc Đẩu, là linh huyệt của vạn vật.",
+    "first_page": 19,
+    "occurrences": 1
+  },
+  "Tam dương giao thái": {
+    "term": "Tam dương giao thái",
+    "kind": "the_loai",
+    "definition": "Thời điểm âm dương hòa hợp, mọi sự sinh sôi, tốt lành.",
+    "first_page": 19,
+    "occurrences": 1
+  },
+  "Miếu lạc": {
+    "term": "Miếu lạc",
+    "kind": "bien_cach",
+    "definition": "Trạng thái sao đắc địa, tốt đẹp, phát huy tối đa năng lực.",
+    "first_page": 19,
+    "occurrences": 1
+  },
+  "Tứ mộ": {
+    "term": "Tứ mộ",
+    "kind": "the_loai",
+    "definition": "Bốn cung Sửu, Thìn, Mùi, Tuất, nơi sao nhập mộ, có tính ổn định.",
+    "first_page": 19,
+    "occurrences": 2
+  },
+  "Kim thấn thổ phì": {
+    "term": "Kim thấn thổ phì",
+    "kind": "bien_cach",
+    "definition": "Trạng thái kim khí thông suốt, đất đai phì nhiêu, tốt cho tài lộc.",
+    "first_page": 19,
+    "occurrences": 1
+  },
+  "Nghịch hành": {
+    "term": "Nghịch hành",
+    "kind": "the_loai",
+    "definition": "Hành trình ngược chiều, gặp thiện hóa ác, biến nguy thành lành.",
+    "first_page": 19,
+    "occurrences": 1
+  },
+  "Biến cảnh": {
+    "term": "Biến cảnh",
+    "kind": "bien_cach",
+    "definition": "Cách cục đặc biệt, kỳ lạ, có sự biến hóa khác thường.",
+    "first_page": 19,
+    "occurrences": 1
+  },
+  "Khang Tiết": {
+    "term": "Khang Tiết",
+    "kind": "sao",
+    "definition": "Thiệu Ung, hiệu Khang Tiết, người bàn về Dịch, không phải sao Tử Vi.",
+    "first_page": 20,
+    "occurrences": 8
+  },
+  "Vi (Thái Âm)": {
+    "term": "Vi (Thái Âm)",
+    "kind": "sao",
+    "definition": "Sao Thái Âm, thuộc hành Thủy, tượng trưng cho mặt trăng và phụ nữ.",
+    "first_page": 20,
+    "occurrences": 1
+  },
+  "Nam Cực": {
+    "term": "Nam Cực",
+    "kind": "cung",
+    "definition": "Vị trí phương nam trong lá số, thường chỉ cung Ngọ hoặc cung nam.",
+    "first_page": 20,
+    "occurrences": 2
+  },
+  "Hỏa Linh": {
+    "term": "Hỏa Linh",
+    "kind": "sao",
+    "definition": "Hỏa Tinh (hành Hỏa) và Linh Tinh (hành Hỏa), đều là sát tinh.",
+    "first_page": 20,
+    "occurrences": 2
+  },
+  "Tả Hữu": {
+    "term": "Tả Hữu",
+    "kind": "sao",
+    "definition": "Tả Phụ và Hữu Bật, hai sao trợ tinh, chủ quyền quý.",
+    "first_page": 20,
+    "occurrences": 4
+  },
+  "Khoa Quyền": {
+    "term": "Khoa Quyền",
+    "kind": "hoa",
+    "definition": "Hóa Khoa và Hóa Quyền, hai hóa tinh, chủ danh tiếng và quyền lực.",
+    "first_page": 20,
+    "occurrences": 1
+  },
+  "Dương Đà": {
+    "term": "Dương Đà",
+    "kind": "sao",
+    "definition": "Kình Dương (hành Kim) và Đà La (hành Hỏa), hai sát tinh, chủ hình thương.",
+    "first_page": 20,
+    "occurrences": 1
+  },
+  "Thiên Khốc": {
+    "term": "Thiên Khốc",
+    "kind": "sao",
+    "definition": "Sao Thiên Khốc, thuộc hành Kim, là sao tang trở, chủ buồn thương.",
+    "first_page": 20,
+    "occurrences": 11
+  },
+  "Tang Môn": {
+    "term": "Tang Môn",
+    "kind": "sao",
+    "definition": "Sao Tang Môn, thuộc hành Mộc, là sao tang, chủ tang sự.",
+    "first_page": 20,
+    "occurrences": 6
+  },
+  "Hóa Khoa": {
+    "term": "Hóa Khoa",
+    "kind": "hoa",
+    "definition": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+    "first_page": 20,
+    "occurrences": 31
+  },
+  "Xương Khúc": {
+    "term": "Xương Khúc",
+    "kind": "sao",
+    "definition": "Văn Xương (hành Kim) và Văn Khúc (hành Thủy), chủ văn học.",
+    "first_page": 20,
+    "occurrences": 5
+  },
+  "Hồng Loan": {
+    "term": "Hồng Loan",
+    "kind": "sao",
+    "definition": "Sao Hồng Loan, thuộc hành Thủy, chủ đào hoa và hôn nhân.",
+    "first_page": 20,
+    "occurrences": 14
+  },
+  "Nam Đẩu": {
+    "term": "Nam Đẩu",
+    "kind": "sao",
+    "definition": "Nhóm sao Nam Đẩu, gồm các sao chủ về sinh nam.",
+    "first_page": 20,
+    "occurrences": 2
+  },
+  "Bắc Đẩu": {
+    "term": "Bắc Đẩu",
+    "kind": "sao",
+    "definition": "Nhóm sao Bắc Đẩu, gồm các sao chủ về sinh nữ.",
+    "first_page": 20,
+    "occurrences": 2
+  },
+  "Không Kiếp": {
+    "term": "Không Kiếp",
+    "kind": "sao",
+    "definition": "Địa Không (hành Hỏa) và Địa Kiếp (hành Hỏa), hai sát tinh chủ phá tán.",
+    "first_page": 20,
+    "occurrences": 3
+  },
+  "Huyền Xương": {
+    "term": "Huyền Xương",
+    "kind": "sao",
+    "definition": "Sao Thiên Diêu, chủ tà dâm, đắm say tửu sắc.",
+    "first_page": 20,
+    "occurrences": 1
+  },
+  "Thân mệnh": {
+    "term": "Thân mệnh",
+    "kind": "cung",
+    "definition": "Cung Thân và cung Mệnh, hai cung quan trọng phản ánh bản thân.",
+    "first_page": 20,
+    "occurrences": 3
+  },
+  "Chủ tân": {
+    "term": "Chủ tân",
+    "kind": "the_loai",
+    "definition": "Khái niệm về sự mạnh yếu giữa cung Mệnh (chủ) và các cung khác (tân).",
+    "first_page": 21,
+    "occurrences": 1
+  },
+  "Tấu Thư": {
+    "term": "Tấu Thư",
+    "kind": "sao",
+    "definition": "Sao trong tử vi, liên quan đến giấy tờ, văn thư, thường có tính chất tốt xấu tùy vị trí.",
+    "first_page": 21,
+    "occurrences": 5
+  },
+  "Phiếm Thủy Đào Hoa": {
+    "term": "Phiếm Thủy Đào Hoa",
+    "kind": "bien_cach",
+    "definition": "Cách cục Tham Lang đóng tại cung Tý, chủ về đào hoa, đa tình, dễ gặp tai ương.",
+    "first_page": 21,
+    "occurrences": 1
+  },
+  "Sát tinh": {
+    "term": "Sát tinh",
+    "kind": "the_loai",
+    "definition": "Nhóm sao chủ về hung hiểm, gồm Kình Dương, Đà La, Hỏa, Linh, Không, Kiếp.",
+    "first_page": 22,
+    "occurrences": 6
+  },
+  "Cát tinh": {
+    "term": "Cát tinh",
+    "kind": "the_loai",
+    "definition": "Nhóm sao chủ về may mắn, phúc lợi như Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc.",
+    "first_page": 22,
+    "occurrences": 1
+  },
+  "Miếu vượng": {
+    "term": "Miếu vượng",
+    "kind": "bien_cach",
+    "definition": "Trạng thái sao đắc địa, lực tốt nhất, hóa giải hung tinh.",
+    "first_page": 22,
+    "occurrences": 12
+  },
+  "Hãm địa": {
+    "term": "Hãm địa",
+    "kind": "bien_cach",
+    "definition": "Trạng thái sao mất địa lợi, yếu thế, hung tinh càng hung.",
+    "first_page": 22,
+    "occurrences": 19
+  },
+  "Khôi Xương": {
+    "term": "Khôi Xương",
+    "kind": "bien_cach",
+    "definition": "Thiên Khôi và Văn Xương, chủ về quý nhân và văn chương.",
+    "first_page": 22,
+    "occurrences": 1
+  },
+  "Thân Mệnh": {
+    "term": "Thân Mệnh",
+    "kind": "cung",
+    "definition": "Chỉ cung Thân và cung Mệnh, hai cung quan trọng nhất trong lá số.",
+    "first_page": 23,
+    "occurrences": 2
+  },
+  "Huynh Đệ": {
+    "term": "Huynh Đệ",
+    "kind": "cung",
+    "definition": "Cung chủ về anh em, là hãm địa, rơi vào chủ lao lộc.",
+    "first_page": 23,
+    "occurrences": 2
+  },
+  "Tướng Mạo": {
+    "term": "Tướng Mạo",
+    "kind": "cung",
+    "definition": "Cung chủ về tướng mạo, là hãm địa, rơi vào chủ lao lộc.",
+    "first_page": 23,
+    "occurrences": 1
+  },
+  "Phúc Đức": {
+    "term": "Phúc Đức",
+    "kind": "cung",
+    "definition": "Cung chủ về phúc đức, nam hãm nữ miếu, gặp cát thì tốt.",
+    "first_page": 23,
+    "occurrences": 5
+  },
+  "Tử Tức": {
+    "term": "Tử Tức",
+    "kind": "cung",
+    "definition": "Cung chủ về con cái, có cát tinh chủ quý tử, độc thủ chủ cô đơn.",
+    "first_page": 23,
+    "occurrences": 1
+  },
+  "Phu Thê": {
+    "term": "Phu Thê",
+    "kind": "cung",
+    "definition": "Cung chủ về hôn nhân, hội cát chủ vợ chồng giàu sang.",
+    "first_page": 23,
+    "occurrences": 1
+  },
+  "Không Vong": {
+    "term": "Không Vong",
+    "kind": "the_loai",
+    "definition": "Chỉ Tuần Không hoặc Triệt Không Vong, là hãm địa, nếu Lộc Mã lạc vào thì xấu.",
+    "first_page": 23,
+    "occurrences": 7
+  },
+  "Tứ Sát": {
+    "term": "Tứ Sát",
+    "kind": "the_loai",
+    "definition": "Bốn sao sát tinh: Hỏa, Linh, Dương, Đà (thường chỉ Hỏa Linh Dương Đà).",
+    "first_page": 23,
+    "occurrences": 7
+  },
+  "Tứ sát": {
+    "term": "Tứ sát",
+    "kind": "the_loai",
+    "definition": "Bốn sao: Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, gây hung hiểm.",
+    "first_page": 24,
+    "occurrences": 9
+  },
+  "Đế vi vô đạo": {
+    "term": "Đế vi vô đạo",
+    "kind": "bien_cach",
+    "definition": "Tử Vi ở vị trí không chính đáng, cần khảo cứu nguyên nhân.",
+    "first_page": 24,
+    "occurrences": 1
+  },
+  "Tam phương": {
+    "term": "Tam phương",
+    "kind": "cung",
+    "definition": "Ba cung: Tài Bạch, Quan Lộc, Phúc Đức.",
+    "first_page": 24,
+    "occurrences": 12
+  },
+  "Bát Tọa": {
+    "term": "Bát Tọa",
+    "kind": "sao",
+    "definition": "Sao Bát Tọa chủ về quý tử, quyền bính.",
+    "first_page": 25,
+    "occurrences": 3
+  },
+  "Đế tinh": {
+    "term": "Đế tinh",
+    "kind": "sao",
+    "definition": "Một tên gọi khác của Tử Vi tinh, biểu tượng của vua chúa.",
+    "first_page": 27,
+    "occurrences": 1
+  },
+  "Chấn cung": {
+    "term": "Chấn cung",
+    "kind": "cung",
+    "definition": "Cung Mão, cung thứ ba trên thiên bàn.",
+    "first_page": 27,
+    "occurrences": 1
+  },
+  "Khảm cung": {
+    "term": "Khảm cung",
+    "kind": "cung",
+    "definition": "Cung Tý, cung thứ nhất trên thiên bàn.",
+    "first_page": 27,
+    "occurrences": 1
+  },
+  "Phúc Đức cung": {
+    "term": "Phúc Đức cung",
+    "kind": "cung",
+    "definition": "Cung chỉ về phúc đức, hưởng thụ và tổ tiên.",
+    "first_page": 27,
+    "occurrences": 2
+  },
+  "Đại Hạn": {
+    "term": "Đại Hạn",
+    "kind": "the_loai",
+    "definition": "Giai đoạn vận mệnh kéo dài 10 năm.",
+    "first_page": 27,
+    "occurrences": 4
+  },
+  "Tiểu Hạn": {
+    "term": "Tiểu Hạn",
+    "kind": "the_loai",
+    "definition": "Vận mệnh hàng năm.",
+    "first_page": 27,
+    "occurrences": 11
+  },
+  "Tam Hợp": {
+    "term": "Tam Hợp",
+    "kind": "bien_cach",
+    "definition": "Cách cục khi ba sao hội hợp, ví dụ Liêm Tham Tỵ Hợi là tam hợp của Liêm Trinh và Tham Lang.",
+    "first_page": 28,
+    "occurrences": 3
+  },
+  "thượng huyền hạ huyền": {
+    "term": "thượng huyền hạ huyền",
+    "kind": "the_loai",
+    "definition": "Chỉ trăng thượng tuần (sáng) và hạ tuần (tối), ảnh hưởng đến vận thế.",
+    "first_page": 29,
+    "occurrences": 1
+  },
+  "đắc viên": {
+    "term": "đắc viên",
+    "kind": "the_loai",
+    "definition": "Trạng thái sao ở vị trí tốt, sáng suốt, chủ cát.",
+    "first_page": 29,
+    "occurrences": 1
+  },
+  "hãm địa": {
+    "term": "hãm địa",
+    "kind": "the_loai",
+    "definition": "Vị trí sao bị hãm, mất sáng, chủ hung.",
+    "first_page": 29,
+    "occurrences": 11
+  },
+  "Táng Môn": {
+    "term": "Táng Môn",
+    "kind": "sao",
+    "definition": "Sao hung lưu niên, chủ tang sự, kỵ gặp Thái Âm.",
+    "first_page": 29,
+    "occurrences": 3
+  },
+  "Điếu Khách": {
+    "term": "Điếu Khách",
+    "kind": "sao",
+    "definition": "Sao hung lưu niên, chủ điếu tang, cảnh báo vợ.",
+    "first_page": 29,
+    "occurrences": 6
+  },
+  "Đế tọa": {
+    "term": "Đế tọa",
+    "kind": "sao",
+    "definition": "Chỉ Tử Vi tinh, sao chủ tôn quý, chế ngự các sao khác.",
+    "first_page": 30,
+    "occurrences": 1
+  },
+  "Hóa khí": {
+    "term": "Hóa khí",
+    "kind": "hoa",
+    "definition": "Khí hóa của sao, thể hiện bản chất biểu hiện của sao.",
+    "first_page": 30,
+    "occurrences": 1
+  },
+  "Tam hợp": {
+    "term": "Tam hợp",
+    "kind": "the_loai",
+    "definition": "Ba cung tạo thành tam hợp cục, ảnh hưởng lẫn nhau.",
+    "first_page": 30,
+    "occurrences": 11
+  },
+  "Hình Kỵ": {
+    "term": "Hình Kỵ",
+    "kind": "bien_cach",
+    "definition": "Chỉ Thiên Hình và Hóa Kỵ, gây tổn thương, sẹo.",
+    "first_page": 30,
+    "occurrences": 1
+  },
+  "Thiên Tương": {
+    "term": "Thiên Tương",
+    "kind": "sao",
+    "definition": "Sao thuộc Thủy, hóa thành Ấn tinh, chủ về Quan Lộc và tài phúc.",
+    "first_page": 32,
+    "occurrences": 1
+  },
+  "Đế vượng chi hương": {
+    "term": "Đế vượng chi hương",
+    "kind": "the_loai",
+    "definition": "Cung miếu vượng địa, nơi sao đắc lực, phát huy tốt tác dụng.",
+    "first_page": 33,
+    "occurrences": 1
+  },
+  "Không vong": {
+    "term": "Không vong",
+    "kind": "the_loai",
+    "definition": "Cung tuần triệt không vong, chủ hư vô, suy yếu, giảm cát tăng hung.",
+    "first_page": 33,
+    "occurrences": 2
+  },
+  "Lưu Niên": {
+    "term": "Lưu Niên",
+    "kind": "bien_cach",
+    "definition": "Sao lưu niên, biểu thị tai họa theo năm.",
+    "first_page": 34,
+    "occurrences": 3
+  },
+  "Lưu niên Xương Khúc": {
+    "term": "Lưu niên Xương Khúc",
+    "kind": "bien_cach",
+    "definition": "Cách cục Lưu niên gặp Văn Xương, Văn Khúc, chủ khoa danh khoa giáp.",
+    "first_page": 36,
+    "occurrences": 1
+  },
+  "Khôi Việt": {
+    "term": "Khôi Việt",
+    "kind": "sao",
+    "definition": "Hai sao Thiên Khôi và Thiên Việt, chủ về quý hiển và tài lộc.",
+    "first_page": 38,
+    "occurrences": 6
+  },
+  "Tứ mộ chi địa": {
+    "term": "Tứ mộ chi địa",
+    "kind": "cung",
+    "definition": "Bốn cung Thìn, Tuất, Sửu, Mùi, là nơi sao Lộc Tồn không an vì lý do đặc biệt.",
+    "first_page": 38,
+    "occurrences": 1
+  },
+  "Hãm không": {
+    "term": "Hãm không",
+    "kind": "bien_cach",
+    "definition": "Trạng thái sao Lộc Tồn rơi vào cung hãm hoặc tuần không, không thể phát huy phúc.",
+    "first_page": 38,
+    "occurrences": 1
+  },
+  "Dịch Mã": {
+    "term": "Dịch Mã",
+    "kind": "bien_cach",
+    "definition": "Biến cách của Thiên Mã khi thủ thân mệnh, chủ sự xa xôi.",
+    "first_page": 39,
+    "occurrences": 1
+  },
+  "Lộc Mã giao trì": {
+    "term": "Lộc Mã giao trì",
+    "kind": "bien_cach",
+    "definition": "Thiên Mã cùng Lộc Tồn đồng cung, chủ giàu sang, thăng tiến.",
+    "first_page": 39,
+    "occurrences": 3
+  },
+  "Hình": {
+    "term": "Hình",
+    "kind": "hoa",
+    "definition": "Hóa khí của Kình Dương, chủ hình khắc, đào hoa phong lưu.",
+    "first_page": 40,
+    "occurrences": 6
+  },
+  "Nhị tính diên sinh": {
+    "term": "Nhị tính diên sinh",
+    "kind": "bien_cach",
+    "definition": "Phải sống trong gia đình ghẻ lạnh, đổi họ kéo dài dòng dõi.",
+    "first_page": 40,
+    "occurrences": 1
+  },
+  "Âm Sát": {
+    "term": "Âm Sát",
+    "kind": "sao",
+    "definition": "Sao âm thầm, chủ tai họa ngầm.",
+    "first_page": 41,
+    "occurrences": 1
+  },
+  "Thiên Tù": {
+    "term": "Thiên Tù",
+    "kind": "sao",
+    "definition": "Sao chủ về tù ngục, giam cầm.",
+    "first_page": 41,
+    "occurrences": 1
+  },
+  "lục thân": {
+    "term": "lục thân",
+    "kind": "the_loai",
+    "definition": "Sáu mối quan hệ thân thuộc: cha, mẹ, anh, em, vợ, con.",
+    "first_page": 41,
+    "occurrences": 1
+  },
+  "vượng địa": {
+    "term": "vượng địa",
+    "kind": "the_loai",
+    "definition": "Cung vị tốt, có vượng khí, thuận lợi.",
+    "first_page": 41,
+    "occurrences": 1
+  },
+  "Đại hạn": {
+    "term": "Đại hạn",
+    "kind": "the_loai",
+    "definition": "Vận hạn lớn, kéo dài 10 năm.",
+    "first_page": 41,
+    "occurrences": 3
+  },
+  "Tiểu hạn": {
+    "term": "Tiểu hạn",
+    "kind": "the_loai",
+    "definition": "Vận hạn nhỏ, kéo dài 1 năm.",
+    "first_page": 41,
+    "occurrences": 2
+  },
+  "Mã Tảo tinh": {
+    "term": "Mã Tảo tinh",
+    "kind": "bien_cach",
+    "definition": "Cách cục xấu do bốn sao Kình, Đà, Hỏa, Linh hội tụ.",
+    "first_page": 42,
+    "occurrences": 1
+  },
+  "Đoản Thọ sát": {
+    "term": "Đoản Thọ sát",
+    "kind": "bien_cach",
+    "definition": "Sát tinh chủ đoản thọ, do Kình, Đà, Hỏa, Linh hợp thành.",
+    "first_page": 42,
+    "occurrences": 1
+  },
+  "Thiên Không": {
+    "term": "Thiên Không",
+    "kind": "sao",
+    "definition": "Sao chủ về hư không, phá tài, kỵ gặp ở mệnh thân.",
+    "first_page": 43,
+    "occurrences": 11
+  },
+  "Thiên Thương": {
+    "term": "Thiên Thương",
+    "kind": "sao",
+    "definition": "Thần hư hao của trời, chủ hao tổn, bại tài.",
+    "first_page": 43,
+    "occurrences": 9
+  },
+  "Thiên Sứ": {
+    "term": "Thiên Sứ",
+    "kind": "sao",
+    "definition": "Thần truyền sứ của trời, chủ quan tai, tang thương.",
+    "first_page": 43,
+    "occurrences": 7
+  },
+  "Tam Hóa Liên Châu": {
+    "term": "Tam Hóa Liên Châu",
+    "kind": "bien_cach",
+    "definition": "Cách cục Hóa Lộc, Hóa Khoa, Hóa Quyền tụ hội trên tam phương tứ chính.",
+    "first_page": 43,
+    "occurrences": 2
+  },
+  "Thiên Diêu": {
+    "term": "Thiên Diêu",
+    "kind": "sao",
+    "definition": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+    "first_page": 44,
+    "occurrences": 8
+  },
+  "Thiên Hư": {
+    "term": "Thiên Hư",
+    "kind": "sao",
+    "definition": "Sao ác, cùng Thiên Khốc gây họa cho mệnh chủ.",
+    "first_page": 44,
+    "occurrences": 7
+  },
+  "Văn tinh": {
+    "term": "Văn tinh",
+    "kind": "sao",
+    "definition": "Sao Văn Xương hoặc Văn Khúc, chủ văn chương, học vấn.",
+    "first_page": 44,
+    "occurrences": 2
+  },
+  "Thái Cực": {
+    "term": "Thái Cực",
+    "kind": "sao",
+    "definition": "Chủ tinh của các chòm sao, đứng đầu trong hệ thống sao.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Thiên Môn": {
+    "term": "Thiên Môn",
+    "kind": "cung",
+    "definition": "Cung Mệnh, là cửa trời, nguồn gốc của vận hạn và phù trợ thân mệnh.",
+    "first_page": 45,
+    "occurrences": 2
+  },
+  "Cách cục": {
+    "term": "Cách cục",
+    "kind": "the_loai",
+    "definition": "Cấu trúc và quy tắc của tử vi để xác định cát hung.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Ngũ hành cung vị": {
+    "term": "Ngũ hành cung vị",
+    "kind": "cung",
+    "definition": "Vị trí các cung dựa trên ngũ hành, quyết định vinh khô một đời.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Tương sinh hợp cục": {
+    "term": "Tương sinh hợp cục",
+    "kind": "the_loai",
+    "definition": "Sự tương sinh giữa các yếu tố trong cách cục, mang lại phú quý tài quan.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Trường Sinh Đế Vượng": {
+    "term": "Trường Sinh Đế Vượng",
+    "kind": "cung",
+    "definition": "Các cung tốt biểu thị sự thịnh vượng, may mắn.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Tử Tuyệt": {
+    "term": "Tử Tuyệt",
+    "kind": "cung",
+    "definition": "Các cung xấu biểu thị sự suy bại, tử tuyệt.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Giáp": {
+    "term": "Giáp",
+    "kind": "bien_cach",
+    "definition": "Sự kẹp giữa hai bên bởi các sao tốt hoặc xấu, ảnh hưởng đến mệnh.",
+    "first_page": 45,
+    "occurrences": 2
+  },
+  "Dương Đà Hỏa Linh Không Kiếp": {
+    "term": "Dương Đà Hỏa Linh Không Kiếp",
+    "kind": "sao",
+    "definition": "Các sao ác: Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp.",
+    "first_page": 45,
+    "occurrences": 1
+  },
+  "Quyền": {
+    "term": "Quyền",
+    "kind": "hoa",
+    "definition": "Hóa Quyền, sao chủ về quyền lực, thăng quan tiến chức.",
+    "first_page": 47,
+    "occurrences": 2
+  },
+  "Lộc": {
+    "term": "Lộc",
+    "kind": "hoa",
+    "definition": "Hóa Lộc, sao chủ về tài lộc, phú quý.",
+    "first_page": 47,
+    "occurrences": 5
+  },
+  "Khoa": {
+    "term": "Khoa",
+    "kind": "hoa",
+    "definition": "Hóa Khoa, sao chủ về khoa danh, học vấn.",
+    "first_page": 47,
+    "occurrences": 2
+  },
+  "Tam Hóa": {
+    "term": "Tam Hóa",
+    "kind": "hoa",
+    "definition": "Ba sao Hóa Lộc, Hóa Quyền, Hóa Khoa.",
+    "first_page": 48,
+    "occurrences": 2
+  },
+  "Khoa Quyền Lộc củng": {
+    "term": "Khoa Quyền Lộc củng",
+    "kind": "bien_cach",
+    "definition": "Tam hợp vây quanh bởi ba sao hóa.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Khoa Minh Lộc Ám": {
+    "term": "Khoa Minh Lộc Ám",
+    "kind": "bien_cach",
+    "definition": "Hóa Khoa ở mệnh, Hóa Lộc ở cung hợp.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Nhật Nguyệt Đồng Lâm": {
+    "term": "Nhật Nguyệt Đồng Lâm",
+    "kind": "bien_cach",
+    "definition": "Thái Dương và Thái Âm đồng cung đối mệnh.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Cự Cơ Đồng Cung": {
+    "term": "Cự Cơ Đồng Cung",
+    "kind": "bien_cach",
+    "definition": "Cự Môn và Thiên Cơ đồng cung Mão.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Tham Linh Tịnh Thủ": {
+    "term": "Tham Linh Tịnh Thủ",
+    "kind": "bien_cach",
+    "definition": "Tham Lang và Linh Tinh cùng thủ mệnh.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Tọa Quý Hướng Quý": {
+    "term": "Tọa Quý Hướng Quý",
+    "kind": "bien_cach",
+    "definition": "Khôi hoặc Việt ở mệnh, đối cung có sao kia.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Lộc Mã Đồng Cung": {
+    "term": "Lộc Mã Đồng Cung",
+    "kind": "bien_cach",
+    "definition": "Thiên Lộc và Thiên Mã cùng ở mệnh.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Tham Hỏa Cư Miếu Vượng": {
+    "term": "Tham Hỏa Cư Miếu Vượng",
+    "kind": "bien_cach",
+    "definition": "Tham Lang và Hỏa Tinh ở miếu vượng.",
+    "first_page": 48,
+    "occurrences": 1
+  },
+  "Cự Nhật Đồng Cung": {
+    "term": "Cự Nhật Đồng Cung",
+    "kind": "bien_cach",
+    "definition": "Cách có Cự Môn và Thái Dương đồng cung, chủ quan cao.",
+    "first_page": 49,
+    "occurrences": 3
+  },
+  "Tử Phủ Triều Viên": {
+    "term": "Tử Phủ Triều Viên",
+    "kind": "bien_cach",
+    "definition": "Cách Tử Vi và Thiên Phủ chiếu triều Mệnh, chủ quý hiển.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Khoa Quyền Đối Củng": {
+    "term": "Khoa Quyền Đối Củng",
+    "kind": "bien_cach",
+    "definition": "Cách Hóa Khoa và Hóa Quyền ở tam phương chiếu đối, chủ thăng quan.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Nhật Nguyệt Tịnh Minh": {
+    "term": "Nhật Nguyệt Tịnh Minh",
+    "kind": "bien_cach",
+    "definition": "Cách Thái Dương và Thái Âm chiếu sáng hai bên, chủ phú quý.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Phủ Tương Triều Viên": {
+    "term": "Phủ Tương Triều Viên",
+    "kind": "bien_cach",
+    "definition": "Cách Thiên Phủ và Thiên Tướng hội Mệnh, chủ phát tài quan.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Tam Hợp Minh Châu": {
+    "term": "Tam Hợp Minh Châu",
+    "kind": "bien_cach",
+    "definition": "Cách Nhật Nguyệt đối chiếu từ tam hợp, chủ tài quan song mỹ.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Sát Phá Quân Xuất Ngoại": {
+    "term": "Sát Phá Quân Xuất Ngoại",
+    "kind": "bien_cach",
+    "definition": "Cách Thất Sát và Phá Quân gặp ở hãm địa, nên đi xa.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Cơ Nguyệt Đồng Lương Tác Lại Nhân": {
+    "term": "Cơ Nguyệt Đồng Lương Tác Lại Nhân",
+    "kind": "bien_cach",
+    "definition": "Cách bốn sao gặp đủ tam hợp, làm nghề thư lại.",
+    "first_page": 49,
+    "occurrences": 1
+  },
+  "Cung vượng địa": {
+    "term": "Cung vượng địa",
+    "kind": "the_loai",
+    "definition": "Cung có sao đắc địa, vượng, tốt cho cách cục.",
+    "first_page": 50,
+    "occurrences": 1
+  },
+  "Địa Không": {
+    "term": "Địa Không",
+    "kind": "sao",
+    "definition": "Sao chủ về hư vô, thất bại, kỵ hợp với kiếp.",
+    "first_page": 51,
+    "occurrences": 22
+  },
+  "tam phương": {
+    "term": "tam phương",
+    "kind": "the_loai",
+    "definition": "Ba cung Thiên Di, Quan Lộc, Tài Bạch.",
+    "first_page": 51,
+    "occurrences": 2
+  },
+  "tứ mộ": {
+    "term": "tứ mộ",
+    "kind": "cung",
+    "definition": "Cung Thìn, Tuất, Sửu, Mùi thuộc bốn mộ địa.",
+    "first_page": 51,
+    "occurrences": 1
+  },
+  "Lộc Mã": {
+    "term": "Lộc Mã",
+    "kind": "sao",
+    "definition": "Chỉ Hóa Lộc và Thiên Mã, hai sao chủ tài lộc và di chuyển.",
+    "first_page": 52,
+    "occurrences": 3
+  },
+  "Bại tuyệt không vong": {
+    "term": "Bại tuyệt không vong",
+    "kind": "bien_cach",
+    "definition": "Cung Bại, Tuyệt, Tuần Không Vong, là các vị trí xấu khiến sao mất hiệu lực.",
+    "first_page": 52,
+    "occurrences": 1
+  },
+  "Thiên La": {
+    "term": "Thiên La",
+    "kind": "cung",
+    "definition": "Cung Thìn, một trong hai cung Thiên La Địa Võng.",
+    "first_page": 52,
+    "occurrences": 2
+  },
+  "Địa Võng": {
+    "term": "Địa Võng",
+    "kind": "cung",
+    "definition": "Cung Tuất, một trong hai cung Thiên La Địa Võng.",
+    "first_page": 52,
+    "occurrences": 2
+  },
+  "Tài ấn chi tinh": {
+    "term": "Tài ấn chi tinh",
+    "kind": "bien_cach",
+    "definition": "Chỉ Vũ Khúc (tài) và Thiên Tướng (ấn), chủ quý quyền.",
+    "first_page": 52,
+    "occurrences": 1
+  },
+  "Tuần Không": {
+    "term": "Tuần Không",
+    "kind": "sao",
+    "definition": "Sao không vong, làm giảm hiệu lực của các sao khác.",
+    "first_page": 52,
+    "occurrences": 5
+  },
+  "Thiên Lộc": {
+    "term": "Thiên Lộc",
+    "kind": "sao",
+    "definition": "Chỉ Lộc Tồn hoặc Hóa Lộc, chủ tài lộc, phú quý.",
+    "first_page": 53,
+    "occurrences": 3
+  },
+  "Đan Trì": {
+    "term": "Đan Trì",
+    "kind": "bien_cach",
+    "definition": "Cung có Thái Dương, gọi là Đan Trì, tượng trưng cho vinh quang.",
+    "first_page": 53,
+    "occurrences": 2
+  },
+  "Quế Trì": {
+    "term": "Quế Trì",
+    "kind": "bien_cach",
+    "definition": "Cung có Thái Âm, gọi là Quế Trì, tượng trưng cho thanh cao.",
+    "first_page": 53,
+    "occurrences": 1
+  },
+  "Đại Hao": {
+    "term": "Đại Hao",
+    "kind": "sao",
+    "definition": "Một hung tinh, chủ tai họa hao tổn, thường gây chết chóc hoặc mất mát lớn.",
+    "first_page": 54,
+    "occurrences": 4
+  },
+  "Linh Xương La Vũ": {
+    "term": "Linh Xương La Vũ",
+    "kind": "the_loai",
+    "definition": "Bộ sao gồm Linh Tinh, Văn Xương, Kình Dương, Vũ Khúc; khi hội tại Thìn Tuất gây tai nạn nước.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Kim": {
+    "term": "Kim",
+    "kind": "sao",
+    "definition": "Ở đây chỉ Vũ Khúc (sao thuộc hành Kim), khi gặp Địa Không chủ phiêu bạt khổ bệnh.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Dương Nhận": {
+    "term": "Dương Nhận",
+    "kind": "sao",
+    "definition": "Tên gọi khác của Kình Dương, hung tinh chủ hình thương, tai họa.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Triêu Đẩu": {
+    "term": "Triêu Đẩu",
+    "kind": "bien_cach",
+    "definition": "Cách Thất Sát thủ mệnh tại Tý, Ngọ, Dần, Thân, chủ phú quý.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Ngưỡng Đẩu": {
+    "term": "Ngưỡng Đẩu",
+    "kind": "bien_cach",
+    "definition": "Cách Thất Sát ở tam hợp (tam phương) với mệnh, cũng chủ phú quý.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Văn Quế": {
+    "term": "Văn Quế",
+    "kind": "sao",
+    "definition": "Tên gọi khác của Văn Xương, chủ văn chương, khoa giáp.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Văn Hoa": {
+    "term": "Văn Hoa",
+    "kind": "sao",
+    "definition": "Tên gọi khác của Văn Khúc, chủ tài hoa, danh tiếng.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Quế Hỹ": {
+    "term": "Quế Hỹ",
+    "kind": "bien_cach",
+    "definition": "Cách Thái Âm ở Dậu, Tuất, Hợi (sáng sủa), chủ danh vọng.",
+    "first_page": 54,
+    "occurrences": 1
+  },
+  "Hợp Lộc cung Lộc": {
+    "term": "Hợp Lộc cung Lộc",
+    "kind": "bien_cach",
+    "definition": "Cách có Lộc Tồn và Hóa Lộc ở Tài, Quan hợp Mệnh hoặc Mệnh tọa Lộc mà Di có Lộc, chủ phú quý",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Lộc triêu viên": {
+    "term": "Lộc triêu viên",
+    "kind": "bien_cach",
+    "definition": "Cách Lộc Tồn thủ Mệnh cung và cung Mệnh nằm ở vị trí hợp với can năm, như Giáp Mệnh Dần thấy Lộc đến Dần",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Âm Dương hội Xương Khúc": {
+    "term": "Âm Dương hội Xương Khúc",
+    "kind": "bien_cach",
+    "definition": "Cách Thái Âm, Thái Dương gặp Văn Xương, Văn Khúc tại Tài Quan hoặc Mệnh, chủ vinh hoa",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Phụ Bật ngộ Tài Quan": {
+    "term": "Phụ Bật ngộ Tài Quan",
+    "kind": "bien_cach",
+    "definition": "Cách Tả Phụ, Hữu Bật gặp cung Tài Bạch, Quan Lộc, chủ chức cao mặc áo tía",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Cự Lương tương hội Liêm Trinh tịnh hợp Lộc uyên ương": {
+    "term": "Cự Lương tương hội Liêm Trinh tịnh hợp Lộc uyên ương",
+    "kind": "bien_cach",
+    "definition": "Cách Cự Môn, Thiên Lương, Liêm Trinh gặp nhau và có Lộc tồn/Hóa Lộc ở Phu Thê, chủ phú quý",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Vũ Khúc nhàn cung": {
+    "term": "Vũ Khúc nhàn cung",
+    "kind": "bien_cach",
+    "definition": "Vũ Khúc ở Tỵ Hợi khó phát, thêm sát thì thành kẻ tay nghề",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Tham Lang hãm địa": {
+    "term": "Tham Lang hãm địa",
+    "kind": "bien_cach",
+    "definition": "Tham Lang ở Tỵ Hợi, thêm sát chủ yểu thọ, làm nghề hạ tiện",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Khôi tinh lâm Mệnh": {
+    "term": "Khôi tinh lâm Mệnh",
+    "kind": "bien_cach",
+    "definition": "Thiên Khôi ở cung Mệnh gặp cát tinh, chủ địa vị cao như tam đài",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Hóa Lộc cư mộ địa": {
+    "term": "Hóa Lộc cư mộ địa",
+    "kind": "bien_cach",
+    "definition": "Hóa Lộc ở các cung Thìn Tuất Sửu Mùi thì vô dụng, không phát huy tác dụng",
+    "first_page": 55,
+    "occurrences": 1
+  },
+  "Minh Lộc Ám Lộc": {
+    "term": "Minh Lộc Ám Lộc",
+    "kind": "bien_cach",
+    "definition": "Cách cục có Hóa Lộc và Lộc Tồn cùng hợp với mệnh, chủ phú quý.",
+    "first_page": 56,
+    "occurrences": 1
+  },
+  "Âm chất": {
+    "term": "Âm chất",
+    "kind": "the_loai",
+    "definition": "Phúc đức ngầm do làm việc thiện; giúp tăng thọ, giảm họa.",
+    "first_page": 57,
+    "occurrences": 2
+  },
+  "Thân Mệnh tam hợp": {
+    "term": "Thân Mệnh tam hợp",
+    "kind": "the_loai",
+    "definition": "Cung Thân và cung Mệnh nằm trong tam hợp cục.",
+    "first_page": 58,
+    "occurrences": 1
+  },
+  "Lục tinh": {
+    "term": "Lục tinh",
+    "kind": "the_loai",
+    "definition": "Chỉ sáu sao thủ chiếu tại tam hợp.",
+    "first_page": 58,
+    "occurrences": 1
+  },
+  "Liêm Trinh hóa Kỵ": {
+    "term": "Liêm Trinh hóa Kỵ",
+    "kind": "sao",
+    "definition": "Sao Liêm Trinh khi hóa Kỵ chủ về tai họa, bại hoại.",
+    "first_page": 58,
+    "occurrences": 1
+  },
+  "Nhập miếu hóa cát": {
+    "term": "Nhập miếu hóa cát",
+    "kind": "bien_cach",
+    "definition": "Sao miếu vượng và hóa thành cát tinh.",
+    "first_page": 58,
+    "occurrences": 1
+  },
+  "Phủ Tướng chi tinh": {
+    "term": "Phủ Tướng chi tinh",
+    "kind": "the_loai",
+    "definition": "Sao Thiên Phủ và Thiên Tướng.",
+    "first_page": 58,
+    "occurrences": 1
+  },
+  "Mệnh phụ": {
+    "term": "Mệnh phụ",
+    "kind": "the_loai",
+    "definition": "Chỉ người phụ nữ làm mẹ hoặc vợ được phong tước, thường dùng trong văn bia phong tặng.",
+    "first_page": 59,
+    "occurrences": 1
+  },
+  "Tri viên cách": {
+    "term": "Tri viên cách",
+    "kind": "bien_cach",
+    "definition": "Một cách cục đặc biệt khi Lộc Tồn thủ Mệnh tại Dần hoặc Thân, gọi là tri viên (voi tròn).",
+    "first_page": 59,
+    "occurrences": 1
+  },
+  "tứ sát": {
+    "term": "tứ sát",
+    "kind": "bien_cach",
+    "definition": "Bốn sao sát tinh: Kình Dương, Đà La, Hỏa Tinh, Linh Tinh.",
+    "first_page": 60,
+    "occurrences": 3
+  },
+  "tứ chính": {
+    "term": "tứ chính",
+    "kind": "the_loai",
+    "definition": "Bốn chính cung: Mệnh, Thân, Tài, Quan.",
+    "first_page": 60,
+    "occurrences": 1
+  },
+  "Vong Thần": {
+    "term": "Vong Thần",
+    "kind": "sao",
+    "definition": "Sao thuộc Không Vong, cùng Tuần Không gọi là Không Vong.",
+    "first_page": 61,
+    "occurrences": 1
+  },
+  "Mộ khố": {
+    "term": "Mộ khố",
+    "kind": "cung",
+    "definition": "Các cung Thìn, Tuất, Sửu, Mùi là tứ mộ khố.",
+    "first_page": 61,
+    "occurrences": 1
+  },
+  "Bại Địa": {
+    "term": "Bại Địa",
+    "kind": "the_loai",
+    "definition": "Cung suy bại, cần sao phù trì mới tốt.",
+    "first_page": 62,
+    "occurrences": 1
+  },
+  "Quân Thần Khánh Hội": {
+    "term": "Quân Thần Khánh Hội",
+    "kind": "bien_cach",
+    "definition": "Cách cục Tử Vi thủ mệnh được các sao tốt kẹp, chủ phú quý.",
+    "first_page": 62,
+    "occurrences": 1
+  },
+  "Mã Đầu Đái Tiễn": {
+    "term": "Mã Đầu Đái Tiễn",
+    "kind": "bien_cach",
+    "definition": "Cách cục ở cung Ngọ có Thiên Đồng, Tham Lang, Kình Dương, chủ võ công.",
+    "first_page": 62,
+    "occurrences": 2
+  },
+  "Thiện ấm triều cương": {
+    "term": "Thiện ấm triều cương",
+    "kind": "bien_cach",
+    "definition": "Cách Thiên Lương triều hướng Thái Dương, chủ nhân từ.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Nhật lệ trung thiên": {
+    "term": "Nhật lệ trung thiên",
+    "kind": "bien_cach",
+    "definition": "Thái Dương ở Ngọ, chủ quyền quý và giàu sang.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Thủy trừng quế ngạc": {
+    "term": "Thủy trừng quế ngạc",
+    "kind": "bien_cach",
+    "definition": "Thái Âm ở Tý, chủ thanh cao, trung gián.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Chúng thủy triều đông": {
+    "term": "Chúng thủy triều đông",
+    "kind": "bien_cach",
+    "definition": "Văn Xương, Văn Khúc, Địa Hao ở Dần Mão, chủ lao lực.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Phiếm thủy đào hoa": {
+    "term": "Phiếm thủy đào hoa",
+    "kind": "bien_cach",
+    "definition": "Tham Lang ở Hợi Tý, chủ đào hoa, cát hung tùy tinh.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Hóa cát": {
+    "term": "Hóa cát",
+    "kind": "hoa",
+    "definition": "Hóa Lộc, Hóa Quyền, Hóa Khoa, mang lại may mắn.",
+    "first_page": 63,
+    "occurrences": 3
+  },
+  "Hình kỵ": {
+    "term": "Hình kỵ",
+    "kind": "hoa",
+    "definition": "Kình Hình và Hóa Kỵ, chủ tai họa.",
+    "first_page": 63,
+    "occurrences": 2
+  },
+  "Quý nhân": {
+    "term": "Quý nhân",
+    "kind": "sao",
+    "definition": "Thiên Khôi, Thiên Việt, chủ quý nhân che chở.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Tả hữu": {
+    "term": "Tả hữu",
+    "kind": "sao",
+    "definition": "Tả Phụ và Hữu Bật, chủ phụ tá trợ lực.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Thiên ấm": {
+    "term": "Thiên ấm",
+    "kind": "sao",
+    "definition": "Thiên Lương, chủ phúc ấm và nhân từ.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Phúc tụ": {
+    "term": "Phúc tụ",
+    "kind": "sao",
+    "definition": "Thiên Đồng, chủ phúc lộc và giải tai.",
+    "first_page": 63,
+    "occurrences": 1
+  },
+  "Cung Nô Bộc": {
+    "term": "Cung Nô Bộc",
+    "kind": "cung",
+    "definition": "Cung Nô Bộc chủ về bạn bè, thuộc hạ.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Cung Thiên Di": {
+    "term": "Cung Thiên Di",
+    "kind": "cung",
+    "definition": "Cung Thiên Di chủ về xuất ngoại, hoạt động bên ngoài.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Cung Quan Lộc": {
+    "term": "Cung Quan Lộc",
+    "kind": "cung",
+    "definition": "Cung Quan Lộc chủ về sự nghiệp, công danh.",
+    "first_page": 64,
+    "occurrences": 2
+  },
+  "Cung Thê": {
+    "term": "Cung Thê",
+    "kind": "cung",
+    "definition": "Cung Thê chủ về hôn nhân, vợ chồng.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Cung Điền Trạch": {
+    "term": "Cung Điền Trạch",
+    "kind": "cung",
+    "definition": "Cung Điền Trạch chủ về nhà cửa, đất đai.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Cung Tài Bạch": {
+    "term": "Cung Tài Bạch",
+    "kind": "cung",
+    "definition": "Cung Tài Bạch chủ về tiền bạc, tài sản.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Cung Phúc Đức": {
+    "term": "Cung Phúc Đức",
+    "kind": "cung",
+    "definition": "Cung Phúc Đức chủ về phúc khí, hưởng thụ.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Ám diệu": {
+    "term": "Ám diệu",
+    "kind": "bien_cach",
+    "definition": "Cự Môn được gọi là ám diệu, chủ về thị phi, ám muội.",
+    "first_page": 64,
+    "occurrences": 1
+  },
+  "Hao Tinh": {
+    "term": "Hao Tinh",
+    "kind": "sao",
+    "definition": "Sao hao tán, chủ về phá bại, tiêu xài hoang phí.",
+    "first_page": 65,
+    "occurrences": 1
+  },
+  "Kỵ Tinh": {
+    "term": "Kỵ Tinh",
+    "kind": "sao",
+    "definition": "Sao Kỵ, thường là Hóa Kỵ, chủ về tai họa, khó khăn.",
+    "first_page": 65,
+    "occurrences": 1
+  },
+  "Ám Tinh": {
+    "term": "Ám Tinh",
+    "kind": "sao",
+    "definition": "Ám Tinh thường chỉ Cự Môn, chủ về tối tăm, khẩu thiệt.",
+    "first_page": 65,
+    "occurrences": 1
+  },
+  "Hình Tinh": {
+    "term": "Hình Tinh",
+    "kind": "sao",
+    "definition": "Hình Tinh thường chỉ Kình Dương, chủ về hình phạt, thương tích.",
+    "first_page": 65,
+    "occurrences": 1
+  },
+  "Sát Tinh": {
+    "term": "Sát Tinh",
+    "kind": "sao",
+    "definition": "Sát Tinh có thể chỉ Thất Sát, chủ về sát phạt, hung hiểm.",
+    "first_page": 65,
+    "occurrences": 1
+  },
+  "Đối Diện Triều Đẩu": {
+    "term": "Đối Diện Triều Đẩu",
+    "kind": "bien_cach",
+    "definition": "Cách có Lộc Tồn đối diện ở Thiên Di, mệnh Tý Ngọ, chủ phú quý.",
+    "first_page": 65,
+    "occurrences": 1
+  },
+  "Lộc quyền Chu Bật": {
+    "term": "Lộc quyền Chu Bật",
+    "kind": "bien_cach",
+    "definition": "Hóa Lộc, Hóa Quyền, Tả Phụ, Hữu Bật gặp trong mệnh tạo nên cách cục phú quý.",
+    "first_page": 66,
+    "occurrences": 1
+  },
+  "Tam công": {
+    "term": "Tam công",
+    "kind": "the_loai",
+    "definition": "Chỉ ba chức quan cao nhất trong triều đình phong kiến: Thái Sư, Thái Phó, Thái Bảo.",
+    "first_page": 66,
+    "occurrences": 1
+  },
+  "Bắc Đẩu đế tinh": {
+    "term": "Bắc Đẩu đế tinh",
+    "kind": "sao",
+    "definition": "Chỉ Tử Vi tinh, là vua của các sao.",
+    "first_page": 68,
+    "occurrences": 1
+  },
+  "Hình tinh": {
+    "term": "Hình tinh",
+    "kind": "sao",
+    "definition": "Sao chủ về hình phạt, tai ương, thương tổn.",
+    "first_page": 69,
+    "occurrences": 2
+  },
+  "Cát diệu": {
+    "term": "Cát diệu",
+    "kind": "the_loai",
+    "definition": "Các sao tốt lành trong Tử Vi, mang phúc lộc, cát lợi.",
+    "first_page": 70,
+    "occurrences": 4
+  },
+  "Hung diệu": {
+    "term": "Hung diệu",
+    "kind": "the_loai",
+    "definition": "Các sao xấu, gây tai họa, trở ngại trong Tử Vi.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Phúc thọ": {
+    "term": "Phúc thọ",
+    "kind": "the_loai",
+    "definition": "Phúc đức và tuổi thọ, một phạm trù luận đoán trong Tử Vi.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Thông minh": {
+    "term": "Thông minh",
+    "kind": "the_loai",
+    "definition": "Trí tuệ sắc sảo, một tiêu chí luận đoán dựa trên sao văn tinh.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Uy dũng": {
+    "term": "Uy dũng",
+    "kind": "the_loai",
+    "definition": "Uy nghiêm và dũng mãnh, thường do Vũ Khúc Thất Sát tạo nên.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Văn chức": {
+    "term": "Văn chức",
+    "kind": "the_loai",
+    "definition": "Chức quan văn, do các sao văn tinh và quý tinh chiếu mệnh.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Vũ chức": {
+    "term": "Vũ chức",
+    "kind": "the_loai",
+    "definition": "Chức quan võ, do Vũ Khúc Thất Sát và các sao võ tinh quyết định.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Hình danh": {
+    "term": "Hình danh",
+    "kind": "the_loai",
+    "definition": "Hình pháp và danh tiếng, liên quan đến các sát tinh và cát tinh hội hợp.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Phú quý": {
+    "term": "Phú quý",
+    "kind": "the_loai",
+    "definition": "Giàu sang cao quý, do nhiều sao tốt tụ hội, nhất là Tử Phủ Tướng.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Tam hợp cung chiếu": {
+    "term": "Tam hợp cung chiếu",
+    "kind": "bien_cach",
+    "definition": "Các sao ở ba cung tam hợp chiếu vào cung mệnh, tăng cường ảnh hưởng.",
+    "first_page": 70,
+    "occurrences": 1
+  },
+  "Tam phương tứ chính": {
+    "term": "Tam phương tứ chính",
+    "kind": "bien_cach",
+    "definition": "Phương pháp xem xét ba cung và bốn chính diện để đánh giá tinh bàn.",
+    "first_page": 70,
+    "occurrences": 4
+  },
+  "Hóa Hao": {
+    "term": "Hóa Hao",
+    "kind": "hoa",
+    "definition": "Sao Hóa Hao chủ sự hao tán, tổn thất, thường gặp trong cách tăng đạo.",
+    "first_page": 71,
+    "occurrences": 2
+  },
+  "Sát ấm tinh": {
+    "term": "Sát ấm tinh",
+    "kind": "the_loai",
+    "definition": "Chỉ Thất Sát (sát) và Thiên Lương (ấm), kết hợp với Tham Lang.",
+    "first_page": 71,
+    "occurrences": 1
+  },
+  "Trung cục": {
+    "term": "Trung cục",
+    "kind": "the_loai",
+    "definition": "Cục cách trung bình, không quá tốt cũng không quá xấu.",
+    "first_page": 71,
+    "occurrences": 2
+  },
+  "Thất hãm": {
+    "term": "Thất hãm",
+    "kind": "the_loai",
+    "definition": "Trạng thái sao bị lạc cung xấu, mất thế, sinh ra hung họa.",
+    "first_page": 72,
+    "occurrences": 1
+  },
+  "Phá cách": {
+    "term": "Phá cách",
+    "kind": "the_loai",
+    "definition": "Cách cục tốt bị phá vỡ do sao xấu hoặc lạc hãm, chủ bất lợi.",
+    "first_page": 72,
+    "occurrences": 1
+  },
+  "Cơ Xương Khúc Nguyệt": {
+    "term": "Cơ Xương Khúc Nguyệt",
+    "kind": "sao",
+    "definition": "Thiên Cơ, Văn Xương, Văn Khúc, Thái Âm hội tụ.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Tử Phá": {
+    "term": "Tử Phá",
+    "kind": "sao",
+    "definition": "Tử Vi và Phá Quân cùng tọa thủ.",
+    "first_page": 73,
+    "occurrences": 2
+  },
+  "Cơ Cự": {
+    "term": "Cơ Cự",
+    "kind": "sao",
+    "definition": "Thiên Cơ và Cự Môn đồng cung hoặc xung chiếu.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Cự Nhật": {
+    "term": "Cự Nhật",
+    "kind": "sao",
+    "definition": "Cự Môn và Thái Dương đồng cung.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Tham Mậu Cự Nguyệt": {
+    "term": "Tham Mậu Cự Nguyệt",
+    "kind": "sao",
+    "definition": "Tham Lang, Tả Phụ, Hữu Bật, Cự Môn, Thái Âm hội tụ.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Tham Hỏa Thiên Lương": {
+    "term": "Tham Hỏa Thiên Lương",
+    "kind": "sao",
+    "definition": "Tham Lang, Hỏa Tinh, Thiên Lương đồng cung.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Dương Đao": {
+    "term": "Dương Đao",
+    "kind": "sao",
+    "definition": "Kình Dương và Đà La, hai sát tinh.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Thái Âm Kình Dương": {
+    "term": "Thái Âm Kình Dương",
+    "kind": "sao",
+    "definition": "Thái Âm và Kình Dương đồng cung hoặc xung chiếu.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Vũ Nguyệt Khai Lương Cự": {
+    "term": "Vũ Nguyệt Khai Lương Cự",
+    "kind": "sao",
+    "definition": "Vũ Khúc, Thái Âm, Thiên Tướng, Thiên Lương, Cự Môn hội tụ.",
+    "first_page": 73,
+    "occurrences": 1
+  },
+  "Tử Phá triêu nhật nguyệt": {
+    "term": "Tử Phá triêu nhật nguyệt",
+    "kind": "bien_cach",
+    "definition": "Tử Vi và Phá Quân ở Sửu Mùi chầu về Mặt Trời Mặt Trăng.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Cự Cơ đồng cung": {
+    "term": "Cự Cơ đồng cung",
+    "kind": "bien_cach",
+    "definition": "Cự Môn và Thiên Cơ đồng cung ở Mão là quý cách.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Vũ Khúc thủ Mão": {
+    "term": "Vũ Khúc thủ Mão",
+    "kind": "bien_cach",
+    "definition": "Vũ Khúc đóng cung Mão, chủ phúc lộc.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Cơ Lương đồng cung": {
+    "term": "Cơ Lương đồng cung",
+    "kind": "bien_cach",
+    "definition": "Thiên Cơ và Thiên Lương đồng cung ở Thìn Tuất.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Thiên Phủ thủ Tuất": {
+    "term": "Thiên Phủ thủ Tuất",
+    "kind": "bien_cach",
+    "definition": "Thiên Phủ đóng cung Tuất, chủ phú quý.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Cơ Tướng đồng cung": {
+    "term": "Cơ Tướng đồng cung",
+    "kind": "bien_cach",
+    "definition": "Thiên Cơ và Thiên Tướng đồng cung ở Tỵ Hợi.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Tử Phủ Lương đồng cung Ngọ": {
+    "term": "Tử Phủ Lương đồng cung Ngọ",
+    "kind": "bien_cach",
+    "definition": "Tử Vi, Thiên Phủ, Thiên Lương đồng cung ở Ngọ.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Liêm Trinh Cự Môn Thái Âm Thất Sát đồng cung Thân": {
+    "term": "Liêm Trinh Cự Môn Thái Âm Thất Sát đồng cung Thân",
+    "kind": "bien_cach",
+    "definition": "Bốn sao Liêm, Cự, Âm, Sát đồng cung ở Thân.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Thất Sát ngộ Tả Hữu Văn Khúc": {
+    "term": "Thất Sát ngộ Tả Hữu Văn Khúc",
+    "kind": "bien_cach",
+    "definition": "Thất Sát gặp Tả Phụ, Hữu Bật và Văn Khúc.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Liêm tọa Thân phùng Phụ Bật hóa cát": {
+    "term": "Liêm tọa Thân phùng Phụ Bật hóa cát",
+    "kind": "bien_cach",
+    "definition": "Liêm Trinh ở Thân gặp Tả Hữu và hóa cát.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Vũ xương Tỵ Hợi": {
+    "term": "Vũ xương Tỵ Hợi",
+    "kind": "bien_cach",
+    "definition": "Vũ Khúc sáng ở Tỵ Hợi, hợp với người Giáp niên.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Tham Lang cư Mão Dậu ngộ hỏa": {
+    "term": "Tham Lang cư Mão Dậu ngộ hỏa",
+    "kind": "bien_cach",
+    "definition": "Tham Lang ở Mão Dậu gặp Hỏa Tinh.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Thiên Cơ tọa Mão quý": {
+    "term": "Thiên Cơ tọa Mão quý",
+    "kind": "bien_cach",
+    "definition": "Thiên Cơ đóng cung Mão, chủ quý.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Cự Mão phùng Tả Hữu": {
+    "term": "Cự Mão phùng Tả Hữu",
+    "kind": "bien_cach",
+    "definition": "Cự Môn ở Mão gặp Tả Phụ, Hữu Bật.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Cự tọa Dần Thân": {
+    "term": "Cự tọa Dần Thân",
+    "kind": "bien_cach",
+    "definition": "Cự Môn đóng cung Dần Thân, ưa Giáp Canh niên.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Nhị cung phùng Thất Sát Tả Hữu hội Xương tinh": {
+    "term": "Nhị cung phùng Thất Sát Tả Hữu hội Xương tinh",
+    "kind": "bien_cach",
+    "definition": "Cung Dần Thân gặp Thất Sát, Tả Hữu và Văn Xương.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Thìn Tuất ngộ nhị tú": {
+    "term": "Thìn Tuất ngộ nhị tú",
+    "kind": "bien_cach",
+    "definition": "Cung Thìn Tuất gặp Thất Sát và Văn Xương.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Cự Cơ Sửu Mùi": {
+    "term": "Cự Cơ Sửu Mùi",
+    "kind": "bien_cach",
+    "definition": "Cự Môn và Thiên Cơ ở Sửu Mùi, chủ phúc.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Mão Dậu Dương Nhận": {
+    "term": "Mão Dậu Dương Nhận",
+    "kind": "bien_cach",
+    "definition": "Mão Dậu gặp Kình Dương Đà La là xấu.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Thìn Tuất Tử Phá triều La Võng": {
+    "term": "Thìn Tuất Tử Phá triều La Võng",
+    "kind": "bien_cach",
+    "definition": "Tử Vi và Phá Quân ở Thìn Tuất vào La Võng.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Thân cung hợp Vũ": {
+    "term": "Thân cung hợp Vũ",
+    "kind": "bien_cach",
+    "definition": "Cung Thân hợp Vũ Khắc là hạ cách.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Dậu phùng Cơ Cự nhật vô tinh": {
+    "term": "Dậu phùng Cơ Cự nhật vô tinh",
+    "kind": "bien_cach",
+    "definition": "Cung Dậu gặp Cơ Cự, mặt trời không sáng.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Mão Thìn Tỵ Ngọ phùng Âm tú": {
+    "term": "Mão Thìn Tỵ Ngọ phùng Âm tú",
+    "kind": "bien_cach",
+    "definition": "Các cung Mão Thìn Tỵ Ngọ gặp Thái Âm xấu.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Tuất Hợi phùng Dương bất vinh": {
+    "term": "Tuất Hợi phùng Dương bất vinh",
+    "kind": "bien_cach",
+    "definition": "Cung Tuất Hợi gặp Thái Dương không vinh.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Tham Sát Tỵ Hợi cư hãm địa": {
+    "term": "Tham Sát Tỵ Hợi cư hãm địa",
+    "kind": "bien_cach",
+    "definition": "Tham Lang và Thất Sát ở Tỵ Hợi bị hãm.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Phá Quân Mão Dậu bất vi thanh": {
+    "term": "Phá Quân Mão Dậu bất vi thanh",
+    "kind": "bien_cach",
+    "definition": "Phá Quân ở Mão Dậu không thanh quý.",
+    "first_page": 74,
+    "occurrences": 1
+  },
+  "Tham Lang Hóa Lộc": {
+    "term": "Tham Lang Hóa Lộc",
+    "kind": "sao",
+    "definition": "Tham Lang tinh kết hợp Hóa Lộc, chủ tài lộc nhưng nếu ở tứ mộ chỉ trung bình.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Tứ Mộ": {
+    "term": "Tứ Mộ",
+    "kind": "cung",
+    "definition": "Bốn cung Thìn, Tuất, Sửu, Mùi, thuộc mộ khố.",
+    "first_page": 75,
+    "occurrences": 3
+  },
+  "Mệnh": {
+    "term": "Mệnh",
+    "kind": "cung",
+    "definition": "Cung mệnh, cung quan trọng nhất trong lá số, đại diện cho bản thân.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Giáp Ấn": {
+    "term": "Giáp Ấn",
+    "kind": "bien_cach",
+    "definition": "Cách cục sao kẹp hai bên tạo thành ấn chương.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Củng Thân": {
+    "term": "Củng Thân",
+    "kind": "bien_cach",
+    "definition": "Cách cục sao vây quanh thân, tạo thế củng hộ.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Chiếu Bích": {
+    "term": "Chiếu Bích",
+    "kind": "bien_cach",
+    "definition": "Cách cục Nhật Nguyệt chiếu vào cung Điền Trạch.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Kim Xán Quang Huy": {
+    "term": "Kim Xán Quang Huy",
+    "kind": "bien_cach",
+    "definition": "Cách cục Thái Dương ở Ngọ cung rất sáng.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Nhật Xuất Phù Tang": {
+    "term": "Nhật Xuất Phù Tang",
+    "kind": "bien_cach",
+    "definition": "Cách cục Thái Dương ở Mão cung như mặt trời mọc.",
+    "first_page": 75,
+    "occurrences": 1
+  },
+  "Hoa Cái": {
+    "term": "Hoa Cái",
+    "kind": "sao",
+    "definition": "Sao Hoa Cái, chủ về nghệ thuật, tâm linh.",
+    "first_page": 78,
+    "occurrences": 1
+  },
+  "Cát Hóa": {
+    "term": "Cát Hóa",
+    "kind": "the_loai",
+    "definition": "Nhóm sao tốt: Hóa Lộc, Hóa Quyền, Hóa Khoa.",
+    "first_page": 78,
+    "occurrences": 1
+  },
+  "Mộ vận": {
+    "term": "Mộ vận",
+    "kind": "bien_cach",
+    "definition": "Vận hạn ở cung Mộ, thường gặp suy bại nhưng có thể phát muộn.",
+    "first_page": 79,
+    "occurrences": 1
+  },
+  "chủ tinh": {
+    "term": "chủ tinh",
+    "kind": "sao",
+    "definition": "Sao chính tinh trong mệnh, quyết định bản mệnh của người.",
+    "first_page": 79,
+    "occurrences": 1
+  },
+  "Thân cung": {
+    "term": "Thân cung",
+    "kind": "cung",
+    "definition": "Cung phản ánh vận mệnh, cuộc sống và sự nghiệp sau này.",
+    "first_page": 80,
+    "occurrences": 4
+  },
+  "Nạp âm": {
+    "term": "Nạp âm",
+    "kind": "the_loai",
+    "definition": "Phương pháp gán mệnh ngũ hành dựa trên can chi năm sinh.",
+    "first_page": 80,
+    "occurrences": 1
+  },
+  "Hỏa cục": {
+    "term": "Hỏa cục",
+    "kind": "the_loai",
+    "definition": "Một trong các Ngũ cục, dùng để xác định vị trí sao Tử Vi.",
+    "first_page": 80,
+    "occurrences": 1
+  },
+  "Ngũ Hổ độn": {
+    "term": "Ngũ Hổ độn",
+    "kind": "the_loai",
+    "definition": "Phép khởi tháng Dần dựa trên Thiên Can năm sinh.",
+    "first_page": 81,
+    "occurrences": 1
+  },
+  "Nạp Âm": {
+    "term": "Nạp Âm",
+    "kind": "the_loai",
+    "definition": "Hệ thống ngũ hành của 60 Hoa Giáp dùng để định mệnh.",
+    "first_page": 81,
+    "occurrences": 2
+  },
+  "Dương Vũ": {
+    "term": "Dương Vũ",
+    "kind": "sao",
+    "definition": "Tên gọi chung của sao Dương (Thái Dương?) và Vũ (Vũ Khúc?) trong văn bản.",
+    "first_page": 82,
+    "occurrences": 1
+  },
+  "Tứ Hóa": {
+    "term": "Tứ Hóa",
+    "kind": "the_loai",
+    "definition": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+    "first_page": 84,
+    "occurrences": 1
+  },
+  "Tiểu Hao": {
+    "term": "Tiểu Hao",
+    "kind": "sao",
+    "definition": "Sao thuộc 12 sao Thái Tuế, chủ hao tiền.",
+    "first_page": 85,
+    "occurrences": 2
+  },
+  "Phi Liêm": {
+    "term": "Phi Liêm",
+    "kind": "sao",
+    "definition": "Sao thuộc 12 sao Thái Tuế, chủ cô độc.",
+    "first_page": 85,
+    "occurrences": 2
+  },
+  "Hỷ Thần": {
+    "term": "Hỷ Thần",
+    "kind": "sao",
+    "definition": "Sao thuộc 12 sao Thái Tuế, chủ kéo dài phúc.",
+    "first_page": 85,
+    "occurrences": 2
+  },
+  "Phục Binh": {
+    "term": "Phục Binh",
+    "kind": "sao",
+    "definition": "Sao thuộc 12 sao Thái Tuế, chủ dây dưa khẩu thiệt.",
+    "first_page": 85,
+    "occurrences": 2
+  },
+  "Bat Toa": {
+    "term": "Bat Toa",
+    "kind": "sao",
+    "definition": "Sao thứ trong bộ Tam Thai Bát Tọa, an theo ngày sinh dựa trên vị trí Hữu Bật.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Thien Kho": {
+    "term": "Thien Kho",
+    "kind": "sao",
+    "definition": "Sao an theo năm sinh, khởi từ Ngọ, nghịch hành theo Tỵ.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Thien Hu": {
+    "term": "Thien Hu",
+    "kind": "sao",
+    "definition": "Sao an theo năm sinh, khởi từ Ngọ, thuận hành theo Vị.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Long Tri": {
+    "term": "Long Tri",
+    "kind": "sao",
+    "definition": "Sao an theo năm sinh, từ Tý thuận đếm đến Thìn.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Phuong Cac": {
+    "term": "Phuong Cac",
+    "kind": "sao",
+    "definition": "Sao an theo năm sinh, từ Tý nghịch đếm đến Tuất.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Thai Phu": {
+    "term": "Thai Phu",
+    "kind": "sao",
+    "definition": "Sao an theo giờ sinh, từ Ngọ thuận số.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Phong Cao": {
+    "term": "Phong Cao",
+    "kind": "sao",
+    "definition": "Sao an theo giờ sinh, từ Dần thuận số.",
+    "first_page": 86,
+    "occurrences": 1
+  },
+  "Trường Sinh": {
+    "term": "Trường Sinh",
+    "kind": "sao",
+    "definition": "Sao chỉ sự sinh trưởng, khởi đầu, tượng trưng cho sinh lực.",
+    "first_page": 87,
+    "occurrences": 2
+  },
+  "Mộc Dục": {
+    "term": "Mộc Dục",
+    "kind": "sao",
+    "definition": "Sao chỉ tắm gội, thanh tẩy, giai đoạn non trẻ cần chăm sóc.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Quan Đái": {
+    "term": "Quan Đái",
+    "kind": "sao",
+    "definition": "Sao chỉ đội mão, tượng trưng cho sự trưởng thành, vào đời.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Lâm Quan": {
+    "term": "Lâm Quan",
+    "kind": "sao",
+    "definition": "Sao chỉ sắp ra làm quan, giai đoạn trưởng thành, có địa vị.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Đế Vượng": {
+    "term": "Đế Vượng",
+    "kind": "sao",
+    "definition": "Sao chỉ vua thịnh vượng, tột đỉnh của vận thế.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Vượng": {
+    "term": "Vượng",
+    "kind": "sao",
+    "definition": "Sao chỉ sự thịnh vượng, sức mạnh đạt đỉnh.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Suy": {
+    "term": "Suy",
+    "kind": "sao",
+    "definition": "Sao chỉ sự suy yếu, bắt đầu đi xuống.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Bệnh": {
+    "term": "Bệnh",
+    "kind": "sao",
+    "definition": "Sao chỉ bệnh tật, suy nhược.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Tử": {
+    "term": "Tử",
+    "kind": "sao",
+    "definition": "Sao chỉ sự chết, kết thúc.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Mộ": {
+    "term": "Mộ",
+    "kind": "sao",
+    "definition": "Sao chỉ mồ mả, chôn vùi, thu liễm.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Tuyệt": {
+    "term": "Tuyệt",
+    "kind": "sao",
+    "definition": "Sao chỉ sự tuyệt diệt, hết hơi.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Thai": {
+    "term": "Thai",
+    "kind": "sao",
+    "definition": "Sao chỉ thai nghén, hình thành trong bụng mẹ.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Dưỡng": {
+    "term": "Dưỡng",
+    "kind": "sao",
+    "definition": "Sao chỉ nuôi dưỡng, chuẩn bị sinh ra.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Thiên Hỷ": {
+    "term": "Thiên Hỷ",
+    "kind": "sao",
+    "definition": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+    "first_page": 87,
+    "occurrences": 2
+  },
+  "Đẩu Quân": {
+    "term": "Đẩu Quân",
+    "kind": "sao",
+    "definition": "Sao tháng, tức Nguyệt Tương, dùng trong lưu niên.",
+    "first_page": 87,
+    "occurrences": 13
+  },
+  "Nguyệt Tương": {
+    "term": "Nguyệt Tương",
+    "kind": "sao",
+    "definition": "Tên khác của Đẩu Quân, sao tháng.",
+    "first_page": 87,
+    "occurrences": 1
+  },
+  "Thiên Đức": {
+    "term": "Thiên Đức",
+    "kind": "sao",
+    "definition": "Sao cát tinh, hóa giải tai ương, an theo Thái Tuế lưu niên.",
+    "first_page": 88,
+    "occurrences": 1
+  },
+  "Nguyệt Đức": {
+    "term": "Nguyệt Đức",
+    "kind": "sao",
+    "definition": "Sao cát tinh, chủ phúc đức, an theo Thái Tuế lưu niên.",
+    "first_page": 88,
+    "occurrences": 1
+  },
+  "Giải Thần": {
+    "term": "Giải Thần",
+    "kind": "sao",
+    "definition": "Sao cát tinh, giúp giải trừ tai họa, an theo Thái Tuế năm sinh.",
+    "first_page": 88,
+    "occurrences": 1
+  },
+  "Phi Thiên Tam Sát": {
+    "term": "Phi Thiên Tam Sát",
+    "kind": "sao",
+    "definition": "Bộ ba sao xấu Tấu Thư, Tướng Quân, Trực Phù, ảnh hưởng theo năm.",
+    "first_page": 88,
+    "occurrences": 1
+  },
+  "Trực Phù": {
+    "term": "Trực Phù",
+    "kind": "sao",
+    "definition": "Sao xấu chủ về quan tụ, tai họa pháp lý.",
+    "first_page": 88,
+    "occurrences": 1
+  },
+  "Tiệt Lộ Không Vong": {
+    "term": "Tiệt Lộ Không Vong",
+    "kind": "bien_cach",
+    "definition": "Cung bị triệt không, vong mất, tính theo năm sinh can chi.",
+    "first_page": 88,
+    "occurrences": 1
+  },
+  "Tuần Trung Không Vong": {
+    "term": "Tuần Trung Không Vong",
+    "kind": "bien_cach",
+    "definition": "Không vong trong một tuần, là các cung bị bỏ trống trong an sao.",
+    "first_page": 89,
+    "occurrences": 1
+  },
+  "Đồng Hạn": {
+    "term": "Đồng Hạn",
+    "kind": "the_loai",
+    "definition": "Phương pháp tính hạn trẻ em, dùng để xem vận hạn theo từng cung.",
+    "first_page": 89,
+    "occurrences": 1
+  },
+  "Mệnh chủ": {
+    "term": "Mệnh chủ",
+    "kind": "sao",
+    "definition": "Sao chủ tinh của cung Mệnh, thay đổi theo cung an Mệnh.",
+    "first_page": 90,
+    "occurrences": 1
+  },
+  "Thân chủ": {
+    "term": "Thân chủ",
+    "kind": "sao",
+    "definition": "Sao chủ tinh của cung Thân, thay đổi theo cung an Thân.",
+    "first_page": 90,
+    "occurrences": 1
+  },
+  "Kim Tỏa Thiết Xà Quan": {
+    "term": "Kim Tỏa Thiết Xà Quan",
+    "kind": "bien_cach",
+    "definition": "Phép tính hạn mệnh cho trẻ nhỏ, dùng năm tháng ngày giờ sinh.",
+    "first_page": 90,
+    "occurrences": 1
+  },
+  "Trúc La tam hạn": {
+    "term": "Trúc La tam hạn",
+    "kind": "bien_cach",
+    "definition": "Ba hạn lớn dựa trên cục Đế tinh và sao Thất Sát, Phá Quân.",
+    "first_page": 90,
+    "occurrences": 1
+  },
+  "Cự Ám": {
+    "term": "Cự Ám",
+    "kind": "sao",
+    "definition": "Ghép giữa sao Cự Môn và Ám tinh (hung tinh).",
+    "first_page": 90,
+    "occurrences": 1
+  },
+  "Cường cung/Nhược cung": {
+    "term": "Cường cung/Nhược cung",
+    "kind": "cung",
+    "definition": "Phân loại cung mạnh yếu theo giới tính: nam trọng tài, quan, phúc, di, điền; nữ trọng phu, tử, tài, điền, phúc.",
+    "first_page": 91,
+    "occurrences": 1
+  },
+  "Nhàn cung": {
+    "term": "Nhàn cung",
+    "kind": "cung",
+    "definition": "Cung mà sao chủ quản đóng vào sẽ kém phát huy tác dụng, thường là vị trí bất lợi.",
+    "first_page": 91,
+    "occurrences": 1
+  },
+  "Lưu Lộc/Lưu Dương/Lưu Đà": {
+    "term": "Lưu Lộc/Lưu Dương/Lưu Đà",
+    "kind": "sao",
+    "definition": "Các sao lưu niên dùng để luận hạn, thay đổi theo năm Thái Tuế.",
+    "first_page": 91,
+    "occurrences": 1
+  },
+  "Sinh khắc chế hóa": {
+    "term": "Sinh khắc chế hóa",
+    "kind": "the_loai",
+    "definition": "Nguyên lý tương sinh, tương khắc, chế phục và hóa giải giữa các sao dựa trên ngũ hành.",
+    "first_page": 91,
+    "occurrences": 2
+  },
+  "Nam Bắc Đẩu chính diệu": {
+    "term": "Nam Bắc Đẩu chính diệu",
+    "kind": "the_loai",
+    "definition": "18 sao chính của Nam Đẩu và Bắc Đẩu trong Tử Vi, bao gồm Tử Vi, Thiên Cơ, Lộc Tồn,...",
+    "first_page": 92,
+    "occurrences": 1
+  },
+  "Kim nhập hỏa hương": {
+    "term": "Kim nhập hỏa hương",
+    "kind": "bien_cach",
+    "definition": "Mệnh cục Kim gặp Hỏa nhiều bị khắc chế, bất lợi.",
+    "first_page": 92,
+    "occurrences": 1
+  },
+  "Thiên Khuê": {
+    "term": "Thiên Khuê",
+    "kind": "sao",
+    "definition": "Sao thuộc hành Hỏa, thường chỉ khoa giáp, văn tinh.",
+    "first_page": 93,
+    "occurrences": 1
+  },
+  "Tuế Quân": {
+    "term": "Tuế Quân",
+    "kind": "sao",
+    "definition": "Sao thuộc Hỏa, chủ vận hạn năm, phúc họa.",
+    "first_page": 93,
+    "occurrences": 1
+  },
+  "Bệnh Phủ": {
+    "term": "Bệnh Phủ",
+    "kind": "sao",
+    "definition": "Sao chủ về bệnh tật, ốm đau.",
+    "first_page": 93,
+    "occurrences": 1
+  },
+  "Kim Mộc Thủy Hỏa Thổ cục": {
+    "term": "Kim Mộc Thủy Hỏa Thổ cục",
+    "kind": "the_loai",
+    "definition": "Ngũ hành cục trong Tử Vi, mỗi cục ứng với một hành và số tuổi khởi mệnh.",
+    "first_page": 94,
+    "occurrences": 1
+  },
+  "Tử Vi Kim cung": {
+    "term": "Tử Vi Kim cung",
+    "kind": "sao",
+    "definition": "Tử Vi tọa tại cung thuộc hành Kim, ứng với khởi đầu từ 4 tuổi.",
+    "first_page": 94,
+    "occurrences": 1
+  },
+  "Mộc cung": {
+    "term": "Mộc cung",
+    "kind": "cung",
+    "definition": "Cung thứ 5 trong 12 cung Địa Chi, thuộc Mộc, ứng với Thìn.",
+    "first_page": 95,
+    "occurrences": 1
+  },
+  "Long": {
+    "term": "Long",
+    "kind": "sao",
+    "definition": "Sao Long Trì, một trong 12 sao Thái Tuế hệ, chỉ sự thăng tiến.",
+    "first_page": 95,
+    "occurrences": 1
+  },
+  "Ngưu": {
+    "term": "Ngưu",
+    "kind": "sao",
+    "definition": "Sao Ngưu Kim, chỉ sự vất vả, chăm chỉ.",
+    "first_page": 95,
+    "occurrences": 1
+  },
+  "Thần phu": {
+    "term": "Thần phu",
+    "kind": "sao",
+    "definition": "Sao Thần Phù, biểu tượng của sự che chở, phù hộ.",
+    "first_page": 95,
+    "occurrences": 1
+  },
+  "Thần": {
+    "term": "Thần",
+    "kind": "sao",
+    "definition": "Sao Thần, có thể chỉ các thần sát như Thái Tuế, Phục Binh...",
+    "first_page": 95,
+    "occurrences": 1
+  },
+  "Khảm Thủy cung": {
+    "term": "Khảm Thủy cung",
+    "kind": "cung",
+    "definition": "Cung địa bàn thuộc hành Thủy, ứng với phương Bắc, quẻ Khảm.",
+    "first_page": 96,
+    "occurrences": 1
+  },
+  "nhị tuế hành": {
+    "term": "nhị tuế hành",
+    "kind": "the_loai",
+    "definition": "Cách tính vận hạn bắt đầu từ 2 tuổi, dùng cho cung Khảm Thủy.",
+    "first_page": 96,
+    "occurrences": 1
+  },
+  "Ly Hỏa cung": {
+    "term": "Ly Hỏa cung",
+    "kind": "cung",
+    "definition": "Cung Ly thuộc Hỏa, thường dùng trong an sao theo lục tuế.",
+    "first_page": 97,
+    "occurrences": 1
+  },
+  "lục tuế": {
+    "term": "lục tuế",
+    "kind": "the_loai",
+    "definition": "Phép tính tuổi theo lục thập hoa giáp kết hợp với cung Ly.",
+    "first_page": 97,
+    "occurrences": 1
+  },
+  "Tử Phủ Đồng Cung": {
+    "term": "Tử Phủ Đồng Cung",
+    "kind": "bien_cach",
+    "definition": "Hai sao Tử Vi và Thiên Phủ cùng ở một cung, tạo thế vững chắc.",
+    "first_page": 99,
+    "occurrences": 1
+  },
+  "Thương Sử": {
+    "term": "Thương Sử",
+    "kind": "sao",
+    "definition": "Sao chủ về tai họa, gây ra họa phúc nhanh chậm trong tử vi.",
+    "first_page": 100,
+    "occurrences": 1
+  },
+  "Tuế hạn": {
+    "term": "Tuế hạn",
+    "kind": "the_loai",
+    "definition": "Hạn Lưu Niên, là vận hạn hàng năm dựa trên tuổi.",
+    "first_page": 100,
+    "occurrences": 1
+  },
+  "Kỵ": {
+    "term": "Kỵ",
+    "kind": "hoa",
+    "definition": "Hóa Kỵ, sao chủ về tai họa, trắc trở",
+    "first_page": 101,
+    "occurrences": 2
+  },
+  "Miếu Vượng Lạc Hãm": {
+    "term": "Miếu Vượng Lạc Hãm",
+    "kind": "the_loai",
+    "definition": "Phân loại mức độ tốt xấu của sao khi đóng tại cung, từ cao nhất (Miếu) đến thấp nhất (Hãm).",
+    "first_page": 102,
+    "occurrences": 1
+  },
+  "nhị sát": {
+    "term": "nhị sát",
+    "kind": "the_loai",
+    "definition": "Hai sát tinh gồm Kình Dương, Đà La hoặc Hỏa Linh.",
+    "first_page": 103,
+    "occurrences": 1
+  },
+  "tài quan cách": {
+    "term": "tài quan cách",
+    "kind": "bien_cach",
+    "definition": "Cách cục chủ về tài lộc và quan chức.",
+    "first_page": 103,
+    "occurrences": 2
+  },
+  "Phu cung": {
+    "term": "Phu cung",
+    "kind": "cung",
+    "definition": "Cung vị về hôn nhân của nữ mệnh, chỉ người chồng.",
+    "first_page": 104,
+    "occurrences": 1
+  },
+  "Nhập miếu": {
+    "term": "Nhập miếu",
+    "kind": "the_loai",
+    "definition": "Sao tọa tại cung vị có độ sáng tốt, sức mạnh tăng cường.",
+    "first_page": 104,
+    "occurrences": 7
+  },
+  "Cung nhàn": {
+    "term": "Cung nhàn",
+    "kind": "cung",
+    "definition": "Cung không có chính diệu hoặc sao tốt đóng, chủ về sự nhàn rỗi.",
+    "first_page": 105,
+    "occurrences": 1
+  },
+  "Kình Đà": {
+    "term": "Kình Đà",
+    "kind": "sao",
+    "definition": "Kình Dương, Đà La, hai hung tinh, chủ về xung phá, thị phi.",
+    "first_page": 106,
+    "occurrences": 2
+  },
+  "Tài quan cách": {
+    "term": "Tài quan cách",
+    "kind": "bien_cach",
+    "definition": "Cách cục tốt cho tài lộc và quan chức, thường có sao tốt chiếu.",
+    "first_page": 106,
+    "occurrences": 2
+  },
+  "Thái Dương phản bối": {
+    "term": "Thái Dương phản bối",
+    "kind": "bien_cach",
+    "definition": "Thế sao Thái Dương mất đắc địa, chiếu ngược, chủ tối tăm.",
+    "first_page": 107,
+    "occurrences": 1
+  },
+  "Mệnh phùng Tử Phủ": {
+    "term": "Mệnh phùng Tử Phủ",
+    "kind": "bien_cach",
+    "definition": "Mệnh cung gặp Tử Vi và Thiên Phủ, chủ quyền quý.",
+    "first_page": 107,
+    "occurrences": 1
+  },
+  "Tài Quan Cách": {
+    "term": "Tài Quan Cách",
+    "kind": "the_loai",
+    "definition": "Cách cục tốt về tài lộc và quan chức, thường được xác định theo cung an mệnh và năm sinh.",
+    "first_page": 109,
+    "occurrences": 1
+  },
+  "Nhập Miếu": {
+    "term": "Nhập Miếu",
+    "kind": "bien_cach",
+    "definition": "Sao đóng tại cung vị tốt nhất, phát huy tối đa năng lực tốt đẹp.",
+    "first_page": 109,
+    "occurrences": 2
+  },
+  "Hãm": {
+    "term": "Hãm",
+    "kind": "bien_cach",
+    "definition": "Sao đóng tại cung vị xấu, suy yếu, mang lại điều không may.",
+    "first_page": 109,
+    "occurrences": 2
+  },
+  "Đắc Địa": {
+    "term": "Đắc Địa",
+    "kind": "bien_cach",
+    "definition": "Sao đóng tại cung vị thích hợp, có lợi cho mệnh chủ.",
+    "first_page": 109,
+    "occurrences": 1
+  },
+  "Phá Tướng": {
+    "term": "Phá Tướng",
+    "kind": "bien_cach",
+    "definition": "Tình trạng xấu do sát tinh gây ra, làm tổn hại diện mạo hoặc sức khỏe.",
+    "first_page": 109,
+    "occurrences": 1
+  },
+  "Không Môn": {
+    "term": "Không Môn",
+    "kind": "the_loai",
+    "definition": "Cửa không, tức cửa chùa, chỉ con đường tu hành thoát tục.",
+    "first_page": 109,
+    "occurrences": 1
+  },
+  "Thiên Đồng Thái Âm đồng cung": {
+    "term": "Thiên Đồng Thái Âm đồng cung",
+    "kind": "bien_cach",
+    "definition": "Sự kết hợp giữa Thiên Đồng và Thái Âm, xấu cho nữ mệnh.",
+    "first_page": 110,
+    "occurrences": 1
+  },
+  "Đào Hoa sát": {
+    "term": "Đào Hoa sát",
+    "kind": "the_loai",
+    "definition": "Loại sát tinh chủ về tình dục, dâm dật.",
+    "first_page": 110,
+    "occurrences": 1
+  },
+  "Tử Vi Đẩu Số": {
+    "term": "Tử Vi Đẩu Số",
+    "kind": "the_loai",
+    "definition": "Môn khoa học chiêm tinh phương Đông, dựa vào Tử Vi tinh hệ để luận mệnh.",
+    "first_page": 111,
+    "occurrences": 6
+  },
+  "nhập miếu": {
+    "term": "nhập miếu",
+    "kind": "bien_cach",
+    "definition": "Trạng thái sao đắc địa, mạnh mẽ, mang lại may mắn và quý hiển.",
+    "first_page": 111,
+    "occurrences": 8
+  },
+  "Hỏa Linh Kình Đà": {
+    "term": "Hỏa Linh Kình Đà",
+    "kind": "sao",
+    "definition": "Hỏa Tinh, Linh Tinh, Kình Dương, Đà La, bốn sao hung tinh.",
+    "first_page": 113,
+    "occurrences": 1
+  },
+  "Tứ Mộ cung": {
+    "term": "Tứ Mộ cung",
+    "kind": "cung",
+    "definition": "Bốn cung Thìn, Tuất, Sửu, Mùi; nơi Tham Lang nhập miếu phúc khí dày.",
+    "first_page": 115,
+    "occurrences": 1
+  },
+  "đào hoa sát": {
+    "term": "đào hoa sát",
+    "kind": "the_loai",
+    "definition": "Sát tinh về tình duyên, chủ đa tình hoặc dâm đãng.",
+    "first_page": 115,
+    "occurrences": 1
+  },
+  "tam sát": {
+    "term": "tam sát",
+    "kind": "the_loai",
+    "definition": "Ba sát tinh thường gồm Kình Dương, Đà La, Hỏa Linh hoặc kiếp sát.",
+    "first_page": 115,
+    "occurrences": 1
+  },
+  "quý cách": {
+    "term": "quý cách",
+    "kind": "bien_cach",
+    "definition": "Cách cục quý hiển, thường đạt địa vị cao.",
+    "first_page": 115,
+    "occurrences": 1
+  },
+  "Thạch Trung Ẩn Ngọc": {
+    "term": "Thạch Trung Ẩn Ngọc",
+    "kind": "bien_cach",
+    "definition": "Cách Cự Môn tại Tý Ngọ hội Hóa Lộc, Khoa, Quyền, phúc hậu.",
+    "first_page": 117,
+    "occurrences": 1
+  },
+  "Mệnh hãm": {
+    "term": "Mệnh hãm",
+    "kind": "the_loai",
+    "definition": "Cung Mệnh ở vị trí xấu, không được miếu địa hay đắc địa, gây bất lợi.",
+    "first_page": 118,
+    "occurrences": 1
+  },
+  "Hóa quyền": {
+    "term": "Hóa quyền",
+    "kind": "hoa",
+    "definition": "Sao Cự Môn khi hóa quyền thì tăng cường năng lực mưu cầu, đại sự thành.",
+    "first_page": 118,
+    "occurrences": 1
+  },
+  "Phá Võ": {
+    "term": "Phá Võ",
+    "kind": "the_loai",
+    "definition": "Chỉ Phá Quân và Vũ Khúc, hai sao hung thường gây biến động.",
+    "first_page": 119,
+    "occurrences": 1
+  },
+  "Dương Đà Hỏa Linh": {
+    "term": "Dương Đà Hỏa Linh",
+    "kind": "the_loai",
+    "definition": "Nhóm sao Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, chủ hung họa.",
+    "first_page": 119,
+    "occurrences": 1
+  },
+  "hòa bình": {
+    "term": "hòa bình",
+    "kind": "the_loai",
+    "definition": "Trạng thái sao ở trung vị, không xấu không tốt.",
+    "first_page": 121,
+    "occurrences": 1
+  },
+  "Khuê Việt": {
+    "term": "Khuê Việt",
+    "kind": "sao",
+    "definition": "Tả Khuê Hữu Việt, hai sao tốt chủ về công danh.",
+    "first_page": 122,
+    "occurrences": 1
+  },
+  "Đà La (trùng)": {
+    "term": "Đà La (trùng)",
+    "kind": "sao",
+    "definition": "Sao hung chủ về trì trệ, ám muội, phiền não.",
+    "first_page": 122,
+    "occurrences": 1
+  },
+  "Kim thư": {
+    "term": "Kim thư",
+    "kind": "the_loai",
+    "definition": "Sách của Thiệu Ung về Dịch học.",
+    "first_page": 122,
+    "occurrences": 2
+  },
+  "đắc địa": {
+    "term": "đắc địa",
+    "kind": "the_loai",
+    "definition": "Trạng thái sao đóng tại cung tốt, hưởng phúc, bình hòa.",
+    "first_page": 124,
+    "occurrences": 1
+  },
+  "Không môn": {
+    "term": "Không môn",
+    "kind": "bien_cach",
+    "definition": "Cửa không, chỉ con đường tu hành Phật/Đạo, thoát tục nếu gặp yếu tố bất lợi.",
+    "first_page": 126,
+    "occurrences": 1
+  },
+  "Hạ cục": {
+    "term": "Hạ cục",
+    "kind": "the_loai",
+    "definition": "Cách cục xấu, chủ về nghèo hèn, bệnh tật, chết yểu.",
+    "first_page": 127,
+    "occurrences": 1
+  },
+  "Thượng cục": {
+    "term": "Thượng cục",
+    "kind": "the_loai",
+    "definition": "Cách cục tốt nhất, chủ phú quý vinh hoa, công danh hiển đạt.",
+    "first_page": 127,
+    "occurrences": 1
+  },
+  "Thiên La Địa Võng": {
+    "term": "Thiên La Địa Võng",
+    "kind": "the_loai",
+    "definition": "Hai cung Thìn (Thiên La) và Tuất (Địa Võng), chủ khốn đốn, gặp Kình Dương càng hung.",
+    "first_page": 131,
+    "occurrences": 3
+  },
+  "Tử Phủ Tả Hữu": {
+    "term": "Tử Phủ Tả Hữu",
+    "kind": "bien_cach",
+    "definition": "Hội hợp giữa Tử Vi, Thiên Phủ, Tả Phụ, Hữu Bật, chủ phú quý cao sang.",
+    "first_page": 133,
+    "occurrences": 1
+  },
+  "Hỏa Linh không kiếp": {
+    "term": "Hỏa Linh không kiếp",
+    "kind": "the_loai",
+    "definition": "Nhóm sao hung gồm Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp, gây họa lớn.",
+    "first_page": 133,
+    "occurrences": 1
+  },
+  "Tử Phủ": {
+    "term": "Tử Phủ",
+    "kind": "sao",
+    "definition": "Chỉ Tử Vi và Thiên Phủ, hai sao chủ tể, tượng trưng cho quyền uy và phú quý.",
+    "first_page": 134,
+    "occurrences": 1
+  },
+  "Miếu địa": {
+    "term": "Miếu địa",
+    "kind": "the_loai",
+    "definition": "Vị trí đắc địa của sao, tại đó sao phát huy tối đa năng lực tốt.",
+    "first_page": 134,
+    "occurrences": 2
+  },
+  "Kiếp Sát": {
+    "term": "Kiếp Sát",
+    "kind": "the_loai",
+    "definition": "Nhóm sát tinh gồm Địa Kiếp và Địa Không, chủ về tai họa, phá tán.",
+    "first_page": 135,
+    "occurrences": 1
+  },
+  "Tải Lộ Không Vong": {
+    "term": "Tải Lộ Không Vong",
+    "kind": "bien_cach",
+    "definition": "Cách cục không tốt khi Thiên Mã gặp Tuần Không hoặc Triệt Không.",
+    "first_page": 136,
+    "occurrences": 1
+  },
+  "Tử Phủ Lộc Tồn": {
+    "term": "Tử Phủ Lộc Tồn",
+    "kind": "the_loai",
+    "definition": "Bộ ba sao Tử Vi, Thiên Phủ, Lộc Tồn hội hợp, chủ phú quý hiển đạt.",
+    "first_page": 137,
+    "occurrences": 1
+  },
+  "Phá Kiếp Không": {
+    "term": "Phá Kiếp Không",
+    "kind": "the_loai",
+    "definition": "Cụm sao Phá Quân, Địa Kiếp, Địa Không; gặp Thái Tuế và Thiên Mã thì xấu.",
+    "first_page": 137,
+    "occurrences": 1
+  },
+  "Long Môn": {
+    "term": "Long Môn",
+    "kind": "the_loai",
+    "definition": "Điển tích cá chép hóa rồng, chỉ sự thăng tiến vượt bậc.",
+    "first_page": 139,
+    "occurrences": 1
+  },
+  "Tuế Quân (Thái Tuế)": {
+    "term": "Tuế Quân (Thái Tuế)",
+    "kind": "sao",
+    "definition": "Sao lưu niên chủ sự biến động, tai họa nếu xung hạn.",
+    "first_page": 140,
+    "occurrences": 1
+  },
+  "Kinh Dương": {
+    "term": "Kinh Dương",
+    "kind": "sao",
+    "definition": "Sao sát tinh chủ tai họa, đau thương, khẩu thiệt.",
+    "first_page": 140,
+    "occurrences": 1
+  },
+  "Hóa Lộc hội Lộc Tồn": {
+    "term": "Hóa Lộc hội Lộc Tồn",
+    "kind": "bien_cach",
+    "definition": "Hóa Lộc gặp Lộc Tồn tạo thành song lộc, chủ đại phú quý.",
+    "first_page": 140,
+    "occurrences": 1
+  },
+  "Hóa Quyền hội Cự Vũ": {
+    "term": "Hóa Quyền hội Cự Vũ",
+    "kind": "bien_cach",
+    "definition": "Hóa Quyền gặp Cự Môn, Vũ Khúc, chủ quyền lực, danh vọng.",
+    "first_page": 140,
+    "occurrences": 1
+  },
+  "Hóa Khoa hội Khôi Việt": {
+    "term": "Hóa Khoa hội Khôi Việt",
+    "kind": "bien_cach",
+    "definition": "Hóa Khoa gặp Thiên Khôi, Thiên Việt, chủ khoa bảng, hiển đạt.",
+    "first_page": 140,
+    "occurrences": 1
+  },
+  "Kỵ tinh hội thân mệnh": {
+    "term": "Kỵ tinh hội thân mệnh",
+    "kind": "bien_cach",
+    "definition": "Hóa Kỵ chiếu vào cung Thân hoặc Mệnh, chủ thị phi, khó khăn.",
+    "first_page": 140,
+    "occurrences": 1
+  },
+  "Hy miếu": {
+    "term": "Hy miếu",
+    "kind": "the_loai",
+    "definition": "Miếu vượng, chỉ cung vị tốt của sao.",
+    "first_page": 142,
+    "occurrences": 1
+  },
+  "Tam thê thiếp": {
+    "term": "Tam thê thiếp",
+    "kind": "the_loai",
+    "definition": "Luận về hôn nhân, vợ và thiếp, bao gồm các trường hợp tái hôn.",
+    "first_page": 144,
+    "occurrences": 1
+  },
+  "Khang Tiết địa Dịch Kim Thư": {
+    "term": "Khang Tiết địa Dịch Kim Thư",
+    "kind": "the_loai",
+    "definition": "Sách Dịch Kim Thư của Thiệu Khang Tiết (Thiệu Ung), bản khắc trên đá/chữ vàng.",
+    "first_page": 144,
+    "occurrences": 1
+  },
+  "Hao": {
+    "term": "Hao",
+    "kind": "sao",
+    "definition": "Sao Hao (Hóa Hao), chủ về hao tài, phi lễ thành hôn.",
+    "first_page": 144,
+    "occurrences": 1
+  },
+  "Phu Thê cung": {
+    "term": "Phu Thê cung",
+    "kind": "cung",
+    "definition": "Cung xem vợ chồng, quan hệ hôn nhân và đối tác.",
+    "first_page": 145,
+    "occurrences": 1
+  },
+  "Tử Nữ cung": {
+    "term": "Tử Nữ cung",
+    "kind": "cung",
+    "definition": "Cung xem con cái, số lượng và tính cách con.",
+    "first_page": 145,
+    "occurrences": 1
+  },
+  "Hình khắc": {
+    "term": "Hình khắc",
+    "kind": "the_loai",
+    "definition": "Tai họa, tổn thương hoặc chia ly do sao xấu.",
+    "first_page": 145,
+    "occurrences": 1
+  },
+  "Sinh ly": {
+    "term": "Sinh ly",
+    "kind": "the_loai",
+    "definition": "Chia ly xa cách giữa vợ chồng.",
+    "first_page": 145,
+    "occurrences": 1
+  },
+  "Nam Đẩu tinh": {
+    "term": "Nam Đẩu tinh",
+    "kind": "sao",
+    "definition": "Nhóm sao Nam Đẩu, chủ sinh nhiều con trai.",
+    "first_page": 145,
+    "occurrences": 2
+  },
+  "Bắc Đẩu tinh": {
+    "term": "Bắc Đẩu tinh",
+    "kind": "sao",
+    "definition": "Nhóm sao Bắc Đẩu, chủ sinh nhiều con gái.",
+    "first_page": 145,
+    "occurrences": 2
+  },
+  "Tử Tức cung": {
+    "term": "Tử Tức cung",
+    "kind": "cung",
+    "definition": "Cung trong lá số tử vi chủ về con cái, khả năng sinh sản và số con.",
+    "first_page": 146,
+    "occurrences": 2
+  },
+  "Hình Sát": {
+    "term": "Hình Sát",
+    "kind": "sao",
+    "definition": "Chỉ Thiên Hình và Thất Sát, hai sao hung tinh chủ hình khắc, tai họa.",
+    "first_page": 146,
+    "occurrences": 1
+  },
+  "Tự tử": {
+    "term": "Tự tử",
+    "kind": "bien_cach",
+    "definition": "Con nuôi, thường là con nuôi để thay thế con ruột.",
+    "first_page": 147,
+    "occurrences": 1
+  },
+  "Minh linh chi tử": {
+    "term": "Minh linh chi tử",
+    "kind": "bien_cach",
+    "definition": "Con nuôi, con nhận nuôi từ nhỏ.",
+    "first_page": 147,
+    "occurrences": 1
+  },
+  "Linh tinh độc thủ": {
+    "term": "Linh tinh độc thủ",
+    "kind": "bien_cach",
+    "definition": "Sao Linh Tinh đơn độc tọa thủ một cung, chủ về sự cô đơn.",
+    "first_page": 148,
+    "occurrences": 1
+  },
+  "Khôi Việt đơn thủ": {
+    "term": "Khôi Việt đơn thủ",
+    "kind": "bien_cach",
+    "definition": "Sao Thiên Khôi và Thiên Việt đơn thủ một cung, chủ có con quý hiển.",
+    "first_page": 148,
+    "occurrences": 1
+  },
+  "Tả Hữu đồng cung": {
+    "term": "Tả Hữu đồng cung",
+    "kind": "bien_cach",
+    "definition": "Tả Phụ và Hữu Bật cùng tọa thủ một cung, thường tốt cho tài vận.",
+    "first_page": 148,
+    "occurrences": 1
+  },
+  "bạch thủ sinh tài": {
+    "term": "bạch thủ sinh tài",
+    "kind": "the_loai",
+    "definition": "Tay trắng sinh tài, tự lập gia nghiệp từ không có gì.",
+    "first_page": 149,
+    "occurrences": 1
+  },
+  "hoành phát": {
+    "term": "hoành phát",
+    "kind": "the_loai",
+    "definition": "Phát tài đột ngột, giàu có nhanh chóng.",
+    "first_page": 149,
+    "occurrences": 1
+  },
+  "Khôi, Việt": {
+    "term": "Khôi, Việt",
+    "kind": "sao",
+    "definition": "Tên gọi chung của sao Khôi và sao Việt (Tả Phù, Hữu Bật?).",
+    "first_page": 150,
+    "occurrences": 1
+  },
+  "Cự Môn đồng cung": {
+    "term": "Cự Môn đồng cung",
+    "kind": "bien_cach",
+    "definition": "Sao Cự Môn cùng cung với một sao khác, thường tạo nên tính chất lao tâm, thị phi.",
+    "first_page": 152,
+    "occurrences": 1
+  },
+  "Miếu vượng địa": {
+    "term": "Miếu vượng địa",
+    "kind": "sao",
+    "definition": "Vị trí sao đắc địa, mạnh mẽ, tốt lành; ở đây chỉ Thái Âm, Thiên Đồng.",
+    "first_page": 152,
+    "occurrences": 1
+  },
+  "Hãm cung": {
+    "term": "Hãm cung",
+    "kind": "sao",
+    "definition": "Vị trí sao bị hãm, yếu, không tốt; trái nghĩa với miếu vượng.",
+    "first_page": 152,
+    "occurrences": 1
+  },
+  "Bốn sát tinh": {
+    "term": "Bốn sát tinh",
+    "kind": "the_loai",
+    "definition": "Nhóm sao gồm Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, chủ về hung họa.",
+    "first_page": 152,
+    "occurrences": 1
+  },
+  "Hao quân": {
+    "term": "Hao quân",
+    "kind": "sao",
+    "definition": "Sao phụ, chủ về hao tài, tổn thất.",
+    "first_page": 152,
+    "occurrences": 1
+  },
+  "Hỏa": {
+    "term": "Hỏa",
+    "kind": "sao",
+    "definition": "Sao Hỏa Tinh, chủ về hỏa hoạn, nóng nảy; phá cách.",
+    "first_page": 154,
+    "occurrences": 1
+  },
+  "Linh": {
+    "term": "Linh",
+    "kind": "sao",
+    "definition": "Sao Linh Tinh, chủ về tai họa bất ngờ; phá cách.",
+    "first_page": 154,
+    "occurrences": 1
+  },
+  "Hỏa tinh": {
+    "term": "Hỏa tinh",
+    "kind": "sao",
+    "definition": "Sao Hỏa Tinh, chủ về oán hận, hung sự, nếu độc thủ thì bất đắc lực.",
+    "first_page": 155,
+    "occurrences": 1
+  },
+  "Linh tinh": {
+    "term": "Linh tinh",
+    "kind": "sao",
+    "definition": "Sao Linh Tinh, chủ về hận thù, hung sự, nếu độc thủ thì bất đắc lực.",
+    "first_page": 155,
+    "occurrences": 1
+  },
+  "Đẩu quân": {
+    "term": "Đẩu quân",
+    "kind": "sao",
+    "definition": "Sao Đẩu Quân (Thái Tuế) cai quản nô bộc, khi quá độ ảnh hưởng đến sự quy thuận hay phản bội.",
+    "first_page": 155,
+    "occurrences": 1
+  },
+  "Cửu Quan Lộc": {
+    "term": "Cửu Quan Lộc",
+    "kind": "cung",
+    "definition": "Chương thứ chín về cung Quan Lộc, bàn về sự nghiệp và chức vụ.",
+    "first_page": 155,
+    "occurrences": 1
+  },
+  "Tử Vi miếu vượng": {
+    "term": "Tử Vi miếu vượng",
+    "kind": "bien_cach",
+    "definition": "Tử Vi ở cung miếu vượng, cát tinh hội chiếu thì phong hầu bá.",
+    "first_page": 155,
+    "occurrences": 1
+  },
+  "Tam phẩm chi quý": {
+    "term": "Tam phẩm chi quý",
+    "kind": "the_loai",
+    "definition": "Chỉ phẩm trật tam phẩm trong quan chức, địa vị cao.",
+    "first_page": 155,
+    "occurrences": 1
+  },
+  "hãm cung": {
+    "term": "hãm cung",
+    "kind": "bien_cach",
+    "definition": "Trạng thái sao ở cung xấu, không lợi.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "hội": {
+    "term": "hội",
+    "kind": "the_loai",
+    "definition": "Từ chỉ sự gặp gỡ, tụ hội của các sao.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "đồng cung": {
+    "term": "đồng cung",
+    "kind": "the_loai",
+    "definition": "Hai hay nhiều sao cùng nằm trong một cung.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "gia": {
+    "term": "gia",
+    "kind": "the_loai",
+    "definition": "Thêm vào, kèm theo (chỉ sao xấu).",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "Mão cung": {
+    "term": "Mão cung",
+    "kind": "cung",
+    "definition": "Cung Mão trong 12 địa chi.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "Dậu cung": {
+    "term": "Dậu cung",
+    "kind": "cung",
+    "definition": "Cung Dậu trong 12 địa chi.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "Cát Khoa": {
+    "term": "Cát Khoa",
+    "kind": "hoa",
+    "definition": "Chỉ sao Hóa Khoa, mang tính cát lợi.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "biếm trích": {
+    "term": "biếm trích",
+    "kind": "the_loai",
+    "definition": "Bị giáng chức, đày đi xa.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "truất giáng": {
+    "term": "truất giáng",
+    "kind": "the_loai",
+    "definition": "Bị cách chức, giáng cấp.",
+    "first_page": 156,
+    "occurrences": 1
+  },
+  "Phụ Bật": {
+    "term": "Phụ Bật",
+    "kind": "sao",
+    "definition": "Tả Phụ và Hữu Bật, hai sao phù trợ, chủ về quyền quý và phụ tá.",
+    "first_page": 157,
+    "occurrences": 3
+  },
+  "Đế Tọa": {
+    "term": "Đế Tọa",
+    "kind": "cung",
+    "definition": "Vị trí của Tử Vi hoặc Thiên Phủ, tượng trưng cho ngôi vua.",
+    "first_page": 157,
+    "occurrences": 1
+  },
+  "Tử Tương": {
+    "term": "Tử Tương",
+    "kind": "sao",
+    "definition": "Tử Vi và Thiên Tướng đồng cung hoặc tam hợp.",
+    "first_page": 157,
+    "occurrences": 1
+  },
+  "Quyền Lộc": {
+    "term": "Quyền Lộc",
+    "kind": "hoa",
+    "definition": "Hóa Quyền và Hóa Lộc, chủ về quyền lực và tài lộc.",
+    "first_page": 157,
+    "occurrences": 1
+  },
+  "Vũ diệu": {
+    "term": "Vũ diệu",
+    "kind": "the_loai",
+    "definition": "Các sao võ tinh như Vũ Khúc, Thất Sát, Phá Quân, Tham Lang.",
+    "first_page": 157,
+    "occurrences": 1
+  },
+  "Tào Lại": {
+    "term": "Tào Lại",
+    "kind": "the_loai",
+    "definition": "Chức quan nhỏ, thuộc hạ trong triều đình.",
+    "first_page": 157,
+    "occurrences": 1
+  },
+  "Không, Kiếp": {
+    "term": "Không, Kiếp",
+    "kind": "the_loai",
+    "definition": "Địa Không và Địa Kiếp, hai sao hung tinh gây phá tán, thất thoát.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "quá phòng": {
+    "term": "quá phòng",
+    "kind": "the_loai",
+    "definition": "Qua nhà khác, tức sanh ra đã được cho làm con nuôi hoặc ở rể.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "khí tổ": {
+    "term": "khí tổ",
+    "kind": "the_loai",
+    "definition": "Bỏ tổ tông, không sống cùng cha mẹ, lìa xa gia đình.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "nhập chuế": {
+    "term": "nhập chuế",
+    "kind": "the_loai",
+    "definition": "Ở rể, lấy vợ và sống bên nhà vợ.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "canh danh": {
+    "term": "canh danh",
+    "kind": "the_loai",
+    "definition": "Đổi tên, thường là đổi họ để tránh hình khắc.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "ký nhân bảo dưỡng": {
+    "term": "ký nhân bảo dưỡng",
+    "kind": "the_loai",
+    "definition": "Gửi nhờ người nuôi dưỡng, làm con nuôi của người khác.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "thoái tổ": {
+    "term": "thoái tổ",
+    "kind": "the_loai",
+    "definition": "Lui về tổ tông, ý chỉ việc ly tổ hoặc thay đổi dòng họ.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "nhị tính": {
+    "term": "nhị tính",
+    "kind": "the_loai",
+    "definition": "Hai họ, tức đổi sang họ khác hoặc mang hai họ.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "diên sinh": {
+    "term": "diên sinh",
+    "kind": "the_loai",
+    "definition": "Kéo dài sự sống, tránh được hình khắc nhờ thay đổi.",
+    "first_page": 162,
+    "occurrences": 1
+  },
+  "Tiệt Không": {
+    "term": "Tiệt Không",
+    "kind": "sao",
+    "definition": "Sao hung, chủ sự đứt đoạn, trở ngại.",
+    "first_page": 163,
+    "occurrences": 1
+  },
+  "Lộc nguyên": {
+    "term": "Lộc nguyên",
+    "kind": "hoa",
+    "definition": "Chỉ lộc của thập can, có thể hóa cát cho sao hung.",
+    "first_page": 163,
+    "occurrences": 1
+  },
+  "Nhập cách": {
+    "term": "Nhập cách",
+    "kind": "the_loai",
+    "definition": "Mệnh tạo có cách cục tốt, sao miếu vượng hoặc hội đủ điều kiện.",
+    "first_page": 164,
+    "occurrences": 1
+  },
+  "Đại Hạo": {
+    "term": "Đại Hạo",
+    "kind": "sao",
+    "definition": "Sao chủ về hình dạng mũi và các đặc điểm trên khuôn mặt.",
+    "first_page": 165,
+    "occurrences": 1
+  },
+  "Tử Phù": {
+    "term": "Tử Phù",
+    "kind": "sao",
+    "definition": "Sao chủ về tính cách và giọng nói, thường liên quan đến sự mạnh mẽ.",
+    "first_page": 165,
+    "occurrences": 3
+  },
+  "Định tiểu nhi sinh thời quyết": {
+    "term": "Định tiểu nhi sinh thời quyết",
+    "kind": "the_loai",
+    "definition": "Phương pháp xác định giờ sinh cho trẻ sơ sinh dựa trên đặc điểm rốn và tư thế ngủ.",
+    "first_page": 166,
+    "occurrences": 1
+  },
+  "Lục dương thời": {
+    "term": "Lục dương thời",
+    "kind": "the_loai",
+    "definition": "Sáu giờ Dương: Dần, Ngọ, Tuất, Thân, Tý, Thìn.",
+    "first_page": 166,
+    "occurrences": 1
+  },
+  "Lục âm thời": {
+    "term": "Lục âm thời",
+    "kind": "the_loai",
+    "definition": "Sáu giờ Âm: Tỵ, Dậu, Sửu, Hợi, Mão, Mùi.",
+    "first_page": 166,
+    "occurrences": 1
+  },
+  "Kỵ tinh": {
+    "term": "Kỵ tinh",
+    "kind": "sao",
+    "definition": "Sao Hóa Kỵ, chủ phiền muộn, trở ngại, hao tổn.",
+    "first_page": 167,
+    "occurrences": 1
+  },
+  "lộc chủ": {
+    "term": "lộc chủ",
+    "kind": "sao",
+    "definition": "Chỉ các sao Hóa Lộc và Lộc Tồn, chủ tài lộc.",
+    "first_page": 167,
+    "occurrences": 1
+  },
+  "Lưu niên": {
+    "term": "Lưu niên",
+    "kind": "the_loai",
+    "definition": "Năm hiện tại trong tử vi, dùng để luận đoán vận hạn trong năm.",
+    "first_page": 169,
+    "occurrences": 1
+  },
+  "Sát trùng phùng": {
+    "term": "Sát trùng phùng",
+    "kind": "the_loai",
+    "definition": "Hiện tượng nhiều sao Sát tinh gặp nhau, gia tăng hung tính.",
+    "first_page": 170,
+    "occurrences": 1
+  },
+  "Hóa hung": {
+    "term": "Hóa hung",
+    "kind": "bien_cach",
+    "definition": "Hóa hung là biến hóa từ tốt thành xấu do không nhập miếu hoặc gặp sao xấu.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Tài quan song mỹ": {
+    "term": "Tài quan song mỹ",
+    "kind": "the_loai",
+    "definition": "Tài quan song mỹ là tài lộc và chức vụ đều tốt, thăng tiến.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Chiêu quan phi": {
+    "term": "Chiêu quan phi",
+    "kind": "the_loai",
+    "definition": "Chiêu quan phi là gặp kiện tụng, tranh chấp pháp lý.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Phát vượng": {
+    "term": "Phát vượng",
+    "kind": "the_loai",
+    "definition": "Phát vượng là sự phát đạt, hưng thịnh trong tài lộc và sự nghiệp.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Hoành phá": {
+    "term": "Hoành phá",
+    "kind": "the_loai",
+    "definition": "Hoành phá là tổn thất đột ngột, phá tài bất ngờ.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Tài hưng vượng": {
+    "term": "Tài hưng vượng",
+    "kind": "the_loai",
+    "definition": "Tài hưng vượng là tài lộc phát triển, thịnh vượng.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Quan tai": {
+    "term": "Quan tai",
+    "kind": "the_loai",
+    "definition": "Quan tai là tai họa liên quan đến quan phủ, kiện tụng.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Khẩu thiệt": {
+    "term": "Khẩu thiệt",
+    "kind": "the_loai",
+    "definition": "Khẩu thiệt là thị phi, tranh cãi, lời qua tiếng lại.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Đà": {
+    "term": "Đà",
+    "kind": "sao",
+    "definition": "Đà (Đà La) là phụ tinh ám họa, chủ sự kén chọn, gian nan.",
+    "first_page": 173,
+    "occurrences": 1
+  },
+  "Kỵ tú": {
+    "term": "Kỵ tú",
+    "kind": "sao",
+    "definition": "Các sao xấu (kỵ thần) mang đến tai họa, trở ngại.",
+    "first_page": 174,
+    "occurrences": 1
+  },
+  "Lục Giáp": {
+    "term": "Lục Giáp",
+    "kind": "the_loai",
+    "definition": "Sáu năm Giáp: Giáp Tý, Giáp Dần, Giáp Thìn, Giáp Ngọ, Giáp Thân, Giáp Tuất.",
+    "first_page": 179,
+    "occurrences": 1
+  },
+  "Tam Công": {
+    "term": "Tam Công",
+    "kind": "the_loai",
+    "definition": "Ba chức quan cao nhất thời xưa: Thái sư, Thái phó, Thái bảo.",
+    "first_page": 179,
+    "occurrences": 1
+  },
+  "Phủ Tướng triều viên": {
+    "term": "Phủ Tướng triều viên",
+    "kind": "bien_cach",
+    "definition": "Thiên Phủ và Thiên Tướng hội chiếu, tạo thành cách cục quý.",
+    "first_page": 180,
+    "occurrences": 1
+  },
+  "Cơ Lương Hội Hợp": {
+    "term": "Cơ Lương Hội Hợp",
+    "kind": "bien_cach",
+    "definition": "Cách cục Thiên Cơ và Thiên Lương cùng thủ mệnh, chủ tài năng binh lược.",
+    "first_page": 182,
+    "occurrences": 1
+  },
+  "Lôi Môn": {
+    "term": "Lôi Môn",
+    "kind": "sao",
+    "definition": "Chỉ cung Tý, Thìn, Mão, nơi Thái Dương chiếu sáng chủ thư sinh phú quý.",
+    "first_page": 183,
+    "occurrences": 1
+  },
+  "Cự Cơ Phá Cách": {
+    "term": "Cự Cơ Phá Cách",
+    "kind": "bien_cach",
+    "definition": "Cách cục phá hủy khi Cự Môn hãm cùng Thiên Cơ, chủ bất lợi, dâm dục.",
+    "first_page": 183,
+    "occurrences": 1
+  },
+  "Nhật Chiếu Lôi Môn": {
+    "term": "Nhật Chiếu Lôi Môn",
+    "kind": "bien_cach",
+    "definition": "Cách cục tốt khi Thái Dương chiếu Lôi Môn, chủ thư sinh phú quý.",
+    "first_page": 183,
+    "occurrences": 1
+  },
+  "Nguyệt Lãng Thiên Môn": {
+    "term": "Nguyệt Lãng Thiên Môn",
+    "kind": "bien_cach",
+    "definition": "Cách cục tốt khi Thái Âm sáng ở Hợi, chủ đăng vân chưởng quyền.",
+    "first_page": 183,
+    "occurrences": 1
+  },
+  "Thái Dương hóa Kỵ": {
+    "term": "Thái Dương hóa Kỵ",
+    "kind": "hoa",
+    "definition": "Sao Thái Dương gặp hóa Kỵ, chủ thị phi, mắt có thể bị thương.",
+    "first_page": 183,
+    "occurrences": 1
+  },
+  "Phản Bối": {
+    "term": "Phản Bối",
+    "kind": "bien_cach",
+    "definition": "Cách Nhật Nguyệt ngược nhau, thường bất lợi.",
+    "first_page": 184,
+    "occurrences": 1
+  },
+  "Nhị khúc": {
+    "term": "Nhị khúc",
+    "kind": "bien_cach",
+    "definition": "Chỉ Văn Khúc và Vũ Khúc, khi tọa thủ thân mệnh vượng địa chủ văn võ song toàn.",
+    "first_page": 185,
+    "occurrences": 1
+  },
+  "Tứ Mộ Cung": {
+    "term": "Tứ Mộ Cung",
+    "kind": "cung",
+    "definition": "Bốn cung Thìn, Tuất, Sửu, Mùi thuộc hành Thổ, mộ địa của ngũ hành.",
+    "first_page": 187,
+    "occurrences": 1
+  },
+  "Tứ Sinh Cung": {
+    "term": "Tứ Sinh Cung",
+    "kind": "cung",
+    "definition": "Bốn cung Dần, Thân, Tỵ, Hợi thuộc hành Dương, nơi vạn vật sinh trưởng.",
+    "first_page": 187,
+    "occurrences": 1
+  },
+  "Phá Cách": {
+    "term": "Phá Cách",
+    "kind": "bien_cach",
+    "definition": "Cách cục bị phá, chủ về giảm phước, khó thành tựu.",
+    "first_page": 189,
+    "occurrences": 1
+  },
+  "giáp kỵ": {
+    "term": "giáp kỵ",
+    "kind": "bien_cach",
+    "definition": "Hai sao đứng hai bên kẹp một sao Hóa Kỵ.",
+    "first_page": 192,
+    "occurrences": 1
+  },
+  "điệp tịnh": {
+    "term": "điệp tịnh",
+    "kind": "bien_cach",
+    "definition": "Hiện tượng cùng loại sao xuất hiện nhiều lần hoặc tại nhiều cung.",
+    "first_page": 192,
+    "occurrences": 1
+  },
+  "Hỏa Linh tương ngộ": {
+    "term": "Hỏa Linh tương ngộ",
+    "kind": "bien_cach",
+    "definition": "Hỏa Tinh và Linh Tinh gặp nhau, có thể tốt hoặc xấu tùy trường hợp.",
+    "first_page": 193,
+    "occurrences": 1
+  },
+  "Hỏa Linh giáp Mệnh": {
+    "term": "Hỏa Linh giáp Mệnh",
+    "kind": "bien_cach",
+    "definition": "Hỏa Tinh và Linh Tinh kẹp cung Mệnh, chủ bại cục.",
+    "first_page": 193,
+    "occurrences": 1
+  },
+  "Khôi Việt giáp Mệnh": {
+    "term": "Khôi Việt giáp Mệnh",
+    "kind": "bien_cach",
+    "definition": "Thiên Khôi và Thiên Việt kẹp cung Mệnh, chủ kỳ cách.",
+    "first_page": 193,
+    "occurrences": 1
+  },
+  "Tam giáp Mệnh": {
+    "term": "Tam giáp Mệnh",
+    "kind": "the_loai",
+    "definition": "Ba cặp sát tinh (Kiếp Không, Hỏa Linh, Dương Đà) kẹp cung Mệnh.",
+    "first_page": 196,
+    "occurrences": 1
+  },
+  "Lục giáp Mệnh": {
+    "term": "Lục giáp Mệnh",
+    "kind": "the_loai",
+    "definition": "Sáu cặp cát tinh (Tử Phủ, Tả Hữu, Xương Khúc, Khôi Việt, Khoa Quyền Lộc, Nhật Nguyệt) kẹp cung Mệnh.",
+    "first_page": 196,
+    "occurrences": 1
+  },
+  "Cung Thân": {
+    "term": "Cung Thân",
+    "kind": "cung",
+    "definition": "Cung quan trọng trong Tử Vi, liên quan đến vận mệnh và sự nghiệp sau tuổi trung niên.",
+    "first_page": 197,
+    "occurrences": 1
+  },
+  "Giáp thân": {
+    "term": "Giáp thân",
+    "kind": "bien_cach",
+    "definition": "Ba giáp thân gồm các sao xấu; sáu giáp thân gồm các sao tốt trong lá số.",
+    "first_page": 197,
+    "occurrences": 1
+  },
+  "giáp tài": {
+    "term": "giáp tài",
+    "kind": "bien_cach",
+    "definition": "Cách kẹp cung Tài Bạch, thường có sao hai bên cung để giáp.",
+    "first_page": 198,
+    "occurrences": 1
+  },
+  "giáp củng": {
+    "term": "giáp củng",
+    "kind": "bien_cach",
+    "definition": "Cách kẹp và vây, có sao tả hữu giáp hoặc chầu về.",
+    "first_page": 198,
+    "occurrences": 1
+  },
+  "Vũ Khúc Thái Âm đồng hạn độ": {
+    "term": "Vũ Khúc Thái Âm đồng hạn độ",
+    "kind": "bien_cach",
+    "definition": "Vũ Khúc và Thái Âm cùng trong một hạn hoặc cung.",
+    "first_page": 198,
+    "occurrences": 1
+  },
+  "Kinh Dịch": {
+    "term": "Kinh Dịch",
+    "kind": "the_loai",
+    "definition": "Kinh điển Dịch học Trung Hoa, nền tảng triết học và bói toán.",
+    "first_page": 203,
+    "occurrences": 1
+  },
+  "Đẩu Số": {
+    "term": "Đẩu Số",
+    "kind": "the_loai",
+    "definition": "Tên gọi tắt của Tử Vi Đẩu Số, thuật số dự đoán vận mệnh.",
+    "first_page": 215,
+    "occurrences": 2
+  },
+  "Dịch": {
+    "term": "Dịch",
+    "kind": "the_loai",
+    "definition": "Kinh Dịch, kinh điển triết học cổ Trung Hoa về biến dịch.",
+    "first_page": 215,
+    "occurrences": 1
+  },
+  "Khang thị": {
+    "term": "Khang thị",
+    "kind": "sao",
+    "definition": "Họ Khang, chỉ Thiệu Ung, luận về Dịch.",
+    "first_page": 225,
+    "occurrences": 1
+  },
+  "Dịch Kim Thư": {
+    "term": "Dịch Kim Thư",
+    "kind": "the_loai",
+    "definition": "Sách của họ Khang bàn về Kinh Dịch, lấy tên Kim Thư (kinh văn quý như vàng).",
+    "first_page": 228,
+    "occurrences": 1
+  },
+  "Thuyết Dịch Kim thư": {
+    "term": "Thuyết Dịch Kim thư",
+    "kind": "the_loai",
+    "definition": "Một tác phẩm về Dịch học, được nhắc đến trong văn bản.",
+    "first_page": 234,
+    "occurrences": 1
+  },
+  "kim thư": {
+    "term": "kim thư",
+    "kind": "the_loai",
+    "definition": "Sách vàng, chỉ kinh điển quý giá, thường là Dịch Kinh.",
+    "first_page": 238,
+    "occurrences": 1
+  },
+  "Kim Thư": {
+    "term": "Kim Thư",
+    "kind": "the_loai",
+    "definition": "Tên sách của Thiệu Ung bàn về Dịch lý, có ảnh hưởng đến Tử Vi Đẩu Số.",
+    "first_page": 246,
+    "occurrences": 2
+  },
+  "Ngang Kim thư": {
+    "term": "Ngang Kim thư",
+    "kind": "the_loai",
+    "definition": "Loại thư tịch cổ bàn về ngũ hành, liên quan đến thuật số.",
+    "first_page": 250,
+    "occurrences": 1
+  },
+  "Thiên Thọ": {
+    "term": "Thiên Thọ",
+    "kind": "sao",
+    "definition": "Sao chủ về thọ mệnh, phúc thọ lâu dài (có thể là sao Thiên Thọ?).",
+    "first_page": 257,
+    "occurrences": 7
+  },
+  "Kim Thủy hội xà hương": {
+    "term": "Kim Thủy hội xà hương",
+    "kind": "bien_cach",
+    "definition": "Cách cục Kim Thủy gặp nhau tại cung Tỵ, chủ văn tài phát khoa.",
+    "first_page": 258,
+    "occurrences": 1
+  },
+  "Ân Quang": {
+    "term": "Ân Quang",
+    "kind": "sao",
+    "definition": "Sao chủ ân sủng, quý nhân, hỗ trợ.",
+    "first_page": 258,
+    "occurrences": 1
+  },
+  "Thai Phụ": {
+    "term": "Thai Phụ",
+    "kind": "sao",
+    "definition": "Sao chủ phúc đức, con cái, sinh nở.",
+    "first_page": 258,
+    "occurrences": 1
+  },
+  "Văn Tụ": {
+    "term": "Văn Tụ",
+    "kind": "sao",
+    "definition": "Sao chủ học tập, khoa cử, tụ họp văn tinh.",
+    "first_page": 258,
+    "occurrences": 1
+  },
+  "Mệnh chủ tinh": {
+    "term": "Mệnh chủ tinh",
+    "kind": "sao",
+    "definition": "Sao chủ mệnh của mỗi người tùy theo năm sinh, ảnh hưởng toàn bộ cuộc đời.",
+    "first_page": 259,
+    "occurrences": 1
+  },
+  "Thất Khúc": {
+    "term": "Thất Khúc",
+    "kind": "sao",
+    "definition": "Sao chủ về nghệ thuật, tài năng, khéo léo, cũng là sao văn.",
+    "first_page": 259,
+    "occurrences": 1
+  },
+  "Tỵ Dậu": {
+    "term": "Tỵ Dậu",
+    "kind": "cung",
+    "definition": "Hai cung Tỵ và Dậu, vị trí vượng của Văn Xương và Thất Khúc.",
+    "first_page": 259,
+    "occurrences": 1
+  },
+  "Trọng quyền": {
+    "term": "Trọng quyền",
+    "kind": "the_loai",
+    "definition": "Nắm quyền lớn, địa vị cao.",
+    "first_page": 259,
+    "occurrences": 1
+  },
+  "Khoa Quyền Lộc": {
+    "term": "Khoa Quyền Lộc",
+    "kind": "the_loai",
+    "definition": "Ba sao Hóa Khoa, Hóa Quyền, Hóa Lộc, mang may mắn và thành công.",
+    "first_page": 259,
+    "occurrences": 1
+  },
+  "Giai nhân": {
+    "term": "Giai nhân",
+    "kind": "the_loai",
+    "definition": "Người đẹp, trong tử vi tượng trưng cho tình duyên, hôn nhân.",
+    "first_page": 259,
+    "occurrences": 1
+  },
+  "Phùng không địa": {
+    "term": "Phùng không địa",
+    "kind": "bien_cach",
+    "definition": "Cách cục Hóa Lộc hoặc Thiên Mã gặp Tuần, Triệt, chủ trung niên trắc trở.",
+    "first_page": 260,
+    "occurrences": 1
+  },
+  "Kim sinh Thủy viện": {
+    "term": "Kim sinh Thủy viện",
+    "kind": "the_loai",
+    "definition": "Ngũ hành tương sinh, Kim sinh Thủy, tạo sự hỗ trợ, tốt cho Mệnh.",
+    "first_page": 260,
+    "occurrences": 1
+  },
+  "Tham Lang ngộ Hỏa cục Thân viên": {
+    "term": "Tham Lang ngộ Hỏa cục Thân viên",
+    "kind": "cach_cuc",
+    "definition": "Cách cục Tham Lang gặp Hỏa tinh ở cung Thân, hợp với người tuổi Tuất Kỷ.",
+    "first_page": 261,
+    "occurrences": 1
+  },
+  "Văn Tinh": {
+    "term": "Văn Tinh",
+    "kind": "sao",
+    "definition": "Chỉ Văn Xương và Văn Khúc, chủ về văn tài, học vấn.",
+    "first_page": 262,
+    "occurrences": 1
+  },
+  "Cục mệnh vượng thân cường": {
+    "term": "Cục mệnh vượng thân cường",
+    "kind": "bien_cach",
+    "definition": "Mệnh vượng thân cường là cách tốt, chỉ người khỏe mạnh, có năng lực.",
+    "first_page": 262,
+    "occurrences": 1
+  },
+  "Tử Phủ đồng cung": {
+    "term": "Tử Phủ đồng cung",
+    "kind": "bien_cach",
+    "definition": "Tử Vi và Thiên Phủ cùng đóng trong một cung, thường ở thế vượng.",
+    "first_page": 263,
+    "occurrences": 1
+  },
+  "Thái Dương tinh hãm": {
+    "term": "Thái Dương tinh hãm",
+    "kind": "bien_cach",
+    "definition": "Thái Dương ở vị trí hãm địa, chủ về người cha bất lợi.",
+    "first_page": 263,
+    "occurrences": 1
+  },
+  "Thái Âm quang chiếu": {
+    "term": "Thái Âm quang chiếu",
+    "kind": "bien_cach",
+    "definition": "Thái Âm chiếu sáng, chủ về mẹ thọ lâu.",
+    "first_page": 263,
+    "occurrences": 1
+  },
+  "Tham Lang cư thê vị": {
+    "term": "Tham Lang cư thê vị",
+    "kind": "bien_cach",
+    "definition": "Tham Lang đóng ở cung Thê, vợ chồng cần khắc chế mới tốt.",
+    "first_page": 263,
+    "occurrences": 1
+  },
+  "Quỷ bại": {
+    "term": "Quỷ bại",
+    "kind": "sao",
+    "definition": "Chỉ các sao âm sát và sao bại địa gây phương hại.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Phản ngâm": {
+    "term": "Phản ngâm",
+    "kind": "bien_cach",
+    "definition": "Cách cục mệnh gặp lại vòng sao cũ nhưng xung chiếu, không nhập chính.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Phục ngâm": {
+    "term": "Phục ngâm",
+    "kind": "bien_cach",
+    "definition": "Cách cục mệnh gặp lại vòng sao cũ trùng phùng tại chính cung.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Sát mộ": {
+    "term": "Sát mộ",
+    "kind": "sao",
+    "definition": "Các sát tinh và sao mộ khố, mang tính hung hãm.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Nhật Chủ": {
+    "term": "Nhật Chủ",
+    "kind": "sao",
+    "definition": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Hóa diệu": {
+    "term": "Hóa diệu",
+    "kind": "hoa",
+    "definition": "Các sao Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ, chuyển hóa cát hung.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Đảo hạn": {
+    "term": "Đảo hạn",
+    "kind": "the_loai",
+    "definition": "Cách xem hạn nghịch lưu, phối hợp với tuổi để suy đoán.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Sinh tuế chưởng pháp": {
+    "term": "Sinh tuế chưởng pháp",
+    "kind": "the_loai",
+    "definition": "Phép tính tuổi dựa trên bàn tay, khởi từ Giáp Tuất, nghịch lưu.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Nhị thập Giáp Tý": {
+    "term": "Nhị thập Giáp Tý",
+    "kind": "the_loai",
+    "definition": "Cách tính tuổi: 20 tuổi khởi từ Giáp Tý, nghịch lưu theo vòng.",
+    "first_page": 267,
+    "occurrences": 1
+  },
+  "Thiên Khố": {
+    "term": "Thiên Khố",
+    "kind": "cung",
+    "definition": "Một trong Thập nhị cung Thần Sát, chủ về kho tàng, tài lộc.",
+    "first_page": 268,
+    "occurrences": 5
+  },
+  "Thiên Quán": {
+    "term": "Thiên Quán",
+    "kind": "cung",
+    "definition": "Một trong Thập nhị cung Thần Sát, chủ về nhà cửa, điền sản.",
+    "first_page": 268,
+    "occurrences": 4
+  },
+  "Thiên Thọ cung": {
+    "term": "Thiên Thọ cung",
+    "kind": "cung",
+    "definition": "Cung trong Tử Vi Đẩu Số chủ về thọ mệnh.",
+    "first_page": 269,
+    "occurrences": 1
+  },
+  "Thiên Ấn cung": {
+    "term": "Thiên Ấn cung",
+    "kind": "cung",
+    "definition": "Cung trong Tử Vi Đẩu Số chủ về ấn tín, học vấn.",
+    "first_page": 269,
+    "occurrences": 1
+  },
+  "Tứ Khắc": {
+    "term": "Tứ Khắc",
+    "kind": "the_loai",
+    "definition": "Bốn khắc trong giờ, đánh dấu các mốc thời gian nhỏ.",
+    "first_page": 270,
+    "occurrences": 1
+  },
+  "Y Lộc": {
+    "term": "Y Lộc",
+    "kind": "the_loai",
+    "definition": "Y thực và lộc, chỉ tài lộc và cuộc sống vật chất.",
+    "first_page": 270,
+    "occurrences": 1
+  },
+  "Xuất Tổ Thành Gia": {
+    "term": "Xuất Tổ Thành Gia",
+    "kind": "bien_cach",
+    "definition": "Ra khỏi tổ tiên, tự lập gia đình hoặc sự nghiệp riêng.",
+    "first_page": 270,
+    "occurrences": 1
+  },
+  "Tổ Nghiệp Phả Chiêu": {
+    "term": "Tổ Nghiệp Phả Chiêu",
+    "kind": "bien_cach",
+    "definition": "Nhờ được chút tổ nghiệp, có sự hỗ trợ từ gia đình.",
+    "first_page": 270,
+    "occurrences": 1
+  },
+  "Tứ khắc": {
+    "term": "Tứ khắc",
+    "kind": "the_loai",
+    "definition": "Bốn khắc trong Tử Vi, chỉ sự xung khắc với cha mẹ, vợ con.",
+    "first_page": 271,
+    "occurrences": 1
+  },
+  "Y lộc": {
+    "term": "Y lộc",
+    "kind": "the_loai",
+    "definition": "Chỉ cơm áo, tiền bạc, tài lộc trong mệnh số.",
+    "first_page": 271,
+    "occurrences": 1
+  },
+  "Hoạnh tài": {
+    "term": "Hoạnh tài",
+    "kind": "the_loai",
+    "definition": "Tiền tài bất ngờ, phát từ cơ hội đặc biệt.",
+    "first_page": 271,
+    "occurrences": 1
+  },
+  "Lục thân": {
+    "term": "Lục thân",
+    "kind": "the_loai",
+    "definition": "Sáu mối quan hệ: cha mẹ, anh chị em, con cái, vợ chồng.",
+    "first_page": 271,
+    "occurrences": 1
+  },
+  "Thiên Trượng": {
+    "term": "Thiên Trượng",
+    "kind": "sao",
+    "definition": "Sao thuộc nhóm hung tinh, liên quan đến tai họa và trở ngại.",
+    "first_page": 272,
+    "occurrences": 6
+  },
+  "Thiên Dị": {
+    "term": "Thiên Dị",
+    "kind": "sao",
+    "definition": "Hung tinh, biểu thị sự thay đổi bất lợi hoặc kiện tụng.",
+    "first_page": 272,
+    "occurrences": 8
+  },
+  "Mao Đầu": {
+    "term": "Mao Đầu",
+    "kind": "sao",
+    "definition": "Sao chủ về tai nạn, thương tích hoặc tranh đấu.",
+    "first_page": 272,
+    "occurrences": 9
+  },
+  "Thiên Nhận": {
+    "term": "Thiên Nhận",
+    "kind": "sao",
+    "definition": "Hung tinh, liên quan đến đao kiếm, tù tội.",
+    "first_page": 272,
+    "occurrences": 4
+  },
+  "Tuế Phá": {
+    "term": "Tuế Phá",
+    "kind": "sao",
+    "definition": "Sao chủ về sự phá hoại, hao tổn trong năm.",
+    "first_page": 272,
+    "occurrences": 1
+  },
+  "Long Đức": {
+    "term": "Long Đức",
+    "kind": "sao",
+    "definition": "Sao tốt, chủ về phúc đức, may mắn.",
+    "first_page": 272,
+    "occurrences": 1
+  },
+  "Phúc Tinh": {
+    "term": "Phúc Tinh",
+    "kind": "sao",
+    "definition": "Sao tốt, chủ về phúc lộc, may mắn.",
+    "first_page": 272,
+    "occurrences": 1
+  },
+  "Hư": {
+    "term": "Hư",
+    "kind": "sao",
+    "definition": "Sao thuộc nhóm Tử Vi hệ, liên quan đến hư vinh.",
+    "first_page": 272,
+    "occurrences": 6
+  },
+  "Quý": {
+    "term": "Quý",
+    "kind": "sao",
+    "definition": "Sao chủ về quyền quý, danh vọng.",
+    "first_page": 272,
+    "occurrences": 3
+  },
+  "Ấn": {
+    "term": "Ấn",
+    "kind": "sao",
+    "definition": "Sao chủ về ấn tín, quyền lực.",
+    "first_page": 272,
+    "occurrences": 3
+  },
+  "Thọ": {
+    "term": "Thọ",
+    "kind": "sao",
+    "definition": "Sao chủ về tuổi thọ.",
+    "first_page": 272,
+    "occurrences": 3
+  },
+  "Không": {
+    "term": "Không",
+    "kind": "sao",
+    "definition": "Sao thuộc Tử Vi hệ, chủ về sự trống rỗng.",
+    "first_page": 272,
+    "occurrences": 1
+  },
+  "Loan": {
+    "term": "Loan",
+    "kind": "sao",
+    "definition": "Sao chủ về hôn nhân, tình duyên.",
+    "first_page": 272,
+    "occurrences": 2
+  },
+  "Quán": {
+    "term": "Quán",
+    "kind": "sao",
+    "definition": "Sao chủ về quan chức, chức vụ.",
+    "first_page": 272,
+    "occurrences": 4
+  },
+  "Văn": {
+    "term": "Văn",
+    "kind": "sao",
+    "definition": "Sao chủ về văn chương, học vấn.",
+    "first_page": 272,
+    "occurrences": 3
+  },
+  "Tiểu vận": {
+    "term": "Tiểu vận",
+    "kind": "the_loai",
+    "definition": "Vận hạn 1 năm, khởi từ Thân hoặc Mệnh tùy âm dương nam nữ.",
+    "first_page": 273,
+    "occurrences": 1
+  },
+  "Âm dương": {
+    "term": "Âm dương",
+    "kind": "the_loai",
+    "definition": "Phân loại can năm: Giáp Bính Mậu Canh Nhâm là âm, Ất Đinh Kỷ Tân Quý là dương.",
+    "first_page": 273,
+    "occurrences": 1
+  },
+  "Thiên Đao": {
+    "term": "Thiên Đao",
+    "kind": "sao",
+    "definition": "Sao chủ về tai họa đao kiếm, vào hạn ác có thể gây chết người thân.",
+    "first_page": 274,
+    "occurrences": 1
+  },
+  "Cửu Dương tinh": {
+    "term": "Cửu Dương tinh",
+    "kind": "sao",
+    "definition": "Chín sao dương gồm Tử Vi, Văn Xương, Phúc, Lộc, Ấn, Thọ, Trượng, Khố, Diêu.",
+    "first_page": 275,
+    "occurrences": 1
+  },
+  "Cửu Âm tinh": {
+    "term": "Cửu Âm tinh",
+    "kind": "sao",
+    "definition": "Chín sao âm gồm Quý, Hồng Loan, Dị, Mao, Hư, Quán, Hình, Nhận, Khốc.",
+    "first_page": 275,
+    "occurrences": 1
+  },
+  "Long Trì": {
+    "term": "Long Trì",
+    "kind": "sao",
+    "definition": "Sao chủ văn chương khoa giáp; đếm từ cung Thìn khởi giờ Tý thuận đến giờ sinh.",
+    "first_page": 275,
+    "occurrences": 1
+  },
+  "Phượng Các": {
+    "term": "Phượng Các",
+    "kind": "sao",
+    "definition": "Sao chủ văn chương khoa giáp; đếm từ cung Tuất khởi giờ Tý nghịch đến giờ sinh.",
+    "first_page": 275,
+    "occurrences": 1
+  },
+  "Thất Cường cung": {
+    "term": "Thất Cường cung",
+    "kind": "cung",
+    "definition": "Bảy cung cường: Phúc Mệnh, Điền Trạch, Thê Thiếp, Quan Lộc (cao cường); Nam Nữ, Phúc Đức (thứ cường); Tài Bạch (cận cường).",
+    "first_page": 276,
+    "occurrences": 1
+  },
+  "Ngũ Cường cung": {
+    "term": "Ngũ Cường cung",
+    "kind": "cung",
+    "definition": "Năm cung: Tướng Mạo, Nô Bộc (ác nhược); Huynh Đệ (bán hãm); Tật Ách, Thiên Di (thứ ác sát).",
+    "first_page": 276,
+    "occurrences": 1
+  },
+  "Cửu Cát tinh": {
+    "term": "Cửu Cát tinh",
+    "kind": "sao",
+    "definition": "Chín sao tốt: Tử Vi, Văn Xương, Hồng Loan, Thiên Quý, Phúc Tinh, Lộc Tồn, Ấn Tinh, Thọ Tinh, Khố Tinh.",
+    "first_page": 276,
+    "occurrences": 1
+  },
+  "Cửu Hung tinh": {
+    "term": "Cửu Hung tinh",
+    "kind": "sao",
+    "definition": "Chín sao xấu: Thiên Hình, Thiên Dị, Thiên Nhận, Thiên Trượng, Hư Tinh, Khốc Tinh, Mao Tinh, Diêu Tinh.",
+    "first_page": 276,
+    "occurrences": 1
+  },
+  "Xà nhập long cung": {
+    "term": "Xà nhập long cung",
+    "kind": "bien_cach",
+    "definition": "Mệnh lập ở cung Mão (cung Rồng), bất kể giờ sinh, đều mang lại tốt lành.",
+    "first_page": 276,
+    "occurrences": 1
+  },
+  "Phúc Lộc": {
+    "term": "Phúc Lộc",
+    "kind": "sao",
+    "definition": "Sao Phúc và sao Lộc, biểu tượng của phước đức và tài lộc.",
+    "first_page": 277,
+    "occurrences": 2
+  },
+  "Tứ Không": {
+    "term": "Tứ Không",
+    "kind": "the_loai",
+    "definition": "Bốn sao không gồm Địa Không, Thiên Không và Tuần, Triệt không vong.",
+    "first_page": 277,
+    "occurrences": 1
+  },
+  "Nhận": {
+    "term": "Nhận",
+    "kind": "sao",
+    "definition": "Sao Kình Dương, biểu tượng của sự xung đột, kiện cáo, hình ngục.",
+    "first_page": 277,
+    "occurrences": 2
+  },
+  "Khóc": {
+    "term": "Khóc",
+    "kind": "sao",
+    "definition": "Sao Địa Kiếp, chủ về tang thương, khóc lóc, tai họa.",
+    "first_page": 277,
+    "occurrences": 1
+  },
+  "Thiên Quý": {
+    "term": "Thiên Quý",
+    "kind": "sao",
+    "definition": "Sao chủ về quý nhân, danh dự, phú quý.",
+    "first_page": 278,
+    "occurrences": 8
+  },
+  "Thiên Nhẫn": {
+    "term": "Thiên Nhẫn",
+    "kind": "sao",
+    "definition": "Sao chủ về sự nhẫn nại, nhưng tài sản không bền.",
+    "first_page": 278,
+    "occurrences": 4
+  },
+  "Huyết Nhẫn": {
+    "term": "Huyết Nhẫn",
+    "kind": "sao",
+    "definition": "Sao ác chủ về huyết quang, tai nạn đổ máu.",
+    "first_page": 278,
+    "occurrences": 1
+  },
+  "Khố Quán": {
+    "term": "Khố Quán",
+    "kind": "the_loai",
+    "definition": "Hai sao Thiên Khố và Thiên Quán, chủ về tài lộc và kho tàng, mang lại phúc lớn.",
+    "first_page": 279,
+    "occurrences": 1
+  },
+  "Khốc": {
+    "term": "Khốc",
+    "kind": "sao",
+    "definition": "Sao Khốc, chủ về tang thương, khóc lóc, chia ly.",
+    "first_page": 280,
+    "occurrences": 4
+  },
+  "Diêu": {
+    "term": "Diêu",
+    "kind": "sao",
+    "definition": "Sao Đà La, chủ về trì trệ, gian nan, thị phi.",
+    "first_page": 280,
+    "occurrences": 3
+  },
+  "Khố": {
+    "term": "Khố",
+    "kind": "sao",
+    "definition": "Sao Thiên Khố, chủ về kho tàng, tài sản, của cải.",
+    "first_page": 280,
+    "occurrences": 3
+  },
+  "Thiên Ấn": {
+    "term": "Thiên Ấn",
+    "kind": "sao",
+    "definition": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
+    "first_page": 280,
+    "occurrences": 4
+  },
+  "cung Điền Trạch": {
+    "term": "cung Điền Trạch",
+    "kind": "cung",
+    "definition": "Cung Điền Trạch là cung về nhà cửa, đất đai, tài sản.",
+    "first_page": 280,
+    "occurrences": 1
+  },
+  "Mao đầu": {
+    "term": "Mao đầu",
+    "kind": "sao",
+    "definition": "Sao chủ về con cái hung bạo, chết yểu nếu đóng ở cung Tử Tức.",
+    "first_page": 281,
+    "occurrences": 4
+  },
+  "Tử (Tử Vi?)": {
+    "term": "Tử (Tử Vi?)",
+    "kind": "sao",
+    "definition": "Sao chủ về con cái, một hai con, có thể chỉ Tử Vi hoặc sao Tử.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Hồng": {
+    "term": "Hồng",
+    "kind": "sao",
+    "definition": "Sao chủ về nhiều con gái nhưng ít thành.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Phúc": {
+    "term": "Phúc",
+    "kind": "sao",
+    "definition": "Sao chủ về phú quý, con cái ba năm.",
+    "first_page": 281,
+    "occurrences": 2
+  },
+  "Trượng": {
+    "term": "Trượng",
+    "kind": "sao",
+    "definition": "Sao chủ về con cháu bất thành hoặc có thành.",
+    "first_page": 281,
+    "occurrences": 2
+  },
+  "Dị": {
+    "term": "Dị",
+    "kind": "sao",
+    "definition": "Sao chủ về thai dị, con cách bào khó nuôi.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Tử Hồng": {
+    "term": "Tử Hồng",
+    "kind": "sao",
+    "definition": "Tổ hợp sao Tử Vi và Hồng Loan, chủ ít con.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Khí": {
+    "term": "Khí",
+    "kind": "sao",
+    "definition": "Sao không có hại khi gặp Nhận Trượng ở Nô Bộc.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Nô Bộc cung": {
+    "term": "Nô Bộc cung",
+    "kind": "cung",
+    "definition": "Cung trong lá số chỉ về tôi tớ, người dưới, thuộc hạ.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Quá phòng": {
+    "term": "Quá phòng",
+    "kind": "the_loai",
+    "definition": "Con nuôi hoặc con từ ngoài vào, thường được khuyên dùng.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Cách bào": {
+    "term": "Cách bào",
+    "kind": "the_loai",
+    "definition": "Con khác mẹ hoặc con thứ, khó sinh nhưng vẫn tốt.",
+    "first_page": 281,
+    "occurrences": 1
+  },
+  "Thất địa": {
+    "term": "Thất địa",
+    "kind": "bien_cach",
+    "definition": "Sao Tử Vi lạc hãm, mất đất, chủ về dâm đãng.",
+    "first_page": 282,
+    "occurrences": 1
+  },
+  "Tật Ách cung": {
+    "term": "Tật Ách cung",
+    "kind": "cung",
+    "definition": "Cung thứ sáu trong tử vi, chủ về sức khỏe và bệnh tật.",
+    "first_page": 283,
+    "occurrences": 1
+  },
+  "Thiên Di cung": {
+    "term": "Thiên Di cung",
+    "kind": "cung",
+    "definition": "Cung thứ bảy trong tử vi, chủ về việc xuất ngoại và di chuyển.",
+    "first_page": 283,
+    "occurrences": 1
+  },
+  "Hình Nhận": {
+    "term": "Hình Nhận",
+    "kind": "sao",
+    "definition": "Kình Dương và Đà La, chủ hình thương, tai nạn.",
+    "first_page": 285,
+    "occurrences": 1
+  },
+  "Tướng mạo cung": {
+    "term": "Tướng mạo cung",
+    "kind": "cung",
+    "definition": "Cung chủ về diện mạo, tướng mạo con người.",
+    "first_page": 285,
+    "occurrences": 1
+  },
+  "Thiên Khí": {
+    "term": "Thiên Khí",
+    "kind": "sao",
+    "definition": "Sao chủ về khí chất, thần thái, thường đi cùng Tử Vi để tạo cách cục tốt.",
+    "first_page": 286,
+    "occurrences": 1
+  },
+  "Tử Khí": {
+    "term": "Tử Khí",
+    "kind": "bien_cach",
+    "definition": "Cách cục Tử Vi và Thiên Khí đồng cung hoặc chiếu nhau, chủ văn chương, thanh nhàn.",
+    "first_page": 286,
+    "occurrences": 1
+  },
+  "Cung Tướng Mạo": {
+    "term": "Cung Tướng Mạo",
+    "kind": "cung",
+    "definition": "Cung Phụ Mẫu, cũng gọi là cung Mạo, liên quan đến dung mạo và cha mẹ.",
+    "first_page": 286,
+    "occurrences": 1
+  },
+  "Đao": {
+    "term": "Đao",
+    "kind": "sao",
+    "definition": "Sao Kình Dương, còn gọi là Đao, chủ về kiện tụng, đao thương.",
+    "first_page": 286,
+    "occurrences": 1
+  },
+  "Dị tinh": {
+    "term": "Dị tinh",
+    "kind": "sao",
+    "definition": "Các sao như Thiên Diêu, Địa Kiếp, mang ý nghĩa dị thường, biến động.",
+    "first_page": 286,
+    "occurrences": 1
+  },
+  "Cung Tử Tức": {
+    "term": "Cung Tử Tức",
+    "kind": "cung",
+    "definition": "Cung trong tử vi, liên quan đến con cái.",
+    "first_page": 287,
+    "occurrences": 1
+  },
+  "Mệnh thân": {
+    "term": "Mệnh thân",
+    "kind": "cung",
+    "definition": "Chỉ Mệnh cung và Thân cung, quan trọng nhất trong lá số.",
+    "first_page": 287,
+    "occurrences": 1
+  },
+  "Khốc Hư": {
+    "term": "Khốc Hư",
+    "kind": "sao",
+    "definition": "Sao hung (Địa Khốc, Địa Không) gây trở ngại, làm mất đi phú quý.",
+    "first_page": 288,
+    "occurrences": 1
+  },
+  "Khố Quán nhập miếu": {
+    "term": "Khố Quán nhập miếu",
+    "kind": "bien_cach",
+    "definition": "Biến cách của sao Thiên Khố khi nhập miếu, gọi là Thiên Trợ, chủ trí túc mưu nhiều.",
+    "first_page": 289,
+    "occurrences": 1
+  },
+  "Quán Tác": {
+    "term": "Quán Tác",
+    "kind": "sao",
+    "definition": "Sao Quán Tác chủ về thành bại bất thường, nửa cát nửa hung.",
+    "first_page": 290,
+    "occurrences": 1
+  },
+  "Lộc Quán": {
+    "term": "Lộc Quán",
+    "kind": "sao",
+    "definition": "Sao Lộc và Quán (có thể là Quán Tinh?) chủ về lộc và quan, tam phương chiếu thì phú quý.",
+    "first_page": 292,
+    "occurrences": 1
+  },
+  "Mao Đầu tinh": {
+    "term": "Mao Đầu tinh",
+    "kind": "sao",
+    "definition": "Sao Mao Đầu (chòm sao?) nếu đồng cung với Thiên Lộc thì giảm phúc, nếu không đồng cung thì sự nghiệp thành.",
+    "first_page": 292,
+    "occurrences": 1
+  },
+  "Hư Tinh": {
+    "term": "Hư Tinh",
+    "kind": "sao",
+    "definition": "Sao ác, đồng cung với Thiên Dị gây hung họa.",
+    "first_page": 293,
+    "occurrences": 1
+  },
+  "Thiên Uy": {
+    "term": "Thiên Uy",
+    "kind": "bien_cach",
+    "definition": "Tên gọi của cách cục khi Thiên Trượng nhập miếu, mang uy quyền và danh tiếng.",
+    "first_page": 293,
+    "occurrences": 1
+  },
+  "Lục nhật": {
+    "term": "Lục nhật",
+    "kind": "sao",
+    "definition": "Bài ca quyết về sao Mao Đầu, mô tả các tính chất cát hung của sao.",
+    "first_page": 294,
+    "occurrences": 1
+  },
+  "Tự Nhận": {
+    "term": "Tự Nhận",
+    "kind": "sao",
+    "definition": "Sao đồng dạng với Thiên Nhận, thường gây tai họa khi đi kèm.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Huyết Quang": {
+    "term": "Huyết Quang",
+    "kind": "sao",
+    "definition": "Sao chủ thương tật, tai họa về máu me.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Cân": {
+    "term": "Cân",
+    "kind": "sao",
+    "definition": "Sao trong Tử Vi, thường liên quan đến tài lộc và phúc thọ.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Lưu Huyết": {
+    "term": "Lưu Huyết",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về tai ương đổ máu.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Nghịch Tinh": {
+    "term": "Nghịch Tinh",
+    "kind": "sao",
+    "definition": "Sao hung, chủ về sự trái nghịch, tai họa bất ngờ.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Ngọc": {
+    "term": "Ngọc",
+    "kind": "sao",
+    "definition": "Sao tốt, tượng trưng cho phẩm chất quý báu.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Miếu": {
+    "term": "Miếu",
+    "kind": "the_loai",
+    "definition": "Trạng thái sao đắc địa, phát huy tối đa năng lượng.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Bạch Dương": {
+    "term": "Bạch Dương",
+    "kind": "cung",
+    "definition": "Chỉ cung Dần, một vị trí trong tử vi.",
+    "first_page": 295,
+    "occurrences": 1
+  },
+  "Tam Bất Liễu": {
+    "term": "Tam Bất Liễu",
+    "kind": "bien_cach",
+    "definition": "Tên gọi chỉ sao Thiên Hình đơn hành, mang ý nghĩa ba việc không trọn.",
+    "first_page": 296,
+    "occurrences": 1
+  },
+  "Hàm Trì": {
+    "term": "Hàm Trì",
+    "kind": "sao",
+    "definition": "Sao sát tinh, thuộc Thủy, chủ về dâm loạn, yêu kiều, nghiêng nước nghiêng thành.",
+    "first_page": 296,
+    "occurrences": 1
+  },
+  "Hung tinh": {
+    "term": "Hung tinh",
+    "kind": "the_loai",
+    "definition": "Các sao xấu, gây tai họa, bất lợi.",
+    "first_page": 297,
+    "occurrences": 1
+  },
+  "Mao": {
+    "term": "Mao",
+    "kind": "sao",
+    "definition": "Sao chủ tài hùng, hỷ Tý Mão Mùi, dám làm dám chịu.",
+    "first_page": 298,
+    "occurrences": 1
+  },
+  "Nguyệt Đại Khốc": {
+    "term": "Nguyệt Đại Khốc",
+    "kind": "sao",
+    "definition": "Sao Nguyệt Đại Khốc chủ về tang khóc, tai họa.",
+    "first_page": 300,
+    "occurrences": 1
+  },
+  "Nguyệt Tiểu Khốc": {
+    "term": "Nguyệt Tiểu Khốc",
+    "kind": "sao",
+    "definition": "Sao Nguyệt Tiểu Khốc chủ về tang khóc nhỏ hoặc thị phi.",
+    "first_page": 300,
+    "occurrences": 1
+  },
+  "Tử Hư": {
+    "term": "Tử Hư",
+    "kind": "sao",
+    "definition": "Sao Tử Hư (Hư Không?) liên quan đến không vong.",
+    "first_page": 300,
+    "occurrences": 1
+  }
+}

@@ -94,6 +94,11 @@ COPY data/seeds/ ./embedded_data/seeds/
 RUN mkdir -p ./embedded_data/tu_vi
 COPY data/tu_vi/ ./embedded_data/tu_vi/
 
+# Tử Vi Q1 master dicts (NGHĨA sao + cách cục) — concept_dict + cach_cuc_dict load runtime;
+# thiếu → Chân Dung hiện tên cách cục/sao mà KHÔNG có nghĩa (bug prod 2026-06-24).
+RUN mkdir -p ./embedded_data/yi_publishing/q1_tuvi/master
+COPY data/yi_publishing/q1_tuvi/master/concepts_index.json data/yi_publishing/q1_tuvi/master/cach_cuc_index.json ./embedded_data/yi_publishing/q1_tuvi/master/
+
 # Copy Vue dist from stage 1
 COPY --from=webapp-builder /build/dist ./client/webapp/dist
 
