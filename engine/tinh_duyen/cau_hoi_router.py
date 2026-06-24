@@ -201,12 +201,12 @@ def _ans_song_phai_reconcile(out: dict) -> str:
 
 def _ans_quy_trinh(out: dict, chi_tiet: str) -> str:
     """Rút từ quy_trinh_day_du theo bước cung con nêu trong section_nguon_chi_tiet
-    ('… → bước cung TỬ TỨC' / 'NÔ BỘC' / 'TÀI BẠCH')."""
+    ('… → bước cung PHU THÊ' / 'TỬ TỨC' / 'NÔ BỘC' / 'TÀI BẠCH')."""
     qt = out.get("quy_trinh_day_du") or {}
     tu_vi = (qt.get("tu_vi_12_buoc") or {}).get("buoc") or []
     # Tìm cung con trong chi_tiet (uppercase VN).
     cung_can = None
-    for cung in ("TỬ TỨC", "NÔ BỘC", "TÀI BẠCH", "TỬ TỨC"):
+    for cung in ("PHU THÊ", "TỬ TỨC", "NÔ BỘC", "TÀI BẠCH"):
         if cung in (chi_tiet or "").upper():
             cung_can = cung.title()
             break
