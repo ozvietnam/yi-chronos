@@ -69,6 +69,20 @@ _SAGE_FAST_MODEL: dict[str, str] = {
 }
 
 
+def sage_model(provider: "LLMProvider", fallback: str | None = None) -> str:
+    """Model KHÔNG-reasoning để sage SINH CÂU TRẢ LỜI trên `provider`.
+
+    NGUỒN SỰ THẬT DUY NHẤT cho việc chọn model đường-trả-lời (quick/council/phê mệnh/
+    chiếu đởm/...). Prompt sage lớn (persona + chart + RAG) → model reasoning
+    (deepseek-v4-pro, MiniMax-M3, R1) đốt sạch max_tokens vào <think> → content RỖNG
+    (đo prod 2026-06-24). Map mỗi provider sang biến thể non-reasoning, nhanh + tin cậy.
+
+    Provider ngoài map (gemini-flash, openrouter glm-air) → default đã non-reasoning →
+    trả `fallback` (nếu caller có model riêng) hoặc `provider.default_model`.
+    """
+    return _SAGE_FAST_MODEL.get(provider.name) or fallback or provider.default_model
+
+
 _DB_PATH = Path(__file__).resolve().parent.parent.parent / "data" / "ai_council.sqlite3"
 
 
@@ -458,10 +472,10 @@ def consult_council(
 
     # Phase 1: Round 1 independent
     def _run_one(aid: str, round_label: str, challenges_text: str | None) -> AgentResponse:
-        # Sage dùng deepseek-chat (non-reasoning, TIN CẬY — M3 reasoning rỗng trên prompt lớn).
+        # Sage dùng model non-reasoning, TIN CẬY (M3/v4-pro reasoning rỗng trên prompt lớn).
         # LUẬN SÂU: max_tokens=3500 → sage viết phân tích DÀI, CHI TIẾT (RAG cấp dẫn chứng sách).
         provider, model = _get_agent_provider(aid)
-        model = _SAGE_FAST_MODEL.get(provider.name, model)
+        model = sage_model(provider, model)
         return run_agent(
             agent_id=aid, provider=provider, model=model,
             question=question, chart_data=chart_data,

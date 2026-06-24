@@ -2703,8 +2703,9 @@ def ai_test_provider(name: str, req: AiProviderTestRequest, http_request: Reques
         }
     model = req.model or p.default_model
     t0 = _time.time()
-    # Reasoning models (M2, R1, etc.) need budget for <think> block before answering.
-    is_reasoning = any(s in model.lower() for s in ("m2", "reasoner", "thinking", "o1"))
+    # Reasoning models (M2/M3, R1, v4-pro, etc.) need budget for <think> block before answering.
+    # (v4-pro/m3 đã đo prod 2026-06-24: reasoning ăn token → cần budget lớn mới có content.)
+    is_reasoning = any(s in model.lower() for s in ("m2", "m3", "reasoner", "thinking", "o1", "v4-pro"))
     max_tok = 500 if is_reasoning else 80
     try:
         resp = p.chat(
@@ -8633,7 +8634,7 @@ def yi_tuvi_cdk_luan_noi_tam(req: _AnalyzeRequest, request: Request) -> dict:
     soi cốt cách tâm hồn, chỗ khắc khoải + sức mạnh ngầm. Paradigm Iron #4/#6/#8 (đọc đồng
     dạng, KHÔNG predict, mệnh-là-động-từ). VIP1-gated, owner bypass — như luận-cung.
     """
-    from engine.ai.council import _get_agent_provider
+    from engine.ai.council import _get_agent_provider, sage_model
     from engine.ai.agents import run_agent
     from engine.tu_vi.from_birth import cast_chieu_dom_from_birth
     from engine.subscriptions import check_access, consume_use
@@ -8657,7 +8658,11 @@ def yi_tuvi_cdk_luan_noi_tam(req: _AnalyzeRequest, request: Request) -> dict:
     except Exception as e:
         return {"status": "error", "message": f"Lỗi lập lá số CĐK: {e}"}
 
-    provider, model = _get_agent_provider("chieu_dom", prefer_reasoning=True)
+    # KHÔNG prefer_reasoning: nó đẩy MiniMax-M3 lên đầu, nhưng M3 (và deepseek-v4-pro)
+    # reasoning ăn sạch max_tokens → luận RỖNG trên prompt sage (đo prod 2026-06-24).
+    # Ép model non-reasoning, TIN CẬY (deepseek-chat...) qua sage_model.
+    provider, model = _get_agent_provider("chieu_dom")
+    model = sage_model(provider, model)
     resp = run_agent(
         agent_id="chieu_dom", provider=provider, model=model,
         question=("Hãy luận NỘI TÂM tổng thể cho lá số Chiếu Đởm Kinh này: cốt cách tâm hồn gốc, "

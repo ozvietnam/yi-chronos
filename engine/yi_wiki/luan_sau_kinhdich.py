@@ -563,17 +563,14 @@ def call_llm_luan_sau(prompt: str) -> dict:
         if not provider.is_configured:
             continue
         try:
-            # DeepSeek V4 Pro mặc định reasoning ON → content có thể empty
-            # khi model "think but doesn't write". Pass reasoning_effort=none
-            # cho writing task — vẫn dùng v4-pro nhưng skip chain-of-thought.
-            kwargs = {
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.65,
-                "max_tokens": 2000,
-            }
-            if provider_id == "deepseek":
-                kwargs["reasoning_effort"] = "none"
-            response = provider.chat(**kwargs)
+            # Dùng default_model của provider — deepseek mặc định = deepseek-chat (non-reasoning,
+            # tin cậy). KHÔNG dùng v4-pro: reasoning ăn sạch token → content RỖNG; và
+            # reasoning_effort='none' KHÔNG tắt được (đã đo prod 2026-06-24, là no-op).
+            response = provider.chat(
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.65,
+                max_tokens=2000,
+            )
             # response là LLMResponse dataclass (content, provider, model,
             # prompt_tokens, completion_tokens, total_tokens, raw)
             return {

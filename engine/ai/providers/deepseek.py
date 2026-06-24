@@ -4,8 +4,16 @@ Endpoint: https://api.deepseek.com/v1/chat/completions
 Auth: Bearer token (plain API key).
 
 Models:
-- deepseek-chat — general purpose (V3)
-- deepseek-reasoner — R1, reasoning-optimized (for Đông agents)
+- deepseek-chat — general purpose, NON-reasoning (V3 → maps to v4-flash). DEFAULT.
+- deepseek-v4-pro — flagship reasoning model.
+- deepseek-reasoner — R1, reasoning-optimized.
+
+⚠️ DEFAULT = deepseek-chat (KHÔNG phải v4-pro). Đo trên prod 2026-06-24: với prompt sage
+lớn (persona + chart + RAG), v4-pro nghĩ (reasoning_content) ăn SẠCH max_tokens output →
+content RỖNG (len=0, completion_tok=cap) — kể cả max_tokens=4000. reasoning_effort='none'
+KHÔNG tắt được (đã thử: vẫn rỗng). v4-pro chỉ ra chữ ở budget rất cao (≥16k) nhưng mất ~240s
++ bất định. → default phải là model non-reasoning TIN CẬY. Ai cần v4-pro thì truyền model
+tường minh (vd batch dịch cổ văn). Cùng họ lỗi với MiniMax-M3 (xem council._SAGE_FAST_MODEL).
 """
 
 from __future__ import annotations
@@ -23,9 +31,9 @@ ENDPOINT = "https://api.deepseek.com/v1/chat/completions"
 
 class DeepSeekProvider(LLMProvider):
     _MODELS: tuple[str, ...] = (
-        "deepseek-v4-pro",     # V4 Pro — flagship quality (anh dùng cho VIP)
+        "deepseek-chat",       # V3 general, NON-reasoning, tin cậy — DEFAULT (maps v4-flash)
         "deepseek-v4-flash",   # V4 Flash — fast cheap
-        "deepseek-chat",       # V3 general (legacy)
+        "deepseek-v4-pro",     # V4 Pro — flagship REASONING (chỉ dùng khi truyền model tường minh)
         "deepseek-reasoner",   # R1 reasoning (legacy)
     )
 
@@ -39,11 +47,12 @@ class DeepSeekProvider(LLMProvider):
 
     @property
     def display_name(self) -> str:
-        return "DeepSeek (V4 Pro / V4 Flash)"
+        return "DeepSeek (chat V3 · v4-pro/flash khả dụng)"
 
     @property
     def default_model(self) -> str:
-        return "deepseek-v4-pro"
+        # NON-reasoning, tin cậy (xem docstring module). v4-pro reasoning → content rỗng.
+        return "deepseek-chat"
 
     @property
     def available_models(self) -> list[str]:
@@ -76,8 +85,10 @@ class DeepSeekProvider(LLMProvider):
             "max_tokens": max_tokens,
             "stream": False,
         }
-        # V4 Pro: reasoning ON by default (depth). Caller can pass reasoning_effort='none'
-        # for extraction tasks to skip reasoning chain (faster, cheaper).
+        # ⚠️ ĐÃ ĐO (prod 2026-06-24): với v4-pro, `reasoning.effort='none'` KHÔNG tắt được
+        # chain-of-thought — content vẫn RỖNG trên prompt sage lớn. ĐỪNG dựa vào tham số này
+        # để "cứu" v4-pro; chọn model non-reasoning (deepseek-chat) thay vì v4-pro. Giữ lại để
+        # tương thích nếu API về sau honor nó.
         if reasoning_effort and model and "pro" in model.lower():
             payload["reasoning"] = {"effort": reasoning_effort}
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
