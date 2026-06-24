@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import importlib.util
 import json
 import subprocess
@@ -67,29 +68,47 @@ def download_audio(row: dict[str, Any], audio_dir: Path) -> Path | None:
     return existing if existing.exists() else None
 
 
-def transcribe_batch(audio_paths: list[Path], whisper_dir: Path, model: str) -> None:
+def chunk_paths(paths: list[Path], jobs: int) -> list[list[Path]]:
+    chunks = [[] for _ in range(jobs)]
+    for index, path in enumerate(paths):
+        chunks[index % jobs].append(path)
+    return [chunk for chunk in chunks if chunk]
+
+
+def transcribe_batch(audio_paths: list[Path], whisper_dir: Path, model: str, jobs: int = 1) -> None:
     todo = [path for path in audio_paths if not (whisper_dir / f"{path.stem}.txt").exists()]
     if not todo:
         return
     whisper_dir.mkdir(parents=True, exist_ok=True)
-    run(
-        [
-            "whisper",
-            *[str(path) for path in todo],
-            "--model",
-            model,
-            "--language",
-            "vi",
-            "--task",
-            "transcribe",
-            "--output_format",
-            "txt",
-            "--output_dir",
-            str(whisper_dir),
-            "--verbose",
-            "False",
-        ]
-    )
+    jobs = max(1, min(jobs, len(todo)))
+    commands = []
+    for chunk in chunk_paths(todo, jobs):
+        commands.append(
+            [
+                "whisper",
+                *[str(path) for path in chunk],
+                "--model",
+                model,
+                "--language",
+                "vi",
+                "--task",
+                "transcribe",
+                "--output_format",
+                "txt",
+                "--output_dir",
+                str(whisper_dir),
+                "--verbose",
+                "False",
+            ]
+        )
+    if len(commands) == 1:
+        run(commands[0])
+        return
+    print(f"Transcribing {len(todo)} audio files with {len(commands)} Whisper jobs")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(commands)) as executor:
+        futures = [executor.submit(run, command) for command in commands]
+        for future in concurrent.futures.as_completed(futures):
+            future.result()
 
 
 def merge_whisper(channel: str, combined_name: str) -> None:
@@ -134,6 +153,7 @@ def main() -> int:
     parser.add_argument("--combined-name", required=True)
     parser.add_argument("--model", default="large-v3-turbo")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--jobs", type=int, default=1, help="Parallel Whisper process count.")
     parser.add_argument("--skip-whisper", action="store_true")
     args = parser.parse_args()
 
@@ -153,7 +173,7 @@ def main() -> int:
             audio_paths.append(audio_path)
 
     if not args.skip_whisper:
-        transcribe_batch(audio_paths, channel_dir / "whisper_missing", args.model)
+        transcribe_batch(audio_paths, channel_dir / "whisper_missing", args.model, args.jobs)
     merge_whisper(args.channel, args.combined_name)
     return 0
 
