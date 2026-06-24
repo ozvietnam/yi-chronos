@@ -112,3 +112,86 @@ def test_no_crash_all_cases():
         assert "nam_can_giu_gin" in res["dinh_thoi"]
         # disclaimer paradigm.
         assert "KHÔNG bói" in res["_disclaimer"]
+
+
+# --------------------------------------------------------------------------- #
+# HÀNG RÀO CỨNG — paradigm (Iron Rule #4/#6/#8, CLAUDE.md CẤM TUYỆT ĐỐI)
+# --------------------------------------------------------------------------- #
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_no_forbidden_verdict_words_in_output(birth):
+    """Toàn bộ output (json.dumps) KHÔNG chứa BẤT KỲ từ cấm verdict nào (0 lần)."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    dump = json.dumps(res, ensure_ascii=False).lower()
+    hits = [w for w in FORBIDDEN_VERDICTS if w in dump]
+    assert hits == [], f"{birth}: lọt từ cấm vào output: {hits}"
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_stage_not_none_for_marriageable_ages(birth):
+    """Tuổi 13-44 PHẢI ra một stage cụ thể (KHÔNG None)."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    age = res["input"]["tuoi"]
+    if 13 <= age <= 44:
+        assert res["stage"]["stage_id"] is not None, \
+            f"{birth} (tuổi {age}): stage_id None — regression!"
+        assert res["stage"]["stage_id"], f"{birth}: stage_id rỗng"
+        assert res["stage"]["tuoi_min"] <= age <= res["stage"]["tuoi_max"]
+
+
+def test_stage_2009_05_10_is_rung_dong_dau():
+    """REGRESSION cụ thể: lá nữ 2009-05-10 (tuổi ~17) -> 'rung-dong-dau', KHÔNG None."""
+    res = read_tinh_duyen("2009-05-10T08:00", gender="nữ", as_of_year=2026)
+    assert res["stage"]["stage_id"] == "rung-dong-dau"
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_cach_cuc_surfaces_bien_chinh(birth):
+    """Mỗi mục cách cục surface PHẢI có field 'bien_chinh' (đọc đồng dạng)
+    không rỗng — KHÔNG surface raw han_tu/y_nghia_duyen thô."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    for c in res["cach_cuc"]:
+        assert "bien_chinh" in c, f"{birth}/{c.get('ten_cach')}: thiếu 'bien_chinh'"
+        assert c["bien_chinh"], f"{birth}/{c.get('ten_cach')}: 'bien_chinh' rỗng"
+        # KHÔNG còn surface raw thô.
+        assert "han_tu" not in c
+        assert "y_nghia_goc_tham_khao" not in c
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_no_male_gender_cach_in_female_output(birth):
+    """Mục cách cục gioi_tinh='nam' bị LOẠI khỏi output nữ mệnh."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    nams = [c["ten_cach"] for c in res["cach_cuc"] if c.get("gioi_tinh") == "nam"]
+    assert nams == [], f"{birth}: lọt cách góc nhìn nam: {nams}"
+
+
+def test_scrub_replaces_forbidden_string():
+    """_scrub thay string chứa từ cấm bằng bản trung tính; giữ nguyên string sạch."""
+    dirty = "Nữ mệnh này khắc chồng, sát phu rõ ràng."
+    out = _scrub(dirty)
+    assert "khắc chồng" not in out.lower()
+    assert "sát phu" not in out.lower()
+    assert _has_forbidden(dirty) is True
+
+    clean = "Cấu trúc khí này độc lập, vận hành tốt khi theo nghề chuyên chú."
+    assert _scrub(clean) == clean
+    assert _has_forbidden(clean) is False
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_scrub_caution_count_present(birth):
+    """Output có cờ caution scrub_caution_count (int >= 0)."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    assert "scrub_caution_count" in res
+    assert isinstance(res["scrub_caution_count"], int)
+    assert res["scrub_caution_count"] >= 0
+
+
+@pytest.mark.parametrize("birth", FEMALE_CHARTS)
+def test_sources_all_six_named(birth):
+    """_collect_sources in nguồn THẬT cho cả 6 file (mỗi entry có ': <nguồn>')."""
+    res = read_tinh_duyen(birth, gender="nữ", as_of_year=2026)
+    srcs = res["sources"]
+    assert len(srcs) == 6
+    for s in srcs:
+        assert ": " in s, f"{birth}: nguồn thiếu nội dung thật -> {s!r}"
