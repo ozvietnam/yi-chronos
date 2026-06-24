@@ -68,44 +68,67 @@ def test_sage_model_never_returns_reasoning():
         assert sage_model(_FakeProvider(name, dflt)) not in REASONING_MODELS
 
 
-# ── T4: behavioral — phe_menh() (99xu deep_reading) ép model non-reasoning ────
-# kể cả khi provider được chọn là MiniMax (mặc định M3 reasoning, gây RỖNG).
+# ── T4/T5: behavioral — phe_menh() (99xu deep_reading) ───────────────────────
+# Lỗi gốc (đo prod 2026-06-24): chain minimax-ĐẦU → M2.7-highspeed vẫn <think> ăn token →
+# content RỖNG (raw 11750ch think → strip → len0). deepseek-chat tin cậy (JSON 16s). Fix:
+# chain deepseek-ĐẦU + ÉP sage_model + NHẬN provider đầu tiên content KHÔNG rỗng.
 
-def test_phe_menh_pins_nonreasoning_model_even_when_minimax_selected(monkeypatch):
+
+class _RecProvider:
+    """Provider giả ghi lại model được truyền + trả content cố định."""
+    def __init__(self, name, content, default_model="x-default"):
+        self.name = name
+        self.default_model = default_model
+        self.is_configured = True
+        self._content = content
+        self.calls: list = []
+
+    def chat(self, *, messages, model=None, **kw):
+        self.calls.append(model)
+        return type("R", (), {
+            "content": self._content, "provider": self.name, "model": "ret",
+            "prompt_tokens": 1, "completion_tokens": 1, "total_tokens": 2, "cost_usd": 0.0,
+        })()
+
+
+def _install_fake_registry(monkeypatch, providers: dict):
+    from engine.ai.registry import get_registry
+    reg = get_registry()
+    monkeypatch.setattr(reg, "get", lambda n: providers[n])          # KeyError nếu thiếu → loop bỏ qua
+    monkeypatch.setattr(reg, "is_unhealthy", lambda n: False)
+    monkeypatch.setattr(reg, "mark_unhealthy", lambda *a, **k: None, raising=False)
+
+
+def _founder_person(az):
+    return az.Person(person_key="self", name="", birth_datetime_local="1988-06-05T23:30:00",
+                     gender="nam", timezone="Asia/Ho_Chi_Minh", user_id=None)
+
+
+def test_phe_menh_prefers_deepseek_and_pins_chat(monkeypatch):
     import engine.tu_vi.analyzer as az
-    from engine.ai.council import _SAGE_FAST_MODEL
-
-    captured: dict = {}
-
-    class _Resp:
-        content = ('{"khai_de":"a","menh_than":"b","dai_van":"c",'
-                   '"canh_bao":"d","ket_tam_an":"e"}')
-        provider = "minimax"
-        model = "MiniMax-M2.7-highspeed"
-        prompt_tokens = 10
-        completion_tokens = 20
-        total_tokens = 30
-        cost_usd = 0.0
-
-    class _Prov:
-        name = "minimax"
-        default_model = "MiniMax-M3"   # reasoning default = bẫy gây rỗng
-
-        def chat(self, *, messages, model=None, **kw):
-            captured["model"] = model
-            return _Resp()
-
-    # Bypass cache I/O + ép provider chain chọn fake minimax.
     monkeypatch.setattr(az, "_cache_load", lambda *a, **k: None)
     monkeypatch.setattr(az, "_cache_save", lambda *a, **k: None)
-    from engine.ai.registry import get_registry
-    monkeypatch.setattr(get_registry(), "first_configured", lambda order: _Prov())
+    ds = _RecProvider("deepseek",
+                      '{"khai_de":"a","menh_than":"b","dai_van":"c","canh_bao":"d","ket_tam_an":"e"}',
+                      default_model="deepseek-v4-pro")   # reasoning default = bẫy
+    _install_fake_registry(monkeypatch, {"deepseek": ds})
 
-    pp = az.Person(person_key="self", name="", birth_datetime_local="1988-06-05T23:30:00",
-                   gender="nam", timezone="Asia/Ho_Chi_Minh", user_id=None)
-    out = az.TuViAnalyzer(pp, force=True).phe_menh()
+    out = az.TuViAnalyzer(_founder_person(az), force=True).phe_menh()
+    assert out.get("status") == "ok" and out.get("provider") == "deepseek"
+    # Ép deepseek-chat (non-reasoning) — KHÔNG để None/v4-pro.
+    assert ds.calls == ["deepseek-chat"]
+    assert "deepseek-v4-pro" not in ds.calls
 
-    assert out.get("status") == "ok"
-    # Đã ép model non-reasoning (KHÔNG để None → provider tự rơi về M3 reasoning).
-    assert captured["model"] == _SAGE_FAST_MODEL["minimax"] == "MiniMax-M2.7-highspeed"
-    assert captured["model"] not in REASONING_MODELS
+
+def test_phe_menh_falls_through_on_empty_content(monkeypatch):
+    """Provider trả status-ok nhưng content RỖNG (reasoning ăn token) → nhảy provider kế."""
+    import engine.tu_vi.analyzer as az
+    monkeypatch.setattr(az, "_cache_load", lambda *a, **k: None)
+    monkeypatch.setattr(az, "_cache_save", lambda *a, **k: None)
+    empty = _RecProvider("deepseek", "", default_model="deepseek-v4-pro")     # rỗng
+    good = _RecProvider("gemini", '{"khai_de":"X"}', default_model="gemini-2.5-flash")
+    _install_fake_registry(monkeypatch, {"deepseek": empty, "gemini": good})
+
+    out = az.TuViAnalyzer(_founder_person(az), force=True).phe_menh()
+    assert out.get("status") == "ok" and out.get("provider") == "gemini"   # đã fallback khỏi rỗng
+    assert empty.calls and good.calls                                       # cả hai được thử
