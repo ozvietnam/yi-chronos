@@ -421,33 +421,33 @@ def _sec_luan_chi_tiet(qt: dict) -> Optional[dict]:
     }
 
 
-def _sec_loi_thay() -> dict:
+def _sec_loi_thay(action_base: str) -> dict:
     """Lời thầy — narration (sage narrate qua endpoint, fetch riêng)."""
     return {
         "id": "loi_thay", "icon": "quote", "title": "Lời thầy",
         "kind": "narration", "content": None,
-        "fetch_action": "/api/cross-paradigm/tinh-duyen/narrate",
+        "fetch_action": f"{action_base}/narrate",
         "tom_tat": None, "can_cu": None, "mac_dinh_an": False,
     }
 
 
-def _sec_phac_hoa(phoi_ngau: str, disclaimer: Optional[str]) -> dict:
+def _sec_phac_hoa(phoi_ngau: str, disclaimer: Optional[str], action_base: str) -> dict:
     """Phác hoạ chân dung BIỂU TƯỢNG người phối ngẫu — cta (paradigm)."""
     return {
         "id": "phac_hoa", "icon": "palette",
         "title": f"Phác họa người {phoi_ngau}", "kind": "cta",
-        "action": "/api/cross-paradigm/tinh-duyen/phac-hoa",
+        "action": f"{action_base}/phac-hoa",
         "note": disclaimer,
         "tom_tat": None, "can_cu": None, "mac_dinh_an": False,
     }
 
 
-def _sec_gieo_que() -> dict:
+def _sec_gieo_que(action_base: str) -> dict:
     """Gieo quẻ Mai Hoa cho câu quyết định — cta_gieo_que."""
     return {
         "id": "gieo_que", "icon": "yin-yang", "title": "Gieo quẻ quyết định",
         "kind": "cta_gieo_que",
-        "action": "/api/cross-paradigm/tinh-duyen/gieo-que",
+        "action": f"{action_base}/gieo-que",
         "tom_tat": None, "can_cu": None, "mac_dinh_an": False,
     }
 
@@ -467,8 +467,13 @@ def _sec_nguon(sources: list[str]) -> Optional[dict]:
 # --------------------------------------------------------------------------- #
 # Public API
 # --------------------------------------------------------------------------- #
-def build_display(reading_output: dict, gender: str = "nữ") -> dict:
+def build_display(reading_output: dict, gender: str = "nữ",
+                  action_base: str = "/api/cross-paradigm/tinh-duyen") -> dict:
     """Map read_tinh_duyen output → {meta, sections} trình bày dùng chung.
+
+    action_base: prefix cho CTA action (phac-hoa/gieo-que/narrate). Web giữ default
+    `/api/cross-paradigm/tinh-duyen` (session auth); AppChat truyền `/api/sync/tinh-duyen`
+    (service key + firebase_uid) để client gọi đúng namespace.
 
     Args:
         reading_output: dict trả từ read_tinh_duyen (hoặc service.run_tinh_duyen,
@@ -516,9 +521,9 @@ def build_display(reading_output: dict, gender: str = "nữ") -> dict:
         _sec_dinh_thoi(ro.get("dinh_thoi") or {}),
         _sec_cach_cuc(ro.get("cach_cuc") or []),
         _sec_luan_chi_tiet(ro.get("quy_trinh_day_du") or {}),
-        _sec_loi_thay(),
-        _sec_phac_hoa(phoi_ngau, disclaimer),
-        _sec_gieo_que(),
+        _sec_loi_thay(action_base),
+        _sec_phac_hoa(phoi_ngau, disclaimer, action_base),
+        _sec_gieo_que(action_base),
         _sec_nguon(ro.get("sources") or []),
     ]
     sections = [s for s in candidates if s is not None]

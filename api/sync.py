@@ -1040,7 +1040,8 @@ def tinh_duyen_bridge(
         raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
     # Presentation-ready cho prvchat render (sections JSON thuần kind→widget).
     from engine.tinh_duyen.display import build_display
-    out["display"] = build_display(out, person.get("gender") or "nữ")
+    out["display"] = build_display(out, person.get("gender") or "nữ",
+                                    action_base="/api/sync/tinh-duyen")
     return out
 
 
@@ -1122,10 +1123,14 @@ async def duyen_bridge(
     _require_service_key(x_api_key)
     _, person = _synced_person(req.firebase_uid, req.person_key)
     from api.tu_vi_3layer import DuyenInput, duyen_ca_nhan_endpoint
-    return await duyen_ca_nhan_endpoint(DuyenInput(
+    from engine.tinh_duyen.duyen_display import build_duyen_display
+    out = await duyen_ca_nhan_endpoint(DuyenInput(
         birth=person["birth_datetime_local"],
         gender=person.get("gender") or "nam",
         timezone=person.get("timezone") or "Asia/Ho_Chi_Minh"))
+    if isinstance(out, dict) and not out.get("error"):
+        out["display"] = build_duyen_display(out)
+    return out
 
 
 @router.post("/duyen-tho")
@@ -1171,10 +1176,14 @@ async def hop_hon_bridge(
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
                             "thiếu giờ sinh người ấy (partner_birth)")
     from api.tu_vi_3layer import HopHonInput, hop_hon
-    return await hop_hon(HopHonInput(
+    from engine.tinh_duyen.duyen_display import build_hop_hon_display
+    out = await hop_hon(HopHonInput(
         birth1=person["birth_datetime_local"], gender1=person.get("gender") or "nam", ten1=req.ten_self,
         birth2=req.partner_birth.datetime_local, gender2=req.partner_birth.gender or "nam", ten2=req.ten_partner,
         timezone=person.get("timezone") or req.partner_birth.timezone or "Asia/Ho_Chi_Minh"))
+    if isinstance(out, dict) and not out.get("error"):
+        out["display"] = build_hop_hon_display(out)
+    return out
 
 
 class SoSanhOther(BaseModel):
@@ -1200,12 +1209,16 @@ async def so_sanh_duyen_bridge(
     _require_service_key(x_api_key)
     _, person = _synced_person(req.firebase_uid, req.person_key)
     from api.tu_vi_3layer import SoSanhInput, _so_sanh_duyen_core
+    from engine.tinh_duyen.duyen_display import build_so_sanh_display
     inp = SoSanhInput(
         me={"birth": person["birth_datetime_local"],
             "gender": person.get("gender") or "nam", "ten": req.ten_self},
         others=[{"birth": o.birth, "gender": o.gender, "ten": o.ten} for o in req.others],
         timezone=person.get("timezone") or "Asia/Ho_Chi_Minh")
-    return await _so_sanh_duyen_core(inp)
+    out = await _so_sanh_duyen_core(inp)
+    if isinstance(out, dict) and not out.get("error"):
+        out["display"] = build_so_sanh_display(out)
+    return out
 
 
 class PhacHoaSyncRequest(BaseModel):
@@ -1232,6 +1245,8 @@ def phac_hoa_bridge(
         do_tuoi=req.do_tuoi, gen_anh=req.gen_anh)
     if out.get("status") == "insufficient_xu":
         raise HTTPException(status.HTTP_402_PAYMENT_REQUIRED, out)
+    from engine.tinh_duyen.duyen_display import build_phac_hoa_display
+    out["display"] = build_phac_hoa_display(out)
     return out
 
 
@@ -1254,7 +1269,11 @@ def gieo_que_bridge(
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
                             "thiếu câu hỏi quyết định — không nghi không bói (Iron #4)")
     from engine.tinh_duyen.gieo_que_quyet_dinh import gieo_que_tinh_duyen
-    return gieo_que_tinh_duyen(cau_hoi, req.seed_numbers)
+    from engine.tinh_duyen.duyen_display import build_gieo_que_display
+    out = gieo_que_tinh_duyen(cau_hoi, req.seed_numbers)
+    if isinstance(out, dict):
+        out["display"] = build_gieo_que_display(out)
+    return out
 
 
 @router.post("/tinh-duyen/narrate")

@@ -53,3 +53,53 @@ def test_subflow_engine_imports():
     assert hasattr(cps, "run_phac_hoa_phoi_ngau")
     assert hasattr(cps, "run_tinh_duyen")
     assert callable(narrate_tinh_duyen)
+
+
+# ── Batch 2 (2026-06-25): display.sections[] cho AppChat data-driven renderer ──
+_VALID_KINDS = {"cap_do", "qa", "prose_list", "pairs", "timeline", "list",
+                "collapsible", "narration", "cta", "cta_gieo_que", "refs"}
+
+
+def _assert_sections(disp: dict):
+    secs = disp["sections"]
+    assert secs, "sections rỗng"
+    for s in secs:
+        assert all(k in s for k in ("id", "icon", "title", "kind")), f"thiếu field: {s}"
+        assert s["kind"] in _VALID_KINDS, f"kind lạ (app không render được): {s['kind']}"
+
+
+def test_display_builders_valid_kinds():
+    """Adapter raw → display.sections[] CHỈ dùng kind app hỗ trợ."""
+    from api.tu_vi_3layer import (DuyenInput, HopHonInput, SoSanhInput,
+                                  _so_sanh_duyen_core, duyen_ca_nhan_endpoint, hop_hon)
+    from engine.tinh_duyen.duyen_display import (build_duyen_display, build_gieo_que_display,
+                                                 build_hop_hon_display, build_so_sanh_display)
+    from engine.tinh_duyen.gieo_que_quyet_dinh import gieo_que_tinh_duyen
+    d = asyncio.run(duyen_ca_nhan_endpoint(DuyenInput(birth="1988-06-05T23:30:00", gender="nam")))
+    _assert_sections(build_duyen_display(d))
+    h = asyncio.run(hop_hon(HopHonInput(birth1="1988-06-05T23:30:00", gender1="nam",
+                                        birth2="1990-03-15T08:00:00", gender2="nữ")))
+    _assert_sections(build_hop_hon_display(h))
+    s = asyncio.run(_so_sanh_duyen_core(SoSanhInput(
+        me={"birth": "1988-06-05T23:30:00", "gender": "nam", "ten": "A"},
+        others=[{"birth": "1990-03-15T08:00:00", "gender": "nữ", "ten": "B"}])))
+    _assert_sections(build_so_sanh_display(s))
+    _assert_sections(build_gieo_que_display(gieo_que_tinh_duyen("Có nên?", [3, 5, 7])))
+
+
+def test_display_action_base_parametrized():
+    """CTA URL theo action_base — web /api/cross-paradigm (KHÔNG vỡ), app /api/sync."""
+    from engine.tinh_duyen.display import build_display
+    ro = {"input": {"gender": "nam"}}
+    sync = build_display(ro, "nam", action_base="/api/sync/tinh-duyen")
+    web = build_display(ro, "nam")
+
+    def _cta(disp, sid):
+        for x in disp["sections"]:
+            if x["id"] == sid:
+                return x.get("action") or x.get("fetch_action")
+
+    assert _cta(sync, "phac_hoa") == "/api/sync/tinh-duyen/phac-hoa"
+    assert _cta(web, "phac_hoa") == "/api/cross-paradigm/tinh-duyen/phac-hoa"
+    assert _cta(sync, "gieo_que") == "/api/sync/tinh-duyen/gieo-que"
+    assert _cta(sync, "loi_thay") == "/api/sync/tinh-duyen/narrate"
