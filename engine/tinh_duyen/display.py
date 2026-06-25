@@ -20,14 +20,59 @@ Quy tắc chính:
 """
 from __future__ import annotations
 
+import re
 from typing import Any, Optional
 
 # Token giới NỮ: mặc định engine cho nữ mệnh.
 _FEMALE_TOKENS = ("nữ", "nu", "female", "f", "")
 
+# Dải Hán (CJK Unified Ideographs cơ bản). Strip để text KẾT QUẢ thuần Việt.
+_HAN_RE = re.compile(r"[一-鿿]+")
+# Ngoặc rỗng còn lại sau khi xoá Hán: () （） [] 【】 「」 + bên trong chỉ
+# khoảng trắng / dấu phân cách.
+_EMPTY_PAREN_RE = re.compile(r"[\(\（\[【「]\s*[,，;；·、\-—\s]*\s*[\)\）\]】」]")
+# Dấu câu mồ côi đầu cụm sau khi xoá Hán (vd ' — ' đứng đầu / lặp).
+_STRAY_LEAD_RE = re.compile(r"(^|[\(\（\[【「])\s*[,，;；·、]+\s*")
+_MULTI_SPACE_RE = re.compile(r"[ \t]{2,}")
+_SPACE_BEFORE_PUNCT_RE = re.compile(r"\s+([,，.。;；:：!！?？\)\）\]】」])")
+
 
 def _is_female(gender: str) -> bool:
     return (gender or "").strip().lower() in _FEMALE_TOKENS
+
+
+def _strip_han(text: Any) -> Any:
+    """Xoá MỌI ký tự Hán [一-鿿] khỏi text + dọn ngoặc rỗng + space thừa.
+
+    Dùng cho MỌI text trong `tom_tat` để user chỉ thấy KẾT QUẢ tiếng Việt thuần
+    (CÔNG THỨC chữ Hán đẩy xuống `can_cu`). KHÔNG đổi nội dung non-str (None,
+    số, bool... trả nguyên); list/dict → strip đệ quy từng phần tử."""
+    if text is None or isinstance(text, bool):
+        return text
+    if isinstance(text, (int, float)):
+        return text
+    if isinstance(text, list):
+        return [_strip_han(x) for x in text]
+    if isinstance(text, tuple):
+        return tuple(_strip_han(x) for x in text)
+    if isinstance(text, dict):
+        return {k: _strip_han(v) for k, v in text.items()}
+    if not isinstance(text, str):
+        return text
+    s = _HAN_RE.sub("", text)
+    # Dọn ngoặc rỗng (lặp tới khi ổn định — ngoặc lồng).
+    prev = None
+    while prev != s:
+        prev = s
+        s = _EMPTY_PAREN_RE.sub("", s)
+    s = _STRAY_LEAD_RE.sub(r"\1", s)
+    s = _SPACE_BEFORE_PUNCT_RE.sub(r"\1", s)
+    s = _MULTI_SPACE_RE.sub(" ", s)
+    # Gọn dấu nối mồ côi liền nhau & space quanh dấu —.
+    s = re.sub(r"\s*—\s*—\s*", " — ", s)
+    s = re.sub(r"(^|[(\（])\s*—\s*", r"\1", s)
+    s = re.sub(r"\s*—\s*$", "", s.strip())
+    return s.strip()
 
 
 def _nonempty(obj: Any) -> bool:
@@ -71,6 +116,8 @@ def _sec_cap_do(cd: dict) -> Optional[dict]:
     if cap is None:
         return None
     nguyen_tac = cd.get("nguyen_tac_vang") or {}
+    tin_hieu = cd.get("tin_hieu_kich_hoat") or []
+    lo_trinh = cd.get("lo_trinh") or []
     data = {
         "cap_do": cap,
         "max": 5,
@@ -78,13 +125,27 @@ def _sec_cap_do(cd: dict) -> Optional[dict]:
         "do_thay_doi_duoc": cd.get("do_thay_doi_duoc"),
         "phan_loai": cd.get("phan_loai"),
         "muc_do_thu_thach": cd.get("muc_do_thu_thach"),
-        "tin_hieu": cd.get("tin_hieu_kich_hoat") or [],
-        "lo_trinh": cd.get("lo_trinh") or [],
+        "tin_hieu": tin_hieu,
+        "lo_trinh": lo_trinh,
         "nguyen_tac": nguyen_tac.get("tuyen_bo"),
     }
+    # tom_tat: mức + lộ trình + nguyên tắc (KẾT QUẢ, strip Hán). HIỆN.
+    tom_tat = {
+        "cap_do": cap,
+        "max": 5,
+        "ten_cap": _strip_han(cd.get("ten_cap")),
+        "do_thay_doi_duoc": cd.get("do_thay_doi_duoc"),
+        "phan_loai": _strip_han(cd.get("phan_loai")),
+        "muc_do_thu_thach": cd.get("muc_do_thu_thach"),
+        "lo_trinh": _strip_han(lo_trinh),
+        "nguyen_tac": _strip_han(nguyen_tac.get("tuyen_bo")),
+    }
+    # can_cu: tín hiệu kích hoạt (chứa Hán/jargon Thương Quan...). AUTO-HIDE.
+    can_cu = {"tin_hieu": tin_hieu}
     return {
         "id": "cap_do", "icon": "gauge", "title": "Mức độ thử thách",
         "kind": "cap_do", "data": data,
+        "tom_tat": tom_tat, "can_cu": can_cu, "mac_dinh_an": False,
         "refs": _refs_from(cd.get("_nguon"), nguyen_tac.get("_nguon")),
     }
 
@@ -108,6 +169,8 @@ def _sec_hoi_dap(cau_hoi: list[dict]) -> Optional[dict]:
     return {
         "id": "hoi_dap", "icon": "messages", "title": "Câu hỏi của tuổi",
         "kind": "qa", "items": items,
+        # Đã plain (Q&A tiếng Việt) → tom_tat ~nguyên, chỉ strip Hán. Không can_cu.
+        "tom_tat": _strip_han(items), "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -116,6 +179,8 @@ def _sec_cung_phu_the(cpt: dict, phoi_ngau: str) -> Optional[dict]:
     if not _nonempty(cpt):
         return None
     items = []
+    tom_tat = []
+    can_cu = []
     refs = []
     groups = (
         ("chinh_tinh_luan", "tinh_chat_phoi_ngau"),
@@ -130,13 +195,30 @@ def _sec_cung_phu_the(cpt: dict, phoi_ngau: str) -> Optional[dict]:
             if not _nonempty(noi_dung):
                 continue
             items.append({"ten": ten, "noi_dung": noi_dung})
+            # tom_tat: câu GIẢI NGHĨA plain (strip Hán + tên sao Hán). HIỆN.
+            tom_tat.append({
+                "ten": _strip_han(ten),
+                "noi_dung": _strip_han(noi_dung),
+            })
+            # can_cu: 'TênSao (Hán) — mô tả sao kỹ thuật' (giữ Hán + cát-hung +
+            # điều cần chú ý kỹ thuật). AUTO-HIDE.
+            ten_han = entry.get("ten_han")
+            ten_full = f"{ten} ({ten_han})" if _nonempty(ten_han) else ten
+            can_cu.append({
+                "ten": ten_full,
+                "noi_dung": noi_dung,
+                "cat_hung": entry.get("cat_hung"),
+                "dieu_can_chu_y": entry.get("dieu_can_chu_y"),
+            })
             refs.append(entry.get("_nguon"))
     if not items:
         return None
     return {
         "id": "cung_phu_the", "icon": "users",
         "title": f"Cung Phu Thê ({phoi_ngau})",
-        "kind": "prose_list", "items": items, "refs": _refs_from(*refs),
+        "kind": "prose_list", "items": items,
+        "tom_tat": tom_tat, "can_cu": can_cu, "mac_dinh_an": False,
+        "refs": _refs_from(*refs),
     }
 
 
@@ -145,6 +227,8 @@ def _sec_song_phai(rec: list[dict]) -> Optional[dict]:
     if not _nonempty(rec):
         return None
     items = []
+    tom_tat = []
+    can_cu = []
     for cd in rec:
         chu_de = cd.get("chu_de")
         tu_vi = cd.get("tuvi_doc_bang")
@@ -159,11 +243,29 @@ def _sec_song_phai(rec: list[dict]) -> Optional[dict]:
             "chu_de": chu_de, "tu_vi": tu_vi, "bat_tu": bat_tu,
             "trang_thai": trang_thai,
         })
+        # tom_tat: chủ đề + 'hai phái hội tụ/dị biệt' + ý nghĩa plain. HIỆN.
+        y_nghia = hoi_tu if _nonempty(hoi_tu) else di_biet
+        prefix = "hai phái hội tụ" if trang_thai == "hội tụ" else "hai phái dị biệt"
+        y_nghia_plain = _strip_han(y_nghia)
+        ket_luan = (f"{prefix} — {y_nghia_plain}"
+                    if _nonempty(y_nghia_plain) else prefix)
+        tom_tat.append({
+            "chu_de": _strip_han(chu_de),
+            "trang_thai": trang_thai,
+            "ket_luan": ket_luan,
+        })
+        # can_cu: cơ chế đọc-bảng từng phái (giữ Hán/jargon). AUTO-HIDE.
+        can_cu.append({
+            "chu_de": _strip_han(chu_de),
+            "tu_vi": tu_vi,
+            "bat_tu": bat_tu,
+        })
     if not items:
         return None
     return {
         "id": "song_phai", "icon": "arrows-shuffle",
         "title": "Tử Vi ⇄ Bát Tự", "kind": "pairs", "items": items,
+        "tom_tat": tom_tat, "can_cu": can_cu, "mac_dinh_an": False,
     }
 
 
@@ -191,6 +293,8 @@ def _sec_dinh_thoi(dt: dict) -> Optional[dict]:
     return {
         "id": "dinh_thoi", "icon": "clock", "title": "Định thời",
         "kind": "timeline", "items": items,
+        # Đã plain (năm + mô tả Việt) → tom_tat strip Hán. Không can_cu.
+        "tom_tat": _strip_han(items), "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -221,6 +325,8 @@ def _sec_cach_cuc(cc: list[dict]) -> Optional[dict]:
     return {
         "id": "cach_cuc", "icon": "recycle", "title": "Cách cục",
         "kind": "list", "items": items,
+        # Đã reframe đọc-đồng-dạng (bien_chinh tiếng Việt) → strip Hán. Không can_cu.
+        "tom_tat": _strip_han(items), "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -266,6 +372,9 @@ def _sec_luan_chi_tiet(qt: dict) -> Optional[dict]:
     return {
         "id": "luan_chi_tiet", "icon": "stack-2",
         "title": "Luận chi tiết 12+10 bước", "kind": "collapsible", "data": data,
+        # THUẦN công thức (12+10 bước, Hán/jargon dày) → cả section là can_cu,
+        # gập mặc định. Không có tom_tat (không phải kết-quả cho user thường).
+        "tom_tat": None, "can_cu": data, "mac_dinh_an": True,
     }
 
 
@@ -275,6 +384,7 @@ def _sec_loi_thay() -> dict:
         "id": "loi_thay", "icon": "quote", "title": "Lời thầy",
         "kind": "narration", "content": None,
         "fetch_action": "/api/cross-paradigm/tinh-duyen/narrate",
+        "tom_tat": None, "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -285,6 +395,7 @@ def _sec_phac_hoa(phoi_ngau: str, disclaimer: Optional[str]) -> dict:
         "title": f"Phác họa người {phoi_ngau}", "kind": "cta",
         "action": "/api/cross-paradigm/tinh-duyen/phac-hoa",
         "note": disclaimer,
+        "tom_tat": None, "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -294,6 +405,7 @@ def _sec_gieo_que() -> dict:
         "id": "gieo_que", "icon": "yin-yang", "title": "Gieo quẻ quyết định",
         "kind": "cta_gieo_que",
         "action": "/api/cross-paradigm/tinh-duyen/gieo-que",
+        "tom_tat": None, "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -304,6 +416,8 @@ def _sec_nguon(sources: list[str]) -> Optional[dict]:
     return {
         "id": "nguon", "icon": "book", "title": "Nguồn",
         "kind": "refs", "items": list(sources),
+        # Trích sách (tên file/Hán/§) = THUẦN căn cứ → gập mặc định.
+        "tom_tat": None, "can_cu": list(sources), "mac_dinh_an": True,
     }
 
 
@@ -345,6 +459,9 @@ def build_display(reading_output: dict, gender: str = "nữ") -> dict:
         "disclaimer": disclaimer,
         "method_id": ro.get("method_id"),
         "paradigm_ok": bool(ro.get("paradigm_ok", True)),
+        # Báo client: mỗi section có tom_tat (KẾT QUẢ, hiện) + can_cu (CÔNG THỨC,
+        # auto-hide) → render kết-quả-trước, căn-cứ-ẩn-bấm-mới-hiện.
+        "co_can_cu": True,
     }
 
     # THỨ TỰ hiển thị (cap_do KILLER lên đầu; nguon cuối). None / rỗng đã bị bỏ.
@@ -366,4 +483,4 @@ def build_display(reading_output: dict, gender: str = "nữ") -> dict:
     return {"meta": meta, "sections": sections}
 
 
-__all__ = ["build_display"]
+__all__ = ["build_display", "_strip_han"]
