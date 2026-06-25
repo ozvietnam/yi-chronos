@@ -248,6 +248,43 @@ def test_gender_giu_dung_sau_khi_tach():
     assert "vợ" in dm["meta"]["title"]
 
 
+# ── 10b) tom_tat KHÔNG rò con trỏ INTERNAL 'xem key.dotted' ──────────────────
+def test_tom_tat_khong_ro_con_tro_internal():
+    """cap_do.lo_trinh trong tom_tat KHÔNG được chứa chú dẫn nội bộ engine dạng
+    'xem lo_trinh_ren.cu_mon_sang_kheo_loi' — nhưng data raw vẫn GIỮ để trace."""
+    d = build_display(_read("nữ"), "nữ")
+    cap = [s for s in d["sections"] if s["id"] == "cap_do"][0]
+    tom_blob = json.dumps(cap["tom_tat"], ensure_ascii=False)
+    leak = re.findall(r"xem\s+[a-z_]+(?:\.[a-z0-9_]+)+", tom_blob)
+    assert not leak, f"tom_tat rò con trỏ internal: {leak}"
+    # data (source of truth / can_cu) GIỮ NGUYÊN con trỏ.
+    data_blob = json.dumps(cap["data"], ensure_ascii=False)
+    assert re.search(r"xem\s+lo_trinh_ren\.", data_blob), \
+        "data phải giữ con trỏ internal để trace"
+    # lo_trinh tom_tat vẫn còn nội dung thật (không bị xoá quá tay).
+    assert cap["tom_tat"]["lo_trinh"]
+    assert "Hạ cái tôi" in cap["tom_tat"]["lo_trinh"][0]
+
+
+def test_strip_internal_ref_truc_tiep():
+    from engine.tinh_duyen.display import _strip_internal_ref
+    # Sau ' — ' (cuối câu).
+    assert _strip_internal_ref(
+        "chuyển sang Thực Thần — xem lo_trinh_ren.thuong_quan_sang_thuc_than."
+    ) == "chuyển sang Thực Thần."
+    # Trong ngoặc, có dấu phẩy trước.
+    assert _strip_internal_ref(
+        "Cự Môn (khéo lời, xem lo_trinh_ren.cu_mon_sang_kheo_loi)."
+    ) == "Cự Môn (khéo lời)."
+    # Không có con trỏ → trả NGUYÊN (identity, không đụng).
+    plain = "câu thuần Việt không có ref"
+    assert _strip_internal_ref(plain) is plain
+    # Non-str / đệ quy.
+    assert _strip_internal_ref(5) == 5
+    assert _strip_internal_ref(None) is None
+    assert _strip_internal_ref(["a xem x.y", {"k": "b xem m.n.o"}]) == ["a", {"k": "b"}]
+
+
 # ── 11) field cũ GIỮ NGUYÊN (không vỡ contract) ──────────────────────────────
 def test_giu_field_cu_khong_vo_contract():
     d = build_display(_read("nữ"), "nữ")

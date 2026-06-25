@@ -35,6 +35,12 @@ _EMPTY_PAREN_RE = re.compile(r"[\(\（\[【「]\s*[,，;；·、\-—\s]*\s*[\)\
 _STRAY_LEAD_RE = re.compile(r"(^|[\(\（\[【「])\s*[,，;；·、]+\s*")
 _MULTI_SPACE_RE = re.compile(r"[ \t]{2,}")
 _SPACE_BEFORE_PUNCT_RE = re.compile(r"\s+([,，.。;；:：!！?？\)\）\]】」])")
+# Chú dẫn INTERNAL của engine lọt vào prose: 'xem lo_trinh_ren.cu_mon_sang_kheo_loi'
+# (key chấm-nối nội bộ, KHÔNG có nghĩa với user). Strip riêng cho KẾT QUẢ (tom_tat),
+# giữ nguyên trong data/can_cu. Bắt cả khi đứng sau ' — ' hoặc trong '(..., xem X)'.
+_INTERNAL_REF_RE = re.compile(
+    r"\s*(?:[—\-,，;；]\s*)?xem\s+[a-z_][a-z0-9_]*(?:\.[a-z0-9_]+)+\s*"
+)
 
 
 def _is_female(gender: str) -> bool:
@@ -72,6 +78,42 @@ def _strip_han(text: Any) -> Any:
     s = re.sub(r"\s*—\s*—\s*", " — ", s)
     s = re.sub(r"(^|[(\（])\s*—\s*", r"\1", s)
     s = re.sub(r"\s*—\s*$", "", s.strip())
+    return s.strip()
+
+
+def _strip_internal_ref(text: Any) -> Any:
+    """Xoá chú dẫn INTERNAL 'xem <key.dotted>' khỏi prose KẾT QUẢ (tom_tat).
+
+    Đây là con trỏ nội bộ engine (vd 'xem lo_trinh_ren.cu_mon_sang_kheo_loi') —
+    vô nghĩa với user, lọt từ knowledge JSON. CHỈ dùng cho tom_tat; data/can_cu
+    giữ NGUYÊN để trace. KHÔNG bịa nội dung, chỉ bỏ con trỏ. Đệ quy list/dict;
+    dọn lại ngoặc rỗng + dấu mồ côi giống _strip_han."""
+    if text is None or isinstance(text, bool):
+        return text
+    if isinstance(text, (int, float)):
+        return text
+    if isinstance(text, list):
+        return [_strip_internal_ref(x) for x in text]
+    if isinstance(text, tuple):
+        return tuple(_strip_internal_ref(x) for x in text)
+    if isinstance(text, dict):
+        return {k: _strip_internal_ref(v) for k, v in text.items()}
+    if not isinstance(text, str):
+        return text
+    s = _INTERNAL_REF_RE.sub("", text)
+    if s == text:
+        return text
+    # Dọn ngoặc rỗng / dấu mồ côi còn lại (vd '(khéo lời, )' → '(khéo lời)').
+    prev = None
+    while prev != s:
+        prev = s
+        s = _EMPTY_PAREN_RE.sub("", s)
+        s = re.sub(r"([\(\（\[【「][^\)\）\]】」]*?)[\s,，;；·、]+([\)\）\]】」])",
+                   r"\1\2", s)
+    s = _SPACE_BEFORE_PUNCT_RE.sub(r"\1", s)
+    s = _MULTI_SPACE_RE.sub(" ", s)
+    s = re.sub(r"\s*—\s*$", "", s.strip())
+    s = re.sub(r"\s*\.\s*\.", ".", s)
     return s.strip()
 
 
@@ -137,7 +179,8 @@ def _sec_cap_do(cd: dict) -> Optional[dict]:
         "do_thay_doi_duoc": cd.get("do_thay_doi_duoc"),
         "phan_loai": _strip_han(cd.get("phan_loai")),
         "muc_do_thu_thach": cd.get("muc_do_thu_thach"),
-        "lo_trinh": _strip_han(lo_trinh),
+        # lo_trinh là KẾT QUẢ user đọc → strip Hán + bỏ con trỏ internal 'xem X.Y'.
+        "lo_trinh": _strip_internal_ref(_strip_han(lo_trinh)),
         "nguyen_tac": _strip_han(nguyen_tac.get("tuyen_bo")),
     }
     # can_cu: tín hiệu kích hoạt (chứa Hán/jargon Thương Quan...). AUTO-HIDE.
@@ -483,4 +526,4 @@ def build_display(reading_output: dict, gender: str = "nữ") -> dict:
     return {"meta": meta, "sections": sections}
 
 
-__all__ = ["build_display", "_strip_han"]
+__all__ = ["build_display", "_strip_han", "_strip_internal_ref"]
