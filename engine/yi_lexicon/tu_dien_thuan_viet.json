@@ -1,0 +1,2563 @@
+{
+  "_meta": {
+    "ten": "Từ điển thuần-Việt CÓ NEO — sản phẩm tình duyên (gieo duyên + hôn nhân)",
+    "muc_dich": "Dịch mọi term user-facing sang tiếng Việt đời thường mà GIỮ ĐỦ NÉT của định nghĩa canon — chống drift (rơi nét / tự bịa nét). Hạ tầng TÁI DÙNG cho mọi sản phẩm.",
+    "cach_dung": "from engine.yi_lexicon.tu_dien_loader import tra_thuan_viet, load_tu_dien; tra_thuan_viet('Thiên Tướng') → entry. Lấy entry['thuan_viet'] để hiển thị; entry['net_canon'] để QA giữ đủ nét; entry['nguon'] để truy ngược sách.",
+    "nguyen_tac_neo": [
+      "thuan_viet DERIVE TỪ dinh_nghia_canon — GIỮ ĐỦ mọi nét trong net_canon, KHÔNG rơi, KHÔNG thêm nét không nguồn.",
+      "Mỗi term GẮN nguon (concept_dict page / wiki passage id). KHÔNG bịa nguồn.",
+      "Drift đã bắt: Thiên Tướng canon='ấn tín, QUYỀN HÀNH, bảo vệ' (bản cũ rơi 'quyền hành'); Liêm Trinh canon='THAM VỌNG, sắc đẹp' (bản cũ tự thêm 'giằng xé lý-tình').",
+      "Paradigm Iron #4/#6/#8: đọc đồng dạng, mệnh là ĐỘNG TỪ, KHÔNG predict. Gender (chồng/vợ) ở tầng product."
+    ],
+    "neo_tu": "engine/yi_lexicon/_vocab_canon.json (dinh_nghia_canon = ground-truth)",
+    "ngay_tao": "2026-06-25"
+  },
+  "thong_ke": {
+    "tong_term": 182,
+    "co_thuan_viet": 182,
+    "can_review": 0
+  },
+  "tu_dien": {
+    "Tử Vi": {
+      "han": "紫微",
+      "han_viet": "Tử Vi",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về đế vương, quyền lực tối cao, sinh ra dung mạo trọng hậu.",
+      "net_canon": [
+        "đế vương/đứng đầu",
+        "quyền lực tối cao",
+        "dung mạo trọng hậu/dáng vẻ đường bệ"
+      ],
+      "thuan_viet": "Mẫu người sinh ra để đứng đầu, nắm quyền cao nhất, lại có dáng vẻ đường bệ khiến người khác nể trọng.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:2726,2741,3088",
+      "can_review": false
+    },
+    "Thiên Cơ": {
+      "han": "天机",
+      "han_viet": "Thiên Cơ",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về trí tuệ, sự nhanh nhẹn, thiện tâm.",
+      "net_canon": [
+        "trí tuệ",
+        "nhanh nhẹn/linh hoạt",
+        "thiện tâm/lòng tốt"
+      ],
+      "thuan_viet": "Người đầu óc sáng, phản ứng nhanh nhạy linh hoạt, và bụng dạ tử tế hay thương người.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3047,3089,6",
+      "can_review": false
+    },
+    "Thái Dương": {
+      "han": "太阳",
+      "han_viet": "Thái Dương",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao mặt trời, chủ về quyền lực, danh vọng, sự sáng suốt.",
+      "net_canon": [
+        "mặt trời/toả sáng",
+        "quyền lực",
+        "danh vọng",
+        "sáng suốt/minh bạch"
+      ],
+      "thuan_viet": "Người như mặt trời toả sáng cho mọi người, có sức ảnh hưởng và uy quyền, được nhiều người biết tiếng, sống minh bạch và nhìn việc thấu suốt.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,31,48",
+      "can_review": false
+    },
+    "Vũ Khúc": {
+      "han": "武曲",
+      "han_viet": "Vũ Khúc",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về võ, tính cương cường, quyết đoán.",
+      "net_canon": [
+        "thuộc võ/làm ăn cứng cỏi",
+        "cương cường/cứng cỏi",
+        "quyết đoán/dứt khoát"
+      ],
+      "thuan_viet": "Người cứng cỏi, làm việc thực tế bằng nội lực bản thân, tính tình mạnh mẽ và quyết định việc gì là làm dứt khoát.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3094,44,493",
+      "can_review": false
+    },
+    "Thiên Đồng": {
+      "han": "天同",
+      "han_viet": "Thiên Đồng",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về phúc đức, an nhàn, người béo đầy đặn.",
+      "net_canon": [
+        "phúc đức/có phúc",
+        "an nhàn/thư thái",
+        "đầy đặn/phúc hậu bên ngoài"
+      ],
+      "thuan_viet": "Người có phúc, sống thong dong an nhàn không bon chen, vẻ ngoài đầy đặn phúc hậu.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,54,58",
+      "can_review": false
+    },
+    "Liêm Trinh": {
+      "han": "廉贞",
+      "han_viet": "Liêm Trinh",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về tham vọng, sắc đẹp, mày rộng miệng tươi.",
+      "net_canon": [
+        "tham vọng/khát khao lớn",
+        "sắc đẹp/duyên hút người",
+        "mày rộng miệng tươi/nét mặt cởi mở"
+      ],
+      "thuan_viet": "Người nhiều khát khao và tham vọng lớn, lại có nét cuốn hút duyên dáng, gương mặt mày rộng miệng tươi trông cởi mở dễ gần.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3094,439,460",
+      "can_review": false
+    },
+    "Thiên Phủ": {
+      "han": "天府",
+      "han_viet": "Thiên Phủ",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về tôn quý, thể chất thuần hòa, cát tinh ổn định.",
+      "net_canon": [
+        "tôn quý/được trọng vọng",
+        "thể chất thuần hoà/tính ôn hoà",
+        "cát tinh ổn định/vững vàng lành"
+      ],
+      "thuan_viet": "Người được nể trọng, tính tình ôn hoà điềm đạm, và là chỗ dựa vững vàng đem lại sự yên ổn lành mạnh cho xung quanh.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3031,3089,3",
+      "can_review": false
+    },
+    "Thái Âm": {
+      "han": "太阴",
+      "han_viet": "Thái Âm",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao mặt trăng, chủ về tài lộc, sự dịu dàng, văn chương.",
+      "net_canon": [
+        "mặt trăng/dịu mát",
+        "tài lộc/tiền của",
+        "dịu dàng",
+        "văn chương/yêu cái đẹp chữ nghĩa"
+      ],
+      "thuan_viet": "Người dịu dàng mát mẻ như ánh trăng, khéo lo tiền của tích góp, tính nết nhẹ nhàng và yêu thích chữ nghĩa văn chương.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,31,57",
+      "can_review": false
+    },
+    "Tham Lang": {
+      "han": "贪狼",
+      "han_viet": "Tham Lang",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về sắc đẹp, tham vọng, đào hoa, phong lưu.",
+      "net_canon": [
+        "sắc đẹp/sức hút",
+        "tham vọng/ham muốn nhiều",
+        "đào hoa/đa tình",
+        "phong lưu/ham vui hưởng thụ"
+      ],
+      "thuan_viet": "Người có sức hút, ham muốn nhiều thứ và khát khao lớn, đào hoa được người khác phái để ý, lại thích ăn chơi hưởng thụ vui vẻ.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:428,437,438",
+      "can_review": false
+    },
+    "Cự Môn": {
+      "han": "巨门",
+      "han_viet": "Cự Môn",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về thị phi, khẩu thiệt.",
+      "net_canon": [
+        "thị phi/dễ vướng điều tiếng",
+        "khẩu thiệt/chuyện lời ăn tiếng nói"
+      ],
+      "thuan_viet": "Người dễ vướng vào điều tiếng và những chuyện rắc rối quanh lời ăn tiếng nói, miệng lưỡi.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:3094,481,497",
+      "can_review": false
+    },
+    "Thiên Tướng": {
+      "han": "天相",
+      "han_viet": "Thiên Tướng",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về ấn tín, quyền hành, sự bảo vệ.",
+      "net_canon": [
+        "ấn tín/giữ chữ tín, đáng tin cậy",
+        "quyền hành/có vị thế điều hành",
+        "bảo vệ/che chở người khác"
+      ],
+      "thuan_viet": "Người đáng tin cậy được giao việc và con dấu, có vị thế đứng ra cầm trịch điều hành, và luôn che chở bảo vệ cho người bên cạnh.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,3100,134",
+      "can_review": false
+    },
+    "Thiên Lương": {
+      "han": "天梁",
+      "han_viet": "Thiên Lương",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về phúc đức, tuổi thọ, sự nhân từ.",
+      "net_canon": [
+        "phúc đức/có phúc",
+        "tuổi thọ/sống lâu",
+        "nhân từ/hiền lành thương người"
+      ],
+      "thuan_viet": "Người có phúc dày, được sống lâu khoẻ mạnh, tính tình hiền hậu nhân từ hay che chở giúp đỡ kẻ khác.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,31,238",
+      "can_review": false
+    },
+    "Thất Sát": {
+      "han": "七杀",
+      "han_viet": "Thất Sát",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao hung, chủ về chiến đấu, chết chóc, uy lực.",
+      "net_canon": [
+        "hung/khắc nghiệt",
+        "chiến đấu/xông pha",
+        "chết chóc/tổn thương nặng",
+        "uy lực/sức mạnh áp đảo"
+      ],
+      "thuan_viet": "Mang khí mạnh và khắc nghiệt, thích xông pha chiến đấu, dễ dẫn tới tổn thương nặng, nhưng cũng toát ra uy lực áp đảo khiến người ta dè chừng.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3095,426,439",
+      "can_review": false
+    },
+    "Phá Quân": {
+      "han": "破军",
+      "han_viet": "Phá Quân",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao hung, chủ về phá hoại, thay đổi, sự đổ vỡ.",
+      "net_canon": [
+        "hung/dữ",
+        "phá hoại/đập bỏ cái cũ",
+        "thay đổi/xáo trộn",
+        "đổ vỡ/tan rã"
+      ],
+      "thuan_viet": "Mang khí dữ thích đập bỏ cái cũ làm lại, đời nhiều thay đổi xáo trộn, dễ gặp cảnh đổ vỡ tan rã.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3096,31,138",
+      "can_review": false
+    },
+    "Thiên Diêu": {
+      "han": "天姚",
+      "han_viet": "Thiên Diêu",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+      "net_canon": [
+        "dâm dục/nặng chuyện ái tình",
+        "phong lưu/ham vui đa tình",
+        "tâm tính âm độc/bụng dạ ngầm hiểm",
+        "đa nghi/hay ngờ vực"
+      ],
+      "thuan_viet": "Người nặng về ái tình và ham vui đa tình, bụng dạ có phần ngầm hiểm khó lường, lại hay ngờ vực người khác.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:2820,3011,1869",
+      "can_review": false
+    },
+    "Hàm Trì": {
+      "han": "咸池",
+      "han_viet": "Hàm Trì",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao sát tinh, thuộc Thủy, chủ về dâm loạn, yêu kiều, nghiêng nước nghiêng thành.",
+      "net_canon": [
+        "sát tinh/khí xấu",
+        "thuộc Thuỷ",
+        "dâm loạn/lối sống buông thả",
+        "yêu kiều/duyên dáng mê hoặc",
+        "nghiêng nước nghiêng thành/đẹp mê đắm"
+      ],
+      "thuan_viet": "Mang khí không lành thuộc nước, dễ dẫn tới lối sống tình cảm buông thả, nhưng vẻ ngoài yêu kiều duyên dáng đẹp tới mức mê hoặc lòng người.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.296 | passages:59,105,359",
+      "can_review": false
+    },
+    "Mộc Dục": {
+      "han": "沐浴",
+      "han_viet": "Mộc Dục",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chỉ tắm gội, thanh tẩy, giai đoạn non trẻ cần chăm sóc.",
+      "net_canon": [
+        "tắm gội/thanh tẩy",
+        "giai đoạn non trẻ",
+        "cần chăm sóc/còn yếu cần nâng đỡ"
+      ],
+      "thuan_viet": "Như lúc vừa tắm gội gột rửa để khởi đầu, đang ở giai đoạn còn non trẻ nên cần được chăm sóc nâng đỡ.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:3067,2677,2694",
+      "can_review": false
+    },
+    "Đại Hao": {
+      "han": "大耗",
+      "han_viet": "Đại Hao",
+      "loai": "sao",
+      "dinh_nghia_canon": "Một hung tinh, chủ tai họa hao tổn, thường gây chết chóc hoặc mất mát lớn.",
+      "net_canon": [
+        "hung tinh/khí xấu",
+        "tai hoạ hao tổn/mất mát do tai ương",
+        "chết chóc hoặc mất mát lớn"
+      ],
+      "thuan_viet": "Mang khí xấu báo hiệu tai ương hao tổn, dễ kéo theo mất mát lớn hoặc chuyện đau buồn tang tóc.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.54 | passages:28,75,100",
+      "can_review": false
+    },
+    "Hồng Loan": {
+      "han": "红鸾",
+      "han_viet": "Hồng Loan",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao Hồng Loan, thuộc hành Thủy, chủ đào hoa và hôn nhân.",
+      "net_canon": [
+        "thuộc Thuỷ",
+        "đào hoa/duyên tình",
+        "hôn nhân/chuyện cưới hỏi"
+      ],
+      "thuan_viet": "Mang khí nước, báo hiệu duyên tình tới và chuyện cưới hỏi hôn nhân.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:510,1055,1880",
+      "can_review": false
+    },
+    "Thiên Hỉ": {
+      "han": "天喜",
+      "han_viet": "Thiên Hỉ",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+      "net_canon": [
+        "hỉ sự/chuyện vui mừng",
+        "đối cung với Hồng Loan/cặp đôi với sao duyên tình"
+      ],
+      "thuan_viet": "Báo hiệu chuyện vui mừng (cưới hỏi, sinh nở), thường đi thành cặp với điềm duyên tình ở phía đối diện.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:3,16,17",
+      "can_review": false
+    },
+    "Xương Khúc": {
+      "han": "文昌文曲",
+      "han_viet": "Xương Khúc",
+      "loai": "sao",
+      "dinh_nghia_canon": "Văn Xương (hành Kim) và Văn Khúc (hành Thủy), chủ văn học.",
+      "net_canon": [
+        "gồm hai phần văn học chữ nghĩa và tài hoa nghệ thuật",
+        "chủ văn học/giỏi chữ nghĩa"
+      ],
+      "thuan_viet": "Cặp dấu hiệu của người giỏi chữ nghĩa, có khiếu văn học và tài hoa.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:3093,448,483",
+      "can_review": false
+    },
+    "Hóa Lộc": {
+      "han": "化禄",
+      "han_viet": "Hóa Lộc",
+      "loai": "hoa",
+      "dinh_nghia_canon": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+      "net_canon": [
+        "tài lộc/tiền của",
+        "may mắn",
+        "phú quý/giàu sang"
+      ],
+      "thuan_viet": "Dấu hiệu tiền của tới, gặp may, và đời sống dư dả sung túc.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16 | passages:3100",
+      "can_review": false
+    },
+    "Hóa Quyền": {
+      "han": "化权",
+      "han_viet": "Hóa Quyền",
+      "loai": "hoa",
+      "dinh_nghia_canon": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+      "net_canon": [
+        "quyền lực",
+        "địa vị/chức phận"
+      ],
+      "thuan_viet": "Dấu hiệu nắm được quyền hành và có địa vị, chức phận trong tay.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "can_review": false
+    },
+    "Hóa Khoa": {
+      "han": "化科",
+      "han_viet": "Hóa Khoa",
+      "loai": "hoa",
+      "dinh_nghia_canon": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+      "net_canon": [
+        "danh tiếng/tiếng thơm",
+        "học hành/thi cử đỗ đạt"
+      ],
+      "thuan_viet": "Dấu hiệu có tiếng thơm và đường học hành thi cử thuận lợi đỗ đạt.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "can_review": false
+    },
+    "Hóa Kỵ": {
+      "han": "化忌",
+      "han_viet": "Hóa Kỵ",
+      "loai": "hoa",
+      "dinh_nghia_canon": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+      "net_canon": [
+        "tai ương",
+        "khó khăn/trắc trở",
+        "ảnh hưởng xấu tới mệnh/làm hỏng việc"
+      ],
+      "thuan_viet": "Dấu hiệu vướng tai ương, gặp khó khăn trắc trở, làm cho việc đang tốt bị hỏng đi.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "can_review": false
+    },
+    "Kình Dương": {
+      "han": "擎羊",
+      "han_viet": "Kình Dương",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao hung, chủ về hình phạt, chướng ngại, đụng độ.",
+      "net_canon": [
+        "hung/khí xấu",
+        "hình phạt/dao kéo thương tích",
+        "chướng ngại/cản trở",
+        "đụng độ/va chạm tranh chấp"
+      ],
+      "thuan_viet": "Mang khí xấu cứng, dễ dính thương tích dao kéo hoặc kiện cáo, hay gặp cản trở và va chạm tranh chấp với người.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3097,56,57",
+      "can_review": false
+    },
+    "Đà La": {
+      "han": "陀罗",
+      "han_viet": "Đà La",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao hung, chủ về tù tội, gian trá.",
+      "net_canon": [
+        "hung/khí xấu",
+        "tù tội/vướng vòng lao lý",
+        "gian trá/dối trá dây dưa"
+      ],
+      "thuan_viet": "Mang khí xấu âm ỉ, dễ vướng chuyện lao lý kéo dài, và liên quan tới gian dối lằng nhằng dây dưa.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:3098,2,15",
+      "can_review": false
+    },
+    "Hỏa Tinh": {
+      "han": "火星",
+      "han_viet": "Hỏa Tinh",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao Hỏa, chủ về nóng nảy, hung bạo.",
+      "net_canon": [
+        "thuộc Hoả",
+        "nóng nảy/dễ bốc",
+        "hung bạo/dữ dằn"
+      ],
+      "thuan_viet": "Mang khí lửa, tính nóng nảy dễ bốc, khi nổi lên thì dữ dằn mạnh bạo.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:2998,3077,3098",
+      "can_review": false
+    },
+    "Linh Tinh": {
+      "han": "铃星",
+      "han_viet": "Linh Tinh",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao hỏa, chủ về nóng nảy, tai nạn, xung đột.",
+      "net_canon": [
+        "thuộc Hoả",
+        "nóng nảy/dễ bốc",
+        "tai nạn",
+        "xung đột/va chạm"
+      ],
+      "thuan_viet": "Mang khí lửa ngầm, tính nóng dễ bùng, dễ gặp tai nạn bất ngờ và va chạm xung đột.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3098,37,47",
+      "can_review": false
+    },
+    "Địa Không": {
+      "han": "地空",
+      "han_viet": "Địa Không",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về hư vô, thất bại, kỵ hợp với kiếp.",
+      "net_canon": [
+        "hư vô/trống rỗng mất mát",
+        "thất bại",
+        "kỵ hợp với Kiếp/gặp sao phá tán càng xấu"
+      ],
+      "thuan_viet": "Báo hiệu sự trống rỗng mất mát và dễ thất bại; càng nặng khi đi cùng sao phá tán kia.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.51 | passages:14,19,47",
+      "can_review": false
+    },
+    "Địa Kiếp": {
+      "han": "地劫",
+      "han_viet": "Địa Kiếp",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao hung, chủ về tai họa, mất mát, kiếp nạn.",
+      "net_canon": [
+        "hung/khí xấu",
+        "tai hoạ",
+        "mất mát",
+        "kiếp nạn/tai ách lớn"
+      ],
+      "thuan_viet": "Mang khí xấu báo tai hoạ, dễ mất mát của cải và gặp tai ách lớn trong đời.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:440,450,512",
+      "can_review": false
+    },
+    "Đào Hoa": {
+      "han": "",
+      "han_viet": "Đào Hoa",
+      "loai": "sao",
+      "dinh_nghia_canon": "Chỉ Tham Lang, chủ về tình duyên, dâm dật.",
+      "net_canon": [
+        "tình duyên/duyên với người khác phái",
+        "dâm dật/say mê chuyện tình cảm"
+      ],
+      "thuan_viet": "Dấu hiệu của duyên tình đậm với người khác phái, dễ say mê và đắm trong chuyện tình cảm.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16 | passages:17,18,19",
+      "can_review": false
+    },
+    "Thiên Hỷ": {
+      "han": "",
+      "han_viet": "Thiên Hỷ",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+      "net_canon": [
+        "hỉ sự/chuyện vui mừng",
+        "đối cung với Hồng Loan/cặp đôi với sao duyên tình"
+      ],
+      "thuan_viet": "Báo hiệu chuyện vui mừng (cưới hỏi, sinh nở), thường đi thành cặp với điềm duyên tình ở phía đối diện.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:3,16,17",
+      "can_review": false
+    },
+    "Thiên Dao": {
+      "han": "",
+      "han_viet": "Thiên Dao",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+      "net_canon": [
+        "dâm dục/nặng chuyện ái tình",
+        "phong lưu/ham vui đa tình",
+        "tâm tính âm độc/bụng dạ ngầm hiểm",
+        "đa nghi/hay ngờ vực"
+      ],
+      "thuan_viet": "Người nặng về ái tình và ham vui đa tình, bụng dạ có phần ngầm hiểm khó lường, lại hay ngờ vực người khác.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:1869,1873,2713",
+      "can_review": false
+    },
+    "Cô Thần": {
+      "han": "孤辰",
+      "han_viet": "Cô Thần",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Sao cô độc với nam giới. Người có Cô Thần → khó kết hôn / hôn nhân xa cách.",
+      "net_canon": [
+        "sao cô độc với nam giới",
+        "khó kết hôn hoặc hôn nhân xa cách"
+      ],
+      "thuan_viet": "Dấu hiệu cô độc nghiêng về phía đàn ông: khó lấy vợ, hoặc dù có vợ thì vợ chồng cũng dễ xa cách.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Quả Tú": {
+      "han": "寡宿",
+      "han_viet": "Quả Tú",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Sao cô độc với nữ giới. Người có Quả Tú → khó có chồng / sống một mình.",
+      "net_canon": [
+        "sao cô độc với nữ giới",
+        "khó có chồng hoặc sống một mình"
+      ],
+      "thuan_viet": "Dấu hiệu cô độc nghiêng về phía đàn bà: khó lấy chồng, hoặc dễ phải sống lẻ bóng một mình.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Tiểu Hao": {
+      "han": "",
+      "han_viet": "Tiểu Hao",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao thuộc 12 sao Thái Tuế, chủ hao tiền.",
+      "net_canon": [
+        "thuộc nhóm sao theo năm tuổi",
+        "hao tiền/tốn kém vặt"
+      ],
+      "thuan_viet": "Dấu hiệu hao tiền tốn kém lặt vặt theo năm.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.85 | passages:192,311,1706",
+      "can_review": false
+    },
+    "Hỏa Linh": {
+      "han": "",
+      "han_viet": "Hỏa Linh",
+      "loai": "sao",
+      "dinh_nghia_canon": "Hỏa Tinh (hành Hỏa) và Linh Tinh (hành Hỏa), đều là sát tinh.",
+      "net_canon": [
+        "gồm hai sao đều thuộc Hoả",
+        "đều là sát tinh/đều mang khí xấu"
+      ],
+      "thuan_viet": "Cặp khí lửa, cả hai đều là dấu hiệu xấu nóng gấp dễ sinh biến.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:6,24,37",
+      "can_review": false
+    },
+    "Không Kiếp": {
+      "han": "",
+      "han_viet": "Không Kiếp",
+      "loai": "sao",
+      "dinh_nghia_canon": "Địa Không (hành Hỏa) và Địa Kiếp (hành Hỏa), hai sát tinh chủ phá tán.",
+      "net_canon": [
+        "gồm hai sao đều thuộc Hoả",
+        "đều là sát tinh",
+        "chủ phá tán/làm hao tan của cải"
+      ],
+      "thuan_viet": "Cặp khí xấu, cùng nhau làm hao tán mất mát của cải.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:440,512,531",
+      "can_review": false
+    },
+    "Thiên Không": {
+      "han": "",
+      "han_viet": "Thiên Không",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về hư không, phá tài, kỵ gặp ở mệnh thân.",
+      "net_canon": [
+        "hư không/trống rỗng",
+        "phá tài/hao của",
+        "kỵ gặp ở mệnh thân/đóng tại bản thân thì xấu"
+      ],
+      "thuan_viet": "Báo hiệu sự trống rỗng và hao hụt tiền của; đóng ngay vào bản thân thì càng bất lợi.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.43 | passages:3,14,16",
+      "can_review": false
+    },
+    "Thiên Mã": {
+      "han": "",
+      "han_viet": "Thiên Mã",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về sự di động, xa xôi, xuất ngoại.",
+      "net_canon": [
+        "di động/hay di chuyển",
+        "xa xôi/đi xa",
+        "xuất ngoại/ra nước ngoài"
+      ],
+      "thuan_viet": "Dấu hiệu của người hay di chuyển, đi lại xa xôi, dễ ra nước ngoài hoặc làm ăn xa nhà.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16 | passages:19,29,58",
+      "can_review": false
+    },
+    "Văn Xương": {
+      "han": "",
+      "han_viet": "Văn Xương",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về văn học, khoa cử, thông minh.",
+      "net_canon": [
+        "văn học/giỏi chữ nghĩa",
+        "khoa cử/thi cử",
+        "thông minh"
+      ],
+      "thuan_viet": "Người giỏi chữ nghĩa, thuận đường thi cử, đầu óc thông minh sáng láng.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:25,52,409",
+      "can_review": false
+    },
+    "Văn Khúc": {
+      "han": "",
+      "han_viet": "Văn Khúc",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về văn chương, nghệ thuật, tài năng.",
+      "net_canon": [
+        "văn chương/giỏi viết lách",
+        "nghệ thuật",
+        "tài năng/có khiếu"
+      ],
+      "thuan_viet": "Người có khiếu văn chương viết lách, giỏi nghệ thuật và nhiều tài lẻ.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:149,444,448",
+      "can_review": false
+    },
+    "Tả Phù": {
+      "han": "",
+      "han_viet": "Tả Phù",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+      "net_canon": [
+        "hỗ trợ/giúp sức",
+        "phụ tá/người phò bên cạnh",
+        "cùng người đứng đầu tạo nên quyền lực"
+      ],
+      "thuan_viet": "Người trợ giúp đắc lực đứng bên cạnh phò tá, góp sức cùng người chủ tạo nên thế lực.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:41,42,44",
+      "can_review": false
+    },
+    "Hữu Bật": {
+      "han": "",
+      "han_viet": "Hữu Bật",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về sự phò tá, giống Tả Phụ, kết hợp với Tử Vi.",
+      "net_canon": [
+        "phò tá/giúp sức",
+        "giống Tả Phụ/vai trợ thủ",
+        "kết hợp với người đứng đầu"
+      ],
+      "thuan_viet": "Người trợ thủ đắc lực, sát cánh giúp sức cho người chủ giống như một cánh tay phải.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:425,427,436",
+      "can_review": false
+    },
+    "Tả Phụ": {
+      "han": "",
+      "han_viet": "Tả Phụ",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+      "net_canon": [
+        "hỗ trợ/giúp sức",
+        "phụ tá/người phò bên cạnh",
+        "cùng người đứng đầu tạo nên quyền lực"
+      ],
+      "thuan_viet": "Người trợ giúp đắc lực đứng bên cạnh phò tá, góp sức cùng người chủ tạo nên thế lực.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:41,42,44",
+      "can_review": false
+    },
+    "Thiên Khôi": {
+      "han": "",
+      "han_viet": "Thiên Khôi",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về quý nhân, sự giúp đỡ, được tôn trọng.",
+      "net_canon": [
+        "quý nhân/người tốt nâng đỡ",
+        "giúp đỡ",
+        "được tôn trọng/có uy"
+      ],
+      "thuan_viet": "Dấu hiệu có quý nhân là người trên ra tay giúp đỡ, và bản thân được người ta nể trọng.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:38,398,430",
+      "can_review": false
+    },
+    "Thiên Việt": {
+      "han": "",
+      "han_viet": "Thiên Việt",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về quý nhân, tương tự Thiên Khôi.",
+      "net_canon": [
+        "quý nhân/người tốt nâng đỡ",
+        "tương tự Thiên Khôi/cùng loại quý nhân"
+      ],
+      "thuan_viet": "Dấu hiệu có quý nhân nâng đỡ, cùng một loại với điềm gặp người tốt giúp sức.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:340,430,452",
+      "can_review": false
+    },
+    "Khôi Việt": {
+      "han": "",
+      "han_viet": "Khôi Việt",
+      "loai": "sao",
+      "dinh_nghia_canon": "Hai sao Thiên Khôi và Thiên Việt, chủ về quý hiển và tài lộc.",
+      "net_canon": [
+        "gồm hai sao quý nhân",
+        "quý hiển/được trọng vọng cao",
+        "tài lộc/tiền của"
+      ],
+      "thuan_viet": "Cặp dấu hiệu quý nhân, đem lại sự trọng vọng cao và cả tiền của.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.38 | passages:430,452,527",
+      "can_review": false
+    },
+    "Thiên Hình": {
+      "han": "",
+      "han_viet": "Thiên Hình",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về hình phạt, pháp luật, sự nghiêm khắc.",
+      "net_canon": [
+        "hình phạt/dính chuyện trừng phạt",
+        "pháp luật/liên quan luật lệ",
+        "nghiêm khắc/cứng rắn kỷ luật"
+      ],
+      "thuan_viet": "Dấu hiệu liên quan tới luật lệ và sự trừng phạt, con người nghiêm khắc cứng rắn giữ kỷ luật.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:16,27,31",
+      "can_review": false
+    },
+    "Thiên Khốc": {
+      "han": "",
+      "han_viet": "Thiên Khốc",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao Thiên Khốc, thuộc hành Kim, là sao tang trở, chủ buồn thương.",
+      "net_canon": [
+        "thuộc Kim",
+        "tang trở/việc buồn ma chay trắc trở",
+        "buồn thương/khóc lóc đau xót"
+      ],
+      "thuan_viet": "Mang khí kim, báo hiệu chuyện buồn tang tóc trắc trở, và nỗi buồn thương đau xót.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:1860,1869,1878",
+      "can_review": false
+    },
+    "Thiên Hư": {
+      "han": "",
+      "han_viet": "Thiên Hư",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao ác, cùng Thiên Khốc gây họa cho mệnh chủ.",
+      "net_canon": [
+        "sao ác/khí xấu",
+        "cùng Thiên Khốc gây hoạ cho mệnh chủ/đi đôi với sao buồn làm hại bản thân"
+      ],
+      "thuan_viet": "Mang khí xấu, đi đôi với điềm buồn thương để gây hoạ rắc rối cho chính bản thân người đó.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:16,19,97",
+      "can_review": false
+    },
+    "Âm Sát": {
+      "han": "",
+      "han_viet": "Âm Sát",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao âm thầm, chủ tai họa ngầm.",
+      "net_canon": [
+        "âm thầm/ngấm ngầm",
+        "tai hoạ ngầm/rắc rối ẩn không thấy trước"
+      ],
+      "thuan_viet": "Dấu hiệu tai hoạ ngấm ngầm, rắc rối ẩn nấp khó thấy trước nên hay bị bất ngờ.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.41 | passages:143,272,289",
+      "can_review": false
+    },
+    "Tam Thai": {
+      "han": "",
+      "han_viet": "Tam Thai",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao phụ, chủ về mô phạm, mẫu mực.",
+      "net_canon": [
+        "sao phụ/vai phụ trợ",
+        "mô phạm",
+        "mẫu mực/đàng hoàng nề nếp"
+      ],
+      "thuan_viet": "Dấu hiệu phụ trợ cho thấy con người mô phạm, sống mẫu mực nề nếp đàng hoàng.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:7,19,41",
+      "can_review": false
+    },
+    "Bát Tọa": {
+      "han": "",
+      "han_viet": "Bát Tọa",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao Bát Tọa chủ về quý tử, quyền bính.",
+      "net_canon": [
+        "quý tử/con cái quý",
+        "quyền bính/có quyền vị"
+      ],
+      "thuan_viet": "Dấu hiệu có con cái quý hiển và bản thân nắm được quyền vị.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.25 | passages:78,261,719",
+      "can_review": false
+    },
+    "Lộc Tồn": {
+      "han": "",
+      "han_viet": "Lộc Tồn",
+      "loai": "sao",
+      "dinh_nghia_canon": "Sao chủ về lộc, của cải, sự bền vững.",
+      "net_canon": [
+        "lộc/của cải tới",
+        "của cải",
+        "bền vững/giữ được lâu dài"
+      ],
+      "thuan_viet": "Dấu hiệu của cải tiền bạc tới và giữ được bền vững lâu dài.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:346,445,462",
+      "can_review": false
+    },
+    "Bách Quan Triều Củng": {
+      "han": "",
+      "han_viet": "Bách Quan Triều Củng",
+      "loai": "sao",
+      "dinh_nghia_canon": "Bách Quan Triều Củng (百官朝拱) — Tử Vi được nhiều cát/phụ tinh vây quanh, cách quý.",
+      "net_canon": [
+        "người đứng đầu được nhiều sao tốt vây quanh",
+        "cách quý/thế cục cao sang"
+      ],
+      "thuan_viet": "Cảnh người chủ được nhiều người giỏi và điềm tốt vây quanh phò trợ, là thế cục cao sang đáng quý.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:723,1268,1731",
+      "can_review": false
+    },
+    "Chính Quan": {
+      "han": "正官",
+      "han_viet": "Chính Quan",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Khắc Day Master, khác âm dương. Biểu thị: chức tước chính thống, kỷ luật, chồng (Nữ). Tích: công chức, chức vụ chính danh, danh tiếng tốt. Tiêu: gò bó, áp lực kỷ luật. Sợ Thương Quan đả phá, sợ Thất Sát hỗn tạp.",
+      "net_canon": [
+        "khắc Nhật chủ, khác âm dương/lực ràng buộc chính danh",
+        "chức tước chính thống",
+        "kỷ luật",
+        "chồng (với nữ)",
+        "tích cực: chức vụ chính danh, danh tiếng tốt",
+        "tiêu cực: gò bó, áp lực kỷ luật",
+        "sợ Thương Quan đả phá",
+        "sợ Thất Sát hỗn tạp"
+      ],
+      "thuan_viet": "Sức ép chính đáng giữ người vào khuôn phép: hợp với chức vụ danh chính ngôn thuận, danh tiếng tốt và nền nếp kỷ luật; với nữ đại diện người chồng. Mặt trái là cảm giác gò bó áp lực. Dễ bị hỏng khi gặp tài năng phá cách lấn át, hoặc khi lẫn lộn với loại quyền lực dữ.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Thiên Quan": {
+      "han": "偏官",
+      "han_viet": "Thiên Quan",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
+      "net_canon": [
+        "khắc Nhật chủ, cùng âm dương/quyền lực dữ dội",
+        "áp lực mạnh",
+        "tướng quân/đối thủ mạnh",
+        "tích cực: quân đội, công an, kinh doanh mạo hiểm, lãnh đạo",
+        "tiêu cực: tai hoạ, kiện tụng, kẻ thù",
+        "cần được kiềm chế (chế) hoặc chuyển hoá (hoá) thì thành quý hiển"
+      ],
+      "thuan_viet": "Quyền lực dữ dằn và áp lực mạnh, như sức của một viên tướng hay một đối thủ ngang ngửa: hợp với binh nghiệp, công an, làm ăn mạo hiểm và vai trò chỉ huy; nhưng nếu buông lỏng thì hoá tai hoạ, kiện tụng, sinh kẻ thù. Phải biết kiềm chế hoặc chuyển hoá nó thì mới thành người quý hiển.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Quan Sát": {
+      "han": "官杀",
+      "han_viet": "Quan Sát",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Gộp Chính Quan (正官) + Thất Sát (七杀) — nhóm thập thần KHẮC Nhật chủ; ở nữ mệnh đại diện PHỐI NGẪU (chồng). Chính Quan = ràng buộc chính đáng/danh phận; Thất Sát = áp lực mạnh/uy quyền.",
+      "net_canon": [
+        "gộp Chính Quan + Thất Sát/cùng nhóm áp lực bên ngoài",
+        "khắc Nhật chủ",
+        "với nữ đại diện chồng/phối ngẫu",
+        "Chính Quan = ràng buộc chính đáng, danh phận",
+        "Thất Sát = áp lực mạnh, uy quyền"
+      ],
+      "thuan_viet": "Gộp chung hai loại sức ép từ bên ngoài đè lên bản thân: một bên là ràng buộc danh chính ngôn thuận có danh phận, một bên là áp lực mạnh đầy uy quyền; với người nữ đây chính là hình ảnh người chồng, người bạn đời.",
+      "nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "can_review": false
+    },
+    "Thương Quan": {
+      "han": "伤官",
+      "han_viet": "Thương Quan",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Day Master sinh ra, khác âm dương. Biểu thị: tài năng vượt khuôn khổ, phá cách, nổi loạn. Tích: nghệ sĩ độc đáo, khởi nghiệp đột phá, ngôn ngữ tài. Tiêu: ngạo mạn, vô lễ, khắc Chồng (nữ). Cần Chính Ấn để 'Thương Quan phối Ấn' → tài năng có khuôn.",
+      "net_canon": [
+        "Nhật chủ sinh ra, khác âm dương/sức biểu đạt tuôn ra vượt khuôn",
+        "tài năng vượt khuôn khổ",
+        "phá cách/nổi loạn",
+        "tích cực: nghệ sĩ độc đáo, khởi nghiệp đột phá, tài ăn nói",
+        "tiêu cực: ngạo mạn, vô lễ, khắc chồng (với nữ)",
+        "cần được khuôn lại (phối Ấn) thì tài năng có khuôn"
+      ],
+      "thuan_viet": "Năng lực tuôn ra mạnh vượt mọi khuôn phép: làm nên nghệ sĩ độc đáo, người khởi nghiệp đột phá, tài ăn nói hơn người; nhưng buông thả thì hoá kiêu ngạo, vô lễ, và với nữ thì lấn át khắc chế người chồng. Cần có cái khuôn ghìm lại thì tài năng mới thành nề nếp.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Thực Thần": {
+      "han": "食神",
+      "han_viet": "Thực Thần",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Day Master sinh ra, cùng âm dương. Biểu thị: tài năng sáng tạo, hưởng thụ, nuôi dưỡng. Tích: nghệ thuật, ẩm thực, giáo dục, sinh con, phúc lộc. Tiêu: lười nhác, ham hưởng thụ. Kỵ Thiên Ấn (Kiêu Thần đoạt Thực) → mất nguồn lộc.",
+      "net_canon": [
+        "Nhật chủ sinh ra, cùng âm dương/sức sáng tạo nuôi dưỡng êm",
+        "tài năng sáng tạo",
+        "hưởng thụ",
+        "nuôi dưỡng",
+        "tích cực: nghệ thuật, ẩm thực, giáo dục, sinh con, phúc lộc",
+        "tiêu cực: lười nhác, ham hưởng thụ",
+        "kỵ bị Thiên Ấn cướp mất nguồn lộc"
+      ],
+      "thuan_viet": "Sức sáng tạo êm đềm biết nuôi dưỡng và tận hưởng: hợp với nghệ thuật, ẩm thực, dạy học, chuyện con cái và phúc lộc dồi dào; mặt trái là dễ lười và ham hưởng thụ. Sợ nhất bị loại khí lệch cướp mất nguồn nuôi sống này.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "食伤": {
+      "han": "食伤",
+      "han_viet": "食伤",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Gộp Thực Thần (食神) + Thương Quan (伤官) — thập thần do Nhật chủ SINH ra; chủ tài năng, biểu đạt, sáng tạo. Nữ mệnh Thương Quan khắc Chính Quan (sao chồng).",
+      "net_canon": [
+        "gộp Thực Thần + Thương Quan/do Nhật chủ sinh ra",
+        "tài năng",
+        "biểu đạt",
+        "sáng tạo",
+        "nữ mệnh khắc sao chồng"
+      ],
+      "thuan_viet": "Gộp chung phần năng lực do bản thân toả ra ngoài: tài năng, khả năng biểu đạt và óc sáng tạo; với người nữ, phần khí này có thể lấn át sao người chồng.",
+      "nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "can_review": false
+    },
+    "Thực Thương": {
+      "han": "食伤",
+      "han_viet": "Thực Thương",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Thực Thần + Thương Quan = nhóm Thực Thương (食伤); Nhật chủ sinh ra, chủ sáng tạo/biểu đạt; nữ mệnh khắc sao chồng.",
+      "net_canon": [
+        "gộp Thực Thần + Thương Quan/do Nhật chủ sinh ra",
+        "sáng tạo",
+        "biểu đạt",
+        "nữ mệnh khắc sao chồng"
+      ],
+      "thuan_viet": "Gộp chung phần năng lực do bản thân toả ra ngoài: óc sáng tạo và khả năng biểu đạt; với người nữ, phần khí này có thể lấn át sao người chồng.",
+      "nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "can_review": false
+    },
+    "Chính Tài": {
+      "han": "正财",
+      "han_viet": "Chính Tài",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Day Master khắc, khác âm dương. Biểu thị: tài chính ổn định, lương cứng, vợ chính (Nam). Tích: cần kiệm, tích lũy, gia đình ổn. Tiêu: cứng nhắc, sợ rủi ro. Khi Day Master vượng + Chính Tài vượng → đại phú.",
+      "net_canon": [
+        "Nhật chủ khắc, khác âm dương/của cải mình làm chủ chính đáng",
+        "tài chính ổn định",
+        "lương cứng",
+        "vợ chính (với nam)",
+        "tích cực: cần kiệm, tích luỹ, gia đình ổn",
+        "tiêu cực: cứng nhắc, sợ rủi ro",
+        "khi bản thân vượng + tài vượng thì đại phú"
+      ],
+      "thuan_viet": "Của cải chính đáng do mình làm chủ một cách đều đặn: tiền lương ổn định, biết cần kiệm tích cóp, gia đình êm ấm; với nam đại diện người vợ chính thức. Mặt trái là cứng nhắc, ngại rủi ro. Khi bản thân đủ mạnh mà phần của cải này cũng mạnh thì giàu lớn.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Thiên Tài": {
+      "han": "偏财",
+      "han_viet": "Thiên Tài",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Day Master khắc, cùng âm dương. Biểu thị: tài lộc bất ngờ, đào hoa, đầu cơ. Tích: kinh doanh đa lĩnh vực, môi giới, có sức hút. Tiêu: phá tài bất ngờ, đào hoa loạn.",
+      "net_canon": [
+        "Nhật chủ khắc, cùng âm dương/của cải linh động",
+        "tài lộc bất ngờ",
+        "đào hoa",
+        "đầu cơ",
+        "tích cực: kinh doanh đa lĩnh vực, môi giới, có sức hút",
+        "tiêu cực: phá tài bất ngờ, đào hoa loạn"
+      ],
+      "thuan_viet": "Của cải tới bất ngờ và linh động: hợp làm ăn nhiều ngành, môi giới, người có sức hút, dễ trúng món lớn; nhưng cũng dễ mất của đột ngột và đào hoa rối ren ngoài luồng.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "财": {
+      "han": "财",
+      "han_viet": "财",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Tiền bạc, của cải; cùng với công danh tạo thành lĩnh vực danh lợi.",
+      "net_canon": [
+        "tiền bạc/của cải",
+        "cùng công danh tạo thành lĩnh vực danh lợi"
+      ],
+      "thuan_viet": "Phần tiền bạc của cải; đi cùng với công danh thì hợp lại thành chuyện danh và lợi.",
+      "nguon": "wiki concept_index:thieu-khang-tiet-tq tr.123",
+      "can_review": false
+    },
+    "Chính Ấn": {
+      "han": "正印",
+      "han_viet": "Chính Ấn",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Sinh Day Master, khác âm dương. Biểu thị: mẹ ruột, học vấn chính quy, ấn tín bảo hộ. Tích: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện. Tiêu: ỷ lại, lười suy nghĩ độc lập. Kỵ Chính Tài đoạt Ấn.",
+      "net_canon": [
+        "sinh Nhật chủ, khác âm dương/nguồn nuôi dưỡng che chở chính thống",
+        "mẹ ruột",
+        "học vấn chính quy",
+        "ấn tín bảo hộ/giấy tờ chứng nhận bảo vệ",
+        "tích cực: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện",
+        "tiêu cực: ỷ lại, lười suy nghĩ độc lập",
+        "kỵ bị của cải làm hỏng (Tài đoạt Ấn)"
+      ],
+      "thuan_viet": "Nguồn nuôi dưỡng và che chở chính thống: hình ảnh mẹ ruột, sự học hành bài bản, giấy tờ chứng nhận bảo vệ mình; đem lại trí tuệ, tiếng thơm học thuật, lòng nhân hậu hay làm việc thiện. Mặt trái là dễ ỷ lại, lười tự suy nghĩ. Sợ bị ham tiền của làm hỏng mất chỗ dựa này.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Thiên Ấn": {
+      "han": "偏印",
+      "han_viet": "Thiên Ấn",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
+      "net_canon": [
+        "ấn tín/giấy tờ chứng nhận",
+        "quyền uy",
+        "học vấn"
+      ],
+      "thuan_viet": "Dấu hiệu của giấy tờ chứng nhận và con dấu, đi với quyền uy và sự học.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.280",
+      "can_review": false
+    },
+    "Ấn Tinh": {
+      "han": "印",
+      "han_viet": "Ấn Tinh",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
+      "net_canon": [
+        "chữ ký = tâm ấn của người/nét bút phản chiếu tâm",
+        "cơ sở để xem qua chữ ký"
+      ],
+      "thuan_viet": "Chữ ký của một người chính là dấu ấn của tâm họ, nên nhìn nét bút có thể đọc được phần nào con người.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.345 | passages:2727,2732,2820",
+      "can_review": false
+    },
+    "ấn tinh": {
+      "han": "印",
+      "han_viet": "ấn tinh",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
+      "net_canon": [
+        "chữ ký = tâm ấn của người/nét bút phản chiếu tâm",
+        "cơ sở để xem qua chữ ký"
+      ],
+      "thuan_viet": "Chữ ký của một người chính là dấu ấn của tâm họ, nên nhìn nét bút có thể đọc được phần nào con người.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.345 | passages:2727,2732,2820",
+      "can_review": false
+    },
+    "Tỷ Kiên": {
+      "han": "比肩",
+      "han_viet": "Tỷ Kiên",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Cùng hành + cùng âm dương với Day Master. Biểu thị: anh em ngang vai, đồng nghiệp, cạnh tranh trực diện. Tích: hỗ trợ, độc lập, ý chí. Tiêu: cứng đầu, tranh chấp, hao của.",
+      "net_canon": [
+        "cùng hành + cùng âm dương với Nhật chủ/người ngang vai giống mình",
+        "anh em ngang vai",
+        "đồng nghiệp",
+        "cạnh tranh trực diện",
+        "tích cực: hỗ trợ, độc lập, ý chí",
+        "tiêu cực: cứng đầu, tranh chấp, hao của"
+      ],
+      "thuan_viet": "Hình ảnh người ngang vai giống hệt mình — anh em, bạn đồng nghiệp, đối thủ cạnh tranh ngang ngửa: đem lại sự hỗ trợ, tính độc lập và ý chí; mặt trái là cứng đầu, hay tranh chấp và tốn kém của cải vì chia sẻ.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Kiếp Tài": {
+      "han": "劫财",
+      "han_viet": "Kiếp Tài",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Cùng hành + khác âm dương với Day Master. Biểu thị: người cướp của, đối thủ ngầm. Tích: dũng mãnh, hành động nhanh. Tiêu: hao tổn tài lộc, dễ bị lừa, cướp đoạt vô hình. Khi Kiếp Tài ở Trụ Tháng → Dương Nhận cách (đặc biệt).",
+      "net_canon": [
+        "cùng hành + khác âm dương với Nhật chủ/người giống mình nhưng giành phần",
+        "người cướp của/đối thủ ngầm",
+        "tích cực: dũng mãnh, hành động nhanh",
+        "tiêu cực: hao tổn tài lộc, dễ bị lừa, bị cướp đoạt vô hình",
+        "ở Trụ Tháng thành cách đặc biệt (Dương Nhận)"
+      ],
+      "thuan_viet": "Hình ảnh người giống mình nhưng tới giành phần — đối thủ ngầm hay kẻ chực cướp của: cho mình sự gan dạ và ra tay nhanh, nhưng cũng làm hao của, dễ bị lừa và mất mát một cách vô hình. Nếu nằm ở trụ tháng thì thành một thế cục riêng đặc biệt.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "can_review": false
+    },
+    "Tỷ Kiếp": {
+      "han": "比劫",
+      "han_viet": "Tỷ Kiếp",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Gộp Tỷ Kiên (比肩) + Kiếp Tài (劫财) — thập thần ĐỒNG loại với Nhật chủ; chủ anh em/bằng hữu/cạnh tranh. Ở nam mệnh, Tỷ Kiếp KHẮC Tài (财) nên là kẻ khắc vợ.",
+      "net_canon": [
+        "gộp Tỷ Kiên + Kiếp Tài/cùng loại với Nhật chủ",
+        "anh em, bằng hữu, cạnh tranh",
+        "ở nam mệnh khắc của cải nên là kẻ khắc vợ"
+      ],
+      "thuan_viet": "Gộp chung những người ngang vai giống mình — anh em, bạn bè, đối thủ cạnh tranh; với nam, nhóm này tranh mất phần của cải nên cũng là dấu hiệu khắc vợ.",
+      "nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "can_review": false
+    },
+    "Chính Quan Thất Sát": {
+      "han": "官杀",
+      "han_viet": "Chính Quan Thất Sát",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Chính Quan + Thất Sát = nhóm Quan Sát (官杀); khắc Nhật chủ, nữ mệnh là sao phối ngẫu.",
+      "net_canon": [
+        "gộp Chính Quan + Thất Sát/nhóm áp lực bên ngoài",
+        "khắc Nhật chủ",
+        "nữ mệnh là sao phối ngẫu (chồng)"
+      ],
+      "thuan_viet": "Gộp chung hai loại sức ép từ bên ngoài đè lên bản thân; với người nữ, đây là hình ảnh người bạn đời, người chồng.",
+      "nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "can_review": false
+    },
+    "官杀": {
+      "han": "官杀",
+      "han_viet": "官杀",
+      "loai": "thap_than",
+      "dinh_nghia_canon": "Quan Sát — gộp Chính Quan + Thất Sát; thập thần khắc Nhật chủ, nữ mệnh = sao chồng.",
+      "net_canon": [
+        "gộp Chính Quan + Thất Sát/nhóm áp lực bên ngoài",
+        "khắc Nhật chủ",
+        "nữ mệnh = sao chồng"
+      ],
+      "thuan_viet": "Gộp chung hai loại sức ép từ bên ngoài đè lên bản thân; với người nữ, đây là hình ảnh người chồng.",
+      "nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "can_review": false
+    },
+    "đại vận": {
+      "han": "",
+      "han_viet": "đại vận",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Giai đoạn ~10 năm trong lá số (大運); mỗi đại vận lần lượt quản một cung, đọc cát-hung động theo thời. (Quy ước an sao Tử Vi Đẩu Số.)",
+      "net_canon": [
+        "giai đoạn khoảng 10 năm",
+        "mỗi đại vận lần lượt quản một cung",
+        "đọc cát-hung động theo thời/xem tốt xấu thay đổi theo từng chặng"
+      ],
+      "thuan_viet": "Một chặng đời khoảng mười năm; mỗi chặng lần lượt cai quản một mảng cuộc sống, nên phải xem cái tốt cái xấu chuyển động theo từng chặng chứ không cố định.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "lưu niên": {
+      "han": "",
+      "han_viet": "lưu niên",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao lưu niên, biểu thị tai họa theo năm.",
+      "net_canon": [
+        "xét theo từng năm",
+        "biểu thị tai hoạ/điềm xấu theo năm"
+      ],
+      "thuan_viet": "Việc xem riêng cho từng năm một, báo trước điều xấu rắc rối rơi vào năm đó.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.34",
+      "can_review": false
+    },
+    "tiểu hạn": {
+      "han": "",
+      "han_viet": "tiểu hạn",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Vận mệnh hàng năm.",
+      "net_canon": [
+        "vận mệnh hàng năm/chặng vận của một năm"
+      ],
+      "thuan_viet": "Vận tốt xấu tính cho riêng một năm đang xét.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.27",
+      "can_review": false
+    },
+    "lưu nguyệt": {
+      "han": "",
+      "han_viet": "lưu nguyệt",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tháng cụ thể đang xét (流月); tầng định thời nhỏ hơn lưu niên.",
+      "net_canon": [
+        "tháng cụ thể đang xét",
+        "tầng định thời nhỏ hơn năm"
+      ],
+      "thuan_viet": "Việc xem riêng cho một tháng cụ thể, là mức chia thời gian nhỏ hơn cả năm.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "hãm": {
+      "han": "",
+      "han_viet": "hãm",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao đóng tại cung vị xấu, suy yếu, mang lại điều không may.",
+      "net_canon": [
+        "sao đóng tại cung vị xấu",
+        "suy yếu",
+        "mang lại điều không may"
+      ],
+      "thuan_viet": "Dấu hiệu rơi vào vị trí bất lợi nên yếu sức và kéo theo điều không may.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.109",
+      "can_review": false
+    },
+    "thất hãm": {
+      "han": "",
+      "han_viet": "thất hãm",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Trạng thái sao bị lạc cung xấu, mất thế, sinh ra hung họa.",
+      "net_canon": [
+        "sao lạc cung xấu",
+        "mất thế",
+        "sinh ra hung hoạ"
+      ],
+      "thuan_viet": "Dấu hiệu lạc vào chỗ xấu, mất chỗ đứng đẹp, nên dễ sinh chuyện rủi ro.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.72",
+      "can_review": false
+    },
+    "lạc hãm": {
+      "han": "",
+      "han_viet": "lạc hãm",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Trạng thái xấu của sao, khó phát huy tác dụng.",
+      "net_canon": [
+        "trạng thái xấu của sao",
+        "khó phát huy tác dụng"
+      ],
+      "thuan_viet": "Trạng thái rơi vào chỗ bất lợi nên khó phát huy được mặt mạnh của mình.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "can_review": false
+    },
+    "miếu": {
+      "han": "",
+      "han_viet": "miếu",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Trạng thái sao đắc địa, phát huy tối đa năng lượng.",
+      "net_canon": [
+        "sao đắc địa/ở đúng chỗ đẹp",
+        "phát huy tối đa năng lượng"
+      ],
+      "thuan_viet": "Trạng thái ở đúng chỗ đẹp nhất nên phát huy được hết sức mạnh.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.295",
+      "can_review": false
+    },
+    "vượng": {
+      "han": "",
+      "han_viet": "vượng",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao chỉ sự thịnh vượng, sức mạnh đạt đỉnh.",
+      "net_canon": [
+        "thịnh vượng",
+        "sức mạnh đạt đỉnh"
+      ],
+      "thuan_viet": "Trạng thái đang thịnh, sức mạnh lên tới đỉnh cao.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "can_review": false
+    },
+    "nhập miếu": {
+      "han": "",
+      "han_viet": "nhập miếu",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Trạng thái sao đắc địa, mạnh mẽ, mang lại may mắn và quý hiển.",
+      "net_canon": [
+        "sao đắc địa/vào đúng chỗ đẹp",
+        "mạnh mẽ",
+        "mang lại may mắn và quý hiển"
+      ],
+      "thuan_viet": "Trạng thái vào đúng chỗ đẹp nhất, sức mạnh dồi dào, đem lại may mắn và sự sang quý.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.111",
+      "can_review": false
+    },
+    "đắc địa": {
+      "han": "",
+      "han_viet": "đắc địa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Trạng thái sao đóng tại cung tốt, hưởng phúc, bình hòa.",
+      "net_canon": [
+        "sao đóng tại cung tốt",
+        "hưởng phúc",
+        "bình hoà/yên ổn"
+      ],
+      "thuan_viet": "Trạng thái ở vào chỗ tốt nên được hưởng phúc, yên ổn bình hoà.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.124",
+      "can_review": false
+    },
+    "vượng địa": {
+      "han": "",
+      "han_viet": "vượng địa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cung vị tốt, có vượng khí, thuận lợi.",
+      "net_canon": [
+        "cung vị tốt",
+        "có vượng khí/khí thịnh",
+        "thuận lợi"
+      ],
+      "thuan_viet": "Chỗ đứng tốt, khí lực dồi dào nên mọi việc thuận lợi.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.41",
+      "can_review": false
+    },
+    "trung tính": {
+      "han": "",
+      "han_viet": "trung tính",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sắc thái không thiên cát cũng không thiên hung — phải xét bối cảnh sao hội tụ.",
+      "net_canon": [
+        "không thiên tốt cũng không thiên xấu",
+        "phải xét bối cảnh các sao hội tụ"
+      ],
+      "thuan_viet": "Sắc thái không ngả hẳn về tốt hay xấu, phải nhìn cả bối cảnh xung quanh mới định được.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "đắc": {
+      "han": "",
+      "han_viet": "đắc",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao đóng ở vị trí thuận, phát huy được lực (đắc địa).",
+      "net_canon": [
+        "sao đóng ở vị trí thuận",
+        "phát huy được lực"
+      ],
+      "thuan_viet": "Trạng thái ở vào chỗ thuận nên phát huy được sức của mình.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "tường hòa": {
+      "han": "",
+      "han_viet": "tường hòa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Khí ôn hòa, an ổn (祥和) — trạng thái lành của sao như Thiên Phủ.",
+      "net_canon": [
+        "khí ôn hoà",
+        "an ổn",
+        "trạng thái lành"
+      ],
+      "thuan_viet": "Trạng thái khí êm ả, an ổn và lành.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "chính tinh": {
+      "han": "",
+      "han_viet": "chính tinh",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "14 sao chính (chính diệu) — trục mô tả cốt lõi của một cung.",
+      "net_canon": [
+        "14 sao chính",
+        "trục mô tả cốt lõi của một cung"
+      ],
+      "thuan_viet": "Nhóm mười bốn dấu hiệu chính yếu, là cái trục cốt lõi để mô tả một mảng cuộc sống.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "chính diệu": {
+      "han": "",
+      "han_viet": "chính diệu",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cách gọi khác của chính tinh — 14 sao chính.",
+      "net_canon": [
+        "cách gọi khác của chính tinh",
+        "14 sao chính"
+      ],
+      "thuan_viet": "Tên gọi khác của nhóm mười bốn dấu hiệu chính yếu cốt lõi.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "phụ tinh": {
+      "han": "",
+      "han_viet": "phụ tinh",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao phụ trợ (Tả Phụ Hữu Bật Xương Khúc Khôi Việt…) — tăng/giảm lực chính tinh.",
+      "net_canon": [
+        "sao phụ trợ",
+        "tăng hoặc giảm lực của sao chính"
+      ],
+      "thuan_viet": "Những dấu hiệu phụ đi kèm, làm mạnh thêm hoặc yếu bớt sức của dấu hiệu chính.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "tạp diệu": {
+      "han": "",
+      "han_viet": "tạp diệu",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao lẻ/tạp (天刑 天姚 大耗…) — đọc theo cụm, không phán độc lập.",
+      "net_canon": [
+        "sao lẻ/tạp",
+        "đọc theo cụm, không phán độc lập"
+      ],
+      "thuan_viet": "Những dấu hiệu lẻ tẻ phụ thêm, phải đọc gộp theo cụm chứ không kết luận riêng từng cái.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "không diệu": {
+      "han": "",
+      "han_viet": "không diệu",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Địa Không + Địa Kiếp (空劫) — chủ trống trải, hao tổn; cũng chế hóa đào hoa.",
+      "net_canon": [
+        "gồm hai sao trống/hao",
+        "chủ trống trải, hao tổn",
+        "cũng kìm bớt đào hoa"
+      ],
+      "thuan_viet": "Cặp dấu hiệu của sự trống trải và hao tổn, nhưng cũng có mặt kìm bớt được chuyện tình cảm lăng nhăng.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "lưu Kình": {
+      "han": "",
+      "han_viet": "lưu Kình",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Kình Dương theo năm lưu (流羊) — sát cương xuất hiện ở năm đang xét.",
+      "net_canon": [
+        "sao cứng sắc theo năm/khí xấu cương xuất hiện trong năm đang xét"
+      ],
+      "thuan_viet": "Dấu hiệu khí xấu cứng sắc rơi đúng vào năm đang xét.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "lưu Đà": {
+      "han": "",
+      "han_viet": "lưu Đà",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Đà La theo năm lưu (流陀) — sát dây dưa xuất hiện ở năm đang xét.",
+      "net_canon": [
+        "sao xấu dây dưa theo năm/khí xấu lằng nhằng xuất hiện trong năm đang xét"
+      ],
+      "thuan_viet": "Dấu hiệu khí xấu lằng nhằng dây dưa rơi đúng vào năm đang xét.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "lưu Lộc": {
+      "han": "",
+      "han_viet": "lưu Lộc",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Lộc Tồn / Hóa Lộc theo năm lưu — lộc khí của năm đang xét.",
+      "net_canon": [
+        "lộc khí theo năm/của cải may mắn rơi vào năm đang xét"
+      ],
+      "thuan_viet": "Dấu hiệu lộc khí, của cải may mắn rơi đúng vào năm đang xét.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Kình-Đà giáp": {
+      "han": "",
+      "han_viet": "Kình-Đà giáp",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Kình Dương + Đà La kẹp hai bên một cung (羊陀夹) — kết cấu ép, làm xấu lực sao bị kẹp.",
+      "net_canon": [
+        "hai sao xấu kẹp hai bên một cung",
+        "kết cấu ép",
+        "làm xấu lực sao bị kẹp"
+      ],
+      "thuan_viet": "Cảnh hai khí xấu kẹp chặt hai bên một mảng cuộc sống, tạo thế bị ép khiến mảng đó yếu đi.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Kình Đà giáp": {
+      "han": "",
+      "han_viet": "Kình Đà giáp",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Kình Dương + Đà La kẹp hai bên một cung (羊陀夹) — kết cấu ép.",
+      "net_canon": [
+        "hai sao xấu kẹp hai bên một cung",
+        "kết cấu ép"
+      ],
+      "thuan_viet": "Cảnh hai khí xấu kẹp chặt hai bên một mảng cuộc sống, tạo thế bị ép.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cương khắc": {
+      "han": "",
+      "han_viet": "cương khắc",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Khí quá cứng dẫn tới xung khắc lục thân (刚克) — cần xét MỨC độ, không kết án.",
+      "net_canon": [
+        "khí quá cứng dẫn tới xung khắc người thân",
+        "cần xét mức độ, không kết án"
+      ],
+      "thuan_viet": "Khí quá cứng dễ va chạm khắc khẩu với người thân; nhưng phải cân nhắc nặng nhẹ chứ không vội kết tội.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cô khắc": {
+      "han": "",
+      "han_viet": "cô khắc",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Khuynh hướng cô độc/khó gần do sao cương liệt (孤克).",
+      "net_canon": [
+        "khuynh hướng cô độc/khó gần",
+        "do khí cương liệt mạnh cứng"
+      ],
+      "thuan_viet": "Khuynh hướng sống một mình, khó gần, sinh ra từ tính khí quá mạnh cứng.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cương liệt": {
+      "han": "",
+      "han_viet": "cương liệt",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tính cứng mạnh, quyết liệt (刚烈) — như Vũ Khúc, Thất Sát.",
+      "net_canon": [
+        "tính cứng mạnh",
+        "quyết liệt"
+      ],
+      "thuan_viet": "Tính khí cứng cỏi mạnh mẽ, làm gì cũng quyết liệt.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "sát cương": {
+      "han": "",
+      "han_viet": "sát cương",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát tinh mang khí cứng (Kình Dương) — chủ hình thương tranh chấp.",
+      "net_canon": [
+        "sát tinh mang khí cứng/khí xấu cứng rắn",
+        "chủ hình thương, tranh chấp"
+      ],
+      "thuan_viet": "Khí xấu loại cứng rắn, hay đem tới thương tích và tranh chấp va chạm.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "sát hỏa": {
+      "han": "",
+      "han_viet": "sát hỏa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát tinh thuộc hỏa (Hỏa Tinh, Linh Tinh) — chủ nóng gấp, biến cố nhanh.",
+      "net_canon": [
+        "sát tinh thuộc hoả/khí xấu loại lửa",
+        "chủ nóng gấp, biến cố nhanh"
+      ],
+      "thuan_viet": "Khí xấu loại lửa, làm việc nóng vội và biến cố ập tới rất nhanh.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "sát âm": {
+      "han": "",
+      "han_viet": "sát âm",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát tinh trầm/âm (Đà La) — chủ dây dưa, uất kết ngầm.",
+      "net_canon": [
+        "sát tinh trầm/âm/khí xấu loại ngầm",
+        "chủ dây dưa, uất kết ngầm"
+      ],
+      "thuan_viet": "Khí xấu loại âm ỉ, kéo dài dây dưa và dồn nén uất ức bên trong.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "gặp sát": {
+      "han": "",
+      "han_viet": "gặp sát",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hội/đồng cung với sát tinh — tăng sắc thái xung khắc, cần giữ gìn.",
+      "net_canon": [
+        "hội hoặc đồng cung với sát tinh/đụng phải khí xấu",
+        "tăng sắc thái xung khắc",
+        "cần giữ gìn"
+      ],
+      "thuan_viet": "Tình huống đụng phải khí xấu, làm tăng phần va chạm xung khắc nên cần giữ gìn thận trọng.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "hội sát": {
+      "han": "",
+      "han_viet": "hội sát",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát tinh chiếu tới từ tam phương tứ chính — như gặp sát.",
+      "net_canon": [
+        "sát tinh chiếu tới từ tam phương tứ chính/khí xấu chiếu sang",
+        "như gặp sát"
+      ],
+      "thuan_viet": "Tình huống khí xấu từ các góc chiếu sang một mảng, tác động tương tự như khi đụng phải khí xấu.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "sát-kỵ": {
+      "han": "",
+      "han_viet": "sát-kỵ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát tinh cộng Hóa Kỵ — cụm tín hiệu cần lưu tâm nhất (không phải bản án).",
+      "net_canon": [
+        "sát tinh cộng khí làm hỏng việc (Hoá Kỵ)",
+        "cụm tín hiệu cần lưu tâm nhất",
+        "không phải bản án"
+      ],
+      "thuan_viet": "Khí xấu cộng thêm điềm làm hỏng việc — đây là cụm dấu hiệu cần để mắt nhất, nhưng vẫn chỉ là dấu hiệu chứ không phải bản án.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "sát kỵ": {
+      "han": "",
+      "han_viet": "sát kỵ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát tinh cộng Hóa Kỵ — cụm cần lưu tâm.",
+      "net_canon": [
+        "sát tinh cộng khí làm hỏng việc (Hoá Kỵ)",
+        "cụm cần lưu tâm"
+      ],
+      "thuan_viet": "Khí xấu cộng thêm điềm làm hỏng việc — cụm dấu hiệu cần để mắt tới.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "thượng cách": {
+      "han": "",
+      "han_viet": "thượng cách",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cách cục cao — Mệnh hội tụ nhiều cát tinh, hợp cách kinh điển. Source: TVDSTT nhiều chỗ.",
+      "net_canon": [
+        "cách cục cao",
+        "hội tụ nhiều điềm tốt",
+        "hợp khuôn mẫu kinh điển"
+      ],
+      "thuan_viet": "Thế cục bậc cao, tụ nhiều điềm tốt và khớp với khuôn mẫu đẹp của sách xưa.",
+      "nguon": "wiki concept_index:tuvidauso-zh",
+      "can_review": false
+    },
+    "trung cách": {
+      "han": "",
+      "han_viet": "trung cách",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cách cục mức trung — không thượng cũng không hạ.",
+      "net_canon": [
+        "cách cục mức trung",
+        "không cao cũng không thấp"
+      ],
+      "thuan_viet": "Thế cục mức trung bình, không nổi trội mà cũng không kém.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "thuộc hạ cách": {
+      "han": "",
+      "han_viet": "thuộc hạ cách",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cách cục mức thấp theo phú cổ — đọc lại theo bối cảnh, không kết án.",
+      "net_canon": [
+        "cách cục mức thấp theo phú cổ",
+        "đọc lại theo bối cảnh, không kết án"
+      ],
+      "thuan_viet": "Thế cục bị sách xưa xếp vào mức thấp, nhưng phải đọc lại theo hoàn cảnh thực chứ không vội kết tội.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "hạ cách": {
+      "han": "",
+      "han_viet": "hạ cách",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cách cục thấp — Mệnh không có sát tinh nhưng yếu cát tinh, hoặc kết hợp xấu. Source: Cốt Tủy Phú nhiều chỗ.",
+      "net_canon": [
+        "cách cục thấp",
+        "thiếu điềm tốt hoặc kết hợp xấu"
+      ],
+      "thuan_viet": "Thế cục bậc thấp, do thiếu điềm tốt hoặc các yếu tố ghép lại thành xấu.",
+      "nguon": "wiki concept_index:tuvidauso-zh",
+      "can_review": false
+    },
+    "đồng cung": {
+      "han": "",
+      "han_viet": "đồng cung",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hai hay nhiều sao cùng nằm trong một cung.",
+      "net_canon": [
+        "hai hay nhiều sao cùng nằm trong một cung/cùng một ô"
+      ],
+      "thuan_viet": "Tình huống hai dấu hiệu trở lên cùng nằm chung trong một ô.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.156",
+      "can_review": false
+    },
+    "đồng độ": {
+      "han": "",
+      "han_viet": "đồng độ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hai sao cùng một cung (同度) — như đồng cung.",
+      "net_canon": [
+        "hai sao cùng một cung/cùng một ô",
+        "như đồng cung"
+      ],
+      "thuan_viet": "Tình huống hai dấu hiệu cùng nằm chung một ô, giống như ở chung cung.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "đồng triền": {
+      "han": "",
+      "han_viet": "đồng triền",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hai sao cùng vận hành/đóng một cung (同躔).",
+      "net_canon": [
+        "hai sao cùng vận hành/đóng một cung/đi chung một ô"
+      ],
+      "thuan_viet": "Tình huống hai dấu hiệu cùng vận hành và đóng chung trong một ô.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "hội chiếu": {
+      "han": "",
+      "han_viet": "hội chiếu",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao chiếu tới một cung từ tam phương tứ chính (会照).",
+      "net_canon": [
+        "sao chiếu tới một cung từ tam phương tứ chính/từ các góc chiếu sang"
+      ],
+      "thuan_viet": "Tình huống một dấu hiệu từ các góc xa chiếu ảnh hưởng sang một ô.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "tam phương": {
+      "han": "",
+      "han_viet": "tam phương",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Ba cung Thiên Di, Quan Lộc, Tài Bạch.",
+      "net_canon": [
+        "ba cung: Thiên Di, Quan Lộc, Tài Bạch/ba mảng đi xa, sự nghiệp, tiền của"
+      ],
+      "thuan_viet": "Ba mảng cuộc sống liên quan đến nhau: việc đi lại bên ngoài, công danh sự nghiệp và tiền của.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.51",
+      "can_review": false
+    },
+    "tứ chính": {
+      "han": "",
+      "han_viet": "tứ chính",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Bốn chính cung: Mệnh, Thân, Tài, Quan.",
+      "net_canon": [
+        "bốn chính cung: Mệnh, Thân, Tài, Quan/bản thân, thân, tiền của, sự nghiệp"
+      ],
+      "thuan_viet": "Bốn mảng trụ cột: con người gốc, tấm thân, tiền của và sự nghiệp.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.60",
+      "can_review": false
+    },
+    "giáp cung": {
+      "han": "",
+      "han_viet": "giáp cung",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hai cung kề hai bên kẹp vào cung giữa (夹宫) — ảnh hưởng cung bị kẹp.",
+      "net_canon": [
+        "hai cung kề hai bên kẹp cung giữa",
+        "ảnh hưởng tới cung bị kẹp"
+      ],
+      "thuan_viet": "Cảnh hai ô hai bên kẹp lấy ô ở giữa, tác động lên ô bị kẹp đó.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "hóa Lộc": {
+      "han": "",
+      "han_viet": "hóa Lộc",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+      "net_canon": [
+        "tài lộc/tiền của",
+        "may mắn",
+        "phú quý/giàu sang"
+      ],
+      "thuan_viet": "Dấu hiệu tiền của tới, gặp may, và đời sống dư dả sung túc.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "can_review": false
+    },
+    "hóa Quyền": {
+      "han": "",
+      "han_viet": "hóa Quyền",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+      "net_canon": [
+        "quyền lực",
+        "địa vị/chức phận"
+      ],
+      "thuan_viet": "Dấu hiệu nắm được quyền hành và có địa vị, chức phận trong tay.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "can_review": false
+    },
+    "hóa Khoa": {
+      "han": "",
+      "han_viet": "hóa Khoa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+      "net_canon": [
+        "danh tiếng/tiếng thơm",
+        "học hành/thi cử đỗ đạt"
+      ],
+      "thuan_viet": "Dấu hiệu có tiếng thơm và đường học hành thi cử thuận lợi đỗ đạt.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "can_review": false
+    },
+    "hóa Kỵ": {
+      "han": "",
+      "han_viet": "hóa Kỵ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+      "net_canon": [
+        "tai ương",
+        "khó khăn/trắc trở",
+        "ảnh hưởng xấu tới mệnh/làm hỏng việc"
+      ],
+      "thuan_viet": "Dấu hiệu vướng tai ương, gặp khó khăn trắc trở, làm cho việc đang tốt bị hỏng đi.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "can_review": false
+    },
+    "tứ hóa": {
+      "han": "",
+      "han_viet": "tứ hóa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+      "net_canon": [
+        "gồm bốn biến hoá: lộc (của cải), quyền, khoa (danh tiếng học hành), kỵ (làm hỏng việc)"
+      ],
+      "thuan_viet": "Bốn kiểu biến hoá: hoá ra của cải, hoá ra quyền hành, hoá ra danh tiếng học hành, và hoá ra điều làm hỏng việc.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.84",
+      "can_review": false
+    },
+    "Tứ Hóa": {
+      "han": "",
+      "han_viet": "Tứ Hóa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+      "net_canon": [
+        "gồm bốn biến hoá: lộc (của cải), quyền, khoa (danh tiếng học hành), kỵ (làm hỏng việc)"
+      ],
+      "thuan_viet": "Bốn kiểu biến hoá: hoá ra của cải, hoá ra quyền hành, hoá ra danh tiếng học hành, và hoá ra điều làm hỏng việc.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.84",
+      "can_review": false
+    },
+    "Tuần": {
+      "han": "",
+      "han_viet": "Tuần",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tuần Không (旬空) — một trục 'không' làm yếu/đình hoãn lực sao trong cung nó án ngữ.",
+      "net_canon": [
+        "một trục 'không'",
+        "làm yếu hoặc đình hoãn lực sao trong cung nó án ngữ"
+      ],
+      "thuan_viet": "Một trục mang khí 'trống', làm cho mọi dấu hiệu trong ô nó chắn lại bị yếu đi hoặc bị hoãn lại.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Triệt": {
+      "han": "",
+      "han_viet": "Triệt",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Triệt Lộ (截路) — trục 'chặn' làm sao trong cung bị cắt/đảo lực, tựa rào chắn.",
+      "net_canon": [
+        "một trục 'chặn'",
+        "làm sao trong cung bị cắt hoặc đảo lực",
+        "tựa rào chắn"
+      ],
+      "thuan_viet": "Một trục mang khí 'chặn' như tấm rào, làm cho dấu hiệu trong ô bị cắt đứt hoặc bị đảo ngược tác dụng.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Tuần Triệt": {
+      "han": "",
+      "han_viet": "Tuần Triệt",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hai trục Tuần Không + Triệt Lộ — đều làm gián đoạn/biến chất lực sao án ngữ.",
+      "net_canon": [
+        "gồm trục 'trống' và trục 'chặn'",
+        "đều làm gián đoạn hoặc biến chất lực sao án ngữ"
+      ],
+      "thuan_viet": "Hai trục — một 'trống' một 'chặn' — đều làm cho dấu hiệu trong ô bị gián đoạn hoặc biến đổi khác đi.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cung Phu Thê": {
+      "han": "",
+      "han_viet": "cung Phu Thê",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cung vợ/chồng trong 12 cung (夫妻宫) — mô tả phối ngẫu và quan hệ hôn nhân.",
+      "net_canon": [
+        "ô vợ/chồng trong mười hai mảng",
+        "mô tả người bạn đời và quan hệ hôn nhân"
+      ],
+      "thuan_viet": "Ô nói về người vợ hoặc chồng, mô tả người bạn đời và đời sống hôn nhân.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cung Mệnh": {
+      "han": "",
+      "han_viet": "cung Mệnh",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cung gốc của lá số (命宫) — trục chính mô tả bản thân.",
+      "net_canon": [
+        "ô gốc của lá số",
+        "trục chính mô tả bản thân"
+      ],
+      "thuan_viet": "Ô gốc của lá số, là trục chính nói về chính con người mình.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cung Phúc": {
+      "han": "",
+      "han_viet": "cung Phúc",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cung Phúc Đức (福德宫) — đời sống tinh thần, hưởng thụ, tâm tính.",
+      "net_canon": [
+        "ô phúc đức",
+        "đời sống tinh thần, hưởng thụ, tâm tính"
+      ],
+      "thuan_viet": "Ô nói về đời sống bên trong: tinh thần, sự hưởng thụ và tâm tính.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cung Tài": {
+      "han": "",
+      "han_viet": "cung Tài",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cung Tài Bạch (财帛宫) — tiền của, cách kiếm-giữ tiền.",
+      "net_canon": [
+        "ô tiền của",
+        "cách kiếm và giữ tiền"
+      ],
+      "thuan_viet": "Ô nói về tiền của, về cách mình kiếm tiền và giữ tiền.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cung Quan": {
+      "han": "",
+      "han_viet": "cung Quan",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cung Quan Lộc / Sự Nghiệp (官禄宫) — công danh, sự nghiệp.",
+      "net_canon": [
+        "ô quan lộc/sự nghiệp",
+        "công danh, sự nghiệp"
+      ],
+      "thuan_viet": "Ô nói về công danh và sự nghiệp.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "nhật chủ": {
+      "han": "",
+      "han_viet": "nhật chủ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
+      "net_canon": [
+        "thiên can của ngày sinh",
+        "dùng để phối hợp với các sao/làm gốc đối chiếu"
+      ],
+      "thuan_viet": "Cái gốc đại diện cho chính bản thân (lấy từ ngày sinh), dùng làm mốc để đối chiếu với mọi yếu tố khác.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.267",
+      "can_review": false
+    },
+    "thân chủ": {
+      "han": "",
+      "han_viet": "thân chủ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao chủ tinh của cung Thân, thay đổi theo cung an Thân.",
+      "net_canon": [
+        "sao chủ của cung Thân",
+        "thay đổi theo cung an Thân/tuỳ chỗ đặt mà khác"
+      ],
+      "thuan_viet": "Dấu hiệu cầm chịch cho phần hậu vận của tấm thân, thay đổi tuỳ theo chỗ nó được đặt.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.90",
+      "can_review": false
+    },
+    "mệnh chủ": {
+      "han": "",
+      "han_viet": "mệnh chủ",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao chủ tinh của cung Mệnh, thay đổi theo cung an Mệnh.",
+      "net_canon": [
+        "sao chủ của cung Mệnh",
+        "thay đổi theo cung an Mệnh/tuỳ chỗ đặt mà khác"
+      ],
+      "thuan_viet": "Dấu hiệu cầm chịch cho phần gốc con người, thay đổi tuỳ theo chỗ nó được đặt.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.90",
+      "can_review": false
+    },
+    "thân vượng": {
+      "han": "",
+      "han_viet": "thân vượng",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Nhật chủ mạnh (Bát Tự) — đủ lực gánh Tài/Quan.",
+      "net_canon": [
+        "bản thân mạnh",
+        "đủ lực gánh được của cải và áp lực (Tài/Quan)"
+      ],
+      "thuan_viet": "Trạng thái bản thân đủ mạnh, gánh nổi cả của cải lẫn áp lực trách nhiệm đè lên.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "thân nhược": {
+      "han": "",
+      "han_viet": "thân nhược",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Nhật chủ yếu (Bát Tự) — cần Ấn/Tỷ trợ lực.",
+      "net_canon": [
+        "bản thân yếu",
+        "cần được nguồn nuôi dưỡng và người ngang vai trợ lực (Ấn/Tỷ)"
+      ],
+      "thuan_viet": "Trạng thái bản thân còn yếu, cần được nuôi dưỡng và có người ngang vai trợ sức.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Quan nhược": {
+      "han": "",
+      "han_viet": "Quan nhược",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao Quan (chồng, nữ mệnh) yếu lực — cần sinh trợ.",
+      "net_canon": [
+        "sao chồng (nữ mệnh) yếu lực",
+        "cần được sinh trợ/nâng đỡ"
+      ],
+      "thuan_viet": "Dấu hiệu phần người chồng (với nữ) còn yếu, cần được nuôi dưỡng nâng đỡ thêm.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Quan vượng": {
+      "han": "",
+      "han_viet": "Quan vượng",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sao Quan mạnh lực.",
+      "net_canon": [
+        "sao chồng mạnh lực"
+      ],
+      "thuan_viet": "Dấu hiệu phần người chồng mạnh, đầy đủ sức.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Tài thông quan": {
+      "han": "",
+      "han_viet": "Tài thông quan",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tài (财) làm cầu nối Thương Quan → Tài → Quan, hóa giải Thương khắc Quan.",
+      "net_canon": [
+        "của cải làm cầu nối từ tài năng tới người chồng (Thương → Tài → Quan)",
+        "hoá giải việc tài năng lấn át người chồng"
+      ],
+      "thuan_viet": "Phần của cải đứng làm cầu nối, chuyển năng lực cá nhân thành sự bồi đắp cho người chồng, nhờ đó tài năng không còn lấn át bạn đời.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Ấn chế": {
+      "han": "",
+      "han_viet": "Ấn chế",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Ấn (印) khắc chế Thương Quan, bảo vệ sao Quan (chồng).",
+      "net_canon": [
+        "nguồn che chở (Ấn) ghìm bớt sức biểu đạt lấn át (Thương Quan)",
+        "bảo vệ sao chồng"
+      ],
+      "thuan_viet": "Chỗ dựa che chở đứng ra ghìm bớt năng lực ngang ngạnh, nhờ đó giữ gìn được cho người chồng.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "chế hóa": {
+      "han": "",
+      "han_viet": "chế hóa",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Chế = khắc khi vượng. Hóa = sinh chuyển thành khí khác (qua trung gian). Vd: Kim khắc Mộc trực tiếp (chế), nhưng nếu có Thủy thì Kim → Thủy → Mộc (hóa, chuyển khí thay vì khắc).",
+      "net_canon": [
+        "chế = khắc khi vượng/ghìm trực tiếp khi khí mạnh",
+        "hoá = sinh chuyển thành khí khác qua trung gian/chuyển hoá qua khâu trung gian"
+      ],
+      "thuan_viet": "Hai cách xử lý khí mạnh: 'ghìm' là chặn thẳng khi nó đang vượng, còn 'chuyển' là mượn một khâu trung gian để biến nó thành khí khác thay vì đối đầu trực diện.",
+      "nguon": "wiki concept_index:bat-tu-thieu-vi-hoa tr.22",
+      "can_review": false
+    },
+    "thông quan": {
+      "han": "",
+      "han_viet": "thông quan",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Một hành/thập thần làm cầu nối hóa giải hai bên khắc nhau (通关).",
+      "net_canon": [
+        "một yếu tố làm cầu nối",
+        "hoá giải hai bên đang khắc nhau"
+      ],
+      "thuan_viet": "Một yếu tố đứng giữa làm cầu nối, gỡ thế hai bên đang xung khắc nhau.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "杀破狼": {
+      "han": "杀破狼",
+      "han_viet": "杀破狼",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Sát Phá Lang — Thất Sát + Phá Quân + Tham Lang; trục biến động, khai phá.",
+      "net_canon": [
+        "gồm ba dấu hiệu xông pha, phá bỏ, khát khao",
+        "trục biến động, khai phá"
+      ],
+      "thuan_viet": "Bộ ba dấu hiệu của sự xông pha, đập bỏ cái cũ và khát khao lớn — tạo nên một trục đời đầy biến động và khai phá.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "Sát Phá Lang": {
+      "han": "",
+      "han_viet": "Sát Phá Lang",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Trục Thất Sát–Phá Quân–Tham Lang (杀破狼) — bộ ba chủ BIẾN ĐỘNG, khai phá, thay cũ đổi mới.",
+      "net_canon": [
+        "gồm ba dấu hiệu xông pha, phá bỏ, khát khao",
+        "bộ ba chủ biến động, khai phá, thay cũ đổi mới"
+      ],
+      "thuan_viet": "Bộ ba dấu hiệu của sự xông pha, đập bỏ và khát khao lớn — chủ về biến động, khai phá và thay cũ đổi mới.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "cô quân": {
+      "han": "",
+      "han_viet": "cô quân",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cô Quân (孤君) — Tử Vi thiếu Tả Phụ Hữu Bật phụ tá: vị chủ đứng một mình, dễ cô.",
+      "net_canon": [
+        "người đứng đầu thiếu người phò tá",
+        "vị chủ đứng một mình, dễ cô"
+      ],
+      "thuan_viet": "Cảnh người chủ thiếu trợ thủ bên cạnh, phải đứng đơn độc một mình nên dễ rơi vào cô quạnh.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "bách quan triều củng": {
+      "han": "",
+      "han_viet": "bách quan triều củng",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Bách Quan Triều Củng (百官朝拱) — Tử Vi được nhiều cát tinh/phụ tinh vây quanh trợ giúp, cách quý hiển.",
+      "net_canon": [
+        "người đứng đầu được nhiều điềm tốt vây quanh trợ giúp",
+        "cách quý hiển"
+      ],
+      "thuan_viet": "Cảnh người chủ được nhiều người giỏi và điềm tốt vây quanh phò trợ, là thế cục cao sang đáng quý.",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "can_review": false
+    },
+    "刑忌夹印": {
+      "han": "刑忌夹印",
+      "han_viet": "刑忌夹印",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hình-Kỵ giáp Ấn — Thiên Hình + Hóa Kỵ kẹp Thiên Tướng (ấn tinh); kết cấu ép khiến người dễ mất chí / nhu nhược, cần giữ chính kiến.",
+      "net_canon": [
+        "khí hình phạt + khí làm hỏng việc kẹp lấy người đáng tin/giữ ấn",
+        "kết cấu ép khiến dễ mất chí, nhu nhược",
+        "cần giữ chính kiến"
+      ],
+      "thuan_viet": "Cảnh khí trừng phạt và khí làm hỏng việc kẹp chặt người vốn đáng tin cậy, tạo thế bị ép khiến họ dễ nản chí mềm yếu — nên phải giữ vững lập trường.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "财荫夹印": {
+      "han": "财荫夹印",
+      "han_viet": "财荫夹印",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Tài-Ấm giáp Ấn — Hóa Lộc/Lộc Tồn + Thiên Lương (ấm) kẹp Thiên Tướng; kết cấu nâng đỡ, nhưng nếu không thuận cũng làm Thiên Tướng dựa dẫm.",
+      "net_canon": [
+        "khí của cải + khí che chở kẹp lấy người đáng tin/giữ ấn",
+        "kết cấu nâng đỡ",
+        "nhưng nếu không thuận cũng làm người đó dựa dẫm"
+      ],
+      "thuan_viet": "Cảnh khí của cải và khí che chở kẹp lấy người đáng tin cậy, tạo thế nâng đỡ; song nếu lệch đi thì cũng dễ khiến người đó sinh tính dựa dẫm.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之) | passages:3058",
+      "can_review": false
+    },
+    "羊陀夹忌": {
+      "han": "羊陀夹忌",
+      "han_viet": "羊陀夹忌",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Kình-Đà giáp Kỵ — Kình Dương + Đà La kẹp một cung có Hóa Kỵ; kết cấu rất xấu, năm/vận đó cần giữ gìn.",
+      "net_canon": [
+        "hai khí xấu cứng và dây dưa kẹp lấy một ô có khí làm hỏng việc",
+        "kết cấu rất xấu",
+        "năm/vận đó cần giữ gìn"
+      ],
+      "thuan_viet": "Cảnh hai khí xấu — một cứng sắc một dây dưa — kẹp chặt một ô vốn đã có điềm hỏng việc; thế này rất xấu nên chặng đời hay năm đó cần hết sức giữ gìn.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "羊陀夹武曲": {
+      "han": "羊陀夹武曲",
+      "han_viet": "羊陀夹武曲",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Kình-Đà giáp Vũ Khúc — Kình + Đà kẹp Vũ Khúc (nhất là khi Vũ Khúc hóa Kỵ); kết cấu cương khắc nặng, đại kỵ với hôn nhân.",
+      "net_canon": [
+        "hai khí xấu cứng và dây dưa kẹp lấy người cứng cỏi thực tế (Vũ Khúc)",
+        "nhất là khi người đó mang khí hỏng việc",
+        "cương khắc nặng",
+        "rất kỵ với hôn nhân"
+      ],
+      "thuan_viet": "Cảnh hai khí xấu kẹp chặt người cứng cỏi thực tế, nhất là khi người đó lại mang điềm hỏng việc; khí va chạm rất nặng, đặc biệt bất lợi cho chuyện hôn nhân.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "桃花犯主": {
+      "han": "桃花犯主",
+      "han_viet": "桃花犯主",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Đào hoa phạm chủ — Tham Lang (đào hoa) đồng cung Tử Vi (chủ tinh); sắc thái tình dục đậm, cần Thiên Hình/Không diệu để thành 'thanh bạch'.",
+      "net_canon": [
+        "khí tình ái (Tham Lang) nằm chung với người đứng đầu (Tử Vi)",
+        "sắc thái tình dục đậm",
+        "cần khí kỷ luật hoặc khí trống để thành thanh bạch"
+      ],
+      "thuan_viet": "Cảnh khí tình ái nằm chung với người chủ, làm màu sắc tình dục đậm lên; cần có khí kỷ luật hoặc khí 'trống' kiềm lại thì mới giữ được sự trong sạch.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "泛水桃花": {
+      "han": "泛水桃花",
+      "han_viet": "泛水桃花",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Phiếm thủy đào hoa — Tham Lang ở Tý gặp Kình Dương (hoặc ở Hợi gặp Đà La); cách đào hoa nặng, sức hút mạnh cần định hướng.",
+      "net_canon": [
+        "khí tình ái ở vị trí nước gặp khí cứng sắc",
+        "cách đào hoa nặng",
+        "sức hút mạnh cần định hướng"
+      ],
+      "thuan_viet": "Một thế tình duyên rất đậm khi khí ái tình ở vị trí nước gặp thêm khí cứng sắc; sức hút mạnh nên cần được định hướng đúng đắn.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "风流采杖": {
+      "han": "风流采杖",
+      "han_viet": "风流采杖",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Phong lưu thải trượng — Tham Lang ở Dần gặp Đà La (hoặc hội Thiên Hình Kình Dương); cách đào hoa, phong lưu đa tình.",
+      "net_canon": [
+        "khí tình ái gặp khí xấu dây dưa hoặc khí kỷ luật và cứng sắc",
+        "cách đào hoa",
+        "phong lưu đa tình"
+      ],
+      "thuan_viet": "Một thế tình duyên đậm khi khí ái tình gặp khí xấu dây dưa hoặc khí cứng kỷ luật, sinh ra người phong lưu đa tình.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "红杏出墙": {
+      "han": "红杏出墙",
+      "han_viet": "红杏出墙",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Hồng hạnh xuất tường — cụm đào hoa (天姚沐浴咸池大耗) tụ ở cung Phu/Phúc cộng hôn nhân bất như ý; cổ nói dễ sinh tình ngoài hôn nhân — đọc là dấu hiệu cần chăm sóc quan hệ, KHÔNG phán định.",
+      "net_canon": [
+        "cụm khí đào hoa tụ ở ô vợ chồng hoặc ô phúc cộng hôn nhân không như ý",
+        "cổ nói dễ sinh tình ngoài hôn nhân",
+        "đọc là dấu hiệu cần chăm sóc quan hệ, không phán định"
+      ],
+      "thuan_viet": "Cảnh nhiều khí tình ái tụ vào ô vợ chồng hoặc ô đời sống tinh thần kèm theo hôn nhân không như ý; sách xưa nói dễ sinh tình cảm ngoài luồng, nhưng nên hiểu đây là lời nhắc cần chăm sóc lại quan hệ chứ không phải lời kết tội.",
+      "nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "can_review": false
+    },
+    "石中隐玉": {
+      "han": "石中隐玉",
+      "han_viet": "石中隐玉",
+      "loai": "ly_thuat",
+      "dinh_nghia_canon": "Cách Cự Môn ở Tý/Ngọ — như ngọc giấu trong đá. Tính cách kín đáo, tài năng tiềm ẩn, không phô trương. Source: TVDSTT Q.1 p56.",
+      "net_canon": [
+        "khí điều tiếng/lời nói ở vị trí Tý hoặc Ngọ",
+        "như ngọc giấu trong đá",
+        "tính cách kín đáo",
+        "tài năng tiềm ẩn",
+        "không phô trương"
+      ],
+      "thuan_viet": "Cảnh người mang khí lời nói đặt ở vị trí đẹp, như viên ngọc giấu trong đá: tính kín đáo, tài năng ẩn bên trong và không thích phô trương.",
+      "nguon": "wiki concept_index:tuvidauso-zh",
+      "can_review": false
+    },
+    "Tý": {
+      "han": "",
+      "han_viet": "Tý",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 1, thủy dương — chuột. Giờ 23:00-01:00. Tàng can: Quý. Mùa đông giữa (tháng 11 ÂL). Phương Bắc.",
+      "net_canon": [
+        "địa chi thứ 1",
+        "thuỷ dương — con chuột",
+        "giờ 23:00-01:00",
+        "tàng can: Quý",
+        "giữa mùa đông (tháng 11 âm lịch)",
+        "phương Bắc"
+      ],
+      "thuan_viet": "Mốc đầu trong mười hai con giáp, là con chuột mang khí nước dương; ứng với khung giờ khuya 23 giờ tới 1 giờ, ẩn chứa khí Quý bên trong, thuộc giữa mùa đông tháng Mười Một âm lịch và chỉ phương Bắc.",
+      "nguon": "wiki concept_index:thieu-khang-tiet-tq tr.35",
+      "can_review": false
+    },
+    "Sửu": {
+      "han": "",
+      "han_viet": "Sửu",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 2, thổ âm — trâu. Giờ 01:00-03:00. Tàng can: Kỷ, Quý, Tân. Tháng 12 ÂL. Phương Đông Bắc.",
+      "net_canon": [
+        "địa chi thứ 2",
+        "thổ âm — con trâu",
+        "giờ 01:00-03:00",
+        "tàng can: Kỷ, Quý, Tân",
+        "tháng 12 âm lịch",
+        "phương Đông Bắc"
+      ],
+      "thuan_viet": "Mốc thứ hai trong mười hai con giáp, là con trâu mang khí đất âm; ứng với khung giờ 1 tới 3 giờ sáng, ẩn chứa các khí Kỷ, Quý, Tân, thuộc tháng Chạp và chỉ phương Đông Bắc.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Dần": {
+      "han": "",
+      "han_viet": "Dần",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 3, mộc dương — hổ. Giờ 03:00-05:00. Tàng can: Giáp, Bính, Mậu. Tháng Giêng ÂL. Phương Đông Bắc. Khởi đầu Lập Xuân.",
+      "net_canon": [
+        "địa chi thứ 3",
+        "mộc dương — con hổ",
+        "giờ 03:00-05:00",
+        "tàng can: Giáp, Bính, Mậu",
+        "tháng Giêng âm lịch",
+        "phương Đông Bắc",
+        "khởi đầu Lập Xuân"
+      ],
+      "thuan_viet": "Mốc thứ ba trong mười hai con giáp, là con hổ mang khí cây dương; ứng với khung giờ 3 tới 5 giờ sáng, ẩn chứa các khí Giáp, Bính, Mậu, thuộc tháng Giêng, chỉ phương Đông Bắc và là lúc mở đầu mùa xuân.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Mão": {
+      "han": "",
+      "han_viet": "Mão",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 4, mộc âm — mèo (VN) / thỏ (TQ). Giờ 05:00-07:00. Tàng can: Ất. Tháng 2 ÂL. Phương Đông.",
+      "net_canon": [
+        "địa chi thứ 4",
+        "mộc âm — con mèo (VN) / con thỏ (TQ)",
+        "giờ 05:00-07:00",
+        "tàng can: Ất",
+        "tháng 2 âm lịch",
+        "phương Đông"
+      ],
+      "thuan_viet": "Mốc thứ tư trong mười hai con giáp, là con mèo (ở ta) hay con thỏ (bên Tàu) mang khí cây âm; ứng với khung giờ 5 tới 7 giờ sáng, ẩn chứa khí Ất, thuộc tháng Hai và chỉ phương Đông.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Thìn": {
+      "han": "",
+      "han_viet": "Thìn",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 5, thổ dương — rồng. Giờ 07:00-09:00. Tàng can: Mậu, Ất, Quý. Tháng 3 ÂL. Phương Đông Nam.",
+      "net_canon": [
+        "địa chi thứ 5",
+        "thổ dương — con rồng",
+        "giờ 07:00-09:00",
+        "tàng can: Mậu, Ất, Quý",
+        "tháng 3 âm lịch",
+        "phương Đông Nam"
+      ],
+      "thuan_viet": "Mốc thứ năm trong mười hai con giáp, là con rồng mang khí đất dương; ứng với khung giờ 7 tới 9 giờ sáng, ẩn chứa các khí Mậu, Ất, Quý, thuộc tháng Ba và chỉ phương Đông Nam.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Tỵ": {
+      "han": "",
+      "han_viet": "Tỵ",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 6, hỏa âm — rắn. Giờ 09:00-11:00. Tàng can: Bính, Mậu, Canh. Tháng 4 ÂL. Phương Đông Nam.",
+      "net_canon": [
+        "địa chi thứ 6",
+        "hỏa âm — con rắn",
+        "giờ 09:00-11:00",
+        "tàng can: Bính, Mậu, Canh",
+        "tháng 4 âm lịch",
+        "phương Đông Nam"
+      ],
+      "thuan_viet": "Mốc thứ sáu trong mười hai con giáp, là con rắn mang khí lửa âm; ứng với khung giờ 9 tới 11 giờ trưa, ẩn chứa các khí Bính, Mậu, Canh, thuộc tháng Tư và chỉ phương Đông Nam.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Ngọ": {
+      "han": "",
+      "han_viet": "Ngọ",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa Chi thứ bảy, nghĩa là 'gặp gỡ', chỉ vạn vật đã qua thời cực thịnh, lúc Âm Dương giao hòa.",
+      "net_canon": [
+        "địa chi thứ 7",
+        "nghĩa 'gặp gỡ'",
+        "vạn vật đã qua thời cực thịnh",
+        "lúc Âm Dương giao hoà"
+      ],
+      "thuan_viet": "Mốc thứ bảy trong mười hai con giáp, mang nghĩa 'gặp gỡ', chỉ lúc muôn vật đã qua thời thịnh nhất, là khoảnh khắc hai khí âm và dương giao hoà với nhau.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Mùi": {
+      "han": "",
+      "han_viet": "Mùi",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 8, thổ âm — dê. Giờ 13:00-15:00. Tàng can: Kỷ, Đinh, Ất. Tháng 6 ÂL. Phương Tây Nam.",
+      "net_canon": [
+        "địa chi thứ 8",
+        "thổ âm — con dê",
+        "giờ 13:00-15:00",
+        "tàng can: Kỷ, Đinh, Ất",
+        "tháng 6 âm lịch",
+        "phương Tây Nam"
+      ],
+      "thuan_viet": "Mốc thứ tám trong mười hai con giáp, là con dê mang khí đất âm; ứng với khung giờ 1 tới 3 giờ chiều, ẩn chứa các khí Kỷ, Đinh, Ất, thuộc tháng Sáu và chỉ phương Tây Nam.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Thân": {
+      "han": "",
+      "han_viet": "Thân",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 9, kim dương — khỉ. Giờ 15:00-17:00. Tàng can: Canh, Nhâm, Mậu. Tháng 7 ÂL. Phương Tây Nam.",
+      "net_canon": [
+        "địa chi thứ 9",
+        "kim dương — con khỉ",
+        "giờ 15:00-17:00",
+        "tàng can: Canh, Nhâm, Mậu",
+        "tháng 7 âm lịch",
+        "phương Tây Nam"
+      ],
+      "thuan_viet": "Mốc thứ chín trong mười hai con giáp, là con khỉ mang khí kim dương; ứng với khung giờ 3 tới 5 giờ chiều, ẩn chứa các khí Canh, Nhâm, Mậu, thuộc tháng Bảy và chỉ phương Tây Nam.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Dậu": {
+      "han": "",
+      "han_viet": "Dậu",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 10, kim âm — gà. Giờ 17:00-19:00. Tàng can: Tân. Tháng 8 ÂL. Phương Tây.",
+      "net_canon": [
+        "địa chi thứ 10",
+        "kim âm — con gà",
+        "giờ 17:00-19:00",
+        "tàng can: Tân",
+        "tháng 8 âm lịch",
+        "phương Tây"
+      ],
+      "thuan_viet": "Mốc thứ mười trong mười hai con giáp, là con gà mang khí kim âm; ứng với khung giờ 5 tới 7 giờ tối, ẩn chứa khí Tân, thuộc tháng Tám và chỉ phương Tây.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Tuất": {
+      "han": "",
+      "han_viet": "Tuất",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa chi 11, thổ dương — chó. Giờ 19:00-21:00. Tàng can: Mậu, Tân, Đinh. Tháng 9 ÂL. Phương Tây Bắc.",
+      "net_canon": [
+        "địa chi thứ 11",
+        "thổ dương — con chó",
+        "giờ 19:00-21:00",
+        "tàng can: Mậu, Tân, Đinh",
+        "tháng 9 âm lịch",
+        "phương Tây Bắc"
+      ],
+      "thuan_viet": "Mốc thứ mười một trong mười hai con giáp, là con chó mang khí đất dương; ứng với khung giờ 7 tới 9 giờ tối, ẩn chứa các khí Mậu, Tân, Đinh, thuộc tháng Chín và chỉ phương Tây Bắc.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Hợi": {
+      "han": "",
+      "han_viet": "Hợi",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Địa Chi thứ mười hai, nghĩa là 'hạt nhân', vạn vật thu tàng, lấy hình thức hạt giống ẩn dưới lòng đất.",
+      "net_canon": [
+        "địa chi thứ 12",
+        "nghĩa 'hạt nhân'",
+        "vạn vật thu tàng",
+        "ở dạng hạt giống ẩn dưới lòng đất"
+      ],
+      "thuan_viet": "Mốc cuối trong mười hai con giáp, mang nghĩa 'hạt nhân', chỉ lúc muôn vật thu mình cất giữ lại, như hạt giống nằm ẩn dưới lòng đất chờ thời.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "can_review": false
+    },
+    "Giáp": {
+      "han": "",
+      "han_viet": "Giáp",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Sự kẹp giữa hai bên bởi các sao tốt hoặc xấu, ảnh hưởng đến mệnh.",
+      "net_canon": [
+        "sự kẹp giữa hai bên bởi các sao tốt hoặc xấu",
+        "ảnh hưởng đến mệnh/tác động lên bản thân"
+      ],
+      "thuan_viet": "Cảnh bị hai bên kẹp lại — có thể là điềm tốt hoặc điềm xấu kẹp vào — và tác động lên chính bản thân người đó.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.45",
+      "can_review": false
+    },
+    "Ất": {
+      "han": "",
+      "han_viet": "Ất",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên can 2, mộc âm — cây cỏ mềm, hoa lá. Tính uyển chuyển, dẻo dai, biết tùy hoàn cảnh.",
+      "net_canon": [
+        "thiên can thứ 2",
+        "mộc âm — cây cỏ mềm, hoa lá",
+        "tính uyển chuyển, dẻo dai, biết tuỳ hoàn cảnh"
+      ],
+      "thuan_viet": "Mốc trời thứ hai, mang khí cây cỏ mềm hoa lá; tính người uyển chuyển dẻo dai, biết uốn mình tuỳ theo hoàn cảnh.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Bính": {
+      "han": "",
+      "han_viet": "Bính",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên can 3, hỏa dương — mặt trời, hỏa lớn. Tính nóng nhanh, sáng tỏ, hào hùng, công khai.",
+      "net_canon": [
+        "thiên can thứ 3",
+        "hỏa dương — mặt trời, lửa lớn",
+        "tính nóng nhanh, sáng tỏ, hào hùng, công khai"
+      ],
+      "thuan_viet": "Mốc trời thứ ba, mang khí mặt trời lửa lớn; tính người nóng và nhanh, sáng sủa rõ ràng, hào sảng và sống công khai không giấu giếm.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Đinh": {
+      "han": "",
+      "han_viet": "Đinh",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên Can thứ tư, cây cỏ lớn lên tráng kiện, như con người đến tuổi trưởng thành.",
+      "net_canon": [
+        "thiên can thứ 4",
+        "cây cỏ lớn lên tráng kiện",
+        "như con người đến tuổi trưởng thành"
+      ],
+      "thuan_viet": "Mốc trời thứ tư, như cây cỏ đã vươn lên cứng cáp, ví như con người đã tới tuổi trưởng thành chững chạc.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Mậu": {
+      "han": "",
+      "han_viet": "Mậu",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên can 5, thổ dương — núi lớn, đất khô cao. Tính trung hậu, vững vàng, độ lượng.",
+      "net_canon": [
+        "thiên can thứ 5",
+        "thổ dương — núi lớn, đất khô cao",
+        "tính trung hậu, vững vàng, độ lượng"
+      ],
+      "thuan_viet": "Mốc trời thứ năm, mang khí núi lớn đất khô cao; tính người trung hậu, vững vàng và rộng lượng.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Kỷ": {
+      "han": "",
+      "han_viet": "Kỷ",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên can 6, thổ âm — đất ruộng ẩm, đất mềm. Tính tỉ mỉ, kiên trì, nuôi dưỡng.",
+      "net_canon": [
+        "thiên can thứ 6",
+        "thổ âm — đất ruộng ẩm, đất mềm",
+        "tính tỉ mỉ, kiên trì, nuôi dưỡng"
+      ],
+      "thuan_viet": "Mốc trời thứ sáu, mang khí đất ruộng ẩm mềm; tính người tỉ mỉ, bền bỉ kiên trì và biết nuôi dưỡng vun đắp.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Canh": {
+      "han": "",
+      "han_viet": "Canh",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên Can thứ bảy, nghĩa là 'thay đổi', thời gian luân chuyển, thu hoạch xong chờ xuân sang.",
+      "net_canon": [
+        "thiên can thứ 7",
+        "nghĩa 'thay đổi'",
+        "thời gian luân chuyển",
+        "thu hoạch xong chờ xuân sang"
+      ],
+      "thuan_viet": "Mốc trời thứ bảy, mang nghĩa 'thay đổi', chỉ thời khắc đang luân chuyển, như mùa màng đã gặt xong và đang chờ xuân mới tới.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Tân": {
+      "han": "",
+      "han_viet": "Tân",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên Can thứ tám, nghĩa là 'mới mẻ', vạn vật nghiêm trang đổi thay, kết trái tươi mới.",
+      "net_canon": [
+        "thiên can thứ 8",
+        "nghĩa 'mới mẻ'",
+        "vạn vật nghiêm trang đổi thay",
+        "kết trái tươi mới"
+      ],
+      "thuan_viet": "Mốc trời thứ tám, mang nghĩa 'mới mẻ', chỉ lúc muôn vật trang nghiêm chuyển mình đổi thay và kết thành trái tươi mới.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Nhâm": {
+      "han": "",
+      "han_viet": "Nhâm",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Thiên can 9, thủy dương — biển lớn, sông lớn. Tính rộng lượng, lưu động, trí tuệ rộng.",
+      "net_canon": [
+        "thiên can thứ 9",
+        "thủy dương — biển lớn, sông lớn",
+        "tính rộng lượng, lưu động, trí tuệ rộng"
+      ],
+      "thuan_viet": "Mốc trời thứ chín, mang khí biển lớn sông lớn; tính người rộng lượng, linh hoạt lưu chuyển và đầu óc bao quát rộng.",
+      "nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "can_review": false
+    },
+    "Quý": {
+      "han": "",
+      "han_viet": "Quý",
+      "loai": "can_chi",
+      "dinh_nghia_canon": "Sao chủ về quyền quý, danh vọng.",
+      "net_canon": [
+        "quyền quý/sang trọng",
+        "danh vọng/tiếng tăm"
+      ],
+      "thuan_viet": "Dấu hiệu của sự sang trọng quyền quý và tiếng tăm danh vọng.",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.272",
+      "can_review": false
+    }
+  }
+}
