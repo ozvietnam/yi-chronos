@@ -56,7 +56,7 @@
       "lo_trinh": [
         "Ý thức vun vén đều đặn là đủ: dành thời gian chất lượng, giữ lời nói ấm.",
         "Tận dụng nền lành để xây thói quen gắn kết sớm (không chủ quan bỏ bê).",
-        "Hướng tài hoa (nếu Thương Quan hỷ dụng) vào sáng tạo/sự nghiệp chung — biến năng lượng thành chất keo."
+        "Hướng tài năng và sự sáng tạo vào công việc, sở thích chung — biến năng lượng thành chất keo gắn kết."
       ],
       "_nguon": "tuvi_phuthe.json (cung Phu Thê đắc/miếu + cát hoá); batu_hon_nhan.json to_hop_then_chot (Thương Quan hỷ dụng + Tài thông quan); Phú Thái Vi (cát tinh hội tụ = thuận); guardrail tr.7"
     },
@@ -98,10 +98,10 @@
         "thân/Nhật Chủ không quá nhược (còn đủ lực để 'dụng thuốc')"
       ],
       "lo_trinh": [
-        "Hạ cái tôi: chuyển cấu trúc Thương Quan (hiếu thắng, hay phản biện) sang Thực Thần (khích lệ, ôn hoà) — xem lo_trinh_ren.thuong_quan_sang_thuc_than.",
-        "Tập LẮNG NGHE trước khi phản bác — đặc biệt khi cung có Cự Môn (khéo lời, xem lo_trinh_ren.cu_mon_sang_kheo_loi).",
-        "CHỌN KHÔN bạn đời: ưu tiên người bản tính hiền/bao dung (Thiên Lương / Thiên Đồng đắc ở lá số bạn đời) để khí cương được dịu.",
-        "Kích hoạt 'thuốc' sẵn có: nếu mệnh có Tài thông quan thì hướng sự nghiệp/tài chính chung làm cầu nối; nếu có Ấn thì lấy học vấn/khuôn phép làm nền."
+        "Hạ cái tôi: bớt hiếu thắng và hay phản biện, chuyển sang khích lệ, ôn hoà — dùng tài năng để xây dựng thay vì hơn thua.",
+        "Tập LẮNG NGHE trước khi phản bác — đặc biệt nếu bạn vốn giỏi nói, hãy biến lời sắc thành lời thuyết phục ấm áp.",
+        "CHỌN KHÔN bạn đời: ưu tiên người bản tính hiền, bao dung để khí cứng của bạn được dịu lại.",
+        "Tận dụng thế mạnh sẵn có: hướng sự nghiệp và chuyện tài chính chung làm cầu nối, hoặc lấy việc học hành, khuôn phép gia đình làm nền gắn kết."
       ],
       "_nguon": "tuvi_phuthe.json (Cự Môn/Liêm/Phá hãm + Cô Thần Quả Tú); batu_hon_nhan.json to_hop_then_chot.thuong_quan_kien_quan (Thương Quan vượng + Tài/Ấn chế = có thuốc); pattern #7 tr.352 + #8 tr.353; 王亭之 (đủ lực thì rèn được)"
     },
@@ -124,8 +124,8 @@
         "CHỌN KHÔN — cưới MUỘN (sau ~35 tuổi): để khí cương lắng, người nữ trưởng thành chọn bạn đời chín hơn.",
         "CHỌN KHÔN — bạn đời CÁCH TUỔI lớn (người chín chắn, bao dung, đủ vững để không bị khí cương lấn).",
         "CHỌN KHÔN — sống XA định kỳ (công việc xa, hai không gian riêng) để giảm va chạm trực tiếp, giữ khoảng thở.",
-        "Song song vẫn rèn (biên độ 10-15%): chuyển Thương Quan → Thực Thần, mở lòng với Cô Thần/Quả Tú — nhưng KHÔNG kỳ vọng rèn xoá hết, mục tiêu là làm dịu.",
-        "Hướng phần lớn khí cương vào SỰ NGHIỆP/sáng tạo — nơi Thương Quan vượng là tài sản thật (王亭之 'phản dị phấn phát')."
+        "Song song vẫn rèn (biên độ 10-15%): bớt hiếu thắng, tăng ôn hoà khích lệ; tập mở lòng, cho phép mình được nâng đỡ — nhưng KHÔNG kỳ vọng rèn xoá hết, mục tiêu là làm dịu.",
+        "Hướng phần lớn cá tính mạnh vào SỰ NGHIỆP/sáng tạo — nơi sự quyết liệt, tài năng của bạn là tài sản thật (thời nay người nữ cá tính mạnh thường tự lập, thành đạt)."
       ],
       "_nguon": "batu_hon_nhan.json to_hop_then_chot (Thương Quan vượng không chế + Quan nhược) + pattern #7 tr.352; tuvi_phuthe.json (sát + Thiên Khốc/Hư + Cô Thần Quả Tú); 女命骨髓賦 (cô khắc cấu hình); 王亭之 (chọn khôn thay vì kết án)"
     },
@@ -146,7 +146,7 @@
       "lo_trinh": [
         "CÂN NHẮC không kết hôn theo khuôn truyền thống / hoặc kết hôn rất muộn với điều kiện sống độc lập rõ ràng — đây là một LỰA CHỌN hợp lý, không phải thất bại.",
         "Sống ĐỘC LẬP, lấy tự chủ làm nền hạnh phúc; nếu kết duyên thì chọn hình thức ít va chạm nhất (xa, riêng không gian, bạn đời rất bao dung).",
-        "CHUYỂN khí cực vượng vào SỰ NGHIỆP / sáng tạo / cống hiến — nơi cấu trúc này thành sức mạnh lớn (王亭之 'nữ mệnh phản dị phấn phát').",
+        "CHUYỂN năng lượng dồi dào vào SỰ NGHIỆP / sáng tạo / cống hiến — nơi cá tính mạnh của bạn trở thành sức mạnh lớn (người nữ cá tính mạnh thời nay thường vươn lên, thành đạt).",
         "Giữ tâm: cấp 5 chỉ nói 'trục phối ngẫu cực khó vận hành', KHÔNG nói 'đời không hạnh phúc'. Hạnh phúc có thể nằm ở trục khác."
       ],
       "_nguon": "tuvi_phuthe.json (Thất Sát/Vũ Khúc + Hóa Kỵ + cụm sát không chế); batu_hon_nhan.json (Thương Quan cực vượng không chế + Quan cực nhược); 女命骨髓賦; 王亭之 'bất khả mậu mậu nhiên suy đoán' (cấm phán cứng) + 'phản dị phấn phát'; Trích Thiên Tủy (vô thuốc thì thuận theo thế khí)"
@@ -169,24 +169,25 @@
   "lo_trinh_ren": {
     "_mo_ta": "3 phép chuyển hoá cốt lõi cho cấp L1-L3 (nơi rèn cho hiệu quả thật). Mỗi phép: chuyển TỪ cấu trúc khó → ĐẾN trạng thái lành, bằng CÁCH cụ thể (hành vi constructive).",
     "thuong_quan_sang_thuc_than": {
-      "ten": "Thương Quan → Thực Thần",
-      "tu": "Cấu trúc Thương Quan biểu lộ: hiếu thắng, hay phản biện/cãi, kiêu, đòi tự do tuyệt đối, dễ chê bai bạn đời.",
-      "den": "Khí Thực Thần: ôn hoà, khích lệ thay vì chê, khiêm nhường, biến tài hoa thành sự sẻ chia ấm áp.",
-      "cach": "Trước khi phản bác, dừng 1 nhịp hỏi 'điều này có cần nói ngay không?'. Đổi câu chê thành câu khích lệ ('anh làm thế này sẽ hay hơn' thay vì 'sao anh làm dở vậy'). Hướng tài hoa/óc phản biện vào công việc, để dành sự dịu dàng cho gia đình. (Cùng nguồn 食伤 nhưng Thực Thần ôn — Thương Quan cương.)",
+      "ten": "Bớt hiếu thắng, tăng ôn hoà khích lệ",
+      "tu": "Tính hay hiếu thắng, thích phản biện, kiêu, đòi tự do tuyệt đối và dễ chê bai bạn đời.",
+      "den": "Sự ôn hoà: khích lệ thay vì chê, khiêm nhường, biến tài năng thành sự sẻ chia ấm áp.",
+      "cach": "Trước khi phản bác, dừng 1 nhịp hỏi 'điều này có cần nói ngay không?'. Đổi câu chê thành câu khích lệ ('anh làm thế này sẽ hay hơn' thay vì 'sao anh làm dở vậy'). Hướng tài năng và óc phản biện vào công việc, để dành sự dịu dàng cho gia đình.",
       "_nguon": "batu_hon_nhan.json (Công năng 10 Thần tr.83-87: Thực Thần ôn hoà chế Sát = lành; Thương Quan đối địch Quan; Tâm tính Thương Quan tr.88); pattern #8 tr.353"
     },
     "co_than_qua_tu_sang_mo_long": {
-      "ten": "Cô Thần / Quả Tú → mở lòng",
-      "tu": "Khuynh hướng Cô Thần (khép, thích một mình, dựng tường) / Quả Tú (tự lập đến mức cô lập, ngại dựa vào ai).",
+      "ten": "Bớt khép kín, học cách mở lòng",
+      "tu": "Khuynh hướng khép mình, thích ở một mình, hay dựng tường ngăn cách; tự lập đến mức cô lập, ngại dựa vào ai.",
       "den": "Chủ động mở lòng: cho phép mình được nâng đỡ, chia sẻ điểm yếu, gắn kết thay vì rút lui.",
       "cach": "Mỗi tuần chủ động một hành động kết nối (nhờ giúp một việc nhỏ, kể một nỗi lo). Tập nói 'em cần anh' thay vì gánh hết một mình. Tham gia hoạt động chung để giảm phản xạ co cụm. Coi tính tự lập là SỨC MẠNH — chỉ cần thêm cánh cửa cho người khác bước vào.",
+      "_thuat_ngu": "Cô Thần / Quả Tú (孤辰 / 寡宿) = nhóm sao chỉ khuynh hướng cô độc, khép kín, tự lập đến mức ngại dựa vào ai.",
       "_nguon": "tuvi_phuthe.json (Cô Thần Quả Tú = khuynh hướng độc lập/khép); personality_comm_style.json (mở kênh gắn kết); 王亭之 (tự lập là thế mạnh, cần thêm cửa mở)"
     },
     "cu_mon_sang_kheo_loi": {
-      "ten": "Cự Môn → khéo lời",
-      "tu": "Cấu trúc Cự Môn: khẩu thiệt, hay tranh luận, lời sắc dễ gây tổn thương, nghi ngại nên dò xét.",
+      "ten": "Biến lời sắc thành lời khéo",
+      "tu": "Hay tranh luận, lời nói sắc bén dễ gây tổn thương, lòng nghi ngại nên hay dò xét.",
       "den": "Khéo lời: dùng tài ăn nói để hoá giải thay vì gây hấn, đặt câu hỏi thay vì kết tội, biến miệng lưỡi sắc thành lời thuyết phục ấm.",
-      "cach": "Thay câu kết tội ('anh lúc nào cũng...') bằng câu cảm nhận ('em thấy hơi buồn khi...'). Dùng tài hùng biện để giải thích, không để áp đảo. Khi nghi ngại → hỏi thẳng nhẹ nhàng thay vì dò xét ngầm. Cự Môn vốn là sao 'ám' giỏi soi — hướng nó vào việc thấu hiểu bạn đời, không vào việc bắt lỗi.",
+      "cach": "Thay câu kết tội ('anh lúc nào cũng...') bằng câu cảm nhận ('em thấy hơi buồn khi...'). Dùng tài hùng biện để giải thích, không để áp đảo. Khi nghi ngại → hỏi thẳng nhẹ nhàng thay vì dò xét ngầm. Vốn giỏi soi xét — hãy hướng tài đó vào việc thấu hiểu bạn đời, không vào việc bắt lỗi.",
       "_nguon": "tuvi_phuthe.json (Cự Môn = khẩu thiệt/ám tinh khi hãm); personality_comm_style.json (chuyển kết-tội → cảm-nhận); Phú Thái Vi (Cự Môn thiện biện — dụng đúng thì quý)"
     }
   }

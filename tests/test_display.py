@@ -248,19 +248,26 @@ def test_gender_giu_dung_sau_khi_tach():
     assert "vợ" in dm["meta"]["title"]
 
 
-# ── 10b) tom_tat KHÔNG rò con trỏ INTERNAL 'xem key.dotted' ──────────────────
-def test_tom_tat_khong_ro_con_tro_internal():
-    """cap_do.lo_trinh trong tom_tat KHÔNG được chứa chú dẫn nội bộ engine dạng
-    'xem lo_trinh_ren.cu_mon_sang_kheo_loi' — nhưng data raw vẫn GIỮ để trace."""
+# ── 10b) lo_trinh user-facing THUẦN — không con trỏ internal, không jargon ────
+def test_tom_tat_lo_trinh_thuan_nghia():
+    """cap_do.lo_trinh trong tom_tat phải THUẦN nghĩa (Iron Rule tầng NGHĨA THUẦN):
+    KHÔNG chú dẫn nội bộ 'xem key.dotted', KHÔNG thập-thần jargon (Thương Quan,
+    Thực Thần, Cự Môn...), KHÔNG chữ Hán. Nội dung thật vẫn còn (không xoá quá tay).
+    Lưu ý: lo_trinh nay tự-chứa nội dung plain → không còn con trỏ 'xem X' trong
+    data (đã thay bằng hành vi đời thường); _strip_internal_ref vẫn được phủ bởi
+    test_strip_internal_ref_truc_tiep bên dưới."""
     d = build_display(_read("nữ"), "nữ")
     cap = [s for s in d["sections"] if s["id"] == "cap_do"][0]
     tom_blob = json.dumps(cap["tom_tat"], ensure_ascii=False)
     leak = re.findall(r"xem\s+[a-z_]+(?:\.[a-z0-9_]+)+", tom_blob)
     assert not leak, f"tom_tat rò con trỏ internal: {leak}"
-    # data (source of truth / can_cu) GIỮ NGUYÊN con trỏ.
-    data_blob = json.dumps(cap["data"], ensure_ascii=False)
-    assert re.search(r"xem\s+lo_trinh_ren\.", data_blob), \
-        "data phải giữ con trỏ internal để trace"
+    # KHÔNG jargon thập-thần / sao trong lo_trinh user-facing.
+    jargon = ["Thương Quan", "Thực Thần", "Quan Sát", "Chính Quan",
+              "Cô Thần", "Quả Tú", "Cự Môn", "hóa Kỵ", "王亭之"]
+    lo_blob = json.dumps(cap["tom_tat"]["lo_trinh"], ensure_ascii=False)
+    found = [j for j in jargon if j in lo_blob]
+    assert not found, f"lo_trinh tom_tat còn jargon: {found}"
+    assert not re.search(r"[一-鿿]", lo_blob), "lo_trinh tom_tat còn chữ Hán"
     # lo_trinh tom_tat vẫn còn nội dung thật (không bị xoá quá tay).
     assert cap["tom_tat"]["lo_trinh"]
     assert "Hạ cái tôi" in cap["tom_tat"]["lo_trinh"][0]

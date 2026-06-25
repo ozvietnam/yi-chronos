@@ -373,6 +373,7 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
             chinh_tinh_luan.append({
                 "sao": star,
                 "ten_han": entry.get("ten_han"),
+                "nghia_thuan": entry.get("nghia_thuan"),
                 "tinh_chat_phoi_ngau": entry.get("tinh_chat_phoi_ngau"),
                 "cat_hung": entry.get("cat_hung"),
                 "dieu_can_chu_y": entry.get("dieu_can_chu_y"),

@@ -1,0 +1,99 @@
+{
+  "_meta": {
+    "ten": "Bảng tra THUẦN NGHĨA — map jargon tử vi / bát tự / lý-thuật → tiếng Việt đời thường (hoặc rỗng = ẩn)",
+    "muc_dich": "Tầng NGHĨA THUẦN cho tom_tat user-facing. Display._plain_vi dùng map này để (1) THAY thuật ngữ còn sót bằng nghĩa đời thường, (2) NHẬN DIỆN jargon cần đẩy khỏi tom_tat xuống can_cu. Người Việt KHÔNG biết tử vi đọc tom_tat vẫn hiểu: KHÔNG tên sao, KHÔNG thập thần, KHÔNG thuật ngữ, KHÔNG chữ Hán.",
+    "nguyen_tac": [
+      "KHÔNG bịa nghĩa mới — chỉ DIỄN ĐẠT LẠI cái đã có cho dễ hiểu.",
+      "Value = chuỗi rỗng '' → từ này CHỈ là sắc thái kỹ thuật, ẩn hẳn khỏi tom_tat (vd 'hãm', 'miếu', 'Hồng Loan').",
+      "Value = câu thuần → thay tại chỗ trong tom_tat (vd 'đại vận' → 'giai đoạn (khoảng 10 năm)').",
+      "Tên sao + thập thần: liệt kê trong is_jargon để display NHẬN DIỆN và đẩy xuống can_cu. Nghĩa thuần của CHÍNH TINH nằm ở tuvi_phuthe.json field nghia_thuan (ưu tiên), glossary chỉ fallback.",
+      "Giữ paradigm Iron Rule #4/#6/#8: KHÔNG predict, mệnh là động từ; giữ gender chồng/vợ ở tầng display."
+    ],
+    "cach_dung_display": [
+      "Bước 1 (ưu tiên): nếu entry knowledge có field nghia_thuan → dùng nguyên cho tom_tat.",
+      "Bước 2 (fallback): với text chưa có nghia_thuan, chạy thay-thế theo 'thay_the' (key dài thay trước key ngắn để tránh thay lồng).",
+      "Bước 3: token nào nằm trong 'is_jargon' (tên sao / thập thần / lý-thuật) mà chưa được thay → tín hiệu text này thuộc can_cu, KHÔNG hiển thị trong tom_tat (hoặc strip + flag).",
+      "Bước 4: chữ Hán strip bằng _strip_han (đã có)."
+    ],
+    "ngay_tao": "2026-06-25"
+  },
+
+  "thay_the": {
+    "đại vận": "giai đoạn (khoảng 10 năm)",
+    "lưu niên": "năm",
+    "tiểu hạn": "vận trong năm",
+    "lưu nguyệt": "tháng",
+    "vận hạn": "giai đoạn cuộc đời",
+    "cung phu thê": "chuyện bạn đời",
+    "cung Phu Thê": "chuyện bạn đời",
+    "cung phối ngẫu": "chuyện bạn đời",
+    "cung mệnh": "bản thân mình",
+    "cung Mệnh": "bản thân mình",
+    "cung phúc đức": "đời sống tinh thần",
+    "cung tài bạch": "chuyện tiền bạc",
+    "nhật chủ": "bản thân mình",
+    "thân chủ": "bản thân mình",
+    "mệnh chủ": "bản thân mình",
+    "năm Hồng Loan tới": "năm có khí vui, duyên lành đến",
+    "năm Thiên Hỉ tới": "năm có niềm vui, hỉ sự",
+    "đào hoa kiếp": "sóng gió tình cảm",
+    "đào hoa chư diệu": "những dấu hiệu duyên dáng, sức hút",
+    "tứ hóa": "bốn loại biến chuyển của vận",
+    "ngoại tình": "vướng mắc tình cảm ngoài hôn nhân",
+    "khẩu thiệt": "lời ra tiếng vào, dễ cãi vã",
+    "thị phi": "điều tiếng, rắc rối",
+    "cô khắc": "khuynh hướng cô độc, khó gần",
+    "御夫有术": "khéo léo điều hòa, dẫn dắt chồng một cách tinh tế",
+    "phản dị phấn phát": "ngược lại còn dễ vươn lên, tự lập",
+    "thông quan": "hóa giải, làm cầu nối"
+  },
+
+  "is_jargon": {
+    "_ghi_chu": "Token NHẬN DIỆN là jargon → đẩy khỏi tom_tat xuống can_cu (nếu không có nghia_thuan / không nằm trong thay_the). Gồm: tên sao + thập thần + lý-thuật + can-chi + chữ Hán.",
+
+    "ten_sao": [
+      "Tử Vi", "Thiên Phủ", "Thiên Cơ", "Thái Dương", "Vũ Khúc", "Thiên Đồng",
+      "Liêm Trinh", "Thái Âm", "Tham Lang", "Cự Môn", "Thiên Tướng", "Thiên Lương",
+      "Thất Sát", "Phá Quân",
+      "Đào Hoa", "Hồng Loan", "Thiên Hỉ", "Thiên Hỷ", "Thiên Diêu", "Thiên Dao",
+      "Cô Thần", "Quả Tú", "Hàm Trì", "Mộc Dục", "Đại Hao", "Tiểu Hao",
+      "Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Hỏa Linh",
+      "Địa Không", "Địa Kiếp", "Không Kiếp", "Thiên Không",
+      "Thiên Mã", "Văn Xương", "Văn Khúc", "Xương Khúc",
+      "Tả Phù", "Hữu Bật", "Tả Phụ", "Thiên Khôi", "Thiên Việt", "Khôi Việt",
+      "Thiên Hình", "Thiên Khốc", "Thiên Hư", "Âm Sát", "Tam Thai", "Bát Tọa",
+      "Lộc Tồn", "Bách Quan Triều Củng"
+    ],
+
+    "thap_than": [
+      "Chính Quan", "Thiên Quan", "Quan Sát", "Thất Sát",
+      "Thương Quan", "Thực Thần", "食伤", "Thực Thương",
+      "Chính Tài", "Thiên Tài", "财",
+      "Chính Ấn", "Thiên Ấn", "Ấn Tinh", "ấn tinh",
+      "Tỷ Kiên", "Kiếp Tài", "Tỷ Kiếp",
+      "Chính Quan Thất Sát", "官杀"
+    ],
+
+    "ly_thuat": [
+      "đại vận", "lưu niên", "tiểu hạn", "lưu nguyệt",
+      "hãm", "thất hãm", "lạc hãm", "miếu", "vượng", "nhập miếu", "đắc địa",
+      "vượng địa", "trung tính", "đắc", "tường hòa",
+      "hóa Lộc", "hóa Quyền", "hóa Khoa", "hóa Kỵ", "Hóa Lộc", "Hóa Quyền",
+      "Hóa Khoa", "Hóa Kỵ", "tứ hóa", "Tứ Hóa",
+      "Tuần", "Triệt", "Tuần Triệt",
+      "cung Phu Thê", "cung Mệnh", "cung Phúc", "cung Tài", "cung Quan",
+      "nhật chủ", "thân chủ", "mệnh chủ",
+      "thân vượng", "thân nhược", "Quan nhược", "Quan vượng",
+      "Tài thông quan", "Ấn chế", "chế hóa", "thông quan",
+      "杀破狼", "Sát Phá Lang", "cô quân", "bách quan triều củng",
+      "刑忌夹印", "财荫夹印", "羊陀夹忌", "羊陀夹武曲",
+      "桃花犯主", "泛水桃花", "风流采杖", "红杏出墙", "石中隐玉"
+    ],
+
+    "can_chi": [
+      "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi",
+      "Thân", "Dậu", "Tuất", "Hợi",
+      "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"
+    ]
+  }
+}

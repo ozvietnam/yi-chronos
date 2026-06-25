@@ -238,10 +238,15 @@ def _sec_cung_phu_the(cpt: dict, phoi_ngau: str) -> Optional[dict]:
             if not _nonempty(noi_dung):
                 continue
             items.append({"ten": ten, "noi_dung": noi_dung})
-            # tom_tat: câu GIẢI NGHĨA plain (strip Hán + tên sao Hán). HIỆN.
+            # tom_tat: câu GIẢI NGHĨA plain. ƯU TIÊN nghia_thuan (câu thuần nghĩa
+            # đời thường về bạn đời, KHÔNG tên sao/jargon — chính tinh có sẵn).
+            # Fallback: strip Hán từ noi_dung khi chưa có nghia_thuan.
+            nghia_thuan = entry.get("nghia_thuan")
+            noi_dung_plain = (nghia_thuan if _nonempty(nghia_thuan)
+                              else _strip_han(noi_dung))
             tom_tat.append({
                 "ten": _strip_han(ten),
-                "noi_dung": _strip_han(noi_dung),
+                "noi_dung": noi_dung_plain,
             })
             # can_cu: 'TênSao (Hán) — mô tả sao kỹ thuật' (giữ Hán + cát-hung +
             # điều cần chú ý kỹ thuật). AUTO-HIDE.
