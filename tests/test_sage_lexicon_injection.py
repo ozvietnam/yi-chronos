@@ -9,8 +9,29 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+from pathlib import Path
 
 import pytest
+
+
+def _hermes_bin_missing() -> bool:
+    """True nếu thiếu binary hermes CLI (vendor/hermes-agent/.venv/bin/hermes).
+
+    Các test ở module này spawn sage qua hermes CLI; không có binary thì SKIP
+    (không phải lỗi logic) để CI khỏi nhiễu trên máy chưa cài vendor venv.
+    """
+    try:
+        from engine.ai import kanban_council as kc
+
+        return not Path(str(kc.HERMES_BIN)).exists()
+    except Exception:
+        return True
+
+
+pytestmark = pytest.mark.skipif(
+    _hermes_bin_missing(),
+    reason="hermes CLI binary vắng mặt (vendor/hermes-agent/.venv/bin/hermes) — bỏ qua test spawn sage",
+)
 
 
 def _archive_session(session) -> None:
