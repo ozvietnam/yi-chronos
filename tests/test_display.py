@@ -125,6 +125,44 @@ def test_cach_cuc_xuat_hien_khi_co_data():
     assert "tone" in cc[0]["items"][0]
 
 
+def test_cach_cuc_tom_tat_thuan_can_cu_giu_ten_cach():
+    # tom_tat = _plain_vi(bien_chinh) (bỏ tên cách-Hán + Tỵ/Hợi hãm + tên sao).
+    # can_cu = {ten_cach, han_tu, _nguon} (giữ cho người tò mò).
+    d = build_display(_read("nữ"), "nữ")
+    sec = [s for s in d["sections"] if s["id"] == "cach_cuc"][0]
+    assert sec["tom_tat"], "cach_cuc phải có tom_tat thuần"
+    assert not _han_in(sec["tom_tat"])
+    assert not _jargon_in(sec["tom_tat"]), "tom_tat cach_cuc phải sạch jargon"
+    t0 = sec["tom_tat"][0]
+    assert "noi_dung" in t0 and "tone" in t0
+    assert "ten" not in t0  # tên cách kỹ thuật KHÔNG ở tom_tat
+    # can_cu: tên cách gốc (có thể chứa 'hãm', tên sao) + han_tu + _nguon.
+    assert sec["can_cu"]
+    c0 = sec["can_cu"][0]
+    for k in ("ten_cach", "han_tu", "_nguon"):
+        assert k in c0, f"can_cu cach_cuc thiếu {k}"
+
+
+def test_plain_vi_thuan_nghia():
+    from engine.tinh_duyen.display import _plain_vi
+    # đại vận → giai đoạn; lưu niên → năm.
+    out = _plain_vi("vận này theo đại vận và lưu niên")
+    assert "đại vận" not in out and "lưu niên" not in out
+    assert "giai đoạn" in out and "năm" in out
+    # bỏ tên sao + chữ Hán; mệnh đề rỗng dọn sạch.
+    out2 = _plain_vi("Liêm Trinh (廉貞) ở Tỵ hãm")
+    assert not _HAN_RE.search(out2)
+    assert "Liêm Trinh" not in out2 and "Tỵ" not in out2 and "hãm" not in out2
+    # 'năm Hồng Loan tới' → nghĩa đời thường.
+    out3 = _plain_vi("năm Hồng Loan tới")
+    assert "Hồng Loan" not in out3
+    assert "vui" in out3 or "duyên" in out3
+    # Non-str giữ nguyên; đệ quy list/dict.
+    assert _plain_vi(5) == 5 and _plain_vi(None) is None
+    rec = _plain_vi({"a": "đại vận", "b": ["lưu niên"]})
+    assert "đại vận" not in rec["a"] and "lưu niên" not in rec["b"][0]
+
+
 # ── 4) gender-aware: nam → 'vợ', nữ → 'chồng' ────────────────────────────────
 def test_gender_nam_title_va_phoi_ngau_vo():
     d = build_display(_read("nam"), "nam")
@@ -258,9 +296,10 @@ def test_song_phai_tach_tom_tat_va_can_cu():
     sec = sp[0]
     assert not _han_in(sec["tom_tat"])
     assert not _jargon_in(sec["tom_tat"]), "tom_tat song_phai phải sạch jargon"
-    # tom_tat = {chu_de, ket_luan _plain_vi}: 'hai phái hội tụ/dị biệt' + kết luận thuần.
+    # tom_tat = {chu_de, trang_thai, ket_luan _plain_vi}: kết luận thuần đời thường.
     t0 = sec["tom_tat"][0]
     assert "chu_de" in t0 and "ket_luan" in t0
+    assert t0["trang_thai"] in ("hội tụ", "dị biệt")
     assert "hai phái" in t0["ket_luan"]
     # can_cu: cơ chế tu_vi/bat_tu GIỮ NGUYÊN (chứa Hán).
     assert sec["can_cu"] and "tu_vi" in sec["can_cu"][0]

@@ -370,11 +370,22 @@
             <div v-else-if="sec.kind === 'list'" class="gd-list">
               <div v-for="(it, i) in (sec.tom_tat || sec.items || [])" :key="i" class="gd-td-cach" :class="'cc-' + (it.tone || 'trung_tinh')">
                 <div class="gd-td-cach-h">
-                  <b>{{ it.ten }}</b>
+                  <b v-if="it.ten">{{ it.ten }}</b>
                   <span class="gd-td-cach-tag" :class="'cc-' + (it.tone || 'trung_tinh')">{{ toneLabel(it.tone) }}</span>
                 </div>
                 <p class="gd-mini">{{ it.noi_dung }}</p>
               </div>
+              <!-- CĂN CỨ ẩn: tên cách kỹ thuật + Hán-tự (sao khớp) + nguồn. -->
+              <details v-if="(sec.can_cu || []).length" class="gd-cc">
+                <summary class="gd-cc-sum">▸ Căn cứ</summary>
+                <div class="gd-cc-body">
+                  <div v-for="(it, i) in (sec.can_cu || [])" :key="i" class="gd-cc-line">
+                    <b v-if="it.ten_cach">{{ it.ten_cach }}</b>
+                    <p v-if="(it.han_tu || []).length" class="gd-cc-meta">{{ it.han_tu.join('、') }}</p>
+                    <RefBlock v-if="it._nguon" kind="cite">{{ it._nguon }}</RefBlock>
+                  </div>
+                </div>
+              </details>
             </div>
 
             <!-- kind: narration — lời thầy (fetch async qua fetch_action) -->

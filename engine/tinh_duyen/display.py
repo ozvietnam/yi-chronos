@@ -177,6 +177,13 @@ def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
     for tok in jargon:
         if tok and tok in out:
             out = out.replace(tok, "")
+    # 2b) Dọn rác do xoá token: dấu '/' mồ côi (vd 'Tỵ/Hợi hãm'→' / ' ), và giới
+    #     từ định-vị treo lơ lửng đầu mệnh đề ('ở / là'→'là', 'tại là'→'là').
+    out = re.sub(r"\s*/\s*(?=[/\s]|$)", " ", out)          # slash mồ côi liên tiếp
+    out = re.sub(r"\s+/\s+", " ", out)                       # ' / ' còn lại
+    out = re.sub(r"\b(ở|tại|nơi|vào)\s+(?=(?:là|và|thì|,|;|—|\.|$))",
+                 "", out)                                    # giới từ định-vị treo
+    out = re.sub(r"\(\s*([+,，;；·、]\s*)", "(", out)        # '(+ đào hoa' → '(đào hoa'
     # 3) Cắt mệnh đề; mệnh đề nào CHỈ còn rác (jargon đã xoá → trống) → loại.
     parts = _CLAUSE_SPLIT_RE.split(out)
     kept: list[str] = []
@@ -461,6 +468,9 @@ def _sec_song_phai(rec: list[dict]) -> Optional[dict]:
                     if _nonempty(y_nghia_plain) else prefix)
         tom_tat.append({
             "chu_de": _plain_vi(chu_de),
+            # trang_thai = 'hội tụ'/'dị biệt' (tiếng Việt thuần, KHÔNG jargon) —
+            # giữ cho UI badge; ket_luan đã gồm prefix nên vẫn tự đủ.
+            "trang_thai": trang_thai,
             "ket_luan": ket_luan,
         })
         # can_cu: cơ chế đọc-bảng từng phái (giữ NGUYÊN Hán/jargon). AUTO-HIDE.
@@ -711,4 +721,4 @@ def build_display(reading_output: dict, gender: str = "nữ",
     return {"meta": meta, "sections": sections}
 
 
-__all__ = ["build_display", "_strip_han", "_strip_internal_ref"]
+__all__ = ["build_display", "_strip_han", "_strip_internal_ref", "_plain_vi"]
