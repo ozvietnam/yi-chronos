@@ -16,11 +16,13 @@
     "ngay_tao": "2026-06-25"
   },
   "thong_ke": {
-    "tong_term": 182,
-    "co_concept_dict": 75,
-    "chi_wiki": 40,
-    "curated_tu_binh_quy_uoc": 67,
-    "thieu_nguon_flag": 0
+    "tong_term": 186,
+    "co_concept_dict": 72,
+    "chi_wiki": 46,
+    "compose_tu_binh": 9,
+    "curated_tu_binh_quy_uoc": 59,
+    "thieu_nguon_flag": 0,
+    "bat_tu_neo_concept_index": 30
   },
   "terms": [
     {
@@ -598,54 +600,23 @@
     {
       "han_viet": "Thất Sát",
       "han": "七杀",
-      "loai": "sao",
+      "loai": "thap_than",
       "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
-      "co_concept_dict": true,
+      "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Sao hung, chủ về chiến đấu, chết chóc, uy lực.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
-      "concept_dict": {
-        "term": "Thất Sát",
-        "kind": "sao",
-        "definition": "Sao hung, chủ về chiến đấu, chết chóc, uy lực.",
-        "first_page": 17,
-        "occurrences": 40
-      },
-      "short_note": "Một trong 14 chính tinh, ngũ hành Kim+Hỏa. Mạnh, đoạn quyết, hợp Tử Vi (Tử Vi hóa sát Thất Sát thành quyền). 'Thất Sát trùng phùng' là cảnh hung khi gặp cả ở Mệnh và Thiên Di.",
+      "dinh_nghia_canon": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8397",
+      "concept_dict": null,
+      "short_note": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
       "wiki": {
         "canonical_vi": "Thất Sát",
-        "canonical_zh": "七杀",
-        "aliases": "[]",
-        "category": null,
-        "school": "tu_vi",
-        "first_seen_page": 0
+        "canonical_zh": "七殺",
+        "aliases": "[\"Sát\", \"偏官\", \"Thiên Quan\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
       },
-      "passages_trich": [
-        {
-          "passage_id": 3095,
-          "page": 82,
-          "corpus": "tuvi-toan-thu-lht-zh",
-          "trich": "…ợc hãm địa hạ tiện. 七杀 庙辰戌丑未寅申 旺子午卯酉 平巳亥 无陷 Thất sát miếu thần tuất sửu vị dần thân vượng tử ngọ mão dậu bình…",
-          "match_q": "七杀",
-          "neo": "han"
-        },
-        {
-          "passage_id": 426,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Thất Sát, Phá Quân, chuyên y Dương, Linh chi khước",
-          "match_q": "Thất Sát",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 439,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Thất Sát, Liêm Trinh đồng vị, lộ thượng mai thi",
-          "match_q": "Thất Sát",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1505,7 +1476,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Sao cô độc với nam giới. Người có Cô Thần → khó kết hôn / hôn nhân xa cách.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8433",
       "concept_dict": null,
       "short_note": "Sao cô độc với nam giới. Người có Cô Thần → khó kết hôn / hôn nhân xa cách.",
       "wiki": {
@@ -1527,7 +1498,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Sao cô độc với nữ giới. Người có Quả Tú → khó có chồng / sống một mình.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8434",
       "concept_dict": null,
       "short_note": "Sao cô độc với nữ giới. Người có Quả Tú → khó có chồng / sống một mình.",
       "wiki": {
@@ -2408,7 +2379,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Khắc Day Master, khác âm dương. Biểu thị: chức tước chính thống, kỷ luật, chồng (Nữ). Tích: công chức, chức vụ chính danh, danh tiếng tốt. Tiêu: gò bó, áp lực kỷ luật. Sợ Thương Quan đả phá, sợ Thất Sát hỗn tạp.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8398",
       "concept_dict": null,
       "short_note": "Khắc Day Master, khác âm dương. Biểu thị: chức tước chính thống, kỷ luật, chồng (Nữ). Tích: công chức, chức vụ chính danh, danh tiếng tốt. Tiêu: gò bó, áp lực kỷ luật. Sợ Thương Quan đả phá, sợ Thất Sát hỗn tạp.",
       "wiki": {
@@ -2430,7 +2401,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8397",
       "concept_dict": null,
       "short_note": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
       "wiki": {
@@ -2450,9 +2421,9 @@
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Gộp Chính Quan (正官) + Thất Sát (七杀) — nhóm thập thần KHẮC Nhật chủ; ở nữ mệnh đại diện PHỐI NGẪU (chồng). Chính Quan = ràng buộc chính đáng/danh phận; Thất Sát = áp lực mạnh/uy quyền.",
-      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Gộp Chính Quan (正官) + Thất Sát (七殺). Chính Quan: Khắc Day Master, khác âm dương. Thất Sát: Khắc Day Master, cùng âm dương. Nhóm thập thần KHẮC Nhật chủ; ở NỮ mệnh đại diện phối ngẫu (chồng), ở tầng product.",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397",
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
@@ -2467,7 +2438,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Day Master sinh ra, khác âm dương. Biểu thị: tài năng vượt khuôn khổ, phá cách, nổi loạn. Tích: nghệ sĩ độc đáo, khởi nghiệp đột phá, ngôn ngữ tài. Tiêu: ngạo mạn, vô lễ, khắc Chồng (nữ). Cần Chính Ấn để 'Thương Quan phối Ấn' → tài năng có khuôn.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8394",
       "concept_dict": null,
       "short_note": "Day Master sinh ra, khác âm dương. Biểu thị: tài năng vượt khuôn khổ, phá cách, nổi loạn. Tích: nghệ sĩ độc đáo, khởi nghiệp đột phá, ngôn ngữ tài. Tiêu: ngạo mạn, vô lễ, khắc Chồng (nữ). Cần Chính Ấn để 'Thương Quan phối Ấn' → tài năng có khuôn.",
       "wiki": {
@@ -2489,7 +2460,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Day Master sinh ra, cùng âm dương. Biểu thị: tài năng sáng tạo, hưởng thụ, nuôi dưỡng. Tích: nghệ thuật, ẩm thực, giáo dục, sinh con, phúc lộc. Tiêu: lười nhác, ham hưởng thụ. Kỵ Thiên Ấn (Kiêu Thần đoạt Thực) → mất nguồn lộc.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8393",
       "concept_dict": null,
       "short_note": "Day Master sinh ra, cùng âm dương. Biểu thị: tài năng sáng tạo, hưởng thụ, nuôi dưỡng. Tích: nghệ thuật, ẩm thực, giáo dục, sinh con, phúc lộc. Tiêu: lười nhác, ham hưởng thụ. Kỵ Thiên Ấn (Kiêu Thần đoạt Thực) → mất nguồn lộc.",
       "wiki": {
@@ -2509,9 +2480,9 @@
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Gộp Thực Thần (食神) + Thương Quan (伤官) — thập thần do Nhật chủ SINH ra; chủ tài năng, biểu đạt, sáng tạo. Nữ mệnh Thương Quan khắc Chính Quan (sao chồng).",
-      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Gộp Thực Thần (食神) + Thương Quan (傷官). Thực Thần: Day Master sinh ra, cùng âm dương. Thương Quan: Day Master sinh ra, khác âm dương. Nhóm thập thần do Nhật chủ SINH ra; nữ mệnh Thương Quan khắc Chính Quan (sao chồng).",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Thực Thần concept_id=8393 + Thương Quan concept_id=8394",
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
@@ -2524,9 +2495,9 @@
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Thực Thần + Thương Quan = nhóm Thực Thương (食伤); Nhật chủ sinh ra, chủ sáng tạo/biểu đạt; nữ mệnh khắc sao chồng.",
-      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Gộp Thực Thần (食神) + Thương Quan (傷官). Thực Thần: Day Master sinh ra, cùng âm dương. Thương Quan: Day Master sinh ra, khác âm dương. Nhóm Nhật chủ sinh ra; chủ sáng tạo/biểu đạt; nữ mệnh khắc sao chồng.",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Thực Thần concept_id=8393 + Thương Quan concept_id=8394",
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
@@ -2541,7 +2512,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Day Master khắc, khác âm dương. Biểu thị: tài chính ổn định, lương cứng, vợ chính (Nam). Tích: cần kiệm, tích lũy, gia đình ổn. Tiêu: cứng nhắc, sợ rủi ro. Khi Day Master vượng + Chính Tài vượng → đại phú.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8396",
       "concept_dict": null,
       "short_note": "Day Master khắc, khác âm dương. Biểu thị: tài chính ổn định, lương cứng, vợ chính (Nam). Tích: cần kiệm, tích lũy, gia đình ổn. Tiêu: cứng nhắc, sợ rủi ro. Khi Day Master vượng + Chính Tài vượng → đại phú.",
       "wiki": {
@@ -2563,7 +2534,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Day Master khắc, cùng âm dương. Biểu thị: tài lộc bất ngờ, đào hoa, đầu cơ. Tích: kinh doanh đa lĩnh vực, môi giới, có sức hút. Tiêu: phá tài bất ngờ, đào hoa loạn.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8395",
       "concept_dict": null,
       "short_note": "Day Master khắc, cùng âm dương. Biểu thị: tài lộc bất ngờ, đào hoa, đầu cơ. Tích: kinh doanh đa lĩnh vực, môi giới, có sức hút. Tiêu: phá tài bất ngờ, đào hoa loạn.",
       "wiki": {
@@ -2584,8 +2555,8 @@
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Tiền bạc, của cải; cùng với công danh tạo thành lĩnh vực danh lợi.",
-      "canon_nguon": "wiki concept_index:thieu-khang-tiet-tq tr.123",
+      "dinh_nghia_canon": "Gộp Chính Tài (正財) + Thiên Tài (偏財). Chính Tài: Day Master khắc, khác âm dương. Thiên Tài: Day Master khắc, cùng âm dương. Nhóm thập thần Nhật chủ KHẮC; ở NAM mệnh đại diện phối ngẫu (vợ), ở tầng product.",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Tài concept_id=8396 + Thiên Tài concept_id=8395",
       "concept_dict": null,
       "short_note": "Tiền bạc, của cải; cùng với công danh tạo thành lĩnh vực danh lợi.",
       "wiki": {
@@ -2607,7 +2578,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Sinh Day Master, khác âm dương. Biểu thị: mẹ ruột, học vấn chính quy, ấn tín bảo hộ. Tích: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện. Tiêu: ỷ lại, lười suy nghĩ độc lập. Kỵ Chính Tài đoạt Ấn.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8400",
       "concept_dict": null,
       "short_note": "Sinh Day Master, khác âm dương. Biểu thị: mẹ ruột, học vấn chính quy, ấn tín bảo hộ. Tích: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện. Tiêu: ỷ lại, lười suy nghĩ độc lập. Kỵ Chính Tài đoạt Ấn.",
       "wiki": {
@@ -2626,25 +2597,19 @@
       "han": "偏印",
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
-      "co_concept_dict": true,
+      "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.280",
-      "concept_dict": {
-        "term": "Thiên Ấn",
-        "kind": "sao",
-        "definition": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
-        "first_page": 280,
-        "occurrences": 4
-      },
-      "short_note": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
+      "dinh_nghia_canon": "Sinh Day Master, cùng âm dương. Biểu thị: quý nhân ngầm, mẹ kế, trí tuệ phi truyền thống. Tích: thiền, tôn giáo, nghiên cứu lập dị, công nghệ. Tiêu: Kiêu Thần đoạt Thực Thần → mất phúc.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8399",
+      "concept_dict": null,
+      "short_note": "Sinh Day Master, cùng âm dương. Biểu thị: quý nhân ngầm, mẹ kế, trí tuệ phi truyền thống. Tích: thiền, tôn giáo, nghiên cứu lập dị, công nghệ. Tiêu: Kiêu Thần đoạt Thực Thần → mất phúc.",
       "wiki": {
         "canonical_vi": "Thiên Ấn",
-        "canonical_zh": null,
-        "aliases": "[]",
-        "category": "sao",
-        "school": "tu_vi",
-        "first_seen_page": 280
+        "canonical_zh": "偏印",
+        "aliases": "[\"T.Ấn\", \"Kiêu Thần\", \"偏印\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
       },
       "passages_trich": [],
       "flag": null
@@ -2656,8 +2621,8 @@
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
-      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.345",
+      "dinh_nghia_canon": "Gộp Chính Ấn (正印) + Thiên Ấn (偏印). Chính Ấn: Sinh Day Master, khác âm dương. Thiên Ấn: Sinh Day Master, cùng âm dương. Nhóm thập thần SINH Nhật chủ; chủ che chở, học vấn, nương tựa; Ấn chế Thương Quan (bảo vệ sao chồng).",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Ấn concept_id=8400 + Thiên Ấn concept_id=8399",
       "concept_dict": null,
       "short_note": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
       "wiki": {
@@ -2668,32 +2633,7 @@
         "school": "mai_hoa",
         "first_seen_page": 345
       },
-      "passages_trich": [
-        {
-          "passage_id": 2727,
-          "page": 16,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "…niên tiện bố tử. 虛貴印壽逆相逐, 空鸞庫貫文福祿. Hư quý ấn thọ nghịch tương trục, không loan khố quán văn phúc lộc. 刑酉姚丑皆順行…",
-          "match_q": "印",
-          "neo": "han"
-        },
-        {
-          "passage_id": 2732,
-          "page": 21,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "…ệ 紫, 文, 紅, 貴, 福, 綠, 印, 壽, 庫但得三五位, 與照強宮, 則主榮貴. 文昌, 天貴, 主科名文章之顯, 博學經典. 天刑樂天庫, 廟守命照身, 及四宮強, 必真才實德之學, 起群出衆之人也. Tử,…",
-          "match_q": "印",
-          "neo": "han"
-        },
-        {
-          "passage_id": 2820,
-          "page": 109,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "…ố xương phúc lộc 紫微貴印, 天壽紅鸞. Tử vi quý ấn, thiên thọ hồng loan. ○ 紫貴印曰 ○ tử quý ấn viết 庫貫文昌, 福祿周旋. Khố quán v…",
-          "match_q": "印",
-          "neo": "han"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2703,8 +2643,8 @@
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
-      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.345",
+      "dinh_nghia_canon": "Gộp Chính Ấn (正印) + Thiên Ấn (偏印). Chính Ấn: Sinh Day Master, khác âm dương. Thiên Ấn: Sinh Day Master, cùng âm dương. Nhóm thập thần sinh Nhật chủ; chủ che chở, học vấn; Ấn chế Thương Quan.",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Ấn concept_id=8400 + Thiên Ấn concept_id=8399",
       "concept_dict": null,
       "short_note": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
       "wiki": {
@@ -2715,32 +2655,7 @@
         "school": "mai_hoa",
         "first_seen_page": 345
       },
-      "passages_trich": [
-        {
-          "passage_id": 2727,
-          "page": 16,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "…niên tiện bố tử. 虛貴印壽逆相逐, 空鸞庫貫文福祿. Hư quý ấn thọ nghịch tương trục, không loan khố quán văn phúc lộc. 刑酉姚丑皆順行…",
-          "match_q": "印",
-          "neo": "han"
-        },
-        {
-          "passage_id": 2732,
-          "page": 21,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "…ệ 紫, 文, 紅, 貴, 福, 綠, 印, 壽, 庫但得三五位, 與照強宮, 則主榮貴. 文昌, 天貴, 主科名文章之顯, 博學經典. 天刑樂天庫, 廟守命照身, 及四宮強, 必真才實德之學, 起群出衆之人也. Tử,…",
-          "match_q": "印",
-          "neo": "han"
-        },
-        {
-          "passage_id": 2820,
-          "page": 109,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "…ố xương phúc lộc 紫微貴印, 天壽紅鸞. Tử vi quý ấn, thiên thọ hồng loan. ○ 紫貴印曰 ○ tử quý ấn viết 庫貫文昌, 福祿周旋. Khố quán v…",
-          "match_q": "印",
-          "neo": "han"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2751,7 +2666,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Cùng hành + cùng âm dương với Day Master. Biểu thị: anh em ngang vai, đồng nghiệp, cạnh tranh trực diện. Tích: hỗ trợ, độc lập, ý chí. Tiêu: cứng đầu, tranh chấp, hao của.",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8391",
       "concept_dict": null,
       "short_note": "Cùng hành + cùng âm dương với Day Master. Biểu thị: anh em ngang vai, đồng nghiệp, cạnh tranh trực diện. Tích: hỗ trợ, độc lập, ý chí. Tiêu: cứng đầu, tranh chấp, hao của.",
       "wiki": {
@@ -2773,7 +2688,7 @@
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Cùng hành + khác âm dương với Day Master. Biểu thị: người cướp của, đối thủ ngầm. Tích: dũng mãnh, hành động nhanh. Tiêu: hao tổn tài lộc, dễ bị lừa, cướp đoạt vô hình. Khi Kiếp Tài ở Trụ Tháng → Dương Nhận cách (đặc biệt).",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8392",
       "concept_dict": null,
       "short_note": "Cùng hành + khác âm dương với Day Master. Biểu thị: người cướp của, đối thủ ngầm. Tích: dũng mãnh, hành động nhanh. Tiêu: hao tổn tài lộc, dễ bị lừa, cướp đoạt vô hình. Khi Kiếp Tài ở Trụ Tháng → Dương Nhận cách (đặc biệt).",
       "wiki": {
@@ -2793,9 +2708,9 @@
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Gộp Tỷ Kiên (比肩) + Kiếp Tài (劫财) — thập thần ĐỒNG loại với Nhật chủ; chủ anh em/bằng hữu/cạnh tranh. Ở nam mệnh, Tỷ Kiếp KHẮC Tài (财) nên là kẻ khắc vợ.",
-      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Gộp Tỷ Kiên (比肩) + Kiếp Tài (劫財). Tỷ Kiên: Cùng hành + cùng âm dương với Day Master. Kiếp Tài: Cùng hành + khác âm dương với Day Master. Nhóm thập thần ĐỒNG loại với Nhật chủ; ở NAM mệnh Tỷ Kiếp khắc Tài (财) nên là kẻ khắc vợ (tầng product).",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Tỷ Kiên concept_id=8391 + Kiếp Tài concept_id=8392",
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
@@ -2808,9 +2723,9 @@
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Chính Quan + Thất Sát = nhóm Quan Sát (官杀); khắc Nhật chủ, nữ mệnh là sao phối ngẫu.",
-      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Gộp Chính Quan (正官) + Thất Sát (七殺). Chính Quan: Khắc Day Master, khác âm dương. Thất Sát: Khắc Day Master, cùng âm dương. Hai thập thần khắc Nhật chủ; nữ mệnh là sao phối ngẫu.",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397",
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
@@ -2823,9 +2738,9 @@
       "loai": "thap_than",
       "nguon_gom": "plain_glossary.is_jargon.thap_than",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Quan Sát — gộp Chính Quan + Thất Sát; thập thần khắc Nhật chủ, nữ mệnh = sao chồng.",
-      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Gộp Chính Quan (正官) + Thất Sát (七殺). Chính Quan: Khắc Day Master, khác âm dương. Thất Sát: Khắc Day Master, cùng âm dương. Nhóm thập thần KHẮC Nhật chủ; nữ mệnh = sao chồng (gender ở tầng product).",
+      "canon_nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397",
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
@@ -3995,28 +3910,22 @@
     },
     {
       "han_viet": "nhật chủ",
-      "han": "",
-      "loai": "ly_thuat",
+      "han": "日主",
+      "loai": "ly_thuat_bat_tu",
       "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
-      "co_concept_dict": true,
+      "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.267",
-      "concept_dict": {
-        "term": "Nhật Chủ",
-        "kind": "sao",
-        "definition": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
-        "first_page": 267,
-        "occurrences": 1
-      },
-      "short_note": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
+      "dinh_nghia_canon": "Thiên Can của Trụ Ngày — đại biểu cho BẢN THÂN người được xem. Tất cả các phân tích Thập Thần, Dụng Thần, Cách Cục đều quy chiếu về Nhật Chủ. Trong engine: `day_master.stem` + `day_master.element`.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8437",
+      "concept_dict": null,
+      "short_note": "Thiên Can của Trụ Ngày — đại biểu cho BẢN THÂN người được xem. Tất cả các phân tích Thập Thần, Dụng Thần, Cách Cục đều quy chiếu về Nhật Chủ. Trong engine: `day_master.stem` + `day_master.element`.",
       "wiki": {
         "canonical_vi": "Nhật Chủ",
-        "canonical_zh": null,
-        "aliases": "[]",
-        "category": "sao",
-        "school": "tu_vi",
-        "first_seen_page": 267
+        "canonical_zh": "日主",
+        "aliases": "[\"Day Master\", \"Nhật Can\", \"Bản Thân\"]",
+        "category": "concept",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
       },
       "passages_trich": [],
       "flag": null
@@ -4079,31 +3988,45 @@
     },
     {
       "han_viet": "thân vượng",
-      "han": "",
-      "loai": "ly_thuat",
+      "han": "日主強弱",
+      "loai": "ly_thuat_bat_tu",
       "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Nhật chủ mạnh (Bát Tự) — đủ lực gánh Tài/Quan.",
-      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Mức độ MẠNH/YẾU của Day Master trong lá số. 3 hạng: Vượng (cường), Nhược (yếu), Trung hòa. Tính bằng: Support (Tỷ/Kiếp + Ấn cùng hành) trừ Drain (Thực/Thương + Tài + Quan/Sát). Quyết định hướng chọn Dụng Thần. Engine: `day_master_assessment.strength_tag`.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8438",
       "concept_dict": null,
-      "short_note": null,
-      "wiki": null,
+      "short_note": "Mức độ MẠNH/YẾU của Day Master trong lá số. 3 hạng: Vượng (cường), Nhược (yếu), Trung hòa. Tính bằng: Support (Tỷ/Kiếp + Ấn cùng hành) trừ Drain (Thực/Thương + Tài + Quan/Sát). Quyết định hướng chọn Dụng Thần. Engine: `day_master_assessment.strength_tag`.",
+      "wiki": {
+        "canonical_vi": "Cường độ Nhật Chủ",
+        "canonical_zh": "日主強弱",
+        "aliases": "[\"vượng nhược\"]",
+        "category": "concept",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
       "passages_trich": [],
       "flag": null
     },
     {
       "han_viet": "thân nhược",
-      "han": "",
-      "loai": "ly_thuat",
+      "han": "日主強弱",
+      "loai": "ly_thuat_bat_tu",
       "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
       "co_concept_dict": false,
-      "tu_curated": true,
-      "dinh_nghia_canon": "Nhật chủ yếu (Bát Tự) — cần Ấn/Tỷ trợ lực.",
-      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "tu_curated": false,
+      "dinh_nghia_canon": "Mức độ MẠNH/YẾU của Day Master trong lá số. 3 hạng: Vượng (cường), Nhược (yếu), Trung hòa. Tính bằng: Support (Tỷ/Kiếp + Ấn cùng hành) trừ Drain (Thực/Thương + Tài + Quan/Sát). Quyết định hướng chọn Dụng Thần. Engine: `day_master_assessment.strength_tag`.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8438",
       "concept_dict": null,
-      "short_note": null,
-      "wiki": null,
+      "short_note": "Mức độ MẠNH/YẾU của Day Master trong lá số. 3 hạng: Vượng (cường), Nhược (yếu), Trung hòa. Tính bằng: Support (Tỷ/Kiếp + Ấn cùng hành) trừ Drain (Thực/Thương + Tài + Quan/Sát). Quyết định hướng chọn Dụng Thần. Engine: `day_master_assessment.strength_tag`.",
+      "wiki": {
+        "canonical_vi": "Cường độ Nhật Chủ",
+        "canonical_zh": "日主強弱",
+        "aliases": "[\"vượng nhược\"]",
+        "category": "concept",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
       "passages_trich": [],
       "flag": null
     },
@@ -4169,13 +4092,13 @@
     },
     {
       "han_viet": "chế hóa",
-      "han": "",
-      "loai": "ly_thuat",
+      "han": "制化",
+      "loai": "ly_thuat_bat_tu",
       "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
       "co_concept_dict": false,
       "tu_curated": false,
       "dinh_nghia_canon": "Chế = khắc khi vượng. Hóa = sinh chuyển thành khí khác (qua trung gian). Vd: Kim khắc Mộc trực tiếp (chế), nhưng nếu có Thủy thì Kim → Thủy → Mộc (hóa, chuyển khí thay vì khắc).",
-      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa tr.22",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8387 · tr.22",
       "concept_dict": null,
       "short_note": "Chế = khắc khi vượng. Hóa = sinh chuyển thành khí khác (qua trung gian). Vd: Kim khắc Mộc trực tiếp (chế), nhưng nếu có Thủy thì Kim → Thủy → Mộc (hóa, chuyển khí thay vì khắc).",
       "wiki": {
@@ -4895,6 +4818,94 @@
         "category": "thien_can",
         "school": "mai_hoa+tu_vi",
         "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Nhật chủ",
+      "han": "日主",
+      "loai": "ly_thuat_bat_tu",
+      "nguon_gom": "bat_tu.ly_thuat_cot_loi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên Can của Trụ Ngày — đại biểu cho BẢN THÂN người được xem. Tất cả các phân tích Thập Thần, Dụng Thần, Cách Cục đều quy chiếu về Nhật Chủ. Trong engine: `day_master.stem` + `day_master.element`.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8437",
+      "concept_dict": null,
+      "short_note": "Thiên Can của Trụ Ngày — đại biểu cho BẢN THÂN người được xem. Tất cả các phân tích Thập Thần, Dụng Thần, Cách Cục đều quy chiếu về Nhật Chủ. Trong engine: `day_master.stem` + `day_master.element`.",
+      "wiki": {
+        "canonical_vi": "Nhật Chủ",
+        "canonical_zh": "日主",
+        "aliases": "[\"Day Master\", \"Nhật Can\", \"Bản Thân\"]",
+        "category": "concept",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "dụng thần",
+      "han": "用神",
+      "loai": "ly_thuat_bat_tu",
+      "nguon_gom": "bat_tu.ly_thuat_cot_loi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Hành cốt yếu CỨU mệnh — 'thuốc' cho lá số. Quy tắc: Day Master VƯỢNG → cần khí làm hao/tiết (Thực/Thương, Tài, Quan/Sát). Day Master NHƯỢC → cần khí hỗ trợ (Ấn, Tỷ/Kiếp). Đại Vận đi vào Dụng Thần → vận tốt. Đi vào Kỵ Thần → vận xấu. Engine `dung_than.py` đã model + bổ sung Điều Hậu (climate balance).",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8412",
+      "concept_dict": null,
+      "short_note": "Hành cốt yếu CỨU mệnh — 'thuốc' cho lá số. Quy tắc: Day Master VƯỢNG → cần khí làm hao/tiết (Thực/Thương, Tài, Quan/Sát). Day Master NHƯỢC → cần khí hỗ trợ (Ấn, Tỷ/Kiếp). Đại Vận đi vào Dụng Thần → vận tốt. Đi vào Kỵ Thần → vận xấu. Engine `dung_than.py` đã model + bổ sung Điều Hậu (climate balance).",
+      "wiki": {
+        "canonical_vi": "Dụng Thần",
+        "canonical_zh": "用神",
+        "aliases": "[\"thần dùng\", \"useful god\"]",
+        "category": "dung_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "ngũ hành sinh",
+      "han": "相生",
+      "loai": "ly_thuat_bat_tu",
+      "nguon_gom": "bat_tu.ly_thuat_cot_loi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Quy luật ngũ hành: Mộc→Hỏa→Thổ→Kim→Thủy→Mộc (vòng tuần hoàn). Sinh = nuôi dưỡng, tiếp khí. Mộc sinh Hỏa vì mộc tính ôn → hỏa ẩn phục trong mộc. Hỏa sinh Thổ vì cháy mộc thành tro = thổ. Thổ sinh Kim vì kim ẩn trong núi đá. Kim sinh Thủy vì khí thiếu âm chảy ngầm thành thủy. Thủy sinh Mộc vì thủy nhuận → cây mọc.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8383 · tr.21",
+      "concept_dict": null,
+      "short_note": "Quy luật ngũ hành: Mộc→Hỏa→Thổ→Kim→Thủy→Mộc (vòng tuần hoàn). Sinh = nuôi dưỡng, tiếp khí. Mộc sinh Hỏa vì mộc tính ôn → hỏa ẩn phục trong mộc. Hỏa sinh Thổ vì cháy mộc thành tro = thổ. Thổ sinh Kim vì kim ẩn trong núi đá. Kim sinh Thủy vì khí thiếu âm chảy ngầm thành thủy. Thủy sinh Mộc vì thủy nhuận → cây mọc.",
+      "wiki": {
+        "canonical_vi": "Tương sinh",
+        "canonical_zh": "相生",
+        "aliases": "[\"ngũ hành tương sinh\", \"sinh\"]",
+        "category": "ngu_hanh",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": 21
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "ngũ hành khắc",
+      "han": "相剋",
+      "loai": "ly_thuat_bat_tu",
+      "nguon_gom": "bat_tu.ly_thuat_cot_loi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Quy luật ngũ hành: Mộc khắc Thổ, Thổ khắc Thủy, Thủy khắc Hỏa, Hỏa khắc Kim, Kim khắc Mộc (quan hệ cách ngôi). Khắc = chế ngự, không tiêu diệt. Không có khắc thì không có cân bằng. Thiên Vĩ Hoa Q. 2: tương sinh + tương khắc đều có mặt thái quá + bất cập.",
+      "canon_nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8384 · tr.22",
+      "concept_dict": null,
+      "short_note": "Quy luật ngũ hành: Mộc khắc Thổ, Thổ khắc Thủy, Thủy khắc Hỏa, Hỏa khắc Kim, Kim khắc Mộc (quan hệ cách ngôi). Khắc = chế ngự, không tiêu diệt. Không có khắc thì không có cân bằng. Thiên Vĩ Hoa Q. 2: tương sinh + tương khắc đều có mặt thái quá + bất cập.",
+      "wiki": {
+        "canonical_vi": "Tương khắc",
+        "canonical_zh": "相剋",
+        "aliases": "[\"ngũ hành tương khắc\", \"khắc\"]",
+        "category": "ngu_hanh",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": 22
       },
       "passages_trich": [],
       "flag": null

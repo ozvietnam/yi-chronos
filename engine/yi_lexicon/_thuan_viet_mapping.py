@@ -65,9 +65,11 @@ MAP = {
         "net_canon": ["phúc đức/có phúc", "tuổi thọ/sống lâu", "nhân từ/hiền lành thương người"],
         "thuan_viet": "Người có phúc dày, được sống lâu khoẻ mạnh, tính tình hiền hậu nhân từ hay che chở giúp đỡ kẻ khác.",
     },
+    # THẬP THẦN Bát Tự 七殺 (KHÔNG phải SAO Tử Vi cùng tên) — neo concept_index
+    # tu_binh_ba_tu: khắc Nhật chủ cùng âm dương; nữ mệnh = chồng/áp lực.
     "Thất Sát": {
-        "net_canon": ["hung/khắc nghiệt", "chiến đấu/xông pha", "chết chóc/tổn thương nặng", "uy lực/sức mạnh áp đảo"],
-        "thuan_viet": "Mang khí mạnh và khắc nghiệt, thích xông pha chiến đấu, dễ dẫn tới tổn thương nặng, nhưng cũng toát ra uy lực áp đảo khiến người ta dè chừng.",
+        "net_canon": ["khắc Nhật chủ, cùng âm dương/sức ép mạnh đè lên bản thân", "quyền lực dữ dội, áp lực", "tướng quân/đối thủ mạnh", "tích cực: quân đội, công an, kinh doanh mạo hiểm, lãnh đạo", "tiêu cực: tai hoạ, kiện tụng, kẻ thù", "cần được kiềm chế (Thực Thần chế) hoặc chuyển hoá (Ấn hoá) thì thành quý hiển", "với nữ là sao người chồng/sức ép phối ngẫu (tầng product)"],
+        "thuan_viet": "Loại sức ép mạnh dữ dằn đè thẳng lên bản thân, như uy của một viên tướng hay một đối thủ ngang ngửa: hợp với binh nghiệp, công an, làm ăn mạo hiểm và vai trò chỉ huy; nhưng buông lỏng thì hoá tai hoạ, kiện tụng, sinh kẻ thù. Phải biết ghìm lại hoặc chuyển hoá nó thì mới thành người quý hiển. Với người nữ, đây cũng là hình ảnh người chồng và áp lực từ bạn đời.",
     },
     "Phá Quân": {
         "net_canon": ["hung/dữ", "phá hoại/đập bỏ cái cũ", "thay đổi/xáo trộn", "đổ vỡ/tan rã"],
@@ -278,25 +280,31 @@ MAP = {
         "net_canon": ["Nhật chủ khắc, cùng âm dương/của cải linh động", "tài lộc bất ngờ", "đào hoa", "đầu cơ", "tích cực: kinh doanh đa lĩnh vực, môi giới, có sức hút", "tiêu cực: phá tài bất ngờ, đào hoa loạn"],
         "thuan_viet": "Của cải tới bất ngờ và linh động: hợp làm ăn nhiều ngành, môi giới, người có sức hút, dễ trúng món lớn; nhưng cũng dễ mất của đột ngột và đào hoa rối ren ngoài luồng.",
     },
+    # Cụm gộp 财 = Chính Tài + Thiên Tài (COMPOSE) — KHÔNG phải "tiền bạc + danh lợi"
+    # (drift Hoàng Cực). Thập thần Nhật chủ KHẮC; nam mệnh = vợ.
     "财": {
-        "net_canon": ["tiền bạc/của cải", "cùng công danh tạo thành lĩnh vực danh lợi"],
-        "thuan_viet": "Phần tiền bạc của cải; đi cùng với công danh thì hợp lại thành chuyện danh và lợi.",
+        "net_canon": ["gộp Chính Tài + Thiên Tài/nhóm Nhật chủ khắc", "của cải mình làm chủ (chính: ổn định; thiên: bất ngờ, linh động)", "với nam đại diện người vợ/phối ngẫu (tầng product)"],
+        "thuan_viet": "Gộp chung phần của cải mà bản thân làm chủ: một bên là tiền bạc ổn định chính đáng, một bên là tài lộc tới bất ngờ linh động; với người nam, phần khí này còn là hình ảnh người vợ, người bạn đời.",
     },
     "Chính Ấn": {
         "net_canon": ["sinh Nhật chủ, khác âm dương/nguồn nuôi dưỡng che chở chính thống", "mẹ ruột", "học vấn chính quy", "ấn tín bảo hộ/giấy tờ chứng nhận bảo vệ", "tích cực: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện", "tiêu cực: ỷ lại, lười suy nghĩ độc lập", "kỵ bị của cải làm hỏng (Tài đoạt Ấn)"],
         "thuan_viet": "Nguồn nuôi dưỡng và che chở chính thống: hình ảnh mẹ ruột, sự học hành bài bản, giấy tờ chứng nhận bảo vệ mình; đem lại trí tuệ, tiếng thơm học thuật, lòng nhân hậu hay làm việc thiện. Mặt trái là dễ ỷ lại, lười tự suy nghĩ. Sợ bị ham tiền của làm hỏng mất chỗ dựa này.",
     },
+    # THẬP THẦN Bát Tự 偏印 (KHÔNG phải SAO Tử Vi "ấn tín") — sinh Nhật chủ cùng
+    # âm dương; tục danh Kiêu Thần, dễ đoạt Thực Thần.
     "Thiên Ấn": {
-        "net_canon": ["ấn tín/giấy tờ chứng nhận", "quyền uy", "học vấn"],
-        "thuan_viet": "Dấu hiệu của giấy tờ chứng nhận và con dấu, đi với quyền uy và sự học.",
+        "net_canon": ["sinh Nhật chủ, cùng âm dương/nguồn nuôi dưỡng lệch, không chính thống", "quý nhân ngầm", "mẹ kế", "trí tuệ phi truyền thống", "tích cực: thiền, tôn giáo, nghiên cứu lập dị, công nghệ", "tiêu cực: Kiêu Thần đoạt Thực Thần → mất phúc"],
+        "thuan_viet": "Nguồn nuôi dưỡng và che chở theo lối lệch, không chính thống: hình ảnh quý nhân giúp ngầm, người mẹ kế, đầu óc khác người; hợp với thiền, tôn giáo, nghiên cứu lập dị và công nghệ. Mặt trái là nó hay cướp mất nguồn phúc lộc êm đềm của bản thân.",
     },
+    # Cụm gộp 印 = Chính Ấn + Thiên Ấn (COMPOSE) — KHÔNG phải "chữ ký/tâm ấn" (drift
+    # Mai Hoa). Thập thần SINH Nhật chủ: che chở, học vấn, nương tựa; Ấn chế Thương Quan.
     "Ấn Tinh": {
-        "net_canon": ["chữ ký = tâm ấn của người/nét bút phản chiếu tâm", "cơ sở để xem qua chữ ký"],
-        "thuan_viet": "Chữ ký của một người chính là dấu ấn của tâm họ, nên nhìn nét bút có thể đọc được phần nào con người.",
+        "net_canon": ["gộp Chính Ấn + Thiên Ấn/nhóm sinh Nhật chủ", "che chở, nương tựa", "học vấn", "Ấn chế Thương Quan (bảo vệ sao chồng ở nữ mệnh)"],
+        "thuan_viet": "Gộp chung nguồn nuôi dưỡng và chỗ dựa cho bản thân: sự che chở, học hành và nơi nương tựa; loại khí này còn ghìm bớt phần tài năng phá cách (Thương Quan), nên với người nữ nó gián tiếp bảo vệ sao người chồng.",
     },
     "ấn tinh": {
-        "net_canon": ["chữ ký = tâm ấn của người/nét bút phản chiếu tâm", "cơ sở để xem qua chữ ký"],
-        "thuan_viet": "Chữ ký của một người chính là dấu ấn của tâm họ, nên nhìn nét bút có thể đọc được phần nào con người.",
+        "net_canon": ["gộp Chính Ấn + Thiên Ấn/nhóm sinh Nhật chủ", "che chở, nương tựa", "học vấn", "Ấn chế Thương Quan (bảo vệ sao chồng ở nữ mệnh)"],
+        "thuan_viet": "Gộp chung nguồn nuôi dưỡng và chỗ dựa cho bản thân: sự che chở, học hành và nơi nương tựa; loại khí này còn ghìm bớt phần tài năng phá cách (Thương Quan), nên với người nữ nó gián tiếp bảo vệ sao người chồng.",
     },
     "Tỷ Kiên": {
         "net_canon": ["cùng hành + cùng âm dương với Nhật chủ/người ngang vai giống mình", "anh em ngang vai", "đồng nghiệp", "cạnh tranh trực diện", "tích cực: hỗ trợ, độc lập, ý chí", "tiêu cực: cứng đầu, tranh chấp, hao của"],
@@ -318,7 +326,24 @@ MAP = {
         "net_canon": ["gộp Chính Quan + Thất Sát/nhóm áp lực bên ngoài", "khắc Nhật chủ", "nữ mệnh = sao chồng"],
         "thuan_viet": "Gộp chung hai loại sức ép từ bên ngoài đè lên bản thân; với người nữ, đây là hình ảnh người chồng.",
     },
-    # ===== LÝ THUYẾT / TRẠNG THÁI SAO =====
+    # ===== LÝ THUYẾT TỬ BÌNH (neo concept_index tu_binh_ba_tu) =====
+    "Nhật chủ": {
+        "net_canon": ["Thiên Can của Trụ Ngày", "đại biểu cho BẢN THÂN người được xem", "mọi phân tích thập thần/dụng thần/cách cục đều quy chiếu về nó"],
+        "thuan_viet": "Là chữ đứng ở cột ngày sinh, dùng làm đại diện cho chính bản thân người được xem; mọi thứ khác trong lá số đều được đọc trong tương quan với nó.",
+    },
+    "dụng thần": {
+        "net_canon": ["hành cốt yếu cứu mệnh/'thuốc' cho lá số", "bản thân vượng → cần khí làm hao tiết (sinh ra, của cải, sức ép)", "bản thân nhược → cần khí hỗ trợ (nuôi dưỡng, người cùng loại)", "chặng vận đi vào dụng thần → vận tốt; đi vào khí kỵ → vận xấu", "có thêm tầng cân bằng nóng-lạnh (điều hậu)"],
+        "thuan_viet": "Là yếu tố cốt lõi giữ cân bằng cho lá số, ví như vị thuốc chữa bệnh: nếu bản thân quá mạnh thì cần thứ làm bớt đi, nếu bản thân quá yếu thì cần thứ nâng đỡ thêm. Chặng đời nào gặp được yếu tố này thì hanh thông, gặp thứ ngược lại thì trắc trở; ngoài ra còn xét thêm việc cân bằng nóng-lạnh của lá số.",
+    },
+    "ngũ hành sinh": {
+        "net_canon": ["quy luật ngũ hành: Mộc→Hỏa→Thổ→Kim→Thủy→Mộc (vòng tuần hoàn)", "sinh = nuôi dưỡng, tiếp khí"],
+        "thuan_viet": "Quy luật năm hành nuôi nhau theo vòng: Mộc nuôi Hỏa, Hỏa nuôi Thổ, Thổ nuôi Kim, Kim nuôi Thủy, Thủy lại nuôi Mộc; 'sinh' ở đây nghĩa là tiếp sức, nuôi dưỡng cho nhau.",
+    },
+    "ngũ hành khắc": {
+        "net_canon": ["quy luật ngũ hành: Mộc khắc Thổ, Thổ khắc Thủy, Thủy khắc Hỏa, Hỏa khắc Kim, Kim khắc Mộc (cách ngôi)", "khắc = chế ngự, kìm hãm"],
+        "thuan_viet": "Quy luật năm hành kìm nhau theo lối cách quãng: Mộc kìm Thổ, Thổ kìm Thủy, Thủy kìm Hỏa, Hỏa kìm Kim, Kim kìm Mộc; 'khắc' ở đây nghĩa là chế ngự, kìm hãm bớt nhau.",
+    },
+    # ===== LÝ THUYẾT / TRẠNG THÁI SAO (quy ước an-sao Tử Vi) =====
     "đại vận": {
         "net_canon": ["giai đoạn khoảng 10 năm", "mỗi đại vận lần lượt quản một cung", "đọc cát-hung động theo thời/xem tốt xấu thay đổi theo từng chặng"],
         "thuan_viet": "Một chặng đời khoảng mười năm; mỗi chặng lần lượt cai quản một mảng cuộc sống, nên phải xem cái tốt cái xấu chuyển động theo từng chặng chứ không cố định.",

@@ -125,6 +125,16 @@ def gom_terms():
                 if t[0] == hv and not t[1]:
                     TERMS[i] = (t[0], han, "thap_than", t[3] + "+gender_lens")
 
+    # Lý-thuật Tử Bình CỐT LÕI — neo concept_index tu_binh_ba_tu (loai 'ly_thuat_bat_tu'
+    # để phân biệt với quy-ước an-sao Tử Vi). Bổ sung term chưa có trong glossary
+    # (dụng thần, ngũ hành sinh/khắc) để sản phẩm gieo duyên có đủ vốn Bát Tự.
+    for hv, han in [("Nhật chủ", "日主"), ("dụng thần", "用神"),
+                    ("thân vượng", "日主強弱"), ("thân nhược", "日主強弱"),
+                    ("ngũ hành sinh", "相生"), ("ngũ hành khắc", "相剋"),
+                    ("chế hóa", "制化")]:
+        if hv not in seen_hv:
+            _add(hv, han, "ly_thuat_bat_tu", "bat_tu.ly_thuat_cot_loi"); seen_hv.add(hv)
+
 
 def _is_han(s: str) -> bool:
     return any("一" <= ch <= "鿿" for ch in s)
@@ -164,6 +174,59 @@ _CURATED_THAP_THAN = {
                 "Thương Quan trong cơ chế bảo vệ sao chồng."),
     "财": ("财", "Tài (财) — gộp Chính Tài + Thiên Tài; thập thần Nhật chủ KHẮC, chủ tiền "
            "của; ở nam mệnh đại diện PHỐI NGẪU (vợ)."),
+}
+
+# ───────────────────────────────────────────────────────────────────────────
+# BÁT TỰ — neo concept_index tu_binh_ba_tu (KHÔNG dùng concept_dict Tử Vi)
+# ───────────────────────────────────────────────────────────────────────────
+# Thập thần LẺ (han_viet term trong glossary) → canonical_vi trong concept_index
+# school tu_binh_ba_tu. Khớp đúng school để chống đồng âm SAO Tử Vi cùng tên.
+_THAP_THAN_LE = {
+    "Chính Quan": "Chính Quan", "Thất Sát": "Thất Sát", "Thương Quan": "Thương Quan",
+    "Thực Thần": "Thực Thần", "Chính Tài": "Chính Tài", "Thiên Tài": "Thiên Tài",
+    "Chính Ấn": "Chính Ấn", "Thiên Ấn": "Thiên Ấn", "Tỷ Kiên": "Tỷ Kiên",
+    "Kiếp Tài": "Kiếp Tài",
+    # Thiên Quan = biệt danh Thất Sát đã chế hoá → neo vào Thất Sát (cùng 七殺)
+    "Thiên Quan": "Thất Sát",
+    # Cô Thần / Quả Tú có concept_index tu_binh_ba_tu riêng
+    "Cô Thần": "Cô Thần", "Quả Tú": "Quả Tú",
+}
+
+# Cụm GỘP → COMPOSE từ các thành phần đã có trong concept_index tu_binh_ba_tu.
+# (term_glossary): (canonical_vi thành phần 1, canonical_vi thành phần 2,
+#                   tiền tố mô tả nhóm, hậu tố nghĩa-product)
+_THAP_THAN_GOP = {
+    "Quan Sát": ("Chính Quan", "Thất Sát", "官杀", "Nhóm thập thần KHẮC Nhật chủ; "
+                 "ở NỮ mệnh đại diện phối ngẫu (chồng), ở tầng product."),
+    "官杀": ("Chính Quan", "Thất Sát", "官杀", "Nhóm thập thần KHẮC Nhật chủ; nữ mệnh = "
+             "sao chồng (gender ở tầng product)."),
+    "Chính Quan Thất Sát": ("Chính Quan", "Thất Sát", "官杀", "Hai thập thần khắc Nhật "
+                            "chủ; nữ mệnh là sao phối ngẫu."),
+    "食伤": ("Thực Thần", "Thương Quan", "食伤", "Nhóm thập thần do Nhật chủ SINH ra; nữ "
+             "mệnh Thương Quan khắc Chính Quan (sao chồng)."),
+    "Thực Thương": ("Thực Thần", "Thương Quan", "食伤", "Nhóm Nhật chủ sinh ra; chủ sáng "
+                    "tạo/biểu đạt; nữ mệnh khắc sao chồng."),
+    "Tỷ Kiếp": ("Tỷ Kiên", "Kiếp Tài", "比劫", "Nhóm thập thần ĐỒNG loại với Nhật chủ; "
+                "ở NAM mệnh Tỷ Kiếp khắc Tài (财) nên là kẻ khắc vợ (tầng product)."),
+    "比劫": ("Tỷ Kiên", "Kiếp Tài", "比劫", "Nhóm đồng loại Nhật chủ; nam mệnh khắc Tài "
+             "(vợ)."),
+    "财": ("Chính Tài", "Thiên Tài", "财", "Nhóm thập thần Nhật chủ KHẮC; ở NAM mệnh đại "
+           "diện phối ngẫu (vợ), ở tầng product."),
+    "Ấn Tinh": ("Chính Ấn", "Thiên Ấn", "印", "Nhóm thập thần SINH Nhật chủ; chủ che chở, "
+                "học vấn, nương tựa; Ấn chế Thương Quan (bảo vệ sao chồng)."),
+    "ấn tinh": ("Chính Ấn", "Thiên Ấn", "印", "Nhóm thập thần sinh Nhật chủ; chủ che chở, "
+                "học vấn; Ấn chế Thương Quan."),
+}
+
+# Lý-thuật TỬ BÌNH thực sự (NOT quy ước an-sao Tử Vi) → canonical_vi concept_index
+# tu_binh_ba_tu. Đây là điểm dễ vớ nhầm concept_dict Tử Vi (Nhật chủ, dụng thần…).
+_BA_TU_LY_THUAT = {
+    "nhật chủ": "Nhật Chủ", "Nhật chủ": "Nhật Chủ", "Nhật Chủ": "Nhật Chủ",
+    "dụng thần": "Dụng Thần", "Dụng Thần": "Dụng Thần", "Dụng thần": "Dụng Thần",
+    "thân vượng": "Cường độ Nhật Chủ", "thân nhược": "Cường độ Nhật Chủ",
+    "chế hóa": "Chế hóa",
+    "ngũ hành sinh": "Tương sinh", "Tương sinh": "Tương sinh", "tương sinh": "Tương sinh",
+    "ngũ hành khắc": "Tương khắc", "Tương khắc": "Tương khắc", "tương khắc": "Tương khắc",
 }
 
 # Biến thể chính tả → tên canonical trong concept_dict/wiki (tránh flag oan)
@@ -259,33 +322,75 @@ _CURATED_LY_THUAT = {
 # ───────────────────────────────────────────────────────────────────────────
 # 2) Lookup mỗi term qua concept_dict + wiki concept_index + passages_fts
 # ───────────────────────────────────────────────────────────────────────────
+_WK_COLS = ("SELECT concept_id,canonical_vi,canonical_zh,aliases,short_note,category,"
+            "school,first_seen_corpus,first_seen_page FROM concept_index ")
+
+
+def _wk_row(r) -> dict:
+    return {
+        "concept_id": r[0], "canonical_vi": r[1], "canonical_zh": r[2], "aliases": r[3],
+        "short_note": (r[4] or "").strip(), "category": r[5], "school": r[6],
+        "first_seen_corpus": r[7], "first_seen_page": r[8],
+    }
+
+
 def wiki_concept(conn, hv: str, han: str) -> dict | None:
     cur = conn.cursor()
     rows = []
     if hv:
         rows = cur.execute(
-            "SELECT canonical_vi,canonical_zh,aliases,short_note,category,school,"
-            "first_seen_corpus,first_seen_page FROM concept_index "
-            "WHERE canonical_vi=? COLLATE NOCASE LIMIT 1", (hv,)).fetchall()
+            _WK_COLS + "WHERE canonical_vi=? COLLATE NOCASE LIMIT 1", (hv,)).fetchall()
     if not rows and han:
         rows = cur.execute(
-            "SELECT canonical_vi,canonical_zh,aliases,short_note,category,school,"
-            "first_seen_corpus,first_seen_page FROM concept_index "
-            "WHERE canonical_zh=? LIMIT 1", (han,)).fetchall()
+            _WK_COLS + "WHERE canonical_zh=? LIMIT 1", (han,)).fetchall()
     if not rows and han:
         rows = cur.execute(
-            "SELECT canonical_vi,canonical_zh,aliases,short_note,category,school,"
-            "first_seen_corpus,first_seen_page FROM concept_index "
-            "WHERE aliases LIKE ? OR canonical_zh LIKE ? LIMIT 1",
+            _WK_COLS + "WHERE aliases LIKE ? OR canonical_zh LIKE ? LIMIT 1",
             (f"%{han}%", f"%{han}%")).fetchall()
     if not rows:
         return None
-    r = rows[0]
-    return {
-        "canonical_vi": r[0], "canonical_zh": r[1], "aliases": r[2],
-        "short_note": (r[3] or "").strip(), "category": r[4], "school": r[5],
-        "first_seen_corpus": r[6], "first_seen_page": r[7],
-    }
+    return _wk_row(rows[0])
+
+
+def wiki_concept_binh(conn, hv: str, han: str) -> dict | None:
+    """Lookup concept_index CHỈ trong school Tử Bình (school LIKE '%binh%').
+
+    Đây là HÀNG RÀO chống bẫy đồng âm Tử Vi ↔ Bát Tự: 'Thất Sát' khớp tên cả
+    SAO 七殺 Tử Vi (1/14 chính tinh) lẫn THẬP THẦN 七殺 Bát Tự (can KHẮC Nhật
+    chủ, cùng âm dương). Với thập thần + lý-thuật Tử Bình, BẮT BUỘC khớp đúng
+    school tu_binh_ba_tu, KHÔNG đụng tới concept_dict (Tử Vi)."""
+    cur = conn.cursor()
+    rows = []
+    if hv:
+        rows = cur.execute(
+            _WK_COLS + "WHERE canonical_vi=? COLLATE NOCASE AND school LIKE '%binh%' "
+            "LIMIT 1", (hv,)).fetchall()
+    if not rows and han:
+        rows = cur.execute(
+            _WK_COLS + "WHERE canonical_zh=? AND school LIKE '%binh%' LIMIT 1",
+            (han,)).fetchall()
+    if not rows and han:
+        rows = cur.execute(
+            _WK_COLS + "WHERE (aliases LIKE ? OR canonical_zh LIKE ?) "
+            "AND school LIKE '%binh%' LIMIT 1", (f"%{han}%", f"%{han}%")).fetchall()
+    if not rows:
+        return None
+    return _wk_row(rows[0])
+
+
+def _canon_src_wiki(wk: dict) -> str:
+    """Nguồn neo cho 1 concept_index row, gắn concept_id + school (truy vết thật)."""
+    cid = wk.get("concept_id")
+    school = wk.get("school") or ""
+    pg = wk.get("first_seen_page")
+    cp = wk.get("first_seen_corpus") or ""
+    parts = [f"wiki concept_index:{school} (Thiệu Vĩ Hoa)" if "binh" in school
+             else f"wiki concept_index:{cp}"]
+    if cid:
+        parts.append(f"concept_id={cid}")
+    if pg:
+        parts.append(f"tr.{pg}")
+    return " ".join([parts[0]] + ([" · ".join(parts[1:])] if len(parts) > 1 else []))
 
 
 def _han_in(raw: str, han: str) -> bool:
@@ -322,10 +427,14 @@ _CORPUS_TU_VI = (
 
 def _corpus_ok(corpus: str, loai: str) -> bool:
     """True nếu corpus hợp lệ cho loai term. Sao/cung/hóa Tử Vi → corpus Tử Vi.
-    Các loai khác (thập thần Bát Tự, can-chi, lý-thuật chung, idiom) → không gate
-    corpus (nguồn rải nhiều sách), vẫn dựa vào cross-confirm Hán."""
+    Thập thần / lý-thuật Bát Tự → LOẠI corpus Tử Vi (passage Tử Vi mô tả SAO 七杀,
+    KHÔNG phải THẬP THẦN 七殺 Bát Tự — chống nhiễu đồng âm). Hiện chưa có corpus
+    Bát Tự trong passages → các term này tạm RỖNG passage (đúng), chờ ingest 5 sách
+    Thiệu Vĩ Hoa đã restore. Các loai còn lại (can-chi, idiom) không gate corpus."""
     if loai in ("sao", "cung", "hoa"):
         return corpus in _CORPUS_TU_VI
+    if loai in ("thap_than", "ly_thuat_bat_tu"):
+        return corpus not in _CORPUS_TU_VI
     return True
 
 
@@ -389,12 +498,39 @@ def _snippet(raw: str, key: str, width: int = 90) -> str:
     return ("…" if start > 0 else "") + seg + ("…" if end < len(raw) else "")
 
 
+def _compose_gop(conn, hv: str) -> tuple[str, str, str] | None:
+    """COMPOSE định nghĩa cụm gộp (官杀/食伤/比劫/财/印) từ 2 thành phần thập thần
+    đã có trong concept_index tu_binh_ba_tu. Trả (han, dinh_nghia, canon_src).
+    Mỗi thành phần trích NÉT GỐC (mệnh đề đầu: quan hệ với Nhật chủ)."""
+    spec = _THAP_THAN_GOP.get(hv)
+    if not spec:
+        return None
+    a_vi, b_vi, han, hau_to = spec
+    a = wiki_concept_binh(conn, a_vi, "")
+    b = wiki_concept_binh(conn, b_vi, "")
+    if not (a and a["short_note"] and b and b["short_note"]):
+        return None
+
+    def _core(note: str) -> str:
+        head = note.split("Biểu thị")[0].strip().rstrip(".")
+        return head if head else note.split(".")[0].strip()
+
+    defn = (f"Gộp {a['canonical_vi']} ({a['canonical_zh']}) + {b['canonical_vi']} "
+            f"({b['canonical_zh']}). {a['canonical_vi']}: {_core(a['short_note'])}. "
+            f"{b['canonical_vi']}: {_core(b['short_note'])}. {hau_to}")
+    src = (f"compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — "
+           f"{a['canonical_vi']} concept_id={a.get('concept_id')} + "
+           f"{b['canonical_vi']} concept_id={b.get('concept_id')}")
+    return han, defn, src
+
+
 def build():
     gom_terms()
     conn = sqlite3.connect(f"file:{WIKI}?mode=ro", uri=True)
 
     out_terms = []
-    n_cd = n_wiki = n_curated = n_flag = 0
+    n_cd = n_wiki = n_curated = n_compose = n_flag = 0
+    n_thap_than_to_index = 0  # đếm thập thần/lý-thuật-Bát-Tự neo concept_index (≠ curated)
     seen = set()
     for hv, han, loai, src in TERMS:
         if hv in seen:
@@ -404,17 +540,63 @@ def build():
         lookup_hv = _ALIAS_NORM.get(hv, hv)
         cd = concept_dict.lookup(lookup_hv)
         wk = wiki_concept(conn, lookup_hv, han)
-        ps = passages_for(conn, lookup_hv, han, loai)
+
+        # BÁT TỰ: ưu tiên neo school tu_binh_ba_tu — chống bẫy đồng âm SAO Tử Vi.
+        # wk_binh CHỈ khớp khi đúng school Tử Bình (không đụng concept_dict Tử Vi).
+        is_thap_than_le = hv in _THAP_THAN_LE
+        is_gop = hv in _THAP_THAN_GOP
+        is_ly_thuat_bat_tu = hv in _BA_TU_LY_THUAT
+        # loai HIỆU LỰC để gate passages: term gom nhầm 'sao' (Thất Sát) nhưng thực
+        # là thập thần → ép loai Bát Tự để LOẠI passage corpus Tử Vi đồng âm.
+        loai_eff = ("thap_than" if (is_thap_than_le or is_gop)
+                    else "ly_thuat_bat_tu" if is_ly_thuat_bat_tu else loai)
+        ps = passages_for(conn, lookup_hv, han, loai_eff)
+        # Với MỌI term Bát Tự (thập thần + lý-thuật Tử Bình): cấm concept_dict Tử Vi
+        # ngay từ đầu — kể cả khi wk_binh hụt — để KHÔNG fall sang SAO đồng âm.
+        if is_thap_than_le or is_gop or is_ly_thuat_bat_tu:
+            cd = None
+        wk_binh = None
+        if is_thap_than_le:
+            wk_binh = wiki_concept_binh(conn, _THAP_THAN_LE[hv], han)
+        elif is_ly_thuat_bat_tu:
+            wk_binh = wiki_concept_binh(conn, _BA_TU_LY_THUAT[hv], han)
 
         dinh_nghia_canon = ""
         canon_src = ""
         curated_used = False
+        loai_out = loai  # loai có thể bị override khi term Bát Tự bị gom nhầm là 'sao'
+        # ── BÁT TỰ (thập thần lẻ + cụm gộp + lý-thuật Tử Bình) ──────────────────
+        # Neo concept_index tu_binh_ba_tu / COMPOSE; TUYỆT ĐỐI bỏ qua concept_dict
+        # Tử Vi cho các loai này (Thất Sát = THẬP THẦN 七殺, KHÔNG phải sao Tử Vi).
+        if is_gop and _compose_gop(conn, hv):
+            han2, defn, src2 = _compose_gop(conn, hv)
+            if not han:
+                han = han2
+            dinh_nghia_canon = defn
+            canon_src = src2
+            loai_out = "thap_than"
+            n_compose += 1
+            n_thap_than_to_index += 1
+            cd = None  # ẩn concept_dict Tử Vi đồng âm khỏi consumer
+        elif (is_thap_than_le or is_ly_thuat_bat_tu) and wk_binh and wk_binh["short_note"]:
+            dinh_nghia_canon = wk_binh["short_note"]
+            canon_src = _canon_src_wiki(wk_binh)
+            wk = wk_binh  # ghi đè để wiki block dưới + output dùng entry Tử Bình đúng
+            # Sửa loai: term gom nhầm thành 'sao' (Thất Sát) → đúng nghĩa thập thần;
+            # lý-thuật Bát Tự gom là 'ly_thuat' → 'ly_thuat_bat_tu' (phân với quy-ước
+            # an-sao Tử Vi). Cô Thần/Quả Tú giữ 'thap_than' (đã đúng).
+            loai_out = "thap_than" if is_thap_than_le else "ly_thuat_bat_tu"
+            n_wiki += 1
+            n_thap_than_to_index += 1
+            cd = None  # chống đồng âm: bỏ SAO Tử Vi cùng tên
+            if not han:
+                han = wk_binh.get("canonical_zh") or han
         # CAN-CHI (10 Thiên can + 12 Địa chi): ưu tiên wiki concept_index — đó là
         # nguồn ĐÚNG nghĩa stem (甲 mộc dương, 癸 thuỷ âm…). concept_dict KHÔNG chứa
         # can-chi đúng nghĩa, mà có các SAO/kỹ-thuật ĐỒNG ÂM Hán-Việt (貴 'quyền quý'
         # match 'Quý'; 夹 'giáp/kẹp' match 'Giáp') → nếu để concept_dict thắng sẽ
         # cướp chỗ của Thiên can. Bỏ qua concept_dict match nhầm cho can_chi.
-        if loai == "can_chi" and wk and wk["short_note"]:
+        elif not dinh_nghia_canon and loai == "can_chi" and wk and wk["short_note"]:
             dinh_nghia_canon = wk["short_note"]
             cp = wk.get("first_seen_corpus") or ""
             pg = wk.get("first_seen_page")
@@ -460,8 +642,8 @@ def build():
 
         flag = None
         if not dinh_nghia_canon:
-            if loai == "thap_than":
-                flag = "cần nguồn Bát Tự (Tử Bình) — chưa có trong concept_dict/wiki/curated"
+            if loai_out in ("thap_than", "ly_thuat_bat_tu"):
+                flag = "cần nguồn Bát Tự (Tử Bình) — chưa có trong concept_index tu_binh_ba_tu/curated"
             else:
                 flag = "thiếu nguồn canon (concept_dict / wiki / curated)"
             n_flag += 1
@@ -476,7 +658,7 @@ def build():
         out_terms.append({
             "han_viet": hv,
             "han": han,
-            "loai": loai,
+            "loai": loai_out,
             "nguon_gom": src,
             "co_concept_dict": bool(cd_store),
             "tu_curated": curated_used,
@@ -521,8 +703,10 @@ def build():
             "tong_term": len(out_terms),
             "co_concept_dict": n_cd,
             "chi_wiki": n_wiki,
+            "compose_tu_binh": n_compose,
             "curated_tu_binh_quy_uoc": n_curated,
             "thieu_nguon_flag": n_flag,
+            "bat_tu_neo_concept_index": n_thap_than_to_index,
         },
         "terms": out_terms,
     }
