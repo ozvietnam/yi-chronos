@@ -324,12 +324,12 @@ MAP = {
         "thuan_viet": "Một chặng đời khoảng mười năm; mỗi chặng lần lượt cai quản một mảng cuộc sống, nên phải xem cái tốt cái xấu chuyển động theo từng chặng chứ không cố định.",
     },
     "lưu niên": {
-        "net_canon": ["xét theo từng năm", "biểu thị tai hoạ/điềm xấu theo năm"],
-        "thuan_viet": "Việc xem riêng cho từng năm một, báo trước điều xấu rắc rối rơi vào năm đó.",
+        "net_canon": ["năm cụ thể đang xét", "chồng lên đại vận để định thời sự việc"],
+        "thuan_viet": "Năm cụ thể đang được xem; đặt chồng lên chặng mười năm để định xem việc rơi vào lúc nào.",
     },
     "tiểu hạn": {
-        "net_canon": ["vận mệnh hàng năm/chặng vận của một năm"],
-        "thuan_viet": "Vận tốt xấu tính cho riêng một năm đang xét.",
+        "net_canon": ["vận trong một năm", "an theo tuổi", "một tầng định thời song song lưu niên"],
+        "thuan_viet": "Vận của riêng một năm, tính theo tuổi; là một cách định thời đi song song với năm đang xét.",
     },
     "lưu nguyệt": {
         "net_canon": ["tháng cụ thể đang xét", "tầng định thời nhỏ hơn năm"],
@@ -705,8 +705,8 @@ MAP = {
         "thuan_viet": "Mốc cuối trong mười hai con giáp, mang nghĩa 'hạt nhân', chỉ lúc muôn vật thu mình cất giữ lại, như hạt giống nằm ẩn dưới lòng đất chờ thời.",
     },
     "Giáp": {
-        "net_canon": ["sự kẹp giữa hai bên bởi các sao tốt hoặc xấu", "ảnh hưởng đến mệnh/tác động lên bản thân"],
-        "thuan_viet": "Cảnh bị hai bên kẹp lại — có thể là điềm tốt hoặc điềm xấu kẹp vào — và tác động lên chính bản thân người đó.",
+        "net_canon": ["thiên can thứ 1", "mộc dương — đại thụ (cây lớn), thẳng, vươn cao", "tính nhân hậu, thẳng thắn, không khuất phục"],
+        "thuan_viet": "Mốc trời thứ nhất, mang khí cây lớn vươn thẳng lên cao; tính người nhân hậu, thẳng thắn và không chịu khuất phục.",
     },
     "Ất": {
         "net_canon": ["thiên can thứ 2", "mộc âm — cây cỏ mềm, hoa lá", "tính uyển chuyển, dẻo dai, biết tuỳ hoàn cảnh"],
@@ -741,8 +741,8 @@ MAP = {
         "thuan_viet": "Mốc trời thứ chín, mang khí biển lớn sông lớn; tính người rộng lượng, linh hoạt lưu chuyển và đầu óc bao quát rộng.",
     },
     "Quý": {
-        "net_canon": ["quyền quý/sang trọng", "danh vọng/tiếng tăm"],
-        "thuan_viet": "Dấu hiệu của sự sang trọng quyền quý và tiếng tăm danh vọng.",
+        "net_canon": ["thiên can thứ 10 (cuối cùng)", "nghĩa 'đo lường'", "vạn vật ẩn tàng dưới lòng đất"],
+        "thuan_viet": "Mốc trời thứ mười cũng là mốc cuối, mang nghĩa 'đo lường'; ứng với lúc muôn vật thu mình ẩn náu dưới lòng đất.",
     },
     # ===== CÔ THẦN / QUẢ TÚ =====
     "Cô Thần": {

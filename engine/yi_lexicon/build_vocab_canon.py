@@ -310,6 +310,25 @@ def _need_cross_confirm(hv: str, loai: str) -> bool:
     return True
 
 
+# Corpus thuộc về môn Tử Vi (sao/cung/hóa/lý-thuật Tử Vi). passage cho các loai
+# này CHỈ hợp lệ khi đến từ corpus Tử Vi — chặn lệch sang corpus Mai Hoa / Kinh
+# Dịch / Thiệu Khang Tiết (root cause drift: 'Thiên Hư' không có Hán → FTS token
+# 'thiên' khớp bừa passage Mai Hoa 'thiên địa').
+_CORPUS_TU_VI = (
+    "tuvidauso-zh-q1q3q4", "tuvidauso-zh-q1", "tuvi-dao-tang-zh",
+    "tuvi-toan-thu-lht-zh",
+)
+
+
+def _corpus_ok(corpus: str, loai: str) -> bool:
+    """True nếu corpus hợp lệ cho loai term. Sao/cung/hóa Tử Vi → corpus Tử Vi.
+    Các loai khác (thập thần Bát Tự, can-chi, lý-thuật chung, idiom) → không gate
+    corpus (nguồn rải nhiều sách), vẫn dựa vào cross-confirm Hán."""
+    if loai in ("sao", "cung", "hoa"):
+        return corpus in _CORPUS_TU_VI
+    return True
+
+
 def passages_for(conn, hv: str, han: str, loai_hint: str = "") -> list[dict]:
     """Trích passage gốc — CHỈ giữ khi neo CHẮC để tránh nhiễu off-topic.
 
@@ -338,6 +357,11 @@ def passages_for(conn, hv: str, han: str, loai_hint: str = "") -> list[dict]:
             continue
         for pid, page, corpus, raw in rows:
             if pid in seen_ids:
+                continue
+            # Gate corpus: sao/cung/hóa Tử Vi chỉ nhận passage từ corpus Tử Vi —
+            # chặn lệch sang corpus Mai Hoa/Kinh Dịch (drift 'Thiên Hư' → passage
+            # Mai Hoa 'thiên địa').
+            if not _corpus_ok(corpus, loai_hint):
                 continue
             # Cross-confirm cho match Hán-Việt khi term là token chung (1 âm tiết hoặc
             # thập thần/lý-thuật Bát Tự dễ khớp bừa corpus Mai Hoa/Kinh Dịch).
@@ -385,7 +409,27 @@ def build():
         dinh_nghia_canon = ""
         canon_src = ""
         curated_used = False
-        if cd and cd.get("definition"):
+        # CAN-CHI (10 Thiên can + 12 Địa chi): ưu tiên wiki concept_index — đó là
+        # nguồn ĐÚNG nghĩa stem (甲 mộc dương, 癸 thuỷ âm…). concept_dict KHÔNG chứa
+        # can-chi đúng nghĩa, mà có các SAO/kỹ-thuật ĐỒNG ÂM Hán-Việt (貴 'quyền quý'
+        # match 'Quý'; 夹 'giáp/kẹp' match 'Giáp') → nếu để concept_dict thắng sẽ
+        # cướp chỗ của Thiên can. Bỏ qua concept_dict match nhầm cho can_chi.
+        if loai == "can_chi" and wk and wk["short_note"]:
+            dinh_nghia_canon = wk["short_note"]
+            cp = wk.get("first_seen_corpus") or ""
+            pg = wk.get("first_seen_page")
+            canon_src = f"wiki concept_index:{cp}" + (f" tr.{pg}" if pg else "")
+            n_wiki += 1
+        elif loai == "ly_thuat" and hv in _CURATED_LY_THUAT:
+            # Lý-thuật định thời (đại vận / lưu niên / tiểu hạn…): ưu tiên curated
+            # (chuẩn theo quy ước an sao). concept_dict cho các term này thường lệch
+            # — vd 'lưu niên' = "Sao lưu niên, biểu thị tai họa theo năm" (lưu niên
+            # KHÔNG phải sao). Curated neo đúng nghĩa 'năm cụ thể đang xét' (流年).
+            dinh_nghia_canon = _CURATED_LY_THUAT[hv]
+            canon_src = "curated:quy ước an sao Tử Vi / đạo lý Tử Bình"
+            curated_used = True
+            n_curated += 1
+        elif cd and cd.get("definition"):
             dinh_nghia_canon = cd["definition"]
             canon_src = f"concept_dict:Q1 Phú Thái Vi tr.{cd.get('first_page')}"
             n_cd += 1
@@ -422,16 +466,23 @@ def build():
                 flag = "thiếu nguồn canon (concept_dict / wiki / curated)"
             n_flag += 1
 
+        # Với can_chi đã neo bằng wiki, concept_dict (nếu có) chỉ là SAO/kỹ-thuật
+        # ĐỒNG ÂM Hán-Việt, KHÔNG phải nghĩa Thiên can — loại bỏ để không gây nhầm
+        # cho consumer enumerate concept_dict của một can_chi.
+        cd_store = cd
+        if loai == "can_chi" and dinh_nghia_canon and canon_src.startswith("wiki"):
+            cd_store = None
+
         out_terms.append({
             "han_viet": hv,
             "han": han,
             "loai": loai,
             "nguon_gom": src,
-            "co_concept_dict": bool(cd),
+            "co_concept_dict": bool(cd_store),
             "tu_curated": curated_used,
             "dinh_nghia_canon": dinh_nghia_canon,
             "canon_nguon": canon_src,
-            "concept_dict": cd,  # {term,kind,definition,first_page,occurrences} | None
+            "concept_dict": cd_store,  # {term,kind,definition,first_page,occurrences} | None
             "short_note": (wk or {}).get("short_note", "") or None,
             "wiki": ({
                 "canonical_vi": wk["canonical_vi"], "canonical_zh": wk["canonical_zh"],

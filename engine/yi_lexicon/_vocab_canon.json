@@ -17,9 +17,9 @@
   },
   "thong_ke": {
     "tong_term": 182,
-    "co_concept_dict": 79,
-    "chi_wiki": 38,
-    "curated_tu_binh_quy_uoc": 65,
+    "co_concept_dict": 75,
+    "chi_wiki": 40,
+    "curated_tu_binh_quy_uoc": 67,
     "thieu_nguon_flag": 0
   },
   "terms": [
@@ -117,14 +117,6 @@
           "trich": "…cát tuy mỹ tất dâm. 天机 庙子午 旺辰酉 陷丑未 Thiên ky miếu tử ngọ vượng thần dậu hãm sửu vị 机梁会合善谈兵居戌亦为美论 孟子迁移戌宫, 有机梁. K…",
           "match_q": "天机",
           "neo": "han"
-        },
-        {
-          "passage_id": 6,
-          "page": 20,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Truyền thuyết: Vua Đại Vũ nhà Hạ thấy Linh Quy ở sông Lạc, trên mai có chữ. Vũ xếp thành C",
-          "match_q": "Thiên Cơ",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -162,22 +154,6 @@
           "trich": "…ao mệnh thị dã. 女命紫微太阳星早遇贤夫信可凭 女命紫微在寅午申宫吉, 贵美旺夫益子. 陷地平常, 惟子酉及巳亥加四杀, 美玉瑕玷日后不美. Nữ mệnh tử vi thái dương tinh tả…",
           "match_q": "太阳",
           "neo": "han"
-        },
-        {
-          "passage_id": 31,
-          "page": 150,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
-          "match_q": "Thái Dương",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 48,
-          "page": 10,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "★ 8 quẻ ↔ 8 Tiên dân gian:   Càn ☰ — LỮ ĐỒNG TÂN (Thuần Dương)   Khôn ☷ — HÀ TIÊN CÔ (nữ d",
-          "match_q": "Thái Dương",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -217,18 +193,18 @@
           "neo": "han"
         },
         {
-          "passage_id": 44,
-          "page": 345,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ 'Phù áp tự giả, nhân chi tâm ấn dã.' Chữ ký = TÂM ẤN của người.  ★ NGUYÊN TẮC:   - Tiên",
-          "match_q": "Vũ Khúc",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 493,
           "page": 18,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Tham Lang đồng Vũ Khúc, hình tiểu thanh cao nhi lượng đại",
+          "match_q": "Vũ Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 501,
+          "page": 19,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Vũ cư Thân nhi hiếu sinh, Kình Dương tại Dậu nhi dụng sát, gia dĩ Cự Môn, Lộc Tồn, Đà La n",
           "match_q": "Vũ Khúc",
           "neo": "han_viet"
         }
@@ -268,22 +244,6 @@
           "trich": "…ình kỵ bình thường. 天同 庙巳亥 旺子申 陷午 Thiên đồng miếu tị hợi vượng tử thân hãm ngọ 天同会吉寿元长 Thiên đồng hội cát thọ…",
           "match_q": "天同",
           "neo": "han"
-        },
-        {
-          "passage_id": 54,
-          "page": 13,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Mai Hoa Dịch Số có tên đầy đủ là Thiệu Khang Tiết Tiên Sinh Quan Mai Chiết Số Toàn Thư, là",
-          "match_q": "Thiên Đồng",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 58,
-          "page": 38,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Hậu Thiên Bát Quái còn gọi là Văn Vương Bát Quái, do Chu Văn Vương cải tiến từ Tiên Thiên",
-          "match_q": "Thiên Đồng",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -382,14 +342,6 @@
           "trich": "…ếm nhật hậu bất mỹ. 天府 庙子丑未寅辰戌 旺午酉 地卯巳申亥 无陷 Thiên phủ miếu tử sửu vị dần thần tuất vượng ngọ dậu địa mão tị th…",
           "match_q": "天府",
           "neo": "han"
-        },
-        {
-          "passage_id": 3,
-          "page": 16,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
-          "match_q": "Thiên Phủ",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -427,22 +379,6 @@
           "trich": "…úc phú quý khả kỳ 紫微太阴杀曜逢一生曹吏逞英雄 Tử vi thái âm sát diệu phùng nhất sinh tào lại sính anh hùng 紫微武曲破军会羊陀欺公祸乱 只宜…",
           "match_q": "太阴",
           "neo": "han"
-        },
-        {
-          "passage_id": 31,
-          "page": 150,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
-          "match_q": "Thái Âm",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 57,
-          "page": 31,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Dịch có Thái Cực, Thái Cực sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, Tứ Tượng sinh",
-          "match_q": "Thái Âm",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -596,10 +532,10 @@
           "neo": "han"
         },
         {
-          "passage_id": 134,
-          "page": 31,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« {'quote': 'Dịch có Thái Cực, Thái Cực sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, T",
+          "passage_id": 450,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Hình tù giáp Ấn, hình trượng duy tư",
           "match_q": "Thiên Tướng",
           "neo": "han_viet"
         }
@@ -641,18 +577,18 @@
           "neo": "han"
         },
         {
-          "passage_id": 31,
-          "page": 150,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "passage_id": 446,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tài Ấm tọa ư Di di, thế thương cao cổ",
           "match_q": "Thiên Lương",
           "neo": "han_viet"
         },
         {
-          "passage_id": 238,
-          "page": 135,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Trong quẻ xem bệnh, việc chọn động hào là vô cùng quan trọng. » « Nếu Càn, Đoài, Ly là q",
+          "passage_id": 451,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thiện Ấn triều cương, nhân từ chi trưởng",
           "match_q": "Thiên Lương",
           "neo": "han_viet"
         }
@@ -747,18 +683,18 @@
           "neo": "han"
         },
         {
-          "passage_id": 31,
-          "page": 150,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "passage_id": 426,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thất Sát, Phá Quân, chuyên y Dương, Linh chi khước",
           "match_q": "Phá Quân",
           "neo": "han_viet"
         },
         {
-          "passage_id": 138,
-          "page": 35,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Thiên Can Địa Chi là tên gọi tắt của mười Thiên Can và mười hai Địa Chi. Tương truyền, T",
+          "passage_id": 440,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phá Quân ám diệu đồng hương, thủy trung chung trủng",
           "match_q": "Phá Quân",
           "neo": "han_viet"
         }
@@ -845,26 +781,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 59,
-          "page": 43,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Kinh Dịch bao hàm quy luật biến hóa của mọi sự vật trong trời đất, mọi lẽ trời và đạo ngườ",
+          "passage_id": 483,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tuấn nhã Văn Xương, mi thanh mục tú; lỗi lạc Văn Khúc, khẩu thiệt tiện nịnh; tại miếu định",
           "match_q": "Hàm Trì",
           "neo": "han_viet"
         },
         {
-          "passage_id": 105,
-          "page": 2,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Kinh Dịch là đứng đầu trong Lục Kinh, hàm chứa lý lẽ phong phú và bao trùm vạn vật. » «",
+          "passage_id": 798,
+          "page": 59,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thiên Lương, Nguyệt Diệu nữ mệnh bần. Tỵ, Hợi an Mệnh, Thiên Lương trị chi; Dần, Thìn an M",
           "match_q": "Hàm Trì",
           "neo": "han_viet"
         },
         {
-          "passage_id": 359,
-          "page": 256,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Khi đoán chữ, cần nắm vững cách tách và luận giải những chữ thường gặp, vì đây là những",
+          "passage_id": 917,
+          "page": 74,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Sửu Mùi Cự Cơ vi trị phúc, thất hãm thử nguyệt phúc tu khinh.",
           "match_q": "Hàm Trì",
           "neo": "han_viet"
         }
@@ -906,18 +842,18 @@
           "neo": "han"
         },
         {
-          "passage_id": 2677,
-          "page": 30,
-          "corpus": "kinh-dich-tron-bo-ngo-tat-to",
-          "trich": "# Quẻ 30 — Ly 離 · ☲☲ (Ly trên, Ly dưới — sáng chồng sáng)  ## Tóm cốt  **Ly = bám**. Tiếp",
+          "passage_id": 2816,
+          "page": 105,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…thiêu chủ loạn dâm. 沐浴進神徒見貴, 心教傾國與傾城. Mộc dục tiến thần đồ kiến quý, tâm giáo khuynh quốc dữ khuynh thành.",
           "match_q": "Mộc Dục",
           "neo": "han_viet"
         },
         {
-          "passage_id": 2694,
-          "page": 47,
-          "corpus": "kinh-dich-tron-bo-ngo-tat-to",
-          "trich": "# Quẻ 47 — Khốn 困 · ☱☵ (Đoài trên, Khảm dưới — đầm cạn nước)  ## Tóm cốt  **Khốn = cùng kh",
+          "passage_id": 2944,
+          "page": 233,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "彖曰 Thoán viết 雖然天庫號孤神, 吉曜相逢時有名. Tuy nhiên thiên khố hào cô thần, cát diệu tương phùng thì",
           "match_q": "Mộc Dục",
           "neo": "han_viet"
         }
@@ -949,32 +885,7 @@
         "school": "tu_vi",
         "first_seen_page": 54
       },
-      "passages_trich": [
-        {
-          "passage_id": 28,
-          "page": 117,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★★★ NĂM BƯỚC CHIÊM CHÍNH THỐNG (Thiệu Khang Tiết):  BƯỚC 1: THÀNH QUẺ   Gieo quẻ qua phươn",
-          "match_q": "Đại Hao",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 75,
-          "page": 134,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Trong quẻ xem bệnh tật, việc chọn thể quẻ và dụng quẻ có điểm đặc biệt: không lấy dụng quẻ",
-          "match_q": "Đại Hao",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 100,
-          "page": 285,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Đại khái phép chiêm bốc, sau khi thành quẻ, trước hết xem lời hào của Chu Dịch để đoán hun",
-          "match_q": "Đại Hao",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1055,32 +966,7 @@
         "school": "tu_vi",
         "first_seen_page": 87
       },
-      "passages_trich": [
-        {
-          "passage_id": 3,
-          "page": 16,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
-          "match_q": "Thiên Hỷ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 16,
-          "page": 32,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
-          "match_q": "Thiên Hỷ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 17,
-          "page": 34,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "TAM TÀI (3 ngôi):   Vạch trên = Trời | Vạch giữa = Người | Vạch dưới = Đất.   Khẳng định v",
-          "match_q": "Thiên Hỷ",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1290,22 +1176,6 @@
           "trich": "…tham lang nội chú. 擎羊 庙辰戌丑未 陷子午卯酉 Kình dương miếu thần tuất sửu vị hãm tử ngọ mão dậu 擎羊入庙富贵声扬 加吉万论. Kình dươ…",
           "match_q": "擎羊",
           "neo": "han"
-        },
-        {
-          "passage_id": 56,
-          "page": 26,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Kinh Dịch là một trong những bộ sách có ảnh hưởng lớn nhất đến văn hóa Trung Quốc. Khổng T",
-          "match_q": "Kình Dương",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 57,
-          "page": 31,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Dịch có Thái Cực, Thái Cực sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, Tứ Tượng sinh",
-          "match_q": "Kình Dương",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1343,22 +1213,6 @@
           "trich": "…uế hạn trọng phùng. 陀罗 庙辰戌丑未 陷寅申巳亥 Đà la miếu thần tuất sửu vị hãm dần thân tị hợi 陀罗巳亥寅申非夭折而刑伤 余试得多离祖出外成家者亦吉,…",
           "match_q": "陀罗",
           "neo": "han"
-        },
-        {
-          "passage_id": 2,
-          "page": 14,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Chu Dịch là sách Dịch nhà Chu (1122-250 BC) lấy quẻ Càn làm đầu. Liên Sơn Dịch (Hạ, lấy Cấ",
-          "match_q": "Đà La",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 15,
-          "page": 31,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "12 ĐỊA CHI × NGŨ HÀNH × ÂM-DƯƠNG:   Dần (Dương Mộc), Mão (Âm Mộc) — Mộc   Tỵ (Âm Hoả), Ngọ",
-          "match_q": "Đà La",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1449,22 +1303,6 @@
           "trich": "…铃夹命为败局 如命安寅申, 火星在丑, 铃星在卯. 吉多尚可, 惟夹忌. 辰凶岁限巡游者此地亦吉 Hỏa linh giáp mệnh vi bại cục như mệnh an dần thân, hỏa tinh…",
           "match_q": "铃星",
           "neo": "han"
-        },
-        {
-          "passage_id": 37,
-          "page": 240,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ QUY TẮC KHẮC ỨNG — ĐOÁN QUA ĐIỀM THẤY (trang 244-246):  ĐIỀM CÁT (báo lành):   • Đâu vui",
-          "match_q": "Linh Tinh",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 47,
-          "page": 625,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★★★ CHƯƠNG XLI-XLII (trang 625-626) — KẾT SÁCH:  ★ 'Đạo Dịch tràn đầy — chín dòng có thể n",
-          "match_q": "Linh Tinh",
-          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1494,32 +1332,7 @@
         "school": "tu_vi",
         "first_seen_page": 51
       },
-      "passages_trich": [
-        {
-          "passage_id": 14,
-          "page": 30,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Kết hợp 10 thiên can × 12 địa chi → 60 phù hiệu không trùng. Đó là LỤC THẬP GIÁP TÍ.  Ứng",
-          "match_q": "Địa Không",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 19,
-          "page": 36,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
-          "match_q": "Địa Không",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 47,
-          "page": 625,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★★★ CHƯƠNG XLI-XLII (trang 625-626) — KẾT SÁCH:  ★ 'Đạo Dịch tràn đầy — chín dòng có thể n",
-          "match_q": "Địa Không",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1600,32 +1413,7 @@
         "school": "tu_vi",
         "first_seen_page": 16
       },
-      "passages_trich": [
-        {
-          "passage_id": 17,
-          "page": 34,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "TAM TÀI (3 ngôi):   Vạch trên = Trời | Vạch giữa = Người | Vạch dưới = Đất.   Khẳng định v",
-          "match_q": "Đào Hoa",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 18,
-          "page": 35,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "BÁT QUÁI LÀ 1 GIA ĐÌNH:   Càn = CHA  ☰ (3 hào dương)   Khôn = MẸ  ☷ (3 hào âm)    Càn cầu",
-          "match_q": "Đào Hoa",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 19,
-          "page": 36,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
-          "match_q": "Đào Hoa",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1653,32 +1441,7 @@
         "school": "tu_vi",
         "first_seen_page": 87
       },
-      "passages_trich": [
-        {
-          "passage_id": 3,
-          "page": 16,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
-          "match_q": "Thiên Hỷ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 16,
-          "page": 32,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
-          "match_q": "Thiên Hỷ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 17,
-          "page": 34,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "TAM TÀI (3 ngôi):   Vạch trên = Trời | Vạch giữa = Người | Vạch dưới = Đất.   Khẳng định v",
-          "match_q": "Thiên Hỷ",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1805,22 +1568,6 @@
       },
       "passages_trich": [
         {
-          "passage_id": 192,
-          "page": 89,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Trong thế giới rộng lớn này không đâu là không có sự tồn tại của con số, nơi nào có con",
-          "match_q": "Tiểu Hao",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 311,
-          "page": 208,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Kinh Dịch quẻ Sư, hào lục tam viết: 'Sư hoặc du thi, hung'. » « Kinh Dịch quẻ Tiểu Súc,",
-          "match_q": "Tiểu Hao",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 1706,
           "page": 173,
           "corpus": "tuvidauso-zh-q1q3q4",
@@ -1856,32 +1603,7 @@
         "school": "tu_vi",
         "first_seen_page": 20
       },
-      "passages_trich": [
-        {
-          "passage_id": 6,
-          "page": 20,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Truyền thuyết: Vua Đại Vũ nhà Hạ thấy Linh Quy ở sông Lạc, trên mai có chữ. Vũ xếp thành C",
-          "match_q": "Hỏa Linh",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 24,
-          "page": 46,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Mai Hoa cho phép GIEO QUẺ THEO NHIỀU KÊNH — không chỉ thời gian:  1. **Vật số chiêm** (p.4",
-          "match_q": "Hỏa Linh",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 37,
-          "page": 240,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ QUY TẮC KHẮC ỨNG — ĐOÁN QUA ĐIỀM THẤY (trang 244-246):  ĐIỀM CÁT (báo lành):   • Đâu vui",
-          "match_q": "Hỏa Linh",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -1962,32 +1684,7 @@
         "school": "tu_vi",
         "first_seen_page": 43
       },
-      "passages_trich": [
-        {
-          "passage_id": 3,
-          "page": 16,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
-          "match_q": "Thiên Không",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 14,
-          "page": 30,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Kết hợp 10 thiên can × 12 địa chi → 60 phù hiệu không trùng. Đó là LỤC THẬP GIÁP TÍ.  Ứng",
-          "match_q": "Thiên Không",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 16,
-          "page": 32,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
-          "match_q": "Thiên Không",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2015,32 +1712,7 @@
         "school": "tu_vi",
         "first_seen_page": 16
       },
-      "passages_trich": [
-        {
-          "passage_id": 19,
-          "page": 36,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
-          "match_q": "Thiên Mã",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 29,
-          "page": 120,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ NGUYÊN TẮC SỐ + LÝ (Chiêm Bốc Luận Lý Quyết):  'Số học' phải kết hợp 'Lý' — luận số mà k",
-          "match_q": "Thiên Mã",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 58,
-          "page": 38,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Hậu Thiên Bát Quái còn gọi là Văn Vương Bát Quái, do Chu Văn Vương cải tiến từ Tiên Thiên",
-          "match_q": "Thiên Mã",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2070,26 +1742,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 25,
-          "page": 60,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ DANH MỤC TƯỢNG 8 QUẺ (dùng để đọc quẻ qua vật/người):  CÀN ☰ = Trời, cha, ông già, quan",
+          "passage_id": 443,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Dương hội Văn Xương ư Quan Lộc, Hoàng điện triều ban, phú quý toàn mỹ",
           "match_q": "Văn Xương",
           "neo": "han_viet"
         },
         {
-          "passage_id": 52,
-          "page": 220,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "★ Liễu Công Quyền (778-865, Đường):   '用笔在心，心正则笔正'   Dụng bút tại TÂM — tâm chính tắc bút",
+          "passage_id": 448,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
           "match_q": "Văn Xương",
           "neo": "han_viet"
         },
         {
-          "passage_id": 409,
-          "page": 306,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Sự diệu kỳ trong thiên hạ, không gì vượt quá một chữ 'lý'. Lý đã sáng tỏ thì cốt ở sự họ",
+          "passage_id": 457,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Văn, Háo cư Dần, Mão, vị chi chúng thủy triều đông",
           "match_q": "Văn Xương",
           "neo": "han_viet"
         }
@@ -2123,14 +1795,6 @@
       },
       "passages_trich": [
         {
-          "passage_id": 149,
-          "page": 46,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Theo Chu Lễ - Đại Bốc, 'bốc' là phương pháp bói toán dùng mai rùa: dùng lửa nung nóng ma",
-          "match_q": "Văn Khúc",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 444,
           "page": 16,
           "corpus": "tuvidauso-zh-q1",
@@ -2143,6 +1807,14 @@
           "page": 17,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
+          "match_q": "Văn Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 465,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Âm hội Văn Khúc ư thê cung, thường cung chiết quế, văn chương lệnh thịnh",
           "match_q": "Văn Khúc",
           "neo": "han_viet"
         }
@@ -2174,32 +1846,7 @@
         "school": "tu_vi",
         "first_seen_page": 17
       },
-      "passages_trich": [
-        {
-          "passage_id": 41,
-          "page": 200,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ 'Ngô tâm bản tĩnh, nhân lai chiêm bốc, khởi niệm dĩ ứng chi tức động dã.'  Tâm ta vốn TĨ",
-          "match_q": "Tả Phụ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 42,
-          "page": 210,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ ĐIỀM TRONG NHÀ (gia trạch chiêm):    Cỏ lạ mọc trên nóc → phúc lộc giàu sang   Cửa nhà t",
-          "match_q": "Tả Phụ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 44,
-          "page": 345,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ 'Phù áp tự giả, nhân chi tâm ấn dã.' Chữ ký = TÂM ẤN của người.  ★ NGUYÊN TẮC:   - Tiên",
-          "match_q": "Tả Phụ",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2280,32 +1927,7 @@
         "school": "tu_vi",
         "first_seen_page": 17
       },
-      "passages_trich": [
-        {
-          "passage_id": 41,
-          "page": 200,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ 'Ngô tâm bản tĩnh, nhân lai chiêm bốc, khởi niệm dĩ ứng chi tức động dã.'  Tâm ta vốn TĨ",
-          "match_q": "Tả Phụ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 42,
-          "page": 210,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ ĐIỀM TRONG NHÀ (gia trạch chiêm):    Cỏ lạ mọc trên nóc → phúc lộc giàu sang   Cửa nhà t",
-          "match_q": "Tả Phụ",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 44,
-          "page": 345,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ 'Phù áp tự giả, nhân chi tâm ấn dã.' Chữ ký = TÂM ẤN của người.  ★ NGUYÊN TẮC:   - Tiên",
-          "match_q": "Tả Phụ",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2335,26 +1957,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 38,
-          "page": 340,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ CHỮ LÀ NGƯỜI (Tượng nhân) — trang 400:   Xem chữ phải biết là chữ của AI viết. Cùng 1 ch",
-          "match_q": "Thiên Khôi",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 398,
-          "page": 295,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Ngẫu nhiên không biết nguyên nhân mà mắc kẹt trong số mệnh, khiến ta thấy được, thì thiệ",
-          "match_q": "Thiên Khôi",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 430,
           "page": 16,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Khôi, Việt đồng hành, vị cư đài phụ",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 452,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Quý nhân quý hương, phùng giả phú quý",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 527,
+          "page": 22,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Văn Xương Văn Khúc Thiên Khôi tú, bất độc thi thư khả khả nhân.",
           "match_q": "Thiên Khôi",
           "neo": "han_viet"
         }
@@ -2388,14 +2010,6 @@
       },
       "passages_trich": [
         {
-          "passage_id": 340,
-          "page": 237,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Sáu mươi hoa Giáp Tý (Lục Thập Hoa Giáp) mỗi tổ hợp đều có sự quy thuộc riêng về Ngũ Hàn",
-          "match_q": "Thiên Việt",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 430,
           "page": 16,
           "corpus": "tuvidauso-zh-q1",
@@ -2408,6 +2022,14 @@
           "page": 17,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Quý nhân quý hương, phùng giả phú quý",
+          "match_q": "Thiên Việt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 527,
+          "page": 22,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Văn Xương Văn Khúc Thiên Khôi tú, bất độc thi thư khả khả nhân.",
           "match_q": "Thiên Việt",
           "neo": "han_viet"
         }
@@ -2492,32 +2114,7 @@
         "school": "tu_vi",
         "first_seen_page": 17
       },
-      "passages_trich": [
-        {
-          "passage_id": 16,
-          "page": 32,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
-          "match_q": "Thiên Hình",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 27,
-          "page": 115,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ TRIẾT LÝ MỞ ĐẦU QUYỂN 2:  Sự việc trời đất có CÁT-HUNG. Mượn quẻ để hiểu cơ. Lý của thiê",
-          "match_q": "Thiên Hình",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 31,
-          "page": 150,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
-          "match_q": "Thiên Hình",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2598,32 +2195,7 @@
         "school": "tu_vi",
         "first_seen_page": 44
       },
-      "passages_trich": [
-        {
-          "passage_id": 16,
-          "page": 32,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
-          "match_q": "Thiên Hư",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 19,
-          "page": 36,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
-          "match_q": "Thiên Hư",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 97,
-          "page": 263,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Viết chữ trên lầu để hỏi quẻ, thì người viết chữ sẽ có chuyện song hỷ lâm môn. Viết chữ tr",
-          "match_q": "Thiên Hư",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2651,32 +2223,7 @@
         "school": "tu_vi",
         "first_seen_page": 41
       },
-      "passages_trich": [
-        {
-          "passage_id": 143,
-          "page": 40,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Chấn là tiết Xuân Phân: Sấm chớp dần dần đánh thức những loài vật nhỏ đang ngủ đông, chi",
-          "match_q": "Âm Sát",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 272,
-          "page": 169,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Khởi quẻ và đoán quẻ cũng giống như thầy thuốc chẩn đoán bệnh tình, thông qua quan sát k",
-          "match_q": "Âm Sát",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 289,
-          "page": 186,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Khi dùng sự tương đồng về âm thanh để đoán quẻ, không nhất thiết chỉ dựa vào âm thanh do",
-          "match_q": "Âm Sát",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2704,32 +2251,7 @@
         "school": "tu_vi",
         "first_seen_page": 18
       },
-      "passages_trich": [
-        {
-          "passage_id": 7,
-          "page": 21,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "Số sinh thành (tiếp):   1-6 thuỷ Bắc | 2-7 hoả Nam | 3-8 mộc Đông   4-9 kim Tây | 5-10 thổ",
-          "match_q": "Tam Thai",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 19,
-          "page": 36,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
-          "match_q": "Tam Thai",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 41,
-          "page": 200,
-          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
-          "trich": "★ 'Ngô tâm bản tĩnh, nhân lai chiêm bốc, khởi niệm dĩ ứng chi tức động dã.'  Tâm ta vốn TĨ",
-          "match_q": "Tam Thai",
-          "neo": "han_viet"
-        }
-      ],
+      "passages_trich": [],
       "flag": null
     },
     {
@@ -2759,26 +2281,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 78,
-          "page": 156,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "Việc xác định thời kỳ ứng nghiệm khá phức tạp, thông thường có hai phương pháp: xác định t",
-          "match_q": "Bát Tọa",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 261,
-          "page": 158,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Tọa Đoan là phương pháp lấy người xem quẻ làm trung tâm, phân bố tám quẻ vào tám phương",
-          "match_q": "Bát Tọa",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 719,
           "page": 50,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Mộ phùng Tả, Hữu, tôn cư bát tọa chi quý.",
+          "match_q": "Bát Tọa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 741,
+          "page": 52,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Sinh phùng thiên không, do như bán thiên chiết sí. Mệnh cung trực thiên không tọa thủ, tác",
+          "match_q": "Bát Tọa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 752,
+          "page": 54,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Kim lí phùng không, bất phiêu lưu tức chủ tật khổ. Như mệnh cung bất kiến chánh tinh, đơn",
           "match_q": "Bát Tọa",
           "neo": "han_viet"
         }
@@ -2812,14 +2334,6 @@
       },
       "passages_trich": [
         {
-          "passage_id": 346,
-          "page": 243,
-          "corpus": "thieu-khang-tiet-tq",
-          "trich": "« Lục Thân cũng giống như Ngũ Hành, tồn tại quan hệ sinh khắc tương tự. » « Lộc Thần là mộ",
-          "match_q": "Lộc Tồn",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 445,
           "page": 16,
           "corpus": "tuvidauso-zh-q1",
@@ -2832,6 +2346,14 @@
           "page": 17,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Đế tọa kim xa, tắc nhật kim dư phủng chất",
+          "match_q": "Lộc Tồn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 466,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Lộc Tồn thủ ư điền tài, đôi kim tích ngọc",
           "match_q": "Lộc Tồn",
           "neo": "han_viet"
         }
@@ -3331,9 +2853,9 @@
       "loai": "ly_thuat",
       "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
       "co_concept_dict": true,
-      "tu_curated": false,
-      "dinh_nghia_canon": "Sao lưu niên, biểu thị tai họa theo năm.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.34",
+      "tu_curated": true,
+      "dinh_nghia_canon": "Năm cụ thể đang xét (流年); chồng lên đại vận để định thời sự kiện.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
       "concept_dict": {
         "term": "Lưu Niên",
         "kind": "bien_cach",
@@ -3359,9 +2881,9 @@
       "loai": "ly_thuat",
       "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
       "co_concept_dict": true,
-      "tu_curated": false,
-      "dinh_nghia_canon": "Vận mệnh hàng năm.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.27",
+      "tu_curated": true,
+      "dinh_nghia_canon": "Vận trong năm (小限) — an theo tuổi, một tầng định thời song song lưu niên.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
       "concept_dict": {
         "term": "Tiểu Hạn",
         "kind": "the_loai",
@@ -5162,17 +4684,11 @@
       "han": "",
       "loai": "can_chi",
       "nguon_gom": "plain_glossary.is_jargon.can_chi",
-      "co_concept_dict": true,
+      "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Sự kẹp giữa hai bên bởi các sao tốt hoặc xấu, ảnh hưởng đến mệnh.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.45",
-      "concept_dict": {
-        "term": "Giáp",
-        "kind": "bien_cach",
-        "definition": "Sự kẹp giữa hai bên bởi các sao tốt hoặc xấu, ảnh hưởng đến mệnh.",
-        "first_page": 45,
-        "occurrences": 2
-      },
+      "dinh_nghia_canon": "Thiên can 1, mộc dương — đại thụ (cây lớn), thẳng, vươn cao. Tính nhân hậu, thẳng thắn, không khuất phục.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
       "short_note": "Thiên can 1, mộc dương — đại thụ (cây lớn), thẳng, vươn cao. Tính nhân hậu, thẳng thắn, không khuất phục.",
       "wiki": {
         "canonical_vi": "Giáp",
@@ -5366,17 +4882,11 @@
       "han": "",
       "loai": "can_chi",
       "nguon_gom": "plain_glossary.is_jargon.can_chi",
-      "co_concept_dict": true,
+      "co_concept_dict": false,
       "tu_curated": false,
-      "dinh_nghia_canon": "Sao chủ về quyền quý, danh vọng.",
-      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.272",
-      "concept_dict": {
-        "term": "Quý",
-        "kind": "sao",
-        "definition": "Sao chủ về quyền quý, danh vọng.",
-        "first_page": 272,
-        "occurrences": 3
-      },
+      "dinh_nghia_canon": "Thiên Can thứ mười, nghĩa là 'đo lường', vạn vật ẩn tàng dưới lòng đất.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
       "short_note": "Thiên Can thứ mười, nghĩa là 'đo lường', vạn vật ẩn tàng dưới lòng đất.",
       "wiki": {
         "canonical_vi": "Quý",
