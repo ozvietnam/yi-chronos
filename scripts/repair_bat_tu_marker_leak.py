@@ -76,9 +76,27 @@ def main() -> None:
             fixed += 1
             print(f"  FIX    pid={pid} ({r['corpus_id']} p{r['page_start']}) "
                   f"len {len(r['raw_text'])}->{len(cleaned)}")
+
+        # passages_vec là vec0 virtual table — KHÔNG có trigger DELETE như FTS.
+        # Sau khi DELETE passage rác (5166), embedding mồ côi còn sót → dọn tay.
+        vec_orphans = 0
+        try:
+            orphan_ids = [
+                row[0] for row in conn.execute(
+                    "SELECT passage_id FROM passages_vec "
+                    "WHERE passage_id NOT IN (SELECT passage_id FROM passages)"
+                ).fetchall()
+            ]
+            for opid in orphan_ids:
+                conn.execute("DELETE FROM passages_vec WHERE passage_id=?", (opid,))
+                vec_orphans += 1
+            if vec_orphans:
+                print(f"  VEC    dọn {vec_orphans} embedding mồ côi: {orphan_ids}")
+        except Exception as e:  # noqa: BLE001 — DB không có sqlite-vec thì bỏ qua
+            print(f"  VEC    (bỏ qua dọn mồ côi: {e})")
         conn.commit()
 
-    # Verify: no marker remains, FTS in sync.
+    # Verify: no marker remains, FTS + vec in sync.
     with store._conn() as conn:
         leak = conn.execute(
             f"SELECT COUNT(*) FROM passages WHERE corpus_id IN ({placeholders}) "
@@ -86,16 +104,24 @@ def main() -> None:
         ).fetchone()[0]
         tot = conn.execute("SELECT COUNT(*) FROM passages").fetchone()[0]
         fts = conn.execute("SELECT COUNT(*) FROM passages_fts").fetchone()[0]
+        try:
+            vec_orphan_left = conn.execute(
+                "SELECT COUNT(*) FROM passages_vec "
+                "WHERE passage_id NOT IN (SELECT passage_id FROM passages)"
+            ).fetchone()[0]
+        except Exception:  # noqa: BLE001
+            vec_orphan_left = 0
 
     print(f"\n=== KẾT QUẢ ===")
     print(f"  fixed={fixed} deleted={deleted} unchanged={unchanged}")
     print(f"  marker leak còn lại (5 corpus bát-tự): {leak}")
     print(f"  passages total: {tot} (FTS rows: {fts})")
+    print(f"  embedding mồ côi còn lại: {vec_orphan_left}")
     print(f"  backup: {backup.name}")
-    if leak != 0 or tot != fts:
+    if leak != 0 or tot != fts or vec_orphan_left != 0:
         print("  ⚠️  CHƯA SẠCH — kiểm tra lại!", file=sys.stderr)
         sys.exit(2)
-    print("  ✓ sạch + FTS đồng bộ")
+    print("  ✓ sạch + FTS đồng bộ + không embedding mồ côi")
 
 
 if __name__ == "__main__":
