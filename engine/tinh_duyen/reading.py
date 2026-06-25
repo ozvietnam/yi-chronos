@@ -387,6 +387,7 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
             dao_hoa_luan.append({
                 "sao": star,
                 "ten_han": entry.get("ten_han"),
+                "nghia_thuan": entry.get("nghia_thuan"),
                 "y_nghia_duyen": entry.get("y_nghia_duyen"),
                 "_nguon": entry.get("_nguon"),
             })
@@ -398,6 +399,7 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
             sat_luan.append({
                 "sao": star,
                 "ten_han": entry.get("ten_han"),
+                "nghia_thuan": entry.get("nghia_thuan"),
                 "y_nghia": entry.get("y_nghia"),
                 "_nguon": entry.get("_nguon"),
             })
@@ -412,6 +414,7 @@ def _cung_phu_the_tuvi(la_so: dict, phu_the_idx: int) -> dict:
                 "hoa": item["hoa"],
                 "sao": item["sao"],
                 "ten_han": entry.get("ten_han"),
+                "nghia_thuan": entry.get("nghia_thuan"),
                 "y_nghia": entry.get("y_nghia"),
                 "_nguon": entry.get("_nguon"),
             })

@@ -174,6 +174,24 @@ def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
             out = out.replace(k, thay_the[k])
     # 2) Xoá jargon còn sót (tên sao / thập thần / lý-thuật / can-chi) — chưa được
     #    thay_the và không có nghĩa đời thường → bỏ token (để lại nghĩa quanh nó).
+    #    2a-PRE) Nếu jargon đi LIỀN 1 chú-giải đời thường trong ngoặc — 'Tham Lang
+    #    (khí ham sống mãnh liệt)' — thì THĂNG chú-giải lên (bỏ ngoặc, giữ nghĩa)
+    #    thay vì xoá tên sao để lại '(khí ham sống...)' mồ côi. Chỉ promote khi nội
+    #    dung ngoặc KHÔNG còn jargon (nếu còn thì để bước xoá thường xử lý).
+    for tok in jargon:
+        if not tok or tok not in out:
+            continue
+        # 'Tok (gloss)' / 'Tok(gloss)' → 'gloss'. gloss = chuỗi không lồng ngoặc.
+        pat = re.compile(
+            re.escape(tok) + r"\s*[\(\（]([^\(\)\（\）]*?)[\)\）]"
+        )
+
+        def _promote(m: "re.Match") -> str:
+            inner = (m.group(1) or "").strip()
+            return inner if inner else ""
+
+        out = pat.sub(_promote, out)
+    # 2b-PRE) Xoá jargon còn sót (token trần, không kèm chú-giải) → bỏ token.
     for tok in jargon:
         if tok and tok in out:
             out = out.replace(tok, "")

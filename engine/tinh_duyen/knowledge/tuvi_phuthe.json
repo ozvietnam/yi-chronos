@@ -148,36 +148,43 @@
 
     "thien_dieu": {
       "ten_han": "天姚",
+      "nghia_thuan": "Bạn đời có nét quyến rũ tinh tế, duyên ngầm và sức hút khó cưỡng; chuyện tình cảm có thể trải qua nhiều chương, nên cứ chọn lựa kỹ rồi mới gắn bó lâu dài.",
       "y_nghia_duyen": "Đào hoa chủ phong tình, sức quyến rũ tinh tế, duyên ngầm. Cùng Tử Tham đồng độ = tình dục thậm thâm (情欲甚深). Hội sát-kỵ ở Phu Thê → cổ văn nói 'trùng hôn tái giá' → ĐỌC LẠI: duyên có nhiều chương, cần chọn lựa kỹ, không phải 'số phải lấy nhiều lần'.",
       "_nguon": "tc7.txt dòng 615, 871, 1573; design doc §2B"
     },
     "ham_tri": {
       "ten_han": "咸池 (Hàm Trì = Đào Hoa sát)",
+      "nghia_thuan": "Bạn đời có nét cuốn hút, duyên dáng tự nhiên; tình cảm có lúc lên xuống thất thường, nên hướng sức hút ấy vào những điều lành mạnh thì quan hệ êm hơn.",
       "y_nghia_duyen": "Đào hoa chủ mị lực, hấp dẫn giới tính; thường đi cặp Đại Hao. Hội Thái Âm lạc hãm/hóa Kỵ + Đà La Linh Thiên Hình Thiên Hư Âm Sát → tăng sắc thái tình cảm trồi sụt. Đọc: nét cuốn hút, cần hướng lành.",
       "_nguon": "tc7.txt dòng 75, 233, 494, 615, 871, 1437"
     },
     "moc_duc": {
       "ten_han": "沐浴 (Mộc Dục)",
+      "nghia_thuan": "Tình cảm dồi dào, tươi mới, nhiều sức sống; cần có chỗ giải tỏa lành mạnh để năng lượng ấy nuôi quan hệ thay vì dồn nén.",
       "y_nghia_duyen": "Đào hoa thuộc vòng Tràng Sinh, chủ sức xuân, duyên dáng. Đi trong nhóm 天姚沐浴咸池大耗 — khi tụ ở cung Phu/Phúc + bất như ý hôn nhân → cổ nói dễ sinh ngoại tình (红杏出墙). Đọc: năng lượng tình cảm dồi dào, cần chỗ thoát lành mạnh.",
       "_nguon": "tc7.txt dòng 494, 615, 871"
     },
     "dai_hao": {
       "ten_han": "大耗",
+      "nghia_thuan": "Tình cảm dễ hao hụt, lên xuống thất thường khi gặp lúc khó; nên xem cùng các nét khác chứ một mình dấu hiệu này chưa nói lên điều gì nặng nề.",
       "y_nghia_duyen": "Đi cặp Hàm Trì trong nhóm đào hoa; chủ hao tán + dao động tình cảm khi hội cung Phu/Phúc. Tự thân là tạp diệu, không phán hung độc lập — đọc theo cụm.",
       "_nguon": "tc7.txt dòng 494, 615, 871"
     },
     "hong_loan": {
       "ten_han": "红鸾",
+      "nghia_thuan": "Dấu hiệu duyên lành, hỉ sự cưới hỏi — thường báo giai đoạn có tin vui đôi lứa, đính ước hay kết hôn.",
       "y_nghia_duyen": "Đào hoa chủ HỶ SỰ hôn nhân, duyên lành cưới hỏi (đi cặp Thiên Hỉ). Hội Phu Thê/Mệnh thường ứng năm có hôn sự/đính ước. Khi hội Linh Tinh Địa Không Âm Sát Thiên Hư → dễ giằng xé lý-trí và tình. Đọc tích cực: tín hiệu duyên lành.",
       "_nguon": "tc7.txt dòng 552, 871"
     },
     "thien_hi": {
       "ten_han": "天喜",
+      "nghia_thuan": "Dấu hiệu niềm vui, hỉ sự trong tình cảm — thường báo cột mốc vui như duyên đến hay cưới hỏi.",
       "y_nghia_duyen": "Đào hoa chủ hỷ khánh, niềm vui, duyên hôn nhân (cặp với Hồng Loan). Lưu Hồng Loan/Thiên Hỉ tới cung Phu Thê thường ứng thời điểm duyên/cưới. Đọc: dấu mốc vui trong tình cảm.",
       "_nguon": "tc7.txt dòng 552, 871"
     },
     "xuong_khuc": {
       "ten_han": "文昌文曲 (Xương Khúc — đào hoa văn tinh)",
+      "nghia_thuan": "Duyên thường đến qua tài hoa, văn nghệ, sự thông minh; bạn đời bị thu hút bởi nét trí tuệ và lãng mạn của bạn.",
       "y_nghia_duyen": "Tăng tình cảm/sức hấp dẫn trí tuệ; cùng Tử Tham/Liêm Tham tăng sắc đào hoa. Văn Khúc hóa Kỵ ở Phu Thê → 'đào hoa kiếp' nghiêm trọng khi hội cụm đào hoa. Đọc: duyên đến qua tài hoa, văn nghệ.",
       "_nguon": "tc7.txt dòng 42, 871, 903, 1105"
     },
@@ -191,21 +198,25 @@
     "_ghi_chu": "Tứ Hóa (禄权科忌) nhập CUNG PHU THÊ nữ mệnh. Theo Trung Châu phái/Tứ Hóa: Tứ Hóa là then chốt đọc động (cơ + biến). Hóa Kỵ ở Phu Thê là tín hiệu cần CHĂM SÓC quan hệ, KHÔNG phải án ly hôn.",
     "hoa_loc": {
       "ten_han": "化禄",
+      "nghia_thuan": "Duyên thuận, bạn đời mang lại sự ấm áp và lợi ích; tình cảm có 'của để dành'. Sống hợp khi giữ lòng chuyên nhất, không để sức hút bên ngoài làm phân tâm.",
       "y_nghia": "Lộc nhập Phu Thê → duyên thuận, phối ngẫu mang lại lợi/ấm áp, tình cảm có 'của để dành'. Cần đề phòng Lộc + đào hoa → 'tài lộc và sóng tình đến cùng lúc' (财禄与感情波折同来). Đọc: nền tình cảm dồi dào, vận hành tốt khi không tham lan man.",
       "_nguon": "tc7.txt dòng 1646; nguyên lý Tứ Hóa Trung Châu phái"
     },
     "hoa_quyen": {
       "ten_han": "化权",
+      "nghia_thuan": "Trong quan hệ có người giữ vai dẫn dắt — bạn đời chủ động, có uy, hoặc chính bạn cầm trịch một cách mềm mỏng. Sống hợp khi phân vai rõ ràng, tránh tranh giành hơn thua.",
       "y_nghia": "Quyền nhập Phu Thê → phối ngẫu chủ động, có quyền uy; hoặc bản thân nắm vai dẫn trong quan hệ. Thái Âm hóa Quyền (nữ) = 御夫有术 (khéo điều phối chồng). Đọc: cần phân vai rõ, tránh tranh quyền; vận hành tốt khi dẫn dắt mềm.",
       "_nguon": "tc7.txt dòng 1118 (Vũ Khúc hóa Lộc/Tham hóa Quyền tương đối → cô khắc); design doc §2C (太阴化权御夫)"
     },
     "hoa_khoa": {
       "ten_han": "化科",
+      "nghia_thuan": "Duyên có tiếng tăm, bạn đời có danh hoặc học thức, quan hệ nhã nhặn ôn hòa và coi trọng thể diện đôi lứa.",
       "y_nghia": "Khoa nhập Phu Thê → duyên có tiếng, phối ngẫu có danh/học thức, quan hệ ôn hòa nhã. CẢNH BÁO Vương Đình Chi: 武曲化科会紫府, 易生变情, 不满丈夫 → ảnh hưởng hôn nhân (Khoa không phải lúc nào cũng thuần cát). Đọc: trọng thể diện đôi lứa.",
       "_nguon": "tc7.txt dòng (Vũ Khúc hóa Khoa hội Tử Phủ) ; design doc §2B"
     },
     "hoa_ky": {
       "ten_han": "化忌",
+      "nghia_thuan": "Đây là điểm cần được chăm sóc nhất trong tình cảm: dễ có lời qua tiếng lại, hiểu lầm hay vướng mắc. Những giai đoạn này nên trò chuyện nhiều hơn và hoãn các quyết định lớn — không có nghĩa là chia tay.",
       "y_nghia": "Kỵ nhập Phu Thê = tiêu điểm cần CHĂM SÓC: Cự Môn hóa Kỵ → khẩu giác, dễ ngoại tình; Vũ Khúc hóa Kỵ (bị Kình-Đà giáp) → kết cấu rất xấu của bản hôn; Văn Khúc hóa Kỵ → đào hoa kiếp; Thái Dương/Thái Âm hóa Kỵ → 'phòng gặp người không tốt' / quan hệ có biến. Đọc ĐỘNG TỪ: năm/vận Kỵ tới Phu Thê = NĂM CẦN GIỮ GÌN, đối thoại nhiều, hoãn quyết định lớn — KHÔNG phán 'tất ly hôn'.",
       "_nguon": "tc7.txt dòng 616, 891, 903, 938, 939, 1119, 1623; design doc §2B,§2C"
     }
@@ -215,31 +226,37 @@
     "_ghi_chu": "Lục sát (Kình Đà Hỏa Linh Không Kiếp) ở CUNG PHU THÊ nữ mệnh. Nguyên tắc Vương Đình Chi: 不可贸贸然推断 — sát tinh phải xét cùng chính diệu, không kết án. 三方四正嫌逢杀, 更在夫宫祸患深 (女命骨髓赋): sát hội + tại cung Phu thì lưu tâm sâu — nhưng là 'cần giữ gìn', không phải định mệnh.",
     "kinh_duong": {
       "ten_han": "擎羊 (Kình Dương)",
+      "nghia_thuan": "Quan hệ dễ có va chạm, tranh cãi nóng nảy; sống hợp khi cả hai biết kiềm chế cơn nóng, và những giai đoạn căng thẳng thì nên nhường nhịn, giữ gìn cho nhau.",
       "y_nghia": "Sát cương, chủ hình thương tranh chấp. Ở/chiếu Phu Thê tăng cương khắc; cặp với chính tinh + hóa Kỵ → 'lưu niên nguy hiểm hôn nhân' (vd Cự Môn hóa Kỵ + lưu Kình). Đọc: quan hệ có ma sát, vận hành tốt khi tiết chế nóng nảy, năm lưu Kình tới Phu Thê thì giữ gìn.",
       "_nguon": "tc7.txt dòng 121, 615, 616, 903, 938; design doc §2B"
     },
     "da_la": {
       "ten_han": "陀罗 (Đà La)",
+      "nghia_thuan": "Quan hệ dễ có những vướng mắc âm ỉ, dây dưa kéo dài và phiền muộn giấu trong lòng; nên nói ra và giải tỏa sớm, tránh để dồn nén tích tụ.",
       "y_nghia": "Sát âm trầm, chủ dây dưa trì trệ, phiền muộn ngầm. Hai trùng Đà La đồng triền Phu Thê → 'nhân hôn nhân mà sinh khốn nhiễu' (主因婚姻而生困挠). Đọc: vướng mắc kéo dài, cần giải tỏa sớm tránh tích tụ.",
       "_nguon": "tc7.txt dòng 121, 295, 903, 938"
     },
     "hoa_tinh": {
       "ten_han": "火星 (Hỏa Tinh)",
+      "nghia_thuan": "Tính khí trong quan hệ dễ nóng vội, có những lúc bùng lên nhanh; sống hợp khi cả hai học cách hạ nhiệt, để cái nóng nhất thời không làm tổn thương nhau.",
       "y_nghia": "Sát hỏa, chủ nóng gấp, biến cố nhanh. 女命见火铃古人认为凌夫克子 (cổ cho là 'lăng phu khắc tử'). Biện-chính Vương Đình Chi: 此论仍应详命宫正曜星系而定, 不可贸贸然推断 (phải xét chính diệu Mệnh cung, KHÔNG đoán ẩu). Đọc: tính khí nóng/quan hệ có lửa, vận hành tốt khi học hạ nhiệt.",
       "_nguon": "tc7.txt dòng 75, 295; design doc §2C"
     },
     "linh_tinh": {
       "ten_han": "铃星 (Linh Tinh)",
+      "nghia_thuan": "Trong quan hệ dễ có những uẩn khúc, bực dọc nén trong lòng không nói ra; sống hợp khi được lắng nghe và chia sẻ để gỡ dần những điều giấu kín.",
       "y_nghia": "Sát hỏa âm, chủ uất kết âm thầm. Đi cặp Hỏa trong câu cổ 火铃凌夫克子. Cùng nguyên tắc biện-chính như Hỏa Tinh — không kết án. Đọc: uẩn khúc ngầm, cần được lắng nghe.",
       "_nguon": "tc7.txt dòng 75, 552; design doc §2A,§2C"
     },
     "dia_khong": {
       "ten_han": "地空 (Địa Không)",
+      "nghia_thuan": "Dễ kỳ vọng quá cao, lý tưởng hóa bạn đời rồi hụt hẫng khi thực tế không như mơ; sống hợp khi giữ mong đợi thực tế, trân trọng người thật bên cạnh.",
       "y_nghia": "Không diệu, chủ trống trải, lý tưởng hóa, dễ vỡ mộng. Ở Phu Thê + chính diệu tình cảm → tinh thần trống vắng, kỳ vọng không thực. Lưu ý: Không diệu cũng CHẾ HÓA đào hoa (天刑空曜 → 清白). Đọc: cần kỳ vọng thực tế.",
       "_nguon": "tc7.txt dòng 75, 290 (天刑空曜制化桃花), 552, 879"
     },
     "dia_kiep": {
       "ten_han": "地劫 (Địa Kiếp)",
+      "nghia_thuan": "Tình cảm dễ chịu mất mát hay xáo trộn bất ngờ, nhất là khi nông nổi; sống hợp khi suy xét chín chắn trước những quyết định lớn để tránh tổn thất.",
       "y_nghia": "Kiếp diệu, chủ hao tổn, bất ngờ tổn thất. Ở Phu Thê tăng dao động/mất mát tình cảm. Cùng Không diệu thuộc nhóm chế hóa đào hoa nhưng cũng làm trống trải. Đọc: phòng tổn thất tình cảm do nông nổi.",
       "_nguon": "tc7.txt dòng 75 (空劫 ảnh hưởng xấu), 879"
     }

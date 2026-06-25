@@ -267,6 +267,76 @@ def test_tom_tat_thuan_nghia_nam_menh():
         assert not jargon, f"{s['id']} nam menh tom_tat còn JARGON {jargon}"
 
 
+# ── 7b) REGRESSION quét ĐA-LÁ: tom_tat 0 jargon + 0 toán-tử/ngoặc mồ côi ──────
+# Lý do: glossary is_jargon CŨ bỏ sót một số thuật ngữ người-thường KHÔNG hiểu
+# ('Phu Thê' trần, 'chính tinh', 'lưu Kình', 'cương khắc', 'gặp sát',
+# 'thuộc hạ cách'), test cũ chỉ quét theo is_jargon → false pass. Đồng thời các
+# nhóm dao_hoa/sat_tinh/tu_hoa TRƯỚC ĐÂY thiếu nghia_thuan → fallback _plain_vi
+# để lại toán tử treo ('+ →') / ngoặc rỗng nơi tên sao bị xoá. Test này quét
+# ĐỆ QUY mọi tom_tat trên NHIỀU lá × 2 giới để bắt residue đó.
+_LAYPERSON_LEAK = [
+    # thuật ngữ tử vi người Việt thường KHÔNG hiểu (ngoài is_jargon cũ).
+    "Phu Thê", "chính tinh", "chính diệu", "lưu Kình", "lưu Đà",
+    "cương khắc", "cương liệt", "sát cương", "sát hỏa", "sát âm",
+    "gặp sát", "hội sát", "thuộc hạ cách", "hạ cách", "thượng cách",
+    "đồng cung", "đồng độ", "đồng triền", "hội chiếu", "tam phương",
+]
+# Lá đa dạng: có/không chính tinh, sát tinh, đào hoa, tứ hóa nhập Phu.
+_BIRTHS_SCAN = [
+    "1990-08-20T14:00", "1988-06-05T23:30", "1995-03-10T08:00",
+    "1992-11-25T17:00", "1985-01-01T06:00", "2000-07-07T12:00",
+    "1978-12-31T20:00", "1993-04-18T03:00",
+]
+
+
+def _walk_strings(obj):
+    """Yield mọi chuỗi (đệ quy) trong obj."""
+    if isinstance(obj, str):
+        yield obj
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            yield from _walk_strings(v)
+    elif isinstance(obj, (list, tuple)):
+        for v in obj:
+            yield from _walk_strings(v)
+
+
+def test_tom_tat_da_la_khong_jargon_nguoi_thuong():
+    """Quét ĐA-LÁ × 2 giới: tom_tat mọi section 0 chữ Hán, 0 jargon is_jargon,
+    0 thuật-ngữ-người-thường-không-hiểu, KHÔNG toán tử/ngoặc mồ côi do xoá sao."""
+    # Toán tử MỒ CÔI = '+'/'→' mất toán-hạng do xoá tên sao: hai toán tử liền nhau
+    # ('+ →'), toán tử ngay trước dấu đóng ngoặc/nháy ('+)'/"+'"), hay cuối chuỗi.
+    # KHÔNG bắt '+'/'→' hợp lệ giữa hai cụm từ thật ("rèn + chọn", "'có nên' → Mai Hoa").
+    op_re = re.compile(
+        r"[+→]\s*[+→]"                 # hai toán tử liền nhau
+        r"|[+→]\s*[\)\）\]】」'\"]"     # toán tử ngay trước dấu đóng
+        r"|[\(\（\[【「]\s*[+→]"        # toán tử ngay sau dấu mở
+        r"|[+→]\s*$"                    # toán tử cuối chuỗi
+    )
+    lead_paren_re = re.compile(r"^\s*[\(\（]")                          # ngoặc dẫn mồ côi
+    for birth in _BIRTHS_SCAN:
+        for g in ("nữ", "nam"):
+            d = build_display(
+                read_tinh_duyen(birth_datetime_local=birth, gender=g), g)
+            for s in d["sections"]:
+                tt = s.get("tom_tat")
+                tag = f"{birth}/{g}/{s['id']}"
+                # (a) 0 Hán + 0 jargon is_jargon (giữ kiểm cũ).
+                assert not _han_in(tt), f"{tag}: tom_tat còn Hán"
+                assert not _jargon_in(tt), f"{tag}: tom_tat còn JARGON is_jargon"
+                # (b) 0 thuật-ngữ người-thường-không-hiểu.
+                blob = json.dumps(tt, ensure_ascii=False) if tt else ""
+                leak = [t for t in _LAYPERSON_LEAK if t in blob]
+                assert not leak, f"{tag}: tom_tat rò thuật ngữ người-thường: {leak}"
+                # (c) Không toán-tử treo + không ngoặc dẫn mồ côi (nơi tên sao bị
+                #     xoá để lại '+ →' / '(gloss)' lủng lẳng).
+                for txt in _walk_strings(tt):
+                    assert not op_re.search(txt), \
+                        f"{tag}: toán tử treo trong tom_tat: {txt!r}"
+                    assert not lead_paren_re.match(txt), \
+                        f"{tag}: ngoặc dẫn mồ côi trong tom_tat: {txt!r}"
+
+
 # ── 8) can_cu chứa phần KỸ THUẬT (Hán) khi section có ─────────────────────────
 def test_cung_phu_the_tach_tom_tat_va_can_cu():
     d = build_display(_read("nữ"), "nữ")
