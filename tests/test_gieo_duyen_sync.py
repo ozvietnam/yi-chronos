@@ -103,3 +103,21 @@ def test_display_action_base_parametrized():
     assert _cta(web, "phac_hoa") == "/api/cross-paradigm/tinh-duyen/phac-hoa"
     assert _cta(sync, "gieo_que") == "/api/sync/tinh-duyen/gieo-que"
     assert _cta(sync, "loi_thay") == "/api/sync/tinh-duyen/narrate"
+
+
+def test_so_sanh_request_accepts_app_shape():
+    """Bug app 2026-06-25: so-sanh-duyen nhận `nguoi_khac` (alias) + `birth` object lồng
+    (giống partner_birth) → trước bỏ qua/validation-fail → 0 người → thiếu xep_hang.
+    Giờ parse đủ người (+ backward-compat `others` + birth chuỗi phẳng)."""
+    from api.sync import SoSanhSyncRequest
+    req = SoSanhSyncRequest(firebase_uid="x", ten_self="Anh", nguoi_khac=[
+        {"birth": {"datetime_local": "1995-06-15 10:30", "gender": "nu",
+                   "timezone": "Asia/Ho_Chi_Minh"}, "gender": "nu", "ten": "A"},
+        {"birth": {"datetime_local": "1990-03-20 14:00", "gender": "nu"}, "ten": "B"},
+    ])
+    assert len(req.others) == 2
+    assert req.others[0].birth.datetime_local == "1995-06-15 10:30"
+    assert req.others[0].birth.gender == "nu"
+    r2 = SoSanhSyncRequest(firebase_uid="x", others=[
+        {"birth": "1995-06-15 10:30", "gender": "nu", "ten": "A"}])
+    assert len(r2.others) == 1 and r2.others[0].birth.datetime_local == "1995-06-15 10:30"

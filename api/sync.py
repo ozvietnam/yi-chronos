@@ -24,7 +24,7 @@ from typing import Optional
 
 from fastapi import APIRouter, Header, HTTPException, status
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from pydantic import AliasChoices, BaseModel, Field, model_validator
 from sqlalchemy import text
 
 from api import auth as _auth
@@ -1187,16 +1187,32 @@ async def hop_hon_bridge(
 
 
 class SoSanhOther(BaseModel):
-    birth: str
-    gender: str = "nam"
+    """1 người để so. `birth` nhận CẢ object lồng `{datetime_local, gender, timezone}`
+    (khớp `partner_birth` của hop-hon) LẪN chuỗi ISO phẳng (tự bọc). `gender` top-level
+    = fallback nếu trong birth thiếu."""
+    birth: BirthInfo
     ten: str = ""
+    gender: Optional[str] = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _coerce_flat_birth(cls, data):
+        # Cho phép birth là chuỗi ISO phẳng → bọc thành {datetime_local}.
+        if isinstance(data, dict) and isinstance(data.get("birth"), str):
+            data = {**data, "birth": {"datetime_local": data["birth"],
+                                      "gender": data.get("gender")}}
+        return data
 
 
 class SoSanhSyncRequest(BaseModel):
     firebase_uid: str
     person_key: str = "self"
     ten_self: str = "Bạn"
-    others: list[SoSanhOther] = []
+    # Nhận 'nguoi_khac' (app), 'others' (doc cũ), 'candidates' — đều map vào 1 field.
+    others: list[SoSanhOther] = Field(
+        default_factory=list,
+        validation_alias=AliasChoices("nguoi_khac", "others", "candidates"),
+    )
 
 
 @router.post("/so-sanh-duyen")
@@ -1213,7 +1229,9 @@ async def so_sanh_duyen_bridge(
     inp = SoSanhInput(
         me={"birth": person["birth_datetime_local"],
             "gender": person.get("gender") or "nam", "ten": req.ten_self},
-        others=[{"birth": o.birth, "gender": o.gender, "ten": o.ten} for o in req.others],
+        others=[{"birth": o.birth.datetime_local,
+                 "gender": (o.birth.gender or o.gender or "nam"), "ten": o.ten}
+                for o in req.others if o.birth and o.birth.datetime_local],
         timezone=person.get("timezone") or "Asia/Ho_Chi_Minh")
     out = await _so_sanh_duyen_core(inp)
     if isinstance(out, dict) and not out.get("error"):
