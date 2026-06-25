@@ -23,6 +23,8 @@ from __future__ import annotations
 import re
 from typing import Any, Optional
 
+from . import knowledge_loader as kb
+
 # Token giới NỮ: mặc định engine cho nữ mệnh.
 _FEMALE_TOKENS = ("nữ", "nu", "female", "f", "")
 
@@ -117,6 +119,157 @@ def _strip_internal_ref(text: Any) -> Any:
     return s.strip()
 
 
+# --------------------------------------------------------------------------- #
+# Tầng NGHĨA THUẦN (_plain_vi) — biến text kỹ thuật thành nghĩa đời thường.
+# Glossary: engine/tinh_duyen/knowledge/plain_glossary.json (thay_the + is_jargon).
+# Mục tiêu: tom_tat còn lại là NGHĨA đời thường (KHÔNG tên sao / thập thần / lý-thuật
+# / Hán). Jargon đẩy xuống can_cu (giữ nguyên ở data/can_cu).
+# --------------------------------------------------------------------------- #
+def _load_glossary() -> dict:
+    """Trả plain_glossary (cached qua knowledge_loader). Lỗi → fallback rỗng."""
+    try:
+        return kb.get("plain_glossary") or {}
+    except Exception:
+        return {}
+
+
+def _glossary_jargon(glossary: dict) -> list[str]:
+    """Gom MỌI token jargon (tên sao + thập thần + lý-thuật + can-chi) từ
+    is_jargon, sắp DÀI trước (tránh thay/khớp lồng vd 'Thiên Tài' trước 'Tài')."""
+    ij = (glossary or {}).get("is_jargon") or {}
+    toks: list[str] = []
+    for grp in ("ten_sao", "thap_than", "ly_thuat", "can_chi"):
+        for t in ij.get(grp) or []:
+            if isinstance(t, str) and t.strip():
+                toks.append(t)
+    # Dedup giữ thứ tự rồi sắp dài→ngắn.
+    seen: set[str] = set()
+    uniq = [t for t in toks if not (t in seen or seen.add(t))]
+    uniq.sort(key=len, reverse=True)
+    return uniq
+
+
+# Dấu kết câu/phân cách để cắt mệnh đề (sau khi xoá jargon, mệnh đề rỗng → bỏ).
+_CLAUSE_SPLIT_RE = re.compile(r"([;；,，—]|\s-\s)")
+# Mệnh đề CHỈ còn rác (dấu / khoảng trắng / dăm liên-từ rỗng nghĩa) → bỏ.
+_JUNK_CLAUSE_RE = re.compile(
+    r"^[\s,，;；·、\-—()（）\[\]【】「」]*"
+    r"(?:và|hoặc|thì|là|chủ|chứ|nên|mà|ở|tại|khi|của|cho|với|→|=)?"
+    r"[\s,，;；·、\-—()（）\[\]【】「」]*$"
+)
+
+
+def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
+    """Thuần 1 chuỗi: strip Hán + bỏ con trỏ internal + áp thay_the (jargon→nghĩa
+    đời thường hoặc bỏ) + xoá jargon còn sót + dọn mệnh đề rỗng + dấu mồ côi."""
+    if not isinstance(s, str) or not s.strip():
+        return s
+    out = _strip_internal_ref(_strip_han(s))
+    if not isinstance(out, str):
+        return out
+    thay_the = (glossary or {}).get("thay_the") or {}
+    # 1) Thay theo thay_the (key DÀI trước để tránh thay lồng).
+    for k in sorted(thay_the.keys(), key=len, reverse=True):
+        if k and k in out:
+            out = out.replace(k, thay_the[k])
+    # 2) Xoá jargon còn sót (tên sao / thập thần / lý-thuật / can-chi) — chưa được
+    #    thay_the và không có nghĩa đời thường → bỏ token (để lại nghĩa quanh nó).
+    for tok in jargon:
+        if tok and tok in out:
+            out = out.replace(tok, "")
+    # 3) Cắt mệnh đề; mệnh đề nào CHỈ còn rác (jargon đã xoá → trống) → loại.
+    parts = _CLAUSE_SPLIT_RE.split(out)
+    kept: list[str] = []
+    for p in parts:
+        if p is None:
+            continue
+        # Giữ lại dấu phân cách chỉ khi 2 bên đều có nội dung (xử ở bước ghép).
+        if _CLAUSE_SPLIT_RE.fullmatch(p or ""):
+            kept.append(p)
+            continue
+        if _JUNK_CLAUSE_RE.match(p):
+            kept.append("")  # đánh dấu mệnh đề rỗng
+        else:
+            kept.append(p)
+    # Ghép lại: bỏ mệnh đề rỗng + dấu phân cách mồ côi quanh nó.
+    rebuilt = ""
+    for i, p in enumerate(kept):
+        if _CLAUSE_SPLIT_RE.fullmatch(p or ""):
+            # Chỉ giữ dấu nếu sẽ có nội dung phía sau.
+            tail = "".join(x for x in kept[i + 1:]
+                           if not _CLAUSE_SPLIT_RE.fullmatch(x or ""))
+            if rebuilt.strip() and tail.strip():
+                rebuilt += p if p.strip() else ", "
+        else:
+            rebuilt += p
+    out = rebuilt
+    # 4) Dọn ngoặc rỗng, space thừa, dấu mồ côi (tái dùng regex _strip_han).
+    prev = None
+    while prev != out:
+        prev = out
+        out = _EMPTY_PAREN_RE.sub("", out)
+    out = _STRAY_LEAD_RE.sub(r"\1", out)
+    out = _SPACE_BEFORE_PUNCT_RE.sub(r"\1", out)
+    out = _MULTI_SPACE_RE.sub(" ", out)
+    out = re.sub(r"[,，;；]\s*([,，;；.。])", r"\1", out)   # dấu đôi mồ côi
+    out = re.sub(r"\(\s*\)", "", out)
+    out = re.sub(r"\s+([,，.。;；:：!！?？])", r"\1", out)
+    out = re.sub(r"^[\s,，;；·、\-—]+", "", out)
+    out = re.sub(r"\s*[—\-]\s*$", "", out.strip())
+    return out.strip()
+
+
+def _plain_vi(text: Any, glossary: Optional[dict] = None) -> Any:
+    """Biến text → NGHĨA THUẦN đời thường (đệ quy list/dict/tuple).
+
+    - strip Hán + bỏ con trỏ internal 'xem X.Y'
+    - áp glossary.thay_the (đại vận→giai đoạn, lưu niên→năm, 'năm Hồng Loan tới'→
+      'năm có khí vui/duyên', cung Phu Thê→chuyện bạn đời...)
+    - xoá jargon còn sót (tên sao / thập thần / hãm-miếu / can-chi)
+    - dọn mệnh đề chỉ còn jargon + dấu mồ côi
+
+    KHÔNG bịa nghĩa mới — chỉ DIỄN ĐẠT LẠI cái đã có. Non-str (None/số/bool) →
+    trả nguyên."""
+    if glossary is None:
+        glossary = _load_glossary()
+    jargon = _glossary_jargon(glossary)
+    if text is None or isinstance(text, bool):
+        return text
+    if isinstance(text, (int, float)):
+        return text
+    if isinstance(text, list):
+        return [_plain_vi(x, glossary) for x in text]
+    if isinstance(text, tuple):
+        return tuple(_plain_vi(x, glossary) for x in text)
+    if isinstance(text, dict):
+        return {k: _plain_vi(v, glossary) for k, v in text.items()}
+    if not isinstance(text, str):
+        return text
+    return _plain_one(text, glossary, jargon)
+
+
+# Marker dẫn vào KẾT LUẬN đời thường trong reconcile prose (cơ chế ở trước marker
+# là kỹ thuật; sau marker là câu nói-thẳng cho user). Lấy ĐOẠN SAU marker cuối.
+_TAKEAWAY_MARKER_RE = re.compile(
+    r"(?:nói thẳng được|kết luận chắc|kết luận|hội tụ[^:：.]*|nói thẳng)\s*[:：]\s*",
+    re.IGNORECASE,
+)
+
+
+def _takeaway_clause(text: Any) -> Any:
+    """Trả ĐOẠN KẾT LUẬN đời thường của reconcile prose (sau marker 'nói thẳng /
+    kết luận chắc / HỘI TỤ:'). Không có marker → trả nguyên (đoạn vốn đã plain)."""
+    if not isinstance(text, str) or not text.strip():
+        return text
+    last = None
+    for m in _TAKEAWAY_MARKER_RE.finditer(text):
+        last = m
+    if last is None:
+        return text
+    tail = text[last.end():].strip()
+    return tail or text
+
+
 def _nonempty(obj: Any) -> bool:
     """True nếu obj có nội dung đáng hiển thị (str non-rỗng / list non-rỗng /
     dict non-rỗng / số). None / '' / [] / {} → False."""
@@ -171,19 +324,21 @@ def _sec_cap_do(cd: dict) -> Optional[dict]:
         "lo_trinh": lo_trinh,
         "nguyen_tac": nguyen_tac.get("tuyen_bo"),
     }
-    # tom_tat: mức + lộ trình + nguyên tắc (KẾT QUẢ, strip Hán). HIỆN.
+    # tom_tat: mức + lộ trình + nguyên tắc — THUẦN NGHĨA đời thường (không tên sao /
+    # thập thần / lý-thuật / Hán). lo_trinh đã thuần sẵn trong cham_cap_do.json,
+    # vẫn chạy _plain_vi cho chắc. nguyen_tac đẩy qua _plain_vi (đại vận→giai đoạn...).
     tom_tat = {
         "cap_do": cap,
         "max": 5,
-        "ten_cap": _strip_han(cd.get("ten_cap")),
+        "ten_cap": _plain_vi(cd.get("ten_cap")),
         "do_thay_doi_duoc": cd.get("do_thay_doi_duoc"),
-        "phan_loai": _strip_han(cd.get("phan_loai")),
+        "phan_loai": _plain_vi(cd.get("phan_loai")),
         "muc_do_thu_thach": cd.get("muc_do_thu_thach"),
-        # lo_trinh là KẾT QUẢ user đọc → strip Hán + bỏ con trỏ internal 'xem X.Y'.
-        "lo_trinh": _strip_internal_ref(_strip_han(lo_trinh)),
-        "nguyen_tac": _strip_han(nguyen_tac.get("tuyen_bo")),
+        "lo_trinh": _plain_vi(lo_trinh),
+        "nguyen_tac": _plain_vi(nguyen_tac.get("tuyen_bo")),
     }
-    # can_cu: tín hiệu kích hoạt (chứa Hán/jargon Thương Quan...). AUTO-HIDE.
+    # can_cu: tín hiệu kích hoạt (tên sao / thập thần — Thương Quan, hóa Kỵ...).
+    # Giữ NGUYÊN cho người tò mò trace cơ chế. AUTO-HIDE.
     can_cu = {"tin_hieu": tin_hieu}
     return {
         "id": "cap_do", "icon": "gauge", "title": "Mức độ thử thách",
@@ -212,8 +367,9 @@ def _sec_hoi_dap(cau_hoi: list[dict]) -> Optional[dict]:
     return {
         "id": "hoi_dap", "icon": "messages", "title": "Câu hỏi của tuổi",
         "kind": "qa", "items": items,
-        # Đã plain (Q&A tiếng Việt) → tom_tat ~nguyên, chỉ strip Hán. Không can_cu.
-        "tom_tat": _strip_han(items), "can_cu": None, "mac_dinh_an": False,
+        # Q&A tiếng Việt — thuần nghĩa (đại vận→giai đoạn, năm Hồng Loan→năm có
+        # khí vui/duyên...). Không can_cu.
+        "tom_tat": _plain_vi(items), "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -238,18 +394,20 @@ def _sec_cung_phu_the(cpt: dict, phoi_ngau: str) -> Optional[dict]:
             if not _nonempty(noi_dung):
                 continue
             items.append({"ten": ten, "noi_dung": noi_dung})
-            # tom_tat: câu GIẢI NGHĨA plain. ƯU TIÊN nghia_thuan (câu thuần nghĩa
-            # đời thường về bạn đời, KHÔNG tên sao/jargon — chính tinh có sẵn).
-            # Fallback: strip Hán từ noi_dung khi chưa có nghia_thuan.
+            # tom_tat: THUẦN nghĩa về bạn đời — DÙNG nghia_thuan (câu đời thường,
+            # KHÔNG tên sao / thập thần / jargon: 'Bạn đời chu đáo, biết điều...').
+            # KHÔNG dùng noi_dung kỹ thuật nữa. Fallback _plain_vi(noi_dung) khi
+            # entry chưa có nghia_thuan (đẩy hết jargon ra). KHÔNG ghi 'ten' (tên sao).
             nghia_thuan = entry.get("nghia_thuan")
             noi_dung_plain = (nghia_thuan if _nonempty(nghia_thuan)
-                              else _strip_han(noi_dung))
-            tom_tat.append({
-                "ten": _strip_han(ten),
-                "noi_dung": noi_dung_plain,
-            })
-            # can_cu: 'TênSao (Hán) — mô tả sao kỹ thuật' (giữ Hán + cát-hung +
-            # điều cần chú ý kỹ thuật). AUTO-HIDE.
+                              else _plain_vi(noi_dung))
+            if not _nonempty(noi_dung_plain):
+                # Không có nghĩa thuần đọc được → bỏ khỏi tom_tat (chỉ để can_cu).
+                pass
+            else:
+                tom_tat.append({"noi_dung": noi_dung_plain})
+            # can_cu: 'TênSao (Hán)' + mô tả kỹ thuật GỐC + cát-hung + điều cần chú
+            # ý (giữ NGUYÊN, có Hán). Dành người tò mò trace cơ chế. AUTO-HIDE.
             ten_han = entry.get("ten_han")
             ten_full = f"{ten} ({ten_han})" if _nonempty(ten_han) else ten
             can_cu.append({
@@ -291,20 +449,23 @@ def _sec_song_phai(rec: list[dict]) -> Optional[dict]:
             "chu_de": chu_de, "tu_vi": tu_vi, "bat_tu": bat_tu,
             "trang_thai": trang_thai,
         })
-        # tom_tat: chủ đề + 'hai phái hội tụ/dị biệt' + ý nghĩa plain. HIỆN.
+        # tom_tat: chủ đề + 'hai phái hội tụ/dị biệt' + KẾT LUẬN thuần. Reconcile
+        # prose dày cơ chế (Đế tinh / Sát-Kỵ / Quan...) — cơ chế giữ ở can_cu; tom_tat
+        # CHỈ lấy câu KẾT LUẬN đời thường (đoạn sau marker 'nói thẳng được / kết luận
+        # chắc / HỘI TỤ:'), rồi _plain_vi đẩy nốt jargon còn sót.
         y_nghia = hoi_tu if _nonempty(hoi_tu) else di_biet
         prefix = "hai phái hội tụ" if trang_thai == "hội tụ" else "hai phái dị biệt"
-        y_nghia_plain = _strip_han(y_nghia)
+        takeaway = _takeaway_clause(y_nghia)
+        y_nghia_plain = _plain_vi(takeaway)
         ket_luan = (f"{prefix} — {y_nghia_plain}"
                     if _nonempty(y_nghia_plain) else prefix)
         tom_tat.append({
-            "chu_de": _strip_han(chu_de),
-            "trang_thai": trang_thai,
+            "chu_de": _plain_vi(chu_de),
             "ket_luan": ket_luan,
         })
-        # can_cu: cơ chế đọc-bảng từng phái (giữ Hán/jargon). AUTO-HIDE.
+        # can_cu: cơ chế đọc-bảng từng phái (giữ NGUYÊN Hán/jargon). AUTO-HIDE.
         can_cu.append({
-            "chu_de": _strip_han(chu_de),
+            "chu_de": chu_de,
             "tu_vi": tu_vi,
             "bat_tu": bat_tu,
         })
@@ -341,8 +502,8 @@ def _sec_dinh_thoi(dt: dict) -> Optional[dict]:
     return {
         "id": "dinh_thoi", "icon": "clock", "title": "Định thời",
         "kind": "timeline", "items": items,
-        # Đã plain (năm + mô tả Việt) → tom_tat strip Hán. Không can_cu.
-        "tom_tat": _strip_han(items), "can_cu": None, "mac_dinh_an": False,
+        # Năm + mô tả Việt — thuần nghĩa (đại vận→giai đoạn...). Không can_cu.
+        "tom_tat": _plain_vi(items), "can_cu": None, "mac_dinh_an": False,
     }
 
 
@@ -359,22 +520,36 @@ def _sec_cach_cuc(cc: list[dict]) -> Optional[dict]:
     if not _nonempty(cc):
         return None
     items = []
+    tom_tat = []
+    can_cu = []
     for c in cc:
         noi_dung = c.get("bien_chinh") or c.get("van_hanh")
         if not _nonempty(noi_dung):
             continue
+        tone = _TONE_MAP.get(c.get("cat_hung"), "trung_tinh")
         items.append({
             "ten": c.get("ten_cach"),
             "noi_dung": noi_dung,
-            "tone": _TONE_MAP.get(c.get("cat_hung"), "trung_tinh"),
+            "tone": tone,
+        })
+        # tom_tat: THUẦN nghĩa từ bien_chinh — bỏ tên cách-Hán + tên sao + chi
+        # (Tỵ/Hợi hãm) qua _plain_vi. KHÔNG ghi 'ten' (tên cách kỹ thuật).
+        noi_dung_plain = _plain_vi(noi_dung)
+        if _nonempty(noi_dung_plain):
+            tom_tat.append({"noi_dung": noi_dung_plain, "tone": tone})
+        # can_cu: tên cách + Hán-tự (sao khớp) + trích sách. Dành người tò mò.
+        han_tu = _refs_from(c.get("sao_khop"))
+        can_cu.append({
+            "ten_cach": c.get("ten_cach"),
+            "han_tu": han_tu,
+            "_nguon": c.get("_nguon"),
         })
     if not items:
         return None
     return {
         "id": "cach_cuc", "icon": "recycle", "title": "Cách cục",
         "kind": "list", "items": items,
-        # Đã reframe đọc-đồng-dạng (bien_chinh tiếng Việt) → strip Hán. Không can_cu.
-        "tom_tat": _strip_han(items), "can_cu": None, "mac_dinh_an": False,
+        "tom_tat": tom_tat, "can_cu": can_cu, "mac_dinh_an": False,
     }
 
 

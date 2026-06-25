@@ -15,11 +15,40 @@ from engine.tinh_duyen.reading import read_tinh_duyen
 # Dải Hán [一-鿿] — tom_tat KHÔNG được chứa ký tự nào trong dải này.
 _HAN_RE = re.compile(r"[一-鿿]")
 
+# JARGON cần ĐẨY KHỎI tom_tat (xuống can_cu): tom_tat = THUẦN nghĩa, người Việt
+# KHÔNG biết tử vi đọc vẫn hiểu. can_cu được PHÉP chứa (dành người tò mò trace).
+# (a) tên sao · (b) thập thần · (c) lý-thuật / can-chi.
+_JARGON = [
+    # (a) tên sao
+    "Tử Vi", "Thiên Phủ", "Thiên Cơ", "Thái Dương", "Vũ Khúc", "Thiên Đồng",
+    "Liêm Trinh", "Thái Âm", "Tham Lang", "Cự Môn", "Thiên Tướng", "Thiên Lương",
+    "Thất Sát", "Phá Quân", "Đào Hoa", "Hồng Loan", "Thiên Hỉ", "Thiên Hỷ",
+    "Thiên Diêu", "Cô Thần", "Quả Tú", "Kình Dương", "Đà La", "Hỏa Tinh",
+    "Linh Tinh", "Địa Không", "Địa Kiếp", "Không Kiếp", "Thiên Mã", "Văn Xương",
+    "Văn Khúc", "Tả Phù", "Hữu Bật",
+    # (b) thập thần
+    "Chính Quan", "Thiên Quan", "Thương Quan", "Thực Thần", "Chính Tài",
+    "Thiên Tài", "Chính Ấn", "Thiên Ấn", "Tỷ Kiên", "Kiếp Tài", "Tỷ Kiếp",
+    "Quan Sát", "官杀", "财",
+    # (c) lý-thuật / can-chi
+    "đại vận", "lưu niên", "tiểu hạn", "hãm", "miếu", "vượng địa", "đắc địa",
+    "ấn tinh", "cung Phu Thê", "cung Mệnh", "nhật chủ", "hóa Lộc", "hóa Quyền",
+    "hóa Khoa", "hóa Kỵ", "Tuần", "Triệt",
+]
+
 
 def _han_in(obj) -> list[str]:
     """List ký tự Hán tìm thấy trong obj (đệ quy qua str/list/dict)."""
     blob = json.dumps(obj, ensure_ascii=False) if obj is not None else ""
     return _HAN_RE.findall(blob)
+
+
+def _jargon_in(obj) -> list[str]:
+    """List token JARGON (tên sao / thập thần / lý-thuật) tìm thấy trong obj.
+
+    tom_tat phải SẠCH list này (THUẦN nghĩa đời thường). can_cu được phép chứa."""
+    blob = json.dumps(obj, ensure_ascii=False) if obj is not None else ""
+    return [j for j in _JARGON if j in blob]
 
 # Lá có Mệnh chính tinh (Liêm Trinh) + cách cục + cau_hoi_tuoi → sections đầy đủ.
 _BIRTH = "1990-08-20T14:00"
@@ -174,24 +203,30 @@ def test_strip_han_xoa_han_va_don_ngoac_rong():
     assert _strip_han(["a 中", {"x": "b 文"}]) == ["a", {"x": "b"}]
 
 
-# ── 7) tom_tat của MỌI section: 0 ký tự Hán ──────────────────────────────────
-def test_tom_tat_moi_section_0_han():
+# ── 7) tom_tat của MỌI section: 0 Hán + 0 JARGON (THUẦN nghĩa đời thường) ─────
+def test_tom_tat_moi_section_thuan_nghia():
+    """tom_tat = THUẦN nghĩa: KHÔNG Hán, KHÔNG tên sao / thập thần / lý-thuật.
+    Người Việt không biết tử vi đọc vẫn hiểu. Jargon đẩy xuống can_cu."""
     d = build_display(_read("nữ"), "nữ")
     assert d["meta"]["co_can_cu"] is True
     for s in d["sections"]:
         han = _han_in(s.get("tom_tat"))
         assert not han, f"section {s['id']}: tom_tat còn Hán {han[:5]}"
+        jargon = _jargon_in(s.get("tom_tat"))
+        assert not jargon, f"section {s['id']}: tom_tat còn JARGON {jargon}"
         # Mỗi section PHẢI có 3 field mới (giữ field cũ song song).
         assert "tom_tat" in s
         assert "can_cu" in s
         assert "mac_dinh_an" in s
 
 
-def test_tom_tat_0_han_nam_menh():
-    # Gender nam cũng phải sạch Hán.
+def test_tom_tat_thuan_nghia_nam_menh():
+    # Gender nam cũng phải THUẦN: 0 Hán + 0 jargon.
     d = build_display(_read("nam"), "nam")
     for s in d["sections"]:
         assert not _han_in(s.get("tom_tat")), f"{s['id']} nam menh còn Hán"
+        jargon = _jargon_in(s.get("tom_tat"))
+        assert not jargon, f"{s['id']} nam menh tom_tat còn JARGON {jargon}"
 
 
 # ── 8) can_cu chứa phần KỸ THUẬT (Hán) khi section có ─────────────────────────
@@ -200,11 +235,17 @@ def test_cung_phu_the_tach_tom_tat_va_can_cu():
     cpt = [s for s in d["sections"] if s["id"] == "cung_phu_the"]
     assert cpt, "lá có cung Phu Thê"
     sec = cpt[0]
-    # tom_tat: câu nghĩa plain, 0 Hán.
+    # tom_tat: câu nghĩa THUẦN (nghia_thuan) — 0 Hán, 0 jargon, KHÔNG tên sao.
     assert not _han_in(sec["tom_tat"])
+    assert not _jargon_in(sec["tom_tat"]), "tom_tat cung_phu_the phải sạch jargon"
     assert sec["tom_tat"] and sec["tom_tat"][0]["noi_dung"]
-    # can_cu: 'TênSao (Hán)' + chứa Hán kỹ thuật.
+    # tom_tat KHÔNG còn field 'ten' (tên sao đã đẩy xuống can_cu).
+    assert "ten" not in sec["tom_tat"][0]
+    # can_cu: 'TênSao (Hán)' + noi_dung gốc kỹ thuật + cat_hung + dieu_can_chu_y.
     assert sec["can_cu"]
+    c0 = sec["can_cu"][0]
+    for k in ("ten", "noi_dung", "cat_hung", "dieu_can_chu_y"):
+        assert k in c0, f"can_cu cung_phu_the thiếu {k}"
     blob = json.dumps(sec["can_cu"], ensure_ascii=False)
     assert _HAN_RE.search(blob), "can_cu cung_phu_the phải còn tên sao Hán kỹ thuật"
     assert sec["mac_dinh_an"] is False
@@ -216,12 +257,14 @@ def test_song_phai_tach_tom_tat_va_can_cu():
     assert sp, "lá có song phái reconcile"
     sec = sp[0]
     assert not _han_in(sec["tom_tat"])
-    # tom_tat: 'hai phái hội tụ/dị biệt' + ket_luan plain.
+    assert not _jargon_in(sec["tom_tat"]), "tom_tat song_phai phải sạch jargon"
+    # tom_tat = {chu_de, ket_luan _plain_vi}: 'hai phái hội tụ/dị biệt' + kết luận thuần.
     t0 = sec["tom_tat"][0]
+    assert "chu_de" in t0 and "ket_luan" in t0
     assert "hai phái" in t0["ket_luan"]
-    assert t0["trang_thai"] in ("hội tụ", "dị biệt")
-    # can_cu: cơ chế tu_vi/bat_tu (chứa Hán).
+    # can_cu: cơ chế tu_vi/bat_tu GIỮ NGUYÊN (chứa Hán).
     assert sec["can_cu"] and "tu_vi" in sec["can_cu"][0]
+    assert _HAN_RE.search(json.dumps(sec["can_cu"], ensure_ascii=False))
 
 
 # ── 9) luan_chi_tiet + nguon: mac_dinh_an=True (cả section là căn cứ) ─────────
