@@ -56,16 +56,39 @@ BOOKS = [
 
 # Trang trống marker thường gặp trong restored_books
 _BLANK_RE = re.compile(r"trang\s*trống", re.IGNORECASE)
+# MỌI HTML comment (<!-- ... -->), kể cả nhiều dòng — strip khỏi raw_text trang.
+_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+# Trang lỗi cleanup (LLM trả HTML error dump) → KHÔNG phải trang thực, skip.
+_ERROR_PAGE_RE = re.compile(r"ERROR\s*cleanup|Internal Server Error", re.IGNORECASE)
+# Separator artifact (dòng chỉ gồm '***') còn sót sau khi bỏ comment.
+_SEP_RE = re.compile(r"^[ \t]*\*{3,}[ \t]*$", re.MULTILINE)
 
 
-def parse_pages(content_md: Path) -> list[tuple[int, str]]:
-    """Trả [(page_num, text)] theo marker <!-- page N -->."""
+def strip_comments(text: str) -> str:
+    """Bỏ MỌI HTML comment + separator '***' lẻ; gom whitespace dư.
+
+    KHÔNG cắt cụt nội dung thực — chỉ loại marker (<!-- trang trống -->,
+    <!-- ERROR cleanup -->, ...) và dòng '***' phân cách trang còn sót."""
+    text = _COMMENT_RE.sub("", text)
+    text = _SEP_RE.sub("", text)
+    # gom >2 dòng trống liên tiếp về 2 (giữ ranh giới đoạn cho split_by_paragraph)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def parse_pages(content_md: Path) -> list[tuple[int, str, bool]]:
+    """Trả [(page_num, clean_text, is_error_page)] theo marker <!-- page N -->.
+
+    is_error_page = trang chứa marker ERROR-cleanup (LLM trả HTML error) →
+    caller skip hẳn (đây là rác cleanup, KHÔNG phải nội dung sách)."""
     raw = content_md.read_text(encoding="utf-8")
     parts = re.split(r"<!-- page (\d+) -->", raw)
-    out: list[tuple[int, str]] = []
+    out: list[tuple[int, str, bool]] = []
     for i in range(1, len(parts), 2):
         num = int(parts[i])
-        out.append((num, parts[i + 1].strip()))
+        page_raw = parts[i + 1]
+        is_err = bool(_ERROR_PAGE_RE.search(page_raw))
+        out.append((num, strip_comments(page_raw), is_err))
     return out
 
 
@@ -182,12 +205,17 @@ def ingest_book(store, slug: str, title_vi: str, title_zh: str,
     inserted = 0
     skipped_existing = 0
     skipped_blank = 0
+    skipped_error = 0
     concept_links = 0
     linked_concept_ids: set[int] = set()
 
-    for num, text in pages:
+    for num, text, is_err in pages:
         if (num, num) in done:
             skipped_existing += 1
+            continue
+        if is_err:
+            # Trang lỗi cleanup (HTML error dump + OCR rác) — KHÔNG phải sách.
+            skipped_error += 1
             continue
         if is_blank(text):
             skipped_blank += 1
@@ -221,6 +249,7 @@ def ingest_book(store, slug: str, title_vi: str, title_zh: str,
         "inserted": inserted,
         "skipped_existing": skipped_existing,
         "skipped_blank": skipped_blank,
+        "skipped_error": skipped_error,
         "concept_links": concept_links,
         "distinct_concepts_linked": len(linked_concept_ids),
         "_linked_ids": linked_concept_ids,
@@ -252,6 +281,7 @@ def main() -> None:
         print(f"  {slug}: inserted={r.get('inserted')} "
               f"skip_existing={r.get('skipped_existing')} "
               f"skip_blank={r.get('skipped_blank')} "
+              f"skip_error={r.get('skipped_error')} "
               f"concept_links={r.get('concept_links')} "
               f"work_created={r.get('created_work')}")
 
