@@ -15,6 +15,24 @@ from pathlib import Path
 import pytest
 
 
+def _hermes_bin_missing() -> bool:
+    """True nếu thiếu binary hermes CLI — test spawn sage sẽ SKIP (không phải lỗi logic)."""
+    try:
+        from engine.ai import kanban_council as kc
+
+        return not Path(str(kc.HERMES_BIN)).exists()
+    except Exception:
+        return True
+
+
+# Decorator dùng cho riêng các test cần hermes CLI (spawn sage). Các test precast
+# thuần-Python (precast_for_sages, required_inputs) KHÔNG bị skip.
+needs_hermes = pytest.mark.skipif(
+    _hermes_bin_missing(),
+    reason="hermes CLI binary vắng mặt (vendor/hermes-agent/.venv/bin/hermes) — bỏ qua test spawn sage",
+)
+
+
 def _archive(session) -> None:
     from engine.ai import kanban_council as kc
 
@@ -30,6 +48,7 @@ def _archive(session) -> None:
 # ─── Body templating ─────────────────────────────────────────────────────────
 
 
+@needs_hermes
 def test_consult_embeds_precast_json_in_sage_body():
     """When precast_data is provided, the sage task body must contain JSON
     payload + 'KHÔNG được cast lại' guard."""
@@ -67,6 +86,7 @@ def test_consult_embeds_precast_json_in_sage_body():
         _archive(session)
 
 
+@needs_hermes
 def test_consult_without_precast_warns_engine_gap():
     """Without precast, body must tell sage to annotate engine_gap."""
     from engine.ai import kanban_council as kc
@@ -146,6 +166,7 @@ def test_precast_for_sages_with_birth_real_engine():
 # ─── End-to-end consult with precast + API ───────────────────────────────────
 
 
+@needs_hermes
 def test_api_consult_with_auto_precast():
     from fastapi.testclient import TestClient
 
@@ -179,6 +200,7 @@ def test_api_consult_with_auto_precast():
         _archive(session)
 
 
+@needs_hermes
 def test_api_consult_with_explicit_precast_overrides_auto():
     from fastapi.testclient import TestClient
 
@@ -223,6 +245,7 @@ def test_api_consult_with_explicit_precast_overrides_auto():
 # ─── Harvest integration ─────────────────────────────────────────────────────
 
 
+@needs_hermes
 def test_session_snapshot_harvests_when_sage_completes(monkeypatch, tmp_path):
     """Simulate a completed sage task with improve_system in result → snapshot
     should auto-extract critiques."""
