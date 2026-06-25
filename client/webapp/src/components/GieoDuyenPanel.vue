@@ -146,51 +146,106 @@
           Đã dùng {{ tdRes.charged_xu }} xu<span v-if="tdRes.xu_balance != null"> · số dư: {{ tdRes.xu_balance }} xu</span>.
         </p>
 
-        <!-- ── RENDERER GENERIC: lặp display.sections, dispatch theo section.kind ── -->
+        <!-- ── RENDERER v2: KẾT-QUẢ-TRƯỚC, CĂN-CỨ-ẨN (display.sections tom_tat/can_cu/mac_dinh_an) ──
+             • Mặc định render sec.tom_tat (KẾT QUẢ, plain — đã strip Hán ở backend).
+             • sec.can_cu (≠ null) → <details> '▸ Căn cứ' gập sẵn (tên sao/Hán/cơ chế/nguồn).
+             • sec.mac_dinh_an=true → CẢ section gập trong <details> đóng sẵn, tiêu đề kèm '(căn cứ)'.
+             Header gọn: KẾT QUẢ nổi bật · CĂN CỨ chìm (--read-* token, dark-mode safe). -->
         <template v-if="tdSections.length">
-          <div v-for="(sec, si) in tdSections" :key="sec.id || si" class="gd-card gd-sec">
-            <h5 v-if="sec.title" class="gd-sec-h">
-              <TablerIcon v-if="sec.icon" :name="sec.icon" /> {{ sec.title }}
-            </h5>
+          <template v-for="(sec, si) in tdSections" :key="sec.id || si">
 
-            <!-- kind: cap_do — badge mức N/5 + dots + tín hiệu + lộ trình + nguyên tắc -->
+            <!-- ════ NHÁNH A — mac_dinh_an: CẢ section là CĂN CỨ, gập đóng sẵn ════ -->
+            <details v-if="sec.mac_dinh_an" class="gd-card gd-sec gd-sec-an">
+              <summary class="gd-sec-an-sum">
+                <TablerIcon v-if="sec.icon" :name="sec.icon" />
+                <span class="gd-sec-an-t">{{ sec.title }}</span>
+                <span class="gd-sec-an-tag">(căn cứ)</span>
+              </summary>
+              <div class="gd-sec-an-body">
+                <!-- collapsible (luận chi tiết 12+10): can_cu = data -->
+                <div v-if="sec.kind === 'collapsible' && sec.can_cu">
+                  <p v-if="sec.can_cu.kim_tu_thap" class="gd-qt-tong">{{ sec.can_cu.kim_tu_thap }}</p>
+                  <div class="gd-qt-rank">
+                    <div v-for="grp in xepHangGroups" :key="grp.key"
+                         v-show="(sec.can_cu.xep_hang?.[grp.key] || []).length"
+                         class="gd-qt-rank-grp" :class="'xh-' + grp.key">
+                      <p class="gd-cd-h">{{ grp.icon }} {{ grp.label }}</p>
+                      <ul><li v-for="(y, i) in sec.can_cu.xep_hang[grp.key]" :key="i">{{ fmtRank(y) }}</li></ul>
+                    </div>
+                  </div>
+                  <details v-if="(sec.can_cu.buoc_tu_vi || []).length" class="gd-qt-sub">
+                    <summary>🏯 Tử Vi — {{ sec.can_cu.buoc_tu_vi.length }} bước</summary>
+                    <div v-for="(b, i) in sec.can_cu.buoc_tu_vi" :key="i" class="gd-qt-step">
+                      <div class="gd-qt-step-h"><span class="gd-qt-no">{{ i + 1 }}</span><b>{{ b.ten_buoc }}</b></div>
+                      <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
+                    </div>
+                  </details>
+                  <details v-if="(sec.can_cu.buoc_bat_tu || []).length" class="gd-qt-sub">
+                    <summary>🀄 Bát Tự — {{ sec.can_cu.buoc_bat_tu.length }} bước</summary>
+                    <div v-for="(b, i) in sec.can_cu.buoc_bat_tu" :key="i" class="gd-qt-step">
+                      <div class="gd-qt-step-h"><span class="gd-qt-no">{{ i + 1 }}</span><b>{{ b.ten_buoc }}</b></div>
+                      <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
+                    </div>
+                  </details>
+                </div>
+                <!-- refs (nguồn): can_cu = list[str] -->
+                <ul v-else-if="sec.kind === 'refs'" class="gd-refs">
+                  <li v-for="(s, i) in (sec.can_cu || sec.items || [])" :key="i">{{ s }}</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- ════ NHÁNH B — KẾT QUẢ trước (tom_tat) + Căn cứ ẩn (can_cu) ════ -->
+            <div v-else class="gd-card gd-sec">
+              <h5 v-if="sec.title" class="gd-sec-h">
+                <TablerIcon v-if="sec.icon" :name="sec.icon" /> {{ sec.title }}
+              </h5>
+
+            <!-- kind: cap_do — KẾT QUẢ: badge mức + lộ trình + nguyên tắc (tom_tat).
+                 CĂN CỨ ẩn: tín hiệu kích hoạt (can_cu.tin_hieu). -->
             <div v-if="sec.kind === 'cap_do'" class="gd-cd">
               <div class="gd-cd-top">
-                <span class="gd-cd-badge" :class="'lv-' + sec.data.cap_do">
-                  Mức độ thử thách {{ sec.data.cap_do }}/{{ sec.data.max || 5 }}
-                  <b v-if="sec.data.ten_cap"> — {{ sec.data.ten_cap }}</b>
+                <span class="gd-cd-badge" :class="'lv-' + cdt(sec).cap_do">
+                  Mức độ thử thách {{ cdt(sec).cap_do }}/{{ cdt(sec).max || 5 }}
+                  <b v-if="cdt(sec).ten_cap"> — {{ cdt(sec).ten_cap }}</b>
                 </span>
-                <div class="gd-cd-dots" :aria-label="'Cấp ' + sec.data.cap_do + ' trên ' + (sec.data.max || 5)">
-                  <span v-for="n in (sec.data.max || 5)" :key="n" class="gd-cd-dot"
-                        :class="{ on: n <= sec.data.cap_do }"></span>
+                <div class="gd-cd-dots" :aria-label="'Cấp ' + cdt(sec).cap_do + ' trên ' + (cdt(sec).max || 5)">
+                  <span v-for="n in (cdt(sec).max || 5)" :key="n" class="gd-cd-dot"
+                        :class="{ on: n <= cdt(sec).cap_do }"></span>
                 </div>
               </div>
-              <p v-if="sec.data.do_thay_doi_duoc || sec.data.phan_loai" class="gd-cd-summary">
-                <b v-if="sec.data.do_thay_doi_duoc">{{ sec.data.do_thay_doi_duoc }}</b>
-                <span v-if="sec.data.do_thay_doi_duoc"> chuyển hoá được</span>
-                <span v-if="sec.data.do_thay_doi_duoc && sec.data.phan_loai"> · </span>
-                <span v-if="sec.data.phan_loai" class="gd-cd-class">{{ sec.data.phan_loai }}</span>
+              <p v-if="cdt(sec).do_thay_doi_duoc || cdt(sec).phan_loai" class="gd-cd-summary">
+                <b v-if="cdt(sec).do_thay_doi_duoc">{{ cdt(sec).do_thay_doi_duoc }}</b>
+                <span v-if="cdt(sec).do_thay_doi_duoc"> chuyển hoá được</span>
+                <span v-if="cdt(sec).do_thay_doi_duoc && cdt(sec).phan_loai"> · </span>
+                <span v-if="cdt(sec).phan_loai" class="gd-cd-class">{{ cdt(sec).phan_loai }}</span>
               </p>
-              <p v-if="sec.data.muc_do_thu_thach" class="gd-mini">{{ sec.data.muc_do_thu_thach }}</p>
-              <div v-if="(sec.data.tin_hieu || []).length" class="gd-cd-sec">
-                <p class="gd-cd-h">🔎 Tín hiệu kích hoạt</p>
-                <ul class="gd-cd-signals"><li v-for="(t, i) in sec.data.tin_hieu" :key="i">{{ t }}</li></ul>
-              </div>
-              <div v-if="(sec.data.lo_trinh || []).length" class="gd-cd-sec">
+              <p v-if="cdt(sec).muc_do_thu_thach" class="gd-mini">{{ cdt(sec).muc_do_thu_thach }}</p>
+              <div v-if="(cdt(sec).lo_trinh || []).length" class="gd-cd-sec">
                 <p class="gd-cd-h">🧭 Lộ trình — việc cần LÀM (mệnh là động từ)</p>
                 <ul class="gd-cd-steps">
-                  <li v-for="(s, i) in sec.data.lo_trinh" :key="i">
+                  <li v-for="(s, i) in cdt(sec).lo_trinh" :key="i">
                     <span class="gd-cd-check">✓</span><span>{{ s }}</span>
                   </li>
                 </ul>
               </div>
-              <p v-if="sec.data.nguyen_tac" class="gd-cd-vang">“{{ sec.data.nguyen_tac }}”</p>
-              <RefBlock v-if="(sec.refs || []).length" kind="cite">{{ sec.refs.join('; ') }}</RefBlock>
+              <p v-if="cdt(sec).nguyen_tac" class="gd-cd-vang">“{{ cdt(sec).nguyen_tac }}”</p>
+              <!-- CĂN CỨ ẩn: tín hiệu kích hoạt (jargon Thương Quan…) + nguồn -->
+              <details v-if="(sec.can_cu?.tin_hieu || []).length || (sec.refs || []).length" class="gd-cc">
+                <summary class="gd-cc-sum">▸ Căn cứ</summary>
+                <div class="gd-cc-body">
+                  <div v-if="(sec.can_cu?.tin_hieu || []).length" class="gd-cd-sec">
+                    <p class="gd-cd-h">🔎 Tín hiệu kích hoạt</p>
+                    <ul class="gd-cd-signals"><li v-for="(t, i) in sec.can_cu.tin_hieu" :key="i">{{ t }}</li></ul>
+                  </div>
+                  <RefBlock v-if="(sec.refs || []).length" kind="cite">{{ sec.refs.join('; ') }}</RefBlock>
+                </div>
+              </details>
             </div>
 
-            <!-- kind: qa — hỏi-đáp; câu cta_gieo_que → nút gieo quẻ -->
+            <!-- kind: qa — hỏi-đáp (tom_tat plain); câu cta_gieo_que → nút gieo quẻ -->
             <div v-else-if="sec.kind === 'qa'" class="gd-qa">
-              <div v-for="(q, i) in sec.items" :key="i" class="gd-cht-item">
+              <div v-for="(q, i) in (sec.tom_tat || sec.items || [])" :key="i" class="gd-cht-item">
                 <div class="gd-cht-q">
                   <span class="gd-cht-he" :class="'he-' + q.he">{{ heLabel(q.he) }}</span>
                   <span class="gd-cht-text">{{ q.hoi }}</span>
@@ -247,29 +302,60 @@
               </div>
             </div>
 
-            <!-- kind: prose_list — tên + nội dung (cung Phu Thê) -->
+            <!-- kind: prose_list — KẾT QUẢ: tên + giải nghĩa plain (tom_tat).
+                 CĂN CỨ ẩn: tên sao Hán + cát/hung + điều cần chú ý (can_cu) + nguồn. -->
             <div v-else-if="sec.kind === 'prose_list'" class="gd-prose">
-              <div v-for="(it, i) in sec.items" :key="i" class="gd-td-line">
+              <div v-for="(it, i) in (sec.tom_tat || sec.items || [])" :key="i" class="gd-td-line">
                 <b v-if="it.ten">{{ it.ten }}</b>
                 <p class="gd-mini">{{ it.noi_dung }}</p>
               </div>
-              <RefBlock v-if="(sec.refs || []).length" kind="cite">{{ sec.refs.join('; ') }}</RefBlock>
+              <details v-if="(sec.can_cu || []).length || (sec.refs || []).length" class="gd-cc">
+                <summary class="gd-cc-sum">▸ Căn cứ</summary>
+                <div class="gd-cc-body">
+                  <div v-for="(it, i) in (sec.can_cu || [])" :key="i" class="gd-cc-line">
+                    <b v-if="it.ten">{{ it.ten }}</b>
+                    <p v-if="it.noi_dung" class="gd-mini">{{ it.noi_dung }}</p>
+                    <p v-if="it.cat_hung" class="gd-cc-meta">{{ catHungLabel(it.cat_hung) }}</p>
+                    <p v-if="it.dieu_can_chu_y" class="gd-cc-meta">⚠ {{ it.dieu_can_chu_y }}</p>
+                  </div>
+                  <RefBlock v-if="(sec.refs || []).length" kind="cite">{{ sec.refs.join('; ') }}</RefBlock>
+                </div>
+              </details>
             </div>
 
-            <!-- kind: pairs — Tử Vi ⇄ Bát Tự -->
+            <!-- kind: pairs — KẾT QUẢ: chủ đề + 'hai phái hội tụ/dị biệt' + kết luận plain (tom_tat).
+                 CĂN CỨ ẩn: cơ chế đọc-bảng từng phái Tử Vi/Bát Tự (can_cu, giữ Hán). -->
             <div v-else-if="sec.kind === 'pairs'" class="gd-pairs">
-              <div v-for="(it, i) in sec.items" :key="i" class="gd-td-recon-row">
+              <div v-for="(it, i) in (sec.tom_tat || [])" :key="i" class="gd-td-recon-row">
                 <div class="gd-td-recon-h">{{ it.chu_de }}
                   <span class="gd-pairs-tt" :class="it.trang_thai === 'hội tụ' ? 'ok' : 'warn'">{{ it.trang_thai }}</span>
                 </div>
-                <p v-if="it.tu_vi" class="gd-mini"><span class="gd-td-pill tv">Tử Vi</span> {{ it.tu_vi }}</p>
-                <p v-if="it.bat_tu" class="gd-mini"><span class="gd-td-pill bt">Bát Tự</span> {{ it.bat_tu }}</p>
+                <p v-if="it.ket_luan" class="gd-mini">{{ it.ket_luan }}</p>
               </div>
+              <template v-if="!(sec.tom_tat || []).length">
+                <div v-for="(it, i) in (sec.items || [])" :key="i" class="gd-td-recon-row">
+                  <div class="gd-td-recon-h">{{ it.chu_de }}
+                    <span class="gd-pairs-tt" :class="it.trang_thai === 'hội tụ' ? 'ok' : 'warn'">{{ it.trang_thai }}</span>
+                  </div>
+                  <p v-if="it.tu_vi" class="gd-mini"><span class="gd-td-pill tv">Tử Vi</span> {{ it.tu_vi }}</p>
+                  <p v-if="it.bat_tu" class="gd-mini"><span class="gd-td-pill bt">Bát Tự</span> {{ it.bat_tu }}</p>
+                </div>
+              </template>
+              <details v-if="(sec.can_cu || []).length" class="gd-cc">
+                <summary class="gd-cc-sum">▸ Căn cứ</summary>
+                <div class="gd-cc-body">
+                  <div v-for="(it, i) in sec.can_cu" :key="i" class="gd-cc-line">
+                    <b v-if="it.chu_de">{{ it.chu_de }}</b>
+                    <p v-if="it.tu_vi" class="gd-mini"><span class="gd-td-pill tv">Tử Vi</span> {{ it.tu_vi }}</p>
+                    <p v-if="it.bat_tu" class="gd-mini"><span class="gd-td-pill bt">Bát Tự</span> {{ it.bat_tu }}</p>
+                  </div>
+                </div>
+              </details>
             </div>
 
-            <!-- kind: timeline — định thời -->
+            <!-- kind: timeline — định thời (tom_tat đã plain; không có can_cu) -->
             <div v-else-if="sec.kind === 'timeline'" class="gd-tl">
-              <div v-for="(it, i) in sec.items" :key="i" class="gd-tl-row"
+              <div v-for="(it, i) in (sec.tom_tat || sec.items || [])" :key="i" class="gd-tl-row"
                    :class="it.loai === 'kích hoạt' ? 'kh' : 'gg'">
                 <span class="gd-tl-age">
                   <b v-if="it.start_age != null">{{ it.start_age }}<span v-if="it.end_age != null">–{{ it.end_age }}</span> tuổi</b>
@@ -280,9 +366,9 @@
               </div>
             </div>
 
-            <!-- kind: list — cách cục -->
+            <!-- kind: list — cách cục (tom_tat đã reframe đọc-đồng-dạng; không có can_cu) -->
             <div v-else-if="sec.kind === 'list'" class="gd-list">
-              <div v-for="(it, i) in sec.items" :key="i" class="gd-td-cach" :class="'cc-' + (it.tone || 'trung_tinh')">
+              <div v-for="(it, i) in (sec.tom_tat || sec.items || [])" :key="i" class="gd-td-cach" :class="'cc-' + (it.tone || 'trung_tinh')">
                 <div class="gd-td-cach-h">
                   <b>{{ it.ten }}</b>
                   <span class="gd-td-cach-tag" :class="'cc-' + (it.tone || 'trung_tinh')">{{ toneLabel(it.tone) }}</span>
@@ -290,34 +376,6 @@
                 <p class="gd-mini">{{ it.noi_dung }}</p>
               </div>
             </div>
-
-            <!-- kind: collapsible — luận chi tiết 12+10 -->
-            <details v-else-if="sec.kind === 'collapsible'" class="gd-qt">
-              <summary class="gd-qt-sum">▸ Mở luận chi tiết</summary>
-              <p v-if="sec.data.kim_tu_thap" class="gd-qt-tong">{{ sec.data.kim_tu_thap }}</p>
-              <div class="gd-qt-rank">
-                <div v-for="grp in xepHangGroups" :key="grp.key"
-                     v-show="(sec.data.xep_hang?.[grp.key] || []).length"
-                     class="gd-qt-rank-grp" :class="'xh-' + grp.key">
-                  <p class="gd-cd-h">{{ grp.icon }} {{ grp.label }}</p>
-                  <ul><li v-for="(y, i) in sec.data.xep_hang[grp.key]" :key="i">{{ fmtRank(y) }}</li></ul>
-                </div>
-              </div>
-              <details v-if="(sec.data.buoc_tu_vi || []).length" class="gd-qt-sub">
-                <summary>🏯 Tử Vi — {{ sec.data.buoc_tu_vi.length }} bước</summary>
-                <div v-for="(b, i) in sec.data.buoc_tu_vi" :key="i" class="gd-qt-step">
-                  <div class="gd-qt-step-h"><span class="gd-qt-no">{{ i + 1 }}</span><b>{{ b.ten_buoc }}</b></div>
-                  <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
-                </div>
-              </details>
-              <details v-if="(sec.data.buoc_bat_tu || []).length" class="gd-qt-sub">
-                <summary>🀄 Bát Tự — {{ sec.data.buoc_bat_tu.length }} bước</summary>
-                <div v-for="(b, i) in sec.data.buoc_bat_tu" :key="i" class="gd-qt-step">
-                  <div class="gd-qt-step-h"><span class="gd-qt-no">{{ i + 1 }}</span><b>{{ b.ten_buoc }}</b></div>
-                  <p v-if="b.luan" class="gd-mini">{{ b.luan }}</p>
-                </div>
-              </details>
-            </details>
 
             <!-- kind: narration — lời thầy (fetch async qua fetch_action) -->
             <div v-else-if="sec.kind === 'narration'" class="gd-narr">
@@ -412,11 +470,13 @@
               </div>
             </div>
 
-            <!-- kind: refs — nguồn -->
+            <!-- kind: refs — nguồn (fallback khi mac_dinh_an=false; thường gập ở NHÁNH A) -->
             <ul v-else-if="sec.kind === 'refs'" class="gd-refs">
-              <li v-for="(s, i) in sec.items" :key="i">{{ s }}</li>
+              <li v-for="(s, i) in (sec.tom_tat || sec.items || [])" :key="i">{{ s }}</li>
             </ul>
-          </div>
+            </div><!-- /NHÁNH B -->
+
+          </template>
 
           <!-- disclaimer paradigm cuối (từ meta) -->
           <p v-if="tdRes.display?.meta?.disclaimer" class="gd-para">⚖️ {{ tdRes.display.meta.disclaimer }}</p>
@@ -590,6 +650,11 @@ const tdSections = computed(() => tdRes.value?.display?.sections || []);
 
 function toneLabel(t) {
   return t === "the_manh" ? "✓ thế mạnh" : t === "can_chu_y" ? "⚠ cần chú ý" : "• trung tính";
+}
+// cap_do: KẾT QUẢ lấy từ tom_tat (mức + lộ trình + nguyên tắc, plain — đã strip Hán),
+// fallback sang data cũ nếu backend chưa gửi tom_tat (không vỡ contract).
+function cdt(sec) {
+  return sec?.tom_tat || sec?.data || {};
 }
 function fmtRank(y) {
   if (y == null) return "";
@@ -1365,7 +1430,39 @@ const rendered = computed(() => renderMarkdown(manuscript));
 .gd-qt-muc { margin-left: auto; font-size: 0.72em; color: var(--read-text-faint, #999); }
 .gd-qt-step .gd-mini { margin: 6px 0 0; }
 
-/* ── RENDERER GENERIC theo section.kind (dùng --read-* tokens, dark-mode safe) ── */
+/* ── RENDERER v2: KẾT-QUẢ-TRƯỚC, CĂN-CỨ-ẨN (dùng --read-* tokens, dark-mode safe) ── */
+/* "Căn cứ" CHÌM dưới kết quả — màu phụ, chevron, gập sẵn. KHÔNG tranh tiêu điểm với KẾT QUẢ. */
+.gd-cc { margin-top: 10px; border-top: 1px dashed var(--gd-border); padding-top: 6px; }
+.gd-cc > summary {
+  cursor: pointer; list-style: none; padding: 4px 0;
+  font-size: 0.8em; color: var(--read-text-faint, #999);
+  transition: color .15s;
+}
+.gd-cc > summary::-webkit-details-marker { display: none; }
+.gd-cc > summary::before { content: '▸ '; color: var(--gd-accent-soft); }
+.gd-cc[open] > summary::before { content: '▾ '; }
+.gd-cc > summary:hover { color: var(--gd-accent); }
+.gd-cc-body { padding: 4px 0 2px; }
+.gd-cc-line { margin: 8px 0; padding-left: 8px; border-left: 2px solid var(--gd-border); }
+.gd-cc-line b { color: var(--read-text-faint, #8a7079); font-size: 0.88em; }
+.gd-cc-meta { margin: 3px 0 0; font-size: 0.8em; color: var(--read-text-faint, #999); font-style: italic; }
+
+/* mac_dinh_an: CẢ section là CĂN CỨ — gập đóng sẵn, tiêu đề chìm + '(căn cứ)'. */
+.gd-sec-an { padding: 0; overflow: hidden; }
+.gd-sec-an > summary {
+  cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px;
+  padding: 12px 16px; font-size: 0.92em; color: var(--read-text-faint, #888);
+  transition: color .15s, background .15s;
+}
+.gd-sec-an > summary::-webkit-details-marker { display: none; }
+.gd-sec-an > summary::before { content: '▸'; color: var(--gd-accent-soft); }
+.gd-sec-an[open] > summary::before { content: '▾'; }
+.gd-sec-an > summary:hover { color: var(--gd-accent); background: var(--gd-surface-2); }
+.gd-sec-an-t { font-weight: 600; }
+.gd-sec-an-tag { font-size: 0.78em; font-style: italic; color: var(--gd-accent-soft); }
+.gd-sec-an-body { padding: 0 16px 14px; }
+.gd-sec-an[open] > summary { border-bottom: 1px solid var(--gd-border); margin-bottom: 10px; }
+
 .gd-sec-h { display: flex; align-items: center; gap: 6px; }
 .gd-sec-ic { font-size: 1.05em; line-height: 1; }
 .gd-prose .gd-td-line:last-child, .gd-pairs .gd-td-recon-row:last-child,
