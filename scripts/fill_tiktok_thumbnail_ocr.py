@@ -90,6 +90,19 @@ def image_variants(image_path: Path, work_dir: Path) -> list[Path]:
     title_mask_path = work_dir / f"{image_path.stem}_title_mask.png"
     cv2.imwrite(str(title_mask_path), title_mask)
     variants.append(title_mask_path)
+
+    card_text = image[int(height * 0.43) : int(height * 0.63), int(width * 0.06) : int(width * 0.94)]
+    hsv = cv2.cvtColor(card_text, cv2.COLOR_BGR2HSV)
+    mask_dark = cv2.inRange(hsv, (0, 0, 0), (179, 255, 135))
+    mask_red1 = cv2.inRange(hsv, (0, 45, 30), (15, 255, 230))
+    mask_red2 = cv2.inRange(hsv, (160, 45, 30), (179, 255, 230))
+    card_mask = cv2.bitwise_or(mask_dark, cv2.bitwise_or(mask_red1, mask_red2))
+    card_mask = cv2.morphologyEx(card_mask, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)))
+    card_mask = 255 - card_mask
+    card_mask = cv2.resize(card_mask, None, fx=4, fy=4, interpolation=cv2.INTER_CUBIC)
+    card_mask_path = work_dir / f"{image_path.stem}_card_text_mask.png"
+    cv2.imwrite(str(card_mask_path), card_mask)
+    variants.append(card_mask_path)
     variants.append(threshold_path)
     return variants
 
@@ -107,6 +120,10 @@ def run_tesseract(image_path: Path, psm: str) -> str:
 def clean_ocr_text(text: str) -> str:
     text = re.sub(r"[^\wÀ-ỹ0-9.,:;!?%/\\+()|\- ]+", " ", text, flags=re.UNICODE)
     text = re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"\bd[ée]\b", "dễ", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bngh[ểe]\b", "nghề", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bnao\b", "nào", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bBan\b", "Bạn", text)
     text = re.sub(r"\b(trend|viral|fyp|xuhuong|xuhướng|tracuutuvi)\b", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"\s+", " ", text).strip(" .,:;|-")
     return text
@@ -153,7 +170,7 @@ def score_text(text: str) -> tuple[int, int, int]:
 def score_candidate(variant_name: str, text: str) -> tuple[int, int, int, int]:
     domain_hits, vietnamese, letters = score_text(text)
     title_mask_bonus = 0
-    if "title_mask" in variant_name and 15 <= len(text) <= 260 and vietnamese >= 2:
+    if ("title_mask" in variant_name or "card_text_mask" in variant_name) and 15 <= len(text) <= 260 and vietnamese >= 2:
         title_mask_bonus = 1000
     length_penalty = max(0, len(text) - 350)
     return (title_mask_bonus + domain_hits * 100 - length_penalty, vietnamese, letters, -len(text))
@@ -162,7 +179,8 @@ def score_candidate(variant_name: str, text: str) -> tuple[int, int, int, int]:
 def ocr_image(image_path: Path, work_dir: Path) -> str:
     candidates: list[tuple[str, str]] = []
     for variant in image_variants(image_path, work_dir):
-        for psm in ("6", "11"):
+        psms = ("6", "7", "11") if "card_text_mask" in variant.name else ("6", "11")
+        for psm in psms:
             candidates.append((variant.name, clean_ocr_text(run_tesseract(variant, psm))))
     candidates = [(name, candidate) for name, candidate in candidates if len(candidate) >= 12]
     if not candidates:

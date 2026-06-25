@@ -105,6 +105,32 @@ PHRASE_FIXES = [
     (r"\bLuận sưỡng\b", "Luận sướng"),
     (r"\bkhö qUa\b", "khổ qua"),
     (r"\bPhu The\b", "Phu Thê"),
+    (r"\bnghé\b", "nghề"),
+    (r"\bnghể\b", "nghề"),
+    (r"\bngäy\b", "ngày"),
+    (r"\bBại tỉnh\b", "Bại tinh"),
+    (r"\bquý tử ey F\b", "quý tử"),
+    (r"\bcốtcách\b", "cốt cách"),
+    (r"\btình số\b", "tính số"),
+    (r"\btinh số\b", "tính số"),
+    (r"\bHén\b", "Hèn"),
+    (r"\blận dan\b", "luận đoán"),
+    (r"\bHầu vẫn\b", "Hậu vận"),
+    (r"\bphan\b", "phận"),
+    (r"\bNhãn duyên\b", "Nhân duyên"),
+    (r"\bChính tỉnh\b", "Chính tinh"),
+    (r"\btải chính\b", "tài chính"),
+    (r"\bdé bi ban đởi phản bồi\b", "dễ bị bạn đời phản bội"),
+    (r"\bdé lấy\b", "dễ lấy"),
+    (r"\bgioi kiem tien\b", "giỏi kiếm tiền"),
+    (r"\bGidu lam\b", "giàu lắm"),
+    (r"\bChöng\b", "Chồng"),
+    (r"\bnhan sắc\b", "nhan sắc"),
+    (r"\bNhìn phat\b", "Nhìn phát"),
+    (r"\blay chồng\b", "lấy chồng"),
+    (r"\bsông không tho\b", "sống không thọ"),
+    (r"\blấychồng\b", "lấy chồng"),
+    (r"\bcangdechialy\b", "càng dễ chia ly"),
 ]
 
 BOILERPLATE_PATTERNS = [
@@ -183,8 +209,9 @@ def extract_body(text_path: Path) -> str:
     return body
 
 
-def normalize_text(text: str) -> str:
+def normalize_text(text: str, source: str = "") -> str:
     text = re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"^[Ñï|_\\.,;: -]+", "", text).strip()
     for pattern in BOILERPLATE_PATTERNS:
         text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
     for _ in range(2):
@@ -200,6 +227,11 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"\s+([,.?!:;])", r"\1", text)
     text = re.sub(r"([,.?!:;])([^\s])", r"\1 \2", text)
     text = re.sub(r"\s+", " ", text).strip()
+    if source == "ocr_thumbnail":
+        text = re.sub(r"[|_\\]+", " ", text)
+        text = re.sub(r"\b(?:ey F|mực|ie|la|re 1|x1|lv|z1|A|Í|š|l)\b", " ", text, flags=re.IGNORECASE)
+        text = re.sub(r"^[^A-Za-zÀ-ỹ0-9]+", "", text).strip()
+        text = re.sub(r"\s+", " ", text).strip(" .,:;|-")
     text = re.sub(r"([.!?])\s+", r"\1\n\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
@@ -211,6 +243,8 @@ def compact_text(text: str) -> str:
 
 def has_research_content(text: str, source: str) -> bool:
     compact = compact_text(text)
+    if source == "ocr_thumbnail":
+        return len(compact) >= 8
     if len(compact) < 20:
         return False
     if source == "whisper_local":
@@ -265,7 +299,7 @@ def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
         parts.append("")
         clean_body = ""
         if text_path.exists():
-            clean_body = normalize_text(extract_body(text_path))
+            clean_body = normalize_text(extract_body(text_path), source)
             if has_research_content(clean_body, source):
                 parts.append(clean_body)
             else:
