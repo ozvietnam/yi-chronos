@@ -424,6 +424,17 @@ _CORPUS_TU_VI = (
     "tuvi-toan-thu-lht-zh",
 )
 
+# Corpus Bát Tự / Tử Bình (sách Thiệu Vĩ Hoa, Trần Khang Ninh… đã restore + ingest).
+# Đây là corpus ĐÚNG CHỦ ĐỀ cho thập thần (Thất Sát/Thương Quan…). Text là bản
+# DỊCH tiếng Việt (Hán-Việt), KHÔNG còn Hán gốc trong snippet → không thể cross-
+# confirm bằng Hán. Vì corpus đã on-topic (đã gate qua _corpus_ok loại Tử Vi ra),
+# match Hán-Việt ở đây là TIN CẬY, miễn cross-confirm Hán.
+_CORPUS_BAT_TU = (
+    "du-doan-tu-tru-thieu-vy-hoa", "du-bao-theo-tu-binh",
+    "bat-tu-ha-lac-va-quy-dao-doi-nguoi", "tu-xem-van-menh-theo-tu-tru",
+    "chu-dich-du-doan-cac-vi-du-co-giai-thieu-vi-hoa",
+)
+
 
 def _corpus_ok(corpus: str, loai: str) -> bool:
     """True nếu corpus hợp lệ cho loai term. Sao/cung/hóa Tử Vi → corpus Tử Vi.
@@ -455,13 +466,27 @@ def passages_for(conn, hv: str, han: str, loai_hint: str = "") -> list[dict]:
         queries.append((han, True))
     if hv:
         queries.append((hv, False))
+    # Giới hạn corpus NGAY TRONG SQL theo loai → tránh phí LIMIT cho passage sai
+    # corpus rồi bị _corpus_ok loại sạch (root cause: rowid thấp toàn corpus Tử Vi/
+    # Mai Hoa, đẩy passage Bát Tự ra ngoài LIMIT → thập thần rỗng oan).
+    corpus_in = None
+    if loai_hint in ("thap_than", "ly_thuat_bat_tu"):
+        corpus_in = _CORPUS_BAT_TU
+    elif loai_hint in ("sao", "cung", "hoa"):
+        corpus_in = _CORPUS_TU_VI
+    sql = ("SELECT p.passage_id,p.page_start,p.corpus_id,p.raw_text "
+           "FROM passages_fts f JOIN passages p ON p.passage_id=f.rowid "
+           "WHERE passages_fts MATCH ?")
+    params_extra = ()
+    if corpus_in:
+        sql += " AND p.corpus_id IN (%s)" % ",".join("?" * len(corpus_in))
+        params_extra = tuple(corpus_in)
+    sql += " LIMIT 24"
     seen_ids = set()
+    cand = []  # (rank, dict) — rank 0 = cụm literal xuất hiện trong raw (snippet đắt giá)
     for q, is_han in queries:
         try:
-            rows = cur.execute(
-                "SELECT p.passage_id,p.page_start,p.corpus_id,p.raw_text "
-                "FROM passages_fts f JOIN passages p ON p.passage_id=f.rowid "
-                "WHERE passages_fts MATCH ? LIMIT 6", (q,)).fetchall()
+            rows = cur.execute(sql, (q, *params_extra)).fetchall()
         except sqlite3.OperationalError:
             continue
         for pid, page, corpus, raw in rows:
@@ -475,21 +500,34 @@ def passages_for(conn, hv: str, han: str, loai_hint: str = "") -> list[dict]:
             # Cross-confirm cho match Hán-Việt khi term là token chung (1 âm tiết hoặc
             # thập thần/lý-thuật Bát Tự dễ khớp bừa corpus Mai Hoa/Kinh Dịch).
             # Sao tên riêng ≥2 âm tiết (Hồng Loan, Thiên Tướng…) đủ phân biệt → giữ.
-            if not is_han and _need_cross_confirm(hv, loai_hint) \
+            # NGOẠI LỆ: passage từ corpus Bát Tự (bản dịch tiếng Việt, không còn Hán
+            # gốc) ĐÃ on-topic cho thập thần → miễn cross-confirm Hán (nếu bắt buộc
+            # Hán thì 100% bị loại oan vì snippet thuần Việt).
+            if not is_han and corpus not in _CORPUS_BAT_TU \
+                    and _need_cross_confirm(hv, loai_hint) \
                     and not _han_in(raw, han):
                 continue
             seen_ids.add(pid)
-            snippet = _snippet(raw, han if has_han else hv)
-            out.append({"passage_id": pid, "page": page, "corpus": corpus,
-                        "trich": snippet, "match_q": q, "neo": "han" if is_han else "han_viet"})
-            if len(out) >= 3:
-                return out
-    return out
+            # Căn snippet vào ĐÚNG cụm vừa match (q) — match Hán-Việt trên corpus
+            # Bát Tự (text thuần Việt) thì căn theo Hán-Việt, không theo Hán (Hán
+            # không có trong snippet → snippet rơi về tiêu đề trang vô nghĩa).
+            key = q if not is_han else han
+            # Ưu tiên passage chứa NGUYÊN CỤM (FTS MATCH 'Thương Quan' = AND 2 token,
+            # khớp cả passage không có cụm liền) → đẩy passage có cụm liền lên trước.
+            has_literal = bool(key) and key.lower() in raw.lower()
+            rank = 0 if has_literal else 1
+            cand.append((rank, {"passage_id": pid, "page": page, "corpus": corpus,
+                                "trich": _snippet(raw, key), "match_q": q,
+                                "neo": "han" if is_han else "han_viet"}))
+    cand.sort(key=lambda x: x[0])  # rank 0 trước, stable giữ thứ tự FTS trong cùng rank
+    return [d for _, d in cand[:3]]
 
 
 def _snippet(raw: str, key: str, width: int = 90) -> str:
     raw = raw.strip()
     idx = raw.find(key) if key else -1
+    if idx < 0 and key:  # thử không phân biệt hoa-thường (corpus dịch dùng 'thất sát')
+        idx = raw.lower().find(key.lower())
     if idx < 0:
         return raw[:width].replace("\n", " ").strip()
     start = max(0, idx - 20)

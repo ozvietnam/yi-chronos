@@ -43,7 +43,7 @@
         "thiện tâm/lòng tốt"
       ],
       "thuan_viet": "Người đầu óc sáng, phản ứng nhanh nhạy linh hoạt, và bụng dạ tử tế hay thương người.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3047,3089",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3047,3089,496",
       "can_review": false
     },
     "Thái Dương": {
@@ -58,7 +58,7 @@
         "sáng suốt/minh bạch"
       ],
       "thuan_viet": "Người như mặt trời toả sáng cho mọi người, có sức ảnh hưởng và uy quyền, được nhiều người biết tiếng, sống minh bạch và nhìn việc thấu suốt.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,434,443",
       "can_review": false
     },
     "Vũ Khúc": {
@@ -72,7 +72,7 @@
         "quyết đoán/dứt khoát"
       ],
       "thuan_viet": "Người cứng cỏi, làm việc thực tế bằng nội lực bản thân, tính tình mạnh mẽ và quyết định việc gì là làm dứt khoát.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3094,493,501",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3094,493,533",
       "can_review": false
     },
     "Thiên Đồng": {
@@ -86,7 +86,7 @@
         "đầy đặn/phúc hậu bên ngoài"
       ],
       "thuan_viet": "Người có phúc, sống thong dong an nhàn không bon chen, vẻ ngoài đầy đặn phúc hậu.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,494,498",
       "can_review": false
     },
     "Liêm Trinh": {
@@ -114,7 +114,7 @@
         "cát tinh ổn định/vững vàng lành"
       ],
       "thuan_viet": "Người được nể trọng, tính tình ôn hoà điềm đạm, và là chỗ dựa vững vàng đem lại sự yên ổn lành mạnh cho xung quanh.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3031,3089",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3031,3089,425",
       "can_review": false
     },
     "Thái Âm": {
@@ -129,7 +129,7 @@
         "văn chương/yêu cái đẹp chữ nghĩa"
       ],
       "thuan_viet": "Người dịu dàng mát mẻ như ánh trăng, khéo lo tiền của tích góp, tính nết nhẹ nhàng và yêu thích chữ nghĩa văn chương.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,435,444",
       "can_review": false
     },
     "Tham Lang": {
@@ -144,7 +144,7 @@
         "phong lưu/ham vui hưởng thụ"
       ],
       "thuan_viet": "Người có sức hút, ham muốn nhiều thứ và khát khao lớn, đào hoa được người khác phái để ý, lại thích ăn chơi hưởng thụ vui vẻ.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:428,437,438",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:438,459,480",
       "can_review": false
     },
     "Cự Môn": {
@@ -171,7 +171,7 @@
         "bảo vệ/che chở người khác"
       ],
       "thuan_viet": "Người đáng tin cậy được giao việc và con dấu, có vị thế đứng ra cầm trịch điều hành, và luôn che chở bảo vệ cho người bên cạnh.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,3100,450",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,3100,496",
       "can_review": false
     },
     "Thiên Lương": {
@@ -185,7 +185,7 @@
         "nhân từ/hiền lành thương người"
       ],
       "thuan_viet": "Người có phúc dày, được sống lâu khoẻ mạnh, tính tình hiền hậu nhân từ hay che chở giúp đỡ kẻ khác.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,446,451",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3089,498,532",
       "can_review": false
     },
     "Thất Sát": {
@@ -203,7 +203,7 @@
         "với nữ là sao người chồng/sức ép phối ngẫu (tầng product)"
       ],
       "thuan_viet": "Loại sức ép mạnh dữ dằn đè thẳng lên bản thân, như uy của một viên tướng hay một đối thủ ngang ngửa: hợp với binh nghiệp, công an, làm ăn mạo hiểm và vai trò chỉ huy; nhưng buông lỏng thì hoá tai hoạ, kiện tụng, sinh kẻ thù. Phải biết ghìm lại hoặc chuyển hoá nó thì mới thành người quý hiển. Với người nữ, đây cũng là hình ảnh người chồng và áp lực từ bạn đời.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8397",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8397 | passages:3126,3157,3159",
       "can_review": false
     },
     "Phá Quân": {
@@ -233,7 +233,7 @@
         "đa nghi/hay ngờ vực"
       ],
       "thuan_viet": "Người nặng về ái tình và ham vui đa tình, bụng dạ có phần ngầm hiểm khó lường, lại hay ngờ vực người khác.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:2820,3011,1869",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:2820,3011,1873",
       "can_review": false
     },
     "Hàm Trì": {
@@ -249,7 +249,7 @@
         "nghiêng nước nghiêng thành/đẹp mê đắm"
       ],
       "thuan_viet": "Mang khí không lành thuộc nước, dễ dẫn tới lối sống tình cảm buông thả, nhưng vẻ ngoài yêu kiều duyên dáng đẹp tới mức mê hoặc lòng người.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.296 | passages:483,798,917",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.296 | passages:2816,483,798",
       "can_review": false
     },
     "Mộc Dục": {
@@ -263,7 +263,7 @@
         "cần chăm sóc/còn yếu cần nâng đỡ"
       ],
       "thuan_viet": "Như lúc vừa tắm gội gột rửa để khởi đầu, đang ở giai đoạn còn non trẻ nên cần được chăm sóc nâng đỡ.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:3067,2816,2944",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:3067,2816,3016",
       "can_review": false
     },
     "Đại Hao": {
@@ -277,7 +277,7 @@
         "chết chóc hoặc mất mát lớn"
       ],
       "thuan_viet": "Mang khí xấu báo hiệu tai ương hao tổn, dễ kéo theo mất mát lớn hoặc chuyện đau buồn tang tóc.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.54",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.54 | passages:519,1064,644",
       "can_review": false
     },
     "Hồng Loan": {
@@ -304,7 +304,7 @@
         "đối cung với Hồng Loan/cặp đôi với sao duyên tình"
       ],
       "thuan_viet": "Báo hiệu chuyện vui mừng (cưới hỏi, sinh nở), thường đi thành cặp với điềm duyên tình ở phía đối diện.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:1944,1945,1946",
       "can_review": false
     },
     "Xương Khúc": {
@@ -317,7 +317,7 @@
         "chủ văn học/giỏi chữ nghĩa"
       ],
       "thuan_viet": "Cặp dấu hiệu của người giỏi chữ nghĩa, có khiếu văn học và tài hoa.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:3093,448,483",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:3093,548,448",
       "can_review": false
     },
     "Hóa Lộc": {
@@ -386,7 +386,7 @@
         "đụng độ/va chạm tranh chấp"
       ],
       "thuan_viet": "Mang khí xấu cứng, dễ dính thương tích dao kéo hoặc kiện cáo, hay gặp cản trở và va chạm tranh chấp với người.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3097",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3097,484,498",
       "can_review": false
     },
     "Đà La": {
@@ -400,7 +400,7 @@
         "gian trá/dối trá dây dưa"
       ],
       "thuan_viet": "Mang khí xấu âm ỉ, dễ vướng chuyện lao lý kéo dài, và liên quan tới gian dối lằng nhằng dây dưa.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:3098",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:3098,484,498",
       "can_review": false
     },
     "Hỏa Tinh": {
@@ -429,7 +429,7 @@
         "xung đột/va chạm"
       ],
       "thuan_viet": "Mang khí lửa ngầm, tính nóng dễ bùng, dễ gặp tai nạn bất ngờ và va chạm xung đột.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3098",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:3098,426,479",
       "can_review": false
     },
     "Địa Không": {
@@ -443,7 +443,7 @@
         "kỵ hợp với Kiếp/gặp sao phá tán càng xấu"
       ],
       "thuan_viet": "Báo hiệu sự trống rỗng mất mát và dễ thất bại; càng nặng khi đi cùng sao phá tán kia.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.51",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.51 | passages:440,512,615",
       "can_review": false
     },
     "Địa Kiếp": {
@@ -458,7 +458,7 @@
         "kiếp nạn/tai ách lớn"
       ],
       "thuan_viet": "Mang khí xấu báo tai hoạ, dễ mất mát của cải và gặp tai ách lớn trong đời.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:440,450,512",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:732,738,881",
       "can_review": false
     },
     "Đào Hoa": {
@@ -471,7 +471,7 @@
         "dâm dật/say mê chuyện tình cảm"
       ],
       "thuan_viet": "Dấu hiệu của duyên tình đậm với người khác phái, dễ say mê và đắm trong chuyện tình cảm.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16 | passages:428,437,458",
       "can_review": false
     },
     "Thiên Hỷ": {
@@ -484,7 +484,7 @@
         "đối cung với Hồng Loan/cặp đôi với sao duyên tình"
       ],
       "thuan_viet": "Báo hiệu chuyện vui mừng (cưới hỏi, sinh nở), thường đi thành cặp với điềm duyên tình ở phía đối diện.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.87 | passages:1944,1945,1946",
       "can_review": false
     },
     "Thiên Dao": {
@@ -499,7 +499,7 @@
         "đa nghi/hay ngờ vực"
       ],
       "thuan_viet": "Người nặng về ái tình và ham vui đa tình, bụng dạ có phần ngầm hiểm khó lường, lại hay ngờ vực người khác.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:1869,1873,2713",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:1873,2726,2739",
       "can_review": false
     },
     "Cô Thần": {
@@ -512,7 +512,7 @@
         "khó kết hôn hoặc hôn nhân xa cách"
       ],
       "thuan_viet": "Dấu hiệu cô độc nghiêng về phía đàn ông: khó lấy vợ, hoặc dù có vợ thì vợ chồng cũng dễ xa cách.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8433",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8433 | passages:3111,3114,3115",
       "can_review": false
     },
     "Quả Tú": {
@@ -525,7 +525,7 @@
         "khó có chồng hoặc sống một mình"
       ],
       "thuan_viet": "Dấu hiệu cô độc nghiêng về phía đàn bà: khó lấy chồng, hoặc dễ phải sống lẻ bóng một mình.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8434",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8434 | passages:3111,3115,3116",
       "can_review": false
     },
     "Tiểu Hao": {
@@ -538,7 +538,7 @@
         "hao tiền/tốn kém vặt"
       ],
       "thuan_viet": "Dấu hiệu hao tiền tốn kém lặt vặt theo năm.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.85 | passages:1706",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.85 | passages:1706,2820,2856",
       "can_review": false
     },
     "Hỏa Linh": {
@@ -551,7 +551,7 @@
         "đều là sát tinh/đều mang khí xấu"
       ],
       "thuan_viet": "Cặp khí lửa, cả hai đều là dấu hiệu xấu nóng gấp dễ sinh biến.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:482,505,526",
       "can_review": false
     },
     "Không Kiếp": {
@@ -565,7 +565,7 @@
         "chủ phá tán/làm hao tan của cải"
       ],
       "thuan_viet": "Cặp khí xấu, cùng nhau làm hao tán mất mát của cải.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:440,512,531",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:512,531,1057",
       "can_review": false
     },
     "Thiên Không": {
@@ -579,7 +579,7 @@
         "kỵ gặp ở mệnh thân/đóng tại bản thân thì xấu"
       ],
       "thuan_viet": "Báo hiệu sự trống rỗng và hao hụt tiền của; đóng ngay vào bản thân thì càng bất lợi.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.43",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.43 | passages:732,738,741",
       "can_review": false
     },
     "Thiên Mã": {
@@ -593,7 +593,7 @@
         "xuất ngoại/ra nước ngoài"
       ],
       "thuan_viet": "Dấu hiệu của người hay di chuyển, đi lại xa xôi, dễ ra nước ngoài hoặc làm ăn xa nhà.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.16 | passages:702,714,742",
       "can_review": false
     },
     "Văn Xương": {
@@ -607,7 +607,7 @@
         "thông minh"
       ],
       "thuan_viet": "Người giỏi chữ nghĩa, thuận đường thi cử, đầu óc thông minh sáng láng.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:443,448,457",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:443,464,483",
       "can_review": false
     },
     "Văn Khúc": {
@@ -621,7 +621,7 @@
         "tài năng/có khiếu"
       ],
       "thuan_viet": "Người có khiếu văn chương viết lách, giỏi nghệ thuật và nhiều tài lẻ.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:444,448,465",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:444,465,483",
       "can_review": false
     },
     "Tả Phù": {
@@ -635,7 +635,7 @@
         "cùng người đứng đầu tạo nên quyền lực"
       ],
       "thuan_viet": "Người trợ giúp đắc lực đứng bên cạnh phò tá, góp sức cùng người chủ tạo nên thế lực.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:541,425,427",
       "can_review": false
     },
     "Hữu Bật": {
@@ -649,7 +649,7 @@
         "kết hợp với người đứng đầu"
       ],
       "thuan_viet": "Người trợ thủ đắc lực, sát cánh giúp sức cho người chủ giống như một cánh tay phải.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:425,427,436",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:541,794,425",
       "can_review": false
     },
     "Tả Phụ": {
@@ -663,7 +663,7 @@
         "cùng người đứng đầu tạo nên quyền lực"
       ],
       "thuan_viet": "Người trợ giúp đắc lực đứng bên cạnh phò tá, góp sức cùng người chủ tạo nên thế lực.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:541,425,427",
       "can_review": false
     },
     "Thiên Khôi": {
@@ -677,7 +677,7 @@
         "được tôn trọng/có uy"
       ],
       "thuan_viet": "Dấu hiệu có quý nhân là người trên ra tay giúp đỡ, và bản thân được người ta nể trọng.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:430,452,527",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:527,701,794",
       "can_review": false
     },
     "Thiên Việt": {
@@ -690,7 +690,7 @@
         "tương tự Thiên Khôi/cùng loại quý nhân"
       ],
       "thuan_viet": "Dấu hiệu có quý nhân nâng đỡ, cùng một loại với điềm gặp người tốt giúp sức.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:430,452,527",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:701,877,878",
       "can_review": false
     },
     "Khôi Việt": {
@@ -718,7 +718,7 @@
         "nghiêm khắc/cứng rắn kỷ luật"
       ],
       "thuan_viet": "Dấu hiệu liên quan tới luật lệ và sự trừng phạt, con người nghiêm khắc cứng rắn giữ kỷ luật.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:516,672,942",
       "can_review": false
     },
     "Thiên Khốc": {
@@ -732,7 +732,7 @@
         "buồn thương/khóc lóc đau xót"
       ],
       "thuan_viet": "Mang khí kim, báo hiệu chuyện buồn tang tóc trắc trở, và nỗi buồn thương đau xót.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:1860,1869,1878",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.20 | passages:1860,1894,1898",
       "can_review": false
     },
     "Thiên Hư": {
@@ -745,7 +745,7 @@
         "cùng Thiên Khốc gây hoạ cho mệnh chủ/đi đôi với sao buồn làm hại bản thân"
       ],
       "thuan_viet": "Mang khí xấu, đi đôi với điềm buồn thương để gây hoạ rắc rối cho chính bản thân người đó.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.44 | passages:1860,1865,1876",
       "can_review": false
     },
     "Âm Sát": {
@@ -758,7 +758,7 @@
         "tai hoạ ngầm/rắc rối ẩn không thấy trước"
       ],
       "thuan_viet": "Dấu hiệu tai hoạ ngấm ngầm, rắc rối ẩn nấp khó thấy trước nên hay bị bất ngờ.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.41",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.41 | passages:907,1452,1724",
       "can_review": false
     },
     "Tam Thai": {
@@ -772,7 +772,7 @@
         "mẫu mực/đàng hoàng nề nếp"
       ],
       "thuan_viet": "Dấu hiệu phụ trợ cho thấy con người mô phạm, sống mẫu mực nề nếp đàng hoàng.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.18 | passages:875,878,521",
       "can_review": false
     },
     "Bát Tọa": {
@@ -785,7 +785,7 @@
         "quyền bính/có quyền vị"
       ],
       "thuan_viet": "Dấu hiệu có con cái quý hiển và bản thân nắm được quyền vị.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.25 | passages:719,741,752",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.25 | passages:719,875,878",
       "can_review": false
     },
     "Lộc Tồn": {
@@ -799,7 +799,7 @@
         "bền vững/giữ được lâu dài"
       ],
       "thuan_viet": "Dấu hiệu của cải tiền bạc tới và giữ được bền vững lâu dài.",
-      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:445,462,466",
+      "nguon": "concept_dict:Q1 Phú Thái Vi tr.17 | passages:445,466,485",
       "can_review": false
     },
     "Bách Quan Triều Củng": {
@@ -831,7 +831,7 @@
         "sợ Thất Sát hỗn tạp"
       ],
       "thuan_viet": "Sức ép chính đáng giữ người vào khuôn phép: hợp với chức vụ danh chính ngôn thuận, danh tiếng tốt và nền nếp kỷ luật; với nữ đại diện người chồng. Mặt trái là cảm giác gò bó áp lực. Dễ bị hỏng khi gặp tài năng phá cách lấn át, hoặc khi lẫn lộn với loại quyền lực dữ.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8398",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8398 | passages:3157,3111,3112",
       "can_review": false
     },
     "Thiên Quan": {
@@ -848,7 +848,7 @@
         "cần được kiềm chế (chế) hoặc chuyển hoá (hoá) thì thành quý hiển"
       ],
       "thuan_viet": "Quyền lực dữ dằn và áp lực mạnh, như sức của một viên tướng hay một đối thủ ngang ngửa: hợp với binh nghiệp, công an, làm ăn mạo hiểm và vai trò chỉ huy; nhưng nếu buông lỏng thì hoá tai hoạ, kiện tụng, sinh kẻ thù. Phải biết kiềm chế hoặc chuyển hoá nó thì mới thành người quý hiển.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8397",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8397 | passages:3111,3115,3116",
       "can_review": false
     },
     "Quan Sát": {
@@ -864,7 +864,7 @@
         "Thất Sát = áp lực mạnh, uy quyền"
       ],
       "thuan_viet": "Gộp chung hai loại sức ép từ bên ngoài đè lên bản thân: một bên là ràng buộc danh chính ngôn thuận có danh phận, một bên là áp lực mạnh đầy uy quyền; với người nữ đây chính là hình ảnh người chồng, người bạn đời.",
-      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397",
+      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397 | passages:3119,3126,3156",
       "can_review": false
     },
     "Thương Quan": {
@@ -881,7 +881,7 @@
         "cần được khuôn lại (phối Ấn) thì tài năng có khuôn"
       ],
       "thuan_viet": "Năng lực tuôn ra mạnh vượt mọi khuôn phép: làm nên nghệ sĩ độc đáo, người khởi nghiệp đột phá, tài ăn nói hơn người; nhưng buông thả thì hoá kiêu ngạo, vô lễ, và với nữ thì lấn át khắc chế người chồng. Cần có cái khuôn ghìm lại thì tài năng mới thành nề nếp.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8394",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8394 | passages:3157,3158,3159",
       "can_review": false
     },
     "Thực Thần": {
@@ -899,7 +899,7 @@
         "kỵ bị Thiên Ấn cướp mất nguồn lộc"
       ],
       "thuan_viet": "Sức sáng tạo êm đềm biết nuôi dưỡng và tận hưởng: hợp với nghệ thuật, ẩm thực, dạy học, chuyện con cái và phúc lộc dồi dào; mặt trái là dễ lười và ham hưởng thụ. Sợ nhất bị loại khí lệch cướp mất nguồn nuôi sống này.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8393",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8393 | passages:3156,3157,3158",
       "can_review": false
     },
     "食伤": {
@@ -930,7 +930,7 @@
         "nữ mệnh khắc sao chồng"
       ],
       "thuan_viet": "Gộp chung phần năng lực do bản thân toả ra ngoài: óc sáng tạo và khả năng biểu đạt; với người nữ, phần khí này có thể lấn át sao người chồng.",
-      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Thực Thần concept_id=8393 + Thương Quan concept_id=8394",
+      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Thực Thần concept_id=8393 + Thương Quan concept_id=8394 | passages:3157,3190,3199",
       "can_review": false
     },
     "Chính Tài": {
@@ -948,7 +948,7 @@
         "khi bản thân vượng + tài vượng thì đại phú"
       ],
       "thuan_viet": "Của cải chính đáng do mình làm chủ một cách đều đặn: tiền lương ổn định, biết cần kiệm tích cóp, gia đình êm ấm; với nam đại diện người vợ chính thức. Mặt trái là cứng nhắc, ngại rủi ro. Khi bản thân đủ mạnh mà phần của cải này cũng mạnh thì giàu lớn.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8396",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8396 | passages:3157,3158,3160",
       "can_review": false
     },
     "Thiên Tài": {
@@ -965,7 +965,7 @@
         "tiêu cực: phá tài bất ngờ, đào hoa loạn"
       ],
       "thuan_viet": "Của cải tới bất ngờ và linh động: hợp làm ăn nhiều ngành, môi giới, người có sức hút, dễ trúng món lớn; nhưng cũng dễ mất của đột ngột và đào hoa rối ren ngoài luồng.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8395",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8395 | passages:3157,3158,3159",
       "can_review": false
     },
     "财": {
@@ -997,7 +997,7 @@
         "kỵ bị của cải làm hỏng (Tài đoạt Ấn)"
       ],
       "thuan_viet": "Nguồn nuôi dưỡng và che chở chính thống: hình ảnh mẹ ruột, sự học hành bài bản, giấy tờ chứng nhận bảo vệ mình; đem lại trí tuệ, tiếng thơm học thuật, lòng nhân hậu hay làm việc thiện. Mặt trái là dễ ỷ lại, lười tự suy nghĩ. Sợ bị ham tiền của làm hỏng mất chỗ dựa này.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8400",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8400 | passages:3157,3159,3165",
       "can_review": false
     },
     "Thiên Ấn": {
@@ -1014,7 +1014,7 @@
         "tiêu cực: Kiêu Thần đoạt Thực Thần → mất phúc"
       ],
       "thuan_viet": "Nguồn nuôi dưỡng và che chở theo lối lệch, không chính thống: hình ảnh quý nhân giúp ngầm, người mẹ kế, đầu óc khác người; hợp với thiền, tôn giáo, nghiên cứu lập dị và công nghệ. Mặt trái là nó hay cướp mất nguồn phúc lộc êm đềm của bản thân.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8399",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8399 | passages:3157,3159,3176",
       "can_review": false
     },
     "Ấn Tinh": {
@@ -1029,7 +1029,7 @@
         "Ấn chế Thương Quan (bảo vệ sao chồng ở nữ mệnh)"
       ],
       "thuan_viet": "Gộp chung nguồn nuôi dưỡng và chỗ dựa cho bản thân: sự che chở, học hành và nơi nương tựa; loại khí này còn ghìm bớt phần tài năng phá cách (Thương Quan), nên với người nữ nó gián tiếp bảo vệ sao người chồng.",
-      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Ấn concept_id=8400 + Thiên Ấn concept_id=8399",
+      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Ấn concept_id=8400 + Thiên Ấn concept_id=8399 | passages:3157,3186,3190",
       "can_review": false
     },
     "ấn tinh": {
@@ -1044,7 +1044,7 @@
         "Ấn chế Thương Quan (bảo vệ sao chồng ở nữ mệnh)"
       ],
       "thuan_viet": "Gộp chung nguồn nuôi dưỡng và chỗ dựa cho bản thân: sự che chở, học hành và nơi nương tựa; loại khí này còn ghìm bớt phần tài năng phá cách (Thương Quan), nên với người nữ nó gián tiếp bảo vệ sao người chồng.",
-      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Ấn concept_id=8400 + Thiên Ấn concept_id=8399",
+      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Ấn concept_id=8400 + Thiên Ấn concept_id=8399 | passages:3157,3186,3190",
       "can_review": false
     },
     "Tỷ Kiên": {
@@ -1061,7 +1061,7 @@
         "tiêu cực: cứng đầu, tranh chấp, hao của"
       ],
       "thuan_viet": "Hình ảnh người ngang vai giống hệt mình — anh em, bạn đồng nghiệp, đối thủ cạnh tranh ngang ngửa: đem lại sự hỗ trợ, tính độc lập và ý chí; mặt trái là cứng đầu, hay tranh chấp và tốn kém của cải vì chia sẻ.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8391",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8391 | passages:4394,4395,4396",
       "can_review": false
     },
     "Kiếp Tài": {
@@ -1077,7 +1077,7 @@
         "ở Trụ Tháng thành cách đặc biệt (Dương Nhận)"
       ],
       "thuan_viet": "Hình ảnh người giống mình nhưng tới giành phần — đối thủ ngầm hay kẻ chực cướp của: cho mình sự gan dạ và ra tay nhanh, nhưng cũng làm hao của, dễ bị lừa và mất mát một cách vô hình. Nếu nằm ở trụ tháng thì thành một thế cục riêng đặc biệt.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8392",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8392 | passages:3157,3158,3176",
       "can_review": false
     },
     "Tỷ Kiếp": {
@@ -1091,7 +1091,7 @@
         "ở nam mệnh khắc của cải nên là kẻ khắc vợ"
       ],
       "thuan_viet": "Gộp chung những người ngang vai giống mình — anh em, bạn bè, đối thủ cạnh tranh; với nam, nhóm này tranh mất phần của cải nên cũng là dấu hiệu khắc vợ.",
-      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Tỷ Kiên concept_id=8391 + Kiếp Tài concept_id=8392",
+      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Tỷ Kiên concept_id=8391 + Kiếp Tài concept_id=8392 | passages:3200,3217,3271",
       "can_review": false
     },
     "Chính Quan Thất Sát": {
@@ -1105,7 +1105,7 @@
         "nữ mệnh là sao phối ngẫu (chồng)"
       ],
       "thuan_viet": "Gộp chung hai loại sức ép từ bên ngoài đè lên bản thân; với người nữ, đây là hình ảnh người bạn đời, người chồng.",
-      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397",
+      "nguon": "compose:concept_index tu_binh_ba_tu (Thiệu Vĩ Hoa) — Chính Quan concept_id=8398 + Thất Sát concept_id=8397 | passages:3156,3157,3159",
       "can_review": false
     },
     "官杀": {
@@ -1173,7 +1173,7 @@
         "tầng định thời nhỏ hơn năm"
       ],
       "thuan_viet": "Việc xem riêng cho một tháng cụ thể, là mức chia thời gian nhỏ hơn cả năm.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:3202",
       "can_review": false
     },
     "hãm": {
@@ -1374,7 +1374,7 @@
         "đọc theo cụm, không phán độc lập"
       ],
       "thuan_viet": "Những dấu hiệu lẻ tẻ phụ thêm, phải đọc gộp theo cụm chứ không kết luận riêng từng cái.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:3570,3571,3622",
       "can_review": false
     },
     "không diệu": {
@@ -1490,7 +1490,7 @@
         "quyết liệt"
       ],
       "thuan_viet": "Tính khí cứng cỏi mạnh mẽ, làm gì cũng quyết liệt.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:4471,3131,3351",
       "can_review": false
     },
     "sát cương": {
@@ -1623,7 +1623,7 @@
         "đọc lại theo bối cảnh, không kết án"
       ],
       "thuan_viet": "Thế cục bị sách xưa xếp vào mức thấp, nhưng phải đọc lại theo hoàn cảnh thực chứ không vội kết tội.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:3143,3183,3329",
       "can_review": false
     },
     "hạ cách": {
@@ -1673,7 +1673,7 @@
         "hai sao cùng vận hành/đóng một cung/đi chung một ô"
       ],
       "thuan_viet": "Tình huống hai dấu hiệu cùng vận hành và đóng chung trong một ô.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:4290",
       "can_review": false
     },
     "hội chiếu": {
@@ -1827,7 +1827,7 @@
         "tựa rào chắn"
       ],
       "thuan_viet": "Một trục mang khí 'chặn' như tấm rào, làm cho dấu hiệu trong ô bị cắt đứt hoặc bị đảo ngược tác dụng.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:3113,3115,3118",
       "can_review": false
     },
     "Tuần Triệt": {
@@ -1840,7 +1840,7 @@
         "đều làm gián đoạn hoặc biến chất lực sao án ngữ"
       ],
       "thuan_viet": "Hai trục — một 'trống' một 'chặn' — đều làm cho dấu hiệu trong ô bị gián đoạn hoặc biến đổi khác đi.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:4475",
       "can_review": false
     },
     "cung Phu Thê": {
@@ -1918,7 +1918,7 @@
         "dùng để phối hợp với các sao/làm gốc đối chiếu"
       ],
       "thuan_viet": "Cái gốc đại diện cho chính bản thân (lấy từ ngày sinh), dùng làm mốc để đối chiếu với mọi yếu tố khác.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8437",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8437 | passages:3155,3157,3158",
       "can_review": false
     },
     "thân chủ": {
@@ -1957,7 +1957,7 @@
         "đủ lực gánh được của cải và áp lực (Tài/Quan)"
       ],
       "thuan_viet": "Trạng thái bản thân đủ mạnh, gánh nổi cả của cải lẫn áp lực trách nhiệm đè lên.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8438",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8438 | passages:3175,3176,3177",
       "can_review": false
     },
     "thân nhược": {
@@ -1970,7 +1970,7 @@
         "cần được nguồn nuôi dưỡng và người ngang vai trợ lực (Ấn/Tỷ)"
       ],
       "thuan_viet": "Trạng thái bản thân còn yếu, cần được nuôi dưỡng và có người ngang vai trợ sức.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8438",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8438 | passages:3175,3177,3178",
       "can_review": false
     },
     "Quan nhược": {
@@ -2021,7 +2021,7 @@
         "bảo vệ sao chồng"
       ],
       "thuan_viet": "Chỗ dựa che chở đứng ra ghìm bớt năng lực ngang ngạnh, nhờ đó giữ gìn được cho người chồng.",
-      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình | passages:3156,3157,3158",
       "can_review": false
     },
     "chế hóa": {
@@ -2034,7 +2034,7 @@
         "hoá = sinh chuyển thành khí khác qua trung gian/chuyển hoá qua khâu trung gian"
       ],
       "thuan_viet": "Hai cách xử lý khí mạnh: 'ghìm' là chặn thẳng khi nó đang vượng, còn 'chuyển' là mượn một khâu trung gian để biến nó thành khí khác thay vì đối đầu trực diện.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8387 · tr.22",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8387 · tr.22 | passages:3111,3127,3128",
       "can_review": false
     },
     "thông quan": {
@@ -2585,7 +2585,7 @@
         "mọi phân tích thập thần/dụng thần/cách cục đều quy chiếu về nó"
       ],
       "thuan_viet": "Là chữ đứng ở cột ngày sinh, dùng làm đại diện cho chính bản thân người được xem; mọi thứ khác trong lá số đều được đọc trong tương quan với nó.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8437",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8437 | passages:3155,3157,3158",
       "can_review": false
     },
     "dụng thần": {
@@ -2601,7 +2601,7 @@
         "có thêm tầng cân bằng nóng-lạnh (điều hậu)"
       ],
       "thuan_viet": "Là yếu tố cốt lõi giữ cân bằng cho lá số, ví như vị thuốc chữa bệnh: nếu bản thân quá mạnh thì cần thứ làm bớt đi, nếu bản thân quá yếu thì cần thứ nâng đỡ thêm. Chặng đời nào gặp được yếu tố này thì hanh thông, gặp thứ ngược lại thì trắc trở; ngoài ra còn xét thêm việc cân bằng nóng-lạnh của lá số.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8412",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8412 | passages:3111,3173,3175",
       "can_review": false
     },
     "ngũ hành sinh": {
@@ -2614,7 +2614,7 @@
         "sinh = nuôi dưỡng, tiếp khí"
       ],
       "thuan_viet": "Quy luật năm hành nuôi nhau theo vòng: Mộc nuôi Hỏa, Hỏa nuôi Thổ, Thổ nuôi Kim, Kim nuôi Thủy, Thủy lại nuôi Mộc; 'sinh' ở đây nghĩa là tiếp sức, nuôi dưỡng cho nhau.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8383 · tr.21",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8383 · tr.21 | passages:3126,3127,3128",
       "can_review": false
     },
     "ngũ hành khắc": {
@@ -2627,7 +2627,7 @@
         "khắc = chế ngự, kìm hãm"
       ],
       "thuan_viet": "Quy luật năm hành kìm nhau theo lối cách quãng: Mộc kìm Thổ, Thổ kìm Thủy, Thủy kìm Hỏa, Hỏa kìm Kim, Kim kìm Mộc; 'khắc' ở đây nghĩa là chế ngự, kìm hãm bớt nhau.",
-      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8384 · tr.22",
+      "nguon": "wiki concept_index:tu_binh_ba_tu (Thiệu Vĩ Hoa) concept_id=8384 · tr.22 | passages:3111,3123,3126",
       "can_review": false
     }
   }

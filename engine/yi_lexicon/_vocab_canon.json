@@ -119,6 +119,14 @@
           "trich": "…cát tuy mỹ tất dâm. 天机 庙子午 旺辰酉 陷丑未 Thiên ky miếu tử ngọ vượng thần dậu hãm sửu vị 机梁会合善谈兵居戌亦为美论 孟子迁移戌宫, 有机梁. K…",
           "match_q": "天机",
           "neo": "han"
+        },
+        {
+          "passage_id": 496,
+          "page": 19,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tham Lang Thiên Cơ thị miếu lạc, cố đắc Thiên Tướng thủy đáo Dần, vi chi vượng tướng.",
+          "match_q": "Thiên Cơ",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -156,6 +164,22 @@
           "trich": "…ao mệnh thị dã. 女命紫微太阳星早遇贤夫信可凭 女命紫微在寅午申宫吉, 贵美旺夫益子. 陷地平常, 惟子酉及巳亥加四杀, 美玉瑕玷日后不美. Nữ mệnh tử vi thái dương tinh tả…",
           "match_q": "太阳",
           "neo": "han"
+        },
+        {
+          "passage_id": 434,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Dương cư Ngọ, vị chi nhật lệ trung thiên, hữu chuyên quyền chi quý, địch quốc chi phú",
+          "match_q": "Thái Dương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 443,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Dương hội Văn Xương ư Quan Lộc, Hoàng điện triều ban, phú quý toàn mỹ",
+          "match_q": "Thái Dương",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -203,10 +227,10 @@
           "neo": "han_viet"
         },
         {
-          "passage_id": 501,
-          "page": 19,
+          "passage_id": 533,
+          "page": 22,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Vũ cư Thân nhi hiếu sinh, Kình Dương tại Dậu nhi dụng sát, gia dĩ Cự Môn, Lộc Tồn, Đà La n",
+          "trich": "Tham Lang Vũ Khúc Liêm Trinh phùng, thiểu thụ bần nhi hậu hưởng phúc",
           "match_q": "Vũ Khúc",
           "neo": "han_viet"
         }
@@ -246,6 +270,22 @@
           "trich": "…ình kỵ bình thường. 天同 庙巳亥 旺子申 陷午 Thiên đồng miếu tị hợi vượng tử thân hãm ngọ 天同会吉寿元长 Thiên đồng hội cát thọ…",
           "match_q": "天同",
           "neo": "han"
+        },
+        {
+          "passage_id": 494,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thiên Đồng như Đà, Kỵ, phì mãn nhi mục diểu",
+          "match_q": "Thiên Đồng",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 498,
+          "page": 19,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…a dĩ Thiên Phủ thổ, Thiên Đồng kim dĩ si",
+          "match_q": "Thiên Đồng",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -344,6 +384,14 @@
           "trich": "…ếm nhật hậu bất mỹ. 天府 庙子丑未寅辰戌 旺午酉 地卯巳申亥 无陷 Thiên phủ miếu tử sửu vị dần thần tuất vượng ngọ dậu địa mão tị th…",
           "match_q": "天府",
           "neo": "han"
+        },
+        {
+          "passage_id": 425,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tử Vi, Thiên Phủ, toàn y Phụ, Bật chi công",
+          "match_q": "Thiên Phủ",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -381,6 +429,22 @@
           "trich": "…úc phú quý khả kỳ 紫微太阴杀曜逢一生曹吏逞英雄 Tử vi thái âm sát diệu phùng nhất sinh tào lại sính anh hùng 紫微武曲破军会羊陀欺公祸乱 只宜…",
           "match_q": "太阴",
           "neo": "han"
+        },
+        {
+          "passage_id": 435,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Âm cư Tý, hào viết thủy trừng quế ngạc, đắc thanh yếu chi chức, trung gián chi tài",
+          "match_q": "Thái Âm",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 444,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Âm hội Văn Khúc ư thê cung, Hàm cung chiết quế, văn chương lệnh thịnh",
+          "match_q": "Thái Âm",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -412,26 +476,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 428,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Đào hoa phạm chủ vi chí dâm",
-          "match_q": "Tham Lang",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 437,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Tham cư Hợi, Tý, danh vi phiếm thủy đào hoa",
-          "match_q": "Tham Lang",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 438,
           "page": 16,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Hình ngộ Tham Lang, hào viết phong lưu tà trượng",
+          "match_q": "Tham Lang",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 459,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Hình ngộ Tham lang, hào viết phong lưu tà trượng",
+          "match_q": "Tham Lang",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 480,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tham Lang vi thiện ác chi tinh, nhập miếu tất ứng trường tủng, xuất viên tất định ngoan hi…",
           "match_q": "Tham Lang",
           "neo": "han_viet"
         }
@@ -484,7 +548,7 @@
           "passage_id": 497,
           "page": 19,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Cự Môn thủy đắc Mão, vi chi sơ thông, mộc nãi thổ tài bồi, gia dĩ thủy chi giao quán, tam",
+          "trich": "Cự Môn thủy đắc Mão, vi chi sơ thông, mộc nãi thổ tài bồi, gia dĩ thủy chi giao quán, tam…",
           "match_q": "Cự Môn",
           "neo": "han_viet"
         }
@@ -534,10 +598,10 @@
           "neo": "han"
         },
         {
-          "passage_id": 450,
-          "page": 17,
+          "passage_id": 496,
+          "page": 19,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Hình tù giáp Ấn, hình trượng duy tư",
+          "trich": "…hị miếu lạc, cố đắc Thiên Tướng thủy đáo Dần, vi chi vượng tướng.",
           "match_q": "Thiên Tướng",
           "neo": "han_viet"
         }
@@ -579,18 +643,18 @@
           "neo": "han"
         },
         {
-          "passage_id": 446,
-          "page": 16,
+          "passage_id": 498,
+          "page": 19,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Tài Ấm tọa ư Di di, thế thương cao cổ",
+          "trich": "…ự Môn thủy đáo Sửu, Thiên Lương thổ đáo Mùi, Đà La kim đáo ư tứ mộ chi sở, câu hoặc đắc Kình Dương kim tương h…",
           "match_q": "Thiên Lương",
           "neo": "han_viet"
         },
         {
-          "passage_id": 451,
-          "page": 17,
+          "passage_id": 532,
+          "page": 22,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Thiện Ấn triều cương, nhân từ chi trưởng",
+          "trich": "Thiên Cơ Thiên Lương Kình Dương hội, tảo hữu hình nhi vãn kiến cô",
           "match_q": "Thiên Lương",
           "neo": "han_viet"
         }
@@ -616,7 +680,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3126,
+          "page": 20,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Tân. Nó chủ về Sát, Thất Sát. Người có Thất Sát sẽ bị phạt khi gặp Thái Bạch. *   **Quan sát giờ:** Căn cứ vào…",
+          "match_q": "Thất Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…khắc tôi Dương là **Thất Sát**.  **4. Quan Hệ Khách (Thê Tài)** *   Tôi Âm khắc Can Dương, tôi Dương khắc Can…",
+          "match_q": "Thất Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3159,
+          "page": 53,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…trên can năm lộ ra Thất Sát.  Can tháng Ất Mộc đối với Đinh Hỏa mà nói, là Ất Mộc sinh tôi Đinh Hỏa. Can âm s…",
+          "match_q": "Thất Sát",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -715,10 +804,10 @@
           "neo": "han"
         },
         {
-          "passage_id": 1869,
-          "page": 276,
+          "passage_id": 1873,
+          "page": 278,
           "corpus": "tuvidauso-zh-q1q3q4",
-          "trich": "Cửu Hung tinh nhập miếu lệ: Hình, Dị, Nhận, Trượng, Hư, Khốc, Mao, Diêu. Hung tinh cư miếu",
+          "trich": "Thiên Diêu chiếu Mệnh đa dâm dục (trượng phu tảo niên tham sắc dục, cái nhân mệnh nội phạm…",
           "match_q": "Thiên Diêu",
           "neo": "han_viet"
         }
@@ -752,6 +841,14 @@
       },
       "passages_trich": [
         {
+          "passage_id": 2816,
+          "page": 105,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…iết thiên diêu, tức hàm trì dã. 咸池一殺找兼真, 逢水妖燒主亂淫. Hàm trì nhất sát hoa kiêm chân, phùng thủy yêu thiêu chủ loạ…",
+          "match_q": "Hàm Trì",
+          "neo": "han_viet"
+        },
+        {
           "passage_id": 483,
           "page": 18,
           "corpus": "tuvidauso-zh-q1",
@@ -764,14 +861,6 @@
           "page": 59,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Thiên Lương, Nguyệt Diệu nữ mệnh bần. Tỵ, Hợi an Mệnh, Thiên Lương trị chi; Dần, Thìn an M",
-          "match_q": "Hàm Trì",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 917,
-          "page": 74,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Sửu Mùi Cự Cơ vi trị phúc, thất hãm thử nguyệt phúc tu khinh.",
           "match_q": "Hàm Trì",
           "neo": "han_viet"
         }
@@ -816,15 +905,15 @@
           "passage_id": 2816,
           "page": 105,
           "corpus": "tuvi-dao-tang-zh",
-          "trich": "…thiêu chủ loạn dâm. 沐浴進神徒見貴, 心教傾國與傾城. Mộc dục tiến thần đồ kiến quý, tâm giáo khuynh quốc dữ khuynh thành.",
+          "trich": "…. 沐浴進神徒見貴, 心教傾國與傾城. Mộc dục tiến thần đồ kiến quý, tâm giáo khuynh quốc dữ khuynh thành.",
           "match_q": "Mộc Dục",
           "neo": "han_viet"
         },
         {
-          "passage_id": 2944,
-          "page": 233,
-          "corpus": "tuvi-dao-tang-zh",
-          "trich": "彖曰 Thoán viết 雖然天庫號孤神, 吉曜相逢時有名. Tuy nhiên thiên khố hào cô thần, cát diệu tương phùng thì",
+          "passage_id": 3016,
+          "page": 3,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…沐浴歌诀 An trường sinh mộc dục ca quyết 安红鸾天喜诀 An hồng loan thiên hỉ quyết 安丧门白虎吊客官符四飞星诀 An tang môn bạch hổ điếu…",
           "match_q": "Mộc Dục",
           "neo": "han_viet"
         }
@@ -856,7 +945,32 @@
         "school": "tu_vi",
         "first_seen_page": 54
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 519,
+          "page": 21,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Đại hao hội liêm trinh ư quan lộc, gia cư tù đồ",
+          "match_q": "Đại Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1064,
+          "page": 21,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Đại hao hội liêm trinh ư quan lộc, gia cư tù đồ",
+          "match_q": "Đại Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 644,
+          "page": 40,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Như đơn phùng tứ sát, Hào, Sứ, Kiếp, Không, chủ bôn ba đái tật. Tăng đạo lưu di hoàn tục,",
+          "match_q": "Đại Hao",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -905,7 +1019,7 @@
           "passage_id": 1880,
           "page": 278,
           "corpus": "tuvidauso-zh-q1q3q4",
-          "trich": "Thiên Quán (vận hạn thân mệnh lâm thử, tất hoạch hoành tài. Tử Vi Hồng Loan Thiên Thọ nhập",
+          "trich": "…ch hoành tài. Tử Vi Hồng Loan Thiên Thọ nhập miếu, vượng lâm tài bạch câu phú. Thiên Quý ngộ Quán tinh cự phú,…",
           "match_q": "Hồng Loan",
           "neo": "han_viet"
         }
@@ -937,7 +1051,32 @@
         "school": "tu_vi",
         "first_seen_page": 87
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 1944,
+          "page": 297,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Hư (hỷ ngũ Ngọ Mùi Dậu Hợi chủ vinh), Thìn cung, Sửu Ngọ Ngọc Đường vi nghi.",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1945,
+          "page": 297,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Quý (hỷ Dần Thìn Hợi Mão Mùi), Quý tại Dần, Thìn Hợi Mão kham cư.",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1946,
+          "page": 297,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Ấn (hỷ Tý Mão Thìn), Mão thụ nghi hà, Tý Mão Thìn vị, cát vương quyền quý, thân mệnh",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -975,18 +1114,18 @@
           "neo": "han"
         },
         {
-          "passage_id": 448,
-          "page": 17,
+          "passage_id": 548,
+          "page": 25,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
+          "trich": "Thiên Đồng dữ Xương Khúc, củ cung chủ hoa vinh.",
           "match_q": "Xương Khúc",
           "neo": "han_viet"
         },
         {
-          "passage_id": 483,
-          "page": 18,
+          "passage_id": 448,
+          "page": 17,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Tuấn nhã Văn Xương, mi thanh mục tú; lỗi lạc Văn Khúc, khẩu thiệt tiện nịnh; tại miếu định",
+          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
           "match_q": "Xương Khúc",
           "neo": "han_viet"
         }
@@ -1147,6 +1286,22 @@
           "trich": "…tham lang nội chú. 擎羊 庙辰戌丑未 陷子午卯酉 Kình dương miếu thần tuất sửu vị hãm tử ngọ mão dậu 擎羊入庙富贵声扬 加吉万论. Kình dươ…",
           "match_q": "擎羊",
           "neo": "han"
+        },
+        {
+          "passage_id": 484,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Kình Dương, Đà La, hình xú mạo thô, hữu kiểu trá thể thái",
+          "match_q": "Kình Dương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 498,
+          "page": 19,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…hi sở, câu hoặc đắc Kình Dương kim tương hội, dĩ thổ vi kim mộ, tắc kim thông bất ngưng, gia dĩ Thiên Phủ thổ,…",
+          "match_q": "Kình Dương",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1184,6 +1339,22 @@
           "trich": "…uế hạn trọng phùng. 陀罗 庙辰戌丑未 陷寅申巳亥 Đà la miếu thần tuất sửu vị hãm dần thân tị hợi 陀罗巳亥寅申非夭折而刑伤 余试得多离祖出外成家者亦吉,…",
           "match_q": "陀罗",
           "neo": "han"
+        },
+        {
+          "passage_id": 484,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Kình Dương, Đà La, hình xú mạo thô, hữu kiểu trá thể thái",
+          "match_q": "Đà La",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 498,
+          "page": 19,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…Lương thổ đáo Mùi, Đà La kim đáo ư tứ mộ chi sở, câu hoặc đắc Kình Dương kim tương hội, dĩ thổ vi kim mộ, tắc…",
+          "match_q": "Đà La",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1274,6 +1445,22 @@
           "trich": "…铃夹命为败局 如命安寅申, 火星在丑, 铃星在卯. 吉多尚可, 惟夹忌. 辰凶岁限巡游者此地亦吉 Hỏa linh giáp mệnh vi bại cục như mệnh an dần thân, hỏa tinh…",
           "match_q": "铃星",
           "neo": "han"
+        },
+        {
+          "passage_id": 426,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thất Sát, Phá Quân, chuyên y Dương, Linh chi khước",
+          "match_q": "Linh Tinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 479,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Dương, Linh hợp ư mệnh cung, ngộ Bạch Hổ tu đương hình thích",
+          "match_q": "Linh Tinh",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1303,7 +1490,32 @@
         "school": "tu_vi",
         "first_seen_page": 51
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 440,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phá Quân ám diệu đồng hương, thủy trung chung trủng",
+          "match_q": "Địa Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 512,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phúc đức ngộ không kiếp, bôn tẩu vô lực;",
+          "match_q": "Địa Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 615,
+          "page": 34,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Hãm địa gia sát xung phá, xảo nghệ tàn tật, bất thủ tổ nghiệp",
+          "match_q": "Địa Không",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1333,26 +1545,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 440,
-          "page": 16,
+          "passage_id": 732,
+          "page": 52,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Phá Quân ám diệu đồng hương, thủy trung chung trủng",
+          "trich": "…ế Lưu Niên phục hội Địa Kiếp, Thiên Không, chủ bác tạp Tai hối, phát bất trụ tài chi luận.",
           "match_q": "Địa Kiếp",
           "neo": "han_viet"
         },
         {
-          "passage_id": 450,
-          "page": 17,
+          "passage_id": 738,
+          "page": 52,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Hình tù giáp Ấn, hình trượng duy tư",
+          "trich": "Vận ngộ địa kiếp, thiên không, Nguyễn Tịch hữu bần cùng chi khổ. Nhị hạn thập nhị cung trung đãn n…",
           "match_q": "Địa Kiếp",
           "neo": "han_viet"
         },
         {
-          "passage_id": 512,
-          "page": 20,
+          "passage_id": 881,
+          "page": 71,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Phúc đức ngộ không kiếp, bôn tẩu vô lực;",
+          "trich": "…Quân, Thiên Không, Địa Kiếp, Kỵ tinh, tam phương Tứ chính thủ chiếu củng xung, chư hung tịnh phạm hãm địa, ch…",
           "match_q": "Địa Kiếp",
           "neo": "han_viet"
         }
@@ -1384,7 +1596,32 @@
         "school": "tu_vi",
         "first_seen_page": 16
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 428,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Đào hoa phạm chủ vi chí dâm",
+          "match_q": "Đào Hoa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 437,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…danh vi phiếm thủy đào hoa",
+          "match_q": "Đào Hoa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 458,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…danh vi phiếm thủy đào hoa",
+          "match_q": "Đào Hoa",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1412,7 +1649,32 @@
         "school": "tu_vi",
         "first_seen_page": 87
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 1944,
+          "page": 297,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Hư (hỷ ngũ Ngọ Mùi Dậu Hợi chủ vinh), Thìn cung, Sửu Ngọ Ngọc Đường vi nghi.",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1945,
+          "page": 297,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Quý (hỷ Dần Thìn Hợi Mão Mùi), Quý tại Dần, Thìn Hợi Mão kham cư.",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1946,
+          "page": 297,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Ấn (hỷ Tý Mão Thìn), Mão thụ nghi hà, Tý Mão Thìn vị, cát vương quyền quý, thân mệnh",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1442,14 +1704,6 @@
       },
       "passages_trich": [
         {
-          "passage_id": 1869,
-          "page": 276,
-          "corpus": "tuvidauso-zh-q1q3q4",
-          "trich": "Cửu Hung tinh nhập miếu lệ: Hình, Dị, Nhận, Trượng, Hư, Khốc, Mao, Diêu. Hung tinh cư miếu",
-          "match_q": "Thiên Diêu",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 1873,
           "page": 278,
           "corpus": "tuvidauso-zh-q1q3q4",
@@ -1458,10 +1712,18 @@
           "neo": "han_viet"
         },
         {
-          "passage_id": 2713,
-          "page": 2,
+          "passage_id": 2726,
+          "page": 15,
           "corpus": "tuvi-dao-tang-zh",
-          "trich": "論次序 Luận thứ tự 一定時刻, 二起八字, 三立格局, Nhất định thì khắc, nhị khởi bát tự, tam lập cách cục, 四",
+          "trich": "…ao đầu, thiên nhận, thiên diêu tại sửu thuận hành, thiên hình tại dậu thuận hành, thiên khốc hợp thái tuế.",
+          "match_q": "Thiên Diêu",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 2739,
+          "page": 28,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…i vô định. 天姚昭一命多淫慾 Thiên diêu chiêu nhất mệnh đa dâm dục 丈夫早年貪色慾, 蓋因命內犯天姚. Trượng phu tảo niên tham sắc dục,…",
           "match_q": "Thiên Diêu",
           "neo": "han_viet"
         }
@@ -1487,7 +1749,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## LỜI NÓI ĐẦU  Chu dịch nội dung rất quảng bác nhưng cũng rất tinh sâu, song không phải l",
+          "match_q": "Cô Thần",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3114,
+          "page": 8,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Nhưng đây là khái niệm \"Trời\" có lịch sử. Sự ra đời của văn hóa nhà Chu giữa giao thời Ân",
+          "match_q": "Cô Thần",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3115,
+          "page": 9,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Trước hết phải hiểu rõ tính chất của **Kim**, **Mộc**, **Thủy**, **Hỏa**, **Thổ** mà người",
+          "match_q": "Cô Thần",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1509,7 +1796,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## LỜI NÓI ĐẦU  Chu dịch nội dung rất quảng bác nhưng cũng rất tinh sâu, song không phải l",
+          "match_q": "Quả Tú",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3115,
+          "page": 9,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Trước hết phải hiểu rõ tính chất của **Kim**, **Mộc**, **Thủy**, **Hỏa**, **Thổ** mà người",
+          "match_q": "Quả Tú",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3116,
+          "page": 10,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Con người thông qua hiểu rõ âm dương và phân biệt ngũ hành để có thể hiểu được chí trời, đ",
+          "match_q": "Quả Tú",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1545,6 +1857,22 @@
           "trich": "Dần niên Thái Tuế tịnh tiểu hạn đáo Dần cung, bất nhập miếu, hóa hung.",
           "match_q": "Tiểu Hao",
           "neo": "han_viet"
+        },
+        {
+          "passage_id": 2820,
+          "page": 109,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "歌曰 Ca viết 一氣混元, 五行未見. Nhất khí hỗn nguyên, ngũ hành vị kiến. 三才肇分, 陰陽始變. Tam tài triệu ph",
+          "match_q": "Tiểu Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 2856,
+          "page": 145,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "彖曰 Thoán viết 天刃之星是七傷, 併沖歲限定傷亡. Thiên nhận chi tinh thị thất thương, tinh trùng tuế hạn đị",
+          "match_q": "Tiểu Hao",
+          "neo": "han_viet"
         }
       ],
       "flag": null
@@ -1574,7 +1902,32 @@
         "school": "tu_vi",
         "first_seen_page": 20
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 482,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…Lộ bạo hổ phùng hà, Hỏa Linh tự Dự Nhượng thôn than trang Á",
+          "match_q": "Hỏa Linh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 505,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Âm, Hỏa Linh đồng vị, phản thành thập ác.",
+          "match_q": "Hỏa Linh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 526,
+          "page": 22,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…, diệc hữu Dương Đà Hỏa Linh; tiểu nhân mệnh nội, khởi vô Khoa Lộc Quyền tinh.",
+          "match_q": "Hỏa Linh",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1604,14 +1957,6 @@
       },
       "passages_trich": [
         {
-          "passage_id": 440,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Phá Quân ám diệu đồng hương, thủy trung chung trủng",
-          "match_q": "Không Kiếp",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 512,
           "page": 20,
           "corpus": "tuvidauso-zh-q1",
@@ -1624,6 +1969,14 @@
           "page": 22,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Không kiếp Dương Linh, tác cửu lưu chi thuật sĩ",
+          "match_q": "Không Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1057,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Phúc đức ngộ không kiếp, bôn tẩu vô lực;",
           "match_q": "Không Kiếp",
           "neo": "han_viet"
         }
@@ -1655,7 +2008,32 @@
         "school": "tu_vi",
         "first_seen_page": 43
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 732,
+          "page": 52,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…phục hội Địa Kiếp, Thiên Không, chủ bác tạp Tai hối, phát bất trụ tài chi luận.",
+          "match_q": "Thiên Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 738,
+          "page": 52,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Vận ngộ địa kiếp, thiên không, Nguyễn Tịch hữu bần cùng chi khổ. Nhị hạn thập nhị cung trung đãn ngộ kiếp, k…",
+          "match_q": "Thiên Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 741,
+          "page": 52,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Sinh phùng thiên không, do như bán thiên chiết sí. Mệnh cung trực thiên không tọa thủ, tác bình thườn…",
+          "match_q": "Thiên Không",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1683,7 +2061,32 @@
         "school": "tu_vi",
         "first_seen_page": 16
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 702,
+          "page": 48,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…ệnh, trị Thiên Lộc, Thiên Mã tọa thủ mệnh cung, canh tam đài cát thủ chiếu, y thử đoạn, gia sát bất thị.",
+          "match_q": "Thiên Mã",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 714,
+          "page": 50,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thiên Lương, Thiên Mã hãm, phiêu đãng vô nghi.",
+          "match_q": "Thiên Mã",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 742,
+          "page": 53,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…ng trọng Thiên Lộc, Thiên Mã. Lộc Tồn hựu phùng Hóa Lộc, cập Thiên Mã đồng thủ Mệnh cung thị dã.",
+          "match_q": "Thiên Mã",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1721,18 +2124,18 @@
           "neo": "han_viet"
         },
         {
-          "passage_id": 448,
+          "passage_id": 464,
           "page": 17,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
+          "trich": "Thái Dương hội Văn Xương ư quan lộc, hoàng điện triêu ban, phú quý toàn mỹ",
           "match_q": "Văn Xương",
           "neo": "han_viet"
         },
         {
-          "passage_id": 457,
-          "page": 17,
+          "passage_id": 483,
+          "page": 18,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Văn, Háo cư Dần, Mão, vị chi chúng thủy triều đông",
+          "trich": "Tuấn nhã Văn Xương, mi thanh mục tú; lỗi lạc Văn Khúc, khẩu thiệt tiện nịnh; tại miếu định sinh dị…",
           "match_q": "Văn Xương",
           "neo": "han_viet"
         }
@@ -1774,18 +2177,18 @@
           "neo": "han_viet"
         },
         {
-          "passage_id": 448,
-          "page": 17,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
-          "match_q": "Văn Khúc",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 465,
           "page": 17,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Thái Âm hội Văn Khúc ư thê cung, thường cung chiết quế, văn chương lệnh thịnh",
+          "match_q": "Văn Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 483,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…anh mục tú; lỗi lạc Văn Khúc, khẩu thiệt tiện nịnh; tại miếu định sinh dị chí, thất hãm tất hữu ban ngân",
           "match_q": "Văn Khúc",
           "neo": "han_viet"
         }
@@ -1817,7 +2220,32 @@
         "school": "tu_vi",
         "first_seen_page": 17
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 541,
+          "page": 23,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Vô Tả Phụ Hữu Bật đồng hành, tắc vi cô quân, tuy mỹ ngọc bất túc..",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 425,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tử Vi, Thiên Phủ, toàn y Phụ, Bật chi công",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 427,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phụ, Bật giáp đế vi thượng phẩm",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1847,26 +2275,26 @@
       },
       "passages_trich": [
         {
+          "passage_id": 541,
+          "page": 23,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Vô Tả Phụ Hữu Bật đồng hành, tắc vi cô quân, tuy mỹ ngọc bất túc..",
+          "match_q": "Hữu Bật",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 794,
+          "page": 59,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…n Khôi vi phúc thọ, Hữu Bật, Thiên Tướng phúc tương lâm. Tứ tinh chư cung đắc địa, như thân Mệnh trị thử tọa t…",
+          "match_q": "Hữu Bật",
+          "neo": "han_viet"
+        },
+        {
           "passage_id": 425,
           "page": 16,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Tử Vi, Thiên Phủ, toàn y Phụ, Bật chi công",
-          "match_q": "Hữu Bật",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 427,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Phụ, Bật giáp đế vi thượng phẩm",
-          "match_q": "Hữu Bật",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 436,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Tử Vi, Phụ, Bật đồng cung, nhất hô bách nặc, cư thượng phẩm",
           "match_q": "Hữu Bật",
           "neo": "han_viet"
         }
@@ -1898,7 +2326,32 @@
         "school": "tu_vi",
         "first_seen_page": 17
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 541,
+          "page": 23,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Vô Tả Phụ Hữu Bật đồng hành, tắc vi cô quân, tuy mỹ ngọc bất túc..",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 425,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tử Vi, Thiên Phủ, toàn y Phụ, Bật chi công",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 427,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phụ, Bật giáp đế vi thượng phẩm",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -1928,26 +2381,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 430,
-          "page": 16,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Khôi, Việt đồng hành, vị cư đài phụ",
-          "match_q": "Thiên Khôi",
-          "neo": "han_viet"
-        },
-        {
-          "passage_id": 452,
-          "page": 17,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Quý nhân quý hương, phùng giả phú quý",
-          "match_q": "Thiên Khôi",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 527,
           "page": 22,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Văn Xương Văn Khúc Thiên Khôi tú, bất độc thi thư khả khả nhân.",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 701,
+          "page": 48,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…tọa việt, đối cung Thiên Khôi, thị vị tọa quý hướng quý, canh hợp cát hóa, kỳ quý tất nhiên hĩ.",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 794,
+          "page": 59,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tả Phụ, Thiên Khôi vi phúc thọ, Hữu Bật, Thiên Tướng phúc tương lâm. Tứ tinh chư cung đắc địa, như…",
           "match_q": "Thiên Khôi",
           "neo": "han_viet"
         }
@@ -1981,26 +2434,26 @@
       },
       "passages_trich": [
         {
-          "passage_id": 430,
-          "page": 16,
+          "passage_id": 701,
+          "page": 48,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Khôi, Việt đồng hành, vị cư đài phụ",
+          "trich": "…nh tọa kỵ, đối cung Thiên Việt; thân mệnh tọa việt, đối cung Thiên Khôi, thị vị tọa quý hướng quý, canh hợp cá…",
           "match_q": "Thiên Việt",
           "neo": "han_viet"
         },
         {
-          "passage_id": 452,
-          "page": 17,
+          "passage_id": 877,
+          "page": 70,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Quý nhân quý hương, phùng giả phú quý",
+          "trich": "…ữu Bật, Thiên Khôi, Thiên Việt tọa Mệnh vượng cung, hựu đắc tam phương tứ chính, Khoa, Quyền, Lộc cung, chủ vi…",
           "match_q": "Thiên Việt",
           "neo": "han_viet"
         },
         {
-          "passage_id": 527,
-          "page": 22,
+          "passage_id": 878,
+          "page": 70,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Văn Xương Văn Khúc Thiên Khôi tú, bất độc thi thư khả khả nhân.",
+          "trich": "…ộc, cập Thiên Khôi, Thiên Việt tịnh cung, chủ vi vũ chức.",
           "match_q": "Thiên Việt",
           "neo": "han_viet"
         }
@@ -2085,7 +2538,32 @@
         "school": "tu_vi",
         "first_seen_page": 17
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 516,
+          "page": 21,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thiên hình ngộ tham, tất chủ phong lưu hình trượng",
+          "match_q": "Thiên Hình",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 672,
+          "page": 44,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…. Tam bất tử hồ hào Thiên Hình, vi tăng vi đạo thị cô thân. Thiên",
+          "match_q": "Thiên Hình",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 942,
+          "page": 76,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thiên Hình, Liêm Trinh đồng lâm thân mệnh, chủ vũ dũng chi nhân.",
+          "match_q": "Thiên Hình",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2123,18 +2601,18 @@
           "neo": "han_viet"
         },
         {
-          "passage_id": 1869,
-          "page": 276,
+          "passage_id": 1894,
+          "page": 284,
           "corpus": "tuvidauso-zh-q1q3q4",
-          "trich": "Cửu Hung tinh nhập miếu lệ: Hình, Dị, Nhận, Trượng, Hư, Khốc, Mao, Diêu. Hung tinh cư miếu",
+          "trich": "…túc đạo. Tất nhiên thiên khốc cánh lâm xung, đồ tử thương vong hung tự điếu.",
           "match_q": "Thiên Khốc",
           "neo": "han_viet"
         },
         {
-          "passage_id": 1878,
-          "page": 278,
+          "passage_id": 1898,
+          "page": 285,
           "corpus": "tuvidauso-zh-q1q3q4",
-          "trich": "Khốc tinh lâm, khốc thân đình (thanh sam tài đáo thủ, quan quỷ cánh thân tùy.)",
+          "trich": "…nh kiến chi mao đầu thiên khốc đồng cung, chủ hữu phá tướng, kiến quý đại cát.",
           "match_q": "Thiên Khốc",
           "neo": "han_viet"
         }
@@ -2166,7 +2644,32 @@
         "school": "tu_vi",
         "first_seen_page": 44
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 1860,
+          "page": 274,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "…thân mệnh, cánh dữ Thiên Hư đồng vị, hỉ tinh hựu thả vô lực, kỳ nhân sinh hạ bất xuất tam ngũ nhật nhi tử.",
+          "match_q": "Thiên Hư",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1865,
+          "page": 275,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Nhận Thiên Hư cư Mão thượng, vi mệnh tọa phú môn cách, phàm vi hung bất hung giả, giai hữu cát…",
+          "match_q": "Thiên Hư",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1876,
+          "page": 278,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Hư tác sự tất vô thành (kinh vân: tất chủ hư hoa nhân dã. Tác sự như nghịch đĩnh thư…",
+          "match_q": "Thiên Hư",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2194,7 +2697,32 @@
         "school": "tu_vi",
         "first_seen_page": 41
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 907,
+          "page": 74,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thân cung Trinh Cự Âm Sát mỹ, Dậu Tuất Hợi thượng Thái Âm đình.",
+          "match_q": "Âm Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1452,
+          "page": 74,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thân cung Trinh Cự Âm Sát mỹ, Dậu Tuất Hợi thượng Thái Âm đình.",
+          "match_q": "Âm Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1724,
+          "page": 179,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Tử Vi, Thái Âm sát diệu phùng, nhất sinh tào lại sính anh hùng.",
+          "match_q": "Âm Sát",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2222,7 +2750,32 @@
         "school": "tu_vi",
         "first_seen_page": 18
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 875,
+          "page": 70,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…Vũ Khúc, Phá Quân, Tam Thai, Bát Tọa, Tả Phụ, Hữu Bật tam hợp cung chiếu, chủ nhân cực thông minh.",
+          "match_q": "Tam Thai",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 878,
+          "page": 70,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…vượng cung hựu đắc Tam Thai, Bát Tọa, gia Hóa Quyền, Lộc, cập Thiên Khôi, Thiên Việt tịnh cung, chủ vi vũ chứ…",
+          "match_q": "Tam Thai",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 521,
+          "page": 22,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Nhân chi thân mệnh, nhược trị Lộc Tồn đồng cung, Nhật Nguyệt tam hợp tương chiếu, quý bất",
+          "match_q": "Tam Thai",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2255,23 +2808,23 @@
           "passage_id": 719,
           "page": 50,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Mộ phùng Tả, Hữu, tôn cư bát tọa chi quý.",
+          "trich": "…ùng Tả, Hữu, tôn cư bát tọa chi quý.",
           "match_q": "Bát Tọa",
           "neo": "han_viet"
         },
         {
-          "passage_id": 741,
-          "page": 52,
+          "passage_id": 875,
+          "page": 70,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Sinh phùng thiên không, do như bán thiên chiết sí. Mệnh cung trực thiên không tọa thủ, tác",
+          "trich": "…Phá Quân, Tam Thai, Bát Tọa, Tả Phụ, Hữu Bật tam hợp cung chiếu, chủ nhân cực thông minh.",
           "match_q": "Bát Tọa",
           "neo": "han_viet"
         },
         {
-          "passage_id": 752,
-          "page": 54,
+          "passage_id": 878,
+          "page": 70,
           "corpus": "tuvidauso-zh-q1",
-          "trich": "Kim lí phùng không, bất phiêu lưu tức chủ tật khổ. Như mệnh cung bất kiến chánh tinh, đơn",
+          "trich": "…g hựu đắc Tam Thai, Bát Tọa, gia Hóa Quyền, Lộc, cập Thiên Khôi, Thiên Việt tịnh cung, chủ vi vũ chức.",
           "match_q": "Bát Tọa",
           "neo": "han_viet"
         }
@@ -2313,18 +2866,18 @@
           "neo": "han_viet"
         },
         {
-          "passage_id": 462,
-          "page": 17,
-          "corpus": "tuvidauso-zh-q1",
-          "trich": "Đế tọa kim xa, tắc nhật kim dư phủng chất",
-          "match_q": "Lộc Tồn",
-          "neo": "han_viet"
-        },
-        {
           "passage_id": 466,
           "page": 17,
           "corpus": "tuvidauso-zh-q1",
           "trich": "Lộc Tồn thủ ư điền tài, đôi kim tích ngọc",
+          "match_q": "Lộc Tồn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 485,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "…uân hòa ái, nãi thị Lộc Tồn chi tình",
           "match_q": "Lộc Tồn",
           "neo": "han_viet"
         }
@@ -2390,7 +2943,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ng khắc tôi Âm là **Chính Quan**; can âm khắc tôi Âm, can dương khắc tôi Dương là **Thất Sát**.  **4. Quan Hệ…",
+          "match_q": "Chính Quan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## LỜI NÓI ĐẦU  Chu dịch nội dung rất quảng bác nhưng cũng rất tinh sâu, song không phải l",
+          "match_q": "Chính Quan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3112,
+          "page": 6,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Trong giao lưu dự đoán mấy năm qua, tôi thấy rất nhiều độc giả cứ thấy sách là mua, đọc nh",
+          "match_q": "Chính Quan",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2412,7 +2990,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## LỜI NÓI ĐẦU  Chu dịch nội dung rất quảng bác nhưng cũng rất tinh sâu, song không phải l",
+          "match_q": "Thiên Quan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3115,
+          "page": 9,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Trước hết phải hiểu rõ tính chất của **Kim**, **Mộc**, **Thủy**, **Hỏa**, **Thổ** mà người",
+          "match_q": "Thiên Quan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3116,
+          "page": 10,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Con người thông qua hiểu rõ âm dương và phân biệt ngũ hành để có thể hiểu được chí trời, đ",
+          "match_q": "Thiên Quan",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2427,7 +3030,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3119,
+          "page": 13,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…để nghiên cứu, chỉ quan sát; mô phỏng...    ---",
+          "match_q": "Quan Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3126,
+          "page": 20,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…i ý như sau:  *   **Quan sát sự vận động của mặt trăng, mặt trời:** Dựa vào sự thuận nghịch của **Mộc tính**.…",
+          "match_q": "Quan Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3156,
+          "page": 50,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…o ra của cải.  **3. Quan Sát (Cái khác tôi):** Tôi bị khống chế, ràng buộc, nên có tên là quan sát. Nhà nước p…",
+          "match_q": "Quan Sát",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2449,7 +3077,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ng sinh Can Âm là **Thương Quan**; tôi Âm sinh Can Âm, tôi Dương sinh Can Dương là **Thực Thần**.  **3. Quan H…",
+          "match_q": "Thương Quan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…c thần chế sát**, **thương quan hợp sát**, **thương quan (thực thần) mang ấn**..., đó thường là một trong nhữn…",
+          "match_q": "Thương Quan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3159,
+          "page": 53,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…n Quý của năm lộ ra Thương Quan.  Can tháng Giáp Mộc đối với Canh Kim mà nói, là tôi Canh Kim khắc Giáp Mộc. T…",
+          "match_q": "Thương Quan",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2471,7 +3124,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3156,
+          "page": 50,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…a vào cha mẹ.  **2. Thực Thần (Cái tôi sinh ra):** Côn trùng ăn hoa quả làm tổn thương cây cối, còn con người…",
+          "match_q": "Thực Thần",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…sinh Can Dương là **Thực Thần**.  **3. Quan Hệ Khắc (Quan Sát)** *   Can Âm khắc tôi Dương, can Dương khắc tôi…",
+          "match_q": "Thực Thần",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ài**, gặp Bính là **thực thần**... những cái khác đều suy theo cách tương tự.  ## II. Thiên Nguyên  Các can ch…",
+          "match_q": "Thực Thần",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2501,7 +3179,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…inh, Thực Thần Tôi (Thực Thương) *   Đồng tính: **Thực Thần** *   Dị tính: **Thương Quan**    ---",
+          "match_q": "Thực Thương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3190,
+          "page": 84,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…uan Sát, làm xì hơi thực thương, áp chế Kiêu Thần, làm hại Chính Ấn. Nhật Can vượng mà **Quan Sát** nhược thì…",
+          "match_q": "Thực Thương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3199,
+          "page": 93,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…gặp được quan sát, thực thương, tài tinh; để giảm bớt sự hao tán, xì hơi. Không có quan tinh thì ít con cái.…",
+          "match_q": "Thực Thương",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2523,7 +3226,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ng khắc Can Âm là **Chính Tài**; tôi Âm khắc Can Âm, tôi Dương khắc Can Dương là **Thiên Tài**.  **5. Quan Hệ…",
+          "match_q": "Chính Tài",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ên tài *   Dị tính: chính tài  Cách tra mười thần của thiên can như sau: ví dụ nhật chủ là Giáp, các can khác…",
+          "match_q": "Chính Tài",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3160,
+          "page": 54,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…trên can giờ lộ ra chính tài.  ## Ngũ hợp của Thiên Can  **Giáp** hợp với **Kỷ**, tức hợp với người hay sự vi…",
+          "match_q": "Chính Tài",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2545,7 +3273,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…khắc Can Dương là **Thiên Tài**.  **5. Quan Hệ Ngang (Anh Em)** *   Can Âm gặp tôi Dương, can Dương gặp tôi Âm…",
+          "match_q": "Thiên Tài",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…h**: *   Đồng tính: thiên tài *   Dị tính: chính tài  Cách tra mười thần của thiên can như sau: ví dụ nhật chủ…",
+          "match_q": "Thiên Tài",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3159,
+          "page": 53,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…rên can tháng lộ ra Thiên Tài.  Can giờ Canh Kim đối với Canh Kim mà nói là cùng loại ngũ hành, dương gặp dươn…",
+          "match_q": "Thiên Tài",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2589,7 +3342,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ác sinh ra tôi là **Chính Ấn**, là mẹ đẻ; nếu gặp can dương của Nhật Chủ và can dương của trụ khác sinh ra tôi…",
+          "match_q": "Chính Ấn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3159,
+          "page": 53,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Ất của tháng lộ ra Chính Ấn.  Can giờ Mậu Thổ đối với Bính Hỏa mà nói, là tôi Bính Hỏa sinh Mậu Thổ. Tôi can…",
+          "match_q": "Chính Ấn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3165,
+          "page": 59,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Âm sinh Dương là **Chính Ấn**. Tôi khắc Tân Kim, Âm khắc Âm là **Thiên Tài**. |  Định Hỏa và Tình Hỏa cùng lo…",
+          "match_q": "Chính Ấn",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2611,7 +3389,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ra tôi thì gọi là **Thiên Ấn**, tức là mẹ kế hoặc mẹ nuôi. Cho nên ngoài năm mối quan hệ ra còn có sự phân chi…",
+          "match_q": "Thiên Ấn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3159,
+          "page": 53,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…lộ ra Kiêu Tần (tức Thiên Ấn).    ---",
+          "match_q": "Thiên Ấn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3176,
+          "page": 70,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…* được Chính Ấn hay Thiên Ấn của các can chi khác trong **Tứ trụ** tương sinh thì gọi là được sinh.  **Được tr…",
+          "match_q": "Thiên Ấn",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2633,7 +3436,32 @@
         "school": "mai_hoa",
         "first_seen_page": 345
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…h Tôi, Phù Trụ Tôi (Ấn Tinh) *   Đồng tính: **Thiên Ấn** *   Dị tính: **Chính Ấn**  ### Ngang Tôi, Giúp Tôi (T…",
+          "match_q": "Ấn Tinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3186,
+          "page": 80,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…chỉ như tài, quan, ấn tinh... của mười can lộ ra, trong đó bao gồm cả các can tàng trong địa chi. Mối quan hệ…",
+          "match_q": "Ấn Tinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3190,
+          "page": 84,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Quan Sát** mạnh thì Ấn Tinh làm xì hơi **Quan Sát** và sinh thân. Nhật Can yếu mà thực thương mạnh thì **Chính…",
+          "match_q": "Ấn Tinh",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2655,7 +3483,32 @@
         "school": "mai_hoa",
         "first_seen_page": 345
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…h Tôi, Phù Trụ Tôi (Ấn Tinh) *   Đồng tính: **Thiên Ấn** *   Dị tính: **Chính Ấn**  ### Ngang Tôi, Giúp Tôi (T…",
+          "match_q": "ấn tinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3186,
+          "page": 80,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…chỉ như tài, quan, ấn tinh... của mười can lộ ra, trong đó bao gồm cả các can tàng trong địa chi. Mối quan hệ…",
+          "match_q": "ấn tinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3190,
+          "page": 84,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Quan Sát** mạnh thì Ấn Tinh làm xì hơi **Quan Sát** và sinh thân. Nhật Can yếu mà thực thương mạnh thì **Chính…",
+          "match_q": "ấn tinh",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2677,7 +3530,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 4394,
+          "page": 7,
+          "corpus": "du-bao-theo-tu-binh",
+          "trich": "…iên ấn; *   Bính có Tỷ kiên; *   Mậu có Thực thần.  Ta ghi 3 thần này vào cột năm.  Tý (tháng) chứa Quý, lấy B…",
+          "match_q": "Tỷ Kiên",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 4395,
+          "page": 8,
+          "corpus": "du-bao-theo-tu-binh",
+          "trich": "…--- | | **Linh:** | Tỷ Kiên | Bính: Tỷ Kiên | | | | **Mậu:** | Thực Thần | | Mậu: Thực Thần |  ***  ### Các bư…",
+          "match_q": "Tỷ Kiên",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 4396,
+          "page": 9,
+          "corpus": "du-bao-theo-tu-binh",
+          "trich": "…*   Giáp gặp Giáp: Tỷ Kiên.     *   Giáp gặp Bính: Thực Thần.     *   Giáp gặp Mậu: Thiên Tài. *   **Chi Mão:…",
+          "match_q": "Tỷ Kiên",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2699,7 +3577,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ơng gặp tôi Âm là **Kiếp Tài**; can âm gặp tôi Âm, can dương gặp tôi Dương là **Ngang Vai**.  Từ trên ta thấy…",
+          "match_q": "Kiếp Tài",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…vai**, gặp Ất là **kiếp tài**, gặp Bính là **thực thần**... những cái khác đều suy theo cách tương tự.  ## II…",
+          "match_q": "Kiếp Tài",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3176,
+          "page": 70,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…à gặp Ngang Vai hay Kiếp Tài trợ giúp bản thân mình, như thế gọi là được trợ giúp.  ### Nguyên tắc xác định Th…",
+          "match_q": "Kiếp Tài",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2714,7 +3617,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3200,
+          "page": 94,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…an chi đồng hành là Tỷ Kiếp, khắc cha, khắc hôn phối. Kiếp Tài và Thiên Tài cùng một trụ không có lợi cho cha,…",
+          "match_q": "Tỷ Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3217,
+          "page": 111,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…g quan. Quan sát và tỷ kiếp cùng vượng, cùng tương tranh, phải có một ít ấn tinh là có thể thông quan.  ## IV.…",
+          "match_q": "Tỷ Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3271,
+          "page": 165,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…:  **a- Thân vượng, tỷ kiếp vượng, thực thương vượng, tài ôn suy.** Khi tài là dụng thần, tỷ kiếp sinh thực th…",
+          "match_q": "Tỷ Kiếp",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2729,7 +3657,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3156,
+          "page": 50,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## Bằng 10 Thân của Thiên Can  | | Phụ | Kiếp | Ngang | Thương | Thực | Thiên | Chính | Th",
+          "match_q": "Chính Quan Thất Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Cái ngang tôi là anh em, nên có tên là **Ngũ Quỷ**.  Trong các mối quan hệ sinh khắc, chế,",
+          "match_q": "Chính Quan Thất Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3159,
+          "page": 53,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "### Ví dụ 1. Sinh giờ Tuất ngày 14 tháng 2 âm lịch năm 1993  **Tứ Trụ:** Quý Dậu, Ất Mão,",
+          "match_q": "Chính Quan Thất Sát",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -2830,7 +3783,16 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3202,
+          "page": 96,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "### Chính Tài và Thiên Tài trong Bát Tự  **Chính tài ở trụ năm:** Thân vượng là ông cha gi",
+          "match_q": "lưu nguyệt",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3159,7 +4121,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3570,
+          "page": 465,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Mệnh nữ có một **Quan** hoặc một **Sát** rõ ràng là tốt. Có cả **Quan** và **Sát** thì kém",
+          "match_q": "tạp diệu",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3571,
+          "page": 466,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Gặp Vong Kiếp và Kình Dương, hay Thiên Ấn gặp Lộc Mã thì sắc đẹp hơn người. Người học hợp",
+          "match_q": "tạp diệu",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3622,
+          "page": 520,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## DỰ ĐOÁN TÀI VẬN  *   Tứ trụ có tài thì cái ăn, cái mặc không thiếu. *   Tài nên tàng ẩn",
+          "match_q": "tạp diệu",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3294,7 +4281,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 4471,
+          "page": 84,
+          "corpus": "du-bao-theo-tu-binh",
+          "trich": "…à Thổ, thì cái nóng cương liệt trên cũng giảm bớt đi, vì Hỏa khắc Kim và Hỏa sinh Thổ. *   **Kim vượng, Hỏa th…",
+          "match_q": "cương liệt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3131,
+          "page": 25,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Mệnh lý có thể đoán biết được bẩm tính của con người, cũng như có thể đoán ra được diện mạ",
+          "match_q": "cương liệt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3351,
+          "page": 246,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "**Bính Hỏa** là hỏa thuần dương, có tên là hỏa của mặt trời, có công chiếu sáng trời đất,",
+          "match_q": "cương liệt",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3451,7 +4463,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3143,
+          "page": 37,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## ĐẶC TRƯNG CỦA TỨ TRỤ  ### Cách xếp trụ năm và nạp âm  Trụ năm tức là năm sinh Âm lịch c",
+          "match_q": "thuộc hạ cách",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3183,
+          "page": 77,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "### 3. Điều nên và không nên của Hỏa thuộc bốn mùa  **Hỏa mùa xuân**: Mộc là mẹ hỏa (mộc s",
+          "match_q": "thuộc hạ cách",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3329,
+          "page": 224,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "| Thiên | Dương | Âm | Dương | Âm | Dương | Âm | Dương | Âm | Dương | Âm | | :---: | :---:",
+          "match_q": "thuộc hạ cách",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3531,7 +4568,16 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 4290,
+          "page": 511,
+          "corpus": "bat-tu-ha-lac-va-quy-dao-doi-nguoi",
+          "trich": "Những bức tranh sóng nước theo tôi là bài thơ rất hay, viết bằng cảm xúc mệnh trời, không",
+          "match_q": "đồng triền",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3815,7 +4861,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3113,
+          "page": 7,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…chưa nói được thấu triệt vấn đề cũng hi vọng sẽ có tác dụng \"Đãi cát tìm vàng\".  Chương này tham khảo các sác…",
+          "match_q": "Triệt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3115,
+          "page": 9,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…biểu diễn được quán triệt trong mọi lĩnh vực. \"Lã thị xuân thu\" được hình thành ở miền đất phía tây nước Tần đ…",
+          "match_q": "Triệt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3118,
+          "page": 12,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Tây làm cho lịch sử triệt tiêu lẫn nhau. Từ sau khi văn hóa phương Tây dùng nước thánh, thuốc phiện, pháo hạm…",
+          "match_q": "Triệt",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3830,7 +4901,16 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 4475,
+          "page": 88,
+          "corpus": "du-bao-theo-tu-binh",
+          "trich": "* **Chi bị Không Vong:** Nếu trong tứ trụ có chi xung hoặc hình với chi đó, thì chi Không",
+          "match_q": "Tuần Triệt",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -3927,7 +5007,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3155,
+          "page": 49,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…\"nhật nguyên\" hoặc \"nhật chủ\", hoặc \"thân\".  **Nhật chủ xác định 10 thần**  Nhật chủ là tôi, là thân mình. Qua…",
+          "match_q": "nhật chủ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…hế, hóa ở trên, khi Nhật Chủ của tôi là Can Dương gặp Can Âm khác của Tứ Trụ thì gọi là chính, can dương gặp c…",
+          "match_q": "nhật chủ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…can như sau: ví dụ nhật chủ là Giáp, các can khác của Tứ trụ gặp Giáp là **ngang vai**, gặp Ất là **kiếp tài*…",
+          "match_q": "nhật chủ",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4005,7 +5110,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3175,
+          "page": 69,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Can ngày vượng tức thân vượng, hoặc ngược lại là yếu. Sự phán đoán thân vượng hay thân nhược là bước mổ đầu q…",
+          "match_q": "thân vượng",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3176,
+          "page": 70,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…u kiện để phán đoán thân vượng bao gồm:  1.  **Can ngày được lệnh:** Đây là điều quan trọng nhất để phán đoán…",
+          "match_q": "thân vượng",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3177,
+          "page": 71,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…thì vẫn được xem là thân vượng. Nhưng nếu trong đắc địa, thành phần Trường Sinh, Lộc, Kình Dương, Mộ chiếm ít…",
+          "match_q": "thân vượng",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4027,7 +5157,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3175,
+          "page": 69,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…đoán thân vượng hay thân nhược là bước mổ đầu quan trọng để tiếp tục tiến lên dự đoán ở những bước sau:  Sự ph…",
+          "match_q": "thân nhược",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3177,
+          "page": 71,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…hơi mình thì coi là thân nhược.  b) Nếu bán hợp hay bán hội của Địa Chi, sinh cho hoặc trợ giúp cho Ngũ Hành c…",
+          "match_q": "thân nhược",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3178,
+          "page": 72,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…u kiện để phán đoán Thân nhược là sau khi đã có bản lĩnh về phán đoán Thân vượng, trên cơ sở đó mà hiểu ngược…",
+          "match_q": "thân nhược",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4087,7 +5242,32 @@
       "concept_dict": null,
       "short_note": null,
       "wiki": null,
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3156,
+          "page": 50,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## Bằng 10 Thân của Thiên Can  | | Phụ | Kiếp | Ngang | Thương | Thực | Thiên | Chính | Th",
+          "match_q": "Ấn chế",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Cái ngang tôi là anh em, nên có tên là **Ngũ Quỷ**.  Trong các mối quan hệ sinh khắc, chế,",
+          "match_q": "Ấn chế",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "Tôi khắc, làm hao mòn tôi là **tài tinh**: *   Đồng tính: thiên tài *   Dị tính: chính tài",
+          "match_q": "Ấn chế",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4109,7 +5289,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": 22
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…quy luật sinh khắc, chế hóa của Âm Dương, Ngũ Hành làm phương tiện để truyền đạt thông tin. Tứ trụ là dùng Thi…",
+          "match_q": "chế hóa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3127,
+          "page": 21,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…. Lấy sự sinh khắc, chế hóa của ngũ hành để giảm sự mất cân bằng của mệnh, để từ đó hướng đến điều tốt, lánh x…",
+          "match_q": "chế hóa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3128,
+          "page": 22,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…Ngũ Hành Sinh Khắc, Chế Hóa  Ngũ hành không những có sinh, có khắc, bổ trợ cho nhau mà còn khống chế lẫn nhau.…",
+          "match_q": "chế hóa",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4841,7 +6046,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3155,
+          "page": 49,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ủ\", hoặc \"thân\".  **Nhật chủ xác định 10 thần**  Nhật chủ là tôi, là thân mình. Quan hệ giữa tính ngũ hành nhậ…",
+          "match_q": "Nhật chủ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3157,
+          "page": 51,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…hế, hóa ở trên, khi Nhật Chủ của tôi là Can Dương gặp Can Âm khác của Tứ Trụ thì gọi là chính, can dương gặp c…",
+          "match_q": "Nhật chủ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3158,
+          "page": 52,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…can như sau: ví dụ nhật chủ là Giáp, các can khác của Tứ trụ gặp Giáp là **ngang vai**, gặp Ất là **kiếp tài*…",
+          "match_q": "Nhật chủ",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4863,7 +6093,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": null
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ột phương pháp chọn dụng thần chính xác, cách giải toàn diện một Tứ trụ.    ---",
+          "match_q": "dụng thần",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3173,
+          "page": 67,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…hay làm thương tổn dụng thần.  Trong các cách cục, tam hình và lục hại gặp hợp không nhiều. Nói chung, hình,…",
+          "match_q": "dụng thần",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3175,
+          "page": 69,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ông còn phải xem kỹ dụng thần.  Khi can ngày yếu, nên được sinh phù; hoặc can ngày mạnh, nên bị khống chế, hao…",
+          "match_q": "dụng thần",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4885,7 +6140,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": 21
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3126,
+          "page": 20,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…g Ngũ Hành  #### I. NGŨ HÀNH SINH KHẮC  Giữa thiên văn cận đại phương Tây với thiên văn cổ đại Trung Quốc tồn…",
+          "match_q": "ngũ hành sinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3127,
+          "page": 21,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…và biến hóa.  Trong ngũ hành sinh, khắc có mối quan hệ tương sinh hai mặt: cái sinh ra tôi và cái tôi sinh ra;…",
+          "match_q": "ngũ hành sinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3128,
+          "page": 22,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "…ên và Điều Kị trong Ngũ Hành Sinh Khắc, Chế Hóa  Ngũ hành không những có sinh, có khắc, bổ trợ cho nhau mà còn…",
+          "match_q": "ngũ hành sinh",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     },
     {
@@ -4907,7 +6187,32 @@
         "school": "tu_binh_ba_tu",
         "first_seen_page": 22
       },
-      "passages_trich": [],
+      "passages_trich": [
+        {
+          "passage_id": 3111,
+          "page": 5,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## LỜI NÓI ĐẦU  Chu dịch nội dung rất quảng bác nhưng cũng rất tinh sâu, song không phải l",
+          "match_q": "ngũ hành khắc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3123,
+          "page": 17,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "...tròn trong cơ thể với nhau và giữa cơ thể với các vòng tròn trên trái đất, trong vũ trụ",
+          "match_q": "ngũ hành khắc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 3126,
+          "page": 20,
+          "corpus": "du-doan-tu-tru-thieu-vy-hoa",
+          "trich": "## Chương 2 ### Âm Dương Ngũ Hành  #### I. NGŨ HÀNH SINH KHẮC  Giữa thiên văn cận đại phươ",
+          "match_q": "ngũ hành khắc",
+          "neo": "han_viet"
+        }
+      ],
       "flag": null
     }
   ]
