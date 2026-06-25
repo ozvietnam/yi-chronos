@@ -1,0 +1,5393 @@
+{
+  "_meta": {
+    "ten": "Bảng từ vựng CANON — sản phẩm tình duyên (gieo duyên + hôn nhân nam/nữ)",
+    "muc_dich": "Neo định nghĩa CHUẨN cho mọi term user-facing, chống drift dịch thuần-Việt. Mọi bản thuần-Việt phải DERIVE từ dinh_nghia_canon, giữ đủ nét, không rơi/thêm nét. Gắn nguồn (concept_dict page / wiki passage_id).",
+    "nguon_ground_truth": [
+      "1. concept_dict (engine.tu_vi.concept_dict) — 686 concept Q1 Tử Vi, DICT_PATH=data/yi_publishing/q1_tuvi/master/concepts_index.json",
+      "2. wiki concept_index (data/yi_wiki/wiki.sqlite3) — short_note + school",
+      "3. passages_fts — raw_text gốc sách (trích 1-3 câu)"
+    ],
+    "paradigm": "Iron Rule #4/#6/#8 — đọc đồng dạng, mệnh là ĐỘNG TỪ, không predict; gender (chồng/vợ, 官杀/财) ở tầng product (gender_lens).",
+    "nguon_gom_term": [
+      "tuvi_phuthe.json (14 chính tinh + 7 đào hoa + 4 tứ hóa + 6 sát tinh)",
+      "plain_glossary.json is_jargon (ten_sao + thap_than + ly_thuat + can_chi)",
+      "gender_lens.py (官杀/财 phối ngẫu, khắc phu/thê, Cô Thần/Quả Tú)"
+    ],
+    "ngay_tao": "2026-06-25"
+  },
+  "thong_ke": {
+    "tong_term": 182,
+    "co_concept_dict": 79,
+    "chi_wiki": 38,
+    "curated_tu_binh_quy_uoc": 65,
+    "thieu_nguon_flag": 0
+  },
+  "terms": [
+    {
+      "han_viet": "Tử Vi",
+      "han": "紫微",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về đế vương, quyền lực tối cao, sinh ra dung mạo trọng hậu.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Tử Vi",
+        "kind": "sao",
+        "definition": "Sao chủ về đế vương, quyền lực tối cao, sinh ra dung mạo trọng hậu.",
+        "first_page": 17,
+        "occurrences": 40
+      },
+      "short_note": "Sao chủ về đế vương, quyền lực tối cao, sinh ra dung mạo trọng hậu.",
+      "wiki": {
+        "canonical_vi": "Tử Vi",
+        "canonical_zh": null,
+        "aliases": "[\"Đế tinh\", \"Đế tọa\", \"Tử Vy\"]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 2726,
+          "page": 15,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…Thập nhị cung phân 紫微, 天虛, 天貴, 天印, 天壽卹天, 紅鸞, 天庫, 天貫, 文昌, 天福, 天 Tử vi, thiên hư, thiên quý, thiên ấn, thiên th…",
+          "match_q": "紫微",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2741,
+          "page": 30,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…ất hoạch hoành tài. 紫微, 紅鸞, 天壽, 入廟旺臨財帛, 俱富. Tử vi, hồng loan, thiên thọ, nhập miếu vượng lâm tài bạch, câu phú…",
+          "match_q": "紫微",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3088,
+          "page": 75,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…nhập miếu hóa hung 紫微在子宫守命及岁限丙戊生人悔吝, 破财灾殃. Tử vi tại tử cung thủ mệnh cập tuế hạn bính mậu sinh nhân hối lận,…",
+          "match_q": "紫微",
+          "neo": "han"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Cơ",
+      "han": "天机",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về trí tuệ, sự nhanh nhẹn, thiện tâm.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Cơ",
+        "kind": "sao",
+        "definition": "Sao chủ về trí tuệ, sự nhanh nhẹn, thiện tâm.",
+        "first_page": 17,
+        "occurrences": 26
+      },
+      "short_note": "Sao chủ về trí tuệ, sự nhanh nhẹn, thiện tâm.",
+      "wiki": {
+        "canonical_vi": "Thiên Cơ",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3047,
+          "page": 34,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…无吉, 值巨门, 羊陀, 火铃, 忌, 天机, 其年必主官灾, 丧亡破败. Hi di tiên sinh đáp viết: thiên thương nãi thượng thiên hư háo chi thần,…",
+          "match_q": "天机",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…cát tuy mỹ tất dâm. 天机 庙子午 旺辰酉 陷丑未 Thiên ky miếu tử ngọ vượng thần dậu hãm sửu vị 机梁会合善谈兵居戌亦为美论 孟子迁移戌宫, 有机梁. K…",
+          "match_q": "天机",
+          "neo": "han"
+        },
+        {
+          "passage_id": 6,
+          "page": 20,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Truyền thuyết: Vua Đại Vũ nhà Hạ thấy Linh Quy ở sông Lạc, trên mai có chữ. Vũ xếp thành C",
+          "match_q": "Thiên Cơ",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thái Dương",
+      "han": "太阳",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao mặt trời, chủ về quyền lực, danh vọng, sự sáng suốt.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thái Dương",
+        "kind": "sao",
+        "definition": "Sao mặt trời, chủ về quyền lực, danh vọng, sự sáng suốt.",
+        "first_page": 17,
+        "occurrences": 35
+      },
+      "short_note": "Cực Dương, tượng trưng cho mùa Hạ, phương Nam, Chu Tước.",
+      "wiki": {
+        "canonical_vi": "Thái Dương",
+        "canonical_zh": "太陽",
+        "aliases": "[\"Lão Dương\", \"Chu Tước\", \"sao Nhật\"]",
+        "category": null,
+        "school": "mai_hoa+tu_vi",
+        "first_seen_page": 31
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…ao mệnh thị dã. 女命紫微太阳星早遇贤夫信可凭 女命紫微在寅午申宫吉, 贵美旺夫益子. 陷地平常, 惟子酉及巳亥加四杀, 美玉瑕玷日后不美. Nữ mệnh tử vi thái dương tinh tả…",
+          "match_q": "太阳",
+          "neo": "han"
+        },
+        {
+          "passage_id": 31,
+          "page": 150,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "match_q": "Thái Dương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 48,
+          "page": 10,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "★ 8 quẻ ↔ 8 Tiên dân gian:   Càn ☰ — LỮ ĐỒNG TÂN (Thuần Dương)   Khôn ☷ — HÀ TIÊN CÔ (nữ d",
+          "match_q": "Thái Dương",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Vũ Khúc",
+      "han": "武曲",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về võ, tính cương cường, quyết đoán.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Vũ Khúc",
+        "kind": "sao",
+        "definition": "Sao chủ về võ, tính cương cường, quyết đoán.",
+        "first_page": 17,
+        "occurrences": 33
+      },
+      "short_note": "Sao chủ về võ, tính cương cường, quyết đoán.",
+      "wiki": {
+        "canonical_vi": "Vũ Khúc",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3094,
+          "page": 81,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…hú quý chích đa dâm 武曲 庙辰戌丑未 旺子午 平巳亥 无失陷 Vũ khúc miếu thần tuất sửu vị vượng tử ngọ bình tị hợi vô thất hãm 武曲…",
+          "match_q": "武曲",
+          "neo": "han"
+        },
+        {
+          "passage_id": 44,
+          "page": 345,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ 'Phù áp tự giả, nhân chi tâm ấn dã.' Chữ ký = TÂM ẤN của người.  ★ NGUYÊN TẮC:   - Tiên",
+          "match_q": "Vũ Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 493,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tham Lang đồng Vũ Khúc, hình tiểu thanh cao nhi lượng đại",
+          "match_q": "Vũ Khúc",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Đồng",
+      "han": "天同",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về phúc đức, an nhàn, người béo đầy đặn.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Đồng",
+        "kind": "sao",
+        "definition": "Sao chủ về phúc đức, an nhàn, người béo đầy đặn.",
+        "first_page": 17,
+        "occurrences": 19
+      },
+      "short_note": "Sao chủ về phúc đức, an nhàn, người béo đầy đặn.",
+      "wiki": {
+        "canonical_vi": "Thiên Đồng",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…ình kỵ bình thường. 天同 庙巳亥 旺子申 陷午 Thiên đồng miếu tị hợi vượng tử thân hãm ngọ 天同会吉寿元长 Thiên đồng hội cát thọ…",
+          "match_q": "天同",
+          "neo": "han"
+        },
+        {
+          "passage_id": 54,
+          "page": 13,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Mai Hoa Dịch Số có tên đầy đủ là Thiệu Khang Tiết Tiên Sinh Quan Mai Chiết Số Toàn Thư, là",
+          "match_q": "Thiên Đồng",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 58,
+          "page": 38,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Hậu Thiên Bát Quái còn gọi là Văn Vương Bát Quái, do Chu Văn Vương cải tiến từ Tiên Thiên",
+          "match_q": "Thiên Đồng",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Liêm Trinh",
+      "han": "廉贞",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về tham vọng, sắc đẹp, mày rộng miệng tươi.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Liêm Trinh",
+        "kind": "sao",
+        "definition": "Sao chủ về tham vọng, sắc đẹp, mày rộng miệng tươi.",
+        "first_page": 17,
+        "occurrences": 31
+      },
+      "short_note": "Sao chủ về tham vọng, sắc đẹp, mày rộng miệng tươi.",
+      "wiki": {
+        "canonical_vi": "Liêm Trinh",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3094,
+          "page": 81,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…t đa phương luận. 武曲廉贞贪杀便作经商 Vũ khúc liêm trinh tham sát tiện tác kinh thương 武曲破军破祖破家劳碌 Vũ khúc phá quân phá…",
+          "match_q": "廉贞",
+          "neo": "han"
+        },
+        {
+          "passage_id": 439,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thất Sát, Liêm Trinh đồng vị, lộ thượng mai thi",
+          "match_q": "Liêm Trinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 460,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thất Sát, Liêm Trinh đồng vị, lộ thượng mai thi",
+          "match_q": "Liêm Trinh",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Phủ",
+      "han": "天府",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về tôn quý, thể chất thuần hòa, cát tinh ổn định.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Phủ",
+        "kind": "sao",
+        "definition": "Sao chủ về tôn quý, thể chất thuần hòa, cát tinh ổn định.",
+        "first_page": 17,
+        "occurrences": 28
+      },
+      "short_note": "Sao chủ về tôn quý, thể chất thuần hòa, cát tinh ổn định.",
+      "wiki": {
+        "canonical_vi": "Thiên Phủ",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3031,
+          "page": 18,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…曲北斗第六星, 属金, 乃财帛宫主. 与天府同宫有寿, 其施权于十二宫分, 其临地有庙, 旺, 陷宫. 主于人, 性刚果决, 有喜有怒, 可福可灾. 若陷囚会于震宫必为破, 主淹留之举. 与禄马交驰, 发财于远郡. 若贪…",
+          "match_q": "天府",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…ếm nhật hậu bất mỹ. 天府 庙子丑未寅辰戌 旺午酉 地卯巳申亥 无陷 Thiên phủ miếu tử sửu vị dần thần tuất vượng ngọ dậu địa mão tị th…",
+          "match_q": "天府",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3,
+          "page": 16,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
+          "match_q": "Thiên Phủ",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thái Âm",
+      "han": "太阴",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao mặt trăng, chủ về tài lộc, sự dịu dàng, văn chương.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thái Âm",
+        "kind": "sao",
+        "definition": "Sao mặt trăng, chủ về tài lộc, sự dịu dàng, văn chương.",
+        "first_page": 17,
+        "occurrences": 35
+      },
+      "short_note": "Biểu hiện của cực Âm, ứng với phương Bắc và Huyền Vũ.",
+      "wiki": {
+        "canonical_vi": "Thái Âm",
+        "canonical_zh": "太陰",
+        "aliases": "[\"Lão Âm\", \"Huyền Vũ\", \"sao Nguyệt\"]",
+        "category": null,
+        "school": "mai_hoa+tu_vi",
+        "first_seen_page": 31
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…úc phú quý khả kỳ 紫微太阴杀曜逢一生曹吏逞英雄 Tử vi thái âm sát diệu phùng nhất sinh tào lại sính anh hùng 紫微武曲破军会羊陀欺公祸乱 只宜…",
+          "match_q": "太阴",
+          "neo": "han"
+        },
+        {
+          "passage_id": 31,
+          "page": 150,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "match_q": "Thái Âm",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 57,
+          "page": 31,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Dịch có Thái Cực, Thái Cực sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, Tứ Tượng sinh",
+          "match_q": "Thái Âm",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Tham Lang",
+      "han": "贪狼",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về sắc đẹp, tham vọng, đào hoa, phong lưu.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Tham Lang",
+        "kind": "sao",
+        "definition": "Sao chủ về sắc đẹp, tham vọng, đào hoa, phong lưu.",
+        "first_page": 17,
+        "occurrences": 45
+      },
+      "short_note": "Một trong 14 chính tinh. Bản chất thiện ác lẫn lộn. Nhập miếu → tướng cao lớn; xuất viên → ngoan cố ồn ào. Source: Phú Hình Tính (TVDSTT Q.1).",
+      "wiki": {
+        "canonical_vi": "Tham Lang",
+        "canonical_zh": "贪狼",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [
+        {
+          "passage_id": 428,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Đào hoa phạm chủ vi chí dâm",
+          "match_q": "Tham Lang",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 437,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tham cư Hợi, Tý, danh vi phiếm thủy đào hoa",
+          "match_q": "Tham Lang",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 438,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Hình ngộ Tham Lang, hào viết phong lưu tà trượng",
+          "match_q": "Tham Lang",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Cự Môn",
+      "han": "巨门",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về thị phi, khẩu thiệt.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "Cự Môn",
+        "kind": "sao",
+        "definition": "Sao chủ về thị phi, khẩu thiệt.",
+        "first_page": 18,
+        "occurrences": 39
+      },
+      "short_note": "Một trong 14 chính tinh — sao 'thị phi'. Miếu địa thì đôn hậu ôn hòa; thất hãm thì thị phi, khẩu thiệt. Source: Phú Hình Tính.",
+      "wiki": {
+        "canonical_vi": "Cự Môn",
+        "canonical_zh": "巨门",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3094,
+          "page": 81,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…t sửu vị phản tiện. 巨门 庙寅申卯酉 旺子午巳亥 陷辰戌 Cự môn miếu dần thân mão dậu vượng tử ngọ tị hợi hãm thần tuất 巨日寅宫立命申先…",
+          "match_q": "巨门",
+          "neo": "han"
+        },
+        {
+          "passage_id": 481,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Cự Môn nãi thị phi chi diệu, tại miếu đôn hậu ôn lương",
+          "match_q": "Cự Môn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 497,
+          "page": 19,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Cự Môn thủy đắc Mão, vi chi sơ thông, mộc nãi thổ tài bồi, gia dĩ thủy chi giao quán, tam",
+          "match_q": "Cự Môn",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Tướng",
+      "han": "天相",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về ấn tín, quyền hành, sự bảo vệ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Tướng",
+        "kind": "sao",
+        "definition": "Sao chủ về ấn tín, quyền hành, sự bảo vệ.",
+        "first_page": 17,
+        "occurrences": 20
+      },
+      "short_note": "Một trong 14 chính tinh. Tinh thần và tướng mạo đĩnh đạc, trầm tĩnh. Source: Phú Hình Tính.",
+      "wiki": {
+        "canonical_vi": "Thiên Tướng",
+        "canonical_zh": "天相",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…tứ sát hữu tỳ. 天府居午戌天相来朝甲人一品之贵 Thiên phủ cư ngọ tuất thiên tương lai triêu giáp nhân nhất phẩm chi quý 府相朝垣千锺食…",
+          "match_q": "天相",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3100,
+          "page": 87,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…庶出 身命无正曜是也, 若三方合紫微, 天相, 天府吉. Tả hữu đan thủ chiếu mệnh cung ly tông thứ xuất thân mệnh vô chính diệu thị dã, n…",
+          "match_q": "天相",
+          "neo": "han"
+        },
+        {
+          "passage_id": 134,
+          "page": 31,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« {'quote': 'Dịch có Thái Cực, Thái Cực sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, T",
+          "match_q": "Thiên Tướng",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Lương",
+      "han": "天梁",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về phúc đức, tuổi thọ, sự nhân từ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Lương",
+        "kind": "sao",
+        "definition": "Sao chủ về phúc đức, tuổi thọ, sự nhân từ.",
+        "first_page": 17,
+        "occurrences": 28
+      },
+      "short_note": "Một trong 14 chính tinh. Tâm tính vững vàng trọng hậu, trong sạch như ngọc như băng. Source: Phú Hình Tính.",
+      "wiki": {
+        "canonical_vi": "Thiên Lương",
+        "canonical_zh": "天梁",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3089,
+          "page": 76,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…cao đệ ân vinh 天府天相天梁同君臣庆会 Thiên phủ thiên tương thiên lương đồng quân thần khánh hội 天府禄存昌曲巨万之资 Thiên phủ lộ…",
+          "match_q": "天梁",
+          "neo": "han"
+        },
+        {
+          "passage_id": 31,
+          "page": 150,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "match_q": "Thiên Lương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 238,
+          "page": 135,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Trong quẻ xem bệnh, việc chọn động hào là vô cùng quan trọng. » « Nếu Càn, Đoài, Ly là q",
+          "match_q": "Thiên Lương",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thất Sát",
+      "han": "七杀",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hung, chủ về chiến đấu, chết chóc, uy lực.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thất Sát",
+        "kind": "sao",
+        "definition": "Sao hung, chủ về chiến đấu, chết chóc, uy lực.",
+        "first_page": 17,
+        "occurrences": 40
+      },
+      "short_note": "Một trong 14 chính tinh, ngũ hành Kim+Hỏa. Mạnh, đoạn quyết, hợp Tử Vi (Tử Vi hóa sát Thất Sát thành quyền). 'Thất Sát trùng phùng' là cảnh hung khi gặp cả ở Mệnh và Thiên Di.",
+      "wiki": {
+        "canonical_vi": "Thất Sát",
+        "canonical_zh": "七杀",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3095,
+          "page": 82,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…ợc hãm địa hạ tiện. 七杀 庙辰戌丑未寅申 旺子午卯酉 平巳亥 无陷 Thất sát miếu thần tuất sửu vị dần thân vượng tử ngọ mão dậu bình…",
+          "match_q": "七杀",
+          "neo": "han"
+        },
+        {
+          "passage_id": 426,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thất Sát, Phá Quân, chuyên y Dương, Linh chi khước",
+          "match_q": "Thất Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 439,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thất Sát, Liêm Trinh đồng vị, lộ thượng mai thi",
+          "match_q": "Thất Sát",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Phá Quân",
+      "han": "破军",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.chinh_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hung, chủ về phá hoại, thay đổi, sự đổ vỡ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Phá Quân",
+        "kind": "sao",
+        "definition": "Sao hung, chủ về phá hoại, thay đổi, sự đổ vỡ.",
+        "first_page": 17,
+        "occurrences": 32
+      },
+      "short_note": "Sao hung, chủ về phá hoại, thay đổi, sự đổ vỡ.",
+      "wiki": {
+        "canonical_vi": "Phá Quân",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3096,
+          "page": 83,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…iết kỵ tiện vô nghi 破军 庙子午 旺辰戌丑未 陷卯酉 Phá quân miếu tử ngọ vượng thần tuất sửu vị hãm mão dậu 破军子午宫无杀官资清显至三公 甲癸…",
+          "match_q": "破军",
+          "neo": "han"
+        },
+        {
+          "passage_id": 31,
+          "page": 150,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "match_q": "Phá Quân",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 138,
+          "page": 35,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Thiên Can Địa Chi là tên gọi tắt của mười Thiên Can và mười hai Địa Chi. Tương truyền, T",
+          "match_q": "Phá Quân",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Diêu",
+      "han": "天姚",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.44",
+      "concept_dict": {
+        "term": "Thiên Diêu",
+        "kind": "sao",
+        "definition": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+        "first_page": 44,
+        "occurrences": 8
+      },
+      "short_note": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+      "wiki": {
+        "canonical_vi": "Thiên Diêu",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 44
+      },
+      "passages_trich": [
+        {
+          "passage_id": 2820,
+          "page": 109,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…ngọ dần trứ cước. ○ 天姚 喜卯辰, 戌亥入垣. 天姚淫娼, 卯辰戌亥. ○ thiên diêu hỉ mão thần, tuất hợi nhập viên. Thiên diêu dâm xướ…",
+          "match_q": "天姚",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3011,
+          "page": 300,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…kỳ nghiệm như thần. 天姚 Thiên diêu 天姚星照限在水厄之災. 若加天異, 主災胞破財敗壞異端禍事生陰人荼毒勾絆閑非. 如入廟者, 變凶為吉. 若加惡星, 定主夭亡. Thiên diêu t…",
+          "match_q": "天姚",
+          "neo": "han"
+        },
+        {
+          "passage_id": 1869,
+          "page": 276,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Cửu Hung tinh nhập miếu lệ: Hình, Dị, Nhận, Trượng, Hư, Khốc, Mao, Diêu. Hung tinh cư miếu",
+          "match_q": "Thiên Diêu",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hàm Trì",
+      "han": "咸池",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao sát tinh, thuộc Thủy, chủ về dâm loạn, yêu kiều, nghiêng nước nghiêng thành.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.296",
+      "concept_dict": {
+        "term": "Hàm Trì",
+        "kind": "sao",
+        "definition": "Sao sát tinh, thuộc Thủy, chủ về dâm loạn, yêu kiều, nghiêng nước nghiêng thành.",
+        "first_page": 296,
+        "occurrences": 1
+      },
+      "short_note": "Sao sát tinh, thuộc Thủy, chủ về dâm loạn, yêu kiều, nghiêng nước nghiêng thành.",
+      "wiki": {
+        "canonical_vi": "Hàm Trì",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 296
+      },
+      "passages_trich": [
+        {
+          "passage_id": 59,
+          "page": 43,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Kinh Dịch bao hàm quy luật biến hóa của mọi sự vật trong trời đất, mọi lẽ trời và đạo ngườ",
+          "match_q": "Hàm Trì",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 105,
+          "page": 2,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Kinh Dịch là đứng đầu trong Lục Kinh, hàm chứa lý lẽ phong phú và bao trùm vạn vật. » «",
+          "match_q": "Hàm Trì",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 359,
+          "page": 256,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Khi đoán chữ, cần nắm vững cách tách và luận giải những chữ thường gặp, vì đây là những",
+          "match_q": "Hàm Trì",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Mộc Dục",
+      "han": "沐浴",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chỉ tắm gội, thanh tẩy, giai đoạn non trẻ cần chăm sóc.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "concept_dict": {
+        "term": "Mộc Dục",
+        "kind": "sao",
+        "definition": "Sao chỉ tắm gội, thanh tẩy, giai đoạn non trẻ cần chăm sóc.",
+        "first_page": 87,
+        "occurrences": 1
+      },
+      "short_note": "Sao chỉ tắm gội, thanh tẩy, giai đoạn non trẻ cần chăm sóc.",
+      "wiki": {
+        "canonical_vi": "Mộc Dục",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 87
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3067,
+          "page": 54,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…nh thì an chi. 安长生, 沐浴, 冠带, 临官, 帝旺, 衰, 病, 死, 墓, 绝, 胎, 养 男命顺数, 女命逆数. An trường sinh, mộc dục, quan đái, lâm qua…",
+          "match_q": "沐浴",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2677,
+          "page": 30,
+          "corpus": "kinh-dich-tron-bo-ngo-tat-to",
+          "trich": "# Quẻ 30 — Ly 離 · ☲☲ (Ly trên, Ly dưới — sáng chồng sáng)  ## Tóm cốt  **Ly = bám**. Tiếp",
+          "match_q": "Mộc Dục",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 2694,
+          "page": 47,
+          "corpus": "kinh-dich-tron-bo-ngo-tat-to",
+          "trich": "# Quẻ 47 — Khốn 困 · ☱☵ (Đoài trên, Khảm dưới — đầm cạn nước)  ## Tóm cốt  **Khốn = cùng kh",
+          "match_q": "Mộc Dục",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Đại Hao",
+      "han": "大耗",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Một hung tinh, chủ tai họa hao tổn, thường gây chết chóc hoặc mất mát lớn.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.54",
+      "concept_dict": {
+        "term": "Đại Hao",
+        "kind": "sao",
+        "definition": "Một hung tinh, chủ tai họa hao tổn, thường gây chết chóc hoặc mất mát lớn.",
+        "first_page": 54,
+        "occurrences": 4
+      },
+      "short_note": "Một hung tinh, chủ tai họa hao tổn, thường gây chết chóc hoặc mất mát lớn.",
+      "wiki": {
+        "canonical_vi": "Đại Hao",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 54
+      },
+      "passages_trich": [
+        {
+          "passage_id": 28,
+          "page": 117,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★★★ NĂM BƯỚC CHIÊM CHÍNH THỐNG (Thiệu Khang Tiết):  BƯỚC 1: THÀNH QUẺ   Gieo quẻ qua phươn",
+          "match_q": "Đại Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 75,
+          "page": 134,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Trong quẻ xem bệnh tật, việc chọn thể quẻ và dụng quẻ có điểm đặc biệt: không lấy dụng quẻ",
+          "match_q": "Đại Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 100,
+          "page": 285,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Đại khái phép chiêm bốc, sau khi thành quẻ, trước hết xem lời hào của Chu Dịch để đoán hun",
+          "match_q": "Đại Hao",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hồng Loan",
+      "han": "红鸾",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Hồng Loan, thuộc hành Thủy, chủ đào hoa và hôn nhân.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Hồng Loan",
+        "kind": "sao",
+        "definition": "Sao Hồng Loan, thuộc hành Thủy, chủ đào hoa và hôn nhân.",
+        "first_page": 20,
+        "occurrences": 14
+      },
+      "short_note": "Sao Hồng Loan, thuộc hành Thủy, chủ đào hoa và hôn nhân.",
+      "wiki": {
+        "canonical_vi": "Hồng Loan",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [
+        {
+          "passage_id": 510,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "dâm bôn đại hành, Hồng Loan tu phùng Tham tú.",
+          "match_q": "Hồng Loan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1055,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "dâm bôn đại hành, Hồng Loan tu phùng Tham tú.",
+          "match_q": "Hồng Loan",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1880,
+          "page": 278,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Quán (vận hạn thân mệnh lâm thử, tất hoạch hoành tài. Tử Vi Hồng Loan Thiên Thọ nhập",
+          "match_q": "Hồng Loan",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Hỉ",
+      "han": "天喜",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "concept_dict": {
+        "term": "Thiên Hỷ",
+        "kind": "sao",
+        "definition": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+        "first_page": 87,
+        "occurrences": 2
+      },
+      "short_note": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+      "wiki": {
+        "canonical_vi": "Thiên Hỷ",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 87
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3,
+          "page": 16,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 16,
+          "page": 32,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 17,
+          "page": 34,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "TAM TÀI (3 ngôi):   Vạch trên = Trời | Vạch giữa = Người | Vạch dưới = Đất.   Khẳng định v",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Xương Khúc",
+      "han": "文昌文曲",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.dao_hoa_tinh",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Văn Xương (hành Kim) và Văn Khúc (hành Thủy), chủ văn học.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Xương Khúc",
+        "kind": "sao",
+        "definition": "Văn Xương (hành Kim) và Văn Khúc (hành Thủy), chủ văn học.",
+        "first_page": 20,
+        "occurrences": 5
+      },
+      "short_note": "Văn Xương (hành Kim) và Văn Khúc (hành Thủy), chủ văn học.",
+      "wiki": {
+        "canonical_vi": "Xương Khúc",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3093,
+          "page": 80,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "文昌文曲 Văn xương văn khúc 昌曲夹命最为奇 假若命在丑宫, 文昌在寅, 文曲在子是也. 不贵即富, 吉多方论此为贵 Xương khúc giáp mệnh t…",
+          "match_q": "文昌文曲",
+          "neo": "han"
+        },
+        {
+          "passage_id": 448,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
+          "match_q": "Xương Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 483,
+          "page": 18,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tuấn nhã Văn Xương, mi thanh mục tú; lỗi lạc Văn Khúc, khẩu thiệt tiện nịnh; tại miếu định",
+          "match_q": "Xương Khúc",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hóa Lộc",
+      "han": "化禄",
+      "loai": "hoa",
+      "nguon_gom": "tuvi_phuthe.tu_hoa_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "concept_dict": {
+        "term": "Hóa Lộc",
+        "kind": "hoa",
+        "definition": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+        "first_page": 16,
+        "occurrences": 57
+      },
+      "short_note": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+      "wiki": {
+        "canonical_vi": "Hóa Lộc",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 16
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3100,
+          "page": 87,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…u 禄存守于财宅积玉堆金 在命方可喜, 化禄, 同科权, 更妙. Lộc tồn thủ vu tài trạch tích ngọc đôi kim tại mệnh phương khả hỉ, hóa lộc, đ…",
+          "match_q": "化禄",
+          "neo": "han"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hóa Quyền",
+      "han": "化权",
+      "loai": "hoa",
+      "nguon_gom": "tuvi_phuthe.tu_hoa_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "Hóa Quyền",
+        "kind": "hoa",
+        "definition": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+        "first_page": 18,
+        "occurrences": 43
+      },
+      "short_note": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+      "wiki": {
+        "canonical_vi": "Hóa Quyền",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 18
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Hóa Khoa",
+      "han": "化科",
+      "loai": "hoa",
+      "nguon_gom": "tuvi_phuthe.tu_hoa_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Hóa Khoa",
+        "kind": "hoa",
+        "definition": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+        "first_page": 20,
+        "occurrences": 31
+      },
+      "short_note": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+      "wiki": {
+        "canonical_vi": "Hóa Khoa",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Hóa Kỵ",
+      "han": "化忌",
+      "loai": "hoa",
+      "nguon_gom": "tuvi_phuthe.tu_hoa_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Hóa Kỵ",
+        "kind": "hoa",
+        "definition": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+        "first_page": 17,
+        "occurrences": 41
+      },
+      "short_note": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+      "wiki": {
+        "canonical_vi": "Hóa Kỵ",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Kình Dương",
+      "han": "擎羊",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.sat_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hung, chủ về hình phạt, chướng ngại, đụng độ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Kình Dương",
+        "kind": "sao",
+        "definition": "Sao hung, chủ về hình phạt, chướng ngại, đụng độ.",
+        "first_page": 17,
+        "occurrences": 59
+      },
+      "short_note": "Sao hung, chủ về hình phạt, chướng ngại, đụng độ.",
+      "wiki": {
+        "canonical_vi": "Kình Dương",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3097,
+          "page": 84,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…tham lang nội chú. 擎羊 庙辰戌丑未 陷子午卯酉 Kình dương miếu thần tuất sửu vị hãm tử ngọ mão dậu 擎羊入庙富贵声扬 加吉万论. Kình dươ…",
+          "match_q": "擎羊",
+          "neo": "han"
+        },
+        {
+          "passage_id": 56,
+          "page": 26,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Kinh Dịch là một trong những bộ sách có ảnh hưởng lớn nhất đến văn hóa Trung Quốc. Khổng T",
+          "match_q": "Kình Dương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 57,
+          "page": 31,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Dịch có Thái Cực, Thái Cực sinh ra Lưỡng Nghi, Lưỡng Nghi sinh ra Tứ Tượng, Tứ Tượng sinh",
+          "match_q": "Kình Dương",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Đà La",
+      "han": "陀罗",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.sat_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hung, chủ về tù tội, gian trá.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "Đà La",
+        "kind": "sao",
+        "definition": "Sao hung, chủ về tù tội, gian trá.",
+        "first_page": 18,
+        "occurrences": 47
+      },
+      "short_note": "Sao hung, chủ về tù tội, gian trá.",
+      "wiki": {
+        "canonical_vi": "Đà La",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 18
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3098,
+          "page": 85,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…uế hạn trọng phùng. 陀罗 庙辰戌丑未 陷寅申巳亥 Đà la miếu thần tuất sửu vị hãm dần thân tị hợi 陀罗巳亥寅申非夭折而刑伤 余试得多离祖出外成家者亦吉,…",
+          "match_q": "陀罗",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2,
+          "page": 14,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Chu Dịch là sách Dịch nhà Chu (1122-250 BC) lấy quẻ Càn làm đầu. Liên Sơn Dịch (Hạ, lấy Cấ",
+          "match_q": "Đà La",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 15,
+          "page": 31,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "12 ĐỊA CHI × NGŨ HÀNH × ÂM-DƯƠNG:   Dần (Dương Mộc), Mão (Âm Mộc) — Mộc   Tỵ (Âm Hoả), Ngọ",
+          "match_q": "Đà La",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hỏa Tinh",
+      "han": "火星",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.sat_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Hỏa, chủ về nóng nảy, hung bạo.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "Hỏa Tinh",
+        "kind": "sao",
+        "definition": "Sao Hỏa, chủ về nóng nảy, hung bạo.",
+        "first_page": 18,
+        "occurrences": 44
+      },
+      "short_note": "Sao Hỏa, chủ về nóng nảy, hung bạo.",
+      "wiki": {
+        "canonical_vi": "Hỏa Tinh",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 18
+      },
+      "passages_trich": [
+        {
+          "passage_id": 2998,
+          "page": 287,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…kiến hình khốc. 戌天殃火星多財祿, 虛酉畏惡星, 限臨惡曜, 傷尅父母, 妻子壽促, 主災疾. Tuất thiên ương hỏa tinh đa tài lộc, hư dậu úy ác tin…",
+          "match_q": "火星",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3077,
+          "page": 64,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…cục. 卯酉宫利益, 与紫微同度, 见火星贵, 乙辛己生人宜之, 财官格. Mão dậu cung lợi ích, dữ tử vi đồng độ, kiến hỏa tinh quý, ất tân kỷ si…",
+          "match_q": "火星",
+          "neo": "han"
+        },
+        {
+          "passage_id": 3098,
+          "page": 85,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "擎羊火星为下格 Kình dương hỏa tinh vi hạ cách 擎羊重逢流羊西施倾殒身 岁限重逢. Kình dương trọng phùng lưu dương tâ…",
+          "match_q": "火星",
+          "neo": "han"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Linh Tinh",
+      "han": "铃星",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.sat_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hỏa, chủ về nóng nảy, tai nạn, xung đột.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Linh Tinh",
+        "kind": "sao",
+        "definition": "Sao hỏa, chủ về nóng nảy, tai nạn, xung đột.",
+        "first_page": 17,
+        "occurrences": 37
+      },
+      "short_note": "Sao hỏa, chủ về nóng nảy, tai nạn, xung đột.",
+      "wiki": {
+        "canonical_vi": "Linh Tinh",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3098,
+          "page": 85,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "…铃夹命为败局 如命安寅申, 火星在丑, 铃星在卯. 吉多尚可, 惟夹忌. 辰凶岁限巡游者此地亦吉 Hỏa linh giáp mệnh vi bại cục như mệnh an dần thân, hỏa tinh…",
+          "match_q": "铃星",
+          "neo": "han"
+        },
+        {
+          "passage_id": 37,
+          "page": 240,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ QUY TẮC KHẮC ỨNG — ĐOÁN QUA ĐIỀM THẤY (trang 244-246):  ĐIỀM CÁT (báo lành):   • Đâu vui",
+          "match_q": "Linh Tinh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 47,
+          "page": 625,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★★★ CHƯƠNG XLI-XLII (trang 625-626) — KẾT SÁCH:  ★ 'Đạo Dịch tràn đầy — chín dòng có thể n",
+          "match_q": "Linh Tinh",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Địa Không",
+      "han": "地空",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.sat_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về hư vô, thất bại, kỵ hợp với kiếp.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.51",
+      "concept_dict": {
+        "term": "Địa Không",
+        "kind": "sao",
+        "definition": "Sao chủ về hư vô, thất bại, kỵ hợp với kiếp.",
+        "first_page": 51,
+        "occurrences": 22
+      },
+      "short_note": "Sao chủ về hư vô, thất bại, kỵ hợp với kiếp.",
+      "wiki": {
+        "canonical_vi": "Địa Không",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 51
+      },
+      "passages_trich": [
+        {
+          "passage_id": 14,
+          "page": 30,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Kết hợp 10 thiên can × 12 địa chi → 60 phù hiệu không trùng. Đó là LỤC THẬP GIÁP TÍ.  Ứng",
+          "match_q": "Địa Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 19,
+          "page": 36,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
+          "match_q": "Địa Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 47,
+          "page": 625,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★★★ CHƯƠNG XLI-XLII (trang 625-626) — KẾT SÁCH:  ★ 'Đạo Dịch tràn đầy — chín dòng có thể n",
+          "match_q": "Địa Không",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Địa Kiếp",
+      "han": "地劫",
+      "loai": "sao",
+      "nguon_gom": "tuvi_phuthe.sat_tinh_phu_the",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hung, chủ về tai họa, mất mát, kiếp nạn.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Địa Kiếp",
+        "kind": "sao",
+        "definition": "Sao hung, chủ về tai họa, mất mát, kiếp nạn.",
+        "first_page": 17,
+        "occurrences": 31
+      },
+      "short_note": "Sao hung, chủ về tai họa, mất mát, kiếp nạn.",
+      "wiki": {
+        "canonical_vi": "Địa Kiếp",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 440,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phá Quân ám diệu đồng hương, thủy trung chung trủng",
+          "match_q": "Địa Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 450,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Hình tù giáp Ấn, hình trượng duy tư",
+          "match_q": "Địa Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 512,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phúc đức ngộ không kiếp, bôn tẩu vô lực;",
+          "match_q": "Địa Kiếp",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Đào Hoa",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Chỉ Tham Lang, chủ về tình duyên, dâm dật.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "concept_dict": {
+        "term": "Đào hoa",
+        "kind": "sao",
+        "definition": "Chỉ Tham Lang, chủ về tình duyên, dâm dật.",
+        "first_page": 16,
+        "occurrences": 1
+      },
+      "short_note": "Chỉ Tham Lang, chủ về tình duyên, dâm dật.",
+      "wiki": {
+        "canonical_vi": "Đào hoa",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 16
+      },
+      "passages_trich": [
+        {
+          "passage_id": 17,
+          "page": 34,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "TAM TÀI (3 ngôi):   Vạch trên = Trời | Vạch giữa = Người | Vạch dưới = Đất.   Khẳng định v",
+          "match_q": "Đào Hoa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 18,
+          "page": 35,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "BÁT QUÁI LÀ 1 GIA ĐÌNH:   Càn = CHA  ☰ (3 hào dương)   Khôn = MẸ  ☷ (3 hào âm)    Càn cầu",
+          "match_q": "Đào Hoa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 19,
+          "page": 36,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
+          "match_q": "Đào Hoa",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Hỷ",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "concept_dict": {
+        "term": "Thiên Hỷ",
+        "kind": "sao",
+        "definition": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+        "first_page": 87,
+        "occurrences": 2
+      },
+      "short_note": "Sao chủ về hỉ sự, đối cung với Hồng Loan.",
+      "wiki": {
+        "canonical_vi": "Thiên Hỷ",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 87
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3,
+          "page": 16,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 16,
+          "page": 32,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 17,
+          "page": 34,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "TAM TÀI (3 ngôi):   Vạch trên = Trời | Vạch giữa = Người | Vạch dưới = Đất.   Khẳng định v",
+          "match_q": "Thiên Hỷ",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Dao",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.44",
+      "concept_dict": {
+        "term": "Thiên Diêu",
+        "kind": "sao",
+        "definition": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+        "first_page": 44,
+        "occurrences": 8
+      },
+      "short_note": "Sao chủ dâm dục, phong lưu, tâm tính âm độc, đa nghi.",
+      "wiki": {
+        "canonical_vi": "Thiên Diêu",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 44
+      },
+      "passages_trich": [
+        {
+          "passage_id": 1869,
+          "page": 276,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Cửu Hung tinh nhập miếu lệ: Hình, Dị, Nhận, Trượng, Hư, Khốc, Mao, Diêu. Hung tinh cư miếu",
+          "match_q": "Thiên Diêu",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1873,
+          "page": 278,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Thiên Diêu chiếu Mệnh đa dâm dục (trượng phu tảo niên tham sắc dục, cái nhân mệnh nội phạm…",
+          "match_q": "Thiên Diêu",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 2713,
+          "page": 2,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "論次序 Luận thứ tự 一定時刻, 二起八字, 三立格局, Nhất định thì khắc, nhị khởi bát tự, tam lập cách cục, 四",
+          "match_q": "Thiên Diêu",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Cô Thần",
+      "han": "孤辰",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao+gender_lens",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao cô độc với nam giới. Người có Cô Thần → khó kết hôn / hôn nhân xa cách.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Sao cô độc với nam giới. Người có Cô Thần → khó kết hôn / hôn nhân xa cách.",
+      "wiki": {
+        "canonical_vi": "Cô Thần",
+        "canonical_zh": "孤辰",
+        "aliases": "[]",
+        "category": "than_sat",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Quả Tú",
+      "han": "寡宿",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao+gender_lens",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao cô độc với nữ giới. Người có Quả Tú → khó có chồng / sống một mình.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Sao cô độc với nữ giới. Người có Quả Tú → khó có chồng / sống một mình.",
+      "wiki": {
+        "canonical_vi": "Quả Tú",
+        "canonical_zh": "寡宿",
+        "aliases": "[]",
+        "category": "than_sat",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tiểu Hao",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao thuộc 12 sao Thái Tuế, chủ hao tiền.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.85",
+      "concept_dict": {
+        "term": "Tiểu Hao",
+        "kind": "sao",
+        "definition": "Sao thuộc 12 sao Thái Tuế, chủ hao tiền.",
+        "first_page": 85,
+        "occurrences": 2
+      },
+      "short_note": "Sao thuộc 12 sao Thái Tuế, chủ hao tiền.",
+      "wiki": {
+        "canonical_vi": "Tiểu Hao",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 85
+      },
+      "passages_trich": [
+        {
+          "passage_id": 192,
+          "page": 89,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Trong thế giới rộng lớn này không đâu là không có sự tồn tại của con số, nơi nào có con",
+          "match_q": "Tiểu Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 311,
+          "page": 208,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Kinh Dịch quẻ Sư, hào lục tam viết: 'Sư hoặc du thi, hung'. » « Kinh Dịch quẻ Tiểu Súc,",
+          "match_q": "Tiểu Hao",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1706,
+          "page": 173,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Dần niên Thái Tuế tịnh tiểu hạn đáo Dần cung, bất nhập miếu, hóa hung.",
+          "match_q": "Tiểu Hao",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hỏa Linh",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Hỏa Tinh (hành Hỏa) và Linh Tinh (hành Hỏa), đều là sát tinh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Hỏa Linh",
+        "kind": "sao",
+        "definition": "Hỏa Tinh (hành Hỏa) và Linh Tinh (hành Hỏa), đều là sát tinh.",
+        "first_page": 20,
+        "occurrences": 2
+      },
+      "short_note": "Hỏa Tinh (hành Hỏa) và Linh Tinh (hành Hỏa), đều là sát tinh.",
+      "wiki": {
+        "canonical_vi": "Hỏa Linh",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [
+        {
+          "passage_id": 6,
+          "page": 20,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Truyền thuyết: Vua Đại Vũ nhà Hạ thấy Linh Quy ở sông Lạc, trên mai có chữ. Vũ xếp thành C",
+          "match_q": "Hỏa Linh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 24,
+          "page": 46,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Mai Hoa cho phép GIEO QUẺ THEO NHIỀU KÊNH — không chỉ thời gian:  1. **Vật số chiêm** (p.4",
+          "match_q": "Hỏa Linh",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 37,
+          "page": 240,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ QUY TẮC KHẮC ỨNG — ĐOÁN QUA ĐIỀM THẤY (trang 244-246):  ĐIỀM CÁT (báo lành):   • Đâu vui",
+          "match_q": "Hỏa Linh",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Không Kiếp",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa Không (hành Hỏa) và Địa Kiếp (hành Hỏa), hai sát tinh chủ phá tán.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Không Kiếp",
+        "kind": "sao",
+        "definition": "Địa Không (hành Hỏa) và Địa Kiếp (hành Hỏa), hai sát tinh chủ phá tán.",
+        "first_page": 20,
+        "occurrences": 3
+      },
+      "short_note": "Địa Không (hành Hỏa) và Địa Kiếp (hành Hỏa), hai sát tinh chủ phá tán.",
+      "wiki": {
+        "canonical_vi": "Không Kiếp",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [
+        {
+          "passage_id": 440,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phá Quân ám diệu đồng hương, thủy trung chung trủng",
+          "match_q": "Không Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 512,
+          "page": 20,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phúc đức ngộ không kiếp, bôn tẩu vô lực;",
+          "match_q": "Không Kiếp",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 531,
+          "page": 22,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Không kiếp Dương Linh, tác cửu lưu chi thuật sĩ",
+          "match_q": "Không Kiếp",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Không",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về hư không, phá tài, kỵ gặp ở mệnh thân.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.43",
+      "concept_dict": {
+        "term": "Thiên Không",
+        "kind": "sao",
+        "definition": "Sao chủ về hư không, phá tài, kỵ gặp ở mệnh thân.",
+        "first_page": 43,
+        "occurrences": 11
+      },
+      "short_note": "Sao chủ về hư không, phá tài, kỵ gặp ở mệnh thân.",
+      "wiki": {
+        "canonical_vi": "Thiên Không",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 43
+      },
+      "passages_trich": [
+        {
+          "passage_id": 3,
+          "page": 16,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Đơn quái = kinh quái = bát quái. Dịch số bao hàm quái số. Quái số = số thứ tự của bát quái",
+          "match_q": "Thiên Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 14,
+          "page": 30,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Kết hợp 10 thiên can × 12 địa chi → 60 phù hiệu không trùng. Đó là LỤC THẬP GIÁP TÍ.  Ứng",
+          "match_q": "Thiên Không",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 16,
+          "page": 32,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
+          "match_q": "Thiên Không",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Mã",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về sự di động, xa xôi, xuất ngoại.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "concept_dict": {
+        "term": "Thiên Mã",
+        "kind": "sao",
+        "definition": "Sao chủ về sự di động, xa xôi, xuất ngoại.",
+        "first_page": 16,
+        "occurrences": 20
+      },
+      "short_note": "Sao chủ về sự di động, xa xôi, xuất ngoại.",
+      "wiki": {
+        "canonical_vi": "Thiên Mã",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 16
+      },
+      "passages_trich": [
+        {
+          "passage_id": 19,
+          "page": 36,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
+          "match_q": "Thiên Mã",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 29,
+          "page": 120,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ NGUYÊN TẮC SỐ + LÝ (Chiêm Bốc Luận Lý Quyết):  'Số học' phải kết hợp 'Lý' — luận số mà k",
+          "match_q": "Thiên Mã",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 58,
+          "page": 38,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Hậu Thiên Bát Quái còn gọi là Văn Vương Bát Quái, do Chu Văn Vương cải tiến từ Tiên Thiên",
+          "match_q": "Thiên Mã",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Văn Xương",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về văn học, khoa cử, thông minh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Văn Xương",
+        "kind": "sao",
+        "definition": "Sao chủ về văn học, khoa cử, thông minh.",
+        "first_page": 17,
+        "occurrences": 52
+      },
+      "short_note": "Sao chủ về văn học, khoa cử, thông minh.",
+      "wiki": {
+        "canonical_vi": "Văn Xương",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 25,
+          "page": 60,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ DANH MỤC TƯỢNG 8 QUẺ (dùng để đọc quẻ qua vật/người):  CÀN ☰ = Trời, cha, ông già, quan",
+          "match_q": "Văn Xương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 52,
+          "page": 220,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "★ Liễu Công Quyền (778-865, Đường):   '用笔在心，心正则笔正'   Dụng bút tại TÂM — tâm chính tắc bút",
+          "match_q": "Văn Xương",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 409,
+          "page": 306,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Sự diệu kỳ trong thiên hạ, không gì vượt quá một chữ 'lý'. Lý đã sáng tỏ thì cốt ở sự họ",
+          "match_q": "Văn Xương",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Văn Khúc",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về văn chương, nghệ thuật, tài năng.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Văn Khúc",
+        "kind": "sao",
+        "definition": "Sao chủ về văn chương, nghệ thuật, tài năng.",
+        "first_page": 17,
+        "occurrences": 37
+      },
+      "short_note": "Sao chủ về văn chương, nghệ thuật, tài năng.",
+      "wiki": {
+        "canonical_vi": "Văn Khúc",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 149,
+          "page": 46,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Theo Chu Lễ - Đại Bốc, 'bốc' là phương pháp bói toán dùng mai rùa: dùng lửa nung nóng ma",
+          "match_q": "Văn Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 444,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Thái Âm hội Văn Khúc ư thê cung, Hàm cung chiết quế, văn chương lệnh thịnh",
+          "match_q": "Văn Khúc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 448,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Lộc, Văn cung Mệnh, quý nhi thả hiền",
+          "match_q": "Văn Khúc",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Tả Phù",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Tả Phụ",
+        "kind": "sao",
+        "definition": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+        "first_page": 17,
+        "occurrences": 36
+      },
+      "short_note": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+      "wiki": {
+        "canonical_vi": "Tả Phụ",
+        "canonical_zh": null,
+        "aliases": "[\"Tả Phù\"]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 41,
+          "page": 200,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ 'Ngô tâm bản tĩnh, nhân lai chiêm bốc, khởi niệm dĩ ứng chi tức động dã.'  Tâm ta vốn TĨ",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 42,
+          "page": 210,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ ĐIỀM TRONG NHÀ (gia trạch chiêm):    Cỏ lạ mọc trên nóc → phúc lộc giàu sang   Cửa nhà t",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 44,
+          "page": 345,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ 'Phù áp tự giả, nhân chi tâm ấn dã.' Chữ ký = TÂM ẤN của người.  ★ NGUYÊN TẮC:   - Tiên",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Hữu Bật",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về sự phò tá, giống Tả Phụ, kết hợp với Tử Vi.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Hữu Bật",
+        "kind": "sao",
+        "definition": "Sao chủ về sự phò tá, giống Tả Phụ, kết hợp với Tử Vi.",
+        "first_page": 17,
+        "occurrences": 38
+      },
+      "short_note": "Sao chủ về sự phò tá, giống Tả Phụ, kết hợp với Tử Vi.",
+      "wiki": {
+        "canonical_vi": "Hữu Bật",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 425,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tử Vi, Thiên Phủ, toàn y Phụ, Bật chi công",
+          "match_q": "Hữu Bật",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 427,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Phụ, Bật giáp đế vi thượng phẩm",
+          "match_q": "Hữu Bật",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 436,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Tử Vi, Phụ, Bật đồng cung, nhất hô bách nặc, cư thượng phẩm",
+          "match_q": "Hữu Bật",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Tả Phụ",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Tả Phụ",
+        "kind": "sao",
+        "definition": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+        "first_page": 17,
+        "occurrences": 36
+      },
+      "short_note": "Sao chủ về sự hỗ trợ, phụ tá, cùng Tử Vi tạo quyền lực.",
+      "wiki": {
+        "canonical_vi": "Tả Phụ",
+        "canonical_zh": null,
+        "aliases": "[\"Tả Phù\"]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 41,
+          "page": 200,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ 'Ngô tâm bản tĩnh, nhân lai chiêm bốc, khởi niệm dĩ ứng chi tức động dã.'  Tâm ta vốn TĨ",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 42,
+          "page": 210,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ ĐIỀM TRONG NHÀ (gia trạch chiêm):    Cỏ lạ mọc trên nóc → phúc lộc giàu sang   Cửa nhà t",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 44,
+          "page": 345,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ 'Phù áp tự giả, nhân chi tâm ấn dã.' Chữ ký = TÂM ẤN của người.  ★ NGUYÊN TẮC:   - Tiên",
+          "match_q": "Tả Phụ",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Khôi",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về quý nhân, sự giúp đỡ, được tôn trọng.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Khôi",
+        "kind": "sao",
+        "definition": "Sao chủ về quý nhân, sự giúp đỡ, được tôn trọng.",
+        "first_page": 17,
+        "occurrences": 15
+      },
+      "short_note": "Sao chủ về quý nhân, sự giúp đỡ, được tôn trọng.",
+      "wiki": {
+        "canonical_vi": "Thiên Khôi",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 38,
+          "page": 340,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ CHỮ LÀ NGƯỜI (Tượng nhân) — trang 400:   Xem chữ phải biết là chữ của AI viết. Cùng 1 ch",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 398,
+          "page": 295,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Ngẫu nhiên không biết nguyên nhân mà mắc kẹt trong số mệnh, khiến ta thấy được, thì thiệ",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 430,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Khôi, Việt đồng hành, vị cư đài phụ",
+          "match_q": "Thiên Khôi",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Việt",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về quý nhân, tương tự Thiên Khôi.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Việt",
+        "kind": "sao",
+        "definition": "Sao chủ về quý nhân, tương tự Thiên Khôi.",
+        "first_page": 17,
+        "occurrences": 15
+      },
+      "short_note": "Sao chủ về quý nhân, tương tự Thiên Khôi.",
+      "wiki": {
+        "canonical_vi": "Thiên Việt",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 340,
+          "page": 237,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Sáu mươi hoa Giáp Tý (Lục Thập Hoa Giáp) mỗi tổ hợp đều có sự quy thuộc riêng về Ngũ Hàn",
+          "match_q": "Thiên Việt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 430,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Khôi, Việt đồng hành, vị cư đài phụ",
+          "match_q": "Thiên Việt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 452,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Quý nhân quý hương, phùng giả phú quý",
+          "match_q": "Thiên Việt",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Khôi Việt",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Hai sao Thiên Khôi và Thiên Việt, chủ về quý hiển và tài lộc.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.38",
+      "concept_dict": {
+        "term": "Khôi Việt",
+        "kind": "sao",
+        "definition": "Hai sao Thiên Khôi và Thiên Việt, chủ về quý hiển và tài lộc.",
+        "first_page": 38,
+        "occurrences": 6
+      },
+      "short_note": "Hai sao Thiên Khôi và Thiên Việt, chủ về quý hiển và tài lộc.",
+      "wiki": {
+        "canonical_vi": "Khôi Việt",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 38
+      },
+      "passages_trich": [
+        {
+          "passage_id": 430,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Khôi, Việt đồng hành, vị cư đài phụ",
+          "match_q": "Khôi Việt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 452,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Quý nhân quý hương, phùng giả phú quý",
+          "match_q": "Khôi Việt",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 527,
+          "page": 22,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Văn Xương Văn Khúc Thiên Khôi tú, bất độc thi thư khả khả nhân.",
+          "match_q": "Khôi Việt",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Hình",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về hình phạt, pháp luật, sự nghiêm khắc.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Thiên Hình",
+        "kind": "sao",
+        "definition": "Sao chủ về hình phạt, pháp luật, sự nghiêm khắc.",
+        "first_page": 17,
+        "occurrences": 18
+      },
+      "short_note": "Sao chủ về hình phạt, pháp luật, sự nghiêm khắc.",
+      "wiki": {
+        "canonical_vi": "Thiên Hình",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 16,
+          "page": 32,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
+          "match_q": "Thiên Hình",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 27,
+          "page": 115,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ TRIẾT LÝ MỞ ĐẦU QUYỂN 2:  Sự việc trời đất có CÁT-HUNG. Mượn quẻ để hiểu cơ. Lý của thiê",
+          "match_q": "Thiên Hình",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 31,
+          "page": 150,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ Mỗi loại VIỆC HỎI gán nghĩa Thể-Dụng khác nhau:  1. THIÊN THỜI (mưa nắng): Thể = trạng t",
+          "match_q": "Thiên Hình",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Khốc",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Thiên Khốc, thuộc hành Kim, là sao tang trở, chủ buồn thương.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Thiên Khốc",
+        "kind": "sao",
+        "definition": "Sao Thiên Khốc, thuộc hành Kim, là sao tang trở, chủ buồn thương.",
+        "first_page": 20,
+        "occurrences": 11
+      },
+      "short_note": "Sao Thiên Khốc, thuộc hành Kim, là sao tang trở, chủ buồn thương.",
+      "wiki": {
+        "canonical_vi": "Thiên Khốc",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [
+        {
+          "passage_id": 1860,
+          "page": 274,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Nhược Thiên Khốc chính lâm thân mệnh, cánh dữ Thiên Hư đồng vị, hỉ tinh hựu thả vô lực, kỳ nhân…",
+          "match_q": "Thiên Khốc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1869,
+          "page": 276,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Cửu Hung tinh nhập miếu lệ: Hình, Dị, Nhận, Trượng, Hư, Khốc, Mao, Diêu. Hung tinh cư miếu",
+          "match_q": "Thiên Khốc",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1878,
+          "page": 278,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Khốc tinh lâm, khốc thân đình (thanh sam tài đáo thủ, quan quỷ cánh thân tùy.)",
+          "match_q": "Thiên Khốc",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Hư",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao ác, cùng Thiên Khốc gây họa cho mệnh chủ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.44",
+      "concept_dict": {
+        "term": "Thiên Hư",
+        "kind": "sao",
+        "definition": "Sao ác, cùng Thiên Khốc gây họa cho mệnh chủ.",
+        "first_page": 44,
+        "occurrences": 7
+      },
+      "short_note": "Sao ác, cùng Thiên Khốc gây họa cho mệnh chủ.",
+      "wiki": {
+        "canonical_vi": "Thiên Hư",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 44
+      },
+      "passages_trich": [
+        {
+          "passage_id": 16,
+          "page": 32,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "MNEMONICS NHỚ HÌNH 8 QUẺ:   Càn tam liên   ☰ — 3 vạch liền   Khôn lục đoạn  ☷ — 6 đoạn (3",
+          "match_q": "Thiên Hư",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 19,
+          "page": 36,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
+          "match_q": "Thiên Hư",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 97,
+          "page": 263,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Viết chữ trên lầu để hỏi quẻ, thì người viết chữ sẽ có chuyện song hỷ lâm môn. Viết chữ tr",
+          "match_q": "Thiên Hư",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Âm Sát",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao âm thầm, chủ tai họa ngầm.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.41",
+      "concept_dict": {
+        "term": "Âm Sát",
+        "kind": "sao",
+        "definition": "Sao âm thầm, chủ tai họa ngầm.",
+        "first_page": 41,
+        "occurrences": 1
+      },
+      "short_note": "Sao âm thầm, chủ tai họa ngầm.",
+      "wiki": {
+        "canonical_vi": "Âm Sát",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 41
+      },
+      "passages_trich": [
+        {
+          "passage_id": 143,
+          "page": 40,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Chấn là tiết Xuân Phân: Sấm chớp dần dần đánh thức những loài vật nhỏ đang ngủ đông, chi",
+          "match_q": "Âm Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 272,
+          "page": 169,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Khởi quẻ và đoán quẻ cũng giống như thầy thuốc chẩn đoán bệnh tình, thông qua quan sát k",
+          "match_q": "Âm Sát",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 289,
+          "page": 186,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Khi dùng sự tương đồng về âm thanh để đoán quẻ, không nhất thiết chỉ dựa vào âm thanh do",
+          "match_q": "Âm Sát",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Tam Thai",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao phụ, chủ về mô phạm, mẫu mực.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "Tam Thai",
+        "kind": "sao",
+        "definition": "Sao phụ, chủ về mô phạm, mẫu mực.",
+        "first_page": 18,
+        "occurrences": 5
+      },
+      "short_note": "Sao phụ, chủ về mô phạm, mẫu mực.",
+      "wiki": {
+        "canonical_vi": "Tam Thai",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 18
+      },
+      "passages_trich": [
+        {
+          "passage_id": 7,
+          "page": 21,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "Số sinh thành (tiếp):   1-6 thuỷ Bắc | 2-7 hoả Nam | 3-8 mộc Đông   4-9 kim Tây | 5-10 thổ",
+          "match_q": "Tam Thai",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 19,
+          "page": 36,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "BÀI THƠ MỞ ĐẦU PHÉP CHIÊM:   'Dịch trung bí mật cùng thiên địa,    Tạo hoá thiên cơ tiết v",
+          "match_q": "Tam Thai",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 41,
+          "page": 200,
+          "corpus": "mai-hoa-dich-so-thieu-khang-tiet",
+          "trich": "★ 'Ngô tâm bản tĩnh, nhân lai chiêm bốc, khởi niệm dĩ ứng chi tức động dã.'  Tâm ta vốn TĨ",
+          "match_q": "Tam Thai",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Bát Tọa",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Bát Tọa chủ về quý tử, quyền bính.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.25",
+      "concept_dict": {
+        "term": "Bát Tọa",
+        "kind": "sao",
+        "definition": "Sao Bát Tọa chủ về quý tử, quyền bính.",
+        "first_page": 25,
+        "occurrences": 3
+      },
+      "short_note": "Sao Bát Tọa chủ về quý tử, quyền bính.",
+      "wiki": {
+        "canonical_vi": "Bát Tọa",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 25
+      },
+      "passages_trich": [
+        {
+          "passage_id": 78,
+          "page": 156,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "Việc xác định thời kỳ ứng nghiệm khá phức tạp, thông thường có hai phương pháp: xác định t",
+          "match_q": "Bát Tọa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 261,
+          "page": 158,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Tọa Đoan là phương pháp lấy người xem quẻ làm trung tâm, phân bố tám quẻ vào tám phương",
+          "match_q": "Bát Tọa",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 719,
+          "page": 50,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Mộ phùng Tả, Hữu, tôn cư bát tọa chi quý.",
+          "match_q": "Bát Tọa",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Lộc Tồn",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về lộc, của cải, sự bền vững.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Lộc Tồn",
+        "kind": "sao",
+        "definition": "Sao chủ về lộc, của cải, sự bền vững.",
+        "first_page": 17,
+        "occurrences": 43
+      },
+      "short_note": "Sao chủ về lộc, của cải, sự bền vững.",
+      "wiki": {
+        "canonical_vi": "Lộc Tồn",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [
+        {
+          "passage_id": 346,
+          "page": 243,
+          "corpus": "thieu-khang-tiet-tq",
+          "trich": "« Lục Thân cũng giống như Ngũ Hành, tồn tại quan hệ sinh khắc tương tự. » « Lộc Thần là mộ",
+          "match_q": "Lộc Tồn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 445,
+          "page": 16,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Lộc Tồn thủ ư Điền Tài, đôi kim tích ngọc",
+          "match_q": "Lộc Tồn",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 462,
+          "page": 17,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Đế tọa kim xa, tắc nhật kim dư phủng chất",
+          "match_q": "Lộc Tồn",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Bách Quan Triều Củng",
+      "han": "",
+      "loai": "sao",
+      "nguon_gom": "plain_glossary.is_jargon.ten_sao",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Bách Quan Triều Củng (百官朝拱) — Tử Vi được nhiều cát/phụ tinh vây quanh, cách quý.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [
+        {
+          "passage_id": 723,
+          "page": 51,
+          "corpus": "tuvidauso-zh-q1",
+          "trich": "Văn tinh ám củng, Giả Nghị duẫn hĩ đăng khoa. Như mệnh cung hữu cát, di thiên, quan lộc, t",
+          "match_q": "Bách Quan Triều Củng",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1268,
+          "page": 51,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Văn tinh ám củng, Giả Nghị duẫn hĩ đăng khoa. Như mệnh cung hữu cát, di thiên, quan lộc, t",
+          "match_q": "Bách Quan Triều Củng",
+          "neo": "han_viet"
+        },
+        {
+          "passage_id": 1731,
+          "page": 180,
+          "corpus": "tuvidauso-zh-q1q3q4",
+          "trich": "Mệnh Dần Thân, Phủ Tướng tại Tài Bạch Quan Lộc cung triều giả, thượng cách, biệt cung thứ",
+          "match_q": "Bách Quan Triều Củng",
+          "neo": "han_viet"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Chính Quan",
+      "han": "正官",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Khắc Day Master, khác âm dương. Biểu thị: chức tước chính thống, kỷ luật, chồng (Nữ). Tích: công chức, chức vụ chính danh, danh tiếng tốt. Tiêu: gò bó, áp lực kỷ luật. Sợ Thương Quan đả phá, sợ Thất Sát hỗn tạp.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Khắc Day Master, khác âm dương. Biểu thị: chức tước chính thống, kỷ luật, chồng (Nữ). Tích: công chức, chức vụ chính danh, danh tiếng tốt. Tiêu: gò bó, áp lực kỷ luật. Sợ Thương Quan đả phá, sợ Thất Sát hỗn tạp.",
+      "wiki": {
+        "canonical_vi": "Chính Quan",
+        "canonical_zh": "正官",
+        "aliases": "[\"Quan\", \"正官\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Quan",
+      "han": "偏官",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Khắc Day Master, cùng âm dương. Biểu thị: quyền lực dữ dội, áp lực, tướng quân, đối thủ mạnh. Tích: quân đội, công an, kinh doanh mạo hiểm, leadership. Tiêu: tai họa, kiện tụng, kẻ thù. Cần Thực Thần CHẾ Sát hoặc Ấn HÓA Sát → quý hiển.",
+      "wiki": {
+        "canonical_vi": "Thất Sát",
+        "canonical_zh": "七殺",
+        "aliases": "[\"Sát\", \"偏官\", \"Thiên Quan\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Quan Sát",
+      "han": "官杀",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Gộp Chính Quan (正官) + Thất Sát (七杀) — nhóm thập thần KHẮC Nhật chủ; ở nữ mệnh đại diện PHỐI NGẪU (chồng). Chính Quan = ràng buộc chính đáng/danh phận; Thất Sát = áp lực mạnh/uy quyền.",
+      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thương Quan",
+      "han": "伤官",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Day Master sinh ra, khác âm dương. Biểu thị: tài năng vượt khuôn khổ, phá cách, nổi loạn. Tích: nghệ sĩ độc đáo, khởi nghiệp đột phá, ngôn ngữ tài. Tiêu: ngạo mạn, vô lễ, khắc Chồng (nữ). Cần Chính Ấn để 'Thương Quan phối Ấn' → tài năng có khuôn.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Day Master sinh ra, khác âm dương. Biểu thị: tài năng vượt khuôn khổ, phá cách, nổi loạn. Tích: nghệ sĩ độc đáo, khởi nghiệp đột phá, ngôn ngữ tài. Tiêu: ngạo mạn, vô lễ, khắc Chồng (nữ). Cần Chính Ấn để 'Thương Quan phối Ấn' → tài năng có khuôn.",
+      "wiki": {
+        "canonical_vi": "Thương Quan",
+        "canonical_zh": "傷官",
+        "aliases": "[\"Thương\", \"傷\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thực Thần",
+      "han": "食神",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Day Master sinh ra, cùng âm dương. Biểu thị: tài năng sáng tạo, hưởng thụ, nuôi dưỡng. Tích: nghệ thuật, ẩm thực, giáo dục, sinh con, phúc lộc. Tiêu: lười nhác, ham hưởng thụ. Kỵ Thiên Ấn (Kiêu Thần đoạt Thực) → mất nguồn lộc.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Day Master sinh ra, cùng âm dương. Biểu thị: tài năng sáng tạo, hưởng thụ, nuôi dưỡng. Tích: nghệ thuật, ẩm thực, giáo dục, sinh con, phúc lộc. Tiêu: lười nhác, ham hưởng thụ. Kỵ Thiên Ấn (Kiêu Thần đoạt Thực) → mất nguồn lộc.",
+      "wiki": {
+        "canonical_vi": "Thực Thần",
+        "canonical_zh": "食神",
+        "aliases": "[\"Thực\", \"食\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "食伤",
+      "han": "食伤",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Gộp Thực Thần (食神) + Thương Quan (伤官) — thập thần do Nhật chủ SINH ra; chủ tài năng, biểu đạt, sáng tạo. Nữ mệnh Thương Quan khắc Chính Quan (sao chồng).",
+      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thực Thương",
+      "han": "食伤",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Thực Thần + Thương Quan = nhóm Thực Thương (食伤); Nhật chủ sinh ra, chủ sáng tạo/biểu đạt; nữ mệnh khắc sao chồng.",
+      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Chính Tài",
+      "han": "正财",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Day Master khắc, khác âm dương. Biểu thị: tài chính ổn định, lương cứng, vợ chính (Nam). Tích: cần kiệm, tích lũy, gia đình ổn. Tiêu: cứng nhắc, sợ rủi ro. Khi Day Master vượng + Chính Tài vượng → đại phú.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Day Master khắc, khác âm dương. Biểu thị: tài chính ổn định, lương cứng, vợ chính (Nam). Tích: cần kiệm, tích lũy, gia đình ổn. Tiêu: cứng nhắc, sợ rủi ro. Khi Day Master vượng + Chính Tài vượng → đại phú.",
+      "wiki": {
+        "canonical_vi": "Chính Tài",
+        "canonical_zh": "正財",
+        "aliases": "[\"C.Tài\", \"正財\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Tài",
+      "han": "偏财",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Day Master khắc, cùng âm dương. Biểu thị: tài lộc bất ngờ, đào hoa, đầu cơ. Tích: kinh doanh đa lĩnh vực, môi giới, có sức hút. Tiêu: phá tài bất ngờ, đào hoa loạn.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Day Master khắc, cùng âm dương. Biểu thị: tài lộc bất ngờ, đào hoa, đầu cơ. Tích: kinh doanh đa lĩnh vực, môi giới, có sức hút. Tiêu: phá tài bất ngờ, đào hoa loạn.",
+      "wiki": {
+        "canonical_vi": "Thiên Tài",
+        "canonical_zh": "偏財",
+        "aliases": "[\"T.Tài\", \"偏財\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "财",
+      "han": "财",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Tiền bạc, của cải; cùng với công danh tạo thành lĩnh vực danh lợi.",
+      "canon_nguon": "wiki concept_index:thieu-khang-tiet-tq tr.123",
+      "concept_dict": null,
+      "short_note": "Tiền bạc, của cải; cùng với công danh tạo thành lĩnh vực danh lợi.",
+      "wiki": {
+        "canonical_vi": "Tài phú",
+        "canonical_zh": "财富",
+        "aliases": "[\"tài lộc\"]",
+        "category": null,
+        "school": "mai_hoa",
+        "first_seen_page": 123
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Chính Ấn",
+      "han": "正印",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sinh Day Master, khác âm dương. Biểu thị: mẹ ruột, học vấn chính quy, ấn tín bảo hộ. Tích: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện. Tiêu: ỷ lại, lười suy nghĩ độc lập. Kỵ Chính Tài đoạt Ấn.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Sinh Day Master, khác âm dương. Biểu thị: mẹ ruột, học vấn chính quy, ấn tín bảo hộ. Tích: trí tuệ, danh tiếng học thuật, nhân từ, từ thiện. Tiêu: ỷ lại, lười suy nghĩ độc lập. Kỵ Chính Tài đoạt Ấn.",
+      "wiki": {
+        "canonical_vi": "Chính Ấn",
+        "canonical_zh": "正印",
+        "aliases": "[\"C.Ấn\", \"正印\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thiên Ấn",
+      "han": "偏印",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.280",
+      "concept_dict": {
+        "term": "Thiên Ấn",
+        "kind": "sao",
+        "definition": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
+        "first_page": 280,
+        "occurrences": 4
+      },
+      "short_note": "Sao Thiên Ấn, chủ về ấn tín, quyền uy, học vấn.",
+      "wiki": {
+        "canonical_vi": "Thiên Ấn",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 280
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Ấn Tinh",
+      "han": "印",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.345",
+      "concept_dict": null,
+      "short_note": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
+      "wiki": {
+        "canonical_vi": "Tâm Ấn (chữ ký)",
+        "canonical_zh": "心印",
+        "aliases": "[]",
+        "category": null,
+        "school": "mai_hoa",
+        "first_seen_page": 345
+      },
+      "passages_trich": [
+        {
+          "passage_id": 2727,
+          "page": 16,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…niên tiện bố tử. 虛貴印壽逆相逐, 空鸞庫貫文福祿. Hư quý ấn thọ nghịch tương trục, không loan khố quán văn phúc lộc. 刑酉姚丑皆順行…",
+          "match_q": "印",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2732,
+          "page": 21,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…ệ 紫, 文, 紅, 貴, 福, 綠, 印, 壽, 庫但得三五位, 與照強宮, 則主榮貴. 文昌, 天貴, 主科名文章之顯, 博學經典. 天刑樂天庫, 廟守命照身, 及四宮強, 必真才實德之學, 起群出衆之人也. Tử,…",
+          "match_q": "印",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2820,
+          "page": 109,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…ố xương phúc lộc 紫微貴印, 天壽紅鸞. Tử vi quý ấn, thiên thọ hồng loan. ○ 紫貴印曰 ○ tử quý ấn viết 庫貫文昌, 福祿周旋. Khố quán v…",
+          "match_q": "印",
+          "neo": "han"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "ấn tinh",
+      "han": "印",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.345",
+      "concept_dict": null,
+      "short_note": "Chữ ký = tâm ấn của người. Cơ sở chiêm chữ ký. Trang 345.",
+      "wiki": {
+        "canonical_vi": "Tâm Ấn (chữ ký)",
+        "canonical_zh": "心印",
+        "aliases": "[]",
+        "category": null,
+        "school": "mai_hoa",
+        "first_seen_page": 345
+      },
+      "passages_trich": [
+        {
+          "passage_id": 2727,
+          "page": 16,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…niên tiện bố tử. 虛貴印壽逆相逐, 空鸞庫貫文福祿. Hư quý ấn thọ nghịch tương trục, không loan khố quán văn phúc lộc. 刑酉姚丑皆順行…",
+          "match_q": "印",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2732,
+          "page": 21,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…ệ 紫, 文, 紅, 貴, 福, 綠, 印, 壽, 庫但得三五位, 與照強宮, 則主榮貴. 文昌, 天貴, 主科名文章之顯, 博學經典. 天刑樂天庫, 廟守命照身, 及四宮強, 必真才實德之學, 起群出衆之人也. Tử,…",
+          "match_q": "印",
+          "neo": "han"
+        },
+        {
+          "passage_id": 2820,
+          "page": 109,
+          "corpus": "tuvi-dao-tang-zh",
+          "trich": "…ố xương phúc lộc 紫微貴印, 天壽紅鸞. Tử vi quý ấn, thiên thọ hồng loan. ○ 紫貴印曰 ○ tử quý ấn viết 庫貫文昌, 福祿周旋. Khố quán v…",
+          "match_q": "印",
+          "neo": "han"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "Tỷ Kiên",
+      "han": "比肩",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Cùng hành + cùng âm dương với Day Master. Biểu thị: anh em ngang vai, đồng nghiệp, cạnh tranh trực diện. Tích: hỗ trợ, độc lập, ý chí. Tiêu: cứng đầu, tranh chấp, hao của.",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Cùng hành + cùng âm dương với Day Master. Biểu thị: anh em ngang vai, đồng nghiệp, cạnh tranh trực diện. Tích: hỗ trợ, độc lập, ý chí. Tiêu: cứng đầu, tranh chấp, hao của.",
+      "wiki": {
+        "canonical_vi": "Tỷ Kiên",
+        "canonical_zh": "比肩",
+        "aliases": "[\"Tỷ\", \"比\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Kiếp Tài",
+      "han": "劫财",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Cùng hành + khác âm dương với Day Master. Biểu thị: người cướp của, đối thủ ngầm. Tích: dũng mãnh, hành động nhanh. Tiêu: hao tổn tài lộc, dễ bị lừa, cướp đoạt vô hình. Khi Kiếp Tài ở Trụ Tháng → Dương Nhận cách (đặc biệt).",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa",
+      "concept_dict": null,
+      "short_note": "Cùng hành + khác âm dương với Day Master. Biểu thị: người cướp của, đối thủ ngầm. Tích: dũng mãnh, hành động nhanh. Tiêu: hao tổn tài lộc, dễ bị lừa, cướp đoạt vô hình. Khi Kiếp Tài ở Trụ Tháng → Dương Nhận cách (đặc biệt).",
+      "wiki": {
+        "canonical_vi": "Kiếp Tài",
+        "canonical_zh": "劫財",
+        "aliases": "[\"Kiếp\", \"劫\"]",
+        "category": "thap_than",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": null
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tỷ Kiếp",
+      "han": "比劫",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Gộp Tỷ Kiên (比肩) + Kiếp Tài (劫财) — thập thần ĐỒNG loại với Nhật chủ; chủ anh em/bằng hữu/cạnh tranh. Ở nam mệnh, Tỷ Kiếp KHẮC Tài (财) nên là kẻ khắc vợ.",
+      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Chính Quan Thất Sát",
+      "han": "官杀",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Chính Quan + Thất Sát = nhóm Quan Sát (官杀); khắc Nhật chủ, nữ mệnh là sao phối ngẫu.",
+      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "官杀",
+      "han": "官杀",
+      "loai": "thap_than",
+      "nguon_gom": "plain_glossary.is_jargon.thap_than",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Quan Sát — gộp Chính Quan + Thất Sát; thập thần khắc Nhật chủ, nữ mệnh = sao chồng.",
+      "canon_nguon": "curated:định nghĩa Tử Bình chuẩn tối thiểu (派 tu_binh_ba_tu)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "đại vận",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Giai đoạn ~10 năm trong lá số (大運); mỗi đại vận lần lượt quản một cung, đọc cát-hung động theo thời. (Quy ước an sao Tử Vi Đẩu Số.)",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "lưu niên",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao lưu niên, biểu thị tai họa theo năm.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.34",
+      "concept_dict": {
+        "term": "Lưu Niên",
+        "kind": "bien_cach",
+        "definition": "Sao lưu niên, biểu thị tai họa theo năm.",
+        "first_page": 34,
+        "occurrences": 3
+      },
+      "short_note": "Sao lưu niên, biểu thị tai họa theo năm.",
+      "wiki": {
+        "canonical_vi": "Lưu Niên",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "biến cách",
+        "school": "tu_vi",
+        "first_seen_page": 34
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "tiểu hạn",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Vận mệnh hàng năm.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.27",
+      "concept_dict": {
+        "term": "Tiểu Hạn",
+        "kind": "the_loai",
+        "definition": "Vận mệnh hàng năm.",
+        "first_page": 27,
+        "occurrences": 11
+      },
+      "short_note": "Vận năm — tuần hoàn theo địa chi mỗi năm. Khác với Đại Hạn (10 năm), Tiểu Hạn mịn hơn.",
+      "wiki": {
+        "canonical_vi": "Tiểu Hạn",
+        "canonical_zh": "小限",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "lưu nguyệt",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Tháng cụ thể đang xét (流月); tầng định thời nhỏ hơn lưu niên.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hãm",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao đóng tại cung vị xấu, suy yếu, mang lại điều không may.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.109",
+      "concept_dict": {
+        "term": "Hãm",
+        "kind": "bien_cach",
+        "definition": "Sao đóng tại cung vị xấu, suy yếu, mang lại điều không may.",
+        "first_page": 109,
+        "occurrences": 2
+      },
+      "short_note": "Trạng thái sao ở vị trí xấu, năng lực suy giảm, mang họa.",
+      "wiki": {
+        "canonical_vi": "Hãm",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 287
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thất hãm",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Trạng thái sao bị lạc cung xấu, mất thế, sinh ra hung họa.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.72",
+      "concept_dict": {
+        "term": "Thất hãm",
+        "kind": "the_loai",
+        "definition": "Trạng thái sao bị lạc cung xấu, mất thế, sinh ra hung họa.",
+        "first_page": 72,
+        "occurrences": 1
+      },
+      "short_note": "Trạng thái sao bị lạc cung xấu, mất thế, sinh ra hung họa.",
+      "wiki": {
+        "canonical_vi": "Thất hãm",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 72
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "lạc hãm",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Trạng thái xấu của sao, khó phát huy tác dụng.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "lạc hãm",
+        "kind": "the_loai",
+        "definition": "Trạng thái xấu của sao, khó phát huy tác dụng.",
+        "first_page": 18,
+        "occurrences": 2
+      },
+      "short_note": "Trạng thái xấu của sao, khó phát huy tác dụng.",
+      "wiki": {
+        "canonical_vi": "lạc hãm",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 18
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "miếu",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Trạng thái sao đắc địa, phát huy tối đa năng lượng.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.295",
+      "concept_dict": {
+        "term": "Miếu",
+        "kind": "the_loai",
+        "definition": "Trạng thái sao đắc địa, phát huy tối đa năng lượng.",
+        "first_page": 295,
+        "occurrences": 1
+      },
+      "short_note": "Trạng thái sao đắc địa, phát huy tối đa năng lượng.",
+      "wiki": {
+        "canonical_vi": "Miếu",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 295
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "vượng",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chỉ sự thịnh vượng, sức mạnh đạt đỉnh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.87",
+      "concept_dict": {
+        "term": "Vượng",
+        "kind": "sao",
+        "definition": "Sao chỉ sự thịnh vượng, sức mạnh đạt đỉnh.",
+        "first_page": 87,
+        "occurrences": 1
+      },
+      "short_note": "1 trong 5 trạng thái quái khí (Vượng/Tướng/Hưu/Tù/Tử).",
+      "wiki": {
+        "canonical_vi": "Vượng",
+        "canonical_zh": "旺",
+        "aliases": "[]",
+        "category": null,
+        "school": "mai_hoa+tu_vi",
+        "first_seen_page": 24
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "nhập miếu",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Trạng thái sao đắc địa, mạnh mẽ, mang lại may mắn và quý hiển.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.111",
+      "concept_dict": {
+        "term": "nhập miếu",
+        "kind": "bien_cach",
+        "definition": "Trạng thái sao đắc địa, mạnh mẽ, mang lại may mắn và quý hiển.",
+        "first_page": 111,
+        "occurrences": 8
+      },
+      "short_note": "Sao tọa thủ cung vị tốt nhất của nó — phát huy bản tính tốt. Source: TVDSTT.",
+      "wiki": {
+        "canonical_vi": "Nhập Miếu",
+        "canonical_zh": "入庙",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "đắc địa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Trạng thái sao đóng tại cung tốt, hưởng phúc, bình hòa.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.124",
+      "concept_dict": {
+        "term": "đắc địa",
+        "kind": "the_loai",
+        "definition": "Trạng thái sao đóng tại cung tốt, hưởng phúc, bình hòa.",
+        "first_page": 124,
+        "occurrences": 1
+      },
+      "short_note": "Trạng thái sao đóng tại cung tốt, hưởng phúc, bình hòa.",
+      "wiki": {
+        "canonical_vi": "đắc địa",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 124
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "vượng địa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Cung vị tốt, có vượng khí, thuận lợi.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.41",
+      "concept_dict": {
+        "term": "vượng địa",
+        "kind": "the_loai",
+        "definition": "Cung vị tốt, có vượng khí, thuận lợi.",
+        "first_page": 41,
+        "occurrences": 1
+      },
+      "short_note": "Cung vị tốt, có vượng khí, thuận lợi.",
+      "wiki": {
+        "canonical_vi": "vượng địa",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 41
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "trung tính",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sắc thái không thiên cát cũng không thiên hung — phải xét bối cảnh sao hội tụ.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "đắc",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sao đóng ở vị trí thuận, phát huy được lực (đắc địa).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "tường hòa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Khí ôn hòa, an ổn (祥和) — trạng thái lành của sao như Thiên Phủ.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "chính tinh",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "14 sao chính (chính diệu) — trục mô tả cốt lõi của một cung.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "chính diệu",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cách gọi khác của chính tinh — 14 sao chính.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "phụ tinh",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sao phụ trợ (Tả Phụ Hữu Bật Xương Khúc Khôi Việt…) — tăng/giảm lực chính tinh.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "tạp diệu",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sao lẻ/tạp (天刑 天姚 大耗…) — đọc theo cụm, không phán độc lập.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "không diệu",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Địa Không + Địa Kiếp (空劫) — chủ trống trải, hao tổn; cũng chế hóa đào hoa.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "lưu Kình",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Kình Dương theo năm lưu (流羊) — sát cương xuất hiện ở năm đang xét.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "lưu Đà",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Đà La theo năm lưu (流陀) — sát dây dưa xuất hiện ở năm đang xét.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "lưu Lộc",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Lộc Tồn / Hóa Lộc theo năm lưu — lộc khí của năm đang xét.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Kình-Đà giáp",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Kình Dương + Đà La kẹp hai bên một cung (羊陀夹) — kết cấu ép, làm xấu lực sao bị kẹp.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Kình Đà giáp",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Kình Dương + Đà La kẹp hai bên một cung (羊陀夹) — kết cấu ép.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cương khắc",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Khí quá cứng dẫn tới xung khắc lục thân (刚克) — cần xét MỨC độ, không kết án.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cô khắc",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Khuynh hướng cô độc/khó gần do sao cương liệt (孤克).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cương liệt",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Tính cứng mạnh, quyết liệt (刚烈) — như Vũ Khúc, Thất Sát.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "sát cương",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát tinh mang khí cứng (Kình Dương) — chủ hình thương tranh chấp.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "sát hỏa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát tinh thuộc hỏa (Hỏa Tinh, Linh Tinh) — chủ nóng gấp, biến cố nhanh.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "sát âm",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát tinh trầm/âm (Đà La) — chủ dây dưa, uất kết ngầm.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "gặp sát",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hội/đồng cung với sát tinh — tăng sắc thái xung khắc, cần giữ gìn.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hội sát",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát tinh chiếu tới từ tam phương tứ chính — như gặp sát.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "sát-kỵ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát tinh cộng Hóa Kỵ — cụm tín hiệu cần lưu tâm nhất (không phải bản án).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "sát kỵ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát tinh cộng Hóa Kỵ — cụm cần lưu tâm.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thượng cách",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Cách cục cao — Mệnh hội tụ nhiều cát tinh, hợp cách kinh điển. Source: TVDSTT nhiều chỗ.",
+      "canon_nguon": "wiki concept_index:tuvidauso-zh",
+      "concept_dict": null,
+      "short_note": "Cách cục cao — Mệnh hội tụ nhiều cát tinh, hợp cách kinh điển. Source: TVDSTT nhiều chỗ.",
+      "wiki": {
+        "canonical_vi": "Thượng Cách",
+        "canonical_zh": "上格",
+        "aliases": "Thượng cách, cách cao",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "trung cách",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cách cục mức trung — không thượng cũng không hạ.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thuộc hạ cách",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cách cục mức thấp theo phú cổ — đọc lại theo bối cảnh, không kết án.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hạ cách",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Cách cục thấp — Mệnh không có sát tinh nhưng yếu cát tinh, hoặc kết hợp xấu. Source: Cốt Tủy Phú nhiều chỗ.",
+      "canon_nguon": "wiki concept_index:tuvidauso-zh",
+      "concept_dict": null,
+      "short_note": "Cách cục thấp — Mệnh không có sát tinh nhưng yếu cát tinh, hoặc kết hợp xấu. Source: Cốt Tủy Phú nhiều chỗ.",
+      "wiki": {
+        "canonical_vi": "Hạ Cách",
+        "canonical_zh": "下格",
+        "aliases": "Hạ cách, cách thấp",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "đồng cung",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Hai hay nhiều sao cùng nằm trong một cung.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.156",
+      "concept_dict": {
+        "term": "đồng cung",
+        "kind": "the_loai",
+        "definition": "Hai hay nhiều sao cùng nằm trong một cung.",
+        "first_page": 156,
+        "occurrences": 1
+      },
+      "short_note": "Hai hay nhiều sao cùng nằm trong một cung.",
+      "wiki": {
+        "canonical_vi": "đồng cung",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 156
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "đồng độ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hai sao cùng một cung (同度) — như đồng cung.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "đồng triền",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hai sao cùng vận hành/đóng một cung (同躔).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hội chiếu",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sao chiếu tới một cung từ tam phương tứ chính (会照).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "tam phương",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Ba cung Thiên Di, Quan Lộc, Tài Bạch.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.51",
+      "concept_dict": {
+        "term": "tam phương",
+        "kind": "the_loai",
+        "definition": "Ba cung Thiên Di, Quan Lộc, Tài Bạch.",
+        "first_page": 51,
+        "occurrences": 2
+      },
+      "short_note": "Ba cung: Tài Bạch, Quan Lộc, Phúc Đức.",
+      "wiki": {
+        "canonical_vi": "Tam phương",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "cung",
+        "school": "tu_vi",
+        "first_seen_page": 24
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "tứ chính",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Bốn chính cung: Mệnh, Thân, Tài, Quan.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.60",
+      "concept_dict": {
+        "term": "tứ chính",
+        "kind": "the_loai",
+        "definition": "Bốn chính cung: Mệnh, Thân, Tài, Quan.",
+        "first_page": 60,
+        "occurrences": 1
+      },
+      "short_note": "Bốn chính cung: Mệnh, Thân, Tài, Quan.",
+      "wiki": {
+        "canonical_vi": "tứ chính",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 60
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "giáp cung",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hai cung kề hai bên kẹp vào cung giữa (夹宫) — ảnh hưởng cung bị kẹp.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hóa Lộc",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.16",
+      "concept_dict": {
+        "term": "Hóa Lộc",
+        "kind": "hoa",
+        "definition": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+        "first_page": 16,
+        "occurrences": 57
+      },
+      "short_note": "Sao hóa chủ về tài lộc, may mắn, phú quý.",
+      "wiki": {
+        "canonical_vi": "Hóa Lộc",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 16
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hóa Quyền",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.18",
+      "concept_dict": {
+        "term": "Hóa Quyền",
+        "kind": "hoa",
+        "definition": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+        "first_page": 18,
+        "occurrences": 43
+      },
+      "short_note": "Sao Hóa Quyền, chủ về quyền lực, địa vị.",
+      "wiki": {
+        "canonical_vi": "Hóa Quyền",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 18
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hóa Khoa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.20",
+      "concept_dict": {
+        "term": "Hóa Khoa",
+        "kind": "hoa",
+        "definition": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+        "first_page": 20,
+        "occurrences": 31
+      },
+      "short_note": "Hóa Khoa, sao khoa trạng, chủ danh tiếng, học hành.",
+      "wiki": {
+        "canonical_vi": "Hóa Khoa",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 20
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "hóa Kỵ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.17",
+      "concept_dict": {
+        "term": "Hóa Kỵ",
+        "kind": "hoa",
+        "definition": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+        "first_page": 17,
+        "occurrences": 41
+      },
+      "short_note": "Sao hóa tai ương, khó khăn, ảnh hưởng xấu đến mệnh.",
+      "wiki": {
+        "canonical_vi": "Hóa Kỵ",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "hóa",
+        "school": "tu_vi",
+        "first_seen_page": 17
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "tứ hóa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.84",
+      "concept_dict": {
+        "term": "Tứ Hóa",
+        "kind": "the_loai",
+        "definition": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+        "first_page": 84,
+        "occurrences": 1
+      },
+      "short_note": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+      "wiki": {
+        "canonical_vi": "Tứ Hóa",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 84
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tứ Hóa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.84",
+      "concept_dict": {
+        "term": "Tứ Hóa",
+        "kind": "the_loai",
+        "definition": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+        "first_page": 84,
+        "occurrences": 1
+      },
+      "short_note": "Tứ Hóa gồm Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ.",
+      "wiki": {
+        "canonical_vi": "Tứ Hóa",
+        "canonical_zh": null,
+        "aliases": null,
+        "category": "thể loại",
+        "school": "tu_vi",
+        "first_seen_page": 84
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tuần",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Tuần Không (旬空) — một trục 'không' làm yếu/đình hoãn lực sao trong cung nó án ngữ.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Triệt",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Triệt Lộ (截路) — trục 'chặn' làm sao trong cung bị cắt/đảo lực, tựa rào chắn.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tuần Triệt",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hai trục Tuần Không + Triệt Lộ — đều làm gián đoạn/biến chất lực sao án ngữ.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cung Phu Thê",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cung vợ/chồng trong 12 cung (夫妻宫) — mô tả phối ngẫu và quan hệ hôn nhân.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cung Mệnh",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cung gốc của lá số (命宫) — trục chính mô tả bản thân.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cung Phúc",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cung Phúc Đức (福德宫) — đời sống tinh thần, hưởng thụ, tâm tính.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cung Tài",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cung Tài Bạch (财帛宫) — tiền của, cách kiếm-giữ tiền.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cung Quan",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cung Quan Lộc / Sự Nghiệp (官禄宫) — công danh, sự nghiệp.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "nhật chủ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.267",
+      "concept_dict": {
+        "term": "Nhật Chủ",
+        "kind": "sao",
+        "definition": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
+        "first_page": 267,
+        "occurrences": 1
+      },
+      "short_note": "Thiên can của ngày sinh, dùng để phối hợp với các sao.",
+      "wiki": {
+        "canonical_vi": "Nhật Chủ",
+        "canonical_zh": null,
+        "aliases": "[]",
+        "category": "sao",
+        "school": "tu_vi",
+        "first_seen_page": 267
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thân chủ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ tinh của cung Thân, thay đổi theo cung an Thân.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.90",
+      "concept_dict": {
+        "term": "Thân chủ",
+        "kind": "sao",
+        "definition": "Sao chủ tinh của cung Thân, thay đổi theo cung an Thân.",
+        "first_page": 90,
+        "occurrences": 1
+      },
+      "short_note": "Sao chủ của Thân cung, an theo năm sinh. Đại diện cho hướng phát triển hậu thiên.",
+      "wiki": {
+        "canonical_vi": "Thân chủ",
+        "canonical_zh": "身主",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "mệnh chủ",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ tinh của cung Mệnh, thay đổi theo cung an Mệnh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.90",
+      "concept_dict": {
+        "term": "Mệnh chủ",
+        "kind": "sao",
+        "definition": "Sao chủ tinh của cung Mệnh, thay đổi theo cung an Mệnh.",
+        "first_page": 90,
+        "occurrences": 1
+      },
+      "short_note": "Sao chủ của Mệnh cung, an theo Địa chi của Mệnh cung. Đại diện cho căn cốt tiên thiên.",
+      "wiki": {
+        "canonical_vi": "Mệnh chủ",
+        "canonical_zh": "命主",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thân vượng",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Nhật chủ mạnh (Bát Tự) — đủ lực gánh Tài/Quan.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thân nhược",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Nhật chủ yếu (Bát Tự) — cần Ấn/Tỷ trợ lực.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Quan nhược",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sao Quan (chồng, nữ mệnh) yếu lực — cần sinh trợ.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Quan vượng",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sao Quan mạnh lực.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tài thông quan",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Tài (财) làm cầu nối Thương Quan → Tài → Quan, hóa giải Thương khắc Quan.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Ấn chế",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Ấn (印) khắc chế Thương Quan, bảo vệ sao Quan (chồng).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "chế hóa",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Chế = khắc khi vượng. Hóa = sinh chuyển thành khí khác (qua trung gian). Vd: Kim khắc Mộc trực tiếp (chế), nhưng nếu có Thủy thì Kim → Thủy → Mộc (hóa, chuyển khí thay vì khắc).",
+      "canon_nguon": "wiki concept_index:bat-tu-thieu-vi-hoa tr.22",
+      "concept_dict": null,
+      "short_note": "Chế = khắc khi vượng. Hóa = sinh chuyển thành khí khác (qua trung gian). Vd: Kim khắc Mộc trực tiếp (chế), nhưng nếu có Thủy thì Kim → Thủy → Mộc (hóa, chuyển khí thay vì khắc).",
+      "wiki": {
+        "canonical_vi": "Chế hóa",
+        "canonical_zh": "制化",
+        "aliases": "[\"sinh khắc chế hóa\"]",
+        "category": "ngu_hanh",
+        "school": "tu_binh_ba_tu",
+        "first_seen_page": 22
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "thông quan",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Một hành/thập thần làm cầu nối hóa giải hai bên khắc nhau (通关).",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "杀破狼",
+      "han": "杀破狼",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Sát Phá Lang — Thất Sát + Phá Quân + Tham Lang; trục biến động, khai phá.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Sát Phá Lang",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Trục Thất Sát–Phá Quân–Tham Lang (杀破狼) — bộ ba chủ BIẾN ĐỘNG, khai phá, thay cũ đổi mới.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "cô quân",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Cô Quân (孤君) — Tử Vi thiếu Tả Phụ Hữu Bật phụ tá: vị chủ đứng một mình, dễ cô.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "bách quan triều củng",
+      "han": "",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Bách Quan Triều Củng (百官朝拱) — Tử Vi được nhiều cát tinh/phụ tinh vây quanh trợ giúp, cách quý hiển.",
+      "canon_nguon": "curated:quy ước an sao Tử Vi / đạo lý Tử Bình",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "刑忌夹印",
+      "han": "刑忌夹印",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hình-Kỵ giáp Ấn — Thiên Hình + Hóa Kỵ kẹp Thiên Tướng (ấn tinh); kết cấu ép khiến người dễ mất chí / nhu nhược, cần giữ chính kiến.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "财荫夹印",
+      "han": "财荫夹印",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Tài-Ấm giáp Ấn — Hóa Lộc/Lộc Tồn + Thiên Lương (ấm) kẹp Thiên Tướng; kết cấu nâng đỡ, nhưng nếu không thuận cũng làm Thiên Tướng dựa dẫm.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [
+        {
+          "passage_id": 3058,
+          "page": 45,
+          "corpus": "tuvi-toan-thu-lht-zh",
+          "trich": "定富局 Định phú cục 财荫夹印 相守命武梁来夹是也, 田宅宫亦然. Tài ấm giáp ấn tương thủ mệnh vũ lương lai giáp thị dã, điền trạch…",
+          "match_q": "财荫夹印",
+          "neo": "han"
+        }
+      ],
+      "flag": null
+    },
+    {
+      "han_viet": "羊陀夹忌",
+      "han": "羊陀夹忌",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Kình-Đà giáp Kỵ — Kình Dương + Đà La kẹp một cung có Hóa Kỵ; kết cấu rất xấu, năm/vận đó cần giữ gìn.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "羊陀夹武曲",
+      "han": "羊陀夹武曲",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Kình-Đà giáp Vũ Khúc — Kình + Đà kẹp Vũ Khúc (nhất là khi Vũ Khúc hóa Kỵ); kết cấu cương khắc nặng, đại kỵ với hôn nhân.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "桃花犯主",
+      "han": "桃花犯主",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Đào hoa phạm chủ — Tham Lang (đào hoa) đồng cung Tử Vi (chủ tinh); sắc thái tình dục đậm, cần Thiên Hình/Không diệu để thành 'thanh bạch'.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "泛水桃花",
+      "han": "泛水桃花",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Phiếm thủy đào hoa — Tham Lang ở Tý gặp Kình Dương (hoặc ở Hợi gặp Đà La); cách đào hoa nặng, sức hút mạnh cần định hướng.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "风流采杖",
+      "han": "风流采杖",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Phong lưu thải trượng — Tham Lang ở Dần gặp Đà La (hoặc hội Thiên Hình Kình Dương); cách đào hoa, phong lưu đa tình.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "红杏出墙",
+      "han": "红杏出墙",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": true,
+      "dinh_nghia_canon": "Hồng hạnh xuất tường — cụm đào hoa (天姚沐浴咸池大耗) tụ ở cung Phu/Phúc cộng hôn nhân bất như ý; cổ nói dễ sinh tình ngoài hôn nhân — đọc là dấu hiệu cần chăm sóc quan hệ, KHÔNG phán định.",
+      "canon_nguon": "curated:cụm cách Phú Thái Vi / Trung Châu phái (王亭之)",
+      "concept_dict": null,
+      "short_note": null,
+      "wiki": null,
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "石中隐玉",
+      "han": "石中隐玉",
+      "loai": "ly_thuat",
+      "nguon_gom": "plain_glossary.is_jargon.ly_thuat",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Cách Cự Môn ở Tý/Ngọ — như ngọc giấu trong đá. Tính cách kín đáo, tài năng tiềm ẩn, không phô trương. Source: TVDSTT Q.1 p56.",
+      "canon_nguon": "wiki concept_index:tuvidauso-zh",
+      "concept_dict": null,
+      "short_note": "Cách Cự Môn ở Tý/Ngọ — như ngọc giấu trong đá. Tính cách kín đáo, tài năng tiềm ẩn, không phô trương. Source: TVDSTT Q.1 p56.",
+      "wiki": {
+        "canonical_vi": "Thạch Trung Ẩn Ngọc",
+        "canonical_zh": "石中隐玉",
+        "aliases": "[]",
+        "category": null,
+        "school": "tu_vi",
+        "first_seen_page": 0
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tý",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 1, thủy dương — chuột. Giờ 23:00-01:00. Tàng can: Quý. Mùa đông giữa (tháng 11 ÂL). Phương Bắc.",
+      "canon_nguon": "wiki concept_index:thieu-khang-tiet-tq tr.35",
+      "concept_dict": null,
+      "short_note": "Địa chi 1, thủy dương — chuột. Giờ 23:00-01:00. Tàng can: Quý. Mùa đông giữa (tháng 11 ÂL). Phương Bắc.",
+      "wiki": {
+        "canonical_vi": "Tý",
+        "canonical_zh": "子",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 35
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Sửu",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 2, thổ âm — trâu. Giờ 01:00-03:00. Tàng can: Kỷ, Quý, Tân. Tháng 12 ÂL. Phương Đông Bắc.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 2, thổ âm — trâu. Giờ 01:00-03:00. Tàng can: Kỷ, Quý, Tân. Tháng 12 ÂL. Phương Đông Bắc.",
+      "wiki": {
+        "canonical_vi": "Sửu",
+        "canonical_zh": "丑",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Dần",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 3, mộc dương — hổ. Giờ 03:00-05:00. Tàng can: Giáp, Bính, Mậu. Tháng Giêng ÂL. Phương Đông Bắc. Khởi đầu Lập Xuân.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 3, mộc dương — hổ. Giờ 03:00-05:00. Tàng can: Giáp, Bính, Mậu. Tháng Giêng ÂL. Phương Đông Bắc. Khởi đầu Lập Xuân.",
+      "wiki": {
+        "canonical_vi": "Dần",
+        "canonical_zh": "寅",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Mão",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 4, mộc âm — mèo (VN) / thỏ (TQ). Giờ 05:00-07:00. Tàng can: Ất. Tháng 2 ÂL. Phương Đông.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 4, mộc âm — mèo (VN) / thỏ (TQ). Giờ 05:00-07:00. Tàng can: Ất. Tháng 2 ÂL. Phương Đông.",
+      "wiki": {
+        "canonical_vi": "Mão",
+        "canonical_zh": "卯",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thìn",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 5, thổ dương — rồng. Giờ 07:00-09:00. Tàng can: Mậu, Ất, Quý. Tháng 3 ÂL. Phương Đông Nam.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 5, thổ dương — rồng. Giờ 07:00-09:00. Tàng can: Mậu, Ất, Quý. Tháng 3 ÂL. Phương Đông Nam.",
+      "wiki": {
+        "canonical_vi": "Thìn",
+        "canonical_zh": "辰",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tỵ",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 6, hỏa âm — rắn. Giờ 09:00-11:00. Tàng can: Bính, Mậu, Canh. Tháng 4 ÂL. Phương Đông Nam.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 6, hỏa âm — rắn. Giờ 09:00-11:00. Tàng can: Bính, Mậu, Canh. Tháng 4 ÂL. Phương Đông Nam.",
+      "wiki": {
+        "canonical_vi": "Tỵ",
+        "canonical_zh": "巳",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Ngọ",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa Chi thứ bảy, nghĩa là 'gặp gỡ', chỉ vạn vật đã qua thời cực thịnh, lúc Âm Dương giao hòa.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa Chi thứ bảy, nghĩa là 'gặp gỡ', chỉ vạn vật đã qua thời cực thịnh, lúc Âm Dương giao hòa.",
+      "wiki": {
+        "canonical_vi": "Ngọ",
+        "canonical_zh": "午",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Mùi",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 8, thổ âm — dê. Giờ 13:00-15:00. Tàng can: Kỷ, Đinh, Ất. Tháng 6 ÂL. Phương Tây Nam.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 8, thổ âm — dê. Giờ 13:00-15:00. Tàng can: Kỷ, Đinh, Ất. Tháng 6 ÂL. Phương Tây Nam.",
+      "wiki": {
+        "canonical_vi": "Mùi",
+        "canonical_zh": "未",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Thân",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 9, kim dương — khỉ. Giờ 15:00-17:00. Tàng can: Canh, Nhâm, Mậu. Tháng 7 ÂL. Phương Tây Nam.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 9, kim dương — khỉ. Giờ 15:00-17:00. Tàng can: Canh, Nhâm, Mậu. Tháng 7 ÂL. Phương Tây Nam.",
+      "wiki": {
+        "canonical_vi": "Thân",
+        "canonical_zh": "申",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Dậu",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 10, kim âm — gà. Giờ 17:00-19:00. Tàng can: Tân. Tháng 8 ÂL. Phương Tây.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 10, kim âm — gà. Giờ 17:00-19:00. Tàng can: Tân. Tháng 8 ÂL. Phương Tây.",
+      "wiki": {
+        "canonical_vi": "Dậu",
+        "canonical_zh": "酉",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tuất",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa chi 11, thổ dương — chó. Giờ 19:00-21:00. Tàng can: Mậu, Tân, Đinh. Tháng 9 ÂL. Phương Tây Bắc.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa chi 11, thổ dương — chó. Giờ 19:00-21:00. Tàng can: Mậu, Tân, Đinh. Tháng 9 ÂL. Phương Tây Bắc.",
+      "wiki": {
+        "canonical_vi": "Tuất",
+        "canonical_zh": "戌",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Hợi",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Địa Chi thứ mười hai, nghĩa là 'hạt nhân', vạn vật thu tàng, lấy hình thức hạt giống ẩn dưới lòng đất.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.29",
+      "concept_dict": null,
+      "short_note": "Địa Chi thứ mười hai, nghĩa là 'hạt nhân', vạn vật thu tàng, lấy hình thức hạt giống ẩn dưới lòng đất.",
+      "wiki": {
+        "canonical_vi": "Hợi",
+        "canonical_zh": "亥",
+        "aliases": "[]",
+        "category": "dia_chi",
+        "school": "mai_hoa",
+        "first_seen_page": 29
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Giáp",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sự kẹp giữa hai bên bởi các sao tốt hoặc xấu, ảnh hưởng đến mệnh.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.45",
+      "concept_dict": {
+        "term": "Giáp",
+        "kind": "bien_cach",
+        "definition": "Sự kẹp giữa hai bên bởi các sao tốt hoặc xấu, ảnh hưởng đến mệnh.",
+        "first_page": 45,
+        "occurrences": 2
+      },
+      "short_note": "Thiên can 1, mộc dương — đại thụ (cây lớn), thẳng, vươn cao. Tính nhân hậu, thẳng thắn, không khuất phục.",
+      "wiki": {
+        "canonical_vi": "Giáp",
+        "canonical_zh": "甲",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa+tu_vi",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Ất",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên can 2, mộc âm — cây cỏ mềm, hoa lá. Tính uyển chuyển, dẻo dai, biết tùy hoàn cảnh.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên can 2, mộc âm — cây cỏ mềm, hoa lá. Tính uyển chuyển, dẻo dai, biết tùy hoàn cảnh.",
+      "wiki": {
+        "canonical_vi": "Ất",
+        "canonical_zh": "乙",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Bính",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên can 3, hỏa dương — mặt trời, hỏa lớn. Tính nóng nhanh, sáng tỏ, hào hùng, công khai.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên can 3, hỏa dương — mặt trời, hỏa lớn. Tính nóng nhanh, sáng tỏ, hào hùng, công khai.",
+      "wiki": {
+        "canonical_vi": "Bính",
+        "canonical_zh": "丙",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Đinh",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên Can thứ tư, cây cỏ lớn lên tráng kiện, như con người đến tuổi trưởng thành.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên Can thứ tư, cây cỏ lớn lên tráng kiện, như con người đến tuổi trưởng thành.",
+      "wiki": {
+        "canonical_vi": "Đinh",
+        "canonical_zh": "丁",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Mậu",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên can 5, thổ dương — núi lớn, đất khô cao. Tính trung hậu, vững vàng, độ lượng.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên can 5, thổ dương — núi lớn, đất khô cao. Tính trung hậu, vững vàng, độ lượng.",
+      "wiki": {
+        "canonical_vi": "Mậu",
+        "canonical_zh": "戊",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Kỷ",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên can 6, thổ âm — đất ruộng ẩm, đất mềm. Tính tỉ mỉ, kiên trì, nuôi dưỡng.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên can 6, thổ âm — đất ruộng ẩm, đất mềm. Tính tỉ mỉ, kiên trì, nuôi dưỡng.",
+      "wiki": {
+        "canonical_vi": "Kỷ",
+        "canonical_zh": "己",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Canh",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên Can thứ bảy, nghĩa là 'thay đổi', thời gian luân chuyển, thu hoạch xong chờ xuân sang.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên Can thứ bảy, nghĩa là 'thay đổi', thời gian luân chuyển, thu hoạch xong chờ xuân sang.",
+      "wiki": {
+        "canonical_vi": "Canh",
+        "canonical_zh": "庚",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Tân",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên Can thứ tám, nghĩa là 'mới mẻ', vạn vật nghiêm trang đổi thay, kết trái tươi mới.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên Can thứ tám, nghĩa là 'mới mẻ', vạn vật nghiêm trang đổi thay, kết trái tươi mới.",
+      "wiki": {
+        "canonical_vi": "Tân",
+        "canonical_zh": "辛",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Nhâm",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": false,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Thiên can 9, thủy dương — biển lớn, sông lớn. Tính rộng lượng, lưu động, trí tuệ rộng.",
+      "canon_nguon": "wiki concept_index:mai-hoa-dich-so-thieu-khang-tiet tr.27",
+      "concept_dict": null,
+      "short_note": "Thiên can 9, thủy dương — biển lớn, sông lớn. Tính rộng lượng, lưu động, trí tuệ rộng.",
+      "wiki": {
+        "canonical_vi": "Nhâm",
+        "canonical_zh": "壬",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    },
+    {
+      "han_viet": "Quý",
+      "han": "",
+      "loai": "can_chi",
+      "nguon_gom": "plain_glossary.is_jargon.can_chi",
+      "co_concept_dict": true,
+      "tu_curated": false,
+      "dinh_nghia_canon": "Sao chủ về quyền quý, danh vọng.",
+      "canon_nguon": "concept_dict:Q1 Phú Thái Vi tr.272",
+      "concept_dict": {
+        "term": "Quý",
+        "kind": "sao",
+        "definition": "Sao chủ về quyền quý, danh vọng.",
+        "first_page": 272,
+        "occurrences": 3
+      },
+      "short_note": "Thiên Can thứ mười, nghĩa là 'đo lường', vạn vật ẩn tàng dưới lòng đất.",
+      "wiki": {
+        "canonical_vi": "Quý",
+        "canonical_zh": "癸",
+        "aliases": "[]",
+        "category": "thien_can",
+        "school": "mai_hoa+tu_vi",
+        "first_seen_page": 27
+      },
+      "passages_trich": [],
+      "flag": null
+    }
+  ]
+}
