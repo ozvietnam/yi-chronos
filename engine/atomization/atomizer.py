@@ -203,6 +203,12 @@ class Atomizer:
         if name == "gemini":
             from engine.ai.providers.gemini import GeminiProvider
             return GeminiProvider(api_key=keys["gemini"])
+        if name == "openrouter":
+            from engine.ai.providers.openrouter import OpenRouterProvider
+            return OpenRouterProvider(api_key=keys["openrouter"])
+        if name == "ollama":
+            from engine.ai.providers.ollama import OllamaProvider
+            return OllamaProvider()
         # Add more providers as needed
         raise ValueError(f"Unsupported provider: {name}")
 
