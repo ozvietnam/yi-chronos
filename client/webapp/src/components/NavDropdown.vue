@@ -22,9 +22,17 @@ function position() {
   const trg = root.value && root.value.querySelector(".nav-dd-trigger");
   if (!trg) return;
   const r = trg.getBoundingClientRect();
-  // né tràn phải mép màn
-  const left = Math.min(Math.round(r.left), window.innerWidth - 200);
-  menuStyle.value = { top: `${Math.round(r.bottom + 6)}px`, left: `${Math.max(8, left)}px` };
+  const gap = 6, margin = 10;
+  const spaceBelow = window.innerHeight - r.bottom - margin;
+  const spaceAbove = r.top - margin;
+  const left = `${Math.max(8, Math.min(Math.round(r.left), window.innerWidth - 204))}px`;
+  // mặc định xổ XUỐNG; nếu dưới chật (<200px) mà trên rộng hơn thì LẬT LÊN.
+  // maxHeight = khoảng trống bên đó → menu dài (10 phái) tự cuộn trong, không tràn khuất mép màn.
+  const flipUp = spaceBelow < 200 && spaceAbove > spaceBelow;
+  const space = Math.max(140, Math.round(flipUp ? spaceAbove : spaceBelow));
+  menuStyle.value = flipUp
+    ? { left, bottom: `${Math.round(window.innerHeight - r.top + gap)}px`, maxHeight: `${space}px` }
+    : { left, top: `${Math.round(r.bottom + gap)}px`, maxHeight: `${space}px` };
 }
 
 async function toggle() {
