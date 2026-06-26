@@ -645,7 +645,7 @@ import RefBlock from "./RefBlock.vue";
 import { sessionToken } from "../stores/authStore.js";
 import { tuviPersonName, tuviPersonBirth, tuviPersonGender } from "../stores/tuviPersonStore.js";
 
-const mode = ref("tim");  // 'tim' | 'cap' | 'so' | 'tinh'
+const mode = ref((typeof window !== "undefined" && window.__DT__) ? "tinh" : "tim");  // 'tim' | 'cap' | 'so' | 'tinh'
 
 // Icon tiêu đề section: map tên Tabler (display.py) → emoji nhẹ (không thêm dep).
 const _ICONS = {
@@ -684,7 +684,7 @@ function _authHeaders() {
 }
 
 // ── Chế độ TÌNH DUYÊN (nữ mệnh) — đọc trên lá số của chính bạn ──
-const tdLoading = ref(false); const tdRes = ref(null); const tdErr = ref("");
+const tdLoading = ref(false); const tdRes = ref((typeof window !== "undefined" && window.__DT__) ? window.__DT__ : null); const tdErr = ref("");
 const tdNarr = ref(""); const tdNarrLoading = ref(false);
 const tdWho = computed(() => tuviPersonName?.value || "");
 const tdBirth = computed(() => (tuviPersonBirth?.value || "").slice(0, 16).replace("T", " "));
