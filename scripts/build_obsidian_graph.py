@@ -382,6 +382,29 @@ def main():
               body_lines=[f"**Quẻ {que}** ({meta.get('zh')}) — số {meta.get('so_sinh')} · "
                           f"thượng {meta.get('thuong_quai')} / hạ {meta.get('ha_quai')}."],
               extra_tags=["#64-quẻ", "#toạ-độ-gốc"], disambig=f"que{meta.get('so_sinh')}")
+
+    # — TRỤC BÁT TỰ (B6): hub Thập Thần + 2 hub quan-hệ-ngũ-hành (Tương sinh/khắc) —
+    #   Nguồn: định nghĩa concept Thập Thần (id8390, 十神) + nguyên lý sinh-khắc ontology.
+    #   Các hub này là TOẠ ĐỘ GỐC để mọi thập-thần / quan-hệ-Nhật-Chủ neo về (binder Bát Tự).
+    V.add("Thập Thần", F_COORD, ntype="hub-toa-do", school="tu_binh_ba_tu",
+          category="thập thần", canonical_zh="十神",
+          body_lines=["**Thập Thần** — 10 mối quan-hệ giữa Nhật Chủ (Day Master) và mỗi "
+                      "Thiên Can khác (sinh-khắc + cùng/khác âm dương). Ngôn ngữ trung tâm Tử Bình.",
+                      "", "<!-- hub Thập Thần · nguồn: concept_index id8390 (十神) -->"],
+          extra_tags=["#thập-thần", "#toạ-độ-gốc"])
+    V.add("Tương sinh", F_COORD, ntype="hub-toa-do", school="chung",
+          category="quan hệ ngũ hành", canonical_zh="相生",
+          body_lines=["**Tương sinh** — quan hệ A sinh B trong vòng Ngũ Hành "
+                      "(Mộc→Hỏa→Thổ→Kim→Thủy→Mộc).",
+                      "", "<!-- hub quan-hệ · nguồn: ontology_nen.ngu_hanh.sinh -->"],
+          extra_tags=["#ngũ-hành", "#toạ-độ-gốc"])
+    V.add("Tương khắc", F_COORD, ntype="hub-toa-do", school="chung",
+          category="quan hệ ngũ hành", canonical_zh="相剋",
+          body_lines=["**Tương khắc** — quan hệ A khắc B trong vòng Ngũ Hành "
+                      "(Mộc→Thổ→Thủy→Hỏa→Kim→Mộc).",
+                      "", "<!-- hub quan-hệ · nguồn: ontology_nen.ngu_hanh.khac -->"],
+          extra_tags=["#ngũ-hành", "#toạ-độ-gốc"])
+
     # ── MATCHER toạ-độ: token canonical (vi/zh/alias) → [(hub_title, edge_type)] ──
     # KHỚP CHÍNH XÁC (exact, canonical), KHÔNG fuzzy. Mọi cạnh truy được về ontology_nen.
     # Key đã safe_name + casefold để so khít với tên/alias/zh của node bất kỳ phái.
@@ -596,6 +619,8 @@ def main():
     concept_title = {}
     concept_passages = {}   # title -> set(passage)
     concept_tokens = {}     # cid -> (vi, zh, [aliases]) cho matcher toạ-độ
+    concept_school = {}     # cid -> school (cho matcher SCOPE-school, vd thập thần)
+    concept_note = {}       # cid -> short_note (cho matcher can/chi an-toàn)
     for r in concept_rows:
         vi = (r["canonical_vi"] or "").strip()
         if not vi:
@@ -614,6 +639,8 @@ def main():
         ps = set(norm_passage(p) for p in parse_json_field(r["mentioned_in_passages"]))
         concept_passages[r["concept_id"]] = ps
         concept_tokens[r["concept_id"]] = (vi, r["canonical_zh"], al)
+        concept_school[r["concept_id"]] = r["school"]
+        concept_note[r["concept_id"]] = r["short_note"] or ""
 
     # ============================================================
     #                       CẠNH (EDGES)
@@ -900,6 +927,371 @@ def main():
             hanh_concepts += 1
 
     # ============================================================
+    #  (B6) TRỤC BÁT TỰ — wiring 209 concept (8 school) vào toạ-độ gốc + Kinh Dịch.
+    #  GROUNDED: mỗi cạnh truy về ontology_nen / def thập thần (id8390) / câu trích short_note.
+    #  KHÔNG gán hành tuyệt đối cho thập thần (sai — hành phụ thuộc Nhật Chủ). KHÔNG đụng
+    #  provenance (so_co_don giữ = 0). Nguồn giữ trong comment HTML body note để verify.
+    # ============================================================
+    batu_edge_count = 0
+    BATU_SCHOOLS = {"bat_tu", "tu_binh_ba_tu", "bat_tu_ha_lac", "ha-lac",
+                    "ha-lac-xuan-cang", "bat-tu", "bat_tu+tu_vi", "bat_tu+mai_hoa"}
+    batu_cids = [c for c, s in concept_school.items() if s in BATU_SCHOOLS]
+
+    def _blink(rec, target, et):
+        """Link + đếm trục Bát Tự (chỉ khi resolve được; KHÔNG bịa)."""
+        nonlocal batu_edge_count
+        if rec and V.link(rec, target, et):
+            batu_edge_count += 1
+            return True
+        return False
+
+    def _prov(rec, comment):
+        """Giữ nguồn cạnh trong comment HTML để verify (KHÔNG hiện ra graph/text đọc)."""
+        if rec and comment not in rec["body"]:
+            rec["body"].append("")
+            rec["body"].append(comment)
+
+    # — Nhật Chủ (Bát Tự, id8437) = đích quy-chiếu cho 10 thập thần (KHÔNG dùng node Tử Vi 5775) —
+    nhat_chu_title = concept_title.get(8437)
+
+    # (a) THẬP THẦN — 10 thần (id8391..8400) + hub. SCOPE theo school=tu_binh_ba_tu (KHÔNG theo
+    #     tên — tránh đụng "Thất Sát" Tử Vi 七杀 id4912). Mỗi thần neo quan-hệ-Nhật-Chủ ĐÚNG
+    #     câu trích short_note, KHÔNG gán hành tuyệt đối.
+    #   map: tên thần → (hub quan-hệ, edge_type, câu-trích-nguồn từ short_note)
+    THAP_THAN_REL = {
+        "Tỷ Kiên":    ("Ngũ Hành",   "đồng-hành Nhật Chủ", "Cùng hành + cùng âm dương với Day Master"),
+        "Kiếp Tài":   ("Ngũ Hành",   "đồng-hành Nhật Chủ", "Cùng hành + khác âm dương với Day Master"),
+        "Thực Thần":  ("Tương sinh", "Nhật Chủ sinh ra",   "Day Master sinh ra, cùng âm dương"),
+        "Thương Quan":("Tương sinh", "Nhật Chủ sinh ra",   "Day Master sinh ra, khác âm dương"),
+        "Thiên Tài":  ("Tương khắc", "Nhật Chủ khắc",      "Day Master khắc, cùng âm dương"),
+        "Chính Tài":  ("Tương khắc", "Nhật Chủ khắc",      "Day Master khắc, khác âm dương"),
+        "Thất Sát":   ("Tương khắc", "khắc Nhật Chủ",      "Khắc Day Master, cùng âm dương"),
+        "Chính Quan": ("Tương khắc", "khắc Nhật Chủ",      "Khắc Day Master, khác âm dương"),
+        "Thiên Ấn":   ("Tương sinh", "sinh Nhật Chủ",      "Sinh Day Master, cùng âm dương"),
+        "Chính Ấn":   ("Tương sinh", "sinh Nhật Chủ",      "Sinh Day Master, khác âm dương"),
+    }
+    thap_than_count = 0
+    for cid in batu_cids:
+        if concept_school.get(cid) != "tu_binh_ba_tu":
+            continue
+        vi = concept_tokens.get(cid, ("", None, []))[0]
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        # hub: mọi thập-thần (10 thần + Lộc Thần id8436) + chính "Thập Thần" def → [[Thập Thần]]
+        if vi in THAP_THAN_REL or cid in (8390, 8436):
+            if cid != 8390:  # def hub không tự-nối
+                if _blink(rec, "Thập Thần", "là-thập-thần"):
+                    thap_than_count += 1
+                    _prov(rec, "<!-- là-thập-thần · nguồn: concept_index id8390 (十神 def) -->")
+        # 10 thần → quy-chiếu Nhật Chủ + quan-hệ ngũ-hành ĐÚNG short_note (KHÔNG gán hành)
+        if vi in THAP_THAN_REL:
+            hub, et, src = THAP_THAN_REL[vi]
+            if nhat_chu_title:
+                _blink(rec, nhat_chu_title, "quy-chiếu Nhật Chủ")
+            _blink(rec, hub, et)
+            _prov(rec, f"<!-- {et} → [[{hub}]] · quy-chiếu [[Nhật Chủ]] · "
+                       f"nguồn (short_note): \"{src}\" -->")
+
+    # (b) THAM CHIẾU CAN/CHI — concept nêu cặp/can/chi trong short_note → [[Chi · X]]/[[Can · Y]]
+    #     + hub. Vietnamese-safe boundary (re ASCII \\b KHÔNG ăn dấu). ALLOWLIST concept (tránh
+    #     false-positive token, vd "Thân" trong "Lục Thân" = thân-thuộc KHÔNG phải chi Thân).
+    LETTER = r"[0-9A-Za-zÀ-ỹ]"
+    CANS = list(ONT_CAN.keys())
+    CHIS = list(ONT_CHI.keys())
+
+    def _find_tokens(text, words):
+        out = []
+        for w in words:
+            if re.search(r"(?<!" + LETTER + r")" + re.escape(w) + r"(?!" + LETTER + r")", text):
+                out.append(w)
+        return out
+
+    # ALLOWLIST: concept_id Bát Tự mà can/chi token trong short_note LÀ can/chi THẬT (đã soát tay).
+    #   Loại trừ: 8439 Lục Thân (Thân=thân-thuộc), 8428 Tiết Khí (Dần=tháng vd, để hub nếu muốn).
+    CAN_CHI_ALLOW = {
+        8388,  # Tàng Can — liệt chi Tý/Mão/Ngọ/Dậu (tàng 1 can)
+        8389,  # Bản Khí — Dần/Sửu + can Giáp/Kỷ
+        8413,  # Điều Hậu — chi mùa Tý/Ngọ/Sửu/Tỵ/Hợi/Mùi
+        8440,  # Nạp Âm — Giáp Tý/Ất Sửu/Bính Dần/Đinh Mão (cặp can-chi)
+        8441,  # Hình Xung Khắc Hại — liệt 12 chi cặp
+        8442,  # Bán Hợp — Thân/Tý/Thìn (tam hợp thiếu)
+        3802,  # Thiên Ất Quý Nhân — can Giáp/Mậu/Canh... + chi
+        3804,  # Lục Xung — 6 cặp chi xung
+        3805,  # Lục Hợp — 6 cặp chi hợp
+        3808,  # Tương Hại — cặp chi hại
+        3809,  # Tương Hình — cặp chi hình
+        3803,  # Tam Sát — chi
+        3806,  # Tam Hợp — chi tam hợp
+    }
+    canchi_count = 0
+    for cid in batu_cids:
+        if cid not in CAN_CHI_ALLOW:
+            continue
+        vi = concept_tokens.get(cid, ("", None, []))[0]
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        blob = (vi or "") + " " + (concept_note.get(cid, ""))
+        cans = _find_tokens(blob, CANS)
+        chis = _find_tokens(blob, CHIS)
+        added = 0
+        for ch in chis:
+            if _blink(rec, chi_title[ch], "tham chiếu chi"):
+                added += 1
+        for cn in cans:
+            if _blink(rec, can_title[cn], "tham chiếu can"):
+                added += 1
+        if chis:
+            _blink(rec, "Địa Chi", "thuộc trục địa-chi")
+        if cans:
+            _blink(rec, "Thiên Can", "thuộc trục thiên-can")
+        if added:
+            canchi_count += 1
+            _prov(rec, f"<!-- tham chiếu can/chi · can={cans} chi={chis} · "
+                       f"nguồn (short_note token, Vietnamese-safe boundary): "
+                       f"đã soát allowlist -->")
+
+    # (c) NẠP ÂM — KHÔNG gán hành tuyệt đối (30 cặp Giáp Tý, mỗi cặp 1 hành riêng → relative).
+    #     Nạp Âm (id8440) → [[Ngũ Hành]] (định-tính theo cặp) + [[Thiên Can]] + [[Địa Chi]].
+    nap_am_rec = V.notes.get(concept_title.get(8440))
+    if nap_am_rec:
+        _blink(nap_am_rec, "Ngũ Hành", "định-tính ngũ-hành theo cặp")
+        _blink(nap_am_rec, "Thiên Can", "lập từ thiên-can")
+        _blink(nap_am_rec, "Địa Chi", "lập từ địa-chi")
+        _prov(nap_am_rec, "<!-- nạp-âm: KHÔNG gán hành tuyệt đối (relative theo cặp) · "
+                          "nguồn (short_note): \"60 Giáp Tý chia 30 cặp, mỗi cặp có một tên "
+                          "ngũ hành riêng\" -->")
+    # catalog "Thông Căn + Nạp Âm" (id9162) → [[Nạp Âm]]
+    rec_tc = V.notes.get(concept_title.get(9162))
+    if rec_tc and 8440 in concept_title:
+        _blink(rec_tc, concept_title[8440], "catalog gồm Nạp Âm")
+
+    # (d) HÀ LẠC → cầu sang KINH DỊCH (64 Quẻ). Bắc cầu short-name → kép qua bảng dẫn-xuất từ
+    #     ontology que_64 (tên kép tự mã hoá thượng/hạ quái → short name là token đuôi). Accent-
+    #     insensitive fallback cho 'Quan' (kép 'Phong Địa Quán'). KHÔNG bịa: short→kép suy từ
+    #     ontology, kép đã là node [[Quẻ · …]] sẵn.
+    _ELEM = {"Thiên", "Địa", "Trạch", "Hỏa", "Lôi", "Phong", "Thủy", "Sơn"}
+
+    def _short_of_kep(kep):
+        toks = kep.split()
+        if toks and toks[0] == "Thuần":
+            return " ".join(toks[1:])
+        out, skip = [], 0
+        for t in toks:
+            if t in _ELEM and skip < 2:
+                skip += 1
+                continue
+            out.append(t)
+        return " ".join(out)
+
+    def _na(s):  # strip dấu để fallback khớp (Quan↔Quán)
+        return __import__("unicodedata").normalize("NFD", s).encode("ascii", "ignore").decode().lower()
+
+    short2kep = {}
+    short2kep_ai = {}
+    for kep in ONT_QUE:
+        s = _short_of_kep(kep)
+        short2kep[s] = kep
+        short2kep_ai[_na(s)] = kep
+
+    def _kep_for_short(short):
+        if short in short2kep:
+            return short2kep[short]
+        return short2kep_ai.get(_na(short))
+
+    halac_card_count = 0
+    halac_concept_count = 0
+    # 42 card "Quẻ Hà Lạc — X" → [[64 Quẻ]] + [[Quẻ · <kép>]]
+    for cid in batu_cids:
+        vi = concept_tokens.get(cid, ("", None, []))[0]
+        if not vi or not vi.startswith("Quẻ Hà Lạc"):
+            continue
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        # tách tên ngắn sau dấu "—"
+        short = vi.split("—")[-1].strip()
+        kep = _kep_for_short(short)
+        if kep and kep in que_title:
+            _blink(rec, "64 Quẻ", "là quẻ Hà Lạc")
+            if _blink(rec, que_title[kep], "ứng quẻ Kinh Dịch"):
+                halac_card_count += 1
+                _prov(rec, f"<!-- ứng quẻ: '{short}' → [[Quẻ · {kep}]] · "
+                           f"nguồn: short-name suy từ ontology_nen.que_64 (tên kép mã hoá quái) -->")
+
+    # CASE STUDY HÀ LẠC — tên quẻ NẰM TRONG TIÊU ĐỀ ("Case study Hà Lạc — <Quẻ> hào X — …")
+    #   → bắc cầu [[Quẻ · kép]] + [[64 Quẻ]]. GROUNDED: quẻ ở ngay trong tên concept.
+    halac_case_count = 0
+    for cid in batu_cids:
+        vi = concept_tokens.get(cid, ("", None, []))[0]
+        if not vi or not vi.startswith("Case study Hà Lạc"):
+            continue
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        segs = vi.split("—")
+        if len(segs) < 2:
+            continue
+        qn = segs[1].split(" hào")[0].strip()  # "<Quẻ> hào X" → "<Quẻ>"
+        kep = _kep_for_short(qn)
+        if kep and kep in que_title:
+            _blink(rec, "64 Quẻ", "case study trên quẻ")
+            if _blink(rec, que_title[kep], "ứng quẻ Kinh Dịch"):
+                halac_case_count += 1
+                _prov(rec, f"<!-- case study quẻ '{qn}' → [[Quẻ · {kep}]] · "
+                           f"nguồn: tên quẻ trong tiêu đề concept + ontology que_64 -->")
+        # quét thêm kép quẻ trong short_note (Tiên Thiên/Hậu Thiên) → dẫn quẻ
+        note = concept_note.get(cid, "")
+        for k2 in ONT_QUE:
+            if k2 in note and k2 in que_title and k2 != kep:
+                _blink(rec, que_title[k2], "dẫn quẻ Kinh Dịch")
+
+    # CASE STUDY PHẦN BA — 7 chân dung nhà văn: short_note có tên KÉP (Tiên/Hậu Thiên quẻ)
+    #   + tên NGẮN ở field "Tiên Thiên: <X>" → bắc cầu [[Quẻ · kép]]. GROUNDED từ short_note.
+    halac_phanba_count = 0
+    for cid in batu_cids:
+        vi = concept_tokens.get(cid, ("", None, []))[0]
+        if not vi or not vi.startswith("Case study Phần Ba"):
+            continue
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        note = concept_note.get(cid, "")
+        added = 0
+        # kép trong note
+        for k2 in ONT_QUE:
+            if k2 in note and k2 in que_title:
+                added += _blink(rec, que_title[k2], "dẫn quẻ Kinh Dịch")
+        # short name ở field "Tiên Thiên: <X>" / "Hậu Thiên: <X>"
+        for m in re.finditer(r"(?:Tiên Thiên|Hậu Thiên)\**\s*[:：]\s*([^\n*·,()]+)", note):
+            qn = m.group(1).strip()
+            kep = _kep_for_short(qn)
+            if kep and kep in que_title:
+                added += _blink(rec, que_title[kep], "ứng quẻ Kinh Dịch")
+        if added:
+            halac_phanba_count += 1
+            _blink(rec, "64 Quẻ", "chân dung Hà Lạc trên quẻ")
+            _prov(rec, "<!-- chân dung Hà Lạc: quẻ Tiên/Hậu Thiên trong short_note → "
+                       "[[Quẻ · …]] · nguồn: short_note + ontology que_64 -->")
+
+    # 7+ case study Phần Ba (bat_tu_ha_lac/ha-lac) dùng tên KÉP trong short_note → khớp alias sẵn.
+    #   + khái niệm cốt Hà Lạc → hub [[Bát Tự Hà Lạc]] + [[64 Quẻ]] + [[Tứ Trụ]].
+    halac_hub_title = concept_title.get(8444)   # "Bát Tự Hà Lạc"
+    tu_tru_title = concept_title.get(8374)       # "Tứ Trụ"
+    HALAC_CORE = {8445, 8446, 8447, 8448, 8449, 8450, 8451, 8452, 8453,
+                  8454, 8455, 8456, 8457, 8458, 8460, 8461, 8462}
+    for cid in batu_cids:
+        if concept_school.get(cid) not in ("bat_tu_ha_lac",):
+            continue
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        added = 0
+        # khái niệm cốt → hub Hà Lạc + cầu Tứ Trụ → 2 quẻ
+        if cid in HALAC_CORE:
+            if halac_hub_title and cid != 8444:
+                added += _blink(rec, halac_hub_title, "thuộc Bát Tự Hà Lạc")
+            _blink(rec, "64 Quẻ", "vận hành trên 64 quẻ")
+            if tu_tru_title:
+                _blink(rec, tu_tru_title, "chuyển Tứ Trụ → quẻ")
+        # quét tên KÉP quẻ trong short_note (case study Phần Ba) → [[Quẻ · …]]
+        note = concept_note.get(cid, "")
+        for kep in ONT_QUE:
+            if kep in note and kep in que_title:
+                added += _blink(rec, que_title[kep], "dẫn quẻ Kinh Dịch")
+        if added:
+            halac_concept_count += 1
+            _prov(rec, "<!-- trục Hà Lạc · nguồn: ontology que_64 (tên kép) + def Bát Tự Hà Lạc id8444 -->")
+    # hub Bát Tự Hà Lạc (id8444) tự neo → [[64 Quẻ]] + [[Tứ Trụ]] (gốc paradigm)
+    if halac_hub_title:
+        rec = V.notes.get(halac_hub_title)
+        _blink(rec, "64 Quẻ", "vận hành trên 64 quẻ")
+        if tu_tru_title:
+            _blink(rec, tu_tru_title, "chuyển Tứ Trụ → quẻ")
+
+    # (e) KHÁC — neo grounded các nhóm còn lại về hub trục đúng nguồn short_note.
+    #   (e-1) Tứ Trụ (8374) → [[Thiên Can]] + [[Địa Chi]] (4 cặp can-chi).
+    if tu_tru_title:
+        rec = V.notes.get(tu_tru_title)
+        _blink(rec, "Thiên Can", "gồm 4 thiên-can")
+        _blink(rec, "Địa Chi", "gồm 4 địa-chi")
+        _prov(rec, "<!-- Tứ Trụ = 4 cột, mỗi cột 1 thiên-can + 1 địa-chi · nguồn: def Tứ Trụ id8374 -->")
+
+    #   (e-2) THẬP THẦN CÁCH (8402..8411) → [[Thập Thần]] hub + thần tương ứng (nguồn short_note
+    #         "Bản Khí Trụ Tháng = <Thần>"). Đây là cách-cục dựng TRÊN thập thần → neo về trục.
+    THAN_CACH_OF = {
+        8402: "Chính Quan", 8403: "Thất Sát", 8404: "Chính Tài", 8405: "Thiên Tài",
+        8406: "Thực Thần", 8407: "Thương Quan", 8408: "Chính Ấn", 8409: "Thiên Ấn",
+        8410: "Lộc Thần",  # Kiến Lộc cách = Lộc Thần ngụ Trụ Tháng
+        8411: "Kiếp Tài",  # Dương Nhận cách = Kiếp Tài của DM
+    }
+    than_cach_count = 0
+    # map tên thần → concept_id (Bát Tự) để neo thần cụ thể
+    than_name2cid = {}
+    for _c in batu_cids:
+        if concept_school.get(_c) == "tu_binh_ba_tu":
+            _v = concept_tokens.get(_c, ("", None, []))[0]
+            if _v in ("Tỷ Kiên", "Kiếp Tài", "Thực Thần", "Thương Quan", "Thiên Tài",
+                      "Chính Tài", "Thất Sát", "Chính Quan", "Thiên Ấn", "Chính Ấn",
+                      "Lộc Thần"):
+                than_name2cid[_v] = _c
+    for cid, than in THAN_CACH_OF.items():
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        ok = _blink(rec, "Thập Thần", "cách dựng trên thập-thần")
+        tcid = than_name2cid.get(than)
+        if tcid and tcid in concept_title:
+            _blink(rec, concept_title[tcid], "ứng thập-thần")
+        if ok:
+            than_cach_count += 1
+            _prov(rec, f"<!-- cách dựng trên [[Thập Thần]] {than} · "
+                       f"nguồn (short_note): \"Bản Khí Trụ Tháng = {than}\" -->")
+
+    #   (e-3) VÒNG TRƯỜNG SINH 12 phase (8415..8425 + Suy) → hub [[Vòng Trường Sinh]] (8414)
+    #         + [[Nhật Chủ]] (mỗi phase mô tả cường độ Day Master). Nguồn short_note "Phase k/12".
+    truong_sinh_hub = concept_title.get(8414)
+    phase_count = 0
+    for cid in batu_cids:
+        if concept_school.get(cid) != "tu_binh_ba_tu":
+            continue
+        note = concept_note.get(cid, "")
+        if not re.search(r"Phase\s+\d+/12", note):
+            continue
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        added = 0
+        if truong_sinh_hub and cid != 8414:
+            added += _blink(rec, truong_sinh_hub, "phase Vòng Trường Sinh")
+        if nhat_chu_title:
+            added += _blink(rec, nhat_chu_title, "cường độ Nhật Chủ")
+        if added:
+            phase_count += 1
+            _prov(rec, "<!-- phase Vòng Trường Sinh của Nhật Chủ · "
+                       "nguồn (short_note): \"Phase k/12. Day Master …\" -->")
+
+    #   (e-4) THẦN SÁT (sao phụ quanh Day Master) → [[Nhật Chủ]] (an theo can/chi Nhật Chủ/năm).
+    #         Nguồn: short_note đều mô tả "Sao …" an quanh lá số. CHỈ neo thần-sát rõ ràng.
+    THAN_SAT_IDS = {8429, 8430, 8431, 8432, 8433, 8434, 8435, 3802}
+    than_sat_count = 0
+    for cid in THAN_SAT_IDS:
+        rec = V.notes.get(concept_title.get(cid))
+        if not rec:
+            continue
+        if nhat_chu_title and _blink(rec, nhat_chu_title, "thần-sát an quanh Nhật Chủ"):
+            than_sat_count += 1
+            _prov(rec, "<!-- thần-sát an quanh Nhật Chủ (theo can/chi) · nguồn: short_note 'Sao …' -->")
+
+    #   (e-5) LỤC THÂN (8439) → [[Thập Thần]] (Lục Thân = map thập thần → quan hệ gia đình).
+    rec_lt = V.notes.get(concept_title.get(8439))
+    if rec_lt:
+        _blink(rec_lt, "Thập Thần", "map từ thập-thần")
+        _prov(rec_lt, "<!-- Lục Thân = cách map [[Thập Thần]] → quan hệ gia đình · "
+                      "nguồn (short_note): \"Cách map Thập Thần → quan hệ gia đình\" -->")
+
+    # ============================================================
     #  (A-final) SAFETY NET: quét node cô đơn (0 in + 0 out) → neo provenance tối thiểu.
     # ============================================================
     indeg = {}
@@ -950,6 +1342,39 @@ def main():
         return out + indeg2.get(title, 0)
     element_hub_degree = {h: _deg(h) for h in NGU_HANH}
 
+    # ===== ĐO TRỤC BÁT TỰ: bao nhiêu / 209 concept có ≥1 cạnh TRỤC (toạ-độ/quẻ/thập-thần) =====
+    AXIS_EDGE_TYPES = {
+        "là-thập-thần", "quy-chiếu Nhật Chủ", "đồng-hành Nhật Chủ", "Nhật Chủ sinh ra",
+        "Nhật Chủ khắc", "khắc Nhật Chủ", "sinh Nhật Chủ",
+        "tham chiếu chi", "tham chiếu can", "thuộc trục địa-chi", "thuộc trục thiên-can",
+        "định-tính ngũ-hành theo cặp", "lập từ thiên-can", "lập từ địa-chi", "catalog gồm Nạp Âm",
+        "là quẻ Hà Lạc", "ứng quẻ Kinh Dịch", "dẫn quẻ Kinh Dịch", "thuộc Bát Tự Hà Lạc",
+        "vận hành trên 64 quẻ", "chuyển Tứ Trụ → quẻ", "gồm 4 thiên-can", "gồm 4 địa-chi",
+        "cách dựng trên thập-thần", "ứng thập-thần", "phase Vòng Trường Sinh",
+        "cường độ Nhật Chủ", "thần-sát an quanh Nhật Chủ", "map từ thập-thần",
+        "case study trên quẻ", "chân dung Hà Lạc trên quẻ",
+        # toạ-độ chung (B1-B5) cũng tính là trục
+        "toạ-độ ngũ-hành", "toạ-độ âm-dương", "toạ-độ thiên-can", "toạ-độ địa-chi",
+        "toạ-độ bát-quái", "toạ-độ 64-quẻ", "thượng quái", "hạ quái", "nạp-giáp can",
+    }
+    # in-degree theo edge-type cho mỗi node (để bắt cạnh ĐẾN node concept, vd hub→concept)
+    batu_titles = {concept_title[c] for c in batu_cids if c in concept_title}
+    batu_has_axis = set()
+    for title, rec in V.notes.items():
+        # out-edges
+        if title in batu_titles:
+            for _tgt, et in rec["links"]:
+                if et in AXIS_EDGE_TYPES:
+                    batu_has_axis.add(title)
+                    break
+        # in-edges (hub → concept, vd catalog→Nạp Âm)
+        for tgt, et in rec["links"]:
+            if tgt in batu_titles and et in AXIS_EDGE_TYPES:
+                batu_has_axis.add(tgt)
+    batu_total = len(batu_titles)
+    batu_covered = len(batu_has_axis)
+    batu_uncovered = sorted(batu_titles - batu_has_axis)
+
     # ===== SELF-TEST =====
     n_notes = len(V.notes)
     n_links = V.link_count
@@ -965,6 +1390,21 @@ def main():
         "so_canh_toa_do": coord_edge_count,
         "so_canh_hanh_grounded": hanh_edge_count,
         "so_concept_hanh_grounded": hanh_concepts,
+        "so_canh_batu": batu_edge_count,
+        "batu_breakdown": {
+            "thap_than": thap_than_count,
+            "can_chi": canchi_count,
+            "ha_lac_card": halac_card_count,
+            "ha_lac_concept": halac_concept_count,
+            "than_cach": than_cach_count,
+            "phase_truong_sinh": phase_count,
+            "than_sat": than_sat_count,
+            "ha_lac_case_study": halac_case_count,
+            "ha_lac_phan_ba": halac_phanba_count,
+        },
+        "batu_concept_total": batu_total,
+        "batu_concept_covered": batu_covered,
+        "batu_concept_uncovered": batu_uncovered,
         "element_hub_degree": element_hub_degree,
         "passed": passed,
         "theo_loai": {
