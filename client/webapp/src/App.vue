@@ -122,8 +122,10 @@ const rulesetPill = computed(() => {
   const r = activeRuleset.value;
   if (!r || !r.ziwei_school) return "";
   const school = SCHOOL_VI[r.ziwei_school] || r.ziwei_school;
-  const rid = r.ziwei_ruleset_id;
-  return rid && rid !== r.ziwei_school ? `${school} · ${rid}` : school;
+  let rid = r.ziwei_ruleset_id || "";
+  // Bỏ tiền tố trùng tên phái (bac_phai_v1 → v1) để pill gọn: "Bắc phái · v1"
+  if (rid.startsWith(r.ziwei_school)) rid = rid.slice(r.ziwei_school.length).replace(/^_/, "");
+  return rid ? `${school} · ${rid}` : school;
 });
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
