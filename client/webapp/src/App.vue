@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { Activity, Database, RotateCcw, Send, ShieldCheck } from "lucide-vue-next";
 import SchoolIcon from "./components/SchoolIcon.vue";
 import UserBadge from "./components/UserBadge.vue";
@@ -130,6 +130,14 @@ const rulesetPill = computed(() => {
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
+// 🔒 Chặn user thường lạc vào tab owner-only. Nav đã ẩn các tab này (v-if isOwner);
+// đây là LỚP 2: nếu state cũ / điều hướng lập trình đưa user thường tới tab admin → kéo về Hồ sơ.
+const OWNER_ONLY_TABS = ["lexicon", "research", "wiki", "publishing", "admin", "admin-hermes", "atom-verify"];
+watch([isOwner, activeMainTab], () => {
+  if (!isOwner.value && OWNER_ONLY_TABS.includes(activeMainTab.value)) {
+    activeMainTab.value = "profiles";
+  }
+}, { immediate: true });
 // Chân Dung → bấm sản phẩm tốt nhất → nhảy tab tương ứng (deep tạm về Hội Đồng — luận sâu nhất hiện có)
 function onOpenProduct(key) {
   const map = { council: "hoi-hermes", deep: "deep-reading", duyen: "gieo-duyen" };
