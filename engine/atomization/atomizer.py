@@ -197,12 +197,22 @@ class Atomizer:
         keys = json.loads((PROJECT_ROOT / "data" / "ai_keys.json").read_text())
         if name == "minimax":
             return MiniMaxProvider(api_key=keys["minimax"])
+        if name == "deepseek":
+            from engine.ai.providers.deepseek import DeepSeekProvider
+            return DeepSeekProvider(api_key=keys["deepseek"])
+        if name == "gemini":
+            from engine.ai.providers.gemini import GeminiProvider
+            return GeminiProvider(api_key=keys["gemini"])
         # Add more providers as needed
         raise ValueError(f"Unsupported provider: {name}")
 
     @staticmethod
     def _default_model_for(provider_name: str) -> str:
-        return {"minimax": "MiniMax-M2"}.get(provider_name, "")
+        return {
+            "minimax": "MiniMax-M2",
+            "deepseek": "deepseek-chat",
+            "gemini": "gemini-2.5-flash",
+        }.get(provider_name, "")
 
     def _open_db(self) -> sqlite3.Connection:
         conn = sqlite3.connect(self.db_path)

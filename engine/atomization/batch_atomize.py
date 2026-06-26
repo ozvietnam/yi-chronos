@@ -57,6 +57,10 @@ def main() -> None:
     parser.add_argument("--all", action="store_true", help="atomize all pending")
     parser.add_argument("--no-sync", action="store_true",
                         help="bỏ qua auto-sync wiki.sqlite3 lên VPS cuối run")
+    parser.add_argument("--provider", default="minimax",
+                        help="LLM provider: minimax (default) | deepseek | gemini")
+    parser.add_argument("--model", default=None,
+                        help="model override (mặc định theo provider)")
     args = parser.parse_args()
 
     page_range = None
@@ -76,7 +80,7 @@ def main() -> None:
         print(f"📄 Range: p{page_range[0]:04d} → p{page_range[1]:04d}")
     print()
 
-    atomizer = Atomizer()
+    atomizer = Atomizer(provider_name=args.provider, model=args.model)
     print(f"🔧 Provider: {atomizer.provider.name}/{atomizer.model}\n")
 
     t_start = time.time()
