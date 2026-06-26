@@ -55,7 +55,20 @@ def test_doc_than_1_yeu_to_nhe():
 
 def test_duyen_xa_than_cu_thien_di():
     r = read_phu_the_signals(_lsi(thien_di="dan", than="dan"))
-    assert r["duyen_xa"] and "phương xa" in r["duyen_xa"]["mo_ta"]
+    assert r["duyen_xa"] and "PHƯƠNG XA" in r["duyen_xa"]["mo_ta"]
+    assert "Thân cư Thiên Di" in r["duyen_xa"]["dau_hieu"]
+
+
+def test_duyen_xa_thien_ma_tai_phu_the():
+    """Thiên Mã tọa cung Phu Thê → duyên xa (sao thật, sau khi propagate vào la_so_input)."""
+    r = read_phu_the_signals(_lsi(phu_the="ngo", pt_phu=["thien_ma"]))
+    assert r["duyen_xa"] and "Thiên Mã tọa cung Phu Thê" in r["duyen_xa"]["dau_hieu"]
+
+
+def test_dao_hoa_thien_dieu():
+    """Thiên Diêu (thien_rieu) = sao đào hoa CHÍNH → trường đào hoa."""
+    r = read_phu_the_signals(_lsi(pt_chinh=["tham_lang"], pt_phu=["thien_rieu", "hong_loan"]))
+    assert r["dao_hoa_field"] and "thien_rieu" in r["dao_hoa_field"]["sao"]
 
 
 def test_duyen_xa_none_khi_than_khac():

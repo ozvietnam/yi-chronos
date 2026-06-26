@@ -9,16 +9,17 @@ CỔ ĐIỂN, đọc XU HƯỚNG CẤU TRÚC — KHÔNG phán định mệnh, KH
    đến MUỘN / cần chủ động hơn (KHÔNG nói "ế").
 3. duyen_xa       — Thân cư Thiên Di → duyên dễ đến từ phương xa / môi trường ngoài quê (trung tính).
 
-⚠️ Engine an_sao hiện CHƯA an Thiên Diêu + Thiên Mã → các tín hiệu này dùng sao thay thế khả dụng
-(Đại Hao đào hoa, Hồng Loan, Hoa Cái; duyên-xa qua Thân cư Thiên Di thay Thiên Mã). Ghi rõ giới hạn.
+Sao dùng: Thiên Diêu (slug `thien_rieu`, đào hoa chính) + Đại Hao đào hoa + Hồng Loan + Hoa Cái;
+duyên-xa qua Thiên Mã (`thien_ma`) tại Phu Thê HOẶC Thân cư Thiên Di. (Thiên Mã propagate vào
+la_so_input từ 2026-06-26 — thêm map Thiên Mã→thien_ma trong la_so_input_builder.)
 
 Input: la_so_input (build_la_so_input) — chinh_tinh/phu_tinh/vong_sao_per_palace, fn_to_chi,
 tuan_chi, triet_chi, tu_hoa, than_palace.
 """
 from __future__ import annotations
 
-# Đào-hồng phụ tinh khả dụng trong engine (Thiên Diêu chưa an → dùng nhóm này)
-DAO_HONG_PHU = {"dai_hao", "hong_loan", "hoa_cai"}
+# Đào-hồng phụ tinh (Thiên Diêu = thien_rieu là sao đào hoa CHÍNH)
+DAO_HONG_PHU = {"thien_rieu", "dai_hao", "hong_loan", "hoa_cai"}
 DAO_HONG_TANG = {"ta_phu", "huu_bat", "dia_khong", "dia_kiep", "dieu_khach"}
 # Nhóm chính tinh khuynh hướng đào hoa (theo kênh #3, trừ Thái Dương trọng danh dự)
 DAO_HOA_CHINH = {"liem_trinh", "tham_lang", "thien_dong", "thien_phu"}
@@ -74,7 +75,7 @@ def read_phu_the_signals(lsi: dict) -> dict:
                       "Đây là chất liệu sống động, KHÔNG phải dấu hiệu phản bội."),
             "hanh_dong": ("Ý thức ranh giới rõ ràng, giao tiếp cởi mở-trung thực và chủ động vun đắp "
                           "thì trường này thành duyên ấm; buông lơi giao tiếp thì dễ hiểu lầm."),
-            "luu_y_engine": "Engine chưa an Thiên Diêu — tín hiệu dựa Đại Hao đào hoa/Hồng Loan/Hoa Cái.",
+            "sao": sorted(dh_phu),
         }
 
     # ── 2. Risk độc thân/muộn duyên (CỘNG DỒN) ──
@@ -93,13 +94,18 @@ def read_phu_the_signals(lsi: dict) -> dict:
     doc_than = {"so_yeu_to": n, "muc": muc_dt, "yeu_to": factors,
                 "quy_tac": "Cộng dồn: ≥2 yếu tố thì khuynh hướng muộn duyên rõ hơn — đây là điều CHỦ ĐỘNG cải thiện được."}
 
-    # ── 3. Duyên xa ──
+    # ── 3. Duyên xa (Thiên Mã tại Phu Thê HOẶC Thân cư Thiên Di) ──
     duyen_xa = None
     than = lsi.get("than_palace")
+    dau_hieu = []
+    if "thien_ma" in pt_stars:
+        dau_hieu.append("Thiên Mã tọa cung Phu Thê")
     if than and di_chi and than == di_chi:
-        duyen_xa = {"mo_ta": "Thân cư Thiên Di → duyên lành dễ đến từ phương xa / môi trường ngoài quê, "
-                             "qua đi lại-công việc-di chuyển hơn là người gần nhà.",
-                    "luu_y_engine": "Engine chưa an Thiên Mã — duyên-xa nhận qua Thân cư Thiên Di."}
+        dau_hieu.append("Thân cư Thiên Di")
+    if dau_hieu:
+        duyen_xa = {"dau_hieu": dau_hieu,
+                    "mo_ta": (" + ".join(dau_hieu) + " → duyên lành dễ đến từ PHƯƠNG XA / môi trường "
+                              "ngoài quê, qua đi lại-công việc-di chuyển hơn là người gần nhà.")}
 
     return {
         "phu_the_chi": pt_chi,
