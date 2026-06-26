@@ -18,11 +18,55 @@ An toàn: mọi lỗi LLM/registry → trả '' (UI fallback về bản cấu tr
 """
 from __future__ import annotations
 
+import concurrent.futures as _futures
 import json as _json
 import logging as _logging
+import re as _re
 from typing import Any
 
 _log = _logging.getLogger(__name__)
+
+# BUG5 — số token TỐI ĐA cho 1 lượt narrate. 1400 cắt CỤT lời thầy giữa câu
+# ("…nếu không sẽ tìm n"). Nâng lên 2400 (lời thầy giàu hơn, đủ kết câu). Model
+# non-reasoning nên token = chữ thật, không tốn vào <think>.
+_NARRATE_MAX_TOKENS = 2400
+
+# BUG7 — timeout MỖI lượt gọi LLM (giây). Provider treo/chậm bị BỎ → nhảy provider
+# kế; tổng narrate KHÔNG treo vô hạn. 45s đủ cho model non-reasoning trả ~2400 token.
+_NARRATE_CALL_TIMEOUT_S = 45.0
+
+# Dấu KẾT CÂU hợp lệ để cắt sạch (BUG5): kết thúc tại 1 trong các dấu này.
+_SENTENCE_END_RE = _re.compile(r"[.!?…。！？”\"')\]]+$")
+
+
+def _trim_to_last_sentence(text: str) -> str:
+    """BUG5 — nếu text bị cắt CỤT giữa câu (do hết token), lùi về RANH GIỚI CÂU
+    HOÀN CHỈNH cuối cùng để không bỏ lửng ('…sẽ tìm n').
+
+    - Đã kết thúc bằng dấu kết câu → giữ nguyên.
+    - Ngược lại: cắt tại dấu kết câu cuối cùng (. ! ? … 。！？) còn 1 đoạn đủ dài.
+      Nếu không tìm thấy dấu nào (cả bài là 1 câu cụt) → giữ nguyên (thà có còn hơn
+      mất; reframe vẫn chạy)."""
+    if not text:
+        return text
+    s = text.rstrip()
+    if not s:
+        return s
+    # Đã kết câu sạch → khỏi cắt.
+    if _SENTENCE_END_RE.search(s):
+        return s
+    # Tìm vị trí dấu kết câu cuối cùng.
+    last = -1
+    for m in _re.finditer(r"[.!?…。！？]", s):
+        last = m.end()
+    if last <= 0:
+        return s  # không có ranh giới câu → giữ nguyên
+    head = s[:last].rstrip()
+    # Giữ phần đầu nếu nó còn đủ "dày" (≥60% bài) — tránh vứt gần hết bài chỉ vì
+    # đoạn cuối thiếu dấu. Nếu phần cắt quá ngắn so với bài → giữ nguyên cả bài.
+    if len(head) >= max(40, int(len(s) * 0.6)):
+        return head
+    return s
 
 # Chuỗi provider thử lần lượt cho "lời thầy" tình duyên. ƯU TIÊN deepseek (giỏi Đông
 # phương + nhanh + tin cậy), rồi minimax (token plan), rồi gemini (free, dự phòng). Mỗi
@@ -344,20 +388,41 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
 
         def _call(provider, model, system_prompt: str) -> str:
             """1 lần gọi LLM trên `provider`. Trả '' nếu rỗng HOẶC mock-leak (mock-fallback
-            khi thiếu key / lỗi tạm KHÔNG được lộ cho user trả phí)."""
-            resp = run_agent(
-                agent_id="tu_vi",
-                provider=provider,
-                model=model,
-                question=question,
-                chart_data={"system_prompt_override": system_prompt, "tinh_duyen": payload},
-                max_tokens=1400,
-                temperature=0.6,
-            )
-            content = (getattr(resp, "content", "") or "").strip()
+            khi thiếu key / lỗi tạm KHÔNG được lộ cho user trả phí).
+
+            BUG7 — bọc TIMEOUT (_NARRATE_CALL_TIMEOUT_S) bằng thread: provider treo/chậm
+            (mỗi provider tự đặt HTTP-timeout riêng, có cái 180s) bị BỎ → caller nhảy
+            provider kế. KHÔNG để 1 lượt treo kéo cả narrate >10 phút.
+            BUG5 — nâng max_tokens + cắt sạch ở ranh giới câu (không bỏ lửng giữa câu)."""
+            def _do() -> str:
+                resp = run_agent(
+                    agent_id="tu_vi",
+                    provider=provider,
+                    model=model,
+                    question=question,
+                    chart_data={"system_prompt_override": system_prompt,
+                                "tinh_duyen": payload},
+                    max_tokens=_NARRATE_MAX_TOKENS,
+                    temperature=0.6,
+                )
+                return (getattr(resp, "content", "") or "").strip()
+
+            try:
+                with _futures.ThreadPoolExecutor(max_workers=1) as ex:
+                    fut = ex.submit(_do)
+                    content = fut.result(timeout=_NARRATE_CALL_TIMEOUT_S)
+            except _futures.TimeoutError:
+                _log.warning("narrate_tinh_duyen: provider %s TIMEOUT >%.0fs → bỏ, thử kế",
+                             getattr(provider, "name", "?"), _NARRATE_CALL_TIMEOUT_S)
+                return ""
+            except Exception:
+                return ""
+            if not content:
+                return ""
             if "[MOCK" in content or "mock response" in content or "paste api key" in content.lower():
                 return ""
-            return content
+            # BUG5 — cắt sạch ở câu hoàn chỉnh cuối (tránh '…sẽ tìm n').
+            return _trim_to_last_sentence(content)
 
         def _try_provider(provider, model) -> str:
             """Chạy ĐỦ guard 2-pass cho 1 provider. Trả lời SẠCH+non-empty hoặc ''."""
