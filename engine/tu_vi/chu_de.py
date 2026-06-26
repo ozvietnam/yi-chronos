@@ -105,6 +105,14 @@ def gom_chu_de(chu_de: str, la_so_input: dict, three_layer: dict) -> dict | None
             out["tu_tuc_reading"] = read_tu_tuc(la_so_input)
         except Exception:
             pass
+    # Chủ đề có cung Phu Thê (Tình duyên) → kèm tín hiệu duyên deterministic (đào hoa-cấu-trúc /
+    # risk độc thân cộng dồn / duyên xa) — ground LLM, framing đọc-đồng-dạng không phán nhân phẩm.
+    if "phu_the" in lq:
+        try:
+            from engine.tu_vi.phu_the_signals import read_phu_the_signals
+            out["phu_the_signals"] = read_phu_the_signals(la_so_input)
+        except Exception:
+            pass
     return out
 
 
