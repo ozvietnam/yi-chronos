@@ -221,6 +221,22 @@ Auto-sync chạy `git add -A` (không `-f`) → các file vẫn ignored. Chỉ f
 - Mọi output engine + sage khi nói về "mệnh" phải theo nghĩa động từ: "cấu trúc này của anh VẬN HÀNH tốt nhất khi..." thay vì "số anh là..."
 - Đây là tầng sâu hơn của Iron Rule #4/#6 (đọc đồng dạng, không predict): không predict vì mệnh vốn không phải danh từ để đoán — nó là việc đang làm
 
+## ☸️ IRON RULE #9 — LÁ SỐ LÀ HIỆN TƯỢNG DUYÊN-KHỞI ĐỂ QUÁN TÂM, KHÔNG PHẢI ĐỊNH MỆNH ĐỂ ĐOÁN (2026-06-26, Anh chốt sau vòng nghiên cứu sâu di huấn Phật)
+
+**Tuyên ngôn (neo kinh tạng, phân tầng canonical):**
+
+> - **Tứ Diệu Đế** (SN 56.11) = ngữ pháp soi tâm 4 bước, mỗi đế là một ĐỘNG TỪ: Khổ (chẩn — *liễu tri*) → Tập (nhân, gốc ở **ái/chấp** không ở ngoại cảnh — *đoạn*) → Diệt (không cố định, có lối ra — *chứng*) → Đạo (phác đồ hành động — *tu*). Bằng chứng kinh điển độc lập cho Iron #8 "mệnh là động từ".
+> - **Ngũ Uẩn** (SN 22.79) = bản đồ tiến trình tâm: **Sắc–Thọ–Tưởng–Hành–Thức** (ĐỦ 5; *Xúc/phassa KHÔNG phải uẩn — là chi Duyên Khởi/cửa vào tiến trình, KHÔNG thêm uẩn thứ 6*).
+> - **Thọ→Ái** (SN 12.2) = "khe tỉnh thức" — chỗ DUY NHẤT chánh niệm chen vào được; nơi gắn "bớt khổ" cụ thể vào mỗi lá số.
+> - **Vô Ngã + Duyên Khởi** = lý do triết học SÂU NHẤT để KHÔNG predict: không có chủ thể tĩnh nào để đoán, chỉ có tiến trình duyên-khởi đang trôi.
+
+**Nguyên tắc + lằn ranh đạo đức (Brahmajāla DN 1 — Phật xếp bói toán vào *tà mạng*):**
+- ❌ KHÔNG đoán giàu-nghèo / thắng-thua / sống-chết / cờ bạc (tiền lệ: từ chối quẻ XSMB). YI chỉ MƯỢN khung Duyên Khởi để **soi tâm**, không lừa người bằng dấu hiệu.
+- ✅ Thành công của một buổi đọc = người đi ra **bớt dính mắc**, KHÔNG phải "đoán trúng".
+- ✅ Mỗi output sage/sản phẩm phải có disclaimer: *"Tử Vi MƯỢN khung chẩn-nhân-dứt-đạo của nhà Phật để soi tâm — KHÔNG phải giáo lý Phật giáo chính thống; lá số không thay tu học hay y tế."*
+- ✅ Kỷ luật nguồn Phật: canonical (Nikāya SN/DN/Dhp) > học giả (Bodhi/Gethin/Harvey/Nhất Hạnh) > diễn giải. Khung "y học/Đại Y Vương" = **diễn giải hậu kỳ (Kern 1882), CẤM trích như lời Phật**. KHÔNG bịa kinh.
+- Đây là nền HỢP NHẤT cho Iron #4/#6/#8. Định hướng đầy đủ: `docs/design/yi-ke-hoach-nen-phat-dinh-huong.md` + `docs/GOAL-THU-THU.md`.
+
 ## 📖 IRON RULE #5 — Bookflow xuất bản v2.0 (2026-05-18)
 
 **Tuyên ngôn Paradigm Shift #4:**

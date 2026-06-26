@@ -13,6 +13,15 @@ Hai cổng mọi lượt chat phải qua:
        bắt giọng TIÊN TRI ("sẽ giàu/nghèo", "chắc chắn xảy ra", số đề…) → reject/
        regenerate. Mệnh là ĐỘNG TỪ (Iron #8): soi tính → gợi cách vận hành, KHÔNG phán.
 
+  + Lằn ranh ĐẠO ĐỨC BRAHMAJĀLA (Iron #9 — Brahmajāla DN 1, Phật xếp bói toán =
+    *tà mạng*): chặn/cảnh báo output trượt vào PREDICT lợi-hại đời thường —
+    giàu-nghèo · thắng-thua · sống-chết · cờ-bạc/số-đề · ngày-giờ-tốt-xấu-để-
+    trục-lợi. YI chỉ MƯỢN khung Duyên Khởi để SOI TÂM, không lừa người bằng dấu
+    hiệu. Hằng số DISCLAIMER (Iron #9) gắn vào mọi output sage/sản phẩm.
+    Vẫn CONTEXT-AWARE: 'khắc/sinh/sao chủ tử/cờ Tướng/cung Tật Ách' ở ngữ cảnh
+    PHÂN TÍCH trung tính KHÔNG bị chặn — chỉ chặn khi có GIỌNG PHÁN-vào-người
+    hoặc cầu-lợi-trục-lợi (xem _TA_MANG bên dưới).
+
 Thuần logic — không LLM, không DB, không phụ thuộc máy local. Test 100%.
 """
 from __future__ import annotations
@@ -93,10 +102,48 @@ _PREDICT = [
     r"\b(se|chac chan|nhat dinh) (khong )?(lay duoc|lay) chong\b",
 ]
 
+# ── LẰN RANH ĐẠO ĐỨC BRAHMAJĀLA (Iron #9, DN 1: bói toán = tà mạng) ───────────
+# Mở RỘNG paradigm guard: ngoài giọng tiên-tri chung (_PREDICT), chặn riêng các
+# kiểu output trượt vào TÀ MẠNG — dùng dấu hiệu để mưu lợi-hại đời thường:
+#   (1) cờ-bạc / số-đề / lô-đề / cá độ — "đánh con X", "số đề/lô", "đánh đề/lô"…
+#   (2) ngày-giờ-tốt-xấu để TRỤC LỢI — "ngày đẹp để (đánh đề/cá độ/lô/đánh bạc)"
+#   (3) PHÁN sống-chết / tai-hoạ vào người — "anh/cô … (sẽ) chết/tai nạn/mất mạng"
+#   (4) PHÁN giàu-nghèo / thắng-thua như KẾT CỤC chắc chắn vào người.
+# CONTEXT-AWARE: KHÔNG bắt khái niệm phân tích trung tính ('sao chủ về tử' = mô tả
+# tính sao, 'cung Tật Ách chủ sức khoẻ' = domain, 'chọn ngày tốt khởi sự' chung
+# chung KHÔNG trục-lợi). Chỉ chặn khi có (a) ngữ cờ-bạc/số-đề rõ, hoặc (b) chủ-ngữ
+# người + giọng phán bám vào sống-chết/tai-hoạ/được-mất tiền-bạc.
+_GAMBLE = r"(so de|so lo|danh de|danh lo|choi de|choi lo|lo de|ca do|ca cuoc|danh bac|" \
+          r"de ve|lo ve|con (lo|de)|so danh de|danh con\s*\d|con so\s*\d)"
+# ngày-giờ tốt/đẹp + ý đồ trục-lợi cờ bạc trong khoảng ngắn → tà mạng
+_NGAY_TRUC_LOI = (
+    r"(ngay|gio|hom)\s+(tot|dep|hop|nao)\b.{0,30}\b("
+    + _GAMBLE + r"|danh bac|ca do|ca cuoc|trung)"
+)
+# phán SỐNG-CHẾT / TAI-HOẠ vào người: giọng phán/đại từ + (chet/tai nan/mất mạng/
+# tai hoa/tai uong/yeu menh/đoản thọ/mệnh chung)
+_HOA_TU = r"(chet|tai nan|mat mang|tai hoa|tai uong|yeu menh|doan tho|menh chung|tu vong|chet yeu)\b"
+_HOA_PHAN = (
+    r"((se|chac chan|nhat dinh|the nao cung|kieu gi cung)\b.{0,18}\b" + _HOA_TU
+    + r"|" + _PRON + r"\b.{0,12}\b(se|chac chan|nhat dinh)\b.{0,10}\b" + _HOA_TU + r")"
+)
+_TA_MANG = [
+    _GAMBLE,            # mọi tham chiếu cờ-bạc/số-đề trong OUTPUT sage = tà mạng
+    _NGAY_TRUC_LOI,     # bày ngày-giờ để cờ bạc / trục lợi
+    _HOA_PHAN,          # phán sống-chết / tai-hoạ vào người
+]
+
+# ── DISCLAIMER chuẩn (Iron #9) — gắn vào MỌI output sage / sản phẩm ───────────
+DISCLAIMER = (
+    "Tử Vi MƯỢN khung chẩn-nhân-dứt-đạo của nhà Phật để soi tâm — "
+    "KHÔNG phải giáo lý Phật giáo chính thống; lá số không thay tu học hay y tế."
+)
+
 # \b hai đầu → tránh khớp nhầm substring (vd "hao" trong "chao em")
 _DOMAIN_RX = [re.compile(r"\b" + re.escape(k) + r"\b") for k in _DOMAIN]
 _OUT_RX = [re.compile(p) for p in _OUT_OF_SCOPE]
 _PREDICT_RX = [re.compile(p) for p in _PREDICT]
+_TA_MANG_RX = [re.compile(p) for p in _TA_MANG]
 
 
 @dataclass
@@ -137,10 +184,38 @@ def classify_scope(question: str, *, min_len: int = 8) -> ScopeVerdict:
 
 
 def paradigm_violations(answer: str) -> list[str]:
-    """Trả danh sách cụm vi phạm giọng tiên tri trong câu trả lời (rỗng = sạch)."""
+    """Trả danh sách cụm vi phạm trong câu trả lời (rỗng = sạch).
+
+    Gộp 2 lằn ranh:
+      • giọng TIÊN TRI (_PREDICT — Iron #4/#6/#8)
+      • TÀ MẠNG Brahmajāla (_TA_MANG — Iron #9): cờ-bạc/số-đề · ngày-giờ trục-lợi ·
+        phán sống-chết/tai-hoạ vào người.
+    """
     a = _norm(answer)
-    return [rx.pattern for rx in _PREDICT_RX if rx.search(a)]
+    hits = [rx.pattern for rx in _PREDICT_RX if rx.search(a)]
+    hits += [rx.pattern for rx in _TA_MANG_RX if rx.search(a)]
+    return hits
 
 
 def is_predictive(answer: str) -> bool:
     return bool(paradigm_violations(answer))
+
+
+def ta_mang_violations(answer: str) -> list[str]:
+    """Chỉ riêng lằn ranh TÀ MẠNG Brahmajāla (Iron #9) — dùng khi cần phân biệt
+    nguyên nhân chặn (cờ-bạc/số-đề/sống-chết) với giọng-tiên-tri thường."""
+    a = _norm(answer)
+    return [rx.pattern for rx in _TA_MANG_RX if rx.search(a)]
+
+
+def is_ta_mang(answer: str) -> bool:
+    return bool(ta_mang_violations(answer))
+
+
+def with_disclaimer(text: str, *, sep: str = "\n\n") -> str:
+    """Gắn DISCLAIMER (Iron #9) vào cuối output sage/sản phẩm nếu chưa có.
+    Idempotent — gọi nhiều lần không nhân đôi disclaimer."""
+    body = text or ""
+    if _norm(DISCLAIMER)[:40] in _norm(body):
+        return body
+    return (body.rstrip() + sep + DISCLAIMER) if body.strip() else DISCLAIMER

@@ -134,6 +134,10 @@ class ChunkAtomRetriever:
             JOIN chunks_v2 c ON c.chunk_id = aq.chunk_id
             LEFT JOIN chunk_classifications cc ON cc.cc_id = aq.cc_id
             WHERE atomic_questions_fts MATCH ?
+              -- Iron #9 / M0-C: LOẠI atom Anh đã bác (founder_verified = -1) khỏi
+              -- retrieval → council/sage KHÔNG dẫn tri thức đã bị bác. Giữ 0 (chưa
+              -- duyệt) + 1 (duyệt dương) vì hiện 0 atom duyệt dương → require dương = rỗng.
+              AND aq.founder_verified >= 0
         """
         params: list[Any] = [safe_query]
         if school:
