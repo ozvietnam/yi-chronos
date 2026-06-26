@@ -2,6 +2,7 @@
 import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { Activity, Database, RotateCcw, Send, ShieldCheck } from "lucide-vue-next";
 import SchoolIcon from "./components/SchoolIcon.vue";
+import NavDropdown from "./components/NavDropdown.vue";
 import UserBadge from "./components/UserBadge.vue";
 import OnboardingModal from "./components/OnboardingModal.vue";
 const AdminPanel = defineAsyncComponent(() => import("./components/AdminPanel.vue"));
@@ -130,9 +131,50 @@ const rulesetPill = computed(() => {
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
-// 🔒 Chặn user thường lạc vào tab owner-only. Nav đã ẩn các tab này (v-if isOwner);
-// đây là LỚP 2: nếu state cũ / điều hướng lập trình đưa user thường tới tab admin → kéo về Hồ sơ.
-const OWNER_ONLY_TABS = ["lexicon", "research", "wiki", "publishing", "admin", "admin-hermes", "atom-verify"];
+// Cấu trúc nav — gom mỗi nhóm vào 1 dropdown (menu xổ). Data-driven cho gọn.
+const NAV_GROUPS = [
+  { label: "Dữ liệu", tabs: [
+    { id: "profiles", icon: "profiles", label: "Hồ sơ" },
+    { id: "my-publications", icon: "my-publications", label: "Kết quả" },
+  ] },
+  { label: "Hermes", tabs: [
+    { id: "chan-dung", icon: "chan-dung", label: "Chân Dung" },
+    { id: "hoi-hermes", icon: "hoi-hermes", label: "Hỏi Hermes" },
+  ] },
+  { label: "Trường phái", tabs: [
+    { id: "universe", icon: "universe", label: "Vũ trụ hiện tại" },
+    { id: "western", icon: "western", label: "Chiêm tinh Tây" },
+    { id: "maihoa", icon: "maihoa", label: "Mai Hoa" },
+    { id: "luc-hao", icon: "luc-hao", label: "Lục Hào" },
+    { id: "lien-hoa", icon: "lien-hoa", label: "Liên Hoa" },
+    { id: "bat-tu", icon: "bat-tu", label: "Bát Tự" },
+    { id: "tu-vi", icon: "tu-vi", label: "Tử Vi" },
+    { id: "ky-mon", icon: "ky-mon", label: "Kỳ Môn" },
+    { id: "pytago", icon: "pytago", label: "Pytago" },
+    { id: "hoang-cuc", icon: "hoang-cuc", label: "Hoàng Cực" },
+  ] },
+  { label: "Tổng hợp", tabs: [
+    { id: "library", icon: "library", label: "Thư viện" },
+    { id: "gieo-duyen", icon: "gieo-duyen", label: "Gieo Duyên" },
+    { id: "family", icon: "family", label: "Gia đạo" },
+    { id: "gps", icon: "gps", label: "GPS" },
+    { id: "health", icon: "health", label: "Sức khỏe" },
+    { id: "settings", icon: "settings", label: "Cài đặt" },
+  ] },
+];
+const NAV_DEV = { label: "Kiến thức · Dev", tabs: [
+  { id: "lexicon", icon: "lexicon", label: "Lexicon" },
+  { id: "research", icon: "research", label: "Research" },
+  { id: "wiki", icon: "wiki", label: "Wiki Tổ sư" },
+  { id: "publishing", icon: "publishing", label: "Dịch sách" },
+  { id: "admin", icon: "admin", label: "Admin" },
+  { id: "admin-hermes", icon: "admin-hermes", label: "Quản trị Hermes" },
+  { id: "atom-verify", icon: "atom-verify", label: "Duyệt Atoms" },
+] };
+
+// 🔒 Chặn user thường lạc vào tab owner-only. Nav đã ẩn nhóm Dev (v-if isOwner);
+// đây là LỚP 2: nếu state cũ / điều hướng lập trình đưa user tới tab admin → kéo về Hồ sơ.
+const OWNER_ONLY_TABS = NAV_DEV.tabs.map((t) => t.id);
 watch([isOwner, activeMainTab], () => {
   if (!isOwner.value && OWNER_ONLY_TABS.includes(activeMainTab.value)) {
     activeMainTab.value = "profiles";
@@ -428,142 +470,19 @@ onBeforeUnmount(() => {
       <QuickTasksPanel @open-tab="(t) => { activeMainTab = t === 'wiki' ? 'wiki' : t; }" />
 
       <section class="main-tabs" aria-label="Điều hướng chính">
-        <div class="tab-group">
-          <span class="tab-group-label">Dữ liệu</span>
-          <button type="button" :class="{ active: activeMainTab === 'profiles' }"
-            @click="activeMainTab = 'profiles'">
-            <span class="tab-icon"><SchoolIcon name="profiles" /></span> Hồ sơ
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'my-publications' }"
-            @click="activeMainTab = 'my-publications'"
-            title="Hồ sơ kết quả: PDF, Word, MD đã sinh thành">
-            <span class="tab-icon"><SchoolIcon name="my-publications" /></span> Kết quả
-          </button>
-        </div>
-        <div class="tab-divider"></div>
-        <div class="tab-group">
-          <span class="tab-group-label">Hermes</span>
-          <button type="button" :class="{ active: activeMainTab === 'chan-dung' }"
-            @click="activeMainTab = 'chan-dung'" title="Chân dung tổng hợp: bạn là ai qua ba lá số">
-            <span class="tab-icon"><SchoolIcon name="chan-dung" /></span> Chân Dung
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'hoi-hermes' }"
-            @click="activeMainTab = 'hoi-hermes'">
-            <span class="tab-icon"><SchoolIcon name="hoi-hermes" /></span> Hỏi Hermes
-          </button>
-        </div>
-        <div class="tab-divider"></div>
-        <div class="tab-group">
-          <span class="tab-group-label">Trường phái</span>
-          <button type="button" :class="{ active: activeMainTab === 'universe' }"
-            @click="activeMainTab = 'universe'">
-            <span class="tab-icon"><SchoolIcon name="universe" /></span> Vũ trụ hiện tại
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'western' }"
-            @click="activeMainTab = 'western'">
-            <span class="tab-icon"><SchoolIcon name="western" /></span> Chiêm tinh Tây
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'maihoa' }"
-            @click="activeMainTab = 'maihoa'">
-            <span class="tab-icon"><SchoolIcon name="maihoa" /></span> Mai Hoa
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'luc-hao' }"
-            @click="activeMainTab = 'luc-hao'">
-            <span class="tab-icon"><SchoolIcon name="luc-hao" /></span> Lục Hào
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'lien-hoa' }"
-            @click="activeMainTab = 'lien-hoa'">
-            <span class="tab-icon"><SchoolIcon name="lien-hoa" /></span> Liên Hoa
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'bat-tu' }"
-            @click="activeMainTab = 'bat-tu'">
-            <span class="tab-icon"><SchoolIcon name="bat-tu" /></span> Bát Tự
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'tu-vi' }"
-            @click="activeMainTab = 'tu-vi'">
-            <span class="tab-icon"><SchoolIcon name="tu-vi" /></span> Tử Vi
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'ky-mon' }"
-            @click="activeMainTab = 'ky-mon'">
-            <span class="tab-icon"><SchoolIcon name="ky-mon" /></span> Kỳ Môn
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'pytago' }"
-            @click="activeMainTab = 'pytago'">
-            <span class="tab-icon"><SchoolIcon name="pytago" /></span> Pytago
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'hoang-cuc' }"
-            @click="activeMainTab = 'hoang-cuc'">
-            <span class="tab-icon"><SchoolIcon name="hoang-cuc" /></span> Hoàng Cực
-          </button>
-        </div>
-        <div class="tab-divider"></div>
-        <div class="tab-group">
-          <span class="tab-group-label">Tri thức</span>
-          <button type="button" :class="{ active: activeMainTab === 'library' }"
-            @click="activeMainTab = 'library'">
-            <span class="tab-icon"><SchoolIcon name="library" /></span> Thư viện
-          </button>
-        </div>
-        <div class="tab-divider"></div>
-        <div class="tab-group">
-          <span class="tab-group-label">Tổng hợp</span>
-          <button type="button" :class="{ active: activeMainTab === 'gieo-duyen' }"
-            @click="activeMainTab = 'gieo-duyen'">
-            <span class="tab-icon"><SchoolIcon name="gieo-duyen" /></span> Gieo Duyên
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'family' }"
-            @click="activeMainTab = 'family'">
-            <span class="tab-icon"><SchoolIcon name="family" /></span> Gia đạo
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'gps' }"
-            @click="activeMainTab = 'gps'">
-            <span class="tab-icon"><SchoolIcon name="gps" /></span> GPS
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'health' }"
-            @click="activeMainTab = 'health'"
-            title="Sức khỏe — Bát Tự × Đông y">
-            <span class="tab-icon"><SchoolIcon name="health" /></span> Sức khỏe
-          </button>
-          <button type="button" :class="{ active: activeMainTab === 'settings' }"
-            @click="activeMainTab = 'settings'">
-            <span class="tab-icon"><SchoolIcon name="settings" /></span> Cài đặt
-          </button>
-        </div>
-        <!-- Dev / Owner-only tabs — ẩn cho user thường, sẽ ẩn hết khi phổ biến rộng -->
-        <template v-if="isOwner">
-          <div class="tab-divider"></div>
-          <div class="tab-group">
-            <span class="tab-group-label">Kiến thức · Dev</span>
-            <button type="button" :class="{ active: activeMainTab === 'lexicon' }"
-              @click="activeMainTab = 'lexicon'">
-              <span class="tab-icon"><SchoolIcon name="lexicon" /></span> Lexicon
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'research' }"
-              @click="activeMainTab = 'research'">
-              <span class="tab-icon"><SchoolIcon name="research" /></span> Research
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'wiki' }"
-              @click="activeMainTab = 'wiki'">
-              <span class="tab-icon"><SchoolIcon name="wiki" /></span> Wiki Tổ sư
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'publishing' }"
-              @click="activeMainTab = 'publishing'">
-              <span class="tab-icon"><SchoolIcon name="publishing" /></span> Dịch sách
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'admin' }"
-              @click="activeMainTab = 'admin'">
-              <span class="tab-icon"><SchoolIcon name="admin" /></span> Admin
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'admin-hermes' }"
-              @click="activeMainTab = 'admin-hermes'">
-              <span class="tab-icon"><SchoolIcon name="admin-hermes" /></span> Quản trị Hermes
-            </button>
-            <button type="button" :class="{ active: activeMainTab === 'atom-verify' }"
-              @click="activeMainTab = 'atom-verify'">
-              <span class="tab-icon"><SchoolIcon name="atom-verify" /></span> Duyệt Atoms
-            </button>
-          </div>
-        </template>
+        <NavDropdown
+          v-for="g in NAV_GROUPS"
+          :key="g.label"
+          :group="g"
+          :active="activeMainTab"
+          @select="activeMainTab = $event"
+        />
+        <NavDropdown
+          v-if="isOwner"
+          :group="NAV_DEV"
+          :active="activeMainTab"
+          @select="activeMainTab = $event"
+        />
       </section>
 
       <p v-if="error" class="status-message error">{{ error }}</p>
