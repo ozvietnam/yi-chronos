@@ -417,14 +417,22 @@ async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request,
     cd = gom_chu_de(birth.chu_de, ls_in, base)
     if not cd:
         return {"error": f"Chủ đề không hợp lệ: {birth.chu_de}"}
-    result = generate_chu_de_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
+    # Bài đọc DETERMINISTIC (phương pháp cổ điển, kèm caveat) — tính trước, độc lập LLM.
+    det = {"tu_tuc_reading": cd.get("tu_tuc_reading"),    # con cái (nam-đẩu/bắc-đẩu) — Gia đạo
+           "phu_the_signals": cd.get("phu_the_signals")}  # tình duyên (đào hoa/độc thân/duyên xa)
+    try:
+        result = generate_chu_de_narrative(cd, ls_in, force=birth.force, feedback=_load_feedback(request))
+        narrative, cached, model = result["narrative"], result["cached"], result["model"]
+    except Exception as e:
+        # LLM down/timeout → KHÔNG để mất bài đọc deterministic nếu chủ đề có (Gia đạo/Tình duyên).
+        if not any(det.values()):
+            raise
+        narrative, cached, model = None, False, None
+        print(f"[chu-de] LLM narrative thất bại ({e}) — trả bài đọc deterministic thôi")
     return {
         "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
-        "narrative": result["narrative"],
-        "cached": result["cached"], "model": result["model"],
-        # Bài đọc DETERMINISTIC (phương pháp cổ điển, kèm caveat) — hiện thẳng, không qua LLM.
-        "tu_tuc_reading": cd.get("tu_tuc_reading"),    # con cái (nam-đẩu/bắc-đẩu) — topic Gia đạo
-        "phu_the_signals": cd.get("phu_the_signals"),  # tình duyên (đào hoa/độc thân/duyên xa)
+        "narrative": narrative, "cached": cached, "model": model,
+        **det,
     }
 
 
