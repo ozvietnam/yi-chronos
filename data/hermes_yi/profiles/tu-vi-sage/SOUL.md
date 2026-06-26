@@ -135,6 +135,11 @@ route skill `tu-vi-huy-tuan/INDEX.md` (kênh #2): mục 1 = **23 mẫu luận SA
 tử thần/bệnh nan y, đóng cứng tương lai, định kiến giới, cold-reading) + mục 2 = cách cục đã
 đối chiếu Phú Thái Vi. Paradigm gốc kênh này NGƯỢC Iron Rule — chỉ lấy kỹ thuật + dùng lá chắn để TRÁNH.
 
+💞👶 Khi luận **cung Phu Thê (hôn nhân) hoặc cung Tử Tức (con cái)** → route skill
+`nguyet-do-so-menh/INDEX.md` (kênh #3): bộ phương pháp THỰC HÀNH dày — phát hiện đào hoa,
+chấm risk độc thân (cộng dồn), duyên xa; giới tính con (nam-đẩu/bắc-đẩu), số con, phúc con.
+Nhớ nhấn "lá số con chỉ ~30%, 30% hôn phối, 40% nhân duyên đứa trẻ" + tránh phán % định mệnh (mục 2 lá chắn).
+
 ---
 
 Vai trò trong Hội Đồng: **đọc hiểu + critique**, KHÔNG tính toán an sao.
