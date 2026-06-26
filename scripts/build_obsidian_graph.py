@@ -1465,6 +1465,23 @@ def build_readme(V) -> str:
         "- **thượng quái / hạ quái**: quẻ → 2 quái cấu thành (nội/ngoại).",
         "- **nạp-giáp can**: quái → can nạp giáp (nối Kinh Dịch ↔ Bát Tự).",
         "- **gồm can/chi/quái/quẻ/hành**: hub toạ-độ → các phần tử của nó.",
+        "",
+        "### (B6) TRỤC BÁT TỰ — 209 concept (8 school) vào toạ-độ + Kinh Dịch (GROUNDED)",
+        "Hub MỚI: [[Thập Thần]] (school=tu_binh_ba_tu, nguồn def id8390) + [[Tương sinh]] / "
+        "[[Tương khắc]] (quan-hệ ngũ-hành). KHÔNG gán hành tuyệt đối cho thập thần (sai — hành "
+        "phụ thuộc Nhật Chủ). Mỗi cạnh giữ NGUỒN trong comment HTML body note để verify.",
+        "- **là-thập-thần / quy-chiếu Nhật Chủ**: 10 thần (SCOPE school=tu_binh_ba_tu, KHÔNG theo "
+        "tên — tránh đụng 'Thất Sát' Tử Vi 七杀) → hub + [[Nhật Chủ]] (Day Master).",
+        "- **đồng-hành/Nhật Chủ sinh ra/Nhật Chủ khắc/khắc Nhật Chủ/sinh Nhật Chủ**: quan-hệ "
+        "ngũ-hành ĐÚNG câu trích short_note (vd Thực Thần = 'Day Master sinh ra').",
+        "- **tham chiếu can / tham chiếu chi**: concept (allowlist soát tay) nêu can/chi trong "
+        "short_note → [[Can · X]] / [[Chi · Y]] (Vietnamese-safe boundary).",
+        "- **định-tính ngũ-hành theo cặp / lập từ thiên-can / lập từ địa-chi**: Nạp Âm → "
+        "[[Ngũ Hành]] + [[Thiên Can]] + [[Địa Chi]] (KHÔNG hành tuyệt đối — relative theo cặp).",
+        "- **ứng quẻ Kinh Dịch / là quẻ Hà Lạc / case study trên quẻ**: 42 card + 23 case study "
+        "+ 7 chân dung Hà Lạc → [[Quẻ · <kép>]] (short-name suy từ ontology que_64) + [[64 Quẻ]].",
+        "- **cách dựng trên thập-thần / phase Vòng Trường Sinh / thần-sát an quanh Nhật Chủ / "
+        "map từ thập-thần**: thập-thần-cách, 12 phase Trường Sinh, thần sát, Lục Thân → hub trục.",
     ]
     return "\n".join(lines)
 
