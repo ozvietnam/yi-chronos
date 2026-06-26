@@ -51,6 +51,7 @@ const ChieuDomKinhPanel = defineAsyncComponent(() => import("./components/ChieuD
 const YiHermesChat = defineAsyncComponent(() => import("./components/YiHermesChat.vue"));
 const HoiHermesPanel = defineAsyncComponent(() => import("./components/HoiHermesPanel.vue"));
 const ChanDungPanel = defineAsyncComponent(() => import("./components/ChanDungPanel.vue"));
+const DeepReadingPanel = defineAsyncComponent(() => import("./components/DeepReadingPanel.vue"));
 const LexiconPanel = defineAsyncComponent(() => import("./components/LexiconPanel.vue"));
 const SettingsPanel = defineAsyncComponent(() => import("./components/SettingsPanel.vue"));
 const ResearchPanel = defineAsyncComponent(() => import("./components/ResearchPanel.vue"));
@@ -119,7 +120,7 @@ const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
 // Chân Dung → bấm sản phẩm tốt nhất → nhảy tab tương ứng (deep tạm về Hội Đồng — luận sâu nhất hiện có)
 function onOpenProduct(key) {
-  const map = { council: "hoi-hermes", deep: "hoi-hermes", duyen: "gieo-duyen" };
+  const map = { council: "hoi-hermes", deep: "deep-reading", duyen: "gieo-duyen" };
   activeMainTab.value = map[key] || "hoi-hermes";
 }
 // Chân Dung → nhảy sang TRANG CHUYÊN GIA luận sâu (Bát Tự 'bat-tu' / Tử Vi 'tu-vi' / Thần Số 'pytago')
@@ -1007,6 +1008,10 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'hoi-hermes'" class="single-column" aria-label="Hỏi Hermes — Hội Đồng đa trường phái">
         <HoiHermesPanel />
+      </section>
+
+      <section v-else-if="activeMainTab === 'deep-reading'" class="single-column" aria-label="Luận Sâu Trọn Đời">
+        <DeepReadingPanel />
       </section>
 
       <section v-else-if="activeMainTab === 'admin-hermes'" class="single-column" aria-label="Phòng Quản Trị Hermes">

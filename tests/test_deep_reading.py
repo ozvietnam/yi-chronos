@@ -87,6 +87,17 @@ def test_happy_path_charges_and_saves(backend):
     assert row[0] == "tu_vi" and "deep" in row[1]
 
 
+def test_user_id_path_web(backend):
+    """Web (login) truyền user_id TRỰC TIẾP (không firebase_uid) → vẫn luận + trả phe_menh
+    trong result (cho frontend render). Mirror council dùng user_id."""
+    uid = _seed(remaining=1)
+    pc = dr.precheck(user_id=uid)                   # precheck TRƯỚC khi tiêu lượt → ok
+    assert pc["ok"] is True and pc["user_id"] == uid
+    r = dr.run_deep_reading(user_id=uid, generate=_stub_ok)
+    assert r["status"] == "done" and r["casting_id"] >= 1
+    assert r.get("phe_menh")                       # nội dung luận có trong return (web render)
+
+
 def test_records_real_provider_cost(backend):
     """Cost ghi vào ledger là cost THẬT provider báo (không phải catalog phẳng)."""
     _seed(remaining=1)
